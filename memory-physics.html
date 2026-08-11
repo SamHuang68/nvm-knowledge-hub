@@ -20,10 +20,10 @@
     </a>
     <nav class="primary-nav" aria-label="研究頁導覽">
       <a href="#abstract">Abstract</a>
+      <a href="#economics">Economics</a>
       <a href="#read-path">Read Path</a>
-      <a href="#emission">Heat & Light</a>
-      <a href="#attack-surface">Security</a>
-      <a href="#positioning">Positioning</a>
+      <a href="#emission">OTP Risk</a>
+      <a href="#system-consequence">Product Response</a>
       <a href="memory-evidence.html">Sources</a>
     </nav>
     <div class="header-actions">
@@ -38,15 +38,15 @@
       <div class="research-hero-inner">
         <p class="research-label">RESEARCH NOTE 02 · MEMORY PHYSICS & HARDWARE SECURITY</p>
         <h1>
-          <span data-lang="zh">根本差異不在<br><em>voltage 或 current。</em></span>
-          <span data-lang="en">The fundamental divide is not<br><em>voltage or current.</em></span>
+          <span data-lang="zh">真正的商業壁壘是<br><em>可量產的互補式儲存。</em></span>
+          <span data-lang="en">The commercial moat is<br><em>economical complementary storage.</em></span>
         </h1>
         <p class="research-hero-lede">
-          <span data-lang="zh">真正改變安全層級的，是斷電後仍存在什麼物理狀態、攻擊者要在什麼時間窗口觀察，以及成功讀出 bit-cell 後得到的是明文、PUF response，還是密文。</span>
-          <span data-lang="en">Security changes with what physical state survives power-off, when the attacker must observe it, and whether a successful bit-cell readout yields plaintext, a PUF response, or ciphertext.</span>
+          <span data-lang="zh">感測器可以比較 voltage 或 current；產品真正拉開差距的，是 bit-cell economics 能否支撐 complementary representation、降低一階資料相依訊號，再由 SRAM PUF、加密 OTP 與 secure controller 封閉完整攻擊鏈。</span>
+          <span data-lang="en">A sense amplifier may compare voltage or current. Product differentiation comes from bit-cell economics that make complementary representation practical, suppress first-order data-dependent signatures, and combine with SRAM PUF, encrypted OTP and a secure controller to close the attack chain.</span>
         </p>
         <div class="research-hero-meta">
-          <div><b>21</b><span><span data-lang="zh">核心來源</span><span data-lang="en">CORE SOURCES</span></span></div>
+          <div><b>27</b><span><span data-lang="zh">核心來源</span><span data-lang="en">CORE SOURCES</span></span></div>
           <div><b>5</b><span><span data-lang="zh">分析層級</span><span data-lang="en">ANALYSIS LAYERS</span></span></div>
           <div><b>SRAM ↔ OTP</b><span><span data-lang="zh">主要比較軸</span><span data-lang="en">PRIMARY AXIS</span></span></div>
           <div><b>2026-08-12</b><span><span data-lang="zh">研究版本</span><span data-lang="en">RESEARCH VERSION</span></span></div>
@@ -63,8 +63,8 @@
         <div class="abstract-panel">
           <div class="abstract-copy">
             <p class="paper-kicker">ABSTRACT · CENTRAL FINDING</p>
-            <h2><span data-lang="zh">以「感測方式」分類安全，會得到錯誤結論。</span><span data-lang="en">Classifying security by sensing mode produces the wrong conclusion.</span></h2>
-            <p><span data-lang="zh">典型 6T SRAM 讀取會預充電兩條 bitline，選中的 cell 以導通電流讓其中一條放電，sense amplifier 再放大 ΔV；但 current-mode SRAM 同樣存在。Antifuse OTP 可以將 cell 導通與 reference current 比較，也可以把導通結果轉成 complementary bitline 的電壓差。換言之，任何電性讀取都涉及電荷移動、電流與能量，voltage-mode／current-mode 只是類比讀取鏈的設計選擇。</span><span data-lang="en">A typical 6T SRAM read precharges two bitlines, lets the selected cell discharge one through cell current, and amplifies ΔV. Yet current-mode SRAM also exists. Antifuse OTP can compare cell conduction with a reference current or translate conduction into complementary-bitline voltage. Every electrical read moves charge, carries current and dissipates energy; voltage-mode and current-mode are design choices along the analog read chain.</span></p>
+            <h2><span data-lang="zh">學術上可行，不等於產品上值得。</span><span data-lang="en">Circuit feasibility is not product feasibility.</span></h2>
+            <p><span data-lang="zh">典型高速 6T SRAM 以 BL／BLB 的小擺幅 ΔV 讀取；current-mode SRAM 在文獻與專利中存在，但不是主流 compiled SRAM 的商業選擇。Antifuse OTP 也可做 differential sensing，然而安全價值取決於「資料本身是否由互補 cell pair 表示」，而不只是 sense amplifier 比較兩個端點。這正是 bit-cell 面積、routing、programming 與良率成本開始主導產品決策的位置。</span><span data-lang="en">Mainstream high-speed 6T SRAM reads a small ΔV across BL/BLB. Current-mode SRAM exists in papers and patents, but it is not the mainstream commercial choice for compiled SRAM. Antifuse OTP can also use differential sensing; however, the security value depends on whether the data itself is represented by a complementary cell pair—not merely whether a sense amplifier compares two inputs. This is where bit-cell area, routing, programming and yield economics dominate the product decision.</span></p>
             <p><span data-lang="zh">安全上的根本分界是 state persistence。未供電 SRAM 不維持邏輯 0/1，但製程 mismatch 仍是可在下次上電表達的物理來源；已 programming／enrollment 的 OTP、eFuse、antifuse 或 NeoPUF 則保留可重複表達的永久物理狀態。這使攻擊時間窗、可用失效分析工具、zeroization 能力與擷取後果本質不同。</span><span data-lang="en">The security divide is state persistence. Unpowered SRAM no longer maintains logical 0/1, although process mismatch remains to be expressed at the next power-up. Programmed or enrolled OTP, eFuse, antifuse and NeoPUF retain a persistent physical state. That changes the attack window, applicable failure-analysis tools, zeroization capability and consequence of extraction.</span></p>
           </div>
           <aside class="abstract-verdict">
@@ -82,15 +82,85 @@
           <p><span data-lang="zh">安全比較必須區分 cell physics、read circuit、observable side channel 與 system consequence。把四層混成一句話，會同時低估 SRAM 攻擊與高估「current hotspot」的必然性。</span><span data-lang="en">A security comparison must separate cell physics, read circuitry, observable side channels and system consequence. Collapsing the four layers understates SRAM attacks and overstates the inevitability of current hotspots.</span></p>
         </div>
         <div class="correction-grid">
-          <article class="correction-card"><span>01</span><h3><span data-lang="zh">SRAM 並非「沒有電流」。</span><span data-lang="en">SRAM is not current-free.</span></h3><p><span data-lang="zh">bit-cell 必須對 bitline 充／放電，ΔV 由導通電流與 capacitance 隨時間累積而成。current-mode sense amplifier 也是公開、成熟的 SRAM 架構。</span><span data-lang="en">The bit cell must charge or discharge a bitline. ΔV accumulates from conduction current, capacitance and time. Current-mode sense amplifiers are also established SRAM designs.</span></p><span class="evidence-tag">CIRCUIT EVIDENCE</span></article>
+          <article class="correction-card"><span>01</span><h3><span data-lang="zh">SRAM 主流是 differential voltage read。</span><span data-lang="en">Mainstream SRAM uses differential-voltage read.</span></h3><p><span data-lang="zh">高速 6T SRAM 以 Q／QB、BL／BLB 的天然互補結構產生小擺幅 ΔV。current-mode 電路確實可行，但「可行」不代表它是量產 compiler 在速度、穩定度與功耗間的主流選擇。</span><span data-lang="en">High-speed 6T SRAM naturally produces a small ΔV through complementary Q/QB and BL/BLB. Current-mode circuits are feasible, but feasibility does not make them the mainstream compiler choice across speed, stability and power.</span></p><span class="evidence-tag">CIRCUIT + MARKET REALITY</span></article>
           <article class="correction-card"><span>02</span><h3><span data-lang="zh">OTP 並非「只能感測電流」。</span><span data-lang="en">OTP is not current-only.</span></h3><p><span data-lang="zh">cell 的高／低導通確實常是資訊來源，但 sensing 可以比較 current、voltage、charge 或 time。antifuse OTP 專利明確揭露 differential-voltage bitline sensing。</span><span data-lang="en">High or low cell conduction is often the information source, but sensing can compare current, voltage, charge or time. Antifuse OTP patents explicitly disclose differential-voltage bitline sensing.</span></p><span class="evidence-tag">PATENT EVIDENCE</span></article>
           <article class="correction-card"><span>03</span><h3><span data-lang="zh">「亮點」不是 current-sense 的同義詞。</span><span data-lang="en">A hotspot is not synonymous with current sensing.</span></h3><p><span data-lang="zh">可偵測光／熱取決於局部電場、載子能量、漏電、電流密度、積分時間、背面光學路徑與噪音。已證明閒置 SRAM 也可因 state-dependent leakage 產生可辨識光子訊號。</span><span data-lang="en">Detectable light or heat depends on local field, carrier energy, leakage, current density, integration time, backside optics and noise. Idle SRAM has been read through state-dependent leakage photons.</span></p><span class="evidence-tag">ATTACK EVIDENCE</span></article>
         </div>
       </section>
 
+      <section id="economics" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">02 · COMMERCIAL REALITY</p><h2><span data-lang="zh">差動讀取不難畫；<br><em>用量產面積做出來，才是壁壘。</em></span><span data-lang="en">Differential read is easy to draw;<br><em>making it economical is the moat.</em></span></h2></div>
+          <p><span data-lang="zh">真正該比較的不是 sense amplifier 的名稱，而是每個 logical bit 要付出多少 cell、金屬線、programming 操作與 array overhead，才能形成真正的 complementary representation。</span><span data-lang="en">The meaningful comparison is not the sense-amplifier label, but how many cells, wires, programming operations and array overheads each logical bit must pay to create a genuinely complementary representation.</span></p>
+        </div>
+
+        <div class="commercial-verdict">
+          <small>EXECUTIVE TAKEAWAY</small>
+          <strong><span data-lang="zh">Differential sensing 是電路能力；complementary storage 的成本，才是 IP 壁壘。</span><span data-lang="en">Differential sensing is a circuit capability; the cost of complementary storage is the IP moat.</span></strong>
+          <p><span data-lang="zh">一個 data cell 與固定 reference 比較，仍是 single-ended physical representation。只有「同一 logical bit 以一對互補 cell 表示」時，0／1 的總體活動才有機會在一階近似下趨於對稱。</span><span data-lang="en">Comparing one data cell against a fixed reference remains a single-ended physical representation. Only when one logical bit is stored as a complementary cell pair can aggregate 0/1 activity approach first-order symmetry.</span></p>
+        </div>
+
+        <div class="topology-grid" aria-label="Bit-cell topology comparison">
+          <article class="topology-card sram-topology">
+            <div class="topology-head"><span>01</span><small>COMPLEMENTARY BY CONSTRUCTION</small></div>
+            <h3>6T SRAM</h3>
+            <div class="topology-drawing topology-sram" aria-hidden="true">
+              <i class="topology-line left"></i><i class="topology-line right"></i>
+              <b>Q</b><b>QB</b><em>BL</em><em>BLB</em>
+            </div>
+            <div class="topology-math"><b>6T</b><span><span data-lang="zh">／一個互補 logical bit</span><span data-lang="en">/ one complementary logical bit</span></span></div>
+            <p><span data-lang="zh">儲存節點 Q／QB 與讀取線 BL／BLB 天然成對；高速主流實作以 small-swing differential voltage sensing 放大兩線差值。</span><span data-lang="en">Storage nodes Q/QB and read lines BL/BLB are paired by construction; mainstream high-speed implementations amplify a small differential-voltage swing.</span></p>
+          </article>
+
+          <article class="topology-card conventional-topology">
+            <div class="topology-head"><span>02</span><small>SINGLE-ENDED BY ECONOMICS</small></div>
+            <h3><span data-lang="zh">傳統 2-device Antifuse</span><span data-lang="en">Conventional 2-device Antifuse</span></h3>
+            <div class="topology-drawing topology-antifuse" aria-hidden="true">
+              <i>SELECT</i><i>AF</i><b>DATA</b><em>REFERENCE</em>
+            </div>
+            <div class="topology-math"><b>2D + 2D ≈ 4D</b><span><span data-lang="zh">／互補 logical bit 的 device-count 抽象</span><span data-lang="en">/ device-count abstraction for a complementary bit</span></span></div>
+            <p><span data-lang="zh">常見 cell 由 select device 加 antifuse device 組成；若把 single-ended data＋reference 升級為真正 complementary pair，需再付一組 cell、routing 與 programming 成本，因此商用品多選 single-ended 讀取。</span><span data-lang="en">A common cell combines a select device and an antifuse device. Upgrading single-ended data-plus-reference to a true complementary pair adds another cell, routing and programming burden, so commercial products often remain single-ended.</span></p>
+          </article>
+
+          <article class="topology-card synopsys-topology">
+            <div class="topology-head"><span>03</span><small>DIFFERENTIAL AT PRACTICAL DENSITY</small></div>
+            <h3>Synopsys 1T OTP</h3>
+            <div class="topology-drawing topology-twin" aria-hidden="true">
+              <i>1T</i><i>1T</i><b>ONE PROGRAMMED</b><em>ONE COMPLEMENT</em>
+            </div>
+            <div class="topology-math"><b>1T + 1T ≈ 2T</b><span><span data-lang="zh">／互補 logical bit 的 device-count 抽象</span><span data-lang="en">/ device-count abstraction for a complementary bit</span></span></div>
+            <p><span data-lang="zh">Synopsys 的 patented split-channel 1T architecture 支援 twin-cell differential arrangement：一對 cell 中恰有一個被 programming。以 device count 觀察，互補 bit 的成本可接近傳統 2-device single-ended cell，讓 differential storage 成為可量產的商業選項。</span><span data-lang="en">Synopsys' patented split-channel 1T architecture supports a twin-cell differential arrangement with exactly one programmed cell per pair. On a device-count basis, a complementary bit can approach the cost of a conventional single-ended two-device cell, making differential storage commercially practical.</span></p>
+          </article>
+        </div>
+
+        <p class="paper-note"><b><span data-lang="zh">面積紀律：</span><span data-lang="en">Area discipline:</span></b> <span data-lang="zh">上圖只比較 bit-cell device count，不宣稱 macro area 等比例縮放。真實 PPA 還包含 charge pump、decoder、sense amplifier、ECC、redundancy、routing、test 與製程設計規則；應以同節點、同容量、同可靠度的 silicon report 封閉。</span><span data-lang="en">The diagram compares bit-cell device count only; it does not claim proportional macro-area scaling. Real PPA also includes charge pumps, decoders, sense amplifiers, ECC, redundancy, routing, test and process design rules, and must be closed with same-node, same-capacity, same-reliability silicon data.</span></p>
+
+        <div class="public-claim-strip">
+          <article><small>SYNOPSYS · PRODUCT DISCLOSURE</small><strong><span data-lang="zh">「可配置」differential read mode</span><span data-lang="en">“Configurable” differential read mode</span></strong><p><span data-lang="zh">公開 technical article 直接把 differential mode 連結到降低 power-signature 辨識。</span><span data-lang="en">The public technical article directly links differential mode to harder power-signature identification.</span></p></article>
+          <article><small>NeoPUF · VENDOR DISCLOSURE</small><strong>Single-ended I<sub>cell</sub> ↔ I<sub>ref</sub></strong><p><span data-lang="zh">PUFsecurity 書籍以 cell current 與固定 reference 的比較描述 readout。</span><span data-lang="en">PUFsecurity's book describes readout as cell current compared with a fixed reference.</span></p></article>
+          <article><small>TSMC · FOUNDRY PAPER</small><strong>Pseudo-differential at 5 nm</strong><p><span data-lang="zh">證明先進節點實作可行；論文不等同商業產品的 default security configuration。</span><span data-lang="en">Proves advanced-node feasibility; a paper is not a commercial product's default security configuration.</span></p></article>
+        </div>
+        <p class="corpus-verdict"><b><span data-lang="zh">本證據庫可防守的市場結論：</span><span data-lang="en">Defensible market conclusion within this corpus:</span></b> <span data-lang="zh">在目前納入的公開商業資料中，Synopsys 是唯一明確把 configurable differential OTP read 作為安全能力對外說明的供應商。這是 corpus-bounded conclusion，不宣稱已證明全球所有未公開 macro 的唯一性。</span><span data-lang="en">Among the public commercial materials reviewed here, Synopsys is the only vendor explicitly presenting configurable differential OTP read as a security capability. This is a corpus-bounded conclusion, not proof of exclusivity across every undisclosed macro worldwide.</span></p>
+
+        <div class="symmetry-grid">
+          <article><span>REPRESENTATION</span><h3><span data-lang="zh">先問「資料怎麼存」</span><span data-lang="en">Ask how data is stored first</span></h3><p><span data-lang="zh">Data cell 對 fixed reference 是 pseudo／reference differential；twin-cell 一正一反才是 complementary physical representation。</span><span data-lang="en">A data cell against a fixed reference is pseudo/reference differential; a true-versus-complement twin cell is complementary physical representation.</span></p></article>
+          <article><span>FIRST-ORDER BALANCE</span><h3><span data-lang="zh">0／1 的總活動趨於對稱</span><span data-lang="en">Aggregate 0/1 activity approaches symmetry</span></h3><p><span data-lang="zh">若每次讀取都啟動一對互補 cell，總體導通與 bitline 活動較不直接暴露資料極性，可降低一階 power signature。</span><span data-lang="en">Reading both complementary cells makes aggregate conduction and bitline activity less directly tied to data polarity, reducing first-order power signature.</span></p></article>
+          <article><span>NOT A FORCE FIELD</span><h3><span data-lang="zh">平衡不等於不可觀察</span><span data-lang="en">Balance is not invisibility</span></h3><p><span data-lang="zh">空間解析的光學／FIB 攻擊仍可能分辨哪顆 cell 被 programming；layout balance、controller、ciphertext 與 ephemeral root 仍是必要防線。</span><span data-lang="en">Spatially resolved optical or FIB attacks may still distinguish the programmed cell; balanced layout, controller policy, ciphertext and an ephemeral root remain necessary.</span></p></article>
+        </div>
+
+        <details class="provenance-note">
+          <summary><span data-lang="zh">技術沿革與 TSMC 授權脈絡（研究註解）</span><span data-lang="en">Technology provenance and TSMC licensing context (research note)</span></summary>
+          <div class="provenance-content">
+            <p><b><span data-lang="zh">以 Synopsys 為主體：</span><span data-lang="en">Synopsys is the product subject:</span></b> <span data-lang="zh">現行 Synopsys OTP portfolio 已整合多條技術血統。歷史上，split-channel 1T-Fuse 於 2017 年隨 Sidense 收購納入；Kilopass 的 1T／2T portfolio 則於 2018 年納入。這些原公司名稱只用於追溯專利與公開紀錄，不作為現行產品品牌。</span><span data-lang="en">The current Synopsys OTP portfolio integrates multiple technology lineages. Historically, split-channel 1T-Fuse entered through the 2017 Sidense acquisition, while the Kilopass 1T/2T portfolio entered in 2018. Former company names are used only to trace patents and public records, not as current product brands.</span></p>
+            <p><b><span data-lang="zh">TSMC 產業脈絡：</span><span data-lang="en">TSMC industry context:</span></b> <span data-lang="zh">產品團隊的實務脈絡是：TSMC 10 nm 以下 in-house OTP 技術來自向 Synopsys（原 Kilopass 技術血統）取得授權。公開資料可旁證 TSMC／Kilopass 的早期 qualification、Synopsys 後續收購與 TSMC 5 nm antifuse 實作，但未公開授權合約本身。適合留在網站研究註解，不作為 TSMC OIP 台上主線。</span><span data-lang="en">The product team's industry context is that TSMC's sub-10 nm in-house OTP technology was licensed from Synopsys (original Kilopass lineage). Public records corroborate early TSMC/Kilopass qualification, the later Synopsys acquisition and TSMC's 5 nm antifuse implementation, but not the license contract itself. This belongs in a website research note, not the main TSMC OIP stage narrative.</span></p>
+            <div class="provenance-links"><a href="https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation" target="_blank" rel="noreferrer">2017 Synopsys record ↗</a><a href="https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology" target="_blank" rel="noreferrer">2018 Synopsys record ↗</a><a href="https://research.tsmc.com/page/memory/2.html" target="_blank" rel="noreferrer">TSMC 5 nm research ↗</a></div>
+          </div>
+        </details>
+      </section>
+
       <section id="read-path" class="paper-section reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">02 · INTERACTIVE READ PATH</p><h2><span data-lang="zh">從 power-off 到 sense output，<br><em>逐層看差異在哪裡。</em></span><span data-lang="en">From power-off to sense output,<br><em>locate the real divide.</em></span></h2></div>
+          <div><p class="paper-kicker">03 · INTERACTIVE READ PATH</p><h2><span data-lang="zh">從 power-off 到 sense output，<br><em>逐層看差異在哪裡。</em></span><span data-lang="en">From power-off to sense output,<br><em>locate the real divide.</em></span></h2></div>
           <p><span data-lang="zh">切換三個階段。左側代表 SRAM／SRAM PUF 的 volatile state expression；右側代表 programmed antifuse／NeoPUF 類 persistent conduction state。圖為 threat-model abstraction，不是特定 foundry macro schematic。</span><span data-lang="en">Switch among three phases. The left abstracts volatile SRAM/SRAM-PUF state expression; the right abstracts a programmed antifuse/NeoPUF persistent conduction state. This is a threat-model abstraction, not a foundry-macro schematic.</span></p>
         </div>
         <div class="state-lab" id="stateLab" data-phase="off">
@@ -125,9 +195,10 @@
 
       <section id="emission" class="paper-section reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">03 · HEAT, LIGHT & OBSERVABILITY</p><h2><span data-lang="zh">讀 0、讀 1 會不會形成<br><em>物理熱點或亮點？</em></span><span data-lang="en">Does reading 0 or 1 create<br><em>a thermal or optical hotspot?</em></span></h2></div>
+          <div><p class="paper-kicker">04 · HEAT, LIGHT & OBSERVABILITY</p><h2><span data-lang="zh">讀 0、讀 1 會不會形成<br><em>物理熱點或亮點？</em></span><span data-lang="en">Does reading 0 or 1 create<br><em>a thermal or optical hotspot?</em></span></h2></div>
           <p><span data-lang="zh">答案是「可能形成 data-dependent contrast，但不是由 current-sense 這個名稱保證」。任何讀取都有能量；能不能被看見，取決於能量在空間與時間上是否集中到超過儀器、封裝與背景噪音的門檻。</span><span data-lang="en">The answer is “data-dependent contrast may exist, but the label current-sense does not guarantee it.” Every read consumes energy; visibility depends on whether that energy is spatially and temporally concentrated above instrumentation, packaging and noise limits.</span></p>
         </div>
+        <div class="primitive-scope"><small>ANALYSIS BOUNDARY · RAW OTP PRIMITIVE</small><strong><span data-lang="zh">這一節只回答「OTP cell 能不能被看見」，還沒有回答「secret 能不能被還原」。</span><span data-lang="en">This section asks whether OTP cells can be observed—not whether the secret can be recovered.</span></strong><p><span data-lang="zh">若 raw OTP 直接保存 plaintext，物理 readout 就可能完成資料揭露；若 OTP 保存的是由 PUF root 保護的 encrypted、address-scrambled data，cell-level reverse engineering 只完成攻擊鏈的第一段。</span><span data-lang="en">If raw OTP directly stores plaintext, physical readout may complete disclosure. If OTP stores encrypted, address-scrambled data protected by a PUF root, cell-level reverse engineering completes only the first segment of the attack chain.</span></p></div>
         <div class="energy-equation">
           <article class="energy-card"><h3>SRAM</h3><p><span data-lang="zh">動態讀取會產生 bitline charging/discharging 與 sense-amplifier switching；靜態保存也有 state-dependent leakage。</span><span data-lang="en">Dynamic reads charge/discharge bitlines and switch the sense amplifier; static retention also has state-dependent leakage.</span></p><ul><li><span data-lang="zh">已證明：Photon Emission、TLS、EOFM 可讀出 SRAM 內容。</span><span data-lang="en">Demonstrated: Photon Emission, TLS and EOFM can recover SRAM contents.</span></li><li><span data-lang="zh">亮點位置可隨儲存 0／1 對應到不同 NMOS leakage path。</span><span data-lang="en">Emission location can change with the NMOS leakage path selected by stored 0/1.</span></li><li><span data-lang="zh">需要供電、殘留狀態，或特定熱刺激／量測配置。</span><span data-lang="en">Requires power, remanent state, or a specific thermal-stimulation setup.</span></li></ul></article>
           <div class="formula-block"><strong>P<sub>local</sub> = V · I</strong><small>NECESSARY ENERGY ≠ GUARANTEED OBSERVABILITY</small></div>
@@ -142,7 +213,7 @@
 
       <section id="taxonomy" class="paper-section reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">04 · MEMORY TAXONOMY</p><h2><span data-lang="zh">「非揮發性」不是一種物理；<br><em>每一類留下不同痕跡。</em></span><span data-lang="en">Nonvolatile is not one physics;<br><em>each class leaves a different trace.</em></span></h2></div>
+          <div><p class="paper-kicker">05 · MEMORY TAXONOMY</p><h2><span data-lang="zh">「非揮發性」不是一種物理；<br><em>每一類留下不同痕跡。</em></span><span data-lang="en">Nonvolatile is not one physics;<br><em>each class leaves a different trace.</em></span></h2></div>
           <p><span data-lang="zh">安全審查應先問 storage variable 是 latch state、charge、resistance、filament、phase、magnetization 還是永久結構，再選擇 imaging、stimulation、fault 與 side-channel 假設。</span><span data-lang="en">A security review should first identify whether the storage variable is latch state, charge, resistance, filament, phase, magnetization or permanent structure, then select imaging, stimulation, fault and side-channel assumptions.</span></p>
         </div>
         <div class="taxonomy-wrap">
@@ -162,7 +233,7 @@
 
       <section id="attack-surface" class="paper-section reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">05 · SECURITY-LEVEL DIFFERENCES</p><h2><span data-lang="zh">揮發性降低靜態目標，<br><em>但把風險移到上電窗口。</em></span><span data-lang="en">Volatility reduces the static target,<br><em>but moves risk into the powered window.</em></span></h2></div>
+          <div><p class="paper-kicker">06 · SECURITY-LEVEL DIFFERENCES</p><h2><span data-lang="zh">揮發性降低靜態目標，<br><em>但把風險移到上電窗口。</em></span><span data-lang="en">Volatility reduces the static target,<br><em>but moves risk into the powered window.</em></span></h2></div>
           <p><span data-lang="zh">下表不是「誰絕對安全」的排名，而是攻擊前提與後果的差異。Direct 代表已有公開實證；Conditional 代表依實作與攻擊配置；Reduced 代表經分層保護後後果下降，而非攻擊消失。</span><span data-lang="en">This is not an absolute-security ranking. It compares attack prerequisites and consequences. Direct means publicly demonstrated; Conditional depends on implementation; Reduced means layered protection lowers impact rather than eliminating attack.</span></p>
         </div>
         <div class="attack-matrix">
@@ -182,8 +253,17 @@
 
       <section id="system-consequence" class="paper-section reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">06 · FROM CELL READOUT TO SECRET DISCLOSURE</p><h2><span data-lang="zh">Secure Storage 的價值，<br><em>是多加一個獨立問題。</em></span><span data-lang="en">Secure Storage adds<br><em>an independent problem.</em></span></h2></div>
-          <p><span data-lang="zh">如果 OTP 明文就是 secret，擷取 cell state 就完成攻擊。若 OTP 是 authenticated ciphertext，而 root 只在受控上電窗口由另一種物理機制重建，攻擊者還必須跨越第二個、時間受限的安全邊界。</span><span data-lang="en">If OTP plaintext is the secret, extracting cell state completes the attack. If OTP contains authenticated ciphertext and the root is reconstructed from different physics in a controlled powered window, the attacker must cross a second, time-bounded boundary.</span></p>
+          <div><p class="paper-kicker">07 · FROM OTP HACKER TO PRODUCT RESPONSE</p><h2><span data-lang="zh">OTP 可以被 reverse；<br><em>不代表 secret 可以被 reverse。</em></span><span data-lang="en">OTP may be reversed;<br><em>the secret should not be.</em></span></h2></div>
+          <p><span data-lang="zh">RP2350 challenge 的關鍵教訓不是「所有 OTP 都不安全」，而是：當永久 memory 直接承載可用 secret，成功繞過 lock 或讀出 cell 就接近攻擊終點。Secure Storage 的設計目標，是改寫這個後果。</span><span data-lang="en">The central RP2350 lesson is not that every OTP is insecure. It is that when permanent memory directly carries a usable secret, bypassing a lock or reading the cells approaches the end of the attack. Secure Storage is designed to change that consequence.</span></p>
+        </div>
+        <div class="root-cause-response">
+          <div class="root-cause-title"><small>ROOT CAUSE → ARCHITECTURE RESPONSE</small><h3><span data-lang="zh">把「能讀 OTP」與「能取得 secret」拆成兩個不同問題。</span><span data-lang="en">Separate “reading OTP” from “recovering the secret.”</span></h3></div>
+          <div class="security-outcome-grid">
+            <article class="raw-outcome"><span>PURE OTP DATA PROTECTION</span><h4><span data-lang="zh">Cell state → usable secret</span><span data-lang="en">Cell state → usable secret</span></h4><p><span data-lang="zh">若 flag、key 或敏感資料以可直接使用的形式留在 OTP，voltage glitch、permission bypass、FIB 或其他 readout 一旦成功，memory reverse engineering 就可能直接成為資料揭露。</span><span data-lang="en">If a flag, key or sensitive data remains in directly usable form in OTP, a successful voltage glitch, permission bypass, FIB or other readout can turn memory reverse engineering directly into disclosure.</span></p><b>RP2350 LESSON</b></article>
+            <div class="outcome-pivot"><span>CHANGES THE CONSEQUENCE</span><b>≠</b></div>
+            <article class="secure-outcome"><span>SYNOPSYS SECURE STORAGE</span><h4><span data-lang="zh">Cell state → scrambled ciphertext</span><span data-lang="en">Cell state → scrambled ciphertext</span></h4><p><span data-lang="zh">SRAM PUF 在受控上電窗口重建不永久儲存的 root；AES-256 保護 OTP data；address scrambling 打亂 logical-to-physical mapping；Secure Controller 管理授權與資料路徑。即使 OTP array 被物理重建，也不能只靠 OTP reverse engineering 直接還原 plaintext。</span><span data-lang="en">SRAM PUF reconstructs a root that is never permanently stored; AES-256 protects OTP data; address scrambling obscures logical-to-physical mapping; and the Secure Controller governs authorization and data paths. Even if the OTP array is physically reconstructed, OTP reverse engineering alone should not directly recover plaintext.</span></p><div class="security-stack"><i>SRAM PUF ROOT</i><i>AES-256</i><i>ADDRESS SCRAMBLING</i><i>SECURE CONTROLLER</i></div></article>
+          </div>
+          <div class="outcome-equation"><small>SECURE STORAGE PRINCIPLE</small><strong>OTP REVERSE ENGINEERING ≠ SECRET REVERSE ENGINEERING</strong></div>
         </div>
         <div class="causal-chain">
           <article class="causal-node"><span>01 · PHYSICAL ACCESS</span><h3><span data-lang="zh">定位 memory array 與 read path</span><span data-lang="en">Locate the array and read path</span></h3><p><span data-lang="zh">decap、backside prep、FIB、SEM、optical 或 fault reconnaissance。</span><span data-lang="en">Decap, backside preparation, FIB, SEM, optical or fault reconnaissance.</span></p></article>
@@ -191,17 +271,18 @@
           <article class="causal-node highlight"><span>03 · CRYPTOGRAPHIC BARRIER</span><h3><span data-lang="zh">得到的是 ciphertext</span><span data-lang="en">The result is ciphertext</span></h3><p><span data-lang="zh">cell readout 不再直接等於 data disclosure；integrity protection 也應阻止可控修改被接受。</span><span data-lang="en">Cell readout no longer directly equals data disclosure; integrity protection should also reject controlled modification.</span></p></article>
           <article class="causal-node"><span>04 · EPHEMERAL ROOT</span><h3><span data-lang="zh">另攻 reconstruction／use window</span><span data-lang="en">Attack reconstruction or use separately</span></h3><p><span data-lang="zh">必須在上電後攻擊 PUF processing、crypto、working key、controller 或授權輸出。</span><span data-lang="en">The attacker must target PUF processing, crypto, working keys, controller or authorized output after power-up.</span></p></article>
         </div>
-        <p class="paper-note"><b><span data-lang="zh">安全結論：</span><span data-lang="en">Security conclusion:</span></b> <span data-lang="zh">這是 defense-in-depth 與 attack composability 的主張，不是「SRAM PUF 不可被攻擊」。產品必須證明兩條路徑不能被同一 fault、同一 debug permission 或同一 controller flaw 一次串通。</span><span data-lang="en">This is a defense-in-depth and attack-composability claim, not “SRAM PUF cannot be attacked.” The product must show that one fault, debug permission or controller flaw cannot collapse both paths at once.</span></p>
+        <p class="paper-note"><b><span data-lang="zh">安全結論：</span><span data-lang="en">Security conclusion:</span></b> <span data-lang="zh">Address scrambling 增加 physical mapping 成本，但不能取代 encryption；AES-256 的價值也依賴 root lifecycle、mode、integrity 與 controller isolation。可防守的主張是「OTP physical analysis 不再直接等於 plaintext disclosure」，而不是「Secure Storage 無法被攻擊」。產品仍必須證明同一 fault、debug permission 或 controller flaw 不能把 root 與 ciphertext 路徑一次串通。</span><span data-lang="en">Address scrambling raises physical-mapping cost but does not replace encryption; AES-256 also depends on root lifecycle, mode, integrity and controller isolation. The defensible claim is that OTP physical analysis no longer directly equals plaintext disclosure—not that Secure Storage cannot be attacked. The product must still show that one fault, debug permission or controller flaw cannot collapse the root and ciphertext paths together.</span></p>
       </section>
 
       <section id="positioning" class="paper-section reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">07 · DEFENSIBLE PRODUCT POSITIONING</p><h2><span data-lang="zh">最強的說法，<br><em>通常也是最精確的說法。</em></span><span data-lang="en">The strongest message<br><em>is usually the most precise.</em></span></h2></div>
+          <div><p class="paper-kicker">08 · DEFENSIBLE PRODUCT POSITIONING</p><h2><span data-lang="zh">最強的說法，<br><em>通常也是最精確的說法。</em></span><span data-lang="en">The strongest message<br><em>is usually the most precise.</em></span></h2></div>
           <p><span data-lang="zh">對 TSMC OIP 觀眾，可信度來自承認所有 silicon primitive 都有 attack surface，同時清楚說明整合架構如何降低成功攻擊的後果與組合機率。</span><span data-lang="en">For a TSMC OIP audience, credibility comes from acknowledging that every silicon primitive has an attack surface while showing how integration reduces attack consequence and composition probability.</span></p>
         </div>
         <div class="position-grid">
           <article class="position-card"><h3><span data-lang="zh">可以強力主張</span><span data-lang="en">Defensible claims</span></h3><ul>
             <li><span data-lang="zh">SRAM PUF root key 不以永久數位值儲存在 NVM；它在需要時重建。</span><span data-lang="en">The SRAM-PUF root key is not stored as a permanent digital value in NVM; it is reconstructed when needed.</span></li>
+            <li><span data-lang="zh">Synopsys 1T OTP 的 cell economics 讓 complementary twin-cell storage 在量產密度下成為可行選項；這比單純宣稱「有 differential sense amplifier」更具產品區隔力。</span><span data-lang="en">Synopsys 1T OTP cell economics make complementary twin-cell storage practical at production density—a stronger product distinction than merely claiming a differential sense amplifier.</span></li>
             <li><span data-lang="zh">SRAM PUF 降低斷電時可直接成像的 root-key logical state，但仍需防護 powered reconstruction。</span><span data-lang="en">SRAM PUF reduces the directly imageable root-key logical state at power-off while still requiring protection during powered reconstruction.</span></li>
             <li><span data-lang="zh">AES-256 讓 OTP bit-cell extraction 不直接等於 plaintext disclosure，前提是 mode、integrity、nonce／tweak 與 key hierarchy 正確。</span><span data-lang="en">AES-256 makes OTP bit-cell extraction differ from plaintext disclosure, provided mode, integrity, nonce/tweak and key hierarchy are sound.</span></li>
             <li><span data-lang="zh">PUF + crypto + OTP + controller 的預整合可降低跨 block 假設遺漏，並把 qualification 與責任集中。</span><span data-lang="en">Pre-integrating PUF, crypto, OTP and controller reduces missed cross-block assumptions and consolidates qualification and accountability.</span></li>
@@ -219,7 +300,7 @@
 
       <section id="method" class="paper-section reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">08 · EVIDENCE DISCIPLINE & LIMITS</p><h2><span data-lang="zh">每一個結論，<br><em>標示它站在哪一階。</em></span><span data-lang="en">Every conclusion declares<br><em>which rung supports it.</em></span></h2></div>
+          <div><p class="paper-kicker">09 · EVIDENCE DISCIPLINE & LIMITS</p><h2><span data-lang="zh">每一個結論，<br><em>標示它站在哪一階。</em></span><span data-lang="en">Every conclusion declares<br><em>which rung supports it.</em></span></h2></div>
           <p><span data-lang="zh">論文、專利與產品資料回答不同問題。專利證明可行的 circuit topology，不代表產品實作；供應商測試是重要證據，但獨立重現前不能與第三方攻擊示範同級。</span><span data-lang="en">Papers, patents and product literature answer different questions. A patent establishes a possible topology, not product implementation. Vendor tests matter, but are not equivalent to independent attack demonstrations before replication.</span></p>
         </div>
         <div class="claim-ladder">
@@ -237,7 +318,7 @@
       <section class="paper-conclusion reveal">
         <small>CONCLUSION · SECURITY IS A LIFECYCLE PROPERTY</small>
         <h2><span data-lang="zh">讓永久 state 可以被讀，<br>但不能直接變成永久 secret。</span><span data-lang="en">Let persistent state be readable<br>without making it a persistent secret.</span></h2>
-        <p><span data-lang="zh">SRAM 與 OTP 的差異不會讓其中任何一方自動安全。最具防禦力的架構，是利用它們互補的時間與物理特性：OTP 保存耐久 ciphertext，SRAM PUF 在受控窗口重建 root，crypto 與 controller 確保兩條攻擊路徑不能直接合流。</span><span data-lang="en">Neither SRAM nor OTP is automatically secure. The strongest architecture uses their complementary time and physics: OTP retains durable ciphertext, SRAM PUF reconstructs a root in a controlled window, and crypto plus controller prevent the two attack paths from collapsing into one.</span></p>
+        <p><span data-lang="zh">最有保障的答案不是單一 bit-cell，而是完整責任鏈：1T economics 讓 differential OTP 可量產；互補讀取降低一階資料相依訊號；OTP 保存耐久 ciphertext；量產時間最長的 SRAM PUF 在受控窗口重建未永久儲存的 root；crypto 與 controller 讓兩條攻擊路徑不能直接合流。</span><span data-lang="en">The strongest answer is not one bit cell but an accountable chain: 1T economics make differential OTP practical; complementary read reduces first-order data-dependent signature; OTP retains durable ciphertext; the longest-production-history SRAM PUF reconstructs a root that is never permanently stored; crypto and controller keep the attack paths from collapsing into one.</span></p>
         <a class="button primary" href="memory-evidence.html"><span data-lang="zh">檢視完整證據庫</span><span data-lang="en">Inspect the evidence base</span></a>
         <a class="button ghost" href="index.html"><span data-lang="zh">返回 Secure Storage</span><span data-lang="en">Return to Secure Storage</span></a>
       </section>

@@ -66,6 +66,76 @@ body.research-page { color: var(--ink); background: var(--paper); }
 .correction-card p { color: var(--muted-ink); font-size: 15px; line-height: 1.8; }
 .correction-card .evidence-tag { display: inline-flex; width: auto; height: auto; margin-top: 18px; padding: 7px 9px; color: #087d80; background: rgba(67,215,211,.1); font-family: var(--body); font-size: 9px; font-weight: 900; letter-spacing: .12em; }
 
+.commercial-verdict { display: grid; grid-template-columns: 170px minmax(0, 1.25fr) minmax(300px, .75fr); gap: 30px; align-items: center; margin-bottom: 22px; padding: 30px 34px; color: var(--white); background: #071f2d; border-top: 3px solid var(--research-cyan); }
+.commercial-verdict small { color: var(--research-cyan); font-size: 9px; font-weight: 900; letter-spacing: .15em; line-height: 1.6; }
+.commercial-verdict strong { font-family: var(--display); font-size: clamp(27px, 2.7vw, 40px); font-weight: 600; line-height: 1.04; }
+.commercial-verdict p { margin: 0; color: #9fb6c0; font-size: 13px; line-height: 1.75; }
+
+.topology-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
+.topology-card { display: flex; flex-direction: column; min-height: 660px; padding: 30px; background: #fffdf8; }
+.topology-head { display: flex; justify-content: space-between; gap: 18px; align-items: center; }
+.topology-head > span { display: grid; place-items: center; width: 38px; height: 38px; color: var(--white); background: var(--ink); font-family: var(--display); }
+.topology-head small { color: #087d80; font-size: 8px; font-weight: 900; letter-spacing: .13em; text-align: right; }
+.topology-card h3 { min-height: 72px; margin: 40px 0 20px; font-family: var(--display); font-size: 31px; line-height: 1.03; }
+.topology-card > p { margin: 24px 0 0; color: var(--muted-ink); font-size: 14px; line-height: 1.78; }
+.topology-drawing { position: relative; height: 210px; overflow: hidden; color: var(--white); background: #082532; border: 1px solid rgba(255,255,255,.08); }
+.topology-drawing::before { content: ""; position: absolute; inset: 16px; border: 1px solid rgba(255,255,255,.09); }
+.topology-drawing b, .topology-drawing em, .topology-drawing i { position: absolute; z-index: 2; display: grid; place-items: center; font-style: normal; font-weight: 900; letter-spacing: .08em; }
+.topology-sram b { top: 72px; width: 58px; height: 58px; color: var(--ink); background: var(--research-cyan); border-radius: 50%; font-family: var(--display); font-size: 22px; }
+.topology-sram b:first-of-type { left: 25%; }
+.topology-sram b:nth-of-type(2) { right: 25%; }
+.topology-sram em { top: 16px; color: #7b9aa7; font-size: 8px; }
+.topology-sram em:first-of-type { left: calc(25% + 20px); }
+.topology-sram em:nth-of-type(2) { right: calc(25% + 16px); }
+.topology-sram .topology-line { position: absolute; top: 35px; bottom: 20px; width: 2px; background: linear-gradient(var(--research-cyan), rgba(67,215,211,.12)); }
+.topology-sram .topology-line.left { left: calc(25% + 28px); }
+.topology-sram .topology-line.right { right: calc(25% + 28px); }
+.topology-sram::after { content: "CROSS-COUPLED"; position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); color: #7896a3; font-size: 7px; font-weight: 900; letter-spacing: .14em; }
+.topology-antifuse i { top: 60px; width: 72px; height: 72px; color: var(--white); border: 1px solid rgba(255,255,255,.28); font-size: 8px; }
+.topology-antifuse i:first-of-type { left: calc(50% - 86px); }
+.topology-antifuse i:nth-of-type(2) { right: calc(50% - 86px); color: #15100b; background: var(--research-copper); border-color: var(--research-copper); }
+.topology-antifuse b { left: 29px; bottom: 21px; color: var(--research-copper); font-size: 8px; }
+.topology-antifuse em { right: 29px; bottom: 21px; color: #718f9c; font-size: 8px; }
+.topology-antifuse::after { content: "SINGLE CELL → FIXED REF"; position: absolute; left: 50%; top: 33px; width: 100%; transform: translateX(-50%); color: #7594a0; text-align: center; font-size: 7px; font-weight: 900; letter-spacing: .12em; }
+.topology-twin i { top: 58px; width: 74px; height: 74px; color: var(--ink); background: var(--research-cyan); border-radius: 50%; font-family: var(--display); font-size: 20px; }
+.topology-twin i:first-of-type { left: calc(50% - 86px); }
+.topology-twin i:nth-of-type(2) { right: calc(50% - 86px); color: var(--white); background: transparent; border: 1px solid rgba(255,255,255,.3); }
+.topology-twin b { left: 25px; bottom: 21px; color: var(--research-cyan); font-size: 7px; }
+.topology-twin em { right: 25px; bottom: 21px; color: #829da8; font-size: 7px; }
+.topology-twin::after { content: "TRUE / COMPLEMENT"; position: absolute; left: 50%; top: 32px; width: 100%; transform: translateX(-50%); color: #7594a0; text-align: center; font-size: 7px; font-weight: 900; letter-spacing: .12em; }
+.topology-math { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 17px 0; border-bottom: 1px solid var(--hairline); }
+.topology-math b { color: #087d80; font-family: var(--display); font-size: 21px; white-space: nowrap; }
+.topology-math span { color: #617780; font-size: 9px; font-weight: 800; letter-spacing: .05em; line-height: 1.45; }
+
+.public-claim-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 46px; color: var(--white); background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.12); }
+.public-claim-strip article { min-height: 225px; padding: 28px; background: #0a2b38; }
+.public-claim-strip article:first-child { background: #087d80; }
+.public-claim-strip small { color: var(--research-cyan); font-size: 8px; font-weight: 900; letter-spacing: .13em; }
+.public-claim-strip article:first-child small { color: #bffbf7; }
+.public-claim-strip strong { display: block; margin: 42px 0 13px; font-family: var(--display); font-size: 24px; line-height: 1.08; }
+.public-claim-strip p { margin: 0; color: #a5bbc4; font-size: 12px; line-height: 1.7; }
+.public-claim-strip article:first-child p { color: #d7f4f1; }
+.corpus-verdict { margin: 0; padding: 22px 28px; color: #39535e; background: #dff1ed; border-left: 4px solid #087d80; font-size: 13px; line-height: 1.75; }
+.corpus-verdict b { color: var(--ink); }
+
+.symmetry-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 46px; }
+.symmetry-grid article { padding: 30px; border-top: 3px solid var(--research-cyan); background: #fffdf8; }
+.symmetry-grid article:last-child { border-top-color: var(--research-copper); }
+.symmetry-grid article > span { color: #087d80; font-size: 8px; font-weight: 900; letter-spacing: .13em; }
+.symmetry-grid h3 { margin: 32px 0 12px; font-family: var(--display); font-size: 25px; line-height: 1.05; }
+.symmetry-grid p { margin: 0; color: var(--muted-ink); font-size: 13px; line-height: 1.72; }
+
+.provenance-note { margin-top: 54px; color: #39535e; background: #fffdf8; border: 1px solid var(--hairline); }
+.provenance-note summary { position: relative; padding: 22px 64px 22px 28px; color: var(--ink); cursor: pointer; font-size: 11px; font-weight: 900; letter-spacing: .1em; list-style: none; }
+.provenance-note summary::-webkit-details-marker { display: none; }
+.provenance-note summary::after { content: "+"; position: absolute; right: 26px; top: 50%; transform: translateY(-50%); color: #087d80; font-family: var(--display); font-size: 26px; }
+.provenance-note[open] summary::after { content: "−"; }
+.provenance-content { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 30px 28px; border-top: 1px solid var(--hairline); }
+.provenance-content p { margin: 0; color: var(--muted-ink); font-size: 13px; line-height: 1.78; }
+.provenance-content p b { color: var(--ink); }
+.provenance-links { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 10px; }
+.provenance-links a { padding: 8px 10px; color: #087d80; background: #e7f3ef; font-size: 8px; font-weight: 900; letter-spacing: .09em; }
+
 .state-lab { overflow: hidden; color: var(--white); background: #061c2a; border: 1px solid rgba(255,255,255,.08); }
 .state-lab-controls { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid rgba(255,255,255,.13); }
 .state-lab-controls button { padding: 20px; color: #708f9d; background: transparent; border: 0; border-right: 1px solid rgba(255,255,255,.13); cursor: pointer; font-size: 10px; font-weight: 900; letter-spacing: .13em; }
@@ -105,6 +175,11 @@ body.research-page { color: var(--ink); background: var(--paper); }
 .state-lab-copy > span { display: grid; place-items: center; width: 42px; height: 42px; color: var(--ink); background: var(--research-cyan); font-family: var(--display); font-size: 17px; }
 .state-lab-copy h3 { margin: 0 0 8px; font-family: var(--display); font-size: 27px; }
 .state-lab-copy p { margin: 0; color: #94adb8; font-size: 14px; line-height: 1.7; }
+
+.primitive-scope { display: grid; grid-template-columns: 190px minmax(0, 1.15fr) minmax(300px, .85fr); gap: 28px; align-items: center; margin-bottom: 24px; padding: 28px 32px; color: var(--white); background: #6a2f28; border-top: 3px solid var(--research-copper); }
+.primitive-scope small { color: #ffc4b9; font-size: 8px; font-weight: 900; letter-spacing: .14em; line-height: 1.6; }
+.primitive-scope strong { font-family: var(--display); font-size: clamp(24px, 2.4vw, 34px); font-weight: 600; line-height: 1.08; }
+.primitive-scope p { margin: 0; color: #f0c8c1; font-size: 12px; line-height: 1.72; }
 
 .energy-equation { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; background: #fffdf8; border: 1px solid var(--hairline); }
 .energy-card { padding: 40px; }
@@ -146,6 +221,31 @@ body.research-page { color: var(--ink); background: var(--paper); }
 .risk.direct { color: #1d1110; background: #ef8d7e; }
 .risk.conditional { color: #25170b; background: #e2aa71; }
 .risk.reduced { color: #032123; background: var(--research-cyan); }
+
+.root-cause-response { margin-bottom: 38px; color: var(--white); background: #071f2d; border: 1px solid rgba(255,255,255,.1); }
+.root-cause-title { display: grid; grid-template-columns: 210px 1fr; gap: 30px; align-items: center; padding: 30px 34px; border-bottom: 1px solid rgba(255,255,255,.12); }
+.root-cause-title small { color: var(--research-cyan); font-size: 8px; font-weight: 900; letter-spacing: .14em; }
+.root-cause-title h3 { margin: 0; font-family: var(--display); font-size: clamp(28px, 3.3vw, 46px); line-height: 1.02; }
+.security-outcome-grid { display: grid; grid-template-columns: 1fr 110px 1.18fr; align-items: stretch; }
+.security-outcome-grid article { min-height: 390px; padding: 40px; }
+.security-outcome-grid article > span { font-size: 8px; font-weight: 900; letter-spacing: .14em; }
+.security-outcome-grid h4 { margin: 64px 0 18px; font-family: var(--display); font-size: clamp(29px, 3vw, 42px); line-height: 1; }
+.security-outcome-grid p { margin: 0; font-size: 13px; line-height: 1.78; }
+.raw-outcome { background: #542923; }
+.raw-outcome > span { color: #ffb6a9; }
+.raw-outcome p { color: #e7bbb4; }
+.raw-outcome > b { display: inline-flex; margin-top: 28px; padding: 7px 9px; color: #2d1411; background: #ef8d7e; font-size: 8px; letter-spacing: .1em; }
+.secure-outcome { background: #0a3a45; }
+.secure-outcome > span { color: var(--research-cyan); }
+.secure-outcome p { color: #b3ccd2; }
+.outcome-pivot { display: grid; place-items: center; align-content: center; gap: 18px; color: var(--research-cyan); background: #061c2a; border-left: 1px solid rgba(255,255,255,.1); border-right: 1px solid rgba(255,255,255,.1); text-align: center; }
+.outcome-pivot span { writing-mode: vertical-rl; font-size: 7px; font-weight: 900; letter-spacing: .13em; }
+.outcome-pivot b { font-family: var(--display); font-size: 42px; }
+.security-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.security-stack i { padding: 7px 9px; color: #06262d; background: var(--research-cyan); font-style: normal; font-size: 7px; font-weight: 900; letter-spacing: .09em; }
+.outcome-equation { display: grid; grid-template-columns: 210px 1fr; gap: 30px; align-items: center; padding: 25px 34px; color: var(--ink); background: var(--research-cyan); }
+.outcome-equation small { font-size: 8px; font-weight: 900; letter-spacing: .14em; }
+.outcome-equation strong { font-family: var(--display); font-size: clamp(24px, 3vw, 39px); }
 
 .causal-chain { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch; }
 .causal-node { position: relative; min-height: 260px; padding: 28px; background: #fffdf8; border: 1px solid var(--hairline); }
@@ -227,7 +327,17 @@ body.research-page { color: var(--ink); background: var(--paper); }
 @media (max-width: 920px) {
   .paper-heading, .abstract-panel, .state-lab-stage, .energy-equation, .position-grid { grid-template-columns: 1fr; }
   .paper-heading { gap: 22px; }
-  .correction-grid, .evidence-triptych, .claim-ladder { grid-template-columns: 1fr; }
+  .commercial-verdict, .provenance-content { grid-template-columns: 1fr; }
+  .primitive-scope, .root-cause-title, .outcome-equation { grid-template-columns: 1fr; }
+  .security-outcome-grid { grid-template-columns: 1fr; }
+  .security-outcome-grid article { min-height: 0; }
+  .outcome-pivot { grid-template-columns: 1fr auto; min-height: 78px; border: 0; border-top: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1); }
+  .outcome-pivot span { writing-mode: initial; }
+  .commercial-verdict { gap: 18px; }
+  .topology-grid, .correction-grid, .evidence-triptych, .claim-ladder { grid-template-columns: 1fr; }
+  .topology-card { min-height: 0; }
+  .public-claim-strip, .symmetry-grid { grid-template-columns: 1fr; }
+  .public-claim-strip article { min-height: 0; }
   .memory-lane + .memory-lane { border-left: 0; border-top: 1px solid rgba(255,255,255,.12); }
   .formula-block { min-height: 180px; }
   .causal-chain { grid-template-columns: 1fr 1fr; }
@@ -244,6 +354,12 @@ body.research-page { color: var(--ink); background: var(--paper); }
   .research-hero-meta b { font-size: 20px; }
   .paper-heading h2 { font-size: 42px; }
   .abstract-copy, .abstract-verdict { padding: 28px; }
+  .commercial-verdict, .topology-card { padding: 24px; }
+  .primitive-scope { padding: 24px; }
+  .root-cause-title, .security-outcome-grid article, .outcome-equation { padding: 26px 22px; }
+  .security-outcome-grid h4 { margin-top: 42px; }
+  .provenance-note summary { padding: 20px 54px 20px 20px; }
+  .provenance-content { padding: 24px 20px; }
   .state-lab-controls button { padding: 16px 7px; font-size: 8px; }
   .memory-lane { padding: 76px 24px 54px; }
   .state-lab-copy { grid-template-columns: 1fr; padding: 24px; }

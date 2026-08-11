@@ -11,8 +11,8 @@ const researchPhaseCopy = {
     en: ["02", "Power-up: both translate physical variation into an electrical signal.", "An SRAM PUF expresses startup preference through a power-up race. Persistent OTP or OTP-PUF responds through resistance, conduction or threshold differences. This layer alone is not a security conclusion."]
   },
   read: {
-    zh: ["03", "讀取：voltage 與 current 是同一條類比鏈上的不同觀察點。", "SRAM cell current 造成 bitline ΔV；current-mode SRAM 亦存在。Antifuse OTP 既有 current-reference，也有 differential-voltage sensing 專利。不能用 sense label 代替 threat model。"],
-    en: ["03", "Read: voltage and current are observation points on the same analog chain.", "SRAM cell current creates bitline ΔV, and current-mode SRAM also exists. Antifuse OTP has both current-reference and differential-voltage sensing designs. A sense label cannot replace a threat model."]
+    zh: ["03", "讀取：安全差異先看 representation，再看 sense mode。", "高速 6T SRAM 主流以 BL／BLB 的小擺幅 ΔV 讀取。Antifuse 可做 reference differential 或 twin-cell complementary read；後者能否商品化，取決於 bit-cell economics，而非電路圖上是否有 differential sense amplifier。"],
+    en: ["03", "Read: inspect representation before sense mode.", "Mainstream high-speed 6T SRAM reads a small ΔV across BL/BLB. Antifuse may use reference differential or twin-cell complementary read; commercial viability of the latter depends on bit-cell economics, not merely the presence of a differential sense amplifier."]
   }
 };
 

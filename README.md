@@ -17,7 +17,7 @@ Open `http://127.0.0.1:8765/`.
 - Cinematic Secure Storage hero with project-owned artwork.
 - Persistent Traditional Chinese / English language switch.
 - Paper-grade bilingual Memory Physics research note covering SRAM, OTP, sensing, optical/thermal leakage and attack windows.
-- Searchable 21-record Evidence Ledger spanning peer-reviewed papers, patents, vendor disclosures and an official case study.
+- Searchable 27-record Evidence Ledger spanning peer-reviewed papers, patents, foundry records, vendor disclosures and an official case study.
 - Interactive power-off / power-up security-state lab.
 - Threat-to-product journey using RP2350 as a supporting signal.
 - Clickable SRAM PUF + AES-256 + OTP + controller architecture.
