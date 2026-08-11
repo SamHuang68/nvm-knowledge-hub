@@ -128,6 +128,11 @@ const staticTextPairs = [
   ["客戶購買的是一個", "Customers buy"],
   ["有人負責的安全結果。", "one accountable security outcome."],
   ["從技術名詞，走到可以做決策。", "Move from technical vocabulary to informed decisions."],
+  ["Volatile vs. nonvolatile：", "Volatile vs. nonvolatile:"],
+  ["真正的分界不是 voltage 或 current。", "the real divide is not voltage or current."],
+  ["從 bit-cell、sense amplifier、熱／光子側信道、斷電狀態到 FIB 與 laser attack，建立一套可引用、可審查的安全比較框架。", "From bit cells and sense amplifiers to thermal/photon side channels, power-off state, FIB and laser attack: a security framework designed to be cited and reviewed."],
+  ["開啟論文級探討", "Open the research paper"],
+  ["查看 Evidence Ledger", "View the Evidence Ledger"],
   ["知道什麼，也清楚標示什麼還不知道。", "State what is known—and clearly mark what is not."],
   ["回到開頭", "Back to top"]
 ];

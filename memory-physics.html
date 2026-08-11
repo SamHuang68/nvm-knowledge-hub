@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="論文級探討 SRAM、OTP 與其他揮發性／非揮發性記憶體的讀取物理、光熱側信道、斷電攻擊面與 Secure Storage 設計含義。">
+  <meta name="theme-color" content="#061c2a">
+  <title>記憶體物理與安全 · NVM Knowledge Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="research.css">
+</head>
+<body class="research-page" data-language="zh">
+  <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub 首頁">
+      <span class="brand-mark"><svg viewBox="0 0 48 48"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/><path d="M17 5v6M24 5v6M31 5v6M17 37v6M24 37v6M31 37v6M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></svg></span>
+      <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
+      <span class="brand-section">MEMORY PHYSICS</span>
+    </a>
+    <nav class="primary-nav" aria-label="研究頁導覽">
+      <a href="#abstract">Abstract</a>
+      <a href="#read-path">Read Path</a>
+      <a href="#emission">Heat & Light</a>
+      <a href="#attack-surface">Security</a>
+      <a href="#positioning">Positioning</a>
+      <a href="memory-evidence.html">Sources</a>
+    </nav>
+    <div class="header-actions">
+      <a class="home-pill" href="index.html">SECURE STORAGE</a>
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to English"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
+      <button class="menu-button" id="menuToggle" type="button" aria-label="開啟選單" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="research-hero">
+      <div class="research-hero-inner">
+        <p class="research-label">RESEARCH NOTE 02 · MEMORY PHYSICS & HARDWARE SECURITY</p>
+        <h1>
+          <span data-lang="zh">根本差異不在<br><em>voltage 或 current。</em></span>
+          <span data-lang="en">The fundamental divide is not<br><em>voltage or current.</em></span>
+        </h1>
+        <p class="research-hero-lede">
+          <span data-lang="zh">真正改變安全層級的，是斷電後仍存在什麼物理狀態、攻擊者要在什麼時間窗口觀察，以及成功讀出 bit-cell 後得到的是明文、PUF response，還是密文。</span>
+          <span data-lang="en">Security changes with what physical state survives power-off, when the attacker must observe it, and whether a successful bit-cell readout yields plaintext, a PUF response, or ciphertext.</span>
+        </p>
+        <div class="research-hero-meta">
+          <div><b>21</b><span><span data-lang="zh">核心來源</span><span data-lang="en">CORE SOURCES</span></span></div>
+          <div><b>5</b><span><span data-lang="zh">分析層級</span><span data-lang="en">ANALYSIS LAYERS</span></span></div>
+          <div><b>SRAM ↔ OTP</b><span><span data-lang="zh">主要比較軸</span><span data-lang="en">PRIMARY AXIS</span></span></div>
+          <div><b>2026-08-12</b><span><span data-lang="zh">研究版本</span><span data-lang="en">RESEARCH VERSION</span></span></div>
+        </div>
+        <div class="research-hero-links">
+          <a class="button primary" href="#abstract"><span data-lang="zh">閱讀研究摘要</span><span data-lang="en">Read the abstract</span></a>
+          <a class="button ghost" href="memory-evidence.html"><span data-lang="zh">打開 Evidence Ledger</span><span data-lang="en">Open Evidence Ledger</span></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="paper-shell">
+      <section id="abstract" class="paper-section reveal">
+        <div class="abstract-panel">
+          <div class="abstract-copy">
+            <p class="paper-kicker">ABSTRACT · CENTRAL FINDING</p>
+            <h2><span data-lang="zh">以「感測方式」分類安全，會得到錯誤結論。</span><span data-lang="en">Classifying security by sensing mode produces the wrong conclusion.</span></h2>
+            <p><span data-lang="zh">典型 6T SRAM 讀取會預充電兩條 bitline，選中的 cell 以導通電流讓其中一條放電，sense amplifier 再放大 ΔV；但 current-mode SRAM 同樣存在。Antifuse OTP 可以將 cell 導通與 reference current 比較，也可以把導通結果轉成 complementary bitline 的電壓差。換言之，任何電性讀取都涉及電荷移動、電流與能量，voltage-mode／current-mode 只是類比讀取鏈的設計選擇。</span><span data-lang="en">A typical 6T SRAM read precharges two bitlines, lets the selected cell discharge one through cell current, and amplifies ΔV. Yet current-mode SRAM also exists. Antifuse OTP can compare cell conduction with a reference current or translate conduction into complementary-bitline voltage. Every electrical read moves charge, carries current and dissipates energy; voltage-mode and current-mode are design choices along the analog read chain.</span></p>
+            <p><span data-lang="zh">安全上的根本分界是 state persistence。未供電 SRAM 不維持邏輯 0/1，但製程 mismatch 仍是可在下次上電表達的物理來源；已 programming／enrollment 的 OTP、eFuse、antifuse 或 NeoPUF 則保留可重複表達的永久物理狀態。這使攻擊時間窗、可用失效分析工具、zeroization 能力與擷取後果本質不同。</span><span data-lang="en">The security divide is state persistence. Unpowered SRAM no longer maintains logical 0/1, although process mismatch remains to be expressed at the next power-up. Programmed or enrolled OTP, eFuse, antifuse and NeoPUF retain a persistent physical state. That changes the attack window, applicable failure-analysis tools, zeroization capability and consequence of extraction.</span></p>
+          </div>
+          <aside class="abstract-verdict">
+            <small>ONE-SENTENCE VERDICT</small>
+            <strong><span data-lang="zh">不是「哪一種 memory 不會漏」，而是「成功觀察後，還差幾個獨立防線才能變成秘密」。</span><span data-lang="en">The question is not which memory never leaks, but how many independent barriers remain after observation.</span></strong>
+            <p><span data-lang="zh">這正是 SRAM PUF + AES-256 + encrypted OTP 的系統價值：把永久資料擷取與 root-key 擷取拆成不同時間、不同物理機制、不同攻擊成本的兩個問題。</span><span data-lang="en">That is the system value of SRAM PUF + AES-256 + encrypted OTP: separate persistent-data extraction from root-key extraction across time, physics and attack cost.</span></p>
+          </aside>
+        </div>
+        <p class="paper-note"><b><span data-lang="zh">用語紀律：</span><span data-lang="en">Terminology discipline:</span></b> <span data-lang="zh">本文不把 persistent PUF response 直接稱為「明文 key」。NeoPUF 公開資料描述的是 enrollment 後的永久 tunneling-path 位置，再由電流感測導出 PUF bit；是否直接等同某個最終 cryptographic key，取決於後續 key derivation 與產品實作。</span><span data-lang="en">This paper does not equate a persistent PUF response with a plaintext key. NeoPUF literature describes a permanent enrolled tunneling-path location sensed into PUF bits; whether that equals a final cryptographic key depends on derivation and product implementation.</span></p>
+      </section>
+
+      <section id="correction" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">01 · CORRECT THE MODEL</p><h2><span data-lang="zh">先把三個直覺，<br><em>改寫成可驗證的命題。</em></span><span data-lang="en">Turn three intuitions<br><em>into testable claims.</em></span></h2></div>
+          <p><span data-lang="zh">安全比較必須區分 cell physics、read circuit、observable side channel 與 system consequence。把四層混成一句話，會同時低估 SRAM 攻擊與高估「current hotspot」的必然性。</span><span data-lang="en">A security comparison must separate cell physics, read circuitry, observable side channels and system consequence. Collapsing the four layers understates SRAM attacks and overstates the inevitability of current hotspots.</span></p>
+        </div>
+        <div class="correction-grid">
+          <article class="correction-card"><span>01</span><h3><span data-lang="zh">SRAM 並非「沒有電流」。</span><span data-lang="en">SRAM is not current-free.</span></h3><p><span data-lang="zh">bit-cell 必須對 bitline 充／放電，ΔV 由導通電流與 capacitance 隨時間累積而成。current-mode sense amplifier 也是公開、成熟的 SRAM 架構。</span><span data-lang="en">The bit cell must charge or discharge a bitline. ΔV accumulates from conduction current, capacitance and time. Current-mode sense amplifiers are also established SRAM designs.</span></p><span class="evidence-tag">CIRCUIT EVIDENCE</span></article>
+          <article class="correction-card"><span>02</span><h3><span data-lang="zh">OTP 並非「只能感測電流」。</span><span data-lang="en">OTP is not current-only.</span></h3><p><span data-lang="zh">cell 的高／低導通確實常是資訊來源，但 sensing 可以比較 current、voltage、charge 或 time。antifuse OTP 專利明確揭露 differential-voltage bitline sensing。</span><span data-lang="en">High or low cell conduction is often the information source, but sensing can compare current, voltage, charge or time. Antifuse OTP patents explicitly disclose differential-voltage bitline sensing.</span></p><span class="evidence-tag">PATENT EVIDENCE</span></article>
+          <article class="correction-card"><span>03</span><h3><span data-lang="zh">「亮點」不是 current-sense 的同義詞。</span><span data-lang="en">A hotspot is not synonymous with current sensing.</span></h3><p><span data-lang="zh">可偵測光／熱取決於局部電場、載子能量、漏電、電流密度、積分時間、背面光學路徑與噪音。已證明閒置 SRAM 也可因 state-dependent leakage 產生可辨識光子訊號。</span><span data-lang="en">Detectable light or heat depends on local field, carrier energy, leakage, current density, integration time, backside optics and noise. Idle SRAM has been read through state-dependent leakage photons.</span></p><span class="evidence-tag">ATTACK EVIDENCE</span></article>
+        </div>
+      </section>
+
+      <section id="read-path" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">02 · INTERACTIVE READ PATH</p><h2><span data-lang="zh">從 power-off 到 sense output，<br><em>逐層看差異在哪裡。</em></span><span data-lang="en">From power-off to sense output,<br><em>locate the real divide.</em></span></h2></div>
+          <p><span data-lang="zh">切換三個階段。左側代表 SRAM／SRAM PUF 的 volatile state expression；右側代表 programmed antifuse／NeoPUF 類 persistent conduction state。圖為 threat-model abstraction，不是特定 foundry macro schematic。</span><span data-lang="en">Switch among three phases. The left abstracts volatile SRAM/SRAM-PUF state expression; the right abstracts a programmed antifuse/NeoPUF persistent conduction state. This is a threat-model abstraction, not a foundry-macro schematic.</span></p>
+        </div>
+        <div class="state-lab" id="stateLab" data-phase="off">
+          <div class="state-lab-controls" role="tablist" aria-label="Read path phases">
+            <button class="active" type="button" data-phase="off" role="tab" aria-selected="true">01 · POWER OFF</button>
+            <button type="button" data-phase="express" role="tab" aria-selected="false">02 · STATE EXPRESSION</button>
+            <button type="button" data-phase="read" role="tab" aria-selected="false">03 · ELECTRICAL READ</button>
+          </div>
+          <div class="state-lab-stage">
+            <div class="memory-lane">
+              <div class="lane-title"><b>SRAM / SRAM PUF</b><span>VOLATILE LATCH</span></div>
+              <div class="sram-cell">
+                <i class="bitline bl"></i><i class="bitline blb"></i>
+                <span class="cross-node left" data-bit="0"></span><span class="crossbar"></span><span class="cross-node right" data-bit="1"></span>
+                <b class="sense-block">SENSE ΔV / ΔI</b>
+              </div>
+              <div class="lane-reading"><small><span data-lang="zh">目前可觀察量</span><span data-lang="en">CURRENT OBSERVABLE</span></small><strong>無邏輯狀態</strong></div>
+            </div>
+            <div class="memory-lane">
+              <div class="lane-title"><b>ANTIFUSE / NeoPUF</b><span>PERSISTENT PATH</span></div>
+              <div class="otp-cell">
+                <i class="bitline bl"></i><span class="otp-filament"></span><span class="otp-reference"></span>
+                <b class="sense-block">ICELL ↔ IREF</b>
+              </div>
+              <div class="lane-reading"><small><span data-lang="zh">目前可觀察量</span><span data-lang="en">CURRENT OBSERVABLE</span></small><strong>永久導通路徑</strong></div>
+            </div>
+          </div>
+          <div class="state-lab-copy"><span id="labNumber">01</span><div><h3 id="labTitle">斷電：差異先出現在「狀態是否仍可被表達」。</h3><p id="labText">SRAM latch 沒有供電，不再維持 0/1 邏輯狀態；但製程 mismatch 仍存在。已 enrollment 的 antifuse／NeoPUF 導通路徑則是永久實體狀態。</p></div></div>
+        </div>
+        <p class="paper-note"><b><span data-lang="zh">關鍵細節：</span><span data-lang="en">Key nuance:</span></b> <span data-lang="zh">「SRAM PUF 斷電時 root key 不存在」是 key-lifecycle 主張，不代表晶片上沒有任何可量測的製程差異。安全性仍依賴 response 不被輕易建模／成像、reconstruction 流程受保護、helper data 有 integrity，以及工作金鑰的 residency 被控制。</span><span data-lang="en">“The SRAM-PUF root key is absent at power-off” is a key-lifecycle claim, not a claim that no measurable process variation exists. Security still depends on resisting characterization, protecting reconstruction, authenticating helper data and controlling working-key residency.</span></p>
+      </section>
+
+      <section id="emission" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">03 · HEAT, LIGHT & OBSERVABILITY</p><h2><span data-lang="zh">讀 0、讀 1 會不會形成<br><em>物理熱點或亮點？</em></span><span data-lang="en">Does reading 0 or 1 create<br><em>a thermal or optical hotspot?</em></span></h2></div>
+          <p><span data-lang="zh">答案是「可能形成 data-dependent contrast，但不是由 current-sense 這個名稱保證」。任何讀取都有能量；能不能被看見，取決於能量在空間與時間上是否集中到超過儀器、封裝與背景噪音的門檻。</span><span data-lang="en">The answer is “data-dependent contrast may exist, but the label current-sense does not guarantee it.” Every read consumes energy; visibility depends on whether that energy is spatially and temporally concentrated above instrumentation, packaging and noise limits.</span></p>
+        </div>
+        <div class="energy-equation">
+          <article class="energy-card"><h3>SRAM</h3><p><span data-lang="zh">動態讀取會產生 bitline charging/discharging 與 sense-amplifier switching；靜態保存也有 state-dependent leakage。</span><span data-lang="en">Dynamic reads charge/discharge bitlines and switch the sense amplifier; static retention also has state-dependent leakage.</span></p><ul><li><span data-lang="zh">已證明：Photon Emission、TLS、EOFM 可讀出 SRAM 內容。</span><span data-lang="en">Demonstrated: Photon Emission, TLS and EOFM can recover SRAM contents.</span></li><li><span data-lang="zh">亮點位置可隨儲存 0／1 對應到不同 NMOS leakage path。</span><span data-lang="en">Emission location can change with the NMOS leakage path selected by stored 0/1.</span></li><li><span data-lang="zh">需要供電、殘留狀態，或特定熱刺激／量測配置。</span><span data-lang="en">Requires power, remanent state, or a specific thermal-stimulation setup.</span></li></ul></article>
+          <div class="formula-block"><strong>P<sub>local</sub> = V · I</strong><small>NECESSARY ENERGY ≠ GUARANTEED OBSERVABILITY</small></div>
+          <article class="energy-card"><h3>OTP / OTP-PUF</h3><p><span data-lang="zh">programmed path 的 I<sub>cell</sub> 與 unprogrammed leakage 不同；局部 Joule heating 與 emission 在物理上可能，但量測可見度必須實驗驗證。</span><span data-lang="en">A programmed path's I<sub>cell</sub> differs from unprogrammed leakage. Local Joule heating and emission are physically possible, but observability must be experimentally validated.</span></p><ul><li><span data-lang="zh">NeoPUF 文件描述 I<sub>cell</sub> 與 I<sub>ref</sub> 的 single-ended 比較。</span><span data-lang="en">NeoPUF literature describes a single-ended I<sub>cell</sub>-to-I<sub>ref</sub> comparison.</span></li><li><span data-lang="zh">同一份供應商資料報告其 InGaAs 測試未在 PUF array 找到可區分 hotspot。</span><span data-lang="en">The same vendor publication reports no distinguishable PUF-array hotspot in its InGaAs test.</span></li><li><span data-lang="zh">獨立 FIB-PVC 已直接擷取 40 nm antifuse OTP，無須依賴正常 read emission。</span><span data-lang="en">Independent FIB-PVC extracted 40 nm antifuse OTP without relying on normal-read emission.</span></li></ul></article>
+        </div>
+        <div class="evidence-triptych">
+          <article class="evidence-result"><span>DIRECT · SRAM</span><h3><span data-lang="zh">閒置 SRAM 也能「發光洩漏」。</span><span data-lang="en">Idle SRAM can leak through photons.</span></h3><p><span data-lang="zh">HOST 2018 示範以 photon emission microscopy 讀取 idle FPGA block RAM；光子來自 SRAM cell 中 state-dependent NMOS leakage。</span><span data-lang="en">HOST 2018 demonstrated idle FPGA block-RAM readout using photon emission microscopy from state-dependent NMOS leakage.</span></p><a href="https://doi.org/10.1109/HST.2018.8383889" target="_blank" rel="noreferrer">DOI 10.1109/HST.2018.8383889 ↗</a></article>
+          <article class="evidence-result"><span>VENDOR · NeoPUF</span><h3><span data-lang="zh">永久 path 不等於必然可見 hotspot。</span><span data-lang="en">A persistent path does not guarantee a visible hotspot.</span></h3><p><span data-lang="zh">PUFsecurity 書籍描述 tunneling current readout，也報告其特定 InGaAs 實驗中 PUF array 未出現可分辨 hotspot。這是供應商證據，需獨立重現才可升級。</span><span data-lang="en">PUFsecurity describes tunneling-current readout and reports no distinguishable PUF-array hotspot in its InGaAs experiment. This is vendor evidence pending independent replication.</span></p><a href="https://www.pufsecurity.com/wp-content/uploads/2021/12/Quantum-Tunneling-PUF_0102.pdf" target="_blank" rel="noreferrer">Quantum Tunneling PUF, pp. 50–67 ↗</a></article>
+          <article class="evidence-result"><span>DIRECT · ANTIFUSE</span><h3><span data-lang="zh">攻擊者不需要等 memory 自己亮。</span><span data-lang="en">The attacker need not wait for the memory to emit.</span></h3><p><span data-lang="zh">WOOT 2025 以 FIB passive voltage contrast 從 40 nm gate-dielectric-breakdown antifuse 擷取資料，證明失效分析 contrast 本身就是攻擊面。</span><span data-lang="en">WOOT 2025 extracted data from 40 nm gate-dielectric-breakdown antifuses using FIB passive voltage contrast, making failure-analysis contrast itself the attack surface.</span></p><a href="https://www.usenix.org/conference/woot25/presentation/zonenberg" target="_blank" rel="noreferrer">USENIX WOOT 2025 ↗</a></article>
+        </div>
+      </section>
+
+      <section id="taxonomy" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">04 · MEMORY TAXONOMY</p><h2><span data-lang="zh">「非揮發性」不是一種物理；<br><em>每一類留下不同痕跡。</em></span><span data-lang="en">Nonvolatile is not one physics;<br><em>each class leaves a different trace.</em></span></h2></div>
+          <p><span data-lang="zh">安全審查應先問 storage variable 是 latch state、charge、resistance、filament、phase、magnetization 還是永久結構，再選擇 imaging、stimulation、fault 與 side-channel 假設。</span><span data-lang="en">A security review should first identify whether the storage variable is latch state, charge, resistance, filament, phase, magnetization or permanent structure, then select imaging, stimulation, fault and side-channel assumptions.</span></p>
+        </div>
+        <div class="taxonomy-wrap">
+          <table class="taxonomy-table">
+            <thead><tr><th>Technology</th><th>Stored / expressed variable</th><th>Typical read observable</th><th>Power-off state</th><th>Security-relevant physical avenues</th></tr></thead>
+            <tbody>
+              <tr><th>SRAM / SRAM PUF<br><span class="state-chip">VOLATILE RESPONSE</span></th><td><span data-lang="zh">cross-coupled latch 的 0/1；PUF 使用 power-up preference，其來源是 transistor mismatch。</span><span data-lang="en">Cross-coupled-latch 0/1; PUF uses power-up preference rooted in transistor mismatch.</span></td><td>Bitline ΔV, ΔI, timing; startup response.</td><td><span data-lang="zh">沒有 powered logic state；mismatch 仍在，下次上電表達。</span><span data-lang="en">No powered logical state; mismatch remains and is expressed at next power-up.</span></td><td>PEM, TLS, LLSI/EOFM, laser fault, low-temperature remanence, helper-data manipulation.</td></tr>
+              <tr><th>eFuse<br><span class="state-chip persistent">PERSISTENT STRUCTURE</span></th><td><span data-lang="zh">金屬 link 的完整／熔斷或電阻改變。</span><span data-lang="en">Intact/blown metal link or resistance change.</span></td><td>Resistance / current / derived voltage.</td><td><span data-lang="zh">永久幾何與電阻差異。</span><span data-lang="en">Persistent geometric and resistive difference.</span></td><td>Optical/SEM imaging, PVC, probing, focused repair/edit, address reconstruction.</td></tr>
+              <tr><th>Antifuse / NeoPUF<br><span class="state-chip persistent">PERSISTENT PATH</span></th><td><span data-lang="zh">programmed conductive path；NeoPUF 為成對 MOS oxide 中 enrollment 後的 tunneling-path 位置。</span><span data-lang="en">Programmed conductive path; NeoPUF uses the enrolled tunneling-path location in paired MOS oxides.</span></td><td>Cell current vs reference, resistance, or bitline voltage/charge.</td><td><span data-lang="zh">永久導通位置／路徑。</span><span data-lang="en">Persistent conduction location/path.</span></td><td>FIB-PVC, SEM/TEM attempts, emission/thermal contrast if measurable, decoder/read-path fault.</td></tr>
+              <tr><th>Floating-gate / Charge-trap<br><span class="state-chip persistent">PERSISTENT CHARGE</span></th><td><span data-lang="zh">trapped charge 改變 transistor threshold voltage。</span><span data-lang="en">Trapped charge shifts transistor threshold voltage.</span></td><td>Channel current / V<sub>th</sub> window.</td><td><span data-lang="zh">電荷與閾值分布持續存在。</span><span data-lang="en">Charge and threshold distribution persist.</span></td><td>SEM/PVC after preparation, charge contrast, UV/laser disturbance, read-threshold manipulation, remanence.</td></tr>
+              <tr><th>ReRAM / PCM<br><span class="state-chip persistent">PERSISTENT MATERIAL</span></th><td><span data-lang="zh">conductive filament／ionic state 或 amorphous-crystalline phase。</span><span data-lang="en">Conductive filament/ionic state or amorphous-crystalline phase.</span></td><td>Resistance / current / switching time.</td><td><span data-lang="zh">材料狀態持續存在。</span><span data-lang="en">Material state persists.</span></td><td>Resistance mapping, thermal sensitivity, microscopy depending stack, faulted selectors and sneak paths.</td></tr>
+              <tr><th>MRAM<br><span class="state-chip persistent">PERSISTENT MAGNETIC</span></th><td><span data-lang="zh">magnetic tunnel junction 的平行／反平行 magnetization。</span><span data-lang="en">Parallel/antiparallel magnetization of a magnetic tunnel junction.</span></td><td>Tunnel magnetoresistance.</td><td><span data-lang="zh">磁化方向持續存在。</span><span data-lang="en">Magnetization direction persists.</span></td><td>Magnetic field/thermal fault, resistance readout, magnetic imaging subject to stack and scale.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="attack-surface" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">05 · SECURITY-LEVEL DIFFERENCES</p><h2><span data-lang="zh">揮發性降低靜態目標，<br><em>但把風險移到上電窗口。</em></span><span data-lang="en">Volatility reduces the static target,<br><em>but moves risk into the powered window.</em></span></h2></div>
+          <p><span data-lang="zh">下表不是「誰絕對安全」的排名，而是攻擊前提與後果的差異。Direct 代表已有公開實證；Conditional 代表依實作與攻擊配置；Reduced 代表經分層保護後後果下降，而非攻擊消失。</span><span data-lang="en">This is not an absolute-security ranking. It compares attack prerequisites and consequences. Direct means publicly demonstrated; Conditional depends on implementation; Reduced means layered protection lowers impact rather than eliminating attack.</span></p>
+        </div>
+        <div class="attack-matrix">
+          <table class="attack-table">
+            <thead><tr><th>ATTACK / PROPERTY</th><th>SRAM / SRAM PUF</th><th>PERSISTENT OTP / OTP-PUF</th><th>SECURE STORAGE CONSEQUENCE</th></tr></thead>
+            <tbody>
+              <tr><th><span data-lang="zh">斷電後靜態成像</span><span data-lang="en">Unpowered static imaging</span></th><td><span class="risk conditional">CONDITIONAL</span><br><span data-lang="zh">普通 0/1 latch state 消失；但 mismatch characterization、冷凍殘留與特定 TLS 技術仍須考量。</span><span data-lang="en">Ordinary latch 0/1 disappears; mismatch characterization, cold remanence and specialized TLS still matter.</span></td><td><span class="risk direct">DIRECT</span><br><span data-lang="zh">永久結構／charge／path 可被材料或電性 failure-analysis contrast 觀察；antifuse FIB-PVC 已有實證。</span><span data-lang="en">Persistent structure, charge or path can yield material/electrical failure-analysis contrast; antifuse FIB-PVC is demonstrated.</span></td><td><span class="risk reduced">REDUCED IMPACT</span><br><span data-lang="zh">若 OTP 只保存經驗證的 ciphertext，cell dump 不應直接等於 plaintext secret。</span><span data-lang="en">If OTP contains authenticated ciphertext, a cell dump should not directly equal plaintext secret.</span></td></tr>
+              <tr><th><span data-lang="zh">上電靜態光學讀出</span><span data-lang="en">Powered optical state readout</span></th><td><span class="risk direct">DIRECT</span><br>PEM, TLS, EOFM/LLSI <span data-lang="zh">已讀出 SRAM／BBRAM key。</span><span data-lang="en">have recovered SRAM/BBRAM keys.</span></td><td><span class="risk conditional">CONDITIONAL</span><br><span data-lang="zh">取決於 cell、current density、read cadence、optical access 與 countermeasure；不能由 current-sense 自動推定。</span><span data-lang="en">Depends on cell, current density, read cadence, optical access and countermeasures; not implied by current sensing.</span></td><td><span class="risk conditional">ACTIVE WINDOW</span><br><span data-lang="zh">root reconstruction 與 working-key 使用仍需 side-channel、shield、sensor、timing 與 zeroization 防護。</span><span data-lang="en">Root reconstruction and working-key use still require side-channel, shield, sensor, timing and zeroization defenses.</span></td></tr>
+              <tr><th><span data-lang="zh">雷射故障注入</span><span data-lang="en">Laser fault injection</span></th><td><span class="risk direct">DIRECT</span><br><span data-lang="zh">可翻轉 SRAM cell、擾動 startup response、攻擊 crypto 與控制流程。</span><span data-lang="en">Can flip SRAM cells, perturb startup response, and attack crypto/control logic.</span></td><td><span class="risk conditional">CONDITIONAL</span><br><span data-lang="zh">永久 cell 未必可逆，但 decoder、sense amp、permission、read timing 仍可被 fault。</span><span data-lang="en">The persistent cell may not reverse, but decoder, sense amp, permission and read timing remain fault targets.</span></td><td><span class="risk reduced">SYSTEM CHECKS</span><br><span data-lang="zh">secure controller 必須檢查 fault、integrity、lifecycle 與 read authorization，而非只相信 bit-cell。</span><span data-lang="en">The secure controller must verify fault, integrity, lifecycle and authorization rather than trusting the bit cell alone.</span></td></tr>
+              <tr><th><span data-lang="zh">低溫資料殘留</span><span data-lang="en">Low-temperature remanence</span></th><td><span class="risk direct">DIRECT</span><br><span data-lang="zh">SRAM 與 SRAM PUF 都有公開研究；「斷電立即消失」必須限定在正常條件與已驗證窗口。</span><span data-lang="en">Published for SRAM and SRAM PUF; “disappears immediately” must be bounded by validated normal conditions.</span></td><td><span class="risk direct">INHERENT</span><br><span data-lang="zh">非揮發 state 的目標本來就是長期 retention；低溫不是必要前提。</span><span data-lang="en">Long retention is the design goal; low temperature is not a prerequisite.</span></td><td><span class="risk reduced">CIPHERTEXT</span><br><span data-lang="zh">persistent data 仍在，但其機密性轉由 encryption 與 root-key separation 承擔。</span><span data-lang="en">Persistent data remains, but confidentiality moves to encryption and root-key separation.</span></td></tr>
+              <tr><th>Zeroization / revocation</th><td><span class="risk conditional">FAST BUT VERIFY</span><br><span data-lang="zh">volatile working key 可清除／斷電，但 remanence、backup、register、cache 與 compiler behavior 都需驗證。</span><span data-lang="en">Volatile working keys can be cleared or depowered, but remanence, copies, registers, caches and compiler behavior require validation.</span></td><td><span class="risk direct">IRREVERSIBLE</span><br><span data-lang="zh">OTP cell 無法擦除；只能透過 permission、zeroize mapping、crypto erasure 或 key revocation 使資料失效。</span><span data-lang="en">OTP cells cannot be erased; invalidation relies on permission, zeroize mapping, crypto erasure or key revocation.</span></td><td><span class="risk reduced">CRYPTO ERASURE</span><br><span data-lang="zh">若資料以衍生 key 保護，撤銷 key hierarchy 可使永久 ciphertext 失去可用性。</span><span data-lang="en">If data is protected by derived keys, revoking the hierarchy can render persistent ciphertext unusable.</span></td></tr>
+              <tr><th><span data-lang="zh">量產與可靠性</span><span data-lang="en">Production & reliability</span></th><td><span class="risk conditional">ECC / HELPER</span><br><span data-lang="zh">PVT、aging、startup noise 需要 characterization、helper data、ECC、health tests 與 integrity。</span><span data-lang="en">PVT, aging and startup noise require characterization, helper data, ECC, health tests and integrity.</span></td><td><span class="risk conditional">PROGRAM / SENSE MARGIN</span><br><span data-lang="zh">需驗證 programming distribution、read margin、disturb、aging、radiation 與 reference drift。</span><span data-lang="en">Programming distribution, read margin, disturb, aging, radiation and reference drift require validation.</span></td><td><span class="risk reduced">ACCOUNTABILITY</span><br><span data-lang="zh">整合產品價值在跨 PUF、crypto、OTP、controller 的 qualification 與責任閉環。</span><span data-lang="en">Integrated-product value lies in cross-PUF, crypto, OTP and controller qualification with clear accountability.</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="system-consequence" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">06 · FROM CELL READOUT TO SECRET DISCLOSURE</p><h2><span data-lang="zh">Secure Storage 的價值，<br><em>是多加一個獨立問題。</em></span><span data-lang="en">Secure Storage adds<br><em>an independent problem.</em></span></h2></div>
+          <p><span data-lang="zh">如果 OTP 明文就是 secret，擷取 cell state 就完成攻擊。若 OTP 是 authenticated ciphertext，而 root 只在受控上電窗口由另一種物理機制重建，攻擊者還必須跨越第二個、時間受限的安全邊界。</span><span data-lang="en">If OTP plaintext is the secret, extracting cell state completes the attack. If OTP contains authenticated ciphertext and the root is reconstructed from different physics in a controlled powered window, the attacker must cross a second, time-bounded boundary.</span></p>
+        </div>
+        <div class="causal-chain">
+          <article class="causal-node"><span>01 · PHYSICAL ACCESS</span><h3><span data-lang="zh">定位 memory array 與 read path</span><span data-lang="en">Locate the array and read path</span></h3><p><span data-lang="zh">decap、backside prep、FIB、SEM、optical 或 fault reconnaissance。</span><span data-lang="en">Decap, backside preparation, FIB, SEM, optical or fault reconnaissance.</span></p></article>
+          <article class="causal-node"><span>02 · CELL EXTRACTION</span><h3><span data-lang="zh">恢復 OTP bitstream</span><span data-lang="en">Recover the OTP bitstream</span></h3><p><span data-lang="zh">取得 address-scrambled 或部分合併的 cell state，仍可能需要 mapping 與 ECC reconstruction。</span><span data-lang="en">Obtain address-scrambled or partially merged states that may still require mapping and ECC reconstruction.</span></p></article>
+          <article class="causal-node highlight"><span>03 · CRYPTOGRAPHIC BARRIER</span><h3><span data-lang="zh">得到的是 ciphertext</span><span data-lang="en">The result is ciphertext</span></h3><p><span data-lang="zh">cell readout 不再直接等於 data disclosure；integrity protection 也應阻止可控修改被接受。</span><span data-lang="en">Cell readout no longer directly equals data disclosure; integrity protection should also reject controlled modification.</span></p></article>
+          <article class="causal-node"><span>04 · EPHEMERAL ROOT</span><h3><span data-lang="zh">另攻 reconstruction／use window</span><span data-lang="en">Attack reconstruction or use separately</span></h3><p><span data-lang="zh">必須在上電後攻擊 PUF processing、crypto、working key、controller 或授權輸出。</span><span data-lang="en">The attacker must target PUF processing, crypto, working keys, controller or authorized output after power-up.</span></p></article>
+        </div>
+        <p class="paper-note"><b><span data-lang="zh">安全結論：</span><span data-lang="en">Security conclusion:</span></b> <span data-lang="zh">這是 defense-in-depth 與 attack composability 的主張，不是「SRAM PUF 不可被攻擊」。產品必須證明兩條路徑不能被同一 fault、同一 debug permission 或同一 controller flaw 一次串通。</span><span data-lang="en">This is a defense-in-depth and attack-composability claim, not “SRAM PUF cannot be attacked.” The product must show that one fault, debug permission or controller flaw cannot collapse both paths at once.</span></p>
+      </section>
+
+      <section id="positioning" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">07 · DEFENSIBLE PRODUCT POSITIONING</p><h2><span data-lang="zh">最強的說法，<br><em>通常也是最精確的說法。</em></span><span data-lang="en">The strongest message<br><em>is usually the most precise.</em></span></h2></div>
+          <p><span data-lang="zh">對 TSMC OIP 觀眾，可信度來自承認所有 silicon primitive 都有 attack surface，同時清楚說明整合架構如何降低成功攻擊的後果與組合機率。</span><span data-lang="en">For a TSMC OIP audience, credibility comes from acknowledging that every silicon primitive has an attack surface while showing how integration reduces attack consequence and composition probability.</span></p>
+        </div>
+        <div class="position-grid">
+          <article class="position-card"><h3><span data-lang="zh">可以強力主張</span><span data-lang="en">Defensible claims</span></h3><ul>
+            <li><span data-lang="zh">SRAM PUF root key 不以永久數位值儲存在 NVM；它在需要時重建。</span><span data-lang="en">The SRAM-PUF root key is not stored as a permanent digital value in NVM; it is reconstructed when needed.</span></li>
+            <li><span data-lang="zh">SRAM PUF 降低斷電時可直接成像的 root-key logical state，但仍需防護 powered reconstruction。</span><span data-lang="en">SRAM PUF reduces the directly imageable root-key logical state at power-off while still requiring protection during powered reconstruction.</span></li>
+            <li><span data-lang="zh">AES-256 讓 OTP bit-cell extraction 不直接等於 plaintext disclosure，前提是 mode、integrity、nonce／tweak 與 key hierarchy 正確。</span><span data-lang="en">AES-256 makes OTP bit-cell extraction differ from plaintext disclosure, provided mode, integrity, nonce/tweak and key hierarchy are sound.</span></li>
+            <li><span data-lang="zh">PUF + crypto + OTP + controller 的預整合可降低跨 block 假設遺漏，並把 qualification 與責任集中。</span><span data-lang="en">Pre-integrating PUF, crypto, OTP and controller reduces missed cross-block assumptions and consolidates qualification and accountability.</span></li>
+            <li><span data-lang="zh">SRAM PUF 的長期量產紀錄是降低 unknown unknowns 的證據，但不能取代當代節點的 attack evaluation。</span><span data-lang="en">Long SRAM-PUF production history is evidence against unknown unknowns, but does not replace attack evaluation on current nodes.</span></li>
+          </ul><blockquote><span data-lang="zh">「永久保存資料，不永久保存 root key；即使 memory 被讀出，留下的仍是密碼學問題。」</span><span data-lang="en">“Keep data permanent, not the root key; even after memory readout, a cryptographic problem remains.”</span></blockquote></article>
+          <article class="position-card caution"><h3><span data-lang="zh">應避免的過度主張</span><span data-lang="en">Claims to avoid</span></h3><ul>
+            <li><span data-lang="zh">「SRAM 只感測電壓，所以沒有物理 emission。」</span><span data-lang="en">“SRAM only senses voltage, therefore it has no physical emission.”</span></li>
+            <li><span data-lang="zh">「current-sense OTP 讀 0／1 一定會形成可見亮點。」</span><span data-lang="en">“Current-sense OTP always creates visible 0/1 hotspots.”</span></li>
+            <li><span data-lang="zh">「斷電後 SRAM 的所有物理資訊都消失。」</span><span data-lang="en">“All physical information in SRAM disappears at power-off.”</span></li>
+            <li><span data-lang="zh">「NeoPUF 就是把 plaintext key 寫進 OTP。」除非有產品級 key mapping 證據。</span><span data-lang="en">“NeoPUF writes a plaintext key into OTP,” absent product-level key-mapping evidence.</span></li>
+            <li><span data-lang="zh">「只要加 AES 就安全。」若沒有 integrity、anti-replay、domain separation、fault control 與 secure lifecycle，仍可能失敗。</span><span data-lang="en">“AES alone makes it secure.” Without integrity, anti-replay, domain separation, fault control and lifecycle security, the system can still fail.</span></li>
+          </ul><blockquote><span data-lang="zh">誠實承認 active-window 攻擊面，不會削弱定位；它會把差異從 slogan 提升成 architecture。</span><span data-lang="en">Acknowledging the active-window attack surface strengthens the message by elevating it from slogan to architecture.</span></blockquote></article>
+        </div>
+      </section>
+
+      <section id="method" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">08 · EVIDENCE DISCIPLINE & LIMITS</p><h2><span data-lang="zh">每一個結論，<br><em>標示它站在哪一階。</em></span><span data-lang="en">Every conclusion declares<br><em>which rung supports it.</em></span></h2></div>
+          <p><span data-lang="zh">論文、專利與產品資料回答不同問題。專利證明可行的 circuit topology，不代表產品實作；供應商測試是重要證據，但獨立重現前不能與第三方攻擊示範同級。</span><span data-lang="en">Papers, patents and product literature answer different questions. A patent establishes a possible topology, not product implementation. Vendor tests matter, but are not equivalent to independent attack demonstrations before replication.</span></p>
+        </div>
+        <div class="claim-ladder">
+          <article class="claim-rung"><span>E1 · DIRECT</span><h3><span data-lang="zh">第三方實體示範</span><span data-lang="en">Independent physical demonstration</span></h3><p><span data-lang="zh">實際晶片、攻擊設備、輸出與限制可追溯；例如 SRAM PEM/TLS 與 antifuse FIB-PVC。</span><span data-lang="en">Traceable chip, equipment, output and limits; e.g. SRAM PEM/TLS and antifuse FIB-PVC.</span></p></article>
+          <article class="claim-rung"><span>E2 · MECHANISM</span><h3><span data-lang="zh">電路／物理機制</span><span data-lang="en">Circuit or physical mechanism</span></h3><p><span data-lang="zh">論文與專利支持 sensing、leakage、breakdown、reference 等機制，但不自動映射特定商用品。</span><span data-lang="en">Papers and patents support sensing, leakage, breakdown and reference mechanisms without automatically mapping to a product.</span></p></article>
+          <article class="claim-rung"><span>E3 · VENDOR</span><h3><span data-lang="zh">供應商公開揭露</span><span data-lang="en">Vendor disclosure</span></h3><p><span data-lang="zh">可用於描述產品宣稱、architecture 與內部測試；必須清楚標記來源與獨立驗證狀態。</span><span data-lang="en">Useful for product claims, architecture and internal tests; source and independent-validation status must be explicit.</span></p></article>
+          <article class="claim-rung"><span>E4 · INFERENCE</span><h3><span data-lang="zh">系統級推論</span><span data-lang="en">System-level inference</span></h3><p><span data-lang="zh">由多項證據組合出的 threat-model 結論；需要產品規格、NDA data 或實驗才能封閉。</span><span data-lang="en">A threat-model conclusion composed from multiple sources; closure requires product specs, NDA data or experiments.</span></p></article>
+        </div>
+        <div class="unknowns">
+          <article><h3><span data-lang="zh">仍需產品級回答</span><span data-lang="en">Product-level questions still open</span></h3><p><span data-lang="zh">Secure Storage 的 AES mode 與 integrity、address scrambling 的 cryptographic role、PUF activation/helper-data integrity、root/working-key zeroization、debug/scan policy、fault sensor coverage、reset/brownout behavior、secure-region granularity，以及對 FIB/optical/EMFI 的實測證據。</span><span data-lang="en">AES mode and integrity, the cryptographic role of address scrambling, activation/helper-data integrity, root/working-key zeroization, debug/scan policy, fault-sensor coverage, reset/brownout behavior, secure-region granularity, and measured resistance to FIB/optical/EMFI.</span></p></article>
+          <article><h3><span data-lang="zh">「所有 NVM」的限制</span><span data-lang="en">Limits of the “all NVM” taxonomy</span></h3><p><span data-lang="zh">此頁將技術分成主要 storage variable，但實際安全取決於 process stack、cell topology、array layout、ECC、decoder、packaging、backside metal、sensor 與 operational protocol。不同 foundry node 不應直接外推。</span><span data-lang="en">This page groups technologies by storage variable, but actual security depends on process stack, cell topology, layout, ECC, decoder, packaging, backside metal, sensors and protocol. Results should not be extrapolated across foundry nodes without validation.</span></p></article>
+        </div>
+      </section>
+
+      <section class="paper-conclusion reveal">
+        <small>CONCLUSION · SECURITY IS A LIFECYCLE PROPERTY</small>
+        <h2><span data-lang="zh">讓永久 state 可以被讀，<br>但不能直接變成永久 secret。</span><span data-lang="en">Let persistent state be readable<br>without making it a persistent secret.</span></h2>
+        <p><span data-lang="zh">SRAM 與 OTP 的差異不會讓其中任何一方自動安全。最具防禦力的架構，是利用它們互補的時間與物理特性：OTP 保存耐久 ciphertext，SRAM PUF 在受控窗口重建 root，crypto 與 controller 確保兩條攻擊路徑不能直接合流。</span><span data-lang="en">Neither SRAM nor OTP is automatically secure. The strongest architecture uses their complementary time and physics: OTP retains durable ciphertext, SRAM PUF reconstructs a root in a controlled window, and crypto plus controller prevent the two attack paths from collapsing into one.</span></p>
+        <a class="button primary" href="memory-evidence.html"><span data-lang="zh">檢視完整證據庫</span><span data-lang="en">Inspect the evidence base</span></a>
+        <a class="button ghost" href="index.html"><span data-lang="zh">返回 Secure Storage</span><span data-lang="en">Return to Secure Storage</span></a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="index.html"><span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span></a>
+    <p><span data-lang="zh">研究用途 · 公開來源 · 不取代產品安全評估</span><span data-lang="en">Research use · Public sources · Not a substitute for product security evaluation</span></p>
+    <p>Research Note 02 · 2026</p>
+  </footer>
+  <script src="research.js"></script>
+</body>
+</html>
