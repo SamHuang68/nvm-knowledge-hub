@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NVM Assurance Knowledge Record",
+  "description": "SharePoint List / Copilot-ready metadata for governed NVM security knowledge.",
+  "type": "object",
+  "required": ["title", "topic", "asset", "claim", "claimStatus", "scope", "classification", "sourceUrl", "reviewedDate", "owner"],
+  "properties": {
+    "title": { "type": "string" },
+    "topic": { "enum": ["Architecture", "Fault Injection", "Side-Channel Analysis", "Invasive Analysis", "Countermeasure", "Evidence", "Certification", "Training"] },
+    "asset": { "enum": ["PUF Response", "Root Key", "Derived Key", "OTP Ciphertext", "Helper Data", "Lifecycle State", "Plaintext Window", "Controller Policy"] },
+    "attackClass": { "type": "array", "items": { "enum": ["Power SCA", "EM SCA", "Timing", "Voltage Fault", "Clock Fault", "EM Fault", "Laser Fault", "Invasive Readout", "Protocol Abuse"] } },
+    "lifecyclePhase": { "type": "array", "items": { "enum": ["Power-off", "Boot", "Derive", "Authorized Access", "Zeroize"] } },
+    "claim": { "type": "string" },
+    "claimStatus": { "enum": ["Public Fact", "Vendor Claim", "Analyst Inference", "Internally Tested", "Independently Evaluated", "Certified", "Field-proven", "Unknown"] },
+    "evidenceLevel": { "type": "integer", "minimum": 1, "maximum": 6 },
+    "scope": { "enum": ["IP", "Subsystem", "SoC", "Device", "Organization"] },
+    "applicability": { "type": "string" },
+    "limitation": { "type": "string" },
+    "openQuestion": { "type": "string" },
+    "sourceUrl": { "type": "string", "format": "uri" },
+    "sourceOwner": { "type": "string" },
+    "publishedDate": { "type": ["string", "null"], "format": "date" },
+    "reviewedDate": { "type": "string", "format": "date" },
+    "owner": { "type": "string" },
+    "classification": { "enum": ["Public", "Internal", "NDA"] },
+    "certificationScheme": { "type": ["string", "null"] },
+    "certificateOrReportId": { "type": ["string", "null"] },
+    "productVersion": { "type": ["string", "null"] },
+    "copilotAnswerRule": { "const": "Return claim, source, scope, limitation, reviewed date and open question together." }
+  }
+}

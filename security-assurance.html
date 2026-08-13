@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Secure NVM Physical Security Assurance：從 Fault Injection、Side-Channel Analysis 到證據與認證決策。">
+  <meta name="theme-color" content="#061b29">
+  <title>Security Assurance · NVM Knowledge Hub</title>
+  <link rel="stylesheet" href="assurance.css">
+</head>
+<body data-language="zh">
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-chip">N</span><span><b>NVM</b><small>KNOWLEDGE HUB</small></span><em>ASSURANCE</em></a>
+    <nav aria-label="頁面導覽">
+      <a href="#threats" data-zh="威脅" data-en="Threats">威脅</a><a href="#windows" data-zh="時窗" data-en="Windows">時窗</a><a href="#evidence" data-zh="證據" data-en="Evidence">證據</a><a href="#navigator" data-zh="認證" data-en="Certification">認證</a><a href="#learn" data-zh="學習" data-en="Learn">學習</a>
+    </nav>
+    <div class="actions"><button id="languageToggle" type="button" aria-label="Switch to English"><b>中</b><i>/</i><b>EN</b></button><a href="index.html" class="back" data-zh="返回首頁" data-en="Home">返回首頁</a></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-copy">
+        <p class="kicker">SECURE NVM · PHYSICAL SECURITY ASSURANCE</p>
+        <h1 data-zh="讓安全主張成為可重現的證據。" data-en="Turn security claims into reproducible evidence.">讓安全主張成為可重現的證據。</h1>
+        <p class="lead" data-zh="永久資料與短暫根金鑰的安全價值，必須在真實攻擊模型中被量測、挑戰、修正並界定適用範圍。" data-en="The security value of permanent data and an ephemeral root key must be measured, challenged, improved and scoped against realistic attack models.">永久資料與短暫根金鑰的安全價值，必須在真實攻擊模型中被量測、挑戰、修正並界定適用範圍。</p>
+        <div class="hero-actions"><a href="#windows" class="primary" data-zh="檢視攻擊時窗" data-en="Explore attack windows">檢視攻擊時窗</a><a href="#navigator" class="secondary" data-zh="規劃確證路線" data-en="Plan assurance route">規劃確證路線</a></div>
+      </div>
+      <div class="signal-panel" aria-label="Assurance signal model">
+        <div class="trace"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="signal-readout"><small>OBSERVABLE</small><b>POWER · EM · TIMING</b></div>
+        <div class="signal-readout alert"><small>DISTURBANCE</small><b>VOLTAGE · CLOCK · EM · LASER</b></div>
+        <div class="signal-readout safe"><small>EXPECTED OUTCOME</small><b>FAIL SECURE · NO KEY DISCLOSURE</b></div>
+      </div>
+      <div class="hero-chain"><span>THREAT</span><i></i><span>METHOD</span><i></i><span>OBSERVE</span><i></i><span>MITIGATE</span><i></i><span>EVIDENCE</span><i></i><span>ASSURE</span></div>
+    </section>
+
+    <section class="principle">
+      <p class="section-no">00 / OPERATING PRINCIPLE</p>
+      <h2 data-zh="知道什麼，也清楚標示什麼還不知道。" data-en="State what is known—and mark what is not.">知道什麼，也清楚標示什麼還不知道。</h2>
+      <div class="claim-states"><span><i class="public"></i>PUBLIC FACT</span><span><i class="claim"></i>VENDOR CLAIM</span><span><i class="inference"></i>ANALYST INFERENCE</span><span><i class="verified"></i>VERIFIED</span><span><i class="unknown"></i>UNKNOWN</span></div>
+    </section>
+
+    <section id="threats" class="section threats">
+      <header class="section-head"><div><p class="kicker">01 / PHYSICAL ATTACK SURFACE</p><h2 data-zh="觀察、擾動、讀取：三種不同的證據問題。" data-en="Observe, disturb, read: three different evidence problems.">觀察、擾動、讀取：三種不同的證據問題。</h2></div><p data-zh="攻擊類別不是產品恐懼清單；它們用來建立可測試的安全需求。" data-en="Attack classes are not a fear list. They turn product assumptions into testable security requirements.">攻擊類別不是產品恐懼清單；它們用來建立可測試的安全需求。</p></header>
+      <div class="threat-grid">
+        <article><span>OBSERVE</span><h3>Side-Channel Analysis</h3><p data-zh="量測 power、EM、timing 或 contactless emission，判斷 PUF reconstruction、key derivation 與 AES access 是否洩漏可利用資訊。" data-en="Measure power, EM, timing or contactless emissions for exploitable leakage during PUF reconstruction, key derivation and AES access.">量測 power、EM、timing 或 contactless emission，判斷 PUF reconstruction、key derivation 與 AES access 是否洩漏可利用資訊。</p><footer><b>ASSETS</b><small>PUF response · root/derived key · plaintext window</small></footer></article>
+        <article class="danger"><span>DISTURB</span><h3>Fault Injection</h3><p data-zh="以 voltage、clock、EM 或 laser fault 挑戰 authentication、lifecycle state、program flow、crypto 與 zeroization。" data-en="Use voltage, clock, EM or laser faults to challenge authentication, lifecycle state, program flow, crypto and zeroization.">以 voltage、clock、EM 或 laser fault 挑戰 authentication、lifecycle state、program flow、crypto 與 zeroization。</p><footer><b>OUTCOMES</b><small>check bypass · DFA · state corruption · oracle</small></footer></article>
+        <article class="copper"><span>READ</span><h3>Invasive Analysis</h3><p data-zh="直接觀察 OTP cell、routing 或殘留狀態。安全目標不是假設讀不到，而是讓讀取結果不足以還原可用的 root secret。" data-en="Observe OTP cells, routing or residual state directly. The goal is not assumed unreadability, but preventing readout from yielding a usable root secret.">直接觀察 OTP cell、routing 或殘留狀態。安全目標不是假設讀不到，而是讓讀取結果不足以還原可用的 root secret。</p><footer><b>BOUNDARY</b><small>ciphertext · scrambling · helper data · layout</small></footer></article>
+      </div>
+    </section>
+
+    <section id="windows" class="section windows">
+      <header class="section-head"><div><p class="kicker">02 / ATTACK-WINDOW LIFECYCLE</p><h2 data-zh="根金鑰沒有永久位址；風險仍有明確時窗。" data-en="The root has no permanent address; risk still has windows.">根金鑰沒有永久位址；風險仍有明確時窗。</h2></div><p data-zh="選擇 lifecycle 階段，查看資產、攻擊面、測試問題與預期安全結果。" data-en="Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.">選擇 lifecycle 階段，查看資產、攻擊面、測試問題與預期安全結果。</p></header>
+      <div class="window-layout">
+        <div class="phase-tabs" role="tablist" aria-label="Lifecycle phase">
+          <button class="active" data-phase="off" role="tab" aria-selected="true"><b>01</b><span>POWER-OFF</span></button><button data-phase="boot" role="tab"><b>02</b><span>BOOT</span></button><button data-phase="derive" role="tab"><b>03</b><span>DERIVE</span></button><button data-phase="access" role="tab"><b>04</b><span>ACCESS</span></button><button data-phase="zeroize" role="tab"><b>05</b><span>ZEROIZE</span></button>
+        </div>
+        <article class="window-detail" id="windowDetail" aria-live="polite"></article>
+        <aside class="window-visual" id="windowVisual"><div class="power-rail"></div><div class="asset-state"><small>ROOT KEY STATE</small><strong id="keyState">NOT PRESENT</strong></div><div class="pulse"><i></i><i></i><i></i><i></i></div><div class="result"><small>EXPECTED RESULT</small><b id="resultState">CIPHERTEXT ONLY</b></div></aside>
+      </div>
+    </section>
+
+    <section class="section controls">
+      <header class="section-head"><div><p class="kicker">03 / COUNTERMEASURE PATTERNS</p><h2 data-zh="防禦不是功能清單，而是被驗證的因果鏈。" data-en="A defense is not a feature list; it is a validated causal chain.">防禦不是功能清單，而是被驗證的因果鏈。</h2></div></header>
+      <div class="control-matrix">
+        <div class="matrix-row head"><span>SECURITY BLOCK</span><span>CLAIM</span><span>TEST</span><span>EXPECTED EVIDENCE</span><span>LIMIT</span></div>
+        <div class="matrix-row"><b>SRAM PUF</b><span data-zh="root 不永久儲存" data-en="Root is not stored">root 不永久儲存</span><span>SCA · FI · PVT · aging</span><span data-zh="重建率、leakage、失敗模式" data-en="Reconstruction, leakage, failure mode">重建率、leakage、失敗模式</span><span data-zh="運作時仍有敏感中間值" data-en="Sensitive intermediates exist at runtime">運作時仍有敏感中間值</span></div>
+        <div class="matrix-row"><b>AES / KDF</b><span data-zh="讀取 OTP 不等於取得明文" data-en="OTP readout does not equal plaintext">讀取 OTP 不等於取得明文</span><span>DPA/CPA · DFA · protocol abuse</span><span data-zh="攻擊成本與殘餘風險" data-en="Attack cost and residual risk">攻擊成本與殘餘風險</span><span data-zh="實作與整合品質決定結果" data-en="Implementation and integration determine outcome">實作與整合品質決定結果</span></div>
+        <div class="matrix-row"><b>ANTIFUSE OTP</b><span data-zh="永久保存密文與狀態" data-en="Retains ciphertext and state">永久保存密文與狀態</span><span>readout · microscopy · mapping</span><span data-zh="可觀察內容與可利用性" data-en="Observable content and exploitability">可觀察內容與可利用性</span><span data-zh="不可假設 cell 完全不可讀" data-en="Do not assume cells are unreadable">不可假設 cell 完全不可讀</span></div>
+        <div class="matrix-row"><b>CONTROLLER</b><span data-zh="統一 access 與 lifecycle policy" data-en="Owns access and lifecycle policy">統一 access 與 lifecycle policy</span><span>glitch · reset · sequence abuse</span><span data-zh="fail-secure、atomicity、錯誤處理" data-en="Fail-secure, atomicity, error handling">fail-secure、atomicity、錯誤處理</span><span data-zh="SoC 整合可破壞 IP 假設" data-en="SoC integration can break IP assumptions">SoC 整合可破壞 IP 假設</span></div>
+      </div>
+    </section>
+
+    <section id="evidence" class="section evidence">
+      <header class="section-head"><div><p class="kicker">04 / EVIDENCE LADDER</p><h2 data-zh="不是有沒有證據，而是證據成熟到哪一層。" data-en="Evidence is not binary; maturity has levels.">不是有沒有證據，而是證據成熟到哪一層。</h2></div><p data-zh="點選層級查看可接受的產出與不可越界的說法。" data-en="Select a level to see acceptable outputs and claims that remain out of scope.">點選層級查看可接受的產出與不可越界的說法。</p></header>
+      <div class="ladder" id="evidenceLadder"></div>
+      <article class="evidence-detail" id="evidenceDetail" aria-live="polite"></article>
+    </section>
+
+    <section id="navigator" class="section navigator">
+      <header class="section-head"><div><p class="kicker">05 / CERTIFICATION NAVIGATOR</p><h2 data-zh="先界定 Target of Evaluation，再談認證名稱。" data-en="Define the Target of Evaluation before naming a scheme.">先界定 Target of Evaluation，再談認證名稱。</h2></div><p data-zh="這是方向建議，不代表產品已認證，也不取代實驗室或 scheme owner 的正式判定。" data-en="Directional guidance only. It does not claim certification or replace a lab or scheme owner's formal determination.">這是方向建議，不代表產品已認證，也不取代實驗室或 scheme owner 的正式判定。</p></header>
+      <div class="navigator-shell">
+        <form id="certForm">
+          <label><span data-zh="評估目標" data-en="Evaluation target">評估目標</span><select id="targetSelect"><option value="ip">Silicon IP / subsystem</option><option value="soc">SoC / secure IC</option><option value="device">Connected device</option></select></label>
+          <label><span data-zh="目標市場" data-en="Target market">目標市場</span><select id="marketSelect"><option value="iot">IoT / platform</option><option value="auto">Automotive</option><option value="payment">Payment / secure element</option><option value="general">General assurance</option></select></label>
+          <label><span data-zh="確證目標" data-en="Assurance goal">確證目標</span><select id="goalSelect"><option value="baseline">Baseline market trust</option><option value="reuse">Reusable IP evidence</option><option value="high">High-assurance certification</option></select></label>
+        </form>
+        <div id="certResult" class="cert-result" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="learn" class="section learning">
+      <header class="section-head"><div><p class="kicker">06 / ROLE-BASED LEARNING</p><h2 data-zh="從看懂攻擊，到能審查確證計畫。" data-en="From understanding attacks to reviewing an assurance plan.">從看懂攻擊，到能審查確證計畫。</h2></div></header>
+      <div class="role-tabs" role="tablist"><button class="active" data-role="foundation">FOUNDATION</button><button data-role="practitioner">PRACTITIONER</button><button data-role="evaluator">EVALUATOR</button><button data-role="decision">DECISION MAKER</button></div>
+      <div id="rolePath" class="role-path"></div>
+    </section>
+
+    <section class="section governance">
+      <header class="section-head"><div><p class="kicker">07 / KNOWLEDGE GOVERNANCE</p><h2 data-zh="為 SharePoint 與 Copilot 保留可追溯的知識結構。" data-en="Preserve traceable knowledge for SharePoint and Copilot.">為 SharePoint 與 Copilot 保留可追溯的知識結構。</h2></div></header>
+      <div class="governance-grid"><article><b>CLASSIFY</b><p>Public · Internal · NDA</p></article><article><b>SCOPE</b><p>IP · Subsystem · SoC · Device</p></article><article><b>TRACE</b><p>Claim · Source · Review date · Owner</p></article><article><b>QUALIFY</b><p>Applicability · Limitation · Unknown</p></article></div>
+      <p class="governance-note" data-zh="網站內容已同步設計成結構化 metadata，可轉為 SharePoint List 欄位，讓 Copilot 回答時帶出來源、適用範圍與未知項目。" data-en="The content model maps to SharePoint List fields so Copilot can return sources, applicability and unknowns with each answer.">網站內容已同步設計成結構化 metadata，可轉為 SharePoint List 欄位，讓 Copilot 回答時帶出來源、適用範圍與未知項目。</p>
+    </section>
+
+    <section class="section sources">
+      <p class="kicker">PUBLIC SOURCE DISCIPLINE</p><h2 data-zh="參考專業方法，不借用第三方背書。" data-en="Learn from professional methods without implying endorsement.">參考專業方法，不借用第三方背書。</h2>
+      <div class="source-list">
+        <a href="https://www.keysight.com/us/en/products/vulnerability-assessment/device-vulnerability-analysis/fault-injection.html" target="_blank" rel="noreferrer"><span>01</span><b>Keysight Fault Injection</b><small>Attack methods · Inspector FJ2 · device testing</small></a>
+        <a href="https://www.keysight.com/zz/en/products/network-test/device-vulnerability-analysis" target="_blank" rel="noreferrer"><span>02</span><b>Riscure Device Security Solutions</b><small>SCA · FI · evaluation · certification · training</small></a>
+        <a href="https://www.keysight.com/ca/en/products/services/device-vulnerability-analysis-services/security-certifications/common-criteria-certification.html" target="_blank" rel="noreferrer"><span>03</span><b>Common Criteria Services</b><small>Scope · evidence · evaluation lifecycle</small></a>
+        <a href="https://www.keysight.com/zz/en/products/services/device-vulnerability-analysis-services/security-certifications/security-evaluation-standard-for-iot-platforms-certification.html" target="_blank" rel="noreferrer"><span>04</span><b>SESIP Certification</b><small>IoT platforms · assurance levels · accredited evaluation</small></a>
+      </div>
+      <p class="source-policy" data-zh="Riscure／Keysight 名稱僅作為公開來源引用；本網站不宣稱合作、採用其工具或獲得其認證。測試參數與可重現 exploit 步驟不放在公開頁面。" data-en="Riscure and Keysight are cited as public sources only. This site does not claim partnership, tool use or certification. Actionable exploit parameters remain outside the public site.">Riscure／Keysight 名稱僅作為公開來源引用；本網站不宣稱合作、採用其工具或獲得其認證。測試參數與可重現 exploit 步驟不放在公開頁面。</p>
+    </section>
+  </main>
+  <footer><a href="index.html">NVM KNOWLEDGE HUB</a><span>SECURE STORAGE · PHYSICAL SECURITY ASSURANCE</span><a href="#top" data-zh="回到頂端" data-en="Back to top">回到頂端</a></footer>
+  <script src="assurance.js?v=20260814"></script>
+</body>
+</html>

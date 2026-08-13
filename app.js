@@ -6,10 +6,21 @@ let activePhase = 0;
 const localized = (zh, en) => ({ zh, en });
 const pick = value => typeof value === "string" ? value : value[currentLanguage];
 
+const navigationLabels = {
+  why: localized("為什麼", "Why"),
+  architecture: localized("架構", "Architecture"),
+  assurance: localized("確證", "Assurance"),
+  compare: localized("比較", "Compare"),
+  evidence: localized("證據", "Evidence"),
+  learn: localized("學習", "Learn"),
+  research: localized("研究", "Research")
+};
+
 const lessons = [
   { title: localized("NVM 與 OTP 的安全邊界", "The security boundary of NVM and OTP"), summary: localized("永久保存不等於機密保存", "Permanent storage is not confidential storage"), status: "READY" },
   { title: localized("Secure Storage 四層架構", "The four-layer Secure Storage architecture"), summary: localized("PUF、AES、OTP、Controller", "PUF, AES, OTP and controller"), status: "READY" },
   { title: localized("Power-off State", "The power-off state"), summary: localized("用斷電狀態判斷靜態攻擊面", "Evaluate the at-rest physical attack surface"), status: "READY" },
+  { title: localized("Physical Security Assurance", "Physical Security Assurance"), summary: localized("FI、SCA、證據成熟度與認證範圍", "FI, SCA, evidence maturity and certification scope"), status: "READY" },
   { title: localized("SRAM PUF 與 NeoPUF", "SRAM PUF and NeoPUF"), summary: localized("比較物理 response 的承載位置", "Compare where the physical response resides"), status: "READY" },
   { title: localized("量產證據與 Qualification", "Field evidence and qualification"), summary: localized("PVT、aging、認證與攻擊證據", "PVT, aging, certification and attack evidence"), status: "NEXT" },
   { title: localized("TSMC OIP 整合對話", "The TSMC OIP integration conversation"), summary: localized("節點、APB、provisioning、責任", "Nodes, APB, provisioning and accountability"), status: "NEXT" }
@@ -234,6 +245,10 @@ function setLanguage(nextLanguage, persist = true) {
   currentLanguage = nextLanguage;
   document.documentElement.lang = nextLanguage === "zh" ? "zh-Hant" : "en";
   document.body.dataset.language = nextLanguage;
+  document.querySelectorAll(".primary-nav [data-nav-key]").forEach(link => {
+    link.textContent = navigationLabels[link.dataset.navKey][nextLanguage];
+  });
+  document.querySelector(".primary-nav").setAttribute("aria-label", nextLanguage === "zh" ? "主要導覽" : "Primary navigation");
   document.querySelector("#languageToggle").setAttribute("aria-label", nextLanguage === "zh" ? "Switch to English" : "切換為中文");
   document.querySelector("#searchInput").setAttribute("aria-label", nextLanguage === "zh" ? "搜尋學習內容" : "Search learning content");
   document.querySelector("#themeToggle").setAttribute("aria-label", nextLanguage === "zh" ? "切換顯示主題" : "Toggle display theme");

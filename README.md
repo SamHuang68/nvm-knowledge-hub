@@ -26,6 +26,8 @@ Open `http://127.0.0.1:8765/`.
 - Field-evidence, TSMC node and application visualizations.
 - Searchable Secure Storage learning path and article library.
 - Public-source and claim-discipline section.
+- Physical Security Assurance center covering FI, SCA, invasive analysis, attack windows, countermeasure evidence, certification routing and role-based learning.
+- SharePoint/Copilot-ready knowledge schema in `data/assurance-knowledge-schema.json`, with the List field map in `data/sharepoint-field-map.md`.
 
 ## Design system
 
