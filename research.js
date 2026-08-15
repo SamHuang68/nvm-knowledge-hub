@@ -22,6 +22,11 @@ function setResearchLanguage(nextLanguage, persist = true) {
   document.documentElement.lang = researchLanguage === "zh" ? "zh-Hant" : "en";
   const toggle = document.querySelector("#languageToggle");
   if (toggle) toggle.setAttribute("aria-label", researchLanguage === "zh" ? "Switch to English" : "切換為繁體中文");
+  const navigationLabel = document.body.classList.contains("evidence-page")
+    ? (researchLanguage === "zh" ? "證據頁導覽" : "Evidence navigation")
+    : (researchLanguage === "zh" ? "研究頁導覽" : "Research navigation");
+  document.querySelector(".primary-nav")?.setAttribute("aria-label", navigationLabel);
+  document.querySelector("#menuToggle")?.setAttribute("aria-label", researchLanguage === "zh" ? "開啟選單" : "Open menu");
   const search = document.querySelector("#evidenceSearch");
   if (search) {
     search.placeholder = researchLanguage === "zh" ? "搜尋作者、技術、攻擊或 DOI…" : "Search author, technology, attack or DOI…";
@@ -96,7 +101,11 @@ document.querySelector("#evidenceFilters")?.addEventListener("click", event => {
   const button = event.target.closest("button[data-type]");
   if (!button) return;
   activeEvidenceType = button.dataset.type;
-  document.querySelectorAll("#evidenceFilters button").forEach(item => item.classList.toggle("active", item === button));
+  document.querySelectorAll("#evidenceFilters button").forEach(item => {
+    const active = item === button;
+    item.classList.toggle("active", active);
+    item.setAttribute("aria-pressed", active ? "true" : "false");
+  });
   renderEvidenceCards();
 });
 

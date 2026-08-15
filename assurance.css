@@ -19,3 +19,19 @@ html{background:#03141d}body{text-rendering:optimizeLegibility;-webkit-font-smoo
 .principle h2{max-width:22ch;font-size:clamp(2.25rem,3.4vw,3.25rem);line-height:1.34;font-weight:560;letter-spacing:-.012em}
 .threat-grid h3,.window-detail h3,.cert-result h3,.role-path h3{line-height:1.3;text-wrap:balance}
 @media(max-width:680px){.hero h1{max-width:100%;font-size:clamp(2.45rem,11.2vw,3.45rem);line-height:1.27;letter-spacing:-.01em}.principle h2{font-size:clamp(1.75rem,7.8vw,2.15rem);line-height:1.42}.section h2{font-size:clamp(2rem,9.5vw,3rem);line-height:1.3;letter-spacing:-.01em}}
+
+/* REFINE-005: accessible navigation and comparison surfaces. */
+:where(a,button,select,[tabindex]):focus-visible{outline:2px solid var(--mint);outline-offset:3px}
+.matrix-scroll-hint{display:none;margin:0 0 .8rem;color:#596b6d;font:500 .65rem/1.5 var(--mono);letter-spacing:.06em}
+.control-matrix:focus-visible{outline-color:var(--teal);box-shadow:0 0 0 5px rgba(122,198,189,.18)}
+@media(max-width:1050px){
+  .topbar{height:auto;min-height:76px;flex-wrap:wrap;row-gap:10px;padding-top:13px;padding-bottom:10px}
+  .topbar nav{display:flex;order:3;width:100%;gap:22px;overflow-x:auto;padding:4px 0 3px;scrollbar-width:none}
+  .topbar nav::-webkit-scrollbar{display:none}
+  .topbar nav a{flex:0 0 auto;white-space:nowrap}
+}
+@media(max-width:680px){
+  .topbar{height:auto;min-height:68px}
+  .matrix-scroll-hint{display:block}
+  .control-matrix{position:relative;box-shadow:inset -20px 0 18px -18px rgba(7,29,42,.42),0 24px 55px rgba(0,8,13,.12)}
+}

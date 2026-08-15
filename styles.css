@@ -56,7 +56,7 @@ h1,h2,h3,p { text-wrap: pretty; }
 .button.primary:hover { box-shadow: 0 18px 44px rgba(17,210,208,.28); }
 
 .immersive-chapter {
-  background-image: linear-gradient(90deg,rgba(1,12,18,.91) 0%,rgba(1,12,18,.4) 42%,rgba(1,12,18,.64) 100%),url("assets/silicon-ip-panorama.png");
+  background-image: linear-gradient(90deg,rgba(1,12,18,.91) 0%,rgba(1,12,18,.4) 42%,rgba(1,12,18,.64) 100%),url("assets/silicon-ip-panorama-v2.webp");
 }
 .immersive-chapter::after { opacity: .08; background-size: 64px 64px; }
 .immersive-wafer { background-position: 22% center; }
@@ -871,7 +871,7 @@ h1,h2,h3,p { text-wrap: pretty; }
 .hero h1,.thesis-grid h2,.section-heading h2,.comparison-head h2,.evidence-title h2,.learning-head h2,.accountability-section h2,.research-launch h2,.closing-section h2 { font-family: var(--sans-zh); font-weight: 650; letter-spacing: -.055em; }
 .hero h1 em,h2 em,.chapter-copy h2 em { font-family: var(--serif-zh); font-style: normal; font-weight: 500; letter-spacing: -.065em; }
 .hero-lede,.section-lede,.section-heading>p,.thesis-copy,.architecture-intro>p:last-child,.evidence-title>p:last-child,.research-launch-copy>p:not(.eyebrow) { line-height: 1.95; letter-spacing: .018em; }
-.immersive-chapter { background-image: linear-gradient(90deg,rgba(1,12,18,.91) 0%,rgba(1,12,18,.4) 42%,rgba(1,12,18,.64) 100%),url("assets/silicon-ip-panorama.png"); }
+.immersive-chapter { background-image: linear-gradient(90deg,rgba(1,12,18,.91) 0%,rgba(1,12,18,.4) 42%,rgba(1,12,18,.64) 100%),url("assets/silicon-ip-panorama-v2.webp"); }
 .immersive-wafer { background-position: 22% center; }.immersive-probe { background-position: 57% center; }.immersive-silicon { background-position: 84% center; }
 .chapter-copy h2 { font-family: var(--sans-zh); font-weight: 620; }.chapter-copy h2 em { color: var(--cyan-2); }
 .button,.thesis-principles article,.evidence-numbers article,.phase-detail,.case-note,.source-list a,.silicon-stage,.architecture-canvas,.arch-node,.arch-detail,.architecture-footer,.lifecycle-track,.comparison-side,.product-matrix,.comparison-conclusion,.evidence-ribbon,.node-map,.app-card,.learning-paths,.article-card,.research-equation { border-radius: var(--radius-md); }
@@ -1105,7 +1105,7 @@ body { background: #f7f9fa; color: #122b42; line-height: 1.75; }
 .immersive-wafer {
   background-image:
     linear-gradient(90deg,rgba(1,12,18,.94) 0%,rgba(1,12,18,.7) 38%,rgba(1,12,18,.2) 76%,rgba(1,12,18,.42) 100%),
-    url("assets/silicon-ip-panorama.png");
+    url("assets/silicon-ip-panorama-v2.webp");
   background-position:center;
 }
 .immersive-probe {
@@ -1194,6 +1194,19 @@ body { background: #f7f9fa; color: #122b42; line-height: 1.75; }
   box-shadow:0 0 90px rgba(17,210,208,.045) inset;
 }
 .closing-section > * { position:relative; z-index:1; }
+
+/* REFINE-005: restore quiet editorial pauses between image-led sections. */
+.research-launch {
+  background:
+    radial-gradient(circle at 78% 30%,rgba(17,210,208,.1),transparent 24%),
+    linear-gradient(135deg,#061b29 0%,#092c40 58%,#061b29 100%);
+}
+.sources-section {
+  background:
+    linear-gradient(90deg,rgba(243,247,248,.98),rgba(243,247,248,.92)),
+    repeating-linear-gradient(90deg,transparent 0 79px,rgba(9,34,53,.035) 80px),
+    var(--paper);
+}
 
 /* Unify the transition between image-led and information-led sections. */
 .architecture-section,.comparison-section,.evidence-section,.applications-section,.learning-section,.research-launch,.sources-section,.closing-section {

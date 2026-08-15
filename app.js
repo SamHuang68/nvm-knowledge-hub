@@ -206,7 +206,7 @@ function renderLearningPath() {
 
 function renderFilters() {
   const filters = document.querySelector("#filters");
-  filters.innerHTML = Object.entries(typeLabels).map(([key, label]) => `<button class="filter${key === activeType ? " active" : ""}" data-type="${key}" type="button">${pick(label)}</button>`).join("");
+  filters.innerHTML = Object.entries(typeLabels).map(([key, label]) => `<button class="filter${key === activeType ? " active" : ""}" data-type="${key}" type="button" aria-pressed="${key === activeType}">${pick(label)}</button>`).join("");
 }
 
 function renderArticles() {
@@ -230,7 +230,11 @@ function renderArticles() {
 function updatePowerState(state = document.querySelector("#power-lab").dataset.state) {
   const copy = powerStates[state];
   document.querySelector("#power-lab").dataset.state = state;
-  document.querySelectorAll("[data-power]").forEach(item => item.classList.toggle("active", item.dataset.power === state));
+  document.querySelectorAll("[data-power]").forEach(item => {
+    const active = item.dataset.power === state;
+    item.classList.toggle("active", active);
+    item.setAttribute("aria-pressed", active ? "true" : "false");
+  });
   document.querySelector("#stateTag").textContent = pick(copy.tag);
   document.querySelector("#stateTitle").textContent = pick(copy.title);
   document.querySelector("#stateText").textContent = pick(copy.text);
@@ -242,7 +246,11 @@ function updatePowerState(state = document.querySelector("#power-lab").dataset.s
 function updateArchitecture(nodeKey = activeArchitecture) {
   activeArchitecture = nodeKey;
   const detail = architectureDetails[nodeKey];
-  document.querySelectorAll(".arch-node").forEach(item => item.classList.toggle("active", item.dataset.node === nodeKey));
+  document.querySelectorAll(".arch-node").forEach(item => {
+    const active = item.dataset.node === nodeKey;
+    item.classList.toggle("active", active);
+    item.setAttribute("aria-pressed", active ? "true" : "false");
+  });
   document.querySelector("#archNumber").textContent = detail.number;
   document.querySelector("#archTitle").textContent = pick(detail.title);
   document.querySelector("#archText").textContent = pick(detail.text);
@@ -330,7 +338,10 @@ nav.addEventListener("click", event => {
   }
 });
 
-document.querySelector("#themeToggle").addEventListener("click", () => document.body.classList.toggle("light-mode"));
+document.querySelector("#themeToggle").addEventListener("click", event => {
+  const active = document.body.classList.toggle("light-mode");
+  event.currentTarget.setAttribute("aria-pressed", active ? "true" : "false");
+});
 document.querySelector("#languageToggle").addEventListener("click", () => setLanguage(currentLanguage === "zh" ? "en" : "zh"));
 
 const revealObserver = new IntersectionObserver(entries => {

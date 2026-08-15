@@ -1,50 +1,53 @@
 {
   "schemaVersion": 1,
   "projectId": "nvm-knowledge-hub-refinement",
-  "objective": "Add an evidence-backed bilingual PGP and Okta practical case study that explains where a PUF complements higher-layer identity and key systems without claiming universal replacement.",
+  "objective": "Run a second whole-site optimization cycle that improves editorial hierarchy, interaction quality, accessibility, bilingual integrity and delivery performance without changing the static-site architecture.",
   "status": "complete",
   "constraints": [
     "Preserve the existing static-site architecture and current user-owned changes.",
-    "Use primary sources for technical claims.",
-    "Do not claim PUF replaces PGP, Okta, IAM, MFA, authorization, certificate lifecycle or recovery controls.",
+    "Preserve technical meaning and evidence boundaries.",
+    "Prefer systemic fixes over one-off visual patches.",
     "Keep the host as the only integration writer.",
     "Do not commit, push or deploy without explicit authorization."
   ],
   "currentLoop": {
-    "id": "REFINE-004",
-    "title": "Layered PGP, Okta and PUF security narrative",
+    "id": "REFINE-005",
+    "title": "Whole-site quality and performance optimization",
     "status": "complete",
     "successCriteria": [
-      "A bilingual practical case study distinguishes logical identity/key services from the silicon root layer.",
-      "The module provides at least two concrete integration patterns and explicit non-goals.",
-      "Every material product or protocol claim links to a primary source.",
-      "Desktop 1280px and mobile 390px render without overflow or console errors.",
-      "English mode contains no unintended Chinese and keyboard focus remains visible.",
+      "All four page families retain a clear editorial hierarchy within the enterprise type scale.",
+      "Primary interactions, language switching and keyboard focus work without console errors.",
+      "Desktop 1280px and mobile 390px render without clipping, overlap or horizontal overflow.",
+      "Avoidable image and CSS delivery costs are reduced without visual regression.",
+      "English modes contain no unintended Chinese outside explicit language controls.",
       "Independent verification reports no P0 or P1 issue."
     ]
   },
   "tasks": [
-    {"id":"L04-01","owner":"context-expansion","state":"complete","output":"primary-source claim ledger"},
-    {"id":"L04-02","owner":"logical-precision","state":"complete","output":"layered threat and integration model"},
-    {"id":"L04-03","owner":"host","state":"complete","output":"bilingual website case-study module"},
-    {"id":"L04-04","owner":"host","state":"complete","output":"static and rendered gate evidence"},
-    {"id":"L04-05","owner":"independent-verification","state":"complete","output":"PASS: no P0 or P1 findings; ready within scope"}
+    {"id":"L05-01","owner":"context-expansion","state":"done","output":"visual hierarchy and density audit"},
+    {"id":"L05-02","owner":"logical-precision","state":"done","output":"accessibility, bilingual and runtime audit"},
+    {"id":"L05-03","owner":"host","state":"done","output":"92% reduction of active silicon panorama payload"},
+    {"id":"L05-04","owner":"host","state":"done","output":"integrated optimization patch"},
+    {"id":"L05-05","owner":"host","state":"done","output":"1280px and 390px rendered gate evidence for four page families"},
+    {"id":"L05-06","owner":"independent-verification","state":"done","output":"PASS: no P0/P1 findings; approved within REFINE-005 scope"}
   ],
   "verification": {
     "requirements":"pass",
-    "claimAccuracy":"pass",
-    "staticQuality":"pass",
-    "runtime":"pass: no console errors or warnings",
-    "responsive":"pass: 1280x720 and 390x844, no horizontal overflow",
-    "accessibility":"pass: global 2px cyan focus-visible treatment retained",
-    "bilingualIntegrity":"pass: English mode exposes no Chinese nodes in the module",
-    "independentReview":"pass: no P0 or P1 findings"
+    "claimAccuracy":"pass: technical content unchanged",
+    "staticQuality":"pass: node --check and git diff --check",
+    "runtime":"pass: no console errors or warnings across four page families",
+    "responsive":"pass: 1280px and 390px; no page overflow",
+    "accessibility":"pass: selected states, Assurance focus, matrix and mobile nav verified",
+    "bilingualIntegrity":"pass: English visible text clean outside explicit language selector",
+    "performance":"pass: active silicon panorama reduced from 1,698,072 to 137,068 bytes",
+    "independentReview":"pass: no P0/P1 findings"
   },
   "blockers": [],
-  "artifacts": ["index.html","styles.css","app.js",".loop-engineering/state.json"],
+  "artifacts": ["index.html","styles.css","app.js","memory-physics.html","memory-evidence.html","research.css","security-assurance.html","assurance.css",".loop-engineering/state.json"],
   "loopHistory": [
     {"id":"REFINE-003","title":"Sitewide editorial scale normalization","status":"complete"},
-    {"id":"REFINE-004","title":"Layered PGP, Okta and PUF security narrative","status":"complete"}
+    {"id":"REFINE-004","title":"Layered PGP, Okta and PUF security narrative","status":"complete"},
+    {"id":"REFINE-005","title":"Whole-site quality and performance optimization","status":"complete"}
   ],
   "nextLoop": null
 }

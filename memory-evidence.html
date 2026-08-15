@@ -6,8 +6,8 @@
   <meta name="description" content="SRAM、OTP、PUF、光熱側信道、FIB 與 Secure Storage 的可搜尋研究證據庫，含論文、專利、供應商文件與官方案例。">
   <meta name="theme-color" content="#061c2a">
   <title>Evidence Ledger · NVM Knowledge Hub</title>
-  <link rel="stylesheet" href="styles.css?v=20260816-hierarchy">
-  <link rel="stylesheet" href="research.css?v=20260816-hierarchy">
+  <link rel="stylesheet" href="styles.css?v=20260816-refine005">
+  <link rel="stylesheet" href="research.css?v=20260816-refine005">
 </head>
 <body class="research-page evidence-page" data-language="zh">
   <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
@@ -59,14 +59,14 @@
         <div class="evidence-toolbar">
           <label class="evidence-search"><span aria-hidden="true">⌕</span><input id="evidenceSearch" type="search" placeholder="搜尋作者、技術、攻擊或 DOI…" autocomplete="off"></label>
           <div class="evidence-filters" id="evidenceFilters">
-            <button class="active" type="button" data-type="all"><span data-lang="zh">全部</span><span data-lang="en">ALL</span></button>
-            <button type="button" data-type="paper"><span data-lang="zh">論文</span><span data-lang="en">PAPERS</span></button>
-            <button type="button" data-type="patent"><span data-lang="zh">專利</span><span data-lang="en">PATENTS</span></button>
-            <button type="button" data-type="vendor"><span data-lang="zh">供應商</span><span data-lang="en">VENDOR</span></button>
-            <button type="button" data-type="case"><span data-lang="zh">官方案例</span><span data-lang="en">OFFICIAL CASE</span></button>
+            <button class="active" type="button" data-type="all" aria-pressed="true"><span data-lang="zh">全部</span><span data-lang="en">ALL</span></button>
+            <button type="button" data-type="paper" aria-pressed="false"><span data-lang="zh">論文</span><span data-lang="en">PAPERS</span></button>
+            <button type="button" data-type="patent" aria-pressed="false"><span data-lang="zh">專利</span><span data-lang="en">PATENTS</span></button>
+            <button type="button" data-type="vendor" aria-pressed="false"><span data-lang="zh">供應商</span><span data-lang="en">VENDOR</span></button>
+            <button type="button" data-type="case" aria-pressed="false"><span data-lang="zh">官方案例</span><span data-lang="en">OFFICIAL CASE</span></button>
           </div>
         </div>
-        <div class="evidence-summary"><span><b id="evidenceCount">27</b> <span data-lang="zh">筆符合目前條件</span><span data-lang="en">records match the current view</span></span><span>PUBLIC SOURCES · ACCESSED 2026-08-12</span></div>
+        <div class="evidence-summary" role="status" aria-live="polite"><span><b id="evidenceCount">27</b> <span data-lang="zh">筆符合目前條件</span><span data-lang="en">records match the current view</span></span><span>PUBLIC SOURCES · ACCESSED 2026-08-12</span></div>
 
         <div class="source-grid" id="sourceGrid">
           <article class="source-card" data-type="paper" data-keywords="SRAM PUF power-up mismatch FERNS 10.1109/TC.2008.212 Holcomb Burleson Fu">
@@ -178,7 +178,7 @@
           </article>
         </div>
 
-        <div id="evidenceEmpty" class="evidence-empty" hidden><b><span data-lang="zh">找不到符合條件的證據。</span><span data-lang="en">No evidence matches the current query.</span></b></div>
+        <div id="evidenceEmpty" class="evidence-empty" role="status" aria-live="polite" hidden><b><span data-lang="zh">找不到符合條件的證據。</span><span data-lang="en">No evidence matches the current query.</span></b></div>
         <p class="source-disclaimer"><b><span data-lang="zh">引用政策：</span><span data-lang="en">Citation policy:</span></b> <span data-lang="zh">本 Ledger 以 primary／first-party sources 為主。供應商互相比較的內容只當作「該供應商的公開立場」，不當成獨立驗證。Google Patents 用於提供原始專利全文；產品是否實作某專利需另外證明。任何要進入 datasheet、合約、OIP 正式講稿的定量安全主張，仍應由 Synopsys legal、product security 與 NDA collateral 核准。</span><span data-lang="en">This ledger prioritizes primary and first-party sources. Vendor comparisons are treated as that vendor's public position, not independent validation. Google Patents provides original patent text; product implementation of a patent requires separate evidence. Quantified security claims entering a datasheet, contract or formal OIP talk should still be approved by Synopsys legal, product security and NDA collateral.</span></p>
       </section>
 
@@ -193,6 +193,6 @@
   </main>
 
   <footer><a class="brand footer-brand" href="index.html"><span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span></a><p><span data-lang="zh">Annotated public-source corpus · 2026-08-12</span><span data-lang="en">Annotated public-source corpus · 2026-08-12</span></p><p>Research Note 02</p></footer>
-  <script src="research.js"></script>
+  <script src="research.js?v=20260816-refine005"></script>
 </body>
 </html>
