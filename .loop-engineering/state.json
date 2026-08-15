@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "projectId": "nvm-knowledge-hub-refinement",
+  "objective": "Add an evidence-backed bilingual PGP and Okta practical case study that explains where a PUF complements higher-layer identity and key systems without claiming universal replacement.",
+  "status": "complete",
+  "constraints": [
+    "Preserve the existing static-site architecture and current user-owned changes.",
+    "Use primary sources for technical claims.",
+    "Do not claim PUF replaces PGP, Okta, IAM, MFA, authorization, certificate lifecycle or recovery controls.",
+    "Keep the host as the only integration writer.",
+    "Do not commit, push or deploy without explicit authorization."
+  ],
+  "currentLoop": {
+    "id": "REFINE-004",
+    "title": "Layered PGP, Okta and PUF security narrative",
+    "status": "complete",
+    "successCriteria": [
+      "A bilingual practical case study distinguishes logical identity/key services from the silicon root layer.",
+      "The module provides at least two concrete integration patterns and explicit non-goals.",
+      "Every material product or protocol claim links to a primary source.",
+      "Desktop 1280px and mobile 390px render without overflow or console errors.",
+      "English mode contains no unintended Chinese and keyboard focus remains visible.",
+      "Independent verification reports no P0 or P1 issue."
+    ]
+  },
+  "tasks": [
+    {"id":"L04-01","owner":"context-expansion","state":"complete","output":"primary-source claim ledger"},
+    {"id":"L04-02","owner":"logical-precision","state":"complete","output":"layered threat and integration model"},
+    {"id":"L04-03","owner":"host","state":"complete","output":"bilingual website case-study module"},
+    {"id":"L04-04","owner":"host","state":"complete","output":"static and rendered gate evidence"},
+    {"id":"L04-05","owner":"independent-verification","state":"complete","output":"PASS: no P0 or P1 findings; ready within scope"}
+  ],
+  "verification": {
+    "requirements":"pass",
+    "claimAccuracy":"pass",
+    "staticQuality":"pass",
+    "runtime":"pass: no console errors or warnings",
+    "responsive":"pass: 1280x720 and 390x844, no horizontal overflow",
+    "accessibility":"pass: global 2px cyan focus-visible treatment retained",
+    "bilingualIntegrity":"pass: English mode exposes no Chinese nodes in the module",
+    "independentReview":"pass: no P0 or P1 findings"
+  },
+  "blockers": [],
+  "artifacts": ["index.html","styles.css","app.js",".loop-engineering/state.json"],
+  "loopHistory": [
+    {"id":"REFINE-003","title":"Sitewide editorial scale normalization","status":"complete"},
+    {"id":"REFINE-004","title":"Layered PGP, Okta and PUF security narrative","status":"complete"}
+  ],
+  "nextLoop": null
+}

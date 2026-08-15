@@ -7,13 +7,13 @@ const localized = (zh, en) => ({ zh, en });
 const pick = value => typeof value === "string" ? value : value[currentLanguage];
 
 const navigationLabels = {
-  why: localized("為什麼", "Why"),
-  architecture: localized("架構", "Architecture"),
-  assurance: localized("確證", "Assurance"),
-  compare: localized("比較", "Compare"),
-  evidence: localized("證據", "Evidence"),
-  learn: localized("學習", "Learn"),
-  research: localized("研究", "Research")
+  why: localized("Why", "Why"),
+  architecture: localized("Architecture", "Architecture"),
+  assurance: localized("Assurance", "Assurance"),
+  compare: localized("Compare", "Compare"),
+  evidence: localized("Evidence", "Evidence"),
+  learn: localized("Learn", "Learn"),
+  research: localized("Research", "Research")
 };
 
 const lessons = [
@@ -76,7 +76,7 @@ const architectureDetails = {
 };
 
 const lifecycleDetails = [
-  { index: localized("01 / 靜態", "01 / AT REST"), title: localized("Root key 不存在。", "No root key is present."), text: localized("OTP 保留密文與永久 lifecycle state；沒有 powered SRAM response，也沒有 reconstructed root key。", "OTP retains ciphertext and permanent lifecycle state. There is no powered SRAM response and no reconstructed root key.") },
+  { index: localized("01 / 靜態", "01 / AT REST"), title: localized("Power-off 的核心安全優勢：Root key 不存在。", "Core power-off security advantage: no root key is present."), text: localized("OTP 保留密文與永久 lifecycle state；沒有 powered SRAM response，也沒有 reconstructed root key。", "OTP retains ciphertext and permanent lifecycle state. There is no powered SRAM response and no reconstructed root key.") },
   { index: localized("02 / 重建", "02 / RECONSTRUCTION"), title: localized("同一顆裝置重建相同 root。", "The same device rebuilds the same root."), text: localized("上電時，裝置量測 SRAM startup response，使用受保護的 PUF processing 與公開 helper data 重建穩定 root。", "At power-up, the device measures its SRAM startup response and uses protected PUF processing plus public helper data to reconstruct a stable root.") },
   { index: localized("03 / 授權窗口", "03 / AUTHORIZED WINDOW"), title: localized("衍生金鑰保護正在進行的工作。", "Derived keys protect the work in progress."), text: localized("在 secure boundary 內，衍生金鑰授權 OTP 存取並保護系統資產；目標是短暫、受控的 key-residency window。", "Inside the secure boundary, derived keys authorize OTP reads and writes and protect system assets. The goal is a short, controlled key-residency window.") },
   { index: localized("04 / 移除", "04 / REMOVE"), title: localized("敏感金鑰材料被清除。", "Sensitive key material is cleared."), text: localized("工作完成後，依 implementation lifecycle 移除 working key material；精確 zeroization 行為應由產品文件確認。", "When no longer needed, working key material is removed according to the implementation lifecycle. Exact zeroization behavior should be confirmed in product documentation.") }
@@ -84,7 +84,7 @@ const lifecycleDetails = [
 
 const powerStates = {
   off: {
-    tag: localized("靜態", "AT REST"), title: localized("Root key 不存在。", "Root key is absent."),
+    tag: localized("靜態", "AT REST"), title: localized("Power-off 的核心安全優勢：Root key 不存在。", "Core power-off security advantage: no root key is present."),
     text: localized("OTP 保留 AES-256 ciphertext；SRAM startup state 與衍生根金鑰皆不存在。", "OTP retains AES-256 ciphertext; neither the SRAM startup state nor the derived root key is present."),
     power: "POWER OFF", key: localized("不存在", "NOT PRESENT"), result: localized("受保護資料", "PROTECTED DATA")
   },
@@ -145,6 +145,31 @@ const staticTextPairs = [
   ["開啟論文級探討", "Open the research paper"],
   ["查看 Evidence Ledger", "View the Evidence Ledger"],
   ["知道什麼，也清楚標示什麼還不知道。", "State what is known—and clearly mark what is not."],
+  ["永久保存資料。", "Protect permanent data."],
+  ["根金鑰不永久留存。", "Keep the root key ephemeral."],
+  ["安全不只取決於資料能保存多久。", "Security is not defined only by data retention."],
+  ["更取決於攻擊發生時，晶片裡還留下什麼。", "It also depends on what remains on silicon when an attack occurs."],
+  ["好的矽智財，必須定義清楚。", "Strong silicon IP starts with a clearly defined boundary."],
+  ["整合邊界也必須可以驗證。", "That integration boundary must also be verifiable."],
+  ["先關掉電源。", "Start by removing power."],
+  ["再看攻擊者能取得什麼。", "Then examine what an attacker can obtain."],
+  ["四個功能區塊協同運作。", "Four functional blocks work together."],
+  ["共同交付一個安全結果。", "They deliver one security outcome."],
+  ["提出技術宣稱。", "Make the technical claim."],
+  ["也要提出可以驗證的方法。", "Then define how it can be verified."],
+  ["先建立公平的比較基準。", "Begin with a fair comparison baseline."],
+  ["再判斷真正的技術差異。", "Then identify the material technical difference."],
+  ["信任不只存在於單一功能。", "Trust does not reside in a single function."],
+  ["它必須落實在系統邊界之內。", "It must hold across the system boundary."],
+  ["成熟度來自長期驗證。", "Maturity is earned through sustained validation."],
+  ["驗證結果會轉化成安全能力。", "Validation becomes a security capability."],
+  ["客戶購買的不只是功能。", "Customers purchase more than functionality."],
+  ["還包括有人負責的安全結果。", "They purchase an accountable security outcome."],
+  ["從感測方式看見技術差異。", "Use sensing architecture to expose technical differences."],
+  ["從量產能力判斷商業壁壘。", "Use production viability to judge the commercial moat."],
+  ["本頁的證據原則：", "EVIDENCE PRINCIPLE"],
+  ["對已知內容提供可追溯的證據；", "Provide traceable evidence for what is known."],
+  ["對尚未確認的部分清楚標示限制。", "Clearly state the limits of what remains unconfirmed."],
   ["回到開頭", "Back to top"]
 ];
 

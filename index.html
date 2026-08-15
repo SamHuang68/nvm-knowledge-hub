@@ -6,8 +6,8 @@
   <meta name="description" content="NVM Knowledge Hub：以 SRAM PUF、AES-256 與 OTP 為核心的 Secure Storage executive learning experience。">
   <meta name="theme-color" content="#061b29">
   <title>NVM Knowledge Hub · Secure Storage</title>
-  <link rel="preload" href="assets/secure-storage-hero.png" as="image">
-  <link rel="stylesheet" href="styles.css?v=20260814-assurance">
+  <link rel="preload" href="assets/secure-storage-hero-v2.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="styles.css?v=20260816-hierarchy">
 </head>
 <body>
   <svg class="svg-defs" aria-hidden="true">
@@ -39,13 +39,13 @@
       <span class="brand-section">SECURE STORAGE</span>
     </a>
     <nav class="primary-nav" aria-label="主要導覽">
-      <a href="#thesis" data-nav-key="why">為什麼</a>
-      <a href="#architecture" data-nav-key="architecture">架構</a>
-      <a href="#assurance" data-nav-key="assurance">確證</a>
-      <a href="#compare" data-nav-key="compare">比較</a>
-      <a href="#evidence" data-nav-key="evidence">證據</a>
-      <a href="#learn" data-nav-key="learn">學習</a>
-      <a href="memory-physics.html" data-nav-key="research">研究</a>
+      <a href="#thesis" data-nav-key="why">Why</a>
+      <a href="#architecture" data-nav-key="architecture">Architecture</a>
+      <a href="#assurance" data-nav-key="assurance">Assurance</a>
+      <a href="#compare" data-nav-key="compare">Compare</a>
+      <a href="#evidence" data-nav-key="evidence">Evidence</a>
+      <a href="#learn" data-nav-key="learn">Learn</a>
+      <a href="memory-physics.html" data-nav-key="research">Research</a>
     </nav>
     <div class="header-actions">
       <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to English"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
@@ -113,7 +113,7 @@
     <section id="power-lab" class="section power-lab reveal" data-state="off">
       <div class="power-copy">
         <p class="eyebrow">INTERACTIVE · POWER STATE</p>
-        <h2>先關掉電源。<br>再看攻擊者能取得什麼。</h2>
+        <h2 class="split-statement"><span class="statement-premise">先關掉電源。</span><span class="statement-resolution">再看攻擊者能取得什麼。</span></h2>
         <p class="section-lede">切換狀態，觀察 root key 的存在窗口。Secure Storage 的主張不是物理攻擊會消失，而是成功讀取後能揭露的內容被限制。</p>
         <div class="state-switch" role="group" aria-label="切換電源狀態">
           <button class="active" type="button" data-power="off"><svg><use href="#i-power"/></svg>POWER OFF</button>
@@ -121,7 +121,7 @@
         </div>
         <div class="state-explanation" aria-live="polite">
           <span id="stateTag">AT REST</span>
-          <h3 id="stateTitle">Root key is absent.</h3>
+          <h3 id="stateTitle">Power-off 的核心安全優勢：Root key 不存在。</h3>
           <p id="stateText">OTP 保留 AES-256 ciphertext；SRAM startup state 與衍生根金鑰皆不存在。</p>
         </div>
       </div>
@@ -181,10 +181,75 @@
       </div>
     </section>
 
+    <section id="identity-stack" class="section identity-stack-section reveal" aria-labelledby="identity-stack-title">
+      <div class="identity-stack-head">
+        <div>
+          <p class="eyebrow light">LAYERED TRUST · PRACTICAL CASE STUDY</p>
+          <h2 id="identity-stack-title"><span data-assurance-zh><span class="stack-title-premise">不是三選一。</span><span class="stack-title-resolution">讓每一層各自解決正確的問題。</span></span><span data-assurance-en><span class="stack-title-premise">Not three alternatives.</span><span class="stack-title-resolution">Give each layer the right security job.</span></span></h2>
+        </div>
+        <p><span data-assurance-zh>OpenPGP 保護資料與簽章；Okta FastPass 管理使用者、裝置狀態與存取政策；PUF 強化兩者下方的 silicon root，降低對永久儲存 root secret 的依賴。</span><span data-assurance-en>OpenPGP protects data and signatures. Okta FastPass governs users, device posture and access policy. A PUF strengthens the silicon root beneath them by reducing dependence on a persistently stored root secret.</span></p>
+      </div>
+
+      <div class="trust-layer-grid">
+        <article>
+          <span>01 · DATA</span><h3>OpenPGP</h3>
+          <p><b><span data-assurance-zh>主要任務</span><span data-assurance-en>Primary job</span></b><span data-assurance-zh>端對端加密、解密與數位簽章。</span><span data-assurance-en>End-to-end encryption, decryption and digital signatures.</span></p>
+          <p><b><span data-assurance-zh>斷電後仍存在</span><span data-assurance-en>Persists at rest</span></b><span data-assurance-zh>私鑰 packet；可能受 passphrase 保護，但仍是可保存與複製的數位物件。</span><span data-assurance-en>A secret-key packet, optionally passphrase-protected, remains a storable and copyable digital object.</span></p>
+          <small><span data-assurance-zh>不負責裝置完整性、登入政策或已解鎖後的惡意操作。</span><span data-assurance-en>Does not provide device integrity, login policy or protection from misuse after unlock.</span></small>
+        </article>
+        <article>
+          <span>02 · ACCESS</span><h3>Okta FastPass</h3>
+          <p><b><span data-assurance-zh>主要任務</span><span data-assurance-en>Primary job</span></b><span data-assurance-zh>phishing-resistant、passwordless authentication 與裝置政策。</span><span data-assurance-en>Phishing-resistant, passwordless authentication and device policy.</span></p>
+          <p><b><span data-assurance-zh>裝置端狀態</span><span data-assurance-en>Device state</span></b><span data-assurance-zh>註冊時建立 proof-of-possession key；可使用 TPM／Secure Enclave，也可能落在 software keystore。</span><span data-assurance-en>Enrollment creates a proof-of-possession key; it may use a TPM/Secure Enclave or a software keystore.</span></p>
+          <small><span data-assurance-zh>hardware protection 必須由政策要求，不能只因為使用 FastPass 就假設存在。</span><span data-assurance-en>Hardware protection must be required by policy; FastPass alone does not guarantee it.</span></small>
+        </article>
+        <article class="puf-layer">
+          <span>03 · SILICON ROOT</span><h3>SRAM PUF</h3>
+          <p><b><span data-assurance-zh>主要任務</span><span data-assurance-en>Primary job</span></b><span data-assurance-zh>需要時重建 device-unique root，用來 derive 或 unwrap operational keys。</span><span data-assurance-en>Reconstruct a device-unique root on demand to derive or unwrap operational keys.</span></p>
+          <p><b><span data-assurance-zh>斷電後仍存在</span><span data-assurance-en>Persists at rest</span></b><span data-assurance-zh>helper／activation data 與 wrapped keys 可以存在；root secret 本身不必永久儲存。</span><span data-assurance-en>Helper or activation data and wrapped keys may persist; the root secret itself need not.</span></p>
+          <small><span data-assurance-zh>不取代 user identity、MFA、authorization、revocation 或 recovery。</span><span data-assurance-en>Does not replace user identity, MFA, authorization, revocation or recovery.</span></small>
+        </article>
+      </div>
+
+      <div class="enterprise-signing-case">
+        <div class="case-intro">
+          <span>REFERENCE ARCHITECTURE · NOT A TURNKEY OKTA INTEGRATION</span>
+          <h3><span data-assurance-zh>案例：Device-bound enterprise signing</span><span data-assurance-en>Case: Device-bound enterprise signing</span></h3>
+          <p><span data-assurance-zh>只有同時通過企業身分政策與原始 silicon device 驗證，才允許本機 OpenPGP operation。</span><span data-assurance-en>A local OpenPGP operation is released only when enterprise identity policy and the enrolled silicon device are both satisfied.</span></p>
+        </div>
+        <div class="case-flow" aria-label="Layered enterprise signing reference architecture">
+          <article><i>01</i><b>OKTA FASTPASS</b><strong><span data-assurance-zh>授權人與 session</span><span data-assurance-en>Authorize user and session</span></strong><small>user · posture · policy · revoke</small></article>
+          <svg><use href="#i-arrow"/></svg>
+          <article><i>02</i><b>PUF ROOT</b><strong><span data-assurance-zh>確認實體裝置並解封</span><span data-assurance-en>Bind device and unseal</span></strong><small>reconstruct · derive · zeroize</small></article>
+          <svg><use href="#i-arrow"/></svg>
+          <article><i>03</i><b>OPENPGP</b><strong><span data-assurance-zh>簽署或解密內容</span><span data-assurance-en>Sign or decrypt the artifact</span></strong><small>portable data protection</small></article>
+        </div>
+      </div>
+
+      <div class="threat-coverage">
+        <div><span>PHISHING</span><b>Okta FastPass</b><small><span data-assurance-zh>challenge／origin 與 policy</span><span data-assurance-en>Challenge, origin and policy</span></small></div>
+        <div><span>COPIED STORAGE</span><b>PUF + wrapped key</b><small><span data-assurance-zh>複製 blob 不等於複製 device root</span><span data-assurance-en>A copied blob is not the device root</span></small></div>
+        <div><span>DATA PORTABILITY</span><b>OpenPGP</b><small><span data-assurance-zh>跨系統的加密與簽章格式</span><span data-assurance-en>Portable encryption and signature format</span></small></div>
+        <div class="coverage-limit"><span>SHARED LIMIT</span><b><span data-assurance-zh>已入侵的 runtime</span><span data-assurance-en>Compromised runtime</span></b><small><span data-assurance-zh>重建或解鎖後仍需 isolation、user presence、rate limit 與 zeroization。</span><span data-assurance-en>After reconstruction or unlock, isolation, user presence, rate limits and zeroization still matter.</span></small></div>
+      </div>
+
+      <aside class="stack-evidence-note">
+        <b><span data-assurance-zh>主張邊界</span><span data-assurance-en>CLAIM BOUNDARY</span></b>
+        <p><span data-assurance-zh>PUF 的精確優勢不是「比 Okta 或 OpenPGP 更安全」，而是針對 powered-off physical extraction 與 device cloning，移除永久儲存 root-key target。最終結果仍取決於 reliability、helper-data integrity、FI／SCA、key residency、enrollment 與 recovery evidence。</span><span data-assurance-en>The precise PUF advantage is not “more secure than Okta or OpenPGP.” It removes a persistently stored root-key target for powered-off physical extraction and device cloning. The result still depends on reliability, helper-data integrity, FI/SCA, key residency, enrollment and recovery evidence.</span></p>
+      </aside>
+
+      <div class="stack-sources" aria-label="Primary sources for the layered security case study">
+        <a href="https://www.rfc-editor.org/rfc/rfc9580.html#section-5.5.3" target="_blank" rel="noreferrer"><span>RFC 9580</span><b>OpenPGP Secret Key Packet</b></a>
+        <a href="https://help.okta.com/oie/en-us/content/topics/identity-engine/devices/fp/fp-main.htm" target="_blank" rel="noreferrer"><span>OKTA</span><b>FastPass authentication flow</b></a>
+        <a href="https://help.okta.com/oie/en-us/content/topics/identity-engine/devices/device-registration.htm" target="_blank" rel="noreferrer"><span>OKTA</span><b>Device registration & key storage</b></a>
+        <a href="https://www.synopsys.com/designware-ip/security-ip/cryptography-ip/puf/key-vault.html" target="_blank" rel="noreferrer"><span>SYNOPSYS</span><b>PUF-based Key Vault</b></a>
+      </div>
+    </section>
+
     <section id="architecture" class="section architecture-section reveal">
       <div class="architecture-intro">
         <p class="eyebrow light">THE PRODUCT IS THE INTEGRATION</p>
-        <h2>四個功能區塊協同運作。<br>共同交付一個安全結果。</h2>
+        <h2 class="split-statement"><span class="statement-premise">四個功能區塊協同運作。</span><span class="statement-resolution">共同交付一個安全結果。</span></h2>
         <p>客戶買的不是四個各自正確的 primitive，而是從 root、crypto、storage、control 到 lifecycle 都有清楚責任邊界的 subsystem。</p>
       </div>
       <div class="architecture-canvas">
@@ -228,7 +293,7 @@
       <div class="chapter-rail"><span>CHAPTER 05</span><i></i><b>MEASURE<br>THE CLAIM</b></div>
       <div class="chapter-copy align-right">
         <p>FROM ARCHITECTURE TO EVIDENCE</p>
-        <h2>提出技術宣稱。<br>也要提出可以驗證的方法。</h2>
+        <h2 class="split-statement"><span class="statement-premise">提出技術宣稱。</span><span class="statement-resolution">也要提出可以驗證的方法。</span></h2>
         <span>PVT · BER · retention · attack evaluation</span>
       </div>
       <a href="#compare" class="chapter-cue" aria-label="Continue to comparison">↓</a>
@@ -236,7 +301,7 @@
 
     <section id="compare" class="section comparison-section reveal">
       <div class="comparison-head">
-        <div><p class="eyebrow light">PRECISE COMPETITIVE POSITIONING</p><h2>先建立公平的比較基準。<br>再判斷真正的技術差異。</h2></div>
+        <div><p class="eyebrow light">PRECISE COMPETITIVE POSITIONING</p><h2 class="split-statement"><span class="statement-premise">先建立公平的比較基準。</span><span class="statement-resolution">再判斷真正的技術差異。</span></h2></div>
         <div class="compare-switch" role="tablist" aria-label="比較層級">
           <button class="active" type="button" data-view="puf" role="tab" aria-selected="true">PUF LEVEL</button>
           <button type="button" data-view="product" role="tab" aria-selected="false">PRODUCT LEVEL</button>
@@ -280,7 +345,7 @@
     </section>
 
     <section id="evidence" class="section evidence-section reveal">
-      <div class="evidence-title"><p class="eyebrow">FIELD-PROVEN SECURITY</p><h2>成熟度來自長期驗證。<br>驗證結果會轉化成安全能力。</h2><p>攻擊面被發現、修補、認證與長期量產驗證的累積，會直接降低 unknown unknowns。</p></div>
+      <div class="evidence-title"><p class="eyebrow">FIELD-PROVEN SECURITY</p><h2 class="split-statement"><span class="statement-premise">成熟度來自長期驗證。</span><span class="statement-resolution">驗證結果會轉化成安全能力。</span></h2><p>攻擊面被發現、修補、認證與長期量產驗證的累積，會直接降低 unknown unknowns。</p></div>
       <div class="evidence-numbers">
         <article><svg><use href="#i-chip"/></svg><strong data-count="1.5">1.5B+</strong><span>devices deployed with Synopsys SRAM PUF technology</span></article>
         <article><svg><use href="#i-evidence"/></svg><strong data-count="15">15+</strong><span>years of commercial deployment</span></article>
@@ -362,7 +427,10 @@
     </section>
 
     <section class="section sources-section reveal">
-      <div><p class="eyebrow">PUBLIC EVIDENCE · SOURCE DISCIPLINE</p><h2>對已知的內容，提供可追溯的證據。<br>對尚未確認的部分，清楚標示限制。</h2></div>
+      <div class="sources-intro">
+        <p class="eyebrow">PUBLIC EVIDENCE · SOURCE DISCIPLINE</p>
+        <p class="evidence-principle"><strong>本頁的證據原則：</strong><span>對已知內容提供可追溯的證據；</span><span>對尚未確認的部分清楚標示限制。</span></p>
+      </div>
       <div class="source-list">
         <a href="https://www.synopsys.com/designware-ip/memories-logic-libraries/secure-storage-otp-ip.html" target="_blank" rel="noreferrer"><span>01</span><b>Synopsys Secure Storage for OTP IP</b><small>Architecture · AES-256 · APB · provisioning</small></a>
         <a href="https://www.synopsys.com/articles/sram-puf-secure-silicon-fingerprint.html" target="_blank" rel="noreferrer"><span>02</span><b>Synopsys SRAM PUF</b><small>Root-key reconstruction · helper data · field evidence</small></a>
