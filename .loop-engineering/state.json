@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "projectId": "nvm-knowledge-hub-refinement",
-  "objective": "Run a second whole-site optimization cycle that improves editorial hierarchy, interaction quality, accessibility, bilingual integrity and delivery performance without changing the static-site architecture.",
+  "objective": "Run a third whole-site upgrade focused on maintainable design tokens, stronger editorial cadence, traceability storytelling and complete mobile-menu interaction behavior.",
   "status": "complete",
   "constraints": [
     "Preserve the existing static-site architecture and current user-owned changes.",
@@ -11,43 +11,43 @@
     "Do not commit, push or deploy without explicit authorization."
   ],
   "currentLoop": {
-    "id": "REFINE-005",
-    "title": "Whole-site quality and performance optimization",
+    "id": "REFINE-006",
+    "title": "Design-system consolidation and editorial cadence upgrade",
     "status": "complete",
     "successCriteria": [
-      "All four page families retain a clear editorial hierarchy within the enterprise type scale.",
-      "Primary interactions, language switching and keyboard focus work without console errors.",
+      "Final type scales are controlled by a single semantic token layer instead of scattered component values.",
+      "Research and assurance pages gain at least one non-card editorial sequence with clearer narrative flow.",
+      "Mobile menus expose aria-controls, close with Escape and reset safely when returning to desktop.",
       "Desktop 1280px and mobile 390px render without clipping, overlap or horizontal overflow.",
-      "Avoidable image and CSS delivery costs are reduced without visual regression.",
       "English modes contain no unintended Chinese outside explicit language controls.",
       "Independent verification reports no P0 or P1 issue."
     ]
   },
   "tasks": [
-    {"id":"L05-01","owner":"context-expansion","state":"done","output":"visual hierarchy and density audit"},
-    {"id":"L05-02","owner":"logical-precision","state":"done","output":"accessibility, bilingual and runtime audit"},
-    {"id":"L05-03","owner":"host","state":"done","output":"92% reduction of active silicon panorama payload"},
-    {"id":"L05-04","owner":"host","state":"done","output":"integrated optimization patch"},
-    {"id":"L05-05","owner":"host","state":"done","output":"1280px and 390px rendered gate evidence for four page families"},
-    {"id":"L05-06","owner":"independent-verification","state":"done","output":"PASS: no P0/P1 findings; approved within REFINE-005 scope"}
+    {"id":"L06-01","owner":"context-expansion","state":"done","output":"design-system and cascade consolidation audit"},
+    {"id":"L06-02","owner":"logical-precision","state":"done","output":"editorial cadence and interaction audit"},
+    {"id":"L06-03","owner":"host","state":"done","output":"integrated design and interaction upgrade"},
+    {"id":"L06-04","owner":"host","state":"done","output":"four-family responsive and bilingual gate evidence"},
+    {"id":"L06-05","owner":"independent-verification","state":"done","output":"PASS — no P0, P1 or P2 findings"}
   ],
   "verification": {
     "requirements":"pass",
-    "claimAccuracy":"pass: technical content unchanged",
-    "staticQuality":"pass: node --check and git diff --check",
-    "runtime":"pass: no console errors or warnings across four page families",
-    "responsive":"pass: 1280px and 390px; no page overflow",
-    "accessibility":"pass: selected states, Assurance focus, matrix and mobile nav verified",
-    "bilingualIntegrity":"pass: English visible text clean outside explicit language selector",
-    "performance":"pass: active silicon panorama reduced from 1,698,072 to 137,068 bytes",
-    "independentReview":"pass: no P0/P1 findings"
+    "claimAccuracy":"pass",
+    "staticQuality":"pass",
+    "runtime":"pass",
+    "responsive":"pass",
+    "accessibility":"pass",
+    "bilingualIntegrity":"pass",
+    "maintainability":"pass",
+    "independentReview":"pass"
   },
   "blockers": [],
   "artifacts": ["index.html","styles.css","app.js","memory-physics.html","memory-evidence.html","research.css","security-assurance.html","assurance.css",".loop-engineering/state.json"],
   "loopHistory": [
     {"id":"REFINE-003","title":"Sitewide editorial scale normalization","status":"complete"},
     {"id":"REFINE-004","title":"Layered PGP, Okta and PUF security narrative","status":"complete"},
-    {"id":"REFINE-005","title":"Whole-site quality and performance optimization","status":"complete"}
+    {"id":"REFINE-005","title":"Whole-site quality and performance optimization","status":"complete"},
+    {"id":"REFINE-006","title":"Design-system consolidation and editorial cadence upgrade","status":"complete"}
   ],
   "nextLoop": null
 }

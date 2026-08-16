@@ -285,7 +285,7 @@ function setLanguage(nextLanguage, persist = true) {
   document.querySelector("#languageToggle").setAttribute("aria-label", nextLanguage === "zh" ? "Switch to English" : "切換為中文");
   document.querySelector("#searchInput").setAttribute("aria-label", nextLanguage === "zh" ? "搜尋學習內容" : "Search learning content");
   document.querySelector("#themeToggle").setAttribute("aria-label", nextLanguage === "zh" ? "切換顯示主題" : "Toggle display theme");
-  document.querySelector("#menuToggle").setAttribute("aria-label", nextLanguage === "zh" ? "開啟選單" : "Open menu");
+  syncMenuState(document.querySelector(".primary-nav").classList.contains("open"));
   document.querySelector("#searchInput").placeholder = nextLanguage === "zh" ? "搜尋 OTP、PUF、retention、fault…" : "Search OTP, PUF, retention, fault…";
   document.querySelector("#emptyState").textContent = nextLanguage === "zh" ? "找不到符合條件的內容。" : "No matching learning content.";
   document.querySelector('meta[name="description"]').content = nextLanguage === "zh" ? "NVM Knowledge Hub：以 SRAM PUF、AES-256 與 OTP 為核心的 Secure Storage executive learning experience。" : "NVM Knowledge Hub: an executive Secure Storage learning experience built around SRAM PUF, AES-256 and OTP.";
@@ -327,15 +327,27 @@ document.querySelectorAll(".compare-switch button").forEach(button => {
 
 const menuButton = document.querySelector("#menuToggle");
 const nav = document.querySelector(".primary-nav");
+function syncMenuState(open) {
+  menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+  menuButton.setAttribute("aria-label", open ? (currentLanguage === "zh" ? "關閉選單" : "Close menu") : (currentLanguage === "zh" ? "開啟選單" : "Open menu"));
+}
+function closeMenu(restoreFocus = false) {
+  nav.classList.remove("open");
+  syncMenuState(false);
+  if (restoreFocus) menuButton.focus();
+}
 menuButton.addEventListener("click", () => {
   const open = nav.classList.toggle("open");
-  menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+  syncMenuState(open);
 });
 nav.addEventListener("click", event => {
-  if (event.target.matches("a")) {
-    nav.classList.remove("open");
-    menuButton.setAttribute("aria-expanded", "false");
-  }
+  if (event.target.matches("a")) closeMenu();
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && nav.classList.contains("open")) closeMenu(true);
+});
+window.matchMedia("(min-width: 1181px)").addEventListener("change", event => {
+  if (event.matches) closeMenu();
 });
 
 document.querySelector("#themeToggle").addEventListener("click", event => {

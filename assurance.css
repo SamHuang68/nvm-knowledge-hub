@@ -13,12 +13,24 @@ html{background:#03141d}body{text-rendering:optimizeLegibility;-webkit-font-smoo
 @media(max-width:680px){body[data-language="zh"] h1,body[data-language="zh"] h2{letter-spacing:-.018em;line-break:strict}.hero h1{font-size:clamp(2.75rem,13vw,4rem);line-height:1.16;max-width:9.5ch}.lead{line-height:1.8}.section{padding-top:5rem;padding-bottom:5rem}.threat-grid article:hover,.role-path article:hover,.governance-grid article:hover{transform:none}body[data-language="zh"] .hero h1{max-width:100%;word-break:normal;overflow-wrap:break-word}}
 
 /* Loop refinement 01 — align Assurance with the hub's editorial restraint. */
-.hero h1{max-width:11.5ch;font-size:clamp(3rem,5.35vw,5.85rem);font-weight:580;line-height:1.16;letter-spacing:-.025em;text-wrap:balance}
+:root{--font-sans:var(--sans);--type-assurance-hero:clamp(3rem,5.35vw,5.85rem);--type-assurance-principle:clamp(2.25rem,3.4vw,3.25rem);--type-assurance-hero-mobile:clamp(2.45rem,11.2vw,3.45rem);--type-assurance-principle-mobile:clamp(1.75rem,7.8vw,2.15rem);--type-assurance-section-mobile:clamp(2rem,9.5vw,3rem)}
+.hero h1{max-width:11.5ch;font-size:var(--type-assurance-hero);font-weight:580;line-height:1.16;letter-spacing:-.025em;text-wrap:balance}
 .lead{max-width:41rem;text-wrap:pretty}
 .section-head h2,.principle h2,.sources h2{line-height:1.22;letter-spacing:-.025em;text-wrap:balance}
-.principle h2{max-width:22ch;font-size:clamp(2.25rem,3.4vw,3.25rem);line-height:1.34;font-weight:560;letter-spacing:-.012em}
+.principle h2{max-width:22ch;font-size:var(--type-assurance-principle);line-height:1.34;font-weight:560;letter-spacing:-.012em}
 .threat-grid h3,.window-detail h3,.cert-result h3,.role-path h3{line-height:1.3;text-wrap:balance}
-@media(max-width:680px){.hero h1{max-width:100%;font-size:clamp(2.45rem,11.2vw,3.45rem);line-height:1.27;letter-spacing:-.01em}.principle h2{font-size:clamp(1.75rem,7.8vw,2.15rem);line-height:1.42}.section h2{font-size:clamp(2rem,9.5vw,3rem);line-height:1.3;letter-spacing:-.01em}}
+@media(max-width:680px){.hero h1{max-width:100%;font-size:var(--type-assurance-hero-mobile);line-height:1.27;letter-spacing:-.01em}.principle h2{font-size:var(--type-assurance-principle-mobile);line-height:1.42}.section h2{font-size:var(--type-assurance-section-mobile);line-height:1.3;letter-spacing:-.01em}}
+
+/* Governance is an ordered traceability pipeline, not another card gallery. */
+.governance-grid{gap:0;background:transparent;border-top:1px solid #879b98;border-bottom:1px solid #879b98;counter-reset:governance-step}
+.governance-grid article{position:relative;min-width:0;padding:2rem 3rem 2rem 0;background:transparent;border-right:1px solid rgba(7,29,42,.18);counter-increment:governance-step}
+.governance-grid article+article{padding-left:2rem}
+.governance-grid article:last-child{border-right:0}
+.governance-grid article::before{content:"0" counter(governance-step);display:block;margin-bottom:2.2rem;color:#617775;font:500 .58rem var(--mono);letter-spacing:.12em}
+.governance-grid article:not(:last-child)::after{content:"";position:absolute;z-index:2;right:-5px;top:50%;width:9px;height:9px;background:#cdd5d1;border-top:1px solid #456d6b;border-right:1px solid #456d6b;transform:rotate(45deg)}
+.governance-grid article:hover{z-index:auto;transform:none;box-shadow:none}
+
+@media(max-width:680px){.governance-grid{padding-left:18px;border-top:0;border-bottom:0;border-left:1px solid #879b98}.governance-grid article,.governance-grid article+article{padding:1.5rem 1rem 1.5rem 1.3rem;border-right:0;border-bottom:1px solid rgba(7,29,42,.18)}.governance-grid article:last-child{border-bottom:0}.governance-grid article::before{margin-bottom:.8rem}.governance-grid article:not(:last-child)::after{right:auto;left:-5px;top:auto;bottom:-5px;background:#cdd5d1;transform:rotate(135deg)}}
 
 /* REFINE-005: accessible navigation and comparison surfaces. */
 :where(a,button,select,[tabindex]):focus-visible{outline:2px solid var(--mint);outline-offset:3px}

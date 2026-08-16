@@ -26,7 +26,7 @@ function setResearchLanguage(nextLanguage, persist = true) {
     ? (researchLanguage === "zh" ? "證據頁導覽" : "Evidence navigation")
     : (researchLanguage === "zh" ? "研究頁導覽" : "Research navigation");
   document.querySelector(".primary-nav")?.setAttribute("aria-label", navigationLabel);
-  document.querySelector("#menuToggle")?.setAttribute("aria-label", researchLanguage === "zh" ? "開啟選單" : "Open menu");
+  syncResearchMenuState(document.querySelector(".primary-nav")?.classList.contains("open") || false);
   const search = document.querySelector("#evidenceSearch");
   if (search) {
     search.placeholder = researchLanguage === "zh" ? "搜尋作者、技術、攻擊或 DOI…" : "Search author, technology, attack or DOI…";
@@ -111,15 +111,27 @@ document.querySelector("#evidenceFilters")?.addEventListener("click", event => {
 
 const researchMenuButton = document.querySelector("#menuToggle");
 const researchNav = document.querySelector(".primary-nav");
+function syncResearchMenuState(open) {
+  researchMenuButton?.setAttribute("aria-expanded", open ? "true" : "false");
+  researchMenuButton?.setAttribute("aria-label", open ? (researchLanguage === "zh" ? "關閉選單" : "Close menu") : (researchLanguage === "zh" ? "開啟選單" : "Open menu"));
+}
+function closeResearchMenu(restoreFocus = false) {
+  researchNav?.classList.remove("open");
+  syncResearchMenuState(false);
+  if (restoreFocus) researchMenuButton?.focus();
+}
 researchMenuButton?.addEventListener("click", () => {
   const open = researchNav.classList.toggle("open");
-  researchMenuButton.setAttribute("aria-expanded", open ? "true" : "false");
+  syncResearchMenuState(open);
 });
 researchNav?.addEventListener("click", event => {
-  if (event.target.closest("a")) {
-    researchNav.classList.remove("open");
-    researchMenuButton?.setAttribute("aria-expanded", "false");
-  }
+  if (event.target.closest("a")) closeResearchMenu();
+});
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && researchNav?.classList.contains("open")) closeResearchMenu(true);
+});
+window.matchMedia("(min-width: 1181px)").addEventListener("change", event => {
+  if (event.matches) closeResearchMenu();
 });
 
 const researchRevealObserver = new IntersectionObserver(entries => {
