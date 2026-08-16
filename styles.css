@@ -1372,3 +1372,75 @@ body { background: #f7f9fa; color: #122b42; line-height: 1.75; }
   .arch-detail li::before{width:4px;height:4px;margin-right:5px}
   .architecture-footer{display:none}
 }
+
+/* REFINE-009: mobile executive-reader density without reducing body legibility. */
+@media(max-width:620px){
+  :root{--section-pad:56px;--mobile-panel-gap:12px;--mobile-panel-width:min(290px,84vw)}
+  .hero{min-height:760px}
+  .section{padding-top:56px;padding-bottom:56px}
+  .immersive-chapter{min-height:460px}
+  .closing-section{min-height:520px}
+  .section-heading,.section-heading.compact,.evidence-title,.learning-head{margin-bottom:34px}
+  .section-lede{margin-top:18px}
+
+  .thesis-principles,.evidence-numbers,.application-grid,.article-grid,.trust-layer-grid{
+    display:grid;
+    grid-template-columns:none;
+    grid-auto-flow:column;
+    grid-auto-columns:var(--mobile-panel-width);
+    gap:var(--mobile-panel-gap);
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    scroll-snap-type:x proximity;
+    scrollbar-width:none;
+  }
+  .thesis-principles::-webkit-scrollbar,.evidence-numbers::-webkit-scrollbar,.application-grid::-webkit-scrollbar,.article-grid::-webkit-scrollbar,.trust-layer-grid::-webkit-scrollbar,.attack-journey::-webkit-scrollbar,.ownership-flow::-webkit-scrollbar,.case-flow::-webkit-scrollbar{display:none}
+  .thesis-principles>* ,.evidence-numbers>* ,.application-grid>* ,.article-grid>* ,.trust-layer-grid>*{scroll-snap-align:start}
+
+  .thesis-principles{margin-top:38px}
+  .thesis-principles article{min-height:220px;padding:24px}
+  .thesis-principles h3{margin-top:18px;font-size:19px}
+
+  .attack-journey{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:var(--mobile-panel-width);gap:var(--mobile-panel-gap);margin-top:38px;padding:12px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;scrollbar-width:none}
+  .attack-journey article{display:block;min-height:235px;padding:22px;scroll-snap-align:start}
+  .attack-journey .journey-icon{width:44px;height:44px;margin:0 0 24px}
+  .attack-journey .journey-arrow{display:none}
+  .case-note{margin-top:12px;padding:22px}
+
+  .evidence-numbers{margin-top:38px}
+  .evidence-numbers article{min-height:210px;padding:24px}
+  .evidence-numbers strong{margin-top:24px;font-size:40px}
+  .application-grid{margin-top:38px}
+  .app-card{min-height:290px;padding:26px 24px}
+
+  .ownership-flow{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;gap:10px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;scrollbar-width:none}
+  .ownership-flow>i{display:none}
+  .ownership-flow div{min-height:112px;padding:18px 14px;scroll-snap-align:start}
+  .accountability-section h2{margin:32px auto 38px}
+
+  .learning-section{padding-top:56px;padding-bottom:56px}
+  .learning-paths{padding:24px}
+  .library,.article-grid{min-width:0;max-width:100%}
+  .article-grid{width:100%;margin-top:10px}
+  .article-card{min-height:220px;padding:24px}
+  .article-card h3{margin-top:26px}
+
+  .trust-layer-grid{margin-top:38px}
+  .trust-layer-grid article{min-height:390px;padding:25px 22px}
+  .trust-layer-grid h3{margin:14px 0 24px}
+  .trust-layer-grid p{padding:15px 0;font-size:13px}
+  .enterprise-signing-case{margin-top:38px;padding:24px 20px}
+  .case-flow{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:82%;gap:10px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity;scrollbar-width:none}
+  .case-flow>svg{display:none}
+  .case-flow article{min-height:180px;padding:20px;scroll-snap-align:start}
+  .case-flow article b{margin-top:22px}
+  .threat-coverage{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .threat-coverage>div{padding:18px 14px}
+  .threat-coverage b{margin:12px 0 6px;font-size:13px}
+  .stack-sources{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stack-sources a{min-height:90px;padding:16px}
+  .stack-evidence-note{margin-top:24px;padding:20px}
+
+  .source-list a{min-height:70px;padding-top:14px;padding-bottom:14px}
+  .research-launch{padding-top:56px;padding-bottom:56px}
+}
