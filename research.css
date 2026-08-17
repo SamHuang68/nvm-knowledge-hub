@@ -410,3 +410,45 @@ body.research-page { color: var(--ink); background: var(--paper); }
   .claim-rung:last-child { grid-column: 1; margin: 24px 0 0 -18px; border-bottom: 0; }
   .claim-rung:last-child::before { left: 18px; height: 24px; }
 }
+
+/* REFINE-011: condensed research cadence, shared across Physics and Evidence. */
+:root{
+  --research-section-space:clamp(64px,6.5vw,92px);
+  --research-panel-space:clamp(20px,2.4vw,32px);
+  --research-grid-gap:clamp(12px,1.5vw,18px);
+}
+.research-hero{min-height:680px;padding-top:124px;padding-bottom:64px}
+.research-hero h1{font-size:min(var(--type-research-hero),68px)}
+.research-hero-meta{margin-top:38px}
+.research-hero-links{margin-top:24px}
+.paper-section{padding:var(--research-section-space) 0}
+.paper-heading{margin-bottom:clamp(30px,4vw,52px)}
+.topology-grid,.correction-grid,.evidence-triptych,.symmetry-grid,.source-grid{gap:var(--research-grid-gap)}
+.topology-card,.correction-card,.position-card,.source-content,.abstract-copy,.abstract-verdict{padding:var(--research-panel-space)}
+.source-card{min-height:250px}
+.source-content h3{margin:10px 0;font-size:22px}
+.source-proof{margin:14px 0}
+
+@media(max-width:620px){
+  :root{--research-section-space:46px;--research-panel-space:20px;--research-grid-gap:10px}
+  .research-hero{min-height:560px;padding-top:98px;padding-bottom:42px}
+  .research-hero h1{font-size:var(--type-research-hero-mobile)}
+  .research-hero-lede{margin-top:20px;line-height:1.7}
+  .research-hero-meta{margin-top:24px}
+  .research-hero-meta div{padding:12px}
+  .research-hero-links{margin-top:18px;gap:8px}
+  .paper-section{padding:var(--research-section-space) 0}
+  .paper-heading{gap:16px;margin-bottom:28px}
+  .abstract-copy,.abstract-verdict,.commercial-verdict,.topology-card,.primitive-scope,.root-cause-title,.security-outcome-grid article,.outcome-equation{padding:20px}
+  .memory-lane{padding:56px 20px 36px}
+  .state-lab-copy,.provenance-content{padding:20px}
+  .source-card{grid-template-columns:52px minmax(0,1fr);min-height:0}
+  .source-index{padding:13px 9px}
+  .source-content{padding:18px}
+  .source-content>p,.source-disclaimer{font-size:15px}
+  .source-proof{margin:12px 0}
+  .claim-rung{padding:20px}
+  .claim-rung:last-child{padding:22px 20px}
+  .abstract-verdict p,.commercial-verdict p,.topology-card p,.evidence-triptych p,.claim-rung p,.corpus-verdict,.paper-note,.source-content>p{font-size:15px;line-height:1.68}
+  body.research-page main :is(p,li){font-size:max(15px,1em)}
+}

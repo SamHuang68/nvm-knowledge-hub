@@ -47,3 +47,38 @@ html{background:#03141d}body{text-rendering:optimizeLegibility;-webkit-font-smoo
   .matrix-scroll-hint{display:block}
   .control-matrix{position:relative;box-shadow:inset -20px 0 18px -18px rgba(7,29,42,.42),0 24px 55px rgba(0,8,13,.12)}
 }
+
+/* REFINE-011: compact assurance rhythm without compressing evidence text. */
+:root{--assurance-section-space:clamp(64px,6.5vw,88px);--assurance-panel-space:clamp(20px,2.5vw,32px);--assurance-gap:clamp(12px,1.5vw,18px)}
+.hero{min-height:min(700px,calc(100svh - 76px));padding-top:clamp(4rem,6vw,6rem);padding-bottom:2.5rem}
+.hero h1{font-size:min(var(--type-assurance-hero),68px)}
+.principle,.section{padding-top:var(--assurance-section-space);padding-bottom:var(--assurance-section-space)}
+.section-head{margin-bottom:clamp(30px,4vw,52px)}
+.threat-grid,.role-path{gap:var(--assurance-gap);background:transparent}
+.threat-grid article{min-height:340px;padding:var(--assurance-panel-space)}
+.role-path article{min-height:220px;padding:var(--assurance-panel-space)}
+.window-detail,.evidence-detail,.cert-result{padding:var(--assurance-panel-space)}
+.source-list{margin-top:2rem}
+
+@media(max-width:680px){
+  :root{--assurance-section-space:46px;--assurance-panel-space:20px;--assurance-gap:10px}
+  .hero{min-height:auto;padding-top:3rem;padding-bottom:2.5rem}
+  .hero h1{font-size:var(--type-assurance-hero-mobile)}
+  .principle,.section{padding:var(--assurance-section-space) 1.2rem}
+  .section-head{margin-bottom:28px}
+  .threat-grid{gap:8px}
+  .threat-grid article{min-height:0;padding:20px}
+  .threat-grid h3{margin:14px 0 8px}
+  .window-detail,.evidence-detail,.cert-result{padding:20px}
+  .detail-grid{margin-top:18px}
+  .phase-tabs{display:grid;grid-template-columns:1fr 1fr;overflow:visible;border-right:0}
+  .phase-tabs button{min-width:0;min-height:44px;padding:12px 10px}
+  .ladder button{min-height:112px;padding:14px}
+  .role-tabs{display:grid;grid-template-columns:1fr 1fr;overflow:visible}
+  .role-tabs button{min-width:0;min-height:44px;padding:12px 8px}
+  .role-path{gap:8px}
+  .role-path article{min-height:0;padding:20px}
+  .source-list{margin-top:1.5rem}
+  .source-list a{padding:1rem 0}
+  .source-list small,.source-policy,.threat-grid p,.evidence-detail p,.role-path p{font-size:15px}
+}

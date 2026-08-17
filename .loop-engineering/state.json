@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "projectId": "nvm-knowledge-hub-refinement",
-  "objective": "Run a third whole-site upgrade focused on maintainable design tokens, stronger editorial cadence, traceability storytelling and complete mobile-menu interaction behavior.",
+  "objective": "Condense and optimize the complete NVM Knowledge Hub across Windows desktop and 390px mobile while preserving readability, evidence fidelity, bilingual behavior and enterprise identity.",
   "status": "complete",
   "constraints": [
     "Preserve the existing static-site architecture and current user-owned changes.",
@@ -11,24 +11,24 @@
     "Do not commit, push or deploy without explicit authorization."
   ],
   "currentLoop": {
-    "id": "REFINE-006",
-    "title": "Design-system consolidation and editorial cadence upgrade",
+    "id": "REFINE-011",
+    "title": "Whole-site responsive density and cadence optimization",
     "status": "complete",
     "successCriteria": [
-      "Final type scales are controlled by a single semantic token layer instead of scattered component values.",
-      "Research and assurance pages gain at least one non-card editorial sequence with clearer narrative flow.",
-      "Mobile menus expose aria-controls, close with Escape and reset safely when returning to desktop.",
+      "All four page families use a tighter shared section, heading and panel rhythm on desktop and mobile.",
+      "Substantive body text remains at least 15px and mobile headings remain at most 44px.",
+      "Repeated card runs are condensed without deleting technical or evidence content.",
       "Desktop 1280px and mobile 390px render without clipping, overlap or horizontal overflow.",
       "English modes contain no unintended Chinese outside explicit language controls.",
-      "Independent verification reports no P0 or P1 issue."
+      "Rendered verification reports no P0 or P1 issue."
     ]
   },
   "tasks": [
-    {"id":"L06-01","owner":"context-expansion","state":"done","output":"design-system and cascade consolidation audit"},
-    {"id":"L06-02","owner":"logical-precision","state":"done","output":"editorial cadence and interaction audit"},
-    {"id":"L06-03","owner":"host","state":"done","output":"integrated design and interaction upgrade"},
-    {"id":"L06-04","owner":"host","state":"done","output":"four-family responsive and bilingual gate evidence"},
-    {"id":"L06-05","owner":"independent-verification","state":"done","output":"PASS — no P0, P1 or P2 findings"}
+    {"id":"L11-01","owner":"context-expansion","state":"complete","output":"cross-page density and cadence audit"},
+    {"id":"L11-02","owner":"logical-precision","state":"complete","output":"hierarchy and accessibility risk review"},
+    {"id":"L11-03","owner":"host","state":"complete","output":"integrated responsive density system"},
+    {"id":"L11-04","owner":"host","state":"complete","output":"four-family desktop and mobile rendered gates"},
+    {"id":"L11-05","owner":"host-acceptance","state":"complete","output":"release recommendation"}
   ],
   "verification": {
     "requirements":"pass",
@@ -39,7 +39,7 @@
     "accessibility":"pass",
     "bilingualIntegrity":"pass",
     "maintainability":"pass",
-    "independentReview":"pass"
+    "independentReview":"advisory-complete; host-render-acceptance-pass"
   },
   "blockers": [],
   "artifacts": ["index.html","styles.css","app.js","memory-physics.html","memory-evidence.html","research.css","security-assurance.html","assurance.css",".loop-engineering/state.json"],
@@ -47,7 +47,8 @@
     {"id":"REFINE-003","title":"Sitewide editorial scale normalization","status":"complete"},
     {"id":"REFINE-004","title":"Layered PGP, Okta and PUF security narrative","status":"complete"},
     {"id":"REFINE-005","title":"Whole-site quality and performance optimization","status":"complete"},
-    {"id":"REFINE-006","title":"Design-system consolidation and editorial cadence upgrade","status":"complete"}
+    {"id":"REFINE-006","title":"Design-system consolidation and editorial cadence upgrade","status":"complete"},
+    {"id":"REFINE-011","title":"Whole-site responsive density and cadence optimization","status":"complete"}
   ],
   "nextLoop": null
 }

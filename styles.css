@@ -1486,3 +1486,52 @@ body { background: #f7f9fa; color: #122b42; line-height: 1.75; }
   .arch-detail ul{grid-template-columns:1fr;gap:5px}
   .arch-detail li{font-size:12px}
 }
+
+/* REFINE-011: authoritative whole-site density rhythm. */
+:root{--density-section:clamp(68px,6.4vw,88px);--density-gutter:clamp(24px,5vw,72px);--density-panel:clamp(20px,2.5vw,34px);--density-gap:clamp(12px,1.8vw,22px)}
+.section{padding-top:var(--density-section);padding-bottom:var(--density-section)}
+.section-heading,.section-heading.compact,.evidence-title,.learning-head{margin-bottom:clamp(32px,4vw,54px)}
+.hero{min-height:min(760px,calc(100svh - 70px))}
+.immersive-chapter{min-height:clamp(500px,56vw,650px)}
+.closing-section{min-height:clamp(520px,60vw,680px)}
+.thesis-principles,.evidence-numbers,.application-grid,.article-grid,.trust-layer-grid{gap:var(--density-gap)}
+.thesis-principles{margin-top:clamp(42px,5vw,64px)}
+.thesis-principles article,.evidence-numbers article,.app-card,.article-card{min-height:0;padding:var(--density-panel)}
+.attack-journey,.lifecycle-track,.enterprise-signing-case{padding:var(--density-panel)}
+.source-list a{min-height:0;padding-top:16px;padding-bottom:16px}
+
+@media(max-width:620px){
+  :root{--density-section:46px;--density-gutter:20px;--density-panel:20px;--density-gap:10px;--section-pad:46px}
+  .hero{min-height:640px}
+  .section{padding-top:var(--density-section);padding-bottom:var(--density-section)}
+  .immersive-chapter{min-height:420px}
+  .closing-section{min-height:460px}
+  .section-heading,.section-heading.compact,.evidence-title,.learning-head{margin-bottom:28px}
+  .thesis-principles,.attack-journey,.evidence-numbers,.application-grid,.article-grid,.trust-layer-grid,.ownership-flow,.case-flow{grid-auto-flow:row;grid-auto-columns:auto;overflow:visible;scroll-snap-type:none}
+  .thesis-principles,.evidence-numbers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .thesis-principles article:last-child,.evidence-numbers article:last-child:nth-child(odd){grid-column:1/-1}
+  .thesis-principles{margin-top:28px}
+  .thesis-principles article{min-height:0;padding:18px}
+  .thesis-principles svg{width:34px;height:34px}
+  .thesis-principles h3{margin:14px 0 8px;font-size:18px}
+  .thesis-principles p{font-size:15px;line-height:1.62}
+  .attack-journey{grid-template-columns:1fr;margin-top:28px;padding:8px}
+  .attack-journey article{display:grid;grid-template-columns:42px minmax(0,1fr);gap:6px 14px;min-height:0;padding:16px}
+  .attack-journey .journey-icon{grid-row:1/4;width:40px;height:40px;margin:0}
+  .attack-journey article :is(h3,p){grid-column:2;margin-top:0}
+  .evidence-numbers{margin-top:28px}
+  .evidence-numbers article{min-height:0;padding:18px}
+  .evidence-numbers strong{margin-top:14px;font-size:34px}
+  .application-grid,.article-grid,.trust-layer-grid,.case-flow{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(300px,82vw);overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x proximity}
+  .application-grid>*,.article-grid>*,.trust-layer-grid>*,.case-flow>*{scroll-snap-align:start}
+  .app-card,.article-card{min-height:0;padding:20px}
+  .trust-layer-grid{margin-top:28px}
+  .trust-layer-grid article{min-height:0;padding:20px}
+  .trust-layer-grid p{padding:11px 0;font-size:15px}
+  .case-flow article{min-height:0;padding:18px}
+  .ownership-flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ownership-flow div{min-height:0;padding:15px 12px}
+  .learning-paths,.enterprise-signing-case{padding:20px}
+  .source-list a{min-height:0;padding-top:12px;padding-bottom:12px}
+  .case-note p,.case-intro p,.stack-evidence-note p,.state-hero p,.app-card p,.article-card p,.trust-layer-grid p,.case-flow p,.attack-journey article p,.evidence-principle{font-size:15px;line-height:1.65}
+}
