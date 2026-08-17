@@ -22,9 +22,11 @@ function setResearchLanguage(nextLanguage, persist = true) {
   document.documentElement.lang = researchLanguage === "zh" ? "zh-Hant" : "en";
   const toggle = document.querySelector("#languageToggle");
   if (toggle) toggle.setAttribute("aria-label", researchLanguage === "zh" ? "Switch to English" : "切換為繁體中文");
-  const navigationLabel = document.body.classList.contains("evidence-page")
-    ? (researchLanguage === "zh" ? "證據頁導覽" : "Evidence navigation")
-    : (researchLanguage === "zh" ? "研究頁導覽" : "Research navigation");
+  const navigationLabel = document.body.classList.contains("oip-page")
+    ? (researchLanguage === "zh" ? "OIP 主題導覽" : "OIP topic navigation")
+    : document.body.classList.contains("evidence-page")
+      ? (researchLanguage === "zh" ? "證據頁導覽" : "Evidence navigation")
+      : (researchLanguage === "zh" ? "研究頁導覽" : "Research navigation");
   document.querySelector(".primary-nav")?.setAttribute("aria-label", navigationLabel);
   syncResearchMenuState(document.querySelector(".primary-nav")?.classList.contains("open") || false);
   const search = document.querySelector("#evidenceSearch");
@@ -32,9 +34,11 @@ function setResearchLanguage(nextLanguage, persist = true) {
     search.placeholder = researchLanguage === "zh" ? "搜尋作者、技術、攻擊或 DOI…" : "Search author, technology, attack or DOI…";
     search.setAttribute("aria-label", researchLanguage === "zh" ? "搜尋證據" : "Search evidence");
   }
-  document.title = document.body.classList.contains("evidence-page")
-    ? (researchLanguage === "zh" ? "Evidence Ledger · NVM Knowledge Hub" : "Evidence Ledger · NVM Knowledge Hub")
-    : (researchLanguage === "zh" ? "記憶體物理與安全 · NVM Knowledge Hub" : "Memory Physics & Security · NVM Knowledge Hub");
+  document.title = document.body.classList.contains("oip-page")
+    ? "OIP Secure Storage Brief · NVM Knowledge Hub"
+    : document.body.classList.contains("evidence-page")
+      ? "Evidence Ledger · NVM Knowledge Hub"
+      : (researchLanguage === "zh" ? "記憶體物理與安全 · NVM Knowledge Hub" : "Memory Physics & Security · NVM Knowledge Hub");
   const activePhase = document.querySelector(".state-lab-controls button.active");
   if (activePhase) updateResearchPhase(activePhase.dataset.phase);
   renderEvidenceCards();

@@ -15,6 +15,29 @@
   --type-research-conclusion-mobile: clamp(34px, 9.4vw, 41px);
 }
 
+/* OIP-001: evidence-led knowledge brief shared with the presentation narrative. */
+.oip-hero{background-image:linear-gradient(90deg,rgba(4,20,30,.96) 0%,rgba(4,20,30,.83) 58%,rgba(4,20,30,.5) 100%),url("assets/assurance-evidence-v1.webp");background-size:cover;background-position:center}
+.oip-threat-flow,.oip-decision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline)}
+.oip-threat-flow article,.oip-decision-grid article{min-width:0;padding:clamp(24px,3vw,38px);background:#fffdf8}
+.oip-threat-flow article>span,.oip-decision-grid article>span{color:#087d80;font-size:9px;font-weight:900;letter-spacing:.12em}
+.oip-threat-flow h3,.oip-decision-grid h3{margin:34px 0 14px;font-family:var(--display);font-size:clamp(22px,2.3vw,30px);line-height:1.15}
+.oip-threat-flow p,.oip-decision-grid p{margin:0;color:var(--muted-ink);font-size:15px;line-height:1.7}
+.oip-threat-flow .highlight{color:var(--white);background:#0a2b38}
+.oip-threat-flow .highlight>span{color:var(--research-cyan)}
+.oip-threat-flow .highlight p{color:#b9c9cd}
+.oip-architecture{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.oip-architecture article{min-width:0;padding:clamp(22px,2.6vw,34px);border-right:1px solid var(--hairline)}
+.oip-architecture article:last-child{border-right:0}
+.oip-architecture b{display:block;color:#087d80;font-family:var(--display);font-size:24px}
+.oip-architecture small{display:block;margin-top:28px;color:#60747d;font-size:9px;font-weight:900;letter-spacing:.11em}
+.oip-architecture h3{margin:12px 0 16px;font-family:var(--display);font-size:24px;line-height:1.16}
+.oip-architecture p{margin:0;color:var(--muted-ink);font-size:15px;line-height:1.68}
+.oip-equation{margin-top:0}
+.oip-page .paper-note{font-size:15px}
+.oip-page .paper-conclusion{margin-left:0;margin-right:0}
+@media(max-width:920px){.oip-threat-flow,.oip-decision-grid{grid-template-columns:1fr}.oip-architecture{grid-template-columns:1fr 1fr}.oip-architecture article:nth-child(2){border-right:0}.oip-architecture article:nth-child(-n+2){border-bottom:1px solid var(--hairline)}}
+@media(max-width:620px){.oip-architecture{grid-template-columns:1fr}.oip-architecture article{border-right:0;border-bottom:1px solid var(--hairline)}.oip-architecture article:last-child{border-bottom:0}.oip-threat-flow h3,.oip-decision-grid h3{margin-top:18px}.oip-equation strong{font-size:24px;overflow-wrap:anywhere}}
+
 html { scroll-behavior: smooth; }
 body.research-page { color: var(--ink); background: var(--paper); }
 .research-page [data-lang] { display: none; }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "projectId": "nvm-knowledge-hub-refinement",
-  "objective": "Condense and optimize the complete NVM Knowledge Hub across Windows desktop and 390px mobile while preserving readability, evidence fidelity, bilingual behavior and enterprise identity.",
+  "objective": "Create an evidence-governed OIP Secure Storage knowledge foundation that feeds the website, SharePoint/Copilot migration and a converged TSMC OIP presentation.",
   "status": "complete",
   "constraints": [
     "Preserve the existing static-site architecture and current user-owned changes.",
@@ -11,24 +11,23 @@
     "Do not commit, push or deploy without explicit authorization."
   ],
   "currentLoop": {
-    "id": "REFINE-011",
-    "title": "Whole-site responsive density and cadence optimization",
+    "id": "OIP-001",
+    "title": "OIP knowledge foundation and cross-media convergence",
     "status": "complete",
     "successCriteria": [
-      "All four page families use a tighter shared section, heading and panel rhythm on desktop and mobile.",
-      "Substantive body text remains at least 15px and mobile headings remain at most 44px.",
-      "Repeated card runs are condensed without deleting technical or evidence content.",
-      "Desktop 1280px and mobile 390px render without clipping, overlap or horizontal overflow.",
-      "English modes contain no unintended Chinese outside explicit language controls.",
-      "Rendered verification reports no P0 or P1 issue."
+      "Abstract claims are separated into public fact, vendor claim, analyst inference and validation gap.",
+      "The website contains a bilingual OIP topic page and governed JSON records.",
+      "The SharePoint field map supports OIP, presentation and Copilot routing.",
+      "The v3 deck is converged into a shorter template-faithful v4 narrative.",
+      "Website and presentation render without overflow or broken assets."
     ]
   },
   "tasks": [
-    {"id":"L11-01","owner":"context-expansion","state":"complete","output":"cross-page density and cadence audit"},
-    {"id":"L11-02","owner":"logical-precision","state":"complete","output":"hierarchy and accessibility risk review"},
-    {"id":"L11-03","owner":"host","state":"complete","output":"integrated responsive density system"},
-    {"id":"L11-04","owner":"host","state":"complete","output":"four-family desktop and mobile rendered gates"},
-    {"id":"L11-05","owner":"host-acceptance","state":"complete","output":"release recommendation"}
+    {"id":"OIP-01","owner":"host","state":"complete","output":"claim/evidence/limitation knowledge foundation"},
+    {"id":"OIP-02","owner":"host","state":"complete","output":"SharePoint and Copilot-ready governed records"},
+    {"id":"OIP-03","owner":"host","state":"complete","output":"bilingual OIP website topic"},
+    {"id":"OIP-04","owner":"host","state":"complete","output":"12-slide template-faithful OIP Draft v4"},
+    {"id":"OIP-05","owner":"host-acceptance","state":"complete","output":"responsive, schema, overflow and template fidelity gates"}
   ],
   "verification": {
     "requirements":"pass",
@@ -39,16 +38,17 @@
     "accessibility":"pass",
     "bilingualIntegrity":"pass",
     "maintainability":"pass",
-    "independentReview":"advisory-complete; host-render-acceptance-pass"
+    "independentReview":"host-render-acceptance-pass; external evidence remains source-bounded"
   },
   "blockers": [],
-  "artifacts": ["index.html","styles.css","app.js","memory-physics.html","memory-evidence.html","research.css","security-assurance.html","assurance.css",".loop-engineering/state.json"],
+  "artifacts": ["oip-secure-storage.html","data/oip-secure-storage-knowledge.json","data/assurance-knowledge-schema.json","data/sharepoint-field-map.md","research.css","research.js","index.html","memory-physics.html","memory-evidence.html",".loop-engineering/state.json","../OIP_Secure_Storage_Knowledge_Foundation.md","../Secure_Storage_SRAM_PUF_TSMC_OIP_Draft_v4.pptx"],
   "loopHistory": [
     {"id":"REFINE-003","title":"Sitewide editorial scale normalization","status":"complete"},
     {"id":"REFINE-004","title":"Layered PGP, Okta and PUF security narrative","status":"complete"},
     {"id":"REFINE-005","title":"Whole-site quality and performance optimization","status":"complete"},
     {"id":"REFINE-006","title":"Design-system consolidation and editorial cadence upgrade","status":"complete"},
-    {"id":"REFINE-011","title":"Whole-site responsive density and cadence optimization","status":"complete"}
+    {"id":"REFINE-011","title":"Whole-site responsive density and cadence optimization","status":"complete"},
+    {"id":"OIP-001","title":"OIP knowledge foundation and cross-media convergence","status":"complete"}
   ],
   "nextLoop": null
 }

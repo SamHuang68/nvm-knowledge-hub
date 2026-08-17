@@ -27,7 +27,9 @@ Open `http://127.0.0.1:8765/`.
 - Searchable Secure Storage learning path and article library.
 - Public-source and claim-discipline section.
 - Physical Security Assurance center covering FI, SCA, invasive analysis, attack windows, countermeasure evidence, certification routing and role-based learning.
+- OIP Secure Storage brief connecting RP2350 threat evidence, SRAM-PUF root reconstruction, AES-256 protected OTP, node readiness and explicit validation gates.
 - SharePoint/Copilot-ready knowledge schema in `data/assurance-knowledge-schema.json`, with the List field map in `data/sharepoint-field-map.md`.
+- Governed OIP claim records in `data/oip-secure-storage-knowledge.json` for SharePoint import and presentation grounding.
 
 ## Design system
 

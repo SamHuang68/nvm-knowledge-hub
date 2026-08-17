@@ -5,7 +5,9 @@
   "type": "object",
   "required": ["title", "topic", "asset", "claim", "claimStatus", "scope", "classification", "sourceUrl", "reviewedDate", "owner"],
   "properties": {
+    "recordId": { "type": "string" },
     "title": { "type": "string" },
+    "contentType": { "enum": ["Architecture", "Mechanism", "Case Study", "Evidence", "Platform Evidence", "System Inference", "Open Question", "Training"] },
     "topic": { "enum": ["Architecture", "Fault Injection", "Side-Channel Analysis", "Invasive Analysis", "Countermeasure", "Evidence", "Certification", "Training"] },
     "asset": { "enum": ["PUF Response", "Root Key", "Derived Key", "OTP Ciphertext", "Helper Data", "Lifecycle State", "Plaintext Window", "Controller Policy"] },
     "attackClass": { "type": "array", "items": { "enum": ["Power SCA", "EM SCA", "Timing", "Voltage Fault", "Clock Fault", "EM Fault", "Laser Fault", "Invasive Readout", "Protocol Abuse"] } },
@@ -26,6 +28,9 @@
     "certificationScheme": { "type": ["string", "null"] },
     "certificateOrReportId": { "type": ["string", "null"] },
     "productVersion": { "type": ["string", "null"] },
+    "audience": { "type": "array", "items": { "type": "string" } },
+    "presentationRole": { "enum": ["Problem", "Threat Evidence", "Architecture", "Lifecycle", "Consequence", "Platform Readiness", "Validation Gate", "Decision", "Appendix", null] },
+    "oipRelevance": { "type": "string" },
     "copilotAnswerRule": { "const": "Return claim, source, scope, limitation, reviewed date and open question together." }
   }
 }
