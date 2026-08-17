@@ -1444,3 +1444,45 @@ body { background: #f7f9fa; color: #122b42; line-height: 1.75; }
   .source-list a{min-height:70px;padding-top:14px;padding-bottom:14px}
   .research-launch{padding-top:56px;padding-bottom:56px}
 }
+
+/* REFINE-010: mobile containment and no-swipe architecture folders. */
+@media(max-width:620px){
+  html,body,main{max-width:100%;overflow-x:clip}
+  body[data-language="zh"] h1,body[data-language="zh"] h2{word-break:normal;overflow-wrap:anywhere}
+  :where(.section,.thesis-section,.thesis-grid,.thesis-grid>*,.architecture-section,.architecture-intro,.architecture-canvas,.architecture-flow,.arch-detail,.arch-detail>*,.immersive-chapter,.chapter-copy,.chapter-copy>*){min-width:0;max-width:100%}
+  .section{width:100%}
+  .thesis-grid,.thesis-copy{width:100%}
+  .thesis-grid h2{max-width:100%;overflow-wrap:anywhere}
+  .thesis-principles,.attack-journey,.evidence-numbers,.application-grid,.article-grid,.trust-layer-grid,.ownership-flow,.case-flow{width:100%;max-width:100%}
+
+  .immersive-chapter{width:100%;max-width:100%;contain:inline-size}
+  .chapter-rail{max-width:100%;box-sizing:border-box}
+  .chapter-rail span,.chapter-rail b{min-width:0;max-width:42%;overflow:hidden;text-overflow:ellipsis}
+  .chapter-copy,.chapter-copy.align-right{width:100%;max-width:100%;box-sizing:border-box;margin:0}
+  .chapter-copy h2,.chapter-copy.align-right h2,.chapter-copy>span{width:100%;max-width:100%;word-break:normal;overflow-wrap:anywhere}
+  .chapter-copy .split-statement{width:100%;max-width:100%}
+
+  .architecture-section{grid-template-columns:minmax(0,1fr)}
+  .architecture-canvas{width:100%;max-width:100%;padding:10px}
+  .architecture-flow{display:grid;grid-template-columns:minmax(0,1fr);gap:0;width:100%;padding:4px 0 0}
+  .architecture-flow>i{display:none}
+  .arch-node{
+    display:grid;grid-template-columns:34px 30px minmax(0,1fr) auto;grid-template-rows:1fr;
+    align-items:center;justify-items:start;gap:8px;width:100%;min-height:44px;
+    margin-top:-1px;padding:8px 12px;aspect-ratio:auto;transform:none;text-align:left;
+    box-sizing:border-box;border-color:rgba(113,236,227,.17);background:rgba(11,43,62,.62);box-shadow:none
+  }
+  .arch-node:nth-of-type(2){margin-left:6px;width:calc(100% - 6px)}
+  .arch-node:nth-of-type(3){margin-left:12px;width:calc(100% - 12px)}
+  .arch-node:nth-of-type(4){margin-left:18px;width:calc(100% - 18px)}
+  .arch-node:hover,.arch-node.active{z-index:1;transform:none;border-color:var(--cyan);background:rgba(17,210,208,.14);box-shadow:inset 3px 0 0 var(--cyan)}
+  .arch-node>span{position:static;grid-column:1;color:var(--cyan-2);font-size:9px;line-height:1}
+  .arch-node svg{display:block;grid-column:2;width:22px;height:22px}
+  .arch-node b{grid-column:3;margin:0;font-size:10px;line-height:1.25;text-align:left;letter-spacing:.055em}
+  .arch-node small{display:block;grid-column:4;font-size:7px;line-height:1;letter-spacing:.1em}
+  .arch-detail{grid-template-columns:42px minmax(0,1fr);gap:12px;width:100%;min-height:0;margin-top:10px;padding:16px}
+  .arch-detail p{font-size:15px;line-height:1.68;overflow-wrap:anywhere}
+  .arch-detail h3{font-size:18px;line-height:1.38;overflow-wrap:anywhere}
+  .arch-detail ul{grid-template-columns:1fr;gap:5px}
+  .arch-detail li{font-size:12px}
+}

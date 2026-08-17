@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#061b29">
   <title>NVM Knowledge Hub · Secure Storage</title>
   <link rel="preload" href="assets/secure-storage-hero-v2.webp" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=20260817-refine009">
+  <link rel="stylesheet" href="styles.css?v=20260817-refine010">
 </head>
 <body>
   <svg class="svg-defs" aria-hidden="true">
@@ -253,14 +253,14 @@
         <p>客戶買的不是四個各自正確的 primitive，而是從 root、crypto、storage、control 到 lifecycle 都有清楚責任邊界的 subsystem。</p>
       </div>
       <div class="architecture-canvas">
-        <div class="architecture-flow" aria-label="Secure Storage 架構">
-          <button class="arch-node active" type="button" data-node="puf"><span>01</span><svg><use href="#i-fingerprint"/></svg><b>SRAM PUF</b><small>RECONSTRUCT</small></button>
+        <div class="architecture-flow" role="group" aria-label="Secure Storage 架構">
+          <button class="arch-node active" type="button" data-node="puf" aria-controls="archDetail" aria-pressed="true"><span>01</span><svg><use href="#i-fingerprint"/></svg><b>SRAM PUF</b><small>RECONSTRUCT</small></button>
           <i></i>
-          <button class="arch-node" type="button" data-node="crypto"><span>02</span><svg><use href="#i-cipher"/></svg><b>CRYPTO ENGINE</b><small>PROTECT</small></button>
+          <button class="arch-node" type="button" data-node="crypto" aria-controls="archDetail" aria-pressed="false"><span>02</span><svg><use href="#i-cipher"/></svg><b>CRYPTO ENGINE</b><small>PROTECT</small></button>
           <i></i>
-          <button class="arch-node" type="button" data-node="otp"><span>03</span><svg><use href="#i-memory"/></svg><b>ANTIFUSE OTP</b><small>STORE</small></button>
+          <button class="arch-node" type="button" data-node="otp" aria-controls="archDetail" aria-pressed="false"><span>03</span><svg><use href="#i-memory"/></svg><b>ANTIFUSE OTP</b><small>STORE</small></button>
           <i></i>
-          <button class="arch-node" type="button" data-node="controller"><span>04</span><svg><use href="#i-control"/></svg><b>CONTROLLER</b><small>ORCHESTRATE</small></button>
+          <button class="arch-node" type="button" data-node="controller" aria-controls="archDetail" aria-pressed="false"><span>04</span><svg><use href="#i-control"/></svg><b>CONTROLLER</b><small>ORCHESTRATE</small></button>
         </div>
         <div class="arch-detail" id="archDetail" aria-live="polite" aria-atomic="true">
           <div class="detail-visual"><svg id="archIcon"><use href="#i-fingerprint"/></svg><span>DEVICE-UNIQUE</span></div>
