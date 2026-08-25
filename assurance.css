@@ -82,3 +82,35 @@ html{background:#03141d}body{text-rendering:optimizeLegibility;-webkit-font-smoo
   .source-list a{padding:1rem 0}
   .source-list small,.source-policy,.threat-grid p,.evidence-detail p,.role-path p{font-size:15px}
 }
+
+/* REFINE-012: AA-safe roles, semantic maturity and mobile record layout. */
+:root{--type-assurance-section-mobile:clamp(1.85rem,8vw,2.15rem)}
+.skip-link{position:fixed;z-index:1000;left:14px;top:10px;padding:11px 15px;color:#03131e;background:#7ac6bd;border:2px solid #03131e;border-radius:4px;font:700 14px var(--sans);text-decoration:none;transform:translateY(-160%);transition:transform .18s ease}
+.skip-link:focus{transform:translateY(0)}
+html{scroll-padding-top:90px}
+.primary{background:var(--mint);color:#071d2a}
+.primary:hover{box-shadow:0 17px 40px rgba(122,198,189,.25)}
+.matrix-row.head{color:#485c5c}
+.phase-tabs button.active b{color:#9cc8c7}
+.source-list span{color:#8a5525}
+
+@media(max-width:1050px){html{scroll-padding-top:142px}}
+
+@media(max-width:680px){
+  .topbar nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));order:3;width:100%;gap:1px;overflow:visible;padding:0;border-top:1px solid rgba(255,255,255,.1)}
+  .topbar nav a{display:grid;place-items:center;min-width:0;min-height:44px;padding:6px 3px;background:rgba(255,255,255,.025);font-size:.56rem;line-height:1.25;text-align:center}
+  .actions{gap:.5rem}
+  .actions button,.back{min-width:44px;min-height:44px}
+  .matrix-scroll-hint{display:none}
+  .control-matrix{display:grid;gap:10px;overflow:visible;border:0;box-shadow:none}
+  .matrix-row.head{display:none}
+  .matrix-row{display:block;min-width:0;border:1px solid #aeb7b2;background:#e6e1d8}
+  .matrix-row>*{display:block;padding:13px 16px;border:0;border-bottom:1px solid #c3c8c3;font-size:.82rem}
+  .matrix-row>*:last-child{border-bottom:0}
+  .matrix-row>b{color:#fff;background:#0f4b54;font:.7rem/1.4 var(--mono);letter-spacing:.08em}
+  .matrix-row span::before{display:block;margin-bottom:5px;color:#485c5c;font:.58rem/1.3 var(--mono);letter-spacing:.09em}
+  .matrix-row span:nth-of-type(1)::before{content:"CLAIM"}
+  .matrix-row span:nth-of-type(2)::before{content:"TEST"}
+  .matrix-row span:nth-of-type(3)::before{content:"EXPECTED EVIDENCE"}
+  .matrix-row span:nth-of-type(4)::before{content:"LIMIT"}
+}

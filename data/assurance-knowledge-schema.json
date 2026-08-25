@@ -3,7 +3,7 @@
   "title": "NVM Assurance Knowledge Record",
   "description": "SharePoint List / Copilot-ready metadata for governed NVM security knowledge.",
   "type": "object",
-  "required": ["title", "topic", "asset", "claim", "claimStatus", "scope", "classification", "sourceUrl", "reviewedDate", "owner"],
+  "required": ["recordId", "title", "contentType", "topic", "asset", "attackClass", "lifecyclePhase", "claim", "claimStatus", "evidenceClass", "assuranceMaturity", "scope", "applicability", "limitation", "openQuestion", "sourceUrl", "sourceOwner", "reviewedDate", "owner", "classification", "audience", "presentationRole", "oipRelevance"],
   "properties": {
     "recordId": { "type": "string" },
     "title": { "type": "string" },
@@ -14,7 +14,8 @@
     "lifecyclePhase": { "type": "array", "items": { "enum": ["Power-off", "Boot", "Derive", "Authorized Access", "Zeroize"] } },
     "claim": { "type": "string" },
     "claimStatus": { "enum": ["Public Fact", "Vendor Claim", "Analyst Inference", "Internally Tested", "Independently Evaluated", "Certified", "Field-proven", "Unknown"] },
-    "evidenceLevel": { "type": "integer", "minimum": 1, "maximum": 6 },
+    "evidenceClass": { "enum": ["Direct Observation", "Mechanism Evidence", "Vendor Disclosure", "Bounded Inference", "Unknown"] },
+    "assuranceMaturity": { "enum": ["Claimed", "Specified", "Tested", "Independently Evaluated", "Certified", "Field-proven"] },
     "scope": { "enum": ["IP", "Subsystem", "SoC", "Device", "Organization"] },
     "applicability": { "type": "string" },
     "limitation": { "type": "string" },
@@ -31,6 +32,6 @@
     "audience": { "type": "array", "items": { "type": "string" } },
     "presentationRole": { "enum": ["Problem", "Threat Evidence", "Architecture", "Lifecycle", "Consequence", "Platform Readiness", "Validation Gate", "Decision", "Appendix", null] },
     "oipRelevance": { "type": "string" },
-    "copilotAnswerRule": { "const": "Return claim, source, scope, limitation, reviewed date and open question together." }
+    "copilotAnswerRule": { "const": "Return claim, claim status, evidence class, assurance maturity, source, scope, limitation, reviewed date and open question together." }
   }
 }

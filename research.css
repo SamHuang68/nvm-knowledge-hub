@@ -16,7 +16,7 @@
 }
 
 /* OIP-001: evidence-led knowledge brief shared with the presentation narrative. */
-.oip-hero{background-image:linear-gradient(90deg,rgba(4,20,30,.97) 0%,rgba(4,20,30,.9) 43%,rgba(4,20,30,.3) 100%),url("assets/oip-secure-storage-cover-v1.png");background-size:cover;background-position:center}
+.oip-hero{background-image:linear-gradient(90deg,rgba(4,20,30,.97) 0%,rgba(4,20,30,.9) 43%,rgba(4,20,30,.3) 100%),url("assets/oip-secure-storage-cover-v1-1440.webp");background-size:cover;background-position:center}
 .oip-threat-flow,.oip-decision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hairline);border:1px solid var(--hairline)}
 .oip-threat-flow article,.oip-decision-grid article{min-width:0;padding:clamp(24px,3vw,38px);background:#fffdf8}
 .oip-threat-flow article>span,.oip-decision-grid article>span{color:#087d80;font-size:9px;font-weight:900;letter-spacing:.12em}
@@ -35,7 +35,7 @@
 .oip-equation{margin-top:0}
 .oip-page .paper-note{font-size:15px}
 .oip-page .paper-conclusion{margin-left:0;margin-right:0}
-.oip-page .paper-conclusion{position:relative;overflow:hidden;background-image:linear-gradient(90deg,rgba(6,28,42,.98) 0%,rgba(6,28,42,.9) 48%,rgba(6,28,42,.32) 100%),url("assets/oip-closing-state-v1.png");background-size:cover;background-position:center}
+.oip-page .paper-conclusion{position:relative;overflow:hidden;background-image:linear-gradient(90deg,rgba(6,28,42,.98) 0%,rgba(6,28,42,.9) 48%,rgba(6,28,42,.32) 100%),url("assets/oip-closing-state-v1-1440.webp");background-size:cover;background-position:center}
 .oip-page .paper-conclusion>*{position:relative;z-index:1}
 .oip-source-line{margin:18px 0 0;color:var(--muted-ink);font-size:12px;line-height:1.6}
 .oip-source-line a{color:#087d80;font-weight:800}
@@ -483,4 +483,53 @@ body.research-page { color: var(--ink); background: var(--paper); }
   .claim-rung:last-child{padding:22px 20px}
   .abstract-verdict p,.commercial-verdict p,.topology-card p,.evidence-triptych p,.claim-rung p,.corpus-verdict,.paper-note,.source-content>p{font-size:15px;line-height:1.68}
   body.research-page main :is(p,li){font-size:max(15px,1em)}
+}
+
+/* REFINE-012: shared evidence semantics, responsive records and OIP media budget. */
+:root{
+  --type-research-section:clamp(36px,3.8vw,54px);
+  --type-research-section-mobile:clamp(29px,8vw,34px);
+  --research-teal-ink:#067478;
+}
+.research-page :is(h1,h2) em{font-family:inherit;font-style:normal;font-weight:inherit;letter-spacing:inherit}
+.paper-kicker,.claim-rung>span,.oip-threat-flow article>span,.oip-decision-grid article>span,.oip-source-line a{color:var(--research-teal-ink)}
+.oip-hero{background-image:linear-gradient(90deg,rgba(4,20,30,.97) 0%,rgba(4,20,30,.9) 43%,rgba(4,20,30,.3) 100%),url("assets/oip-secure-storage-cover-v1-1440.webp")}
+.oip-page .paper-conclusion{background-image:linear-gradient(90deg,rgba(6,28,42,.98) 0%,rgba(6,28,42,.9) 48%,rgba(6,28,42,.32) 100%),url("assets/oip-closing-state-v1-1440.webp")}
+.oip-closure-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin-top:18px;background:var(--hairline);border:1px solid var(--hairline)}
+.oip-closure-strip article{min-width:0;padding:24px;background:#fffdf8;scroll-margin-top:96px}
+.oip-closure-strip span{color:var(--research-teal-ink);font-size:9px;font-weight:900;letter-spacing:.12em}
+.oip-closure-strip h3{margin:16px 0 10px;font-family:var(--display);font-size:20px;line-height:1.3}
+.oip-closure-strip p{margin:0;color:var(--muted-ink);font-size:14px;line-height:1.68}
+
+@media(max-width:620px){
+  .oip-hero{background-image:linear-gradient(90deg,rgba(4,20,30,.97) 0%,rgba(4,20,30,.9) 56%,rgba(4,20,30,.4) 100%),url("assets/oip-secure-storage-cover-v1-768.webp")}
+  .oip-page .paper-conclusion{background-image:linear-gradient(90deg,rgba(6,28,42,.98) 0%,rgba(6,28,42,.9) 58%,rgba(6,28,42,.4) 100%),url("assets/oip-closing-state-v1-768.webp")}
+  .oip-closure-strip{grid-template-columns:1fr}
+  .oip-closure-strip article{padding:20px}
+
+  .taxonomy-wrap,.attack-matrix{overflow:visible;border:0;background:transparent}
+  .taxonomy-table,.attack-table{display:block;min-width:0;width:100%}
+  .taxonomy-table thead,.attack-table thead{display:none}
+  .taxonomy-table tbody,.attack-table tbody{display:grid;gap:10px}
+  .taxonomy-table tr,.attack-table tr{display:block;overflow:hidden;border:1px solid var(--hairline)}
+  .taxonomy-table tr{background:#fffdf8}
+  .attack-table tr{background:#071f2d;border-color:rgba(255,255,255,.12)}
+  .taxonomy-table tbody th,.attack-table tbody th{display:block;width:auto;padding:17px 18px;border:0;border-bottom:1px solid var(--hairline);font-size:18px}
+  .attack-table tbody th{border-bottom-color:rgba(255,255,255,.12)}
+  .taxonomy-table td,.attack-table td{display:block;padding:14px 18px;border:0!important;font-size:14px;line-height:1.65}
+  .taxonomy-table td+td{border-top:1px solid var(--hairline)!important}
+  .attack-table td+td{border-top:1px solid rgba(255,255,255,.1)!important}
+  .taxonomy-table td::before,.attack-table td::before{display:block;margin-bottom:6px;color:var(--research-teal-ink);font-size:9px;font-weight:900;letter-spacing:.1em}
+  .attack-table td::before{color:#8bd5d0}
+  .taxonomy-table td:nth-of-type(1)::before{content:"STORED / EXPRESSED VARIABLE"}
+  .taxonomy-table td:nth-of-type(2)::before{content:"READ OBSERVABLE"}
+  .taxonomy-table td:nth-of-type(3)::before{content:"POWER-OFF STATE"}
+  .taxonomy-table td:nth-of-type(4)::before{content:"PHYSICAL AVENUES"}
+  .attack-table td:nth-of-type(1)::before{content:"SRAM / SRAM PUF"}
+  .attack-table td:nth-of-type(2)::before{content:"PERSISTENT OTP / OTP-PUF"}
+  .attack-table td:nth-of-type(3)::before{content:"SECURE STORAGE CONSEQUENCE"}
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }

@@ -28,13 +28,36 @@ Open `http://127.0.0.1:8765/`.
 - Public-source and claim-discipline section.
 - Physical Security Assurance center covering FI, SCA, invasive analysis, attack windows, countermeasure evidence, certification routing and role-based learning.
 - OIP Secure Storage brief connecting RP2350 threat evidence, SRAM-PUF root reconstruction, AES-256 protected OTP, node readiness and explicit validation gates.
+- Bilingual AI Systems NVM Opportunities topic mapping OTP/MTP use cases, evidence boundaries and target-validation needs across AI accelerators, silicon photonics, repair, security and RAS.
 - SharePoint/Copilot-ready knowledge schema in `data/assurance-knowledge-schema.json`, with the List field map in `data/sharepoint-field-map.md`.
 - Governed OIP claim records in `data/oip-secure-storage-knowledge.json` for SharePoint import and presentation grounding.
+- Governed AI opportunity records in `data/ai-nvm-opportunities-knowledge.json`, validated by `data/ai-nvm-opportunities-schema.json`, with PDF page/figure locators retained for source-traceable SharePoint and Copilot answers.
+
+## Governed data workflow
+
+`data/oip-secure-storage-knowledge.json` is the canonical OIP claim source. Regenerate the SharePoint CSV after any record edit, then verify that the export is current:
+
+```powershell
+node scripts/build-oip-sharepoint.mjs
+node scripts/build-oip-sharepoint.mjs --check
+```
+
+The AI Systems topic has an independent canonical package and deterministic export so its opportunity fields do not weaken the security-specific OIP schema:
+
+```powershell
+node scripts/build-ai-nvm-sharepoint.mjs
+node scripts/build-ai-nvm-sharepoint.mjs --check
+node scripts/check-ai-nvm-integrity.mjs
+```
+
+The integrity check validates local page, image and stylesheet targets; fragment IDs; bilingual pairs; governed record references; PDF source locators; unique AI record IDs; and CSV freshness.
+
+Keep `EvidenceClass` (how a source supports a claim) separate from `AssuranceMaturity` (how far validation has progressed). Copilot answers must carry each claim's scope, limitation, source, review date, and open question.
 
 ## Design system
 
 - **Executive Silicon:** deep navy, wafer cyan and restrained copper.
-- **Typography:** Segoe UI / Microsoft JhengHei with Georgia reserved for the ephemeral-root statement.
+- **Typography:** Segoe UI / Microsoft JhengHei throughout, with scale and weight—not a conflicting display serif—providing emphasis.
 - **Semantic colors:** cyan = Synopsys/volatile root; copper = persistent physical state; red = attack path; green = protected outcome.
 - **Icon language:** single-stroke, rounded technical symbols implemented as reusable inline SVG.
 

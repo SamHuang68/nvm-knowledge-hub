@@ -21,20 +21,29 @@ function setResearchLanguage(nextLanguage, persist = true) {
   document.body.dataset.language = researchLanguage;
   document.documentElement.lang = researchLanguage === "zh" ? "zh-Hant" : "en";
   const toggle = document.querySelector("#languageToggle");
-  if (toggle) toggle.setAttribute("aria-label", researchLanguage === "zh" ? "Switch to English" : "切換為繁體中文");
-  const navigationLabel = document.body.classList.contains("oip-page")
+  if (toggle) toggle.setAttribute("aria-label", researchLanguage === "zh" ? "Switch to English" : "Switch to Traditional Chinese");
+  document.querySelector(".brand")?.setAttribute("aria-label", researchLanguage === "zh" ? "NVM Knowledge Hub 首頁" : "NVM Knowledge Hub home");
+  const navigationLabel = document.body.classList.contains("ai-nvm-page")
+    ? (researchLanguage === "zh" ? "AI 與 NVM 主題導覽" : "AI and NVM topic navigation")
+    : document.body.classList.contains("oip-page")
     ? (researchLanguage === "zh" ? "OIP 主題導覽" : "OIP topic navigation")
     : document.body.classList.contains("evidence-page")
       ? (researchLanguage === "zh" ? "證據頁導覽" : "Evidence navigation")
       : (researchLanguage === "zh" ? "研究頁導覽" : "Research navigation");
   document.querySelector(".primary-nav")?.setAttribute("aria-label", navigationLabel);
+  document.querySelector("#evidenceFilters")?.setAttribute("aria-label", researchLanguage === "zh" ? "證據來源類型" : "Evidence source type");
+  document.querySelector(".state-lab-controls")?.setAttribute("aria-label", researchLanguage === "zh" ? "記憶體狀態階段" : "Memory-state phase");
+  document.querySelector(".oip-closure-strip")?.setAttribute("aria-label", researchLanguage === "zh" ? "Lifecycle、helper data 與 accountability 封閉重點" : "Lifecycle, helper-data and accountability closure points");
+  document.querySelectorAll("[data-alt-zh][data-alt-en]").forEach(image => image.alt = researchLanguage === "zh" ? image.dataset.altZh : image.dataset.altEn);
   syncResearchMenuState(document.querySelector(".primary-nav")?.classList.contains("open") || false);
   const search = document.querySelector("#evidenceSearch");
   if (search) {
     search.placeholder = researchLanguage === "zh" ? "搜尋作者、技術、攻擊或 DOI…" : "Search author, technology, attack or DOI…";
     search.setAttribute("aria-label", researchLanguage === "zh" ? "搜尋證據" : "Search evidence");
   }
-  document.title = document.body.classList.contains("oip-page")
+  document.title = document.body.classList.contains("ai-nvm-page")
+    ? (researchLanguage === "zh" ? "AI Systems 與 NVM 機會 · NVM Knowledge Hub" : "AI Systems & NVM Opportunities · NVM Knowledge Hub")
+    : document.body.classList.contains("oip-page")
     ? "OIP Secure Storage Brief · NVM Knowledge Hub"
     : document.body.classList.contains("evidence-page")
       ? "Evidence Ledger · NVM Knowledge Hub"
@@ -52,7 +61,7 @@ function updateResearchPhase(phase) {
   document.querySelectorAll(".state-lab-controls button").forEach(button => {
     const active = button.dataset.phase === phase;
     button.classList.toggle("active", active);
-    button.setAttribute("aria-selected", active ? "true" : "false");
+    button.setAttribute("aria-pressed", active ? "true" : "false");
   });
   const [number, title, text] = researchPhaseCopy[phase][researchLanguage];
   document.querySelector("#labNumber").textContent = number;

@@ -1,54 +1,516 @@
 {
   "schemaVersion": 1,
   "projectId": "nvm-knowledge-hub-refinement",
-  "objective": "Create an evidence-governed OIP Secure Storage knowledge foundation that feeds the website, SharePoint/Copilot migration and a converged TSMC OIP presentation.",
-  "status": "complete",
-  "constraints": [
-    "Preserve the existing static-site architecture and current user-owned changes.",
-    "Preserve technical meaning and evidence boundaries.",
-    "Prefer systemic fixes over one-off visual patches.",
-    "Keep the host as the only integration writer.",
-    "Do not commit, push or deploy without explicit authorization."
-  ],
+  "objective": "Research and integrate an evidence-governed Advanced-Node NVM chapter covering logic-MTP voltage and node constraints, embedded-flash scaling boundaries, the 22nm-and-beyond MRAM/ReRAM transition, and public application advantages of Single-VDD Read while quarantining confidential programming-supply details for later SharePoint completion.",
+  "status": "completed",
+  "updatedAt": "2026-08-25",
+  "constraints": {
+    "inScope": [
+      "Commercial-grade AI package artwork and responsive web composition",
+      "Evidence-disciplined AI/NVM opportunity content",
+      "NotebookLM PDF ingestion as quarantined research hypotheses",
+      "Reusable website and presentation visual standard",
+      "Desktop and mobile rendered acceptance"
+    ],
+    "outOfScope": [
+      "Publishing unverified market-size, endurance, topology, or security claims",
+      "Commit, push, or deployment without an explicit request in this turn",
+      "Treating illustrative component placement as a product topology"
+    ],
+    "assumptions": [
+      "The NotebookLM PDF is a useful secondary synthesis but does not disclose sufficient primary-source lineage",
+      "The existing NVM Knowledge Hub remains the canonical integration target",
+      "Research hypotheses may be exposed only with explicit quarantine and validation-needed labels"
+    ],
+    "permissions": {
+      "workspaceWrites": true,
+      "externalWrites": false,
+      "deployment": false
+    },
+    "resources": {
+      "primaryWorkspace": "C:/Users/Sam/Documents/ChatGPT/NVM",
+      "sourcePdf": "C:/Users/Sam/Downloads/The_AI_Peripheral_Blueprint.pdf"
+    }
+  },
   "currentLoop": {
-    "id": "OIP-001",
-    "title": "OIP knowledge foundation and cross-media convergence",
-    "status": "complete",
-    "successCriteria": [
-      "Abstract claims are separated into public fact, vendor claim, analyst inference and validation gap.",
-      "The website contains a bilingual OIP topic page and governed JSON records.",
-      "The SharePoint field map supports OIP, presentation and Copilot routing.",
-      "The v3 deck is converged into a shorter template-faithful v4 narrative.",
-      "Website and presentation render without overflow or broken assets."
+    "id": "REFINE-016",
+    "phase": "accepted",
+    "exitVerdict": "PASS_WITH_EXPLICIT_PUBLIC_INTERNAL_EVIDENCE_BOUNDARY"
+  },
+  "orchestrationPolicy": {
+    "statefulHost": "Codex",
+    "singleWriterIntegration": true,
+    "minimumAcceptedDistinctProviders": 2,
+    "providerGate": "BLOCKED_MULTI_PROVIDER",
+    "providerGateReason": "Cursor / Google Gemini returned a response-observed ACCEPT for the exact frozen V2 packet. SuperGrok account/model preflight succeeded but its dispatch could not satisfy the current provenance Gate, so a two-provider release claim is not made."
+  },
+  "taskShape": {
+    "complexity": "high",
+    "risk": "medium-high",
+    "dimensions": [
+      "visual craft",
+      "responsive UI",
+      "technical semantics",
+      "evidence governance",
+      "cross-format identity",
+      "multi-provider review",
+      "advanced-node NVM technology research",
+      "confidential-knowledge boundary"
     ]
   },
-  "tasks": [
-    {"id":"OIP-01","owner":"host","state":"complete","output":"claim/evidence/limitation knowledge foundation"},
-    {"id":"OIP-02","owner":"host","state":"complete","output":"SharePoint and Copilot-ready governed records"},
-    {"id":"OIP-03","owner":"host","state":"complete","output":"bilingual OIP website topic"},
-    {"id":"OIP-04","owner":"host","state":"complete","output":"12-slide template-faithful OIP Draft v4"},
-    {"id":"OIP-05","owner":"host-acceptance","state":"complete","output":"responsive, schema, overflow and template fidelity gates"}
+  "capabilityGraph": [
+    {
+      "role": "Host / Integrator",
+      "provider": "OpenAI Codex",
+      "responsibility": "Scope, integration, evidence governance, rendered QA, final acceptance"
+    },
+    {
+      "role": "Visual Auditor",
+      "provider": "Confucius subagent",
+      "responsibility": "Commercial hierarchy, composition, typography, responsive visual review"
+    },
+    {
+      "role": "Content Auditor",
+      "provider": "Zeno subagent",
+      "responsibility": "Technical wording, evidence boundaries, source and inference discipline"
+    },
+    {
+      "role": "Technical Acceptance",
+      "provider": "Planck subagent",
+      "responsibility": "Implementation integrity, accessibility, responsive and deterministic verification"
+    },
+    {
+      "role": "External Exact-Artifact Reviewer",
+      "provider": "Cursor / Google Gemini",
+      "responsibility": "Independent exact V2 packet review with response-observed identity"
+    },
+    {
+      "role": "External Route Preflight",
+      "provider": "SuperGrok",
+      "responsibility": "Account/model discovery completed; dispatch excluded from release evidence because provenance preflight failed closed"
+    },
+    {
+      "role": "R16 Evidence Researcher",
+      "provider": "Codex subagent pool",
+      "responsibility": "Read-only primary-source research on MTP/eFlash constraints, advanced-node alternatives and Single-VDD Read application value; same-provider assistance only"
+    }
   ],
-  "verification": {
-    "requirements":"pass",
-    "claimAccuracy":"pass",
-    "staticQuality":"pass",
-    "runtime":"pass",
-    "responsive":"pass",
-    "accessibility":"pass",
-    "bilingualIntegrity":"pass",
-    "maintainability":"pass",
-    "independentReview":"host-render-acceptance-pass; external evidence remains source-bounded"
+  "synchronizationBarriers": [
+    {
+      "id": "BAR-R16-RESEARCH",
+      "baseStateHash": "d6ed618a6ec11b2a86f5ce577962d9784e4a53a19d192b163195c071f282394e:989626c6d15f8c6c1c8649ec5aaaeb47b08223adf8088391be14814f90de2a48:b40325d089f8a70106a28a0c9517ad87a3a12c301d4db1f827c23431aecd9ee7:41e69f43c3b3178afc97cd5969aa5a8fb968f9b5f685bfe8e0e15e786cf60d4c",
+      "generation": 1,
+      "requiredTaskIds": ["R16-RESEARCH-01", "R16-RESEARCH-02", "R16-RESEARCH-03"],
+      "providerRequirement": "same-provider parallel advisory; no multi-provider claim",
+      "gateCriteria": "Each branch returns primary-source URLs, claim-level evidence, limitations, contradictions and publish-safe wording; Host performs serial synthesis and all writes",
+      "status": "closed",
+      "completionEvidence": "All three same-provider advisory branches returned claim-level primary-source matrices; Host integrated the publish-safe synthesis and completed deterministic and rendered acceptance."
+    }
+  ],
+  "artifactGraph": [
+    {
+      "id": "A14-01",
+      "type": "source",
+      "path": "C:/Users/Sam/Downloads/The_AI_Peripheral_Blueprint.pdf",
+      "lineage": "NotebookLM synthesis supplied by user"
+    },
+    {
+      "id": "A14-02",
+      "type": "visual",
+      "path": "site/assets/ai-persistent-state-fabric-v1.png",
+      "lineage": "Original ImageGen AI-package artwork"
+    },
+    {
+      "id": "A14-03",
+      "type": "web",
+      "path": "site/ai-nvm-opportunities.html",
+      "lineage": "Integrated commercial web chapter"
+    },
+    {
+      "id": "A14-04",
+      "type": "knowledge",
+      "path": "site/data/ai-nvm-opportunities-knowledge.json",
+      "lineage": "Canonical evidence records plus quarantined research intake"
+    },
+    {
+      "id": "A14-05",
+      "type": "portable-data",
+      "path": "site/data/ai-nvm-research-intake.csv",
+      "lineage": "SharePoint-ready quarantined hypothesis export"
+    },
+    {
+      "id": "A14-06",
+      "type": "standard",
+      "path": "C:/Users/Sam/.codex/skills/apply-enterprise-identity/references/commercial-rich-content-standard.md",
+      "lineage": "Reusable website/presentation commercial rich-content standard"
+    },
+    {
+      "id": "A15-01",
+      "type": "visual",
+      "path": "site/assets/ai-photonics-state-contract-v1.png",
+      "lineage": "Original ImageGen optical-engine and AI-package protagonist with responsive WebP derivatives"
+    },
+    {
+      "id": "A15-02",
+      "type": "review-artifact",
+      "path": "tmp/ai-nvm-research/review-packet-r15-final-v2.txt",
+      "lineage": "Exact frozen R15 V2 packet reviewed by Cursor / Google Gemini"
+    },
+    {
+      "id": "A16-01",
+      "type": "web",
+      "path": "site/ai-nvm-opportunities.html#advanced-nodes",
+      "lineage": "Bilingual Advanced-Node NVM and direct core-supply read chapter"
+    },
+    {
+      "id": "A16-02",
+      "type": "knowledge",
+      "path": "site/data/ai-nvm-opportunities-knowledge.json",
+      "lineage": "Twenty-seven canonical records including seven governed advanced-node records"
+    },
+    {
+      "id": "A16-03",
+      "type": "portable-data",
+      "path": "site/data/ai-nvm-sharepoint-import.csv",
+      "lineage": "Deterministic SharePoint and Copilot import containing the advanced-node evidence boundary"
+    },
+    {
+      "id": "A16-04",
+      "type": "research-brief",
+      "path": "AI_NVM_Opportunities_Research_Brief.md",
+      "lineage": "Primary-source synthesis plus owner-provided public engineering and industry notes"
+    }
+  ],
+  "effectPolicy": {
+    "externalWritesAllowed": false,
+    "gitCommitAllowed": false,
+    "deploymentAllowed": false,
+    "observedEffects": [
+      "Workspace source edits",
+      "Local generated artwork",
+      "Local deterministic exports",
+      "Read-only rendered and external reviews"
+    ]
   },
-  "blockers": [],
-  "artifacts": ["oip-secure-storage.html","data/oip-secure-storage-knowledge.json","data/assurance-knowledge-schema.json","data/sharepoint-field-map.md","research.css","research.js","index.html","memory-physics.html","memory-evidence.html",".loop-engineering/state.json","../OIP_Secure_Storage_Knowledge_Foundation.md","../Secure_Storage_SRAM_PUF_TSMC_OIP_Draft_v4.pptx"],
+  "artifactBindings": [
+    {
+      "from": "ImageGen original output",
+      "to": "site/assets/ai-persistent-state-fabric-v1.png",
+      "derivatives": [
+        "site/assets/ai-persistent-state-fabric-v1-1800.webp",
+        "site/assets/ai-persistent-state-fabric-v1-900.webp"
+      ]
+    },
+    {
+      "from": "C:/Users/Sam/Downloads/The_AI_Peripheral_Blueprint.pdf",
+      "to": "site/data/ai-nvm-opportunities-knowledge.json#researchInputs",
+      "derivatives": [
+        "site/data/ai-nvm-research-intake.csv"
+      ]
+    },
+    {
+      "from": "site/ai-nvm-opportunities.html and supporting artifacts",
+      "to": "tmp/ai-nvm-research/review-packet-r14.txt",
+      "artifactHash": "281adbdf013968a42b97caa62655d7b7db75577dd2365ea92bbcb8030133db69"
+    },
+    {
+      "from": "R14 craft/review findings",
+      "to": "C:/Users/Sam/.codex/skills/apply-enterprise-identity/references/commercial-rich-content-standard.md"
+    },
+    {
+      "from": "ImageGen original output",
+      "to": "site/assets/ai-photonics-state-contract-v1.png",
+      "derivatives": [
+        "site/assets/ai-photonics-state-contract-v1-1600.webp",
+        "site/assets/ai-photonics-state-contract-v1-800.webp"
+      ]
+    },
+    {
+      "from": "site/ai-nvm-opportunities.html and R15 supporting artifacts",
+      "to": "tmp/ai-nvm-research/review-packet-r15-final-v2.txt",
+      "artifactHash": "00d0d90827b4ee596c248e463ab37f7a713c1e5f615ad8e516abeaafbd3700e8"
+    },
+    {
+      "from": "R15 craft/review findings",
+      "to": "C:/Users/Sam/.codex/skills/apply-enterprise-identity/references/commercial-rich-content-standard.md"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "R15-01",
+      "name": "Audit all heading grammar, large callouts, and bilingual hierarchy",
+      "status": "completed"
+    },
+    {
+      "id": "R15-02",
+      "name": "Audit simplistic diagrams and define the commercial visual upgrade system",
+      "status": "completed"
+    },
+    {
+      "id": "R15-03",
+      "name": "Preflight and dispatch Gemini and SuperGrok Lite advisory workers",
+      "status": "completed_with_supergrok_provenance_block"
+    },
+    {
+      "id": "R15-04",
+      "name": "Generate and integrate richer artwork and native information graphics",
+      "status": "completed"
+    },
+    {
+      "id": "R15-05",
+      "name": "Render and verify desktop/mobile, bilingual, accessibility, and evidence gates",
+      "status": "completed"
+    },
+    {
+      "id": "R15-06",
+      "name": "Freeze the exact final artifact, reconcile provider receipts, and update the reusable standard",
+      "status": "completed"
+    },
+    {
+      "id": "R16-01",
+      "name": "Inventory current website, evidence schema and SharePoint export contract",
+      "status": "done"
+    },
+    {
+      "id": "R16-02",
+      "name": "Research public primary evidence for logic-MTP and embedded-flash voltage/node constraints",
+      "status": "done"
+    },
+    {
+      "id": "R16-03",
+      "name": "Research advanced-node MRAM/ReRAM transition and Single-VDD Read application value",
+      "status": "done"
+    },
+    {
+      "id": "R16-04",
+      "name": "Classify public evidence, vendor statements, internal knowledge and SharePoint-deferred confidential details",
+      "status": "done"
+    },
+    {
+      "id": "R16-05",
+      "name": "Implement the bilingual Advanced-Node NVM chapter and governed data records",
+      "status": "done"
+    },
+    {
+      "id": "R16-06",
+      "name": "Run rendered, responsive, bilingual, accessibility and evidence-governance acceptance",
+      "status": "done"
+    }
+  ],
+  "routingDecisions": [
+    {
+      "decision": "Use original ImageGen art as the visual protagonist and keep semantic labels native in HTML/CSS",
+      "reason": "Preserves responsive typography, accessibility, translation, and claim-level editing"
+    },
+    {
+      "decision": "Quarantine NotebookLM claims from the 20 canonical evidence records",
+      "reason": "The PDF is image-only and provides no visible primary-source citation lineage"
+    },
+    {
+      "decision": "Keep contract lanes separate from illustrated component adjacency",
+      "reason": "Avoids implying an unverified product topology"
+    },
+    {
+      "decision": "Do not report a two-provider multi-AI PASS",
+      "reason": "Cursor / Google Gemini supplied one response-observed exact-artifact review, while SuperGrok dispatch remained blocked by provenance preflight"
+    },
+    {
+      "decision": "Separate Photonics power-up read from qualified update",
+      "reason": "Two named logical directions prevent the persistence target and volatile source from being misread as one physical or bidirectional bus"
+    },
+    {
+      "decision": "Use mobile inspection tabs with a persistent all-planes scope line",
+      "reason": "Condenses page height while preserving that all four assurance planes apply concurrently"
+    },
+    {
+      "decision": "Separate process-device class, embedded-memory technology and system supply contract",
+      "reason": "Prevents I/O oxide availability from being misrepresented as the macro external-rail requirement"
+    },
+    {
+      "decision": "Describe 28nm eFlash as a public commercialization plateau rather than a physical limit",
+      "reason": "Primary sources and the owner-provided ESF3/ESF2 observation point to mask cost, integration burden, yield learning and qualification as the decisive barriers"
+    },
+    {
+      "decision": "Name the public N5 feature Direct Core-Supply Read and keep Read Availability distinct from Program Availability",
+      "reason": "The cited Synopsys evidence is specific to TSMC N5 XHF OTP, while the public owner note states that PGM still uses I/O supply as the charge-pump base voltage"
+    }
+  ],
+  "providerReceipts": [
+    {
+      "taskId": "R14-NVIDIA-03",
+      "provider": "NVIDIA",
+      "model": "nvidia/nemotron-3-super-120b-a12b",
+      "modelObservation": "response-observed",
+      "verdict": "PASS",
+      "evidenceId": "9266fcbd2c5678377b05d12d9b53c48c447889928d327377c99405570469ace1",
+      "outputHash": "a156b57e2b4157acb66071f752d53516f1a363232a290ab5f1a1975a0a5addd9",
+      "hostAcceptanceEvidence": "52da9915bb09ff460a13ddf66f7580d0d9109e18ac70c29b7937a33c64e1df4d",
+      "accepted": true
+    },
+    {
+      "taskId": "R14-CURSOR-05",
+      "provider": "Cursor",
+      "upstreamProvider": "Google",
+      "model": "gemini-3.7-flash-high",
+      "modelObservation": "transport-requested-model",
+      "verdict": "PASS_WITH_PRESERVATION_ONLY_P2_ADVICE",
+      "evidenceId": "e984c438a9649d492381777c475affadc2932fef766aab5a36f75accb8664917",
+      "outputHash": "b33c9c98d4111f9366a1b81acdfe97d26214c53c356e5b7656e84382f8017fbb",
+      "accepted": false,
+      "acceptanceBlocker": "MODEL_IDENTITY_UNOBSERVED"
+    },
+    {
+      "taskId": "R15-CURSOR-GEMINI-01",
+      "provider": "Cursor",
+      "upstreamProvider": "Google",
+      "model": "gemini-3.7-flash-high",
+      "modelObservation": "transport-requested-model",
+      "verdict": "CRAFT_ADVICE_INCORPORATED_WITH_HOST_EVIDENCE_FILTER",
+      "evidenceId": "ca1155e2637f5d01457006f63564b571d3019388bbf1e9a6e3476edcd74a9289",
+      "outputHash": "34c0ef68a0c7bad3fe1f0d659c1867df65e550d32293a41c83d3b58b77e48636",
+      "accepted": false,
+      "acceptanceBlocker": "MODEL_IDENTITY_TRANSPORT_REQUESTED_ONLY"
+    },
+    {
+      "taskId": "R15-CURSOR-GEMINI-03",
+      "provider": "Cursor",
+      "upstreamProvider": "Google",
+      "model": "gemini-3.7-flash-high",
+      "modelObservation": "response-observed",
+      "verdict": "ACCEPT",
+      "reviewedArtifactHash": "00d0d90827b4ee596c248e463ab37f7a713c1e5f615ad8e516abeaafbd3700e8",
+      "evidenceId": "c502248e804bf80e4a8eeca5ad348bf1a475672929d44f4f2b18de4d7aea596b",
+      "outputHash": "a8e183a346d1700137b63969454e2d4c0595a8d6c9461ad287906ecaf539f44e",
+      "hostDisposition": "accepted",
+      "acceptedInLedger": false,
+      "acceptanceBlocker": "BRIDGE_VERSION_CHANGED,DISPATCH_BUILD_CHANGED"
+    }
+  ],
+  "collaborationClaims": {
+    "strictGateVerdict": "BLOCKED_MULTI_PROVIDER",
+    "acceptedDistinctProviders": 0,
+    "responseObservedExternalProviders": 1,
+    "requiredDistinctProviders": 2,
+    "evidenceId": "c502248e804bf80e4a8eeca5ad348bf1a475672929d44f4f2b18de4d7aea596b",
+    "claim": "Cursor / Google Gemini returned a response-observed ACCEPT for the exact frozen V2 artifact. The Host accepted its findings, but the later ledger-disposition call failed closed after the bridge build changed. SuperGrok did not complete dispatch, so no strict two-provider claim is made."
+  },
+  "claimAudit": {
+    "canonicalEvidenceRecords": 27,
+    "quarantinedResearchHypotheses": 5,
+    "primarySourceLineageForNotebookLm": false,
+    "unverifiedClaimsPublishedAsProof": 0,
+    "illustrativeTopologyDisclosurePresent": true,
+    "researchIntakeDisclosurePresent": true
+  },
+  "verification": {
+    "commands": [
+      "node site/scripts/build-ai-nvm-sharepoint.mjs --check",
+      "node --check site/ai-nvm.js",
+      "node site/scripts/check-ai-nvm-integrity.mjs",
+      "git diff --check",
+      "python C:/Users/Sam/.codex/skills/.system/skill-creator/scripts/quick_validate.py C:/Users/Sam/.codex/skills/apply-enterprise-identity"
+    ],
+    "evidence": [
+      "SharePoint exporter PASS: 27 governed records plus 5 quarantined hypotheses; generated CSVs match JSON",
+      "AI/NVM integrity checker PASS",
+      "Advanced-node knowledge package PASS: 27 unique governed records including seven new R16 records",
+      "SharePoint deterministic export PASS: 27 governed records plus 5 quarantined hypotheses",
+      "Desktop rendered acceptance PASS at 1440x1000 with no document-level horizontal overflow",
+      "Mobile bilingual rendered acceptance PASS at 390x844 with no horizontal overflow and condensed two-column benefit/checklist panels",
+      "Read/program responsibility diagram, owner-provided ESF3 commercial-barrier note and SharePoint internal-completion placeholder visually verified",
+      "Git whitespace validation PASS",
+      "Enterprise identity skill validation PASS",
+      "Responsive and internal-clipping matrix PASS at 1440, 1361, 1360, 1241, 1181, 1121, 1120, 760, 621, 620, 390, 340, and 312 pixels",
+      "Desktop article semantics and mobile hidden-aware tab semantics plus Arrow/Home/End keyboard behavior PASS",
+      "Visual audit PASS with zero P0/P1/P2",
+      "Content/evidence audit PASS with zero P0/P1",
+      "Technical acceptance PASS with zero P0/P1",
+      "Cursor / Google Gemini exact frozen V2 packet review ACCEPT with zero P0/P1/P2; response-observed receipt c502248e804bf80e4a8eeca5ad348bf1a475672929d44f4f2b18de4d7aea596b"
+    ],
+    "openP0": [],
+    "openP1": [],
+    "verdict": "pass_r16_same_provider_research_no_multi_provider_claim"
+  },
   "loopHistory": [
-    {"id":"REFINE-003","title":"Sitewide editorial scale normalization","status":"complete"},
-    {"id":"REFINE-004","title":"Layered PGP, Okta and PUF security narrative","status":"complete"},
-    {"id":"REFINE-005","title":"Whole-site quality and performance optimization","status":"complete"},
-    {"id":"REFINE-006","title":"Design-system consolidation and editorial cadence upgrade","status":"complete"},
-    {"id":"REFINE-011","title":"Whole-site responsive density and cadence optimization","status":"complete"},
-    {"id":"OIP-001","title":"OIP knowledge foundation and cross-media convergence","status":"complete"}
+    {
+      "id": "REFINE-003",
+      "status": "completed"
+    },
+    {
+      "id": "REFINE-004",
+      "status": "completed"
+    },
+    {
+      "id": "REFINE-005",
+      "status": "completed"
+    },
+    {
+      "id": "REFINE-006",
+      "status": "completed"
+    },
+    {
+      "id": "REFINE-011",
+      "status": "completed"
+    },
+    {
+      "id": "OIP-001",
+      "status": "completed"
+    },
+    {
+      "id": "REFINE-012",
+      "status": "completed"
+    },
+    {
+      "id": "REFINE-013",
+      "status": "completed"
+    },
+    {
+      "id": "REFINE-014",
+      "status": "completed_with_blocked_multi_provider_gate"
+    },
+    {
+      "id": "REFINE-015",
+      "status": "completed_with_blocked_multi_provider_gate"
+    },
+    {
+      "id": "REFINE-016",
+      "status": "completed"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "B14-01",
+      "scope": "strict multi-provider collaboration claim",
+      "status": "open",
+      "detail": "A second exact-final-artifact review exists, but its model identity is transport-requested rather than independently response-observed."
+    },
+    {
+      "id": "B15-01",
+      "scope": "strict R15 multi-provider collaboration claim",
+      "status": "open",
+      "detail": "Cursor / Google Gemini produced a response-observed exact-artifact ACCEPT. SuperGrok provenance preflight blocked dispatch, and the Host disposition receipt for Cursor failed closed after the bridge build changed; therefore the product is complete but the strict two-provider Gate remains blocked."
+    }
+  ],
+  "artifacts": [
+    "site/ai-nvm-opportunities.html",
+    "site/ai-nvm.css",
+    "site/ai-nvm.js",
+    "site/assets/ai-persistent-state-fabric-v1.png",
+    "site/assets/ai-persistent-state-fabric-v1-1800.webp",
+    "site/assets/ai-persistent-state-fabric-v1-900.webp",
+    "site/assets/ai-photonics-state-contract-v1.png",
+    "site/assets/ai-photonics-state-contract-v1-1600.webp",
+    "site/assets/ai-photonics-state-contract-v1-800.webp",
+    "site/data/ai-nvm-opportunities-knowledge.json",
+    "site/data/ai-nvm-opportunities-schema.json",
+    "site/data/ai-nvm-opportunities.csv",
+    "site/data/ai-nvm-research-intake.csv",
+    "site/scripts/build-ai-nvm-sharepoint.mjs",
+    "site/scripts/check-ai-nvm-integrity.mjs",
+    "AI_NVM_Opportunities_Research_Brief.md",
+    "tmp/ai-nvm-research/review-packet-r14.txt",
+    "tmp/ai-nvm-research/review-packet-r15-final-v2.txt",
+    "C:/Users/Sam/.codex/skills/apply-enterprise-identity/references/commercial-rich-content-standard.md"
   ],
   "nextLoop": null
 }

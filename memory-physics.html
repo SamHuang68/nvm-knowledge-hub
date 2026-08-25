@@ -6,10 +6,12 @@
   <meta name="description" content="論文級探討 SRAM、OTP 與其他揮發性／非揮發性記憶體的讀取物理、光熱側信道、斷電攻擊面與 Secure Storage 設計含義。">
   <meta name="theme-color" content="#061c2a">
   <title>記憶體物理與安全 · NVM Knowledge Hub</title>
-  <link rel="stylesheet" href="styles.css?v=20260817-refine011">
-  <link rel="stylesheet" href="research.css?v=20260817-refine011">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260824-refine012">
+  <link rel="stylesheet" href="research.css?v=20260825-refine013">
 </head>
 <body class="research-page" data-language="zh">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
 
   <header class="site-header">
@@ -34,13 +36,13 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="research-hero">
       <div class="research-hero-inner">
         <p class="research-label">RESEARCH NOTE 02 · MEMORY PHYSICS & HARDWARE SECURITY</p>
         <h1>
-          <span data-lang="zh">真正的商業壁壘是<br><em>可量產的互補式儲存。</em></span>
-          <span data-lang="en">The commercial moat is<br><em>economical complementary storage.</em></span>
+          <span data-lang="zh">可量產的互補式儲存，<br><em>形成可驗證的差異。</em></span>
+          <span data-lang="en">Scalable complementary storage<br><em>creates a verifiable difference.</em></span>
         </h1>
         <p class="research-hero-lede">
           <span data-lang="zh">感測器可以比較 voltage 或 current；產品真正拉開差距的，是 bit-cell economics 能否支撐 complementary representation、降低一階資料相依訊號，再由 SRAM PUF、加密 OTP 與 secure controller 封閉完整攻擊鏈。</span>
@@ -91,13 +93,13 @@
 
       <section id="economics" class="paper-section reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">02 · COMMERCIAL REALITY</p><h2><span data-lang="zh">差動讀取不難畫；<br><em>用量產面積做出來，才是壁壘。</em></span><span data-lang="en">Differential read is easy to draw;<br><em>making it economical is the moat.</em></span></h2></div>
+          <div><p class="paper-kicker">02 · COMMERCIAL REALITY</p><h2><span data-lang="zh">差動讀取不難畫；<br><em>量產成本決定商業可行性。</em></span><span data-lang="en">Differential read is easy to draw;<br><em>production cost determines viability.</em></span></h2></div>
           <p><span data-lang="zh">真正該比較的不是 sense amplifier 的名稱，而是每個 logical bit 要付出多少 cell、金屬線、programming 操作與 array overhead，才能形成真正的 complementary representation。</span><span data-lang="en">The meaningful comparison is not the sense-amplifier label, but how many cells, wires, programming operations and array overheads each logical bit must pay to create a genuinely complementary representation.</span></p>
         </div>
 
         <div class="commercial-verdict">
           <small>EXECUTIVE TAKEAWAY</small>
-          <strong><span data-lang="zh">Differential sensing 是電路能力；complementary storage 的成本，才是 IP 壁壘。</span><span data-lang="en">Differential sensing is a circuit capability; the cost of complementary storage is the IP moat.</span></strong>
+          <strong><span data-lang="zh">Differential sensing 是電路能力；complementary storage 的成本，是重要的 IP 差異化條件。</span><span data-lang="en">Differential sensing is a circuit capability; complementary-storage cost is a material IP differentiator.</span></strong>
           <p><span data-lang="zh">一個 data cell 與固定 reference 比較，仍是 single-ended physical representation。只有「同一 logical bit 以一對互補 cell 表示」時，0／1 的總體活動才有機會在一階近似下趨於對稱。</span><span data-lang="en">Comparing one data cell against a fixed reference remains a single-ended physical representation. Only when one logical bit is stored as a complementary cell pair can aggregate 0/1 activity approach first-order symmetry.</span></p>
         </div>
 
@@ -165,10 +167,10 @@
           <p><span data-lang="zh">切換三個階段。左側代表 SRAM／SRAM PUF 的 volatile state expression；右側代表 programmed antifuse／NeoPUF 類 persistent conduction state。圖為 threat-model abstraction，不是特定 foundry macro schematic。</span><span data-lang="en">Switch among three phases. The left abstracts volatile SRAM/SRAM-PUF state expression; the right abstracts a programmed antifuse/NeoPUF persistent conduction state. This is a threat-model abstraction, not a foundry-macro schematic.</span></p>
         </div>
         <div class="state-lab" id="stateLab" data-phase="off">
-          <div class="state-lab-controls" role="tablist" aria-label="Read path phases">
-            <button class="active" type="button" data-phase="off" role="tab" aria-selected="true">01 · POWER OFF</button>
-            <button type="button" data-phase="express" role="tab" aria-selected="false">02 · STATE EXPRESSION</button>
-            <button type="button" data-phase="read" role="tab" aria-selected="false">03 · ELECTRICAL READ</button>
+          <div class="state-lab-controls" role="group" aria-label="Read path phases">
+            <button class="active" type="button" data-phase="off" aria-pressed="true">01 · POWER OFF</button>
+            <button type="button" data-phase="express" aria-pressed="false">02 · STATE EXPRESSION</button>
+            <button type="button" data-phase="read" aria-pressed="false">03 · ELECTRICAL READ</button>
           </div>
           <div class="state-lab-stage">
             <div class="memory-lane">
@@ -286,8 +288,8 @@
             <li><span data-lang="zh">Synopsys 1T OTP 的 cell economics 讓 complementary twin-cell storage 在量產密度下成為可行選項；這比單純宣稱「有 differential sense amplifier」更具產品區隔力。</span><span data-lang="en">Synopsys 1T OTP cell economics make complementary twin-cell storage practical at production density—a stronger product distinction than merely claiming a differential sense amplifier.</span></li>
             <li><span data-lang="zh">SRAM PUF 降低斷電時可直接成像的 root-key logical state，但仍需防護 powered reconstruction。</span><span data-lang="en">SRAM PUF reduces the directly imageable root-key logical state at power-off while still requiring protection during powered reconstruction.</span></li>
             <li><span data-lang="zh">AES-256 讓 OTP bit-cell extraction 不直接等於 plaintext disclosure，前提是 mode、integrity、nonce／tweak 與 key hierarchy 正確。</span><span data-lang="en">AES-256 makes OTP bit-cell extraction differ from plaintext disclosure, provided mode, integrity, nonce/tweak and key hierarchy are sound.</span></li>
-            <li><span data-lang="zh">PUF + crypto + OTP + controller 的預整合可降低跨 block 假設遺漏，並把 qualification 與責任集中。</span><span data-lang="en">Pre-integrating PUF, crypto, OTP and controller reduces missed cross-block assumptions and consolidates qualification and accountability.</span></li>
-            <li><span data-lang="zh">SRAM PUF 的長期量產紀錄是降低 unknown unknowns 的證據，但不能取代當代節點的 attack evaluation。</span><span data-lang="en">Long SRAM-PUF production history is evidence against unknown unknowns, but does not replace attack evaluation on current nodes.</span></li>
+            <li><span data-lang="zh">PUF + crypto + OTP + controller 的預整合可降低跨 block 假設遺漏；qualification 範圍與契約責任仍需逐案確認。</span><span data-lang="en">Pre-integrating PUF, crypto, OTP and controller can reduce missed cross-block assumptions; qualification scope and contractual accountability still require confirmation.</span></li>
+            <li><span data-lang="zh">供應商揭露的 SRAM PUF 量產紀錄可縮小成熟度不確定性，但不能取代當代節點與目標配置的 attack evaluation。</span><span data-lang="en">Vendor-reported SRAM-PUF deployment history narrows maturity uncertainty, but does not replace attack evaluation on the current node and target configuration.</span></li>
           </ul><blockquote><span data-lang="zh">「永久保存資料，不永久保存 root key；即使 memory 被讀出，留下的仍是密碼學問題。」</span><span data-lang="en">“Keep data permanent, not the root key; even after memory readout, a cryptographic problem remains.”</span></blockquote></article>
           <article class="position-card caution"><h3><span data-lang="zh">應避免的過度主張</span><span data-lang="en">Claims to avoid</span></h3><ul>
             <li><span data-lang="zh">「SRAM 只感測電壓，所以沒有物理 emission。」</span><span data-lang="en">“SRAM only senses voltage, therefore it has no physical emission.”</span></li>
@@ -319,7 +321,7 @@
       <section class="paper-conclusion reveal">
         <small>CONCLUSION · SECURITY IS A LIFECYCLE PROPERTY</small>
         <h2><span data-lang="zh">讓永久 state 可以被讀，<br>但不能直接變成永久 secret。</span><span data-lang="en">Let persistent state be readable<br>without making it a persistent secret.</span></h2>
-        <p><span data-lang="zh">最有保障的答案不是單一 bit-cell，而是完整責任鏈：1T economics 讓 differential OTP 可量產；互補讀取降低一階資料相依訊號；OTP 保存耐久 ciphertext；量產時間最長的 SRAM PUF 在受控窗口重建未永久儲存的 root；crypto 與 controller 讓兩條攻擊路徑不能直接合流。</span><span data-lang="en">The strongest answer is not one bit cell but an accountable chain: 1T economics make differential OTP practical; complementary read reduces first-order data-dependent signature; OTP retains durable ciphertext; the longest-production-history SRAM PUF reconstructs a root that is never permanently stored; crypto and controller keep the attack paths from collapsing into one.</span></p>
+        <p><span data-lang="zh">更有保障的答案不是單一 bit-cell，而是可驗證的責任鏈：1T economics 讓 differential OTP 可量產；互補讀取降低一階資料相依訊號；OTP 保存耐久 ciphertext；具供應商量產紀錄的 SRAM PUF 在受控窗口重建未永久儲存的 root；crypto 與 controller 讓兩條攻擊路徑不直接合流。</span><span data-lang="en">A stronger answer is not one bit cell but a verifiable chain: 1T economics make differential OTP practical; complementary read reduces first-order data-dependent signature; OTP retains durable ciphertext; a vendor-reported, production-deployed SRAM PUF reconstructs a root that is never permanently stored; crypto and controller keep the attack paths from collapsing into one.</span></p>
         <a class="button primary" href="memory-evidence.html"><span data-lang="zh">檢視完整證據庫</span><span data-lang="en">Inspect the evidence base</span></a>
         <a class="button ghost" href="index.html"><span data-lang="zh">返回 Secure Storage</span><span data-lang="en">Return to Secure Storage</span></a>
       </section>
@@ -331,6 +333,6 @@
     <p><span data-lang="zh">研究用途 · 公開來源 · 不取代產品安全評估</span><span data-lang="en">Research use · Public sources · Not a substitute for product security evaluation</span></p>
     <p>Research Note 02 · 2026</p>
   </footer>
-  <script src="research.js?v=20260816-refine006"></script>
+  <script src="research.js?v=20260825-refine013"></script>
 </body>
 </html>

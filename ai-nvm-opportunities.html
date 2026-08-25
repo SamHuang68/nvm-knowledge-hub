@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AI infrastructure 的 persistent-state 與 NVM 機會地圖：從 identity、repair、calibration、firmware 到 RAS evidence，區分標準要求、實作證據與架構推論。">
+  <meta name="theme-color" content="#061b29">
+  <title>AI Systems &amp; NVM Opportunities · NVM Knowledge Hub</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260825-refine021">
+  <link rel="stylesheet" href="research.css?v=20260825-refine021">
+  <link rel="stylesheet" href="ai-nvm.css?v=20260825-refine026">
+</head>
+<body class="research-page ai-nvm-page" data-language="zh" data-opportunity-view="proof">
+  <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
+  <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub 首頁">
+      <span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/><path d="M17 5v6M24 5v6M31 5v6M17 37v6M24 37v6M31 37v6M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></svg></span>
+      <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
+      <span class="brand-section">AI SYSTEMS</span>
+    </a>
+    <nav class="primary-nav" id="primaryNav" aria-label="AI NVM 主題導覽">
+      <a href="#overview">Overview</a>
+      <a href="#pressures">System Pressure</a>
+      <a href="#opportunities">Opportunities</a>
+      <a href="#photonics">Photonics</a>
+      <a href="#selection">NVM Selection</a>
+      <a href="#advanced-nodes">Advanced Nodes</a>
+      <a href="#abstraction">Abstraction</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#sources">Sources</a>
+    </nav>
+    <div class="header-actions">
+      <a class="home-pill" href="index.html#learn">RESEARCH HUB</a>
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to English"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
+      <button class="menu-button" id="menuToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="research-hero ai-research-hero" aria-labelledby="ai-hero-title">
+      <picture class="ai-hero-media">
+        <source media="(max-width: 760px)" srcset="assets/ai-nvm-system-boundaries-hero-900.webp">
+        <img src="assets/ai-nvm-system-boundaries-hero-1600.webp" alt="AI accelerator package with HBM, chiplets, photonic engine and persistent-state boundaries" data-alt-zh="整合 HBM、chiplet、光子引擎與持久狀態邊界的 AI accelerator 封裝" data-alt-en="AI accelerator package with HBM, chiplets, photonic engine and persistent-state boundaries">
+      </picture>
+      <p class="ai-hero-illustrative">
+        <span data-lang="zh">概念系統圖 · 非實體拓撲</span>
+        <span data-lang="en">ILLUSTRATIVE SYSTEM MAP · NOT PHYSICAL TOPOLOGY</span>
+      </p>
+      <div class="ai-hero-shade" aria-hidden="true"></div>
+      <div class="research-hero-inner">
+        <p class="research-label">RESEARCH NOTE 04 · AI SYSTEMS / PERSISTENT STATE</p>
+        <h1 id="ai-hero-title">
+          <span data-lang="zh">NVM 不必<br><em>遍布 AI 系統</em></span>
+          <span data-lang="en">NVM does not belong<br><em>everywhere in AI systems</em></span>
+        </h1>
+        <p class="ai-hero-thesis">
+          <span data-lang="zh">真正的機會，是讓每一個系統邊界保存正確的狀態。</span>
+          <span data-lang="en">The opportunity is to preserve the right state at each system boundary.</span>
+        </p>
+        <p class="research-hero-lede">
+          <span data-lang="zh">從 XPU identity、HBM repair、CPO calibration 到 firmware 與 RAS evidence，本章先證明系統要求的行為，再標示 OTP、MTP、managed NVM 或 external storage 的架構推論。</span>
+          <span data-lang="en">From XPU identity and HBM repair to CPO calibration, firmware and RAS evidence, this chapter proves the required behavior first—then labels OTP, MTP, managed-NVM or external-storage choices as architecture inferences.</span>
+        </p>
+        <div class="research-hero-meta">
+          <div><b>294</b><span><span data-lang="zh">PDF 頁面已審閱</span><span data-lang="en">PDF PAGES REVIEWED</span></span></div>
+          <div><b>5</b><span><span data-lang="zh">證據分類</span><span data-lang="en">EVIDENCE CLASSES</span></span></div>
+          <div><b>4</b><span><span data-lang="zh">狀態邊界</span><span data-lang="en">STATE BOUNDARIES</span></span></div>
+          <div><b>2026-08-25</b><span><span data-lang="zh">研究凍結日</span><span data-lang="en">RESEARCH FREEZE</span></span></div>
+        </div>
+        <div class="research-hero-links">
+          <a class="button primary" href="#opportunities"><span data-lang="zh">打開 Opportunity Map</span><span data-lang="en">Open the opportunity map</span></a>
+          <a class="button ghost" href="#evidence"><span data-lang="zh">先看證據邊界</span><span data-lang="en">Start with the evidence boundary</span></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="paper-shell ai-paper-shell">
+      <section id="overview" class="paper-section reveal">
+        <div class="evidence-correction" data-record-ids="AI-NVM-OCP-001 AI-NVM-OCP-003 AI-NVM-OCP-004">
+          <div class="correction-mark" aria-hidden="true"><span>MTP</span><i>≠</i><b>MEMORY</b></div>
+          <div>
+            <p class="paper-kicker">SOURCE CORRECTION · DIRECT DOCUMENT AUDIT</p>
+            <h2><span data-lang="zh">本次審閱的 OCP 文件未要求 OTP／MTP Memory</span><span data-lang="en">This OCP Paper Does Not Require OTP or MTP Memory</span></h2>
+            <p><span data-lang="zh">全文兩處 MTP 都是 MPO／MTP 光纖接頭。文件明確要求 telemetry、diagnostics、firmware lifecycle、identity／attestation 與 thermal control；如何用 NVM 實作，仍是本章提出、需要驗證的 architecture inference。</span><span data-lang="en">Its two MTP occurrences mean MPO/MTP optical connectors. The paper does call for telemetry, diagnostics, firmware lifecycle, identity/attestation and thermal control. How NVM implements those behaviors remains an architecture inference that this chapter must validate.</span></p>
+          </div>
+          <span class="tier-tag direct"><span data-lang="zh">文件明示需求</span><span data-lang="en">DIRECT REQUIREMENT</span></span>
+        </div>
+
+        <div class="ai-thesis-grid">
+          <div class="paper-heading compact-heading">
+            <div><p class="paper-kicker">01 · EXECUTIVE THESIS</p><h2><span data-lang="zh">State Contract 優先<br><em>Memory Selection 在後</em></span><span data-lang="en">State Contract First<br><em>Memory Selection Second</em></span></h2></div>
+            <p><span data-lang="zh">同一套 AI platform 同時存在不可變信任、有限次更新、即時控制與大量 operational evidence。把它們都塞進 OTP 或都寫進 MTP，會同時造成安全、endurance 與系統責任錯配。</span><span data-lang="en">One AI platform contains immutable trust, bounded updates, live control and high-volume operational evidence. Putting everything in OTP—or writing everything into MTP—misaligns security, endurance and ownership.</span></p>
+          </div>
+          <aside class="state-contract-card">
+            <small>STATE CONTRACT</small>
+            <ol>
+              <li><span>01</span><b><span data-lang="zh">誰擁有這個狀態？</span><span data-lang="en">Who owns the state?</span></b></li>
+              <li><span>02</span><b><span data-lang="zh">它何時必須持久？</span><span data-lang="en">When must it persist?</span></b></li>
+              <li><span>03</span><b><span data-lang="zh">可以更新幾次？</span><span data-lang="en">How often may it change?</span></b></li>
+              <li><span>04</span><b><span data-lang="zh">失敗時如何恢復與舉證？</span><span data-lang="en">How does it recover and prove state?</span></b></li>
+            </ol>
+          </aside>
+        </div>
+
+        <div class="evidence-ladder" aria-label="Evidence classification ladder">
+          <article><span>01</span><b>DIRECT REQUIREMENT</b><p><span data-lang="zh">標準或 supplied PDF 明確要求的行為。</span><span data-lang="en">Behavior explicitly required by a standard or supplied paper.</span></p></article>
+          <article><span>02</span><b>FIRST-PARTY CASE</b><p><span data-lang="zh">官方產品／實作證明此 lifecycle 已存在。</span><span data-lang="en">An official product or implementation proves the lifecycle exists.</span></p></article>
+          <article><span>03</span><b>VENDOR CAPABILITY</b><p><span data-lang="zh">公開 IP envelope；不是 independent assurance。</span><span data-lang="en">A public IP envelope—not independent assurance.</span></p></article>
+          <article><span>04</span><b>INFERRED OPPORTUNITY</b><p><span data-lang="zh">由系統需求推導的 NVM placement。</span><span data-lang="en">An NVM placement inferred from a system need.</span></p></article>
+          <article><span>05</span><b>VALIDATION NEEDED</b><p><span data-lang="zh">節點、PVT、攻擊或 update workload 尚未封閉。</span><span data-lang="en">Node, PVT, attack or update workload remains open.</span></p></article>
+        </div>
+      </section>
+
+      <section id="pressures" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">02 · SYSTEM PRESSURE</p><h2><span data-lang="zh">AI 擴大 State Diversity<br><em>不只是增加 NVM 容量</em></span><span data-lang="en">AI Expands State Diversity<br><em>Not Merely NVM Capacity</em></span></h2></div>
+          <p><span data-lang="zh">每一條 state lane 都有不同的 mutability、update cadence、temperature、atomicity 與 evidence 需求。這些條件才是 IP opportunity 的入口。</span><span data-lang="en">Each state lane has a different mutability, update cadence, temperature, atomicity and evidence requirement. Those conditions—not a generic bit count—define the IP opportunity.</span></p>
+        </div>
+
+        <div class="state-spectrum">
+          <article class="state-lane immutable">
+            <div><span>01</span><small>IMMUTABLE TRUST</small></div>
+            <h3><span data-lang="zh">身分、root、fail-safe baseline</span><span data-lang="en">Identity, roots, fail-safe baseline</span></h3>
+            <p><span data-lang="zh">少量、低寫入、不可回退。候選：OTP 或 PUF-derived root；證書與 helper data 另行定義。</span><span data-lang="en">Small, rarely written and non-reversible. Candidates: OTP or a PUF-derived root; certificates and helper data require separate treatment.</span></p>
+            <b>OTP / PUF ROOT</b>
+          </article>
+          <article class="state-lane bounded">
+            <div><span>02</span><small>BOUNDED LIFECYCLE</small></div>
+            <h3><span data-lang="zh">repair、anti-rollback、field profile</span><span data-lang="en">Repair, anti-rollback, field profiles</span></h3>
+            <p><span data-lang="zh">有限次更新，必須具備 authenticated transition、atomic commit 與 recovery。</span><span data-lang="en">Bounded updates require authenticated transitions, atomic commit and recovery.</span></p>
+            <b>MANAGED NVM</b>
+          </article>
+          <article class="state-lane live">
+            <div><span>03</span><small>LIVE ADAPTATION</small></div>
+            <h3><span data-lang="zh">equalization、thermal loop、timing servo</span><span data-lang="en">Equalization, thermal loops, timing servo</span></h3>
+            <p><span data-lang="zh">runtime training 通常留在 SRAM／register；只有 cold-start seed 或 qualified snapshot 才形成 NVM 機會。</span><span data-lang="en">Runtime training normally stays in SRAM/registers. Only a cold-start seed or qualified snapshot creates an NVM opportunity.</span></p>
+            <b>VOLATILE STATE</b>
+          </article>
+          <article class="state-lane stream">
+            <div><span>04</span><small>OPERATIONAL EVIDENCE</small></div>
+            <h3><span data-lang="zh">CPER、telemetry、fleet history</span><span data-lang="en">CPER, telemetry, fleet history</span></h3>
+            <p><span data-lang="zh">高頻資料先 aggregate、reduce、forward；embedded MTP 只適合 workload 已被界定的 fault capsule。</span><span data-lang="en">High-rate data should be aggregated, reduced and forwarded. Embedded MTP fits only a fault capsule with a bounded workload.</span></p>
+            <b>HOST / BMC / EXTERNAL</b>
+          </article>
+        </div>
+
+        <figure id="state-fabric" class="system-boundary-map" aria-labelledby="stateFabricTitle" aria-describedby="stateFabricDescription">
+          <figcaption class="map-heading">
+            <div>
+              <p class="map-kicker">PERSISTENT-STATE SUBSTRATE</p>
+              <h3 id="stateFabricTitle"><span data-lang="zh">狀態邊界優先<em>元件相鄰不等於架構</em></span><span data-lang="en">State Boundaries First<em>Component Adjacency Is Not Architecture</em></span></h3>
+              <p><span data-lang="zh">一個 AI platform，多個邏輯 state domain；持久化必須由可驗證的 contract 管理，而不是每個 IP 的預設配置。</span><span data-lang="en">One AI platform, multiple logical state domains. Persistence must be governed by a verifiable contract—not assumed in every IP.</span></p>
+            </div>
+            <small class="map-qualifier">LOGICAL PERSISTENCE-CONTRACT VIEW<br>PACKAGE ARTWORK IS ILLUSTRATIVE</small>
+          </figcaption>
+
+          <div class="map-stage">
+            <picture class="map-art" aria-hidden="true">
+              <source media="(max-width: 760px)" srcset="assets/ai-persistent-state-fabric-v1-900.webp">
+              <img src="assets/ai-persistent-state-fabric-v1-1800.webp" width="1800" height="772" alt="" loading="lazy" decoding="async">
+            </picture>
+            <small class="map-art-badge">ILLUSTRATIVE PACKAGE · NOT TOPOLOGY</small>
+
+            <div class="map-core">
+              <small><i>00</i> AI PACKAGE</small>
+              <b>XPU</b>
+              <span>SECURITY ISLAND</span>
+              <em>ROOT · POLICY</em>
+            </div>
+          </div>
+
+          <div class="map-planes" aria-label="Persistent-state contract planes">
+            <article>
+              <small><i>01</i> COMPUTE + MEMORY</small>
+              <div class="map-path"><span>HBM REPAIR DOMAIN</span><i>CONTRACT</i><span>XPU SECURITY ISLAND</span></div>
+              <b>REPAIR METADATA ≠ VOLATILE PAYLOAD</b>
+              <p><span data-lang="zh">Repair metadata 可持久；HBM payload 與 SRAM runtime state 保持 volatile，BISR 與 repair authority 仍依產品而定。</span><span data-lang="en">Repair metadata may persist. HBM payload and SRAM runtime state stay volatile; BISR and repair authority are product-specific.</span></p>
+            </article>
+            <article>
+              <small><i>02</i> HIGH-SPEED I/O</small>
+              <div class="map-path"><span>SERDES BOUNDARY</span><i>DATA</i><span>OE CTRL + PIC</span></div>
+              <b>LIVE EQ · VOLATILE</b>
+              <p><span data-lang="zh">Live EQ 保持 volatile；只有 recovery time 證明需要時，cold-start seed 才是合理 inference。</span><span data-lang="en">Live EQ stays volatile. Persist a cold-start seed only when recovery time justifies the inference.</span></p>
+            </article>
+            <article>
+              <small><i>03</i> OPTICAL POWER</small>
+              <div class="map-path optical"><span>ELS / LASER CTRL</span><i>LIGHT</i><span>PIC</span></div>
+              <b>LIGHT SOURCE · NOT DATA PATH</b>
+              <p><span data-lang="zh">ELS 提供 optical power，不承載 data；只有 controller ownership 被證明時才保存 local state。</span><span data-lang="en">ELS supplies optical power, not data. Persist local state only when controller ownership is proven.</span></p>
+            </article>
+            <article>
+              <small><i>04</i> PLATFORM CONTROL</small>
+              <div class="map-path parallel"><span>POWER &amp; SAFETY · PMIC</span><i>∥</i><span>PLATFORM MGMT · DC-SCM / BMC</span></div>
+              <b>SEPARATE AUTHORITY PLANES</b>
+              <p><span data-lang="zh">PMIC 處理 power/reset；DC-SCM/BMC 可能協調 authenticated firmware，並彙整 RAS／evidence。最終 authority 仍依產品而定。</span><span data-lang="en">PMIC handles power/reset; DC-SCM/BMC may orchestrate authenticated firmware and aggregate RAS/evidence. Final authority remains product-specific.</span></p>
+            </article>
+          </div>
+          <p id="stateFabricDescription" class="map-description"><span data-lang="zh">邏輯 persistence-contract view：XPU security island、HBM repair domain、SerDes boundary、optical engine、laser controller、PMIC 與 platform management 參與不同的 persistence contract；authoritative owner 仍須依產品架構確認。Package artwork 僅為視覺說明，不代表實體位置或協定拓撲。</span><span data-lang="en">Logical persistence-contract view: the XPU security island, HBM repair domain, SerDes boundary, optical engine, laser controller, PMIC and platform management participate in distinct persistence contracts; the authoritative owner remains product-specific. The package artwork is illustrative and does not represent physical placement or protocol topology.</span></p>
+        </figure>
+        <p class="paper-note"><b><span data-lang="zh">圖解邊界：</span><span data-lang="en">Diagram boundary:</span></b> <span data-lang="zh">上方 package artwork 僅為視覺說明；下方 contract view 呈現 state boundary 與 validation responsibility，不是 OCP spec、實體 floorplan 或 local NVM mandate。</span><span data-lang="en">The package artwork is illustrative. The contract view shows state boundaries and validation responsibility—not an OCP specification, physical floorplan or local-NVM mandate.</span></p>
+      </section>
+
+      <section id="opportunities" class="paper-section reveal">
+        <div class="paper-heading opportunity-heading">
+          <div><p class="paper-kicker">03 · OPPORTUNITY MAP</p><h2><span data-lang="zh">Evidence 定義系統行為<br><em>Inference 定位 NVM 價值</em></span><span data-lang="en">Evidence Defines System Behavior<br><em>Inference Locates NVM Value</em></span></h2></div>
+          <p><span data-lang="zh">先用 Proof only 閱讀已存在的實作，再開啟 inferred opportunities。每張紀錄都保留 source class、適用範圍與限制。</span><span data-lang="en">Start with Proof only to inspect demonstrated behavior, then include inferred opportunities. Every record retains its source class, scope and limitation.</span></p>
+        </div>
+
+        <div class="opportunity-controls">
+          <div class="view-switch" role="group" aria-label="Opportunity evidence view">
+            <button class="active" type="button" data-opportunity-view="proof" aria-pressed="true"><span data-lang="zh">只看實證</span><span data-lang="en">Proof only</span></button>
+            <button type="button" data-opportunity-view="all" aria-pressed="false"><span data-lang="zh">包含機會推論</span><span data-lang="en">Include opportunities</span></button>
+          </div>
+          <div class="write-filters" role="group" aria-label="Persistent-state write profile">
+            <button class="active" type="button" data-write-filter="all" aria-pressed="true">ALL</button>
+            <button type="button" data-write-filter="immutable" aria-pressed="false">IMMUTABLE</button>
+            <button type="button" data-write-filter="few" aria-pressed="false">FEW-WRITE</button>
+            <button type="button" data-write-filter="repeated" aria-pressed="false">REPEATED</button>
+            <button type="button" data-write-filter="stream" aria-pressed="false">STREAM</button>
+          </div>
+          <p class="opportunity-count" aria-live="polite"><b id="opportunityCount">04</b><span><span data-lang="zh">目前顯示</span><span data-lang="en">VISIBLE RECORDS</span></span></p>
+        </div>
+
+        <div class="opportunity-list" id="opportunityList">
+          <article class="opportunity-record" data-evidence="proof" data-write="immutable" data-record-id="AI-NVM-GPU-001">
+            <div class="record-index"><span>01</span><small>XPU / ROOT OF TRUST</small></div>
+            <div class="record-copy"><span class="tier-tag case">FIRST-PARTY CASE</span><h3><span data-lang="zh">H100 On-Die Trust 與 Attestation</span><span data-lang="en">H100 On-Die Trust and Attestation</span></h3><p><span data-lang="zh">NVIDIA H100 公開架構包含 on-die RoT、secure／measured boot、SPDM 與 attestation。它證明 persistent identity 的需求，不證明任何單一 OTP／PUF 實作必然較安全。</span><span data-lang="en">NVIDIA's public H100 architecture includes an on-die RoT, secure/measured boot, SPDM and attestation. It proves the persistent-identity need—not that one OTP or PUF implementation is universally safer.</span></p></div>
+            <div class="record-fit"><small>STATE / FIT</small><b>IDENTITY ANCHOR</b><span>OTP or PUF-derived root</span><em><span data-lang="zh">需確認 provisioning 與 physical threat model</span><span data-lang="en">Provisioning and physical threat model remain target-specific</span></em></div>
+          </article>
+
+          <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-OCP-003 AI-NVM-SPDM-001 AI-NVM-INF-002">
+            <div class="record-index"><span>02</span><small>FIRMWARE LIFECYCLE</small></div>
+            <div class="record-copy"><span class="tier-tag inferred">INFERRED OPPORTUNITY</span><h3><span data-lang="zh">Immutable Root 與 Mutable Rollback State</span><span data-lang="en">Immutable Root and Mutable Rollback State</span></h3><p><span data-lang="zh">OCP 要求 signed update、version reporting 與 rollback behavior；SPDM 定義 device-constant identity，但把 provisioning mechanism 留在規格之外。最佳 fit 不是把整個 image 放進 OTP。</span><span data-lang="en">OCP calls for signed updates, version reporting and rollback behavior. SPDM defines device-constant identity but leaves provisioning out of scope. The best fit is not to place the entire image in OTP.</span></p></div>
+            <div class="record-fit"><small>STATE / FIT</small><b>ROOT + COUNTER + IMAGE</b><span>OTP/PUF + managed NVM + flash</span><em><span data-lang="zh">counter 需 authenticated、atomic、recoverable</span><span data-lang="en">Counters must be authenticated, atomic and recoverable</span></em></div>
+          </article>
+
+          <article class="opportunity-record" data-evidence="proof" data-write="few" data-record-ids="AI-NVM-GPU-002 AI-NVM-GPU-003 AI-NVM-BISR-001">
+            <div class="record-index"><span>03</span><small>HBM / SRAM REPAIR</small></div>
+            <div class="record-copy"><span class="tier-tag case">FIRST-PARTY CASE</span><h3><span data-lang="zh">Repair State 的可靠度與 Attestation 證據</span><span data-lang="en">Repair State as Reliability and Attestation Evidence</span></h3><p><span data-lang="zh">NVIDIA row remap 可在 device life 持續生效；Hopper channel repair 會改變 attestation measurement。Siemens 也顯示 fusebox programming session 可能非常有限。</span><span data-lang="en">NVIDIA row remapping persists for device life, while Hopper channel repair can change attestation measurements. Siemens also shows that fusebox programming sessions may be very limited.</span></p></div>
+            <div class="record-fit"><small>STATE / FIT</small><b>REPAIR MAP</b><span>Fuse / managed sparse state</span><em><span data-lang="zh">合法修復必須與 measurement／RIM 同步</span><span data-lang="en">Authorized repair must stay coherent with measurements/RIMs</span></em></div>
+          </article>
+
+          <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-OCP-004 AI-NVM-OIF-001 AI-NVM-INF-002">
+            <div class="record-index"><span>04</span><small>PHOTONICS / CPO</small></div>
+            <div class="record-copy"><span class="tier-tag inferred">INFERRED OPPORTUNITY</span><h3><span data-lang="zh">Factory Baseline 與 Live Thermal Control</span><span data-lang="en">Factory Baseline and Live Thermal Control</span></h3><p><span data-lang="zh">OCP 指出 ring wavelength 對溫度敏感；CMIS 支援 diagnostics 與 statistics。這支持 per-unit trim／safe limit 的持久化機會，但 continuous tuning 應留在 volatile control。</span><span data-lang="en">OCP identifies temperature-sensitive ring wavelength; CMIS supports diagnostics and statistics. That supports persistent per-unit trim and safe limits, while continuous tuning should remain volatile.</span></p></div>
+            <div class="record-fit"><small>STATE / FIT</small><b>BASELINE + RUNTIME LOOP</b><span>OTP baseline + optional MTP profile</span><em><span data-lang="zh">Continuous tuning ≠ continuous NVM writes</span><span data-lang="en">Continuous tuning ≠ continuous NVM writes</span></em></div>
+          </article>
+
+          <article class="opportunity-record" data-evidence="proof" data-write="immutable" data-record-id="AI-NVM-PMIC-001">
+            <div class="record-index"><span>05</span><small>PMIC STARTUP TRUTH</small></div>
+            <div class="record-copy"><span class="tier-tag case">FIRST-PARTY CASE</span><h3><span data-lang="zh">PF8100／PF8200 的 OTP Boot Baseline</span><span data-lang="en">PF8100/PF8200 OTP Boot Baseline</span></h3><p><span data-lang="zh">NXP PF8100／PF8200 每次 VIN crossing 從 OTP 載入 mirror registers，再載入 functional registers。這證明 immutable startup configuration 的實際產品價值。</span><span data-lang="en">NXP PF8100/PF8200 loads mirror registers from OTP at a VIN crossing, then loads functional registers. It demonstrates the real product value of immutable startup configuration.</span></p></div>
+            <div class="record-fit"><small>STATE / FIT</small><b>SAFE BOOT CONFIG</b><span>OTP</span><em><span data-lang="zh">器件案例；不可直接外推所有 AI PMIC</span><span data-lang="en">Device-specific; not universal to every AI PMIC</span></em></div>
+          </article>
+
+          <article class="opportunity-record" data-evidence="proof" data-write="repeated" data-record-id="AI-NVM-PMIC-002">
+            <div class="record-index"><span>06</span><small>FAULT CAPSULE</small></div>
+            <div class="record-copy"><span class="tier-tag case">FIRST-PARTY CASE</span><h3><span data-lang="zh">ADP1055 的有界 Black-Box Logging</span><span data-lang="en">ADP1055 Bounded Black-Box Logging</span></h3><p><span data-lang="zh">ADI ADP1055 以 EEPROM 保存 fault snapshot，並公開 temperature-dependent record limit、circular buffer 與 hold-up capacitor 條件。這是 bounded logging 的設計範本。</span><span data-lang="en">ADI ADP1055 stores fault snapshots in EEPROM and discloses temperature-dependent record limits, a circular buffer and hold-up-capacitor condition. It is a design pattern for bounded logging.</span></p></div>
+            <div class="record-fit"><small>STATE / FIT</small><b>EVENT-DRIVEN RECORD</b><span>Managed EEPROM / MTP</span><em><span data-lang="zh">先定義 Tj、event rate、atomic write 與 retention</span><span data-lang="en">Define Tj, event rate, atomic write and retention first</span></em></div>
+          </article>
+
+          <article class="opportunity-record" data-evidence="inference" data-write="stream" data-record-ids="AI-NVM-RAS-001 AI-NVM-OCP-002 AI-NVM-INF-003">
+            <div class="record-index"><span>07</span><small>RAS / TELEMETRY</small></div>
+            <div class="record-copy"><span class="tier-tag inferred">INFERRED OPPORTUNITY</span><h3><span data-lang="zh">Telemetry Stream 的分層儲存</span><span data-lang="en">Tiered Storage for Telemetry Streams</span></h3><p><span data-lang="zh">OCP RAS API 與 supplied PDF 要求 discovery、configuration、event／action queues 與跨域 diagnostics；local NVM 只應保留 threshold、checkpoint 或 last-gasp capsule。</span><span data-lang="en">The OCP RAS API and supplied paper call for discovery, configuration, event/action queues and cross-domain diagnostics. Local NVM should retain only thresholds, checkpoints or a last-gasp capsule.</span></p></div>
+            <div class="record-fit"><small>STATE / FIT</small><b>REDUCE BEFORE STORE</b><span>SRAM buffer → BMC / host storage</span><em><span data-lang="zh">raw stream 優先 forward，不持續磨耗 embedded NVM</span><span data-lang="en">Forward the raw stream; do not continuously wear embedded NVM</span></em></div>
+          </article>
+
+          <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-UCIe-001 AI-NVM-INF-001 AI-NVM-INF-002">
+            <div class="record-index"><span>08</span><small>CHIPLET LIFECYCLE</small></div>
+            <div class="record-copy"><span class="tier-tag inferred">INFERRED OPPORTUNITY</span><h3><span data-lang="zh">Per-Die Lifecycle State 與 Package-Level Trust</span><span data-lang="en">Per-Die Lifecycle State and Package-Level Trust</span></h3><p><span data-lang="zh">UCIe 2.0 擴充 manageability 與 DFx lifecycle。這支持 per-die identity、repair ownership、debug lock 與 firmware metadata 的機會，但 UCIe 的 MTP 是 Management Transport Protocol。</span><span data-lang="en">UCIe 2.0 expands manageability and DFx lifecycle. That supports opportunities for per-die identity, repair ownership, debug locks and firmware metadata—but UCIe's MTP means Management Transport Protocol.</span></p></div>
+            <div class="record-fit"><small>STATE / FIT</small><b>PER-DIE OWNERSHIP</b><span>OTP identity + managed lifecycle state</span><em><span data-lang="zh">先定義 die、package 與 platform 的權責</span><span data-lang="en">Define die, package and platform ownership first</span></em></div>
+          </article>
+
+          <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-CXL-001 AI-NVM-INF-002">
+            <div class="record-index"><span>09</span><small>CXL MEMORY DEVICE</small></div>
+            <div class="record-copy"><span class="tier-tag inferred">INFERRED OPPORTUNITY</span><h3><span data-lang="zh">Online Firmware 與 PPR 的 Lifecycle Contract</span><span data-lang="en">Online Firmware and PPR Lifecycle Contract</span></h3><p><span data-lang="zh">CXL 3.2 公開功能包含 online firmware activation、post-package repair、monitoring 與 security。規格證明行為；memory medium、banking、atomicity 與 recovery 仍由產品架構決定。</span><span data-lang="en">CXL 3.2 publicly includes online firmware activation, post-package repair, monitoring and security. The specification proves the behavior; memory medium, banking, atomicity and recovery remain product-architecture decisions.</span></p></div>
+            <div class="record-fit"><small>STATE / FIT</small><b>FW + REPAIR METADATA</b><span>Managed NVM + external image store</span><em><span data-lang="zh">CXL 未指定 OTP／MTP technology</span><span data-lang="en">CXL does not prescribe OTP/MTP technology</span></em></div>
+          </article>
+        </div>
+        <p class="opportunity-empty" id="opportunityEmpty" hidden><span data-lang="zh">目前篩選條件沒有相符紀錄。</span><span data-lang="en">No records match the current filters.</span></p>
+      </section>
+
+      <section id="photonics" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">04 · PHOTONICS / CPO FOCUS</p><h2><span data-lang="zh">光引擎狀態契約模型<br><em>候選持久基線與揮發控制邊界</em></span><span data-lang="en">Optical Engine State-Contract Model<br><em>Candidate Persistent Baseline and Volatile Control</em></span></h2></div>
+          <p><span data-lang="zh">OE／PIC／ELS 是 supplied OCP paper 與 NVM opportunity space 的高潛力交會點：per-unit identity、factory trim、safe limit、qualification digest 與 sparse recalibration 都是需要驗證的 local persistent-state 候選。</span><span data-lang="en">OE/PIC/ELS are a high-potential intersection between the supplied OCP paper and the NVM opportunity space: per-unit identity, factory trim, safe limits, qualification digests and sparse recalibration are candidate local persistent states that still require validation.</span></p>
+        </div>
+        <div class="photonics-contract-v2">
+          <figure class="photonics-art">
+            <picture>
+              <source media="(max-width: 760px)" srcset="assets/ai-photonics-state-contract-v1-800.webp">
+              <img src="assets/ai-photonics-state-contract-v1-1600.webp" width="1600" height="900" alt="AI silicon package beside a co-packaged optical engine" data-alt-zh="AI silicon package 與 co-packaged optical engine 的系統情境視覺" data-alt-en="AI silicon package beside a co-packaged optical engine" loading="lazy" decoding="async">
+            </picture>
+            <figcaption><span>ILLUSTRATIVE OPTICAL PACKAGE</span><b>LOGICAL STATE CONTRACT · NOT PHYSICAL TOPOLOGY</b></figcaption>
+          </figure>
+          <div class="photonics-state-model">
+            <div class="state-domains">
+              <article class="state-domain persistent-domain">
+                <header><span>INFERRED DOMAIN A</span><b>CANDIDATE PERSISTENT BASELINE</b></header>
+                <h3><span data-lang="zh">Factory Identity 與 Qualified Baseline</span><span data-lang="en">Factory Identity and Qualified Baseline</span></h3>
+                <ul><li>Per-unit identity</li><li>Factory trim</li><li>Safe operating limits</li><li>Qualification digest</li></ul>
+                <p><span data-lang="zh">這些是由系統需求推導的候選 persistent state；最終 medium、位置與 owner 仍須由產品架構驗證。</span><span data-lang="en">These are candidate persistent states inferred from system needs. The final medium, location and owner remain product-specific.</span></p>
+              </article>
+              <div class="activation-gate" aria-label="Power-up activation gate">
+                <small>POWER-UP READ · PROPOSED LOGICAL FLOW</small>
+                <ol><li><i>01</i><b>VERIFY</b></li><li><i>02</i><b>LOAD</b></li><li><i>03</i><b>ACTIVATE</b></li></ol>
+                <span><b>DOMAIN A → DOMAIN B</b><span data-lang="zh">驗證候選 baseline，再載入 volatile control</span><span data-lang="en">Verify the candidate baseline before loading volatile control</span></span>
+              </div>
+              <article class="state-domain volatile-domain">
+                <header><span>DOMAIN B</span><b>VOLATILE CONTROL &amp; REAL-TIME LOOP</b></header>
+                <h3><span data-lang="zh">Runtime Adaptation 與 Live Telemetry</span><span data-lang="en">Runtime Adaptation and Live Telemetry</span></h3>
+                <ul><li>Thermal / timing servo</li><li>Training coefficients</li><li>Live diagnostics</li><li>Registers / SRAM state</li></ul>
+                <p><span data-lang="zh">即時狀態在 runtime 持續變化；原始 stream 應先 reduce／forward，不應直接形成 continuous NVM writes。</span><span data-lang="en">Live state changes continuously at runtime. Reduce or forward the raw stream instead of turning it into continuous NVM writes.</span></p>
+              </article>
+            </div>
+            <div class="commit-pipeline">
+              <div><small>QUALIFIED UPDATE · PROPOSED LOGICAL FLOW</small><b>DOMAIN B · CANDIDATE UPDATE</b><span><span data-lang="zh">只有通過資格驗證的稀疏更新才跨越持久化邊界</span><span data-lang="en">Only qualified sparse updates cross the persistence boundary</span></span></div>
+              <ol aria-label="Qualified update lifecycle"><li><i>01</i><span>OBSERVE</span></li><li><i>02</i><span>QUALIFY</span></li><li><i>03</i><span>AUTHORIZE</span></li><li><i>04</i><span>ATOMIC COMMIT</span></li></ol>
+              <p><strong>→ CANDIDATE DOMAIN A · QUALIFIED PROFILE BANK</strong><span data-lang="zh">Qualified recalibration 可能形成 managed-NVM opportunity；update cadence、rollback 與 recovery 必須先被界定。</span><span data-lang="en">Qualified recalibration may create a managed-NVM opportunity, but update cadence, rollback and recovery must be bounded first.</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="continuous-warning"><small>STATE BOUNDARY</small><b>CONTINUOUS TUNING</b><i>≠</i><strong>CONTINUOUS NVM WRITES</strong><p><span data-lang="zh">Runtime adaptation 保持 volatile；只有 qualified state 才能穿越 persistence gate。</span><span data-lang="en">Runtime adaptation stays volatile; only qualified state crosses the persistence gate.</span></p></div>
+      </section>
+
+      <section id="selection" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">05 · NVM SELECTION</p><h2><span data-lang="zh">OTP 與 MTP 的分層角色<br><em>每一層對應正確的 State Contract</em></span><span data-lang="en">Layered Roles for OTP and MTP<br><em>The Right State Contract for Each Layer</em></span></h2></div>
+          <p><span data-lang="zh">selection lens 先問 lifecycle，再看 bit count、temperature 與 macro。下列是 architecture class，不是通用 endurance 數字或 foundry availability 承諾。</span><span data-lang="en">The selection lens starts with lifecycle, then bit count, temperature and macro availability. These are architecture classes—not universal endurance numbers or foundry-availability promises.</span></p>
+        </div>
+        <div class="selection-matrix">
+          <div class="selection-tabs">
+            <button class="active" id="selection-tab-otp" type="button" data-selection-tab="otp"><i>01</i><span>OTP</span></button>
+            <button id="selection-tab-mtp" type="button" data-selection-tab="mtp"><i>02</i><span>MTP</span></button>
+            <button id="selection-tab-external" type="button" data-selection-tab="external"><i>03</i><span>EXTERNAL</span></button>
+            <button id="selection-tab-volatile" type="button" data-selection-tab="volatile"><i>04</i><span>VOLATILE</span></button>
+          </div>
+          <div class="selection-axis"><small>TYPICAL STATE PROFILE · ILLUSTRATIVE</small><span>IMMUTABLE / RARE</span><i aria-hidden="true"></i><span>BOUNDED UPDATE</span><i aria-hidden="true"></i><span>BULK / STREAM</span><i aria-hidden="true"></i><span>LIVE / VOLATILE</span></div>
+          <div class="selection-grid">
+          <article class="selection-card otp active" id="selection-panel-otp" data-selection-panel="otp"><small>01 · IMMUTABLE</small><h3>OTP / FUSE</h3><b><span data-lang="zh">很少寫、不可回退</span><span data-lang="en">Rarely written, non-reversible</span></b><ul><li>Device identity anchor</li><li>Fail-safe boot baseline</li><li>Lifecycle / debug lock</li><li>Factory trim digest</li></ul><p><span data-lang="zh">限制：修正錯誤、revocation 與多階段 provisioning 必須預先設計。</span><span data-lang="en">Limit: error correction, revocation and staged provisioning must be designed up front.</span></p></article>
+          <article class="selection-card mtp" id="selection-panel-mtp" data-selection-panel="mtp"><small>02 · BOUNDED MUTABLE</small><h3>MTP / MANAGED NVM</h3><b><span data-lang="zh">有限更新、Atomicity 必須由架構保證</span><span data-lang="en">Bounded Updates, Atomicity Required</span></b><ul><li>Anti-rollback metadata</li><li>Qualified calibration profile</li><li>Repair / remap state</li><li>Fault capsule</li></ul><p><span data-lang="zh">限制：需要明確 event count、Tj、retention、ECC、commit／recovery。</span><span data-lang="en">Limit: requires defined event count, Tj, retention, ECC, commit and recovery.</span></p></article>
+          <article class="selection-card external" id="selection-panel-external" data-selection-panel="external"><small>03 · BULK / STREAM</small><h3>EXTERNAL / HOST STORE</h3><b><span data-lang="zh">大量 code 與 operational evidence</span><span data-lang="en">Bulk code and operational evidence</span></b><ul><li>Firmware A/B banks</li><li>CPER / fleet history</li><li>Raw characterization</li><li>Certificate chain / manifests</li></ul><p><span data-lang="zh">限制：local root 必須驗證 image、version 與來源。</span><span data-lang="en">Limit: a local root must verify image, version and provenance.</span></p></article>
+          <article class="selection-card volatile" id="selection-panel-volatile" data-selection-panel="volatile"><small>04 · LIVE CONTROL</small><h3>SRAM / REGISTERS</h3><b><span data-lang="zh">即時更新、斷電不必保留</span><span data-lang="en">Live updates, no power-off retention</span></b><ul><li>SerDes training</li><li>Thermal control loop</li><li>Timing servo</li><li>Telemetry buffer</li></ul><p><span data-lang="zh">限制：若 cold restart 要重建，必須另外定義可信 baseline。</span><span data-lang="en">Limit: if cold restart must recover state, define a trusted baseline separately.</span></p></article>
+          </div>
+          <div class="selection-retention"><span>PERSISTENT AFTER POWER LOSS</span><b>YES</b><b>YES</b><b>YES · OFF-DIE</b><b>NO</b></div>
+        </div>
+        <div class="decision-questions">
+          <p class="paper-kicker">SEVEN QUESTIONS BEFORE MACRO SELECTION</p>
+          <ol>
+            <li><span>01</span><b><span data-lang="zh">斷電後一定要保留嗎？</span><span data-lang="en">Must it survive power loss?</span></b></li>
+            <li><span>02</span><b><span data-lang="zh">誰可以改？改幾次？</span><span data-lang="en">Who may change it, and how often?</span></b></li>
+            <li><span>03</span><b><span data-lang="zh">寫入中斷時如何恢復？</span><span data-lang="en">How does it recover from a torn write?</span></b></li>
+            <li><span>04</span><b><span data-lang="zh">狀態是否含 secret？</span><span data-lang="en">Does the state contain a secret?</span></b></li>
+            <li><span>05</span><b><span data-lang="zh">它會改變 attestation 嗎？</span><span data-lang="en">Does it change attestation?</span></b></li>
+            <li><span>06</span><b><span data-lang="zh">真實 Tj 與 retention 是多少？</span><span data-lang="en">What are the real Tj and retention needs?</span></b></li>
+            <li><span>07</span><b><span data-lang="zh">local storage 比 signed pointer 更好嗎？</span><span data-lang="en">Is local storage better than a signed pointer?</span></b></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="advanced-nodes" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">06 · ADVANCED-NODE NVM</p><h2><span data-lang="zh">製程愈先進<br><em>Read-Domain Contract 愈重要</em></span><span data-lang="en">As Nodes Advance<br><em>The Read-Domain Contract Matters More</em></span></h2></div>
+          <p><span data-lang="zh">先分開三件事：process device availability、embedded NVM technology 與 system supply contract。把 I/O oxide、外部 rail 與 macro operation 混為一談，會導出錯誤的節點與架構結論。</span><span data-lang="en">Separate three things first: process-device availability, embedded-NVM technology and the system supply contract. Conflating I/O oxide, external rails and macro operation leads to the wrong node and architecture conclusions.</span></p>
+        </div>
+
+        <div class="node-transition" data-record-ids="AI-NVM-ADV-001 AI-NVM-ADV-002 AI-NVM-ADV-003 AI-NVM-ADV-004" aria-label="Public embedded NVM portfolio transition by process node">
+          <header class="node-transition-header">
+            <span>PUBLIC PORTFOLIO SIGNAL</span>
+            <strong><i>40nm</i><b>→</b><i>28nm</i><b>→</b><i>22 / 16 / 12nm+</i></strong>
+            <small><span data-lang="zh">公開產品與 foundry roadmap 的證據路徑</span><span data-lang="en">Evidence path across public products and foundry roadmaps</span></small>
+          </header>
+          <div class="node-paths">
+            <article class="node-path mtp-path">
+              <div class="node-path-number">01</div>
+              <div class="node-path-copy">
+                <span>ZERO-MASK · FLOATING GATE</span>
+                <h3>LOGIC-COMPATIBLE MTP</h3>
+                <strong>40nm <i>/</i> 2.5V DEVICE CLASS</strong>
+                <p><span data-lang="zh">Synopsys 公開列有 TSMC 40nm LP／2.5V process-I/O gate-oxide class 的 MTP。代表性競品公開資料則多採 3.3V 或 5V device platforms。</span><span data-lang="en">Synopsys publicly lists a TSMC 40nm LP MTP in the 2.5V process-I/O gate-oxide class. Representative competing public offerings use 3.3V or 5V device platforms.</span></p>
+                <footer><b>PUBLIC EXAMPLE</b><span><span data-lang="zh">不是排他性市場結論</span><span data-lang="en">Not an exclusive market claim</span></span></footer>
+              </div>
+            </article>
+            <article class="node-path eflash-path">
+              <div class="node-path-number">02</div>
+              <div class="node-path-copy">
+                <span>DEDICATED PROCESS MODULE</span>
+                <h3>EMBEDDED FLASH</h3>
+                <strong>28nm <i>/</i> PUBLIC VOLUME PLATEAU</strong>
+                <p><span data-lang="zh">eFlash 可與 1.8V logic baseline 共存，但公開 28nm 實例仍加入 flash-specific dielectric、HV devices、charge-pump support 與額外 masks。</span><span data-lang="en">eFlash can coexist with a 1.8V logic baseline, while a published 28nm implementation still adds flash-specific dielectric, HV devices, charge-pump support and extra masks.</span></p>
+                <footer><b>PROCESS TRADE</b><span><span data-lang="zh">以製程複雜度換取密度與可重寫性</span><span data-lang="en">Process complexity buys density and rewritability</span></span></footer>
+              </div>
+            </article>
+            <article class="node-path emerging-path">
+              <div class="node-path-number">03</div>
+              <div class="node-path-copy">
+                <span>ADVANCED EMBEDDED NVM</span>
+                <h3>MRAM / RRAM</h3>
+                <strong>22nm+ <i>/</i> PORTFOLIO SHIFT</strong>
+                <p><span data-lang="zh">主流 foundry 公開資料顯示，22／16／12nm 之後的可重寫 eNVM 路線明顯轉向 MRAM／RRAM；各節點成熟度仍須逐產品確認。</span><span data-lang="en">Public leading-foundry portfolios show a clear shift toward MRAM/RRAM for rewritable eNVM at 22/16/12nm and beyond; maturity remains product- and node-specific.</span></p>
+                <footer><b>DIRECTION, NOT UNIVERSALITY</b><span><span data-lang="zh">不排除 22nm eFlash IP 或其他技術</span><span data-lang="en">Does not exclude 22nm eFlash IP or other technologies</span></span></footer>
+              </div>
+            </article>
+          </div>
+          <div class="node-constraint-ledger">
+            <div><span>01</span><b>OXIDE SYSTEM</b><p><span data-lang="zh">Retention 由 tunnel oxide、inter-poly dielectric、defect、P/E stress 與溫度共同決定。</span><span data-lang="en">Retention depends on tunnel oxide, inter-poly dielectric, defects, P/E stress and temperature together.</span></p></div>
+            <div><span>02</span><b>VOLTAGE LANGUAGE</b><p><span data-lang="zh">Process I/O oxide class 不等於 macro 必須直接使用同電壓的外部供電。</span><span data-lang="en">A process I/O oxide class is not the same as a macro requiring an external rail at that voltage.</span></p></div>
+            <div><span>03</span><b>NODE LANGUAGE</b><p><span data-lang="zh">28nm 是公開量產 plateau；主要門檻是成本、process integration 與 qualification，不是絕對物理極限。</span><span data-lang="en">28nm is a public volume plateau; the main barriers are cost, process integration and qualification—not an absolute physical limit.</span></p></div>
+          </div>
+          <aside class="node-commercial-note">
+            <span>OWNER-PROVIDED INDUSTRY NOTE</span>
+            <strong>PHYSICALLY POSSIBLE <i>≠</i> COMMERCIALLY ADOPTED</strong>
+            <p><span data-lang="zh">業內觀察指出，SST ESF3 需要 20+ 張額外光罩，導致採用受限，實務案仍常延伸 ESF2。此敘述用來說明 commercial barrier；確切 mask count、客戶採用與 foundry option 仍須在公司 SharePoint 以專案資料驗證。</span><span data-lang="en">An owner-provided industry observation states that SST ESF3 requires more than 20 additional masks, constraining adoption while programs often continue to extend ESF2. This explains the commercial barrier; exact mask count, customer adoption and foundry options still require project evidence in the internal SharePoint layer.</span></p>
+          </aside>
+        </div>
+
+        <div class="read-domain-story" data-record-ids="AI-NVM-ADV-005 AI-NVM-ADV-006 AI-NVM-ADV-007">
+          <div class="read-domain-diagram" role="img" aria-label="TSMC N5 OTP core-supply read plane separated from the controlled programming domain">
+            <div class="read-domain-topline"><span>SYNOPSYS XHF OTP</span><b>TSMC N5</b></div>
+            <div class="core-domain">
+              <small>CORE / ALWAYS-ON DOMAIN</small>
+              <strong>CORE VDD</strong>
+              <i aria-hidden="true">↓</i>
+              <div><span>DIRECT READ PLANE</span><b>OTP STATE</b></div>
+              <i aria-hidden="true">↓</i>
+              <ul><li>REPAIR MAP</li><li>LIFECYCLE POLICY</li><li>DEVICE ID</li><li>BOOT BASELINE</li></ul>
+            </div>
+            <div class="domain-separator"><span>EXPLICIT OPERATION BOUNDARY</span></div>
+            <div class="program-domain">
+              <small>CONTROLLED PROGRAMMING DOMAIN</small>
+              <b>I/O SUPPLY → CHARGE-PUMP BASE VOLTAGE</b>
+              <span><span data-lang="zh">PGM 條件與整合限制須逐產品確認</span><span data-lang="en">Confirm PGM conditions and integration limits per product</span></span>
+            </div>
+          </div>
+          <div class="read-domain-copy">
+            <div class="read-domain-badge"><span>VENDOR DOCUMENTED</span><b>TSMC N5 ONLY</b></div>
+            <p class="paper-kicker">DIRECT CORE-SUPPLY READ</p>
+            <h3><span data-lang="zh">價值不在「所有操作只用一個 VDD」<br><em>而在 Read 與 Program 的責任分離</em></span><span data-lang="en">One VDD Everywhere Is Not the Goal<br><em>The Value Is Read–Program Separation</em></span></h3>
+            <p class="read-domain-lede"><span data-lang="zh">Synopsys 公開資料確認 TSMC N5 XHF OTP 可從 core supply 直接讀取，並將其連結到較低 read stress 與 unlimited reads。此證據不自動延伸到 MTP、N5A、N4P、N3P 或 N2。</span><span data-lang="en">Synopsys publicly documents direct core-supply read for TSMC N5 XHF OTP and associates it with lower read stress and unlimited reads. That evidence does not automatically extend to MTP, N5A, N4P, N3P or N2.</span></p>
+            <div class="read-benefits">
+              <article><span>01</span><b><span data-lang="zh">Fabric 前置修復</span><span data-lang="en">Pre-Fabric Repair</span></b><p><span data-lang="zh">在運算 fabric 啟動前取得 SRAM repair map。</span><span data-lang="en">Make SRAM repair maps available before compute-fabric activation.</span></p></article>
+              <article><span>02</span><b><span data-lang="zh">I/O 前置安全</span><span data-lang="en">Pre-I/O Security</span></b><p><span data-lang="zh">在外部介面啟用前載入 lock、identity 與 lifecycle policy。</span><span data-lang="en">Load locks, identity and lifecycle policy before external interfaces enable.</span></p></article>
+              <article><span>03</span><b><span data-lang="zh">分階段啟動</span><span data-lang="en">Staged Bring-Up</span></b><p><span data-lang="zh">降低正常讀取對另一個 power domain 的時序依賴。</span><span data-lang="en">Reduce mission-mode read sequencing dependence on another power domain.</span></p></article>
+              <article><span>04</span><b><span data-lang="zh">Resume State</span><span data-lang="en">Resume State</span></b><p><span data-lang="zh">為 always-on controller 與 power-gated resume 提供候選路徑。</span><span data-lang="en">Create a candidate path for always-on control and power-gated resume.</span></p></article>
+            </div>
+            <div class="read-program-verdict">
+              <small>PUBLIC ENGINEERING NOTE</small>
+              <strong>READ AVAILABILITY <i>≠</i> PROGRAM AVAILABILITY</strong>
+              <p><span data-lang="zh">Core supply 可支援正常讀取；PGM 仍需要 I/O 電源作為 charge pump 的基礎電壓。這是操作模式分離，不是所有模式共用單一供電。</span><span data-lang="en">Core supply can support normal reads; PGM still requires the I/O supply as the charge pump's base voltage. This separates operating modes—it does not mean one supply serves every mode.</span></p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="sharepoint-extension" aria-label="SharePoint internal completion placeholder">
+          <div class="sharepoint-lock" aria-hidden="true"><i></i><span>SP</span></div>
+          <div><p class="paper-kicker">SHAREPOINT HANDOFF · INTERNAL COMPLETION</p><h3><span data-lang="zh">公開層先定義 Architecture Boundary<br><em>內部層再補 Exact Product Contract</em></span><span data-lang="en">Define the Architecture Boundary Publicly<br><em>Complete the Exact Product Contract Internally</em></span></h3><p><span data-lang="zh">公司內部版保留給 exact macro release、PGM supply window、允許的 power sequence、wrapper-domain requirement 與 qualification evidence。公開網站不推測未發布的電壓數值、pin、waveform、controller state 或 circuit topology。</span><span data-lang="en">Reserve the internal version for exact macro release, PGM supply window, permitted power sequence, wrapper-domain requirements and qualification evidence. The public site does not speculate about unpublished voltage values, pins, waveforms, controller states or circuit topology.</span></p></div>
+          <ul><li><span>01</span>MACRO RELEASE</li><li><span>02</span>POWER SEQUENCE</li><li><span>03</span>WRAPPER DOMAIN</li><li><span>04</span>QUALIFICATION</li></ul>
+        </aside>
+      </section>
+
+      <section id="abstraction" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">07 · SECURE STORAGE ABSTRACTION</p><h2><span data-lang="zh">Secure Storage 的保護邊界<br><em>完整 State Transition</em></span><span data-lang="en">Secure Storage Protection Boundary<br><em>The Full State Transition</em></span></h2></div>
+          <p><span data-lang="zh">AI NVM 的差異化不應停在「可存 key／trim」。可防守的產品邊界，是 confidentiality、integrity、atomicity 與 attestation coherence 同時成立。</span><span data-lang="en">AI-NVM differentiation cannot stop at “stores keys and trim.” A defensible product boundary makes confidentiality, integrity, atomicity and attestation coherence hold together.</span></p>
+        </div>
+        <div class="abstraction-system">
+          <div class="assurance-core"><small>PROTECTED RESPONSIBILITY</small><span>AUTHORIZED</span><h3><span data-lang="zh">受保護的 State Transition</span><span data-lang="en">Protected State Transition</span></h3><p><span data-lang="zh">每次 transition 都必須維持 confidentiality、integrity、recoverability 與 measurement coherence</span><span data-lang="en">Every transition must preserve confidentiality, integrity, recoverability and measurement coherence</span></p><b>PROPOSE → VERIFY → ATOMIC COMMIT → RECONCILE EVIDENCE</b></div>
+          <p class="assurance-scope">4/4 ASSURANCE PLANES APPLY · SELECT TO INSPECT</p>
+          <div class="assurance-tabs">
+            <button class="active" id="assurance-tab-confidentiality" type="button" data-assurance-tab="confidentiality"><i>01</i><span>CONFIDENTIALITY</span></button>
+            <button id="assurance-tab-integrity" type="button" data-assurance-tab="integrity"><i>02</i><span>INTEGRITY</span></button>
+            <button id="assurance-tab-recovery" type="button" data-assurance-tab="recovery"><i>03</i><span>RECOVERY</span></button>
+            <button id="assurance-tab-attestation" type="button" data-assurance-tab="attestation"><i>04</i><span>ATTESTATION</span></button>
+          </div>
+          <div class="assurance-planes">
+            <article class="active" id="assurance-panel-confidentiality" data-assurance-panel="confidentiality"><span>01</span><small>CONFIDENTIALITY</small><h3><span data-lang="zh">加密 State 降低 Secret 直接暴露</span><span data-lang="en">Encrypted State Reduces Direct Secret Exposure</span></h3><p><span data-lang="zh">敏感 persistent payload 以 device-bound key 加密；只有 root handling、helper data、debug access 與 plaintext path 都符合 threat model，才能降低直接擷取風險。Root 可為 PUF-derived 或 fused，仍依 threat model 而定。</span><span data-lang="en">Encrypt sensitive persistent payload with a device-bound key. Direct-extraction risk is reduced only when root handling, helper data, debug access and plaintext paths all fit the threat model. The root may be PUF-derived or fused.</span></p></article>
+            <article id="assurance-panel-integrity" data-assurance-panel="integrity"><span>02</span><small>INTEGRITY / ROLLBACK</small><h3><span data-lang="zh">Authorized Version 與 Transition Policy</span><span data-lang="en">Authorized Versions and Transition Policy</span></h3><p><span data-lang="zh">簽章、version、counter、revocation 與 policy 必須共同驗證。</span><span data-lang="en">Verify signatures, versions, counters, revocation and policy together.</span></p></article>
+            <article id="assurance-panel-recovery" data-assurance-panel="recovery"><span>03</span><small>ATOMICITY / RECOVERY</small><h3><span data-lang="zh">Atomic Commit 與 Safe Recovery</span><span data-lang="en">Atomic Commit and Safe Recovery</span></h3><p><span data-lang="zh">banking、journal、ECC、hold-up energy 與 recovery path 都是 architecture 的一部分。</span><span data-lang="en">Banking, journals, ECC, hold-up energy and the recovery path are part of the architecture.</span></p></article>
+            <article id="assurance-panel-attestation" data-assurance-panel="attestation"><span>04</span><small>ATTESTATION COHERENCE</small><h3><span data-lang="zh">Authorized Change 與 Measurement 一致性</span><span data-lang="en">Authorized Change and Measurement Coherence</span></h3><p><span data-lang="zh">repair、configuration 與 firmware state 必須綁定到 measurement／RIM lifecycle，避免可靠度事件被誤判成 compromise。</span><span data-lang="en">Bind repair, configuration and firmware state to the measurement/RIM lifecycle so reliability events are not mistaken for compromise.</span></p></article>
+          </div>
+        </div>
+        <div class="abstraction-verdict"><small>PRODUCT DIFFERENTIATION</small><strong><span data-lang="zh">Threat-Modelled Root × Encrypted State × Atomic Update × Coherent Evidence</span><span data-lang="en">Threat-Modelled Root × Encrypted State × Atomic Update × Coherent Evidence</span></strong><p><span data-lang="zh">PUF／AES 不會自動解決 endurance 或 torn write；MTP／ECC 也不會自動解決 secret exposure。完整 abstraction 必須把四者納入同一責任邊界。</span><span data-lang="en">PUF/AES does not automatically solve endurance or torn writes; MTP/ECC does not automatically solve secret exposure. The abstraction must own all four outcomes.</span></p></div>
+      </section>
+
+      <section id="evidence" class="paper-section reveal">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">08 · EVIDENCE &amp; UNKNOWNS</p><h2><span data-lang="zh">精準 Proof<br><em>可執行 Validation Plan</em></span><span data-lang="en">Precise Proof<br><em>Actionable Validation Plan</em></span></h2></div>
+          <p><span data-lang="zh">Evidence class 與 assurance maturity 是兩件事。官方 spec 可以很明確，卻仍不指定 NVM medium；vendor macro 可以量產，卻仍需要 target-node、configuration 與 physical attack evidence。</span><span data-lang="en">Evidence class and assurance maturity are different. A standard may be precise without prescribing an NVM medium; a production macro may still need target-node, configuration and physical-attack evidence.</span></p>
+        </div>
+        <div class="evidence-closure-board">
+          <figure class="evidence-scene">
+            <img src="assets/assurance-evidence-v1.webp" width="1792" height="1024" loading="lazy" alt="Illustrative semiconductor evidence lab scene" data-alt-zh="半導體證據驗證實驗室概念場景" data-alt-en="Illustrative semiconductor evidence lab scene">
+            <figcaption><span>ILLUSTRATIVE EVIDENCE SCENE</span><b><span data-lang="zh">視覺不代表特定量測配置</span><span data-lang="en">Not a specific test configuration</span></b></figcaption>
+          </figure>
+          <div class="evidence-flow" role="list" aria-label="Evidence closure cases">
+            <div class="evidence-flow-head" aria-hidden="true"><span>OBSERVED BEHAVIOR</span><span>WHAT IT PROVES</span><span>WHAT IT DOES NOT PROVE</span></div>
+            <a href="https://docs.nvidia.com/attestation/secureai-advisory-hbm3-resiliency-impact-on-driver-versions-r550-0-r550-90-12/index.html" target="_blank" rel="noreferrer" data-record-id="AI-NVM-GPU-003" role="listitem">
+              <div class="evidence-id"><i>01</i><small>FIRST-PARTY</small><b>NVIDIA ↗</b></div>
+              <div class="evidence-observed"><h3>HBM repair changes measurement</h3><p><span data-lang="zh">永久 channel repair 會改變 physical measurement。</span><span data-lang="en">Permanent channel repair changes physical measurements.</span></p></div>
+              <div class="evidence-proves"><small>PROVES</small><p><span data-lang="zh">合法 repair state 必須與 driver／RIM lifecycle 一致。</span><span data-lang="en">Authorized repair state must remain coherent with the driver/RIM lifecycle.</span></p></div>
+              <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">未指定通用 NVM medium 或所有 HBM 實作。</span><span data-lang="en">It does not prescribe one NVM medium or cover every HBM implementation.</span></p></div>
+            </a>
+            <a href="https://www.nxp.com/docs/en/data-sheet/PF8100_PF8200.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-PMIC-001" role="listitem">
+              <div class="evidence-id"><i>02</i><small>FIRST-PARTY</small><b>NXP ↗</b></div>
+              <div class="evidence-observed"><h3>OTP establishes startup truth</h3><p><span data-lang="zh">OTP → mirror register → functional register。</span><span data-lang="en">OTP loads mirror registers and then functional registers.</span></p></div>
+              <div class="evidence-proves"><small>PROVES</small><p><span data-lang="zh">immutable baseline 可支援可重複的 power-up 行為。</span><span data-lang="en">An immutable baseline can support repeatable power-up behavior.</span></p></div>
+              <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">不代表每個 PMIC 都需要相同 medium。</span><span data-lang="en">It does not mean every PMIC needs the same storage medium.</span></p></div>
+            </a>
+            <a href="https://www.analog.com/media/en/technical-documentation/data-sheets/adp1055.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-PMIC-002" role="listitem">
+              <div class="evidence-id"><i>03</i><small>FIRST-PARTY</small><b>ANALOG DEVICES ↗</b></div>
+              <div class="evidence-observed"><h3>Black-box logging is bounded</h3><p><span data-lang="zh">temperature、write count、buffer 與 hold-up energy 共同限制記錄。</span><span data-lang="en">Temperature, write count, buffering and hold-up energy bound the record.</span></p></div>
+              <div class="evidence-proves"><small>PROVES</small><p><span data-lang="zh">logging 必須以 workload 與 power-fail envelope 定義。</span><span data-lang="en">Logging must be defined by its workload and power-fail envelope.</span></p></div>
+              <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">不形成通用 endurance 或 AI attach-rate。</span><span data-lang="en">It does not establish universal endurance or an AI attach rate.</span></p></div>
+            </a>
+            <a href="https://www.oiforum.com/wp-content/uploads/OIF-CMIS-05.3.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-OIF-001" role="listitem">
+              <div class="evidence-id"><i>04</i><small>STANDARD</small><b>OIF ↗</b></div>
+              <div class="evidence-observed"><h3>CMIS defines behavior, not media</h3><p><span data-lang="zh">diagnostics、statistics 與 firmware interface 定義清楚。</span><span data-lang="en">Diagnostics, statistics and firmware interfaces are explicit.</span></p></div>
+              <div class="evidence-proves"><small>PROVES</small><p><span data-lang="zh">系統需要可管理的 operational state。</span><span data-lang="en">The system needs manageable operational state.</span></p></div>
+              <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">standard 未指定 OTP、MTP 或其他實體 technology。</span><span data-lang="en">The standard does not select OTP, MTP or another physical technology.</span></p></div>
+            </a>
+          </div>
+        </div>
+
+        <div class="validation-cascade">
+          <div class="validation-cascade-intro"><p class="paper-kicker">TARGET VALIDATION CASCADE</p><h3><span data-lang="zh">每個 Opportunity 都必須通過<br><em>四個 Closure Gate</em></span><span data-lang="en">Every Opportunity Must Pass<br><em>Four Closure Gates</em></span></h3><p><span data-lang="zh">先確定 authoritative copy，再封閉 workload、recovery 與 assurance；任何一關未封閉，都只能是 hypothesis。</span><span data-lang="en">Establish the authoritative copy, then close workload, recovery and assurance. An open gate keeps the placement a hypothesis.</span></p></div>
+          <ol aria-label="Four validation gates">
+            <li><i>01</i><span><b>OWNERSHIP</b><small><span data-lang="zh">誰擁有 authoritative copy</span><span data-lang="en">Who owns the authoritative copy</span></small></span></li>
+            <li><i>02</i><span><b>WORKLOAD / PVT</b><small><span data-lang="zh">Bytes · cadence · Tj · retention · ECC</span><span data-lang="en">Bytes · cadence · Tj · retention · ECC</span></small></span></li>
+            <li><i>03</i><span><b>ATOMIC RECOVERY</b><small><span data-lang="zh">Brownout · reset · partial program</span><span data-lang="en">Brownout · reset · partial program</span></small></span></li>
+            <li><i>04</i><span><b>ASSURANCE</b><small><span data-lang="zh">DFT · debug · FI · SCA · invasive</span><span data-lang="en">DFT · debug · FI · SCA · invasive</span></small></span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="sources" class="paper-section reveal">
+        <div class="paper-heading source-heading">
+          <div><p class="paper-kicker">09 · PRIMARY SOURCE LEDGER</p><h2><span data-lang="zh">每個 Claim 都有 Source<br><em>每個 Inference 都有 Limit</em></span><span data-lang="en">A Source for Every Claim<br><em>A Limit for Every Inference</em></span></h2></div>
+          <p><span data-lang="zh">外部連結優先使用 standards body、first-party implementation 與 official vendor page。供應商數值只代表該公開 product envelope，不外推成 universal requirement。</span><span data-lang="en">External links prioritize standards bodies, first-party implementations and official vendor pages. Vendor figures describe that public product envelope; they are not universal requirements.</span></p>
+        </div>
+        <div class="source-ledger-groups">
+          <details class="source-group" open>
+            <summary><span>01</span><b><span data-lang="zh">Standards 與 Protocols</span><span data-lang="en">Standards and Protocols</span></b><small>5 PRIMARY SOURCES</small><i>+</i></summary>
+            <div class="ai-source-list">
+          <a href="https://www.opencompute.org/documents/2025-ocp-ras-api-v0-9-final-pdf" target="_blank" rel="noreferrer"><span>STANDARD</span><b>OCP RAS API v0.9</b><small>Discovery · configuration · event/action queues</small></a>
+          <a href="https://www.oiforum.com/wp-content/uploads/OIF-CMIS-05.3.pdf" target="_blank" rel="noreferrer"><span>STANDARD</span><b>OIF CMIS 5.3</b><small>Diagnostics · statistics · firmware revisions</small></a>
+          <a href="https://www.dmtf.org/sites/default/files/standards/documents/DSP0274_1.4.0.pdf" target="_blank" rel="noreferrer"><span>STANDARD</span><b>DMTF SPDM 1.4</b><small>Identity · attestation · measurements</small></a>
+          <a href="https://computeexpresslink.org/wp-content/uploads/2024/12/CXL_3.2-Spec-Announcement_FINAL-1.pdf" target="_blank" rel="noreferrer"><span>STANDARD</span><b>CXL 3.2</b><small>Firmware activation · PPR · security</small></a>
+          <a href="https://www.uciexpress.org/specifications" target="_blank" rel="noreferrer"><span>STANDARD</span><b>UCIe 2.0</b><small>Manageability · DFx · chiplet lifecycle</small></a>
+            </div>
+          </details>
+          <details class="source-group">
+            <summary><span>02</span><b><span data-lang="zh">First-Party Cases</span><span data-lang="en">First-Party Cases</span></b><small>3 IMPLEMENTATIONS</small><i>+</i></summary>
+            <div class="ai-source-list">
+          <a href="https://developer.nvidia.com/blog/?p=68661" target="_blank" rel="noreferrer"><span>FIRST-PARTY</span><b>NVIDIA H100 Confidential Computing</b><small>On-die RoT · measured boot · attestation</small></a>
+          <a href="https://docs.nvidia.com/deploy/a100-gpu-mem-error-mgmt/latest/row-remapping.html" target="_blank" rel="noreferrer"><span>FIRST-PARTY</span><b>NVIDIA Row Remapping</b><small>Persistent repair lifecycle</small></a>
+          <a href="https://blogs.sw.siemens.com/eda-support/2024/05/14/the-roles-of-fusebox-and-its-interface-as-part-of-tessent-memory-bist-repair-solution/" target="_blank" rel="noreferrer"><span>FIRST-PARTY</span><b>Siemens Tessent Fusebox</b><small>BISR repair storage · programming sessions</small></a>
+            </div>
+          </details>
+          <details class="source-group">
+            <summary><span>03</span><b><span data-lang="zh">Vendor Capability Envelopes</span><span data-lang="en">Vendor Capability Envelopes</span></b><small>4 BOUNDED CLAIMS</small><i>+</i></summary>
+            <div class="ai-source-list">
+          <a href="https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/otp.html" target="_blank" rel="noreferrer"><span>VENDOR CLAIM</span><b>Synopsys OTP NVM</b><small>Trim · calibration · repair · keys</small></a>
+          <a href="https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP" target="_blank" rel="noreferrer"><span>VENDOR CLAIM</span><b>eMemory NeoMTP</b><small>One MTP capability envelope—not the whole category</small></a>
+          <a href="https://www.synopsys.com/dw/ipdir.php?c=dwc_nvm_ts40np5sse32aemeei" target="_blank" rel="noreferrer"><span>VENDOR CLAIM</span><b>Synopsys 40nm / 2.5V MTP</b><small>Public process-device-class example</small></a>
+          <a href="https://www.synopsys.com/dw/doc.php/ds/e/dwc_nvm_xhf_otp_ds.pdf" target="_blank" rel="noreferrer"><span>VENDOR CLAIM</span><b>Synopsys XHF OTP at TSMC N5</b><small>Direct core-supply read · N5 evidence boundary</small></a>
+            </div>
+          </details>
+          <details class="source-group">
+            <summary><span>04</span><b><span data-lang="zh">Foundry Roadmaps</span><span data-lang="en">Foundry Roadmaps</span></b><small>2 DIRECTIONAL SOURCES</small><i>+</i></summary>
+            <div class="ai-source-list">
+          <a href="https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash" target="_blank" rel="noreferrer"><span>FOUNDRY ROADMAP</span><b>TSMC Embedded NVM</b><small>eFlash · eMRAM · eRRAM node maturity</small></a>
+          <a href="https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/" target="_blank" rel="noreferrer"><span>FOUNDRY ROADMAP</span><b>Samsung Specialty Technology</b><small>28nm eFlash · advanced eMRAM direction</small></a>
+            </div>
+          </details>
+        </div>
+        <aside class="research-intake" data-input-id="AI-NVM-INPUT-NBLM-001" aria-labelledby="researchIntakeTitle">
+          <div class="research-intake-lede">
+            <div>
+              <p class="paper-kicker">RESEARCH INPUT · VALIDATION QUEUE</p>
+               <h3 id="researchIntakeTitle"><span data-lang="zh">研究機會地圖<br><em>等待一級證據驗證</em></span><span data-lang="en">Research Opportunity Map<br><em>Awaiting Primary Evidence</em></span></h3>
+            </div>
+            <p><span data-lang="zh">這份 13 頁影像式 NotebookLM 綜整未提供可見引用或參考文獻，現已收入獨立 research intake。頁碼只定位其主張；它不會覆寫 standards、first-party cases 或 Proof mode。</span><span data-lang="en">This 13-page image-only NotebookLM synthesis has no visible citations or reference list. It is now a separate research intake: page locators identify its claims, not upstream evidence, and it cannot override Proof mode.</span></p>
+          </div>
+          <div class="research-intake-rules">
+            <article><span>USE</span><b><span data-lang="zh">發現候選領域</span><span data-lang="en">Discover candidate domains</span></b><p><span data-lang="zh">SPD hub／PMIC、retimer、trust anchor 與 repair metadata。</span><span data-lang="en">SPD hubs/PMICs, retimers, trust anchors and repair metadata.</span></p></article>
+            <article><span>QUARANTINE</span><b><span data-lang="zh">隔離未證實主張</span><span data-lang="en">Quarantine unsupported claims</span></b><p><span data-lang="zh">數量、mandatory 技術、良率與「物理不可見」不得直接引用。</span><span data-lang="en">Do not promote quantities, mandatory technologies, yield or “physical invisibility.”</span></p></article>
+            <article><span>NEXT</span><b><span data-lang="zh">回到一級資料封閉</span><span data-lang="en">Close with primary evidence</span></b><p><span data-lang="zh">逐項補 standards clause、official product data、workload 與攻擊評估。</span><span data-lang="en">Add exact clauses, official product data, workloads and attack evaluation.</span></p></article>
+          </div>
+          <div class="research-pipeline" aria-label="Research claim promotion pipeline">
+            <span><i>01</i><b>INTAKE</b><small><span data-lang="zh">捕捉候選機會</span><span data-lang="en">Capture the candidate</span></small></span>
+            <span><i>02</i><b>QUARANTINE</b><small><span data-lang="zh">隔離未證實主張</span><span data-lang="en">Isolate unsupported claims</span></small></span>
+            <span><i>03</i><b>VERIFY</b><small><span data-lang="zh">回到一級資料</span><span data-lang="en">Return to primary evidence</span></small></span>
+            <span><i>04</i><b>PROMOTE</b><small><span data-lang="zh">只發布可防守結論</span><span data-lang="en">Publish only defensible conclusions</span></small></span>
+          </div>
+          <ol class="research-hypotheses" aria-label="Five validation hypotheses">
+            <li><i>01</i><span><b>PERIPHERAL MULTIPLIER</b><small><span data-lang="zh">先驗證 BOM 與 architecture ownership</span><span data-lang="en">Validate BOM and architecture ownership</span></small></span></li>
+            <li><i>02</i><span><b>SPD HUB + PMIC</b><small><span data-lang="zh">先界定狀態與寫入工作負載</span><span data-lang="en">Bound state and write workload</span></small></span></li>
+            <li><i>03</i><span><b>RETIMER</b><small><span data-lang="zh">分開驗證 factory trim／cold-start profile 與 live EQ</span><span data-lang="en">Evaluate factory trim / cold-start profile separately from live EQ</span></small></span></li>
+            <li><i>04</i><span><b>TRUST ANCHOR</b><small><span data-lang="zh">用 threat model 選擇 root</span><span data-lang="en">Select the root against the threat model</span></small></span></li>
+            <li><i>05</i><span><b>SRAM REPAIR</b><small><span data-lang="zh">證明 metadata、program 與 attestation 契約</span><span data-lang="en">Prove metadata, program and attestation contracts</span></small></span></li>
+          </ol>
+          <footer><span>RESEARCH INTAKE ONLY</span><b>13 PAGES · 5 HYPOTHESES</b><code>PRIMARY SOURCES NOT DISCLOSED · SHA-256 897284470142…EF41A</code></footer>
+        </aside>
+        <div class="paper-conclusion ai-conclusion">
+          <div class="conclusion-copy">
+            <small>DECISION SUMMARY</small>
+            <strong><span data-lang="zh">Evidence 定義行為<br>State Contract 指引 NVM 選擇</span><span data-lang="en">Evidence Defines Behavior<br>State Contracts Guide NVM Selection</span></strong>
+            <p><span data-lang="zh">第一波不追逐「AI 需要更多 NVM」的空泛敘事，而是封閉三個可驗證的 persistent-state contract。</span><span data-lang="en">The first wave should not chase a generic “AI needs more NVM” narrative. It should close three verifiable persistent-state contracts.</span></p>
+            <ol class="lighthouse-lanes">
+              <li><i>01</i><span><b>IDENTITY + ROLLBACK</b><small><span data-lang="zh">Immutable root 與 managed lifecycle 分層</span><span data-lang="en">Separate the immutable root from managed lifecycle state</span></small></span></li>
+              <li><i>02</i><span><b>REPAIR + ATTESTATION</b><small><span data-lang="zh">Authorized change 與 measurement 保持一致</span><span data-lang="en">Keep authorized repair and measurement coherent</span></small></span></li>
+              <li><i>03</i><span><b>CPO / PMIC STATE</b><small><span data-lang="zh">OTP baseline＋bounded profile＋external evidence</span><span data-lang="en">OTP baseline plus bounded profile plus external evidence</span></small></span></li>
+            </ol>
+            <div class="conclusion-actions"><a class="button primary" href="oip-secure-storage.html"><span data-lang="zh">連到 Secure Storage Abstraction</span><span data-lang="en">Open the Secure Storage abstraction</span></a><a class="button ghost" href="index.html#learn"><span data-lang="zh">回到 Knowledge Hub</span><span data-lang="en">Back to the Knowledge Hub</span></a></div>
+          </div>
+          <figure class="conclusion-visual"><img src="assets/secure-state-transition-r17.png" width="1536" height="1024" loading="lazy" alt="Illustrative protected state transition inside a silicon subsystem" data-alt-zh="矽智財子系統內受保護狀態轉移概念圖" data-alt-en="Illustrative protected state transition inside a silicon subsystem"><figcaption><span>ILLUSTRATIVE ARCHITECTURE</span><b><span data-lang="zh">非特定 macro topology</span><span data-lang="en">Not a specific macro topology</span></b></figcaption></figure>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="research-footer">
+    <p>NVM KNOWLEDGE HUB · AI SYSTEMS / PERSISTENT STATE</p>
+    <a href="#main-content"><span data-lang="zh">回到頂端</span><span data-lang="en">Back to top</span></a>
+  </footer>
+
+  <script src="research.js?v=20260825-refine021"></script>
+  <script src="ai-nvm.js?v=20260825-refine026"></script>
+</body>
+</html>

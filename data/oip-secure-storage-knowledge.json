@@ -1,10 +1,10 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
   "title": "Mitigating OTP Data Leakage Risks in Advanced SoCs Through Secure Storage Architectures",
   "reviewedDate": "2026-08-18",
   "audience": ["TSMC OIP", "SoC Security Architects", "NVM IP Integrators", "Product Security"],
   "centralThesis": "OTP reverse engineering must not become secret reverse engineering.",
-  "copilotAnswerRule": "Return claim, claimStatus, evidenceLevel, scope, applicability, limitation, sourceUrl, reviewedDate and openQuestion together.",
+  "copilotAnswerRule": "Return claim, claimStatus, evidenceClass, assuranceMaturity, scope, applicability, limitation, sourceUrl, reviewedDate and openQuestion together.",
   "records": [
     {
       "recordId": "OIP-OTP-001",
@@ -16,7 +16,8 @@
       "lifecyclePhase": ["Boot", "Authorized Access"],
       "claim": "Public RP2350 disclosures document multiple physical paths that bypassed control assumptions or approached recovery of antifuse OTP state.",
       "claimStatus": "Public Fact",
-      "evidenceLevel": 4,
+      "evidenceClass": "Direct Observation",
+      "assuranceMaturity": "Independently Evaluated",
       "scope": "Device",
       "applicability": "Threat motivation for SoCs that store usable secrets or security configuration directly in OTP.",
       "limitation": "The findings apply to the disclosed RP2350 implementation and do not prove identical exploitability for every OTP macro or SoC.",
@@ -26,7 +27,10 @@
       "publishedDate": "2025-01-14",
       "reviewedDate": "2026-08-18",
       "owner": "NVM Knowledge Hub",
-      "classification": "Public"
+      "classification": "Public",
+      "audience": ["TSMC OIP", "SoC Security Architects", "NVM IP Integrators", "Product Security"],
+      "presentationRole": "Problem",
+      "oipRelevance": "Establishes the public, real-world motivation for replacing direct secret storage with a composed secure-storage boundary."
     },
     {
       "recordId": "OIP-OTP-002",
@@ -36,19 +40,23 @@
       "asset": "OTP Ciphertext",
       "attackClass": ["Invasive Readout"],
       "lifecyclePhase": ["Power-off"],
-      "claim": "IOActive reported extraction of antifuse bit-cell contents from RP2350 using passive voltage contrast with a focused ion beam.",
+      "claim": "IOActive reported using FIB/PVC to recover the bitwise OR of adjacent RP2350 antifuse bits; complete per-bit recovery was considered possible in principle but was not demonstrated.",
       "claimStatus": "Public Fact",
-      "evidenceLevel": 5,
+      "evidenceClass": "Direct Observation",
+      "assuranceMaturity": "Independently Evaluated",
       "scope": "Device",
       "applicability": "Demonstrates that bit-cell opacity is not a sufficient final confidentiality boundary for valuable secrets.",
-      "limitation": "Equipment, preparation, skill, time, and exact recoverability depend on the device and target data layout.",
+      "limitation": "The demonstrated result was adjacent-bit OR recovery, not complete per-bit secret extraction; equipment, preparation, skill, time, and exact recoverability depend on the device and target layout.",
       "openQuestion": "What invasive-readout evaluation has been completed on the target macro and node?",
       "sourceUrl": "https://www.ioactive.com/raspberry-pi-2350-hacking-challenge/",
       "sourceOwner": "IOActive",
       "publishedDate": "2025-01-14",
       "reviewedDate": "2026-08-18",
       "owner": "NVM Knowledge Hub",
-      "classification": "Public"
+      "classification": "Public",
+      "audience": ["TSMC OIP", "SoC Security Architects", "NVM IP Integrators", "Product Security"],
+      "presentationRole": "Threat Evidence",
+      "oipRelevance": "Provides the strongest public evidence that physical OTP state can become observable under a capable invasive attacker while preserving the demonstrated recovery limit."
     },
     {
       "recordId": "OIP-ARCH-001",
@@ -60,7 +68,8 @@
       "lifecyclePhase": ["Boot", "Derive", "Authorized Access", "Zeroize"],
       "claim": "The disclosed solution integrates antifuse OTP, SRAM PUF, an AES-256 cryptographic engine, and a Secure Controller with address scrambling.",
       "claimStatus": "Vendor Claim",
-      "evidenceLevel": 3,
+      "evidenceClass": "Vendor Disclosure",
+      "assuranceMaturity": "Claimed",
       "scope": "Subsystem",
       "applicability": "Defines the product architecture and integration boundary presented to advanced-node SoC teams.",
       "limitation": "Public architecture disclosure does not establish implementation-specific resistance to FI, SCA, or invasive analysis.",
@@ -70,7 +79,10 @@
       "publishedDate": null,
       "reviewedDate": "2026-08-18",
       "owner": "NVM Knowledge Hub",
-      "classification": "Public"
+      "classification": "Public",
+      "audience": ["TSMC OIP", "SoC Security Architects", "NVM IP Integrators", "Product Security"],
+      "presentationRole": "Architecture",
+      "oipRelevance": "Defines the four-function subsystem that separates persistent ciphertext from reconstructed and policy-controlled secrets."
     },
     {
       "recordId": "OIP-PUF-001",
@@ -82,7 +94,8 @@
       "lifecyclePhase": ["Power-off", "Boot", "Derive", "Zeroize"],
       "claim": "The SRAM PUF generates a device-specific root at power-up; the vendor states that this root is never stored on-chip.",
       "claimStatus": "Vendor Claim",
-      "evidenceLevel": 3,
+      "evidenceClass": "Vendor Disclosure",
+      "assuranceMaturity": "Claimed",
       "scope": "IP",
       "applicability": "Reduces permanent root-secret residency and separates storage readout from root recovery.",
       "limitation": "Runtime key exposure, helper data, reconstruction logic, scan paths, fault behavior, and zeroization remain assurance targets.",
@@ -92,7 +105,10 @@
       "publishedDate": null,
       "reviewedDate": "2026-08-18",
       "owner": "NVM Knowledge Hub",
-      "classification": "Public"
+      "classification": "Public",
+      "audience": ["TSMC OIP", "SoC Security Architects", "NVM IP Integrators", "Product Security"],
+      "presentationRole": "Lifecycle",
+      "oipRelevance": "Explains why power-up reconstruction and verified zeroization are stronger than permanently storing the usable root key."
     },
     {
       "recordId": "OIP-CRYPTO-001",
@@ -104,7 +120,8 @@
       "lifecyclePhase": ["Derive", "Authorized Access"],
       "claim": "OTP contents are protected by AES encryption and decryption using 256-bit keys derived from the SRAM-PUF root.",
       "claimStatus": "Vendor Claim",
-      "evidenceLevel": 3,
+      "evidenceClass": "Vendor Disclosure",
+      "assuranceMaturity": "Claimed",
       "scope": "Subsystem",
       "applicability": "Changes the intended consequence of physical OTP recovery from plaintext retrieval to ciphertext retrieval.",
       "limitation": "Confidentiality depends on cryptographic implementation, modes, key derivation, integrity policy, FI/SCA resistance, and lifecycle correctness.",
@@ -114,7 +131,10 @@
       "publishedDate": null,
       "reviewedDate": "2026-08-18",
       "owner": "NVM Knowledge Hub",
-      "classification": "Public"
+      "classification": "Public",
+      "audience": ["TSMC OIP", "SoC Security Architects", "NVM IP Integrators", "Product Security"],
+      "presentationRole": "Architecture",
+      "oipRelevance": "Connects PUF-derived keying to the confidentiality boundary around physically observable OTP contents."
     },
     {
       "recordId": "OIP-SYS-001",
@@ -126,7 +146,8 @@
       "lifecyclePhase": ["Power-off", "Boot", "Derive", "Authorized Access", "Zeroize"],
       "claim": "When encryption, scrambling, key reconstruction, controller policy, and lifecycle controls all hold, physical OTP recovery should yield scrambled ciphertext rather than a usable secret.",
       "claimStatus": "Analyst Inference",
-      "evidenceLevel": 2,
+      "evidenceClass": "Bounded Inference",
+      "assuranceMaturity": "Specified",
       "scope": "Subsystem",
       "applicability": "Central system-security thesis for the OIP presentation.",
       "limitation": "This is a composed inference, not a certified result; every dependency requires configuration- and node-specific closure.",
@@ -136,7 +157,10 @@
       "publishedDate": null,
       "reviewedDate": "2026-08-18",
       "owner": "NVM Knowledge Hub",
-      "classification": "Public"
+      "classification": "Public",
+      "audience": ["TSMC OIP", "SoC Security Architects", "NVM IP Integrators", "Product Security"],
+      "presentationRole": "Consequence",
+      "oipRelevance": "States the intended security outcome while preserving the distinction between architectural reasoning and evaluated silicon evidence."
     },
     {
       "recordId": "OIP-NODE-001",
@@ -148,7 +172,8 @@
       "lifecyclePhase": ["Power-off"],
       "claim": "Synopsys publicly lists advanced-node OTP as silicon-verified in TSMC N3P, N4P, N5, N5A, N6, N7, and N7A, with N5A and N7A Grade 1 qualification to AEC-Q100.",
       "claimStatus": "Vendor Claim",
-      "evidenceLevel": 3,
+      "evidenceClass": "Vendor Disclosure",
+      "assuranceMaturity": "Claimed",
       "scope": "IP",
       "applicability": "Supports platform readiness discussion for OIP audiences.",
       "limitation": "OTP macro availability does not automatically prove Secure Storage release, PUF integration, or security evaluation for every listed node.",
@@ -158,7 +183,10 @@
       "publishedDate": null,
       "reviewedDate": "2026-08-18",
       "owner": "NVM Knowledge Hub",
-      "classification": "Public"
+      "classification": "Public",
+      "audience": ["TSMC OIP", "SoC Security Architects", "NVM IP Integrators", "Product Security"],
+      "presentationRole": "Platform Readiness",
+      "oipRelevance": "Supports an advanced-node readiness discussion without conflating OTP silicon status with complete Secure Storage assurance."
     },
     {
       "recordId": "OIP-VAL-001",
@@ -170,7 +198,8 @@
       "lifecyclePhase": ["Boot", "Derive", "Authorized Access", "Zeroize"],
       "claim": "Architecture documentation alone is insufficient to claim resistance to scoped physical attacks on a specific implementation.",
       "claimStatus": "Unknown",
-      "evidenceLevel": 1,
+      "evidenceClass": "Unknown",
+      "assuranceMaturity": "Specified",
       "scope": "SoC",
       "applicability": "Defines the validation workstream and prevents overclaiming in the OIP deck.",
       "limitation": "No product-specific FI/SCA/invasive report was supplied for this knowledge package.",
@@ -180,7 +209,10 @@
       "publishedDate": null,
       "reviewedDate": "2026-08-18",
       "owner": "NVM Knowledge Hub",
-      "classification": "Public"
+      "classification": "Public",
+      "audience": ["TSMC OIP", "SoC Security Architects", "NVM IP Integrators", "Product Security"],
+      "presentationRole": "Validation Gate",
+      "oipRelevance": "Makes missing implementation-specific evidence visible and turns it into an explicit OIP decision and ownership gate."
     }
   ]
 }

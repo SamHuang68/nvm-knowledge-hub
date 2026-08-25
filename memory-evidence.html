@@ -6,10 +6,12 @@
   <meta name="description" content="SRAM、OTP、PUF、光熱側信道、FIB 與 Secure Storage 的可搜尋研究證據庫，含論文、專利、供應商文件與官方案例。">
   <meta name="theme-color" content="#061c2a">
   <title>Evidence Ledger · NVM Knowledge Hub</title>
-  <link rel="stylesheet" href="styles.css?v=20260817-refine011">
-  <link rel="stylesheet" href="research.css?v=20260817-refine011">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260824-refine012">
+  <link rel="stylesheet" href="research.css?v=20260825-refine013">
 </head>
 <body class="research-page evidence-page" data-language="zh">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="NVM Knowledge Hub 首頁">
@@ -26,7 +28,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="research-hero evidence-hero">
       <div class="research-hero-inner">
         <p class="research-label">EVIDENCE LEDGER · PAPERS · PATENTS · PRODUCT DISCLOSURES</p>
@@ -39,14 +41,14 @@
     <div class="paper-shell">
       <section id="method" class="paper-section reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">EVIDENCE METHOD</p><h2><span data-lang="zh">Claim → Evidence → Inference，<br><em>不跨級偷換。</em></span><span data-lang="en">Claim → Evidence → Inference,<br><em>without category errors.</em></span></h2></div>
-          <p><span data-lang="zh">技術問題以論文、專利與原廠文件為主。專利用於證明 sensing topology 的存在；供應商文件用於描述自家 architecture 與測試主張；攻擊難度與普遍性只由第三方實證支撐。</span><span data-lang="en">Technical claims rely on papers, patents and first-party documentation. Patents establish that a sensing topology exists; vendor documents describe architecture and internal test claims; only independent demonstrations support attack feasibility and generality.</span></p>
+          <div><p class="paper-kicker">EVIDENCE CLASS · NOT ASSURANCE MATURITY</p><h2><span data-lang="zh">Claim → Evidence → Inference，<br><em>不跨級偷換。</em></span><span data-lang="en">Claim → Evidence → Inference,<br><em>without category errors.</em></span></h2></div>
+          <p><span data-lang="zh">這裡分類「來源如何支持主張」，不同於 Assurance Center 的 M1–M6 成熟度。專利用於證明 sensing topology 的存在；供應商文件描述自家 architecture 與測試主張；攻擊難度與普遍性只由獨立實證支撐。</span><span data-lang="en">This classifies how a source supports a claim; it is distinct from the Assurance Center's M1–M6 maturity. Patents establish that a sensing topology exists; vendor documents describe their architecture and test claims; only independent demonstrations support attack feasibility and generality.</span></p>
         </div>
         <div class="claim-ladder">
-          <article class="claim-rung"><span>E1 · DIRECT</span><h3><span data-lang="zh">實體攻擊示範</span><span data-lang="en">Physical demonstration</span></h3><p><span data-lang="zh">有目標晶片、設備、程序與恢復結果。</span><span data-lang="en">Target chip, equipment, procedure and recovered result.</span></p></article>
-          <article class="claim-rung"><span>E2 · MECHANISM</span><h3><span data-lang="zh">電路與物理</span><span data-lang="en">Circuit and physics</span></h3><p><span data-lang="zh">說明 read、leakage、breakdown 或 sensing 如何發生。</span><span data-lang="en">Explains how read, leakage, breakdown or sensing occurs.</span></p></article>
-          <article class="claim-rung"><span>E3 · VENDOR</span><h3><span data-lang="zh">產品公開主張</span><span data-lang="en">Product disclosure</span></h3><p><span data-lang="zh">可引用，但需標記為供應商自己提供的證據。</span><span data-lang="en">Citable with explicit attribution as vendor-provided evidence.</span></p></article>
-          <article class="claim-rung"><span>E4 · INFERENCE</span><h3><span data-lang="zh">系統級結論</span><span data-lang="en">System inference</span></h3><p><span data-lang="zh">由多筆來源組成，仍需產品或節點實測封閉。</span><span data-lang="en">Composed from sources and closed only by product/node validation.</span></p></article>
+          <article class="claim-rung"><span>E1 · DIRECT OBSERVATION</span><h3><span data-lang="zh">實體攻擊示範</span><span data-lang="en">Physical demonstration</span></h3><p><span data-lang="zh">有目標晶片、設備、程序與恢復結果。</span><span data-lang="en">Target chip, equipment, procedure and recovered result.</span></p></article>
+          <article class="claim-rung"><span>E2 · MECHANISM EVIDENCE</span><h3><span data-lang="zh">電路與物理</span><span data-lang="en">Circuit and physics</span></h3><p><span data-lang="zh">說明 read、leakage、breakdown 或 sensing 如何發生。</span><span data-lang="en">Explains how read, leakage, breakdown or sensing occurs.</span></p></article>
+          <article class="claim-rung"><span>E3 · VENDOR DISCLOSURE</span><h3><span data-lang="zh">產品公開主張</span><span data-lang="en">Product disclosure</span></h3><p><span data-lang="zh">可引用，但需標記為供應商自己提供的證據。</span><span data-lang="en">Citable with explicit attribution as vendor-provided evidence.</span></p></article>
+          <article class="claim-rung"><span>E4 · BOUNDED INFERENCE</span><h3><span data-lang="zh">系統級結論</span><span data-lang="en">System inference</span></h3><p><span data-lang="zh">由多筆來源組成，仍需產品或節點實測封閉。</span><span data-lang="en">Composed from sources and closed only by product/node validation.</span></p></article>
         </div>
       </section>
 
@@ -173,8 +175,8 @@
             <div class="source-index"><b>V09</b><span>FOUNDRY NEWS</span></div><div class="source-content"><p class="source-meta">2005 · TSMC · E3</p><h3>Kilopass XPM Qualified on TSMC 0.18 µm Process</h3><p><span data-lang="zh">TSMC 官方新聞記錄 Kilopass XPM 在 TSMC 製程完成 qualification，建立雙方公開可追溯的早期合作關係。</span><span data-lang="en">TSMC's official release records Kilopass XPM qualification on a TSMC process, establishing an early, publicly traceable relationship.</span></p><div class="source-proof"><div><b>SUPPORTS</b><p><span data-lang="zh">TSMC／Kilopass 的歷史合作與技術血統。</span><span data-lang="en">Historical TSMC/Kilopass collaboration and technology lineage.</span></p></div><div><b>DOES NOT PROVE</b><p><span data-lang="zh">10 nm 以下授權合約、延續條款或 5 nm macro 的直接來源。</span><span data-lang="en">Sub-10 nm licensing terms, continuity clauses or the direct origin of the 5 nm macro.</span></p></div></div><a href="https://pr.tsmc.com/chinese/news/1361" target="_blank" rel="noreferrer">TSMC Official Release ↗</a></div>
           </article>
 
-          <article class="source-card" data-type="case" data-keywords="Raspberry Pi RP2350 hacking challenge official voltage glitch OTP errata E16 A4 stepping">
-            <div class="source-index"><b>C01</b><span>OFFICIAL CASE</span></div><div class="source-content"><p class="source-meta">RASPBERRY PI · E1 / OFFICIAL</p><h3>Security Through Transparency: RP2350 Hacking Challenge Results</h3><p><span data-lang="zh">Raspberry Pi 公開挑戰結果與回應，顯示 fault、OTP wrapper、permission 與 invasive cell readout 可形成不同路徑；當 OTP 直接承載可用 secret，任一路徑成功都可能接近資料揭露。</span><span data-lang="en">Raspberry Pi documents how faults, OTP wrappers, permissions and invasive cell readout create distinct paths; when OTP directly carries a usable secret, one successful path can approach disclosure.</span></p><div class="source-proof"><div><b>SUPPORTS</b><p><span data-lang="zh">Secure Storage 必須改寫成功 OTP readout 的後果：讓 cell dump 留在 address-scrambled ciphertext，而非直接 secret。</span><span data-lang="en">Secure Storage must change the consequence of OTP readout so a cell dump remains address-scrambled ciphertext rather than the secret.</span></p></div><div><b>DOES NOT PROVE</b><p><span data-lang="zh">所有 OTP 都有相同漏洞，或加密架構不需另外防護 root reconstruction。</span><span data-lang="en">That every OTP shares the flaw or that encrypted architectures need no protection for root reconstruction.</span></p></div></div><a href="https://www.raspberrypi.com/news/security-through-transparency-rp2350-hacking-challenge-results-are-in/" target="_blank" rel="noreferrer">Raspberry Pi Official Report ↗</a></div>
+          <article class="source-card" data-type="case" data-keywords="Raspberry Pi RP2350 hacking challenge official voltage glitch OTP FIB PVC adjacent bit OR errata E16 A4 stepping" data-record-id="OIP-OTP-001 OIP-OTP-002">
+            <div class="source-index"><b>C01</b><span>OFFICIAL CASE</span></div><div class="source-content"><p class="source-meta">RASPBERRY PI · E1 / OFFICIAL</p><h3>Security Through Transparency: RP2350 Hacking Challenge Results</h3><p><span data-lang="zh">Raspberry Pi 公開結果顯示 fault、OTP wrapper、permission 與 invasive readout 是不同路徑。FIB／PVC 已讀出相鄰 bit pair 的 OR；完整逐 bit recovery 被認為原理上可能，但未被示範。</span><span data-lang="en">Raspberry Pi documents distinct fault, OTP-wrapper, permission and invasive-readout paths. FIB/PVC recovered the OR of adjacent bit pairs; complete per-bit recovery was considered possible in principle, but was not demonstrated.</span></p><div class="source-proof"><div><b>SUPPORTS</b><p><span data-lang="zh">Bit-cell opacity 不應是最後一道 confidentiality boundary；成功 readout 的後果必須由 composed controls 限制。</span><span data-lang="en">Bit-cell opacity should not be the final confidentiality boundary; composed controls must constrain the consequence of successful readout.</span></p></div><div><b>DOES NOT PROVE</b><p><span data-lang="zh">所有 OTP 都有相同漏洞、完整 RP2350 secret 已被逐 bit 恢復，或 Secure Storage target configuration 已具 attack resistance。</span><span data-lang="en">That every OTP shares the flaw, that the complete RP2350 secret was recovered per bit, or that a target Secure Storage configuration is attack-resistant.</span></p></div></div><a href="https://www.raspberrypi.com/news/security-through-transparency-rp2350-hacking-challenge-results-are-in/" target="_blank" rel="noreferrer">Raspberry Pi Official Report ↗</a></div>
           </article>
         </div>
 
@@ -193,6 +195,6 @@
   </main>
 
   <footer><a class="brand footer-brand" href="index.html"><span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span></a><p><span data-lang="zh">Annotated public-source corpus · 2026-08-12</span><span data-lang="en">Annotated public-source corpus · 2026-08-12</span></p><p>Research Note 02</p></footer>
-  <script src="research.js?v=20260816-refine006"></script>
+  <script src="research.js?v=20260825-refine013"></script>
 </body>
 </html>
