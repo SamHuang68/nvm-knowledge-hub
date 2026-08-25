@@ -136,6 +136,7 @@ function closeResearchMenu(restoreFocus = false) {
 researchMenuButton?.addEventListener("click", () => {
   const open = researchNav.classList.toggle("open");
   syncResearchMenuState(open);
+  if (open) researchNav.querySelector("a")?.focus();
 });
 researchNav?.addEventListener("click", event => {
   if (event.target.closest("a")) closeResearchMenu();
@@ -146,6 +147,10 @@ document.addEventListener("keydown", event => {
 window.matchMedia("(min-width: 1181px)").addEventListener("change", event => {
   if (event.matches) closeResearchMenu();
 });
+function syncResearchMenuToLayout() {
+  if (researchMenuButton && getComputedStyle(researchMenuButton).display === "none") closeResearchMenu();
+}
+window.addEventListener("resize", syncResearchMenuToLayout, { passive: true });
 
 const researchRevealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="styles.css?v=20260825-refine021">
   <link rel="stylesheet" href="research.css?v=20260825-refine021">
   <link rel="stylesheet" href="ai-nvm.css?v=20260825-refine026">
+  <link rel="stylesheet" href="site-shell.css?v=20260825-ia018">
 </head>
 <body class="research-page ai-nvm-page" data-language="zh" data-opportunity-view="proof">
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
@@ -33,11 +34,16 @@
       <a href="#sources">Sources</a>
     </nav>
     <div class="header-actions">
-      <a class="home-pill" href="index.html#learn">RESEARCH HUB</a>
+      <a class="home-pill" href="index.html#topics">ALL TOPICS</a>
       <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to English"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
       <button class="menu-button" id="menuToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
     </div>
   </header>
+
+  <nav class="site-breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Knowledge Hub</a><i></i><strong>AI Systems &amp; NVM</strong>
+    <span class="topic-switch"><a href="index.html#topics">All Topics</a><a href="secure-storage.html">Secure Storage</a><a aria-current="page" href="ai-nvm-opportunities.html">AI Systems</a></span>
+  </nav>
 
   <main id="main-content">
     <section class="research-hero ai-research-hero" aria-labelledby="ai-hero-title">
@@ -613,7 +619,7 @@
               <li><i>02</i><span><b>REPAIR + ATTESTATION</b><small><span data-lang="zh">Authorized change 與 measurement 保持一致</span><span data-lang="en">Keep authorized repair and measurement coherent</span></small></span></li>
               <li><i>03</i><span><b>CPO / PMIC STATE</b><small><span data-lang="zh">OTP baseline＋bounded profile＋external evidence</span><span data-lang="en">OTP baseline plus bounded profile plus external evidence</span></small></span></li>
             </ol>
-            <div class="conclusion-actions"><a class="button primary" href="oip-secure-storage.html"><span data-lang="zh">連到 Secure Storage Abstraction</span><span data-lang="en">Open the Secure Storage abstraction</span></a><a class="button ghost" href="index.html#learn"><span data-lang="zh">回到 Knowledge Hub</span><span data-lang="en">Back to the Knowledge Hub</span></a></div>
+            <div class="conclusion-actions"><a class="button primary" href="oip-secure-storage.html"><span data-lang="zh">連到 Secure Storage Abstraction</span><span data-lang="en">Open the Secure Storage abstraction</span></a><a class="button ghost" href="index.html#topics"><span data-lang="zh">回到 Knowledge Hub</span><span data-lang="en">Back to the Knowledge Hub</span></a></div>
           </div>
           <figure class="conclusion-visual"><img src="assets/secure-state-transition-r17.png" width="1536" height="1024" loading="lazy" alt="Illustrative protected state transition inside a silicon subsystem" data-alt-zh="矽智財子系統內受保護狀態轉移概念圖" data-alt-en="Illustrative protected state transition inside a silicon subsystem"><figcaption><span>ILLUSTRATIVE ARCHITECTURE</span><b><span data-lang="zh">非特定 macro topology</span><span data-lang="en">Not a specific macro topology</span></b></figcaption></figure>
         </div>

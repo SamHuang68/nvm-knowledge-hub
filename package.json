@@ -1,0 +1,14 @@
+{
+  "name": "nvm-knowledge-hub",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "serve": "node scripts/serve-local.mjs",
+    "check": "node scripts/check-site-ia.mjs",
+    "qa:render": "node scripts/render-site-ia.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0"
+  }
+}

@@ -1,19 +1,23 @@
-# NVM Knowledge Hub · Secure Storage
+# NVM Knowledge Hub
 
-Executive learning prototype for positioning Synopsys Secure Storage and SRAM-PUF-protected OTP.
+An NVM-centered, evidence-governed knowledge system designed for later migration into an enterprise SharePoint Knowledge Hub. Secure Storage and AI Systems are the first two application lenses—not competing site roots.
 
 ## Run locally
 
-From the `site` directory:
+From the `site` directory (Node.js):
 
 ```powershell
-python -m http.server 8765 --bind 127.0.0.1
+npm ci
+npm run serve
 ```
 
 Open `http://127.0.0.1:8765/`.
 
 ## Experience modules
 
+- Neutral Hub home with equal, one-click entrances to Secure Storage and AI Systems & NVM.
+- Cross-topic NVM Whitepaper & Decision Studio for governed comparison, authoring and SharePoint transfer.
+- Consistent `Knowledge Hub → Topic → Research asset` navigation, breadcrumbs and legacy deep-link routing.
 - Cinematic Secure Storage hero with project-owned artwork.
 - Persistent Traditional Chinese / English language switch.
 - Paper-grade bilingual Memory Physics research note covering SRAM, OTP, sensing, optical/thermal leakage and attack windows.
@@ -32,6 +36,21 @@ Open `http://127.0.0.1:8765/`.
 - SharePoint/Copilot-ready knowledge schema in `data/assurance-knowledge-schema.json`, with the List field map in `data/sharepoint-field-map.md`.
 - Governed OIP claim records in `data/oip-secure-storage-knowledge.json` for SharePoint import and presentation grounding.
 - Governed AI opportunity records in `data/ai-nvm-opportunities-knowledge.json`, validated by `data/ai-nvm-opportunities-schema.json`, with PDF page/figure locators retained for source-traceable SharePoint and Copilot answers.
+
+## Information architecture
+
+| Level | Route | Responsibility |
+|---|---|---|
+| L0 | `index.html` | Neutral NVM Knowledge Hub and topic map |
+| L1 | `secure-storage.html` | Secure Storage architecture, assurance and learning |
+| L1 | `ai-nvm-opportunities.html` | AI-system persistent-state opportunity map |
+| Workbench | `https://samhuang68.github.io/nvm-whitepaper-site/` | Cross-topic whitepaper, selection and SharePoint authoring studio |
+| L2 | `memory-physics.html` | Memory physics and security research |
+| L2 | `memory-evidence.html` | Evidence Ledger |
+| L2 | `security-assurance.html` | Physical Security Assurance center |
+| L2 | `oip-secure-storage.html` | OIP Secure Storage knowledge brief |
+
+The NVM brand always resolves to L0. `All Topics` resolves to `index.html#topics`; topic badges and breadcrumbs provide the local context. Historic Secure Storage hashes on `index.html` are redirected by `hub.js` to their matching anchors on `secure-storage.html`.
 
 ## Governed data workflow
 

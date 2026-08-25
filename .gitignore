@@ -1,0 +1,11 @@
+.loop-engineering/rendered-r18/
+node_modules/
+.env
+.env.*
+!.env.example
+*.local
+.DS_Store
+.loop-engineering/agent-hive-evidence*/
+assets/ai-era-package-hero-r17.png
+assets/nvm-node-portfolio-r17.png
+assets/nvm-state-atlas-hero-r17.png

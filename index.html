@@ -3,466 +3,175 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="NVM Knowledge Hub：以 SRAM PUF、AES-256 與 OTP 為核心的 Secure Storage executive learning experience。">
+  <meta name="description" content="NVM Knowledge Hub：從 Secure Storage、AI Systems 到 Whitepaper Decision Studio，建立可追溯、可轉移至企業 SharePoint 的非揮發性記憶體知識體系。">
   <meta name="theme-color" content="#061b29">
-  <title>NVM Knowledge Hub · Secure Storage</title>
+  <title>NVM Knowledge Hub · Topics, Research &amp; Evidence</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/secure-storage-hero-key.webp" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=20260825-refine013">
+  <link rel="stylesheet" href="styles.css?v=20260825-ia019">
+  <link rel="stylesheet" href="site-shell.css?v=20260825-ia019">
+  <link rel="stylesheet" href="hub.css?v=20260825-ia019">
 </head>
-<body>
-  <a class="skip-link" href="#top">Skip to main content</a>
-  <svg class="svg-defs" aria-hidden="true">
-    <symbol id="i-fingerprint" viewBox="0 0 48 48"><path d="M10 23c0-8 6-14 14-14s14 6 14 14c0 9-3 15-7 20M15 25c0-5 4-9 9-9s9 4 9 9c0 7-2 12-5 17M20 27c0-3 2-5 4-5s4 2 4 5c0 5-1 9-3 13M9 31c1 5 3 9 6 13M15 34c1 3 2 6 4 8"/></symbol>
-    <symbol id="i-memory" viewBox="0 0 48 48"><rect x="9" y="11" width="30" height="26" rx="3"/><path d="M15 18h18M15 24h18M15 30h11M5 18h4M5 25h4M5 32h4M39 18h4M39 25h4M39 32h4"/></symbol>
-    <symbol id="i-cipher" viewBox="0 0 48 48"><path d="M24 5 9 12v10c0 10 6 18 15 22 9-4 15-12 15-22V12L24 5Z"/><path d="m17 25 5 5 10-12"/></symbol>
-    <symbol id="i-control" viewBox="0 0 48 48"><circle cx="13" cy="15" r="4"/><circle cx="35" cy="13" r="4"/><circle cx="24" cy="35" r="4"/><path d="M17 15h14M15 19l7 12M33 17l-7 14"/></symbol>
-    <symbol id="i-power" viewBox="0 0 48 48"><path d="M24 4v20M14 10a18 18 0 1 0 20 0"/></symbol>
-    <symbol id="i-probe" viewBox="0 0 48 48"><path d="m7 40 13-13M18 29l-4-4 20-20 4 4-20 20ZM31 13l4 4M28 36h13M34 30v12"/></symbol>
-    <symbol id="i-glitch" viewBox="0 0 48 48"><path d="M5 25h9l4-15 7 29 5-18 4 9h9"/></symbol>
-    <symbol id="i-code" viewBox="0 0 48 48"><path d="m17 13-11 11 11 11M31 13l11 11-11 11M28 7l-8 34"/></symbol>
-    <symbol id="i-car" viewBox="0 0 48 48"><path d="m9 29 4-11h22l4 11M8 29h32v9H8zM13 38v4M35 38v4M15 33h1M32 33h1"/></symbol>
-    <symbol id="i-aircraft" viewBox="0 0 48 48"><path d="m5 27 16-5V8l5-3 4 15 11-3 3 3-13 8 2 11-4 2-6-10-12 3-6-7Z"/></symbol>
-    <symbol id="i-iot" viewBox="0 0 48 48"><rect x="17" y="17" width="14" height="14" rx="3"/><path d="M11 11a18 18 0 0 1 26 0M15 15a12 12 0 0 1 18 0M11 37a18 18 0 0 0 26 0M15 33a12 12 0 0 0 18 0"/></symbol>
-    <symbol id="i-chip" viewBox="0 0 48 48"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/><path d="M17 5v6M24 5v6M31 5v6M17 37v6M24 37v6M31 37v6M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></symbol>
-    <symbol id="i-evidence" viewBox="0 0 48 48"><path d="M12 5h24v38H12zM18 14h12M18 21h12M18 28h7"/><path d="m28 34 3 3 7-8"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 48 48"><path d="M7 24h32M28 13l11 11-11 11"/></symbol>
-    <symbol id="i-layers" viewBox="0 0 48 48"><path d="m24 5 18 9-18 9L6 14l18-9Z"/><path d="m8 22 16 8 16-8M8 31l16 8 16-8"/></symbol>
-    <symbol id="i-wafer" viewBox="0 0 48 48"><circle cx="24" cy="24" r="19"/><path d="M8 14h32M5 24h38M8 34h32M14 8v32M24 5v38M34 8v32"/></symbol>
-    <symbol id="i-search" viewBox="0 0 48 48"><circle cx="21" cy="21" r="13"/><path d="m31 31 11 11"/></symbol>
-  </svg>
-
+<body class="hub-page" data-language="zh">
+  <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
   <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
 
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="NVM Knowledge Hub 首頁">
-      <span class="brand-mark"><svg><use href="#i-chip"/></svg></span>
+    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub 首頁">
+      <span class="brand-mark">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/><path d="M17 5v6M24 5v6M31 5v6M17 37v6M24 37v6M31 37v6M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></svg>
+      </span>
       <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
-      <span class="brand-section">SECURE STORAGE</span>
+      <span class="brand-section">KNOWLEDGE SYSTEM</span>
     </a>
     <nav class="primary-nav" id="primaryNav" aria-label="主要導覽">
-      <a href="#thesis" data-nav-key="why">Why</a>
-      <a href="#architecture" data-nav-key="architecture">Architecture</a>
-      <a href="#assurance" data-nav-key="assurance">Assurance</a>
-      <a href="#compare" data-nav-key="compare">Compare</a>
-      <a href="#evidence" data-nav-key="evidence">Evidence</a>
-      <a href="#learn" data-nav-key="learn">Learn</a>
-      <a href="oip-secure-storage.html" data-nav-key="oip">OIP Brief</a>
-      <a href="#research-topics" data-nav-key="research">Research</a>
+      <a href="#spine"><span data-lang="zh">NVM Framework</span><span data-lang="en">NVM Framework</span></a>
+      <a href="#topics"><span data-lang="zh">Topics</span><span data-lang="en">Topics</span></a>
+      <a href="#workbench"><span data-lang="zh">Workbench</span><span data-lang="en">Workbench</span></a>
+      <a href="#research"><span data-lang="zh">Research Library</span><span data-lang="en">Research Library</span></a>
+      <a href="#method"><span data-lang="zh">Evidence Model</span><span data-lang="en">Evidence Model</span></a>
+      <a href="#sharepoint"><span data-lang="zh">Enterprise Ready</span><span data-lang="en">Enterprise Ready</span></a>
     </nav>
     <div class="header-actions">
       <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to English"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
-      <button class="header-button" id="themeToggle" type="button" aria-label="切換顯示主題" aria-pressed="false"><span></span><span></span></button>
       <button class="menu-button" id="menuToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-media" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-content">
-        <p class="eyebrow light"><span>EXECUTIVE LEARNING EXPERIENCE</span><b>01 / SECURE STORAGE</b></p>
-        <h1 id="hero-title">永久保存資料。<br><em>根金鑰不永久留存。</em></h1>
-        <p class="hero-lede">以 SRAM PUF 每次上電重建 device-unique root key，再由 AES-256 保護 OTP 內容。斷電時 reconstructed root 不存在；敏感 payload 只以密文留存，helper data 與 lifecycle state 仍可能存在。</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#power-lab">探索 Power-off State <svg><use href="#i-arrow"/></svg></a>
-          <a class="button ghost" href="oip-secure-storage.html">開啟 OIP Brief</a>
-        </div>
-        <div class="hero-proof" aria-label="供應商公開的產品組合數據">
-          <div><strong>1.5B+</strong><span>SRAM PUF devices</span></div>
-          <div><strong>15+ years</strong><span>commercial deployment</span></div>
-          <div><strong>AES-256</strong><span>OTP data protection</span></div>
-          <small class="hero-proof-source">VENDOR-REPORTED PORTFOLIO CONTEXT · NOT TARGET-CONFIGURATION ASSURANCE</small>
-        </div>
-      </div>
-      <div class="hero-caption"><span>SRAM PUF ROOT KEY</span><b>RECONSTRUCTED · NEVER STORED</b></div>
-      <a class="scroll-cue" href="#thesis"><span>SCROLL TO EXPLORE</span><i></i></a>
-    </section>
-
-    <section class="signal-strip" aria-label="核心產品構成">
-      <span><svg><use href="#i-fingerprint"/></svg>SRAM PUF</span>
-      <i></i><span><svg><use href="#i-cipher"/></svg>AES-256</span>
-      <i></i><span><svg><use href="#i-memory"/></svg>ANTIFUSE OTP</span>
-      <i></i><span><svg><use href="#i-control"/></svg>SECURE CONTROLLER</span>
-    </section>
-
-    <section id="thesis" class="section thesis-section reveal">
-      <div class="section-index">01</div>
-      <div class="section-kicker">THE EXECUTIVE THESIS</div>
-      <div class="thesis-grid">
-        <h2>安全不只取決於資料能保存多久。<br><em>更取決於攻擊發生時，晶片裡還留下什麼。</em></h2>
-        <div class="thesis-copy">
-          <p>OTP 解決永久性；Secure Storage 解決機密性。即使攻擊者成功觀察記憶體狀態，他取得的也應該是受保護資料，而不是可直接使用的 root secret。</p>
-          <a class="text-link" href="#power-lab">用 Power-off State 檢驗設計 <svg><use href="#i-arrow"/></svg></a>
+  <main id="main-content">
+    <section class="hub-hero" aria-labelledby="hub-title">
+      <div class="hub-hero-grid" aria-hidden="true"></div>
+      <div class="hub-hero-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="hub-hero-copy">
+        <p class="hub-kicker">NVM KNOWLEDGE SYSTEM · 2026</p>
+        <h1 id="hub-title">
+          <span data-lang="zh">NVM，<br><em>是系統狀態的長期承諾。</em></span>
+          <span data-lang="en">NVM is<br><em>the system's long-term state promise.</em></span>
+        </h1>
+        <p class="hub-intro">
+          <span data-lang="zh">本網站以 NVM 為唯一知識主軸，將 technology、state contract、應用機會與 evidence governance 組成可學習、可驗證、可持續擴充的架構；Secure Storage 與 AI Systems 是兩個應用視角，Whitepaper Studio 則把知識轉成可比較、可移轉的資產。</span>
+          <span data-lang="en">NVM is the single knowledge spine. Secure Storage and AI Systems are two application lenses; the Whitepaper Studio turns their knowledge into comparable, transferable assets.</span>
+        </p>
+        <div class="hub-hero-actions">
+          <a class="button primary" href="#topics"><span data-lang="zh">選擇主題</span><span data-lang="en">Choose a topic</span><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 24h32M28 13l11 11-11 11"/></svg></a>
+          <a class="button ghost" href="#research"><span data-lang="zh">打開研究庫</span><span data-lang="en">Open the research library</span></a>
         </div>
       </div>
-      <div class="thesis-principles">
-        <article><span>01</span><svg><use href="#i-power"/></svg><h3>Absent at rest</h3><p>斷電後沒有 powered SRAM response，也沒有 root key。</p></article>
-        <article><span>02</span><svg><use href="#i-memory"/></svg><h3>Ciphertext remains</h3><p>OTP 永久保存的是 AES-256 密文與安全狀態。</p></article>
-        <article><span>03</span><svg><use href="#i-control"/></svg><h3>One boundary</h3><p>PUF、crypto、OTP 與 controller 共同構成安全子系統。</p></article>
+      <div class="hub-hero-index" aria-label="Knowledge system summary">
+        <div><b>01</b><span><span data-lang="zh">NVM 知識主軸</span><span data-lang="en">NVM KNOWLEDGE SPINE</span></span></div>
+        <div><b>02</b><span><span data-lang="zh">目前應用視角</span><span data-lang="en">CURRENT LENSES</span></span></div>
+        <div><b>01</b><span><span data-lang="zh">知識工作台</span><span data-lang="en">KNOWLEDGE WORKBENCH</span></span></div>
       </div>
     </section>
 
-    <section class="immersive-chapter immersive-wafer reveal" aria-label="IP contract visual transition">
-      <div class="chapter-rail"><span>LENS 01</span><i></i><b>IP<br>CONTRACT</b></div>
-      <div class="chapter-copy">
-        <p>FROM PRIMITIVE TO INTEGRATED SUBSYSTEM</p>
-        <h2>好的矽智財，必須定義清楚。<br><em>整合邊界也必須可以驗證。</em></h2>
-        <span>Architecture · interface · lifecycle · deliverables</span>
+    <section id="spine" class="knowledge-spine" aria-labelledby="spine-title">
+      <div class="spine-heading"><p>00 · NVM KNOWLEDGE SPINE</p><h2 id="spine-title"><span data-lang="zh">所有內容都回答同一件事：<br><em>什麼狀態，該由哪一種 NVM 長期承擔？</em></span><span data-lang="en">Every topic answers one question:<br><em>which NVM should own which persistent state?</em></span></h2></div>
+      <div class="spine-grid">
+        <article><span>01</span><small>TECHNOLOGY</small><b>OTP · MTP · eFlash<br>MRAM · ReRAM</b><p><span data-lang="zh">物理機制、製程節點、密度、endurance 與 voltage boundary。</span><span data-lang="en">Physical mechanism, node, density, endurance and voltage boundary.</span></p></article>
+        <article><span>02</span><small>STATE CONTRACT</small><b>Immutable · Bounded<br>Adaptive · Operational</b><p><span data-lang="zh">定義 ownership、更新頻率、retention、安全與 recovery。</span><span data-lang="en">Define ownership, update cadence, retention, security and recovery.</span></p></article>
+        <article><span>03</span><small>APPLICATION</small><b>Security · AI<br>Power · Interface</b><p><span data-lang="zh">把 NVM 能力對應到真實 system need，而不是只介紹產品名稱。</span><span data-lang="en">Map NVM capabilities to real system needs—not merely product names.</span></p></article>
+        <article><span>04</span><small>GOVERNANCE</small><b>Claim · Evidence<br>Scope · Open Gap</b><p><span data-lang="zh">每一項知識保留來源、限制、review date 與下一個驗證動作。</span><span data-lang="en">Every knowledge item retains its source, limit, review date and next validation action.</span></p></article>
       </div>
-      <a href="#power-lab" class="chapter-cue" aria-label="Continue to power state">↓</a>
+      <p class="spine-schema"><b>SHAREPOINT CONTENT CONTRACT</b><span>Technology Family → State Contract → Application Domain → Process Node → Evidence Class → Source → Limitation → Review Status</span></p>
     </section>
 
-    <section id="power-lab" class="section power-lab reveal" data-state="off">
-      <div class="power-copy">
-        <p class="eyebrow">INTERACTIVE · POWER STATE</p>
-        <h2 class="split-statement"><span class="statement-premise">先關掉電源。</span><span class="statement-resolution">再看攻擊者能取得什麼。</span></h2>
-        <p class="section-lede">切換狀態，觀察 root key 的存在窗口。Secure Storage 的主張不是物理攻擊會消失，而是成功讀取後能揭露的內容被限制。</p>
-        <div class="state-switch" role="group" aria-label="切換電源狀態">
-          <button class="active" type="button" data-power="off"><svg><use href="#i-power"/></svg>POWER OFF</button>
-          <button type="button" data-power="on"><svg><use href="#i-glitch"/></svg>POWER UP</button>
-        </div>
-        <div class="state-explanation" aria-live="polite">
-          <span id="stateTag">AT REST</span>
-          <h3 id="stateTitle">Power-off 的核心安全優勢：Root key 不存在。</h3>
-          <p id="stateText">OTP 保留 AES-256 ciphertext；SRAM startup state 與衍生根金鑰皆不存在。</p>
-        </div>
+    <section id="topics" class="hub-section topic-section" aria-labelledby="topics-title">
+      <div class="hub-section-heading">
+        <p>01 · TOPIC MAP</p>
+        <h2 id="topics-title"><span data-lang="zh">一個 NVM 主軸。<br><em>兩個目前的應用視角。</em></span><span data-lang="en">One NVM spine.<br><em>Two current application lenses.</em></span></h2>
+        <span><span data-lang="zh">先選系統問題，再沿同一套 technology 與 evidence schema 深入；未來主題可持續加入。</span><span data-lang="en">Choose a system problem, then follow the same technology and evidence schema. New topic spaces can be added without rebuilding the Hub.</span></span>
       </div>
-      <div class="silicon-stage" aria-label="Secure Storage 電源狀態示意">
-        <div class="stage-grid"></div>
-        <div class="chip-frame">
-          <div class="chip-label"><span>SECURE STORAGE</span><b id="stagePower">POWER OFF</b></div>
-          <div class="memory-array">
-            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+
+      <div class="topic-grid">
+        <article class="topic-card topic-secure">
+          <a class="topic-image" href="secure-storage.html" aria-label="Open Secure Storage">
+            <img src="assets/secure-storage-hero-key.webp" alt="Secure silicon key above an integrated circuit">
+            <span>01 / SECURITY ARCHITECTURE</span>
+          </a>
+          <div class="topic-body">
+            <p>SRAM PUF · AES-256 · OTP · CONTROLLER</p>
+            <h3>Secure Storage</h3>
+            <strong><span data-lang="zh">永久保存資料，不永久保存 root key。</span><span data-lang="en">Keep data permanent—not the root key.</span></strong>
+            <p><span data-lang="zh">從 physical observability、power-off state、加密 OTP 到 assurance，建立可防守的 secure-storage abstraction。</span><span data-lang="en">Build a defensible secure-storage abstraction from physical observability, the power-off state, encrypted OTP and assurance.</span></p>
+            <a class="topic-link" href="secure-storage.html"><span data-lang="zh">進入 Secure Storage</span><span data-lang="en">Enter Secure Storage</span><i>↗</i></a>
           </div>
-          <div class="cipher-label"><svg><use href="#i-memory"/></svg><span><small>OTP CONTENT</small><b>AES-256 CIPHERTEXT</b></span></div>
-          <div class="key-presence" id="keyPresence">
-            <svg><use href="#i-fingerprint"/></svg><span><small>SRAM PUF ROOT</small><b>NOT PRESENT</b></span>
+        </article>
+
+        <article class="topic-card topic-ai">
+          <a class="topic-image" href="ai-nvm-opportunities.html" aria-label="Open AI Systems and NVM Opportunities">
+            <picture><source media="(max-width:760px)" srcset="assets/ai-nvm-system-boundaries-hero-900.webp"><img src="assets/ai-nvm-system-boundaries-hero-1600.webp" alt="AI accelerator package and persistent-state system boundaries"></picture>
+            <span>02 / SYSTEM OPPORTUNITY</span>
+          </a>
+          <div class="topic-body">
+            <p>XPU · HBM · PHOTONICS · POWER · PLATFORM</p>
+            <h3>AI Systems &amp; NVM</h3>
+            <strong><span data-lang="zh">先定義 state contract，再選擇 memory。</span><span data-lang="en">Define the state contract before selecting memory.</span></strong>
+            <p><span data-lang="zh">把 identity、repair、calibration、firmware 與 RAS evidence 對應到應用、更新頻率和製程節點。</span><span data-lang="en">Map identity, repair, calibration, firmware and RAS evidence to use cases, update cadence and process nodes.</span></p>
+            <a class="topic-link" href="ai-nvm-opportunities.html"><span data-lang="zh">進入 AI Systems</span><span data-lang="en">Enter AI Systems</span><i>↗</i></a>
           </div>
-        </div>
-        <div class="attack-probe"><svg><use href="#i-probe"/></svg><span>PHYSICAL READOUT</span></div>
-        <div class="readout-result"><small>ATTACKER RECOVERS</small><strong id="readoutResult">PROTECTED DATA</strong></div>
-      </div>
-    </section>
-
-    <section class="section attack-section reveal" data-record-id="OIP-OTP-001">
-      <div class="section-heading">
-        <div><p class="eyebrow">PUBLIC ATTACK SIGNAL</p><h2>用公開攻擊界定 threat model，<br>再把它轉成產品要求。</h2></div>
-        <p>RP2350 是特定實作的公開 case，不代表所有 OTP 都同樣可攻。它揭示兩條平行路徑：fault 可能破壞 control assumptions；FIB／PVC 則接近 physical bit-state recovery。產品要求因此是：即使 readout 成功，也不應直接得到 usable secret。</p>
-      </div>
-      <div class="attack-journey">
-        <article><div class="journey-icon danger"><svg><use href="#i-glitch"/></svg></div><span>01A · CONTROL PATH</span><h3>Fault can collapse assumptions</h3><p>電壓、laser 或 EM disturbance 可能改變 boot、permission 或 lock 行為。</p></article>
-        <article data-record-id="OIP-OTP-002"><div class="journey-icon danger"><svg><use href="#i-probe"/></svg></div><span>01B · INVASIVE PATH</span><h3>FIB/PVC can expose physical state</h3><p>公開案例已讀出相鄰 bit pair 的 OR；完整逐 bit recovery 仍未被示範。</p></article>
-        <article data-record-id="OIP-SYS-001"><div class="journey-icon copper"><svg><use href="#i-cipher"/></svg></div><span>02 · COMPOSED RESPONSE</span><h3>Encrypt, scramble and govern</h3><p>只有在所有 composed controls 成立時，readout 才應停在 scrambled ciphertext。</p></article>
-        <article data-record-id="OIP-VAL-001"><div class="journey-icon teal"><svg><use href="#i-evidence"/></svg></div><span>03 · EVIDENCE GATE</span><h3>Close the target configuration</h3><p>以 target node、macro、integration 與 FI／SCA／invasive evidence 驗證結果。</p></article>
-      </div>
-      <aside class="case-note"><b>THREAT-MODEL INPUT</b><span>RP2350 challenge</span><p>這個案例用來界定 threat model；它不構成任何 target Secure Storage configuration 的 resistance evidence。</p><a href="https://www.raspberrypi.com/news/security-through-transparency-rp2350-hacking-challenge-results-are-in/" target="_blank" rel="noreferrer">Primary source ↗</a></aside>
-    </section>
-
-    <section id="assurance" class="section assurance-preview reveal" aria-labelledby="assurance-preview-title">
-      <div class="assurance-preview-head">
-        <div>
-          <p class="eyebrow">PHYSICAL SECURITY ASSURANCE</p>
-          <h2 id="assurance-preview-title"><span data-assurance-zh>安全主張，必須經得起實體攻擊驗證。</span><span data-assurance-en>Security claims must survive physical validation.</span></h2>
-        </div>
-        <p><span data-assurance-zh>從威脅方法、可觀察訊號與故障注入，到緩解措施、測試證據與第三方確證；讓每一項 Secure NVM 主張都能被追溯。</span><span data-assurance-en>Trace every Secure NVM claim from threat method and observable signal to mitigation, test evidence and independent assurance.</span></p>
-      </div>
-      <div class="assurance-chain" aria-label="Security assurance lifecycle">
-        <article><span>01</span><b>THREAT</b><small data-assurance-zh>定義攻擊者與資產</small><small data-assurance-en>Define actor and asset</small></article>
-        <i></i><article><span>02</span><b>METHOD</b><small data-assurance-zh>FI · SCA · 實體讀取</small><small data-assurance-en>FI · SCA · readout</small></article>
-        <i></i><article><span>03</span><b>OBSERVE</b><small data-assurance-zh>量測可利用結果</small><small data-assurance-en>Measure exploitable result</small></article>
-        <i></i><article><span>04</span><b>MITIGATE</b><small data-assurance-zh>限制攻擊後果</small><small data-assurance-en>Constrain consequences</small></article>
-        <i></i><article><span>05</span><b>EVIDENCE</b><small data-assurance-zh>建立可重現證據</small><small data-assurance-en>Build reproducible evidence</small></article>
-        <i></i><article><span>06</span><b>ASSURE</b><small data-assurance-zh>評估與認證範圍</small><small data-assurance-en>Evaluate and certify scope</small></article>
-      </div>
-      <div class="assurance-preview-foot">
-        <div><b>KEY QUESTION</b><p><span data-assurance-zh>攻擊者會怎麼驗證？我們擁有什麼證據？還有什麼不知道？</span><span data-assurance-en>How would an attacker test it? What evidence exists? What remains unknown?</span></p></div>
-        <a class="button primary" href="security-assurance.html"><span data-assurance-zh>進入安全確證中心</span><span data-assurance-en>Open Assurance Center</span><svg><use href="#i-arrow"/></svg></a>
-      </div>
-    </section>
-
-    <section id="identity-stack" class="section identity-stack-section reveal" aria-labelledby="identity-stack-title">
-      <div class="identity-stack-head">
-        <div>
-          <p class="eyebrow light">LAYERED TRUST · PRACTICAL CASE STUDY</p>
-          <h2 id="identity-stack-title"><span data-assurance-zh><span class="stack-title-premise">不是三選一。</span><span class="stack-title-resolution">讓每一層各自解決正確的問題。</span></span><span data-assurance-en><span class="stack-title-premise">Not three alternatives.</span><span class="stack-title-resolution">Give each layer the right security job.</span></span></h2>
-        </div>
-        <p><span data-assurance-zh>OpenPGP 保護資料與簽章；Okta FastPass 管理使用者、裝置狀態與存取政策；PUF 強化兩者下方的 silicon root，降低對永久儲存 root secret 的依賴。</span><span data-assurance-en>OpenPGP protects data and signatures. Okta FastPass governs users, device posture and access policy. A PUF strengthens the silicon root beneath them by reducing dependence on a persistently stored root secret.</span></p>
-      </div>
-
-      <div class="trust-layer-grid">
-        <article>
-          <span>01 · DATA</span><h3>OpenPGP</h3>
-          <p><b><span data-assurance-zh>主要任務</span><span data-assurance-en>Primary job</span></b><span data-assurance-zh>端對端加密、解密與數位簽章。</span><span data-assurance-en>End-to-end encryption, decryption and digital signatures.</span></p>
-          <p><b><span data-assurance-zh>斷電後仍存在</span><span data-assurance-en>Persists at rest</span></b><span data-assurance-zh>私鑰 packet；可能受 passphrase 保護，但仍是可保存與複製的數位物件。</span><span data-assurance-en>A secret-key packet, optionally passphrase-protected, remains a storable and copyable digital object.</span></p>
-          <small><span data-assurance-zh>不負責裝置完整性、登入政策或已解鎖後的惡意操作。</span><span data-assurance-en>Does not provide device integrity, login policy or protection from misuse after unlock.</span></small>
-        </article>
-        <article>
-          <span>02 · ACCESS</span><h3>Okta FastPass</h3>
-          <p><b><span data-assurance-zh>主要任務</span><span data-assurance-en>Primary job</span></b><span data-assurance-zh>phishing-resistant、passwordless authentication 與裝置政策。</span><span data-assurance-en>Phishing-resistant, passwordless authentication and device policy.</span></p>
-          <p><b><span data-assurance-zh>裝置端狀態</span><span data-assurance-en>Device state</span></b><span data-assurance-zh>註冊時建立 proof-of-possession key；可使用 TPM／Secure Enclave，也可能落在 software keystore。</span><span data-assurance-en>Enrollment creates a proof-of-possession key; it may use a TPM/Secure Enclave or a software keystore.</span></p>
-          <small><span data-assurance-zh>hardware protection 必須由政策要求，不能只因為使用 FastPass 就假設存在。</span><span data-assurance-en>Hardware protection must be required by policy; FastPass alone does not guarantee it.</span></small>
-        </article>
-        <article class="puf-layer">
-          <span>03 · SILICON ROOT</span><h3>SRAM PUF</h3>
-          <p><b><span data-assurance-zh>主要任務</span><span data-assurance-en>Primary job</span></b><span data-assurance-zh>需要時重建 device-unique root，用來 derive 或 unwrap operational keys。</span><span data-assurance-en>Reconstruct a device-unique root on demand to derive or unwrap operational keys.</span></p>
-          <p><b><span data-assurance-zh>斷電後仍存在</span><span data-assurance-en>Persists at rest</span></b><span data-assurance-zh>helper／activation data 與 wrapped keys 可以存在；root secret 本身不必永久儲存。</span><span data-assurance-en>Helper or activation data and wrapped keys may persist; the root secret itself need not.</span></p>
-          <small><span data-assurance-zh>不取代 user identity、MFA、authorization、revocation 或 recovery。</span><span data-assurance-en>Does not replace user identity, MFA, authorization, revocation or recovery.</span></small>
         </article>
       </div>
+    </section>
 
-      <div class="enterprise-signing-case">
-        <div class="case-intro">
-          <span>REFERENCE ARCHITECTURE · NOT A TURNKEY OKTA INTEGRATION</span>
-          <h3><span data-assurance-zh>案例：Device-bound enterprise signing</span><span data-assurance-en>Case: Device-bound enterprise signing</span></h3>
-          <p><span data-assurance-zh>只有同時通過企業身分政策與原始 silicon device 驗證，才允許本機 OpenPGP operation。</span><span data-assurance-en>A local OpenPGP operation is released only when enterprise identity policy and the enrolled silicon device are both satisfied.</span></p>
+    <section id="workbench" class="hub-section workbench-section" aria-labelledby="workbench-title">
+      <div class="hub-section-heading inverse workbench-heading">
+        <p>02 · KNOWLEDGE WORKBENCH</p>
+        <h2 id="workbench-title"><span data-lang="zh">把 NVM 知識，轉成<br><em>可閱讀、可比較、可移轉的資產</em></span><span data-lang="en">Turn NVM knowledge into<br><em>readable, comparable and transferable assets</em></span></h2>
+        <span><span data-lang="zh">跨主題的公開工作台，把 architecture narrative、selection logic、evidence boundary 與 SharePoint schema 接成同一個內容系統。</span><span data-lang="en">A cross-topic public workbench connecting architecture narratives, selection logic, evidence boundaries and the SharePoint schema.</span></span>
+      </div>
+      <article class="workbench-feature">
+        <img src="assets/nvm-state-atlas-hero-r17.webp" alt="Conceptual NVM state atlas showing multiple memory mechanisms inside a silicon IP boundary">
+        <div class="workbench-body">
+          <p>NVM TECHNOLOGY · STATE CONTRACT · EVIDENCE</p>
+          <h3>NVM Whitepaper<br>&amp; Decision Studio</h3>
+          <strong><span data-lang="zh">先定義 state，再比較 technology；先標示證據，再形成結論。</span><span data-lang="en">Define the state before comparing technology; qualify evidence before reaching a conclusion.</span></strong>
+          <p><span data-lang="zh">從 technology family、process node、state contract 到 evidence class，將研究內容組織成 technical whitepaper、decision matrix 與 SharePoint transfer model。</span><span data-lang="en">Organize research from technology family, process node and state contract through evidence class into a technical whitepaper, decision matrix and SharePoint transfer model.</span></p>
+          <span class="workbench-meta">PUBLIC WORKBENCH · ENGLISH · SHAREPOINT TRANSFER MODEL</span>
+          <a class="workbench-link" href="https://samhuang68.github.io/nvm-whitepaper-site/"><span data-lang="zh">進入 Whitepaper Studio</span><span data-lang="en">Open Whitepaper Studio</span><i>↗</i></a>
         </div>
-        <div class="case-flow" aria-label="Layered enterprise signing reference architecture">
-          <article><i>01</i><b>OKTA FASTPASS</b><strong><span data-assurance-zh>授權人與 session</span><span data-assurance-en>Authorize user and session</span></strong><small>user · posture · policy · revoke</small></article>
-          <svg><use href="#i-arrow"/></svg>
-          <article><i>02</i><b>PUF ROOT</b><strong><span data-assurance-zh>確認實體裝置並解封</span><span data-assurance-en>Bind device and unseal</span></strong><small>reconstruct · derive · zeroize</small></article>
-          <svg><use href="#i-arrow"/></svg>
-          <article><i>03</i><b>OPENPGP</b><strong><span data-assurance-zh>簽署或解密內容</span><span data-assurance-en>Sign or decrypt the artifact</span></strong><small>portable data protection</small></article>
-        </div>
+        <small>CONCEPTUAL NVM STATE ATLAS · NOT A PHYSICAL FLOORPLAN</small>
+      </article>
+    </section>
+
+    <section id="research" class="hub-section research-library" aria-labelledby="research-title">
+      <div class="hub-section-heading inverse">
+        <p>03 · RESEARCH LIBRARY</p>
+        <h2 id="research-title"><span data-lang="zh">從主張走向<br><em>可追溯的證據。</em></span><span data-lang="en">Move from claims<br><em>to traceable evidence.</em></span></h2>
+        <span><span data-lang="zh">每個資產都有明確的主題歸屬與證據角色。</span><span data-lang="en">Every asset has an explicit topic parent and evidence role.</span></span>
       </div>
-
-      <div class="threat-coverage">
-        <div><span>PHISHING</span><b>Okta FastPass</b><small><span data-assurance-zh>challenge／origin 與 policy</span><span data-assurance-en>Challenge, origin and policy</span></small></div>
-        <div><span>COPIED STORAGE</span><b>PUF + wrapped key</b><small><span data-assurance-zh>複製 blob 不等於複製 device root</span><span data-assurance-en>A copied blob is not the device root</span></small></div>
-        <div><span>DATA PORTABILITY</span><b>OpenPGP</b><small><span data-assurance-zh>跨系統的加密與簽章格式</span><span data-assurance-en>Portable encryption and signature format</span></small></div>
-        <div class="coverage-limit"><span>SHARED LIMIT</span><b><span data-assurance-zh>已入侵的 runtime</span><span data-assurance-en>Compromised runtime</span></b><small><span data-assurance-zh>重建或解鎖後仍需 isolation、user presence、rate limit 與 zeroization。</span><span data-assurance-en>After reconstruction or unlock, isolation, user presence, rate limits and zeroization still matter.</span></small></div>
-      </div>
-
-      <aside class="stack-evidence-note">
-        <b><span data-assurance-zh>主張邊界</span><span data-assurance-en>CLAIM BOUNDARY</span></b>
-        <p><span data-assurance-zh>PUF 的精確優勢不是「比 Okta 或 OpenPGP 更安全」，而是針對 powered-off physical extraction 與 device cloning，移除永久儲存 root-key target。最終結果仍取決於 reliability、helper-data integrity、FI／SCA、key residency、enrollment 與 recovery evidence。</span><span data-assurance-en>The precise PUF advantage is not “more secure than Okta or OpenPGP.” It removes a persistently stored root-key target for powered-off physical extraction and device cloning. The result still depends on reliability, helper-data integrity, FI/SCA, key residency, enrollment and recovery evidence.</span></p>
-      </aside>
-
-      <div class="stack-sources" aria-label="Primary sources for the layered security case study">
-        <a href="https://www.rfc-editor.org/rfc/rfc9580.html#section-5.5.3" target="_blank" rel="noreferrer"><span>RFC 9580</span><b>OpenPGP Secret Key Packet</b></a>
-        <a href="https://help.okta.com/oie/en-us/content/topics/identity-engine/devices/fp/fp-main.htm" target="_blank" rel="noreferrer"><span>OKTA</span><b>FastPass authentication flow</b></a>
-        <a href="https://help.okta.com/oie/en-us/content/topics/identity-engine/devices/device-registration.htm" target="_blank" rel="noreferrer"><span>OKTA</span><b>Device registration & key storage</b></a>
-        <a href="https://www.synopsys.com/designware-ip/security-ip/cryptography-ip/puf/key-vault.html" target="_blank" rel="noreferrer"><span>SYNOPSYS</span><b>PUF-based Key Vault</b></a>
+      <div class="library-grid">
+        <a href="oip-secure-storage.html"><small>KNOWLEDGE BRIEF · SECURE STORAGE</small><b>OIP Secure Storage Brief</b><span><span data-lang="zh">Threat → Architecture → Evidence → OIP decision</span><span data-lang="en">Threat → Architecture → Evidence → OIP decision</span></span><i>01</i></a>
+        <a href="memory-physics.html"><small>RESEARCH NOTE · SECURE STORAGE</small><b>Memory Physics &amp; Security</b><span><span data-lang="zh">Read path、representation 與 physical observability</span><span data-lang="en">Read paths, representation and physical observability</span></span><i>02</i></a>
+        <a href="memory-evidence.html"><small>EVIDENCE LEDGER · SHARED METHOD</small><b>Evidence Ledger</b><span><span data-lang="zh">論文、專利、官方案例與推論邊界</span><span data-lang="en">Papers, patents, official cases and inference boundaries</span></span><i>03</i></a>
+        <a href="security-assurance.html"><small>ASSURANCE CENTER · SECURE STORAGE</small><b>Physical Security Assurance</b><span><span data-lang="zh">Fault、SCA、invasive analysis 與驗證成熟度</span><span data-lang="en">Faults, SCA, invasive analysis and validation maturity</span></span><i>04</i></a>
       </div>
     </section>
 
-    <section id="architecture" class="section architecture-section reveal" data-record-id="OIP-ARCH-001">
-      <div class="architecture-intro">
-        <p class="eyebrow light">THE PRODUCT IS THE INTEGRATION</p>
-        <h2 class="split-statement"><span class="statement-premise">四個功能區塊協同運作。</span><span class="statement-resolution">共同交付一個安全結果。</span></h2>
-        <p>客戶買的不是四個各自正確的 primitive，而是從 root、crypto、storage、control 到 lifecycle 都有清楚責任邊界的 subsystem。</p>
+    <section id="method" class="hub-section method-section" aria-labelledby="method-title">
+      <div class="method-copy">
+        <p>04 · EVIDENCE MODEL</p>
+        <h2 id="method-title"><span data-lang="zh">知道什麼，<br><em>也清楚標示還不知道什麼。</em></span><span data-lang="en">Show what is known<br><em>and what remains unproven.</em></span></h2>
+        <p><span data-lang="zh">公開來源、供應商主張、架構推論與 target-silicon 證據不混為一談。這是所有主題共用的內容治理原則。</span><span data-lang="en">Public sources, vendor claims, architecture inferences and target-silicon evidence are kept distinct. This is the governance rule shared by every topic.</span></p>
       </div>
-      <div class="architecture-canvas">
-        <div class="architecture-flow" role="group" aria-label="Secure Storage 架構">
-          <button class="arch-node active" type="button" data-node="puf" data-record-id="OIP-PUF-001" aria-controls="archDetail" aria-pressed="true"><span>01</span><svg><use href="#i-fingerprint"/></svg><b>SRAM PUF</b><small>RECONSTRUCT</small></button>
-          <i></i>
-          <button class="arch-node" type="button" data-node="crypto" data-record-id="OIP-CRYPTO-001" aria-controls="archDetail" aria-pressed="false"><span>02</span><svg><use href="#i-cipher"/></svg><b>CRYPTO ENGINE</b><small>PROTECT</small></button>
-          <i></i>
-          <button class="arch-node" type="button" data-node="otp" aria-controls="archDetail" aria-pressed="false"><span>03</span><svg><use href="#i-memory"/></svg><b>ANTIFUSE OTP</b><small>STORE</small></button>
-          <i></i>
-          <button class="arch-node" type="button" data-node="controller" aria-controls="archDetail" aria-pressed="false"><span>04</span><svg><use href="#i-control"/></svg><b>CONTROLLER</b><small>ORCHESTRATE</small></button>
-        </div>
-        <div class="arch-detail" id="archDetail" aria-live="polite" aria-atomic="true">
-          <div class="detail-visual"><svg id="archIcon"><use href="#i-fingerprint"/></svg><span>DEVICE-UNIQUE</span></div>
-          <div><small id="archNumber">BLOCK 01</small><h3 id="archTitle">A root key with no permanent address.</h3><p id="archText">SRAM startup variation is measured at power-up and processed into a stable device-unique root. The root key is never stored on-chip.</p><ul id="archList"><li>Power-up reconstruction</li><li>Public helper data</li><li>Short key residency</li></ul></div>
-        </div>
-        <div class="architecture-footer"><span>CONFIGURABLE SECURE REGIONS</span><span>ADDRESS SCRAMBLING</span><span>AMBA APB</span><span>AUTO PROVISIONING</span></div>
+      <div class="method-ladder" aria-label="Evidence model">
+        <div><span>01</span><b>DIRECT EVIDENCE</b><p><span data-lang="zh">來源直接說明或量測的內容</span><span data-lang="en">What the source explicitly states or measures</span></p></div>
+        <div><span>02</span><b>SUPPORTED CLAIM</b><p><span data-lang="zh">多個證據共同支撐的結論</span><span data-lang="en">A conclusion supported by converging evidence</span></p></div>
+        <div><span>03</span><b>ARCHITECTURE INFERENCE</b><p><span data-lang="zh">合理但仍需實作驗證的推論</span><span data-lang="en">A reasoned inference that still needs implementation proof</span></p></div>
+        <div><span>04</span><b>OPEN EVIDENCE GAP</b><p><span data-lang="zh">尚待 silicon、PVT 或攻擊測試關閉</span><span data-lang="en">Still open pending silicon, PVT or attack evidence</span></p></div>
       </div>
     </section>
 
-    <section id="lifecycle" class="section lifecycle-section reveal">
-      <div class="section-heading compact">
-        <div><p class="eyebrow">ROOT-KEY LIFECYCLE</p><h2>金鑰只在需要工作的時候存在。</h2></div>
-        <p>不是「把 key 藏得更好」，而是把存在時間縮短成受控窗口。</p>
-      </div>
-      <div class="lifecycle-track" role="group" aria-label="Root key lifecycle">
-        <button class="phase active" type="button" aria-pressed="true" data-phase="0"><span>01</span><svg><use href="#i-power"/></svg><b>POWER OFF</b><small>Absent</small></button>
-        <i></i>
-        <button class="phase" type="button" aria-pressed="false" data-phase="1"><span>02</span><svg><use href="#i-fingerprint"/></svg><b>POWER UP</b><small>Reconstruct</small></button>
-        <i></i>
-        <button class="phase" type="button" aria-pressed="false" data-phase="2"><span>03</span><svg><use href="#i-cipher"/></svg><b>AUTHORIZED USE</b><small>Derive & protect</small></button>
-        <i></i>
-        <button class="phase" type="button" aria-pressed="false" data-phase="3"><span>04</span><svg><use href="#i-control"/></svg><b>ZEROIZE</b><small>Remove</small></button>
-      </div>
-      <div class="phase-detail" id="phaseDetail">
-        <span id="phaseIndex">01 / AT REST</span><h3 id="phaseTitle">No root key is present.</h3><p id="phaseText">OTP retains ciphertext and permanent lifecycle state. There is no powered SRAM response and no reconstructed root key.</p>
-      </div>
-    </section>
-
-    <section class="immersive-chapter immersive-probe reveal" aria-label="Evidence validation visual transition">
-      <div class="chapter-rail"><span>LENS 02</span><i></i><b>MEASURE<br>THE CLAIM</b></div>
-      <div class="chapter-copy align-right">
-        <p>FROM ARCHITECTURE TO EVIDENCE</p>
-        <h2 class="split-statement"><span class="statement-premise">提出技術宣稱。</span><span class="statement-resolution">也要提出可以驗證的方法。</span></h2>
-        <span>PVT · BER · retention · attack evaluation</span>
-      </div>
-      <a href="#compare" class="chapter-cue" aria-label="Continue to comparison">↓</a>
-    </section>
-
-    <section id="compare" class="section comparison-section reveal">
-      <div class="comparison-head">
-        <div><p class="eyebrow light">PRECISE COMPETITIVE POSITIONING</p><h2 class="split-statement"><span class="statement-premise">先建立公平的比較基準。</span><span class="statement-resolution">再判斷真正的技術差異。</span></h2></div>
-        <div class="compare-switch" role="group" aria-label="比較層級">
-          <button class="active" type="button" data-view="puf" aria-pressed="true">PUF LEVEL</button>
-          <button type="button" data-view="product" aria-pressed="false">PRODUCT LEVEL</button>
-        </div>
-      </div>
-
-      <div class="comparison-view active" data-panel="puf">
-        <article class="comparison-side synopsys">
-          <header><span>SYNOPSYS</span><h3>SRAM PUF</h3><svg><use href="#i-fingerprint"/></svg></header>
-          <div class="state-hero"><small>POWER-OFF PHYSICAL STATE</small><strong>NO POWERED LOGIC STATE</strong><p>The powered SRAM logic state disappears; process mismatch remains, but no reconstructed root is present.</p></div>
-          <ul><li><b>Physical source</b><span>Transistor mismatch at SRAM startup</span></li><li><b>Reconstruction</b><span>Response + public helper data → stable root</span></li><li><b>Security focus</b><span>Short key residency and protected reconstruction</span></li></ul>
-        </article>
-        <div class="versus"><span>DECISION LENS</span><b>POWER-OFF<br>STATE</b><small>Persistent physical state is not the same as plaintext key storage.</small></div>
-        <article class="comparison-side neopuf">
-          <header><span>PUFSECURITY</span><h3>NeoPUF</h3><svg><use href="#i-memory"/></svg></header>
-          <div class="state-hero"><small>POWER-OFF PHYSICAL STATE</small><strong>PERSISTENT RESPONSE STATE</strong><p>Enrollment forms a permanent quantum-tunneling conduction path.</p></div>
-          <ul><li><b>Physical source</b><span>High-voltage enrolled NMOS cell pair</span></li><li><b>Reconstruction</b><span>Sense current; vendor states no helper data</span></li><li><b>Security focus</b><span>Protect observability and integrity of enrolled state</span></li></ul>
-        </article>
-      </div>
-
-      <div class="comparison-view" data-panel="product">
-        <div class="product-matrix">
-          <div class="matrix-head"><span>PUBLICLY DISCLOSED LENS</span><b>SYNOPSYS SECURE STORAGE</b><b>PUFSECURITY SECURE OTP</b></div>
-          <div><span>PUF root</span><p>SRAM PUF; root key never stored</p><p>NeoPUF; 1024-bit physical PUF</p></div>
-          <div><span>Data protection</span><p>AES-256 encryption/decryption + address scrambling</p><p>Instant hardware encryption + address/IO scrambling; algorithm not named publicly</p></div>
-          <div><span>Integration</span><p>AMBA APB, simple API, auto provisioning and initialization</p><p>AMBA APB, firmware/API, autoload, locks and zeroization</p></div>
-          <div class="matrix-emphasis"><span>Portfolio context</span><p>Vendor-reported 1.5B+ PUF deployments and 10B+ OTP shipments; target configuration still requires closure</p><p>Public platform availability; exact product evidence and assurance scope remain to be confirmed</p></div>
-        </div>
-        <p class="comparison-conclusion"><b>POSITIONING</b>Lead with an absent-at-rest root key, attributed portfolio context and a pre-integrated subsystem; confirm configuration and ownership.</p>
-      </div>
-    </section>
-
-    <section class="immersive-chapter immersive-silicon reveal" aria-label="Secure silicon visual transition">
-      <div class="chapter-rail"><span>LENS 03</span><i></i><b>SECURE<br>SILICON</b></div>
-      <div class="chapter-copy">
-        <p>ONE ACCOUNTABLE SUBSYSTEM</p>
-        <h2>信任不只存在於單一功能。<br><em>它必須落實在系統邊界之內。</em></h2>
-        <span>Root · protect · control · detect · prove</span>
-      </div>
-      <a href="#evidence" class="chapter-cue" aria-label="Continue to evidence">↓</a>
-    </section>
-
-    <section id="evidence" class="section evidence-section reveal" data-record-id="OIP-NODE-001">
-      <div class="evidence-title"><p class="eyebrow">VENDOR-REPORTED PORTFOLIO CONTEXT</p><h2 class="split-statement"><span class="statement-premise">成熟度能縮小不確定性。</span><span class="statement-resolution">Target evidence 才能決定適用性。</span></h2><p>長期 deployment、PVT、aging、認證與修補紀錄可降低起始風險；但不會自動轉移到 licensed Secure Storage configuration。</p></div>
-      <div class="evidence-numbers">
-        <article><svg><use href="#i-chip"/></svg><strong data-count="1.5">1.5B+</strong><span>devices deployed with Synopsys SRAM PUF technology</span></article>
-        <article><svg><use href="#i-evidence"/></svg><strong data-count="15">15+</strong><span>years of commercial deployment</span></article>
-        <article><svg><use href="#i-memory"/></svg><strong data-count="10">10B+</strong><span>Synopsys OTP shipments</span></article>
-      </div>
-      <p class="portfolio-scope">SOURCE SCOPE · SYNOPSYS-REPORTED PORTFOLIO FIGURES · NOT INDEPENDENT ASSURANCE OF THE DELIVERED CONFIGURATION</p>
-      <div class="evidence-ribbon">
-        <span><b>350 nm → 2 nm</b> vendor-reported PUF range</span>
-        <span><b>−40°C → 150°C</b> vendor-reported characterization</span>
-        <span><b>ISO 26262 / 21434</b> portfolio-level automotive lineage</span>
-        <span><b>PSA · SESIP · NIST</b> scope must be checked per product</span>
-      </div>
-      <div class="node-map">
-        <div class="node-copy"><h3>Published advanced-node OTP context.</h3><p>Synopsys reports OTP silicon-verified in the listed TSMC processes. Node availability does not prove Secure Storage release, PUF integration or attack evaluation for each configuration.</p></div>
-        <div class="wafer-visual" aria-label="Synopsys-reported OTP silicon-verified TSMC process nodes">
-          <svg><use href="#i-wafer"/></svg>
-          <span style="--x:20%;--y:24%">N7</span><span class="hot" style="--x:46%;--y:18%">N7A</span><span style="--x:72%;--y:27%">N6</span><span style="--x:28%;--y:58%">N5</span><span class="hot" style="--x:53%;--y:53%">N5A</span><span style="--x:75%;--y:64%">N4P</span><span style="--x:44%;--y:79%">N3P</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section applications-section reveal">
-      <div class="section-heading">
-        <div><p class="eyebrow">ONE ARCHITECTURE · FOUR OUTCOMES</p><h2>技術價值，最終必須落在要保護的資產。</h2></div>
-        <p>相同的 root-key lifecycle，因應不同市場中最昂貴、最敏感、最難替換的資料。</p>
-      </div>
-      <div class="application-grid">
-        <article class="app-card app-ai"><svg><use href="#i-code"/></svg><span>AI / HPC</span><h3>保護模型價值與平台完整性。</h3><p>Firmware anti-rollback · model/weight keys · platform identity</p><b>01</b></article>
-        <article class="app-card app-auto"><svg><use href="#i-car"/></svg><span>AUTOMOTIVE</span><h3>把安全資料綁定到正確裝置。</h3><p>Calibration · configuration · secure boot · lifecycle state</p><b>02</b></article>
-        <article class="app-card app-aero"><svg><use href="#i-aircraft"/></svg><span>AEROSPACE & DEFENSE</span><h3>降低靜態金鑰擷取目標。</h3><p>Mission algorithms · permanent identity · anti-cloning credentials</p><b>03</b></article>
-        <article class="app-card app-iot"><svg><use href="#i-iot"/></svg><span>IOT / CONNECTIVITY</span><h3>大規模建立 device-unique trust。</h3><p>Protocol keys · ROM patches · anti-counterfeit identity</p><b>04</b></article>
-      </div>
-    </section>
-
-    <section class="section accountability-section reveal">
-      <div class="accountability-line"><span>PRIMITIVE SECURITY</span><i></i><span>SOC DELIVERY</span></div>
-      <h2>客戶購買的不只是功能。<br><em>還包括有人負責的安全結果。</em></h2>
-      <div class="ownership-flow">
-        <div><svg><use href="#i-fingerprint"/></svg><b>ROOT</b><span>SRAM PUF</span></div><i></i>
-        <div><svg><use href="#i-cipher"/></svg><b>CRYPTO</b><span>AES-256</span></div><i></i>
-        <div><svg><use href="#i-memory"/></svg><b>STORAGE</b><span>Antifuse OTP</span></div><i></i>
-        <div><svg><use href="#i-control"/></svg><b>CONTROL</b><span>APB + policy</span></div><i></i>
-        <div><svg><use href="#i-evidence"/></svg><b>LIFECYCLE</b><span>Provision + support</span></div>
-      </div>
-      <p class="ownership-conclusion">Pre-integration can reduce cross-block hand-offs; contractual ownership, qualification support and product-response scope must still be confirmed.</p>
-    </section>
-
-    <section id="learn" class="section learning-section reveal">
-      <div class="learning-head">
-        <div><p class="eyebrow light">NVM KNOWLEDGE HUB</p><h2>從技術名詞，走到可以做決策。</h2></div>
-        <label class="search-box"><svg><use href="#i-search"/></svg><input id="searchInput" type="search" placeholder="搜尋 OTP、PUF、retention、fault…" aria-label="搜尋學習內容"></label>
-      </div>
-      <div class="learning-body">
-        <aside class="learning-paths">
-          <span>CURATED PATH · 01</span><h3>Secure Storage Decision Path</h3><ol id="learningPath"></ol>
-        </aside>
-        <div class="library">
-          <div class="filters" id="filters" aria-label="內容類型篩選"></div>
-          <div class="article-grid" id="articleGrid"></div>
-          <p class="empty-state" id="emptyState" hidden>找不到符合條件的內容。</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="research-topics" class="section research-launch reveal">
-      <div class="research-launch-copy">
-        <p class="eyebrow">02 / RESEARCH TOPICS · EXPANDING</p>
-        <h2>從記憶體物理，走到 AI 系統邊界。<br><em>證據先於機會推論。</em></h2>
-        <p>一條研究線拆解 bit-cell 與 sensing；另一條把 identity、repair、calibration、firmware 與 RAS evidence 映射到正確的 persistent-state contract。</p>
-        <div class="research-topic-links">
-          <a href="ai-nvm-opportunities.html"><small>NEW · AI SYSTEMS</small><strong>Persistent State Across AI Silicon</strong><span>Proof → state contract → NVM opportunity</span></a>
-          <a href="memory-physics.html"><small>MEMORY PHYSICS</small><strong>Sense Mode × Bit-cell Economics</strong><span>SRAM PUF · OTP · differential read</span></a>
-        </div>
-        <div class="research-launch-actions">
-          <a class="button primary" href="ai-nvm-opportunities.html">探索 AI × NVM 機會 <svg><use href="#i-arrow"/></svg></a>
-          <a class="text-link" href="memory-physics.html">開啟 Memory Physics <svg><use href="#i-arrow"/></svg></a>
-          <a class="text-link" href="oip-secure-storage.html">OIP Secure Storage Brief <svg><use href="#i-arrow"/></svg></a>
-          <a class="text-link" href="memory-evidence.html">查看 Evidence Ledger <svg><use href="#i-arrow"/></svg></a>
-        </div>
-      </div>
-      <div class="research-launch-visual" aria-hidden="true">
-        <div class="research-orbit"><span>SRAM</span><i></i><span>OTP</span></div>
-        <div class="research-equation"><small>COMMERCIAL MOAT</small><b>SYMMETRY ×<br>BITCELL ECONOMICS</b></div>
-        <div class="research-signal"><i></i><i></i><i></i><i></i><i></i></div>
-      </div>
-    </section>
-
-    <section class="section sources-section reveal">
-      <div class="sources-intro">
-        <p class="eyebrow">PUBLIC EVIDENCE · SOURCE DISCIPLINE</p>
-        <p class="evidence-principle"><strong>本頁的證據原則：</strong><span>對已知內容提供可追溯的證據；</span><span>對尚未確認的部分清楚標示限制。</span></p>
-      </div>
-      <div class="source-list">
-        <a href="https://www.synopsys.com/designware-ip/memories-logic-libraries/secure-storage-otp-ip.html" target="_blank" rel="noreferrer"><span>01</span><b>Synopsys Secure Storage for OTP IP</b><small>Architecture · AES-256 · APB · provisioning</small></a>
-        <a href="https://www.synopsys.com/articles/sram-puf-secure-silicon-fingerprint.html" target="_blank" rel="noreferrer"><span>02</span><b>Synopsys SRAM PUF</b><small>Root-key reconstruction · helper data · field evidence</small></a>
-        <a href="https://www.pufsecurity.com/technology/quantum-tunneling/" target="_blank" rel="noreferrer"><span>03</span><b>PUFsecurity Quantum Tunneling</b><small>NeoPUF enrollment · persistent conduction path</small></a>
-        <a href="https://en.wikipedia.org/wiki/Physical_unclonable_function" target="_blank" rel="noreferrer"><span>04</span><b>PUF technology landscape</b><small>Taxonomy · commercial vendor index</small></a>
-        <a href="https://www.keysight.com/us/en/products/vulnerability-assessment/device-vulnerability-analysis/fault-injection.html" target="_blank" rel="noreferrer"><span>05</span><b>Keysight / Riscure Device Security</b><small>Fault injection · side-channel analysis · assurance services</small></a>
-      </div>
-      <p class="source-policy">Public-source comparison only. Implementation details, attack evidence and deliverables require NDA-level review. Persistent physical response state is not described here as plaintext key storage.</p>
-    </section>
-
-    <section class="closing-section reveal">
-      <div class="closing-visual"><svg><use href="#i-memory"/></svg><span></span><svg><use href="#i-fingerprint"/></svg></div>
-      <p>PERMANENT DATA · EPHEMERAL ROOT</p>
-      <h2>Protect permanent data with<br>a root key that is not permanent.</h2>
-      <a class="button primary light-button" href="#top">回到開頭 <svg><use href="#i-arrow"/></svg></a>
+    <section id="sharepoint" class="enterprise-strip" aria-labelledby="enterprise-title">
+      <div><p>05 · ENTERPRISE TRANSFER</p><h2 id="enterprise-title"><span data-lang="zh">先建立公開知識骨架。<br><em>再把內部證據接入 SharePoint。</em></span><span data-lang="en">Build the public knowledge spine first.<br><em>Then connect internal evidence in SharePoint.</em></span></h2></div>
+      <p><span data-lang="zh">目前頁面已對應 Technology Family、State Contract、Application Domain、Process Node、Evidence Class、Source、Limitation 與 Review Status。公司內部版本可在 Copilot / SharePoint 接上 confidential product data、customer context 與 qualification records。</span><span data-lang="en">The current structure maps Technology Family, State Contract, Application Domain, Process Node, Evidence Class, Source, Limitation and Review Status. A Copilot / SharePoint version can later add confidential product data, customer context and qualification records.</span></p>
     </section>
   </main>
 
-  <footer>
-    <a class="brand footer-brand" href="#top"><span class="brand-mark"><svg><use href="#i-chip"/></svg></span><span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span></a>
-    <p>Executive learning prototype · Secure Storage visual system</p>
-    <p>Public evidence only · 2026</p>
+  <footer class="hub-footer">
+    <a class="brand footer-brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/></svg></span><span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span></a>
+    <div><a href="secure-storage.html">Secure Storage</a><a href="ai-nvm-opportunities.html">AI Systems &amp; NVM</a><a href="https://samhuang68.github.io/nvm-whitepaper-site/">Whitepaper Studio</a><a href="#research">Research Library</a></div>
+    <p>PUBLIC KNOWLEDGE ARCHITECTURE · SHAREPOINT-READY TAXONOMY · 2026</p>
   </footer>
-
-  <script src="app.js?v=20260825-refine013"></script>
+  <script src="hub.js?v=20260825-ia019"></script>
 </body>
 </html>

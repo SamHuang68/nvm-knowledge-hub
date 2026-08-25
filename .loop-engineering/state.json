@@ -1,31 +1,31 @@
 {
   "schemaVersion": 1,
   "projectId": "nvm-knowledge-hub-refinement",
-  "objective": "Research and integrate an evidence-governed Advanced-Node NVM chapter covering logic-MTP voltage and node constraints, embedded-flash scaling boundaries, the 22nm-and-beyond MRAM/ReRAM transition, and public application advantages of Single-VDD Read while quarantining confidential programming-supply details for later SharePoint completion.",
-  "status": "completed",
+  "objective": "Publish an NVM-centered Knowledge Hub with Secure Storage and AI Systems as equal L1 lenses, an integrated cross-topic Whitepaper and Decision Studio workbench, explicit L2 research ownership, and a SharePoint-ready knowledge spine.",
+  "status": "release_ready",
   "updatedAt": "2026-08-25",
   "constraints": {
     "inScope": [
-      "Commercial-grade AI package artwork and responsive web composition",
-      "Evidence-disciplined AI/NVM opportunity content",
-      "NotebookLM PDF ingestion as quarantined research hypotheses",
-      "Reusable website and presentation visual standard",
-      "Desktop and mobile rendered acceptance"
+      "NVM-centered L0/L1/L2 information architecture",
+      "Neutral Hub home and equal Secure Storage / AI Systems discovery",
+      "Global brand, breadcrumb and cross-topic navigation contract",
+      "Legacy Secure Storage deep-link compatibility",
+      "SharePoint-ready knowledge taxonomy and rendered responsive acceptance"
     ],
     "outOfScope": [
-      "Publishing unverified market-size, endurance, topology, or security claims",
-      "Commit, push, or deployment without an explicit request in this turn",
+      "Publishing new technical or market claims",
+      "Publishing confidential or NDA-only content to the public edition",
       "Treating illustrative component placement as a product topology"
     ],
     "assumptions": [
-      "The NotebookLM PDF is a useful secondary synthesis but does not disclose sufficient primary-source lineage",
-      "The existing NVM Knowledge Hub remains the canonical integration target",
-      "Research hypotheses may be exposed only with explicit quarantine and validation-needed labels"
+      "NVM is the single knowledge spine; Secure Storage and AI Systems are application lenses",
+      "The existing AI Systems URL remains stable",
+      "The public site taxonomy must map cleanly to later Copilot / SharePoint content types"
     ],
     "permissions": {
       "workspaceWrites": true,
-      "externalWrites": false,
-      "deployment": false
+      "externalWrites": true,
+      "deployment": true
     },
     "resources": {
       "primaryWorkspace": "C:/Users/Sam/Documents/ChatGPT/NVM",
@@ -33,16 +33,16 @@
     }
   },
   "currentLoop": {
-    "id": "REFINE-016",
-    "phase": "accepted",
-    "exitVerdict": "PASS_WITH_EXPLICIT_PUBLIC_INTERNAL_EVIDENCE_BOUNDARY"
+    "id": "REFINE-019",
+    "phase": "release_ready",
+    "exitVerdict": "PASS_WITH_CURSOR_IDENTITY_LIMITATION_ON_STRICT_LEDGER_GATE"
   },
   "orchestrationPolicy": {
     "statefulHost": "Codex",
     "singleWriterIntegration": true,
     "minimumAcceptedDistinctProviders": 2,
     "providerGate": "BLOCKED_MULTI_PROVIDER",
-    "providerGateReason": "Cursor / Google Gemini returned a response-observed ACCEPT for the exact frozen V2 packet. SuperGrok account/model preflight succeeded but its dispatch could not satisfy the current provenance Gate, so a two-provider release claim is not made."
+    "providerGateReason": "NVIDIA Nemotron and Cursor/Google both returned PASS against exact manifest 84f736d9..., but Cursor exposed only transport-requested model identity, so its output cannot satisfy the strict ledger Gate. Grok 4.6 failed closed after a prohibited tool lifecycle event."
   },
   "taskShape": {
     "complexity": "high",
@@ -54,8 +54,9 @@
       "evidence governance",
       "cross-format identity",
       "multi-provider review",
-      "advanced-node NVM technology research",
-      "confidential-knowledge boundary"
+      "information architecture",
+      "navigation accessibility",
+      "SharePoint taxonomy portability"
     ]
   },
   "capabilityGraph": [
@@ -182,14 +183,15 @@
     }
   ],
   "effectPolicy": {
-    "externalWritesAllowed": false,
-    "gitCommitAllowed": false,
-    "deploymentAllowed": false,
+    "externalWritesAllowed": true,
+    "gitCommitAllowed": true,
+    "deploymentAllowed": true,
     "observedEffects": [
       "Workspace source edits",
       "Local generated artwork",
       "Local deterministic exports",
-      "Read-only rendered and external reviews"
+      "Read-only rendered and external reviews",
+      "Authorized Git and Pages release pending live verification"
     ]
   },
   "artifactBindings": [
@@ -295,6 +297,26 @@
       "id": "R16-06",
       "name": "Run rendered, responsive, bilingual, accessibility and evidence-governance acceptance",
       "status": "done"
+    },
+    {
+      "id": "R19-01",
+      "name": "Publish-safe Whitepaper and Decision Studio redesign",
+      "status": "done"
+    },
+    {
+      "id": "R19-02",
+      "name": "Integrate the Whitepaper Workbench into the neutral NVM Hub",
+      "status": "done"
+    },
+    {
+      "id": "R19-03",
+      "name": "Run exact-manifest multi-AI and rendered release review",
+      "status": "done_with_strict_identity_limitation"
+    },
+    {
+      "id": "R19-04",
+      "name": "Commit, push and deploy both public sites",
+      "status": "authorized_pending"
     }
   ],
   "routingDecisions": [
@@ -404,6 +426,8 @@
   },
   "verification": {
     "commands": [
+      "node site/scripts/check-site-ia.mjs",
+      "node site/scripts/render-site-ia.mjs",
       "node site/scripts/build-ai-nvm-sharepoint.mjs --check",
       "node --check site/ai-nvm.js",
       "node site/scripts/check-ai-nvm-integrity.mjs",
@@ -411,6 +435,10 @@
       "python C:/Users/Sam/.codex/skills/.system/skill-creator/scripts/quick_validate.py C:/Users/Sam/.codex/skills/apply-enterprise-identity"
     ],
     "evidence": [
+      "IA integrity PASS: seven pages, all local routes and fragments resolve, every primary brand returns to L0, and both L1 topics are one click from the Hub",
+      "Rendered acceptance PASS: seven pages across 1440, 1320, 1180, 900, 620, 390 and 312 pixels; zero document/internal overflow, responsive menu focus/geometry/Escape PASS, zero runtime failures",
+      "Legacy Secure Storage hashes on index.html deterministically redirect to secure-storage.html anchors",
+      "NVM knowledge spine maps Technology Family, State Contract, Application Domain, Process Node, Evidence Class, Source, Limitation and Review Status for later SharePoint transfer",
       "SharePoint exporter PASS: 27 governed records plus 5 quarantined hypotheses; generated CSVs match JSON",
       "AI/NVM integrity checker PASS",
       "Advanced-node knowledge package PASS: 27 unique governed records including seven new R16 records",
@@ -429,7 +457,7 @@
     ],
     "openP0": [],
     "openP1": [],
-    "verdict": "pass_r16_same_provider_research_no_multi_provider_claim"
+    "verdict": "pass_r19_release_candidate_multi_ai_reviewed_strict_identity_gate_blocked"
   },
   "loopHistory": [
     {
@@ -475,6 +503,14 @@
     {
       "id": "REFINE-016",
       "status": "completed"
+    },
+    {
+      "id": "REFINE-018",
+      "status": "completed_with_blocked_multi_provider_ledger_gate"
+    },
+    {
+      "id": "REFINE-019",
+      "status": "release_ready"
     }
   ],
   "blockers": [
@@ -489,9 +525,31 @@
       "scope": "strict R15 multi-provider collaboration claim",
       "status": "open",
       "detail": "Cursor / Google Gemini produced a response-observed exact-artifact ACCEPT. SuperGrok provenance preflight blocked dispatch, and the Host disposition receipt for Cursor failed closed after the bridge build changed; therefore the product is complete but the strict two-provider Gate remains blocked."
+    },
+    {
+      "id": "B18-01",
+      "scope": "strict R18 multi-provider collaboration claim",
+      "status": "open",
+      "detail": "Nemotron, Grok and Cursor/Gemini all returned useful IA advice, but only Nemotron had response-observed identity and none of the outputs could be ledger-accepted without a frozen reviewed-artifact hash. The product passed Host acceptance; no verified multi-provider claim is made."
+    },
+    {
+      "id": "B19-01",
+      "scope": "strict R19 multi-provider collaboration claim",
+      "status": "open",
+      "detail": "NVIDIA and Cursor/Google both completed PASS reviews of exact manifest 84f736d9..., but Cursor reported transport-requested model identity only. Its advice is valid and retained; strict ledger acceptance remains blocked."
     }
   ],
   "artifacts": [
+    "site/index.html",
+    "site/secure-storage.html",
+    "site/hub.css",
+    "site/hub.js",
+    "site/site-shell.css",
+    "site/scripts/check-site-ia.mjs",
+    "site/scripts/render-site-ia.mjs",
+    "site/scripts/serve-local.mjs",
+    "site/assets/nvm-state-atlas-hero-r17.webp",
+    "https://samhuang68.github.io/nvm-whitepaper-site/",
     "site/ai-nvm-opportunities.html",
     "site/ai-nvm.css",
     "site/ai-nvm.js",

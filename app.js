@@ -7,6 +7,7 @@ const localized = (zh, en) => ({ zh, en });
 const pick = value => typeof value === "string" ? value : value[currentLanguage];
 
 const navigationLabels = {
+  hub: localized("All Topics", "All Topics"),
   why: localized("Why", "Why"),
   architecture: localized("Architecture", "Architecture"),
   assurance: localized("Assurance", "Assurance"),
@@ -357,9 +358,10 @@ function closeMenu(restoreFocus = false) {
 menuButton.addEventListener("click", () => {
   const open = nav.classList.toggle("open");
   syncMenuState(open);
+  if (open) nav.querySelector("a")?.focus();
 });
 nav.addEventListener("click", event => {
-  if (event.target.matches("a")) closeMenu();
+  if (event.target.closest("a")) closeMenu();
 });
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && nav.classList.contains("open")) closeMenu(true);
@@ -367,6 +369,10 @@ document.addEventListener("keydown", event => {
 window.matchMedia("(min-width: 1181px)").addEventListener("change", event => {
   if (event.matches) closeMenu();
 });
+function syncMenuToLayout() {
+  if (getComputedStyle(menuButton).display === "none") closeMenu();
+}
+window.addEventListener("resize", syncMenuToLayout, { passive: true });
 
 document.querySelector("#themeToggle").addEventListener("click", event => {
   const active = document.body.classList.toggle("light-mode");

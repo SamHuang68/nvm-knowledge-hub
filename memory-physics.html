@@ -9,6 +9,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260824-refine012">
   <link rel="stylesheet" href="research.css?v=20260825-refine013">
+  <link rel="stylesheet" href="site-shell.css?v=20260825-ia018">
 </head>
 <body class="research-page" data-language="zh">
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -30,11 +31,16 @@
       <a href="memory-evidence.html">Sources</a>
     </nav>
     <div class="header-actions">
-      <a class="home-pill" href="index.html">SECURE STORAGE</a>
+      <a class="home-pill" href="secure-storage.html">SECURE STORAGE</a>
       <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to English"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
       <button class="menu-button" id="menuToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
     </div>
   </header>
+
+  <nav class="site-breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Knowledge Hub</a><i></i><a href="secure-storage.html">Secure Storage</a><i></i><strong>Memory Physics</strong>
+    <span class="topic-switch"><a href="index.html#topics">All Topics</a><a aria-current="page" href="secure-storage.html">Secure Storage</a><a href="ai-nvm-opportunities.html">AI Systems</a></span>
+  </nav>
 
   <main id="main-content">
     <section class="research-hero">
@@ -323,7 +329,7 @@
         <h2><span data-lang="zh">讓永久 state 可以被讀，<br>但不能直接變成永久 secret。</span><span data-lang="en">Let persistent state be readable<br>without making it a persistent secret.</span></h2>
         <p><span data-lang="zh">更有保障的答案不是單一 bit-cell，而是可驗證的責任鏈：1T economics 讓 differential OTP 可量產；互補讀取降低一階資料相依訊號；OTP 保存耐久 ciphertext；具供應商量產紀錄的 SRAM PUF 在受控窗口重建未永久儲存的 root；crypto 與 controller 讓兩條攻擊路徑不直接合流。</span><span data-lang="en">A stronger answer is not one bit cell but a verifiable chain: 1T economics make differential OTP practical; complementary read reduces first-order data-dependent signature; OTP retains durable ciphertext; a vendor-reported, production-deployed SRAM PUF reconstructs a root that is never permanently stored; crypto and controller keep the attack paths from collapsing into one.</span></p>
         <a class="button primary" href="memory-evidence.html"><span data-lang="zh">檢視完整證據庫</span><span data-lang="en">Inspect the evidence base</span></a>
-        <a class="button ghost" href="index.html"><span data-lang="zh">返回 Secure Storage</span><span data-lang="en">Return to Secure Storage</span></a>
+        <a class="button ghost" href="secure-storage.html"><span data-lang="zh">返回 Secure Storage</span><span data-lang="en">Return to Secure Storage</span></a>
       </section>
     </div>
   </main>
