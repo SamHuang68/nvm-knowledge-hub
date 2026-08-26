@@ -72,6 +72,64 @@ for (const pageName of pages) {
     if (pageName === "index.html" && width <= 390 && audit.heroSize > 44.1) failures.push(`${pageName}@${width}: mobile hero ${audit.heroSize}px exceeds 44px`);
     if (errors.length) failures.push(`${pageName}@${width}: ${errors.join(" | ")}`);
 
+    if (pageName === "ai-nvm-opportunities.html") {
+      const repairAudit = await page.evaluate(() => {
+        const module = document.querySelector("#repair-programming");
+        const moduleBox = module?.getBoundingClientRect();
+        const bodyNodes = [...document.querySelectorAll("#repair-programming .repair-programming-lede, #repair-programming .repair-path > p, #repair-programming .repair-evidence-boundary p, #repair-programming .programming-chain li span, #repair-programming nav b")]
+          .filter(node => node.getClientRects().length > 0);
+        const title = document.querySelector("#repair-programming-title");
+        const boundary = document.querySelector("#repair-programming .repair-evidence-boundary");
+        const smallestBody = bodyNodes
+          .map(node => ({
+            node: `${node.tagName.toLowerCase()}.${node.className || ""}`,
+            size: parseFloat(getComputedStyle(node).fontSize),
+            text: node.textContent.trim().slice(0, 48),
+          }))
+          .sort((a, b) => a.size - b.size)[0] || null;
+        return {
+          moduleInside: moduleBox ? moduleBox.left >= -1 && moduleBox.right <= innerWidth + 1 : false,
+          minimumBodySize: bodyNodes.length ? Math.min(...bodyNodes.map(node => parseFloat(getComputedStyle(node).fontSize))) : 0,
+          smallestBody,
+          titleSize: title ? parseFloat(getComputedStyle(title).fontSize) : 0,
+          boundaryVisible: Boolean(boundary && boundary.getClientRects().length),
+          sourceCount: document.querySelectorAll("#repair-programming .repair-evidence-links a").length,
+          evidenceIds: module?.getAttribute("data-record-ids")?.trim().split(/\s+/).length || 0,
+        };
+      });
+      if (!repairAudit.moduleInside || repairAudit.minimumBodySize < 12 || !repairAudit.boundaryVisible || repairAudit.sourceCount !== 4 || repairAudit.evidenceIds !== 5) {
+        failures.push(`${pageName}@${width}: repair module ${JSON.stringify(repairAudit)}`);
+      }
+      if (width <= 390 && repairAudit.titleSize > 34.1) failures.push(`${pageName}@${width}: repair title ${repairAudit.titleSize}px exceeds 34px`);
+      if ([1440, 390, 312].includes(width)) {
+        await page.locator("#repair-programming").screenshot({ path: path.join(output, `ai-nvm-repair-${width}.png`) });
+      }
+
+      const originalLanguage = await page.evaluate(() => document.body.dataset.language);
+      if (originalLanguage !== "en") await page.locator("#languageToggle").click();
+      const englishAudit = await page.evaluate(() => ({
+        pageLanguage: document.body.dataset.language,
+        documentLanguage: document.documentElement.lang,
+        visibleChineseNodes: [...document.querySelectorAll("#repair-programming [data-lang='zh']")]
+          .filter(node => node.getClientRects().length > 0).length,
+        visibleEnglishNodes: [...document.querySelectorAll("#repair-programming [data-lang='en']")]
+          .filter(node => node.getClientRects().length > 0).length,
+      }));
+      if (englishAudit.pageLanguage !== "en" || englishAudit.documentLanguage !== "en" || englishAudit.visibleChineseNodes !== 0 || englishAudit.visibleEnglishNodes < 7) {
+        failures.push(`${pageName}@${width}: repair English mode ${JSON.stringify(englishAudit)}`);
+      }
+      if (originalLanguage !== "en") await page.locator("#languageToggle").click();
+
+      const initialCount = await page.locator("#opportunityCount").textContent();
+      await page.locator("button[data-write-filter='immutable']").click();
+      const filterAudit = await page.evaluate(() => ({
+        moduleVisible: Boolean(document.querySelector("#repair-programming")?.getClientRects().length),
+        count: document.querySelector("#opportunityCount")?.textContent,
+      }));
+      await page.locator("button[data-write-filter='all']").click();
+      if (!filterAudit.moduleVisible || filterAudit.count === initialCount) failures.push(`${pageName}@${width}: repair/filter isolation ${JSON.stringify(filterAudit)}`);
+    }
+
     const menu = page.locator("#menuToggle");
     if (await menu.count() && await menu.isVisible()) {
       await menu.click();

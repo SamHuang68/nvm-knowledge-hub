@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://nvm-knowledge-hub.example/schemas/ai-nvm-opportunities-schema.json",
   "title": "AI NVM Opportunities Knowledge Package",
-  "description": "Bilingual, SharePoint/Copilot-ready records that separate source requirements, proof cases, vendor capability, architecture inference and validation gates.",
+  "description": "Bilingual, SharePoint/Copilot-ready records that separate source requirements, first-party cases, technical evidence, vendor capability, architecture inference and validation gates.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -23,8 +23,8 @@
     "records"
   ],
   "properties": {
-    "schemaVersion": { "const": "1.1" },
-    "packageId": { "const": "AI-NVM-OPPORTUNITIES-2026-08-25" },
+    "schemaVersion": { "const": "1.2" },
+    "packageId": { "const": "AI-NVM-OPPORTUNITIES-2026-08-26" },
     "titleEn": { "type": "string", "minLength": 1 },
     "titleZh": { "type": "string", "minLength": 1 },
     "researchFreeze": { "type": "string", "format": "date" },
@@ -47,8 +47,8 @@
     "copilotAnswerRuleZh": { "type": "string", "minLength": 1 },
     "evidenceClassDefinitions": {
       "type": "array",
-      "minItems": 5,
-      "maxItems": 5,
+      "minItems": 6,
+      "maxItems": 6,
       "items": { "$ref": "#/$defs/evidenceClassDefinition" }
     },
     "researchInputs": {
@@ -58,8 +58,8 @@
     },
     "records": {
       "type": "array",
-      "minItems": 27,
-      "maxItems": 27,
+      "minItems": 32,
+      "maxItems": 32,
       "items": { "$ref": "#/$defs/record" }
     }
   },
@@ -68,6 +68,7 @@
       "enum": [
         "DIRECT_REQUIREMENT",
         "FIRST_PARTY_CASE",
+        "TECHNICAL_EVIDENCE",
         "VENDOR_CAPABILITY",
         "INFERRED_OPPORTUNITY",
         "VALIDATION_NEEDED"
@@ -277,7 +278,7 @@
         "claimEn": { "type": "string", "minLength": 1 },
         "claimZh": { "type": "string", "minLength": 1 },
         "claimStatus": {
-          "enum": ["Public Requirement", "First-party Case", "Vendor Claim", "Analyst Inference", "Validation Needed"]
+          "enum": ["Public Requirement", "First-party Case", "Public Technical Evidence", "Vendor Claim", "Analyst Inference", "Validation Needed"]
         },
         "evidenceClass": { "$ref": "#/$defs/evidenceClass" },
         "assuranceMaturity": {
@@ -344,7 +345,7 @@
           }
         },
         "opportunityStatus": {
-          "enum": ["Source Requirement", "First-party Proof Case", "Vendor Envelope", "Architecture Inference", "Validation Gate"]
+          "enum": ["Source Requirement", "First-party Proof Case", "Technical Evidence", "Vendor Envelope", "Architecture Inference", "Validation Gate"]
         },
         "evidenceBoundaryEn": { "type": "string", "minLength": 1 },
         "evidenceBoundaryZh": { "type": "string", "minLength": 1 },

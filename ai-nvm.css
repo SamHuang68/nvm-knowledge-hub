@@ -549,7 +549,7 @@
 
 .ai-nvm-page .evidence-ladder {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   margin-top: clamp(44px, 6vw, 76px);
   border-top: 1px solid var(--ai-line);
   border-bottom: 1px solid var(--ai-line);
@@ -575,7 +575,7 @@
   background: var(--ai-cyan);
 }
 
-.ai-nvm-page .evidence-ladder article:nth-child(n + 4)::before {
+.ai-nvm-page .evidence-ladder article:nth-child(n + 5)::before {
   background: var(--ai-copper);
 }
 
@@ -3081,7 +3081,7 @@
   background: var(--ai-paper);
 }
 
-.ai-nvm-page .evidence-ladder article:nth-child(n + 4) > span {
+.ai-nvm-page .evidence-ladder article:nth-child(n + 5) > span {
   border-color: var(--ai-copper);
 }
 
@@ -5564,5 +5564,318 @@
   .ai-nvm-page .domain-separator {
     white-space: normal;
     text-align: center;
+  }
+}
+
+/* REFINE-020 · repair-programming physics */
+.ai-nvm-page .repair-programming-module {
+  position: relative;
+  margin-top: clamp(38px, 4.8vw, 64px);
+  padding: clamp(30px, 4.4vw, 56px);
+  color: #edf7f8;
+  border: 1px solid rgba(113, 236, 227, .22);
+  border-radius: var(--ai-radius);
+  background:
+    linear-gradient(115deg, rgba(199, 138, 75, .10), transparent 38%),
+    linear-gradient(180deg, rgba(17, 210, 208, .05), transparent 46%),
+    var(--ai-midnight);
+  box-shadow: 0 28px 76px rgba(6, 27, 41, .20);
+  overflow: hidden;
+}
+
+.ai-nvm-page .repair-programming-module::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(113, 236, 227, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(113, 236, 227, .035) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .9), transparent 76%);
+}
+
+.ai-nvm-page .repair-programming-module > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ai-nvm-page .repair-programming-head {
+  max-width: 930px;
+}
+
+.ai-nvm-page .repair-programming-head .paper-kicker {
+  color: var(--ai-copper);
+}
+
+.ai-nvm-page .repair-programming-head h3 {
+  margin: 14px 0 0;
+  color: #fffefa;
+  font-size: clamp(31px, 3.1vw, 43px);
+  font-weight: 650;
+  line-height: 1.14;
+  letter-spacing: -.025em;
+}
+
+.ai-nvm-page .repair-programming-head h3 em {
+  display: block;
+  margin-top: .12em;
+  color: var(--ai-aqua);
+  font-style: normal;
+  font-weight: 510;
+}
+
+.ai-nvm-page .repair-programming-lede {
+  max-width: 82ch;
+  margin: 22px 0 0;
+  color: #c6d7dc;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.ai-nvm-page .repair-programming-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: clamp(30px, 4vw, 48px);
+  border-top: 1px solid rgba(113, 236, 227, .18);
+  border-bottom: 1px solid rgba(113, 236, 227, .18);
+}
+
+.ai-nvm-page .repair-path {
+  position: relative;
+  min-height: 420px;
+  padding: 30px clamp(22px, 3vw, 38px) 34px 0;
+}
+
+.ai-nvm-page .repair-path + .repair-path {
+  padding-right: 0;
+  padding-left: clamp(22px, 3vw, 38px);
+  border-left: 1px solid rgba(113, 236, 227, .18);
+}
+
+.ai-nvm-page .repair-path::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 112px;
+  height: 3px;
+  background: var(--ai-copper);
+}
+
+.ai-nvm-page .repair-path-antifuse::before {
+  left: clamp(22px, 3vw, 38px);
+  background: var(--ai-cyan);
+}
+
+.ai-nvm-page .repair-path > small {
+  color: #9fb6bf;
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 11.5px;
+  font-weight: 750;
+  letter-spacing: .11em;
+}
+
+.ai-nvm-page .repair-path h4 {
+  margin: 16px 0 0;
+  color: #fffefa;
+  font-size: clamp(22px, 2vw, 25px);
+  font-weight: 620;
+  line-height: 1.32;
+}
+
+.ai-nvm-page .repair-path > p {
+  min-height: 150px;
+  margin: 18px 0 0;
+  color: #c6d7dc;
+  font-size: 15.5px;
+  line-height: 1.72;
+}
+
+.ai-nvm-page .programming-chain {
+  display: grid;
+  gap: 0;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(113, 236, 227, .16);
+}
+
+.ai-nvm-page .programming-chain li {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  min-height: 48px;
+  border-bottom: 1px solid rgba(113, 236, 227, .12);
+}
+
+.ai-nvm-page .programming-chain i {
+  color: var(--ai-copper);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 10.5px;
+  font-style: normal;
+}
+
+.ai-nvm-page .repair-path-antifuse .programming-chain i {
+  color: var(--ai-aqua);
+}
+
+.ai-nvm-page .programming-chain span {
+  color: #e9f3f4;
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 12.5px;
+  font-weight: 720;
+  letter-spacing: .06em;
+}
+
+.ai-nvm-page .repair-evidence-boundary {
+  display: grid;
+  grid-template-columns: minmax(170px, .25fr) minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 38px);
+  align-items: start;
+  margin-top: 28px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(199, 138, 75, .42);
+  border-bottom: 1px solid rgba(199, 138, 75, .20);
+}
+
+.ai-nvm-page .repair-evidence-boundary > b {
+  color: var(--ai-copper);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 11.5px;
+  line-height: 1.5;
+  letter-spacing: .11em;
+}
+
+.ai-nvm-page .repair-evidence-boundary p {
+  margin: 0;
+  color: #d8e4e7;
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+.ai-nvm-page .repair-evidence-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 24px;
+  background: rgba(113, 236, 227, .14);
+}
+
+.ai-nvm-page .repair-evidence-links a {
+  display: grid;
+  align-content: center;
+  min-height: 78px;
+  padding: 15px 16px;
+  color: #f5fbfb;
+  background: var(--ai-midnight-2);
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease;
+}
+
+.ai-nvm-page .repair-evidence-links a:hover {
+  color: var(--ai-aqua);
+  background: var(--ai-navy);
+}
+
+.ai-nvm-page .repair-evidence-links span {
+  color: #91aeb7;
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 10.5px;
+  font-weight: 740;
+  letter-spacing: .10em;
+}
+
+.ai-nvm-page .repair-evidence-links b {
+  margin-top: 7px;
+  font-size: 13.5px;
+  font-weight: 590;
+  line-height: 1.45;
+}
+
+@media (max-width: 980px) {
+  .ai-nvm-page .repair-programming-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-nvm-page .repair-path,
+  .ai-nvm-page .repair-path + .repair-path {
+    min-height: 0;
+    padding: 28px 0 32px;
+    border-left: 0;
+  }
+
+  .ai-nvm-page .repair-path + .repair-path {
+    border-top: 1px solid rgba(113, 236, 227, .18);
+  }
+
+  .ai-nvm-page .repair-path-antifuse::before {
+    left: 0;
+  }
+
+  .ai-nvm-page .repair-path > p {
+    min-height: 0;
+  }
+
+  .ai-nvm-page .repair-evidence-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .ai-nvm-page .repair-programming-module {
+    margin-inline: -4px;
+    padding: 24px 20px;
+  }
+
+  .ai-nvm-page .repair-programming-head h3 {
+    font-size: clamp(30px, 9vw, 34px);
+    line-height: 1.18;
+  }
+
+  .ai-nvm-page .repair-programming-lede,
+  .ai-nvm-page .repair-path > p {
+    font-size: 15px;
+    line-height: 1.68;
+  }
+
+  .ai-nvm-page .repair-path h4 {
+    font-size: 21px;
+  }
+
+  .ai-nvm-page .repair-evidence-boundary {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .ai-nvm-page .repair-evidence-boundary p {
+    font-size: 15px;
+  }
+
+  .ai-nvm-page .repair-evidence-links {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-nvm-page .repair-evidence-links a {
+    min-height: 68px;
+  }
+
+  .ai-nvm-page .evidence-ladder article {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 340px) {
+  .ai-nvm-page .repair-programming-module {
+    padding-inline: 18px;
+  }
+
+  .ai-nvm-page .repair-programming-head h3 {
+    font-size: 28px;
+  }
+
+  .ai-nvm-page .programming-chain span {
+    font-size: 12px;
   }
 }

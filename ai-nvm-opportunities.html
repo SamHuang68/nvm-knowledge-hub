@@ -72,7 +72,7 @@
         </p>
         <div class="research-hero-meta">
           <div><b>294</b><span><span data-lang="zh">PDF 頁面已審閱</span><span data-lang="en">PDF PAGES REVIEWED</span></span></div>
-          <div><b>5</b><span><span data-lang="zh">證據分類</span><span data-lang="en">EVIDENCE CLASSES</span></span></div>
+          <div><b>6</b><span><span data-lang="zh">證據分類</span><span data-lang="en">EVIDENCE CLASSES</span></span></div>
           <div><b>4</b><span><span data-lang="zh">狀態邊界</span><span data-lang="en">STATE BOUNDARIES</span></span></div>
           <div><b>2026-08-25</b><span><span data-lang="zh">研究凍結日</span><span data-lang="en">RESEARCH FREEZE</span></span></div>
         </div>
@@ -114,9 +114,10 @@
         <div class="evidence-ladder" aria-label="Evidence classification ladder">
           <article><span>01</span><b>DIRECT REQUIREMENT</b><p><span data-lang="zh">標準或 supplied PDF 明確要求的行為。</span><span data-lang="en">Behavior explicitly required by a standard or supplied paper.</span></p></article>
           <article><span>02</span><b>FIRST-PARTY CASE</b><p><span data-lang="zh">官方產品／實作證明此 lifecycle 已存在。</span><span data-lang="en">An official product or implementation proves the lifecycle exists.</span></p></article>
-          <article><span>03</span><b>VENDOR CAPABILITY</b><p><span data-lang="zh">公開 IP envelope；不是 independent assurance。</span><span data-lang="en">A public IP envelope—not independent assurance.</span></p></article>
-          <article><span>04</span><b>INFERRED OPPORTUNITY</b><p><span data-lang="zh">由系統需求推導的 NVM placement。</span><span data-lang="en">An NVM placement inferred from a system need.</span></p></article>
-          <article><span>05</span><b>VALIDATION NEEDED</b><p><span data-lang="zh">節點、PVT、攻擊或 update workload 尚未封閉。</span><span data-lang="en">Node, PVT, attack or update workload remains open.</span></p></article>
+          <article><span>03</span><b>TECHNICAL EVIDENCE</b><p><span data-lang="zh">同儕審查實作或獨立實體分析支持機制。</span><span data-lang="en">Peer-reviewed implementation or independent physical analysis supports the mechanism.</span></p></article>
+          <article><span>04</span><b>VENDOR CAPABILITY</b><p><span data-lang="zh">公開 IP envelope；不是 independent assurance。</span><span data-lang="en">A public IP envelope—not independent assurance.</span></p></article>
+          <article><span>05</span><b>INFERRED OPPORTUNITY</b><p><span data-lang="zh">由系統需求推導的 NVM placement。</span><span data-lang="en">An NVM placement inferred from a system need.</span></p></article>
+          <article><span>06</span><b>VALIDATION NEEDED</b><p><span data-lang="zh">節點、PVT、攻擊或 update workload 尚未封閉。</span><span data-lang="en">Node, PVT, attack or update workload remains open.</span></p></article>
         </div>
       </section>
 
@@ -243,7 +244,7 @@
             <div class="record-fit"><small>STATE / FIT</small><b>ROOT + COUNTER + IMAGE</b><span>OTP/PUF + managed NVM + flash</span><em><span data-lang="zh">counter 需 authenticated、atomic、recoverable</span><span data-lang="en">Counters must be authenticated, atomic and recoverable</span></em></div>
           </article>
 
-          <article class="opportunity-record" data-evidence="proof" data-write="few" data-record-ids="AI-NVM-GPU-002 AI-NVM-GPU-003 AI-NVM-BISR-001">
+          <article class="opportunity-record" data-evidence="proof" data-write="few" data-record-ids="AI-NVM-GPU-002 AI-NVM-GPU-003 AI-NVM-BISR-001 AI-NVM-EFUSE-001 AI-NVM-DRAM-001 AI-NVM-DRAM-002 AI-NVM-HBM-001">
             <div class="record-index"><span>03</span><small>HBM / SRAM REPAIR</small></div>
             <div class="record-copy"><span class="tier-tag case">FIRST-PARTY CASE</span><h3><span data-lang="zh">Repair State 的可靠度與 Attestation 證據</span><span data-lang="en">Repair State as Reliability and Attestation Evidence</span></h3><p><span data-lang="zh">NVIDIA row remap 可在 device life 持續生效；Hopper channel repair 會改變 attestation measurement。Siemens 也顯示 fusebox programming session 可能非常有限。</span><span data-lang="en">NVIDIA row remapping persists for device life, while Hopper channel repair can change attestation measurements. Siemens also shows that fusebox programming sessions may be very limited.</span></p></div>
             <div class="record-fit"><small>STATE / FIT</small><b>REPAIR MAP</b><span>Fuse / managed sparse state</span><em><span data-lang="zh">合法修復必須與 measurement／RIM 同步</span><span data-lang="en">Authorized repair must stay coherent with measurements/RIMs</span></em></div>
@@ -286,6 +287,50 @@
           </article>
         </div>
         <p class="opportunity-empty" id="opportunityEmpty" hidden><span data-lang="zh">目前篩選條件沒有相符紀錄。</span><span data-lang="en">No records match the current filters.</span></p>
+
+        <aside id="repair-programming" class="repair-programming-module" aria-labelledby="repair-programming-title" data-record-ids="AI-NVM-EFUSE-001 AI-NVM-DRAM-001 AI-NVM-DRAM-002 AI-NVM-HBM-001 AI-NVM-INF-004">
+          <header class="repair-programming-head">
+            <p class="paper-kicker">REPAIR PROGRAMMING · VALIDATED DISTINCTION</p>
+            <h3 id="repair-programming-title"><span data-lang="zh">真正瓶頸是高電流燒錄路徑<br><em>不是固定的 PGM Pad 數量</em></span><span data-lang="en">The Constraint Is High-Current Programming<br><em>Not a Universal PGM-Pad Count</em></span></h3>
+            <p class="repair-programming-lede"><span data-lang="zh">Conductor-link metal／poly eFuse 每次燒錄都需要高電流路徑。當 repair map 變大、分散或要求平行燒錄時，current delivery 會轉化為 blow device、供電金屬與 IR-drop 的系統成本。</span><span data-lang="en">Each conductor-link metal/poly eFuse requires a high-current programming path. As repair maps grow, spread across a die or require parallel programming, current delivery becomes a system cost in blow devices, power routing and IR-drop control.</span></p>
+          </header>
+
+          <div class="repair-programming-grid">
+            <article class="repair-path repair-path-efuse">
+              <small>01 · CONDUCTOR-LINK eFUSE</small>
+              <h4><span data-lang="zh">高電流轉化為供電負擔</span><span data-lang="en">High Current Becomes Delivery Overhead</span></h4>
+              <p><span data-lang="zh">較大或分散式 repair map 可能需要 large blow devices、reinforced rails、wide metal，以及額外的 PGM／VSS current-injection pads 或 bumps。共用 programming rail 可降低供電端數量；能否序列燒錄與 test-time 取捨仍須逐 macro 驗證。</span><span data-lang="en">Large or distributed repair maps may require large blow devices, reinforced rails, wide metal and additional PGM/VSS current-injection pads or bumps. A shared programming rail can reduce feed count; serialization and test-time tradeoffs remain macro-specific.</span></p>
+              <ol class="programming-chain" aria-label="eFuse programming consequence chain">
+                <li><i>01</i><span>HIGH CURRENT PER BIT</span></li>
+                <li><i>02</i><span>DELIVERY NETWORK</span></li>
+                <li><i>03</i><span>AREA · IR-DROP · TEST TIME</span></li>
+              </ol>
+            </article>
+
+            <article class="repair-path repair-path-antifuse">
+              <small>02 · GATE-DIELECTRIC ANTIFUSE OTP</small>
+              <h4><span data-lang="zh">以 Programming Voltage 換取較低電流</span><span data-lang="en">Trade Current for Programming Voltage</span></h4>
+              <p><span data-lang="zh">Gate-dielectric AntiFuse OTP 以較高 programming voltage、較低 current path 完成寫入。內建 charge pump 可由既有電源產生 VPGM，降低外部 programming-pin 壓力；但並非每個 macro 都包含 charge pump。</span><span data-lang="en">Gate-dielectric antifuse OTP uses a higher programming voltage with a lower-current path. An internal charge pump may generate VPGM from existing rails and reduce external programming-pin pressure, but not every macro includes one.</span></p>
+              <ol class="programming-chain" aria-label="Antifuse programming consequence chain">
+                <li><i>01</i><span>HIGHER VPGM</span></li>
+                <li><i>02</i><span>LOWER-CURRENT PATH</span></li>
+                <li><i>03</i><span>INTERNAL PUMP OPTION</span></li>
+              </ol>
+            </article>
+          </div>
+
+          <div class="repair-evidence-boundary" role="note">
+            <b>HBM EVIDENCE BOUNDARY</b>
+            <p><span data-lang="zh">公開資料證明 post-assembly repair 行為存在，但不能據此推論所有 HBM 都使用 AntiFuse、repair state 必定位於 Base／Logic Die，或需要固定數量的 PGM pads／bumps。Fuse physics、pad count 與 die placement 均須逐產品驗證。</span><span data-lang="en">Public evidence demonstrates post-assembly repair behavior. It does not establish that every HBM uses antifuse, that repair state must reside on the Base/Logic Die, or that a fixed number of PGM pads or bumps is required. Fuse physics, pad count and die placement remain product-specific.</span></p>
+          </div>
+
+          <nav class="repair-evidence-links" aria-label="Repair programming evidence sources">
+            <a href="https://bitsavers.org/pdf/ibm/IBM_Journal_of_Research_and_Development/511/rizzolo.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-EFUSE-001"><span>IBM JRD</span><b>eFUSE current delivery ↗</b></a>
+            <a href="https://techinsights.com/blog/samsungs-anti-fuse-technology-found-18-nm-dram" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DRAM-001"><span>TEARDOWN</span><b>18 nm DDR4 AntiFuse ↗</b></a>
+            <a href="https://www.jstage.jst.go.jp/article/transele/E94.C/10/E94.C_10_1690/_article/-char/en" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DRAM-002"><span>PEER REVIEW</span><b>DRAM PPR architecture ↗</b></a>
+            <a href="https://assets.micron.com/adobe/assets/urn:aaid:aem:275edf31-79e3-4b6c-8bbd-a233babe9281/original/as/micron-hbm2e-memory-wp.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-HBM-001"><span>FIRST PARTY</span><b>HBM2E post-assembly repair ↗</b></a>
+          </nav>
+        </aside>
       </section>
 
       <section id="photonics" class="paper-section reveal">
@@ -543,7 +588,7 @@
       <section id="sources" class="paper-section reveal">
         <div class="paper-heading source-heading">
           <div><p class="paper-kicker">09 · PRIMARY SOURCE LEDGER</p><h2><span data-lang="zh">每個 Claim 都有 Source<br><em>每個 Inference 都有 Limit</em></span><span data-lang="en">A Source for Every Claim<br><em>A Limit for Every Inference</em></span></h2></div>
-          <p><span data-lang="zh">外部連結優先使用 standards body、first-party implementation 與 official vendor page。供應商數值只代表該公開 product envelope，不外推成 universal requirement。</span><span data-lang="en">External links prioritize standards bodies, first-party implementations and official vendor pages. Vendor figures describe that public product envelope; they are not universal requirements.</span></p>
+          <p><span data-lang="zh">外部連結優先使用 standards body、first-party implementation、peer-reviewed design、independent physical analysis 與 official vendor page。供應商數值只代表該公開 product envelope，不外推成 universal requirement。</span><span data-lang="en">External links prioritize standards bodies, first-party implementations, peer-reviewed designs, independent physical analysis and official vendor pages. Vendor figures describe that public product envelope; they are not universal requirements.</span></p>
         </div>
         <div class="source-ledger-groups">
           <details class="source-group" open>
@@ -578,6 +623,15 @@
             <div class="ai-source-list">
           <a href="https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash" target="_blank" rel="noreferrer"><span>FOUNDRY ROADMAP</span><b>TSMC Embedded NVM</b><small>eFlash · eMRAM · eRRAM node maturity</small></a>
           <a href="https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/" target="_blank" rel="noreferrer"><span>FOUNDRY ROADMAP</span><b>Samsung Specialty Technology</b><small>28nm eFlash · advanced eMRAM direction</small></a>
+            </div>
+          </details>
+          <details class="source-group">
+            <summary><span>05</span><b><span data-lang="zh">Repair Physics 與 HBM Behavior</span><span data-lang="en">Repair Physics and HBM Behavior</span></b><small>4 BOUNDED SOURCES</small><i>+</i></summary>
+            <div class="ai-source-list">
+          <a href="https://bitsavers.org/pdf/ibm/IBM_Journal_of_Research_and_Development/511/rizzolo.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-EFUSE-001"><span>PEER REVIEW</span><b>IBM System z9 eFUSE</b><small>10–15 mA implementation · Fsource routing constraint</small></a>
+          <a href="https://techinsights.com/blog/samsungs-anti-fuse-technology-found-18-nm-dram" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DRAM-001"><span>TEARDOWN</span><b>Samsung 18 nm DDR4 AntiFuse</b><small>Physical array evidence · not a universal HBM topology</small></a>
+          <a href="https://www.jstage.jst.go.jp/article/transele/E94.C/10/E94.C_10_1690/_article/-char/en" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DRAM-002"><span>PEER REVIEW</span><b>Samsung DRAM AntiFuse PPR</b><small>Programming current · external-HV versus pump tradeoff</small></a>
+          <a href="https://assets.micron.com/adobe/assets/urn:aaid:aem:275edf31-79e3-4b6c-8bbd-a233babe9281/original/as/micron-hbm2e-memory-wp.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-HBM-001"><span>FIRST-PARTY</span><b>Micron HBM2E Test and Repair</b><small>Post-assembly behavior · fuse implementation undisclosed</small></a>
             </div>
           </details>
         </div>

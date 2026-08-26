@@ -33,6 +33,7 @@ Open `http://127.0.0.1:8765/`.
 - Physical Security Assurance center covering FI, SCA, invasive analysis, attack windows, countermeasure evidence, certification routing and role-based learning.
 - OIP Secure Storage brief connecting RP2350 threat evidence, SRAM-PUF root reconstruction, AES-256 protected OTP, node readiness and explicit validation gates.
 - Bilingual AI Systems NVM Opportunities topic mapping OTP/MTP use cases, evidence boundaries and target-validation needs across AI accelerators, silicon photonics, repair, security and RAS.
+- Governed AI package with 32 records and six non-ordinal evidence classes, including peer-reviewed and independent technical evidence for repair-programming physics.
 - SharePoint/Copilot-ready knowledge schema in `data/assurance-knowledge-schema.json`, with the List field map in `data/sharepoint-field-map.md`.
 - Governed OIP claim records in `data/oip-secure-storage-knowledge.json` for SharePoint import and presentation grounding.
 - Governed AI opportunity records in `data/ai-nvm-opportunities-knowledge.json`, validated by `data/ai-nvm-opportunities-schema.json`, with PDF page/figure locators retained for source-traceable SharePoint and Copilot answers.

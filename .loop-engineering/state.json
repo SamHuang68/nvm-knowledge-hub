@@ -2,20 +2,24 @@
   "schemaVersion": 1,
   "projectId": "nvm-knowledge-hub-refinement",
   "objective": "Publish an NVM-centered Knowledge Hub with Secure Storage and AI Systems as equal L1 lenses, an integrated cross-topic Whitepaper and Decision Studio workbench, explicit L2 research ownership, and a SharePoint-ready knowledge spine.",
-  "status": "release_ready",
-  "updatedAt": "2026-08-25",
+  "status": "in_progress",
+  "updatedAt": "2026-08-26",
   "constraints": {
     "inScope": [
       "NVM-centered L0/L1/L2 information architecture",
       "Neutral Hub home and equal Secure Storage / AI Systems discovery",
       "Global brand, breadcrumb and cross-topic navigation contract",
       "Legacy Secure Storage deep-link compatibility",
-      "SharePoint-ready knowledge taxonomy and rendered responsive acceptance"
+      "SharePoint-ready knowledge taxonomy and rendered responsive acceptance",
+      "Public evidence-backed comparison of conductor-link eFuse and gate-dielectric antifuse OTP for repair-state programming",
+      "Cross-format alignment between the AI/NVM web chapter, governed SharePoint data and the current executive opportunity deck"
     ],
     "outOfScope": [
-      "Publishing new technical or market claims",
+      "Publishing unverified technical or market claims",
       "Publishing confidential or NDA-only content to the public edition",
-      "Treating illustrative component placement as a product topology"
+      "Treating illustrative component placement as a product topology",
+      "Claiming that every eFuse implementation requires multiple external PGM pads",
+      "Claiming a universal HBM fuse technology, repair-bit location or Base/Logic Die placement"
     ],
     "assumptions": [
       "NVM is the single knowledge spine; Secure Storage and AI Systems are application lenses",
@@ -33,9 +37,12 @@
     }
   },
   "currentLoop": {
-    "id": "REFINE-019",
-    "phase": "release_ready",
-    "exitVerdict": "PASS_WITH_CURSOR_IDENTITY_LIMITATION_ON_STRICT_LEDGER_GATE"
+    "id": "REFINE-021",
+    "phase": "observe_and_reconcile",
+    "baseLocalCommit": "d4982db1c604aeed4436534e1eb85deb30a16b51",
+    "remoteCandidateCommit": "0fbf810f2dce1234d163671f5703218e56eaeceb",
+    "integrationPolicy": "Preserve the dirty local R20 artifact set; inspect the remote candidate in a detached worktree; accept remote deltas serially through the Host only after source and rendered review.",
+    "exitVerdict": null
   },
   "orchestrationPolicy": {
     "statefulHost": "Codex",
@@ -97,6 +104,15 @@
     }
   ],
   "synchronizationBarriers": [
+    {
+      "id": "BAR-R21-REMOTE-REVIEW",
+      "baseStateHash": "d4982db1c604aeed4436534e1eb85deb30a16b51",
+      "generation": 1,
+      "requiredTaskIds": ["R21-02", "R21-03", "R21-04"],
+      "providerRequirement": "same-provider read-only advisory plus Host rendered verification; no multi-provider claim",
+      "gateCriteria": "Every reviewer must identify the exact remote commit and inspected files, separate improvements from regressions, and return evidence-backed P0/P1/P2 findings. The Host alone selects and integrates deltas.",
+      "status": "open"
+    },
     {
       "id": "BAR-R16-RESEARCH",
       "baseStateHash": "d6ed618a6ec11b2a86f5ce577962d9784e4a53a19d192b163195c071f282394e:989626c6d15f8c6c1c8649ec5aaaeb47b08223adf8088391be14814f90de2a48:b40325d089f8a70106a28a0c9517ad87a3a12c301d4db1f827c23431aecd9ee7:41e69f43c3b3178afc97cd5969aa5a8fb968f9b5f685bfe8e0e15e786cf60d4c",
@@ -180,6 +196,24 @@
       "type": "research-brief",
       "path": "AI_NVM_Opportunities_Research_Brief.md",
       "lineage": "Primary-source synthesis plus owner-provided public engineering and industry notes"
+    },
+    {
+      "id": "A20-01",
+      "type": "web",
+      "path": "site/ai-nvm-opportunities.html#repair-programming",
+      "lineage": "Bilingual eFuse versus gate-dielectric antifuse repair-programming module with visible HBM evidence boundary"
+    },
+    {
+      "id": "A20-02",
+      "type": "knowledge",
+      "path": "site/data/ai-nvm-opportunities-knowledge.json",
+      "lineage": "Thirty-two governed records including four public repair-physics records and one bounded architecture inference"
+    },
+    {
+      "id": "A20-03",
+      "type": "presentation",
+      "path": "C:/Users/Sam/Documents/ChatGPT/NVM/NVM_AI_Hardware_NVM_Royalty_Opportunities_Executive_v8_Repair_Physics_EN.pptx",
+      "lineage": "Fourteen-slide executive deck inherited from v7; slide 4 rebuilt as an evidence-to-qualification argument with bilingual notes"
     }
   ],
   "effectPolicy": {
@@ -238,6 +272,36 @@
     }
   ],
   "tasks": [
+    {
+      "id": "R21-01",
+      "name": "Freeze the dirty local baseline and fetch the Antigravity GitHub candidate without mutating working files",
+      "status": "done"
+    },
+    {
+      "id": "R21-02",
+      "name": "Audit the ten-commit remote delta for information architecture, content and evidence integrity",
+      "status": "in_progress"
+    },
+    {
+      "id": "R21-03",
+      "name": "Audit the remote candidate for enterprise visual quality, accessibility and responsive behavior",
+      "status": "in_progress"
+    },
+    {
+      "id": "R21-04",
+      "name": "Audit code quality, performance, asset weight and test validity",
+      "status": "in_progress"
+    },
+    {
+      "id": "R21-05",
+      "name": "Selectively reconcile accepted Antigravity deltas with the local R20 work",
+      "status": "pending"
+    },
+    {
+      "id": "R21-06",
+      "name": "Run full rendered and deterministic acceptance on the reconciled build",
+      "status": "pending"
+    },
     {
       "id": "R15-01",
       "name": "Audit all heading grammar, large callouts, and bilingual hierarchy",
@@ -317,6 +381,36 @@
       "id": "R19-04",
       "name": "Commit, push and deploy both public sites",
       "status": "authorized_pending"
+    },
+    {
+      "id": "R20-01",
+      "name": "Validate eFuse programming current and conditional PGM-pad implications against public technical evidence",
+      "status": "done"
+    },
+    {
+      "id": "R20-02",
+      "name": "Add the bilingual repair-programming comparison and visible HBM evidence boundary",
+      "status": "done"
+    },
+    {
+      "id": "R20-03",
+      "name": "Extend the governed schema, canonical records and deterministic SharePoint exports",
+      "status": "done"
+    },
+    {
+      "id": "R20-04",
+      "name": "Rebuild executive slide 4 and bilingual speaker notes without expanding the deck",
+      "status": "done"
+    },
+    {
+      "id": "R20-05",
+      "name": "Run 49-viewport website, bilingual, filter-isolation and presentation overflow acceptance",
+      "status": "done"
+    },
+    {
+      "id": "R20-06",
+      "name": "Freeze exact artifacts and complete independent read-only release review",
+      "status": "done"
     }
   ],
   "routingDecisions": [
@@ -355,6 +449,14 @@
     {
       "decision": "Name the public N5 feature Direct Core-Supply Read and keep Read Availability distinct from Program Availability",
       "reason": "The cited Synopsys evidence is specific to TSMC N5 XHF OTP, while the public owner note states that PGM still uses I/O supply as the charge-pump base voltage"
+    },
+    {
+      "decision": "Describe high-current programming as an eFuse delivery constraint, not a universal multi-pad requirement",
+      "reason": "Published implementations prove mA-class current and reinforced Fsource routing, while shared rails show that pad count is an architecture choice"
+    },
+    {
+      "decision": "Treat HBM post-assembly repair as a proven workload and antifuse OTP as a qualification path",
+      "reason": "Micron proves repair behavior but does not disclose fuse physics, pad count or whether authoritative state resides on a DRAM, Base or Logic Die"
     }
   ],
   "providerReceipts": [
@@ -417,7 +519,7 @@
     "claim": "Cursor / Google Gemini returned a response-observed ACCEPT for the exact frozen V2 artifact. The Host accepted its findings, but the later ledger-disposition call failed closed after the bridge build changed. SuperGrok did not complete dispatch, so no strict two-provider claim is made."
   },
   "claimAudit": {
-    "canonicalEvidenceRecords": 27,
+    "canonicalEvidenceRecords": 32,
     "quarantinedResearchHypotheses": 5,
     "primarySourceLineageForNotebookLm": false,
     "unverifiedClaimsPublishedAsProof": 0,
@@ -453,11 +555,17 @@
       "Visual audit PASS with zero P0/P1/P2",
       "Content/evidence audit PASS with zero P0/P1",
       "Technical acceptance PASS with zero P0/P1",
-      "Cursor / Google Gemini exact frozen V2 packet review ACCEPT with zero P0/P1/P2; response-observed receipt c502248e804bf80e4a8eeca5ad348bf1a475672929d44f4f2b18de4d7aea596b"
+      "Cursor / Google Gemini exact frozen V2 packet review ACCEPT with zero P0/P1/P2; response-observed receipt c502248e804bf80e4a8eeca5ad348bf1a475672929d44f4f2b18de4d7aea596b",
+      "R20 SharePoint exporter PASS: 32 governed records plus 5 quarantined hypotheses; both CSV exports match canonical JSON",
+      "R20 rendered website acceptance PASS: seven pages across seven viewports with zero document/internal overflow and zero runtime failures",
+      "R20 focused module acceptance PASS at 1440, 390 and 312 pixels, including English-mode isolation, visible evidence boundary and opportunity-filter isolation",
+      "R20 presentation acceptance PASS: 14 slides, only slide 4 visually changed, row labels at 16 pt, body at 18 pt, takeaway single-line and slides_test reports no overflow",
+      "R20 final frozen hashes: deck 9FE1E0160494561EDEB8FCA8A22CE10417C4E03104B79AF1AD03F4C1BB72EEC6; HTML E23D694A1032BE413F111C3D21DA362D1E4048E488340199CE879E672849D305",
+      "R20 independent frozen-artifact release audit PASS with zero P0, P1 or P2"
     ],
     "openP0": [],
     "openP1": [],
-    "verdict": "pass_r19_release_candidate_multi_ai_reviewed_strict_identity_gate_blocked"
+    "verdict": "pass_r20_release_ready"
   },
   "loopHistory": [
     {
@@ -510,6 +618,10 @@
     },
     {
       "id": "REFINE-019",
+      "status": "release_ready"
+    },
+    {
+      "id": "REFINE-020",
       "status": "release_ready"
     }
   ],
@@ -568,7 +680,10 @@
     "AI_NVM_Opportunities_Research_Brief.md",
     "tmp/ai-nvm-research/review-packet-r14.txt",
     "tmp/ai-nvm-research/review-packet-r15-final-v2.txt",
-    "C:/Users/Sam/.codex/skills/apply-enterprise-identity/references/commercial-rich-content-standard.md"
+    "C:/Users/Sam/.codex/skills/apply-enterprise-identity/references/commercial-rich-content-standard.md",
+    "site/data/ai-nvm-sharepoint-import.csv",
+    "site/data/sharepoint-field-map.md",
+    "C:/Users/Sam/Documents/ChatGPT/NVM/NVM_AI_Hardware_NVM_Royalty_Opportunities_Executive_v8_Repair_Physics_EN.pptx"
   ],
   "nextLoop": null
 }

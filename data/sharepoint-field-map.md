@@ -34,6 +34,8 @@ Use one **NVM Knowledge Records** List for cross-topic retrieval, but keep separ
 
 The public JSON packages intentionally keep separate schemas because their enum vocabularies differ. Secure Storage uses security assets and attack windows; AI Systems uses platform layers, persistence classes and opportunity boundaries. The SharePoint columns may be shared, but an importer must not invent placeholder security values for an AI record or collapse the two domains into one confidence score.
 
+For the AI Systems package, configure `EvidenceClass` with six non-ordinal choices: `DIRECT_REQUIREMENT`, `FIRST_PARTY_CASE`, `TECHNICAL_EVIDENCE`, `VENDOR_CAPABILITY`, `INFERRED_OPPORTUNITY`, and `VALIDATION_NEEDED`. `TECHNICAL_EVIDENCE` is reserved for peer-reviewed implementations or independent physical analysis that directly supports a mechanism or constraint; it must not be silently recast as a first-party product case.
+
 ### AI Systems opportunity extensions
 
 | JSON field | SharePoint column | Type | Copilot use |
