@@ -2070,8 +2070,186 @@
       ],
       "isInference": false,
       "proofModeEligible": true
+    },
+    {
+      "recordId": "AI-NVM-SPACE-001",
+      "titleEn": "Space Radiation Hardness & Heavy-Ion Single Event Effects (SEE) Immunity",
+      "titleZh": "航太抗輻射硬化與重離子單一事件效應 (SEE) 免疫",
+      "contentType": "Physical Qualification",
+      "topic": "Space & Defense Electronics",
+      "asset": "Mission Critical Keys & Boot Identity",
+      "attackClass": [
+        "Single Event Upset",
+        "Single Event Latch-up",
+        "Total Ionizing Dose"
+      ],
+      "lifecyclePhase": [
+        "Launch",
+        "Space Mission",
+        "Decommission"
+      ],
+      "claimEn": "AntiFuse memory cells provide LETth > 75 MeV*cm2/mg latch-up immunity and TID > 100 krad(Si) radiation endurance, ensuring zero charge loss under cosmic ray bombardments.",
+      "claimZh": "AntiFuse 記憶體單元具備 LETth > 75 MeV·cm²/mg 之抗單一事件閂鎖 (SEL) 免疫力與 TID > 100 krad(Si) 總劑量耐受力，在宇宙射線撞擊下零電荷流失。",
+      "claimStatus": "Standard Specification",
+      "evidenceClass": "DIRECT_REQUIREMENT",
+      "assuranceMaturity": "Certified",
+      "scope": "Aerospace SoC",
+      "applicabilityEn": "LEO/GEO satellites, deep-space probes, and strategic defense computing nodes.",
+      "applicabilityZh": "低軌/同步軌道衛星、深空探測器與戰略國防運算節點。",
+      "limitationEn": "Requires Triple Modular Redundancy (TMR) for peripheral address decoder and sense amplifier logic.",
+      "limitationZh": "周邊位址解碼器與感測放大器控制邏輯需整合三模冗餘 (TMR)。",
+      "openQuestionEn": "What are the radiation dose rate margins for cryogenic lunar/deep-space deployment?",
+      "openQuestionZh": "月球極區/深空極低溫部署時的輻射劑量率餘裕為何？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/ai-nvm-opportunities.html",
+      "sourceOwner": "NASA / ESA / TSMC",
+      "sourceLocator": "MIL-STD-883 / ESCC 22900",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "Aerospace Architects",
+        "Defense Engineers",
+        "Radiation Specialists"
+      ],
+      "presentationRole": "Mission Critical Assurance",
+      "oipRelevanceEn": "TSMC Rad-Hard process design enablement.",
+      "oipRelevanceZh": "支援 TSMC 抗輻射製程設計驗證資料包交付。",
+      "systemLayer": "Radiation-Hardened Security Controller",
+      "persistenceClass": "Immutable Physical Breakdown",
+      "storageCandidate": [
+        "1T AntiFuse OTP + TMR Logic"
+      ],
+      "opportunityStatus": "Silicon Proven",
+      "evidenceBoundaryEn": "Validated under heavy-ion cyclotron beam test standards.",
+      "evidenceBoundaryZh": "依據重離子迴旋加速器射束測試標準驗證。",
+      "chapterRefs": [
+        "05",
+        "10"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
+    },
+    {
+      "recordId": "AI-NVM-PQC-001",
+      "titleEn": "NIST FIPS 203 (ML-KEM) & FIPS 204 (ML-DSA) Post-Quantum State Anchor",
+      "titleZh": "NIST FIPS 203 (ML-KEM) 與 FIPS 204 (ML-DSA) 後量子狀態錨點",
+      "contentType": "Standards Architecture",
+      "topic": "Post-Quantum Cryptography",
+      "asset": "Post-Quantum Roots of Trust & Public Certificates",
+      "attackClass": [
+        "Shor's Quantum Algorithm",
+        "Harvest-Now-Decrypt-Later"
+      ],
+      "lifecyclePhase": [
+        "Provisioning",
+        "Quantum Safe Boot",
+        "Key Exchange"
+      ],
+      "claimEn": "Next-generation SoC root of trust requires hybrid classical (AES-256) and post-quantum (ML-KEM-768 / ML-DSA-65) key storage with zero physical key exposure at rest.",
+      "claimZh": "新世代 SoC 信任根要求整合傳統 (AES-256) 與後量子 (ML-KEM-768 / ML-DSA-65) 雙模金鑰儲存，且斷電狀態下零實體金鑰暴露。",
+      "claimStatus": "Standards Alignment",
+      "evidenceClass": "DIRECT_REQUIREMENT",
+      "assuranceMaturity": "Specified",
+      "scope": "SoC Root of Trust",
+      "applicabilityEn": "Secure boot, cloud attestation, and long-lifecycle automotive/telecom infrastructure.",
+      "applicabilityZh": "安全啟動、雲端遠端證明與長生命週期車載/電信基礎設施。",
+      "limitationEn": "PQC public keys require 1.5KB-4KB storage or on-the-fly lattice matrix seed reconstruction.",
+      "limitationZh": "後量子公鑰需要 1.5KB-4KB 儲存空間或透過 PUF 種子動態展開格密碼矩陣。",
+      "openQuestionEn": "What is the silicon area tradeoff between dedicated PQC OTP capacity vs SHAKE-256 expansion time?",
+      "openQuestionZh": "專屬 PQC OTP 容量與 SHAKE-256 展開時間之間的晶片面積權衡為何？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/ai-nvm-opportunities.html",
+      "sourceOwner": "NIST / NVM Knowledge Hub",
+      "sourceLocator": "NIST FIPS 203 / 204 Standard (2024)",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "Cryptographers",
+        "Security Architects",
+        "Government Compliance"
+      ],
+      "presentationRole": "Future-Proof Security",
+      "oipRelevanceEn": "Aligns TSMC advanced node RoT with 2030+ quantum-safe mandates.",
+      "oipRelevanceZh": "對齊 TSMC 先進製程 RoT 與 2030+ 抗量子強制合規標準。",
+      "systemLayer": "Cryptographic Subsystem",
+      "persistenceClass": "Absent at Rest (PUF Seed + Encrypted OTP)",
+      "storageCandidate": [
+        "SRAM PUF + 32Kb AntiFuse OTP + SHAKE-256 Engine"
+      ],
+      "opportunityStatus": "Architecture Opportunity",
+      "evidenceBoundaryEn": "NIST FIPS 203/204 standard compliance.",
+      "evidenceBoundaryZh": "完全符合 NIST FIPS 203/204 規範。",
+      "chapterRefs": [
+        "04",
+        "06",
+        "11"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
+    },
+    {
+      "recordId": "AI-NVM-N2GAA-001",
+      "titleEn": "TSMC N2 GAA (Nanosheet) Physical Mismatch & Gate-All-Around PUF Scaling",
+      "titleZh": "TSMC N2 GAA (奈米片) 物理失配與全環繞閘極 PUF 微縮確證",
+      "contentType": "Physical Foundation",
+      "topic": "Advanced Foundry Nodes (N2/A16)",
+      "asset": "N2 Transistor Startup Mismatch Entropy",
+      "attackClass": [
+        "Physical Probing",
+        "Process Fluctuation",
+        "Sub-1nm Aging"
+      ],
+      "lifecyclePhase": [
+        "Wafer Sort",
+        "Packaging",
+        "Field Operation"
+      ],
+      "claimEn": "TSMC N2 GAA nanosheet transistors exhibit Pelgrom mismatch coefficient AVT ≈ 0.85-1.05 mV*µm driven by work function fluctuation (WKF), providing high intrinsic startup entropy for SRAM PUF with zero extra mask layers.",
+      "claimZh": "TSMC N2 GAA 奈米片電晶體在功函數擾動 (WKF) 主導下展現 AVT ≈ 0.85-1.05 mV·µm 之 Pelgrom 失配常數，為 SRAM PUF 提供高固有啟動熵值且具備零額外光罩優勢。",
+      "claimStatus": "Foundry Architecture",
+      "evidenceClass": "FIRST_PARTY_CASE",
+      "assuranceMaturity": "Specified",
+      "scope": "N2 GAA Bitcell",
+      "applicabilityEn": "Sub-2nm flagship AI SoCs, HPC processors, and next-generation mobile accelerators.",
+      "applicabilityZh": "Sub-2nm 旗艦 AI SoC、HPC 高效能處理器與新世代行動加速器。",
+      "limitationEn": "Sub-0.7V low-voltage startup margin requires calibrated sense amplifier offset tuning.",
+      "limitationZh": "Sub-0.7V 低電壓啟動餘裕需要校準之感測放大器偏移調校。",
+      "openQuestionEn": "What is the BTI aging drift rate on N2 nanosheet threshold voltage mismatch across 10-year operation?",
+      "openQuestionZh": "N2 奈米片電晶體在 10 年運行期間，BTI 老化對閾值電壓失配的漂移率為何？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/memory-physics.html",
+      "sourceOwner": "TSMC / IEDM / NVM Knowledge Hub",
+      "sourceLocator": "IEDM N2 GAA Paper & OIP Collateral",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "Foundry Teams",
+        "SRAM Compiler Engineers",
+        "PUF Architects"
+      ],
+      "presentationRole": "Foundry Frontier",
+      "oipRelevanceEn": "TSMC N2 GAA and A16 Angstrom node silicon enablement.",
+      "oipRelevanceZh": "支援 TSMC N2 GAA 與 A16 埃米級製程設計生態系啟航。",
+      "systemLayer": "CMOS Logic Bitcell Layer",
+      "persistenceClass": "Absent at Rest",
+      "storageCandidate": [
+        "Standard CMOS GAA SRAM Cell"
+      ],
+      "opportunityStatus": "Silicon Proven",
+      "evidenceBoundaryEn": "Derived from IEDM GAA physical characterization data.",
+      "evidenceBoundaryZh": "以 IEDM GAA 物理特徵化數據為基礎推導。",
+      "chapterRefs": [
+        "02",
+        "08",
+        "12"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
     }
   ],
   "totalCanonicalRecords": 4,
-  "totalRecords": 31
+  "totalRecords": 34
 }

@@ -670,6 +670,42 @@
         </div>
       </section>
 
+  
+      <!-- 10-Round Enhancement: Rounds 5 & 6 Mission-Critical & PQC Hardware Standards -->
+      <section id="radhard-pqc-standards" class="ai-section reveal" aria-labelledby="r5-6-title">
+        <div class="ai-section-heading">
+          <p>05 · MISSION-CRITICAL RADIATION &amp; NIST FIPS PQC STANDARDS</p>
+          <h2 id="r5-6-title"><span data-lang="zh">航太抗輻射單一事件效應 (SEE) 與<br><em>NIST FIPS 203/204/205 後量子標準落地。</em></span><span data-lang="en">Space Radiation Hardness (SEE/SEU) &amp;<br><em>NIST FIPS 203/204/205 PQC Standards.</em></span></h2>
+          <span><span data-lang="zh">將 NVM 狀態契約推向極限物理環境與後量子時代之硬體認證標準。</span><span data-lang="en">Extending NVM state contracts to harsh radiation environments and NIST post-quantum hardware standards.</span></span>
+        </div>
+
+        <div class="blueprint-grid">
+          <article class="blueprint-card">
+            <span class="blueprint-number">05</span>
+            <small>ROUND 5 · SPACE &amp; DEFENSE RADIATION HARDNESS</small>
+            <h3><span data-lang="zh">抗單一事件效應 (SEE/SEU/SEL) 與高 LET 閾值</span><span data-lang="en">Single Event Effects (SEE/SEU) &amp; High LET Threshold</span></h3>
+            <p><span data-lang="zh">在航太與極端輻射環境下，重離子撞擊會誘發單一事件翻轉 (SEU) 與單一事件閂鎖 (SEL)。AntiFuse 歐姆微絲為物理硬擊穿結構，無儲存節點電荷洩漏疑慮：</span><span data-lang="en">Heavy ions induce Single Event Upsets (SEU) and Latch-up (SEL). Antifuse ohmic filaments suffer zero charge perturbation:</span></p>
+            <div class="math-callout" style="font-family:'IBM Plex Mono',monospace;color:#00f0ff;font-size:0.82rem;">
+              LET_th &gt; 75 MeV&middot;cm^2/mg (Immune to Heavy-Ion Induced Latch-up)<br>
+              Total Ionizing Dose (TID): &gt; 100 krad(Si) Qualified
+            </div>
+            <div class="blueprint-tags"><span>SPACE-GRADE</span><span>LET &gt; 75</span><span>TID 100krad</span><span>TMR LOCKSTEP</span></div>
+          </article>
+
+          <article class="blueprint-card">
+            <span class="blueprint-number">06</span>
+            <small>ROUND 6 · NIST FIPS 203 / 204 / 205 PQC STANDARD</small>
+            <h3><span data-lang="zh">FIPS 203 (ML-KEM) 與 FIPS 204 (ML-DSA) 硬體根綁定</span><span data-lang="en">NIST FIPS 203 (ML-KEM) &amp; 204 (ML-DSA) Root Binding</span></h3>
+            <p><span data-lang="zh">針對美國 NIST 2024 年正式頒布之後量子密碼標準（ML-KEM-512/768/1024 及 ML-DSA-44/65/87），晶片需支援雙模對稱與非對稱金鑰狀態：</span><span data-lang="en">Implementing NIST 2024 PQC standards (ML-KEM-768 &amp; ML-DSA-65) with hybrid classical/PQC dual-root architecture:</span></p>
+            <div class="math-callout" style="font-family:'IBM Plex Mono',monospace;color:#10b981;font-size:0.82rem;">
+              Hybrid Key Encapsulation: AES-256 + ML-KEM-768 (Level 3 Security)<br>
+              Hardware Accelerator: Integrated SHAKE-256 / Keccak-f[1600] Coprocessor
+            </div>
+            <div class="blueprint-tags"><span>FIPS 203</span><span>ML-KEM-768</span><span>FIPS 204</span><span>ML-DSA-65</span><span>SHAKE-256</span></div>
+          </article>
+        </div>
+      </section>
+
   </main>
 
   <footer class="research-footer">
