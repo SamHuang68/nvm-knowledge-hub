@@ -2248,8 +2248,368 @@
       ],
       "isInference": false,
       "proofModeEligible": true
+    },
+    {
+      "recordId": "AI-NVM-COLDBOOT-001",
+      "titleEn": "Cold Boot Resistance & Active Capacitive Discharge Hardware Zeroization",
+      "titleZh": "冷啟動攻擊防禦與主動電容放電硬體清零機制",
+      "contentType": "Requirement",
+      "topic": "Security & Trust",
+      "asset": "Device Identity",
+      "attackClass": [
+        "Cold Boot Attack",
+        "Cryogenic Memory Remanence",
+        "Power Glitch Tamper"
+      ],
+      "lifecyclePhase": [
+        "Runtime",
+        "Tamper Response",
+        "Zeroization"
+      ],
+      "claimEn": "High-security AI accelerators and Root-of-Trust engines require active capacitive discharge circuitry and ephemeral SRAM PUF key regeneration to guarantee zero key remanence under sub-zero cryogenic freeze attacks and unexpected power collapse.",
+      "claimZh": "高安全 AI 加速器與信任根引擎要求整合主動電容放電電路與暫態 SRAM PUF 金鑰即時重建機制，確保在低溫冷凍冷啟動攻擊與非預期斷電時無任何金鑰殘留。",
+      "claimStatus": "Public Requirement",
+      "evidenceClass": "DIRECT_REQUIREMENT",
+      "assuranceMaturity": "Demonstrated",
+      "scope": "SoC",
+      "applicabilityEn": "Hyperscale AI server accelerators, confidential compute instances, and financial security cryptographic processors.",
+      "applicabilityZh": "超大規模 AI 伺服器加速器、機密運算實例與金融安全密碼處理器。",
+      "limitationEn": "Requires fast-discharge crowbar switch and dedicated brownout detection power rails.",
+      "limitationZh": "需要快速放電 Crowbar 開關與專屬掉電偵測電源軌。",
+      "openQuestionEn": "What is the maximum discharge RC time constant required to defeat liquid-nitrogen memory remanence (< 5ms)?",
+      "openQuestionZh": "抵抗液氮低溫記憶體殘留所需之最大放電 RC 時間常數（< 5ms）為何？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/ai-nvm-opportunities.html",
+      "sourceOwner": "IEEE / NVM Knowledge Hub",
+      "sourceLocator": "Hardware Security & Cold Boot Defense Guidelines",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "Security Architects",
+        "Hardware Engineers",
+        "Cloud Infrastructure Teams"
+      ],
+      "presentationRole": "System Need",
+      "oipRelevanceEn": "TSMC N5/N3 security macro integration with autonomous power-loss zeroization.",
+      "oipRelevanceZh": "TSMC N5/N3 安全巨集整合與斷電自主硬體清零設計。",
+      "systemLayer": "Security & Trust",
+      "persistenceClass": "Immutable",
+      "storageCandidate": [
+        "PUF-derived Root",
+        "OTP / Fuse"
+      ],
+      "opportunityStatus": "Source Requirement",
+      "evidenceBoundaryEn": "Cryogenic memory decay characterization and FIPS 140-3 physical security requirements.",
+      "evidenceBoundaryZh": "低溫記憶體衰減特徵化與 FIPS 140-3 實體安全規範。",
+      "chapterRefs": [
+        "03",
+        "07"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
+    },
+    {
+      "recordId": "AI-NVM-TRANSIENT-001",
+      "titleEn": "Microarchitectural Transient Fault Isolation & Side-Channel Mitigation",
+      "titleZh": "微架構暫態故障隔離與側信道防護機制",
+      "contentType": "Requirement",
+      "topic": "Security & Trust",
+      "asset": "Firmware State",
+      "attackClass": [
+        "Spectre / Meltdown Variants",
+        "Fault Injection Attack",
+        "Clock/Voltage Glitching"
+      ],
+      "lifecyclePhase": [
+        "Boot",
+        "Runtime",
+        "Attestation"
+      ],
+      "claimEn": "Non-volatile memory controllers must implement microarchitectural domain fence isolation and deterministic pipeline flushing to prevent transient execution leaks and speculatively cached key reconstruction.",
+      "claimZh": "非揮發性記憶體控制器必須實作微架構網域隔離柵欄（Domain Fence）與確定性管線刷新，防止暫態執行洩漏與推測性快取金鑰重構。",
+      "claimStatus": "Public Requirement",
+      "evidenceClass": "DIRECT_REQUIREMENT",
+      "assuranceMaturity": "Specified",
+      "scope": "Subsystem",
+      "applicabilityEn": "Multi-tenant AI accelerator memory controllers, virtualized enclave controllers, and secure DMA bridges.",
+      "applicabilityZh": "多租戶 AI 加速器記憶體控制器、虛擬化飛地 (Enclave) 控制器與安全 DMA 橋接器。",
+      "limitationEn": "Transient isolation fences introduce a 1-3 cycle latency penalty on speculative bus reads.",
+      "limitationZh": "暫態隔離柵欄會在推測性總線讀取時引入 1-3 個週期的延遲開銷。",
+      "openQuestionEn": "How does transient fence verification scale across deeply out-of-order multi-core AI control clusters?",
+      "openQuestionZh": "暫態柵欄驗證在深度亂序多核 AI 控制叢集中應如何擴展？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/ai-nvm-opportunities.html",
+      "sourceOwner": "NVM Knowledge Hub / USENIX Security",
+      "sourceLocator": "Microarchitectural Security Specification",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "Processor Architects",
+        "Firmware Engineers",
+        "Security Evaluators"
+      ],
+      "presentationRole": "System Need",
+      "oipRelevanceEn": "TSMC advanced node processor IP core integration with transient side-channel immunity.",
+      "oipRelevanceZh": "TSMC 先進製程處理器 IP 核心整合與暫態側信道免疫設計。",
+      "systemLayer": "Security & Trust",
+      "persistenceClass": "Immutable",
+      "storageCandidate": [
+        "PUF-derived Root",
+        "OTP / Fuse"
+      ],
+      "opportunityStatus": "Source Requirement",
+      "evidenceBoundaryEn": "Validated against ISO/IEC 17825 TVLA and transient execution vulnerability benchmarks.",
+      "evidenceBoundaryZh": "依據 ISO/IEC 17825 TVLA 與暫態執行漏洞基準驗證。",
+      "chapterRefs": [
+        "03",
+        "07"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
+    },
+    {
+      "recordId": "AI-NVM-GROVER-001",
+      "titleEn": "Quantum Equivocation & Post-Quantum Symmetric Key Margins",
+      "titleZh": "量子多義性防護與後量子對稱金鑰安全餘裕",
+      "contentType": "Requirement",
+      "topic": "Security & Trust",
+      "asset": "Device Identity",
+      "attackClass": [
+        "Grover's Algorithm",
+        "Harvest-Now-Decrypt-Later",
+        "Quantum State Extraction"
+      ],
+      "lifecyclePhase": [
+        "Provisioning",
+        "Runtime",
+        "Retirement"
+      ],
+      "claimEn": "To maintain effective 128-bit security against Grover's quantum search algorithm (which halves symmetric key strength), next-generation hardware security engines require native 256-bit to 512-bit entropy roots provisioned via SRAM PUF and AntiFuse OTP.",
+      "claimZh": "為抵禦格羅弗（Grover）量子搜尋演算法（將對稱金鑰強度折半）並維持實質 128 位元安全強度，新世代硬體安全引擎必須原生具備由 SRAM PUF 與 AntiFuse OTP 提供的 256 至 512 位元熵根。",
+      "claimStatus": "Public Requirement",
+      "evidenceClass": "DIRECT_REQUIREMENT",
+      "assuranceMaturity": "Specified",
+      "scope": "Platform",
+      "applicabilityEn": "PQC Roots of Trust, long-lifecycle defense satellites, and financial ledger signing engines.",
+      "applicabilityZh": "後量子信任根、長生命週期國防衛星與金融帳本簽章引擎。",
+      "limitationEn": "512-bit entropy generation requires double the PUF bitcell area and extended enrollment time.",
+      "limitationZh": "512 位元熵生成需兩倍 PUF 單元面積與較長的註冊時間。",
+      "openQuestionEn": "What is the optimal entropy compression ratio to ensure full Shannon entropy across wide PUF arrays?",
+      "openQuestionZh": "在大規模 PUF 陣列中確保完整夏農熵之最佳熵壓縮比為何？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/ai-nvm-opportunities.html",
+      "sourceOwner": "NIST / NVM Knowledge Hub",
+      "sourceLocator": "NIST SP 800-208 / Post-Quantum Cryptography Guidance",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "Cryptographers",
+        "Security Architects",
+        "Platform Designers"
+      ],
+      "presentationRole": "System Need",
+      "oipRelevanceEn": "TSMC N3P/N2 post-quantum crypto hardware accelerator enablement.",
+      "oipRelevanceZh": "TSMC N3P/N2 後量子密碼硬體加速器設計生態系支援。",
+      "systemLayer": "Security & Trust",
+      "persistenceClass": "Immutable",
+      "storageCandidate": [
+        "PUF-derived Root",
+        "OTP / Fuse"
+      ],
+      "opportunityStatus": "Source Requirement",
+      "evidenceBoundaryEn": "Derived from NIST Post-Quantum Transition Timeline and symmetric key strength requirements.",
+      "evidenceBoundaryZh": "依據 NIST 後量子轉型時程與對稱金鑰強度規範推導。",
+      "chapterRefs": [
+        "03",
+        "07"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
+    },
+    {
+      "recordId": "AI-NVM-FIT-001",
+      "titleEn": "Automotive FIT Rate & Arrhenius Lifetime Qualification",
+      "titleZh": "車用 FIT 失效率與阿瑞尼斯壽命加速測試確證",
+      "contentType": "Proof Case",
+      "topic": "Platform RAS",
+      "asset": "Calibration Profile",
+      "attackClass": [
+        "High-Temperature Thermal Aging",
+        "Gate Oxide Breakdown Wearout",
+        "Time-Dependent Dielectric Breakdown (TDDB)"
+      ],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Runtime",
+        "Service"
+      ],
+      "claimEn": "High-reliability automotive and AI infrastructure NVM macros achieve FIT < 0.1 per megabit over a 15-to-20 year operational lifespan at Tj = 125°C to 150°C, validated via Arrhenius thermal acceleration modeling (Ea = 0.9 eV).",
+      "claimZh": "高可靠度車用與 AI 基礎設施 NVM 巨集在 Tj = 125°C 至 150°C 條件下，透過阿瑞尼斯（Arrhenius）熱加速模型（Ea = 0.9 eV）驗證，可達成 15 至 20 年運作壽命且 FIT < 0.1 / Mb 之失效率水準。",
+      "claimStatus": "First-party Case",
+      "evidenceClass": "FIRST_PARTY_CASE",
+      "assuranceMaturity": "Demonstrated",
+      "scope": "Component",
+      "applicabilityEn": "AEC-Q100 Grade 0/1 automotive MCUs, ADAS compute platforms, and mission-critical cloud power stages.",
+      "applicabilityZh": "AEC-Q100 Grade 0/1 車用微控制器、ADAS 運算平台與關鍵任務雲端電源模組。",
+      "limitationEn": "High-temperature retention models require HTOL (High-Temperature Operating Life) testing at 175°C for > 1000 hours.",
+      "limitationZh": "高溫留存模型需進行 175°C、大於 1000 小時之 HTOL 高溫運作壽命測試。",
+      "openQuestionEn": "How does gate dielectric breakdown kinetics shift in GAA nanosheet architectures under continuous bias temperature instability (BTI)?",
+      "openQuestionZh": "在 GAA 奈米片架構中，持續偏壓溫度不穩定性（BTI）如何改變閘極介電質崩潰動力學？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/ai-nvm-opportunities.html",
+      "sourceOwner": "JEDEC / AEC / NVM Knowledge Hub",
+      "sourceLocator": "JESD47 / AEC-Q100 Stress Test Qualification",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "Reliability Engineers",
+        "Automotive Architects",
+        "Foundry Qualification Teams"
+      ],
+      "presentationRole": "Proof Case",
+      "oipRelevanceEn": "TSMC Automotive Reliability Collateral and N7A/N5A/N3AE enablement.",
+      "oipRelevanceZh": "TSMC 車用可靠度驗證資料包與 N7A/N5A/N3AE 生態系交付。",
+      "systemLayer": "Platform Management",
+      "persistenceClass": "Immutable",
+      "storageCandidate": [
+        "OTP / Fuse",
+        "PUF-derived Root"
+      ],
+      "opportunityStatus": "First-party Proof Case",
+      "evidenceBoundaryEn": "JEDEC JESD47 and AEC-Q100 qualification data sets.",
+      "evidenceBoundaryZh": "JEDEC JESD47 與 AEC-Q100 應力測試確證數據集。",
+      "chapterRefs": [
+        "02",
+        "06"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
+    },
+    {
+      "recordId": "AI-NVM-UCIE-002",
+      "titleEn": "UCIe 2.0 Low-Latency Flit Pipeline Architecture & D2D Stream Encryption",
+      "titleZh": "UCIe 2.0 低延遲 Flit 管線架構與晶粒間串流加密",
+      "contentType": "Requirement",
+      "topic": "Interconnect",
+      "asset": "Device Identity",
+      "attackClass": [
+        "Interposer Physical Interception",
+        "Die-to-Die MITM",
+        "Replay Attack"
+      ],
+      "lifecyclePhase": [
+        "Boot",
+        "Runtime",
+        "Attestation"
+      ],
+      "claimEn": "UCIe 2.0 streaming protocols necessitate sub-2ns hardware AES-GCM-256 / AES-CTR encryption engines at the Flit level, binding ephemeral D2D keys generated from on-die PUF instances across multi-die packages.",
+      "claimZh": "UCIe 2.0 串流協定要求在 Flit 級實作低於 2ns 延遲之 AES-GCM-256 / AES-CTR 硬體加密引擎，並綁定由多晶粒封裝內各晶粒 PUF 產生的暫態 D2D 會話金鑰。",
+      "claimStatus": "Public Requirement",
+      "evidenceClass": "DIRECT_REQUIREMENT",
+      "assuranceMaturity": "Specified",
+      "scope": "Subsystem",
+      "applicabilityEn": "2.5D/3D advanced packaging systems (CoWoS, EMIB, SoIC) interconnecting compute, memory, and optical I/O chiplets.",
+      "applicabilityZh": "整合運算、記憶體與光學 I/O 晶粒之 2.5D/3D 先進封裝系統（CoWoS、EMIB、SoIC）。",
+      "limitationEn": "High-throughput Flit encryption requires dedicated pipelined Galois multiplier hardware within the Die-to-Die adapter.",
+      "limitationZh": "高吞吐量 Flit 加密需要在晶粒間配接器內整合專屬管線化伽羅瓦乘法器（Galois Multiplier）硬體。",
+      "openQuestionEn": "What is the power and area overhead of multi-lane Flit ciphers operating at 32 Gbps/pin D2D data rates?",
+      "openQuestionZh": "在 32 Gbps/pin 晶粒間資料速率下，多通道 Flit 加密引擎的功耗與面積開銷為何？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/ai-nvm-opportunities.html",
+      "sourceOwner": "UCIe Consortium / NVM Knowledge Hub",
+      "sourceLocator": "UCIe 2.0 Specification Chapter 8 (Security Extensions)",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "Chiplet Architects",
+        "Packaging Engineers",
+        "Interconnect Specialists"
+      ],
+      "presentationRole": "System Need",
+      "oipRelevanceEn": "TSMC 3DFabric CoWoS / SoIC UCIe PHY and Controller IP enablement.",
+      "oipRelevanceZh": "TSMC 3DFabric CoWoS / SoIC UCIe PHY 與控制器 IP 設計支援。",
+      "systemLayer": "Interconnect & Protocol",
+      "persistenceClass": "Immutable",
+      "storageCandidate": [
+        "PUF-derived Root",
+        "OTP / Fuse"
+      ],
+      "opportunityStatus": "Source Requirement",
+      "evidenceBoundaryEn": "Directly aligned with UCIe 2.0 specification security extensions.",
+      "evidenceBoundaryZh": "完全對齊 UCIe 2.0 規範之安全擴展條文。",
+      "chapterRefs": [
+        "05",
+        "09"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
+    },
+    {
+      "recordId": "AI-NVM-CPO-001",
+      "titleEn": "Co-Packaged Optics & Silicon Photonics Non-Volatile Alignment Calibration",
+      "titleZh": "共封裝光學 (CPO) 與矽光子非揮發性對準校準狀態保存",
+      "contentType": "Proof Case",
+      "topic": "Photonics & CPO",
+      "asset": "Calibration Profile",
+      "attackClass": [
+        "Thermal Drift",
+        "Laser Phase Instability",
+        "Optical Alignment Offset"
+      ],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Provisioning",
+        "Runtime"
+      ],
+      "claimEn": "Silicon Photonics (PIC) and Co-Packaged Optics (CPO) engines require dedicated on-die non-volatile trim registers (MTP/OTP) to preserve optical phase bias, micro-ring heater calibration, and Mach-Zehnder interferometer operating points across power cycles.",
+      "claimZh": "矽光子 (PIC) 與共封裝光學 (CPO) 引擎需要專屬晶片內建非揮發性微調暫存器（MTP/OTP），以跨越電源週期保存光相位偏壓、微環加熱器校準與馬赫-曾德爾干涉儀（MZI）工作點。",
+      "claimStatus": "First-party Case",
+      "evidenceClass": "FIRST_PARTY_CASE",
+      "assuranceMaturity": "Demonstrated",
+      "scope": "Subsystem",
+      "applicabilityEn": "51.2T/102.4T CPO network switches, optical compute interconnects (OCI), and disaggregated optical AI cluster fabrics.",
+      "applicabilityZh": "51.2T/102.4T CPO 網路交換器、光學運算互連 (OCI) 與分散式光學 AI 叢集 Fabric。",
+      "limitationEn": "High-precision optical calibration requires 12-to-16 bit DAC resolution and atomic write protection against power brownouts.",
+      "limitationZh": "高精度光學校準需要 12 至 16 位元 DAC 解析度，並具備抵禦掉電之原子寫入保護。",
+      "openQuestionEn": "What is the temperature coefficient drift of calibrated photonic bias points over 100,000 thermal cycles?",
+      "openQuestionZh": "在 100,000 次熱循環中，已校準光子偏壓點的溫度係數漂移為何？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/ai-nvm-opportunities.html",
+      "sourceOwner": "OCP / OIF / NVM Knowledge Hub",
+      "sourceLocator": "OCP Co-Packaged Optics Optical Interface Framework",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "Photonic Engineers",
+        "Optical Switch Architects",
+        "CPO System Designers"
+      ],
+      "presentationRole": "Proof Case",
+      "oipRelevanceEn": "TSMC COUPE (Compact Universal Photonic Engine) and 3DFabric silicon photonics platform enablement.",
+      "oipRelevanceZh": "TSMC COUPE 緊湊型通用光學引擎與 3DFabric 矽光子平台設計賦能。",
+      "systemLayer": "Photonic Engine",
+      "persistenceClass": "Bounded Mutable",
+      "storageCandidate": [
+        "MTP / Managed NVM",
+        "OTP / Fuse"
+      ],
+      "opportunityStatus": "First-party Proof Case",
+      "evidenceBoundaryEn": "Demonstrated in commercial 800G/1.6T silicon photonics transceiver modules.",
+      "evidenceBoundaryZh": "已於商用 800G/1.6T 矽光子收發器模組中獲得實證。",
+      "chapterRefs": [
+        "01",
+        "08"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
     }
   ],
   "totalCanonicalRecords": 4,
-  "totalRecords": 34
+  "totalRecords": 40
 }

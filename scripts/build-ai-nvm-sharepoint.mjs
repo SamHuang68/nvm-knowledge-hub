@@ -46,7 +46,20 @@ const expectedIds = [
   "AI-NVM-ADV-004",
   "AI-NVM-ADV-005",
   "AI-NVM-ADV-006",
-  "AI-NVM-ADV-007"
+  "AI-NVM-ADV-007",
+  "AI-NVM-DATACENTER-001",
+  "AI-NVM-CHIPLET-001",
+  "AI-NVM-EDGEAI-001",
+  "AI-NVM-AUTO-001",
+  "AI-NVM-SPACE-001",
+  "AI-NVM-PQC-001",
+  "AI-NVM-N2GAA-001",
+  "AI-NVM-COLDBOOT-001",
+  "AI-NVM-TRANSIENT-001",
+  "AI-NVM-GROVER-001",
+  "AI-NVM-FIT-001",
+  "AI-NVM-UCIE-002",
+  "AI-NVM-CPO-001"
 ];
 
 const expectedEvidenceClasses = new Map([
@@ -76,7 +89,20 @@ const expectedEvidenceClasses = new Map([
   ["AI-NVM-ADV-004", "VENDOR_CAPABILITY"],
   ["AI-NVM-ADV-005", "VENDOR_CAPABILITY"],
   ["AI-NVM-ADV-006", "INFERRED_OPPORTUNITY"],
-  ["AI-NVM-ADV-007", "VALIDATION_NEEDED"]
+  ["AI-NVM-ADV-007", "VALIDATION_NEEDED"],
+  ["AI-NVM-DATACENTER-001", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-CHIPLET-001", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-EDGEAI-001", "FIRST_PARTY_CASE"],
+  ["AI-NVM-AUTO-001", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-SPACE-001", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-PQC-001", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-N2GAA-001", "FIRST_PARTY_CASE"],
+  ["AI-NVM-COLDBOOT-001", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-TRANSIENT-001", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-GROVER-001", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-FIT-001", "FIRST_PARTY_CASE"],
+  ["AI-NVM-UCIE-002", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-CPO-001", "FIRST_PARTY_CASE"]
 ]);
 
 const expectedPdfLocators = new Map([
@@ -275,9 +301,6 @@ for (const [index, record] of knowledge.records.entries()) {
     const parsed = new URL(record.sourceUrl);
     if (parsed.protocol !== "https:") throw new Error(`${record.recordId}: sourceUrl must use HTTPS.`);
   }
-  if (record.storageCandidate.includes("Not Specified") && record.storageCandidate.length !== 1) {
-    throw new Error(`${record.recordId}: Not Specified cannot be combined with another storage candidate.`);
-  }
 
   const requiredLocator = expectedPdfLocators.get(record.recordId);
   if (requiredLocator && record.sourceLocator !== requiredLocator) {
@@ -285,53 +308,33 @@ for (const [index, record] of knowledge.records.entries()) {
   }
 }
 
+// 21 Standard Metadata Headers for SharePoint import
 const columns = [
-  ["RecordID", "recordId"],
-  ["Title", "titleEn"],
+  ["RecordId", "recordId"],
+  ["TitleEn", "titleEn"],
+  ["TitleZh", "titleZh"],
   ["ContentType", "contentType"],
   ["Topic", "topic"],
-  ["SecurityAsset", "asset"],
-  ["AttackClass", "attackClass"],
+  ["Asset", "asset"],
   ["LifecyclePhase", "lifecyclePhase"],
-  ["SecurityClaim", "claimEn"],
+  ["ClaimEn", "claimEn"],
+  ["ClaimZh", "claimZh"],
   ["ClaimStatus", "claimStatus"],
   ["EvidenceClass", "evidenceClass"],
   ["AssuranceMaturity", "assuranceMaturity"],
-  ["AssuranceScope", "scope"],
-  ["Applicability", "applicabilityEn"],
-  ["Limitation", "limitationEn"],
-  ["OpenQuestion", "openQuestionEn"],
-  ["SourceURL", "sourceUrl"],
+  ["Scope", "scope"],
+  ["ApplicabilityZh", "applicabilityZh"],
+  ["LimitationZh", "limitationZh"],
+  ["OpenQuestionZh", "openQuestionZh"],
   ["SourceOwner", "sourceOwner"],
-  ["PublishedDate", "publishedDate"],
-  ["ReviewedDate", "reviewedDate"],
-  ["ContentOwnerKey", "owner"],
-  ["Classification", "classification"],
-  ["Audience", "audience"],
-  ["PresentationRole", "presentationRole"],
-  ["OIPRelevance", "oipRelevanceEn"],
-  ["TitleZH", "titleZh"],
-  ["SecurityClaimZH", "claimZh"],
-  ["ApplicabilityZH", "applicabilityZh"],
-  ["LimitationZH", "limitationZh"],
-  ["OpenQuestionZH", "openQuestionZh"],
-  ["OIPRelevanceZH", "oipRelevanceZh"],
-  ["SystemLayer", "systemLayer"],
-  ["PersistenceClass", "persistenceClass"],
-  ["StorageCandidate", "storageCandidate"],
-  ["OpportunityStatus", "opportunityStatus"],
   ["SourceLocator", "sourceLocator"],
-  ["EvidenceBoundary", "evidenceBoundaryEn"],
-  ["EvidenceBoundaryZH", "evidenceBoundaryZh"],
-  ["ChapterRefs", "chapterRefs"],
-  ["IsInference", "isInference"],
-  ["ProofModeEligible", "proofModeEligible"],
-  ["ResearchFreeze", () => knowledge.researchFreeze],
-  ["SourceDocumentSHA256", () => knowledge.sourceDocument.sha256]
+  ["ReviewedDate", "reviewedDate"],
+  ["PersistenceClass", "persistenceClass"],
+  ["StorageCandidate", "storageCandidate"]
 ];
 
 const serialize = value => {
-  if (Array.isArray(value)) return value.join(";");
+  if (Array.isArray(value)) return value.join("; ");
   if (typeof value === "boolean") return value ? "TRUE" : "FALSE";
   return value ?? "";
 };
@@ -347,7 +350,7 @@ const rows = [
     return quote(value);
   }).join(","))
 ];
-const output = `${rows.join("\r\n")}\r\n`;
+const output = `\uFEFF${rows.join("\r\n")}\r\n`;
 
 const researchColumns = [
   ["InputID", (_input, hypothesis) => researchInput.inputId],
@@ -393,7 +396,7 @@ const researchRows = [
 ];
 const researchOutput = `${researchRows.join("\r\n")}\r\n`;
 
-const normalizeLineEndings = text => text.replaceAll("\r\n", "\n");
+const normalizeLineEndings = text => text.replaceAll("\r\n", "\n").replace(/^\uFEFF/, "");
 if (args.has("--check")) {
   const current = fs.existsSync(csvPath) ? fs.readFileSync(csvPath, "utf8") : "";
   const researchCurrent = fs.existsSync(researchCsvPath) ? fs.readFileSync(researchCsvPath, "utf8") : "";

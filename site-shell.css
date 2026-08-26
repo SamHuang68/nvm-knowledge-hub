@@ -1,53 +1,143 @@
-:root{--shell-header:64px}
+:root {
+  --shell-header: 64px;
 
-.site-breadcrumb{
-  display:flex;align-items:center;gap:10px;min-height:46px;padding:10px clamp(22px,4vw,72px);
-  border-bottom:1px solid rgba(116,216,218,.16);background:#071d2a;color:#88a5b1;
-  font:600 11px/1.4 "IBM Plex Mono","SFMono-Regular",Consolas,monospace;letter-spacing:.12em;text-transform:uppercase
-}
-.site-breadcrumb a{color:#63e6de;text-decoration:none}.site-breadcrumb a:hover{text-decoration:underline;text-underline-offset:4px}
-.site-breadcrumb i{width:18px;height:1px;background:#36515d}.site-breadcrumb strong{color:#e9f4f5;font-weight:650}
-.topic-switch{margin-left:auto;display:flex;gap:7px}.topic-switch a{min-height:30px;display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(116,216,218,.2);color:#b8ccd3}.topic-switch a[aria-current="page"]{border-color:#1bcbd0;color:#72ede6;background:rgba(27,203,208,.08)}
+  /* Silicon Tech Design System 3.0: Fluid Typography Scales */
+  --font-fluid-2xs: clamp(0.65rem, 0.62rem + 0.15vw, 0.72rem);
+  --font-fluid-xs: clamp(0.72rem, 0.68rem + 0.2vw, 0.82rem);
+  --font-fluid-sm: clamp(0.82rem, 0.78rem + 0.28vw, 0.92rem);
+  --font-fluid-base: clamp(0.92rem, 0.88rem + 0.35vw, 1.05rem);
+  --font-fluid-md: clamp(1.05rem, 0.98rem + 0.5vw, 1.25rem);
+  --font-fluid-lg: clamp(1.25rem, 1.15rem + 0.75vw, 1.55rem);
+  --font-fluid-xl: clamp(1.55rem, 1.35rem + 1.2vw, 2.1rem);
+  --font-fluid-2xl: clamp(2.1rem, 1.8rem + 2.0vw, 3.2rem);
 
-@media(max-width:1320px){
-  .site-header{grid-template-columns:auto minmax(0,1fr) auto}
-  .primary-nav.open{top:100%!important;inset-inline:0!important;bottom:auto!important;max-height:calc(100dvh - var(--shell-header));overflow-y:auto;overscroll-behavior:contain}
+  /* Phosphor Spectrum Palette */
+  --phosphor-cyan: #00f0ff;
+  --phosphor-cyan-glow: rgba(0, 240, 255, 0.35);
+  --phosphor-cyan-bg: rgba(0, 240, 255, 0.08);
+  --phosphor-emerald: #10b981;
+  --phosphor-emerald-glow: rgba(16, 185, 129, 0.35);
+  --phosphor-emerald-bg: rgba(16, 185, 129, 0.08);
+  --phosphor-amber: #ffb800;
+  --phosphor-amber-glow: rgba(255, 184, 0, 0.35);
+  --phosphor-amber-bg: rgba(255, 184, 0, 0.08);
+  --phosphor-coral: #ff8c42;
+  --phosphor-coral-glow: rgba(255, 140, 66, 0.35);
+  --phosphor-coral-bg: rgba(255, 140, 66, 0.08);
+  --phosphor-crimson: #ff4d4f;
+
+  /* Metallic Micro-Borders & Silicon Surfaces */
+  --silicon-deep: #030d14;
+  --silicon-surface: #061824;
+  --silicon-card: linear-gradient(145deg, rgba(8, 28, 42, 0.92) 0%, rgba(4, 16, 26, 0.98) 100%);
+  --metallic-border: 1px solid rgba(0, 240, 255, 0.18);
+  --metallic-border-bright: 1px solid rgba(0, 240, 255, 0.45);
+  --metallic-bevel: inset 0 1px 1px rgba(255, 255, 255, 0.1), inset 0 -1px 1px rgba(0, 0, 0, 0.6);
 }
-@media(max-width:760px){
-  .site-breadcrumb{align-items:flex-start;flex-wrap:wrap;padding:10px 16px;gap:8px}
-  .site-breadcrumb>span,.site-breadcrumb>strong{padding-top:7px}.site-breadcrumb i{margin-top:14px}
-  .topic-switch{order:5;width:100%;margin-left:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
-  .topic-switch a{justify-content:center;min-height:44px;padding:7px 5px;text-align:center;letter-spacing:.07em;font-size:9px}
+
+.site-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 10px clamp(22px, 4vw, 72px);
+  border-bottom: 1px solid rgba(116, 216, 218, 0.16);
+  background: #071d2a;
+  color: #88a5b1;
+  font: 600 var(--font-fluid-xs)/1.4 "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
-@media(max-width:1200px){
-  .research-page .taxonomy-wrap,.research-page .attack-matrix{overflow:visible}
-  .research-page .taxonomy-table,.research-page .attack-table{min-width:0;width:100%}
-  .research-page .taxonomy-table thead,.research-page .attack-table thead{display:none}
-  .research-page .taxonomy-table tbody,.research-page .attack-table tbody{display:grid;gap:12px}
-  .research-page .taxonomy-table tr,.research-page .attack-table tr{display:grid;grid-template-columns:1fr;border:1px solid rgba(116,216,218,.2);background:#0a2230;padding:12px}
-  .research-page .taxonomy-table td,.research-page .attack-table td{display:grid;grid-template-columns:minmax(98px,35%) 1fr;gap:12px;width:100%;padding:9px 0;border:0;border-bottom:1px solid rgba(116,216,218,.1);white-space:normal}
-  .research-page .taxonomy-table td:last-child,.research-page .attack-table td:last-child{border-bottom:0}
-  .research-page .taxonomy-table td::before,.research-page .attack-table td::before{content:attr(data-label);color:#61dcd8;font:600 9px/1.4 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
-  .research-page .taxonomy-table td:nth-of-type(1)::before{content:"STORED / EXPRESSED VARIABLE"}
-  .research-page .taxonomy-table td:nth-of-type(2)::before{content:"READ OBSERVABLE"}
-  .research-page .taxonomy-table td:nth-of-type(3)::before{content:"POWER-OFF STATE"}
-  .research-page .taxonomy-table td:nth-of-type(4)::before{content:"PHYSICAL AVENUES"}
-  .research-page .attack-table td:nth-of-type(1)::before{content:"SRAM / SRAM PUF"}
-  .research-page .attack-table td:nth-of-type(2)::before{content:"PERSISTENT OTP / OTP-PUF"}
-  .research-page .attack-table td:nth-of-type(3)::before{content:"SECURE STORAGE CONSEQUENCE"}
+.site-breadcrumb a { color: #63e6de; text-decoration: none; }
+.site-breadcrumb a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.site-breadcrumb i { width: 18px; height: 1px; background: #36515d; }
+.site-breadcrumb strong { color: #e9f4f5; font-weight: 650; }
+.topic-switch { margin-left: auto; display: flex; gap: 7px; }
+.topic-switch a {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border: 1px solid rgba(116, 216, 218, 0.2);
+  color: #b8ccd3;
+  font-size: var(--font-fluid-2xs);
 }
-@media(max-width:1050px){
-  .control-matrix{display:grid;gap:10px;overflow:visible!important;border:0;box-shadow:none!important}
-  .control-matrix .matrix-row.head{display:none}
-  .control-matrix .matrix-row{display:block;min-width:0;border:1px solid #aeb7b2;background:#e6e1d8}
-  .control-matrix .matrix-row>*{display:block;padding:13px 16px;border:0;border-bottom:1px solid #c3c8c3;font-size:.82rem}
-  .control-matrix .matrix-row>*:last-child{border-bottom:0}
-  .control-matrix .matrix-row>b{color:#fff;background:#0f4b54;font:.7rem/1.4 "IBM Plex Mono",monospace;letter-spacing:.08em}
-  .control-matrix .matrix-row span::before{display:block;margin-bottom:5px;color:#485c5c;font:.58rem/1.3 "IBM Plex Mono",monospace;letter-spacing:.09em}
-  .control-matrix .matrix-row span:nth-of-type(1)::before{content:"CLAIM"}
-  .control-matrix .matrix-row span:nth-of-type(2)::before{content:"TEST"}
-  .control-matrix .matrix-row span:nth-of-type(3)::before{content:"EXPECTED EVIDENCE"}
-  .control-matrix .matrix-row span:nth-of-type(4)::before{content:"LIMIT"}
+.topic-switch a[aria-current="page"] {
+  border-color: #1bcbd0;
+  color: #72ede6;
+  background: rgba(27, 203, 208, 0.08);
+}
+
+@media (max-width: 1320px) {
+  .site-header { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .primary-nav.open {
+    top: 100% !important;
+    inset-inline: 0 !important;
+    bottom: auto !important;
+    max-height: calc(100dvh - var(--shell-header));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+@media (max-width: 760px) {
+  .site-breadcrumb { align-items: flex-start; flex-wrap: wrap; padding: 10px 16px; gap: 8px; }
+  .site-breadcrumb > span, .site-breadcrumb > strong { padding-top: 7px; }
+  .site-breadcrumb i { margin-top: 14px; }
+  .topic-switch { order: 5; width: 100%; margin-left: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .topic-switch a { justify-content: center; min-height: 44px; padding: 7px 5px; text-align: center; letter-spacing: 0.07em; font-size: 9px; }
+}
+
+@media (max-width: 1200px) {
+  .research-page .taxonomy-wrap, .research-page .attack-matrix { overflow: visible; }
+  .research-page .taxonomy-table, .research-page .attack-table { min-width: 0; width: 100%; }
+  .research-page .taxonomy-table thead, .research-page .attack-table thead { display: none; }
+  .research-page .taxonomy-table tbody, .research-page .attack-table tbody { display: grid; gap: 12px; }
+  .research-page .taxonomy-table tr, .research-page .attack-table tr {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid rgba(116, 216, 218, 0.2);
+    background: #0a2230;
+    padding: 12px;
+  }
+  .research-page .taxonomy-table td, .research-page .attack-table td {
+    display: grid;
+    grid-template-columns: minmax(98px, 35%) 1fr;
+    gap: 12px;
+    width: 100%;
+    padding: 9px 0;
+    border: 0;
+    border-bottom: 1px solid rgba(116, 216, 218, 0.1);
+    white-space: normal;
+  }
+  .research-page .taxonomy-table td:last-child, .research-page .attack-table td:last-child { border-bottom: 0; }
+  .research-page .taxonomy-table td::before, .research-page .attack-table td::before {
+    content: attr(data-label);
+    color: #61dcd8;
+    font: 600 9px/1.4 "IBM Plex Mono", monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .research-page .taxonomy-table td:nth-of-type(1)::before { content: "STORED / EXPRESSED VARIABLE"; }
+  .research-page .taxonomy-table td:nth-of-type(2)::before { content: "READ OBSERVABLE"; }
+  .research-page .taxonomy-table td:nth-of-type(3)::before { content: "POWER-OFF STATE"; }
+  .research-page .taxonomy-table td:nth-of-type(4)::before { content: "PHYSICAL AVENUES"; }
+  .research-page .attack-table td:nth-of-type(1)::before { content: "SRAM / SRAM PUF"; }
+  .research-page .attack-table td:nth-of-type(2)::before { content: "PERSISTENT OTP / OTP-PUF"; }
+  .research-page .attack-table td:nth-of-type(3)::before { content: "SECURE STORAGE CONSEQUENCE"; }
+}
+
+@media (max-width: 1050px) {
+  .control-matrix { display: grid; gap: 10px; overflow: visible !important; border: 0; box-shadow: none !important; }
+  .control-matrix .matrix-row.head { display: none; }
+  .control-matrix .matrix-row { display: block; min-width: 0; border: 1px solid #aeb7b2; background: #e6e1d8; }
+  .control-matrix .matrix-row > * { display: block; padding: 13px 16px; border: 0; border-bottom: 1px solid #c3c8c3; font-size: 0.82rem; }
+  .control-matrix .matrix-row > *:last-child { border-bottom: 0; }
+  .control-matrix .matrix-row > b { color: #fff; background: #0f4b54; font: 0.7rem/1.4 "IBM Plex Mono", monospace; letter-spacing: 0.08em; }
+  .control-matrix .matrix-row span::before { display: block; margin-bottom: 5px; color: #485c5c; font: 0.58rem/1.3 "IBM Plex Mono", monospace; letter-spacing: 0.09em; }
+  .control-matrix .matrix-row span:nth-of-type(1)::before { content: "CLAIM"; }
+  .control-matrix .matrix-row span:nth-of-type(2)::before { content: "TEST"; }
+  .control-matrix .matrix-row span:nth-of-type(3)::before { content: "EXPECTED EVIDENCE"; }
+  .control-matrix .matrix-row span:nth-of-type(4)::before { content: "LIMIT"; }
 }
 
 /* Global Portfolio Escape Hatch Link */
@@ -57,13 +147,13 @@
   gap: 5px;
   color: #ff9d5c !important;
   font-weight: 750 !important;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   padding: 3px 8px;
   border-radius: 3px;
   background: rgba(255, 157, 92, 0.1);
   border: 1px solid rgba(255, 157, 92, 0.25);
   text-decoration: none;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 .portfolio-back-link:hover {
   background: rgba(255, 157, 92, 0.2);
@@ -72,22 +162,22 @@
   box-shadow: 0 0 10px rgba(255, 157, 92, 0.3);
 }
 
-/* Round 2 Visual Aesthetics & Glassmorphic Elevation */
-.evidence-card, .correction-card, .topology-card, .blueprint-card, .assurance-card {
+/* Glassmorphic Elevation & Metallic Micro-Borders */
+.evidence-card, .correction-card, .topology-card, .blueprint-card, .assurance-card, .metallic-card {
   position: relative;
-  background: linear-gradient(145deg, rgba(10, 34, 48, 0.85) 0%, rgba(6, 23, 34, 0.95) 100%) !important;
-  border: 1px solid rgba(0, 240, 255, 0.15) !important;
+  background: var(--silicon-card) !important;
+  border: var(--metallic-border) !important;
   border-radius: 8px !important;
   padding: 24px !important;
   backdrop-filter: blur(12px) !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: var(--metallic-bevel), 0 4px 20px rgba(0, 0, 0, 0.3) !important;
 }
 
-.evidence-card:hover, .correction-card:hover, .topology-card:hover, .blueprint-card:hover, .assurance-card:hover {
-  border-color: rgba(0, 240, 255, 0.4) !important;
+.evidence-card:hover, .correction-card:hover, .topology-card:hover, .blueprint-card:hover, .assurance-card:hover, .metallic-card:hover {
+  border-color: rgba(0, 240, 255, 0.45) !important;
   transform: translateY(-3px) !important;
-  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.12) !important;
+  box-shadow: var(--metallic-bevel), 0 10px 30px rgba(0, 240, 255, 0.15) !important;
 }
 
 .formula-box {
@@ -107,48 +197,251 @@
   border: 1px solid rgba(0, 240, 255, 0.2);
   color: #38bdf8;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.72rem;
+  font-size: var(--font-fluid-2xs);
   font-weight: 600;
   border-radius: 3px;
   margin-right: 6px;
   margin-top: 6px;
 }
 
-/* Round 4 Silicon Tech Design System 2.0 */
-.circuit-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.12) 0%, transparent 70%);
-}
-
-.chip-badge-gold {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 3px 8px;
-  border-radius: 4px;
-  background: rgba(255, 184, 0, 0.12);
-  border: 1px solid rgba(255, 184, 0, 0.35);
-  color: #ffb800;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.math-callout {
+/* ==========================================================================
+   Silicon Tech Design System 3.0: Glowing Phosphor Meters & Telemetry HUD
+   ========================================================================== */
+.phosphor-display {
+  background: #020b11;
+  border: 1px solid rgba(0, 240, 255, 0.22);
+  border-radius: 6px;
+  padding: 14px 16px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), var(--metallic-bevel);
   position: relative;
   overflow: hidden;
-  padding: 16px;
-  background: #041421;
-  border-left: 4px solid #00f0ff;
-  border-radius: 0 8px 8px 0;
-  margin: 12px 0;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.math-callout::after {
+.phosphor-display::before {
   content: "";
   position: absolute;
-  top: 0; right: 0;
-  width: 60px; height: 60px;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, transparent 70%);
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.25) 51%);
+  background-size: 100% 4px;
   pointer-events: none;
+  opacity: 0.6;
+}
+
+.phosphor-glow-cyan {
+  color: var(--phosphor-cyan) !important;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.65), 0 0 16px rgba(0, 240, 255, 0.25);
+}
+
+.phosphor-glow-emerald {
+  color: var(--phosphor-emerald) !important;
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.65), 0 0 16px rgba(16, 185, 129, 0.25);
+}
+
+.phosphor-glow-amber {
+  color: var(--phosphor-amber) !important;
+  text-shadow: 0 0 8px rgba(255, 184, 0, 0.65), 0 0 16px rgba(255, 184, 0, 0.25);
+}
+
+.phosphor-glow-coral {
+  color: var(--phosphor-coral) !important;
+  text-shadow: 0 0 8px rgba(255, 140, 66, 0.65), 0 0 16px rgba(255, 140, 66, 0.25);
+}
+
+/* Phosphor Meter Bar */
+.phosphor-meter {
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  margin: 8px 0;
+}
+
+.phosphor-meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00f0ff 0%, #10b981 100%);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Chip Badges */
+.chip-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--font-fluid-2xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.chip-badge.status-pass {
+  background: var(--phosphor-emerald-bg);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: var(--phosphor-emerald);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+}
+
+.chip-badge.status-info {
+  background: var(--phosphor-cyan-bg);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  color: var(--phosphor-cyan);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.15);
+}
+
+.chip-badge.status-warn {
+  background: var(--phosphor-amber-bg);
+  border: 1px solid rgba(255, 184, 0, 0.4);
+  color: var(--phosphor-amber);
+  box-shadow: 0 0 12px rgba(255, 184, 0, 0.15);
+}
+
+/* Segmented Toggle Buttons */
+.tech-btn-group {
+  display: inline-flex;
+  gap: 2px;
+  background: #030e16;
+  padding: 3px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 6px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.tech-btn-group button {
+  background: transparent;
+  border: 0;
+  color: #88a5b1;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--font-fluid-2xs);
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tech-btn-group button:hover {
+  color: #e2f4f7;
+  background: rgba(0, 240, 255, 0.06);
+}
+
+.tech-btn-group button.active {
+  background: rgba(0, 240, 255, 0.15);
+  color: #00f0ff;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.25);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+}
+
+/* Interactive Sliders */
+.calc-slider-wrap {
+  margin-bottom: 16px;
+}
+
+.calc-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: var(--font-fluid-xs);
+  color: #88a5b1;
+}
+
+.calc-slider-header strong {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--font-fluid-sm);
+}
+
+.calc-slider-wrap input[type="range"] {
+  width: 100%;
+  height: 6px;
+  background: #041420;
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  accent-color: #00f0ff;
+}
+
+.calc-slider-wrap select {
+  width: 100%;
+  background: #041420;
+  border: 1px solid rgba(0, 240, 255, 0.25);
+  color: #d1e4ec;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: var(--font-fluid-xs);
+  padding: 8px 12px;
+  border-radius: 4px;
+  outline: none;
+}
+
+/* Engineering Suite Container */
+.engineering-suite-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.suite-card {
+  background: var(--silicon-card);
+  border: var(--metallic-border);
+  border-radius: 10px;
+  padding: clamp(20px, 3vw, 32px);
+  position: relative;
+  box-shadow: var(--metallic-bevel), 0 8px 28px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.3s ease;
+}
+
+.suite-card:hover {
+  border-color: rgba(0, 240, 255, 0.35);
+}
+
+.suite-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.12);
+}
+
+.suite-card-header h3 {
+  margin: 0 0 4px;
+  font-family: var(--display, 'IBM Plex Sans', sans-serif);
+  font-size: var(--font-fluid-md);
+  color: #ffffff;
+}
+
+.suite-card-header p {
+  margin: 0;
+  font-size: var(--font-fluid-xs);
+  color: #88a5b1;
+}
+
+.calc-grid-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(280px, 1.2fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .calc-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.readout-quad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
 }

@@ -23,44 +23,98 @@
     "records"
   ],
   "properties": {
-    "schemaVersion": { "const": "1.1" },
-    "packageId": { "const": "AI-NVM-OPPORTUNITIES-2026-08-25" },
-    "titleEn": { "type": "string", "minLength": 1 },
-    "titleZh": { "type": "string", "minLength": 1 },
-    "researchFreeze": { "type": "string", "format": "date" },
+    "schemaVersion": {
+      "const": "1.1"
+    },
+    "packageId": {
+      "const": "AI-NVM-OPPORTUNITIES-2026-08-25"
+    },
+    "titleEn": {
+      "type": "string",
+      "minLength": 1
+    },
+    "titleZh": {
+      "type": "string",
+      "minLength": 1
+    },
+    "researchFreeze": {
+      "type": "string",
+      "format": "date"
+    },
     "sourceDocument": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["title", "version", "date", "sha256"],
+      "required": [
+        "title",
+        "version",
+        "date",
+        "sha256"
+      ],
       "properties": {
-        "title": { "type": "string", "minLength": 1 },
-        "version": { "type": "string", "minLength": 1 },
-        "date": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$" },
-        "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "date": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$"
+        }
       }
     },
-    "centralThesisEn": { "type": "string", "minLength": 1 },
-    "centralThesisZh": { "type": "string", "minLength": 1 },
-    "criticalBoundaryEn": { "type": "string", "minLength": 1 },
-    "criticalBoundaryZh": { "type": "string", "minLength": 1 },
-    "copilotAnswerRuleEn": { "type": "string", "minLength": 1 },
-    "copilotAnswerRuleZh": { "type": "string", "minLength": 1 },
+    "centralThesisEn": {
+      "type": "string",
+      "minLength": 1
+    },
+    "centralThesisZh": {
+      "type": "string",
+      "minLength": 1
+    },
+    "criticalBoundaryEn": {
+      "type": "string",
+      "minLength": 1
+    },
+    "criticalBoundaryZh": {
+      "type": "string",
+      "minLength": 1
+    },
+    "copilotAnswerRuleEn": {
+      "type": "string",
+      "minLength": 1
+    },
+    "copilotAnswerRuleZh": {
+      "type": "string",
+      "minLength": 1
+    },
     "evidenceClassDefinitions": {
       "type": "array",
       "minItems": 5,
       "maxItems": 5,
-      "items": { "$ref": "#/$defs/evidenceClassDefinition" }
+      "items": {
+        "$ref": "#/$defs/evidenceClassDefinition"
+      }
     },
     "researchInputs": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/$defs/researchInput" }
+      "items": {
+        "$ref": "#/$defs/researchInput"
+      }
     },
     "records": {
       "type": "array",
       "minItems": 27,
-      "maxItems": 27,
-      "items": { "$ref": "#/$defs/record" }
+      "maxItems": 40,
+      "items": {
+        "$ref": "#/$defs/record"
+      }
     }
   },
   "$defs": {
@@ -76,13 +130,33 @@
     "evidenceClassDefinition": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["code", "labelEn", "labelZh", "definitionEn", "definitionZh"],
+      "required": [
+        "code",
+        "labelEn",
+        "labelZh",
+        "definitionEn",
+        "definitionZh"
+      ],
       "properties": {
-        "code": { "$ref": "#/$defs/evidenceClass" },
-        "labelEn": { "type": "string", "minLength": 1 },
-        "labelZh": { "type": "string", "minLength": 1 },
-        "definitionEn": { "type": "string", "minLength": 1 },
-        "definitionZh": { "type": "string", "minLength": 1 }
+        "code": {
+          "$ref": "#/$defs/evidenceClass"
+        },
+        "labelEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "labelZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "definitionEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "definitionZh": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "researchInput": {
@@ -111,29 +185,82 @@
         "hypotheses"
       ],
       "properties": {
-        "inputId": { "type": "string", "pattern": "^AI-NVM-INPUT-[A-Z0-9]+-[0-9]{3}$" },
-        "title": { "type": "string", "minLength": 1 },
-        "origin": { "type": "string", "minLength": 1 },
-        "format": { "const": "PDF" },
-        "pageCount": { "type": "integer", "minimum": 1 },
-        "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
-        "suppliedDate": { "type": "string", "format": "date" },
-        "classification": { "const": "Public" },
-        "status": { "const": "UNVERIFIED_SYNTHESIS" },
-        "citationStatus": { "const": "PRIMARY_SOURCES_NOT_DISCLOSED" },
-        "publicationStatus": { "const": "RESEARCH_INTAKE_ONLY" },
-        "canonicalRecordEligible": { "const": false },
-        "sourceLocator": { "type": "string", "minLength": 1 },
-        "evidenceDispositionEn": { "type": "string", "minLength": 1 },
-        "evidenceDispositionZh": { "type": "string", "minLength": 1 },
-        "permittedUseEn": { "type": "string", "minLength": 1 },
-        "permittedUseZh": { "type": "string", "minLength": 1 },
-        "excludedUseEn": { "type": "string", "minLength": 1 },
-        "excludedUseZh": { "type": "string", "minLength": 1 },
+        "inputId": {
+          "type": "string",
+          "pattern": "^AI-NVM-INPUT-[A-Z0-9]+-[0-9]{3}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "origin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "format": {
+          "const": "PDF"
+        },
+        "pageCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "suppliedDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "classification": {
+          "const": "Public"
+        },
+        "status": {
+          "const": "UNVERIFIED_SYNTHESIS"
+        },
+        "citationStatus": {
+          "const": "PRIMARY_SOURCES_NOT_DISCLOSED"
+        },
+        "publicationStatus": {
+          "const": "RESEARCH_INTAKE_ONLY"
+        },
+        "canonicalRecordEligible": {
+          "const": false
+        },
+        "sourceLocator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidenceDispositionEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidenceDispositionZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "permittedUseEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "permittedUseZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "excludedUseEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "excludedUseZh": {
+          "type": "string",
+          "minLength": 1
+        },
         "hypotheses": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/$defs/researchHypothesis" }
+          "items": {
+            "$ref": "#/$defs/researchHypothesis"
+          }
         }
       }
     },
@@ -160,28 +287,73 @@
         "proofModeEligible"
       ],
       "properties": {
-        "hypothesisId": { "type": "string", "pattern": "^AI-NVM-HYP-[A-Z0-9]+-[0-9]{3}$" },
-        "titleEn": { "type": "string", "minLength": 1 },
-        "titleZh": { "type": "string", "minLength": 1 },
-        "status": { "const": "VALIDATION_NEEDED" },
-        "evidenceClass": { "const": "VALIDATION_NEEDED" },
-        "assuranceMaturity": { "const": "Open" },
-        "statementEn": { "type": "string", "minLength": 1 },
-        "statementZh": { "type": "string", "minLength": 1 },
-        "excludedClaimEn": { "type": "string", "minLength": 1 },
-        "excludedClaimZh": { "type": "string", "minLength": 1 },
-        "validationNeededEn": { "type": "string", "minLength": 1 },
-        "validationNeededZh": { "type": "string", "minLength": 1 },
-        "sourceLocator": { "type": "string", "minLength": 1 },
+        "hypothesisId": {
+          "type": "string",
+          "pattern": "^AI-NVM-HYP-[A-Z0-9]+-[0-9]{3}$"
+        },
+        "titleEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "titleZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "const": "VALIDATION_NEEDED"
+        },
+        "evidenceClass": {
+          "const": "VALIDATION_NEEDED"
+        },
+        "assuranceMaturity": {
+          "const": "Open"
+        },
+        "statementEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "statementZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "excludedClaimEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "excludedClaimZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validationNeededEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validationNeededZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceLocator": {
+          "type": "string",
+          "minLength": 1
+        },
         "relatedRecordIds": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": { "type": "string", "pattern": "^AI-NVM-[A-Za-z0-9]+-[0-9]{3}$" }
+          "items": {
+            "type": "string",
+            "pattern": "^AI-NVM-[A-Za-z0-9]+-[0-9]{3}$"
+          }
         },
-        "isInference": { "const": true },
-        "canonicalRecordEligible": { "const": false },
-        "proofModeEligible": { "const": false }
+        "isInference": {
+          "const": true
+        },
+        "canonicalRecordEligible": {
+          "const": false
+        },
+        "proofModeEligible": {
+          "const": false
+        }
       }
     },
     "record": {
@@ -230,11 +402,32 @@
         "proofModeEligible"
       ],
       "properties": {
-        "recordId": { "type": "string", "pattern": "^AI-NVM-[A-Za-z0-9]+-[0-9]{3}$" },
-        "titleEn": { "type": "string", "minLength": 1 },
-        "titleZh": { "type": "string", "minLength": 1 },
+        "recordId": {
+          "type": "string",
+          "pattern": "^AI-NVM-[A-Za-z0-9]+-[0-9]{3}$"
+        },
+        "titleEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "titleZh": {
+          "type": "string",
+          "minLength": 1
+        },
         "contentType": {
-          "enum": ["Requirement", "Proof Case", "Vendor Capability", "Architecture Inference", "Validation Gate"]
+          "enum": [
+            "Requirement",
+            "Proof Case",
+            "Vendor Capability",
+            "Architecture Inference",
+            "Validation Gate",
+            "Architecture Analysis",
+            "Product Requirement",
+            "Qualification Standard",
+            "Physical Qualification",
+            "Standards Architecture",
+            "Physical Foundation"
+          ]
         },
         "topic": {
           "enum": [
@@ -245,7 +438,14 @@
             "Power Management",
             "Interconnect",
             "NVM Selection",
-            "Advanced-Node NVM"
+            "Advanced-Node NVM",
+            "Datacenter AI & LLM Security",
+            "Chiplet & Advanced Packaging",
+            "Edge AI & Robotics",
+            "Automotive & Functional Safety",
+            "Space & Defense Electronics",
+            "Post-Quantum Cryptography",
+            "Advanced Foundry Nodes (N2/A16)"
           ]
         },
         "asset": {
@@ -258,61 +458,194 @@
             "Boot Configuration",
             "Lifecycle Policy",
             "Management Configuration",
-            "Persistent State"
+            "Persistent State",
+            "Model Weights & KV Cache Keys",
+            "Die Identity & D2D Session Keys",
+            "Edge SLM Weights & Device Identity",
+            "Safety Calibration & Cryptographic Keys",
+            "Mission Critical Keys & Boot Identity",
+            "Post-Quantum Roots of Trust & Public Certificates",
+            "N2 Transistor Startup Mismatch Entropy"
           ]
         },
         "attackClass": {
           "type": "array",
           "uniqueItems": true,
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
         "lifecyclePhase": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
           "items": {
-            "enum": ["Manufacturing", "Provisioning", "Boot", "Runtime", "Service", "Update", "Attestation", "Retirement"]
+            "enum": [
+              "Manufacturing",
+              "Provisioning",
+              "Boot",
+              "Runtime",
+              "Service",
+              "Update",
+              "Attestation",
+              "Retirement"
+            ]
           }
         },
-        "claimEn": { "type": "string", "minLength": 1 },
-        "claimZh": { "type": "string", "minLength": 1 },
+        "claimEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claimZh": {
+          "type": "string",
+          "minLength": 1
+        },
         "claimStatus": {
-          "enum": ["Public Requirement", "First-party Case", "Vendor Claim", "Analyst Inference", "Validation Needed"]
+          "enum": [
+            "Public Requirement",
+            "First-party Case",
+            "Vendor Claim",
+            "Analyst Inference",
+            "Validation Needed",
+            "Architecture Specification",
+            "Standards Alignment",
+            "Public Architecture",
+            "Standard Compliance",
+            "Standard Specification",
+            "Foundry Architecture"
+          ]
         },
-        "evidenceClass": { "$ref": "#/$defs/evidenceClass" },
+        "evidenceClass": {
+          "$ref": "#/$defs/evidenceClass"
+        },
         "assuranceMaturity": {
-          "enum": ["Specified", "Demonstrated", "Vendor-stated", "Hypothesis", "Open"]
+          "enum": [
+            "Specified",
+            "Demonstrated",
+            "Vendor-stated",
+            "Hypothesis",
+            "Open",
+            "Field-proven",
+            "Certified"
+          ]
         },
-        "scope": { "enum": ["IP", "Component", "Subsystem", "SoC", "Device", "Platform", "Ecosystem"] },
-        "applicabilityEn": { "type": "string", "minLength": 1 },
-        "applicabilityZh": { "type": "string", "minLength": 1 },
-        "limitationEn": { "type": "string", "minLength": 1 },
-        "limitationZh": { "type": "string", "minLength": 1 },
-        "openQuestionEn": { "type": "string", "minLength": 1 },
-        "openQuestionZh": { "type": "string", "minLength": 1 },
+        "scope": {
+          "enum": [
+            "IP",
+            "Component",
+            "Subsystem",
+            "SoC",
+            "Device",
+            "Platform",
+            "Ecosystem",
+            "SoC / Accelerator",
+            "Chiplet Subsystem",
+            "Edge SoC",
+            "Automotive SoC",
+            "Aerospace SoC",
+            "SoC Root of Trust",
+            "N2 GAA Bitcell"
+          ]
+        },
+        "applicabilityEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "applicabilityZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "limitationEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "limitationZh": {
+          "type": "string",
+          "minLength": 1
+        },
+        "openQuestionEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "openQuestionZh": {
+          "type": "string",
+          "minLength": 1
+        },
         "sourceUrl": {
           "oneOf": [
-            { "type": "string", "format": "uri" },
-            { "type": "null" }
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "type": "null"
+            }
           ]
         },
-        "sourceOwner": { "type": "string", "minLength": 1 },
-        "sourceLocator": { "type": "string", "minLength": 1 },
+        "sourceOwner": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceLocator": {
+          "type": "string",
+          "minLength": 1
+        },
         "publishedDate": {
           "oneOf": [
-            { "type": "string", "format": "date" },
-            { "type": "null" }
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "null"
+            }
           ]
         },
-        "reviewedDate": { "type": "string", "format": "date" },
-        "owner": { "type": "string", "minLength": 1 },
-        "classification": { "const": "Public" },
-        "audience": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
-        "presentationRole": {
-          "enum": ["System Need", "Proof Case", "Competitive Boundary", "Opportunity", "Validation Gate"]
+        "reviewedDate": {
+          "type": "string",
+          "format": "date"
         },
-        "oipRelevanceEn": { "type": "string", "minLength": 1 },
-        "oipRelevanceZh": { "type": "string", "minLength": 1 },
+        "owner": {
+          "type": "string",
+          "minLength": 1
+        },
+        "classification": {
+          "const": "Public"
+        },
+        "audience": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "presentationRole": {
+          "enum": [
+            "System Need",
+            "Proof Case",
+            "Competitive Boundary",
+            "Opportunity",
+            "Validation Gate",
+            "Strategic Architecture",
+            "Interconnect Security",
+            "Market Solution",
+            "Compliance Foundation",
+            "Mission Critical Assurance",
+            "Future-Proof Security",
+            "Foundry Frontier"
+          ]
+        },
+        "oipRelevanceEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "oipRelevanceZh": {
+          "type": "string",
+          "minLength": 1
+        },
         "systemLayer": {
           "enum": [
             "Photonic Engine",
@@ -321,10 +654,30 @@
             "Memory Repair",
             "Power Management",
             "Interconnect & Protocol",
-            "Cross-layer"
+            "Cross-layer",
+            "Compute & Memory Controller",
+            "Die-to-Die Interconnect",
+            "Edge SoC Security Subsystem",
+            "Automotive Safety Controller",
+            "Radiation-Hardened Security Controller",
+            "Cryptographic Subsystem",
+            "CMOS Logic Bitcell Layer"
           ]
         },
-        "persistenceClass": { "enum": ["Immutable", "Bounded Mutable", "High-rate Stream", "External / Bulk", "Unspecified"] },
+        "persistenceClass": {
+          "enum": [
+            "Immutable",
+            "Bounded Mutable",
+            "High-rate Stream",
+            "External / Bulk",
+            "Unspecified",
+            "Absent at Rest (Ephemeral PUF Root + Ciphertext OTP)",
+            "Absent at Rest",
+            "Immutable / Bounded Calibration",
+            "Immutable Physical Breakdown",
+            "Absent at Rest (PUF Seed + Encrypted OTP)"
+          ]
+        },
         "storageCandidate": {
           "type": "array",
           "minItems": 1,
@@ -339,23 +692,53 @@
               "Embedded MRAM / RRAM",
               "External Flash / Host Storage",
               "Volatile State",
-              "Not Specified"
+              "Not Specified",
+              "SRAM PUF + AES-256 + AntiFuse OTP",
+              "SRAM PUF + Secure APB Controller",
+              "SRAM PUF + 1T AntiFuse OTP + AES-256",
+              "SRAM PUF + 1T AntiFuse OTP",
+              "1T AntiFuse OTP + TMR Logic",
+              "SRAM PUF + 32Kb AntiFuse OTP + SHAKE-256 Engine",
+              "Standard CMOS GAA SRAM Cell",
+              "SRAM PUF + High-Speed APB Interface"
             ]
           }
         },
         "opportunityStatus": {
-          "enum": ["Source Requirement", "First-party Proof Case", "Vendor Envelope", "Architecture Inference", "Validation Gate"]
+          "enum": [
+            "Source Requirement",
+            "First-party Proof Case",
+            "Vendor Envelope",
+            "Architecture Inference",
+            "Validation Gate",
+            "Architecture Opportunity",
+            "Market Opportunity",
+            "Silicon Proven"
+          ]
         },
-        "evidenceBoundaryEn": { "type": "string", "minLength": 1 },
-        "evidenceBoundaryZh": { "type": "string", "minLength": 1 },
+        "evidenceBoundaryEn": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidenceBoundaryZh": {
+          "type": "string",
+          "minLength": 1
+        },
         "chapterRefs": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
-          "items": { "type": "string", "pattern": "^(0[1-9]|10)$" }
+          "items": {
+            "type": "string",
+            "pattern": "^(0[1-9]|10)$"
+          }
         },
-        "isInference": { "type": "boolean" },
-        "proofModeEligible": { "type": "boolean" }
+        "isInference": {
+          "type": "boolean"
+        },
+        "proofModeEligible": {
+          "type": "boolean"
+        }
       }
     }
   }
