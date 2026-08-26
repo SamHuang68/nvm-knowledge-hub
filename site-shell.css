@@ -49,3 +49,25 @@
   .control-matrix .matrix-row span:nth-of-type(3)::before{content:"EXPECTED EVIDENCE"}
   .control-matrix .matrix-row span:nth-of-type(4)::before{content:"LIMIT"}
 }
+
+/* Global Portfolio Escape Hatch Link */
+.portfolio-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #ff9d5c !important;
+  font-weight: 750 !important;
+  letter-spacing: .08em;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: rgba(255, 157, 92, 0.1);
+  border: 1px solid rgba(255, 157, 92, 0.25);
+  text-decoration: none;
+  transition: all .2s ease;
+}
+.portfolio-back-link:hover {
+  background: rgba(255, 157, 92, 0.2);
+  color: #ffb885 !important;
+  text-decoration: none !important;
+  box-shadow: 0 0 10px rgba(255, 157, 92, 0.3);
+}

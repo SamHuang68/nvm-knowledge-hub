@@ -38,6 +38,7 @@
   </header>
 
   <nav class="site-breadcrumb" aria-label="Breadcrumb">
+    <a class="portfolio-back-link" href="https://samhuang68.github.io/#work" title="Return to Sam Huang Portfolio">← PORTFOLIO</a><i></i>
     <a href="index.html">Knowledge Hub</a><i></i><a href="secure-storage.html">Secure Storage</a><i></i><strong>Memory Physics</strong>
     <span class="topic-switch"><a href="index.html#topics">All Topics</a><a aria-current="page" href="secure-storage.html">Secure Storage</a><a href="ai-nvm-opportunities.html">AI Systems</a></span>
   </nav>
@@ -332,6 +333,51 @@
         <a class="button ghost" href="secure-storage.html"><span data-lang="zh">返回 Secure Storage</span><span data-lang="en">Return to Secure Storage</span></a>
       </section>
     </div>
+  
+      <!-- Deep Physics Formulation: Dielectric Breakdown, PVC & Fuzzy Extractor Bounds -->
+      <section id="physics-equations" class="paper-section reveal" aria-labelledby="physics-eq-title">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">02B · MICRO-PHYSICS & INFORMATION THEORY</p><h2 id="physics-eq-title"><span data-lang="zh">微觀物理模型與<br><em>資訊理論安全邊界。</em></span><span data-lang="en">Microscopic Physics Models &amp;<br><em>Information-Theoretic Security.</em></span></h2></div>
+          <p><span data-lang="zh">從氧化層擊穿逾滲模型、被動電壓對比 (PVC) 二次電子產額，到 Fuzzy Extractor 的最小熵損耗定理。</span><span data-lang="en">From oxide percolation breakdown kinetics and PVC secondary-electron yield to the Fuzzy Extractor leftover hash lemma bound.</span></p>
+        </div>
+
+        <div class="evidence-grid">
+          <article class="evidence-card">
+            <small>DIELECTRIC BREAKDOWN KINETICS</small>
+            <h3><span data-lang="zh">TDDB 逾滲模型 (Percolation Model)</span><span data-lang="en">TDDB Percolation Kinetics</span></h3>
+            <p><span data-lang="zh">閘極氧化層在 $V_{prog}$ 高場應力下生成中性電子陷阱。當陷阱密度達到臨界值 $N_{bd}$ 時引發熱失控，形成 Si 奈米導電絲：</span><span data-lang="en">Under programming stress, traps accumulate in the gate oxide until reaching critical density $N_{bd}$, triggering thermal runaway to form silicon filaments:</span></p>
+            <div class="formula-box" style="background:#041520;border:1px solid rgba(0,240,255,0.25);padding:12px;border-radius:4px;font-family:'IBM Plex Mono',monospace;color:#00f0ff;margin:10px 0;font-size:0.85rem;">
+              t_BD &prop; exp(-&gamma; E) &middot; exp(E_a / k_B T)<br>
+              R_on &approx; 10^3 ~ 10^5 &Omega; &nbsp;|&nbsp; R_off &gt; 10^12 &Omega; (Switching Ratio &gt; 10^7)
+            </div>
+            <p><span data-lang="zh">已編程微絲形成永久低阻抗歐姆路徑，未編程 cell 維持超高阻抗，造就極高讀取噪訊容限。</span><span data-lang="en">Filament formation creates a permanent low-impedance path with &gt;10^7 on/off ratio, providing extreme read margins.</span></p>
+          </article>
+
+          <article class="evidence-card">
+            <small>INVASIVE FIB / PVC PHYSICS</small>
+            <h3><span data-lang="zh">PVC 二次電子發射產額 (&delta;)</span><span data-lang="en">PVC Secondary Electron Yield (&delta;)</span></h3>
+            <p><span data-lang="zh">在聚焦離子束 (FIB) 或 SEM 掃描下，二次電子發射產額 &delta; 強烈取決於局部表面靜態電位 $V_s$：</span><span data-lang="en">Under FIB/SEM beam probing, secondary electron emission yield &delta; depends on local surface electrostatic potential $V_s$:</span></p>
+            <div class="formula-box" style="background:#041520;border:1px solid rgba(255,140,66,0.25);padding:12px;border-radius:4px;font-family:'IBM Plex Mono',monospace;color:#ff8c42;margin:10px 0;font-size:0.85rem;">
+              &delta; = I_SE / I_PE &nbsp;&prop;&nbsp; f(V_s)<br>
+              Programmed Cell: V_s &approx; 0V &rarr; &delta; High (Bright Contrast)<br>
+              Unprogrammed Cell: V_s &gt; 0V &rarr; &delta; Low (Dark Contrast)
+            </div>
+            <p><span data-lang="zh">RP2350 實證：物理擊穿孔在顯微鏡下呈可見亮點。<strong>OTP 唯讀密文 &ne; 可用根金鑰</strong>是唯一防線。</span><span data-lang="en">RP2350 proved breakdown bits emit bright contrast under PVC. Cryptographic ciphertext is the only true barrier.</span></p>
+          </article>
+
+          <article class="evidence-card">
+            <small>INFORMATION-THEORETIC SECURITY</small>
+            <h3><span data-lang="zh">模糊提取器殘餘熵定理 (Leftover Hash)</span><span data-lang="en">Fuzzy Extractor Leftover Hash Bound</span></h3>
+            <p><span data-lang="zh">SRAM PUF 透過 Code-Offset 輔助資料 $W = X \oplus c$ 與 Universal Hashing 壓縮，其衍生金鑰 $K$ 滿足資訊理論安全：</span><span data-lang="en">SRAM PUF uses code-offset helper data $W = X \oplus c$ and Universal Hashing, guaranteeing information-theoretic secrecy:</span></p>
+            <div class="formula-box" style="background:#041520;border:1px solid rgba(16,185,129,0.25);padding:12px;border-radius:4px;font-family:'IBM Plex Mono',monospace;color:#10b981;margin:10px 0;font-size:0.85rem;">
+              k &le; H_min(X | W) - 2 &middot; log_2(1 / &epsilon;)<br>
+              I(K; W) &le; &epsilon; &approx; 0 bit (Zero Shannon Mutual Information Leakage)
+            </div>
+            <p><span data-lang="zh">數學證明：即使攻擊者擁有無限算力，亦無法從公開存放的 Activation Code 中還原 256-bit 根金鑰。</span><span data-lang="en">Mathematical proof: Infinite computing power cannot extract the root key from public Activation Code helper data.</span></p>
+          </article>
+        </div>
+      </section>
+
   </main>
 
   <footer>

@@ -41,6 +41,7 @@
   </header>
 
   <nav class="site-breadcrumb" aria-label="Breadcrumb">
+    <a class="portfolio-back-link" href="https://samhuang68.github.io/#work" title="Return to Sam Huang Portfolio">← PORTFOLIO</a><i></i>
     <a href="index.html">Knowledge Hub</a><i></i><strong>AI Systems &amp; NVM</strong>
     <span class="topic-switch"><a href="index.html#topics">All Topics</a><a href="secure-storage.html">Secure Storage</a><a aria-current="page" href="ai-nvm-opportunities.html">AI Systems</a></span>
   </nav>
@@ -625,6 +626,50 @@
         </div>
       </section>
     </div>
+  
+      <!-- Datacenter AI, UCIe Chiplet & Automotive Security Framework -->
+      <section id="ai-chiplet-security" class="ai-section reveal" aria-labelledby="ai-chiplet-title">
+        <div class="ai-section-heading">
+          <p>04 · ADVANCED AI WORKLOADS &amp; CHIPLET SECURITY</p>
+          <h2 id="ai-chiplet-title"><span data-lang="zh">資料中心 LLM、UCIe 晶粒互連與<br><em>車用 ASIL-D 功能安全。</em></span><span data-lang="en">Datacenter LLMs, UCIe Chiplet Fabrics &amp;<br><em>Automotive ASIL-D Safety.</em></span></h2>
+          <span><span data-lang="zh">將 NVM 狀態契約延伸至大規模 AI 加速器、2.5D/3D 高級封裝與車載關鍵任務系統。</span><span data-lang="en">Extending NVM state contracts to datacenter AI clusters, 2.5D/3D chiplet interconnects, and automotive systems.</span></span>
+        </div>
+
+        <div class="blueprint-grid">
+          <article class="blueprint-card">
+            <span class="blueprint-number">01</span>
+            <small>DATACENTER AI &amp; LLM INFERENCE</small>
+            <h3><span data-lang="zh">LLM KV Cache 線速保護與模型權重保險庫</span><span data-lang="en">LLM KV Cache Cipher &amp; Weight Key Vault</span></h3>
+            <p><span data-lang="zh">超大模型推論時，龐大的 KV Cache 溢出至外部 HBM/CXL 記憶體集區。SRAM PUF 於每次開機動態衍生暫態 Session Key，透過硬體 AES-XTS-256 引擎線速防禦實體匯流排側信道與冷啟動攻擊；斷電時金鑰完全消失（Absent-at-Rest）。</span><span data-lang="en">LLM inference offloads huge KV caches to external HBM/CXL. SRAM PUF dynamically generates ephemeral session keys to drive line-speed AES-XTS-256 memory encryption against physical bus snooping and cold-boot extraction.</span></p>
+            <div class="blueprint-tags"><span>AES-XTS-256</span><span>KV CACHE</span><span>HBM/CXL</span><span>TEE ROOT</span></div>
+          </article>
+
+          <article class="blueprint-card">
+            <span class="blueprint-number">02</span>
+            <small>UCIe 2.0 CHIPLET FABRICS</small>
+            <h3><span data-lang="zh">UCIe 晶粒間硬體相互鑑別與 IDE 鏈路加密</span><span data-lang="en">UCIe Die-to-Die Mutual Auth &amp; IDE Binding</span></h3>
+            <p><span data-lang="zh">在 CoWoS / SoIC 異質整合封裝中，各晶粒（Compute, I/O, Base Die）內嵌標準 CMOS 邏輯相容之 SRAM PUF，在互連 Fabric 啟用前執行 UCIe IDE 相互鑑別與會話金鑰協商，徹底杜絕中介層探針（Interposer Probing）與惡意晶粒置換。</span><span data-lang="en">In CoWoS/SoIC packaging, each die embeds a zero-mask SRAM PUF to execute UCIe IDE mutual authentication before opening the fabric, eliminating interposer probing and counterfeit die insertion.</span></p>
+            <div class="blueprint-tags"><span>UCIe 2.0</span><span>CoWoS / SoIC</span><span>D2D IDE</span><span>ZERO MASK</span></div>
+          </article>
+
+          <article class="blueprint-card">
+            <span class="blueprint-number">03</span>
+            <small>EDGE AI &amp; ROBOTICS</small>
+            <h3><span data-lang="zh">邊緣小模型 (SLM) 實體防篡改與瞬時開機</span><span data-lang="en">Edge SLM Anti-Tamper &amp; Instant Boot</span></h3>
+            <p><span data-lang="zh">智慧攝影機與自主移動機器人 (AMR) 暴露於非受控實體環境（RP2350 威脅模型）。採用 TSMC N5/N4P XHF 核心電壓直接讀取 OTP 搭配 SRAM PUF，可在微秒級完成模型解密，待機功耗低於 1&mu;A，並在入侵時觸發單週期清零 (Zeroization)。</span><span data-lang="en">Edge devices operate in hostile environments. Combining TSMC N5/N4P XHF core-supply read OTP with SRAM PUF enables microsecond model decryption, sub-microamp standby leakage, and single-cycle tamper zeroization.</span></p>
+            <div class="blueprint-tags"><span>EDGE SLM</span><span>CORE-SUPPLY READ</span><span>TAMPER ZEROIZATION</span></div>
+          </article>
+
+          <article class="blueprint-card">
+            <span class="blueprint-number">04</span>
+            <small>AUTOMOTIVE &amp; MISSION-CRITICAL</small>
+            <h3><span data-lang="zh">車用 ASIL-D 功能安全與 AEC-Q100 Grade 1</span><span data-lang="en">Automotive ASIL-D Safety &amp; AEC-Q100 Grade 1</span></h3>
+            <p><span data-lang="zh">車載中央運算與 ADAS 晶片要求 ISO 26262 ASIL-D 記憶體控制器（雙核鎖步、端到端 CRC、BIST 自檢），結合 TSMC N7A / N5A 於 -40&deg;C 至 150&deg;C 寬溫域之 15 年高溫資料留存實證，滿足 UN R155/R156 國際車規法規。</span><span data-lang="en">Automotive ADAS SoCs require ISO 26262 ASIL-D memory controllers (lockstep, CRC, BIST) combined with TSMC N7A/N5A -40C to 150C 15-year retention to meet UN R155/R156 regulations.</span></p>
+            <div class="blueprint-tags"><span>ISO 26262 ASIL-D</span><span>AEC-Q100 G1</span><span>TSMC N5A/N7A</span></div>
+          </article>
+        </div>
+      </section>
+
   </main>
 
   <footer class="research-footer">

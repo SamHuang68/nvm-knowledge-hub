@@ -89,7 +89,10 @@
           "validationNeededEn": "Validate platform bills of material, architecture ownership and current product roadmaps by deployment class.",
           "validationNeededZh": "需依部署類型驗證平台 BOM、架構責任歸屬與現行產品 roadmap。",
           "sourceLocator": "PDF pp2-3, 12-13",
-          "relatedRecordIds": ["AI-NVM-INF-002", "AI-NVM-INF-003"],
+          "relatedRecordIds": [
+            "AI-NVM-INF-002",
+            "AI-NVM-INF-003"
+          ],
           "isInference": true,
           "canonicalRecordEligible": false,
           "proofModeEligible": false
@@ -108,7 +111,11 @@
           "validationNeededEn": "Locate the exact standards clauses, official product data and measured write cadence before selecting OTP, MTP or EEPROM.",
           "validationNeededZh": "在選擇 OTP、MTP 或 EEPROM 前，需取得精確標準條文、官方產品資料與實測寫入頻率。",
           "sourceLocator": "PDF pp4, 8",
-          "relatedRecordIds": ["AI-NVM-PMIC-001", "AI-NVM-PMIC-002", "AI-NVM-VENDOR-002"],
+          "relatedRecordIds": [
+            "AI-NVM-PMIC-001",
+            "AI-NVM-PMIC-002",
+            "AI-NVM-VENDOR-002"
+          ],
           "isInference": true,
           "canonicalRecordEligible": false,
           "proofModeEligible": false
@@ -127,7 +134,10 @@
           "validationNeededEn": "Verify the target retimer lifecycle, trim authority, training behavior, update count and recovery-time objective from primary documents.",
           "validationNeededZh": "需由一級文件驗證目標 retimer 的生命週期、trim authority、training 行為、更新次數與 recovery-time objective。",
           "sourceLocator": "PDF pp5, 8",
-          "relatedRecordIds": ["AI-NVM-INF-002", "AI-NVM-VENDOR-001"],
+          "relatedRecordIds": [
+            "AI-NVM-INF-002",
+            "AI-NVM-VENDOR-001"
+          ],
           "isInference": true,
           "canonicalRecordEligible": false,
           "proofModeEligible": false
@@ -146,7 +156,11 @@
           "validationNeededEn": "Validate the target threat model, provisioning flow, debug and DFT exposure, key lifecycle, and certification evidence.",
           "validationNeededZh": "需驗證目標威脅模型、provisioning flow、debug／DFT exposure、key lifecycle 與認證證據。",
           "sourceLocator": "PDF pp6, 10",
-          "relatedRecordIds": ["AI-NVM-SPDM-001", "AI-NVM-GPU-001", "AI-NVM-INF-001"],
+          "relatedRecordIds": [
+            "AI-NVM-SPDM-001",
+            "AI-NVM-GPU-001",
+            "AI-NVM-INF-001"
+          ],
           "isInference": true,
           "canonicalRecordEligible": false,
           "proofModeEligible": false
@@ -165,7 +179,12 @@
           "validationNeededEn": "Measure target defect distributions, spare topology, program envelope, repair-event count, retention and attestation coherence.",
           "validationNeededZh": "需量測目標 defect distribution、spare topology、program envelope、repair event count、retention 與 attestation coherence。",
           "sourceLocator": "PDF p7",
-          "relatedRecordIds": ["AI-NVM-BISR-001", "AI-NVM-GPU-002", "AI-NVM-GPU-003", "AI-NVM-INF-002"],
+          "relatedRecordIds": [
+            "AI-NVM-BISR-001",
+            "AI-NVM-GPU-002",
+            "AI-NVM-GPU-003",
+            "AI-NVM-INF-002"
+          ],
           "isInference": true,
           "canonicalRecordEligible": false,
           "proofModeEligible": false
@@ -182,7 +201,10 @@
       "topic": "Photonics & CPO",
       "asset": "Management Configuration",
       "attackClass": [],
-      "lifecyclePhase": ["Runtime", "Service"],
+      "lifecyclePhase": [
+        "Runtime",
+        "Service"
+      ],
       "claimEn": "The architecture standardizes a management and telemetry contract while leaving internal sensors, firmware and diagnostics as implementation choices.",
       "claimZh": "此架構將管理與遙測介面標準化，同時把內部感測器、韌體與診斷機制保留為實作選擇。",
       "claimStatus": "Public Requirement",
@@ -202,17 +224,28 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "Photonics/CPO Teams", "NVM IP Teams", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "Photonics/CPO Teams",
+        "NVM IP Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "System Need",
       "oipRelevanceEn": "Extends the secure-storage abstraction from a memory macro into a governed platform-management boundary.",
       "oipRelevanceZh": "把安全儲存抽象從記憶體巨集延伸到受治理的平台管理邊界。",
       "systemLayer": "Platform Management",
       "persistenceClass": "Unspecified",
-      "storageCandidate": ["Not Specified"],
+      "storageCandidate": [
+        "Not Specified"
+      ],
       "opportunityStatus": "Source Requirement",
       "evidenceBoundaryEn": "The source establishes the interface contract, not a persistent-memory implementation.",
       "evidenceBoundaryZh": "來源建立的是介面契約，而非持久記憶體實作。",
-      "chapterRefs": ["02", "05", "10"],
+      "chapterRefs": [
+        "02",
+        "05",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -224,7 +257,10 @@
       "topic": "Platform RAS",
       "asset": "Telemetry Evidence",
       "attackClass": [],
-      "lifecyclePhase": ["Runtime", "Service"],
+      "lifecyclePhase": [
+        "Runtime",
+        "Service"
+      ],
       "claimEn": "Diagnostics span optical power, laser bias/temperature, wavelength, BER/FEC and link history across multiple fault domains.",
       "claimZh": "診斷範圍涵蓋光功率、雷射偏壓與溫度、波長、BER/FEC，以及跨多個故障域的鏈路歷史。",
       "claimStatus": "Public Requirement",
@@ -244,17 +280,29 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "Photonics/CPO Teams", "RAS Teams", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "Photonics/CPO Teams",
+        "RAS Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "System Need",
       "oipRelevanceEn": "Frames operational evidence as a separate layer from immutable trust and bounded configuration state.",
       "oipRelevanceZh": "把營運證據與不可變信任及有限次更新的設定狀態清楚分層。",
       "systemLayer": "Platform Management",
       "persistenceClass": "High-rate Stream",
-      "storageCandidate": ["Not Specified"],
+      "storageCandidate": [
+        "Not Specified"
+      ],
       "opportunityStatus": "Source Requirement",
       "evidenceBoundaryEn": "The source requires observability but does not select an event-retention medium.",
       "evidenceBoundaryZh": "來源要求可觀測性，但沒有指定事件保存媒介。",
-      "chapterRefs": ["02", "05", "09", "10"],
+      "chapterRefs": [
+        "02",
+        "05",
+        "09",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -265,8 +313,19 @@
       "contentType": "Requirement",
       "topic": "Security & Trust",
       "asset": "Firmware State",
-      "attackClass": ["Firmware substitution", "Rollback", "Management-plane impersonation", "Optical tamper"],
-      "lifecyclePhase": ["Provisioning", "Boot", "Update", "Attestation", "Service"],
+      "attackClass": [
+        "Firmware substitution",
+        "Rollback",
+        "Management-plane impersonation",
+        "Optical tamper"
+      ],
+      "lifecyclePhase": [
+        "Provisioning",
+        "Boot",
+        "Update",
+        "Attestation",
+        "Service"
+      ],
       "claimEn": "Signed firmware updates, version reporting and rollback are lifecycle topics; authentication, tamper detection and credential provisioning remain incomplete.",
       "claimZh": "簽署韌體更新、版本回報與回復機制屬於生命週期議題；身分驗證、篡改偵測與憑證佈建仍未完成規格化。",
       "claimStatus": "Public Requirement",
@@ -286,17 +345,28 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "Product Security", "Firmware Teams", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "Product Security",
+        "Firmware Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "System Need",
       "oipRelevanceEn": "Creates a direct bridge from secure-storage primitives to firmware integrity, anti-rollback and credential lifecycle.",
       "oipRelevanceZh": "把安全儲存原語直接連結到韌體完整性、防回復與憑證生命週期。",
       "systemLayer": "Security & Trust",
       "persistenceClass": "Bounded Mutable",
-      "storageCandidate": ["Not Specified"],
+      "storageCandidate": [
+        "Not Specified"
+      ],
       "opportunityStatus": "Source Requirement",
       "evidenceBoundaryEn": "The source identifies unfinished security requirements; it does not endorse a storage technology.",
       "evidenceBoundaryZh": "來源指出尚未完成的安全需求，但沒有背書任何儲存技術。",
-      "chapterRefs": ["02", "07", "10"],
+      "chapterRefs": [
+        "02",
+        "07",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -308,7 +378,11 @@
       "topic": "Photonics & CPO",
       "asset": "Calibration Profile",
       "attackClass": [],
-      "lifecyclePhase": ["Manufacturing", "Runtime", "Service"],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Runtime",
+        "Service"
+      ],
       "claimEn": "Ring-resonator wavelength can drift about 80 pm/K and requires thermal control.",
       "claimZh": "環形諧振器的波長可能約以 80 pm/K 漂移，因此需要熱控制。",
       "claimStatus": "Public Requirement",
@@ -328,17 +402,29 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["Photonics/CPO Teams", "Analog/Mixed-Signal Teams", "NVM IP Teams", "SharePoint Copilot"],
+      "audience": [
+        "Photonics/CPO Teams",
+        "Analog/Mixed-Signal Teams",
+        "NVM IP Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "System Need",
       "oipRelevanceEn": "Provides the strongest PDF-grounded path from photonic physics to a bounded persistent calibration hypothesis.",
       "oipRelevanceZh": "提供從光子物理連結到有限次持久校準假設的最直接 PDF 證據。",
       "systemLayer": "Photonic Engine",
       "persistenceClass": "Unspecified",
-      "storageCandidate": ["Not Specified"],
+      "storageCandidate": [
+        "Not Specified"
+      ],
       "opportunityStatus": "Source Requirement",
       "evidenceBoundaryEn": "The source establishes drift and thermal control only; persistence is a downstream design decision.",
       "evidenceBoundaryZh": "來源只建立漂移與熱控制需求；是否持久化是後續設計決策。",
-      "chapterRefs": ["03", "05", "06", "10"],
+      "chapterRefs": [
+        "03",
+        "05",
+        "06",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -350,7 +436,10 @@
       "topic": "Platform RAS",
       "asset": "Management Configuration",
       "attackClass": [],
-      "lifecyclePhase": ["Runtime", "Service"],
+      "lifecyclePhase": [
+        "Runtime",
+        "Service"
+      ],
       "claimEn": "OCP RAS API endpoints expose discovery, configuration, reporting, action and event queues.",
       "claimZh": "OCP RAS API 端點提供探索、設定、回報、動作與事件佇列能力。",
       "claimStatus": "Public Requirement",
@@ -370,17 +459,29 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "RAS Teams", "Platform Management", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "RAS Teams",
+        "Platform Management",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "System Need",
       "oipRelevanceEn": "Gives Copilot and SharePoint a source-backed management contract without inventing an embedded-NVM requirement.",
       "oipRelevanceZh": "為 Copilot 與 SharePoint 提供有來源依據的管理契約，同時不虛構嵌入式 NVM 需求。",
       "systemLayer": "Platform Management",
       "persistenceClass": "High-rate Stream",
-      "storageCandidate": ["Not Specified"],
+      "storageCandidate": [
+        "Not Specified"
+      ],
       "opportunityStatus": "Source Requirement",
       "evidenceBoundaryEn": "The source specifies the RAS interface; storage placement remains outside its scope.",
       "evidenceBoundaryZh": "來源規範 RAS 介面；儲存配置不在其範圍內。",
-      "chapterRefs": ["02", "04", "09", "10"],
+      "chapterRefs": [
+        "02",
+        "04",
+        "09",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -392,7 +493,11 @@
       "topic": "Photonics & CPO",
       "asset": "Telemetry Evidence",
       "attackClass": [],
-      "lifecyclePhase": ["Runtime", "Update", "Service"],
+      "lifecyclePhase": [
+        "Runtime",
+        "Update",
+        "Service"
+      ],
       "claimEn": "CMIS supports diagnostics, interval statistics, firmware-revision reporting and module management; it does not prescribe the storage technology.",
       "claimZh": "CMIS 支援診斷、區間統計、韌體版本回報與模組管理，但不規定儲存技術。",
       "claimStatus": "Public Requirement",
@@ -412,17 +517,29 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["Photonics/CPO Teams", "Firmware Teams", "NVM IP Teams", "SharePoint Copilot"],
+      "audience": [
+        "Photonics/CPO Teams",
+        "Firmware Teams",
+        "NVM IP Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "System Need",
       "oipRelevanceEn": "Separates a standard management surface from the internal secure-storage implementation that may support it.",
       "oipRelevanceZh": "把標準管理介面與其內部可能採用的安全儲存實作分離。",
       "systemLayer": "Photonic Engine",
       "persistenceClass": "Bounded Mutable",
-      "storageCandidate": ["Not Specified"],
+      "storageCandidate": [
+        "Not Specified"
+      ],
       "opportunityStatus": "Source Requirement",
       "evidenceBoundaryEn": "CMIS establishes functions and registers, not the technology or location of persistence.",
       "evidenceBoundaryZh": "CMIS 建立功能與暫存器，但不決定持久化技術或位置。",
-      "chapterRefs": ["04", "05", "06", "10"],
+      "chapterRefs": [
+        "04",
+        "05",
+        "06",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -433,8 +550,16 @@
       "contentType": "Requirement",
       "topic": "Security & Trust",
       "asset": "Device Identity",
-      "attackClass": ["Identity spoofing", "Credential compromise"],
-      "lifecyclePhase": ["Provisioning", "Boot", "Runtime", "Attestation"],
+      "attackClass": [
+        "Identity spoofing",
+        "Credential compromise"
+      ],
+      "lifecyclePhase": [
+        "Provisioning",
+        "Boot",
+        "Runtime",
+        "Attestation"
+      ],
       "claimEn": "SPDM hardware identity remains constant for a device instance, while key generation and provisioning mechanisms are outside the specification.",
       "claimZh": "SPDM 的硬體身分在同一裝置實例中保持不變，而金鑰產生與佈建機制不在規格範圍內。",
       "claimStatus": "Public Requirement",
@@ -454,17 +579,28 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "Product Security", "Platform Management", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "Product Security",
+        "Platform Management",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "System Need",
       "oipRelevanceEn": "Anchors the identity requirement while preserving an open choice between fused and reconstructed roots.",
       "oipRelevanceZh": "建立身分需求，同時保留熔絲式與重建式信任根之間的選擇。",
       "systemLayer": "Security & Trust",
       "persistenceClass": "Immutable",
-      "storageCandidate": ["Not Specified"],
+      "storageCandidate": [
+        "Not Specified"
+      ],
       "opportunityStatus": "Source Requirement",
       "evidenceBoundaryEn": "SPDM specifies identity behavior but leaves key generation, storage and provisioning outside scope.",
       "evidenceBoundaryZh": "SPDM 規範身分行為，但把金鑰產生、儲存與佈建留在規格範圍外。",
-      "chapterRefs": ["02", "07", "10"],
+      "chapterRefs": [
+        "02",
+        "07",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -475,8 +611,16 @@
       "contentType": "Requirement",
       "topic": "Interconnect",
       "asset": "Firmware State",
-      "attackClass": ["Firmware substitution", "Rollback"],
-      "lifecyclePhase": ["Runtime", "Update", "Service", "Attestation"],
+      "attackClass": [
+        "Firmware substitution",
+        "Rollback"
+      ],
+      "lifecyclePhase": [
+        "Runtime",
+        "Update",
+        "Service",
+        "Attestation"
+      ],
       "claimEn": "CXL 3.2 adds online firmware activation, post-package repair enhancements, monitoring and security functions.",
       "claimZh": "CXL 3.2 新增線上韌體啟用、封裝後修復強化、監控與安全功能。",
       "claimStatus": "Public Requirement",
@@ -496,17 +640,29 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "Memory Subsystem Teams", "Firmware Teams", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "Memory Subsystem Teams",
+        "Firmware Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "System Need",
       "oipRelevanceEn": "Connects secure storage to legitimate lifecycle changes that must remain coherent with platform measurements.",
       "oipRelevanceZh": "把安全儲存連結到必須與平台量測保持一致的合法生命週期變更。",
       "systemLayer": "Interconnect & Protocol",
       "persistenceClass": "Bounded Mutable",
-      "storageCandidate": ["Not Specified"],
+      "storageCandidate": [
+        "Not Specified"
+      ],
       "opportunityStatus": "Source Requirement",
       "evidenceBoundaryEn": "The source establishes lifecycle features, not an OTP or MTP implementation.",
       "evidenceBoundaryZh": "來源建立生命週期功能，但不是 OTP 或 MTP 實作。",
-      "chapterRefs": ["02", "03", "07", "10"],
+      "chapterRefs": [
+        "02",
+        "03",
+        "07",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -517,8 +673,17 @@
       "contentType": "Proof Case",
       "topic": "Security & Trust",
       "asset": "Device Identity",
-      "attackClass": ["Firmware substitution", "Identity spoofing", "Rollback"],
-      "lifecyclePhase": ["Boot", "Runtime", "Attestation", "Update"],
+      "attackClass": [
+        "Firmware substitution",
+        "Identity spoofing",
+        "Rollback"
+      ],
+      "lifecyclePhase": [
+        "Boot",
+        "Runtime",
+        "Attestation",
+        "Update"
+      ],
       "claimEn": "NVIDIA H100 uses an on-die root of trust, secure and measured boot, SPDM and attestation.",
       "claimZh": "NVIDIA H100 採用晶粒內信任根、安全與量測開機、SPDM 及證明機制。",
       "claimStatus": "First-party Case",
@@ -538,17 +703,29 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "Product Security", "NVM IP Teams", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "Product Security",
+        "NVM IP Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Proof Case",
       "oipRelevanceEn": "Provides a shipped-system anchor for identity, secure boot, anti-rollback and attestation discussions.",
       "oipRelevanceZh": "為身分、安全開機、防回復與證明討論提供已出貨系統案例。",
       "systemLayer": "Security & Trust",
       "persistenceClass": "Immutable",
-      "storageCandidate": ["Not Specified"],
+      "storageCandidate": [
+        "Not Specified"
+      ],
       "opportunityStatus": "First-party Proof Case",
       "evidenceBoundaryEn": "The product behavior is first-party evidence; its internal root storage is not disclosed here.",
       "evidenceBoundaryZh": "產品行為屬於第一方證據，但此來源未揭露內部信任根的儲存方式。",
-      "chapterRefs": ["02", "03", "04", "07"],
+      "chapterRefs": [
+        "02",
+        "03",
+        "04",
+        "07"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -560,7 +737,11 @@
       "topic": "Repair & Yield",
       "asset": "Repair State",
       "attackClass": [],
-      "lifecyclePhase": ["Runtime", "Service", "Attestation"],
+      "lifecyclePhase": [
+        "Runtime",
+        "Service",
+        "Attestation"
+      ],
       "claimEn": "GPU row remapping is persistent for device life and can support up to 512 remappings on the cited product family.",
       "claimZh": "GPU 列重映射可在裝置生命週期內持久保留，且引用的產品系列最高可支援 512 次重映射。",
       "claimStatus": "First-party Case",
@@ -580,17 +761,29 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "Memory Repair Teams", "RAS Teams", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "Memory Repair Teams",
+        "RAS Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Proof Case",
       "oipRelevanceEn": "Shows why repair state needs bounded mutability, recovery and lifecycle governance rather than a generic fuse assumption.",
       "oipRelevanceZh": "說明修復狀態需要有限次可更新性、復原與生命週期治理，而不能只以一般熔絲假設處理。",
       "systemLayer": "Memory Repair",
       "persistenceClass": "Bounded Mutable",
-      "storageCandidate": ["Not Specified"],
+      "storageCandidate": [
+        "Not Specified"
+      ],
       "opportunityStatus": "First-party Proof Case",
       "evidenceBoundaryEn": "The cited product proves persistent repair behavior, not a universal implementation or endurance number.",
       "evidenceBoundaryZh": "引用產品證明持久修復行為，但不代表通用實作或耐久度數字。",
-      "chapterRefs": ["02", "03", "04", "07"],
+      "chapterRefs": [
+        "02",
+        "03",
+        "04",
+        "07"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -601,8 +794,15 @@
       "contentType": "Proof Case",
       "topic": "Repair & Yield",
       "asset": "Repair State",
-      "attackClass": ["Attestation mismatch", "Unauthorized repair-state change"],
-      "lifecyclePhase": ["Manufacturing", "Service", "Attestation"],
+      "attackClass": [
+        "Attestation mismatch",
+        "Unauthorized repair-state change"
+      ],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Service",
+        "Attestation"
+      ],
       "claimEn": "Fuse-programmed HBM channel repair can alter physical measurements verified during attestation.",
       "claimZh": "以熔絲編程的 HBM 通道修復可能改變證明流程所驗證的實體量測。",
       "claimStatus": "First-party Case",
@@ -622,17 +822,29 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "Memory Repair Teams", "Product Security", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "Memory Repair Teams",
+        "Product Security",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Proof Case",
       "oipRelevanceEn": "Makes attestation coherence a first-class secure-storage requirement for lifecycle repair state.",
       "oipRelevanceZh": "把證明一致性提升為生命週期修復狀態的第一級安全儲存需求。",
       "systemLayer": "Memory Repair",
       "persistenceClass": "Immutable",
-      "storageCandidate": ["OTP / Fuse"],
+      "storageCandidate": [
+        "OTP / Fuse"
+      ],
       "opportunityStatus": "First-party Proof Case",
       "evidenceBoundaryEn": "The case proves a fuse-programmed repair interaction; it does not generalize the physical fuse implementation.",
       "evidenceBoundaryZh": "案例證明熔絲編程修復與證明之間的互動，但不能推廣到所有實體熔絲實作。",
-      "chapterRefs": ["03", "04", "07", "10"],
+      "chapterRefs": [
+        "03",
+        "04",
+        "07",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -643,8 +855,13 @@
       "contentType": "Proof Case",
       "topic": "Repair & Yield",
       "asset": "Repair State",
-      "attackClass": ["Unauthorized repair-state change"],
-      "lifecyclePhase": ["Manufacturing", "Service"],
+      "attackClass": [
+        "Unauthorized repair-state change"
+      ],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Service"
+      ],
       "claimEn": "A fusebox stores memory-repair information and may allow only a very limited number of programming sessions.",
       "claimZh": "Fusebox 儲存記憶體修復資訊，且可能只允許非常有限的編程次數。",
       "claimStatus": "First-party Case",
@@ -664,17 +881,29 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["DFT Teams", "Memory Repair Teams", "NVM IP Teams", "SharePoint Copilot"],
+      "audience": [
+        "DFT Teams",
+        "Memory Repair Teams",
+        "NVM IP Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Proof Case",
       "oipRelevanceEn": "Shows that repair-state capacity and write-session topology must be defined before choosing OTP or managed NVM.",
       "oipRelevanceZh": "說明選擇 OTP 或受管理 NVM 前，必須先定義修復資料容量與寫入次數模型。",
       "systemLayer": "Memory Repair",
       "persistenceClass": "Immutable",
-      "storageCandidate": ["OTP / Fuse"],
+      "storageCandidate": [
+        "OTP / Fuse"
+      ],
       "opportunityStatus": "First-party Proof Case",
       "evidenceBoundaryEn": "The source documents a workflow, not a universal repair-memory architecture.",
       "evidenceBoundaryZh": "來源記錄的是工作流程，而非通用修復記憶體架構。",
-      "chapterRefs": ["02", "03", "04", "06"],
+      "chapterRefs": [
+        "02",
+        "03",
+        "04",
+        "06"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -685,8 +914,14 @@
       "contentType": "Proof Case",
       "topic": "Power Management",
       "asset": "Boot Configuration",
-      "attackClass": ["Unauthorized configuration change"],
-      "lifecyclePhase": ["Manufacturing", "Boot", "Runtime"],
+      "attackClass": [
+        "Unauthorized configuration change"
+      ],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Boot",
+        "Runtime"
+      ],
       "claimEn": "PF8100/PF8200 loads device boot configuration from an OTP fuse bank into mirror and functional registers.",
       "claimZh": "PF8100/PF8200 會把裝置開機設定從 OTP fuse bank 載入鏡像與功能暫存器。",
       "claimStatus": "First-party Case",
@@ -706,17 +941,28 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["Power Management Teams", "AI System Architects", "NVM IP Teams", "SharePoint Copilot"],
+      "audience": [
+        "Power Management Teams",
+        "AI System Architects",
+        "NVM IP Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Proof Case",
       "oipRelevanceEn": "Provides a shipped example of OTP baseline plus volatile runtime state at a power-control boundary.",
       "oipRelevanceZh": "提供電源控制邊界採用 OTP 基準加揮發性執行狀態的已出貨案例。",
       "systemLayer": "Power Management",
       "persistenceClass": "Immutable",
-      "storageCandidate": ["OTP / Fuse"],
+      "storageCandidate": [
+        "OTP / Fuse"
+      ],
       "opportunityStatus": "First-party Proof Case",
       "evidenceBoundaryEn": "The use of OTP is demonstrated for this component family; it is not a universal PMIC requirement.",
       "evidenceBoundaryZh": "此元件系列證明了 OTP 的使用，但不代表所有 PMIC 都有相同要求。",
-      "chapterRefs": ["03", "04", "06"],
+      "chapterRefs": [
+        "03",
+        "04",
+        "06"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -728,7 +974,10 @@
       "topic": "Power Management",
       "asset": "Telemetry Evidence",
       "attackClass": [],
-      "lifecyclePhase": ["Runtime", "Service"],
+      "lifecyclePhase": [
+        "Runtime",
+        "Service"
+      ],
       "claimEn": "ADP1055 EEPROM black-box logging is bounded by temperature-dependent record limits and requires power hold-up for reliable final writes.",
       "claimZh": "ADP1055 的 EEPROM 黑盒日誌受溫度相關的記錄次數限制，且可靠完成最後寫入需要電源維持時間。",
       "claimStatus": "First-party Case",
@@ -748,17 +997,30 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["Power Management Teams", "RAS Teams", "NVM IP Teams", "SharePoint Copilot"],
+      "audience": [
+        "Power Management Teams",
+        "RAS Teams",
+        "NVM IP Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Proof Case",
       "oipRelevanceEn": "Turns telemetry persistence into a bounded workload question instead of an unqualified MTP claim.",
       "oipRelevanceZh": "把遙測持久化轉化為有界工作負載問題，而不是未經限定的 MTP 宣稱。",
       "systemLayer": "Power Management",
       "persistenceClass": "Bounded Mutable",
-      "storageCandidate": ["EEPROM / Managed NVM"],
+      "storageCandidate": [
+        "EEPROM / Managed NVM"
+      ],
       "opportunityStatus": "First-party Proof Case",
       "evidenceBoundaryEn": "The cited device demonstrates bounded EEPROM logging; it does not prove universal embedded-log fitness.",
       "evidenceBoundaryZh": "引用裝置證明有界 EEPROM 日誌，但不能證明嵌入式日誌普遍適用。",
-      "chapterRefs": ["02", "04", "06", "09", "10"],
+      "chapterRefs": [
+        "02",
+        "04",
+        "06",
+        "09",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -770,7 +1032,10 @@
       "topic": "Interconnect",
       "asset": "Management Configuration",
       "attackClass": [],
-      "lifecyclePhase": ["Runtime", "Service"],
+      "lifecyclePhase": [
+        "Runtime",
+        "Service"
+      ],
       "claimEn": "UCIe 2.0 adds manageability and DFx lifecycle features; its MTP acronym means Management Transport Protocol, not multiple-time-programmable memory.",
       "claimZh": "UCIe 2.0 新增可管理性與 DFx 生命週期功能；其中 MTP 是 Management Transport Protocol，而非多次可程式化記憶體。",
       "claimStatus": "Public Requirement",
@@ -790,17 +1055,28 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["Chiplet Architects", "DFx Teams", "NVM IP Teams", "SharePoint Copilot"],
+      "audience": [
+        "Chiplet Architects",
+        "DFx Teams",
+        "NVM IP Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "System Need",
       "oipRelevanceEn": "Protects the evidence ledger from treating a protocol acronym as a memory requirement.",
       "oipRelevanceZh": "防止證據帳本把通訊協定縮寫誤當成記憶體需求。",
       "systemLayer": "Interconnect & Protocol",
       "persistenceClass": "Unspecified",
-      "storageCandidate": ["Not Specified"],
+      "storageCandidate": [
+        "Not Specified"
+      ],
       "opportunityStatus": "Source Requirement",
       "evidenceBoundaryEn": "This is an acronym and lifecycle clarification, not evidence for MTP memory deployment.",
       "evidenceBoundaryZh": "這是縮寫與生命週期釐清，不是部署 MTP 記憶體的證據。",
-      "chapterRefs": ["02", "06", "10"],
+      "chapterRefs": [
+        "02",
+        "06",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -811,8 +1087,16 @@
       "contentType": "Vendor Capability",
       "topic": "NVM Selection",
       "asset": "Persistent State",
-      "attackClass": ["Key extraction", "Unauthorized configuration change"],
-      "lifecyclePhase": ["Manufacturing", "Provisioning", "Boot", "Service"],
+      "attackClass": [
+        "Key extraction",
+        "Unauthorized configuration change"
+      ],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Provisioning",
+        "Boot",
+        "Service"
+      ],
       "claimEn": "Synopsys positions OTP for configuration, trimming, calibration, keys, code and repair across a broad process range.",
       "claimZh": "Synopsys 將 OTP 定位於多種製程中的設定、微調、校準、金鑰、程式碼與修復用途。",
       "claimStatus": "Vendor Claim",
@@ -832,17 +1116,28 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["NVM IP Teams", "SoC Architects", "Product Security", "SharePoint Copilot"],
+      "audience": [
+        "NVM IP Teams",
+        "SoC Architects",
+        "Product Security",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Competitive Boundary",
       "oipRelevanceEn": "Defines commodity OTP use cases while keeping secure-storage assurance and node readiness as separate evidence gates.",
       "oipRelevanceZh": "定義一般 OTP 使用案例，同時把安全儲存確證與節點成熟度維持為獨立證據關卡。",
       "systemLayer": "Cross-layer",
       "persistenceClass": "Immutable",
-      "storageCandidate": ["OTP / Fuse"],
+      "storageCandidate": [
+        "OTP / Fuse"
+      ],
       "opportunityStatus": "Vendor Envelope",
       "evidenceBoundaryEn": "This is a vendor-stated envelope and must not be presented as independent assurance.",
       "evidenceBoundaryZh": "這是供應商宣告的能力範圍，不得描述為獨立確證。",
-      "chapterRefs": ["06", "08", "10"],
+      "chapterRefs": [
+        "06",
+        "08",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -854,7 +1149,12 @@
       "topic": "NVM Selection",
       "asset": "Persistent State",
       "attackClass": [],
-      "lifecyclePhase": ["Manufacturing", "Runtime", "Service", "Update"],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Runtime",
+        "Service",
+        "Update"
+      ],
       "claimEn": "eMemory NeoMTP is one MTP class with a vendor-stated 1K-cycle envelope; MTP is not a universal endurance category.",
       "claimZh": "eMemory NeoMTP 是一種 MTP 類別，供應商宣告其耐久度範圍為 1K 次；MTP 並不是具有統一耐久度的通用類別。",
       "claimStatus": "Vendor Claim",
@@ -874,17 +1174,28 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["NVM IP Teams", "SoC Architects", "RAS Teams", "SharePoint Copilot"],
+      "audience": [
+        "NVM IP Teams",
+        "SoC Architects",
+        "RAS Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Competitive Boundary",
       "oipRelevanceEn": "Prevents the presentation from treating a single MTP endurance number as an industry-wide truth.",
       "oipRelevanceZh": "避免簡報把單一 MTP 耐久度數字描述成全產業通則。",
       "systemLayer": "Cross-layer",
       "persistenceClass": "Bounded Mutable",
-      "storageCandidate": ["MTP / Managed NVM"],
+      "storageCandidate": [
+        "MTP / Managed NVM"
+      ],
       "opportunityStatus": "Vendor Envelope",
       "evidenceBoundaryEn": "The cycle envelope is vendor-stated and product-specific, not independently generalized.",
       "evidenceBoundaryZh": "循環次數範圍是供應商宣告且產品特定，不能未經獨立證據加以泛化。",
-      "chapterRefs": ["06", "08", "10"],
+      "chapterRefs": [
+        "06",
+        "08",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -895,8 +1206,19 @@
       "contentType": "Architecture Inference",
       "topic": "Security & Trust",
       "asset": "Lifecycle Policy",
-      "attackClass": ["Key extraction", "Rollback", "Unauthorized provisioning", "Lifecycle bypass"],
-      "lifecyclePhase": ["Manufacturing", "Provisioning", "Boot", "Attestation", "Retirement"],
+      "attackClass": [
+        "Key extraction",
+        "Rollback",
+        "Unauthorized provisioning",
+        "Lifecycle bypass"
+      ],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Provisioning",
+        "Boot",
+        "Attestation",
+        "Retirement"
+      ],
       "claimEn": "AI accelerator identity, immutable fail-safe defaults and lifecycle locks are plausible OTP/PUF-root opportunities.",
       "claimZh": "AI 加速器身分、不可變失效安全預設值與生命週期鎖，是可能的 OTP 或 PUF 根應用機會。",
       "claimStatus": "Analyst Inference",
@@ -916,17 +1238,32 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "Product Security", "NVM IP Teams", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "Product Security",
+        "NVM IP Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Opportunity",
       "oipRelevanceEn": "Extends the Secure Storage abstraction to AI identity without claiming that PUF is universally superior to fused state.",
       "oipRelevanceZh": "把安全儲存抽象延伸到 AI 身分，同時不宣稱 PUF 普遍優於熔絲狀態。",
       "systemLayer": "Security & Trust",
       "persistenceClass": "Immutable",
-      "storageCandidate": ["OTP / Fuse", "PUF-derived Root"],
+      "storageCandidate": [
+        "OTP / Fuse",
+        "PUF-derived Root"
+      ],
       "opportunityStatus": "Architecture Inference",
       "evidenceBoundaryEn": "This placement is an architecture hypothesis synthesized from adjacent requirements and proof cases.",
       "evidenceBoundaryZh": "此配置是由相鄰需求與案例綜合推導的架構假設。",
-      "chapterRefs": ["01", "03", "07", "08", "09", "10"],
+      "chapterRefs": [
+        "01",
+        "03",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
       "isInference": true,
       "proofModeEligible": false
     },
@@ -937,8 +1274,18 @@
       "contentType": "Architecture Inference",
       "topic": "NVM Selection",
       "asset": "Persistent State",
-      "attackClass": ["Rollback", "Unauthorized configuration change", "Torn write"],
-      "lifecyclePhase": ["Manufacturing", "Runtime", "Service", "Update", "Attestation"],
+      "attackClass": [
+        "Rollback",
+        "Unauthorized configuration change",
+        "Torn write"
+      ],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Runtime",
+        "Service",
+        "Update",
+        "Attestation"
+      ],
       "claimEn": "Bounded repair, calibration, configuration and rollback state are plausible MTP or managed-NVM opportunities.",
       "claimZh": "次數有限的修復、校準、設定與回復狀態，是可能的 MTP 或受管理 NVM 應用機會。",
       "claimStatus": "Analyst Inference",
@@ -958,17 +1305,32 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "NVM IP Teams", "RAS Teams", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "NVM IP Teams",
+        "RAS Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Opportunity",
       "oipRelevanceEn": "Defines the mutable layer that complements an immutable root and keeps live control loops volatile.",
       "oipRelevanceZh": "定義與不可變信任根互補的可更新層，並讓即時控制迴路維持揮發性。",
       "systemLayer": "Cross-layer",
       "persistenceClass": "Bounded Mutable",
-      "storageCandidate": ["MTP / Managed NVM"],
+      "storageCandidate": [
+        "MTP / Managed NVM"
+      ],
       "opportunityStatus": "Architecture Inference",
       "evidenceBoundaryEn": "This is a selection hypothesis; every workload requires quantified endurance, retention and recovery evidence.",
       "evidenceBoundaryZh": "這是選型假設；每個工作負載都需要量化的耐久度、保存與復原證據。",
-      "chapterRefs": ["01", "03", "05", "06", "07", "09", "10"],
+      "chapterRefs": [
+        "01",
+        "03",
+        "05",
+        "06",
+        "07",
+        "09",
+        "10"
+      ],
       "isInference": true,
       "proofModeEligible": false
     },
@@ -979,8 +1341,15 @@
       "contentType": "Validation Gate",
       "topic": "Platform RAS",
       "asset": "Telemetry Evidence",
-      "attackClass": ["Torn write", "Log exhaustion", "Evidence loss"],
-      "lifecyclePhase": ["Runtime", "Service"],
+      "attackClass": [
+        "Torn write",
+        "Log exhaustion",
+        "Evidence loss"
+      ],
+      "lifecyclePhase": [
+        "Runtime",
+        "Service"
+      ],
       "claimEn": "High-rate telemetry should not default to embedded MTP; use buffering, event reduction and external storage unless a bounded workload proves otherwise.",
       "claimZh": "高頻遙測不應預設使用嵌入式 MTP；除非有界工作負載能證明其適用性，否則應採緩衝、事件縮減與外部儲存。",
       "claimStatus": "Validation Needed",
@@ -1000,17 +1369,31 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "RAS Teams", "NVM IP Teams", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "RAS Teams",
+        "NVM IP Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Validation Gate",
       "oipRelevanceEn": "Prevents the site and presentation from turning a telemetry requirement into an unsupported MTP volume claim.",
       "oipRelevanceZh": "避免網站與簡報把遙測需求轉化成未經支持的 MTP 容量宣稱。",
       "systemLayer": "Platform Management",
       "persistenceClass": "High-rate Stream",
-      "storageCandidate": ["External Flash / Host Storage", "Volatile State"],
+      "storageCandidate": [
+        "External Flash / Host Storage",
+        "Volatile State"
+      ],
       "opportunityStatus": "Validation Gate",
       "evidenceBoundaryEn": "This is a conservative validation rule, not a source-mandated architecture.",
       "evidenceBoundaryZh": "這是保守的驗證規則，不是來源強制的架構。",
-      "chapterRefs": ["02", "05", "06", "09", "10"],
+      "chapterRefs": [
+        "02",
+        "05",
+        "06",
+        "09",
+        "10"
+      ],
       "isInference": true,
       "proofModeEligible": false
     },
@@ -1022,7 +1405,13 @@
       "topic": "Advanced-Node NVM",
       "asset": "Persistent State",
       "attackClass": [],
-      "lifecyclePhase": ["Manufacturing", "Provisioning", "Runtime", "Service", "Update"],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Provisioning",
+        "Runtime",
+        "Service",
+        "Update"
+      ],
       "claimEn": "Synopsys publicly lists a TSMC 40nm LP MTP EEPROM in the 2.5V process-I/O gate-oxide class, and its advanced-node MTP datasheet positions the family from 65nm to 40nm.",
       "claimZh": "Synopsys 公開列有 TSMC 40nm LP、2.5V process-I/O gate-oxide class 的 MTP EEPROM，其先進節點 MTP datasheet 將產品家族定位於 65nm 到 40nm。",
       "claimStatus": "Vendor Claim",
@@ -1042,17 +1431,29 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["NVM IP Teams", "SoC Architects", "Technology Strategy", "SharePoint Copilot"],
+      "audience": [
+        "NVM IP Teams",
+        "SoC Architects",
+        "Technology Strategy",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Competitive Boundary",
       "oipRelevanceEn": "Defines a public MTP portability anchor without turning one product listing into a market-wide exclusivity claim.",
       "oipRelevanceZh": "定義公開的 MTP portability 錨點，同時不把單一產品 listing 擴大成市場排他性主張。",
       "systemLayer": "Cross-layer",
       "persistenceClass": "Bounded Mutable",
-      "storageCandidate": ["MTP / Managed NVM"],
+      "storageCandidate": [
+        "MTP / Managed NVM"
+      ],
       "opportunityStatus": "Vendor Envelope",
       "evidenceBoundaryEn": "Verified public offering; exclusivity and commercial availability remain outside the public proof boundary.",
       "evidenceBoundaryZh": "可確認公開產品；市場唯一性與商業供應狀態不在公開證據邊界內。",
-      "chapterRefs": ["05", "06", "09", "10"],
+      "chapterRefs": [
+        "05",
+        "06",
+        "09",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -1063,8 +1464,16 @@
       "contentType": "Vendor Capability",
       "topic": "Advanced-Node NVM",
       "asset": "Persistent State",
-      "attackClass": ["Retention loss", "Program disturb"],
-      "lifecyclePhase": ["Manufacturing", "Runtime", "Service", "Update"],
+      "attackClass": [
+        "Retention loss",
+        "Program disturb"
+      ],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Runtime",
+        "Service",
+        "Update"
+      ],
       "claimEn": "eMemory states that NeoMTP reuses 3.3V or 5V I/O devices with no additional masks; its published retention envelopes differ between the 3.3V and 5V gate-oxide device classes.",
       "claimZh": "eMemory 表示 NeoMTP 重用 3.3V 或 5V I/O devices 且不增加 masks；其公開 retention envelope 也依 3.3V 與 5V gate-oxide device class 而不同。",
       "claimStatus": "Vendor Claim",
@@ -1084,17 +1493,29 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["NVM IP Teams", "Reliability Teams", "SoC Architects", "SharePoint Copilot"],
+      "audience": [
+        "NVM IP Teams",
+        "Reliability Teams",
+        "SoC Architects",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Competitive Boundary",
       "oipRelevanceEn": "Frames oxide availability as a process-portability constraint while preserving product-specific retention evidence.",
       "oipRelevanceZh": "把 oxide availability 定位為 process portability constraint，同時保留產品特定的 retention 證據邊界。",
       "systemLayer": "Cross-layer",
       "persistenceClass": "Bounded Mutable",
-      "storageCandidate": ["MTP / Managed NVM"],
+      "storageCandidate": [
+        "MTP / Managed NVM"
+      ],
       "opportunityStatus": "Vendor Envelope",
       "evidenceBoundaryEn": "This representative vendor example cannot support the claim that every non-Synopsys MTP requires 3.3V or 5V devices.",
       "evidenceBoundaryZh": "此代表性供應商案例不能支持所有非 Synopsys MTP 都需要 3.3V 或 5V devices 的說法。",
-      "chapterRefs": ["05", "06", "09", "10"],
+      "chapterRefs": [
+        "05",
+        "06",
+        "09",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -1105,8 +1526,17 @@
       "contentType": "Proof Case",
       "topic": "Advanced-Node NVM",
       "asset": "Persistent State",
-      "attackClass": ["Retention loss", "Program disturb"],
-      "lifecyclePhase": ["Manufacturing", "Provisioning", "Runtime", "Service", "Update"],
+      "attackClass": [
+        "Retention loss",
+        "Program disturb"
+      ],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Provisioning",
+        "Runtime",
+        "Service",
+        "Update"
+      ],
       "claimEn": "A published 28nm split-gate eFlash implementation combines a 1.8V logic-device platform with flash-specific dielectric, high-voltage devices, a triple-gate-oxide flow and additional masks.",
       "claimZh": "公開的 28nm split-gate eFlash 實例，將 1.8V logic-device platform 與 flash-specific dielectric、high-voltage devices、triple-gate-oxide flow 及額外 masks 整合。",
       "claimStatus": "First-party Case",
@@ -1126,17 +1556,29 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["Process Integration", "NVM IP Teams", "SoC Architects", "SharePoint Copilot"],
+      "audience": [
+        "Process Integration",
+        "NVM IP Teams",
+        "SoC Architects",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Proof Case",
       "oipRelevanceEn": "Separates the low-voltage logic baseline from the process and high-voltage mechanisms that enable rewritable embedded flash.",
       "oipRelevanceZh": "把低電壓 logic baseline 與實現可重寫 embedded flash 的製程及高電壓機制分開。",
       "systemLayer": "Cross-layer",
       "persistenceClass": "Bounded Mutable",
-      "storageCandidate": ["Embedded Flash"],
+      "storageCandidate": [
+        "Embedded Flash"
+      ],
       "opportunityStatus": "First-party Proof Case",
       "evidenceBoundaryEn": "The paper is a measured implementation example, not a universal process recipe. The owner-provided industry note that SST ESF3 adds more than 20 masks, constraining adoption while programs extend ESF2, remains a project-level market observation for internal validation.",
       "evidenceBoundaryZh": "該論文是實測 implementation example，不是通用 process recipe。內容擁有者提供的業內觀察指出 SST ESF3 增加 20+ 張光罩、採用受限而專案延伸 ESF2；此資訊仍需在公司內部以專案層級驗證。",
-      "chapterRefs": ["05", "06", "09", "10"],
+      "chapterRefs": [
+        "05",
+        "06",
+        "09",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -1148,7 +1590,12 @@
       "topic": "Advanced-Node NVM",
       "asset": "Persistent State",
       "attackClass": [],
-      "lifecyclePhase": ["Manufacturing", "Runtime", "Service", "Update"],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Runtime",
+        "Service",
+        "Update"
+      ],
       "claimEn": "Across reviewed leading-foundry public portfolios, rewritable embedded NVM below 28nm increasingly shifts from charge-storage eFlash toward eMRAM and eRRAM, with different maturity at each node.",
       "claimZh": "在本次審閱的主流 foundry 公開 portfolio 中，28nm 以下的可重寫 embedded NVM 明顯由 charge-storage eFlash 轉向 eMRAM 與 eRRAM，但各節點成熟度不同。",
       "claimStatus": "Vendor Claim",
@@ -1168,17 +1615,30 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["Technology Strategy", "NVM IP Teams", "SoC Architects", "SharePoint Copilot"],
+      "audience": [
+        "Technology Strategy",
+        "NVM IP Teams",
+        "SoC Architects",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Competitive Boundary",
       "oipRelevanceEn": "Reframes the advanced-node question from forcing MTP or eFlash scaling to choosing a qualified state architecture and technology path.",
       "oipRelevanceZh": "把先進節點問題從強迫 MTP 或 eFlash scaling，改為選擇合格的 state architecture 與 technology path。",
       "systemLayer": "Cross-layer",
       "persistenceClass": "Bounded Mutable",
-      "storageCandidate": ["Embedded Flash", "Embedded MRAM / RRAM"],
+      "storageCandidate": [
+        "Embedded Flash",
+        "Embedded MRAM / RRAM"
+      ],
       "opportunityStatus": "Vendor Envelope",
       "evidenceBoundaryEn": "Directionally convergent, commercially uneven; foundry node names and maturity labels are not directly interchangeable.",
       "evidenceBoundaryZh": "方向趨同、商業成熟度不一；不同 foundry 的 node 名稱與 maturity label 不能直接互換。",
-      "chapterRefs": ["05", "06", "09", "10"],
+      "chapterRefs": [
+        "05",
+        "06",
+        "09",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -1189,8 +1649,16 @@
       "contentType": "Vendor Capability",
       "topic": "Advanced-Node NVM",
       "asset": "Boot Configuration",
-      "attackClass": ["Read disturb", "Power-sequence dependency"],
-      "lifecyclePhase": ["Provisioning", "Boot", "Runtime", "Service"],
+      "attackClass": [
+        "Read disturb",
+        "Power-sequence dependency"
+      ],
+      "lifecyclePhase": [
+        "Provisioning",
+        "Boot",
+        "Runtime",
+        "Service"
+      ],
       "claimEn": "Synopsys states that its TSMC N5 XHF OTP supports direct reading from core supply, attributes minimal read stress and unlimited reads to this feature, and uses a separate high-voltage charge pump for programming.",
       "claimZh": "Synopsys 表示其 TSMC N5 XHF OTP 支援由 core supply 直接讀取，並將此功能連結到 minimal read stress 與 unlimited reads；programming 則使用獨立 high-voltage charge pump。",
       "claimStatus": "Vendor Claim",
@@ -1210,17 +1678,30 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["SoC Architects", "Low-Power Teams", "Product Security", "SharePoint Copilot"],
+      "audience": [
+        "SoC Architects",
+        "Low-Power Teams",
+        "Product Security",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Competitive Boundary",
       "oipRelevanceEn": "Defines a read-domain abstraction opportunity for advanced-node OTP without misrepresenting it as MTP or one-supply programming.",
       "oipRelevanceZh": "為先進節點 OTP 定義 read-domain abstraction opportunity，同時避免誤述為 MTP 或單電源 programming。",
       "systemLayer": "Security & Trust",
       "persistenceClass": "Immutable",
-      "storageCandidate": ["OTP / Fuse"],
+      "storageCandidate": [
+        "OTP / Fuse"
+      ],
       "opportunityStatus": "Vendor Envelope",
       "evidenceBoundaryEn": "The datasheet supports core-supply read and a programming charge pump. The public engineering note that PGM still uses the I/O supply as the charge-pump base voltage is owner-provided and is not attributed to the datasheet.",
       "evidenceBoundaryZh": "Datasheet 支持 core-supply read 與 programming charge pump；PGM 仍以 I/O 電源作為 charge pump 基礎電壓的公開工程註記由內容擁有者提供，不歸因於該 datasheet。",
-      "chapterRefs": ["05", "06", "07", "09", "10"],
+      "chapterRefs": [
+        "05",
+        "06",
+        "07",
+        "09",
+        "10"
+      ],
       "isInference": false,
       "proofModeEligible": true
     },
@@ -1231,8 +1712,17 @@
       "contentType": "Architecture Inference",
       "topic": "Advanced-Node NVM",
       "asset": "Boot Configuration",
-      "attackClass": ["Unsafe boot state", "Unauthorized interface enable", "Power-sequence dependency"],
-      "lifecyclePhase": ["Boot", "Runtime", "Service", "Attestation"],
+      "attackClass": [
+        "Unsafe boot state",
+        "Unauthorized interface enable",
+        "Power-sequence dependency"
+      ],
+      "lifecyclePhase": [
+        "Boot",
+        "Runtime",
+        "Service",
+        "Attestation"
+      ],
       "claimEn": "When the exact macro and power intent permit it, core-domain OTP reads may expose repair maps, lifecycle policy, identity and immutable configuration before an unrelated I/O domain is enabled.",
       "claimZh": "若 exact macro 與 power intent 允許，core-domain OTP read 可能在無關 I/O domain 啟用前提供 repair map、lifecycle policy、identity 與 immutable configuration。",
       "claimStatus": "Analyst Inference",
@@ -1252,17 +1742,30 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["AI System Architects", "Low-Power Teams", "Product Security", "SharePoint Copilot"],
+      "audience": [
+        "AI System Architects",
+        "Low-Power Teams",
+        "Product Security",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Opportunity",
       "oipRelevanceEn": "Translates a macro read-supply feature into measurable AI-SoC integration hypotheses without claiming automatic system improvement.",
       "oipRelevanceZh": "把 macro read-supply feature 轉換成可量測的 AI SoC 整合假設，但不宣稱系統改善會自動成立。",
       "systemLayer": "Cross-layer",
       "persistenceClass": "Immutable",
-      "storageCandidate": ["OTP / Fuse"],
+      "storageCandidate": [
+        "OTP / Fuse"
+      ],
       "opportunityStatus": "Architecture Inference",
       "evidenceBoundaryEn": "Every benefit is conditional on the actual macro interface, wrapper, UPF, power sequence and consumer placement.",
       "evidenceBoundaryZh": "每一項效益都取決於實際 macro interface、wrapper、UPF、power sequence 與 consumer placement。",
-      "chapterRefs": ["03", "05", "06", "07", "10"],
+      "chapterRefs": [
+        "03",
+        "05",
+        "06",
+        "07",
+        "10"
+      ],
       "isInference": true,
       "proofModeEligible": false
     },
@@ -1273,8 +1776,15 @@
       "contentType": "Validation Gate",
       "topic": "Advanced-Node NVM",
       "asset": "Persistent State",
-      "attackClass": ["Unsupported product claim"],
-      "lifecyclePhase": ["Manufacturing", "Provisioning", "Boot", "Update"],
+      "attackClass": [
+        "Unsupported product claim"
+      ],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Provisioning",
+        "Boot",
+        "Update"
+      ],
       "claimEn": "Public evidence verifies a Synopsys 40nm 2.5V-device-class MTP and representative 3.3V or 5V competing offerings, but it does not establish market-wide exclusivity or feature inheritance at every newer node.",
       "claimZh": "公開證據可確認 Synopsys 40nm 2.5V device-class MTP 與代表性 3.3V 或 5V 競品，但不能建立全市場唯一性，或證明更先進節點全部繼承相同行為。",
       "claimStatus": "Validation Needed",
@@ -1294,19 +1804,274 @@
       "reviewedDate": "2026-08-25",
       "owner": "NVM Knowledge Hub",
       "classification": "Public",
-      "audience": ["Technology Strategy", "Product Marketing", "NVM IP Teams", "SharePoint Copilot"],
+      "audience": [
+        "Technology Strategy",
+        "Product Marketing",
+        "NVM IP Teams",
+        "SharePoint Copilot"
+      ],
       "presentationRole": "Validation Gate",
       "oipRelevanceEn": "Prevents a useful commercial hypothesis from becoming an unsupported public exclusivity claim.",
       "oipRelevanceZh": "避免有價值的商業假設變成缺乏支持的公開排他性主張。",
       "systemLayer": "Cross-layer",
       "persistenceClass": "Unspecified",
-      "storageCandidate": ["Not Specified"],
+      "storageCandidate": [
+        "Not Specified"
+      ],
       "opportunityStatus": "Validation Gate",
       "evidenceBoundaryEn": "Publish verified examples and the validation gap; retain complete competitive intelligence and commercial availability in the internal SharePoint layer.",
       "evidenceBoundaryZh": "公開層發布已驗證案例與驗證缺口；完整競爭情報與商業供應狀態保留於公司 SharePoint 內部層。",
-      "chapterRefs": ["05", "06", "08", "09", "10"],
+      "chapterRefs": [
+        "05",
+        "06",
+        "08",
+        "09",
+        "10"
+      ],
       "isInference": true,
       "proofModeEligible": false
+    },
+    {
+      "recordId": "AI-NVM-DATACENTER-001",
+      "titleEn": "LLM KV Cache & Model Weight PUF-Wrapped Key Vault",
+      "titleZh": "大語言模型 KV 快取與模型權重 PUF 封裝金鑰保險庫",
+      "contentType": "Architecture Analysis",
+      "topic": "Datacenter AI & LLM Security",
+      "asset": "Model Weights & KV Cache Keys",
+      "attackClass": [
+        "Bus Probing",
+        "Cold Boot",
+        "Physical Memory Theft"
+      ],
+      "lifecyclePhase": [
+        "Provisioning",
+        "Runtime",
+        "Zeroization"
+      ],
+      "claimEn": "LLM inference workloads require line-speed memory encryption for expanded KV caches (HBM/CXL) and hardware-rooted model weight decryption keys, where root secrets must never persist at rest.",
+      "claimZh": "大語言模型推論負載需要對擴展 KV 快取 (HBM/CXL) 進行線速記憶體加密，並以硬體根金鑰保護模型權重解密金鑰，根金鑰在斷電時絕不能留存。",
+      "claimStatus": "Architecture Specification",
+      "evidenceClass": "DIRECT_REQUIREMENT",
+      "assuranceMaturity": "Specified",
+      "scope": "SoC / Accelerator",
+      "applicabilityEn": "Protects multi-billion dollar AI neural assets and multi-tenant user inference data against physical interception and memory sniffing.",
+      "applicabilityZh": "保護數十億美元級 AI 模型資產與多租戶推論資料，免受實體總線監聽與記憶體竊取。",
+      "limitationEn": "Requires hardware AES-XTS-256 line-rate cipher integrated within the accelerator memory controller trust boundary.",
+      "limitationZh": "需要於加速器記憶體控制器信任邊界內整合硬體 AES-XTS-256 線速加密引擎。",
+      "openQuestionEn": "What is the acceptable latency overhead for dynamic KV cache key rotation during continuous multi-tenant context swaps?",
+      "openQuestionZh": "在連續多租戶上下文切換中，動態 KV 快取金鑰輪換的可接受延遲開銷為何？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/ai-nvm-opportunities.html",
+      "sourceOwner": "NVM Knowledge Hub",
+      "sourceLocator": "Datacenter AI Architecture Section",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "AI Accelerator Architects",
+        "Security Evaluators",
+        "Cloud Service Providers"
+      ],
+      "presentationRole": "Strategic Architecture",
+      "oipRelevanceEn": "Directly links SRAM PUF transient key reconstruction with TSMC N5/N4P/N3P AI accelerator memory subsystem security.",
+      "oipRelevanceZh": "直接將 SRAM PUF 暫態金鑰重建與 TSMC N5/N4P/N3P AI 加速器記憶體子系統安全相結合。",
+      "systemLayer": "Compute & Memory Controller",
+      "persistenceClass": "Absent at Rest (Ephemeral PUF Root + Ciphertext OTP)",
+      "storageCandidate": [
+        "SRAM PUF + AES-256 + AntiFuse OTP"
+      ],
+      "opportunityStatus": "Architecture Opportunity",
+      "evidenceBoundaryEn": "Derived from TEE and confidential computing hardware trust requirements.",
+      "evidenceBoundaryZh": "由 TEE 與機密運算硬體信任需求推導而來。",
+      "chapterRefs": [
+        "01",
+        "04",
+        "07"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
+    },
+    {
+      "recordId": "AI-NVM-CHIPLET-001",
+      "titleEn": "UCIe 2.0 D2D Hardware Mutual Authentication & IDE Binding",
+      "titleZh": "UCIe 2.0 晶粒間硬體相互鑑別與 IDE 鏈路加密綁定",
+      "contentType": "Architecture Analysis",
+      "topic": "Chiplet & Advanced Packaging",
+      "asset": "Die Identity & D2D Session Keys",
+      "attackClass": [
+        "Interposer Probing",
+        "Malicious Die Insertion",
+        "MITM Attack"
+      ],
+      "lifecyclePhase": [
+        "Packaging",
+        "Boot",
+        "Runtime"
+      ],
+      "claimEn": "Heterogeneous 2.5D/3D chiplet architectures require native PUF-derived die-unique identities on each die to execute UCIe Integrity and Data Encryption (IDE) mutual authentication before enabling fabric interconnects.",
+      "claimZh": "異質 2.5D/3D Chiplet 架構要求每個晶粒具備原生 PUF 衍生之唯一身分，以在啟用互連 Fabric 前執行 UCIe IDE 相互鑑別與會話金鑰協商。",
+      "claimStatus": "Standards Alignment",
+      "evidenceClass": "DIRECT_REQUIREMENT",
+      "assuranceMaturity": "Specified",
+      "scope": "Chiplet Subsystem",
+      "applicabilityEn": "Applicable to CoWoS, SoIC and EMIB multi-die packages integrating Compute Dies, I/O Dies and Memory Base Dies.",
+      "applicabilityZh": "適用於整合運算晶粒、I/O 晶粒與記憶體基礎晶粒之 CoWoS、SoIC 與 EMIB 多晶粒封裝。",
+      "limitationEn": "Requires standard CMOS logic-compatible PUF macro with zero extra mask layers across all disaggregated die nodes.",
+      "limitationZh": "需要全製程節點邏輯相容且零額外光罩之 SRAM PUF 巨集。",
+      "openQuestionEn": "How should disaggregated die monotonic anti-rollback counters synchronize without introducing reset-race vulnerabilities?",
+      "openQuestionZh": "分散式晶粒的單調防回退計數器應如何同步，而不引入重置競爭漏洞？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/ai-nvm-opportunities.html",
+      "sourceOwner": "UCIe Consortium / NVM Knowledge Hub",
+      "sourceLocator": "UCIe 2.0 Security Specification",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "Chiplet Architects",
+        "Packaging Teams",
+        "Security Architects"
+      ],
+      "presentationRole": "Interconnect Security",
+      "oipRelevanceEn": "TSMC 3DFabric (CoWoS/SoIC) design enablement with zero-mask PUF identity anchors.",
+      "oipRelevanceZh": "支援 TSMC 3DFabric (CoWoS/SoIC) 設計並提供零光罩 PUF 身分錨點。",
+      "systemLayer": "Die-to-Die Interconnect",
+      "persistenceClass": "Absent at Rest",
+      "storageCandidate": [
+        "SRAM PUF + Secure APB Controller"
+      ],
+      "opportunityStatus": "Architecture Opportunity",
+      "evidenceBoundaryEn": "UCIe 2.0 Security Extensions specification mapping.",
+      "evidenceBoundaryZh": "對齊 UCIe 2.0 安全擴展規範。",
+      "chapterRefs": [
+        "02",
+        "06",
+        "09"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
+    },
+    {
+      "recordId": "AI-NVM-EDGEAI-001",
+      "titleEn": "Edge AI / SLM Physical Anti-Tamper & Low-Power Instant Boot",
+      "titleZh": "邊緣 AI / 端側小模型實體防篡改與低功耗瞬時開機",
+      "contentType": "Product Requirement",
+      "topic": "Edge AI & Robotics",
+      "asset": "Edge SLM Weights & Device Identity",
+      "attackClass": [
+        "FIB/PVC Probing",
+        "Voltage Glitch",
+        "Physical Capture"
+      ],
+      "lifecyclePhase": [
+        "Factory",
+        "Field",
+        "Tamper Response"
+      ],
+      "claimEn": "Edge AI devices operate in physically unconstrained environments vulnerable to FIB/PVC probing (RP2350 threat model); secure storage with core-supply direct read provides instant model decryption with zero at-rest root key exposure.",
+      "claimZh": "邊緣 AI 裝置處於非受控實體環境易遭受 FIB/PVC 探針攻擊（RP2350 威脅模型）；採用核心電壓直接讀取之安全儲存可實現瞬時模型解密且斷電零根金鑰暴露。",
+      "claimStatus": "Public Architecture",
+      "evidenceClass": "FIRST_PARTY_CASE",
+      "assuranceMaturity": "Field-proven",
+      "scope": "Edge SoC",
+      "applicabilityEn": "Smart cameras, autonomous mobile robots (AMR), drones, and on-device SLM (1B-7B parameter) controllers.",
+      "applicabilityZh": "智慧攝影機、自主移動機器人 (AMR)、無人機與端側小語言模型 (1B-7B) 控制器。",
+      "limitationEn": "Battery-powered devices require sub-microamp standby leakage and single-cycle zeroization on tamper detection.",
+      "limitationZh": "電池供電設備需要次微安級待機漏電，並在偵測到篡改時於單週期內清零。",
+      "openQuestionEn": "What is the optimal OTP capacity vs external encrypted Flash partitioning for edge SLM parameter patches?",
+      "openQuestionZh": "針對邊緣小模型參數補丁，OTP 容量與外部加密 Flash 的最佳分割比例為何？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/ai-nvm-opportunities.html",
+      "sourceOwner": "NVM Knowledge Hub",
+      "sourceLocator": "Edge AI Architecture Section",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "Edge AI Developers",
+        "Robotics Architects",
+        "IoT Security Engineers"
+      ],
+      "presentationRole": "Market Solution",
+      "oipRelevanceEn": "TSMC N5/N4P low-power edge process enablement with XHF core-supply read OTP.",
+      "oipRelevanceZh": "支援 TSMC N5/N4P 低功耗邊緣製程並具備 XHF 核心電壓直接讀取能力。",
+      "systemLayer": "Edge SoC Security Subsystem",
+      "persistenceClass": "Absent at Rest",
+      "storageCandidate": [
+        "SRAM PUF + 1T AntiFuse OTP + AES-256"
+      ],
+      "opportunityStatus": "Market Opportunity",
+      "evidenceBoundaryEn": "Backed by RP2350 failure analysis and Synopsys N5 core-read silicon metrics.",
+      "evidenceBoundaryZh": "以 RP2350 失效分析與 Synopsys N5 核心讀取矽數據為支撐。",
+      "chapterRefs": [
+        "03",
+        "07",
+        "11"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
+    },
+    {
+      "recordId": "AI-NVM-AUTO-001",
+      "titleEn": "Automotive ASIL-D Functional Safety & AEC-Q100 Grade 1 Bridge",
+      "titleZh": "車用 ASIL-D 功能安全與 AEC-Q100 Grade 1 確證橋樑",
+      "contentType": "Qualification Standard",
+      "topic": "Automotive & Functional Safety",
+      "asset": "Safety Calibration & Cryptographic Keys",
+      "attackClass": [
+        "High-Temperature Aging",
+        "Single Event Upset",
+        "Fault Injection"
+      ],
+      "lifecyclePhase": [
+        "Manufacturing",
+        "Automotive Operation",
+        "Firmware Over-The-Air"
+      ],
+      "claimEn": "Automotive ADAS and central compute SoCs require ISO 26262 ASIL-D certified memory controllers (dual-core lockstep, end-to-end parity/CRC, BIST) combined with AEC-Q100 Grade 1 (-40C to 150C) qualification for 15+ year retention.",
+      "claimZh": "車用 ADAS 與中央運算 SoC 需要 ISO 26262 ASIL-D 認證之記憶體控制器（雙核鎖步、端到端同位元校驗/CRC、BIST 自檢），並具備 AEC-Q100 Grade 1 (-40°C 至 150°C) 15 年以上高溫留存確證。",
+      "claimStatus": "Standard Compliance",
+      "evidenceClass": "DIRECT_REQUIREMENT",
+      "assuranceMaturity": "Certified",
+      "scope": "Automotive SoC",
+      "applicabilityEn": "ISO 26262 / ISO/SAE 21434 compliant ADAS processors, zonal controllers, and EV battery management systems (BMS).",
+      "applicabilityZh": "符合 ISO 26262 / ISO/SAE 21434 之 ADAS 處理器、區域控制器與電動車電池管理系統 (BMS)。",
+      "limitationEn": "In-field high-temperature programming (>125C) requires specialized charge-pump write margins.",
+      "limitationZh": "車載現場高溫燒錄 (>125°C) 需要專屬電荷泵寫入餘裕設計。",
+      "openQuestionEn": "What are the latency bounds for lockstep controller self-test during automotive warm reboot?",
+      "openQuestionZh": "車載熱重啟期間，鎖步控制器自檢的延遲上限為何？",
+      "sourceUrl": "https://samhuang68.github.io/secure-storage-knowledge-hub/secure-storage.html",
+      "sourceOwner": "TSMC / Synopsys / ISO",
+      "sourceLocator": "AEC-Q100 / ISO 26262 Specification",
+      "publishedDate": "2026-08-26",
+      "reviewedDate": "2026-08-26",
+      "owner": "NVM Knowledge Hub",
+      "classification": "Public",
+      "audience": [
+        "Automotive Architects",
+        "Functional Safety Managers",
+        "Tier-1 Suppliers"
+      ],
+      "presentationRole": "Compliance Foundation",
+      "oipRelevanceEn": "TSMC N7A and N5A automotive process silicon qualification collateral.",
+      "oipRelevanceZh": "TSMC N7A 與 N5A 車用製程矽驗證資料包完整交付。",
+      "systemLayer": "Automotive Safety Controller",
+      "persistenceClass": "Immutable / Bounded Calibration",
+      "storageCandidate": [
+        "SRAM PUF + 1T AntiFuse OTP"
+      ],
+      "opportunityStatus": "Silicon Proven",
+      "evidenceBoundaryEn": "Certified under AEC-Q100 Grade 1 and ISO 26262 ASIL-D.",
+      "evidenceBoundaryZh": "通過 AEC-Q100 Grade 1 與 ISO 26262 ASIL-D 認證。",
+      "chapterRefs": [
+        "04",
+        "08",
+        "12"
+      ],
+      "isInference": false,
+      "proofModeEligible": true
     }
-  ]
+  ],
+  "totalCanonicalRecords": 4,
+  "totalRecords": 31
 }
