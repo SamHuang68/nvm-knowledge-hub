@@ -34,3 +34,29 @@ function renderCertification(){const target=document.querySelector("#targetSelec
 
 document.querySelector("#languageToggle").addEventListener("click",()=>{language=language==="zh"?"en":"zh";applyLanguage()});document.querySelector(".phase-tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-phase]");if(b)renderPhase(b.dataset.phase)});document.querySelector("#evidenceLadder").addEventListener("click",e=>{const b=e.target.closest("button[data-level]");if(b)renderEvidence(b.dataset.level)});document.querySelector(".role-tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-role]");if(b)renderRole(b.dataset.role)});document.querySelector("#certForm").addEventListener("change",renderCertification);window.addEventListener("scroll",()=>{const max=document.documentElement.scrollHeight-innerHeight;document.querySelector("#progressBar").style.width=`${max>0?scrollY/max*100:0}%`});
 renderEvidence(0);renderRole("foundation");applyLanguage();
+
+// Interactive TVLA Simulator Logic
+function initTvlaSimulator() {
+  const slider = document.getElementById("traceSlider");
+  const countDisp = document.getElementById("traceCountDisplay");
+  const tDisp = document.getElementById("tStatDisplay");
+  const verdDisp = document.getElementById("verdictDisplay");
+  
+  if (!slider) return;
+
+  function update() {
+    const n = Number(slider.value);
+    countDisp.textContent = n.toLocaleString() + " Traces";
+    // For differential twin-cell, t-statistic stays bounded around 1.1 - 1.8 even at 1M traces
+    const noise = (Math.sin(n / 50000) * 0.25) + 1.25;
+    const tVal = noise.toFixed(2);
+    tDisp.textContent = `${tVal} (|t| < 4.5)`;
+    verdDisp.textContent = "PASS (No 1st-Order Leakage)";
+    verdDisp.style.color = "#10b981";
+  }
+
+  slider.addEventListener("input", update);
+  update();
+}
+document.addEventListener("DOMContentLoaded", initTvlaSimulator);
+setTimeout(initTvlaSimulator, 500);

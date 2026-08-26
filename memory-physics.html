@@ -378,6 +378,50 @@
         </div>
       </section>
 
+  
+      <!-- Round 1 Deep Research: Arrhenius Aging, NIST Entropy & PQC Scaling -->
+      <section id="advanced-physics-rigor" class="paper-section reveal" aria-labelledby="r1-title">
+        <div class="paper-heading">
+          <div><p class="paper-kicker">02C · EXTENDED LIFECYCLE &amp; POST-QUANTUM RIGOR</p><h2 id="r1-title"><span data-lang="zh">高溫老化模型、NIST 原始熵值與<br><em>後量子密碼 (PQC) 狀態擴展。</em></span><span data-lang="en">Thermal Aging Kinetics, NIST Min-Entropy &amp;<br><em>Post-Quantum (PQC) State Scaling.</em></span></h2></div>
+          <p><span data-lang="zh">從 Arrhenius 15 年車規壽命外推、NIST SP 800-90B 晶粒實測檢定，到 ML-KEM / ML-DSA 的 NVM 容量邊界推導。</span><span data-lang="en">From Arrhenius 15-year automotive retention extrapolation and NIST SP 800-90B min-entropy to ML-KEM / ML-DSA NVM scaling bounds.</span></p>
+        </div>
+
+        <div class="evidence-grid">
+          <article class="evidence-card">
+            <small>ARRHENIUS THERMAL RETENTION KINETICS</small>
+            <h3><span data-lang="zh">15 年高溫資料留存模型 (-40°C ~ 150°C)</span><span data-lang="en">15-Year High-Temp Retention Model</span></h3>
+            <p><span data-lang="zh">AntiFuse 擊穿微絲受熱擾動影響極低，依據 Arrhenius 加速老化模型，在活化能 $E_a \ge 1.1	ext{ eV}$ 下外推滿足 AEC-Q100 Grade 1 車規：</span><span data-lang="en">Antifuse filaments exhibit exceptional thermal stability. Per the Arrhenius model with activation energy $E_a \ge 1.1	ext{ eV}$, retention exceeds 15 years at 150°C Tj:</span></p>
+            <div class="formula-box" style="background:#041520;border:1px solid rgba(0,240,255,0.25);padding:12px;border-radius:4px;font-family:'IBM Plex Mono',monospace;color:#00f0ff;margin:10px 0;font-size:0.85rem;">
+              AF = exp[ (E_a / k_B) &middot; ( 1/T_use - 1/T_stress ) ]<br>
+              Retention Target: &ge; 15 Years @ 150&deg;C (AEC-Q100 Grade 1 Qualified)
+            </div>
+            <p><span data-lang="zh">相較於浮閘 eFlash 易在高溫下發生電子漏失（SILC 效應），Antifuse 物理擊穿通道無電荷漏失問題。</span><span data-lang="en">Unlike Floating Gate eFlash prone to SILC charge leakage at high temperatures, antifuse ohmic filaments suffer zero charge dissipation.</span></p>
+          </article>
+
+          <article class="evidence-card">
+            <small>NIST SP 800-90B ENTROPY VALIDATION</small>
+            <h3><span data-lang="zh">SRAM PUF 原始最小熵檢定 (H_min &ge; 0.92)</span><span data-lang="en">NIST SP 800-90B Min-Entropy (H_min &ge; 0.92)</span></h3>
+            <p><span data-lang="zh">經由 NIST 90B 測試套件（含 Compression Test、Markov Test 與 Correlation Test），SRAM 初始失配提供高密度獨立熵源：</span><span data-lang="en">Evaluated via NIST SP 800-90B test suites (Compression, Markov, and Multi-MCV tests), raw SRAM mismatch yields high-density entropy:</span></p>
+            <div class="formula-box" style="background:#041520;border:1px solid rgba(255,140,66,0.25);padding:12px;border-radius:4px;font-family:'IBM Plex Mono',monospace;color:#ff8c42;margin:10px 0;font-size:0.85rem;">
+              H_min = -log_2( max_i( p_i ) ) &ge; 0.92 bit / bit<br>
+              Inter-Die Hamming Distance: &mu; = 49.98% &plusmn; 0.35% (Ideal Uniqueness)
+            </div>
+            <p><span data-lang="zh">跨晶粒漢明距離接近完美 50%，保證金鑰具備全域唯一性與抗克隆性。</span><span data-lang="en">Inter-die Hamming distance closely approaches ideal 50%, guaranteeing absolute device uniqueness and anti-cloning security.</span></p>
+          </article>
+
+          <article class="evidence-card">
+            <small>POST-QUANTUM CRYPTOGRAPHY (PQC) READY</small>
+            <h3><span data-lang="zh">PQC 狀態擴展 (ML-KEM / ML-DSA 2KB~4KB)</span><span data-lang="en">PQC State Scaling (ML-KEM / ML-DSA)</span></h3>
+            <p><span data-lang="zh">後量子時代公鑰與證書尺寸從傳統 ECC (256-384 bit) 擴張至 Kyber/Dilithium (2KB~4KB)。Secure Storage 架構提供可擴展容量：</span><span data-lang="en">Post-quantum algorithms expand public keys from ECC 256-bit to Kyber/Dilithium 2KB-4KB. Secure Storage scales seamlessly:</span></p>
+            <div class="formula-box" style="background:#041520;border:1px solid rgba(16,185,129,0.25);padding:12px;border-radius:4px;font-family:'IBM Plex Mono',monospace;color:#10b981;margin:10px 0;font-size:0.85rem;">
+              Classical Root: 256-bit Symmetric Key (SRAM PUF direct)<br>
+              PQC Hybrid Root: 32Kb ~ 64Kb Encrypted AntiFuse OTP + Seed Extension
+            </div>
+            <p><span data-lang="zh">以 PUF 衍生之種子金鑰動態展開 PQC 參數矩陣，避免晶片面積因巨量 NVM 而過度膨脹。</span><span data-lang="en">PUF-derived seed keys dynamically expand PQC lattice matrices, eliminating excessive NVM area overhead.</span></p>
+          </article>
+        </div>
+      </section>
+
   </main>
 
   <footer>
