@@ -489,7 +489,21 @@
               "Service",
               "Update",
               "Attestation",
-              "Retirement"
+              "Retirement",
+              "Zeroization",
+              "Packaging",
+              "Factory",
+              "Field",
+              "Tamper Response",
+              "Automotive Operation",
+              "Firmware Over-The-Air",
+              "Launch",
+              "Space Mission",
+              "Decommission",
+              "Quantum Safe Boot",
+              "Key Exchange",
+              "Wafer Sort",
+              "Field Operation"
             ]
           }
         },
@@ -730,7 +744,7 @@
           "uniqueItems": true,
           "items": {
             "type": "string",
-            "pattern": "^(0[1-9]|10)$"
+            "pattern": "^(0[1-9]|1[0-9])$"
           }
         },
         "isInference": {
