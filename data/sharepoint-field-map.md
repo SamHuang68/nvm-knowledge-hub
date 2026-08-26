@@ -36,6 +36,8 @@ The public JSON packages intentionally keep separate schemas because their enum 
 
 For the AI Systems package, configure `EvidenceClass` with six non-ordinal choices: `DIRECT_REQUIREMENT`, `FIRST_PARTY_CASE`, `TECHNICAL_EVIDENCE`, `VENDOR_CAPABILITY`, `INFERRED_OPPORTUNITY`, and `VALIDATION_NEEDED`. `TECHNICAL_EVIDENCE` is reserved for peer-reviewed implementations or independent physical analysis that directly supports a mechanism or constraint; it must not be silently recast as a first-party product case.
 
+An exact standards clause that explicitly defines a function or state contract qualifies as `DIRECT_REQUIREMENT`. A product document showing one commercial implementation remains `FIRST_PARTY_CASE` unless a standard independently mandates that physical medium. For example, JEDEC directly defines MTP NVM in the DDR5 PMIC and rewritable NVM in the DDR5 SPD Hub, while a BMC product brief that integrates OTP and PUF proves productization—not a universal PUF mandate. Keep the standard behavior, implementation technology and target-macro qualification as separate fields and claims.
+
 ### AI Systems opportunity extensions
 
 | JSON field | SharePoint column | Type | Copilot use |

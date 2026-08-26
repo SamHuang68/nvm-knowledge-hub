@@ -33,7 +33,7 @@ Open `http://127.0.0.1:8765/`.
 - Physical Security Assurance center covering FI, SCA, invasive analysis, attack windows, countermeasure evidence, certification routing and role-based learning.
 - OIP Secure Storage brief connecting RP2350 threat evidence, SRAM-PUF root reconstruction, AES-256 protected OTP, node readiness and explicit validation gates.
 - Bilingual AI Systems NVM Opportunities topic mapping OTP/MTP use cases, evidence boundaries and target-validation needs across AI accelerators, silicon photonics, repair, security and RAS.
-- Governed AI package with 32 records and six non-ordinal evidence classes, including peer-reviewed and independent technical evidence for repair-programming physics.
+- Governed AI package with 36 records and six non-ordinal evidence classes, including JEDEC-defined DDR5 PMIC MTP, DDR5 SPD Hub rewritable NVM, BMC OTP-class secure state, a productized BMC OTP-plus-PUF case, and independent repair-programming evidence.
 - SharePoint/Copilot-ready knowledge schema in `data/assurance-knowledge-schema.json`, with the List field map in `data/sharepoint-field-map.md`.
 - Governed OIP claim records in `data/oip-secure-storage-knowledge.json` for SharePoint import and presentation grounding.
 - Governed AI opportunity records in `data/ai-nvm-opportunities-knowledge.json`, validated by `data/ai-nvm-opportunities-schema.json`, with PDF page/figure locators retained for source-traceable SharePoint and Copilot answers.
@@ -70,7 +70,7 @@ node scripts/build-ai-nvm-sharepoint.mjs --check
 node scripts/check-ai-nvm-integrity.mjs
 ```
 
-The integrity check validates local page, image and stylesheet targets; fragment IDs; bilingual pairs; governed record references; PDF source locators; unique AI record IDs; and CSV freshness.
+The integrity check validates local page, image and stylesheet targets; fragment IDs; bilingual pairs; governed record references; Proof-mode classification; DDR5/BMC source-ledger coverage; PDF source locators; unique AI record IDs; and CSV freshness.
 
 Keep `EvidenceClass` (how a source supports a claim) separate from `AssuranceMaturity` (how far validation has progressed). Copilot answers must carry each claim's scope, limitation, source, review date, and open question.
 
@@ -96,4 +96,4 @@ Keep `EvidenceClass` (how a source supports a claim) separate from `AssuranceMat
 
 ## Source discipline
 
-Visible claims are based on public Synopsys, PUFsecurity/eMemory, Raspberry Pi and Wikipedia/ISO sources. NDA-only implementation details and independent attack-evidence claims are intentionally not invented.
+Visible claims are based on public standards, first-party product documents, peer-reviewed work and bounded vendor capability sources. JEDEC defines the DDR5 PMIC MTP and SPD Hub rewritable-NVM behaviors; OCP and Axiado establish the BMC immutable-state and productized OTP-plus-PUF cases. NDA-only implementation details and unsupported attack-evidence claims are intentionally not invented.

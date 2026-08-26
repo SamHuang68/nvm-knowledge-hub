@@ -51,7 +51,11 @@ const expectedIds = [
   "AI-NVM-ADV-004",
   "AI-NVM-ADV-005",
   "AI-NVM-ADV-006",
-  "AI-NVM-ADV-007"
+  "AI-NVM-ADV-007",
+  "AI-NVM-DDR5-001",
+  "AI-NVM-DDR5-002",
+  "AI-NVM-BMC-001",
+  "AI-NVM-BMC-002"
 ];
 
 const expectedEvidenceClasses = new Map([
@@ -86,7 +90,11 @@ const expectedEvidenceClasses = new Map([
   ["AI-NVM-ADV-004", "VENDOR_CAPABILITY"],
   ["AI-NVM-ADV-005", "VENDOR_CAPABILITY"],
   ["AI-NVM-ADV-006", "INFERRED_OPPORTUNITY"],
-  ["AI-NVM-ADV-007", "VALIDATION_NEEDED"]
+  ["AI-NVM-ADV-007", "VALIDATION_NEEDED"],
+  ["AI-NVM-DDR5-001", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-DDR5-002", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-BMC-001", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-BMC-002", "FIRST_PARTY_CASE"]
 ]);
 
 const expectedPdfLocators = new Map([

@@ -99,6 +99,10 @@ for (const pageName of pages) {
     if (errors.length) failures.push(`${pageName}@${width}: ${errors.join(" | ")}`);
 
     if (pageName === "ai-nvm-opportunities.html") {
+      if ([1440, 390, 312].includes(width)) {
+        await page.locator("#opportunities .opportunity-list").screenshot({ path: path.join(output, `ai-nvm-opportunities-list-${width}.png`) });
+        await page.locator("#sources .research-intake").screenshot({ path: path.join(output, `ai-nvm-research-disposition-${width}.png`) });
+      }
       const repairAudit = await page.evaluate(() => {
         const module = document.querySelector("#repair-programming");
         const moduleBox = module?.getBoundingClientRect();
@@ -151,9 +155,29 @@ for (const pageName of pages) {
       const filterAudit = await page.evaluate(() => ({
         moduleVisible: Boolean(document.querySelector("#repair-programming")?.getClientRects().length),
         count: document.querySelector("#opportunityCount")?.textContent,
+        bmcVisible: Boolean(document.querySelector('[data-record-ids~="AI-NVM-BMC-001"]')?.getClientRects().length),
+        bmcInside: (() => {
+          const box = document.querySelector('[data-record-ids~="AI-NVM-BMC-001"]')?.getBoundingClientRect();
+          return box ? box.left >= -1 && box.right <= innerWidth + 1 : false;
+        })(),
       }));
+      await page.locator("button[data-write-filter='repeated']").click();
+      const repeatedAudit = await page.evaluate(() => {
+        const card = document.querySelector('[data-record-id="AI-NVM-DDR5-002"]');
+        const box = card?.getBoundingClientRect();
+        return { visible: Boolean(card?.getClientRects().length), inside: box ? box.left >= -1 && box.right <= innerWidth + 1 : false };
+      });
+      await page.locator("button[data-write-filter='few']").click();
+      const fewWriteAudit = await page.evaluate(() => {
+        const card = document.querySelector('[data-record-id="AI-NVM-DDR5-001"]');
+        const box = card?.getBoundingClientRect();
+        return { visible: Boolean(card?.getClientRects().length), inside: box ? box.left >= -1 && box.right <= innerWidth + 1 : false };
+      });
       await page.locator("button[data-write-filter='all']").click();
-      if (!filterAudit.moduleVisible || filterAudit.count === initialCount) failures.push(`${pageName}@${width}: repair/filter isolation ${JSON.stringify(filterAudit)}`);
+      if (initialCount?.trim() !== "07") failures.push(`${pageName}@${width}: initial Proof-only count ${JSON.stringify(initialCount)}`);
+      if (!filterAudit.moduleVisible || filterAudit.count === initialCount || !filterAudit.bmcVisible || !filterAudit.bmcInside) failures.push(`${pageName}@${width}: immutable/BMC filter ${JSON.stringify(filterAudit)}`);
+      if (!repeatedAudit.visible || !repeatedAudit.inside) failures.push(`${pageName}@${width}: repeated/DDR5 SPD filter ${JSON.stringify(repeatedAudit)}`);
+      if (!fewWriteAudit.visible || !fewWriteAudit.inside) failures.push(`${pageName}@${width}: few-write/DDR5 PMIC filter ${JSON.stringify(fewWriteAudit)}`);
     }
 
     if (width === 390 && await page.locator("#languageToggle").count()) {

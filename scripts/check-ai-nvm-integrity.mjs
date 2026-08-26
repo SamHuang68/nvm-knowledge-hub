@@ -280,6 +280,7 @@ if (exists(pagePath)) {
         report(`${relative(knowledgePath)}: expected a records array`);
       } else {
         const recordIds = new Set();
+        const recordById = new Map();
         for (const [index, record] of records.entries()) {
           const recordId = record?.recordId ?? record?.RecordID;
           if (!recordId) {
@@ -288,6 +289,7 @@ if (exists(pagePath)) {
           }
           if (recordIds.has(recordId)) report(`${relative(knowledgePath)}: duplicate recordId ${recordId}`);
           recordIds.add(recordId);
+          recordById.set(recordId, record);
 
           const source = record.source ?? {};
           const sourceUrl = record.sourceUrl ?? record.SourceURL ?? source.url ?? "";
@@ -314,6 +316,45 @@ if (exists(pagePath)) {
         for (const recordId of referencedIds) {
           if (!recordIds.has(recordId)) report(`HTML references unknown AI recordId ${recordId}`);
         }
+
+        const classTokens = node => new Set(String(node?.attributes?.class ?? "").split(/\s+/).filter(Boolean));
+        const hasAncestorClass = (node, className) => {
+          for (let cursor = node; cursor; cursor = cursor.parent) {
+            if (classTokens(cursor).has(className)) return true;
+          }
+          return false;
+        };
+        const idsFromNode = node => `${node.attributes["data-record-id"] ?? ""} ${node.attributes["data-record-ids"] ?? ""}`
+          .split(/[\s,;]+/)
+          .filter(Boolean);
+        const opportunityNodes = nodes.filter(node => classTokens(node).has("opportunity-record"));
+        for (const node of opportunityNodes) {
+          const linkedRecords = idsFromNode(node).map(recordId => recordById.get(recordId)).filter(Boolean);
+          if (!linkedRecords.length) {
+            report("Opportunity card has no governed record reference");
+            continue;
+          }
+          if (node.attributes["data-evidence"] === "proof" && linkedRecords.some(record => record.proofModeEligible !== true)) {
+            report(`Proof card references non-proof record(s): ${idsFromNode(node).join(", ")}`);
+          }
+          if (node.attributes["data-evidence"] === "inference" && linkedRecords.every(record => record.proofModeEligible === true)) {
+            report(`Inference card contains no governed non-proof record: ${idsFromNode(node).join(", ")}`);
+          }
+        }
+
+        const promotedIds = ["AI-NVM-DDR5-001", "AI-NVM-DDR5-002", "AI-NVM-BMC-001", "AI-NVM-BMC-002"];
+        const opportunityReferences = new Set(opportunityNodes.flatMap(idsFromNode));
+        const sourceLedgerReferences = new Set(nodes
+          .filter(node => hasAncestorClass(node, "source-ledger-groups"))
+          .flatMap(idsFromNode));
+        for (const recordId of promotedIds) {
+          if (!opportunityReferences.has(recordId)) report(`${recordId}: missing from opportunity map`);
+          if (!sourceLedgerReferences.has(recordId)) report(`${recordId}: missing from primary source ledger`);
+        }
+        if (!/id=["']opportunityCount["']>07</.test(html)) report("Initial Proof-only count must be 07");
+        if (/SPD-hub and PMIC persistence workloads need product proof|Awaiting Primary Evidence|等待一級證據驗證/.test(`${html}\n${JSON.stringify(knowledge)}`)) {
+          report("Promoted DDR5/BMC applications still use obsolete waiting-for-proof wording");
+        }
       }
     }
   }
@@ -338,5 +379,5 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exitCode = 1;
 } else {
-  console.log("PASS: AI NVM page links/assets/CSS, IDs, bilingual pairs, governed record references, PDF locators and SharePoint CSV are consistent.");
+  console.log("PASS: AI NVM page links/assets/CSS, bilingual pairs, Proof-mode classification, DDR5/BMC source coverage, governed IDs, PDF locators and SharePoint CSV are consistent.");
 }
