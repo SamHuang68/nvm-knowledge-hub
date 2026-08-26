@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "projectId": "nvm-knowledge-hub-refinement",
   "objective": "Publish an NVM-centered Knowledge Hub with Secure Storage and AI Systems as equal L1 lenses, an integrated cross-topic Whitepaper and Decision Studio workbench, explicit L2 research ownership, and a SharePoint-ready knowledge spine.",
-  "status": "in_progress",
+  "status": "local_reconciled_public_remediation_pending",
   "updatedAt": "2026-08-26",
   "constraints": {
     "inScope": [
@@ -38,11 +38,11 @@
   },
   "currentLoop": {
     "id": "REFINE-021",
-    "phase": "observe_and_reconcile",
+    "phase": "closed",
     "baseLocalCommit": "d4982db1c604aeed4436534e1eb85deb30a16b51",
     "remoteCandidateCommit": "0fbf810f2dce1234d163671f5703218e56eaeceb",
     "integrationPolicy": "Preserve the dirty local R20 artifact set; inspect the remote candidate in a detached worktree; accept remote deltas serially through the Host only after source and rendered review.",
-    "exitVerdict": null
+    "exitVerdict": "pass_local_reconciliation_hold_public_confidential_artifact"
   },
   "orchestrationPolicy": {
     "statefulHost": "Codex",
@@ -101,6 +101,11 @@
       "role": "R16 Evidence Researcher",
       "provider": "Codex subagent pool",
       "responsibility": "Read-only primary-source research on MTP/eFlash constraints, advanced-node alternatives and Single-VDD Read application value; same-provider assistance only"
+    },
+    {
+      "role": "R21 Remote Delta Reviewers",
+      "provider": "OpenAI Codex same-provider subagents",
+      "responsibility": "Three independent read-only reviews of exact remote commit 0fbf810 covering evidence/IA, rendered enterprise quality and code/security; advisory only and excluded from provider-diversity counts"
     }
   ],
   "synchronizationBarriers": [
@@ -111,7 +116,8 @@
       "requiredTaskIds": ["R21-02", "R21-03", "R21-04"],
       "providerRequirement": "same-provider read-only advisory plus Host rendered verification; no multi-provider claim",
       "gateCriteria": "Every reviewer must identify the exact remote commit and inspected files, separate improvements from regressions, and return evidence-backed P0/P1/P2 findings. The Host alone selects and integrates deltas.",
-      "status": "open"
+      "status": "closed",
+      "completionEvidence": "Three read-only same-provider reviewers inspected exact remote commit 0fbf810. Host rejected the remote content tree, preserved the R20 local tree, accepted only a restrained Portfolio return affordance, and passed 49-view rendered QA with new provenance, clipping, duplicate-ID and whole-page language gates."
     },
     {
       "id": "BAR-R16-RESEARCH",
@@ -280,27 +286,32 @@
     {
       "id": "R21-02",
       "name": "Audit the ten-commit remote delta for information architecture, content and evidence integrity",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "R21-03",
       "name": "Audit the remote candidate for enterprise visual quality, accessibility and responsive behavior",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "R21-04",
       "name": "Audit code quality, performance, asset weight and test validity",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "R21-05",
       "name": "Selectively reconcile accepted Antigravity deltas with the local R20 work",
-      "status": "pending"
+      "status": "done"
     },
     {
       "id": "R21-06",
       "name": "Run full rendered and deterministic acceptance on the reconciled build",
-      "status": "pending"
+      "status": "done"
+    },
+    {
+      "id": "R21-07",
+      "name": "Remove the publicly downloadable confidential OIP deck from GitHub Pages and assess history/cache exposure",
+      "status": "blocked"
     },
     {
       "id": "R15-01",
@@ -457,6 +468,14 @@
     {
       "decision": "Treat HBM post-assembly repair as a proven workload and antifuse OTP as a qualification path",
       "reason": "Micron proves repair behavior but does not disclose fuse physics, pad count or whether authoritative state resides on a DRAM, Base or Logic Die"
+    },
+    {
+      "decision": "Merge the Antigravity commit ancestry with the Git ours strategy, then accept deltas serially",
+      "reason": "The remote candidate combined useful navigation with release-blocking confidential artifacts, self-cited proof records, unreadable global CSS and standards errors; preserving the validated local tree was the only safe baseline"
+    },
+    {
+      "decision": "Accept only a restrained Portfolio return path and convert the review failures into deterministic gates",
+      "reason": "The structural escape path supports the Sam-to-project hierarchy, while provenance, clipped-content, duplicate-ID and whole-page language checks prevent the observed regressions from recurring"
     }
   ],
   "providerReceipts": [
@@ -516,7 +535,16 @@
     "responseObservedExternalProviders": 1,
     "requiredDistinctProviders": 2,
     "evidenceId": "c502248e804bf80e4a8eeca5ad348bf1a475672929d44f4f2b18de4d7aea596b",
-    "claim": "Cursor / Google Gemini returned a response-observed ACCEPT for the exact frozen V2 artifact. The Host accepted its findings, but the later ledger-disposition call failed closed after the bridge build changed. SuperGrok did not complete dispatch, so no strict two-provider claim is made."
+    "claim": "Cursor / Google Gemini returned a response-observed ACCEPT for the exact frozen V2 artifact. The Host accepted its findings, but the later ledger-disposition call failed closed after the bridge build changed. SuperGrok did not complete dispatch, so no strict two-provider claim is made.",
+    "r21SameProviderAdvisory": {
+      "scopeId": "REFINE-021",
+      "taskIds": ["R21-02", "R21-03", "R21-04"],
+      "reviewedArtifact": "git:0fbf810f2dce1234d163671f5703218e56eaeceb",
+      "providerOrganizations": ["OpenAI"],
+      "providerDiversityCount": 0,
+      "status": "same-provider-advisory-not-an-external-provider-claim",
+      "hostDisposition": "Findings reproduced or source-verified by the Host and incorporated into rejection, remediation and deterministic acceptance gates"
+    }
   },
   "claimAudit": {
     "canonicalEvidenceRecords": 32,
@@ -524,7 +552,10 @@
     "primarySourceLineageForNotebookLm": false,
     "unverifiedClaimsPublishedAsProof": 0,
     "illustrativeTopologyDisclosurePresent": true,
-    "researchIntakeDisclosurePresent": true
+    "researchIntakeDisclosurePresent": true,
+    "r21RemoteSelfCitedProofRecordsRejected": 13,
+    "r21PublicConfidentialArtifactDetected": true,
+    "r21ProviderDiversityClaimMade": false
   },
   "verification": {
     "commands": [
@@ -562,10 +593,18 @@
       "R20 presentation acceptance PASS: 14 slides, only slide 4 visually changed, row labels at 16 pt, body at 18 pt, takeaway single-line and slides_test reports no overflow",
       "R20 final frozen hashes: deck 9FE1E0160494561EDEB8FCA8A22CE10417C4E03104B79AF1AD03F4C1BB72EEC6; HTML E23D694A1032BE413F111C3D21DA362D1E4048E488340199CE879E672849D305",
       "R20 independent frozen-artifact release audit PASS with zero P0, P1 or P2"
+      ,
+      "R21 GitHub baseline: local d4982db plus R20 dirty work; remote origin/main 0fbf810 across ten commits and 46 changed files",
+      "R21 remote audit HOLD: public confidential oip-deck, 13 self-cited proof records, 1.01-1.11:1 card contrast, 312px clipped calculator controls, standards and bilingual defects",
+      "R21 local ancestry reconciliation PASS: HEAD contains origin/main ancestry while the accepted tree contains zero oip-deck paths and preserves 32 governed records plus 5 quarantined hypotheses",
+      "R21 deterministic gates PASS: seven-page IA, SharePoint export, AI/NVM integrity, duplicate IDs, proof self-citation rejection and Git whitespace",
+      "R21 rendered acceptance PASS: seven pages across 1440, 1320, 1180, 900, 620, 390 and 312 pixels; zero document/internal/semantic clipping, responsive menu PASS, whole-page English isolation PASS and zero runtime failures"
     ],
-    "openP0": [],
+    "openP0": [
+      "origin/main 0fbf810 still exposes oip-deck/Secure_Storage_SRAM_PUF_Mitigating_OTP_Leakage_v1.pptx through GitHub Pages until an authorized remediation push; the file also remains reachable through Git history unless history is rewritten"
+    ],
     "openP1": [],
-    "verdict": "pass_r20_release_ready"
+    "verdict": "pass_r21_local_reconciled_hold_public_exposure"
   },
   "loopHistory": [
     {
@@ -623,6 +662,10 @@
     {
       "id": "REFINE-020",
       "status": "release_ready"
+    },
+    {
+      "id": "REFINE-021",
+      "status": "local_reconciled_public_remediation_pending"
     }
   ],
   "blockers": [
@@ -649,6 +692,12 @@
       "scope": "strict R19 multi-provider collaboration claim",
       "status": "open",
       "detail": "NVIDIA and Cursor/Google both completed PASS reviews of exact manifest 84f736d9..., but Cursor reported transport-requested model identity only. Its advice is valid and retained; strict ledger acceptance remains blocked."
+    },
+    {
+      "id": "B21-01",
+      "scope": "public GitHub Pages confidential artifact exposure",
+      "status": "open",
+      "detail": "origin/main commit 0fbf810 publicly serves the 10.7 MB OIP PPTX and its embedded speaker notes. The reconciled local tree removes the entire oip-deck path, but pushing that tree and any optional history/cache remediation require an explicit external-write decision."
     }
   ],
   "artifacts": [

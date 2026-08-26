@@ -205,6 +205,7 @@ const chineseFields = [
 ];
 const cjkPattern = /[\u3400-\u9FFF]/u;
 const isoDatePattern = /^\d{4}-\d{2}-\d{2}$/;
+const selfCitationHosts = new Set(["samhuang68.github.io", "localhost", "127.0.0.1"]);
 
 const validateEnum = (record, field, spec) => {
   if (spec?.enum && !spec.enum.includes(record[field])) {
@@ -281,9 +282,22 @@ for (const [index, record] of knowledge.records.entries()) {
   if (record.publishedDate !== null && !isoDatePattern.test(record.publishedDate)) {
     throw new Error(`${record.recordId}: publishedDate must be null or YYYY-MM-DD.`);
   }
+  let parsedSourceUrl = null;
   if (record.sourceUrl !== null) {
-    const parsed = new URL(record.sourceUrl);
-    if (parsed.protocol !== "https:") throw new Error(`${record.recordId}: sourceUrl must use HTTPS.`);
+    parsedSourceUrl = new URL(record.sourceUrl);
+    if (parsedSourceUrl.protocol !== "https:") throw new Error(`${record.recordId}: sourceUrl must use HTTPS.`);
+  }
+  if (record.proofModeEligible) {
+    const exactSuppliedDocumentLocator = expectedPdfLocators.has(record.recordId);
+    if (!parsedSourceUrl && !exactSuppliedDocumentLocator) {
+      throw new Error(`${record.recordId}: Proof mode requires an external HTTPS source or an exact governed supplied-document locator.`);
+    }
+    if (parsedSourceUrl && selfCitationHosts.has(parsedSourceUrl.hostname.toLowerCase())) {
+      throw new Error(`${record.recordId}: Proof mode cannot use the Knowledge Hub itself as evidence.`);
+    }
+    if (/NVM Knowledge Hub/iu.test(record.sourceOwner)) {
+      throw new Error(`${record.recordId}: Proof mode sourceOwner must be independent of the Knowledge Hub.`);
+    }
   }
   if (record.storageCandidate.includes("Not Specified") && record.storageCandidate.length !== 1) {
     throw new Error(`${record.recordId}: Not Specified cannot be combined with another storage candidate.`);

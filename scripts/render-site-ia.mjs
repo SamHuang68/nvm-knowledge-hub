@@ -31,6 +31,28 @@ for (const pageName of pages) {
         const visible = element.getClientRects().length > 0;
         return visible && ["auto", "scroll"].includes(style.overflowX) && element.scrollWidth > element.clientWidth + 1;
       }).map(element => `${element.tagName.toLowerCase()}.${element.className || ""}:${element.scrollWidth}/${element.clientWidth}`);
+      const clipped = [...document.querySelectorAll("input, select, textarea, button, [role='button'], [role='tab'], [role='tabpanel'], table, pre, code, .calc-grid-layout, .suite-card")].filter(element => {
+        const style = getComputedStyle(element);
+        if (element.getClientRects().length === 0 || style.visibility === "hidden" || Number(style.opacity) === 0) return false;
+        const box = element.getBoundingClientRect();
+        if (box.width < 4 || box.height < 4) return false;
+        let ancestor = element.parentElement;
+        while (ancestor && ancestor !== document.body) {
+          const ancestorStyle = getComputedStyle(ancestor);
+          if (["hidden", "clip"].includes(ancestorStyle.overflowX)) {
+            const boundary = ancestor.getBoundingClientRect();
+            return box.left < boundary.left - 1 || box.right > boundary.right + 1;
+          }
+          ancestor = ancestor.parentElement;
+        }
+        return box.left < -1 || box.right > innerWidth + 1;
+      }).slice(0, 12).map(element => {
+        const box = element.getBoundingClientRect();
+        return `${element.tagName.toLowerCase()}.${element.className || ""}:${Math.round(box.left)}/${Math.round(box.right)}`;
+      });
+      const idCounts = new Map();
+      for (const element of document.querySelectorAll("[id]")) idCounts.set(element.id, (idCounts.get(element.id) || 0) + 1);
+      const duplicateIds = [...idCounts.entries()].filter(([, count]) => count > 1).map(([id, count]) => `${id}:${count}`);
       const contrastRatio = (foreground, background) => {
         const rgb = value => (value.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
         const luminance = value => {
@@ -51,6 +73,8 @@ for (const pageName of pages) {
         docOverflow: Math.max(doc.scrollWidth - doc.clientWidth, body.scrollWidth - body.clientWidth),
         brand: brand ? new URL(brand.href).pathname : "missing",
         overflow,
+        clipped,
+        duplicateIds,
         heroSize: document.querySelector(".hub-hero h1") ? parseFloat(getComputedStyle(document.querySelector(".hub-hero h1")).fontSize) : null,
         disclaimer: disclaimerStyle ? {
           size: parseFloat(disclaimerStyle.fontSize),
@@ -68,6 +92,8 @@ for (const pageName of pages) {
     if (audit.docOverflow > 1) failures.push(`${pageName}@${width}: document overflow ${audit.docOverflow}px; wide ${audit.wide.join(", ")}`);
     if (!audit.brand.endsWith("/index.html")) failures.push(`${pageName}@${width}: brand ${audit.brand}`);
     if (audit.overflow.length) failures.push(`${pageName}@${width}: internal horizontal scroller ${audit.overflow.join(", ")}`);
+    if (audit.clipped.length) failures.push(`${pageName}@${width}: clipped horizontal content ${audit.clipped.join(", ")}`);
+    if (audit.duplicateIds.length) failures.push(`${pageName}@${width}: duplicate ids ${audit.duplicateIds.join(", ")}`);
     if (pageName === "index.html" && (!audit.disclaimer || audit.disclaimer.size < 9 || audit.disclaimer.contrast < 4.5)) failures.push(`${pageName}@${width}: topology disclaimer ${JSON.stringify(audit.disclaimer)}`);
     if (pageName === "index.html" && width <= 390 && audit.heroSize > 44.1) failures.push(`${pageName}@${width}: mobile hero ${audit.heroSize}px exceeds 44px`);
     if (errors.length) failures.push(`${pageName}@${width}: ${errors.join(" | ")}`);
@@ -128,6 +154,35 @@ for (const pageName of pages) {
       }));
       await page.locator("button[data-write-filter='all']").click();
       if (!filterAudit.moduleVisible || filterAudit.count === initialCount) failures.push(`${pageName}@${width}: repair/filter isolation ${JSON.stringify(filterAudit)}`);
+    }
+
+    if (width === 390 && await page.locator("#languageToggle").count()) {
+      const originalLanguage = await page.evaluate(() => document.body.dataset.language || document.documentElement.lang);
+      if (originalLanguage !== "en") await page.locator("#languageToggle").click();
+      const languageAudit = await page.evaluate(() => {
+        const samples = [];
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        while (walker.nextNode()) {
+          const node = walker.currentNode;
+          const parent = node.parentElement;
+          const text = node.textContent.replace(/\s+/g, " ").trim();
+          if (!parent || !text || !/[\u3400-\u9FFF]/u.test(text)) continue;
+          if (parent.closest("#languageToggle, script, style, noscript, svg, [aria-hidden='true']")) continue;
+          const style = getComputedStyle(parent);
+          if (parent.getClientRects().length === 0 || style.display === "none" || style.visibility === "hidden" || Number(style.opacity) === 0) continue;
+          samples.push(`${parent.tagName.toLowerCase()}:${text.slice(0, 54)}`);
+          if (samples.length === 8) break;
+        }
+        return {
+          pageLanguage: document.body.dataset.language,
+          documentLanguage: document.documentElement.lang,
+          visibleCjkSamples: samples
+        };
+      });
+      if (languageAudit.pageLanguage !== "en" || languageAudit.documentLanguage !== "en" || languageAudit.visibleCjkSamples.length) {
+        failures.push(`${pageName}@${width}: English-mode language leak ${JSON.stringify(languageAudit)}`);
+      }
+      if (originalLanguage !== "en") await page.locator("#languageToggle").click();
     }
 
     const menu = page.locator("#menuToggle");

@@ -7,6 +7,8 @@
 }
 .site-breadcrumb a{color:#63e6de;text-decoration:none}.site-breadcrumb a:hover{text-decoration:underline;text-underline-offset:4px}
 .site-breadcrumb i{width:18px;height:1px;background:#36515d}.site-breadcrumb strong{color:#e9f4f5;font-weight:650}
+.portfolio-return{color:#c78a4b!important;font-size:.66rem;font-weight:750;letter-spacing:.1em;white-space:nowrap}
+.portfolio-return:hover{color:#e0a66a!important;text-decoration-color:currentColor!important}
 .topic-switch{margin-left:auto;display:flex;gap:7px}.topic-switch a{min-height:30px;display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(116,216,218,.2);color:#b8ccd3}.topic-switch a[aria-current="page"]{border-color:#1bcbd0;color:#72ede6;background:rgba(27,203,208,.08)}
 
 @media(max-width:1320px){
