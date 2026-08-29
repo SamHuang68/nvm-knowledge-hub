@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="ai-nvm.css?v=20260825-refine026">
   <link rel="stylesheet" href="site-shell.css?v=20260825-ia018">
 </head>
-<body class="research-page ai-nvm-page" data-language="zh" data-opportunity-view="proof">
+<body class="research-page ai-nvm-page" data-language="zh" data-opportunity-view="proof" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
   <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
 
@@ -74,7 +74,7 @@
           <div><b>294</b><span><span data-lang="zh">PDF 頁面已審閱</span><span data-lang="en">PDF PAGES REVIEWED</span></span></div>
           <div><b>6</b><span><span data-lang="zh">證據分類</span><span data-lang="en">EVIDENCE CLASSES</span></span></div>
           <div><b>4</b><span><span data-lang="zh">狀態邊界</span><span data-lang="en">STATE BOUNDARIES</span></span></div>
-          <div><b>2026-08-25</b><span><span data-lang="zh">研究凍結日</span><span data-lang="en">RESEARCH FREEZE</span></span></div>
+          <div><b>2026-08-26</b><span><span data-lang="zh">研究凍結日</span><span data-lang="en">RESEARCH FREEZE</span></span></div>
         </div>
         <div class="research-hero-links">
           <a class="button primary" href="#opportunities"><span data-lang="zh">打開 Opportunity Map</span><span data-lang="en">Open the opportunity map</span></a>
@@ -88,11 +88,11 @@
         <div class="evidence-correction" data-record-ids="AI-NVM-OCP-001 AI-NVM-OCP-003 AI-NVM-OCP-004">
           <div class="correction-mark" aria-hidden="true"><span>MTP</span><i>≠</i><b>MEMORY</b></div>
           <div>
-            <p class="paper-kicker">SOURCE CORRECTION · DIRECT DOCUMENT AUDIT</p>
+            <p class="paper-kicker">SOURCE CORRECTION · OCP-LISTED LIGHTMATTER CONTRIBUTION · NOT AN ADOPTED OCP SPECIFICATION</p>
             <h2><span data-lang="zh">本次審閱的 OCP 文件未要求 OTP／MTP Memory</span><span data-lang="en">This OCP Paper Does Not Require OTP or MTP Memory</span></h2>
-            <p><span data-lang="zh">該 OCP photonics 文件的兩處 MTP 都是 MPO／MTP 光纖接頭，不能用來證明 NVM；但另外引用的 JEDEC DDR5 與 OCP Hardware Secure Boot 標準，已分別建立 PMIC MTP、SPD Hub 可重寫 NVM 與 BMC OTP-class 不可變狀態。其餘配置仍須逐項驗證。</span><span data-lang="en">The two MTP occurrences in the OCP photonics paper mean MPO/MTP optical connectors and are not NVM evidence. Separate JEDEC DDR5 and OCP Hardware Secure Boot standards now establish PMIC MTP, SPD Hub rewritable NVM and BMC OTP-class immutable state. Other placements remain subject to validation.</span></p>
+            <p><span data-lang="zh">OCP Server Project 公開列出這份 Lightmatter contribution；它不是已採納的 OCP specification。文件中的兩處 MTP 都是 MPO／MTP 光纖接頭，不能用來證明 NVM。另行引用的 JEDEC DDR5 與 OCP Hardware Secure Boot 標準，才分別建立 PMIC MTP、SPD Hub 可重寫 NVM 與 BMC 不可變安全狀態。其餘配置仍須逐項驗證。</span><span data-lang="en">The OCP Server Project publicly lists this Lightmatter contribution; it is not an adopted OCP specification. Its two MTP occurrences mean MPO/MTP optical connectors and are not NVM evidence. Separate JEDEC DDR5 and OCP Hardware Secure Boot standards establish PMIC MTP, SPD Hub rewritable NVM and immutable BMC security state. Other placements remain subject to validation.</span></p>
           </div>
-          <span class="tier-tag direct"><span data-lang="zh">文件明示需求</span><span data-lang="en">DIRECT REQUIREMENT</span></span>
+          <span class="tier-tag case"><span data-lang="zh">公開工作組貢獻</span><span data-lang="en">PUBLIC WORKGROUP CONTRIBUTION</span></span>
         </div>
 
         <div class="ai-thesis-grid">
@@ -232,75 +232,75 @@
         </div>
 
         <div class="opportunity-list" id="opportunityList">
-          <article class="opportunity-record" data-evidence="proof" data-write="immutable" data-record-id="AI-NVM-GPU-001">
+          <article class="opportunity-record" data-evidence="proof" data-write="immutable" data-record-id="AI-NVM-GPU-001" data-fit-record-ids="AI-NVM-INF-001" data-copy-revision="AI-OPPORTUNITY-VIEW-R24">
             <div class="record-index"><span>01</span><small>XPU / ROOT OF TRUST</small></div>
             <div class="record-copy"><span class="tier-tag case">FIRST-PARTY CASE</span><h3><span data-lang="zh">H100 On-Die Trust 與 Attestation</span><span data-lang="en">H100 On-Die Trust and Attestation</span></h3><p><span data-lang="zh">NVIDIA H100 公開架構包含 on-die RoT、secure／measured boot、SPDM 與 attestation。它證明 persistent identity 的需求，不證明任何單一 OTP／PUF 實作必然較安全。</span><span data-lang="en">NVIDIA's public H100 architecture includes an on-die RoT, secure/measured boot, SPDM and attestation. It proves the persistent-identity need—not that one OTP or PUF implementation is universally safer.</span></p></div>
             <div class="record-fit"><small>STATE / FIT</small><b>IDENTITY ANCHOR</b><span>OTP or PUF-derived root</span><em><span data-lang="zh">需確認 provisioning 與 physical threat model</span><span data-lang="en">Provisioning and physical threat model remain target-specific</span></em></div>
           </article>
 
-          <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-OCP-003 AI-NVM-SPDM-001 AI-NVM-INF-002">
+          <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-OCP-003 AI-NVM-SPDM-001 AI-NVM-INF-002" data-fit-record-ids="AI-NVM-INF-001 AI-NVM-INF-002" data-copy-revision="AI-OPPORTUNITY-VIEW-R24">
             <div class="record-index"><span>02</span><small>FIRMWARE LIFECYCLE</small></div>
             <div class="record-copy"><span class="tier-tag inferred">INFERRED OPPORTUNITY</span><h3><span data-lang="zh">Immutable Root 與 Mutable Rollback State</span><span data-lang="en">Immutable Root and Mutable Rollback State</span></h3><p><span data-lang="zh">OCP 要求 signed update、version reporting 與 rollback behavior；SPDM 定義 device-constant identity，但把 provisioning mechanism 留在規格之外。最佳 fit 不是把整個 image 放進 OTP。</span><span data-lang="en">OCP calls for signed updates, version reporting and rollback behavior. SPDM defines device-constant identity but leaves provisioning out of scope. The best fit is not to place the entire image in OTP.</span></p></div>
             <div class="record-fit"><small>STATE / FIT</small><b>ROOT + COUNTER + IMAGE</b><span>OTP/PUF + managed NVM + flash</span><em><span data-lang="zh">counter 需 authenticated、atomic、recoverable</span><span data-lang="en">Counters must be authenticated, atomic and recoverable</span></em></div>
           </article>
 
-          <article class="opportunity-record" data-evidence="proof" data-write="few" data-record-ids="AI-NVM-GPU-002 AI-NVM-GPU-003 AI-NVM-BISR-001 AI-NVM-EFUSE-001 AI-NVM-DRAM-001 AI-NVM-DRAM-002 AI-NVM-HBM-001">
+          <article class="opportunity-record" data-evidence="proof" data-write="few" data-record-ids="AI-NVM-GPU-002 AI-NVM-GPU-003 AI-NVM-BISR-001 AI-NVM-EFUSE-001 AI-NVM-DRAM-001 AI-NVM-DRAM-002 AI-NVM-HBM-001" data-fit-record-ids="AI-NVM-INF-004" data-copy-revision="AI-OPPORTUNITY-VIEW-R24">
             <div class="record-index"><span>03</span><small>HBM / SRAM REPAIR</small></div>
             <div class="record-copy"><span class="tier-tag case">FIRST-PARTY CASE</span><h3><span data-lang="zh">Repair State 的可靠度與 Attestation 證據</span><span data-lang="en">Repair State as Reliability and Attestation Evidence</span></h3><p><span data-lang="zh">NVIDIA row remap 可在 device life 持續生效；Hopper channel repair 會改變 attestation measurement。Siemens 也顯示 fusebox programming session 可能非常有限。</span><span data-lang="en">NVIDIA row remapping persists for device life, while Hopper channel repair can change attestation measurements. Siemens also shows that fusebox programming sessions may be very limited.</span></p></div>
             <div class="record-fit"><small>STATE / FIT</small><b>REPAIR MAP</b><span>Fuse / managed sparse state</span><em><span data-lang="zh">合法修復必須與 measurement／RIM 同步</span><span data-lang="en">Authorized repair must stay coherent with measurements/RIMs</span></em></div>
           </article>
 
-          <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-OCP-004 AI-NVM-OIF-001 AI-NVM-INF-002">
+          <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-OCP-004 AI-NVM-OIF-001 AI-NVM-INF-002" data-fit-record-ids="AI-NVM-INF-002" data-copy-revision="AI-OPPORTUNITY-VIEW-R24">
             <div class="record-index"><span>04</span><small>PHOTONICS / CPO</small></div>
             <div class="record-copy"><span class="tier-tag inferred">INFERRED OPPORTUNITY</span><h3><span data-lang="zh">Factory Baseline 與 Live Thermal Control</span><span data-lang="en">Factory Baseline and Live Thermal Control</span></h3><p><span data-lang="zh">OCP 指出 ring wavelength 對溫度敏感；CMIS 支援 diagnostics 與 statistics。這支持 per-unit trim／safe limit 的持久化機會，但 continuous tuning 應留在 volatile control。</span><span data-lang="en">OCP identifies temperature-sensitive ring wavelength; CMIS supports diagnostics and statistics. That supports persistent per-unit trim and safe limits, while continuous tuning should remain volatile.</span></p></div>
             <div class="record-fit"><small>STATE / FIT</small><b>BASELINE + RUNTIME LOOP</b><span>OTP baseline + optional MTP profile</span><em><span data-lang="zh">Continuous tuning ≠ continuous NVM writes</span><span data-lang="en">Continuous tuning ≠ continuous NVM writes</span></em></div>
           </article>
 
-          <article class="opportunity-record" data-evidence="proof" data-write="immutable" data-record-id="AI-NVM-PMIC-001">
+          <article class="opportunity-record" data-evidence="proof" data-write="immutable" data-record-id="AI-NVM-PMIC-001" data-fit-record-ids="AI-NVM-PMIC-001" data-copy-revision="AI-OPPORTUNITY-VIEW-R24">
             <div class="record-index"><span>05</span><small>PMIC STARTUP TRUTH</small></div>
             <div class="record-copy"><span class="tier-tag case">FIRST-PARTY CASE</span><h3><span data-lang="zh">PF8100／PF8200 的 OTP Boot Baseline</span><span data-lang="en">PF8100/PF8200 OTP Boot Baseline</span></h3><p><span data-lang="zh">NXP PF8100／PF8200 每次 VIN crossing 從 OTP 載入 mirror registers，再載入 functional registers。這證明 immutable startup configuration 的實際產品價值。</span><span data-lang="en">NXP PF8100/PF8200 loads mirror registers from OTP at a VIN crossing, then loads functional registers. It demonstrates the real product value of immutable startup configuration.</span></p></div>
             <div class="record-fit"><small>STATE / FIT</small><b>SAFE BOOT CONFIG</b><span>OTP</span><em><span data-lang="zh">器件案例；不可直接外推所有 AI PMIC</span><span data-lang="en">Device-specific; not universal to every AI PMIC</span></em></div>
           </article>
 
-          <article class="opportunity-record" data-evidence="proof" data-write="repeated" data-record-id="AI-NVM-PMIC-002">
+          <article class="opportunity-record" data-evidence="proof" data-write="repeated" data-record-id="AI-NVM-PMIC-002" data-fit-record-ids="AI-NVM-PMIC-002 AI-NVM-INF-002" data-copy-revision="AI-OPPORTUNITY-VIEW-R24">
             <div class="record-index"><span>06</span><small>FAULT CAPSULE</small></div>
             <div class="record-copy"><span class="tier-tag case">FIRST-PARTY CASE</span><h3><span data-lang="zh">ADP1055 的有界 Black-Box Logging</span><span data-lang="en">ADP1055 Bounded Black-Box Logging</span></h3><p><span data-lang="zh">ADI ADP1055 以 EEPROM 保存 fault snapshot，並公開 temperature-dependent record limit、circular buffer 與 hold-up capacitor 條件。這是 bounded logging 的設計範本。</span><span data-lang="en">ADI ADP1055 stores fault snapshots in EEPROM and discloses temperature-dependent record limits, a circular buffer and hold-up-capacitor condition. It is a design pattern for bounded logging.</span></p></div>
             <div class="record-fit"><small>STATE / FIT</small><b>EVENT-DRIVEN RECORD</b><span>Managed EEPROM / MTP</span><em><span data-lang="zh">先定義 Tj、event rate、atomic write 與 retention</span><span data-lang="en">Define Tj, event rate, atomic write and retention first</span></em></div>
           </article>
 
-          <article class="opportunity-record" data-evidence="inference" data-write="stream" data-record-ids="AI-NVM-RAS-001 AI-NVM-OCP-002 AI-NVM-INF-003">
+          <article class="opportunity-record" data-evidence="inference" data-write="stream" data-record-ids="AI-NVM-RAS-001 AI-NVM-OCP-002 AI-NVM-INF-003" data-fit-record-ids="AI-NVM-INF-003" data-copy-revision="AI-OPPORTUNITY-VIEW-R24">
             <div class="record-index"><span>07</span><small>RAS / TELEMETRY</small></div>
             <div class="record-copy"><span class="tier-tag inferred">INFERRED OPPORTUNITY</span><h3><span data-lang="zh">Telemetry Stream 的分層儲存</span><span data-lang="en">Tiered Storage for Telemetry Streams</span></h3><p><span data-lang="zh">OCP RAS API 與 supplied PDF 要求 discovery、configuration、event／action queues 與跨域 diagnostics；local NVM 只應保留 threshold、checkpoint 或 last-gasp capsule。</span><span data-lang="en">The OCP RAS API and supplied paper call for discovery, configuration, event/action queues and cross-domain diagnostics. Local NVM should retain only thresholds, checkpoints or a last-gasp capsule.</span></p></div>
             <div class="record-fit"><small>STATE / FIT</small><b>REDUCE BEFORE STORE</b><span>SRAM buffer → BMC / host storage</span><em><span data-lang="zh">raw stream 優先 forward，不持續磨耗 embedded NVM</span><span data-lang="en">Forward the raw stream; do not continuously wear embedded NVM</span></em></div>
           </article>
 
-          <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-UCIe-001 AI-NVM-INF-001 AI-NVM-INF-002">
+          <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-UCIe-001 AI-NVM-INF-001 AI-NVM-INF-002" data-fit-record-ids="AI-NVM-INF-001 AI-NVM-INF-002" data-copy-revision="AI-OPPORTUNITY-VIEW-R24">
             <div class="record-index"><span>08</span><small>CHIPLET LIFECYCLE</small></div>
             <div class="record-copy"><span class="tier-tag inferred">INFERRED OPPORTUNITY</span><h3><span data-lang="zh">Per-Die Lifecycle State 與 Package-Level Trust</span><span data-lang="en">Per-Die Lifecycle State and Package-Level Trust</span></h3><p><span data-lang="zh">UCIe 2.0 擴充 manageability 與 DFx lifecycle。這支持 per-die identity、repair ownership、debug lock 與 firmware metadata 的機會，但 UCIe 的 MTP 是 Management Transport Protocol。</span><span data-lang="en">UCIe 2.0 expands manageability and DFx lifecycle. That supports opportunities for per-die identity, repair ownership, debug locks and firmware metadata—but UCIe's MTP means Management Transport Protocol.</span></p></div>
             <div class="record-fit"><small>STATE / FIT</small><b>PER-DIE OWNERSHIP</b><span>OTP identity + managed lifecycle state</span><em><span data-lang="zh">先定義 die、package 與 platform 的權責</span><span data-lang="en">Define die, package and platform ownership first</span></em></div>
           </article>
 
-          <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-CXL-001 AI-NVM-INF-002">
+          <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-CXL-001 AI-NVM-INF-002" data-fit-record-ids="AI-NVM-INF-002" data-copy-revision="AI-OPPORTUNITY-VIEW-R24">
             <div class="record-index"><span>09</span><small>CXL MEMORY DEVICE</small></div>
             <div class="record-copy"><span class="tier-tag inferred">INFERRED OPPORTUNITY</span><h3><span data-lang="zh">Online Firmware 與 PPR 的 Lifecycle Contract</span><span data-lang="en">Online Firmware and PPR Lifecycle Contract</span></h3><p><span data-lang="zh">CXL 3.2 公開功能包含 online firmware activation、post-package repair、monitoring 與 security。規格證明行為；memory medium、banking、atomicity 與 recovery 仍由產品架構決定。</span><span data-lang="en">CXL 3.2 publicly includes online firmware activation, post-package repair, monitoring and security. The specification proves the behavior; memory medium, banking, atomicity and recovery remain product-architecture decisions.</span></p></div>
             <div class="record-fit"><small>STATE / FIT</small><b>FW + REPAIR METADATA</b><span>Managed NVM + external image store</span><em><span data-lang="zh">CXL 未指定 OTP／MTP technology</span><span data-lang="en">CXL does not prescribe OTP/MTP technology</span></em></div>
           </article>
 
-          <article class="opportunity-record" data-evidence="proof" data-write="few" data-record-id="AI-NVM-DDR5-001">
+          <article class="opportunity-record" data-evidence="proof" data-write="few" data-record-id="AI-NVM-DDR5-001" data-fit-record-ids="AI-NVM-DDR5-001" data-copy-revision="AI-OPPORTUNITY-VIEW-R24">
             <div class="record-index"><span>10</span><small>DDR5 PMIC</small></div>
             <div class="record-copy"><span class="tier-tag requirement">DIRECT REQUIREMENT</span><h3><span data-lang="zh">JEDEC 明確定義 PMIC MTP NVM</span><span data-lang="en">JEDEC Explicitly Defines PMIC MTP NVM</span></h3><p><span data-lang="zh">JESD301-2 將 multiple-time-programmable NVM 納入 DDR5 PMIC 的持久設定與狀態契約。應用位置已由標準建立，不再是「等待產品證明」的假設。</span><span data-lang="en">JESD301-2 places multiple-time-programmable NVM inside the DDR5 PMIC persistent-configuration and status contract. The application socket is standards-defined—not a hypothesis awaiting product proof.</span></p></div>
             <div class="record-fit"><small>STATE / FIT</small><b>POWER CONFIG + STATUS</b><span>MTP / managed NVM</span><em><span data-lang="zh">macro、PVT、endurance 與 recovery 仍須 qualification</span><span data-lang="en">Macro, PVT, endurance and recovery still require qualification</span></em></div>
           </article>
 
-          <article class="opportunity-record" data-evidence="proof" data-write="repeated" data-record-id="AI-NVM-DDR5-002">
+          <article class="opportunity-record" data-evidence="proof" data-write="repeated" data-record-id="AI-NVM-DDR5-002" data-fit-record-ids="AI-NVM-DDR5-002" data-copy-revision="AI-OPPORTUNITY-VIEW-R24">
             <div class="record-index"><span>11</span><small>DDR5 SPD HUB</small></div>
-            <div class="record-copy"><span class="tier-tag requirement">DIRECT REQUIREMENT</span><h3><span data-lang="zh">8-Kbit 可重寫 NVM 是 SPD Hub 標準功能</span><span data-lang="en">8-Kbit Rewritable NVM Is a Standard SPD Hub Function</span></h3><p><span data-lang="zh">JESD300-5B.01 定義 1024-byte、16-block 的可重寫 SPD NVM。這是 MTP／EEPROM 的直接 application socket；JEDEC 指定行為，不強制單一 bitcell 技術。</span><span data-lang="en">JESD300-5B.01 defines 1024 bytes of rewritable SPD NVM in sixteen blocks. This is a direct MTP/EEPROM-class socket; JEDEC specifies behavior, not one proprietary bitcell technology.</span></p></div>
-            <div class="record-fit"><small>STATE / FIT</small><b>MODULE ID + CONFIG</b><span>EEPROM / MTP</span><em><span data-lang="zh">write protection、cycles 與 PVT 依實作驗證</span><span data-lang="en">Qualify write protection, cycles and PVT per implementation</span></em></div>
+            <div class="record-copy"><span class="tier-tag requirement">DIRECT REQUIREMENT</span><h3><span data-lang="zh">8-Kbit 可重寫 NVM 是 SPD Hub 標準功能</span><span data-lang="en">8-Kbit Rewritable NVM Is a Standard SPD Hub Function</span></h3><p><span data-lang="zh">JESD300-5B.01 定義 1024-byte、16-block 的 SPD EEPROM／可重寫 NVM 功能。Embedded MTP 是有界的實作候選，不是 JEDEC 指定的 bitcell 技術。</span><span data-lang="en">JESD300-5B.01 defines a 1024-byte, sixteen-block SPD EEPROM/rewritable-NVM function. Embedded MTP is a bounded implementation candidate, not a JEDEC-prescribed bitcell technology.</span></p></div>
+            <div class="record-fit"><small>STATE / FIT</small><b>MODULE ID + CONFIG</b><span>EEPROM FUNCTION → MTP CANDIDATE</span><em><span data-lang="zh">write protection、cycles 與 PVT 依實作驗證</span><span data-lang="en">Qualify write protection, cycles and PVT per implementation</span></em></div>
           </article>
 
-          <article class="opportunity-record" data-evidence="proof" data-write="immutable" data-record-ids="AI-NVM-BMC-001 AI-NVM-BMC-002">
+          <article class="opportunity-record" data-evidence="proof" data-write="immutable" data-record-ids="AI-NVM-BMC-001 AI-NVM-BMC-002" data-fit-record-ids="AI-NVM-BMC-001 AI-NVM-BMC-002" data-copy-revision="AI-OPPORTUNITY-VIEW-R24">
             <div class="record-index"><span>12</span><small>BMC SECURITY ROOT</small></div>
-            <div class="record-copy"><span class="tier-tag case">REQUIREMENT + PRODUCT CASE</span><h3><span data-lang="zh">BMC 的 OTP-class Root 已確證，PUF 已產品化</span><span data-lang="en">BMC OTP-Class Roots Are Proven; PUF Is Productized</span></h3><p><span data-lang="zh">OCP secure boot 將 BMC 納入 hardware-immutable verification 範圍；Axiado SCM3003 更公開 on-chip OTP root、三個 4-Kbyte OTP 與 on-chip PUF。root 也可能由 companion HWRoT 承載。</span><span data-lang="en">OCP secure boot brings BMC firmware under hardware-immutable verification. Axiado SCM3003 discloses on-chip OTP roots, three 4-Kbyte OTPs and an on-chip PUF. A companion HWRoT may also own the root.</span></p></div>
+            <div class="record-copy"><span class="tier-tag case">REQUIREMENT · VENDOR DISCLOSURE · CANDIDATE FIT</span><h3><span data-lang="zh">BMC Security State：Requirement、Disclosure 與 Architecture Fit</span><span data-lang="en">BMC Security State: Requirement, Disclosure and Architecture Fit</span></h3><p><span data-lang="zh">OCP 規格要求 BMC 使用 hardware-immutable source of verification，但未指定 OTP、PUF 或實體位置。Axiado SCM3003 product brief 另行公開 on-chip OTP roots、三個 4-Kbyte OTP 與 on-chip PUF；這是 vendor disclosure，不是 shipment、deployment 或 attack certification 證據。</span><span data-lang="en">OCP requires a hardware-immutable source of verification for BMC secure boot but does not prescribe OTP, PUF or physical placement. The Axiado SCM3003 product brief separately discloses on-chip OTP roots, three 4-Kbyte OTPs and an on-chip PUF; that is vendor disclosure, not shipment, deployment or attack-certification evidence.</span></p></div>
             <div class="record-fit"><small>STATE / FIT</small><b>ROOT + POLICY + REVOCATION</b><span>OTP + optional PUF-derived root</span><em><span data-lang="zh">placement 與 physical assurance 仍依產品而定</span><span data-lang="en">Placement and physical assurance remain product-specific</span></em></div>
           </article>
         </div>
@@ -457,7 +457,7 @@
               <div class="node-path-copy">
                 <span>DEDICATED PROCESS MODULE</span>
                 <h3>EMBEDDED FLASH</h3>
-                <strong>28nm <i>/</i> PUBLIC VOLUME PLATEAU</strong>
+                <strong>28nm <i>/</i> PUBLISHED IMPLEMENTATION EXAMPLE</strong>
                 <p><span data-lang="zh">eFlash 可與 1.8V logic baseline 共存，但公開 28nm 實例仍加入 flash-specific dielectric、HV devices、charge-pump support 與額外 masks。</span><span data-lang="en">eFlash can coexist with a 1.8V logic baseline, while a published 28nm implementation still adds flash-specific dielectric, HV devices, charge-pump support and extra masks.</span></p>
                 <footer><b>PROCESS TRADE</b><span><span data-lang="zh">以製程複雜度換取密度與可重寫性</span><span data-lang="en">Process complexity buys density and rewritability</span></span></footer>
               </div>
@@ -476,10 +476,10 @@
           <div class="node-constraint-ledger">
             <div><span>01</span><b>OXIDE SYSTEM</b><p><span data-lang="zh">Retention 由 tunnel oxide、inter-poly dielectric、defect、P/E stress 與溫度共同決定。</span><span data-lang="en">Retention depends on tunnel oxide, inter-poly dielectric, defects, P/E stress and temperature together.</span></p></div>
             <div><span>02</span><b>VOLTAGE LANGUAGE</b><p><span data-lang="zh">Process I/O oxide class 不等於 macro 必須直接使用同電壓的外部供電。</span><span data-lang="en">A process I/O oxide class is not the same as a macro requiring an external rail at that voltage.</span></p></div>
-            <div><span>03</span><b>NODE LANGUAGE</b><p><span data-lang="zh">28nm 是公開量產 plateau；主要門檻是成本、process integration 與 qualification，不是絕對物理極限。</span><span data-lang="en">28nm is a public volume plateau; the main barriers are cost, process integration and qualification—not an absolute physical limit.</span></p></div>
+            <div><span>03</span><b>NODE LANGUAGE</b><p><span data-lang="zh">公開證據支持一個實測 28nm implementation example；它不建立 production volume、市場採用或絕對節點上限。</span><span data-lang="en">Public evidence supports a measured 28nm implementation example. It does not establish production volume, market adoption or an absolute node limit.</span></p></div>
           </div>
-          <aside class="node-commercial-note">
-            <span>OWNER-PROVIDED INDUSTRY NOTE</span>
+          <aside class="node-commercial-note" data-pov-scope-id="POV-SAM-OWNER-NOTE-2026-08-29" data-artifact-mode="neutral-editorial" data-note-id="OWNER-NOTE-ESF3-001" data-source-role="owner-provided" data-note-role="owner-provided-public-engineering-note" data-release-approval="user-authorized-2026-08-29">
+            <span>OWNER-PROVIDED PUBLIC ENGINEERING NOTE</span>
             <strong>PHYSICALLY POSSIBLE <i>≠</i> COMMERCIALLY ADOPTED</strong>
             <p><span data-lang="zh">業內觀察指出，SST ESF3 需要 20+ 張額外光罩，導致採用受限，實務案仍常延伸 ESF2。此敘述用來說明 commercial barrier；確切 mask count、客戶採用與 foundry option 仍須在公司 SharePoint 以專案資料驗證。</span><span data-lang="en">An owner-provided industry observation states that SST ESF3 requires more than 20 additional masks, constraining adoption while programs often continue to extend ESF2. This explains the commercial barrier; exact mask count, customer adoption and foundry options still require project evidence in the internal SharePoint layer.</span></p>
           </aside>
@@ -499,7 +499,7 @@
             <div class="domain-separator"><span>EXPLICIT OPERATION BOUNDARY</span></div>
             <div class="program-domain">
               <small>CONTROLLED PROGRAMMING DOMAIN</small>
-              <b>I/O SUPPLY → CHARGE-PUMP BASE VOLTAGE</b>
+              <b>PROGRAM INPUT DOMAIN → HIGH-VOLTAGE CHARGE PUMP</b>
               <span><span data-lang="zh">PGM 條件與整合限制須逐產品確認</span><span data-lang="en">Confirm PGM conditions and integration limits per product</span></span>
             </div>
           </div>
@@ -514,8 +514,8 @@
               <article><span>03</span><b><span data-lang="zh">分階段啟動</span><span data-lang="en">Staged Bring-Up</span></b><p><span data-lang="zh">降低正常讀取對另一個 power domain 的時序依賴。</span><span data-lang="en">Reduce mission-mode read sequencing dependence on another power domain.</span></p></article>
               <article><span>04</span><b><span data-lang="zh">Resume State</span><span data-lang="en">Resume State</span></b><p><span data-lang="zh">為 always-on controller 與 power-gated resume 提供候選路徑。</span><span data-lang="en">Create a candidate path for always-on control and power-gated resume.</span></p></article>
             </div>
-            <div class="read-program-verdict">
-              <small>PUBLIC ENGINEERING NOTE</small>
+            <div class="read-program-verdict" data-pov-scope-id="POV-SAM-OWNER-NOTE-2026-08-29" data-artifact-mode="neutral-editorial" data-note-id="OWNER-NOTE-PGM-IO-001" data-source-role="owner-provided" data-note-role="owner-provided-public-engineering-note" data-release-approval="user-authorized-2026-08-29">
+              <small>OWNER-PROVIDED PUBLIC ENGINEERING NOTE</small>
               <strong>READ AVAILABILITY <i>≠</i> PROGRAM AVAILABILITY</strong>
               <p><span data-lang="zh">Core supply 可支援正常讀取；PGM 仍需要 I/O 電源作為 charge pump 的基礎電壓。這是操作模式分離，不是所有模式共用單一供電。</span><span data-lang="en">Core supply can support normal reads; PGM still requires the I/O supply as the charge pump's base voltage. This separates operating modes—it does not mean one supply serves every mode.</span></p>
             </div>
@@ -601,11 +601,11 @@
               <div class="evidence-proves"><small>PROVES</small><p><span data-lang="zh">SPD Hub 是直接的 EEPROM／MTP-class opportunity。</span><span data-lang="en">The SPD Hub is a direct EEPROM/MTP-class opportunity.</span></p></div>
               <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">JEDEC 指定裝置行為，不強制單一 embedded bitcell。</span><span data-lang="en">JEDEC specifies device behavior, not one embedded bitcell.</span></p></div>
             </a>
-            <a href="https://axiado.com/wp-content/uploads/2025/03/Axiado_AI-Driven_Secure_Management_Card_Product_Brief.pdf" target="_blank" rel="noreferrer" data-record-ids="AI-NVM-BMC-001 AI-NVM-BMC-002" role="listitem">
-              <div class="evidence-id"><i>07</i><small>FIRST-PARTY</small><b>AXIADO ↗</b></div>
-              <div class="evidence-observed"><h3>BMC-integrated silicon deploys OTP and PUF</h3><p><span data-lang="zh">SCM3003 公開 OTP roots、三個 4-Kbyte OTP、on-chip PUF 與 BMC support。</span><span data-lang="en">SCM3003 discloses OTP roots, three 4-Kbyte OTPs, an on-chip PUF and BMC support.</span></p></div>
-              <div class="evidence-proves"><small>PROVES</small><p><span data-lang="zh">OTP＋PUF 已產品化於 BMC-integrated management platform。</span><span data-lang="en">OTP plus PUF is productized in a BMC-integrated management platform.</span></p></div>
-              <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">第一方產品案例不等於通用規範或獨立 attack certification。</span><span data-lang="en">A first-party case is not a universal mandate or independent attack certification.</span></p></div>
+            <a href="https://axiado.com/wp-content/uploads/2025/03/Axiado_AI-Driven_Secure_Management_Card_Product_Brief.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-BMC-002" role="listitem">
+              <div class="evidence-id"><i>07</i><small>VENDOR DISCLOSURE</small><b>AXIADO ↗</b></div>
+              <div class="evidence-observed"><h3>BMC-integrated silicon discloses OTP and PUF</h3><p><span data-lang="zh">SCM3003 product brief 公開 OTP roots、三個 4-Kbyte OTP、on-chip PUF 與 BMC support。</span><span data-lang="en">The SCM3003 product brief discloses OTP roots, three 4-Kbyte OTPs, an on-chip PUF and BMC support.</span></p></div>
+              <div class="evidence-proves"><small>VENDOR DISCLOSES</small><p><span data-lang="zh">產品資料將 OTP＋PUF 列為 BMC-integrated management platform 的能力。</span><span data-lang="en">The product brief lists OTP plus PUF as capabilities of a BMC-integrated management platform.</span></p></div>
+              <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">Vendor disclosure 不等於 shipment、customer deployment、通用規範或獨立 attack certification。</span><span data-lang="en">Vendor disclosure is not shipment, customer deployment, a universal mandate or independent attack certification.</span></p></div>
             </a>
           </div>
         </div>
@@ -698,7 +698,7 @@
             <li><i>01</i><span><b>PERIPHERAL MULTIPLIER</b><small><span data-lang="zh">先驗證 BOM 與 architecture ownership</span><span data-lang="en">Validate BOM and architecture ownership</span></small></span></li>
             <li><i>02</i><span><b>DDR5 MTP ENVELOPE</b><small><span data-lang="zh">JEDEC 應用已確證；驗證 cycles、PVT、atomicity 與 recovery</span><span data-lang="en">JEDEC sockets proven; qualify cycles, PVT, atomicity and recovery</span></small></span></li>
             <li><i>03</i><span><b>RETIMER</b><small><span data-lang="zh">分開驗證 factory trim／cold-start profile 與 live EQ</span><span data-lang="en">Evaluate factory trim / cold-start profile separately from live EQ</span></small></span></li>
-            <li><i>04</i><span><b>BMC ASSURANCE BOUNDARY</b><small><span data-lang="zh">OTP／PUF 部署已確證；驗證 placement、DFT 與 physical assurance</span><span data-lang="en">OTP/PUF deployment proven; qualify placement, DFT and physical assurance</span></small></span></li>
+            <li><i>04</i><span><b>BMC ASSURANCE BOUNDARY</b><small><span data-lang="zh">OTP／PUF capability 已由供應商公開；仍須確認 placement、出貨／部署狀態、provisioning、DFT／debug 與 physical assurance</span><span data-lang="en">OTP/PUF capability is vendor-disclosed; qualify placement, shipment or deployment status, provisioning, DFT/debug and physical assurance</span></small></span></li>
             <li><i>05</i><span><b>SRAM REPAIR</b><small><span data-lang="zh">證明 metadata、program 與 attestation 契約</span><span data-lang="en">Prove metadata, program and attestation contracts</span></small></span></li>
           </ol>
           <footer><span>RESEARCH INTAKE ONLY</span><b>13 PAGES · 5 HYPOTHESES</b><code>PRIMARY SOURCES NOT DISCLOSED · SHA-256 897284470142…EF41A</code></footer>

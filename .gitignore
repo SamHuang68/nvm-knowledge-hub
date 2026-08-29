@@ -5,6 +5,7 @@ node_modules/
 !.env.example
 *.local
 .DS_Store
+/qa/
 assets/ai-era-package-hero-r17.png
 assets/nvm-node-portfolio-r17.png
 assets/nvm-state-atlas-hero-r17.png

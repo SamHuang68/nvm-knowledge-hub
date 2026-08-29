@@ -2,6 +2,7 @@ const hubLanguage = localStorage.getItem("nvm-language") === "en" ? "en" : "zh";
 const hubBody = document.body;
 const hubMenuButton = document.querySelector("#menuToggle");
 const hubNav = document.querySelector("#primaryNav");
+const hubNavLinks = [...document.querySelectorAll("#primaryNav a[href^='#']")];
 
 function setHubLanguage(language, persist = true) {
   const next = language === "en" ? "en" : "zh";
@@ -43,6 +44,29 @@ function updateHubScroll() {
   document.querySelector(".site-header")?.classList.toggle("scrolled", doc.scrollTop > 28);
 }
 window.addEventListener("scroll", updateHubScroll, { passive: true });
+
+function setHubCurrentSection(id) {
+  for (const link of hubNavLinks) {
+    const current = link.getAttribute("href") === `#${id}`;
+    if (current) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
+  }
+}
+
+const hubSections = hubNavLinks
+  .map(link => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+if (hubSections.length) {
+  const hubSectionObserver = new IntersectionObserver(entries => {
+    const visible = entries
+      .filter(entry => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) setHubCurrentSection(visible.target.id);
+  }, { rootMargin: "-22% 0px -58%", threshold: [0.08, 0.3, 0.6] });
+  hubSections.forEach(section => hubSectionObserver.observe(section));
+  const initialSection = location.hash.slice(1);
+  setHubCurrentSection(hubSections.some(section => section.id === initialSection) ? initialSection : hubSections[0].id);
+}
 
 const legacySecureStorageHashes = new Set(["#thesis", "#architecture", "#assurance", "#compare", "#evidence", "#learn", "#research-topics", "#power-lab", "#lifecycle"]);
 if (legacySecureStorageHashes.has(location.hash)) location.replace(`secure-storage.html${location.hash}`);

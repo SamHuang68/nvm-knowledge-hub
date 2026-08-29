@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -8,6 +9,7 @@ const schemaPath = path.join(siteDir, "data", "ai-nvm-opportunities-schema.json"
 const jsonPath = path.join(siteDir, "data", "ai-nvm-opportunities-knowledge.json");
 const csvPath = path.join(siteDir, "data", "ai-nvm-sharepoint-import.csv");
 const researchCsvPath = path.join(siteDir, "data", "ai-nvm-research-intake.csv");
+const povPath = path.join(siteDir, "data", "institutional-pov-contract.json");
 
 const args = new Set(process.argv.slice(2));
 const supportedArgs = new Set(["--check"]);
@@ -18,6 +20,9 @@ if (unknownArgs.length) {
 
 const schema = JSON.parse(fs.readFileSync(schemaPath, "utf8"));
 const knowledge = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+const pov = JSON.parse(fs.readFileSync(povPath, "utf8"));
+const sha256 = value => crypto.createHash("sha256").update(value, "utf8").digest("hex").toUpperCase();
+const canonicalContentSha256 = sha256(fs.readFileSync(jsonPath, "utf8"));
 
 const expectedIds = [
   "AI-NVM-OCP-001",
@@ -59,10 +64,10 @@ const expectedIds = [
 ];
 
 const expectedEvidenceClasses = new Map([
-  ["AI-NVM-OCP-001", "DIRECT_REQUIREMENT"],
-  ["AI-NVM-OCP-002", "DIRECT_REQUIREMENT"],
-  ["AI-NVM-OCP-003", "DIRECT_REQUIREMENT"],
-  ["AI-NVM-OCP-004", "DIRECT_REQUIREMENT"],
+  ["AI-NVM-OCP-001", "VENDOR_CAPABILITY"],
+  ["AI-NVM-OCP-002", "VENDOR_CAPABILITY"],
+  ["AI-NVM-OCP-003", "VENDOR_CAPABILITY"],
+  ["AI-NVM-OCP-004", "VENDOR_CAPABILITY"],
   ["AI-NVM-RAS-001", "DIRECT_REQUIREMENT"],
   ["AI-NVM-OIF-001", "DIRECT_REQUIREMENT"],
   ["AI-NVM-SPDM-001", "DIRECT_REQUIREMENT"],
@@ -94,7 +99,7 @@ const expectedEvidenceClasses = new Map([
   ["AI-NVM-DDR5-001", "DIRECT_REQUIREMENT"],
   ["AI-NVM-DDR5-002", "DIRECT_REQUIREMENT"],
   ["AI-NVM-BMC-001", "DIRECT_REQUIREMENT"],
-  ["AI-NVM-BMC-002", "FIRST_PARTY_CASE"]
+  ["AI-NVM-BMC-002", "VENDOR_CAPABILITY"]
 ]);
 
 const expectedPdfLocators = new Map([
@@ -133,6 +138,12 @@ if (!/^\d{4}-\d{2}-\d{2}$/.test(knowledge.researchFreeze)) {
 if (!/^[A-F0-9]{64}$/.test(knowledge.sourceDocument?.sha256 ?? "")) {
   throw new Error("Knowledge package: sourceDocument.sha256 must be 64 uppercase hex characters.");
 }
+for (const field of ["publicationStatus", "officialListingUrl", "documentUrl", "contributor", "custodian", "authorityScope"]) {
+  if (typeof knowledge.sourceDocument?.[field] !== "string" || !knowledge.sourceDocument[field].trim()) {
+    throw new Error(`Knowledge package: sourceDocument.${field} is required.`);
+  }
+}
+if (pov.contracts?.knowledgeHub?.contractId !== pov.defaultScopeId) throw new Error("POV package default scope is invalid.");
 if (!Array.isArray(knowledge.researchInputs) || knowledge.researchInputs.length !== 1) {
   throw new Error("Knowledge package: expected exactly one governed supplemental research input.");
 }
@@ -310,6 +321,15 @@ for (const [index, record] of knowledge.records.entries()) {
   if (record.storageCandidate.includes("Not Specified") && record.storageCandidate.length !== 1) {
     throw new Error(`${record.recordId}: Not Specified cannot be combined with another storage candidate.`);
   }
+  if (record.storageCandidateProvenance) {
+    const provenanceCandidates = record.storageCandidateProvenance.map(item => item.candidate);
+    if (new Set(provenanceCandidates).size !== provenanceCandidates.length) {
+      throw new Error(`${record.recordId}: storageCandidateProvenance candidates must be unique.`);
+    }
+    if (provenanceCandidates.length !== record.storageCandidate.length || provenanceCandidates.some(candidate => !record.storageCandidate.includes(candidate))) {
+      throw new Error(`${record.recordId}: storageCandidateProvenance must cover every storageCandidate exactly once.`);
+    }
+  }
 
   const requiredLocator = expectedPdfLocators.get(record.recordId);
   if (requiredLocator && record.sourceLocator !== requiredLocator) {
@@ -318,6 +338,20 @@ for (const [index, record] of knowledge.records.entries()) {
 }
 
 const columns = [
+  ["SchemaVersion", () => knowledge.schemaVersion],
+  ["PackageID", () => knowledge.packageId],
+  ["PackageRevision", () => knowledge.researchFreeze],
+  ["CanonicalContentSHA256", () => canonicalContentSha256],
+  ["RecordRevision", record => `${record.reviewedDate}-${sha256(JSON.stringify(record)).slice(0, 12)}`],
+  ["RecordSHA256", record => sha256(JSON.stringify(record))],
+  ["POVContractID", () => pov.povContractId],
+  ["POVScopeID", () => pov.defaultScopeId],
+  ["AuthorOrganization", () => pov.contracts.knowledgeHub.authorOrganization],
+  ["SponsorOrganization", () => pov.contracts.knowledgeHub.sponsorOrganization],
+  ["ArtifactMode", () => pov.contracts.knowledgeHub.artifactMode],
+  ["AccountableOwnerPersonKey", () => "sam-huang"],
+  ["EditorialPublisherKey", () => "nvm-hub"],
+  ["ReleaseApprover", () => "Sam Huang"],
   ["RecordID", "recordId"],
   ["Title", "titleEn"],
   ["ContentType", "contentType"],
@@ -351,6 +385,9 @@ const columns = [
   ["SystemLayer", "systemLayer"],
   ["PersistenceClass", "persistenceClass"],
   ["StorageCandidate", "storageCandidate"],
+  ["StorageCandidateProvenance", record => (record.storageCandidateProvenance ?? [])
+    .map(item => `${item.candidate} [${item.basis}]`)
+    .join(";")],
   ["OpportunityStatus", "opportunityStatus"],
   ["SourceLocator", "sourceLocator"],
   ["EvidenceBoundary", "evidenceBoundaryEn"],

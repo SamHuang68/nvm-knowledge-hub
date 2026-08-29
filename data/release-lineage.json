@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "releaseId": "NVM-WEB-R24-PREVIEW",
+  "canonicalCommit": null,
+  "generatedAt": null,
+  "povContractId": "POV-NVM-WEB-2026-08-29",
+  "artifactMode": "neutral-editorial",
+  "authorOrganization": "NVM Knowledge Hub",
+  "sponsorOrganization": "Sam Huang",
+  "accountableOwnerPersonKey": "sam-huang",
+  "releaseApprover": "Sam Huang",
+  "declassificationAuthority": null,
+  "status": "PREVIEW_UNCOMMITTED",
+  "lineageRule": "Source-controlled CSVs contain deterministic package and record hashes only. Git commit and build time are recorded after the content commit in a separate deployment manifest.",
+  "postCommitManifestRequired": true
+}

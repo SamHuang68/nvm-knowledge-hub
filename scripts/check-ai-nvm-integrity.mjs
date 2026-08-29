@@ -351,6 +351,21 @@ if (exists(pagePath)) {
           if (!opportunityReferences.has(recordId)) report(`${recordId}: missing from opportunity map`);
           if (!sourceLedgerReferences.has(recordId)) report(`${recordId}: missing from primary source ledger`);
         }
+        const ddr5Pmic = recordById.get("AI-NVM-DDR5-001");
+        if (!ddr5Pmic?.storageCandidate?.includes("MTP / Managed NVM") || ddr5Pmic.isInference) {
+          report("AI-NVM-DDR5-001: JEDEC-defined PMIC MTP function must remain a direct, non-inferred record");
+        }
+        const ddr5Spd = recordById.get("AI-NVM-DDR5-002");
+        const spdProvenance = new Map((ddr5Spd?.storageCandidateProvenance ?? []).map(item => [item.candidate, item.basis]));
+        if (spdProvenance.get("EEPROM / Managed NVM") !== "SOURCE_DEFINED_FUNCTION") {
+          report("AI-NVM-DDR5-002: EEPROM/rewritable-NVM must remain the source-defined function");
+        }
+        if (spdProvenance.get("MTP / Managed NVM") !== "BOUNDED_IMPLEMENTATION_CANDIDATE") {
+          report("AI-NVM-DDR5-002: embedded MTP must remain a bounded implementation candidate");
+        }
+        if (/direct MTP\/EEPROM-class socket|SOURCE-DISCLOSED FIT[^\n]*MTP \/ Managed NVM/iu.test(`${html}\n${read(path.join(siteDir, "ai-nvm.js"))}`)) {
+          report("SPD Hub presentation overstates embedded MTP as a source-disclosed JEDEC technology");
+        }
         if (!/id=["']opportunityCount["']>07</.test(html)) report("Initial Proof-only count must be 07");
         if (/SPD-hub and PMIC persistence workloads need product proof|Awaiting Primary Evidence|等待一級證據驗證/.test(`${html}\n${JSON.stringify(knowledge)}`)) {
           report("Promoted DDR5/BMC applications still use obsolete waiting-for-proof wording");

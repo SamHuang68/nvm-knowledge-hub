@@ -31,12 +31,18 @@
     "sourceDocument": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["title", "version", "date", "sha256"],
+      "required": ["title", "version", "date", "sha256", "publicationStatus", "officialListingUrl", "documentUrl", "contributor", "custodian", "authorityScope"],
       "properties": {
         "title": { "type": "string", "minLength": 1 },
         "version": { "type": "string", "minLength": 1 },
         "date": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$" },
-        "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+        "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+        "publicationStatus": { "type": "string", "minLength": 1 },
+        "officialListingUrl": { "type": "string", "format": "uri" },
+        "documentUrl": { "type": "string", "format": "uri" },
+        "contributor": { "type": "string", "minLength": 1 },
+        "custodian": { "type": "string", "minLength": 1 },
+        "authorityScope": { "type": "string", "minLength": 1 }
       }
     },
     "centralThesisEn": { "type": "string", "minLength": 1 },
@@ -342,6 +348,34 @@
               "Volatile State",
               "Not Specified"
             ]
+          }
+        },
+        "storageCandidateProvenance": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["candidate", "basis"],
+            "properties": {
+              "candidate": {
+                "enum": [
+                  "OTP / Fuse",
+                  "PUF-derived Root",
+                  "MTP / Managed NVM",
+                  "EEPROM / Managed NVM",
+                  "Embedded Flash",
+                  "Embedded MRAM / RRAM",
+                  "External Flash / Host Storage",
+                  "Volatile State",
+                  "Not Specified"
+                ]
+              },
+              "basis": {
+                "enum": ["SOURCE_DEFINED_FUNCTION", "BOUNDED_IMPLEMENTATION_CANDIDATE"]
+              }
+            }
           }
         },
         "opportunityStatus": {

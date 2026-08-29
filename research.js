@@ -3,16 +3,16 @@ let activeEvidenceType = "all";
 
 const researchPhaseCopy = {
   off: {
-    zh: ["01", "斷電：差異先出現在『狀態是否仍可被表達』。", "SRAM latch 沒有供電，不再維持 0/1 邏輯狀態；但製程 mismatch 仍存在。已 enrollment 的 antifuse／NeoPUF 導通路徑則是永久實體狀態。"],
-    en: ["01", "Power-off: the first divide is whether a state remains expressible.", "An unpowered SRAM latch no longer maintains a logical 0/1, although process mismatch remains. An enrolled antifuse or NeoPUF conduction path is a persistent physical state."]
+    zh: ["01", "斷電：差異先出現在『狀態是否仍可被表達』", "SRAM latch 沒有供電，不再維持 0/1 邏輯狀態；但製程 mismatch 仍存在。已 enrollment 的 antifuse／NeoPUF 導通路徑則是永久實體狀態。"],
+    en: ["01", "Power-off: the first divide is whether a state remains expressible", "An unpowered SRAM latch no longer maintains a logical 0/1, although process mismatch remains. An enrolled antifuse or NeoPUF conduction path is a persistent physical state."]
   },
   express: {
-    zh: ["02", "上電：兩者都把物理差異轉成電訊號。", "SRAM PUF 在 power-up 競爭中表達 startup preference；persistent OTP／OTP-PUF 則以電阻、導通或閾值差異回應。這一層還不是安全結論。"],
-    en: ["02", "Power-up: both translate physical variation into an electrical signal.", "An SRAM PUF expresses startup preference through a power-up race. Persistent OTP or OTP-PUF responds through resistance, conduction or threshold differences. This layer alone is not a security conclusion."]
+    zh: ["02", "上電：兩者都把物理差異轉成電訊號", "SRAM PUF 在 power-up 競爭中表達 startup preference；persistent OTP／OTP-PUF 則以電阻、導通或閾值差異回應。這一層還不是安全結論。"],
+    en: ["02", "Power-up: both translate physical variation into an electrical signal", "An SRAM PUF expresses startup preference through a power-up race. Persistent OTP or OTP-PUF responds through resistance, conduction or threshold differences. This layer alone is not a security conclusion."]
   },
   read: {
-    zh: ["03", "讀取：安全差異先看 representation，再看 sense mode。", "高速 6T SRAM 主流以 BL／BLB 的小擺幅 ΔV 讀取。Antifuse 可做 reference differential 或 twin-cell complementary read；後者能否商品化，取決於 bit-cell economics，而非電路圖上是否有 differential sense amplifier。"],
-    en: ["03", "Read: inspect representation before sense mode.", "Mainstream high-speed 6T SRAM reads a small ΔV across BL/BLB. Antifuse may use reference differential or twin-cell complementary read; commercial viability of the latter depends on bit-cell economics, not merely the presence of a differential sense amplifier."]
+    zh: ["03", "讀取：安全差異先看 representation，再看 sense mode", "高速 6T SRAM 主流以 BL／BLB 的小擺幅 ΔV 讀取。Antifuse 可做 reference differential 或 twin-cell complementary read；後者能否商品化，取決於 bit-cell economics，而非電路圖上是否有 differential sense amplifier。"],
+    en: ["03", "Read: inspect representation before sense mode", "Mainstream high-speed 6T SRAM reads a small ΔV across BL/BLB. Antifuse may use reference differential or twin-cell complementary read; commercial viability of the latter depends on bit-cell economics, not merely the presence of a differential sense amplifier."]
   }
 };
 

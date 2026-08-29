@@ -92,7 +92,7 @@
       "asset": "Root Key",
       "attackClass": ["Invasive Readout", "Power SCA", "EM SCA"],
       "lifecyclePhase": ["Power-off", "Boot", "Derive", "Zeroize"],
-      "claim": "The SRAM PUF generates a device-specific root at power-up; the vendor states that this root is never stored on-chip.",
+      "claim": "The SRAM PUF generates a device-specific root at power-up; Synopsys states that this root is never stored on-chip.",
       "claimStatus": "Vendor Claim",
       "evidenceClass": "Vendor Disclosure",
       "assuranceMaturity": "Claimed",

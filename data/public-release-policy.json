@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "policyId": "PUBLIC-NVM-WEB-2026-08-29",
+  "allowedClassifications": ["Public"],
+  "blockedClassifications": ["Internal", "NDA", "Confidential", "Restricted"],
+  "blockedAttachmentExtensions": [".pdf", ".ppt", ".pptx", ".doc", ".docx", ".xls", ".xlsx", ".zip", ".7z", ".rar"],
+  "allowedAttachmentExceptions": [],
+  "rawPublicDataRoots": ["data"],
+  "requiredPovContractId": "POV-NVM-WEB-2026-08-29",
+  "releaseApprover": "Sam Huang",
+  "declassificationAuthority": "Sam Huang",
+  "failMode": "closed"
+}

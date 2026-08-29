@@ -1,12 +1,17 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const siteDir = path.resolve(scriptDir, "..");
 const jsonPath = path.join(siteDir, "data", "oip-secure-storage-knowledge.json");
 const csvPath = path.join(siteDir, "data", "oip-sharepoint-import.csv");
+const povPath = path.join(siteDir, "data", "institutional-pov-contract.json");
 const knowledge = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+const pov = JSON.parse(fs.readFileSync(povPath, "utf8"));
+const sha256 = value => crypto.createHash("sha256").update(value, "utf8").digest("hex").toUpperCase();
+const canonicalContentSha256 = sha256(fs.readFileSync(jsonPath, "utf8"));
 
 const required = [
   "recordId", "title", "contentType", "topic", "asset", "attackClass", "lifecyclePhase",
@@ -34,6 +39,13 @@ for (const record of knowledge.records) {
 }
 
 const columns = [
+  ["SchemaVersion", () => knowledge.schemaVersion], ["PackageID", () => "OIP-SECURE-STORAGE-PUBLIC"],
+  ["PackageRevision", () => knowledge.reviewedDate], ["CanonicalContentSHA256", () => canonicalContentSha256],
+  ["RecordRevision", record => `${record.reviewedDate}-${sha256(JSON.stringify(record)).slice(0, 12)}`], ["RecordSHA256", record => sha256(JSON.stringify(record))],
+  ["POVContractID", () => pov.povContractId], ["POVScopeID", () => pov.defaultScopeId],
+  ["AuthorOrganization", () => pov.contracts.knowledgeHub.authorOrganization], ["SponsorOrganization", () => pov.contracts.knowledgeHub.sponsorOrganization],
+  ["ArtifactMode", () => pov.contracts.knowledgeHub.artifactMode], ["AccountableOwnerPersonKey", () => "sam-huang"],
+  ["EditorialPublisherKey", () => "nvm-hub"], ["ReleaseApprover", () => "Sam Huang"],
   ["RecordID", "recordId"], ["Title", "title"], ["ContentType", "contentType"], ["Topic", "topic"],
   ["SecurityAsset", "asset"], ["AttackClass", "attackClass"], ["LifecyclePhase", "lifecyclePhase"],
   ["SecurityClaim", "claim"], ["ClaimStatus", "claimStatus"], ["EvidenceClass", "evidenceClass"],
@@ -47,7 +59,7 @@ const quote = value => `"${String(value ?? "").replaceAll('"', '""')}"`;
 const serialized = value => Array.isArray(value) ? value.join(";") : value;
 const rows = [
   columns.map(([label]) => label).join(","),
-  ...knowledge.records.map(record => columns.map(([, field]) => quote(serialized(record[field]))).join(","))
+  ...knowledge.records.map(record => columns.map(([, accessor]) => quote(serialized(typeof accessor === "function" ? accessor(record) : record[accessor]))).join(","))
 ];
 const output = `${rows.join("\r\n")}\r\n`;
 

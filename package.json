@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "serve": "node scripts/serve-local.mjs",
-    "check": "node scripts/check-site-ia.mjs",
+    "check": "node scripts/normalize-heading-punctuation.mjs --check && node scripts/check-site-ia.mjs && node scripts/build-oip-sharepoint.mjs --check && node scripts/build-ai-nvm-sharepoint.mjs --check && node scripts/check-ai-nvm-integrity.mjs && node scripts/check-release-gates.mjs && node scripts/build-release-lineage.mjs --check",
+    "release:lineage": "node scripts/build-release-lineage.mjs --write",
+    "format:headings": "node scripts/normalize-heading-punctuation.mjs",
+    "export:sharepoint": "node scripts/build-oip-sharepoint.mjs && node scripts/build-ai-nvm-sharepoint.mjs",
     "qa:render": "node scripts/render-site-ia.mjs"
   },
   "devDependencies": {

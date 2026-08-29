@@ -14,6 +14,109 @@
     .filter(Boolean);
   let activeView = page.dataset.opportunityView === "proof" ? "proof" : "all";
   let activeFilter = "all";
+  let knowledgeById = new Map();
+
+  const splitIds = value => (value || "").trim().split(/\s+/u).filter(Boolean);
+  const unique = values => [...new Set(values.filter(Boolean))];
+  const localizedField = (record, stem) => record?.[`${stem}${page.dataset.language === "en" ? "En" : "Zh"}`] || "";
+
+  function createBoundaryField(label, value, { derived = false, field = "" } = {}) {
+    const wrapper = document.createElement("section");
+    wrapper.className = "record-boundary-field";
+    if (derived) wrapper.dataset.derived = "true";
+    if (field) wrapper.dataset.sourceField = field;
+    const heading = document.createElement("small");
+    heading.textContent = label;
+    const copy = document.createElement("p");
+    copy.textContent = value;
+    wrapper.append(heading, copy);
+    return wrapper;
+  }
+
+  function renderOpportunityBoundaries() {
+    if (!knowledgeById.size) return;
+    const zh = page.dataset.language !== "en";
+    for (const recordElement of records) {
+      const sourceIds = splitIds(recordElement.dataset.recordIds || recordElement.dataset.recordId);
+      const fitIds = splitIds(recordElement.dataset.fitRecordIds);
+      const sourceRecords = sourceIds.map(id => knowledgeById.get(id)).filter(record => record && !record.isInference);
+      const fitRecords = fitIds.map(id => knowledgeById.get(id)).filter(Boolean);
+      const sourceClaims = unique(sourceRecords.map(record => `${record.claimStatus.toUpperCase()} · ${localizedField(record, "claim")}`));
+      const sourceCopy = recordElement.querySelector(".record-copy p");
+      if (sourceCopy && sourceClaims.length) sourceCopy.textContent = sourceClaims.join(" ");
+
+      let sourceLabel = recordElement.querySelector(".record-copy .record-source-label");
+      if (!sourceLabel) {
+        sourceLabel = document.createElement("small");
+        sourceLabel.className = "record-source-label";
+        sourceCopy?.before(sourceLabel);
+      }
+      sourceLabel.textContent = "SOURCE ESTABLISHES";
+
+      const candidateEvidence = [];
+      for (const record of fitRecords) {
+        const explicitProvenance = Array.isArray(record.storageCandidateProvenance)
+          ? record.storageCandidateProvenance
+          : [];
+        if (explicitProvenance.length) {
+          candidateEvidence.push(...explicitProvenance);
+          continue;
+        }
+        const basis = record.isInference || !sourceIds.includes(record.recordId)
+          ? "BOUNDED_IMPLEMENTATION_CANDIDATE"
+          : "SOURCE_DEFINED_FUNCTION";
+        for (const candidate of record.storageCandidate || []) candidateEvidence.push({ candidate, basis });
+      }
+      const candidateEvidenceByKey = new Map(candidateEvidence
+        .filter(item => item.candidate && item.candidate !== "Not Specified")
+        .map(item => [`${item.candidate}\u0000${item.basis}`, item]));
+      const candidates = [...candidateEvidenceByKey.values()];
+      const inferredFit = candidates.some(item => item.basis === "BOUNDED_IMPLEMENTATION_CANDIDATE");
+      const candidateText = candidates.length
+        ? candidates.map(item => `${item.basis === "SOURCE_DEFINED_FUNCTION" ? "SOURCE-DEFINED FUNCTION" : "BOUNDED IMPLEMENTATION CANDIDATE"} — ${item.candidate}`).join(" · ")
+        : (zh ? "來源未揭露 NVM technology" : "NVM technology is not source-disclosed");
+      const consequence = unique(fitRecords.map(record => localizedField(record, "applicability"))).join(" ") || (zh ? "尚未建立有界推論" : "No bounded inference has been established");
+      const question = unique([...fitRecords, ...sourceRecords].map(record => localizedField(record, "openQuestion"))).join(" ");
+      const limitation = unique([...sourceRecords, ...fitRecords].map(record => localizedField(record, "limitation"))).join(" ");
+
+      const boundary = document.createElement("div");
+      boundary.className = "record-fit record-boundary-grid";
+      boundary.dataset.copyRevision = recordElement.dataset.copyRevision;
+      boundary.dataset.povContractId = page.dataset.povContractId;
+      boundary.append(
+        createBoundaryField("CANDIDATE NVM FIT", candidateText, { derived: inferredFit, field: "storageCandidateProvenance" }),
+        createBoundaryField("DESIGN CONSEQUENCE / BOUNDED INFERENCE", consequence, { derived: true, field: "applicability" }),
+        createBoundaryField("OPEN IMPLEMENTATION QUESTION", question || (zh ? "目標實作仍需確認" : "Target implementation remains to be confirmed"), { field: "openQuestion" })
+      );
+      const lineage = document.createElement("p");
+      lineage.className = "record-lineage";
+      lineage.textContent = `${sourceIds.join(" + ")} · ${fitIds.join(" + ")} · ${limitation}`;
+      boundary.append(lineage);
+      recordElement.querySelector(".record-fit")?.replaceWith(boundary);
+    }
+  }
+
+  async function loadKnowledge() {
+    try {
+      const response = await fetch("data/ai-nvm-opportunities-knowledge.json", { cache: "no-store" });
+      if (!response.ok) throw new Error(`knowledge HTTP ${response.status}`);
+      const knowledge = await response.json();
+      knowledgeById = new Map(knowledge.records.map(record => [record.recordId, record]));
+      renderOpportunityBoundaries();
+      page.dataset.knowledgeState = "canonical";
+    } catch (error) {
+      page.dataset.knowledgeState = "error";
+      records.forEach(record => { record.hidden = true; });
+      if (empty) {
+        empty.hidden = false;
+        const zhCopy = empty.querySelector('[data-lang="zh"]');
+        const enCopy = empty.querySelector('[data-lang="en"]');
+        if (zhCopy) zhCopy.textContent = "Canonical knowledge package 無法載入；為避免混合證據與推論，本區塊已安全關閉。";
+        if (enCopy) enCopy.textContent = "The canonical knowledge package could not be loaded. This section is closed rather than mixing evidence with inference.";
+      }
+      console.error("Canonical opportunity view could not be loaded", error);
+    }
+  }
 
   function initTabs(buttonSelector, panelSelector, keyName) {
     const buttons = [...document.querySelectorAll(buttonSelector)];
@@ -165,9 +268,13 @@
   }));
 
   new MutationObserver(mutations => {
-    if (mutations.some(mutation => mutation.attributeName === "data-language")) localizeControls();
+    if (mutations.some(mutation => mutation.attributeName === "data-language")) {
+      localizeControls();
+      renderOpportunityBoundaries();
+    }
   }).observe(page, { attributes: true });
 
   localizeControls();
   render();
+  loadKnowledge();
 })();

@@ -51,3 +51,25 @@
   .control-matrix .matrix-row span:nth-of-type(3)::before{content:"EXPECTED EVIDENCE"}
   .control-matrix .matrix-row span:nth-of-type(4)::before{content:"LIMIT"}
 }
+
+/* R24 enterprise readability and canonical assurance shell */
+.primary-nav a[aria-current="location"]{color:var(--white)}
+.primary-nav a[aria-current="location"]::after{left:0;right:0;width:100%;transform:scaleX(1)}
+
+.assurance-page .site-header{position:sticky;top:0;z-index:50}
+.assurance-page .brand{min-height:44px;gap:12px}
+.assurance-page .brand-copy{display:grid;line-height:1}
+.assurance-page .brand-copy strong{font-size:19px;letter-spacing:.08em}
+.assurance-page .brand-copy small{margin-top:5px;color:#b5c9ce;font-size:9px;letter-spacing:.2em}
+.assurance-page .brand-section{margin-left:12px;padding-left:22px;border-left:1px solid rgba(255,255,255,.22);color:var(--cyan-2);font-size:11px;font-style:normal;font-weight:700;letter-spacing:.14em}
+.assurance-page :where(.principle h2,.section-head h2,.source-band h2){font-size:clamp(42px,3.8vw,56px);line-height:1.12}
+.assurance-page :where(.threat-grid h3,.window-detail h3,.evidence-detail h3,.cert-result h3){font-size:clamp(24px,2.2vw,30px)}
+
+.ai-nvm-page .ai-hero-illustrative,.ai-nvm-page .map-art-badge,.hero-proof-source{font-size:9px;line-height:1.4}
+
+@media(max-width:620px){
+  main :where(p,li,dd,td,tbody th):not(:where(.eyebrow,.kicker,.paper-kicker,.research-label,.map-kicker,.section-no,.section-index,.section-kicker,.micro-label,.spine-schema,.ai-hero-illustrative,.portfolio-scope,.record-lineage)){font-size:max(15px,1rem);line-height:1.6}
+  .ai-nvm-page .ai-hero-illustrative,.ai-nvm-page .map-art-badge,.hero-proof-source{font-size:9px}
+  .assurance-page :where(.principle h2,.section-head h2,.source-band h2){font-size:clamp(30px,8vw,38px)}
+  .assurance-page :where(.threat-grid h3,.window-detail h3,.evidence-detail h3,.cert-result h3){font-size:min(30px,7.2vw)}
+}

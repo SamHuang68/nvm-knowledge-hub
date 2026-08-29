@@ -4146,6 +4146,121 @@
   }
 }
 
+/* R24 canonical opportunity view: source fact, inferred fit and open question never share one label. */
+.ai-nvm-page .record-source-label {
+  display: block;
+  margin: 18px 0 8px;
+  color: var(--ai-teal);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 9px;
+  font-weight: 780;
+  letter-spacing: .105em;
+}
+
+.ai-nvm-page .record-boundary-grid {
+  display: grid;
+  align-content: center;
+  gap: 0;
+}
+
+.ai-nvm-page .record-boundary-field {
+  padding: 16px 0;
+  border-top: 1px solid var(--ai-line);
+}
+
+.ai-nvm-page .record-boundary-field:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.ai-nvm-page .record-boundary-field small {
+  display: block;
+  color: var(--ai-copper-dark);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 9px;
+  font-weight: 780;
+  line-height: 1.45;
+  letter-spacing: .085em;
+}
+
+.ai-nvm-page .record-boundary-field p {
+  margin: 8px 0 0;
+  color: var(--ai-ink);
+  font-size: 13.5px;
+  font-weight: 560;
+  line-height: 1.58;
+}
+
+.ai-nvm-page .record-boundary-field[data-derived="true"] p {
+  color: var(--ai-teal);
+}
+
+.ai-nvm-page .record-lineage {
+  margin: 5px 0 0;
+  padding-top: 14px;
+  color: var(--ai-muted);
+  border-top: 1px solid var(--ai-line);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.ai-nvm-page[data-opportunity-view="proof"] .record-boundary-field[data-derived="true"] {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  .ai-nvm-page .record-boundary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .ai-nvm-page .record-boundary-field {
+    padding: 4px 18px;
+    border-top: 0;
+    border-left: 1px solid var(--ai-line);
+  }
+
+  .ai-nvm-page .record-boundary-field:first-child {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .ai-nvm-page .record-lineage {
+    grid-column: 1 / -1;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 620px) {
+  .ai-nvm-page .record-boundary-grid {
+    display: block;
+  }
+
+  .ai-nvm-page .record-boundary-field,
+  .ai-nvm-page .record-boundary-field:first-child {
+    padding: 15px 0;
+    border-top: 1px solid var(--ai-line);
+    border-left: 0;
+  }
+
+  .ai-nvm-page .record-boundary-field:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .ai-nvm-page .record-boundary-field p,
+  .ai-nvm-page .record-lineage {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .ai-nvm-page .record-lineage {
+    font-size: 12px;
+  }
+}
+
 /* REFINE-025 · Lower-half evidence narrative, grouped ledger and commercial close */
 .ai-nvm-page .evidence-closure-board {
   display: grid;

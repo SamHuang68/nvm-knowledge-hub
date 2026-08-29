@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "2.0",
+  "povContractId": "POV-NVM-WEB-2026-08-29",
+  "effectiveDate": "2026-08-29",
+  "defaultScopeId": "POV-NVM-HUB-NEUTRAL-2026-08-29",
+  "contracts": {
+    "knowledgeHub": {
+      "contractId": "POV-NVM-HUB-NEUTRAL-2026-08-29",
+      "scope": "All public NVM Knowledge Hub pages unless a nearer DOM scope explicitly overrides this contract",
+      "authorOrganization": "NVM Knowledge Hub",
+      "sponsorOrganization": "Sam Huang",
+      "artifactMode": "neutral-editorial",
+      "audience": "Public NVM learners, SoC architects, security reviewers and future SharePoint knowledge-hub readers",
+      "institutionalStance": "Evidence-led neutral editorial voice with named source attribution and bounded inference",
+      "sponsorActorLabel": "NVM Knowledge Hub",
+      "allowedSpeakerConstructions": ["the source", "the cited vendor", "the contribution", "the Knowledge Hub"],
+      "externalActorLabels": ["Synopsys", "Lightmatter", "OCP", "NVIDIA", "Axiado", "JEDEC", "the SoC integrator"],
+      "evidenceTaxonomyLabels": ["source establishes", "candidate NVM fit", "bounded inference", "open implementation question"],
+      "responsibilityOwners": ["named source owner", "NVM Knowledge Hub editorial owner", "Sam Huang release approver"],
+      "closingOwner": "Sam Huang",
+      "flagPatterns": ["\\bwe\\b", "\\bour solution\\b", "我們的解決方案", "本公司的"],
+      "allowedContexts": [],
+      "forbiddenConstructions": ["we", "our solution", "the vendor when Synopsys is the declared actor"],
+      "domBinding": "body[data-pov-scope-id='POV-NVM-HUB-NEUTRAL-2026-08-29']"
+    },
+    "ownerShell": {
+      "contractId": "POV-SAM-OWNER-SHELL-2026-08-29",
+      "scope": "Sam Huang portfolio gateway only; not inherited by the NVM Knowledge Hub",
+      "authorOrganization": "Sam Huang",
+      "sponsorOrganization": "Sam Huang",
+      "artifactMode": "first-party-sales",
+      "audience": "Public professional portfolio visitors",
+      "institutionalStance": "First-person owner voice for portfolio navigation and personal accountability",
+      "sponsorActorLabel": "Sam Huang",
+      "allowedSpeakerConstructions": ["I", "my", "Sam Huang"],
+      "externalActorLabels": ["NVM Knowledge Hub", "Synopsys", "external source"],
+      "evidenceTaxonomyLabels": ["project", "research", "release evidence"],
+      "responsibilityOwners": ["Sam Huang"],
+      "closingOwner": "Sam Huang",
+      "flagPatterns": ["\\bthe vendor\\b"],
+      "allowedContexts": [],
+      "domBinding": "body[data-pov-scope-id='POV-SAM-OWNER-SHELL-2026-08-29']"
+    },
+    "firstPartyPaper": {
+      "contractId": "POV-SYNOPSYS-FIRST-PARTY-PAPER-2026-08-29",
+      "scope": "Separately declared Synopsys-authored paper or presentation artifact only; never inherited by neutral Hub pages",
+      "authorOrganization": "Synopsys",
+      "sponsorOrganization": "Synopsys",
+      "artifactMode": "first-party-paper",
+      "audience": "OIP technical reviewers and silicon-security stakeholders",
+      "institutionalStance": "Restrained first-party Synopsys technical-paper voice",
+      "sponsorActorLabel": "Synopsys",
+      "allowedSpeakerConstructions": ["Synopsys", "this work", "we", "our solution"],
+      "externalActorLabels": ["SoC integrator", "foundry", "other vendors"],
+      "evidenceTaxonomyLabels": ["direct observation", "Synopsys public disclosure", "configuration-specific implementation", "target proof"],
+      "responsibilityOwners": ["Synopsys", "SoC integrator", "joint"],
+      "closingOwner": "Synopsys and the SoC integrator",
+      "flagPatterns": ["\\bvendor(?:-reported|-disclosed)?\\b", "\\bvendors\\b", "\\b(?:IP\\s+)?provider\\b", "\\bsupplier\\b", "\\bthe company\\b"],
+      "allowedContexts": [
+        {
+          "pattern": "\\bother (?:macros?, )?vendors?(?: or nodes?)?\\b",
+          "classification": "external-comparative-class",
+          "referent": "vendors other than the reported Synopsys target"
+        }
+      ],
+      "requireSponsorActorInVisibleText": true,
+      "domBinding": "[data-pov-scope-id='POV-SYNOPSYS-FIRST-PARTY-PAPER-2026-08-29']"
+    },
+    "ownerProvidedPublicNote": {
+      "contractId": "POV-SAM-OWNER-NOTE-2026-08-29",
+      "scope": "Two explicitly badged public engineering notes inside the neutral Hub",
+      "authorOrganization": "Sam Huang",
+      "sponsorOrganization": "Sam Huang",
+      "artifactMode": "neutral-editorial",
+      "audience": "Public NVM Knowledge Hub readers",
+      "institutionalStance": "Explicitly attributed owner observation separated from cited-source authority",
+      "sponsorActorLabel": "OWNER-PROVIDED PUBLIC ENGINEERING NOTE",
+      "allowedSpeakerConstructions": ["owner-provided observation", "owner-provided engineering note"],
+      "externalActorLabels": ["cited source", "vendor document", "internal SharePoint evidence"],
+      "evidenceTaxonomyLabels": ["owner-provided public engineering note", "requires internal verification"],
+      "responsibilityOwners": ["Sam Huang"],
+      "closingOwner": "Sam Huang",
+      "flagPatterns": ["\\bvendor documented\\b", "供應商已證實"],
+      "allowedContexts": [],
+      "domBinding": "[data-pov-scope-id='POV-SAM-OWNER-NOTE-2026-08-29']"
+    }
+  },
+  "ownerProvidedPublicNotes": [
+    {
+      "noteId": "OWNER-NOTE-PGM-IO-001",
+      "povScopeId": "POV-SAM-OWNER-NOTE-2026-08-29",
+      "label": "OWNER-PROVIDED PUBLIC ENGINEERING NOTE",
+      "claimOwner": "Sam Huang",
+      "releaseApprover": "Sam Huang",
+      "approvalDate": "2026-08-29",
+      "classification": "Public",
+      "statement": "Programming still requires the I/O supply as the charge-pump base voltage.",
+      "attributionRule": "Must not be presented as a statement from the cited Synopsys datasheet."
+    },
+    {
+      "noteId": "OWNER-NOTE-ESF3-001",
+      "povScopeId": "POV-SAM-OWNER-NOTE-2026-08-29",
+      "label": "OWNER-PROVIDED PUBLIC ENGINEERING NOTE",
+      "claimOwner": "Sam Huang",
+      "releaseApprover": "Sam Huang",
+      "approvalDate": "2026-08-29",
+      "classification": "Public",
+      "statement": "The owner observes that SST ESF3 requires more than 20 additional masks, constraining adoption while programs often extend ESF2.",
+      "attributionRule": "Exact mask count, customer adoption and foundry-option status require internal project evidence before external commercial use."
+    }
+  ],
+  "sharePointOwnerMapping": {
+    "ContentOwnerKey": {
+      "type": "Single line text",
+      "meaning": "Stable editorial owner label; not a SharePoint Person field"
+    },
+    "ContentOwnerUPN": {
+      "type": "Person",
+      "publicValue": null,
+      "meaning": "Resolve only after migration to the corporate tenant; omit from public CSV exports"
+    },
+    "AccountableOwnerPersonKey": {
+      "type": "Single line text",
+      "publicValue": "sam-huang",
+      "meaning": "Stable pre-migration accountability key"
+    }
+  }
+}
