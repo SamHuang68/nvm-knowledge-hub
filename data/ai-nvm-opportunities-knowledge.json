@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.2",
+  "schemaVersion": "1.3",
   "packageId": "AI-NVM-OPPORTUNITIES-2026-08-26",
   "titleEn": "AI NVM Opportunities — Persistent State at the Right Boundary",
   "titleZh": "AI NVM 機會地圖——讓持久狀態留在正確的系統邊界",
@@ -32,8 +32,8 @@
     },
     {
       "code": "FIRST_PARTY_CASE",
-      "labelEn": "First-party case",
-      "labelZh": "第一方案例",
+      "labelEn": "Official product case",
+      "labelZh": "官方產品案例",
       "definitionEn": "A shipped product or official implementation demonstrates the cited behavior.",
       "definitionZh": "已出貨產品或官方實作證明了所引用的行為。"
     },
@@ -105,7 +105,8 @@
           "relatedRecordIds": ["AI-NVM-INF-002", "AI-NVM-INF-003", "AI-NVM-DDR5-001", "AI-NVM-DDR5-002", "AI-NVM-BMC-001", "AI-NVM-BMC-002"],
           "isInference": true,
           "canonicalRecordEligible": false,
-          "proofModeEligible": false
+          "proofModeEligible": false,
+          "sourceGroundedEligible": false
         },
         {
           "hypothesisId": "AI-NVM-HYP-NBLM-002",
@@ -124,7 +125,8 @@
           "relatedRecordIds": ["AI-NVM-DDR5-001", "AI-NVM-DDR5-002", "AI-NVM-PMIC-001", "AI-NVM-PMIC-002", "AI-NVM-VENDOR-002"],
           "isInference": true,
           "canonicalRecordEligible": false,
-          "proofModeEligible": false
+          "proofModeEligible": false,
+          "sourceGroundedEligible": false
         },
         {
           "hypothesisId": "AI-NVM-HYP-NBLM-003",
@@ -143,7 +145,8 @@
           "relatedRecordIds": ["AI-NVM-INF-002", "AI-NVM-VENDOR-001"],
           "isInference": true,
           "canonicalRecordEligible": false,
-          "proofModeEligible": false
+          "proofModeEligible": false,
+          "sourceGroundedEligible": false
         },
         {
           "hypothesisId": "AI-NVM-HYP-NBLM-004",
@@ -162,7 +165,8 @@
           "relatedRecordIds": ["AI-NVM-BMC-001", "AI-NVM-BMC-002", "AI-NVM-SPDM-001", "AI-NVM-GPU-001", "AI-NVM-INF-001"],
           "isInference": true,
           "canonicalRecordEligible": false,
-          "proofModeEligible": false
+          "proofModeEligible": false,
+          "sourceGroundedEligible": false
         },
         {
           "hypothesisId": "AI-NVM-HYP-NBLM-005",
@@ -181,7 +185,8 @@
           "relatedRecordIds": ["AI-NVM-BISR-001", "AI-NVM-GPU-002", "AI-NVM-GPU-003", "AI-NVM-EFUSE-001", "AI-NVM-DRAM-001", "AI-NVM-DRAM-002", "AI-NVM-HBM-001", "AI-NVM-INF-002", "AI-NVM-INF-004"],
           "isInference": true,
           "canonicalRecordEligible": false,
-          "proofModeEligible": false
+          "proofModeEligible": false,
+          "sourceGroundedEligible": false
         }
       ]
     }
@@ -223,11 +228,13 @@
       "persistenceClass": "Unspecified",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "Vendor Envelope",
+      "evidenceDisposition": "Vendor Disclosure",
       "evidenceBoundaryEn": "The official OCP listing establishes publication of a Lightmatter contribution. The contribution describes an interface contract; it is not an adopted OCP specification and does not establish a persistent-memory implementation.",
       "evidenceBoundaryZh": "OCP 官方列表可確認 Lightmatter contribution 的公開身分；該 contribution 描述介面契約，但不是已採納的 OCP specification，也沒有建立持久記憶體實作。",
       "chapterRefs": ["02", "05", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-OCP-002",
@@ -265,11 +272,13 @@
       "persistenceClass": "High-rate Stream",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "Vendor Envelope",
+      "evidenceDisposition": "Vendor Disclosure",
       "evidenceBoundaryEn": "The contribution proposes an observability model but is not an adopted OCP requirement and does not select an event-retention medium.",
       "evidenceBoundaryZh": "該 contribution 提出 observability model，但不是已採納的 OCP requirement，也沒有指定事件保存媒介。",
       "chapterRefs": ["02", "05", "09", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-OCP-003",
@@ -307,11 +316,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "Vendor Envelope",
+      "evidenceDisposition": "Vendor Disclosure",
       "evidenceBoundaryEn": "The contribution identifies unfinished security topics. It is not an adopted OCP specification and does not endorse a storage technology.",
       "evidenceBoundaryZh": "該 contribution 指出尚未完成的安全議題；它不是已採納的 OCP specification，也沒有背書任何儲存技術。",
       "chapterRefs": ["02", "07", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-OCP-004",
@@ -349,11 +360,13 @@
       "persistenceClass": "Unspecified",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "Vendor Envelope",
+      "evidenceDisposition": "Vendor Disclosure",
       "evidenceBoundaryEn": "The contribution reports drift and thermal-control pressure; it is not an adopted OCP requirement, and persistence remains a downstream design decision.",
       "evidenceBoundaryZh": "該 contribution 描述 drift 與 thermal-control pressure，但不是已採納的 OCP requirement；是否持久化仍是後續設計決策。",
       "chapterRefs": ["03", "05", "06", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-RAS-001",
@@ -391,11 +404,13 @@
       "persistenceClass": "High-rate Stream",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "Source Requirement",
+      "evidenceDisposition": "Source Requirement",
       "evidenceBoundaryEn": "The source specifies the RAS interface; storage placement remains outside its scope.",
       "evidenceBoundaryZh": "來源規範 RAS 介面；儲存配置不在其範圍內。",
       "chapterRefs": ["02", "04", "09", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-OIF-001",
@@ -433,11 +448,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "Source Requirement",
+      "evidenceDisposition": "Source Requirement",
       "evidenceBoundaryEn": "CMIS establishes functions and registers, not the technology or location of persistence.",
       "evidenceBoundaryZh": "CMIS 建立功能與暫存器，但不決定持久化技術或位置。",
       "chapterRefs": ["04", "05", "06", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-SPDM-001",
@@ -475,11 +492,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "Source Requirement",
+      "evidenceDisposition": "Source Requirement",
       "evidenceBoundaryEn": "SPDM specifies identity behavior but leaves key generation, storage and provisioning outside scope.",
       "evidenceBoundaryZh": "SPDM 規範身分行為，但把金鑰產生、儲存與佈建留在規格範圍外。",
       "chapterRefs": ["02", "07", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-CXL-001",
@@ -517,11 +536,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "Source Requirement",
+      "evidenceDisposition": "Source Requirement",
       "evidenceBoundaryEn": "The source establishes lifecycle features, not an OTP or MTP implementation.",
       "evidenceBoundaryZh": "來源建立生命週期功能，但不是 OTP 或 MTP 實作。",
       "chapterRefs": ["02", "03", "07", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-GPU-001",
@@ -559,11 +580,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "First-party Proof Case",
+      "evidenceDisposition": "Official Product Case",
       "evidenceBoundaryEn": "The product behavior is first-party evidence; its internal root storage is not disclosed here.",
       "evidenceBoundaryZh": "產品行為屬於第一方證據，但此來源未揭露內部信任根的儲存方式。",
       "chapterRefs": ["02", "03", "04", "07"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-GPU-002",
@@ -601,11 +624,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "First-party Proof Case",
+      "evidenceDisposition": "Official Product Case",
       "evidenceBoundaryEn": "The cited product proves persistent repair behavior, not a universal implementation or endurance number.",
       "evidenceBoundaryZh": "引用產品證明持久修復行為，但不代表通用實作或耐久度數字。",
       "chapterRefs": ["02", "03", "04", "07"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-GPU-003",
@@ -643,11 +668,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["OTP / Fuse"],
       "opportunityStatus": "First-party Proof Case",
+      "evidenceDisposition": "Official Product Case",
       "evidenceBoundaryEn": "The case proves a fuse-programmed repair interaction; it does not generalize the physical fuse implementation.",
       "evidenceBoundaryZh": "案例證明熔絲編程修復與證明之間的互動，但不能推廣到所有實體熔絲實作。",
       "chapterRefs": ["03", "04", "07", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-BISR-001",
@@ -685,11 +712,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["OTP / Fuse"],
       "opportunityStatus": "First-party Proof Case",
+      "evidenceDisposition": "Official Product Case",
       "evidenceBoundaryEn": "The source documents a workflow, not a universal repair-memory architecture.",
       "evidenceBoundaryZh": "來源記錄的是工作流程，而非通用修復記憶體架構。",
       "chapterRefs": ["02", "03", "04", "06"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-EFUSE-001",
@@ -727,11 +756,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["OTP / Fuse"],
       "opportunityStatus": "Technical Evidence",
+      "evidenceDisposition": "Technical Evidence",
       "evidenceBoundaryEn": "High programming current is demonstrated; multiple external PGM pads are only one possible implementation response.",
       "evidenceBoundaryZh": "高燒錄電流已有實證；多個外部 PGM pads 只是可能的實作回應之一。",
       "chapterRefs": ["03", "05", "08", "09"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-DRAM-001",
@@ -769,11 +800,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["OTP / Fuse"],
       "opportunityStatus": "Technical Evidence",
+      "evidenceDisposition": "Technical Evidence",
       "evidenceBoundaryEn": "The teardown proves antifuse in the cited DDR4 die, not a universal HBM architecture.",
       "evidenceBoundaryZh": "拆解證明引用 DDR4 die 使用 AntiFuse，但不能推廣成通用 HBM 架構。",
       "chapterRefs": ["03", "05", "08", "09"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-DRAM-002",
@@ -811,11 +844,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["OTP / Fuse"],
       "opportunityStatus": "Technical Evidence",
+      "evidenceDisposition": "Technical Evidence",
       "evidenceBoundaryEn": "The cited design demonstrates one viable tradeoff; charge-pump inclusion and pin topology remain macro-specific.",
       "evidenceBoundaryZh": "引用設計證明一種可行取捨；charge pump 與 pin topology 仍依 macro 而定。",
       "chapterRefs": ["03", "05", "08", "09"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-HBM-001",
@@ -853,11 +888,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "First-party Proof Case",
+      "evidenceDisposition": "Official Product Case",
       "evidenceBoundaryEn": "Post-assembly repair is proven; fuse physics, pad count and die placement are not disclosed.",
       "evidenceBoundaryZh": "組裝後 repair 行為已被證明；fuse physics、pad 數量與 die placement 尚未公開。",
       "chapterRefs": ["03", "05", "08", "09"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-PMIC-001",
@@ -895,11 +932,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["OTP / Fuse"],
       "opportunityStatus": "First-party Proof Case",
+      "evidenceDisposition": "Official Product Case",
       "evidenceBoundaryEn": "The use of OTP is demonstrated for this component family; it is not a universal PMIC requirement.",
       "evidenceBoundaryZh": "此元件系列證明了 OTP 的使用，但不代表所有 PMIC 都有相同要求。",
       "chapterRefs": ["03", "04", "06"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-PMIC-002",
@@ -937,11 +976,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["EEPROM / Managed NVM"],
       "opportunityStatus": "First-party Proof Case",
+      "evidenceDisposition": "Official Product Case",
       "evidenceBoundaryEn": "The cited device demonstrates bounded EEPROM logging; it does not prove universal embedded-log fitness.",
       "evidenceBoundaryZh": "引用裝置證明有界 EEPROM 日誌，但不能證明嵌入式日誌普遍適用。",
       "chapterRefs": ["02", "04", "06", "09", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-UCIe-001",
@@ -979,11 +1020,13 @@
       "persistenceClass": "Unspecified",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "Source Requirement",
+      "evidenceDisposition": "Source Requirement",
       "evidenceBoundaryEn": "This is an acronym and lifecycle clarification, not evidence for MTP memory deployment.",
       "evidenceBoundaryZh": "這是縮寫與生命週期釐清，不是部署 MTP 記憶體的證據。",
       "chapterRefs": ["02", "06", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-VENDOR-001",
@@ -1021,11 +1064,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["OTP / Fuse"],
       "opportunityStatus": "Vendor Envelope",
+      "evidenceDisposition": "Vendor Disclosure",
       "evidenceBoundaryEn": "This is a vendor-stated envelope and must not be presented as independent assurance.",
       "evidenceBoundaryZh": "這是供應商宣告的能力範圍，不得描述為獨立確證。",
       "chapterRefs": ["06", "08", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-VENDOR-002",
@@ -1063,11 +1108,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["MTP / Managed NVM"],
       "opportunityStatus": "Vendor Envelope",
+      "evidenceDisposition": "Vendor Disclosure",
       "evidenceBoundaryEn": "The cycle envelope is vendor-stated and product-specific, not independently generalized.",
       "evidenceBoundaryZh": "循環次數範圍是供應商宣告且產品特定，不能未經獨立證據加以泛化。",
       "chapterRefs": ["06", "08", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-INF-001",
@@ -1105,11 +1152,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["OTP / Fuse", "PUF-derived Root"],
       "opportunityStatus": "Architecture Inference",
+      "evidenceDisposition": "Bounded Architecture Inference",
       "evidenceBoundaryEn": "This placement is an architecture hypothesis synthesized from adjacent requirements and proof cases.",
       "evidenceBoundaryZh": "此配置是由相鄰需求與案例綜合推導的架構假設。",
       "chapterRefs": ["01", "03", "07", "08", "09", "10"],
       "isInference": true,
-      "proofModeEligible": false
+      "proofModeEligible": false,
+      "sourceGroundedEligible": false
     },
     {
       "recordId": "AI-NVM-INF-002",
@@ -1147,11 +1196,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["MTP / Managed NVM"],
       "opportunityStatus": "Architecture Inference",
+      "evidenceDisposition": "Bounded Architecture Inference",
       "evidenceBoundaryEn": "This is a selection hypothesis; every workload requires quantified endurance, retention and recovery evidence.",
       "evidenceBoundaryZh": "這是選型假設；每個工作負載都需要量化的耐久度、保存與復原證據。",
       "chapterRefs": ["01", "03", "05", "06", "07", "09", "10"],
       "isInference": true,
-      "proofModeEligible": false
+      "proofModeEligible": false,
+      "sourceGroundedEligible": false
     },
     {
       "recordId": "AI-NVM-INF-003",
@@ -1189,11 +1240,13 @@
       "persistenceClass": "High-rate Stream",
       "storageCandidate": ["External Flash / Host Storage", "Volatile State"],
       "opportunityStatus": "Validation Gate",
+      "evidenceDisposition": "Validation Gate",
       "evidenceBoundaryEn": "This is a conservative validation rule, not a source-mandated architecture.",
       "evidenceBoundaryZh": "這是保守的驗證規則，不是來源強制的架構。",
       "chapterRefs": ["02", "05", "06", "09", "10"],
       "isInference": true,
-      "proofModeEligible": false
+      "proofModeEligible": false,
+      "sourceGroundedEligible": false
     },
     {
       "recordId": "AI-NVM-INF-004",
@@ -1231,11 +1284,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["OTP / Fuse", "MTP / Managed NVM"],
       "opportunityStatus": "Architecture Inference",
+      "evidenceDisposition": "Bounded Architecture Inference",
       "evidenceBoundaryEn": "This is a selection hypothesis derived from published mechanisms and product behavior; target-macro evidence is still required.",
       "evidenceBoundaryZh": "這是由公開機制與產品行為推導的選型假設；仍需目標 macro 證據。",
       "chapterRefs": ["03", "05", "08", "09"],
       "isInference": true,
-      "proofModeEligible": false
+      "proofModeEligible": false,
+      "sourceGroundedEligible": false
     },
     {
       "recordId": "AI-NVM-ADV-001",
@@ -1273,11 +1328,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["MTP / Managed NVM"],
       "opportunityStatus": "Vendor Envelope",
+      "evidenceDisposition": "Vendor Disclosure",
       "evidenceBoundaryEn": "Verified public offering; exclusivity and commercial availability remain outside the public proof boundary.",
       "evidenceBoundaryZh": "可確認公開產品；市場唯一性與商業供應狀態不在公開證據邊界內。",
       "chapterRefs": ["05", "06", "09", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-ADV-002",
@@ -1315,11 +1372,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["MTP / Managed NVM"],
       "opportunityStatus": "Vendor Envelope",
+      "evidenceDisposition": "Vendor Disclosure",
       "evidenceBoundaryEn": "This representative vendor example cannot support the claim that every non-Synopsys MTP requires 3.3V or 5V devices.",
       "evidenceBoundaryZh": "此代表性供應商案例不能支持所有非 Synopsys MTP 都需要 3.3V 或 5V devices 的說法。",
       "chapterRefs": ["05", "06", "09", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-ADV-003",
@@ -1357,11 +1416,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["Embedded Flash"],
       "opportunityStatus": "First-party Proof Case",
+      "evidenceDisposition": "Official Product Case",
       "evidenceBoundaryEn": "The paper is a measured implementation example, not a universal process recipe or evidence of commercial volume.",
       "evidenceBoundaryZh": "該論文是一個實測 implementation example，不是通用 process recipe，也不是 commercial volume 證據。",
       "chapterRefs": ["05", "06", "09", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-ADV-004",
@@ -1399,11 +1460,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["Embedded Flash", "Embedded MRAM / RRAM"],
       "opportunityStatus": "Vendor Envelope",
+      "evidenceDisposition": "Vendor Disclosure",
       "evidenceBoundaryEn": "Directionally convergent, commercially uneven; foundry node names and maturity labels are not directly interchangeable.",
       "evidenceBoundaryZh": "方向趨同、商業成熟度不一；不同 foundry 的 node 名稱與 maturity label 不能直接互換。",
       "chapterRefs": ["05", "06", "09", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-ADV-005",
@@ -1441,11 +1504,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["OTP / Fuse"],
       "opportunityStatus": "Vendor Envelope",
+      "evidenceDisposition": "Vendor Disclosure",
       "evidenceBoundaryEn": "The datasheet supports core-supply read and a programming charge pump. The public engineering note that PGM still uses the I/O supply as the charge-pump base voltage is owner-provided and is not attributed to the datasheet.",
       "evidenceBoundaryZh": "Datasheet 支持 core-supply read 與 programming charge pump；PGM 仍以 I/O 電源作為 charge pump 基礎電壓的公開工程註記由內容擁有者提供，不歸因於該 datasheet。",
       "chapterRefs": ["05", "06", "07", "09", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-ADV-006",
@@ -1483,11 +1548,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["OTP / Fuse"],
       "opportunityStatus": "Architecture Inference",
+      "evidenceDisposition": "Bounded Architecture Inference",
       "evidenceBoundaryEn": "Every benefit is conditional on the actual macro interface, wrapper, UPF, power sequence and consumer placement.",
       "evidenceBoundaryZh": "每一項效益都取決於實際 macro interface、wrapper、UPF、power sequence 與 consumer placement。",
       "chapterRefs": ["03", "05", "06", "07", "10"],
       "isInference": true,
-      "proofModeEligible": false
+      "proofModeEligible": false,
+      "sourceGroundedEligible": false
     },
     {
       "recordId": "AI-NVM-ADV-007",
@@ -1525,11 +1592,13 @@
       "persistenceClass": "Unspecified",
       "storageCandidate": ["Not Specified"],
       "opportunityStatus": "Validation Gate",
+      "evidenceDisposition": "Validation Gate",
       "evidenceBoundaryEn": "Publish verified examples and the validation gap; retain complete competitive intelligence and commercial availability in the internal SharePoint layer.",
       "evidenceBoundaryZh": "公開層發布已驗證案例與驗證缺口；完整競爭情報與商業供應狀態保留於公司 SharePoint 內部層。",
       "chapterRefs": ["05", "06", "08", "09", "10"],
       "isInference": true,
-      "proofModeEligible": false
+      "proofModeEligible": false,
+      "sourceGroundedEligible": false
     },
     {
       "recordId": "AI-NVM-DDR5-001",
@@ -1567,11 +1636,13 @@
       "persistenceClass": "Bounded Mutable",
       "storageCandidate": ["MTP / Managed NVM"],
       "opportunityStatus": "Source Requirement",
+      "evidenceDisposition": "Source Requirement",
       "evidenceBoundaryEn": "The MTP function is standards-defined. Exact macro technology, write budget, atomicity, PVT and recovery remain implementation qualifications.",
       "evidenceBoundaryZh": "MTP 功能由標準明確定義；exact macro technology、write budget、atomicity、PVT 與 recovery 仍屬實作 qualification。",
       "chapterRefs": ["02", "05", "06", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-DDR5-002",
@@ -1619,11 +1690,13 @@
         }
       ],
       "opportunityStatus": "Source Requirement",
+      "evidenceDisposition": "Source Requirement",
       "evidenceBoundaryEn": "The 8-Kbit EEPROM and rewritable-NVM function is standards-defined. Embedded MTP is a bounded implementation candidate; JEDEC does not prescribe that physical memory technology.",
       "evidenceBoundaryZh": "8-Kbit EEPROM 與可重寫 NVM 功能由標準明確定義；embedded MTP 是有界的實作候選，JEDEC 並未指定該實體記憶體技術。",
       "chapterRefs": ["02", "05", "06", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-BMC-001",
@@ -1661,11 +1734,13 @@
       "persistenceClass": "Unspecified",
       "storageCandidate": ["OTP / Fuse"],
       "opportunityStatus": "Source Requirement",
+      "evidenceDisposition": "Source Requirement",
       "evidenceBoundaryEn": "This record proves a published BMC secure-boot requirement. It does not prove on-die placement, PUF use, shipment, deployment or physical-attack resistance.",
       "evidenceBoundaryZh": "此記錄證明的是公開 BMC secure-boot requirement；它不證明 on-die placement、PUF 使用、出貨、部署或 physical-attack resistance。",
       "chapterRefs": ["02", "03", "05", "07", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     },
     {
       "recordId": "AI-NVM-BMC-002",
@@ -1703,11 +1778,13 @@
       "persistenceClass": "Immutable",
       "storageCandidate": ["OTP / Fuse", "PUF-derived Root"],
       "opportunityStatus": "Vendor Envelope",
+      "evidenceDisposition": "Vendor Disclosure",
       "evidenceBoundaryEn": "The product brief discloses OTP and PUF capability in a BMC-integrated platform; it does not prove shipment, customer deployment, universal architecture or superior physical-attack resistance.",
       "evidenceBoundaryZh": "Product brief 公開 BMC-integrated platform 的 OTP 與 PUF 能力；不能據此證明 shipment、customer deployment、通用架構或更優越的 physical-attack resistance。",
       "chapterRefs": ["02", "03", "05", "07", "10"],
       "isInference": false,
-      "proofModeEligible": true
+      "proofModeEligible": true,
+      "sourceGroundedEligible": true
     }
   ]
 }

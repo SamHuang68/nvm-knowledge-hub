@@ -334,11 +334,11 @@ if (exists(pagePath)) {
             report("Opportunity card has no governed record reference");
             continue;
           }
-          if (node.attributes["data-evidence"] === "proof" && linkedRecords.some(record => record.proofModeEligible !== true)) {
-            report(`Proof card references non-proof record(s): ${idsFromNode(node).join(", ")}`);
+          if (node.attributes["data-evidence"] === "source-grounded" && linkedRecords.some(record => record.sourceGroundedEligible !== true)) {
+            report(`Source-grounded card references non-grounded record(s): ${idsFromNode(node).join(", ")}`);
           }
-          if (node.attributes["data-evidence"] === "inference" && linkedRecords.every(record => record.proofModeEligible === true)) {
-            report(`Inference card contains no governed non-proof record: ${idsFromNode(node).join(", ")}`);
+          if (node.attributes["data-evidence"] === "inference" && linkedRecords.every(record => record.sourceGroundedEligible === true)) {
+            report(`Inference card contains no governed inference record: ${idsFromNode(node).join(", ")}`);
           }
         }
 
@@ -366,7 +366,7 @@ if (exists(pagePath)) {
         if (/direct MTP\/EEPROM-class socket|SOURCE-DISCLOSED FIT[^\n]*MTP \/ Managed NVM/iu.test(`${html}\n${read(path.join(siteDir, "ai-nvm.js"))}`)) {
           report("SPD Hub presentation overstates embedded MTP as a source-disclosed JEDEC technology");
         }
-        if (!/id=["']opportunityCount["']>07</.test(html)) report("Initial Proof-only count must be 07");
+        if (!/id=["']opportunityCount["']>07</.test(html)) report("Initial source-grounded count must be 07");
         if (/SPD-hub and PMIC persistence workloads need product proof|Awaiting Primary Evidence|等待一級證據驗證/.test(`${html}\n${JSON.stringify(knowledge)}`)) {
           report("Promoted DDR5/BMC applications still use obsolete waiting-for-proof wording");
         }
@@ -394,5 +394,5 @@ if (errors.length) {
   for (const error of errors) console.error(`- ${error}`);
   process.exitCode = 1;
 } else {
-  console.log("PASS: AI NVM page links/assets/CSS, bilingual pairs, Proof-mode classification, DDR5/BMC source coverage, governed IDs, PDF locators and SharePoint CSV are consistent.");
+  console.log("PASS: AI NVM page links/assets/CSS, bilingual pairs, source-grounded classification, DDR5/BMC source coverage, governed IDs, PDF locators and SharePoint CSV are consistent.");
 }

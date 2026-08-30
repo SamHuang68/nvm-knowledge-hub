@@ -9,8 +9,8 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/secure-storage-hero-key.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="styles.css?v=20260825-ia019">
-  <link rel="stylesheet" href="site-shell.css?v=20260825-ia019">
-  <link rel="stylesheet" href="hub.css?v=20260825-ia019">
+  <link rel="stylesheet" href="site-shell.css?v=20260830-shell020">
+  <link rel="stylesheet" href="hub.css?v=20260830-governance020">
 </head>
 <body class="hub-page" data-language="zh" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
@@ -30,7 +30,7 @@
       <a href="#topics"><span data-lang="zh">Topics</span><span data-lang="en">Topics</span></a>
       <a href="#workbench"><span data-lang="zh">Workbench</span><span data-lang="en">Workbench</span></a>
       <a href="#research"><span data-lang="zh">Research Library</span><span data-lang="en">Research Library</span></a>
-      <a href="#method"><span data-lang="zh">Evidence Model</span><span data-lang="en">Evidence Model</span></a>
+      <a href="#method"><span data-lang="zh">Claim Governance</span><span data-lang="en">Claim Governance</span></a>
       <a href="#sharepoint"><span data-lang="zh">Enterprise Ready</span><span data-lang="en">Enterprise Ready</span></a>
     </nav>
     <div class="header-actions">
@@ -59,9 +59,9 @@
         </div>
       </div>
       <div class="hub-hero-index" aria-label="Knowledge system summary">
-        <div><b>01</b><span><span data-lang="zh">NVM 知識主軸</span><span data-lang="en">NVM KNOWLEDGE SPINE</span></span></div>
-        <div><b>02</b><span><span data-lang="zh">目前應用視角</span><span data-lang="en">CURRENT LENSES</span></span></div>
-        <div><b>01</b><span><span data-lang="zh">知識工作台</span><span data-lang="en">KNOWLEDGE WORKBENCH</span></span></div>
+        <div><b>1</b><span><span data-lang="zh">NVM 知識主軸</span><span data-lang="en">NVM KNOWLEDGE SPINE</span></span></div>
+        <div><b>2</b><span><span data-lang="zh">目前應用視角</span><span data-lang="en">CURRENT LENSES</span></span></div>
+        <div><b>1</b><span><span data-lang="zh">知識工作台</span><span data-lang="en">KNOWLEDGE WORKBENCH</span></span></div>
       </div>
     </section>
 
@@ -73,7 +73,7 @@
         <article><span>03</span><small>APPLICATION</small><b>Security · AI<br>Power · Interface</b><p><span data-lang="zh">把 NVM 能力對應到真實 system need，而不是只介紹產品名稱。</span><span data-lang="en">Map NVM capabilities to real system needs—not merely product names.</span></p></article>
         <article><span>04</span><small>GOVERNANCE</small><b>Claim · Evidence<br>Scope · Open Gap</b><p><span data-lang="zh">每一項知識保留來源、限制、review date 與下一個驗證動作。</span><span data-lang="en">Every knowledge item retains its source, limit, review date and next validation action.</span></p></article>
       </div>
-      <p class="spine-schema"><b>SHAREPOINT CONTENT CONTRACT</b><span>Technology Family → State Contract → Application Domain → Process Node → Evidence Class → Source → Limitation → Review Status</span></p>
+      <p class="spine-schema"><b>SHAREPOINT CONTENT CONTRACT</b><span>POV Scope → Opportunity Class → Evidence Relation → Assurance Maturity → Source → Limitation → Validation Gate → Internal Decision → Responsibility Owner</span></p>
     </section>
 
     <section id="topics" class="hub-section topic-section" aria-labelledby="topics-title">
@@ -145,26 +145,27 @@
         <a href="memory-physics.html"><small>RESEARCH NOTE · SECURE STORAGE</small><b>Memory Physics &amp; Security</b><span><span data-lang="zh">Read path、representation 與 physical observability</span><span data-lang="en">Read paths, representation and physical observability</span></span><i>02</i></a>
         <a href="memory-evidence.html"><small>EVIDENCE LEDGER · SHARED METHOD</small><b>Evidence Ledger</b><span><span data-lang="zh">論文、專利、官方案例與推論邊界</span><span data-lang="en">Papers, patents, official cases and inference boundaries</span></span><i>03</i></a>
         <a href="security-assurance.html"><small>ASSURANCE CENTER · SECURE STORAGE</small><b>Physical Security Assurance</b><span><span data-lang="zh">Fault、SCA、invasive analysis 與驗證成熟度</span><span data-lang="en">Faults, SCA, invasive analysis and validation maturity</span></span><i>04</i></a>
+        <a href="ai-nvm-opportunities.html#evidence"><small>GOVERNED EVIDENCE · AI SYSTEMS</small><b>AI NVM Opportunity Evidence</b><span><span data-lang="zh">標準要求、官方案例、候選 NVM fit 與 validation gate</span><span data-lang="en">Standards, official cases, candidate NVM fits and validation gates</span></span><i>05</i></a>
       </div>
     </section>
 
     <section id="method" class="hub-section method-section" aria-labelledby="method-title">
       <div class="method-copy">
-        <p>04 · EVIDENCE MODEL</p>
+        <p>04 · CLAIM GOVERNANCE</p>
         <h2 id="method-title"><span data-lang="zh">知道什麼，<br><em>也清楚標示還不知道什麼</em></span><span data-lang="en">Show what is known<br><em>and what remains unproven</em></span></h2>
         <p><span data-lang="zh">公開來源、供應商主張、架構推論與 target-silicon 證據不混為一談。這是所有主題共用的內容治理原則。</span><span data-lang="en">Public sources, vendor claims, architecture inferences and target-silicon evidence are kept distinct. This is the governance rule shared by every topic.</span></p>
       </div>
-      <div class="method-ladder" aria-label="Evidence model">
-        <div><span>01</span><b>DIRECT EVIDENCE</b><p><span data-lang="zh">來源直接說明或量測的內容</span><span data-lang="en">What the source explicitly states or measures</span></p></div>
-        <div><span>02</span><b>SUPPORTED CLAIM</b><p><span data-lang="zh">多個證據共同支撐的結論</span><span data-lang="en">A conclusion supported by converging evidence</span></p></div>
-        <div><span>03</span><b>ARCHITECTURE INFERENCE</b><p><span data-lang="zh">合理但仍需實作驗證的推論</span><span data-lang="en">A reasoned inference that still needs implementation proof</span></p></div>
-        <div><span>04</span><b>OPEN EVIDENCE GAP</b><p><span data-lang="zh">尚待 silicon、PVT 或攻擊測試關閉</span><span data-lang="en">Still open pending silicon, PVT or attack evidence</span></p></div>
+      <div class="method-ladder" aria-label="Claim governance flow">
+        <div><span>01</span><b>SPEAKER / POV</b><p><span data-lang="zh">先定義誰在說話，以及可代表誰做結論</span><span data-lang="en">Define who speaks and whose conclusion the artifact may carry</span></p></div>
+        <div><span>02</span><b>EVIDENCE RELATION</b><p><span data-lang="zh">區分 requirement、official case、technical evidence、disclosure 與 inference</span><span data-lang="en">Separate requirements, official cases, technical evidence, disclosures and inferences</span></p></div>
+        <div><span>03</span><b>LIMIT / VALIDATION</b><p><span data-lang="zh">保留適用範圍、限制與下一個驗證 gate</span><span data-lang="en">Keep scope, limitation and the next validation gate visible</span></p></div>
+        <div><span>04</span><b>DECISION / OWNER</b><p><span data-lang="zh">內部 SharePoint 才加入 portfolio disposition 與責任 owner</span><span data-lang="en">Add portfolio disposition and responsibility owner only in the authorized internal layer</span></p></div>
       </div>
     </section>
 
     <section id="sharepoint" class="enterprise-strip" aria-labelledby="enterprise-title">
       <div><p>05 · ENTERPRISE TRANSFER</p><h2 id="enterprise-title"><span data-lang="zh">先建立公開知識骨架<br><em>再把內部證據接入 SharePoint</em></span><span data-lang="en">Build the public knowledge spine first<br><em>Then connect internal evidence in SharePoint</em></span></h2></div>
-      <p><span data-lang="zh">目前頁面已對應 Technology Family、State Contract、Application Domain、Process Node、Evidence Class、Source、Limitation 與 Review Status。公司內部版本可在 Copilot / SharePoint 接上 confidential product data、customer context 與 qualification records。</span><span data-lang="en">The current structure maps Technology Family, State Contract, Application Domain, Process Node, Evidence Class, Source, Limitation and Review Status. A Copilot / SharePoint version can later add confidential product data, customer context and qualification records.</span></p>
+      <p><span data-lang="zh">公開層保留 POV、opportunity class、evidence relation、assurance maturity、source、limitation 與 validation gate。公司內部版本再由 Copilot / SharePoint 接上 portfolio disposition、decision rationale、customer context、qualification records 與具名 responsibility owner；兩者不混為同一個 status。</span><span data-lang="en">The public layer preserves POV, opportunity class, evidence relation, assurance maturity, source, limitation and validation gate. The authorized Copilot / SharePoint layer can add portfolio disposition, decision rationale, customer context, qualification records and named responsibility owners without collapsing them into one status.</span></p>
     </section>
   </main>
 

@@ -9,7 +9,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/secure-storage-hero-key.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="styles.css?v=20260825-ia018">
-  <link rel="stylesheet" href="site-shell.css?v=20260825-ia018">
+  <link rel="stylesheet" href="site-shell.css?v=20260830-shell020">
 </head>
 <body data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#top">Skip to main content</a>
@@ -76,10 +76,10 @@
           <a class="button primary" href="#power-lab">探索 Power-off State <svg><use href="#i-arrow"/></svg></a>
           <a class="button ghost" href="oip-secure-storage.html">開啟 OIP Brief</a>
         </div>
-        <div class="hero-proof" aria-label="供應商公開的產品組合數據">
-          <div><strong>1.5B+</strong><span>SRAM PUF devices</span></div>
-          <div><strong>15+ years</strong><span>commercial deployment</span></div>
-          <div><strong>AES-256</strong><span>OTP data protection</span></div>
+        <div class="hero-proof" aria-label="Synopsys 公開的產品組合資料">
+          <div data-record-id="OIP-PUF-SCALE-001"><strong>&gt;1.5B</strong><span>devices using SRAM PUF technology</span></div>
+          <div data-record-id="OIP-PUF-HISTORY-001"><strong>&gt;15 years</strong><span>of proven SRAM PUF technology</span></div>
+          <div data-record-id="OIP-ARCH-001"><strong>AES-256</strong><span>disclosed OTP data protection</span></div>
           <small class="hero-proof-source">VENDOR-REPORTED PORTFOLIO CONTEXT · NOT TARGET-CONFIGURATION ASSURANCE</small>
         </div>
       </div>
@@ -336,7 +336,7 @@
           <div><span>PUF root</span><p>SRAM PUF; root key never stored</p><p>NeoPUF; 1024-bit physical PUF</p></div>
           <div><span>Data protection</span><p>AES-256 encryption/decryption + address scrambling</p><p>Instant hardware encryption + address/IO scrambling; algorithm not named publicly</p></div>
           <div><span>Integration</span><p>AMBA APB, simple API, auto provisioning and initialization</p><p>AMBA APB, firmware/API, autoload, locks and zeroization</p></div>
-          <div class="matrix-emphasis"><span>Portfolio context</span><p>Vendor-reported 1.5B+ PUF deployments and 10B+ OTP shipments; target configuration still requires closure</p><p>Public platform availability; exact product evidence and assurance scope remain to be confirmed</p></div>
+          <div class="matrix-emphasis"><span>Portfolio context</span><p data-record-ids="OIP-PUF-SCALE-001 OIP-PUF-HISTORY-001 OIP-OTP-SCALE-001">Synopsys reports &gt;1.5B devices using its SRAM PUF technology, &gt;15 years of proven SRAM PUF technology, and &gt;10B antifuse OTP NVM units shipped; target configuration still requires closure</p><p>Public platform availability; exact product evidence and assurance scope remain to be confirmed</p></div>
         </div>
         <p class="comparison-conclusion"><b>POSITIONING</b>Lead with an absent-at-rest root key, attributed portfolio context and a pre-integrated subsystem; confirm configuration and ownership.</p>
       </div>
@@ -352,12 +352,12 @@
       <a href="#evidence" class="chapter-cue" aria-label="Continue to evidence">↓</a>
     </section>
 
-    <section id="evidence" class="section evidence-section reveal" data-record-id="OIP-NODE-001">
+    <section id="evidence" class="section evidence-section reveal" data-record-ids="OIP-PUF-SCALE-001 OIP-PUF-HISTORY-001 OIP-OTP-SCALE-001 OIP-NODE-001">
       <div class="evidence-title"><p class="eyebrow">VENDOR-REPORTED PORTFOLIO CONTEXT</p><h2 class="split-statement"><span class="statement-premise">成熟度能縮小不確定性</span><span class="statement-resolution">Target evidence 才能決定適用性</span></h2><p>長期 deployment、PVT、aging、認證與修補紀錄可降低起始風險；但不會自動轉移到 licensed Secure Storage configuration。</p></div>
       <div class="evidence-numbers">
-        <article><svg><use href="#i-chip"/></svg><strong data-count="1.5">1.5B+</strong><span>devices deployed with Synopsys SRAM PUF technology</span></article>
-        <article><svg><use href="#i-evidence"/></svg><strong data-count="15">15+</strong><span>years of commercial deployment</span></article>
-        <article><svg><use href="#i-memory"/></svg><strong data-count="10">10B+</strong><span>Synopsys OTP shipments</span></article>
+        <article data-record-id="OIP-PUF-SCALE-001"><svg><use href="#i-chip"/></svg><strong data-count="1.5">&gt;1.5B</strong><span>devices using Synopsys SRAM PUF technology</span></article>
+        <article data-record-id="OIP-PUF-HISTORY-001"><svg><use href="#i-evidence"/></svg><strong data-count="15">&gt;15</strong><span>years of proven SRAM PUF technology</span></article>
+        <article data-record-id="OIP-OTP-SCALE-001"><svg><use href="#i-memory"/></svg><strong data-count="10">&gt;10B</strong><span>Synopsys antifuse OTP NVM units shipped</span></article>
       </div>
       <p class="portfolio-scope">SOURCE SCOPE · SYNOPSYS-REPORTED PORTFOLIO FIGURES · NOT INDEPENDENT ASSURANCE OF THE DELIVERED CONFIGURATION</p>
       <div class="evidence-ribbon">

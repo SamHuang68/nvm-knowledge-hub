@@ -12,13 +12,33 @@
   const navSections = navLinks
     .map(link => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
-  let activeView = page.dataset.opportunityView === "proof" ? "proof" : "all";
+  let activeView = page.dataset.opportunityView === "source-grounded" ? "source-grounded" : "all";
   let activeFilter = "all";
   let knowledgeById = new Map();
+
+  const initialCardLimits = new Map(records.map(record => {
+    const limit = record.querySelector(".record-fit > em");
+    return [record, {
+      zh: limit?.querySelector('[data-lang="zh"]')?.textContent.trim() || "",
+      en: limit?.querySelector('[data-lang="en"]')?.textContent.trim() || ""
+    }];
+  }));
 
   const splitIds = value => (value || "").trim().split(/\s+/u).filter(Boolean);
   const unique = values => [...new Set(values.filter(Boolean))];
   const localizedField = (record, stem) => record?.[`${stem}${page.dataset.language === "en" ? "En" : "Zh"}`] || "";
+
+  const evidenceDisplay = record => {
+    const labels = {
+      DIRECT_REQUIREMENT: "DIRECT REQUIREMENT",
+      FIRST_PARTY_CASE: "OFFICIAL PRODUCT CASE",
+      TECHNICAL_EVIDENCE: "TECHNICAL EVIDENCE",
+      VENDOR_CAPABILITY: "VENDOR DISCLOSURE",
+      INFERRED_OPPORTUNITY: "BOUNDED INFERENCE",
+      VALIDATION_NEEDED: "VALIDATION GATE"
+    };
+    return labels[record?.evidenceClass] || record?.evidenceClass || "UNCLASSIFIED";
+  };
 
   function createBoundaryField(label, value, { derived = false, field = "" } = {}) {
     const wrapper = document.createElement("section");
@@ -33,6 +53,14 @@
     return wrapper;
   }
 
+  function createLineageRow(label, value) {
+    const row = document.createElement("p");
+    const heading = document.createElement("b");
+    heading.textContent = label;
+    row.append(heading, document.createTextNode(value));
+    return row;
+  }
+
   function renderOpportunityBoundaries() {
     if (!knowledgeById.size) return;
     const zh = page.dataset.language !== "en";
@@ -41,9 +69,8 @@
       const fitIds = splitIds(recordElement.dataset.fitRecordIds);
       const sourceRecords = sourceIds.map(id => knowledgeById.get(id)).filter(record => record && !record.isInference);
       const fitRecords = fitIds.map(id => knowledgeById.get(id)).filter(Boolean);
-      const sourceClaims = unique(sourceRecords.map(record => `${record.claimStatus.toUpperCase()} · ${localizedField(record, "claim")}`));
+      const sourceClaims = unique(sourceRecords.map(record => `${evidenceDisplay(record)} · ${record.sourceOwner} — ${localizedField(record, "claim")}`));
       const sourceCopy = recordElement.querySelector(".record-copy p");
-      if (sourceCopy && sourceClaims.length) sourceCopy.textContent = sourceClaims.join(" ");
 
       let sourceLabel = recordElement.querySelector(".record-copy .record-source-label");
       if (!sourceLabel) {
@@ -51,7 +78,7 @@
         sourceLabel.className = "record-source-label";
         sourceCopy?.before(sourceLabel);
       }
-      sourceLabel.textContent = "SOURCE ESTABLISHES";
+      sourceLabel.textContent = "EXECUTIVE SUMMARY";
 
       const candidateEvidence = [];
       for (const record of fitRecords) {
@@ -73,24 +100,42 @@
       const candidates = [...candidateEvidenceByKey.values()];
       const inferredFit = candidates.some(item => item.basis === "BOUNDED_IMPLEMENTATION_CANDIDATE");
       const candidateText = candidates.length
-        ? candidates.map(item => `${item.basis === "SOURCE_DEFINED_FUNCTION" ? "SOURCE-DEFINED FUNCTION" : "BOUNDED IMPLEMENTATION CANDIDATE"} — ${item.candidate}`).join(" · ")
+        ? unique(candidates.map(item => item.candidate)).join(" · ")
         : (zh ? "來源未揭露 NVM technology" : "NVM technology is not source-disclosed");
       const consequence = unique(fitRecords.map(record => localizedField(record, "applicability"))).join(" ") || (zh ? "尚未建立有界推論" : "No bounded inference has been established");
-      const question = unique([...fitRecords, ...sourceRecords].map(record => localizedField(record, "openQuestion"))).join(" ");
-      const limitation = unique([...sourceRecords, ...fitRecords].map(record => localizedField(record, "limitation"))).join(" ");
+      const question = unique(fitRecords.map(record => localizedField(record, "openQuestion")))[0]
+        || unique(sourceRecords.map(record => localizedField(record, "openQuestion")))[0]
+        || (zh ? "目標實作仍需確認" : "Target implementation remains to be confirmed");
+      const sourceLimitations = unique([...sourceRecords, ...fitRecords].map(record => localizedField(record, "limitation")));
+      const conciseLimit = initialCardLimits.get(recordElement)?.[zh ? "zh" : "en"] || sourceLimitations[0] || question;
+      const evidenceClasses = unique(sourceRecords.map(evidenceDisplay));
+      const sourceOwners = unique(sourceRecords.map(record => record.sourceOwner));
+      const maturities = unique(sourceRecords.map(record => record.assuranceMaturity));
+      const evidenceText = sourceOwners.length <= 2
+        ? [...evidenceClasses, ...sourceOwners, ...maturities].join(" · ")
+        : `${sourceRecords.length} GOVERNED SOURCES · ${evidenceClasses.join(" + ")} · ${maturities.join(" + ")}`;
 
       const boundary = document.createElement("div");
-      boundary.className = "record-fit record-boundary-grid";
+      boundary.className = "record-fit record-decision-grid";
       boundary.dataset.copyRevision = recordElement.dataset.copyRevision;
       boundary.dataset.povContractId = page.dataset.povContractId;
       boundary.append(
+        createBoundaryField("EVIDENCE / MATURITY", evidenceText || (zh ? "來源分類待確認" : "Evidence classification pending"), { field: "evidenceClass assuranceMaturity sourceOwner" }),
         createBoundaryField("CANDIDATE NVM FIT", candidateText, { derived: inferredFit, field: "storageCandidateProvenance" }),
-        createBoundaryField("DESIGN CONSEQUENCE / BOUNDED INFERENCE", consequence, { derived: true, field: "applicability" }),
-        createBoundaryField("OPEN IMPLEMENTATION QUESTION", question || (zh ? "目標實作仍需確認" : "Target implementation remains to be confirmed"), { field: "openQuestion" })
+        createBoundaryField("VALIDATION GATE", question, { field: "openQuestion" }),
+        createBoundaryField("LIMIT / BOUNDARY", conciseLimit, { field: "limitation" })
       );
-      const lineage = document.createElement("p");
+      const lineage = document.createElement("details");
       lineage.className = "record-lineage";
-      lineage.textContent = `${sourceIds.join(" + ")} · ${fitIds.join(" + ")} · ${limitation}`;
+      const lineageSummary = document.createElement("summary");
+      lineageSummary.textContent = "RECORD LINEAGE / WHY IT MATTERS";
+      const lineageDetail = document.createElement("div");
+      lineageDetail.className = "record-lineage-detail";
+      const sourceDetail = createLineageRow("SOURCE ESTABLISHES", sourceClaims.join(" ") || (zh ? "沒有額外的 source-grounded claim" : "No additional source-grounded claim"));
+      const consequenceDetail = createLineageRow("BOUNDED CONSEQUENCE", consequence);
+      const idDetail = createLineageRow("RECORD IDS", `${sourceIds.join(" + ")} · ${fitIds.join(" + ")}`);
+      lineageDetail.append(sourceDetail, consequenceDetail, idDetail);
+      lineage.append(lineageSummary, lineageDetail);
       boundary.append(lineage);
       recordElement.querySelector(".record-fit")?.replaceWith(boundary);
     }
@@ -192,7 +237,7 @@
   function render() {
     let visible = 0;
     records.forEach(record => {
-      const evidenceMatch = activeView === "all" || record.dataset.evidence === "proof";
+      const evidenceMatch = activeView === "all" || record.dataset.evidence === "source-grounded";
       const writeMatch = activeFilter === "all" || record.dataset.write === activeFilter;
       const show = evidenceMatch && writeMatch;
       record.hidden = !show;
@@ -259,7 +304,7 @@
   }
 
   viewButtons.forEach(button => button.addEventListener("click", () => {
-    activeView = button.dataset.opportunityView === "proof" ? "proof" : "all";
+    activeView = button.dataset.opportunityView === "source-grounded" ? "source-grounded" : "all";
     render();
   }));
   filterButtons.forEach(button => button.addEventListener("click", () => {

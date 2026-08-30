@@ -1,4 +1,7 @@
-:root{--shell-header:64px}
+:root{--shell-header:70px}
+
+/* One shell contract: the header occupies layout space so breadcrumbs and topic switches cannot hide underneath it. */
+.site-header{position:sticky;top:0;z-index:100}
 
 .site-breadcrumb{
   display:flex;align-items:center;gap:10px;min-height:46px;padding:10px clamp(22px,4vw,72px);
@@ -56,7 +59,7 @@
 .primary-nav a[aria-current="location"]{color:var(--white)}
 .primary-nav a[aria-current="location"]::after{left:0;right:0;width:100%;transform:scaleX(1)}
 
-.assurance-page .site-header{position:sticky;top:0;z-index:50}
+.assurance-page .site-header{z-index:100}
 .assurance-page .brand{min-height:44px;gap:12px}
 .assurance-page .brand-copy{display:grid;line-height:1}
 .assurance-page .brand-copy strong{font-size:19px;letter-spacing:.08em}

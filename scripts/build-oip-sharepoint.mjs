@@ -22,8 +22,8 @@ const required = [
 const evidenceClasses = new Set(["Direct Observation", "Mechanism Evidence", "Vendor Disclosure", "Bounded Inference", "Unknown"]);
 const maturityValues = new Set(["Claimed", "Specified", "Tested", "Independently Evaluated", "Certified", "Field-proven"]);
 
-if (!Array.isArray(knowledge.records) || knowledge.records.length !== 8) {
-  throw new Error(`Expected exactly 8 governed records; found ${knowledge.records?.length ?? 0}.`);
+if (!Array.isArray(knowledge.records) || knowledge.records.length < 8) {
+  throw new Error(`Expected at least 8 governed records; found ${knowledge.records?.length ?? 0}.`);
 }
 
 const ids = new Set();
@@ -36,6 +36,23 @@ for (const record of knowledge.records) {
   if (!maturityValues.has(record.assuranceMaturity)) throw new Error(`${record.recordId}: invalid assuranceMaturity`);
   if (record.classification !== "Public") throw new Error(`${record.recordId}: public export contains ${record.classification} content`);
   new URL(record.sourceUrl);
+}
+
+const governedPages = ["secure-storage.html", "oip-secure-storage.html"];
+for (const pageName of governedPages) {
+  const html = fs.readFileSync(path.join(siteDir, pageName), "utf8");
+  const referenced = [...html.matchAll(/data-record-ids?="([^"]+)"/g)]
+    .flatMap(match => match[1].trim().split(/\s+/))
+    .filter(Boolean);
+  const missing = [...new Set(referenced.filter(recordId => !ids.has(recordId)))];
+  if (missing.length) throw new Error(`${pageName}: unknown governed record references: ${missing.join(", ")}`);
+}
+
+const secureStorageHtml = fs.readFileSync(path.join(siteDir, "secure-storage.html"), "utf8");
+const evidenceNumberBlock = secureStorageHtml.match(/<div class="evidence-numbers">([\s\S]*?)<\/div>/)?.[1] ?? "";
+const evidenceNumberArticles = [...evidenceNumberBlock.matchAll(/<article\b([^>]*)>/g)];
+if (evidenceNumberArticles.length !== 3 || evidenceNumberArticles.some(([, attrs]) => !/data-record-id="[^"]+"/.test(attrs))) {
+  throw new Error("secure-storage.html: each portfolio metric must have its own claim-specific data-record-id.");
 }
 
 const columns = [
@@ -68,8 +85,8 @@ if (process.argv.includes("--check")) {
   if (current.replaceAll("\r\n", "\n") !== output.replaceAll("\r\n", "\n")) {
     throw new Error("SharePoint CSV is stale. Run: node scripts/build-oip-sharepoint.mjs");
   }
-  console.log("PASS: 8 unique public records; CSV matches canonical JSON.");
+  console.log(`PASS: ${knowledge.records.length} unique public records; governed page references resolve; CSV matches canonical JSON.`);
 } else {
   fs.writeFileSync(csvPath, output, "utf8");
-  console.log("WROTE: data/oip-sharepoint-import.csv from canonical JSON (8 records)." );
+  console.log(`WROTE: data/oip-sharepoint-import.csv from canonical JSON (${knowledge.records.length} records).`);
 }

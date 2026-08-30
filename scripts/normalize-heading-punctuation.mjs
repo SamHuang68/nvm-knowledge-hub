@@ -11,7 +11,7 @@ for (const file of files) {
   const target = path.join(root, file);
   const source = fs.readFileSync(target, "utf8");
   const output = source.replace(/<h([1-6])\b[^>]*>[\s\S]*?<\/h\1>/giu, heading =>
-    heading.replace(/[。.!?！？](?=\s*(?:<br\b[^>]*>|<\/(?:span|em|h[1-6])>))/giu, "")
+    heading.replace(/[。.!?！？](?=(?:[”’"'）)}\]】》]+)?\s*(?:<br\b[^>]*>|<\/(?:span|em|h[1-6])>))/giu, "")
   );
   if (output !== source) {
     changed.push(file);

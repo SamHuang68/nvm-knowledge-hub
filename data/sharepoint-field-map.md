@@ -52,11 +52,13 @@ An exact standards clause that explicitly defines a function or state contract q
 | systemLayer | SystemLayer | Choice | Photonic engine, platform management, trust, repair, power or interconnect routing |
 | persistenceClass | PersistenceClass | Choice | Immutable, bounded mutable, high-rate stream, external/bulk or unspecified |
 | storageCandidate | StorageCandidate | Multi-choice | Candidate architecture; never presented as a source requirement by itself |
-| opportunityStatus | OpportunityStatus | Choice | Source requirement, proof case, vendor envelope, inference or validation gate |
+| evidenceDisposition | EvidenceDisposition | Choice | Source Requirement, Official Product Case, Technical Evidence, Vendor Disclosure, Bounded Architecture Inference or Validation Gate; not a portfolio decision |
+| opportunityStatus | OpportunityStatus | Choice, deprecated alias | Compatibility only; retains legacy labels and must not be interpreted as GO/GATE/SCREEN/EXCLUDE |
 | evidenceBoundaryEn / evidenceBoundaryZh | EvidenceBoundaryEN / EvidenceBoundaryZH | Multiple lines | States precisely what the source proves and what remains inferred |
 | chapterRefs | ChapterRefs | Multi-choice | Connects governed records to authored topic sections |
 | isInference | IsInference | Yes/No | Hard guard against presenting an inferred placement as a requirement |
-| proofModeEligible | ProofModeEligible | Yes/No | Supports the page and Copilot “proof only” view |
+| sourceGroundedEligible | SourceGroundedEligible | Yes/No | Includes standards, official cases, technical evidence and vendor disclosures while excluding bounded inference |
+| proofModeEligible | ProofModeEligible | Yes/No, deprecated alias | Compatibility only; mirrors SourceGroundedEligible and must not be described as independent proof |
 | researchFreeze | ResearchFreeze | Date | Records the research cutoff applied to every exported row |
 | sourceDocument.sha256 | SourceDocumentSHA256 | Single line text | Binds supplied-PDF claims to the reviewed document version |
 
@@ -71,4 +73,19 @@ Copilot grounding rule: never return `SecurityClaim` alone. Always return `Sourc
 
 For the OIP topic page, filter `Audience` for `TSMC OIP`, group by `PresentationRole`, and display `Limitation` and `OpenQuestion` beside every externally visible claim. Copilot must respect SharePoint permissions and must not combine Public, Internal and NDA evidence into a response unless the requesting user is authorized for every cited record.
 
-For the AI Systems topic page, filter the AI import by `Topic`, `SystemLayer`, `OpportunityStatus` and `PresentationRole`; the SharePoint migration may additionally stamp fixed `KnowledgeDomain = AI Systems` and `TopicSlug = ai-nvm-opportunities` values. A PDF-derived answer must include `SourceLocator`; an opportunity inference must also expose `EvidenceBoundary`, `Limitation`, `OpenQuestion`, `EvidenceClass` and `AssuranceMaturity`. After company migration, resolve `SourceURL` or the supplied-document provenance to the governed file in **NVM Source Library** and populate `ContentOwnerUPN` without changing the stable `RecordID`.
+For the AI Systems topic page, filter the AI import by `Topic`, `SystemLayer`, `EvidenceDisposition` and `PresentationRole`; the SharePoint migration may additionally stamp fixed `KnowledgeDomain = AI Systems` and `TopicSlug = ai-nvm-opportunities` values. A PDF-derived answer must include `SourceLocator`; an opportunity inference must also expose `EvidenceBoundary`, `Limitation`, `OpenQuestion`, `EvidenceClass` and `AssuranceMaturity`. After company migration, resolve `SourceURL` or the supplied-document provenance to the governed file in **NVM Source Library** and populate `ContentOwnerUPN` without changing the stable `RecordID`.
+
+### Company-only decision and responsibility extension
+
+The public package deliberately stops at evidence, candidate fit, limitation and validation gate. Add the following columns only in the authorized company SharePoint layer; do not populate them in the public CSV and do not derive them automatically from `EvidenceClass` or `EvidenceDisposition`.
+
+| SharePoint column | Type | Internal purpose |
+|---|---|---|
+| PortfolioDisposition | Choice: GO / GATE / SCREEN / EXCLUDE | Explicit portfolio decision |
+| DispositionRationale | Multiple lines | Evidence-backed reason for the internal decision |
+| CommercialStage | Choice | Candidate, qualification, design-in, design win, shipment or contract-defined revenue state |
+| SystemResponsibilityOwner | Person or Group | Owner of system integration and architecture closure |
+| QualificationOwner | Person or Group | Owner of target-node, PVT, reliability and security qualification |
+| NextActionOwner | Person or Group | Accountable owner for the next validation or customer action |
+
+Copilot must not call a candidate socket a design win, shipment or royalty unit unless the authorized internal record explicitly supplies that commercial stage.

@@ -70,7 +70,7 @@ node scripts/build-ai-nvm-sharepoint.mjs --check
 node scripts/check-ai-nvm-integrity.mjs
 ```
 
-The integrity check validates local page, image and stylesheet targets; fragment IDs; bilingual pairs; governed record references; Proof-mode classification; DDR5/BMC source-ledger coverage; PDF source locators; unique AI record IDs; and CSV freshness.
+The integrity check validates local page, image and stylesheet targets; fragment IDs; bilingual pairs; governed record references; source-grounded classification; DDR5/BMC source-ledger coverage; PDF source locators; unique AI record IDs; and CSV freshness.
 
 Keep `EvidenceClass` (how a source supports a claim) separate from `AssuranceMaturity` (how far validation has progressed). Copilot answers must carry each claim's scope, limitation, source, review date, and open question.
 

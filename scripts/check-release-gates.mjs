@@ -13,6 +13,8 @@ const ai = JSON.parse(fs.readFileSync(path.join(dataDir, "ai-nvm-opportunities-k
 
 const normalize = value => value.replace(/\s+/gu, " ").trim();
 const stripMarkup = value => normalize(value.replace(/<script\b[\s\S]*?<\/script>/giu, " ").replace(/<style\b[\s\S]*?<\/style>/giu, " ").replace(/<[^>]+>/gu, " ").replace(/&[^;]+;/gu, " "));
+const stripClosingGlyphs = value => value.replace(/[”’"'）)}\]】》]+$/gu, "").trimEnd();
+const endsWithSentencePunctuation = value => /[。.!?！？]$/u.test(stripClosingGlyphs(value));
 const hash = value => crypto.createHash("sha256").update(value, "utf8").digest("hex");
 
 const walk = directory => fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
@@ -77,14 +79,14 @@ for (const file of htmlFiles) {
   for (const match of html.matchAll(/<h([1-6])\b([^>]*)>([\s\S]*?)<\/h\1>/giu)) {
     const headingAttributes = match[2];
     const headingMarkup = match[3];
-    if (/[。.!?！？]\s*(?:<br\b|<\/(?:span|em)>)/iu.test(headingMarkup)) failures.push(`${relative}: split display heading contains sentence punctuation`);
+    if (/[。.!?！？](?:[”’"'）)}\]】》]+)?\s*(?:<br\b|<\/(?:span|em)>)/iu.test(headingMarkup)) failures.push(`${relative}: split display heading contains sentence punctuation`);
     const localizedRuns = [...headingMarkup.matchAll(/<span\b[^>]*data-lang=["'][^"']+["'][^>]*>([\s\S]*?)<\/span>/giu)];
     const runs = localizedRuns.length ? localizedRuns.map(run => stripMarkup(run[1])) : [stripMarkup(headingMarkup)];
     for (const heading of runs) {
-      if (/[。.!?！？]$/u.test(heading)) failures.push(`${relative}: display heading ends with sentence punctuation: ${heading}`);
+      if (endsWithSentencePunctuation(heading)) failures.push(`${relative}: display heading ends with sentence punctuation: ${heading}`);
     }
     for (const localizedAttribute of headingAttributes.matchAll(/\bdata-(?:zh|en)="([^"]+)"/gu)) {
-      if (/[。.!?！？]$/u.test(localizedAttribute[1].trim())) failures.push(`${relative}: localized display heading ends with sentence punctuation: ${localizedAttribute[1]}`);
+      if (endsWithSentencePunctuation(localizedAttribute[1].trim())) failures.push(`${relative}: localized display heading ends with sentence punctuation: ${localizedAttribute[1]}`);
     }
   }
 }
@@ -99,11 +101,11 @@ for (const sourceFile of files.filter(file => [".js", ".mjs"].includes(path.extn
   const sourceText = fs.readFileSync(sourceFile, "utf8");
   for (const match of sourceText.matchAll(/\btitle\s*:\s*(?:localized|L)\(\s*"([^"]*)"\s*,\s*"([^"]*)"/gu)) {
     for (const runtimeTitle of match.slice(1)) {
-      if (/[。.!?！？]$/u.test(runtimeTitle.trim())) failures.push(`${relative}: runtime display title ends with sentence punctuation: ${runtimeTitle}`);
+      if (endsWithSentencePunctuation(runtimeTitle.trim())) failures.push(`${relative}: runtime display title ends with sentence punctuation: ${runtimeTitle}`);
     }
   }
   for (const match of sourceText.matchAll(/\b(?:zh|en)\s*:\s*\[\s*"[^"]*"\s*,\s*"([^"]*)"/gu)) {
-    if (/[。.!?！？]$/u.test(match[1].trim())) failures.push(`${relative}: runtime display heading ends with sentence punctuation: ${match[1]}`);
+    if (endsWithSentencePunctuation(match[1].trim())) failures.push(`${relative}: runtime display heading ends with sentence punctuation: ${match[1]}`);
   }
 }
 for (const [label, pattern] of [
@@ -135,11 +137,16 @@ const opportunityCards = [...aiHtml.matchAll(/<article\b[^>]*class="[^"]*opportu
 if (opportunityCards.length !== 12) failures.push(`expected 12 governed opportunity cards; found ${opportunityCards.length}`);
 for (const [index, card] of opportunityCards.entries()) {
   if (!/data-fit-record-ids="[^"]+"/u.test(card)) failures.push(`opportunity card ${index + 1}: candidate-fit lineage is missing`);
-  if (!/data-copy-revision="AI-OPPORTUNITY-VIEW-R24"/u.test(card)) failures.push(`opportunity card ${index + 1}: copy revision is missing`);
+  if (!/data-copy-revision="AI-OPPORTUNITY-VIEW-R27"/u.test(card)) failures.push(`opportunity card ${index + 1}: copy revision is missing`);
 }
-for (const label of ["SOURCE ESTABLISHES", "CANDIDATE NVM FIT", "DESIGN CONSEQUENCE / BOUNDED INFERENCE", "OPEN IMPLEMENTATION QUESTION"]) {
+for (const label of ["EVIDENCE / MATURITY", "CANDIDATE NVM FIT", "VALIDATION GATE", "LIMIT / BOUNDARY", "RECORD LINEAGE / WHY IT MATTERS"]) {
   if (!aiJs.includes(label)) failures.push(`canonical opportunity renderer lacks ${label}`);
 }
+for (const label of ["PUBLIC → INTERNAL SEMANTIC BOUNDARY", "OPPORTUNITY CLASS", "PORTFOLIO DISPOSITION", "RESPONSIBILITY OWNER"]) {
+  if (!aiHtml.includes(label)) failures.push(`AI opportunity page lacks semantic namespace label ${label}`);
+}
+if (!aiHtml.includes('data-opportunity-view="source-grounded"') || !aiHtml.includes('data-evidence="source-grounded"')) failures.push("AI opportunity page is not bound to the source-grounded view contract");
+if (/Proof only|只看實證|VISIBLE RECORDS/iu.test(aiHtml)) failures.push("deprecated proof-mode UI language remains visible");
 const ddr5Pmic = ai.records.find(record => record.recordId === "AI-NVM-DDR5-001");
 const ddr5Spd = ai.records.find(record => record.recordId === "AI-NVM-DDR5-002");
 const spdCandidateBasis = new Map((ddr5Spd?.storageCandidateProvenance ?? []).map(item => [item.candidate, item.basis]));

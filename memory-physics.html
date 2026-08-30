@@ -8,8 +8,8 @@
   <title>記憶體物理與安全 · NVM Knowledge Hub</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260824-refine012">
-  <link rel="stylesheet" href="research.css?v=20260825-refine013">
-  <link rel="stylesheet" href="site-shell.css?v=20260825-ia018">
+  <link rel="stylesheet" href="research.css?v=20260830-readability022">
+  <link rel="stylesheet" href="site-shell.css?v=20260830-shell020">
 </head>
 <body class="research-page" data-language="zh" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -266,7 +266,7 @@
           <p><span data-lang="zh">RP2350 challenge 的關鍵教訓不是「所有 OTP 都不安全」，而是：當永久 memory 直接承載可用 secret，成功繞過 lock 或讀出 cell 就接近攻擊終點。Secure Storage 的設計目標，是改寫這個後果。</span><span data-lang="en">The central RP2350 lesson is not that every OTP is insecure. It is that when permanent memory directly carries a usable secret, bypassing a lock or reading the cells approaches the end of the attack. Secure Storage is designed to change that consequence.</span></p>
         </div>
         <div class="root-cause-response">
-          <div class="root-cause-title"><small>ROOT CAUSE → ARCHITECTURE RESPONSE</small><h3><span data-lang="zh">把「能讀 OTP」與「能取得 secret」拆成兩個不同問題</span><span data-lang="en">Separate “reading OTP” from “recovering the secret.”</span></h3></div>
+          <div class="root-cause-title"><small>ROOT CAUSE → ARCHITECTURE RESPONSE</small><h3><span data-lang="zh">把「能讀 OTP」與「能取得 secret」拆成兩個不同問題</span><span data-lang="en">Separate “reading OTP” from “recovering the secret”</span></h3></div>
           <div class="security-outcome-grid">
             <article class="raw-outcome"><span>PURE OTP DATA PROTECTION</span><h4><span data-lang="zh">Cell state → usable secret</span><span data-lang="en">Cell state → usable secret</span></h4><p><span data-lang="zh">若 flag、key 或敏感資料以可直接使用的形式留在 OTP，voltage glitch、permission bypass、FIB 或其他 readout 一旦成功，memory reverse engineering 就可能直接成為資料揭露。</span><span data-lang="en">If a flag, key or sensitive data remains in directly usable form in OTP, a successful voltage glitch, permission bypass, FIB or other readout can turn memory reverse engineering directly into disclosure.</span></p><b>RP2350 LESSON</b></article>
             <div class="outcome-pivot"><span>CHANGES THE CONSEQUENCE</span><b>≠</b></div>

@@ -15,6 +15,7 @@ const browser = await chromium.launch({ headless: true });
 for (const pageName of pages) {
   for (const width of widths) {
     const page = await browser.newPage({ viewport: { width, height: 900 }, deviceScaleFactor: 1 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
     const errors = [];
     page.on("console", message => { if (message.type() === "error") errors.push(`console: ${message.text()}`); });
     page.on("pageerror", error => errors.push(`pageerror: ${error.message}`));
@@ -69,6 +70,11 @@ for (const pageName of pages) {
       const disclaimer = document.querySelector(".workbench-feature > small");
       const disclaimerStyle = disclaimer ? getComputedStyle(disclaimer) : null;
       const disclaimerParentStyle = disclaimer?.parentElement ? getComputedStyle(disclaimer.parentElement) : null;
+      const headerBox = document.querySelector(".site-header")?.getBoundingClientRect();
+      const breadcrumbBox = document.querySelector(".site-breadcrumb")?.getBoundingClientRect();
+      const topicLinks = [...document.querySelectorAll(".topic-switch a")].filter(node => node.getClientRects().length > 0);
+      const claimLeafNodes = [...document.querySelectorAll(".claim-rung h3 [data-lang], .claim-rung p [data-lang]")]
+        .filter(node => node.getClientRects().length > 0);
       return {
         docOverflow: Math.max(doc.scrollWidth - doc.clientWidth, body.scrollWidth - body.clientWidth),
         brand: brand ? new URL(brand.href).pathname : "missing",
@@ -76,6 +82,9 @@ for (const pageName of pages) {
         clipped,
         duplicateIds,
         heroSize: document.querySelector(".hub-hero h1") ? parseFloat(getComputedStyle(document.querySelector(".hub-hero h1")).fontSize) : null,
+        breadcrumbBelowHeader: !breadcrumbBox || !headerBox || breadcrumbBox.top >= headerBox.bottom - 1,
+        topicSwitchInside: topicLinks.every(node => { const box = node.getBoundingClientRect(); return box.left >= -1 && box.right <= innerWidth + 1 && (!headerBox || box.top >= headerBox.bottom - 1); }),
+        claimLeafMinimum: claimLeafNodes.length ? Math.min(...claimLeafNodes.map(node => parseFloat(getComputedStyle(node).fontSize))) : null,
         disclaimer: disclaimerStyle ? {
           size: parseFloat(disclaimerStyle.fontSize),
           contrast: contrastRatio(disclaimerStyle.color, disclaimerParentStyle.backgroundColor)
@@ -94,6 +103,8 @@ for (const pageName of pages) {
     if (audit.overflow.length) failures.push(`${pageName}@${width}: internal horizontal scroller ${audit.overflow.join(", ")}`);
     if (audit.clipped.length) failures.push(`${pageName}@${width}: clipped horizontal content ${audit.clipped.join(", ")}`);
     if (audit.duplicateIds.length) failures.push(`${pageName}@${width}: duplicate ids ${audit.duplicateIds.join(", ")}`);
+    if (!audit.breadcrumbBelowHeader || !audit.topicSwitchInside) failures.push(`${pageName}@${width}: shell navigation is obscured by header ${JSON.stringify({ breadcrumbBelowHeader: audit.breadcrumbBelowHeader, topicSwitchInside: audit.topicSwitchInside })}`);
+    if (audit.claimLeafMinimum !== null && audit.claimLeafMinimum < 13) failures.push(`${pageName}@${width}: evidence-card leaf text ${audit.claimLeafMinimum}px is below 13px`);
     if (pageName === "index.html" && (!audit.disclaimer || audit.disclaimer.size < 9 || audit.disclaimer.contrast < 4.5)) failures.push(`${pageName}@${width}: topology disclaimer ${JSON.stringify(audit.disclaimer)}`);
     if (pageName === "index.html" && width <= 390 && audit.heroSize > 44.1) failures.push(`${pageName}@${width}: mobile hero ${audit.heroSize}px exceeds 44px`);
     if (errors.length) failures.push(`${pageName}@${width}: ${errors.join(" | ")}`);
@@ -101,6 +112,7 @@ for (const pageName of pages) {
     if (pageName === "ai-nvm-opportunities.html") {
       if ([1440, 390, 312].includes(width)) {
         await page.locator("#opportunities .opportunity-list").screenshot({ path: path.join(output, `ai-nvm-opportunities-list-${width}.png`) });
+        await page.locator(".decision-grammar").screenshot({ path: path.join(output, `ai-nvm-decision-grammar-${width}.png`) });
         await page.locator("#sources .research-intake").screenshot({ path: path.join(output, `ai-nvm-research-disposition-${width}.png`) });
       }
       const repairAudit = await page.evaluate(() => {
@@ -137,6 +149,33 @@ for (const pageName of pages) {
 
       const originalLanguage = await page.evaluate(() => document.body.dataset.language);
       if (originalLanguage !== "en") await page.locator("#languageToggle").click();
+
+      const opportunityAudit = await page.evaluate(() => {
+        const firstCard = document.querySelector("#opportunityList .opportunity-record:not([hidden])");
+        const cardBox = firstCard?.getBoundingClientRect();
+        const decisionFields = [...document.querySelectorAll("#opportunityList .opportunity-record:not([hidden]) .record-boundary-field")];
+        const fieldText = decisionFields.flatMap(field => [...field.querySelectorAll("small, p")]).filter(node => node.getClientRects().length > 0);
+        const namespace = document.querySelector(".decision-grammar");
+        return {
+          firstCardInside: cardBox ? cardBox.left >= -1 && cardBox.right <= innerWidth + 1 : false,
+          fieldCount: firstCard?.querySelectorAll(".record-boundary-field").length || 0,
+          minimumFieldText: fieldText.length ? Math.min(...fieldText.map(node => parseFloat(getComputedStyle(node).fontSize))) : 0,
+          lineageClosed: [...document.querySelectorAll("#opportunityList details.record-lineage")].every(node => !node.open),
+          namespaceVisible: Boolean(namespace?.getClientRects().length),
+          namespaceInside: namespace ? namespace.getBoundingClientRect().left >= -1 && namespace.getBoundingClientRect().right <= innerWidth + 1 : false
+        };
+      });
+      if (!opportunityAudit.firstCardInside || opportunityAudit.fieldCount !== 4 || opportunityAudit.minimumFieldText < 10 || !opportunityAudit.lineageClosed || !opportunityAudit.namespaceVisible || !opportunityAudit.namespaceInside) {
+        failures.push(`${pageName}@${width}: opportunity semantic/readability contract ${JSON.stringify(opportunityAudit)}`);
+      }
+      const firstLineage = page.locator("#opportunityList .opportunity-record:not([hidden]) details.record-lineage").first();
+      await firstLineage.locator("summary").click();
+      const lineageAudit = await firstLineage.evaluate(node => {
+        const box = node.getBoundingClientRect();
+        return { open: node.open, inside: box.left >= -1 && box.right <= innerWidth + 1, detailVisible: Boolean(node.querySelector(".record-lineage-detail")?.getClientRects().length) };
+      });
+      if (!lineageAudit.open || !lineageAudit.inside || !lineageAudit.detailVisible) failures.push(`${pageName}@${width}: opportunity lineage disclosure ${JSON.stringify(lineageAudit)}`);
+      await firstLineage.locator("summary").click();
       const englishAudit = await page.evaluate(() => ({
         pageLanguage: document.body.dataset.language,
         documentLanguage: document.documentElement.lang,
@@ -151,6 +190,10 @@ for (const pageName of pages) {
       if (originalLanguage !== "en") await page.locator("#languageToggle").click();
 
       const initialCount = await page.locator("#opportunityCount").textContent();
+      await page.locator("button[data-opportunity-view='all']").click();
+      const allViewCount = await page.locator("#opportunityCount").textContent();
+      await page.locator("button[data-opportunity-view='source-grounded']").click();
+      const restoredGroundedCount = await page.locator("#opportunityCount").textContent();
       await page.locator("button[data-write-filter='immutable']").click();
       const filterAudit = await page.evaluate(() => ({
         moduleVisible: Boolean(document.querySelector("#repair-programming")?.getClientRects().length),
@@ -174,10 +217,37 @@ for (const pageName of pages) {
         return { visible: Boolean(card?.getClientRects().length), inside: box ? box.left >= -1 && box.right <= innerWidth + 1 : false };
       });
       await page.locator("button[data-write-filter='all']").click();
-      if (initialCount?.trim() !== "07") failures.push(`${pageName}@${width}: initial Proof-only count ${JSON.stringify(initialCount)}`);
+      if (initialCount?.trim() !== "07") failures.push(`${pageName}@${width}: initial source-grounded count ${JSON.stringify(initialCount)}`);
+      if (allViewCount?.trim() !== "12" || restoredGroundedCount?.trim() !== "07") failures.push(`${pageName}@${width}: opportunity view toggle ${JSON.stringify({ allViewCount, restoredGroundedCount })}`);
       if (!filterAudit.moduleVisible || filterAudit.count === initialCount || !filterAudit.bmcVisible || !filterAudit.bmcInside) failures.push(`${pageName}@${width}: immutable/BMC filter ${JSON.stringify(filterAudit)}`);
       if (!repeatedAudit.visible || !repeatedAudit.inside) failures.push(`${pageName}@${width}: repeated/DDR5 SPD filter ${JSON.stringify(repeatedAudit)}`);
       if (!fewWriteAudit.visible || !fewWriteAudit.inside) failures.push(`${pageName}@${width}: few-write/DDR5 PMIC filter ${JSON.stringify(fewWriteAudit)}`);
+    }
+
+    if (pageName === "memory-physics.html" && [1440, 390].includes(width)) {
+      await page.locator("#method").screenshot({ path: path.join(output, `memory-physics-method-${width}.png`) });
+    }
+
+    if (pageName === "secure-storage.html") {
+      const portfolioMetricAudit = await page.evaluate(() => {
+        const expected = ["OIP-PUF-SCALE-001", "OIP-PUF-HISTORY-001", "OIP-OTP-SCALE-001"];
+        const cards = [...document.querySelectorAll("#evidence .evidence-numbers article")];
+        const boxes = cards.map(card => card.getBoundingClientRect());
+        const copy = cards.map(card => card.textContent.replace(/\s+/g, " ").trim());
+        return {
+          ids: cards.map(card => card.dataset.recordId),
+          inside: boxes.every(box => box.left >= -1 && box.right <= innerWidth + 1),
+          minimumCopySize: cards.length ? Math.min(...cards.flatMap(card => [...card.querySelectorAll("strong, span")]).map(node => parseFloat(getComputedStyle(node).fontSize))) : 0,
+          scopedCopy: copy[0]?.includes("SRAM PUF technology") && copy[1]?.includes("SRAM PUF technology") && copy[2]?.includes("antifuse OTP NVM"),
+          exactBindings: expected.every((recordId, index) => cards[index]?.dataset.recordId === recordId)
+        };
+      });
+      if (!portfolioMetricAudit.inside || portfolioMetricAudit.minimumCopySize < 12 || !portfolioMetricAudit.scopedCopy || !portfolioMetricAudit.exactBindings) {
+        failures.push(`${pageName}@${width}: portfolio metric evidence contract ${JSON.stringify(portfolioMetricAudit)}`);
+      }
+      if ([1440, 390].includes(width)) {
+        await page.locator("#evidence").screenshot({ path: path.join(output, `secure-storage-evidence-${width}.png`) });
+      }
     }
 
     if (width === 390 && await page.locator("#languageToggle").count()) {
@@ -246,6 +316,7 @@ for (const pageName of pages) {
         });
         if (!stickyHeader || stickyHeader.display === "none" || stickyHeader.top < -1 || stickyHeader.top > 1 || stickyHeader.position !== "sticky") failures.push(`${pageName}@${width}: sticky header contract ${JSON.stringify(stickyHeader)}`);
         await page.screenshot({ path: path.join(output, `index-${width}-workbench.png`), fullPage: false });
+        await page.locator("#research").screenshot({ path: path.join(output, `index-${width}-research.png`) });
       }
     }
     await page.close();

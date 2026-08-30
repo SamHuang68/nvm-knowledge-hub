@@ -4206,10 +4206,6 @@
   overflow-wrap: anywhere;
 }
 
-.ai-nvm-page[data-opportunity-view="proof"] .record-boundary-field[data-derived="true"] {
-  display: none;
-}
-
 @media (max-width: 1180px) {
   .ai-nvm-page .record-boundary-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -4231,6 +4227,162 @@
     grid-column: 1 / -1;
     margin-top: 15px;
   }
+}
+
+/* R27 semantic decision grammar and executive-scan opportunity records. */
+.ai-nvm-page .decision-grammar {
+  margin-top: 26px;
+  overflow: hidden;
+  border: 1px solid var(--ai-line);
+  border-radius: var(--ai-radius);
+  background: linear-gradient(135deg, rgba(7, 33, 48, .98), rgba(10, 52, 61, .96));
+  color: var(--ai-white);
+  box-shadow: 0 24px 70px rgba(4, 25, 38, .14);
+}
+
+.ai-nvm-page .decision-grammar > header {
+  display: grid;
+  grid-template-columns: minmax(190px, .34fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: end;
+  padding: 30px clamp(24px, 3.5vw, 48px) 27px;
+  border-bottom: 1px solid rgba(113, 236, 227, .18);
+}
+
+.ai-nvm-page .decision-grammar > header small,
+.ai-nvm-page .decision-grammar-grid article > span {
+  color: var(--ai-cyan);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 10px;
+  font-weight: 780;
+  line-height: 1.45;
+  letter-spacing: .1em;
+}
+
+.ai-nvm-page .decision-grammar h3 {
+  max-width: 780px;
+  margin: 0;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 590;
+  line-height: 1.12;
+  letter-spacing: -.025em;
+}
+
+.ai-nvm-page .decision-grammar h3 em {
+  color: var(--ai-cyan);
+  font-style: normal;
+  font-weight: 420;
+}
+
+.ai-nvm-page .decision-grammar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ai-nvm-page .decision-grammar-grid article {
+  min-height: 190px;
+  padding: 25px 24px;
+  border-right: 1px solid rgba(113, 236, 227, .16);
+}
+
+.ai-nvm-page .decision-grammar-grid article:last-child { border-right: 0; }
+.ai-nvm-page .decision-grammar-grid article.internal { background: rgba(199, 138, 75, .1); }
+.ai-nvm-page .decision-grammar-grid article.internal > span { color: #e3a662; }
+.ai-nvm-page .decision-grammar-grid b { display: block; margin-top: 22px; font-size: 15px; letter-spacing: .035em; }
+.ai-nvm-page .decision-grammar-grid p { margin: 11px 0 0; color: #a8c0c7; font-size: 14px; line-height: 1.66; }
+.ai-nvm-page .decision-grammar > p { margin: 0; padding: 18px clamp(24px, 3.5vw, 48px); color: #bfd0d4; border-top: 1px solid rgba(113, 236, 227, .16); font-size: 14px; line-height: 1.65; }
+
+.ai-nvm-page .opportunity-record {
+  grid-template-columns: 132px minmax(0, 1fr);
+  grid-template-areas: "index copy" "index decision";
+}
+
+.ai-nvm-page .record-index { grid-area: index; }
+.ai-nvm-page .record-copy { grid-area: copy; padding-bottom: 24px; }
+.ai-nvm-page .record-fit { grid-area: decision; }
+
+.ai-nvm-page .record-decision-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  padding: 0 clamp(24px, 2.8vw, 38px) clamp(26px, 2.8vw, 38px);
+  border-top: 0;
+  border-left: 0;
+  background: transparent;
+}
+
+.ai-nvm-page .record-decision-grid .record-boundary-field {
+  min-width: 0;
+  padding: 17px 18px 6px;
+  border-top: 1px solid var(--ai-line);
+  border-left: 1px solid var(--ai-line);
+}
+
+.ai-nvm-page .record-decision-grid .record-boundary-field:first-child {
+  padding: 17px 18px 6px 0;
+  border-top: 1px solid var(--ai-line);
+  border-left: 0;
+}
+
+.ai-nvm-page .record-boundary-field small,
+.ai-nvm-page .record-source-label,
+.ai-nvm-page .record-index > small { font-size: 10px; }
+.ai-nvm-page .record-boundary-field p { font-size: 14px; line-height: 1.58; }
+
+.ai-nvm-page details.record-lineage {
+  grid-column: 1 / -1;
+  margin: 18px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--ai-line);
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.62;
+}
+
+.ai-nvm-page .record-lineage summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ai-teal);
+  cursor: pointer;
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 10px;
+  font-weight: 780;
+  letter-spacing: .085em;
+  list-style: none;
+}
+
+.ai-nvm-page .record-lineage summary::-webkit-details-marker { display: none; }
+.ai-nvm-page .record-lineage summary::before { content: "+"; display: inline-grid; place-items: center; width: 20px; height: 20px; border: 1px solid var(--ai-line); }
+.ai-nvm-page .record-lineage[open] summary::before { content: "−"; }
+.ai-nvm-page .record-lineage-detail { display: grid; gap: 12px; padding: 0 0 18px 30px; }
+.ai-nvm-page .record-lineage-detail p { margin: 0; color: var(--ai-muted); font-size: 13px; line-height: 1.68; overflow-wrap: anywhere; }
+.ai-nvm-page .record-lineage-detail b { display: block; margin-bottom: 4px; color: var(--ai-copper-dark); font: 760 10px/1.4 "IBM Plex Mono", Consolas, monospace; letter-spacing: .08em; }
+
+@media (max-width: 1180px) {
+  .ai-nvm-page .decision-grammar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ai-nvm-page .decision-grammar-grid article:nth-child(2) { border-right: 0; }
+  .ai-nvm-page .decision-grammar-grid article:nth-child(-n+2) { border-bottom: 1px solid rgba(113, 236, 227, .16); }
+  .ai-nvm-page .record-decision-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ai-nvm-page .record-decision-grid .record-boundary-field:nth-child(3) { border-left: 0; }
+}
+
+@media (max-width: 620px) {
+  .ai-nvm-page .decision-grammar > header { grid-template-columns: 1fr; gap: 15px; padding: 25px 20px 23px; }
+  .ai-nvm-page .decision-grammar h3 { font-size: 30px; line-height: 1.18; }
+  .ai-nvm-page .decision-grammar-grid { grid-template-columns: 1fr; }
+  .ai-nvm-page .decision-grammar-grid article { min-height: 0; padding: 22px 20px; border-right: 0; border-bottom: 1px solid rgba(113, 236, 227, .16); }
+  .ai-nvm-page .decision-grammar-grid article:last-child { border-bottom: 0; }
+  .ai-nvm-page .decision-grammar > p { padding: 17px 20px; font-size: 15px; }
+  .ai-nvm-page .record-decision-grid { display: grid; grid-template-columns: 1fr; padding: 0 20px 22px; }
+  .ai-nvm-page .record-decision-grid .record-boundary-field,
+  .ai-nvm-page .record-decision-grid .record-boundary-field:first-child,
+  .ai-nvm-page .record-decision-grid .record-boundary-field:nth-child(3) { padding: 16px 0; border-top: 1px solid var(--ai-line); border-left: 0; }
+  .ai-nvm-page .record-boundary-field p { font-size: 15px; }
+  .ai-nvm-page details.record-lineage { margin-top: 6px; }
+  .ai-nvm-page .record-lineage-detail { padding-left: 0; }
+  .ai-nvm-page .record-lineage-detail p { font-size: 15px; }
 }
 
 @media (max-width: 620px) {

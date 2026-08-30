@@ -102,6 +102,15 @@ const expectedEvidenceClasses = new Map([
   ["AI-NVM-BMC-002", "VENDOR_CAPABILITY"]
 ]);
 
+const expectedEvidenceDispositions = new Map([
+  ["Source Requirement", "Source Requirement"],
+  ["First-party Proof Case", "Official Product Case"],
+  ["Technical Evidence", "Technical Evidence"],
+  ["Vendor Envelope", "Vendor Disclosure"],
+  ["Architecture Inference", "Bounded Architecture Inference"],
+  ["Validation Gate", "Validation Gate"]
+]);
+
 const expectedPdfLocators = new Map([
   ["AI-NVM-OCP-001", "PDF p75"],
   ["AI-NVM-OCP-002", "PDF p188"],
@@ -177,9 +186,10 @@ for (const [index, hypothesis] of researchInput.hypotheses.entries()) {
     hypothesis.assuranceMaturity !== "Open" ||
     hypothesis.isInference !== true ||
     hypothesis.canonicalRecordEligible !== false ||
-    hypothesis.proofModeEligible !== false
+    hypothesis.proofModeEligible !== false ||
+    hypothesis.sourceGroundedEligible !== false
   ) {
-    throw new Error(`${hypothesis.hypothesisId}: must remain an open, non-canonical inference excluded from Proof mode.`);
+    throw new Error(`${hypothesis.hypothesisId}: must remain an open, non-canonical inference excluded from the source-grounded view.`);
   }
   for (const field of ["titleEn", "statementEn", "excludedClaimEn", "validationNeededEn"]) {
     if (typeof hypothesis[field] !== "string" || !hypothesis[field].trim() || /[\u3400-\u9FFF]/u.test(hypothesis[field])) {
@@ -292,6 +302,13 @@ for (const [index, record] of knowledge.records.entries()) {
   if (record.proofModeEligible === expectedInference) {
     throw new Error(`${record.recordId}: proofModeEligible must be ${!expectedInference}.`);
   }
+  if (record.sourceGroundedEligible !== record.proofModeEligible) {
+    throw new Error(`${record.recordId}: sourceGroundedEligible must match the deprecated proofModeEligible compatibility field.`);
+  }
+  const expectedEvidenceDisposition = expectedEvidenceDispositions.get(record.opportunityStatus);
+  if (record.evidenceDisposition !== expectedEvidenceDisposition) {
+    throw new Error(`${record.recordId}: evidenceDisposition must be the normalized successor of deprecated opportunityStatus.`);
+  }
   if (record.classification !== "Public") {
     throw new Error(`${record.recordId}: public export contains ${record.classification} content.`);
   }
@@ -306,16 +323,16 @@ for (const [index, record] of knowledge.records.entries()) {
     parsedSourceUrl = new URL(record.sourceUrl);
     if (parsedSourceUrl.protocol !== "https:") throw new Error(`${record.recordId}: sourceUrl must use HTTPS.`);
   }
-  if (record.proofModeEligible) {
+  if (record.sourceGroundedEligible) {
     const exactSuppliedDocumentLocator = expectedPdfLocators.has(record.recordId);
     if (!parsedSourceUrl && !exactSuppliedDocumentLocator) {
-      throw new Error(`${record.recordId}: Proof mode requires an external HTTPS source or an exact governed supplied-document locator.`);
+      throw new Error(`${record.recordId}: the source-grounded view requires an external HTTPS source or an exact governed supplied-document locator.`);
     }
     if (parsedSourceUrl && selfCitationHosts.has(parsedSourceUrl.hostname.toLowerCase())) {
-      throw new Error(`${record.recordId}: Proof mode cannot use the Knowledge Hub itself as evidence.`);
+      throw new Error(`${record.recordId}: the source-grounded view cannot use the Knowledge Hub itself as evidence.`);
     }
     if (/NVM Knowledge Hub/iu.test(record.sourceOwner)) {
-      throw new Error(`${record.recordId}: Proof mode sourceOwner must be independent of the Knowledge Hub.`);
+      throw new Error(`${record.recordId}: source-grounded sourceOwner must be independent of the Knowledge Hub.`);
     }
   }
   if (record.storageCandidate.includes("Not Specified") && record.storageCandidate.length !== 1) {
@@ -388,12 +405,14 @@ const columns = [
   ["StorageCandidateProvenance", record => (record.storageCandidateProvenance ?? [])
     .map(item => `${item.candidate} [${item.basis}]`)
     .join(";")],
+  ["EvidenceDisposition", "evidenceDisposition"],
   ["OpportunityStatus", "opportunityStatus"],
   ["SourceLocator", "sourceLocator"],
   ["EvidenceBoundary", "evidenceBoundaryEn"],
   ["EvidenceBoundaryZH", "evidenceBoundaryZh"],
   ["ChapterRefs", "chapterRefs"],
   ["IsInference", "isInference"],
+  ["SourceGroundedEligible", "sourceGroundedEligible"],
   ["ProofModeEligible", "proofModeEligible"],
   ["ResearchFreeze", () => knowledge.researchFreeze],
   ["SourceDocumentSHA256", () => knowledge.sourceDocument.sha256]
@@ -445,6 +464,7 @@ const researchColumns = [
   ["RelatedRecordIDs", (_input, hypothesis) => hypothesis.relatedRecordIds],
   ["IsInference", (_input, hypothesis) => hypothesis.isInference],
   ["HypothesisCanonicalRecordEligible", (_input, hypothesis) => hypothesis.canonicalRecordEligible],
+  ["SourceGroundedEligible", (_input, hypothesis) => hypothesis.sourceGroundedEligible],
   ["ProofModeEligible", (_input, hypothesis) => hypothesis.proofModeEligible],
   ["EvidenceDispositionZH", input => input.evidenceDispositionZh],
   ["PermittedUseZH", input => input.permittedUseZh],
