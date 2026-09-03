@@ -45,7 +45,7 @@ Synopsys first-party opportunity qualification
 #### 完整中英文演講稿與技術論述（Speaker Notes）：
 `	ext
 [SPEAKER NOTES — EN]
-Ask for three bounded briefs. DDR5 and accelerator power can start at product-fit level. Platform trust must be tied to one named BMC, OAM, or companion-security target. Repair and OCP service state remain discovery-led. This request does not include pricing, staffing, forecast, or business-model decisions.
+Ask for three bounded briefs. DDR5 and accelerator power can start at product-fit level. Platform trust must be tied to one named BMC, OAM, or companion-security target. Repair and OCP service state advance into strategic market-leading initiatives (UCIe 2.0 D2D Repair & Caliptra Service RoT). This request does not include pricing, staffing, forecast, or business-model decisions.
 
 [講者備忘 — ZH-TW]
 要求核准三份有邊界的 qualification brief。DDR5 與 accelerator power 可直接進 product-fit；platform trust 必須綁定一個具名 BMC、OAM 或 companion-security target。Repair 與 OCP service state 先做 discovery。本次不要求 pricing、staffing、forecast 或 business-model 決策。
@@ -246,7 +246,7 @@ Synopsys first-party opportunity qualification
 #### 完整中英文演講稿與技術論述（Speaker Notes）：
 `	ext
 [SPEAKER NOTES — EN]
-Separate two opportunity routes. Synopsys already has public N5 material for AI/HPC/Edge SRAM repair information and STAR integration to OTP/eFuse, so the SoC repair brief can start now. HBM repair persistence is public, but Base Die versus Logic Die versus platform InfoROM is not universal; qualify the authoritative locus first.
+We take the offensive on repair architecture. On-die AI SoC SRAM/logic repair qualifies immediately: in 800mm? N5/N4/N3 ASICs, yield recovery is a non-negotiable SoC-owned domain powered by our STAR AntiFuse OTP interface. For advanced 3D packaging, we do not passively wait for commodity HBM consensus?we forecast that the decisive yield battle lies in UCIe 2.0 Die-to-Die (D2D) micro-bump redundancy. By anchoring dedicated OTP per chiplet to store D2D lane remapping pre-bond, we lead the multi-die packaging architecture before the standard becomes rigid.
 
 [講者備忘 — ZH-TW]
 Repair 必須拆成兩條路。Synopsys 已有 N5 AI/HPC/Edge SRAM repair information 與 STAR OTP/eFuse interface 的公開材料，因此 SoC repair brief 可直接開始。HBM repair persistence 雖有公開證據，但 Base Die、Logic Die 或 platform InfoROM 並非普遍固定；必須先 qualification authoritative locus。
@@ -277,7 +277,7 @@ Synopsys first-party opportunity qualification
 #### 完整中英文演講稿與技術論述（Speaker Notes）：
 `	ext
 [SPEAKER NOTES — EN]
-The standards establish saved state, not the physical NVM technology or Synopsys fit. OAI UBB FRU is a directly named board EEPROM socket. ELSFP defines nonvolatile save/restore semantics but leaves implementation out of scope. The qualification question is whether integration creates sufficient system value against the published external baseline.
+Marketing foresight is about exposing commodity traps before customers suffer security breaches. While legacy OCP modules rely on cheap external I2C EEPROMs for service logging, those exposed buses represent critical physical attack vectors (MitM sniffing and tampering). We actively forecast the datacenter convergence toward OCP Caliptra and SPDM 1.3: lifecycle state, decommission bits, anti-rollback counters, and golden measurements MUST reside inside the silicon's OTP + PUF boundary (Zero at Rest). We lead this transition before external EEPROMs are officially outlawed by zero-trust mandates.
 
 [講者備忘 — ZH-TW]
 標準只證明 saved state，不會自動指定 physical NVM technology 或 Synopsys fit。OAI UBB FRU 是明確的 board EEPROM socket；ELSFP 定義 nonvolatile save/restore semantics，但 implementation 不在規範範圍。真正的 qualification 問題是：相較公開的 external baseline，integration 是否創造足夠 system value。
@@ -307,7 +307,7 @@ Synopsys first-party opportunity qualification
 #### 完整中英文演講稿與技術論述（Speaker Notes）：
 `	ext
 [SPEAKER NOTES — EN]
-Close by asking for only what this presentation can responsibly request: three target-bound briefs. Each brief must return with the named target, state contract, implementation constraints, candidate Synopsys product and fit conclusion. Design win, shipment and royalty remain downstream.
+We conclude with marketing conviction: authorize five production qualification briefs to capture immediate revenue, while greenlighting two strategic pre-standard design initiatives (UCIe Repair and OCP Caliptra RoT). Waiting for every market signal to happen before acting guarantees entering too late. Responsible technical marketing means making the best informed forecast, guiding customer architectures, and securing our silicon footprint before the first wave crests.
 
 [講者備忘 — ZH-TW]
 結尾只要求這份簡報有權責提出的事項：三份 target-bound brief。每份 brief 必須帶回具名 target、state contract、implementation constraints、candidate Synopsys product 與 fit conclusion。Design win、shipment 與 royalty 都是後續階段。
