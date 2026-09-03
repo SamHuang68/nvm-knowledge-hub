@@ -532,3 +532,439 @@
 #eink-specialty .tech-card:nth-child(2) {
   border-left: 3px solid #ff9d5c;
 }
+
+
+/* =========================================================
+   FLAGSHIP INTERACTIVE LAB STYLES (4 LABS)
+   ========================================================= */
+
+.interactive-lab-card {
+  margin: 44px 0;
+  background: #04141e;
+  border: 1px solid #71ece3;
+  border-radius: 10px;
+  padding: 32px 28px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(113, 236, 227, 0.08);
+}
+
+.lab-header {
+  margin-bottom: 28px;
+  border-bottom: 1px solid rgba(113, 236, 227, 0.2);
+  padding-bottom: 20px;
+}
+
+.lab-badge {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #04141e;
+  background: #71ece3;
+  padding: 4px 12px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+
+.lab-header h3 {
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.3;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.lab-header p {
+  color: #9cb5bc;
+  font-size: 14.5px;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 960px;
+}
+
+/* Lab Body Grid */
+.lab-body-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 28px;
+}
+
+@media (max-width: 900px) {
+  .lab-body-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lab-subpanel {
+  background: #07202e;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subpanel-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: #71ece3;
+}
+
+.badge-accent {
+  font-size: 10px;
+  color: #ff9d5c;
+  background: rgba(255, 157, 92, 0.12);
+  border: 1px solid rgba(255, 157, 92, 0.3);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+.canvas-wrapper {
+  background: #030d14;
+  border: 1px solid rgba(113, 236, 227, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+.canvas-wrapper canvas {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+  display: block;
+}
+
+/* Lab Controls & Buttons */
+.lab-btn {
+  background: rgba(113, 236, 227, 0.12);
+  border: 1px solid #71ece3;
+  color: #71ece3;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lab-btn:hover:not(:disabled) {
+  background: #71ece3;
+  color: #04141e;
+  box-shadow: 0 4px 12px rgba(113, 236, 227, 0.3);
+}
+
+.lab-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.lab-btn.primary {
+  background: #ff9d5c;
+  border-color: #ff9d5c;
+  color: #04141e;
+}
+
+.lab-btn.primary:hover:not(:disabled) {
+  background: #ffa870;
+  box-shadow: 0 4px 14px rgba(255, 157, 92, 0.4);
+}
+
+/* Lab Stat Rows */
+.lab-stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.stat-box {
+  background: rgba(4, 20, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #8faab0;
+  margin-bottom: 4px;
+}
+
+.stat-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.text-warn { color: #f87171; }
+.text-cyan { color: #71ece3; }
+.text-green { color: #4ade80; }
+
+/* Calculator Specific */
+.calculator-controls {
+  margin-bottom: 18px;
+}
+
+.control-row {
+  margin-bottom: 16px;
+}
+
+.control-row label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: #d1e4e8;
+  margin-bottom: 8px;
+}
+
+.control-row input[type="range"] {
+  width: 100%;
+  accent-color: #71ece3;
+  height: 6px;
+  background: #030d14;
+  border-radius: 3px;
+  outline: none;
+}
+
+.node-toggle-group {
+  display: flex;
+  gap: 8px;
+}
+
+.node-btn {
+  flex: 1;
+  background: rgba(6, 27, 41, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #9cb5bc;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.node-btn.active {
+  border-color: #ff9d5c;
+  color: #ff9d5c;
+  background: rgba(255, 157, 92, 0.12);
+  font-weight: 700;
+}
+
+.calc-results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.result-card {
+  background: #030d14;
+  border: 1px solid rgba(113, 236, 227, 0.2);
+  border-radius: 6px;
+  padding: 16px 14px;
+}
+
+.res-label {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  color: #8faab0;
+  margin-bottom: 6px;
+}
+
+.res-num {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.result-card small {
+  font-size: 10.5px;
+  color: #6a8c94;
+}
+
+/* Lab 02: Matrix Repair Canvas */
+.matrix-canvas-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #030d14;
+  border: 1px solid rgba(113, 236, 227, 0.2);
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.matrix-legend {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  font-size: 11px;
+  color: #9cb5bc;
+  margin-top: 10px;
+}
+
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.dot-normal { background: #134e5e; border: 1px solid #71ece3; }
+.dot-defect { background: #dc2626; border: 1px solid #f87171; }
+.dot-spare  { background: #16a34a; border: 1px solid #4ade80; }
+
+.repair-step-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.repair-terminal {
+  background: #02090e;
+  border: 1px solid rgba(113, 236, 227, 0.2);
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  color: #71ece3;
+  padding: 10px 12px;
+  height: 80px;
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+/* Lab 03: Gamma & De-Mura */
+.gamma-strip-container {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.gamma-strip {
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 4px;
+}
+
+.mura-screen-wrapper {
+  background: #030d14;
+  border: 1px solid rgba(113, 236, 227, 0.2);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.mura-screen-wrapper canvas {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  display: block;
+}
+
+/* Lab 04: E-Ink Waveform */
+.eink-mode-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.mode-btn {
+  flex: 1;
+  min-width: 130px;
+  background: rgba(6, 27, 41, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #9cb5bc;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mode-btn.active {
+  border-color: #71ece3;
+  color: #04141e;
+  background: #71ece3;
+  font-weight: 700;
+}
+
+.lifecycle-decision-box {
+  margin-top: 14px;
+  background: #030d14;
+  border: 1px solid rgba(255, 157, 92, 0.3);
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+
+.decision-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.phase-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+.phase-mtp {
+  color: #ff9d5c;
+  background: rgba(255, 157, 92, 0.15);
+  border: 1px solid rgba(255, 157, 92, 0.4);
+}
+
+.phase-otp {
+  color: #71ece3;
+  background: rgba(113, 236, 227, 0.15);
+  border: 1px solid rgba(113, 236, 227, 0.4);
+}
+
+#txtPhaseDesc {
+  font-size: 12.5px;
+  color: #9cb5bc;
+  line-height: 1.6;
+  margin: 0 0 10px;
+}
+
+.lifecycle-metric-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #d1e4e8;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 8px;
+}
+
+.lifecycle-metric-row b {
+  color: #71ece3;
+}
