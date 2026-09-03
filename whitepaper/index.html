@@ -58,6 +58,35 @@
       line-height: 1.22 !important;
       text-wrap: balance !important;
     }
+  
+    /* 徹底防禦 1024px 與 390px 標籤溢出與截字 */
+    .family-chip,
+    .status-chip,
+    .security-chip {
+      white-space: normal !important;
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+      line-height: 1.35 !important;
+      display: inline-block !important;
+      max-width: 100% !important;
+    }
+    .decision-table-wrap {
+      overflow-x: auto !important;
+      background: #082433 !important;
+    }
+    .contract-card > strong,
+    .micro-label,
+    .template-summary {
+      min-height: auto !important;
+    }
+    body[data-language="zh"] .decision-table th[data-label="STATE PROFILE"]::before { content: "狀態設定檔 · " !important; }
+    body[data-language="zh"] .decision-table td[data-label="TECHNOLOGY FAMILY"]::before { content: "技術家族 · " !important; }
+    body[data-language="zh"] .decision-table td[data-label="STATE CONTRACT"]::before { content: "狀態契約 · " !important; }
+    body[data-language="zh"] .decision-table td[data-label="BUS EXPOSURE"]::before { content: "匯流排暴露度 · " !important; }
+    body[data-language="zh"] .decision-table td[data-label="LATENCY & BOM"]::before { content: "延遲與 BOM · " !important; }
+    body[data-language="zh"] .decision-table td[data-label="STRONGEST FIT"]::before { content: "最適場景 · " !important; }
+    body[data-language="zh"] .decision-table td[data-label="EVIDENCE STATUS"]::before { content: "證據狀態 · " !important; }
+
   </style>
 </head>
 <body>

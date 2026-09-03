@@ -1,3 +1,44 @@
+
+// Reviewer 1 增強版：以 Blob 實現 UTF-8 BOM CSV 匯出，徹底杜絕 # 截斷，並連動當前過濾器
+function safeExportCSV(items) {
+  const filterSel = document.querySelector('#filter-family');
+  const filterVal = filterSel ? filterSel.value : 'ALL';
+  const exportItems = filterVal === 'ALL' ? items : items.filter(i => i.family === filterVal);
+  
+  const headers = ['Profile', 'Family', 'Contract', 'NodeLens', 'UpdateModel', 'BusExposure', 'Latency', 'BOMCost', 'StrongestFit', 'EvidenceStatus'];
+  const rows = exportItems.map(i => [
+    `"${(i.profile || '').replace(/"/g, '""')}"`,
+    `"${(i.family || '').replace(/"/g, '""')}"`,
+    `"${(i.contract || '').replace(/"/g, '""')}"`,
+    `"${(i.nodeLens || '').replace(/"/g, '""')}"`,
+    `"${(i.updateModel || '').replace(/"/g, '""')}"`,
+    `"${(i.busExposure || '').replace(/"/g, '""')}"`,
+    `"${(i.latency || '').replace(/"/g, '""')}"`,
+    `"${(i.bomCost || '').replace(/"/g, '""')}"`,
+    `"${(i.strongestFit || '').replace(/"/g, '""')}"`,
+    `"${(i.evidenceStatus || '').replace(/"/g, '""')}"`
+  ]);
+  
+  const csvString = '\uFEFF' + [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
+  const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.setAttribute('href', url);
+  link.setAttribute('download', `nvm_decision_matrix_${filterVal.toLowerCase().replace(/[^a-z0-9]/g, '_')}.csv`);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+  
+  const isZh = document.documentElement.lang.startsWith('zh');
+  const toast = document.querySelector('#toast');
+  if (toast) {
+    toast.textContent = isZh ? `已匯出 ${exportItems.length} 筆設定檔 CSV` : `Exported ${exportItems.length} profiles as CSV`;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2400);
+  }
+}
+
 (function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),t.credentials=e.crossOrigin===`use-credentials`?`include`:e.crossOrigin===`anonymous`?`omit`:`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var e={stateContracts:[{id:`identity`,number:`01`,contract:`Immutable identity`,role:`Device identity, lifecycle state and boot trust anchors`,owner:`Provisioning authority`,updateCadence:`Program once; verify throughout life`,selectionQuestion:`Can the state ever be rotated, revoked or recovered?`,evidenceBoundary:`Threat model and provisioning flow must be explicit before selecting OTP.`},{id:`calibration`,number:`02`,contract:`Bounded calibration`,role:`Trim, remap, analog compensation and configuration`,owner:`Manufacturing or hardware controller`,updateCadence:`Rare, controlled updates`,selectionQuestion:`How many updates are required after test, package and field aging?`,evidenceBoundary:`Endurance, write energy and high-voltage availability are use-case specific.`},{id:`firmware`,number:`03`,contract:`Adaptive firmware`,role:`Boot code, patches, policy and feature configuration`,owner:`Secure update service`,updateCadence:`Managed change with rollback or recovery`,selectionQuestion:`Does capacity and update frequency justify an embedded array?`,evidenceBoundary:`Separate code-storage needs from immutable security state.`},{id:`operations`,number:`04`,contract:`Operational evidence`,role:`Repair history, RAS logs, counters and field learning`,owner:`Platform controller`,updateCadence:`Repeated writes over system life`,selectionQuestion:`Which state must survive power loss, service events or module replacement?`,evidenceBoundary:`System retention and recovery may be more important than bit-cell density.`}],technologyFamilies:[{family:`OTP`,mechanism:`One-time physical state transition`,strongestFit:`Immutable and monotonic state`,processLens:`Broad logic-node reach; implementation is provider specific`,limit:`A written bit cannot become an update policy by itself`,status:`Architecture baseline`},{family:`MTP / EEPROM class`,mechanism:`Reprogrammable charge-based state`,strongestFit:`Bounded calibration and small firmware state`,processLens:`High-voltage and oxide options constrain portability`,limit:`Endurance, programming supply and retention must be jointly qualified`,status:`Public evidence needed per process`},{family:`Embedded Flash`,mechanism:`Dedicated embedded charge-storage integration`,strongestFit:`Code-rich embedded systems`,processLens:`Commercial fit is shaped by mask cost and process-development complexity`,limit:`Node migration is an economics and integration decision—not a simple shrink`,status:`Node-specific decision`},{family:`MRAM / ReRAM`,mechanism:`Magnetic or resistive state`,strongestFit:`Advanced-node embedded NVM where available`,processLens:`Foundry module, density and qualification status dominate`,limit:`Availability does not automatically establish application readiness`,status:`Evidence varies by platform`},{family:`SRAM PUF + crypto`,mechanism:`Power-up-derived secret plus cryptographic protection`,strongestFit:`Companion security layer above persistent ciphertext`,processLens:`System architecture rather than a peer storage medium`,limit:`Reliability, helper data and attack assurance still require validation`,status:`Companion architecture`}],processLenses:[{range:`MATURE & SPECIALTY`,title:`Start with the available voltage and device stack`,body:`For power, BCD, sensor and interface products, I/O devices and programming-voltage generation often define the feasible NVM set before density does.`,decision:`Validate I/O voltage, charge pump, test flow and retention together.`},{range:`eFLASH TRANSITION`,title:`Treat scaling as an integration-economics boundary`,body:`Conventional embedded-flash commercialization is widely associated with the 28 nm generation. Crossing that boundary is not a hard physics cliff; mask count, development effort and manufacturing economics shape adoption.`,decision:`Keep vendor-specific mask-stack detail in the internal evidence layer.`},{range:`ADVANCED NODE`,title:`Decouple read supply from program infrastructure`,body:`A single-VDD read path can simplify always-on and low-voltage domains, while programming may still require an I/O-derived foundation for an internal charge pump.`,decision:`Specify read and program power contracts separately.`},{range:`LEADING EDGE & CHIPLET`,title:`Move from one macro to a distributed state architecture`,body:`Identity, repair, calibration, firmware and operational logs may reside in different dies or controllers. The selection unit becomes the system state contract, not a single NVM array.`,decision:`Define ownership, trust boundary and recovery before technology.`}],selectionSequence:[{step:`01`,name:`Name the state`,detail:`What survives power loss—and why?`},{step:`02`,name:`Assign ownership`,detail:`Who may create, update, revoke or recover it?`},{step:`03`,name:`Constrain the process`,detail:`Which node, voltage and integration options actually exist?`},{step:`04`,name:`Close the evidence gap`,detail:`What is sourced, inferred or still target-silicon dependent?`}]};function t(t){if(!t)return;let{stateContracts:n,technologyFamilies:r,processLenses:i,selectionSequence:a}=e;t.innerHTML=`
     <header class="panel-heading">
       <div><p class="eyebrow dark">01 · NVM OVERVIEW</p><h2>NVM is a system state decision,<br><em>not a product-name decision</em></h2></div>
@@ -272,7 +313,7 @@ function r(e){if(!e)return;let activeData=(localStorage.getItem("nvm-language")=
         <li><b>03</b><span>Close PVT, fault injection and physical tamper evidence on target silicon</span></li>
       </ol>
     </aside>
-  `;let t=e.querySelector(`#filter-family`),n=e.querySelector(`#decision-body`);t?.addEventListener(`change`,e=>{let t=e.target.value,r=t===`ALL`?l:l.filter(e=>e.family===t);n.innerHTML=d(r)}),e.querySelector(`#btn-export-csv`)?.addEventListener(`click`,()=>{p(l)}),e.querySelector(`#btn-export-json`)?.addEventListener(`click`,()=>{m(l)})}function d(e){return e.map(e=>`
+  `;let t=e.querySelector(`#filter-family`),n=e.querySelector(`#decision-body`);t?.addEventListener(`change`,e=>{let t=e.target.value,r=t===`ALL`?l:l.filter(e=>e.family===t);n.innerHTML=d(r)}),e.querySelector(`#btn-export-csv`)?.addEventListener(`click`,()=>{safeExportCSV(l)}),e.querySelector(`#btn-export-json`)?.addEventListener(`click`,()=>{m(l)})}function d(e){return e.map(e=>`
     <tr>
       <th scope="row" data-label="STATE PROFILE">
         <strong>${e.profile}</strong>
@@ -290,8 +331,50 @@ function r(e){if(!e)return;let activeData=(localStorage.getItem("nvm-language")=
       <td data-label="STRONGEST FIT">${e.strongestFit}</td>
       <td data-label="EVIDENCE STATUS"><span class="status-chip">${e.evidenceStatus}</span></td>
     </tr>
-  `).join(``)}function f(e){return e?e.includes(`None`)||e.includes(`Monolithic`)||e.includes(`Die-internal`)?`sec-high`:e.includes(`High`)||e.includes(`External`)?`sec-low`:`sec-med`:``}function p(e){let t=[`Profile`,`Family`,`Contract`,`NodeLens`,`UpdateModel`,`BusExposure`,`Latency`,`BOMCost`,`StrongestFit`,`EvidenceStatus`],n=e.map(e=>[`"${e.profile.replace(/"/g,`""`)}"`,`"${e.family.replace(/"/g,`""`)}"`,`"${e.contract.replace(/"/g,`""`)}"`,`"${(e.nodeLens||``).replace(/"/g,`""`)}"`,`"${(e.updateModel||``).replace(/"/g,`""`)}"`,`"${(e.busExposure||``).replace(/"/g,`""`)}"`,`"${(e.latency||``).replace(/"/g,`""`)}"`,`"${(e.bomCost||``).replace(/"/g,`""`)}"`,`"${e.strongestFit.replace(/"/g,`""`)}"`,`"${e.evidenceStatus.replace(/"/g,`""`)}"`]),r=`data:text/csv;charset=utf-8,`+[t.join(`,`),...n.map(e=>e.join(`,`))].join(`
+  `).join(``)}function f(e){return e?e.includes(`None`)||e.includes(`Monolithic`)||e.includes(`Die-internal`)?`sec-high`:e.includes(`High`)||e.includes(`External`)?`sec-low`:`sec-med`:``}function safeExportCSV(e){let t=[`Profile`,`Family`,`Contract`,`NodeLens`,`UpdateModel`,`BusExposure`,`Latency`,`BOMCost`,`StrongestFit`,`EvidenceStatus`],n=e.map(e=>[`"${e.profile.replace(/"/g,`""`)}"`,`"${e.family.replace(/"/g,`""`)}"`,`"${e.contract.replace(/"/g,`""`)}"`,`"${(e.nodeLens||``).replace(/"/g,`""`)}"`,`"${(e.updateModel||``).replace(/"/g,`""`)}"`,`"${(e.busExposure||``).replace(/"/g,`""`)}"`,`"${(e.latency||``).replace(/"/g,`""`)}"`,`"${(e.bomCost||``).replace(/"/g,`""`)}"`,`"${e.strongestFit.replace(/"/g,`""`)}"`,`"${e.evidenceStatus.replace(/"/g,`""`)}"`]),r=`data:text/csv;charset=utf-8,`+[t.join(`,`),...n.map(e=>e.join(`,`))].join(`
 `),i=encodeURI(r),a=document.createElement(`a`);a.setAttribute(`href`,i),a.setAttribute(`download`,`nvm_decision_matrix_profiles.csv`),document.body.appendChild(a),a.click(),document.body.removeChild(a)}function m(e){let t=`data:text/json;charset=utf-8,`+encodeURIComponent(JSON.stringify(e,null,2)),n=document.createElement(`a`);n.setAttribute(`href`,t),n.setAttribute(`download`,`nvm_decision_matrix_profiles.json`),document.body.appendChild(n),n.click(),document.body.removeChild(n)}var h=[`overview`,`whitepaper`,`selector`,`taxonomy`,`templates`],g={phase1:`overview`,phase2:`whitepaper`,matrix:`selector`,phase4:`taxonomy`,phase3:`templates`};function _(){let e=new URLSearchParams(window.location.search).get(`view`)||`overview`;return h.includes(e)?e:g[e]||`overview`}function v(e,{updateHistory:t=!0,focus:n=!1}={}){let r=h.includes(e)?e:`overview`;if(document.querySelectorAll(`.view-tab`).forEach(e=>{let t=e.dataset.view===r;e.setAttribute(`aria-selected`,t?`true`:`false`),e.tabIndex=t?0:-1,t&&n&&e.focus()}),document.querySelectorAll(`.studio-panel`).forEach(e=>{e.hidden=e.id!==`panel-${r}`}),t){let e=new URL(window.location.href);r===`overview`?e.searchParams.delete(`view`):e.searchParams.set(`view`,r),r!==`whitepaper`&&e.hash.startsWith(`#chap-`)&&(e.hash=``),window.history.pushState({view:r},``,`${e.pathname}${e.search}${e.hash}`)}}function y({scrollChapter:e=!1}={}){let t=new URL(window.location.href),n=t.hash.startsWith(`#chap-`),r=t.searchParams.has(`view`),i=_();n&&!r&&(i=`whitepaper`),n&&i!==`whitepaper`&&(t.hash=``,window.history.replaceState({view:i},``,`${t.pathname}${t.search}`)),v(i,{updateHistory:!1}),n&&i===`whitepaper`&&e&&requestAnimationFrame(()=>document.querySelector(window.location.hash)?.scrollIntoView({block:`start`}))}function b(){let e=[...document.querySelectorAll(`.view-tab`)];e.forEach((t,n)=>{t.addEventListener(`click`,()=>v(t.dataset.view)),t.addEventListener(`keydown`,t=>{if(![`ArrowLeft`,`ArrowRight`,`ArrowUp`,`ArrowDown`,`Home`,`End`].includes(t.key))return;t.preventDefault();let r=n;r=t.key===`Home`?0:t.key===`End`?e.length-1:t.key===`ArrowLeft`||t.key===`ArrowUp`?(n-1+e.length)%e.length:(n+1)%e.length,v(e[r].dataset.view,{focus:!0})})}),window.addEventListener(`popstate`,()=>y({scrollChapter:!0}))}function x(){let e=document.querySelector(`#menuToggle`),t=document.querySelector(`#globalNav`),n=(n=!1)=>{t?.classList.remove(`open`),e?.setAttribute(`aria-expanded`,`false`),e?.setAttribute(`aria-label`,`Open navigation`),n&&e?.focus()};e?.addEventListener(`click`,()=>{let n=t.classList.toggle(`open`);e.setAttribute(`aria-expanded`,n?`true`:`false`),e.setAttribute(`aria-label`,n?`Close navigation`:`Open navigation`),n&&t.querySelector(`a`)?.focus()}),t?.addEventListener(`click`,e=>{e.target.closest(`a`)&&n()}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&t?.classList.contains(`open`)&&n(!0)}),window.addEventListener(`resize`,()=>{window.matchMedia(`(min-width: 1081px)`).matches&&n()},{passive:!0})}function S(e){let t=document.querySelector(`#toast`);t&&(t.textContent=e,t.classList.add(`show`),window.clearTimeout(S.timer),S.timer=window.setTimeout(()=>t.classList.remove(`show`),2400))}function C(){document.addEventListener(`click`,async e=>{let t=e.target.closest(`[data-copy-outline]`);if(!t)return;let n=t.dataset.copyOutline||``;try{await navigator.clipboard.writeText(n),S(`Template outline copied`)}catch{let e=document.createElement(`textarea`);e.value=n,e.setAttribute(`readonly`,``),e.className=`clipboard-fallback`,document.body.appendChild(e),e.select(),document.execCommand(`copy`),e.remove(),S(`Template outline copied`)}})}document.addEventListener(`DOMContentLoaded`,()=>{t(document.querySelector(`#panel-overview`)),r(document.querySelector(`#panel-whitepaper`)),u(document.querySelector(`#panel-selector`)),c(document.querySelector(`#panel-taxonomy`)),a(document.querySelector(`#panel-templates`)),b(),x(),C(),y({scrollChapter:!0})});const WP_ZH_DICT = {
+  // === Reviewer 1 補全之 5 大面板深層繁中詞條 ===
+  "Compare the state contract": "比較狀態契約",
+  "before comparing a macro": "先於比較記憶體巨集",
+  "FILTER BY TECHNOLOGY FAMILY": "依技術家族篩選",
+  "All public profiles (8)": "全部公開設定檔 (8)",
+  "Export CSV": "匯出 CSV",
+  "Export JSON": "匯出 JSON",
+  "STATE PROFILE": "狀態設定檔",
+  "TECHNOLOGY FAMILY": "技術家族",
+  "STATE CONTRACT & POWER-OFF KEY": "狀態契約與斷電金鑰",
+  "BUS EXPOSURE": "匯流排暴露度",
+  "LATENCY & BOM": "延遲與 BOM 成本",
+  "STRONGEST FIT": "最適應用場景",
+  "EVIDENCE STATUS": "證據成熟度",
+  "SRAM PUF Secure Storage": "SRAM PUF 安全儲存",
+  "Conventional Plain Antifuse OTP": "傳統純 AntiFuse OTP",
+  "Quantum Tunneling OTP-PUF": "量子穿隧型 OTP-PUF",
+  "Discrete Secure Element (SE)": "獨立安全元件 (SE)",
+  "Hardware Security Module (HSM)": "硬體安全模組 (HSM)",
+  "Embedded Flash (eFlash)": "嵌入式快閃記憶體 (eFlash)",
+  "Emerging NVM (MRAM / ReRAM)": "新興非揮發性記憶體 (MRAM / ReRAM)",
+  "CPO & 3D Chiplet NVM Trim": "CPO 與 3D 小晶片 NVM 微調",
+  "Begin With the State Contract": "從狀態契約出發",
+  "Map Technology Families to the Contract": "將技術家族對齊契約",
+  "Treat Node Migration as an Integration Decision": "將製程微縮視為系統整合決策",
+  "Make the Decision Evidence-Aware": "建立具備證據感知能力的架構決策",
+  "Transfer the Knowledge, Not Just the Page": "沉澱轉移架構知識，而非僅交付頁面",
+  "Define state before technology": "技術選型前先定義狀態生命週期",
+  "Separate immutability from update policy": "將不可變性與更新策略嚴格解耦",
+  "Treat recovery as part of retention": "將故障復原機制視為資料保存的一環",
+  "Start with the available voltage and device stack": "從可用電壓與元件堆疊出發",
+  "Treat scaling as an integration-economics boundary": "將製程微縮視為整合經濟學邊界",
+  "Decouple read supply from program infrastructure": "將讀取電源與燒錄基礎架構解耦",
+  "Move from one macro to a distributed state architecture": "從單一巨集轉向分散式狀態架構",
+  "Never let UI polish promote an assumption to fact": "絕不因視覺精緻而把假設升格為事實",
+  "Bind every claim to scope and limitation": "將每一項技術主張綁定明確範疇與限制",
+  "Use open gaps to drive the next validation action": "以未封閉之缺口驅動下一步驗證行動",
+  "Preserve the eight-field content contract": "嚴格遵循八大核心欄位內容契約",
+  "Keep public and restricted evidence separate": "確保公開主張與受限證據嚴格分離",
+  "Make review status machine-readable": "使治理審查狀態具備機器可讀性",
+  "Template outline copied": "已複製範本大綱至剪貼簿",
+
   "TECHNOLOGY & SELECTION": "技術與架構決策",
   "← PORTFOLIO": "← 作品集",
   "All Topics": "總門戶",
@@ -440,13 +523,36 @@ function w(){
     obs.observe(panels, { childList: true, subtree: true });
   }
 
-  // Also hook view tabs
+  // Also hook view tabs & smooth scroll recovery
   document.querySelectorAll(".view-tab").forEach(tab => {
     tab.addEventListener("click", () => {
+      const dock = document.querySelector('.view-dock');
+      if (dock) {
+        const dockTop = dock.getBoundingClientRect().top + window.scrollY;
+        if (window.scrollY > dockTop) {
+          window.scrollTo({ top: dockTop - 20, behavior: 'smooth' });
+        }
+      }
       setTimeout(() => {
         if (curLang === "zh") translateWhitepaperDOM(panels, "zh");
       }, 50);
     });
+  });
+
+  // Copy outline button instant feedback
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-copy-outline]');
+    if (btn) {
+      const orig = btn.innerHTML;
+      btn.innerHTML = curLang === 'zh' ? '已複製 ✓' : 'COPIED ✓';
+      btn.style.borderColor = '#71ece3';
+      btn.style.color = '#71ece3';
+      setTimeout(() => {
+        btn.innerHTML = orig;
+        btn.style.borderColor = '';
+        btn.style.color = '';
+      }, 1800);
+    }
   });
 
   // Apply default language
