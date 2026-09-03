@@ -1,3 +1,9 @@
+/* === Antigravity Full-Site Defensive Guardrails === */
+svg:not([width]):not(.svg-defs) { max-width: 100%; max-height: 100%; }
+.svg-defs { display: none !important; position: absolute; width: 0; height: 0; }
+.skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; }
+
 :root {
   --navy-950: #03131e;
   --navy-900: #061b29;
