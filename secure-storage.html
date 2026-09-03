@@ -10,6 +10,15 @@
   <link rel="preload" href="assets/secure-storage-hero-key.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="styles.css?v=20260825-ia018">
   <link rel="stylesheet" href="site-shell.css?v=20260830-shell020">
+  <style>
+    /* Critical defensive inline styles: prevent SVG explosion & skip-link flash */
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #73eee4; padding: 10px 18px; border: 1px solid #73eee4; border-radius: 4px; }
+    .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
+    [data-lang="en"] { display: none; }
+    body[data-language="en"] [data-lang="en"] { display: inline !important; }
+    body[data-language="en"] [data-lang="zh"] { display: none !important; }
+  </style>
 </head>
 <body data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#top">Skip to main content</a>
@@ -42,15 +51,7 @@
       <span class="brand-section">SECURE STORAGE</span>
     </a>
     <nav class="primary-nav" id="primaryNav" aria-label="主要導覽">
-      <a href="index.html#topics" data-nav-key="hub">All Topics</a>
-      <a href="#thesis" data-nav-key="why">Why</a>
-      <a href="#architecture" data-nav-key="architecture">Architecture</a>
-      <a href="#assurance" data-nav-key="assurance">Assurance</a>
-      <a href="#compare" data-nav-key="compare">Compare</a>
-      <a href="#evidence" data-nav-key="evidence">Evidence</a>
-      <a href="#learn" data-nav-key="learn">Learn</a>
-      <a href="oip-secure-storage.html" data-nav-key="oip">OIP Brief</a>
-      <a href="#research-topics" data-nav-key="research">Research</a>
+      <a class="portfolio-return" href="https://samhuang68.github.io/#work" aria-label="返回個人作品集">SAM HUANG ↗</a><a href="index.html"><span data-lang="zh">總門戶</span><span data-lang="en">Portal</span></a><a class="is-active" aria-current="page" href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI & Nodes</span></a><a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper</span></a><a href="briefing/"><span data-lang="zh">簡報與講稿</span><span data-lang="en">Briefing</span></a>
     </nav>
     <div class="header-actions">
       <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to English"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>

@@ -10,6 +10,15 @@
   <link rel="stylesheet" href="styles.css?v=20260824-refine012">
   <link rel="stylesheet" href="research.css?v=20260830-readability022">
   <link rel="stylesheet" href="site-shell.css?v=20260830-shell020">
+  <style>
+    /* Critical defensive inline styles: prevent SVG explosion & skip-link flash */
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #73eee4; padding: 10px 18px; border: 1px solid #73eee4; border-radius: 4px; }
+    .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
+    [data-lang="en"] { display: none; }
+    body[data-language="en"] [data-lang="en"] { display: inline !important; }
+    body[data-language="en"] [data-lang="zh"] { display: none !important; }
+  </style>
 </head>
 <body class="research-page" data-language="zh" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -17,18 +26,12 @@
 
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="NVM Knowledge Hub 首頁">
-      <span class="brand-mark"><svg viewBox="0 0 48 48"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/><path d="M17 5v6M24 5v6M31 5v6M17 37v6M24 37v6M31 37v6M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></svg></span>
+      <span class="brand-mark"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/><path d="M17 5v6M24 5v6M31 5v6M17 37v6M24 37v6M31 37v6M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></svg></span>
       <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
       <span class="brand-section">MEMORY PHYSICS</span>
     </a>
-    <nav class="primary-nav" id="primaryNav" aria-label="研究頁導覽">
-      <a href="#abstract">Abstract</a>
-      <a href="#economics">Economics</a>
-      <a href="#read-path">Read Path</a>
-      <a href="#emission">OTP Risk</a>
-      <a href="#system-consequence">Product Response</a>
-      <a href="oip-secure-storage.html">OIP Brief</a>
-      <a href="memory-evidence.html">Sources</a>
+    <nav class="primary-nav" id="primaryNav" aria-label="主要導覽">
+      <a class="portfolio-return" href="https://samhuang68.github.io/#work" aria-label="返回個人作品集">SAM HUANG ↗</a><a href="index.html"><span data-lang="zh">總門戶</span><span data-lang="en">Portal</span></a><a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI & Nodes</span></a><a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper</span></a><a href="briefing/"><span data-lang="zh">簡報與講稿</span><span data-lang="en">Briefing</span></a>
     </nav>
     <div class="header-actions">
       <a class="home-pill" href="secure-storage.html">SECURE STORAGE</a>
