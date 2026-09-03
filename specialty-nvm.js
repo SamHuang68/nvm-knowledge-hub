@@ -303,6 +303,57 @@ document.addEventListener('DOMContentLoaded', () => {
   initMatrix();
 
   if (btnGenDefect) {
+    
+    // 支援直接點擊或觸控晶圓矩陣注入/清除缺陷
+    function handleMatrixCellClick(e) {
+      e.preventDefault();
+      const rect = canvasMatrix.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
+      
+      const cellSize = canvasMatrix.width / GRID_SIZE;
+      const c = Math.floor(x / (rect.width / GRID_SIZE));
+      const r = Math.floor(y / (rect.height / GRID_SIZE));
+      
+      if (r >= 0 && r < GRID_SIZE && c >= 0 && c < GRID_SIZE) {
+        if (matrixCells[r][c] === 0) {
+          // 注入缺陷
+          matrixCells[r][c] = 1;
+          defects.push({ r, c });
+          logTerminal(`MANUAL INJECTION: Defect added at bitcell [R${r}C${c}].`);
+        } else {
+          // 清除缺陷
+          matrixCells[r][c] = 0;
+          defects = defects.filter(d => !(d.r === r && d.c === c));
+          logTerminal(`MANUAL OVERRIDE: Defect cleared at bitcell [R${r}C${c}].`);
+        }
+        
+        statDefectCount.textContent = defects.length.toString();
+        if (defects.length > 0) {
+          lblScanStatus.textContent = 'DEFECT DETECTED';
+          lblScanStatus.className = 'badge-accent text-warn';
+          statDieYield.textContent = 'FAIL (0%)';
+          statDieYield.className = 'stat-val text-warn';
+          btnRunBIST.disabled = false;
+        } else {
+          lblScanStatus.textContent = 'SYSTEM IDLE';
+          lblScanStatus.className = 'badge-accent';
+          statDieYield.textContent = '100%';
+          statDieYield.className = 'stat-val text-green';
+          btnRunBIST.disabled = true;
+        }
+        btnRunBIRA.disabled = true;
+        btnBurnFuse.disabled = true;
+        drawMatrix();
+      }
+    }
+
+    canvasMatrix.addEventListener('click', handleMatrixCellClick);
+    canvasMatrix.addEventListener('touchstart', handleMatrixCellClick, { passive: false });
+    canvasMatrix.style.cursor = 'crosshair';
+
     btnGenDefect.addEventListener('click', () => {
       initMatrix();
       // 隨機產生 2 到 3 個缺陷
