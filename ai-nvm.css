@@ -6180,3 +6180,83 @@
     font-size: 12px;
   }
 }
+
+
+/* ==========================================================================
+   REVIEWER 4 FIXES: AI-NVM DECISION QUESTIONS, FIGCAPTION SHIELD & TYPOGRAPHY
+   ========================================================================== */
+
+/* 1. 全域標題平衡與 CJK 保留詞保護 */
+.ai-nvm-page :is(h1, h2, h3, h4) {
+  text-wrap: balance !important;
+  overflow-wrap: break-word !important;
+}
+
+[data-language="zh"] .ai-nvm-page :is(h1, h2, h3, h4) {
+  word-break: keep-all !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.28 !important;
+}
+
+/* 2. 7 大系統選型決策卡片在桌面端 4 欄佈局平衡 */
+@media (min-width: 1200px) {
+  .ai-nvm-page .decision-questions ol {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px !important;
+  }
+  .ai-nvm-page .decision-questions li:nth-child(7) {
+    grid-column: 2 / span 2 !important;
+  }
+}
+
+.ai-nvm-page .decision-questions li b {
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+  text-wrap: pretty !important;
+  word-break: keep-all !important;
+}
+
+/* 3. 圖說 (Figcaption) 半透明毛玻璃底色與遮罩防護（杜絕與背景線條重疊） */
+.ai-nvm-page .photonics-art figcaption,
+.ai-nvm-page .evidence-scene figcaption,
+.ai-nvm-page .conclusion-visual figcaption {
+  position: absolute !important;
+  z-index: 3 !important;
+  right: 16px !important;
+  bottom: 14px !important;
+  left: 16px !important;
+  padding: 10px 16px !important;
+  background: rgba(6, 27, 41, 0.9) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(113, 236, 227, 0.22) !important;
+  border-radius: 4px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+@media (max-width: 620px) {
+  .ai-nvm-page .evidence-scene figcaption,
+  .ai-nvm-page .conclusion-visual figcaption {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    padding: 8px 12px !important;
+    font-size: 8.5px !important;
+    line-height: 1.4 !important;
+  }
+  .ai-nvm-page .conclusion-visual figcaption b {
+    display: block !important;
+    color: #e2f4f6 !important;
+  }
+}
+
+/* 4. 系統邊界圖主標題中英文間距與中圓點 */
+.ai-nvm-page .map-heading h3 em {
+  display: inline-block !important;
+  margin-left: 8px !important;
+}
+[data-language="zh"] .ai-nvm-page .map-heading h3 em::before {
+  content: " · " !important;
+  color: var(--ai-cyan) !important;
+}

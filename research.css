@@ -534,3 +534,76 @@ body.research-page { color: var(--ink); background: var(--paper); }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+
+/* ==========================================================================
+   REVIEWER 4 FIXES: DEEP TECH TYPOGRAPHY, 27 EVIDENCE CARDS & TABLE LABELS
+   ========================================================================== */
+
+/* 1. 調整全域字級變數，防止繁中孤字「物理」「邊界」「架構」斷字 */
+:root {
+  --type-research-hero: clamp(38px, 4.2vw, 54px) !important;
+  --type-research-hero-mobile: clamp(26px, 7.2vw, 32px) !important;
+  --type-research-section: clamp(28px, 3.2vw, 42px) !important;
+  --type-research-section-mobile: clamp(22px, 6.2vw, 27px) !important;
+  --type-research-conclusion: clamp(30px, 3.6vw, 46px) !important;
+  --type-research-conclusion-mobile: clamp(24px, 6.6vw, 30px) !important;
+}
+
+.research-page :is(h1, h2, h3, h4) {
+  text-wrap: balance !important;
+  overflow-wrap: break-word !important;
+}
+
+[data-language="zh"] .research-page :is(h1, h2, h3, h4) {
+  word-break: keep-all !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.28 !important;
+}
+
+/* 2. 27 筆證據卡片行高從 1.08 放寬至 1.24，長單詞支援 break */
+.source-content h3 {
+  margin: 12px 0 10px !important;
+  font-size: 20px !important;
+  line-height: 1.24 !important;
+  letter-spacing: -0.01em !important;
+  overflow-wrap: anywhere !important;
+  text-wrap: balance !important;
+}
+
+.source-proof div {
+  padding: 12px 14px !important;
+  background: #ede8dc !important;
+  border-left: 2px solid var(--hairline) !important;
+}
+
+.source-proof p {
+  color: #2b4049 !important;
+  font-size: 12px !important;
+  line-height: 1.6 !important;
+}
+
+/* 3. 行動表格偽元素繁中在地化 */
+@media (max-width: 620px) {
+  body[data-language="zh"] .taxonomy-table td:nth-of-type(1)::before {
+    content: "儲存／表達變數 (STORED VARIABLE)";
+  }
+  body[data-language="zh"] .taxonomy-table td:nth-of-type(2)::before {
+    content: "典型讀取可觀測量 (READ OBSERVABLE)";
+  }
+  body[data-language="zh"] .taxonomy-table td:nth-of-type(3)::before {
+    content: "斷電保存狀態 (POWER-OFF STATE)";
+  }
+  body[data-language="zh"] .taxonomy-table td:nth-of-type(4)::before {
+    content: "相關物理攻擊管道 (PHYSICAL AVENUES)";
+  }
+  body[data-language="zh"] .attack-table td:nth-of-type(1)::before {
+    content: "SRAM / SRAM PUF 表現";
+  }
+  body[data-language="zh"] .attack-table td:nth-of-type(2)::before {
+    content: "持久性 OTP / OTP-PUF 表現";
+  }
+  body[data-language="zh"] .attack-table td:nth-of-type(3)::before {
+    content: "安全儲存架構後果 (SECURITY CONSEQUENCE)";
+  }
+}

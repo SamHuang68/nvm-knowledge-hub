@@ -1599,3 +1599,64 @@ h1 em,h2 em{font-family:var(--sans-zh);font-style:normal;font-weight:inherit}
   .case-flow>svg{display:none}
   .case-flow article{min-height:0}
 }
+
+
+/* ==========================================================================
+   REVIEWER 3 FIXES: CJK TYPOGRAPHY, POWER-OFF LAB & OVERFLOW WRAP
+   ========================================================================== */
+
+/* 1. 廢除 10.5ch 限制，保護繁中斷詞與平衡 */
+@media (max-width: 720px) {
+  body[data-language="zh"] h1,
+  body[data-language="zh"] h2,
+  body[data-language="zh"] h3 {
+    letter-spacing: -0.015em !important;
+    line-break: strict !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+  .hero-content h1 {
+    max-width: 100% !important;
+    line-height: 1.22 !important;
+    text-wrap: balance !important;
+  }
+}
+
+/* 2. 沉浸章節標題巨型字級收斂 (原 112px 降為 68px 安全邊界，根除「清楚」「驗證」孤字) */
+.chapter-copy h2 {
+  font-size: clamp(34px, 4.6vw, 64px) !important;
+  line-height: 1.18 !important;
+  letter-spacing: -.03em !important;
+  text-wrap: balance !important;
+}
+
+/* 3. Split statement 邊界計算與孤字保護 */
+.split-statement .statement-resolution {
+  max-width: 100% !important;
+  font-size: clamp(24px, 0.85em, 36px) !important;
+  line-height: 1.35 !important;
+  text-wrap: balance !important;
+}
+
+/* 4. Power-off Lab 晶片畫布疊字防護 */
+.chip-frame {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.cipher-label {
+  margin-top: auto !important;
+  padding-top: 14px !important;
+}
+@media (max-width: 620px) {
+  .key-presence {
+    position: static !important;
+    margin-top: 10px !important;
+    padding-top: 10px !important;
+    border-top: 1px dashed rgba(113, 236, 227, 0.2) !important;
+    justify-content: flex-start !important;
+  }
+  .key-presence span b {
+    font-size: 10px !important;
+    word-break: break-word !important;
+  }
+}

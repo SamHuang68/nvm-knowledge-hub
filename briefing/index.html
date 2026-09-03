@@ -47,6 +47,59 @@
     .slide-notes { font-size: 13.5px; line-height: 1.7; color: #c8d9e0; }
     .slide-notes h4 { font: 700 11px/1.4 "IBM Plex Mono", monospace; color: #e6a760; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.08em; }
     .slide-notes p { margin: 0; }
+  
+    /* === REVIEWER 1 & 4 TYPOGRAPHY FIXES FOR BRIEFING === */
+    .briefing-hero h1 {
+      font-size: clamp(28px, 3.6vw, 46px) !important;
+      font-weight: 800;
+      line-height: 1.2 !important;
+      color: #fff;
+      margin-bottom: 20px;
+      text-wrap: balance !important;
+    }
+    .briefing-hero h1 em {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* 解決 iPhone SE / 360px Android 手機水平溢出 */
+    .briefing-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)) !important;
+      gap: 24px;
+      max-width: 1280px;
+      margin: 0 auto 100px;
+      padding: 0 24px;
+    }
+    @media (max-width: 600px) {
+      .briefing-grid {
+        padding: 0 16px;
+        gap: 16px;
+      }
+    }
+
+    /* 17 頁卡片標題排版優化：微調字級至 17px，行高 1.38，消滅 Slide 01「族」與 Slide 16「證」孤字 */
+    .slide-card h3 {
+      font-size: 16.5px !important;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.38 !important;
+      margin-bottom: 8px;
+      text-wrap: balance !important;
+      overflow-wrap: break-word !important;
+    }
+    [data-language="zh"] .slide-card h3 {
+      word-break: keep-all !important;
+    }
+
+    /* 筆記空白防禦隱藏 */
+    .slide-notes p:empty {
+      display: none;
+    }
+    .slide-notes:has(p:empty) h4 {
+      display: none;
+    }
+
   </style>
 </head>
 <body class="hub-page" data-language="zh">

@@ -165,3 +165,65 @@ html{scroll-padding-top:90px}
   overflow-wrap: break-word !important;
 }
 
+
+
+/* ==========================================================================
+   REVIEWER 3 FIXES: REMOVE CH LIMITS, STABILIZE WINDOW & RESPONSIVE LADDER
+   ========================================================================== */
+
+/* 1. 廢除固定 ch 寬度，全面改為寬裕的 em 與百分比 */
+.hero h1 {
+  max-width: 24em !important;
+  text-wrap: balance !important;
+  font-size: clamp(36px, 4.5vw, 56px) !important;
+  line-height: 1.18 !important;
+}
+
+.section-head h2,
+.principle h2,
+.sources h2 {
+  max-width: 28em !important;
+  text-wrap: balance !important;
+  line-height: 1.22 !important;
+}
+
+body[data-language="zh"] .hero h1,
+body[data-language="zh"] .section-head h2 {
+  line-height: 1.28 !important;
+  letter-spacing: -0.01em !important;
+  word-break: normal !important;
+}
+
+/* 2. 攻擊時窗 (01-05) 行動端流式佈局與詳情防震盪 */
+@media (max-width: 680px) {
+  .phase-tabs {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+  .phase-tabs button {
+    flex: 1 1 calc(50% - 6px) !important;
+    min-height: 46px !important;
+  }
+  .phase-tabs button[data-phase="zeroize"] {
+    flex: 1 1 100% !important;
+    text-align: center !important;
+  }
+}
+
+.window-detail {
+  min-height: 380px !important;
+}
+
+/* 3. M1-M6 成熟度階梯卡片在 1200px 提前轉為 3 欄，避免 FIELD-PROVEN 溢出 */
+@media (max-width: 1200px) {
+  .ladder {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* 4. 行動端控制矩陣偽元素繁中在地化 */
+body[data-language="zh"] .matrix-row span:nth-of-type(1)::before { content: "宣稱 (CLAIM) · "; }
+body[data-language="zh"] .matrix-row span:nth-of-type(2)::before { content: "測試方法 (TEST) · "; }
+body[data-language="zh"] .matrix-row span:nth-of-type(3)::before { content: "預期證據 (EVIDENCE) · "; }
+body[data-language="zh"] .matrix-row span:nth-of-type(4)::before { content: "防禦邊界 (LIMIT) · "; }

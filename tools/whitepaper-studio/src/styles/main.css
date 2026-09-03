@@ -116,3 +116,79 @@ img, svg { max-width: 100%; }
 
 :focus-visible { outline: 3px solid var(--copper); outline-offset: 4px; }
 ::selection { background: var(--cyan); color: var(--midnight); }
+
+
+/* === REVIEWER 1 FIX: STUDIO HERO & TYPOGRAPHY REBALANCE === */
+.studio-hero h1 {
+  margin: 20px 0 24px;
+  font-size: clamp(32px, 3.4vw, 52px) !important;
+  line-height: 1.18 !important;
+  letter-spacing: -.03em !important;
+  font-weight: 650;
+  text-wrap: balance !important;
+}
+.studio-hero h1 em {
+  display: inline-block;
+  color: var(--aqua);
+  font-style: normal;
+  font-weight: 350;
+}
+.hero-title-phrase {
+  display: inline-block;
+  white-space: nowrap;
+}
+@media (max-width: 620px) {
+  .hero-title-phrase {
+    white-space: normal;
+  }
+}
+.panel-heading h2 {
+  max-width: 960px;
+  margin: 14px 0 0;
+  font-size: clamp(26px, 2.8vw, 42px) !important;
+  line-height: 1.18 !important;
+  letter-spacing: -.03em !important;
+  font-weight: 650;
+  text-wrap: balance !important;
+}
+.paper-heading h2 {
+  margin: 14px 0 16px;
+  font-size: clamp(28px, 3vw, 46px) !important;
+  line-height: 1.18 !important;
+  letter-spacing: -.03em !important;
+  font-weight: 650;
+  text-wrap: balance !important;
+}
+.paper-chapter h3 {
+  max-width: 920px;
+  margin: 0 0 16px;
+  font-size: clamp(22px, 2.3vw, 32px) !important;
+  line-height: 1.22 !important;
+  letter-spacing: -.025em !important;
+  text-wrap: balance !important;
+}
+.section-label h3 {
+  margin: 0;
+  font-size: clamp(20px, 2.1vw, 28px) !important;
+  line-height: 1.22 !important;
+  letter-spacing: -.02em !important;
+  text-wrap: balance !important;
+}
+.contract-card h4 {
+  margin: 0 0 12px;
+  font-size: clamp(17px, 1.4vw, 21px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -.02em !important;
+  overflow-wrap: break-word !important;
+}
+.contract-card > strong {
+  min-height: auto !important;
+  margin-bottom: 12px;
+}
+.decision-table th, .decision-table td {
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+.family-chip, .status-chip, .security-chip {
+  white-space: nowrap !important;
+}
