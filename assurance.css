@@ -114,3 +114,54 @@ html{scroll-padding-top:90px}
   .matrix-row span:nth-of-type(3)::before{content:"EXPECTED EVIDENCE"}
   .matrix-row span:nth-of-type(4)::before{content:"LIMIT"}
 }
+
+/* =============================================================================
+   LAYOUT REPAIR: Threat Grid Article Footer & Vertical Text Distortion Fix
+   Root Cause Analysis:
+   1. The generic 'footer' element selector assigned 'display: flex' and large 
+      horizontal padding (2rem clamp) intended for the site footer to article footers.
+   2. 'overflow-wrap: anywhere' forced flex child <b> to crush into 1-character 
+      vertical columns (A-S-S-E-T-S, OU-TC-OM-ES, BO-UN-DA-RY).
+   Resolution:
+   - Override article footer to block display with zero horizontal padding.
+   - Enforce 'white-space: nowrap' and 'word-break: keep-all' on <b> labels.
+   - Cleanly format monospace small text with proper line-height and wrapping.
+   ============================================================================= */
+.threat-grid article footer {
+  display: block !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-top: auto !important;
+  padding: 1.25rem 0 0 0 !important;
+  border-top: 1px solid var(--line, rgba(122, 198, 189, 0.2)) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  text-align: left !important;
+}
+
+.threat-grid article footer b {
+  display: block !important;
+  color: var(--copper, #c78a4b) !important;
+  font-family: var(--mono, "IBM Plex Mono", Consolas, monospace) !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  margin-bottom: 0.45rem !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  text-transform: uppercase !important;
+}
+
+.threat-grid article footer small {
+  display: block !important;
+  font-family: var(--mono, "IBM Plex Mono", Consolas, monospace) !important;
+  font-size: 0.72rem !important;
+  font-weight: 400 !important;
+  color: #8fa8b2 !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0.03em !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
