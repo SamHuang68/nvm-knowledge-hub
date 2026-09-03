@@ -99,6 +99,33 @@
   background: rgba(0, 0, 0, 0.15);
 }
 
+.specialty-hero-image-wrap {
+  margin: 36px auto 0;
+  max-width: 980px;
+  border: 1px solid rgba(113, 236, 227, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(113, 236, 227, 0.12);
+  background: #04141e;
+}
+
+.specialty-hero-image-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hero-image-caption {
+  padding: 10px 16px;
+  background: rgba(6, 25, 37, 0.95);
+  border-top: 1px solid rgba(113, 236, 227, 0.15);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #71ece3;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
 /* =========================================================
    Topic Sections
    ========================================================= */
