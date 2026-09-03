@@ -82,7 +82,7 @@
         `).join(``)}
         <aside class="paper-sources">
           <div><p>CONTINUE THE EVIDENCE TRAIL</p><h3>Use the Hub to separate source facts from architecture inference</h3></div>
-          <nav><a href="https://samhuang68.github.io/secure-storage-knowledge-hub/memory-evidence.html">Open Evidence Ledger <span>↗</span></a><a href="https://samhuang68.github.io/secure-storage-knowledge-hub/memory-physics.html">Review Memory Physics <span>↗</span></a></nav>
+          <nav><a href="https://samhuang68.github.io/nvm-knowledge-hub/memory-evidence.html">Open Evidence Ledger <span>↗</span></a><a href="https://samhuang68.github.io/nvm-knowledge-hub/memory-physics.html">Review Memory Physics <span>↗</span></a></nav>
         </aside>
       </div>
     </div>
