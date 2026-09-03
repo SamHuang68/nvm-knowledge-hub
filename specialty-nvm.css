@@ -784,6 +784,78 @@
   flex-grow: 1;
 }
 
+/* =========================================================
+   Comparison Panel & Foundry Benchmark Decision Matrix
+   Target: BCD Pure Logic vs eFlash & E-Ink vs LCD/OLED Tables
+   ========================================================= */
+.comparison-panel {
+  margin: 40px 0;
+  padding: 28px 30px;
+  background: 
+    linear-gradient(135deg, rgba(17, 210, 208, 0.05) 0%, transparent 45%),
+    rgba(5, 23, 34, 0.88);
+  border: 1px solid rgba(113, 236, 227, 0.28);
+  border-radius: 8px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 24px rgba(17, 210, 208, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.comparison-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--spec-cyan), transparent);
+}
+
+/* Panel Header & Kicker */
+.comparison-header {
+  margin-bottom: 20px;
+}
+
+.comparison-header .panel-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.comparison-header .pulse-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--spec-cyan);
+  box-shadow: 0 0 8px var(--spec-cyan);
+}
+
+.comparison-header .kicker-tag {
+  font-family: var(--spec-mono);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  color: var(--spec-aqua);
+  text-transform: uppercase;
+}
+
+.comparison-panel h3 {
+  font-size: 18px;
+  font-weight: 750;
+  color: #ffffff;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.comparison-header .panel-sub {
+  font-size: 12.5px;
+  color: var(--spec-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
 /* Table Scrolling Defense & Visual Hint */
 .table-responsive {
   width: 100%;
@@ -802,10 +874,136 @@
   background-attachment: local, local, scroll, scroll;
 }
 
+/* Data Table Precision Typography & Layout (收斂比例，消除過大字體) */
 .data-table {
-  min-width: 680px;
   width: 100%;
+  min-width: 720px;
   border-collapse: collapse;
+  font-family: var(--spec-sans);
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--spec-text-muted);
+}
+
+/* thead th: 高反差半導體儀表風格 */
+.data-table thead th {
+  background: #041a27;
+  color: var(--spec-aqua);
+  font-family: var(--spec-mono);
+  font-size: 10px;
+  font-weight: 750;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 2px solid rgba(113, 236, 227, 0.35);
+  border-right: 1px solid rgba(113, 236, 227, 0.12);
+  white-space: nowrap;
+}
+
+.data-table thead th:last-child {
+  border-right: none;
+}
+
+/* 繁體中文表頭字體平衡微調 */
+html[data-language="zh"] .data-table thead th {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+/* 欄位寬度最佳化配置 */
+.data-table th:nth-child(1),
+.data-table td:nth-child(1) { width: 19%; min-width: 135px; }
+.data-table th:nth-child(2),
+.data-table td:nth-child(2) { width: 28%; min-width: 185px; }
+.data-table th:nth-child(3),
+.data-table td:nth-child(3) { width: 26%; min-width: 175px; }
+.data-table th:nth-child(4),
+.data-table td:nth-child(4) { width: 27%; min-width: 185px; }
+
+/* tbody 單元格與細緻半導體網格 */
+.data-table tbody tr {
+  border-bottom: 1px solid rgba(113, 236, 227, 0.1);
+  transition: background-color 0.18s ease;
+}
+
+.data-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.data-table tbody tr:nth-child(even) td {
+  background-color: rgba(6, 30, 44, 0.35);
+}
+
+.data-table tbody tr:hover td {
+  background-color: rgba(17, 210, 208, 0.06);
+}
+
+.data-table tbody td {
+  padding: 11px 14px;
+  vertical-align: top;
+  border-right: 1px solid rgba(113, 236, 227, 0.08);
+  color: #a4bfc9;
+  font-size: 12.5px;
+  line-height: 1.55;
+  word-break: break-word;
+}
+
+.data-table tbody td:last-child {
+  border-right: none;
+}
+
+/* 第一欄：評估維度 / 指標 */
+.data-table tbody td:first-child strong {
+  display: block;
+  font-family: var(--spec-sans);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+
+/* 第四欄：架構決策意涵 (次要分析筆記風格) */
+.data-table tbody td:last-child {
+  color: #8daab6;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   .cell-win 與 .cell-lose 半透明光澤與微狀態樣式
+   ========================================================= */
+.data-table tbody td.cell-win {
+  background: rgba(56, 201, 158, 0.085);
+  color: #c9f5e7;
+  border-left: 2px solid rgba(56, 201, 158, 0.55);
+}
+
+.data-table tbody tr:hover td.cell-win {
+  background: rgba(56, 201, 158, 0.14);
+}
+
+.data-table tbody td.cell-win strong {
+  color: #38c99e;
+  font-weight: 700;
+}
+
+.data-table tbody td.cell-lose {
+  background: rgba(239, 87, 67, 0.075);
+  color: #fed9d4;
+  border-left: 2px solid rgba(239, 87, 67, 0.45);
+}
+
+.data-table tbody tr:hover td.cell-lose {
+  background: rgba(239, 87, 67, 0.13);
+}
+
+.data-table tbody td.cell-lose strong {
+  color: #ef5743;
+  font-weight: 700;
 }
 
 /* =========================================================
@@ -855,11 +1053,38 @@
   .foundry-grid {
     grid-template-columns: 1fr;
   }
+  .comparison-panel {
+    padding: 22px 18px;
+  }
+  .data-table {
+    font-size: 12px;
+  }
+  .data-table thead th {
+    padding: 11px 12px;
+    font-size: 9.5px;
+  }
+  .data-table tbody td {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+  .data-table tbody td:first-child strong {
+    font-size: 12px;
+  }
+  .data-table tbody td:last-child {
+    font-size: 11.5px;
+  }
 }
 
 @media (max-width: 768px) {
   .topic-section {
     padding: 56px 16px;
+  }
+  .comparison-panel {
+    padding: 20px 16px;
+    margin: 30px 0;
+  }
+  .comparison-panel h3 {
+    font-size: 16px;
   }
   .card-grid-2,
   .card-grid-3 {
@@ -892,7 +1117,7 @@
     padding: 14px 12px;
   }
   .comparison-panel {
-    padding: 20px 14px;
+    padding: 16px 12px;
   }
   .lab-stat-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
