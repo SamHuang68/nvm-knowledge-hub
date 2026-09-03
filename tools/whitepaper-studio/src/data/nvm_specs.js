@@ -110,5 +110,61 @@ export const nvmIpSpecs = [
     latency: 'Sub-10 ns read, atomic write',
     busExposure: 'None (Die-internal analog/interconnect boundary)',
     bomCost: 'Zero extra mask adder in standard CMOS'
+  },
+  {
+    id: 'bcd_power_pmic_trim',
+    profile: 'BCD Power PMIC & LED Trimming',
+    family: 'Pure Logic AntiFuse OTP / NeoMTP',
+    contract: 'Permanent analog Vref bandgap (±0.5%) & oscillator calibration; multi-channel LED balance',
+    nodeLens: '0.18µm, 0.13µm, 90nm, 55nm BCD Foundry Platforms (VIS, TSMC, PSMC, UMC)',
+    updateModel: 'Wafer sort (CP) & final test (FT) electrical trimming; zero thermal budget penalty',
+    strongestFit: 'PMIC, USB-PD 3.1 240W EPR Controllers, BLDC Motor Drivers, BMIC 16-24 Cell AFEs',
+    boundary: 'Requires high-temperature retention validation up to 150°C-175°C automotive junction temp',
+    evidenceStatus: 'AEC-Q100 Grade 0 · Multi-Foundry BCD Baseline',
+    latency: 'Low (15-30 ns read)',
+    busExposure: 'None (Internal analog resistor ladder trim boundary)',
+    bomCost: 'Zero extra mask adder (Eliminates 10-15 eFlash masks, saving 30-50%)'
+  },
+  {
+    id: 'cis_dram_matrix_repair',
+    profile: 'CIS & DRAM Matrix Defect Repair',
+    family: 'AntiFuse OTP Hard FuseBox & PPR',
+    contract: 'Non-volatile bad bitcell / pixel address remapping to spare rows/columns',
+    nodeLens: 'Advanced DRAM (DDR5, HBM3e) & 3D Stacking CIS (TSMC 3DFabric, Cu-Cu Hybrid Bonding)',
+    updateModel: 'BIST autonomous scanning + BIRA minimum vertex cover + FuseBox OTP burn',
+    strongestFit: 'JEDEC Hard Post-Package Repair (hPPR), 200MP Mobile CIS, Datacenter AI Server Memories',
+    boundary: 'Limited by physical spare row/column availability and macro height (<250µm)',
+    evidenceStatus: 'JEDEC JESD79-5 DDR5 · JESD238 HBM3e · Mass Production Proven',
+    latency: 'Zero-cycle address redirection on-die',
+    busExposure: 'Internal memory address decoder override',
+    bomCost: 'Ultra-low silicon overhead (<0.5% total die area)'
+  },
+  {
+    id: 'hv_display_ddic_demura',
+    profile: 'HV Display Driver (OLED / LCD DDIC)',
+    family: 'High-Density Embedded MTP / Pure Logic OTP',
+    contract: 'Multi-point Gamma 2.2 R-DAC calibration, Vcom 5mV anti-flicker, 2D De-Mura gain LUT',
+    nodeLens: '80nm-55nm HV, 40nm-28nm eHV, 16nm FinFET eHV (TSMC, UMC, VIS, Nexchip)',
+    updateModel: 'Factory optical camera calibration write; dynamic refresh rate adaptive indexing',
+    strongestFit: 'AMOLED Smartphone DDIC, Automotive Cockpit Displays, Micro-OLED AR/VR Systems',
+    boundary: 'Must withstand high-voltage swings (+20V/-15V gate rails, 8V-12V source lines)',
+    evidenceStatus: 'Commercial AMOLED Standard · 120Hz-144Hz Production',
+    latency: 'Sub-microsecond frame-level LUT retrieval',
+    busExposure: 'Internal display pipeline pixel stream',
+    bomCost: 'Zero mask adder in specialized eHV platforms'
+  },
+  {
+    id: 'eink_ultra_hv_mtp_otp',
+    profile: 'E-Ink Ultra-HV Driver (40V-50V / 110HV)',
+    family: 'MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity',
+    contract: 'Multi-dimensional electrophoretic driving waveform LUT & temperature compensation',
+    nodeLens: '110HV, 90HV, 80eHV Specialty CMOS (VIS, UMC, Nexchip; BCD excluded due to leakage)',
+    updateModel: 'MTP (32Kb-64Kb) during color formulation evolution; OTP (<250µm height) in volume maturity',
+    strongestFit: 'Electronic Shelf Labels (ESL), Full-Color E-Paper (Spectra 6, Kaleido 3), Outdoor Signage',
+    boundary: 'Zero standby drain strictly required for 5-10 yr coin battery; strict <250µm die height',
+    evidenceStatus: 'E-Ink Panel Partner Standard · Fitipower / UltraChip / Solomon Baseline',
+    latency: 'Fast multi-frame waveform index (<50 ns)',
+    busExposure: 'Internal driver waveform generator engine',
+    bomCost: 'Zero extra mask adder; slashes BOM vs discrete external SPI Flash'
   }
 ];
