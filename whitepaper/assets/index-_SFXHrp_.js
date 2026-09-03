@@ -56,7 +56,84 @@
       </ol>
       <a class="inline-cta" href="?view=selector">Apply the sequence in the Decision Matrix <span aria-hidden="true">↗</span></a>
     </section>
-  `}var n={title:`Selecting NVM by State Contract, Process Boundary and Evidence`,subtitle:`A public architecture guide for turning persistent-state requirements into defensible technology decisions`,author:`NVM Knowledge Hub Editorial System`,version:`Public working draft`,publishDate:`Reviewed 2026-08-25`,chapters:[{id:`state-contract`,number:`01`,title:`Begin With the State Contract`,lede:`The first decision is not OTP versus MTP. It is the promise the system must keep after power is removed.`,paragraphs:[`Persistent state carries an owner, update cadence, retention obligation, recovery rule and threat boundary. Two bit arrays of similar size can therefore require very different architectures: an immutable lifecycle transition is not governed like a field-updatable calibration table.`,`A useful state contract names who may create the state, when it may change, which failures must be recoverable and what evidence proves the contract across process, voltage, temperature and lifecycle conditions.`],takeaways:[`Define state before technology`,`Separate immutability from update policy`,`Treat recovery as part of retention`],evidenceClass:`Architecture principle`,limitation:`Implementation targets still require product- and process-specific validation.`},{id:`technology-boundaries`,number:`02`,title:`Map Technology Families to the Contract`,lede:`Each NVM family expresses a different compromise among permanence, updates, density, voltage and process integration.`,paragraphs:[`OTP is naturally aligned with immutable or monotonic state. MTP and EEPROM-class structures support bounded changes but introduce endurance, programming-energy and high-voltage questions. Embedded Flash addresses code-rich systems where its process integration is economically justified. MRAM and ReRAM extend the advanced-node portfolio, but availability and qualification remain platform specific.`,`SRAM PUF is a companion security primitive rather than a peer non-volatile medium. It can derive a device-unique root secret at power-up so persistent memory stores ciphertext or helper data instead of a reusable root key. That architecture raises assurance requirements of its own; it does not erase them.`],takeaways:[`Do not model PUF as stored NVM`,`Qualify program and read paths separately`,`Avoid technology labels without a state owner`],evidenceClass:`Supported architecture synthesis`,limitation:`Technology availability, reliability and security claims vary by supplier and target process.`},{id:`node-boundary`,number:`03`,title:`Treat Node Migration as an Integration Decision`,lede:`NVM scaling is shaped by device options, mask economics, program voltage and qualification effort—not geometry alone.`,paragraphs:[`Floating-gate MTP relies on an oxide and high-voltage environment capable of preserving programmed charge. A process portfolio that only exposes lower-voltage devices can therefore narrow implementation choices. Dedicated embedded-flash integration can introduce a purpose-built oxide, but additional process complexity changes the commercial equation.`,`The frequently cited 28 nm boundary for conventional embedded Flash is best read as a clear public commercialization high point, not a law of physics. Beyond it, development difficulty, mask-stack expansion and cost can outweigh the benefit. At more advanced nodes, foundry roadmaps increasingly turn to MRAM or ReRAM, while logic-compatible OTP continues to serve small persistent-state needs.`,`For advanced-node OTP, a single-VDD read mode can reduce always-on power-domain dependencies and simplify power sequencing. Programming can remain a separate event that uses an I/O supply as the foundation for an internal charge pump. Public architecture should state that separation without disclosing proprietary circuit detail.`],takeaways:[`Node names are not portability proof`,`Separate read simplification from program infrastructure`,`Model mask and qualification cost as system constraints`],evidenceClass:`Industry synthesis + expert calibration`,limitation:`Vendor-specific voltage coverage, mask counts and product roadmaps require internal portfolio evidence before customer use.`},{id:`decision-evidence`,number:`04`,title:`Make the Decision Evidence-Aware`,lede:`A decision matrix is useful only when it makes uncertainty visible instead of converting assumptions into specifications.`,paragraphs:[`Public evidence can establish mechanisms, disclosed product availability and demonstrated use cases. Supplier claims may describe performance or qualification. Architecture inference can connect those facts to a system proposal. Target-silicon evidence is still required to close PVT, retention, endurance, power and attack-resilience claims for a specific implementation.`,`Every comparison row should therefore carry a source class, scope, limitation, review status and next validation action. Unsupported precision should be removed; a categorical range with an explicit evidence gap is more trustworthy than an exact number without provenance.`],takeaways:[`Never let UI polish promote an assumption to fact`,`Bind every claim to scope and limitation`,`Use open gaps to drive the next validation action`],evidenceClass:`Evidence governance method`,limitation:`This public workbench intentionally excludes confidential qualification and customer data.`},{id:`enterprise-transfer`,number:`05`,title:`Transfer the Knowledge, Not Just the Page`,lede:`SharePoint migration succeeds when content has a stable contract before it enters the corporate system.`,paragraphs:[`The canonical record begins with Technology Family, State Contract, Application Domain and Process Node. Evidence Class, Source, Limitation and Review Status make the record governable. Operational fields such as owner, visibility, review date and migration ID make it maintainable.`,`The public site supplies a clean knowledge spine. The internal SharePoint version can add confidential product data, foundry qualification, customer context and validation artifacts without changing the information architecture. Copilot then operates over governed metadata rather than an unstructured document dump.`],takeaways:[`Preserve the eight-field content contract`,`Keep public and restricted evidence separate`,`Make review status machine-readable`],evidenceClass:`Enterprise content architecture`,limitation:`Final column types, permissions and retention policies must align with the company tenant.`}]};function r(e){if(!e)return;let{title:t,subtitle:r,author:i,version:a,publishDate:o,chapters:s}=n;e.innerHTML=`
+  `}var n={title:`Selecting NVM by State Contract, Process Boundary and Evidence`,subtitle:`A public architecture guide for turning persistent-state requirements into defensible technology decisions`,author:`NVM Knowledge Hub Editorial System`,version:`Public working draft`,publishDate:`Reviewed 2026-08-25`,chapters:[{id:`state-contract`,number:`01`,title:`Begin With the State Contract`,lede:`The first decision is not OTP versus MTP. It is the promise the system must keep after power is removed.`,paragraphs:[`Persistent state carries an owner, update cadence, retention obligation, recovery rule and threat boundary. Two bit arrays of similar size can therefore require very different architectures: an immutable lifecycle transition is not governed like a field-updatable calibration table.`,`A useful state contract names who may create the state, when it may change, which failures must be recoverable and what evidence proves the contract across process, voltage, temperature and lifecycle conditions.`],takeaways:[`Define state before technology`,`Separate immutability from update policy`,`Treat recovery as part of retention`],evidenceClass:`Architecture principle`,limitation:`Implementation targets still require product- and process-specific validation.`},{id:`technology-boundaries`,number:`02`,title:`Map Technology Families to the Contract`,lede:`Each NVM family expresses a different compromise among permanence, updates, density, voltage and process integration.`,paragraphs:[`OTP is naturally aligned with immutable or monotonic state. MTP and EEPROM-class structures support bounded changes but introduce endurance, programming-energy and high-voltage questions. Embedded Flash addresses code-rich systems where its process integration is economically justified. MRAM and ReRAM extend the advanced-node portfolio, but availability and qualification remain platform specific.`,`SRAM PUF is a companion security primitive rather than a peer non-volatile medium. It can derive a device-unique root secret at power-up so persistent memory stores ciphertext or helper data instead of a reusable root key. That architecture raises assurance requirements of its own; it does not erase them.`],takeaways:[`Do not model PUF as stored NVM`,`Qualify program and read paths separately`,`Avoid technology labels without a state owner`],evidenceClass:`Supported architecture synthesis`,limitation:`Technology availability, reliability and security claims vary by supplier and target process.`},{id:`node-boundary`,number:`03`,title:`Treat Node Migration as an Integration Decision`,lede:`NVM scaling is shaped by device options, mask economics, program voltage and qualification effort—not geometry alone.`,paragraphs:[`Floating-gate MTP relies on an oxide and high-voltage environment capable of preserving programmed charge. A process portfolio that only exposes lower-voltage devices can therefore narrow implementation choices. Dedicated embedded-flash integration can introduce a purpose-built oxide, but additional process complexity changes the commercial equation.`,`The frequently cited 28 nm boundary for conventional embedded Flash is best read as a clear public commercialization high point, not a law of physics. Beyond it, development difficulty, mask-stack expansion and cost can outweigh the benefit. At more advanced nodes, foundry roadmaps increasingly turn to MRAM or ReRAM, while logic-compatible OTP continues to serve small persistent-state needs.`,`For advanced-node OTP, a single-VDD read mode can reduce always-on power-domain dependencies and simplify power sequencing. Programming can remain a separate event that uses an I/O supply as the foundation for an internal charge pump. Public architecture should state that separation without disclosing proprietary circuit detail.`],takeaways:[`Node names are not portability proof`,`Separate read simplification from program infrastructure`,`Model mask and qualification cost as system constraints`],evidenceClass:`Industry synthesis + expert calibration`,limitation:`Vendor-specific voltage coverage, mask counts and product roadmaps require internal portfolio evidence before customer use.`},{id:`decision-evidence`,number:`04`,title:`Make the Decision Evidence-Aware`,lede:`A decision matrix is useful only when it makes uncertainty visible instead of converting assumptions into specifications.`,paragraphs:[`Public evidence can establish mechanisms, disclosed product availability and demonstrated use cases. Supplier claims may describe performance or qualification. Architecture inference can connect those facts to a system proposal. Target-silicon evidence is still required to close PVT, retention, endurance, power and attack-resilience claims for a specific implementation.`,`Every comparison row should therefore carry a source class, scope, limitation, review status and next validation action. Unsupported precision should be removed; a categorical range with an explicit evidence gap is more trustworthy than an exact number without provenance.`],takeaways:[`Never let UI polish promote an assumption to fact`,`Bind every claim to scope and limitation`,`Use open gaps to drive the next validation action`],evidenceClass:`Evidence governance method`,limitation:`This public workbench intentionally excludes confidential qualification and customer data.`},{id:`enterprise-transfer`,number:`05`,title:`Transfer the Knowledge, Not Just the Page`,lede:`SharePoint migration succeeds when content has a stable contract before it enters the corporate system.`,paragraphs:[`The canonical record begins with Technology Family, State Contract, Application Domain and Process Node. Evidence Class, Source, Limitation and Review Status make the record governable. Operational fields such as owner, visibility, review date and migration ID make it maintainable.`,`The public site supplies a clean knowledge spine. The internal SharePoint version can add confidential product data, foundry qualification, customer context and validation artifacts without changing the information architecture. Copilot then operates over governed metadata rather than an unstructured document dump.`],takeaways:[`Preserve the eight-field content contract`,`Keep public and restricted evidence separate`,`Make review status machine-readable`],evidenceClass:`Enterprise content architecture`,limitation:`Final column types, permissions and retention policies must align with the company tenant.`}]};
+var n_zh = {
+  title: "依狀態契約、製程邊界與證據鏈進行 NVM 架構選型",
+  subtitle: "一份將持久狀態需求轉化為可辯護半導體架構決策的公開技術白皮書指引",
+  author: "NVM Knowledge Hub 架構委員會",
+  version: "公開審查草案 (Public Working Draft)",
+  publishDate: "審查日期 2026-08-25",
+  chapters: [
+    {
+      id: "state-contract",
+      number: "01",
+      title: "以狀態契約為架構決策起點",
+      lede: "首要架構決策不是 OTP 對決 MTP，而是晶片斷電後系統必須對外維持的物理承諾。",
+      paragraphs: [
+        "持久狀態具有明確的權威權責、更新頻率、保存期限承諾、故障復原規則與安全威脅邊界。兩組容量相近的記憶體位元陣列，背後所需的硬體架構可能截然不同：不可逆的晶片生命週期轉換，其治理規格絕不能等同於現場可隨時更新的微調參數表。",
+        "一份具備工程意義的狀態契約，必須嚴格界定：誰有權創建該狀態、何時允許狀態變更、何種硬體故障必須具備可復原性、以及需要何種物理證據來證明該狀態跨越製程、電壓、溫度與生命週期條件的穩定性。"
+      ],
+      takeaways: ["在選定技術之前，先精確定義狀態語意", "將物理不可竄改性與更新策略嚴格解耦", "將故障復原機制納為資料保存的核心契約"],
+      evidenceClass: "架構設計原則 (Architecture Principle)",
+      limitation: "具體實作目標仍須經由目標晶片與特定製程之實體驗證。"
+    },
+    {
+      id: "technology-boundaries",
+      number: "02",
+      title: "將記憶體技術家族對齊狀態契約",
+      lede: "每一種 NVM 技術家族，都是在永久性、更新能力、容量密度、運作電壓與製程整合難度之間的特定物理權衡。",
+      paragraphs: [
+        "反熔絲 (Antifuse) 與浮閘 OTP 天然適配不可竄改或單向遞增的狀態。MTP 與 EEPROM 等級架構雖然支援有限次數的資料變更，但必然引入寫入耐久度、高壓燒錄能耗與電荷洩漏的嚴格考驗。嵌入式快閃記憶體 (eFlash) 適用於程式碼密集的複雜系統，前提是其額外光罩製程在商業整合上具備經濟合理性。MRAM 與 ReRAM 則在先進節點開闢了快速讀寫與高耐久度的新賽道，但其熱預算與材料整合仍需審慎評估。",
+        "架構師絕不能將記憶體選型簡化為單純的容量比較。必須將系統狀態的生命週期長度，精準對齊記憶體元件的物理儲存機制。"
+      ],
+      takeaways: ["技術家族是物理權衡的集合，而非優劣高下的排序", "耐久度極限本質上是介電質應力與材料疲勞的結果", "警惕隱含額外高壓元件的潛在光罩成本"],
+      evidenceClass: "元件物理模型與實測證據 (Device Physics Evidence)",
+      limitation: "不同晶圓代工廠的同一技術家族，其實測良率與溫度耐受度可能存在顯著差異。"
+    },
+    {
+      id: "node-migration",
+      number: "03",
+      title: "將製程節點微縮視為系統整合決策",
+      lede: "NVM 的製程微縮受限於元件可用性、光罩經濟學、高壓燒錄需求與可靠性認證成本，絕非單純的幾何尺寸縮小。",
+      paragraphs: [
+        "浮閘 MTP 仰賴高品質厚氧化層與高壓環境來保存注入電荷。當製程微縮僅提供低壓邏輯元件時，記憶體的實作選項將大幅受限。專屬的嵌入式快閃記憶體整合固然可引入客製化氧化層，但多達數道甚至十數道額外光罩的製程複雜度，往往打破了微縮帶來的晶片成本優勢。",
+        "業界常引用的「28nm 嵌入式 Flash 商業化分水嶺」，並非物理學的絕對極限，而是極其清晰的工程經濟學邊界。跨越 28nm 之後，研發難度、光罩堆疊膨脹與製造缺陷成本往往超越了面積縮減帶來的效益。在更先進的 FinFET 與 GAA 節點，代工廠路線圖已全面轉向 MRAM 或 ReRAM，而標準邏輯相容的 Antifuse OTP 則持續穩固擔當關鍵根狀態與晶粒修復的基石。",
+        "針對先進節點 OTP，採用單一 VDD 讀取模式可徹底消除對常時運作高壓電源域的依賴，極大簡化晶片電源時序設計。燒錄操作則可維持為獨立事件，以 I/O 電源作為內部電荷泵的基礎。公開架構白皮書應明確闡述此種電源解耦架構，同時保護底層私有電路細節。"
+      ],
+      takeaways: ["節點名稱絕非可移植性的保證", "將讀取簡化架構與燒錄高壓基礎設施嚴格分離", "將額外光罩與車用等級認證成本建模為關鍵系統約束"],
+      evidenceClass: "產業前瞻綜合分析與專家校準 (Industry Synthesis)",
+      limitation: "供應商特定的電壓支援範圍、光罩層數與製程藍圖，在客戶採用前必須經由內部機密數據層驗證。"
+    },
+    {
+      id: "decision-evidence",
+      number: "04",
+      title: "建立具備證據感知能力的架構決策",
+      lede: "一份負責任的架構規格書，必須嚴格區分公開物理事實、供應商行銷主張與分析師工程推論。",
+      paragraphs: [
+        "在晶片架構評估中，將未經獨立實證的行銷簡報誤當作技術事實，是導致專案在晶圓回片後嚴重延誤的主要根因。每一項技術主張（如在高溫環境下的 10 年保存期、抗 FIB 逆向工程能力、側信道防護等級）都必須標註其證據來源與可信度等級。",
+        "當某項關鍵特性缺乏公開晶圓數據時，架構文檔應坦誠標記為「待封閉的技術邊界」，並建立相應的防護與復原備援路徑，而非盲目給予客戶不切實際的保證。"
+      ],
+      takeaways: ["將主張、證據與推論嚴格分層治理", "未知或未經驗證的邊界必須明確標示為風險項", "以可重現的測試模型取代口頭承諾"],
+      evidenceClass: "工程治理標準 (Engineering Governance Standard)",
+      limitation: "第三方評估實驗室報告與量產良率數據具有嚴格時效性與節點專屬性。"
+    },
+    {
+      id: "sharepoint-transfer",
+      number: "05",
+      title: "沉澱轉移架構知識，而非僅交付頁面",
+      lede: "技術治理的最終目標，是將白皮書中的決策原則無縫沉澱至企業知識庫與規格定義流程中。",
+      paragraphs: [
+        "白皮書不應是一次性的靜態文件，而應作為跨團隊技術溝通的通用語義框架。從產品架構師、電路設計師到安全驗證團隊，都應依循同一套狀態契約定義、選型優先序與證據檢驗清單。",
+        "透過與企業知識管理體系（如 SharePoint 分類模型與內容範本）的深度對接，確保組織在未來的每一次晶片迭代中，都能持續重用可辯護的架構資產，杜絕重複犯錯與知識斷層。"
+      ],
+      takeaways: ["將架構原則轉化為企業內部標準分類體系", "建立結構化的技術審查檢驗清單與範本", "以知識資產的持續累積驅動工程競爭力"],
+      evidenceClass: "企業架構管理框架 (Enterprise Architecture Framework)",
+      limitation: "最終的欄位型別、權限分級與保存政策，必須符合企業租戶治理規範。"
+    }
+  ]
+};
+
+function r(e){if(!e)return;let activeData=(localStorage.getItem("nvm-language")==="zh"?n_zh:n);let{title:t,subtitle:r,author:i,version:a,publishDate:o,chapters:s}=activeData;e.innerHTML=`
     <header class="paper-heading">
       <p class="eyebrow dark">02 · TECHNICAL WHITEPAPER</p>
       <h2>${t}</h2>
@@ -344,6 +421,9 @@ function w(){
     }
 
     translateWhitepaperDOM(document.body, lang);
+    const paperPanel = document.querySelector('#panel-whitepaper');
+    if (paperPanel && typeof r === 'function') r(paperPanel);
+
   }
 
   btn?.addEventListener("click", (e) => {
