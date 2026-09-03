@@ -246,7 +246,7 @@ def main():
     print("Slides reordered.")
 
     # 7. Update Slide 10, 11, 12, 13, 14, 15, 16, 17 with ZERO OVERLAP
-    # Slide 10: Strategic Advance (AI SoC & UCIe 2.0 D2D Repair)
+        # Slide 10: Strategic Advance (AI SoC & UCIe 2.0 D2D Repair)
     s10 = prs.slides[9]
     for sh in s10.shapes:
         if not sh.has_text_frame: continue
@@ -259,44 +259,52 @@ def main():
             clear_and_set_text(sh, "QUALIFY NOW ? SOC BISR", "Consolas", 9.5, True, C_TEAL_KICKER)
         elif "AI SoC SRAM" in txt:
             clear_and_set_text(sh, "AI SoC SRAM & logic BISR", "Arial", 17.5, True, C_DARK_NAVY)
-        elif "Public Synopsys proof" in txt:
+        elif "Public Synopsys proof" in txt or "Silicon-proven" in txt:
             clear_and_set_text(sh, "Silicon-proven value proposition", "Consolas", 10.5, True, C_TEAL_KICKER)
-        elif ">16 Kb repair state" in txt:
+        elif ">16 Kb on-die repair" in txt or ">16 Kb repair state" in txt:
             clear_and_set_multiline(sh, [
                 "? >16 Kb on-die repair state in N5/N4/N3 AI & HPC ASICs",
                 "? STAR Memory System: direct AntiFuse OTP / eFuse interface"
             ], "Arial", 12.0, False, C_SLATE_BODY)
-        elif "Next brief" in txt:
+        elif "Strategic execution" in txt or "Next brief" in txt:
             clear_and_set_text(sh, "Strategic execution", "Consolas", 10.5, True, C_TEAL_KICKER)
-        elif "Name bits ? banks" in txt or "Embed pure-logic AntiFuse" in txt:
+        elif "Embed pure-logic AntiFuse" in txt or "Name bits ? banks" in txt:
             clear_and_set_multiline(sh, [
                 "Embed pure-logic AntiFuse OTP macro ? eliminate external eFuse pump",
                 "Secure yield recovery at wafer sort, packaging & in-field runtime"
             ], "Arial", 12.0, False, C_SLATE_BODY)
-        elif "QUALIFY LOCUS FIRST" in txt or "STRATEGIC ADVANCE" in txt:
-            clear_and_set_text(sh, "STRATEGIC ADVANCE ? UCIE 2.0", "Consolas", 9.5, True, C_CYAN_BRIGHT)
-        elif "HBM persistent repair" in txt or "3D SoIC & D2D" in txt:
-            clear_and_set_text(sh, "3D SoIC & D2D lane repair", "Arial", 17.5, True, C_WHITE)
-        elif "What public evidence establishes" in txt or "Pre-standard market foresight" in txt:
-            clear_and_set_text(sh, "Pre-standard market foresight", "Consolas", 10.5, True, C_CYAN_BRIGHT)
-        elif "InfoROM can retain" in txt or "3D packaging yield hinges" in txt:
+            
+        # Right Card (White card background Fill=FFFFFF -> High contrast dark text!)
+        elif "STRATEGIC ADVANCE" in txt or "QUALIFY LOCUS FIRST" in txt:
+            clear_and_set_text(sh, "STRATEGIC ADVANCE ? UCIE 2.0", "Consolas", 9.5, True, RGBColor(138, 82, 30))
+        elif "3D SoIC & D2D" in txt or "HBM persistent repair" in txt:
+            clear_and_set_text(sh, "3D SoIC & D2D lane repair", "Arial", 17.5, True, C_DARK_NAVY)
+        elif "Pre-standard market foresight" in txt or "What public evidence establishes" in txt:
+            clear_and_set_text(sh, "Pre-standard market foresight", "Consolas", 10.5, True, RGBColor(138, 82, 30))
+        elif "3D packaging yield hinges" in txt or "InfoROM can retain" in txt:
             clear_and_set_multiline(sh, [
                 "? 3D packaging yield hinges on Die-to-Die micro-bump connectivity",
                 "? UCIe 2.0 runtime & post-bond lane remapping requires non-volatile fuse"
-            ], "Arial", 12.0, False, RGBColor(200, 217, 224))
-        elif "Open before product fit" in txt or "Market-leading action" in txt:
-            clear_and_set_text(sh, "Market-leading action", "Consolas", 10.5, True, C_CYAN_BRIGHT)
-        elif "Die/controller ? storage technology" in txt or "Anchor dedicated OTP" in txt:
+            ], "Arial", 12.0, False, C_SLATE_BODY)
+        elif "Market-leading action" in txt or "Open before product fit" in txt:
+            clear_and_set_text(sh, "Market-leading action", "Consolas", 10.5, True, C_TEAL_KICKER)
+        elif "Anchor dedicated OTP" in txt or "Die/controller ? storage technology" in txt:
             clear_and_set_multiline(sh, [
                 "Anchor dedicated OTP per chiplet ? store D2D redundancy maps pre-bond",
                 "Lead the industry architecture forecast before market lock-in"
-            ], "Arial", 12.0, False, RGBColor(200, 217, 224))
-        elif "Do not collapse AI SoC repair" in txt or "Do not wait for commodity" in txt:
-            clear_and_set_text(sh, "Do not wait for commodity consensus: lead the architectural forecast where advanced packaging yield is decided", "Arial", 13.5, True, C_DARK_NAVY)
+            ], "Arial", 12.0, False, C_SLATE_BODY)
+            
+        # Bottom Banner (Dark Navy background Fill=061B29 -> High contrast pure white text!)
+        elif "Do not wait for commodity" in txt or "Do not collapse AI SoC repair" in txt:
+            clear_and_set_text(sh, "Do not wait for commodity consensus: lead the architectural forecast where advanced packaging yield is decided", "Arial", 13.5, True, RGBColor(255, 255, 255))
 
     # Slide 11: Strategic Target (OCP Service Root & Caliptra)
     s11 = prs.slides[10]
-    for sh in s11.shapes:
+    for idx, sh in enumerate(s11.shapes):
+        if idx == 41 and sh.fill:
+            sh.fill.solid()
+            sh.fill.fore_color.rgb = RGBColor(18, 94, 82)
+            
         if not sh.has_text_frame: continue
         txt = sh.text_frame.text
         if "07 ? DISCOVER FIRST" in txt or "10 ? STRATEGIC" in txt:
@@ -323,21 +331,27 @@ def main():
                 "Decommission bit & anti-rollback counters",
                 "Golden measurements require tamper-proof on-die storage"
             ], "Arial", 11.5, False, C_SLATE_BODY)
+            
+        # Right Card (Dark Navy background Fill=061B29 -> High contrast bright text!)
         elif "SYNOPSYS DISCOVERY QUESTION" in txt or "SYNOPSYS STRATEGIC PROPOSAL" in txt:
-            clear_and_set_text(sh, "SYNOPSYS STRATEGIC PROPOSAL", "Consolas", 9.5, True, C_TEAL_KICKER)
+            clear_and_set_text(sh, "SYNOPSYS STRATEGIC PROPOSAL", "Consolas", 9.5, True, RGBColor(113, 236, 227))
         elif "WHEN DOES" in txt or "INTEGRATION WIN?" in txt or "INTEGRATED RoT" in txt:
-            clear_and_set_text(sh, "INTEGRATED RoT WINS", "Arial", 16.0, True, C_DARK_NAVY)
+            clear_and_set_text(sh, "INTEGRATED RoT WINS", "Arial", 16.0, True, RGBColor(255, 255, 255))
         elif "Target + owner" in txt or "Integrate AntiFuse OTP" in txt:
             clear_and_set_multiline(sh, [
-                "Integrate AntiFuse OTP + SRAM PUF",
-                "Zero at rest: keys never stored physically",
-                "Eliminate board-level EEPROM BOM & attack surface",
-                "Deliver NIST SP 800-193 firmware resilience out of the box"
-            ], "Arial", 11.5, False, C_SLATE_BODY)
-        elif "Explicit persistent-state semantics" in txt or "Marketing must anticipate" in txt:
-            clear_and_set_text(sh, "Marketing must anticipate where security standards will land: commodity logging inevitably converges into Caliptra-anchored silicon trust", "Arial", 12.0, False, C_SLATE_BODY)
+                "? Integrate AntiFuse OTP + SRAM PUF into module ASIC",
+                "? Zero at rest: keys never stored physically on silicon",
+                "? Eliminate board-level EEPROM BOM & physical attack surface",
+                "? Deliver NIST SP 800-193 firmware resilience out of the box"
+            ], "Arial", 11.5, False, RGBColor(200, 217, 224))
+            
+        # Bottom Banner (Dark Navy background Fill=061B29 -> High contrast bright text!)
+        elif "MARKET FORESIGHT" in txt or "EVIDENCE CEILING" in txt:
+            clear_and_set_text(sh, "MARKET FORESIGHT", "Consolas", 9.5, True, RGBColor(113, 236, 227))
+        elif "Marketing must anticipate" in txt or "Marketing foresight:" in txt or "Explicit persistent-state" in txt:
+            clear_and_set_text(sh, "Marketing foresight: commodity logging will inevitably converge into Caliptra-anchored silicon trust", "Arial", 12.5, False, RGBColor(255, 255, 255))
         elif "DISCOVER FIRST" in txt or "STRATEGIC TARGET" in txt:
-            clear_and_set_text(sh, "STRATEGIC TARGET", "Consolas", 9.0, True, C_WHITE)
+            clear_and_set_text(sh, "STRATEGIC TARGET", "Consolas", 9.0, True, RGBColor(255, 255, 255))
 
     # Slide 12: Review Gate 2 (11 · LEADERSHIP CLOSE) - Strictly Single-Line 13.5pt to prevent collision!
     s12 = prs.slides[11]
@@ -442,21 +456,21 @@ def main():
 
     # Enforce Title Case by default on all slide main titles (Slide 02 - Slide 17)
     title_case_map = {
-        2: ["Authorize Five Target-Bound Qualifications", "Advance UCIe Repair and OCP Caliptra Sockets"],
-        3: ["Memory Choice Follows State Lifetime—", "Not the Application Label"],
+        2: ["Authorize Five Target Qualifications", "Advance UCIe Repair and OCP RoT"],
+        3: ["Memory Choice Follows State Lifetime?", "Not the Application Label"],
         4: ["DDR5 PMIC + SPD Hub", "One Immediate Qualification Package"],
         5: ["AI Power Controllers Expose", "a Bounded-Update NVM Socket"],
         6: ["AI Platform Trust Needs OTP and PUF", "to Solve Different State Problems"],
         7: ["TSMC 22ULL to N4e Scaling", "Pure-Logic OTP as MCU Code Storage"],
         8: ["3D SoIC Disaggregated Security", "Dedicated Hardware RoT per Chiplet"],
-        9: ["NIST SP 800-208 Stateful Boot", "175°C Immune Metallic Filament Physics"],
-        10: ["AI SoC and UCIe Repair Qualify as Strategic Sockets", "Lead Advanced Packaging Lane Remapping Before Mass Deployment"],
-        11: ["OCP Service State Demands Hardware-Anchored RoT", "Elevate Commodity Logging to Caliptra-Compliant Silicon Security"],
-        12: ["Decision Requested: Authorize Five Production Qualifications", "And Lead Two Strategic Pre-Standard Design Initiatives"],
-        13: ["Public Requirement ≠ Synopsys Fit ≠ Design Win ≠ Shipment"],
+        9: ["NIST SP 800-208 Stateful Boot", "175?C Immune Metallic Filament Physics"],
+        10: ["AI SoC and UCIe Repair Strategy", "Lead 3D Packaging Lane Remapping"],
+        11: ["OCP Service Demands Hardware RoT", "Elevate Logging to Caliptra Silicon Security"],
+        12: ["Decision Requested: Five Qualifications", "And Two Strategic Architecture Initiatives"],
+        13: ["Public Requirement ? Synopsys Fit ? Design Win ? Shipment"],
         14: ["DDR5, AI Power, TSMC IoT & 3D Chiplet Source Ledger"],
-        15: ["Persistent Semantics Are Explicit;", "Implementation Technology Remains Bounded"],
-        16: ["Before Selecting OTP, Name the Repair State", "and Its Programming Authority"],
+        15: ["Persistent Semantics Are Explicit", "Implementation Remains Bounded"],
+        16: ["Name the Repair State and Authority", "Before Macro Selection"],
         17: ["A Candidate Advances Only When Five Peer Gates Close"]
     }
     for s_idx, s in enumerate(prs.slides, 1):
