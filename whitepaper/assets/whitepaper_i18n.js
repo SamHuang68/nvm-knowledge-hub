@@ -4,6 +4,18 @@
  */
 (function () {
   const DICT = {
+    // Specialty eNVM Architecture Additions
+    "Specialty NVM": "特種 NVM",
+    "Specialty eNVM": "特種製程 eNVM",
+    "BCD Power PMIC & LED Trimming": "BCD 電源 PMIC 與 LED 電性微調",
+    "CIS & DRAM Matrix Defect Repair": "CIS 與 DRAM 矩陣缺陷修復",
+    "HV Display Driver (OLED / LCD DDIC)": "高壓顯示驅動晶片 (OLED / LCD DDIC)",
+    "E-Ink Ultra-HV Driver (40V-50V / 110HV)": "電子紙超高壓驅動晶片 (40V-50V / 110HV)",
+    "Zero Mask Adder": "零額外光罩",
+    "Post-Package Repair (PPR)": "封裝後現場修復 (PPR)",
+    "Waveform LUT": "波形查找表 (Waveform LUT)",
+    "De-Mura Optical Calibration": "De-Mura 光學均勻性補償",
+
     // Top Bar & Navigation
     "TECHNOLOGY & SELECTION": "技術與架構決策",
     "← PORTFOLIO": "← 作品集",
@@ -96,7 +108,7 @@
       "公開工作台 · 證據治理 · SHAREPOINT 轉移模型 · 2026"
   };
 
-  let currentLang = localStorage.getItem("hub-lang") || "zh";
+  let currentLang = (window.HubLanguage && window.HubLanguage.get()) || localStorage.getItem("nvm-hub-language") || "en";
 
   function applyLanguage(lang) {
     currentLang = lang;
@@ -214,6 +226,14 @@
     });
 
     setupObserver();
+
+  // 接入全域頂層單一真相來源事件廣播
+  window.addEventListener("hub:language-change", function(e) {
+    if (e.detail && e.detail.language) {
+      applyLanguage(e.detail.language);
+    }
+  });
+
     applyLanguage(currentLang);
   }
 

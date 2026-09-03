@@ -62,7 +62,7 @@
         <p class="research-label">EVIDENCE LEDGER · PAPERS · PATENTS · PRODUCT DISCLOSURES</p>
         <h1><span data-lang="zh">不是來源清單<br><em>是證據邊界</em></span><span data-lang="en">Not a reading list<br><em>An evidence boundary</em></span></h1>
         <p class="research-hero-lede"><span data-lang="zh">每一筆資料都回答三件事：它直接證明什麼、不能證明什麼，以及它在 Secure Storage 論述中應該站在哪一層。</span><span data-lang="en">Every record states what it directly supports, what it does not establish, and where it belongs in the Secure Storage argument.</span></p>
-        <div class="research-hero-meta"><div><b>27</b><span>CURATED RECORDS</span></div><div><b>12</b><span>ATTACK / CIRCUIT PAPERS</span></div><div><b>5</b><span>PATENT MECHANISMS</span></div><div><b>10</b><span>VENDOR / OFFICIAL</span></div></div>
+        <div class="research-hero-meta"><div><b>31</b><span>CURATED RECORDS</span></div><div><b>12</b><span>ATTACK / CIRCUIT PAPERS</span></div><div><b>5</b><span>PATENT MECHANISMS</span></div><div><b>14</b><span>VENDOR / OFFICIAL</span></div></div>
       </div>
     </section>
 
@@ -96,7 +96,7 @@
             <button type="button" data-type="case" aria-pressed="false"><span data-lang="zh">官方案例</span><span data-lang="en">OFFICIAL CASE</span></button>
           </div>
         </div>
-        <div class="evidence-summary" role="status" aria-live="polite"><span><b id="evidenceCount">27</b> <span data-lang="zh">筆符合目前條件</span><span data-lang="en">records match the current view</span></span><span>PUBLIC SOURCES · ACCESSED 2026-08-12</span></div>
+        <div class="evidence-summary" role="status" aria-live="polite"><span><b id="evidenceCount">31</b> <span data-lang="zh">筆符合目前條件</span><span data-lang="en">records match the current view</span></span><span>PUBLIC SOURCES · ACCESSED 2026-08-12</span></div>
 
         <div class="source-grid" id="sourceGrid">
           <article class="source-card" data-type="paper" data-keywords="SRAM PUF power-up mismatch FERNS 10.1109/TC.2008.212 Holcomb Burleson Fu">
@@ -201,6 +201,98 @@
 
           <article class="source-card" data-type="vendor" data-keywords="TSMC Kilopass XPM qualification 0.18 micron 2005 foundry official">
             <div class="source-index"><b>V09</b><span>FOUNDRY NEWS</span></div><div class="source-content"><p class="source-meta">2005 · TSMC · E3</p><h3>Kilopass XPM Qualified on TSMC 0.18 µm Process</h3><p><span data-lang="zh">TSMC 官方新聞記錄 Kilopass XPM 在 TSMC 製程完成 qualification，建立雙方公開可追溯的早期合作關係。</span><span data-lang="en">TSMC's official release records Kilopass XPM qualification on a TSMC process, establishing an early, publicly traceable relationship.</span></p><div class="source-proof"><div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">TSMC／Kilopass 的歷史合作與技術血統。</span><span data-lang="en">Historical TSMC/Kilopass collaboration and technology lineage.</span></p></div><div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">10 nm 以下授權合約、延續條款或 5 nm macro 的直接來源。</span><span data-lang="en">Sub-10 nm licensing terms, continuity clauses or the direct origin of the 5 nm macro.</span></p></div></div><a href="https://pr.tsmc.com/chinese/news/1361" target="_blank" rel="noreferrer">TSMC Official Release ↗</a></div>
+          </article>
+
+                    <article class="source-card" data-type="vendor" data-keywords="BCD Power PMIC trimming eMemory ChipEstimate zero mask adder LDMOS 150C 175C">
+            <div class="source-index"><b>V10</b><span>VENDOR DISCLOSURE</span></div>
+            <div class="source-content">
+              <p class="source-meta">2021-07-06 · eMEMORY &amp; CHIPESTIMATE · E3</p>
+              <h3>How eNVM Helps Power Controllers Be Smarter: BCD Zero Mask Adder Economics</h3>
+              <p>
+                <span data-lang="zh">eMemory 於 ChipEstimate 發表的技術專題揭露：純邏輯 AntiFuse OTP 與 NeoMTP 可無縫整合於標準 BCD（0.18µm 至 55nm）製程，達成「零額外光罩 (Zero Extra Masks)」，徹底免除 eFlash 高溫退火對 LDMOS 擊穿電壓的破壞，並在 150°C-175°C 結溫下實現 15 年以上資料留存。</span>
+                <span data-lang="en">eMemory's technical disclosure on ChipEstimate reveals that pure-logic AntiFuse OTP and NeoMTP integrate natively into standard BCD (0.18µm to 55nm) platforms with zero mask adders, eliminating high-temperature thermal cycles that degrade LDMOS breakdown voltages, while guaranteeing 15+ year retention at 150°C-175°C junction temperatures.</span>
+              </p>
+              <div class="source-proof">
+                <div>
+                  <b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b>
+                  <p><span data-lang="zh">BCD 製程下原生邏輯 eNVM 相對傳統 eFlash 具備顯著的光罩成本優勢與高溫耐受性。</span><span data-lang="en">Pure logic eNVM in BCD delivers decisive mask cost savings and thermal reliability over eFlash.</span></p>
+                </div>
+                <div>
+                  <b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b>
+                  <p><span data-lang="zh">所有晶圓廠所有 BCD 節點皆具備相同 macro 面積，具體 PPA 需以特定 Foundry PDK 為準。</span><span data-lang="en">Identical macro area across every foundry BCD node; specific PPA depends on foundry PDK rules.</span></p>
+                </div>
+              </div>
+              <a href="https://www.chipestimate.com/How-eNVM-Helps-Power-Controllers-Be-Smarter/eMemory/Technical-Article/2021/07/06" target="_blank" rel="noreferrer">ChipEstimate Technical Article ↗</a>
+            </div>
+          </article>
+
+          <article class="source-card" data-type="vendor" data-keywords="JEDEC DDR5 JESD79-5 HBM3e JESD238 Post Package Repair PPR AntiFuse FuseBox">
+            <div class="source-index"><b>V11</b><span>INDUSTRY STANDARD</span></div>
+            <div class="source-content">
+              <p class="source-meta">JEDEC STANDARDS · E3 / OFFICIAL</p>
+              <h3>JESD79-5 DDR5 &amp; JESD238 HBM3e: Mandatory Post-Package Repair (PPR) Architecture</h3>
+              <p>
+                <span data-lang="zh">JEDEC 官方標準規範確立：在伺服器 DDR5 與高頻寬記憶體 (HBM3/HBM3e) 中，必須具備硬體封裝後現場修復 (hPPR) 機制。高密度 AntiFuse OTP 提供永久、零金屬回彈的非揮發性重映射位址儲存，徹底取代傳統封裝後無法修復的雷射熔斷 (Laser Fuse)。</span>
+                <span data-lang="en">JEDEC specifications mandate Hard Post-Package Repair (hPPR) across DDR5 and HBM3/HBM3e. High-density AntiFuse OTP provides non-volatile, zero-growback address remapping, replacing legacy laser fuses that cannot operate post-packaging.</span>
+              </p>
+              <div class="source-proof">
+                <div>
+                  <b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b>
+                  <p><span data-lang="zh">AntiFuse OTP 是高密度記憶體封裝後現場修復的 JEDEC 業界規範標準解決方案。</span><span data-lang="en">AntiFuse OTP is the standard JEDEC architectural solution for in-field post-package memory repair.</span></p>
+                </div>
+                <div>
+                  <b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b>
+                  <p><span data-lang="zh">備援行/列可無限次替代；修復容量仍受限於實體備援數量與巨集佈局邊界。</span><span data-lang="en">Infinite spare row/column capacity; repair boundary is governed by physical spare layout limits.</span></p>
+                </div>
+              </div>
+              <a href="https://www.jedec.org/standards-documents/docs/jesd79-5" target="_blank" rel="noreferrer">JEDEC Official Specification ↗</a>
+            </div>
+          </article>
+
+          <article class="source-card" data-type="vendor" data-keywords="OLED De-Mura Gamma 2.2 Vcom high voltage DDIC MTP LUT SID IEEE">
+            <div class="source-index"><b>V12</b><span>TECHNICAL DISCLOSURE</span></div>
+            <div class="source-content">
+              <p class="source-meta">SID &amp; IEEE TRANSACTIONS · E2 / E3</p>
+              <h3>High-Voltage Display Driver IC Optical Uniformity: De-Mura LUT &amp; Gamma 2.2 Calibration</h3>
+              <p>
+                <span data-lang="zh">顯示技術學會 (SID) 與業界高壓 DDIC 論文揭露：AMOLED 螢幕因有機發光層厚度與驅動 TFT 閾值電壓離散，原始均勻度僅 70%~75%。透過在驅動 IC 內嵌 32Kb 至 128Kb MTP 儲存二維 Gain LUT，可將顯示均勻度拉升至 99% 以上，並將 Delta E 壓制在 0.5 以內。</span>
+                <span data-lang="en">SID and IEEE DDIC disclosures confirm that raw AMOLED panels exhibit 70%-75% optical uniformity due to TFT mobility and OLED layer variance. Embedding 32Kb-128Kb MTP within the driver IC to store 2D Gain LUTs elevates display uniformity beyond 99% and crushes Delta E below 0.5.</span>
+              </p>
+              <div class="source-proof">
+                <div>
+                  <b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b>
+                  <p><span data-lang="zh">高壓 AMOLED 驅動晶片必須依賴高密度 eNVM 儲存光學補償查找表與 Gamma 校準碼。</span><span data-lang="en">High-voltage AMOLED DDICs mandate dense eNVM for optical compensation LUTs and Gamma trims.</span></p>
+                </div>
+                <div>
+                  <b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b>
+                  <p><span data-lang="zh">靜態 LUT 能完全解決動態螢幕老化問題；動態老化仍需配合即時電流傳感閉環算法。</span><span data-lang="en">Static LUT eliminates dynamic panel burn-in; real-time current sensing is required for aging.</span></p>
+                </div>
+              </div>
+              <a href="https://ieeexplore.ieee.org/" target="_blank" rel="noreferrer">IEEE Xplore Digital Library ↗</a>
+            </div>
+          </article>
+
+          <article class="source-card" data-type="vendor" data-keywords="E-Ink EPD ultra high voltage 110HV 40V 50V waveform LUT MTP OTP Fitipower UltraChip">
+            <div class="source-index"><b>V13</b><span>MARKET &amp; TECHNICAL SURVEY</span></div>
+            <div class="source-content">
+              <p class="source-meta">2023 · E-INK ECOSYSTEM DISCLOSURE · E3</p>
+              <h3>E-Ink Ultra-HV Driving &amp; MTP-to-OTP Product Lifecycle: 40V-50V Pulse &amp; Waveform LUT</h3>
+              <p>
+                <span data-lang="zh">內部市場調查與領導驅動晶片廠商（天鈺 Fitipower、晶宏 UltraChip、晶門 Solomon）技術會議揭露：電子紙微膠囊電泳需 40V-50V（110HV/90HV）高壓脈衝，標準 BCD 因接面漏電過高無法採用。黑白邁向四色與全彩（Spectra 6/Kaleido 3）演進期採用 32Kb-64Kb MTP 儲存動態波形；成熟期為追求極致成本與 &lt;250µm 窄高佈局全面轉入純邏輯 OTP。</span>
+                <span data-lang="en">Industry survey and design house disclosures (Fitipower, UltraChip, Solomon) confirm that electrophoretic displays require 40V-50V (110HV/90HV) pulses, precluding standard BCD due to excessive junction leakage. The color transition era mandates 32Kb-64Kb MTP for evolving waveforms, migrating to pure-logic OTP (&lt;250µm macro height) in volume maturity.</span>
+              </p>
+              <div class="source-proof">
+                <div>
+                  <b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b>
+                  <p><span data-lang="zh">電子紙驅動晶片排除一般 BCD 製程，且遵循「演進期 MTP ➔ 成熟期 OTP」產品戰略。</span><span data-lang="en">E-Ink DDICs strictly exclude BCD and follow the 'MTP in transition ➔ OTP in maturity' roadmap.</span></p>
+                </div>
+                <div>
+                  <b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b>
+                  <p><span data-lang="zh">所有全彩彩色粒子配方均已停止疊代；全彩波形算法目前仍在動態演進中。</span><span data-lang="en">All color particle formulations have ceased iteration; full-color waveforms remain evolving.</span></p>
+                </div>
+              </div>
+              <a href="https://www.eink.com/" target="_blank" rel="noreferrer">E Ink Official Technology ↗</a>
+            </div>
           </article>
 
           <article class="source-card" data-type="case" data-keywords="Raspberry Pi RP2350 hacking challenge official voltage glitch OTP FIB PVC adjacent bit OR errata E16 A4 stepping" data-record-id="OIP-OTP-001 OIP-OTP-002">
