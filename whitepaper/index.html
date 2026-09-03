@@ -12,8 +12,53 @@
 
 
 
-  <script type="module" crossorigin src="./assets/index-_SFXHrp_.js?v=20260904-i18n-native"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-D9MQ5Guq.css">
+  <script type="module" crossorigin src="./assets/index-_SFXHrp_.js?v=20260904-typo-v4"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D9MQ5Guq.css?v=20260904-typo-v4">
+  <style id="studio-typography-override">
+    /* 顯著縮小英雄榜標題，確保無論螢幕解析度中英文絕不發生孤字與斷行撕裂 */
+    .studio-hero h1 {
+      font-size: clamp(24px, 2.5vw, 38px) !important;
+      line-height: 1.25 !important;
+      letter-spacing: -0.02em !important;
+      font-weight: 700 !important;
+      text-wrap: balance !important;
+      margin: 18px 0 22px !important;
+    }
+    .studio-hero h1 em {
+      display: inline-block !important;
+      color: var(--aqua) !important;
+      font-style: normal !important;
+      font-weight: 400 !important;
+    }
+    .hero-title-phrase {
+      display: inline-block !important;
+      white-space: nowrap !important;
+    }
+    @media (max-width: 620px) {
+      .studio-hero h1 {
+        font-size: clamp(21px, 6.2vw, 26px) !important;
+        line-height: 1.3 !important;
+      }
+      .hero-title-phrase {
+        white-space: normal !important;
+      }
+    }
+    body[data-language="zh"] .studio-hero h1 {
+      font-size: clamp(24px, 2.5vw, 36px) !important;
+      line-height: 1.3 !important;
+      letter-spacing: -0.01em !important;
+    }
+    .panel-heading h2 {
+      font-size: clamp(22px, 2.2vw, 34px) !important;
+      line-height: 1.22 !important;
+      text-wrap: balance !important;
+    }
+    .paper-heading h2 {
+      font-size: clamp(24px, 2.4vw, 38px) !important;
+      line-height: 1.22 !important;
+      text-wrap: balance !important;
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#studio-content">Skip to main content</a>

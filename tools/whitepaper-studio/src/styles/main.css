@@ -60,7 +60,7 @@ img, svg { max-width: 100%; }
 .hero-copy { position: relative; z-index: 1; min-width: 0; max-width: 790px; }
 .eyebrow { margin: 0; color: var(--aqua); font: 700 10px/1.5 var(--font-mono); letter-spacing: .2em; }
 .eyebrow.dark { color: #0b9397; }
-.studio-hero h1 { margin: 24px 0 28px; font-size: clamp(50px, 5.15vw, 88px); line-height: .99; letter-spacing: -.05em; font-weight: 650; }
+.studio-hero h1 { margin: 24px 0 28px; font-size: clamp(24px, 2.5vw, 38px); line-height: .99; letter-spacing: -.05em; font-weight: 650; }
 .studio-hero h1 em { display: inline-block; color: var(--aqua); font-style: normal; font-weight: 350; }
 .hero-intro { max-width: 720px; margin: 0; color: #b6cbd0; font-size: clamp(16px, 1.28vw, 20px); line-height: 1.75; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
@@ -121,7 +121,7 @@ img, svg { max-width: 100%; }
 /* === REVIEWER 1 FIX: STUDIO HERO & TYPOGRAPHY REBALANCE === */
 .studio-hero h1 {
   margin: 20px 0 24px;
-  font-size: clamp(32px, 3.4vw, 52px) !important;
+  font-size: clamp(24px, 2.5vw, 38px) !important;
   line-height: 1.18 !important;
   letter-spacing: -.03em !important;
   font-weight: 650;
