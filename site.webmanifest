@@ -1,0 +1,16 @@
+{
+  "name": "NVM Knowledge Hub",
+  "short_name": "NVM Hub",
+  "description": "Semiconductor Persistent State Architecture, Specialty Foundry & Evidence Workbench",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#061925",
+  "theme_color": "#061925",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
