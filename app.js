@@ -419,7 +419,8 @@ renderArticles();
 updatePowerState("off");
 updateArchitecture("puf");
 updatePhase(0);
-const savedLanguage = localStorage.getItem("nvm-language");
-if (savedLanguage === "en") setLanguage("en", false);
-else setLanguage("zh", false);
+const activeLang = window.HubLanguage ? window.HubLanguage.get() : "en";
+setLanguage(activeLang, false);
 updateScrollUI();
+
+window.addEventListener("hub:language-change", e => { if (typeof setLanguage === "function") setLanguage(e.detail.language, false); });

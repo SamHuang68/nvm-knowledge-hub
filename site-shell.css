@@ -76,3 +76,23 @@
   .assurance-page :where(.principle h2,.section-head h2,.source-band h2){font-size:clamp(30px,8vw,38px)}
   .assurance-page :where(.threat-grid h3,.window-detail h3,.evidence-detail h3,.cert-result h3){font-size:min(30px,7.2vw)}
 }
+
+
+/* =========================================================
+   全站語系切換最上層治理規範：英文為第一預設 (English as Default)
+   ========================================================= */
+[data-lang="zh"] {
+  display: none !important;
+}
+[data-lang="en"] {
+  display: revert;
+}
+
+html[data-language="zh"] [data-lang="zh"],
+body[data-language="zh"] [data-lang="zh"] {
+  display: revert !important;
+}
+html[data-language="zh"] [data-lang="en"],
+body[data-language="zh"] [data-lang="en"] {
+  display: none !important;
+}

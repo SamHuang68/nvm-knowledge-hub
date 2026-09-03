@@ -1,4 +1,4 @@
-let researchLanguage = localStorage.getItem("nvm-language") === "en" ? "en" : "zh";
+let researchLanguage = window.HubLanguage ? window.HubLanguage.get() : "en";
 let activeEvidenceType = "all";
 
 const researchPhaseCopy = {
@@ -176,3 +176,5 @@ window.addEventListener("resize", updateResearchScroll);
 setResearchLanguage(researchLanguage, false);
 updateResearchPhase("off");
 updateResearchScroll();
+
+window.addEventListener("hub:language-change", e => { if (typeof setResearchLanguage === "function") setResearchLanguage(e.detail.language, false); });

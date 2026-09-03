@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
+  <script src="../site-language.js?v=20260904-top-v1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Synopsys NVM 團隊針對 AI 加速器、DDR5 子系統與 TSMC 先進節點之 Version 18 旗艦高階簡報 17 頁逐頁解析、講者備忘錄與完整架構白皮書。">
   <meta name="theme-color" content="#061b29">
@@ -9,21 +10,24 @@
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../hub.css?v=20260904-hive-v5">
   <style>
+    /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert; }
+
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] {
+      display: revert !important;
+    }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] {
+      display: none !important;
+    }
+
     /* Critical defensive styles: prevent SVG blowout & layout shifts */
     .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
     
     /* 自然語言切換：避免區塊級強制轉換破壞 inline 標籤 */
-    [data-lang] { display: none; }
-    body[data-language="zh"] [data-lang="zh"],
-    body:not([data-language="en"]) [data-lang="zh"] {
-      display: revert;
-    }
-    body[data-language="en"] [data-lang="en"] {
-      display: revert;
-    }
-    body[data-language="en"] [data-lang="zh"] {
-      display: none !important;
-    }
+    
     
     /* 簡報專屬樣式 */
     .briefing-hero {
@@ -294,7 +298,7 @@
     }
   </style>
 </head>
-<body class="theme-dark" data-language="zh">
+<body class="theme-dark" >
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header" role="banner">

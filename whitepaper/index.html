@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script src="../site-language.js?v=20260904-top-v1"></script>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,6 +16,19 @@
   <script type="module" crossorigin src="./assets/index-_SFXHrp_.js?v=20260904-hive-v5"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-D9MQ5Guq.css?v=20260904-hive-v5">
   <style id="studio-typography-override">
+    /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert; }
+
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] {
+      display: revert !important;
+    }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] {
+      display: none !important;
+    }
+
     /* 顯著縮小英雄榜標題，確保無論螢幕解析度中英文絕不發生孤字與斷行撕裂 */
     .studio-hero h1 {
       font-size: clamp(24px, 2.5vw, 38px) !important;

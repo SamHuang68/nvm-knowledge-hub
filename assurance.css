@@ -239,3 +239,23 @@ body[data-language="en"] .matrix-row span:nth-of-type(1)::before { content: "CLA
 body[data-language="en"] .matrix-row span:nth-of-type(2)::before { content: "TEST · "; }
 body[data-language="en"] .matrix-row span:nth-of-type(3)::before { content: "EXPECTED EVIDENCE · "; }
 body[data-language="en"] .matrix-row span:nth-of-type(4)::before { content: "LIMIT · "; }
+
+
+/* =========================================================
+   全站語系切換最上層治理規範：英文為第一預設 (English as Default)
+   ========================================================= */
+[data-lang="zh"] {
+  display: none !important;
+}
+[data-lang="en"] {
+  display: revert;
+}
+
+html[data-language="zh"] [data-lang="zh"],
+body[data-language="zh"] [data-lang="zh"] {
+  display: revert !important;
+}
+html[data-language="zh"] [data-lang="en"],
+body[data-language="zh"] [data-lang="en"] {
+  display: none !important;
+}

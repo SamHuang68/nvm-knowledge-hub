@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
+  <script src="site-language.js?v=20260904-top-v1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SRAM、OTP、PUF、光熱側信道、FIB 與 Secure Storage 的可搜尋研究證據庫，含論文、專利、供應商文件與官方案例。">
   <meta name="theme-color" content="#061c2a">
@@ -11,16 +12,28 @@
   <link rel="stylesheet" href="research.css?v=20260904-hive-v5">
   <link rel="stylesheet" href="site-shell.css?v=20260904-hive-v5">
   <style>
+    /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert; }
+
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] {
+      display: revert !important;
+    }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] {
+      display: none !important;
+    }
+
     /* Critical defensive inline styles: prevent SVG explosion & skip-link flash */
     .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
     .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #73eee4; padding: 10px 18px; border: 1px solid #73eee4; border-radius: 4px; }
     .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
-    [data-lang="en"] { display: none; }
-    body[data-language="en"] [data-lang="en"] { display: inline !important; }
-    body[data-language="en"] [data-lang="zh"] { display: none !important; }
+    
+    
   </style>
 </head>
-<body class="research-page evidence-page" data-language="zh" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
+<body class="research-page evidence-page"  data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
   <header class="site-header">

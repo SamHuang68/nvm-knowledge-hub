@@ -1,3 +1,12 @@
+
+// 連接全站最上層語言管理器
+function syncHubLanguage() {
+  const lang = window.HubLanguage ? window.HubLanguage.get() : "en";
+  document.body.dataset.language = lang;
+}
+window.addEventListener("hub:language-change", syncHubLanguage);
+document.addEventListener("DOMContentLoaded", syncHubLanguage);
+
 const hubLanguage = localStorage.getItem("nvm-language") === "en" ? "en" : "zh";
 const hubBody = document.body;
 const hubMenuButton = document.querySelector("#menuToggle");

@@ -484,8 +484,9 @@ function translateWhitepaperDOM(root, lang) {
 }
 
 function w(){
+  window.addEventListener("hub:language-change", e => apply(e.detail.language));
   let btn = document.getElementById("languageToggle");
-  let curLang = localStorage.getItem("nvm-language") || "zh";
+  let curLang = window.HubLanguage ? window.HubLanguage.get() : (localStorage.getItem("nvm-language") || "en");
 
   function apply(lang){
     curLang = lang;
@@ -511,7 +512,7 @@ function w(){
 
   btn?.addEventListener("click", (e) => {
     e.preventDefault();
-    apply(curLang === "zh" ? "en" : "zh");
+    if (window.HubLanguage) { window.HubLanguage.toggle(); } else { apply(curLang === "zh" ? "en" : "zh"); }
   });
 
   // Observe dynamically rendered panels

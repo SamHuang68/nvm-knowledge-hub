@@ -1,7 +1,8 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
+  <script src="site-language.js?v=20260904-top-v1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NVM Knowledge Hub &middot; Topics, Research &amp; Evidence</title>
   <meta name="description" content="NVM 是矽智財持久狀態契約的基石。全方位整合 Secure Storage、AI 系統持久狀態、台積電物聯網 (22ULL 到 N4e) 微縮矩陣、3D 小晶片安全、物理可信度驗證與原生 Whitepaper Studio。">
@@ -13,16 +14,28 @@
   <link rel="stylesheet" href="site-shell.css?v=20260904-hive-v5">
   <link rel="stylesheet" href="hub.css?v=20260904-hive-v5">
   <style>
+    /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert; }
+
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] {
+      display: revert !important;
+    }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] {
+      display: none !important;
+    }
+
     /* Critical defensive inline styles: prevent SVG explosion & skip-link flash */
     .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
     .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #73eee4; padding: 10px 18px; border: 1px solid #73eee4; border-radius: 4px; }
     .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
-    [data-lang="en"] { display: none; }
-    body[data-language="en"] [data-lang="en"] { display: inline !important; }
-    body[data-language="en"] [data-lang="zh"] { display: none !important; }
+    
+    
   </style>
 </head>
-<body class="hub-page" data-language="zh">
+<body class="hub-page" >
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
 
   <header class="site-header">

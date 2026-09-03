@@ -1,4 +1,4 @@
-let language = localStorage.getItem("nvm-language") === "en" ? "en" : "zh";
+let language = window.HubLanguage ? window.HubLanguage.get() : "en";
 const L = (zh, en) => ({ zh, en });
 const t = value => value[language];
 
@@ -92,3 +92,5 @@ function updateCertSelectsLanguage() {
     }
   });
 }
+
+window.addEventListener("hub:language-change", e => { language = e.detail.language; if (typeof applyLanguage === "function") applyLanguage(); });
