@@ -100,6 +100,10 @@
             <span class="pill-number">03</span>
             <span class="pill-text"><span data-lang="zh">高壓 (HV) OLED/LCD 驅動</span><span data-lang="en">HV Display Drivers (DDI)</span></span>
           </a>
+          <a href="#eink-specialty" class="nav-pill">
+            <span class="pill-number">04</span>
+            <span class="pill-text"><span data-lang="zh">電子紙 (E-Ink) 超高壓驅動</span><span data-lang="en">E-Ink Ultra-HV Drivers</span></span>
+          </a>
         </nav>
       </div>
     </section>
@@ -446,6 +450,113 @@
         </div>
 
         <!-- Process Node & Foundry Landscape -->
+        
+        <!-- Sub-Topic: E-Ink High Voltage Drivers -->
+        <div class="sub-topic-block" id="eink-specialty">
+          <div class="sub-topic-header">
+            <h3>
+              <span data-lang="zh">4. 電子紙 (E-Ink / EPD) 超高壓驅動：Waveform LUT 儲存與 MTP ➔ OTP 演進戰略</span>
+              <span data-lang="en">4. E-Ink (EPD) High-Voltage Drivers: Waveform LUT &amp; MTP-to-OTP Migration Strategy</span>
+            </h3>
+            <span class="tag-accent">40V-50V / 110HV PROCESS · DYNAMIC COLOR WAVEFORM · &lt;250µm LAYOUT HEIGHT</span>
+          </div>
+
+          <div class="card-grid-2">
+            <article class="tech-card">
+              <h4>
+                <span data-lang="zh">超高壓物理特性：為何電子紙驅動不能使用傳統 BCD？</span>
+                <span data-lang="en">Ultra-HV Physics: Why E-Ink Drivers Exclude Standard BCD</span>
+              </h4>
+              <p>
+                <span data-lang="zh">不同於傳統 LCD 驅動晶片的 &plusmn;16V 或 32V 電壓，微膠囊/微杯電泳技術 (Electrophoretic Display, EPD) 需要施加高達 <strong>40V 至 50V (甚至高達 110HV 製程)</strong> 的電場脈衝，才能精確推動帶正負電荷的黑、白、紅、黃等多色微粒子在微流體中克服黏滯阻力上下浮沉。因為電子紙具備「雙穩態 (Bistable)」特性（僅在畫面變更時耗電，靜止時零功耗），晶片對靜態待機漏電要求極為嚴苛。<strong>傳統 BCD 製程在 40V-50V 高壓下的接面漏電 (Junction Leakage) 過高</strong>，會迅速耗盡電子貨架標籤 (ESL) 的鈕扣電池，因此全球電子紙驅動晶片普遍轉向專屬的 110HV、90HV 與 80eHV 特種高壓 CMOS 製程。</span>
+                <span data-lang="en">Unlike conventional LCD drivers operating at &plusmn;16V or 32V, electrophoretic displays (EPD) require high-voltage pulses of <strong>40V to 50V (up to 110HV foundry nodes)</strong> to propel charged multi-color microparticles against fluid drag. Because E-Ink is intrinsically bistable (zero power at steady state), standby leakage budgets are razor-thin. <strong>Standard BCD processes suffer excessive junction leakage at 40V-50V</strong>, rapidly draining Electronic Shelf Label (ESL) coin-cell batteries. Consequently, leading E-Ink DDICs rely strictly on specialized 110HV, 90HV, and 80eHV high-voltage CMOS platforms.</span>
+              </p>
+              <ul class="spec-list">
+                <li><strong><span data-lang="zh">驅動電壓</span><span data-lang="en">Operating Voltage</span>:</strong> 40V to 50V HV pulses (exceeding standard 32V LCD DDI)</li>
+                <li><strong><span data-lang="zh">漏電限制</span><span data-lang="en">Leakage Constraint</span>:</strong> Zero standby drain for 5-10 year battery lifetime in ESL applications</li>
+                <li><strong><span data-lang="zh">外形尺寸要求</span><span data-lang="en">Die Form Factor</span>:</strong> Stringent height limitation (&lt;250µm) for edge COG/COF bonding</li>
+              </ul>
+            </article>
+
+            <article class="tech-card">
+              <h4>
+                <span data-lang="zh">動態波形 (Waveform LUT) 與 MTP ➔ OTP 產品生命週期演進</span>
+                <span data-lang="en">Dynamic Waveform LUT &amp; The MTP-to-OTP Product Lifecycle</span>
+              </h4>
+              <p>
+                <span data-lang="zh">電子紙顯示畫面的本質是一組精密的「電壓-時間驅動脈衝波形 (Driving Waveform)」，需依據環境溫度、刷新模式（黑白快刷 vs 多灰階 vs 全彩抖動）即時查詢多維查找表 (Look-Up Table, LUT)。<br><br>
+                <strong>【現階段演進期：以 MTP 為主流 (32Kb ~ 48Kb / 64Kb)】</strong><br>
+                隨著市場正由黑白劇烈轉向四色（Spectra 6）與 4096 色全彩（Kaleido 3），彩色粒子化學反應與微膠囊製程仍在快速疊代演進中。色彩更新算法極不易在出廠時一次性編程定案，晶片設計商（如天鈺 Fitipower、晶宏 UltraChip、晶門 Solomon、聯詠 Novatek）<strong>目前普遍採用 32Kb 至 48Kb / 64Kb 的 MTP</strong>，保留在線更新波形與修訂韌體的彈性 (Flexibility of code change)。<br><br>
+                <strong>【後續成熟期：製程穩定後全面轉向 OTP】</strong><br>
+                外掛 SPI Flash 待機功耗過高且增加 BOM 成本；待彩色粒子配方與驅動波形完全收斂成熟後，驅動晶片將全面<strong>由 MTP 轉向面積更小、成本更低、佈局高度低於 250µm 的純邏輯 AntiFuse OTP</strong>，鎖定最終黃金波形，達成終極成本與良率競爭力。</span>
+                <span data-lang="en">Displaying images on E-Ink requires applying calibrated voltage-time waveforms, dynamically indexed via multi-dimensional Look-Up Tables (LUTs) based on ambient temperature and refresh modes.<br><br>
+                <strong>[Current Transition Era: MTP Dominance (32Kb - 64Kb)]</strong><br>
+                As e-paper rapidly transitions from monochrome to 4-color (Spectra 6) and 4,096-color full-color (Kaleido 3), particle microchemistry and fluidics are in active development. Driving waveforms cannot be frozen in a single pass. Top design houses (Fitipower, UltraChip, Solomon, Novatek, Himax) <strong>currently deploy 32Kb to 48Kb/64Kb MTP</strong> to retain the flexibility of in-field waveform algorithm updates.<br><br>
+                <strong>[Mature Volume Era: Transition to Pure Logic OTP]</strong><br>
+                External Flash imposes prohibitive standby battery drain and BOM cost. Once color particle formulations stabilize, DDICs will <strong>shift from MTP to ultra-compact, low-cost pure logic AntiFuse OTP (&lt;250µm macro height)</strong>, permanently freezing golden waveforms for peak cost leadership.</span>
+              </p>
+            </article>
+          </div>
+
+          <!-- E-Ink vs LCD/OLED Comparison Table -->
+          <div class="comparison-panel" style="margin-top: 24px;">
+            <h3>
+              <span data-lang="zh">電子紙 (E-Ink) vs 傳統液晶/有機發光 (LCD/OLED) 特性與驅動架構對比</span>
+              <span data-lang="en">E-Ink vs. LCD/OLED: Architectural &amp; Driving Technology Comparison</span>
+            </h3>
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th><span data-lang="zh">比較維度</span><span data-lang="en">Factor / Feature</span></th>
+                    <th><span data-lang="zh">電子紙 (E-Ink / EPD)</span><span data-lang="en">E-Ink / EPD</span></th>
+                    <th><span data-lang="zh">液晶與有機發光 (LCD / OLED)</span><span data-lang="en">LCD / OLED</span></th>
+                    <th><span data-lang="zh">驅動晶片與 eNVM 關鍵意涵</span><span data-lang="en">DDIC &amp; eNVM Strategic Impact</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong><span data-lang="zh">畫面動態更新</span><span data-lang="en">Motion Display</span></strong></td>
+                    <td><span data-lang="zh">偏慢 (數百毫秒粒子電泳)</span><span data-lang="en">Slow (Hundreds of ms particle migration)</span></td>
+                    <td class="cell-win"><span data-lang="zh">即時 (60Hz - 144Hz 高更新率)</span><span data-lang="en">Real-time (60Hz - 144Hz high refresh)</span></td>
+                    <td><span data-lang="zh">電子紙需要依據溫度調用多幀波形序列 (Waveform Frames)</span><span data-lang="en">E-Ink requires temperature-dependent multi-frame waveform lookups</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong><span data-lang="zh">能源消耗特性</span><span data-lang="en">Energy Consumption</span></strong></td>
+                    <td class="cell-win"><strong><span data-lang="zh">雙穩態 (僅在畫面更新時耗電)</span><span data-lang="en">Bistable (Power only at content change)</span></strong></td>
+                    <td class="cell-lose"><span data-lang="zh">持續耗電 (需背光或持續驅動電流)</span><span data-lang="en">Constant power draw (Continuous backlight/current)</span></td>
+                    <td><span data-lang="zh">嚴禁待機漏電；杜絕外部 Flash，以內嵌 eNVM 守護數年電池壽命</span><span data-lang="en">Zero standby leakage; embedded eNVM replaces power-hungry external Flash</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong><span data-lang="zh">驅動電壓水準</span><span data-lang="en">Drive Voltage Rails</span></strong></td>
+                    <td class="cell-lose"><strong>40V 至 50V (110HV 特種高壓製程)</strong></td>
+                    <td>&plusmn;16V 或 32V (標準高壓製程)</td>
+                    <td><span data-lang="zh">無法使用一般 BCD (高壓漏電嚴重)，需專屬 110HV / 90HV CMOS</span><span data-lang="en">Cannot use BCD due to excessive leakage; mandates 110HV/90HV CMOS</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong><span data-lang="zh">全彩顯示能力</span><span data-lang="en">Full Color Capability</span></strong></td>
+                    <td><span data-lang="zh">演進中 (黑白 ➔ 4 色 ➔ Spectra 6 / Kaleido 3)</span><span data-lang="en">Evolving (Mono ➔ 4-Color ➔ Spectra 6 / Kaleido 3)</span></td>
+                    <td class="cell-win"><span data-lang="zh">純熟原生全彩 (RGB 16.7M 色以上)</span><span data-lang="en">Mature native full color (16.7M+ colors)</span></td>
+                    <td><span data-lang="zh">演進期以 32Kb~64Kb MTP 保持波形更動彈性，成熟後轉入低成本 OTP</span><span data-lang="en">MTP ensures code flexibility during color evolution; OTP for mature high volume</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong><span data-lang="zh">環境強光可讀性</span><span data-lang="en">Sunlight Readability</span></strong></td>
+                    <td class="cell-win"><span data-lang="zh">完全無影響 (反射式，陽光下如紙張)</span><span data-lang="en">Immune (Reflective; paper-like under direct sun)</span></td>
+                    <td><span data-lang="zh">受影響 (需大幅提高背光亮度對抗強光)</span><span data-lang="en">Degrades (Demands intense backlight to overcome sun)</span></td>
+                    <td><span data-lang="zh">大型戶外公車站看板需串聯更多顆 Driver IC (Bigger Panel = More ICs)</span><span data-lang="en">Large outdoor signage cascades numerous driver ICs, multiplying NVM TAM</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong><span data-lang="zh">核心應用場景</span><span data-lang="en">Key Applications</span></strong></td>
+                    <td>ESL 電子貨架標籤、電子書、戶外全彩廣告牌、車身/建築裝飾 (Prism 3)</td>
+                    <td>智慧手機、筆電、電視、車用儀表座艙</td>
+                    <td><span data-lang="zh">電子紙年複合成長率達 ~50%，帶動新興特種 eNVM 爆發性需求</span><span data-lang="en">E-paper TAM surging ~50% CAGR, driving explosive specialty eNVM demand</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
         <div class="foundry-landscape">
           <h3>
             <span data-lang="zh">高壓顯示驅動 (HV DDIC) 晶圓代工與製程節點演進</span>

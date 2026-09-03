@@ -523,3 +523,12 @@
   line-height: 1.65;
   margin: 0;
 }
+
+
+/* E-Ink Specialty Highlight */
+#eink-specialty .tech-card {
+  border-left: 3px solid #71ece3;
+}
+#eink-specialty .tech-card:nth-child(2) {
+  border-left: 3px solid #ff9d5c;
+}
