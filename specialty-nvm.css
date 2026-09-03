@@ -1,0 +1,525 @@
+/* specialty-nvm.css · Specialty Foundry eNVM Topic Styles */
+
+.specialty-page {
+  background-color: #061925;
+  color: #d1e4e8;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   Hero Section
+   ========================================================= */
+.specialty-hero {
+  padding: 80px 24px 50px;
+  background: radial-gradient(circle at 50% 20%, rgba(113, 236, 227, 0.08) 0%, rgba(6, 25, 37, 0) 70%);
+  border-bottom: 1px solid rgba(113, 236, 227, 0.15);
+}
+
+.hero-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-kicker {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #ff9d5c;
+  background: rgba(255, 157, 92, 0.1);
+  border: 1px solid rgba(255, 157, 92, 0.3);
+  padding: 5px 14px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.specialty-hero h1 {
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.22;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+
+.hero-lede {
+  color: #9cb5bc;
+  font-size: clamp(15px, 1.25vw, 17.5px);
+  line-height: 1.75;
+  max-width: 920px;
+  margin: 0 auto 36px;
+  text-wrap: balance;
+}
+
+.specialty-nav-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: rgba(11, 44, 57, 0.7);
+  border: 1px solid rgba(113, 236, 227, 0.25);
+  border-radius: 6px;
+  text-decoration: none;
+  color: #e0f2f1;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.nav-pill:hover {
+  background: #71ece3;
+  color: #061925;
+  border-color: #71ece3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(113, 236, 227, 0.25);
+}
+
+.pill-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: #ff9d5c;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.nav-pill:hover .pill-number {
+  color: #061925;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================================
+   Topic Sections
+   ========================================================= */
+.topic-section {
+  padding: 70px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.topic-dark {
+  background: #04141e;
+}
+
+.topic-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.topic-header {
+  margin-bottom: 44px;
+}
+
+.topic-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: #71ece3;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.topic-header h2 {
+  font-size: clamp(24px, 2.8vw, 36px);
+  line-height: 1.3;
+  font-weight: 750;
+  color: #ffffff;
+  margin: 0 0 16px;
+  text-wrap: balance;
+}
+
+.topic-header p {
+  color: #9cb5bc;
+  font-size: 15.5px;
+  line-height: 1.75;
+  max-width: 980px;
+  margin: 0;
+}
+
+/* Sub-topic block */
+.sub-topic-block {
+  margin-bottom: 48px;
+}
+
+.sub-topic-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid rgba(113, 236, 227, 0.15);
+  padding-bottom: 10px;
+}
+
+.sub-topic-header h3 {
+  font-size: clamp(18px, 1.8vw, 22px);
+  color: #71ece3;
+  margin: 0;
+}
+
+.tag-accent {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #ff9d5c;
+  background: rgba(255, 157, 92, 0.1);
+  padding: 4px 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 157, 92, 0.25);
+}
+
+/* =========================================================
+   Cards & Grids
+   ========================================================= */
+.card-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
+}
+
+.tech-card {
+  background: #082433;
+  border: 1px solid rgba(113, 236, 227, 0.18);
+  border-radius: 8px;
+  padding: 26px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.tech-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(113, 236, 227, 0.5);
+}
+
+.card-header-icon {
+  font-size: 26px;
+  margin-bottom: 14px;
+}
+
+.tech-card h3 {
+  font-size: 20px;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.tech-card h4 {
+  font-size: 18px;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.tech-card p {
+  color: #b0c9cf;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 18px;
+  flex-grow: 1;
+}
+
+.spec-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #9cb5bc;
+  line-height: 1.7;
+}
+
+.spec-list li {
+  margin-bottom: 6px;
+}
+
+.spec-list strong {
+  color: #71ece3;
+}
+
+.card-footer-metric {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #ff9d5c;
+}
+
+.feature-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.feature-tag-list span {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  color: #71ece3;
+  background: rgba(113, 236, 227, 0.08);
+  border: 1px solid rgba(113, 236, 227, 0.2);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
+/* =========================================================
+   Comparison Table
+   ========================================================= */
+.comparison-panel {
+  background: #051a26;
+  border: 1px solid rgba(113, 236, 227, 0.2);
+  border-radius: 8px;
+  padding: 28px 24px;
+  margin-top: 40px;
+}
+
+.comparison-panel h3 {
+  font-size: 20px;
+  color: #ffffff;
+  margin: 0 0 20px;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.data-table th {
+  background: #08283a;
+  color: #71ece3;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid rgba(113, 236, 227, 0.3);
+}
+
+.data-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: #d1e4e8;
+  line-height: 1.6;
+}
+
+.data-table tr:hover td {
+  background: rgba(113, 236, 227, 0.04);
+}
+
+.cell-win {
+  color: #71ece3 !important;
+  font-weight: 600;
+}
+
+.cell-lose {
+  color: #f87171 !important;
+  opacity: 0.85;
+}
+
+/* =========================================================
+   Pipeline Flow (Part 02)
+   ========================================================= */
+.pipeline-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 36px;
+  background: #082433;
+  border: 1px solid rgba(113, 236, 227, 0.2);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+@media (max-width: 900px) {
+  .pipeline-flow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.pipeline-step {
+  flex: 1;
+  background: rgba(6, 27, 41, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 18px 20px;
+}
+
+.step-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ff9d5c;
+  margin-bottom: 6px;
+}
+
+.pipeline-step h4 {
+  font-size: 18px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.pipeline-step small {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #71ece3;
+  margin-bottom: 10px;
+}
+
+.pipeline-step p {
+  color: #b0c9cf;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pipeline-arrow {
+  color: #71ece3;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .pipeline-arrow {
+    transform: rotate(90deg);
+    margin: 4px 0;
+  }
+}
+
+/* Fuse Evolution */
+.fuse-evolution-block {
+  margin-top: 40px;
+  background: #051a26;
+  border: 1px solid rgba(113, 236, 227, 0.15);
+  border-radius: 8px;
+  padding: 28px 24px;
+}
+
+.fuse-evolution-block h3 {
+  font-size: 20px;
+  color: #ffffff;
+  margin: 0 0 22px;
+}
+
+.evo-card {
+  background: #082433;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.evo-card.evo-active {
+  border-color: #71ece3;
+  background: rgba(113, 236, 227, 0.06);
+}
+
+.evo-phase {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  color: #ff9d5c;
+  margin-bottom: 8px;
+}
+
+.evo-card.evo-active .evo-phase {
+  color: #71ece3;
+}
+
+.evo-card h4 {
+  font-size: 17px;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.evo-card p {
+  color: #b0c9cf;
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* =========================================================
+   Foundry Landscape (Part 03)
+   ========================================================= */
+.foundry-landscape {
+  margin-top: 40px;
+  background: #051a26;
+  border: 1px solid rgba(113, 236, 227, 0.15);
+  border-radius: 8px;
+  padding: 28px 24px;
+}
+
+.foundry-landscape h3 {
+  font-size: 20px;
+  color: #ffffff;
+  margin: 0 0 22px;
+}
+
+.foundry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.foundry-card {
+  background: #082433;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 3px solid #ff9d5c;
+  border-radius: 4px;
+  padding: 18px 20px;
+}
+
+.foundry-node {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ff9d5c;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.foundry-card h4 {
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.foundry-card p {
+  color: #b0c9cf;
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0;
+}

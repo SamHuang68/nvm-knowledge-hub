@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="site-language.js?v=20260904-top-v1"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Specialty NVM · BCD Power, Matrix Repair &amp; High-Voltage DDI · NVM Knowledge Hub</title>
+  <meta name="description" content="Deep technical treatise on Specialty eNVM: BCD process for Power Management (PMIC, LED drivers, USB-PD, BLDC, BMIC), CIS &amp; DRAM array defect redundancy repair (BIST/BIRA/AntiFuse), and High-Voltage Display Driver ICs (Gamma, Vcom, De-mura).">
+  <meta name="theme-color" content="#061b29">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260904-hive-v5">
+  <link rel="stylesheet" href="site-shell.css?v=20260904-hive-v5">
+  <link rel="stylesheet" href="specialty-nvm.css?v=20260904-spec-v1">
+  <style>
+    /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert; }
+
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] {
+      display: revert !important;
+    }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] {
+      display: none !important;
+    }
+
+    .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
+  </style>
+</head>
+<body class="specialty-page">
+  <a class="skip-link" href="#main-content">
+    <span data-lang="zh">跳至主要內容</span>
+    <span data-lang="en">Skip to main content</span>
+  </a>
+
+  <header class="site-header" role="banner">
+    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub Home">
+      <span class="brand-mark">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M12 4h24a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8H12a8 8 0 0 1-8-8V12a8 8 0 0 1 8-8z"/>
+          <path d="M17 11v26M31 11v26M11 17h26M11 31h26"/>
+        </svg>
+      </span>
+      <span class="brand-copy">
+        <strong>NVM</strong>
+        <small>KNOWLEDGE HUB</small>
+      </span>
+      <span class="brand-section">SPECIALTY NVM</span>
+    </a>
+
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary Navigation">
+      <a class="portfolio-return" href="https://samhuang68.github.io/#work" aria-label="Return to Portfolio">SAM HUANG ↗</a>
+      <a href="index.html"><span data-lang="zh">總門戶</span><span data-lang="en">Portal</span></a>
+      <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
+      <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a>
+      <a class="is-active" href="specialty-nvm.html" aria-current="page"><span data-lang="zh">特種 NVM (BCD/修復/HV)</span><span data-lang="en">Specialty NVM</span></a>
+      <a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper</span></a>
+      <a href="briefing/"><span data-lang="zh">簡報與講稿</span><span data-lang="en">Briefing</span></a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch Language">
+        <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
+      </button>
+      <button class="menu-button" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primaryNav">
+        <i></i><i></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="specialty-hero">
+      <div class="hero-container">
+        <span class="hero-kicker">SPECIALTY FOUNDRY &amp; HIGH-VOLTAGE EMBEDDED MEMORY</span>
+        <h1>
+          <span data-lang="zh">特種製程 NVM：從類比電路微調到高壓面板驅動與晶圓修復</span>
+          <span data-lang="en">Specialty eNVM: From Analog Trimming to High-Voltage Display Drivers &amp; Array Repair</span>
+        </h1>
+        <p class="hero-lede">
+          <span data-lang="zh">專注於 BCD 電源管理（PMIC、LED 驅動、USB-PD 快充協議、BLDC 馬達韌體與 BMIC 類比前端）、高密集陣列缺陷修復（CIS 感光元件與 DRAM/HBM 冗餘重映射）、以及高壓 (HV) 顯示面板驅動 IC（Gamma 校準、Vcom 防閃爍、De-Mura 補償）。解析標準邏輯/BCD 原生零光罩 (Zero Mask Adder) 之物理與經濟學優勢。</span>
+          <span data-lang="en">Deep architectural exploration across BCD Power Management (PMIC trimming, LED drivers, USB-PD protocols, BLDC motor MCU firmware, BMIC AFE), Dense Matrix Array Repair (CIS and DRAM/HBM redundancy remapping), and High-Voltage Display Driver ICs (Gamma tuning, Vcom flicker cancellation, De-mura). Analyzing the zero-mask-adder physics and foundry economics of specialty logic NVM.</span>
+        </p>
+
+        <!-- Quick Navigation Bar -->
+        <nav class="specialty-nav-pills" aria-label="Specialty Topic Anchors">
+          <a href="#topic-bcd" class="nav-pill">
+            <span class="pill-number">01</span>
+            <span class="pill-text"><span data-lang="zh">BCD 電源管理與驅動</span><span data-lang="en">BCD Power &amp; Drivers</span></span>
+          </a>
+          <a href="#topic-repair" class="nav-pill">
+            <span class="pill-number">02</span>
+            <span class="pill-text"><span data-lang="zh">CIS 與 DRAM 矩陣修復</span><span data-lang="en">CIS &amp; DRAM Array Repair</span></span>
+          </a>
+          <a href="#topic-hv-ddi" class="nav-pill">
+            <span class="pill-number">03</span>
+            <span class="pill-text"><span data-lang="zh">高壓 (HV) OLED/LCD 驅動</span><span data-lang="en">HV Display Drivers (DDI)</span></span>
+          </a>
+        </nav>
+      </div>
+    </section>
+
+    <!-- TOPIC 01: BCD POWER MANAGEMENT -->
+    <section class="topic-section" id="topic-bcd">
+      <div class="topic-container">
+        <header class="topic-header">
+          <div class="topic-badge">PART 01 · POWER SEMICONDUCTORS</div>
+          <h2>
+            <span data-lang="zh">BCD 製程電源晶片：低密度精準微調與高密度協定控制</span>
+            <span data-lang="en">BCD Power Management: Low-Density Trimming to High-Density Protocol Control</span>
+          </h2>
+          <p>
+            <span data-lang="zh">Bipolar-CMOS-DMOS (BCD) 技術融合了精準類比感測 (Bipolar)、數位控制邏輯 (CMOS) 與高壓大電流開關 (DMOS)。傳統 eFlash 在 BCD 製程需額外 10~15 道光罩與高溫製程，重創毛利；原生 AntiFuse OTP / NeoMTP 達成零額外光罩 (Zero Mask Adder)，為次世代智慧電源晶片提供不可或缺的記憶體基石。</span>
+            <span data-lang="en">Bipolar-CMOS-DMOS (BCD) combines precision analog (Bipolar), digital logic (CMOS), and power switches (DMOS). While legacy eFlash requires 10-15 adder masks and destructive thermal budgets, native AntiFuse OTP and NeoMTP integrate with zero extra masks, serving as the critical enabler for smart power ICs.</span>
+          </p>
+        </header>
+
+        <!-- Sub-Topic A: Low Density Trimming -->
+        <div class="sub-topic-block">
+          <div class="sub-topic-header">
+            <h3>
+              <span data-lang="zh">A. 低密度類比微調 (Low-Density Trimming, 128-bit ~ 4K-bit)</span>
+              <span data-lang="en">A. Low-Density Analog Trimming (128-bit to 4K-bit)</span>
+            </h3>
+            <span class="tag-accent">CP/FT WAFER SORT · ACCURACY OPTIMIZATION</span>
+          </div>
+          <div class="card-grid-2">
+            <article class="tech-card">
+              <h4>
+                <span data-lang="zh">PMIC 基準電壓與振盪器校準</span>
+                <span data-lang="en">PMIC Voltage Reference &amp; Oscillator Calibration</span>
+              </h4>
+              <p>
+                <span data-lang="zh">半導體製造容差會導致帶隙基準源 (Bandgap Reference Vref) 產生 &plusmn;3% 至 &plusmn;5% 的偏差。透過在晶圓測試 (CP) 與最終測試 (FT) 階段燒錄 OTP 微調碼，可即時調整梯形電阻網 (Resistor Ladder) 與電流源，將輸出電壓精度提升至 &plusmn;0.5% 以內，並校準內部振盪器頻率 (Oscillator Frequency)，確保電源轉換器之開關頻率維持在預定 EMI 安全視窗內。</span>
+                <span data-lang="en">Silicon process variations induce &plusmn;3% to &plusmn;5% shifts in bandgap reference voltages (Vref). Burning OTP trim bits during Chip Probing (CP) and Final Test (FT) dynamically adjusts resistor ladders and current mirrors, tightening output accuracy within &plusmn;0.5% and stabilizing internal clock oscillators to keep switching frequencies within EMI safety windows.</span>
+              </p>
+              <ul class="spec-list">
+                <li><strong><span data-lang="zh">典型容量</span><span data-lang="en">Typical Density</span>:</strong> 128-bit to 2K-bit OTP / MTP</li>
+                <li><strong><span data-lang="zh">關鍵參數</span><span data-lang="en">Key Parameters</span>:</strong> Vref trim, Over-Current Protection (OCP), Over-Voltage Protection (OVP), Thermal Shutdown threshold</li>
+                <li><strong><span data-lang="zh">製程節點</span><span data-lang="en">Process Nodes</span>:</strong> 0.18µm, 0.13µm, 90nm, 55nm BCD</li>
+              </ul>
+            </article>
+
+            <article class="tech-card">
+              <h4>
+                <span data-lang="zh">多通道 LED 驅動器恆流匹配</span>
+                <span data-lang="en">Multi-Channel LED Driver Current Balancing</span>
+              </h4>
+              <p>
+                <span data-lang="zh">車用頭燈矩陣、電視 Mini-LED 分區背光 (Local Dimming) 要求各通道間的恆流輸出誤差小於 1.5%。每一路驅動單元在封裝應力下會產生跨通道電阻不匹配，透過內嵌 OTP/MTP 儲存各通道獨立的數位增益補償碼 (Gain Compensation)，消除電流失配，避免顯示背光出現條紋或車燈亮度不均。</span>
+                <span data-lang="en">Automotive matrix headlights and Mini-LED local dimming displays demand channel-to-channel current matching tighter than 1.5%. Package-induced thermo-mechanical stress creates per-channel resistor disparities; on-chip OTP/MTP stores per-channel digital gain trims to eliminate luminance banding and hotspot artifacts.</span>
+              </p>
+              <ul class="spec-list">
+                <li><strong><span data-lang="zh">恆流精度</span><span data-lang="en">Current Accuracy</span>:</strong> Channel-to-channel mismatch &lt;1.0% after electrical trim</li>
+                <li><strong><span data-lang="zh">資料留存</span><span data-lang="en">Retention</span>:</strong> 15+ years @ 125°C to 150°C junction temperature</li>
+                <li><strong><span data-lang="zh">經濟效益</span><span data-lang="en">Economics</span>:</strong> Eliminates external precision trimming resistors and laser trimming steps</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <!-- Sub-Topic B: High Density Power & Protocols -->
+        <div class="sub-topic-block">
+          <div class="sub-topic-header">
+            <h3>
+              <span data-lang="zh">B. 高密度智慧電源與協定控制器 (High-Density, 8KB ~ 64KB+ MTP/OTP)</span>
+              <span data-lang="en">B. High-Density Smart Power &amp; Protocol Controllers (8KB to 64KB+ MTP/OTP)</span>
+            </h3>
+            <span class="tag-accent">USB-PD 3.1 · BLDC MOTOR FOC · AUTOMOTIVE BMIC</span>
+          </div>
+          <div class="card-grid-3">
+            <article class="tech-card">
+              <h4>
+                <span data-lang="zh">USB-PD 3.1 &amp; 私有快充協議晶片</span>
+                <span data-lang="en">USB Power Delivery 3.1 &amp; Fast-Charging Protocols</span>
+              </h4>
+              <p>
+                <span data-lang="zh">現代 USB Type-C 電源適配器需支援高達 240W (48V/5A Extended Power Range, EPR) 以及複雜的動態協商協議（PD 3.1、PPS 可程式電源供應、QC 5.0 等）。內嵌高密度 MTP 作為微控制器的程式碼與配置庫，支援開箱即用的供電配置檔 (PDO/APDO) 解析、電子標籤 (E-Marker) 密鑰認證，並允許出廠後因應協議修訂進行現場韌體更新 (In-System Update)。</span>
+                <span data-lang="en">Modern USB Type-C adapters support up to 240W (48V/5A EPR) and dynamic negotiation protocols (PD 3.1, PPS, QC 5.0). Embedded high-density MTP stores MCU firmware, Power Delivery Objects (PDOs), and cryptographic E-Marker attestation keys, enabling field firmware upgrades for evolving fast-charge standards.</span>
+              </p>
+              <div class="card-footer-metric">
+                <span>DENSITY: 16KB - 64KB MTP</span>
+                <span>ENDURANCE: 1,000 - 10,000 CYCLES</span>
+              </div>
+            </article>
+
+            <article class="tech-card">
+              <h4>
+                <span data-lang="zh">BLDC 無刷直流馬達控制器 (MCU Code)</span>
+                <span data-lang="en">BLDC Motor Drivers &amp; Embedded MCU Code</span>
+              </h4>
+              <p>
+                <span data-lang="zh">無人機、伺服機器人、車用水泵與散熱風扇廣泛採用整合型 SoC 馬達驅動器。晶片內部整合 32-bit MCU（如 Arm Cortex-M0+ 或 RISC-V）以執行磁場導向向量控制 (FOC)、空間向量脈寬調變 (SVPWM) 與無感測器 (Sensorless) 轉子角度估算。高密度 eNVM 提供零等待 (Zero-Wait State) 的指令讀取，免去昂貴外部 SPI Flash，節省 PCB 面積並杜絕干擾。</span>
+                <span data-lang="en">Drones, robotics, automotive pumps and fans rely on integrated SoC motor drivers. These chips house a 32-bit MCU (Arm Cortex-M0+ / RISC-V) running Field Oriented Control (FOC) and sensorless rotor observers. High-density eNVM enables zero-wait execution without external SPI Flash, drastically shrinking BOM footprint.</span>
+              </p>
+              <div class="card-footer-metric">
+                <span>DENSITY: 32KB - 128KB MTP/OTP</span>
+                <span>EXECUTION: ZERO-WAIT CODE READ</span>
+              </div>
+            </article>
+
+            <article class="tech-card">
+              <h4>
+                <span data-lang="zh">BMIC 電池管理晶片 &amp; 類比前端 (AFE)</span>
+                <span data-lang="en">Battery Management ICs &amp; Analog Frontend (AFE)</span>
+              </h4>
+              <p>
+                <span data-lang="zh">在電動車 (EV) 與儲能系統 (ESS) 中，BMIC 需同時監控 16 至 24 節鋰電池單元的電壓、溫度與充放電狀態。內嵌 eNVM 用於儲存電池化學開路電壓 (OCV-SOC) 查找表、庫倫計增益漂移係數、高溫老化補償模型，以及通過 ISO 26262 ASIL-D 嚴苛車規認證之安全臨界值與故障日誌黑盒子。</span>
+                <span data-lang="en">In EVs and energy storage, BMICs monitor 16-24 series cell voltages and temperatures. Embedded eNVM stores chemistry Open Circuit Voltage (OCV-SOC) look-up tables, coulomb counter calibration constants, cell aging models, and ISO 26262 ASIL-D fault logging registers.</span>
+              </p>
+              <div class="card-footer-metric">
+                <span>SAFETY: ISO 26262 ASIL-D</span>
+                <span>VOLTAGE: UP TO 100V BCD ISOLATION</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Zero-Mask Comparison Table -->
+        <div class="comparison-panel">
+          <h3>
+            <span data-lang="zh">製程經濟學對決：BCD 邏輯相容 eNVM vs 傳統嵌入式快閃 (eFlash)</span>
+            <span data-lang="en">Foundry Economics: Logic-Compatible eNVM vs Traditional Embedded Flash (eFlash)</span>
+          </h3>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th><span data-lang="zh">評估維度</span><span data-lang="en">Metric / Feature</span></th>
+                  <th><span data-lang="zh">純邏輯 AntiFuse OTP / NeoMTP</span><span data-lang="en">Pure Logic AntiFuse / NeoMTP</span></th>
+                  <th><span data-lang="zh">傳統嵌入式快閃記憶體 (eFlash)</span><span data-lang="en">Legacy Embedded Flash (eFlash)</span></th>
+                  <th><span data-lang="zh">架構與商業價值</span><span data-lang="en">Architectural &amp; Commercial Impact</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong><span data-lang="zh">額外光罩數 (Mask Adders)</span><span data-lang="en">Mask Adders</span></strong></td>
+                  <td class="cell-win"><strong>0 道光罩 (Zero Extra Masks)</strong></td>
+                  <td class="cell-lose">+10 至 +15 道額外光罩</td>
+                  <td><span data-lang="zh">節省 30%~50% 晶圓前段光罩費用與製造週程 (Cycle Time)</span><span data-lang="en">Saves 30%-50% mask tooling cost and reduces fab cycle time</span></td>
+                </tr>
+                <tr>
+                  <td><strong><span data-lang="zh">製程相容性</span><span data-lang="en">Process Compatibility</span></strong></td>
+                  <td class="cell-win">100% 邏輯相容 (Standard CMOS/BCD)</td>
+                  <td class="cell-lose">需專屬浮閘 (Floating Gate) 熱製程</td>
+                  <td><span data-lang="zh">不影響 BCD 製程的高壓 LDMOS 擊穿電壓與低壓類比匹配特性</span><span data-lang="en">Preserves high-voltage LDMOS breakdown voltages and analog matching</span></td>
+                </tr>
+                <tr>
+                  <td><strong><span data-lang="zh">高溫耐受度 (Junction Temp)</span><span data-lang="en">High-Temperature Retention</span></strong></td>
+                  <td class="cell-win">&gt;150°C (車規 Grade 0: 175°C 可靠度)</td>
+                  <td class="cell-lose">高溫易受 SILC 誘發漏電，125°C 上限</td>
+                  <td><span data-lang="zh">完美滿足車用動力總成與高功率電源轉換環境</span><span data-lang="en">Meets harsh powertrain and high-wattage power thermal envelopes</span></td>
+                </tr>
+                <tr>
+                  <td><strong><span data-lang="zh">晶圓代工廠覆蓋</span><span data-lang="en">Foundry Availability</span></strong></td>
+                  <td class="cell-win">TSMC, VIS, DB Hitek, Tower, GF, Vanguard</td>
+                  <td class="cell-lose">受限於少數具備專用快閃製程的晶圓廠</td>
+                  <td><span data-lang="zh">多源代工廠 (Multi-Sourcing) 風險分散，產能調度靈活</span><span data-lang="en">Multi-sourcing flexibility, eliminating single-fab lock-in</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPIC 02: CIS & DRAM ARRAY REDUNDANCY REPAIR -->
+    <section class="topic-section topic-dark" id="topic-repair">
+      <div class="topic-container">
+        <header class="topic-header">
+          <div class="topic-badge">PART 02 · MATRIX YIELD &amp; DEFECT REPAIR</div>
+          <h2>
+            <span data-lang="zh">CIS 與 DRAM 矩陣修復：高密集度製程缺陷的重映射架構</span>
+            <span data-lang="en">CIS &amp; DRAM Array Repair: Remapping Architecture for Dense Matrix Defects</span>
+          </h2>
+          <p>
+            <span data-lang="zh">在高解析度 CMOS 影像感測器 (CIS) 與先進 DRAM / HBM 中，百萬乃至數十億個微型單元具備極高的物理缺陷機率。若無修復機制，單一缺陷點將導致整顆晶片報廢。內建自我測試 (BIST)、備援分析 (BIRA) 與 AntiFuse OTP 構成現代晶片良率修復黃金三角。</span>
+            <span data-lang="en">In ultra-dense CMOS Image Sensors (CIS) and cutting-edge DRAM / HBM, millions to billions of sub-micron cells face inevitable manufacturing defects. Without autonomous repair, a single faulted bitcell destroys multi-hundred-dollar dies. BIST, BIRA, and AntiFuse OTP establish the core triad for high-yield volume manufacturing.</span>
+          </p>
+        </header>
+
+        <!-- The 3-Step Repair Pipeline -->
+        <div class="pipeline-flow">
+          <div class="pipeline-step">
+            <div class="step-num">01</div>
+            <h4>BIST</h4>
+            <small>Built-In Self-Test</small>
+            <p>
+              <span data-lang="zh">晶圓探針或上電自檢發動 March C- 演算法與棋盤格掃描，精確定位開路、短路、漏電及耦合缺陷位址。</span>
+              <span data-lang="en">Executes March C- and checkerboard test patterns to pinpoint open, short, leakage, and coupling faults across dense bitcell arrays.</span>
+            </p>
+          </div>
+          <div class="pipeline-arrow">➔</div>
+          <div class="pipeline-step">
+            <div class="step-num">02</div>
+            <h4>BIRA</h4>
+            <small>Built-In Redundancy Analysis</small>
+            <p>
+              <span data-lang="zh">硬體演算法以有限的備援行 (Spare Rows) 與備援列 (Spare Columns)，計算出最佳的覆蓋解，最大化晶粒良率。</span>
+              <span data-lang="en">Hardware solver calculates the mathematical optimum to cover detected faults using allocated spare rows and spare columns.</span>
+            </p>
+          </div>
+          <div class="pipeline-arrow">➔</div>
+          <div class="pipeline-step">
+            <div class="step-num">03</div>
+            <h4>FuseBox OTP</h4>
+            <small>Non-Volatile Remapping</small>
+            <p>
+              <span data-lang="zh">將修復映射表 (Repair Signature) 永久寫入 AntiFuse OTP；每次開機即時重定向解碼器，透明隔離壞死單元。</span>
+              <span data-lang="en">Permanently burns repair signatures into on-die AntiFuse OTP, transparently redirecting memory decoders upon every boot.</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="card-grid-2">
+          <!-- CIS Application -->
+          <article class="tech-card">
+            <h3>
+              <span data-lang="zh">1. CMOS 影像感測器 (CIS) 壞點修復與 3D 堆疊</span>
+              <span data-lang="en">1. CMOS Image Sensor (CIS) Pixel Repair &amp; 3D Stacking</span>
+            </h3>
+            <p>
+              <span data-lang="zh">在 48MP、108MP 乃至 2 億畫素的手機與車用 CIS 中，微米級光電二極體 (Photodiode) 與傳輸閘極 (TX) 容易因矽晶格缺陷或重金屬污染產生熱像素 (Hot Pixels) 或死像素 (Dead Pixels)。現代 3 堆疊 CIS（Pixel Array + Logic ISP + DRAM Buffer）透過底部邏輯層內嵌的 AntiFuse OTP 儲存高達 16K~64K-bit 的壞點座標與增益校正係數，由硬體 ISP 進行即時周邊像素中值插補 (Bilinear Interpolation)，實現 100% 視覺無暇輸出。</span>
+              <span data-lang="en">In 48MP to 200MP mobile and automotive CIS, micron-scale photodiodes develop hot/dead pixels due to silicon lattice dislocations or metal impurities. Modern 3-layer stacked CIS (Pixel Array + ISP Logic + DRAM Cache) utilizes AntiFuse OTP in the logic die to store 16K-64K bits of defective pixel coordinates, enabling real-time bilinear interpolation and artifact-free imaging.</span>
+            </p>
+            <ul class="spec-list">
+              <li><strong><span data-lang="zh">修復型態</span><span data-lang="en">Repair Mode</span>:</strong> Dead pixel table remap + Lens shading compensation + Dark current trim</li>
+              <li><strong><span data-lang="zh">先進封裝</span><span data-lang="en">Packaging</span>:</strong> TSMC 3DFabric, Wafer-to-Wafer (W2W) hybrid bonding</li>
+            </ul>
+          </article>
+
+          <!-- DRAM & HBM Application -->
+          <article class="tech-card">
+            <h3>
+              <span data-lang="zh">2. DRAM / HBM3e 封裝後現場修復 (Post-Package Repair, PPR)</span>
+              <span data-lang="en">2. DRAM / HBM3e Post-Package Repair (PPR)</span>
+            </h3>
+            <p>
+              <span data-lang="zh">JEDEC DDR5 與 HBM3/3e 標準強制規範了硬體級「封裝後修復 (PPR)」架構。傳統雷射熔斷 (Laser Fuse) 只能在封裝前晶圓階段進行；而 AntiFuse OTP 具備微小面積與低燒錄功耗優勢，允許伺服器在資料中心運行過程中，偵測到不可更正記憶體錯誤 (Uncorrectable Error / 2-bit ECC Failure) 時，發動 hPPR (Hard PPR) 指令，將備援記憶體 Row 的重新映射永久寫入晶粒內部的 AntiFuse FuseBox，挽救價值上萬美元的高階 AI 伺服器模組。</span>
+              <span data-lang="en">JEDEC DDR5 and HBM3/3e mandate Post-Package Repair (PPR). While obsolete laser fuses are strictly restricted to un-packaged wafers, AntiFuse OTP enables in-system repair. When hyperscale datacenters encounter uncorrectable multi-bit ECC errors, runtime hPPR commands permanently burn spare-row remap vectors into the on-die FuseBox, averting catastrophic server crashes.</span>
+            </p>
+            <ul class="spec-list">
+              <li><strong><span data-lang="zh">標準規格</span><span data-lang="en">Standard</span>:</strong> JEDEC JESD79-5 DDR5 &amp; JESD238 HBM3e hPPR / sPPR compliant</li>
+              <li><strong><span data-lang="zh">可靠度優勢</span><span data-lang="en">Reliability</span>:</strong> Zero post-burn conductivity rebound, 100% immune to laser targeting errors</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Fuse Comparison -->
+        <div class="fuse-evolution-block">
+          <h3>
+            <span data-lang="zh">修復技術演進歷程：Laser Fuse ➔ eFuse ➔ AntiFuse OTP</span>
+            <span data-lang="en">Evolution of Repair Storage: Laser Fuse ➔ Poly eFuse ➔ AntiFuse OTP</span>
+          </h3>
+          <div class="card-grid-3">
+            <div class="evo-card">
+              <span class="evo-phase">LEGACY</span>
+              <h4>Laser Fuse (雷射熔斷)</h4>
+              <p><span data-lang="zh">使用實體雷射燒斷金屬線。缺點：佔用巨大開窗面積，無法在晶片封裝後修復，雷射定位精度極限無法微縮至 28nm 以下。</span><span data-lang="en">Mechanically vaporizes metal links with lasers. High pad overhead, zero post-package repair capability, extinct below 28nm.</span></p>
+            </div>
+            <div class="evo-card">
+              <span class="evo-phase">TRANSITIONAL</span>
+              <h4>eFuse (電遷移電熔絲)</h4>
+              <p><span data-lang="zh">施加大電流透過電遷移熔斷多晶矽/金屬。缺點：初始為低阻導通，燒斷後易有金屬回彈造成漏電；且每個 bit 需要巨大大電流驅動晶體，容量難以超越 4K-bit。</span><span data-lang="en">Blows polysilicon via high-current electromigration. Prone to conductive regrowth; huge driving transistors restrict density below 4K-bit.</span></p>
+            </div>
+            <div class="evo-card evo-active">
+              <span class="evo-phase">MODERN STANDARD</span>
+              <h4>AntiFuse OTP (反熔絲氧化層崩潰)</h4>
+              <p><span data-lang="zh">初始為絕緣高阻態，燒錄時在高壓下擊穿閘極介電質形成永久金屬矽化物微絲。面積僅 eFuse 1/5，容量可達 128Kb，支援晶圓級與封裝後全生命週期自我修復。</span><span data-lang="en">Starts in high-impedance state; dielectric breakdown forms permanent metallic filament. 1/5th area of eFuse, scalable to 128Kb, enables lifetime PPR.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPIC 03: HIGH-VOLTAGE DISPLAY DRIVERS -->
+    <section class="topic-section" id="topic-hv-ddi">
+      <div class="topic-container">
+        <header class="topic-header">
+          <div class="topic-badge">PART 03 · DISPLAY DRIVERS &amp; OPTOELECTRONICS</div>
+          <h2>
+            <span data-lang="zh">高壓顯示驅動 (HV DDIC)：Gamma 校準、Vcom 防閃爍與 De-Mura 補償</span>
+            <span data-lang="en">High-Voltage Display Drivers (HV DDIC): Gamma Calibration, Vcom Tuning &amp; De-Mura</span>
+          </h2>
+          <p>
+            <span data-lang="zh">面板驅動晶片 (DDIC) 面臨極為嚴峻的高壓電氣環境（Gate 高達 +20V/-15V，Source 達 8V~12V）。高階 AMOLED、LTPO 智慧手機面板與 Micro-LED 顯示器對色彩一致性與刷新均勻度有極高要求。內嵌 High-Voltage eNVM 是實現出廠光學校準與像素級均勻度消除的致勝關鍵。</span>
+            <span data-lang="en">Display Driver ICs (DDICs) operate in severe high-voltage domains (Gate rails up to +20V/-15V, Source lines up to 8V-12V). Premium AMOLED, LTPO mobile screens, and Micro-LED panels demand absolute color consistency and refresh uniformity, powered by on-chip High-Voltage eNVM.</span>
+          </p>
+        </header>
+
+        <div class="card-grid-3">
+          <!-- Gamma Calibration -->
+          <article class="tech-card">
+            <div class="card-header-icon">🌈</div>
+            <h3>
+              <span data-lang="zh">1. Gamma 2.2 曲線多階校準</span>
+              <span data-lang="en">1. Multi-Point Gamma 2.2 Curve Calibration</span>
+            </h3>
+            <p>
+              <span data-lang="zh">人眼對亮度的感知呈非線性對數響應（典型標準為 &gamma; = 2.2）。然而每塊面板的薄膜電晶體 (TFT) 遷移率存在先天材料離散性。DDIC 內嵌 OTP/MTP 儲存紅、綠、藍 (RGB) 獨立的可程式化數位類比轉換器 (R-DAC) 基準電壓點（如 64 階至 256 階微調值），精確擬合理想色彩灰階曲線，杜絕低灰階色彩失真與白平衡偏移。</span>
+              <span data-lang="en">Human luminance perception follows a non-linear power curve (&gamma; = 2.2). Thin-Film Transistor (TFT) mobility variations introduce per-panel color skews. Embedded OTP/MTP stores independent R/G/B resistor-string DAC reference registers (64 to 256 voltage points), mapping panel luminance to precise color standards and eliminating low-grayscale chromatic aberration.</span>
+            </p>
+            <div class="feature-tag-list">
+              <span>RGB INDEPENDENT DAC TRIM</span>
+              <span>64-256 GREYSCALE STEPS</span>
+            </div>
+          </article>
+
+          <!-- Vcom Tuning -->
+          <article class="tech-card">
+            <div class="card-header-icon">⚡</div>
+            <h3>
+              <span data-lang="zh">2. Vcom 電壓精準微調 (防閃爍)</span>
+              <span data-lang="en">2. Vcom Anti-Flicker Precision Voltage Tuning</span>
+            </h3>
+            <p>
+              <span data-lang="zh">在液晶 (LCD) 面板中，若像素電極兩端存在長期直流分量 (DC Bias)，會導致液晶分子離子化造成永久殘影 (Image Sticking)。因此必須施加極性反轉交流驅動。公共電極電壓 (Vcom) 必須精確調節至正負擺幅的絕對幾何中點；哪怕僅有 5mV 至 10mV 的微小偏差，就會引發人眼可察覺的 30Hz/60Hz 畫面閃爍 (Flicker)。OTP/MTP 永久寫入最佳微調設定。</span>
+              <span data-lang="en">In LCD panels, sustained DC bias across pixel electrodes causes liquid crystal degradation and permanent image sticking. Driver ICs alternate polarity via AC drive. The common electrode voltage (Vcom) must align perfectly with the electrical midpoint; an offset as tiny as 5-10mV produces noticeable 30Hz/60Hz display flicker. Embedded OTP locks in the factory-tuned Vcom optimum.</span>
+            </p>
+            <div class="feature-tag-list">
+              <span>MILLIVOLT PRECISION (5mV-10mV)</span>
+              <span>IMAGE STICKING PREVENTION</span>
+            </div>
+          </article>
+
+          <!-- De-Mura Compensation -->
+          <article class="tech-card">
+            <div class="card-header-icon">🔍</div>
+            <h3>
+              <span data-lang="zh">3. OLED De-Mura 光學均勻性補償</span>
+              <span data-lang="en">3. OLED De-Mura Optical Compensation</span>
+            </h3>
+            <p>
+              <span data-lang="zh">OLED 顯示器在微觀蒸鍍過程中，有機發光層厚度與驅動 TFT 閾值電壓微小偏差會產生肉眼可見的發光不均勻暗斑（稱為 Mura）。高階 DDIC 採用 De-Mura 技術：在產線以高精度 CCD 相機拍攝螢幕各區域發光特性，計算出像素級亮度增益修正矩陣 (De-Mura LUT) 並儲存於 eNVM，即時調制像素驅動電流，達成渾然一體的均勻顯示。</span>
+              <span data-lang="en">In AMOLED manufacturing, subtle organic deposition variations and TFT Vth mismatches create luminance non-uniformity clouds known as Mura. High-end DDICs incorporate De-Mura hardware: high-resolution cameras capture panel luminance anomalies, compute a pixel-level gain correction look-up table (LUT) stored in eNVM, and dynamically equalize sub-pixel drive currents.</span>
+            </p>
+            <div class="feature-tag-list">
+              <span>PIXEL-LEVEL GAIN TABLE</span>
+              <span>AMOLED / MICRO-LED UNIFORMITY</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Process Node & Foundry Landscape -->
+        <div class="foundry-landscape">
+          <h3>
+            <span data-lang="zh">高壓顯示驅動 (HV DDIC) 晶圓代工與製程節點演進</span>
+            <span data-lang="en">High-Voltage Display Driver Foundry Landscape &amp; Node Migration</span>
+          </h3>
+          <div class="foundry-grid">
+            <div class="foundry-card">
+              <span class="foundry-node">80nm - 55nm HV</span>
+              <h4><span data-lang="zh">傳統 LCD 與主流車用顯示</span><span data-lang="en">Mainstream LCD &amp; Automotive DDI</span></h4>
+              <p><span data-lang="zh">Vanguard (世界先進), VIS, TSMC, DB Hitek, SMIC。採用成型純邏輯 OTP 解決方案，主要滿足 Vcom 與類比 Gamma 梯微調。</span><span data-lang="en">Vanguard, VIS, TSMC, DB Hitek. High-yielding pure-logic OTP powering Vcom trims and basic Gamma resistor ladders.</span></p>
+            </div>
+            <div class="foundry-card">
+              <span class="foundry-node">40nm - 28nm eHV</span>
+              <h4><span data-lang="zh">高階智慧手機 AMOLED / LTPO</span><span data-lang="en">Flagship Mobile AMOLED &amp; LTPO</span></h4>
+              <p><span data-lang="zh">TSMC 28nm eHV, UMC 28nm eHV, Samsung Foundry。高壓 8V~12V 驅動與超低功耗 SRAM 緩存，內嵌高密度 MTP/OTP 用於動態幀率 (1-120Hz) 與 De-Mura 補償。</span><span data-lang="en">TSMC 28nm eHV, UMC 28nm eHV. High-voltage 8V-12V drivers with integrated low-leakage SRAM, leveraging dense MTP for dynamic refresh (1-120Hz) and De-Mura tables.</span></p>
+            </div>
+            <div class="foundry-card">
+              <span class="foundry-node">16nm FinFET eHV</span>
+              <h4><span data-lang="zh">次世代 AI 顯示與 AR/VR Micro-OLED</span><span data-lang="en">Next-Gen AI Displays &amp; AR/VR Micro-OLED</span></h4>
+              <p><span data-lang="zh">邁向 FinFET 先進架構，因應 4K/8K 視網膜級微型顯示器的微秒級子像素渲染 (SPR) 與即時色彩邊界補正。</span><span data-lang="en">Advancing into FinFET architectures to meet microsecond sub-pixel rendering (SPR) and real-time color gamut mapping for 4K/8K Micro-OLED displays.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="hub-footer">
+    <p>&copy; 2026 Sam Huang &middot; NVM Knowledge Hub &middot; Specialty Foundry eNVM Architecture</p>
+    <div>
+      <a href="index.html">Portal Home</a>
+      <a href="secure-storage.html">Secure Storage</a>
+      <a href="ai-nvm-opportunities.html">AI &amp; Advanced Nodes</a>
+      <a href="specialty-nvm.html">Specialty NVM</a>
+      <a href="whitepaper/">Whitepaper Studio</a>
+      <a href="briefing/">Executive Briefing</a>
+    </div>
+    <p>BCD Power &middot; CIS &amp; DRAM Array Repair &middot; High-Voltage Display Drivers</p>
+  </footer>
+
+  <script src="hub.js?v=20260904-hive-v5"></script>
+  <script src="specialty-nvm.js?v=20260904-spec-v1"></script>
+</body>
+</html>
