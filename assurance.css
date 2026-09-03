@@ -227,3 +227,15 @@ body[data-language="zh"] .matrix-row span:nth-of-type(1)::before { content: "宣
 body[data-language="zh"] .matrix-row span:nth-of-type(2)::before { content: "測試方法 (TEST) · "; }
 body[data-language="zh"] .matrix-row span:nth-of-type(3)::before { content: "預期證據 (EVIDENCE) · "; }
 body[data-language="zh"] .matrix-row span:nth-of-type(4)::before { content: "防禦邊界 (LIMIT) · "; }
+
+
+/* Control Matrix 手機端卡片化繁中偽元素修復 */
+body[data-language="zh"] .matrix-row span:nth-of-type(1)::before { content: "安全主張 (CLAIM) · "; }
+body[data-language="zh"] .matrix-row span:nth-of-type(2)::before { content: "驗證測試 (TEST) · "; }
+body[data-language="zh"] .matrix-row span:nth-of-type(3)::before { content: "預期證據 (EVIDENCE) · "; }
+body[data-language="zh"] .matrix-row span:nth-of-type(4)::before { content: "防禦限制 (LIMIT) · "; }
+
+body[data-language="en"] .matrix-row span:nth-of-type(1)::before { content: "CLAIM · "; }
+body[data-language="en"] .matrix-row span:nth-of-type(2)::before { content: "TEST · "; }
+body[data-language="en"] .matrix-row span:nth-of-type(3)::before { content: "EXPECTED EVIDENCE · "; }
+body[data-language="en"] .matrix-row span:nth-of-type(4)::before { content: "LIMIT · "; }

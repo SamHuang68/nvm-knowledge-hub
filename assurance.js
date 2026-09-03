@@ -67,4 +67,28 @@ const sectionObserver = new IntersectionObserver(entries => {
 navSections.forEach(section => sectionObserver.observe(section));
 const initialSection = location.hash.slice(1);
 if (navSections.some(section => section.id === initialSection)) setCurrentSection(initialSection);
-renderEvidence(0);renderRole("foundation");applyLanguage();
+renderEvidence(0);renderRole("foundation");applyLanguage(); updateCertSelectsLanguage();
+
+
+// 認證導引表單下拉選單多語支援
+const certOptionDict = {
+  "Silicon IP / subsystem": { zh: "矽智財 / 安全子系統 (Silicon IP / subsystem)", en: "Silicon IP / subsystem" },
+  "SoC / secure IC": { zh: "系統單晶片 / 安全 IC (SoC / secure IC)", en: "SoC / secure IC" },
+  "Connected device": { zh: "終端聯網裝置 (Connected device)", en: "Connected device" },
+  "IoT / platform": { zh: "物聯網 / 運算平台 (IoT / platform)", en: "IoT / platform" },
+  "Automotive": { zh: "車用電子 (Automotive · ISO 21434)", en: "Automotive" },
+  "Payment / secure element": { zh: "支付 / 安全元件 (Payment / secure element)", en: "Payment / secure element" },
+  "General assurance": { zh: "通用高安全確證 (General assurance)", en: "General assurance" },
+  "Baseline market trust": { zh: "基礎市場信任 (Baseline market trust)", en: "Baseline market trust" },
+  "Reusable IP evidence": { zh: "可重用 IP 評估證據 (Reusable IP evidence)", en: "Reusable IP evidence" },
+  "High-assurance certification": { zh: "高保證等級認證 (High-assurance certification)", en: "High-assurance certification" }
+};
+
+function updateCertSelectsLanguage() {
+  document.querySelectorAll("#certForm select option").forEach(opt => {
+    const val = opt.value;
+    if (certOptionDict[val]) {
+      opt.textContent = certOptionDict[val][language];
+    }
+  });
+}

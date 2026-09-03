@@ -607,3 +607,14 @@ body.research-page { color: var(--ink); background: var(--paper); }
     content: "安全儲存架構後果 (SECURITY CONSEQUENCE)";
   }
 }
+
+
+/* 繁中模式下手機版 Taxonomy 與 Attack 表格偽元素完整雙語化 */
+body[data-language="zh"] .taxonomy-table td:nth-of-type(1)::before { content: "儲存／表達變數 (STORED VARIABLE) · "; }
+body[data-language="zh"] .taxonomy-table td:nth-of-type(2)::before { content: "典型讀取觀測量 (READ OBSERVABLE) · "; }
+body[data-language="zh"] .taxonomy-table td:nth-of-type(3)::before { content: "斷電物理狀態 (POWER-OFF STATE) · "; }
+body[data-language="zh"] .taxonomy-table td:nth-of-type(4)::before { content: "實體旁路與攻擊路徑 (PHYSICAL AVENUES) · "; }
+
+body[data-language="zh"] .attack-table td:nth-of-type(1)::before { content: "SRAM / SRAM PUF 物理特性 · "; }
+body[data-language="zh"] .attack-table td:nth-of-type(2)::before { content: "持久型 OTP / OTP-PUF · "; }
+body[data-language="zh"] .attack-table td:nth-of-type(3)::before { content: "SECURE STORAGE 架構防禦含意 · "; }

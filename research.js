@@ -73,7 +73,7 @@ function updateResearchPhase(phase) {
       en: ["NO LOGIC STATE", "PERSISTENT PATH"]
     },
     express: {
-      zh: ["STARTUP RESPONSE", "導通位置"],
+      zh: ["上電初始偏好 (Startup Preference)", "導通位置"],
       en: ["STARTUP RESPONSE", "PATH LOCATION"]
     },
     read: {

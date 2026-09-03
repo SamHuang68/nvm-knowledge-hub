@@ -8,8 +8,8 @@
   <title>NVM Knowledge Hub · Secure Storage</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/secure-storage-hero-key.webp" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=20260904-typo-v4">
-  <link rel="stylesheet" href="site-shell.css?v=20260904-typo-v4">
+  <link rel="stylesheet" href="styles.css?v=20260904-hive-v5">
+  <link rel="stylesheet" href="site-shell.css?v=20260904-hive-v5">
   <style>
     /* Critical defensive inline styles: prevent SVG explosion & skip-link flash */
     .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
@@ -263,13 +263,13 @@
       </div>
       <div class="architecture-canvas">
         <div class="architecture-flow" role="group" aria-label="Secure Storage 架構">
-          <button class="arch-node active" type="button" data-node="puf" data-record-id="OIP-PUF-001" aria-controls="archDetail" aria-pressed="true"><span>01</span><svg><use href="#i-fingerprint"/></svg><b>SRAM PUF</b><small>RECONSTRUCT</small></button>
+          <button class="arch-node active" type="button" data-node="puf" data-record-id="OIP-PUF-001" aria-controls="archDetail" aria-pressed="true"><span>01</span><svg><use href="#i-fingerprint"/></svg><b>SRAM PUF</b><small><span data-lang="zh">金鑰重建</span><span data-lang="en">RECONSTRUCT</span></small></button>
           <i></i>
-          <button class="arch-node" type="button" data-node="crypto" data-record-id="OIP-CRYPTO-001" aria-controls="archDetail" aria-pressed="false"><span>02</span><svg><use href="#i-cipher"/></svg><b>CRYPTO ENGINE</b><small>PROTECT</small></button>
+          <button class="arch-node" type="button" data-node="crypto" data-record-id="OIP-CRYPTO-001" aria-controls="archDetail" aria-pressed="false"><span>02</span><svg><use href="#i-cipher"/></svg><b>CRYPTO ENGINE</b><small><span data-lang="zh">即時加解密</span><span data-lang="en">PROTECT</span></small></button>
           <i></i>
-          <button class="arch-node" type="button" data-node="otp" aria-controls="archDetail" aria-pressed="false"><span>03</span><svg><use href="#i-memory"/></svg><b>ANTIFUSE OTP</b><small>STORE</small></button>
+          <button class="arch-node" type="button" data-node="otp" aria-controls="archDetail" aria-pressed="false"><span>03</span><svg><use href="#i-memory"/></svg><b>ANTIFUSE OTP</b><small><span data-lang="zh">密文保存</span><span data-lang="en">STORE</span></small></button>
           <i></i>
-          <button class="arch-node" type="button" data-node="controller" aria-controls="archDetail" aria-pressed="false"><span>04</span><svg><use href="#i-control"/></svg><b>CONTROLLER</b><small>ORCHESTRATE</small></button>
+          <button class="arch-node" type="button" data-node="controller" aria-controls="archDetail" aria-pressed="false"><span>04</span><svg><use href="#i-control"/></svg><b>CONTROLLER</b><small><span data-lang="zh">存取編排</span><span data-lang="en">ORCHESTRATE</span></small></button>
         </div>
         <div class="arch-detail" id="archDetail" aria-live="polite" aria-atomic="true">
           <div class="detail-visual"><svg id="archIcon"><use href="#i-fingerprint"/></svg><span>DEVICE-UNIQUE</span></div>
@@ -474,6 +474,6 @@
     <p><span data-lang="zh">僅限公開技術證據 · 2026</span><span data-lang="en">Public evidence only · 2026</span></p>
   </footer>
 
-  <script src="app.js?v=20260904-typo-v4"></script>
+  <script src="app.js?v=20260904-hive-v5"></script>
 </body>
 </html>

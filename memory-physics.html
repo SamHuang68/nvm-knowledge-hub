@@ -7,9 +7,9 @@
   <meta name="theme-color" content="#061c2a">
   <title>記憶體物理與安全 · NVM Knowledge Hub</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260904-typo-v4">
-  <link rel="stylesheet" href="research.css?v=20260904-typo-v4">
-  <link rel="stylesheet" href="site-shell.css?v=20260904-typo-v4">
+  <link rel="stylesheet" href="styles.css?v=20260904-hive-v5">
+  <link rel="stylesheet" href="research.css?v=20260904-hive-v5">
+  <link rel="stylesheet" href="site-shell.css?v=20260904-hive-v5">
   <style>
     /* Critical defensive inline styles: prevent SVG explosion & skip-link flash */
     .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
@@ -219,6 +219,11 @@
         <div class="evidence-triptych">
           <article class="evidence-result"><span>DIRECT · SRAM</span><h3><span data-lang="zh">閒置 SRAM 也能「發光洩漏」</span><span data-lang="en">Idle SRAM can leak through photons</span></h3><p><span data-lang="zh">HOST 2018 示範以 photon emission microscopy 讀取 idle FPGA block RAM；光子來自 SRAM cell 中 state-dependent NMOS leakage。</span><span data-lang="en">HOST 2018 demonstrated idle FPGA block-RAM readout using photon emission microscopy from state-dependent NMOS leakage.</span></p><a href="https://doi.org/10.1109/HST.2018.8383889" target="_blank" rel="noreferrer">DOI 10.1109/HST.2018.8383889 ↗</a></article>
           <article class="evidence-result"><span>VENDOR · NeoPUF</span><h3><span data-lang="zh">永久 path 不等於必然可見 hotspot</span><span data-lang="en">A persistent path does not guarantee a visible hotspot</span></h3><p><span data-lang="zh">PUFsecurity 書籍描述 tunneling current readout，也報告其特定 InGaAs 實驗中 PUF array 未出現可分辨 hotspot。這是供應商證據，需獨立重現才可升級。</span><span data-lang="en">PUFsecurity describes tunneling-current readout and reports no distinguishable PUF-array hotspot in its InGaAs experiment. This is vendor evidence pending independent replication.</span></p><a href="https://www.pufsecurity.com/wp-content/uploads/2021/12/Quantum-Tunneling-PUF_0102.pdf" target="_blank" rel="noreferrer">Quantum Tunneling PUF, pp. 50–67 ↗</a></article>
+                    <article class="evidence-result automotive-physics-card">
+            <span>AUTOMOTIVE · 175°C GRADE 0</span>
+            <h3><span data-lang="zh">車規 175°C 極限環境：金屬導電細絲高溫零漂移物理</span><span data-lang="en">Automotive 175°C Grade 0: Metallic Filament Zero-Drift Physics</span></h3>
+            <p><span data-lang="zh">在 AEC-Q100 Grade 0（175°C 結溫）極限熱應力下，傳統浮閘 (Floating Gate) 與電荷捕捉 (Charge Trap) 記憶體面臨嚴重的應力誘發漏電 (SILC) 與熱激發去捕捉 (De-trapping) 導致金鑰流失。AntiFuse OTP 仰賴永久金屬矽化物導電細絲（熔點 &gt; 1000°C），在高溫下導電性不受熱載子擾動，展現 15 年以上絕對零電荷流失的物理穩固性。</span><span data-lang="en">Under extreme AEC-Q100 Grade 0 (175°C Tj) thermal stress, conventional floating-gate and charge-trap memories suffer accelerated Stress-Induced Leakage Current (SILC) and thermal de-trapping, destroying cryptographic keys. AntiFuse OTP leverages a permanent metallic silicide filament (melting point &gt; 1000°C) whose electrical path remains immune to thermal excitation, guaranteeing 15+ years of zero charge-loss reliability.</span></p>
+          </article>
           <article class="evidence-result"><span>DIRECT · ANTIFUSE</span><h3><span data-lang="zh">攻擊者不需要等 memory 自己亮</span><span data-lang="en">The attacker need not wait for the memory to emit</span></h3><p><span data-lang="zh">WOOT 2025 以 FIB passive voltage contrast 從 40 nm gate-dielectric-breakdown antifuse 擷取資料，證明失效分析 contrast 本身就是攻擊面。</span><span data-lang="en">WOOT 2025 extracted data from 40 nm gate-dielectric-breakdown antifuses using FIB passive voltage contrast, making failure-analysis contrast itself the attack surface.</span></p><a href="https://www.usenix.org/conference/woot25/presentation/zonenberg" target="_blank" rel="noreferrer">USENIX WOOT 2025 ↗</a></article>
         </div>
       </section>
@@ -342,6 +347,6 @@
     <p><span data-lang="zh">研究用途 · 公開來源 · 不取代產品安全評估</span><span data-lang="en">Research use · Public sources · Not a substitute for product security evaluation</span></p>
     <p>Research Note 02 · 2026</p>
   </footer>
-  <script src="research.js?v=20260904-typo-v4"></script>
+  <script src="research.js?v=20260904-hive-v5"></script>
 </body>
 </html>
