@@ -152,7 +152,7 @@ def main():
         s7,
         kicker_text="06 · QUALIFY NOW · TSMC IOT CONTINUUM",
         title_line1="TSMC 22ULL to N4e Scaling",
-        title_line2="Pure-logic OTP as MCU code storage",
+        title_line2="Pure-Logic OTP as MCU Code Storage",
         subtitle_text="Sub-0.6V near-threshold operation · zero-mask code execution",
         pill_text="TSMC FOUNDRY CONTINUUM",
         page_num_str="07",
@@ -182,7 +182,7 @@ def main():
         s8,
         kicker_text="07 · QUALIFY NOW · 3D CHIPLETS & UCIE",
         title_line1="3D SoIC Disaggregated Security",
-        title_line2="Dedicated hardware RoT per chiplet",
+        title_line2="Dedicated Hardware RoT per Chiplet",
         subtitle_text="Eliminating multi-die stacking loss · pre-bond KGD attestation",
         pill_text="3D PACKAGING INTEGRITY",
         page_num_str="08",
@@ -366,6 +366,48 @@ def main():
     print(f"Saving presentation to: {OUT_PATH_CHATGPT}")
     prs.save(OUT_PATH_CHATGPT)
     print(f"Saving presentation to: {OUT_PATH_LOCAL}")
+
+    # Enforce Title Case by default on all slide main titles (Slide 02 - Slide 17)
+    title_case_map = {
+        2: ["Authorize Five Target-Bound Qualifications", "Keep Two Families in Discovery"],
+        3: ["Memory Choice Follows State Lifetime—", "Not the Application Label"],
+        4: ["DDR5 PMIC + SPD Hub", "One Immediate Qualification Package"],
+        5: ["AI Power Controllers Expose", "a Bounded-Update NVM Socket"],
+        6: ["AI Platform Trust Needs OTP and PUF", "to Solve Different State Problems"],
+        7: ["TSMC 22ULL to N4e Scaling", "Pure-Logic OTP as MCU Code Storage"],
+        8: ["3D SoIC Disaggregated Security", "Dedicated Hardware RoT per Chiplet"],
+        9: ["NIST SP 800-208 Stateful Boot", "175°C Immune Metallic Filament Physics"],
+        10: ["AI SoC Repair Qualifies Directly", "HBM Repair Remains Locus-First"],
+        11: ["OCP Modules Persist Service State", "but Standards Do Not Select Our Macro"],
+        12: ["Decision Requested: Authorize Five", "Target-Bound Qualification Briefs"],
+        13: ["Public Requirement ≠ Synopsys Fit ≠ Design Win ≠ Shipment"],
+        14: ["DDR5, AI Power, TSMC IoT & 3D Chiplet Source Ledger"],
+        15: ["Persistent Semantics Are Explicit;", "Implementation Technology Remains Bounded"],
+        16: ["Before Selecting OTP, Name the Repair State", "and Its Programming Authority"],
+        17: ["A Candidate Advances Only When Five Peer Gates Close"]
+    }
+    for s_idx, s in enumerate(prs.slides, 1):
+        if s_idx in title_case_map:
+            lines = title_case_map[s_idx]
+            for shape in s.shapes:
+                if shape.has_text_frame:
+                    top_in = shape.top / 914400.0 if shape.top else 0
+                    left_in = shape.left / 914400.0 if shape.left else 0
+                    if 0.5 <= top_in <= 1.0 and 0.4 <= left_in <= 1.0:
+                        tf = shape.text_frame
+                        tf.clear()
+                        for l_idx, l_txt in enumerate(lines):
+                            p = tf.paragraphs[0] if l_idx == 0 else tf.add_paragraph()
+                            p.space_before = Pt(0)
+                            p.space_after = Pt(2)
+                            run = p.add_run()
+                            run.text = l_txt
+                            run.font.name = "Arial"
+                            run.font.size = Pt(28.0)
+                            run.font.bold = True
+                            run.font.color.rgb = C_DARK_NAVY
+                        break
+
     prs.save(OUT_PATH_LOCAL)
     print("SUCCESS: 100% Zero-Collision Masterpiece v18 regenerated cleanly!")
 
