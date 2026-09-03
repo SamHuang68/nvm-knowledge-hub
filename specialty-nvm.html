@@ -31,16 +31,20 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20260904-hive-v5">
   <link rel="stylesheet" href="site-shell.css?v=20260904-hive-v5">
-  <link rel="stylesheet" href="specialty-nvm.css?v=20260904-spec-v2">
+  <link rel="stylesheet" href="specialty-nvm.css?v=20260904-spec-v3">
   <style>
-    /* 全站語系切換最上層治理規範：英文為第一預設，只有 html[lang="zh"] 時顯示繁中 */
-    html:not([lang="zh"]) [data-lang="zh"] { display: none !important; }
-    html[lang="zh"] [data-lang="en"] { display: none !important; }
-    html[lang="zh"] [data-lang="zh"] { display: inline !important; }
-    html[lang="zh"] div[data-lang="zh"],
-    html[lang="zh"] p[data-lang="zh"],
-    html[lang="zh"] section[data-lang="zh"],
-    html[lang="zh"] article[data-lang="zh"] { display: block !important; }
+    /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert; }
+
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] {
+      display: revert !important;
+    }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] {
+      display: none !important;
+    }
   </style>
 </head>
 <body class="specialty-page">
@@ -83,6 +87,11 @@
       </button>
     </div>
   </header>
+
+  <nav class="site-breadcrumb" aria-label="Breadcrumb">
+    <a class="portfolio-return" href="https://samhuang68.github.io/#work" aria-label="Return to Sam Huang portfolio">SAM HUANG ↗</a><i></i><a href="index.html">Knowledge Hub</a><i></i><strong><span data-lang="zh">特種晶圓製造 NVM</span><span data-lang="en">Specialty Foundry NVM</span></strong>
+    <span class="topic-switch"><a href="index.html#topics">All Topics</a><a href="secure-storage.html">Secure Storage</a><a href="ai-nvm-opportunities.html">AI Systems</a><a aria-current="page" href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a></span>
+  </nav>
 
   <main id="main-content">
     <!-- Hero Section -->
@@ -150,6 +159,30 @@
             <span data-lang="en">BCD (Bipolar-CMOS-DMOS) integrates precise analog, dense logic, and high-voltage power switches on a monolithic die. Within high-voltage environments, embedded eNVM spans from analog parameter calibration to complex MCU firmware storage.</span>
           </p>
         </header>
+        <!-- Metric Callout Tiles Bar -->
+        <div class="metric-tiles-bar">
+          <div class="metric-tile">
+            <div class="metric-tile-val">&plusmn;0.5%</div>
+            <div class="metric-tile-label"><span data-lang="zh">帶隙基準電壓精度</span><span data-lang="en">Vref Trim Accuracy</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">收斂原始 &plusmn;5% 製程離散</span><span data-lang="en">Tighter than raw &plusmn;5% drift</span></div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">0 MASKS</div>
+            <div class="metric-tile-label"><span data-lang="zh">原生邏輯零額外光罩</span><span data-lang="en">Zero Mask Adder</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">省去 10-15 道 eFlash 光罩</span><span data-lang="en">Saves 10-15 eFlash masks</span></div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">175&deg;C Tj</div>
+            <div class="metric-tile-label"><span data-lang="zh">車規 Grade 0 結溫</span><span data-lang="en">AEC-Q100 Grade 0</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">耐受 15 年以上高溫零漂移</span><span data-lang="en">15+ yrs zero-drift retention</span></div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">30-50%</div>
+            <div class="metric-tile-label"><span data-lang="zh">整體晶圓成本節約</span><span data-lang="en">Wafer Cost Reduction</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">免除高溫退火破壞 LDMOS</span><span data-lang="en">Protects LDMOS breakdown</span></div>
+          </div>
+        </div>
+
 
         <!-- Sub-Topic: Low Density Trimming -->
         <div class="sub-topic-block">
@@ -171,10 +204,10 @@
                 <span data-lang="zh">半導體製造離散性會導致帶隙基準源 (Bandgap Reference Vref) 出現 &plusmn;3% 至 &plusmn;5% 誤差。透過在晶圓測試 (CP) 階段燒錄 128-bit 至 512-bit 的 AntiFuse OTP，微調內部電阻分壓梯，可將基準電壓誤差收斂至 &plusmn;0.5% 以內；同時微調內部 RC 振盪器頻率，杜絕交換式穩壓器因頻率偏移導致的 EMI 違規。</span>
                 <span data-lang="en">Process variations introduce &plusmn;3% to &plusmn;5% deviations in bandgap reference voltages (Vref). Burning 128-bit to 512-bit AntiFuse OTP during wafer sort trims internal resistor ladders, tightening Vref to within &plusmn;0.5% and calibrating internal RC oscillators to safeguard switching frequencies against EMI violations.</span>
               </p>
-              <ul class="spec-list">
-                <li><strong><span data-lang="zh">典型容量</span><span data-lang="en">Typical Density</span>:</strong> <span data-lang="zh">128 位元至 2K 位元 OTP / MTP</span><span data-lang="en">128-bit to 2K-bit OTP / MTP</span></li>
-                <li><strong><span data-lang="zh">關鍵參數</span><span data-lang="en">Key Parameters</span>:</strong> <span data-lang="zh">帶隙基準源 Vref 微調、過流保護 (OCP)、過壓保護 (OVP)、過溫關斷門檻</span><span data-lang="en">Vref trim, Over-Current Protection (OCP), Over-Voltage Protection (OVP), Thermal Shutdown threshold</span></li>
-                <li><strong><span data-lang="zh">製程節點</span><span data-lang="en">Process Nodes</span>:</strong> <span data-lang="zh">0.18 微米、0.13 微米、90 奈米、55 奈米 BCD 製程</span><span data-lang="en">0.18µm, 0.13µm, 90nm, 55nm BCD</span></li>
+              <ul class="spec-chip-list">
+                <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">典型容量</span><span data-lang="en">Typical Density</span></div><div class="spec-chip-v"><span data-lang="zh">128 位元至 2K 位元 OTP / MTP</span><span data-lang="en">128-bit to 2K-bit OTP / MTP</span></div></li>
+                <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">關鍵參數</span><span data-lang="en">Key Parameters</span></div><div class="spec-chip-v"><span data-lang="zh">帶隙基準源 Vref 微調、過流保護 (OCP)、過壓保護 (OVP)、過溫關斷門檻</span><span data-lang="en">Vref trim, Over-Current Protection (OCP), Over-Voltage Protection (OVP), Thermal Shutdown threshold</span></div></li>
+                <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">製程節點</span><span data-lang="en">Process Nodes</span></div><div class="spec-chip-v"><span data-lang="zh">0.18 微米、0.13 微米、90 奈米、55 奈米 BCD 製程</span><span data-lang="en">0.18µm, 0.13µm, 90nm, 55nm BCD</span></div></li>
               </ul>
               <div class="card-footer-metric">
                 <span><span data-lang="zh">微調精度：&plusmn;0.5% 帶隙電壓</span><span data-lang="en">TRIM ACCURACY: &plusmn;0.5% VREF</span></span>
@@ -192,10 +225,10 @@
                 <span data-lang="zh">高階車用矩陣式頭燈、Mini-LED 分區背光需要 16 至 48 條並聯恆流驅動通道。由於功率電晶體跨晶圓臨界電壓 (Vth) 離散，未校準時通道間電流誤差高達 &plusmn;5%。利用 eNVM 儲存各通道獨立的數位增益補償碼，可將通道間失配嚴格壓低在 1.0% 以內，杜絕顯示斑塊與車燈光斑不均。</span>
                 <span data-lang="en">Automotive matrix headlights and Mini-LED local dimming require 16 to 48 parallel current-sink channels. Due to transistor threshold voltage (Vth) variation, raw channel mismatch reaches &plusmn;5%. Storing per-channel digital gain trim codes in eNVM crushes mismatch below 1.0%, eliminating luminance banding and hot spots.</span>
               </p>
-              <ul class="spec-list">
-                <li><strong><span data-lang="zh">恆流精度</span><span data-lang="en">Current Accuracy</span>:</strong> <span data-lang="zh">微調後通道間誤差小於 1.0%</span><span data-lang="en">Channel-to-channel mismatch &lt;1.0% after electrical trim</span></li>
-                <li><strong><span data-lang="zh">資料留存</span><span data-lang="en">Retention</span>:</strong> <span data-lang="zh">在 125°C 至 150°C 結溫下保存 15 年以上</span><span data-lang="en">15+ years @ 125°C to 150°C junction temperature</span></li>
-                <li><strong><span data-lang="zh">經濟效益</span><span data-lang="en">Economics</span>:</strong> <span data-lang="zh">免除外部精密電阻與昂貴雷射熔斷工序</span><span data-lang="en">Eliminates external precision resistors and laser trimming steps</span></li>
+              <ul class="spec-chip-list">
+                <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">恆流精度</span><span data-lang="en">Current Accuracy</span></div><div class="spec-chip-v"><span data-lang="zh">微調後通道間誤差小於 1.0%</span><span data-lang="en">Channel-to-channel mismatch &lt;1.0% after electrical trim</span></div></li>
+                <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">資料留存</span><span data-lang="en">Retention</span></div><div class="spec-chip-v"><span data-lang="zh">在 125°C 至 150°C 結溫下保存 15 年以上</span><span data-lang="en">15+ years @ 125°C to 150°C junction temperature</span></div></li>
+                <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">經濟效益</span><span data-lang="en">Economics</span></div><div class="spec-chip-v"><span data-lang="zh">免除外部精密電阻與昂貴雷射熔斷工序</span><span data-lang="en">Eliminates external precision resistors and laser trimming steps</span></div></li>
               </ul>
               <div class="card-footer-metric">
                 <span><span data-lang="zh">通道匹配：&lt;1.0% 誤差</span><span data-lang="en">MISMATCH: &lt;1.0%</span></span>
@@ -414,6 +447,30 @@
             <span data-lang="en">When pixel arrays or memory cells scale into millions and billions, a single defect causes fatal die loss. Deploying redundant spare elements and remapping defective addresses via AntiFuse OTP secures multi-billion-dollar semiconductor yields.</span>
           </p>
         </header>
+        <!-- Metric Callout Tiles Bar -->
+        <div class="metric-tiles-bar">
+          <div class="metric-tile">
+            <div class="metric-tile-val">&plusmn;0.5%</div>
+            <div class="metric-tile-label"><span data-lang="zh">帶隙基準電壓精度</span><span data-lang="en">Vref Trim Accuracy</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">收斂原始 &plusmn;5% 製程離散</span><span data-lang="en">Tighter than raw &plusmn;5% drift</span></div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">0 MASKS</div>
+            <div class="metric-tile-label"><span data-lang="zh">原生邏輯零額外光罩</span><span data-lang="en">Zero Mask Adder</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">省去 10-15 道 eFlash 光罩</span><span data-lang="en">Saves 10-15 eFlash masks</span></div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">175&deg;C Tj</div>
+            <div class="metric-tile-label"><span data-lang="zh">車規 Grade 0 結溫</span><span data-lang="en">AEC-Q100 Grade 0</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">耐受 15 年以上高溫零漂移</span><span data-lang="en">15+ yrs zero-drift retention</span></div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">30-50%</div>
+            <div class="metric-tile-label"><span data-lang="zh">整體晶圓成本節約</span><span data-lang="en">Wafer Cost Reduction</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">免除高溫退火破壞 LDMOS</span><span data-lang="en">Protects LDMOS breakdown</span></div>
+          </div>
+        </div>
+
 
         <!-- Pipeline Flow -->
         <div class="pipeline-flow">
@@ -508,7 +565,8 @@
                 </button>
               </div>
 
-              <div class="repair-terminal" id="terminalLogs">
+              <div class="terminal-window-header"><span class="term-dot term-dot-red"></span><span class="term-dot term-dot-yellow"></span><span class="term-dot term-dot-green"></span></div>
+                  <div class="repair-terminal" id="terminalLogs">
                 <div class="term-line">> SYSTEM READY. WAITING FOR DEFECT INJECTION...</div>
               </div>
 
@@ -541,10 +599,10 @@
               <span data-lang="zh">在高階手機（4800 萬至 2 億畫素）及車載 ADAS 鏡頭中，暗電流漏電導致的「熱像素 (Hot Pixels)」或無反應的「死像素 (Dead Pixels)」無法容忍。在晶圓堆疊（Pixel + Logic ISP + DRAM）結構中，邏輯層 eNVM 儲存數萬筆缺陷座標與增益修正檔，於輸出前由 ISP 即時執行雙線性插值補償，確保成像無瑕疵。</span>
               <span data-lang="en">In 48MP to 200MP mobile and automotive ADAS cameras, hot pixels and dead pixels degrade image fidelity. In 3D-stacked CIS architectures, logic-tier eNVM stores defect coordinates and gain tables, enabling the integrated ISP to perform real-time bilinear interpolation before sensor readout.</span>
             </p>
-            <ul class="spec-list">
-              <li><strong><span data-lang="zh">典型容量</span><span data-lang="en">Typical Density</span>:</strong> <span data-lang="zh">16K-bit 至 128K-bit AntiFuse OTP</span><span data-lang="en">16K-bit to 128K-bit AntiFuse OTP</span></li>
-              <li><strong><span data-lang="zh">修復型態</span><span data-lang="en">Repair Mode</span>:</strong> <span data-lang="zh">壞像素座標重映射 + 鏡頭陰影補償 + 暗電流微調</span><span data-lang="en">Dead pixel table remap + Lens shading compensation + Dark current trim</span></li>
-              <li><strong><span data-lang="zh">堆疊架構</span><span data-lang="en">Stacking Architecture</span>:</strong> <span data-lang="zh">TSMC 3DFabric / 晶圓級銅-銅鍵合 (Cu-Cu Hybrid Bonding)</span><span data-lang="en">TSMC 3DFabric / Cu-Cu Direct Hybrid Bonding</span></li>
+            <ul class="spec-chip-list">
+              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">典型容量</span><span data-lang="en">Typical Density</span></div><div class="spec-chip-v"><span data-lang="zh">16K-bit 至 128K-bit AntiFuse OTP</span><span data-lang="en">16K-bit to 128K-bit AntiFuse OTP</span></div></li>
+              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">修復型態</span><span data-lang="en">Repair Mode</span></div><div class="spec-chip-v"><span data-lang="zh">壞像素座標重映射 + 鏡頭陰影補償 + 暗電流微調</span><span data-lang="en">Dead pixel table remap + Lens shading compensation + Dark current trim</span></div></li>
+              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">堆疊架構</span><span data-lang="en">Stacking Architecture</span></div><div class="spec-chip-v"><span data-lang="zh">TSMC 3DFabric / 晶圓級銅-銅鍵合 (Cu-Cu Hybrid Bonding)</span><span data-lang="en">TSMC 3DFabric / Cu-Cu Direct Hybrid Bonding</span></div></li>
             </ul>
           </article>
 
@@ -557,10 +615,10 @@
               <span data-lang="zh">伺服器 DDR5 與 AI 高頻寬記憶體 (HBM3/HBM3e) 包含數十億個儲存位元。傳統雷射熔斷在晶片封裝後無法再修復。AntiFuse OTP 支援 JEDEC 標準硬體封裝後修復 (hPPR)，當系統在資料中心現場運作發現單元故障時，可發送 PPR 指令永久燒斷備援單元，避免整張數萬美元的 AI 加速卡報廢。</span>
               <span data-lang="en">DDR5 and AI HBM3/HBM3e stack billions of cells. Laser fuses cannot repair faults post-packaging. AntiFuse OTP natively powers JEDEC Hard Post-Package Repair (hPPR). When field faults emerge in datacenter servers, PPR commands permanently remap rows, salvaging five-figure AI accelerator modules.</span>
             </p>
-            <ul class="spec-list">
-              <li><strong><span data-lang="zh">標準規格</span><span data-lang="en">Standard</span>:</strong> <span data-lang="zh">符合 JEDEC JESD79-5 DDR5 與 JESD238 HBM3e hPPR / sPPR 規範</span><span data-lang="en">JEDEC JESD79-5 DDR5 &amp; JESD238 HBM3e hPPR / sPPR compliant</span></li>
-              <li><strong><span data-lang="zh">現場修復能力</span><span data-lang="en">Field Repairability</span>:</strong> <span data-lang="zh">支援伺服器主板上線後在線永久修復</span><span data-lang="en">In-field permanent row replacement on server motherboard</span></li>
-              <li><strong><span data-lang="zh">可靠度</span><span data-lang="en">Reliability</span>:</strong> <span data-lang="zh">零回彈、零金屬飛濺、永久奈米金屬化</span><span data-lang="en">Zero grow-back, zero debris, permanent silicide filament</span></li>
+            <ul class="spec-chip-list">
+              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">標準規格</span><span data-lang="en">Standard</span></div><div class="spec-chip-v"><span data-lang="zh">符合 JEDEC JESD79-5 DDR5 與 JESD238 HBM3e hPPR / sPPR 規範</span><span data-lang="en">JEDEC JESD79-5 DDR5 &amp; JESD238 HBM3e hPPR / sPPR compliant</span></div></li>
+              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">現場修復能力</span><span data-lang="en">Field Repairability</span></div><div class="spec-chip-v"><span data-lang="zh">支援伺服器主板上線後在線永久修復</span><span data-lang="en">In-field permanent row replacement on server motherboard</span></div></li>
+              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">可靠度</span><span data-lang="en">Reliability</span></div><div class="spec-chip-v"><span data-lang="zh">零回彈、零金屬飛濺、永久奈米金屬化</span><span data-lang="en">Zero grow-back, zero debris, permanent silicide filament</span></div></li>
             </ul>
           </article>
         </div>
@@ -620,6 +678,30 @@
             <span data-lang="en">Display Driver ICs (DDICs) handle severe voltage swings (Gate +20V/-15V, Source 8V-12V). Embedded eNVM must withstand high-voltage electrical stress to preserve optical calibration registers and color correction tables.</span>
           </p>
         </header>
+        <!-- Metric Callout Tiles Bar -->
+        <div class="metric-tiles-bar">
+          <div class="metric-tile">
+            <div class="metric-tile-val">&plusmn;0.5%</div>
+            <div class="metric-tile-label"><span data-lang="zh">帶隙基準電壓精度</span><span data-lang="en">Vref Trim Accuracy</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">收斂原始 &plusmn;5% 製程離散</span><span data-lang="en">Tighter than raw &plusmn;5% drift</span></div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">0 MASKS</div>
+            <div class="metric-tile-label"><span data-lang="zh">原生邏輯零額外光罩</span><span data-lang="en">Zero Mask Adder</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">省去 10-15 道 eFlash 光罩</span><span data-lang="en">Saves 10-15 eFlash masks</span></div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">175&deg;C Tj</div>
+            <div class="metric-tile-label"><span data-lang="zh">車規 Grade 0 結溫</span><span data-lang="en">AEC-Q100 Grade 0</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">耐受 15 年以上高溫零漂移</span><span data-lang="en">15+ yrs zero-drift retention</span></div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">30-50%</div>
+            <div class="metric-tile-label"><span data-lang="zh">整體晶圓成本節約</span><span data-lang="en">Wafer Cost Reduction</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">免除高溫退火破壞 LDMOS</span><span data-lang="en">Protects LDMOS breakdown</span></div>
+          </div>
+        </div>
+
 
         <div class="card-grid-3">
           <article class="tech-card">
@@ -788,6 +870,30 @@
             <span data-lang="en">Electrophoretic microcapsules require 40V to 50V (up to 110HV) pulses to move charged particles. Given bistable zero-power demands, standard BCD is excluded due to junction leakage. As color displays evolve from monochrome to Kaleido 3, waveform storage migrates from MTP to pure-logic OTP.</span>
           </p>
         </header>
+        <!-- Metric Callout Tiles Bar -->
+        <div class="metric-tiles-bar">
+          <div class="metric-tile">
+            <div class="metric-tile-val">&plusmn;0.5%</div>
+            <div class="metric-tile-label"><span data-lang="zh">帶隙基準電壓精度</span><span data-lang="en">Vref Trim Accuracy</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">收斂原始 &plusmn;5% 製程離散</span><span data-lang="en">Tighter than raw &plusmn;5% drift</span></div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">0 MASKS</div>
+            <div class="metric-tile-label"><span data-lang="zh">原生邏輯零額外光罩</span><span data-lang="en">Zero Mask Adder</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">省去 10-15 道 eFlash 光罩</span><span data-lang="en">Saves 10-15 eFlash masks</span></div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">175&deg;C Tj</div>
+            <div class="metric-tile-label"><span data-lang="zh">車規 Grade 0 結溫</span><span data-lang="en">AEC-Q100 Grade 0</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">耐受 15 年以上高溫零漂移</span><span data-lang="en">15+ yrs zero-drift retention</span></div>
+          </div>
+          <div class="metric-tile">
+            <div class="metric-tile-val">30-50%</div>
+            <div class="metric-tile-label"><span data-lang="zh">整體晶圓成本節約</span><span data-lang="en">Wafer Cost Reduction</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">免除高溫退火破壞 LDMOS</span><span data-lang="en">Protects LDMOS breakdown</span></div>
+          </div>
+        </div>
+
 
         <div class="card-grid-2">
           <article class="tech-card">
@@ -799,10 +905,10 @@
               <span data-lang="zh">不同於傳統 LCD 驅動晶片的 &plusmn;16V 或 32V 電壓，微膠囊/微杯電泳技術 (Electrophoretic Display, EPD) 需要施加高達 <strong>40V 至 50V (甚至高達 110HV 製程)</strong> 的電場脈衝，才能精確推動帶正負電荷的黑、白、紅、黃等多色微粒子在微流體中克服黏滯阻力上下浮沉。因為電子紙具備「雙穩態 (Bistable)」特性（僅在畫面變更時耗電，靜止時零功耗），晶片對靜態待機漏電要求極為嚴苛。<strong>傳統 BCD 製程在 40V-50V 高壓下的接面漏電 (Junction Leakage) 過高</strong>，會迅速耗盡電子貨架標籤 (ESL) 的鈕扣電池，因此全球電子紙驅動晶片普遍轉向專屬的 110HV、90HV 與 80eHV 特種高壓 CMOS 製程。</span>
               <span data-lang="en">Unlike conventional LCD drivers operating at &plusmn;16V or 32V, electrophoretic displays (EPD) require high-voltage pulses of <strong>40V to 50V (up to 110HV foundry nodes)</strong> to propel charged multi-color microparticles against fluid drag. Because E-Ink is intrinsically bistable (zero power at steady state), standby leakage budgets are razor-thin. <strong>Standard BCD processes suffer excessive junction leakage at 40V-50V</strong>, rapidly draining Electronic Shelf Label (ESL) coin-cell batteries. Consequently, leading E-Ink DDICs rely strictly on specialized 110HV, 90HV, and 80eHV high-voltage CMOS platforms.</span>
             </p>
-            <ul class="spec-list">
-              <li><strong><span data-lang="zh">驅動電壓水準</span><span data-lang="en">Operating Voltage</span>:</strong> <span data-lang="zh">40V 至 50V 超高壓脈衝 (大幅超出標準 LCD 的 32V)</span><span data-lang="en">40V to 50V HV pulses (exceeding standard 32V LCD DDI)</span></li>
-              <li><strong><span data-lang="zh">漏電限制指標</span><span data-lang="en">Leakage Constraint</span>:</strong> <span data-lang="zh">嚴格零待機漏電，確保 ESL 鈕扣電池運作 5-10 年</span><span data-lang="en">Zero standby drain for 5-10 year battery lifetime in ESL applications</span></li>
-              <li><strong><span data-lang="zh">晶粒外觀限制</span><span data-lang="en">Die Form Factor</span>:</strong> <span data-lang="zh">極度嚴苛的晶粒高度限制 (&lt;250&mu;m)，利於 COG/COF 封裝邊界佈局</span><span data-lang="en">Stringent height limitation (&lt;250µm) for edge COG/COF bonding</span></li>
+            <ul class="spec-chip-list">
+              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">驅動電壓水準</span><span data-lang="en">Operating Voltage</span></div><div class="spec-chip-v"><span data-lang="zh">40V 至 50V 超高壓脈衝 (大幅超出標準 LCD 的 32V)</span><span data-lang="en">40V to 50V HV pulses (exceeding standard 32V LCD DDI)</span></div></li>
+              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">漏電限制指標</span><span data-lang="en">Leakage Constraint</span></div><div class="spec-chip-v"><span data-lang="zh">嚴格零待機漏電，確保 ESL 鈕扣電池運作 5-10 年</span><span data-lang="en">Zero standby drain for 5-10 year battery lifetime in ESL applications</span></div></li>
+              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">晶粒外觀限制</span><span data-lang="en">Die Form Factor</span></div><div class="spec-chip-v"><span data-lang="zh">極度嚴苛的晶粒高度限制 (&lt;250&mu;m)，利於 COG/COF 封裝邊界佈局</span><span data-lang="en">Stringent height limitation (&lt;250µm) for edge COG/COF bonding</span></div></li>
             </ul>
           </article>
 
