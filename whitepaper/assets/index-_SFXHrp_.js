@@ -214,4 +214,162 @@
       <td data-label="EVIDENCE STATUS"><span class="status-chip">${e.evidenceStatus}</span></td>
     </tr>
   `).join(``)}function f(e){return e?e.includes(`None`)||e.includes(`Monolithic`)||e.includes(`Die-internal`)?`sec-high`:e.includes(`High`)||e.includes(`External`)?`sec-low`:`sec-med`:``}function p(e){let t=[`Profile`,`Family`,`Contract`,`NodeLens`,`UpdateModel`,`BusExposure`,`Latency`,`BOMCost`,`StrongestFit`,`EvidenceStatus`],n=e.map(e=>[`"${e.profile.replace(/"/g,`""`)}"`,`"${e.family.replace(/"/g,`""`)}"`,`"${e.contract.replace(/"/g,`""`)}"`,`"${(e.nodeLens||``).replace(/"/g,`""`)}"`,`"${(e.updateModel||``).replace(/"/g,`""`)}"`,`"${(e.busExposure||``).replace(/"/g,`""`)}"`,`"${(e.latency||``).replace(/"/g,`""`)}"`,`"${(e.bomCost||``).replace(/"/g,`""`)}"`,`"${e.strongestFit.replace(/"/g,`""`)}"`,`"${e.evidenceStatus.replace(/"/g,`""`)}"`]),r=`data:text/csv;charset=utf-8,`+[t.join(`,`),...n.map(e=>e.join(`,`))].join(`
-`),i=encodeURI(r),a=document.createElement(`a`);a.setAttribute(`href`,i),a.setAttribute(`download`,`nvm_decision_matrix_profiles.csv`),document.body.appendChild(a),a.click(),document.body.removeChild(a)}function m(e){let t=`data:text/json;charset=utf-8,`+encodeURIComponent(JSON.stringify(e,null,2)),n=document.createElement(`a`);n.setAttribute(`href`,t),n.setAttribute(`download`,`nvm_decision_matrix_profiles.json`),document.body.appendChild(n),n.click(),document.body.removeChild(n)}var h=[`overview`,`whitepaper`,`selector`,`taxonomy`,`templates`],g={phase1:`overview`,phase2:`whitepaper`,matrix:`selector`,phase4:`taxonomy`,phase3:`templates`};function _(){let e=new URLSearchParams(window.location.search).get(`view`)||`overview`;return h.includes(e)?e:g[e]||`overview`}function v(e,{updateHistory:t=!0,focus:n=!1}={}){let r=h.includes(e)?e:`overview`;if(document.querySelectorAll(`.view-tab`).forEach(e=>{let t=e.dataset.view===r;e.setAttribute(`aria-selected`,t?`true`:`false`),e.tabIndex=t?0:-1,t&&n&&e.focus()}),document.querySelectorAll(`.studio-panel`).forEach(e=>{e.hidden=e.id!==`panel-${r}`}),t){let e=new URL(window.location.href);r===`overview`?e.searchParams.delete(`view`):e.searchParams.set(`view`,r),r!==`whitepaper`&&e.hash.startsWith(`#chap-`)&&(e.hash=``),window.history.pushState({view:r},``,`${e.pathname}${e.search}${e.hash}`)}}function y({scrollChapter:e=!1}={}){let t=new URL(window.location.href),n=t.hash.startsWith(`#chap-`),r=t.searchParams.has(`view`),i=_();n&&!r&&(i=`whitepaper`),n&&i!==`whitepaper`&&(t.hash=``,window.history.replaceState({view:i},``,`${t.pathname}${t.search}`)),v(i,{updateHistory:!1}),n&&i===`whitepaper`&&e&&requestAnimationFrame(()=>document.querySelector(window.location.hash)?.scrollIntoView({block:`start`}))}function b(){let e=[...document.querySelectorAll(`.view-tab`)];e.forEach((t,n)=>{t.addEventListener(`click`,()=>v(t.dataset.view)),t.addEventListener(`keydown`,t=>{if(![`ArrowLeft`,`ArrowRight`,`ArrowUp`,`ArrowDown`,`Home`,`End`].includes(t.key))return;t.preventDefault();let r=n;r=t.key===`Home`?0:t.key===`End`?e.length-1:t.key===`ArrowLeft`||t.key===`ArrowUp`?(n-1+e.length)%e.length:(n+1)%e.length,v(e[r].dataset.view,{focus:!0})})}),window.addEventListener(`popstate`,()=>y({scrollChapter:!0}))}function x(){let e=document.querySelector(`#menuToggle`),t=document.querySelector(`#globalNav`),n=(n=!1)=>{t?.classList.remove(`open`),e?.setAttribute(`aria-expanded`,`false`),e?.setAttribute(`aria-label`,`Open navigation`),n&&e?.focus()};e?.addEventListener(`click`,()=>{let n=t.classList.toggle(`open`);e.setAttribute(`aria-expanded`,n?`true`:`false`),e.setAttribute(`aria-label`,n?`Close navigation`:`Open navigation`),n&&t.querySelector(`a`)?.focus()}),t?.addEventListener(`click`,e=>{e.target.closest(`a`)&&n()}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&t?.classList.contains(`open`)&&n(!0)}),window.addEventListener(`resize`,()=>{window.matchMedia(`(min-width: 1081px)`).matches&&n()},{passive:!0})}function S(e){let t=document.querySelector(`#toast`);t&&(t.textContent=e,t.classList.add(`show`),window.clearTimeout(S.timer),S.timer=window.setTimeout(()=>t.classList.remove(`show`),2400))}function C(){document.addEventListener(`click`,async e=>{let t=e.target.closest(`[data-copy-outline]`);if(!t)return;let n=t.dataset.copyOutline||``;try{await navigator.clipboard.writeText(n),S(`Template outline copied`)}catch{let e=document.createElement(`textarea`);e.value=n,e.setAttribute(`readonly`,``),e.className=`clipboard-fallback`,document.body.appendChild(e),e.select(),document.execCommand(`copy`),e.remove(),S(`Template outline copied`)}})}document.addEventListener(`DOMContentLoaded`,()=>{t(document.querySelector(`#panel-overview`)),r(document.querySelector(`#panel-whitepaper`)),u(document.querySelector(`#panel-selector`)),c(document.querySelector(`#panel-taxonomy`)),a(document.querySelector(`#panel-templates`)),b(),x(),C(),y({scrollChapter:!0})});function w(){let e=document.getElementById(`languageToggle`),t=localStorage.getItem(`nvm-language`)||`en`;function n(n){t=n,localStorage.setItem(`nvm-language`,n),document.documentElement.lang=n===`zh`?`zh-Hant`:`en`,e&&e.setAttribute(`aria-label`,n===`zh`?`Switch to English`:`切換至繁體中文`)}e?.addEventListener(`click`,()=>{n(t===`zh`?`en`:`zh`)}),n(t)}document.addEventListener(`DOMContentLoaded`,w);
+`),i=encodeURI(r),a=document.createElement(`a`);a.setAttribute(`href`,i),a.setAttribute(`download`,`nvm_decision_matrix_profiles.csv`),document.body.appendChild(a),a.click(),document.body.removeChild(a)}function m(e){let t=`data:text/json;charset=utf-8,`+encodeURIComponent(JSON.stringify(e,null,2)),n=document.createElement(`a`);n.setAttribute(`href`,t),n.setAttribute(`download`,`nvm_decision_matrix_profiles.json`),document.body.appendChild(n),n.click(),document.body.removeChild(n)}var h=[`overview`,`whitepaper`,`selector`,`taxonomy`,`templates`],g={phase1:`overview`,phase2:`whitepaper`,matrix:`selector`,phase4:`taxonomy`,phase3:`templates`};function _(){let e=new URLSearchParams(window.location.search).get(`view`)||`overview`;return h.includes(e)?e:g[e]||`overview`}function v(e,{updateHistory:t=!0,focus:n=!1}={}){let r=h.includes(e)?e:`overview`;if(document.querySelectorAll(`.view-tab`).forEach(e=>{let t=e.dataset.view===r;e.setAttribute(`aria-selected`,t?`true`:`false`),e.tabIndex=t?0:-1,t&&n&&e.focus()}),document.querySelectorAll(`.studio-panel`).forEach(e=>{e.hidden=e.id!==`panel-${r}`}),t){let e=new URL(window.location.href);r===`overview`?e.searchParams.delete(`view`):e.searchParams.set(`view`,r),r!==`whitepaper`&&e.hash.startsWith(`#chap-`)&&(e.hash=``),window.history.pushState({view:r},``,`${e.pathname}${e.search}${e.hash}`)}}function y({scrollChapter:e=!1}={}){let t=new URL(window.location.href),n=t.hash.startsWith(`#chap-`),r=t.searchParams.has(`view`),i=_();n&&!r&&(i=`whitepaper`),n&&i!==`whitepaper`&&(t.hash=``,window.history.replaceState({view:i},``,`${t.pathname}${t.search}`)),v(i,{updateHistory:!1}),n&&i===`whitepaper`&&e&&requestAnimationFrame(()=>document.querySelector(window.location.hash)?.scrollIntoView({block:`start`}))}function b(){let e=[...document.querySelectorAll(`.view-tab`)];e.forEach((t,n)=>{t.addEventListener(`click`,()=>v(t.dataset.view)),t.addEventListener(`keydown`,t=>{if(![`ArrowLeft`,`ArrowRight`,`ArrowUp`,`ArrowDown`,`Home`,`End`].includes(t.key))return;t.preventDefault();let r=n;r=t.key===`Home`?0:t.key===`End`?e.length-1:t.key===`ArrowLeft`||t.key===`ArrowUp`?(n-1+e.length)%e.length:(n+1)%e.length,v(e[r].dataset.view,{focus:!0})})}),window.addEventListener(`popstate`,()=>y({scrollChapter:!0}))}function x(){let e=document.querySelector(`#menuToggle`),t=document.querySelector(`#globalNav`),n=(n=!1)=>{t?.classList.remove(`open`),e?.setAttribute(`aria-expanded`,`false`),e?.setAttribute(`aria-label`,`Open navigation`),n&&e?.focus()};e?.addEventListener(`click`,()=>{let n=t.classList.toggle(`open`);e.setAttribute(`aria-expanded`,n?`true`:`false`),e.setAttribute(`aria-label`,n?`Close navigation`:`Open navigation`),n&&t.querySelector(`a`)?.focus()}),t?.addEventListener(`click`,e=>{e.target.closest(`a`)&&n()}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&t?.classList.contains(`open`)&&n(!0)}),window.addEventListener(`resize`,()=>{window.matchMedia(`(min-width: 1081px)`).matches&&n()},{passive:!0})}function S(e){let t=document.querySelector(`#toast`);t&&(t.textContent=e,t.classList.add(`show`),window.clearTimeout(S.timer),S.timer=window.setTimeout(()=>t.classList.remove(`show`),2400))}function C(){document.addEventListener(`click`,async e=>{let t=e.target.closest(`[data-copy-outline]`);if(!t)return;let n=t.dataset.copyOutline||``;try{await navigator.clipboard.writeText(n),S(`Template outline copied`)}catch{let e=document.createElement(`textarea`);e.value=n,e.setAttribute(`readonly`,``),e.className=`clipboard-fallback`,document.body.appendChild(e),e.select(),document.execCommand(`copy`),e.remove(),S(`Template outline copied`)}})}document.addEventListener(`DOMContentLoaded`,()=>{t(document.querySelector(`#panel-overview`)),r(document.querySelector(`#panel-whitepaper`)),u(document.querySelector(`#panel-selector`)),c(document.querySelector(`#panel-taxonomy`)),a(document.querySelector(`#panel-templates`)),b(),x(),C(),y({scrollChapter:!0})});const WP_ZH_DICT = {
+  "TECHNOLOGY & SELECTION": "技術與架構決策",
+  "← PORTFOLIO": "← 作品集",
+  "All Topics": "總門戶",
+  "Secure Storage": "安全儲存",
+  "AI Systems": "AI 與先進節點",
+  "Research Library": "研究與證據庫",
+  "Skip to main content": "跳至主要內容",
+  "NVM Knowledge Hub": "NVM 知識總體系",
+  "Knowledge Workbench": "知識決策工作台",
+  "Whitepaper Studio": "白皮書決策工作室",
+  "NVM KNOWLEDGE WORKBENCH · PUBLIC EDITION": "NVM 知識決策工作台 · 公開版",
+  "From NVM technology": "從 NVM 物理技術",
+  "to a defensible selection": "到可辯護的架構決策",
+  "A governed workspace for technology whitepapers, state-contract trade-offs and SharePoint content models—built around what can be supported, what must be validated and what remains open.": "針對半導體技術白皮書、持久狀態契約權衡與企業 SharePoint 內容模型所構建的受治理工作台——圍繞著何種技術可被支援、何種指標必須驗證、以及何種邊界仍待探索。",
+  "Read the whitepaper": "閱讀完整白皮書",
+  "Open decision matrix": "開啟架構決策矩陣",
+  "PUBLIC WORKING DRAFT": "公開工作草案",
+  "Illustrative profiles are decision aids, not product specifications.": "展示設定檔僅作為架構決策輔助，非商業產品保證規格。",
+  "Conceptual NVM state-contract map · not a physical floorplan": "概念性 NVM 狀態契約地圖 · 非物理佈局圖",
+  "program once · verify always": "單次寫入 · 永久驗證",
+  "rare updates · controlled owner": "極低更新 · 受控權威",
+  "managed change · recovery path": "受控變更 · 復原路徑",
+  "logs · repair · field learning": "運作日誌 · 修復 · 現場學習",
+  "IDENTITY": "晶片身分",
+  "CALIBRATION": "參數微調",
+  "FIRMWARE": "安全韌體",
+  "RAS STATE": "RAS 狀態",
+  "IMMUTABLE": "不可竄改",
+  "BOUNDED": "受限變更",
+  "ADAPTIVE": "自適應",
+  "OPERATIONAL": "運行維運",
+  "NVM SELECTION": "NVM 決策矩陣",
+  "STATE": "狀態",
+  "CONTRACT": "契約",
+  "EVIDENCE · SCOPE · LIMIT": "技術證據 · 範圍 · 邊界",
+  "EXPLORE THE WORKBENCH": "探索決策工作台",
+  "Each view preserves evidence status and a SharePoint-ready content contract.": "每一種檢視皆完整保留技術證據狀態與 SharePoint 就緒內容契約。",
+  "NVM Overview": "NVM 全貌總覽",
+  "Technical Whitepaper": "技術白皮書閱讀器",
+  "Decision Matrix": "架構決策矩陣",
+  "SharePoint Taxonomy": "SharePoint 分類體系",
+  "Content Templates": "技術內容範本",
+  "Selecting NVM by State Contract, Process Boundary and Evidence": "依狀態契約、製程邊界與證據鏈進行 NVM 架構選型",
+  "A public architecture guide for turning persistent-state requirements into defensible technology decisions": "一份將非揮發性持久狀態需求轉化為可辯護技術決策的公開架構指引",
+  "Begin With the State Contract": "以狀態契約為決策起點",
+  "Map Technology Families to the Contract": "將記憶體技術家族對齊狀態契約",
+  "Treat Node Migration as an Integration Decision": "將製程節點微縮視為系統整合決策",
+  "Make the Decision Evidence-Aware": "建立具備證據感知能力的架構決策",
+  "Transfer the Knowledge, Not Just the Page": "沉澱轉移架構知識，而非僅交付頁面",
+  "Start with the available voltage and device stack": "從可用電壓與元件堆疊出發",
+  "Treat scaling as an integration-economics boundary": "將製程微縮視為整合經濟學邊界",
+  "Decouple read supply from program infrastructure": "將讀取電源與燒錄基礎架構解耦",
+  "Move from one macro to a distributed state architecture": "從單一巨集轉向分散式狀態架構",
+  "Four persistent-state promises": "四大持久狀態承諾",
+  "Compare by fit and boundary": "依適配度與物理邊界比較",
+  "What changes as the process changes": "製程演進帶來的架構變化",
+  "A repeatable way to select NVM": "可重複驗證的 NVM 選型序列",
+  "STATE CONTRACTS": "狀態契約",
+  "TECHNOLOGY FAMILIES": "技術家族",
+  "PROCESS-NODE LENS": "製程節點視角",
+  "DECISION SEQUENCE": "選型序列",
+  "CHAPTER INDEX": "章節目錄",
+  "ARCHITECTURE TAKEAWAYS": "架構核心結論",
+  "EVIDENCE CLASS": "證據等級",
+  "LIMITATION": "限制條件",
+  "EDITORIAL OWNER": "架構負責人",
+  "STATUS": "狀態",
+  "REVIEW DATE": "審查日期",
+  "PUBLIC EVIDENCE RULE": "公開證據規則",
+  "CONTINUE THE EVIDENCE TRAIL": "延伸證據鏈追蹤",
+  "Use the Hub to separate source facts from architecture inference": "透過知識庫嚴格區分原始事實與架構推論",
+  "Open Evidence Ledger": "開啟 40 筆技術總帳",
+  "Review Memory Physics": "查閱記憶體物理機制",
+  "PUBLIC WORKBENCH · EVIDENCE-GOVERNED · SHAREPOINT TRANSFER MODEL · 2026": "公開工作台 · 證據治理 · SHAREPOINT 轉移模型 · 2026"
+};
+
+function translateWhitepaperDOM(root, lang) {
+  if (!root) return;
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+  let node;
+  while ((node = walker.nextNode())) {
+    const p = node.parentElement;
+    if (!p || p.tagName === "SCRIPT" || p.tagName === "STYLE") continue;
+    const raw = node.nodeValue.trim();
+    if (!raw) continue;
+    if (lang === "zh") {
+      if (!node._origText) node._origText = node.nodeValue;
+      const t = node._origText.trim();
+      if (WP_ZH_DICT[t]) {
+        node.nodeValue = node._origText.replace(t, WP_ZH_DICT[t]);
+      }
+    } else if (node._origText) {
+      node.nodeValue = node._origText;
+    }
+  }
+
+  // Translate SVG text
+  root.querySelectorAll("text").forEach(st => {
+    const raw = st.textContent.trim();
+    if (lang === "zh") {
+      if (!st._origText) st._origText = raw;
+      if (WP_ZH_DICT[st._origText]) st.textContent = WP_ZH_DICT[st._origText];
+    } else if (st._origText) {
+      st.textContent = st._origText;
+    }
+  });
+}
+
+function w(){
+  let btn = document.getElementById("languageToggle");
+  let curLang = localStorage.getItem("nvm-language") || "zh";
+
+  function apply(lang){
+    curLang = lang;
+    localStorage.setItem("nvm-language", lang);
+    document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+    document.body.dataset.language = lang;
+
+    if (btn) {
+      btn.setAttribute("aria-label", lang === "zh" ? "Switch to English" : "切換至繁體中文");
+      const zhB = btn.querySelector('[data-lang-option="zh"]');
+      const enB = btn.querySelector('[data-lang-option="en"]');
+      if (zhB && enB) {
+        zhB.style.color = lang === "zh" ? "#73eee4" : "#8ea9b3";
+        enB.style.color = lang === "en" ? "#73eee4" : "#8ea9b3";
+      }
+    }
+
+    translateWhitepaperDOM(document.body, lang);
+  }
+
+  btn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    apply(curLang === "zh" ? "en" : "zh");
+  });
+
+  // Observe dynamically rendered panels
+  const panels = document.querySelector(".studio-panels");
+  if (panels) {
+    const obs = new MutationObserver(() => {
+      if (curLang === "zh") translateWhitepaperDOM(panels, "zh");
+    });
+    obs.observe(panels, { childList: true, subtree: true });
+  }
+
+  // Also hook view tabs
+  document.querySelectorAll(".view-tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+      setTimeout(() => {
+        if (curLang === "zh") translateWhitepaperDOM(panels, "zh");
+      }, 50);
+    });
+  });
+
+  // Apply default language
+  apply(curLang);
+}
+document.addEventListener("DOMContentLoaded", w);
