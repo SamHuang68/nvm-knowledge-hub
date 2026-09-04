@@ -13,18 +13,97 @@
   <link rel="stylesheet" href="hub.css">
   <script src="site-language.js"></script>
   <style>
-    /* Critical fallback rules ensuring zero CJK leakage in English mode */
-    [data-lang="zh"] { display: none !important; }
-    [data-language="zh"] [data-lang="zh"] { display: inline !important; }
-    [data-language="zh"] [data-lang="en"] { display: none !important; }
-    [data-language="en"] [data-lang="en"] { display: inline !important; }
-    [data-language="en"] [data-lang="zh"] { display: none !important; }
+    /* 0. ACCESSIBILITY DEFENSE: High-contrast Skip Link (Hidden until focused) */
+    .skip-link {
+      position: fixed !important;
+      top: -120px !important;
+      left: 16px !important;
+      z-index: 10000 !important;
+      padding: 12px 20px !important;
+      background: #22d3ee !important;
+      color: #020617 !important;
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 13px !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.05em !important;
+      text-transform: uppercase !important;
+      text-decoration: none !important;
+      border: 2px solid #38bdf8 !important;
+      border-radius: 4px !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(34, 211, 238, 0.4) !important;
+      transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      display: inline-block !important;
+    }
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      top: 14px !important;
+      outline: 3px solid #f59e0b !important;
+      outline-offset: 3px !important;
+    }
+
+    /* 1. Language Visibility Rules (Single Source of Truth) */
+    html[data-language="en"] [data-lang="zh"],
+    body[data-language="en"] [data-lang="zh"] {
+      display: none !important;
+    }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] {
+      display: none !important;
+    }
+
+    /* 2. Slide 04 Sub-Application Focus Tabs & Display */
+    .spec-app-nav {
+      display: flex;
+      gap: 8px;
+      margin: 16px 0 20px;
+      padding: 4px;
+      background: rgba(3, 20, 29, 0.7);
+      border: 1px solid rgba(115, 238, 228, 0.2);
+      border-radius: 6px;
+    }
+    .spec-app-btn {
+      flex: 1;
+      padding: 8px 12px;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      color: #8ea9b3;
+      font: 700 10.5px/1.2 'IBM Plex Mono', monospace;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .spec-app-btn:hover {
+      color: #73eee4;
+      background: rgba(115, 238, 228, 0.08);
+    }
+    .spec-app-btn.is-active {
+      color: #020617;
+      background: #73eee4;
+      border-color: #73eee4;
+      font-weight: 800;
+    }
+    .spec-app-pane {
+      display: none;
+    }
+    .spec-app-pane.is-active {
+      display: block;
+      animation: fadeIn 0.25s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body class="hub-page">
+  <!-- WCAG High-Contrast Skip Link -->
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
 
-  <!-- 1. ULTRA-MINIMAL STICKY TOPBAR (44px / h-11) -->
+  <!-- ========================================================================= -->
+  <!-- TIER 1: ULTRA-MINIMAL BRAND & WORKBENCH TOPBAR (44px / h-11)              -->
+  <!-- ========================================================================= -->
   <header class="hub-minimal-header" id="hubTopHeader">
     <div class="hub-header-left">
       <!-- NVM Micro Logo -->
@@ -32,88 +111,76 @@
         <span>N</span>
       </a>
       <span class="hub-brand-name">NVM ARCHITECTURE KNOWLEDGE HUB</span>
-      <span class="hub-spec-badge">V2.4 · INDUSTRIAL SPEC</span>
+      <span class="hub-spec-badge">V2.5 · INDUSTRIAL SPEC</span>
     </div>
 
-    <!-- Right Actions: Nav Links, Language Toggle, Quick Links -->
+    <!-- Right Actions: Workbench Shortcuts, Language Toggle, Keyboard Hint -->
     <div class="hub-header-right">
-      <nav class="hub-top-nav" aria-label="Quick Section Links">
-        <a class="is-active" href="index.html" aria-current="page"><span data-lang="zh">總門戶</span><span data-lang="en">Portal</span></a>
-        <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
-        <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a>
-        <a href="iot-mcu-envm.html"><span data-lang="zh">IoT 與 MCU eNVM</span><span data-lang="en">IoT &amp; MCU eNVM</span></a>
-        <a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a>
-        <a href="memory-physics.html"><span data-lang="zh">記憶體物理</span><span data-lang="en">Memory Physics</span></a>
-        <a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper</span></a>
-        <a href="briefing/index.html"><span data-lang="zh">簡報與講稿</span><span data-lang="en">Briefing</span></a>
+      <nav class="hub-top-nav" aria-label="Studio Workbenches and Briefings">
+        <a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper Studio</span></a>
+        <a href="briefing/index.html"><span data-lang="zh">簡報與講稿</span><span data-lang="en">Executive Briefings</span></a>
       </nav>
 
       <div class="hub-header-ctrls">
         <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch Language (ZH/EN)">
           <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
         </button>
-        <button class="hub-keyboard-hint-btn" id="kbdHintBtn" type="button" title="Architect Keyboard Navigation: Use ← / → or 1-7 keys to switch modules">
-          <span>⌨ [1-7]</span>
+        <button class="hub-keyboard-hint-btn" id="kbdHintBtn" type="button" title="Architect Keyboard Navigation: Use ← / → or 1-5 keys to switch knowledge domains">
+          <span>⌨ [1-5]</span>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- 2. 7 CORE ARCHITECTURE MODULES HORIZONTAL STRIP -->
+  <!-- ========================================================================= -->
+  <!-- TIER 2: 5 CORE KNOWLEDGE DOMAINS (HORIZONTAL STRIP)                       -->
+  <!-- ========================================================================= -->
   <div class="hub-module-strip-container" id="moduleNavSuite">
-    <!-- 7 Horizontal Tab Buttons -->
-    <nav class="hub-module-tabs" id="moduleTabs" aria-label="7 Core Architecture Modules">
+    <nav class="hub-module-tabs" id="moduleTabs" aria-label="5 Core Knowledge Domains">
       <button class="module-tab-btn is-active" data-module="1" type="button">
         <span class="tab-num">01</span>
         <span class="tab-label">SECURE STORAGE</span>
       </button>
       <button class="module-tab-btn" data-module="2" type="button">
         <span class="tab-num">02</span>
-        <span class="tab-label">AI SYSTEMS</span>
+        <span class="tab-label">AI SYSTEMS &amp; ADVANCED NODES</span>
       </button>
       <button class="module-tab-btn" data-module="3" type="button">
         <span class="tab-num">03</span>
-        <span class="tab-label">SPECIALTY BCD/HV</span>
+        <span class="tab-label">ULP IOT &amp; EDGE MCU</span>
       </button>
       <button class="module-tab-btn" data-module="4" type="button">
         <span class="tab-num">04</span>
-        <span class="tab-label">BITCELL PHYSICS</span>
+        <span class="tab-label">SPECIALTY SILICON &amp; BCD</span>
       </button>
       <button class="module-tab-btn" data-module="5" type="button">
         <span class="tab-num">05</span>
-        <span class="tab-label">ARRAY REPAIR</span>
-      </button>
-      <button class="module-tab-btn" data-module="6" type="button">
-        <span class="tab-num">06</span>
-        <span class="tab-label">ANALOG TRIMMING</span>
-      </button>
-      <button class="module-tab-btn" data-module="7" type="button">
-        <span class="tab-num">07</span>
-        <span class="tab-label">AUTOMOTIVE / RAS</span>
+        <span class="tab-label">BITCELL &amp; MEMORY PHYSICS</span>
       </button>
     </nav>
   </div>
 
-  <!-- 3. PAGINATED SLIDE STAGE (MAIN VIEWPORT) -->
+  <!-- ========================================================================= -->
+  <!-- PAGINATED KNOWLEDGE DOMAINS STAGE (MAIN VIEWPORT)                         -->
+  <!-- ========================================================================= -->
   <main id="main-content" class="hub-deck-viewport">
     <div class="deck-stage-wrapper">
       
-      <!-- SLIDE 01: SECURE STORAGE ARCHITECTURE -->
+      <!-- ===================================================================== -->
+      <!-- SLIDE 01: SECURE STORAGE ARCHITECTURE                                 -->
+      <!-- ===================================================================== -->
       <article class="deck-slide is-active" id="deckSlide1" data-slide-id="1" aria-labelledby="slideTitle1">
-        <!-- Top Stage Breadcrumb & Metadata -->
         <div class="stage-topbar">
           <div class="stage-breadcrumb">
             <span class="stage-status-dot"></span>
-            <strong class="stage-module-tag">MODULE 01 OF 07</strong>
+            <strong class="stage-module-tag">DOMAIN 01 OF 05</strong>
             <span class="stage-sep">::</span>
             <span class="stage-category-text">SECURE STORAGE ARCHITECTURE</span>
           </div>
           <div class="stage-meta-badge">KEY RESIDENCY: EPHEMERAL · SHUTDOWN ASSURANCE</div>
         </div>
 
-        <!-- Slide Body: Thesis + Silicon State Engine -->
         <div class="stage-body">
-          <!-- Left: Architectural Thesis -->
           <div class="stage-thesis-col">
             <div class="stage-kicker">
               <span data-lang="zh">機密長存 · 根金鑰瞬態</span>
@@ -128,45 +195,39 @@
               <span data-lang="en">Reconstructs device-unique root keys dynamically via SRAM PUF mismatch at power-up, paired with hardware AES-256 real-time crypto over AntiFuse OTP. No reconstructed root exists at power-off, confining physical probes and fault injection to meaningless ciphertext.</span>
             </p>
 
-            <!-- 3 Pillars Badges -->
             <div class="deck-pillars-grid">
-              
-            <div class="deck-pillar-card">
-              <div class="pillar-code">01. ABSENT</div>
-              <div class="pillar-text">
-                <span data-lang="zh">下電不留存重建 Root</span>
-                <span data-lang="en">No reconstructed root in power-off</span>
+              <div class="deck-pillar-card">
+                <div class="pillar-code">01. ABSENT</div>
+                <div class="pillar-text">
+                  <span data-lang="zh">下電不留存重建 Root</span>
+                  <span data-lang="en">No reconstructed root in power-off</span>
+                </div>
+              </div>
+              <div class="deck-pillar-card">
+                <div class="pillar-code">02. CIPHERTEXT</div>
+                <div class="pillar-text">
+                  <span data-lang="zh">OTP 僅長存加密資料</span>
+                  <span data-lang="en">OTP persists ciphertext only</span>
+                </div>
+              </div>
+              <div class="deck-pillar-card">
+                <div class="pillar-code">03. BOUNDARY</div>
+                <div class="pillar-text">
+                  <span data-lang="zh">單一責任安全閉環邊界</span>
+                  <span data-lang="en">Closed security boundary</span>
+                </div>
               </div>
             </div>
 
-            <div class="deck-pillar-card">
-              <div class="pillar-code">02. CIPHERTEXT</div>
-              <div class="pillar-text">
-                <span data-lang="zh">OTP 僅長存加密資料</span>
-                <span data-lang="en">OTP persists ciphertext only</span>
-              </div>
-            </div>
-
-            <div class="deck-pillar-card">
-              <div class="pillar-code">03. SUBSYSTEM</div>
-              <div class="pillar-text">
-                <span data-lang="zh">單一責任邊界閉環</span>
-                <span data-lang="en">Closed single-responsibility boundary</span>
-              </div>
-            </div>
-            </div>
-
-            <!-- Deep Dive Action Link -->
             <div class="stage-action-area">
               <a class="stage-link-btn" href="secure-storage.html">
-                <span data-lang="zh">進入 Secure Storage 架構專頁 →</span>
+                <span data-lang="zh">進入 Secure Storage 深度專頁 →</span>
                 <span data-lang="en">Enter Secure Storage Deep Dive →</span>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
 
-          <!-- Right: Silicon State Engine -->
           <div class="stage-engine-col">
             <div class="engine-box">
               <div class="engine-header">
@@ -174,26 +235,21 @@
                 <span class="engine-state-pill" id="engineStatePill1" data-init="POWER OFF" data-alt="ACTIVE CYCLE">POWER OFF</span>
               </div>
               
-              <!-- Memory Matrix Rows -->
               <div class="engine-rows-list">
-                
-          <div class="engine-row">
-            <span class="engine-row-label">SRAM PUF CELL:</span>
-            <span class="engine-row-val text-slate-500" id="pufCellVal" data-init="Unpowered (Mismatch Exists)" data-alt="Powered (0x7F2A... Extracted)" data-class-init="text-slate-500" data-class-alt="text-cyan-300">Unpowered (Mismatch Exists)</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">RECONSTRUCTED ROOT:</span>
-            <span class="engine-row-val text-rose-400 font-bold" id="rootVal" data-init="ABSENT (0x00000000)" data-alt="VALID (0x8F3E92B1...)" data-class-init="text-rose-400 font-bold" data-class-alt="text-emerald-400 font-bold">ABSENT (0x00000000)</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">ANTIFUSE OTP MEMORY:</span>
-            <span class="engine-row-val text-emerald-400" id="otpVal" data-init="AES-256 CIPHERTEXT" data-alt="REAL-TIME DECRYPTED STREAM" data-class-init="text-emerald-400" data-class-alt="text-cyan-300">AES-256 CIPHERTEXT</span>
-          </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">SRAM PUF CELL:</span>
+                  <span class="engine-row-val text-slate-500" id="pufCellVal" data-init="Unpowered (Mismatch Exists)" data-alt="Powered (0x7F2A... Extracted)" data-class-init="text-slate-500" data-class-alt="text-cyan-300">Unpowered (Mismatch Exists)</span>
+                </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">RECONSTRUCTED ROOT:</span>
+                  <span class="engine-row-val text-rose-400 font-bold" id="rootVal" data-init="ABSENT (0x00000000)" data-alt="VALID (0x8F3E92B1...)" data-class-init="text-rose-400 font-bold" data-class-alt="text-emerald-400 font-bold">ABSENT (0x00000000)</span>
+                </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">ANTIFUSE OTP MEMORY:</span>
+                  <span class="engine-row-val text-emerald-400" id="otpVal" data-init="AES-256 CIPHERTEXT" data-alt="REAL-TIME DECRYPTED STREAM" data-class-init="text-emerald-400" data-class-alt="text-cyan-300">AES-256 CIPHERTEXT</span>
+                </div>
               </div>
 
-              <!-- Trigger Simulator Button -->
               <button class="engine-trigger-btn" id="engineBtn1" data-slide="1" type="button">
                 <span data-lang="zh">⚡ 模擬上電重構 (TRIGGER POWER-UP)</span>
                 <span data-lang="en">⚡ SIMULATE POWER-UP / RECONSTRUCTION</span>
@@ -202,44 +258,38 @@
           </div>
         </div>
 
-        <!-- Bottom Deck Controller Ribbon -->
         <div class="stage-deck-controller">
-          <button class="deck-ctrl-btn prev-btn" data-target="7" type="button" aria-label="Previous module">
-            <span>←</span> <span>PREV: AUTOMOTIVE / RAS</span>
+          <button class="deck-ctrl-btn prev-btn" data-target="5" type="button" aria-label="Previous module">
+            <span>←</span> <span>PREV: 05 BITCELL PHYSICS</span>
           </button>
-
           <div class="deck-indicators">
-            <button class="deck-indicator-bar is-active" data-goto="1" type="button" aria-label="Go to Module 1"></button>
-<button class="deck-indicator-bar " data-goto="2" type="button" aria-label="Go to Module 2"></button>
-<button class="deck-indicator-bar " data-goto="3" type="button" aria-label="Go to Module 3"></button>
-<button class="deck-indicator-bar " data-goto="4" type="button" aria-label="Go to Module 4"></button>
-<button class="deck-indicator-bar " data-goto="5" type="button" aria-label="Go to Module 5"></button>
-<button class="deck-indicator-bar " data-goto="6" type="button" aria-label="Go to Module 6"></button>
-<button class="deck-indicator-bar " data-goto="7" type="button" aria-label="Go to Module 7"></button>
+            <button class="deck-indicator-bar is-active" data-goto="1" type="button" aria-label="Go to Domain 1"></button>
+            <button class="deck-indicator-bar" data-goto="2" type="button" aria-label="Go to Domain 2"></button>
+            <button class="deck-indicator-bar" data-goto="3" type="button" aria-label="Go to Domain 3"></button>
+            <button class="deck-indicator-bar" data-goto="4" type="button" aria-label="Go to Domain 4"></button>
+            <button class="deck-indicator-bar" data-goto="5" type="button" aria-label="Go to Domain 5"></button>
           </div>
-
           <button class="deck-ctrl-btn next-btn" data-target="2" type="button" aria-label="Next module">
-            <span>NEXT: AI SYSTEMS</span> <span>→</span>
+            <span>NEXT: 02 AI SYSTEMS</span> <span>→</span>
           </button>
         </div>
       </article>
 
-      <!-- SLIDE 02: AI SYSTEMS & ADVANCED NODES -->
-      <article class="deck-slide " id="deckSlide2" data-slide-id="2" aria-labelledby="slideTitle2">
-        <!-- Top Stage Breadcrumb & Metadata -->
+      <!-- ===================================================================== -->
+      <!-- SLIDE 02: AI SYSTEMS & ADVANCED NODES                                 -->
+      <!-- ===================================================================== -->
+      <article class="deck-slide" id="deckSlide2" data-slide-id="2" aria-labelledby="slideTitle2">
         <div class="stage-topbar">
           <div class="stage-breadcrumb">
             <span class="stage-status-dot"></span>
-            <strong class="stage-module-tag">MODULE 02 OF 07</strong>
+            <strong class="stage-module-tag">DOMAIN 02 OF 05</strong>
             <span class="stage-sep">::</span>
-            <span class="stage-category-text">AI SYSTEMS & ADVANCED NODES</span>
+            <span class="stage-category-text">AI SYSTEMS &amp; ADVANCED NODES</span>
           </div>
           <div class="stage-meta-badge">XPU ACCELERATORS · 3D SOIC CHIPLET · DDR5 PMIC HUB</div>
         </div>
 
-        <!-- Slide Body: Thesis + Silicon State Engine -->
         <div class="stage-body">
-          <!-- Left: Architectural Thesis -->
           <div class="stage-thesis-col">
             <div class="stage-kicker">
               <span data-lang="zh">高頻寬運算 · 矽智財狀態契約</span>
@@ -254,250 +304,404 @@
               <span data-lang="en">Maps AI accelerator packages, datacenter DDR5 PMIC/SPD Hub multi-phase telemetry, 3D SoIC heterogeneous chiplet KGD attestation, UCIe 2.0 die-to-die repair, and NIST LMS stateful hash-based post-quantum boot verification.</span>
             </p>
 
-            <!-- 3 Pillars Badges -->
             <div class="deck-pillars-grid">
-              
-            <div class="deck-pillar-card">
-              <div class="pillar-code">01. DDR5 HUB</div>
-              <div class="pillar-text">
-                <span data-lang="zh">DDR5 PMIC/SPD 逐相微調</span>
-                <span data-lang="en">Multi-phase telemetry & per-phase trim</span>
+              <div class="deck-pillar-card">
+                <div class="pillar-code">01. DDR5 HUB</div>
+                <div class="pillar-text">
+                  <span data-lang="zh">DDR5 PMIC/SPD 逐相微調</span>
+                  <span data-lang="en">Multi-phase telemetry &amp; trim</span>
+                </div>
+              </div>
+              <div class="deck-pillar-card">
+                <div class="pillar-code">02. 3D SOIC</div>
+                <div class="pillar-text">
+                  <span data-lang="zh">3D SoIC 異質封裝 KGD 認證</span>
+                  <span data-lang="en">Heterogeneous chiplet KGD attestation</span>
+                </div>
+              </div>
+              <div class="deck-pillar-card">
+                <div class="pillar-code">03. PQC BOOT</div>
+                <div class="pillar-text">
+                  <span data-lang="zh">NIST LMS 後量子抗性開機</span>
+                  <span data-lang="en">NIST LMS stateful hash-based boot</span>
+                </div>
               </div>
             </div>
 
-            <div class="deck-pillar-card">
-              <div class="pillar-code">02. 3D SOIC</div>
-              <div class="pillar-text">
-                <span data-lang="zh">3D SoIC 異質封裝 KGD 認證</span>
-                <span data-lang="en">Heterogeneous chiplet KGD attestation</span>
-              </div>
-            </div>
-
-            <div class="deck-pillar-card">
-              <div class="pillar-code">03. PQC BOOT</div>
-              <div class="pillar-text">
-                <span data-lang="zh">NIST LMS 後量子抗性開機</span>
-                <span data-lang="en">NIST LMS stateful hash-based boot</span>
-              </div>
-            </div>
-            </div>
-
-            <!-- Deep Dive Action Link -->
             <div class="stage-action-area">
               <a class="stage-link-btn" href="ai-nvm-opportunities.html">
                 <span data-lang="zh">進入 AI 與先進節點專頁 →</span>
-                <span data-lang="en">Enter AI Systems & Nodes →</span>
+                <span data-lang="en">Enter AI Systems &amp; Nodes →</span>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
 
-          <!-- Right: Silicon State Engine -->
           <div class="stage-engine-col">
             <div class="engine-box">
               <div class="engine-header">
-                <span class="engine-title">SILICON STATE ENGINE · AI ACCELERATOR & SOIC</span>
+                <span class="engine-title">SILICON STATE ENGINE · AI ACCELERATOR &amp; SOIC</span>
                 <span class="engine-state-pill" id="engineStatePill2" data-init="STANDBY (CLOCK GATED)" data-alt="ACTIVE CYCLE">STANDBY (CLOCK GATED)</span>
               </div>
               
-              <!-- Memory Matrix Rows -->
               <div class="engine-rows-list">
-                
-          <div class="engine-row">
-            <span class="engine-row-label">XPU COMPUTE DOMAIN:</span>
-            <span class="engine-row-val text-slate-500" id="aiDomainVal" data-init="Idle Standby (Clock Gated)" data-alt="Full Turbo (1,200W Cluster Active)" data-class-init="text-slate-500" data-class-alt="text-cyan-300 font-bold">Idle Standby (Clock Gated)</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">DDR5 VR TELEMETRY:</span>
-            <span class="engine-row-val text-slate-500" id="ddrVal" data-init="Phase Calibration Idle" data-alt="Dynamic Trim Locked (±0.2%)" data-class-init="text-slate-500" data-class-alt="text-emerald-400 font-bold">Phase Calibration Idle</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">3D SOIC KGD ATTESTATION:</span>
-            <span class="engine-row-val text-slate-400" id="lmsVal" data-init="Zero-Trust Nonce Pending" data-alt="LMS Signature & KGD Attested" data-class-init="text-slate-400" data-class-alt="text-teal-300 font-bold">Zero-Trust Nonce Pending</span>
-          </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">XPU COMPUTE DOMAIN:</span>
+                  <span class="engine-row-val text-slate-500" id="aiDomainVal" data-init="Idle Standby (Clock Gated)" data-alt="Full Turbo (1,200W Cluster Active)" data-class-init="text-slate-500" data-class-alt="text-cyan-300 font-bold">Idle Standby (Clock Gated)</span>
+                </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">DDR5 VR TELEMETRY:</span>
+                  <span class="engine-row-val text-slate-500" id="ddrVal" data-init="Phase Calibration Idle" data-alt="Dynamic Trim Locked (±0.2%)" data-class-init="text-slate-500" data-class-alt="text-emerald-400 font-bold">Phase Calibration Idle</span>
+                </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">3D SOIC KGD ATTESTATION:</span>
+                  <span class="engine-row-val text-slate-400" id="lmsVal" data-init="Zero-Trust Nonce Pending" data-alt="LMS Signature &amp; KGD Attested" data-class-init="text-slate-400" data-class-alt="text-teal-300 font-bold">Zero-Trust Nonce Pending</span>
+                </div>
               </div>
 
-              <!-- Trigger Simulator Button -->
               <button class="engine-trigger-btn" id="engineBtn2" data-slide="2" type="button">
-                <span data-lang="zh">⚡ 切換工作負載與認證 (TRIGGER TURBO & KGD)</span>
+                <span data-lang="zh">⚡ 切換工作負載與認證 (TRIGGER TURBO &amp; KGD)</span>
                 <span data-lang="en">⚡ TRANSITION WORKLOAD / TURBO MODE</span>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Bottom Deck Controller Ribbon -->
         <div class="stage-deck-controller">
           <button class="deck-ctrl-btn prev-btn" data-target="1" type="button" aria-label="Previous module">
-            <span>←</span> <span>PREV: SECURE STORAGE</span>
+            <span>←</span> <span>PREV: 01 SECURE STORAGE</span>
           </button>
-
           <div class="deck-indicators">
-            <button class="deck-indicator-bar " data-goto="1" type="button" aria-label="Go to Module 1"></button>
-<button class="deck-indicator-bar is-active" data-goto="2" type="button" aria-label="Go to Module 2"></button>
-<button class="deck-indicator-bar " data-goto="3" type="button" aria-label="Go to Module 3"></button>
-<button class="deck-indicator-bar " data-goto="4" type="button" aria-label="Go to Module 4"></button>
-<button class="deck-indicator-bar " data-goto="5" type="button" aria-label="Go to Module 5"></button>
-<button class="deck-indicator-bar " data-goto="6" type="button" aria-label="Go to Module 6"></button>
-<button class="deck-indicator-bar " data-goto="7" type="button" aria-label="Go to Module 7"></button>
+            <button class="deck-indicator-bar" data-goto="1" type="button" aria-label="Go to Domain 1"></button>
+            <button class="deck-indicator-bar is-active" data-goto="2" type="button" aria-label="Go to Domain 2"></button>
+            <button class="deck-indicator-bar" data-goto="3" type="button" aria-label="Go to Domain 3"></button>
+            <button class="deck-indicator-bar" data-goto="4" type="button" aria-label="Go to Domain 4"></button>
+            <button class="deck-indicator-bar" data-goto="5" type="button" aria-label="Go to Domain 5"></button>
           </div>
-
           <button class="deck-ctrl-btn next-btn" data-target="3" type="button" aria-label="Next module">
-            <span>NEXT: SPECIALTY BCD/HV</span> <span>→</span>
+            <span>NEXT: 03 ULP IOT &amp; MCU</span> <span>→</span>
           </button>
         </div>
       </article>
 
-      <!-- SLIDE 03: SPECIALTY FOUNDRY eNVM -->
-      <article class="deck-slide " id="deckSlide3" data-slide-id="3" aria-labelledby="slideTitle3">
-        <!-- Top Stage Breadcrumb & Metadata -->
+      <!-- ===================================================================== -->
+      <!-- SLIDE 03: ULP IOT & EDGE MCU eNVM (NEW DEDICATED DOMAIN)              -->
+      <!-- ===================================================================== -->
+      <article class="deck-slide" id="deckSlide3" data-slide-id="3" aria-labelledby="slideTitle3">
         <div class="stage-topbar">
           <div class="stage-breadcrumb">
             <span class="stage-status-dot"></span>
-            <strong class="stage-module-tag">MODULE 03 OF 07</strong>
+            <strong class="stage-module-tag">DOMAIN 03 OF 05</strong>
             <span class="stage-sep">::</span>
-            <span class="stage-category-text">SPECIALTY FOUNDRY eNVM</span>
+            <span class="stage-category-text">ULP IOT &amp; EDGE MCU eNVM</span>
           </div>
-          <div class="stage-meta-badge">PMIC 40V · HV DDI GAMMA · E-INK 110HV LUT</div>
+          <div class="stage-meta-badge">TSMC 22ULL ➔ N4e · 0.5V NEAR-THRESHOLD · FAST COLD BOOT</div>
         </div>
 
-        <!-- Slide Body: Thesis + Silicon State Engine -->
         <div class="stage-body">
-          <!-- Left: Architectural Thesis -->
           <div class="stage-thesis-col">
             <div class="stage-kicker">
-              <span data-lang="zh">高壓類比 · 系統整合</span>
-              <span data-lang="en">High-Voltage Analog · System Integration</span>
+              <span data-lang="zh">超低功耗微控制器 · 28nm 以下 eNVM 革命</span>
+              <span data-lang="en">Ultra-Low-Power MCU · Sub-28nm eNVM Paradigm</span>
             </div>
             <h2 class="stage-title" id="slideTitle3">
-              <span data-lang="zh">BCD 電源管理、高壓顯示驅動<br><span class="stage-gradient-text">與電子紙波形 LUT 架構</span></span>
-              <span data-lang="en">BCD power, display drivers,<br><span class="stage-gradient-text">and electrophoretic waveform LUT architecture</span></span>
+              <span data-lang="zh">破解 28nm 以下 eFlash 斷崖，<br><span class="stage-gradient-text">TSMC 0.5V 近閾值 IoT 與 AntiFuse 虛擬修補架構</span></span>
+              <span data-lang="en">Breaking the sub-28nm eFlash cliff:<br><span class="stage-gradient-text">TSMC 0.5V near-threshold IoT &amp; AntiFuse virtual patching</span></span>
             </h2>
             <p class="stage-desc">
-              <span data-lang="zh">涵蓋 PMIC 帶隙微調、USB-PD 快充協議、CIS 與 DRAM 缺陷修復；高壓 DDI 之 Gamma 2.2、Vcom 與 De-Mura 補償；以及電子紙 (E-Ink) 40V-50V/110HV 驅動波形 LUT 與「演進期 MTP ➔ 成熟期 OTP」戰略。</span>
-              <span data-lang="en">Covers PMIC bandgap trim, USB-PD fast-charging protocols, CIS/DRAM repair, HV display driver Gamma 2.2 / De-Mura calibration, plus E-Ink 40V-50V/110HV driving waveform lookup tables and MTP-to-OTP lifecycle roadmap.</span>
+              <span data-lang="zh">傳統 eFlash 於 28nm 以下因厚閘極氧化層與 >10V 擦除電壓面臨微縮斷崖。本專題解析台積電 22ULL ➔ N12e® (12FFC+) ➔ N6e® ➔ N4e™ 0.5V 超低漏電微縮藍圖，對比 Pure-Logic AntiFuse、eMRAM 與 eRRAM，並解密 AntiFuse Vector Patch CAM 虛擬程式碼修補與 instant-on 快速冷啟動技術。</span>
+              <span data-lang="en">Embedded Flash faces a physical and economic cliff below 28nm due to thick gate oxide and >10V erase rails. Analyzes TSMC's 22ULL ➔ N12e® (12FFC+) ➔ N6e® ➔ N4e™ 0.5V roadmap, benchmarking AntiFuse OTP against eMRAM and eRRAM, and unrolls Vector Patch CAM virtual code patching with instant-on cold boot.</span>
             </p>
 
-            <!-- 3 Pillars Badges -->
             <div class="deck-pillars-grid">
-              
-            <div class="deck-pillar-card">
-              <div class="pillar-code">01. BCD POWER</div>
-              <div class="pillar-text">
-                <span data-lang="zh">32V–40V 製程安全耐壓裕度</span>
-                <span data-lang="en">32V–40V safe-operating margin</span>
+              <div class="deck-pillar-card">
+                <div class="pillar-code">01. 0.5V ULP</div>
+                <div class="pillar-text">
+                  <span data-lang="zh">0.5V 近閾值 >75% 動態功耗降幅</span>
+                  <span data-lang="en">0.5V near-Vdd >75% dynamic power drop</span>
+                </div>
+              </div>
+              <div class="deck-pillar-card">
+                <div class="pillar-code">02. 0-MASK</div>
+                <div class="pillar-text">
+                  <span data-lang="zh">零額外光罩純邏輯標準 CMOS</span>
+                  <span data-lang="en">0-mask adder pure logic CMOS</span>
+                </div>
+              </div>
+              <div class="deck-pillar-card">
+                <div class="pillar-code">03. CAM PATCH</div>
+                <div class="pillar-text">
+                  <span data-lang="zh">硬體向量跳轉虛擬韌體修補</span>
+                  <span data-lang="en">Hardware vector patch CAM indirection</span>
+                </div>
               </div>
             </div>
 
-            <div class="deck-pillar-card">
-              <div class="pillar-code">02. DDI CALIB</div>
-              <div class="pillar-text">
-                <span data-lang="zh">Gamma 2.2 與 De-Mura 校準</span>
-                <span data-lang="en">Gamma 2.2, Vcom & De-Mura</span>
-              </div>
-            </div>
-
-            <div class="deck-pillar-card">
-              <div class="pillar-code">03. E-INK LUT</div>
-              <div class="pillar-text">
-                <span data-lang="zh">110HV 與溫度驅動波形 LUT</span>
-                <span data-lang="en">110HV & Temperature LUT</span>
-              </div>
-            </div>
-            </div>
-
-            <!-- Deep Dive Action Link -->
             <div class="stage-action-area">
-              <a class="stage-link-btn" href="specialty-nvm.html">
-                <span data-lang="zh">探索特種 NVM 旗艦專頁 →</span>
-                <span data-lang="en">Explore Specialty NVM Flagship →</span>
+              <a class="stage-link-btn" href="iot-mcu-envm.html">
+                <span data-lang="zh">進入 ULP IoT &amp; Edge MCU 旗艦專頁 →</span>
+                <span data-lang="en">Enter ULP IoT &amp; Edge MCU Flagship →</span>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
 
-          <!-- Right: Silicon State Engine -->
           <div class="stage-engine-col">
             <div class="engine-box">
               <div class="engine-header">
-                <span class="engine-title">SILICON STATE ENGINE · HV ANALOG CONTROLLER</span>
-                <span class="engine-state-pill" id="engineStatePill3" data-init="STANDBY VREF" data-alt="ACTIVE CYCLE">STANDBY VREF</span>
+                <span class="engine-title">SILICON STATE ENGINE · MCU SLEEP &amp; BOOT DOMAIN</span>
+                <span class="engine-state-pill" id="engineStatePill3" data-init="DEEP SLEEP (AON)" data-alt="ACTIVE CYCLE">DEEP SLEEP (AON)</span>
               </div>
               
-              <!-- Memory Matrix Rows -->
               <div class="engine-rows-list">
-                
-          <div class="engine-row">
-            <span class="engine-row-label">BANDGAP VREF OUTPUT:</span>
-            <span class="engine-row-val text-rose-400 font-bold" id="vrefVal" data-init="1.238V (Uncalibrated ±3.2%)" data-alt="1.2005V (Trimmed ±0.04%)" data-class-init="text-rose-400 font-bold" data-class-alt="text-emerald-400 font-bold">1.238V (Uncalibrated ±3.2%)</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">HV GATE/SOURCE RAILS:</span>
-            <span class="engine-row-val text-slate-500" id="hvRailsVal" data-init="Gate 0V / Source 0V" data-alt="Gate 35Vp-p / Source 12V Regulated" data-class-init="text-slate-500" data-class-alt="text-cyan-300">Gate 0V / Source 0V</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">E-INK WAVEFORM LUT:</span>
-            <span class="engine-row-val text-slate-400" id="lutVal" data-init="Default 25°C LUT Active" data-alt="Dynamic -15°C Sub-Zero Injected" data-class-init="text-slate-400" data-class-alt="text-teal-300 font-bold">Default 25°C LUT Active</span>
-          </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">SUPPLY VOLTAGE (VDD):</span>
+                  <span class="engine-row-val text-slate-500" id="iotVddVal" data-init="0.45V (Retention Sleep)" data-alt="0.50V (Active Turbo Compute)" data-class-init="text-slate-500" data-class-alt="text-cyan-300 font-bold">0.45V (Retention Sleep)</span>
+                </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">AON STANDBY LEAKAGE:</span>
+                  <span class="engine-row-val text-emerald-400 font-bold" id="iotLeakVal" data-init="< 8.2 nA @ 25°C (15+ Yr Battery)" data-alt="42.8 µA Dynamic Peak Execution" data-class-init="text-emerald-400 font-bold" data-class-alt="text-cyan-300"> < 8.2 nA @ 25°C (15+ Yr Battery)</span>
+                </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">VECTOR PATCH CAM:</span>
+                  <span class="engine-row-val text-slate-400" id="iotCamVal" data-init="Bank 0 (Base ROM Execution)" data-alt="Trap Hit: Jump 0x0800_1040 (Patched)" data-class-init="text-slate-400" data-class-alt="text-teal-300 font-bold">Bank 0 (Base ROM Execution)</span>
+                </div>
               </div>
 
-              <!-- Trigger Simulator Button -->
               <button class="engine-trigger-btn" id="engineBtn3" data-slide="3" type="button">
-                <span data-lang="zh">⚡ 注入 12-BIT 微調碼與波形 (TRIGGER CALIB)</span>
-                <span data-lang="en">⚡ INJECT 12-BIT CALIBRATION & WAVEFORM</span>
+                <span data-lang="zh">⚡ 觸發即時冷啟動與向量修補 (WAKE &amp; PATCH)</span>
+                <span data-lang="en">⚡ TRIGGER INSTANT-ON BOOT &amp; VECTOR PATCH</span>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Bottom Deck Controller Ribbon -->
         <div class="stage-deck-controller">
           <button class="deck-ctrl-btn prev-btn" data-target="2" type="button" aria-label="Previous module">
-            <span>←</span> <span>PREV: AI SYSTEMS</span>
+            <span>←</span> <span>PREV: 02 AI SYSTEMS</span>
           </button>
-
           <div class="deck-indicators">
-            <button class="deck-indicator-bar " data-goto="1" type="button" aria-label="Go to Module 1"></button>
-<button class="deck-indicator-bar " data-goto="2" type="button" aria-label="Go to Module 2"></button>
-<button class="deck-indicator-bar is-active" data-goto="3" type="button" aria-label="Go to Module 3"></button>
-<button class="deck-indicator-bar " data-goto="4" type="button" aria-label="Go to Module 4"></button>
-<button class="deck-indicator-bar " data-goto="5" type="button" aria-label="Go to Module 5"></button>
-<button class="deck-indicator-bar " data-goto="6" type="button" aria-label="Go to Module 6"></button>
-<button class="deck-indicator-bar " data-goto="7" type="button" aria-label="Go to Module 7"></button>
+            <button class="deck-indicator-bar" data-goto="1" type="button" aria-label="Go to Domain 1"></button>
+            <button class="deck-indicator-bar" data-goto="2" type="button" aria-label="Go to Domain 2"></button>
+            <button class="deck-indicator-bar is-active" data-goto="3" type="button" aria-label="Go to Domain 3"></button>
+            <button class="deck-indicator-bar" data-goto="4" type="button" aria-label="Go to Domain 4"></button>
+            <button class="deck-indicator-bar" data-goto="5" type="button" aria-label="Go to Domain 5"></button>
           </div>
-
           <button class="deck-ctrl-btn next-btn" data-target="4" type="button" aria-label="Next module">
-            <span>NEXT: BITCELL PHYSICS</span> <span>→</span>
+            <span>NEXT: 04 SPECIALTY SILICON</span> <span>→</span>
           </button>
         </div>
       </article>
 
-      <!-- SLIDE 04: BITCELL PHYSICS & EVIDENCE -->
-      <article class="deck-slide " id="deckSlide4" data-slide-id="4" aria-labelledby="slideTitle4">
-        <!-- Top Stage Breadcrumb & Metadata -->
+      <!-- ===================================================================== -->
+      <!-- SLIDE 04: SPECIALTY SILICON & BCD (CONSOLIDATED APPLICATIONS)         -->
+      <!-- ===================================================================== -->
+      <article class="deck-slide" id="deckSlide4" data-slide-id="4" aria-labelledby="slideTitle4">
         <div class="stage-topbar">
           <div class="stage-breadcrumb">
             <span class="stage-status-dot"></span>
-            <strong class="stage-module-tag">MODULE 04 OF 07</strong>
+            <strong class="stage-module-tag">DOMAIN 04 OF 05</strong>
             <span class="stage-sep">::</span>
-            <span class="stage-category-text">BITCELL PHYSICS & EVIDENCE</span>
+            <span class="stage-category-text">SPECIALTY SILICON &amp; BCD</span>
           </div>
-          <div class="stage-meta-badge">GATE OXIDE RUPTURE · 175°C ZERO DRIFT</div>
+          <div class="stage-meta-badge">PMIC 40V · ARRAY REPAIR · ANALOG TRIM · 175°C AUTOMOTIVE</div>
         </div>
 
-        <!-- Slide Body: Thesis + Silicon State Engine -->
         <div class="stage-body">
-          <!-- Left: Architectural Thesis -->
           <div class="stage-thesis-col">
             <div class="stage-kicker">
-              <span data-lang="zh">奈米物理 · 量子穿隧</span>
-              <span data-lang="en">Nanoscale Physics · Quantum Tunneling</span>
+              <span data-lang="zh">高壓類比 · 陣列修復 · 晶圓校準與車規</span>
+              <span data-lang="en">HV Analog · Array Repair · Wafer Trimming &amp; Automotive</span>
             </div>
             <h2 class="stage-title" id="slideTitle4">
+              <span data-lang="zh">BCD 高壓電源、顯示驅動<br><span class="stage-gradient-text">與純 NVM 三大關鍵應用架構</span></span>
+              <span data-lang="en">BCD power, display drivers,<br><span class="stage-gradient-text">and three critical NVM applications</span></span>
+            </h2>
+            <p class="stage-desc">
+              <span data-lang="zh">涵蓋 PMIC 32V–40V 製程安全耐壓裕度、USB-PD 快充、高壓 DDI Gamma 2.2 與電子紙 110HV 驅動波形 LUT。更整合 NVM 對應用端的三大工程支柱：March C+ 啟發式 BIRA 陣列修復、12-bit R-Ladder 晶圓級閉環微調、與 175°C AEC-Q100 Grade 0 車規 SECDED ECC 容錯。</span>
+              <span data-lang="en">Covers 32V–40V BCD power safe-operating envelopes, USB-PD fast-charging, HV DDI Gamma 2.2, and E-Ink 110HV waveform LUTs. Integrates three application pillars: March C+ heuristic BIRA array repair, 12-bit R-Ladder closed-loop wafer trim, and 175°C AEC-Q100 Grade 0 automotive SECDED ECC fault-tolerance.</span>
+            </p>
+
+            <!-- Sub-Application Selector Ribbon -->
+            <div class="spec-app-nav" role="tablist" aria-label="Specialty NVM Application Focus">
+              <button class="spec-app-btn is-active" data-app="repair" type="button">
+                <span data-lang="zh">01. 陣列修復 (BIRA)</span>
+                <span data-lang="en">01. ARRAY REPAIR</span>
+              </button>
+              <button class="spec-app-btn" data-app="trim" type="button">
+                <span data-lang="zh">02. 類比微調 (TRIM)</span>
+                <span data-lang="en">02. ANALOG TRIM</span>
+              </button>
+              <button class="spec-app-btn" data-app="auto" type="button">
+                <span data-lang="zh">03. 車規安全 (RAS)</span>
+                <span data-lang="en">03. AUTOMOTIVE RAS</span>
+              </button>
+            </div>
+
+            <!-- 3 Dynamic Sub-Application Explanations -->
+            <div class="spec-app-pane is-active" id="paneRepair">
+              <div class="deck-pillars-grid">
+                <div class="deck-pillar-card">
+                  <div class="pillar-code">01. BIST SCAN</div>
+                  <div class="pillar-text">
+                    <span data-lang="zh">March C+ 全速矩陣自檢</span>
+                    <span data-lang="en">March C+ at-speed sweep</span>
+                  </div>
+                </div>
+                <div class="deck-pillar-card">
+                  <div class="pillar-code">02. HEURISTIC</div>
+                  <div class="pillar-text">
+                    <span data-lang="zh">多項式時間備援配置求解</span>
+                    <span data-lang="en">Polynomial spare allocation</span>
+                  </div>
+                </div>
+                <div class="deck-pillar-card">
+                  <div class="pillar-code">03. CAM FUSE</div>
+                  <div class="pillar-text">
+                    <span data-lang="zh">CAM FuseBox 零週期重映射</span>
+                    <span data-lang="en">Zero-latency CAM redirect</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="spec-app-pane" id="paneTrim">
+              <div class="deck-pillars-grid">
+                <div class="deck-pillar-card">
+                  <div class="pillar-code">01. ±0.1% ACC</div>
+                  <div class="pillar-text">
+                    <span data-lang="zh">晶圓針測閉環極致鎖定</span>
+                    <span data-lang="en">Wafer-probe closed-loop lock</span>
+                  </div>
+                </div>
+                <div class="deck-pillar-card">
+                  <div class="pillar-code">02. R-LADDER</div>
+                  <div class="pillar-text">
+                    <span data-lang="zh">12-bit 二進位離散階梯</span>
+                    <span data-lang="en">12-bit binary-weighted discrete</span>
+                  </div>
+                </div>
+                <div class="deck-pillar-card">
+                  <div class="pillar-code">03. ATE SIGN</div>
+                  <div class="pillar-text">
+                    <span data-lang="zh">零誤殺 ATE 自動量產簽核</span>
+                    <span data-lang="en">Zero-overkill production test</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="spec-app-pane" id="paneAuto">
+              <div class="deck-pillars-grid">
+                <div class="deck-pillar-card">
+                  <div class="pillar-code">01. GRADE 0</div>
+                  <div class="pillar-text">
+                    <span data-lang="zh">175°C 接面溫度 15+ 年保存</span>
+                    <span data-lang="en">175°C Tj 15+ years retention</span>
+                  </div>
+                </div>
+                <div class="deck-pillar-card">
+                  <div class="pillar-code">02. SECDED</div>
+                  <div class="pillar-text">
+                    <span data-lang="zh">即時單錯更正、雙錯偵測</span>
+                    <span data-lang="en">Single error correct, double detect</span>
+                  </div>
+                </div>
+                <div class="deck-pillar-card">
+                  <div class="pillar-code">03. ASIL-D</div>
+                  <div class="pillar-text">
+                    <span data-lang="zh">ISO 26262 ASIL-D 功能安全</span>
+                    <span data-lang="en">ISO 26262 functional safety</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stage-action-area" style="display:flex;gap:12px;flex-wrap:wrap;">
+              <a class="stage-link-btn" href="specialty-nvm.html">
+                <span data-lang="zh">進入特種 NVM 旗艦專頁 →</span>
+                <span data-lang="en">Enter Specialty NVM Flagship →</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a class="stage-link-btn" href="specialty-nvm.html#repair" style="background:rgba(115,238,228,0.1);color:#73eee4;border-color:rgba(115,238,228,0.3);">
+                <span data-lang="zh">陣列修復實驗室 ↗</span>
+                <span data-lang="en">Array Repair Lab ↗</span>
+              </a>
+              <a class="stage-link-btn" href="specialty-nvm.html#trimming" style="background:rgba(115,238,228,0.1);color:#73eee4;border-color:rgba(115,238,228,0.3);">
+                <span data-lang="zh">微調計算機 ↗</span>
+                <span data-lang="en">Trim Calculator ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="stage-engine-col">
+            <div class="engine-box">
+              <div class="engine-header">
+                <span class="engine-title">SILICON STATE ENGINE · SPECIALTY CONTROLLER</span>
+                <span class="engine-state-pill" id="engineStatePill4" data-init="VIRGIN / UNTRIMMED" data-alt="ACTIVE CYCLE">VIRGIN / UNTRIMMED</span>
+              </div>
+              
+              <div class="engine-rows-list">
+                <div class="engine-row">
+                  <span class="engine-row-label">BANDGAP VREF OUTPUT:</span>
+                  <span class="engine-row-val text-rose-400 font-bold" id="vrefVal" data-init="1.238V (Uncalibrated ±3.2%)" data-alt="1.2005V (Trimmed ±0.04%)" data-class-init="text-rose-400 font-bold" data-class-alt="text-emerald-400 font-bold">1.238V (Uncalibrated ±3.2%)</span>
+                </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">BIST/BIRA MATRIX STATUS:</span>
+                  <span class="engine-row-val text-slate-500" id="biraStatusVal" data-init="March C+ Fault Pending Remap" data-alt="CAM FuseBox 0-Cycle Remapped" data-class-init="text-slate-500" data-class-alt="text-cyan-300 font-bold">March C+ Fault Pending Remap</span>
+                </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">175°C AUTOMOTIVE ECC:</span>
+                  <span class="engine-row-val text-slate-400" id="autoRasVal" data-init="Grade 0 Nominal Standby" data-alt="SECDED: 1-Bit Flip Corrected" data-class-init="text-slate-400" data-class-alt="text-teal-300 font-bold">Grade 0 Nominal Standby</span>
+                </div>
+              </div>
+
+              <button class="engine-trigger-btn" id="engineBtn4" data-slide="4" type="button">
+                <span data-lang="zh">⚡ 注入 12-BIT 微調與備援修復 (COMMIT APPS)</span>
+                <span data-lang="en">⚡ COMMIT 12-BIT TRIM &amp; SPARE REPAIR</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage-deck-controller">
+          <button class="deck-ctrl-btn prev-btn" data-target="3" type="button" aria-label="Previous module">
+            <span>←</span> <span>PREV: 03 ULP IOT &amp; MCU</span>
+          </button>
+          <div class="deck-indicators">
+            <button class="deck-indicator-bar" data-goto="1" type="button" aria-label="Go to Domain 1"></button>
+            <button class="deck-indicator-bar" data-goto="2" type="button" aria-label="Go to Domain 2"></button>
+            <button class="deck-indicator-bar" data-goto="3" type="button" aria-label="Go to Domain 3"></button>
+            <button class="deck-indicator-bar is-active" data-goto="4" type="button" aria-label="Go to Domain 4"></button>
+            <button class="deck-indicator-bar" data-goto="5" type="button" aria-label="Go to Domain 5"></button>
+          </div>
+          <button class="deck-ctrl-btn next-btn" data-target="5" type="button" aria-label="Next module">
+            <span>NEXT: 05 BITCELL PHYSICS</span> <span>→</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 05: BITCELL & MEMORY PHYSICS                                    -->
+      <!-- ===================================================================== -->
+      <article class="deck-slide" id="deckSlide5" data-slide-id="5" aria-labelledby="slideTitle5">
+        <div class="stage-topbar">
+          <div class="stage-breadcrumb">
+            <span class="stage-status-dot"></span>
+            <strong class="stage-module-tag">DOMAIN 05 OF 05</strong>
+            <span class="stage-sep">::</span>
+            <span class="stage-category-text">BITCELL &amp; MEMORY PHYSICS</span>
+          </div>
+          <div class="stage-meta-badge">GATE OXIDE RUPTURE · 175°C ZERO DRIFT · 44 CLAIMS</div>
+        </div>
+
+        <div class="stage-body">
+          <div class="stage-thesis-col">
+            <div class="stage-kicker">
+              <span data-lang="zh">奈米物理 · 量子穿隧 · 44 筆證據</span>
+              <span data-lang="en">Nanoscale Physics · Quantum Tunneling · 44 Claims</span>
+            </div>
+            <h2 class="stage-title" id="slideTitle5">
               <span data-lang="zh">閘極氧化層永久性金屬微絲形成，<br><span class="stage-gradient-text">高達 175°C 高溫零電荷漂移物理特性</span></span>
               <span data-lang="en">Permanent metallic filament formation<br><span class="stage-gradient-text">with zero high-temperature drift up to 175°C</span></span>
             </h2>
@@ -506,35 +710,30 @@
               <span data-lang="en">Detailed physical models of dielectric hard breakdown in AntiFuse OTP, thermal silicide filament stability, multi-dielectric Fowler-Nordheim tunneling models, and 44 verified empirical claims on silicon datasheets.</span>
             </p>
 
-            <!-- 3 Pillars Badges -->
             <div class="deck-pillars-grid">
-              
-            <div class="deck-pillar-card">
-              <div class="pillar-code">01. RUPTURE</div>
-              <div class="pillar-text">
-                <span data-lang="zh">奈米導電微絲物理擊穿</span>
-                <span data-lang="en">Nanoscale permanent filament</span>
+              <div class="deck-pillar-card">
+                <div class="pillar-code">01. RUPTURE</div>
+                <div class="pillar-text">
+                  <span data-lang="zh">奈米導電微絲物理擊穿</span>
+                  <span data-lang="en">Nanoscale permanent filament</span>
+                </div>
+              </div>
+              <div class="deck-pillar-card">
+                <div class="pillar-code">02. 175°C RET</div>
+                <div class="pillar-text">
+                  <span data-lang="zh">175°C Tj 15+ 年零電荷洩漏</span>
+                  <span data-lang="en">15+ years zero charge leakage</span>
+                </div>
+              </div>
+              <div class="deck-pillar-card">
+                <div class="pillar-code">03. 44 CLAIMS</div>
+                <div class="pillar-text">
+                  <span data-lang="zh">44 筆端到端可查證證據</span>
+                  <span data-lang="en">Grounded in peer-reviewed data</span>
+                </div>
               </div>
             </div>
 
-            <div class="deck-pillar-card">
-              <div class="pillar-code">02. 175°C RET</div>
-              <div class="pillar-text">
-                <span data-lang="zh">175°C Tj 15+ 年零電荷洩漏</span>
-                <span data-lang="en">15+ years zero charge leakage</span>
-              </div>
-            </div>
-
-            <div class="deck-pillar-card">
-              <div class="pillar-code">03. 44 CLAIMS</div>
-              <div class="pillar-text">
-                <span data-lang="zh">44 筆端到端可查證證據</span>
-                <span data-lang="en">Grounded in peer-reviewed data</span>
-              </div>
-            </div>
-            </div>
-
-            <!-- Deep Dive Action Link -->
             <div class="stage-action-area">
               <a class="stage-link-btn" href="memory-physics.html">
                 <span data-lang="zh">檢視 44 筆物理證據總帳 →</span>
@@ -544,35 +743,29 @@
             </div>
           </div>
 
-          <!-- Right: Silicon State Engine -->
           <div class="stage-engine-col">
             <div class="engine-box">
               <div class="engine-header">
                 <span class="engine-title">SILICON STATE ENGINE · BITCELL FILAMENT STABILITY</span>
-                <span class="engine-state-pill" id="engineStatePill4" data-init="VIRGIN BITCELL (10¹² Ω)" data-alt="ACTIVE CYCLE">VIRGIN BITCELL (10¹² Ω)</span>
+                <span class="engine-state-pill" id="engineStatePill5" data-init="VIRGIN BITCELL (10¹² Ω)" data-alt="ACTIVE CYCLE">VIRGIN BITCELL (10¹² Ω)</span>
               </div>
               
-              <!-- Memory Matrix Rows -->
               <div class="engine-rows-list">
-                
-          <div class="engine-row">
-            <span class="engine-row-label">GATE OXIDE INTEGRITY:</span>
-            <span class="engine-row-val text-cyan-300" id="oxideVal" data-init="Intact 1.8nm Dielectric" data-alt="Ruptured (Localized Filament)" data-class-init="text-cyan-300" data-class-alt="text-rose-400 font-bold">Intact 1.8nm Dielectric</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">CELL READ IMPEDANCE:</span>
-            <span class="engine-row-val text-slate-500" id="impVal" data-init="> 10¹² Ω (Pristine Open)" data-alt="82.4 Ω (Permanent Metallic Short)" data-class-init="text-slate-500" data-class-alt="text-emerald-400 font-bold">> 10¹² Ω (Pristine Open)</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">175°C DRIFT RATE:</span>
-            <span class="engine-row-val text-slate-500" id="driftVal" data-init="N/A (Unprogrammed)" data-alt="0.00% (Zero-Charge Filament)" data-class-init="text-slate-500" data-class-alt="text-teal-300">N/A (Unprogrammed)</span>
-          </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">GATE OXIDE INTEGRITY:</span>
+                  <span class="engine-row-val text-cyan-300" id="oxideVal" data-init="Intact 1.8nm Dielectric" data-alt="Ruptured (Localized Filament)" data-class-init="text-cyan-300" data-class-alt="text-rose-400 font-bold">Intact 1.8nm Dielectric</span>
+                </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">CELL READ IMPEDANCE:</span>
+                  <span class="engine-row-val text-slate-500" id="impVal" data-init="> 10¹² Ω (Pristine Open)" data-alt="82.4 Ω (Permanent Metallic Short)" data-class-init="text-slate-500" data-class-alt="text-emerald-400 font-bold">> 10¹² Ω (Pristine Open)</span>
+                </div>
+                <div class="engine-row">
+                  <span class="engine-row-label">175°C DRIFT RATE:</span>
+                  <span class="engine-row-val text-slate-500" id="driftVal" data-init="N/A (Unprogrammed)" data-alt="0.00% (Zero-Charge Filament)" data-class-init="text-slate-500" data-class-alt="text-teal-300">N/A (Unprogrammed)</span>
+                </div>
               </div>
 
-              <!-- Trigger Simulator Button -->
-              <button class="engine-trigger-btn" id="engineBtn4" data-slide="4" type="button">
+              <button class="engine-trigger-btn" id="engineBtn5" data-slide="5" type="button">
                 <span data-lang="zh">⚡ 施加高壓編程脈衝 (TRIGGER RUPTURE)</span>
                 <span data-lang="en">⚡ APPLY PROGRAMMING PULSE (TRIGGER RUPTURE)</span>
               </button>
@@ -580,408 +773,25 @@
           </div>
         </div>
 
-        <!-- Bottom Deck Controller Ribbon -->
-        <div class="stage-deck-controller">
-          <button class="deck-ctrl-btn prev-btn" data-target="3" type="button" aria-label="Previous module">
-            <span>←</span> <span>PREV: SPECIALTY BCD/HV</span>
-          </button>
-
-          <div class="deck-indicators">
-            <button class="deck-indicator-bar " data-goto="1" type="button" aria-label="Go to Module 1"></button>
-<button class="deck-indicator-bar " data-goto="2" type="button" aria-label="Go to Module 2"></button>
-<button class="deck-indicator-bar " data-goto="3" type="button" aria-label="Go to Module 3"></button>
-<button class="deck-indicator-bar is-active" data-goto="4" type="button" aria-label="Go to Module 4"></button>
-<button class="deck-indicator-bar " data-goto="5" type="button" aria-label="Go to Module 5"></button>
-<button class="deck-indicator-bar " data-goto="6" type="button" aria-label="Go to Module 6"></button>
-<button class="deck-indicator-bar " data-goto="7" type="button" aria-label="Go to Module 7"></button>
-          </div>
-
-          <button class="deck-ctrl-btn next-btn" data-target="5" type="button" aria-label="Next module">
-            <span>NEXT: ARRAY REPAIR</span> <span>→</span>
-          </button>
-        </div>
-      </article>
-
-      <!-- SLIDE 05: ARRAY REDUNDANCY & REPAIR -->
-      <article class="deck-slide " id="deckSlide5" data-slide-id="5" aria-labelledby="slideTitle5">
-        <!-- Top Stage Breadcrumb & Metadata -->
-        <div class="stage-topbar">
-          <div class="stage-breadcrumb">
-            <span class="stage-status-dot"></span>
-            <strong class="stage-module-tag">MODULE 05 OF 07</strong>
-            <span class="stage-sep">::</span>
-            <span class="stage-category-text">ARRAY REDUNDANCY & REPAIR</span>
-          </div>
-          <div class="stage-meta-badge">MARCH C+ BIST · HEURISTIC BIRA · POST-PACKAGE REPAIR</div>
-        </div>
-
-        <!-- Slide Body: Thesis + Silicon State Engine -->
-        <div class="stage-body">
-          <!-- Left: Architectural Thesis -->
-          <div class="stage-thesis-col">
-            <div class="stage-kicker">
-              <span data-lang="zh">冗餘配置 · 良率提升</span>
-              <span data-lang="en">Redundancy Allocation · Yield Optimization</span>
-            </div>
-            <h2 class="stage-title" id="slideTitle5">
-              <span data-lang="zh">啟發式硬體 BIRA 求解器<br><span class="stage-gradient-text">與超高密度記憶體矩陣封裝後修復</span></span>
-              <span data-lang="en">Heuristic BIRA solver and<br><span class="stage-gradient-text">post-package repair for ultra-dense memory matrices</span></span>
-            </h2>
-            <p class="stage-desc">
-              <span data-lang="zh">在硬體電路上以貪婪啟發式演算法即時求解 NP-Complete 備援配置，透過晶片內建 AntiFuse CAM FuseBox 重映射缺陷行列，於封裝後 (PPR) 完美救回 CIS 與 DRAM/HBM 晶粒良率。</span>
-              <span data-lang="en">Solves NP-complete spare allocation in real-time hardware using greedy heuristics, seamlessly redirecting defective rows/columns via on-chip AntiFuse CAM FuseBox to salvage CIS and DRAM/HBM dies after packaging.</span>
-            </p>
-
-            <!-- 3 Pillars Badges -->
-            <div class="deck-pillars-grid">
-              
-            <div class="deck-pillar-card">
-              <div class="pillar-code">01. BIST SCAN</div>
-              <div class="pillar-text">
-                <span data-lang="zh">March C+ 全速矩陣自檢</span>
-                <span data-lang="en">March C+ at-speed matrix sweep</span>
-              </div>
-            </div>
-
-            <div class="deck-pillar-card">
-              <div class="pillar-code">02. BIRA SOLVER</div>
-              <div class="pillar-text">
-                <span data-lang="zh">啟發式多項式備援求解</span>
-                <span data-lang="en">Heuristic polynomial allocation</span>
-              </div>
-            </div>
-
-            <div class="deck-pillar-card">
-              <div class="pillar-code">03. CAM FUSE</div>
-              <div class="pillar-text">
-                <span data-lang="zh">CAM FuseBox 單週期重映射</span>
-                <span data-lang="en">Single-cycle zero-latency redirect</span>
-              </div>
-            </div>
-            </div>
-
-            <!-- Deep Dive Action Link -->
-            <div class="stage-action-area">
-              <a class="stage-link-btn" href="specialty-nvm.html#repair">
-                <span data-lang="zh">進入陣列修復模擬實驗室 →</span>
-                <span data-lang="en">View Array Repair Simulation →</span>
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right: Silicon State Engine -->
-          <div class="stage-engine-col">
-            <div class="engine-box">
-              <div class="engine-header">
-                <span class="engine-title">SILICON STATE ENGINE · BIST/BIRA MATRIX STATUS</span>
-                <span class="engine-state-pill" id="engineStatePill5" data-init="DEFECT DETECTED (3 FAULTS)" data-alt="ACTIVE CYCLE">DEFECT DETECTED (3 FAULTS)</span>
-              </div>
-              
-              <!-- Memory Matrix Rows -->
-              <div class="engine-rows-list">
-                
-          <div class="engine-row">
-            <span class="engine-row-label">BIST RADAR SCAN:</span>
-            <span class="engine-row-val text-rose-400 font-bold" id="bistVal" data-init="Row 14, Col 28 Fault Detected" data-alt="100% Pass (All Faults Isolated)" data-class-init="text-rose-400 font-bold" data-class-alt="text-emerald-400 font-bold">Row 14, Col 28 Fault Detected</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">HEURISTIC BIRA DECISION:</span>
-            <span class="engine-row-val text-slate-400" id="biraVal" data-init="Solving Minimum Vertex Cover..." data-alt="Allocated Spare Row 1 + Spare Col 2" data-class-init="text-slate-400" data-class-alt="text-cyan-300">Solving Minimum Vertex Cover...</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">CAM FUSEBOX REMAP:</span>
-            <span class="engine-row-val text-slate-500" id="fuseVal" data-init="Pending OTP Programming" data-alt="LOCKED: 0-Wait Remap Committed" data-class-init="text-slate-500" data-class-alt="text-teal-300 font-bold">Pending OTP Programming</span>
-          </div>
-              </div>
-
-              <!-- Trigger Simulator Button -->
-              <button class="engine-trigger-btn" id="engineBtn5" data-slide="5" type="button">
-                <span data-lang="zh">⚡ 執行啟發式備援重映射 (COMMIT REPAIR)</span>
-                <span data-lang="en">⚡ EXECUTE HEURISTIC REPAIR ALLOCATION</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom Deck Controller Ribbon -->
         <div class="stage-deck-controller">
           <button class="deck-ctrl-btn prev-btn" data-target="4" type="button" aria-label="Previous module">
-            <span>←</span> <span>PREV: BITCELL PHYSICS</span>
+            <span>←</span> <span>PREV: 04 SPECIALTY SILICON</span>
           </button>
-
           <div class="deck-indicators">
-            <button class="deck-indicator-bar " data-goto="1" type="button" aria-label="Go to Module 1"></button>
-<button class="deck-indicator-bar " data-goto="2" type="button" aria-label="Go to Module 2"></button>
-<button class="deck-indicator-bar " data-goto="3" type="button" aria-label="Go to Module 3"></button>
-<button class="deck-indicator-bar " data-goto="4" type="button" aria-label="Go to Module 4"></button>
-<button class="deck-indicator-bar is-active" data-goto="5" type="button" aria-label="Go to Module 5"></button>
-<button class="deck-indicator-bar " data-goto="6" type="button" aria-label="Go to Module 6"></button>
-<button class="deck-indicator-bar " data-goto="7" type="button" aria-label="Go to Module 7"></button>
+            <button class="deck-indicator-bar" data-goto="1" type="button" aria-label="Go to Domain 1"></button>
+            <button class="deck-indicator-bar" data-goto="2" type="button" aria-label="Go to Domain 2"></button>
+            <button class="deck-indicator-bar" data-goto="3" type="button" aria-label="Go to Domain 3"></button>
+            <button class="deck-indicator-bar" data-goto="4" type="button" aria-label="Go to Domain 4"></button>
+            <button class="deck-indicator-bar is-active" data-goto="5" type="button" aria-label="Go to Domain 5"></button>
           </div>
-
-          <button class="deck-ctrl-btn next-btn" data-target="6" type="button" aria-label="Next module">
-            <span>NEXT: ANALOG TRIMMING</span> <span>→</span>
-          </button>
-        </div>
-      </article>
-
-      <!-- SLIDE 06: ANALOG TRIMMING & CALIBRATION -->
-      <article class="deck-slide " id="deckSlide6" data-slide-id="6" aria-labelledby="slideTitle6">
-        <!-- Top Stage Breadcrumb & Metadata -->
-        <div class="stage-topbar">
-          <div class="stage-breadcrumb">
-            <span class="stage-status-dot"></span>
-            <strong class="stage-module-tag">MODULE 06 OF 07</strong>
-            <span class="stage-sep">::</span>
-            <span class="stage-category-text">ANALOG TRIMMING & CALIBRATION</span>
-          </div>
-          <div class="stage-meta-badge">BANDGAP 1.200V ±0.1% · 12-BIT R-LADDER · ATE IN-LINE</div>
-        </div>
-
-        <!-- Slide Body: Thesis + Silicon State Engine -->
-        <div class="stage-body">
-          <!-- Left: Architectural Thesis -->
-          <div class="stage-thesis-col">
-            <div class="stage-kicker">
-              <span data-lang="zh">類比極致精度 · 晶圓級校準</span>
-              <span data-lang="en">Analog Precision · Wafer-Level Cal</span>
-            </div>
-            <h2 class="stage-title" id="slideTitle6">
-              <span data-lang="zh">晶圓級高精度類比微調，<br><span class="stage-gradient-text">實現閉環式溫度補償與曲率消除</span></span>
-              <span data-lang="en">Wafer-level precision analog trimming<br><span class="stage-gradient-text">with closed-loop thermal curvature cancellation</span></span>
-            </h2>
-            <p class="stage-desc">
-              <span data-lang="zh">利用離散二進位加權電阻梯 (R-Ladder) 與 AntiFuse OTP 巨集，於自動化 ATE 測試站點將帶隙基準電壓閉環微調至 ±0.1% 極致精度，橫跨 -40°C 至 150°C 全溫區。</span>
-              <span data-lang="en">Leverages discrete binary-weighted resistor ladders and AntiFuse OTP macros to lock bandgap reference voltages to ±0.1% accuracy across -40°C to 150°C during automated ATE test insertion.</span>
-            </p>
-
-            <!-- 3 Pillars Badges -->
-            <div class="deck-pillars-grid">
-              
-            <div class="deck-pillar-card">
-              <div class="pillar-code">01. ±0.1% ACC</div>
-              <div class="pillar-text">
-                <span data-lang="zh">晶圓針測閉環極致鎖定</span>
-                <span data-lang="en">Wafer-probe closed-loop lock</span>
-              </div>
-            </div>
-
-            <div class="deck-pillar-card">
-              <div class="pillar-code">02. R-LADDER</div>
-              <div class="pillar-text">
-                <span data-lang="zh">12-bit 二進位離散階梯</span>
-                <span data-lang="en">12-bit binary-weighted discrete</span>
-              </div>
-            </div>
-
-            <div class="deck-pillar-card">
-              <div class="pillar-code">03. ATE SIGN-OFF</div>
-              <div class="pillar-text">
-                <span data-lang="zh">零誤殺 ATE 自動量產簽核</span>
-                <span data-lang="en">Zero-overkill production test</span>
-              </div>
-            </div>
-            </div>
-
-            <!-- Deep Dive Action Link -->
-            <div class="stage-action-area">
-              <a class="stage-link-btn" href="specialty-nvm.html#trimming">
-                <span data-lang="zh">進入帶隙微調計算機 →</span>
-                <span data-lang="en">Open Bandgap Trim Calculator →</span>
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right: Silicon State Engine -->
-          <div class="stage-engine-col">
-            <div class="engine-box">
-              <div class="engine-header">
-                <span class="engine-title">SILICON STATE ENGINE · PRECISION ATE TRIMMER</span>
-                <span class="engine-state-pill" id="engineStatePill6" data-init="PRE-TRIM (OFFSET +24.8 mV)" data-alt="ACTIVE CYCLE">PRE-TRIM (OFFSET +24.8 mV)</span>
-              </div>
-              
-              <!-- Memory Matrix Rows -->
-              <div class="engine-rows-list">
-                
-          <div class="engine-row">
-            <span class="engine-row-label">RAW BANDGAP VOLTAGE:</span>
-            <span class="engine-row-val text-rose-400 font-bold" id="trimRawVal" data-init="1.2248 V (±2.07% Process Shift)" data-alt="1.2001 V (±0.008% Target Locked)" data-class-init="text-rose-400 font-bold" data-class-alt="text-emerald-400 font-bold">1.2248 V (±2.07% Process Shift)</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">12-BIT R-LADDER CODE:</span>
-            <span class="engine-row-val text-slate-500" id="trimCodeVal" data-init="0x000 (Default Bypass)" data-alt="0x7B4 (Optimum Compensation Code)" data-class-init="text-slate-500" data-class-alt="text-cyan-300">0x000 (Default Bypass)</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">POST-TRIM DRIFT (HTOL):</span>
-            <span class="engine-row-val text-slate-500" id="trimDriftVal" data-init="Uncalibrated" data-alt="< 0.05% over 1,000 hrs @ 150°C" data-class-init="text-slate-500" data-class-alt="text-teal-300 font-bold">Uncalibrated</span>
-          </div>
-              </div>
-
-              <!-- Trigger Simulator Button -->
-              <button class="engine-trigger-btn" id="engineBtn6" data-slide="6" type="button">
-                <span data-lang="zh">⚡ 觸發 ATE 自動校準與微調燒錄 (FIRE TRIM)</span>
-                <span data-lang="en">⚡ FIRE ATE LASER/PULSE TRIM SEQUENCE</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom Deck Controller Ribbon -->
-        <div class="stage-deck-controller">
-          <button class="deck-ctrl-btn prev-btn" data-target="5" type="button" aria-label="Previous module">
-            <span>←</span> <span>PREV: ARRAY REPAIR</span>
-          </button>
-
-          <div class="deck-indicators">
-            <button class="deck-indicator-bar " data-goto="1" type="button" aria-label="Go to Module 1"></button>
-<button class="deck-indicator-bar " data-goto="2" type="button" aria-label="Go to Module 2"></button>
-<button class="deck-indicator-bar " data-goto="3" type="button" aria-label="Go to Module 3"></button>
-<button class="deck-indicator-bar " data-goto="4" type="button" aria-label="Go to Module 4"></button>
-<button class="deck-indicator-bar " data-goto="5" type="button" aria-label="Go to Module 5"></button>
-<button class="deck-indicator-bar is-active" data-goto="6" type="button" aria-label="Go to Module 6"></button>
-<button class="deck-indicator-bar " data-goto="7" type="button" aria-label="Go to Module 7"></button>
-          </div>
-
-          <button class="deck-ctrl-btn next-btn" data-target="7" type="button" aria-label="Next module">
-            <span>NEXT: AUTOMOTIVE / RAS</span> <span>→</span>
-          </button>
-        </div>
-      </article>
-
-      <!-- SLIDE 07: AUTOMOTIVE GRADE 0 & RAS -->
-      <article class="deck-slide " id="deckSlide7" data-slide-id="7" aria-labelledby="slideTitle7">
-        <!-- Top Stage Breadcrumb & Metadata -->
-        <div class="stage-topbar">
-          <div class="stage-breadcrumb">
-            <span class="stage-status-dot"></span>
-            <strong class="stage-module-tag">MODULE 07 OF 07</strong>
-            <span class="stage-sep">::</span>
-            <span class="stage-category-text">AUTOMOTIVE GRADE 0 & RAS</span>
-          </div>
-          <div class="stage-meta-badge">175°C Tj · AEC-Q100 GRADE 0 · SECDED ECC ENGINE</div>
-        </div>
-
-        <!-- Slide Body: Thesis + Silicon State Engine -->
-        <div class="stage-body">
-          <!-- Left: Architectural Thesis -->
-          <div class="stage-thesis-col">
-            <div class="stage-kicker">
-              <span data-lang="zh">零缺陷 · 嚴苛車規</span>
-              <span data-lang="en">Zero-Defect · Mission Critical</span>
-            </div>
-            <h2 class="stage-title" id="slideTitle7">
-              <span data-lang="zh">AEC-Q100 Grade 0 車規認證，<br><span class="stage-gradient-text">搭載 SECDED ECC 硬體容錯可靠度架構</span></span>
-              <span data-lang="en">AEC-Q100 Grade 0 compliance<br><span class="stage-gradient-text">with fault-tolerant SECDED ECC architecture</span></span>
-            </h2>
-            <p class="stage-desc">
-              <span data-lang="zh">確保在引擎蓋下嚴苛高溫環境中，於 175°C 接面溫度下具備 15 年以上長效數據留存，結合即時單錯誤更正、雙錯誤偵測 (SECDED) ECC 引擎，為車用 ASIL-D 晶片提供零缺陷保障。</span>
-              <span data-lang="en">Guarantees 15+ years retention at 175°C junction temperature under severe under-hood conditions. Hardened with on-the-fly Single-Error Correction and Double-Error Detection for mission-critical ASIL-D automotive ASICs.</span>
-            </p>
-
-            <!-- 3 Pillars Badges -->
-            <div class="deck-pillars-grid">
-              
-            <div class="deck-pillar-card">
-              <div class="pillar-code">01. GRADE 0</div>
-              <div class="pillar-text">
-                <span data-lang="zh">175°C 接面溫度 15+ 年保存</span>
-                <span data-lang="en">175°C Tj 15+ years retention</span>
-              </div>
-            </div>
-
-            <div class="deck-pillar-card">
-              <div class="pillar-code">02. SECDED</div>
-              <div class="pillar-text">
-                <span data-lang="zh">即時單錯更正、雙錯偵測</span>
-                <span data-lang="en">Single error correct, double detect</span>
-              </div>
-            </div>
-
-            <div class="deck-pillar-card">
-              <div class="pillar-code">03. ASIL-D</div>
-              <div class="pillar-text">
-                <span data-lang="zh">ISO 26262 ASIL-D 功能安全</span>
-                <span data-lang="en">ISO 26262 functional safety</span>
-              </div>
-            </div>
-            </div>
-
-            <!-- Deep Dive Action Link -->
-            <div class="stage-action-area">
-              <a class="stage-link-btn" href="specialty-nvm.html#eink">
-                <span data-lang="zh">檢視車規與特種 NVM 全覽 →</span>
-                <span data-lang="en">View Automotive & Specialty Overview →</span>
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right: Silicon State Engine -->
-          <div class="stage-engine-col">
-            <div class="engine-box">
-              <div class="engine-header">
-                <span class="engine-title">SILICON STATE ENGINE · AUTOMOTIVE RAS MONITOR</span>
-                <span class="engine-state-pill" id="engineStatePill7" data-init="NORMAL RUN (0 FAULTS)" data-alt="ACTIVE CYCLE">NORMAL RUN (0 FAULTS)</span>
-              </div>
-              
-              <!-- Memory Matrix Rows -->
-              <div class="engine-rows-list">
-                
-          <div class="engine-row">
-            <span class="engine-row-label">JUNCTION TEMPERATURE:</span>
-            <span class="engine-row-val text-slate-400" id="autoTempVal" data-init="105°C (Standard Under-Hood)" data-alt="175°C (AEC-Q100 Grade 0 Extreme)" data-class-init="text-slate-400" data-class-alt="text-rose-400 font-bold">105°C (Standard Under-Hood)</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">SECDED ECC HARDWARE:</span>
-            <span class="engine-row-val text-emerald-400 font-bold" id="eccVal" data-init="Active Guard (0 Bit Flip)" data-alt="1-Bit Error Detected & Corrected on Fly" data-class-init="text-emerald-400 font-bold" data-class-alt="text-cyan-300 font-bold">Active Guard (0 Bit Flip)</span>
-          </div>
-
-          <div class="engine-row">
-            <span class="engine-row-label">ASIL-D SAFETY STATUS:</span>
-            <span class="engine-row-val text-teal-300" id="safeVal" data-init="FIT < 0.1 (Zero Defect Target)" data-alt="FAULT CONTAINED · MISSION CONTINUOUS" data-class-init="text-teal-300" data-class-alt="text-emerald-400 font-bold">FIT < 0.1 (Zero Defect Target)</span>
-          </div>
-              </div>
-
-              <!-- Trigger Simulator Button -->
-              <button class="engine-trigger-btn" id="engineBtn7" data-slide="7" type="button">
-                <span data-lang="zh">⚡ 注入高溫極限應力與位元翻轉 (INJECT STRESS)</span>
-                <span data-lang="en">⚡ INJECT THERMAL STRESS & BIT-FLIP FAULT</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom Deck Controller Ribbon -->
-        <div class="stage-deck-controller">
-          <button class="deck-ctrl-btn prev-btn" data-target="6" type="button" aria-label="Previous module">
-            <span>←</span> <span>PREV: ANALOG TRIMMING</span>
-          </button>
-
-          <div class="deck-indicators">
-            <button class="deck-indicator-bar " data-goto="1" type="button" aria-label="Go to Module 1"></button>
-<button class="deck-indicator-bar " data-goto="2" type="button" aria-label="Go to Module 2"></button>
-<button class="deck-indicator-bar " data-goto="3" type="button" aria-label="Go to Module 3"></button>
-<button class="deck-indicator-bar " data-goto="4" type="button" aria-label="Go to Module 4"></button>
-<button class="deck-indicator-bar " data-goto="5" type="button" aria-label="Go to Module 5"></button>
-<button class="deck-indicator-bar " data-goto="6" type="button" aria-label="Go to Module 6"></button>
-<button class="deck-indicator-bar is-active" data-goto="7" type="button" aria-label="Go to Module 7"></button>
-          </div>
-
           <button class="deck-ctrl-btn next-btn" data-target="1" type="button" aria-label="Next module">
-            <span>NEXT: SECURE STORAGE</span> <span>→</span>
+            <span>NEXT: 01 SECURE STORAGE</span> <span>→</span>
           </button>
         </div>
       </article>
+
     </div>
   </main>
-
   <!-- 4. SPEC DRAWER & EVIDENCE MATRIX (COLLAPSIBLE LEDGER) -->
   <section class="spec-drawer-section" id="specDrawer">
     <div class="spec-drawer-toggle-bar">
@@ -991,7 +801,7 @@
           <span data-lang="zh">規格收合器與 44 筆證據總帳 (點擊展開 / 收合)</span>
           <span data-lang="en">SPEC DRAWER &amp; COMPLETE EVIDENCE MATRIX (CLICK TO TOGGLE)</span>
         </strong>
-        <span class="drawer-badge">44 CLAIMS · 7 MODULES · MONOREPO</span>
+        <span class="drawer-badge">44 CLAIMS · 5 DOMAINS · MONOREPO</span>
       </button>
     </div>
 
@@ -999,10 +809,10 @@
       <!-- 3 Core Summary Metrics -->
       <div class="spec-metrics-grid" aria-label="Knowledge system summary">
         <div class="spec-metric-card">
-          <b>7</b>
+          <b>5</b>
           <span>
-            <span data-lang="zh">7 大技術架構模組</span>
-            <span data-lang="en">7 CORE ARCHITECTURE MODULES</span>
+            <span data-lang="zh">5 大核心知識領域</span>
+            <span data-lang="en">5 CORE KNOWLEDGE DOMAINS</span>
           </span>
         </div>
         <div class="spec-metric-card">
@@ -1025,8 +835,8 @@
       <div class="spec-matrix-header">
         <p>01 · CORE MODULE MATRIX</p>
         <h2>
-          <span data-lang="zh">7 大技術架構模組詳細矩陣<br><em>從底層微觀物理到全系統決策</em></span>
-          <span data-lang="en">7 Core Architecture Modules Matrix<br><em>From Micro-Physics to System-Level Selection</em></span>
+          <span data-lang="zh">5 大核心知識領域詳細矩陣<br><em>從底層微觀物理到全系統決策</em></span>
+          <span data-lang="en">5 Core Knowledge Domains Matrix<br><em>From Micro-Physics to System-Level Selection</em></span>
         </h2>
         <span>
           <span data-lang="zh">從物理層 IP 安全、AI 與先進節點、原生決策工作室，到車規物理與高階簡報講稿。</span>

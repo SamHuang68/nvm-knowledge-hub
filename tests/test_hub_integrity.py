@@ -91,13 +91,13 @@ def test_navigation_links():
     print("  ✓ 全站導覽列 Specialty NVM 入口 100% 暢通！")
 
 def test_claims_and_metrics_coherence():
-    print(">>> [TEST 4] 驗證核心模組、物理證據與簡報卡片指標一致性...")
+    print(">>> [TEST 4] 驗證核心知識領域、物理證據與簡報卡片指標一致性...")
     idx_content = (BASE_DIR / "index.html").read_text(encoding="utf-8")
     briefing_content = (BASE_DIR / "briefing/index.html").read_text(encoding="utf-8")
     evidence_content = (BASE_DIR / "memory-evidence.html").read_text(encoding="utf-8")
     
-    # 門戶 7 大模組
-    assert "<b>7</b>" in idx_content and "7 大技術架構模組" in idx_content
+    # 門戶 5 大核心知識領域
+    assert "<b>5</b>" in idx_content and "5 大核心知識領域" in idx_content, "index.html 核心領域指標未對齊為 5 大核心知識領域！"
     # 門戶 44 筆證據
     assert "<b>44</b>" in idx_content and "44 CLAIMS" in idx_content
     # 簡報 18 頁
@@ -105,7 +105,7 @@ def test_claims_and_metrics_coherence():
     # 證據頁 31 筆精選與 14 筆官方
     assert "<b>31</b><span>CURATED RECORDS</span>" in evidence_content
     assert "<b>14</b><span>VENDOR / OFFICIAL</span>" in evidence_content
-    print("  ✓ 全站指標連動 (7 Modules · 44 Claims · 18 Briefing Slides) 100% PASS！")
+    print("  ✓ 全站指標連動 (5 Domains · 44 Claims · 18 Briefing Slides) 100% PASS！")
 
 def test_flagship_interactive_labs():
     print(">>> [TEST 5] 驗證 Specialty NVM 4 大旗艦實驗室 DOM 與腳本健全性...")
@@ -122,6 +122,76 @@ def test_flagship_interactive_labs():
         assert cvs in js_content, f"Missing JS handler for canvas: {cvs}"
     print("  ✓ 4 大旗艦實驗室與 6 大 Canvas 繪圖引擎 100% PASS！")
 
+def test_skip_link_defense():
+    print(">>> [TEST 6] 驗證全站 Skip-Link 隱藏防禦與高對比無障礙樣式...")
+    hub_css = (BASE_DIR / "hub.css").read_text(encoding="utf-8")
+    shell_css = (BASE_DIR / "site-shell.css").read_text(encoding="utf-8")
+    idx_content = (BASE_DIR / "index.html").read_text(encoding="utf-8")
+    
+    for name, css in [("hub.css", hub_css), ("site-shell.css", shell_css), ("index.html inline", idx_content)]:
+        assert ".skip-link" in css, f"{name} 缺少 .skip-link 樣式宣告！"
+        assert "top: -120px" in css or "left: -9999px" in css, f"{name} .skip-link 未正確宣告在視窗外隱藏！"
+        assert ":focus" in css, f"{name} 缺少 .skip-link:focus 樣式！"
+    
+    # 驗證 index.html 中的 skip-link 具備雙語標籤
+    skip_link_html = re.search(r'<a[^>]*class="skip-link"[^>]*>.*?</a>', idx_content, re.DOTALL)
+    assert skip_link_html, "index.html 缺少 skip-link HTML 元素！"
+    assert 'data-lang="zh"' in skip_link_html.group(0) and 'data-lang="en"' in skip_link_html.group(0), "skip-link 缺少完整雙語標籤！"
+    print("  ✓ Skip-Link 隱藏防禦與高對比度無障礙規範 100% PASS！")
+
+def test_language_single_source_of_truth():
+    print(">>> [TEST 7] 驗證全站語系治理單一真相來源 (零重複事件監聽)...")
+    hub_js = (BASE_DIR / "hub.js").read_text(encoding="utf-8")
+    site_lang_js = (BASE_DIR / "site-language.js").read_text(encoding="utf-8")
+    
+    # hub.js 不可再綁定 #languageToggle 的 click 事件
+    assert 'querySelector("#languageToggle")?.addEventListener("click"' not in hub_js, "hub.js 依然存在重複綁定 #languageToggle 監聽器！"
+    assert 'getElementById("languageToggle")?.addEventListener("click"' not in hub_js, "hub.js 依然存在重複綁定 #languageToggle 監聽器！"
+    
+    # site-language.js 是唯一的 click 監聽綁定者
+    assert "btn.addEventListener(\"click\"" in site_lang_js, "site-language.js 缺少統一 click 綁定！"
+    
+    # 驗證 hub.js 監聽 hub:language-change
+    assert 'addEventListener("hub:language-change"' in hub_js, "hub.js 缺少 hub:language-change 自訂事件監聽！"
+    print("  ✓ 語系切換單一真相來源與零雙重切換競態 100% PASS！")
+
+def test_two_tier_architecture():
+    print(">>> [TEST 8] 驗證兩階知識體系架構 (Brand Topbar + 5 Core Domains)...")
+    idx_content = (BASE_DIR / "index.html").read_text(encoding="utf-8")
+    
+    # 驗證二階橫向 Tab 為 5 個核心知識領域
+    tabs = re.findall(r'<button class="module-tab-btn[^"]*" data-module="(\d+)"', idx_content)
+    assert len(tabs) == 5, f"二階橫向 Tab 數量不等於 5 (實際為 {len(tabs)})"
+    assert tabs == ["1", "2", "3", "4", "5"], f"Tab 編號不為 1~5: {tabs}"
+    
+    # 驗證 Slide 數量為 5
+    slides = re.findall(r'<article class="deck-slide[^"]*" id="deckSlide(\d+)"', idx_content)
+    assert len(slides) == 5, f"Slide 數量不等於 5 (實際為 {len(slides)})"
+    
+    # 驗證 Slide 04 包含三大應用說明 (Repair / Trim / Auto RAS)
+    assert 'id="paneRepair"' in idx_content, "Slide 04 缺少 paneRepair 應用說明！"
+    assert 'id="paneTrim"' in idx_content, "Slide 04 缺少 paneTrim 應用說明！"
+    assert 'id="paneAuto"' in idx_content, "Slide 04 缺少 paneAuto 應用說明！"
+    
+    # 驗證頂列第一階不重複包含知識領域清單
+    top_nav = re.search(r'<nav class="hub-top-nav"[^>]*>(.*?)</nav>', idx_content, re.DOTALL)
+    assert top_nav, "缺少第一階頂列 hub-top-nav！"
+    assert "secure-storage.html" not in top_nav.group(1), "第一階頂列依然重複包含知識領域連結！"
+    assert "specialty-nvm.html" not in top_nav.group(1), "第一階頂列依然重複包含知識領域連結！"
+    
+    # 驗證 index.html 地毯式雙語純度
+    cleaned = re.sub(r'<script.*?</script>', '', idx_content, flags=re.DOTALL)
+    cleaned = re.sub(r'<style.*?</style>', '', cleaned, flags=re.DOTALL)
+    cleaned = re.sub(r'<!--.*?-->', '', cleaned, flags=re.DOTALL)
+    cleaned = re.sub(r'<span data-lang="zh">.*?</span>', '', cleaned, flags=re.DOTALL)
+    cleaned = re.sub(r'<strong data-lang="zh">.*?</strong>', '', cleaned, flags=re.DOTALL)
+    cleaned = re.sub(r'<p data-lang="zh">.*?</p>', '', cleaned, flags=re.DOTALL)
+    cleaned = re.sub(r'<b data-lang-option="zh">中</b>', '', cleaned, flags=re.DOTALL)
+    cleaned = re.sub(r'<span data-lang="zh">.*', '', cleaned) # 單行容錯
+    naked_cjk = re.findall(r'[一-鿿]{2,}', cleaned)
+    assert not naked_cjk, f"index.html 發現殘留裸露中文: {naked_cjk[:5]}"
+    print("  ✓ 兩階知識體系架構與 index.html 雙語純度 100% PASS！")
+
 def main():
     print("==================================================================")
     print("  NVM KNOWLEDGE HUB · MONOREPO PRODUCTION INTEGRITY TEST SUITE")
@@ -132,8 +202,11 @@ def main():
         test_navigation_links()
         test_claims_and_metrics_coherence()
         test_flagship_interactive_labs()
+        test_skip_link_defense()
+        test_language_single_source_of_truth()
+        test_two_tier_architecture()
         print("\n==================================================================")
-        print("  🎉 ALL 5 INTEGRITY TESTS PASSED! MONOREPO IN FLAWLESS STATE!")
+        print("  🎉 ALL 8 INTEGRITY TESTS PASSED! MONOREPO IN FLAWLESS STATE!")
         print("==================================================================")
     except AssertionError as e:
         print(f"\n❌ TEST FAILED: {e}")
@@ -141,3 +214,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

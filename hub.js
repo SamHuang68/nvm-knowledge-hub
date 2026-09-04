@@ -3,38 +3,22 @@
 // Architecture Forum · Paginated Deck Stage · Silicon State Engine · Keyboard Nav
 // ==========================================================================
 
-// 1. TOP-LEVEL LANGUAGE GOVERNANCE
+// 1. TOP-LEVEL LANGUAGE GOVERNANCE (SINGLE SOURCE OF TRUTH: site-language.js)
 function syncHubLanguage() {
-  const lang = window.HubLanguage ? window.HubLanguage.get() : (localStorage.getItem("nvm-language") || "en");
-  document.body.dataset.language = lang;
+  const lang = window.HubLanguage ? window.HubLanguage.get() : "en";
+  document.documentElement.dataset.language = lang;
   document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  if (document.body) {
+    document.body.dataset.language = lang;
+  }
 }
 window.addEventListener("hub:language-change", syncHubLanguage);
 document.addEventListener("DOMContentLoaded", syncHubLanguage);
 
-function setHubLanguage(language, persist = true) {
-  const next = language === "en" ? "en" : "zh";
-  hubBodyLanguage(next);
-  if (persist) {
-    localStorage.setItem("nvm-language", next);
-    window.HubLanguage?.set(next);
-  }
-}
 
-function hubBodyLanguage(next) {
-  document.body.dataset.language = next;
-  document.documentElement.lang = next === "zh" ? "zh-Hant" : "en";
-  document.querySelector("#languageToggle")?.setAttribute("aria-label", next === "zh" ? "Switch to English" : "Switch to Traditional Chinese");
-}
-
-document.querySelector("#languageToggle")?.addEventListener("click", () => {
-  const current = document.body.dataset.language || "en";
-  setHubLanguage(current === "zh" ? "en" : "zh");
-});
-
-// 2. PAGINATED SLIDE STAGE & TAB STRIP
+// 2. PAGINATED SLIDE STAGE & TAB STRIP (5 CORE KNOWLEDGE DOMAINS)
 let currentSlide = 1;
-const TOTAL_SLIDES = 7;
+const TOTAL_SLIDES = 5;
 
 function switchSlide(targetId) {
   if (targetId < 1 || targetId > TOTAL_SLIDES) return;
@@ -81,6 +65,19 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// Slide 04: Sub-Application Focus Tabs (Array Repair / Analog Trim / Automotive RAS)
+document.addEventListener("click", (e) => {
+  const appBtn = e.target.closest(".spec-app-btn");
+  if (!appBtn) return;
+  const appType = appBtn.dataset.app;
+  document.querySelectorAll(".spec-app-btn").forEach(b => b.classList.toggle("is-active", b === appBtn));
+  
+  const targetId = (appType === "repair") ? "paneRepair" : (appType === "trim") ? "paneTrim" : "paneAuto";
+  document.querySelectorAll(".spec-app-pane").forEach(p => {
+    p.classList.toggle("is-active", p.id === targetId);
+  });
+});
+
 // 3. SILICON STATE ENGINE INTERACTIVE SIMULATORS
 document.addEventListener("click", (e) => {
   const triggerBtn = e.target.closest(".engine-trigger-btn");
@@ -122,7 +119,7 @@ document.addEventListener("click", (e) => {
   triggerBtn.dataset.activeState = isAlt ? "init" : "alt";
 });
 
-// 4. ARCHITECT KEYBOARD NAVIGATION (← / →, 1-7, ESC)
+// 4. ARCHITECT KEYBOARD NAVIGATION (← / →, 1-5, ESC)
 document.addEventListener("keydown", (e) => {
   // Ignore when typing in input/textarea
   if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName)) return;
@@ -133,7 +130,7 @@ document.addEventListener("keydown", (e) => {
   } else if (e.key === "ArrowRight" || e.key === "PageDown") {
     e.preventDefault();
     switchSlide(currentSlide === TOTAL_SLIDES ? 1 : currentSlide + 1);
-  } else if (e.key >= "1" && e.key <= "7") {
+  } else if (e.key >= "1" && e.key <= "5") {
     switchSlide(parseInt(e.key, 10));
   } else if (e.key === "Escape") {
     const drawer = document.getElementById("specDrawerContent");
@@ -147,11 +144,12 @@ document.addEventListener("keydown", (e) => {
 
 // Keyboard hint button click shows notification / jumps focus
 document.getElementById("kbdHintBtn")?.addEventListener("click", () => {
-  const currentLang = document.body.dataset.language || "en";
+  const currentLang = window.HubLanguage ? window.HubLanguage.get() : "en";
   alert(currentLang === "zh" 
-    ? "架構師快捷鍵導覽：\n• 按鍵盤數字鍵 [1 - 7] 可直接跳轉至對應核心模組\n• 按方向鍵 [←] / [→] 可向左/向右翻頁"
-    : "Architect Keyboard Navigation:\n• Press numeric keys [1 - 7] to directly jump to any core module\n• Press [←] / [→] arrow keys to navigate slides");
+    ? "架構師快捷鍵導覽：\n• 按鍵盤數字鍵 [1 - 5] 可直接跳轉至 5 大核心知識領域\n• 按方向鍵 [←] / [→] 可向左/向右翻頁"
+    : "Architect Keyboard Navigation:\n• Press numeric keys [1 - 5] to directly jump to any of the 5 core knowledge domains\n• Press [←] / [→] arrow keys to navigate slides");
 });
+
 
 // 5. SPEC DRAWER / EVIDENCE MATRIX ACCORDION
 document.getElementById("specDrawerBtn")?.addEventListener("click", () => {

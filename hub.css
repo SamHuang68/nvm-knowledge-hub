@@ -1,6 +1,35 @@
+/* 0. ACCESSIBILITY DEFENSE: SKIP LINK */
+.skip-link {
+  position: fixed;
+  top: -120px;
+  left: 16px;
+  z-index: 10000;
+  padding: 12px 20px;
+  background: #22d3ee;
+  color: #020617 !important;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid #38bdf8;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(34, 211, 238, 0.4);
+  transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 14px;
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
 .hub-page{--hub-cyan:#2bd4d5;--hub-aqua:#73eee4;--hub-ink:#061925;--hub-panel:#092331;--hub-paper:#eef2f0;background:var(--hub-ink);color:#eaf3f2;overflow-x:clip}.hub-page section[id]{scroll-margin-top:72px}
-.hub-page [data-lang]{display:none}.hub-page[data-language="zh"] [data-lang="zh"],.hub-page[data-language="en"] [data-lang="en"]{display:inline}
+html[data-language="en"] [data-lang="zh"], body[data-language="en"] [data-lang="zh"] { display: none !important; }
+html[data-language="zh"] [data-lang="en"], body[data-language="zh"] [data-lang="en"] { display: none !important; }
 .hub-page .site-header{position:sticky;top:0;z-index:50;background:rgba(4,24,35,.96);backdrop-filter:blur(18px);border-bottom:1px solid rgba(115,238,228,.14)}
+
 .hub-page .primary-nav{justify-content:flex-end}.hub-page .primary-nav a{white-space:nowrap}
 .hub-page .brand-section{color:var(--hub-aqua)}
 

@@ -1,7 +1,35 @@
+/* ACCESSIBILITY DEFENSE: SKIP LINK */
+.skip-link {
+  position: fixed;
+  top: -120px;
+  left: 16px;
+  z-index: 10000;
+  padding: 12px 20px;
+  background: #22d3ee;
+  color: #020617 !important;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid #38bdf8;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(34, 211, 238, 0.4);
+  transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 14px;
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}
+
 :root{--shell-header:70px}
 
 /* One shell contract: the header occupies layout space so breadcrumbs and topic switches cannot hide underneath it. */
 .site-header{position:sticky;top:0;z-index:100}
+
 
 .site-breadcrumb{
   display:flex;align-items:center;gap:10px;min-height:46px;padding:10px clamp(22px,4vw,72px);
