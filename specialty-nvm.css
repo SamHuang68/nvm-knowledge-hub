@@ -215,7 +215,7 @@
    ========================================================= */
 .topic-section {
   position: relative;
-  padding: 40px 20px;
+  padding: 28px 20px;
   border-bottom: 1px solid var(--spec-line-subtle);
 }
 
@@ -477,7 +477,7 @@
    Architectural Comparison Callout Boxes
    ========================================================= */
 .architecture-callout-box {
-  margin: 40px 0;
+  margin: 18px 0;
   padding: 28px 32px;
   background: 
     linear-gradient(115deg, rgba(17, 210, 208, 0.08) 0%, transparent 40%),
@@ -1044,7 +1044,7 @@ html[data-language="zh"] .data-table thead th {
     padding: 70px 20px 48px;
   }
   .topic-section {
-    padding: 64px 20px;
+    padding: 28px 20px;
   }
   .subpanel-title {
     flex-direction: column;
@@ -1107,7 +1107,7 @@ html[data-language="zh"] .data-table thead th {
 
 @media (max-width: 768px) {
   .topic-section {
-    padding: 56px 16px;
+    padding: 28px 16px;
   }
   .comparison-panel {
     padding: 20px 16px;
@@ -1136,7 +1136,7 @@ html[data-language="zh"] .data-table thead th {
 
 @media (max-width: 640px) {
   .topic-section {
-    padding: 40px 12px;
+    padding: 28px 12px;
   }
   .interactive-lab-card {
     padding: 20px 14px;
@@ -1214,7 +1214,7 @@ html[data-language="zh"] .data-table thead th {
     padding: 40px 10px 30px;
   }
   .topic-section {
-    padding: 32px 8px;
+    padding: 28px 8px;
   }
   .lab-stat-row {
     grid-template-columns: 1fr;
@@ -2540,6 +2540,93 @@ html[data-language="zh"] .data-table thead th {
     margin: 6px 0;
   }
   .flowchart-legend-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   ROUND 2: EDA TIMING & E-INK BIPOLAR WAVEFORM STYLING
+   ========================================================= */
+.timing-waveform-track {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+}
+
+.waveform-timing-canvas {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+.migration-state-machine {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+/* 緊湊型高密度協議卡片 */
+.compact-proto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.compact-proto-card {
+  background: rgba(3, 16, 26, 0.7);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.compact-proto-card:hover {
+  transform: translateY(-2px);
+  border-color: #00f0ff;
+}
+
+.compact-proto-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.compact-proto-badge {
+  font-family: var(--spec-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.compact-proto-card h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0 0 6px;
+}
+
+.compact-proto-card p {
+  font-size: 11px;
+  line-height: 1.45;
+  color: #94a3b8;
+  margin: 0 0 10px;
+}
+
+.compact-proto-footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 6px;
+  font-family: var(--spec-mono);
+  font-size: 9.5px;
+  color: #67e8f9;
+}
+
+@media (max-width: 900px) {
+  .compact-proto-grid {
     grid-template-columns: 1fr;
   }
 }

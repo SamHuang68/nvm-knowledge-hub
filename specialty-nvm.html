@@ -215,57 +215,199 @@
           </div>
         </div>
 
-        <!-- Sub-Topic: Low Density Trimming -->
+                <!-- Sub-Topic: Low Density Trimming -> EDA Closed-Loop Trimming Pipeline -->
         <div class="sub-topic-block">
           <div class="sub-topic-header">
             <h3>
-              <span data-lang="zh">1.1 低密度電性微調 (Low-Density Trimming, 128-bit ～ 2K-bit)</span>
-              <span data-lang="en">1.1 Low-Density Electrical Trimming (128-bit to 2K-bit)</span>
+              <span data-lang="zh">1.1 低密度電性微調閉環管線 (Low-Density Trimming, 128-bit ～ 2K-bit)</span>
+              <span data-lang="en">1.1 Low-Density Trimming Closed-Loop Pipeline (128-bit to 2K-bit)</span>
             </h3>
-            <span class="tag-accent">ANALOG ACCURACY · DRIFT CANCELLATION</span>
+            <span class="tag-accent">CLOSED-LOOP CALIBRATION · DRIFT CANCELLATION</span>
           </div>
-          <div class="card-grid-2">
-            <article class="tech-card">
-              <div class="card-header-icon">⚡</div>
-              <h4>
-                <span data-lang="zh">PMIC 基準電壓與振盪器校準</span>
-                <span data-lang="en">PMIC Voltage Reference &amp; Oscillator Calibration</span>
-              </h4>
-              <p>
-                <span data-lang="zh">半導體製造離散性會導致帶隙基準源 (Bandgap Reference Vref) 出現 &plusmn;3% 至 &plusmn;5% 誤差。透過在晶圓測試 (CP) 階段燒錄 128-bit 至 512-bit 的 AntiFuse OTP，微調內部電阻分壓梯，可將基準電壓誤差收斂至 &plusmn;0.5% 以內；同時微調內部 RC 振盪器頻率，杜絕交換式穩壓器因頻率偏移導致的 EMI 違規。</span>
-                <span data-lang="en">Process variations introduce &plusmn;3% to &plusmn;5% deviations in bandgap reference voltages (Vref). Burning 128-bit to 512-bit AntiFuse OTP during wafer sort trims internal resistor ladders, tightening Vref to within &plusmn;0.5% and calibrating internal RC oscillators to safeguard switching frequencies against EMI violations.</span>
-              </p>
-              <ul class="spec-chip-list">
-                <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">典型容量</span><span data-lang="en">Typical Density</span></div><div class="spec-chip-v"><span data-lang="zh">128 位元至 2K 位元 OTP / MTP</span><span data-lang="en">128-bit to 2K-bit OTP / MTP</span></div></li>
-                <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">關鍵參數</span><span data-lang="en">Key Parameters</span></div><div class="spec-chip-v"><span data-lang="zh">帶隙基準源 Vref 微調、過流保護 (OCP)、過壓保護 (OVP)、過溫關斷門檻</span><span data-lang="en">Vref trim, Over-Current Protection (OCP), Over-Voltage Protection (OVP), Thermal Shutdown threshold</span></div></li>
-                <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">製程節點</span><span data-lang="en">Process Nodes</span></div><div class="spec-chip-v"><span data-lang="zh">0.18 微米、0.13 微米、90 奈米、55 奈米 BCD 製程</span><span data-lang="en">0.18µm, 0.13µm, 90nm, 55nm BCD</span></div></li>
-              </ul>
-              <div class="card-footer-metric">
-                <span><span data-lang="zh">微調精度：&plusmn;0.5% 帶隙電壓</span><span data-lang="en">TRIM ACCURACY: &plusmn;0.5% VREF</span></span>
-                <span><span data-lang="zh">資料留存：15 年 @ 150°C 結溫</span><span data-lang="en">RETENTION: 15 YRS @ 150°C TJ</span></span>
-              </div>
-            </article>
 
-            <article class="tech-card">
-              <div class="card-header-icon">💡</div>
-              <h4>
-                <span data-lang="zh">多通道 LED 驅動器恆流匹配</span>
-                <span data-lang="en">Multi-Channel LED Driver Current Balancing</span>
-              </h4>
-              <p>
-                <span data-lang="zh">高階車用矩陣式頭燈、Mini-LED 分區背光需要 16 至 48 條並聯恆流驅動通道。由於功率電晶體跨晶圓臨界電壓 (Vth) 離散，未校準時通道間電流誤差高達 &plusmn;5%。利用 eNVM 儲存各通道獨立的數位增益補償碼，可將通道間失配嚴格壓低在 1.0% 以內，杜絕顯示斑塊與車燈光斑不均。</span>
-                <span data-lang="en">Automotive matrix headlights and Mini-LED local dimming require 16 to 48 parallel current-sink channels. Due to transistor threshold voltage (Vth) variation, raw channel mismatch reaches &plusmn;5%. Storing per-channel digital gain trim codes in eNVM crushes mismatch below 1.0%, eliminating luminance banding and hot spots.</span>
-              </p>
-              <ul class="spec-chip-list">
-                <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">恆流精度</span><span data-lang="en">Current Accuracy</span></div><div class="spec-chip-v"><span data-lang="zh">微調後通道間誤差小於 1.0%</span><span data-lang="en">Channel-to-channel mismatch &lt;1.0% after electrical trim</span></div></li>
-                <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">資料留存</span><span data-lang="en">Retention</span></div><div class="spec-chip-v"><span data-lang="zh">在 125°C 至 150°C 結溫下保存 15 年以上</span><span data-lang="en">15+ years @ 125°C to 150°C junction temperature</span></div></li>
-                <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">經濟效益</span><span data-lang="en">Economics</span></div><div class="spec-chip-v"><span data-lang="zh">免除外部精密電阻與昂貴雷射熔斷工序</span><span data-lang="en">Eliminates external precision resistors and laser trimming steps</span></div></li>
-              </ul>
-              <div class="card-footer-metric">
-                <span><span data-lang="zh">通道匹配：&lt;1.0% 誤差</span><span data-lang="en">MISMATCH: &lt;1.0%</span></span>
-                <span><span data-lang="zh">通道數：16 至 48 串聯微調</span><span data-lang="en">CHANNELS: 16 TO 48 TRIMMED</span></span>
+          <!-- EDA 級類比帶隙閉環修調時序與流程圖 -->
+          <div class="semiconductor-flowchart-card" style="margin: 14px 0 18px;">
+            <div class="flowchart-header">
+              <div class="flowchart-title-tag">
+                <span>●</span>
+                <span data-lang="zh">閉環修調時序 · 4 階段校準管線</span>
+                <span data-lang="en">CLOSED-LOOP TIMING &amp; CALIBRATION PIPELINE</span>
               </div>
-            </article>
+              <h4>
+                <span data-lang="zh">BCD 帶隙基準電壓 (Vref) 閉環修調時序與 AntiFuse 燒錄管線</span>
+                <span data-lang="en">BCD Bandgap Reference (Vref) Closed-Loop Trimming &amp; AntiFuse Burn Pipeline</span>
+              </h4>
+            </div>
+
+            <div class="flowchart-svg-container">
+              <svg viewBox="0 0 960 290" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
+                <defs>
+                  <linearGradient id="bcdNodeGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#021526" stop-opacity="0.95"/>
+                    <stop offset="100%" stop-color="#05283f" stop-opacity="0.95"/>
+                  </linearGradient>
+                  <filter id="glowBcd" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                    <feMerge>
+                      <feMergeNode in="blur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <!-- 頂部：EDA 時序信號匯流排 (Timing Waveforms) -->
+                <g class="timing-waveform-track" transform="translate(15, 12)">
+                  <rect width="930" height="48" rx="4" fill="#010c16" stroke="#1e3a5f" stroke-width="1"/>
+                  <text x="12" y="15" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="9" font-weight="700">EDA TIMING BUS</text>
+                  
+                  <!-- ATE_CLK -->
+                  <text x="12" y="31" fill="#64748b" font-family="'Fira Code', monospace" font-size="8">ATE_CLK</text>
+                  <path d="M68 33 H110 V23 H130 V33 H170 V23 H190 V33 H230" stroke="#00f0ff" stroke-width="1.2" fill="none"/>
+                  
+                  <!-- SAR_BUS -->
+                  <text x="250" y="31" fill="#64748b" font-family="'Fira Code', monospace" font-size="8">SAR_BUS</text>
+                  <rect x="305" y="23" width="160" height="12" fill="rgba(6, 182, 212, 0.2)" stroke="#00f0ff" stroke-width="0.8"/>
+                  <text x="315" y="32" fill="#67e8f9" font-family="'Fira Code', monospace" font-size="8">CALC: TRIM[4:0] = 10110b</text>
+
+                  <!-- VPP_PULSE -->
+                  <text x="485" y="31" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="8">5.5V VPP</text>
+                  <path d="M540 33 H580 V21 H630 V33 H680" stroke="#f59e0b" stroke-width="1.8" fill="none" filter="url(#glowBcd)"/>
+
+                  <!-- LOCK_FLAG -->
+                  <text x="705" y="31" fill="#10b981" font-family="'Fira Code', monospace" font-size="8">LOCK</text>
+                  <path d="M745 33 H780 V23 H910" stroke="#10b981" stroke-width="1.5" fill="none"/>
+                </g>
+
+                <!-- 階段 1: 原始電壓取樣 -->
+                <g class="flow-node" transform="translate(15, 72)">
+                  <rect width="215" height="205" rx="8" fill="url(#bcdNodeGrad)" stroke="#00f0ff" stroke-width="1.2"/>
+                  <rect x="1" y="1" width="213" height="24" rx="7" fill="rgba(0, 240, 255, 0.15)"/>
+                  <text x="10" y="17" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="10" font-weight="700">01 · RAW SENSE</text>
+                  
+                  <path d="M25 70 Q70 25 105 70 T185 70" stroke="#ef4444" stroke-width="2" fill="none"/>
+                  <line x1="105" y1="25" x2="105" y2="75" stroke="#ef4444" stroke-dasharray="2,2" stroke-width="1"/>
+                  <circle cx="105" cy="25" r="3" fill="#ef4444" filter="url(#glowBcd)"/>
+
+                  <g transform="translate(15, 92)">
+                    <text x="0" y="12" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">MEASURED: 1.252V</text>
+                    <text x="0" y="27" fill="#ef4444" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">DRIFT: +4.2% (Raw)</text>
+                    <text x="0" y="42" fill="#64748b" font-family="'Fira Code', monospace" font-size="9">PROBE: CP ATE Card</text>
+                    <text x="0" y="57" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9">ACCURACY: ±5% Raw</text>
+                  </g>
+                </g>
+
+                <!-- 連接 1 ➔ 2 -->
+                <path d="M235 170 H250" stroke="#00f0ff" stroke-width="2" stroke-dasharray="3,2"/>
+                <polygon points="250,167 256,170 250,173" fill="#00f0ff"/>
+
+                <!-- 階段 2: 逐次逼近解算 -->
+                <g class="flow-node" transform="translate(258, 72)">
+                  <rect width="215" height="205" rx="8" fill="url(#bcdNodeGrad)" stroke="#38bdf8" stroke-width="1.2"/>
+                  <rect x="1" y="1" width="213" height="24" rx="7" fill="rgba(56, 189, 248, 0.15)"/>
+                  <text x="10" y="17" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="10" font-weight="700">02 · SAR CALC</text>
+                  
+                  <g transform="translate(30, 38)">
+                    <rect x="0" y="20" width="25" height="15" fill="#0369a1" stroke="#38bdf8"/>
+                    <rect x="30" y="15" width="25" height="20" fill="#0284c7" stroke="#38bdf8"/>
+                    <rect x="60" y="10" width="25" height="25" fill="#0ea5e9" stroke="#38bdf8"/>
+                    <rect x="90" y="5" width="25" height="30" fill="#38bdf8" stroke="#38bdf8"/>
+                    <text x="12" y="46" fill="#bae6fd" font-family="monospace" font-size="7.5">R-LADDER BITS</text>
+                  </g>
+
+                  <g transform="translate(15, 92)">
+                    <text x="0" y="12" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">ALGO: SAR Binary</text>
+                    <text x="0" y="27" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">CODE: 10110b (5-bit)</text>
+                    <text x="0" y="42" fill="#64748b" font-family="'Fira Code', monospace" font-size="9">DELTA R: -42.5 &Omega;</text>
+                    <text x="0" y="57" fill="#10b981" font-family="'Fira Code', monospace" font-size="9">SHADOW REG: Valid</text>
+                  </g>
+                </g>
+
+                <!-- 連接 2 ➔ 3 -->
+                <path d="M478 170 H493" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3,2"/>
+                <polygon points="493,167 499,170 493,173" fill="#f59e0b"/>
+
+                <!-- 階段 3: 反熔絲高壓燒錄 -->
+                <g class="flow-node" transform="translate(501, 72)">
+                  <rect width="215" height="205" rx="8" fill="url(#bcdNodeGrad)" stroke="#f59e0b" stroke-width="1.2"/>
+                  <rect x="1" y="1" width="213" height="24" rx="7" fill="rgba(245, 158, 11, 0.15)"/>
+                  <text x="10" y="17" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="10" font-weight="700">03 · VPP BURN</text>
+                  
+                  <g transform="translate(35, 36)">
+                    <rect width="135" height="36" rx="4" fill="#1c1917" stroke="#f59e0b" stroke-width="1"/>
+                    <path d="M20 22 L40 10 L55 26 L70 12 L85 24 L105 12" stroke="#f59e0b" stroke-width="2" filter="url(#glowBcd)"/>
+                    <text x="25" y="32" fill="#fef08a" font-family="'Fira Code', monospace" font-size="8">5.5V @ 10&mu;s PULSE</text>
+                  </g>
+
+                  <g transform="translate(15, 92)">
+                    <text x="0" y="12" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STATE: Ruptured</text>
+                    <text x="0" y="27" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">R_FIL: 84 &Omega; (&lt;100&Omega;)</text>
+                    <text x="0" y="42" fill="#64748b" font-family="'Fira Code', monospace" font-size="9">LAYER: Pure Logic Thin-Ox</text>
+                    <text x="0" y="57" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9">THERMAL: 0 Mask Adder</text>
+                  </g>
+                </g>
+
+                <!-- 連接 3 ➔ 4 -->
+                <path d="M721 170 H736" stroke="#10b981" stroke-width="2" stroke-dasharray="3,2"/>
+                <polygon points="736,167 742,170 736,173" fill="#10b981"/>
+
+                <!-- 階段 4: 驗證與防篡改鎖定 -->
+                <g class="flow-node" transform="translate(744, 72)">
+                  <rect width="201" height="205" rx="8" fill="url(#bcdNodeGrad)" stroke="#10b981" stroke-width="1.5"/>
+                  <rect x="1" y="1" width="199" height="24" rx="7" fill="rgba(16, 185, 129, 0.15)"/>
+                  <text x="10" y="17" fill="#10b981" font-family="'Fira Code', monospace" font-size="10" font-weight="700">04 · LOCK &amp; PASS</text>
+                  
+                  <g transform="translate(25, 38)">
+                    <path d="M15 32 Q70 2 125 32" stroke="#10b981" stroke-width="2.5" fill="none" filter="url(#glowBcd)"/>
+                    <line x1="70" y1="2" x2="70" y2="35" stroke="#10b981" stroke-dasharray="2,2" stroke-width="1"/>
+                    <text x="30" y="42" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8">VREF = 1.200V &plusmn;0.35%</text>
+                  </g>
+
+                  <g transform="translate(15, 92)">
+                    <text x="0" y="12" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">VREF: 1.200 V &plusmn;0.35%</text>
+                    <text x="0" y="27" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">YIELD: 99.8% IN-SPEC</text>
+                    <text x="0" y="42" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9">SECURITY: Lock Bit Set</text>
+                    <text x="0" y="57" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="9">RETENTION: 15Y @ 150°C</text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+
+            <!-- 流程圖底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
+            <div class="flowchart-legend-grid">
+              <div class="flow-legend-col">
+                <h5>
+                  <span class="flow-dot-cyan"></span>
+                  <span data-lang="zh">階段 01 · ATE 探針接觸採樣</span>
+                  <span data-lang="en">Stage 01 · Raw Sense &amp; Drift Capture</span>
+                </h5>
+                <p>
+                  <span data-lang="zh">量測帶隙基準源原生高斯偏差（±3%~±5%），由 ATE 自動化測試儀即時捕獲。</span>
+                  <span data-lang="en">ATE prober samples raw bandgap reference deviation (±3% to ±5%) across wafer sort.</span>
+                </p>
+              </div>
+              <div class="flow-legend-col">
+                <h5>
+                  <span class="flow-dot-cyan"></span>
+                  <span data-lang="zh">階段 02 · SAR 最優補償碼合成</span>
+                  <span data-lang="en">Stage 02 · SAR Trim Code Synthesis</span>
+                </h5>
+                <p>
+                  <span data-lang="zh">內部逐次逼近邏輯二分法運算，生成 5-bit 最優電阻階梯微調權重碼。</span>
+                  <span data-lang="en">Successive approximation register computes 5-bit binary trim weights for resistor ladder.</span>
+                </p>
+              </div>
+              <div class="flow-legend-col">
+                <h5>
+                  <span class="flow-dot-amber"></span>
+                  <span data-lang="zh">階段 03 · AntiFuse 物理細絲擊穿</span>
+                  <span data-lang="en">Stage 03 · 5.5V AntiFuse Filament Zap</span>
+                </h5>
+                <p>
+                  <span data-lang="zh">施加 5.5V 高壓脈衝擊穿閘極氧化層，形成 &lt;100Ω 導電通道，零額外光罩。</span>
+                  <span data-lang="en">Applies 5.5V pulse rupturing thin oxide into &lt;100Ω filament with zero extra masks.</span>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -278,49 +420,61 @@
             </h3>
             <span class="tag-accent">FIRMWARE STORAGE · MCU INTEGRATION</span>
           </div>
-          <div class="card-grid-3">
-            <article class="tech-card">
+          <div class="compact-proto-grid">
+            <article class="compact-proto-card">
+              <div class="compact-proto-header">
+                <span class="compact-proto-badge">USB-PD 3.1</span>
+                <span style="font-size: 10px; color: #94a3b8;">16KB - 32KB MTP</span>
+              </div>
               <h4>
-                <span data-lang="zh">USB-PD 3.1 &amp; 私有快充協議晶片</span>
-                <span data-lang="en">USB-PD 3.1 &amp; Fast Charging Protocols</span>
+                <span data-lang="zh">快充協議與狀態機韌體</span>
+                <span data-lang="en">Fast Charging &amp; State-Machine FW</span>
               </h4>
               <p>
-                <span data-lang="zh">支援 240W (48V/5A EPR) 的 USB-PD 控制器需動態解析 PD 3.1、PPS 與私有快充協議。內嵌 16KB 至 32KB MTP 儲存 MCU 狀態機韌體、供電檔 (PDO) 參數與 E-Marker 金鑰，支援出廠後在線韌體升級 (ISP)。</span>
-                <span data-lang="en">240W (48V/5A EPR) USB-PD controllers dynamically negotiate PD 3.1, PPS, and proprietary protocols. 16KB-32KB embedded MTP stores state-machine firmware, Power Delivery Objects (PDO), and E-Marker keys, enabling in-system programming (ISP).</span>
+                <span data-lang="zh">支援 240W (48V/5A EPR) USB-PD 控制器，內嵌 MTP 儲存 PDO 參數與金鑰，支援在線 ISP 韌體更新。</span>
+                <span data-lang="en">Powers 240W (48V/5A) PD controllers, storing PDO profiles and E-Marker keys with ISP reflashability.</span>
               </p>
-              <div class="card-footer-metric">
-                <span><span data-lang="zh">容量：16KB - 32KB MTP</span><span data-lang="en">DENSITY: 16KB - 32KB MTP</span></span>
-                <span><span data-lang="zh">耐受：1,000 - 10,000 次擦寫</span><span data-lang="en">ENDURANCE: 1K - 10K CYCLES</span></span>
+              <div class="compact-proto-footer">
+                <span><span data-lang="zh">耐受：10K 擦寫</span><span data-lang="en">ENDUR: 10K CYC</span></span>
+                <span><span data-lang="zh">封裝：CSP/QFN</span><span data-lang="en">PKG: CSP/QFN</span></span>
               </div>
             </article>
 
-            <article class="tech-card">
+            <article class="compact-proto-card">
+              <div class="compact-proto-header">
+                <span class="compact-proto-badge">BLDC MOTOR</span>
+                <span style="font-size: 10px; color: #94a3b8;">32KB - 64KB MTP</span>
+              </div>
               <h4>
-                <span data-lang="zh">BLDC 無刷直流馬達控制器</span>
-                <span data-lang="en">BLDC Brushless Motor Controller</span>
+                <span data-lang="zh">無刷馬達向量 FOC 控制</span>
+                <span data-lang="en">Brushless Motor Vector FOC</span>
               </h4>
               <p>
-                <span data-lang="zh">結合 32 位元 MCU (Cortex-M0+ / RISC-V) 與三相柵極驅動器。32KB 至 64KB MTP 儲存向量控制 (FOC) 演算法、空間向量調變 (SVPWM) 與霍爾感測器換相表，達成晶粒內零等待 (Zero-Wait) 執行。</span>
-                <span data-lang="en">Integrating 32-bit MCU with 3-phase gate drivers. 32KB-64KB MTP stores Field-Oriented Control (FOC) algorithms, SVPWM tables, and Hall-sensor commutation tables for zero-wait execution without external Flash.</span>
+                <span data-lang="zh">整合 32 位元 MCU 與三相閘極驅動器，儲存 FOC 空間向量調變與霍爾換相表，晶粒內零等待執行。</span>
+                <span data-lang="en">Integrates 32-bit MCU with gate drivers, storing FOC and SVPWM commutation tables with zero-wait execution.</span>
               </p>
-              <div class="card-footer-metric">
-                <span><span data-lang="zh">容量：32KB - 64KB MTP</span><span data-lang="en">DENSITY: 32KB - 64KB MTP</span></span>
-                <span><span data-lang="zh">架構：零等待內部總線</span><span data-lang="en">BUS: ZERO-WAIT STATE</span></span>
+              <div class="compact-proto-footer">
+                <span><span data-lang="zh">總線：零等待</span><span data-lang="en">BUS: ZERO-WAIT</span></span>
+                <span><span data-lang="zh">架構：單晶片整合</span><span data-lang="en">ARCH: MONOLITHIC</span></span>
               </div>
             </article>
 
-            <article class="tech-card">
+            <article class="compact-proto-card">
+              <div class="compact-proto-header">
+                <span class="compact-proto-badge">BMIC AFE</span>
+                <span style="font-size: 10px; color: #94a3b8;">AEC-Q100 GRADE 0</span>
+              </div>
               <h4>
-                <span data-lang="zh">BMIC 電池管理晶片 &amp; 類比前端 (AFE)</span>
-                <span data-lang="en">BMIC Battery Management &amp; AFE</span>
+                <span data-lang="zh">車規電池管理與功能安全</span>
+                <span data-lang="en">Automotive Battery Management</span>
               </h4>
               <p>
-                <span data-lang="zh">車用及儲能 16 至 24 串電池監控晶片。內嵌 OTP/MTP 儲存電池化學阻抗查找表、庫倫計溫度補償係數，以及 ISO 26262 ASIL-D 功能安全臨界值與黑盒子故障紀錄。</span>
-                <span data-lang="en">Automotive &amp; ESS 16-24 cell monitoring ICs. Embedded OTP/MTP stores battery impedance LUTs, coulomb counter temperature drift coefficients, and ISO 26262 ASIL-D safety limits and black-box event logs.</span>
+                <span data-lang="zh">16 至 24 串電池監控晶片，儲存阻抗化學查表、庫倫計溫漂補償與 ISO 26262 ASIL-D 安全臨界門檻。</span>
+                <span data-lang="en">16-24 cell monitors storing impedance LUTs, coulomb drift offsets, and ISO 26262 ASIL-D safety limits.</span>
               </p>
-              <div class="card-footer-metric">
-                <span><span data-lang="zh">認證：車規 AEC-Q100 Grade 0</span><span data-lang="en">QUAL: AEC-Q100 GRADE 0</span></span>
-                <span><span data-lang="zh">功能安全：ISO 26262 ASIL-D</span><span data-lang="en">SAFETY: ISO 26262 ASIL-D</span></span>
+              <div class="compact-proto-footer">
+                <span><span data-lang="zh">結溫：175°C Tj</span><span data-lang="en">TJ: 175°C MAX</span></span>
+                <span><span data-lang="zh">安規：ASIL-D</span><span data-lang="en">SAFETY: ASIL-D</span></span>
               </div>
             </article>
           </div>
@@ -1419,47 +1573,163 @@
           </div>
         </div>
 
-        <div class="card-grid-2">
-          <article class="tech-card">
+        <!-- =========================================================
+             TOPIC 04: E-INK 40V-50V 雙極性高壓時序波形與 MTP➔OTP 演進狀態機
+             ========================================================= -->
+        <div class="semiconductor-flowchart-card" style="margin: 20px 0 24px;">
+          <div class="flowchart-header">
+            <div class="flowchart-title-tag">
+              <span>●</span>
+              <span data-lang="zh">電泳雙極性時序 · NVM 架構遷移狀態機</span>
+              <span data-lang="en">ELECTROPHORETIC BIPOLAR TIMING &amp; NVM MIGRATION</span>
+            </div>
             <h4>
-              <span data-lang="zh">超高壓物理特性：為何電子紙驅動不能使用傳統 BCD？</span>
-              <span data-lang="en">Ultra-HV Physics: Why E-Ink Drivers Exclude Standard BCD</span>
+              <span data-lang="zh">40V-50V 雙極性電泳驅動波形時序與 MTP ➔ OTP 產品生命週期狀態機</span>
+              <span data-lang="en">40V-50V Bipolar Electrophoretic Waveform Timing &amp; MTP-to-OTP State Machine</span>
             </h4>
-            <p>
-              <span data-lang="zh">微膠囊電泳技術 (EPD) 需施加 <strong>40V 至 50V (最高至 110HV 製程)</strong> 雙極性電場脈衝以驅動多色粒子克服微流體黏滯阻力。電子紙雙穩態架構要求 razor-thin 靜態待機功耗；<strong>傳統 BCD 在 40V-50V 下接面漏電 (Junction Leakage) 過高會吸乾鈕扣電池</strong>，驅動晶片因而全面移轉至 110HV/90HV 特種 CMOS 平台。</span>
-              <span data-lang="en">EPD demands <strong>40V to 50V (up to 110HV nodes)</strong> pulses to propel charged multi-color particles against viscous drag. Due to strict bistable zero-power constraints, <strong>excessive junction leakage excludes standard BCD</strong>, mandating dedicated 110HV/90HV CMOS to preserve 5-10 year battery lifetime.</span>
-            </p>
-            <ul class="spec-chip-list">
-              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">驅動電壓水準</span><span data-lang="en">Operating Voltage</span></div><div class="spec-chip-v"><span data-lang="zh">40V 至 50V 超高壓脈衝 (大幅超出標準 LCD 的 32V)</span><span data-lang="en">40V to 50V HV pulses (exceeding standard 32V LCD DDI)</span></div></li>
-              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">漏電限制指標</span><span data-lang="en">Leakage Constraint</span></div><div class="spec-chip-v"><span data-lang="zh">嚴格零待機漏電，確保 ESL 鈕扣電池運作 5-10 年</span><span data-lang="en">Zero standby drain for 5-10 year battery lifetime in ESL applications</span></div></li>
-              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">晶粒外觀限制</span><span data-lang="en">Die Form Factor</span></div><div class="spec-chip-v"><span data-lang="zh">極度嚴苛的晶粒高度限制 (&lt;250&mu;m)，利於 COG/COF 封裝邊界佈局</span><span data-lang="en">Stringent height limitation (&lt;250µm) for edge COG/COF bonding</span></div></li>
-            </ul>
-          </article>
+          </div>
 
-          <article class="tech-card">
-            <h4>
-              <span data-lang="zh">動態波形 (Waveform LUT) 與 MTP ➔ OTP 產品生命週期演進</span>
-              <span data-lang="en">Dynamic Waveform LUT &amp; The MTP-to-OTP Product Lifecycle</span>
-            </h4>
-            <p>
-              <span data-lang="zh">電子紙顯示畫面的本質是一組精密的「電壓-時間驅動脈衝波形 (Driving Waveform)」，需依據環境溫度、刷新模式（黑白快刷 vs 多灰階 vs 全彩抖動）即時查詢多維查找表 (Look-Up Table, LUT)。<br><br>
-              <strong>【現階段演進期：以 MTP 為主流 (32Kb ~ 48Kb / 64Kb)】</strong><br>
-              隨著市場正由黑白劇烈轉向四色（Spectra 6）與 4096 色全彩（Kaleido 3），彩色粒子化學反應與微膠囊製程仍在快速疊代演進中。色彩更新算法極不易在出廠時一次性編程定案，晶片設計商（如天鈺 Fitipower、晶宏 UltraChip、晶門 Solomon、聯詠 Novatek）<strong>目前普遍採用 32Kb 至 48Kb / 64Kb 的 MTP</strong>，保留在線更新波形與修訂韌體的彈性 (Flexibility of code change)。<br><br>
-              <strong>【後續成熟期：製程穩定後全面轉向 OTP】</strong><br>
-              外掛 SPI Flash 待機功耗過高且增加 BOM 成本；待彩色粒子配方與驅動波形完全收斂成熟後，驅動晶片將全面<strong>由 MTP 轉向面積更小、成本更低、佈局高度低於 250&mu;m 的純邏輯 AntiFuse OTP</strong>，鎖定最終黃金波形，達成終極成本與良率競爭力。</span>
-              <span data-lang="en">Displaying images on E-Ink requires applying calibrated voltage-time waveforms, dynamically indexed via multi-dimensional Look-Up Tables (LUTs) based on ambient temperature and refresh modes.<br><br>
-              <strong>[Current Transition Era: MTP Dominance (32Kb - 64Kb)]</strong><br>
-              As e-paper rapidly transitions from monochrome to 4-color (Spectra 6) and 4,096-color full-color (Kaleido 3), particle microchemistry and fluidics are in active development. Driving waveforms cannot be frozen in a single pass. Top design houses (Fitipower, UltraChip, Solomon, Novatek, Himax) <strong>currently deploy 32Kb to 48Kb/64Kb MTP</strong> to retain the flexibility of in-field waveform algorithm updates.<br><br>
-              <strong>[Mature Volume Era: Transition to Pure Logic OTP]</strong><br>
-              External Flash imposes prohibitive standby battery drain and BOM cost. Once color particle formulations stabilize, DDICs will <strong>shift from MTP to ultra-compact, low-cost pure logic AntiFuse OTP (&lt;250µm macro height)</strong>, permanently freezing golden waveforms for peak cost leadership.</span>
-            </p>
-          </article>
+          <div class="flowchart-svg-container">
+            <svg viewBox="0 0 960 310" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
+              <defs>
+                <linearGradient id="einkWaveGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#00f0ff"/>
+                  <stop offset="100%" stop-color="#3b82f6"/>
+                </linearGradient>
+                <filter id="einkGlow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <!-- ================= 上半部：40V-50V 雙極性高壓驅動波形時序 ================= -->
+              <g class="waveform-timing-canvas" transform="translate(15, 10)">
+                <rect width="930" height="130" rx="6" fill="#020b14" stroke="#1e3a5f" stroke-width="1"/>
+                <text x="15" y="18" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="9" font-weight="700">40V-50V BIPOLAR ELECTROPHORETIC DRIVING WAVEFORM (DYNAMIC LUT CONTROL)</text>
+                
+                <!-- 電壓座標軸刻度 (+50V, 0V, -50V) -->
+                <line x1="55" y1="28" x2="55" y2="115" stroke="#334155" stroke-width="1"/>
+                <text x="18" y="40" fill="#ef4444" font-family="'Fira Code', monospace" font-size="8.5">+50V</text>
+                <line x1="50" y1="36" x2="915" y2="36" stroke="#1e293b" stroke-dasharray="2,2" stroke-width="0.8"/>
+                
+                <text x="24" y="76" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="8.5">0V</text>
+                <line x1="50" y1="72" x2="915" y2="72" stroke="#334155" stroke-width="1"/>
+
+                <text x="18" y="112" fill="#3b82f6" font-family="'Fira Code', monospace" font-size="8.5">-50V</text>
+                <line x1="50" y1="108" x2="915" y2="108" stroke="#1e293b" stroke-dasharray="2,2" stroke-width="0.8"/>
+
+                <!-- 1. Shake: 高頻反轉震盪 -->
+                <path d="M60 72 L80 36 L100 108 L120 36 L140 108 L160 36 L180 108 L200 72" stroke="#f59e0b" stroke-width="2" fill="none" filter="url(#einkGlow)"/>
+                <rect x="75" y="22" width="110" height="12" rx="2" fill="rgba(245, 158, 11, 0.2)"/>
+                <text x="80" y="31" fill="#fbbf24" font-family="'Fira Code', monospace" font-size="8">PHASE A: SHAKE (&plusmn;50V)</text>
+
+                <!-- 2. Reset: 持續正壓單向清除 -->
+                <path d="M200 72 L210 36 H390 L400 72" stroke="#ef4444" stroke-width="2" fill="none" filter="url(#einkGlow)"/>
+                <rect x="235" y="22" width="130" height="12" rx="2" fill="rgba(239, 68, 68, 0.2)"/>
+                <text x="240" y="31" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="8">PHASE B: RESET (+50V 100ms)</text>
+
+                <!-- 3. Drive: 多階 PWM 查表定位 -->
+                <path d="M400 72 L410 108 H480 L490 36 H560 L570 72 H610 L620 108 H670 L680 72" stroke="#00f0ff" stroke-width="2" fill="none" filter="url(#einkGlow)"/>
+                <rect x="470" y="22" width="150" height="12" rx="2" fill="rgba(0, 240, 255, 0.2)"/>
+                <text x="475" y="31" fill="#67e8f9" font-family="'Fira Code', monospace" font-size="8">PHASE C: MULTI-PIGMENT DRIVE</text>
+
+                <!-- 4. Rest: 雙穩態 0V 靜態零耗電 -->
+                <path d="M680 72 H910" stroke="#10b981" stroke-width="2.5" fill="none" filter="url(#einkGlow)"/>
+                <rect x="735" y="22" width="145" height="12" rx="2" fill="rgba(16, 185, 129, 0.2)"/>
+                <text x="740" y="31" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="8">PHASE D: BISTABLE REST (0V / 0W)</text>
+              </g>
+
+              <!-- ================= 下半部：MTP ➔ OTP 產品架構演進狀態機 ================= -->
+              <g class="migration-state-machine" transform="translate(15, 155)">
+                <!-- 狀態 1: 演進初期 MTP -->
+                <g class="state-block" transform="translate(0, 0)">
+                  <rect width="280" height="140" rx="8" fill="#021424" stroke="#00f0ff" stroke-width="1.2"/>
+                  <rect x="1" y="1" width="278" height="22" rx="7" fill="rgba(0, 240, 255, 0.15)"/>
+                  <text x="12" y="16" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="10" font-weight="700">ERA 01 · 32Kb~64Kb MTP</text>
+                  
+                  <g transform="translate(14, 34)">
+                    <text x="0" y="12" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">CHEMISTRY: Rapid Iteration</text>
+                    <text x="0" y="28" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">FIRMWARE: ISP Online Patch</text>
+                    <text x="0" y="44" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">ENDURANCE: 1K - 10K Cycles</text>
+                    <rect x="0" y="58" width="145" height="18" rx="3" fill="rgba(0, 240, 255, 0.1)" stroke="#00f0ff" stroke-width="0.8"/>
+                    <text x="8" y="70" fill="#67e8f9" font-family="'Fira Code', monospace" font-size="8.5">ACTIVE R&amp;D FLEXIBILITY</text>
+                  </g>
+                </g>
+
+                <!-- 決策門禁: 演進收斂簽核 -->
+                <g class="decision-gate" transform="translate(300, 28)">
+                  <polygon points="50,0 100,40 50,80 0,40" fill="#031d2e" stroke="#f59e0b" stroke-width="1.5" filter="url(#einkGlow)"/>
+                  <text x="18" y="36" fill="#fbbf24" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700">GOLDEN LUT</text>
+                  <text x="24" y="48" fill="#fef08a" font-family="'Fira Code', monospace" font-size="8">SIGN-OFF</text>
+                  
+                  <line x1="-20" y1="40" x2="0" y2="40" stroke="#00f0ff" stroke-width="1.5"/>
+                  <line x1="100" y1="40" x2="120" y2="40" stroke="#10b981" stroke-width="1.5"/>
+                  <polygon points="120,37 126,40 120,43" fill="#10b981"/>
+                </g>
+
+                <!-- 狀態 2: 成熟量產期 純邏輯 OTP -->
+                <g class="state-block" transform="translate(440, 0)">
+                  <rect width="490" height="140" rx="8" fill="#021720" stroke="#10b981" stroke-width="1.5"/>
+                  <rect x="1" y="1" width="488" height="22" rx="7" fill="rgba(16, 185, 129, 0.15)"/>
+                  <text x="14" y="16" fill="#10b981" font-family="'Fira Code', monospace" font-size="10" font-weight="700">ERA 02 · &lt;250&mu;m PURE-LOGIC ANTIFUSE OTP (MATURE COST LEADER)</text>
+
+                  <g transform="translate(16, 34)">
+                    <text x="0" y="12" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">WAFER COST: -35% (0 Mask Adder vs eFlash)</text>
+                    <text x="0" y="28" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STANDBY DRAIN: 0 pA (Guarantees 10Y Battery)</text>
+                    <text x="0" y="44" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">FORM FACTOR: &lt;250&mu;m Slim Height along Scribeline</text>
+                    <div style="display: flex; gap: 8px; margin-top: 6px;">
+                      <rect x="0" y="58" width="135" height="18" rx="3" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="0.8"/>
+                      <text x="8" y="70" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8.5">ZERO-MASK COST -35%</text>
+                      <rect x="145" y="58" width="145" height="18" rx="3" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="0.8"/>
+                      <text x="153" y="70" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8.5">&lt;250&mu;m COG/COF BUMP</text>
+                    </div>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <!-- 流程圖底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
+          <div class="flowchart-legend-grid">
+            <div class="flow-legend-col">
+              <h5>
+                <span class="flow-dot-cyan"></span>
+                <span data-lang="zh">雙極性高壓脈衝 (40V-50V)</span>
+                <span data-lang="en">Bipolar High-Voltage Pulses (40V-50V)</span>
+              </h5>
+              <p>
+                <span data-lang="zh">四相時序：抖動破黏滯 ➔ 反向消殘影 ➔ 多階色彩推進 ➔ 0V 雙穩態靜止。</span>
+                <span data-lang="en">4-phase sequence: Shake drag cancel ➔ Reset ghosting ➔ Drive multi-color ➔ 0V rest.</span>
+              </p>
+            </div>
+            <div class="flow-legend-col">
+              <h5>
+                <span class="flow-dot-amber"></span>
+                <span data-lang="zh">演進期：MTP 算法彈性</span>
+                <span data-lang="en">Evolution Era: MTP In-Field Reflash</span>
+              </h5>
+              <p>
+                <span data-lang="zh">四色/全彩微粒子化學疊代期，配置 32Kb~64Kb MTP 支援在線修正波形查表。</span>
+                <span data-lang="en">Active chemistry iteration deploys 32Kb-64Kb MTP for in-system waveform tuning.</span>
+              </p>
+            </div>
+            <div class="flow-legend-col">
+              <h5>
+                <span class="flow-dot-green"></span>
+                <span data-lang="zh">成熟期：OTP 極致成本</span>
+                <span data-lang="en">Mature Era: Pure Logic OTP Cost Leader</span>
+              </h5>
+              <p>
+                <span data-lang="zh">波形收斂後轉入純邏輯 AntiFuse OTP，免除額外光罩，Die 高度小於 250µm。</span>
+                <span data-lang="en">Golden waveform freezes into AntiFuse OTP, cutting 35% wafer cost with &lt;250µm profile.</span>
+              </p>
+            </div>
+          </div>
         </div>
 
-        <!-- =========================================================
-             FLAGSHIP LAB 04: E-INK WAVEFORM & PARTICLE SIMULATOR
-             ========================================================= -->
-        
         <!-- E-Ink DDIC Die Architecture Panorama: Plan B Ultra-HV DDIC + NVM -->
         <div class="specialty-hero-image-wrap" data-reticle="ULTRA-HV DDIC · &lt;250&mu;m SLIM PROFILE" style="margin: 24px auto; max-width: 780px;">
           <img src="assets/specialty-eink-ddic-die-v2.webp" alt="Ultra-High-Voltage E-Paper Display Driver IC (DDIC) silicon die layout showing 40V-50V HV level shifters, dynamic Waveform Look-Up Table (Waveform LUT) MTP/OTP memory, and peripheral gold bumping pads for COG/COF bonding" width="1200" height="675" loading="lazy">
