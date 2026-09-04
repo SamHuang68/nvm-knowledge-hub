@@ -113,6 +113,21 @@ def run_tests() -> None:
     test("hub.js 無 TOTAL_SLIDES 舊遺留", "TOTAL_SLIDES" not in hub_js)
     test("hub.js 無 switchSlide 舊遺留", "switchSlide" not in hub_js)
 
+    # ===== TEST 10: F2/M2/M3 旗艦互動實驗室與企業識別驗證 =====
+    print("\n═══ TEST 10: F2/M2/M3 旗艦互動實驗室與企業識別驗證 ═══")
+    tc_c = (BASE / "technology-comparison.html").read_text(encoding="utf-8")
+    test("F2 包含選型決策器 (selNode, matchResultsDeck)", "selNode" in tc_c and "matchResultsDeck" in tc_c)
+    test("F2 包含 7 維度比較矩陣 (compare-matrix)", "compare-matrix" in tc_c and "AntiFuse OTP" in tc_c)
+
+    iot_c = (BASE / "iot-mcu-envm.html").read_text(encoding="utf-8")
+    test("M2 包含 0.5V NTV 模擬畫布 (ntvCanvas)", "ntvCanvas" in iot_c and "ntvVdd" in iot_c)
+    test("M2 包含 TSMC 微縮 Stepper (roadmap-stepper)", "roadmap-stepper" in iot_c)
+
+    auto_c = (BASE / "automotive-nvm.html").read_text(encoding="utf-8")
+    test("M3 包含 175°C 微絲熱老化畫布 (thermalCanvas)", "thermalCanvas" in auto_c and "tempSlider" in auto_c)
+    test("M3 包含 SECDED ECC 測試台 (eccBitsDeck)", "eccBitsDeck" in auto_c and "eccStatusPill" in auto_c)
+    test("M3 包含晶圓認證三道門禁 (gate-stepper)", "gate-stepper" in auto_c and "GATE 01" in auto_c)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
