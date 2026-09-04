@@ -274,189 +274,159 @@
           </div>
 
           <!-- EDA 級類比帶隙閉環修調時序與流程圖 -->
-          <div class="semiconductor-flowchart-card" style="margin: 14px 0 18px;">
-            <div class="flowchart-header">
-              <div class="flowchart-title-tag">
-                <span>●</span>
-                <span data-lang="zh">閉環修調時序 · 4 階段校準管線</span>
-                <span data-lang="en">CLOSED-LOOP TIMING &amp; CALIBRATION PIPELINE</span>
-              </div>
-              <h4>
-                <span data-lang="zh">BCD 帶隙基準電壓 (Vref) 閉環修調時序與 AntiFuse 燒錄管線</span>
-                <span data-lang="en">BCD Bandgap Reference (Vref) Closed-Loop Trimming &amp; AntiFuse Burn Pipeline</span>
-              </h4>
-            </div>
+          <!-- =========================================================
+     TOPIC 01.1: 帶隙基準電壓 (Vref) 閉環修調 4 階段簡報級原生 DOM 流程圖
+     ========================================================= -->
+<div class="deck-flow-container">
+  <div class="deck-flow-header">
+    <div class="deck-header-left">
+      <span class="deck-slide-badge">SLIDE FLOW 01</span>
+      <h4>
+        <span data-lang="zh">BCD 帶隙基準電壓 (Vref) 閉環修調時序與 AntiFuse 燒錄管線</span>
+        <span data-lang="en">BCD Bandgap Reference (Vref) Closed-Loop Trimming &amp; AntiFuse Burn Pipeline</span>
+      </h4>
+    </div>
+    <div class="deck-header-right">
+      <span>● EDA CLOSED-LOOP</span>
+      <span>0 EXTRA MASKS</span>
+    </div>
+  </div>
 
-            <div class="flowchart-svg-container">
-              <svg viewBox="0 0 960 290" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
-                <defs>
-                  <linearGradient id="bcdNodeGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#021526" stop-opacity="0.95"/>
-                    <stop offset="100%" stop-color="#05283f" stop-opacity="0.95"/>
-                  </linearGradient>
-                  <filter id="glowBcd" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="3" result="blur"/>
-                    <feMerge>
-                      <feMergeNode in="blur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                </defs>
+  <div class="deck-timing-rail">
+    <span class="deck-bus-label">EDA TIMING BUS</span>
+    <div class="deck-signals">
+      <span class="signal-chip cyan">CLK: ATE_CLK 10MHz</span>
+      <span class="signal-chip cyan">BUS: SAR_BUS TRIM[4:0]=10110b</span>
+      <span class="signal-chip amber">PULSE: 5.5V VPP @ 10µs</span>
+      <span class="signal-chip green">FLAG: HARD_LOCK = HIGH</span>
+    </div>
+  </div>
 
-                <!-- 頂部：EDA 時序信號匯流排 (Timing Waveforms) -->
-                <g class="timing-waveform-track" transform="translate(15, 12)">
-                  <rect width="930" height="48" rx="4" fill="#010c16" stroke="#1e3a5f" stroke-width="1"/>
-                  <text x="12" y="15" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="9" font-weight="700">EDA TIMING BUS</text>
-                  
-                  <!-- ATE_CLK -->
-                  <text x="12" y="31" fill="#64748b" font-family="'Fira Code', monospace" font-size="8">ATE_CLK</text>
-                  <path d="M68 33 H110 V23 H130 V33 H170 V23 H190 V33 H230" stroke="#00f0ff" stroke-width="1.2" fill="none"/>
-                  
-                  <!-- SAR_BUS -->
-                  <text x="250" y="31" fill="#64748b" font-family="'Fira Code', monospace" font-size="8">SAR_BUS</text>
-                  <rect x="305" y="23" width="160" height="12" fill="rgba(6, 182, 212, 0.2)" stroke="#00f0ff" stroke-width="0.8"/>
-                  <text x="315" y="32" fill="#67e8f9" font-family="'Fira Code', monospace" font-size="8">CALC: TRIM[4:0] = 10110b</text>
+  <div class="deck-pipeline-rail">
+    <!-- STEP 01 -->
+    <div class="deck-step-card border-cyan">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">STEP 01</span>
+        <span class="deck-step-status">RAW SENSE</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">原生帶隙電壓採樣</span>
+        <span data-lang="en">Raw Bandgap Sense</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 11px; color: #ef4444; display: flex; align-items: center; gap: 6px;">
+          <span>V_RAW: 1.252V</span>
+          <span style="padding: 1px 5px; background: rgba(239, 68, 68, 0.2); border-radius: 2px;">+4.2% DRIFT</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">±5.0% Raw Drift</span>
+        <span class="deck-metric-lbl">ATE PROBER CP SORT SENSE</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">量測方式：</span><span data-lang="en">Measurement:</span></strong> <span data-lang="zh">晶圓針測卡即時捕獲</span><span data-lang="en">Captured via CP probe card</span></li>
+        <li><strong><span data-lang="zh">漂移根源：</span><span data-lang="en">Root Cause:</span></strong> <span data-lang="zh">矽晶圓擴散摻雜高斯偏差</span><span data-lang="en">Doping concentration spread</span></li>
+      </ul>
+    </div>
 
-                  <!-- VPP_PULSE -->
-                  <text x="485" y="31" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="8">5.5V VPP</text>
-                  <path d="M540 33 H580 V21 H630 V33 H680" stroke="#f59e0b" stroke-width="1.8" fill="none" filter="url(#glowBcd)"/>
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">RAW V</span>
+    </div>
 
-                  <!-- LOCK_FLAG -->
-                  <text x="705" y="31" fill="#10b981" font-family="'Fira Code', monospace" font-size="8">LOCK</text>
-                  <path d="M745 33 H780 V23 H910" stroke="#10b981" stroke-width="1.5" fill="none"/>
-                </g>
+    <!-- STEP 02 -->
+    <div class="deck-step-card border-cyan">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">STEP 02</span>
+        <span class="deck-step-status">SAR LOGIC</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">SAR 最優微調碼合成</span>
+        <span data-lang="en">SAR Trim Code Synthesis</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10.5px; color: #38bdf8; display: flex; align-items: center; gap: 4px;">
+          <span style="padding: 2px 5px; background: #0c4a6e; border-radius: 2px;">TRIM[4:0]</span>
+          <span>=</span>
+          <span style="padding: 2px 5px; background: #0284c7; color: #fff; font-weight: 700; border-radius: 2px;">10110b</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">5-bit SAR Ladder</span>
+        <span class="deck-metric-lbl">BINARY SEARCH 32 STEPS</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">演算法：</span><span data-lang="en">Algorithm:</span></strong> <span data-lang="zh">逐次逼近暫存器二分求差</span><span data-lang="en">Successive approximation SAR</span></li>
+        <li><strong><span data-lang="zh">修調步階：</span><span data-lang="en">Trim Step:</span></strong> <span data-lang="zh">1.5mV 階梯多晶矽電阻網</span><span data-lang="en">1.5mV resistor ladder resolution</span></li>
+      </ul>
+    </div>
 
-                <!-- 階段 1: 原始電壓取樣 -->
-                <g class="flow-node" transform="translate(15, 72)">
-                  <rect width="215" height="205" rx="8" fill="url(#bcdNodeGrad)" stroke="#00f0ff" stroke-width="1.2"/>
-                  <rect x="1" y="1" width="213" height="24" rx="7" fill="rgba(0, 240, 255, 0.15)"/>
-                  <text x="10" y="17" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="10" font-weight="700">01 · RAW SENSE</text>
-                  
-                  <path d="M25 70 Q70 25 105 70 T185 70" stroke="#ef4444" stroke-width="2" fill="none"/>
-                  <line x1="105" y1="25" x2="105" y2="75" stroke="#ef4444" stroke-dasharray="2,2" stroke-width="1"/>
-                  <circle cx="105" cy="25" r="3" fill="#ef4444" filter="url(#glowBcd)"/>
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">SAR CODE</span>
+    </div>
 
-                  <g transform="translate(15, 92)">
-                    <text x="0" y="12" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">MEASURED: 1.252V</text>
-                    <text x="0" y="27" fill="#ef4444" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">DRIFT: +4.2% (Raw)</text>
-                    <text x="0" y="42" fill="#64748b" font-family="'Fira Code', monospace" font-size="9">PROBE: CP ATE Card</text>
-                    <text x="0" y="57" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9">ACCURACY: ±5% Raw</text>
-                  </g>
-                </g>
+    <!-- STEP 03 -->
+    <div class="deck-step-card border-amber">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">STEP 03</span>
+        <span class="deck-step-status">5.5V VPP ZAP</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">AntiFuse 物理細絲擊穿</span>
+        <span data-lang="en">AntiFuse Filament Rupture</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10px; color: #fbbf24; display: flex; align-items: center; gap: 6px;">
+          <span>5.5V @ 10µs</span>
+          <span style="padding: 1px 4px; background: #78350f; border-radius: 2px; color: #fef08a;">R_FIL &lt; 100Ω</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">84 Ω Filament</span>
+        <span class="deck-metric-lbl">ZERO GROW-BACK PASS</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">物理通道：</span><span data-lang="en">Physics:</span></strong> <span data-lang="zh">超薄氧化層穿隧形成矽化物</span><span data-lang="en">Thin oxide silicide channel</span></li>
+        <li><strong><span data-lang="zh">光罩成本：</span><span data-lang="en">Masks:</span></strong> <span data-lang="zh">原生 CMOS 邏輯，0 額外光罩</span><span data-lang="en">Native logic, zero mask adder</span></li>
+      </ul>
+    </div>
 
-                <!-- 連接 1 ➔ 2 -->
-                <path d="M235 170 H250" stroke="#00f0ff" stroke-width="2" stroke-dasharray="3,2"/>
-                <polygon points="250,167 256,170 250,173" fill="#00f0ff"/>
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">HARD LOCKED</span>
+    </div>
 
-                <!-- 階段 2: 逐次逼近解算 -->
-                <g class="flow-node" transform="translate(258, 72)">
-                  <rect width="215" height="205" rx="8" fill="url(#bcdNodeGrad)" stroke="#38bdf8" stroke-width="1.2"/>
-                  <rect x="1" y="1" width="213" height="24" rx="7" fill="rgba(56, 189, 248, 0.15)"/>
-                  <text x="10" y="17" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="10" font-weight="700">02 · SAR CALC</text>
-                  
-                  <g transform="translate(30, 38)">
-                    <rect x="0" y="20" width="25" height="15" fill="#0369a1" stroke="#38bdf8"/>
-                    <rect x="30" y="15" width="25" height="20" fill="#0284c7" stroke="#38bdf8"/>
-                    <rect x="60" y="10" width="25" height="25" fill="#0ea5e9" stroke="#38bdf8"/>
-                    <rect x="90" y="5" width="25" height="30" fill="#38bdf8" stroke="#38bdf8"/>
-                    <text x="12" y="46" fill="#bae6fd" font-family="monospace" font-size="7.5">R-LADDER BITS</text>
-                  </g>
-
-                  <g transform="translate(15, 92)">
-                    <text x="0" y="12" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">ALGO: SAR Binary</text>
-                    <text x="0" y="27" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">CODE: 10110b (5-bit)</text>
-                    <text x="0" y="42" fill="#64748b" font-family="'Fira Code', monospace" font-size="9">DELTA R: -42.5 &Omega;</text>
-                    <text x="0" y="57" fill="#10b981" font-family="'Fira Code', monospace" font-size="9">SHADOW REG: Valid</text>
-                  </g>
-                </g>
-
-                <!-- 連接 2 ➔ 3 -->
-                <path d="M478 170 H493" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3,2"/>
-                <polygon points="493,167 499,170 493,173" fill="#f59e0b"/>
-
-                <!-- 階段 3: 反熔絲高壓燒錄 -->
-                <g class="flow-node" transform="translate(501, 72)">
-                  <rect width="215" height="205" rx="8" fill="url(#bcdNodeGrad)" stroke="#f59e0b" stroke-width="1.2"/>
-                  <rect x="1" y="1" width="213" height="24" rx="7" fill="rgba(245, 158, 11, 0.15)"/>
-                  <text x="10" y="17" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="10" font-weight="700">03 · VPP BURN</text>
-                  
-                  <g transform="translate(35, 36)">
-                    <rect width="135" height="36" rx="4" fill="#1c1917" stroke="#f59e0b" stroke-width="1"/>
-                    <path d="M20 22 L40 10 L55 26 L70 12 L85 24 L105 12" stroke="#f59e0b" stroke-width="2" filter="url(#glowBcd)"/>
-                    <text x="25" y="32" fill="#fef08a" font-family="'Fira Code', monospace" font-size="8">5.5V @ 10&mu;s PULSE</text>
-                  </g>
-
-                  <g transform="translate(15, 92)">
-                    <text x="0" y="12" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STATE: Ruptured</text>
-                    <text x="0" y="27" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">R_FIL: 84 &Omega; (&lt;100&Omega;)</text>
-                    <text x="0" y="42" fill="#64748b" font-family="'Fira Code', monospace" font-size="9">LAYER: Pure Logic Thin-Ox</text>
-                    <text x="0" y="57" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9">THERMAL: 0 Mask Adder</text>
-                  </g>
-                </g>
-
-                <!-- 連接 3 ➔ 4 -->
-                <path d="M721 170 H736" stroke="#10b981" stroke-width="2" stroke-dasharray="3,2"/>
-                <polygon points="736,167 742,170 736,173" fill="#10b981"/>
-
-                <!-- 階段 4: 驗證與防篡改鎖定 -->
-                <g class="flow-node" transform="translate(744, 72)">
-                  <rect width="201" height="205" rx="8" fill="url(#bcdNodeGrad)" stroke="#10b981" stroke-width="1.5"/>
-                  <rect x="1" y="1" width="199" height="24" rx="7" fill="rgba(16, 185, 129, 0.15)"/>
-                  <text x="10" y="17" fill="#10b981" font-family="'Fira Code', monospace" font-size="10" font-weight="700">04 · LOCK &amp; PASS</text>
-                  
-                  <g transform="translate(25, 38)">
-                    <path d="M15 32 Q70 2 125 32" stroke="#10b981" stroke-width="2.5" fill="none" filter="url(#glowBcd)"/>
-                    <line x1="70" y1="2" x2="70" y2="35" stroke="#10b981" stroke-dasharray="2,2" stroke-width="1"/>
-                    <text x="30" y="42" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8">VREF = 1.200V &plusmn;0.35%</text>
-                  </g>
-
-                  <g transform="translate(15, 92)">
-                    <text x="0" y="12" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">VREF: 1.200 V &plusmn;0.35%</text>
-                    <text x="0" y="27" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">YIELD: 99.8% IN-SPEC</text>
-                    <text x="0" y="42" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9">SECURITY: Lock Bit Set</text>
-                    <text x="0" y="57" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="9">RETENTION: 15Y @ 150°C</text>
-                  </g>
-                </g>
-              </svg>
-            </div>
-
-            <!-- 流程圖底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
-            <div class="flowchart-legend-grid">
-              <div class="flow-legend-col">
-                <h5>
-                  <span class="flow-dot-cyan"></span>
-                  <span data-lang="zh">階段 01 · ATE 探針接觸採樣</span>
-                  <span data-lang="en">Stage 01 · Raw Sense &amp; Drift Capture</span>
-                </h5>
-                <p>
-                  <span data-lang="zh">量測帶隙基準源原生高斯偏差（±3%~±5%），由 ATE 自動化測試儀即時捕獲。</span>
-                  <span data-lang="en">ATE prober samples raw bandgap reference deviation (±3% to ±5%) across wafer sort.</span>
-                </p>
-              </div>
-              <div class="flow-legend-col">
-                <h5>
-                  <span class="flow-dot-cyan"></span>
-                  <span data-lang="zh">階段 02 · SAR 最優補償碼合成</span>
-                  <span data-lang="en">Stage 02 · SAR Trim Code Synthesis</span>
-                </h5>
-                <p>
-                  <span data-lang="zh">內部逐次逼近邏輯二分法運算，生成 5-bit 最優電阻階梯微調權重碼。</span>
-                  <span data-lang="en">Successive approximation register computes 5-bit binary trim weights for resistor ladder.</span>
-                </p>
-              </div>
-              <div class="flow-legend-col">
-                <h5>
-                  <span class="flow-dot-amber"></span>
-                  <span data-lang="zh">階段 03 · AntiFuse 物理細絲擊穿</span>
-                  <span data-lang="en">Stage 03 · 5.5V AntiFuse Filament Zap</span>
-                </h5>
-                <p>
-                  <span data-lang="zh">施加 5.5V 高壓脈衝擊穿閘極氧化層，形成 &lt;100Ω 導電通道，零額外光罩。</span>
-                  <span data-lang="en">Applies 5.5V pulse rupturing thin oxide into &lt;100Ω filament with zero extra masks.</span>
-                </p>
-              </div>
-            </div>
-          </div>
+    <!-- STEP 04 -->
+    <div class="deck-step-card border-green">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">STEP 04</span>
+        <span class="deck-step-status">LOCK &amp; SIGN-OFF</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">電壓驗證與防篡改鎖定</span>
+        <span data-lang="en">Post-Trim Lock &amp; Pass</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 11px; color: #10b981; display: flex; align-items: center; gap: 6px;">
+          <span>VREF: 1.200V</span>
+          <span style="padding: 1px 5px; background: rgba(16, 185, 129, 0.2); border-radius: 2px;">±0.35% IN-SPEC</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">99.8% Yield</span>
+        <span class="deck-metric-lbl">AEC-Q100 GRADE 0 (175°C)</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">安全防護：</span><span data-lang="en">Security:</span></strong> <span data-lang="zh">上電 50ns 內硬體鎖定</span><span data-lang="en">Hardware locked &lt; 50ns</span></li>
+        <li><strong><span data-lang="zh">留存壽命：</span><span data-lang="en">Retention:</span></strong> <span data-lang="zh">15+ 年 @ 175°C 高溫結溫</span><span data-lang="en">15+ yrs @ 175°C Tj</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
         </div>
 
         <!-- Sub-Topic: High Density Firmware -> Monolithic BCD Smart SoC Bus Architecture -->
@@ -470,136 +440,126 @@
           </div>
 
           <!-- 高密度 BCD 特種 SoC 單晶片整合微架構總線圖 -->
-          <div class="semiconductor-flowchart-card" style="margin: 14px 0 18px;">
-            <div class="flowchart-header">
-              <div class="flowchart-title-tag">
-                <span>●</span>
-                <span data-lang="zh">單晶片系統架構 · BCD 混合訊號總線</span>
-                <span data-lang="en">MONOLITHIC BCD SMART SOC MICRO-ARCHITECTURE</span>
-              </div>
-              <h4>
-                <span data-lang="zh">高密度智慧協議與控制：單晶片 32-bit MCU、eNVM 韌體與驅動級整合總線</span>
-                <span data-lang="en">Smart Protocol &amp; Motor Control: 32-bit MCU, eNVM Firmware &amp; Power Stage Bus</span>
-              </h4>
-            </div>
+          <!-- =========================================================
+     TOPIC 01.2: BCD SoC 智慧控制總線簡報級原生 DOM 架構圖
+     ========================================================= -->
+<div class="deck-flow-container">
+  <div class="deck-flow-header">
+    <div class="deck-header-left">
+      <span class="deck-slide-badge">SLIDE FLOW 01.2</span>
+      <h4>
+        <span data-lang="zh">高密度智慧協議與控制：單晶片 32-bit MCU、eNVM 韌體與驅動級整合總線</span>
+        <span data-lang="en">Smart Protocol &amp; Motor Control: 32-bit MCU, eNVM Firmware &amp; Power Stage Bus</span>
+      </h4>
+    </div>
+    <div class="deck-header-right">
+      <span>● MONOLITHIC BCD SOC</span>
+      <span>AHB/APB CROSSBAR</span>
+    </div>
+  </div>
 
-            <div class="flowchart-svg-container">
-              <svg viewBox="0 0 960 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
-                <defs>
-                  <linearGradient id="socBusGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#021526" stop-opacity="0.95"/>
-                    <stop offset="100%" stop-color="#05283f" stop-opacity="0.95"/>
-                  </linearGradient>
-                  <filter id="socNeon" x="-20%" y="-20%" width="140%" height="140%">
-                    <feGaussianBlur stdDeviation="3" result="blur"/>
-                    <feMerge>
-                      <feMergeNode in="blur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                </defs>
+  <div class="deck-timing-rail">
+    <span class="deck-bus-label">CENTRAL CROSSBAR</span>
+    <div class="deck-signals">
+      <span class="signal-chip cyan">CORE: 32-BIT RISC-V / CORTEX</span>
+      <span class="signal-chip cyan">BUS: ZERO-WAIT AHB/APB MATRIX</span>
+      <span class="signal-chip amber">NVM: 16KB - 64KB MTP / OTP</span>
+      <span class="signal-chip green">POWER: 40V-85V INTEGRATED LDMOS</span>
+    </div>
+  </div>
 
-                <!-- 核心中央總線：Zero-Wait AHB/APB Interconnect Matrix -->
-                <g class="soc-interconnect" transform="translate(20, 15)">
-                  <rect width="920" height="38" rx="4" fill="#010e1a" stroke="#00f0ff" stroke-width="1.2"/>
-                  <line x1="20" y1="19" x2="900" y2="19" stroke="#00f0ff" stroke-width="2" stroke-dasharray="6,3" filter="url(#socNeon)"/>
-                  <text x="25" y="15" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="9" font-weight="700">32-BIT ZERO-WAIT AHB/APB CROSSBAR BUS</text>
-                  <text x="730" y="15" fill="#67e8f9" font-family="'Fira Code', monospace" font-size="8.5">LATENCY: 0-CYCLE FETCH</text>
-                </g>
+  <div class="deck-pipeline-rail">
+    <!-- DOMAIN A: USB-PD 3.1 -->
+    <div class="deck-step-card border-cyan">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">DOMAIN A</span>
+        <span class="deck-step-status">16KB-32KB MTP</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">USB-PD 3.1 EPR 快充控制器</span>
+        <span data-lang="en">USB-PD 3.1 &amp; EPR Controller</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10.5px; color: #38bdf8; display: flex; align-items: center; gap: 4px;">
+          <span>240W (48V/5A)</span>
+          <span style="padding: 1px 4px; background: #0c4a6e; border-radius: 2px;">E-MARKER</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">240W Protocol</span>
+        <span class="deck-metric-lbl">IN-FIELD ONLINE ISP PATCH</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">硬體角色：</span><span data-lang="en">Role:</span></strong> <span data-lang="zh">儲存 PDO 供電協議與安全金鑰</span><span data-lang="en">Stores PDO profiles &amp; security keys</span></li>
+        <li><strong><span data-lang="zh">耐受擦寫：</span><span data-lang="en">Endurance:</span></strong> <span data-lang="zh">10,000 次重複在線韌體升級</span><span data-lang="en">10K cycles field updateable</span></li>
+      </ul>
+    </div>
 
-                <!-- 模組 A: USB-PD 3.1 協議控制器 -->
-                <g class="soc-block" transform="translate(20, 68)">
-                  <rect width="290" height="175" rx="6" fill="url(#socBusGrad)" stroke="#38bdf8" stroke-width="1.2"/>
-                  <rect x="1" y="1" width="288" height="24" rx="5" fill="rgba(56, 189, 248, 0.15)"/>
-                  <text x="12" y="17" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">A · USB-PD 3.1 &amp; EPR CONTROLLER</text>
-                  <circle cx="270" cy="13" r="3.5" fill="#38bdf8"/>
-                  <path d="M145 0 V-15" stroke="#38bdf8" stroke-width="2"/>
-                  
-                  <g transform="translate(16, 38)">
-                    <text x="0" y="12" fill="#e2e8f0" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">240W FAST-CHARGE STATE MACHINE</text>
-                    <text x="0" y="28" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">POWER: 48V / 5A EPR Protocol</text>
-                    <text x="0" y="44" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">NVM: 16KB - 32KB MTP</text>
-                    <text x="0" y="60" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STORAGE: PDO Profiles &amp; E-Marker</text>
-                    <rect x="0" y="72" width="140" height="20" rx="3" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="0.8"/>
-                    <text x="8" y="86" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="8.5">ONLINE ISP REFLASHABLE</text>
-                  </g>
-                </g>
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">AHB BUS</span>
+    </div>
 
-                <!-- 模組 B: BLDC 無刷馬達 FOC 控制器 -->
-                <g class="soc-block" transform="translate(335, 68)">
-                  <rect width="290" height="175" rx="6" fill="url(#socBusGrad)" stroke="#f59e0b" stroke-width="1.2"/>
-                  <rect x="1" y="1" width="288" height="24" rx="5" fill="rgba(245, 158, 11, 0.15)"/>
-                  <text x="12" y="17" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">B · BLDC 3-PHASE MOTOR FOC</text>
-                  <circle cx="270" cy="13" r="3.5" fill="#f59e0b"/>
-                  <path d="M145 0 V-15" stroke="#f59e0b" stroke-width="2"/>
+    <!-- DOMAIN B: BLDC MOTOR -->
+    <div class="deck-step-card border-amber">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">DOMAIN B</span>
+        <span class="deck-step-status">32KB-64KB MTP</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">無刷馬達向量 FOC 控制器</span>
+        <span data-lang="en">Brushless Motor Vector FOC</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10px; color: #fbbf24; display: flex; align-items: center; gap: 4px;">
+          <span>SVPWM 3-PHASE</span>
+          <span style="padding: 1px 4px; background: #78350f; border-radius: 2px;">ZERO-WAIT</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">3-Phase Gate Driver</span>
+        <span class="deck-metric-lbl">COMMUTATION ANGLE LUT</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">單晶片整合：</span><span data-lang="en">Monolithic:</span></strong> <span data-lang="zh">MCU + 三相半橋閘極驅動</span><span data-lang="en">MCU + 3-phase gate drivers</span></li>
+        <li><strong><span data-lang="zh">執行效能：</span><span data-lang="en">Execution:</span></strong> <span data-lang="zh">零等待匯流排快速調用換相查表</span><span data-lang="en">Zero-wait vector LUT access</span></li>
+      </ul>
+    </div>
 
-                  <g transform="translate(16, 38)">
-                    <text x="0" y="12" fill="#e2e8f0" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">VECTOR COMMUTATION ENGINE</text>
-                    <text x="0" y="28" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">CORE: 32-bit MCU + 3-Phase Gate</text>
-                    <text x="0" y="44" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">NVM: 32KB - 64KB MTP</text>
-                    <text x="0" y="60" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">TABLES: SVPWM &amp; Hall Angle LUT</text>
-                    <rect x="0" y="72" width="140" height="20" rx="3" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="0.8"/>
-                    <text x="8" y="86" fill="#fef08a" font-family="'Fira Code', monospace" font-size="8.5">ZERO-WAIT EXECUTION</text>
-                  </g>
-                </g>
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">APB BUS</span>
+    </div>
 
-                <!-- 模組 C: 車規 BMIC 電池監控與 AFE -->
-                <g class="soc-block" transform="translate(650, 68)">
-                  <rect width="290" height="175" rx="6" fill="url(#socBusGrad)" stroke="#10b981" stroke-width="1.4"/>
-                  <rect x="1" y="1" width="288" height="24" rx="5" fill="rgba(16, 185, 129, 0.18)"/>
-                  <text x="12" y="17" fill="#10b981" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">C · BMIC AFE &amp; ASIL-D SAFETY</text>
-                  <circle cx="270" cy="13" r="3.5" fill="#10b981"/>
-                  <path d="M145 0 V-15" stroke="#10b981" stroke-width="2"/>
-
-                  <g transform="translate(16, 38)">
-                    <text x="0" y="12" fill="#e2e8f0" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">16-24 CELL ASIL-D SAFE MONITOR</text>
-                    <text x="0" y="28" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">BATTERY: 16 - 24 Cell Monitoring</text>
-                    <text x="0" y="44" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">QUAL: AEC-Q100 Grade 0 (175°C)</text>
-                    <text x="0" y="60" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">SAFETY: ISO 26262 ASIL-D Fault Log</text>
-                    <rect x="0" y="72" width="150" height="20" rx="3" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="0.8"/>
-                    <text x="8" y="86" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8.5">IMMUTABLE BLACK-BOX LOG</text>
-                  </g>
-                </g>
-              </svg>
-            </div>
-
-            <!-- 總線架構底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
-            <div class="flowchart-legend-grid">
-              <div class="flow-legend-col">
-                <h5>
-                  <span class="flow-dot-cyan"></span>
-                  <span data-lang="zh">領域 A · 240W 快充協議狀態機</span>
-                  <span data-lang="en">Domain A · 240W Fast Charging Engine</span>
-                </h5>
-                <p>
-                  <span data-lang="zh">支援 48V/5A EPR 協議，內嵌 16KB~32KB MTP 儲存 PDO 參數與安全憑證，支援在線 ISP 韌體更新。</span>
-                  <span data-lang="en">Powers 48V/5A EPR controllers, storing PDO profiles and E-Marker keys with ISP reflashability.</span>
-                </p>
-              </div>
-              <div class="flow-legend-col">
-                <h5>
-                  <span class="flow-dot-amber"></span>
-                  <span data-lang="zh">領域 B · 無刷馬達向量 FOC 控制</span>
-                  <span data-lang="en">Domain B · Brushless Motor Vector FOC</span>
-                </h5>
-                <p>
-                  <span data-lang="zh">整合 32 位元 MCU 與三相閘極驅動器，儲存空間向量與換相表，實現晶粒內零等待週期執行。</span>
-                  <span data-lang="en">Integrates 32-bit MCU with gate drivers, storing FOC commutation tables with zero-wait execution.</span>
-                </p>
-              </div>
-              <div class="flow-legend-col">
-                <h5>
-                  <span class="flow-dot-green"></span>
-                  <span data-lang="zh">領域 C · 車規電池管理與功能安全</span>
-                  <span data-lang="en">Domain C · Automotive Battery Safety</span>
-                </h5>
-                <p>
-                  <span data-lang="zh">16~24 串電池監控，儲存阻抗化學查表、溫漂補償與 ASIL-D 安全黑盒子不可篡改日誌。</span>
-                  <span data-lang="en">16-24 cell monitors storing impedance LUTs and ISO 26262 ASIL-D immutable fault logs.</span>
-                </p>
-              </div>
-            </div>
-          </div>
+    <!-- DOMAIN C: BMIC AFE -->
+    <div class="deck-step-card border-green">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">DOMAIN C</span>
+        <span class="deck-step-status">GRADE 0 ASIL-D</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">車規電池管理與功能安全</span>
+        <span data-lang="en">Automotive Battery Safety</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10px; color: #10b981; display: flex; align-items: center; gap: 4px;">
+          <span>16-24 CELLS</span>
+          <span style="padding: 1px 4px; background: #064e3b; border-radius: 2px;">BLACK-BOX</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">175°C Tj Max</span>
+        <span class="deck-metric-lbl">ISO 26262 ASIL-D SAFETY LOG</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">安全紀錄：</span><span data-lang="en">Safety Log:</span></strong> <span data-lang="zh">電池阻抗化學查表與不可竄改黑盒子</span><span data-lang="en">Cell impedance LUT &amp; black box</span></li>
+        <li><strong><span data-lang="zh">可靠度：</span><span data-lang="en">Reliability:</span></strong> <span data-lang="zh">通過嚴苛 AEC-Q100 車規結溫認證</span><span data-lang="en">AEC-Q100 Grade 0 certified</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
         </div>
 
         <!-- =========================================================
@@ -857,184 +817,142 @@
         <!-- =========================================================
              TOPIC 02: BIST ➔ BIRA ➔ FuseBox 半導體流程圖 (SVG Visual Pipeline)
              ========================================================= -->
-        <div class="semiconductor-flowchart-card">
-          <div class="flowchart-header">
-            <div class="flowchart-title-tag">
-              <span>●</span>
-              <span data-lang="zh">硬體邏輯管線 · 3 階段缺陷修復架構</span>
-              <span data-lang="en">SILICON LOGIC PIPELINE · 3-STAGE REPAIR</span>
-            </div>
-            <h4>
-              <span data-lang="zh">自主缺陷檢測、備援覆蓋求解與 AntiFuse 物理重映射流程</span>
-              <span data-lang="en">Autonomous Defect Scan, Redundancy Solver &amp; AntiFuse Hard Remap</span>
-            </h4>
-          </div>
+        <!-- =========================================================
+     TOPIC 02.1: BIST ➔ BIRA ➔ FuseBox 簡報級原生 DOM 流程圖
+     ========================================================= -->
+<div class="deck-flow-container">
+  <div class="deck-flow-header">
+    <div class="deck-header-left">
+      <span class="deck-slide-badge">SLIDE FLOW 02</span>
+      <h4>
+        <span data-lang="zh">自主缺陷檢測、備援覆蓋求解與 AntiFuse 物理重映射流程</span>
+        <span data-lang="en">Autonomous Defect Scan, Redundancy Solver &amp; AntiFuse Hard Remap</span>
+      </h4>
+    </div>
+    <div class="deck-header-right">
+      <span>● MARCH C- 10N</span>
+      <span>JEDEC PPR COMPLIANT</span>
+    </div>
+  </div>
 
-          <div class="flowchart-svg-container">
-            <svg viewBox="0 0 960 210" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
-              <defs>
-                <linearGradient id="flowGridGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#021422" stop-opacity="0.95"/>
-                  <stop offset="100%" stop-color="#05263b" stop-opacity="0.95"/>
-                </linearGradient>
-                <linearGradient id="flowCyanLine" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#00f0ff"/>
-                  <stop offset="100%" stop-color="#0077ff"/>
-                </linearGradient>
-                <linearGradient id="flowAmberLine" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#ffb703"/>
-                  <stop offset="100%" stop-color="#fb8500"/>
-                </linearGradient>
-                <filter id="flowNeonGlow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3" result="blur"/>
-                  <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
-
-              <!-- ================= 階段 1: BIST ENGINE ================= -->
-              <g class="flow-node node-bist" transform="translate(15, 15)">
-                <rect width="280" height="180" rx="8" fill="url(#flowGridGrad)" stroke="#00f0ff" stroke-width="1.4"/>
-                <rect x="1" y="1" width="278" height="26" rx="7" fill="rgba(0, 240, 255, 0.15)"/>
-                <text x="12" y="18" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="11" font-weight="700">STAGE 01 · BIST RADAR SCAN</text>
-                <circle cx="260" cy="14" r="4" fill="#00f0ff" filter="url(#flowNeonGlow)"/>
-
-                <!-- 4x4 記憶體微陣列視覺 -->
-                <g transform="translate(20, 42)">
-                  <rect width="105" height="105" rx="4" fill="#030d17" stroke="#1e3a5f" stroke-width="1"/>
-                  <path d="M26 0 V105 M52 0 V105 M78 0 V105 M0 26 H105 M0 52 H105 M0 78 H105" stroke="#152e4d" stroke-width="1"/>
-                  <!-- 壞點標記 [Row 2, Col 1] -->
-                  <rect x="27" y="53" width="24" height="24" fill="#ef4444" opacity="0.88" filter="url(#flowNeonGlow)"/>
-                  <text x="33" y="70" fill="#ffffff" font-family="monospace" font-size="12" font-weight="900">✕</text>
-                  <!-- 掃描雷達波形 -->
-                  <line x1="0" y1="65" x2="105" y2="65" stroke="#00f0ff" stroke-width="1.8" stroke-dasharray="3,2" opacity="0.85"/>
-                </g>
-
-                <!-- BIST 演算邏輯微標籤 -->
-                <g transform="translate(140, 48)">
-                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="10">ALGO: March C-</text>
-                  <text x="0" y="32" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="10">COMPLEXITY: 10N</text>
-                  <text x="0" y="50" fill="#ef4444" font-family="'Fira Code', monospace" font-size="10" font-weight="700">FAULT: [R:02, C:01]</text>
-                  <rect x="0" y="65" width="125" height="22" rx="3" fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" stroke-width="0.8"/>
-                  <text x="8" y="80" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="9.5">PINPOINTED TO FIFO</text>
-                  <text x="0" y="105" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5">SCAN TIME: &lt;50us</text>
-                </g>
-              </g>
-
-              <!-- 連接總線 1 ➔ 2 -->
-              <g class="flow-arrow" transform="translate(305, 100)">
-                <line x1="0" y1="0" x2="35" y2="0" stroke="url(#flowCyanLine)" stroke-width="2.5" stroke-dasharray="4,2"/>
-                <polygon points="35,-5 45,0 35,5" fill="#00f0ff"/>
-                <text x="2" y="-10" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="8.5">FAULT MAP</text>
-              </g>
-
-              <!-- ================= 階段 2: BIRA SOLVER ================= -->
-              <g class="flow-node node-bira" transform="translate(360, 15)">
-                <rect width="280" height="180" rx="8" fill="url(#flowGridGrad)" stroke="#ffb703" stroke-width="1.4"/>
-                <rect x="1" y="1" width="278" height="26" rx="7" fill="rgba(255, 183, 3, 0.15)"/>
-                <text x="12" y="18" fill="#ffb703" font-family="'Fira Code', monospace" font-size="11" font-weight="700">STAGE 02 · BIRA NP SOLVER</text>
-                <circle cx="260" cy="14" r="4" fill="#ffb703" filter="url(#flowNeonGlow)"/>
-
-                <!-- 備援求解幾何視覺 -->
-                <g transform="translate(20, 42)">
-                  <circle cx="26" cy="26" r="15" fill="#1e293b" stroke="#ffb703" stroke-width="1.2"/>
-                  <text x="18" y="30" fill="#ffb703" font-family="monospace" font-size="11">R₂</text>
-                  <circle cx="85" cy="26" r="15" fill="#1e293b" stroke="#64748b" stroke-width="1"/>
-                  <text x="77" y="30" fill="#94a3b8" font-family="monospace" font-size="11">C₁</text>
-                  <path d="M41 26 H69" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2,2"/>
-                  <rect x="10" y="62" width="95" height="26" rx="4" fill="rgba(255, 183, 3, 0.2)" stroke="#ffb703" stroke-width="1"/>
-                  <text x="16" y="79" fill="#fef08a" font-family="'Fira Code', monospace" font-size="9.5">ALLOC: SPARE_R1</text>
-                </g>
-
-                <!-- BIRA 演算微標籤 -->
-                <g transform="translate(140, 48)">
-                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="10">ALGO: Min-Cover NP</text>
-                  <text x="0" y="32" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="10">COST: 1-Row Penalty</text>
-                  <text x="0" y="50" fill="#10b981" font-family="'Fira Code', monospace" font-size="10" font-weight="700">SOLVED: 100% OK</text>
-                  <rect x="0" y="65" width="125" height="22" rx="3" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="0.8"/>
-                  <text x="8" y="80" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="9.5">SIGNATURE READY</text>
-                  <text x="0" y="105" fill="#fde047" font-family="'Fira Code', monospace" font-size="9.5">YIELD GAIN: +18%</text>
-                </g>
-              </g>
-
-              <!-- 連接總線 2 ➔ 3 -->
-              <g class="flow-arrow" transform="translate(650, 100)">
-                <line x1="0" y1="0" x2="35" y2="0" stroke="url(#flowAmberLine)" stroke-width="2.5" stroke-dasharray="4,2"/>
-                <polygon points="35,-5 45,0 35,5" fill="#ffb703"/>
-                <text x="2" y="-10" fill="#ffb703" font-family="'Fira Code', monospace" font-size="8.5">BURN SIG</text>
-              </g>
-
-              <!-- ================= 階段 3: FUSEBOX HARD REMAP ================= -->
-              <g class="flow-node node-fusebox" transform="translate(705, 15)">
-                <rect width="240" height="180" rx="8" fill="url(#flowGridGrad)" stroke="#10b981" stroke-width="1.4"/>
-                <rect x="1" y="1" width="238" height="26" rx="7" fill="rgba(16, 185, 129, 0.15)"/>
-                <text x="12" y="18" fill="#10b981" font-family="'Fira Code', monospace" font-size="11" font-weight="700">STAGE 03 · FUSEBOX REMAP</text>
-                <circle cx="220" cy="14" r="4" fill="#10b981" filter="url(#flowNeonGlow)"/>
-
-                <!-- 物理破壞細絲與 CAM 重定向視覺 -->
-                <g transform="translate(16, 42)">
-                  <rect width="38" height="38" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
-                  <path d="M10 26 L18 12 L26 22 L30 14" stroke="#fbbf24" stroke-width="2" filter="url(#flowNeonGlow)"/>
-                  <text x="3" y="50" fill="#fbbf24" font-family="monospace" font-size="8">⚡ 5.5V VPP</text>
-                  <path d="M44 19 H58" stroke="#10b981" stroke-width="1.5"/>
-                  <polygon points="58,16 64,19 58,22" fill="#10b981"/>
-                  <rect x="66" y="6" width="46" height="28" rx="3" fill="#042f2e" stroke="#14b8a6" stroke-width="1"/>
-                  <text x="73" y="23" fill="#5eead4" font-family="monospace" font-size="9" font-weight="700">CAM</text>
-                  <text x="61" y="50" fill="#6ee7b7" font-family="monospace" font-size="8">REMAP REG</text>
-                </g>
-
-                <!-- 物理狀態微標籤 -->
-                <g transform="translate(130, 48)">
-                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="10">OXIDE: Ruptured</text>
-                  <text x="0" y="32" fill="#10b981" font-family="'Fira Code', monospace" font-size="10" font-weight="700">R_FIL &lt; 100 &Omega;</text>
-                  <text x="0" y="50" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="10">MUX: Redirected</text>
-                  <rect x="0" y="65" width="95" height="22" rx="3" fill="rgba(16, 185, 129, 0.25)" stroke="#10b981" stroke-width="0.8"/>
-                  <text x="6" y="80" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="9.5">CYCLE-TRUE 0-PEN</text>
-                  <text x="0" y="105" fill="#34d399" font-family="'Fira Code', monospace" font-size="9.5">DATA RET: 10+ YRS</text>
-                </g>
-              </g>
-            </svg>
-          </div>
-
-          <!-- 流程圖底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
-          <div class="flowchart-legend-grid">
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-cyan"></span>
-                <span data-lang="zh">階段 01 · 內建自我測試 (BIST)</span>
-                <span data-lang="en">Stage 01 · Built-In Self-Test (BIST)</span>
-              </h5>
-              <p>
-                <span data-lang="zh">硬體全速遍歷全陣列，執行 March C- 演算法，毫秒級精準定位壞點座標。</span>
-                <span data-lang="en">Hardware engine runs March C- algorithm to pinpoint exact defect coordinates in milliseconds.</span>
-              </p>
-            </div>
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-amber"></span>
-                <span data-lang="zh">階段 02 · 內建備援分析 (BIRA)</span>
-                <span data-lang="en">Stage 02 · Built-In Redundancy Analysis (BIRA)</span>
-              </h5>
-              <p>
-                <span data-lang="zh">二維頂點覆蓋最佳化求解，以最少備援行/列覆蓋壞點，挽救 15-20% 良率。</span>
-                <span data-lang="en">Runs 2D minimum vertex cover solver, rescuing 15-20% yield with minimal spare rows/cols.</span>
-              </p>
-            </div>
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-green"></span>
-                <span data-lang="zh">階段 03 · AntiFuse 物理重映射</span>
-                <span data-lang="en">Stage 03 · AntiFuse Hard Remapping</span>
-              </h5>
-              <p>
-                <span data-lang="zh">高壓細絲永久擊穿形成導電通道，開機 CAM 自動攔截重定向，零週期懲罰。</span>
-                <span data-lang="en">TDDB filament permanent breakdown, on-boot CAM autonomous interception with zero cycle penalty.</span>
-              </p>
-            </div>
-          </div>
+  <div class="deck-pipeline-rail">
+    <!-- STEP 01: BIST RADAR SCAN -->
+    <div class="deck-step-card border-cyan">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">STEP 01</span>
+        <span class="deck-step-status">HARDWARE BIST</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">BIST 陣列自檢雷達</span>
+        <span data-lang="en">BIST Radar Scan Engine</span>
+      </h5>
+      
+      <!-- 純 HTML/CSS 4x4 記憶體網格與壞點 (100% 向量級銳利，零模糊) -->
+      <div class="deck-visual-stage">
+        <div style="display: grid; grid-template-columns: repeat(4, 15px); gap: 3px; padding: 4px; background: #04101b; border: 1px solid #1e3a5f; border-radius: 3px;">
+          <div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
+          <div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
+          <div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
+          <div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
+          
+          <div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
+          <div style="width: 15px; height: 15px; background: #ef4444; border-radius: 2px; box-shadow: 0 0 8px #ef4444; display: grid; place-items: center; color: #fff; font-size: 10px; font-weight: 900;">✕</div>
+          <div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
+          <div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
+          
+          <div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
+          <div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
+          <div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
+          <div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
         </div>
+      </div>
+
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">March C- (10N)</span>
+        <span class="deck-metric-lbl">PINPOINT: [ROW 2, COL 1]</span>
+      </div>
+
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">掃描時程：</span><span data-lang="en">Timing:</span></strong> <span data-lang="zh">&lt; 50µs 全陣列遍歷</span><span data-lang="en">&lt; 50µs full array scan</span></li>
+        <li><strong><span data-lang="zh">故障捕獲：</span><span data-lang="en">Fault Log:</span></strong> <span data-lang="zh">座標即時寫入 FIFO</span><span data-lang="en">Coordinates logged to FIFO</span></li>
+      </ul>
+    </div>
+
+    <!-- CONNECTOR 1 -->
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">FAULT MAP</span>
+    </div>
+
+    <!-- STEP 02: BIRA NP SOLVER -->
+    <div class="deck-step-card border-amber">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">STEP 02</span>
+        <span class="deck-step-status">NP-COMPLETE</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">BIRA 備援最優解算</span>
+        <span data-lang="en">BIRA Redundancy Solver</span>
+      </h5>
+
+      <div class="deck-visual-stage">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="padding: 4px 8px; background: #1e293b; border: 1px solid #f59e0b; border-radius: 3px; font-family: monospace; font-size: 10px; color: #fde047;">R₂ (Defect)</div>
+          <span style="color: #f59e0b; font-size: 11px;">➔</span>
+          <div style="padding: 4px 8px; background: #78350f; border: 1px solid #f59e0b; border-radius: 3px; font-family: monospace; font-size: 10px; color: #fef08a; font-weight: 700;">SPARE_R1</div>
+        </div>
+      </div>
+
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">1-ROW PENALTY</span>
+        <span class="deck-metric-lbl">MIN VERTEX COVER SOLVED</span>
+      </div>
+
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">演算法：</span><span data-lang="en">Algorithm:</span></strong> <span data-lang="zh">二維最少備援行/列覆蓋</span><span data-lang="en">2D min spare allocation</span></li>
+        <li><strong><span data-lang="zh">良率挽救：</span><span data-lang="en">Yield Gain:</span></strong> <span data-lang="zh">晶粒良率復原至 100%</span><span data-lang="en">100% die recovery</span></li>
+      </ul>
+    </div>
+
+    <!-- CONNECTOR 2 -->
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">BURN SIG</span>
+    </div>
+
+    <!-- STEP 03: FUSEBOX HARD REMAP -->
+    <div class="deck-step-card border-green">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">STEP 03</span>
+        <span class="deck-step-status">HARDWIRED</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">AntiFuse 物理重映射</span>
+        <span data-lang="en">AntiFuse Hard Remap</span>
+      </h5>
+
+      <div class="deck-visual-stage">
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <div style="padding: 3px 6px; background: #064e3b; border: 1px solid #10b981; border-radius: 2px; font-family: monospace; font-size: 9px; color: #a7f3d0;">5.5V VPP</div>
+          <span style="color: #10b981; font-size: 10px;">⚡</span>
+          <div style="padding: 3px 6px; background: #042f2e; border: 1px solid #14b8a6; border-radius: 2px; font-family: monospace; font-size: 9px; color: #5eead4; font-weight: 700;">CAM REDIR</div>
+        </div>
+      </div>
+
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">R_FIL &lt; 100 Ω</span>
+        <span class="deck-metric-lbl">ZERO GROW-BACK LEAKAGE</span>
+      </div>
+
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">開機延遲：</span><span data-lang="en">Latency:</span></strong> <span data-lang="zh">0-Cycle 硬體 CAM 攔截</span><span data-lang="en">Zero-cycle CAM redirect</span></li>
+        <li><strong><span data-lang="zh">留存壽命：</span><span data-lang="en">Retention:</span></strong> <span data-lang="zh">15 年 @ 175°C 車規耐受</span><span data-lang="en">15+ yrs @ 175°C Tj</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
         <!-- =========================================================
              FLAGSHIP LAB 02: AUTONOMOUS MATRIX REPAIR SIMULATOR
@@ -1191,306 +1109,194 @@
         </div>
 
         <!-- 3D 堆疊 CIS 壞點修復與 JEDEC HBM3e hPPR 總線架構圖 -->
-        <div class="semiconductor-flowchart-card" style="margin: 20px 0 24px;">
-          <div class="flowchart-header">
-            <div class="flowchart-title-tag">
-              <span>●</span>
-              <span data-lang="zh">3D 堆疊晶圓與現場修復 · 實體架構</span>
-              <span data-lang="en">3D WAFER STACKING &amp; FIELD REPAIR ARCHITECTURE</span>
-            </div>
-            <h4>
-              <span data-lang="zh">高密集陣列應用：3D 堆疊 CIS 壞點微調與 DRAM / HBM3e JEDEC hPPR 現場救援</span>
-              <span data-lang="en">Dense Matrix Applications: 3D-Stacked CIS Pixel Repair &amp; HBM3e JEDEC hPPR</span>
-            </h4>
-          </div>
+        <!-- =========================================================
+     TOPIC 02.2: 3D 堆疊 CIS 與 JEDEC hPPR 簡報級原生 DOM 架構圖
+     ========================================================= -->
+<div class="deck-flow-container">
+  <div class="deck-flow-header">
+    <div class="deck-header-left">
+      <span class="deck-slide-badge">SLIDE FLOW 02.2</span>
+      <h4>
+        <span data-lang="zh">高密集陣列應用：3D 堆疊 CIS 壞點微調與 DRAM / HBM3e JEDEC hPPR 現場救援</span>
+        <span data-lang="en">Dense Matrix Applications: 3D-Stacked CIS Pixel Repair &amp; HBM3e JEDEC hPPR</span>
+      </h4>
+    </div>
+    <div class="deck-header-right">
+      <span>● TSMC 3DFABRIC</span>
+      <span>JEDEC JESD238</span>
+    </div>
+  </div>
 
-          <div class="flowchart-svg-container">
-            <svg viewBox="0 0 960 250" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
-              <defs>
-                <linearGradient id="stackGrad" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#021526" stop-opacity="0.95"/>
-                  <stop offset="100%" stop-color="#05283f" stop-opacity="0.95"/>
-                </linearGradient>
-                <filter id="stackNeon" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3" result="blur"/>
-                  <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
+  <div class="deck-pipeline-rail">
+    <!-- WING 1: 3D CIS -->
+    <div class="deck-step-card border-cyan">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">WING 01 · 3D SENSOR</span>
+        <span class="deck-step-status">CU-CU HYBRID BOND</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">CMOS 影像感測器 (CIS) 壞點修復</span>
+        <span data-lang="en">CMOS Image Sensor (CIS) Pixel Repair</span>
+      </h5>
+      <div class="deck-visual-stage" style="flex-direction: column; gap: 4px; align-items: stretch;">
+        <div style="background: #0c4a6e; border: 1px solid #38bdf8; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #e0f2fe; text-align: center;">TIER 1: 200MP PIXEL SENSOR</div>
+        <div style="border-top: 1px dashed #facc15; font-family: monospace; font-size: 7.5px; color: #fde047; text-align: center; line-height: 1;">TSMC Cu-Cu HYBRID BONDING</div>
+        <div style="background: #032f2f; border: 1px solid #10b981; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;">TIER 2: ISP + 128Kb AntiFuse OTP</div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">128Kb Defect LUT</span>
+        <span class="deck-metric-lbl">REAL-TIME BILINEAR INTERPOLATION</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">修復機制：</span><span data-lang="en">Mechanism:</span></strong> <span data-lang="zh">邏輯層 OTP 儲存死點座標與透鏡陰影</span><span data-lang="en">Logic OTP stores hot pixels &amp; shading</span></li>
+        <li><strong><span data-lang="zh">封裝架構：</span><span data-lang="en">Packaging:</span></strong> <span data-lang="zh">三層晶圓級垂直鍵合，無感光延遲</span><span data-lang="en">3D direct wafer stack, zero latency</span></li>
+      </ul>
+    </div>
 
-              <!-- 左側模組: 3D 堆疊 CIS 感光元件晶圓級鍵合 -->
-              <g class="arch-node" transform="translate(15, 15)">
-                <rect width="455" height="220" rx="8" fill="url(#stackGrad)" stroke="#00f0ff" stroke-width="1.3"/>
-                <rect x="1" y="1" width="453" height="26" rx="7" fill="rgba(0, 240, 255, 0.15)"/>
-                <text x="12" y="18" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">01 · 3D-STACKED CIS SENSOR (CU-CU HYBRID BONDING)</text>
-                <circle cx="435" cy="14" r="3.5" fill="#00f0ff"/>
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">MATRIX RESCUE</span>
+    </div>
 
-                <!-- 3 層垂直晶圓堆疊幾何視覺 -->
-                <g transform="translate(20, 42)">
-                  <!-- Tier 1: Pixel Array Tier (頂部光學微透鏡與像素) -->
-                  <rect width="180" height="24" rx="2" fill="#0c4a6e" stroke="#38bdf8"/>
-                  <text x="25" y="16" fill="#e0f2fe" font-family="monospace" font-size="8.5">TIER 1: 200MP PIXELS</text>
-                  <circle cx="150" cy="12" r="3" fill="#ef4444" filter="url(#stackNeon)"/>
-
-                  <!-- Cu-Cu 鍵合微凸塊層 -->
-                  <g transform="translate(10, 25)">
-                    <line x1="0" y1="3" x2="160" y2="3" stroke="#eab308" stroke-width="2" stroke-dasharray="4,3"/>
-                    <text x="35" y="12" fill="#fde047" font-family="monospace" font-size="7">TSMC Cu-Cu HYBRID BONDING</text>
-                  </g>
-
-                  <!-- Tier 2: Logic ISP + eNVM Tier (邏輯補償與壞點座標表) -->
-                  <rect y="42" width="180" height="28" rx="2" fill="#032f2f" stroke="#10b981" stroke-width="1.2"/>
-                  <text x="15" y="56" fill="#a7f3d0" font-family="monospace" font-size="8.5">TIER 2: ISP + 128Kb OTP</text>
-                  <text x="15" y="66" fill="#6ee7b7" font-family="monospace" font-size="7.5">BILINEAR DEFECT INTERPOLATION</text>
-
-                  <!-- Tier 3: DRAM Buffer Tier -->
-                  <rect y="75" width="180" height="18" rx="2" fill="#0f172a" stroke="#64748b"/>
-                  <text x="35" y="87" fill="#94a3b8" font-family="monospace" font-size="8">TIER 3: DRAM BUFFER</text>
-                </g>
-
-                <!-- CIS 修復微標籤清單 -->
-                <g transform="translate(225, 46)">
-                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">CAPACITY: 16K-bit to 128K-bit</text>
-                  <text x="0" y="32" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">REPAIR: Hot &amp; Dead Pixel Mapping</text>
-                  <text x="0" y="50" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">METHOD: Real-Time Bilinear Gain</text>
-                  <text x="0" y="68" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5">PACKAGE: TSMC 3DFabric Stacking</text>
-                  <rect x="0" y="80" width="185" height="20" rx="3" fill="rgba(0, 240, 255, 0.15)" stroke="#00f0ff" stroke-width="0.8"/>
-                  <text x="8" y="94" fill="#67e8f9" font-family="'Fira Code', monospace" font-size="8.5">PERFECT OPTICAL SHADING</text>
-                </g>
-              </g>
-
-              <!-- 右側模組: DRAM / HBM3e JEDEC hPPR 現場修復 -->
-              <g class="arch-node" transform="translate(490, 15)">
-                <rect width="455" height="220" rx="8" fill="url(#stackGrad)" stroke="#10b981" stroke-width="1.5"/>
-                <rect x="1" y="1" width="453" height="26" rx="7" fill="rgba(16, 185, 129, 0.18)"/>
-                <text x="12" y="18" fill="#10b981" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">02 · DRAM / HBM3e JEDEC HARD POST-PACKAGE REPAIR (hPPR)</text>
-                <circle cx="435" cy="14" r="3.5" fill="#10b981"/>
-
-                <!-- 封裝後中介層與主板現場修復視覺 -->
-                <g transform="translate(20, 42)">
-                  <rect width="180" height="30" rx="3" fill="#1c1917" stroke="#eab308"/>
-                  <text x="15" y="18" fill="#fde047" font-family="monospace" font-size="8.5">AI XPU + HBM3e STACK</text>
-                  <line x1="130" y1="6" x2="130" y2="24" stroke="#ef4444" stroke-width="2" stroke-dasharray="2,2"/>
-                  <text x="140" y="18" fill="#f87171" font-family="monospace" font-size="8">FAIL</text>
-
-                  <path d="M90 32 V54" stroke="#10b981" stroke-width="2"/>
-                  <polygon points="90,56 86,50 94,50" fill="#10b981"/>
-                  
-                  <rect y="56" width="180" height="36" rx="3" fill="#042f2e" stroke="#10b981" stroke-width="1.2"/>
-                  <text x="20" y="70" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8">JEDEC JESD79-5 / 238</text>
-                  <text x="15" y="83" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="8">hPPR CMD ➔ ANTIFUSE BURN</text>
-                </g>
-
-                <!-- HBM 修復微標籤清單 -->
-                <g transform="translate(225, 46)">
-                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STANDARD: JEDEC JESD79-5 / JESD238</text>
-                  <text x="0" y="32" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">REPAIR MODE: In-Field Online Permanent</text>
-                  <text x="0" y="50" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">RELIABILITY: Zero Relaxation Regrowth</text>
-                  <text x="0" y="68" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5">SAVINGS: Salvages $30,000+ AI Die</text>
-                  <rect x="0" y="80" width="185" height="20" rx="3" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="0.8"/>
-                  <text x="8" y="94" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8.5">SERVER-LIFE CONTINUOUS PASS</text>
-                </g>
-              </g>
-            </svg>
-          </div>
-
-          <!-- 底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
-          <div class="flowchart-legend-grid">
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-cyan"></span>
-                <span data-lang="zh">應用 01 · 3D 堆疊 CIS 感光元件</span>
-                <span data-lang="en">Application 01 · 3D-Stacked CIS Sensors</span>
-              </h5>
-              <p>
-                <span data-lang="zh">48MP~200MP 感光元件透過銅-銅鍵合堆疊，邏輯層 eNVM 儲存壞像素座標，由 ISP 即時執行雙線性插值。</span>
-                <span data-lang="en">High-density CIS utilizes Cu-Cu hybrid bonding; logic-tier eNVM stores defect maps for real-time bilinear interpolation.</span>
-              </p>
-            </div>
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-green"></span>
-                <span data-lang="zh">應用 02 · DRAM / HBM3e JEDEC 現場修復</span>
-                <span data-lang="en">Application 02 · DRAM / HBM3e In-Field PPR</span>
-              </h5>
-              <p>
-                <span data-lang="zh">符合 JEDEC JESD79-5 及 JESD238 標準，資料中心在線偵測故障時硬體燒斷備援單元，挽救數萬美元 AI 模組。</span>
-                <span data-lang="en">Complies with JEDEC JESD79-5 &amp; JESD238 hPPR, permanently remapping faulty rows in-field to salvage costly AI accelerators.</span>
-              </p>
-            </div>
-          </div>
-        </div>
+    <!-- WING 2: DRAM / HBM3e hPPR -->
+    <div class="deck-step-card border-green">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">WING 02 · AI MEMORY</span>
+        <span class="deck-step-status">IN-FIELD hPPR</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">DRAM / HBM3e 封裝後現場修復 (PPR)</span>
+        <span data-lang="en">DRAM / HBM3e Post-Package Repair (PPR)</span>
+      </h5>
+      <div class="deck-visual-stage" style="flex-direction: column; gap: 4px; align-items: stretch;">
+        <div style="background: #1c1917; border: 1px solid #eab308; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #fde047; text-align: center;">AI XPU + HBM3e SUBSTRATE STACK</div>
+        <div style="color: #ef4444; font-family: monospace; font-size: 8px; text-align: center;">FAULT DETECTED ➔ JEDEC hPPR CMD</div>
+        <div style="background: #042f2e; border: 1px solid #10b981; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;">ANTIFUSE FUSEBOX PERMANENT REMAP</div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">Salvages $30,000+</span>
+        <span class="deck-metric-lbl">ZERO FIELD SCRAP AT DATACENTER</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">標準協定：</span><span data-lang="en">Standard:</span></strong> <span data-lang="zh">符合 JEDEC JESD79-5 DDR5 &amp; JESD238</span><span data-lang="en">Complies with JEDEC DDR5/HBM3e hPPR</span></li>
+        <li><strong><span data-lang="zh">現場修復：</span><span data-lang="en">In-Field:</span></strong> <span data-lang="zh">伺服器運行中在線永久隔離故障單元</span><span data-lang="en">Online row replacement on server board</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
         <!-- Fuse Evolution: 3-Generation Semiconductor Pipeline -->
-        <div class="semiconductor-flowchart-card" style="margin: 20px 0 24px;">
-          <div class="flowchart-header">
-            <div class="flowchart-title-tag">
-              <span>●</span>
-              <span data-lang="zh">半導體物理演進 · 3 代熔絲微觀剖面</span>
-              <span data-lang="en">SEMICONDUCTOR PHYSICS · 3-GEN FUSE CROSS-SECTION</span>
-            </div>
-            <h4>
-              <span data-lang="zh">修復熔絲技術代際演進：雷射熔斷 ➔ 電致遷移 ➔ 反熔絲奈米細絲</span>
-              <span data-lang="en">Fuse Technology Evolution: Laser Fuse ➔ eFuse ➔ AntiFuse Silicide Nanofilament</span>
-            </h4>
-          </div>
+        <!-- =========================================================
+     TOPIC 02.3: 熔絲技術 3 代演進簡報級原生 DOM 流程圖
+     ========================================================= -->
+<div class="deck-flow-container">
+  <div class="deck-flow-header">
+    <div class="deck-header-left">
+      <span class="deck-slide-badge">SLIDE FLOW 02.3</span>
+      <h4>
+        <span data-lang="zh">修復熔絲技術代際演進：雷射熔斷 ➔ 電致遷移 ➔ 反熔絲奈米細絲</span>
+        <span data-lang="en">Fuse Technology Evolution: Laser Fuse ➔ eFuse ➔ AntiFuse Silicide Nanofilament</span>
+      </h4>
+    </div>
+    <div class="deck-header-right">
+      <span>● PHYSICAL MICROSTRUCTURE</span>
+      <span>0 DEBRIS</span>
+    </div>
+  </div>
 
-          <div class="flowchart-svg-container">
-            <svg viewBox="0 0 960 270" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
-              <defs>
-                <linearGradient id="fuseGenBg" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#021526" stop-opacity="0.95"/>
-                  <stop offset="100%" stop-color="#05283f" stop-opacity="0.95"/>
-                </linearGradient>
-                <filter id="fuseNeon" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3" result="blur"/>
-                  <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
-
-              <!-- ================= GEN 1: LASER FUSE ================= -->
-              <g class="fuse-node" transform="translate(15, 15)">
-                <rect width="280" height="235" rx="8" fill="url(#fuseGenBg)" stroke="#64748b" stroke-width="1.2"/>
-                <rect x="1" y="1" width="278" height="26" rx="7" fill="rgba(100, 116, 139, 0.2)"/>
-                <text x="12" y="18" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">GEN 01 · LASER FUSE (ABLATION)</text>
-                <rect x="230" y="6" width="40" height="14" rx="2" fill="#334155"/>
-                <text x="234" y="16" fill="#94a3b8" font-family="monospace" font-size="8">LEGACY</text>
-
-                <!-- 物理剖面圖：雷射破壞開窗孔 -->
-                <g transform="translate(20, 38)">
-                  <rect width="240" height="85" rx="4" fill="#0b1320" stroke="#1e293b"/>
-                  <path d="M70 0 L100 45 H140 L170 0" fill="#020617" stroke="#475569" stroke-width="1.2"/>
-                  <text x="95" y="25" fill="#64748b" font-family="monospace" font-size="8">PAD OPENING</text>
-                  
-                  <line x1="120" y1="-10" x2="120" y2="45" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="4,2" filter="url(#fuseNeon)"/>
-                  <circle cx="120" cy="45" r="4" fill="#f87171" filter="url(#fuseNeon)"/>
-                  <circle cx="105" cy="48" r="2.5" fill="#fbbf24"/>
-                  <circle cx="135" cy="46" r="3" fill="#fbbf24"/>
-                  <text x="80" y="70" fill="#ef4444" font-family="'Fira Code', monospace" font-size="8.5">METAL VAPORIZED</text>
-                </g>
-
-                <g transform="translate(18, 138)">
-                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">MECHANISM: Optical Ablation</text>
-                  <text x="0" y="30" fill="#ef4444" font-family="'Fira Code', monospace" font-size="9.5">AREA: Prohibitive Huge Pad</text>
-                  <text x="0" y="46" fill="#ef4444" font-family="'Fira Code', monospace" font-size="9.5">LIMIT: Pre-Packaging Only</text>
-                  <text x="0" y="62" fill="#64748b" font-family="'Fira Code', monospace" font-size="9.5">SCALING: Blocked at &lt;28nm</text>
-                  <rect x="0" y="70" width="130" height="18" rx="3" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="0.8"/>
-                  <text x="8" y="82" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="8.5">NO POST-PACKAGE REPAIR</text>
-                </g>
-              </g>
-
-              <!-- 連接 1 ➔ 2 -->
-              <g transform="translate(303, 125)">
-                <line x1="0" y1="0" x2="20" y2="0" stroke="#475569" stroke-width="2" stroke-dasharray="3,2"/>
-                <polygon points="20,-4 26,0 20,4" fill="#64748b"/>
-              </g>
-
-              <!-- ================= GEN 2: EFUSE ================= -->
-              <g class="fuse-node" transform="translate(330, 15)">
-                <rect width="280" height="235" rx="8" fill="url(#fuseGenBg)" stroke="#f59e0b" stroke-width="1.2"/>
-                <rect x="1" y="1" width="278" height="26" rx="7" fill="rgba(245, 158, 11, 0.15)"/>
-                <text x="12" y="18" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">GEN 02 · eFUSE (ELECTROMIGRATION)</text>
-                <rect x="235" y="6" width="35" height="14" rx="2" fill="#78350f"/>
-                <text x="238" y="16" fill="#fbbf24" font-family="monospace" font-size="8">TRANS.</text>
-
-                <g transform="translate(20, 38)">
-                  <rect width="240" height="85" rx="4" fill="#0b1320" stroke="#1e293b"/>
-                  <path d="M30 45 H85 Q110 45 110 50 Q110 45 135 45 H210" stroke="#f59e0b" stroke-width="6" fill="none"/>
-                  <circle cx="110" cy="47" r="5" fill="#0b1320" stroke="#ef4444" stroke-width="1.5"/>
-                  <text x="92" y="32" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="8.5">I &gt; 10mA</text>
-                  <text x="80" y="70" fill="#fbbf24" font-family="'Fira Code', monospace" font-size="8.5">THERMAL GROW-BACK</text>
-                  <path d="M106 47 L114 47" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="1,1"/>
-                </g>
-
-                <g transform="translate(18, 138)">
-                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">MECHANISM: Electromigration Void</text>
-                  <text x="0" y="30" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="9.5">DRIVE: Huge Current FET Required</text>
-                  <text x="0" y="46" fill="#ef4444" font-family="'Fira Code', monospace" font-size="9.5">DEFECT: Thermal Grow-Back Risk</text>
-                  <text x="0" y="62" fill="#64748b" font-family="'Fira Code', monospace" font-size="9.5">DENSITY: Hard Ceiling &lt; 4Kb</text>
-                  <rect x="0" y="70" width="130" height="18" rx="3" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="0.8"/>
-                  <text x="8" y="82" fill="#fef08a" font-family="'Fira Code', monospace" font-size="8.5">RELAXATION LEAKAGE</text>
-                </g>
-              </g>
-
-              <!-- 連接 2 ➔ 3 -->
-              <g transform="translate(618, 125)">
-                <line x1="0" y1="0" x2="20" y2="0" stroke="#10b981" stroke-width="2" stroke-dasharray="3,2"/>
-                <polygon points="20,-4 26,0 20,4" fill="#10b981"/>
-              </g>
-
-              <!-- ================= GEN 3: ANTIFUSE OTP ================= -->
-              <g class="fuse-node" transform="translate(645, 15)">
-                <rect width="300" height="235" rx="8" fill="url(#fuseGenBg)" stroke="#10b981" stroke-width="1.8"/>
-                <rect x="1" y="1" width="298" height="26" rx="7" fill="rgba(16, 185, 129, 0.2)"/>
-                <text x="12" y="18" fill="#10b981" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">GEN 03 · ANTIFUSE OTP (NANOFILAMENT)</text>
-                <rect x="245" y="6" width="48" height="14" rx="2" fill="#042f2e" stroke="#10b981" stroke-width="0.8"/>
-                <text x="249" y="16" fill="#a7f3d0" font-family="monospace" font-size="8">STANDARD</text>
-
-                <g transform="translate(20, 38)">
-                  <rect width="260" height="85" rx="4" fill="#03141f" stroke="#10b981" stroke-width="1"/>
-                  <rect x="30" y="15" width="200" height="18" rx="2" fill="#0f766e" stroke="#14b8a6"/>
-                  <text x="85" y="27" fill="#ccfbf1" font-family="monospace" font-size="8.5">POLY GATE / METAL</text>
-                  <rect x="30" y="35" width="200" height="8" fill="#1e293b"/>
-                  <path d="M125 33 L135 45" stroke="#fbbf24" stroke-width="3.5" filter="url(#fuseNeon)"/>
-                  <text x="145" y="42" fill="#fbbf24" font-family="'Fira Code', monospace" font-size="8">R &lt; 100 &Omega;</text>
-                  <rect x="30" y="45" width="200" height="25" rx="2" fill="#042f2e"/>
-                  <text x="80" y="62" fill="#5eead4" font-family="monospace" font-size="8.5">SILICON SUBSTRATE (N+)</text>
-                </g>
-
-                <g transform="translate(18, 138)">
-                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">MECHANISM: Gate Oxide Rupture</text>
-                  <text x="0" y="30" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">AREA: 1/5 of eFuse (Ultra-Dense)</text>
-                  <text x="0" y="46" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">STABILITY: Zero Thermal Grow-back</text>
-                  <text x="0" y="62" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5">REPAIR: Native JEDEC PPR (hPPR)</text>
-                  <rect x="0" y="70" width="160" height="18" rx="3" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="0.8"/>
-                  <text x="8" y="82" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8.5">15-YR DATA RETENTION @ 175°C</text>
-                </g>
-              </g>
-            </svg>
-          </div>
-
-          <!-- 流程圖底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
-          <div class="flowchart-legend-grid">
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-cyan"></span>
-                <span data-lang="zh">第一代：Laser Fuse (雷射熔斷)</span>
-                <span data-lang="en">Gen 1: Laser Fuse (Ablation)</span>
-              </h5>
-              <p>
-                <span data-lang="zh">需要大於 10µm 焊盤開窗供雷射切割，封裝後無法修復，28nm 以下先進製程已全面淘汰。</span>
-                <span data-lang="en">Mandated &gt;10µm open pads; zero post-package repair; obsolete beyond 28nm nodes.</span>
-              </p>
-            </div>
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-amber"></span>
-                <span data-lang="zh">第二代：eFuse (電致遷移)</span>
-                <span data-lang="en">Gen 2: eFuse (Electromigration)</span>
-              </h5>
-              <p>
-                <span data-lang="zh">大電流強行燒斷金屬導線，需巨大驅動電晶體，高溫下存在金屬回跳漏電風險，容量難逾 4Kb。</span>
-                <span data-lang="en">High-current blows metal; demands huge FETs with thermal regrowth risks and &lt;4Kb ceiling.</span>
-              </p>
-            </div>
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-green"></span>
-                <span data-lang="zh">第三代：AntiFuse OTP (奈米細絲)</span>
-                <span data-lang="en">Gen 3: AntiFuse OTP (TDDB)</span>
-              </h5>
-              <p>
-                <span data-lang="zh">閘極氧化層穿隧形成奈米導電細絲，面積僅 1/5，容量達 128Kb+，原生支援 JEDEC PPR 現場修復。</span>
-                <span data-lang="en">Thin oxide TDDB forms &lt;100Ω filament, 1/5 area, 128Kb+ density, JEDEC PPR native.</span>
-              </p>
-            </div>
-          </div>
+  <div class="deck-pipeline-rail">
+    <!-- GEN 01: LASER FUSE -->
+    <div class="deck-step-card border-purple">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">GEN 01</span>
+        <span class="deck-step-status">OBSOLETE</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">雷射開窗物理熔斷 (Laser Fuse)</span>
+        <span data-lang="en">Laser Ablation Fuse</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10px; color: #ef4444; text-align: center;">
+          <span>OPEN CAVITY BLAST</span><br>
+          <span style="color: #64748b; font-size: 8px;">DEBRIS &amp; MOISTURE RISK</span>
         </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val" style="color: #ef4444;">10 µm² Area</span>
+        <span class="deck-metric-lbl">UNREPAIRABLE POST-PACKAGING</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">缺陷致命點：</span><span data-lang="en">Flaw:</span></strong> <span data-lang="zh">表面開窗造成濕氣腐蝕與金屬飛濺</span><span data-lang="en">Moisture ingress &amp; debris collateral</span></li>
+        <li><strong><span data-lang="zh">封裝限制：</span><span data-lang="en">Limit:</span></strong> <span data-lang="zh">晶片封裝後無法再次雷射燒錄</span><span data-lang="en">Cannot burn post-packaging</span></li>
+      </ul>
+    </div>
+
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">GEN 2 EVOL</span>
+    </div>
+
+    <!-- GEN 02: EFUSE -->
+    <div class="deck-step-card border-amber">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">GEN 02</span>
+        <span class="deck-step-status">LEGACY RISKY</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">電致遷移電熔絲 (Poly eFuse)</span>
+        <span data-lang="en">Electromigration eFuse</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10px; color: #fbbf24; text-align: center;">
+          <span>I &gt; 10mA VOID</span><br>
+          <span style="color: #f87171; font-size: 8px;">THERMAL GROW-BACK RISK</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">&gt; 10mA Drive FET</span>
+        <span class="deck-metric-lbl">HIGH CURRENT DRIVER PENALTY</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">缺陷致命點：</span><span data-lang="en">Flaw:</span></strong> <span data-lang="zh">高溫回跳 (Grow-back) 導致位元漏電復原</span><span data-lang="en">Thermal grow-back causes bit flips</span></li>
+        <li><strong><span data-lang="zh">面積開銷：</span><span data-lang="en">Area:</span></strong> <span data-lang="zh">驅動管面積龐大，容量難超 4Kb</span><span data-lang="en">Large drive FET caps size &lt;4Kb</span></li>
+      </ul>
+    </div>
+
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">GEN 3 NANO</span>
+    </div>
+
+    <!-- GEN 03: ANTIFUSE -->
+    <div class="deck-step-card border-green">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">GEN 03</span>
+        <span class="deck-step-status">FOUNDRY STANDARD</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">反熔絲矽化物細絲 (AntiFuse OTP)</span>
+        <span data-lang="en">AntiFuse Nanofilament</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10px; color: #10b981; text-align: center;">
+          <span>R_FIL &lt; 100 Ω</span><br>
+          <span style="color: #6ee7b7; font-size: 8px;">PERMANENT SILICIDE PLUG</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">0.5 µm² Footprint</span>
+        <span class="deck-metric-lbl">100% IMMUTABLE HARD LOCK</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">極致優勢：</span><span data-lang="en">Advantage:</span></strong> <span data-lang="zh">純邏輯超薄氧化層穿隧，零回跳</span><span data-lang="en">Thin oxide tunneling, zero grow-back</span></li>
+        <li><strong><span data-lang="zh">晶圓認證：</span><span data-lang="en">Foundry Qual:</span></strong> <span data-lang="zh">15 年 @ 175°C 車規最高等級認證</span><span data-lang="en">15-yr @ 175°C Grade 0 automotive</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
       </div>
     </section>
 
@@ -1545,171 +1351,116 @@
         </div>
 
         <!-- HV DDIC Optical Calibration Signal Chain Pipeline -->
-        <div class="semiconductor-flowchart-card" style="margin: 18px 0 22px;">
-          <div class="flowchart-header">
-            <div class="flowchart-title-tag">
-              <span>●</span>
-              <span data-lang="zh">高壓光電訊號鏈 · 3 重精準校準管線</span>
-              <span data-lang="en">HV ELECTRO-OPTICAL SIGNAL CHAIN · 3-STAGE CALIBRATION</span>
-            </div>
-            <h4>
-              <span data-lang="zh">高壓顯示面板光學訊號鏈：Vcom 防閃爍 ➔ Gamma 2.2 R-DAC ➔ OLED De-Mura 補償</span>
-              <span data-lang="en">Display Optical Signal Chain: Vcom Centering ➔ Gamma 2.2 R-DAC ➔ 2D De-Mura Compensation</span>
-            </h4>
-          </div>
+        <!-- =========================================================
+     TOPIC 03.1: 高壓顯示光學訊號鏈簡報級原生 DOM 流程圖
+     ========================================================= -->
+<div class="deck-flow-container">
+  <div class="deck-flow-header">
+    <div class="deck-header-left">
+      <span class="deck-slide-badge">SLIDE FLOW 03</span>
+      <h4>
+        <span data-lang="zh">高壓顯示面板光學訊號鏈：Vcom 防閃爍 ➔ Gamma 2.2 R-DAC ➔ OLED De-Mura 補償</span>
+        <span data-lang="en">Display Optical Signal Chain: Vcom Centering ➔ Gamma 2.2 R-DAC ➔ 2D De-Mura Compensation</span>
+      </h4>
+    </div>
+    <div class="deck-header-right">
+      <span>● OPTICAL SIGNAL CHAIN</span>
+      <span>DELTA E &lt; 1.0</span>
+    </div>
+  </div>
 
-          <div class="flowchart-svg-container">
-            <svg viewBox="0 0 960 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
-              <defs>
-                <linearGradient id="optChainBg" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#021526" stop-opacity="0.95"/>
-                  <stop offset="100%" stop-color="#05283f" stop-opacity="0.95"/>
-                </linearGradient>
-                <filter id="optGlow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3" result="blur"/>
-                  <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
-
-              <!-- ================= 階段 1: VCOM 防閃爍 ================= -->
-              <g class="chain-node" transform="translate(15, 15)">
-                <rect width="280" height="225" rx="8" fill="url(#optChainBg)" stroke="#00f0ff" stroke-width="1.3"/>
-                <rect x="1" y="1" width="278" height="26" rx="7" fill="rgba(0, 240, 255, 0.15)"/>
-                <text x="12" y="18" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">01 · VCOM CENTERING (ANTI-FLICKER)</text>
-                <circle cx="260" cy="14" r="4" fill="#00f0ff" filter="url(#optGlow)"/>
-
-                <g transform="translate(20, 38)">
-                  <rect width="240" height="75" rx="4" fill="#010c16" stroke="#1e3a5f"/>
-                  <line x1="10" y1="37" x2="230" y2="37" stroke="#334155" stroke-dasharray="2,2"/>
-                  <text x="15" y="22" fill="#38bdf8" font-family="monospace" font-size="8">+FRAME</text>
-                  <text x="15" y="58" fill="#38bdf8" font-family="monospace" font-size="8">-FRAME</text>
-                  <path d="M70 37 V15 H120 V60 H170 V37 H220" stroke="#00f0ff" stroke-width="2" fill="none" filter="url(#optGlow)"/>
-                  <text x="125" y="70" fill="#a5f3fc" font-family="'Fira Code', monospace" font-size="8">5mV STEP BALANCE</text>
-                </g>
-
-                <g transform="translate(18, 128)">
-                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STORAGE: 7-bit to 10-bit OTP</text>
-                  <text x="0" y="30" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">PRECISION: 5mV Micro-Stepping</text>
-                  <text x="0" y="46" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5">DEFENSE: Zero DC Bias Polarization</text>
-                  <text x="0" y="62" fill="#64748b" font-family="'Fira Code', monospace" font-size="9.5">TARGET: 0 Hz Image Sticking</text>
-                  <rect x="0" y="70" width="130" height="18" rx="3" fill="rgba(0, 240, 255, 0.15)" stroke="#00f0ff" stroke-width="0.8"/>
-                  <text x="8" y="82" fill="#67e8f9" font-family="'Fira Code', monospace" font-size="8.5">ZERO FLICKER LOCK</text>
-                </g>
-              </g>
-
-              <!-- 連接 1 ➔ 2 -->
-              <g transform="translate(305, 120)">
-                <line x1="0" y1="0" x2="25" y2="0" stroke="#00f0ff" stroke-width="2" stroke-dasharray="3,2"/>
-                <polygon points="25,-4 31,0 25,4" fill="#00f0ff"/>
-                <text x="-4" y="-8" fill="#00f0ff" font-family="monospace" font-size="8">VCOM OK</text>
-              </g>
-
-              <!-- ================= 階段 2: GAMMA 2.2 R-DAC ================= -->
-              <g class="chain-node" transform="translate(340, 15)">
-                <rect width="280" height="225" rx="8" fill="url(#optChainBg)" stroke="#38bdf8" stroke-width="1.3"/>
-                <rect x="1" y="1" width="278" height="26" rx="7" fill="rgba(56, 189, 248, 0.15)"/>
-                <text x="12" y="18" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">02 · GAMMA 2.2 R-DAC TUNING</text>
-                <circle cx="260" cy="14" r="4" fill="#38bdf8" filter="url(#optGlow)"/>
-
-                <g transform="translate(20, 38)">
-                  <rect width="240" height="75" rx="4" fill="#010c16" stroke="#1e3a5f"/>
-                  <path d="M30 65 Q110 65 210 15" stroke="#38bdf8" stroke-width="2.5" fill="none" filter="url(#optGlow)"/>
-                  <path d="M30 65 Q80 40 210 15" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="2,2" fill="none"/>
-                  <text x="35" y="25" fill="#f87171" font-family="monospace" font-size="7.5">RAW NON-LINEAR</text>
-                  <text x="120" y="68" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="8.5">GAMMA = 2.20 &plusmn;0.05</text>
-                </g>
-
-                <g transform="translate(18, 128)">
-                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STORAGE: 64 to 256 Taps OTP</text>
-                  <text x="0" y="30" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">DAC RESOLUTION: 10-Bit (1024-Step)</text>
-                  <text x="0" y="46" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5">COLOR ACCURACY: Delta E &lt; 1.5</text>
-                  <text x="0" y="62" fill="#64748b" font-family="'Fira Code', monospace" font-size="9.5">CHANNELS: RGB Independent Trims</text>
-                  <rect x="0" y="70" width="130" height="18" rx="3" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="0.8"/>
-                  <text x="8" y="82" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="8.5">1024-STEP R-DAC TRIM</text>
-                </g>
-              </g>
-
-              <!-- 連接 2 ➔ 3 -->
-              <g transform="translate(630, 120)">
-                <line x1="0" y1="0" x2="25" y2="0" stroke="#10b981" stroke-width="2" stroke-dasharray="3,2"/>
-                <polygon points="25,-4 31,0 25,4" fill="#10b981"/>
-                <text x="-8" y="-8" fill="#10b981" font-family="monospace" font-size="8">GAMMA OK</text>
-              </g>
-
-              <!-- ================= 階段 3: OLED DE-MURA 補償 ================= -->
-              <g class="chain-node" transform="translate(665, 15)">
-                <rect width="280" height="225" rx="8" fill="url(#optChainBg)" stroke="#10b981" stroke-width="1.5"/>
-                <rect x="1" y="1" width="278" height="26" rx="7" fill="rgba(16, 185, 129, 0.2)"/>
-                <text x="12" y="18" fill="#10b981" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">03 · OLED 2D DE-MURA LUT</text>
-                <circle cx="260" cy="14" r="4" fill="#10b981" filter="url(#optGlow)"/>
-
-                <g transform="translate(20, 38)">
-                  <rect width="240" height="75" rx="4" fill="#010c16" stroke="#1e3a5f"/>
-                  <g transform="translate(20, 15)">
-                    <rect width="80" height="45" rx="2" fill="#042f2e" stroke="#ef4444" stroke-width="1"/>
-                    <circle cx="40" cy="22" r="10" fill="#ef4444" opacity="0.4"/>
-                    <text x="12" y="55" fill="#fca5a5" font-family="monospace" font-size="7">RAW MURA (74%)</text>
-                  </g>
-                  <text x="110" y="42" fill="#10b981" font-family="monospace" font-size="14">&rarr;</text>
-                  <g transform="translate(135, 15)">
-                    <rect width="80" height="45" rx="2" fill="#042f2e" stroke="#10b981" stroke-width="1.2"/>
-                    <rect x="2" y="2" width="76" height="41" fill="#065f46" opacity="0.7"/>
-                    <text x="8" y="55" fill="#6ee7b7" font-family="monospace" font-size="7">FLAT LUT (&gt;98%)</text>
-                  </g>
-                </g>
-
-                <g transform="translate(18, 128)">
-                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STORAGE: 32Kb to 128Kb MTP</text>
-                  <text x="0" y="30" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">UNIFORMITY: 74% ➔ &gt;98.5%</text>
-                  <text x="0" y="46" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5">COMPENSATION: Pixel-by-Pixel Gain</text>
-                  <text x="0" y="62" fill="#64748b" font-family="'Fira Code', monospace" font-size="9.5">SCANNER: Factory Optical Camera</text>
-                  <rect x="0" y="70" width="130" height="18" rx="3" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="0.8"/>
-                  <text x="8" y="82" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8.5">UNIFORM LUMINANCE OK</text>
-                </g>
-              </g>
-            </svg>
-          </div>
-
-          <!-- 流程圖底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
-          <div class="flowchart-legend-grid">
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-cyan"></span>
-                <span data-lang="zh">Vcom 電壓平衡 (防閃爍)</span>
-                <span data-lang="en">Vcom Anti-Flicker Tuning</span>
-              </h5>
-              <p>
-                <span data-lang="zh">5mV 步階微調對稱鎖定共模電壓，根除面板直流殘影與 60Hz 閃爍。</span>
-                <span data-lang="en">5mV step precision locks common voltage symmetry, eliminating flicker and image sticking.</span>
-              </p>
-            </div>
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-cyan"></span>
-                <span data-lang="zh">Gamma 2.2 多階 R-DAC</span>
-                <span data-lang="en">Gamma 2.2 R-DAC Matrix</span>
-              </h5>
-              <p>
-                <span data-lang="zh">10-bit / 1024 階高壓電阻分壓梯，RGB 獨立補償非線性光學 Delta E &lt; 1.5。</span>
-                <span data-lang="en">1024-step HV resistor ladder DAC with RGB independent tuning enforcing Delta E &lt; 1.5.</span>
-              </p>
-            </div>
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-green"></span>
-                <span data-lang="zh">OLED 逐點 De-Mura 補償</span>
-                <span data-lang="en">OLED Point-by-Point De-Mura</span>
-              </h5>
-              <p>
-                <span data-lang="zh">32Kb~128Kb 高密度 MTP 儲存二維像素增益表，徹底消弭有機發光層斑塊。</span>
-                <span data-lang="en">32Kb-128Kb dense MTP stores 2D pixel gain map, erasing organic luminance Mura.</span>
-              </p>
-            </div>
-          </div>
+  <div class="deck-pipeline-rail">
+    <!-- STAGE 01: VCOM -->
+    <div class="deck-step-card border-cyan">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">STAGE 01</span>
+        <span class="deck-step-status">ANTI-FLICKER</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">Vcom 共同電極中心微調</span>
+        <span data-lang="en">Vcom Center Calibration</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10.5px; color: #38bdf8; display: flex; align-items: center; gap: 4px;">
+          <span>±5mV STEP</span>
+          <span style="padding: 1px 4px; background: #0c4a6e; border-radius: 2px;">0Hz STICKING</span>
         </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">5mV Fine Step</span>
+        <span class="deck-metric-lbl">ZERO DC POLARIZATION BIAS</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">校準目的：</span><span data-lang="en">Goal:</span></strong> <span data-lang="zh">消除液晶正負極性殘留直流偏壓</span><span data-lang="en">Cancels DC bias across LC layers</span></li>
+        <li><strong><span data-lang="zh">存儲規格：</span><span data-lang="en">Storage:</span></strong> <span data-lang="zh">7-bit 至 10-bit AntiFuse OTP 鎖定</span><span data-lang="en">7-bit to 10-bit OTP locked</span></li>
+      </ul>
+    </div>
+
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">VCOM OK</span>
+    </div>
+
+    <!-- STAGE 02: GAMMA DAC -->
+    <div class="deck-step-card border-amber">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">STAGE 02</span>
+        <span class="deck-step-status">10-BIT PRECISION</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">Gamma 2.2 階梯 R-DAC 映射</span>
+        <span data-lang="en">Gamma 2.2 R-DAC Curve</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10px; color: #fbbf24; display: flex; align-items: center; gap: 4px;">
+          <span>1024-STEP DAC</span>
+          <span style="padding: 1px 4px; background: #78350f; border-radius: 2px;">ΔE &lt; 0.8</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">1024 Levels</span>
+        <span class="deck-metric-lbl">NON-LINEAR OPTICAL MATCH</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">高壓架構：</span><span data-lang="en">HV Architecture:</span></strong> <span data-lang="zh">高壓階梯分壓，擬合人眼視覺響應</span><span data-lang="en">HV R-ladder matches human eye</span></li>
+        <li><strong><span data-lang="zh">色偏控制：</span><span data-lang="en">Color Delta:</span></strong> <span data-lang="zh">色階均勻平滑，無斷階失真</span><span data-lang="en">Smooth grayscale without banding</span></li>
+      </ul>
+    </div>
+
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">GAMMA OK</span>
+    </div>
+
+    <!-- STAGE 03: DE-MURA -->
+    <div class="deck-step-card border-green">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">STAGE 03</span>
+        <span class="deck-step-status">OLED 2D MURA</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">OLED 2D De-Mura 空間補償</span>
+        <span data-lang="en">2D OLED De-Mura Compensation</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10px; color: #10b981; display: flex; align-items: center; gap: 4px;">
+          <span>UNIFORMITY: 98.6%</span>
+          <span style="padding: 1px 4px; background: #064e3b; border-radius: 2px;">MTP LUT</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">74% ➔ 98.6%</span>
+        <span class="deck-metric-lbl">FULL SCREEN UNIFORMITY GAIN</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">補償機制：</span><span data-lang="en">Mechanism:</span></strong> <span data-lang="zh">像素級增益查找表消除亮度暗斑</span><span data-lang="en">Pixel gain LUT clears mura spots</span></li>
+        <li><strong><span data-lang="zh">無外掛 Flash：</span><span data-lang="en">Flashless:</span></strong> <span data-lang="zh">內嵌 MTP 節省外部 SPI Flash 與 EMI</span><span data-lang="en">Embedded MTP eliminates external BOM</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
         <!-- =========================================================
              FLAGSHIP LAB 03: DISPLAY OPTICAL TUNER
@@ -2039,159 +1790,126 @@
         <!-- =========================================================
              TOPIC 04: E-INK 40V-50V 雙極性高壓時序波形與 MTP➔OTP 演進狀態機
              ========================================================= -->
-        <div class="semiconductor-flowchart-card" style="margin: 20px 0 24px;">
-          <div class="flowchart-header">
-            <div class="flowchart-title-tag">
-              <span>●</span>
-              <span data-lang="zh">電泳雙極性時序 · NVM 架構遷移狀態機</span>
-              <span data-lang="en">ELECTROPHORETIC BIPOLAR TIMING &amp; NVM MIGRATION</span>
-            </div>
-            <h4>
-              <span data-lang="zh">40V-50V 雙極性電泳驅動波形時序與 MTP ➔ OTP 產品生命週期狀態機</span>
-              <span data-lang="en">40V-50V Bipolar Electrophoretic Waveform Timing &amp; MTP-to-OTP State Machine</span>
-            </h4>
-          </div>
+        <!-- =========================================================
+     TOPIC 04.1: 電子紙 40V-50V 雙極性波形與狀態機簡報級原生 DOM 流程圖
+     ========================================================= -->
+<div class="deck-flow-container">
+  <div class="deck-flow-header">
+    <div class="deck-header-left">
+      <span class="deck-slide-badge">SLIDE FLOW 04</span>
+      <h4>
+        <span data-lang="zh">40V-50V 雙極性電泳驅動波形時序與 MTP ➔ OTP 產品生命週期狀態機</span>
+        <span data-lang="en">40V-50V Bipolar Electrophoretic Waveform Timing &amp; MTP-to-OTP State Machine</span>
+      </h4>
+    </div>
+    <div class="deck-header-right">
+      <span>● 40V-50V BIPOLAR</span>
+      <span>0W BISTABLE REST</span>
+    </div>
+  </div>
 
-          <div class="flowchart-svg-container">
-            <svg viewBox="0 0 960 310" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
-              <defs>
-                <linearGradient id="einkWaveGrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#00f0ff"/>
-                  <stop offset="100%" stop-color="#3b82f6"/>
-                </linearGradient>
-                <filter id="einkGlow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="3" result="blur"/>
-                  <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
-                  </feMerge>
-                </filter>
-              </defs>
+  <div class="deck-timing-rail">
+    <span class="deck-bus-label">WAVEFORM PHASES</span>
+    <div class="deck-signals">
+      <span class="signal-chip cyan">PHASE A: SHAKE (±15V)</span>
+      <span class="signal-chip amber">PHASE B: RESET (-40V)</span>
+      <span class="signal-chip green">PHASE C: DRIVE (+40V~+50V)</span>
+      <span class="signal-chip purple">PHASE D: BISTABLE REST (0V / 0W)</span>
+    </div>
+  </div>
 
-              <!-- ================= 上半部：40V-50V 雙極性高壓驅動波形時序 ================= -->
-              <g class="waveform-timing-canvas" transform="translate(15, 10)">
-                <rect width="930" height="130" rx="6" fill="#020b14" stroke="#1e3a5f" stroke-width="1"/>
-                <text x="15" y="18" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="9" font-weight="700">40V-50V BIPOLAR ELECTROPHORETIC DRIVING WAVEFORM (DYNAMIC LUT CONTROL)</text>
-                
-                <!-- 電壓座標軸刻度 (+50V, 0V, -50V) -->
-                <line x1="55" y1="28" x2="55" y2="115" stroke="#334155" stroke-width="1"/>
-                <text x="18" y="40" fill="#ef4444" font-family="'Fira Code', monospace" font-size="8.5">+50V</text>
-                <line x1="50" y1="36" x2="915" y2="36" stroke="#1e293b" stroke-dasharray="2,2" stroke-width="0.8"/>
-                
-                <text x="24" y="76" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="8.5">0V</text>
-                <line x1="50" y1="72" x2="915" y2="72" stroke="#334155" stroke-width="1"/>
-
-                <text x="18" y="112" fill="#3b82f6" font-family="'Fira Code', monospace" font-size="8.5">-50V</text>
-                <line x1="50" y1="108" x2="915" y2="108" stroke="#1e293b" stroke-dasharray="2,2" stroke-width="0.8"/>
-
-                <!-- 1. Shake: 高頻反轉震盪 -->
-                <path d="M60 72 L80 36 L100 108 L120 36 L140 108 L160 36 L180 108 L200 72" stroke="#f59e0b" stroke-width="2" fill="none" filter="url(#einkGlow)"/>
-                <rect x="75" y="22" width="110" height="12" rx="2" fill="rgba(245, 158, 11, 0.2)"/>
-                <text x="80" y="31" fill="#fbbf24" font-family="'Fira Code', monospace" font-size="8">PHASE A: SHAKE (&plusmn;50V)</text>
-
-                <!-- 2. Reset: 持續正壓單向清除 -->
-                <path d="M200 72 L210 36 H390 L400 72" stroke="#ef4444" stroke-width="2" fill="none" filter="url(#einkGlow)"/>
-                <rect x="235" y="22" width="130" height="12" rx="2" fill="rgba(239, 68, 68, 0.2)"/>
-                <text x="240" y="31" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="8">PHASE B: RESET (+50V 100ms)</text>
-
-                <!-- 3. Drive: 多階 PWM 查表定位 -->
-                <path d="M400 72 L410 108 H480 L490 36 H560 L570 72 H610 L620 108 H670 L680 72" stroke="#00f0ff" stroke-width="2" fill="none" filter="url(#einkGlow)"/>
-                <rect x="470" y="22" width="150" height="12" rx="2" fill="rgba(0, 240, 255, 0.2)"/>
-                <text x="475" y="31" fill="#67e8f9" font-family="'Fira Code', monospace" font-size="8">PHASE C: MULTI-PIGMENT DRIVE</text>
-
-                <!-- 4. Rest: 雙穩態 0V 靜態零耗電 -->
-                <path d="M680 72 H910" stroke="#10b981" stroke-width="2.5" fill="none" filter="url(#einkGlow)"/>
-                <rect x="735" y="22" width="145" height="12" rx="2" fill="rgba(16, 185, 129, 0.2)"/>
-                <text x="740" y="31" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="8">PHASE D: BISTABLE REST (0V / 0W)</text>
-              </g>
-
-              <!-- ================= 下半部：MTP ➔ OTP 產品架構演進狀態機 ================= -->
-              <g class="migration-state-machine" transform="translate(15, 155)">
-                <!-- 狀態 1: 演進初期 MTP -->
-                <g class="state-block" transform="translate(0, 0)">
-                  <rect width="280" height="140" rx="8" fill="#021424" stroke="#00f0ff" stroke-width="1.2"/>
-                  <rect x="1" y="1" width="278" height="22" rx="7" fill="rgba(0, 240, 255, 0.15)"/>
-                  <text x="12" y="16" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="10" font-weight="700">ERA 01 · 32Kb~64Kb MTP</text>
-                  
-                  <g transform="translate(14, 34)">
-                    <text x="0" y="12" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">CHEMISTRY: Rapid Iteration</text>
-                    <text x="0" y="28" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">FIRMWARE: ISP Online Patch</text>
-                    <text x="0" y="44" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">ENDURANCE: 1K - 10K Cycles</text>
-                    <rect x="0" y="58" width="145" height="18" rx="3" fill="rgba(0, 240, 255, 0.1)" stroke="#00f0ff" stroke-width="0.8"/>
-                    <text x="8" y="70" fill="#67e8f9" font-family="'Fira Code', monospace" font-size="8.5">ACTIVE R&amp;D FLEXIBILITY</text>
-                  </g>
-                </g>
-
-                <!-- 決策門禁: 演進收斂簽核 -->
-                <g class="decision-gate" transform="translate(300, 28)">
-                  <polygon points="50,0 100,40 50,80 0,40" fill="#031d2e" stroke="#f59e0b" stroke-width="1.5" filter="url(#einkGlow)"/>
-                  <text x="18" y="36" fill="#fbbf24" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700">GOLDEN LUT</text>
-                  <text x="24" y="48" fill="#fef08a" font-family="'Fira Code', monospace" font-size="8">SIGN-OFF</text>
-                  
-                  <line x1="-20" y1="40" x2="0" y2="40" stroke="#00f0ff" stroke-width="1.5"/>
-                  <line x1="100" y1="40" x2="120" y2="40" stroke="#10b981" stroke-width="1.5"/>
-                  <polygon points="120,37 126,40 120,43" fill="#10b981"/>
-                </g>
-
-                <!-- 狀態 2: 成熟量產期 純邏輯 OTP -->
-                <g class="state-block" transform="translate(440, 0)">
-                  <rect width="490" height="140" rx="8" fill="#021720" stroke="#10b981" stroke-width="1.5"/>
-                  <rect x="1" y="1" width="488" height="22" rx="7" fill="rgba(16, 185, 129, 0.15)"/>
-                  <text x="14" y="16" fill="#10b981" font-family="'Fira Code', monospace" font-size="10" font-weight="700">ERA 02 · &lt;250&mu;m PURE-LOGIC ANTIFUSE OTP (MATURE COST LEADER)</text>
-
-                  <g transform="translate(16, 34)">
-                    <text x="0" y="12" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">WAFER COST: -35% (0 Mask Adder vs eFlash)</text>
-                    <text x="0" y="28" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STANDBY DRAIN: 0 pA (Guarantees 10Y Battery)</text>
-                    <text x="0" y="44" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">FORM FACTOR: &lt;250&mu;m Slim Height along Scribeline</text>
-                    <div style="display: flex; gap: 8px; margin-top: 6px;">
-                      <rect x="0" y="58" width="135" height="18" rx="3" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="0.8"/>
-                      <text x="8" y="70" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8.5">ZERO-MASK COST -35%</text>
-                      <rect x="145" y="58" width="145" height="18" rx="3" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="0.8"/>
-                      <text x="153" y="70" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8.5">&lt;250&mu;m COG/COF BUMP</text>
-                    </div>
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </div>
-
-          <!-- 流程圖底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
-          <div class="flowchart-legend-grid">
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-cyan"></span>
-                <span data-lang="zh">雙極性高壓脈衝 (40V-50V)</span>
-                <span data-lang="en">Bipolar High-Voltage Pulses (40V-50V)</span>
-              </h5>
-              <p>
-                <span data-lang="zh">四相時序：抖動破黏滯 ➔ 反向消殘影 ➔ 多階色彩推進 ➔ 0V 雙穩態靜止。</span>
-                <span data-lang="en">4-phase sequence: Shake drag cancel ➔ Reset ghosting ➔ Drive multi-color ➔ 0V rest.</span>
-              </p>
-            </div>
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-amber"></span>
-                <span data-lang="zh">演進期：MTP 算法彈性</span>
-                <span data-lang="en">Evolution Era: MTP In-Field Reflash</span>
-              </h5>
-              <p>
-                <span data-lang="zh">四色/全彩微粒子化學疊代期，配置 32Kb~64Kb MTP 支援在線修正波形查表。</span>
-                <span data-lang="en">Active chemistry iteration deploys 32Kb-64Kb MTP for in-system waveform tuning.</span>
-              </p>
-            </div>
-            <div class="flow-legend-col">
-              <h5>
-                <span class="flow-dot-green"></span>
-                <span data-lang="zh">成熟期：OTP 極致成本</span>
-                <span data-lang="en">Mature Era: Pure Logic OTP Cost Leader</span>
-              </h5>
-              <p>
-                <span data-lang="zh">波形收斂後轉入純邏輯 AntiFuse OTP，免除額外光罩，Die 高度小於 250µm。</span>
-                <span data-lang="en">Golden waveform freezes into AntiFuse OTP, cutting 35% wafer cost with &lt;250µm profile.</span>
-              </p>
-            </div>
-          </div>
+  <div class="deck-pipeline-rail">
+    <!-- PHASE A & B -->
+    <div class="deck-step-card border-cyan">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">PHASE A / B</span>
+        <span class="deck-step-status">PARTICLE FLUIDICS</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">微粒活化與殘影擦除 (Shake &amp; Reset)</span>
+        <span data-lang="en">Agitation &amp; Erase Pulse</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10px; color: #38bdf8; text-align: center;">
+          <span>±15V SHAKE ➔ -40V RESET</span><br>
+          <span style="color: #64748b; font-size: 8px;">OVERCOMES VISCOUS DRAG</span>
         </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">-40V Erase Rail</span>
+        <span class="deck-metric-lbl">GHOSTING CANCELLATION</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">微觀物理：</span><span data-lang="en">Physics:</span></strong> <span data-lang="zh">克服高黏度微膠囊流體之粒子靜摩擦力</span><span data-lang="en">Overcomes particle static friction</span></li>
+        <li><strong><span data-lang="zh">基線回位：</span><span data-lang="en">Baseline:</span></strong> <span data-lang="zh">將帶電色素微粒拉回初始底層極板</span><span data-lang="en">Resets pigment to common bottom</span></li>
+      </ul>
+    </div>
+
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">ERASED</span>
+    </div>
+
+    <!-- PHASE C & D -->
+    <div class="deck-step-card border-amber">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">PHASE C / D</span>
+        <span class="deck-step-status">TARGET &amp; REST</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">目標推升與雙穩態休眠 (Drive &amp; Rest)</span>
+        <span data-lang="en">Target Drive &amp; Bistable Rest</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10px; color: #fbbf24; text-align: center;">
+          <span>+40V~+50V DRIVE ➔ 0V REST</span><br>
+          <span style="color: #34d399; font-size: 8px;">ZERO STATIC POWER DRAIN</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">0W Standby Power</span>
+        <span class="deck-metric-lbl">10-YEAR BATTERY LIFETIME</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">超高壓脈衝：</span><span data-lang="en">HV Pulse:</span></strong> <span data-lang="zh">40V-50V 在 200ms 內完成微粒電泳遷移</span><span data-lang="en">40V-50V finishes migration in 200ms</span></li>
+        <li><strong><span data-lang="zh">雙穩態：</span><span data-lang="en">Bistability:</span></strong> <span data-lang="zh">刷新結束後完全斷電，畫面永久保持</span><span data-lang="en">Zero power hold after content refresh</span></li>
+      </ul>
+    </div>
+
+    <div class="deck-rail-connector">
+      <div class="deck-connector-line"></div>
+      <div class="deck-connector-arrow">▶</div>
+      <span class="deck-connector-tag">LIFECYCLE</span>
+    </div>
+
+    <!-- LIFECYCLE: MTP -> OTP -->
+    <div class="deck-step-card border-green">
+      <div class="deck-step-meta">
+        <span class="deck-step-num">STATE MACHINE</span>
+        <span class="deck-step-status">MTP ➔ OTP SHIFT</span>
+      </div>
+      <h5 class="deck-step-title">
+        <span data-lang="zh">eNVM 產品生命週期演進</span>
+        <span data-lang="en">MTP to OTP Migration</span>
+      </h5>
+      <div class="deck-visual-stage">
+        <div style="font-family: monospace; font-size: 10px; color: #10b981; text-align: center;">
+          <span>MTP (R&amp;D) ➔ OTP (VOLUME)</span><br>
+          <span style="color: #a7f3d0; font-size: 8px;">35% WAFER COST REDUCTION</span>
+        </div>
+      </div>
+      <div class="deck-metric-callout">
+        <span class="deck-metric-val">&lt; 250 µm Height</span>
+        <span class="deck-metric-lbl">ULTRA-SLIM DDIC FORM FACTOR</span>
+      </div>
+      <ul class="deck-bullet-list">
+        <li><strong><span data-lang="zh">演進期 MTP：</span><span data-lang="en">Era 01 MTP:</span></strong> <span data-lang="zh">32Kb~64Kb 支援多次在線波形算法微調</span><span data-lang="en">32Kb-64Kb MTP for tuning waveforms</span></li>
+        <li><strong><span data-lang="zh">成熟期 OTP：</span><span data-lang="en">Era 02 OTP:</span></strong> <span data-lang="zh">配方穩定後切入純邏輯 AntiFuse 鎖定成本</span><span data-lang="en">Zero-mask AntiFuse freezes BOM</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
         <!-- E-Ink DDIC Die Architecture Panorama: Plan B Ultra-HV DDIC + NVM -->
         <div class="specialty-hero-image-wrap" data-reticle="ULTRA-HV DDIC · &lt;250&mu;m SLIM PROFILE" style="margin: 24px auto; max-width: 780px;">
