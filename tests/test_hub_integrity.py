@@ -1,6 +1,6 @@
 """
 test_hub_integrity_v3.py — NVM Knowledge Hub V3.0 架構重構驗證
-驗證三層知識架構、Knowledge Map Grid、導覽一致性、語系完整性
+驗證三層知識架構、Knowledge Map Grid、導覽一致性、孤兒頁收編、語系完整性
 """
 import re
 from pathlib import Path
@@ -93,6 +93,25 @@ def run_tests() -> None:
     # ===== TEST 7: Spec Drawer 移除 =====
     print("\n═══ TEST 7: Spec Drawer 移除 ═══")
     test("無 specDrawer", "specDrawer" not in ic and "spec-drawer" not in ic)
+
+    # ===== TEST 8: 孤兒頁收編與 Breadcrumb 驗證 =====
+    print("\n═══ TEST 8: 孤兒頁收編與 Breadcrumb 驗證 ═══")
+    ev_c = (BASE / "memory-evidence.html").read_text(encoding="utf-8")
+    test("memory-evidence 父層指向 memory-physics", "memory-physics.html" in ev_c and "Evidence Ledger" in ev_c)
+
+    as_c = (BASE / "security-assurance.html").read_text(encoding="utf-8")
+    test("security-assurance 父層指向 secure-storage", "secure-storage.html" in as_c and "Security Assurance" in as_c)
+
+    oip_c = (BASE / "oip-secure-storage.html").read_text(encoding="utf-8")
+    test("oip-secure-storage 標記展會版 (Event Edition)", "Event Edition" in oip_c or "EVENT EDITION" in oip_c)
+
+    # ===== TEST 9: hub.js 模組重構驗證 =====
+    print("\n═══ TEST 9: hub.js 模組重構驗證 ═══")
+    hub_js = (BASE / "hub.js").read_text(encoding="utf-8")
+    test("hub.js 包含 SEARCH_INDEX", "SEARCH_INDEX" in hub_js)
+    test("hub.js 包含 Ctrl+K 搜尋監聽", 'key === "k"' in hub_js)
+    test("hub.js 無 TOTAL_SLIDES 舊遺留", "TOTAL_SLIDES" not in hub_js)
+    test("hub.js 無 switchSlide 舊遺留", "switchSlide" not in hub_js)
 
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
