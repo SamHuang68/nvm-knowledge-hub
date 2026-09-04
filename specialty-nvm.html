@@ -459,7 +459,7 @@
           </div>
         </div>
 
-        <!-- Sub-Topic: High Density Firmware -->
+        <!-- Sub-Topic: High Density Firmware -> Monolithic BCD Smart SoC Bus Architecture -->
         <div class="sub-topic-block">
           <div class="sub-topic-header">
             <h3>
@@ -468,63 +468,137 @@
             </h3>
             <span class="tag-accent">FIRMWARE STORAGE · MCU INTEGRATION</span>
           </div>
-          <div class="compact-proto-grid">
-            <article class="compact-proto-card">
-              <div class="compact-proto-header">
-                <span class="compact-proto-badge">USB-PD 3.1</span>
-                <span style="font-size: 10px; color: #94a3b8;">16KB - 32KB MTP</span>
-              </div>
-              <h4>
-                <span data-lang="zh">快充協議與狀態機韌體</span>
-                <span data-lang="en">Fast Charging &amp; State-Machine FW</span>
-              </h4>
-              <p>
-                <span data-lang="zh">支援 240W (48V/5A EPR) USB-PD 控制器，內嵌 MTP 儲存 PDO 參數與金鑰，支援在線 ISP 韌體更新。</span>
-                <span data-lang="en">Powers 240W (48V/5A) PD controllers, storing PDO profiles and E-Marker keys with ISP reflashability.</span>
-              </p>
-              <div class="compact-proto-footer">
-                <span><span data-lang="zh">耐受：10K 擦寫</span><span data-lang="en">ENDUR: 10K CYC</span></span>
-                <span><span data-lang="zh">封裝：CSP/QFN</span><span data-lang="en">PKG: CSP/QFN</span></span>
-              </div>
-            </article>
 
-            <article class="compact-proto-card">
-              <div class="compact-proto-header">
-                <span class="compact-proto-badge">BLDC MOTOR</span>
-                <span style="font-size: 10px; color: #94a3b8;">32KB - 64KB MTP</span>
+          <!-- 高密度 BCD 特種 SoC 單晶片整合微架構總線圖 -->
+          <div class="semiconductor-flowchart-card" style="margin: 14px 0 18px;">
+            <div class="flowchart-header">
+              <div class="flowchart-title-tag">
+                <span>●</span>
+                <span data-lang="zh">單晶片系統架構 · BCD 混合訊號總線</span>
+                <span data-lang="en">MONOLITHIC BCD SMART SOC MICRO-ARCHITECTURE</span>
               </div>
               <h4>
-                <span data-lang="zh">無刷馬達向量 FOC 控制</span>
-                <span data-lang="en">Brushless Motor Vector FOC</span>
+                <span data-lang="zh">高密度智慧協議與控制：單晶片 32-bit MCU、eNVM 韌體與驅動級整合總線</span>
+                <span data-lang="en">Smart Protocol &amp; Motor Control: 32-bit MCU, eNVM Firmware &amp; Power Stage Bus</span>
               </h4>
-              <p>
-                <span data-lang="zh">整合 32 位元 MCU 與三相閘極驅動器，儲存 FOC 空間向量調變與霍爾換相表，晶粒內零等待執行。</span>
-                <span data-lang="en">Integrates 32-bit MCU with gate drivers, storing FOC and SVPWM commutation tables with zero-wait execution.</span>
-              </p>
-              <div class="compact-proto-footer">
-                <span><span data-lang="zh">總線：零等待</span><span data-lang="en">BUS: ZERO-WAIT</span></span>
-                <span><span data-lang="zh">架構：單晶片整合</span><span data-lang="en">ARCH: MONOLITHIC</span></span>
-              </div>
-            </article>
+            </div>
 
-            <article class="compact-proto-card">
-              <div class="compact-proto-header">
-                <span class="compact-proto-badge">BMIC AFE</span>
-                <span style="font-size: 10px; color: #94a3b8;">AEC-Q100 GRADE 0</span>
+            <div class="flowchart-svg-container">
+              <svg viewBox="0 0 960 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
+                <defs>
+                  <linearGradient id="socBusGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#021526" stop-opacity="0.95"/>
+                    <stop offset="100%" stop-color="#05283f" stop-opacity="0.95"/>
+                  </linearGradient>
+                  <filter id="socNeon" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                    <feMerge>
+                      <feMergeNode in="blur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <!-- 核心中央總線：Zero-Wait AHB/APB Interconnect Matrix -->
+                <g class="soc-interconnect" transform="translate(20, 15)">
+                  <rect width="920" height="38" rx="4" fill="#010e1a" stroke="#00f0ff" stroke-width="1.2"/>
+                  <line x1="20" y1="19" x2="900" y2="19" stroke="#00f0ff" stroke-width="2" stroke-dasharray="6,3" filter="url(#socNeon)"/>
+                  <text x="25" y="15" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="9" font-weight="700">32-BIT ZERO-WAIT AHB/APB CROSSBAR BUS</text>
+                  <text x="730" y="15" fill="#67e8f9" font-family="'Fira Code', monospace" font-size="8.5">LATENCY: 0-CYCLE FETCH</text>
+                </g>
+
+                <!-- 模組 A: USB-PD 3.1 協議控制器 -->
+                <g class="soc-block" transform="translate(20, 68)">
+                  <rect width="290" height="175" rx="6" fill="url(#socBusGrad)" stroke="#38bdf8" stroke-width="1.2"/>
+                  <rect x="1" y="1" width="288" height="24" rx="5" fill="rgba(56, 189, 248, 0.15)"/>
+                  <text x="12" y="17" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">A · USB-PD 3.1 &amp; EPR CONTROLLER</text>
+                  <circle cx="270" cy="13" r="3.5" fill="#38bdf8"/>
+                  <path d="M145 0 V-15" stroke="#38bdf8" stroke-width="2"/>
+                  
+                  <g transform="translate(16, 38)">
+                    <text x="0" y="12" fill="#e2e8f0" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">240W FAST-CHARGE STATE MACHINE</text>
+                    <text x="0" y="28" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">POWER: 48V / 5A EPR Protocol</text>
+                    <text x="0" y="44" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">NVM: 16KB - 32KB MTP</text>
+                    <text x="0" y="60" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STORAGE: PDO Profiles &amp; E-Marker</text>
+                    <rect x="0" y="72" width="140" height="20" rx="3" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="0.8"/>
+                    <text x="8" y="86" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="8.5">ONLINE ISP REFLASHABLE</text>
+                  </g>
+                </g>
+
+                <!-- 模組 B: BLDC 無刷馬達 FOC 控制器 -->
+                <g class="soc-block" transform="translate(335, 68)">
+                  <rect width="290" height="175" rx="6" fill="url(#socBusGrad)" stroke="#f59e0b" stroke-width="1.2"/>
+                  <rect x="1" y="1" width="288" height="24" rx="5" fill="rgba(245, 158, 11, 0.15)"/>
+                  <text x="12" y="17" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">B · BLDC 3-PHASE MOTOR FOC</text>
+                  <circle cx="270" cy="13" r="3.5" fill="#f59e0b"/>
+                  <path d="M145 0 V-15" stroke="#f59e0b" stroke-width="2"/>
+
+                  <g transform="translate(16, 38)">
+                    <text x="0" y="12" fill="#e2e8f0" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">VECTOR COMMUTATION ENGINE</text>
+                    <text x="0" y="28" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">CORE: 32-bit MCU + 3-Phase Gate</text>
+                    <text x="0" y="44" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">NVM: 32KB - 64KB MTP</text>
+                    <text x="0" y="60" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">TABLES: SVPWM &amp; Hall Angle LUT</text>
+                    <rect x="0" y="72" width="140" height="20" rx="3" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="0.8"/>
+                    <text x="8" y="86" fill="#fef08a" font-family="'Fira Code', monospace" font-size="8.5">ZERO-WAIT EXECUTION</text>
+                  </g>
+                </g>
+
+                <!-- 模組 C: 車規 BMIC 電池監控與 AFE -->
+                <g class="soc-block" transform="translate(650, 68)">
+                  <rect width="290" height="175" rx="6" fill="url(#socBusGrad)" stroke="#10b981" stroke-width="1.4"/>
+                  <rect x="1" y="1" width="288" height="24" rx="5" fill="rgba(16, 185, 129, 0.18)"/>
+                  <text x="12" y="17" fill="#10b981" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">C · BMIC AFE &amp; ASIL-D SAFETY</text>
+                  <circle cx="270" cy="13" r="3.5" fill="#10b981"/>
+                  <path d="M145 0 V-15" stroke="#10b981" stroke-width="2"/>
+
+                  <g transform="translate(16, 38)">
+                    <text x="0" y="12" fill="#e2e8f0" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">16-24 CELL ASIL-D SAFE MONITOR</text>
+                    <text x="0" y="28" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">BATTERY: 16 - 24 Cell Monitoring</text>
+                    <text x="0" y="44" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">QUAL: AEC-Q100 Grade 0 (175°C)</text>
+                    <text x="0" y="60" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">SAFETY: ISO 26262 ASIL-D Fault Log</text>
+                    <rect x="0" y="72" width="150" height="20" rx="3" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="0.8"/>
+                    <text x="8" y="86" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8.5">IMMUTABLE BLACK-BOX LOG</text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+
+            <!-- 總線架構底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
+            <div class="flowchart-legend-grid">
+              <div class="flow-legend-col">
+                <h5>
+                  <span class="flow-dot-cyan"></span>
+                  <span data-lang="zh">領域 A · 240W 快充協議狀態機</span>
+                  <span data-lang="en">Domain A · 240W Fast Charging Engine</span>
+                </h5>
+                <p>
+                  <span data-lang="zh">支援 48V/5A EPR 協議，內嵌 16KB~32KB MTP 儲存 PDO 參數與安全憑證，支援在線 ISP 韌體更新。</span>
+                  <span data-lang="en">Powers 48V/5A EPR controllers, storing PDO profiles and E-Marker keys with ISP reflashability.</span>
+                </p>
               </div>
-              <h4>
-                <span data-lang="zh">車規電池管理與功能安全</span>
-                <span data-lang="en">Automotive Battery Management</span>
-              </h4>
-              <p>
-                <span data-lang="zh">16 至 24 串電池監控晶片，儲存阻抗化學查表、庫倫計溫漂補償與 ISO 26262 ASIL-D 安全臨界門檻。</span>
-                <span data-lang="en">16-24 cell monitors storing impedance LUTs, coulomb drift offsets, and ISO 26262 ASIL-D safety limits.</span>
-              </p>
-              <div class="compact-proto-footer">
-                <span><span data-lang="zh">結溫：175°C Tj</span><span data-lang="en">TJ: 175°C MAX</span></span>
-                <span><span data-lang="zh">安規：ASIL-D</span><span data-lang="en">SAFETY: ASIL-D</span></span>
+              <div class="flow-legend-col">
+                <h5>
+                  <span class="flow-dot-amber"></span>
+                  <span data-lang="zh">領域 B · 無刷馬達向量 FOC 控制</span>
+                  <span data-lang="en">Domain B · Brushless Motor Vector FOC</span>
+                </h5>
+                <p>
+                  <span data-lang="zh">整合 32 位元 MCU 與三相閘極驅動器，儲存空間向量與換相表，實現晶粒內零等待週期執行。</span>
+                  <span data-lang="en">Integrates 32-bit MCU with gate drivers, storing FOC commutation tables with zero-wait execution.</span>
+                </p>
               </div>
-            </article>
+              <div class="flow-legend-col">
+                <h5>
+                  <span class="flow-dot-green"></span>
+                  <span data-lang="zh">領域 C · 車規電池管理與功能安全</span>
+                  <span data-lang="en">Domain C · Automotive Battery Safety</span>
+                </h5>
+                <p>
+                  <span data-lang="zh">16~24 串電池監控，儲存阻抗化學查表、溫漂補償與 ASIL-D 安全黑盒子不可篡改日誌。</span>
+                  <span data-lang="en">16-24 cell monitors storing impedance LUTs and ISO 26262 ASIL-D immutable fault logs.</span>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1116,42 +1190,140 @@
           </div>
         </div>
 
-        <!-- 2 Applications Cards -->
-        <div class="card-grid-2" style="margin-top: 36px;">
-          <article class="tech-card">
+        <!-- 3D 堆疊 CIS 壞點修復與 JEDEC HBM3e hPPR 總線架構圖 -->
+        <div class="semiconductor-flowchart-card" style="margin: 20px 0 24px;">
+          <div class="flowchart-header">
+            <div class="flowchart-title-tag">
+              <span>●</span>
+              <span data-lang="zh">3D 堆疊晶圓與現場修復 · 實體架構</span>
+              <span data-lang="en">3D WAFER STACKING &amp; FIELD REPAIR ARCHITECTURE</span>
+            </div>
             <h4>
-              <span data-lang="zh">CMOS 影像感測器 (CIS) 壞點修復</span>
-              <span data-lang="en">CMOS Image Sensor (CIS) Pixel Repair</span>
+              <span data-lang="zh">高密集陣列應用：3D 堆疊 CIS 壞點微調與 DRAM / HBM3e JEDEC hPPR 現場救援</span>
+              <span data-lang="en">Dense Matrix Applications: 3D-Stacked CIS Pixel Repair &amp; HBM3e JEDEC hPPR</span>
             </h4>
-            <p>
-              <span data-lang="zh">在高階手機（4800 萬至 2 億畫素）及車載 ADAS 鏡頭中，暗電流漏電導致的「熱像素 (Hot Pixels)」或無反應的「死像素 (Dead Pixels)」無法容忍。在晶圓堆疊（Pixel + Logic ISP + DRAM）結構中，邏輯層 eNVM 儲存數萬筆缺陷座標與增益修正檔，於輸出前由 ISP 即時執行雙線性插值補償，確保成像無瑕疵。</span>
-              <span data-lang="en">In 48MP to 200MP mobile and automotive ADAS cameras, hot pixels and dead pixels degrade image fidelity. In 3D-stacked CIS architectures, logic-tier eNVM stores defect coordinates and gain tables, enabling the integrated ISP to perform real-time bilinear interpolation before sensor readout.</span>
-            </p>
-            <ul class="spec-chip-list">
-              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">典型容量</span><span data-lang="en">Typical Density</span></div><div class="spec-chip-v"><span data-lang="zh">16K-bit 至 128K-bit AntiFuse OTP</span><span data-lang="en">16K-bit to 128K-bit AntiFuse OTP</span></div></li>
-              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">修復型態</span><span data-lang="en">Repair Mode</span></div><div class="spec-chip-v"><span data-lang="zh">壞像素座標重映射 + 鏡頭陰影補償 + 暗電流微調</span><span data-lang="en">Dead pixel table remap + Lens shading compensation + Dark current trim</span></div></li>
-              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">堆疊架構</span><span data-lang="en">Stacking Architecture</span></div><div class="spec-chip-v"><span data-lang="zh">TSMC 3DFabric / 晶圓級銅-銅鍵合 (Cu-Cu Hybrid Bonding)</span><span data-lang="en">TSMC 3DFabric / Cu-Cu Direct Hybrid Bonding</span></div></li>
-            </ul>
-          </article>
+          </div>
 
-          <article class="tech-card">
-            <h4>
-              <span data-lang="zh">DRAM / HBM3e 封裝後現場修復 (PPR)</span>
-              <span data-lang="en">DRAM / HBM3e Post-Package Repair (PPR)</span>
-            </h4>
-            <p>
-              <span data-lang="zh">伺服器 DDR5 與 AI 高頻寬記憶體 (HBM3/HBM3e) 包含數十億個儲存位元。傳統雷射熔斷在晶片封裝後無法再修復。AntiFuse OTP 支援 JEDEC 標準硬體封裝後修復 (hPPR)，當系統在資料中心現場運作發現單元故障時，可發送 PPR 指令永久燒斷備援單元，避免整張數萬美元的 AI 加速卡報廢。</span>
-              <span data-lang="en">DDR5 and AI HBM3/HBM3e stack billions of cells. Laser fuses cannot repair faults post-packaging. AntiFuse OTP natively powers JEDEC Hard Post-Package Repair (hPPR). When field faults emerge in datacenter servers, PPR commands permanently remap rows, salvaging five-figure AI accelerator modules.</span>
-            </p>
-            <ul class="spec-chip-list">
-              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">標準規格</span><span data-lang="en">Standard</span></div><div class="spec-chip-v"><span data-lang="zh">符合 JEDEC JESD79-5 DDR5 與 JESD238 HBM3e hPPR / sPPR 規範</span><span data-lang="en">JEDEC JESD79-5 DDR5 &amp; JESD238 HBM3e hPPR / sPPR compliant</span></div></li>
-              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">現場修復能力</span><span data-lang="en">Field Repairability</span></div><div class="spec-chip-v"><span data-lang="zh">支援伺服器主板上線後在線永久修復</span><span data-lang="en">In-field permanent row replacement on server motherboard</span></div></li>
-              <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">可靠度</span><span data-lang="en">Reliability</span></div><div class="spec-chip-v"><span data-lang="zh">零回彈、零金屬飛濺、永久奈米金屬化</span><span data-lang="en">Zero grow-back, zero debris, permanent silicide filament</span></div></li>
-            </ul>
-          </article>
+          <div class="flowchart-svg-container">
+            <svg viewBox="0 0 960 250" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
+              <defs>
+                <linearGradient id="stackGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#021526" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#05283f" stop-opacity="0.95"/>
+                </linearGradient>
+                <filter id="stackNeon" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <!-- 左側模組: 3D 堆疊 CIS 感光元件晶圓級鍵合 -->
+              <g class="arch-node" transform="translate(15, 15)">
+                <rect width="455" height="220" rx="8" fill="url(#stackGrad)" stroke="#00f0ff" stroke-width="1.3"/>
+                <rect x="1" y="1" width="453" height="26" rx="7" fill="rgba(0, 240, 255, 0.15)"/>
+                <text x="12" y="18" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">01 · 3D-STACKED CIS SENSOR (CU-CU HYBRID BONDING)</text>
+                <circle cx="435" cy="14" r="3.5" fill="#00f0ff"/>
+
+                <!-- 3 層垂直晶圓堆疊幾何視覺 -->
+                <g transform="translate(20, 42)">
+                  <!-- Tier 1: Pixel Array Tier (頂部光學微透鏡與像素) -->
+                  <rect width="180" height="24" rx="2" fill="#0c4a6e" stroke="#38bdf8"/>
+                  <text x="25" y="16" fill="#e0f2fe" font-family="monospace" font-size="8.5">TIER 1: 200MP PIXELS</text>
+                  <circle cx="150" cy="12" r="3" fill="#ef4444" filter="url(#stackNeon)"/>
+
+                  <!-- Cu-Cu 鍵合微凸塊層 -->
+                  <g transform="translate(10, 25)">
+                    <line x1="0" y1="3" x2="160" y2="3" stroke="#eab308" stroke-width="2" stroke-dasharray="4,3"/>
+                    <text x="35" y="12" fill="#fde047" font-family="monospace" font-size="7">TSMC Cu-Cu HYBRID BONDING</text>
+                  </g>
+
+                  <!-- Tier 2: Logic ISP + eNVM Tier (邏輯補償與壞點座標表) -->
+                  <rect y="42" width="180" height="28" rx="2" fill="#032f2f" stroke="#10b981" stroke-width="1.2"/>
+                  <text x="15" y="56" fill="#a7f3d0" font-family="monospace" font-size="8.5">TIER 2: ISP + 128Kb OTP</text>
+                  <text x="15" y="66" fill="#6ee7b7" font-family="monospace" font-size="7.5">BILINEAR DEFECT INTERPOLATION</text>
+
+                  <!-- Tier 3: DRAM Buffer Tier -->
+                  <rect y="75" width="180" height="18" rx="2" fill="#0f172a" stroke="#64748b"/>
+                  <text x="35" y="87" fill="#94a3b8" font-family="monospace" font-size="8">TIER 3: DRAM BUFFER</text>
+                </g>
+
+                <!-- CIS 修復微標籤清單 -->
+                <g transform="translate(225, 46)">
+                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">CAPACITY: 16K-bit to 128K-bit</text>
+                  <text x="0" y="32" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">REPAIR: Hot &amp; Dead Pixel Mapping</text>
+                  <text x="0" y="50" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">METHOD: Real-Time Bilinear Gain</text>
+                  <text x="0" y="68" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5">PACKAGE: TSMC 3DFabric Stacking</text>
+                  <rect x="0" y="80" width="185" height="20" rx="3" fill="rgba(0, 240, 255, 0.15)" stroke="#00f0ff" stroke-width="0.8"/>
+                  <text x="8" y="94" fill="#67e8f9" font-family="'Fira Code', monospace" font-size="8.5">PERFECT OPTICAL SHADING</text>
+                </g>
+              </g>
+
+              <!-- 右側模組: DRAM / HBM3e JEDEC hPPR 現場修復 -->
+              <g class="arch-node" transform="translate(490, 15)">
+                <rect width="455" height="220" rx="8" fill="url(#stackGrad)" stroke="#10b981" stroke-width="1.5"/>
+                <rect x="1" y="1" width="453" height="26" rx="7" fill="rgba(16, 185, 129, 0.18)"/>
+                <text x="12" y="18" fill="#10b981" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">02 · DRAM / HBM3e JEDEC HARD POST-PACKAGE REPAIR (hPPR)</text>
+                <circle cx="435" cy="14" r="3.5" fill="#10b981"/>
+
+                <!-- 封裝後中介層與主板現場修復視覺 -->
+                <g transform="translate(20, 42)">
+                  <rect width="180" height="30" rx="3" fill="#1c1917" stroke="#eab308"/>
+                  <text x="15" y="18" fill="#fde047" font-family="monospace" font-size="8.5">AI XPU + HBM3e STACK</text>
+                  <line x1="130" y1="6" x2="130" y2="24" stroke="#ef4444" stroke-width="2" stroke-dasharray="2,2"/>
+                  <text x="140" y="18" fill="#f87171" font-family="monospace" font-size="8">FAIL</text>
+
+                  <path d="M90 32 V54" stroke="#10b981" stroke-width="2"/>
+                  <polygon points="90,56 86,50 94,50" fill="#10b981"/>
+                  
+                  <rect y="56" width="180" height="36" rx="3" fill="#042f2e" stroke="#10b981" stroke-width="1.2"/>
+                  <text x="20" y="70" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8">JEDEC JESD79-5 / 238</text>
+                  <text x="15" y="83" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="8">hPPR CMD ➔ ANTIFUSE BURN</text>
+                </g>
+
+                <!-- HBM 修復微標籤清單 -->
+                <g transform="translate(225, 46)">
+                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STANDARD: JEDEC JESD79-5 / JESD238</text>
+                  <text x="0" y="32" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">REPAIR MODE: In-Field Online Permanent</text>
+                  <text x="0" y="50" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">RELIABILITY: Zero Relaxation Regrowth</text>
+                  <text x="0" y="68" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5">SAVINGS: Salvages $30,000+ AI Die</text>
+                  <rect x="0" y="80" width="185" height="20" rx="3" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="0.8"/>
+                  <text x="8" y="94" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8.5">SERVER-LIFE CONTINUOUS PASS</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <!-- 底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
+          <div class="flowchart-legend-grid">
+            <div class="flow-legend-col">
+              <h5>
+                <span class="flow-dot-cyan"></span>
+                <span data-lang="zh">應用 01 · 3D 堆疊 CIS 感光元件</span>
+                <span data-lang="en">Application 01 · 3D-Stacked CIS Sensors</span>
+              </h5>
+              <p>
+                <span data-lang="zh">48MP~200MP 感光元件透過銅-銅鍵合堆疊，邏輯層 eNVM 儲存壞像素座標，由 ISP 即時執行雙線性插值。</span>
+                <span data-lang="en">High-density CIS utilizes Cu-Cu hybrid bonding; logic-tier eNVM stores defect maps for real-time bilinear interpolation.</span>
+              </p>
+            </div>
+            <div class="flow-legend-col">
+              <h5>
+                <span class="flow-dot-green"></span>
+                <span data-lang="zh">應用 02 · DRAM / HBM3e JEDEC 現場修復</span>
+                <span data-lang="en">Application 02 · DRAM / HBM3e In-Field PPR</span>
+              </h5>
+              <p>
+                <span data-lang="zh">符合 JEDEC JESD79-5 及 JESD238 標準，資料中心在線偵測故障時硬體燒斷備援單元，挽救數萬美元 AI 模組。</span>
+                <span data-lang="en">Complies with JEDEC JESD79-5 &amp; JESD238 hPPR, permanently remapping faulty rows in-field to salvage costly AI accelerators.</span>
+              </p>
+            </div>
+          </div>
         </div>
 
-                <!-- Fuse Evolution: 3-Generation Semiconductor Pipeline -->
+        <!-- Fuse Evolution: 3-Generation Semiconductor Pipeline -->
         <div class="semiconductor-flowchart-card" style="margin: 20px 0 24px;">
           <div class="flowchart-header">
             <div class="flowchart-title-tag">
