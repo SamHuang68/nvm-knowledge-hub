@@ -44,7 +44,7 @@
    ========================================================= */
 .specialty-hero {
   position: relative;
-  padding: 88px 24px 60px;
+  padding: 42px 20px 28px;
   background: 
     radial-gradient(circle at 50% 15%, rgba(17, 210, 208, 0.12) 0%, rgba(3, 19, 30, 0) 65%),
     linear-gradient(180deg, rgba(6, 27, 41, 0.95) 0%, rgba(3, 19, 30, 1) 100%);
@@ -90,7 +90,7 @@
   font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--spec-text-main);
-  margin: 0 0 22px;
+  margin: 0 0 14px;
   text-wrap: balance;
 }
 
@@ -99,7 +99,7 @@
   font-size: clamp(15.5px, 1.3vw, 18.5px);
   line-height: 1.78;
   max-width: 960px;
-  margin: 0 auto 38px;
+  margin: 0 auto 20px;
   text-wrap: pretty;
 }
 
@@ -164,13 +164,15 @@
 
 .specialty-hero-image-wrap img {
   width: 100%;
-  height: auto;
+  max-height: 260px;
+  object-fit: cover;
+  object-position: center 40%;
   display: block;
   filter: contrast(1.04) saturate(1.08);
 }
 
 .hero-image-caption {
-  padding: 12px 20px;
+  padding: 8px 16px;
   background: rgba(4, 18, 28, 0.96);
   border-top: 1px solid var(--spec-line);
   font-family: var(--spec-mono);
@@ -185,7 +187,7 @@
    ========================================================= */
 .topic-section {
   position: relative;
-  padding: 96px 24px;
+  padding: 40px 20px;
   border-bottom: 1px solid var(--spec-line-subtle);
 }
 
@@ -202,8 +204,8 @@
 
 /* Section Header Structure */
 .topic-header {
-  margin-bottom: 52px;
-  padding-bottom: 28px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
   border-bottom: 1px solid var(--spec-line-subtle);
 }
 
@@ -254,7 +256,7 @@
 .metric-tiles-bar {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  gap: 10px;
   margin: 34px 0 46px;
 }
 
@@ -304,7 +306,7 @@
 
 /* Sub-topic Section Framing */
 .sub-topic-block {
-  margin-bottom: 56px;
+  margin-bottom: 22px;
 }
 
 .sub-topic-header {
@@ -400,7 +402,7 @@
   display: flex;
   flex-direction: column;
   gap: 9px;
-  margin: 0 0 22px;
+  margin: 0 0 14px;
   padding: 0;
   list-style: none;
 }
@@ -567,7 +569,7 @@
    Interactive Labs (Flagship ATE Instrument Shell)
    ========================================================= */
 .interactive-lab-card {
-  margin: 44px 0;
+  margin: 20px 0;
   background: #04141e;
   border: 1px solid var(--spec-line);
   border-radius: 8px;
@@ -579,7 +581,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 24px;
+  padding: 10px 16px;
   background: rgba(6, 25, 37, 0.96);
   border-bottom: 1px solid var(--spec-line);
   flex-wrap: wrap;
@@ -1048,7 +1050,7 @@ html[data-language="zh"] .data-table thead th {
   .card-grid-2,
   .card-grid-3 {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
+    gap: 10px;
   }
   .foundry-grid {
     grid-template-columns: 1fr;
@@ -1110,7 +1112,7 @@ html[data-language="zh"] .data-table thead th {
   }
   .interactive-lab-card {
     padding: 20px 14px;
-    margin: 28px 0;
+    margin: 14px 0;
     border-radius: 8px;
   }
   .lab-subpanel {
@@ -1205,10 +1207,10 @@ html[data-language="zh"] .data-table thead th {
 .specialty-research-meta {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 10px;
   margin: 28px auto 34px;
   max-width: 1060px;
-  padding: 16px 24px;
+  padding: 10px 16px;
   background: rgba(3, 16, 26, 0.75);
   border: 1px solid var(--spec-line);
   border-radius: 8px;
@@ -1685,7 +1687,7 @@ html[data-language="zh"] .data-table thead th {
 .stat-strip-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 10px;
   margin: 32px 0 28px;
   padding-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -1793,8 +1795,8 @@ html[data-language="zh"] .data-table thead th {
 .spec-grid-four {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin: 24px 0 36px;
+  gap: 10px;
+  margin: 14px 0 20px;
 }
 
 @media (max-width: 900px) {
@@ -1852,8 +1854,8 @@ html[data-language="zh"] .data-table thead th {
 
 /* State Contract Takeaways */
 .state-contract-box {
-  margin: 28px 0;
-  padding: 20px 24px;
+  margin: 14px 0;
+  padding: 12px 16px;
   border-radius: 0 8px 8px 0;
   background: #0b131e;
   border-left: 4px solid #06b6d4;
@@ -1918,8 +1920,8 @@ html[data-language="zh"] .data-table thead th {
 
 /* Governing Physics Box */
 .governing-physics-box {
-  margin: 28px 0;
-  padding: 20px 22px;
+  margin: 14px 0;
+  padding: 12px 16px;
   border-radius: 8px;
   background: rgba(10, 15, 22, 0.85);
   border: 1px solid rgba(6, 182, 212, 0.35);
@@ -1975,7 +1977,7 @@ html[data-language="zh"] .data-table thead th {
 
 /* Decision Matrix Card & Modern Table */
 .decision-matrix-card {
-  margin: 32px 0;
+  margin: 18px 0;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: #0e1724;
@@ -2023,7 +2025,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .decision-table-modern th {
-  padding: 13px 18px;
+  padding: 8px 12px;
   font-family: var(--spec-mono);
   font-size: 10.5px;
   font-weight: 700;
@@ -2050,7 +2052,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .decision-table-modern td {
-  padding: 14px 18px;
+  padding: 8px 12px;
   color: #cbd5e1;
   line-height: 1.5;
 }
@@ -2072,4 +2074,120 @@ html[data-language="zh"] .data-table thead th {
 
 .badge-cell-warn {
   color: #fbbf24 !important;
+}
+
+
+/* =========================================================
+   COMPACT DASHBOARD ENGINE (Reviewer 1, 2, 3 Consensus)
+   ========================================================= */
+.lab-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 14px;
+  align-items: stretch;
+}
+
+@media (max-width: 960px) {
+  .lab-body-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.spec-duo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 16px 0;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .spec-duo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.spec-duo-grid .governing-physics-box,
+.spec-duo-grid .state-contract-box {
+  margin: 0 !important;
+  height: 100%;
+}
+
+.matrix-canvas-wrap canvas {
+  max-height: 250px !important;
+  width: auto !important;
+  margin: 0 auto;
+  display: block;
+}
+
+.canvas-wrapper canvas {
+  max-height: 150px;
+}
+
+/* Compact EDA Card Styling */
+.tech-card {
+  padding: 16px 18px !important;
+}
+
+.tech-card h4 {
+  font-size: 15px !important;
+  margin-bottom: 8px !important;
+}
+
+.tech-card p {
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  margin-bottom: 12px !important;
+}
+
+.spec-chip-list {
+  gap: 6px !important;
+  margin: 0 0 14px !important;
+}
+
+.spec-chip-item {
+  padding: 5px 10px !important;
+  font-size: 11.5px !important;
+}
+
+.card-footer-metric {
+  padding-top: 10px !important;
+  font-size: 10.5px !important;
+}
+
+.pipeline-flow {
+  margin: 16px 0 !important;
+  padding: 14px 18px !important;
+}
+
+.pipeline-step {
+  padding: 12px 14px !important;
+}
+
+.fuse-evolution-block {
+  margin-top: 20px !important;
+  padding: 18px 20px !important;
+}
+
+.fuse-evolution-block h3 {
+  margin-bottom: 16px !important;
+  font-size: 17px !important;
+}
+
+.evo-card {
+  padding: 16px !important;
+}
+
+.foundry-landscape {
+  margin-top: 24px !important;
+  padding: 20px !important;
+}
+
+.foundry-grid {
+  gap: 12px !important;
+}
+
+.foundry-card {
+  padding: 14px !important;
 }

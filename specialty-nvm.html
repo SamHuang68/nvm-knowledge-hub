@@ -423,56 +423,59 @@
           </div>
         </div>
 
-        <!-- GOVERNING PHYSICS 01 (PORTED DESIGN) -->
-        <div class="governing-physics-box">
-          <div class="governing-physics-header">
-            <span class="math-integral">∫ dt</span>
-            <span data-lang="zh">支配物理 01 · 帶隙基準一階溫補與 OTP 電阻微調模型</span>
-            <span data-lang="en">GOVERNING PHYSICS 01 · BANDGAP 1ST-ORDER TEMP-COMP &amp; OTP TRIMMING MODEL</span>
+        <!-- DUO GRID: GOVERNING PHYSICS & STATE CONTRACT 01 -->
+        <div class="spec-duo-grid">
+          <!-- GOVERNING PHYSICS 01 -->
+          <div class="governing-physics-box">
+            <div class="governing-physics-header">
+              <span class="math-integral">∫ dt</span>
+              <span data-lang="zh">支配物理 01 · 帶隙基準一階溫補與 OTP 電阻微調模型</span>
+              <span data-lang="en">GOVERNING PHYSICS 01 · BANDGAP 1ST-ORDER TEMP-COMP &amp; OTP TRIMMING MODEL</span>
+            </div>
+            <div class="governing-physics-formula">
+              $$V_{\mathrm{REF}}(T) = V_{\mathrm{BE}}(T) + \left[ \left(\frac{k \cdot T}{q}\right) \cdot \ln(N) \right] \cdot \left[ \frac{R_2 + \Delta R_{\mathrm{OTP}}}{R_1} \right]$$
+            </div>
+            <div class="governing-physics-desc">
+              <strong class="physics-desc-title"><span data-lang="zh">物理機制：</span><span data-lang="en">Physical Mechanism:</span></strong>
+              <span data-lang="zh">CTAT 負溫特性 ($V_{\mathrm{BE}}$) 抵消 PTAT 正溫特性 ($\Delta V_{\mathrm{BE}}$) • $\Delta R_{\mathrm{OTP}}$ 離散電氣燒錄步階精準補償矽晶圓擴散漂移。</span>
+              <span data-lang="en">CTAT negative temp coefficient ($V_{\mathrm{BE}}$) cancels PTAT positive temp coefficient ($\Delta V_{\mathrm{BE}}$) • $\Delta R_{\mathrm{OTP}}$ discrete electrical OTP trim steps accurately cancel silicon wafer diffusion variations.</span>
+            </div>
           </div>
-          <div class="governing-physics-formula">
-            $$V_{\mathrm{REF}}(T) = V_{\mathrm{BE}}(T) + \left[ \left(\frac{k \cdot T}{q}\right) \cdot \ln(N) \right] \cdot \left[ \frac{R_2 + \Delta R_{\mathrm{OTP}}}{R_1} \right]$$
-          </div>
-          <div class="governing-physics-desc">
-            <strong class="physics-desc-title"><span data-lang="zh">物理機制解析：</span><span data-lang="en">Physical Mechanism:</span></strong>
-            <span data-lang="zh">CTAT 負溫特性 ($V_{\mathrm{BE}}$) 抵消 PTAT 正溫特性 ($\Delta V_{\mathrm{BE}}$) • $\Delta R_{\mathrm{OTP}}$ 離散電氣燒錄步階精準補償矽晶圓製程擴散漂移。</span>
-            <span data-lang="en">CTAT negative temp coefficient ($V_{\mathrm{BE}}$) cancels PTAT positive temp coefficient ($\Delta V_{\mathrm{BE}}$) • $\Delta R_{\mathrm{OTP}}$ discrete electrical OTP trim steps accurately cancel silicon wafer diffusion variations.</span>
-          </div>
-        </div>
 
-        <!-- STATE CONTRACT TAKEAWAY 01 (PORTED DESIGN) -->
-        <div class="state-contract-box">
-          <div class="state-contract-header">
-            <span class="arrow-icon">▶</span>
-            <span data-lang="zh">狀態契約小結 · 01 功率半導體與 BCD 製程整合</span>
-            <span data-lang="en">STATE CONTRACT TAKEAWAY · TOPIC 01</span>
+          <!-- STATE CONTRACT TAKEAWAY 01 -->
+          <div class="state-contract-box">
+            <div class="state-contract-header">
+              <span class="arrow-icon">▶</span>
+              <span data-lang="zh">狀態契約小結 · 01 功率半導體與 BCD 製程整合</span>
+              <span data-lang="en">STATE CONTRACT TAKEAWAY · TOPIC 01</span>
+            </div>
+            <ul class="state-contract-list">
+              <li>
+                <span class="bullet-dot">•</span>
+                <div>
+                  <strong><span data-lang="zh">狀態歸屬：</span><span data-lang="en">State Ownership:</span></strong>
+                  <span data-lang="zh">CP 晶圓測試階段電氣燒錄；上電 50ns 內硬體鎖定，杜絕竄改。</span>
+                  <span data-lang="en">Electrically programmed during CP wafer sort; hardware-locked within 50ns after power-on.</span>
+                </div>
+              </li>
+              <li>
+                <span class="bullet-dot">•</span>
+                <div>
+                  <strong><span data-lang="zh">高溫耐受：</span><span data-lang="en">High-Temp Retention:</span></strong>
+                  <span data-lang="zh">15+ 年 @ 175°C Tj (AEC-Q100 Grade 0)；耐受 LDMOS 劇烈切換噪訊。</span>
+                  <span data-lang="en">15+ years @ 175°C Tj (AEC-Q100 Grade 0); preserves zero drift under switching noise.</span>
+                </div>
+              </li>
+              <li>
+                <span class="bullet-dot">•</span>
+                <div>
+                  <strong><span data-lang="zh">寫入預算：</span><span data-lang="en">Update Budget:</span></strong>
+                  <span data-lang="zh">永久不可逆硬鎖定 (AntiFuse OTP) 或嚴格有界校準次數 (4-Times NeoMTP)。</span>
+                  <span data-lang="en">Permanent irreversible hard lock (AntiFuse OTP) or bounded calibration budget (4-times NeoMTP).</span>
+                </div>
+              </li>
+            </ul>
           </div>
-          <ul class="state-contract-list">
-            <li>
-              <span class="bullet-dot">•</span>
-              <div>
-                <strong><span data-lang="zh">狀態歸屬 (State Ownership)：</span><span data-lang="en">State Ownership:</span></strong>
-                <span data-lang="zh">於 CP 晶圓測試階段電氣燒錄；上電 50ns 內硬體鎖定，完全杜絕韌體竄改與雜訊翻轉風險。</span>
-                <span data-lang="en">Electrically programmed during CP wafer sort; hardware-locked within 50ns after power-on to eliminate tampering and noise flipping.</span>
-              </div>
-            </li>
-            <li>
-              <span class="bullet-dot">•</span>
-              <div>
-                <strong><span data-lang="zh">高溫耐受 (High-Temp Retention)：</span><span data-lang="en">High-Temp Retention:</span></strong>
-                <span data-lang="zh">15+ 年 @ 175°C Tj (AEC-Q100 Grade 0)；在高壓 LDMOS 劇烈切換噪訊下維持零漂移。</span>
-                <span data-lang="en">15+ years @ 175°C Tj (AEC-Q100 Grade 0); preserves zero drift under severe LDMOS switching noise.</span>
-              </div>
-            </li>
-            <li>
-              <span class="bullet-dot">•</span>
-              <div>
-                <strong><span data-lang="zh">寫入預算 (Update Budget)：</span><span data-lang="en">Update Budget:</span></strong>
-                <span data-lang="zh">永久不可逆硬鎖定 (AntiFuse OTP) 或嚴格有界校準次數 (4-Times NeoMTP)。</span>
-                <span data-lang="en">Permanent irreversible hard lock (AntiFuse OTP) or bounded calibration budget (4-times NeoMTP).</span>
-              </div>
-            </li>
-          </ul>
         </div>
 
         <!-- FOUNDRY DECISION MATRIX (PORTED DESIGN) -->
@@ -615,56 +618,59 @@
         <!-- =========================================================
              FLAGSHIP LAB 02: AUTONOMOUS MATRIX REPAIR SIMULATOR
              ========================================================= -->
-                <!-- GOVERNING PHYSICS 02 (PORTED DESIGN) -->
-        <div class="governing-physics-box">
-          <div class="governing-physics-header">
-            <span class="math-integral">∫ dt</span>
-            <span data-lang="zh">支配物理 02 · 泊松良率復原模型與反熔絲細絲阻抗物理</span>
-            <span data-lang="en">GOVERNING PHYSICS 02 · POISSON YIELD RECOVERY &amp; FILAMENT BREAKDOWN PHYSICS</span>
+                <!-- DUO GRID: GOVERNING PHYSICS & STATE CONTRACT 02 -->
+        <div class="spec-duo-grid">
+          <!-- GOVERNING PHYSICS 02 -->
+          <div class="governing-physics-box">
+            <div class="governing-physics-header">
+              <span class="math-integral">∫ dt</span>
+              <span data-lang="zh">支配物理 02 · 泊松良率復原模型與反熔絲細絲阻抗物理</span>
+              <span data-lang="en">GOVERNING PHYSICS 02 · POISSON YIELD RECOVERY &amp; FILAMENT BREAKDOWN PHYSICS</span>
+            </div>
+            <div class="governing-physics-formula">
+              $$Y_{\mathrm{repaired}} = Y_0 \cdot \left[ \sum_{k=0}^{S_{\mathrm{row}}} \frac{(\lambda_r)^k e^{-\lambda_r}}{k!} \right] \cdot \left[ \sum_{m=0}^{S_{\mathrm{col}}} \frac{(\lambda_c)^m e^{-\lambda_c}}{m!} \right]$$
+            </div>
+            <div class="governing-physics-desc">
+              <strong class="physics-desc-title"><span data-lang="zh">物理機制：</span><span data-lang="en">Physical Mechanism:</span></strong>
+              <span data-lang="zh">泊松缺陷空間分佈與二維備援行/列修復 • AntiFuse 硬體細絲 ($R_{\mathrm{filament}} < 100\,\Omega$) 永久修復挽救良率。</span>
+              <span data-lang="en">Poisson defect spatial distribution and 2D spare row/col repair • AntiFuse silicide filament rupture ($R_{\mathrm{filament}} < 100\,\Omega$) rescues yield.</span>
+            </div>
           </div>
-          <div class="governing-physics-formula">
-            $$Y_{\mathrm{repaired}} = Y_0 \cdot \left[ \sum_{k=0}^{S_{\mathrm{row}}} \frac{(\lambda_r)^k e^{-\lambda_r}}{k!} \right] \cdot \left[ \sum_{m=0}^{S_{\mathrm{col}}} \frac{(\lambda_c)^m e^{-\lambda_c}}{m!} \right]$$
-          </div>
-          <div class="governing-physics-desc">
-            <strong class="physics-desc-title"><span data-lang="zh">物理機制解析：</span><span data-lang="en">Physical Mechanism:</span></strong>
-            <span data-lang="zh">泊松缺陷空間分佈與二維備援行/列修復機率 • 證明 AntiFuse 硬體細絲 ($R_{\mathrm{filament}} &lt; 100\,\Omega$) 永久修復使巨型陣列良率提升突破物理臨界點。</span>
-            <span data-lang="en">Poisson defect spatial distribution and 2D spare row/column repair probability • Proves AntiFuse silicide filament rupture ($R_{\mathrm{filament}} &lt; 100\,\Omega$) rescues multi-gigabit array yields beyond physical thresholds.</span>
-          </div>
-        </div>
 
-        <!-- STATE CONTRACT TAKEAWAY 02 (PORTED DESIGN) -->
-        <div class="state-contract-box">
-          <div class="state-contract-header">
-            <span class="arrow-icon">▶</span>
-            <span data-lang="zh">狀態契約小結 · 02 矩陣良率與缺陷備援修復</span>
-            <span data-lang="en">STATE CONTRACT TAKEAWAY · TOPIC 02</span>
+          <!-- STATE CONTRACT TAKEAWAY 02 -->
+          <div class="state-contract-box">
+            <div class="state-contract-header">
+              <span class="arrow-icon">▶</span>
+              <span data-lang="zh">狀態契約小結 · 02 矩陣良率與缺陷備援修復</span>
+              <span data-lang="en">STATE CONTRACT TAKEAWAY · TOPIC 02</span>
+            </div>
+            <ul class="state-contract-list">
+              <li>
+                <span class="bullet-dot">•</span>
+                <div>
+                  <strong><span data-lang="zh">缺陷持久化：</span><span data-lang="en">Defect Persistence:</span></strong>
+                  <span data-lang="zh">CP 測試發現缺陷列，透過 AntiFuse 硬體燒錄永久重映射至備援陣列。</span>
+                  <span data-lang="en">Defective rows detected during CP wafer sort are permanently remapped via AntiFuse OTP.</span>
+                </div>
+              </li>
+              <li>
+                <span class="bullet-dot">•</span>
+                <div>
+                  <strong><span data-lang="zh">現場 PPR 契約：</span><span data-lang="en">In-Field PPR Contract:</span></strong>
+                  <span data-lang="zh">JEDEC PPR 僅在開機 BIST 或預警階段寫入，避免運行中未授權重新映射。</span>
+                  <span data-lang="en">Host system JEDEC PPR operations are restricted to boot BIST or early warning phases.</span>
+                </div>
+              </li>
+              <li>
+                <span class="bullet-dot">•</span>
+                <div>
+                  <strong><span data-lang="zh">確定性延遲：</span><span data-lang="en">Deterministic Latency:</span></strong>
+                  <span data-lang="zh">備援位址由硬體 CAM 直接解析，讀寫延遲與原生陣列嚴格一致。</span>
+                  <span data-lang="en">Spare addresses are decoded cycle-accurately by on-die CAM match logic.</span>
+                </div>
+              </li>
+            </ul>
           </div>
-          <ul class="state-contract-list">
-            <li>
-              <span class="bullet-dot">•</span>
-              <div>
-                <strong><span data-lang="zh">缺陷持久化 (Defect Persistence)：</span><span data-lang="en">Defect Persistence:</span></strong>
-                <span data-lang="zh">封裝前 (CP) 測試發現之缺陷列，透過 AntiFuse 硬體燒錄永久重映射至備援陣列。</span>
-                <span data-lang="en">Defective rows detected during CP wafer sort are permanently remapped to spare rows via AntiFuse OTP.</span>
-              </div>
-            </li>
-            <li>
-              <span class="bullet-dot">•</span>
-              <div>
-                <strong><span data-lang="zh">現場 PPR 契約 (In-Field PPR Contract)：</span><span data-lang="en">In-Field PPR Contract:</span></strong>
-                <span data-lang="zh">系統端 (JEDEC PPR) 僅在開機 BIST 或預警階段寫入，避免運行中未授權重新映射。</span>
-                <span data-lang="en">Host system JEDEC PPR operations are restricted to boot BIST or early warning phases to prevent unauthorized runtime mutation.</span>
-              </div>
-            </li>
-            <li>
-              <span class="bullet-dot">•</span>
-              <div>
-                <strong><span data-lang="zh">確定性延遲 (Deterministic Latency)：</span><span data-lang="en">Deterministic Latency:</span></strong>
-                <span data-lang="zh">備援位址由硬體比較器直接解析，讀寫延遲與原生陣列嚴格一致 (Cycle-True Match)。</span>
-                <span data-lang="en">Spare addresses are decoded cycle-accurately by on-die CAM match logic, preserving identical read/write timings.</span>
-              </div>
-            </li>
-          </ul>
         </div>
 
         <div class="interactive-lab-card" id="lab-repair-simulator">
@@ -938,56 +944,59 @@
         <!-- =========================================================
              FLAGSHIP LAB 03: DISPLAY OPTICAL TUNER
              ========================================================= -->
-                <!-- GOVERNING PHYSICS 03 (PORTED DESIGN) -->
-        <div class="governing-physics-box">
-          <div class="governing-physics-header">
-            <span class="math-integral">∫ dt</span>
-            <span data-lang="zh">支配物理 03 · 光電轉換函數與 2D 空間 DE-MURA 補償方程式</span>
-            <span data-lang="en">GOVERNING PHYSICS 03 · OPTICAL GAMMA TRANSFER &amp; PIXEL VOLTAGE MODULATION</span>
+                <!-- DUO GRID: GOVERNING PHYSICS & STATE CONTRACT 03 -->
+        <div class="spec-duo-grid">
+          <!-- GOVERNING PHYSICS 03 -->
+          <div class="governing-physics-box">
+            <div class="governing-physics-header">
+              <span class="math-integral">∫ dt</span>
+              <span data-lang="zh">支配物理 03 · 光電轉換函數與 2D 空間 DE-MURA 補償方程式</span>
+              <span data-lang="en">GOVERNING PHYSICS 03 · OPTICAL GAMMA TRANSFER &amp; PIXEL VOLTAGE MODULATION</span>
+            </div>
+            <div class="governing-physics-formula">
+              $$L(V) = L_{\max} \cdot \left( \frac{V_{\mathrm{data}} - V_{\mathrm{th}}}{V_{\mathrm{white}} - V_{\mathrm{th}}} \right)^{\gamma}, \quad \gamma \approx 2.2 \pm 0.05$$
+            </div>
+            <div class="governing-physics-desc">
+              <strong class="physics-desc-title"><span data-lang="zh">物理機制：</span><span data-lang="en">Physical Mechanism:</span></strong>
+              <span data-lang="zh">人眼感知亮度非線性轉換模型 • 內嵌 OTP 10-bit DAC 多點微調補償 OLED/Micro-LED 臨界電壓離散與 Vcom 閃爍。</span>
+              <span data-lang="en">Non-linear electro-optical transfer function • Embedded OTP 10-bit DAC multi-point trimming eliminates OLED threshold drift and Vcom flicker.</span>
+            </div>
           </div>
-          <div class="governing-physics-formula">
-            $$L(V) = L_{\max} \cdot \left( \frac{V_{\mathrm{data}} - V_{\mathrm{th}}}{V_{\mathrm{white}} - V_{\mathrm{th}}} \right)^{\gamma}, \quad \gamma \approx 2.2 \pm 0.05$$
-          </div>
-          <div class="governing-physics-desc">
-            <strong class="physics-desc-title"><span data-lang="zh">物理機制解析：</span><span data-lang="en">Physical Mechanism:</span></strong>
-            <span data-lang="zh">人眼感知亮度非線性轉換模型 • 內嵌 OTP 10-bit DAC 多點微調補償 OLED/Micro-LED 臨界電壓離散與 Vcom 閃爍消除。</span>
-            <span data-lang="en">Non-linear electro-optical transfer function of sub-pixels • Embedded OTP 10-bit DAC multi-point trimming eliminates OLED threshold voltage drift and common-voltage flicker.</span>
-          </div>
-        </div>
 
-        <!-- STATE CONTRACT TAKEAWAY 03 (PORTED DESIGN) -->
-        <div class="state-contract-box">
-          <div class="state-contract-header">
-            <span class="arrow-icon">▶</span>
-            <span data-lang="zh">狀態契約小結 · 03 高壓顯示驅動與光學微調</span>
-            <span data-lang="en">STATE CONTRACT TAKEAWAY · TOPIC 03</span>
+          <!-- STATE CONTRACT TAKEAWAY 03 -->
+          <div class="state-contract-box">
+            <div class="state-contract-header">
+              <span class="arrow-icon">▶</span>
+              <span data-lang="zh">狀態契約小結 · 03 高壓顯示驅動與光學微調</span>
+              <span data-lang="en">STATE CONTRACT TAKEAWAY · TOPIC 03</span>
+            </div>
+            <ul class="state-contract-list">
+              <li>
+                <span class="bullet-dot">•</span>
+                <div>
+                  <strong><span data-lang="zh">光學歸屬：</span><span data-lang="en">Optical Ownership:</span></strong>
+                  <span data-lang="zh">面板廠在模組點燈段寫入 De-Mura 補償表與 Vcom，並永久鎖定防篡改。</span>
+                  <span data-lang="en">Burned by panel module makers during optical inspection; locked against tampering.</span>
+                </div>
+              </li>
+              <li>
+                <span class="bullet-dot">•</span>
+                <div>
+                  <strong><span data-lang="zh">無外掛 Flash：</span><span data-lang="en">Flashless Architecture:</span></strong>
+                  <span data-lang="zh">內嵌 OTP/MTP 取代外掛 Flash，節省 PCB 面積、BOM 成本與通訊 EMI。</span>
+                  <span data-lang="en">Embedded OTP/MTP replaces discrete SPI Flash, eliminating PCB footprint and EMI.</span>
+                </div>
+              </li>
+              <li>
+                <span class="bullet-dot">•</span>
+                <div>
+                  <strong><span data-lang="zh">動態載入防護：</span><span data-lang="en">Dynamic Refresh:</span></strong>
+                  <span data-lang="zh">開機時自動載入驅動暫存器，並具備同位元檢查 (Parity Check) 防止畫面撕裂。</span>
+                  <span data-lang="en">Shadowed into SRAM at boot with parity check to prevent high-voltage noise corruption.</span>
+                </div>
+              </li>
+            </ul>
           </div>
-          <ul class="state-contract-list">
-            <li>
-              <span class="bullet-dot">•</span>
-              <div>
-                <strong><span data-lang="zh">光學歸屬 (Optical Ownership)：</span><span data-lang="en">Optical Ownership:</span></strong>
-                <span data-lang="zh">面板廠在模組點燈段寫入 De-Mura 補償表與 Vcom，並永久鎖定防篡改。</span>
-                <span data-lang="en">Burned by panel module makers during optical inspection; locked against unauthorized post-factory tampering.</span>
-              </div>
-            </li>
-            <li>
-              <span class="bullet-dot">•</span>
-              <div>
-                <strong><span data-lang="zh">無外掛 Flash 架構 (Flashless Architecture)：</span><span data-lang="en">Flashless Architecture:</span></strong>
-                <span data-lang="zh">內嵌 OTP/MTP 取代外掛 Flash，節省 PCB 面積、BOM 成本與高速通訊 EMI。</span>
-                <span data-lang="en">Embedded OTP/MTP replaces discrete SPI Flash, eliminating PCB footprint, BOM cost, and high-speed bus EMI.</span>
-              </div>
-            </li>
-            <li>
-              <span class="bullet-dot">•</span>
-              <div>
-                <strong><span data-lang="zh">動態載入防護 (Dynamic Refresh)：</span><span data-lang="en">Dynamic Refresh:</span></strong>
-                <span data-lang="zh">開機時自動載入驅動暫存器，並具備同位元檢查 (Parity Check) 防止高壓干擾導致畫面撕裂。</span>
-                <span data-lang="en">Shadowed into SRAM at boot with hardware parity check to ensure high-voltage switching pulses never corrupt frame parameters.</span>
-              </div>
-            </li>
-          </ul>
         </div>
 
         <div class="interactive-lab-card" id="lab-display-tuner">
@@ -1160,8 +1169,8 @@
               <span data-lang="en">Ultra-HV Physics: Why E-Ink Drivers Exclude Standard BCD</span>
             </h4>
             <p>
-              <span data-lang="zh">不同於傳統 LCD 驅動晶片的 &plusmn;16V 或 32V 電壓，微膠囊/微杯電泳技術 (Electrophoretic Display, EPD) 需要施加高達 <strong>40V 至 50V (甚至高達 110HV 製程)</strong> 的電場脈衝，才能精確推動帶正負電荷的黑、白、紅、黃等多色微粒子在微流體中克服黏滯阻力上下浮沉。因為電子紙具備「雙穩態 (Bistable)」特性（僅在畫面變更時耗電，靜止時零功耗），晶片對靜態待機漏電要求極為嚴苛。<strong>傳統 BCD 製程在 40V-50V 高壓下的接面漏電 (Junction Leakage) 過高</strong>，會迅速耗盡電子貨架標籤 (ESL) 的鈕扣電池，因此全球電子紙驅動晶片普遍轉向專屬的 110HV、90HV 與 80eHV 特種高壓 CMOS 製程。</span>
-              <span data-lang="en">Unlike conventional LCD drivers operating at &plusmn;16V or 32V, electrophoretic displays (EPD) require high-voltage pulses of <strong>40V to 50V (up to 110HV foundry nodes)</strong> to propel charged multi-color microparticles against fluid drag. Because E-Ink is intrinsically bistable (zero power at steady state), standby leakage budgets are razor-thin. <strong>Standard BCD processes suffer excessive junction leakage at 40V-50V</strong>, rapidly draining Electronic Shelf Label (ESL) coin-cell batteries. Consequently, leading E-Ink DDICs rely strictly on specialized 110HV, 90HV, and 80eHV high-voltage CMOS platforms.</span>
+              <span data-lang="zh">微膠囊電泳技術 (EPD) 需施加 <strong>40V 至 50V (最高至 110HV 製程)</strong> 雙極性電場脈衝以驅動多色粒子克服微流體黏滯阻力。電子紙雙穩態架構要求 razor-thin 靜態待機功耗；<strong>傳統 BCD 在 40V-50V 下接面漏電 (Junction Leakage) 過高會吸乾鈕扣電池</strong>，驅動晶片因而全面移轉至 110HV/90HV 特種 CMOS 平台。</span>
+              <span data-lang="en">EPD demands <strong>40V to 50V (up to 110HV nodes)</strong> pulses to propel charged multi-color particles against viscous drag. Due to strict bistable zero-power constraints, <strong>excessive junction leakage excludes standard BCD</strong>, mandating dedicated 110HV/90HV CMOS to preserve 5-10 year battery lifetime.</span>
             </p>
             <ul class="spec-chip-list">
               <li class="spec-chip-item"><div class="spec-chip-k"><span data-lang="zh">驅動電壓水準</span><span data-lang="en">Operating Voltage</span></div><div class="spec-chip-v"><span data-lang="zh">40V 至 50V 超高壓脈衝 (大幅超出標準 LCD 的 32V)</span><span data-lang="en">40V to 50V HV pulses (exceeding standard 32V LCD DDI)</span></div></li>
@@ -1202,56 +1211,59 @@
           </div>
         </div>
 
-        <!-- GOVERNING PHYSICS 04 (PORTED DESIGN) -->
-        <div class="governing-physics-box">
-          <div class="governing-physics-header">
-            <span class="math-integral">∫ dt</span>
-            <span data-lang="zh">支配物理 04 · 雙穩態微膠囊電泳粒子動力學與零待機漏電方程式</span>
-            <span data-lang="en">GOVERNING PHYSICS 04 · STOKES ELECTROPHORETIC MOTION &amp; TRANSIT TIME</span>
+        <!-- DUO GRID: GOVERNING PHYSICS & STATE CONTRACT 04 -->
+        <div class="spec-duo-grid">
+          <!-- GOVERNING PHYSICS 04 -->
+          <div class="governing-physics-box">
+            <div class="governing-physics-header">
+              <span class="math-integral">∫ dt</span>
+              <span data-lang="zh">支配物理 04 · 雙穩態微膠囊電泳粒子動力學與零待機漏電方程式</span>
+              <span data-lang="en">GOVERNING PHYSICS 04 · STOKES ELECTROPHORETIC MOTION &amp; TRANSIT TIME</span>
+            </div>
+            <div class="governing-physics-formula">
+              $$v = \frac{q \cdot E}{6 \pi \eta r} = \frac{q \cdot V_{\mathrm{rail}}}{6 \pi \eta r \cdot d_{\mathrm{cell}}}, \quad t_{\mathrm{transit}} = \frac{d_{\mathrm{cell}}}{v} \propto \frac{1}{V_{\mathrm{rail}}}$$
+            </div>
+            <div class="governing-physics-desc">
+              <strong class="physics-desc-title"><span data-lang="zh">物理機制：</span><span data-lang="en">Physical Mechanism:</span></strong>
+              <span data-lang="zh">電泳微粒速度與電場成正比 • 40V–50V 超高壓驅動將高黏度流體刷新時間壓縮至 200ms 內；雙穩態零漏電守護 10 年電池。</span>
+              <span data-lang="en">Electrophoretic particle velocity proportional to field • 40V–50V ultra-HV compresses refresh transit time below 200ms; zero-leakage bistability ensures 10-year battery life.</span>
+            </div>
           </div>
-          <div class="governing-physics-formula">
-            $$v = \frac{q \cdot E}{6 \pi \eta r} = \frac{q \cdot V_{\mathrm{rail}}}{6 \pi \eta r \cdot d_{\mathrm{cell}}}, \quad t_{\mathrm{transit}} = \frac{d_{\mathrm{cell}}}{v} \propto \frac{1}{V_{\mathrm{rail}}}$$
-          </div>
-          <div class="governing-physics-desc">
-            <strong class="physics-desc-title"><span data-lang="zh">物理機制解析：</span><span data-lang="en">Physical Mechanism:</span></strong>
-            <span data-lang="zh">微膠囊電泳粒子運動速度與電場成正比 • 40V–50V 超高壓驅動將高黏度流體中的粒子刷新翻轉時間由數秒壓縮至 200ms 以內；雙穩態零漏電架構守護 10 年鈕扣電池壽命。</span>
-            <span data-lang="en">Electrophoretic particle velocity is proportional to electric field • 40V–50V ultra-HV compresses refresh transit time from seconds to under 200ms; zero-leakage bistability ensures 10-year coin-cell lifetime.</span>
-          </div>
-        </div>
 
-        <!-- STATE CONTRACT TAKEAWAY 04 (PORTED DESIGN) -->
-        <div class="state-contract-box">
-          <div class="state-contract-header">
-            <span class="arrow-icon">▶</span>
-            <span data-lang="zh">狀態契約小結 · 04 電子紙與超高壓電泳驅動</span>
-            <span data-lang="en">STATE CONTRACT TAKEAWAY · TOPIC 04</span>
+          <!-- STATE CONTRACT TAKEAWAY 04 -->
+          <div class="state-contract-box">
+            <div class="state-contract-header">
+              <span class="arrow-icon">▶</span>
+              <span data-lang="zh">狀態契約小結 · 04 電子紙與超高壓電泳驅動</span>
+              <span data-lang="en">STATE CONTRACT TAKEAWAY · TOPIC 04</span>
+            </div>
+            <ul class="state-contract-list">
+              <li>
+                <span class="bullet-dot">•</span>
+                <div>
+                  <strong><span data-lang="zh">波形契約：</span><span data-lang="en">Waveform Contract:</span></strong>
+                  <span data-lang="zh">電泳驅動波形由原廠驗證授權，寫入 OTP/MTP 後鎖死防損壞微膠囊。</span>
+                  <span data-lang="en">Waveform driving tables are authenticated by E-Ink makers and locked in OTP/MTP.</span>
+                </div>
+              </li>
+              <li>
+                <span class="bullet-dot">•</span>
+                <div>
+                  <strong><span data-lang="zh">熱敏補償：</span><span data-lang="en">Thermal Invariance:</span></strong>
+                  <span data-lang="zh">查表引擎依據即時溫度切換最佳驅動脈衝序列，杜絕殘影 (-15°C~65°C)。</span>
+                  <span data-lang="en">On-chip LUT indexes real-time temperature to apply optimal pulse widths (-15°C to 65°C).</span>
+                </div>
+              </li>
+              <li>
+                <span class="bullet-dot">•</span>
+                <div>
+                  <strong><span data-lang="zh">生命週期演進：</span><span data-lang="en">Lifecycle Migration:</span></strong>
+                  <span data-lang="zh">產品開拓期採用 MTP 支援多次波形演進；成熟期轉移至 OTP 節省成本 35%。</span>
+                  <span data-lang="en">Exploration phase utilizes MTP for field updates; mature phase migrates to zero-mask OTP saving 35%.</span>
+                </div>
+              </li>
+            </ul>
           </div>
-          <ul class="state-contract-list">
-            <li>
-              <span class="bullet-dot">•</span>
-              <div>
-                <strong><span data-lang="zh">波形契約 (Waveform Contract)：</span><span data-lang="en">Waveform Contract:</span></strong>
-                <span data-lang="zh">電泳驅動波形由電子紙原廠驗證授權，寫入 OTP/MTP 後鎖死防違規刷新損壞微膠囊。</span>
-                <span data-lang="en">Waveform driving tables are authenticated by E-Ink makers and locked in OTP/MTP to prevent illegal refresh profiles from damaging microcapsules.</span>
-              </div>
-            </li>
-            <li>
-              <span class="bullet-dot">•</span>
-              <div>
-                <strong><span data-lang="zh">熱敏補償 (Thermal Invariance)：</span><span data-lang="en">Thermal Invariance:</span></strong>
-                <span data-lang="zh">查表引擎依據即時溫度感測器切換最佳驅動脈衝序列，杜絕殘影 (Ghosting)。</span>
-                <span data-lang="en">On-chip LUT controller indexes real-time temperature sensors to apply optimal pulse widths, eliminating image ghosting across -15°C to 65°C.</span>
-              </div>
-            </li>
-            <li>
-              <span class="bullet-dot">•</span>
-              <div>
-                <strong><span data-lang="zh">生命週期演進 (Lifecycle Migration)：</span><span data-lang="en">Lifecycle Migration:</span></strong>
-                <span data-lang="zh">產品開拓期採用 MTP 支援多次波形演進；百萬量產期直接移轉至 OTP，達成極致成本收斂。</span>
-                <span data-lang="en">Exploration phase utilizes MTP for field waveform firmware updates; mature high-volume phase migrates to zero-mask AntiFuse OTP for peak cost efficiency.</span>
-              </div>
-            </li>
-          </ul>
         </div>
 
         <div class="interactive-lab-card" id="lab-eink-simulator">
