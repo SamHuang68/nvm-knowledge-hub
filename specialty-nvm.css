@@ -3408,3 +3408,587 @@ html[data-language="zh"] .data-table thead th {
   flex-wrap: wrap;
   gap: 6px;
 }
+
+
+/* ==========================================================================
+   PURE ABSTRACT VISUAL INFOGRAPHICS (KEYNOTE SLIDE-DECK GRADE)
+   Zero Prose Sentences · 100% Vector HTML5/SVG · Presentation Metaphor
+   ========================================================================== */
+
+/* 抽象圖形舞台外框 */
+.figure-container-abstract {
+  background: radial-gradient(circle at top left, rgba(0, 240, 255, 0.05), transparent 70%),
+              radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.05), transparent 70%),
+              rgba(10, 15, 29, 0.95) !important;
+  border: 1px solid rgba(0, 240, 255, 0.3) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.1) !important;
+  padding: 20px !important;
+}
+
+/* 抽象圖形主舞台：三列分佈 (Left / Center / Right) */
+.abstract-figure-stage {
+  display: grid;
+  grid-template-columns: 1fr 140px 1fr;
+  align-items: center;
+  gap: 16px;
+  background: rgba(4, 7, 18, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 16px 0 12px;
+}
+
+@media (max-width: 900px) {
+  .abstract-figure-stage {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* 舞台子區塊通用標題標籤 */
+.plot-title-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.plot-title-tag::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: #00f0ff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #00f0ff;
+}
+
+/* 向量 SVG 圖表畫布 */
+.plot-graph-canvas {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.abstract-vector-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 中間抽象轉換連接器 (Transform Connector) */
+.abstract-transform-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.trim-code-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.12);
+  border: 1px solid #00f0ff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.25);
+}
+
+.transform-micro-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  line-height: 1.3;
+}
+
+/* 右側高斯收斂條狀圖 (Topic 01) */
+.abstract-gauge-panel {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.gauge-spread-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.spread-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 60px;
+  align-items: center;
+  gap: 8px;
+}
+
+.spread-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.spread-bar-wrap {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.spread-bar.raw-bar {
+  width: 90%;
+  height: 100%;
+  background: linear-gradient(90deg, #f43f5e, #fb7185);
+  box-shadow: 0 0 8px rgba(244, 63, 94, 0.5);
+}
+
+.spread-bar.locked-bar {
+  width: 15%;
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #34d399);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+.spread-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.spread-val.fail-val { color: #f43f5e; }
+.spread-val.pass-val { color: #10b981; }
+
+.spread-row.action-row {
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.spread-chip-action {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px dashed rgba(56, 189, 248, 0.4);
+}
+
+.convergence-rate-callout {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.rate-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 20px;
+  font-weight: 900;
+  color: #10b981;
+}
+
+.rate-text {
+  font-size: 11px;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+/* Topic 02: 晶圓大網格圖案 (Large Wafer Die Grid) */
+.wafer-mini-grid-large {
+  display: grid;
+  grid-template-columns: repeat(4, 16px);
+  grid-template-rows: repeat(4, 16px);
+  gap: 4px;
+}
+
+.chip-die {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 900;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.chip-die.pass {
+  background: rgba(16, 185, 129, 0.25);
+  border: 1px solid #10b981;
+  color: #10b981;
+}
+
+.chip-die.fail {
+  background: rgba(244, 63, 94, 0.35);
+  border: 1px solid #f43f5e;
+  color: #f43f5e;
+  animation: pulse-fail 1.5s infinite;
+}
+
+.chip-die.rescued {
+  background: rgba(0, 240, 255, 0.35);
+  border: 1px solid #00f0ff;
+  color: #00f0ff;
+  box-shadow: 0 0 8px #00f0ff;
+}
+
+/* Topic 03: De-Mura 螢幕平坦化對比 */
+.demura-visual-pair {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 8px;
+}
+
+.demura-screen {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  padding: 8px;
+  text-align: center;
+  width: 110px;
+}
+
+.screen-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.fail-label { color: #f43f5e; }
+.pass-label { color: #10b981; }
+
+.screen-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, 14px);
+  gap: 3px;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.m-pixel {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.m-pixel.p-hi { background: #fbbf24; }
+.m-pixel.p-mid { background: #f59e0b; }
+.m-pixel.p-lo { background: #b45309; }
+.m-pixel.p-dark { background: #78350f; }
+.m-pixel.p-clean { background: #00f0ff; box-shadow: 0 0 4px #00f0ff; }
+
+.screen-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.fail-sub { color: #f43f5e; }
+.pass-sub { color: #10b981; }
+.demura-arrow { font-size: 16px; color: #00f0ff; }
+
+/* Topic 04: E-Ink 速度階躍與雙粒子微膠囊 */
+.stokes-speedup-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.speed-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.speed-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.speed-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.speed-fill.fill-5v {
+  width: 10%;
+  height: 100%;
+  background: #f43f5e;
+}
+
+.speed-fill.fill-50v {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #00f0ff, #10b981);
+  box-shadow: 0 0 10px #00f0ff;
+}
+
+.speed-delay {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.fail-text { color: #f43f5e; }
+.pass-text { color: #10b981; }
+
+.abstract-microcapsule-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.capsule-visual-sphere {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #00f0ff;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.15), rgba(15, 23, 42, 0.9));
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px;
+}
+
+.capsule-electrode {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px;
+  font-weight: 800;
+  padding: 1px 4px;
+  border-radius: 2px;
+}
+
+.top-electrode {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.bottom-electrode {
+  background: rgba(0, 0, 0, 0.6);
+  color: #94a3b8;
+  border-top: 1px solid #64748b;
+}
+
+.capsule-interior {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.particle-cluster {
+  display: flex;
+  gap: 4px;
+}
+
+.p-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.p-dot.w-dot {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 0 6px #fff;
+}
+
+.p-dot.b-dot {
+  background: #000000;
+  color: #94a3b8;
+  border: 1px solid #475569;
+}
+
+.viscous-fluid-arrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  color: #00f0ff;
+}
+
+.capsule-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.bistable-kpi-display {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.bistable-meter-box {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.meter-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 24px;
+  font-weight: 900;
+  color: #10b981;
+  display: block;
+}
+
+.meter-val small { font-size: 12px; }
+
+.meter-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.bistable-state-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 4px;
+  padding: 4px 6px;
+}
+
+/* 底部真實真相指示條 (Truth Strip) */
+.abstract-truth-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+@media (max-width: 768px) {
+  .abstract-truth-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.truth-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pill-k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.05em;
+}
+
+.pill-v {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  color: #00f0ff;
+}
+
+/* ==========================================================================
+   STATE CONTRACT TRUTH GRID & SLIDE CARD CHIPS (NO PROSE ESSAYS)
+   ========================================================================== */
+.contract-kpi {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 800;
+  color: #10b981;
+  margin: 4px 0 6px;
+}
+
+.contract-spec-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.contract-spec-tags span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  padding: 2px 6px;
+}
+
+.deck-chip-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.deck-chip-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.chip-k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.chip-v {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.chip-v.cyan { color: #00f0ff; }
+.chip-v.green { color: #10b981; }
+.chip-v.amber { color: #f59e0b; }
+.chip-v.rose { color: #f43f5e; }
+.chip-v.purple { color: #c084fc; }
