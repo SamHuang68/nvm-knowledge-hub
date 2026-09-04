@@ -959,51 +959,81 @@
              ========================================================= -->
                 <!-- DUO GRID: GOVERNING PHYSICS & STATE CONTRACT 02 -->
         <div class="spec-duo-grid">
-          <!-- GOVERNING PHYSICS 02 -->
+          <!-- GOVERNING PHYSICS 02: ABSTRACT YIELD RESCUE FIGURE -->
           <div class="governing-physics-box">
             <div class="governing-physics-header">
-              <span class="math-integral">∫ dt</span>
-              <span data-lang="zh">支配物理 02 · 泊松良率復原模型與反熔絲細絲阻抗物理</span>
-              <span data-lang="en">GOVERNING PHYSICS 02 · POISSON YIELD RECOVERY &amp; FILAMENT BREAKDOWN PHYSICS</span>
+              <span class="deck-slide-badge" style="background: rgba(0, 240, 255, 0.15); border-color: #00f0ff; color: #00f0ff;">FIGURE 02</span>
+              <span data-lang="zh">核心定理 02 · 晶圓隨機缺陷容忍與二維備援良率救贖模型</span>
+              <span data-lang="en">GOVERNING PRINCIPLE 02 · WAFER DEFECT TOLERANCE &amp; 2D SPARE YIELD RESCUE</span>
             </div>
-            <div class="governing-physics-formula">
-              $$Y_{\mathrm{repaired}} = Y_0 \cdot \left[ \sum_{k=0}^{S_{\mathrm{row}}} \frac{(\lambda_r)^k e^{-\lambda_r}}{k!} \right] \cdot \left[ \sum_{m=0}^{S_{\mathrm{col}}} \frac{(\lambda_c)^m e^{-\lambda_c}}{m!} \right]$$
-            </div>
-            <div class="governing-physics-desc">
-              <strong class="physics-desc-title"><span data-lang="zh">物理機制：</span><span data-lang="en">Physical Mechanism:</span></strong>
-              <span data-lang="zh">泊松缺陷空間分佈與二維備援行/列修復 • AntiFuse 硬體細絲 ($R_{\mathrm{filament}} < 100\,\Omega$) 永久修復挽救良率。</span>
-              <span data-lang="en">Poisson defect spatial distribution and 2D spare row/col repair • AntiFuse silicide filament rupture ($R_{\mathrm{filament}} < 100\,\Omega$) rescues yield.</span>
-            </div>
-          </div>
 
-          <!-- STATE CONTRACT TAKEAWAY 02 -->
-          <div class="state-contract-box">
-            <div class="state-contract-header">
-              <span class="arrow-icon">▶</span>
-              <span data-lang="zh">狀態契約印鑑 · 02 矩陣良率與缺陷備援修復</span>
-              <span data-lang="en">STATE CONTRACT TRUTH GRID · TOPIC 02</span>
+            <!-- 純視覺抽象 Figure：從 42% 報廢死刑 ➔ 98.6% 全數救回！ -->
+            <div class="yield-rescue-figure">
+              <!-- 左側：未修復 (Raw Wafer · 致命微塵直接報廢) -->
+              <div class="yield-stage-panel raw-stage">
+                <div class="stage-tag-badge fail">
+                  <span data-lang="zh">未修復原生晶圓 (無備援)</span>
+                  <span data-lang="en">RAW WAFER (FATAL DEFECTS)</span>
+                </div>
+                <div class="wafer-abstract-disk fail-disk">
+                  <div class="wafer-mini-grid">
+                    <span class="chip-dot pass"></span><span class="chip-dot fail">✕</span><span class="chip-dot pass"></span>
+                    <span class="chip-dot fail">✕</span><span class="chip-dot pass"></span><span class="chip-dot pass"></span>
+                    <span class="chip-dot pass"></span><span class="chip-dot fail">✕</span><span class="chip-dot pass"></span>
+                  </div>
+                </div>
+                <div class="yield-metric-callout fail-color">
+                  <span class="yield-number">42.8%</span>
+                  <span class="yield-label"><span data-lang="zh">原生良率 (致命微塵判死)</span><span data-lang="en">Raw Yield (Mass Scrap)</span></span>
+                </div>
+              </div>
+
+              <!-- 中間：抽象轉換軌道 (BIRA + AntiFuse 備援行/列覆蓋) -->
+              <div class="yield-transform-arrow">
+                <div class="spare-budget-tag">
+                  <span class="spare-badge">+2 SPARE ROWS</span>
+                  <span class="spare-badge">+2 SPARE COLS</span>
+                </div>
+                <div class="arrow-motion-track">
+                  <span class="arrow-shaft"></span>
+                  <span class="arrow-head">▶</span>
+                </div>
+                <div class="transform-micro-label">
+                  <span data-lang="zh">BIRA 最優二維重映射覆蓋</span>
+                  <span data-lang="en">BIRA 2D Spare Redundancy Remap</span>
+                </div>
+              </div>
+
+              <!-- 右側：修復後 (Repaired Wafer · 熔絲重映射全數救回) -->
+              <div class="yield-stage-panel repaired-stage">
+                <div class="stage-tag-badge pass">
+                  <span data-lang="zh">AntiFuse 燒錄修復後晶圓</span>
+                  <span data-lang="en">REPAIRED WAFER (FUSED)</span>
+                </div>
+                <div class="wafer-abstract-disk pass-disk">
+                  <div class="wafer-mini-grid">
+                    <span class="chip-dot pass"></span><span class="chip-dot rescued">✓</span><span class="chip-dot pass"></span>
+                    <span class="chip-dot rescued">✓</span><span class="chip-dot pass"></span><span class="chip-dot pass"></span>
+                    <span class="chip-dot pass"></span><span class="chip-dot rescued">✓</span><span class="chip-dot pass"></span>
+                  </div>
+                </div>
+                <div class="yield-metric-callout pass-color">
+                  <span class="yield-number">98.6%</span>
+                  <span class="yield-label"><span data-lang="zh">修復後良率 (+55.8% 挽救)</span><span data-lang="en">Repaired Yield (+55.8% Rescued)</span></span>
+                </div>
+              </div>
             </div>
-            <div class="state-contract-grid">
-              <div class="contract-truth-card">
-                <div class="contract-card-code">CONTRACT #01 · PERSISTENCE</div>
-                <strong><span data-lang="zh">缺陷持久化：</span><span data-lang="en">Defect Persistence:</span></strong>
-                <p><span data-lang="zh">CP 測試發現缺陷列，透過 AntiFuse 硬體燒錄永久重映射至備援陣列。</span><span data-lang="en">Defective rows detected during CP wafer sort are permanently remapped via AntiFuse OTP.</span></p>
-              </div>
-              <div class="contract-truth-card">
-                <div class="contract-card-code">CONTRACT #02 · IN-FIELD PPR</div>
-                <strong><span data-lang="zh">現場 PPR 契約：</span><span data-lang="en">In-Field PPR Contract:</span></strong>
-                <p><span data-lang="zh">JEDEC PPR 僅在開機 BIST 或預警階段寫入，避免運行中未授權重新映射。</span><span data-lang="en">Host system JEDEC PPR operations are restricted to boot BIST or early warning phases.</span></p>
-              </div>
-              <div class="contract-truth-card">
-                <div class="contract-card-code">CONTRACT #03 · DETERMINISM</div>
-                <strong><span data-lang="zh">確定性延遲：</span><span data-lang="en">Deterministic Latency:</span></strong>
-                <p><span data-lang="zh">備援位址由硬體 CAM 直接解析，讀寫延遲與原生陣列嚴格一致 (&lt;1.2ns)。</span><span data-lang="en">Spare addresses are decoded cycle-accurately by on-die CAM match logic (&lt;1.2ns).</span></p>
-              </div>
-              <div class="contract-truth-card">
-                <div class="contract-card-code">CONTRACT #04 · CHANNEL</div>
-                <strong><span data-lang="zh">物理通道：</span><span data-lang="en">Physical Channel:</span></strong>
-                <p><span data-lang="zh">閘極氧化層擊穿阻抗 &lt; 100Ω，不可逆物理相變，耐受高溫回跳。</span><span data-lang="en">Gate oxide breakdown resistance &lt; 100Ω, irreversible physical phase change against thermal bounce.</span></p>
-              </div>
+
+            <!-- 底層抽象機制微標籤說明與模型來源標註 -->
+            <div class="governing-physics-desc" style="margin-top: 10px;">
+              <strong class="physics-desc-title"><span data-lang="zh">核心機制：</span><span data-lang="en">Core Mechanism:</span></strong>
+              <span data-lang="zh">高密集晶粒（2 億畫素 CIS、HBM3e）隨機微塵缺陷極易致死。預留極少量的「2 行 + 2 列」備援單元，即可由 AntiFuse 熔絲硬體重寫解碼器，將 55.8% 判定報廢的死亡晶片全數挽救！</span>
+              <span data-lang="en">High-density dies (200MP CIS, HBM3e) suffer fatal dust defects. Provisioning just '+2 spare rows/cols' enables AntiFuse OTP to remap bad addresses, rescuing 55.8% scrap dies back to full specification!</span>
+            </div>
+
+            <div class="figure-math-reference">
+              <span>FOUNDRY POISSON DEFECT COVERAGE MODEL</span>
+              <span>$$Y_{\mathrm{repaired}} = Y_0 \cdot \sum_{k=0}^{S_r} \frac{\lambda_r^k e^{-\lambda_r}}{k!} \cdot \sum_{m=0}^{S_c} \frac{\lambda_c^m e^{-\lambda_c}}{m!}$$</span>
             </div>
           </div>
         </div>
