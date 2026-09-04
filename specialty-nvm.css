@@ -1197,3 +1197,252 @@ html[data-language="zh"] .data-table thead th {
   }
 }
 
+
+
+/* =========================================================
+   Research Meta Strip (Foundry & Standards Discipline)
+   ========================================================= */
+.specialty-research-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 28px auto 34px;
+  max-width: 1060px;
+  padding: 16px 24px;
+  background: rgba(3, 16, 26, 0.75);
+  border: 1px solid var(--spec-line);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.specialty-research-meta .meta-item b {
+  display: block;
+  font-family: var(--spec-mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--spec-aqua);
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.specialty-research-meta .meta-item span {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8faab0;
+  line-height: 1.45;
+}
+
+/* =========================================================
+   Physics Formula & State Contract Cards
+   ========================================================= */
+.physics-formula-card {
+  margin: 36px 0 32px;
+  padding: 24px 28px;
+  background: linear-gradient(135deg, rgba(6, 26, 38, 0.92) 0%, rgba(3, 14, 22, 0.98) 100%);
+  border: 1px solid rgba(113, 236, 227, 0.25);
+  border-left: 4px solid var(--spec-aqua);
+  border-radius: 6px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+}
+
+.formula-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.formula-badge {
+  font-family: var(--spec-mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  background: rgba(113, 236, 227, 0.15);
+  color: var(--spec-aqua);
+  border-radius: 3px;
+  border: 1px solid rgba(113, 236, 227, 0.3);
+}
+
+.formula-header h4 {
+  font-size: 15.5px;
+  font-weight: 750;
+  color: #ffffff;
+  margin: 0;
+  font-family: var(--spec-sans);
+}
+
+.formula-equation {
+  margin: 14px 0 16px;
+  padding: 14px 20px;
+  background: rgba(1, 8, 14, 0.65);
+  border-radius: 4px;
+  border: 1px dashed rgba(113, 236, 227, 0.2);
+}
+
+.formula-equation strong {
+  display: block;
+  font-family: var(--spec-mono);
+  font-size: 13.5px;
+  color: #e2eff2;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+.formula-equation small {
+  display: block;
+  margin-top: 6px;
+  color: #8faab0;
+  font-size: 11.5px;
+  line-height: 1.5;
+}
+
+.state-contract-takeaway {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contract-tag {
+  font-family: var(--spec-mono);
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--spec-amber);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.contract-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contract-list li {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #b0c9dd;
+}
+
+.contract-list li b {
+  color: #ffffff;
+}
+
+/* =========================================================
+   Global Foundry Stepper Matrix Section
+   ========================================================= */
+.foundry-roadmap-section {
+  margin: 54px 0 32px;
+  padding: 32px 36px;
+  background: linear-gradient(135deg, rgba(6, 26, 38, 0.85) 0%, rgba(2, 12, 20, 0.95) 100%);
+  border: 1px solid var(--spec-line);
+  border-radius: 8px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), var(--spec-glow);
+}
+
+.roadmap-header {
+  margin-bottom: 24px;
+}
+
+.roadmap-header h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 6px 0 8px;
+}
+
+.foundry-stepper-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.stepper-col {
+  background: rgba(3, 14, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.25s var(--ease-premium);
+}
+
+.stepper-col:hover {
+  border-color: var(--spec-aqua);
+  box-shadow: 0 8px 24px rgba(17, 210, 208, 0.12);
+  transform: translateY(-2px);
+}
+
+.stepper-brand {
+  font-family: var(--spec-sans);
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--spec-aqua);
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(113, 236, 227, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stepper-sub {
+  font-family: var(--spec-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #8faab0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stepper-node-card {
+  background: rgba(1, 8, 14, 0.5);
+  padding: 10px 12px;
+  border-radius: 4px;
+  border-left: 2.5px solid var(--spec-amber);
+}
+
+.stepper-node-card .node-tag {
+  display: inline-block;
+  font-family: var(--spec-mono);
+  font-size: 9px;
+  font-weight: 800;
+  color: var(--spec-amber);
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.stepper-node-card b {
+  display: block;
+  font-size: 12px;
+  color: #ffffff;
+  margin-bottom: 4px;
+  font-family: var(--spec-mono);
+}
+
+.stepper-node-card p {
+  font-size: 11px;
+  line-height: 1.45;
+  color: #8faab0;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .specialty-research-meta, .foundry-stepper-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .specialty-research-meta, .foundry-stepper-grid {
+    grid-template-columns: 1fr;
+  }
+}

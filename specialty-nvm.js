@@ -2,6 +2,73 @@
 // Supports: BCD Power, Array Redundancy Repair, High-Voltage Display Drivers & E-Ink
 
 document.addEventListener('DOMContentLoaded', () => {
+
+  // =========================================================
+  // 0. Hi-DPI (Retina/4K) 縮放校正與精密半導體儀表引擎
+  // =========================================================
+  function setupHiDPICanvas(canvas, cssWidth, cssHeight) {
+    if (!canvas) return null;
+    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    const targetW = Math.round(cssWidth * dpr);
+    const targetH = Math.round(cssHeight * dpr);
+
+    if (canvas.width !== targetW || canvas.height !== targetH) {
+      canvas.width = targetW;
+      canvas.height = targetH;
+    }
+    canvas.style.width = cssWidth + 'px';
+    canvas.style.height = cssHeight + 'px';
+
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+    return ctx;
+  }
+
+  function drawInstrumentGrid(ctx, w, h, opts) {
+    if (!ctx) return;
+    const divX = (opts && opts.divX) || 40;
+    const divY = (opts && opts.divY) || 30;
+    const gridColor = (opts && opts.gridColor) || 'rgba(17, 210, 208, 0.08)';
+    const axisColor = (opts && opts.axisColor) || 'rgba(113, 236, 227, 0.35)';
+    const showSubdiv = opts && opts.showSubdivisions !== false;
+
+    ctx.save();
+    ctx.lineWidth = 1;
+
+    if (showSubdiv) {
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
+      ctx.beginPath();
+      for (let x = divX / 5; x < w; x += divX / 5) { ctx.moveTo(x, 0); ctx.lineTo(x, h); }
+      for (let y = divY / 5; y < h; y += divY / 5) { ctx.moveTo(0, y); ctx.lineTo(w, y); }
+      ctx.stroke();
+    }
+
+    ctx.strokeStyle = gridColor;
+    ctx.beginPath();
+    for (let x = 0; x <= w; x += divX) { ctx.moveTo(x, 0); ctx.lineTo(x, h); }
+    for (let y = 0; y <= h; y += divY) { ctx.moveTo(0, y); ctx.lineTo(w, y); }
+    ctx.stroke();
+
+    if (opts && opts.centerCrosshair) {
+      const cx = Math.floor(w / 2);
+      const cy = Math.floor(h / 2);
+      ctx.strokeStyle = axisColor;
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(0, cy); ctx.lineTo(w, cy);
+      ctx.moveTo(cx, 0); ctx.lineTo(cx, h);
+      ctx.stroke();
+
+      ctx.strokeStyle = 'rgba(113, 236, 227, 0.6)';
+      ctx.beginPath();
+      for (let x = 0; x <= w; x += divX / 5) { ctx.moveTo(x, cy - 2.5); ctx.lineTo(x, cy + 2.5); }
+      for (let y = 0; y <= h; y += divY / 5) { ctx.moveTo(cx - 2.5, y); ctx.lineTo(cx + 2.5, y); }
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
   let currentLang = (window.HubLanguage && window.HubLanguage.get()) || 'en';
 
   // =========================================================
@@ -60,10 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function drawVrefCurve() {
     if (!canvasVref) return;
-    const ctx = canvasVref.getContext('2d');
-    const w = canvasVref.width;
-    const h = canvasVref.height;
+    const w = 480;
+    const h = 220;
+    const ctx = setupHiDPICanvas(canvasVref, w, h);
     ctx.clearRect(0, 0, w, h);
+
+    // 精密半導體示波器背景格線
+    drawInstrumentGrid(ctx, w, h, { divX: 40, divY: 30, showSubdivisions: true, centerCrosshair: false });
 
     // 繪製格線
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
@@ -258,9 +328,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function drawMatrix() {
     if (!canvasMatrix) return;
-    const ctx = canvasMatrix.getContext('2d');
-    const w = canvasMatrix.width;
-    const h = canvasMatrix.height;
+    const w = 280;
+    const h = 280;
+    const ctx = setupHiDPICanvas(canvasMatrix, w, h);
     ctx.clearRect(0, 0, w, h);
 
     const pad = 12;
@@ -454,10 +524,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function drawGammaCurve() {
     if (!canvasGamma) return;
-    const ctx = canvasGamma.getContext('2d');
-    const w = canvasGamma.width;
-    const h = canvasGamma.height;
+    const w = 480;
+    const h = 220;
+    const ctx = setupHiDPICanvas(canvasGamma, w, h);
     ctx.clearRect(0, 0, w, h);
+
+    // 精密儀表背景格線
+    drawInstrumentGrid(ctx, w, h, { divX: 40, divY: 30, showSubdivisions: true, centerCrosshair: false });
 
     const gamma = sliderGamma ? parseFloat(sliderGamma.value) : 2.2;
     if (lblGammaVal) lblGammaVal.textContent = `Gamma: ${gamma.toFixed(2)}`;
@@ -694,10 +767,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function drawWaveform() {
     if (!canvasWaveform) return;
-    const ctx = canvasWaveform.getContext('2d');
-    const w = canvasWaveform.width;
-    const h = canvasWaveform.height;
+    const w = 480;
+    const h = 150;
+    const ctx = setupHiDPICanvas(canvasWaveform, w, h);
     ctx.clearRect(0, 0, w, h);
+
+    // Tektronix 示波器格線
+    drawInstrumentGrid(ctx, w, h, { divX: 40, divY: 25, showSubdivisions: true, centerCrosshair: true });
 
     // 示波器格線
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';

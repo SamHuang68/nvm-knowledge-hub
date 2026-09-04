@@ -110,6 +110,26 @@
           <span data-lang="en">Deep treatise on BCD Power Management (PMIC trimming, LED drivers, USB-PD protocols, BLDC motor firmware, BMIC AFE), Dense Matrix Array Repair (CIS and DRAM/HBM redundancy remapping), High-Voltage Display Driver ICs, and E-Ink 40V-50V Ultra-HV driving with MTP-to-OTP lifecycle migration. Equipped with 4 flagship interactive laboratories.</span>
         </p>
 
+        <!-- Enhanced Research Meta Strip (Foundry & Standards Discipline) -->
+        <div class="specialty-research-meta">
+          <div class="meta-item">
+            <b>5 FOUNDRIES</b>
+            <span><span data-lang="zh">全球主力代工覆蓋 (TSMC / UMC / GF / VIS / Nexchip)</span><span data-lang="en">Global Foundry Platforms Covered</span></span>
+          </div>
+          <div class="meta-item">
+            <b>12 SPECS</b>
+            <span><span data-lang="zh">JEDEC / AEC-Q100 業界標準收斂</span><span data-lang="en">Industry Standards Benchmarked</span></span>
+          </div>
+          <div class="meta-item">
+            <b>4 FORMULAS</b>
+            <span><span data-lang="zh">半導體物理與控制方程式</span><span data-lang="en">Governing Physics Equations</span></span>
+          </div>
+          <div class="meta-item">
+            <b>2026-09-04</b>
+            <span><span data-lang="zh">研究證據與 PDK 凍結日</span><span data-lang="en">Research &amp; PDK Freeze Date</span></span>
+          </div>
+        </div>
+
         <!-- Quick Navigation Bar -->
         <nav class="specialty-nav-pills" aria-label="Specialty Topic Anchors">
           <a href="#topic-bcd" class="nav-pill">
@@ -386,6 +406,32 @@
           </div>
         </div>
 
+        <!-- Governing Physics & State Contract 01: BCD Bandgap -->
+        <div class="physics-formula-card">
+          <div class="formula-header">
+            <span class="formula-badge">GOVERNING PHYSICS 01</span>
+            <h4>
+              <span data-lang="zh">帶隙基準源一階溫度補償與 OTP 電阻微調模型</span>
+              <span data-lang="en">Bandgap Reference First-Order Temp-Comp &amp; OTP Trimming Model</span>
+            </h4>
+          </div>
+          <div class="formula-equation">
+            <strong>V<sub>REF</sub>(T) = V<sub>BE</sub>(T) + [ (k&middot;T / q) &middot; ln(N) ] &middot; [ (R<sub>2</sub> + &Delta;R<sub>OTP</sub>) / R<sub>1</sub> ]</strong>
+            <small>
+              <span data-lang="zh">CTAT 電壓 (V<sub>BE</sub>) 與 PTAT 電壓 (&Delta;V<sub>BE</sub>) 對消 &bull; &Delta;R<sub>OTP</sub> 離散階梯補償晶圓製造散佈</span>
+              <span data-lang="en">CTAT (V<sub>BE</sub>) cancels PTAT (&Delta;V<sub>BE</sub>) &bull; &Delta;R<sub>OTP</sub> discrete steps compensate wafer process variations</span>
+            </small>
+          </div>
+          <div class="state-contract-takeaway">
+            <div class="contract-tag">STATE CONTRACT TAKEAWAY &middot; TOPIC 01</div>
+            <ul class="contract-list">
+              <li><b><span data-lang="zh">狀態歸屬 (Ownership)：</span><span data-lang="en">State Ownership:</span></b> <span data-lang="zh">晶圓測試 (CP) 階段寫入，上電 50ns 內純硬體暫存器鎖定，韌體無權篡改。</span><span data-lang="en">Burned at CP wafer sort; hardware-locked within 50ns of power-up; immune to firmware corruption.</span></li>
+              <li><b><span data-lang="zh">高溫耐受 (Retention)：</span><span data-lang="en">High-Temp Retention:</span></b> <span data-lang="zh">車規 AEC-Q100 Grade 0 (175&deg;C 結溫) 15 年以上零漂移，絕不因 LDMOS 功率熱噪聲而退化。</span><span data-lang="en">15+ years @ 175&deg;C Tj (AEC-Q100 Grade 0); zero drift despite severe LDMOS thermal switching noise.</span></li>
+              <li><b><span data-lang="zh">寫入預算 (Endurance)：</span><span data-lang="en">Update Budget:</span></b> <span data-lang="zh">一次性永久固化 (AntiFuse OTP) 或有限次數校準 (4-times NeoMTP)。</span><span data-lang="en">Permanent hard lock (AntiFuse OTP) or bounded calibration budget (4-times NeoMTP).</span></li>
+            </ul>
+          </div>
+        </div>
+
         <!-- Zero Mask Comparison Table -->
         <div class="comparison-panel">
           <div class="comparison-header">
@@ -458,26 +504,27 @@
           </p>
         </header>
         <!-- Metric Callout Tiles Bar -->
+                <!-- Metric Callout Tiles Bar (Matrix Repair Specialized) -->
         <div class="metric-tiles-bar">
           <div class="metric-tile">
-            <div class="metric-tile-val">&plusmn;0.5%</div>
-            <div class="metric-tile-label"><span data-lang="zh">帶隙基準電壓精度</span><span data-lang="en">Vref Trim Accuracy</span></div>
-            <div class="metric-tile-sub"><span data-lang="zh">收斂原始 &plusmn;5% 製程離散</span><span data-lang="en">Tighter than raw &plusmn;5% drift</span></div>
+            <div class="metric-tile-val">100% hPPR</div>
+            <div class="metric-tile-label"><span data-lang="zh">封裝後硬體修復率</span><span data-lang="en">Post-Package Repair</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">JESD79-5 / JESD238 標準</span><span data-lang="en">JEDEC hPPR/sPPR compliant</span></div>
           </div>
           <div class="metric-tile">
-            <div class="metric-tile-val">0 MASKS</div>
-            <div class="metric-tile-label"><span data-lang="zh">原生邏輯零額外光罩</span><span data-lang="en">Zero Mask Adder</span></div>
-            <div class="metric-tile-sub"><span data-lang="zh">省去 10-15 道 eFlash 光罩</span><span data-lang="en">Saves 10-15 eFlash masks</span></div>
+            <div class="metric-tile-val">5&times; DENSITY</div>
+            <div class="metric-tile-label"><span data-lang="zh">熔絲陣列微縮密度</span><span data-lang="en">Fuse Layout Density</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">較傳統 eFuse 節省 80% 面積</span><span data-lang="en">80% area reduction vs eFuse</span></div>
           </div>
           <div class="metric-tile">
-            <div class="metric-tile-val">175&deg;C Tj</div>
-            <div class="metric-tile-label"><span data-lang="zh">車規 Grade 0 結溫</span><span data-lang="en">AEC-Q100 Grade 0</span></div>
-            <div class="metric-tile-sub"><span data-lang="zh">耐受 15 年以上高溫零漂移</span><span data-lang="en">15+ yrs zero-drift retention</span></div>
+            <div class="metric-tile-val">&lt;100 &Omega;</div>
+            <div class="metric-tile-label"><span data-lang="zh">矽化物細絲永久阻抗</span><span data-lang="en">Filament On-Resistance</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">物理擊穿絕無鬆弛回彈</span><span data-lang="en">Zero-relaxation breakdown</span></div>
           </div>
           <div class="metric-tile">
-            <div class="metric-tile-val">30-50%</div>
-            <div class="metric-tile-label"><span data-lang="zh">整體晶圓成本節約</span><span data-lang="en">Wafer Cost Reduction</span></div>
-            <div class="metric-tile-sub"><span data-lang="zh">免除高溫退火破壞 LDMOS</span><span data-lang="en">Protects LDMOS breakdown</span></div>
+            <div class="metric-tile-val">99.9%</div>
+            <div class="metric-tile-label"><span data-lang="zh">巨型陣列挽救良率</span><span data-lang="en">Yield Recovery Rate</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">挽救 50MP+ 億級像素晶圓</span><span data-lang="en">Rescues 50MP+ CIS &amp; HBM</span></div>
           </div>
         </div>
 
@@ -689,26 +736,27 @@
           </p>
         </header>
         <!-- Metric Callout Tiles Bar -->
+                <!-- Metric Callout Tiles Bar (HV Display Specialized) -->
         <div class="metric-tiles-bar">
           <div class="metric-tile">
-            <div class="metric-tile-val">&plusmn;0.5%</div>
-            <div class="metric-tile-label"><span data-lang="zh">帶隙基準電壓精度</span><span data-lang="en">Vref Trim Accuracy</span></div>
-            <div class="metric-tile-sub"><span data-lang="zh">收斂原始 &plusmn;5% 製程離散</span><span data-lang="en">Tighter than raw &plusmn;5% drift</span></div>
+            <div class="metric-tile-val">&Delta;E &lt; 1.0</div>
+            <div class="metric-tile-label"><span data-lang="zh">Gamma 2.2 色彩保真度</span><span data-lang="en">Gamma Fidelity</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">RGB 獨立 256 階 R-DAC 微調</span><span data-lang="en">Independent RGB R-DAC trim</span></div>
           </div>
           <div class="metric-tile">
-            <div class="metric-tile-val">0 MASKS</div>
-            <div class="metric-tile-label"><span data-lang="zh">原生邏輯零額外光罩</span><span data-lang="en">Zero Mask Adder</span></div>
-            <div class="metric-tile-sub"><span data-lang="zh">省去 10-15 道 eFlash 光罩</span><span data-lang="en">Saves 10-15 eFlash masks</span></div>
+            <div class="metric-tile-val">5 mV STEP</div>
+            <div class="metric-tile-label"><span data-lang="zh">Vcom 差動消除步階</span><span data-lang="en">Vcom Tuning Step</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">徹底杜絕 Flicker 殘影直流偏壓</span><span data-lang="en">Eliminates DC image sticking</span></div>
           </div>
           <div class="metric-tile">
-            <div class="metric-tile-val">175&deg;C Tj</div>
-            <div class="metric-tile-label"><span data-lang="zh">車規 Grade 0 結溫</span><span data-lang="en">AEC-Q100 Grade 0</span></div>
-            <div class="metric-tile-sub"><span data-lang="zh">耐受 15 年以上高溫零漂移</span><span data-lang="en">15+ yrs zero-drift retention</span></div>
+            <div class="metric-tile-val">128 Kb</div>
+            <div class="metric-tile-label"><span data-lang="zh">De-Mura 補償增益容量</span><span data-lang="en">De-Mura LUT Capacity</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">像素級 2D 空間亮度補償</span><span data-lang="en">Sub-pixel spatial compensation</span></div>
           </div>
           <div class="metric-tile">
-            <div class="metric-tile-val">30-50%</div>
-            <div class="metric-tile-label"><span data-lang="zh">整體晶圓成本節約</span><span data-lang="en">Wafer Cost Reduction</span></div>
-            <div class="metric-tile-sub"><span data-lang="zh">免除高溫退火破壞 LDMOS</span><span data-lang="en">Protects LDMOS breakdown</span></div>
+            <div class="metric-tile-val">40V PEAK</div>
+            <div class="metric-tile-label"><span data-lang="zh">閘極高壓擺幅耐受</span><span data-lang="en">Gate HV Swing Immunity</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">耐受穿戴與行動 DDIC 電氣應力</span><span data-lang="en">Withstands +20V/-15V transients</span></div>
           </div>
         </div>
 
@@ -881,26 +929,27 @@
           </p>
         </header>
         <!-- Metric Callout Tiles Bar -->
+                <!-- Metric Callout Tiles Bar (E-Ink Ultra-HV Specialized) -->
         <div class="metric-tiles-bar">
           <div class="metric-tile">
-            <div class="metric-tile-val">&plusmn;0.5%</div>
-            <div class="metric-tile-label"><span data-lang="zh">帶隙基準電壓精度</span><span data-lang="en">Vref Trim Accuracy</span></div>
-            <div class="metric-tile-sub"><span data-lang="zh">收斂原始 &plusmn;5% 製程離散</span><span data-lang="en">Tighter than raw &plusmn;5% drift</span></div>
+            <div class="metric-tile-val">40V-50V</div>
+            <div class="metric-tile-label"><span data-lang="zh">特種電泳推動脈衝</span><span data-lang="en">EPD Pulse Voltage</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">110HV 專屬高壓 CMOS 製程</span><span data-lang="en">110HV specialty CMOS node</span></div>
           </div>
           <div class="metric-tile">
-            <div class="metric-tile-val">0 MASKS</div>
-            <div class="metric-tile-label"><span data-lang="zh">原生邏輯零額外光罩</span><span data-lang="en">Zero Mask Adder</span></div>
-            <div class="metric-tile-sub"><span data-lang="zh">省去 10-15 道 eFlash 光罩</span><span data-lang="en">Saves 10-15 eFlash masks</span></div>
+            <div class="metric-tile-val">&lt;1 pA</div>
+            <div class="metric-tile-label"><span data-lang="zh">雙穩態靜態漏電流</span><span data-lang="en">Bistable Leakage</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">免除標準 BCD 致命接面漏電</span><span data-lang="en">Immune to BCD junction leakage</span></div>
           </div>
           <div class="metric-tile">
-            <div class="metric-tile-val">175&deg;C Tj</div>
-            <div class="metric-tile-label"><span data-lang="zh">車規 Grade 0 結溫</span><span data-lang="en">AEC-Q100 Grade 0</span></div>
-            <div class="metric-tile-sub"><span data-lang="zh">耐受 15 年以上高溫零漂移</span><span data-lang="en">15+ yrs zero-drift retention</span></div>
+            <div class="metric-tile-val">&lt;250 &mu;m</div>
+            <div class="metric-tile-label"><span data-lang="zh">COG/COF 窄邊框極限</span><span data-lang="en">Ultra-Slim Macro Height</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">長條型微型晶粒佈局最佳化</span><span data-lang="en">Aspect ratio for glass bonding</span></div>
           </div>
           <div class="metric-tile">
-            <div class="metric-tile-val">30-50%</div>
-            <div class="metric-tile-label"><span data-lang="zh">整體晶圓成本節約</span><span data-lang="en">Wafer Cost Reduction</span></div>
-            <div class="metric-tile-sub"><span data-lang="zh">免除高溫退火破壞 LDMOS</span><span data-lang="en">Protects LDMOS breakdown</span></div>
+            <div class="metric-tile-val">5-10 YRS</div>
+            <div class="metric-tile-label"><span data-lang="zh">ESL 鈕扣電池壽命</span><span data-lang="en">ESL Battery Lifetime</span></div>
+            <div class="metric-tile-sub"><span data-lang="zh">零外部 Flash 靜態損耗守護</span><span data-lang="en">Zero-power standby state</span></div>
           </div>
         </div>
 
@@ -1083,6 +1132,118 @@
           </div>
         </div>
       </div>
+      <!-- Global Multi-Foundry Specialty eNVM Stepper Matrix -->
+      <div class="foundry-roadmap-section">
+        <div class="roadmap-header">
+          <div class="panel-kicker">
+            <span class="pulse-indicator"></span>
+            <span class="kicker-tag">FOUNDRY ECOSYSTEM TOPOLOGY</span>
+          </div>
+          <h3>
+            <span data-lang="zh">全球特種晶圓代工製程與 eNVM 整合藍圖</span>
+            <span data-lang="en">Global Specialty Foundry Roadmap &amp; eNVM Integration Matrix</span>
+          </h3>
+          <p class="panel-sub">
+            <span data-lang="zh">涵蓋台積電 (TSMC)、聯電 (UMC)、格芯 (GlobalFoundries)、世界先進 (VIS) 與晶合集成 (Nexchip) 之 BCD、HV 與 eHV 節點佈局</span>
+            <span data-lang="en">Covering TSMC, UMC, GlobalFoundries, Vanguard (VIS), and Nexchip across BCD, HV, and eHV platforms</span>
+          </p>
+        </div>
+
+        <div class="foundry-stepper-grid">
+          <!-- TSMC Column -->
+          <article class="stepper-col">
+            <div class="stepper-brand">TSMC <span class="stepper-sub">Specialty Tech</span></div>
+            <div class="stepper-node-card">
+              <span class="node-tag">BCD POWER</span>
+              <b>180nm / 90nm / 40nm BCD</b>
+              <p>
+                <span data-lang="zh">12V - 85V LDMOS 功率開關 &bull; 原生 0-mask AntiFuse OTP 杜絕額外 12 道 eFlash 光罩開銷。</span>
+                <span data-lang="en">12V-85V LDMOS &bull; Native 0-mask AntiFuse OTP eliminates 12 extra eFlash masks.</span>
+              </p>
+            </div>
+            <div class="stepper-node-card">
+              <span class="node-tag">HV DISPLAY</span>
+              <b>80nm / 40nm / 28nm eHV</b>
+              <p>
+                <span data-lang="zh">8V - 32V 高壓 AMOLED 驅動 &bull; 內嵌 32Kb-128Kb MTP 支援 LTPO 與動態 De-Mura 補償。</span>
+                <span data-lang="en">8V-32V AMOLED DDIC &bull; 32Kb-128Kb MTP supports LTPO and dynamic De-Mura.</span>
+              </p>
+            </div>
+            <div class="stepper-node-card">
+              <span class="node-tag">ULTRA-HV E-INK</span>
+              <b>110nm HV (40V-50V)</b>
+              <p>
+                <span data-lang="zh">專屬超低漏電高壓 CMOS &bull; 搭配 &lt;250&mu;m 窄邊框 AntiFuse OTP 鎖定全彩電泳波形。</span>
+                <span data-lang="en">Ultra-low leakage HV CMOS &bull; &lt;250&mu;m slim OTP macros for color E-Ink LUTs.</span>
+              </p>
+            </div>
+          </article>
+
+          <!-- UMC Column -->
+          <article class="stepper-col">
+            <div class="stepper-brand">UMC <span class="stepper-sub">Foundry Nodes</span></div>
+            <div class="stepper-node-card">
+              <span class="node-tag">BCD &amp; POWER</span>
+              <b>0.11&mu;m / 55nm BCD</b>
+              <p>
+                <span data-lang="zh">鎖定車用與消費快充 USB-PD 控制器 &bull; 支援 AEC-Q100 Grade 0 極限高溫防護。</span>
+                <span data-lang="en">Targeted at USB-PD &amp; automotive PMICs &bull; Full AEC-Q100 Grade 0 compliance.</span>
+              </p>
+            </div>
+            <div class="stepper-node-card">
+              <span class="node-tag">HV DISPLAY</span>
+              <b>55nm / 28nm eHV / 22nm eHV</b>
+              <p>
+                <span data-lang="zh">全球智慧手機 AMOLED DDIC 主力代工 &bull; 原生超薄閘極介電質擊穿 AntiFuse 技術。</span>
+                <span data-lang="en">Mainstream smartphone AMOLED DDIC &bull; Native thin-oxide breakdown AntiFuse.</span>
+              </p>
+            </div>
+          </article>
+
+          <!-- GlobalFoundries Column -->
+          <article class="stepper-col">
+            <div class="stepper-brand">GlobalFoundries <span class="stepper-sub">Platform</span></div>
+            <div class="stepper-node-card">
+              <span class="node-tag">BCD PLATFORM</span>
+              <b>130nm BCD / 55nm BCDLite</b>
+              <p>
+                <span data-lang="zh">工業級馬達控制與電源轉換 &bull; 高溫可靠度資料留存優於傳統浮閘 eFlash。</span>
+                <span data-lang="en">Industrial motor control &amp; power conversion &bull; Superior retention vs floating-gate.</span>
+              </p>
+            </div>
+            <div class="stepper-node-card">
+              <span class="node-tag">FDX HV</span>
+              <b>22FDX eHV (FD-SOI)</b>
+              <p>
+                <span data-lang="zh">利用背柵偏壓 (Back-bias) 達成超低功耗微型顯示驅動與極限抗輻射矩陣修復。</span>
+                <span data-lang="en">Body-bias enables ultra-low power micro-display drivers &amp; rad-hard array repair.</span>
+              </p>
+            </div>
+          </article>
+
+          <!-- Vanguard & Specialty Column -->
+          <article class="stepper-col">
+            <div class="stepper-brand">VIS &amp; Nexchip <span class="stepper-sub">Specialty</span></div>
+            <div class="stepper-node-card">
+              <span class="node-tag">SPECIALTY HV</span>
+              <b>VIS 0.18&mu;m / 0.11&mu;m HV &amp; BCD</b>
+              <p>
+                <span data-lang="zh">全球 PMIC 與面板驅動主力代工廠 &bull; 全面採用零光罩純邏輯 AntiFuse 作為黃金微調解方。</span>
+                <span data-lang="en">Leading PMIC and DDIC foundry &bull; Standardizes on zero-mask logic AntiFuse.</span>
+              </p>
+            </div>
+            <div class="stepper-node-card">
+              <span class="node-tag">LARGE PANEL DDI</span>
+              <b>Nexchip 90nm / 55nm TDDI</b>
+              <p>
+                <span data-lang="zh">電視與筆電大尺寸觸控顯示整合驅動 (TDDI) &bull; 高良率 OTP 達成出廠 Gamma 及 Vcom 校準。</span>
+                <span data-lang="en">Large-panel TDDI for TVs &amp; laptops &bull; High-yield OTP for factory Gamma &amp; Vcom.</span>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+
     </section>
   </main>
 
