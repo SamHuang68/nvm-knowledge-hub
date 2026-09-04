@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- 共用語系切換腳本 -->
+  <script src="site-language.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061925">
+  <title>Technology Comparison · NVM Knowledge Hub</title>
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site-shell.css">
+  
+  <style>
+    /* 雙語顯示邏輯 */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert; }
+
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] {
+      display: revert !important;
+    }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] {
+      display: none !important;
+    }
+
+    /* Skip link */
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #73eee4; padding: 10px 18px; border: 1px solid #73eee4; border-radius: 4px; }
+    
+    .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
+
+    /* 本頁樣式 */
+    body {
+      background-color: #061925;
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    h1, h2, h3, .mono-text {
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 5%;
+    }
+
+    .hero-section {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #1a2f4c;
+      padding-bottom: 2rem;
+    }
+
+    .hero-section h1 {
+      color: #e2e8f0;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-section h1 em {
+      color: #73eee4;
+      font-style: normal;
+    }
+
+    .section-title {
+      color: #73eee4;
+      font-size: 1.8rem;
+      margin: 4rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .breadcrumb {
+      padding: 1rem 5%;
+      display: flex;
+      gap: 0.5rem;
+      color: #94a3b8;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      background: #0a1118;
+      border-bottom: 1px solid #1a2f4c;
+    }
+
+    .breadcrumb a {
+      color: #73eee4;
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    /* 對比表格 CSS Grid (Technology Comparison Matrix) */
+    .compare-matrix-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin-bottom: 2rem;
+    }
+    .compare-matrix {
+      display: grid;
+      grid-template-columns: 180px repeat(6, minmax(140px, 1fr));
+      gap: 1px;
+      background: #1a2f4c;
+      border: 1px solid #1a2f4c;
+      border-radius: 8px;
+      min-width: 900px;
+    }
+    .matrix-cell, .matrix-header, .matrix-row-header {
+      padding: 1rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .matrix-cell {
+      background: #0a1118;
+    }
+    .matrix-header {
+      background: #061925;
+      color: #73eee4;
+      font-weight: bold;
+      font-family: 'IBM Plex Mono', monospace;
+      border-bottom: 2px solid #73eee4;
+    }
+    .matrix-row-header {
+      background: #081521;
+      font-weight: bold;
+      font-family: 'IBM Plex Mono', monospace;
+      justify-content: flex-start;
+      text-align: left;
+      border-right: 1px solid #1a2f4c;
+      color: #e2e8f0;
+    }
+
+    /* 評分顏色 */
+    .val-excellent { color: #73eee4; font-weight: bold; }
+    .val-good { color: #a3e635; }
+    .val-fair { color: #f59e0b; }
+    .val-poor { color: #ef4444; }
+
+    /* Foundry 生態系卡片 */
+    .foundry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .foundry-card {
+      background: #0a1118;
+      border: 1px solid #1a2f4c;
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-left: 4px solid #73eee4;
+    }
+    .foundry-card h3 {
+      margin-top: 0;
+      color: #e2e8f0;
+    }
+
+    /* 選型指南 Decision Flow */
+    .decision-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .decision-step {
+      background: #0a1118;
+      border: 1px solid #1a2f4c;
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .decision-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #061925;
+      border: 2px solid #f59e0b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f59e0b;
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: bold;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .decision-content h4 {
+      margin: 0 0 0.5rem 0;
+      color: #73eee4;
+    }
+    .decision-content p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+  </style>
+</head>
+<body>
+  <!-- Skip Link -->
+  <a class="skip-link" href="#main-content">
+    <span data-lang="zh">跳至主要內容</span>
+    <span data-lang="en">Skip to main content</span>
+  </a>
+
+  <!-- Header -->
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub">
+      <span class="brand-mark">
+        <svg viewBox="0 0 48 48">
+          <rect x="11" y="11" width="26" height="26" rx="3" fill="none" stroke="#73eee4" stroke-width="2"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" fill="none" stroke="#73eee4" stroke-width="2"/>
+        </svg>
+      </span>
+      <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
+      <span class="brand-section">TECH COMPARISON</span>
+    </a>
+    <nav class="primary-nav" id="primaryNav" aria-label="主要導覽">
+      <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a><a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a><a href="iot-mcu-envm.html"><span data-lang="zh">IoT &amp; MCU</span><span data-lang="en">IoT &amp; MCU</span></a><a href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive</span></a><a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty</span></a><a class="is-active" aria-current="page" href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
+    </nav>
+    <div class="header-actions">
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Language">
+        <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
+      </button>
+    </div>
+  </header>
+
+  <!-- 麵包屑導覽 (Breadcrumb) -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">NVM Hub</a>
+    <span>›</span>
+    <span data-lang="zh">技術對比矩陣</span>
+    <span data-lang="en">Technology Comparison</span>
+  </nav>
+
+  <main id="main-content" class="main-container">
+    
+    <section class="hero-section">
+      <h1>
+        <span data-lang="zh">NVM 技術對比矩陣 <em>Comparison Matrix</em></span>
+        <span data-lang="en">NVM Technology Comparison <em>Matrix</em></span>
+      </h1>
+      <p>
+        <span data-lang="zh">全面解析各類非揮發性記憶體，協助架構師做出最佳技術選型。</span>
+        <span data-lang="en">A comprehensive analysis of non-volatile memories to help architects make optimal technology choices.</span>
+      </p>
+    </section>
+
+    <!-- 對比表格 (Comparison Matrix) -->
+    <h2 class="section-title">
+      <span data-lang="zh">核心技術指標對比</span>
+      <span data-lang="en">Core Metrics Comparison</span>
+    </h2>
+    <div class="compare-matrix-wrapper">
+      <div class="compare-matrix">
+        <!-- Header Row -->
+        <div class="matrix-header"><span data-lang="zh">維度</span><span data-lang="en">Metric</span></div>
+        <div class="matrix-header">AntiFuse OTP</div>
+        <div class="matrix-header">eFuse</div>
+        <div class="matrix-header">eFlash</div>
+        <div class="matrix-header">eMRAM</div>
+        <div class="matrix-header">eRRAM</div>
+        <div class="matrix-header">Mask ROM</div>
+
+        <!-- Row 1: Area -->
+        <div class="matrix-row-header"><span data-lang="zh">面積 Area/bit</span><span data-lang="en">Area/bit</span></div>
+        <div class="matrix-cell val-excellent">Small</div>
+        <div class="matrix-cell val-poor">Large</div>
+        <div class="matrix-cell val-fair">Medium</div>
+        <div class="matrix-cell val-excellent">Small</div>
+        <div class="matrix-cell val-excellent">Small</div>
+        <div class="matrix-cell val-excellent">Smallest</div>
+
+        <!-- Row 2: Power -->
+        <div class="matrix-row-header"><span data-lang="zh">功耗 Power</span><span data-lang="en">Power</span></div>
+        <div class="matrix-cell val-excellent">Low</div>
+        <div class="matrix-cell val-poor">High (Prog)</div>
+        <div class="matrix-cell val-fair">Medium</div>
+        <div class="matrix-cell val-good">Low</div>
+        <div class="matrix-cell val-good">Low</div>
+        <div class="matrix-cell val-excellent">Lowest</div>
+
+        <!-- Row 3: Mask Adders -->
+        <div class="matrix-row-header"><span data-lang="zh">光罩成本 Mask Adders</span><span data-lang="en">Mask Adders</span></div>
+        <div class="matrix-cell val-excellent">0 (Logic NVM)</div>
+        <div class="matrix-cell val-excellent">0</div>
+        <div class="matrix-cell val-poor">+10~15</div>
+        <div class="matrix-cell val-fair">+3~5</div>
+        <div class="matrix-cell val-fair">+2~4</div>
+        <div class="matrix-cell val-good">+1</div>
+
+        <!-- Row 4: Retention -->
+        <div class="matrix-row-header"><span data-lang="zh">可靠度 Retention</span><span data-lang="en">Retention</span></div>
+        <div class="matrix-cell val-excellent">&gt;10y @125C+</div>
+        <div class="matrix-cell val-good">&gt;10y @125C</div>
+        <div class="matrix-cell val-excellent">&gt;10y @125C</div>
+        <div class="matrix-cell val-fair">&gt;10y @85C</div>
+        <div class="matrix-cell val-fair">Improving</div>
+        <div class="matrix-cell val-excellent">Permanent</div>
+
+        <!-- Row 5: Scaling -->
+        <div class="matrix-row-header"><span data-lang="zh">製程微縮性 Scaling</span><span data-lang="en">Scaling</span></div>
+        <div class="matrix-cell val-excellent">Excellent (Sub-5nm)</div>
+        <div class="matrix-cell val-poor">Poor</div>
+        <div class="matrix-cell val-poor">Stops @ 28nm</div>
+        <div class="matrix-cell val-good">Good</div>
+        <div class="matrix-cell val-good">Good</div>
+        <div class="matrix-cell val-excellent">Excellent</div>
+
+        <!-- Row 6: Anti-tamper -->
+        <div class="matrix-row-header"><span data-lang="zh">安全性 Anti-tamper</span><span data-lang="en">Anti-tamper</span></div>
+        <div class="matrix-cell val-excellent">High (Invisible)</div>
+        <div class="matrix-cell val-poor">Low (Visible)</div>
+        <div class="matrix-cell val-fair">Medium</div>
+        <div class="matrix-cell val-good">High</div>
+        <div class="matrix-cell val-good">High</div>
+        <div class="matrix-cell val-poor">Low (Visible)</div>
+
+        <!-- Row 7: Endurance -->
+        <div class="matrix-row-header"><span data-lang="zh">寫入次數 Endurance</span><span data-lang="en">Endurance</span></div>
+        <div class="matrix-cell val-poor">1 (OTP)</div>
+        <div class="matrix-cell val-poor">1 (OTP)</div>
+        <div class="matrix-cell val-good">10K~100K</div>
+        <div class="matrix-cell val-excellent">&gt;10^6</div>
+        <div class="matrix-cell val-good">10K~100K</div>
+        <div class="matrix-cell val-poor">0 (ROM)</div>
+      </div>
+    </div>
+
+    <!-- Foundry 生態系 -->
+    <h2 class="section-title">
+      <span data-lang="zh">Foundry 生態系製程選項</span>
+      <span data-lang="en">Foundry Ecosystem & Process Options</span>
+    </h2>
+    <div class="foundry-grid">
+      <div class="foundry-card">
+        <h3>TSMC</h3>
+        <p>
+          <span data-lang="zh">支援先進製程 N7/N5/N3 AntiFuse OTP 方案；22nm/16nm MRAM/RRAM 成熟部署。</span>
+          <span data-lang="en">Supports advanced N7/N5/N3 AntiFuse OTP; mature MRAM/RRAM deployment at 22nm/16nm.</span>
+        </p>
+      </div>
+      <div class="foundry-card">
+        <h3>UMC</h3>
+        <p>
+          <span data-lang="zh">28nm/22nm eFlash 替代方案成熟，重點發展 IoT 與車用 MCU。</span>
+          <span data-lang="en">Mature eFlash alternatives at 28nm/22nm, focusing on IoT and Automotive MCUs.</span>
+        </p>
+      </div>
+      <div class="foundry-card">
+        <h3>Samsung</h3>
+        <p>
+          <span data-lang="zh">強攻 eMRAM (FDC)，28nm FD-SOI 生態系完整。</span>
+          <span data-lang="en">Strong push in eMRAM (FDC) with a complete 28nm FD-SOI ecosystem.</span>
+        </p>
+      </div>
+      <div class="foundry-card">
+        <h3>GlobalFoundries (GF)</h3>
+        <p>
+          <span data-lang="zh">22FDX eMRAM/RRAM 雙軌並行，專注於邊緣 AI 與低功耗射頻。</span>
+          <span data-lang="en">Dual-track 22FDX eMRAM/RRAM, focusing on Edge AI and low-power RF.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- 選型指南 Decision Flow -->
+    <h2 class="section-title">
+      <span data-lang="zh">選型指南 Decision Flow</span>
+      <span data-lang="en">Decision Flow Guidelines</span>
+    </h2>
+    <div class="decision-flow">
+      <div class="decision-step">
+        <div class="decision-icon">01</div>
+        <div class="decision-content">
+          <h4><span data-lang="zh">需要多次覆寫嗎？</span><span data-lang="en">Need Multiple Rewrites?</span></h4>
+          <p>
+            <span data-lang="zh">是 ➔ 考慮 eFlash (若製程 ≥ 28nm) 或 eMRAM/eRRAM (若製程 &lt; 28nm)。<br>否 ➔ 進入下一步。</span>
+            <span data-lang="en">Yes ➔ Consider eFlash (if node ≥ 28nm) or eMRAM/eRRAM (if node &lt; 28nm).<br>No ➔ Proceed to next step.</span>
+          </p>
+        </div>
+      </div>
+      <div class="decision-step">
+        <div class="decision-icon">02</div>
+        <div class="decision-content">
+          <h4><span data-lang="zh">是否在意光罩成本 (Mask Adders)？</span><span data-lang="en">Sensitive to Mask Adders?</span></h4>
+          <p>
+            <span data-lang="zh">是 ➔ 選擇 Logic NVM (AntiFuse OTP / eFuse)，不增加額外光罩。<br>否 ➔ 進入下一步。</span>
+            <span data-lang="en">Yes ➔ Choose Logic NVM (AntiFuse OTP / eFuse) for zero mask adders.<br>No ➔ Proceed to next step.</span>
+          </p>
+        </div>
+      </div>
+      <div class="decision-step">
+        <div class="decision-icon">03</div>
+        <div class="decision-content">
+          <h4><span data-lang="zh">高安全性與先進製程微縮？</span><span data-lang="en">High Security & Advanced Scaling?</span></h4>
+          <p>
+            <span data-lang="zh">要求高防篡改能力或使用 16nm 以下製程 ➔ 首選 AntiFuse OTP。<br>僅需基礎修補且面積不敏感 ➔ 可用傳統 eFuse。</span>
+            <span data-lang="en">Requires high anti-tamper or sub-16nm nodes ➔ AntiFuse OTP is preferred.<br>Basic trimming without area constraints ➔ Traditional eFuse.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer style="padding: 2rem 5%; text-align: center; border-top: 1px solid #1a2f4c; margin-top: 4rem; color: #64748b; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem;">
+    <p>&copy; 2026 NVM Knowledge Hub. All rights reserved.</p>
+  </footer>
+
+  <!-- 引入應用程式腳本 -->
+  <script src="app.js"></script>
+</body>
+</html>

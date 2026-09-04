@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- 共用語系切換腳本 -->
+  <script src="site-language.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061925">
+  <title>Automotive NVM · NVM Knowledge Hub</title>
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site-shell.css">
+  
+  <style>
+    /* 雙語顯示邏輯：預設英文 */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert; }
+
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] {
+      display: revert !important;
+    }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] {
+      display: none !important;
+    }
+
+    /* WCAG 高對比 Skip Link */
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #73eee4; padding: 10px 18px; border: 1px solid #73eee4; border-radius: 4px; }
+    
+    .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
+
+    /* 本頁特定樣式 - 遵循不建立新 CSS 檔的規範 */
+    body {
+      background-color: #061925;
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    h1, h2, h3, .mono-text {
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 5%;
+    }
+
+    .hero-section {
+      margin-bottom: 4rem;
+      border-bottom: 1px solid #1a2f4c;
+      padding-bottom: 2rem;
+    }
+
+    .hero-section h1 {
+      color: #e2e8f0;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-section h1 em {
+      color: #73eee4;
+      font-style: normal;
+    }
+
+    /* 指標卡片 (Metric Cards) */
+    .auto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0 4rem 0;
+    }
+
+    .metric-card {
+      background: #0a1118;
+      border: 1px solid #1a2f4c;
+      border-radius: 8px;
+      padding: 1.5rem;
+      border-top: 3px solid #73eee4;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card.warning {
+      border-top: 3px solid #f59e0b;
+    }
+
+    .metric-card h3 {
+      margin-top: 0;
+      color: #73eee4;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .metric-card.warning h3 {
+      color: #f59e0b;
+    }
+
+    .metric-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0.5rem 0;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    /* 流程步驟 (Step Flow) */
+    .step-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .step {
+      display: flex;
+      align-items: flex-start;
+      background: #0a1118;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #f59e0b;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    
+    .step-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f59e0b;
+      margin-right: 1.5rem;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .step-content h4 {
+      margin: 0 0 0.5rem 0;
+      color: #e2e8f0;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .section-title {
+      color: #73eee4;
+      font-size: 1.8rem;
+      margin: 3rem 0 1.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .breadcrumb {
+      padding: 1rem 5%;
+      display: flex;
+      gap: 0.5rem;
+      color: #94a3b8;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      background: #0a1118;
+      border-bottom: 1px solid #1a2f4c;
+    }
+
+    .breadcrumb a {
+      color: #73eee4;
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Link 必須有，支援雙語 -->
+  <a class="skip-link" href="#main-content">
+    <span data-lang="zh">跳至主要內容</span>
+    <span data-lang="en">Skip to main content</span>
+  </a>
+
+  <!-- Header 結構參考現有頁面 -->
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub">
+      <span class="brand-mark">
+        <svg viewBox="0 0 48 48">
+          <rect x="11" y="11" width="26" height="26" rx="3" fill="none" stroke="#73eee4" stroke-width="2"/>
+          <rect x="18" y="18" width="12" height="12" rx="2" fill="none" stroke="#73eee4" stroke-width="2"/>
+        </svg>
+      </span>
+      <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
+      <span class="brand-section">AUTOMOTIVE NVM</span>
+    </a>
+    <nav class="primary-nav" id="primaryNav" aria-label="主要導覽">
+      <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a><a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a><a href="iot-mcu-envm.html"><span data-lang="zh">IoT &amp; MCU</span><span data-lang="en">IoT &amp; MCU</span></a><a class="is-active" aria-current="page" href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive</span></a><a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty</span></a><a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
+    </nav>
+    <div class="header-actions">
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Language">
+        <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
+      </button>
+    </div>
+  </header>
+
+  <!-- 麵包屑導覽 (Breadcrumb) -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">NVM Hub</a>
+    <span>›</span>
+    <span data-lang="zh">車規級 NVM</span>
+    <span data-lang="en">Automotive NVM</span>
+  </nav>
+
+  <!-- 主要內容區 -->
+  <main id="main-content" class="main-container">
+    
+    <section class="hero-section">
+      <h1>
+        <span data-lang="zh">車規級非揮發性記憶體 <em>Automotive NVM</em></span>
+        <span data-lang="en">Automotive Grade NVM <em>Solutions</em></span>
+      </h1>
+      <p>
+        <span data-lang="zh">專為嚴苛環境設計，滿足 ADAS 與 EV 等高可靠度車用需求，從 AEC-Q100 到 ISO 26262 全面覆蓋。</span>
+        <span data-lang="en">Designed for harsh environments to meet high-reliability automotive needs like ADAS and EV, covering AEC-Q100 to ISO 26262.</span>
+      </p>
+    </section>
+
+    <!-- 指標卡片 (Metric Cards) -->
+    <h2 class="section-title">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      <span data-lang="zh">關鍵可靠度指標</span>
+      <span data-lang="en">Key Reliability Metrics</span>
+    </h2>
+    <div class="auto-grid">
+      <div class="metric-card warning">
+        <h3>AEC-Q100 Grade 0</h3>
+        <div class="metric-value">175°C</div>
+        <p>
+          <span data-lang="zh">最高工作溫度驗證，確保引擎室內極端高溫下的資料保持力 (Data Retention)。</span>
+          <span data-lang="en">Verified for maximum operating temperature, ensuring data retention under extreme under-hood temperatures.</span>
+        </p>
+      </div>
+      <div class="metric-card">
+        <h3><span data-lang="zh">零漂移特性</span><span data-lang="en">Zero-Drift Profile</span></h3>
+        <div class="metric-value">0%</div>
+        <p>
+          <span data-lang="zh">175°C 下金屬矽化物微絲 (Silicide micro-fuse) 展現極致穩定性，無讀取邊距退化。</span>
+          <span data-lang="en">Silicide micro-fuse exhibits extreme stability at 175°C with no read margin degradation.</span>
+        </p>
+      </div>
+      <div class="metric-card">
+        <h3><span data-lang="zh">量產良率策略</span><span data-lang="en">Yield Strategy</span></h3>
+        <div class="metric-value">0 PPM</div>
+        <p>
+          <span data-lang="zh">結合冗餘設計與嚴格篩選測試，達成車廠要求的百萬分之一缺陷率目標。</span>
+          <span data-lang="en">Combined redundancy design and rigorous screening to achieve automotive 0 PPM target.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- 可視化步驟條 (Visual Step Flow) -->
+    <h2 class="section-title">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span data-lang="zh">ISO 26262 與功能安全實作</span>
+      <span data-lang="en">ISO 26262 & Functional Safety Implementation</span>
+    </h2>
+    <div class="step-flow">
+      <div class="step">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <h4>SECDED ECC (Single Error Correction, Double Error Detection)</h4>
+          <p>
+            <span data-lang="zh">內建錯誤修正碼，即時修復單元元翻轉 (Single bit-flip)，並偵測雙位元錯誤以發出中斷。</span>
+            <span data-lang="en">Built-in ECC instantly corrects single bit-flips and detects double bit errors to issue interrupts.</span>
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <h4><span data-lang="zh">BIST 內建自我測試</span><span data-lang="en">BIST (Built-In Self Test)</span></h4>
+          <p>
+            <span data-lang="zh">每次車輛啟動時自動檢查記憶體健康狀態，符合 ASIL 安全機制要求。</span>
+            <span data-lang="en">Automatically checks memory health status upon each vehicle start, complying with ASIL safety mechanism requirements.</span>
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <h4><span data-lang="zh">安全存取控制</span><span data-lang="en">Secure Access Control</span></h4>
+          <p>
+            <span data-lang="zh">硬體級鎖定與區域隔離，防止惡意篡改 ADAS/EV 關鍵校正資料。</span>
+            <span data-lang="en">Hardware-level locking and partitioning prevent malicious tampering of critical ADAS/EV calibration data.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+      <span data-lang="zh">AntiFuse OTP 於車用之應用</span>
+      <span data-lang="en">AntiFuse OTP Automotive Applications</span>
+    </h2>
+    <div class="auto-grid">
+      <div class="metric-card">
+        <h3>ADAS / Autonomous Driving</h3>
+        <p>
+          <span data-lang="zh">儲存 AI 晶片啟動金鑰與權重加密金鑰，提供最高等級硬體安全根 (Root of Trust)。</span>
+          <span data-lang="en">Stores AI chip boot keys and weight encryption keys, providing the highest grade hardware Root of Trust.</span>
+        </p>
+      </div>
+      <div class="metric-card">
+        <h3>EV Powertrain / BMS</h3>
+        <p>
+          <span data-lang="zh">記錄電池管理系統 (BMS) 的校正參數，抗高溫抗干擾，確保電能轉換精準度。</span>
+          <span data-lang="en">Records BMS calibration parameters, immune to high temp and interference, ensuring precise power conversion.</span>
+        </p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer style="padding: 2rem 5%; text-align: center; border-top: 1px solid #1a2f4c; margin-top: 4rem; color: #64748b; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem;">
+    <p>&copy; 2026 NVM Knowledge Hub. All rights reserved.</p>
+  </footer>
+
+  <!-- 引入應用程式腳本 -->
+  <script src="app.js"></script>
+</body>
+</html>
