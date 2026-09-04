@@ -5,31 +5,84 @@
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A public NVM technology and selection workbench for whitepapers, state-contract decisions, evidence boundaries and SharePoint-ready content models.">
+  <meta name="description" content="NVM Knowledge Hub Whitepaper Decision Studio: Industrial state contracts, technology trade-offs, and evidence-backed selection models.">
   <meta name="theme-color" content="#061b29">
   <meta name="color-scheme" content="dark light">
-  <link rel="canonical" href="https://samhuang68.github.io/nvm-whitepaper-site/">
-  <title>NVM Whitepaper &amp; Decision Studio</title>
+  <link rel="canonical" href="https://samhuang68.github.io/nvm-knowledge-hub/whitepaper/">
+  <title>NVM Whitepaper &amp; Decision Studio · NVM Knowledge Hub</title>
 
-
-
+  <link rel="stylesheet" href="../site-shell.css">
   <script type="module" crossorigin src="./assets/index-_SFXHrp_.js?v=20260904-hive-v5"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-D9MQ5Guq.css?v=20260904-hive-v5">
+  <script src="./assets/whitepaper_i18n.js"></script>
+
   <style id="studio-typography-override">
-    /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
-    [data-lang="zh"] { display: none !important; }
-    [data-lang="en"] { display: revert; }
-
-    html[data-language="zh"] [data-lang="zh"],
-    body[data-language="zh"] [data-lang="zh"] {
-      display: revert !important;
+    /* 0. ACCESSIBILITY DEFENSE: High-contrast Skip Link */
+    .skip-link {
+      position: fixed !important; top: -120px !important; left: 16px !important;
+      z-index: 10000 !important; padding: 12px 20px !important;
+      background: #22d3ee !important; color: #020617 !important;
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 13px !important; font-weight: 800 !important;
+      letter-spacing: 0.05em !important; text-transform: uppercase !important;
+      text-decoration: none !important; border: 2px solid #38bdf8 !important;
+      border-radius: 4px !important;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 20px rgba(34,211,238,0.4) !important;
+      transition: top 0.2s cubic-bezier(0.16,1,0.3,1) !important; display: inline-block !important;
     }
-    html[data-language="zh"] [data-lang="en"],
-    body[data-language="zh"] [data-lang="en"] {
-      display: none !important;
+    .skip-link:focus, .skip-link:focus-visible {
+      top: 14px !important; outline: 3px solid #f59e0b !important; outline-offset: 3px !important;
     }
 
-    /* 顯著縮小英雄榜標題，確保無論螢幕解析度中英文絕不發生孤字與斷行撕裂 */
+    /* 1. Language Visibility Rules (Single Source of Truth) */
+    html[data-language="en"] [data-lang="zh"], body[data-language="en"] [data-lang="zh"] { display: none !important; }
+    html[data-language="zh"] [data-lang="en"], body[data-language="zh"] [data-lang="en"] { display: none !important; }
+
+    /* 2. Brand & Header Alignment with Monorepo Site Shell */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(4, 24, 35, 0.96); backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(115, 238, 228, 0.14);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; min-height: 60px;
+    }
+    .site-header .brand {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; color: inherit;
+    }
+    .site-header .brand-mark svg {
+      width: 28px; height: 28px; fill: none; stroke: #73eee4; stroke-width: 2;
+    }
+    .site-header .brand-copy {
+      display: flex; flex-direction: column; line-height: 1;
+    }
+    .site-header .brand-copy strong {
+      font: 800 16px/1 'IBM Plex Mono', monospace; color: #fff; letter-spacing: 0.05em;
+    }
+    .site-header .brand-copy small {
+      font: 700 8.5px/1 'IBM Plex Mono', monospace; color: #73eee4; letter-spacing: 0.12em;
+    }
+    .site-header .brand-section {
+      padding: 3px 8px; border-radius: 4px;
+      background: rgba(115, 238, 228, 0.1); border: 1px solid rgba(115, 238, 228, 0.25);
+      font: 700 10px/1 'IBM Plex Mono', monospace; color: #73eee4; letter-spacing: 0.06em;
+    }
+    .primary-nav {
+      display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+    }
+    .primary-nav a {
+      padding: 6px 12px; font: 600 11px/1.2 'IBM Plex Mono', monospace;
+      color: #8ea9b3; text-decoration: none; border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+    .primary-nav a:hover {
+      color: #73eee4; background: rgba(115, 238, 228, 0.08);
+    }
+    .primary-nav a.is-active {
+      color: #020617; background: #73eee4; font-weight: 800;
+    }
+
+    /* 3. Hero & Studio Typography */
     .studio-hero h1 {
       font-size: clamp(24px, 2.5vw, 38px) !important;
       line-height: 1.25 !important;
@@ -40,7 +93,7 @@
     }
     .studio-hero h1 em {
       display: inline-block !important;
-      color: var(--aqua) !important;
+      color: var(--aqua, #73eee4) !important;
       font-style: normal !important;
       font-weight: 400 !important;
     }
@@ -56,6 +109,7 @@
       .hero-title-phrase {
         white-space: normal !important;
       }
+      .primary-nav { display: none; }
     }
     body[data-language="zh"] .studio-hero h1 {
       font-size: clamp(24px, 2.5vw, 36px) !important;
@@ -72,11 +126,7 @@
       line-height: 1.22 !important;
       text-wrap: balance !important;
     }
-  
-    /* 徹底防禦 1024px 與 390px 標籤溢出與截字 */
-    .family-chip,
-    .status-chip,
-    .security-chip {
+    .family-chip, .status-chip, .security-chip {
       white-space: normal !important;
       word-break: break-word !important;
       overflow-wrap: break-word !important;
@@ -88,9 +138,7 @@
       overflow-x: auto !important;
       background: #082433 !important;
     }
-    .contract-card > strong,
-    .micro-label,
-    .template-summary {
+    .contract-card > strong, .micro-label, .template-summary {
       min-height: auto !important;
     }
     body[data-language="zh"] .decision-table th[data-label="STATE PROFILE"]::before { content: "狀態設定檔 · " !important; }
@@ -100,57 +148,89 @@
     body[data-language="zh"] .decision-table td[data-label="LATENCY & BOM"]::before { content: "延遲與 BOM · " !important; }
     body[data-language="zh"] .decision-table td[data-label="STRONGEST FIT"]::before { content: "最適場景 · " !important; }
     body[data-language="zh"] .decision-table td[data-label="EVIDENCE STATUS"]::before { content: "證據狀態 · " !important; }
-
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#studio-content">Skip to main content</a>
+  <!-- WCAG High-Contrast Skip Link -->
+  <a class="skip-link" href="#studio-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
 
-  <header class="studio-header">
-    <a class="studio-brand" href="../index.html" aria-label="NVM Knowledge Hub home">
+  <!-- TOP-LEVEL SITE HEADER (CONSISTENT WITH ALL PAGES) -->
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="NVM Knowledge Hub Home">
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 48 48"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/><path d="M17 5v6M24 5v6M31 5v6M17 37v6M24 37v6M31 37v6M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></svg>
       </span>
       <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
-      <span class="brand-context">TECHNOLOGY &amp; SELECTION</span>
+      <span class="brand-section">WHITEPAPER STUDIO</span>
     </a>
 
-    <nav class="global-nav" id="globalNav" aria-label="Knowledge Hub navigation">
-      <a class="portfolio-back-link" href="https://samhuang68.github.io/#work">← PORTFOLIO</a>
-      <a href="../index.html">All Topics</a>
-      <a href="../secure-storage.html">Secure Storage</a>
-      <a href="../ai-nvm-opportunities.html">AI Systems</a>
-        <a href="../specialty-nvm.html">Specialty NVM</a>
-      <a href="../index.html#topics">Research Library</a>
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary Navigation">
+      <a href="../index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a>
+      <a href="../secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
+      <a href="../ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a>
+      <a href="../iot-mcu-envm.html"><span data-lang="zh">IoT &amp; MCU</span><span data-lang="en">IoT &amp; MCU</span></a>
+      <a href="../automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive</span></a>
+      <a href="../specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty</span></a>
+      <a href="../technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
     </nav>
 
-    <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to Traditional Chinese"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
-    <button class="menu-button" id="menuToggle" type="button" aria-expanded="false" aria-controls="globalNav" aria-label="Open navigation">
-      <span></span><span></span>
-    </button>
+    <div class="header-actions">
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch Language (ZH/EN)">
+        <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
+      </button>
+      <button class="menu-button" id="menuToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open Navigation">
+        <span></span><span></span>
+      </button>
+    </div>
   </header>
 
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a class="portfolio-back-link" href="https://samhuang68.github.io/#work">← PORTFOLIO</a>
-    <i aria-hidden="true"></i>
-    <a href="../index.html">NVM Knowledge Hub</a>
-    <i aria-hidden="true"></i>
-    <span>Knowledge Workbench</span>
-    <i aria-hidden="true"></i>
-    <strong>Whitepaper Studio</strong>
+  <!-- BREADCRUMB -->
+  <nav class="site-breadcrumb" aria-label="Breadcrumb">
+    <i></i><a href="../index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Hub</span></a>
+    <i></i><span data-lang="zh">資源中心</span><span data-lang="en">Resources</span>
+    <i></i><strong><span data-lang="zh">白皮書決策工作台</span><span data-lang="en">Whitepaper Decision Studio</span></strong>
+    <span class="topic-switch">
+      <a href="../index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a>
+      <a aria-current="page" href="./"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper Studio</span></a>
+      <a href="../briefing/index.html"><span data-lang="zh">高階簡報</span><span data-lang="en">Executive Briefing</span></a>
+      <a href="../memory-evidence.html"><span data-lang="zh">證據總帳</span><span data-lang="en">Evidence Ledger</span></a>
+    </span>
   </nav>
 
   <main id="studio-content">
     <section class="studio-hero" aria-labelledby="studio-title">
       <div class="hero-copy">
-        <p class="eyebrow">NVM KNOWLEDGE WORKBENCH · PUBLIC EDITION</p>
-        <h1 id="studio-title"><span class="hero-title-phrase">From NVM technology</span><br><em><span class="hero-title-phrase">to a defensible selection</span></em></h1>
-        <p class="hero-intro">A governed workspace for technology whitepapers, state-contract trade-offs and SharePoint content models—built around what can be supported, what must be validated and what remains open.</p>
+        <p class="eyebrow">
+          <span data-lang="zh">NVM 知識決策工作台 · 公開版</span>
+          <span data-lang="en">NVM KNOWLEDGE WORKBENCH · PUBLIC EDITION</span>
+        </p>
+        <h1 id="studio-title">
+          <span class="hero-title-phrase">
+            <span data-lang="zh">從 NVM 物理技術</span>
+            <span data-lang="en">From NVM technology</span>
+          </span><br>
+          <em><span class="hero-title-phrase">
+            <span data-lang="zh">到可辯護的架構決策</span>
+            <span data-lang="en">to a defensible selection</span>
+          </span></em>
+        </h1>
+        <p class="hero-intro">
+          <span data-lang="zh">針對半導體技術白皮書、持久狀態契約權衡與企業內容模型所構建的受治理工作台——圍繞著何種技術可被支援、何種指標必須驗證、以及何種邊界仍待探索。</span>
+          <span data-lang="en">A governed workspace for technology whitepapers, state-contract trade-offs and enterprise content models—built around what can be supported, what must be validated and what remains open.</span>
+        </p>
         <div class="hero-actions">
-          <a class="button primary" href="?view=whitepaper#chap-state-contract">Read the whitepaper <span aria-hidden="true">↗</span></a>
-          <a class="button secondary" href="?view=selector">Open decision matrix</a>
+          <a class="button primary" href="?view=whitepaper#chap-state-contract">
+            <span data-lang="zh">閱讀完整白皮書</span><span data-lang="en">Read the whitepaper</span> <span aria-hidden="true">↗</span>
+          </a>
+          <a class="button secondary" href="?view=selector">
+            <span data-lang="zh">開啟架構決策矩陣</span><span data-lang="en">Open decision matrix</span>
+          </a>
         </div>
-        <p class="public-boundary"><span>PUBLIC WORKING DRAFT</span> Illustrative profiles are decision aids, not product specifications.</p>
+        <p class="public-boundary">
+          <span><span data-lang="zh">公開工作草案</span><span data-lang="en">PUBLIC WORKING DRAFT</span></span>
+          <span data-lang="zh">展示設定檔僅作為架構決策輔助，非商業產品保證規格。</span>
+          <span data-lang="en">Illustrative profiles are decision aids, not product specifications.</span>
+        </p>
       </div>
 
       <figure class="hero-system" aria-labelledby="hero-system-title">
@@ -170,14 +250,23 @@
           <g class="core" filter="url(#softGlow)"><rect x="278" y="218" width="204" height="164" rx="5" fill="url(#coreFill)"/><path d="M303 246h154v108H303zM328 218v-20M380 218v-20M432 218v-20M328 402v-20M380 402v-20M432 402v-20M278 258h-20M278 300h-20M278 342h-20M502 258h-20M502 300h-20M502 342h-20"/><text x="380" y="274" text-anchor="middle">NVM SELECTION</text><text class="core-main" x="380" y="319" text-anchor="middle">STATE</text><text class="core-main accent" x="380" y="349" text-anchor="middle">CONTRACT</text></g>
           <g class="orbit-label"><text x="380" y="83" text-anchor="middle">EVIDENCE · SCOPE · LIMIT</text><circle cx="380" cy="104" r="5"/><circle class="copper" cx="205" cy="210" r="5"/><circle cx="555" cy="390" r="5"/></g>
         </svg>
-        <figcaption>Conceptual NVM state-contract map · not a physical floorplan</figcaption>
+        <figcaption>
+          <span data-lang="zh">概念性 NVM 狀態契約地圖 · 非物理佈局圖</span>
+          <span data-lang="en">Conceptual NVM state-contract map · not a physical floorplan</span>
+        </figcaption>
       </figure>
     </section>
 
     <section class="view-dock" aria-labelledby="view-dock-title">
       <div class="view-dock-copy">
-        <p id="view-dock-title">EXPLORE THE WORKBENCH</p>
-        <span>Each view preserves evidence status and a SharePoint-ready content contract.</span>
+        <p id="view-dock-title">
+          <span data-lang="zh">探索決策工作台</span>
+          <span data-lang="en">EXPLORE THE WORKBENCH</span>
+        </p>
+        <span>
+          <span data-lang="zh">每一種檢視皆完整保留技術證據狀態與架構契約。</span>
+          <span data-lang="en">Each view preserves evidence status and a rigorous architecture contract.</span>
+        </span>
       </div>
       <div class="view-tabs" role="tablist" aria-label="Whitepaper Studio views">
         <button id="tab-overview" class="view-tab" type="button" role="tab" aria-selected="true" aria-controls="panel-overview" tabindex="0" data-view="overview"><b>01</b><span>NVM Overview</span></button>
@@ -200,16 +289,17 @@
   <footer class="studio-footer">
     <a class="footer-brand" href="../index.html">NVM KNOWLEDGE HUB</a>
     <nav aria-label="Footer navigation">
-      <a href="../secure-storage.html">Secure Storage</a>
-      <a href="../ai-nvm-opportunities.html">AI Systems</a>
-        <a href="../specialty-nvm.html">Specialty NVM</a>
-      <a href="../index.html#topics">Research Library</a>
+      <a href="../index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Portal</span></a>
+      <a href="../secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
+      <a href="../ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI Systems</span></a>
+      <a href="../iot-mcu-envm.html"><span data-lang="zh">IoT &amp; MCU</span><span data-lang="en">IoT &amp; MCU</span></a>
+      <a href="../automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive</span></a>
+      <a href="../specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a>
+      <a href="../technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
     </nav>
-    <p>PUBLIC WORKBENCH · EVIDENCE-GOVERNED · SHAREPOINT TRANSFER MODEL · 2026</p>
+    <p>&copy; 2026 NVM Knowledge Hub &middot; Public Workbench &middot; Evidence-Governed Architecture</p>
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
-
-  
 </body>
 </html>

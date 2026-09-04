@@ -1,6 +1,7 @@
 /**
  * Whitepaper Studio Real-time Bilingual (ZH-TW / EN) Engine
- * Provides comprehensive translation for static and dynamically rendered panels.
+ * Provides comprehensive translation for dynamically rendered Vite panels.
+ * Single Source of Truth: site-language.js via "hub:language-change" event.
  */
 (function () {
   const DICT = {
@@ -18,7 +19,6 @@
 
     // Top Bar & Navigation
     "TECHNOLOGY & SELECTION": "技術與架構決策",
-    "← PORTFOLIO": "← 作品集",
     "All Topics": "總門戶",
     "Secure Storage": "安全儲存",
     "AI Systems": "AI 與先進節點",
@@ -108,25 +108,17 @@
       "公開工作台 · 證據治理 · SHAREPOINT 轉移模型 · 2026"
   };
 
-  let currentLang = (window.HubLanguage && window.HubLanguage.get()) || localStorage.getItem("nvm-hub-language") || "en";
+  function getCurrentLang() {
+    return (window.HubLanguage && window.HubLanguage.get()) ||
+      document.documentElement.dataset.language ||
+      "en";
+  }
 
   function applyLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem("hub-lang", lang);
     document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
-    document.body.dataset.language = lang;
-
-    const btn = document.getElementById("languageToggle");
-    if (btn) {
-      btn.setAttribute("aria-label", lang === "zh" ? "切換至英文 Switch to English" : "Switch to Traditional Chinese");
-      const zhB = btn.querySelector('[data-lang-option="zh"]');
-      const enB = btn.querySelector('[data-lang-option="en"]');
-      if (zhB && enB) {
-        zhB.style.color = lang === "zh" ? "#73eee4" : "#8ea9b3";
-        enB.style.color = lang === "en" ? "#73eee4" : "#8ea9b3";
-      }
+    if (document.body) {
+      document.body.dataset.language = lang;
     }
-
     translateDom(document.body, lang);
   }
 
@@ -191,7 +183,8 @@
     if (!panels) return;
 
     const observer = new MutationObserver(function (mutations) {
-      if (currentLang === "zh") {
+      const lang = getCurrentLang();
+      if (lang === "zh") {
         mutations.forEach(function (m) {
           m.addedNodes.forEach(function (n) {
             if (n.nodeType === 1) {
@@ -206,35 +199,28 @@
   }
 
   function init() {
-    const btn = document.getElementById("languageToggle");
-    if (btn) {
-      btn.addEventListener("click", function (e) {
-        e.preventDefault();
-        applyLanguage(currentLang === "zh" ? "en" : "zh");
-      });
-    }
-
     const tabBtns = document.querySelectorAll(".view-tab");
     tabBtns.forEach(function (b) {
       b.addEventListener("click", function () {
         setTimeout(function () {
-          if (currentLang === "zh") {
+          const lang = getCurrentLang();
+          if (lang === "zh") {
             translateDom(document.querySelector(".studio-panels"), "zh");
           }
-        }, 80);
+        }, 100);
       });
     });
 
     setupObserver();
 
-  // 接入全域頂層單一真相來源事件廣播
-  window.addEventListener("hub:language-change", function(e) {
-    if (e.detail && e.detail.language) {
-      applyLanguage(e.detail.language);
-    }
-  });
+    // 接入全域單一真相來源 site-language.js
+    window.addEventListener("hub:language-change", function (e) {
+      if (e.detail && e.detail.language) {
+        applyLanguage(e.detail.language);
+      }
+    });
 
-    applyLanguage(currentLang);
+    applyLanguage(getCurrentLang());
   }
 
   if (document.readyState === "loading") {
