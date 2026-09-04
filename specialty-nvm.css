@@ -1446,3 +1446,55 @@ html[data-language="zh"] .data-table thead th {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* =========================================================
+   Flagship Card Aesthetics Alignment (Matching ai-nvm & memory-physics)
+   ========================================================= */
+.tech-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--spec-aqua), transparent);
+  opacity: 0.6;
+}
+
+.tech-card:hover::before {
+  opacity: 1;
+  background: linear-gradient(90deg, transparent, var(--spec-aqua), var(--spec-cyan), transparent);
+}
+
+.card-header-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(113, 236, 227, 0.08);
+  border: 1px solid rgba(113, 236, 227, 0.2);
+  border-radius: 6px;
+  font-size: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s var(--ease-premium);
+}
+
+.tech-card:hover .card-header-icon {
+  background: rgba(113, 236, 227, 0.16);
+  border-color: var(--spec-aqua);
+  transform: scale(1.05);
+}
+
+.card-footer-metric span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(3, 16, 26, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 10.5px;
+}

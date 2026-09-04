@@ -565,6 +565,32 @@
         <!-- =========================================================
              FLAGSHIP LAB 02: AUTONOMOUS MATRIX REPAIR SIMULATOR
              ========================================================= -->
+                <!-- Governing Physics & State Contract 02: Array Redundancy -->
+        <div class="physics-formula-card">
+          <div class="formula-header">
+            <span class="formula-badge">GOVERNING PHYSICS 02</span>
+            <h4>
+              <span data-lang="zh">巨型陣列泊松修復良率復原模型與反熔絲細絲阻抗物理</span>
+              <span data-lang="en">Poisson Yield Recovery Formulation &amp; AntiFuse Filament Breakdown Physics</span>
+            </h4>
+          </div>
+          <div class="formula-equation">
+            <strong>Y<sub>repaired</sub> = Y<sub>0</sub> &middot; [ &sum;<sub>k=0</sub><sup>S<sub>row</sub></sup> ( (&lambda;<sub>r</sub>)<sup>k</sup> e<sup>-&lambda;<sub>r</sub></sup> / k! ) ] &middot; [ &sum;<sub>m=0</sub><sup>S<sub>col</sub></sup> ( (&lambda;<sub>c</sub>)<sup>m</sup> e<sup>-&lambda;<sub>c</sub></sup> / m! ) ]</strong>
+            <small>
+              <span data-lang="zh">泊松缺陷空間分佈 &bull; 備援行/列 (S<sub>row</sub>, S<sub>col</sub>) 重映射 &bull; 細絲導通阻抗 R<sub>filament</sub> &lt; 100 &Omega; (初始 &gt; 1 G&Omega;)</span>
+              <span data-lang="en">Poisson defect distribution &bull; Redundant Row/Col replacement &bull; Filament R<sub>on</sub> &lt; 100 &Omega; (virgin &gt; 1 G&Omega;)</span>
+            </small>
+          </div>
+          <div class="state-contract-takeaway">
+            <div class="contract-tag">STATE CONTRACT TAKEAWAY &middot; TOPIC 02</div>
+            <ul class="contract-list">
+              <li><b><span data-lang="zh">狀態歸屬 (Ownership)：</span><span data-lang="en">State Ownership:</span></b> <span data-lang="zh">由內建 BIRA 邏輯或 ATE 測試機計算，寫入晶粒 AntiFuse FuseBox，封裝後支援 hPPR/sPPR。</span><span data-lang="en">Computed by BIRA engine or ATE; committed into on-die FuseBox; supports post-package hPPR/sPPR.</span></li>
+              <li><b><span data-lang="zh">物理不可逆性 (Non-Volatility)：</span><span data-lang="en">Physical Irreversibility:</span></b> <span data-lang="zh">金屬矽化物或導電細絲熔合，無電荷洩漏問題，杜絕雷射熔絲的高溫氧化回彈。</span><span data-lang="en">Permanent metallic/silicide filament rupture; zero charge-leakage failure; immune to eFuse regrowth.</span></li>
+              <li><b><span data-lang="zh">標準合規 (Standard Compliance)：</span><span data-lang="en">Standard Compliance:</span></b> <span data-lang="zh">符合 JEDEC JESD79-5 DDR5 與 JESD238 HBM3e 現場維護與雲端 RAS 架構要求。</span><span data-lang="en">Complies with JEDEC JESD79-5 DDR5 and JESD238 HBM3e in-field RAS telemetry requirements.</span></li>
+            </ul>
+          </div>
+        </div>
+
         <div class="interactive-lab-card" id="lab-repair-simulator">
           <div class="lab-header">
             <span class="lab-badge">
@@ -811,6 +837,32 @@
         <!-- =========================================================
              FLAGSHIP LAB 03: DISPLAY OPTICAL TUNER
              ========================================================= -->
+                <!-- Governing Physics & State Contract 03: Optical Transfer -->
+        <div class="physics-formula-card">
+          <div class="formula-header">
+            <span class="formula-badge">GOVERNING PHYSICS 03</span>
+            <h4>
+              <span data-lang="zh">非線性光電轉換函數與 2D 空間 De-Mura 補償增益方程式</span>
+              <span data-lang="en">Electro-Optical Transfer Function (EOTF) &amp; 2D Spatial De-Mura Formulation</span>
+            </h4>
+          </div>
+          <div class="formula-equation">
+            <strong>L(V) = L<sub>max</sub> &middot; [ ( V<sub>DAC</sub>(D<sub>in</sub> + &Delta;<sub>OTP</sub>) - V<sub>th</sub> ) / ( V<sub>max</sub> - V<sub>th</sub> ) ]<sup>&gamma;</sup>, &quad; &gamma; = 2.20 &plusmn; 0.02</strong>
+            <small>
+              <span data-lang="zh">子像素驅動電壓非線性響應 &bull; &Delta;<sub>OTP</sub> 補償 TFT 遷移率離散 &bull; 空間電流補償 I<sub>OLED</sub>&prime;(x,y) = K&middot;[V<sub>data</sub> - V<sub>th</sub>(x,y) + &Delta;V<sub>MTP</sub>(x,y)]<sup>2</sup></span>
+              <span data-lang="en">Sub-pixel non-linear response &bull; &Delta;<sub>OTP</sub> corrects TFT mobility drift &bull; Spatial gain I<sub>OLED</sub>&prime;(x,y) enforces uniform field</span>
+            </small>
+          </div>
+          <div class="state-contract-takeaway">
+            <div class="contract-tag">STATE CONTRACT TAKEAWAY &middot; TOPIC 03</div>
+            <ul class="contract-list">
+              <li><b><span data-lang="zh">狀態歸屬 (Ownership)：</span><span data-lang="en">State Ownership:</span></b> <span data-lang="zh">出廠光學校準機台（CA-410 色度儀）測量，燒錄於 DDIC 內部 eNVM，開機載入內部 SRAM 查找表。</span><span data-lang="en">Acquired by optical CA-410 spectrometers; burned into DDIC eNVM; loaded into SRAM LUTs at boot.</span></li>
+              <li><b><span data-lang="zh">高壓電氣隔離 (HV Isolation)：</span><span data-lang="en">HV Electrical Isolation:</span></b> <span data-lang="zh">完全耐受 +20V/-15V 閘極驅動器高速切換雜訊，保證開關瞬間不發生邏輯狀態翻轉。</span><span data-lang="en">Fully isolated from +20V/-15V gate pulses, preventing bit-flip disturbances during high-speed scans.</span></li>
+              <li><b><span data-lang="zh">演進預算 (Lifecycle Cadence)：</span><span data-lang="en">Lifecycle Cadence:</span></b> <span data-lang="zh">常規面板採用 AntiFuse OTP 鎖定；LTPO 與高階摺疊屏採用 32Kb-128Kb MTP 支援多次重調。</span><span data-lang="en">Standard panels use AntiFuse OTP; LTPO and foldable screens deploy 32-128Kb MTP for re-trimming.</span></li>
+            </ul>
+          </div>
+        </div>
+
         <div class="interactive-lab-card" id="lab-display-tuner">
           <div class="lab-header">
             <span class="lab-badge">
@@ -994,6 +1046,32 @@
         <!-- =========================================================
              FLAGSHIP LAB 04: E-INK WAVEFORM & PARTICLE SIMULATOR
              ========================================================= -->
+                <!-- Governing Physics & State Contract 04: Electrophoretic Migration -->
+        <div class="physics-formula-card">
+          <div class="formula-header">
+            <span class="formula-badge">GOVERNING PHYSICS 04</span>
+            <h4>
+              <span data-lang="zh">雙穩態微膠囊電泳粒子動力學與零待機漏電方程式</span>
+              <span data-lang="en">Bistable Microcapsule Electrophoretic Dynamics &amp; Zero-Standby Formulation</span>
+            </h4>
+          </div>
+          <div class="formula-equation">
+            <strong>v<sub>particle</sub> = &mu;<sub>ep</sub> &middot; E = [ ( &zeta; &middot; &epsilon;<sub>fluid</sub> ) / &eta;<sub>fluid</sub> ] &middot; [ V<sub>pulse</sub> / d<sub>capsule</sub> ] &quad; (V<sub>pulse</sub> &ge; 40V)</strong>
+            <small>
+              <span data-lang="zh">&zeta; Zeta 電位 &bull; &eta; 微流體黏滯係數 &bull; 待機功耗 P<sub>standby</sub> = V<sub>batt</sub> &middot; I<sub>leak</sub> &approx; 3V &times; 0.2&mu;A &rArr; 鈕扣電池壽命 &gt; 7 年</span>
+              <span data-lang="en">&zeta; Zeta potential &bull; &eta; fluid viscosity &bull; P<sub>standby</sub> = V<sub>batt</sub> &middot; I<sub>leak</sub> &approx; 3V &times; 0.2&mu;A &rArr; ESL battery life &gt; 7 Years</span>
+            </small>
+          </div>
+          <div class="state-contract-takeaway">
+            <div class="contract-tag">STATE CONTRACT TAKEAWAY &middot; TOPIC 04</div>
+            <ul class="contract-list">
+              <li><b><span data-lang="zh">狀態歸屬 (Ownership)：</span><span data-lang="en">State Ownership:</span></b> <span data-lang="zh">電子紙原廠波形演算法（Waveform LUT），依據環境溫度驅動多色微粒子沉浮序列。</span><span data-lang="en">Governed by proprietary Waveform LUTs mapped to ambient temperature sensors.</span></li>
+              <li><b><span data-lang="zh">製程特種化 (Process Affinity)：</span><span data-lang="en">Process Affinity:</span></b> <span data-lang="zh">排斥普通 BCD（高壓漏電致命）；必須採用專屬 110HV 特種 CMOS，搭配超薄 AntiFuse OTP。</span><span data-lang="en">Excludes standard BCD due to junction leakage; mandates 110HV specialty CMOS with ultra-slim OTP.</span></li>
+              <li><b><span data-lang="zh">生命週期階梯 (Lifecycle Migration)：</span><span data-lang="en">Lifecycle Migration:</span></b> <span data-lang="zh">演進試產期以 MTP 保持彈性；全彩波形算法成熟後轉入純邏輯 OTP 達成極限成本優化。</span><span data-lang="en">MTP during color formula incubation; pure-logic OTP in mature production for maximum cost reduction.</span></li>
+            </ul>
+          </div>
+        </div>
+
         <div class="interactive-lab-card" id="lab-eink-simulator">
           <div class="lab-header">
             <span class="lab-badge">
