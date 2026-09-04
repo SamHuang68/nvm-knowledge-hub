@@ -1111,35 +1111,170 @@
           </article>
         </div>
 
-        <!-- Fuse Evolution -->
-        <div class="fuse-evolution-block">
-          <h3>
-            <span data-lang="zh">修復熔絲技術代際演進：Laser Fuse ➔ eFuse ➔ AntiFuse OTP</span>
-            <span data-lang="en">Fuse Technology Evolution: Laser Fuse ➔ eFuse ➔ AntiFuse OTP</span>
-          </h3>
-          <div class="card-grid-3">
-            <div class="evo-card">
-              <span class="evo-phase"><span data-lang="zh">早期技術</span><span data-lang="en">LEGACY</span></span>
-              <h4><span data-lang="zh">Laser Fuse (雷射熔斷)</span><span data-lang="en">Laser Fuse</span></h4>
+                <!-- Fuse Evolution: 3-Generation Semiconductor Pipeline -->
+        <div class="semiconductor-flowchart-card" style="margin: 20px 0 24px;">
+          <div class="flowchart-header">
+            <div class="flowchart-title-tag">
+              <span>●</span>
+              <span data-lang="zh">半導體物理演進 · 3 代熔絲微觀剖面</span>
+              <span data-lang="en">SEMICONDUCTOR PHYSICS · 3-GEN FUSE CROSS-SECTION</span>
+            </div>
+            <h4>
+              <span data-lang="zh">修復熔絲技術代際演進：雷射熔斷 ➔ 電致遷移 ➔ 反熔絲奈米細絲</span>
+              <span data-lang="en">Fuse Technology Evolution: Laser Fuse ➔ eFuse ➔ AntiFuse Silicide Nanofilament</span>
+            </h4>
+          </div>
+
+          <div class="flowchart-svg-container">
+            <svg viewBox="0 0 960 270" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
+              <defs>
+                <linearGradient id="fuseGenBg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#021526" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#05283f" stop-opacity="0.95"/>
+                </linearGradient>
+                <filter id="fuseNeon" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <!-- ================= GEN 1: LASER FUSE ================= -->
+              <g class="fuse-node" transform="translate(15, 15)">
+                <rect width="280" height="235" rx="8" fill="url(#fuseGenBg)" stroke="#64748b" stroke-width="1.2"/>
+                <rect x="1" y="1" width="278" height="26" rx="7" fill="rgba(100, 116, 139, 0.2)"/>
+                <text x="12" y="18" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">GEN 01 · LASER FUSE (ABLATION)</text>
+                <rect x="230" y="6" width="40" height="14" rx="2" fill="#334155"/>
+                <text x="234" y="16" fill="#94a3b8" font-family="monospace" font-size="8">LEGACY</text>
+
+                <!-- 物理剖面圖：雷射破壞開窗孔 -->
+                <g transform="translate(20, 38)">
+                  <rect width="240" height="85" rx="4" fill="#0b1320" stroke="#1e293b"/>
+                  <path d="M70 0 L100 45 H140 L170 0" fill="#020617" stroke="#475569" stroke-width="1.2"/>
+                  <text x="95" y="25" fill="#64748b" font-family="monospace" font-size="8">PAD OPENING</text>
+                  
+                  <line x1="120" y1="-10" x2="120" y2="45" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="4,2" filter="url(#fuseNeon)"/>
+                  <circle cx="120" cy="45" r="4" fill="#f87171" filter="url(#fuseNeon)"/>
+                  <circle cx="105" cy="48" r="2.5" fill="#fbbf24"/>
+                  <circle cx="135" cy="46" r="3" fill="#fbbf24"/>
+                  <text x="80" y="70" fill="#ef4444" font-family="'Fira Code', monospace" font-size="8.5">METAL VAPORIZED</text>
+                </g>
+
+                <g transform="translate(18, 138)">
+                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">MECHANISM: Optical Ablation</text>
+                  <text x="0" y="30" fill="#ef4444" font-family="'Fira Code', monospace" font-size="9.5">AREA: Prohibitive Huge Pad</text>
+                  <text x="0" y="46" fill="#ef4444" font-family="'Fira Code', monospace" font-size="9.5">LIMIT: Pre-Packaging Only</text>
+                  <text x="0" y="62" fill="#64748b" font-family="'Fira Code', monospace" font-size="9.5">SCALING: Blocked at &lt;28nm</text>
+                  <rect x="0" y="70" width="130" height="18" rx="3" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="0.8"/>
+                  <text x="8" y="82" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="8.5">NO POST-PACKAGE REPAIR</text>
+                </g>
+              </g>
+
+              <!-- 連接 1 ➔ 2 -->
+              <g transform="translate(303, 125)">
+                <line x1="0" y1="0" x2="20" y2="0" stroke="#475569" stroke-width="2" stroke-dasharray="3,2"/>
+                <polygon points="20,-4 26,0 20,4" fill="#64748b"/>
+              </g>
+
+              <!-- ================= GEN 2: EFUSE ================= -->
+              <g class="fuse-node" transform="translate(330, 15)">
+                <rect width="280" height="235" rx="8" fill="url(#fuseGenBg)" stroke="#f59e0b" stroke-width="1.2"/>
+                <rect x="1" y="1" width="278" height="26" rx="7" fill="rgba(245, 158, 11, 0.15)"/>
+                <text x="12" y="18" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">GEN 02 · eFUSE (ELECTROMIGRATION)</text>
+                <rect x="235" y="6" width="35" height="14" rx="2" fill="#78350f"/>
+                <text x="238" y="16" fill="#fbbf24" font-family="monospace" font-size="8">TRANS.</text>
+
+                <g transform="translate(20, 38)">
+                  <rect width="240" height="85" rx="4" fill="#0b1320" stroke="#1e293b"/>
+                  <path d="M30 45 H85 Q110 45 110 50 Q110 45 135 45 H210" stroke="#f59e0b" stroke-width="6" fill="none"/>
+                  <circle cx="110" cy="47" r="5" fill="#0b1320" stroke="#ef4444" stroke-width="1.5"/>
+                  <text x="92" y="32" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="8.5">I &gt; 10mA</text>
+                  <text x="80" y="70" fill="#fbbf24" font-family="'Fira Code', monospace" font-size="8.5">THERMAL GROW-BACK</text>
+                  <path d="M106 47 L114 47" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="1,1"/>
+                </g>
+
+                <g transform="translate(18, 138)">
+                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">MECHANISM: Electromigration Void</text>
+                  <text x="0" y="30" fill="#f59e0b" font-family="'Fira Code', monospace" font-size="9.5">DRIVE: Huge Current FET Required</text>
+                  <text x="0" y="46" fill="#ef4444" font-family="'Fira Code', monospace" font-size="9.5">DEFECT: Thermal Grow-Back Risk</text>
+                  <text x="0" y="62" fill="#64748b" font-family="'Fira Code', monospace" font-size="9.5">DENSITY: Hard Ceiling &lt; 4Kb</text>
+                  <rect x="0" y="70" width="130" height="18" rx="3" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="0.8"/>
+                  <text x="8" y="82" fill="#fef08a" font-family="'Fira Code', monospace" font-size="8.5">RELAXATION LEAKAGE</text>
+                </g>
+              </g>
+
+              <!-- 連接 2 ➔ 3 -->
+              <g transform="translate(618, 125)">
+                <line x1="0" y1="0" x2="20" y2="0" stroke="#10b981" stroke-width="2" stroke-dasharray="3,2"/>
+                <polygon points="20,-4 26,0 20,4" fill="#10b981"/>
+              </g>
+
+              <!-- ================= GEN 3: ANTIFUSE OTP ================= -->
+              <g class="fuse-node" transform="translate(645, 15)">
+                <rect width="300" height="235" rx="8" fill="url(#fuseGenBg)" stroke="#10b981" stroke-width="1.8"/>
+                <rect x="1" y="1" width="298" height="26" rx="7" fill="rgba(16, 185, 129, 0.2)"/>
+                <text x="12" y="18" fill="#10b981" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">GEN 03 · ANTIFUSE OTP (NANOFILAMENT)</text>
+                <rect x="245" y="6" width="48" height="14" rx="2" fill="#042f2e" stroke="#10b981" stroke-width="0.8"/>
+                <text x="249" y="16" fill="#a7f3d0" font-family="monospace" font-size="8">STANDARD</text>
+
+                <g transform="translate(20, 38)">
+                  <rect width="260" height="85" rx="4" fill="#03141f" stroke="#10b981" stroke-width="1"/>
+                  <rect x="30" y="15" width="200" height="18" rx="2" fill="#0f766e" stroke="#14b8a6"/>
+                  <text x="85" y="27" fill="#ccfbf1" font-family="monospace" font-size="8.5">POLY GATE / METAL</text>
+                  <rect x="30" y="35" width="200" height="8" fill="#1e293b"/>
+                  <path d="M125 33 L135 45" stroke="#fbbf24" stroke-width="3.5" filter="url(#fuseNeon)"/>
+                  <text x="145" y="42" fill="#fbbf24" font-family="'Fira Code', monospace" font-size="8">R &lt; 100 &Omega;</text>
+                  <rect x="30" y="45" width="200" height="25" rx="2" fill="#042f2e"/>
+                  <text x="80" y="62" fill="#5eead4" font-family="monospace" font-size="8.5">SILICON SUBSTRATE (N+)</text>
+                </g>
+
+                <g transform="translate(18, 138)">
+                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">MECHANISM: Gate Oxide Rupture</text>
+                  <text x="0" y="30" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">AREA: 1/5 of eFuse (Ultra-Dense)</text>
+                  <text x="0" y="46" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">STABILITY: Zero Thermal Grow-back</text>
+                  <text x="0" y="62" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5">REPAIR: Native JEDEC PPR (hPPR)</text>
+                  <rect x="0" y="70" width="160" height="18" rx="3" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="0.8"/>
+                  <text x="8" y="82" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8.5">15-YR DATA RETENTION @ 175°C</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <!-- 流程圖底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
+          <div class="flowchart-legend-grid">
+            <div class="flow-legend-col">
+              <h5>
+                <span class="flow-dot-cyan"></span>
+                <span data-lang="zh">第一代：Laser Fuse (雷射熔斷)</span>
+                <span data-lang="en">Gen 1: Laser Fuse (Ablation)</span>
+              </h5>
               <p>
-                <span data-lang="zh">需要巨大金屬開窗焊盤供雷射切割。缺點：佔用巨大晶粒面積、無法在封裝後進行修復、無法微縮至 28nm 以下先進製程。已全面被先進晶圓廠淘汰。</span>
-                <span data-lang="en">Requires oversized pads for laser ablation. Drawbacks: Prohibitive area penalty, zero post-package repair capability, incompatible beyond 28nm. Phased out in modern foundries.</span>
+                <span data-lang="zh">需要大於 10µm 焊盤開窗供雷射切割，封裝後無法修復，28nm 以下先進製程已全面淘汰。</span>
+                <span data-lang="en">Mandated &gt;10µm open pads; zero post-package repair; obsolete beyond 28nm nodes.</span>
               </p>
             </div>
-            <div class="evo-card">
-              <span class="evo-phase"><span data-lang="zh">過渡技術</span><span data-lang="en">TRANSITIONAL</span></span>
-              <h4><span data-lang="zh">eFuse (電致遷移電熔絲)</span><span data-lang="en">Electrical Fuse (eFuse)</span></h4>
+            <div class="flow-legend-col">
+              <h5>
+                <span class="flow-dot-amber"></span>
+                <span data-lang="zh">第二代：eFuse (電致遷移)</span>
+                <span data-lang="en">Gen 2: eFuse (Electromigration)</span>
+              </h5>
               <p>
-                <span data-lang="zh">初始為低阻導通，利用大電流電遷移強制燒斷金屬條。缺點：需要巨大驅動電晶體提供高電流、高溫下容易產生金屬回彈（Grow-back）漏電，容量難以突破 4Kb。</span>
-                <span data-lang="en">Starts conductive; high current electromigration blows the link. Drawbacks: Huge drive FETs needed, risk of metallic grow-back leakage under thermal stress, density ceiling below 4Kb.</span>
+                <span data-lang="zh">大電流強行燒斷金屬導線，需巨大驅動電晶體，高溫下存在金屬回跳漏電風險，容量難逾 4Kb。</span>
+                <span data-lang="en">High-current blows metal; demands huge FETs with thermal regrowth risks and &lt;4Kb ceiling.</span>
               </p>
             </div>
-            <div class="evo-card evo-active">
-              <span class="evo-phase"><span data-lang="zh">現代主流標準</span><span data-lang="en">MODERN STANDARD</span></span>
-              <h4><span data-lang="zh">AntiFuse OTP (反熔絲氧化層穿隧)</span><span data-lang="en">AntiFuse OTP</span></h4>
+            <div class="flow-legend-col">
+              <h5>
+                <span class="flow-dot-green"></span>
+                <span data-lang="zh">第三代：AntiFuse OTP (奈米細絲)</span>
+                <span data-lang="en">Gen 3: AntiFuse OTP (TDDB)</span>
+              </h5>
               <p>
-                <span data-lang="zh">初始為超高阻抗絕緣態。利用電壓擊穿超薄閘極氧化層，形成微米級穩定導電金屬矽化物細絲。優點：面積僅為 eFuse 的 1/5、支援數十 Kb 容量、原生支援封裝後現場修復 (PPR)。</span>
-                <span data-lang="en">Starts completely insulating. Controlled voltage breakdown ruptures ultra-thin gate oxide, creating stable conductive silicide filaments. 5x denser than eFuse, scaling to 128Kb with native PPR support.</span>
+                <span data-lang="zh">閘極氧化層穿隧形成奈米導電細絲，面積僅 1/5，容量達 128Kb+，原生支援 JEDEC PPR 現場修復。</span>
+                <span data-lang="en">Thin oxide TDDB forms &lt;100Ω filament, 1/5 area, 128Kb+ density, JEDEC PPR native.</span>
               </p>
             </div>
           </div>
@@ -1197,51 +1332,171 @@
           </div>
         </div>
 
-        <div class="card-grid-3">
-          <article class="tech-card">
-            <h4>
-              <span data-lang="zh">Gamma 2.2 曲線多階校準</span>
-              <span data-lang="en">Multi-Point Gamma 2.2 Calibration</span>
-            </h4>
-            <p>
-              <span data-lang="zh">TFT 液晶與 OLED 子像素對驅動電壓呈現非線性光學響應。利用 OTP 儲存 RGB 獨立的 64 階至 256 階電阻分壓數位類比轉換器 (R-DAC) 基準微調值，修正面板批次離散性，確保標準 Gamma 2.2 曲線與色彩保真度。</span>
-              <span data-lang="en">Liquid crystal and OLED sub-pixels exhibit non-linear electro-optical curves. OTP stores RGB R-DAC tap trims across 64-256 levels, compensating for TFT mobility variations to enforce pure Gamma 2.2 curves and accurate color balance.</span>
-            </p>
-            <div class="card-footer-metric">
-              <span><span data-lang="zh">微調點數：64 - 256 階梯</span><span data-lang="en">POINTS: 64 - 256 TAPS</span></span>
-              <span><span data-lang="zh">色彩精度：Delta E &lt; 1.5</span><span data-lang="en">COLOR: DELTA E &lt; 1.5</span></span>
+        <!-- HV DDIC Optical Calibration Signal Chain Pipeline -->
+        <div class="semiconductor-flowchart-card" style="margin: 18px 0 22px;">
+          <div class="flowchart-header">
+            <div class="flowchart-title-tag">
+              <span>●</span>
+              <span data-lang="zh">高壓光電訊號鏈 · 3 重精準校準管線</span>
+              <span data-lang="en">HV ELECTRO-OPTICAL SIGNAL CHAIN · 3-STAGE CALIBRATION</span>
             </div>
-          </article>
+            <h4>
+              <span data-lang="zh">高壓顯示面板光學訊號鏈：Vcom 防閃爍 ➔ Gamma 2.2 R-DAC ➔ OLED De-Mura 補償</span>
+              <span data-lang="en">Display Optical Signal Chain: Vcom Centering ➔ Gamma 2.2 R-DAC ➔ 2D De-Mura Compensation</span>
+            </h4>
+          </div>
 
-          <article class="tech-card">
-            <h4>
-              <span data-lang="zh">Vcom 電壓精準微調 (防閃爍)</span>
-              <span data-lang="en">Vcom Precise Anti-Flicker Trimming</span>
-            </h4>
-            <p>
-              <span data-lang="zh">液晶面板兩端的直流偏壓（DC Offset）會引發嚴重的 30Hz/60Hz 畫面閃爍（Flicker）並加速液晶極化殘影（Image Sticking）。以 OTP 儲存 7-bit 至 10-bit Vcom 微調代碼，達成 5mV 級的精準中心對稱平衡。</span>
-              <span data-lang="en">DC offsets across liquid crystals induce severe 30Hz/60Hz visible flicker and irreversible image sticking. 7-bit to 10-bit OTP Vcom registers enable 5mV-level precision tuning, locking the common voltage symmetrically between positive and negative frames.</span>
-            </p>
-            <div class="card-footer-metric">
-              <span><span data-lang="zh">微調步階：5mV - 10mV</span><span data-lang="en">STEP: 5mV - 10mV</span></span>
-              <span><span data-lang="zh">防護：根除直流極化殘影</span><span data-lang="en">TARGET: ZERO FLICKER</span></span>
-            </div>
-          </article>
+          <div class="flowchart-svg-container">
+            <svg viewBox="0 0 960 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="flow-svg">
+              <defs>
+                <linearGradient id="optChainBg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#021526" stop-opacity="0.95"/>
+                  <stop offset="100%" stop-color="#05283f" stop-opacity="0.95"/>
+                </linearGradient>
+                <filter id="optGlow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
 
-          <article class="tech-card">
-            <h4>
-              <span data-lang="zh">OLED De-Mura 光學均勻性補償</span>
-              <span data-lang="en">OLED De-Mura Optical Uniformity</span>
-            </h4>
-            <p>
-              <span data-lang="zh">高解析度 OLED 面板因有機發光層厚度與驅動 TFT 閾值電壓微小差異，會出現雲斑暗斑（Mura）。在生產線上以高精度光學校準相機掃描，產生像素級增益補償矩陣儲存於高密度 MTP，即時微調驅動電流。</span>
-              <span data-lang="en">OLED panels suffer from brightness non-uniformities (Mura) caused by organic layer variance and TFT threshold drifts. Factory optical cameras capture pixel-by-pixel luminance maps, programming compensation gain matrices into dense MTP to equalize emission currents.</span>
-            </p>
-            <div class="card-footer-metric">
-              <span><span data-lang="zh">容量：32Kb - 128Kb MTP</span><span data-lang="en">DENSITY: 32Kb - 128Kb MTP</span></span>
-              <span><span data-lang="zh">演算法：二維空間補償</span><span data-lang="en">ALGO: 2D PIXEL GAIN LUT</span></span>
+              <!-- ================= 階段 1: VCOM 防閃爍 ================= -->
+              <g class="chain-node" transform="translate(15, 15)">
+                <rect width="280" height="225" rx="8" fill="url(#optChainBg)" stroke="#00f0ff" stroke-width="1.3"/>
+                <rect x="1" y="1" width="278" height="26" rx="7" fill="rgba(0, 240, 255, 0.15)"/>
+                <text x="12" y="18" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">01 · VCOM CENTERING (ANTI-FLICKER)</text>
+                <circle cx="260" cy="14" r="4" fill="#00f0ff" filter="url(#optGlow)"/>
+
+                <g transform="translate(20, 38)">
+                  <rect width="240" height="75" rx="4" fill="#010c16" stroke="#1e3a5f"/>
+                  <line x1="10" y1="37" x2="230" y2="37" stroke="#334155" stroke-dasharray="2,2"/>
+                  <text x="15" y="22" fill="#38bdf8" font-family="monospace" font-size="8">+FRAME</text>
+                  <text x="15" y="58" fill="#38bdf8" font-family="monospace" font-size="8">-FRAME</text>
+                  <path d="M70 37 V15 H120 V60 H170 V37 H220" stroke="#00f0ff" stroke-width="2" fill="none" filter="url(#optGlow)"/>
+                  <text x="125" y="70" fill="#a5f3fc" font-family="'Fira Code', monospace" font-size="8">5mV STEP BALANCE</text>
+                </g>
+
+                <g transform="translate(18, 128)">
+                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STORAGE: 7-bit to 10-bit OTP</text>
+                  <text x="0" y="30" fill="#00f0ff" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">PRECISION: 5mV Micro-Stepping</text>
+                  <text x="0" y="46" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5">DEFENSE: Zero DC Bias Polarization</text>
+                  <text x="0" y="62" fill="#64748b" font-family="'Fira Code', monospace" font-size="9.5">TARGET: 0 Hz Image Sticking</text>
+                  <rect x="0" y="70" width="130" height="18" rx="3" fill="rgba(0, 240, 255, 0.15)" stroke="#00f0ff" stroke-width="0.8"/>
+                  <text x="8" y="82" fill="#67e8f9" font-family="'Fira Code', monospace" font-size="8.5">ZERO FLICKER LOCK</text>
+                </g>
+              </g>
+
+              <!-- 連接 1 ➔ 2 -->
+              <g transform="translate(305, 120)">
+                <line x1="0" y1="0" x2="25" y2="0" stroke="#00f0ff" stroke-width="2" stroke-dasharray="3,2"/>
+                <polygon points="25,-4 31,0 25,4" fill="#00f0ff"/>
+                <text x="-4" y="-8" fill="#00f0ff" font-family="monospace" font-size="8">VCOM OK</text>
+              </g>
+
+              <!-- ================= 階段 2: GAMMA 2.2 R-DAC ================= -->
+              <g class="chain-node" transform="translate(340, 15)">
+                <rect width="280" height="225" rx="8" fill="url(#optChainBg)" stroke="#38bdf8" stroke-width="1.3"/>
+                <rect x="1" y="1" width="278" height="26" rx="7" fill="rgba(56, 189, 248, 0.15)"/>
+                <text x="12" y="18" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">02 · GAMMA 2.2 R-DAC TUNING</text>
+                <circle cx="260" cy="14" r="4" fill="#38bdf8" filter="url(#optGlow)"/>
+
+                <g transform="translate(20, 38)">
+                  <rect width="240" height="75" rx="4" fill="#010c16" stroke="#1e3a5f"/>
+                  <path d="M30 65 Q110 65 210 15" stroke="#38bdf8" stroke-width="2.5" fill="none" filter="url(#optGlow)"/>
+                  <path d="M30 65 Q80 40 210 15" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="2,2" fill="none"/>
+                  <text x="35" y="25" fill="#f87171" font-family="monospace" font-size="7.5">RAW NON-LINEAR</text>
+                  <text x="120" y="68" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="8.5">GAMMA = 2.20 &plusmn;0.05</text>
+                </g>
+
+                <g transform="translate(18, 128)">
+                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STORAGE: 64 to 256 Taps OTP</text>
+                  <text x="0" y="30" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">DAC RESOLUTION: 10-Bit (1024-Step)</text>
+                  <text x="0" y="46" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5">COLOR ACCURACY: Delta E &lt; 1.5</text>
+                  <text x="0" y="62" fill="#64748b" font-family="'Fira Code', monospace" font-size="9.5">CHANNELS: RGB Independent Trims</text>
+                  <rect x="0" y="70" width="130" height="18" rx="3" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="0.8"/>
+                  <text x="8" y="82" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="8.5">1024-STEP R-DAC TRIM</text>
+                </g>
+              </g>
+
+              <!-- 連接 2 ➔ 3 -->
+              <g transform="translate(630, 120)">
+                <line x1="0" y1="0" x2="25" y2="0" stroke="#10b981" stroke-width="2" stroke-dasharray="3,2"/>
+                <polygon points="25,-4 31,0 25,4" fill="#10b981"/>
+                <text x="-8" y="-8" fill="#10b981" font-family="monospace" font-size="8">GAMMA OK</text>
+              </g>
+
+              <!-- ================= 階段 3: OLED DE-MURA 補償 ================= -->
+              <g class="chain-node" transform="translate(665, 15)">
+                <rect width="280" height="225" rx="8" fill="url(#optChainBg)" stroke="#10b981" stroke-width="1.5"/>
+                <rect x="1" y="1" width="278" height="26" rx="7" fill="rgba(16, 185, 129, 0.2)"/>
+                <text x="12" y="18" fill="#10b981" font-family="'Fira Code', monospace" font-size="10.5" font-weight="700">03 · OLED 2D DE-MURA LUT</text>
+                <circle cx="260" cy="14" r="4" fill="#10b981" filter="url(#optGlow)"/>
+
+                <g transform="translate(20, 38)">
+                  <rect width="240" height="75" rx="4" fill="#010c16" stroke="#1e3a5f"/>
+                  <g transform="translate(20, 15)">
+                    <rect width="80" height="45" rx="2" fill="#042f2e" stroke="#ef4444" stroke-width="1"/>
+                    <circle cx="40" cy="22" r="10" fill="#ef4444" opacity="0.4"/>
+                    <text x="12" y="55" fill="#fca5a5" font-family="monospace" font-size="7">RAW MURA (74%)</text>
+                  </g>
+                  <text x="110" y="42" fill="#10b981" font-family="monospace" font-size="14">&rarr;</text>
+                  <g transform="translate(135, 15)">
+                    <rect width="80" height="45" rx="2" fill="#042f2e" stroke="#10b981" stroke-width="1.2"/>
+                    <rect x="2" y="2" width="76" height="41" fill="#065f46" opacity="0.7"/>
+                    <text x="8" y="55" fill="#6ee7b7" font-family="monospace" font-size="7">FLAT LUT (&gt;98%)</text>
+                  </g>
+                </g>
+
+                <g transform="translate(18, 128)">
+                  <text x="0" y="14" fill="#94a3b8" font-family="'Fira Code', monospace" font-size="9.5">STORAGE: 32Kb to 128Kb MTP</text>
+                  <text x="0" y="30" fill="#10b981" font-family="'Fira Code', monospace" font-size="9.5" font-weight="700">UNIFORMITY: 74% ➔ &gt;98.5%</text>
+                  <text x="0" y="46" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5">COMPENSATION: Pixel-by-Pixel Gain</text>
+                  <text x="0" y="62" fill="#64748b" font-family="'Fira Code', monospace" font-size="9.5">SCANNER: Factory Optical Camera</text>
+                  <rect x="0" y="70" width="130" height="18" rx="3" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="0.8"/>
+                  <text x="8" y="82" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="8.5">UNIFORM LUMINANCE OK</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+
+          <!-- 流程圖底部雙語工程微標籤欄 (Strict Zero Naked CJK) -->
+          <div class="flowchart-legend-grid">
+            <div class="flow-legend-col">
+              <h5>
+                <span class="flow-dot-cyan"></span>
+                <span data-lang="zh">Vcom 電壓平衡 (防閃爍)</span>
+                <span data-lang="en">Vcom Anti-Flicker Tuning</span>
+              </h5>
+              <p>
+                <span data-lang="zh">5mV 步階微調對稱鎖定共模電壓，根除面板直流殘影與 60Hz 閃爍。</span>
+                <span data-lang="en">5mV step precision locks common voltage symmetry, eliminating flicker and image sticking.</span>
+              </p>
             </div>
-          </article>
+            <div class="flow-legend-col">
+              <h5>
+                <span class="flow-dot-cyan"></span>
+                <span data-lang="zh">Gamma 2.2 多階 R-DAC</span>
+                <span data-lang="en">Gamma 2.2 R-DAC Matrix</span>
+              </h5>
+              <p>
+                <span data-lang="zh">10-bit / 1024 階高壓電阻分壓梯，RGB 獨立補償非線性光學 Delta E &lt; 1.5。</span>
+                <span data-lang="en">1024-step HV resistor ladder DAC with RGB independent tuning enforcing Delta E &lt; 1.5.</span>
+              </p>
+            </div>
+            <div class="flow-legend-col">
+              <h5>
+                <span class="flow-dot-green"></span>
+                <span data-lang="zh">OLED 逐點 De-Mura 補償</span>
+                <span data-lang="en">OLED Point-by-Point De-Mura</span>
+              </h5>
+              <p>
+                <span data-lang="zh">32Kb~128Kb 高密度 MTP 儲存二維像素增益表，徹底消弭有機發光層斑塊。</span>
+                <span data-lang="en">32Kb-128Kb dense MTP stores 2D pixel gain map, erasing organic luminance Mura.</span>
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- =========================================================
