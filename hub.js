@@ -8,21 +8,23 @@ function syncHubLanguage() {
   const lang = window.HubLanguage ? window.HubLanguage.get() : (localStorage.getItem("nvm-language") || "en");
   document.body.dataset.language = lang;
   document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
-  renderSubmodules(currentSlide);
 }
 window.addEventListener("hub:language-change", syncHubLanguage);
 document.addEventListener("DOMContentLoaded", syncHubLanguage);
 
 function setHubLanguage(language, persist = true) {
   const next = language === "en" ? "en" : "zh";
-  document.body.dataset.language = next;
-  document.documentElement.lang = next === "zh" ? "zh-Hant" : "en";
-  document.querySelector("#languageToggle")?.setAttribute("aria-label", next === "zh" ? "Switch to English" : "Switch to Traditional Chinese");
+  hubBodyLanguage(next);
   if (persist) {
     localStorage.setItem("nvm-language", next);
     window.HubLanguage?.set(next);
   }
-  renderSubmodules(currentSlide);
+}
+
+function hubBodyLanguage(next) {
+  document.body.dataset.language = next;
+  document.documentElement.lang = next === "zh" ? "zh-Hant" : "en";
+  document.querySelector("#languageToggle")?.setAttribute("aria-label", next === "zh" ? "Switch to English" : "Switch to Traditional Chinese");
 }
 
 document.querySelector("#languageToggle")?.addEventListener("click", () => {
@@ -33,21 +35,6 @@ document.querySelector("#languageToggle")?.addEventListener("click", () => {
 // 2. PAGINATED SLIDE STAGE & TAB STRIP
 let currentSlide = 1;
 const TOTAL_SLIDES = 7;
-
-function renderSubmodules(slideId) {
-  const subContainer = document.getElementById("submoduleList");
-  if (!subContainer || !window.HUB_SUBMODULES) return;
-  
-  const currentLang = document.body.dataset.language || "en";
-  const subList = window.HUB_SUBMODULES[slideId] || [];
-  
-  let html = `<span class="submodule-prefix">${currentLang === "zh" ? "次級模組：" : "SUB-MODULES:"}</span>`;
-  subList.forEach((sub, idx) => {
-    const label = currentLang === "zh" ? sub.zh : sub.en;
-    html += `<button class="submodule-pill ${idx === 0 ? 'is-active' : ''}" data-sub-id="${sub.id}" type="button">${label}</button>`;
-  });
-  subContainer.innerHTML = html;
-}
 
 function switchSlide(targetId) {
   if (targetId < 1 || targetId > TOTAL_SLIDES) return;
@@ -70,9 +57,6 @@ function switchSlide(targetId) {
     const gotoId = parseInt(bar.dataset.goto, 10);
     bar.classList.toggle("is-active", gotoId === currentSlide);
   });
-
-  // Render submodules
-  renderSubmodules(currentSlide);
 }
 
 // Module Tabs Click
@@ -81,14 +65,6 @@ document.querySelectorAll(".module-tab-btn").forEach(btn => {
     const modId = parseInt(btn.dataset.module, 10);
     switchSlide(modId);
   });
-});
-
-// Stepper Buttons inside Submodule Ribbon
-document.getElementById("subPrevBtn")?.addEventListener("click", () => {
-  switchSlide(currentSlide === 1 ? TOTAL_SLIDES : currentSlide - 1);
-});
-document.getElementById("subNextBtn")?.addEventListener("click", () => {
-  switchSlide(currentSlide === TOTAL_SLIDES ? 1 : currentSlide + 1);
 });
 
 // Deck Controller Ribbon Buttons
@@ -102,11 +78,6 @@ document.addEventListener("click", (e) => {
   if (indBtn && indBtn.dataset.goto) {
     switchSlide(parseInt(indBtn.dataset.goto, 10));
     return;
-  }
-  const subPill = e.target.closest(".submodule-pill");
-  if (subPill) {
-    document.querySelectorAll(".submodule-pill").forEach(p => p.classList.remove("is-active"));
-    subPill.classList.add("is-active");
   }
 });
 
@@ -192,5 +163,4 @@ document.getElementById("specDrawerBtn")?.addEventListener("click", () => {
 });
 
 // Initial boot
-renderSubmodules(1);
 syncHubLanguage();

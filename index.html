@@ -90,21 +90,6 @@
         <span class="tab-label">AUTOMOTIVE / RAS</span>
       </button>
     </nav>
-
-    <!-- Sub-Module Context Ribbon (Dynamic Pills & Deck Stepper) -->
-    <div class="hub-submodule-ribbon">
-      <div class="submodule-container">
-        <div class="submodule-list" id="submoduleList">
-          <!-- Dynamically populated by hub.js -->
-        </div>
-
-        <div class="submodule-deck-stepper">
-          <button class="deck-step-btn" id="subPrevBtn" type="button" title="Previous Module (Left Arrow)">◀ PREV</button>
-          <span class="deck-step-sep">|</span>
-          <button class="deck-step-btn" id="subNextBtn" type="button" title="Next Module (Right Arrow)">NEXT ▶</button>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- 3. PAGINATED SLIDE STAGE (MAIN VIEWPORT) -->
@@ -1206,11 +1191,6 @@
     </div>
     <p>TSMC N2 GAA &middot; CXL 3.1 &middot; 3D SoIC &middot; PQC Stateful Boot</p>
   </footer>
-
-  <!-- Pass Submodules JSON to JS -->
-  <script>
-    window.HUB_SUBMODULES = {"1": [{"id": "sub-puf", "en": "1.1 SRAM PUF ROOT", "zh": "1.1 SRAM PUF 根密鑰"}, {"id": "sub-crypto", "en": "1.2 AES-256 OTP", "zh": "1.2 AES-256 加密 OTP"}, {"id": "sub-rp2350", "en": "1.3 THREAT MODEL (RP2350)", "zh": "1.3 實體威脅模型 (RP2350)"}, {"id": "sub-subsystem", "en": "1.4 CONTROLLER ARCHITECTURE", "zh": "1.4 安全控制器架構"}], "2": [{"id": "sub-xpu", "en": "2.1 XPU SYSTEM BOUNDARY", "zh": "2.1 XPU 系統邊界"}, {"id": "sub-ddr5", "en": "2.2 DDR5 PMIC/SPD HUB", "zh": "2.2 DDR5 PMIC/SPD 遙測"}, {"id": "sub-tsmc", "en": "2.3 TSMC 22ULL➔N4e", "zh": "2.3 台積電超低功耗矩陣"}, {"id": "sub-soic", "en": "2.4 3D SOIC CHIPLET", "zh": "2.4 3D SoIC 零信任開機"}], "3": [{"id": "sub-pmic", "en": "3.1 BCD PMIC TRIMMING", "zh": "3.1 BCD 電源微調"}, {"id": "sub-ddi", "en": "3.2 HV DDI GAMMA/DEMURA", "zh": "3.2 高壓顯示 Gamma 校準"}, {"id": "sub-eink", "en": "3.3 E-INK 110HV LUT", "zh": "3.3 電子紙波形 LUT"}, {"id": "sub-pkg", "en": "3.4 COG/COF PACKAGING", "zh": "3.4 COG/COF 封裝邊界"}], "4": [{"id": "sub-breakdown", "en": "4.1 DIELECTRIC BREAKDOWN", "zh": "4.1 介電質硬擊穿機制"}, {"id": "sub-retention", "en": "4.2 175°C RETENTION", "zh": "4.2 175°C 高溫留存物理"}, {"id": "sub-n2", "en": "4.3 TSMC N2 GAA SCALING", "zh": "4.3 台積電 N2 GAA 微縮"}, {"id": "sub-stokes", "en": "4.4 STOKES ELECTRO-MIGRATION", "zh": "4.4 Stokes 電遷移閉環"}], "5": [{"id": "sub-bist", "en": "5.1 MARCH C+ BIST", "zh": "5.1 March C+ 內建自檢"}, {"id": "sub-bira", "en": "5.2 HEURISTIC BIRA SOLVER", "zh": "5.2 啟發式 BIRA 引擎"}, {"id": "sub-fusebox", "en": "5.3 ANTIFUSE FUSEBOX CAM", "zh": "5.3 AntiFuse 熔絲盒 CAM"}, {"id": "sub-ppr", "en": "5.4 POST-PACKAGE REPAIR", "zh": "5.4 封裝後修復 (PPR)"}], "6": [{"id": "sub-vref", "en": "6.1 BANDGAP REFERENCE", "zh": "6.1 帶隙基準電路"}, {"id": "sub-ladder", "en": "6.2 12-BIT R-LADDER", "zh": "6.2 12-bit 電阻微調階梯"}, {"id": "sub-ate", "en": "6.3 ATE IN-LINE BURNING", "zh": "6.3 ATE 在線燒錄流程"}, {"id": "sub-tempco", "en": "6.4 CURVATURE CANCEL", "zh": "6.4 溫度曲率消除"}], "7": [{"id": "sub-aec", "en": "7.1 AEC-Q100 GRADE 0", "zh": "7.1 AEC-Q100 Grade 0 標準"}, {"id": "sub-ecc", "en": "7.2 SECDED ECC ENGINE", "zh": "7.2 SECDED ECC 容錯引擎"}, {"id": "sub-htol", "en": "7.3 HTOL 1000H SCREENING", "zh": "7.3 HTOL 1000小時加速老化"}, {"id": "sub-asild", "en": "7.4 ISO 26262 ASIL-D", "zh": "7.4 ASIL-D 車用功能安全"}]};
-  </script>
   <script src="hub.js"></script>
 </body>
 </html>
