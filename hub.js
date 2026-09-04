@@ -1,85 +1,196 @@
+// ==========================================================================
+// 2026 NVM KNOWLEDGE HUB MONOREPO · PRODUCTION HUB ENGINE
+// Architecture Forum · Paginated Deck Stage · Silicon State Engine · Keyboard Nav
+// ==========================================================================
 
-// 連接全站最上層語言管理器
+// 1. TOP-LEVEL LANGUAGE GOVERNANCE
 function syncHubLanguage() {
-  const lang = window.HubLanguage ? window.HubLanguage.get() : "en";
+  const lang = window.HubLanguage ? window.HubLanguage.get() : (localStorage.getItem("nvm-language") || "en");
   document.body.dataset.language = lang;
+  document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+  renderSubmodules(currentSlide);
 }
 window.addEventListener("hub:language-change", syncHubLanguage);
 document.addEventListener("DOMContentLoaded", syncHubLanguage);
 
-const hubLanguage = localStorage.getItem("nvm-language") === "en" ? "en" : "zh";
-const hubBody = document.body;
-const hubMenuButton = document.querySelector("#menuToggle");
-const hubNav = document.querySelector("#primaryNav");
-const hubNavLinks = [...document.querySelectorAll("#primaryNav a[href^='#']")];
-
 function setHubLanguage(language, persist = true) {
   const next = language === "en" ? "en" : "zh";
-  hubBody.dataset.language = next;
+  document.body.dataset.language = next;
   document.documentElement.lang = next === "zh" ? "zh-Hant" : "en";
   document.querySelector("#languageToggle")?.setAttribute("aria-label", next === "zh" ? "Switch to English" : "Switch to Traditional Chinese");
-  hubMenuButton?.setAttribute("aria-label", hubNav?.classList.contains("open") ? (next === "zh" ? "關閉選單" : "Close menu") : (next === "zh" ? "開啟選單" : "Open menu"));
-  document.querySelector(".brand")?.setAttribute("aria-label", next === "zh" ? "NVM Knowledge Hub 首頁" : "NVM Knowledge Hub home");
-  if (persist) localStorage.setItem("nvm-language", next);
-}
-
-function closeHubMenu(restoreFocus = false) {
-  hubNav?.classList.remove("open");
-  hubMenuButton?.setAttribute("aria-expanded", "false");
-  setHubLanguage(hubBody.dataset.language, false);
-  if (restoreFocus) hubMenuButton?.focus();
-}
-
-hubMenuButton?.addEventListener("click", () => {
-  const open = hubNav.classList.toggle("open");
-  hubMenuButton.setAttribute("aria-expanded", open ? "true" : "false");
-  setHubLanguage(hubBody.dataset.language, false);
-  if (open) hubNav.querySelector("a")?.focus();
-});
-hubNav?.addEventListener("click", event => { if (event.target.closest("a")) closeHubMenu(); });
-document.addEventListener("keydown", event => { if (event.key === "Escape" && hubNav?.classList.contains("open")) closeHubMenu(true); });
-document.querySelector("#languageToggle")?.addEventListener("click", () => setHubLanguage(hubBody.dataset.language === "zh" ? "en" : "zh"));
-
-function syncHubMenuToLayout() {
-  if (hubMenuButton && getComputedStyle(hubMenuButton).display === "none") closeHubMenu();
-}
-window.addEventListener("resize", syncHubMenuToLayout, { passive: true });
-
-function updateHubScroll() {
-  const doc = document.documentElement;
-  const distance = doc.scrollHeight - doc.clientHeight;
-  const progress = document.querySelector("#readingProgress");
-  if (progress) progress.style.width = `${distance > 0 ? Math.min(100, doc.scrollTop / distance * 100) : 0}%`;
-  document.querySelector(".site-header")?.classList.toggle("scrolled", doc.scrollTop > 28);
-}
-window.addEventListener("scroll", updateHubScroll, { passive: true });
-
-function setHubCurrentSection(id) {
-  for (const link of hubNavLinks) {
-    const current = link.getAttribute("href") === `#${id}`;
-    if (current) link.setAttribute("aria-current", "location");
-    else link.removeAttribute("aria-current");
+  if (persist) {
+    localStorage.setItem("nvm-language", next);
+    window.HubLanguage?.set(next);
   }
+  renderSubmodules(currentSlide);
 }
 
-const hubSections = hubNavLinks
-  .map(link => document.querySelector(link.getAttribute("href")))
-  .filter(Boolean);
-if (hubSections.length) {
-  const hubSectionObserver = new IntersectionObserver(entries => {
-    const visible = entries
-      .filter(entry => entry.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-    if (visible) setHubCurrentSection(visible.target.id);
-  }, { rootMargin: "-22% 0px -58%", threshold: [0.08, 0.3, 0.6] });
-  hubSections.forEach(section => hubSectionObserver.observe(section));
-  const initialSection = location.hash.slice(1);
-  setHubCurrentSection(hubSections.some(section => section.id === initialSection) ? initialSection : hubSections[0].id);
+document.querySelector("#languageToggle")?.addEventListener("click", () => {
+  const current = document.body.dataset.language || "en";
+  setHubLanguage(current === "zh" ? "en" : "zh");
+});
+
+// 2. PAGINATED SLIDE STAGE & TAB STRIP
+let currentSlide = 1;
+const TOTAL_SLIDES = 7;
+
+function renderSubmodules(slideId) {
+  const subContainer = document.getElementById("submoduleList");
+  if (!subContainer || !window.HUB_SUBMODULES) return;
+  
+  const currentLang = document.body.dataset.language || "en";
+  const subList = window.HUB_SUBMODULES[slideId] || [];
+  
+  let html = `<span class="submodule-prefix">${currentLang === "zh" ? "次級模組：" : "SUB-MODULES:"}</span>`;
+  subList.forEach((sub, idx) => {
+    const label = currentLang === "zh" ? sub.zh : sub.en;
+    html += `<button class="submodule-pill ${idx === 0 ? 'is-active' : ''}" data-sub-id="${sub.id}" type="button">${label}</button>`;
+  });
+  subContainer.innerHTML = html;
 }
 
-const legacySecureStorageHashes = new Set(["#thesis", "#architecture", "#assurance", "#compare", "#evidence", "#learn", "#research-topics", "#power-lab", "#lifecycle"]);
-if (legacySecureStorageHashes.has(location.hash)) location.replace(`secure-storage.html${location.hash}`);
+function switchSlide(targetId) {
+  if (targetId < 1 || targetId > TOTAL_SLIDES) return;
+  currentSlide = targetId;
 
-setHubLanguage(hubLanguage, false);
-syncHubMenuToLayout();
-updateHubScroll();
+  // Update tabs
+  document.querySelectorAll(".module-tab-btn").forEach(btn => {
+    const modId = parseInt(btn.dataset.module, 10);
+    btn.classList.toggle("is-active", modId === currentSlide);
+  });
+
+  // Update slides
+  document.querySelectorAll(".deck-slide").forEach(slide => {
+    const sId = parseInt(slide.dataset.slideId, 10);
+    slide.classList.toggle("is-active", sId === currentSlide);
+  });
+
+  // Update indicators in all slide controllers
+  document.querySelectorAll(".deck-indicator-bar").forEach(bar => {
+    const gotoId = parseInt(bar.dataset.goto, 10);
+    bar.classList.toggle("is-active", gotoId === currentSlide);
+  });
+
+  // Render submodules
+  renderSubmodules(currentSlide);
+}
+
+// Module Tabs Click
+document.querySelectorAll(".module-tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const modId = parseInt(btn.dataset.module, 10);
+    switchSlide(modId);
+  });
+});
+
+// Stepper Buttons inside Submodule Ribbon
+document.getElementById("subPrevBtn")?.addEventListener("click", () => {
+  switchSlide(currentSlide === 1 ? TOTAL_SLIDES : currentSlide - 1);
+});
+document.getElementById("subNextBtn")?.addEventListener("click", () => {
+  switchSlide(currentSlide === TOTAL_SLIDES ? 1 : currentSlide + 1);
+});
+
+// Deck Controller Ribbon Buttons
+document.addEventListener("click", (e) => {
+  const ctrlBtn = e.target.closest(".deck-ctrl-btn");
+  if (ctrlBtn && ctrlBtn.dataset.target) {
+    switchSlide(parseInt(ctrlBtn.dataset.target, 10));
+    return;
+  }
+  const indBtn = e.target.closest(".deck-indicator-bar");
+  if (indBtn && indBtn.dataset.goto) {
+    switchSlide(parseInt(indBtn.dataset.goto, 10));
+    return;
+  }
+  const subPill = e.target.closest(".submodule-pill");
+  if (subPill) {
+    document.querySelectorAll(".submodule-pill").forEach(p => p.classList.remove("is-active"));
+    subPill.classList.add("is-active");
+  }
+});
+
+// 3. SILICON STATE ENGINE INTERACTIVE SIMULATORS
+document.addEventListener("click", (e) => {
+  const triggerBtn = e.target.closest(".engine-trigger-btn");
+  if (!triggerBtn) return;
+
+  const slideId = triggerBtn.dataset.slide;
+  const slideElem = document.getElementById(`deckSlide${slideId}`);
+  if (!slideElem) return;
+
+  const statePill = document.getElementById(`engineStatePill${slideId}`);
+  const isAlt = triggerBtn.dataset.activeState === "alt";
+
+  // Toggle rows
+  slideElem.querySelectorAll(".engine-row-val").forEach(row => {
+    const initVal = row.dataset.init;
+    const altVal = row.dataset.alt;
+    const classInit = row.dataset.classInit;
+    const classAlt = row.dataset.classAlt;
+
+    if (!isAlt) {
+      row.textContent = altVal;
+      row.className = `engine-row-val ${classAlt}`;
+    } else {
+      row.textContent = initVal;
+      row.className = `engine-row-val ${classInit}`;
+    }
+  });
+
+  // Toggle state pill
+  if (statePill) {
+    const pillInit = statePill.dataset.init;
+    const pillAlt = statePill.dataset.alt;
+    statePill.textContent = isAlt ? pillInit : pillAlt;
+    statePill.style.borderColor = isAlt ? "#334155" : "#0891b2";
+    statePill.style.color = isAlt ? "#38bdf8" : "#22d3ee";
+  }
+
+  // Toggle button state attribute
+  triggerBtn.dataset.activeState = isAlt ? "init" : "alt";
+});
+
+// 4. ARCHITECT KEYBOARD NAVIGATION (← / →, 1-7, ESC)
+document.addEventListener("keydown", (e) => {
+  // Ignore when typing in input/textarea
+  if (["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName)) return;
+
+  if (e.key === "ArrowLeft" || e.key === "PageUp") {
+    e.preventDefault();
+    switchSlide(currentSlide === 1 ? TOTAL_SLIDES : currentSlide - 1);
+  } else if (e.key === "ArrowRight" || e.key === "PageDown") {
+    e.preventDefault();
+    switchSlide(currentSlide === TOTAL_SLIDES ? 1 : currentSlide + 1);
+  } else if (e.key >= "1" && e.key <= "7") {
+    switchSlide(parseInt(e.key, 10));
+  } else if (e.key === "Escape") {
+    const drawer = document.getElementById("specDrawerContent");
+    const drawerBtn = document.getElementById("specDrawerBtn");
+    if (drawer && drawer.classList.contains("is-open")) {
+      drawer.classList.remove("is-open");
+      drawerBtn?.setAttribute("aria-expanded", "false");
+    }
+  }
+});
+
+// Keyboard hint button click shows notification / jumps focus
+document.getElementById("kbdHintBtn")?.addEventListener("click", () => {
+  const currentLang = document.body.dataset.language || "en";
+  alert(currentLang === "zh" 
+    ? "架構師快捷鍵導覽：\n• 按鍵盤數字鍵 [1 - 7] 可直接跳轉至對應核心模組\n• 按方向鍵 [←] / [→] 可向左/向右翻頁"
+    : "Architect Keyboard Navigation:\n• Press numeric keys [1 - 7] to directly jump to any core module\n• Press [←] / [→] arrow keys to navigate slides");
+});
+
+// 5. SPEC DRAWER / EVIDENCE MATRIX ACCORDION
+document.getElementById("specDrawerBtn")?.addEventListener("click", () => {
+  const drawer = document.getElementById("specDrawerContent");
+  const btn = document.getElementById("specDrawerBtn");
+  if (!drawer || !btn) return;
+  const isOpen = drawer.classList.toggle("is-open");
+  btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
+
+// Initial boot
+renderSubmodules(1);
+syncHubLanguage();

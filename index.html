@@ -1,172 +1,1056 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-language="en">
 <head>
-  <meta charset="utf-8">
-  <script src="site-language.js?v=20260904-top-v1"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NVM Knowledge Hub &middot; Topics, Research &amp; Evidence</title>
-  <meta name="description" content="NVM 是矽智財持久狀態契約的基石。全方位整合 Secure Storage、AI 系統持久狀態、台積電物聯網 (22ULL 到 N4e) 微縮矩陣、3D 小晶片安全、物理可信度驗證與原生 Whitepaper Studio。">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <!-- Open Graph / Facebook / LinkedIn / Slack -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://samhuang68.github.io/nvm-knowledge-hub/">
-  <meta property="og:title" content="NVM Knowledge Hub · Persistent State Architecture, Specialty Foundry & Evidence">
-  <meta property="og:description" content="Comprehensive architecture hub covering Secure Storage, AI Accelerators, BCD Power Trimming, CIS/DRAM Defect Repair, and E-Ink Ultra-HV Driving with 44 verified claims.">
-  <meta property="og:image" content="https://samhuang68.github.io/nvm-knowledge-hub/assets/specialty-foundry-v1.webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="675">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://samhuang68.github.io/nvm-knowledge-hub/">
-  <meta name="twitter:title" content="NVM Knowledge Hub · Semiconductor Architecture & Evidence">
-  <meta name="twitter:description" content="Persistent state decision workbench covering Secure Storage, Specialty Foundry eNVM, and 44 verified silicon claims.">
-  <meta name="twitter:image" content="https://samhuang68.github.io/nvm-knowledge-hub/assets/specialty-foundry-v1.webp">
-
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="site.webmanifest">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NVM Architecture Knowledge Hub · Industrial Non-Volatile Memory Whitepaper</title>
+  <meta name="description" content="Industrial-grade NVM architecture forum and knowledge hub. Spanning Secure Storage IP, AI accelerator persistent states, TSMC IoT matrices, BCD power, high-voltage drivers, and bitcell physics.">
+  <meta name="theme-color" content="#0a1118">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260904-hive-v5">
-  <link rel="stylesheet" href="site-shell.css?v=20260904-hive-v5">
-  <link rel="stylesheet" href="hub.css?v=20260904-hive-v5">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site-shell.css">
+  <link rel="stylesheet" href="hub.css">
+  <script src="site-language.js"></script>
   <style>
-    /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
+    /* Critical fallback rules ensuring zero CJK leakage in English mode */
     [data-lang="zh"] { display: none !important; }
-    [data-lang="en"] { display: revert; }
-
-    html[data-language="zh"] [data-lang="zh"],
-    body[data-language="zh"] [data-lang="zh"] {
-      display: revert !important;
-    }
-    html[data-language="zh"] [data-lang="en"],
-    body[data-language="zh"] [data-lang="en"] {
-      display: none !important;
-    }
-
-    /* Critical defensive inline styles: prevent SVG explosion & skip-link flash */
-    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #73eee4; padding: 10px 18px; border: 1px solid #73eee4; border-radius: 4px; }
-    .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
-    
-    
+    [data-language="zh"] [data-lang="zh"] { display: inline !important; }
+    [data-language="zh"] [data-lang="en"] { display: none !important; }
+    [data-language="en"] [data-lang="en"] { display: inline !important; }
+    [data-language="en"] [data-lang="zh"] { display: none !important; }
   </style>
 </head>
-<body class="hub-page" >
+<body class="hub-page">
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
 
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub 首頁">
-      <span class="brand-mark">
-        <svg viewBox="0 0 48 48" aria-hidden="true" width="32" height="32"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/><path d="M17 5v6M24 5v6M31 5v6M17 37v6M24 37v6M31 37v6M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></svg>
-      </span>
-      <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
-      <span class="brand-section">KNOWLEDGE SYSTEM</span>
-    </a>
-    <nav class="primary-nav" id="primaryNav" aria-label="主要導覽">
-      <a class="portfolio-return" href="https://samhuang68.github.io/#work" aria-label="返回個人作品集">SAM HUANG ↗</a>
-      <a class="is-active" href="index.html" aria-current="page"><span data-lang="zh">總門戶</span><span data-lang="en">Portal</span></a>
-      <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
-      <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a>
-      <a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a>
-      <a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper</span></a>
-      <a href="briefing/index.html"><span data-lang="zh">簡報與講稿</span><span data-lang="en">Briefing</span></a>
-    </nav>
-    <div class="header-actions">
-      <button class="language-toggle" id="languageToggle" type="button" aria-label="切換語系 Switch Language"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
-      <button class="menu-button" id="menuToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
+  <!-- 1. ULTRA-MINIMAL STICKY TOPBAR (44px / h-11) -->
+  <header class="hub-minimal-header" id="hubTopHeader">
+    <div class="hub-header-left">
+      <!-- NVM Micro Logo -->
+      <a class="hub-micro-logo" href="index.html" aria-label="NVM Knowledge Hub Home">
+        <span>N</span>
+      </a>
+      <span class="hub-brand-name">NVM ARCHITECTURE KNOWLEDGE HUB</span>
+      <span class="hub-spec-badge">V2.4 · INDUSTRIAL SPEC</span>
+    </div>
+
+    <!-- Right Actions: Nav Links, Language Toggle, Quick Links -->
+    <div class="hub-header-right">
+      <nav class="hub-top-nav" aria-label="Quick Section Links">
+        <a class="is-active" href="index.html" aria-current="page"><span data-lang="zh">總門戶</span><span data-lang="en">Portal</span></a>
+        <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
+        <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a>
+        <a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a>
+        <a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper</span></a>
+        <a href="briefing/index.html"><span data-lang="zh">簡報與講稿</span><span data-lang="en">Briefing</span></a>
+      </nav>
+
+      <div class="hub-header-ctrls">
+        <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch Language (ZH/EN)">
+          <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
+        </button>
+        <button class="hub-keyboard-hint-btn" id="kbdHintBtn" type="button" title="Architect Keyboard Navigation: Use ← / → or 1-7 keys to switch modules">
+          <span>⌨ [1-7]</span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main id="main-content">
-    <section class="hub-hero" aria-labelledby="hub-title">
-      <div class="hub-hero-grid" aria-hidden="true"></div>
-      <div class="hub-hero-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="hub-hero-copy">
-        <p class="hub-kicker">NVM KNOWLEDGE SYSTEM &middot; UNIFIED MONOREPO 2026</p>
-        <h1 id="hub-title">
-          <span data-lang="zh">NVM 是<br><em>矽智財持久狀態契約的基石</em></span>
-          <span data-lang="en">NVM is<br><em>the foundation of silicon state contracts</em></span>
-        </h1>
-        <p class="hub-intro">
-          <span data-lang="zh">將分散的技術知識庫統整為單一的高階 Monorepo 總門戶。涵蓋 Secure Storage IP、AI 加速器持久狀態、台積電 IoT (22ULL 到 N4e) 微縮矩陣、3D Chiplet 零信任架構、物理防護驗證與原生白皮書決策工作台。</span>
-          <span data-lang="en">NVM is the single knowledge spine unified into one monorepo. Spanning Secure Storage IP, AI persistent states, TSMC IoT (22ULL to N4e) roadmaps, 3D chiplet security, physical assurance, and native whitepaper decision studios.</span>
-        </p>
-        <div class="hub-hero-actions">
-          <a class="button primary" href="#topics"><span data-lang="zh">探索 7 大核心模組</span><span data-lang="en">Explore 7 core modules</span><svg viewBox="0 0 48 48" width="18" height="18" aria-hidden="true" style="width:18px;height:18px;flex-shrink:0;"><path d="M7 24h32M28 13l11 11-11 11"/></svg></a>
-          <a class="button ghost" href="whitepaper/"><span data-lang="zh">開啟 Whitepaper Studio</span><span data-lang="en">Open Whitepaper Studio</span></a>
+  <!-- 2. 7 CORE ARCHITECTURE MODULES HORIZONTAL STRIP -->
+  <div class="hub-module-strip-container" id="moduleNavSuite">
+    <!-- 7 Horizontal Tab Buttons -->
+    <nav class="hub-module-tabs" id="moduleTabs" aria-label="7 Core Architecture Modules">
+      <button class="module-tab-btn is-active" data-module="1" type="button">
+        <span class="tab-num">01</span>
+        <span class="tab-label">SECURE STORAGE</span>
+      </button>
+      <button class="module-tab-btn" data-module="2" type="button">
+        <span class="tab-num">02</span>
+        <span class="tab-label">AI SYSTEMS</span>
+      </button>
+      <button class="module-tab-btn" data-module="3" type="button">
+        <span class="tab-num">03</span>
+        <span class="tab-label">SPECIALTY BCD/HV</span>
+      </button>
+      <button class="module-tab-btn" data-module="4" type="button">
+        <span class="tab-num">04</span>
+        <span class="tab-label">BITCELL PHYSICS</span>
+      </button>
+      <button class="module-tab-btn" data-module="5" type="button">
+        <span class="tab-num">05</span>
+        <span class="tab-label">ARRAY REPAIR</span>
+      </button>
+      <button class="module-tab-btn" data-module="6" type="button">
+        <span class="tab-num">06</span>
+        <span class="tab-label">ANALOG TRIMMING</span>
+      </button>
+      <button class="module-tab-btn" data-module="7" type="button">
+        <span class="tab-num">07</span>
+        <span class="tab-label">AUTOMOTIVE / RAS</span>
+      </button>
+    </nav>
+
+    <!-- Sub-Module Context Ribbon (Dynamic Pills & Deck Stepper) -->
+    <div class="hub-submodule-ribbon">
+      <div class="submodule-container">
+        <div class="submodule-list" id="submoduleList">
+          <!-- Dynamically populated by hub.js -->
+        </div>
+
+        <div class="submodule-deck-stepper">
+          <button class="deck-step-btn" id="subPrevBtn" type="button" title="Previous Module (Left Arrow)">◀ PREV</button>
+          <span class="deck-step-sep">|</span>
+          <button class="deck-step-btn" id="subNextBtn" type="button" title="Next Module (Right Arrow)">NEXT ▶</button>
         </div>
       </div>
-      <div class="hub-hero-index" aria-label="Knowledge system summary">
-        <div class="index-metric">
+    </div>
+  </div>
+
+  <!-- 3. PAGINATED SLIDE STAGE (MAIN VIEWPORT) -->
+  <main id="main-content" class="hub-deck-viewport">
+    <div class="deck-stage-wrapper">
+      
+      <!-- SLIDE 01: SECURE STORAGE ARCHITECTURE -->
+      <article class="deck-slide is-active" id="deckSlide1" data-slide-id="1" aria-labelledby="slideTitle1">
+        <!-- Top Stage Breadcrumb & Metadata -->
+        <div class="stage-topbar">
+          <div class="stage-breadcrumb">
+            <span class="stage-status-dot"></span>
+            <strong class="stage-module-tag">MODULE 01 OF 07</strong>
+            <span class="stage-sep">::</span>
+            <span class="stage-category-text">SECURE STORAGE ARCHITECTURE</span>
+          </div>
+          <div class="stage-meta-badge">KEY RESIDENCY: EPHEMERAL · SHUTDOWN ASSURANCE</div>
+        </div>
+
+        <!-- Slide Body: Thesis + Silicon State Engine -->
+        <div class="stage-body">
+          <!-- Left: Architectural Thesis -->
+          <div class="stage-thesis-col">
+            <div class="stage-kicker">
+              <span data-lang="zh">機密長存 · 根金鑰瞬態</span>
+              <span data-lang="en">Persistent Data · Ephemeral Root</span>
+            </div>
+            <h2 class="stage-title" id="slideTitle1">
+              <span data-lang="zh">永久保存機密資料，<br><span class="stage-gradient-text">根金鑰不永久留存於晶片介質</span></span>
+              <span data-lang="en">Keep data permanent—<br><span class="stage-gradient-text">not the root key on silicon medium</span></span>
+            </h2>
+            <p class="stage-desc">
+              <span data-lang="zh">以 SRAM PUF 於每次上電依物理失配重構 Device-Unique Root Key，搭配硬體 AES-256 即時加解密 AntiFuse OTP。下電後不存在已重建的根金鑰，將物理探針與故障注入攻擊限制在無意義的加密密文區間。</span>
+              <span data-lang="en">Reconstructs device-unique root keys dynamically via SRAM PUF mismatch at power-up, paired with hardware AES-256 real-time crypto over AntiFuse OTP. No reconstructed root exists at power-off, confining physical probes and fault injection to meaningless ciphertext.</span>
+            </p>
+
+            <!-- 3 Pillars Badges -->
+            <div class="deck-pillars-grid">
+              
+            <div class="deck-pillar-card">
+              <div class="pillar-code">01. ABSENT</div>
+              <div class="pillar-text">
+                <span data-lang="zh">下電不留存重建 Root</span>
+                <span data-lang="en">No reconstructed root in power-off</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">02. CIPHERTEXT</div>
+              <div class="pillar-text">
+                <span data-lang="zh">OTP 僅長存加密資料</span>
+                <span data-lang="en">OTP persists ciphertext only</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">03. SUBSYSTEM</div>
+              <div class="pillar-text">
+                <span data-lang="zh">單一責任邊界閉環</span>
+                <span data-lang="en">Closed single-responsibility boundary</span>
+              </div>
+            </div>
+            </div>
+
+            <!-- Deep Dive Action Link -->
+            <div class="stage-action-area">
+              <a class="stage-link-btn" href="secure-storage.html">
+                <span data-lang="zh">進入 Secure Storage 架構專頁 →</span>
+                <span data-lang="en">Enter Secure Storage Deep Dive →</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Silicon State Engine -->
+          <div class="stage-engine-col">
+            <div class="engine-box">
+              <div class="engine-header">
+                <span class="engine-title">SILICON STATE ENGINE · ROOT LIFECYCLE</span>
+                <span class="engine-state-pill" id="engineStatePill1" data-init="POWER OFF" data-alt="ACTIVE CYCLE">POWER OFF</span>
+              </div>
+              
+              <!-- Memory Matrix Rows -->
+              <div class="engine-rows-list">
+                
+          <div class="engine-row">
+            <span class="engine-row-label">SRAM PUF CELL:</span>
+            <span class="engine-row-val text-slate-500" id="pufCellVal" data-init="Unpowered (Mismatch Exists)" data-alt="Powered (0x7F2A... Extracted)" data-class-init="text-slate-500" data-class-alt="text-cyan-300">Unpowered (Mismatch Exists)</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">RECONSTRUCTED ROOT:</span>
+            <span class="engine-row-val text-rose-400 font-bold" id="rootVal" data-init="ABSENT (0x00000000)" data-alt="VALID (0x8F3E92B1...)" data-class-init="text-rose-400 font-bold" data-class-alt="text-emerald-400 font-bold">ABSENT (0x00000000)</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">ANTIFUSE OTP MEMORY:</span>
+            <span class="engine-row-val text-emerald-400" id="otpVal" data-init="AES-256 CIPHERTEXT" data-alt="REAL-TIME DECRYPTED STREAM" data-class-init="text-emerald-400" data-class-alt="text-cyan-300">AES-256 CIPHERTEXT</span>
+          </div>
+              </div>
+
+              <!-- Trigger Simulator Button -->
+              <button class="engine-trigger-btn" id="engineBtn1" data-slide="1" type="button">
+                <span data-lang="zh">⚡ 模擬上電重構 (TRIGGER POWER-UP)</span>
+                <span data-lang="en">⚡ SIMULATE POWER-UP / RECONSTRUCTION</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Deck Controller Ribbon -->
+        <div class="stage-deck-controller">
+          <button class="deck-ctrl-btn prev-btn" data-target="7" type="button" aria-label="Previous module">
+            <span>←</span> <span>PREV: AUTOMOTIVE / RAS</span>
+          </button>
+
+          <div class="deck-indicators">
+            <button class="deck-indicator-bar is-active" data-goto="1" type="button" aria-label="Go to Module 1"></button>
+<button class="deck-indicator-bar " data-goto="2" type="button" aria-label="Go to Module 2"></button>
+<button class="deck-indicator-bar " data-goto="3" type="button" aria-label="Go to Module 3"></button>
+<button class="deck-indicator-bar " data-goto="4" type="button" aria-label="Go to Module 4"></button>
+<button class="deck-indicator-bar " data-goto="5" type="button" aria-label="Go to Module 5"></button>
+<button class="deck-indicator-bar " data-goto="6" type="button" aria-label="Go to Module 6"></button>
+<button class="deck-indicator-bar " data-goto="7" type="button" aria-label="Go to Module 7"></button>
+          </div>
+
+          <button class="deck-ctrl-btn next-btn" data-target="2" type="button" aria-label="Next module">
+            <span>NEXT: AI SYSTEMS</span> <span>→</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- SLIDE 02: AI SYSTEMS & ADVANCED NODES -->
+      <article class="deck-slide " id="deckSlide2" data-slide-id="2" aria-labelledby="slideTitle2">
+        <!-- Top Stage Breadcrumb & Metadata -->
+        <div class="stage-topbar">
+          <div class="stage-breadcrumb">
+            <span class="stage-status-dot"></span>
+            <strong class="stage-module-tag">MODULE 02 OF 07</strong>
+            <span class="stage-sep">::</span>
+            <span class="stage-category-text">AI SYSTEMS & ADVANCED NODES</span>
+          </div>
+          <div class="stage-meta-badge">AI ACCELERATOR PERSISTENCE · TSMC 22ULL➔N4e</div>
+        </div>
+
+        <!-- Slide Body: Thesis + Silicon State Engine -->
+        <div class="stage-body">
+          <!-- Left: Architectural Thesis -->
+          <div class="stage-thesis-col">
+            <div class="stage-kicker">
+              <span data-lang="zh">狀態契約 · 記憶體拓撲</span>
+              <span data-lang="en">State Contract · Memory Topology</span>
+            </div>
+            <h2 class="stage-title" id="slideTitle2">
+              <span data-lang="zh">在選擇新興記憶體前，<br><span class="stage-gradient-text">先嚴謹定義持久狀態契約</span></span>
+              <span data-lang="en">Define the state contract<br><span class="stage-gradient-text">before selecting emerging NVM technology</span></span>
+            </h2>
+            <p class="stage-desc">
+              <span data-lang="zh">全面評估資料中心 DDR5 PMIC/SPD Hub、AI VR 逐相微調、台積電超低功耗 IoT (22ULL 到 N4e) 0.5V 狀態保存、3D SoIC 晶片 KGD 認證與 NIST LMS 後量子抗性開機簽核。</span>
+              <span data-lang="en">Maps AI accelerator packages, DDR5 PMIC/SPD Hub multi-phase calibration, TSMC ultra-low-power IoT (22ULL to N4e) 0.5V state retention, 3D SoIC KGD attestation, and NIST LMS stateful hash-based boot validation.</span>
+            </p>
+
+            <!-- 3 Pillars Badges -->
+            <div class="deck-pillars-grid">
+              
+            <div class="deck-pillar-card">
+              <div class="pillar-code">01. DDR5 HUB</div>
+              <div class="pillar-text">
+                <span data-lang="zh">DDR5 PMIC/SPD 逐相微調</span>
+                <span data-lang="en">Multi-phase telemetry & trim</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">02. 0.5V IOT</div>
+              <div class="pillar-text">
+                <span data-lang="zh">TSMC 22ULL➔N4e 0.5V 開機</span>
+                <span data-lang="en">TSMC 22ULL to N4e fast boot</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">03. 3D CHIPLET</div>
+              <div class="pillar-text">
+                <span data-lang="zh">3D SoIC KGD 與 LMS 開機</span>
+                <span data-lang="en">SoIC KGD & LMS stateful boot</span>
+              </div>
+            </div>
+            </div>
+
+            <!-- Deep Dive Action Link -->
+            <div class="stage-action-area">
+              <a class="stage-link-btn" href="ai-nvm-opportunities.html">
+                <span data-lang="zh">進入 AI 與先進節點專頁 →</span>
+                <span data-lang="en">Enter AI Systems & Nodes →</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Silicon State Engine -->
+          <div class="stage-engine-col">
+            <div class="engine-box">
+              <div class="engine-header">
+                <span class="engine-title">SILICON STATE ENGINE · AI BOOT & WORKLOAD</span>
+                <span class="engine-state-pill" id="engineStatePill2" data-init="0.5V STANDBY" data-alt="ACTIVE CYCLE">0.5V STANDBY</span>
+              </div>
+              
+              <!-- Memory Matrix Rows -->
+              <div class="engine-rows-list">
+                
+          <div class="engine-row">
+            <span class="engine-row-label">N4e ACCELERATOR DOMAIN:</span>
+            <span class="engine-row-val text-slate-500" id="aiDomainVal" data-init="0.5V Ultra-Low-Leakage Sleep" data-alt="0.85V Full-Throttle Active" data-class-init="text-slate-500" data-class-alt="text-cyan-300">0.5V Ultra-Low-Leakage Sleep</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">DDR5 VR TELEMETRY:</span>
+            <span class="engine-row-val text-slate-500" id="ddrVal" data-init="Phase Calibration Idle" data-alt="Dynamic Trim Locked (±0.2%)" data-class-init="text-slate-500" data-class-alt="text-emerald-400 font-bold">Phase Calibration Idle</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">LMS STATEFUL BOOT:</span>
+            <span class="engine-row-val text-emerald-400" id="lmsVal" data-init="OTS Signature Verified" data-alt="State Advanced & OTP Committed" data-class-init="text-emerald-400" data-class-alt="text-cyan-300">OTS Signature Verified</span>
+          </div>
+              </div>
+
+              <!-- Trigger Simulator Button -->
+              <button class="engine-trigger-btn" id="engineBtn2" data-slide="2" type="button">
+                <span data-lang="zh">⚡ 切換工作負載 (TRIGGER TURBO STATE)</span>
+                <span data-lang="en">⚡ TRANSITION WORKLOAD / TURBO MODE</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Deck Controller Ribbon -->
+        <div class="stage-deck-controller">
+          <button class="deck-ctrl-btn prev-btn" data-target="1" type="button" aria-label="Previous module">
+            <span>←</span> <span>PREV: SECURE STORAGE</span>
+          </button>
+
+          <div class="deck-indicators">
+            <button class="deck-indicator-bar " data-goto="1" type="button" aria-label="Go to Module 1"></button>
+<button class="deck-indicator-bar is-active" data-goto="2" type="button" aria-label="Go to Module 2"></button>
+<button class="deck-indicator-bar " data-goto="3" type="button" aria-label="Go to Module 3"></button>
+<button class="deck-indicator-bar " data-goto="4" type="button" aria-label="Go to Module 4"></button>
+<button class="deck-indicator-bar " data-goto="5" type="button" aria-label="Go to Module 5"></button>
+<button class="deck-indicator-bar " data-goto="6" type="button" aria-label="Go to Module 6"></button>
+<button class="deck-indicator-bar " data-goto="7" type="button" aria-label="Go to Module 7"></button>
+          </div>
+
+          <button class="deck-ctrl-btn next-btn" data-target="3" type="button" aria-label="Next module">
+            <span>NEXT: SPECIALTY BCD/HV</span> <span>→</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- SLIDE 03: SPECIALTY FOUNDRY eNVM -->
+      <article class="deck-slide " id="deckSlide3" data-slide-id="3" aria-labelledby="slideTitle3">
+        <!-- Top Stage Breadcrumb & Metadata -->
+        <div class="stage-topbar">
+          <div class="stage-breadcrumb">
+            <span class="stage-status-dot"></span>
+            <strong class="stage-module-tag">MODULE 03 OF 07</strong>
+            <span class="stage-sep">::</span>
+            <span class="stage-category-text">SPECIALTY FOUNDRY eNVM</span>
+          </div>
+          <div class="stage-meta-badge">PMIC 40V · HV DDI GAMMA · E-INK 110HV LUT</div>
+        </div>
+
+        <!-- Slide Body: Thesis + Silicon State Engine -->
+        <div class="stage-body">
+          <!-- Left: Architectural Thesis -->
+          <div class="stage-thesis-col">
+            <div class="stage-kicker">
+              <span data-lang="zh">高壓類比 · 系統整合</span>
+              <span data-lang="en">High-Voltage Analog · System Integration</span>
+            </div>
+            <h2 class="stage-title" id="slideTitle3">
+              <span data-lang="zh">BCD 電源管理、高壓顯示驅動<br><span class="stage-gradient-text">與電子紙波形 LUT 架構</span></span>
+              <span data-lang="en">BCD power, display drivers,<br><span class="stage-gradient-text">and electrophoretic waveform LUT architecture</span></span>
+            </h2>
+            <p class="stage-desc">
+              <span data-lang="zh">涵蓋 PMIC 帶隙微調、USB-PD 快充協議、CIS 與 DRAM 缺陷修復；高壓 DDI 之 Gamma 2.2、Vcom 與 De-Mura 補償；以及電子紙 (E-Ink) 40V-50V/110HV 驅動波形 LUT 與「演進期 MTP ➔ 成熟期 OTP」戰略。</span>
+              <span data-lang="en">Covers PMIC bandgap trim, USB-PD fast-charging protocols, CIS/DRAM repair, HV display driver Gamma 2.2 / De-Mura calibration, plus E-Ink 40V-50V/110HV driving waveform lookup tables and MTP-to-OTP lifecycle roadmap.</span>
+            </p>
+
+            <!-- 3 Pillars Badges -->
+            <div class="deck-pillars-grid">
+              
+            <div class="deck-pillar-card">
+              <div class="pillar-code">01. BCD POWER</div>
+              <div class="pillar-text">
+                <span data-lang="zh">32V–40V 製程安全耐壓裕度</span>
+                <span data-lang="en">32V–40V safe-operating margin</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">02. DDI CALIB</div>
+              <div class="pillar-text">
+                <span data-lang="zh">Gamma 2.2 與 De-Mura 校準</span>
+                <span data-lang="en">Gamma 2.2, Vcom & De-Mura</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">03. E-INK LUT</div>
+              <div class="pillar-text">
+                <span data-lang="zh">110HV 與溫度驅動波形 LUT</span>
+                <span data-lang="en">110HV & Temperature LUT</span>
+              </div>
+            </div>
+            </div>
+
+            <!-- Deep Dive Action Link -->
+            <div class="stage-action-area">
+              <a class="stage-link-btn" href="specialty-nvm.html">
+                <span data-lang="zh">探索特種 NVM 旗艦專頁 →</span>
+                <span data-lang="en">Explore Specialty NVM Flagship →</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Silicon State Engine -->
+          <div class="stage-engine-col">
+            <div class="engine-box">
+              <div class="engine-header">
+                <span class="engine-title">SILICON STATE ENGINE · HV ANALOG CONTROLLER</span>
+                <span class="engine-state-pill" id="engineStatePill3" data-init="STANDBY VREF" data-alt="ACTIVE CYCLE">STANDBY VREF</span>
+              </div>
+              
+              <!-- Memory Matrix Rows -->
+              <div class="engine-rows-list">
+                
+          <div class="engine-row">
+            <span class="engine-row-label">BANDGAP VREF OUTPUT:</span>
+            <span class="engine-row-val text-rose-400 font-bold" id="vrefVal" data-init="1.238V (Uncalibrated ±3.2%)" data-alt="1.2005V (Trimmed ±0.04%)" data-class-init="text-rose-400 font-bold" data-class-alt="text-emerald-400 font-bold">1.238V (Uncalibrated ±3.2%)</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">HV GATE/SOURCE RAILS:</span>
+            <span class="engine-row-val text-slate-500" id="hvRailsVal" data-init="Gate 0V / Source 0V" data-alt="Gate 35Vp-p / Source 12V Regulated" data-class-init="text-slate-500" data-class-alt="text-cyan-300">Gate 0V / Source 0V</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">E-INK WAVEFORM LUT:</span>
+            <span class="engine-row-val text-slate-400" id="lutVal" data-init="Default 25°C LUT Active" data-alt="Dynamic -15°C Sub-Zero Injected" data-class-init="text-slate-400" data-class-alt="text-teal-300 font-bold">Default 25°C LUT Active</span>
+          </div>
+              </div>
+
+              <!-- Trigger Simulator Button -->
+              <button class="engine-trigger-btn" id="engineBtn3" data-slide="3" type="button">
+                <span data-lang="zh">⚡ 注入 12-BIT 微調碼與波形 (TRIGGER CALIB)</span>
+                <span data-lang="en">⚡ INJECT 12-BIT CALIBRATION & WAVEFORM</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Deck Controller Ribbon -->
+        <div class="stage-deck-controller">
+          <button class="deck-ctrl-btn prev-btn" data-target="2" type="button" aria-label="Previous module">
+            <span>←</span> <span>PREV: AI SYSTEMS</span>
+          </button>
+
+          <div class="deck-indicators">
+            <button class="deck-indicator-bar " data-goto="1" type="button" aria-label="Go to Module 1"></button>
+<button class="deck-indicator-bar " data-goto="2" type="button" aria-label="Go to Module 2"></button>
+<button class="deck-indicator-bar is-active" data-goto="3" type="button" aria-label="Go to Module 3"></button>
+<button class="deck-indicator-bar " data-goto="4" type="button" aria-label="Go to Module 4"></button>
+<button class="deck-indicator-bar " data-goto="5" type="button" aria-label="Go to Module 5"></button>
+<button class="deck-indicator-bar " data-goto="6" type="button" aria-label="Go to Module 6"></button>
+<button class="deck-indicator-bar " data-goto="7" type="button" aria-label="Go to Module 7"></button>
+          </div>
+
+          <button class="deck-ctrl-btn next-btn" data-target="4" type="button" aria-label="Next module">
+            <span>NEXT: BITCELL PHYSICS</span> <span>→</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- SLIDE 04: BITCELL PHYSICS & EVIDENCE -->
+      <article class="deck-slide " id="deckSlide4" data-slide-id="4" aria-labelledby="slideTitle4">
+        <!-- Top Stage Breadcrumb & Metadata -->
+        <div class="stage-topbar">
+          <div class="stage-breadcrumb">
+            <span class="stage-status-dot"></span>
+            <strong class="stage-module-tag">MODULE 04 OF 07</strong>
+            <span class="stage-sep">::</span>
+            <span class="stage-category-text">BITCELL PHYSICS & EVIDENCE</span>
+          </div>
+          <div class="stage-meta-badge">GATE OXIDE RUPTURE · 175°C ZERO DRIFT</div>
+        </div>
+
+        <!-- Slide Body: Thesis + Silicon State Engine -->
+        <div class="stage-body">
+          <!-- Left: Architectural Thesis -->
+          <div class="stage-thesis-col">
+            <div class="stage-kicker">
+              <span data-lang="zh">奈米物理 · 量子穿隧</span>
+              <span data-lang="en">Nanoscale Physics · Quantum Tunneling</span>
+            </div>
+            <h2 class="stage-title" id="slideTitle4">
+              <span data-lang="zh">閘極氧化層永久性金屬微絲形成，<br><span class="stage-gradient-text">高達 175°C 高溫零電荷漂移物理特性</span></span>
+              <span data-lang="en">Permanent metallic filament formation<br><span class="stage-gradient-text">with zero high-temperature drift up to 175°C</span></span>
+            </h2>
+            <p class="stage-desc">
+              <span data-lang="zh">深入剖析 AntiFuse 閘極氧化層介電硬擊穿 (Dielectric Hard Breakdown)、奈米金屬矽化物微絲熱力學穩定性、量子穿隧可靠度模型與全站 44 筆第一手矽驗證證據總帳。</span>
+              <span data-lang="en">Detailed physical models of dielectric hard breakdown in AntiFuse OTP, thermal silicide filament stability, multi-dielectric Fowler-Nordheim tunneling models, and 44 verified empirical claims on silicon datasheets.</span>
+            </p>
+
+            <!-- 3 Pillars Badges -->
+            <div class="deck-pillars-grid">
+              
+            <div class="deck-pillar-card">
+              <div class="pillar-code">01. RUPTURE</div>
+              <div class="pillar-text">
+                <span data-lang="zh">奈米導電微絲物理擊穿</span>
+                <span data-lang="en">Nanoscale permanent filament</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">02. 175°C RET</div>
+              <div class="pillar-text">
+                <span data-lang="zh">175°C Tj 15+ 年零電荷洩漏</span>
+                <span data-lang="en">15+ years zero charge leakage</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">03. 44 CLAIMS</div>
+              <div class="pillar-text">
+                <span data-lang="zh">44 筆端到端可查證證據</span>
+                <span data-lang="en">Grounded in peer-reviewed data</span>
+              </div>
+            </div>
+            </div>
+
+            <!-- Deep Dive Action Link -->
+            <div class="stage-action-area">
+              <a class="stage-link-btn" href="memory-physics.html">
+                <span data-lang="zh">檢視 44 筆物理證據總帳 →</span>
+                <span data-lang="en">View 44 Evidence Claims →</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Silicon State Engine -->
+          <div class="stage-engine-col">
+            <div class="engine-box">
+              <div class="engine-header">
+                <span class="engine-title">SILICON STATE ENGINE · BITCELL FILAMENT STABILITY</span>
+                <span class="engine-state-pill" id="engineStatePill4" data-init="VIRGIN BITCELL (10¹² Ω)" data-alt="ACTIVE CYCLE">VIRGIN BITCELL (10¹² Ω)</span>
+              </div>
+              
+              <!-- Memory Matrix Rows -->
+              <div class="engine-rows-list">
+                
+          <div class="engine-row">
+            <span class="engine-row-label">GATE OXIDE INTEGRITY:</span>
+            <span class="engine-row-val text-cyan-300" id="oxideVal" data-init="Intact 1.8nm Dielectric" data-alt="Ruptured (Localized Filament)" data-class-init="text-cyan-300" data-class-alt="text-rose-400 font-bold">Intact 1.8nm Dielectric</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">CELL READ IMPEDANCE:</span>
+            <span class="engine-row-val text-slate-500" id="impVal" data-init="> 10¹² Ω (Pristine Open)" data-alt="82.4 Ω (Permanent Metallic Short)" data-class-init="text-slate-500" data-class-alt="text-emerald-400 font-bold">> 10¹² Ω (Pristine Open)</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">175°C DRIFT RATE:</span>
+            <span class="engine-row-val text-slate-500" id="driftVal" data-init="N/A (Unprogrammed)" data-alt="0.00% (Zero-Charge Filament)" data-class-init="text-slate-500" data-class-alt="text-teal-300">N/A (Unprogrammed)</span>
+          </div>
+              </div>
+
+              <!-- Trigger Simulator Button -->
+              <button class="engine-trigger-btn" id="engineBtn4" data-slide="4" type="button">
+                <span data-lang="zh">⚡ 施加高壓編程脈衝 (TRIGGER RUPTURE)</span>
+                <span data-lang="en">⚡ APPLY PROGRAMMING PULSE (TRIGGER RUPTURE)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Deck Controller Ribbon -->
+        <div class="stage-deck-controller">
+          <button class="deck-ctrl-btn prev-btn" data-target="3" type="button" aria-label="Previous module">
+            <span>←</span> <span>PREV: SPECIALTY BCD/HV</span>
+          </button>
+
+          <div class="deck-indicators">
+            <button class="deck-indicator-bar " data-goto="1" type="button" aria-label="Go to Module 1"></button>
+<button class="deck-indicator-bar " data-goto="2" type="button" aria-label="Go to Module 2"></button>
+<button class="deck-indicator-bar " data-goto="3" type="button" aria-label="Go to Module 3"></button>
+<button class="deck-indicator-bar is-active" data-goto="4" type="button" aria-label="Go to Module 4"></button>
+<button class="deck-indicator-bar " data-goto="5" type="button" aria-label="Go to Module 5"></button>
+<button class="deck-indicator-bar " data-goto="6" type="button" aria-label="Go to Module 6"></button>
+<button class="deck-indicator-bar " data-goto="7" type="button" aria-label="Go to Module 7"></button>
+          </div>
+
+          <button class="deck-ctrl-btn next-btn" data-target="5" type="button" aria-label="Next module">
+            <span>NEXT: ARRAY REPAIR</span> <span>→</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- SLIDE 05: ARRAY REDUNDANCY & REPAIR -->
+      <article class="deck-slide " id="deckSlide5" data-slide-id="5" aria-labelledby="slideTitle5">
+        <!-- Top Stage Breadcrumb & Metadata -->
+        <div class="stage-topbar">
+          <div class="stage-breadcrumb">
+            <span class="stage-status-dot"></span>
+            <strong class="stage-module-tag">MODULE 05 OF 07</strong>
+            <span class="stage-sep">::</span>
+            <span class="stage-category-text">ARRAY REDUNDANCY & REPAIR</span>
+          </div>
+          <div class="stage-meta-badge">MARCH C+ BIST · HEURISTIC BIRA · POST-PACKAGE REPAIR</div>
+        </div>
+
+        <!-- Slide Body: Thesis + Silicon State Engine -->
+        <div class="stage-body">
+          <!-- Left: Architectural Thesis -->
+          <div class="stage-thesis-col">
+            <div class="stage-kicker">
+              <span data-lang="zh">冗餘配置 · 良率提升</span>
+              <span data-lang="en">Redundancy Allocation · Yield Optimization</span>
+            </div>
+            <h2 class="stage-title" id="slideTitle5">
+              <span data-lang="zh">啟發式硬體 BIRA 求解器<br><span class="stage-gradient-text">與超高密度記憶體矩陣封裝後修復</span></span>
+              <span data-lang="en">Heuristic BIRA solver and<br><span class="stage-gradient-text">post-package repair for ultra-dense memory matrices</span></span>
+            </h2>
+            <p class="stage-desc">
+              <span data-lang="zh">在硬體電路上以貪婪啟發式演算法即時求解 NP-Complete 備援配置，透過晶片內建 AntiFuse CAM FuseBox 重映射缺陷行列，於封裝後 (PPR) 完美救回 CIS 與 DRAM/HBM 晶粒良率。</span>
+              <span data-lang="en">Solves NP-complete spare allocation in real-time hardware using greedy heuristics, seamlessly redirecting defective rows/columns via on-chip AntiFuse CAM FuseBox to salvage CIS and DRAM/HBM dies after packaging.</span>
+            </p>
+
+            <!-- 3 Pillars Badges -->
+            <div class="deck-pillars-grid">
+              
+            <div class="deck-pillar-card">
+              <div class="pillar-code">01. BIST SCAN</div>
+              <div class="pillar-text">
+                <span data-lang="zh">March C+ 全速矩陣自檢</span>
+                <span data-lang="en">March C+ at-speed matrix sweep</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">02. BIRA SOLVER</div>
+              <div class="pillar-text">
+                <span data-lang="zh">啟發式多項式備援求解</span>
+                <span data-lang="en">Heuristic polynomial allocation</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">03. CAM FUSE</div>
+              <div class="pillar-text">
+                <span data-lang="zh">CAM FuseBox 單週期重映射</span>
+                <span data-lang="en">Single-cycle zero-latency redirect</span>
+              </div>
+            </div>
+            </div>
+
+            <!-- Deep Dive Action Link -->
+            <div class="stage-action-area">
+              <a class="stage-link-btn" href="specialty-nvm.html#repair">
+                <span data-lang="zh">進入陣列修復模擬實驗室 →</span>
+                <span data-lang="en">View Array Repair Simulation →</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Silicon State Engine -->
+          <div class="stage-engine-col">
+            <div class="engine-box">
+              <div class="engine-header">
+                <span class="engine-title">SILICON STATE ENGINE · BIST/BIRA MATRIX STATUS</span>
+                <span class="engine-state-pill" id="engineStatePill5" data-init="DEFECT DETECTED (3 FAULTS)" data-alt="ACTIVE CYCLE">DEFECT DETECTED (3 FAULTS)</span>
+              </div>
+              
+              <!-- Memory Matrix Rows -->
+              <div class="engine-rows-list">
+                
+          <div class="engine-row">
+            <span class="engine-row-label">BIST RADAR SCAN:</span>
+            <span class="engine-row-val text-rose-400 font-bold" id="bistVal" data-init="Row 14, Col 28 Fault Detected" data-alt="100% Pass (All Faults Isolated)" data-class-init="text-rose-400 font-bold" data-class-alt="text-emerald-400 font-bold">Row 14, Col 28 Fault Detected</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">HEURISTIC BIRA DECISION:</span>
+            <span class="engine-row-val text-slate-400" id="biraVal" data-init="Solving Minimum Vertex Cover..." data-alt="Allocated Spare Row 1 + Spare Col 2" data-class-init="text-slate-400" data-class-alt="text-cyan-300">Solving Minimum Vertex Cover...</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">CAM FUSEBOX REMAP:</span>
+            <span class="engine-row-val text-slate-500" id="fuseVal" data-init="Pending OTP Programming" data-alt="LOCKED: 0-Wait Remap Committed" data-class-init="text-slate-500" data-class-alt="text-teal-300 font-bold">Pending OTP Programming</span>
+          </div>
+              </div>
+
+              <!-- Trigger Simulator Button -->
+              <button class="engine-trigger-btn" id="engineBtn5" data-slide="5" type="button">
+                <span data-lang="zh">⚡ 執行啟發式備援重映射 (COMMIT REPAIR)</span>
+                <span data-lang="en">⚡ EXECUTE HEURISTIC REPAIR ALLOCATION</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Deck Controller Ribbon -->
+        <div class="stage-deck-controller">
+          <button class="deck-ctrl-btn prev-btn" data-target="4" type="button" aria-label="Previous module">
+            <span>←</span> <span>PREV: BITCELL PHYSICS</span>
+          </button>
+
+          <div class="deck-indicators">
+            <button class="deck-indicator-bar " data-goto="1" type="button" aria-label="Go to Module 1"></button>
+<button class="deck-indicator-bar " data-goto="2" type="button" aria-label="Go to Module 2"></button>
+<button class="deck-indicator-bar " data-goto="3" type="button" aria-label="Go to Module 3"></button>
+<button class="deck-indicator-bar " data-goto="4" type="button" aria-label="Go to Module 4"></button>
+<button class="deck-indicator-bar is-active" data-goto="5" type="button" aria-label="Go to Module 5"></button>
+<button class="deck-indicator-bar " data-goto="6" type="button" aria-label="Go to Module 6"></button>
+<button class="deck-indicator-bar " data-goto="7" type="button" aria-label="Go to Module 7"></button>
+          </div>
+
+          <button class="deck-ctrl-btn next-btn" data-target="6" type="button" aria-label="Next module">
+            <span>NEXT: ANALOG TRIMMING</span> <span>→</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- SLIDE 06: ANALOG TRIMMING & CALIBRATION -->
+      <article class="deck-slide " id="deckSlide6" data-slide-id="6" aria-labelledby="slideTitle6">
+        <!-- Top Stage Breadcrumb & Metadata -->
+        <div class="stage-topbar">
+          <div class="stage-breadcrumb">
+            <span class="stage-status-dot"></span>
+            <strong class="stage-module-tag">MODULE 06 OF 07</strong>
+            <span class="stage-sep">::</span>
+            <span class="stage-category-text">ANALOG TRIMMING & CALIBRATION</span>
+          </div>
+          <div class="stage-meta-badge">BANDGAP 1.200V ±0.1% · 12-BIT R-LADDER · ATE IN-LINE</div>
+        </div>
+
+        <!-- Slide Body: Thesis + Silicon State Engine -->
+        <div class="stage-body">
+          <!-- Left: Architectural Thesis -->
+          <div class="stage-thesis-col">
+            <div class="stage-kicker">
+              <span data-lang="zh">類比極致精度 · 晶圓級校準</span>
+              <span data-lang="en">Analog Precision · Wafer-Level Cal</span>
+            </div>
+            <h2 class="stage-title" id="slideTitle6">
+              <span data-lang="zh">晶圓級高精度類比微調，<br><span class="stage-gradient-text">實現閉環式溫度補償與曲率消除</span></span>
+              <span data-lang="en">Wafer-level precision analog trimming<br><span class="stage-gradient-text">with closed-loop thermal curvature cancellation</span></span>
+            </h2>
+            <p class="stage-desc">
+              <span data-lang="zh">利用離散二進位加權電阻梯 (R-Ladder) 與 AntiFuse OTP 巨集，於自動化 ATE 測試站點將帶隙基準電壓閉環微調至 ±0.1% 極致精度，橫跨 -40°C 至 150°C 全溫區。</span>
+              <span data-lang="en">Leverages discrete binary-weighted resistor ladders and AntiFuse OTP macros to lock bandgap reference voltages to ±0.1% accuracy across -40°C to 150°C during automated ATE test insertion.</span>
+            </p>
+
+            <!-- 3 Pillars Badges -->
+            <div class="deck-pillars-grid">
+              
+            <div class="deck-pillar-card">
+              <div class="pillar-code">01. ±0.1% ACC</div>
+              <div class="pillar-text">
+                <span data-lang="zh">晶圓針測閉環極致鎖定</span>
+                <span data-lang="en">Wafer-probe closed-loop lock</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">02. R-LADDER</div>
+              <div class="pillar-text">
+                <span data-lang="zh">12-bit 二進位離散階梯</span>
+                <span data-lang="en">12-bit binary-weighted discrete</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">03. ATE SIGN-OFF</div>
+              <div class="pillar-text">
+                <span data-lang="zh">零誤殺 ATE 自動量產簽核</span>
+                <span data-lang="en">Zero-overkill production test</span>
+              </div>
+            </div>
+            </div>
+
+            <!-- Deep Dive Action Link -->
+            <div class="stage-action-area">
+              <a class="stage-link-btn" href="specialty-nvm.html#trimming">
+                <span data-lang="zh">進入帶隙微調計算機 →</span>
+                <span data-lang="en">Open Bandgap Trim Calculator →</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Silicon State Engine -->
+          <div class="stage-engine-col">
+            <div class="engine-box">
+              <div class="engine-header">
+                <span class="engine-title">SILICON STATE ENGINE · PRECISION ATE TRIMMER</span>
+                <span class="engine-state-pill" id="engineStatePill6" data-init="PRE-TRIM (OFFSET +24.8 mV)" data-alt="ACTIVE CYCLE">PRE-TRIM (OFFSET +24.8 mV)</span>
+              </div>
+              
+              <!-- Memory Matrix Rows -->
+              <div class="engine-rows-list">
+                
+          <div class="engine-row">
+            <span class="engine-row-label">RAW BANDGAP VOLTAGE:</span>
+            <span class="engine-row-val text-rose-400 font-bold" id="trimRawVal" data-init="1.2248 V (±2.07% Process Shift)" data-alt="1.2001 V (±0.008% Target Locked)" data-class-init="text-rose-400 font-bold" data-class-alt="text-emerald-400 font-bold">1.2248 V (±2.07% Process Shift)</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">12-BIT R-LADDER CODE:</span>
+            <span class="engine-row-val text-slate-500" id="trimCodeVal" data-init="0x000 (Default Bypass)" data-alt="0x7B4 (Optimum Compensation Code)" data-class-init="text-slate-500" data-class-alt="text-cyan-300">0x000 (Default Bypass)</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">POST-TRIM DRIFT (HTOL):</span>
+            <span class="engine-row-val text-slate-500" id="trimDriftVal" data-init="Uncalibrated" data-alt="< 0.05% over 1,000 hrs @ 150°C" data-class-init="text-slate-500" data-class-alt="text-teal-300 font-bold">Uncalibrated</span>
+          </div>
+              </div>
+
+              <!-- Trigger Simulator Button -->
+              <button class="engine-trigger-btn" id="engineBtn6" data-slide="6" type="button">
+                <span data-lang="zh">⚡ 觸發 ATE 自動校準與微調燒錄 (FIRE TRIM)</span>
+                <span data-lang="en">⚡ FIRE ATE LASER/PULSE TRIM SEQUENCE</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Deck Controller Ribbon -->
+        <div class="stage-deck-controller">
+          <button class="deck-ctrl-btn prev-btn" data-target="5" type="button" aria-label="Previous module">
+            <span>←</span> <span>PREV: ARRAY REPAIR</span>
+          </button>
+
+          <div class="deck-indicators">
+            <button class="deck-indicator-bar " data-goto="1" type="button" aria-label="Go to Module 1"></button>
+<button class="deck-indicator-bar " data-goto="2" type="button" aria-label="Go to Module 2"></button>
+<button class="deck-indicator-bar " data-goto="3" type="button" aria-label="Go to Module 3"></button>
+<button class="deck-indicator-bar " data-goto="4" type="button" aria-label="Go to Module 4"></button>
+<button class="deck-indicator-bar " data-goto="5" type="button" aria-label="Go to Module 5"></button>
+<button class="deck-indicator-bar is-active" data-goto="6" type="button" aria-label="Go to Module 6"></button>
+<button class="deck-indicator-bar " data-goto="7" type="button" aria-label="Go to Module 7"></button>
+          </div>
+
+          <button class="deck-ctrl-btn next-btn" data-target="7" type="button" aria-label="Next module">
+            <span>NEXT: AUTOMOTIVE / RAS</span> <span>→</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- SLIDE 07: AUTOMOTIVE GRADE 0 & RAS -->
+      <article class="deck-slide " id="deckSlide7" data-slide-id="7" aria-labelledby="slideTitle7">
+        <!-- Top Stage Breadcrumb & Metadata -->
+        <div class="stage-topbar">
+          <div class="stage-breadcrumb">
+            <span class="stage-status-dot"></span>
+            <strong class="stage-module-tag">MODULE 07 OF 07</strong>
+            <span class="stage-sep">::</span>
+            <span class="stage-category-text">AUTOMOTIVE GRADE 0 & RAS</span>
+          </div>
+          <div class="stage-meta-badge">175°C Tj · AEC-Q100 GRADE 0 · SECDED ECC ENGINE</div>
+        </div>
+
+        <!-- Slide Body: Thesis + Silicon State Engine -->
+        <div class="stage-body">
+          <!-- Left: Architectural Thesis -->
+          <div class="stage-thesis-col">
+            <div class="stage-kicker">
+              <span data-lang="zh">零缺陷 · 嚴苛車規</span>
+              <span data-lang="en">Zero-Defect · Mission Critical</span>
+            </div>
+            <h2 class="stage-title" id="slideTitle7">
+              <span data-lang="zh">AEC-Q100 Grade 0 車規認證，<br><span class="stage-gradient-text">搭載 SECDED ECC 硬體容錯可靠度架構</span></span>
+              <span data-lang="en">AEC-Q100 Grade 0 compliance<br><span class="stage-gradient-text">with fault-tolerant SECDED ECC architecture</span></span>
+            </h2>
+            <p class="stage-desc">
+              <span data-lang="zh">確保在引擎蓋下嚴苛高溫環境中，於 175°C 接面溫度下具備 15 年以上長效數據留存，結合即時單錯誤更正、雙錯誤偵測 (SECDED) ECC 引擎，為車用 ASIL-D 晶片提供零缺陷保障。</span>
+              <span data-lang="en">Guarantees 15+ years retention at 175°C junction temperature under severe under-hood conditions. Hardened with on-the-fly Single-Error Correction and Double-Error Detection for mission-critical ASIL-D automotive ASICs.</span>
+            </p>
+
+            <!-- 3 Pillars Badges -->
+            <div class="deck-pillars-grid">
+              
+            <div class="deck-pillar-card">
+              <div class="pillar-code">01. GRADE 0</div>
+              <div class="pillar-text">
+                <span data-lang="zh">175°C 接面溫度 15+ 年保存</span>
+                <span data-lang="en">175°C Tj 15+ years retention</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">02. SECDED</div>
+              <div class="pillar-text">
+                <span data-lang="zh">即時單錯更正、雙錯偵測</span>
+                <span data-lang="en">Single error correct, double detect</span>
+              </div>
+            </div>
+
+            <div class="deck-pillar-card">
+              <div class="pillar-code">03. ASIL-D</div>
+              <div class="pillar-text">
+                <span data-lang="zh">ISO 26262 ASIL-D 功能安全</span>
+                <span data-lang="en">ISO 26262 functional safety</span>
+              </div>
+            </div>
+            </div>
+
+            <!-- Deep Dive Action Link -->
+            <div class="stage-action-area">
+              <a class="stage-link-btn" href="specialty-nvm.html#eink">
+                <span data-lang="zh">檢視車規與特種 NVM 全覽 →</span>
+                <span data-lang="en">View Automotive & Specialty Overview →</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Silicon State Engine -->
+          <div class="stage-engine-col">
+            <div class="engine-box">
+              <div class="engine-header">
+                <span class="engine-title">SILICON STATE ENGINE · AUTOMOTIVE RAS MONITOR</span>
+                <span class="engine-state-pill" id="engineStatePill7" data-init="NORMAL RUN (0 FAULTS)" data-alt="ACTIVE CYCLE">NORMAL RUN (0 FAULTS)</span>
+              </div>
+              
+              <!-- Memory Matrix Rows -->
+              <div class="engine-rows-list">
+                
+          <div class="engine-row">
+            <span class="engine-row-label">JUNCTION TEMPERATURE:</span>
+            <span class="engine-row-val text-slate-400" id="autoTempVal" data-init="105°C (Standard Under-Hood)" data-alt="175°C (AEC-Q100 Grade 0 Extreme)" data-class-init="text-slate-400" data-class-alt="text-rose-400 font-bold">105°C (Standard Under-Hood)</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">SECDED ECC HARDWARE:</span>
+            <span class="engine-row-val text-emerald-400 font-bold" id="eccVal" data-init="Active Guard (0 Bit Flip)" data-alt="1-Bit Error Detected & Corrected on Fly" data-class-init="text-emerald-400 font-bold" data-class-alt="text-cyan-300 font-bold">Active Guard (0 Bit Flip)</span>
+          </div>
+
+          <div class="engine-row">
+            <span class="engine-row-label">ASIL-D SAFETY STATUS:</span>
+            <span class="engine-row-val text-teal-300" id="safeVal" data-init="FIT < 0.1 (Zero Defect Target)" data-alt="FAULT CONTAINED · MISSION CONTINUOUS" data-class-init="text-teal-300" data-class-alt="text-emerald-400 font-bold">FIT < 0.1 (Zero Defect Target)</span>
+          </div>
+              </div>
+
+              <!-- Trigger Simulator Button -->
+              <button class="engine-trigger-btn" id="engineBtn7" data-slide="7" type="button">
+                <span data-lang="zh">⚡ 注入高溫極限應力與位元翻轉 (INJECT STRESS)</span>
+                <span data-lang="en">⚡ INJECT THERMAL STRESS & BIT-FLIP FAULT</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Deck Controller Ribbon -->
+        <div class="stage-deck-controller">
+          <button class="deck-ctrl-btn prev-btn" data-target="6" type="button" aria-label="Previous module">
+            <span>←</span> <span>PREV: ANALOG TRIMMING</span>
+          </button>
+
+          <div class="deck-indicators">
+            <button class="deck-indicator-bar " data-goto="1" type="button" aria-label="Go to Module 1"></button>
+<button class="deck-indicator-bar " data-goto="2" type="button" aria-label="Go to Module 2"></button>
+<button class="deck-indicator-bar " data-goto="3" type="button" aria-label="Go to Module 3"></button>
+<button class="deck-indicator-bar " data-goto="4" type="button" aria-label="Go to Module 4"></button>
+<button class="deck-indicator-bar " data-goto="5" type="button" aria-label="Go to Module 5"></button>
+<button class="deck-indicator-bar " data-goto="6" type="button" aria-label="Go to Module 6"></button>
+<button class="deck-indicator-bar is-active" data-goto="7" type="button" aria-label="Go to Module 7"></button>
+          </div>
+
+          <button class="deck-ctrl-btn next-btn" data-target="1" type="button" aria-label="Next module">
+            <span>NEXT: SECURE STORAGE</span> <span>→</span>
+          </button>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- 4. SPEC DRAWER & EVIDENCE MATRIX (COLLAPSIBLE LEDGER) -->
+  <section class="spec-drawer-section" id="specDrawer">
+    <div class="spec-drawer-toggle-bar">
+      <button class="spec-drawer-btn" id="specDrawerBtn" type="button" aria-expanded="false" aria-controls="specDrawerContent">
+        <span class="drawer-icon">▼</span>
+        <strong>
+          <span data-lang="zh">規格收合器與 44 筆證據總帳 (點擊展開 / 收合)</span>
+          <span data-lang="en">SPEC DRAWER &amp; COMPLETE EVIDENCE MATRIX (CLICK TO TOGGLE)</span>
+        </strong>
+        <span class="drawer-badge">44 CLAIMS · 7 MODULES · MONOREPO</span>
+      </button>
+    </div>
+
+    <div class="spec-drawer-content" id="specDrawerContent">
+      <!-- 3 Core Summary Metrics -->
+      <div class="spec-metrics-grid" aria-label="Knowledge system summary">
+        <div class="spec-metric-card">
           <b>7</b>
-          <span><span data-lang="zh">核心主題模組</span><span data-lang="en">CORE MODULES</span></span>
+          <span>
+            <span data-lang="zh">7 大技術架構模組</span>
+            <span data-lang="en">7 CORE ARCHITECTURE MODULES</span>
+          </span>
         </div>
-        <div class="index-metric">
+        <div class="spec-metric-card">
           <b>44</b>
-          <span><span data-lang="zh">物理證據總帳</span><span data-lang="en">EVIDENCE CLAIMS</span></span>
+          <span>
+            <span data-lang="zh">44 CLAIMS 物理證據總帳</span>
+            <span data-lang="en">44 CLAIMS EVIDENCE LEDGER</span>
+          </span>
         </div>
-        <div class="index-metric">
+        <div class="spec-metric-card">
           <b>1</b>
-          <span><span data-lang="zh">統一 MONOREPO</span><span data-lang="en">UNIFIED MONOREPO</span></span>
+          <span>
+            <span data-lang="zh">統一 MONOREPO</span>
+            <span data-lang="en">UNIFIED MONOREPO</span>
+          </span>
         </div>
       </div>
-    </section>
 
-    <section id="spine" class="knowledge-spine" aria-labelledby="spine-title">
-      <div class="spine-heading">
-        <p>00 &middot; NVM KNOWLEDGE SPINE</p>
-        <h2 id="spine-title">
-          <span data-lang="zh">每一個主題只回答一個核心問題：<br><em>哪種 NVM 應該承載哪種持久狀態？</em></span>
-          <span data-lang="en">Every topic answers one question:<br><em>which NVM should own which persistent state</em></span>
+      <!-- 7 Core Modules Full Matrix Cards -->
+      <div class="spec-matrix-header">
+        <p>01 · CORE MODULE MATRIX</p>
+        <h2>
+          <span data-lang="zh">7 大技術架構模組詳細矩陣<br><em>從底層微觀物理到全系統決策</em></span>
+          <span data-lang="en">7 Core Architecture Modules Matrix<br><em>From Micro-Physics to System-Level Selection</em></span>
         </h2>
-      </div>
-      <div class="spine-grid">
-        <article>
-          <span>01</span>
-          <small>TECHNOLOGY</small>
-          <b>OTP &middot; MTP &middot; eFlash<br>MRAM &middot; ReRAM</b>
-          <p><span data-lang="zh">掌握底層物理機制、製程節點、容量密度、寫入次數 (Endurance) 與電壓邊界。</span><span data-lang="en">Physical mechanism, node, density, endurance and voltage boundary.</span></p>
-        </article>
-        <article>
-          <span>02</span>
-          <small>STATE CONTRACT</small>
-          <b>Immutable &middot; Bounded<br>Adaptive &middot; Operational</b>
-          <p><span data-lang="zh">精確定義權威歸屬 (Ownership)、更新頻率、保存期限 (Retention)、安全性與故障復原。</span><span data-lang="en">Define ownership, update cadence, retention, security and recovery.</span></p>
-        </article>
-        <article>
-          <span>03</span>
-          <small>APPLICATION</small>
-          <b>Security &middot; AI &middot; IoT<br>3D Chiplets &middot; Power</b>
-          <p><span data-lang="zh">將 NVM 技術特性對齊真實系統架構需求，而非僅僅比對產品型號。</span><span data-lang="en">Map NVM capabilities to real system needs&mdash;not merely product names.</span></p>
-        </article>
-        <article>
-          <span>04</span>
-          <small>GOVERNANCE</small>
-          <b>Claim &middot; Evidence<br>Scope &middot; Open Gap</b>
-          <p><span data-lang="zh">每項技術論述皆完整保留資料來源、邊界限制、審查日期與後續驗證動作。</span><span data-lang="en">Every knowledge item retains its source, limit, review date and next validation action.</span></p>
-        </article>
-      </div>
-      <p class="spine-schema"><b>PERSISTENT STATE SELECTION SCHEMA</b><span>POV Scope &middot; Opportunity Class &middot; Evidence Relation &middot; Assurance Maturity &middot; Source &middot; Limitation &middot; Validation Gate &middot; Internal Decision &middot; Responsibility Owner</span></p>
-    </section>
-
-    <!-- 01 · TOPIC MAP: 7 CORE MODULES -->
-    <section id="topics" class="hub-section topic-section" aria-labelledby="topics-title">
-      <div class="hub-section-heading">
-        <p>01 &middot; CORE MODULE MATRIX</p>
-        <h2 id="topics-title">
-          <span data-lang="zh">7 大技術架構模組<br><em>從底層微觀物理到全系統決策</em></span>
-          <span data-lang="en">7 Core Architecture Modules<br><em>From Micro-Physics to System-Level Selection</em></span>
-        </h2>
-        <span><span data-lang="zh">從物理層 IP 安全、AI 與先進節點、原生決策工作室，到車規物理與高階簡報講稿。</span><span data-lang="en">From physical IP security, AI &amp; advanced nodes, native decision studios, to automotive physics and executive decks.</span></span>
+        <span>
+          <span data-lang="zh">從物理層 IP 安全、AI 與先進節點、原生決策工作室，到車規物理與高階簡報講稿。</span>
+          <span data-lang="en">From physical IP security, AI &amp; advanced nodes, native decision studios, to automotive physics and executive decks.</span>
+        </span>
       </div>
 
       <div class="topic-grid">
         <!-- Module 01: Secure Storage -->
         <article class="topic-card topic-secure">
-          <a class="topic-image" href="secure-storage.html" aria-label="開啟 Secure Storage 模組">
+          <a class="topic-image" href="secure-storage.html" aria-label="Open Secure Storage Module">
             <img src="assets/secure-storage-hero-key.webp" alt="Secure silicon key above an integrated circuit" width="800" height="450" loading="lazy">
             <span>01 / SECURITY ARCHITECTURE</span>
           </a>
@@ -184,7 +1068,7 @@
 
         <!-- Module 02: AI Systems & Emerging Nodes -->
         <article class="topic-card topic-ai">
-          <a class="topic-image" href="ai-nvm-opportunities.html" aria-label="開啟 AI Systems and NVM Opportunities 模組">
+          <a class="topic-image" href="ai-nvm-opportunities.html" aria-label="Open AI Systems and NVM Opportunities Module">
             <picture><source media="(max-width:760px)" srcset="assets/ai-nvm-system-boundaries-hero-900.webp"><img src="assets/ai-nvm-system-boundaries-hero-1600.webp" alt="AI accelerator package and persistent-state system boundaries" width="800" height="450" loading="lazy"></picture>
             <span>02 / AI SYSTEMS &amp; ADVANCED NODES</span>
           </a>
@@ -202,7 +1086,7 @@
 
         <!-- Module 03: Native Whitepaper Studio -->
         <article class="topic-card topic-whitepaper">
-          <a class="topic-image" href="whitepaper/" aria-label="開啟原生 Whitepaper Decision Studio">
+          <a class="topic-image" href="whitepaper/" aria-label="Open Native Whitepaper Decision Studio">
             <img src="assets/nvm-state-atlas-hero-r17.webp" alt="NVM State Decision Atlas and Multi-Phase Reader preview" width="800" height="450" loading="lazy">
             <span>03 / DECISION WORKBENCH</span>
           </a>
@@ -220,7 +1104,7 @@
 
         <!-- Module 04: Security Assurance & Standards -->
         <article class="topic-card topic-assurance">
-          <a class="topic-image" href="security-assurance.html" aria-label="查看安全保證與標準架構">
+          <a class="topic-image" href="security-assurance.html" aria-label="Explore Security Assurance & RoT">
             <img src="assets/assurance-evidence-v1.webp" alt="Silicon security assurance and root of trust verification" width="800" height="450" loading="lazy">
             <span>04 / SECURITY ASSURANCE</span>
           </a>
@@ -238,7 +1122,7 @@
 
         <!-- Module 05: Memory Physics & Evidence Ledger -->
         <article class="topic-card topic-physics">
-          <a class="topic-image" href="memory-physics.html" aria-label="查看記憶體物理與證據總帳">
+          <a class="topic-image" href="memory-physics.html" aria-label="View Memory Physics and Evidence Ledger">
             <img src="assets/evidence-field-v1.webp" alt="Nanoscale metallic filament formation in AntiFuse gate oxide" width="800" height="450" loading="lazy">
             <span>05 / MEMORY PHYSICS &amp; EVIDENCE</span>
           </a>
@@ -256,7 +1140,7 @@
 
         <!-- Module 06: Executive Briefing & Decks -->
         <article class="topic-card topic-briefing">
-          <a class="topic-image" href="briefing/index.html" aria-label="查看高階簡報與演講白皮書">
+          <a class="topic-image" href="briefing/index.html" aria-label="Browse Executive Briefings and Decks">
             <img src="assets/oip-evidence-closure-v1-768.webp" alt="Executive briefing deck v18 slide previews and speaker notes" width="800" height="450" loading="lazy">
             <span>06 / EXECUTIVE BRIEFINGS</span>
           </a>
@@ -272,9 +1156,9 @@
           </div>
         </article>
 
-        <!-- Module 07: Specialty Foundry eNVM (BCD, Repair, HV) -->
+        <!-- Module 07: Specialty Foundry eNVM -->
         <article class="topic-card topic-specialty" id="card-specialty">
-          <a class="topic-image" href="specialty-nvm.html" aria-label="查看特種製程 NVM 專題">
+          <a class="topic-image" href="specialty-nvm.html" aria-label="Explore Specialty Foundry eNVM">
             <img src="assets/specialty-bcd-pmic-die-v2.webp" alt="Specialty eNVM for BCD power, matrix defect repair, and high-voltage display drivers" width="800" height="450" loading="lazy" onerror="this.src='assets/ai-opportunity-frontier-v1-768.webp'">
             <span>07 / SPECIALTY eNVM</span>
           </a>
@@ -290,60 +1174,28 @@
           </div>
         </article>
       </div>
-    </section>
 
-    <!-- 02 · NATIVE DECISION WORKBENCH -->
-    <section id="workbench" class="hub-section workbench-section" aria-labelledby="workbench-title">
-      <div class="hub-section-heading">
-        <p>02 &middot; NATIVE DECISION WORKBENCH</p>
-        <h2 id="workbench-title">
-          <span data-lang="zh">原生嵌入式 Whitepaper Studio<br><em>免跨站跳轉，即刻展開技術評估</em></span>
-          <span data-lang="en">Native In-Repo Whitepaper Studio<br><em>Direct Technical Evaluation Without Cross-Domain Redirection</em></span>
-        </h2>
-        <span><span data-lang="zh">已將原獨立站點原生整合收納至 Monorepo，提供雙階段白皮書閱覽、架構分析與證據總帳工具。</span><span data-lang="en">Consolidated into this repository to provide an interactive multi-phase whitepaper, architectural models, and 44 verified evidence records.</span></span>
-      </div>
-
-      <div class="workbench-card">
-        <div class="workbench-copy">
+      <!-- Workbench Feature Strip inside drawer -->
+      <div class="drawer-workbench-box">
+        <div class="drawer-workbench-copy">
           <span class="workbench-badge">MONOREPO NATIVE &middot; FAST VITE BUILD</span>
           <h3>Whitepaper Decision Studio</h3>
           <p>
             <span data-lang="zh">由原獨立倉庫完整整併至本地 <code>whitepaper/</code> 目錄，並保留原始碼於 <code>tools/whitepaper-studio/</code>。具備端到端語系切換、章節跳轉、即時篩選與 44 筆公開規格證據總帳。</span>
             <span data-lang="en">Fully consolidated into the local <code>whitepaper/</code> path. Features seamless bilingual reading, phase switching, interactive filters, and full traceability back to industry datasheets.</span>
           </p>
-          <div class="workbench-features">
-            <div><strong>Phase 1 Reader</strong><span><span data-lang="zh">安全記憶體物理與抗攻擊架構</span><span data-lang="en">Secure memory physics &amp; attack resistance</span></span></div>
-            <div><strong>Phase 2 Reader</strong><span><span data-lang="zh">AI 與資料中心持久狀態決策</span><span data-lang="en">AI &amp; datacenter persistent-state decisions</span></span></div>
-            <div><strong>Evidence Ledger</strong><span><span data-lang="zh">44 筆端到端公開可查技術證據</span><span data-lang="en">44 fully traceable public evidence rows</span></span></div>
-          </div>
-          <div class="workbench-actions">
-            <a class="button primary" href="whitepaper/"><span data-lang="zh">立即開啟 Whitepaper Studio</span><span data-lang="en">Launch Whitepaper Studio</span><svg viewBox="0 0 48 48" width="18" height="18" aria-hidden="true" style="width:18px;height:18px;flex-shrink:0;"><path d="M7 24h32M28 13l11 11-11 11"/></svg></a>
+          <div class="drawer-workbench-actions">
+            <a class="button primary" href="whitepaper/"><span data-lang="zh">立即開啟 Whitepaper Studio</span><span data-lang="en">Launch Whitepaper Studio</span></a>
             <a class="button ghost" href="ai-nvm-opportunities.html#selection"><span data-lang="zh">檢視 7 大評估提問</span><span data-lang="en">Review 7 Selection Questions</span></a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 03 · ENTERPRISE REPO STATUS -->
-    <section class="hub-section enterprise-section" aria-labelledby="enterprise-title">
-      <div class="enterprise-strip">
-        <div>
-          <p class="hub-kicker">ENTERPRISE REPOSITORY &middot; ARCHITECTURE LEADERSHIP</p>
-          <h2 id="enterprise-title"><span data-lang="zh">從分散倉庫到單一 Monorepo<br><em>高效率管理、文真對題</em></span><span data-lang="en">Unified Monorepo Architecture<br><em>Streamlined Governance &amp; Unified Brand</em></span></h2>
-          <p><span data-lang="zh">將過往分散於多個 GitHub 倉庫的成果（Secure Storage、AI Opportunities、Whitepaper Studio、PPTX Briefings）全面匯聚於此單一 Monorepo，官方進版網址正式更名為 <code>nvm-knowledge-hub</code>，名實相符、文真對題。</span><span data-lang="en">Consolidated all historical sub-repositories into this single monorepo. Formally updated to <code>nvm-knowledge-hub</code> for complete brand and semantic consistency.</span></p>
-        </div>
-        <div class="enterprise-actions">
-          <a class="button ghost" href="https://github.com/SamHuang68/nvm-knowledge-hub" target="_blank" rel="noopener noreferrer">
-            <span><span data-lang="zh">造訪 GitHub 原始碼</span><span data-lang="en">View GitHub Repository</span></span>
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
+  <!-- 5. INDUSTRIAL COMPLIANT FOOTER (NO PERSONAL IDENTITY) -->
   <footer class="hub-footer">
-    <p>&copy; 2026 Sam Huang &middot; NVM Knowledge Hub &middot; Architectural Marketing &amp; Evidence Discipline</p>
+    <p>&copy; 2026 NVM Architecture Knowledge Hub &middot; Architectural Marketing &amp; Evidence Discipline</p>
     <div>
       <a href="index.html">Portal Home</a>
       <a href="secure-storage.html">Secure Storage</a>
@@ -355,6 +1207,10 @@
     <p>TSMC N2 GAA &middot; CXL 3.1 &middot; 3D SoIC &middot; PQC Stateful Boot</p>
   </footer>
 
+  <!-- Pass Submodules JSON to JS -->
+  <script>
+    window.HUB_SUBMODULES = {"1": [{"id": "sub-puf", "en": "1.1 SRAM PUF ROOT", "zh": "1.1 SRAM PUF 根密鑰"}, {"id": "sub-crypto", "en": "1.2 AES-256 OTP", "zh": "1.2 AES-256 加密 OTP"}, {"id": "sub-rp2350", "en": "1.3 THREAT MODEL (RP2350)", "zh": "1.3 實體威脅模型 (RP2350)"}, {"id": "sub-subsystem", "en": "1.4 CONTROLLER ARCHITECTURE", "zh": "1.4 安全控制器架構"}], "2": [{"id": "sub-xpu", "en": "2.1 XPU SYSTEM BOUNDARY", "zh": "2.1 XPU 系統邊界"}, {"id": "sub-ddr5", "en": "2.2 DDR5 PMIC/SPD HUB", "zh": "2.2 DDR5 PMIC/SPD 遙測"}, {"id": "sub-tsmc", "en": "2.3 TSMC 22ULL➔N4e", "zh": "2.3 台積電超低功耗矩陣"}, {"id": "sub-soic", "en": "2.4 3D SOIC CHIPLET", "zh": "2.4 3D SoIC 零信任開機"}], "3": [{"id": "sub-pmic", "en": "3.1 BCD PMIC TRIMMING", "zh": "3.1 BCD 電源微調"}, {"id": "sub-ddi", "en": "3.2 HV DDI GAMMA/DEMURA", "zh": "3.2 高壓顯示 Gamma 校準"}, {"id": "sub-eink", "en": "3.3 E-INK 110HV LUT", "zh": "3.3 電子紙波形 LUT"}, {"id": "sub-pkg", "en": "3.4 COG/COF PACKAGING", "zh": "3.4 COG/COF 封裝邊界"}], "4": [{"id": "sub-breakdown", "en": "4.1 DIELECTRIC BREAKDOWN", "zh": "4.1 介電質硬擊穿機制"}, {"id": "sub-retention", "en": "4.2 175°C RETENTION", "zh": "4.2 175°C 高溫留存物理"}, {"id": "sub-n2", "en": "4.3 TSMC N2 GAA SCALING", "zh": "4.3 台積電 N2 GAA 微縮"}, {"id": "sub-stokes", "en": "4.4 STOKES ELECTRO-MIGRATION", "zh": "4.4 Stokes 電遷移閉環"}], "5": [{"id": "sub-bist", "en": "5.1 MARCH C+ BIST", "zh": "5.1 March C+ 內建自檢"}, {"id": "sub-bira", "en": "5.2 HEURISTIC BIRA SOLVER", "zh": "5.2 啟發式 BIRA 引擎"}, {"id": "sub-fusebox", "en": "5.3 ANTIFUSE FUSEBOX CAM", "zh": "5.3 AntiFuse 熔絲盒 CAM"}, {"id": "sub-ppr", "en": "5.4 POST-PACKAGE REPAIR", "zh": "5.4 封裝後修復 (PPR)"}], "6": [{"id": "sub-vref", "en": "6.1 BANDGAP REFERENCE", "zh": "6.1 帶隙基準電路"}, {"id": "sub-ladder", "en": "6.2 12-BIT R-LADDER", "zh": "6.2 12-bit 電阻微調階梯"}, {"id": "sub-ate", "en": "6.3 ATE IN-LINE BURNING", "zh": "6.3 ATE 在線燒錄流程"}, {"id": "sub-tempco", "en": "6.4 CURVATURE CANCEL", "zh": "6.4 溫度曲率消除"}], "7": [{"id": "sub-aec", "en": "7.1 AEC-Q100 GRADE 0", "zh": "7.1 AEC-Q100 Grade 0 標準"}, {"id": "sub-ecc", "en": "7.2 SECDED ECC ENGINE", "zh": "7.2 SECDED ECC 容錯引擎"}, {"id": "sub-htol", "en": "7.3 HTOL 1000H SCREENING", "zh": "7.3 HTOL 1000小時加速老化"}, {"id": "sub-asild", "en": "7.4 ISO 26262 ASIL-D", "zh": "7.4 ASIL-D 車用功能安全"}]};
+  </script>
   <script src="hub.js"></script>
 </body>
 </html>
