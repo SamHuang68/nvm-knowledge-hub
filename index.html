@@ -41,7 +41,9 @@
         <a class="is-active" href="index.html" aria-current="page"><span data-lang="zh">總門戶</span><span data-lang="en">Portal</span></a>
         <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
         <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a>
+        <a href="iot-mcu-envm.html"><span data-lang="zh">IoT 與 MCU eNVM</span><span data-lang="en">IoT &amp; MCU eNVM</span></a>
         <a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a>
+        <a href="memory-physics.html"><span data-lang="zh">記憶體物理</span><span data-lang="en">Memory Physics</span></a>
         <a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper</span></a>
         <a href="briefing/index.html"><span data-lang="zh">簡報與講稿</span><span data-lang="en">Briefing</span></a>
       </nav>
@@ -232,7 +234,7 @@
             <span class="stage-sep">::</span>
             <span class="stage-category-text">AI SYSTEMS & ADVANCED NODES</span>
           </div>
-          <div class="stage-meta-badge">AI ACCELERATOR PERSISTENCE · TSMC 22ULL➔N4e</div>
+          <div class="stage-meta-badge">XPU ACCELERATORS · 3D SOIC CHIPLET · DDR5 PMIC HUB</div>
         </div>
 
         <!-- Slide Body: Thesis + Silicon State Engine -->
@@ -240,16 +242,16 @@
           <!-- Left: Architectural Thesis -->
           <div class="stage-thesis-col">
             <div class="stage-kicker">
-              <span data-lang="zh">狀態契約 · 記憶體拓撲</span>
-              <span data-lang="en">State Contract · Memory Topology</span>
+              <span data-lang="zh">高頻寬運算 · 矽智財狀態契約</span>
+              <span data-lang="en">High-Bandwidth Compute · Silicon State Contracts</span>
             </div>
             <h2 class="stage-title" id="slideTitle2">
-              <span data-lang="zh">在選擇新興記憶體前，<br><span class="stage-gradient-text">先嚴謹定義持久狀態契約</span></span>
-              <span data-lang="en">Define the state contract<br><span class="stage-gradient-text">before selecting emerging NVM technology</span></span>
+              <span data-lang="zh">在選擇新興記憶體前，<br><span class="stage-gradient-text">先嚴謹定義 AI 加速系統的持久狀態契約</span></span>
+              <span data-lang="en">Define the state contract<br><span class="stage-gradient-text">before selecting emerging memory for AI accelerators</span></span>
             </h2>
             <p class="stage-desc">
-              <span data-lang="zh">全面評估資料中心 DDR5 PMIC/SPD Hub、AI VR 逐相微調、台積電超低功耗 IoT (22ULL 到 N4e) 0.5V 狀態保存、3D SoIC 晶片 KGD 認證與 NIST LMS 後量子抗性開機簽核。</span>
-              <span data-lang="en">Maps AI accelerator packages, DDR5 PMIC/SPD Hub multi-phase calibration, TSMC ultra-low-power IoT (22ULL to N4e) 0.5V state retention, 3D SoIC KGD attestation, and NIST LMS stateful hash-based boot validation.</span>
+              <span data-lang="zh">全面評估資料中心 AI 加速器 (XPU)、DDR5 PMIC/SPD Hub 多相遙測與逐相微調、3D SoIC 異質整合晶粒 KGD 零信任認證、UCIe 2.0 介面修復與 NIST LMS 後量子抗性開機簽核。</span>
+              <span data-lang="en">Maps AI accelerator packages, datacenter DDR5 PMIC/SPD Hub multi-phase telemetry, 3D SoIC heterogeneous chiplet KGD attestation, UCIe 2.0 die-to-die repair, and NIST LMS stateful hash-based post-quantum boot verification.</span>
             </p>
 
             <!-- 3 Pillars Badges -->
@@ -259,23 +261,23 @@
               <div class="pillar-code">01. DDR5 HUB</div>
               <div class="pillar-text">
                 <span data-lang="zh">DDR5 PMIC/SPD 逐相微調</span>
-                <span data-lang="en">Multi-phase telemetry & trim</span>
+                <span data-lang="en">Multi-phase telemetry & per-phase trim</span>
               </div>
             </div>
 
             <div class="deck-pillar-card">
-              <div class="pillar-code">02. 0.5V IOT</div>
+              <div class="pillar-code">02. 3D SOIC</div>
               <div class="pillar-text">
-                <span data-lang="zh">TSMC 22ULL➔N4e 0.5V 開機</span>
-                <span data-lang="en">TSMC 22ULL to N4e fast boot</span>
+                <span data-lang="zh">3D SoIC 異質封裝 KGD 認證</span>
+                <span data-lang="en">Heterogeneous chiplet KGD attestation</span>
               </div>
             </div>
 
             <div class="deck-pillar-card">
-              <div class="pillar-code">03. 3D CHIPLET</div>
+              <div class="pillar-code">03. PQC BOOT</div>
               <div class="pillar-text">
-                <span data-lang="zh">3D SoIC KGD 與 LMS 開機</span>
-                <span data-lang="en">SoIC KGD & LMS stateful boot</span>
+                <span data-lang="zh">NIST LMS 後量子抗性開機</span>
+                <span data-lang="en">NIST LMS stateful hash-based boot</span>
               </div>
             </div>
             </div>
@@ -294,16 +296,16 @@
           <div class="stage-engine-col">
             <div class="engine-box">
               <div class="engine-header">
-                <span class="engine-title">SILICON STATE ENGINE · AI BOOT & WORKLOAD</span>
-                <span class="engine-state-pill" id="engineStatePill2" data-init="0.5V STANDBY" data-alt="ACTIVE CYCLE">0.5V STANDBY</span>
+                <span class="engine-title">SILICON STATE ENGINE · AI ACCELERATOR & SOIC</span>
+                <span class="engine-state-pill" id="engineStatePill2" data-init="STANDBY (CLOCK GATED)" data-alt="ACTIVE CYCLE">STANDBY (CLOCK GATED)</span>
               </div>
               
               <!-- Memory Matrix Rows -->
               <div class="engine-rows-list">
                 
           <div class="engine-row">
-            <span class="engine-row-label">N4e ACCELERATOR DOMAIN:</span>
-            <span class="engine-row-val text-slate-500" id="aiDomainVal" data-init="0.5V Ultra-Low-Leakage Sleep" data-alt="0.85V Full-Throttle Active" data-class-init="text-slate-500" data-class-alt="text-cyan-300">0.5V Ultra-Low-Leakage Sleep</span>
+            <span class="engine-row-label">XPU COMPUTE DOMAIN:</span>
+            <span class="engine-row-val text-slate-500" id="aiDomainVal" data-init="Idle Standby (Clock Gated)" data-alt="Full Turbo (1,200W Cluster Active)" data-class-init="text-slate-500" data-class-alt="text-cyan-300 font-bold">Idle Standby (Clock Gated)</span>
           </div>
 
           <div class="engine-row">
@@ -312,14 +314,14 @@
           </div>
 
           <div class="engine-row">
-            <span class="engine-row-label">LMS STATEFUL BOOT:</span>
-            <span class="engine-row-val text-emerald-400" id="lmsVal" data-init="OTS Signature Verified" data-alt="State Advanced & OTP Committed" data-class-init="text-emerald-400" data-class-alt="text-cyan-300">OTS Signature Verified</span>
+            <span class="engine-row-label">3D SOIC KGD ATTESTATION:</span>
+            <span class="engine-row-val text-slate-400" id="lmsVal" data-init="Zero-Trust Nonce Pending" data-alt="LMS Signature & KGD Attested" data-class-init="text-slate-400" data-class-alt="text-teal-300 font-bold">Zero-Trust Nonce Pending</span>
           </div>
               </div>
 
               <!-- Trigger Simulator Button -->
               <button class="engine-trigger-btn" id="engineBtn2" data-slide="2" type="button">
-                <span data-lang="zh">⚡ 切換工作負載 (TRIGGER TURBO STATE)</span>
+                <span data-lang="zh">⚡ 切換工作負載與認證 (TRIGGER TURBO & KGD)</span>
                 <span data-lang="en">⚡ TRANSITION WORKLOAD / TURBO MODE</span>
               </button>
             </div>
@@ -1058,12 +1060,12 @@
             <span>02 / AI SYSTEMS &amp; ADVANCED NODES</span>
           </a>
           <div class="topic-body">
-            <p>XPU &middot; DDR5 PMIC/SPD &middot; TSMC 22ULL-N4e &middot; 3D CHIPLET &middot; PQC</p>
+            <p>XPU &middot; DDR5 PMIC/SPD &middot; 3D SOIC CHIPLET &middot; UCIe 2.0 &middot; PQC BOOT</p>
             <h3>AI Systems &amp; Advanced Nodes</h3>
             <strong><span data-lang="zh">在選擇記憶體前，先定義狀態契約。</span><span data-lang="en">Define the state contract before selecting memory.</span></strong>
-            <p><span data-lang="zh">全面評估資料中心 DDR5 PMIC/SPD Hub、AI VR 逐相微調、台積電超低功耗 IoT (22ULL/12FFC+/N6e/N4e) 0.5V 開機、3D SoIC 晶片 KGD 認證與 NIST LMS 後量子抗性開機。</span><span data-lang="en">Covers datacenter DDR5 PMIC/SPD, AI VR phase trim, TSMC ultra-low-power IoT (22ULL to N4e), 3D SoIC KGD attestation, and NIST LMS stateful boot.</span></p>
+            <p><span data-lang="zh">全面評估資料中心 AI 加速器 (XPU)、DDR5 PMIC/SPD Hub 多相遙測與逐相微調、3D SoIC 異質整合晶粒 KGD 零信任認證、UCIe 2.0 介面修復與 NIST LMS 後量子抗性開機簽核。</span><span data-lang="en">Covers datacenter AI accelerators (XPUs), DDR5 PMIC/SPD Hub multi-phase telemetry, 3D SoIC heterogeneous chiplet KGD attestation, UCIe 2.0 die-to-die repair, and NIST LMS post-quantum boot verification.</span></p>
             <div class="topic-tags">
-              <span>TSMC 22ULL &rarr; N4e</span><span>DDR5 Subsystem</span><span>3D SoIC Chiplet</span><span>NIST LMS Boot</span>
+              <span>XPU Accelerators</span><span>DDR5 PMIC Hub</span><span>3D SoIC Chiplet</span><span>NIST LMS Boot</span>
             </div>
             <a class="topic-link" href="ai-nvm-opportunities.html"><span data-lang="zh">進入 AI 系統機會專題</span><span data-lang="en">Enter AI &amp; Advanced Nodes</span><i>&rarr;</i></a>
           </div>
@@ -1089,7 +1091,7 @@
 
         <!-- Module 04: Security Assurance & Standards -->
         <article class="topic-card topic-assurance">
-          <a class="topic-image" href="security-assurance.html" aria-label="Explore Security Assurance & RoT">
+          <a class="topic-image" href="security-assurance.html" aria-label="Explore Security Assurance &amp; RoT">
             <img src="assets/assurance-evidence-v1.webp" alt="Silicon security assurance and root of trust verification" width="800" height="450" loading="lazy">
             <span>04 / SECURITY ASSURANCE</span>
           </a>
@@ -1171,7 +1173,7 @@
           </p>
           <div class="drawer-workbench-actions">
             <a class="button primary" href="whitepaper/"><span data-lang="zh">立即開啟 Whitepaper Studio</span><span data-lang="en">Launch Whitepaper Studio</span></a>
-            <a class="button ghost" href="ai-nvm-opportunities.html#selection"><span data-lang="zh">檢視 7 大評估提問</span><span data-lang="en">Review 7 Selection Questions</span></a>
+            <a class="button ghost" href="iot-mcu-envm.html"><span data-lang="zh">探索全新 IoT &amp; MCU eNVM 專題</span><span data-lang="en">Explore New IoT &amp; MCU eNVM Module</span></a>
           </div>
         </div>
       </div>
@@ -1185,12 +1187,14 @@
       <a href="index.html">Portal Home</a>
       <a href="secure-storage.html">Secure Storage</a>
       <a href="ai-nvm-opportunities.html">AI &amp; Advanced Nodes</a>
+      <a href="iot-mcu-envm.html">IoT &amp; MCU eNVM</a>
       <a href="specialty-nvm.html">Specialty NVM</a>
       <a href="whitepaper/">Whitepaper Studio</a>
       <a href="briefing/index.html">Executive Briefing</a>
     </div>
     <p>TSMC N2 GAA &middot; CXL 3.1 &middot; 3D SoIC &middot; PQC Stateful Boot</p>
   </footer>
+
   <script src="hub.js"></script>
 </body>
 </html>

@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en" data-language="en">
+<head>
+  <meta charset="utf-8">
+  <script src="site-language.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ultra-Low-Power IoT & Edge MCU eNVM Architecture: Addressing the 28nm eFlash scaling cliff with TSMC 22ULL to N4e near-threshold fast boot, pure-logic AntiFuse OTP, and hardware vector patch CAM.">
+  <meta name="theme-color" content="#061b29">
+  <title>NVM Knowledge Hub · Ultra-Low-Power IoT & Edge MCU eNVM Architecture</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="site-shell.css">
+  <link rel="stylesheet" href="hub.css">
+  <style>
+    /* Strict Language Governance: English Default */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert; }
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] { display: revert !important; }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] { display: none !important; }
+
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #73eee4; padding: 10px 18px; border: 1px solid #73eee4; border-radius: 4px; }
+
+    /* Architecture Specific Styles */
+    .iot-hero-section {
+      padding: clamp(60px, 8vw, 110px) clamp(20px, 5vw, 60px) clamp(40px, 6vw, 80px);
+      background: radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.12), transparent 45%), linear-gradient(135deg, #061925 0%, #081f2d 60%, #04121a 100%);
+      border-bottom: 1px solid rgba(115, 238, 228, 0.2);
+    }
+    .iot-container { max-width: 1240px; margin: 0 auto; }
+    .iot-kicker { color: #22d3ee; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 14px; }
+    .iot-hero-title { font-size: clamp(32px, 4vw, 54px); font-weight: 800; line-height: 1.12; color: #fff; letter-spacing: -0.035em; margin: 0 0 20px; }
+    .iot-hero-title em { font-style: normal; color: #22d3ee; background: linear-gradient(90deg, #22d3ee, #5eead4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .iot-hero-lead { font-size: clamp(15px, 1.3vw, 18px); line-height: 1.7; color: #cbd5e1; max-width: 920px; margin: 0 0 32px; }
+    
+    .iot-kpi-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; }
+    .iot-kpi-card { padding: 18px 20px; border-radius: 8px; background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(115, 238, 228, 0.2); }
+    .iot-kpi-card b { display: block; font-family: "IBM Plex Mono", monospace; font-size: 28px; font-weight: 700; color: #38bdf8; }
+    .iot-kpi-card span { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: #94a3b8; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 4px; display: block; }
+
+    .iot-body-section { padding: clamp(48px, 6vw, 90px) clamp(20px, 5vw, 60px); max-width: 1240px; margin: 0 auto; }
+    .iot-section-header { margin-bottom: 36px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 20px; }
+    .iot-section-header p { color: #38bdf8; font-family: "IBM Plex Mono", monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; margin: 0 0 8px; }
+    .iot-section-header h2 { font-size: clamp(24px, 2.8vw, 36px); font-weight: 700; color: #fff; margin: 0; line-height: 1.25; }
+
+    /* Comparison Table */
+    .envm-table-wrap { overflow-x: auto; margin: 24px 0 40px; border: 1px solid rgba(115, 238, 228, 0.2); border-radius: 8px; background: rgba(10, 17, 24, 0.85); }
+    .envm-table { width: 100%; border-collapse: collapse; font-family: "IBM Plex Mono", monospace; font-size: 12px; text-align: left; }
+    .envm-table th, .envm-table td { padding: 14px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.07); }
+    .envm-table th { background: rgba(15, 23, 42, 0.9); color: #38bdf8; font-weight: 700; }
+    .envm-table tr:hover { background: rgba(6, 182, 212, 0.05); }
+    .envm-table td.highlight { color: #22d3ee; font-weight: 700; }
+
+    /* Architecture Diagram Cards */
+    .iot-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 30px 0; }
+    .iot-arch-card { padding: 26px; border-radius: 12px; background: rgba(15, 23, 42, 0.8); border: 1px solid #1e293b; }
+    .iot-arch-card h3 { font-size: 20px; color: #f1f5f9; margin: 0 0 12px; font-weight: 700; }
+    .iot-arch-card p { font-size: 14px; line-height: 1.7; color: #94a3b8; margin: 0 0 16px; }
+
+    /* Code & Flow Boxes */
+    .flow-box { padding: 18px 20px; background: #03080e; border: 1px solid #1e293b; border-radius: 6px; font-family: "IBM Plex Mono", monospace; font-size: 12px; line-height: 1.6; color: #cbd5e1; margin: 16px 0; }
+
+    /* Interactive Simulator */
+    .iot-sim-box { padding: 28px; border-radius: 12px; background: #09131d; border: 1px solid rgba(6, 182, 212, 0.35); margin: 30px 0; }
+    .iot-sim-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 14px; margin-bottom: 20px; }
+    .sim-ctrl-btn { padding: 10px 18px; border-radius: 6px; background: #0891b2; color: #020617; font-family: "IBM Plex Mono", monospace; font-size: 12px; font-weight: 700; border: none; cursor: pointer; transition: all 0.2s; }
+    .sim-ctrl-btn:hover { background: #22d3ee; box-shadow: 0 0 12px rgba(34, 211, 238, 0.5); }
+
+    @media(max-width: 900px) {
+      .iot-kpi-strip { grid-template-columns: repeat(2, 1fr); }
+      .iot-card-grid { grid-template-columns: 1fr; }
+    }
+    @media(max-width: 600px) {
+      .iot-kpi-strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="hub-page">
+  <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
+
+  <!-- TOP-LEVEL MINIMAL STICKY TOPBAR (44px) -->
+  <header class="hub-minimal-header">
+    <div class="hub-header-left">
+      <a class="hub-micro-logo" href="index.html" aria-label="NVM Knowledge Hub Home">
+        <span>N</span>
+      </a>
+      <span class="hub-brand-name">NVM ARCHITECTURE KNOWLEDGE HUB</span>
+      <span class="hub-spec-badge">MCU &amp; ULP IOT SPEC</span>
+    </div>
+    <div class="hub-header-right">
+      <nav class="hub-top-nav" aria-label="Module Navigation">
+        <a href="index.html"><span data-lang="zh">總門戶</span><span data-lang="en">Portal</span></a>
+        <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
+        <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a>
+        <a class="is-active" href="iot-mcu-envm.html" aria-current="page"><span data-lang="zh">IoT 與 MCU eNVM</span><span data-lang="en">IoT &amp; MCU eNVM</span></a>
+        <a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a>
+        <a href="memory-physics.html"><span data-lang="zh">記憶體物理</span><span data-lang="en">Memory Physics</span></a>
+        <a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper</span></a>
+        <a href="briefing/index.html"><span data-lang="zh">簡報與講稿</span><span data-lang="en">Briefing</span></a>
+      </nav>
+      <div class="hub-header-ctrls">
+        <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch Language (ZH/EN)">
+          <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- HERO SECTION -->
+    <section class="iot-hero-section" aria-labelledby="iot-title">
+      <div class="iot-container">
+        <p class="iot-kicker">SPECIALTY SILICON RESEARCH 05 · MCU &amp; ULP IOT ARCHITECTURE</p>
+        <h1 class="iot-hero-title" id="iot-title">
+          <span data-lang="zh">eFlash 終結於 28nm：<br><em>超低功耗 MCU 的 eNVM 狀態契約與近閾值創新</em></span>
+          <span data-lang="en">eFlash Ends at 28nm:<br><em>eNVM State Contracts &amp; Near-Threshold Innovations for ULP MCUs</em></span>
+        </h1>
+        <p class="iot-hero-lead">
+          <span data-lang="zh">在微控制器（MCU）與物聯網（IoT）邊緣運算領域，28nm 以下傳統 eFlash 遭遇嚴峻的物理微縮斷崖。本研究基於 SemiWiki 與台積電（TSMC）官方發布之 22ULL、N12e® (12FFC+)、N6e® 至 N4e™ 超低漏電與 0.5V 近閾值技術，深度剖析純邏輯 AntiFuse OTP 的零額外光罩（0-Mask Adder）經濟優勢、硬體間接向量跳轉修補（Vector Patch CAM）與快速冷啟動（Fast Cold Boot Direct XIP）架構，建立長達 15~20 年電池壽命的邊緣狀態契約。</span>
+          <span data-lang="en">In microcontroller (MCU) and IoT edge architectures, traditional embedded Flash (eFlash) hits a physical and economic scaling cliff below 28nm. Grounded in primary SemiWiki analyses and official TSMC disclosures across 22ULL, N12e® (12FFC+), N6e® and N4e™ platforms, this research establishes the 0-mask-adder economics of pure-logic AntiFuse OTP, hardware vector patch CAM indirection, and sub-1µs fast cold boot direct XIP for 15- to 20-year battery-operated edge devices.</span>
+        </p>
+
+        <!-- KPI Strip -->
+        <div class="iot-kpi-strip">
+          <div class="iot-kpi-card">
+            <b>0.5V</b>
+            <span><span data-lang="zh">TSMC N12e/N4e 近閾值電壓</span><span data-lang="en">NEAR-THRESHOLD LOW VDD</span></span>
+          </div>
+          <div class="iot-kpi-card">
+            <b>0 MASK</b>
+            <span><span data-lang="zh">純邏輯 OTP 額外光罩數</span><span data-lang="en">PURE-LOGIC OTP MASK ADDER</span></span>
+          </div>
+          <div class="iot-kpi-card">
+            <b>&gt; 75%</b>
+            <span><span data-lang="zh">動態切換功耗降低幅度</span><span data-lang="en">DYNAMIC POWER REDUCTION</span></span>
+          </div>
+          <div class="iot-kpi-card">
+            <b>&lt; 10nA</b>
+            <span><span data-lang="zh">常時開機 AON 待機漏電</span><span data-lang="en">AON DOMAIN STANDBY LEAKAGE</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: THE 28NM EFLASH SCALING CLIFF -->
+    <section class="iot-body-section" id="cliff">
+      <div class="iot-section-header">
+        <p>01 · PHYSICAL LIMITATION &amp; INTEGRATION ECONOMICS</p>
+        <h2>
+          <span data-lang="zh">28nm 以下 eFlash 微縮斷崖：物理衝突與製造經濟學崩潰</span>
+          <span data-lang="en">The 28nm eFlash Scaling Cliff: Physical Incompatibility &amp; Mask Adder Explosion</span>
+        </h2>
+      </div>
+
+      <div class="iot-card-grid">
+        <article class="iot-arch-card">
+          <h3><span data-lang="zh">高壓擦除與 FinFET 三維閘極的物理衝突</span><span data-lang="en">High Programming Voltage vs. FinFET 3D Gate Geometry</span></h3>
+          <p>
+            <span data-lang="zh">傳統浮閘（Floating Gate）與電荷陷阱（MONOS/SONOS）依賴 Fowler-Nordheim（FN）量子穿隧或通道熱電子注入，必須施加 10V 至 15V 的高壓脈衝。為了在晶片上容納並切換此高壓，穿隧氧化層厚度必須維持在 6nm~8nm，周邊開關管氧化層更需高達 15nm~25nm。當晶圓微縮進入 16nm/12nm 及更先進節點時，立體鰭式架構（FinFET）的等效氧化層厚度（EOT）已小於 1.0nm，在高縱橫比矽鰭側面沉積耐受 12V 擦除電壓的厚氧化層會引發嚴重的相鄰單元電容耦合干擾，物理微縮徹底受阻。</span>
+            <span data-lang="en">Traditional floating gate and charge trap (MONOS/SONOS) technologies require 10V to 15V pulses for Fowler-Nordheim tunneling or hot-carrier injection. Maintaining 10-year retention demands tunnel oxide thickness >6nm and peripheral pass-gate oxides >15nm. Below 28nm, FinFET equivalent oxide thickness (EOT) scales below 1.0nm. Conformal deposition of thick, high-voltage gate oxides on 3D high-aspect-ratio silicon fins causes catastrophic capacitive cross-talk and threshold voltage spread, terminating physical scaling.</span>
+          </p>
+        </article>
+
+        <article class="iot-arch-card">
+          <h3><span data-lang="zh">製造經濟學崩潰：+8 至 +12 道光罩溢價</span><span data-lang="en">Economic Reality: +8 to +12 Extra Mask Layers</span></h3>
+          <p>
+            <span data-lang="zh">在製造前段（FEOL）整合 eFlash 需要額外增加 8 至 12 道光罩，且其高溫退火製程（>900°C）會破壞先進邏輯的高介電常數金屬閘極（HKMG）與超淺接面（USJ）。光罩增加使晶圓製造成本膨脹 30% 至 45% 以上，對於毛利微薄的物聯網 MCU 而言在商業上完全不可行。因此，各大晶圓代工廠（TSMC、GlobalFoundries 等）在 28nm 後全線停止 eFlash 開案，轉向純邏輯 OTP 與後段金屬（BEOL）新興記憶體。</span>
+            <span data-lang="en">Integrating eFlash into FEOL adds 8 to 12 extra masking layers, with thermal annealing budgets (>900°C) that destroy advanced HKMG gates and ultra-shallow junctions. The resulting 30% to 45% wafer cost premium destroys commodity MCU unit economics. Consequently, leading pure-play foundries halted eFlash roadmaps at 28nm, pivoting toward pure-logic OTP and back-end-of-line (BEOL) emerging alternatives.</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 02: TSMC ULP / IOT PLATFORM ROADMAP -->
+    <section class="iot-body-section" id="tsmc-roadmap" style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+      <div class="iot-section-header">
+        <p>02 · TSMC ULTRA-LOW POWER CONTINUUM</p>
+        <h2>
+          <span data-lang="zh">台積電超低漏電微縮路線：22ULL ➔ N12e® ➔ N6e® ➔ N4e™</span>
+          <span data-lang="en">TSMC ULP Process Continuum: 22ULL ➔ N12e® ➔ N6e® ➔ N4e™</span>
+        </h2>
+      </div>
+
+      <div class="flow-box">
++----------------------------------------------------------------------------------------------------+
+|                               TSMC ULP & IoT Technology Roadmap                                    |
++----------------------------------------------------------------------------------------------------+
+|  [22ULL] 22nm Planar HKMG       -->  [12FFC+ / N12e®] 12nm FinFET    -->  [N6e®] 6nm FinFET (EUV)  -->  [N4e™] 4nm Advanced IoT
+|  - Vdd: 0.6V ~ 0.8V                  - Vdd: 0.5V ~ 0.8V                   - Vdd: 0.5V ~ 0.7V           - Vdd: 0.5V Sub-Threshold
+|  - Standby Power: -35% vs 28nm       - Logic Density: +76% vs 22ULL       - Mass Production: 2024      - Extreme Low-Power Logic
+|  - eHVT Devices & ULL SRAM           - Low-Vdd Near-Threshold Lib         - AIoT Enhanced Standard     - On-Device AI / Wearables
+|  - Pure-Logic AntiFuse / eRRAM       - ULL SRAM Assist Circuits           - ULL / ELL SRAM Compilers   - Liberty Variation Format (LVF)
++----------------------------------------------------------------------------------------------------+
+      </div>
+
+      <div class="iot-card-grid">
+        <article class="iot-arch-card">
+          <h3><span data-lang="zh">22ULL 平面成熟微縮與 N12e® FinFET 進階</span><span data-lang="en">22ULL Planar Benchmark to N12e® FinFET Leap</span></h3>
+          <p>
+            <span data-lang="zh">台積電 22ULL 基於 28HPC+ 成熟架構，透過縮減閘極間距使靜態待機漏電降低 35%，並支援 0.6V 超低電壓，廣泛應用於如 Ambiq Apollo4 等微電池穿戴裝置。而 N12e® 則衍生自 12FFC+，將強大的 FinFET 算力引入 IoT，邏輯密度大幅提升 76%，並具備原生 0.5V 近閾值標準單元庫與超低漏電 SRAM（ULL_SRAM）。</span>
+            <span data-lang="en">TSMC 22ULL builds on 28HPC+, trimming gate pitches to slash standby leakage by 35% with 0.6V operation—widely deployed in endpoint wearables like Ambiq Apollo4. N12e®, derived from 12FFC+, delivers brawny FinFET density (+76% over 22ULL) with dedicated 0.5V near-threshold cell libraries and ultra-low leakage SRAM.</span>
+          </p>
+        </article>
+
+        <article class="iot-arch-card">
+          <h3><span data-lang="zh">0.5V 近閾值運作之動態功耗降幅物理推導</span><span data-lang="en">0.5V Near-Threshold Power Physics: &gt;75% Reduction</span></h3>
+          <p>
+            <span data-lang="zh">CMOS 動態開關功耗遵循 P = α · C · Vdd² · f。當工作電壓由標準 1.0V 降至 0.5V 近閾值時，動態功耗呈現平方比暴跌：1 - (0.5)²/(1.0)² = 75% 節能；若相較於傳統 1.2V，降幅更超過 82.6%。搭配 Liberty Variation Format (LVF) 統計時序模型，MCU 能在 10MHz~50MHz 頻率下以微瓦（μW）級功耗流暢運算。</span>
+            <span data-lang="en">CMOS dynamic switching power obeys P = α · C · Vdd² · f. Scaling operating voltage from 1.0V to 0.5V near-threshold drops dynamic consumption quadratically: 1 - (0.5)²/(1.0)² = 75% savings (and >82.6% over 1.2V). Paired with Liberty Variation Format (LVF) sign-off, MCUs execute real-time telemetry at microwatt power envelopes across 10MHz to 50MHz clocks.</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 03: ENVM 4-WAY COMPARISON MATRIX -->
+    <section class="iot-body-section" id="matrix">
+      <div class="iot-section-header">
+        <p>03 · ARCHITECTURAL SELECTION MATRIX</p>
+        <h2>
+          <span data-lang="zh">MCU 領域 eNVM 四方技術評比矩陣</span>
+          <span data-lang="en">eNVM Architectural Trade-Off Matrix for Edge MCUs</span>
+        </h2>
+      </div>
+
+      <div class="envm-table-wrap">
+        <table class="envm-table">
+          <thead>
+            <tr>
+              <th><span data-lang="zh">評估維度 / 特性</span><span data-lang="en">Evaluation Dimension</span></th>
+              <th><span data-lang="zh">① 純邏輯 AntiFuse OTP</span><span data-lang="en">① Pure-Logic AntiFuse OTP</span></th>
+              <th><span data-lang="zh">② 傳統 eFlash (≥28nm)</span><span data-lang="en">② Embedded Flash (≥28nm)</span></th>
+              <th><span data-lang="zh">③ STT-eMRAM</span><span data-lang="en">③ STT-eMRAM</span></th>
+              <th><span data-lang="zh">④ eRRAM (OxRAM)</span><span data-lang="en">④ eRRAM (OxRAM)</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span data-lang="zh">製造整合層次</span><span data-lang="en">Integration Level</span></td>
+              <td class="highlight">100% FEOL Standard Logic</td>
+              <td>FEOL High-Voltage Flash</td>
+              <td>BEOL (MTJ Stack)</td>
+              <td>BEOL (MIM Oxide)</td>
+            </tr>
+            <tr>
+              <td><span data-lang="zh">額外光罩數 (Mask Adder)</span><span data-lang="en">Mask Adder Count</span></td>
+              <td class="highlight">0 Masks (Zero Adder)</td>
+              <td>+8 ~ +12 Masks</td>
+              <td>+3 ~ +4 Masks</td>
+              <td>+1 ~ +2 Masks</td>
+            </tr>
+            <tr>
+              <td><span data-lang="zh">製程微縮延伸性</span><span data-lang="en">Process Scalability</span></td>
+              <td class="highlight">22nm ➔ 12nm ➔ 4nm ➔ GAA</td>
+              <td>Frozen at 28nm</td>
+              <td>Scales to 16nm/12nm</td>
+              <td>Scales to 22nm/12nm</td>
+            </tr>
+            <tr>
+              <td><span data-lang="zh">讀取延遲 (Read Latency)</span><span data-lang="en">Read Latency</span></td>
+              <td class="highlight">&lt;10ns ~ 15ns (Direct XIP)</td>
+              <td>15ns ~ 30ns</td>
+              <td>10ns ~ 25ns</td>
+              <td>15ns ~ 30ns</td>
+            </tr>
+            <tr>
+              <td><span data-lang="zh">AON 待機漏電</span><span data-lang="en">AON Standby Leakage</span></td>
+              <td class="highlight">&lt;10nA per macro</td>
+              <td>Higher (HV leak paths)</td>
+              <td>Near Zero (Cell) / Logic static</td>
+              <td>Near Zero (Cell) / Logic static</td>
+            </tr>
+            <tr>
+              <td><span data-lang="zh">重寫能力 (Endurance)</span><span data-lang="en">Endurance Cycles</span></td>
+              <td class="highlight">OTP (CAM Vector Patch)</td>
+              <td>10^4 ~ 10^5 cycles</td>
+              <td>10^6 ~ 10^8 cycles</td>
+              <td>10^4 ~ 10^5 cycles</td>
+            </tr>
+            <tr>
+              <td><span data-lang="zh">高溫數據留存 (Retention)</span><span data-lang="en">High-Temp Retention</span></td>
+              <td class="highlight">&gt;20 Years @ 150°C</td>
+              <td>10 Years @ 85°C ~ 105°C</td>
+              <td>10 Years @ 105°C (Thermal Delta)</td>
+              <td>10 Years @ 105°C (Drift prone)</td>
+            </tr>
+            <tr>
+              <td><span data-lang="zh">抗外在磁場干擾</span><span data-lang="en">Magnetic Immunity</span></td>
+              <td class="highlight">100% Immune</td>
+              <td>Immune</td>
+              <td>Sensitive (Shield Required)</td>
+              <td>Immune</td>
+            </tr>
+            <tr>
+              <td><span data-lang="zh">晶圓成本溢價</span><span data-lang="en">Wafer Cost Overhead</span></td>
+              <td class="highlight">Baseline 0% Premium</td>
+              <td>+30% ~ +50% Premium</td>
+              <td>High (Specialty Chamber)</td>
+              <td>Moderate</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 04: PURE-LOGIC ANTIFUSE INNOVATION -->
+    <section class="iot-body-section" id="vector-patch">
+      <div class="iot-section-header">
+        <p>04 · CODE STORAGE ARCHITECTURE INNOVATION</p>
+        <h2>
+          <span data-lang="zh">純邏輯 AntiFuse OTP 與硬體 Vector Patch CAM 虛擬修補</span>
+          <span data-lang="en">Pure-Logic AntiFuse OTP &amp; Hardware Vector Patch CAM Indirection</span>
+        </h2>
+      </div>
+
+      <div class="flow-box">
+                       [CPU Instruction Fetch Pipeline]
+                                     |
+                             (Fetch Address: PC)
+                                     |
+                                     v
+                        +-------------------------+
+                        |  Vector Patch Unit      |
+                        |  (High-Speed Patch CAM) |
+                        +-------------------------+
+                               /                            [Address Miss]             [Address Match!]
+                             /                                           v                 v
+            +-----------------------+    +-----------------------+
+            |  Primary OTP Bank 0   |    |  Secondary Patch Bank |
+            |  (Base Golden Code)   |    |  (Patched Routine)    |
+            +-----------------------+    +-----------------------+
+                            \                 /
+                             v               v
+                        [Direct Opcode to CPU Core]
+      </div>
+
+      <div class="iot-card-grid">
+        <article class="iot-arch-card">
+          <h3><span data-lang="zh">零光罩標準 CMOS 物理擊穿機制</span><span data-lang="en">0-Mask Adder Standard CMOS Rupture Mechanism</span></h3>
+          <p>
+            <span data-lang="zh">AntiFuse 完全採用標準 CMOS 邏輯製程自帶的閘極氧化層，在特定電壓應力（5V~7V，持續數微秒）下造成局部微觀介電質不可逆硬擊穿（Hard Breakdown），形成永久且極度穩定的導電微金屬矽化絲，單元電阻自 10¹² Ω 驟降至百歐姆級。由於無任何新材料引入，它具備 0 額外光罩成本，且可伴隨 TSMC 22ULL/N12e/N4e 標準邏輯庫同步就緒。</span>
+            <span data-lang="en">AntiFuse leverages native thin gate oxides in standard CMOS logic. Applying a localized programming pulse (5V to 7V for microseconds) induces hard dielectric rupture, creating a permanent metallic silicide filament that collapses cell impedance from 10¹² Ω to sub-kΩ. Requiring zero additional masks or exotic materials, it qualifies concurrently with baseline logic PDK releases across TSMC 22ULL, N12e, and N4e.</span>
+          </p>
+        </article>
+
+        <article class="iot-arch-card">
+          <h3><span data-lang="zh">硬體 CAM 間接向量修補與防回滾</span><span data-lang="en">Hardware CAM Vector Patching &amp; Anti-Rollback</span></h3>
+          <p>
+            <span data-lang="zh">針對不可抹除的特性，晶片內建 Vector Patch CAM 單元：出廠基底程式碼（Golden Image）存於 Bank 0，而預留的 Patch Bank 包含 CAM 匹配表。當 CPU 執行指令提取時，若 PC 命中 Patch Entry，硬體在單時鐘週期內零延遲重定向至修補函式；若未命中則直接存取 Bank 0。結合 OTP 單向單調遞增計數器（Monotonic Counters），硬體強制阻止韌體降級攻擊（Anti-Rollback），全面符合 NIST SP 800-193 彈性規範。</span>
+            <span data-lang="en">To solve bug-patching in write-once cells, an on-chip Vector Patch CAM acts as an execution arbiter. The golden base firmware resides in Bank 0, while a reserved Patch Bank holds redirection descriptors. During instruction fetches, a CAM hit redirects execution to the patched routine in zero latency; a miss streams baseline code. Coupled with irreversible OTP monotonic bitmasks, it enforces hardware anti-rollback compliant with NIST SP 800-193.</span>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 05: INTERACTIVE SIMULATOR LAB -->
+    <section class="iot-body-section" id="lab">
+      <div class="iot-section-header">
+        <p>05 · INTERACTIVE HARDWARE BENCHMARK LAB</p>
+        <h2>
+          <span data-lang="zh">常時開機 AON 漏電與快速冷啟動時序模擬器</span>
+          <span data-lang="en">Always-On AON Standby Leakage &amp; Fast Cold Boot Simulator</span>
+        </h2>
+      </div>
+
+      <div class="iot-sim-box">
+        <div class="iot-sim-header">
+          <div>
+            <strong style="color:#fff; font-family:'IBM Plex Mono',monospace; font-size:14px;"><span data-lang="zh">COLD BOOT &amp; LEAKAGE BENCHMARK: 外掛 Flash vs. 純邏輯 AntiFuse XIP</span><span data-lang="en">COLD BOOT &amp; LEAKAGE BENCHMARK: External Flash vs. AntiFuse Direct XIP</span></strong>
+          </div>
+          <button class="sim-ctrl-btn" id="simToggleBtn" type="button">
+            <span data-lang="zh">⚡ 觸發冷啟動喚醒 (TRIGGER WAKEUP CYCLE)</span>
+            <span data-lang="en">⚡ TRIGGER COLD BOOT WAKEUP</span>
+          </button>
+        </div>
+
+        <div class="iot-card-grid" style="margin:0;">
+          <div style="background:#04090e; padding:18px; border-radius:8px; border:1px solid #1e293b;">
+            <p style="color:#f43f5e; font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; margin:0 0 10px;">[TRADITIONAL] EXTERNAL QSPI NOR FLASH</p>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.8; color:#94a3b8;">
+              <div>• Cold Wakeup Time: <strong class="text-rose-400" id="extWakeTime">12.5 ms (Power-on handshake + buffer fill)</strong></div>
+              <div>• Boot Energy per Cycle: <strong class="text-rose-400" id="extEnergy">340 µJ</strong></div>
+              <div>• AON Sleep Current: <strong style="color:#cbd5e1;">4.5 µA (Flash standby leakage)</strong></div>
+              <div>• 10-Yr Battery Impact: <strong class="text-rose-400">Exhausts standard coin-cell in ~3.8 yrs</strong></div>
+            </div>
+          </div>
+
+          <div style="background:#04090e; padding:18px; border-radius:8px; border:1px solid rgba(6,182,212,0.4);">
+            <p style="color:#22d3ee; font-family:'IBM Plex Mono',monospace; font-weight:700; font-size:12px; margin:0 0 10px;">[INNOVATION] PURE-LOGIC ANTIFUSE DIRECT XIP</p>
+            <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.8; color:#94a3b8;">
+              <div>• Cold Wakeup Time: <strong style="color:#38bdf8;" id="otpWakeTime">&lt; 850 ns (Instant Direct XIP)</strong></div>
+              <div>• Boot Energy per Cycle: <strong style="color:#38bdf8;" id="otpEnergy">&lt; 0.95 µJ (99.7% Energy Saved)</strong></div>
+              <div>• AON Sleep Current: <strong style="color:#10b981;">&lt; 8.2 nA (Pure logic gate isolation)</strong></div>
+              <div>• 10-Yr Battery Impact: <strong style="color:#10b981;">15+ Years on single LiSOCl2 cell</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 06: MCU STATE CONTRACT MODEL -->
+    <section class="iot-body-section" id="contract">
+      <div class="iot-section-header">
+        <p>06 · MCU STATE CONTRACT MODEL</p>
+        <h2>
+          <span data-lang="zh">超低功耗微控制器的三層狀態契約與終端應用</span>
+          <span data-lang="en">3-Tier State Contract Model &amp; Mission-Critical Applications</span>
+        </h2>
+      </div>
+
+      <div class="iot-card-grid">
+        <article class="iot-arch-card">
+          <h3><span data-lang="zh">三層狀態契約架構 (3-Tier State Contract)</span><span data-lang="en">3-Tier State Contract Model</span></h3>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; line-height:1.7; color:#cbd5e1;">
+            <div style="margin-bottom:8px;"><strong style="color:#22d3ee;">Layer 1: Immutable Root</strong><br>
+              <span data-lang="zh">晶片指紋 (UID / PUF Seed)、根公鑰雜湊 (ECDSA P-256 Hash)、零階段開機程式 (ZSBL)。</span>
+              <span data-lang="en">Silicon Fingerprint (UID / PUF Seed), Root Public Key Hash (ECDSA P-256), Zero-Stage Bootloader (ZSBL).</span>
+            </div>
+            <div style="margin-bottom:8px;"><strong style="color:#38bdf8;">Layer 2: Bounded Patchable</strong><br>
+              <span data-lang="zh">Vector Patch CAM 映射位址、單調版本計數器 (Anti-Rollback)、JTAG 除錯鎖定與安全權限。</span>
+              <span data-lang="en">Vector Patch CAM Redirection Descriptors, Monotonic Version Counters (Anti-Rollback), JTAG Lock &amp; Security Permissions.</span>
+            </div>
+            <div><strong style="color:#5eead4;">Layer 3: Factory Trim</strong><br>
+              <span data-lang="zh">帶隙基準電壓 (Vref) ±0.1% 微調、晶上 RC 振盪器頻率微調、感測器非線性補償矩陣。</span>
+              <span data-lang="en">Bandgap Reference (Vref) ±0.1% Trim, On-Chip RC Oscillator Frequency Trim, Sensor Non-Linearity Compensation Matrices.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="iot-arch-card">
+          <h3><span data-lang="zh">典型終端極限應用場景</span><span data-lang="en">Mission-Critical Edge Endpoints</span></h3>
+          <p>
+            <span data-lang="zh">① <strong>智慧水電氣表</strong>：單顆鋰亞硫醯氯電池要求 15 年免維護，AntiFuse 在 125°C 下具備 >20 年物理數據留存，徹底消除傳統 eFlash 電荷流失導致計費程式碼損毀的召回風險。<br>② <strong>醫療植入式與連續監測儀</strong>：超小封裝（<2mm²），0 光罩純邏輯整合省去外掛 Flash 空間，且具備硬體防逆向（Anti-Tamper）優勢。<br>③ <strong>無電池微能量採集節點</strong>：微瓦級太陽能或溫差發電僅能維持數百微秒供電，0.5V 近閾值與 <1μs 快速冷啟動使節點能在能量耗盡前瞬間甦醒、讀取感測器並廣播完成。</span>
+            <span data-lang="en">① <strong>Smart Utility Meters</strong>: 15-year maintenance-free operation on single LiSOCl2 cells. AntiFuse metallic filaments guarantee >20-year retention at 125°C, eliminating flash charge-leakage field recalls.<br>② <strong>Medical Continuous Monitors &amp; Implants</strong>: Micro-die footprints (<2mm²) where external flash is physically impossible; optical tamper immunity safeguards proprietary algorithms.<br>③ <strong>Battery-less Energy Harvesting Nodes</strong>: Micro-joule bursts from RF or thermoelectric harvesting require <1µs cold boot and 0.5V operation to wake, sample, transmit, and shutdown before charge depletion.</span>
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- INDUSTRIAL COMPLIANT FOOTER -->
+  <footer class="hub-footer">
+    <p>&copy; 2026 NVM Architecture Knowledge Hub &middot; Architectural Marketing &amp; Evidence Discipline</p>
+    <div>
+      <a href="index.html">Portal Home</a>
+      <a href="secure-storage.html">Secure Storage</a>
+      <a href="ai-nvm-opportunities.html">AI &amp; Advanced Nodes</a>
+      <a href="iot-mcu-envm.html">IoT &amp; MCU eNVM</a>
+      <a href="specialty-nvm.html">Specialty NVM</a>
+      <a href="memory-physics.html">Memory Physics</a>
+      <a href="whitepaper/">Whitepaper Studio</a>
+      <a href="briefing/index.html">Executive Briefing</a>
+    </div>
+    <p>TSMC 22ULL &middot; N12e &middot; N6e &middot; N4e &middot; 0.5V Near-Threshold</p>
+  </footer>
+
+  <script>
+    // Simulator interactive logic
+    let simActive = false;
+    document.getElementById("simToggleBtn")?.addEventListener("click", () => {
+      simActive = !simActive;
+      const extTime = document.getElementById("extWakeTime");
+      const extEnergy = document.getElementById("extEnergy");
+      const otpTime = document.getElementById("otpWakeTime");
+      const otpEnergy = document.getElementById("otpEnergy");
+      if (simActive) {
+        if (extTime) extTime.textContent = "18.2 ms (Burst SPI Traffic High Load)";
+        if (extEnergy) extEnergy.textContent = "490 µJ";
+        if (otpTime) otpTime.textContent = "620 ns (Direct XIP Pipeline Locked)";
+        if (otpEnergy) otpEnergy.textContent = "0.78 µJ (Dynamic 0.5V Peak)";
+      } else {
+        if (extTime) extTime.textContent = "12.5 ms (Power-on handshake + buffer fill)";
+        if (extEnergy) extEnergy.textContent = "340 µJ";
+        if (otpTime) otpTime.textContent = "< 850 ns (Instant Direct XIP)";
+        if (otpEnergy) otpEnergy.textContent = "< 0.95 µJ (99.7% Energy Saved)";
+      }
+    });
+  </script>
+</body>
+</html>

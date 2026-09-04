@@ -23,6 +23,7 @@ CORE_HTML_FILES = [
     "security-assurance.html",
     "ai-nvm-opportunities.html",
     "specialty-nvm.html",
+    "iot-mcu-envm.html",
     "memory-physics.html",
     "memory-evidence.html",
     "oip-secure-storage.html",
@@ -45,7 +46,7 @@ def test_language_architecture():
         
         # 驗證英文優先 CSS
         assert '[data-lang="zh"] { display: none !important; }' in content or '[data-lang="zh"]' in content, f"{rel_path} 缺少語系治理 CSS 規則！"
-    print("  ✓ 全站 10 個核心 HTML 頁面頂層語言治理 100% PASS！")
+    print(f"  ✓ 全站 {len(CORE_HTML_FILES)} 個核心 HTML 頁面頂層語言治理 100% PASS！")
 
 def test_bilingual_parity():
     print(">>> [TEST 2] 驗證地毯式雙語純度 (零中英混雜)...")
@@ -69,6 +70,17 @@ def test_bilingual_parity():
     for t in forbidden_terms:
         assert t not in content, f"發現硬編碼未包裹英文指標: {t}"
     print("  ✓ specialty-nvm.html 地毯式雙語純度 100% PASS！")
+
+    # 同步檢驗全新獨立 iot-mcu-envm.html 雙語純度
+    iot_file = BASE_DIR / "iot-mcu-envm.html"
+    iot_content = iot_file.read_text(encoding="utf-8")
+    cleaned_iot = re.sub(r'<script.*?</script>', '', iot_content, flags=re.DOTALL)
+    cleaned_iot = re.sub(r'<style.*?</style>', '', cleaned_iot, flags=re.DOTALL)
+    cleaned_iot = re.sub(r'<!--.*?-->', '', cleaned_iot, flags=re.DOTALL)
+    cleaned_iot_zh = re.sub(r'<span data-lang="zh">.*?</span>', '', cleaned_iot, flags=re.DOTALL)
+    naked_iot_cjk = re.findall(r'[一-鿿]{2,}', cleaned_iot_zh)
+    assert not naked_iot_cjk, f"iot-mcu-envm.html 發現裸露中文: {naked_iot_cjk[:5]}"
+    print("  ✓ iot-mcu-envm.html 地毯式雙語純度 100% PASS！")
 
 def test_navigation_links():
     print(">>> [TEST 3] 驗證全站導覽列互連性與特種 NVM 入口...")
