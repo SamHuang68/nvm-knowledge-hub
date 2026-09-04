@@ -351,18 +351,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const valEl = regEl.querySelector('.fuse-val');
       const stateEl = regEl.querySelector('.fuse-state');
 
+      const resistances = [82, 78, 85, 76];
       if (allocatedSpares && i < allocatedSpares.length) {
         const spareRow = allocatedSpares[i];
         if (burned) {
-          valEl.textContent = `ROW_ADDR_0x0${spareRow.toString(16).toUpperCase()} ➔ SPARE_${i}`;
-          stateEl.textContent = 'BURNED';
+          regEl.classList.add('burned-glow');
+          valEl.innerHTML = `ROW_0x0${spareRow.toString(16).toUpperCase()} ➔ SPARE_${i} <span class="fuse-res-tag">R=${resistances[i]}Ω</span>`;
+          stateEl.textContent = 'HARD LOCKED';
           stateEl.className = 'fuse-state state-burned';
         } else {
+          regEl.classList.remove('burned-glow');
           valEl.textContent = `MAP: ROW_${spareRow} ➔ SPARE_${i}`;
           stateEl.textContent = 'ALLOCATED';
           stateEl.className = 'fuse-state state-mapped';
         }
       } else {
+        regEl.classList.remove('burned-glow');
         valEl.textContent = '--- (BLANK)';
         stateEl.textContent = 'BLANK';
         stateEl.className = 'fuse-state state-blank';
@@ -557,9 +561,14 @@ document.addEventListener('DOMContentLoaded', () => {
     btnBurnFuse.addEventListener('click', () => {
       btnBurnFuse.disabled = true;
       lblScanStatus.textContent = 'BURNING ANTIFUSE...';
-      logTerminal('⚡ APPLYING 5.5V PULSE TO ANTIFUSE FUSEBOX...');
+      logTerminal('⚡ [ATE_PROG] APPLYING 5.5V @ 10µs PULSE TO ANTIFUSE FUSEBOX MACRO...');
 
       setTimeout(() => {
+        spareRows.forEach((r, idx) => {
+          const rVal = [82, 78, 85, 76][idx % 4];
+          logTerminal(`[ATE_BURN] ⚡ Row-CAM[${r}] Gate Oxide Hard Rupture... R_fil = ${rVal}Ω (<100Ω PASS).`);
+        });
+
         defects.forEach(d => {
           matrixCells[d.r][d.c] = 2; // remapped green
         });
@@ -571,7 +580,8 @@ document.addEventListener('DOMContentLoaded', () => {
         statDieYield.className = 'stat-val text-green';
         updateFuseboxMap('BURNED', spareRows, true);
 
-        logTerminal('✓ FUSEBOX PERMANENTLY BURNED. ADDRESS DECODER REDIRECTED. DIE SALVAGED!');
+        logTerminal('✓ [ATE_VERIFY] HARDWARE CAM REDIRECTION ACTIVE. 0-CYCLE READ DELAY VERIFIED.');
+        logTerminal('✓ [ATE_SIGN-OFF] ALL FUSE REGISTERS HARD-LOCKED. DIE YIELD RESCUED: 0% ➔ 100%!');
       }, 500);
     });
   }
@@ -909,33 +919,43 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('active');
       currentEinkMode = btn.dataset.mode;
 
+      const timingTrackEl = document.getElementById('waveformTimingTrack');
       if (currentEinkMode === 'mono') {
         lblEinkMode.textContent = 'MONO FAST REFRESH';
-        lblPulseVolt.textContent = '±15V PULSE (32Kb MTP)';
-        valLutFootprint.textContent = '32 K-bit';
+        lblPulseVolt.textContent = '±15V PULSE (32 K-bit · 4 KB)';
+        valLutFootprint.textContent = '32 K-bit (4 KB)';
         lblPhaseTag.textContent = 'MTP / OTP BALANCED';
         lblPhaseTag.className = 'phase-tag phase-otp';
+        if (timingTrackEl) {
+          timingTrackEl.innerHTML = '<span class="timing-step step-shake">Phase A: &plusmn;15V Shake (40ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-clear">Phase B: -15V Clear (60ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-drive">Phase C: +15V Drive (100ms)</span>';
+        }
         txtPhaseDesc.innerHTML = currentLang === 'zh'
           ? '黑白雙色波形已極度成熟，驅動晶片已全面轉向低成本純邏輯 AntiFuse OTP。'
           : 'Monochrome waveform is fully stabilized; DDICs deploy pure logic AntiFuse OTP for cost leadership.';
       } else if (currentEinkMode === 'esl') {
         lblEinkMode.textContent = '4-COLOR ESL LABEL';
-        lblPulseVolt.textContent = '±32V PULSE (48Kb MTP)';
-        valLutFootprint.textContent = '48 K-bit';
+        lblPulseVolt.textContent = '±32V PULSE (48 K-bit · 6 KB)';
+        valLutFootprint.textContent = '48 K-bit (6 KB)';
         lblPhaseTag.textContent = 'MTP ACTIVE (TRANSITION ERA)';
         lblPhaseTag.className = 'phase-tag phase-mtp';
+        if (timingTrackEl) {
+          timingTrackEl.innerHTML = '<span class="timing-step step-shake">Phase A: &plusmn;15V Shake (40ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-clear">Phase B: -32V Clear (80ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-drive">Phase C: +32V Color Drive (120ms)</span>';
+        }
         txtPhaseDesc.innerHTML = currentLang === 'zh'
           ? '四色電子貨架標籤正在由 MTP 逐步收斂轉向 OTP，在線彈性微調是當前關鍵。'
           : '4-Color ESL is in late transition; design houses leverage MTP for firmware calibration before OTP freeze.';
       } else {
         lblEinkMode.textContent = 'SPECTRA 6 FULL COLOR';
-        lblPulseVolt.textContent = '±50V ULTRA-HV PULSE (64Kb MTP)';
-        valLutFootprint.textContent = '64 K-bit (High Density)';
+        lblPulseVolt.textContent = '±50V ULTRA-HV PULSE (64 K-bit · 8 KB)';
+        valLutFootprint.textContent = '64 K-bit (8 KB High-Density)';
         lblPhaseTag.textContent = 'MTP MANDATORY (ACTIVE EVOLUTION)';
         lblPhaseTag.className = 'phase-tag phase-mtp';
+        if (timingTrackEl) {
+          timingTrackEl.innerHTML = '<span class="timing-step step-shake">Phase A: &plusmn;15V Shake (40ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-clear">Phase B: -50V Clear (80ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-drive">Phase C: +50V Target Drive (120ms)</span>';
+        }
         txtPhaseDesc.innerHTML = currentLang === 'zh'
-          ? '彩色粒子配方與微膠囊仍在快速演進，算法不易一次性出廠寫死，必須採用 64Kb MTP 保持彈性。'
-          : 'Full-color particle chemistry is rapidly evolving; waveforms cannot be frozen once, mandating 64Kb MTP.';
+          ? '彩色粒子配方與微膠囊仍在快速演進，算法不易一次性出廠寫死，必須採用 64 K-bit (8 KB) MTP 保持彈性。'
+          : 'Full-color particle chemistry is rapidly evolving; waveforms cannot be frozen once, mandating 64 K-bit (8 KB) MTP.';
       }
 
       drawWaveform();

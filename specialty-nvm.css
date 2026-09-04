@@ -4018,3 +4018,80 @@ html[data-language="zh"] .data-table thead th {
   border-radius: 3px;
   white-space: nowrap;
 }
+
+
+/* ATE FuseBox Glow & Resistance Badges */
+.fuse-entry.burned-glow {
+  border-color: rgba(245, 158, 11, 0.8) !important;
+  background: rgba(245, 158, 11, 0.08) !important;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.25) !important;
+}
+
+.fuse-state.state-burned {
+  background: rgba(245, 158, 11, 0.25) !important;
+  border: 1px solid #f59e0b !important;
+  color: #fbbf24 !important;
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.7);
+  font-weight: 800;
+}
+
+.fuse-res-tag {
+  display: inline-block;
+  padding: 1px 6px;
+  background: rgba(0, 240, 255, 0.15);
+  border: 1px solid #00f0ff;
+  border-radius: 3px;
+  color: #00f0ff;
+  font-size: 9.5px;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+  margin-left: 6px;
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.3);
+}
+
+/* E-Ink Waveform Timing Track */
+.waveform-timing-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin: 10px 0 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.waveform-timing-track .timing-step {
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.waveform-timing-track .step-shake {
+  background: rgba(0, 240, 255, 0.12);
+  border: 1px solid #00f0ff;
+  color: #00f0ff;
+}
+
+.waveform-timing-track .step-clear {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid #f59e0b;
+  color: #f59e0b;
+}
+
+.waveform-timing-track .step-drive {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10b981;
+  color: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+}
+
+.waveform-timing-track .timing-sep {
+  color: #64748b;
+  font-weight: 800;
+}

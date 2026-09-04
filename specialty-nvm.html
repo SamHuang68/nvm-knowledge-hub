@@ -395,8 +395,8 @@
 <div class="sub-topic-block">
 <div class="sub-topic-header">
 <h3>
-<span data-lang="zh">1.2 高密度智慧協議與控制 (High-Density Storage, 8KB ～ 64KB+)</span>
-<span data-lang="en">1.2 High-Density Smart Protocol &amp; Control (8KB to 64KB+)</span>
+<span data-lang="zh">1.2 高密度智慧協議與控制 (High-Density Storage, 8KB ～ 64KB+ / 64Kb ～ 512Kb)</span>
+<span data-lang="en">1.2 High-Density Smart Protocol &amp; Control (8KB to 64KB+ / 64Kb to 512Kb)</span>
 </h3>
 <span class="tag-accent">FIRMWARE STORAGE · MCU INTEGRATION</span>
 </div>
@@ -423,7 +423,7 @@
 <div class="deck-signals">
 <span class="signal-chip cyan">CORE: 32-BIT RISC-V / CORTEX</span>
 <span class="signal-chip cyan">BUS: ZERO-WAIT AHB/APB MATRIX</span>
-<span class="signal-chip amber">NVM: 16KB - 64KB MTP / OTP</span>
+<span class="signal-chip amber">NVM: 16KB - 64KB (128Kb - 512Kb) MTP / OTP</span>
 <span class="signal-chip green">POWER: 40V-85V INTEGRATED LDMOS</span>
 </div>
 </div>
@@ -432,7 +432,7 @@
 <div class="deck-step-card border-cyan">
 <div class="deck-step-meta">
 <span class="deck-step-num">DOMAIN A</span>
-<span class="deck-step-status">16KB-32KB MTP</span>
+<span class="deck-step-status">16KB-32KB (128Kb-256Kb) MTP</span>
 </div>
 <h5 class="deck-step-title">
 <span data-lang="zh">USB-PD 3.1 EPR 快充控制器</span>
@@ -459,7 +459,7 @@
 <div class="deck-step-card border-amber">
 <div class="deck-step-meta">
 <span class="deck-step-num">DOMAIN B</span>
-<span class="deck-step-status">32KB-64KB MTP</span>
+<span class="deck-step-status">32KB-64KB (256Kb-512Kb) MTP</span>
 </div>
 <h5 class="deck-step-title">
 <span data-lang="zh">無刷馬達向量 FOC 控制器</span>
@@ -886,15 +886,15 @@
 <div class="deck-connector-arrow">▶</div>
 <span class="deck-connector-tag">FAULT MAP</span>
 </div>
-<!-- STEP 02: BIRA NP SOLVER -->
+<!-- STEP 02: BIRA HEURISTIC SOLVER -->
 <div class="deck-step-card border-amber">
 <div class="deck-step-meta">
 <span class="deck-step-num">STEP 02</span>
-<span class="deck-step-status">NP-COMPLETE</span>
+<span class="deck-step-status">HEURISTIC BIRA</span>
 </div>
 <h5 class="deck-step-title">
-<span data-lang="zh">BIRA 備援最優解算</span>
-<span data-lang="en">BIRA Redundancy Solver</span>
+<span data-lang="zh">BIRA 備援啟發式解算</span>
+<span data-lang="en">Heuristic Greedy BIRA Solver</span>
 </h5>
 <div class="deck-visual-stage">
 <div style="display: flex; align-items: center; gap: 8px;">
@@ -905,9 +905,9 @@
 </div>
 <div class="deck-metric-callout">
 <span class="deck-metric-val">1-ROW PENALTY</span>
-<span class="deck-metric-lbl">MIN VERTEX COVER SOLVED</span>
+<span class="deck-metric-lbl">NP-COMPLETE VERTEX COVER APPROX</span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">算法</span><span data-lang="en">ALGORITHM</span></span><span class="chip-v cyan"><span data-lang="zh">二維最少備援行/列覆蓋</span><span data-lang="en">MIN VERTEX COVER</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">挽救</span><span data-lang="en">RECOVERY</span></span><span class="chip-v green"><span data-lang="zh">晶粒良率復原至 100%</span><span data-lang="en">100% DIE RECOVERY</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">算法</span><span data-lang="en">ALGORITHM</span></span><span class="chip-v cyan"><span data-lang="zh">啟發式貪婪最少覆蓋 (Heuristic)</span><span data-lang="en">HEURISTIC GREEDY MIN-COVER</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">挽救</span><span data-lang="en">RECOVERY</span></span><span class="chip-v green"><span data-lang="zh">晶粒良率復原至 100%</span><span data-lang="en">100% DIE RECOVERY</span></span></div></div>
 </div>
 <!-- CONNECTOR 2 -->
 <div class="deck-rail-connector">
@@ -1191,7 +1191,7 @@
 <div style="background: #032f2f; border: 1px solid #10b981; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;">TIER 2: ISP + 128Kb Multi-Sector OTP / MTP</div>
 </div>
 <div class="deck-metric-callout">
-<span class="deck-metric-val">128Kb Multi-Sector LUT</span>
+<span class="deck-metric-val">128 K-bit (16 KB) LUT</span>
 <span class="deck-metric-lbl">CP SORT + IN-FIELD DYNAMIC HOT PIXEL RETRIM</span>
 </div>
 <div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">架構</span><span data-lang="en">ARCHITECTURE</span></span><span class="chip-v cyan"><span data-lang="zh">出廠靜態死點 + 運行時分區增量補償 (Multi-Sector)</span><span data-lang="en">STATIC CP + IN-FIELD INCREMENTAL REMAP</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">鍵合</span><span data-lang="en">HYBRID BOND</span></span><span class="chip-v green"><span data-lang="zh">三層晶圓垂直直接鍵合</span><span data-lang="en">CU-CU DIRECT STACK</span></span></div></div>
@@ -1506,7 +1506,7 @@
 </div>
 <!-- 中間：2D De-Mura LUT 轉換器 -->
 <div class="abstract-transform-connector">
-<div class="trim-code-badge">32Kb MTP</div>
+<div class="trim-code-badge">32 K-bit (4 KB) MTP</div>
 <div class="arrow-motion-track">
 <span class="arrow-shaft"></span>
 <span class="arrow-head">▶</span>
@@ -2037,6 +2037,13 @@
 <div class="truth-pill"><span class="pill-k">STANDBY POWER</span><span class="pill-v">0W / 0A (TRUE BISTABILITY)</span></div>
 <div class="truth-pill"><span class="pill-k">STORAGE MEDIUM</span><span class="pill-v">MTP ➔ ZERO-MASK OTP EVOLUTION</span></div>
 </div>
+
+<!-- 電泳物理動力學專利工程註記 -->
+<div class="figure-topology-note">
+  <span class="note-tag">STOKES KINETICS</span>
+  <span data-lang="zh">推導閉環：粒子移徙速度 \(v = rac{q \cdot E}{6 \pi \eta r}\)，電場 \(E = rac{V_{\mathrm{rail}}}{d_{\mathrm{cell}}} = rac{50\mathrm{V}}{40\mu\mathrm{m}} = 1.25	imes 10^6\,\mathrm{V/m}\)，50V 超高壓電場以 10&times; 加速比瞬間克服微膠囊流體黏滯阻力 (&eta;)。</span>
+  <span data-lang="en">PHYSICS CLOSURE: Drift velocity \(v = rac{q \cdot E}{6 \pi \eta r}\), where \(E = rac{V_{\mathrm{rail}}}{d_{\mathrm{cell}}} = rac{50\mathrm{V}}{40\mu\mathrm{m}} = 1.25	imes 10^6\,\mathrm{V/m}\); 50V ultra-HV delivers a 10&times; speedup to overcome fluid drag (&eta;) under 200ms.</span>
+</div>
 </div>
 <!-- STATE CONTRACT TAKEAWAY 04 -->
 <div class="state-contract-box">
@@ -2096,16 +2103,16 @@
 </div>
 <div class="eink-mode-buttons">
 <button class="mode-btn active" data-mode="mono" type="button">
-<span data-lang="zh">黑白快刷 (15V / 32Kb)</span>
-<span data-lang="en">Mono Fast (15V / 32Kb)</span>
+<span data-lang="zh">黑白快刷 (15V / 32 K-bit · 4 KB)</span>
+<span data-lang="en">Mono Fast (15V / 32 K-bit · 4 KB)</span>
 </button>
 <button class="mode-btn" data-mode="esl" type="button">
-<span data-lang="zh">4 色 ESL 貨架標籤 (32V / 48Kb)</span>
-<span data-lang="en">4-Color ESL (32V / 48Kb)</span>
+<span data-lang="zh">4 色 ESL 貨架標籤 (32V / 48 K-bit · 6 KB)</span>
+<span data-lang="en">4-Color ESL (32V / 48 K-bit · 6 KB)</span>
 </button>
 <button class="mode-btn" data-mode="color" type="button">
-<span data-lang="zh">全彩 Spectra 6 (50V / 64Kb)</span>
-<span data-lang="en">Spectra 6 Color (50V / 64Kb)</span>
+<span data-lang="zh">全彩 Spectra 6 (50V / 64 K-bit · 8 KB)</span>
+<span data-lang="en">Spectra 6 Color (50V / 64 K-bit · 8 KB)</span>
 </button>
 </div>
 </div>
@@ -2118,17 +2125,25 @@
 <div class="canvas-wrapper">
 <canvas aria-label="Real-time waveform pulse voltage oscilloscope" height="150" id="canvasWaveform" width="480"></canvas>
 </div>
+<!-- 微型時序階段動態指示條 (Waveform Timing Sequence) -->
+<div class="waveform-timing-track" id="waveformTimingTrack">
+  <span class="timing-step step-shake">Phase A: &plusmn;15V Shake (40ms)</span>
+  <span class="timing-sep">&rarr;</span>
+  <span class="timing-step step-clear">Phase B: -15V Clear (60ms)</span>
+  <span class="timing-sep">&rarr;</span>
+  <span class="timing-step step-drive">Phase C: +15V Drive (100ms)</span>
+</div>
 <div class="lifecycle-decision-box">
 <div class="decision-header">
 <strong><span data-lang="zh">當前架構決策階段：</span><span data-lang="en">Architectural Phase:</span></strong>
 <span class="phase-tag phase-mtp" id="lblPhaseTag">MTP ACTIVE (TRANSITION ERA)</span>
 </div>
 <p id="txtPhaseDesc">
-<span data-lang="zh">彩色粒子配方與微膠囊製程快速疊代演進中。採用 32Kb~64Kb MTP 保持在線波形查表 (LUT) 更新彈性。</span>
-<span data-lang="en">Color particle formulation is evolving. Deploying 32Kb-64Kb MTP ensures flexibility for in-field waveform LUT updates.</span>
+<span data-lang="zh">彩色粒子配方與微膠囊製程快速疊代演進中。採用 32 K-bit ～ 64 K-bit (4 KB ～ 8 KB) MTP 保持在線波形查表 (LUT) 更新彈性。</span>
+<span data-lang="en">Color particle formulation is evolving. Deploying 32 K-bit to 64 K-bit (4 KB to 8 KB) MTP ensures flexibility for in-field waveform LUT updates.</span>
 </p>
 <div class="lifecycle-metric-row">
-<div><span data-lang="zh">波形查表需求</span><span data-lang="en">LUT Footprint</span>: <b id="valLutFootprint">32 K-bit</b></div>
+<div><span data-lang="zh">波形查表需求</span><span data-lang="en">LUT Footprint</span>: <b id="valLutFootprint">32 K-bit (4 KB)</b></div>
 <div><span data-lang="zh">晶粒巨集高度</span><span data-lang="en">Macro Height</span>: <b id="valMacroHeight">&lt;250 μm (Optimized)</b></div>
 </div>
 </div>
@@ -2180,7 +2195,7 @@
 <td class="metric-col"><span data-lang="zh">全彩顯示能力 (Full Color Capability)</span><span data-lang="en">Full Color Capability</span></td>
 <td><span data-lang="zh">演進中 (黑白 ➔ 4 色 ➔ Spectra 6 / Kaleido 3)</span><span data-lang="en">Evolving (Mono ➔ 4-Color ➔ Spectra 6 / Kaleido 3)</span></td>
 <td class="badge-cell-win"><span data-lang="zh">純熟原生全彩 (RGB 16.7M 色以上)</span><span data-lang="en">Mature native full color (16.7M+ colors)</span></td>
-<td><span data-lang="zh">演進期以 32Kb~64Kb MTP 保持波形更動彈性，成熟後轉入低成本 OTP</span><span data-lang="en">MTP ensures code flexibility during color evolution; OTP for mature high volume</span></td>
+<td><span data-lang="zh">演進期以 32 K-bit ～ 64 K-bit (4 KB ～ 8 KB) MTP 保持波形更動彈性，成熟後轉入低成本 OTP</span><span data-lang="en">32-64 K-bit (4-8 KB) MTP ensures code flexibility during color evolution; OTP for mature high volume</span></td>
 </tr>
 <tr>
 <td class="metric-col"><span data-lang="zh">環境強光可讀性 (Sunlight Readability)</span><span data-lang="en">Sunlight Readability</span></td>
