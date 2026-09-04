@@ -1498,3 +1498,139 @@ html[data-language="zh"] .data-table thead th {
   border-radius: 4px;
   font-size: 10.5px;
 }
+
+/* =========================================================
+   Lab 01 & Lab 02 Scaffolding Upgrades (HIVE+Loop)
+   ========================================================= */
+.lab-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.lab-btn.btn-toggle {
+  background: rgba(113, 236, 227, 0.08);
+  border: 1px solid rgba(113, 236, 227, 0.35);
+  color: var(--spec-aqua);
+  padding: 6px 12px;
+  font-size: 11px;
+}
+
+.lab-btn.btn-toggle:hover {
+  background: rgba(113, 236, 227, 0.18);
+  border-color: var(--spec-aqua);
+}
+
+.terminal-window-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #020b12;
+  border-bottom: 1px solid rgba(113, 236, 227, 0.15);
+}
+
+.terminal-title {
+  margin-left: 8px;
+  font-family: var(--spec-mono);
+  font-size: 9px;
+  color: #71ece3;
+  letter-spacing: 0.1em;
+}
+
+.fusebox-register-map {
+  margin-top: 12px;
+  background: #020e17;
+  border: 1px solid rgba(113, 236, 227, 0.22);
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+
+.fusebox-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(113, 236, 227, 0.1);
+  margin-bottom: 8px;
+}
+
+.fusebox-title {
+  font-family: var(--spec-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #c9f5e7;
+  letter-spacing: 0.04em;
+}
+
+.fusebox-status {
+  font-family: var(--spec-mono);
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #8faab0;
+}
+
+.fusebox-status.burned {
+  background: rgba(56, 201, 158, 0.2);
+  color: #38c99e;
+  border: 1px solid rgba(56, 201, 158, 0.5);
+}
+
+.fusebox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+@media (max-width: 600px) {
+  .fusebox-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fuse-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(6, 30, 44, 0.6);
+  padding: 6px 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(113, 236, 227, 0.08);
+  font-family: var(--spec-mono);
+  font-size: 10px;
+}
+
+.fuse-idx {
+  color: var(--spec-aqua);
+  font-weight: 700;
+}
+
+.fuse-val {
+  color: #d1e7ed;
+}
+
+.fuse-state {
+  font-size: 8.5px;
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
+.fuse-state.state-blank {
+  background: rgba(255, 255, 255, 0.08);
+  color: #8faab0;
+}
+
+.fuse-state.state-mapped {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+}
+
+.fuse-state.state-burned {
+  background: rgba(56, 201, 158, 0.25);
+  color: #38c99e;
+  border: 1px solid rgba(56, 201, 158, 0.6);
+}

@@ -207,11 +207,43 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.fill();
   }
 
+  const btnToggleTrimView = document.getElementById('btnToggleTrimView');
+  const lblTrimMode = document.getElementById('lblTrimMode');
+  const lblTrimModeEn = document.getElementById('lblTrimModeEn');
+
+  function updateTrimUI(trimmed) {
+    isTrimmed = trimmed;
+    if (lblTrimMode && lblTrimModeEn) {
+      lblTrimMode.textContent = trimmed ? '已微調 (±0.5%)' : '未微調 (Raw ±5%)';
+      lblTrimModeEn.textContent = trimmed ? 'Trimmed (±0.5%)' : 'Raw Drift (±5%)';
+    }
+    if (trimmed) {
+      statTrimVar.textContent = '±0.28% (σ=0.09)';
+      statYield.textContent = '99.8% PASS';
+      statYield.className = 'stat-val text-green';
+      btnRunTrim.textContent = currentLang === 'zh' ? '🔄 重置為未微調狀態' : '🔄 Reset to Untrimmed';
+    } else {
+      statTrimVar.textContent = '±4.2% (Raw)';
+      statYield.textContent = '83.5% (Reject)';
+      statYield.className = 'stat-val text-warn';
+      btnRunTrim.textContent = currentLang === 'zh' ? '⚡ 執行 OTP 電性微調' : '⚡ Execute OTP Electrical Trim';
+    }
+  }
+
+  if (btnToggleTrimView) {
+    btnToggleTrimView.addEventListener('click', () => {
+      const nextState = !isTrimmed;
+      trimProgress = nextState ? 1 : 0;
+      updateTrimUI(nextState);
+      drawVrefCurve();
+    });
+  }
+
   if (btnRunTrim) {
     btnRunTrim.addEventListener('click', () => {
-      isTrimmed = !isTrimmed;
+      const nextState = !isTrimmed;
       const startProg = trimProgress;
-      const targetProg = isTrimmed ? 1 : 0;
+      const targetProg = nextState ? 1 : 0;
       const startTime = performance.now();
       const dur = 600;
 
@@ -228,17 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
           trimAnimId = requestAnimationFrame(animateTrim);
         } else {
           btnRunTrim.disabled = false;
-          if (isTrimmed) {
-            statTrimVar.textContent = '±0.28% (σ=0.09)';
-            statYield.textContent = '99.8% PASS';
-            statYield.className = 'stat-val text-green';
-            btnRunTrim.textContent = currentLang === 'zh' ? '🔄 重置為未微調狀態' : '🔄 Reset to Untrimmed';
-          } else {
-            statTrimVar.textContent = '±4.2% (Raw)';
-            statYield.textContent = '83.5% (Reject)';
-            statYield.className = 'stat-val text-warn';
-            btnRunTrim.textContent = currentLang === 'zh' ? '⚡ 執行 OTP 電性微調' : '⚡ Execute OTP Electrical Trim';
-          }
+          updateTrimUI(nextState);
         }
       }
       trimAnimId = requestAnimationFrame(animateTrim);
@@ -304,6 +326,50 @@ document.addEventListener('DOMContentLoaded', () => {
   let spareRows = [];
   let scanProgressLine = -1;
 
+  
+  // =========================================================
+  // FuseBox Register Map Helper Functions
+  // =========================================================
+  const lblFuseboxStatus = document.getElementById('lblFuseboxStatus');
+  function updateFuseboxMap(status, allocatedSpares, burned) {
+    if (lblFuseboxStatus) {
+      if (burned) {
+        lblFuseboxStatus.innerHTML = '<span data-lang="zh">永久燒錄鎖定 (LOCKED)</span><span data-lang="en">FROZEN (LOCKED)</span>';
+        lblFuseboxStatus.className = 'fusebox-status burned';
+      } else if (allocatedSpares && allocatedSpares.length > 0) {
+        lblFuseboxStatus.innerHTML = '<span data-lang="zh">BIRA 解算就緒 (ALLOCATED)</span><span data-lang="en">BIRA ALLOCATED</span>';
+        lblFuseboxStatus.className = 'fusebox-status';
+      } else {
+        lblFuseboxStatus.innerHTML = '<span data-lang="zh">未燒錄 (BLANK)</span><span data-lang="en">UNBLOWN (BLANK)</span>';
+        lblFuseboxStatus.className = 'fusebox-status';
+      }
+    }
+
+    for (let i = 0; i < 4; i++) {
+      const regEl = document.getElementById(`fuseReg${i}`);
+      if (!regEl) continue;
+      const valEl = regEl.querySelector('.fuse-val');
+      const stateEl = regEl.querySelector('.fuse-state');
+
+      if (allocatedSpares && i < allocatedSpares.length) {
+        const spareRow = allocatedSpares[i];
+        if (burned) {
+          valEl.textContent = `ROW_ADDR_0x0${spareRow.toString(16).toUpperCase()} ➔ SPARE_${i}`;
+          stateEl.textContent = 'BURNED';
+          stateEl.className = 'fuse-state state-burned';
+        } else {
+          valEl.textContent = `MAP: ROW_${spareRow} ➔ SPARE_${i}`;
+          stateEl.textContent = 'ALLOCATED';
+          stateEl.className = 'fuse-state state-mapped';
+        }
+      } else {
+        valEl.textContent = '--- (BLANK)';
+        stateEl.textContent = 'BLANK';
+        stateEl.className = 'fuse-state state-blank';
+      }
+    }
+  }
+
   function initMatrix() {
     matrixCells = [];
     for (let r = 0; r < GRID_SIZE; r++) {
@@ -315,6 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
     defects = [];
     spareRows = [];
     scanProgressLine = -1;
+    updateFuseboxMap(null, null, false);
   }
 
   function logTerminal(msg) {
@@ -481,6 +548,7 @@ document.addEventListener('DOMContentLoaded', () => {
         spareRows = [...new Set(defects.map(d => d.r))];
         statSparesUsed.textContent = `${spareRows.length} / 4`;
         lblScanStatus.textContent = 'BIRA SOLUTION LOCKED';
+        updateFuseboxMap('ALLOCATED', spareRows, false);
         logTerminal(`BIRA SOLUTION: Allocate ${spareRows.length} Spare Rows [${spareRows.map(r => `SpareRow_${r}`).join(', ')}].`);
         btnBurnFuse.disabled = false;
       }, 400);
@@ -501,6 +569,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lblScanStatus.className = 'badge-accent text-green';
         statDieYield.textContent = 'PASS (100%)';
         statDieYield.className = 'stat-val text-green';
+        updateFuseboxMap('BURNED', spareRows, true);
 
         logTerminal('✓ FUSEBOX PERMANENTLY BURNED. ADDRESS DECODER REDIRECTED. DIE SALVAGED!');
       }, 500);

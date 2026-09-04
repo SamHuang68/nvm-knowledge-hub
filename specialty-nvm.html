@@ -339,10 +339,16 @@
             <div class="lab-subpanel">
               <div class="subpanel-title">
                 <span><span data-lang="zh">1. 帶隙基準電壓 (Vref) 分佈微調模擬</span><span data-lang="en">1. Bandgap Vref Distribution Simulation</span></span>
-                <button class="lab-btn" id="btnRunTrim" type="button">
-                  <span data-lang="zh">⚡ 執行 OTP 電性微調 (Trim)</span>
-                  <span data-lang="en">⚡ Execute OTP Electrical Trim</span>
-                </button>
+                <div class="lab-btn-group">
+                  <button class="lab-btn" id="btnRunTrim" type="button">
+                    <span data-lang="zh">⚡ 執行 OTP 電性微調</span>
+                    <span data-lang="en">⚡ Execute OTP Electrical Trim</span>
+                  </button>
+                  <button class="lab-btn btn-toggle" id="btnToggleTrimView" type="button" title="Toggle Raw vs Post-Trim View">
+                    <span data-lang="zh">👁️ 對比: <b id="lblTrimMode">已微調</b></span>
+                    <span data-lang="en">👁️ View: <b id="lblTrimModeEn">Trimmed</b></span>
+                  </button>
+                </div>
               </div>
               <div class="canvas-wrapper">
                 <canvas id="canvasVref" width="480" height="220" aria-label="Bandgap Vref Gaussian distribution curve"></canvas>
@@ -476,6 +482,12 @@
                   <td class="cell-win"><span data-lang="zh">15 年 @ 150°C~175°C (物理奈米金屬絲)</span><span data-lang="en">15+ yrs @ 150°C-175°C (Permanent filament)</span></td>
                   <td class="cell-lose"><span data-lang="zh">125°C 以上穿隧氧化層嚴重漏電 (SILC)</span><span data-lang="en">Degrades rapidly above 125°C due to SILC leakage</span></td>
                   <td><span data-lang="zh">滿足車規 AEC-Q100 Grade 0 / Grade 1 極限環境</span><span data-lang="en">Crucial for AEC-Q100 Grade 0 automotive powertrain</span></td>
+                </tr>
+                <tr>
+                  <td><strong><span data-lang="zh">待機靜態漏電與功耗</span><span data-lang="en">Standby Power &amp; Leakage</span></strong></td>
+                  <td class="cell-win"><strong><span data-lang="zh">&lt; 1 pA 極低漏電 (無接面反向漏流)</span><span data-lang="en">&lt; 1 pA Zero-Junction Standby Leakage</span></strong></td>
+                  <td class="cell-lose"><span data-lang="zh">高壓 BCD 接面漏電高，持續消耗待機電流</span><span data-lang="en">High BCD junction leakage drains standby power</span></td>
+                  <td><span data-lang="zh">實現電子貨架標籤 (ESL) 與物聯網 5~10 年鈕扣電池超長壽命</span><span data-lang="en">Enables 5-10 year coin-cell battery lifetime for ESL and IoT nodes</span></td>
                 </tr>
               </tbody>
             </table>
@@ -648,9 +660,29 @@
                 </button>
               </div>
 
-              <div class="terminal-window-header"><span class="term-dot term-dot-red"></span><span class="term-dot term-dot-yellow"></span><span class="term-dot term-dot-green"></span></div>
-                  <div class="repair-terminal" id="terminalLogs">
+              <div class="terminal-window-header">
+                <span class="term-dot term-dot-red"></span><span class="term-dot term-dot-yellow"></span><span class="term-dot term-dot-green"></span>
+                <span class="terminal-title">ATE BIST/BIRA BUS MONITOR</span>
+              </div>
+              <div class="repair-terminal" id="terminalLogs">
                 <div class="term-line">> SYSTEM READY. WAITING FOR DEFECT INJECTION...</div>
+              </div>
+
+              <!-- FuseBox Real-time Register Map -->
+              <div class="fusebox-register-map">
+                <div class="fusebox-header">
+                  <span class="fusebox-title">
+                    <span data-lang="zh">⚡ AntiFuse 硬體修復暫存器日誌 (FuseBox Register Map)</span>
+                    <span data-lang="en">⚡ AntiFuse Hardware FuseBox Register Map</span>
+                  </span>
+                  <span class="fusebox-status" id="lblFuseboxStatus"><span data-lang="zh">未燒錄 (BLANK)</span><span data-lang="en">UNBLOWN (BLANK)</span></span>
+                </div>
+                <div class="fusebox-grid" id="fuseboxGrid">
+                  <div class="fuse-entry" id="fuseReg0"><span class="fuse-idx">FUSE_REG[0]</span><span class="fuse-val">--- (IDLE)</span><span class="fuse-state state-blank">BLANK</span></div>
+                  <div class="fuse-entry" id="fuseReg1"><span class="fuse-idx">FUSE_REG[1]</span><span class="fuse-val">--- (IDLE)</span><span class="fuse-state state-blank">BLANK</span></div>
+                  <div class="fuse-entry" id="fuseReg2"><span class="fuse-idx">FUSE_REG[2]</span><span class="fuse-val">--- (IDLE)</span><span class="fuse-state state-blank">BLANK</span></div>
+                  <div class="fuse-entry" id="fuseReg3"><span class="fuse-idx">FUSE_REG[3]</span><span class="fuse-val">--- (IDLE)</span><span class="fuse-state state-blank">BLANK</span></div>
+                </div>
               </div>
 
               <div class="lab-stat-row" style="margin-top: 14px;">
