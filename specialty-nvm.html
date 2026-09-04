@@ -359,7 +359,7 @@
 <span class="deck-metric-val">84 Ω Filament</span>
 <span class="deck-metric-lbl">ZERO GROW-BACK PASS</span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">通道</span><span data-lang="en">CHANNEL</span></span><span class="chip-v cyan"><span data-lang="zh">超薄氧化層穿隧細絲</span><span data-lang="en">THIN OXIDE SILICIDE</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">光罩</span><span data-lang="en">FOUNDRY MASK</span></span><span class="chip-v green"><span data-lang="zh">0 額外光罩邏輯相容</span><span data-lang="en">ZERO MASK ADDER</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">機制</span><span data-lang="en">RUPTURE</span></span><span class="chip-v cyan"><span data-lang="zh">閘極氧化層硬擊穿形成細絲</span><span data-lang="en">GATE OXIDE HARD BREAKDOWN</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">光罩</span><span data-lang="en">FOUNDRY MASK</span></span><span class="chip-v green"><span data-lang="zh">0 額外光罩邏輯相容</span><span data-lang="en">ZERO MASK ADDER</span></span></div></div>
 </div>
 <div class="deck-rail-connector">
 <div class="deck-connector-line"></div>
@@ -686,6 +686,13 @@
 <div class="truth-pill"><span class="pill-k">CALIBRATION</span><span class="pill-v">ZERO-MASK OTP R-LADDER</span></div>
 <div class="truth-pill"><span class="pill-k">REDUNDANCY</span><span class="pill-v">PERMANENT HARD LOCK</span></div>
 </div>
+
+<!-- 電路拓撲專利工程註記 -->
+<div class="figure-topology-note">
+  <span class="note-tag">CIRCUIT TOPOLOGY</span>
+  <span data-lang="zh">註：一階帶隙修調拓撲採用二進制權重之串聯電阻修調梯形架構（Series Binary-Weighted R-Ladder），&Delta;R_OTP 為串聯微調梯階，實現高線性度 &plusmn;0.35% 精準收斂。</span>
+  <span data-lang="en">NOTE: First-order bandgap trimming employs a Series Binary-Weighted Resistor Ladder topology (&Delta;R_OTP represents series tuning increments) for high-linearity &plusmn;0.35% precision lock.</span>
+</div>
 </div>
 <!-- STATE CONTRACT TAKEAWAY 01 -->
 <div class="state-contract-box">
@@ -929,7 +936,7 @@
 <span class="deck-metric-val">R_FIL &lt; 100 Ω</span>
 <span class="deck-metric-lbl">ZERO GROW-BACK LEAKAGE</span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">延遲</span><span data-lang="en">LATENCY</span></span><span class="chip-v cyan"><span data-lang="zh">0-Cycle 硬體 CAM 攔截</span><span data-lang="en">0-CYCLE CAM MATCH</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">留存</span><span data-lang="en">RETENTION</span></span><span class="chip-v green"><span data-lang="zh">15 年 @ 175°C 車規耐受</span><span data-lang="en">15 YRS @ 175°C</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">延遲</span><span data-lang="en">LATENCY</span></span><span class="chip-v cyan"><span data-lang="zh">0-Cycle 硬體 CAM 攔截</span><span data-lang="en">0-CYCLE CAM MATCH</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">留存</span><span data-lang="en">RETENTION</span></span><span class="chip-v green"><span data-lang="zh">15+ 年 @ 175°C Tj 車規耐受</span><span data-lang="en">15+ YRS @ 175°C Tj (AEC-Q100)</span></span></div></div>
 </div>
 </div>
 </div>
@@ -1181,13 +1188,13 @@
 <div class="deck-visual-stage" style="flex-direction: column; gap: 4px; align-items: stretch;">
 <div style="background: #0c4a6e; border: 1px solid #38bdf8; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #e0f2fe; text-align: center;">TIER 1: 200MP PIXEL SENSOR</div>
 <div style="border-top: 1px dashed #facc15; font-family: monospace; font-size: 7.5px; color: #fde047; text-align: center; line-height: 1;">TSMC Cu-Cu HYBRID BONDING</div>
-<div style="background: #032f2f; border: 1px solid #10b981; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;">TIER 2: ISP + 128Kb AntiFuse OTP</div>
+<div style="background: #032f2f; border: 1px solid #10b981; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;">TIER 2: ISP + 128Kb Multi-Sector OTP / MTP</div>
 </div>
 <div class="deck-metric-callout">
-<span class="deck-metric-val">128Kb Defect LUT</span>
-<span class="deck-metric-lbl">REAL-TIME BILINEAR INTERPOLATION</span>
+<span class="deck-metric-val">128Kb Multi-Sector LUT</span>
+<span class="deck-metric-lbl">CP SORT + IN-FIELD DYNAMIC HOT PIXEL RETRIM</span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">機制</span><span data-lang="en">MECHANISM</span></span><span class="chip-v cyan"><span data-lang="zh">邏輯層 OTP 儲存死點座標</span><span data-lang="en">HOT PIXEL REMAP</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">鍵合</span><span data-lang="en">HYBRID BOND</span></span><span class="chip-v green"><span data-lang="zh">三層晶圓垂直直接鍵合</span><span data-lang="en">CU-CU DIRECT STACK</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">架構</span><span data-lang="en">ARCHITECTURE</span></span><span class="chip-v cyan"><span data-lang="zh">出廠靜態死點 + 運行時分區增量補償 (Multi-Sector)</span><span data-lang="en">STATIC CP + IN-FIELD INCREMENTAL REMAP</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">鍵合</span><span data-lang="en">HYBRID BOND</span></span><span class="chip-v green"><span data-lang="zh">三層晶圓垂直直接鍵合</span><span data-lang="en">CU-CU DIRECT STACK</span></span></div></div>
 </div>
 <div class="deck-rail-connector">
 <div class="deck-connector-line"></div>
@@ -1283,7 +1290,7 @@
 <span class="deck-metric-val">&gt; 10mA Drive FET</span>
 <span class="deck-metric-lbl">HIGH CURRENT DRIVER PENALTY</span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">缺陷</span><span data-lang="en">FATAL FLAW</span></span><span class="chip-v rose"><span data-lang="zh">高溫金屬回跳致位元復原</span><span data-lang="en">THERMAL GROW-BACK</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">開銷</span><span data-lang="en">LIMITATION</span></span><span class="chip-v amber"><span data-lang="zh">大尺寸驅動管，容量 &lt;4Kb</span><span data-lang="en">LARGE FET (&gt;10mA)</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">缺陷</span><span data-lang="en">FATAL FLAW</span></span><span class="chip-v rose"><span data-lang="zh">高溫金屬回跳致位元復原</span><span data-lang="en">THERMAL GROW-BACK</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">開銷</span><span data-lang="en">LIMITATION</span></span><span class="chip-v amber"><span data-lang="zh">大電流編程 FET 使每位元面積膨脹，通常僅經濟適用於 ≤4Kb–8Kb</span><span data-lang="en">BULKY PROGRAMMING FET PENALTY, UNECONOMICAL &gt;4Kb–8Kb</span></span></div></div>
 </div>
 <div class="deck-rail-connector">
 <div class="deck-connector-line"></div>
@@ -1297,8 +1304,8 @@
 <span class="deck-step-status">FOUNDRY STANDARD</span>
 </div>
 <h5 class="deck-step-title">
-<span data-lang="zh">反熔絲矽化物細絲 (AntiFuse OTP)</span>
-<span data-lang="en">AntiFuse Nanofilament</span>
+<span data-lang="zh">反熔絲閘極介電質擊穿細絲 (AntiFuse OTP)</span>
+<span data-lang="en">AntiFuse Dielectric Rupture Filament</span>
 </h5>
 <div class="deck-visual-stage">
 <div style="font-family: monospace; font-size: 10px; color: #10b981; text-align: center;">
@@ -1310,7 +1317,7 @@
 <span class="deck-metric-val">0.5 µm² Footprint</span>
 <span class="deck-metric-lbl">100% IMMUTABLE HARD LOCK</span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">優勢</span><span data-lang="en">ADVANTAGE</span></span><span class="chip-v green"><span data-lang="zh">純邏輯細絲貫穿，零回跳</span><span data-lang="en">ZERO GROW-BACK</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">認證</span><span data-lang="en">FOUNDRY QUAL</span></span><span class="chip-v cyan"><span data-lang="zh">15 年 @ 175°C 車規認證</span><span data-lang="en">15 YRS @ 175°C</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">優勢</span><span data-lang="en">ADVANTAGE</span></span><span class="chip-v green"><span data-lang="zh">超薄閘極硬擊穿永久熔融細絲，零回跳</span><span data-lang="en">DIELECTRIC RUPTURE, ZERO GROW-BACK</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">認證</span><span data-lang="en">FOUNDRY QUAL</span></span><span class="chip-v cyan"><span data-lang="zh">15+ 年 @ 175°C Tj 車規認證</span><span data-lang="en">15+ YRS @ 175°C Tj (GRADE 0)</span></span></div></div>
 </div>
 </div>
 </div>
@@ -1337,8 +1344,8 @@
 <span data-lang="en">High-Voltage Display Drivers: Gamma Tuning, Vcom Anti-Flicker &amp; De-Mura</span>
 </h2>
 <p>
-<span data-lang="zh">顯示面板驅動 IC（DDIC）需承受高電壓擺幅（Gate Driver 達 +20V / -15V，Source Driver 達 8V ~ 12V）。內嵌 eNVM 必須在嚴苛的高壓環境中長期抵抗電氣干擾，精準儲存光學校準參數與灰階查找表。</span>
-<span data-lang="en">Display Driver ICs (DDICs) handle severe voltage swings (Gate +20V/-15V, Source 8V-12V). Embedded eNVM must withstand high-voltage electrical stress to preserve optical calibration registers and color correction tables.</span>
+<span data-lang="zh">顯示面板驅動 IC（DDIC）整合了雙重耐壓域：高壓端 Gate Driver 承受高達 35Vp-p 峰對峰擺幅（V_GH = +20V, V_GL = -15V，製程耐壓安全裕度達 40V），類比端 Source Driver 則為高速高精度 8V ~ 12V（AMOLED 子像素驅動可達 16V）。內嵌 eNVM 必須在嚴苛的高壓環境中長期抵抗電氣干擾，精準儲存光學校準參數與灰階查找表。</span>
+<span data-lang="en">Display Driver ICs (DDICs) partition into dual voltage domains: Gate Drivers handle 35Vp-p swings (V_GH = +20V, V_GL = -15V with 40V process breakdown margin), while Source Drivers operate at 8V~12V (up to 16V for AMOLED sub-pixels). Embedded eNVM must withstand high-voltage electrical stress to preserve optical calibration registers and color correction tables.</span>
 </p>
 </header>
 <!-- 4-METRIC SPEC GRID: TOPIC 03 -->
@@ -1354,9 +1361,9 @@
 <div class="spec-card-desc"><span data-lang="zh">逐點光學微調，消弭 AMOLED 亮度與色彩斑塊</span><span data-lang="en">Eliminates AMOLED brightness &amp; color mura</span></div>
 </div>
 <div class="spec-card">
-<div class="spec-card-val val-amber">32V–40V</div>
-<div class="spec-card-title"><span data-lang="zh">耐壓等級 (HV DDIC)</span><span data-lang="en">HV DDIC SAFE-OPERATING</span></div>
-<div class="spec-card-desc"><span data-lang="zh">高壓柱狀電晶體耐受，杜絕電壓突波擊穿</span><span data-lang="en">High-voltage breakdown endurance against surges</span></div>
+<div class="spec-card-val val-amber">35Vp-p / 40V</div>
+<div class="spec-card-title"><span data-lang="zh">Gate 擺幅與製程耐壓</span><span data-lang="en">GATE SWING &amp; PROCESS MARGIN</span></div>
+<div class="spec-card-desc"><span data-lang="zh">Gate 峰對峰 35V (+20V/-15V) · 40V 耐壓裕度 · Source 端 8-12V</span><span data-lang="en">Gate 35Vp-p (+20V/-15V) · 40V margin · Source 8-12V analog rail</span></div>
 </div>
 <div class="spec-card">
 <div class="spec-card-val val-purple">+18%</div>
@@ -1746,7 +1753,7 @@
 <li><strong><span data-lang="zh">隔離架構：</span><span data-lang="en">Isolation:</span></strong> <span data-lang="zh">Deep N-Well 三重基板保護環</span><span data-lang="en">Deep N-Well guard-rings</span></li>
 <li><strong><span data-lang="zh">耐受指標：</span><span data-lang="en">dV/dt:</span></strong> <span data-lang="zh">50V/ns 高速瞬態脈衝抑制</span><span data-lang="en">50V/ns pulse suppression</span></li>
 <li><strong><span data-lang="zh">加速老化：</span><span data-lang="en">Stress:</span></strong> <span data-lang="zh">1000 小時 HTOL + HTSL 烘烤</span><span data-lang="en">1000h HTOL + HTSL bake</span></li>
-<li><strong><span data-lang="zh">洩漏壽命：</span><span data-lang="en">SILC:</span></strong> <span data-lang="zh">電荷洩漏 = 0 pA，15 年保持</span><span data-lang="en">Zero SILC leakage, 15+ yrs</span></li>
+<li><strong><span data-lang="zh">洩漏壽命：</span><span data-lang="en">SILC:</span></strong> <span data-lang="zh">電荷洩漏 = 0 pA，15+ 年 @ 175°C Tj 保持</span><span data-lang="en">Zero SILC leakage, 15+ yrs @ 175°C Tj</span></li>
 </ul>
 </div>
 </div>
@@ -2165,9 +2172,9 @@
 </tr>
 <tr>
 <td class="metric-col"><span data-lang="zh">驅動電壓水準 (Drive Voltage Rails)</span><span data-lang="en">Drive Voltage Rails</span></td>
-<td class="badge-cell-warn"><strong><span data-lang="zh">40V 至 50V (110HV 特種高壓製程)</span><span data-lang="en">40V to 50V (110HV Specialty CMOS)</span></strong></td>
-<td><span data-lang="zh">±16V 或 32V (標準高壓製程)</span><span data-lang="en">±16V or 32V (Standard HV Process)</span></td>
-<td><span data-lang="zh">無法使用一般 BCD (高壓漏電嚴重)，需專屬 110HV / 90HV CMOS</span><span data-lang="en">Cannot use BCD due to excessive leakage; mandates 110HV/90HV CMOS</span></td>
+<td class="badge-cell-warn"><strong><span data-lang="zh">40V 至 50V 雙極性電泳脈衝</span><span data-lang="en">40V to 50V Bipolar Electrophoretic Pulse</span></strong></td>
+<td><span data-lang="zh">Gate 35Vp-p (+20V/-15V) / Source 8V-16V (40V 製程裕度)</span><span data-lang="en">Gate 35Vp-p (+20V/-15V) / Source 8V-16V (40V Process Margin)</span></td>
+<td><span data-lang="zh">受限 COG/COF 極致長寬比 (&lt;250µm) 與多通道高密度，昂貴且具厚金屬層的 BCD 製程在經濟與尺寸上皆不適用，強制採用專屬 110HV / 90HV 純高壓 CMOS</span><span data-lang="en">Due to ultra-slim die aspect ratio (&lt;250µm for COG/COF) and high channel density, bulky and mask-heavy BCD is uneconomical; mandates dedicated 110HV/90HV pure High-Voltage CMOS</span></td>
 </tr>
 <tr>
 <td class="metric-col"><span data-lang="zh">全彩顯示能力 (Full Color Capability)</span><span data-lang="en">Full Color Capability</span></td>

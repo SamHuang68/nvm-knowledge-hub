@@ -3992,3 +3992,29 @@ html[data-language="zh"] .data-table thead th {
 .chip-v.amber { color: #f59e0b; }
 .chip-v.rose { color: #f43f5e; }
 .chip-v.purple { color: #c084fc; }
+
+
+/* Circuit Topology Annotation Note */
+.figure-topology-note {
+  margin-top: 10px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px dashed rgba(0, 240, 255, 0.25);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 10.5px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.figure-topology-note .note-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  font-weight: 800;
+  color: #00f0ff;
+  background: rgba(0, 240, 255, 0.12);
+  padding: 1px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
