@@ -1634,3 +1634,442 @@ html[data-language="zh"] .data-table thead th {
   color: #38c99e;
   border: 1px solid rgba(56, 201, 158, 0.6);
 }
+
+/* =========================================================
+   DESIGN SYSTEM PORTING (From AI Systems & NVM Opportunities)
+   Slate/Navy #0a1118 theme, Cyber Cyan, Monospace Eyebrows,
+   4-Metric Stat Strip, 4-Metric Spec Grids, State Contract Boxes,
+   Governing Physics Blocks, Modern Decision Tables
+   ========================================================= */
+
+.text-gradient-cyan {
+  background: linear-gradient(90deg, #06b6d4, #14b8a6, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+.hero-eyebrow-flex {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--spec-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #06b6d4;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+
+.pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #06b6d4;
+  box-shadow: 0 0 10px #06b6d4;
+  animation: pulse-glow-cyan 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow-cyan {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px #06b6d4; }
+  50% { opacity: 0.35; transform: scale(0.85); box-shadow: 0 0 4px #06b6d4; }
+}
+
+/* 4-Metric Stat Strip */
+.stat-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 32px 0 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .stat-strip-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .stat-strip-grid { grid-template-columns: 1fr; }
+}
+
+.stat-strip-card {
+  background: rgba(13, 21, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 16px 18px;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.stat-strip-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+.border-l-cyan { border-left: 4px solid #06b6d4 !important; }
+.border-l-teal { border-left: 4px solid #14b8a6 !important; }
+.border-l-emerald { border-left: 4px solid #10b981 !important; }
+.border-l-amber { border-left: 4px solid #f59e0b !important; }
+
+.stat-strip-card .stat-val {
+  font-family: var(--spec-mono);
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.stat-strip-card .stat-label {
+  font-family: var(--spec-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+.stat-strip-card .stat-sub {
+  font-size: 11.5px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* Topic Header Row & Ghost Badge */
+.topic-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.topic-ghost-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--spec-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 12px;
+  border-radius: 4px;
+  background: rgba(6, 182, 212, 0.12);
+  color: #06b6d4;
+  border: 1px solid rgba(6, 182, 212, 0.35);
+}
+
+.status-verified {
+  font-family: var(--spec-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #34d399;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.05em;
+}
+
+.status-verified::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #34d399;
+  box-shadow: 0 0 8px #34d399;
+}
+
+/* 4-Metric Spec Grids */
+.spec-grid-four {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 24px 0 36px;
+}
+
+@media (max-width: 900px) {
+  .spec-grid-four { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .spec-grid-four { grid-template-columns: 1fr; }
+}
+
+.spec-card {
+  background: rgba(13, 21, 32, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  padding: 16px 18px;
+  transition: all 0.25s ease;
+}
+
+.spec-card:hover {
+  border-color: rgba(6, 182, 212, 0.5);
+  background: rgba(13, 21, 32, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.spec-card-val {
+  font-family: var(--spec-mono);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.val-cyan { color: #22d3ee; }
+.val-emerald { color: #34d399; }
+.val-amber { color: #fbbf24; }
+.val-purple { color: #c084fc; }
+
+.spec-card-title {
+  font-family: var(--spec-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  margin-top: 6px;
+}
+
+.spec-card-desc {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 6px;
+  line-height: 1.45;
+}
+
+/* State Contract Takeaways */
+.state-contract-box {
+  margin: 28px 0;
+  padding: 20px 24px;
+  border-radius: 0 8px 8px 0;
+  background: #0b131e;
+  border-left: 4px solid #06b6d4;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--spec-sans);
+}
+
+.state-contract-header {
+  font-family: var(--spec-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #06b6d4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.state-contract-header .arrow-icon {
+  color: #06b6d4;
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.state-contract-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.state-contract-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.state-contract-list li .bullet-dot {
+  font-family: var(--spec-mono);
+  color: #06b6d4;
+  font-size: 13px;
+  margin-top: 1px;
+  line-height: 1;
+}
+
+.state-contract-list li strong {
+  color: #ffffff;
+  font-family: var(--spec-mono);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Governing Physics Box */
+.governing-physics-box {
+  margin: 28px 0;
+  padding: 20px 22px;
+  border-radius: 8px;
+  background: rgba(10, 15, 22, 0.85);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.governing-physics-header {
+  font-family: var(--spec-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #22d3ee;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.governing-physics-header .math-integral {
+  color: #14b8a6;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.governing-physics-formula {
+  padding: 16px 20px;
+  background: #050b10;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 6px;
+  overflow-x: auto;
+  color: #67e8f9;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.governing-physics-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #94a3b8;
+  font-family: var(--spec-sans);
+}
+
+.physics-desc-title {
+  font-family: var(--spec-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #e2e8f0;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* Decision Matrix Card & Modern Table */
+.decision-matrix-card {
+  margin: 32px 0;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0e1724;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.decision-matrix-card-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(13, 21, 32, 0.85);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.decision-matrix-title {
+  font-family: var(--spec-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #06b6d4;
+}
+
+.decision-matrix-subtitle {
+  font-family: var(--spec-mono);
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.decision-table-modern {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12.5px;
+  font-family: var(--spec-sans);
+}
+
+.decision-table-modern thead tr {
+  background: #09131f;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.decision-table-modern th {
+  padding: 13px 18px;
+  font-family: var(--spec-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+}
+
+.decision-table-modern th.th-cyan {
+  color: #22d3ee;
+}
+
+.decision-table-modern tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.15s ease;
+}
+
+.decision-table-modern tbody tr:last-child {
+  border-bottom: none;
+}
+
+.decision-table-modern tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.decision-table-modern td {
+  padding: 14px 18px;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.decision-table-modern td.metric-col {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.badge-cell-win {
+  color: #34d399 !important;
+  font-weight: 600;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.badge-cell-lose {
+  color: #fb7185 !important;
+}
+
+.badge-cell-warn {
+  color: #fbbf24 !important;
+}
