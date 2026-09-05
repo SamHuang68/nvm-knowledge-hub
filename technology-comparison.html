@@ -325,7 +325,7 @@
     }
     .match-tech-name {
       font: 700 13px/1.2 'IBM Plex Mono', monospace;
-      color: #0a1e2c; /* Updated for light */
+      color: #e2e8f0;
       margin-bottom: 6px;
     }
     .match-score-num {
@@ -369,7 +369,7 @@
     .foundry-card.sec { border-top-color: #3b82f6; }
     .foundry-card h4 {
       font: 700 1.25rem/1.2 'IBM Plex Mono', monospace;
-      color: #0a1e2c; /* Updated for light */
+      color: #f8fafc;
       margin: 0 0 0.5rem;
     }
 
@@ -381,11 +381,12 @@
       margin: 2rem 0;
     }
     .pipeline-step-card {
-      background: #082433;
-      border: 1px solid rgba(115, 238, 228, 0.2);
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.1);
       border-radius: 8px;
       padding: 1.75rem;
       position: relative;
+      box-shadow: var(--card-shadow);
     }
     .pipeline-step-card::before {
       content: '';
@@ -472,15 +473,15 @@
             <span class="pulse-chip-mini"></span>
             <span class="meta-code">RULE #01 · MASK OVERHEAD</span>
           </div>
-          <div class="stat-val">0 EXTRA MASKS</div>
+          <div class="stat-val">0 MASK ADDERS</div>
           <div class="stat-label">
-            <span data-lang="zh">純邏輯零光罩成本</span>
-            <span data-lang="en">PURE-LOGIC ZERO-MASK ADDER</span>
+            <span data-lang="zh">邏輯相容光罩模型</span>
+            <span data-lang="en">LOGIC-COMPATIBLE MASK MODEL</span>
           </div>
           <div class="stat-sub">
             <span style="color: #22d3ee;">
-              <span data-lang="zh">原生 CMOS 製程 · 節省 35%+ 晶圓附加成本</span>
-              <span data-lang="en">Native CMOS · 35%+ Wafer Cost Savings</span>
+              <span data-lang="zh">零額外光罩 ≠ 晶圓免費 · 見成本恆等式</span>
+              <span data-lang="en">Zero extra masks ≠ free wafers · see cost identity</span>
             </span>
           </div>
         </div>
@@ -569,7 +570,7 @@
         <div class="compare-matrix">
           <!-- Headers -->
           <div class="matrix-header"><span data-lang="zh">評估維度</span><span data-lang="en">DIMENSION</span></div>
-          <div class="matrix-header focus-tech">AntiFuse OTP<br><span class="badge-win">FOCUS</span></div>
+          <div class="matrix-header focus-tech">AntiFuse OTP<br><span class="badge-win">OTP CANDIDATE</span></div>
           <div class="matrix-header">eFuse</div>
           <div class="matrix-header">eFlash</div>
           <div class="matrix-header">STT-eMRAM</div>
@@ -581,8 +582,8 @@
             <span data-lang="zh">光罩增加道數</span><span data-lang="en">Mask Adders</span>
             <small>Wafer Cost Adder</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#73eee4;">0 Masks</b><span class="badge-win">100% Native</span></div>
-          <div class="matrix-cell">0 Masks<span class="badge-win">Free</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">0 Masks</b><span class="badge-win">Logic-compatible</span></div>
+          <div class="matrix-cell">0 Masks<span class="badge-win">0 adder</span></div>
           <div class="matrix-cell" style="color:#f87171;">+8 ~ +12 Masks<span class="badge-lose">+30-40% Cost</span></div>
           <div class="matrix-cell">+3 ~ +5 Masks<span style="color:#94a3b8;font-size:10px;">BEOL Process</span></div>
           <div class="matrix-cell">+2 ~ +4 Masks<span style="color:#94a3b8;font-size:10px;">MIM Capacitor</span></div>
@@ -593,7 +594,7 @@
             <span data-lang="zh">位元胞面積</span><span data-lang="en">Cell Area</span>
             <small>Silicon Footprint</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#73eee4;">10 - 25 F²</b><span class="badge-win">Ultra-compact</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">10 - 25 F²</b><span class="badge-win">Ultra-compact</span></div>
           <div class="matrix-cell">60 - 120 F²<span class="badge-lose">Large Neck</span></div>
           <div class="matrix-cell">12 - 30 F²<span style="color:#94a3b8;font-size:10px;">Thick Well</span></div>
           <div class="matrix-cell">30 - 50 F²<span style="color:#94a3b8;font-size:10px;">MTJ + 1T</span></div>
@@ -605,7 +606,7 @@
             <span data-lang="zh">編程電壓與電流</span><span data-lang="en">Programming V / I</span>
             <small>Charge Pump / Energy</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#73eee4;">2.8V - 3.5V / &lt;1mA</b><span class="badge-win">Micro-Pump</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">2.8V - 3.5V / &lt;1mA</b><span class="badge-win">Micro-Pump</span></div>
           <div class="matrix-cell">1.8V - 2.5V / &gt;15mA<span class="badge-lose">High Current IR</span></div>
           <div class="matrix-cell" style="color:#f87171;">&gt;10V - 18V / Low I<span class="badge-lose">High Voltage Pump</span></div>
           <div class="matrix-cell">1.2V - 1.8V / ~100µA<span style="color:#94a3b8;font-size:10px;">Spin-Torque</span></div>
@@ -617,7 +618,7 @@
             <span data-lang="zh">高溫資料留存</span><span data-lang="en">High-Temp Retention</span>
             <small>Thermal Budget</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#73eee4;">&gt;10 Yrs @ 175°C</b><span class="badge-win">Grade 0 Passed</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">&gt;10 Yrs @ 175°C</b><span class="badge-win">Grade 0 Passed</span></div>
           <div class="matrix-cell">&gt;10 Yrs @ 125°C<span style="color:#f59e0b;font-size:10px;">Anneal Re-heal</span></div>
           <div class="matrix-cell">10 Yrs @ 125°C<span class="badge-lose">Charge Leakage</span></div>
           <div class="matrix-cell">10 Yrs @ 105°C<span style="color:#f59e0b;font-size:10px;">Magnetic Drift</span></div>
@@ -629,7 +630,7 @@
             <span data-lang="zh">讀取存取延遲</span><span data-lang="en">Read Latency</span>
             <small>XIP Performance</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#73eee4;">&lt; 10 ns (Direct)</b><span class="badge-win">Instant XIP</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">&lt; 10 ns (Direct)</b><span class="badge-win">Instant XIP</span></div>
           <div class="matrix-cell">&lt; 12 ns<span style="color:#94a3b8;font-size:10px;">Direct</span></div>
           <div class="matrix-cell">25 - 45 ns<span style="color:#94a3b8;font-size:10px;">Wordline Sense</span></div>
           <div class="matrix-cell">&lt; 15 ns<span class="badge-win">SRAM-Like</span></div>
@@ -641,7 +642,7 @@
             <span data-lang="zh">實體防竄改與逆向</span><span data-lang="en">Anti-Tamper Security</span>
             <small>TEM / FIB Immunity</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#73eee4;">Invisible under TEM</b><span class="badge-win">Zero Footprint</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">Invisible under TEM</b><span class="badge-win">Zero Footprint</span></div>
           <div class="matrix-cell">Visible Melt Void<span class="badge-lose">SEM/Optical Read</span></div>
           <div class="matrix-cell">Charge Probing Attack<span class="badge-lose">EM/Laser Attack</span></div>
           <div class="matrix-cell">MFM Probe Vulnerable<span style="color:#f59e0b;font-size:10px;">Magnetic Attack</span></div>
@@ -653,7 +654,7 @@
             <span data-lang="zh">製程微縮路線極限</span><span data-lang="en">Scaling Roadblocks</span>
             <small>FinFET &amp; GAA</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#73eee4;">Sub-3nm (N2 / A16)</b><span class="badge-win">Unrestricted</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">Sub-3nm (N2 / A16)</b><span class="badge-win">Unrestricted</span></div>
           <div class="matrix-cell">Stalls at 16nm<span style="color:#f59e0b;font-size:10px;">IR Drop Penalty</span></div>
           <div class="matrix-cell" style="color:#f87171;">Stalls at 28nm<span class="badge-lose">Scaling Cliff</span></div>
           <div class="matrix-cell">Scalable to 12nm / N6<span style="color:#94a3b8;font-size:10px;">BEOL Limited</span></div>
@@ -673,8 +674,8 @@
         </h2>
       </div>
       <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; max-width: 860px; margin-bottom: 1.5rem;">
-        <span data-lang="zh">調節下方五大晶片硬體設計約束滑桿，即時繪製各技術之微縮性、零光罩經濟性、覆寫耐受度、超低功耗與高溫留存動態雷達輪廓，並生成專利級架構評語。</span>
-        <span data-lang="en">Adjust the 5 silicon design constraint sliders below to interactively render trade-off radar hulls, evaluate candidates, and generate automated architectural verdicts.</span>
+        <span data-lang="zh">調節五大設計約束滑桿，即時畫出各技術相對輪廓。最高分只表示「在目前滑桿下的相對適配」，不是預設贏家，也不是出貨證明。</span>
+        <span data-lang="en">Move the five constraint sliders to redraw relative hulls. The top score is relative fit under the current sliders — not a default winner and not shipment proof.</span>
       </p>
 
       <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; align-items: center;">
@@ -688,7 +689,7 @@
                 <span data-lang="zh">① 製程微縮節點 (PROCESS NODE)</span>
                 <span data-lang="en">① PROCESS NODE SCALING</span>
               </label>
-              <span id="valNode" style="color: #0a1e2c; /* Updated for light */">22nm (Planar HKMG)</span>
+              <span id="valNode" style="color: #73eee4;">22nm (Planar HKMG)</span>
             </div>
             <input type="range" id="selNode" min="0" max="4" step="1" value="2" style="width: 100%; accent-color: #73eee4; cursor: pointer;">
             <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
@@ -703,7 +704,7 @@
                 <span data-lang="zh">② 晶片功耗預算 (POWER BUDGET)</span>
                 <span data-lang="en">② ACTIVE POWER BUDGET</span>
               </label>
-              <span id="valPower" style="color: #0a1e2c; /* Updated for light */">1.0 mW (IoT / Edge)</span>
+              <span id="valPower" style="color: #73eee4;">1.0 mW (IoT / Edge)</span>
             </div>
             <input type="range" id="sliderPower" min="0" max="3" step="1" value="1" style="width: 100%; accent-color: #73eee4; cursor: pointer;">
             <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
@@ -718,11 +719,11 @@
                 <span data-lang="zh">③ 額外光罩預算 (MASK ADDER)</span>
                 <span data-lang="en">③ MASK ADDER OVERHEAD</span>
               </label>
-              <span id="valMask" style="color: #0a1e2c; /* Updated for light */">0-Mask (Pure Logic)</span>
+              <span id="valMask" style="color: #73eee4;">0-Mask (Pure Logic)</span>
             </div>
             <input type="range" id="selMask" min="0" max="2" step="1" value="0" style="width: 100%; accent-color: #73eee4; cursor: pointer;">
             <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
-              <span>0-Mask (Free)</span><span>3~5 Adders (BEOL)</span><span>8~12 Adders (eFlash)</span>
+              <span>0-Mask (logic)</span><span>3~5 Adders (BEOL)</span><span>8~12 Adders (eFlash)</span>
             </div>
           </div>
 
@@ -733,7 +734,7 @@
                 <span data-lang="zh">④ 耐溫與可靠度 (TEMP GRADE)</span>
                 <span data-lang="en">④ TEMPERATURE GRADE</span>
               </label>
-              <span id="valTemp" style="color: #0a1e2c; /* Updated for light */">175°C (Auto Grade 0)</span>
+              <span id="valTemp" style="color: #73eee4;">175°C (Auto Grade 0)</span>
             </div>
             <input type="range" id="selTemp" min="0" max="2" step="1" value="2" style="width: 100%; accent-color: #73eee4; cursor: pointer;">
             <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
@@ -748,7 +749,7 @@
                 <span data-lang="zh">⑤ 寫入次數需求 (REWRITE CYCLES)</span>
                 <span data-lang="en">⑤ REWRITE ENDURANCE</span>
               </label>
-              <span id="valEndurance" style="color: #0a1e2c; /* Updated for light */">1~100 (RoT / Patching)</span>
+              <span id="valEndurance" style="color: #73eee4;">1~100 (RoT / Patching)</span>
             </div>
             <input type="range" id="selEndurance" min="0" max="2" step="1" value="0" style="width: 100%; accent-color: #73eee4; cursor: pointer;">
             <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
@@ -765,8 +766,8 @@
           </div>
           <canvas id="selectorRadarCanvas" width="380" height="340" style="max-width: 100%; height: auto;"></canvas>
           <div style="display: flex; gap: 16px; font: 600 10.5px 'IBM Plex Mono', monospace; margin-top: 6px;">
-            <span style="color: #73eee4; display: flex; align-items: center; gap: 4px;">● <span id="radarTopLabel">AntiFuse OTP (Winner)</span></span>
-            <span style="color: #f59e0b; display: flex; align-items: center; gap: 4px;">● <span id="radarRunnerLabel">STT-eMRAM (Runner-up)</span></span>
+            <span style="color: #73eee4; display: flex; align-items: center; gap: 4px;">● <span id="radarTopLabel">AntiFuse OTP (relative fit)</span></span>
+            <span style="color: #f59e0b; display: flex; align-items: center; gap: 4px;">● <span id="radarRunnerLabel">STT-eMRAM (next)</span></span>
           </div>
         </div>
       </div>
@@ -776,8 +777,8 @@
 
       <!-- Architect Verdict -->
       <div class="match-verdict-box" id="matchVerdictBox" style="background: #061925; border: 1px solid rgba(115, 238, 228, 0.35); border-radius: 6px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 12px;">
-        <span class="verdict-tag" style="background: rgba(115, 238, 228, 0.15); border: 1px solid #73eee4; color: #73eee4; font: 700 10px 'IBM Plex Mono', monospace; padding: 3px 6px; border-radius: 3px; white-space: nowrap; margin-top: 2px;">[ARCHITECT VERDICT]</span>
-        <div id="verdictText" style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">計算最佳技術架構適配中...</div>
+        <span class="verdict-tag" style="background: rgba(115, 238, 228, 0.15); border: 1px solid #73eee4; color: #73eee4; font: 700 10px 'IBM Plex Mono', monospace; padding: 3px 6px; border-radius: 3px; white-space: nowrap; margin-top: 2px;">[RELATIVE FIT]</span>
+        <div id="verdictText" style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">相對適配計算中…</div>
       </div>
     </section>
 
@@ -936,19 +937,20 @@
       <!-- Physical Security Deep-Dive Block -->
       <div style="background: #082433; border: 1px solid rgba(115, 238, 228, 0.25); border-radius: 8px; padding: 1.75rem; margin-top: 1.5rem;">
         <div class="hub-sec-badge" style="color: #73eee4;">SILICON-LEVEL ANTI-TAMPER SECURITY</div>
-        <h3 style="color: #0a1e2c; /* Updated for light */ margin: 0.5rem 0 1rem; font: 700 1.25rem 'IBM Plex Mono', monospace;">
+        <h3 style="color: #f8fafc; margin: 0.5rem 0 1rem; font: 700 1.25rem 'IBM Plex Mono', monospace;">
           <span data-lang="zh">穿透式電子顯微鏡 (TEM) 與差分功耗分析 (DPA) 實體防禦機制</span>
           <span data-lang="en">TEM Cross-Section Invisibility &amp; DPA Side-Channel Immunity</span>
         </h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; font-size: 0.9rem; line-height: 1.65; color: #cbd5e1;">
           <div>
-            <b style="color: #73eee4;">① TEM/FIB 原子級不可見性 (TEM Invisibility)</b><br>
-            AntiFuse 介電崩潰微絲直徑僅 3~8nm，隱匿於數百萬個標準電晶體閘極薄氧化層中。對比 eFuse 產生 0.5µm 熔斷空洞（SEM 清晰可讀）與 Mask ROM 之金屬 Contact（去層即完全暴露），AntiFuse 在破壞性逆向工程下成功讀出機率趨近於零。
+            <b style="color: #73eee4;">① TEM / FIB visibility</b><br>
+            <span data-lang="zh">AntiFuse 崩潰微絲約 3–8nm，藏在標準閘極氧化層中。對比 eFuse 的熔斷空洞與 Mask ROM 的 contact，破壞性逆向較難讀出。這是幾何論述，不是攻擊實驗結果。</span>
+            <span data-lang="en">AntiFuse filaments are ~3–8nm in standard gate oxide, harder to read than eFuse melt voids or Mask ROM contacts after de-layer. Geometry argument, not an attack-lab result.</span>
           </div>
           <div>
-            <b style="color: #73eee4;">② 互補式對稱差分讀取 (DPA Immunity)</b><br>
-            採用 Complementary Bit-Cell Pair（單元 A=HRS，單元 B=LRS）。感測放大器讀取時自兩條位元線同時抽取電流，瞬態功耗總和恆定為 $I_{\mathrm{total}} = I_{\mathrm{HRS}} + I_{\mathrm{LRS}}$，使功耗特徵與資料相關係數 $
-ho 	o 0$，徹底免疫一階與二階 DPA 側信道攻擊。
+            <b style="color: #73eee4;">② Complementary differential read (DPA)</b><br>
+            <span data-lang="zh">互補位元對（A=HRS，B=LRS）同時抽取兩條位元線電流，瞬態功耗近似 <em>I</em><sub>total</sub> = <em>I</em><sub>HRS</sub> + <em>I</em><sub>LRS</sub>，與資料的相關係數趨近於 0。這是側信道模型，不是攻擊證明。</span>
+            <span data-lang="en">A complementary pair (A=HRS, B=LRS) draws both bitlines so transient power tracks <em>I</em><sub>total</sub> = <em>I</em><sub>HRS</sub> + <em>I</em><sub>LRS</sub>, and correlation with data approaches 0. Side-channel model, not an attack proof.</span>
           </div>
         </div>
       </div>
@@ -1380,7 +1382,7 @@ ho 	o 0$，徹底免疫一階與二階 DPA 側信道攻擊。
               <div class="match-score-bar-fill" style="width: ${res.score}%; background: ${isWinner ? '#73eee4' : res.score > 60 ? '#34d399' : '#f59e0b'};"></div>
             </div>
             <div style="font: 700 10px 'IBM Plex Mono'; color: ${isWinner ? '#73eee4' : '#64748b'};">
-              ${isWinner ? '★ ARCHITECT SELECTION' : res.score > 60 ? 'VIABLE ALTERNATIVE' : 'HIGH COST PENALTY'}
+              ${isWinner ? 'HIGHEST RELATIVE FIT' : res.score > 60 ? 'ALTERNATIVE FIT' : 'WEAK UNDER SLIDERS'}
             </div>
           `;
           deck.appendChild(card);
@@ -1393,17 +1395,17 @@ ho 	o 0$，徹底免疫一階與二階 DPA 側信道攻擊。
         let vMsgEn = "";
 
         if (winner.id === "antifuse") {
-          vMsgZh = `首選推薦 <b>AntiFuse OTP</b>（適配度 ${winner.score}%）。在 <b>${nodeLabels[nodeIdx]}</b> 節點與 <b>${tempLabels[tempIdx]}</b> 嚴苛條件下，其 0-Mask 純邏輯相容性徹底規避了 eFlash 的微縮斷崖與光罩溢價。即使面臨覆寫需求，搭配硬體 Vector Patch CAM 架構即可在零時脈延遲下完成熱修補，達到經濟性與物理可靠度的極限平衡。`;
-          vMsgEn = `Recommended: <b>AntiFuse OTP</b> (${winner.score}% match). At <b>${nodeLabels[nodeIdx]}</b> and <b>${tempLabels[tempIdx]}</b>, its 0-mask logic profile bypasses the eFlash scaling cliff. Pair with Vector Patch CAM for zero-overhead OTA updates, delivering unbeatable unit economics and physical endurance.`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>AntiFuse OTP</b>（${winner.score}%）。在 <b>${nodeLabels[nodeIdx]}</b> 與 <b>${tempLabels[tempIdx]}</b> 下，0-mask 邏輯模型避開 eFlash 微縮斷崖。分數是相對排序，不是出貨或 GO。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>AntiFuse OTP</b> (${winner.score}%). At <b>${nodeLabels[nodeIdx]}</b> and <b>${tempLabels[tempIdx]}</b>, the 0-mask logic model avoids the eFlash scaling cliff. Rank, not a shipment or GO.`;
         } else if (winner.id === "emram") {
-          vMsgZh = `首選為 <b>STT-eMRAM</b>（適配度 ${winner.score}%）。在先進節點且需要百萬次高速資料緩存時為最佳解，但需承擔 3~5 道後段 (BEOL) 磁性光罩成本與高溫磁熱穩定性約束。`;
-          vMsgEn = `Recommended: <b>STT-eMRAM</b> (${winner.score}% match). Dominant for advanced nodes requiring >1M high-speed endurance cycles, accepting a 3-5 BEOL mask adder overhead and thermal magnetic boundaries.`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>STT-eMRAM</b>（${winner.score}%）。適合需要高覆寫次數的先進節點，但要承擔 3–5 道 BEOL 光罩與高溫磁熱約束。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>STT-eMRAM</b> (${winner.score}%). Fits high-endurance advanced-node cases, with a 3–5 BEOL mask adder and thermal-magnetic limits.`;
         } else if (winner.id === "eflash") {
-          vMsgZh = `首選為傳統 <b>eFlash</b>（適配度 ${winner.score}%）。適用於成熟製程節點（≥28nm）且要求原生 100K 區塊擦除的韌體存儲場景。`;
-          vMsgEn = `Recommended: <b>eFlash</b> (${winner.score}% match). Fits mature nodes (≥28nm) requiring native 100K endurance where thick-oxide charge pumps are economically viable.`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>eFlash</b>（${winner.score}%）。較符合成熟節點（≥28nm）且需要區塊擦除的韌體場景。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>eFlash</b> (${winner.score}%). Better aligned with mature nodes (≥28nm) that need native block erase.`;
         } else {
-          vMsgZh = `架構推薦：<b>${winner.name}</b>（適配度 ${winner.score}%）。在當前設計約束條件下取得最佳妥協解。`;
-          vMsgEn = `Architect Verdict: <b>${winner.name}</b> (${winner.score}% match). Achieves the optimal trade-off under current constraints.`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>${winner.name}</b>（${winner.score}%）。這是約束下的排序，不是預設贏家。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). A ranking under constraints, not a default winner.`;
         }
 
         verdictElem.innerHTML = isZh ? vMsgZh : vMsgEn;
