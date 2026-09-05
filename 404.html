@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-language="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found · NVM Knowledge Hub</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0a1118">
+  <script>
+    (function () {
+      var p = location.pathname;
+      var root = p.indexOf("/nvm-knowledge-hub/") === 0 ? "/nvm-knowledge-hub/" : "/";
+      var b = document.createElement("base");
+      b.href = root;
+      document.head.appendChild(b);
+    })();
+  </script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site-shell.css?v=20260906-pages-v1">
+  <link rel="stylesheet" href="hub.css?v=20260906-pages-v1">
+  <script src="site-language.js?v=20260906-pages-v1"></script>
+  <style>
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert !important; }
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] { display: revert !important; }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] { display: none !important; }
+    body.hub-page {
+      min-height: 100vh;
+      margin: 0;
+      background: #f8fafc;
+      color: #334155;
+      font-family: Inter, "Noto Sans TC", sans-serif;
+    }
+    .not-found-stage {
+      max-width: 720px;
+      margin: 48px auto 80px;
+      padding: 0 24px;
+    }
+    .not-found-card {
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 12px;
+      padding: 40px 36px;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+    }
+    .not-found-code {
+      font: 700 12px/1 "IBM Plex Mono", monospace;
+      letter-spacing: 0.14em;
+      color: #0d9488;
+      margin: 0 0 12px;
+    }
+    .not-found-card h1 {
+      margin: 0 0 12px;
+      font: 700 28px/1.2 Inter, sans-serif;
+      color: #0a1e2c;
+    }
+    .not-found-card p {
+      margin: 0 0 24px;
+      font: 400 15px/1.6 Inter, sans-serif;
+      color: #475569;
+    }
+    .not-found-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .not-found-actions a {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font: 600 13px/1.2 Inter, sans-serif;
+    }
+    .not-found-actions a.primary {
+      background: #0d9488;
+      color: #fff;
+    }
+    .not-found-actions a.ghost {
+      background: #f8fafc;
+      color: #0f172a;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+    }
+  </style>
+</head>
+<body class="hub-page">
+  <header class="hub-minimal-header" id="hubTopHeader">
+    <div class="hub-header-left">
+      <a class="hub-micro-logo" href="index.html" aria-label="NVM Knowledge Hub Home"><span>N</span></a>
+      <span class="hub-brand-name"><span data-lang="zh">NVM 架構知識中樞</span><span data-lang="en">NVM ARCHITECTURE KNOWLEDGE HUB</span></span>
+      <span class="hub-spec-badge">404</span>
+    </div>
+    <div class="hub-header-right">
+      <div class="hub-header-ctrls">
+        <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch Language (ZH/EN)">
+          <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="not-found-stage">
+    <div class="not-found-card">
+      <p class="not-found-code">HTTP 404</p>
+      <h1>
+        <span data-lang="zh">找不到這個頁面</span>
+        <span data-lang="en">This page is not in the hub</span>
+      </h1>
+      <p>
+        <span data-lang="zh">這個網址不在發佈根目錄。請回到知識地圖，或改走技術對比、證據總帳。</span>
+        <span data-lang="en">That URL is not in the publishing root. Return to the knowledge map, or open the comparison matrix or evidence ledger.</span>
+      </p>
+      <div class="not-found-actions">
+        <a class="primary" href="index.html"><span data-lang="zh">回知識地圖</span><span data-lang="en">Knowledge map</span></a>
+        <a class="ghost" href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Tech comparison</span></a>
+        <a class="ghost" href="memory-evidence.html"><span data-lang="zh">證據總帳</span><span data-lang="en">Evidence ledger</span></a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
