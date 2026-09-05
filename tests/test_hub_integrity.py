@@ -122,6 +122,7 @@ def run_tests() -> None:
     iot_c = (BASE / "iot-mcu-envm.html").read_text(encoding="utf-8")
     test("M2 包含 0.5V NTV 模擬畫布 (ntvCanvas)", "ntvCanvas" in iot_c and "ntvVdd" in iot_c)
     test("M2 包含 TSMC 微縮 Stepper (roadmap-stepper)", "roadmap-stepper" in iot_c)
+    test("M2 包含 Vector Patch CAM 模擬器 (camTriggerBtn)", "camTriggerBtn" in iot_c and "camOtpState" in iot_c)
 
     auto_c = (BASE / "automotive-nvm.html").read_text(encoding="utf-8")
     test("M3 包含 175°C 微絲熱老化畫布 (thermalCanvas)", "thermalCanvas" in auto_c and "tempSlider" in auto_c)
