@@ -4,12 +4,12 @@
    ========================================================= */
 
 :root {
-  --spec-midnight: #f4f1ea;
-  --spec-midnight-2: #ebe6dc;
-  --spec-navy: #e8e0d4;
-  --spec-surface: #fffaf3;
-  --spec-surface-card: #fffaf3;
-  --spec-surface-elevated: #ffffff;
+  --spec-midnight: #061925;
+  --spec-midnight-2: #0a2230;
+  --spec-navy: #133445;
+  --spec-surface: #0e2a38;
+  --spec-surface-card: #0e2a38;
+  --spec-surface-elevated: #0e2a38;
   --spec-cyan: #8a6a42;
   --spec-aqua: #8a6a42;
   --spec-teal: #6f5536;
@@ -18,8 +18,8 @@
   --spec-danger: #dc2626;
   --spec-line: rgba(28, 25, 23, 0.10);
   --spec-line-subtle: rgba(28, 25, 23, 0.06);
-  --spec-text-main: #1c1917;
-  --spec-text-muted: #3f3a34;
+  --spec-text-main: #f3ebe0;
+  --spec-text-muted: #e8e0d4;
   --spec-text-dim: #6b645c;
   --spec-mono: 'IBM Plex Mono', Consolas, monospace;
   --spec-sans: 'Plus Jakarta Sans', 'Noto Sans TC', 'Microsoft JhengHei', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -2715,7 +2715,7 @@ html[data-language="zh"] .data-table thead th {
   position: absolute !important;
   font-family: var(--spec-mono) !important;
   font-size: 14px !important;
-  color: #475569 !important;
+  color: #b5aa9c !important;
   line-height: 1 !important;
   pointer-events: none !important;
   z-index: 5 !important;
@@ -3820,8 +3820,8 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .p-dot.w-dot {
-  background: #ffffff;
-  color: #0f172a;
+  background: #0e2a38;
+  color: #f3ebe0;
   box-shadow: 0 0 6px #fff;
 }
 

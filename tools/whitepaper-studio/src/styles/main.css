@@ -94,8 +94,8 @@ img, svg { max-width: 100%; }
 .view-dock-copy { display: flex; align-items: center; justify-content: space-between; gap: 30px; min-height: 76px; padding: 18px 24px; background: #0a2a37; border: 1px solid var(--line-dark); color: #9db4ba; }
 .view-dock-copy p { margin: 0; color: var(--aqua); font: 700 9px/1.4 var(--font-mono); letter-spacing: .17em; }
 .view-dock-copy span { font-size: 13px; }
-.view-tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); background: #fff; border: 1px solid var(--line-light); border-top: 0; box-shadow: 0 24px 70px rgba(4,29,39,.12); }
-.view-tab { min-width: 0; min-height: 86px; display: grid; grid-template-columns: 34px minmax(0, 1fr); align-items: center; gap: 8px; padding: 15px 17px; border: 0; border-right: 1px solid var(--line-light); background: #fff; color: #506970; text-align: left; cursor: pointer; }
+.view-tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); background: #0e2a38; border: 1px solid var(--line-light); border-top: 0; box-shadow: 0 24px 70px rgba(4,29,39,.12); }
+.view-tab { min-width: 0; min-height: 86px; display: grid; grid-template-columns: 34px minmax(0, 1fr); align-items: center; gap: 8px; padding: 15px 17px; border: 0; border-right: 1px solid var(--line-light); background: #0e2a38; color: #506970; text-align: left; cursor: pointer; }
 .view-tab:last-child { border-right: 0; }
 .view-tab b { color: #a3b3b2; font: 500 15px/1 var(--font-mono); }
 .view-tab span { font: 750 10px/1.4 var(--font-mono); letter-spacing: .05em; text-transform: uppercase; }

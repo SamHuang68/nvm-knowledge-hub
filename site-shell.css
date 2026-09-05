@@ -390,7 +390,7 @@ footer.hub-footer {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #475569;
+  color: #b5aa9c;
   background: #02080d;
   padding: 4px 10px;
   border-radius: 4px;
@@ -458,7 +458,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .lens-vertical-rail {
   position: sticky;
   top: 56px;
-  background: #fffaf3;
+  background: #0e2a38;
   border: 1px solid rgba(28, 25, 23, 0.10);
   border-radius: 0;
   padding: 10px 8px;
@@ -483,8 +483,8 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .rail-tag {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.62rem;
-  color: #475569;
-  background: #f1f5f9;
+  color: #b5aa9c;
+  background: #0a2230;
   border: 1px solid rgba(15, 23, 42, 0.06);
   padding: 1px 5px;
   border-radius: 3px;
@@ -524,23 +524,23 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   padding: 7px 8px;
   border-radius: 0;
   text-decoration: none;
-  color: #1c1917;
+  color: #e8e0d4;
   background: transparent;
   border: 1px solid transparent;
   transition: all 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
   position: relative;
 }
 .lens-node-item:hover {
-  background: #f4f1ea;
+  background: #061925;
   border-color: rgba(176, 138, 91, 0.35);
-  color: #1c1917;
+  color: #e8e0d4;
   transform: none;
   box-shadow: none;
 }
 .lens-node-item.active {
-  background: #f4f1ea;
+  background: #061925;
   border-color: transparent;
-  color: #1c1917;
+  color: #e8e0d4;
   box-shadow: inset 2px 0 0 #b08a5b;
 }
 .lens-badge {
@@ -572,14 +572,14 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .lens-name {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #0f172a;
+  color: #f3ebe0;
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .lens-node-item.active .lens-name {
-  color: #1c1917;
+  color: #e8e0d4;
   font-weight: 700;
 }
 .lens-sub {
@@ -760,4 +760,102 @@ html, body {
 .lens-stage-container .topic-section {
   scroll-margin-top: 88px;
 }
+
+/* Dual-tone SSOT: obsidian navy + copper. No white paper. */
+html, body, body.hub-page, body.specialty-page {
+  background-color: #061925 !important;
+  background-image: none !important;
+  color: #e8e0d4 !important;
+  margin: 0 !important;
+}
+.language-toggle,
+#languageToggle {
+  background: #0e2a38 !important;
+  color: #c4a574 !important;
+  border: 1px solid rgba(196, 165, 116, 0.35) !important;
+}
+.language-toggle b,
+#languageToggle b {
+  color: #c4a574 !important;
+}
+.km-card,
+.lens-vertical-rail,
+.hub-vertical-rail,
+.stat-strip-card,
+.gate-card,
+.compare-matrix-wrapper,
+.matrix-cell,
+.matrix-header,
+.matrix-row-header,
+.lens-panel,
+.hub-rail-btn,
+.lens-node-item {
+  background-color: #0e2a38 !important;
+  color: #e8e0d4 !important;
+  border-color: rgba(196, 165, 116, 0.22) !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+}
+.hub-rail-btn.active,
+.lens-node-item.active {
+  background-color: #133445 !important;
+  box-shadow: inset 2px 0 0 #c4a574 !important;
+}
+.km-card-title,
+.km-layer-title,
+.lens-name,
+.hub-rail-name {
+  color: #f3ebe0 !important;
+}
+.km-card-desc,
+.lens-sub,
+.hub-rail-sub,
+.panel-desc {
+  color: #b5aa9c !important;
+}
+
+.rail-title,
+.lens-badge,
+.hub-rail-badge,
+.gate-badge,
+.stat-sub,
+.stat-label,
+.cell-note,
+.deck-step-num {
+  color: #c4a574 !important;
+  background: transparent !important;
+  border-color: transparent !important;
+}
+.badge-win,
+.badge-lose,
+.status-verified,
+.pill-number,
+.tag-accent,
+.signal-chip {
+  background: #133445 !important;
+  color: #e8e0d4 !important;
+  border: 1px solid rgba(196, 165, 116, 0.35) !important;
+}
+.matrix-header { color: #c4a574 !important; }
+.source-list a,
+.thesis-cards article,
+.app-card,
+.attack-journey article,
+.case-note,
+.lifecycle-track,
+.evidence-numbers article,
+.assurance-preview article {
+  background: #0e2a38 !important;
+  color: #e8e0d4 !important;
+  border-color: rgba(196, 165, 116, 0.22) !important;
+}
+.hero h1 em,
+h1 em,
+h2 em {
+  color: #c4a574 !important;
+}
+input[type="range"] {
+  accent-color: #c4a574;
+}
+
+
 

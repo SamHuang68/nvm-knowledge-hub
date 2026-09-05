@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260906-copper-v1"></script>
+  <script src="site-language.js?v=20260906-navy-v1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Automotive-Grade NVM · AEC-Q100 Grade 0, ISO 26262 ASIL-D &amp; SECDED · NVM Knowledge Hub</title>
   <meta name="description" content="Automotive-grade eNVM: AEC-Q100 Grade 0 (175°C) reliability, ISO 26262 ASIL-D functional safety, zero-drift silicide nanofilaments, SECDED ECC real-time self-healing, and zero-defect foundry qualification.">
@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site-shell.css?v=20260906-copper-v1">
-  <link rel="stylesheet" href="styles.css?v=20260906-copper-v1">
-  <link rel="stylesheet" href="specialty-nvm.css?v=20260906-copper-v1">
+  <link rel="stylesheet" href="site-shell.css?v=20260906-navy-v1">
+  <link rel="stylesheet" href="styles.css?v=20260906-navy-v1">
+  <link rel="stylesheet" href="specialty-nvm.css?v=20260906-navy-v1">
 
   <style>
     /* 全站語系治理：英文為第一預設 */
@@ -31,8 +31,8 @@
     }
 
     body {
-      background-color: #f4f1ea;
-      color: #3f3a34;
+      background-color: #061925;
+      color: #c9c0b4;
       font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
       overflow-x: hidden;
       background-image: none;
@@ -41,8 +41,8 @@
     }
 
     :root {
-      --paper-bg: #f4f1ea;
-      --paper-card: #ffffff;
+      --paper-bg: #061925;
+      --paper-card: #0e2a38;
       --ink-heading: #0a1e2c;
       --ink-body: #334155;
       --ink-muted: #64748b;
@@ -205,7 +205,7 @@
       .stat-strip-grid { grid-template-columns: 1fr; }
     }
     .stat-strip-card {
-      background: #ffffff !important;
+      background: #0e2a38 !important;
       border: 1px solid rgba(15, 23, 42, 0.08) !important;
       border-radius: 6px !important;
       padding: 12px 16px !important;
@@ -233,7 +233,7 @@
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 0.66rem !important;
       font-weight: 700 !important;
-      color: #475569 !important;
+      color: #b5aa9c !important;
     }
     .pulse-chip-mini {
       display: inline-block;
@@ -263,7 +263,7 @@
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 1.25rem !important;
       font-weight: 800 !important;
-      color: #0a1e2c !important;
+      color: #f3ebe0 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
     }
@@ -272,7 +272,7 @@
       font-size: 10.5px !important;
       text-transform: uppercase !important;
       letter-spacing: 0.08em !important;
-      color: #1e293b !important;
+      color: #e8e0d4 !important;
       font-weight: 700 !important;
       margin-top: 1px !important;
     }
@@ -309,7 +309,7 @@
     .lens-vertical-rail {
       position: sticky;
       top: 76px;
-      background: #ffffff;
+      background: #0e2a38;
       border: 1px solid rgba(15, 23, 42, 0.08);
       border-radius: 8px;
       padding: 10px 8px;
@@ -334,8 +334,8 @@
     .rail-tag {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.62rem;
-      color: #475569;
-      background: #f1f5f9;
+      color: #b5aa9c;
+      background: #0a2230;
       border: 1px solid rgba(15, 23, 42, 0.06);
       padding: 1px 5px;
       border-radius: 3px;
@@ -359,8 +359,8 @@
       padding: 7px 8px;
       border-radius: 6px;
       text-decoration: none;
-      color: #0f172a;
-      background: #f4f1ea;
+      color: #f3ebe0;
+      background: #061925;
       border: 1px solid rgba(15, 23, 42, 0.06);
       transition: all 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
       position: relative;
@@ -368,14 +368,14 @@
     .lens-node-item:hover {
       background: #fffbeb;
       border-color: rgba(217, 119, 6, 0.35);
-      color: #0f172a;
+      color: #f3ebe0;
       transform: translateX(2px);
       box-shadow: 0 2px 8px rgba(217, 119, 6, 0.08);
     }
     .lens-node-item.active {
       background: #fffbeb;
       border-color: #d97706;
-      color: #0f172a;
+      color: #f3ebe0;
       box-shadow: inset 3px 0 0 #d97706, 0 3px 12px rgba(217, 119, 6, 0.12);
     }
     .lens-badge {
@@ -407,7 +407,7 @@
     .lens-name {
       font-size: 0.75rem;
       font-weight: 600;
-      color: #0f172a;
+      color: #f3ebe0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -442,7 +442,7 @@
 
     /* 右側高密度內容工作台 (Main Stage) */
     .lens-stage-container {
-      background: #ffffff;
+      background: #0e2a38;
       border: 1px solid rgba(15, 23, 42, 0.08);
       border-radius: 10px;
       box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
@@ -477,7 +477,7 @@
       font-size: clamp(20px, 2.2vw, 30px);
       font-weight: 800;
       line-height: 1.22;
-      color: #0a1e2c;
+      color: #f3ebe0;
       text-wrap: balance !important;
     }
     .lens-panel h2 em {
@@ -487,7 +487,7 @@
     .panel-desc {
       font-size: 0.92rem;
       line-height: 1.6;
-      color: #475569;
+      color: #b5aa9c;
       margin: 0 0 16px;
       text-wrap: balance !important;
     }
@@ -503,7 +503,7 @@
       .gate-stepper { grid-template-columns: 1fr; }
     }
     .gate-card {
-      background: #ffffff;
+      background: #0e2a38;
       border: 1px solid rgba(15, 23, 42, 0.08);
       box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
       border-radius: 6px;
@@ -530,20 +530,20 @@
     }
     .gate-card h4 {
       font: 700 1.05rem/1.25 'IBM Plex Mono', monospace;
-      color: #0a1e2c;
+      color: #f3ebe0;
       margin: 0 0 8px;
     }
     .gate-card p {
       font-size: 0.84rem;
       line-height: 1.55;
-      color: #475569;
+      color: #b5aa9c;
       margin: 0;
     }
 
     /* 第一性原理物理公式卡片 */
     .formula-box-math {
-      background: #ffffff;
-      color: #0a1e2c;
+      background: #0e2a38;
+      color: #f3ebe0;
       border: 1px solid rgba(217, 119, 6, 0.28);
       border-left: 4px solid #d97706;
       border-radius: 6px;
@@ -565,8 +565,8 @@
 
     /* Lab Box 儀器視窗 (外白卡片微投影，內部維持深色示波器視窗) */
     .lab-box-panel {
-      background: #ffffff !important;
-      color: #334155 !important;
+      background: #0e2a38 !important;
+      color: #c9c0b4 !important;
       border-radius: 8px;
       margin: 4px 0;
       border: 1px solid rgba(15, 23, 42, 0.08) !important;
@@ -576,10 +576,10 @@
       color: #b45309;
     }
     .lab-box-panel h2 {
-      color: #0a1e2c !important;
+      color: #f3ebe0 !important;
     }
     .lab-box-panel .panel-desc {
-      color: #475569 !important;
+      color: #b5aa9c !important;
     }
 
     /* SECDED 72-bit Grid */
@@ -885,25 +885,37 @@
             <div class="gate-stepper" id="gate-stepper">
               <div class="gate-card">
                 <div class="gate-badge">GATE 01 · WAFER LOT AUDIT</div>
-                <h4>3-Lot 跨批次高溫壽命試驗 (HTOL)</h4>
+                <h4>
+                  <span data-lang="zh">3-Lot 跨批次高溫壽命試驗 (HTOL)</span>
+                  <span data-lang="en">3-Lot Cross-Lot HTOL</span>
+                </h4>
                 <p>
-                  跨越 3 個非連續晶圓生產批次，每批抽取 77 顆晶片在 175°C 結溫與 1.1× 標稱電壓下持續運行 1,000 小時。零單元擊穿退化，拒絕任何軟性位元翻轉。
+                  <span data-lang="zh">跨越 3 個非連續晶圓生產批次，每批抽取 77 顆晶片在 175°C 結溫與 1.1× 標稱電壓下持續運行 1,000 小時。零單元擊穿退化，拒絕任何軟性位元翻轉。</span>
+                  <span data-lang="en">Across three non-consecutive wafer lots, 77 dice per lot run 1,000 hours at 175°C Tj and 1.1× nominal voltage. Zero cell breakdown; no soft-bit flips accepted.</span>
                 </p>
               </div>
 
               <div class="gate-card">
                 <div class="gate-badge">GATE 02 · STRESS CYCLING</div>
-                <h4>-55°C ~ 175°C 極限熱衝擊與 ELFR</h4>
+                <h4>
+                  <span data-lang="zh">-55°C ~ 175°C 極限熱衝擊與 ELFR</span>
+                  <span data-lang="en">-55°C ~ 175°C Thermal Shock & ELFR</span>
+                </h4>
                 <p>
-                  承受 1,000 次極限溫差循環熱衝擊，考核封裝膨脹剪切應力。搭配 48 小時早期失效率 (ELFR) 高溫篩選，消除浴盆曲線初期微觀缺陷。
+                  <span data-lang="zh">承受 1,000 次極限溫差循環熱衝擊，考核封裝膨脹剪切應力。搭配 48 小時早期失效率 (ELFR) 高溫篩選，消除浴盆曲線初期微觀缺陷。</span>
+                  <span data-lang="en">1,000 extreme thermal-shock cycles to qualify package expansion shear, paired with a 48-hour ELFR high-temperature screen to remove bathtub-curve infant defects.</span>
                 </p>
               </div>
 
               <div class="gate-card">
                 <div class="gate-badge">GATE 03 · PACKAGING INTEGRITY</div>
-                <h4>迴焊熱耐受與金凸塊剪切力驗證</h4>
+                <h4>
+                  <span data-lang="zh">迴焊熱耐受與金凸塊剪切力驗證</span>
+                  <span data-lang="en">Reflow Endurance & Au-Bump Shear</span>
+                </h4>
                 <p>
-                  通過 260°C 無鉛迴焊爐峰值衝擊。金屬矽化物共晶溫度高達 &gt;850°C，徹底免疫高溫退火，確保在引擎周邊與逆變器長效運作 15 年以上。
+                  <span data-lang="zh">通過 260°C 無鉛迴焊爐峰值衝擊。金屬矽化物共晶溫度高達 &gt;850°C，徹底免疫高溫退火，確保在引擎周邊與逆變器長效運作 15 年以上。</span>
+                  <span data-lang="en">Survives 260°C Pb-free reflow peak. Silicide eutectic above 850°C is immune to high-temperature anneal, supporting 15+ years beside engine and inverter.</span>
                 </p>
               </div>
             </div>
@@ -1024,71 +1036,71 @@
             </p>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin: 12px 0 18px;">
-              <div style="background:#ffffff; border:1px solid rgba(15,23,42,0.08); border-radius:6px; padding:14px; border-top: 4px solid #8a6a42; box-shadow:0 2px 10px rgba(15,23,42,0.04);">
+              <div style="background:#0e2a38; border:1px solid rgba(15,23,42,0.08); border-radius:6px; padding:14px; border-top: 4px solid #8a6a42; box-shadow:0 2px 10px rgba(15,23,42,0.04);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#8a6a42;">CONTRACT 01 · IMMUTABLE ID</span>
-                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#8a6a42; background:#f7f1e8; padding:1px 6px; border-radius:3px; border:1px solid #f0e6d6;">ASIL-D ASSURED</span>
+                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#8a6a42; background:#0e2a38; padding:1px 6px; border-radius:3px; border:1px solid #f0e6d6;">ASIL-D ASSURED</span>
                 </div>
-                <h4 style="color:#0a1e2c; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
+                <h4 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">不可變車輛身分與金鑰憑證</span>
                   <span data-lang="en">Immutable Vehicle ID &amp; Root Keys</span>
                 </h4>
-                <p style="color:#475569; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
+                <p style="color:#b5aa9c; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
                   <span data-lang="zh">車輛 VIN 碼、ECU 唯一序號、NIST LMS 後量子啟動根憑證。寫入後不可抹除、不可降級，全生命週期嚴禁任何未授權篡改。</span>
                   <span data-lang="en">Vehicle VIN, ECU UID, and NIST LMS post-quantum boot root keys. Physical write-path severed after programming, prohibiting tampering.</span>
                 </p>
-                <div style="font:600 10px 'IBM Plex Mono'; color:#8a6a42; background:#f4f1ea; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
+                <div style="font:600 10px 'IBM Plex Mono'; color:#8a6a42; background:#061925; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
                   TARGET: FIT &lt; 0.1 · RETENTION: 20 Yrs @ 175&deg;C
                 </div>
               </div>
 
-              <div style="background:#ffffff; border:1px solid rgba(15,23,42,0.08); border-radius:6px; padding:14px; border-top: 4px solid #d97706; box-shadow:0 2px 10px rgba(15,23,42,0.04);">
+              <div style="background:#0e2a38; border:1px solid rgba(15,23,42,0.08); border-radius:6px; padding:14px; border-top: 4px solid #d97706; box-shadow:0 2px 10px rgba(15,23,42,0.04);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#d97706;">CONTRACT 02 · CALIBRATION</span>
                   <span style="font:700 9.5px 'IBM Plex Mono'; color:#d97706; background:#fffbeb; padding:1px 6px; border-radius:3px; border:1px solid #fef3c7;">GRADE 0 BOUNDED</span>
                 </div>
-                <h4 style="color:#0a1e2c; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
+                <h4 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">引擎與雷達感測器工廠標定參數</span>
                   <span data-lang="en">Sensor Factory Calibration</span>
                 </h4>
-                <p style="color:#475569; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
+                <p style="color:#b5aa9c; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
                   <span data-lang="zh">ADC 增益偏差、帶隙基準電壓、LiDAR 光學陣列校準。僅限出廠封裝與受控車廠 OTA 維護時進行有限次數單向補丁。</span>
                   <span data-lang="en">ADC gain offsets, bandgap voltages, and LiDAR calibration arrays. Bounded to factory testing and authorized OEM maintenance.</span>
                 </p>
-                <div style="font:600 10px 'IBM Plex Mono'; color:#d97706; background:#f4f1ea; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
+                <div style="font:600 10px 'IBM Plex Mono'; color:#d97706; background:#061925; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
                   DRIFT: &lt; 1.5% @ 175&deg;C · WRITE: Bounded 16x
                 </div>
               </div>
 
-              <div style="background:#ffffff; border:1px solid rgba(15,23,42,0.08); border-radius:6px; padding:14px; border-top: 4px solid #6f5536; box-shadow:0 2px 10px rgba(15,23,42,0.04);">
+              <div style="background:#0e2a38; border:1px solid rgba(15,23,42,0.08); border-radius:6px; padding:14px; border-top: 4px solid #6f5536; box-shadow:0 2px 10px rgba(15,23,42,0.04);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#6f5536;">CONTRACT 03 · RESILIENT RECOVERY</span>
                   <span style="font:700 9.5px 'IBM Plex Mono'; color:#6f5536; background:#ecfdf5; padding:1px 6px; border-radius:3px; border:1px solid #d1fae5;">FAIL-SAFE READY</span>
                 </div>
-                <h4 style="color:#0a1e2c; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
+                <h4 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">ADAS 安全備援與緊急開機向量</span>
                   <span data-lang="en">ADAS Safe Recovery Vectors</span>
                 </h4>
-                <p style="color:#475569; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
+                <p style="color:#b5aa9c; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
                   <span data-lang="zh">當主控晶片遭遇雙位元故障或匯流排雪崩，硬體中斷即刻切入 AntiFuse 備援安全引導程式，保證車輛煞車與轉向安全降級停靠。</span>
                   <span data-lang="en">When primary processors encounter uncorrectable dual-bit ECC faults, hardware interrupts redirect to fallback boot vectors within 10ms.</span>
                 </p>
-                <div style="font:600 10px 'IBM Plex Mono'; color:#6f5536; background:#f4f1ea; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
+                <div style="font:600 10px 'IBM Plex Mono'; color:#6f5536; background:#061925; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
                   FAILOVER: &lt; 10 ms · SECDED ECC Autonomous
                 </div>
               </div>
             </div>
 
             <!-- ASIL-D Matrix Table -->
-            <div style="margin: 14px 0 6px; background: #ffffff; border: 1px solid rgba(15,23,42,0.1); border-radius: 6px; overflow: hidden; box-shadow: 0 4px 16px rgba(15,23,42,0.04);">
-              <div style="padding: 10px 16px; background: #f1f5f9; border-bottom: 2px solid #8a6a42; font: 700 11px 'IBM Plex Mono'; color: #0a1e2c; display:flex; justify-content:space-between; align-items:center;">
+            <div style="margin: 14px 0 6px; background: #0e2a38; border: 1px solid rgba(15,23,42,0.1); border-radius: 6px; overflow: hidden; box-shadow: 0 4px 16px rgba(15,23,42,0.04);">
+              <div style="padding: 10px 16px; background: #0a2230; border-bottom: 2px solid #8a6a42; font: 700 11px 'IBM Plex Mono'; color: #f3ebe0; display:flex; justify-content:space-between; align-items:center;">
                 <span>ISO 26262 ASIL-D HARDWARE ARCHITECTURAL RELIABILITY METRICS</span>
                 <span style="color:#8a6a42; font-size:9.5px;">AEC-Q100 GRADE 0 CERTIFIED</span>
               </div>
               <div style="overflow-x: auto;">
                 <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">
                   <thead>
-                    <tr style="background: #f4f1ea; border-bottom: 1px solid #e2e8f0; font-family:'IBM Plex Mono'; font-size:10.5px; color:#475569;">
+                    <tr style="background: #061925; border-bottom: 1px solid #e2e8f0; font-family:'IBM Plex Mono'; font-size:10.5px; color:#b5aa9c;">
                       <th style="padding: 10px 14px;">STATE CONTRACT</th>
                       <th style="padding: 10px 14px;">SILICON PRIMITIVE</th>
                       <th style="padding: 10px 14px;">SPFM (REQ &ge;99%)</th>
@@ -1099,15 +1111,15 @@
                   </thead>
                   <tbody>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
-                      <td style="padding: 10px 14px; font-weight:600; color:#0a1e2c;">CONTRACT 01 · Root ID</td>
+                      <td style="padding: 10px 14px; font-weight:600; color:#f3ebe0;">CONTRACT 01 · Root ID</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono';">AntiFuse OTP</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">99.8%</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">95.4%</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:700; color:#8a6a42;">&lt; 0.1 FIT</td>
                       <td style="padding: 10px 14px;"><span style="background:#ecfdf5; color:#047857; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D PASSED</span></td>
                     </tr>
-                    <tr style="border-bottom: 1px solid #f1f5f9; background:#fafafa;">
-                      <td style="padding: 10px 14px; font-weight:600; color:#0a1e2c;">CONTRACT 02 · Trim</td>
+                    <tr style="border-bottom: 1px solid #f1f5f9; background:#0a2230;">
+                      <td style="padding: 10px 14px; font-weight:600; color:#f3ebe0;">CONTRACT 02 · Trim</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono';">AntiFuse Counter</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">99.2%</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">92.8%</td>
@@ -1115,7 +1127,7 @@
                       <td style="padding: 10px 14px;"><span style="background:#ecfdf5; color:#047857; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D PASSED</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
-                      <td style="padding: 10px 14px; font-weight:600; color:#0a1e2c;">CONTRACT 03 · Recovery</td>
+                      <td style="padding: 10px 14px; font-weight:600; color:#f3ebe0;">CONTRACT 03 · Recovery</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono';">SECDED OTP Macro</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">99.9%</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">96.1%</td>

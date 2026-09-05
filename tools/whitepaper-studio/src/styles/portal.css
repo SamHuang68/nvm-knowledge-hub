@@ -61,7 +61,7 @@
   .decision-table-wrap { border: 0; background: transparent; }
   .decision-table, .decision-table tbody { display: grid; gap: 14px; }
   .decision-table thead { display: none; }
-  .decision-table tr { display: grid; grid-template-columns: 1fr; border: 1px solid var(--line-light); background: #fff; }
+  .decision-table tr { display: grid; grid-template-columns: 1fr; border: 1px solid var(--line-light); background: #0e2a38; }
   .decision-table th, .decision-table td { display: grid; grid-template-columns: minmax(110px, 31%) minmax(0, 1fr); gap: 14px; width: 100%; padding: 13px 15px; border: 0; border-bottom: 1px solid #d8e1df; }
   .decision-table tr > *:last-child { border-bottom: 0; }
   .decision-table th::before, .decision-table td::before { content: attr(data-label); color: #0b7176; font: 750 9px/1.5 var(--font-mono); letter-spacing: .07em; }

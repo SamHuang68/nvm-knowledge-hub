@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260906-copper-v1"></script>
+  <script src="site-language.js?v=20260906-navy-v1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub</title>
   <meta name="description" content="Comprehensive 7-dimension trade-off matrix, 5-axis interactive radar selector, first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.">
@@ -12,14 +12,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site-shell.css?v=20260906-copper-v1">
-  <link rel="stylesheet" href="styles.css?v=20260906-copper-v1">
-  <link rel="stylesheet" href="specialty-nvm.css?v=20260906-copper-v1">
+  <link rel="stylesheet" href="site-shell.css?v=20260906-navy-v1">
+  <link rel="stylesheet" href="styles.css?v=20260906-navy-v1">
+  <link rel="stylesheet" href="specialty-nvm.css?v=20260906-navy-v1">
 
   <style>
     body.specialty-page {
-      background-color: #f4f1ea !important;
-      color: #3f3a34 !important;
+      background-color: #061925 !important;
+      color: #c9c0b4 !important;
       background-image: none !important;
     }
 
@@ -36,8 +36,8 @@
     }
 
     body {
-      background-color: #f4f1ea;
-      color: #3f3a34;
+      background-color: #061925;
+      color: #c9c0b4;
       font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
       overflow-x: hidden;
       background-image: none;
@@ -45,8 +45,8 @@
 
     /* Editorial Light Theme Tokens */
     :root {
-      --paper-bg: #f4f1ea;
-      --paper-card: #ffffff;
+      --paper-bg: #061925;
+      --paper-card: #0e2a38;
       --paper-subtle: #ebe6dc;
       --ink-heading: #0a1e2c;
       --ink-body: #334155;
@@ -193,7 +193,7 @@
     }
     .f2-stat-bridge .stat-strip-card,
     .stat-strip-card {
-      background: #ffffff !important;
+      background: #0e2a38 !important;
       border: 1px solid rgba(15, 23, 42, 0.09) !important;
       border-radius: 8px !important;
       padding: 16px 20px !important;
@@ -218,7 +218,7 @@
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 1.32rem !important;
       font-weight: 800 !important;
-      color: #0a1e2c !important;
+      color: #f3ebe0 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
     }
@@ -228,7 +228,7 @@
       font-size: 11px !important;
       text-transform: uppercase !important;
       letter-spacing: 0.08em !important;
-      color: #1e293b !important;
+      color: #e8e0d4 !important;
       font-weight: 700 !important;
       margin-top: 2px !important;
     }
@@ -247,7 +247,7 @@
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 10px !important;
       font-weight: 700 !important;
-      color: #475569 !important;
+      color: #b5aa9c !important;
       letter-spacing: 0.06em !important;
     }
     .pulse-chip-mini {
@@ -278,18 +278,18 @@
       align-items: center;
       gap: 10px;
       padding: 9px 18px;
-      background: #ffffff;
+      background: #0e2a38;
       border: 1px solid rgba(15, 23, 42, 0.1);
       border-radius: 999px;
       text-decoration: none;
-      color: #334155;
+      color: #c9c0b4;
       font-size: 13px;
       font-weight: 600;
       box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .hub-nav-pills .nav-pill:hover {
-      background: #f7f1e8;
+      background: #0e2a38;
       color: #8a6a42;
       border-color: #8a6a42;
       transform: translateY(-2px);
@@ -307,7 +307,7 @@
     }
     .hub-nav-pills .nav-pill:hover .pill-number {
       color: #8a6a42;
-      background: #ffffff;
+      background: #0e2a38;
       border-color: #8a6a42;
     }
 
@@ -330,7 +330,7 @@
     .hub-sec-header h2 {
       font-size: 1.85rem;
       font-weight: 800;
-      color: #0a1e2c;
+      color: #f3ebe0;
       margin: 0;
     }
 
@@ -341,7 +341,7 @@
       margin: 1.5rem 0 2.5rem;
       border: 1px solid rgba(28, 25, 23, 0.12);
       border-radius: 0;
-      background: #fffaf3;
+      background: #0e2a38;
       box-shadow: none;
     }
     .compare-matrix {
@@ -361,38 +361,38 @@
       text-align: center;
     }
     .matrix-cell {
-      background: #fffaf3;
-      color: #1c1917;
+      background: #0e2a38;
+      color: #e8e0d4;
       line-height: 1.45;
       transition: background 0.15s;
     }
-    .matrix-cell:hover { background: #f4f1ea; }
+    .matrix-cell:hover { background: #061925; }
     .matrix-cell .cell-note {
       color: #6b645c;
       font-size: 10px;
       margin-top: 4px;
     }
     .matrix-cell.focus-tech {
-      background: #f7f1e8;
+      background: #0e2a38;
     }
     .matrix-header {
-      background: #ebe6dc;
-      color: #1c1917;
+      background: #0a2230;
+      color: #e8e0d4;
       font-weight: 700;
       font-family: 'IBM Plex Mono', monospace;
       border-bottom: 2px solid #b08a5b;
       padding: 1.2rem 1rem;
     }
     .matrix-header.focus-tech {
-      background: #f7f1e8;
+      background: #0e2a38;
       color: #6f5536;
       box-shadow: inset 0 3px 0 #b08a5b;
     }
     .matrix-row-header {
-      background: #f4f1ea;
+      background: #061925;
       font-family: 'IBM Plex Mono', monospace;
       font-weight: 700;
-      color: #0a1e2c;
+      color: #f3ebe0;
       align-items: flex-start;
       text-align: left;
     }
@@ -566,7 +566,7 @@
       margin: 2rem 0;
     }
     .pipeline-step-card {
-      background: #ffffff;
+      background: #0e2a38;
       border: 1px solid rgba(15, 23, 42, 0.1);
       border-radius: 8px;
       padding: 1.75rem;
@@ -1009,7 +1009,7 @@
           <span data-lang="zh">第一性原理物理模型與晶圓成本經濟學方程式</span>
           <span data-lang="en">First-Principles Physics &amp; Wafer Economics Equations</span>
         </h2>
-        <p style="color:#475569;font-size:0.92rem;line-height:1.65;max-width:46rem;margin:0.75rem 0 0;">
+        <p style="color:#b5aa9c;font-size:0.92rem;line-height:1.65;max-width:46rem;margin:0.75rem 0 0;">
           <span data-lang="zh">三條可檢查的恆等式：穿隧崩潰、光罩加價、次閾值漏電。用來約束選型，不是代工廠報價，也不是出貨證明。</span>
           <span data-lang="en">Three inspectable identities — breakdown tunneling, mask-adder cost, subthreshold leakage — constrain selection. They are not foundry quotes and not shipment proof.</span>
         </p>
@@ -1189,17 +1189,17 @@
         <div class="pipeline-step-card" style="border-top: 4px solid #8a6a42;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
             <span class="step-num">STEP 01</span>
-            <span style="font:700 10px 'IBM Plex Mono'; color:#8a6a42; background:#f7f1e8; padding:2px 8px; border-radius:4px; border:1px solid #f0e6d6;">GATE 1 · AUDIT</span>
+            <span style="font:700 10px 'IBM Plex Mono'; color:#8a6a42; background:#0e2a38; padding:2px 8px; border-radius:4px; border:1px solid #f0e6d6;">GATE 1 · AUDIT</span>
           </div>
-          <h4 style="color:#0a1e2c; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
+          <h4 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
             <span data-lang="zh">狀態契約與生命週期審查</span>
             <span data-lang="en">State Contract Audit</span>
           </h4>
-          <p style="color:#475569; font-size:0.9rem; line-height:1.65; margin:0 0 1rem;">
+          <p style="color:#b5aa9c; font-size:0.9rem; line-height:1.65; margin:0 0 1rem;">
             <span data-lang="zh">區分不可變身分 (Immutable ID)、校準邊界 (Calibration) 與韌體代碼。若資料僅需工廠寫入或偶發修補，優先評估 AntiFuse + Patch CAM。</span>
             <span data-lang="en">Distinguish immutable identity from firmware. For write-once or bounded patch models, evaluate AntiFuse paired with Vector CAM.</span>
           </p>
-          <div style="font:600 11px 'IBM Plex Mono'; color:#8a6a42; background:#f4f1ea; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
+          <div style="font:600 11px 'IBM Plex Mono'; color:#8a6a42; background:#061925; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
             CRITERION: 0-Overhead Retention · Zero Bus Leak
           </div>
         </div>
@@ -1209,15 +1209,15 @@
             <span class="step-num" style="color:#d97706;">STEP 02</span>
             <span style="font:700 10px 'IBM Plex Mono'; color:#d97706; background:#fffbeb; padding:2px 8px; border-radius:4px; border:1px solid #fef3c7;">GATE 2 · BUDGET</span>
           </div>
-          <h4 style="color:#0a1e2c; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
+          <h4 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
             <span data-lang="zh">製程微縮與熱預算可行性</span>
             <span data-lang="en">Process Node &amp; Thermal Budget</span>
           </h4>
-          <p style="color:#475569; font-size:0.9rem; line-height:1.65; margin:0 0 1rem;">
+          <p style="color:#b5aa9c; font-size:0.9rem; line-height:1.65; margin:0 0 1rem;">
             <span data-lang="zh">檢查晶圓代工廠 PDK。若節點小於 28nm，eFlash 直接否決；評估是否具備 3~5 道 BEOL 光罩預算導入 MRAM，或採用 0-Mask 純邏輯相容方案。</span>
             <span data-lang="en">Verify foundry PDK roadmap. If scaling beyond 28nm, rule out eFlash. Decide between BEOL mask adders (MRAM) and 0-mask logic NVM.</span>
           </p>
-          <div style="font:600 11px 'IBM Plex Mono'; color:#d97706; background:#f4f1ea; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
+          <div style="font:600 11px 'IBM Plex Mono'; color:#d97706; background:#061925; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
             CRITERION: 0-Mask Logic Compatibility · &le;450&deg;C Safe
           </div>
         </div>
@@ -1227,15 +1227,15 @@
             <span class="step-num" style="color:#6f5536;">STEP 03</span>
             <span style="font:700 10px 'IBM Plex Mono'; color:#6f5536; background:#ecfdf5; padding:2px 8px; border-radius:4px; border:1px solid #d1fae5;">GATE 3 · QUALIFIED</span>
           </div>
-          <h4 style="color:#0a1e2c; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
+          <h4 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
             <span data-lang="zh">實體驗證與防禦簽核</span>
             <span data-lang="en">Physical Verification Sign-Off</span>
           </h4>
-          <p style="color:#475569; font-size:0.9rem; line-height:1.65; margin:0 0 1rem;">
+          <p style="color:#b5aa9c; font-size:0.9rem; line-height:1.65; margin:0 0 1rem;">
             <span data-lang="zh">驗證 AEC-Q100 175°C 高溫工作壽命 (HTOL 1000h) 與 TEM 逆向防護標準，確保全生命週期不發生歐姆微絲電阻漂移。</span>
             <span data-lang="en">Certify against AEC-Q100 175°C HTOL 1000h conditions and TEM cross-section anti-tamper standards to prevent filament resistance drift.</span>
           </p>
-          <div style="font:600 11px 'IBM Plex Mono'; color:#6f5536; background:#f4f1ea; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
+          <div style="font:600 11px 'IBM Plex Mono'; color:#6f5536; background:#061925; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
             CRITERION: TEM Invisibility · Zero Drift @ 175&deg;C
           </div>
         </div>

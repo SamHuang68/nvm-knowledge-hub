@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<script src="site-language.js?v=20260906-copper-v1"></script>
+<script src="site-language.js?v=20260906-navy-v1"></script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Specialty NVM · BCD Power, Matrix Repair, HV Display &amp; E-Ink · NVM Knowledge Hub</title>
 <meta content="Flagship treatise on Specialty eNVM: BCD process for Power Management (PMIC, LED drivers, USB-PD, BLDC, BMIC), CIS &amp; DRAM array defect redundancy repair (BIST/BIRA/AntiFuse), High-Voltage Display Driver ICs, and E-Ink Ultra-HV Driving with MTP-to-OTP migration." name="description"/>
@@ -27,9 +27,9 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+TC:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css?v=20260906-copper-v1" rel="stylesheet"/>
-<link href="site-shell.css?v=20260906-copper-v1" rel="stylesheet"/>
-<link href="specialty-nvm.css?v=20260906-copper-v1" rel="stylesheet"/>
+<link href="styles.css?v=20260906-navy-v1" rel="stylesheet"/>
+<link href="site-shell.css?v=20260906-navy-v1" rel="stylesheet"/>
+<link href="specialty-nvm.css?v=20260906-navy-v1" rel="stylesheet"/>
 <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -48,8 +48,8 @@
        EDITORIAL LIGHT THEME: 全站統一白底輕盈工控風格 (M4 SPECIALTY NVM)
        ========================================================================= */
     :root, body.specialty-page {
-      --paper-bg: #f4f1ea;
-      --paper-card: #ffffff;
+      --paper-bg: #061925;
+      --paper-card: #0e2a38;
       --ink-heading: #0a1e2c;
       --ink-body: #334155;
       --ink-muted: #64748b;
@@ -57,12 +57,12 @@
       --amber-editorial: #d97706;
 
       /* 覆寫 specialty-nvm.css 暗黑根變數 */
-      --spec-midnight: #f4f1ea;
-      --spec-midnight-2: #ebe6dc;
+      --spec-midnight: #061925;
+      --spec-midnight-2: #0a2230;
       --spec-navy: #ffffff;
       --spec-surface: #ffffff;
       --spec-surface-card: #ffffff;
-      --spec-surface-elevated: #ffffff;
+      --spec-surface-elevated: #0e2a38;
       --spec-cyan: #8a6a42;
       --spec-aqua: #6f5536;
       --spec-teal: #8a6a42;
@@ -78,8 +78,8 @@
     }
 
     body.specialty-page {
-      background-color: #f4f1ea !important;
-      color: #3f3a34 !important;
+      background-color: #061925 !important;
+      color: #c9c0b4 !important;
       background-image: none !important;
     }
 
@@ -115,45 +115,45 @@
 
     /* 2. 4-Metric Stat Strip 白底卡片 */
     body.specialty-page .compact-ate-strip .stat-strip-card {
-      background: #ffffff !important;
+      background: #0e2a38 !important;
       border: 1px solid rgba(15, 23, 42, 0.08) !important;
       border-left-width: 3px !important;
       border-radius: 6px !important;
       box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
     }
     body.specialty-page .compact-ate-strip .stat-val {
-      color: #0a1e2c !important;
+      color: #f3ebe0 !important;
     }
     body.specialty-page .compact-ate-strip .stat-label {
-      color: #475569 !important;
+      color: #b5aa9c !important;
     }
     body.specialty-page .compact-ate-strip .stat-sub {
       color: #64748b !important;
     }
     body.specialty-page .meta-code {
-      color: #475569 !important;
+      color: #b5aa9c !important;
     }
 
     /* 3. 左側直立測條白底高對比 */
     body.specialty-page .lens-vertical-rail {
-      background: #ffffff !important;
+      background: #0e2a38 !important;
       border: 1px solid rgba(15, 23, 42, 0.08) !important;
       box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
     }
     body.specialty-page .lens-vertical-rail .nav-pill {
-      background: #f4f1ea !important;
-      color: #334155 !important;
+      background: #061925 !important;
+      color: #c9c0b4 !important;
       border: 1px solid rgba(15, 23, 42, 0.06) !important;
     }
     body.specialty-page .lens-vertical-rail .nav-pill:hover,
     body.specialty-page .lens-vertical-rail .nav-pill.active {
-      background: #f7f1e8 !important;
+      background: #0e2a38 !important;
       border-color: #8a6a42 !important;
       color: #6f5536 !important;
       box-shadow: 0 2px 8px rgba(176, 138, 91, 0.12) !important;
     }
     body.specialty-page .lens-vertical-rail .lens-badge {
-      background: #f1f5f9 !important;
+      background: #0a2230 !important;
       color: #8a6a42 !important;
       border: 1px solid rgba(176, 138, 91, 0.2) !important;
     }
@@ -162,7 +162,7 @@
       color: #ffffff !important;
     }
     body.specialty-page .lens-vertical-rail .lens-info .lens-name {
-      color: #0a1e2c !important;
+      color: #f3ebe0 !important;
       font-weight: 700 !important;
     }
     body.specialty-page .lens-vertical-rail .lens-info .lens-sub {
@@ -181,18 +181,18 @@
       padding: 24px 16px !important;
     }
     body.specialty-page .topic-header h2 {
-      color: #0a1e2c !important;
+      color: #f3ebe0 !important;
       text-shadow: none !important;
     }
     body.specialty-page .topic-header p {
-      color: #475569 !important;
+      color: #b5aa9c !important;
     }
     body.specialty-page .topic-lede {
-      color: #475569 !important;
+      color: #b5aa9c !important;
       border-left-color: #8a6a42 !important;
     }
     body.specialty-page .topic-ghost-badge {
-      background: #f1f5f9 !important;
+      background: #0a2230 !important;
       border: 1px solid rgba(15, 23, 42, 0.08) !important;
       color: #8a6a42 !important;
     }
@@ -208,25 +208,25 @@
     body.specialty-page .metric-tile,
     body.specialty-page .deck-step-card,
     body.specialty-page .sub-topic-block {
-      background: #ffffff !important;
+      background: #0e2a38 !important;
       border: 1px solid rgba(15, 23, 42, 0.08) !important;
       border-radius: 8px !important;
       box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
-      color: #334155 !important;
+      color: #c9c0b4 !important;
     }
     body.specialty-page .spec-card h3,
     body.specialty-page .spec-card h4,
     body.specialty-page .tech-card h3,
     body.specialty-page .tech-card h4,
     body.specialty-page .sub-topic-header h3 {
-      color: #0a1e2c !important;
+      color: #f3ebe0 !important;
     }
     body.specialty-page .spec-card-title {
-      color: #0a1e2c !important;
+      color: #f3ebe0 !important;
       font-weight: 700 !important;
     }
     body.specialty-page .spec-card-desc {
-      color: #475569 !important;
+      color: #b5aa9c !important;
     }
     body.specialty-page .tag-accent {
       background: #fffbeb !important;
@@ -257,30 +257,30 @@
 
     /* 7. 流程圖與步驟卡片 */
     body.specialty-page .deck-flow-container {
-      background: #ffffff !important;
+      background: #0e2a38 !important;
       border: 1px solid rgba(15, 23, 42, 0.08) !important;
       box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04) !important;
     }
     body.specialty-page .deck-flow-header {
-      background: #f4f1ea !important;
+      background: #061925 !important;
       border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
     }
     body.specialty-page .deck-flow-header h4 {
-      color: #0a1e2c !important;
+      color: #f3ebe0 !important;
     }
     body.specialty-page .deck-timing-rail {
-      background: #f4f1ea !important;
+      background: #061925 !important;
       border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
     }
     body.specialty-page .deck-step-title {
-      color: #0a1e2c !important;
+      color: #f3ebe0 !important;
     }
     body.specialty-page .deck-step-num {
       color: #8a6a42 !important;
     }
     body.specialty-page .deck-step-status {
-      background: #f1f5f9 !important;
-      color: #475569 !important;
+      background: #0a2230 !important;
+      color: #b5aa9c !important;
     }
     body.specialty-page .deck-chip-row {
       border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
@@ -291,50 +291,50 @@
 
     /* 8. 互動實驗室外層白卡微投影 (內部維持深色儀表視窗) */
     body.specialty-page .interactive-lab-card {
-      background: #ffffff !important;
+      background: #0e2a38 !important;
       border: 1px solid rgba(15, 23, 42, 0.08) !important;
       box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
     }
     body.specialty-page .interactive-lab-card .lab-header {
-      background: #f4f1ea !important;
+      background: #061925 !important;
       border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
     }
     body.specialty-page .interactive-lab-card .lab-header h4 {
-      color: #0a1e2c !important;
+      color: #f3ebe0 !important;
     }
     body.specialty-page .interactive-lab-card .lab-desc {
-      color: #475569 !important;
+      color: #b5aa9c !important;
     }
 
     /* 9. 表格與矩陣白底化 */
     body.specialty-page .table-wrap,
     body.specialty-page .tech-matrix-table,
     body.specialty-page .compare-table {
-      background: #ffffff !important;
+      background: #0e2a38 !important;
       border: 1px solid rgba(15, 23, 42, 0.08) !important;
-      color: #334155 !important;
+      color: #c9c0b4 !important;
     }
     body.specialty-page table th {
-      background: #f1f5f9 !important;
-      color: #0a1e2c !important;
+      background: #0a2230 !important;
+      color: #f3ebe0 !important;
       border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
     }
     body.specialty-page table td {
       border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
-      color: #334155 !important;
+      color: #c9c0b4 !important;
     }
 
     /* 10. 經濟效益試算盒 */
     body.specialty-page .economics-box,
     body.specialty-page .economics-calculator {
-      background: #ffffff !important;
+      background: #0e2a38 !important;
       border: 1px solid rgba(15, 23, 42, 0.08) !important;
       box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05) !important;
-      color: #334155 !important;
+      color: #c9c0b4 !important;
     }
     body.specialty-page .economics-box h3,
     body.specialty-page .economics-calculator h3 {
-      color: #0a1e2c !important;
+      color: #f3ebe0 !important;
     }
   </style>
 </head>
@@ -2648,8 +2648,8 @@
       </div>
     </div>
   </footer>
-<script src="hub.js?v=20260906-copper-v1"></script>
-<script src="specialty-nvm.js?v=20260906-copper-v1"></script>
+<script src="hub.js?v=20260906-navy-v1"></script>
+<script src="specialty-nvm.js?v=20260906-navy-v1"></script>
   <script>
     // Studio Layout Vertical Rail Scroll Spy
     document.addEventListener('DOMContentLoaded', () => {
