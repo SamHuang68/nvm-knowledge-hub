@@ -473,7 +473,8 @@ function translateWhitepaperDOM(root, lang) {
 
   // Translate SVG text
   root.querySelectorAll("text").forEach(st => {
-    const raw = st.textContent.trim();
+    const raw = (st.textContent || "").trim();
+    if (!raw) return;
     if (lang === "zh") {
       if (!st._origText) st._origText = raw;
       if (WP_ZH_DICT[st._origText]) st.textContent = WP_ZH_DICT[st._origText];

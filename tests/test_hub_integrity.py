@@ -129,6 +129,16 @@ def run_tests() -> None:
     test("M3 包含 SECDED ECC 測試台 (eccBitsDeck)", "eccBitsDeck" in auto_c and "eccStatusPill" in auto_c)
     test("M3 包含晶圓認證三道門禁 (gate-stepper)", "gate-stepper" in auto_c and "GATE 01" in auto_c)
 
+    # ===== TEST 11: Whitepaper Decision Studio 內容完整度與 SSR 預渲染驗證 =====
+    print("\n═══ TEST 11: Whitepaper Decision Studio 完整性 ═══")
+    wp_c = (BASE / "whitepaper" / "index.html").read_text(encoding="utf-8")
+    for pid in ["panel-overview", "panel-whitepaper", "panel-selector", "panel-taxonomy", "panel-templates"]:
+        test(f"Whitepaper 包含非空 #{pid}", f'id="{pid}"' in wp_c and f'class="studio-panel"' in wp_c)
+    test("Whitepaper 包含 5 大完整章節 (chap-state-contract 等)", "chap-state-contract" in wp_c and "chap-enterprise-transfer" in wp_c)
+    test("Whitepaper 包含決策矩陣資料表 (decision-table)", "decision-table" in wp_c)
+    test("Whitepaper 包含技術範本卡片 (template-card)", "template-card" in wp_c)
+    test("Whitepaper 包含 SharePoint 分類架構", "SharePoint" in wp_c and "taxonomy" in wp_c)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
