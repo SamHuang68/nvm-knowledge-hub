@@ -224,6 +224,17 @@ def run_tests() -> None:
     test("specialty-nvm.css compact-ate-strip 具備防禦 scoping",
          ":not(.f2-stat-bridge *):not(.m3-stat-bridge *)" in (BASE / "specialty-nvm.css").read_text(encoding="utf-8"))
 
+    # ===== TEST 19: M3 Executive Studio Workbench 與直立測條架構驗證 =====
+    print("\n═══ TEST 19: M3 Executive Studio Workbench 與直立測條架構驗證 ═══")
+    test("M3 包含 studio-workbench-wrapper 與 studio-layout 雙欄容器",
+         "studio-workbench-wrapper" in auto_c and "studio-layout" in auto_c)
+    test("M3 包含 lens-vertical-rail 直立半導體測條",
+         "lens-vertical-rail" in auto_c)
+    test("M3 包含 lens-stage-container 工作台舞台",
+         "lens-stage-container" in auto_c)
+    test("M3 直立測條包含 4 個章節跳轉節點 (lens-node-item)",
+         auto_c.count("lens-node-item") >= 4)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
