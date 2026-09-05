@@ -83,8 +83,100 @@
       </div>
     </section>
 
+        <!-- =======================================================
+         高密度直立測條工作台 (STUDIO WORKBENCH: 01~09 LENS RAIL)
+         ======================================================= -->
+    <div class="studio-main-workbench">
+      <div class="studio-layout">
+        
+        <!-- 左側直立測條 (Vertical Lens Rail) -->
+        <aside class="lens-vertical-rail" aria-label="章節直立測條">
+          <div class="rail-header">
+            <span class="rail-title">CHAPTER LENS</span>
+            <span class="rail-tag">01 ~ 09</span>
+          </div>
+          <nav class="hub-nav-pills" role="navigation" aria-label="章節跳轉">
+            <a class="nav-pill lens-node-item active" href="#abstract">
+              <span class="lens-badge">00</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">研究摘要</span><span data-lang="en">Abstract</span></span>
+                <span class="lens-sub">Circuit vs Product</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#correction">
+              <span class="lens-badge">01</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">修正物理模型</span><span data-lang="en">Correct The Model</span></span>
+                <span class="lens-sub">Three Testable Claims</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#economics">
+              <span class="lens-badge">02</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">位元胞經濟學</span><span data-lang="en">Bitcell Economics</span></span>
+                <span class="lens-sub">Complementary Storage</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#read-path">
+              <span class="lens-badge">03</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">動態讀取路徑</span><span data-lang="en">Interactive Read Path</span></span>
+                <span class="lens-sub">SRAM vs Antifuse Lab</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#emission">
+              <span class="lens-badge">04</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">熱、光與可觀察性</span><span data-lang="en">Heat, Light &amp; Emission</span></span>
+                <span class="lens-sub">PEM, TLS, Hotspot</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#taxonomy">
+              <span class="lens-badge">05</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">非揮發記憶體分類學</span><span data-lang="en">Memory Taxonomy</span></span>
+                <span class="lens-sub">Physical Traces</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#attack-surface">
+              <span class="lens-badge">06</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">安全層級差異</span><span data-lang="en">Security Differences</span></span>
+                <span class="lens-sub">Static vs Active Window</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#system-consequence">
+              <span class="lens-badge">07</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">系統後果防禦</span><span data-lang="en">System Consequence</span></span>
+                <span class="lens-sub">OTP Reverse != Secret</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#positioning">
+              <span class="lens-badge">08</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">可防守產品定位</span><span data-lang="en">Defensible Claims</span></span>
+                <span class="lens-sub">Precise Architecture</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#method">
+              <span class="lens-badge">09</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">證據階梯與紀律</span><span data-lang="en">Evidence Discipline</span></span>
+                <span class="lens-sub">E1 to E4 Rungs</span>
+              </div>
+            </a>
+          </nav>
+          <div class="rail-footer" style="padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 10px; display: flex; justify-content: space-between; font-size: 0.65rem; color: #64748b; font-family: 'IBM Plex Mono', monospace;">
+            <span>ACTIVE LENS</span>
+            <span style="color:#73eee4;">VERIFIED 2026</span>
+          </div>
+        </aside>
+
+        <!-- 右側高密度內容工作台 (Main Stage) -->
+        <div class="lens-stage-container">
     <div class="paper-shell">
-      <section id="abstract" class="paper-section reveal">
+      <section id="abstract" class="paper-section lens-panel reveal">
         <div class="abstract-panel">
           <div class="abstract-copy">
             <p class="paper-kicker">ABSTRACT · CENTRAL FINDING</p>
@@ -101,7 +193,7 @@
         <p class="paper-note"><b><span data-lang="zh">用語紀律：</span><span data-lang="en">Terminology discipline:</span></b> <span data-lang="zh">本文不把 persistent PUF response 直接稱為「明文 key」。NeoPUF 公開資料描述的是 enrollment 後的永久 tunneling-path 位置，再由電流感測導出 PUF bit；是否直接等同某個最終 cryptographic key，取決於後續 key derivation 與產品實作。</span><span data-lang="en">This paper does not equate a persistent PUF response with a plaintext key. NeoPUF literature describes a permanent enrolled tunneling-path location sensed into PUF bits; whether that equals a final cryptographic key depends on derivation and product implementation.</span></p>
       </section>
 
-      <section id="correction" class="paper-section reveal">
+      <section id="correction" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">01 · CORRECT THE MODEL</p><h2><span data-lang="zh">先把三個直覺，<br><em>改寫成可驗證的命題</em></span><span data-lang="en">Turn three intuitions<br><em>into testable claims</em></span></h2></div>
           <p><span data-lang="zh">安全比較必須區分 cell physics、read circuit、observable side channel 與 system consequence。把四層混成一句話，會同時低估 SRAM 攻擊與高估「current hotspot」的必然性。</span><span data-lang="en">A security comparison must separate cell physics, read circuitry, observable side channels and system consequence. Collapsing the four layers understates SRAM attacks and overstates the inevitability of current hotspots.</span></p>
@@ -113,7 +205,7 @@
         </div>
       </section>
 
-      <section id="economics" class="paper-section reveal">
+      <section id="economics" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">02 · COMMERCIAL REALITY</p><h2><span data-lang="zh">差動讀取不難畫；<br><em>量產成本決定商業可行性</em></span><span data-lang="en">Differential read is easy to draw;<br><em>production cost determines viability</em></span></h2></div>
           <p><span data-lang="zh">真正該比較的不是 sense amplifier 的名稱，而是每個 logical bit 要付出多少 cell、金屬線、programming 操作與 array overhead，才能形成真正的 complementary representation。</span><span data-lang="en">The meaningful comparison is not the sense-amplifier label, but how many cells, wires, programming operations and array overheads each logical bit must pay to create a genuinely complementary representation.</span></p>
@@ -183,7 +275,7 @@
         </details>
       </section>
 
-      <section id="read-path" class="paper-section reveal">
+      <section id="read-path" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">03 · INTERACTIVE READ PATH</p><h2><span data-lang="zh">從 power-off 到 sense output，<br><em>逐層看差異在哪裡</em></span><span data-lang="en">From power-off to sense output,<br><em>locate the real divide</em></span></h2></div>
           <p><span data-lang="zh">切換三個階段。左側代表 SRAM／SRAM PUF 的 volatile state expression；右側代表 programmed antifuse／NeoPUF 類 persistent conduction state。圖為 threat-model abstraction，不是特定 foundry macro schematic。</span><span data-lang="en">Switch among three phases. The left abstracts volatile SRAM/SRAM-PUF state expression; the right abstracts a programmed antifuse/NeoPUF persistent conduction state. This is a threat-model abstraction, not a foundry-macro schematic.</span></p>
@@ -218,7 +310,7 @@
         <p class="paper-note"><b><span data-lang="zh">關鍵細節：</span><span data-lang="en">Key nuance:</span></b> <span data-lang="zh">在已驗證的 shutdown 條件下，設計不保留刻意儲存或仍由電源維持的 reconstructed root；這不代表晶片上沒有可量測的製程差異、helper material 或 remanence 風險。安全性仍依賴 response 不被輕易建模／成像、reconstruction 流程受保護、helper data 有 integrity，以及工作金鑰的 residency 與 zeroization 被控制。</span><span data-lang="en">Under a validated shutdown condition, the design retains no intentionally stored or powered reconstructed root; this does not mean measurable process variation, helper material or remanence risk disappears. Security still depends on resisting characterization, protecting reconstruction, authenticating helper data, and controlling working-key residency and zeroization.</span></p>
       </section>
 
-      <section id="emission" class="paper-section reveal">
+      <section id="emission" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">04 · HEAT, LIGHT & OBSERVABILITY</p><h2><span data-lang="zh">讀 0、讀 1 會不會形成<br><em>物理熱點或亮點</em></span><span data-lang="en">Does reading 0 or 1 create<br><em>a thermal or optical hotspot</em></span></h2></div>
           <p><span data-lang="zh">答案是「可能形成 data-dependent contrast，但不是由 current-sense 這個名稱保證」。任何讀取都有能量；能不能被看見，取決於能量在空間與時間上是否集中到超過儀器、封裝與背景噪音的門檻。</span><span data-lang="en">The answer is “data-dependent contrast may exist, but the label current-sense does not guarantee it.” Every read consumes energy; visibility depends on whether that energy is spatially and temporally concentrated above instrumentation, packaging and noise limits.</span></p>
@@ -246,7 +338,7 @@
         </div>
       </section>
 
-      <section id="taxonomy" class="paper-section reveal">
+      <section id="taxonomy" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">05 · MEMORY TAXONOMY</p><h2><span data-lang="zh">「非揮發性」不是一種物理；<br><em>每一類留下不同痕跡</em></span><span data-lang="en">Nonvolatile is not one physics;<br><em>each class leaves a different trace</em></span></h2></div>
           <p><span data-lang="zh">安全審查應先問 storage variable 是 latch state、charge、resistance、filament、phase、magnetization 還是永久結構，再選擇 imaging、stimulation、fault 與 side-channel 假設。</span><span data-lang="en">A security review should first identify whether the storage variable is latch state, charge, resistance, filament, phase, magnetization or permanent structure, then select imaging, stimulation, fault and side-channel assumptions.</span></p>
@@ -267,7 +359,7 @@
         </div>
       </section>
 
-      <section id="attack-surface" class="paper-section reveal">
+      <section id="attack-surface" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">06 · SECURITY-LEVEL DIFFERENCES</p><h2><span data-lang="zh">揮發性降低靜態目標，<br><em>但把風險移到上電窗口</em></span><span data-lang="en">Volatility reduces the static target,<br><em>but moves risk into the powered window</em></span></h2></div>
           <p><span data-lang="zh">下表不是「誰絕對安全」的排名，而是攻擊前提與後果的差異。Direct 代表已有公開實證；Conditional 代表依實作與攻擊配置；Reduced 代表經分層保護後後果下降，而非攻擊消失。</span><span data-lang="en">This is not an absolute-security ranking. It compares attack prerequisites and consequences. Direct means publicly demonstrated; Conditional depends on implementation; Reduced means layered protection lowers impact rather than eliminating attack.</span></p>
@@ -288,7 +380,7 @@
         </div>
       </section>
 
-      <section id="system-consequence" class="paper-section reveal">
+      <section id="system-consequence" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">07 · FROM OTP HACKER TO PRODUCT RESPONSE</p><h2><span data-lang="zh">OTP 可以被 reverse；<br><em>不代表 secret 可以被 reverse</em></span><span data-lang="en">OTP may be reversed;<br><em>the secret should not be</em></span></h2></div>
           <p><span data-lang="zh">RP2350 challenge 的關鍵教訓不是「所有 OTP 都不安全」，而是：當永久 memory 直接承載可用 secret，成功繞過 lock 或讀出 cell 就接近攻擊終點。Secure Storage 的設計目標，是改寫這個後果。</span><span data-lang="en">The central RP2350 lesson is not that every OTP is insecure. It is that when permanent memory directly carries a usable secret, bypassing a lock or reading the cells approaches the end of the attack. Secure Storage is designed to change that consequence.</span></p>
@@ -311,7 +403,7 @@
         <p class="paper-note"><b><span data-lang="zh">安全結論：</span><span data-lang="en">Security conclusion:</span></b> <span data-lang="zh">Address scrambling 增加 physical mapping 成本，但不能取代 encryption；AES-256 的價值也依賴 root lifecycle、mode、integrity 與 controller isolation。可防守的主張是「OTP physical analysis 不再直接等於 plaintext disclosure」，而不是「Secure Storage 無法被攻擊」。產品仍必須證明同一 fault、debug permission 或 controller flaw 不能把 root 與 ciphertext 路徑一次串通。</span><span data-lang="en">Address scrambling raises physical-mapping cost but does not replace encryption; AES-256 also depends on root lifecycle, mode, integrity and controller isolation. The defensible claim is that OTP physical analysis no longer directly equals plaintext disclosure—not that Secure Storage cannot be attacked. The product must still show that one fault, debug permission or controller flaw cannot collapse the root and ciphertext paths together.</span></p>
       </section>
 
-      <section id="positioning" class="paper-section reveal">
+      <section id="positioning" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">08 · DEFENSIBLE PRODUCT POSITIONING</p><h2><span data-lang="zh">最強的說法，<br><em>通常也是最精確的說法</em></span><span data-lang="en">The strongest message<br><em>is usually the most precise</em></span></h2></div>
           <p><span data-lang="zh">對 TSMC OIP 觀眾，可信度來自承認所有 silicon primitive 都有 attack surface，同時清楚說明整合架構如何降低成功攻擊的後果與組合機率。</span><span data-lang="en">For a TSMC OIP audience, credibility comes from acknowledging that every silicon primitive has an attack surface while showing how integration reduces attack consequence and composition probability.</span></p>
@@ -335,7 +427,7 @@
         </div>
       </section>
 
-      <section id="method" class="paper-section reveal">
+      <section id="method" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">09 · EVIDENCE DISCIPLINE & LIMITS</p><h2><span data-lang="zh">每一個結論，<br><em>標示它站在哪一階</em></span><span data-lang="en">Every conclusion declares<br><em>which rung supports it</em></span></h2></div>
           <p><span data-lang="zh">論文、專利與產品資料回答不同問題。專利證明可行的 circuit topology，不代表產品實作；供應商測試是重要證據，但獨立重現前不能與第三方攻擊示範同級。</span><span data-lang="en">Papers, patents and product literature answer different questions. A patent establishes a possible topology, not product implementation. Vendor tests matter, but are not equivalent to independent attack demonstrations before replication.</span></p>
@@ -360,6 +452,8 @@
         <a class="button ghost" href="secure-storage.html"><span data-lang="zh">返回 Secure Storage</span><span data-lang="en">Return to Secure Storage</span></a>
       </section>
     </div>
+      </div>
+    </div>
   </main>
 
   <footer>
@@ -368,5 +462,52 @@
     <p>Research Note 02 · 2026</p>
   </footer>
   <script src="research.js?v=20260904-hive-v5"></script>
+  <script>
+    // Studio Layout Vertical Rail Scroll Spy
+    document.addEventListener('DOMContentLoaded', () => {
+      const railLinks = document.querySelectorAll('.lens-vertical-rail .lens-node-item');
+      const panels = document.querySelectorAll('.lens-stage-container .lens-panel');
+
+      railLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            const offset = 80;
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = targetEl.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+
+            railLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      });
+
+      const railObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            railLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+      panels.forEach(p => railObserver.observe(p));
+    });
+  </script>
 </body>
 </html>

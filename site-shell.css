@@ -376,3 +376,171 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   text-wrap: balance;
   line-height: 1.25;
 }
+
+/* =========================================================================
+   EXECUTIVE STUDIO LAYOUT & VERTICAL LENS RAIL (全站共用雙欄工作台)
+   ========================================================================= */
+.studio-main-workbench {
+  max-width: 1480px;
+  margin: 14px auto 36px;
+  padding: 0 var(--side, 20px);
+}
+.studio-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 1024px) {
+  .studio-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* 左側直立測條 (Vertical Lens Rail) */
+.lens-vertical-rail {
+  position: sticky;
+  top: 76px;
+  background: #061925;
+  border: 1px solid rgba(115, 238, 228, 0.25);
+  border-radius: 8px;
+  padding: 16px 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  z-index: 40;
+}
+.rail-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rail-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  color: #73eee4;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+.rail-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* 直立節點列表 */
+.lens-vertical-rail .hub-nav-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+@media (max-width: 1024px) {
+  .lens-vertical-rail {
+    position: static;
+    margin-bottom: 16px;
+    padding: 10px 14px;
+  }
+  .lens-vertical-rail .hub-nav-pills {
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .lens-vertical-rail .hub-nav-pills::-webkit-scrollbar {
+    display: none;
+  }
+}
+.lens-node-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+  position: relative;
+}
+.lens-node-item:hover {
+  background: rgba(13, 148, 136, 0.15);
+  border-color: rgba(115, 238, 228, 0.4);
+  color: #f8fafc;
+  transform: translateX(3px);
+}
+.lens-node-item.active {
+  background: linear-gradient(90deg, rgba(13, 148, 136, 0.35) 0%, rgba(6, 25, 37, 0.9) 100%);
+  border-color: #73eee4;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(115, 238, 228, 0.2);
+}
+.lens-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #73eee4;
+  background: rgba(115, 238, 228, 0.12);
+  border: 1px solid rgba(115, 238, 228, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.lens-node-item.active .lens-badge {
+  background: #73eee4;
+  color: #061925;
+}
+.lens-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.lens-name {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lens-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: #64748b;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lens-node-item.active .lens-sub {
+  color: #94a3b8;
+}
+
+/* 右側主舞台容器 */
+.lens-stage-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+/* 確保點擊錨點或雙向監聽滾動時頂部留有舒適邊界 */
+.lens-stage-container section,
+.lens-stage-container .lens-panel,
+.lens-stage-container .paper-section,
+.lens-stage-container .topic-section {
+  scroll-margin-top: 88px;
+}
+

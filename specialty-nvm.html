@@ -172,24 +172,56 @@
 </div>
 </div>
 <!-- Quick Navigation Bar -->
-<nav aria-label="Specialty Topic Anchors" class="specialty-nav-pills">
-<a class="nav-pill" href="#topic-bcd">
-<span class="pill-number">01</span>
-<span class="pill-text"><span data-lang="zh">BCD 電源管理與微調</span><span data-lang="en">BCD Power &amp; Drivers</span></span>
-</a>
-<a class="nav-pill" href="#topic-repair">
-<span class="pill-number">02</span>
-<span class="pill-text"><span data-lang="zh">CIS 與 DRAM 矩陣修復</span><span data-lang="en">CIS &amp; DRAM Array Repair</span></span>
-</a>
-<a class="nav-pill" href="#topic-hv-ddi">
-<span class="pill-number">03</span>
-<span class="pill-text"><span data-lang="zh">高壓 (HV) OLED/LCD 驅動</span><span data-lang="en">HV Display Drivers (DDI)</span></span>
-</a>
-<a class="nav-pill" href="#topic-eink">
-<span class="pill-number">04</span>
-<span class="pill-text"><span data-lang="zh">電子紙 (E-Ink) 超高壓驅動</span><span data-lang="en">E-Ink Ultra-HV Drivers</span></span>
-</a>
-</nav>
+<!-- =========================================================
+     高密度直立測條工作台 (STUDIO WORKBENCH: 01~04 LENS RAIL)
+     ========================================================= -->
+<div class="studio-main-workbench">
+  <div class="studio-layout">
+    
+    <!-- 左側直立測條 (Vertical Lens Rail) -->
+    <aside class="lens-vertical-rail" aria-label="章節直立測條">
+      <div class="rail-header">
+        <span class="rail-title">CHAPTER LENS</span>
+        <span class="rail-tag">01 ~ 04</span>
+      </div>
+      <nav class="hub-nav-pills specialty-nav-pills" role="navigation" aria-label="章節跳轉">
+        <a class="nav-pill lens-node-item active" href="#topic-bcd">
+          <span class="lens-badge">01</span>
+          <div class="lens-info">
+            <span class="lens-name"><span data-lang="zh">BCD 電源管理與微調</span><span data-lang="en">BCD Power &amp; Trimming</span></span>
+            <span class="lens-sub">PMIC, USB-PD, BLDC</span>
+          </div>
+        </a>
+        <a class="nav-pill lens-node-item" href="#topic-repair">
+          <span class="lens-badge">02</span>
+          <div class="lens-info">
+            <span class="lens-name"><span data-lang="zh">CIS 與 DRAM 矩陣修復</span><span data-lang="en">CIS &amp; DRAM Array Repair</span></span>
+            <span class="lens-sub">Redundancy Remapping</span>
+          </div>
+        </a>
+        <a class="nav-pill lens-node-item" href="#topic-hv-ddi">
+          <span class="lens-badge">03</span>
+          <div class="lens-info">
+            <span class="lens-name"><span data-lang="zh">高壓 OLED/LCD 驅動</span><span data-lang="en">HV Display Drivers</span></span>
+            <span class="lens-sub">Gamma, Vcom, De-Mura</span>
+          </div>
+        </a>
+        <a class="nav-pill lens-node-item" href="#topic-eink">
+          <span class="lens-badge">04</span>
+          <div class="lens-info">
+            <span class="lens-name"><span data-lang="zh">電子紙超高壓驅動</span><span data-lang="en">E-Ink Ultra-HV</span></span>
+            <span class="lens-sub">40V-50V &amp; MTP-to-OTP</span>
+          </div>
+        </a>
+      </nav>
+      <div class="rail-footer" style="padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 10px; display: flex; justify-content: space-between; font-size: 0.65rem; color: #64748b; font-family: 'IBM Plex Mono', monospace;">
+        <span>ACTIVE LENS</span>
+        <span style="color:#73eee4;">VERIFIED 2026</span>
+      </div>
+    </aside>
+
+    <!-- 右側高密度內容工作台 (Main Stage) -->
+    <div class="lens-stage-container">
 <!-- Silicon Micrograph Hero Panorama: Plan A BCD PMIC + eNVM -->
 <div class="specialty-hero-image-wrap" data-reticle="MICROSCOPY 100X · 1mm CALIBRATED">
 <img alt="Monolithic BCD Power Management IC (PMIC) silicon die micrograph layout showing 40V-85V LDMOS power switches, analog bandgap reference trimming circuit, AntiFuse OTP FuseBox memory array, and CMOS logic core" height="675" loading="eager" src="assets/specialty-bcd-pmic-die-v2.webp" width="1200"/>
@@ -202,7 +234,7 @@
 <!-- =========================================================
          TOPIC 01: BCD POWER MANAGEMENT
          ========================================================= -->
-<section class="topic-section" id="topic-bcd">
+<section class="topic-section" id="topic-bcd" class="lens-panel">
 <div class="topic-container">
 <header class="topic-header">
 <div class="topic-header-row">
@@ -781,7 +813,7 @@
 <!-- =========================================================
          TOPIC 02: MATRIX DEFECT REPAIR
          ========================================================= -->
-<section class="topic-section topic-dark" id="topic-repair">
+<section class="topic-section topic-dark" id="topic-repair" class="lens-panel">
 <div class="topic-container">
 <header class="topic-header">
 <div class="topic-header-row">
@@ -1326,7 +1358,7 @@
 <!-- =========================================================
          TOPIC 03: HIGH-VOLTAGE DISPLAY DRIVERS
          ========================================================= -->
-<section class="topic-section" id="topic-hv-ddi">
+<section class="topic-section" id="topic-hv-ddi" class="lens-panel">
 <div class="topic-container">
 <header class="topic-header">
 <div class="topic-header-row">
@@ -1800,7 +1832,7 @@
 <!-- =========================================================
          TOPIC 04: E-INK ULTRA-HV DRIVERS & MTP->OTP MIGRATION
          ========================================================= -->
-<section class="topic-section topic-dark" id="topic-eink">
+<section class="topic-section topic-dark" id="topic-eink" class="lens-panel">
 <div class="topic-container">
 <header class="topic-header">
 <div class="topic-header-row">
@@ -2215,6 +2247,9 @@
 </div>
 </div>
 </section>
+    </div>
+  </div>
+</div>
 </main>
 <footer class="hub-footer">
 <p>© 2026 NVM Architecture Knowledge Hub · NVM Knowledge Hub · Specialty Foundry eNVM Architecture</p>
@@ -2230,5 +2265,52 @@
 </footer>
 <script src="hub.js?v=20260904-hive-v5"></script>
 <script src="specialty-nvm.js?v=20260904-spec-v2"></script>
+  <script>
+    // Studio Layout Vertical Rail Scroll Spy
+    document.addEventListener('DOMContentLoaded', () => {
+      const railLinks = document.querySelectorAll('.lens-vertical-rail .lens-node-item');
+      const panels = document.querySelectorAll('.lens-stage-container .lens-panel');
+
+      railLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            const offset = 80;
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = targetEl.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+
+            railLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      });
+
+      const railObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            railLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+      panels.forEach(p => railObserver.observe(p));
+    });
+  </script>
 </body>
 </html>

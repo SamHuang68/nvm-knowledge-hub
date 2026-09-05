@@ -475,22 +475,94 @@
     </div>
 
     <!-- 吸頂章節導覽藥丸列 (Sticky Nav Pills Bar) -->
-    <nav class="hub-nav-pills-bar" aria-label="AI NVM 章節快速跳轉導覽">
-      <div class="hub-nav-pills">
-        <a class="nav-pill" href="#overview"><b>01</b><span><span data-lang="zh">核心主張</span><span data-lang="en">Overview</span></span></a>
-        <a class="nav-pill" href="#pressures"><b>02</b><span><span data-lang="zh">系統壓力</span><span data-lang="en">Pressures</span></span></a>
-        <a class="nav-pill" href="#opportunities"><b>03</b><span><span data-lang="zh">機會地圖</span><span data-lang="en">Opportunities</span></span></a>
-        <a class="nav-pill" href="#photonics"><b>04</b><span><span data-lang="zh">光子引擎</span><span data-lang="en">Photonics</span></span></a>
-        <a class="nav-pill" href="#selection"><b>05</b><span><span data-lang="zh">選型矩陣</span><span data-lang="en">Selection</span></span></a>
-        <a class="nav-pill" href="#advanced-nodes"><b>06</b><span><span data-lang="zh">先進節點</span><span data-lang="en">Advanced Nodes</span></span></a>
-        <a class="nav-pill" href="#abstraction"><b>07</b><span><span data-lang="zh">安全抽象</span><span data-lang="en">Abstraction</span></span></a>
-        <a class="nav-pill" href="#evidence"><b>08</b><span><span data-lang="zh">確證邊界</span><span data-lang="en">Evidence</span></span></a>
-        <a class="nav-pill" href="#sources"><b>09</b><span><span data-lang="zh">一級文獻</span><span data-lang="en">Sources</span></span></a>
-      </div>
-    </nav>
+        <!-- =======================================================
+         高密度直立測條工作台 (STUDIO WORKBENCH: 01~09 LENS RAIL)
+         ======================================================= -->
+    <div class="studio-main-workbench">
+      <div class="studio-layout">
+        
+        <!-- 左側直立測條 (Vertical Lens Rail) -->
+        <aside class="lens-vertical-rail" aria-label="章節直立測條">
+          <div class="rail-header">
+            <span class="rail-title">CHAPTER LENS</span>
+            <span class="rail-tag">01 ~ 09</span>
+          </div>
+          <nav class="hub-nav-pills" role="navigation" aria-label="章節跳轉">
+            <a class="nav-pill lens-node-item active" href="#overview">
+              <span class="lens-badge">01</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">核心主張</span><span data-lang="en">Overview</span></span>
+                <span class="lens-sub">MTP != Memory</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#pressures">
+              <span class="lens-badge">02</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">系統壓力</span><span data-lang="en">Pressures</span></span>
+                <span class="lens-sub">HBM, CPO, Power</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#opportunities">
+              <span class="lens-badge">03</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">機會地圖</span><span data-lang="en">Opportunities</span></span>
+                <span class="lens-sub">4 Bounded Sockets</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#photonics">
+              <span class="lens-badge">04</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">光子引擎</span><span data-lang="en">Photonics</span></span>
+                <span class="lens-sub">CPO Calibration Trim</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#selection">
+              <span class="lens-badge">05</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">選型矩陣</span><span data-lang="en">Selection</span></span>
+                <span class="lens-sub">Memory Fit Criteria</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#advanced-nodes">
+              <span class="lens-badge">06</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">先進節點</span><span data-lang="en">Advanced Nodes</span></span>
+                <span class="lens-sub">N5 to N2 GAA Logic</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#abstraction">
+              <span class="lens-badge">07</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">安全抽象</span><span data-lang="en">Abstraction</span></span>
+                <span class="lens-sub">Silicon RoT &amp; Policy</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#evidence">
+              <span class="lens-badge">08</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">確證邊界</span><span data-lang="en">Evidence</span></span>
+                <span class="lens-sub">OCP &amp; JEDEC Standards</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#sources">
+              <span class="lens-badge">09</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">一級文獻</span><span data-lang="en">Sources</span></span>
+                <span class="lens-sub">294 Pages Verified</span>
+              </div>
+            </a>
+          </nav>
+          <div class="rail-footer" style="padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 10px; display: flex; justify-content: space-between; font-size: 0.65rem; color: #64748b; font-family: 'IBM Plex Mono', monospace;">
+            <span>ACTIVE LENS</span>
+            <span style="color:#73eee4;">VERIFIED 2026</span>
+          </div>
+        </aside>
+
+        <!-- 右側高密度內容工作台 (Main Stage) -->
+        <div class="lens-stage-container">
 
     <div class="paper-shell ai-paper-shell">
-      <section id="overview" class="paper-section reveal">
+      <section id="overview" class="paper-section lens-panel reveal">
         <div class="evidence-correction" data-record-ids="AI-NVM-OCP-001 AI-NVM-OCP-003 AI-NVM-OCP-004">
           <div class="correction-mark" aria-hidden="true"><span>MTP</span><i>≠</i><b>MEMORY</b></div>
           <div>
@@ -541,7 +613,7 @@
         </aside>
       </section>
 
-      <section id="pressures" class="paper-section reveal">
+      <section id="pressures" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">02 · SYSTEM PRESSURE</p><h2><span data-lang="zh">AI 擴大 State Diversity<br><em>不只是增加 NVM 容量</em></span><span data-lang="en">AI Expands State Diversity<br><em>Not Merely NVM Capacity</em></span></h2></div>
           <p><span data-lang="zh">每一條 state lane 都有不同的 mutability、update cadence、temperature、atomicity 與 evidence 需求。這些條件才是 IP opportunity 的入口。</span><span data-lang="en">Each state lane has a different mutability, update cadence, temperature, atomicity and evidence requirement. Those conditions—not a generic bit count—define the IP opportunity.</span></p>
@@ -630,7 +702,7 @@
         <p class="paper-note"><b><span data-lang="zh">圖解邊界：</span><span data-lang="en">Diagram boundary:</span></b> <span data-lang="zh">上方 package artwork 僅為視覺說明；下方 contract view 呈現 state boundary 與 validation responsibility，不是 OCP spec、實體 floorplan 或 local NVM mandate。</span><span data-lang="en">The package artwork is illustrative. The contract view shows state boundaries and validation responsibility—not an OCP specification, physical floorplan or local-NVM mandate.</span></p>
       </section>
 
-      <section id="opportunities" class="paper-section reveal">
+      <section id="opportunities" class="paper-section lens-panel reveal">
         <div class="paper-heading opportunity-heading">
           <div><p class="paper-kicker">03 · OPPORTUNITY MAP</p><h2><span data-lang="zh">Evidence 定義系統行為<br><em>Inference 定位 NVM 價值</em></span><span data-lang="en">Evidence Defines System Behavior<br><em>Inference Locates NVM Value</em></span></h2></div>
           <p><span data-lang="zh">先用來源支持模式查看 requirement、official case、technical evidence 與 disclosure，再開啟有界推論。每張卡分開呈現 evidence、candidate fit、validation gate 與 limit。</span><span data-lang="en">Start with the source-grounded view for requirements, official cases, technical evidence and disclosures, then include bounded inferences. Every card separates evidence, candidate fit, validation gate and limitation.</span></p>
@@ -771,7 +843,7 @@
         </aside>
       </section>
 
-      <section id="photonics" class="paper-section reveal">
+      <section id="photonics" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">04 · PHOTONICS / CPO FOCUS</p><h2><span data-lang="zh">光引擎狀態契約模型<br><em>候選持久基線與揮發控制邊界</em></span><span data-lang="en">Optical Engine State-Contract Model<br><em>Candidate Persistent Baseline and Volatile Control</em></span></h2></div>
           <p><span data-lang="zh">OE／PIC／ELS 是 supplied OCP paper 與 NVM opportunity space 的高潛力交會點：per-unit identity、factory trim、safe limit、qualification digest 與 sparse recalibration 都是需要驗證的 local persistent-state 候選。</span><span data-lang="en">OE/PIC/ELS are a high-potential intersection between the supplied OCP paper and the NVM opportunity space: per-unit identity, factory trim, safe limits, qualification digests and sparse recalibration are candidate local persistent states that still require validation.</span></p>
@@ -814,7 +886,7 @@
         <div class="continuous-warning"><small>STATE BOUNDARY</small><b>CONTINUOUS TUNING</b><i>≠</i><strong>CONTINUOUS NVM WRITES</strong><p><span data-lang="zh">Runtime adaptation 保持 volatile；只有 qualified state 才能穿越 persistence gate。</span><span data-lang="en">Runtime adaptation stays volatile; only qualified state crosses the persistence gate.</span></p></div>
       </section>
 
-      <section id="selection" class="paper-section reveal">
+      <section id="selection" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">05 · NVM SELECTION</p><h2><span data-lang="zh">OTP 與 MTP 的分層角色<br><em>每一層對應正確的 State Contract</em></span><span data-lang="en">Layered Roles for OTP and MTP<br><em>The Right State Contract for Each Layer</em></span></h2></div>
           <p><span data-lang="zh">selection lens 先問 lifecycle，再看 bit count、temperature 與 macro。下列是 architecture class，不是通用 endurance 數字或 foundry availability 承諾。</span><span data-lang="en">The selection lens starts with lifecycle, then bit count, temperature and macro availability. These are architecture classes—not universal endurance numbers or foundry-availability promises.</span></p>
@@ -849,7 +921,7 @@
         </div>
       </section>
 
-      <section id="advanced-nodes" class="paper-section reveal">
+      <section id="advanced-nodes" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">06 · ADVANCED-NODE NVM</p><h2><span data-lang="zh">製程愈先進<br><em>Read-Domain Contract 愈重要</em></span><span data-lang="en">As Nodes Advance<br><em>The Read-Domain Contract Matters More</em></span></h2></div>
           <p><span data-lang="zh">先分開三件事：process device availability、embedded NVM technology 與 system supply contract。把 I/O oxide、外部 rail 與 macro operation 混為一談，會導出錯誤的節點與架構結論。</span><span data-lang="en">Separate three things first: process-device availability, embedded-NVM technology and the system supply contract. Conflating I/O oxide, external rails and macro operation leads to the wrong node and architecture conclusions.</span></p>
@@ -949,7 +1021,7 @@
         </aside>
       </section>
 
-      <section id="abstraction" class="paper-section reveal">
+      <section id="abstraction" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">07 · SECURE STORAGE ABSTRACTION</p><h2><span data-lang="zh">Secure Storage 的保護邊界<br><em>完整 State Transition</em></span><span data-lang="en">Secure Storage Protection Boundary<br><em>The Full State Transition</em></span></h2></div>
           <p><span data-lang="zh">AI NVM 的差異化不應停在「可存 key／trim」。可防守的產品邊界，是 confidentiality、integrity、atomicity 與 attestation coherence 同時成立。</span><span data-lang="en">AI-NVM differentiation cannot stop at “stores keys and trim.” A defensible product boundary makes confidentiality, integrity, atomicity and attestation coherence hold together.</span></p>
@@ -973,7 +1045,7 @@
         <div class="abstraction-verdict"><small>PRODUCT DIFFERENTIATION</small><strong><span data-lang="zh">Threat-Modelled Root × Encrypted State × Atomic Update × Coherent Evidence</span><span data-lang="en">Threat-Modelled Root × Encrypted State × Atomic Update × Coherent Evidence</span></strong><p><span data-lang="zh">PUF／AES 不會自動解決 endurance 或 torn write；MTP／ECC 也不會自動解決 secret exposure。完整 abstraction 必須把四者納入同一責任邊界。</span><span data-lang="en">PUF/AES does not automatically solve endurance or torn writes; MTP/ECC does not automatically solve secret exposure. The abstraction must own all four outcomes.</span></p></div>
       </section>
 
-      <section id="evidence" class="paper-section reveal">
+      <section id="evidence" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker">08 · EVIDENCE &amp; UNKNOWNS</p><h2><span data-lang="zh">精準 Evidence Boundary<br><em>可執行 Validation Plan</em></span><span data-lang="en">Precise Evidence Boundaries<br><em>Actionable Validation Plan</em></span></h2></div>
           <p><span data-lang="zh">Evidence class 與 assurance maturity 是兩件事。官方 spec 可以很明確，卻仍不指定 NVM medium；vendor macro 可以量產，卻仍需要 target-node、configuration 與 physical attack evidence。</span><span data-lang="en">Evidence class and assurance maturity are different. A standard may be precise without prescribing an NVM medium; a production macro may still need target-node, configuration and physical-attack evidence.</span></p>
@@ -1041,7 +1113,7 @@
         </div>
       </section>
 
-      <section id="sources" class="paper-section reveal">
+      <section id="sources" class="paper-section lens-panel reveal">
         <div class="paper-heading source-heading">
           <div><p class="paper-kicker">09 · PRIMARY SOURCE LEDGER</p><h2><span data-lang="zh">每個 Claim 都有 Source<br><em>每個 Inference 都有 Limit</em></span><span data-lang="en">A Source for Every Claim<br><em>A Limit for Every Inference</em></span></h2></div>
           <p><span data-lang="zh">外部連結優先使用 standards body、first-party implementation、peer-reviewed design、independent physical analysis 與 official vendor page。供應商數值只代表該公開 product envelope，不外推成 universal requirement。</span><span data-lang="en">External links prioritize standards bodies, first-party implementations, peer-reviewed designs, independent physical analysis and official vendor pages. Vendor figures describe that public product envelope; they are not universal requirements.</span></p>
@@ -1138,6 +1210,9 @@
           <figure class="conclusion-visual"><img src="assets/secure-state-transition-r17.png" width="1536" height="1024" loading="lazy" alt="Illustrative protected state transition inside a silicon subsystem" data-alt-zh="矽智財子系統內受保護狀態轉移概念圖" data-alt-en="Illustrative protected state transition inside a silicon subsystem"><figcaption><span>ILLUSTRATIVE ARCHITECTURE</span><b><span data-lang="zh">非特定 macro topology</span><span data-lang="en">Not a specific macro topology</span></b></figcaption></figure>
         </div>
       </section>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -1148,5 +1223,52 @@
 
   <script src="research.js?v=20260904-hive-v5"></script>
   <script src="ai-nvm.js?v=20260904-hive-v5"></script>
+  <script>
+    // Studio Layout Vertical Rail Scroll Spy
+    document.addEventListener('DOMContentLoaded', () => {
+      const railLinks = document.querySelectorAll('.lens-vertical-rail .lens-node-item');
+      const panels = document.querySelectorAll('.lens-stage-container .lens-panel');
+
+      railLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            const offset = 80;
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = targetEl.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+
+            railLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      });
+
+      const railObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            railLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+      panels.forEach(p => railObserver.observe(p));
+    });
+  </script>
 </body>
 </html>

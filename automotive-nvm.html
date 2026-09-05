@@ -422,7 +422,7 @@
     </section>
 
     <!-- SECTION 1: 3-GATE WAFER QUALIFICATION STEPPER -->
-    <section id="sec-gates" aria-labelledby="gates-sec-title">
+    <section id="sec-gates" class="lens-panel" aria-labelledby="gates-sec-title">
       <div class="hub-sec-header">
         <div class="hub-sec-badge">01 · WAFER SIGN-OFF RIGOR</div>
         <h2 id="gates-sec-title">
@@ -459,7 +459,7 @@
     </section>
 
     <!-- SECTION 2: 175°C THERMAL AGING & ARRHENIUS CANVAS LAB -->
-    <section id="sec-thermal" class="lab-box" aria-labelledby="lab-thermal-title">
+    <section id="sec-thermal" class="lens-panel" class="lab-box" aria-labelledby="lab-thermal-title">
       <div class="hub-sec-header" style="margin-top:0;">
         <div class="hub-sec-badge">02 · FLAGSHIP LAB 01</div>
         <h2 id="lab-thermal-title">
@@ -508,7 +508,7 @@ ight] \quad (E_a = 1.1\,\mathrm{eV} 	ext{ for Silicide Filament vs } 0.65\,\math
     </section>
 
     <!-- SECTION 3: SECDED (72, 64) FAULT INJECTION LAB -->
-    <section id="sec-ecc" class="lab-box" aria-labelledby="lab-ecc-title">
+    <section id="sec-ecc" class="lens-panel" class="lab-box" aria-labelledby="lab-ecc-title">
       <div class="hub-sec-header" style="margin-top:0;">
         <div class="hub-sec-badge">03 · FLAGSHIP LAB 02</div>
         <h2 id="lab-ecc-title">
@@ -560,7 +560,7 @@ ight] \quad (E_a = 1.1\,\mathrm{eV} 	ext{ for Silicide Filament vs } 0.65\,\math
     </section>
 
     <!-- SECTION 4: 3 AUTOMOTIVE STATE CONTRACTS & ASIL-D METRICS (REFACTORED) -->
-    <section id="sec-contracts" aria-labelledby="contracts-sec-title">
+    <section id="sec-contracts" class="lens-panel" aria-labelledby="contracts-sec-title">
       <div class="hub-sec-header">
         <div class="hub-sec-badge">04 · SYSTEM ARCHITECTURE CONTRACTS &amp; ASIL-D METRICS</div>
         <h2 id="contracts-sec-title">
@@ -681,6 +681,9 @@ ight] \quad (E_a = 1.1\,\mathrm{eV} 	ext{ for Silicide Filament vs } 0.65\,\math
         </div>
       </div>
     </section>
+        </div>
+      </div>
+    </div>
   </main>
 
     <!-- FLAGSHIP ENTERPRISE FOOTER (全站統一旗艦級頁尾) -->
@@ -1036,6 +1039,53 @@ ight] \quad (E_a = 1.1\,\mathrm{eV} 	ext{ for Silicide Filament vs } 0.65\,\math
 
       renderGrid();
     })();
+  </script>
+  <script>
+    // Studio Layout Vertical Rail Scroll Spy
+    document.addEventListener('DOMContentLoaded', () => {
+      const railLinks = document.querySelectorAll('.lens-vertical-rail .lens-node-item');
+      const panels = document.querySelectorAll('.lens-stage-container .lens-panel');
+
+      railLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            const offset = 80;
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = targetEl.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+
+            railLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      });
+
+      const railObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            railLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+      panels.forEach(p => railObserver.observe(p));
+    });
   </script>
 </body>
 </html>

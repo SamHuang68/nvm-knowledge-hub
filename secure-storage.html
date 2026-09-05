@@ -1088,20 +1088,98 @@
     </div>
 
     <!-- 吸頂章節導覽藥丸列 (Sticky Nav Pills Bar) -->
-    <nav class="hub-nav-pills-bar" aria-label="章節快速跳轉導覽">
-      <div class="hub-nav-pills">
-        <a class="nav-pill" href="#thesis"><b>01</b><span><small data-lang="zh">核心主張</small><small data-lang="en">Thesis</small></span></a>
-        <a class="nav-pill" href="#power-lab"><b>02</b><span><small data-lang="zh">電源實驗室</small><small data-lang="en">Power Lab</small></span></a>
-        <a class="nav-pill" href="#attack-signals"><b>03</b><span><small data-lang="zh">威脅模型</small><small data-lang="en">Threat Model</small></span></a>
-        <a class="nav-pill" href="#assurance"><b>04</b><span><small data-lang="zh">安全確證</small><small data-lang="en">Assurance</small></span></a>
-        <a class="nav-pill" href="#identity-stack"><b>05</b><span><small data-lang="zh">信任階層</small><small data-lang="en">Trust Stack</small></span></a>
-        <a class="nav-pill" href="#architecture"><b>06</b><span><small data-lang="zh">架構流程</small><small data-lang="en">Architecture</small></span></a>
-        <a class="nav-pill" href="#lifecycle"><b>07</b><span><small data-lang="zh">生命週期</small><small data-lang="en">Lifecycle</small></span></a>
-        <a class="nav-pill" href="#compare"><b>08</b><span><small data-lang="zh">技術矩陣</small><small data-lang="en">Comparison</small></span></a>
-        <a class="nav-pill" href="#evidence"><b>09</b><span><small data-lang="zh">矽驗證</small><small data-lang="en">Evidence</small></span></a>
-        <a class="nav-pill" href="#applications"><b>10</b><span><small data-lang="zh">落地應用</small><small data-lang="en">Applications</small></span></a>
-      </div>
-    </nav>
+        <!-- =======================================================
+         高密度直立測條工作台 (STUDIO WORKBENCH: 01~10 LENS RAIL)
+         ======================================================= -->
+    <div class="studio-main-workbench">
+      <div class="studio-layout">
+        
+        <!-- 左側直立測條 (Vertical Lens Rail) -->
+        <aside class="lens-vertical-rail" aria-label="章節直立測條">
+          <div class="rail-header">
+            <span class="rail-title">CHAPTER LENS</span>
+            <span class="rail-tag">01 ~ 10</span>
+          </div>
+          <nav class="hub-nav-pills" role="navigation" aria-label="章節跳轉">
+            <a class="nav-pill lens-node-item active" href="#thesis">
+              <span class="lens-badge">01</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">核心主張</span><span data-lang="en">Thesis</span></span>
+                <span class="lens-sub">Absent At Rest</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#power-lab">
+              <span class="lens-badge">02</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">電源實驗室</span><span data-lang="en">Power Lab</span></span>
+                <span class="lens-sub">Silicon State Engine</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#attack-signals">
+              <span class="lens-badge">03</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">威脅模型</span><span data-lang="en">Threat Model</span></span>
+                <span class="lens-sub">Fault &amp; Extraction</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#assurance">
+              <span class="lens-badge">04</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">安全確證</span><span data-lang="en">Assurance</span></span>
+                <span class="lens-sub">Physical Validation</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#identity-stack">
+              <span class="lens-badge">05</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">信任階層</span><span data-lang="en">Trust Stack</span></span>
+                <span class="lens-sub">Hardware Root-of-Trust</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#architecture">
+              <span class="lens-badge">06</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">架構流程</span><span data-lang="en">Architecture</span></span>
+                <span class="lens-sub">AES-256 OTP Flow</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#lifecycle">
+              <span class="lens-badge">07</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">生命週期</span><span data-lang="en">Lifecycle</span></span>
+                <span class="lens-sub">Wafer to Decommission</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#compare">
+              <span class="lens-badge">08</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">技術矩陣</span><span data-lang="en">Comparison</span></span>
+                <span class="lens-sub">PUF vs Antifuse vs eFlash</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#evidence">
+              <span class="lens-badge">09</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">矽驗證</span><span data-lang="en">Evidence</span></span>
+                <span class="lens-sub">&gt;1.5B Production Units</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#applications">
+              <span class="lens-badge">10</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">落地應用</span><span data-lang="en">Applications</span></span>
+                <span class="lens-sub">AI, Auto, Aero, IoT</span>
+              </div>
+            </a>
+          </nav>
+          <div class="rail-footer" style="padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 10px; display: flex; justify-content: space-between; font-size: 0.65rem; color: #64748b; font-family: 'IBM Plex Mono', monospace;">
+            <span>ACTIVE LENS</span>
+            <span style="color:#73eee4;">VERIFIED 2026</span>
+          </div>
+        </aside>
+
+        <!-- 右側高密度內容工作台 (Main Stage) -->
+        <div class="lens-stage-container">
 
     <section class="signal-strip" aria-label="核心產品構成">
       <span><svg><use href="#i-fingerprint"/></svg>SRAM PUF</span>
@@ -1110,7 +1188,7 @@
       <i></i><span><svg><use href="#i-control"/></svg>SECURE CONTROLLER</span>
     </section>
 
-    <section id="thesis" class="section thesis-section reveal">
+    <section id="thesis" class="section lens-panel thesis-section reveal">
       <div class="section-index">01</div>
       <div class="section-kicker">THE EXECUTIVE THESIS</div>
       <div class="thesis-grid">
@@ -1143,7 +1221,7 @@
       <a href="#power-lab" class="chapter-cue" aria-label="Continue to power state">↓</a>
     </section>
 
-    <section id="power-lab" class="section power-lab reveal" data-state="off">
+    <section id="power-lab" class="section lens-panel power-lab reveal" data-state="off">
       <div class="power-copy">
         <p class="eyebrow">INTERACTIVE · POWER STATE</p>
         <h2 class="split-statement">
@@ -1178,7 +1256,7 @@
       </div>
     </section>
 
-    <section id="attack-signals" class="section attack-section reveal" data-record-id="OIP-OTP-001">
+    <section id="attack-signals" class="section lens-panel attack-section reveal" data-record-id="OIP-OTP-001">
       <div class="section-heading">
         <div>
           <p class="eyebrow">PUBLIC ATTACK SIGNAL</p>
@@ -1198,7 +1276,7 @@
       <aside class="case-note"><b>THREAT-MODEL INPUT</b><span>RP2350 challenge</span><p>這個案例用來界定 threat model；它不構成任何 target Secure Storage configuration 的 resistance evidence。</p><a href="https://www.raspberrypi.com/news/security-through-transparency-rp2350-hacking-challenge-results-are-in/" target="_blank" rel="noreferrer">Primary source ↗</a></aside>
     </section>
 
-    <section id="assurance" class="section assurance-preview reveal" aria-labelledby="assurance-preview-title">
+    <section id="assurance" class="section lens-panel assurance-preview reveal" aria-labelledby="assurance-preview-title">
       <div class="assurance-preview-head">
         <div>
           <p class="eyebrow">PHYSICAL SECURITY ASSURANCE</p>
@@ -1223,7 +1301,7 @@
       </div>
     </section>
 
-    <section id="identity-stack" class="section identity-stack-section reveal" aria-labelledby="identity-stack-title">
+    <section id="identity-stack" class="section lens-panel identity-stack-section reveal" aria-labelledby="identity-stack-title">
       <div class="identity-stack-head">
         <div>
           <p class="eyebrow light">LAYERED TRUST · PRACTICAL CASE STUDY</p>
@@ -1288,7 +1366,7 @@
       </div>
     </section>
 
-    <section id="architecture" class="section architecture-section reveal" data-record-id="OIP-ARCH-001">
+    <section id="architecture" class="section lens-panel architecture-section reveal" data-record-id="OIP-ARCH-001">
       <div class="architecture-intro">
         <p class="eyebrow light">THE PRODUCT IS THE INTEGRATION</p>
         <h2 class="split-statement">
@@ -1315,7 +1393,7 @@
       </div>
     </section>
 
-    <section id="lifecycle" class="section lifecycle-section reveal">
+    <section id="lifecycle" class="section lens-panel lifecycle-section reveal">
       <div class="section-heading compact">
         <div>
           <p class="eyebrow">ROOT-KEY LIFECYCLE</p>
@@ -1353,7 +1431,7 @@
       <a href="#compare" class="chapter-cue" aria-label="Continue to comparison">↓</a>
     </section>
 
-    <section id="compare" class="section comparison-section reveal">
+    <section id="compare" class="section lens-panel comparison-section reveal">
       <div class="comparison-head">
         <div>
           <p class="eyebrow light">PRECISE COMPETITIVE POSITIONING</p>
@@ -1407,7 +1485,7 @@
       <a href="#evidence" class="chapter-cue" aria-label="Continue to evidence">↓</a>
     </section>
 
-    <section id="evidence" class="section evidence-section reveal" data-record-ids="OIP-PUF-SCALE-001 OIP-PUF-HISTORY-001 OIP-OTP-SCALE-001 OIP-NODE-001">
+    <section id="evidence" class="section lens-panel evidence-section reveal" data-record-ids="OIP-PUF-SCALE-001 OIP-PUF-HISTORY-001 OIP-OTP-SCALE-001 OIP-NODE-001">
       <div class="evidence-title">
         <p class="eyebrow">VENDOR-REPORTED PORTFOLIO CONTEXT</p>
         <h2 class="split-statement">
@@ -1521,6 +1599,10 @@
       </div>
     </section>
 
+            </div>
+      </div>
+    </div>
+
     <section class="section sources-section reveal">
       <div class="sources-intro">
         <p class="eyebrow">PUBLIC EVIDENCE · SOURCE DISCIPLINE</p>
@@ -1554,5 +1636,52 @@
   </footer>
 
   <script src="app.js?v=20260905-layout-v2"></script>
+  <script>
+    // Studio Layout Vertical Rail Scroll Spy
+    document.addEventListener('DOMContentLoaded', () => {
+      const railLinks = document.querySelectorAll('.lens-vertical-rail .lens-node-item');
+      const panels = document.querySelectorAll('.lens-stage-container .lens-panel');
+
+      railLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            const offset = 80;
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = targetEl.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+
+            railLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      });
+
+      const railObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            railLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+      panels.forEach(p => railObserver.observe(p));
+    });
+  </script>
 </body>
 </html>

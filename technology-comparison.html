@@ -573,7 +573,7 @@
     </section>
 
     <!-- SECTION 1: 7-DIMENSION HIGH-DENSITY COMPARISON MATRIX -->
-    <section id="sec-matrix" aria-labelledby="matrix-sec-title">
+    <section id="sec-matrix" class="lens-panel" aria-labelledby="matrix-sec-title">
       <div class="hub-sec-header">
         <div class="hub-sec-badge">01 · COMPREHENSIVE BENCHMARK</div>
         <h2 id="matrix-sec-title">
@@ -681,7 +681,7 @@
     </section>
 
     <!-- SECTION 2: 5-AXIS ARCHITECTURAL RADAR SELECTOR LAB -->
-    <section id="sec-selector" class="selector-dashboard" aria-labelledby="selector-sec-title">
+    <section id="sec-selector" class="lens-panel" class="selector-dashboard" aria-labelledby="selector-sec-title">
       <div class="hub-sec-header" style="margin-top:0;">
         <div class="hub-sec-badge">02 · FLAGSHIP INTERACTIVE LAB</div>
         <h2 id="selector-sec-title">
@@ -802,7 +802,7 @@
     </section>
 
     <!-- SECTION 3: FIRST-PRINCIPLES PHYSICS & COST FORMULAS -->
-    <section id="sec-physics" aria-labelledby="physics-sec-title">
+    <section id="sec-physics" class="lens-panel" aria-labelledby="physics-sec-title">
       <div class="hub-sec-header">
         <div class="hub-sec-badge">03 · FIRST-PRINCIPLES MODELS</div>
         <h2 id="physics-sec-title">
@@ -901,7 +901,7 @@
     </section>
 
     <!-- SECTION 4: FOUNDRY ECOSYSTEM & PHYSICAL SECURITY -->
-    <section id="sec-foundry" aria-labelledby="foundry-sec-title">
+    <section id="sec-foundry" class="lens-panel" aria-labelledby="foundry-sec-title">
       <div class="hub-sec-header">
         <div class="hub-sec-badge">04 · FOUNDRY &amp; SECURITY</div>
         <h2 id="foundry-sec-title">
@@ -976,7 +976,7 @@
     </section>
 
     <!-- SECTION 5: 3-STEP DECISION PIPELINE (REFACTORED) -->
-    <section id="sec-pipeline" aria-labelledby="pipeline-sec-title">
+    <section id="sec-pipeline" class="lens-panel" aria-labelledby="pipeline-sec-title">
       <div class="hub-sec-header">
         <div class="hub-sec-badge">05 · ARCHITECT PIPELINE</div>
         <h2 id="pipeline-sec-title">
@@ -1041,6 +1041,9 @@
         </div>
       </div>
     </section>
+        </div>
+      </div>
+    </div>
   </main>
 
     <!-- FLAGSHIP ENTERPRISE FOOTER (全站統一旗艦級頁尾) -->
@@ -1443,6 +1446,53 @@
       window.addEventListener("hub:language-change", updateSelector);
       document.addEventListener("DOMContentLoaded", () => { setupRadarHiDPI(); updateSelector(); });
     })();
+  </script>
+  <script>
+    // Studio Layout Vertical Rail Scroll Spy
+    document.addEventListener('DOMContentLoaded', () => {
+      const railLinks = document.querySelectorAll('.lens-vertical-rail .lens-node-item');
+      const panels = document.querySelectorAll('.lens-stage-container .lens-panel');
+
+      railLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            const offset = 80;
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = targetEl.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+
+            railLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      });
+
+      const railObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            railLinks.forEach(link => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+      panels.forEach(p => railObserver.observe(p));
+    });
   </script>
 </body>
 </html>
