@@ -539,19 +539,142 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   width: 100%;
 }
 
-/* 消除 stage 內部 section 的二重留邊縮排，滿版大器展開 */
+/* =========================================================================
+   STUDIO WORKBENCH ARCHITECTURE CONTRACT (全站雙欄工作台統一標準契約)
+   ========================================================================= */
+
+/* 1. 徹底消滅全頁橫向溢出 (Global Anti-Horizontal-Overflow) */
+html, body {
+  overflow-x: clip !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* 2. 徹底消除 stage 內部的中介 shell 限制與二重留邊 (Zero-Shell Barrier) */
+.lens-stage-container .paper-shell,
+.lens-stage-container .ai-paper-shell,
+.lens-stage-container .research-shell,
+.lens-stage-container .studio-workbench-wrapper {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 3. 主舞台全域 Section & Panel 滿版展開與緊湊度標準化 */
 .lens-stage-container > .section,
 .lens-stage-container .paper-section,
 .lens-stage-container .topic-section,
 .lens-stage-container .lens-panel {
   padding-left: clamp(14px, 1.8vw, 24px) !important;
   padding-right: clamp(14px, 1.8vw, 24px) !important;
+  padding-top: clamp(20px, 2.5vw, 36px) !important;
+  padding-bottom: clamp(20px, 2.5vw, 36px) !important;
   width: 100% !important;
+  max-width: 100% !important;
   box-sizing: border-box !important;
 }
 .lens-stage-container > .section > *,
+.lens-stage-container .paper-section > *,
 .lens-stage-container .lens-panel > * {
   max-width: 100% !important;
+}
+
+/* 4. 根治所有負 margin 導致的右側溢出 (Fix Overflow from Negative Margins) */
+.lens-stage-container .paper-conclusion,
+.lens-stage-container section.paper-conclusion {
+  margin: 24px 0 0 !important;
+  padding: clamp(32px, 4vw, 56px) clamp(16px, 2vw, 32px) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  border-radius: 8px;
+}
+
+/* 5. 寬表格與矩陣容器強制水平安全滾動 (Responsive Safe Scroll Containers) */
+.lens-stage-container .taxonomy-wrap,
+.lens-stage-container .attack-matrix,
+.lens-stage-container .compare-matrix-wrapper,
+.lens-stage-container .table-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* 6. 主舞台內部網格自動縮放自適應 (Responsive Grid Auto-Scaling in Stage) */
+.lens-stage-container .abstract-panel {
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 1180px) {
+  .lens-stage-container .abstract-panel {
+    grid-template-columns: 1fr !important;
+  }
+}
+.lens-stage-container .correction-grid,
+.lens-stage-container .topology-grid,
+.lens-stage-container .public-claim-strip,
+.lens-stage-container .symmetry-grid,
+.lens-stage-container .evidence-triptych {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.lens-stage-container .causal-chain,
+.lens-stage-container .claim-ladder {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.lens-stage-container .position-grid,
+.lens-stage-container .unknowns,
+.lens-stage-container .provenance-content,
+.lens-stage-container .state-lab-stage {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 7. 主舞台標題與文字 Scale 標準化 (Studio Stage Typography Scale) */
+.lens-stage-container .paper-heading {
+  gap: 24px !important;
+  margin-bottom: 24px !important;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 1fr) !important;
+}
+@media (max-width: 900px) {
+  .lens-stage-container .paper-heading {
+    grid-template-columns: 1fr !important;
+  }
+}
+.lens-stage-container .paper-heading h2 {
+  font-size: clamp(24px, 2.5vw, 36px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+  margin: 8px 0 0 !important;
+}
+.lens-stage-container .abstract-copy h2 {
+  font-size: clamp(24px, 2.5vw, 36px) !important;
+  line-height: 1.2 !important;
+}
+.lens-stage-container .abstract-copy {
+  padding: clamp(20px, 2.5vw, 36px) !important;
+}
+.lens-stage-container .abstract-copy p {
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+}
+.lens-stage-container .abstract-verdict {
+  padding: clamp(20px, 2.5vw, 32px) !important;
+}
+.lens-stage-container .abstract-verdict strong {
+  font-size: 22px !important;
+  line-height: 1.2 !important;
 }
 
 /* 全站規格彩條同步對齊大寬度工作台 */

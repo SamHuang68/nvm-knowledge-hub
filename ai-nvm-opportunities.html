@@ -228,11 +228,43 @@
       color: #ffffff;
     }
 
-    /* 4. 全域 Section 與 Paper Shell 壓縮 */
+    /* 4. 全域 Section 滿版展開與消滅兩側過大留白 */
+    .ai-nvm-page .lens-stage-container :where(h1, h2, h3, h4, p, strong, article, div, section) {
+      max-width: 100% !important;
+    }
     .ai-nvm-page .paper-section {
-      padding-block: var(--section-pad) !important;
-      padding-top: var(--section-pad) !important;
-      padding-bottom: var(--section-pad) !important;
+      padding-block: clamp(20px, 2.5vw, 36px) !important;
+      padding-left: clamp(14px, 1.8vw, 24px) !important;
+      padding-right: clamp(14px, 1.8vw, 24px) !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .ai-nvm-page .evidence-correction {
+      margin-bottom: 16px !important;
+      padding: 20px 24px !important;
+      gap: 24px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .ai-nvm-page .evidence-correction h2 {
+      max-width: 100% !important;
+      font-size: clamp(22px, 2.4vw, 34px) !important;
+      line-height: 1.25 !important;
+    }
+    .ai-nvm-page .evidence-correction p {
+      max-width: 100% !important;
+      line-height: 1.65 !important;
+    }
+    .ai-nvm-page .ai-thesis-grid {
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 340px) !important;
+      gap: 20px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    @media (max-width: 1024px) {
+      .ai-nvm-page .ai-thesis-grid {
+        grid-template-columns: 1fr !important;
+      }
     }
     .ai-nvm-page .paper-heading {
       margin-bottom: 14px !important;
@@ -248,11 +280,6 @@
     }
 
     /* 5. 釋放各章節僵化 margin-top/bottom 與空曠區 (收斂至 12px ~ 20px) */
-    .ai-nvm-page .evidence-correction {
-      margin-bottom: 16px !important;
-      padding: 16px 20px !important;
-      gap: 18px !important;
-    }
     .ai-nvm-page .evidence-ladder {
       margin-top: 14px !important;
     }
@@ -560,9 +587,7 @@
 
         <!-- 右側高密度內容工作台 (Main Stage) -->
         <div class="lens-stage-container">
-
-    <div class="paper-shell ai-paper-shell">
-      <section id="overview" class="paper-section lens-panel reveal">
+          <section id="overview" class="paper-section lens-panel reveal">
         <div class="evidence-correction" data-record-ids="AI-NVM-OCP-001 AI-NVM-OCP-003 AI-NVM-OCP-004">
           <div class="correction-mark" aria-hidden="true"><span>MTP</span><i>≠</i><b>MEMORY</b></div>
           <div>
@@ -1210,7 +1235,6 @@
           <figure class="conclusion-visual"><img src="assets/secure-state-transition-r17.png" width="1536" height="1024" loading="lazy" alt="Illustrative protected state transition inside a silicon subsystem" data-alt-zh="矽智財子系統內受保護狀態轉移概念圖" data-alt-en="Illustrative protected state transition inside a silicon subsystem"><figcaption><span>ILLUSTRATIVE ARCHITECTURE</span><b><span data-lang="zh">非特定 macro topology</span><span data-lang="en">Not a specific macro topology</span></b></figcaption></figure>
         </div>
       </section>
-          </div>
         </div>
       </div>
     </div>
