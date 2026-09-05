@@ -31,6 +31,273 @@
     .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
     
     
+
+    /* =========================================================================
+       EXECUTIVE COMPACT ARCHITECTURE (消除空曠、極致壓縮垂直高度、高密度排版)
+       ========================================================================= */
+    :root {
+      --section-pad: clamp(24px, 3vw, 36px) !important;
+      --density-section: clamp(24px, 3vw, 36px) !important;
+    }
+
+    /* 1. Hero 緊湊重整 */
+    section.hero {
+      min-height: auto !important;
+      padding: 44px 0 28px !important;
+      display: flex !important;
+      align-items: center !important;
+      position: relative !important;
+    }
+    section.hero .hero-content {
+      margin: 0 var(--side) !important;
+      padding: 0 !important;
+      width: min(880px, 80vw) !important;
+    }
+    section.hero h1 {
+      max-width: 100% !important;
+      font-size: clamp(28px, 3.4vw, 46px) !important;
+      line-height: 1.16 !important;
+      margin: 10px 0 14px !important;
+      text-wrap: balance !important;
+    }
+    section.hero .hero-lede {
+      font-size: clamp(14px, 1.12vw, 16px) !important;
+      line-height: 1.6 !important;
+      max-width: 760px !important;
+      margin-bottom: 18px !important;
+      color: #c4d7e0 !important;
+    }
+    section.hero .hero-actions {
+      margin-top: 14px !important;
+      display: flex !important;
+      gap: 12px !important;
+    }
+    section.hero .hero-proof {
+      margin-top: 20px !important;
+      padding-top: 16px !important;
+      gap: 16px 32px !important;
+    }
+    section.hero .hero-caption {
+      display: none !important;
+    }
+    section.hero .scroll-cue {
+      display: none !important;
+    }
+
+    /* 2. 4-Metric 規格彩條 */
+    .stat-strip-compact {
+      max-width: 1400px;
+      margin: -16px auto 14px;
+      padding: 0 var(--side);
+      position: relative;
+      z-index: 10;
+    }
+    .stat-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 900px) {
+      .stat-strip-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .stat-strip-grid { grid-template-columns: 1fr; }
+    }
+    .stat-strip-card {
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 6px;
+      padding: 12px 16px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-strip-card.border-l-cyan { border-left: 4px solid #0d9488; }
+    .stat-strip-card.border-l-teal { border-left: 4px solid #0891b2; }
+    .stat-strip-card.border-l-emerald { border-left: 4px solid #059669; }
+    .stat-strip-card.border-l-amber { border-left: 4px solid #d97706; }
+    .stat-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .meta-code {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #64748b;
+    }
+    .pulse-chip-mini {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #0d9488;
+      box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7);
+      animation: pulse-ring 2s infinite;
+    }
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7); }
+      70% { box-shadow: 0 0 0 5px rgba(13, 148, 136, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0); }
+    }
+    .stat-val {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #0a1e2c;
+      line-height: 1.1;
+    }
+    .stat-strip-card p {
+      margin: 0;
+      font-size: 0.75rem;
+      color: #64748b;
+      line-height: 1.35;
+    }
+
+    /* 3. 吸頂章節導覽藥丸列 */
+    .hub-nav-pills-bar {
+      position: sticky;
+      top: 64px;
+      z-index: 100;
+      background: rgba(3, 19, 30, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(115, 238, 228, 0.2);
+      padding: 8px 0;
+      margin-bottom: 16px;
+    }
+    .hub-nav-pills {
+      display: flex;
+      gap: 6px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 var(--side);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .hub-nav-pills::-webkit-scrollbar { display: none; }
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      color: #a0aec0;
+      text-decoration: none;
+      font-size: 0.72rem;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .nav-pill b {
+      font-family: 'IBM Plex Mono', monospace;
+      color: #73eee4;
+      font-size: 0.68rem;
+    }
+    .nav-pill:hover {
+      background: rgba(115, 238, 228, 0.12);
+      border-color: #73eee4;
+      color: #ffffff;
+    }
+
+    /* 4. 將 3 個空虛的 Immersive Chapter 壓縮為 60px 精緻 HUD 隔線 */
+    .immersive-chapter {
+      min-height: 60px !important;
+      padding: 12px var(--side) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      background-size: cover !important;
+      border-top: 1px solid rgba(115, 238, 228, 0.25) !important;
+      border-bottom: 1px solid rgba(115, 238, 228, 0.25) !important;
+      margin: 12px 0 !important;
+    }
+    .immersive-chapter::before {
+      opacity: 0.7 !important;
+    }
+    .immersive-chapter .chapter-rail {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      margin: 0 !important;
+    }
+    .immersive-chapter .chapter-rail span {
+      font-size: 11px !important;
+      color: #73eee4 !important;
+    }
+    .immersive-chapter .chapter-rail b {
+      font-size: 13px !important;
+      line-height: 1.1 !important;
+      color: #ffffff !important;
+    }
+    .immersive-chapter .chapter-rail b br {
+      display: none !important;
+    }
+    .immersive-chapter .chapter-copy {
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 16px !important;
+    }
+    .immersive-chapter .chapter-copy p {
+      display: none !important;
+    }
+    .immersive-chapter .chapter-copy h2 {
+      font-size: clamp(15px, 1.4vw, 19px) !important;
+      margin: 0 !important;
+      line-height: 1.2 !important;
+      color: #f1f5f9 !important;
+      max-width: 100% !important;
+    }
+    .immersive-chapter .chapter-copy h2 br {
+      display: none !important;
+    }
+    .immersive-chapter .chapter-copy span {
+      font-size: 11px !important;
+      color: #94a3b8 !important;
+      margin: 0 !important;
+    }
+    .immersive-chapter .chapter-cue {
+      display: none !important;
+    }
+
+    /* 5. 全域 Section 垂直間距極致收斂 */
+    .section {
+      padding-top: var(--section-pad) !important;
+      padding-bottom: var(--section-pad) !important;
+    }
+    .section-heading,
+    .section-heading.compact,
+    .evidence-title,
+    .learning-head {
+      margin-bottom: 20px !important;
+    }
+    .closing-section {
+      min-height: 360px !important;
+      padding: 40px var(--side) !important;
+    }
+    .closing-section h2 {
+      max-width: 100% !important;
+      margin: 0 0 24px !important;
+      font-size: clamp(28px, 3.8vw, 48px) !important;
+      line-height: 1.2 !important;
+    }
+
+    /* 6. 徹底解決標題換行與 5 行斷行缺陷 */
+    h1, h2, h3 {
+      max-width: 100% !important;
+      text-wrap: balance !important;
+      line-height: 1.25 !important;
+    }
+    .assurance-preview-head h2 {
+      max-width: 100% !important;
+      font-size: clamp(1.8rem, 2.8vw, 2.8rem) !important;
+      line-height: 1.25 !important;
+    }
+
   </style>
 </head>
 <body data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
@@ -84,11 +351,17 @@
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-content">
         <p class="eyebrow light"><span>EXECUTIVE LEARNING EXPERIENCE</span><b>01 / SECURE STORAGE</b></p>
-        <h1 id="hero-title">永久保存資料<br><em>根金鑰不永久留存</em></h1>
-        <p class="hero-lede">以 SRAM PUF 每次上電重建 device-unique root key，再由 AES-256 保護 OTP 內容。在已驗證的 shutdown 條件下，不保留刻意儲存或仍由電源維持的 reconstructed root。SRAM device mismatch、helper material 與 lifecycle state 可能持續存在；只有在 composed controls 成立時，sensitive payload 才應以 ciphertext 留存。</p>
+        <h1 id="hero-title">
+          <span data-lang="zh">永久保存資料<br><em>根金鑰不永久留存</em></span>
+          <span data-lang="en">Permanent Data At Rest<br><em>Ephemeral Silicon Root Key</em></span>
+        </h1>
+        <p class="hero-lede">
+          <span data-lang="zh">以 SRAM PUF 每次上電重建 device-unique root key，再由 AES-256 保護 OTP 內容。在已驗證的 shutdown 條件下，不保留刻意儲存或仍由電源維持的 reconstructed root。SRAM device mismatch、helper material 與 lifecycle state 可能持續存在；只有在 composed controls 成立時，sensitive payload 才應以 ciphertext 留存。</span>
+          <span data-lang="en">Reconstruct a device-unique root key from SRAM PUF at power-up, then protect OTP content with AES-256. Under verified shutdown, no intentionally stored or power-sustained reconstructed root remains. Transistor mismatch, helper material and lifecycle state may persist; only when composed controls hold does sensitive payload remain protected as ciphertext.</span>
+        </p>
         <div class="hero-actions">
-          <a class="button primary" href="#power-lab">探索 Power-off State <svg><use href="#i-arrow"/></svg></a>
-          <a class="button ghost" href="oip-secure-storage.html">開啟 OIP Brief</a>
+          <a class="button primary" href="#power-lab"><span data-lang="zh">探索 Power-off State</span><span data-lang="en">Explore Power-off State</span> <svg><use href="#i-arrow"/></svg></a>
+          <a class="button ghost" href="oip-secure-storage.html"><span data-lang="zh">開啟 OIP Brief</span><span data-lang="en">Open OIP Brief</span></a>
         </div>
         <div class="hero-proof" aria-label="Synopsys 公開的產品組合資料">
           <div data-record-id="OIP-PUF-SCALE-001"><strong>&gt;1.5B</strong><span>devices using SRAM PUF technology</span></div>
@@ -101,6 +374,60 @@
       <a class="scroll-cue" href="#thesis"><span>SCROLL TO EXPLORE</span><i></i></a>
     </section>
 
+    <!-- 4-Metric 規格彩條 (Executive Stat Strip) -->
+    <div class="stat-strip-compact" aria-label="Secure Storage 核心指標">
+      <div class="stat-strip-grid">
+        <div class="stat-strip-card border-l-cyan">
+          <div class="stat-card-head">
+            <span class="meta-code">RULE #01 · ZERO STORAGE</span>
+            <span class="pulse-chip-mini"></span>
+          </div>
+          <div class="stat-val">ABSENT AT REST</div>
+          <p><span data-lang="zh">SRAM PUF 上電即時重建，下電不留實體根金鑰痕跡</span><span data-lang="en">Reconstructed at power-up; zero physical root trace at rest</span></p>
+        </div>
+        <div class="stat-strip-card border-l-teal">
+          <div class="stat-card-head">
+            <span class="meta-code">RULE #02 · CIPHER DATA</span>
+            <span class="pulse-chip-mini"></span>
+          </div>
+          <div class="stat-val">AES-256 GCM</div>
+          <p><span data-lang="zh">硬體密碼引擎保護 OTP 內容，實體讀出僅得密文</span><span data-lang="en">Hardware crypto engine protects OTP payload as ciphertext</span></p>
+        </div>
+        <div class="stat-strip-card border-l-emerald">
+          <div class="stat-card-head">
+            <span class="meta-code">RULE #03 · PROVEN SCALE</span>
+            <span class="pulse-chip-mini"></span>
+          </div>
+          <div class="stat-val">&gt;1.5B UNITS</div>
+          <p><span data-lang="zh">超過 15 年晶圓驗證歷史，量產部署於全球一線 Foundry</span><span data-lang="en">&gt;15 years proven silicon history across global tier-1 foundries</span></p>
+        </div>
+        <div class="stat-strip-card border-l-amber">
+          <div class="stat-card-head">
+            <span class="meta-code">RULE #04 · ADVANCED NODES</span>
+            <span class="pulse-chip-mini"></span>
+          </div>
+          <div class="stat-val">N7 → N3P</div>
+          <p><span data-lang="zh">純邏輯製程相容，無額外光罩直達 FinFET / GAA 節點</span><span data-lang="en">Pure logic compatible; 0 extra masks into FinFET/GAA nodes</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 吸頂章節導覽藥丸列 (Sticky Nav Pills Bar) -->
+    <nav class="hub-nav-pills-bar" aria-label="章節快速跳轉導覽">
+      <div class="hub-nav-pills">
+        <a class="nav-pill" href="#thesis"><b>01</b><span><small data-lang="zh">核心主張</small><small data-lang="en">Thesis</small></span></a>
+        <a class="nav-pill" href="#power-lab"><b>02</b><span><small data-lang="zh">電源實驗室</small><small data-lang="en">Power Lab</small></span></a>
+        <a class="nav-pill" href="#attack-signals"><b>03</b><span><small data-lang="zh">威脅模型</small><small data-lang="en">Threat Model</small></span></a>
+        <a class="nav-pill" href="#assurance"><b>04</b><span><small data-lang="zh">安全確證</small><small data-lang="en">Assurance</small></span></a>
+        <a class="nav-pill" href="#identity-stack"><b>05</b><span><small data-lang="zh">信任階層</small><small data-lang="en">Trust Stack</small></span></a>
+        <a class="nav-pill" href="#architecture"><b>06</b><span><small data-lang="zh">架構流程</small><small data-lang="en">Architecture</small></span></a>
+        <a class="nav-pill" href="#lifecycle"><b>07</b><span><small data-lang="zh">生命週期</small><small data-lang="en">Lifecycle</small></span></a>
+        <a class="nav-pill" href="#compare"><b>08</b><span><small data-lang="zh">技術矩陣</small><small data-lang="en">Comparison</small></span></a>
+        <a class="nav-pill" href="#evidence"><b>09</b><span><small data-lang="zh">矽驗證</small><small data-lang="en">Evidence</small></span></a>
+        <a class="nav-pill" href="#applications"><b>10</b><span><small data-lang="zh">落地應用</small><small data-lang="en">Applications</small></span></a>
+      </div>
+    </nav>
+
     <section class="signal-strip" aria-label="核心產品構成">
       <span><svg><use href="#i-fingerprint"/></svg>SRAM PUF</span>
       <i></i><span><svg><use href="#i-cipher"/></svg>AES-256</span>
@@ -112,7 +439,10 @@
       <div class="section-index">01</div>
       <div class="section-kicker">THE EXECUTIVE THESIS</div>
       <div class="thesis-grid">
-        <h2>安全不只取決於資料能保存多久<br><em>更取決於攻擊發生時，晶片裡還留下什麼</em></h2>
+        <h2>
+          <span data-lang="zh">安全不只取決於資料能保存多久<br><em>更取決於攻擊發生時，晶片裡還留下什麼</em></span>
+          <span data-lang="en">Security is not just how long data lasts,<br><em>but what remains in silicon under attack</em></span>
+        </h2>
         <div class="thesis-copy">
           <p>OTP 解決永久性；Secure Storage 解決機密性。即使攻擊者成功觀察記憶體狀態，他取得的也應該是受保護資料，而不是可直接使用的 root secret。</p>
           <a class="text-link" href="#power-lab">用 Power-off State 檢驗設計 <svg><use href="#i-arrow"/></svg></a>
@@ -129,7 +459,10 @@
       <div class="chapter-rail"><span>LENS 01</span><i></i><b>IP<br>CONTRACT</b></div>
       <div class="chapter-copy">
         <p>FROM PRIMITIVE TO INTEGRATED SUBSYSTEM</p>
-        <h2>好的矽智財，必須定義清楚<br><em>整合邊界也必須可以驗證</em></h2>
+        <h2>
+          <span data-lang="zh">好的矽智財，必須定義清楚<br><em>整合邊界也必須可以驗證</em></span>
+          <span data-lang="en">Quality silicon IP requires clear definitions<br><em>and verifiable integration boundaries</em></span>
+        </h2>
         <span>Architecture · interface · lifecycle · deliverables</span>
       </div>
       <a href="#power-lab" class="chapter-cue" aria-label="Continue to power state">↓</a>
@@ -138,7 +471,10 @@
     <section id="power-lab" class="section power-lab reveal" data-state="off">
       <div class="power-copy">
         <p class="eyebrow">INTERACTIVE · POWER STATE</p>
-        <h2 class="split-statement"><span class="statement-premise">先關掉電源</span><span class="statement-resolution">再看攻擊者能取得什麼</span></h2>
+        <h2 class="split-statement">
+          <span data-lang="zh"><span class="statement-premise">先關掉電源</span><span class="statement-resolution">再看攻擊者能取得什麼</span></span>
+          <span data-lang="en"><span class="statement-premise">Power off first,</span><span class="statement-resolution">then see what an attacker recovers</span></span>
+        </h2>
         <p class="section-lede">切換狀態，觀察 root key 的存在窗口。Secure Storage 的主張不是物理攻擊會消失，而是成功讀取後能揭露的內容被限制。</p>
         <div class="state-switch" role="group" aria-label="切換電源狀態">
           <button class="active" type="button" data-power="off"><svg><use href="#i-power"/></svg>POWER OFF</button>
@@ -167,9 +503,15 @@
       </div>
     </section>
 
-    <section class="section attack-section reveal" data-record-id="OIP-OTP-001">
+    <section id="attack-signals" class="section attack-section reveal" data-record-id="OIP-OTP-001">
       <div class="section-heading">
-        <div><p class="eyebrow">PUBLIC ATTACK SIGNAL</p><h2>用公開攻擊界定 threat model，<br>再把它轉成產品要求</h2></div>
+        <div>
+          <p class="eyebrow">PUBLIC ATTACK SIGNAL</p>
+          <h2>
+            <span data-lang="zh">用公開攻擊界定 threat model，<br>再把它轉成產品要求</span>
+            <span data-lang="en">Anchor threat models in public attacks,<br>then translate them to product specs</span>
+          </h2>
+        </div>
         <p>RP2350 是特定實作的公開 case，不代表所有 OTP 都同樣可攻。它揭示兩條平行路徑：fault 可能破壞 control assumptions；FIB／PVC 則接近 physical bit-state recovery。產品要求因此是：即使 readout 成功，也不應直接得到 usable secret。</p>
       </div>
       <div class="attack-journey">
@@ -185,7 +527,10 @@
       <div class="assurance-preview-head">
         <div>
           <p class="eyebrow">PHYSICAL SECURITY ASSURANCE</p>
-          <h2 id="assurance-preview-title"><span data-assurance-zh>安全主張，必須經得起實體攻擊驗證</span><span data-assurance-en>Security claims must survive physical validation</span></h2>
+          <h2 id="assurance-preview-title">
+            <span data-assurance-zh>安全主張，必須經得起實體攻擊驗證</span>
+            <span data-assurance-en>Security claims must survive<br>physical validation</span>
+          </h2>
         </div>
         <p><span data-assurance-zh>從威脅方法、可觀察訊號與故障注入，到緩解措施、測試證據與第三方確證；讓每一項 Secure NVM 主張都能被追溯。</span><span data-assurance-en>Trace every Secure NVM claim from threat method and observable signal to mitigation, test evidence and independent assurance.</span></p>
       </div>
@@ -271,7 +616,10 @@
     <section id="architecture" class="section architecture-section reveal" data-record-id="OIP-ARCH-001">
       <div class="architecture-intro">
         <p class="eyebrow light">THE PRODUCT IS THE INTEGRATION</p>
-        <h2 class="split-statement"><span class="statement-premise">四個功能區塊協同運作</span><span class="statement-resolution">共同交付一個安全結果</span></h2>
+        <h2 class="split-statement">
+          <span data-lang="zh"><span class="statement-premise">四個功能區塊協同運作</span><span class="statement-resolution">共同交付一個安全結果</span></span>
+          <span data-lang="en"><span class="statement-premise">Four functional blocks compose</span><span class="statement-resolution">to deliver a unified security outcome</span></span>
+        </h2>
         <p>產品決策不只評估四個各自正確的 primitives，而是評估從 root、crypto、storage、control 到 lifecycle 是否形成責任邊界清楚的 subsystem。</p>
       </div>
       <div class="architecture-canvas">
@@ -294,7 +642,13 @@
 
     <section id="lifecycle" class="section lifecycle-section reveal">
       <div class="section-heading compact">
-        <div><p class="eyebrow">ROOT-KEY LIFECYCLE</p><h2>金鑰只在需要工作的時候存在</h2></div>
+        <div>
+          <p class="eyebrow">ROOT-KEY LIFECYCLE</p>
+          <h2>
+            <span data-lang="zh">金鑰只在需要工作的時候存在</span>
+            <span data-lang="en">Keys exist only when actively working</span>
+          </h2>
+        </div>
         <p>不是「把 key 藏得更好」，而是把存在時間縮短成受控窗口。</p>
       </div>
       <div class="lifecycle-track" role="group" aria-label="Root key lifecycle">
@@ -315,7 +669,10 @@
       <div class="chapter-rail"><span>LENS 02</span><i></i><b>MEASURE<br>THE CLAIM</b></div>
       <div class="chapter-copy align-right">
         <p>FROM ARCHITECTURE TO EVIDENCE</p>
-        <h2 class="split-statement"><span class="statement-premise">提出技術宣稱</span><span class="statement-resolution">也要提出可以驗證的方法</span></h2>
+        <h2 class="split-statement">
+          <span data-lang="zh"><span class="statement-premise">提出技術宣稱</span><span class="statement-resolution">也要提出可以驗證的方法</span></span>
+          <span data-lang="en"><span class="statement-premise">Every technical claim</span><span class="statement-resolution">must have a verifiable methodology</span></span>
+        </h2>
         <span>PVT · BER · retention · attack evaluation</span>
       </div>
       <a href="#compare" class="chapter-cue" aria-label="Continue to comparison">↓</a>
@@ -323,7 +680,13 @@
 
     <section id="compare" class="section comparison-section reveal">
       <div class="comparison-head">
-        <div><p class="eyebrow light">PRECISE COMPETITIVE POSITIONING</p><h2 class="split-statement"><span class="statement-premise">先建立公平的比較基準</span><span class="statement-resolution">再判斷真正的技術差異</span></h2></div>
+        <div>
+          <p class="eyebrow light">PRECISE COMPETITIVE POSITIONING</p>
+          <h2 class="split-statement">
+            <span data-lang="zh"><span class="statement-premise">先建立公平的比較基準</span><span class="statement-resolution">再判斷真正的技術差異</span></span>
+            <span data-lang="en"><span class="statement-premise">Establish fair comparison baselines</span><span class="statement-resolution">to judge true technical distinction</span></span>
+          </h2>
+        </div>
         <div class="compare-switch" role="group" aria-label="比較層級">
           <button class="active" type="button" data-view="puf" aria-pressed="true">PUF LEVEL</button>
           <button type="button" data-view="product" aria-pressed="false">PRODUCT LEVEL</button>
@@ -360,14 +723,24 @@
       <div class="chapter-rail"><span>LENS 03</span><i></i><b>SECURE<br>SILICON</b></div>
       <div class="chapter-copy">
         <p>ONE ACCOUNTABLE SUBSYSTEM</p>
-        <h2>信任不只存在於單一功能<br><em>它必須落實在系統邊界之內</em></h2>
+        <h2>
+          <span data-lang="zh">信任不只存在於單一功能<br><em>它必須落實在系統邊界之內</em></span>
+          <span data-lang="en">Trust extends beyond a single function;<br><em>it must be enforced within system boundaries</em></span>
+        </h2>
         <span>Root · protect · control · detect · prove</span>
       </div>
       <a href="#evidence" class="chapter-cue" aria-label="Continue to evidence">↓</a>
     </section>
 
     <section id="evidence" class="section evidence-section reveal" data-record-ids="OIP-PUF-SCALE-001 OIP-PUF-HISTORY-001 OIP-OTP-SCALE-001 OIP-NODE-001">
-      <div class="evidence-title"><p class="eyebrow">VENDOR-REPORTED PORTFOLIO CONTEXT</p><h2 class="split-statement"><span class="statement-premise">成熟度能縮小不確定性</span><span class="statement-resolution">Target evidence 才能決定適用性</span></h2><p>長期 deployment、PVT、aging、認證與修補紀錄可降低起始風險；但不會自動轉移到 licensed Secure Storage configuration。</p></div>
+      <div class="evidence-title">
+        <p class="eyebrow">VENDOR-REPORTED PORTFOLIO CONTEXT</p>
+        <h2 class="split-statement">
+          <span data-lang="zh"><span class="statement-premise">成熟度能縮小不確定性</span><span class="statement-resolution">Target evidence 才能決定適用性</span></span>
+          <span data-lang="en"><span class="statement-premise">Maturity reduces uncertainty;</span><span class="statement-resolution">Target evidence decides applicability</span></span>
+        </h2>
+        <p><span data-lang="zh">長期 deployment、PVT、aging、認證與修補紀錄可降低起始風險；但不會自動轉移到 licensed Secure Storage configuration。</span><span data-lang="en">Long-term deployment, PVT, aging, certification and repair history reduce baseline risk; they do not automatically transfer to a licensed target configuration.</span></p>
+      </div>
       <div class="evidence-numbers">
         <article data-record-id="OIP-PUF-SCALE-001"><svg><use href="#i-chip"/></svg><strong data-count="1.5">&gt;1.5B</strong><span>devices using Synopsys SRAM PUF technology</span></article>
         <article data-record-id="OIP-PUF-HISTORY-001"><svg><use href="#i-evidence"/></svg><strong data-count="15">&gt;15</strong><span>years of proven SRAM PUF technology</span></article>
@@ -391,7 +764,13 @@
 
     <section class="section applications-section reveal">
       <div class="section-heading">
-        <div><p class="eyebrow">ONE ARCHITECTURE · FOUR OUTCOMES</p><h2>技術價值，最終必須落在要保護的資產</h2></div>
+        <div>
+          <p class="eyebrow">ONE ARCHITECTURE · FOUR OUTCOMES</p>
+          <h2>
+            <span data-lang="zh">技術價值，最終必須落在要保護的資產</span>
+            <span data-lang="en">Technical value must protect target assets</span>
+          </h2>
+        </div>
         <p>相同的 root-key lifecycle，因應不同市場中最昂貴、最敏感、最難替換的資料。</p>
       </div>
       <div class="application-grid">
@@ -404,7 +783,10 @@
 
     <section class="section accountability-section reveal">
       <div class="accountability-line"><span>PRIMITIVE SECURITY</span><i></i><span>SOC DELIVERY</span></div>
-      <h2>產品決策不只涵蓋功能<br><em>也必須涵蓋可歸責的安全結果</em></h2>
+      <h2>
+        <span data-lang="zh">產品決策不只涵蓋功能<br><em>也必須涵蓋可歸責的安全結果</em></span>
+        <span data-lang="en">Product decisions cover features<br><em>and accountable security outcomes</em></span>
+      </h2>
       <div class="ownership-flow">
         <div><svg><use href="#i-fingerprint"/></svg><b>ROOT</b><span>SRAM PUF</span></div><i></i>
         <div><svg><use href="#i-cipher"/></svg><b>CRYPTO</b><span>AES-256</span></div><i></i>
@@ -417,7 +799,13 @@
 
     <section id="learn" class="section learning-section reveal">
       <div class="learning-head">
-        <div><p class="eyebrow light">NVM KNOWLEDGE HUB</p><h2>從技術名詞，走到可以做決策</h2></div>
+        <div>
+          <p class="eyebrow light">NVM KNOWLEDGE HUB</p>
+          <h2>
+            <span data-lang="zh">從技術名詞，走到可以做決策</span>
+            <span data-lang="en">From technical jargon to actionable decisions</span>
+          </h2>
+        </div>
         <label class="search-box"><svg><use href="#i-search"/></svg><input id="searchInput" type="search" placeholder="搜尋 OTP、PUF、retention、fault…" aria-label="搜尋學習內容"></label>
       </div>
       <div class="learning-body">
@@ -435,7 +823,10 @@
     <section id="research-topics" class="section research-launch reveal">
       <div class="research-launch-copy">
         <p class="eyebrow">02 / RESEARCH TOPICS · EXPANDING</p>
-        <h2>從記憶體物理，走到 AI 系統邊界<br><em>證據先於機會推論</em></h2>
+        <h2>
+          <span data-lang="zh">從記憶體物理，走到 AI 系統邊界<br><em>證據先於機會推論</em></span>
+          <span data-lang="en">From memory physics to AI system frontiers<br><em>Evidence before opportunity inference</em></span>
+        </h2>
         <p>一條研究線拆解 bit-cell 與 sensing；另一條把 identity、repair、calibration、firmware 與 RAS evidence 映射到正確的 persistent-state contract。</p>
         <div class="research-topic-links">
           <a href="ai-nvm-opportunities.html"><small>NEW · AI SYSTEMS</small><strong>Persistent State Across AI Silicon</strong><span>Proof → state contract → NVM opportunity</span></a><a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a>

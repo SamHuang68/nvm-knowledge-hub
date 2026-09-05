@@ -710,8 +710,8 @@ footer { display: grid; grid-template-columns: 1fr auto auto; align-items: cente
 }
 .assurance-preview::before { content:""; position:absolute; inset:0; opacity:.18; background: repeating-linear-gradient(90deg, transparent 0 78px, rgba(255,255,255,.1) 79px 80px), repeating-linear-gradient(0deg, transparent 0 78px, rgba(255,255,255,.08) 79px 80px); }
 .assurance-preview > * { position:relative; }
-.assurance-preview-head { display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(2rem,6vw,7rem); align-items:end; }
-.assurance-preview-head h2 { margin:.8rem 0 0; max-width:13ch; font-size:clamp(2.4rem,5vw,5.6rem); line-height:1.13; letter-spacing:-.035em; font-weight:650; }
+.assurance-preview-head { display:grid; grid-template-columns:1.2fr .8fr; gap:clamp(2rem,4vw,4rem); align-items:end; }
+.assurance-preview-head h2 { margin:.8rem 0 0; max-width:100%; font-size:clamp(1.8rem,3vw,3rem); line-height:1.2; letter-spacing:-.025em; font-weight:650; }
 .assurance-preview-head > p { color:#b8ccd0; line-height:1.85; max-width:42rem; }
 [data-assurance-en] { display:none; }
 body[data-language="en"] [data-assurance-zh] { display:none; }
@@ -782,7 +782,7 @@ body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; 
 .assurance-chain article:hover { transform:translateY(-5px); background:rgba(255,255,255,.075); border-color:#e0ac67; }
 @media (max-width:720px) {
   body[data-language="zh"] h1,body[data-language="zh"] h2 { letter-spacing:-.018em; line-break:strict; word-break:keep-all; overflow-wrap:normal; }
-  .hero-content h1 { max-width:10.5ch; line-height:1.18; }
+  .hero-content h1 { max-width:100%; line-height:1.2; }
   .hero-lede { font-size:1rem; line-height:1.8; }
   .section { padding-top:5.2rem; padding-bottom:5.2rem; }
   .thesis-cards article:hover,.attack-journey article:hover,.application-grid article:hover,.evidence-numbers article:hover,.article-card:hover { transform:none; }

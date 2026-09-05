@@ -369,3 +369,10 @@ footer.hub-footer {
     padding: 4px 0;
   }
 }
+
+/* 全域標題防禦：杜絕過窄容器或字元限制導致英文標題折斷為 4-5 行單字 */
+h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assurance-preview h2 {
+  max-width: 100% !important;
+  text-wrap: balance;
+  line-height: 1.25;
+}
