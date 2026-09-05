@@ -257,17 +257,38 @@
       border-radius: 8px;
       padding: 1.5rem 1.75rem;
     }
+    .formula-card h4 {
+      color: #fff;
+      margin: 0 0 0.5rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.02rem;
+      line-height: 1.35;
+    }
     .formula-box-math {
       background: #03131e;
       border: 1px solid rgba(113, 236, 227, 0.18);
       border-radius: 6px;
       padding: 1.25rem 1.5rem;
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       color: #73eee4;
       margin: 1rem 0;
       overflow-x: auto;
       text-align: center;
+      line-height: 1.7;
+    }
+    .formula-box-math em {
+      font-style: italic;
+      color: #73eee4;
+    }
+    .formula-box-math sub,
+    .formula-box-math sup {
+      font-size: 0.72em;
+      font-style: normal;
+    }
+    .formula-notes {
+      font: 500 11.5px/1.65 'IBM Plex Mono', monospace;
+      color: #8ea9b3;
     }
 
     /* Decision Selector Styles */
@@ -768,63 +789,92 @@
           <span data-lang="zh">第一性原理物理模型與晶圓成本經濟學方程式</span>
           <span data-lang="en">First-Principles Physics &amp; Wafer Economics Equations</span>
         </h2>
+        <p style="color:#475569;font-size:0.92rem;line-height:1.65;max-width:46rem;margin:0.75rem 0 0;">
+          <span data-lang="zh">三條可檢查的恆等式：穿隧崩潰、光罩加價、次閾值漏電。用來約束選型，不是代工廠報價，也不是出貨證明。</span>
+          <span data-lang="en">Three inspectable identities — breakdown tunneling, mask-adder cost, subthreshold leakage — constrain selection. They are not foundry quotes and not shipment proof.</span>
+        </p>
       </div>
 
       <div class="formula-card-grid">
         <!-- Formula 1: Fowler-Nordheim Tunneling -->
         <div class="formula-card">
           <div class="hub-sec-badge" style="color:#73eee4;">EQUATION 01 · ANTIFUSE BREAKDOWN</div>
-          <h4 style="color:#fff; margin: 0 0 0.5rem; font-family:'IBM Plex Mono',monospace;">Fowler-Nordheim 穿隧與崩潰電流</h4>
+          <h4>
+            <span data-lang="zh">Fowler–Nordheim 穿隧與崩潰電流</span>
+            <span data-lang="en">Fowler–Nordheim tunneling current</span>
+          </h4>
           <p style="color:#94a3b8; font-size:0.88rem; line-height:1.55;">
-            <span data-lang="zh">薄閘極氧化層在高電場 ($E_{\mathrm{ox}} > 10\mathrm{MV/cm}$) 下誘發載子穿隧與撞擊游離，形成局域導電微絲：</span>
-            <span data-lang="en">Carrier tunneling and percolation impact breakdown under extreme oxide electric fields:</span>
+            <span data-lang="zh">薄閘極氧化層在高電場（E<sub>ox</sub> > 10&nbsp;MV/cm）下誘發載子穿隧與撞擊游離，形成局域導電微絲：</span>
+            <span data-lang="en">Carrier tunneling and percolation under extreme oxide field (E<sub>ox</sub> > 10&nbsp;MV/cm) form a local conductive filament:</span>
           </p>
           <div class="formula-box-math">
-            J_{\mathrm{FN}} = A_{\mathrm{FN}} \cdot E_{\mathrm{ox}}^2 \cdot \exp\left(-rac{B_{\mathrm{FN}}}{E_{\mathrm{ox}}}
-ight)
+            <em>J</em><sub>FN</sub> = <em>A</em><sub>FN</sub> · <em>E</em><sub>ox</sub><sup>2</sup> · exp(−<em>B</em><sub>FN</sub> / <em>E</em><sub>ox</sub>)
           </div>
-          <div style="font: 500 11px 'IBM Plex Mono', monospace; color: #8ea9b3; line-height: 1.6;">
-            • $A_{\mathrm{FN}} = rac{q^3}{8\pi h \Phi_B}$, $B_{\mathrm{FN}} = rac{8\pi\sqrt{2m^*}\Phi_B^{3/2}}{3qh}$<br>
-            • $\Phi_B pprox 3.15\,\mathrm{eV}$ (Si-SiO₂ 界面能障)，$m^* pprox 0.5\,m_0$<br>
-            • 崩潰後形成金屬矽化物微絲，阻值由 $>10^{11}\Omega$ 驟降至 $pprox 10^2\Omega$。
+          <div class="formula-notes">
+            <span data-lang="zh">
+              • A<sub>FN</sub> = q<sup>3</sup> / (8π h Φ<sub>B</sub>)，B<sub>FN</sub> = 8π √(2m*) Φ<sub>B</sub><sup>3/2</sup> / (3 q h)<br>
+              • Φ<sub>B</sub> ≈ 3.15&nbsp;eV（Si–SiO<sub>2</sub> 界面能障），m* ≈ 0.5 m<sub>0</sub><br>
+              • 編程後模型：阻值由 >10<sup>11</sup> Ω 降至約 10<sup>2</sup> Ω。這是位元胞物理描述，不是出貨規格。
+            </span>
+            <span data-lang="en">
+              • A<sub>FN</sub> = q<sup>3</sup> / (8π h Φ<sub>B</sub>), B<sub>FN</sub> = 8π √(2m*) Φ<sub>B</sub><sup>3/2</sup> / (3 q h)<br>
+              • Φ<sub>B</sub> ≈ 3.15&nbsp;eV (Si–SiO<sub>2</sub> barrier), m* ≈ 0.5 m<sub>0</sub><br>
+              • Programmed-state model: resistance falls from >10<sup>11</sup> Ω to ~10<sup>2</sup> Ω. Physics description, not a shipment spec.
+            </span>
           </div>
         </div>
 
         <!-- Formula 2: Wafer Cost Economics -->
         <div class="formula-card">
           <div class="hub-sec-badge" style="color:#f59e0b;">EQUATION 02 · WAFER COST ADDER</div>
-          <h4 style="color:#fff; margin: 0 0 0.5rem; font-family:'IBM Plex Mono',monospace;">額外光罩晶圓成本經濟學方程式</h4>
+          <h4>
+            <span data-lang="zh">額外光罩晶圓成本恆等式</span>
+            <span data-lang="en">Mask-adder wafer cost identity</span>
+          </h4>
           <p style="color:#94a3b8; font-size:0.88rem; line-height:1.55;">
-            <span data-lang="zh">評估嵌入式記憶體額外光罩道數 ($N_{\mathrm{extra}}$) 對單片晶圓製造成本與良率之加權衝擊：</span>
-            <span data-lang="en">Wafer fabrication cost impact as a function of dedicated process mask adders:</span>
+            <span data-lang="zh">用額外光罩道數 N<sub>extra</sub> 與良率折損 ΔY<sub>nvm</sub>，把製程加價寫成可檢查的成本恆等式，而不是代工廠報價：</span>
+            <span data-lang="en">Express process adder as an inspectable identity in extra masks N<sub>extra</sub> and yield hit ΔY<sub>nvm</sub> — not a foundry quote:</span>
           </p>
           <div class="formula-box-math">
-            C_{\mathrm{wafer}} = C_{\mathrm{base}} \cdot \left(1 + \sum_{i=1}^{N_{\mathrm{extra}}} \gamma_i
-ight) \cdot rac{1}{(Y_{\mathrm{base}} - \Delta Y_{\mathrm{nvm}})}
+            <em>C</em><sub>wafer</sub> = <em>C</em><sub>base</sub> · (1 + Σ γ<sub>i</sub>) / (<em>Y</em><sub>base</sub> − Δ<em>Y</em><sub>nvm</sub>)
           </div>
-          <div style="font: 500 11px 'IBM Plex Mono', monospace; color: #8ea9b3; line-height: 1.6;">
-            • eFlash: $N_{\mathrm{extra}} = 8\sim 12$，$\Delta C_{\mathrm{wafer}} pprox +35\%\sim 45\%$<br>
-            • STT-MRAM: $N_{\mathrm{extra}} = 3\sim 5$ (BEOL)，$\Delta C_{\mathrm{wafer}} pprox +15\%\sim 22\%$<br>
-            • AntiFuse OTP: $N_{\mathrm{extra}} = 0$ (純邏輯相容)，$\Delta C_{\mathrm{wafer}} = 0\%$ 零溢價！
+          <div class="formula-notes">
+            <span data-lang="zh">
+              • eFlash：公開文獻常見 N<sub>extra</sub> = 8–12，ΔC 量級約 +30%–45%<br>
+              • STT-MRAM：BEOL 常見 N<sub>extra</sub> = 3–5，ΔC 量級約 +15%–22%<br>
+              • AntiFuse OTP：本恆等式取 N<sub>extra</sub> = 0（邏輯相容）。零額外光罩 ≠ 晶圓免費。
+            </span>
+            <span data-lang="en">
+              • eFlash: public literature often cites N<sub>extra</sub> = 8–12; ΔC order +30%–45%<br>
+              • STT-MRAM: BEOL often N<sub>extra</sub> = 3–5; ΔC order +15%–22%<br>
+              • AntiFuse OTP: this identity sets N<sub>extra</sub> = 0 (logic-compatible). Zero extra masks ≠ free wafers.
+            </span>
           </div>
         </div>
 
         <!-- Formula 3: Subthreshold Leakage -->
         <div class="formula-card">
           <div class="hub-sec-badge" style="color:#34d399;">EQUATION 03 · STATIC LEAKAGE</div>
-          <h4 style="color:#fff; margin: 0 0 0.5rem; font-family:'IBM Plex Mono',monospace;">次閾值漏電與長效待機耗能模型</h4>
+          <h4>
+            <span data-lang="zh">次閾值漏電與長效待機模型</span>
+            <span data-lang="en">Subthreshold leakage, always-on domain</span>
+          </h4>
           <p style="color:#94a3b8; font-size:0.88rem; line-height:1.55;">
-            <span data-lang="zh">超低功耗 (ULP) 邊緣節點 Always-On 域由次閾值熱游離擴散主導：</span>
-            <span data-lang="en">Static leakage power in always-on edge MCU domains dominated by subthreshold diffusion:</span>
+            <span data-lang="zh">超低功耗邊緣節點 Always-On 域，靜態漏電由次閾值熱游離擴散主導：</span>
+            <span data-lang="en">Static leakage in always-on edge MCU domains is dominated by subthreshold diffusion:</span>
           </p>
           <div class="formula-box-math">
-            I_{\mathrm{leak}} = I_0 \cdot 10^{rac{V_{\mathrm{gs}} - V_{\mathrm{th}}}{S}} \cdot \left(1 - \exp\left(-rac{qV_{\mathrm{ds}}}{k_B T}
-ight)
-ight)
+            <em>I</em><sub>leak</sub> = <em>I</em><sub>0</sub> · 10<sup>(<em>V</em><sub>gs</sub> − <em>V</em><sub>th</sub>)/<em>S</em></sup> · (1 − exp(−q <em>V</em><sub>ds</sub> / k<sub>B</sub><em>T</em>))
           </div>
-          <div style="font: 500 11px 'IBM Plex Mono', monospace; color: #8ea9b3; line-height: 1.6;">
-            • 亞閾值擺幅 $S pprox 70\sim 80\,\mathrm{mV/dec}$ @ 300K<br>
-            • AntiFuse 感測電路具備 Power-Gating 關閉能力，靜態漏電壓低至 $&lt;10\,\mathrm{nA}$。
+          <div class="formula-notes">
+            <span data-lang="zh">
+              • 亞閾值擺幅 S ≈ 70–80&nbsp;mV/dec @ 300&nbsp;K<br>
+              • 感測電路若可 power-gate，靜態漏電可壓到 &lt;10&nbsp;nA 量級。數字是設計目標，需矽驗證。
+            </span>
+            <span data-lang="en">
+              • Subthreshold swing S ≈ 70–80&nbsp;mV/dec @ 300&nbsp;K<br>
+              • If the sense path can be power-gated, static leakage can reach &lt;10&nbsp;nA class. Target, not silicon proof by itself.
+            </span>
           </div>
         </div>
       </div>
