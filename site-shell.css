@@ -853,6 +853,30 @@ h1 em,
 h2 em {
   color: #c4a574 !important;
 }
+.spec-card-val,
+.chip-v,
+.chip-v.green,
+.chip-v.purple,
+.chip-v.cyan,
+.chip-v.amber,
+.val-emerald,
+.val-purple,
+.deck-metric-val,
+.deck-step-card.border-green .deck-metric-val,
+.deck-step-card.border-purple .deck-metric-val,
+.hero-proof strong,
+.m3-hero-proof strong,
+.f2-hero-proof strong,
+.spread-val,
+.pass-text,
+.pass-label,
+.pass-sub,
+.pass-color .yield-number,
+.signal-chip.green,
+.signal-chip.purple,
+.stat-val {
+  color: #c4a574 !important;
+}
 input[type="range"] {
   accent-color: #c4a574;
 }

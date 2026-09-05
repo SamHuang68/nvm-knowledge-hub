@@ -25,7 +25,7 @@
   outline-offset: 3px;
 }
 
-.hub-page{--hub-cyan:#2bd4d5;--hub-aqua:#c4a574;--hub-ink:#061925;--hub-panel:#092331;--hub-paper:#eef2f0;background:var(--hub-ink);color:#eaf3f2;overflow-x:clip}.hub-page section[id]{scroll-margin-top:72px}
+.hub-page{--hub-cyan:#c4a574;--hub-aqua:#c4a574;--hub-ink:#061925;--hub-panel:#092331;--hub-paper:#eef2f0;background:var(--hub-ink);color:#eaf3f2;overflow-x:clip}.hub-page section[id]{scroll-margin-top:72px}
 html[data-language="en"] [data-lang="zh"], body[data-language="en"] [data-lang="zh"] { display: none !important; }
 html[data-language="zh"] [data-lang="en"], body[data-language="zh"] [data-lang="en"] { display: none !important; }
 .hub-page .site-header{position:sticky;top:0;z-index:50;background:rgba(4,24,35,.96);backdrop-filter:blur(18px);border-bottom:1px solid rgba(196,165,116,.14)}
@@ -644,8 +644,8 @@ body[data-language="zh"] [data-lang="en"] {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 8px #10b981;
+  background: #c4a574;
+  box-shadow: 0 0 8px #c4a574;
 }
 
 .stage-module-tag {

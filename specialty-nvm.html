@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<script src="site-language.js?v=20260906-navy-v1"></script>
+<script src="site-language.js?v=20260906-navy-v2"></script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Specialty NVM · BCD Power, Matrix Repair, HV Display &amp; E-Ink · NVM Knowledge Hub</title>
 <meta content="Flagship treatise on Specialty eNVM: BCD process for Power Management (PMIC, LED drivers, USB-PD, BLDC, BMIC), CIS &amp; DRAM array defect redundancy repair (BIST/BIRA/AntiFuse), High-Voltage Display Driver ICs, and E-Ink Ultra-HV Driving with MTP-to-OTP migration." name="description"/>
@@ -27,9 +27,9 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+TC:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css?v=20260906-navy-v1" rel="stylesheet"/>
-<link href="site-shell.css?v=20260906-navy-v1" rel="stylesheet"/>
-<link href="specialty-nvm.css?v=20260906-navy-v1" rel="stylesheet"/>
+<link href="styles.css?v=20260906-navy-v2" rel="stylesheet"/>
+<link href="site-shell.css?v=20260906-navy-v2" rel="stylesheet"/>
+<link href="specialty-nvm.css?v=20260906-navy-v2" rel="stylesheet"/>
 <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -197,7 +197,7 @@
       color: #8a6a42 !important;
     }
     body.specialty-page .status-verified {
-      background: #ecfdf5 !important;
+      background: #133445 !important;
       border: 1px solid rgba(5, 150, 105, 0.2) !important;
       color: #6f5536 !important;
     }
@@ -441,7 +441,7 @@
 <span data-lang="en">FIRST-PRINCIPLES PHYSICS</span>
 </div>
 <div class="stat-sub">
-<span style="color: #34d399;">
+<span style="color: #c4a574;">
 <span data-lang="zh">帶隙 · 泊松 · 伽瑪 · 斯托克斯</span>
 <span data-lang="en">Bandgap · Poisson · Gamma · Stokes</span>
 </span>
@@ -649,7 +649,7 @@
 <div style="font-family: monospace; font-size: 10.5px; color: #c4a574; display: flex; align-items: center; gap: 4px;">
 <span style="padding: 2px 5px; background: #0c4a6e; border-radius: 2px;">TRIM[4:0]</span>
 <span>=</span>
-<span style="padding: 2px 5px; background: #0284c7; color: #fff; font-weight: 700; border-radius: 2px;">10110b</span>
+<span style="padding: 2px 5px; background: #c4a574; color: #fff; font-weight: 700; border-radius: 2px;">10110b</span>
 </div>
 </div>
 <div class="deck-metric-callout">
@@ -701,9 +701,9 @@
 <span data-lang="en">Post-Trim Lock &amp; Pass</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 11px; color: #10b981; display: flex; align-items: center; gap: 6px;">
+<div style="font-family: monospace; font-size: 11px; color: #c4a574; display: flex; align-items: center; gap: 6px;">
 <span>VREF: 1.200V</span>
-<span style="padding: 1px 5px; background: rgba(16, 185, 129, 0.2); border-radius: 2px;">±0.35% IN-SPEC</span>
+<span style="padding: 1px 5px; background: rgba(196, 165, 116, 0.2); border-radius: 2px;">±0.35% IN-SPEC</span>
 </div>
 </div>
 <div class="deck-metric-callout">
@@ -817,7 +817,7 @@
 <span data-lang="en">Automotive Battery Safety</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 10px; color: #10b981; display: flex; align-items: center; gap: 4px;">
+<div style="font-family: monospace; font-size: 10px; color: #c4a574; display: flex; align-items: center; gap: 4px;">
 <span>16-24 CELLS</span>
 <span style="padding: 1px 4px; background: #064e3b; border-radius: 2px;">BLACK-BOX</span>
 </div>
@@ -954,9 +954,9 @@
 <path d="M 40 115 L 290 35" stroke="#c4a574" stroke-dasharray="4,3" stroke-width="2.5"></path>
 <text fill="#c4a574" font-size="10" font-weight="bold" x="45" y="110">PTAT: +2.0 mV/°C</text>
 <!-- 相消綠色平直水平線 -->
-<line stroke="#10b981" stroke-width="3.5" x1="40" x2="290" y1="75" y2="75"></line>
-<circle cx="165" cy="75" fill="#10b981" r="4.5" stroke="#fff" stroke-width="1.5"></circle>
-<text fill="#10b981" font-size="11" font-weight="bold" x="50" y="65">V_REF = 1.200V ZERO DRIFT (&lt;5 ppm/°C)</text>
+<line stroke="#c4a574" stroke-width="3.5" x1="40" x2="290" y1="75" y2="75"></line>
+<circle cx="165" cy="75" fill="#c4a574" r="4.5" stroke="#fff" stroke-width="1.5"></circle>
+<text fill="#c4a574" font-size="11" font-weight="bold" x="50" y="65">V_REF = 1.200V ZERO DRIFT (&lt;5 ppm/°C)</text>
 </svg>
 </div>
 </div>
@@ -1251,8 +1251,8 @@
 </h5>
 <div class="deck-visual-stage">
 <div style="display: flex; align-items: center; gap: 6px;">
-<div style="padding: 3px 6px; background: #064e3b; border: 1px solid #10b981; border-radius: 2px; font-family: monospace; font-size: 9px; color: #a7f3d0;">5.5V VPP</div>
-<span style="color: #10b981; font-size: 10px;">⚡</span>
+<div style="padding: 3px 6px; background: #064e3b; border: 1px solid #c4a574; border-radius: 2px; font-family: monospace; font-size: 9px; color: #a7f3d0;">5.5V VPP</div>
+<span style="color: #c4a574; font-size: 10px;">⚡</span>
 <div style="padding: 3px 6px; background: #042f2e; border: 1px solid #8a6a42; border-radius: 2px; font-family: monospace; font-size: 9px; color: #c4a574; font-weight: 700;">CAM REDIR</div>
 </div>
 </div>
@@ -1512,7 +1512,7 @@
 <div class="deck-visual-stage" style="flex-direction: column; gap: 4px; align-items: stretch;">
 <div style="background: #0c4a6e; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #e0f2fe; text-align: center;">TIER 1: 200MP PIXEL SENSOR</div>
 <div style="border-top: 1px dashed #facc15; font-family: monospace; font-size: 7.5px; color: #fde047; text-align: center; line-height: 1;">TSMC Cu-Cu HYBRID BONDING</div>
-<div style="background: #032f2f; border: 1px solid #10b981; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;">TIER 2: ISP + 128Kb Multi-Sector OTP / MTP</div>
+<div style="background: #032f2f; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;">TIER 2: ISP + 128Kb Multi-Sector OTP / MTP</div>
 </div>
 <div class="deck-metric-callout">
 <span class="deck-metric-val">128 K-bit (16 KB) LUT</span>
@@ -1538,7 +1538,7 @@
 <div class="deck-visual-stage" style="flex-direction: column; gap: 4px; align-items: stretch;">
 <div style="background: #1c1917; border: 1px solid #eab308; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #fde047; text-align: center;">AI XPU + HBM3e SUBSTRATE STACK</div>
 <div style="color: #ef4444; font-family: monospace; font-size: 8px; text-align: center;">FAULT DETECTED ➔ JEDEC hPPR CMD</div>
-<div style="background: #042f2e; border: 1px solid #10b981; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;">ANTIFUSE FUSEBOX PERMANENT REMAP</div>
+<div style="background: #042f2e; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;">ANTIFUSE FUSEBOX PERMANENT REMAP</div>
 </div>
 <div class="deck-metric-callout">
 <span class="deck-metric-val">Salvages $30,000+</span>
@@ -1632,9 +1632,9 @@
 <span data-lang="en">AntiFuse Dielectric Rupture Filament</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 10px; color: #10b981; text-align: center;">
+<div style="font-family: monospace; font-size: 10px; color: #c4a574; text-align: center;">
 <span>R_FIL &lt; 100 Ω</span><br/>
-<span style="color: #6ee7b7; font-size: 8px;">PERMANENT SILICIDE PLUG</span>
+<span style="color: #d4b896; font-size: 8px;">PERMANENT SILICIDE PLUG</span>
 </div>
 </div>
 <div class="deck-metric-callout">
@@ -1779,7 +1779,7 @@
 <span data-lang="en">2D OLED De-Mura Compensation</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 10px; color: #10b981; display: flex; align-items: center; gap: 4px;">
+<div style="font-family: monospace; font-size: 10px; color: #c4a574; display: flex; align-items: center; gap: 4px;">
 <span>UNIFORMITY: 98.6%</span>
 <span style="padding: 1px 4px; background: #064e3b; border-radius: 2px;">MTP LUT</span>
 </div>
@@ -2239,7 +2239,7 @@
 <div class="deck-visual-stage">
 <div style="font-family: monospace; font-size: 10px; color: #fbbf24; text-align: center;">
 <span>+40V~+50V DRIVE ➔ 0V REST</span><br/>
-<span style="color: #34d399; font-size: 8px;">ZERO STATIC POWER DRAIN</span>
+<span style="color: #c4a574; font-size: 8px;">ZERO STATIC POWER DRAIN</span>
 </div>
 </div>
 <div class="deck-metric-callout">
@@ -2264,7 +2264,7 @@
 <span data-lang="en">MTP to OTP Migration</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 10px; color: #10b981; text-align: center;">
+<div style="font-family: monospace; font-size: 10px; color: #c4a574; text-align: center;">
 <span>MTP (R&amp;D) ➔ OTP (VOLUME)</span><br/>
 <span style="color: #a7f3d0; font-size: 8px;">35% WAFER COST REDUCTION</span>
 </div>
@@ -2568,7 +2568,7 @@
             <span class="meta-pill-val">TSMC · UMC · GF · SAMSUNG</span>
           </div>
           <div class="meta-pill-item">
-            <span class="meta-pill-dot" style="background:#34d399;"></span>
+            <span class="meta-pill-dot" style="background:#c4a574;"></span>
             <span class="meta-pill-key">RELIABILITY:</span>
             <span class="meta-pill-val">AEC-Q100 GRADE 0 / ISO 26262 ASIL-D</span>
           </div>
@@ -2648,8 +2648,8 @@
       </div>
     </div>
   </footer>
-<script src="hub.js?v=20260906-navy-v1"></script>
-<script src="specialty-nvm.js?v=20260906-navy-v1"></script>
+<script src="hub.js?v=20260906-navy-v2"></script>
+<script src="specialty-nvm.js?v=20260906-navy-v2"></script>
   <script>
     // Studio Layout Vertical Rail Scroll Spy
     document.addEventListener('DOMContentLoaded', () => {

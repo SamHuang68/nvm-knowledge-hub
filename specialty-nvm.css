@@ -1670,7 +1670,7 @@ html[data-language="zh"] .data-table thead th {
    ========================================================= */
 
 .text-gradient-cyan {
-  background: linear-gradient(90deg, #8a6a42, #8a6a42, #34d399);
+  background: linear-gradient(90deg, #8a6a42, #8a6a42, #c4a574);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline;
@@ -1743,7 +1743,7 @@ html[data-language="zh"] .data-table thead th {
 
 .border-l-cyan { border-left: 4px solid #8a6a42 !important; }
 .border-l-teal { border-left: 4px solid #8a6a42 !important; }
-.border-l-emerald { border-left: 4px solid #10b981 !important; }
+.border-l-emerald { border-left: 4px solid #c4a574 !important; }
 .border-l-amber { border-left: 4px solid #f59e0b !important; }
 
 .stat-strip-card .stat-val {
@@ -1799,7 +1799,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: var(--spec-mono);
   font-size: 11px;
   font-weight: 700;
-  color: #34d399;
+  color: #c4a574;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1812,8 +1812,8 @@ html[data-language="zh"] .data-table thead th {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background-color: #34d399;
-  box-shadow: 0 0 8px #34d399;
+  background-color: #c4a574;
+  box-shadow: 0 0 8px #c4a574;
 }
 
 /* 4-Metric Spec Grids */
@@ -1856,9 +1856,9 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .val-cyan { color: #b08a5b; }
-.val-emerald { color: #34d399; }
+.val-emerald { color: #c4a574; }
 .val-amber { color: #fbbf24; }
-.val-purple { color: #c084fc; }
+.val-purple { color: #c4a574; }
 
 .spec-card-title {
   font-family: var(--spec-mono);
@@ -2088,9 +2088,9 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .badge-cell-win {
-  color: #34d399 !important;
+  color: #c4a574 !important;
   font-weight: 600;
-  background: rgba(16, 185, 129, 0.08);
+  background: rgba(196, 165, 116, 0.08);
 }
 
 .badge-cell-lose {
@@ -2313,7 +2313,7 @@ html[data-language="zh"] .data-table thead th {
 
 .flow-dot-cyan { width: 6px; height: 6px; border-radius: 50%; background: #c4a574; display: inline-block; }
 .flow-dot-amber { width: 6px; height: 6px; border-radius: 50%; background: #ffb703; display: inline-block; }
-.flow-dot-green { width: 6px; height: 6px; border-radius: 50%; background: #10b981; display: inline-block; }
+.flow-dot-green { width: 6px; height: 6px; border-radius: 50%; background: #c4a574; display: inline-block; }
 
 /* =========================================================
    TOPIC 03: 晶圓廠簽核管線流程圖 (Silicon Qualification Stepper)
@@ -2351,9 +2351,9 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .qual-chip-verified {
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid #10b981;
-  color: #6ee7b7;
+  background: rgba(196, 165, 116, 0.15);
+  border: 1px solid #c4a574;
+  color: #d4b896;
   font-family: var(--spec-mono);
   font-size: 10px;
   font-weight: 700;
@@ -2382,8 +2382,8 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .stepper-step.active {
-  border-color: rgba(16, 185, 129, 0.5);
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.08);
+  border-color: rgba(196, 165, 116, 0.5);
+  box-shadow: 0 0 20px rgba(196, 165, 116, 0.08);
 }
 
 .stepper-step:hover {
@@ -2396,7 +2396,7 @@ html[data-language="zh"] .data-table thead th {
   top: -10px;
   right: 12px;
   background: #042f2e;
-  border: 1px solid #10b981;
+  border: 1px solid #c4a574;
   color: #a7f3d0;
   font-family: var(--spec-mono);
   font-size: 9px;
@@ -3040,8 +3040,8 @@ html[data-language="zh"] .data-table thead th {
 }
 .signal-chip.cyan  { color: #c4a574; background: rgba(0, 240, 255, 0.12); border: 1px solid rgba(0, 240, 255, 0.3); }
 .signal-chip.amber { color: #f59e0b; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); }
-.signal-chip.green { color: #10b981; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); }
-.signal-chip.purple{ color: #c084fc; background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.3); }
+.signal-chip.green { color: #c4a574; background: rgba(196, 165, 116, 0.12); border: 1px solid rgba(196, 165, 116, 0.3); }
+.signal-chip.purple{ color: #c4a574; background: rgba(196, 165, 116, 0.12); border: 1px solid rgba(196, 165, 116, 0.3); }
 
 /* 水平階梯導軌 (Pipeline Rail) */
 .deck-pipeline-rail {
@@ -3076,8 +3076,8 @@ html[data-language="zh"] .data-table thead th {
 
 .deck-step-card.border-cyan { border-top: 3px solid #c4a574; }
 .deck-step-card.border-amber { border-top: 3px solid #f59e0b; }
-.deck-step-card.border-green { border-top: 3px solid #10b981; }
-.deck-step-card.border-purple { border-top: 3px solid #a855f7; }
+.deck-step-card.border-green { border-top: 3px solid #c4a574; }
+.deck-step-card.border-purple { border-top: 3px solid #c4a574; }
 
 /* 階梯卡片頭部 */
 .deck-step-meta {
@@ -3095,8 +3095,8 @@ html[data-language="zh"] .data-table thead th {
   color: #c4a574;
 }
 .deck-step-card.border-amber .deck-step-num { color: #f59e0b; }
-.deck-step-card.border-green .deck-step-num { color: #10b981; }
-.deck-step-card.border-purple .deck-step-num { color: #c084fc; }
+.deck-step-card.border-green .deck-step-num { color: #c4a574; }
+.deck-step-card.border-purple .deck-step-num { color: #c4a574; }
 
 .deck-step-status {
   font-family: var(--spec-mono);
@@ -3142,8 +3142,8 @@ html[data-language="zh"] .data-table thead th {
   border-radius: 2px;
 }
 .deck-step-card.border-amber .deck-metric-callout { border-left-color: #f59e0b; background: rgba(245, 158, 11, 0.05); }
-.deck-step-card.border-green .deck-metric-callout { border-left-color: #10b981; background: rgba(16, 185, 129, 0.05); }
-.deck-step-card.border-purple .deck-metric-callout { border-left-color: #a855f7; background: rgba(168, 85, 247, 0.05); }
+.deck-step-card.border-green .deck-metric-callout { border-left-color: #c4a574; background: rgba(196, 165, 116, 0.05); }
+.deck-step-card.border-purple .deck-metric-callout { border-left-color: #c4a574; background: rgba(196, 165, 116, 0.05); }
 
 .deck-metric-val {
   font-family: var(--spec-mono);
@@ -3153,8 +3153,8 @@ html[data-language="zh"] .data-table thead th {
   letter-spacing: 0.02em;
 }
 .deck-step-card.border-amber .deck-metric-val { color: #fbbf24; }
-.deck-step-card.border-green .deck-metric-val { color: #10b981; }
-.deck-step-card.border-purple .deck-metric-val { color: #c084fc; }
+.deck-step-card.border-green .deck-metric-val { color: #c4a574; }
+.deck-step-card.border-purple .deck-metric-val { color: #c4a574; }
 
 .deck-metric-lbl {
   font-size: 8.5px;
@@ -3261,7 +3261,7 @@ html[data-language="zh"] .data-table thead th {
   text-align: center;
 }
 .yield-stage-panel.raw-stage { border-top: 3px solid #ef4444; }
-.yield-stage-panel.repaired-stage { border-top: 3px solid #10b981; }
+.yield-stage-panel.repaired-stage { border-top: 3px solid #c4a574; }
 
 .stage-tag-badge {
   font-family: var(--spec-mono);
@@ -3273,7 +3273,7 @@ html[data-language="zh"] .data-table thead th {
   margin-bottom: 10px;
 }
 .stage-tag-badge.fail { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
-.stage-tag-badge.pass { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.3); }
+.stage-tag-badge.pass { background: rgba(196, 165, 116, 0.15); color: #d4b896; border: 1px solid rgba(196, 165, 116, 0.3); }
 
 /* 晶圓抽象圓盤 */
 .wafer-abstract-disk {
@@ -3294,8 +3294,8 @@ html[data-language="zh"] .data-table thead th {
 }
 .pass-disk {
   background: radial-gradient(circle, #06241a 0%, #020e0a 100%);
-  border: 2px solid rgba(16, 185, 129, 0.6);
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+  border: 2px solid rgba(196, 165, 116, 0.6);
+  box-shadow: 0 0 15px rgba(196, 165, 116, 0.25);
 }
 
 /* 晶片陣列格子 */
@@ -3318,7 +3318,7 @@ html[data-language="zh"] .data-table thead th {
 }
 .chip-dot.pass { background: #064e3b; color: #a7f3d0; }
 .chip-dot.fail { background: #ef4444; color: #ffffff; box-shadow: 0 0 6px #ef4444; }
-.chip-dot.rescued { background: #10b981; color: #ffffff; border: 1px solid #6ee7b7; box-shadow: 0 0 8px #10b981; }
+.chip-dot.rescued { background: #c4a574; color: #ffffff; border: 1px solid #d4b896; box-shadow: 0 0 8px #c4a574; }
 
 .yield-metric-callout {
   display: flex;
@@ -3332,7 +3332,7 @@ html[data-language="zh"] .data-table thead th {
   line-height: 1;
 }
 .fail-color .yield-number { color: #f87171; text-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
-.pass-color .yield-number { color: #34d399; text-shadow: 0 0 12px rgba(16, 185, 129, 0.4); }
+.pass-color .yield-number { color: #c4a574; text-shadow: 0 0 12px rgba(196, 165, 116, 0.4); }
 
 .yield-label {
   font-family: var(--spec-mono);
@@ -3415,7 +3415,7 @@ html[data-language="zh"] .data-table thead th {
 /* 抽象圖形舞台外框 */
 .figure-container-abstract {
   background: radial-gradient(circle at top left, rgba(0, 240, 255, 0.05), transparent 70%),
-              radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.05), transparent 70%),
+              radial-gradient(circle at bottom right, rgba(196, 165, 116, 0.05), transparent 70%),
               rgba(10, 15, 29, 0.95) !important;
   border: 1px solid rgba(0, 240, 255, 0.3) !important;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.1) !important;
@@ -3556,8 +3556,8 @@ html[data-language="zh"] .data-table thead th {
 .spread-bar.locked-bar {
   width: 15%;
   height: 100%;
-  background: linear-gradient(90deg, #10b981, #34d399);
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+  background: linear-gradient(90deg, #c4a574, #c4a574);
+  box-shadow: 0 0 8px rgba(196, 165, 116, 0.5);
 }
 
 .spread-val {
@@ -3568,7 +3568,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .spread-val.fail-val { color: #f43f5e; }
-.spread-val.pass-val { color: #10b981; }
+.spread-val.pass-val { color: #c4a574; }
 
 .spread-row.action-row {
   grid-template-columns: 1fr;
@@ -3589,8 +3589,8 @@ html[data-language="zh"] .data-table thead th {
   display: flex;
   align-items: baseline;
   gap: 8px;
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: rgba(196, 165, 116, 0.08);
+  border: 1px solid rgba(196, 165, 116, 0.3);
   border-radius: 6px;
   padding: 6px 10px;
 }
@@ -3599,7 +3599,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: 'JetBrains Mono', monospace;
   font-size: 20px;
   font-weight: 900;
-  color: #10b981;
+  color: #c4a574;
 }
 
 .rate-text {
@@ -3629,9 +3629,9 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .chip-die.pass {
-  background: rgba(16, 185, 129, 0.25);
-  border: 1px solid #10b981;
-  color: #10b981;
+  background: rgba(196, 165, 116, 0.25);
+  border: 1px solid #c4a574;
+  color: #c4a574;
 }
 
 .chip-die.fail {
@@ -3672,7 +3672,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .fail-label { color: #f43f5e; }
-.pass-label { color: #10b981; }
+.pass-label { color: #c4a574; }
 
 .screen-matrix {
   display: grid;
@@ -3701,7 +3701,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .fail-sub { color: #f43f5e; }
-.pass-sub { color: #10b981; }
+.pass-sub { color: #c4a574; }
 .demura-arrow { font-size: 16px; color: #c4a574; }
 
 /* Topic 04: E-Ink 速度階躍與雙粒子微膠囊 */
@@ -3742,7 +3742,7 @@ html[data-language="zh"] .data-table thead th {
 .speed-fill.fill-50v {
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #c4a574, #10b981);
+  background: linear-gradient(90deg, #c4a574, #c4a574);
   box-shadow: 0 0 10px #c4a574;
 }
 
@@ -3753,7 +3753,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .fail-text { color: #f43f5e; }
-.pass-text { color: #10b981; }
+.pass-text { color: #c4a574; }
 
 .abstract-microcapsule-box {
   display: flex;
@@ -3861,7 +3861,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: 'JetBrains Mono', monospace;
   font-size: 24px;
   font-weight: 900;
-  color: #10b981;
+  color: #c4a574;
   display: block;
 }
 
@@ -3932,7 +3932,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   font-weight: 800;
-  color: #10b981;
+  color: #c4a574;
   margin: 4px 0 6px;
 }
 
@@ -3985,10 +3985,10 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .chip-v.cyan { color: #c4a574; }
-.chip-v.green { color: #10b981; }
+.chip-v.green { color: #c4a574; }
 .chip-v.amber { color: #f59e0b; }
 .chip-v.rose { color: #f43f5e; }
-.chip-v.purple { color: #c084fc; }
+.chip-v.purple { color: #c4a574; }
 
 
 /* Circuit Topology Annotation Note */
@@ -4082,10 +4082,10 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .waveform-timing-track .step-drive {
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid #10b981;
-  color: #10b981;
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+  background: rgba(196, 165, 116, 0.15);
+  border: 1px solid #c4a574;
+  color: #c4a574;
+  box-shadow: 0 0 8px rgba(196, 165, 116, 0.3);
 }
 
 .waveform-timing-track .timing-sep {

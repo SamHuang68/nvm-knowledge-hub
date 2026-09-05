@@ -178,7 +178,7 @@
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 600;
 }
-.sec-high { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+.sec-high { background: rgba(196, 165, 116, 0.15); color: #c4a574; border: 1px solid rgba(196, 165, 116, 0.3); }
 .sec-med { background: rgba(255, 140, 66, 0.15); color: #ff8c42; border: 1px solid rgba(255, 140, 66, 0.3); }
 .sec-low { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
 

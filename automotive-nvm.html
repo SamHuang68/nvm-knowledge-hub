@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260906-navy-v1"></script>
+  <script src="site-language.js?v=20260906-navy-v2"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Automotive-Grade NVM · AEC-Q100 Grade 0, ISO 26262 ASIL-D &amp; SECDED · NVM Knowledge Hub</title>
   <meta name="description" content="Automotive-grade eNVM: AEC-Q100 Grade 0 (175°C) reliability, ISO 26262 ASIL-D functional safety, zero-drift silicide nanofilaments, SECDED ECC real-time self-healing, and zero-defect foundry qualification.">
@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site-shell.css?v=20260906-navy-v1">
-  <link rel="stylesheet" href="styles.css?v=20260906-navy-v1">
-  <link rel="stylesheet" href="specialty-nvm.css?v=20260906-navy-v1">
+  <link rel="stylesheet" href="site-shell.css?v=20260906-navy-v2">
+  <link rel="stylesheet" href="styles.css?v=20260906-navy-v2">
+  <link rel="stylesheet" href="specialty-nvm.css?v=20260906-navy-v2">
 
   <style>
     /* 全站語系治理：英文為第一預設 */
@@ -636,9 +636,9 @@
       letter-spacing: 0.05em;
     }
     .ecc-status-pill.clean {
-      background: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-      border: 1px solid #10b981;
+      background: rgba(196, 165, 116, 0.15);
+      color: #c4a574;
+      border: 1px solid #c4a574;
     }
     .ecc-status-pill.sec {
       background: rgba(59, 130, 246, 0.15);
@@ -730,7 +730,7 @@
             <span><span data-lang="zh">AEC-Q100 Grade 0</span><span data-lang="en">Grade 0 Passed</span></span>
           </div>
           <div>
-            <strong class="mono-text" style="color: #10b981;">0.0% DRIFT</strong>
+            <strong class="mono-text" style="color: #c4a574;">0.0% DRIFT</strong>
             <span><span data-lang="zh">微絲歐姆接觸穩定</span><span data-lang="en">Zero Resistance Drift</span></span>
           </div>
           <div>
@@ -1010,7 +1010,7 @@
             <div style="background: #03131e; border: 1px solid rgba(196, 165, 116, 0.2); border-radius: 6px; padding: 10px 14px; margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; font: 600 11px 'IBM Plex Mono';">
               <div>
                 <div style="color: #64748b; margin-bottom: 2px;">SYNDROME VECTOR S[7:0]</div>
-                <div id="eccSyndromeVal" style="color: #34d399; font-size: 12.5px;">0x00 (NO SYNDROME)</div>
+                <div id="eccSyndromeVal" style="color: #c4a574; font-size: 12.5px;">0x00 (NO SYNDROME)</div>
               </div>
               <div>
                 <div style="color: #64748b; margin-bottom: 2px;">HARDWARE RESPONSE ACTION</div>
@@ -1018,7 +1018,7 @@
               </div>
               <div>
                 <div style="color: #64748b; margin-bottom: 2px;">ISO 26262 SAFETY STATUS</div>
-                <div id="eccSafetyVal" style="color: #34d399; font-size: 12.5px;">ASIL-D NOMINAL OPERATION</div>
+                <div id="eccSafetyVal" style="color: #c4a574; font-size: 12.5px;">ASIL-D NOMINAL OPERATION</div>
               </div>
             </div>
           </section>
@@ -1075,7 +1075,7 @@
               <div style="background:#0e2a38; border:1px solid rgba(15,23,42,0.08); border-radius:6px; padding:14px; border-top: 4px solid #6f5536; box-shadow:0 2px 10px rgba(15,23,42,0.04);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#6f5536;">CONTRACT 03 · RESILIENT RECOVERY</span>
-                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#6f5536; background:#ecfdf5; padding:1px 6px; border-radius:3px; border:1px solid #d1fae5;">FAIL-SAFE READY</span>
+                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#6f5536; background:#133445; padding:1px 6px; border-radius:3px; border:1px solid #2a3f3a;">FAIL-SAFE READY</span>
                 </div>
                 <h4 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">ADAS 安全備援與緊急開機向量</span>
@@ -1116,7 +1116,7 @@
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">99.8%</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">95.4%</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:700; color:#8a6a42;">&lt; 0.1 FIT</td>
-                      <td style="padding: 10px 14px;"><span style="background:#ecfdf5; color:#047857; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D PASSED</span></td>
+                      <td style="padding: 10px 14px;"><span style="background:#133445; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D PASSED</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9; background:#0a2230;">
                       <td style="padding: 10px 14px; font-weight:600; color:#f3ebe0;">CONTRACT 02 · Trim</td>
@@ -1124,7 +1124,7 @@
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">99.2%</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">92.8%</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:700; color:#8a6a42;">&lt; 0.5 FIT</td>
-                      <td style="padding: 10px 14px;"><span style="background:#ecfdf5; color:#047857; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D PASSED</span></td>
+                      <td style="padding: 10px 14px;"><span style="background:#133445; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D PASSED</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 10px 14px; font-weight:600; color:#f3ebe0;">CONTRACT 03 · Recovery</td>
@@ -1132,7 +1132,7 @@
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">99.9%</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">96.1%</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:700; color:#8a6a42;">&lt; 0.05 FIT</td>
-                      <td style="padding: 10px 14px;"><span style="background:#ecfdf5; color:#047857; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D PASSED</span></td>
+                      <td style="padding: 10px 14px;"><span style="background:#133445; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D PASSED</span></td>
                     </tr>
                     <tr style="background:#fff1f2;">
                       <td style="padding: 10px 14px; font-style:italic; color:#be123c;">Legacy Benchmark · eFlash</td>
@@ -1178,7 +1178,7 @@
             <span class="meta-pill-val">TSMC · UMC · GF · SAMSUNG</span>
           </div>
           <div class="meta-pill-item">
-            <span class="meta-pill-dot" style="background:#34d399;"></span>
+            <span class="meta-pill-dot" style="background:#c4a574;"></span>
             <span class="meta-pill-key">RELIABILITY:</span>
             <span class="meta-pill-val">AEC-Q100 GRADE 0 / ISO 26262 ASIL-D</span>
           </div>
@@ -1335,7 +1335,7 @@
         ctx.fillText(`SILICON RETENTION MARGIN VS TIME (Tj = ${tempC}°C)`, plotX + 10, 22);
 
         // 1. AntiFuse Silicide Filament (Green line: Flat / Zero Drift)
-        ctx.strokeStyle = "#34d399";
+        ctx.strokeStyle = "#c4a574";
         ctx.lineWidth = 3;
         ctx.beginPath();
         ctx.moveTo(plotX, plotY + 20);
@@ -1343,7 +1343,7 @@
         ctx.lineTo(plotX + plotW, plotY + 20 + afDrop);
         ctx.stroke();
 
-        ctx.fillStyle = "#34d399";
+        ctx.fillStyle = "#c4a574";
         ctx.fillText("● AntiFuse Ohmic Filament: Zero-Drift (>99.9% Retention)", plotX + 16, plotY + 42);
 
         // 2. Floating-Gate eFlash (Red curve: Steep drop)
@@ -1442,11 +1442,11 @@
           pill.className = "ecc-status-pill clean";
           pill.textContent = "● 0 ERRORS · SECDED PARITY CLEAN";
           syndromeVal.textContent = "0x00 (NO SYNDROME)";
-          syndromeVal.style.color = "#34d399";
+          syndromeVal.style.color = "#c4a574";
           actionVal.textContent = "NORMAL 0-CYCLE PASS";
           actionVal.style.color = "#c4a574";
           safetyVal.textContent = "ASIL-D NOMINAL OPERATION";
-          safetyVal.style.color = "#34d399";
+          safetyVal.style.color = "#c4a574";
         } else if (errCount === 1) {
           const flippedIdx = Array.from(flippedIndices)[0];
           pill.className = "ecc-status-pill sec";

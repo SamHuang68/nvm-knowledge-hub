@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260906-navy-v1"></script>
+  <script src="site-language.js?v=20260906-navy-v2"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub</title>
   <meta name="description" content="Comprehensive 7-dimension trade-off matrix, 5-axis interactive radar selector, first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.">
@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site-shell.css?v=20260906-navy-v1">
-  <link rel="stylesheet" href="styles.css?v=20260906-navy-v1">
-  <link rel="stylesheet" href="specialty-nvm.css?v=20260906-navy-v1">
+  <link rel="stylesheet" href="site-shell.css?v=20260906-navy-v2">
+  <link rel="stylesheet" href="styles.css?v=20260906-navy-v2">
+  <link rel="stylesheet" href="specialty-nvm.css?v=20260906-navy-v2">
 
   <style>
     body.specialty-page {
@@ -550,7 +550,7 @@
     }
     .foundry-card.tsmc { border-top-color: #c4a574; }
     .foundry-card.umc { border-top-color: #f59e0b; }
-    .foundry-card.gf { border-top-color: #a855f7; }
+    .foundry-card.gf { border-top-color: #c4a574; }
     .foundry-card.sec { border-top-color: #3b82f6; }
     .foundry-card h4 {
       font: 700 1.25rem/1.2 'IBM Plex Mono', monospace;
@@ -668,7 +668,7 @@
             <span><span data-lang="zh">客觀評估維度</span><span data-lang="en">Eval Dimensions</span></span>
           </div>
           <div>
-            <strong class="mono-text" style="color: #10b981;">0 MASK</strong>
+            <strong class="mono-text" style="color: #c4a574;">0 MASK</strong>
             <span><span data-lang="zh">邏輯相容極限</span><span data-lang="en">Logic Adders</span></span>
           </div>
           <div>
@@ -1074,7 +1074,7 @@
 
         <!-- Formula 3: Subthreshold Leakage -->
         <div class="formula-card">
-          <div class="hub-sec-badge" style="color:#34d399;">EQUATION 03 · STATIC LEAKAGE</div>
+          <div class="hub-sec-badge" style="color:#c4a574;">EQUATION 03 · STATIC LEAKAGE</div>
           <h4>
             <span data-lang="zh">次閾值漏電與長效待機模型</span>
             <span data-lang="en">Subthreshold leakage, always-on domain</span>
@@ -1134,7 +1134,7 @@
 
         <!-- GlobalFoundries -->
         <div class="foundry-card gf">
-          <div style="font: 700 11px 'IBM Plex Mono'; color: #a855f7; margin-bottom: 4px;">GLOBALFOUNDRIES</div>
+          <div style="font: 700 11px 'IBM Plex Mono'; color: #c4a574; margin-bottom: 4px;">GLOBALFOUNDRIES</div>
           <h4>GlobalFoundries</h4>
           <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
             <li><b>22FDX (FD-SOI)</b>: <span data-lang="zh">背閘極偏壓可用於編程電流調整；幅度以 PDK 為準。</span><span data-lang="en">Back-bias can assist program current; magnitude is PDK-specific.</span></li>
@@ -1225,7 +1225,7 @@
         <div class="pipeline-step-card" style="border-top: 4px solid #6f5536;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
             <span class="step-num" style="color:#6f5536;">STEP 03</span>
-            <span style="font:700 10px 'IBM Plex Mono'; color:#6f5536; background:#ecfdf5; padding:2px 8px; border-radius:4px; border:1px solid #d1fae5;">GATE 3 · QUALIFIED</span>
+            <span style="font:700 10px 'IBM Plex Mono'; color:#6f5536; background:#133445; padding:2px 8px; border-radius:4px; border:1px solid #2a3f3a;">GATE 3 · QUALIFIED</span>
           </div>
           <h4 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
             <span data-lang="zh">實體驗證與防禦簽核</span>
@@ -1270,7 +1270,7 @@
             <span class="meta-pill-val">TSMC · UMC · GF · SAMSUNG</span>
           </div>
           <div class="meta-pill-item">
-            <span class="meta-pill-dot" style="background:#34d399;"></span>
+            <span class="meta-pill-dot" style="background:#c4a574;"></span>
             <span class="meta-pill-key">RELIABILITY:</span>
             <span class="meta-pill-val">AEC-Q100 GRADE 0 / ISO 26262 ASIL-D</span>
           </div>
@@ -1600,7 +1600,7 @@
             <div class="match-tech-name">${res.name}</div>
             <div class="match-score-num">${res.score}%</div>
             <div class="match-score-bar-bg">
-              <div class="match-score-bar-fill" style="width: ${res.score}%; background: ${isWinner ? '#c4a574' : res.score > 60 ? '#34d399' : '#f59e0b'};"></div>
+              <div class="match-score-bar-fill" style="width: ${res.score}%; background: ${isWinner ? '#c4a574' : res.score > 60 ? '#c4a574' : '#f59e0b'};"></div>
             </div>
             <div style="font: 700 10px 'IBM Plex Mono'; color: ${isWinner ? '#c4a574' : '#94a3b8'};">
               ${isWinner
