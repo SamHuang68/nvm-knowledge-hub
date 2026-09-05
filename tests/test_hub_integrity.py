@@ -189,6 +189,18 @@ def run_tests() -> None:
     test("Secure Storage app-card 為標準識別 IoT / CONNECTIVITY",
          "IoT / CONNECTIVITY" in (BASE / "secure-storage.html").read_text(encoding="utf-8"))
 
+    # ===== TEST 16: F2 專屬主視覺圖與白底輕盈配色整合驗證 =====
+    print("\n═══ TEST 16: F2 專屬主視覺圖與白底輕盈配色整合驗證 ═══")
+    test("F2 包含專屬 1600/900 webp 主視覺圖標籤",
+         "technology-comparison-hero-1600.webp" in tc_c and "technology-comparison-hero-900.webp" in tc_c)
+    test("F2 主視覺圖實體檔案存在",
+         (BASE / "assets" / "technology-comparison-hero-1600.webp").exists() and
+         (BASE / "assets" / "technology-comparison-hero-900.webp").exists())
+    test("F2 包含 f2-stat-bridge 與純白規格彩條",
+         "f2-stat-bridge" in tc_c and ".stat-strip-card {" in tc_c)
+    test("F2 包含 selector-workbench-frame 半導體儀表框",
+         "selector-workbench-frame" in tc_c)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

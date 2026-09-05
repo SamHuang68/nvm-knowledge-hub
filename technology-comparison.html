@@ -71,16 +71,76 @@
     }
 
     .main-container {
-      max-width: 1240px;
+      max-width: min(1780px, 97vw);
       margin: 0 auto;
-      padding: 2.5rem 24px 5rem;
+      padding: 2rem clamp(12px, 2vw, 32px) 4rem;
     }
 
-    /* Hero Section - Editorial Clean */
-    .f2-hero {
+    /* Hero Section - Executive Obsidian Silicon Visual */
+    .f2-hero-container {
+      position: relative;
+      background: linear-gradient(180deg, rgba(6, 25, 37, 0.94) 0%, rgba(3, 19, 30, 0.98) 100%);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+      overflow: hidden;
+      padding: clamp(40px, 5vw, 68px) clamp(16px, 3vw, 40px) clamp(52px, 6vw, 84px);
+      color: #f8fafc;
       text-align: center;
-      padding: 40px 10px 30px;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    }
+    .f2-hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .f2-hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.45;
+      filter: saturate(1.12) brightness(0.92);
+      animation: hero-push 22s ease-out forwards;
+    }
+    @keyframes hero-push {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+    .f2-hero-shade {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: radial-gradient(circle at 50% 25%, rgba(13, 148, 136, 0.2) 0%, rgba(6, 25, 37, 0.88) 68%, rgba(3, 19, 30, 0.98) 100%),
+                  linear-gradient(180deg, rgba(6, 25, 37, 0.65) 0%, rgba(3, 19, 30, 0.96) 100%);
+    }
+    .f2-hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background-image: linear-gradient(to right, rgba(115, 238, 228, 0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(115, 238, 228, 0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+    .f2-hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: min(1200px, 94vw);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 14px;
+      background: rgba(115, 238, 228, 0.12);
+      border: 1px solid rgba(115, 238, 228, 0.3);
+      border-radius: 999px;
+      color: #73eee4;
+      font: 700 11px/1 'IBM Plex Mono', monospace;
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
     }
     .f2-hero h1 {
       font-size: clamp(2.2rem, 3.8vw, 3.4rem);
@@ -88,20 +148,130 @@
       line-height: 1.18;
       letter-spacing: -0.03em;
       margin: 0.5rem 0 1rem;
-      color: #0a1e2c;
+      color: #ffffff;
       text-wrap: balance;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
     }
     .f2-hero h1 em {
-      color: #0d9488;
+      color: #73eee4;
       font-style: normal;
-      font-weight: 600;
+      font-weight: 700;
     }
     .f2-hero p.lead-desc {
-      color: #475569;
-      font-size: clamp(15.5px, 1.25vw, 18px);
+      color: #cbd5e1;
+      font-size: clamp(15.5px, 1.25vw, 17.5px);
       line-height: 1.75;
-      max-width: 860px;
+      max-width: 900px;
       margin: 0 auto 24px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+    .f2-hero-proof {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: clamp(16px, 2.8vw, 40px);
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(115, 238, 228, 0.18);
+    }
+    .f2-hero-proof > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .f2-hero-proof strong {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+      font-weight: 800;
+      line-height: 1;
+    }
+    .f2-hero-proof span {
+      font-size: 11.5px;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    /* 4-Metric Stat Strip - White Editorial Paper Style */
+    .f2-stat-bridge {
+      position: relative;
+      z-index: 10;
+      margin: -36px auto 24px;
+      padding: 0;
+    }
+    .f2-stat-bridge .stat-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin: 0;
+    }
+    .stat-strip-card {
+      background: #ffffff !important;
+      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      border-radius: 8px !important;
+      padding: 16px 20px !important;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
+      backdrop-filter: none !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+    }
+    .stat-strip-card:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.1), 0 4px 10px -2px rgba(15, 23, 42, 0.03) !important;
+    }
+    .stat-strip-card.border-l-cyan { border-left: 4px solid #0d9488 !important; }
+    .stat-strip-card.border-l-teal { border-left: 4px solid #0891b2 !important; }
+    .stat-strip-card.border-l-emerald { border-left: 4px solid #059669 !important; }
+    .stat-strip-card.border-l-amber { border-left: 4px solid #d97706 !important; }
+    .stat-strip-card .stat-val {
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 1.32rem !important;
+      font-weight: 800 !important;
+      color: #0a1e2c !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.01em !important;
+    }
+    .stat-strip-card .stat-label {
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 11px !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      color: #475569 !important;
+      margin-top: 2px !important;
+    }
+    .stat-strip-card .stat-sub {
+      font-size: 12px !important;
+      margin-top: 4px !important;
+      font-weight: 500 !important;
+      line-height: 1.4 !important;
+    }
+    .stat-top-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .stat-top-meta .meta-code {
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 10px !important;
+      font-weight: 700 !important;
+      color: #64748b !important;
+      letter-spacing: 0.06em !important;
+    }
+    .pulse-chip-mini {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #0d9488;
+      box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7);
+      animation: pulse-ring 2s infinite;
+    }
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7); }
+      70% { box-shadow: 0 0 0 5px rgba(13, 148, 136, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0); }
     }
 
     /* Nav Pills - Paper Capsule Style */
@@ -307,13 +477,21 @@
       color: #8ea9b3;
     }
 
-    /* Decision Selector Styles */
+    /* Decision Selector Styles - High-Tech Instrument Frame */
+    .selector-workbench-frame {
+      background: #061925;
+      border: 1px solid rgba(115, 238, 228, 0.25);
+      border-radius: 12px;
+      padding: clamp(20px, 2.5vw, 32px);
+      box-shadow: 0 16px 36px -6px rgba(6, 25, 37, 0.35);
+      margin: 2rem 0 3rem;
+    }
     .selector-dashboard {
-      background: #082433;
-      border: 1px solid rgba(113, 236, 227, 0.25);
+      background: #04121c;
+      border: 1px solid rgba(113, 236, 227, 0.2);
       border-radius: 8px;
-      padding: 2rem;
-      margin: 2rem 0;
+      padding: 1.75rem;
+      margin: 1.5rem 0;
     }
     .match-results-deck {
       display: grid;
@@ -464,86 +642,120 @@
     </span>
   </nav>
 
-  <main class="main-container" id="main-content">
-    <!-- Hero Section -->
-    <section class="f2-hero">
-      <div class="hero-kicker">
-        <span>ARCHITECTURAL TRADE-OFF BALANCER · FOUNDATION F2</span>
+  <main id="main-content">
+    <!-- Hero Section (Executive Obsidian Silicon Visual) -->
+    <section class="f2-hero f2-hero-container" aria-labelledby="hero-title">
+      <picture class="f2-hero-media" aria-hidden="true">
+        <source media="(max-width: 768px)" srcset="assets/technology-comparison-hero-900.webp">
+        <img src="assets/technology-comparison-hero-1600.webp" 
+             alt="NVM Technology Trade-Off Matrix, silicon wafer and bitcell physics cross-section"
+             data-alt-zh="NVM 技術架構全景對比天平、晶圓光罩疊加與微觀位元胞物理結構"
+             data-alt-en="NVM Technology Trade-Off Matrix, silicon wafer and bitcell physics cross-section"
+             loading="eager" fetchpriority="high">
+      </picture>
+      <div class="f2-hero-shade" aria-hidden="true"></div>
+      <div class="f2-hero-grid" aria-hidden="true"></div>
+      <div class="f2-hero-content">
+        <div class="hero-kicker">
+          <span>ARCHITECTURAL TRADE-OFF BALANCER · FOUNDATION F2</span>
+        </div>
+        <h1 id="hero-title">
+          <span data-lang="zh">NVM 技術全景對比：<em>客觀選型天平</em></span>
+          <span data-lang="en">NVM Technology Trade-Off: <em>Architectural Matrix</em></span>
+        </h1>
+        <p class="lead-desc">
+          <span data-lang="zh">全方位橫向解剖 AntiFuse OTP、eFuse、eFlash、STT-eMRAM、OxRAM (RRAM) 與 Mask ROM。從第一性微觀量子物理、光罩成本疊加、高溫熱留存極限到四大晶圓代工廠 PDK 整合，建立無偏見的系統架構決策天平。</span>
+          <span data-lang="en">Systematic architectural cross-examination of AntiFuse OTP, eFuse, eFlash, STT-eMRAM, OxRAM (RRAM), and Mask ROM across 7 rigorous dimensions, first-principles tunneling physics, wafer cost economics, and foundry ecosystem realities.</span>
+        </p>
+        <div class="f2-hero-proof" aria-label="NVM 對比核心指標">
+          <div>
+            <strong class="mono-text" style="color: #73eee4;">6 TECHS</strong>
+            <span><span data-lang="zh">全景橫向解剖</span><span data-lang="en">Full Spectrum</span></span>
+          </div>
+          <div>
+            <strong class="mono-text" style="color: #f59e0b;">7 DIMS</strong>
+            <span><span data-lang="zh">客觀評估維度</span><span data-lang="en">Eval Dimensions</span></span>
+          </div>
+          <div>
+            <strong class="mono-text" style="color: #10b981;">0 MASK</strong>
+            <span><span data-lang="zh">邏輯相容極限</span><span data-lang="en">Logic Adders</span></span>
+          </div>
+          <div>
+            <strong class="mono-text" style="color: #38bdf8;">4 FOUNDRIES</strong>
+            <span><span data-lang="zh">晶圓生態驗證</span><span data-lang="en">Foundry PDKs</span></span>
+          </div>
+        </div>
       </div>
-      <h1>
-        <span data-lang="zh">NVM 技術全景對比：<em>客觀選型天平</em></span>
-        <span data-lang="en">NVM Technology Trade-Off: <em>Architectural Matrix</em></span>
-      </h1>
-      <p class="lead-desc">
-        <span data-lang="zh">全方位橫向解剖 AntiFuse OTP、eFuse、eFlash、STT-eMRAM、OxRAM (RRAM) 與 Mask ROM。從第一性微觀量子物理、光罩成本疊加、高溫熱留存極限到四大晶圓代工廠 PDK 整合，建立無偏見的系統架構決策天平。</span>
-        <span data-lang="en">Systematic architectural cross-examination of AntiFuse OTP, eFuse, eFlash, STT-eMRAM, OxRAM (RRAM), and Mask ROM across 7 rigorous dimensions, first-principles tunneling physics, wafer cost economics, and foundry ecosystem realities.</span>
-      </p>
+    </section>
 
-      <!-- 4-Metric Stat Strip Grid (對標 04 旗艦規格) -->
-      <div class="stat-strip-grid compact-ate-strip">
-        <div class="stat-strip-card border-l-cyan">
-          <div class="stat-top-meta">
-            <span class="pulse-chip-mini"></span>
-            <span class="meta-code">RULE #01 · MASK OVERHEAD</span>
+    <div class="main-container">
+      <!-- 4-Metric Stat Strip Grid (純白卡片微投影橋接) -->
+      <div class="f2-stat-bridge">
+        <div class="stat-strip-grid compact-ate-strip">
+          <div class="stat-strip-card border-l-cyan">
+            <div class="stat-top-meta">
+              <span class="pulse-chip-mini"></span>
+              <span class="meta-code">RULE #01 · MASK OVERHEAD</span>
+            </div>
+            <div class="stat-val">0 MASK ADDERS</div>
+            <div class="stat-label">
+              <span data-lang="zh">邏輯相容光罩模型</span>
+              <span data-lang="en">LOGIC-COMPATIBLE MASK MODEL</span>
+            </div>
+            <div class="stat-sub">
+              <span style="color: #0f766e; font-weight: 600;">
+                <span data-lang="zh">零額外光罩 ≠ 晶圓免費 · 見成本恆等式</span>
+                <span data-lang="en">Zero extra masks ≠ free wafers · see cost identity</span>
+              </span>
+            </div>
           </div>
-          <div class="stat-val">0 MASK ADDERS</div>
-          <div class="stat-label">
-            <span data-lang="zh">邏輯相容光罩模型</span>
-            <span data-lang="en">LOGIC-COMPATIBLE MASK MODEL</span>
+          <div class="stat-strip-card border-l-teal">
+            <div class="stat-top-meta">
+              <span class="meta-code">RULE #02 · THERMAL RIGOR</span>
+            </div>
+            <div class="stat-val">175°C Tj (GR.0)</div>
+            <div class="stat-label">
+              <span data-lang="zh">極限耐溫物理保持力</span>
+              <span data-lang="en">GRADE 0 THERMAL RETENTION</span>
+            </div>
+            <div class="stat-sub">
+              <span style="color: #0d9488; font-weight: 600;">
+                <span data-lang="zh">介電擊穿微絲 · 10+ 年抗高溫退火</span>
+                <span data-lang="en">Dielectric Breakdown · 10+ Yrs Retention</span>
+              </span>
+            </div>
           </div>
-          <div class="stat-sub">
-            <span style="color: #22d3ee;">
-              <span data-lang="zh">零額外光罩 ≠ 晶圓免費 · 見成本恆等式</span>
-              <span data-lang="en">Zero extra masks ≠ free wafers · see cost identity</span>
-            </span>
+          <div class="stat-strip-card border-l-emerald">
+            <div class="stat-top-meta">
+              <span class="meta-code">RULE #03 · SCALING EDGE</span>
+            </div>
+            <div class="stat-val">SUB-3nm (GAA)</div>
+            <div class="stat-label">
+              <span data-lang="zh">先進節點無縫微縮</span>
+              <span data-lang="en">ADVANCED NODE SCALABILITY</span>
+            </div>
+            <div class="stat-sub">
+              <span style="color: #059669; font-weight: 600;">
+                <span data-lang="zh">標準閘極氧化層 · 穿越 FinFET 至 N2</span>
+                <span data-lang="en">Standard Gate Oxide · Scalable to N2</span>
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="stat-strip-card border-l-teal">
-          <div class="stat-top-meta">
-            <span class="meta-code">RULE #02 · THERMAL RIGOR</span>
-          </div>
-          <div class="stat-val">175°C Tj (GR.0)</div>
-          <div class="stat-label">
-            <span data-lang="zh">極限耐溫物理保持力</span>
-            <span data-lang="en">GRADE 0 THERMAL RETENTION</span>
-          </div>
-          <div class="stat-sub">
-            <span style="color: #2dd4bf;">
-              <span data-lang="zh">介電擊穿微絲 · 10+ 年抗高溫退火</span>
-              <span data-lang="en">Dielectric Breakdown · 10+ Yrs Retention</span>
-            </span>
-          </div>
-        </div>
-        <div class="stat-strip-card border-l-emerald">
-          <div class="stat-top-meta">
-            <span class="meta-code">RULE #03 · SCALING EDGE</span>
-          </div>
-          <div class="stat-val">SUB-3nm (GAA)</div>
-          <div class="stat-label">
-            <span data-lang="zh">先進節點無縫微縮</span>
-            <span data-lang="en">ADVANCED NODE SCALABILITY</span>
-          </div>
-          <div class="stat-sub">
-            <span style="color: #34d399;">
-              <span data-lang="zh">標準閘極氧化層 · 穿越 FinFET 至 N2</span>
-              <span data-lang="en">Standard Gate Oxide · Scalable to N2</span>
-            </span>
-          </div>
-        </div>
-        <div class="stat-strip-card border-l-amber">
-          <div class="stat-top-meta">
-            <span class="meta-code">RULE #04 · SCALING CLIFF</span>
-          </div>
-          <div class="stat-val">28nm STOP GAP</div>
-          <div class="stat-label">
-            <span data-lang="zh">eFlash 浮閘物理斷崖</span>
-            <span data-lang="en">eFLASH PUMP CHARGE CLIFF</span>
-          </div>
-          <div class="stat-sub">
-            <span style="color: #fbbf24;">
-              <span data-lang="zh">&gt;10V 擦除電壓崩潰 · 無法導入立體鰭片</span>
-              <span data-lang="en">&gt;10V Erase Collapse · Incompatible with Fins</span>
-            </span>
+          <div class="stat-strip-card border-l-amber">
+            <div class="stat-top-meta">
+              <span class="meta-code">RULE #04 · SCALING CLIFF</span>
+            </div>
+            <div class="stat-val">28nm STOP GAP</div>
+            <div class="stat-label">
+              <span data-lang="zh">eFlash 浮閘物理斷崖</span>
+              <span data-lang="en">eFLASH PUMP CHARGE CLIFF</span>
+            </div>
+            <div class="stat-sub">
+              <span style="color: #b45309; font-weight: 600;">
+                <span data-lang="zh">&gt;10V 擦除電壓崩潰 · 無法導入立體鰭片</span>
+                <span data-lang="en">&gt;10V Erase Collapse · Incompatible with Fins</span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -677,16 +889,16 @@
       </div>
     </section>
 
-    <!-- SECTION 2: 5-AXIS ARCHITECTURAL RADAR SELECTOR LAB -->
-    <section id="sec-selector" class="lens-panel" class="selector-dashboard" aria-labelledby="selector-sec-title">
-      <div class="hub-sec-header" style="margin-top:0;">
-        <div class="hub-sec-badge">02 · FLAGSHIP INTERACTIVE LAB</div>
-        <h2 id="selector-sec-title">
+    <!-- SECTION 2: 5-AXIS ARCHITECTURAL RADAR SELECTOR LAB (HIGH-TECH INSTRUMENT WORKBENCH) -->
+    <section id="sec-selector" class="lens-panel selector-workbench-frame selector-dashboard" aria-labelledby="selector-sec-title">
+      <div class="hub-sec-header" style="margin-top:0; border-bottom: 1px solid rgba(115, 238, 228, 0.2);">
+        <div class="hub-sec-badge" style="color: #73eee4;">02 · FLAGSHIP INTERACTIVE LAB</div>
+        <h2 id="selector-sec-title" style="color: #ffffff;">
           <span data-lang="zh">5 軸多維動態雷達選型決策器</span>
           <span data-lang="en">5-Axis Multidimensional Architecture Radar Selector</span>
         </h2>
       </div>
-      <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; max-width: 860px; margin-bottom: 1.5rem;">
+      <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; max-width: 860px; margin-bottom: 1.5rem;">
         <span data-lang="zh">調節五大設計約束滑桿，即時畫出各技術相對輪廓。最高分只表示「在目前滑桿下的相對適配」，不是預設贏家，也不是出貨證明。</span>
         <span data-lang="en">Move the five constraint sliders to redraw relative hulls. The top score is relative fit under the current sliders — not a default winner and not shipment proof.</span>
       </p>
@@ -1038,10 +1250,8 @@
         </div>
       </div>
     </section>
-        </div>
-      </div>
-    </div>
-  </main>
+  </div>
+</main>
 
     <!-- FLAGSHIP ENTERPRISE FOOTER (全站統一旗艦級頁尾) -->
   <footer class="hub-footer">
