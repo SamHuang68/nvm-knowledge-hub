@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site-shell.css">
-  <link rel="stylesheet" href="hub.css">
+  <link rel="stylesheet" href="site-shell.css?v=20260906-home-v1">
+  <link rel="stylesheet" href="hub.css?v=20260906-home-v1">
   <script src="site-language.js"></script>
   <style>
     /* 0. ACCESSIBILITY DEFENSE: High-contrast Skip Link */
@@ -30,9 +30,13 @@
       top: 14px !important; outline: 3px solid #f59e0b !important; outline-offset: 3px !important;
     }
 
-    /* 1. Language Visibility (Single Source of Truth) */
-    html[data-language="en"] [data-lang="zh"], body[data-language="en"] [data-lang="zh"] { display: none !important; }
-    html[data-language="zh"] [data-lang="en"], body[data-language="zh"] [data-lang="en"] { display: none !important; }
+    /* 1. Language: English default, one locale at a time */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert !important; }
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] { display: revert !important; }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] { display: none !important; }
 
     /* ==========================================================================
        NVM KNOWLEDGE HUB V3.2 — EDITORIAL WHITE THEME ARCHITECTURE
@@ -424,8 +428,8 @@
   <header class="hub-minimal-header" id="hubTopHeader">
     <div class="hub-header-left">
       <a class="hub-micro-logo" href="index.html" aria-label="NVM Knowledge Hub Home"><span>N</span></a>
-      <span class="hub-brand-name">NVM ARCHITECTURE KNOWLEDGE HUB</span>
-      <span class="hub-spec-badge">V3.0 · INDUSTRIAL SPEC</span>
+      <span class="hub-brand-name"><span data-lang="zh">NVM 架構知識中樞</span><span data-lang="en">NVM ARCHITECTURE KNOWLEDGE HUB</span></span>
+      <span class="hub-spec-badge">V3.2 · EDITORIAL</span>
     </div>
     <div class="hub-header-right">
       <!-- 全局搜尋觸發按鈕 -->
@@ -467,14 +471,14 @@
       <span data-lang="en">Non-Volatile Memory<br><em>Architecture Knowledge Hub</em></span>
     </h1>
     <p class="hero-sub">
-      <span data-lang="zh">聚焦 AntiFuse OTP IP 的工業級技術智庫 — 從奈米級位元胞物理、安全架構設計，到 AI / IoT / 車規 / 特種矽的完整應用生態。</span>
-      <span data-lang="en">Industrial-grade knowledge base for AntiFuse OTP IP — from nanoscale bitcell physics and security architecture to AI / IoT / automotive / specialty silicon applications.</span>
+      <span data-lang="zh">嵌入式非揮發性記憶體的架構決策與證據邊界 — 從位元胞物理、安全架構到 AI / IoT / 車規 / 特種矽。</span>
+      <span data-lang="en">Architecture and evidence boundaries for embedded NVM — bitcell physics, security architecture, AI / IoT / automotive / specialty silicon.</span>
     </p>
     <div class="hero-metrics">
       <div class="hero-metric"><b>8</b><span><span data-lang="zh">知識領域</span><span data-lang="en">Knowledge Domains</span></span></div>
-      <div class="hero-metric"><b>44</b><span><span data-lang="zh">矽驗證證據</span><span data-lang="en">Silicon-Verified Claims</span></span></div>
+      <div class="hero-metric"><b>44</b><span><span data-lang="zh">總帳紀錄</span><span data-lang="en">Ledger Records</span></span></div>
       <div class="hero-metric"><b>12</b><span><span data-lang="zh">深度專頁</span><span data-lang="en">Deep-Dive Pages</span></span></div>
-      <div class="hero-metric"><b>100%</b><span><span data-lang="zh">零漏電防護</span><span data-lang="en">Zero-Leakage OTP</span></span></div>
+      <div class="hero-metric"><b>4</b><span><span data-lang="zh">證據分級</span><span data-lang="en">Evidence Classes</span></span></div>
     </div>
   </section>
 
@@ -539,7 +543,7 @@
             <a class="km-card" href="memory-physics.html">
               <span class="km-card-num">F1</span>
               <span class="km-card-title"><span data-lang="zh">位元胞物理與可靠度</span><span data-lang="en">Bitcell Physics &amp; Reliability</span></span>
-              <span class="km-card-desc"><span data-lang="zh">AntiFuse 閘極氧化層介電擊穿、奈米金屬矽化物微絲穩定性、Fowler-Nordheim 穿隧模型、44 筆矽驗證證據總帳。</span><span data-lang="en">AntiFuse gate-oxide dielectric breakdown, nanoscale metallic silicide filament stability, Fowler-Nordheim tunneling models, and 44 silicon-verified evidence claims.</span></span>
+              <span class="km-card-desc"><span data-lang="zh">AntiFuse 閘極氧化層介電擊穿、奈米金屬矽化物微絲穩定性、Fowler-Nordheim 穿隧模型，以及 44 筆證據總帳紀錄。</span><span data-lang="en">AntiFuse gate-oxide dielectric breakdown, nanoscale metallic silicide filament stability, Fowler-Nordheim tunneling models, and a 44-row evidence ledger.</span></span>
               <span class="km-card-tags">
                 <span>175°C Zero Drift</span><span>F-N Tunneling</span><span>44 Claims</span>
               </span>
@@ -572,7 +576,7 @@
             <a class="km-card" href="secure-storage.html">
               <span class="km-card-num">A1</span>
               <span class="km-card-title"><span data-lang="zh">安全儲存架構</span><span data-lang="en">Secure Storage Architecture</span></span>
-              <span class="km-card-desc"><span data-lang="zh">SRAM PUF 動態金鑰重構、AES-256 GCM 即時加密、AntiFuse OTP 下電零留存。安全邊界橫跨所有應用場景。</span><span data-lang="en">SRAM PUF dynamic key reconstruction, AES-256 GCM real-time encryption, AntiFuse OTP zero-at-rest. Security boundary spans all applications.</span></span>
+              <span class="km-card-desc"><span data-lang="zh">SRAM PUF 動態金鑰重構、AES-256 GCM 加密、AntiFuse OTP 下電狀態模型。安全邊界橫跨應用場景。</span><span data-lang="en">SRAM PUF key reconstruction, AES-256 GCM encryption, AntiFuse OTP power-off state model. Security boundary across applications.</span></span>
               <span class="km-card-tags">
                 <span>SRAM PUF</span><span>AES-256 GCM</span><span>Zero at Rest</span>
               </span>
@@ -670,8 +674,8 @@
             </a>
             <a class="km-card" href="memory-evidence.html">
               <span class="km-card-num">R3</span>
-              <span class="km-card-title"><span data-lang="zh">矽驗證證據總帳</span><span data-lang="en">Evidence Ledger</span></span>
-              <span class="km-card-desc"><span data-lang="zh">44 筆以第一手資料手冊與矽驗證為準繩的技術證據，不是閱讀清單，是證據邊界。</span><span data-lang="en">44 silicon-verified claims grounded in primary datasheets — not a reading list, an evidence boundary.</span></span>
+              <span class="km-card-title"><span data-lang="zh">證據總帳</span><span data-lang="en">Evidence Ledger</span></span>
+              <span class="km-card-desc"><span data-lang="zh">44 筆以第一手資料手冊為準繩的技術紀錄，不是閱讀清單，是證據邊界。</span><span data-lang="en">44 records grounded in primary datasheets — not a reading list, an evidence boundary.</span></span>
               <span class="km-card-tags"><span>44 Claims</span><span>Primary Sources</span></span>
               <span class="km-card-arrow"><span data-lang="zh">檢視總帳</span><span data-lang="en">View Ledger</span> <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </a>
@@ -684,94 +688,26 @@
 
   <!-- FOOTER -->
   <footer class="hub-footer">
-    <p>&copy; 2026 NVM Architecture Knowledge Hub &middot; Architectural Marketing &amp; Evidence Discipline</p>
+    <p>
+      <span data-lang="zh">&copy; 2026 NVM 架構知識中樞 · 證據紀律</span>
+      <span data-lang="en">&copy; 2026 NVM Architecture Knowledge Hub · Evidence discipline</span>
+    </p>
     <div>
-      <a href="index.html">Portal</a>
-      <a href="secure-storage.html">Secure Storage</a>
-      <a href="ai-nvm-opportunities.html">AI &amp; Advanced Nodes</a>
-      <a href="iot-mcu-envm.html">IoT &amp; MCU eNVM</a>
-      <a href="automotive-nvm.html">Automotive NVM</a>
-      <a href="specialty-nvm.html">Specialty NVM</a>
-      <a href="technology-comparison.html">Tech Comparison</a>
-      <a href="whitepaper/">Whitepaper Studio</a>
-      <a href="briefing/index.html">Executive Briefing</a>
+      <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Portal</span></a>
+      <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
+      <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Advanced Nodes</span></a>
+      <a href="iot-mcu-envm.html"><span data-lang="zh">IoT 與 MCU</span><span data-lang="en">IoT &amp; MCU eNVM</span></a>
+      <a href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive NVM</span></a>
+      <a href="specialty-nvm.html"><span data-lang="zh">特種矽</span><span data-lang="en">Specialty NVM</span></a>
+      <a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Tech Comparison</span></a>
+      <a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper Studio</span></a>
+      <a href="briefing/index.html"><span data-lang="zh">技術簡報</span><span data-lang="en">Executive Briefing</span></a>
     </div>
     <p>TSMC N2 GAA &middot; CXL 3.1 &middot; 3D SoIC &middot; AEC-Q100 Grade 0 &middot; PQC Stateful Boot</p>
   </footer>
 
-  <!-- JS: Search Engine + Language Sync + Vertical Rail Tracking -->
+  <!-- JS: rail tracking only. Search + language live in hub.js (single SEARCH_INDEX). -->
   <script>
-  // =========================================================================
-  // NVM KNOWLEDGE HUB V3.0 — KNOWLEDGE MAP PORTAL ENGINE
-  // =========================================================================
-
-  // 1. LANGUAGE GOVERNANCE (SSOT: site-language.js)
-  function syncHubLanguage() {
-    const lang = window.HubLanguage ? window.HubLanguage.get() : "en";
-    document.documentElement.dataset.language = lang;
-    document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
-    if (document.body) document.body.dataset.language = lang;
-    const si = document.getElementById("searchInput");
-    if (si) si.placeholder = si.dataset[`placeholder${lang === "zh" ? "Zh" : "En"}`] || "";
-  }
-  window.addEventListener("hub:language-change", syncHubLanguage);
-  document.addEventListener("DOMContentLoaded", syncHubLanguage);
-
-  // 2. GLOBAL SEARCH ENGINE (Ctrl+K)
-  const SEARCH_INDEX = [
-    { title_zh: "位元胞物理與可靠度", title_en: "Bitcell Physics & Reliability", url: "memory-physics.html", tags: "antifuse gate oxide filament physics fowler nordheim 175 drift evidence" },
-    { title_zh: "NVM 技術對比矩陣", title_en: "NVM Technology Comparison Matrix", url: "technology-comparison.html", tags: "comparison matrix eflash emram efuse selection guide foundry tsmc umc" },
-    { title_zh: "安全儲存架構", title_en: "Secure Storage Architecture", url: "secure-storage.html", tags: "sram puf aes 256 gcm otp zero rest key security" },
-    { title_zh: "安全保證與信任根", title_en: "Security Assurance & Root of Trust", url: "security-assurance.html", tags: "fips 140 caliptra dpa fault injection root trust nist" },
-    { title_zh: "AI 系統與先進節點", title_en: "AI Systems & Advanced Nodes", url: "ai-nvm-opportunities.html", tags: "xpu ddr5 pmic spd soic chiplet ucie pqc boot accelerator" },
-    { title_zh: "超低功耗 IoT 與 MCU eNVM", title_en: "ULP IoT & Edge MCU eNVM", url: "iot-mcu-envm.html", tags: "iot mcu 22ull n4e eflash cliff 0.5v ntv vector patch" },
-    { title_zh: "車規級 NVM", title_en: "Automotive-Grade NVM", url: "automotive-nvm.html", tags: "automotive aec q100 iso 26262 grade 0 175 secded ecc ppm adas ev" },
-    { title_zh: "特種矽與 BCD 製程", title_en: "Specialty Silicon & BCD", url: "specialty-nvm.html", tags: "bcd pmic hv ddi gamma mura eink 110hv cis dram hbm ppr bist bira trim" },
-    { title_zh: "白皮書決策工作台", title_en: "Whitepaper Decision Studio", url: "whitepaper/", tags: "whitepaper reader evidence ledger phase search" },
-    { title_zh: "高階技術簡報", title_en: "Executive Briefing Deck", url: "briefing/index.html", tags: "briefing deck pptx speaker notes executive v19" },
-    { title_zh: "矽驗證證據總帳", title_en: "Evidence Ledger", url: "memory-evidence.html", tags: "evidence 44 claims ledger silicon verified" },
-    { title_zh: "OIP Secure Storage Brief", title_en: "OIP Secure Storage Brief", url: "oip-secure-storage.html", tags: "oip tsmc secure storage brief event" },
-  ];
-
-  const overlay = document.getElementById("searchOverlay");
-  const input = document.getElementById("searchInput");
-  const results = document.getElementById("searchResults");
-
-  function openSearch() {
-    overlay.classList.add("is-open");
-    input.value = "";
-    renderResults("");
-    setTimeout(() => input.focus(), 50);
-  }
-  function closeSearch() {
-    overlay.classList.remove("is-open");
-  }
-  function renderResults(query) {
-    const lang = window.HubLanguage ? window.HubLanguage.get() : "en";
-    const q = query.toLowerCase().trim();
-    const filtered = q
-      ? SEARCH_INDEX.filter(item =>
-          item.title_en.toLowerCase().includes(q) ||
-          item.title_zh.includes(q) ||
-          item.tags.includes(q))
-      : SEARCH_INDEX;
-    results.innerHTML = filtered.map(item => `
-      <a class="search-result-item" href="${item.url}">
-        <div class="sr-title">${lang === "zh" ? item.title_zh : item.title_en}</div>
-        <div class="sr-desc">${item.url}</div>
-      </a>
-    `).join("");
-  }
-
-  document.getElementById("searchTrigger").addEventListener("click", openSearch);
-  overlay.addEventListener("click", (e) => { if (e.target === overlay) closeSearch(); });
-  input.addEventListener("input", () => renderResults(input.value));
-  document.addEventListener("keydown", (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key === "k") { e.preventDefault(); openSearch(); }
-    if (e.key === "Escape" && overlay.classList.contains("is-open")) closeSearch();
-  });
-
-  // 3. VERTICAL RAIL TRACKING & SMOOTH INTERACTION
   document.addEventListener("DOMContentLoaded", () => {
     const railBtns = document.querySelectorAll(".hub-rail-btn");
     const sections = Array.from(railBtns).map(btn => document.getElementById(btn.dataset.target)).filter(Boolean);
@@ -812,9 +748,8 @@
     }
   });
 
-  // 4. INITIAL BOOT
-  syncHubLanguage();
   </script>
-  <script src="hub.js"></script>
+  <script src="hub.js?v=20260906-home-v1"></script>
+
 </body>
 </html>
