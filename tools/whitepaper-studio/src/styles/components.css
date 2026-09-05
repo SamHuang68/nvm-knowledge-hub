@@ -20,7 +20,7 @@
 .contract-card dl div { padding-top: 13px; border-top: 1px solid #dde5e3; }
 .contract-card dt, .technology-list small { color: #4f6970; font: 700 9px/1.45 var(--font-mono); letter-spacing: .1em; }
 .contract-card dd { margin: 6px 0 0; color: #23434d; font-size: 13px; line-height: 1.55; }
-.evidence-note { margin: auto 0 0; padding: 15px; background: #eef5f3; color: #516b72; font-size: 12px; line-height: 1.55; }
+.evidence-note { margin: auto 0 0; padding: 15px; background: #0e2a38; color: #516b72; font-size: 12px; line-height: 1.55; }
 .evidence-note b { display: block; margin-bottom: 5px; color: #815226; font: 800 9px/1.45 var(--font-mono); letter-spacing: .12em; }
 
 .technology-list { border-top: 1px solid var(--line-light); }
@@ -32,7 +32,7 @@
 .technology-list article > div:not(.technology-name) p { margin: 7px 0 0; color: #405f68; font-size: 13px; line-height: 1.58; }
 .technology-limit { padding-left: 16px; border-left: 2px solid var(--copper); }
 
-.node-lens-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: #bfcfcd; border: 1px solid #bfcfcd; }
+.node-lens-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: #0a2230; border: 1px solid #0a2230; }
 .node-lens-grid article { min-width: 0; min-height: 310px; display: flex; flex-direction: column; padding: clamp(24px, 3vw, 42px); background: #0e2a38; }
 .node-lens-grid article > p { margin: 0 0 24px; color: #168d91; font: 750 9px/1.4 var(--font-mono); letter-spacing: .15em; }
 .node-lens-grid h4 { max-width: 560px; margin: 0 0 16px; font-size: clamp(24px, 2.3vw, 35px); line-height: 1.1; letter-spacing: -.035em; }
@@ -65,7 +65,7 @@
 .reader-index nav a:hover { color: #07878b; }
 .reader-index nav b { color: var(--copper); font: 550 11px/1.5 var(--font-mono); }
 .reader-index nav span { font-size: 12px; line-height: 1.45; }
-.reader-boundary { margin-top: 24px; padding: 16px; border-left: 2px solid var(--copper); background: #e6eeec; }
+.reader-boundary { margin-top: 24px; padding: 16px; border-left: 2px solid var(--copper); background: #0e2a38; }
 .reader-boundary b { display: block; margin-bottom: 6px; color: #7d5027; font: 750 9px/1.45 var(--font-mono); letter-spacing: .09em; }
 .reader-boundary span { color: #5a737a; font-size: 11px; line-height: 1.6; }
 .paper-body { min-width: 0; }
@@ -79,7 +79,7 @@
 .chapter-takeaways > p { margin: 2px 0 0; color: var(--aqua); font: 750 9px/1.5 var(--font-mono); letter-spacing: .12em; }
 .chapter-takeaways ul { margin: 0; padding-left: 20px; }
 .chapter-takeaways li { margin-bottom: 8px; color: #c1d3d5; font-size: 13px; }
-.evidence-contract { max-width: 890px; display: grid; grid-template-columns: .65fr 1.35fr; gap: 1px; margin: 1px 0 0; background: #cbd7d5; }
+.evidence-contract { max-width: 890px; display: grid; grid-template-columns: .65fr 1.35fr; gap: 1px; margin: 1px 0 0; background: #0a2230; }
 .evidence-contract div { padding: 17px 20px; background: #0e2a38; }
 .evidence-contract dd { margin: 7px 0 0; color: #4f6970; font-size: 12px; line-height: 1.55; }
 .paper-sources { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 35px; align-items: end; padding: clamp(28px, 4vw, 48px); background: #071f2c; color: #e9f3f2; }
@@ -103,13 +103,13 @@
 .decision-table tbody th { color: #163e49; font-size: 14px; line-height: 1.35; }
 .decision-table tbody th small { display: block; margin-top: 8px; color: #748b90; font: 500 9px/1.45 var(--font-sans); }
 .decision-table tbody td { color: #4c6971; line-height: 1.55; }
-.family-chip, .status-chip { display: inline-block; padding: 5px 7px; background: #e4f2f0; color: #087176; font: 750 9px/1.45 var(--font-mono); letter-spacing: .035em; }
-.status-chip { background: #f1e6d8; color: #8b5d2f; }
-.selector-gate { display: grid; grid-template-columns: minmax(280px, .8fr) minmax(0, 1.2fr); gap: 38px; align-items: center; margin-top: 26px; padding: 32px; border-left: 3px solid var(--copper); background: #e4ebe9; }
+.family-chip, .status-chip { display: inline-block; padding: 5px 7px; background: #133445; color: #087176; font: 750 9px/1.45 var(--font-mono); letter-spacing: .035em; }
+.status-chip { background: #133445; color: #8b5d2f; }
+.selector-gate { display: grid; grid-template-columns: minmax(280px, .8fr) minmax(0, 1.2fr); gap: 38px; align-items: center; margin-top: 26px; padding: 32px; border-left: 3px solid var(--copper); background: #0e2a38; }
 .selector-gate > div p { margin: 0 0 8px; color: #7f5127; font: 750 9px/1.45 var(--font-mono); letter-spacing: .12em; }
 .selector-gate h3 { margin: 0; font-size: clamp(25px, 2.4vw, 36px); line-height: 1.1; }
-.selector-gate ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 0; background: #bdcbc9; list-style: none; }
-.selector-gate li { min-width: 0; padding: 18px; background: #f8fbfa; }
+.selector-gate ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 0; background: #0a2230; list-style: none; }
+.selector-gate li { min-width: 0; padding: 18px; background: #0e2a38; }
 .selector-gate li b { display: block; margin-bottom: 17px; color: #0e9296; font: 550 13px/1 var(--font-mono); }
 .selector-gate li span { color: #4d686f; font-size: 12px; line-height: 1.55; }
 
@@ -131,7 +131,7 @@
 .record-grid dl div { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 11px; padding-top: 9px; border-top: 1px solid #dde4e2; }
 .record-grid dt { color: #506970; font: 700 9px/1.45 var(--font-mono); letter-spacing: .07em; }
 .record-grid dd { margin: 0; color: #49666e; font-size: 11px; line-height: 1.45; }
-.record-grid article > p { margin: auto 0 0; padding: 15px; background: #eef3f2; color: #556f76; font-size: 11px; line-height: 1.55; }
+.record-grid article > p { margin: auto 0 0; padding: 15px; background: #061925; color: #556f76; font-size: 11px; line-height: 1.55; }
 .record-grid article > p b { display: block; margin-bottom: 5px; color: #7d5027; font: 750 9px/1.45 var(--font-mono); letter-spacing: .09em; }
 .sharepoint-transfer { display: grid; grid-template-columns: minmax(300px, .8fr) minmax(0, 1.2fr); gap: clamp(30px, 5vw, 80px); align-items: end; margin-top: 70px; padding: clamp(30px, 5vw, 60px); background: #082936; color: #e7f2f1; }
 .sharepoint-transfer > div p { margin: 0 0 12px; color: var(--aqua); font: 750 9px/1.45 var(--font-mono); letter-spacing: .13em; }
