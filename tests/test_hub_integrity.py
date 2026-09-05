@@ -164,6 +164,18 @@ def run_tests() -> None:
     test("M2 包含 Section 5 MCU 狀態契約架構 (sec-contracts)", "id=\"sec-contracts\"" in iot_c and "mcu-contracts-title" in iot_c)
     test("M3 包含 ASIL-D 故障率指標矩陣表 (ISO 26262 ASIL-D)", "ISO 26262 ASIL-D" in auto_c and "CONTRACT 01" in auto_c and "CONTRACT 03" in auto_c)
 
+    # ===== TEST 14: M2 專屬視覺與 DOM 拓撲防禦斷言 (Anti-Pollution & Topology) =====
+    print("\n═══ TEST 14: M2 專屬視覺與 DOM 拓撲防禦斷言 ═══")
+    test("M2 頁面絕不包含 secure-storage-hero-key.webp", "secure-storage-hero-key.webp" not in iot_c)
+    test("M2 頁面包含專屬 iot-mcu-hero.jpg 裸晶視覺圖引用", "iot-mcu-hero.jpg" in iot_c)
+    
+    hero_pos = iot_c.find('<section class="hero"')
+    stat_pos = iot_c.find('class="stat-strip-grid"')
+    pills_pos = iot_c.find('class="hub-nav-pills"')
+    thesis_pos = iot_c.find('<section id="thesis"')
+    test("M2 DOM 拓撲順序正確 (Hero ➔ Stat Strip ➔ Nav Pills ➔ Thesis)",
+         0 < hero_pos < stat_pos < pills_pos < thesis_pos)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

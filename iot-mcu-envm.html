@@ -39,60 +39,31 @@
     .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #73eee4; padding: 10px 18px; border: 1px solid #73eee4; border-radius: 4px; }
     .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
 
-    /* 頂部快速跳轉藥丸列 (hub-nav-pills) */
-    .hub-nav-pills-bar {
+    /* 核心修正 1：專屬 IoT Edge MCU 裸晶視覺背景 (徹底替換掉 secure-storage 金色鑰匙) */
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, var(--navy-950) 0%, rgba(3,19,30,0) 24%),
+                  linear-gradient(90deg, rgba(3,19,30,.98) 0%, rgba(3,19,30,.88) 40%, rgba(3,19,30,.35) 70%, rgba(3,19,30,.25)),
+                  url("assets/iot-mcu-hero.jpg") center/cover no-repeat !important;
+      transform: scale(1.01);
+      animation: hero-push 18s ease-out forwards;
+      opacity: 0.95;
+    }
+
+    /* 核心修正 2：消除 Hero 與正文之間的斷層空白，優化導覽節奏 */
+    .hub-intro-strip {
       max-width: 1200px;
-      margin: 12px auto 0;
-      padding: 0 20px;
-    }
-    .hub-nav-pills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 10px 16px;
-      background: #ffffff;
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      border-radius: 30px;
-      box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
-    }
-    .nav-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: 20px;
-      background: #f1f5f9;
-      color: #0a1e2c;
-      text-decoration: none;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
-    }
-    .nav-pill:hover {
-      background: #e2e8f0;
-      border-color: #0d9488;
-      color: #0d9488;
-      transform: translateY(-1px);
-    }
-    .pill-number {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
-      color: #0d9488;
-      font-weight: 700;
+      margin: 0 auto;
+      padding: 32px 20px 0;
     }
 
     /* 4-Metric 規格彩條 (stat-strip-grid) */
-    .stat-strip-wrapper {
-      max-width: 1200px;
-      margin: 24px auto 36px;
-      padding: 0 20px;
-    }
     .stat-strip-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 16px;
+      margin-bottom: 24px;
     }
     .stat-strip-card {
       background: #ffffff;
@@ -148,6 +119,46 @@
       font-size: 0.8125rem;
       color: #475569;
       line-height: 1.4;
+    }
+
+    /* 章節快速跳轉導覽膠囊 (hub-nav-pills) */
+    .hub-nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 40px;
+      box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+      margin-bottom: 20px;
+    }
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: #f1f5f9;
+      color: #0a1e2c;
+      text-decoration: none;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+    .nav-pill:hover {
+      background: #e2e8f0;
+      border-color: #0d9488;
+      color: #0d9488;
+      transform: translateY(-1px);
+    }
+    .pill-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: #0d9488;
+      font-weight: 700;
     }
 
     /* 第一性原理物理公式卡片 (formula-box-math) */
@@ -338,21 +349,9 @@
     </span>
   </nav>
 
-  <!-- 頂部快速跳轉藥丸列 -->
-  <div class="hub-nav-pills-bar">
-    <div class="hub-nav-pills" role="navigation" aria-label="章節跳轉">
-      <a class="nav-pill" href="#thesis"><span class="pill-number">01</span><span data-lang="zh">微縮斷崖論述</span><span data-lang="en">Scaling Cliff Thesis</span></a>
-      <a class="nav-pill" href="#power-lab"><span class="pill-number">02</span><span data-lang="zh">0.5V NTV 示波器</span><span data-lang="en">0.5V NTV Scope</span></a>
-      <a class="nav-pill" href="#scaling-cliff"><span class="pill-number">03</span><span data-lang="zh">四大微縮障礙</span><span data-lang="en">4 Scaling Barriers</span></a>
-      <a class="nav-pill" href="#roadmap"><span class="pill-number">04</span><span data-lang="zh">TSMC 微縮路線圖</span><span data-lang="en">TSMC Roadmap</span></a>
-      <a class="nav-pill" href="#cam-patch"><span class="pill-number">05</span><span data-lang="zh">Vector Patch CAM</span><span data-lang="en">Vector Patch CAM</span></a>
-      <a class="nav-pill" href="#compare"><span class="pill-number">06</span><span data-lang="zh">四方技術矩陣</span><span data-lang="en">Trade-Off Matrix</span></a>
-      <a class="nav-pill" href="#sec-contracts"><span class="pill-number">07</span><span data-lang="zh">MCU 狀態契約</span><span data-lang="en">State Contracts</span></a>
-    </div>
-  </div>
-
+  <!-- 首屏純粹震撼聚焦：移除頂部卡住 Hero 的假 Tab 列 -->
   <main id="top">
-    <!-- HERO SECTION (完全對齊 secure-storage.html 旗艦 Obsidian 風格) -->
+    <!-- HERO SECTION (專屬 IoT MCU 裸晶微觀視覺圖，完全消除金色鑰匙) -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-media" aria-hidden="true"></div>
       <div class="hero-grid" aria-hidden="true"></div>
@@ -395,7 +394,7 @@
         <span>PURE LOGIC NVM</span>
         <b>ZERO EXTRA MASKS · 0.5V NTV CONTINUUM</b>
       </div>
-      <a class="scroll-cue" href="#thesis"><span>SCROLL TO EXPLORE</span><i></i></a>
+      <a class="scroll-cue" href="#intro-hub"><span>SCROLL TO EXPLORE</span><i></i></a>
     </section>
 
     <!-- SIGNAL STRIP (4 大核心技術符號) -->
@@ -406,8 +405,8 @@
       <i></i><span><svg><use href="#i-control"/></svg>VECTOR PATCH CAM</span>
     </section>
 
-    <!-- 4-METRIC STAT STRIP GRID (融合於前導與論述之間) -->
-    <div class="stat-strip-wrapper">
+    <!-- 進入正文輕盈轉折區：無縫整合 4-Metric Strip 與章節快速導覽膠囊，消除斷層死白 -->
+    <div id="intro-hub" class="hub-intro-strip">
       <div class="stat-strip-grid">
         <div class="stat-strip-card border-l-cyan">
           <div class="stat-card-head">
@@ -441,6 +440,17 @@
           <div class="stat-val">15+ YRS</div>
           <p><span data-lang="zh">125°C 高溫長效資料留存，滿足智慧三表與工業感測節點終身壽命。</span><span data-lang="en">15+ years data retention at 125°C, perfectly fulfilling smart metering and industrial lifetimes.</span></p>
         </div>
+      </div>
+
+      <!-- 章節快速跳轉導覽膠囊 (置於正文前導區，點擊平滑滑動，不卡 Hero) -->
+      <div class="hub-nav-pills" role="navigation" aria-label="章節跳轉導覽">
+        <a class="nav-pill" href="#thesis"><span class="pill-number">01</span><span data-lang="zh">微縮斷崖論述</span><span data-lang="en">Scaling Cliff Thesis</span></a>
+        <a class="nav-pill" href="#power-lab"><span class="pill-number">02</span><span data-lang="zh">0.5V NTV 示波器</span><span data-lang="en">0.5V NTV Scope</span></a>
+        <a class="nav-pill" href="#scaling-cliff"><span class="pill-number">03</span><span data-lang="zh">四大微縮障礙</span><span data-lang="en">4 Scaling Barriers</span></a>
+        <a class="nav-pill" href="#roadmap"><span class="pill-number">04</span><span data-lang="zh">TSMC 微縮路線圖</span><span data-lang="en">TSMC Roadmap</span></a>
+        <a class="nav-pill" href="#cam-patch"><span class="pill-number">05</span><span data-lang="zh">Vector Patch CAM</span><span data-lang="en">Vector Patch CAM</span></a>
+        <a class="nav-pill" href="#compare"><span class="pill-number">06</span><span data-lang="zh">四方技術矩陣</span><span data-lang="en">Trade-Off Matrix</span></a>
+        <a class="nav-pill" href="#sec-contracts"><span class="pill-number">07</span><span data-lang="zh">MCU 狀態契約</span><span data-lang="en">State Contracts</span></a>
       </div>
     </div>
 
@@ -637,12 +647,12 @@
           <h4>TSMC 12FFC+ (FinFET)</h4>
           <p><span data-lang="zh">原生 0.5V 近閾值電壓 (NTV) 運作，AON 待機漏電 &lt;10nA，智慧穿戴與邊緣感測最佳甜蜜點。</span><span data-lang="en">Native 0.5V NTV operation, &lt;10nA AON leakage, delivering the ultimate sweet spot for edge AI sensors.</span></p>
         </div>
-        <div class="roadmap-step-card">
+        <div class="roadmap-step-card" style="border-top: 3px solid #4f46e5;">
           <span class="roadmap-step-badge">NODE 03 · N6e</span>
           <h4>TSMC N6e (IoT Enhanced)</h4>
           <p><span data-lang="zh">EUV 極紫外光光刻製程，邏輯密度提升 10 倍，高密度 AntiFuse 提供 512Kb 韌體開機與修補空間。</span><span data-lang="en">EUV lithography, 10x logic density, high-density AntiFuse provides 512Kb boot and patch storage.</span></p>
         </div>
-        <div class="roadmap-step-card">
+        <div class="roadmap-step-card" style="border-top: 3px solid #d97706;">
           <span class="roadmap-step-badge">NODE 04 · N4e</span>
           <h4>TSMC N4e (NanoFlex GAA)</h4>
           <p><span data-lang="zh">次世代 4nm 極致低功耗，奈米片 (Nanosheet) GAA 結構相容，滿足超低功耗端點神經網路加速器。</span><span data-lang="en">Next-gen 4nm extreme low power, GAA nanosheet compatible, powering endpoint neural acceleration.</span></p>
@@ -1178,7 +1188,6 @@
       if (ntvCanvas && ntvCanvas.getContext) {
         const ctx = ntvCanvas.getContext('2d');
         let animFrameId = null;
-        let progress = 0;
         let isAnimating = false;
 
         function drawScope(vdd, t) {
