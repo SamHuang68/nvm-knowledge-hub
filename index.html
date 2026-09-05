@@ -746,6 +746,15 @@
 
       sections.forEach(sec => observer.observe(sec));
     }
+
+    // 全局快捷鍵監聽 (Ctrl+K / Cmd+K)
+    document.addEventListener("keydown", (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+        e.preventDefault();
+        const trigger = document.getElementById("searchTrigger");
+        if (trigger) trigger.click();
+      }
+    });
   });
 
   </script>
