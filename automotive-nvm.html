@@ -69,11 +69,11 @@
        ========================================================================= */
     .m3-hero-container {
       position: relative;
-      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 55%, #f1f5f9 100%);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      background: linear-gradient(180deg, rgba(6, 25, 37, 0.96) 0%, rgba(3, 19, 30, 0.99) 100%);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.12);
       overflow: hidden;
       padding: clamp(32px, 3.8vw, 48px) clamp(16px, 2.5vw, 36px) clamp(38px, 4.5vw, 56px);
-      color: #334155;
+      color: #f8fafc;
       text-align: center;
     }
     .m3-hero-media {
@@ -87,8 +87,8 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      opacity: 0.18;
-      filter: saturate(1.05) brightness(1.05);
+      opacity: 0.38;
+      filter: saturate(1.1) brightness(0.9);
       animation: hero-push 22s ease-out forwards;
     }
     @keyframes hero-push {
@@ -99,15 +99,15 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: radial-gradient(circle at 50% 15%, rgba(245, 158, 11, 0.08) 0%, rgba(248, 250, 252, 0.88) 55%, rgba(241, 245, 249, 0.98) 100%),
-                  linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(248, 250, 252, 0.96) 100%);
+      background: radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.14) 0%, rgba(6, 25, 37, 0.9) 68%, rgba(3, 19, 30, 0.99) 100%),
+                  linear-gradient(180deg, rgba(6, 25, 37, 0.7) 0%, rgba(3, 19, 30, 0.98) 100%);
     }
     .m3-hero-grid {
       position: absolute;
       inset: 0;
       z-index: 2;
-      background-image: linear-gradient(to right, rgba(217, 119, 6, 0.04) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(217, 119, 6, 0.04) 1px, transparent 1px);
+      background-image: linear-gradient(to right, rgba(245, 158, 11, 0.04) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(245, 158, 11, 0.04) 1px, transparent 1px);
       background-size: 32px 32px;
       pointer-events: none;
     }
@@ -124,9 +124,9 @@
       gap: 8px;
       padding: 3px 12px;
       background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(217, 119, 6, 0.35);
+      border: 1px solid rgba(245, 158, 11, 0.35);
       border-radius: 999px;
-      color: #b45309;
+      color: #f59e0b;
       font: 700 11px/1 'IBM Plex Mono', monospace;
       letter-spacing: 0.12em;
       margin-bottom: 8px;
@@ -138,23 +138,23 @@
       line-height: 1.16;
       letter-spacing: -0.025em;
       margin: 6px 0 10px;
-      color: #0a1e2c;
+      color: #ffffff;
       text-wrap: balance !important;
-      text-shadow: none;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
     }
     .m3-hero h1 em {
-      color: #d97706;
+      color: #f59e0b;
       font-style: normal;
       font-weight: 700;
     }
     .m3-hero p.lead-desc {
-      color: #475569;
+      color: #cbd5e1;
       font-size: clamp(14px, 1.1vw, 16px);
       line-height: 1.6;
       max-width: 860px;
       margin: 0 auto 16px;
       text-wrap: balance !important;
-      text-shadow: none;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     }
     .m3-hero-proof {
       display: flex;
@@ -163,7 +163,7 @@
       gap: clamp(14px, 2.2vw, 32px);
       margin-top: 14px;
       padding-top: 14px;
-      border-top: 1px solid rgba(217, 119, 6, 0.18);
+      border-top: 1px solid rgba(245, 158, 11, 0.2);
     }
     .m3-hero-proof > div {
       display: flex;
@@ -179,7 +179,7 @@
     }
     .m3-hero-proof span {
       font-size: 11px;
-      color: #64748b;
+      color: #94a3b8;
       font-weight: 500;
     }
 

@@ -86,31 +86,34 @@
       background-size: 48px 48px !important;
     }
 
-    /* 1. Hero 封面輕盈白底化 */
+    /* 1. Hero 進版主視覺圖 (Obsidian Navy 半導體晶片展示窗，保持高科技震撼視覺) */
     body.specialty-page .specialty-hero {
-      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 60%, #f1f5f9 100%) !important;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
-      color: #334155 !important;
-      padding: clamp(32px, 3.8vw, 48px) 20px 24px !important;
+      background: 
+        radial-gradient(circle at 50% 15%, rgba(17, 210, 208, 0.14) 0%, rgba(3, 19, 30, 0) 65%),
+        linear-gradient(180deg, rgba(6, 27, 41, 0.96) 0%, rgba(3, 19, 30, 1) 100%) !important;
+      border-bottom: 1px solid rgba(17, 210, 208, 0.2) !important;
+      color: #f8fafc !important;
+      padding: clamp(38px, 4.5vw, 56px) 20px 28px !important;
     }
     body.specialty-page .specialty-hero h1 {
-      color: #0a1e2c !important;
-      text-shadow: none !important;
+      color: #ffffff !important;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6) !important;
     }
     body.specialty-page .specialty-hero .hero-lede {
-      color: #475569 !important;
+      color: #c4d7e0 !important;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
     }
     body.specialty-page .hero-eyebrow-flex {
-      color: #0d9488 !important;
+      color: #73eee4 !important;
     }
     body.specialty-page .hero-eyebrow-flex .pulse-dot {
-      background: #0d9488 !important;
-      box-shadow: 0 0 8px rgba(13, 148, 136, 0.6) !important;
+      background: #00f0ff !important;
+      box-shadow: 0 0 10px #00f0ff !important;
     }
     body.specialty-page .hero-kicker {
-      background: rgba(217, 119, 6, 0.1) !important;
-      border: 1px solid rgba(217, 119, 6, 0.3) !important;
-      color: #b45309 !important;
+      background: rgba(255, 157, 92, 0.12) !important;
+      border: 1px solid rgba(255, 157, 92, 0.4) !important;
+      color: #ff9d5c !important;
     }
 
     /* 2. 4-Metric Stat Strip 白底卡片 */
