@@ -49,9 +49,9 @@
       position: relative !important;
     }
     section.hero .hero-content {
-      margin: 0 var(--side) !important;
+      margin: 0 clamp(14px, 2vw, 36px) !important;
       padding: 0 !important;
-      width: min(880px, 80vw) !important;
+      width: min(1080px, 88vw) !important;
     }
     section.hero h1 {
       max-width: 100% !important;
@@ -86,11 +86,13 @@
 
     /* 2. 4-Metric 規格彩條 */
     .stat-strip-compact {
-      max-width: 1400px;
+      max-width: min(1780px, 97vw) !important;
       margin: -10px auto 6px !important;
-      padding: 0 var(--side);
+      padding: 0 clamp(8px, 1.2vw, 16px) !important;
       position: relative;
       z-index: 10;
+      width: 100% !important;
+      box-sizing: border-box !important;
     }
     .stat-strip-grid {
       display: grid;
@@ -171,11 +173,16 @@
     .hub-nav-pills {
       display: flex;
       gap: 6px;
-      max-width: 1400px;
+      max-width: min(1780px, 97vw);
       margin: 0 auto;
-      padding: 0 var(--side);
+      padding: 0 clamp(8px, 1.2vw, 16px);
       overflow-x: auto;
       scrollbar-width: none;
+    }
+    .lens-vertical-rail .hub-nav-pills {
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: 100% !important;
     }
     .hub-nav-pills::-webkit-scrollbar { display: none; }
     .nav-pill {
@@ -207,7 +214,7 @@
     .immersive-chapter {
       position: relative !important;
       min-height: 48px !important;
-      padding: 8px var(--side) !important;
+      padding: 8px clamp(12px, 1.8vw, 24px) !important;
       display: flex !important;
       flex-direction: row !important;
       align-items: center !important;
@@ -548,7 +555,7 @@
     /* 6. COMPACT DENSITY PATCH: 全章節多餘留白腰斬收斂 (像素級精確清理) */
     .signal-strip {
       min-height: 46px !important;
-      padding: 8px var(--side) !important;
+      padding: 8px clamp(12px, 1.8vw, 24px) !important;
       margin-top: -4px !important;
       margin-bottom: 8px !important;
     }
@@ -581,7 +588,7 @@
     }
     .power-lab {
       min-height: auto !important;
-      padding: 24px var(--side) !important;
+      padding: 24px clamp(12px, 1.8vw, 24px) !important;
       gap: clamp(20px, 3vw, 40px) !important;
     }
     .silicon-stage {
@@ -952,7 +959,7 @@
     }
     .closing-section {
       min-height: 260px !important;
-      padding: 28px var(--side) !important;
+      padding: 28px clamp(12px, 1.8vw, 24px) !important;
     }
     .closing-section h2 {
       max-width: 100% !important;

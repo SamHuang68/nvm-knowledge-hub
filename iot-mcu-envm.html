@@ -62,9 +62,9 @@
       position: relative;
     }
     section.hero .hero-content {
-      margin: 0 var(--side);
+      margin: 0 clamp(14px, 2vw, 36px);
       padding: 0;
-      width: min(840px, 75vw);
+      width: min(1080px, 88vw);
     }
     section.hero h1 {
       font-size: clamp(28px, 3.4vw, 48px);
@@ -92,11 +92,13 @@
 
     /* 4-Metric 規格彩條 (高密度整合在 Hero 與 Signal 之間) */
     .stat-strip-compact {
-      max-width: 1400px;
+      max-width: min(1780px, 97vw);
       margin: -24px auto 0;
-      padding: 0 20px;
+      padding: 0 clamp(8px, 1.2vw, 16px);
       position: relative;
       z-index: 10;
+      width: 100%;
+      box-sizing: border-box;
     }
     .stat-strip-grid {
       display: grid;
@@ -166,61 +168,63 @@
        核心版面：EXECUTIVE LENS STUDIO (直立測條 + 高密度工作台)
        ======================================================= */
     .studio-workbench-wrapper {
-      max-width: 1400px;
-      margin: 28px auto 60px;
-      padding: 0 20px;
+      max-width: min(1780px, 97vw);
+      margin: 10px auto 30px;
+      padding: 0 clamp(8px, 1.2vw, 16px);
+      box-sizing: border-box;
     }
     .studio-layout {
       display: grid;
-      grid-template-columns: 280px minmax(0, 1fr);
-      gap: 28px;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 14px;
       align-items: start;
     }
     @media (max-width: 1024px) {
       .studio-layout {
         grid-template-columns: 1fr;
+        gap: 12px;
       }
     }
 
-    /* 左側直立測條 (Vertical Lens Rail) - 如同 Secure Storage Lens */
+    /* 左側直立測條 (Vertical Lens Rail) - 緊湊精緻化 */
     .lens-vertical-rail {
       position: sticky;
-      top: 80px;
+      top: 76px;
       background: #061925;
-      border: 1px solid rgba(115, 238, 228, 0.2);
-      border-radius: 10px;
-      padding: 20px 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      border: 1px solid rgba(115, 238, 228, 0.25);
+      border-radius: 6px;
+      padding: 8px 6px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
     .rail-header {
       border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding-bottom: 12px;
-      margin-bottom: 14px;
+      padding-bottom: 6px;
+      margin-bottom: 6px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     .rail-title {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       color: #73eee4;
       letter-spacing: 0.12em;
       font-weight: 700;
     }
     .rail-tag {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       color: #94a3b8;
       background: rgba(255,255,255,0.06);
-      padding: 2px 6px;
-      border-radius: 4px;
+      padding: 1px 5px;
+      border-radius: 3px;
     }
 
     /* 01~07 直立節點列表 (兼具 hub-nav-pills 測試相容) */
     .lens-vertical-rail .hub-nav-pills {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 3px;
       padding: 0;
       margin: 0;
       background: transparent;
@@ -230,21 +234,21 @@
     .lens-node-item {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 10px 12px;
-      border-radius: 6px;
+      gap: 6px;
+      padding: 4px 6px;
+      border-radius: 4px;
       text-decoration: none;
       color: #94a3b8;
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.05);
-      transition: all 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+      transition: all 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
       position: relative;
     }
     .lens-node-item:hover {
       background: rgba(13, 148, 136, 0.15);
       border-color: rgba(115, 238, 228, 0.4);
       color: #f8fafc;
-      transform: translateX(4px);
+      transform: translateX(2px);
     }
     .lens-node-item.active {
       background: linear-gradient(90deg, rgba(13, 148, 136, 0.3) 0%, rgba(6, 25, 37, 0.8) 100%);
@@ -254,10 +258,10 @@
     }
     .lens-badge {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
+      font-size: 0.64rem;
       font-weight: 700;
       color: #73eee4;
-      min-width: 24px;
+      min-width: 20px;
     }
     .lens-node-item.active .lens-badge {
       color: #fbbf24;
@@ -265,15 +269,15 @@
     .lens-info {
       display: flex;
       flex-direction: column;
-      line-height: 1.25;
+      line-height: 1.15;
     }
     .lens-name {
-      font-size: 0.8125rem;
+      font-size: 0.72rem;
       font-weight: 600;
       color: inherit;
     }
     .lens-sub {
-      font-size: 0.68rem;
+      font-size: 0.58rem;
       color: #64748b;
       font-family: 'IBM Plex Mono', monospace;
     }
@@ -302,7 +306,7 @@
       overflow: hidden;
     }
     .lens-panel {
-      padding: clamp(24px, 3.5vw, 44px);
+      padding: clamp(14px, 2vw, 30px);
       border-bottom: 1px solid rgba(15, 23, 42, 0.06);
     }
     .lens-panel:last-child {

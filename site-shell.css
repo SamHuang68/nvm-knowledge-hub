@@ -381,63 +381,64 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
    EXECUTIVE STUDIO LAYOUT & VERTICAL LENS RAIL (全站共用雙欄工作台)
    ========================================================================= */
 .studio-main-workbench {
-  max-width: 1480px;
-  margin: 14px auto 36px;
-  padding: 0 var(--side, 20px);
+  max-width: min(1780px, 97vw);
+  margin: 10px auto 30px;
+  padding: 0 clamp(8px, 1.2vw, 16px);
+  box-sizing: border-box;
 }
 .studio-layout {
   display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  gap: 24px;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 14px;
   align-items: start;
 }
 @media (max-width: 1024px) {
   .studio-layout {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
   }
 }
 
-/* 左側直立測條 (Vertical Lens Rail) */
+/* 左側直立測條 (Vertical Lens Rail) - 緊湊精緻化設計 */
 .lens-vertical-rail {
   position: sticky;
   top: 76px;
   background: #061925;
   border: 1px solid rgba(115, 238, 228, 0.25);
-  border-radius: 8px;
-  padding: 16px 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+  padding: 8px 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   z-index: 40;
 }
 .rail-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 10px;
-  margin-bottom: 12px;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .rail-title {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: #73eee4;
   letter-spacing: 0.12em;
   font-weight: 700;
 }
 .rail-tag {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: #94a3b8;
   background: rgba(255, 255, 255, 0.06);
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 1px 5px;
+  border-radius: 3px;
 }
 
 /* 直立節點列表 */
 .lens-vertical-rail .hub-nav-pills {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 3px;
   padding: 0;
   margin: 0;
   background: transparent;
@@ -447,13 +448,14 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 @media (max-width: 1024px) {
   .lens-vertical-rail {
     position: static;
-    margin-bottom: 16px;
-    padding: 10px 14px;
+    margin-bottom: 14px;
+    padding: 8px 10px;
   }
   .lens-vertical-rail .hub-nav-pills {
     flex-direction: row;
     overflow-x: auto;
     scrollbar-width: none;
+    gap: 6px;
   }
   .lens-vertical-rail .hub-nav-pills::-webkit-scrollbar {
     display: none;
@@ -462,9 +464,9 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .lens-node-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
-  border-radius: 6px;
+  gap: 6px;
+  padding: 4px 6px;
+  border-radius: 4px;
   text-decoration: none;
   color: #94a3b8;
   background: rgba(255, 255, 255, 0.03);
@@ -476,24 +478,24 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   background: rgba(13, 148, 136, 0.15);
   border-color: rgba(115, 238, 228, 0.4);
   color: #f8fafc;
-  transform: translateX(3px);
+  transform: translateX(2px);
 }
 .lens-node-item.active {
   background: linear-gradient(90deg, rgba(13, 148, 136, 0.35) 0%, rgba(6, 25, 37, 0.9) 100%);
   border-color: #73eee4;
   color: #ffffff;
-  box-shadow: 0 0 15px rgba(115, 238, 228, 0.2);
+  box-shadow: 0 0 12px rgba(115, 238, 228, 0.2);
 }
 .lens-badge {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.72rem;
+  font-size: 0.64rem;
   font-weight: 800;
   color: #73eee4;
   background: rgba(115, 238, 228, 0.12);
   border: 1px solid rgba(115, 238, 228, 0.3);
-  padding: 2px 6px;
-  border-radius: 4px;
-  line-height: 1;
+  padding: 1px 4px;
+  border-radius: 3px;
+  line-height: 1.1;
   flex-shrink: 0;
 }
 .lens-node-item.active .lens-badge {
@@ -503,23 +505,23 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .lens-info {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 0;
   min-width: 0;
 }
 .lens-name {
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: #e2e8f0;
-  line-height: 1.25;
+  line-height: 1.15;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .lens-sub {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.65rem;
+  font-size: 0.58rem;
   color: #64748b;
-  line-height: 1.2;
+  line-height: 1.1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -528,12 +530,38 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   color: #94a3b8;
 }
 
-/* 右側主舞台容器 */
+/* 右側主舞台容器 (徹底釋放空間還給版面) */
 .lens-stage-container {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   min-width: 0;
+  width: 100%;
+}
+
+/* 消除 stage 內部 section 的二重留邊縮排，滿版大器展開 */
+.lens-stage-container > .section,
+.lens-stage-container .paper-section,
+.lens-stage-container .topic-section,
+.lens-stage-container .lens-panel {
+  padding-left: clamp(14px, 1.8vw, 24px) !important;
+  padding-right: clamp(14px, 1.8vw, 24px) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+.lens-stage-container > .section > *,
+.lens-stage-container .lens-panel > * {
+  max-width: 100% !important;
+}
+
+/* 全站規格彩條同步對齊大寬度工作台 */
+.stat-strip-compact {
+  max-width: min(1780px, 97vw) !important;
+  padding: 0 clamp(8px, 1.2vw, 16px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 /* 確保點擊錨點或雙向監聽滾動時頂部留有舒適邊界 */
