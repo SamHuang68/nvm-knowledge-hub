@@ -201,6 +201,18 @@ def run_tests() -> None:
     test("F2 包含 selector-workbench-frame 半導體儀表框",
          "selector-workbench-frame" in tc_c)
 
+    # ===== TEST 17: M3 車規專屬主視覺圖與白底輕盈配色整合驗證 =====
+    print("\n═══ TEST 17: M3 車規專屬主視覺圖與白底輕盈配色整合驗證 ═══")
+    test("M3 包含專屬 1600/900 webp 主視覺圖標籤",
+         "automotive-nvm-hero-1600.webp" in auto_c and "automotive-nvm-hero-900.webp" in auto_c)
+    test("M3 主視覺圖實體檔案存在",
+         (BASE / "assets" / "automotive-nvm-hero-1600.webp").exists() and
+         (BASE / "assets" / "automotive-nvm-hero-900.webp").exists())
+    test("M3 包含 m3-stat-bridge 與純白規格彩條",
+         "m3-stat-bridge" in auto_c and ".stat-strip-card {" in auto_c)
+    test("M3 包含 lab-box 半導體儀表框與超寬工作台",
+         "lab-box" in auto_c and "min(1780px, 97vw)" in auto_c)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
