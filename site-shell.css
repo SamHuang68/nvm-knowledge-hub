@@ -5,7 +5,7 @@
   left: 16px;
   z-index: 10000;
   padding: 12px 20px;
-  background: #22d3ee;
+  background: #b08a5b;
   color: #020617 !important;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
@@ -13,9 +13,9 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
-  border: 2px solid #38bdf8;
+  border: 2px solid #c4a574;
   border-radius: 4px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(34, 211, 238, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(176, 138, 91, 0.4);
   transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .skip-link:focus,
@@ -25,7 +25,7 @@
   outline-offset: 3px;
 }
 
-:root{--shell-header:70px}
+:root{--shell-header:48px}
 
 /* One shell contract: the header occupies layout space and maintains unified grid consistency across all pages. */
 .site-header {
@@ -36,7 +36,7 @@
   grid-template-columns: auto 1fr auto !important;
   align-items: center !important;
   column-gap: clamp(16px, 2.5vw, 44px) !important;
-  min-height: 70px !important;
+  min-height: 48px !important;
   padding: 0 clamp(16px, 3.5vw, 64px) !important;
 }
 
@@ -89,14 +89,14 @@
 
 .site-breadcrumb{
   display:flex;align-items:center;gap:10px;min-height:46px;padding:10px clamp(22px,4vw,72px);
-  border-bottom:1px solid rgba(116,216,218,.16);background:#071d2a;color:#88a5b1;
+  border-bottom:1px solid rgba(196,165,116,.16);background:#071d2a;color:#88a5b1;
   font:600 11px/1.4 "IBM Plex Mono","SFMono-Regular",Consolas,monospace;letter-spacing:.12em;text-transform:uppercase
 }
-.site-breadcrumb a{color:#63e6de;text-decoration:none}.site-breadcrumb a:hover{text-decoration:underline;text-underline-offset:4px}
+.site-breadcrumb a{color:#c4a574;text-decoration:none}.site-breadcrumb a:hover{text-decoration:underline;text-underline-offset:4px}
 .site-breadcrumb i{width:18px;height:1px;background:#36515d}.site-breadcrumb strong{color:#e9f4f5;font-weight:650}
 .portfolio-return{color:#c78a4b!important;font-size:.66rem;font-weight:750;letter-spacing:.1em;white-space:nowrap}
 .portfolio-return:hover{color:#e0a66a!important;text-decoration-color:currentColor!important}
-.topic-switch{margin-left:auto;display:flex;gap:7px}.topic-switch a{min-height:30px;display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(116,216,218,.2);color:#b8ccd3}.topic-switch a[aria-current="page"]{border-color:#1bcbd0;color:#72ede6;background:rgba(27,203,208,.08)}
+.topic-switch{margin-left:auto;display:flex;gap:7px}.topic-switch a{min-height:30px;display:inline-flex;align-items:center;padding:6px 10px;border:1px solid rgba(196,165,116,.2);color:#b8ccd3}.topic-switch a[aria-current="page"]{border-color:#b08a5b;color:#c4a574;background:rgba(176,138,91,.08)}
 
 @media(max-width:1320px){
   .primary-nav.open{top:100%!important;inset-inline:0!important;bottom:auto!important;max-height:calc(100dvh - var(--shell-header));overflow-y:auto;overscroll-behavior:contain}
@@ -112,10 +112,10 @@
   .research-page .taxonomy-table,.research-page .attack-table{min-width:0;width:100%}
   .research-page .taxonomy-table thead,.research-page .attack-table thead{display:none}
   .research-page .taxonomy-table tbody,.research-page .attack-table tbody{display:grid;gap:12px}
-  .research-page .taxonomy-table tr,.research-page .attack-table tr{display:grid;grid-template-columns:1fr;border:1px solid rgba(116,216,218,.2);background:#0a2230;padding:12px}
-  .research-page .taxonomy-table td,.research-page .attack-table td{display:grid;grid-template-columns:minmax(98px,35%) 1fr;gap:12px;width:100%;padding:9px 0;border:0;border-bottom:1px solid rgba(116,216,218,.1);white-space:normal}
+  .research-page .taxonomy-table tr,.research-page .attack-table tr{display:grid;grid-template-columns:1fr;border:1px solid rgba(196,165,116,.2);background:#0a2230;padding:12px}
+  .research-page .taxonomy-table td,.research-page .attack-table td{display:grid;grid-template-columns:minmax(98px,35%) 1fr;gap:12px;width:100%;padding:9px 0;border:0;border-bottom:1px solid rgba(196,165,116,.1);white-space:normal}
   .research-page .taxonomy-table td:last-child,.research-page .attack-table td:last-child{border-bottom:0}
-  .research-page .taxonomy-table td::before,.research-page .attack-table td::before{content:attr(data-label);color:#61dcd8;font:600 9px/1.4 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
+  .research-page .taxonomy-table td::before,.research-page .attack-table td::before{content:attr(data-label);color:#c4a574;font:600 9px/1.4 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase}
   .research-page .taxonomy-table td:nth-of-type(1)::before{content:"STORED / EXPRESSED VARIABLE"}
   .research-page .taxonomy-table td:nth-of-type(2)::before{content:"READ OBSERVABLE"}
   .research-page .taxonomy-table td:nth-of-type(3)::before{content:"POWER-OFF STATE"}
@@ -187,7 +187,7 @@ footer.hub-footer {
   display: block !important;
   width: 100%;
   background: #030f17 !important;
-  border-top: 1px solid rgba(115, 238, 228, 0.22) !important;
+  border-top: 1px solid rgba(196, 165, 116, 0.22) !important;
   box-shadow: 0 -12px 36px rgba(0, 0, 0, 0.35);
   color: #94a3b8;
   padding: 0;
@@ -209,7 +209,7 @@ footer.hub-footer {
   align-items: flex-start;
   gap: 2rem;
   padding-bottom: 2.25rem;
-  border-bottom: 1px solid rgba(115, 238, 228, 0.12);
+  border-bottom: 1px solid rgba(196, 165, 116, 0.12);
   flex-wrap: wrap;
 }
 
@@ -231,15 +231,15 @@ footer.hub-footer {
   justify-content: center;
   width: 44px;
   height: 44px;
-  background: linear-gradient(135deg, rgba(115, 238, 228, 0.18), rgba(34, 211, 238, 0.05));
-  border: 1.5px solid #73eee4;
+  background: linear-gradient(135deg, rgba(196, 165, 116, 0.18), rgba(176, 138, 91, 0.05));
+  border: 1.5px solid #c4a574;
   border-radius: 8px;
-  color: #73eee4;
+  color: #c4a574;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 15px;
   font-weight: 800;
   letter-spacing: 0.05em;
-  box-shadow: 0 0 16px rgba(115, 238, 228, 0.2);
+  box-shadow: 0 0 16px rgba(196, 165, 116, 0.2);
 }
 
 .hub-footer-logo-text strong {
@@ -274,7 +274,7 @@ footer.hub-footer {
   flex-direction: column;
   gap: 8px;
   background: rgba(8, 36, 51, 0.6);
-  border: 1px solid rgba(115, 238, 228, 0.16);
+  border: 1px solid rgba(196, 165, 116, 0.16);
   border-radius: 8px;
   padding: 12px 18px;
 }
@@ -310,11 +310,11 @@ footer.hub-footer {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 2.5rem;
   padding: 2.5rem 0;
-  border-bottom: 1px solid rgba(115, 238, 228, 0.12);
+  border-bottom: 1px solid rgba(196, 165, 116, 0.12);
 }
 
 .hub-footer-col-title {
-  color: #73eee4;
+  color: #c4a574;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   font-weight: 700;
@@ -322,7 +322,7 @@ footer.hub-footer {
   text-transform: uppercase;
   margin: 0 0 1.2rem;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(115, 238, 228, 0.15);
+  border-bottom: 1px solid rgba(196, 165, 116, 0.15);
 }
 
 .hub-footer-links {
@@ -347,7 +347,7 @@ footer.hub-footer {
 .hub-footer-links a:hover {
   color: #ffffff;
   transform: translateX(4px);
-  text-shadow: 0 0 10px rgba(115, 238, 228, 0.3);
+  text-shadow: 0 0 10px rgba(196, 165, 116, 0.3);
 }
 
 .hub-footer-badge-strip {
@@ -355,15 +355,15 @@ footer.hub-footer {
   flex-wrap: wrap;
   gap: 8px;
   padding: 1.75rem 0;
-  border-bottom: 1px solid rgba(115, 238, 228, 0.12);
+  border-bottom: 1px solid rgba(196, 165, 116, 0.12);
 }
 
 .hub-footer-badge {
-  background: rgba(115, 238, 228, 0.05);
-  border: 1px solid rgba(115, 238, 228, 0.18);
+  background: rgba(196, 165, 116, 0.05);
+  border: 1px solid rgba(196, 165, 116, 0.18);
   border-radius: 4px;
   padding: 5px 12px;
-  color: #73eee4;
+  color: #c4a574;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
   font-weight: 600;
@@ -457,12 +457,12 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 /* 左側直立測條 (Vertical Lens Rail) - 全站統一白底輕盈工控風格 (Editorial Light Theme) */
 .lens-vertical-rail {
   position: sticky;
-  top: 76px;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 8px;
+  top: 56px;
+  background: #fffaf3;
+  border: 1px solid rgba(28, 25, 23, 0.10);
+  border-radius: 0;
   padding: 10px 8px;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+  box-shadow: none;
   z-index: 40;
 }
 .rail-header {
@@ -476,7 +476,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .rail-title {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.68rem;
-  color: #0d9488;
+  color: #6f5536;
   letter-spacing: 0.12em;
   font-weight: 700;
 }
@@ -522,45 +522,45 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   align-items: center;
   gap: 8px;
   padding: 7px 8px;
-  border-radius: 6px;
+  border-radius: 0;
   text-decoration: none;
-  color: #0f172a;
-  background: #f8fafc;
-  border: 1px solid rgba(15, 23, 42, 0.06);
+  color: #1c1917;
+  background: transparent;
+  border: 1px solid transparent;
   transition: all 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
   position: relative;
 }
 .lens-node-item:hover {
-  background: #f0fdfa;
-  border-color: rgba(13, 148, 136, 0.35);
-  color: #0f172a;
-  transform: translateX(2px);
-  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.08);
+  background: #f4f1ea;
+  border-color: rgba(176, 138, 91, 0.35);
+  color: #1c1917;
+  transform: none;
+  box-shadow: none;
 }
 .lens-node-item.active {
-  background: #f0fdfa;
-  border-color: #0d9488;
-  color: #0f172a;
-  box-shadow: inset 3px 0 0 #0d9488, 0 3px 12px rgba(13, 148, 136, 0.12);
+  background: #f4f1ea;
+  border-color: transparent;
+  color: #1c1917;
+  box-shadow: inset 2px 0 0 #b08a5b;
 }
 .lens-badge {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.68rem;
   font-weight: 700;
-  color: #0d9488;
-  background: #ccfbf1;
-  border: 1px solid rgba(13, 148, 136, 0.25);
+  color: #6f5536;
+  background: transparent;
+  border: none;
   min-width: 22px;
-  text-align: center;
-  padding: 1px 4px;
-  border-radius: 4px;
+  text-align: left;
+  padding: 0;
+  border-radius: 0;
   line-height: 1.1;
   flex-shrink: 0;
 }
 .lens-node-item.active .lens-badge {
-  background: #0d9488;
-  color: #ffffff;
-  border-color: #0f766e;
+  background: transparent;
+  color: #6f5536;
+  border-color: transparent;
   font-weight: 800;
 }
 .lens-info {
@@ -579,7 +579,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   text-overflow: ellipsis;
 }
 .lens-node-item.active .lens-name {
-  color: #0f766e;
+  color: #1c1917;
   font-weight: 700;
 }
 .lens-sub {
@@ -592,7 +592,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   text-overflow: ellipsis;
 }
 .lens-node-item.active .lens-sub {
-  color: #0d9488;
+  color: #8a6a42;
   font-weight: 600;
 }
 

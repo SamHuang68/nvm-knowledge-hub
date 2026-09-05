@@ -43,7 +43,7 @@
 .oip-image-band img{display:block;width:100%;height:clamp(210px,31vw,390px);object-fit:cover;object-position:center}
 .oip-image-band--power img{object-position:center 54%}
 .oip-image-band--helper img{object-position:center 48%}
-.oip-image-band figcaption{padding:11px 16px;border-top:1px solid rgba(113,236,227,.22);background:#061c2a;color:#b9d1d5;font-family:var(--mono);font-size:11px;line-height:1.55;letter-spacing:.035em}
+.oip-image-band figcaption{padding:11px 16px;border-top:1px solid rgba(196,165,116,.22);background:#061c2a;color:#b9d1d5;font-family:var(--mono);font-size:11px;line-height:1.55;letter-spacing:.035em}
 @media(max-width:920px){.oip-threat-flow,.oip-decision-grid{grid-template-columns:1fr}.oip-architecture{grid-template-columns:1fr 1fr}.oip-architecture article:nth-child(2){border-right:0}.oip-architecture article:nth-child(-n+2){border-bottom:1px solid var(--hairline)}}
 @media(max-width:620px){.oip-architecture{grid-template-columns:1fr}.oip-architecture article{border-right:0;border-bottom:1px solid var(--hairline)}.oip-architecture article:last-child{border-bottom:0}.oip-threat-flow h3,.oip-decision-grid h3{margin-top:18px}.oip-equation strong{font-size:24px;overflow-wrap:anywhere}.oip-image-band{margin:20px 0 26px}.oip-image-band img{height:190px}.oip-image-band figcaption{font-size:10px}}
 

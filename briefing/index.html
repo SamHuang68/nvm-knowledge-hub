@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <script src="../site-language.js?v=20260906-pages-v1"></script>
+  <script src="../site-language.js?v=20260906-copper-v1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Synopsys NVM 團隊針對 AI 加速器、DDR5 子系統與 TSMC 先進節點之 Version 18 旗艦高階簡報 17 頁逐頁解析、講者備忘錄與完整架構白皮書。">
   <meta name="theme-color" content="#061b29">
@@ -26,7 +26,7 @@
   <!-- PWA Manifest -->
   <link rel="manifest" href="../site.webmanifest">
 
-  <link rel="stylesheet" href="../hub.css?v=20260906-pages-v1">
+  <link rel="stylesheet" href="../hub.css?v=20260906-copper-v1">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -59,9 +59,9 @@
       font-family: var(--font-mono, monospace);
       font-size: 11px;
       letter-spacing: 0.18em;
-      color: #71ece3;
-      background: rgba(113, 236, 227, 0.1);
-      border: 1px solid rgba(113, 236, 227, 0.25);
+      color: #c4a574;
+      background: rgba(196, 165, 116, 0.1);
+      border: 1px solid rgba(196, 165, 116, 0.25);
       padding: 5px 12px;
       border-radius: 4px;
       margin-bottom: 16px;
@@ -75,7 +75,7 @@
       text-wrap: balance;
     }
     .briefing-hero h1 em {
-      color: #71ece3;
+      color: #c4a574;
       font-style: normal;
       font-weight: 400;
     }
@@ -108,13 +108,13 @@
       text-decoration: none;
       transition: all 0.2s ease;
       background: rgba(11, 52, 65, 0.8);
-      border: 1px solid rgba(113, 236, 227, 0.3);
-      color: #71ece3;
+      border: 1px solid rgba(196, 165, 116, 0.3);
+      color: #c4a574;
     }
     .btn-briefing-action:hover {
-      background: #71ece3;
+      background: #c4a574;
       color: #061b29;
-      box-shadow: 0 0 16px rgba(113, 236, 227, 0.3);
+      box-shadow: 0 0 16px rgba(196, 165, 116, 0.3);
     }
     
     /* 17 頁分類篩選列 */
@@ -140,13 +140,13 @@
       transition: all 0.2s ease;
     }
     .filter-btn:hover {
-      border-color: #71ece3;
+      border-color: #c4a574;
       color: #fff;
     }
     .filter-btn.active {
-      background: #71ece3;
+      background: #c4a574;
       color: #061b29;
-      border-color: #71ece3;
+      border-color: #c4a574;
       font-weight: 700;
     }
     
@@ -160,14 +160,14 @@
     }
     .slide-card {
       background: #082433;
-      border: 1px solid rgba(113, 236, 227, 0.2);
+      border: 1px solid rgba(196, 165, 116, 0.2);
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
       transition: border-color 0.2s ease, transform 0.2s ease;
     }
     .slide-card:hover {
-      border-color: rgba(113, 236, 227, 0.5);
+      border-color: rgba(196, 165, 116, 0.5);
       transform: translateY(-2px);
     }
     .slide-card.hidden {
@@ -176,7 +176,7 @@
     .slide-card-header {
       background: #051924;
       padding: 20px 24px;
-      border-bottom: 1px solid rgba(113, 236, 227, 0.15);
+      border-bottom: 1px solid rgba(196, 165, 116, 0.15);
       display: grid;
       gap: 6px;
     }
@@ -198,7 +198,7 @@
       font-family: var(--font-mono, monospace);
       font-size: 10px;
       letter-spacing: 0.1em;
-      color: #71ece3;
+      color: #c4a574;
       opacity: 0.85;
       text-transform: uppercase;
     }
@@ -217,7 +217,7 @@
     .slide-bullets {
       background: rgba(6, 27, 41, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-left: 3px solid #71ece3;
+      border-left: 3px solid #c4a574;
       border-radius: 4px;
       padding: 18px 20px;
     }
@@ -226,7 +226,7 @@
       font-family: var(--font-mono, monospace);
       font-size: 11px;
       letter-spacing: 0.12em;
-      color: #71ece3;
+      color: #c4a574;
       text-transform: uppercase;
     }
     .slide-bullets ul {
@@ -244,7 +244,7 @@
     }
     .slide-notes {
       background: rgba(10, 42, 55, 0.4);
-      border: 1px solid rgba(113, 236, 227, 0.12);
+      border: 1px solid rgba(196, 165, 116, 0.12);
       border-radius: 4px;
       padding: 18px 20px;
     }
@@ -929,7 +929,7 @@
     <p>TSMC N2 GAA &middot; CXL 3.1 &middot; 3D SoIC &middot; PQC Stateful Boot</p>
   </footer>
 
-  <script src="../hub.js?v=20260906-pages-v1"></script>
+  <script src="../hub.js?v=20260906-copper-v1"></script>
   <script>
     // 篩選按鈕互動與列印功能
     document.addEventListener('DOMContentLoaded', () => {

@@ -53,8 +53,8 @@
         const zhOpt = btn.querySelector('[data-lang-option="zh"]');
         const enOpt = btn.querySelector('[data-lang-option="en"]');
         if (zhOpt && enOpt) {
-          zhOpt.style.color = (target === "zh") ? "#73eee4" : "#8ea9b3";
-          enOpt.style.color = (target === "en") ? "#73eee4" : "#8ea9b3";
+          zhOpt.style.color = (target === "zh") ? "#c4a574" : "#8ea9b3";
+          enOpt.style.color = (target === "en") ? "#c4a574" : "#8ea9b3";
         }
       });
 

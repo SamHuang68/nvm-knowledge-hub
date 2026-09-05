@@ -9,21 +9,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site-shell.css?v=20260906-pages-v1">
-  <link rel="stylesheet" href="hub.css?v=20260906-pages-v1">
-  <script src="site-language.js?v=20260906-pages-v1"></script>
+  <link rel="stylesheet" href="site-shell.css?v=20260906-copper-v1">
+  <link rel="stylesheet" href="hub.css?v=20260906-copper-v1">
+  <script src="site-language.js?v=20260906-copper-v1"></script>
   <style>
     /* 0. ACCESSIBILITY DEFENSE: High-contrast Skip Link */
     .skip-link {
       position: fixed !important; top: -120px !important; left: 16px !important;
       z-index: 10000 !important; padding: 12px 20px !important;
-      background: #22d3ee !important; color: #020617 !important;
+      background: #b08a5b !important; color: #020617 !important;
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 13px !important; font-weight: 800 !important;
       letter-spacing: 0.05em !important; text-transform: uppercase !important;
-      text-decoration: none !important; border: 2px solid #38bdf8 !important;
+      text-decoration: none !important; border: 2px solid #c4a574 !important;
       border-radius: 4px !important;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 20px rgba(34,211,238,0.4) !important;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 20px rgba(176,138,91,0.4) !important;
       transition: top 0.2s cubic-bezier(0.16,1,0.3,1) !important; display: inline-block !important;
     }
     .skip-link:focus, .skip-link:focus-visible {
@@ -42,19 +42,19 @@
        NVM KNOWLEDGE HUB V3.2 — EDITORIAL WHITE THEME ARCHITECTURE
        ========================================================================== */
     :root {
-      --hub-paper-bg: #f8fafc;
+      --hub-paper-bg: #f4f1ea;
       --hub-paper-card: #ffffff;
-      --hub-paper-subtle: #f1f5f9;
-      --hub-ink-heading: #0a1e2c;
-      --hub-ink-body: #334155;
-      --hub-ink-muted: #64748b;
-      --hub-border-hairline: rgba(15, 23, 42, 0.08);
-      --hub-border-hover: rgba(13, 148, 136, 0.35);
+      --hub-paper-subtle: #ebe6dc;
+      --hub-ink-heading: #1c1917;
+      --hub-ink-body: #3f3a34;
+      --hub-ink-muted: #6b645c;
+      --hub-border-hairline: rgba(28, 25, 23, 0.10);
+      --hub-border-hover: rgba(176, 138, 91, 0.45);
 
-      --layer-l1-color: #8b5cf6;
-      --layer-l2-color: #0d9488;
-      --layer-l3-color: #d97706;
-      --layer-res-color: #475569;
+      --layer-l1-color: #1c1917;
+      --layer-l2-color: #1c1917;
+      --layer-l3-color: #1c1917;
+      --layer-res-color: #1c1917;
 
       --hub-shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
       --hub-shadow-card-hover: 0 14px 30px -4px rgba(15, 23, 42, 0.10), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
@@ -65,54 +65,51 @@
       background-color: var(--hub-paper-bg) !important;
       color: var(--hub-ink-body) !important;
       font-family: 'Inter', 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
-      background-image:
-        radial-gradient(circle at 50% 0%, rgba(13, 148, 136, 0.035), transparent 45%),
-        linear-gradient(90deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
-      background-size: 100% 100%, 48px 48px, 48px 48px;
+      background-image: none;
     }
 
     /* 2. 緊湊型 Executive Hero：Obsidian 暗色半導體晶片展示窗 */
     .hub-hero-compact {
-      max-width: 1440px;
-      margin: 16px auto 0;
-      border-radius: 12px;
-      padding: clamp(36px, 4vw, 54px) clamp(24px, 5vw, 64px);
-      background: 
-        radial-gradient(circle at 82% 28%, rgba(34, 211, 238, 0.14), transparent 38%),
+      max-width: none;
+      margin: 0;
+      border-radius: 0;
+      padding: clamp(32px, 3.6vw, 48px) clamp(24px, 5vw, 64px) clamp(28px, 3vw, 40px);
+      background:
         linear-gradient(135deg, #061925 0%, #082232 58%, #04141e 100%) !important;
-      border: 1px solid rgba(115, 238, 228, 0.24) !important;
-      box-shadow: 0 16px 40px -10px rgba(6, 25, 37, 0.35), 0 0 25px rgba(34, 211, 238, 0.06);
+      border: none !important;
+      border-bottom: 1px solid rgba(196, 165, 116, 0.22) !important;
+      box-shadow: none;
       position: relative;
       overflow: hidden;
     }
-    .hub-hero-compact::after {
-      content: "";
-      position: absolute;
-      top: 0; right: 0; width: 140px; height: 140px;
-      background: radial-gradient(circle, rgba(115, 238, 228, 0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    .hub-hero-compact::after { display: none; }
     .hub-hero-compact h1 {
       font: 700 clamp(26px, 3.2vw, 42px)/1.15 Inter, sans-serif;
       letter-spacing: -.03em; color: #f8fafc; margin: 0 0 12px;
       max-width: 860px; text-wrap: balance;
     }
-    .hub-hero-compact h1 em { color: #73eee4; font-style: normal; font-weight: 400; }
+    .hub-hero-compact h1 em { color: #c4a574; font-style: normal; font-weight: 400; }
     .hub-hero-compact .hero-sub {
       font: 400 clamp(13px, 1.05vw, 15px)/1.6 Inter, sans-serif;
       color: #94a3b8; max-width: 760px; margin: 0 0 20px;
     }
     .hub-hero-compact .hero-metrics {
-      display: flex; gap: 16px; flex-wrap: wrap;
+      display: flex; gap: 0; flex-wrap: wrap;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.12);
     }
     .hub-hero-compact .hero-metric {
-      display: flex; align-items: center; gap: 8px;
-      padding: 6px 14px; background: rgba(4, 20, 31, 0.85);
-      border: 1px solid rgba(115, 238, 228, 0.25); border-radius: 6px;
+      display: flex; align-items: baseline; gap: 8px;
+      padding: 0 20px 0 0;
+      margin-right: 20px;
+      background: none;
+      border: none;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      border-radius: 0;
     }
+    .hub-hero-compact .hero-metric:last-child { border-right: none; }
     .hub-hero-compact .hero-metric b {
-      font: 700 18px/1 'IBM Plex Mono', monospace; color: #73eee4;
+      font: 700 18px/1 'IBM Plex Mono', monospace; color: #c4a574;
     }
     .hub-hero-compact .hero-metric span {
       font: 600 10px/1.3 'IBM Plex Mono', monospace;
@@ -142,12 +139,12 @@
     /* 左側直立測條 (純白輕盈工控風格，高對比易讀) */
     .hub-vertical-rail {
       position: sticky;
-      top: 76px;
-      background: #ffffff;
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      border-radius: 8px;
+      top: 56px;
+      background: #fffaf3;
+      border: 1px solid rgba(28, 25, 23, 0.10);
+      border-radius: 0;
       padding: 10px 8px;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+      box-shadow: none;
       z-index: 40;
     }
     .hub-rail-header {
@@ -161,7 +158,7 @@
     .hub-rail-title {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.68rem;
-      color: #0d9488;
+      color: #6f5536;
       letter-spacing: 0.1em;
       font-weight: 700;
     }
@@ -184,45 +181,53 @@
       align-items: center;
       gap: 8px;
       padding: 7px 8px;
-      border-radius: 6px;
+      border-radius: 0;
       text-decoration: none;
-      color: #0f172a;
-      background: #f8fafc;
-      border: 1px solid rgba(15, 23, 42, 0.06);
+      color: #1c1917;
+      background: transparent;
+      border: 1px solid transparent;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .hub-rail-btn:hover {
-      color: #0f172a;
-      background: #f0fdfa;
-      border-color: rgba(13, 148, 136, 0.35);
-      transform: translateX(2px);
-      box-shadow: 0 2px 8px rgba(13, 148, 136, 0.08);
+      color: #1c1917;
+      background: #f4f1ea;
+      border-color: rgba(176, 138, 91, 0.35);
+      transform: none;
+      box-shadow: none;
     }
     .hub-rail-btn.active {
-      color: #0f172a;
-      background: #f0fdfa;
-      border-color: #0d9488;
-      box-shadow: inset 3px 0 0 #0d9488, 0 3px 12px rgba(13, 148, 136, 0.12);
+      color: #1c1917;
+      background: #f4f1ea;
+      border-color: transparent;
+      box-shadow: inset 2px 0 0 #b08a5b;
     }
     .hub-rail-badge {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.68rem;
       font-weight: 700;
-      padding: 1px 4px;
-      border-radius: 4px;
-      background: #ccfbf1;
-      color: #0d9488;
-      border: 1px solid rgba(13, 148, 136, 0.25);
+      padding: 0;
+      border-radius: 0;
+      background: transparent;
+      color: #6f5536;
+      border: none;
       min-width: 22px;
-      text-align: center;
+      text-align: left;
       line-height: 1.1;
       flex-shrink: 0;
     }
     .hub-rail-btn.active .hub-rail-badge {
-      background: #0d9488;
-      color: #ffffff;
-      border-color: #0f766e;
+      background: transparent;
+      color: #6f5536;
+      border-color: transparent;
       font-weight: 800;
+    }
+    .hub-rail-btn.active .hub-rail-name {
+      color: #1c1917;
+      font-weight: 700;
+    }
+    .hub-rail-btn.active .hub-rail-sub {
+      color: #8a6a42;
+      font-weight: 600;
     }
     .hub-rail-text {
       display: flex;
@@ -240,7 +245,7 @@
       text-overflow: ellipsis;
     }
     .hub-rail-btn.active .hub-rail-name {
-      color: #0f766e;
+      color: #1c1917;
       font-weight: 700;
     }
     .hub-rail-sub {
@@ -253,7 +258,7 @@
       text-overflow: ellipsis;
     }
     .hub-rail-btn.active .hub-rail-sub {
-      color: #0d9488;
+      color: #8a6a42;
       font-weight: 600;
     }
 
@@ -276,10 +281,15 @@
       font: 700 9px/1.4 'IBM Plex Mono', monospace;
       letter-spacing: .1em; text-transform: uppercase;
     }
-    .km-layer-tag.foundations { background: rgba(139,92,246,.15); color: #7c3aed; border: 1px solid rgba(139,92,246,.25); }
-    .km-layer-tag.architecture { background: rgba(13,148,136,.12); color: #0d9488; border: 1px solid rgba(13,148,136,.25); }
-    .km-layer-tag.applications { background: rgba(217,119,6,.12); color: #b45309; border: 1px solid rgba(217,119,6,.25); }
-    .km-layer-tag.resources { background: rgba(71,85,105,.12); color: #334155; border: 1px solid rgba(71,85,105,.25); }
+    .km-layer-tag.foundations,
+    .km-layer-tag.architecture,
+    .km-layer-tag.applications,
+    .km-layer-tag.resources {
+      background: transparent;
+      color: #6f5536;
+      border: 1px solid rgba(176, 138, 91, 0.35);
+      border-radius: 0;
+    }
     .km-layer-title {
       font: 600 12px/1.4 'IBM Plex Mono', monospace;
       color: var(--hub-ink-muted); letter-spacing: .04em;
@@ -295,8 +305,8 @@
       position: relative; display: flex; flex-direction: column;
       padding: 18px 20px; background: var(--hub-paper-card) !important;
       border: 1px solid var(--hub-border-hairline) !important;
-      border-radius: 8px !important;
-      box-shadow: var(--hub-shadow-card) !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
       text-decoration: none; color: inherit;
       transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
                   box-shadow 0.22s ease,
@@ -305,34 +315,34 @@
     }
     .km-card:hover {
       border-color: var(--hub-border-hover) !important;
-      transform: translateY(-3px) !important;
-      box-shadow: var(--hub-shadow-card-hover) !important;
+      transform: none !important;
+      box-shadow: none !important;
     }
 
     /* 4 大分層專屬左側彩色指示側條 */
     #layer-foundations .km-card {
-      border-left: 3.5px solid var(--layer-l1-color) !important;
+      border-left: 2px solid var(--layer-l1-color) !important;
     }
     #layer-foundations .km-card .km-card-num {
       color: var(--layer-l1-color) !important;
     }
 
     #layer-architecture .km-card {
-      border-left: 3.5px solid var(--layer-l2-color) !important;
+      border-left: 2px solid var(--layer-l2-color) !important;
     }
     #layer-architecture .km-card .km-card-num {
       color: var(--layer-l2-color) !important;
     }
 
     #layer-applications .km-card {
-      border-left: 3.5px solid var(--layer-l3-color) !important;
+      border-left: 2px solid var(--layer-l3-color) !important;
     }
     #layer-applications .km-card .km-card-num {
       color: var(--layer-l3-color) !important;
     }
 
     #layer-resources .km-card {
-      border-left: 3.5px solid var(--layer-res-color) !important;
+      border-left: 2px solid var(--layer-res-color) !important;
     }
     #layer-resources .km-card .km-card-num {
       color: var(--layer-res-color) !important;
@@ -350,17 +360,9 @@
       font: 400 13px/1.6 Inter, sans-serif; color: var(--hub-ink-body);
       flex: 1; margin-bottom: 12px;
     }
-    .km-card-tags {
-      display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px;
-    }
-    .km-card-tags span {
-      padding: 2px 7px; font: 600 9.5px/1.3 'IBM Plex Mono', monospace;
-      color: #0f766e; background: #f0fdfa;
-      border: 1px solid #ccfbf1; border-radius: 3px;
-      letter-spacing: .03em;
-    }
+    .km-card-tags { display: none !important; }
     .km-card-arrow {
-      font: 600 11.5px/1 'IBM Plex Mono', monospace; color: #0d9488;
+      font: 600 11.5px/1 'IBM Plex Mono', monospace; color: #8a6a42;
       letter-spacing: .06em; display: flex; align-items: center; gap: 5px;
     }
     .km-card-arrow svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
@@ -369,15 +371,15 @@
     .search-trigger {
       display: flex; align-items: center; gap: 8px;
       padding: 6px 14px; background: rgba(8,28,42,.6);
-      border: 1px solid rgba(115,238,228,.2); border-radius: 6px;
+      border: 1px solid rgba(196,165,116,.2); border-radius: 6px;
       color: #8ea9b3; font: 500 12px/1.4 'IBM Plex Mono', monospace;
       cursor: pointer; transition: border-color .2s;
     }
-    .search-trigger:hover { border-color: rgba(115,238,228,.5); color: #73eee4; }
+    .search-trigger:hover { border-color: rgba(196,165,116,.5); color: #c4a574; }
     .search-trigger kbd {
       padding: 2px 6px; font: 600 10px/1 'IBM Plex Mono', monospace;
-      background: rgba(115,238,228,.1); border: 1px solid rgba(115,238,228,.2);
-      border-radius: 3px; color: #73eee4;
+      background: rgba(196,165,116,.1); border: 1px solid rgba(196,165,116,.2);
+      border-radius: 3px; color: #c4a574;
     }
     .search-overlay {
       display: none; position: fixed; inset: 0; z-index: 9000;
@@ -387,15 +389,15 @@
     .search-overlay.is-open { display: flex; }
     .search-box {
       width: min(600px, 90vw); background: #0a2030;
-      border: 1px solid rgba(115,238,228,.3); border-radius: 10px;
+      border: 1px solid rgba(196,165,116,.3); border-radius: 10px;
       box-shadow: 0 20px 60px rgba(0,0,0,.5); overflow: hidden;
       max-height: 60vh; display: flex; flex-direction: column;
     }
     .search-input-row {
       display: flex; align-items: center; gap: 10px;
-      padding: 16px 20px; border-bottom: 1px solid rgba(115,238,228,.15);
+      padding: 16px 20px; border-bottom: 1px solid rgba(196,165,116,.15);
     }
-    .search-input-row svg { width: 18px; height: 18px; stroke: #73eee4; fill: none; stroke-width: 2; flex-shrink: 0; }
+    .search-input-row svg { width: 18px; height: 18px; stroke: #c4a574; fill: none; stroke-width: 2; flex-shrink: 0; }
     .search-input-row input {
       flex: 1; background: none; border: none; outline: none;
       font: 400 16px/1.4 Inter, sans-serif; color: #eaf3f2;
@@ -409,7 +411,7 @@
       text-decoration: none; color: #eaf3f2;
       transition: background .15s;
     }
-    .search-result-item:hover, .search-result-item.is-selected { background: rgba(115,238,228,.1); }
+    .search-result-item:hover, .search-result-item.is-selected { background: rgba(196,165,116,.1); }
     .search-result-item .sr-title {
       font: 600 14px/1.3 Inter, sans-serif; color: #eaf3f2;
     }
@@ -758,7 +760,7 @@
   });
 
   </script>
-  <script src="hub.js?v=20260906-pages-v1"></script>
+  <script src="hub.js?v=20260906-copper-v1"></script>
 
 </body>
 </html>

@@ -91,8 +91,8 @@
 .selector-controls { display: grid; grid-template-columns: minmax(260px, 1fr) auto auto; align-items: end; gap: 24px; margin-bottom: 24px; padding: 20px 22px; background: #0a2e3a; color: #e7f2f1; }
 .selector-controls label { display: grid; gap: 8px; }
 .selector-controls label span { color: var(--aqua); font: 750 9px/1.45 var(--font-mono); letter-spacing: .11em; }
-.selector-controls select { min-height: 48px; width: 100%; padding: 10px 38px 10px 12px; border: 1px solid rgba(113,236,227,.3); border-radius: 0; background: #071f2b; color: #fff; }
-.selector-controls > p { display: grid; margin: 0; padding-left: 22px; border-left: 1px solid rgba(113,236,227,.2); }
+.selector-controls select { min-height: 48px; width: 100%; padding: 10px 38px 10px 12px; border: 1px solid rgba(196,165,116,.3); border-radius: 0; background: #071f2b; color: #fff; }
+.selector-controls > p { display: grid; margin: 0; padding-left: 22px; border-left: 1px solid rgba(196,165,116,.2); }
 .selector-controls > p b { color: #fff; font: 500 28px/1 var(--font-mono); }
 .selector-controls > p span { margin-top: 7px; color: #b0c6cb; font: 700 9px/1.45 var(--font-mono); letter-spacing: .09em; }
 .decision-table-wrap { overflow: visible; border: 1px solid var(--line-light); background: #fff; }

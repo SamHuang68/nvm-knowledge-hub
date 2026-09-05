@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260906-pages-v1"></script>
+  <script src="site-language.js?v=20260906-copper-v1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="AI infrastructure 的 persistent-state 與 NVM 機會地圖：從 identity、repair、calibration、firmware 到 RAS evidence，區分標準要求、實作證據與架構推論。">
   <meta name="theme-color" content="#061b29">
   <title>AI Systems &amp; NVM Opportunities · NVM Knowledge Hub</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260906-pages-v1">
-  <link rel="stylesheet" href="research.css?v=20260906-pages-v1">
-  <link rel="stylesheet" href="ai-nvm.css?v=20260906-pages-v1">
-  <link rel="stylesheet" href="site-shell.css?v=20260906-pages-v1">
+  <link rel="stylesheet" href="styles.css?v=20260906-copper-v1">
+  <link rel="stylesheet" href="research.css?v=20260906-copper-v1">
+  <link rel="stylesheet" href="ai-nvm.css?v=20260906-copper-v1">
+  <link rel="stylesheet" href="site-shell.css?v=20260906-copper-v1">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -28,7 +28,7 @@
 
     /* Critical defensive inline styles: prevent SVG explosion & skip-link flash */
     .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #73eee4; padding: 10px 18px; border: 1px solid #73eee4; border-radius: 4px; }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #c4a574; padding: 10px 18px; border: 1px solid #c4a574; border-radius: 4px; }
     .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
     
     /* =========================================================================
@@ -78,7 +78,7 @@
       width: min(100%, 820px) !important;
       margin-top: 14px !important;
       background: rgba(4, 20, 32, 0.78) !important;
-      border: 1px solid rgba(113, 236, 227, 0.3) !important;
+      border: 1px solid rgba(196, 165, 116, 0.3) !important;
     }
     .ai-nvm-page .research-hero-meta div {
       padding: 8px 14px !important;
@@ -105,8 +105,8 @@
       font-size: 9px !important;
       padding: 4px 8px !important;
       background: rgba(3, 19, 30, 0.88) !important;
-      color: #71ece3 !important;
-      border-color: rgba(113, 236, 227, 0.35) !important;
+      color: #c4a574 !important;
+      border-color: rgba(196, 165, 116, 0.35) !important;
     }
 
     /* 2. 4-Metric 規格彩條 (Executive Stat Strip) */
@@ -138,9 +138,9 @@
       flex-direction: column;
       gap: 3px;
     }
-    .stat-strip-card.border-l-cyan { border-left: 4px solid #0d9488; }
-    .stat-strip-card.border-l-teal { border-left: 4px solid #0891b2; }
-    .stat-strip-card.border-l-emerald { border-left: 4px solid #059669; }
+    .stat-strip-card.border-l-cyan { border-left: 4px solid #8a6a42; }
+    .stat-strip-card.border-l-teal { border-left: 4px solid #8a6a42; }
+    .stat-strip-card.border-l-emerald { border-left: 4px solid #6f5536; }
     .stat-strip-card.border-l-amber { border-left: 4px solid #d97706; }
     .stat-card-head {
       display: flex;
@@ -158,14 +158,14 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #0d9488;
-      box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7);
+      background: #8a6a42;
+      box-shadow: 0 0 0 0 rgba(176, 138, 91, 0.7);
       animation: pulse-ring 2s infinite;
     }
     @keyframes pulse-ring {
-      0% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7); }
-      70% { box-shadow: 0 0 0 5px rgba(13, 148, 136, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(176, 138, 91, 0.7); }
+      70% { box-shadow: 0 0 0 5px rgba(176, 138, 91, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(176, 138, 91, 0); }
     }
     .stat-val {
       font-family: 'IBM Plex Mono', monospace;
@@ -189,7 +189,7 @@
       background: rgba(3, 19, 30, 0.95);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(113, 236, 227, 0.22);
+      border-bottom: 1px solid rgba(196, 165, 116, 0.22);
       padding: 5px 0;
       margin-bottom: 6px;
     }
@@ -219,12 +219,12 @@
     }
     .nav-pill b {
       font-family: 'IBM Plex Mono', monospace;
-      color: #71ece3;
+      color: #c4a574;
       font-size: 0.65rem;
     }
     .nav-pill:hover {
-      background: rgba(113, 236, 227, 0.15);
-      border-color: #71ece3;
+      background: rgba(196, 165, 116, 0.15);
+      border-color: #c4a574;
       color: #ffffff;
     }
 
@@ -581,7 +581,7 @@
           </nav>
           <div class="rail-footer" style="padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 10px; display: flex; justify-content: space-between; font-size: 0.65rem; color: #64748b; font-family: 'IBM Plex Mono', monospace;">
             <span>ACTIVE LENS</span>
-            <span style="color:#73eee4;">VERIFIED 2026</span>
+            <span style="color:#c4a574;">VERIFIED 2026</span>
           </div>
         </aside>
 
@@ -1245,8 +1245,8 @@
     <a href="#main-content"><span data-lang="zh">回到頂端</span><span data-lang="en">Back to top</span></a>
   </footer>
 
-  <script src="research.js?v=20260906-pages-v1"></script>
-  <script src="ai-nvm.js?v=20260906-pages-v1"></script>
+  <script src="research.js?v=20260906-copper-v1"></script>
+  <script src="ai-nvm.js?v=20260906-copper-v1"></script>
   <script>
     // Studio Layout Vertical Rail Scroll Spy
     document.addEventListener('DOMContentLoaded', () => {

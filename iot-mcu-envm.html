@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260906-pages-v1"></script>
+  <script src="site-language.js?v=20260906-copper-v1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ULP IoT &amp; Edge MCU eNVM · 0.5V NTV, 28nm Cliff &amp; Vector Patch CAM · NVM Knowledge Hub</title>
   <meta name="description" content="NVM Knowledge Hub：以 0.5V 近閾值電壓、28nm eFlash 物理斷崖與 Vector Patch CAM 為核心的 ULP IoT &amp; Edge MCU eNVM executive learning experience。">
@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260906-pages-v1">
-  <link rel="stylesheet" href="site-shell.css?v=20260906-pages-v1">
+  <link rel="stylesheet" href="styles.css?v=20260906-copper-v1">
+  <link rel="stylesheet" href="site-shell.css?v=20260906-copper-v1">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -29,7 +29,7 @@
 
     /* 確保白底輕盈背景與一致性 */
     body {
-      background-color: #f8fafc;
+      background-color: #f4f1ea;
       color: #334155;
       font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
       margin: 0;
@@ -38,7 +38,7 @@
 
     /* Critical defensive inline styles */
     .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #73eee4; padding: 10px 18px; border: 1px solid #73eee4; border-radius: 4px; }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #c4a574; padding: 10px 18px; border: 1px solid #c4a574; border-radius: 4px; }
     .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
 
     /* 專屬 IoT Edge MCU 裸晶視覺背景 */
@@ -90,13 +90,13 @@
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: clamp(18px, 1.8vw, 24px) !important;
       font-weight: 800 !important;
-      color: #73eee4 !important;
+      color: #c4a574 !important;
     }
     section.hero .hero-proof div[data-record-id="TSMC-ULP-001"] strong {
       color: #10b981 !important;
     }
     section.hero .hero-proof div[data-record-id="TSMC-NTV-001"] strong {
-      color: #38bdf8 !important;
+      color: #c4a574 !important;
     }
     section.hero .hero-proof div[data-record-id="TSMC-AON-001"] strong {
       color: #f59e0b !important;
@@ -142,9 +142,9 @@
       flex-direction: column;
       gap: 4px;
     }
-    .stat-strip-card.border-l-cyan { border-left: 4px solid #0d9488; }
+    .stat-strip-card.border-l-cyan { border-left: 4px solid #8a6a42; }
     .stat-strip-card.border-l-amber { border-left: 4px solid #d97706; }
-    .stat-strip-card.border-l-emerald { border-left: 4px solid #059669; }
+    .stat-strip-card.border-l-emerald { border-left: 4px solid #6f5536; }
     .stat-strip-card.border-l-indigo { border-left: 4px solid #4f46e5; }
     .stat-card-head {
       display: flex;
@@ -162,14 +162,14 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #0d9488;
-      box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7);
+      background: #8a6a42;
+      box-shadow: 0 0 0 0 rgba(176, 138, 91, 0.7);
       animation: pulse-ring 2s infinite;
     }
     @keyframes pulse-ring {
-      0% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7); }
-      70% { box-shadow: 0 0 0 5px rgba(13, 148, 136, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(176, 138, 91, 0.7); }
+      70% { box-shadow: 0 0 0 5px rgba(176, 138, 91, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(176, 138, 91, 0); }
     }
     .stat-val {
       font-family: 'IBM Plex Mono', monospace;
@@ -230,7 +230,7 @@
     .rail-title {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.68rem;
-      color: #0d9488;
+      color: #8a6a42;
       letter-spacing: 0.12em;
       font-weight: 700;
     }
@@ -263,31 +263,31 @@
       border-radius: 6px;
       text-decoration: none;
       color: #0f172a;
-      background: #f8fafc;
+      background: #f4f1ea;
       border: 1px solid rgba(15, 23, 42, 0.06);
       transition: all 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
       position: relative;
     }
     .lens-node-item:hover {
-      background: #f0fdfa;
-      border-color: rgba(13, 148, 136, 0.35);
+      background: #f7f1e8;
+      border-color: rgba(176, 138, 91, 0.35);
       color: #0f172a;
       transform: translateX(2px);
-      box-shadow: 0 2px 8px rgba(13, 148, 136, 0.08);
+      box-shadow: 0 2px 8px rgba(176, 138, 91, 0.08);
     }
     .lens-node-item.active {
-      background: #f0fdfa;
-      border-color: #0d9488;
+      background: #f7f1e8;
+      border-color: #8a6a42;
       color: #0f172a;
-      box-shadow: inset 3px 0 0 #0d9488, 0 3px 12px rgba(13, 148, 136, 0.12);
+      box-shadow: inset 3px 0 0 #8a6a42, 0 3px 12px rgba(176, 138, 91, 0.12);
     }
     .lens-badge {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.68rem;
       font-weight: 700;
-      color: #0d9488;
-      background: #ccfbf1;
-      border: 1px solid rgba(13, 148, 136, 0.25);
+      color: #8a6a42;
+      background: #f0e6d6;
+      border: 1px solid rgba(176, 138, 91, 0.25);
       min-width: 22px;
       text-align: center;
       padding: 1px 4px;
@@ -296,9 +296,9 @@
       flex-shrink: 0;
     }
     .lens-node-item.active .lens-badge {
-      background: #0d9488;
+      background: #8a6a42;
       color: #ffffff;
-      border-color: #0f766e;
+      border-color: #6f5536;
       font-weight: 800;
     }
     .lens-info {
@@ -316,7 +316,7 @@
       text-overflow: ellipsis;
     }
     .lens-node-item.active .lens-name {
-      color: #0f766e;
+      color: #6f5536;
       font-weight: 700;
     }
     .lens-sub {
@@ -328,7 +328,7 @@
       text-overflow: ellipsis;
     }
     .lens-node-item.active .lens-sub {
-      color: #0d9488;
+      color: #8a6a42;
       font-weight: 600;
     }
 
@@ -368,7 +368,7 @@
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.1em;
-      color: #0d9488;
+      color: #8a6a42;
       margin-bottom: 12px;
     }
     .panel-kicker::before {
@@ -385,7 +385,7 @@
       color: #0a1e2c;
     }
     .lens-panel h2 em {
-      color: #0d9488;
+      color: #8a6a42;
       font-style: normal;
     }
     .panel-desc {
@@ -399,7 +399,7 @@
     .formula-box-math {
       background: #061925;
       color: #f8fafc;
-      border: 1px solid rgba(115, 238, 228, 0.2);
+      border: 1px solid rgba(196, 165, 116, 0.2);
       border-radius: 8px;
       padding: 16px 20px;
       margin: 16px 0;
@@ -409,7 +409,7 @@
       box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
     }
     .formula-box-math strong {
-      color: #73eee4;
+      color: #c4a574;
       font-weight: 700;
     }
     .formula-box-math em {
@@ -420,7 +420,7 @@
     /* 示波器與硬體視覺儀表 */
     .scope-instrument-deck {
       background: #061925;
-      border: 1px solid rgba(115, 238, 228, 0.25);
+      border: 1px solid rgba(196, 165, 116, 0.25);
       border-radius: 8px;
       padding: 14px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.35);
@@ -437,7 +437,7 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.72rem;
       letter-spacing: 0.08em;
-      color: #73eee4;
+      color: #c4a574;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -475,11 +475,11 @@
       font-size: 0.8rem;
     }
     .slider-group input[type="range"] {
-      accent-color: #0d9488;
+      accent-color: #8a6a42;
       cursor: pointer;
     }
     .vdd-readout {
-      color: #73eee4;
+      color: #c4a574;
       font-weight: 700;
       min-width: 44px;
     }
@@ -492,7 +492,7 @@
       margin-top: 16px;
     }
     .card-compact {
-      background: #f8fafc;
+      background: #f4f1ea;
       border: 1px solid rgba(15, 23, 42, 0.08);
       border-radius: 6px;
       padding: 16px;
@@ -512,7 +512,7 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.68rem;
       font-weight: 700;
-      color: #0d9488;
+      color: #8a6a42;
       display: block;
       margin-bottom: 6px;
     }
@@ -528,7 +528,7 @@
       .roadmap-stepper { grid-template-columns: 1fr; }
     }
     .roadmap-step-card {
-      background: #f8fafc;
+      background: #f4f1ea;
       border: 1px solid rgba(15, 23, 42, 0.08);
       border-radius: 6px;
       padding: 12px;
@@ -537,7 +537,7 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.68rem;
       font-weight: 700;
-      color: #0d9488;
+      color: #8a6a42;
       display: block;
       margin-bottom: 4px;
     }
@@ -690,7 +690,7 @@
         <div class="stat-strip-card border-l-emerald">
           <div class="stat-card-head">
             <span class="meta-code">RULE #03 · INSTANT ON</span>
-            <span class="pulse-chip-mini" style="background:#059669;"></span>
+            <span class="pulse-chip-mini" style="background:#6f5536;"></span>
           </div>
           <div class="stat-val">&lt;10 µs</div>
           <p><span data-lang="zh">無高壓電荷泵預充等待，冷啟動瞬時 XIP 執行，休眠漏電 &lt;10nA。</span><span data-lang="en">No charge pump warmup; instant-on cold boot XIP with &lt;10nA AON deep-sleep leakage.</span></p>
@@ -771,7 +771,7 @@
           </nav>
           <div class="rail-footer">
             <span>REALTIME INTERACTION</span>
-            <span style="color:#0d9488; font-weight:700;">STABLE 2026</span>
+            <span style="color:#8a6a42; font-weight:700;">STABLE 2026</span>
           </div>
         </aside>
 
@@ -837,8 +837,8 @@
 
             <div class="scope-instrument-deck">
               <div class="scope-header-bar">
-                <span class="scope-title"><svg style="width:14px;height:14px;fill:#73eee4;"><use href="#i-pulse"/></svg> TSMC 0.5V NTV FAST-BOOT OSCILLOSCOPE CH1/CH2</span>
-                <span class="meta-code" style="color:#73eee4;">REALTIME SAMPLING</span>
+                <span class="scope-title"><svg style="width:14px;height:14px;fill:#c4a574;"><use href="#i-pulse"/></svg> TSMC 0.5V NTV FAST-BOOT OSCILLOSCOPE CH1/CH2</span>
+                <span class="meta-code" style="color:#c4a574;">REALTIME SAMPLING</span>
               </div>
               <div class="scope-canvas-frame">
                 <canvas id="ntvCanvas" width="560" height="260"></canvas>
@@ -850,7 +850,7 @@
                   <span class="vdd-readout" id="vddDisplay">0.50 V</span>
                 </div>
                 <div style="font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:#94a3b8;">
-                  <span id="ntvStateTag" style="color:#73eee4;">NEAR-THRESHOLD CONTINUUM (0.5V)</span>
+                  <span id="ntvStateTag" style="color:#c4a574;">NEAR-THRESHOLD CONTINUUM (0.5V)</span>
                 </div>
                 <button id="btnRunBootScope" class="button primary" type="button" style="padding: 6px 14px; font-size: 0.8125rem;">
                   <svg style="width:12px;height:12px;"><use href="#i-power"/></svg>
@@ -888,7 +888,7 @@
                 <h4><span data-lang="zh">8~12 道額外光罩</span><span data-lang="en">8~12 Extra Masks</span></h4>
                 <p><span data-lang="zh">專用單元堆疊使晶圓加工成本暴增 30%~40%，流片週期延長數個月。</span><span data-lang="en">Adds 8~12 photolithography masks, driving wafer fabrication costs up by 30%~40%.</span></p>
               </div>
-              <div class="card-compact" style="border-left: 3px solid #0d9488;">
+              <div class="card-compact" style="border-left: 3px solid #8a6a42;">
                 <span class="badge-compact">03 · CHARGE PUMP</span>
                 <h4><span data-lang="zh">電荷泵面積失衡</span><span data-lang="en">Charge Pump Stagnation</span></h4>
                 <p><span data-lang="zh">產生 10V 的晶片內電荷泵電容無法等比縮小，佔據高達 35% 巨集面積。</span><span data-lang="en">On-chip charge pumps generating 10V cannot scale, occupying up to 35% macro area.</span></p>
@@ -914,7 +914,7 @@
                 <h4>TSMC 22ULL (Planar)</h4>
                 <p><span data-lang="zh">0.6V~0.8V 運作，取代 40/55nm eFlash，晶片面積縮減 60%。</span><span data-lang="en">0.6V~0.8V Vdd, replaces 40/55nm eFlash with 60% area reduction.</span></p>
               </div>
-              <div class="roadmap-step-card" style="border-top: 3px solid #0d9488;">
+              <div class="roadmap-step-card" style="border-top: 3px solid #8a6a42;">
                 <span class="roadmap-step-badge">NODE 02 · 12FFC+</span>
                 <h4>TSMC 12FFC+ (FinFET)</h4>
                 <p><span data-lang="zh">原生 0.5V 近閾值運作，AON 待機漏電 &lt;10nA，邊緣感測最佳甜蜜點。</span><span data-lang="en">Native 0.5V NTV, &lt;10nA AON leakage, sweet spot for edge AI sensors.</span></p>
@@ -945,12 +945,12 @@
             </p>
 
             <!-- 互動 CAM 匯流排模擬畫布 -->
-            <div style="padding: 14px; background: #061925; border-radius: 8px; border: 1px solid rgba(115,238,228,0.25);">
+            <div style="padding: 14px; background: #061925; border-radius: 8px; border: 1px solid rgba(196,165,116,0.25);">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                <span class="meta-code" style="color: #73eee4;">BUS SNOOP &amp; REDIRECTION EMULATOR</span>
+                <span class="meta-code" style="color: #c4a574;">BUS SNOOP &amp; REDIRECTION EMULATOR</span>
                 <div style="display: flex; gap: 8px; align-items: center;">
                   <span class="meta-code" style="color: #94a3b8;">PC: <b id="camStatusPc" style="color:#fbbf24;">0x0800_1240</b></span>
-                  <span class="meta-code" style="color: #94a3b8;">STATE: <b id="camOtpState" style="color:#73eee4;">IDLE / MONITORING</b></span>
+                  <span class="meta-code" style="color: #94a3b8;">STATE: <b id="camOtpState" style="color:#c4a574;">IDLE / MONITORING</b></span>
                 </div>
               </div>
               <canvas id="camCanvas" width="560" height="170" style="width: 100%; height: auto; background: #020c13; border-radius: 4px; border: 1px solid #112a3d; display: block;"></canvas>
@@ -984,35 +984,35 @@
               </div>
               <div>
                 <span><span data-lang="zh">額外光罩數</span><span data-lang="en">Extra Masks</span></span>
-                <p style="color:#0d9488; font-weight:700;">0 (100% Standard)</p>
+                <p style="color:#8a6a42; font-weight:700;">0 (100% Standard)</p>
                 <p>8 ~ 12 Masks</p>
                 <p>3 ~ 5 Masks</p>
                 <p>2 ~ 4 Masks</p>
               </div>
               <div>
                 <span><span data-lang="zh">低電壓讀取</span><span data-lang="en">Low-Vdd Read</span></span>
-                <p style="color:#0d9488; font-weight:700;">0.5V (Native NTV)</p>
+                <p style="color:#8a6a42; font-weight:700;">0.5V (Native NTV)</p>
                 <p>1.6V ~ 3.6V</p>
                 <p>0.8V ~ 1.2V</p>
                 <p>0.7V ~ 1.2V</p>
               </div>
               <div>
                 <span><span data-lang="zh">冷啟動時間</span><span data-lang="en">Cold Boot</span></span>
-                <p style="color:#0d9488; font-weight:700;">&lt;10 µs (Instant)</p>
+                <p style="color:#8a6a42; font-weight:700;">&lt;10 µs (Instant)</p>
                 <p>~40,000 µs (Pump)</p>
                 <p>&lt;50 µs</p>
                 <p>&lt;30 µs</p>
               </div>
               <div>
                 <span><span data-lang="zh">AON 待機漏電</span><span data-lang="en">AON Leakage</span></span>
-                <p style="color:#0d9488; font-weight:700;">&lt;10 nA (Near-Zero)</p>
+                <p style="color:#8a6a42; font-weight:700;">&lt;10 nA (Near-Zero)</p>
                 <p>~1,000 nA</p>
                 <p>~100 nA</p>
                 <p>~50 nA</p>
               </div>
               <div>
                 <span><span data-lang="zh">125°C 留存</span><span data-lang="en">Retention</span></span>
-                <p style="color:#0d9488; font-weight:700;">&gt;15 Years (Permanent)</p>
+                <p style="color:#8a6a42; font-weight:700;">&gt;15 Years (Permanent)</p>
                 <p>10 Years</p>
                 <p>Magnetic Sensitive</p>
                 <p>Filament Drift</p>
@@ -1123,7 +1123,7 @@
     <div class="hub-footer-top">
       <div class="hub-footer-brand-col">
         <a class="hub-footer-logo" href="index.html" aria-label="NVM Knowledge Hub">
-          <span class="hub-footer-logo-mark"><svg style="width:24px;height:24px;fill:#73eee4;"><use href="#i-chip"/></svg></span>
+          <span class="hub-footer-logo-mark"><svg style="width:24px;height:24px;fill:#c4a574;"><use href="#i-chip"/></svg></span>
           <span class="hub-footer-logo-text"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
         </a>
         <p class="hub-footer-tagline">
@@ -1182,7 +1182,7 @@
   </footer>
 
   <!-- 核心全站 JS 與 M2 專屬動態 Canvas 互動引擎 -->
-  <script src="app.js?v=20260906-pages-v1"></script>
+  <script src="app.js?v=20260906-copper-v1"></script>
   <script>
     // ==========================================
     // M2 專屬互動引擎：直立測條雙向聯動 + 0.5V 示波器 + CAM 模擬
@@ -1289,8 +1289,8 @@
           ctx.lineTo(w - 15, vY);
           ctx.stroke();
 
-          // CH2: 電流瞬態與喚醒脈衝 (青色 #73eee4)
-          ctx.strokeStyle = '#73eee4';
+          // CH2: 電流瞬態與喚醒脈衝 (青色 #c4a574)
+          ctx.strokeStyle = '#c4a574';
           ctx.lineWidth = 2;
           ctx.beginPath();
           const baselineY = h * 0.85;
@@ -1315,7 +1315,7 @@
           ctx.font = '11px IBM Plex Mono, monospace';
           ctx.fillStyle = '#fbbf24';
           ctx.fillText(`CH1: VDD = ${vdd.toFixed(2)}V`, 25, 22);
-          ctx.fillStyle = '#73eee4';
+          ctx.fillStyle = '#c4a574';
           const pSave = ((1 - (vdd / 1.2) ** 2) * 100).toFixed(1);
           ctx.fillText(`CH2: DYN POWER REDUCTION = ${pSave}%`, 25, 40);
         }
@@ -1393,7 +1393,7 @@
 
           nodes.forEach((n, idx) => {
             ctx2.fillStyle = '#0f172a';
-            ctx2.strokeStyle = triggered && idx >= 1 ? '#0d9488' : '#334155';
+            ctx2.strokeStyle = triggered && idx >= 1 ? '#8a6a42' : '#334155';
             ctx2.lineWidth = 2;
             ctx2.beginPath();
             ctx2.arc(n.x, h * 0.35, 11, 0, Math.PI * 2);
@@ -1401,12 +1401,12 @@
             ctx2.stroke();
 
             ctx2.font = '10px IBM Plex Mono, monospace';
-            ctx2.fillStyle = triggered && idx >= 1 ? '#73eee4' : '#94a3b8';
+            ctx2.fillStyle = triggered && idx >= 1 ? '#c4a574' : '#94a3b8';
             ctx2.textAlign = 'center';
             ctx2.fillText(n.label, n.x, h * 0.35 - 16);
           });
 
-          ctx2.strokeStyle = triggered ? '#fbbf24' : '#38bdf8';
+          ctx2.strokeStyle = triggered ? '#fbbf24' : '#c4a574';
           ctx2.lineWidth = 2.5;
           ctx2.beginPath();
           ctx2.moveTo(w * 0.15, h * 0.35);
@@ -1438,7 +1438,7 @@
             isPatching = !isPatching;
             if (isPatching) {
               camStatusPc.textContent = '0x0800_FF00 (PATCHED)';
-              camStatusPc.style.color = '#73eee4';
+              camStatusPc.style.color = '#c4a574';
               camOtpState.textContent = 'MUX ACTIVE · ZERO-CYCLE REDIRECT';
               camOtpState.style.color = '#fbbf24';
               camTriggerBtn.innerHTML = '<span data-lang="zh">重設匯流排</span><span data-lang="en">Reset Bus</span>';
@@ -1447,7 +1447,7 @@
               camStatusPc.textContent = '0x0800_1240';
               camStatusPc.style.color = '#fbbf24';
               camOtpState.textContent = 'IDLE / MONITORING';
-              camOtpState.style.color = '#73eee4';
+              camOtpState.style.color = '#c4a574';
               camTriggerBtn.innerHTML = '<span data-lang="zh">注入缺陷指令</span><span data-lang="en">Inject Bug</span>';
               drawCamBus(false);
             }

@@ -500,8 +500,8 @@ function w(){
       const zhB = btn.querySelector('[data-lang-option="zh"]');
       const enB = btn.querySelector('[data-lang-option="en"]');
       if (zhB && enB) {
-        zhB.style.color = lang === "zh" ? "#73eee4" : "#8ea9b3";
-        enB.style.color = lang === "en" ? "#73eee4" : "#8ea9b3";
+        zhB.style.color = lang === "zh" ? "#c4a574" : "#8ea9b3";
+        enB.style.color = lang === "en" ? "#c4a574" : "#8ea9b3";
       }
     }
 
@@ -547,8 +547,8 @@ function w(){
     if (btn) {
       const orig = btn.innerHTML;
       btn.innerHTML = curLang === 'zh' ? '已複製 ✓' : 'COPIED ✓';
-      btn.style.borderColor = '#71ece3';
-      btn.style.color = '#71ece3';
+      btn.style.borderColor = '#c4a574';
+      btn.style.color = '#c4a574';
       setTimeout(() => {
         btn.innerHTML = orig;
         btn.style.borderColor = '';

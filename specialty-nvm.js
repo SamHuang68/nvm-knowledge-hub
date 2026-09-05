@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!ctx) return;
     const divX = (opts && opts.divX) || 40;
     const divY = (opts && opts.divY) || 30;
-    const gridColor = (opts && opts.gridColor) || 'rgba(17, 210, 208, 0.08)';
-    const axisColor = (opts && opts.axisColor) || 'rgba(113, 236, 227, 0.35)';
+    const gridColor = (opts && opts.gridColor) || 'rgba(176, 138, 91, 0.08)';
+    const axisColor = (opts && opts.axisColor) || 'rgba(196, 165, 116, 0.35)';
     const showSubdiv = opts && opts.showSubdivisions !== false;
 
     ctx.save();
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ctx.moveTo(cx, 0); ctx.lineTo(cx, h);
       ctx.stroke();
 
-      ctx.strokeStyle = 'rgba(113, 236, 227, 0.6)';
+      ctx.strokeStyle = 'rgba(196, 165, 116, 0.6)';
       ctx.beginPath();
       for (let x = 0; x <= w; x += divX / 5) { ctx.moveTo(x, cy - 2.5); ctx.lineTo(x, cy + 2.5); }
       for (let y = 0; y <= h; y += divY / 5) { ctx.moveTo(cx - 2.5, y); ctx.lineTo(cx + 2.5, y); }
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.stroke();
 
     // 軸線
-    ctx.strokeStyle = 'rgba(113, 236, 227, 0.4)';
+    ctx.strokeStyle = 'rgba(196, 165, 116, 0.4)';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(40, h - 25);
@@ -156,9 +156,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const specLeft = center - 60;
     const specRight = center + 60;
 
-    ctx.fillStyle = 'rgba(113, 236, 227, 0.08)';
+    ctx.fillStyle = 'rgba(196, 165, 116, 0.08)';
     ctx.fillRect(specLeft, 10, specRight - specLeft, h - 35);
-    ctx.strokeStyle = 'rgba(113, 236, 227, 0.6)';
+    ctx.strokeStyle = 'rgba(196, 165, 116, 0.6)';
     ctx.setLineDash([4, 4]);
     ctx.beginPath();
     ctx.moveTo(specLeft, 10); ctx.lineTo(specLeft, h - 25);
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 繪製高斯曲線
     ctx.beginPath();
     ctx.lineWidth = 2.5;
-    ctx.strokeStyle = isTrimmed ? '#71ece3' : '#f87171';
+    ctx.strokeStyle = isTrimmed ? '#c4a574' : '#f87171';
 
     for (let x = 40; x <= w - 10; x++) {
       const dx = x - center;
@@ -197,8 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.closePath();
     const grad = ctx.createLinearGradient(0, 0, 0, h);
     if (isTrimmed) {
-      grad.addColorStop(0, 'rgba(113, 236, 227, 0.35)');
-      grad.addColorStop(1, 'rgba(113, 236, 227, 0.0)');
+      grad.addColorStop(0, 'rgba(196, 165, 116, 0.35)');
+      grad.addColorStop(1, 'rgba(196, 165, 116, 0.0)');
     } else {
       grad.addColorStop(0, 'rgba(248, 113, 113, 0.3)');
       grad.addColorStop(1, 'rgba(248, 113, 113, 0.0)');
@@ -415,7 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (val === 0) {
           ctx.fillStyle = '#082838';
-          ctx.strokeStyle = 'rgba(113, 236, 227, 0.2)';
+          ctx.strokeStyle = 'rgba(196, 165, 116, 0.2)';
         } else if (val === 1) { // defect
           ctx.fillStyle = '#dc2626';
           ctx.strokeStyle = '#f87171';
@@ -433,9 +433,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 繪製掃描雷達線
     if (scanProgressLine >= 0 && scanProgressLine < GRID_SIZE) {
       const lineY = pad + scanProgressLine * cellSize;
-      ctx.fillStyle = 'rgba(113, 236, 227, 0.25)';
+      ctx.fillStyle = 'rgba(196, 165, 116, 0.25)';
       ctx.fillRect(pad, lineY, w - pad * 2, cellSize);
-      ctx.strokeStyle = '#71ece3';
+      ctx.strokeStyle = '#c4a574';
       ctx.lineWidth = 2;
       ctx.strokeRect(pad, lineY, w - pad * 2, cellSize);
     }
@@ -637,7 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.setLineDash([]);
 
     // 當前調整曲線
-    ctx.strokeStyle = '#71ece3';
+    ctx.strokeStyle = '#c4a574';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let x = 40; x <= w - 10; x++) {
@@ -654,8 +654,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.lineTo(40, h - 25);
     ctx.closePath();
     const g = ctx.createLinearGradient(0, 0, 0, h);
-    g.addColorStop(0, 'rgba(113, 236, 227, 0.25)');
-    g.addColorStop(1, 'rgba(113, 236, 227, 0.0)');
+    g.addColorStop(0, 'rgba(196, 165, 116, 0.25)');
+    g.addColorStop(1, 'rgba(196, 165, 116, 0.0)');
     ctx.fillStyle = g;
     ctx.fill();
 
@@ -810,7 +810,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.clearRect(0, 0, w, h);
 
     // 微膠囊外壁
-    ctx.strokeStyle = 'rgba(113, 236, 227, 0.4)';
+    ctx.strokeStyle = 'rgba(196, 165, 116, 0.4)';
     ctx.lineWidth = 3;
     ctx.fillStyle = 'rgba(8, 36, 51, 0.75)';
     ctx.beginPath();
@@ -819,13 +819,13 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.stroke();
 
     // 頂部透明電極與底部電極
-    ctx.fillStyle = '#71ece3';
+    ctx.fillStyle = '#c4a574';
     ctx.fillRect(w / 2 - 200, 8, 400, 4);
     ctx.fillStyle = '#ff9d5c';
     ctx.fillRect(w / 2 - 200, h - 12, 400, 4);
 
     ctx.font = '10px "IBM Plex Mono", monospace';
-    ctx.fillStyle = '#71ece3';
+    ctx.fillStyle = '#c4a574';
     ctx.fillText('TOP TRANSPARENT ELECTRODE (ITO)', w / 2 - 90, 20);
     ctx.fillStyle = '#ff9d5c';
     ctx.fillText('BOTTOM PIXEL ELECTRODE (+40V~50V PULSE)', w / 2 - 110, h - 18);

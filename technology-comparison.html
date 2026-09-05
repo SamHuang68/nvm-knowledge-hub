@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260906-pages-v1"></script>
+  <script src="site-language.js?v=20260906-copper-v1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub</title>
   <meta name="description" content="Comprehensive 7-dimension trade-off matrix, 5-axis interactive radar selector, first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.">
@@ -12,18 +12,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site-shell.css?v=20260906-pages-v1">
-  <link rel="stylesheet" href="styles.css?v=20260906-pages-v1">
-  <link rel="stylesheet" href="specialty-nvm.css?v=20260906-pages-v1">
+  <link rel="stylesheet" href="site-shell.css?v=20260906-copper-v1">
+  <link rel="stylesheet" href="styles.css?v=20260906-copper-v1">
+  <link rel="stylesheet" href="specialty-nvm.css?v=20260906-copper-v1">
 
   <style>
     body.specialty-page {
-      background-color: #f8fafc !important;
-      color: #334155 !important;
-      background-image:
-        linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px) !important;
-      background-size: 48px 48px !important;
+      background-color: #f4f1ea !important;
+      color: #3f3a34 !important;
+      background-image: none !important;
     }
 
     /* Language: one locale at a time. Unwrapped copy is a bug. */
@@ -39,29 +36,26 @@
     }
 
     body {
-      background-color: #f8fafc;
-      color: #334155;
+      background-color: #f4f1ea;
+      color: #3f3a34;
       font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
       overflow-x: hidden;
-      background-image:
-        linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
-      background-size: 48px 48px;
+      background-image: none;
     }
 
     /* Editorial Light Theme Tokens */
     :root {
-      --paper-bg: #f8fafc;
+      --paper-bg: #f4f1ea;
       --paper-card: #ffffff;
-      --paper-subtle: #f1f5f9;
+      --paper-subtle: #ebe6dc;
       --ink-heading: #0a1e2c;
       --ink-body: #334155;
       --ink-muted: #64748b;
-      --cyan-editorial: #0d9488;
-      --cyan-light: #f0fdfa;
-      --amber-editorial: #d97706;
-      --amber-light: #fffbeb;
-      --emerald-editorial: #059669;
+      --cyan-editorial: #8a6a42;
+      --cyan-light: #f7f1e8;
+      --amber-editorial: #8a6a42;
+      --amber-light: #f7f1e8;
+      --emerald-editorial: #6f5536;
       --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
       --card-shadow-hover: 0 12px 28px -4px rgba(15, 23, 42, 0.09), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
     }
@@ -109,18 +103,10 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: radial-gradient(circle at 50% 25%, rgba(13, 148, 136, 0.2) 0%, rgba(6, 25, 37, 0.88) 68%, rgba(3, 19, 30, 0.98) 100%),
+      background: radial-gradient(circle at 50% 25%, rgba(176, 138, 91, 0.2) 0%, rgba(6, 25, 37, 0.88) 68%, rgba(3, 19, 30, 0.98) 100%),
                   linear-gradient(180deg, rgba(6, 25, 37, 0.65) 0%, rgba(3, 19, 30, 0.96) 100%);
     }
-    .f2-hero-grid {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      background-image: linear-gradient(to right, rgba(115, 238, 228, 0.05) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(115, 238, 228, 0.05) 1px, transparent 1px);
-      background-size: 32px 32px;
-      pointer-events: none;
-    }
+    .f2-hero-grid { display: none; }
     .f2-hero-content {
       position: relative;
       z-index: 3;
@@ -132,13 +118,13 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 4px 14px;
-      background: rgba(115, 238, 228, 0.12);
-      border: 1px solid rgba(115, 238, 228, 0.3);
-      border-radius: 999px;
-      color: #73eee4;
+      padding: 0;
+      background: none;
+      border: none;
+      border-radius: 0;
+      color: #c4a574;
       font: 700 11px/1 'IBM Plex Mono', monospace;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       margin-bottom: 12px;
       text-transform: uppercase;
     }
@@ -153,7 +139,7 @@
       text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
     }
     .f2-hero h1 em {
-      color: #73eee4;
+      color: #c4a574;
       font-style: normal;
       font-weight: 700;
     }
@@ -172,7 +158,7 @@
       gap: clamp(16px, 2.8vw, 40px);
       margin-top: 24px;
       padding-top: 20px;
-      border-top: 1px solid rgba(115, 238, 228, 0.18);
+      border-top: 1px solid rgba(196, 165, 116, 0.18);
     }
     .f2-hero-proof > div {
       display: flex;
@@ -223,9 +209,9 @@
       transform: translateY(-2px) !important;
       box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.1), 0 4px 10px -2px rgba(15, 23, 42, 0.03) !important;
     }
-    .stat-strip-card.border-l-cyan { border-left: 4px solid #0d9488 !important; }
-    .stat-strip-card.border-l-teal { border-left: 4px solid #0891b2 !important; }
-    .stat-strip-card.border-l-emerald { border-left: 4px solid #059669 !important; }
+    .stat-strip-card.border-l-cyan { border-left: 4px solid #8a6a42 !important; }
+    .stat-strip-card.border-l-teal { border-left: 4px solid #8a6a42 !important; }
+    .stat-strip-card.border-l-emerald { border-left: 4px solid #6f5536 !important; }
     .stat-strip-card.border-l-amber { border-left: 4px solid #d97706 !important; }
     .f2-stat-bridge .stat-val,
     .stat-strip-card .stat-val {
@@ -269,14 +255,14 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: #0d9488;
-      box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7);
+      background: #8a6a42;
+      box-shadow: 0 0 0 0 rgba(176, 138, 91, 0.7);
       animation: pulse-ring 2s infinite;
     }
     @keyframes pulse-ring {
-      0% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7); }
-      70% { box-shadow: 0 0 0 5px rgba(13, 148, 136, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(176, 138, 91, 0.7); }
+      70% { box-shadow: 0 0 0 5px rgba(176, 138, 91, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(176, 138, 91, 0); }
     }
 
     /* Nav Pills - Paper Capsule Style */
@@ -303,11 +289,11 @@
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .hub-nav-pills .nav-pill:hover {
-      background: #f0fdfa;
-      color: #0d9488;
-      border-color: #0d9488;
+      background: #f7f1e8;
+      color: #8a6a42;
+      border-color: #8a6a42;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(13, 148, 136, 0.15);
+      box-shadow: 0 8px 20px rgba(176, 138, 91, 0.15);
     }
     .hub-nav-pills .pill-number {
       font-family: 'IBM Plex Mono', monospace;
@@ -320,9 +306,9 @@
       border-radius: 12px;
     }
     .hub-nav-pills .nav-pill:hover .pill-number {
-      color: #0d9488;
+      color: #8a6a42;
       background: #ffffff;
-      border-color: #0d9488;
+      border-color: #8a6a42;
     }
 
     /* Section Headers - Clean Editorial */
@@ -337,7 +323,7 @@
       gap: 8px;
       font: 700 11px 'IBM Plex Mono', monospace;
       letter-spacing: 0.15em;
-      color: #0d9488;
+      color: #8a6a42;
       text-transform: uppercase;
       margin-bottom: 6px;
     }
@@ -353,10 +339,10 @@
       width: 100%;
       overflow-x: auto;
       margin: 1.5rem 0 2.5rem;
-      border: 1px solid rgba(15, 23, 42, 0.1);
-      border-radius: 8px;
-      background: #ffffff;
-      box-shadow: var(--card-shadow);
+      border: 1px solid rgba(28, 25, 23, 0.12);
+      border-radius: 0;
+      background: #fffaf3;
+      box-shadow: none;
     }
     .compare-matrix {
       display: grid;
@@ -375,35 +361,35 @@
       text-align: center;
     }
     .matrix-cell {
-      background: #ffffff;
-      color: #1e293b;
+      background: #fffaf3;
+      color: #1c1917;
       line-height: 1.45;
       transition: background 0.15s;
     }
-    .matrix-cell:hover { background: #f8fafc; }
+    .matrix-cell:hover { background: #f4f1ea; }
     .matrix-cell .cell-note {
-      color: #475569;
+      color: #6b645c;
       font-size: 10px;
       margin-top: 4px;
     }
     .matrix-cell.focus-tech {
-      background: #f0fdfa;
+      background: #f7f1e8;
     }
     .matrix-header {
-      background: #f1f5f9;
-      color: #0a1e2c;
+      background: #ebe6dc;
+      color: #1c1917;
       font-weight: 700;
       font-family: 'IBM Plex Mono', monospace;
-      border-bottom: 2px solid #0d9488;
+      border-bottom: 2px solid #b08a5b;
       padding: 1.2rem 1rem;
     }
     .matrix-header.focus-tech {
-      background: #f0fdfa;
-      color: #0f766e;
-      box-shadow: inset 0 3px 0 #0d9488;
+      background: #f7f1e8;
+      color: #6f5536;
+      box-shadow: inset 0 3px 0 #b08a5b;
     }
     .matrix-row-header {
-      background: #f8fafc;
+      background: #f4f1ea;
       font-family: 'IBM Plex Mono', monospace;
       font-weight: 700;
       color: #0a1e2c;
@@ -417,10 +403,10 @@
       margin-top: 4px;
     }
     .badge-win {
-      background: #ecfdf5;
-      color: #047857;
-      border: 1px solid #a7f3d0;
-      border-radius: 4px;
+      background: transparent;
+      color: #6f5536;
+      border: 1px solid rgba(176, 138, 91, 0.35);
+      border-radius: 0;
       padding: 2px 7px;
       font: 700 10px 'IBM Plex Mono', monospace;
       margin-top: 4px;
@@ -444,7 +430,7 @@
     }
     .formula-card {
       background: #082433;
-      border: 1px solid rgba(113, 236, 227, 0.22);
+      border: 1px solid rgba(196, 165, 116, 0.22);
       border-radius: 8px;
       padding: 1.5rem 1.75rem;
     }
@@ -457,12 +443,12 @@
     }
     .formula-box-math {
       background: #03131e;
-      border: 1px solid rgba(113, 236, 227, 0.18);
+      border: 1px solid rgba(196, 165, 116, 0.18);
       border-radius: 6px;
       padding: 1.25rem 1.5rem;
       font-family: 'IBM Plex Mono', monospace;
       font-size: 1.02rem;
-      color: #73eee4;
+      color: #c4a574;
       margin: 1rem 0;
       overflow-x: auto;
       text-align: center;
@@ -470,7 +456,7 @@
     }
     .formula-box-math em {
       font-style: italic;
-      color: #73eee4;
+      color: #c4a574;
     }
     .formula-box-math sub,
     .formula-box-math sup {
@@ -485,7 +471,7 @@
     /* Decision Selector Styles - High-Tech Instrument Frame */
     .selector-workbench-frame {
       background: #061925;
-      border: 1px solid rgba(115, 238, 228, 0.25);
+      border: 1px solid rgba(196, 165, 116, 0.25);
       border-radius: 12px;
       padding: clamp(20px, 2.5vw, 32px);
       box-shadow: 0 16px 36px -6px rgba(6, 25, 37, 0.35);
@@ -493,7 +479,7 @@
     }
     .selector-dashboard {
       background: #04121c;
-      border: 1px solid rgba(113, 236, 227, 0.2);
+      border: 1px solid rgba(196, 165, 116, 0.2);
       border-radius: 8px;
       padding: 1.75rem;
       margin: 1.5rem 0;
@@ -506,16 +492,16 @@
     }
     .match-card {
       background: #061925;
-      border: 1px solid rgba(115, 238, 228, 0.18);
+      border: 1px solid rgba(196, 165, 116, 0.18);
       border-radius: 6px;
       padding: 1.25rem 1rem;
       text-align: center;
       transition: all 0.25s ease;
     }
     .match-card.is-winner {
-      border-color: #73eee4;
-      background: rgba(115, 238, 228, 0.08);
-      box-shadow: 0 0 20px rgba(115, 238, 228, 0.25);
+      border-color: #c4a574;
+      background: rgba(196, 165, 116, 0.08);
+      box-shadow: 0 0 20px rgba(196, 165, 116, 0.25);
       transform: translateY(-3px);
     }
     .match-card.is-dimmed {
@@ -529,7 +515,7 @@
     }
     .match-score-num {
       font: 800 18px/1 'IBM Plex Mono', monospace;
-      color: #73eee4;
+      color: #c4a574;
     }
     .match-score-bar-bg {
       height: 6px;
@@ -552,17 +538,17 @@
     }
     .foundry-card {
       background: #082433;
-      border: 1px solid rgba(115, 238, 228, 0.2);
+      border: 1px solid rgba(196, 165, 116, 0.2);
       border-radius: 8px;
       padding: 1.5rem;
-      border-top: 4px solid #73eee4;
+      border-top: 4px solid #c4a574;
       transition: transform 0.2s, border-color 0.2s;
     }
     .foundry-card:hover {
       transform: translateY(-3px);
-      border-color: rgba(115, 238, 228, 0.45);
+      border-color: rgba(196, 165, 116, 0.45);
     }
-    .foundry-card.tsmc { border-top-color: #73eee4; }
+    .foundry-card.tsmc { border-top-color: #c4a574; }
     .foundry-card.umc { border-top-color: #f59e0b; }
     .foundry-card.gf { border-top-color: #a855f7; }
     .foundry-card.sec { border-top-color: #3b82f6; }
@@ -594,7 +580,7 @@
       top: 0;
       bottom: 0;
       width: 4px;
-      background: #73eee4;
+      background: #c4a574;
       border-radius: 8px 0 0 8px;
     }
     .step-num {
@@ -674,7 +660,7 @@
         </p>
         <div class="f2-hero-proof" aria-label="NVM 對比核心指標">
           <div>
-            <strong class="mono-text" style="color: #73eee4;">6 TECHS</strong>
+            <strong class="mono-text" style="color: #c4a574;">6 TECHS</strong>
             <span><span data-lang="zh">全景橫向解剖</span><span data-lang="en">Full Spectrum</span></span>
           </div>
           <div>
@@ -686,7 +672,7 @@
             <span><span data-lang="zh">邏輯相容極限</span><span data-lang="en">Logic Adders</span></span>
           </div>
           <div>
-            <strong class="mono-text" style="color: #38bdf8;">4 FOUNDRIES</strong>
+            <strong class="mono-text" style="color: #c4a574;">4 FOUNDRIES</strong>
             <span><span data-lang="zh">晶圓生態驗證</span><span data-lang="en">Foundry PDKs</span></span>
           </div>
         </div>
@@ -708,7 +694,7 @@
               <span data-lang="en">LOGIC-COMPATIBLE MASK MODEL</span>
             </div>
             <div class="stat-sub">
-              <span style="color: #0f766e; font-weight: 600;">
+              <span style="color: #6f5536; font-weight: 600;">
                 <span data-lang="zh">零額外光罩 ≠ 晶圓免費 · 見成本恆等式</span>
                 <span data-lang="en">Zero extra masks ≠ free wafers · see cost identity</span>
               </span>
@@ -724,7 +710,7 @@
               <span data-lang="en">GRADE 0 THERMAL RETENTION</span>
             </div>
             <div class="stat-sub">
-              <span style="color: #0d9488; font-weight: 600;">
+              <span style="color: #8a6a42; font-weight: 600;">
                 <span data-lang="zh">介電擊穿微絲 · 10+ 年抗高溫退火</span>
                 <span data-lang="en">Dielectric Breakdown · 10+ Yrs Retention</span>
               </span>
@@ -740,7 +726,7 @@
               <span data-lang="en">ADVANCED NODE SCALABILITY</span>
             </div>
             <div class="stat-sub">
-              <span style="color: #059669; font-weight: 600;">
+              <span style="color: #6f5536; font-weight: 600;">
                 <span data-lang="zh">標準閘極氧化層 · 穿越 FinFET 至 N2</span>
                 <span data-lang="en">Standard Gate Oxide · Scalable to N2</span>
               </span>
@@ -812,7 +798,7 @@
             <span data-lang="zh">光罩增加道數</span><span data-lang="en">Mask Adders</span>
             <small>Wafer Cost Adder</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">0 Masks</b><span class="badge-win">Logic-compatible</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">0 Masks</b><span class="badge-win">Logic-compatible</span></div>
           <div class="matrix-cell">0 Masks<span class="badge-win">0 adder</span></div>
           <div class="matrix-cell" style="color:#b91c1c;">+8 ~ +12 Masks<span class="badge-lose">+30-40% Cost</span></div>
           <div class="matrix-cell">+3 ~ +5 Masks<span class="cell-note">BEOL Process</span></div>
@@ -824,7 +810,7 @@
             <span data-lang="zh">位元胞面積</span><span data-lang="en">Cell Area</span>
             <small>Silicon Footprint</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">10 - 25 F²</b><span class="badge-win">Ultra-compact</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">10 - 25 F²</b><span class="badge-win">Ultra-compact</span></div>
           <div class="matrix-cell">60 - 120 F²<span class="badge-lose">Large Neck</span></div>
           <div class="matrix-cell">12 - 30 F²<span class="cell-note">Thick Well</span></div>
           <div class="matrix-cell">30 - 50 F²<span class="cell-note">MTJ + 1T</span></div>
@@ -836,7 +822,7 @@
             <span data-lang="zh">編程電壓與電流</span><span data-lang="en">Programming V / I</span>
             <small>Charge Pump / Energy</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">2.8V - 3.5V / &lt;1mA</b><span class="badge-win">Micro-Pump</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">2.8V - 3.5V / &lt;1mA</b><span class="badge-win">Micro-Pump</span></div>
           <div class="matrix-cell">1.8V - 2.5V / &gt;15mA<span class="badge-lose">High Current IR</span></div>
           <div class="matrix-cell" style="color:#b91c1c;">&gt;10V - 18V / Low I<span class="badge-lose">High Voltage Pump</span></div>
           <div class="matrix-cell">1.2V - 1.8V / ~100µA<span class="cell-note">Spin-Torque</span></div>
@@ -848,7 +834,7 @@
             <span data-lang="zh">高溫資料留存</span><span data-lang="en">High-Temp Retention</span>
             <small>Thermal Budget</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">&gt;10 Yrs @ 175°C</b><span class="badge-win">Grade 0 Passed</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">&gt;10 Yrs @ 175°C</b><span class="badge-win">Grade 0 Passed</span></div>
           <div class="matrix-cell">&gt;10 Yrs @ 125°C<span class="cell-note">Anneal Re-heal</span></div>
           <div class="matrix-cell">10 Yrs @ 125°C<span class="badge-lose">Charge Leakage</span></div>
           <div class="matrix-cell">10 Yrs @ 105°C<span class="cell-note">Magnetic Drift</span></div>
@@ -860,7 +846,7 @@
             <span data-lang="zh">讀取存取延遲</span><span data-lang="en">Read Latency</span>
             <small>XIP Performance</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">&lt; 10 ns (Direct)</b><span class="badge-win">Instant XIP</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">&lt; 10 ns (Direct)</b><span class="badge-win">Instant XIP</span></div>
           <div class="matrix-cell">&lt; 12 ns<span class="cell-note">Direct</span></div>
           <div class="matrix-cell">25 - 45 ns<span class="cell-note">Wordline Sense</span></div>
           <div class="matrix-cell">&lt; 15 ns<span class="badge-win">SRAM-Like</span></div>
@@ -872,7 +858,7 @@
             <span data-lang="zh">實體防竄改與逆向</span><span data-lang="en">Anti-Tamper Security</span>
             <small>TEM / FIB Immunity</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">Invisible under TEM</b><span class="badge-win">Zero Footprint</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">Invisible under TEM</b><span class="badge-win">Zero Footprint</span></div>
           <div class="matrix-cell">Visible Melt Void<span class="badge-lose">SEM/Optical Read</span></div>
           <div class="matrix-cell">Charge Probing Attack<span class="badge-lose">EM/Laser Attack</span></div>
           <div class="matrix-cell">MFM Probe Vulnerable<span class="cell-note">Magnetic Attack</span></div>
@@ -884,7 +870,7 @@
             <span data-lang="zh">製程微縮路線極限</span><span data-lang="en">Scaling Roadblocks</span>
             <small>FinFET &amp; GAA</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#0f766e;">Sub-3nm (N2 / A16)</b><span class="badge-win">Unrestricted</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">Sub-3nm (N2 / A16)</b><span class="badge-win">Unrestricted</span></div>
           <div class="matrix-cell">Stalls at 16nm<span class="cell-note">IR Drop Penalty</span></div>
           <div class="matrix-cell" style="color:#b91c1c;">Stalls at 28nm<span class="badge-lose">Scaling Cliff</span></div>
           <div class="matrix-cell">Scalable to 12nm / N6<span class="cell-note">BEOL Limited</span></div>
@@ -896,8 +882,8 @@
 
     <!-- SECTION 2: 5-AXIS ARCHITECTURAL RADAR SELECTOR LAB (HIGH-TECH INSTRUMENT WORKBENCH) -->
     <section id="sec-selector" class="lens-panel selector-workbench-frame selector-dashboard" aria-labelledby="selector-sec-title">
-      <div class="hub-sec-header" style="margin-top:0; border-bottom: 1px solid rgba(115, 238, 228, 0.2);">
-        <div class="hub-sec-badge" style="color: #73eee4;">02 · FLAGSHIP INTERACTIVE LAB</div>
+      <div class="hub-sec-header" style="margin-top:0; border-bottom: 1px solid rgba(196, 165, 116, 0.2);">
+        <div class="hub-sec-badge" style="color: #c4a574;">02 · FLAGSHIP INTERACTIVE LAB</div>
         <h2 id="selector-sec-title" style="color: #ffffff;">
           <span data-lang="zh">5 軸多維動態雷達選型決策器</span>
           <span data-lang="en">5-Axis Multidimensional Architecture Radar Selector</span>
@@ -910,18 +896,18 @@
 
       <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; align-items: center;">
         <!-- Left: Sliders Panel -->
-        <div style="background: rgba(6, 25, 37, 0.85); border: 1px solid rgba(115, 238, 228, 0.22); border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem;">
+        <div style="background: rgba(6, 25, 37, 0.85); border: 1px solid rgba(196, 165, 116, 0.22); border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem;">
           
           <!-- Slider 1: Node (Preserves selNode ID) -->
           <div>
             <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; margin-bottom: 4px;">
-              <label for="selNode" style="color: #73eee4;">
+              <label for="selNode" style="color: #c4a574;">
                 <span data-lang="zh">① 製程微縮節點 (PROCESS NODE)</span>
                 <span data-lang="en">① PROCESS NODE SCALING</span>
               </label>
-              <span id="valNode" style="color: #73eee4;">22nm (Planar HKMG)</span>
+              <span id="valNode" style="color: #c4a574;">22nm (Planar HKMG)</span>
             </div>
-            <input type="range" id="selNode" min="0" max="4" step="1" value="2" style="width: 100%; accent-color: #73eee4; cursor: pointer;">
+            <input type="range" id="selNode" min="0" max="4" step="1" value="2" style="width: 100%; accent-color: #c4a574; cursor: pointer;">
             <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
               <span>180nm</span><span>40nm</span><span>22nm</span><span>12nm</span><span>2nm GAA</span>
             </div>
@@ -930,13 +916,13 @@
           <!-- Slider 2: Power -->
           <div>
             <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; margin-bottom: 4px;">
-              <label for="sliderPower" style="color: #73eee4;">
+              <label for="sliderPower" style="color: #c4a574;">
                 <span data-lang="zh">② 晶片功耗預算 (POWER BUDGET)</span>
                 <span data-lang="en">② ACTIVE POWER BUDGET</span>
               </label>
-              <span id="valPower" style="color: #73eee4;">1.0 mW (IoT / Edge)</span>
+              <span id="valPower" style="color: #c4a574;">1.0 mW (IoT / Edge)</span>
             </div>
-            <input type="range" id="sliderPower" min="0" max="3" step="1" value="1" style="width: 100%; accent-color: #73eee4; cursor: pointer;">
+            <input type="range" id="sliderPower" min="0" max="3" step="1" value="1" style="width: 100%; accent-color: #c4a574; cursor: pointer;">
             <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
               <span>0.1mW (ULP)</span><span>1mW (Edge)</span><span>25mW (Auto)</span><span>250mW (HPC)</span>
             </div>
@@ -945,13 +931,13 @@
           <!-- Slider 3: Mask Adder (Preserves selMask ID) -->
           <div>
             <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; margin-bottom: 4px;">
-              <label for="selMask" style="color: #73eee4;">
+              <label for="selMask" style="color: #c4a574;">
                 <span data-lang="zh">③ 額外光罩預算 (MASK ADDER)</span>
                 <span data-lang="en">③ MASK ADDER OVERHEAD</span>
               </label>
-              <span id="valMask" style="color: #73eee4;">0-Mask (Pure Logic)</span>
+              <span id="valMask" style="color: #c4a574;">0-Mask (Pure Logic)</span>
             </div>
-            <input type="range" id="selMask" min="0" max="2" step="1" value="0" style="width: 100%; accent-color: #73eee4; cursor: pointer;">
+            <input type="range" id="selMask" min="0" max="2" step="1" value="0" style="width: 100%; accent-color: #c4a574; cursor: pointer;">
             <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
               <span>0-Mask (logic)</span><span>3~5 Adders (BEOL)</span><span>8~12 Adders (eFlash)</span>
             </div>
@@ -960,13 +946,13 @@
           <!-- Slider 4: Temp (Preserves selTemp ID) -->
           <div>
             <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; margin-bottom: 4px;">
-              <label for="selTemp" style="color: #73eee4;">
+              <label for="selTemp" style="color: #c4a574;">
                 <span data-lang="zh">④ 耐溫與可靠度 (TEMP GRADE)</span>
                 <span data-lang="en">④ TEMPERATURE GRADE</span>
               </label>
-              <span id="valTemp" style="color: #73eee4;">175°C (Auto Grade 0)</span>
+              <span id="valTemp" style="color: #c4a574;">175°C (Auto Grade 0)</span>
             </div>
-            <input type="range" id="selTemp" min="0" max="2" step="1" value="2" style="width: 100%; accent-color: #73eee4; cursor: pointer;">
+            <input type="range" id="selTemp" min="0" max="2" step="1" value="2" style="width: 100%; accent-color: #c4a574; cursor: pointer;">
             <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
               <span>85°C (Commercial)</span><span>125°C (Grade 1)</span><span>175°C (Grade 0)</span>
             </div>
@@ -975,13 +961,13 @@
           <!-- Slider 5: Endurance (Preserves selEndurance ID) -->
           <div>
             <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; margin-bottom: 4px;">
-              <label for="selEndurance" style="color: #73eee4;">
+              <label for="selEndurance" style="color: #c4a574;">
                 <span data-lang="zh">⑤ 寫入次數需求 (REWRITE CYCLES)</span>
                 <span data-lang="en">⑤ REWRITE ENDURANCE</span>
               </label>
-              <span id="valEndurance" style="color: #73eee4;">1~100 (RoT / Patching)</span>
+              <span id="valEndurance" style="color: #c4a574;">1~100 (RoT / Patching)</span>
             </div>
-            <input type="range" id="selEndurance" min="0" max="2" step="1" value="0" style="width: 100%; accent-color: #73eee4; cursor: pointer;">
+            <input type="range" id="selEndurance" min="0" max="2" step="1" value="0" style="width: 100%; accent-color: #c4a574; cursor: pointer;">
             <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
               <span>1~100 (OTP/Patch)</span><span>10K~100K (MTP/OTA)</span><span>&gt;1M (Working RAM)</span>
             </div>
@@ -990,13 +976,13 @@
         </div>
 
         <!-- Right: 5-Axis Dynamic Radar Chart -->
-        <div style="background: rgba(4, 18, 28, 0.95); border: 1px solid rgba(115, 238, 228, 0.25); border-radius: 8px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
-          <div style="position: absolute; top: 12px; left: 16px; font: 700 11px 'IBM Plex Mono', monospace; color: #73eee4; letter-spacing: 0.1em;">
+        <div style="background: rgba(4, 18, 28, 0.95); border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 8px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+          <div style="position: absolute; top: 12px; left: 16px; font: 700 11px 'IBM Plex Mono', monospace; color: #c4a574; letter-spacing: 0.1em;">
             5-AXIS ARCHITECTURAL TRADE-OFF RADAR
           </div>
           <canvas id="selectorRadarCanvas" width="380" height="340" style="max-width: 100%; height: auto;"></canvas>
           <div style="display: flex; gap: 16px; font: 600 10.5px 'IBM Plex Mono', monospace; margin-top: 6px;">
-            <span style="color: #73eee4; display: flex; align-items: center; gap: 4px;">● <span id="radarTopLabel">AntiFuse OTP (relative fit)</span></span>
+            <span style="color: #c4a574; display: flex; align-items: center; gap: 4px;">● <span id="radarTopLabel">AntiFuse OTP (relative fit)</span></span>
             <span style="color: #f59e0b; display: flex; align-items: center; gap: 4px;">● <span id="radarRunnerLabel">STT-eMRAM (next)</span></span>
           </div>
         </div>
@@ -1006,8 +992,8 @@
       <div class="match-results-deck" id="matchResultsDeck"></div>
 
       <!-- Architect Verdict -->
-      <div class="match-verdict-box" id="matchVerdictBox" style="background: #061925; border: 1px solid rgba(115, 238, 228, 0.35); border-radius: 6px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 12px;">
-        <span class="verdict-tag" style="background: rgba(115, 238, 228, 0.15); border: 1px solid #73eee4; color: #73eee4; font: 700 10px 'IBM Plex Mono', monospace; padding: 3px 6px; border-radius: 3px; white-space: nowrap; margin-top: 2px;">[RELATIVE FIT]</span>
+      <div class="match-verdict-box" id="matchVerdictBox" style="background: #061925; border: 1px solid rgba(196, 165, 116, 0.35); border-radius: 6px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 12px;">
+        <span class="verdict-tag" style="background: rgba(196, 165, 116, 0.15); border: 1px solid #c4a574; color: #c4a574; font: 700 10px 'IBM Plex Mono', monospace; padding: 3px 6px; border-radius: 3px; white-space: nowrap; margin-top: 2px;">[RELATIVE FIT]</span>
         <div id="verdictText" style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">
           <span data-lang="zh">相對適配計算中…</span>
           <span data-lang="en">Computing relative fit…</span>
@@ -1032,7 +1018,7 @@
       <div class="formula-card-grid">
         <!-- Formula 1: Fowler-Nordheim Tunneling -->
         <div class="formula-card">
-          <div class="hub-sec-badge" style="color:#73eee4;">EQUATION 01 · ANTIFUSE BREAKDOWN</div>
+          <div class="hub-sec-badge" style="color:#c4a574;">EQUATION 01 · ANTIFUSE BREAKDOWN</div>
           <h4>
             <span data-lang="zh">Fowler–Nordheim 穿隧與崩潰電流</span>
             <span data-lang="en">Fowler–Nordheim tunneling current</span>
@@ -1127,7 +1113,7 @@
       <div class="foundry-grid">
         <!-- TSMC -->
         <div class="foundry-card tsmc">
-          <div style="font: 700 11px 'IBM Plex Mono'; color: #73eee4; margin-bottom: 4px;">TAIWAN SEMICONDUCTOR</div>
+          <div style="font: 700 11px 'IBM Plex Mono'; color: #c4a574; margin-bottom: 4px;">TAIWAN SEMICONDUCTOR</div>
           <h4>TSMC</h4>
           <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
             <li><b>22ULL</b>: <span data-lang="zh">0.6V–0.8V 超低漏電；邏輯 OTP 作為 28nm eFlash 的 0-mask 替代路徑。</span><span data-lang="en">0.6–0.8V ultra-low leakage; logic OTP as a 0-mask path versus 28nm eFlash.</span></li>
@@ -1168,20 +1154,20 @@
       </div>
 
       <!-- Physical Security Deep-Dive Block -->
-      <div style="background: #082433; border: 1px solid rgba(115, 238, 228, 0.25); border-radius: 8px; padding: 1.75rem; margin-top: 1.5rem;">
-        <div class="hub-sec-badge" style="color: #73eee4;">SILICON-LEVEL ANTI-TAMPER SECURITY</div>
+      <div style="background: #082433; border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 8px; padding: 1.75rem; margin-top: 1.5rem;">
+        <div class="hub-sec-badge" style="color: #c4a574;">SILICON-LEVEL ANTI-TAMPER SECURITY</div>
         <h3 style="color: #f8fafc; margin: 0.5rem 0 1rem; font: 700 1.25rem 'IBM Plex Mono', monospace;">
           <span data-lang="zh">穿透式電子顯微鏡 (TEM) 與差分功耗分析 (DPA) 實體防禦機制</span>
           <span data-lang="en">TEM Cross-Section Invisibility &amp; DPA Side-Channel Immunity</span>
         </h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; font-size: 0.9rem; line-height: 1.65; color: #cbd5e1;">
           <div>
-            <b style="color: #73eee4;">① TEM / FIB visibility</b><br>
+            <b style="color: #c4a574;">① TEM / FIB visibility</b><br>
             <span data-lang="zh">AntiFuse 崩潰微絲約 3–8nm，藏在標準閘極氧化層中。對比 eFuse 的熔斷空洞與 Mask ROM 的 contact，破壞性逆向較難讀出。這是幾何論述，不是攻擊實驗結果。</span>
             <span data-lang="en">AntiFuse filaments are ~3–8nm in standard gate oxide, harder to read than eFuse melt voids or Mask ROM contacts after de-layer. Geometry argument, not an attack-lab result.</span>
           </div>
           <div>
-            <b style="color: #73eee4;">② Complementary differential read (DPA)</b><br>
+            <b style="color: #c4a574;">② Complementary differential read (DPA)</b><br>
             <span data-lang="zh">互補位元對（A=HRS，B=LRS）同時抽取兩條位元線電流，瞬態功耗近似 <em>I</em><sub>total</sub> = <em>I</em><sub>HRS</sub> + <em>I</em><sub>LRS</sub>，與資料的相關係數趨近於 0。這是側信道模型，不是攻擊證明。</span>
             <span data-lang="en">A complementary pair (A=HRS, B=LRS) draws both bitlines so transient power tracks <em>I</em><sub>total</sub> = <em>I</em><sub>HRS</sub> + <em>I</em><sub>LRS</sub>, and correlation with data approaches 0. Side-channel model, not an attack proof.</span>
           </div>
@@ -1200,10 +1186,10 @@
       </div>
 
       <div class="pipeline-step-grid">
-        <div class="pipeline-step-card" style="border-top: 4px solid #0d9488;">
+        <div class="pipeline-step-card" style="border-top: 4px solid #8a6a42;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
             <span class="step-num">STEP 01</span>
-            <span style="font:700 10px 'IBM Plex Mono'; color:#0d9488; background:#f0fdfa; padding:2px 8px; border-radius:4px; border:1px solid #ccfbf1;">GATE 1 · AUDIT</span>
+            <span style="font:700 10px 'IBM Plex Mono'; color:#8a6a42; background:#f7f1e8; padding:2px 8px; border-radius:4px; border:1px solid #f0e6d6;">GATE 1 · AUDIT</span>
           </div>
           <h4 style="color:#0a1e2c; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
             <span data-lang="zh">狀態契約與生命週期審查</span>
@@ -1213,7 +1199,7 @@
             <span data-lang="zh">區分不可變身分 (Immutable ID)、校準邊界 (Calibration) 與韌體代碼。若資料僅需工廠寫入或偶發修補，優先評估 AntiFuse + Patch CAM。</span>
             <span data-lang="en">Distinguish immutable identity from firmware. For write-once or bounded patch models, evaluate AntiFuse paired with Vector CAM.</span>
           </p>
-          <div style="font:600 11px 'IBM Plex Mono'; color:#0d9488; background:#f8fafc; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
+          <div style="font:600 11px 'IBM Plex Mono'; color:#8a6a42; background:#f4f1ea; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
             CRITERION: 0-Overhead Retention · Zero Bus Leak
           </div>
         </div>
@@ -1231,15 +1217,15 @@
             <span data-lang="zh">檢查晶圓代工廠 PDK。若節點小於 28nm，eFlash 直接否決；評估是否具備 3~5 道 BEOL 光罩預算導入 MRAM，或採用 0-Mask 純邏輯相容方案。</span>
             <span data-lang="en">Verify foundry PDK roadmap. If scaling beyond 28nm, rule out eFlash. Decide between BEOL mask adders (MRAM) and 0-mask logic NVM.</span>
           </p>
-          <div style="font:600 11px 'IBM Plex Mono'; color:#d97706; background:#f8fafc; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
+          <div style="font:600 11px 'IBM Plex Mono'; color:#d97706; background:#f4f1ea; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
             CRITERION: 0-Mask Logic Compatibility · &le;450&deg;C Safe
           </div>
         </div>
 
-        <div class="pipeline-step-card" style="border-top: 4px solid #059669;">
+        <div class="pipeline-step-card" style="border-top: 4px solid #6f5536;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span class="step-num" style="color:#059669;">STEP 03</span>
-            <span style="font:700 10px 'IBM Plex Mono'; color:#059669; background:#ecfdf5; padding:2px 8px; border-radius:4px; border:1px solid #d1fae5;">GATE 3 · QUALIFIED</span>
+            <span class="step-num" style="color:#6f5536;">STEP 03</span>
+            <span style="font:700 10px 'IBM Plex Mono'; color:#6f5536; background:#ecfdf5; padding:2px 8px; border-radius:4px; border:1px solid #d1fae5;">GATE 3 · QUALIFIED</span>
           </div>
           <h4 style="color:#0a1e2c; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
             <span data-lang="zh">實體驗證與防禦簽核</span>
@@ -1249,7 +1235,7 @@
             <span data-lang="zh">驗證 AEC-Q100 175°C 高溫工作壽命 (HTOL 1000h) 與 TEM 逆向防護標準，確保全生命週期不發生歐姆微絲電阻漂移。</span>
             <span data-lang="en">Certify against AEC-Q100 175°C HTOL 1000h conditions and TEM cross-section anti-tamper standards to prevent filament resistance drift.</span>
           </p>
-          <div style="font:600 11px 'IBM Plex Mono'; color:#059669; background:#f8fafc; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
+          <div style="font:600 11px 'IBM Plex Mono'; color:#6f5536; background:#f4f1ea; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
             CRITERION: TEM Invisibility · Zero Drift @ 175&deg;C
           </div>
         </div>
@@ -1279,7 +1265,7 @@
 
         <div class="hub-footer-meta-pill">
           <div class="meta-pill-item">
-            <span class="meta-pill-dot" style="background:#73eee4;"></span>
+            <span class="meta-pill-dot" style="background:#c4a574;"></span>
             <span class="meta-pill-key">FOUNDRY MATRIX:</span>
             <span class="meta-pill-val">TSMC · UMC · GF · SAMSUNG</span>
           </div>
@@ -1504,7 +1490,7 @@
 
         // Levels
         const levels = [0.25, 0.5, 0.75, 1.0];
-        radarCtx.strokeStyle = "rgba(115, 238, 228, 0.12)";
+        radarCtx.strokeStyle = "rgba(196, 165, 116, 0.12)";
         radarCtx.lineWidth = 1;
         levels.forEach(lvl => {
           radarCtx.beginPath();
@@ -1524,7 +1510,7 @@
         axes.forEach((axis) => {
           const px = cx + maxR * Math.cos(axis.angle);
           const py = cy + maxR * Math.sin(axis.angle);
-          radarCtx.strokeStyle = "rgba(115, 238, 228, 0.25)";
+          radarCtx.strokeStyle = "rgba(196, 165, 116, 0.25)";
           radarCtx.beginPath();
           radarCtx.moveTo(cx, cy);
           radarCtx.lineTo(px, py);
@@ -1570,9 +1556,9 @@
           plotPolygon(runnerCand.baseProfile, "#f59e0b", "rgba(245, 158, 11, 0.15)", 1.5);
         }
         if (topCand) {
-          radarCtx.shadowColor = "#73eee4";
+          radarCtx.shadowColor = "#c4a574";
           radarCtx.shadowBlur = 10;
-          plotPolygon(topCand.baseProfile, "#73eee4", "rgba(115, 238, 228, 0.35)", 2.5);
+          plotPolygon(topCand.baseProfile, "#c4a574", "rgba(196, 165, 116, 0.35)", 2.5);
           radarCtx.shadowBlur = 0;
         }
       }
@@ -1614,9 +1600,9 @@
             <div class="match-tech-name">${res.name}</div>
             <div class="match-score-num">${res.score}%</div>
             <div class="match-score-bar-bg">
-              <div class="match-score-bar-fill" style="width: ${res.score}%; background: ${isWinner ? '#73eee4' : res.score > 60 ? '#34d399' : '#f59e0b'};"></div>
+              <div class="match-score-bar-fill" style="width: ${res.score}%; background: ${isWinner ? '#c4a574' : res.score > 60 ? '#34d399' : '#f59e0b'};"></div>
             </div>
-            <div style="font: 700 10px 'IBM Plex Mono'; color: ${isWinner ? '#73eee4' : '#94a3b8'};">
+            <div style="font: 700 10px 'IBM Plex Mono'; color: ${isWinner ? '#c4a574' : '#94a3b8'};">
               ${isWinner
                 ? (isZh ? '相對適配最高' : 'HIGHEST RELATIVE FIT')
                 : res.score > 60

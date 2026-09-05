@@ -12,7 +12,7 @@
   .studio-header { grid-template-columns: minmax(0, 1fr) auto; }
   .global-nav { display: none; }
   .global-nav.open { position: absolute; top: 100%; left: 0; right: 0; display: grid; gap: 0; padding: 14px clamp(18px, 4vw, 44px) 22px; background: #061c29; border-top: 1px solid var(--line-dark); box-shadow: 0 25px 50px rgba(0,0,0,.32); }
-  .global-nav.open a { min-height: 48px; border-bottom: 1px solid rgba(113,236,227,.12); }
+  .global-nav.open a { min-height: 48px; border-bottom: 1px solid rgba(196,165,116,.12); }
   .menu-button { display: grid; }
   .studio-hero { min-height: auto; grid-template-columns: 1fr; padding-top: 100px; }
   .hero-copy { max-width: 900px; }
@@ -57,7 +57,7 @@
   .paper-sources { grid-template-columns: 1fr; }
   .selector-controls { grid-template-columns: 1fr 1fr; }
   .selector-controls label { grid-column: 1 / -1; }
-  .selector-controls > p { padding: 16px 0 0; border-left: 0; border-top: 1px solid rgba(113,236,227,.2); }
+  .selector-controls > p { padding: 16px 0 0; border-left: 0; border-top: 1px solid rgba(196,165,116,.2); }
   .decision-table-wrap { border: 0; background: transparent; }
   .decision-table, .decision-table tbody { display: grid; gap: 14px; }
   .decision-table thead { display: none; }
@@ -201,7 +201,7 @@
   padding: 6px 12px;
   background: #092837;
   border: 1px solid rgba(0, 240, 255, 0.3);
-  color: #38bdf8;
+  color: #c4a574;
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 700;
   border-radius: 4px;
@@ -211,6 +211,6 @@
 }
 .language-toggle:hover {
   background: #0e3a4f;
-  border-color: #00f0ff;
+  border-color: #c4a574;
   box-shadow: 0 0 10px rgba(0, 240, 255, 0.25);
 }

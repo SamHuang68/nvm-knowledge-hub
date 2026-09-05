@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <script src="../site-language.js?v=20260906-pages-v1"></script>
+  <script src="../site-language.js?v=20260906-copper-v1"></script>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,23 +11,23 @@
   <link rel="canonical" href="https://samhuang68.github.io/nvm-knowledge-hub/whitepaper/">
   <title>NVM Whitepaper &amp; Decision Studio · NVM Knowledge Hub</title>
 
-  <link rel="stylesheet" href="../site-shell.css?v=20260906-pages-v1">
-  <script type="module" crossorigin src="./assets/index-_SFXHrp_.js?v=20260906-pages-v1"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-D9MQ5Guq.css?v=20260906-pages-v1">
-  <script src="./assets/whitepaper_i18n.js?v=20260906-pages-v1"></script>
+  <link rel="stylesheet" href="../site-shell.css?v=20260906-copper-v1">
+  <script type="module" crossorigin src="./assets/index-_SFXHrp_.js?v=20260906-copper-v1"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D9MQ5Guq.css?v=20260906-copper-v1">
+  <script src="./assets/whitepaper_i18n.js?v=20260906-copper-v1"></script>
 
   <style id="studio-typography-override">
     /* 0. ACCESSIBILITY DEFENSE: High-contrast Skip Link */
     .skip-link {
       position: fixed !important; top: -120px !important; left: 16px !important;
       z-index: 10000 !important; padding: 12px 20px !important;
-      background: #22d3ee !important; color: #020617 !important;
+      background: #b08a5b !important; color: #020617 !important;
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 13px !important; font-weight: 800 !important;
       letter-spacing: 0.05em !important; text-transform: uppercase !important;
-      text-decoration: none !important; border: 2px solid #38bdf8 !important;
+      text-decoration: none !important; border: 2px solid #c4a574 !important;
       border-radius: 4px !important;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 20px rgba(34,211,238,0.4) !important;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 20px rgba(176,138,91,0.4) !important;
       transition: top 0.2s cubic-bezier(0.16,1,0.3,1) !important; display: inline-block !important;
     }
     .skip-link:focus, .skip-link:focus-visible {
@@ -42,7 +42,7 @@
     .site-header {
       position: sticky; top: 0; z-index: 50;
       background: rgba(4, 24, 35, 0.96); backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(115, 238, 228, 0.14);
+      border-bottom: 1px solid rgba(196, 165, 116, 0.14);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 24px; min-height: 60px;
     }
@@ -51,7 +51,7 @@
       text-decoration: none; color: inherit;
     }
     .site-header .brand-mark svg {
-      width: 28px; height: 28px; fill: none; stroke: #73eee4; stroke-width: 2;
+      width: 28px; height: 28px; fill: none; stroke: #c4a574; stroke-width: 2;
     }
     .site-header .brand-copy {
       display: flex; flex-direction: column; line-height: 1;
@@ -60,12 +60,12 @@
       font: 800 16px/1 'IBM Plex Mono', monospace; color: #fff; letter-spacing: 0.05em;
     }
     .site-header .brand-copy small {
-      font: 700 8.5px/1 'IBM Plex Mono', monospace; color: #73eee4; letter-spacing: 0.12em;
+      font: 700 8.5px/1 'IBM Plex Mono', monospace; color: #c4a574; letter-spacing: 0.12em;
     }
     .site-header .brand-section {
       padding: 3px 8px; border-radius: 4px;
-      background: rgba(115, 238, 228, 0.1); border: 1px solid rgba(115, 238, 228, 0.25);
-      font: 700 10px/1 'IBM Plex Mono', monospace; color: #73eee4; letter-spacing: 0.06em;
+      background: rgba(196, 165, 116, 0.1); border: 1px solid rgba(196, 165, 116, 0.25);
+      font: 700 10px/1 'IBM Plex Mono', monospace; color: #c4a574; letter-spacing: 0.06em;
     }
     .primary-nav {
       display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
@@ -76,10 +76,10 @@
       transition: all 0.2s ease;
     }
     .primary-nav a:hover {
-      color: #73eee4; background: rgba(115, 238, 228, 0.08);
+      color: #c4a574; background: rgba(196, 165, 116, 0.08);
     }
     .primary-nav a.is-active {
-      color: #020617; background: #73eee4; font-weight: 800;
+      color: #020617; background: #c4a574; font-weight: 800;
     }
 
     /* 3. Hero & Studio Typography */
@@ -93,7 +93,7 @@
     }
     .studio-hero h1 em {
       display: inline-block !important;
-      color: var(--aqua, #73eee4) !important;
+      color: var(--aqua, #c4a574) !important;
       font-style: normal !important;
       font-weight: 400 !important;
     }
