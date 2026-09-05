@@ -17,10 +17,18 @@
   <link rel="stylesheet" href="specialty-nvm.css?v=20260904-spec-v3">
 
   <style>
-    /* 全站語系治理：英文為第一預設 */
-    [data-lang="zh"] { display: none !important; }
-    [data-lang="en"] { display: revert; }
+    body.specialty-page {
+      background-color: #f8fafc !important;
+      color: #334155 !important;
+      background-image:
+        linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px) !important;
+      background-size: 48px 48px !important;
+    }
 
+    /* Language: one locale at a time. Unwrapped copy is a bug. */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert !important; }
     html[data-language="zh"] [data-lang="zh"],
     body[data-language="zh"] [data-lang="zh"] {
       display: revert !important;
@@ -193,11 +201,19 @@
     }
     .matrix-cell {
       background: #ffffff;
-      color: #334155;
+      color: #1e293b;
       line-height: 1.45;
       transition: background 0.15s;
     }
     .matrix-cell:hover { background: #f8fafc; }
+    .matrix-cell .cell-note {
+      color: #475569;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+    .matrix-cell.focus-tech {
+      background: #f0fdfa;
+    }
     .matrix-header {
       background: #f1f5f9;
       color: #0a1e2c;
@@ -584,10 +600,10 @@
           </div>
           <div class="matrix-cell focus-tech"><b style="color:#0f766e;">0 Masks</b><span class="badge-win">Logic-compatible</span></div>
           <div class="matrix-cell">0 Masks<span class="badge-win">0 adder</span></div>
-          <div class="matrix-cell" style="color:#f87171;">+8 ~ +12 Masks<span class="badge-lose">+30-40% Cost</span></div>
-          <div class="matrix-cell">+3 ~ +5 Masks<span style="color:#94a3b8;font-size:10px;">BEOL Process</span></div>
-          <div class="matrix-cell">+2 ~ +4 Masks<span style="color:#94a3b8;font-size:10px;">MIM Capacitor</span></div>
-          <div class="matrix-cell">0 ~ 1 Mask<span style="color:#94a3b8;font-size:10px;">Via/Contact</span></div>
+          <div class="matrix-cell" style="color:#b91c1c;">+8 ~ +12 Masks<span class="badge-lose">+30-40% Cost</span></div>
+          <div class="matrix-cell">+3 ~ +5 Masks<span class="cell-note">BEOL Process</span></div>
+          <div class="matrix-cell">+2 ~ +4 Masks<span class="cell-note">MIM Capacitor</span></div>
+          <div class="matrix-cell">0 ~ 1 Mask<span class="cell-note">Via/Contact</span></div>
 
           <!-- Row 2: Cell Size -->
           <div class="matrix-row-header">
@@ -596,9 +612,9 @@
           </div>
           <div class="matrix-cell focus-tech"><b style="color:#0f766e;">10 - 25 F²</b><span class="badge-win">Ultra-compact</span></div>
           <div class="matrix-cell">60 - 120 F²<span class="badge-lose">Large Neck</span></div>
-          <div class="matrix-cell">12 - 30 F²<span style="color:#94a3b8;font-size:10px;">Thick Well</span></div>
-          <div class="matrix-cell">30 - 50 F²<span style="color:#94a3b8;font-size:10px;">MTJ + 1T</span></div>
-          <div class="matrix-cell">15 - 35 F²<span style="color:#94a3b8;font-size:10px;">Filament</span></div>
+          <div class="matrix-cell">12 - 30 F²<span class="cell-note">Thick Well</span></div>
+          <div class="matrix-cell">30 - 50 F²<span class="cell-note">MTJ + 1T</span></div>
+          <div class="matrix-cell">15 - 35 F²<span class="cell-note">Filament</span></div>
           <div class="matrix-cell">&lt; 8 F²<span class="badge-win">Smallest</span></div>
 
           <!-- Row 3: Programming Supply -->
@@ -608,9 +624,9 @@
           </div>
           <div class="matrix-cell focus-tech"><b style="color:#0f766e;">2.8V - 3.5V / &lt;1mA</b><span class="badge-win">Micro-Pump</span></div>
           <div class="matrix-cell">1.8V - 2.5V / &gt;15mA<span class="badge-lose">High Current IR</span></div>
-          <div class="matrix-cell" style="color:#f87171;">&gt;10V - 18V / Low I<span class="badge-lose">High Voltage Pump</span></div>
-          <div class="matrix-cell">1.2V - 1.8V / ~100µA<span style="color:#94a3b8;font-size:10px;">Spin-Torque</span></div>
-          <div class="matrix-cell">1.5V - 3.0V / ~50µA<span style="color:#94a3b8;font-size:10px;">Forming Required</span></div>
+          <div class="matrix-cell" style="color:#b91c1c;">&gt;10V - 18V / Low I<span class="badge-lose">High Voltage Pump</span></div>
+          <div class="matrix-cell">1.2V - 1.8V / ~100µA<span class="cell-note">Spin-Torque</span></div>
+          <div class="matrix-cell">1.5V - 3.0V / ~50µA<span class="cell-note">Forming Required</span></div>
           <div class="matrix-cell">N/A (Factory Mask)<span class="badge-win">0V Write</span></div>
 
           <!-- Row 4: Retention -->
@@ -619,10 +635,10 @@
             <small>Thermal Budget</small>
           </div>
           <div class="matrix-cell focus-tech"><b style="color:#0f766e;">&gt;10 Yrs @ 175°C</b><span class="badge-win">Grade 0 Passed</span></div>
-          <div class="matrix-cell">&gt;10 Yrs @ 125°C<span style="color:#f59e0b;font-size:10px;">Anneal Re-heal</span></div>
+          <div class="matrix-cell">&gt;10 Yrs @ 125°C<span class="cell-note">Anneal Re-heal</span></div>
           <div class="matrix-cell">10 Yrs @ 125°C<span class="badge-lose">Charge Leakage</span></div>
-          <div class="matrix-cell">10 Yrs @ 105°C<span style="color:#f59e0b;font-size:10px;">Magnetic Drift</span></div>
-          <div class="matrix-cell">10 Yrs @ 125°C<span style="color:#94a3b8;font-size:10px;">Vacancy Diffusion</span></div>
+          <div class="matrix-cell">10 Yrs @ 105°C<span class="cell-note">Magnetic Drift</span></div>
+          <div class="matrix-cell">10 Yrs @ 125°C<span class="cell-note">Vacancy Diffusion</span></div>
           <div class="matrix-cell">&gt;25 Yrs @ 175°C<span class="badge-win">Permanent</span></div>
 
           <!-- Row 5: Read Latency -->
@@ -631,10 +647,10 @@
             <small>XIP Performance</small>
           </div>
           <div class="matrix-cell focus-tech"><b style="color:#0f766e;">&lt; 10 ns (Direct)</b><span class="badge-win">Instant XIP</span></div>
-          <div class="matrix-cell">&lt; 12 ns<span style="color:#94a3b8;font-size:10px;">Direct</span></div>
-          <div class="matrix-cell">25 - 45 ns<span style="color:#94a3b8;font-size:10px;">Wordline Sense</span></div>
+          <div class="matrix-cell">&lt; 12 ns<span class="cell-note">Direct</span></div>
+          <div class="matrix-cell">25 - 45 ns<span class="cell-note">Wordline Sense</span></div>
           <div class="matrix-cell">&lt; 15 ns<span class="badge-win">SRAM-Like</span></div>
-          <div class="matrix-cell">15 - 30 ns<span style="color:#94a3b8;font-size:10px;">Resistive</span></div>
+          <div class="matrix-cell">15 - 30 ns<span class="cell-note">Resistive</span></div>
           <div class="matrix-cell">&lt; 8 ns<span class="badge-win">Fastest</span></div>
 
           <!-- Row 6: Anti-Tamper Security -->
@@ -645,8 +661,8 @@
           <div class="matrix-cell focus-tech"><b style="color:#0f766e;">Invisible under TEM</b><span class="badge-win">Zero Footprint</span></div>
           <div class="matrix-cell">Visible Melt Void<span class="badge-lose">SEM/Optical Read</span></div>
           <div class="matrix-cell">Charge Probing Attack<span class="badge-lose">EM/Laser Attack</span></div>
-          <div class="matrix-cell">MFM Probe Vulnerable<span style="color:#f59e0b;font-size:10px;">Magnetic Attack</span></div>
-          <div class="matrix-cell">Filament Partially Visible<span style="color:#94a3b8;font-size:10px;">STEM Observable</span></div>
+          <div class="matrix-cell">MFM Probe Vulnerable<span class="cell-note">Magnetic Attack</span></div>
+          <div class="matrix-cell">Filament Partially Visible<span class="cell-note">STEM Observable</span></div>
           <div class="matrix-cell">100% Exposed via De-layer<span class="badge-lose">Optical Visible</span></div>
 
           <!-- Row 7: Scaling Limit -->
@@ -655,11 +671,11 @@
             <small>FinFET &amp; GAA</small>
           </div>
           <div class="matrix-cell focus-tech"><b style="color:#0f766e;">Sub-3nm (N2 / A16)</b><span class="badge-win">Unrestricted</span></div>
-          <div class="matrix-cell">Stalls at 16nm<span style="color:#f59e0b;font-size:10px;">IR Drop Penalty</span></div>
-          <div class="matrix-cell" style="color:#f87171;">Stalls at 28nm<span class="badge-lose">Scaling Cliff</span></div>
-          <div class="matrix-cell">Scalable to 12nm / N6<span style="color:#94a3b8;font-size:10px;">BEOL Limited</span></div>
-          <div class="matrix-cell">Scalable to 16nm<span style="color:#94a3b8;font-size:10px;">Forming Variation</span></div>
-          <div class="matrix-cell">Scalable with Logic<span style="color:#94a3b8;font-size:10px;">Metal Pitch Bound</span></div>
+          <div class="matrix-cell">Stalls at 16nm<span class="cell-note">IR Drop Penalty</span></div>
+          <div class="matrix-cell" style="color:#b91c1c;">Stalls at 28nm<span class="badge-lose">Scaling Cliff</span></div>
+          <div class="matrix-cell">Scalable to 12nm / N6<span class="cell-note">BEOL Limited</span></div>
+          <div class="matrix-cell">Scalable to 16nm<span class="cell-note">Forming Variation</span></div>
+          <div class="matrix-cell">Scalable with Logic<span class="cell-note">Metal Pitch Bound</span></div>
         </div>
       </div>
     </section>
@@ -778,7 +794,10 @@
       <!-- Architect Verdict -->
       <div class="match-verdict-box" id="matchVerdictBox" style="background: #061925; border: 1px solid rgba(115, 238, 228, 0.35); border-radius: 6px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 12px;">
         <span class="verdict-tag" style="background: rgba(115, 238, 228, 0.15); border: 1px solid #73eee4; color: #73eee4; font: 700 10px 'IBM Plex Mono', monospace; padding: 3px 6px; border-radius: 3px; white-space: nowrap; margin-top: 2px;">[RELATIVE FIT]</span>
-        <div id="verdictText" style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">相對適配計算中…</div>
+        <div id="verdictText" style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">
+          <span data-lang="zh">相對適配計算中…</span>
+          <span data-lang="en">Computing relative fit…</span>
+        </div>
       </div>
     </section>
 
@@ -897,9 +916,9 @@
           <div style="font: 700 11px 'IBM Plex Mono'; color: #73eee4; margin-bottom: 4px;">TAIWAN SEMICONDUCTOR</div>
           <h4>TSMC</h4>
           <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
-            <li><b>22ULL</b>: 0.6V-0.8V 超低漏電，AntiFuse 原生 0-Mask 替換 28nm eFlash。</li>
-            <li><b>12FFC+ / N6e</b>: 3D FinFET 架構，低至 0.5V 近閾值電壓，消除厚氧化層幫浦。</li>
-            <li><b>N4e / N2 GAA</b>: 先進奈米片 (Nanosheet) 架構，邏輯相容 OTP 認證通關。</li>
+            <li><b>22ULL</b>: <span data-lang="zh">0.6V–0.8V 超低漏電；邏輯 OTP 作為 28nm eFlash 的 0-mask 替代路徑。</span><span data-lang="en">0.6–0.8V ultra-low leakage; logic OTP as a 0-mask path versus 28nm eFlash.</span></li>
+            <li><b>12FFC+ / N6e</b>: <span data-lang="zh">FinFET，可到 0.5V 近閾值；不再依賴厚氧化層幫浦。</span><span data-lang="en">FinFET, down to 0.5V near-threshold; thick-oxide pumps not required.</span></li>
+            <li><b>N4e / N2 GAA</b>: <span data-lang="zh">奈米片架構上的邏輯相容 OTP 驗證路徑。</span><span data-lang="en">Nanosheet logic-compatible OTP qualification path.</span></li>
           </ul>
         </div>
 
@@ -908,8 +927,8 @@
           <div style="font: 700 11px 'IBM Plex Mono'; color: #f59e0b; margin-bottom: 4px;">UNITED MICROELECTRONICS</div>
           <h4>UMC</h4>
           <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
-            <li><b>28eHV / 40eHV</b>: 30V~40V 高壓顯示驅動 (DDIC) 與 OLED Gamma / De-Mura 微調。</li>
-            <li><b>22uLP / 22uLL</b>: IoT 主力節點，杜絕浮閘高溫熱預算破壞 BCD 飄移區。</li>
+            <li><b>28eHV / 40eHV</b>: <span data-lang="zh">30V–40V 顯示驅動與 OLED Gamma / De-Mura 微調。</span><span data-lang="en">30–40V DDIC and OLED gamma / de-mura trim.</span></li>
+            <li><b>22uLP / 22uLL</b>: <span data-lang="zh">IoT 主力節點；避免浮閘熱預算進入 BCD 飄移區。</span><span data-lang="en">IoT nodes; keep floating-gate thermal budget out of BCD drift regions.</span></li>
           </ul>
         </div>
 
@@ -918,8 +937,8 @@
           <div style="font: 700 11px 'IBM Plex Mono'; color: #a855f7; margin-bottom: 4px;">GLOBALFOUNDRIES</div>
           <h4>GlobalFoundries</h4>
           <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
-            <li><b>22FDX (FD-SOI)</b>: 支援背閘極偏壓 (Back-Bias)，將編程電流提升 35%。</li>
-            <li><b>12LP+ FinFET</b>: 高速邊緣 AI 推論晶片硬體信任根 (Root of Trust)。</li>
+            <li><b>22FDX (FD-SOI)</b>: <span data-lang="zh">背閘極偏壓可用於編程電流調整；幅度以 PDK 為準。</span><span data-lang="en">Back-bias can assist program current; magnitude is PDK-specific.</span></li>
+            <li><b>12LP+ FinFET</b>: <span data-lang="zh">邊緣 AI 推論晶片的硬體信任根候選路徑。</span><span data-lang="en">Candidate root-of-trust path for edge-AI inference dies.</span></li>
           </ul>
         </div>
 
@@ -928,8 +947,8 @@
           <div style="font: 700 11px 'IBM Plex Mono'; color: #3b82f6; margin-bottom: 4px;">SAMSUNG FOUNDRY</div>
           <h4>Samsung Foundry</h4>
           <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
-            <li><b>28FDS (Commercial eMRAM)</b>: 量產 BEOL MRAM，但面臨 260°C 封裝迴焊熱退火。</li>
-            <li><b>8LPU / 4LPP</b>: 旗艦行動處理器安全性金鑰儲存與物理 PUF 整合。</li>
+            <li><b>28FDS (Commercial eMRAM)</b>: <span data-lang="zh">量產 BEOL MRAM；需面對 260°C 封裝迴焊熱退火。</span><span data-lang="en">Production BEOL MRAM; 260°C package-reflow anneal remains a limit.</span></li>
+            <li><b>8LPU / 4LPP</b>: <span data-lang="zh">行動處理器金鑰儲存與 PUF 整合路徑。</span><span data-lang="en">Mobile key-storage and PUF integration path.</span></li>
           </ul>
         </div>
       </div>
@@ -1363,6 +1382,7 @@
 
         const winner = ranked[0];
         const runner = ranked[1];
+        const isZh = window.HubLanguage && window.HubLanguage.get() === "zh";
 
         document.getElementById("radarTopLabel").textContent = `${winner.name} (${winner.score}%)`;
         document.getElementById("radarRunnerLabel").textContent = `${runner.name} (${runner.score}%)`;
@@ -1381,15 +1401,18 @@
             <div class="match-score-bar-bg">
               <div class="match-score-bar-fill" style="width: ${res.score}%; background: ${isWinner ? '#73eee4' : res.score > 60 ? '#34d399' : '#f59e0b'};"></div>
             </div>
-            <div style="font: 700 10px 'IBM Plex Mono'; color: ${isWinner ? '#73eee4' : '#64748b'};">
-              ${isWinner ? 'HIGHEST RELATIVE FIT' : res.score > 60 ? 'ALTERNATIVE FIT' : 'WEAK UNDER SLIDERS'}
+            <div style="font: 700 10px 'IBM Plex Mono'; color: ${isWinner ? '#73eee4' : '#94a3b8'};">
+              ${isWinner
+                ? (isZh ? '相對適配最高' : 'HIGHEST RELATIVE FIT')
+                : res.score > 60
+                  ? (isZh ? '次適配' : 'ALTERNATIVE FIT')
+                  : (isZh ? '目前約束下偏弱' : 'WEAK UNDER SLIDERS')}
             </div>
           `;
           deck.appendChild(card);
         });
 
         const verdictElem = document.getElementById("verdictText");
-        const isZh = window.HubLanguage && window.HubLanguage.get() === "zh";
 
         let vMsgZh = "";
         let vMsgEn = "";
