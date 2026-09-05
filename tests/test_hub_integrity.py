@@ -150,6 +150,20 @@ def run_tests() -> None:
     test("M2 包含 CAM 匯流排動態畫布 (camCanvas)", "camCanvas" in iot_c)
     test("M3 包含 72-bit SECDED 漢明碼矩陣 (ecc-bit-node)", "ecc-bit-node" in auto_c)
 
+    # ===== TEST 13: 白底輕盈排版 (Editorial Light Theme) 與旗艦級 Footer 驗證 =====
+    print("\n═══ TEST 13: 白底輕盈排版與旗艦 Footer 驗證 ═══")
+    shell_css = (BASE / "site-shell.css").read_text(encoding="utf-8")
+    test("site-shell.css 包含旗艦 hub-footer 完整樣式", "footer.hub-footer" in shell_css and "hub-footer-nav-grid" in shell_css)
+
+    for name, content in [("F2", tc_c), ("M2", iot_c), ("M3", auto_c)]:
+        test(f"{name} 採用白底輕盈背景 (#f8fafc)", "background-color: #f8fafc;" in content)
+        test(f"{name} 包含旗艦級 Footer 品牌識徽 (hub-footer-logo-mark)", "hub-footer-logo-mark" in content)
+        test(f"{name} 包含 4 欄階層導覽 (hub-footer-nav-grid)", "hub-footer-nav-grid" in content)
+        test(f"{name} 包含技術標籤彩條 (hub-footer-badge-strip)", "hub-footer-badge-strip" in content)
+
+    test("M2 包含 Section 5 MCU 狀態契約架構 (sec-contracts)", "id=\"sec-contracts\"" in iot_c and "mcu-contracts-title" in iot_c)
+    test("M3 包含 ASIL-D 故障率指標矩陣表 (ISO 26262 ASIL-D)", "ISO 26262 ASIL-D" in auto_c and "CONTRACT 01" in auto_c and "CONTRACT 03" in auto_c)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
@@ -157,3 +171,4 @@ def run_tests() -> None:
 
 if __name__ == "__main__":
     exit(0 if run_tests() else 1)
+
