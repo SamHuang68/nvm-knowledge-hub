@@ -1869,13 +1869,13 @@ html[data-language="zh"] .data-table thead th {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #94a3b8;
+  color: #cbd5e1;
   margin-top: 6px;
 }
 
 .spec-card-desc {
   font-size: 12px;
-  color: #64748b;
+  color: #94a3b8;
   margin-top: 6px;
   line-height: 1.45;
 }
@@ -2642,7 +2642,7 @@ html[data-language="zh"] .data-table thead th {
   gap: 10px !important;
 }
 
-.compact-ate-strip .stat-strip-card {
+.compact-ate-strip .stat-strip-card:not(.f2-stat-bridge *):not(.m3-stat-bridge *) {
   padding: 12px 14px !important;
   background: #020a12 !important;
   border: 1px solid rgba(30, 58, 95, 0.6) !important;

@@ -86,8 +86,29 @@
       gap: 20px 36px;
       border-top: 1px solid rgba(255,255,255,0.12);
     }
-    .hero-compact .hero-proof strong {
-      font-size: clamp(18px, 1.8vw, 24px);
+    section.hero .hero-proof strong {
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: clamp(18px, 1.8vw, 24px) !important;
+      font-weight: 800 !important;
+      color: #73eee4 !important;
+    }
+    section.hero .hero-proof div[data-record-id="TSMC-ULP-001"] strong {
+      color: #10b981 !important;
+    }
+    section.hero .hero-proof div[data-record-id="TSMC-NTV-001"] strong {
+      color: #38bdf8 !important;
+    }
+    section.hero .hero-proof div[data-record-id="TSMC-AON-001"] strong {
+      color: #f59e0b !important;
+    }
+    section.hero .hero-proof div[data-record-id="TSMC-RET-001"] strong {
+      color: #c084fc !important;
+    }
+    section.hero .hero-proof span {
+      color: #cbd5e1 !important;
+      font-size: 11px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.04em !important;
     }
 
     /* 4-Metric 規格彩條 (高密度整合在 Hero 與 Signal 之間) */
@@ -134,7 +155,7 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.68rem;
       font-weight: 700;
-      color: #64748b;
+      color: #475569 !important;
     }
     .pulse-chip-mini {
       display: inline-block;
@@ -159,9 +180,10 @@
     }
     .stat-strip-card p {
       margin: 0;
-      font-size: 0.75rem;
-      color: #64748b;
-      line-height: 1.35;
+      font-size: 0.8rem !important;
+      color: #334155 !important;
+      font-weight: 500 !important;
+      line-height: 1.45 !important;
     }
 
     /* =======================================================

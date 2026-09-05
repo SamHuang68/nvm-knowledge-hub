@@ -213,6 +213,17 @@ def run_tests() -> None:
     test("M3 包含 lab-box 半導體儀表框與超寬工作台",
          "lab-box" in auto_c and "min(1780px, 97vw)" in auto_c)
 
+    # ===== TEST 18: 0 MASK ADDERS 規格彩條對比度防融合驗證 =====
+    print("\n═══ TEST 18: 0 MASK ADDERS 規格彩條對比度防融合驗證 ═══")
+    test("F2 解耦 compact-ate-strip 防止黑底覆寫",
+         'class="stat-strip-grid compact-ate-strip"' not in tc_c)
+    test("F2 包含 .f2-stat-bridge .stat-val 高特異度對比規則",
+         ".f2-stat-bridge .stat-val" in tc_c)
+    test("M3 解耦 compact-ate-strip 防止黑底覆寫",
+         'class="stat-strip-grid compact-ate-strip"' not in auto_c)
+    test("specialty-nvm.css compact-ate-strip 具備防禦 scoping",
+         ":not(.f2-stat-bridge *):not(.m3-stat-bridge *)" in (BASE / "specialty-nvm.css").read_text(encoding="utf-8"))
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
