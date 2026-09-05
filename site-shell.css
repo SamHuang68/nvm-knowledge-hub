@@ -454,21 +454,21 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   }
 }
 
-/* 左側直立測條 (Vertical Lens Rail) - 緊湊精緻化設計 */
+/* 左側直立測條 (Vertical Lens Rail) - 全站統一白底輕盈工控風格 (Editorial Light Theme) */
 .lens-vertical-rail {
   position: sticky;
   top: 76px;
-  background: #061925;
-  border: 1px solid rgba(115, 238, 228, 0.25);
-  border-radius: 6px;
-  padding: 8px 6px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 8px;
+  padding: 10px 8px;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
   z-index: 40;
 }
 .rail-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
   padding-bottom: 6px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -476,15 +476,16 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .rail-title {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.68rem;
-  color: #73eee4;
+  color: #0d9488;
   letter-spacing: 0.12em;
   font-weight: 700;
 }
 .rail-tag {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.62rem;
-  color: #94a3b8;
-  background: rgba(255, 255, 255, 0.06);
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid rgba(15, 23, 42, 0.06);
   padding: 1px 5px;
   border-radius: 3px;
 }
@@ -493,7 +494,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .lens-vertical-rail .hub-nav-pills {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 5px;
   padding: 0;
   margin: 0;
   background: transparent;
@@ -519,62 +520,71 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .lens-node-item {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 6px;
-  border-radius: 4px;
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: 6px;
   text-decoration: none;
-  color: #94a3b8;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #0f172a;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.06);
   transition: all 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
   position: relative;
 }
 .lens-node-item:hover {
-  background: rgba(13, 148, 136, 0.15);
-  border-color: rgba(115, 238, 228, 0.4);
-  color: #f8fafc;
+  background: #f0fdfa;
+  border-color: rgba(13, 148, 136, 0.35);
+  color: #0f172a;
   transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.08);
 }
 .lens-node-item.active {
-  background: linear-gradient(90deg, rgba(13, 148, 136, 0.35) 0%, rgba(6, 25, 37, 0.9) 100%);
-  border-color: #73eee4;
-  color: #ffffff;
-  box-shadow: 0 0 12px rgba(115, 238, 228, 0.2);
+  background: #f0fdfa;
+  border-color: #0d9488;
+  color: #0f172a;
+  box-shadow: inset 3px 0 0 #0d9488, 0 3px 12px rgba(13, 148, 136, 0.12);
 }
 .lens-badge {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.64rem;
-  font-weight: 800;
-  color: #73eee4;
-  background: rgba(115, 238, 228, 0.12);
-  border: 1px solid rgba(115, 238, 228, 0.3);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #0d9488;
+  background: #ccfbf1;
+  border: 1px solid rgba(13, 148, 136, 0.25);
+  min-width: 22px;
+  text-align: center;
   padding: 1px 4px;
-  border-radius: 3px;
+  border-radius: 4px;
   line-height: 1.1;
   flex-shrink: 0;
 }
 .lens-node-item.active .lens-badge {
-  background: #73eee4;
-  color: #061925;
+  background: #0d9488;
+  color: #ffffff;
+  border-color: #0f766e;
+  font-weight: 800;
 }
 .lens-info {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  line-height: 1.25;
   min-width: 0;
 }
 .lens-name {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #e2e8f0;
-  line-height: 1.15;
+  color: #0f172a;
+  line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.lens-node-item.active .lens-name {
+  color: #0f766e;
+  font-weight: 700;
+}
 .lens-sub {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.58rem;
+  font-size: 0.60rem;
   color: #64748b;
   line-height: 1.1;
   white-space: nowrap;
@@ -582,7 +592,8 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   text-overflow: ellipsis;
 }
 .lens-node-item.active .lens-sub {
-  color: #94a3b8;
+  color: #0d9488;
+  font-weight: 600;
 }
 
 /* 右側主舞台容器 (徹底釋放空間還給版面) */

@@ -135,21 +135,21 @@
       }
     }
 
-    /* 左側直立測條 (維持高對比半導體儀表深底，緊湊精緻化) */
+    /* 左側直立測條 (純白輕盈工控風格，高對比易讀) */
     .hub-vertical-rail {
       position: sticky;
       top: 76px;
-      background: #061925;
-      border: 1px solid rgba(115, 238, 228, 0.25);
-      border-radius: 6px;
-      padding: 8px 6px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 8px;
+      padding: 10px 8px;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
       z-index: 40;
     }
     .hub-rail-header {
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
       padding-bottom: 6px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -157,74 +157,100 @@
     .hub-rail-title {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.68rem;
-      color: #73eee4;
+      color: #0d9488;
       letter-spacing: 0.1em;
       font-weight: 700;
     }
     .hub-rail-tag {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.62rem;
-      color: #94a3b8;
-      background: rgba(255,255,255,0.06);
+      color: #475569;
+      background: #f1f5f9;
+      border: 1px solid rgba(15, 23, 42, 0.06);
       padding: 1px 5px;
       border-radius: 3px;
     }
     .hub-rail-nav {
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 5px;
     }
     .hub-rail-btn {
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 6px;
-      border-radius: 4px;
+      gap: 8px;
+      padding: 7px 8px;
+      border-radius: 6px;
       text-decoration: none;
-      color: #94a3b8;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid transparent;
+      color: #0f172a;
+      background: #f8fafc;
+      border: 1px solid rgba(15, 23, 42, 0.06);
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .hub-rail-btn:hover {
-      color: #eaf3f2;
-      background: rgba(115, 238, 228, 0.08);
-      border-color: rgba(115, 238, 228, 0.25);
+      color: #0f172a;
+      background: #f0fdfa;
+      border-color: rgba(13, 148, 136, 0.35);
+      transform: translateX(2px);
+      box-shadow: 0 2px 8px rgba(13, 148, 136, 0.08);
     }
     .hub-rail-btn.active {
-      color: #73eee4;
-      background: rgba(115, 238, 228, 0.12);
-      border-color: #73eee4;
-      box-shadow: 0 0 16px rgba(115, 238, 228, 0.18), inset 0 0 10px rgba(115, 238, 228, 0.08);
+      color: #0f172a;
+      background: #f0fdfa;
+      border-color: #0d9488;
+      box-shadow: inset 3px 0 0 #0d9488, 0 3px 12px rgba(13, 148, 136, 0.12);
     }
     .hub-rail-badge {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 3px;
-      background: rgba(255,255,255,0.08);
-      color: #eaf3f2;
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: #ccfbf1;
+      color: #0d9488;
+      border: 1px solid rgba(13, 148, 136, 0.25);
+      min-width: 22px;
+      text-align: center;
+      line-height: 1.1;
+      flex-shrink: 0;
     }
     .hub-rail-btn.active .hub-rail-badge {
-      background: #73eee4;
-      color: #061925;
+      background: #0d9488;
+      color: #ffffff;
+      border-color: #0f766e;
+      font-weight: 800;
     }
     .hub-rail-text {
       display: flex;
       flex-direction: column;
+      line-height: 1.25;
+      min-width: 0;
     }
     .hub-rail-name {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
-      line-height: 1.25;
-      color: inherit;
+      line-height: 1.2;
+      color: #0f172a;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .hub-rail-btn.active .hub-rail-name {
+      color: #0f766e;
+      font-weight: 700;
     }
     .hub-rail-sub {
-      font-size: 0.68rem;
+      font-size: 0.60rem;
       font-family: 'IBM Plex Mono', monospace;
       color: #64748b;
       margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .hub-rail-btn.active .hub-rail-sub {
+      color: #0d9488;
+      font-weight: 600;
     }
 
     /* 右側主工作台 (Stage) */
