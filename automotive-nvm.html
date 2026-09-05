@@ -69,11 +69,11 @@
        ========================================================================= */
     .m3-hero-container {
       position: relative;
-      background: linear-gradient(180deg, rgba(6, 25, 37, 0.96) 0%, rgba(3, 19, 30, 0.99) 100%);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 55%, #f1f5f9 100%);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
       overflow: hidden;
       padding: clamp(32px, 3.8vw, 48px) clamp(16px, 2.5vw, 36px) clamp(38px, 4.5vw, 56px);
-      color: #f8fafc;
+      color: #334155;
       text-align: center;
     }
     .m3-hero-media {
@@ -87,8 +87,8 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
-      opacity: 0.38;
-      filter: saturate(1.1) brightness(0.9);
+      opacity: 0.18;
+      filter: saturate(1.05) brightness(1.05);
       animation: hero-push 22s ease-out forwards;
     }
     @keyframes hero-push {
@@ -99,15 +99,15 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.14) 0%, rgba(6, 25, 37, 0.9) 68%, rgba(3, 19, 30, 0.99) 100%),
-                  linear-gradient(180deg, rgba(6, 25, 37, 0.7) 0%, rgba(3, 19, 30, 0.98) 100%);
+      background: radial-gradient(circle at 50% 15%, rgba(245, 158, 11, 0.08) 0%, rgba(248, 250, 252, 0.88) 55%, rgba(241, 245, 249, 0.98) 100%),
+                  linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(248, 250, 252, 0.96) 100%);
     }
     .m3-hero-grid {
       position: absolute;
       inset: 0;
       z-index: 2;
-      background-image: linear-gradient(to right, rgba(245, 158, 11, 0.04) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(245, 158, 11, 0.04) 1px, transparent 1px);
+      background-image: linear-gradient(to right, rgba(217, 119, 6, 0.04) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(217, 119, 6, 0.04) 1px, transparent 1px);
       background-size: 32px 32px;
       pointer-events: none;
     }
@@ -124,9 +124,9 @@
       gap: 8px;
       padding: 3px 12px;
       background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.35);
+      border: 1px solid rgba(217, 119, 6, 0.35);
       border-radius: 999px;
-      color: #f59e0b;
+      color: #b45309;
       font: 700 11px/1 'IBM Plex Mono', monospace;
       letter-spacing: 0.12em;
       margin-bottom: 8px;
@@ -138,23 +138,23 @@
       line-height: 1.16;
       letter-spacing: -0.025em;
       margin: 6px 0 10px;
-      color: #ffffff;
+      color: #0a1e2c;
       text-wrap: balance !important;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+      text-shadow: none;
     }
     .m3-hero h1 em {
-      color: #f59e0b;
+      color: #d97706;
       font-style: normal;
       font-weight: 700;
     }
     .m3-hero p.lead-desc {
-      color: #cbd5e1;
+      color: #475569;
       font-size: clamp(14px, 1.1vw, 16px);
       line-height: 1.6;
       max-width: 860px;
       margin: 0 auto 16px;
       text-wrap: balance !important;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+      text-shadow: none;
     }
     .m3-hero-proof {
       display: flex;
@@ -163,7 +163,7 @@
       gap: clamp(14px, 2.2vw, 32px);
       margin-top: 14px;
       padding-top: 14px;
-      border-top: 1px solid rgba(245, 158, 11, 0.2);
+      border-top: 1px solid rgba(217, 119, 6, 0.18);
     }
     .m3-hero-proof > div {
       display: flex;
@@ -179,7 +179,7 @@
     }
     .m3-hero-proof span {
       font-size: 11px;
-      color: #94a3b8;
+      color: #64748b;
       font-weight: 500;
     }
 
@@ -506,8 +506,9 @@
       .gate-stepper { grid-template-columns: 1fr; }
     }
     .gate-card {
-      background: #082433;
-      border: 1px solid rgba(115, 238, 228, 0.2);
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
       border-radius: 6px;
       padding: 16px;
       position: relative;
@@ -519,12 +520,12 @@
       top: 0;
       bottom: 0;
       width: 4px;
-      background: #f59e0b;
+      background: #d97706;
       border-radius: 6px 0 0 6px;
     }
     .gate-badge {
       font: 800 10.5px/1 'IBM Plex Mono', monospace;
-      color: #f59e0b;
+      color: #b45309;
       margin-bottom: 8px;
       display: flex;
       align-items: center;
@@ -532,55 +533,56 @@
     }
     .gate-card h4 {
       font: 700 1.05rem/1.25 'IBM Plex Mono', monospace;
-      color: #fff;
+      color: #0a1e2c;
       margin: 0 0 8px;
     }
     .gate-card p {
       font-size: 0.84rem;
       line-height: 1.55;
-      color: #c4d7e0;
+      color: #475569;
       margin: 0;
     }
 
     /* 第一性原理物理公式卡片 */
     .formula-box-math {
-      background: #061925;
-      color: #f8fafc;
-      border: 1px solid rgba(245, 158, 11, 0.2);
+      background: #ffffff;
+      color: #0a1e2c;
+      border: 1px solid rgba(217, 119, 6, 0.28);
+      border-left: 4px solid #d97706;
       border-radius: 6px;
       padding: 12px 16px;
       margin: 12px 0 14px;
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.82rem;
       line-height: 1.55;
-      box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
     }
     .formula-box-math strong {
-      color: #f59e0b;
+      color: #b45309;
       font-weight: 700;
     }
     .formula-box-math em {
-      color: #73eee4;
+      color: #0d9488;
       font-style: normal;
     }
 
-    /* Lab Box 儀器視窗 */
+    /* Lab Box 儀器視窗 (外白卡片微投影，內部維持深色示波器視窗) */
     .lab-box-panel {
-      background: #061925 !important;
-      color: #f8fafc !important;
+      background: #ffffff !important;
+      color: #334155 !important;
       border-radius: 8px;
       margin: 4px 0;
-      border: 1px solid rgba(245, 158, 11, 0.25) !important;
-      box-shadow: 0 8px 24px rgba(6, 25, 37, 0.4) !important;
+      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05) !important;
     }
     .lab-box-panel .panel-kicker {
-      color: #f59e0b;
+      color: #b45309;
     }
     .lab-box-panel h2 {
-      color: #ffffff !important;
+      color: #0a1e2c !important;
     }
     .lab-box-panel .panel-desc {
-      color: #cbd5e1 !important;
+      color: #475569 !important;
     }
 
     /* SECDED 72-bit Grid */

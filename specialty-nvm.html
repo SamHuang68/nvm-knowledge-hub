@@ -43,6 +43,290 @@
     body[data-language="zh"] [data-lang="en"] {
       display: none !important;
     }
+
+    /* =========================================================================
+       EDITORIAL LIGHT THEME: 全站統一白底輕盈工控風格 (M4 SPECIALTY NVM)
+       ========================================================================= */
+    :root, body.specialty-page {
+      --paper-bg: #f8fafc;
+      --paper-card: #ffffff;
+      --ink-heading: #0a1e2c;
+      --ink-body: #334155;
+      --ink-muted: #64748b;
+      --cyan-editorial: #0d9488;
+      --amber-editorial: #d97706;
+
+      /* 覆寫 specialty-nvm.css 暗黑根變數 */
+      --spec-midnight: #f8fafc;
+      --spec-midnight-2: #f1f5f9;
+      --spec-navy: #ffffff;
+      --spec-surface: #ffffff;
+      --spec-surface-card: #ffffff;
+      --spec-surface-elevated: #ffffff;
+      --spec-cyan: #0d9488;
+      --spec-aqua: #0f766e;
+      --spec-teal: #0d9488;
+      --spec-amber: #d97706;
+      --spec-green: #059669;
+      --spec-danger: #dc2626;
+      --spec-line: rgba(15, 23, 42, 0.08);
+      --spec-line-subtle: rgba(15, 23, 42, 0.06);
+      --spec-text-main: #0a1e2c;
+      --spec-text-muted: #334155;
+      --spec-text-dim: #64748b;
+      --spec-glow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+    }
+
+    body.specialty-page {
+      background-color: #f8fafc !important;
+      color: #334155 !important;
+      background-image:
+        linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px) !important;
+      background-size: 48px 48px !important;
+    }
+
+    /* 1. Hero 封面輕盈白底化 */
+    body.specialty-page .specialty-hero {
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 60%, #f1f5f9 100%) !important;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+      color: #334155 !important;
+      padding: clamp(32px, 3.8vw, 48px) 20px 24px !important;
+    }
+    body.specialty-page .specialty-hero h1 {
+      color: #0a1e2c !important;
+      text-shadow: none !important;
+    }
+    body.specialty-page .specialty-hero .hero-lede {
+      color: #475569 !important;
+    }
+    body.specialty-page .hero-eyebrow-flex {
+      color: #0d9488 !important;
+    }
+    body.specialty-page .hero-eyebrow-flex .pulse-dot {
+      background: #0d9488 !important;
+      box-shadow: 0 0 8px rgba(13, 148, 136, 0.6) !important;
+    }
+    body.specialty-page .hero-kicker {
+      background: rgba(217, 119, 6, 0.1) !important;
+      border: 1px solid rgba(217, 119, 6, 0.3) !important;
+      color: #b45309 !important;
+    }
+
+    /* 2. 4-Metric Stat Strip 白底卡片 */
+    body.specialty-page .compact-ate-strip .stat-strip-card {
+      background: #ffffff !important;
+      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      border-left-width: 3px !important;
+      border-radius: 6px !important;
+      box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
+    }
+    body.specialty-page .compact-ate-strip .stat-val {
+      color: #0a1e2c !important;
+    }
+    body.specialty-page .compact-ate-strip .stat-label {
+      color: #475569 !important;
+    }
+    body.specialty-page .compact-ate-strip .stat-sub {
+      color: #64748b !important;
+    }
+    body.specialty-page .meta-code {
+      color: #475569 !important;
+    }
+
+    /* 3. 左側直立測條白底高對比 */
+    body.specialty-page .lens-vertical-rail {
+      background: #ffffff !important;
+      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
+    }
+    body.specialty-page .lens-vertical-rail .nav-pill {
+      background: #f8fafc !important;
+      color: #334155 !important;
+      border: 1px solid rgba(15, 23, 42, 0.06) !important;
+    }
+    body.specialty-page .lens-vertical-rail .nav-pill:hover,
+    body.specialty-page .lens-vertical-rail .nav-pill.active {
+      background: #f0fdfa !important;
+      border-color: #0d9488 !important;
+      color: #0f766e !important;
+      box-shadow: 0 2px 8px rgba(13, 148, 136, 0.12) !important;
+    }
+    body.specialty-page .lens-vertical-rail .lens-badge {
+      background: #f1f5f9 !important;
+      color: #0d9488 !important;
+      border: 1px solid rgba(13, 148, 136, 0.2) !important;
+    }
+    body.specialty-page .lens-vertical-rail .nav-pill.active .lens-badge {
+      background: #0d9488 !important;
+      color: #ffffff !important;
+    }
+    body.specialty-page .lens-vertical-rail .lens-info .lens-name {
+      color: #0a1e2c !important;
+      font-weight: 700 !important;
+    }
+    body.specialty-page .lens-vertical-rail .lens-info .lens-sub {
+      color: #64748b !important;
+    }
+    body.specialty-page .lens-vertical-rail .rail-footer {
+      border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+      color: #64748b !important;
+    }
+
+    /* 4. 工作台與區塊白底化 */
+    body.specialty-page .topic-section,
+    body.specialty-page .topic-dark {
+      background: transparent !important;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+      padding: 24px 16px !important;
+    }
+    body.specialty-page .topic-header h2 {
+      color: #0a1e2c !important;
+      text-shadow: none !important;
+    }
+    body.specialty-page .topic-header p {
+      color: #475569 !important;
+    }
+    body.specialty-page .topic-lede {
+      color: #475569 !important;
+      border-left-color: #0d9488 !important;
+    }
+    body.specialty-page .topic-ghost-badge {
+      background: #f1f5f9 !important;
+      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      color: #0d9488 !important;
+    }
+    body.specialty-page .status-verified {
+      background: #ecfdf5 !important;
+      border: 1px solid rgba(5, 150, 105, 0.2) !important;
+      color: #059669 !important;
+    }
+
+    /* 5. 卡片元件白底化 */
+    body.specialty-page .spec-card,
+    body.specialty-page .tech-card,
+    body.specialty-page .metric-tile,
+    body.specialty-page .deck-step-card,
+    body.specialty-page .sub-topic-block {
+      background: #ffffff !important;
+      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
+      color: #334155 !important;
+    }
+    body.specialty-page .spec-card h3,
+    body.specialty-page .spec-card h4,
+    body.specialty-page .tech-card h3,
+    body.specialty-page .tech-card h4,
+    body.specialty-page .sub-topic-header h3 {
+      color: #0a1e2c !important;
+    }
+    body.specialty-page .spec-card-title {
+      color: #0a1e2c !important;
+      font-weight: 700 !important;
+    }
+    body.specialty-page .spec-card-desc {
+      color: #475569 !important;
+    }
+    body.specialty-page .tag-accent {
+      background: #fffbeb !important;
+      border: 1px solid rgba(217, 119, 6, 0.25) !important;
+      color: #b45309 !important;
+    }
+
+    /* 6. 晶圓顯微外框 */
+    body.specialty-page .specialty-hero-image-wrap {
+      background: #f8fafc !important;
+      border: 1px solid rgba(15, 23, 42, 0.1) !important;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06) !important;
+    }
+    body.specialty-page .hero-image-caption {
+      background: #ffffff !important;
+      border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+      color: #0d9488 !important;
+    }
+
+    /* 7. 流程圖與步驟卡片 */
+    body.specialty-page .deck-flow-container {
+      background: #ffffff !important;
+      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04) !important;
+    }
+    body.specialty-page .deck-flow-header {
+      background: #f8fafc !important;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+    }
+    body.specialty-page .deck-flow-header h4 {
+      color: #0a1e2c !important;
+    }
+    body.specialty-page .deck-timing-rail {
+      background: #f8fafc !important;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+    }
+    body.specialty-page .deck-step-title {
+      color: #0a1e2c !important;
+    }
+    body.specialty-page .deck-step-num {
+      color: #0d9488 !important;
+    }
+    body.specialty-page .deck-step-status {
+      background: #f1f5f9 !important;
+      color: #475569 !important;
+    }
+    body.specialty-page .deck-chip-row {
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+    }
+    body.specialty-page .deck-chip-row .chip-k {
+      color: #64748b !important;
+    }
+
+    /* 8. 互動實驗室外層白卡微投影 (內部維持深色儀表視窗) */
+    body.specialty-page .interactive-lab-card {
+      background: #ffffff !important;
+      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
+    }
+    body.specialty-page .interactive-lab-card .lab-header {
+      background: #f8fafc !important;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+    }
+    body.specialty-page .interactive-lab-card .lab-header h4 {
+      color: #0a1e2c !important;
+    }
+    body.specialty-page .interactive-lab-card .lab-desc {
+      color: #475569 !important;
+    }
+
+    /* 9. 表格與矩陣白底化 */
+    body.specialty-page .table-wrap,
+    body.specialty-page .tech-matrix-table,
+    body.specialty-page .compare-table {
+      background: #ffffff !important;
+      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      color: #334155 !important;
+    }
+    body.specialty-page table th {
+      background: #f1f5f9 !important;
+      color: #0a1e2c !important;
+      border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
+    }
+    body.specialty-page table td {
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+      color: #334155 !important;
+    }
+
+    /* 10. 經濟效益試算盒 */
+    body.specialty-page .economics-box,
+    body.specialty-page .economics-calculator {
+      background: #ffffff !important;
+      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05) !important;
+      color: #334155 !important;
+    }
+    body.specialty-page .economics-box h3,
+    body.specialty-page .economics-calculator h3 {
+      color: #0a1e2c !important;
+    }
   </style>
 </head>
 <body class="specialty-page">
@@ -2250,18 +2534,111 @@
   </div>
 </div>
 </main>
-<footer class="hub-footer">
-<p>© 2026 NVM Architecture Knowledge Hub · NVM Knowledge Hub · Specialty Foundry eNVM Architecture</p>
-<div>
-<a href="index.html">Portal Home</a>
-<a href="secure-storage.html">Secure Storage</a>
-<a href="ai-nvm-opportunities.html">AI &amp; Advanced Nodes</a>
-<a href="specialty-nvm.html">Specialty NVM</a>
-<a href="whitepaper/">Whitepaper Studio</a>
-<a href="briefing/">Executive Briefing</a>
-</div>
-<p>BCD Power · CIS &amp; DRAM Array Repair · High-Voltage Display Drivers · E-Ink Ultra-HV</p>
-</footer>
+  <!-- FLAGSHIP ENTERPRISE FOOTER (全站統一旗艦級頁尾) -->
+  <footer class="hub-footer">
+    <div class="hub-footer-inner">
+      <div class="hub-footer-brand-row">
+        <div class="hub-footer-brand">
+          <a href="index.html" class="hub-footer-logo">
+            <span class="hub-footer-logo-mark">NVM</span>
+            <span class="hub-footer-logo-text">
+              <strong>KNOWLEDGE HUB</strong>
+              <small>SILICON ARCHITECTURE &amp; EVIDENCE DISCIPLINE</small>
+            </span>
+          </a>
+          <p class="hub-footer-desc">
+            <span data-lang="zh">面向先進半導體邏輯節點、車載功能安全與超低功耗邊緣運算的高可靠度嵌入式非揮發性記憶體 (eNVM) 架構決策與物理實證知識庫。</span>
+            <span data-lang="en">Industrial-grade non-volatile memory (eNVM) architecture, bitcell physics, and automotive functional safety knowledge repository for advanced silicon design.</span>
+          </p>
+        </div>
+
+        <div class="hub-footer-meta-pill">
+          <div class="meta-pill-item">
+            <span class="meta-pill-dot" style="background:#73eee4;"></span>
+            <span class="meta-pill-key">FOUNDRY MATRIX:</span>
+            <span class="meta-pill-val">TSMC · UMC · GF · SAMSUNG</span>
+          </div>
+          <div class="meta-pill-item">
+            <span class="meta-pill-dot" style="background:#34d399;"></span>
+            <span class="meta-pill-key">RELIABILITY:</span>
+            <span class="meta-pill-val">AEC-Q100 GRADE 0 / ISO 26262 ASIL-D</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hub-footer-nav-grid">
+        <div class="hub-footer-col">
+          <h4 class="hub-footer-col-title">
+            <span data-lang="zh">基礎理論 · 物理原語</span>
+            <span data-lang="en">Foundations &amp; Physics</span>
+          </h4>
+          <ul class="hub-footer-links">
+            <li><a href="index.html"><span data-lang="zh">知識中樞首頁</span><span data-lang="en">Hub Portal</span></a></li>
+            <li><a href="memory-physics.html"><span data-lang="zh">記憶體物理基底 (F1)</span><span data-lang="en">Bitcell Physics (F1)</span></a></li>
+            <li><a href="memory-evidence.html"><span data-lang="zh">文獻與實證語料 (R3)</span><span data-lang="en">Evidence Corpus (R3)</span></a></li>
+            <li><a href="security-assurance.html"><span data-lang="zh">物理安全保證 (A2)</span><span data-lang="en">Security Assurance (A2)</span></a></li>
+          </ul>
+        </div>
+
+        <div class="hub-footer-col">
+          <h4 class="hub-footer-col-title">
+            <span data-lang="zh">架構矩陣 · 決策分析</span>
+            <span data-lang="en">Architecture &amp; Trade-Offs</span>
+          </h4>
+          <ul class="hub-footer-links">
+            <li><a href="technology-comparison.html"><span data-lang="zh">NVM 技術權衡矩陣 (F2)</span><span data-lang="en">Technology Comparison (F2)</span></a></li>
+            <li><a href="secure-storage.html"><span data-lang="zh">安全儲存架構 (A1)</span><span data-lang="en">Secure Storage (A1)</span></a></li>
+            <li><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點機遇 (M1)</span><span data-lang="en">AI &amp; Advanced Nodes (M1)</span></a></li>
+            <li><a href="specialty-nvm.html"><span data-lang="zh">特殊製程 eNVM (M4)</span><span data-lang="en">Specialty Foundry NVM (M4)</span></a></li>
+          </ul>
+        </div>
+
+        <div class="hub-footer-col">
+          <h4 class="hub-footer-col-title">
+            <span data-lang="zh">垂直領域 · 晶片應用</span>
+            <span data-lang="en">Vertical Applications</span>
+          </h4>
+          <ul class="hub-footer-links">
+            <li><a href="iot-mcu-envm.html"><span data-lang="zh">ULP IoT 與 MCU eNVM (M2)</span><span data-lang="en">IoT &amp; Edge MCU eNVM (M2)</span></a></li>
+            <li><a href="automotive-nvm.html"><span data-lang="zh">車載車規 NVM (M3)</span><span data-lang="en">Automotive-Grade NVM (M3)</span></a></li>
+            <li><a href="oip-secure-storage.html"><span data-lang="zh">OIP 合作夥伴簡報</span><span data-lang="en">OIP Partner Briefing</span></a></li>
+          </ul>
+        </div>
+
+        <div class="hub-footer-col">
+          <h4 class="hub-footer-col-title">
+            <span data-lang="zh">白皮書 · 決策工坊</span>
+            <span data-lang="en">Reports &amp; Studios</span>
+          </h4>
+          <ul class="hub-footer-links">
+            <li><a href="whitepaper/"><span data-lang="zh">技術白皮書工作坊 (R1)</span><span data-lang="en">Whitepaper Studio (R1)</span></a></li>
+            <li><a href="briefing/index.html"><span data-lang="zh">高階主管戰略簡報 (R2)</span><span data-lang="en">Executive Briefing (R2)</span></a></li>
+            <li><a href="index.html#searchTrigger"><span data-lang="zh">全局架構檢索 (Ctrl+K)</span><span data-lang="en">Global Search (Ctrl+K)</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hub-footer-badge-strip">
+        <span class="hub-footer-badge">TSMC BCD 0.18µm ~ 28nm</span>
+        <span class="hub-footer-badge">CIS &amp; DRAM Defect Redundancy</span>
+        <span class="hub-footer-badge">0-Mask Pure Logic</span>
+        <span class="hub-footer-badge">HV DDIC &amp; Ultra-HV E-Ink</span>
+        <span class="hub-footer-badge">AEC-Q100 Grade 0 (175°C)</span>
+        <span class="hub-footer-badge">MTP-to-OTP Cost Migration</span>
+      </div>
+
+      <div class="hub-footer-bottom-bar">
+        <div class="hub-footer-copy">
+          &copy; 2026 <strong>NVM Architecture Knowledge Hub</strong>.
+          <span data-lang="zh">保留所有權利 · 基於一級半導體物理實證與工業級架構規範構建。</span>
+          <span data-lang="en">All Rights Reserved. Grounded in first-principles semiconductor physics &amp; foundry standards.</span>
+        </div>
+        <div class="hub-footer-controls">
+          <span class="hub-footer-tag">RELEASE V2026.09 · SPECIALTY FOUNDRY</span>
+        </div>
+      </div>
+    </div>
+  </footer>
 <script src="hub.js?v=20260904-hive-v5"></script>
 <script src="specialty-nvm.js?v=20260904-spec-v2"></script>
   <script>

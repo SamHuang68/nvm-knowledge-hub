@@ -4,26 +4,26 @@
    ========================================================= */
 
 :root {
-  --spec-midnight: #03131e;
-  --spec-midnight-2: #061b29;
-  --spec-navy: #082536;
-  --spec-surface: rgba(8, 37, 54, 0.72);
-  --spec-surface-card: rgba(11, 44, 62, 0.65);
-  --spec-surface-elevated: #092a3d;
-  --spec-cyan: #11d2d0;
-  --spec-aqua: #71ece3;
-  --spec-teal: #08787b;
-  --spec-amber: #ff9d5c;
-  --spec-green: #38c99e;
-  --spec-danger: #ef5743;
-  --spec-line: rgba(113, 236, 227, 0.18);
-  --spec-line-subtle: rgba(255, 255, 255, 0.08);
-  --spec-text-main: #ffffff;
-  --spec-text-muted: #9cb5bc;
-  --spec-text-dim: #627b8c;
+  --spec-midnight: #f8fafc;
+  --spec-midnight-2: #f1f5f9;
+  --spec-navy: #e2e8f0;
+  --spec-surface: #ffffff;
+  --spec-surface-card: #ffffff;
+  --spec-surface-elevated: #ffffff;
+  --spec-cyan: #0891b2;
+  --spec-aqua: #0d9488;
+  --spec-teal: #0f766e;
+  --spec-amber: #d97706;
+  --spec-green: #059669;
+  --spec-danger: #dc2626;
+  --spec-line: rgba(15, 23, 42, 0.08);
+  --spec-line-subtle: rgba(15, 23, 42, 0.05);
+  --spec-text-main: #0a1e2c;
+  --spec-text-muted: #334155;
+  --spec-text-dim: #64748b;
   --spec-mono: 'IBM Plex Mono', Consolas, monospace;
   --spec-sans: 'Plus Jakarta Sans', 'Noto Sans TC', 'Microsoft JhengHei', -apple-system, BlinkMacSystemFont, sans-serif;
-  --spec-glow: 0 0 24px rgba(113, 236, 227, 0.14);
+  --spec-glow: 0 4px 16px rgba(15, 23, 42, 0.06);
 }
 
 .specialty-page {
@@ -34,8 +34,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   background-image: 
-    linear-gradient(90deg, rgba(17, 210, 208, 0.025) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(17, 210, 208, 0.025) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
@@ -46,9 +46,9 @@
   position: relative;
   padding: 42px 20px 28px;
   background: 
-    radial-gradient(circle at 50% 15%, rgba(17, 210, 208, 0.12) 0%, rgba(3, 19, 30, 0) 65%),
-    linear-gradient(180deg, rgba(6, 27, 41, 0.95) 0%, rgba(3, 19, 30, 1) 100%);
-  border-bottom: 1px solid var(--spec-line);
+    radial-gradient(circle at 50% 15%, rgba(8, 145, 178, 0.06) 0%, rgba(248, 250, 252, 0) 65%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-bottom: 1px solid var(--spec-navy);
 }
 
 .hero-container {

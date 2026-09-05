@@ -155,8 +155,9 @@ def run_tests() -> None:
     shell_css = (BASE / "site-shell.css").read_text(encoding="utf-8")
     test("site-shell.css 包含旗艦 hub-footer 完整樣式", "footer.hub-footer" in shell_css and "hub-footer-nav-grid" in shell_css)
 
-    for name, content in [("F2", tc_c), ("M2", iot_c), ("M3", auto_c)]:
-        test(f"{name} 採用白底輕盈背景 (#f8fafc)", "background-color: #f8fafc;" in content)
+    spec_c = (BASE / "specialty-nvm.html").read_text(encoding="utf-8")
+    for name, content in [("F2", tc_c), ("M2", iot_c), ("M3", auto_c), ("M4", spec_c)]:
+        test(f"{name} 採用白底輕盈背景 (#f8fafc)", "background-color: #f8fafc" in content)
         test(f"{name} 包含旗艦級 Footer 品牌識徽 (hub-footer-logo-mark)", "hub-footer-logo-mark" in content)
         test(f"{name} 包含 4 欄階層導覽 (hub-footer-nav-grid)", "hub-footer-nav-grid" in content)
         test(f"{name} 包含技術標籤彩條 (hub-footer-badge-strip)", "hub-footer-badge-strip" in content)
