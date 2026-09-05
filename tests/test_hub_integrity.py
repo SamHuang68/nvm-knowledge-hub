@@ -139,6 +139,17 @@ def run_tests() -> None:
     test("Whitepaper 包含技術範本卡片 (template-card)", "template-card" in wp_c)
     test("Whitepaper 包含 SharePoint 分類架構", "SharePoint" in wp_c and "taxonomy" in wp_c)
 
+    # ===== TEST 12: F2/M2/M3 Quality Gates 嚴格驗收 (Nav Pills, 4-Metric Strip, Physics Formulas) =====
+    print("\n═══ TEST 12: F2/M2/M3 Quality Gates 嚴格驗收 ═══")
+    for name, content in [("F2", tc_c), ("M2", iot_c), ("M3", auto_c)]:
+        test(f"{name} 包含頂部快速跳轉藥丸列 (hub-nav-pills)", "hub-nav-pills" in content and "nav-pill" in content)
+        test(f"{name} 包含 4-Metric 規格彩條 (stat-strip-grid)", "stat-strip-grid" in content and "border-l-cyan" in content and "pulse-chip-mini" in content)
+        test(f"{name} 包含 第一性原理物理公式 (formula-box-math)", "formula-box-math" in content)
+
+    test("F2 包含 5 軸動態雷達圖 (selectorRadarCanvas)", "selectorRadarCanvas" in tc_c)
+    test("M2 包含 CAM 匯流排動態畫布 (camCanvas)", "camCanvas" in iot_c)
+    test("M3 包含 72-bit SECDED 漢明碼矩陣 (ecc-bit-node)", "ecc-bit-node" in auto_c)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

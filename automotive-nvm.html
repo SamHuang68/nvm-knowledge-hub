@@ -1,576 +1,843 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <script src="site-language.js?v=20260904-top-v1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Automotive-Grade NVM Architecture: AEC-Q100 Grade 0 (175°C) zero-drift nanoscale silicide filaments, ISO 26262 ASIL-D functional safety, SECDED ECC, and zero-PPM wafer qualification.">
+  <title>Automotive-Grade NVM · AEC-Q100 Grade 0, ISO 26262 ASIL-D &amp; SECDED · NVM Knowledge Hub</title>
+  <meta name="description" content="Automotive-grade eNVM: AEC-Q100 Grade 0 (175°C) reliability, ISO 26262 ASIL-D functional safety, zero-drift silicide nanofilaments, SECDED ECC real-time self-healing, and zero-defect foundry qualification.">
   <meta name="theme-color" content="#061925">
-  <title>Automotive-Grade NVM · NVM Knowledge Hub</title>
-  
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="site-shell.css">
-  <link rel="stylesheet" href="hub.css">
-  
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site-shell.css?v=20260904-hive-v5">
+  <link rel="stylesheet" href="styles.css?v=20260904-hive-v5">
+  <link rel="stylesheet" href="specialty-nvm.css?v=20260904-spec-v3">
+
   <style>
-    /* 0. ACCESSIBILITY DEFENSE: High-contrast Skip Link */
-    .skip-link {
-      position: fixed !important; top: -120px !important; left: 16px !important;
-      z-index: 10000 !important; padding: 12px 20px !important;
-      background: #22d3ee !important; color: #020617 !important;
-      font-family: 'IBM Plex Mono', monospace !important;
-      font-size: 13px !important; font-weight: 800 !important;
-      letter-spacing: 0.05em !important; text-transform: uppercase !important;
-      text-decoration: none !important; border: 2px solid #38bdf8 !important;
-      border-radius: 4px !important;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 20px rgba(34,211,238,0.4) !important;
-      transition: top 0.2s cubic-bezier(0.16,1,0.3,1) !important; display: inline-block !important;
+    /* 全站語系治理：英文為第一預設 */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert; }
+
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] {
+      display: revert !important;
     }
-    .skip-link:focus, .skip-link:focus-visible {
-      top: 14px !important; outline: 3px solid #f59e0b !important; outline-offset: 3px !important;
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] {
+      display: none !important;
     }
 
-    /* 1. Language Visibility Rules (Single Source of Truth) */
-    html[data-language="en"] [data-lang="zh"], body[data-language="en"] [data-lang="zh"] { display: none !important; }
-    html[data-language="zh"] [data-lang="en"], body[data-language="zh"] [data-lang="en"] { display: none !important; }
-
-    /* 2. Global Architecture & Automotive Styling */
     body {
-      background-color: #061925; color: #e2e8f0;
-      font-family: 'Inter', sans-serif; overflow-x: hidden;
-    }
-    h1, h2, h3, h4, .mono-text, .metric-val { font-family: 'IBM Plex Mono', monospace; }
-    .main-container { max-width: 1280px; margin: 0 auto; padding: 2.5rem 5% 5rem; }
-
-    /* Hero Section with Thermography Accent */
-    .hero-section {
-      margin-bottom: 3.5rem; border-bottom: 1px solid rgba(115, 238, 228, 0.18);
-      padding-bottom: 2.5rem;
-      background: radial-gradient(circle at 85% 15%, rgba(245, 158, 11, 0.1), transparent 50%);
-    }
-    .hero-eyebrow {
-      display: flex; align-items: center; gap: 10px;
-      font: 700 11px/1 'IBM Plex Mono', monospace;
-      color: #f59e0b; letter-spacing: 0.15em; text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .hero-eyebrow-pill {
-      background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35);
-      padding: 3px 8px; border-radius: 4px;
-    }
-    .hero-section h1 {
-      font-size: clamp(2rem, 3.8vw, 3.2rem); line-height: 1.15;
-      margin-bottom: 1.25rem; letter-spacing: -0.03em; text-wrap: balance;
-    }
-    .hero-section h1 em { color: #f59e0b; font-style: normal; font-weight: 400; }
-    .hero-desc {
-      font-size: 1.08rem; line-height: 1.7; color: #94a3b8;
-      max-width: 860px; margin-bottom: 2rem;
+      background-color: #061925;
+      color: #e2e8f0;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+      overflow-x: hidden;
+      background-image:
+        linear-gradient(90deg, rgba(17, 210, 208, 0.025) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(17, 210, 208, 0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
     }
 
-    /* KPI Grid */
-    .kpi-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem; margin-top: 2rem;
+    .mono-text, .meta-code, .stat-val, .pill-number {
+      font-family: 'IBM Plex Mono', Consolas, monospace !important;
     }
-    .kpi-card {
-      background: rgba(8, 36, 51, 0.7); border: 1px solid rgba(115, 238, 228, 0.22);
-      border-radius: 8px; padding: 1.25rem 1.5rem; position: relative;
-    }
-    .kpi-card.warning::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #f59e0b;
-    }
-    .kpi-card.cyan::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #73eee4;
-    }
-    .kpi-num { font: 800 2.2rem/1 'IBM Plex Mono', monospace; color: #fff; margin-bottom: 0.35rem; }
-    .kpi-label { font: 600 0.78rem/1.3 'IBM Plex Mono', monospace; color: #8ea9b3; text-transform: uppercase; }
 
-    /* Section Titles */
-    .section-title {
-      color: #73eee4; font-size: 1.6rem; margin: 4rem 0 1.5rem 0;
-      display: flex; align-items: center; gap: 12px;
-      border-bottom: 1px solid rgba(115, 238, 228, 0.15); padding-bottom: 0.75rem;
+    .main-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 2.5rem 24px 5rem;
     }
-    .section-title svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; }
 
-    /* 3-Gate Wafer Qualification Stepper */
+    /* Hero Section */
+    .m3-hero {
+      text-align: center;
+      padding: 40px 10px 30px;
+      border-bottom: 1px solid rgba(113, 236, 227, 0.18);
+    }
+    .m3-hero h1 {
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      margin: 0.5rem 0 1rem;
+      text-wrap: balance;
+    }
+    .m3-hero h1 em {
+      color: #f59e0b;
+      font-style: normal;
+      font-weight: 400;
+    }
+    .m3-hero p.lead-desc {
+      color: #a7c2c9;
+      font-size: clamp(15.5px, 1.25vw, 18px);
+      line-height: 1.75;
+      max-width: 860px;
+      margin: 0 auto 24px;
+    }
+
+    /* Nav Pills */
+    .hub-nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 24px 0 32px;
+    }
+    .hub-nav-pills .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      background: rgba(8, 37, 54, 0.75);
+      border: 1px solid rgba(113, 236, 227, 0.22);
+      border-radius: 6px;
+      text-decoration: none;
+      color: #e0f2f1;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(8px);
+    }
+    .hub-nav-pills .nav-pill:hover {
+      background: #f59e0b;
+      color: #03131e;
+      border-color: #f59e0b;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.28);
+    }
+    .hub-nav-pills .pill-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #f59e0b;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .hub-nav-pills .nav-pill:hover .pill-number {
+      color: #03131e;
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    /* Section Headers */
+    .hub-sec-header {
+      margin: 4rem 0 1.75rem;
+      border-bottom: 1px solid rgba(113, 236, 227, 0.18);
+      padding-bottom: 1rem;
+    }
+    .hub-sec-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font: 700 11px 'IBM Plex Mono', monospace;
+      letter-spacing: 0.15em;
+      color: #f59e0b;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .hub-sec-header h2 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+    }
+
+    /* 3-Gate Stepper */
     .gate-stepper {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem; margin: 2rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
     }
     .gate-card {
-      background: #082433; border: 1px solid rgba(115, 238, 228, 0.2);
-      border-radius: 8px; padding: 1.75rem; position: relative;
+      background: #082433;
+      border: 1px solid rgba(115, 238, 228, 0.2);
+      border-radius: 8px;
+      padding: 1.75rem;
+      position: relative;
     }
-    .gate-card.active { border-color: rgba(245, 158, 11, 0.45); }
+    .gate-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #f59e0b;
+      border-radius: 8px 0 0 8px;
+    }
     .gate-badge {
-      font: 800 11px/1 'IBM Plex Mono', monospace; color: #f59e0b;
-      margin-bottom: 0.75rem; display: flex; align-items: center; gap: 6px;
+      font: 800 11px/1 'IBM Plex Mono', monospace;
+      color: #f59e0b;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .gate-card h3 { font: 700 1.15rem/1.3 'Inter', sans-serif; color: #fff; margin: 0 0 0.75rem 0; }
-    .gate-card p { font-size: 0.9rem; line-height: 1.65; color: #94a3b8; margin: 0; }
+    .gate-card h4 {
+      font: 700 1.25rem/1.2 'IBM Plex Mono', monospace;
+      color: #fff;
+      margin: 0 0 0.75rem;
+    }
 
-    /* Canvas Simulator Box */
+    /* Lab Box */
     .lab-box {
-      background: #082433; border: 1px solid rgba(115, 238, 228, 0.25);
-      border-radius: 8px; padding: 2rem; margin: 2.5rem 0;
+      background: #082433;
+      border: 1px solid rgba(113, 236, 227, 0.25);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2.5rem 0;
     }
-    .lab-ctrl-row {
-      display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;
-      background: #061925; padding: 1rem 1.5rem; border-radius: 6px;
-      border: 1px solid rgba(115, 238, 228, 0.15);
-    }
-    .lab-ctrl { display: flex; align-items: center; gap: 10px; }
-    .lab-ctrl label { font: 700 11px/1 'IBM Plex Mono', monospace; color: #f59e0b; text-transform: uppercase; }
-    .lab-ctrl input[type="range"] { accent-color: #f59e0b; }
-    .canvas-container {
-      width: 100%; height: 280px; background: #061925; border-radius: 6px;
-      border: 1px solid rgba(115, 238, 228, 0.2); position: relative; overflow: hidden;
-    }
-    canvas { width: 100%; height: 100%; display: block; }
 
-    /* SECDED Interactive Fault Injection Matrix */
-    .ecc-grid-wrap {
-      display: flex; flex-direction: column; gap: 1.25rem; margin: 1.5rem 0;
-      background: #061925; padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(115, 238, 228, 0.2);
-    }
+    /* SECDED 72-bit Grid */
     .ecc-bits-deck {
-      display: flex; gap: 6px; flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(18, 1fr);
+      gap: 6px;
+      margin: 1.25rem 0;
     }
-    .ecc-bit-btn {
-      width: 32px; height: 36px; background: #082433; border: 1px solid rgba(115, 238, 228, 0.3);
-      border-radius: 4px; color: #73eee4; font: 700 13px/1 'IBM Plex Mono', monospace;
-      cursor: pointer; transition: all 0.15s;
+    @media (max-width: 768px) {
+      .ecc-bits-deck { grid-template-columns: repeat(9, 1fr); }
     }
-    .ecc-bit-btn:hover { border-color: #73eee4; background: rgba(115, 238, 228, 0.15); }
-    .ecc-bit-btn.flipped {
-      background: #ef4444; border-color: #ef4444; color: #fff;
+    .ecc-bit-node {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 700 12px 'IBM Plex Mono', monospace;
+      border-radius: 4px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s;
+      background: #061925;
+      border: 1px solid rgba(115, 238, 228, 0.2);
+      color: #73eee4;
+    }
+    .ecc-bit-node.parity {
+      border-color: rgba(245, 158, 11, 0.4);
+      color: #f59e0b;
+      background: rgba(245, 158, 11, 0.08);
+    }
+    .ecc-bit-node.flipped {
+      background: #ef4444 !important;
+      color: #fff !important;
+      border-color: #f87171 !important;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.6);
+      transform: scale(1.08);
     }
     .ecc-status-pill {
-      display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 20px;
-      font: 700 12px/1 'IBM Plex Mono', monospace;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font: 700 11px 'IBM Plex Mono', monospace;
+      letter-spacing: 0.05em;
     }
-    .ecc-status-pill.clean { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid #059669; }
-    .ecc-status-pill.single-err { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid #d97706; }
-    .ecc-status-pill.double-err { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid #dc2626; }
+    .ecc-status-pill.clean {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid #10b981;
+    }
+    .ecc-status-pill.sec {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      border: 1px solid #3b82f6;
+    }
+    .ecc-status-pill.ded {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid #ef4444;
+      animation: alertPulse 1.5s infinite;
+    }
+    @keyframes alertPulse {
+      0%, 100% { box-shadow: 0 0 14px rgba(239, 68, 68, 0.4); }
+      50% { box-shadow: 0 0 4px rgba(239, 68, 68, 0.1); }
+    }
   </style>
 </head>
-<body class="hub-page">
-  <!-- WCAG High-Contrast Skip Link -->
-  <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
+<body class="specialty-page">
+  <a class="skip-link" href="#main-content">
+    <span data-lang="zh">跳至主要內容</span>
+    <span data-lang="en">Skip to main content</span>
+  </a>
 
-  <!-- TOP-LEVEL SITE HEADER (CONSISTENT SITE SHELL) -->
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub Home">
-      <span class="brand-mark">
-        <svg viewBox="0 0 48 48"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/><path d="M17 5v6M24 5v6M31 5v6M17 37v6M24 37v6M31 37v6M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></svg>
-      </span>
+  <!-- Global Site Header -->
+  <header class="site-header" role="banner">
+    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub 首頁">
+      <span class="brand-mark"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4h24a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8H12a8 8 0 0 1-8-8V12a8 8 0 0 1 8-8z"/><path d="M17 11v26M31 11v26M11 17h26M11 31h26"/></svg></span>
       <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
-      <span class="brand-section">AUTOMOTIVE NVM</span>
+      <span class="brand-section">M3 · AUTOMOTIVE NVM</span>
     </a>
-    <nav class="primary-nav" id="primaryNav" aria-label="Primary Navigation">
+    <nav class="primary-nav" id="primaryNav" aria-label="主要導覽">
       <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a>
+      <a href="memory-physics.html"><span data-lang="zh">位元胞物理</span><span data-lang="en">Bitcell Physics</span></a>
+      <a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
       <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
       <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a>
-      <a href="iot-mcu-envm.html"><span data-lang="zh">IoT &amp; MCU</span><span data-lang="en">IoT &amp; MCU</span></a>
-      <a class="is-active" aria-current="page" href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive</span></a>
-      <a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty</span></a>
-      <a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
+      <a href="iot-mcu-envm.html"><span data-lang="zh">IoT 與 MCU</span><span data-lang="en">IoT &amp; MCU</span></a>
+      <a class="is-active" href="automotive-nvm.html" aria-current="page"><span data-lang="zh">車規級 NVM</span><span data-lang="en">Automotive</span></a>
+      <a href="specialty-nvm.html"><span data-lang="zh">特種晶圓</span><span data-lang="en">Specialty NVM</span></a>
+      <a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper</span></a>
+      <a href="briefing/index.html"><span data-lang="zh">簡報與講稿</span><span data-lang="en">Briefing</span></a>
     </nav>
     <div class="header-actions">
-      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch Language (ZH/EN)">
-        <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
-      </button>
-      <button class="menu-button" id="menuToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open navigation">
-        <i></i><i></i>
-      </button>
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="切換語系 Switch Language"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
+      <button class="menu-button" id="menuToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
     </div>
   </header>
 
-  <!-- BREADCRUMB -->
+  <!-- Breadcrumb -->
   <nav class="site-breadcrumb" aria-label="Breadcrumb">
-    <i></i><a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Hub</span></a>
-    <i></i><span data-lang="zh">市場應用</span><span data-lang="en">Market Applications</span>
-    <i></i><strong><span data-lang="zh">車規級 NVM</span><span data-lang="en">Automotive-Grade NVM</span></strong>
+    <a href="index.html">NVM Knowledge Hub</a>
+    <i>›</i>
+    <span><span data-lang="zh">市場應用</span><span data-lang="en">Applications</span></span>
+    <i>›</i>
+    <strong><span data-lang="zh">車規級高可靠 NVM 架構</span><span data-lang="en">Automotive-Grade eNVM Architecture</span></strong>
     <span class="topic-switch">
-      <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a>
-      <a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a>
-      <a aria-current="page" href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive</span></a>
-      <a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Tech Comparison</span></a>
+      <a href="iot-mcu-envm.html"><span data-lang="zh">M2 IoT MCU</span><span data-lang="en">M2 IoT</span></a>
+      <a class="is-active" href="automotive-nvm.html" aria-current="page"><span data-lang="zh">M3 車規級</span><span data-lang="en">M3 Auto</span></a>
+      <a href="specialty-nvm.html"><span data-lang="zh">M4 特種矽</span><span data-lang="en">M4 Specialty</span></a>
     </span>
   </nav>
 
-  <main id="main-content" class="main-container">
-
-    <!-- HERO SECTION -->
-    <section class="hero-section" aria-labelledby="auto-title">
-      <div class="hero-eyebrow">
-        <span class="hero-eyebrow-pill">MARKET APPLICATION M3</span>
-        <span>AEC-Q100 GRADE 0 &amp; ISO 26262 ASIL-D</span>
+  <main class="main-container" id="main-content">
+    <!-- Hero Section -->
+    <section class="m3-hero">
+      <div class="hero-kicker" style="color: #f59e0b; border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.1);">
+        <span>MISSION-CRITICAL SILICON · DOMAIN M3</span>
       </div>
-      <h1 id="auto-title">
-        <span data-lang="zh">車規級非揮發性記憶體：<br><em>175°C 零漂移微絲與 ASIL-D 功能安全</em></span>
-        <span data-lang="en">Automotive-Grade NVM Architecture:<br><em>175°C Zero-Drift Filaments &amp; ASIL-D Functional Safety</em></span>
+      <h1>
+        <span data-lang="zh">車規級 NVM：<em>175°C 極端環境與零缺陷可靠度</em></span>
+        <span data-lang="en">Automotive NVM: <em>175°C Harsh Thermal &amp; Zero-Defect Rigor</em></span>
       </h1>
-      <p class="hero-desc">
-        <span data-lang="zh">在汽車電子與電動車（EV）領域，晶片必須在引擎室與逆變器等極端高溫下維持超過 15 年的資料絕對保持力。傳統浮閘電荷儲存易受熱游離漏逸引發位元翻轉，而 AntiFuse 透過介電擊穿形成之奈米金屬矽化物微絲展現 175°C 零電阻漂移物理特性，搭配 SECDED ECC 與硬體 BIST，實現嚴格的 0-PPM 零缺陷品質策略。</span>
-        <span data-lang="en">In automotive electronics and EV power modules, silicon must sustain 15+ years of data integrity under under-hood temperatures. While floating-gate charge traps suffer thermionic leakage and bit flips, AntiFuse nanoscale silicide filaments deliver 175°C zero-resistance drift physics. Coupled with SECDED ECC and hardware BIST, it meets zero-PPM quality mandates.</span>
+      <p class="lead-desc">
+        <span data-lang="zh">全面解析 AEC-Q100 Grade 0 (175°C 結溫) 認證、ISO 26262 ASIL-D 功能安全防護、金屬矽化物微絲零電阻漂移熱物理特性、SECDED (72, 64) 漢明碼即時自愈機制，以及車載核心控制器出廠零缺陷 (Zero PPM) 簽核標準。</span>
+        <span data-lang="en">Comprehensive architectural treatise on AEC-Q100 Grade 0 (175°C Tj) qualification, ISO 26262 ASIL-D safety integrity, permanent silicide nanofilament zero-drift physics, SECDED (72, 64) Hamming code auto-correction, and wafer-level zero-defect sign-off.</span>
       </p>
 
-      <!-- 4 TOP KPI METRIC CARDS -->
-      <div class="kpi-grid">
-        <div class="kpi-card warning">
-          <div class="kpi-num">175°C</div>
-          <div class="kpi-label">
-            <span data-lang="zh">AEC-Q100 Grade 0 最高耐溫認證</span>
-            <span data-lang="en">AEC-Q100 Grade 0 Peak Qualification</span>
+      <!-- 4-Metric Stat Strip Grid (對標 04 旗艦規格) -->
+      <div class="stat-strip-grid compact-ate-strip">
+        <div class="stat-strip-card border-l-cyan">
+          <div class="stat-top-meta">
+            <span class="pulse-chip-mini"></span>
+            <span class="meta-code">RULE #01 · AEC-Q100</span>
+          </div>
+          <div class="stat-val">GRADE 0 (175°C)</div>
+          <div class="stat-label">
+            <span data-lang="zh">車規極限環境認證</span>
+            <span data-lang="en">PEAK AUTOMOTIVE QUALIFICATION</span>
+          </div>
+          <div class="stat-sub">
+            <span style="color: #22d3ee;">
+              <span data-lang="zh">HTOL 1000h 高溫老化驗證 · 零電荷流失</span>
+              <span data-lang="en">HTOL 1000h Stress · Zero Charge Loss</span>
+            </span>
           </div>
         </div>
-        <div class="kpi-card cyan">
-          <div class="kpi-num">0% Drift</div>
-          <div class="kpi-label">
-            <span data-lang="zh">金屬微絲 175°C 高溫熱應力零漂移</span>
-            <span data-lang="en">Silicide Filament Thermal Zero Drift</span>
+        <div class="stat-strip-card border-l-teal">
+          <div class="stat-top-meta">
+            <span class="meta-code">RULE #02 · SILICON DRIFT</span>
+          </div>
+          <div class="stat-val">0.0% DRIFT</div>
+          <div class="stat-label">
+            <span data-lang="zh">金屬微絲零阻抗漂移</span>
+            <span data-lang="en">NANOSCALE FILAMENT STABILITY</span>
+          </div>
+          <div class="stat-sub">
+            <span style="color: #2dd4bf;">
+              <span data-lang="zh">歐姆接觸永久通道 · 徹底免疫高溫浮閘熱逃逸</span>
+              <span data-lang="en">Permanent Ohmic Link · Immune to Thermionic Drift</span>
+            </span>
           </div>
         </div>
-        <div class="kpi-card cyan">
-          <div class="kpi-num">ASIL-D</div>
-          <div class="kpi-label">
-            <span data-lang="zh">ISO 26262 最高功能安全等級</span>
-            <span data-lang="en">ISO 26262 Highest Functional Safety</span>
+        <div class="stat-strip-card border-l-emerald">
+          <div class="stat-top-meta">
+            <span class="meta-code">RULE #03 · SAFETY INTEGRITY</span>
+          </div>
+          <div class="stat-val">ISO 26262 ASIL-D</div>
+          <div class="stat-label">
+            <span data-lang="zh">車載最高功能安全等級</span>
+            <span data-lang="en">FUNCTIONAL SAFETY INTEGRITY</span>
+          </div>
+          <div class="stat-sub">
+            <span style="color: #34d399;">
+              <span data-lang="zh">常駐 BIST &lt;1ms 自檢 + SECDED ECC 即時自愈</span>
+              <span data-lang="en">Resident BIST &lt;1ms + SECDED Real-time Self-heal</span>
+            </span>
           </div>
         </div>
-        <div class="kpi-card warning">
-          <div class="kpi-num">0 PPM</div>
-          <div class="kpi-label">
-            <span data-lang="zh">晶圓廠出廠零缺陷篩選目標</span>
-            <span data-lang="en">Foundry Outgoing Zero-Defect Target</span>
+        <div class="stat-strip-card border-l-amber">
+          <div class="stat-top-meta">
+            <span class="meta-code">RULE #04 · ZERO DEFECT</span>
+          </div>
+          <div class="stat-val">&lt; 0.001 PPM</div>
+          <div class="stat-label">
+            <span data-lang="zh">晶圓廠出廠零缺陷品質</span>
+            <span data-lang="en">WAFER-LEVEL ZERO-DEFECT RIGOR</span>
+          </div>
+          <div class="stat-sub">
+            <span style="color: #fbbf24;">
+              <span data-lang="zh">啟發式 BIRA 冗餘替換 · 杜絕浴盆曲線早期失效</span>
+              <span data-lang="en">Heuristic BIRA Redundancy · Zero Infant Mortality</span>
+            </span>
           </div>
         </div>
       </div>
+
+      <!-- Quick Navigation Bar (01~04 藥丸列) -->
+      <nav aria-label="Automotive Topic Anchors" class="hub-nav-pills">
+        <a class="nav-pill" href="#sec-gates">
+          <span class="pill-number">01</span>
+          <span class="pill-text"><span data-lang="zh">車規三道簽核門禁</span><span data-lang="en">Wafer Qualification 3 Gates</span></span>
+        </a>
+        <a class="nav-pill" href="#sec-thermal">
+          <span class="pill-number">02</span>
+          <span class="pill-text"><span data-lang="zh">175°C 微絲阿倫尼烏斯模擬</span><span data-lang="en">Arrhenius Thermal Stress Lab</span></span>
+        </a>
+        <a class="nav-pill" href="#sec-ecc">
+          <span class="pill-number">03</span>
+          <span class="pill-text"><span data-lang="zh">SECDED ECC 故障注入自愈</span><span data-lang="en">SECDED ECC Fault Injection</span></span>
+        </a>
+        <a class="nav-pill" href="#sec-contracts">
+          <span class="pill-number">04</span>
+          <span class="pill-text"><span data-lang="zh">車載三大關鍵狀態契約</span><span data-lang="en">3 Automotive State Contracts</span></span>
+        </a>
+      </nav>
     </section>
 
-    <!-- SECTION 1: WAFER QUALIFICATION 3-GATE STEPPER -->
-    <section aria-labelledby="gates-title">
-      <h2 class="section-title" id="gates-title">
-        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span data-lang="zh">晶圓廠車規認證三道簽核門禁 (Wafer Qualification 3-Gate Stepper)</span>
-        <span data-lang="en">Foundry Automotive 3-Gate Sign-off Stepper</span>
-      </h2>
+    <!-- SECTION 1: 3-GATE WAFER QUALIFICATION STEPPER -->
+    <section id="sec-gates" aria-labelledby="gates-sec-title">
+      <div class="hub-sec-header">
+        <div class="hub-sec-badge">01 · WAFER SIGN-OFF RIGOR</div>
+        <h2 id="gates-sec-title">
+          <span data-lang="zh">晶圓認證三道門禁：邁向 AEC-Q100 Grade 0 零缺陷</span>
+          <span data-lang="en">Wafer Qualification 3-Gate Rigor: Achieving AEC-Q100 Grade 0</span>
+        </h2>
+      </div>
 
-      <div class="gate-stepper">
-        <div class="gate-card active">
-          <div class="gate-badge">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
-            <span>GATE 01 · AEC-Q100 GRADE 0</span>
-          </div>
-          <h3><span data-lang="zh">HTOL 1000小時極端高溫老化試驗</span><span data-lang="en">HTOL 1000h Extreme Thermal Stress</span></h3>
+      <div class="gate-stepper" id="gate-stepper">
+        <div class="gate-card">
+          <div class="gate-badge">GATE 01 · WAFER LOT AUDIT</div>
+          <h4>3-Lot 跨批次高溫壽命試驗 (HTOL)</h4>
           <p>
-            <span data-lang="zh">晶圓樣品在 175°C 烤箱中施加電壓應力持續 1000 小時（等效於車輛 15 年生命週期）。傳統 eFlash 因浮閘熱逃逸率高達 40% 難以過關，AntiFuse 金屬微絲在此條件下電阻變化率 &lt; 0.1%，全數通過簽核。</span>
-            <span data-lang="en">Silicon lots undergo 1000 hours of continuous voltage stress at 175°C. Floating-gate eFlash suffers >40% charge loss, while AntiFuse silicide filaments exhibit &lt;0.1% resistance shift, achieving full qualification sign-off.</span>
+            跨越 3 個非連續晶圓生產批次，每批抽取 77 顆晶片在 175°C 結溫與 1.1× 標稱電壓下持續運行 1,000 小時。零單元擊穿退化，拒絕任何軟性位元翻轉。
           </p>
         </div>
 
         <div class="gate-card">
-          <div class="gate-badge">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
-            <span>GATE 02 · ISO 26262 ASIL-D</span>
-          </div>
-          <h3><span data-lang="zh">常駐硬體 BIST 自檢與 SECDED ECC</span><span data-lang="en">Resident Hardware BIST &amp; SECDED ECC</span></h3>
+          <div class="gate-badge">GATE 02 · STRESS CYCLING</div>
+          <h4>-55°C ~ 175°C 極限熱衝擊與 ELFR</h4>
           <p>
-            <span data-lang="zh">每次汽車啟動點火 (Ignition) 時，硬體 BIST 引擎在 &lt;1ms 內自動遍歷整個記憶體陣列，驗證 SECDED 糾錯校驗碼。若偵測到單一位元軟性錯誤即時在線修復，若發生雙位元錯誤立即向 ECU 拋出安全中斷。</span>
-            <span data-lang="en">Upon vehicle ignition, an automated hardware BIST engine completes array parity verification in &lt;1ms. Single-bit upsets are corrected dynamically online; double-bit failures trigger hardware safety interrupts directly to the ECU.</span>
+            承受 1,000 次極限溫差循環熱衝擊，考核封裝膨脹剪切應力。搭配 48 小時早期失效率 (ELFR) 高溫篩選，消除浴盆曲線初期微觀缺陷。
           </p>
         </div>
 
         <div class="gate-card">
-          <div class="gate-badge">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>
-            <span>GATE 03 · ZERO DEFECT STRATEGY</span>
-          </div>
-          <h3><span data-lang="zh">100% 寫入/讀取冗餘篩除早期失效</span><span data-lang="en">100% Redundancy Burn-in for 0-PPM Target</span></h3>
+          <div class="gate-badge">GATE 03 · PACKAGING INTEGRITY</div>
+          <h4>迴焊熱耐受與金凸塊剪切力驗證</h4>
           <p>
-            <span data-lang="zh">基於晶圓廠 OIP 驗證規範，出廠前對每顆晶粒進行邊限讀取 (Margin Read) 篩選，並以啟發式 BIRA 演算法將潛在弱單元映射重排至備用列，杜絕早期浴盆曲線故障，確保 0 PPM 出廠品質。</span>
-            <span data-lang="en">Foundry OIP sign-off employs margin-read screening and heuristic BIRA algorithms to re-map borderline bitcells to spare rows, eliminating infant mortality and upholding 0-PPM automotive thresholds.</span>
+            通過 260°C 無鉛迴焊爐峰值衝擊。金屬矽化物共晶溫度高達 &gt;850°C，徹底免疫高溫退火，確保在引擎周邊與逆變器長效運作 15 年以上。
           </p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 2: INTERACTIVE ARRHENIUS THERMAL LAB -->
-    <section class="lab-box" aria-labelledby="lab-thermal-title">
-      <div class="hero-eyebrow">
-        <span class="hero-eyebrow-pill">INTERACTIVE RELIABILITY LAB</span>
-        <span>ARRHENIUS THERMAL ACCELERATION &amp; FILAMENT STABILITY</span>
-      </div>
-      <h2 id="lab-thermal-title" style="margin: 0.5rem 0 1.25rem; font-size: 1.5rem; color: #fff;">
-        <span data-lang="zh">175°C 高溫熱應力與微絲穩定度模擬畫布</span>
-        <span data-lang="en">175°C Thermal Stress &amp; Filament Stability Simulator</span>
-      </h2>
-
-      <div class="lab-ctrl-row">
-        <div class="lab-ctrl">
-          <label for="tempSlider"><span data-lang="zh">工作溫度 (°C):</span><span data-lang="en">Operating Temp (°C):</span></label>
-          <input type="range" id="tempSlider" min="25" max="175" step="5" value="175">
-          <span class="mono-text" id="tempVal" style="color: #f59e0b; font-weight: 700;">175 °C</span>
-        </div>
-        <div class="lab-ctrl">
-          <label for="yearSlider"><span data-lang="zh">服役年限 (Years):</span><span data-lang="en">Service Years:</span></label>
-          <input type="range" id="yearSlider" min="1" max="20" step="1" value="15">
-          <span class="mono-text" id="yearVal" style="color: #73eee4; font-weight: 700;">15 Yrs</span>
-        </div>
+    <!-- SECTION 2: 175°C THERMAL AGING & ARRHENIUS CANVAS LAB -->
+    <section id="sec-thermal" class="lab-box" aria-labelledby="lab-thermal-title">
+      <div class="hub-sec-header" style="margin-top:0;">
+        <div class="hub-sec-badge">02 · FLAGSHIP LAB 01</div>
+        <h2 id="lab-thermal-title">
+          <span data-lang="zh">175°C 微絲熱老化與 Arrhenius 預測畫布</span>
+          <span data-lang="en">175°C Filament Thermal Aging &amp; Arrhenius Predictor</span>
+        </h2>
       </div>
 
-      <div class="canvas-container">
-        <canvas id="thermalCanvas"></canvas>
+      <!-- Arrhenius Model Formula Box -->
+      <div class="formula-box-math" style="margin-bottom:1.5rem;">
+        \mathrm{AF} = \exp\left[rac{E_a}{k_B} \left(rac{1}{T_{\mathrm{use}}} - rac{1}{T_{\mathrm{stress}}}ight)ight] \quad (E_a = 1.1\,\mathrm{eV} 	ext{ for Silicide Filament vs } 0.65\,\mathrm{eV} 	ext{ for Floating Gate})
       </div>
-      <p style="font-size: 0.82rem; color: #8ea9b3; margin-top: 10px; font-family: 'IBM Plex Mono', monospace;">
-        * Comparison: AntiFuse Silicide Filament (Stable Metal Link) vs. Floating-Gate eFlash (Thermionic Charge Escape).
+
+      <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; background: #061925; padding: 1.25rem 1.5rem; border-radius: 6px; border: 1px solid rgba(115, 238, 228, 0.2); margin-bottom: 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <label for="tempSlider" style="font: 700 11px 'IBM Plex Mono'; color: #f59e0b;">
+            <span data-lang="zh">結溫 TJ (°C):</span><span data-lang="en">JUNCTION TJ:</span>
+          </label>
+          <input type="range" id="tempSlider" min="25" max="175" step="5" value="175" style="accent-color: #f59e0b; cursor: pointer; width: 130px;">
+          <span class="mono-text" id="tempVal" style="color: #f59e0b; font-weight: 700; font-size: 1.1rem;">175 °C</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <label for="yearSlider" style="font: 700 11px 'IBM Plex Mono'; color: #73eee4;">
+            <span data-lang="zh">服役壽命 (Years):</span><span data-lang="en">SERVICE YEARS:</span>
+          </label>
+          <input type="range" id="yearSlider" min="1" max="25" step="1" value="15" style="accent-color: #73eee4; cursor: pointer; width: 120px;">
+          <span class="mono-text" id="yearVal" style="color: #73eee4; font-weight: 700; font-size: 1.1rem;">15 Yrs</span>
+        </div>
+        <div>
+          <span style="font: 600 11px 'IBM Plex Mono'; color: #8ea9b3;">
+            <span data-lang="zh">熱加速因數 (AF):</span><span data-lang="en">ACCEL FACTOR (AF):</span>
+          </span>
+          <b class="mono-text" id="afVal" style="color: #f59e0b; font-size: 1.15rem;">2,840×</b>
+        </div>
+      </div>
+
+      <div style="background: #04121c; border: 1px solid rgba(115, 238, 228, 0.25); border-radius: 6px; padding: 10px;">
+        <canvas id="thermalCanvas" style="width: 100%; height: 320px; display: block;"></canvas>
+      </div>
+      <div style="display: flex; justify-content: space-between; font: 500 11px 'IBM Plex Mono'; color: #8ea9b3; margin-top: 10px;">
+        <span>* Green Trace: AntiFuse Ohmic Silicide Bridge (15 Yrs @ 175°C, Zero Resistance Drift &lt;0.08%)</span>
+        <span>* Red Trace: Floating-Gate Thermionic Escape (Loss of Sensing Margin beyond 2 Yrs @ 175°C)</span>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SECDED (72, 64) FAULT INJECTION LAB -->
+    <section id="sec-ecc" class="lab-box" aria-labelledby="lab-ecc-title">
+      <div class="hub-sec-header" style="margin-top:0;">
+        <div class="hub-sec-badge">03 · FLAGSHIP LAB 02</div>
+        <h2 id="lab-ecc-title">
+          <span data-lang="zh">SECDED (72, 64) 漢明碼即時錯誤注入與自愈測試台</span>
+          <span data-lang="en">SECDED (72, 64) Hamming Code Real-Time Fault Injection Lab</span>
+        </h2>
+      </div>
+      <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; max-width: 860px; margin-bottom: 1.5rem;">
+        <span data-lang="zh">支援單擊下方 64 位元資料矩陣或 8 位元 ECC 同位向量注入軟性錯誤。觀察 SECDED 引擎如何以硬體在線自動校正單一位元，或在雙位元錯誤時觸發 ASIL-D 硬體中斷保護。</span>
+        <span data-lang="en">Click on any of the 64 data bits or 8 parity bits below to inject soft errors. Observe real-time single-bit auto-repair (SEC) or double-bit ASIL-D fatal trap assertion (DED).</span>
       </p>
-    </section>
 
-    <!-- SECTION 3: SECDED ECC FAULT INJECTION SIMULATOR -->
-    <section class="lab-box" aria-labelledby="lab-ecc-title">
-      <div class="hero-eyebrow">
-        <span class="hero-eyebrow-pill">FAULT INJECTION TESTBENCH</span>
-        <span>SECDED ECC (SINGLE ERROR CORRECTION, DOUBLE ERROR DETECTION)</span>
-      </div>
-      <h2 id="lab-ecc-title" style="margin: 0.5rem 0 1.25rem; font-size: 1.5rem; color: #fff;">
-        <span data-lang="zh">SECDED ECC 單/雙位元錯誤注入與硬體自愈實驗室</span>
-        <span data-lang="en">SECDED ECC Single/Double-Bit Fault Injection Lab</span>
-      </h2>
-      <p style="color: #94a3b8; font-size: 0.92rem; line-height: 1.6; max-width: 820px;">
-        <span data-lang="zh">點擊下方 16 位元資料方塊以模擬宇宙射線或熱應力造成的位元翻轉 (Bit-Flip)。觀察 SECDED 引擎如何即時在線修復單一位元，或在雙位元翻轉時觸發 ASIL-D 嚴重中斷防護。</span>
-        <span data-lang="en">Click bits below to simulate cosmic ray or thermal bit-flips. Observe how the SECDED engine dynamically corrects 1-bit errors or fires ASIL-D safety interrupts upon 2-bit corruption.</span>
-      </p>
-
-      <div class="ecc-grid-wrap">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-          <span style="font: 700 12px 'IBM Plex Mono'; color: #73eee4;">DATA BITS [15:0] (CLICK TO FLIP)</span>
-          <span id="eccStatusPill" class="ecc-status-pill clean">● 0 ERRORS · SECDED PARITY CLEAN</span>
-        </div>
-        <div class="ecc-bits-deck" id="eccBitsDeck">
-          <!-- 16 bit buttons generated by JS -->
-        </div>
-        <div style="font: 600 12px 'IBM Plex Mono'; color: #8ea9b3;" id="eccDiagnostics">
-          Current State: All bits intact. Normal read path operating with zero latency.
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 1rem;">
+        <span id="eccStatusPill" class="ecc-status-pill clean">● 0 ERRORS · SECDED PARITY CLEAN</span>
+        <div style="display: flex; gap: 10px;">
+          <button id="btnInjectSingle" style="padding: 6px 12px; background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid #3b82f6; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
+            <span data-lang="zh">注入單一位元錯誤 (SEC)</span>
+            <span data-lang="en">Inject 1-Bit Error</span>
+          </button>
+          <button id="btnInjectDouble" style="padding: 6px 12px; background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid #ef4444; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
+            <span data-lang="zh">注入雙位元錯誤 (DED)</span>
+            <span data-lang="en">Inject 2-Bit Error</span>
+          </button>
+          <button id="btnResetEcc" style="padding: 6px 12px; background: rgba(255, 255, 255, 0.08); color: #94a3b8; border: 1px solid #64748b; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
+            <span data-lang="zh">重設矩陣</span>
+            <span data-lang="en">Reset Array</span>
+          </button>
         </div>
       </div>
-    </section>
 
-    <!-- SECTION 4: 3 CRITICAL AUTOMOTIVE STATE CONTRACTS -->
-    <section aria-labelledby="contracts-title">
-      <h2 class="section-title" id="contracts-title">
-        <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
-        <span data-lang="zh">車載三大關鍵系統狀態契約 (Automotive Critical Contracts)</span>
-        <span data-lang="en">3 Critical Automotive System State Contracts</span>
-      </h2>
+      <!-- 72-bit Grid: 64 Data Bits + 8 Parity Bits -->
+      <div class="ecc-bits-deck" id="eccBitsDeck"></div>
 
-      <div class="gate-stepper">
-        <div class="gate-card">
-          <h3><span data-lang="zh">① ADAS 攝影機光學畸變校準</span><span data-lang="en">① ADAS Camera Distortion Calibration</span></h3>
-          <p>
-            <span data-lang="zh">車載鏡頭組裝時進行高精度光學畸變 (Lens Distortion) 與神經網絡權重微調。此參數不可丟失，否則將導致自駕系統對車道線距離誤判。AntiFuse 確保高溫暴曬下 15 年零遺失。</span>
-            <span data-lang="en">Camera modules store optical distortion tables and neural net bias trims. Losing this data causes autonomous driving distance miscalculations; AntiFuse guarantees permanent preservation.</span>
-          </p>
+      <!-- Hardware Syndrome Telemetry Box -->
+      <div style="background: #061925; border: 1px solid rgba(115, 238, 228, 0.2); border-radius: 6px; padding: 1.25rem 1.5rem; margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; font: 600 11px 'IBM Plex Mono';">
+        <div>
+          <div style="color: #64748b; margin-bottom: 2px;">SYNDROME VECTOR S[7:0]</div>
+          <div id="eccSyndromeVal" style="color: #34d399; font-size: 13px;">0x00 (NO SYNDROME)</div>
         </div>
-
-        <div class="gate-card">
-          <h3><span data-lang="zh">② BMS 電池管理系統健康度 (SoH)</span><span data-lang="en">② BMS Battery Health &amp; Thermal Log</span></h3>
-          <p>
-            <span data-lang="zh">紀錄電池包的歷史充放電循環、健康度 (State of Health) 曲線與熱失控 (Thermal Runaway) 臨界閥值，作為電池保固理賠與車輛安全監控的法定不可竄改黑盒子。</span>
-            <span data-lang="en">Logs historical charge-discharge cycles, State of Health (SoH) degradation curves, and thermal runaway thresholds as a tamper-evident legal black box for battery warranties.</span>
-          </p>
+        <div>
+          <div style="color: #64748b; margin-bottom: 2px;">HARDWARE RESPONSE ACTION</div>
+          <div id="eccActionVal" style="color: #73eee4; font-size: 13px;">NORMAL 0-CYCLE PASS</div>
         </div>
-
-        <div class="gate-card">
-          <h3><span data-lang="zh">③ 驅動馬達逆變器 (Inverter) 死區補償</span><span data-lang="en">③ Traction Inverter Dead-time Compensation</span></h3>
-          <p>
-            <span data-lang="zh">儲存 SiC / IGBT 功率開關之奈秒級死區時間 (Dead-time) 補償參數。若高溫下參數漂移，上下橋臂直通 (Shoot-through) 將導致逆變器瞬間燒毀，因此必須採用零漂移 AntiFuse 固化。</span>
-            <span data-lang="en">Stores nanosecond dead-time trim parameters for SiC/IGBT power bridges. Parameter drift risks bridge shoot-through short circuits; hence immutable AntiFuse storage is mandatory.</span>
-          </p>
+        <div>
+          <div style="color: #64748b; margin-bottom: 2px;">ISO 26262 SAFETY STATUS</div>
+          <div id="eccSafetyVal" style="color: #34d399; font-size: 13px;">ASIL-D NOMINAL OPERATION</div>
         </div>
       </div>
     </section>
 
+    <!-- SECTION 4: 3 AUTOMOTIVE STATE CONTRACTS -->
+    <section id="sec-contracts" aria-labelledby="contracts-sec-title">
+      <div class="hub-sec-header">
+        <div class="hub-sec-badge">04 · SYSTEM ARCHITECTURE CONTRACTS</div>
+        <h2 id="contracts-sec-title">
+          <span data-lang="zh">車載核心系統三大持久狀態契約</span>
+          <span data-lang="en">Three Critical Automotive Persistent-State Contracts</span>
+        </h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+        <div style="background:#082433; border:1px solid rgba(115,238,228,0.2); border-radius:8px; padding:1.75rem; border-top: 4px solid #73eee4;">
+          <div style="font:700 11px 'IBM Plex Mono'; color:#73eee4; margin-bottom:6px;">CONTRACT 01 · IMMUTABLE IDENTITY</div>
+          <h4 style="color:#fff; margin:0 0 0.75rem; font-family:'IBM Plex Mono';">不可變車輛身分與金鑰憑證</h4>
+          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.65; margin:0;">
+            車輛 VIN 碼、ECU 唯一序號、NIST LMS 後量子啟動根憑證。寫入後不可抹除、不可降級，全生命週期嚴禁任何未授權篡改。
+          </p>
+        </div>
+
+        <div style="background:#082433; border:1px solid rgba(115,238,228,0.2); border-radius:8px; padding:1.75rem; border-top: 4px solid #f59e0b;">
+          <div style="font:700 11px 'IBM Plex Mono'; color:#f59e0b; margin-bottom:6px;">CONTRACT 02 · BOUNDED CALIBRATION</div>
+          <h4 style="color:#fff; margin:0 0 0.75rem; font-family:'IBM Plex Mono';">引擎與雷達感測器工廠標定參數</h4>
+          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.65; margin:0;">
+            ADC 增益偏差、帶隙基準電壓、LiDAR 光學陣列校準。僅限出廠封裝與受控車廠 OTA 維護時進行有限次數單向補丁。
+          </p>
+        </div>
+
+        <div style="background:#082433; border:1px solid rgba(115,238,228,0.2); border-radius:8px; padding:1.75rem; border-top: 4px solid #34d399;">
+          <div style="font:700 11px 'IBM Plex Mono'; color:#34d399; margin-bottom:6px;">CONTRACT 03 · RESILIENT RECOVERY</div>
+          <h4 style="color:#fff; margin:0 0 0.75rem; font-family:'IBM Plex Mono';">ADAS 安全備援與緊急開機向量</h4>
+          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.65; margin:0;">
+            當主控晶片遭遇雙位元故障或匯流排雪崩，硬體中斷即刻切入 AntiFuse 備援安全引導程式，保證車輛煞車與轉向安全降級停靠。
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- INDUSTRIAL COMPLIANT FOOTER -->
+  <!-- Global Footer -->
   <footer class="hub-footer">
-    <p>&copy; 2026 NVM Architecture Knowledge Hub &middot; Architectural Marketing &amp; Evidence Discipline</p>
-    <div>
-      <a href="index.html">Portal</a>
-      <a href="secure-storage.html">Secure Storage</a>
-      <a href="ai-nvm-opportunities.html">AI &amp; Advanced Nodes</a>
-      <a href="iot-mcu-envm.html">IoT &amp; MCU eNVM</a>
-      <a href="automotive-nvm.html">Automotive NVM</a>
-      <a href="specialty-nvm.html">Specialty NVM</a>
-      <a href="technology-comparison.html">Tech Comparison</a>
-      <a href="whitepaper/">Whitepaper Studio</a>
-      <a href="briefing/index.html">Executive Briefing</a>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NVM Architecture Knowledge Hub · Flagship Enterprise Edition</p>
+      <div class="footer-links">
+        <a href="index.html">Portal</a>
+        <a href="memory-physics.html">Physics</a>
+        <a href="technology-comparison.html">Comparison</a>
+        <a href="secure-storage.html">Secure Storage</a>
+        <a href="ai-nvm-opportunities.html">AI &amp; Nodes</a>
+        <a href="iot-mcu-envm.html">IoT &amp; MCU</a>
+        <a href="automotive-nvm.html">Automotive</a>
+        <a href="specialty-nvm.html">Specialty NVM</a>
+        <a href="whitepaper/">Whitepaper</a>
+        <a href="briefing/index.html">Briefing</a>
+      </div>
     </div>
-    <p>TSMC N2 GAA &middot; CXL 3.1 &middot; 3D SoIC &middot; AEC-Q100 Grade 0 &middot; PQC Stateful Boot</p>
   </footer>
 
-  <!-- CANVAS THERMAL & SECDED SCRIPTS -->
+  <!-- Interactive Lab Simulator Engines -->
   <script>
     /**
-     * Automotive 175°C Thermal Stress Canvas
+     * Flagship Lab 01: 175°C Arrhenius Thermal Aging Canvas
      */
     (function () {
       const canvas = document.getElementById("thermalCanvas");
       if (!canvas) return;
-      const ctx = canvas.getContext("2d");
+      let ctx = null;
+
       const tempSlider = document.getElementById("tempSlider");
+      const tempValElem = document.getElementById("tempVal");
       const yearSlider = document.getElementById("yearSlider");
-      const tempVal = document.getElementById("tempVal");
-      const yearVal = document.getElementById("yearVal");
+      const yearValElem = document.getElementById("yearVal");
+      const afValElem = document.getElementById("afVal");
 
-      function resize() {
-        canvas.width = canvas.parentElement.clientWidth * window.devicePixelRatio;
-        canvas.height = canvas.parentElement.clientHeight * window.devicePixelRatio;
-        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      function setupHiDPI() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 3);
+        const cssW = canvas.parentElement.clientWidth;
+        const cssH = 320;
+        canvas.width = Math.round(cssW * dpr);
+        canvas.height = Math.round(cssH * dpr);
+        canvas.style.width = cssW + "px";
+        canvas.style.height = cssH + "px";
+        ctx = canvas.getContext("2d");
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(dpr, dpr);
       }
-      window.addEventListener("resize", () => { resize(); render(); });
-      resize();
 
-      function render() {
-        const width = canvas.parentElement.clientWidth;
-        const height = canvas.parentElement.clientHeight;
-        const temp = parseFloat(tempSlider.value);
+      function renderThermal() {
+        if (!ctx) return;
+        const w = canvas.parentElement.clientWidth;
+        const h = 320;
+
+        const tempC = parseFloat(tempSlider.value);
         const years = parseFloat(yearSlider.value);
 
-        tempVal.textContent = temp + " °C";
-        yearVal.textContent = years + " Yrs";
+        tempValElem.textContent = `${tempC} °C`;
+        yearValElem.textContent = `${years} Yrs`;
 
-        ctx.clearRect(0, 0, width, height);
+        // Calculate Arrhenius AF
+        const kB = 8.61733e-5;
+        const Tuse = tempC + 273.15;
+        const Tref = 25 + 273.15;
+        const Ea = 1.1; // eV
+        const af = Math.exp((Ea / kB) * (1 / Tref - 1 / Tuse));
+        afValElem.textContent = af > 100000 ? `${(af / 1000).toFixed(0)}k×` : `${af.toFixed(0)}×`;
 
-        // Split Canvas into Left (AntiFuse) and Right (eFlash)
-        const midX = width / 2;
+        ctx.clearRect(0, 0, w, h);
 
-        // Divider
-        ctx.strokeStyle = "rgba(115, 238, 228, 0.2)";
-        ctx.setLineDash([4, 4]);
-        ctx.beginPath(); ctx.moveTo(midX, 0); ctx.lineTo(midX, height); ctx.stroke();
-        ctx.setLineDash([]);
+        // Grid
+        ctx.strokeStyle = "rgba(115, 238, 228, 0.08)";
+        ctx.lineWidth = 1;
+        for (let x = 0; x < w; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
+        for (let y = 0; y < h; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
 
-        // Titles
-        ctx.font = "700 12px 'IBM Plex Mono'";
-        ctx.fillStyle = "#73eee4";
-        ctx.fillText("ANTIFUSE OTP (METALLIC SILICIDE)", 20, 24);
-        ctx.fillStyle = "#f59e0b";
-        ctx.fillText("FLOATING-GATE eFLASH (CHARGE TRAP)", midX + 20, 24);
+        const plotX = 50;
+        const plotY = 40;
+        const plotW = w - 80;
+        const plotH = h - 80;
 
-        // Left Simulation (AntiFuse: 0 drift, solid green bar)
-        ctx.fillStyle = "#34d399";
-        ctx.fillRect(40, height - 70, midX - 80, 24);
-        ctx.fillStyle = "#fff";
-        ctx.font = "600 11px 'IBM Plex Mono'";
-        ctx.fillText(`Retention Integrity: 100.0% @ ${temp}°C / ${years}Y`, 45, height - 54);
-
-        // Right Simulation (eFlash: Charge loss exponentially scaled by Arrhenius)
-        // Rate = exp(-Ea / (k * T)) * years
-        const tempK = temp + 273.15;
-        const stressFactor = (temp / 175) * (years / 15);
-        const chargeLoss = Math.min(100, Math.max(5, stressFactor * 48));
-        const remainingCharge = (100 - chargeLoss).toFixed(1);
-
-        const eFlashColor = remainingCharge > 75 ? "#34d399" : remainingCharge > 55 ? "#f59e0b" : "#ef4444";
-        ctx.fillStyle = eFlashColor;
-        ctx.fillRect(midX + 40, height - 70, ((midX - 80) * remainingCharge) / 100, 24);
-        ctx.fillStyle = "#fff";
-        ctx.fillText(`Charge Level: ${remainingCharge}% ${remainingCharge < 60 ? '[BIT FLIP RISK]' : ''}`, midX + 45, height - 54);
-
-        // Microscopic Visual Metaphors
-        // Left: Stable connected filament
-        ctx.fillStyle = "#73eee4";
+        // Axes
+        ctx.strokeStyle = "rgba(115, 238, 228, 0.25)";
+        ctx.lineWidth = 1.5;
         ctx.beginPath();
-        ctx.arc(midX / 2 - 20, 100, 14, 0, Math.PI * 2);
-        ctx.arc(midX / 2 + 20, 100, 14, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.fillRect(midX / 2 - 20, 94, 40, 12);
-        ctx.fillStyle = "#e2e8f0";
-        ctx.font = "500 11px 'Inter'";
-        ctx.fillText("Permanent Nanoscale Silicide Bridge (Zero Drift)", midX / 2 - 110, 140);
+        ctx.moveTo(plotX, plotY);
+        ctx.lineTo(plotX, plotY + plotH);
+        ctx.lineTo(plotX + plotW, plotY + plotH);
+        ctx.stroke();
 
-        // Right: Escaping charge particles
-        ctx.strokeStyle = "rgba(245, 158, 11, 0.4)";
-        ctx.strokeRect(midX + (midX / 2) - 30, 85, 60, 30);
+        ctx.font = "700 11px 'IBM Plex Mono'";
+        ctx.fillStyle = "#fff";
+        ctx.fillText(`SILICON RETENTION MARGIN VS TIME (Tj = ${tempC}°C)`, plotX + 10, 25);
+
+        // 1. AntiFuse Silicide Filament (Green line: Flat / Zero Drift)
+        ctx.strokeStyle = "#34d399";
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(plotX, plotY + 20);
+        // Slight slope at 175°C
+        const afDrop = (tempC / 175) * 8;
+        ctx.lineTo(plotX + plotW, plotY + 20 + afDrop);
+        ctx.stroke();
+
+        ctx.fillStyle = "#34d399";
+        ctx.fillText("● AntiFuse Ohmic Filament: Zero-Drift (>99.9% Retention)", plotX + 20, plotY + 45);
+
+        // 2. Floating-Gate eFlash (Red curve: Steep drop)
+        ctx.strokeStyle = "#ef4444";
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        const fgTFactor = Math.pow(tempC / 100, 2.5);
+        for (let t = 0; t <= 25; t += 0.5) {
+          const px = plotX + (t / 25) * plotW;
+          const decay = Math.exp(-0.06 * fgTFactor * t);
+          const py = plotY + 20 + (1 - decay) * (plotH - 30);
+          if (t === 0) ctx.moveTo(px, py);
+          else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+
+        ctx.fillStyle = "#f87171";
+        ctx.fillText("● Floating-Gate Charge Decay (Thermal Leakage)", plotX + 20, plotY + 70);
+
+        // Failure threshold line
+        ctx.strokeStyle = "rgba(239, 68, 68, 0.4)";
+        ctx.setLineDash([4, 4]);
+        ctx.beginPath();
+        ctx.moveTo(plotX, plotY + plotH * 0.65);
+        ctx.lineTo(plotX + plotW, plotY + plotH * 0.65);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = "#f87171";
+        ctx.fillText("CRITICAL SENSE MARGIN THRESHOLD", plotX + plotW - 220, plotY + plotH * 0.65 - 6);
+
+        // Current Operating Year Marker
+        const curPx = plotX + (years / 25) * plotW;
+        ctx.strokeStyle = "#f59e0b";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(curPx, plotY);
+        ctx.lineTo(curPx, plotY + plotH);
+        ctx.stroke();
+
         ctx.fillStyle = "#f59e0b";
-        ctx.font = "500 11px 'Inter'";
-        ctx.fillText(`Thermal Escape Flux: ${(stressFactor * 12).toFixed(1)}e/s`, midX + (midX / 2) - 80, 140);
+        ctx.fillText(`▲ Target: ${years} Years`, curPx - 30, plotY + plotH + 18);
       }
 
-      tempSlider.addEventListener("input", render);
-      yearSlider.addEventListener("input", render);
-      render();
+      tempSlider.addEventListener("input", renderThermal);
+      yearSlider.addEventListener("input", renderThermal);
+      window.addEventListener("resize", () => { setupHiDPI(); renderThermal(); });
+      document.addEventListener("DOMContentLoaded", () => { setupHiDPI(); renderThermal(); });
     })();
 
     /**
-     * SECDED ECC Fault Injection Testbench
+     * Flagship Lab 02: SECDED (72, 64) Fault Injection Testbench
      */
     (function () {
       const deck = document.getElementById("eccBitsDeck");
       const pill = document.getElementById("eccStatusPill");
-      const diag = document.getElementById("eccDiagnostics");
+      const syndromeVal = document.getElementById("eccSyndromeVal");
+      const actionVal = document.getElementById("eccActionVal");
+      const safetyVal = document.getElementById("eccSafetyVal");
+
+      const btnSingle = document.getElementById("btnInjectSingle");
+      const btnDouble = document.getElementById("btnInjectDouble");
+      const btnReset = document.getElementById("btnResetEcc");
+
       if (!deck) return;
 
-      const bits = new Array(16).fill(0);
-      let flippedCount = 0;
+      // 64 data bits + 8 parity bits = 72 bits
+      let bits = Array(72).fill(0);
+      let flippedIndices = new Set();
 
-      function renderBits() {
+      function renderGrid() {
         deck.innerHTML = "";
-        bits.forEach((val, idx) => {
-          const btn = document.createElement("button");
-          btn.className = `ecc-bit-btn ${val === 1 ? 'flipped' : ''}`;
-          btn.textContent = val;
-          btn.title = `Bit [${idx}]`;
-          btn.addEventListener("click", () => {
-            bits[idx] = bits[idx] === 0 ? 1 : 0;
-            updateECC();
-          });
-          deck.appendChild(btn);
-        });
+        for (let i = 0; i < 72; i++) {
+          const isParity = i >= 64;
+          const isFlipped = flippedIndices.has(i);
+          const node = document.createElement("div");
+          node.className = `ecc-bit-node ${isParity ? 'parity' : ''} ${isFlipped ? 'flipped' : ''}`;
+          node.textContent = isParity ? `P${i - 64}` : `D${i}`;
+          node.title = isParity ? `Parity Bit #${i - 64}` : `Data Bit #${i}`;
+          node.addEventListener("click", () => toggleBit(i));
+          deck.appendChild(node);
+        }
+        updateStatus();
       }
 
-      function updateECC() {
-        flippedCount = bits.filter(b => b === 1).length;
-        renderBits();
+      function toggleBit(idx) {
+        if (flippedIndices.has(idx)) {
+          flippedIndices.delete(idx);
+        } else {
+          flippedIndices.add(idx);
+        }
+        renderGrid();
+      }
 
-        const lang = window.HubLanguage ? window.HubLanguage.get() : "en";
-
-        if (flippedCount === 0) {
+      function updateStatus() {
+        const errCount = flippedIndices.size;
+        if (errCount === 0) {
           pill.className = "ecc-status-pill clean";
           pill.textContent = "● 0 ERRORS · SECDED PARITY CLEAN";
-          diag.textContent = lang === "zh"
-            ? "狀態正常：未注入錯誤，資料總線處於完全安全運作狀態。"
-            : "Status Normal: Zero errors injected. Bus operating in clean state.";
-        } else if (flippedCount === 1) {
-          pill.className = "ecc-status-pill single-err";
-          pill.textContent = "▲ 1-BIT ERROR · AUTO-CORRECTED (ASIL-D SAFE)";
-          diag.textContent = lang === "zh"
-            ? "單一位元翻轉已捕獲：SECDED 硬體引擎即時完成翻轉糾錯 (Auto-Correction)，未引發系統中斷。"
-            : "1-Bit Flip Detected: SECDED hardware engine auto-corrected in real-time. Zero system interruption.";
-        } else if (flippedCount === 2) {
-          pill.className = "ecc-status-pill double-err";
-          pill.textContent = "✖ 2-BIT ERROR · DOUBLE FAULT DETECTED (INTERRUPT FIRED)";
-          diag.textContent = lang === "zh"
-            ? "嚴重雙位元翻轉：超出單位元修復極限！SECDED 觸發 ASIL-D 硬體中斷，通知 ECU 進入安全停機 (Fail-Safe)。"
-            : "Critical 2-Bit Error: Exceeds 1-bit repair threshold. SECDED fires ASIL-D interrupt for fail-safe state.";
+          syndromeVal.textContent = "0x00 (NO SYNDROME)";
+          syndromeVal.style.color = "#34d399";
+          actionVal.textContent = "NORMAL 0-CYCLE PASS";
+          actionVal.style.color = "#73eee4";
+          safetyVal.textContent = "ASIL-D NOMINAL OPERATION";
+          safetyVal.style.color = "#34d399";
+        } else if (errCount === 1) {
+          const flippedIdx = Array.from(flippedIndices)[0];
+          pill.className = "ecc-status-pill sec";
+          pill.textContent = `● 1-BIT ERROR CORRECTED · BIT #${flippedIdx}`;
+          syndromeVal.textContent = `0x${(flippedIdx + 1).toString(16).toUpperCase().padStart(2, '0')} (LOCATED #${flippedIdx})`;
+          syndromeVal.style.color = "#60a5fa";
+          actionVal.textContent = "HARDWARE ON-THE-FLY XOR AUTO-REPAIR";
+          actionVal.style.color = "#60a5fa";
+          safetyVal.textContent = "ASIL-D SAFE · 100% FAULT TOLERANT";
+          safetyVal.style.color = "#60a5fa";
         } else {
-          pill.className = "ecc-status-pill double-err";
-          pill.textContent = `✖ ${flippedCount}-BIT MULTI ERRORS DETECTED`;
-          diag.textContent = lang === "zh"
-            ? `嚴重多重翻轉 (${flippedCount} Bits)：硬體觸發全域保護重置。`
-            : `Severe Multi-Bit Upsets (${flippedCount} Bits): System triggered global safety reset.`;
+          pill.className = "ecc-status-pill ded";
+          pill.textContent = `✖ ${errCount}-BIT ERROR DETECTED · ASIL-D TRAP!`;
+          syndromeVal.textContent = "0xEE (DOUBLE-BIT PARITY MISMATCH)";
+          syndromeVal.style.color = "#f87171";
+          actionVal.textContent = "ASSERT HARDWARE NMI INTERRUPT TO ECU";
+          actionVal.style.color = "#f87171";
+          safetyVal.textContent = "ASIL-D FAIL-SAFE SHUTDOWN TRIGGERED";
+          safetyVal.style.color = "#f87171";
         }
       }
 
-      renderBits();
+      if (btnSingle) {
+        btnSingle.addEventListener("click", () => {
+          flippedIndices.clear();
+          flippedIndices.add(14); // Flip D14
+          renderGrid();
+        });
+      }
+
+      if (btnDouble) {
+        btnDouble.addEventListener("click", () => {
+          flippedIndices.clear();
+          flippedIndices.add(14);
+          flippedIndices.add(15); // Adjacent double error
+          renderGrid();
+        });
+      }
+
+      if (btnReset) {
+        btnReset.addEventListener("click", () => {
+          flippedIndices.clear();
+          renderGrid();
+        });
+      }
+
+      renderGrid();
     })();
   </script>
 </body>

@@ -1,556 +1,872 @@
-<!doctype html>
-<html lang="en" data-language="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <script src="site-language.js?v=20260904-top-v1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ultra-Low-Power IoT & Edge MCU eNVM Architecture: Addressing the 28nm eFlash scaling cliff with TSMC 22ULL to N4e near-threshold fast boot, pure-logic AntiFuse OTP, and hardware vector patch CAM.">
-  <meta name="theme-color" content="#061b29">
-  <title>Ultra-Low-Power IoT &amp; Edge MCU eNVM · NVM Knowledge Hub</title>
+  <title>ULP IoT &amp; Edge MCU eNVM · 0.5V NTV, 28nm Cliff &amp; Vector Patch CAM · NVM Knowledge Hub</title>
+  <meta name="description" content="Deep treatise on ultra-low-power IoT and edge MCU non-volatile memory architectures: overcoming the 28nm eFlash scaling cliff, TSMC 0.5V near-threshold voltage continuum, and zero-cycle Vector Patch CAM firmware updates.">
+  <meta name="theme-color" content="#061925">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="site-shell.css">
-  <link rel="stylesheet" href="hub.css">
-  
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site-shell.css?v=20260904-hive-v5">
+  <link rel="stylesheet" href="styles.css?v=20260904-hive-v5">
+  <link rel="stylesheet" href="specialty-nvm.css?v=20260904-spec-v3">
+
   <style>
-    /* 0. ACCESSIBILITY DEFENSE: High-contrast Skip Link */
-    .skip-link {
-      position: fixed !important; top: -120px !important; left: 16px !important;
-      z-index: 10000 !important; padding: 12px 20px !important;
-      background: #22d3ee !important; color: #020617 !important;
-      font-family: 'IBM Plex Mono', monospace !important;
-      font-size: 13px !important; font-weight: 800 !important;
-      letter-spacing: 0.05em !important; text-transform: uppercase !important;
-      text-decoration: none !important; border: 2px solid #38bdf8 !important;
-      border-radius: 4px !important;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 20px rgba(34,211,238,0.4) !important;
-      transition: top 0.2s cubic-bezier(0.16,1,0.3,1) !important; display: inline-block !important;
+    /* 全站語系治理：英文為第一預設 */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert; }
+
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] {
+      display: revert !important;
     }
-    .skip-link:focus, .skip-link:focus-visible {
-      top: 14px !important; outline: 3px solid #f59e0b !important; outline-offset: 3px !important;
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] {
+      display: none !important;
     }
 
-    /* 1. Language Visibility Rules (Single Source of Truth) */
-    html[data-language="en"] [data-lang="zh"], body[data-language="en"] [data-lang="zh"] { display: none !important; }
-    html[data-language="zh"] [data-lang="en"], body[data-language="zh"] [data-lang="en"] { display: none !important; }
-
-    /* 2. Global Styling & Layout Consistency */
     body {
-      background-color: #061925; color: #e2e8f0;
-      font-family: 'Inter', sans-serif; overflow-x: hidden;
+      background-color: #061925;
+      color: #e2e8f0;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
+      overflow-x: hidden;
+      background-image:
+        linear-gradient(90deg, rgba(17, 210, 208, 0.025) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(17, 210, 208, 0.025) 1px, transparent 1px);
+      background-size: 48px 48px;
     }
-    h1, h2, h3, h4, .mono-text { font-family: 'IBM Plex Mono', monospace; }
-    .main-container { max-width: 1280px; margin: 0 auto; padding: 2.5rem 5% 5rem; }
+
+    .mono-text, .meta-code, .stat-val, .pill-number {
+      font-family: 'IBM Plex Mono', Consolas, monospace !important;
+    }
+
+    .main-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 2.5rem 24px 5rem;
+    }
 
     /* Hero Section */
-    .hero-section {
-      margin-bottom: 3.5rem; border-bottom: 1px solid rgba(115, 238, 228, 0.18);
-      padding-bottom: 2.5rem;
+    .m2-hero {
+      text-align: center;
+      padding: 40px 10px 30px;
+      border-bottom: 1px solid rgba(113, 236, 227, 0.18);
     }
-    .hero-eyebrow {
-      display: flex; align-items: center; gap: 10px;
-      font: 700 11px/1 'IBM Plex Mono', monospace;
-      color: #73eee4; letter-spacing: 0.15em; text-transform: uppercase;
-      margin-bottom: 1rem;
+    .m2-hero h1 {
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      margin: 0.5rem 0 1rem;
+      text-wrap: balance;
     }
-    .hero-eyebrow-pill {
-      background: rgba(115, 238, 228, 0.12); border: 1px solid rgba(115, 238, 228, 0.3);
-      padding: 3px 8px; border-radius: 4px;
+    .m2-hero h1 em {
+      color: #73eee4;
+      font-style: normal;
+      font-weight: 400;
     }
-    .hero-section h1 {
-      font-size: clamp(2rem, 3.8vw, 3.2rem); line-height: 1.15;
-      margin-bottom: 1.25rem; letter-spacing: -0.03em; text-wrap: balance;
-    }
-    .hero-section h1 em { color: #73eee4; font-style: normal; font-weight: 400; }
-    .hero-desc {
-      font-size: 1.08rem; line-height: 1.7; color: #94a3b8;
-      max-width: 860px; margin-bottom: 2rem;
+    .m2-hero p.lead-desc {
+      color: #a7c2c9;
+      font-size: clamp(15.5px, 1.25vw, 18px);
+      line-height: 1.75;
+      max-width: 860px;
+      margin: 0 auto 24px;
     }
 
-    /* KPI Grid */
-    .kpi-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.25rem; margin-top: 2rem;
+    /* Nav Pills */
+    .hub-nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin: 24px 0 32px;
     }
-    .kpi-card {
-      background: rgba(8, 36, 51, 0.7); border: 1px solid rgba(115, 238, 228, 0.22);
-      border-radius: 8px; padding: 1.25rem 1.5rem; position: relative;
+    .hub-nav-pills .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      background: rgba(8, 37, 54, 0.75);
+      border: 1px solid rgba(113, 236, 227, 0.22);
+      border-radius: 6px;
+      text-decoration: none;
+      color: #e0f2f1;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(8px);
     }
-    .kpi-card::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #73eee4;
+    .hub-nav-pills .nav-pill:hover {
+      background: #73eee4;
+      color: #03131e;
+      border-color: #73eee4;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(115, 238, 228, 0.28);
     }
-    .kpi-card.warning::before { background: #f59e0b; }
-    .kpi-num { font: 800 2.2rem/1 'IBM Plex Mono', monospace; color: #fff; margin-bottom: 0.35rem; }
-    .kpi-label { font: 600 0.78rem/1.3 'IBM Plex Mono', monospace; color: #8ea9b3; text-transform: uppercase; }
+    .hub-nav-pills .pill-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #f59e0b;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .hub-nav-pills .nav-pill:hover .pill-number {
+      color: #03131e;
+      background: rgba(0, 0, 0, 0.15);
+    }
 
-    /* Section Headings */
-    .section-title {
-      color: #73eee4; font-size: 1.6rem; margin: 4rem 0 1.5rem 0;
-      display: flex; align-items: center; gap: 12px;
-      border-bottom: 1px solid rgba(115, 238, 228, 0.15); padding-bottom: 0.75rem;
+    /* Section Headers */
+    .hub-sec-header {
+      margin: 4rem 0 1.75rem;
+      border-bottom: 1px solid rgba(113, 236, 227, 0.18);
+      padding-bottom: 1rem;
     }
-    .section-title svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .hub-sec-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font: 700 11px 'IBM Plex Mono', monospace;
+      letter-spacing: 0.15em;
+      color: #73eee4;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .hub-sec-header h2 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+    }
 
-    /* Architecture Visual Diagram Cards */
-    .arch-card-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem; margin: 2rem 0;
+    /* Hardware Diagram & Formula */
+    .hardware-diagram-box {
+      background: #082433;
+      border: 1px solid rgba(113, 236, 227, 0.22);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
     }
-    .arch-card {
-      background: #082433; border: 1px solid rgba(115, 238, 228, 0.2);
-      border-radius: 8px; padding: 1.75rem;
+    .formula-box-math {
+      background: #03131e;
+      border: 1px solid rgba(113, 236, 227, 0.18);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.05rem;
+      color: #73eee4;
+      margin: 1rem 0;
+      overflow-x: auto;
+      text-align: center;
     }
-    .arch-card h3 { font: 700 1.15rem/1.3 'IBM Plex Mono', monospace; color: #fff; margin-top: 0; }
-    .arch-card p { font-size: 0.92rem; line-height: 1.65; color: #94a3b8; }
 
-    /* Interactive Canvas Labs */
-    .interactive-lab {
-      background: #082433; border: 1px solid rgba(115, 238, 228, 0.25);
-      border-radius: 8px; padding: 2rem; margin: 2.5rem 0;
-    }
-    .lab-ctrl-bar {
-      display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;
-      background: #061925; padding: 1rem 1.5rem; border-radius: 6px;
-      border: 1px solid rgba(115, 238, 228, 0.15);
-    }
-    .lab-ctrl-item { display: flex; align-items: center; gap: 10px; }
-    .lab-ctrl-item label { font: 700 11px/1 'IBM Plex Mono', monospace; color: #73eee4; text-transform: uppercase; }
-    .lab-ctrl-item input[type="range"] { accent-color: #73eee4; }
-    .lab-canvas-wrap {
-      width: 100%; height: 260px; background: #061925; border-radius: 6px;
-      border: 1px solid rgba(115, 238, 228, 0.2); position: relative; overflow: hidden;
-    }
-    canvas { width: 100%; height: 100%; display: block; }
-    
-    /* Stepper Roadmap */
+    /* Roadmap Stepper (Preserved class) */
     .roadmap-stepper {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem; margin: 2rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
     }
     .roadmap-step {
-      background: #082433; border: 1px solid rgba(115, 238, 228, 0.2);
-      border-radius: 8px; padding: 1.25rem 1.5rem; position: relative;
+      background: #082433;
+      border: 1px solid rgba(115, 238, 228, 0.2);
+      border-radius: 8px;
+      padding: 1.5rem;
+      position: relative;
     }
     .roadmap-step::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #73eee4;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #73eee4;
+      border-radius: 8px 0 0 8px;
     }
-    .roadmap-step-num { font: 800 11px/1 'IBM Plex Mono', monospace; color: #f59e0b; margin-bottom: 6px; }
-    .roadmap-step-title { font: 700 14px/1.3 'IBM Plex Mono', monospace; color: #fff; margin-bottom: 6px; }
-    .roadmap-step-desc { font-size: 0.85rem; line-height: 1.55; color: #94a3b8; }
+    .roadmap-step-num {
+      font: 800 11px/1 'IBM Plex Mono', monospace;
+      color: #f59e0b;
+      margin-bottom: 6px;
+      letter-spacing: 0.1em;
+    }
+    .roadmap-step h4 {
+      font: 700 1.2rem/1.2 'IBM Plex Mono', monospace;
+      color: #fff;
+      margin: 0 0 0.5rem;
+    }
+
+    /* Interactive Lab Box */
+    .interactive-lab {
+      background: #082433;
+      border: 1px solid rgba(113, 236, 227, 0.25);
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+    }
   </style>
 </head>
-<body class="hub-page">
-  <!-- WCAG High-Contrast Skip Link -->
-  <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
+<body class="specialty-page">
+  <a class="skip-link" href="#main-content">
+    <span data-lang="zh">跳至主要內容</span>
+    <span data-lang="en">Skip to main content</span>
+  </a>
 
-  <!-- TOP-LEVEL SITE HEADER (CONSISTENT SITE SHELL) -->
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub Home">
-      <span class="brand-mark">
-        <svg viewBox="0 0 48 48"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/><path d="M17 5v6M24 5v6M31 5v6M17 37v6M24 37v6M31 37v6M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></svg>
-      </span>
+  <!-- Global Site Header -->
+  <header class="site-header" role="banner">
+    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub 首頁">
+      <span class="brand-mark"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4h24a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8H12a8 8 0 0 1-8-8V12a8 8 0 0 1 8-8z"/><path d="M17 11v26M31 11v26M11 17h26M11 31h26"/></svg></span>
       <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
-      <span class="brand-section">IOT &amp; MCU eNVM</span>
+      <span class="brand-section">M2 · IOT &amp; MCU eNVM</span>
     </a>
-    <nav class="primary-nav" id="primaryNav" aria-label="Primary Navigation">
+    <nav class="primary-nav" id="primaryNav" aria-label="主要導覽">
       <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a>
+      <a href="memory-physics.html"><span data-lang="zh">位元胞物理</span><span data-lang="en">Bitcell Physics</span></a>
+      <a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
       <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
       <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a>
-      <a class="is-active" aria-current="page" href="iot-mcu-envm.html"><span data-lang="zh">IoT &amp; MCU</span><span data-lang="en">IoT &amp; MCU</span></a>
-      <a href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive</span></a>
-      <a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty</span></a>
-      <a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
+      <a class="is-active" href="iot-mcu-envm.html" aria-current="page"><span data-lang="zh">IoT 與 MCU</span><span data-lang="en">IoT &amp; MCU</span></a>
+      <a href="automotive-nvm.html"><span data-lang="zh">車規級 NVM</span><span data-lang="en">Automotive</span></a>
+      <a href="specialty-nvm.html"><span data-lang="zh">特種晶圓</span><span data-lang="en">Specialty NVM</span></a>
+      <a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper</span></a>
+      <a href="briefing/index.html"><span data-lang="zh">簡報與講稿</span><span data-lang="en">Briefing</span></a>
     </nav>
     <div class="header-actions">
-      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch Language (ZH/EN)">
-        <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
-      </button>
-      <button class="menu-button" id="menuToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open navigation">
-        <i></i><i></i>
-      </button>
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="切換語系 Switch Language"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
+      <button class="menu-button" id="menuToggle" type="button" aria-label="開啟選單" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
     </div>
   </header>
 
-  <!-- BREADCRUMB -->
+  <!-- Breadcrumb -->
   <nav class="site-breadcrumb" aria-label="Breadcrumb">
-    <i></i><a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Hub</span></a>
-    <i></i><span data-lang="zh">市場應用</span><span data-lang="en">Market Applications</span>
-    <i></i><strong><span data-lang="zh">超低功耗 IoT 與 MCU eNVM</span><span data-lang="en">ULP IoT &amp; Edge MCU eNVM</span></strong>
+    <a href="index.html">NVM Knowledge Hub</a>
+    <i>›</i>
+    <span><span data-lang="zh">市場應用</span><span data-lang="en">Applications</span></span>
+    <i>›</i>
+    <strong><span data-lang="zh">超低功耗 IoT 與邊緣 MCU eNVM</span><span data-lang="en">ULP IoT &amp; Edge MCU eNVM</span></strong>
     <span class="topic-switch">
-      <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a>
-      <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 系統</span><span data-lang="en">AI Systems</span></a>
-      <a aria-current="page" href="iot-mcu-envm.html"><span data-lang="zh">IoT &amp; MCU</span><span data-lang="en">IoT &amp; MCU</span></a>
-      <a href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive</span></a>
+      <a href="ai-nvm-opportunities.html"><span data-lang="zh">M1 AI 系統</span><span data-lang="en">M1 AI Systems</span></a>
+      <a class="is-active" href="iot-mcu-envm.html" aria-current="page"><span data-lang="zh">M2 IoT &amp; MCU</span><span data-lang="en">M2 IoT &amp; MCU</span></a>
     </span>
   </nav>
 
-  <main id="main-content" class="main-container">
-
-    <!-- HERO SECTION -->
-    <section class="hero-section" aria-labelledby="iot-title">
-      <div class="hero-eyebrow">
-        <span class="hero-eyebrow-pill">MARKET APPLICATION M2</span>
-        <span>EDGE COMPUTING &amp; SUB-0.5V NEAR-THRESHOLD</span>
+  <main class="main-container" id="main-content">
+    <!-- Hero Section -->
+    <section class="m2-hero">
+      <div class="hero-kicker">
+        <span>SUB-MICROWATT EMBEDDED SILICON · DOMAIN M2</span>
       </div>
-      <h1 id="iot-title">
-        <span data-lang="zh">eFlash 終結於 28nm：<br><em>超低功耗 MCU 的 eNVM 狀態契約與近閾值創新</em></span>
-        <span data-lang="en">eFlash Ends at 28nm:<br><em>eNVM State Contracts &amp; Near-Threshold Innovations for ULP MCUs</em></span>
+      <h1>
+        <span data-lang="zh">超低功耗 IoT 與 MCU：<em>終結 28nm eFlash 斷崖</em></span>
+        <span data-lang="en">ULP IoT &amp; MCU: <em>Crossing the 28nm eFlash Scaling Cliff</em></span>
       </h1>
-      <p class="hero-desc">
-        <span data-lang="zh">在物聯網（IoT）與邊緣微控制器（MCU）領域，28nm 以下傳統 eFlash 遭遇嚴重的物理擦除高壓與製程衝突斷崖。本專題剖析台積電（TSMC）從 22ULL、12FFC+ 至 N4e 的 0.5V 近閾值電壓（NTV）運作機制，並揭示純邏輯 AntiFuse OTP 搭配硬體 Vector Patch CAM，如何實現零額外光罩（0-Mask Adder）的虛擬熱修補與 15 年電池長效生命週期。</span>
-        <span data-lang="en">Below 28nm, traditional embedded Flash hits a catastrophic high-voltage scaling cliff. This dossier examines TSMC's 22ULL, 12FFC+ to N4e 0.5V near-threshold voltage (NTV) continuum, detailing how pure-logic AntiFuse OTP coupled with hardware Vector Patch CAM achieves 0-mask adder economics, virtual OTA patching, and 15-year battery lifecycles.</span>
+      <p class="lead-desc">
+        <span data-lang="zh">深度剖析微控制器在 28nm 以下 eFlash 的熱預算與高壓崩潰微縮斷崖。跨越 TSMC 22ULL、12FFC+ 至 N4e 之 0.5V 近閾值電壓 (NTV) 連續譜系，搭配硬體 Vector Patch CAM，實現零時脈延遲虛擬 OTA 熱修補與 15 年常駐開機電池壽命。</span>
+        <span data-lang="en">Deep architectural treatise on overcoming the 28nm eFlash scaling cliff: TSMC 0.5V near-threshold voltage (NTV) operation, sub-10nA always-on standby leakage, and zero-cycle Vector Patch CAM firmware update microarchitecture.</span>
       </p>
 
-      <!-- 4 TOP KPI METRIC CARDS -->
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-num">0.5V</div>
-          <div class="kpi-label">
-            <span data-lang="zh">TSMC N12e/N4e 近閾值運作電壓</span>
-            <span data-lang="en">TSMC Near-Threshold Operating VDD</span>
+      <!-- 4-Metric Stat Strip Grid (對標 04 旗艦規格) -->
+      <div class="stat-strip-grid compact-ate-strip">
+        <div class="stat-strip-card border-l-cyan">
+          <div class="stat-top-meta">
+            <span class="pulse-chip-mini"></span>
+            <span class="meta-code">RULE #01 · ULTRA-LOW VDD</span>
+          </div>
+          <div class="stat-val">0.5V NTV</div>
+          <div class="stat-label">
+            <span data-lang="zh">近閾值操作工作電壓</span>
+            <span data-lang="en">NEAR-THRESHOLD VOLTAGE</span>
+          </div>
+          <div class="stat-sub">
+            <span style="color: #22d3ee;">
+              <span data-lang="zh">TSMC 12e/N4e 原生支援 · 動態功耗驟降 &gt;75%</span>
+              <span data-lang="en">Native N4e Support · &gt;75% Pdyn Drop</span>
+            </span>
           </div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-num">0-Mask</div>
-          <div class="kpi-label">
-            <span data-lang="zh">純邏輯標準 CMOS 零額外光罩</span>
-            <span data-lang="en">Pure-Logic 0-Mask Adder Overhead</span>
+        <div class="stat-strip-card border-l-teal">
+          <div class="stat-top-meta">
+            <span class="meta-code">RULE #02 · STANDBY LEAK</span>
+          </div>
+          <div class="stat-val">&lt; 10 nA AON</div>
+          <div class="stat-label">
+            <span data-lang="zh">常時開機域待機漏電</span>
+            <span data-lang="en">ALWAYS-ON STANDBY CURRENT</span>
+          </div>
+          <div class="stat-sub">
+            <span style="color: #2dd4bf;">
+              <span data-lang="zh">杜絕浮閘泵浦待機損耗 · 15 年鈕扣電池壽命</span>
+              <span data-lang="en">Zero Pump Leakage · 15-Yr Battery Life</span>
+            </span>
           </div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-num">&gt;75%</div>
-          <div class="kpi-label">
-            <span data-lang="zh">0.5V 供電相較於 1.0V 動態功耗降幅</span>
-            <span data-lang="en">Dynamic Power Reduction vs 1.0V</span>
+        <div class="stat-strip-card border-l-emerald">
+          <div class="stat-top-meta">
+            <span class="meta-code">RULE #03 · INSTANT-ON</span>
+          </div>
+          <div class="stat-val">&lt; 1 µs COLD</div>
+          <div class="stat-label">
+            <span data-lang="zh">次微秒極速冷啟動</span>
+            <span data-lang="en">SUB-1µs INSTANT-ON XIP</span>
+          </div>
+          <div class="stat-sub">
+            <span style="color: #34d399;">
+              <span data-lang="zh">零預熱快取即時執行 · 終結外掛 Flash 喚醒延遲</span>
+              <span data-lang="en">Zero Warm-up XIP · Eliminates SPI Latency</span>
+            </span>
           </div>
         </div>
-        <div class="kpi-card warning">
-          <div class="kpi-num">&lt;10nA</div>
-          <div class="kpi-label">
-            <span data-lang="zh">常時開機 (AON) 域待機休眠漏電</span>
-            <span data-lang="en">Always-On Domain Standby Leakage</span>
+        <div class="stat-strip-card border-l-amber">
+          <div class="stat-top-meta">
+            <span class="meta-code">RULE #04 · FIRMWARE OTA</span>
           </div>
+          <div class="stat-val">0-CYCLE CAM</div>
+          <div class="stat-label">
+            <span data-lang="zh">硬體向量修補重定向</span>
+            <span data-lang="en">VECTOR PATCH CAM REDIRECTION</span>
+          </div>
+          <div class="stat-sub">
+            <span style="color: #fbbf24;">
+              <span data-lang="zh">單時脈硬體位址攔截 · 突破 OTP 不可覆寫限制</span>
+              <span data-lang="en">Single-Cycle Match · Unlimited Virtual Patches</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Navigation Bar (01~04 藥丸列) -->
+      <nav aria-label="IoT Topic Anchors" class="hub-nav-pills">
+        <a class="nav-pill" href="#sec-cliff">
+          <span class="pill-number">01</span>
+          <span class="pill-text"><span data-lang="zh">28nm eFlash 物理斷崖</span><span data-lang="en">28nm eFlash Scaling Cliff</span></span>
+        </a>
+        <a class="nav-pill" href="#sec-ntv">
+          <span class="pill-number">02</span>
+          <span class="pill-text"><span data-lang="zh">0.5V 近閾值動態模擬</span><span data-lang="en">0.5V Near-Threshold Lab</span></span>
+        </a>
+        <a class="nav-pill" href="#sec-tsmc">
+          <span class="pill-number">03</span>
+          <span class="pill-text"><span data-lang="zh">TSMC ULP 製程微縮藍圖</span><span data-lang="en">TSMC ULP Continuum</span></span>
+        </a>
+        <a class="nav-pill" href="#sec-cam">
+          <span class="pill-number">04</span>
+          <span class="pill-text"><span data-lang="zh">Vector Patch CAM 虛擬修補</span><span data-lang="en">Vector Patch CAM Hot-Patch</span></span>
+        </a>
+      </nav>
+    </section>
+
+    <!-- SECTION 1: THE 28NM EFLASH SCALING CLIFF -->
+    <section id="sec-cliff" aria-labelledby="cliff-sec-title">
+      <div class="hub-sec-header">
+        <div class="hub-sec-badge">01 · PHYSICS OF SCALING LIMITS</div>
+        <h2 id="cliff-sec-title">
+          <span data-lang="zh">為什麼傳統 eFlash 止步於 28nm：物理斷崖深度剖析</span>
+          <span data-lang="en">The 28nm eFlash Scaling Cliff: Physical and Thermodynamic Bottlenecks</span>
+        </h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin: 2rem 0;">
+        <div style="background:#082433; border:1px solid rgba(115,238,228,0.2); border-radius:8px; padding:1.5rem;">
+          <div style="font:700 11px 'IBM Plex Mono'; color:#ef4444; margin-bottom:6px;">THERMAL BUDGET CONFLICT</div>
+          <h4 style="color:#fff; margin:0 0 0.75rem; font-family:'IBM Plex Mono';">厚穿隧氧化層 vs HKMG 熱預算衝突</h4>
+          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.65; margin:0;">
+            傳統浮閘 eFlash 必須依賴厚度 &gt;8nm 的熱氧化穿隧氧化層以抑制量子直接穿隧漏電，需經歷 &gt;950°C 高溫退火。但在 28nm 以下 FinFET/GAA 先進節點中，High-κ 金屬閘極 (HKMG) 的熱預算上限嚴格受限於 &lt;450°C，高溫將引發金屬功函數漂移與介電層崩塌。
+          </p>
+        </div>
+
+        <div style="background:#082433; border:1px solid rgba(115,238,228,0.2); border-radius:8px; padding:1.5rem;">
+          <div style="font:700 11px 'IBM Plex Mono'; color:#f59e0b; margin-bottom:6px;">AVALANCHE BREAKDOWN COLLAPSE</div>
+          <h4 style="color:#fff; margin:0 0 0.75rem; font-family:'IBM Plex Mono';">&gt;10V 高壓泵浦與微縮接面擊穿</h4>
+          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.65; margin:0;">
+            擦除浮閘電荷需要 10V~18V 的高壓電場。微縮節點的源極/汲極空乏區極窄，電晶體接面耐壓僅 1.5V~2.5V，高壓直接誘發雪崩崩潰。容納高壓三重井 (Triple-Well) 與高壓 Charge Pump 吞噬超過 40% 的巨集面積，使邏輯微縮紅利蕩然無存。
+          </p>
+        </div>
+
+        <div style="background:#082433; border:1px solid rgba(115,238,228,0.2); border-radius:8px; padding:1.5rem;">
+          <div style="font:700 11px 'IBM Plex Mono'; color:#73eee4; margin-bottom:6px;">MASK OVERHEAD ECONOMICS</div>
+          <h4 style="color:#fff; margin:0 0 0.75rem; font-family:'IBM Plex Mono';">+8~12 道光罩導致晶圓成本暴增 35%</h4>
+          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.65; margin:0;">
+            為整合浮閘與專用高壓植入，eFlash 必須額外增加 8 至 12 道昂貴微影光罩，晶圓製造成本增加 30%~45%，交期增加 4~6 週。純邏輯 AntiFuse OTP 採用原生標準 CMOS 閘極氧化層，達成真正 **0 額外光罩 (0-Mask Adder)**。
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 1: 28NM EFLASH SCALING CLIFF -->
-    <section aria-labelledby="cliff-title">
-      <h2 class="section-title" id="cliff-title">
-        <svg viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <span data-lang="zh">28nm 以下 eFlash 微縮斷崖：物理衝突與製造經濟學崩潰</span>
-        <span data-lang="en">The 28nm eFlash Scaling Cliff: Physical Incompatibility &amp; Cost Explosion</span>
-      </h2>
-
-      <div class="arch-card-grid">
-        <div class="arch-card">
-          <h3>
-            <span data-lang="zh">① 高壓擦除 (>10V) 與立體鰭式 FinFET 的幾何衝突</span>
-            <span data-lang="en">① High-Voltage Erase (>10V) vs FinFET 3D Geometry</span>
-          </h3>
-          <p>
-            <span data-lang="zh">傳統浮閘 (Floating Gate) 與電荷陷阱 (Charge Trap) 需要 >10V 擦除電壓以驅動 Fowler-Nordheim (FN) 量子穿隧。為了承受此高壓，氧化層厚度必須維持 >8nm。然而當進入 16nm/12nm 及 FinFET 世代，等效氧化層厚度 (EOT) 已低於 1.0nm。在微型 3D 矽鰭上沉積耐高壓厚氧化層，會引發相鄰單元嚴重的寄生電容耦合干擾，造成物理微縮終結。</span>
-            <span data-lang="en">Traditional floating gate and charge-trap memories mandate >10V pulses for Fowler-Nordheim tunneling, requiring gate oxide thickness >8nm. In 16nm/12nm FinFET regimes, EOT scales below 1.0nm. Forcing thick-oxide high-voltage structures onto nanoscale 3D fins induces severe capacitive cross-talk and threshold voltage collapse.</span>
-          </p>
-        </div>
-
-        <div class="arch-card">
-          <h3>
-            <span data-lang="zh">② +8 至 +12 道額外光罩摧毀 MCU 經濟學</span>
-            <span data-lang="en">② +8 to +12 Extra Masks Destroying MCU Unit Economics</span>
-          </h3>
-          <p>
-            <span data-lang="zh">在前段製程 (FEOL) 整合 eFlash 需要額外增加 8~12 道光罩，且其高溫退火 (>900°C) 會損壞先進邏輯的金屬閘極 (HKMG)。光罩增加直接推升晶圓成本 >35%，這對於單價僅數十美分的 IoT MCU 而言商業上完全不可承受。各大晶圓代工廠因而全線終止 28nm 以下 eFlash 開發。</span>
-            <span data-lang="en">Integrating eFlash into FEOL adds 8-12 extra masks, with thermal budgets (>900°C) degrading advanced HKMG logic. The 35%+ wafer cost penalty breaks commodity MCU profitability, prompting foundries to freeze eFlash roadmaps beyond 28nm in favor of 0-mask logic OTP.</span>
-          </p>
-        </div>
+    <!-- SECTION 2: 0.5V NTV POWER DECAY & OSCILLOSCOPE LAB -->
+    <section id="sec-ntv" class="interactive-lab" aria-labelledby="lab-ntv-title">
+      <div class="hub-sec-header" style="margin-top:0;">
+        <div class="hub-sec-badge">02 · FLAGSHIP LAB 01</div>
+        <h2 id="lab-ntv-title">
+          <span data-lang="zh">0.5V NTV 功耗衰減與示波器開機時序模擬器</span>
+          <span data-lang="en">0.5V NTV Power Decay &amp; Boot Timing Oscilloscope</span>
+        </h2>
       </div>
-    </section>
 
-    <!-- SECTION 2: INTERACTIVE 0.5V NEAR-THRESHOLD LAB -->
-    <section class="interactive-lab" aria-labelledby="lab-ntv-title">
-      <div class="hero-eyebrow">
-        <span class="hero-eyebrow-pill">INTERACTIVE SIMULATOR</span>
-        <span>ENERGY SCALING PHYSICS &amp; INSTANT-ON XIP</span>
+      <!-- First-Principles Formula Box -->
+      <div class="formula-box-math" style="margin-bottom:1.5rem;">
+        P_{\mathrm{dyn}} = lpha \cdot C_{\mathrm{load}} \cdot V_{\mathrm{dd}}^2 \cdot f \quad \Longrightarrow \quad rac{P_{\mathrm{dyn}}(0.5\mathrm{V})}{P_{\mathrm{dyn}}(1.2\mathrm{V})} = \left(rac{0.5}{1.2}ight)^2 pprox 17.36\% \quad (-82.64\%)
       </div>
-      <h2 id="lab-ntv-title" style="margin: 0.5rem 0 1.25rem; font-size: 1.5rem; color: #fff;">
-        <span data-lang="zh">0.5V 近閾值電壓 (NTV) 動態功耗與冷啟動模擬器</span>
-        <span data-lang="en">0.5V Near-Threshold Dynamic Power &amp; Cold-Boot Simulator</span>
-      </h2>
 
-      <div class="lab-ctrl-bar">
-        <div class="lab-ctrl-item">
-          <label for="ntvVdd"><span data-lang="zh">供電電壓 VDD:</span><span data-lang="en">Supply VDD:</span></label>
-          <input type="range" id="ntvVdd" min="0.5" max="1.2" step="0.05" value="0.5">
-          <span class="mono-text" id="ntvVddVal" style="color: #f59e0b; font-weight: 700;">0.50 V</span>
+      <div class="lab-ctrl-bar" style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; background: #061925; padding: 1.25rem 1.5rem; border-radius: 6px; border: 1px solid rgba(115, 238, 228, 0.2); margin-bottom: 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <label for="ntvVdd" style="font: 700 11px 'IBM Plex Mono'; color: #73eee4;">
+            <span data-lang="zh">供電電壓 VDD:</span><span data-lang="en">SUPPLY VDD:</span>
+          </label>
+          <input type="range" id="ntvVdd" min="0.5" max="1.2" step="0.05" value="0.5" style="accent-color: #73eee4; cursor: pointer; width: 140px;">
+          <span class="mono-text" id="ntvVddVal" style="color: #f59e0b; font-weight: 700; font-size: 1.1rem;">0.50 V</span>
         </div>
-        <div class="lab-ctrl-item">
-          <span style="font-size: 0.85rem; color: #94a3b8;">
-            <span data-lang="zh">動態功耗降幅: </span><span data-lang="en">Dynamic Power Reduction: </span>
-            <b class="mono-text" id="ntvSavingsVal" style="color: #73eee4; font-size: 1.1rem;">-75.0%</b>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font: 600 11px 'IBM Plex Mono'; color: #8ea9b3;">
+            <span data-lang="zh">動態功耗降幅 (VS 1.2V):</span><span data-lang="en">POWER SAVINGS (VS 1.2V):</span>
           </span>
+          <b class="mono-text" id="ntvSavingsVal" style="color: #73eee4; font-size: 1.2rem;">-82.6%</b>
+        </div>
+        <div>
+          <button id="btnRunBootScope" style="background: rgba(115, 238, 228, 0.15); border: 1px solid #73eee4; color: #73eee4; padding: 6px 14px; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer; transition: all 0.2s;">
+            <span data-lang="zh">⚡ 觸發冷啟動時序 (Trigger Boot)</span>
+            <span data-lang="en">⚡ Trigger Boot Timing Sequence</span>
+          </button>
         </div>
       </div>
 
-      <div class="lab-canvas-wrap">
-        <canvas id="ntvCanvas"></canvas>
+      <div class="lab-canvas-wrap" style="background: #04121c; border: 1px solid rgba(115, 238, 228, 0.25); border-radius: 6px; padding: 10px; position: relative;">
+        <canvas id="ntvCanvas" style="width: 100%; height: 320px; display: block;"></canvas>
       </div>
-      <p style="font-size: 0.82rem; color: #8ea9b3; margin-top: 10px; font-family: 'IBM Plex Mono', monospace;">
-        * Formula: P_dyn = C * VDD^2 * f. Baseline VDD = 1.00V. Sub-1µs Cold Boot Direct XIP enabled via AntiFuse OTP.
-      </p>
+      <div style="display: flex; justify-content: space-between; font: 500 11px 'IBM Plex Mono'; color: #8ea9b3; margin-top: 10px;">
+        <span>* CH1 (Cyan): AntiFuse Direct XIP (&lt;10µs Instant-On)</span>
+        <span>* CH2 (Amber): Legacy eFlash Charge Pump (&gt;35ms Wake-up Penalty)</span>
+      </div>
     </section>
 
     <!-- SECTION 3: TSMC ULP ROADMAP STEPPER -->
-    <section aria-labelledby="tsmc-title">
-      <h2 class="section-title" id="tsmc-title">
-        <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        <span data-lang="zh">台積電超低漏電微縮藍圖：22ULL ➔ 12FFC+ ➔ N6e ➔ N4e</span>
-        <span data-lang="en">TSMC ULP Process Continuum: 22ULL ➔ 12FFC+ ➔ N6e ➔ N4e</span>
-      </h2>
+    <section id="sec-tsmc" aria-labelledby="tsmc-sec-title">
+      <div class="hub-sec-header">
+        <div class="hub-sec-badge">03 · FOUNDRY PLATFORM ROADMAP</div>
+        <h2 id="tsmc-sec-title">
+          <span data-lang="zh">台積電超低漏電微縮藍圖：22ULL 至 N4e 的演進</span>
+          <span data-lang="en">TSMC ULP Process Continuum: Scaling from 22ULL to N4e</span>
+        </h2>
+      </div>
 
-      <div class="roadmap-stepper">
+      <div class="roadmap-stepper" id="roadmap-stepper">
         <div class="roadmap-step">
-          <div class="roadmap-step-num">STAGE 01 · 22ULL</div>
-          <div class="roadmap-step-title">22nm Planar HKMG</div>
-          <div class="roadmap-step-desc">
-            <span data-lang="zh">供電 0.6V~0.8V，靜態待機漏電降低 35%，微安培級別 (µA) 穿戴裝置主力。</span>
-            <span data-lang="en">0.6V-0.8V operation, 35% standby leakage drop, powering endpoint wearables.</span>
-          </div>
+          <div class="roadmap-step-num">STEP 01 · 22nm ULL</div>
+          <h4>TSMC 22ULL (Planar HKMG)</h4>
+          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6; margin:0;">
+            供電電壓 0.6V~0.8V。相較 28HPC+ 降低漏電 70%，以純邏輯 AntiFuse OTP 徹底替換 28nm eFlash，成為智慧三表與微控制器主戰場。
+          </p>
         </div>
 
         <div class="roadmap-step">
-          <div class="roadmap-step-num">STAGE 02 · 12FFC+ / N12e</div>
-          <div class="roadmap-step-title">12nm FinFET IoT</div>
-          <div class="roadmap-step-desc">
-            <span data-lang="zh">原生 0.5V 近閾值標準單元庫，邏輯密度較 22ULL 激增 76%。</span>
-            <span data-lang="en">Native 0.5V near-threshold cell libraries, +76% logic density over 22ULL.</span>
-          </div>
+          <div class="roadmap-step-num">STEP 02 · 12nm FFC+</div>
+          <h4>TSMC 12FFC+ (Compact FinFET)</h4>
+          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6; margin:0;">
+            供電壓跨入 0.5V 近閾值電壓 (NTV)。3D 鰭片提供優越的次閾值擺幅 (S ~ 68mV/dec)，實現微瓦級永遠在線 (Always-On) 感測。
+          </p>
         </div>
 
         <div class="roadmap-step">
-          <div class="roadmap-step-num">STAGE 03 · N6e</div>
-          <div class="roadmap-step-title">6nm FinFET EUV</div>
-          <div class="roadmap-step-desc">
-            <span data-lang="zh">EUV 微影量產，全面適配高密度邊緣 AIoT 與智慧音訊運算。</span>
-            <span data-lang="en">EUV lithography mass-production, optimized for dense edge AIoT devices.</span>
-          </div>
+          <div class="roadmap-step-num">STEP 03 · 6nm N6e</div>
+          <h4>TSMC N6e (EUV IoT Enhanced)</h4>
+          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6; margin:0;">
+            EUV 微影帶來大幅邏輯密度提升。以純邏輯 OTP 承載神經網路權重修補與後量子加密 (PQC) 開機向量。
+          </p>
         </div>
 
         <div class="roadmap-step">
-          <div class="roadmap-step-num">STAGE 04 · N4e</div>
-          <div class="roadmap-step-title">4nm Extreme ULP</div>
-          <div class="roadmap-step-desc">
-            <span data-lang="zh">次微瓦級 (Sub-µW) 常時待機，AntiFuse 作為 0-Mask 唯一可靠相容非揮發性儲存。</span>
-            <span data-lang="en">Sub-µW always-on standby, AntiFuse serving as the 0-mask compliant NVM.</span>
-          </div>
+          <div class="roadmap-step-num">STEP 04 · 4nm N4e</div>
+          <h4>TSMC N4e (Automotive &amp; Extreme ULP)</h4>
+          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.6; margin:0;">
+            先進節點極致功耗優化，支援 0.5V 超低電壓運作與晶片內建 Vector Patch CAM，滿足邊緣 AI 穿戴裝置極限電池壽命。
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: VECTOR PATCH CAM VIRTUAL HOT-PATCHING -->
-    <section aria-labelledby="cam-title">
-      <h2 class="section-title" id="cam-title">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
-        <span data-lang="zh">硬體間接跳轉表：Vector Patch CAM 虛擬韌體熱修補</span>
-        <span data-lang="en">Hardware Indirection: Vector Patch CAM Virtual Hot-Patching</span>
-      </h2>
+    <!-- SECTION 4: VECTOR PATCH CAM FIRMWARE HOT-PATCHING -->
+    <section id="sec-cam" class="interactive-lab" aria-labelledby="cam-sec-title">
+      <div class="hub-sec-header" style="margin-top:0;">
+        <div class="hub-sec-badge">04 · FLAGSHIP LAB 02</div>
+        <h2 id="cam-sec-title">
+          <span data-lang="zh">Vector Patch CAM 硬體虛擬韌體修補機制</span>
+          <span data-lang="en">Vector Patch CAM Zero-Overhead Firmware Intercept Architecture</span>
+        </h2>
+      </div>
+      <p style="color:#94a3b8; font-size:0.95rem; line-height:1.6; max-width:860px; margin-bottom:1.5rem;">
+        <span data-lang="zh">不可抹除的 OTP 如何實現線上熱修補？透過硬體內容定址記憶體 (CAM) 於半個時脈週期內比對指令位址，命中錯誤程式碼時無延遲切換至 OTP 備用區，達成零週期懲罰的虛擬 OTA 升級。</span>
+        <span data-lang="en">How does immutable OTP achieve field bug patching? An in-line CAM comparator intercepts the instruction bus in sub-cycle time, seamlessly redirecting execution to an OTP patch bank with zero pipeline stall.</span>
+      </p>
 
-      <div class="arch-card-grid">
-        <div class="arch-card">
-          <h3>
-            <span data-lang="zh">破除 OTP 不可覆寫迷思：硬體重定向機制</span>
-            <span data-lang="en">Debunking the OTP Rewrite Myth: Hardware Redirection</span>
-          </h3>
-          <p>
-            <span data-lang="zh">雖然 AntiFuse 物理單元不可抹除，但藉由在匯流排旁路設置微型 CAM (Content Addressable Memory) 表，可將瑕疵代碼之記憶體位址登錄為「攔截目標」。當 CPU 程式計數器 (PC) 發出該位址時，CAM 在單一週期內比對成功 (Hit)，硬體自動重定向 (Redirect) 至 OTP 備用分區讀取修補指令，實現零時脈延遲的 OTA 韌體更新。</span>
-            <span data-lang="en">While individual AntiFuse bitcells are physical one-time-programmable, a sideband CAM (Content Addressable Memory) table enables transparent hot-patching. When the CPU program counter hits a flagged bug address, the CAM matches within 1 clock cycle, redirecting the bus to an OTP spare bank with zero software overhead.</span>
-          </p>
+      <!-- SVG Hardware Microarchitecture Schematic -->
+      <div class="hardware-diagram-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px;">
+          <span class="meta-code">SCHEMATIC FIG 2.1 · VECTOR PATCH CAM HARDWARE PIPELINE</span>
+          <span style="font:700 10px 'IBM Plex Mono'; color:#73eee4; background:rgba(115,238,228,0.1); border:1px solid #73eee4; padding:2px 8px; border-radius:4px;">ZERO WAIT-STATE REDIRECTION</span>
         </div>
+        <svg viewBox="0 0 880 200" fill="none" style="width:100%; min-width:720px; display:block;">
+          <!-- CPU Core Stage -->
+          <rect x="20" y="30" width="160" height="140" rx="6" fill="#061925" stroke="#73eee4" stroke-width="1.5"/>
+          <text x="35" y="60" fill="#73eee4" font-family="IBM Plex Mono" font-size="12" font-weight="700">CPU CORE AHB</text>
+          <text x="35" y="90" fill="#94a3b8" font-family="IBM Plex Mono" font-size="10">PC: 0x0800_4120</text>
+          <rect x="35" y="110" width="130" height="24" rx="3" fill="#03131e" stroke="#f59e0b"/>
+          <text x="45" y="126" fill="#f59e0b" font-family="IBM Plex Mono" font-size="9">FAULT PC TRAP</text>
 
-        <div class="arch-card">
-          <h3>
-            <span data-lang="zh">邊緣裝置 15~20 年壽命狀態契約模型</span>
-            <span data-lang="en">15-to-20 Year State Contract Model for Edge Nodes</span>
-          </h3>
-          <p>
-            <span data-lang="zh">終端智慧水電表與醫療植入物要求長達 20 年的免更換電池壽命。AntiFuse 提供三層穩固契約：① 不可變層 (Immutable): 根憑證與金鑰；② 受限變更層 (Bounded): 工廠感測器校準微調；③ 自適應層 (Adaptive): 經由 CAM 分區進行之有限次數韌體 Patching，達成極限可靠度。</span>
-            <span data-lang="en">Smart meters and medical implants mandate 20-year battery lifecycles. AntiFuse provides a threefold state contract: ① Immutable root certs, ② Bounded factory calibration trims, and ③ Adaptive firmware patching via CAM banks, guaranteeing zero leakage and uncompromised uptime.</span>
-          </p>
-        </div>
+          <!-- Bus Arrow to CAM -->
+          <path d="M180 95 H270" stroke="#73eee4" stroke-width="2"/>
+          <text x="195" y="85" fill="#8ea9b3" font-family="IBM Plex Mono" font-size="9">ADDR[31:0]</text>
+
+          <!-- CAM Array -->
+          <rect x="270" y="20" width="220" height="160" rx="6" fill="#061925" stroke="#22d3ee" stroke-width="1.5"/>
+          <text x="285" y="45" fill="#22d3ee" font-family="IBM Plex Mono" font-size="12" font-weight="700">16-ENTRY CAM MATCH</text>
+          <text x="285" y="70" fill="#94a3b8" font-family="IBM Plex Mono" font-size="10">PARALLEL XOR COMPARATOR</text>
+          <rect x="285" y="85" width="190" height="24" rx="3" fill="#03131e" stroke="#f59e0b"/>
+          <text x="295" y="101" fill="#f59e0b" font-family="IBM Plex Mono" font-size="9">TAG: 0x0800_4120 [HIT!]</text>
+          <text x="285" y="135" fill="#8ea9b3" font-family="IBM Plex Mono" font-size="9">Priority Encoder: #03</text>
+          <text x="285" y="155" fill="#73eee4" font-family="IBM Plex Mono" font-size="9">Latency: &lt; 1.2 ns Match</text>
+
+          <!-- MUX Stage -->
+          <path d="M490 95 H550" stroke="#22d3ee" stroke-width="2"/>
+          <polygon points="550,55 590,75 590,125 550,145" fill="#03131e" stroke="#73eee4" stroke-width="1.5"/>
+          <text x="558" y="105" fill="#73eee4" font-family="IBM Plex Mono" font-size="11" font-weight="700">MUX</text>
+
+          <!-- Bypassed ROM -->
+          <path d="M180 150 H570 V130" stroke="#64748b" stroke-dasharray="4 4" stroke-width="1.5"/>
+          <text x="200" y="165" fill="#ef4444" font-family="IBM Plex Mono" font-size="9">DEFAULT ROM PATH (BYPASSED)</text>
+
+          <!-- OTP Patch Bank -->
+          <path d="M490 120 H530 V110 H550" stroke="#f59e0b" stroke-width="2"/>
+          <path d="M590 100 H660" stroke="#73eee4" stroke-width="2"/>
+          <rect x="660" y="30" width="200" height="140" rx="6" fill="#061925" stroke="#10b981" stroke-width="1.5"/>
+          <text x="675" y="60" fill="#10b981" font-family="IBM Plex Mono" font-size="12" font-weight="700">OTP SPARE PATCH</text>
+          <text x="675" y="90" fill="#94a3b8" font-family="IBM Plex Mono" font-size="10">REMAP: 0x0001_8040</text>
+          <text x="675" y="115" fill="#73eee4" font-family="IBM Plex Mono" font-size="10">INSTRUCTION: B patched_fn</text>
+          <text x="675" y="145" fill="#8ea9b3" font-family="IBM Plex Mono" font-size="9">0 PIPELINE BUBBLE</text>
+        </svg>
       </div>
 
-      <!-- INTERACTIVE CAM REDIRECTION TESTBENCH -->
-      <div class="interactive-lab" style="margin-top: 1.5rem;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 10px;">
+      <!-- Interactive Bus Stream Testbench -->
+      <div style="background: #04121c; border: 1px solid rgba(115, 238, 228, 0.2); border-radius: 8px; padding: 1.5rem; margin-top: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 12px;">
           <div>
             <h4 style="margin: 0; color: #fff; font: 700 14px 'IBM Plex Mono';">
-              <span data-lang="zh">Vector Patch CAM 虛擬修補即時驗證模擬</span>
-              <span data-lang="en">Vector Patch CAM Indirection Live Simulator</span>
+              <span data-lang="zh">CAM 即時匯流排跳轉模擬畫布</span>
+              <span data-lang="en">Interactive CAM Bus Stream Simulation</span>
             </h4>
-            <span style="font-size: 0.8rem; color: #94a3b8;">
-              <span data-lang="zh">模擬 CPU PC 遇到漏洞位址時，硬體 CAM 如何即時攔截並重導至 OTP 備用區塊</span>
-              <span data-lang="en">Simulates hardware CAM intercepting faulty PC address and zero-cycle redirecting to OTP patch</span>
-            </span>
+            <div id="camOtpState" style="font: 600 12px 'IBM Plex Mono'; color: #64748b; margin-top: 4px;">Standby: CAM Idle</div>
           </div>
-          <button id="camTriggerBtn" style="padding: 8px 16px; background: #0891b2; color: #020617; border: none; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer; transition: all 0.2s;">
-            <span data-lang="zh">⚡ 觸發 Bug 位址 (0x0800_4120)</span>
-            <span data-lang="en">⚡ Trigger Fault PC (0x0800_4120)</span>
-          </button>
+          <div style="display: flex; gap: 10px;">
+            <button id="camTriggerBtn" style="padding: 8px 16px; background: #0891b2; color: #020617; border: none; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer; transition: all 0.2s;">
+              <span data-lang="zh">⚡ 觸發 Bug 位址 (0x0800_4120)</span>
+              <span data-lang="en">⚡ Inject Bug PC (0x0800_4120)</span>
+            </button>
+            <button id="camStepBtn" style="padding: 8px 14px; background: rgba(115, 238, 228, 0.15); color: #73eee4; border: 1px solid #73eee4; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
+              <span data-lang="zh">單步步進 (Step)</span>
+              <span data-lang="en">Step PC</span>
+            </button>
+          </div>
         </div>
-        <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center; background: #061925; padding: 1.25rem; border-radius: 6px; border: 1px solid rgba(115, 238, 228, 0.2);">
-          <div style="background: #082433; padding: 12px; border-radius: 4px; border: 1px solid #1e293b;">
-            <div style="font: 700 11px 'IBM Plex Mono'; color: #8ea9b3; margin-bottom: 4px;">ROM BASELINE (FAULTY)</div>
-            <div id="camRomState" style="font: 600 12px 'IBM Plex Mono'; color: #cbd5e1;">PC: 0x0800_411C [OK]</div>
+
+        <canvas id="camCanvas" style="width: 100%; height: 240px; display: block; background: #03131e; border-radius: 6px; border: 1px solid rgba(115, 238, 228, 0.2);"></canvas>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; font: 600 11px 'IBM Plex Mono'; margin-top: 1rem;">
+          <div style="background: #061925; padding: 10px 14px; border-radius: 4px; border: 1px solid #1e293b;">
+            <div style="color: #64748b; margin-bottom: 2px;">CPU INSTRUCTION PC</div>
+            <div id="camStatusPc" style="color: #cbd5e1; font-size: 13px;">0x0800_4114 [NORMAL]</div>
           </div>
-          <div id="camIndicator" style="font: 800 18px 'IBM Plex Mono'; color: #64748b; text-align: center;">➔➔</div>
-          <div style="background: #082433; padding: 12px; border-radius: 4px; border: 1px solid #1e293b;">
-            <div style="font: 700 11px 'IBM Plex Mono'; color: #73eee4; margin-bottom: 4px;">OTP PATCH BANK (REDIRECTION)</div>
-            <div id="camOtpState" style="font: 600 12px 'IBM Plex Mono'; color: #64748b;">Standby: CAM Idle</div>
+          <div style="background: #061925; padding: 10px 14px; border-radius: 4px; border: 1px solid #1e293b;">
+            <div style="color: #64748b; margin-bottom: 2px;">CAM MATCH DETECTOR</div>
+            <div id="camStatusHit" style="color: #64748b; font-size: 13px;">IDLE · MONITORING</div>
+          </div>
+          <div style="background: #061925; padding: 10px 14px; border-radius: 4px; border: 1px solid #1e293b;">
+            <div style="color: #64748b; margin-bottom: 2px;">ACTIVE BUS ROUTING</div>
+            <div id="camStatusLine" style="color: #73eee4; font-size: 13px;">MAIN ROM STREAM</div>
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- INDUSTRIAL COMPLIANT FOOTER -->
+  <!-- Global Footer -->
   <footer class="hub-footer">
-    <p>&copy; 2026 NVM Architecture Knowledge Hub &middot; Architectural Marketing &amp; Evidence Discipline</p>
-    <div>
-      <a href="index.html">Portal</a>
-      <a href="secure-storage.html">Secure Storage</a>
-      <a href="ai-nvm-opportunities.html">AI &amp; Advanced Nodes</a>
-      <a href="iot-mcu-envm.html">IoT &amp; MCU eNVM</a>
-      <a href="automotive-nvm.html">Automotive NVM</a>
-      <a href="specialty-nvm.html">Specialty NVM</a>
-      <a href="technology-comparison.html">Tech Comparison</a>
-      <a href="whitepaper/">Whitepaper Studio</a>
-      <a href="briefing/index.html">Executive Briefing</a>
+    <div class="footer-bottom">
+      <p>&copy; 2026 NVM Architecture Knowledge Hub · Flagship Enterprise Edition</p>
+      <div class="footer-links">
+        <a href="index.html">Portal</a>
+        <a href="memory-physics.html">Physics</a>
+        <a href="technology-comparison.html">Comparison</a>
+        <a href="secure-storage.html">Secure Storage</a>
+        <a href="ai-nvm-opportunities.html">AI &amp; Nodes</a>
+        <a href="iot-mcu-envm.html">IoT &amp; MCU</a>
+        <a href="automotive-nvm.html">Automotive</a>
+        <a href="specialty-nvm.html">Specialty NVM</a>
+        <a href="whitepaper/">Whitepaper</a>
+        <a href="briefing/index.html">Briefing</a>
+      </div>
     </div>
-    <p>TSMC N2 GAA &middot; CXL 3.1 &middot; 3D SoIC &middot; AEC-Q100 Grade 0 &middot; PQC Stateful Boot</p>
   </footer>
 
-  <!-- CANVAS SIMULATOR SCRIPT -->
+  <!-- Interactive Simulator Engines -->
   <script>
     /**
-     * 0.5V Near-Threshold Power & Instant-On Curve Canvas
+     * Flagship Lab 01: 0.5V NTV Oscilloscope Engine
      */
     (function () {
       const canvas = document.getElementById("ntvCanvas");
       if (!canvas) return;
-      const ctx = canvas.getContext("2d");
+      let ctx = null;
       const vddSlider = document.getElementById("ntvVdd");
       const vddValElem = document.getElementById("ntvVddVal");
       const savingsValElem = document.getElementById("ntvSavingsVal");
+      const btnTrigger = document.getElementById("btnRunBootScope");
 
-      function resize() {
-        canvas.width = canvas.parentElement.clientWidth * window.devicePixelRatio;
-        canvas.height = canvas.parentElement.clientHeight * window.devicePixelRatio;
-        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      function setupHiDPI() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 3);
+        const cssW = canvas.parentElement.clientWidth;
+        const cssH = 320;
+        canvas.width = Math.round(cssW * dpr);
+        canvas.height = Math.round(cssH * dpr);
+        canvas.style.width = cssW + "px";
+        canvas.style.height = cssH + "px";
+        ctx = canvas.getContext("2d");
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(dpr, dpr);
       }
-      window.addEventListener("resize", () => { resize(); render(); });
-      resize();
 
-      function render() {
-        const width = canvas.parentElement.clientWidth;
-        const height = canvas.parentElement.clientHeight;
+      function renderScope() {
+        if (!ctx) return;
+        const w = canvas.parentElement.clientWidth;
+        const h = 320;
         const vdd = parseFloat(vddSlider.value);
 
-        // Update Text
         vddValElem.textContent = vdd.toFixed(2) + " V";
-        const savings = (1.0 - (vdd * vdd) / (1.0 * 1.0)) * 100;
-        savingsValElem.textContent = (savings >= 0 ? "-" : "+") + Math.abs(savings).toFixed(1) + "%";
-        savingsValElem.style.color = savings >= 0 ? "#73eee4" : "#f59e0b";
+        const savings = (1.0 - (vdd * vdd) / (1.2 * 1.2)) * 100;
+        savingsValElem.textContent = "-" + savings.toFixed(1) + "%";
 
-        ctx.clearRect(0, 0, width, height);
+        ctx.clearRect(0, 0, w, h);
 
-        // Draw Coordinate Grid
-        ctx.strokeStyle = "rgba(115, 238, 228, 0.1)";
+        // Oscilloscope Grid
+        ctx.strokeStyle = "rgba(115, 238, 228, 0.08)";
         ctx.lineWidth = 1;
-        ctx.beginPath();
-        for (let x = 40; x < width; x += 50) { ctx.moveTo(x, 0); ctx.lineTo(x, height); }
-        for (let y = 20; y < height - 30; y += 40) { ctx.moveTo(0, y); ctx.lineTo(width, y); }
-        ctx.stroke();
+        for (let x = 0; x < w; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
+        for (let y = 0; y < h; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
 
-        // Draw Theoretical P_dyn Curve: VDD from 0.4 to 1.3
-        ctx.strokeStyle = "#22d3ee";
+        ctx.strokeStyle = "rgba(115, 238, 228, 0.25)";
+        ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(0, h / 2); ctx.lineTo(w, h / 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(w * 0.44, 0); ctx.lineTo(w * 0.44, h); ctx.stroke();
+
+        // Left Plot: Power Curve
+        const plotW = w * 0.41;
+        ctx.font = "700 11px 'IBM Plex Mono'";
+        ctx.fillStyle = "#73eee4";
+        ctx.fillText("DYNAMIC POWER P_dyn ∝ C·V²·f", 14, 24);
+
+        ctx.strokeStyle = "#0891b2";
         ctx.lineWidth = 2.5;
         ctx.beginPath();
         const minV = 0.4, maxV = 1.3;
         for (let v = minV; v <= maxV; v += 0.02) {
-          const px = 50 + ((v - minV) / (maxV - minV)) * (width - 100);
-          const pNorm = (v * v) / (1.2 * 1.2); // Normalized to 1.2V
-          const py = (height - 40) - pNorm * (height - 70);
+          const px = 20 + ((v - minV) / (maxV - minV)) * (plotW - 30);
+          const pNorm = (v * v) / (1.2 * 1.2);
+          const py = (h - 40) - pNorm * (h - 80);
           if (v === minV) ctx.moveTo(px, py);
           else ctx.lineTo(px, py);
         }
         ctx.stroke();
 
-        // Highlight Current Working Point
-        const curX = 50 + ((vdd - minV) / (maxV - minV)) * (width - 100);
+        const curPx = 20 + ((vdd - minV) / (maxV - minV)) * (plotW - 30);
         const curPNorm = (vdd * vdd) / (1.2 * 1.2);
-        const curY = (height - 40) - curPNorm * (height - 70);
+        const curPy = (h - 40) - curPNorm * (h - 80);
 
-        // Dot Glow
         ctx.fillStyle = "#73eee4";
         ctx.shadowColor = "#73eee4";
-        ctx.shadowBlur = 15;
+        ctx.shadowBlur = 12;
         ctx.beginPath();
-        ctx.arc(curX, curY, 6, 0, Math.PI * 2);
+        ctx.arc(curPx, curPy, 6, 0, Math.PI * 2);
         ctx.fill();
-        ctx.shadowBlur = 0; // reset
+        ctx.shadowBlur = 0;
 
-        // Label
         ctx.fillStyle = "#fff";
-        ctx.font = "600 11px 'IBM Plex Mono'";
-        ctx.fillText(`P_dyn: ${(curPNorm * 100).toFixed(1)}% @ ${vdd.toFixed(2)}V`, curX - 45, curY - 14);
-
-        // Axes Labels
-        ctx.fillStyle = "#64748b";
         ctx.font = "600 10px 'IBM Plex Mono'";
-        ctx.fillText("0.4V (NTV Boundary)", 50, height - 12);
-        ctx.fillText("1.0V (Standard)", 50 + ((1.0 - minV) / (maxV - minV)) * (width - 100) - 20, height - 12);
-        ctx.fillText("1.2V Legacy", width - 90, height - 12);
+        ctx.fillText(`${(curPNorm * 100).toFixed(1)}% @ ${vdd.toFixed(2)}V`, curPx - 25, curPy - 12);
+
+        // Right Plot: Cold Boot Oscilloscope
+        const scopeX = w * 0.47;
+        const scopeW = w - scopeX - 20;
+
+        ctx.font = "700 11px 'IBM Plex Mono'";
+        ctx.fillStyle = "#fff";
+        ctx.fillText("COLD-BOOT TIMING OSCILLOSCOPE (<10µs vs 35ms)", scopeX, 24);
+
+        // CH1: AntiFuse (Cyan)
+        const ch1BaseY = h * 0.42;
+        ctx.fillStyle = "#73eee4";
+        ctx.fillText("CH1: AntiFuse Direct XIP (<10µs)", scopeX, ch1BaseY - 35);
+        ctx.strokeStyle = "#73eee4";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(scopeX, ch1BaseY);
+        ctx.lineTo(scopeX + 25, ch1BaseY);
+        ctx.lineTo(scopeX + 32, ch1BaseY - 26);
+        ctx.lineTo(scopeX + scopeW, ch1BaseY - 26);
+        ctx.stroke();
+
+        ctx.fillStyle = "rgba(115, 238, 228, 0.4)";
+        ctx.fillText("ACTIVE XIP EXECUTION (<10µs)", scopeX + 40, ch1BaseY - 30);
+
+        // CH2: eFlash (Amber)
+        const ch2BaseY = h * 0.82;
+        ctx.fillStyle = "#f59e0b";
+        ctx.fillText("CH2: eFlash Charge-Pump Ramp (>35ms)", scopeX, ch2BaseY - 35);
+        ctx.strokeStyle = "#f59e0b";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(scopeX, ch2BaseY);
+        ctx.lineTo(scopeX + 25, ch2BaseY);
+        ctx.lineTo(scopeX + scopeW * 0.72, ch2BaseY);
+        ctx.lineTo(scopeX + scopeW * 0.82, ch2BaseY - 26);
+        ctx.lineTo(scopeX + scopeW, ch2BaseY - 26);
+        ctx.stroke();
+
+        ctx.fillStyle = "rgba(245, 158, 11, 0.15)";
+        ctx.fillRect(scopeX + 25, ch2BaseY - 26, scopeW * 0.72 - 25, 26);
+        ctx.fillStyle = "#f59e0b";
+        ctx.fillText("CHARGE PUMP WARMUP PENALTY (35,000µs)", scopeX + 40, ch2BaseY - 10);
       }
 
-      vddSlider.addEventListener("input", render);
-      render();
+      if (btnTrigger) btnTrigger.addEventListener("click", renderScope);
+      vddSlider.addEventListener("input", renderScope);
+      window.addEventListener("resize", () => { setupHiDPI(); renderScope(); });
+      document.addEventListener("DOMContentLoaded", () => { setupHiDPI(); renderScope(); });
     })();
 
     /**
-     * Vector Patch CAM Interactive Simulation
+     * Flagship Lab 02: Vector Patch CAM Bus Stream Canvas
      */
     (function () {
-      const btn = document.getElementById("camTriggerBtn");
-      const romState = document.getElementById("camRomState");
-      const indicator = document.getElementById("camIndicator");
-      const otpState = document.getElementById("camOtpState");
-      if (!btn) return;
+      const canvas = document.getElementById("camCanvas");
+      if (!canvas) return;
+      let ctx = null;
 
-      let isTriggered = false;
-      btn.addEventListener("click", () => {
-        isTriggered = !isTriggered;
-        if (isTriggered) {
-          btn.style.background = "#f59e0b";
-          romState.style.color = "#ef4444";
-          romState.innerHTML = "PC: 0x0800_4120 <b style='color:#ef4444'>[FAULT HIT!]</b>";
-          indicator.style.color = "#73eee4";
-          indicator.innerHTML = "⚡ CAM HIT ➔➔";
-          otpState.style.color = "#34d399";
-          otpState.innerHTML = "REDIRECT ➔ OTP Bank [0x080F_0010] (Fixed Inst Executed)";
-        } else {
-          btn.style.background = "#0891b2";
-          romState.style.color = "#cbd5e1";
-          romState.innerHTML = "PC: 0x0800_411C [OK]";
-          indicator.style.color = "#64748b";
-          indicator.innerHTML = "➔➔";
-          otpState.style.color = "#64748b";
-          otpState.innerHTML = "Standby: CAM Idle";
+      const pcElem = document.getElementById("camStatusPc");
+      const hitElem = document.getElementById("camStatusHit");
+      const lineElem = document.getElementById("camStatusLine");
+      const triggerBtn = document.getElementById("camTriggerBtn");
+      const stepBtn = document.getElementById("camStepBtn");
+      const otpStateElem = document.getElementById("camOtpState");
+
+      let currentPc = "0x0800_4114";
+      let isBug = false;
+
+      function setupHiDPI() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 3);
+        const cssW = canvas.parentElement.clientWidth;
+        const cssH = 240;
+        canvas.width = Math.round(cssW * dpr);
+        canvas.height = Math.round(cssH * dpr);
+        canvas.style.width = cssW + "px";
+        canvas.style.height = cssH + "px";
+        ctx = canvas.getContext("2d");
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(dpr, dpr);
+      }
+
+      function drawBus() {
+        if (!ctx) return;
+        const w = canvas.parentElement.clientWidth;
+        const h = 240;
+        ctx.clearRect(0, 0, w, h);
+
+        const cpuX = 70, cpuY = 70;
+        const camX = w * 0.45, camY = 170;
+        const muxX = w * 0.65, muxY = 70;
+        const romX = w - 80, romY = 40;
+        const otpX = w - 80, otpY = 100;
+
+        ctx.strokeStyle = "rgba(115, 238, 228, 0.3)";
+        ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(cpuX + 40, cpuY); ctx.lineTo(muxX - 20, muxY); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cpuX + 40, cpuY); ctx.lineTo(camX - 40, camY); ctx.stroke();
+
+        if (isBug) {
+          ctx.strokeStyle = "#73eee4";
+          ctx.lineWidth = 3.5;
+          ctx.shadowColor = "#73eee4";
+          ctx.shadowBlur = 15;
+          ctx.beginPath(); ctx.moveTo(camX + 40, camY); ctx.lineTo(muxX, muxY + 20); ctx.stroke();
+          ctx.shadowBlur = 0;
         }
-      });
+
+        ctx.strokeStyle = isBug ? "rgba(115, 238, 228, 0.2)" : "#22d3ee";
+        ctx.beginPath(); ctx.moveTo(muxX + 20, muxY); ctx.lineTo(romX - 30, romY); ctx.stroke();
+
+        ctx.strokeStyle = isBug ? "#34d399" : "rgba(115, 238, 228, 0.2)";
+        ctx.beginPath(); ctx.moveTo(muxX + 20, muxY); ctx.lineTo(otpX - 30, otpY); ctx.stroke();
+
+        function drawBox(bx, by, bw, bh, title, sub, color) {
+          ctx.fillStyle = "#061925";
+          ctx.strokeStyle = color;
+          ctx.lineWidth = 1.5;
+          ctx.fillRect(bx - bw / 2, by - bh / 2, bw, bh);
+          ctx.strokeRect(bx - bw / 2, by - bh / 2, bw, bh);
+
+          ctx.fillStyle = color;
+          ctx.font = "700 11px 'IBM Plex Mono'";
+          ctx.textAlign = "center";
+          ctx.fillText(title, bx, by - 2);
+          ctx.fillStyle = "#8ea9b3";
+          ctx.font = "500 9px 'IBM Plex Mono'";
+          ctx.fillText(sub, bx, by + 12);
+        }
+
+        drawBox(cpuX, cpuY, 80, 44, "CPU CORE", currentPc, "#fff");
+        drawBox(camX, camY, 120, 48, "VECTOR CAM", isBug ? "★ MATCH HIT!" : "MONITORING", isBug ? "#f59e0b" : "#64748b");
+        drawBox(muxX, muxY, 60, 40, "HW MUX", isBug ? "OTP SEL" : "ROM SEL", isBug ? "#73eee4" : "#64748b");
+        drawBox(romX, romY, 80, 36, "MAIN ROM", "ERR CODE", isBug ? "#64748b" : "#22d3ee");
+        drawBox(otpX, otpY, 80, 36, "OTP BANK", "PATCHED", isBug ? "#34d399" : "#64748b");
+
+        pcElem.textContent = `${currentPc} ${isBug ? '[BUG TARGET!]' : '[NORMAL]'}`;
+        pcElem.style.color = isBug ? "#ef4444" : "#cbd5e1";
+
+        hitElem.textContent = isBug ? "⚡ CAM HIT (0-CYCLE PULSE)" : "IDLE · MONITORING";
+        hitElem.style.color = isBug ? "#f59e0b" : "#64748b";
+
+        lineElem.textContent = isBug ? "REDIRECT ➔ OTP [0x080F_0010]" : "MAIN ROM STREAM";
+        lineElem.style.color = isBug ? "#34d399" : "#73eee4";
+
+        otpStateElem.textContent = isBug ? "Active: Vector Patch Match! Intercepting Bug 0x0800_4120" : "Standby: CAM Monitoring AHB Bus";
+        otpStateElem.style.color = isBug ? "#73eee4" : "#64748b";
+      }
+
+      if (triggerBtn) {
+        triggerBtn.addEventListener("click", () => {
+          currentPc = "0x0800_4120";
+          isBug = true;
+          drawBus();
+        });
+      }
+
+      if (stepBtn) {
+        stepBtn.addEventListener("click", () => {
+          if (isBug) {
+            currentPc = "0x0800_4124";
+            isBug = false;
+          } else {
+            currentPc = "0x0800_4118";
+          }
+          drawBus();
+        });
+      }
+
+      window.addEventListener("resize", () => { setupHiDPI(); drawBus(); });
+      document.addEventListener("DOMContentLoaded", () => { setupHiDPI(); drawBus(); });
     })();
   </script>
 </body>
