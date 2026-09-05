@@ -176,6 +176,19 @@ def run_tests() -> None:
     test("M2 DOM 拓撲順序正確 (Hero ➔ Stat Strip ➔ Nav Pills ➔ Thesis)",
          0 < hero_pos < stat_pos < pills_pos < thesis_pos)
 
+    # ===== TEST 15: Header Unify 一致性與 IoT 大小寫標準識別驗證 =====
+    print("\n═══ TEST 15: Header Unify 一致性與 IoT 大小寫標準識別驗證 ═══")
+    test("site-shell.css 包含 .brand-section nowrap 強制防折行",
+         "white-space: nowrap !important" in shell_css)
+    test("site-shell.css 包含 site-header auto 1fr auto 統一規格",
+         "grid-template-columns: auto 1fr auto !important" in shell_css)
+    test("M2 頂列 brand-section 為標準識別 ULP IoT & MCU",
+         "ULP IoT &amp; MCU" in iot_c and "ULP IOT &amp; MCU" not in iot_c)
+    test("M2 Hero Eyebrow 為標準識別 ULP IoT & EDGE MCU",
+         "ULP IoT &amp; EDGE MCU" in iot_c and "ULP IOT &amp; EDGE MCU" not in iot_c)
+    test("Secure Storage app-card 為標準識別 IoT / CONNECTIVITY",
+         "IoT / CONNECTIVITY" in (BASE / "secure-storage.html").read_text(encoding="utf-8"))
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
