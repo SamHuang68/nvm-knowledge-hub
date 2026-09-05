@@ -12,3 +12,5 @@ assets/nvm-state-atlas-hero-r17.png
 
 assets_master_cropped/
 assets_png/
+__pycache__/
+*.pyc
