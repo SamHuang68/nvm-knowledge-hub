@@ -5,17 +5,17 @@
   left: 16px;
   z-index: 10000;
   padding: 12px 20px;
-  background: var(--accent);
-  color: var(--text-primary) !important;
+  background: #b08a5b;
+  color: #020617 !important;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
-  border: 2px solid var(--accent-soft);
+  border: 2px solid #c4a574;
   border-radius: 4px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-glow);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(176, 138, 91, 0.4);
   transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .skip-link:focus,
@@ -37,7 +37,7 @@
   align-items: center !important;
   column-gap: clamp(16px, 2.5vw, 44px) !important;
   min-height: 48px !important;
-  padding: 0 var(--layout-side, clamp(12px, 2vw, 28px)) !important;
+  padding: 0 clamp(16px, 3.5vw, 64px) !important;
 }
 
 .site-header .brand {
@@ -163,39 +163,21 @@
 
 /* =========================================================
    全站語系切換最上層治理規範：英文為第一預設 (English as Default)
-   Match hub.css + site-language.js (nvm-hub-language)
    ========================================================= */
-[data-lang="zh"],
-[data-assurance-zh] {
+[data-lang="zh"] {
   display: none !important;
 }
-
-[data-lang="en"],
-[data-assurance-en] {
+[data-lang="en"] {
   display: revert;
 }
 
-html[data-language="en"] [data-lang="zh"],
-html[data-language="en"] [data-assurance-zh],
-html:not([data-language="zh"]) [data-lang="zh"],
-html:not([data-language="zh"]) [data-assurance-zh],
-body[data-language="en"] [data-lang="zh"],
-body[data-language="en"] [data-assurance-zh] {
-  display: none !important;
-}
-
-html[data-language="zh"] [data-lang="en"],
-html[data-language="zh"] [data-assurance-en],
-body[data-language="zh"] [data-lang="en"],
-body[data-language="zh"] [data-assurance-en] {
-  display: none !important;
-}
-
 html[data-language="zh"] [data-lang="zh"],
-html[data-language="zh"] [data-assurance-zh],
-body[data-language="zh"] [data-lang="zh"],
-body[data-language="zh"] [data-assurance-zh] {
+body[data-language="zh"] [data-lang="zh"] {
   display: revert !important;
+}
+html[data-language="zh"] [data-lang="en"],
+body[data-language="zh"] [data-lang="en"] {
+  display: none !important;
 }
 
 /* =========================================================
@@ -454,16 +436,15 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
    EXECUTIVE STUDIO LAYOUT & VERTICAL LENS RAIL (全站共用雙欄工作台)
    ========================================================================= */
 .studio-main-workbench {
-  max-width: 100%;
-  width: 100%;
+  max-width: min(1780px, 97vw);
   margin: 10px auto 30px;
-  padding: 0 var(--layout-side, clamp(12px, 2vw, 28px));
+  padding: 0 clamp(8px, 1.2vw, 16px);
   box-sizing: border-box;
 }
 .studio-layout {
   display: grid;
-  grid-template-columns: var(--layout-rail-studio, clamp(88px, 7vw, 108px)) minmax(0, 1fr);
-  gap: 10px;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: 14px;
   align-items: start;
 }
 @media (max-width: 1024px) {
@@ -477,8 +458,8 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .lens-vertical-rail {
   position: sticky;
   top: 56px;
-  background: var(--surface);
-  border: 1px solid var(--border-subtle);
+  background: #0e2a38;
+  border: 1px solid rgba(28, 25, 23, 0.10);
   border-radius: 0;
   padding: 10px 8px;
   box-shadow: none;
@@ -495,16 +476,16 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .rail-title {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.68rem;
-  color: var(--accent);
+  color: #6f5536;
   letter-spacing: 0.12em;
   font-weight: 700;
 }
 .rail-tag {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.62rem;
-  color: var(--text-muted);
-  background: var(--elevated);
-  border: 1px solid var(--border-subtle);
+  color: #b5aa9c;
+  background: #0a2230;
+  border: 1px solid rgba(15, 23, 42, 0.06);
   padding: 1px 5px;
   border-radius: 3px;
 }
@@ -543,30 +524,30 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   padding: 7px 8px;
   border-radius: 0;
   text-decoration: none;
-  color: var(--text-secondary);
+  color: #e8e0d4;
   background: transparent;
   border: 1px solid transparent;
   transition: all 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
   position: relative;
 }
 .lens-node-item:hover {
-  background: var(--elevated);
-  border-color: var(--border-highlight);
-  color: var(--text-primary);
+  background: #061925;
+  border-color: rgba(176, 138, 91, 0.35);
+  color: #e8e0d4;
   transform: none;
   box-shadow: none;
 }
 .lens-node-item.active {
-  background: var(--elevated);
+  background: #061925;
   border-color: transparent;
-  color: var(--text-primary);
-  box-shadow: inset 2px 0 0 var(--accent);
+  color: #e8e0d4;
+  box-shadow: inset 2px 0 0 #b08a5b;
 }
 .lens-badge {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.68rem;
   font-weight: 700;
-  color: var(--accent);
+  color: #6f5536;
   background: transparent;
   border: none;
   min-width: 22px;
@@ -578,7 +559,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 }
 .lens-node-item.active .lens-badge {
   background: transparent;
-  color: var(--accent);
+  color: #6f5536;
   border-color: transparent;
   font-weight: 800;
 }
@@ -591,27 +572,27 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .lens-name {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #f3ebe0;
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .lens-node-item.active .lens-name {
-  color: var(--text-primary);
+  color: #e8e0d4;
   font-weight: 700;
 }
 .lens-sub {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.60rem;
-  color: var(--text-muted);
+  color: #64748b;
   line-height: 1.1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .lens-node-item.active .lens-sub {
-  color: var(--accent);
+  color: #8a6a42;
   font-weight: 600;
 }
 
@@ -764,8 +745,8 @@ html, body {
 
 /* 全站規格彩條同步對齊大寬度工作台 */
 .stat-strip-compact {
-  max-width: 100% !important;
-  padding: 0 var(--layout-side, clamp(12px, 2vw, 28px)) !important;
+  max-width: min(1780px, 97vw) !important;
+  padding: 0 clamp(8px, 1.2vw, 16px) !important;
   margin-left: auto !important;
   margin-right: auto !important;
   width: 100% !important;
@@ -780,31 +761,22 @@ html, body {
   scroll-margin-top: 88px;
 }
 
-/* Theme-aware shell surfaces (Light Paper default / Dark Cyan optional). */
-html[data-theme="light"],
-html:not([data-theme]) {
-  /* research.css loads after styles.css and resets dark-era tokens on :root */
-  --ink: var(--text-primary);
-  --muted-ink: var(--text-muted);
-  --paper: var(--canvas);
-  --paper-2: var(--elevated);
-}
-
+/* Dual-tone SSOT: obsidian navy + copper. No white paper. */
 html, body, body.hub-page, body.specialty-page {
-  background-color: var(--canvas) !important;
+  background-color: #061925 !important;
   background-image: none !important;
-  color: var(--text-secondary) !important;
+  color: #e8e0d4 !important;
   margin: 0 !important;
 }
 .language-toggle,
 #languageToggle {
-  background: var(--surface) !important;
-  color: var(--accent) !important;
-  border: 1px solid var(--border-highlight) !important;
+  background: #0e2a38 !important;
+  color: #c4a574 !important;
+  border: 1px solid rgba(196, 165, 116, 0.35) !important;
 }
 .language-toggle b,
 #languageToggle b {
-  color: var(--accent) !important;
+  color: #c4a574 !important;
 }
 .km-card,
 .lens-vertical-rail,
@@ -818,27 +790,27 @@ html, body, body.hub-page, body.specialty-page {
 .lens-panel,
 .hub-rail-btn,
 .lens-node-item {
-  background-color: var(--surface) !important;
-  color: var(--text-secondary) !important;
-  border-color: var(--border-subtle) !important;
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--text-primary) 6%, transparent) !important;
+  background-color: #0e2a38 !important;
+  color: #e8e0d4 !important;
+  border-color: rgba(196, 165, 116, 0.22) !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
 }
 .hub-rail-btn.active,
 .lens-node-item.active {
-  background-color: var(--elevated) !important;
-  box-shadow: inset 2px 0 0 var(--accent) !important;
+  background-color: #133445 !important;
+  box-shadow: inset 2px 0 0 #c4a574 !important;
 }
 .km-card-title,
 .km-layer-title,
 .lens-name,
 .hub-rail-name {
-  color: var(--text-primary) !important;
+  color: #f3ebe0 !important;
 }
 .km-card-desc,
 .lens-sub,
 .hub-rail-sub,
 .panel-desc {
-  color: var(--text-muted) !important;
+  color: #b5aa9c !important;
 }
 
 .rail-title,
@@ -849,7 +821,7 @@ html, body, body.hub-page, body.specialty-page {
 .stat-label,
 .cell-note,
 .deck-step-num {
-  color: var(--accent) !important;
+  color: #c4a574 !important;
   background: transparent !important;
   border-color: transparent !important;
 }
@@ -859,11 +831,11 @@ html, body, body.hub-page, body.specialty-page {
 .pill-number,
 .tag-accent,
 .signal-chip {
-  background: var(--elevated) !important;
-  color: var(--text-secondary) !important;
-  border: 1px solid var(--border-highlight) !important;
+  background: #133445 !important;
+  color: #e8e0d4 !important;
+  border: 1px solid rgba(196, 165, 116, 0.35) !important;
 }
-.matrix-header { color: var(--accent) !important; }
+.matrix-header { color: #c4a574 !important; }
 .source-list a,
 .thesis-cards article,
 .thesis-principles article,
@@ -877,46 +849,14 @@ html, body, body.hub-page, body.specialty-page {
 .source-card,
 .evidence-toolbar,
 .source-index {
-  background-color: var(--surface) !important;
-  color: var(--text-secondary) !important;
-  border-color: var(--border-subtle) !important;
+  background-color: #0e2a38 !important;
+  color: #e8e0d4 !important;
+  border-color: rgba(196, 165, 116, 0.22) !important;
 }
-.hero h1 em {
-  color: var(--accent) !important;
-}
-
-html[data-theme="dark"] h1 em,
-html[data-theme="dark"] h2 em {
-  color: var(--accent) !important;
-}
-
-/* Light Paper: h2 em defaults to ink; accent em only on dark scrims (loads after theme.css) */
-html[data-theme="light"] h2 em,
-html:not([data-theme]) h2 em {
-  color: var(--text-primary) !important;
-}
-
-html[data-theme="light"] :is(
-  .hub-hero,
-  .hub-hero-compact,
-  .hero,
-  .enterprise-strip,
-  .method-section,
-  .method-copy,
-  .research-hero,
-  .immersive-chapter
-) :is(h1, h2) em,
-html:not([data-theme]) :is(
-  .hub-hero,
-  .hub-hero-compact,
-  .hero,
-  .enterprise-strip,
-  .method-section,
-  .method-copy,
-  .research-hero,
-  .immersive-chapter
-) :is(h1, h2) em {
-  color: var(--accent) !important;
+.hero h1 em,
+h1 em,
+h2 em {
+  color: #c4a574 !important;
 }
 .spec-card-val,
 .chip-v,
@@ -940,69 +880,11 @@ html:not([data-theme]) :is(
 .signal-chip.green,
 .signal-chip.purple,
 .stat-val {
-  color: var(--accent) !important;
+  color: #c4a574 !important;
 }
 input[type="range"] {
-  accent-color: var(--accent);
+  accent-color: #c4a574;
 }
 
-/* =========================================================================
-   LAYOUT POLISH — compact left rails, edge-to-edge content stage
-   ========================================================================= */
-.hub-studio-wrapper,
-.lens-stage-container,
-.main-container {
-  max-width: 100% !important;
-  width: 100% !important;
-  padding-left: var(--layout-side, clamp(12px, 2vw, 28px)) !important;
-  padding-right: var(--layout-side, clamp(12px, 2vw, 28px)) !important;
-  box-sizing: border-box !important;
-}
-
-.hub-studio-layout {
-  grid-template-columns: var(--layout-rail-studio, clamp(88px, 7vw, 108px)) minmax(0, 1fr) !important;
-  gap: 10px !important;
-}
-
-.hub-minimal-header {
-  padding-left: var(--layout-side, clamp(12px, 2vw, 28px)) !important;
-  padding-right: var(--layout-side, clamp(12px, 2vw, 28px)) !important;
-}
-
-@media (min-width: 1025px) {
-  .lens-vertical-rail,
-  .hub-vertical-rail {
-    padding: 8px 6px !important;
-  }
-
-  .lens-node-item,
-  .hub-rail-btn {
-    padding: 6px 6px !important;
-    gap: 6px !important;
-  }
-
-  .lens-sub,
-  .hub-rail-sub {
-    display: none !important;
-  }
-
-  .rail-header,
-  .hub-rail-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3px;
-  }
-
-  .rail-title,
-  .hub-rail-title {
-    font-size: 0.58rem !important;
-    letter-spacing: 0.08em !important;
-  }
-
-  .hub-rail-name,
-  .lens-name {
-    font-size: 0.68rem !important;
-  }
-}
 
 

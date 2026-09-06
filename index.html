@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" data-language="en">
 <head>
-  <script src="theme.js?v=20260906-theme-v1"></script>
-  <link rel="stylesheet" href="theme.css?v=20260906-theme-v1">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NVM Architecture Knowledge Hub · Industrial Non-Volatile Memory Whitepaper</title>
   <meta name="description" content="Industrial-grade NVM architecture forum and knowledge hub. Spanning Secure Storage IP, AI accelerator persistent states, TSMC IoT matrices, BCD power, high-voltage drivers, automotive-grade reliability, and bitcell physics.">
-  <meta name="theme-color" content="#f3f7f8">
+  <meta name="theme-color" content="#0a1118">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -19,11 +17,11 @@
     .skip-link {
       position: fixed !important; top: -120px !important; left: 16px !important;
       z-index: 10000 !important; padding: 12px 20px !important;
-      background: var(--accent) !important; color: var(--text-primary) !important;
+      background: #b08a5b !important; color: #020617 !important;
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 13px !important; font-weight: 800 !important;
       letter-spacing: 0.05em !important; text-transform: uppercase !important;
-      text-decoration: none !important; border: 2px solid var(--accent-soft) !important;
+      text-decoration: none !important; border: 2px solid #c4a574 !important;
       border-radius: 4px !important;
       box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 20px rgba(176,138,91,0.4) !important;
       transition: top 0.2s cubic-bezier(0.16,1,0.3,1) !important; display: inline-block !important;
@@ -32,29 +30,42 @@
       top: 14px !important; outline: 3px solid #f59e0b !important; outline-offset: 3px !important;
     }
 
-    /* Language rules live in site-shell.css (nvm-hub-language single source) */
+    /* 1. Language: English default, one locale at a time */
+    [data-lang="zh"] { display: none !important; }
+    [data-lang="en"] { display: revert !important; }
+    html[data-language="zh"] [data-lang="zh"],
+    body[data-language="zh"] [data-lang="zh"] { display: revert !important; }
+    html[data-language="zh"] [data-lang="en"],
+    body[data-language="zh"] [data-lang="en"] { display: none !important; }
 
     /* ==========================================================================
        NVM KNOWLEDGE HUB V3.3 — PURE OBSIDIAN DARK ARCHITECTURE (ZERO CHEMICAL GREEN)
        ========================================================================== */
     :root {
-      --bg-deep: var(--canvas);
-      --bg-surface: var(--surface);
-      --bg-surface-elevated: var(--elevated);
-      --border-subtle: var(--border-subtle);
-      --border-highlight: var(--border-highlight);
-      --text-primary: var(--text-primary);
-      --text-secondary: var(--text-secondary);
-      --text-muted: var(--text-muted);
-      --accent-cyan: var(--accent);
-      --accent-glow: var(--accent-glow);
-      --accent-amber: #f59e0b;
+      /* 1. 底色全面改用無色相偏差的深空黑曜石，徹底消除綠色沉重感 */
+      --bg-deep: #08090a;          /* 最底層視窗背景（純淨深邃） */
+      --bg-surface: #101216;       /* 卡片主體背景（俐落微凸層級） */
+      --bg-surface-elevated: #181b20; /* 懸浮、Dropdown、標籤背景 */
+      
+      /* 2. 邊框與光學次像素細線 */
+      --border-subtle: rgba(255, 255, 255, 0.07);
+      --border-highlight: rgba(255, 255, 255, 0.15);
+
+      /* 3. 文字階梯：保證 10:1 以上超高清晰對比度 */
+      --text-primary: #f3f4f6;     /* 標題與核心數據：極致亮白 */
+      --text-secondary: #c5cbd5;   /* 正文內文：高亮清透銀灰（絕不泛綠） */
+      --text-muted: #7e8795;       /* 補充說明、專利編號、Meta 數據 */
+
+      /* 4. 點綴色：從「大片背景綠」退化成「點睛光學青（Electric Cyan）」 */
+      --accent-cyan: #00e5ff;      /* 僅用於微型 Badge、圖表折線、高光邊界 */
+      --accent-glow: rgba(0, 229, 255, 0.12);
+      --accent-amber: #f59e0b;     /* 警示與物理極限標記 */
 
       /* 5. 分層標籤專屬高光 (乾淨微型點綴) */
       --layer-l1-color: #a78bfa;
-      --layer-l2-color: var(--accent);
+      --layer-l2-color: #00e5ff;
       --layer-l3-color: #f59e0b;
-      --layer-res-color: #4a6270;
+      --layer-res-color: #94a3b8;
     }
 
     /* 全局基底重設：純淨深空黑曜石底色 */
@@ -82,7 +93,7 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle) !important;
-      padding: 10px var(--layout-side, clamp(12px, 2vw, 28px));
+      padding: 10px clamp(16px, 3vw, 36px);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -197,11 +208,10 @@
 
     /* 2. 緊湊型 Executive Hero：純淨深空黑曜石旗艦晶片展示窗 */
     .hub-hero-compact {
-      max-width: none;
-      width: auto;
-      margin: 16px var(--layout-side, clamp(12px, 2vw, 28px)) 0;
+      max-width: 1440px;
+      margin: 16px auto 0;
       border-radius: 12px;
-      padding: clamp(36px, 4vw, 54px) var(--layout-side, clamp(12px, 2vw, 28px));
+      padding: clamp(36px, 4vw, 54px) clamp(24px, 5vw, 64px);
       background: 
         radial-gradient(circle at 82% 28%, rgba(0, 229, 255, 0.05), transparent 42%),
         linear-gradient(180deg, var(--bg-surface) 0%, #0d0f12 60%, var(--bg-deep) 100%) !important;
@@ -269,16 +279,15 @@
 
     /* 3. 高密度直立測條工作台版面 (Studio Workbench: Left Rail + Right Stage) */
     .hub-studio-wrapper {
-      max-width: 100%;
-      width: 100%;
+      max-width: min(1780px, 97vw);
       margin: 10px auto 30px;
-      padding: 0 var(--layout-side, clamp(12px, 2vw, 28px));
+      padding: 0 clamp(8px, 1.2vw, 16px);
       box-sizing: border-box;
     }
     .hub-studio-layout {
       display: grid;
-      grid-template-columns: var(--layout-rail-studio, clamp(88px, 7vw, 108px)) minmax(0, 1fr);
-      gap: 10px;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 14px;
       align-items: start;
     }
     @media (max-width: 1024px) {
@@ -295,7 +304,7 @@
       background: var(--bg-surface) !important;
       border: 1px solid var(--border-subtle) !important;
       border-radius: 10px;
-      padding: 8px 6px;
+      padding: 12px 10px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
       z-index: 40;
     }
@@ -331,8 +340,8 @@
     .hub-rail-btn {
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 6px 6px;
+      gap: 10px;
+      padding: 8px 10px;
       border-radius: 8px;
       text-decoration: none;
       color: var(--text-secondary) !important;
@@ -536,8 +545,8 @@
       transition: all 0.2s ease;
     }
     .km-card:hover .km-card-tags span {
-      color: var(--text-primary) !important;
-      border-color: var(--border-highlight) !important;
+      color: var(--text-secondary) !important;
+      border-color: rgba(255, 255, 255, 0.12) !important;
     }
     .km-card-arrow {
       font: 600 12px/1 'IBM Plex Mono', monospace;
@@ -655,8 +664,7 @@
         <kbd>Ctrl+K</kbd>
       </button>
       <div class="hub-header-ctrls">
-        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark theme"><svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
-      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch Language (ZH/EN)">
+        <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch Language (ZH/EN)">
           <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
         </button>
       </div>
@@ -707,12 +715,12 @@
     <div class="hub-studio-layout">
 
       <!-- 左側直立測條 (Vertical Knowledge Rail) -->
-      <aside class="hub-vertical-rail" aria-label="Knowledge layer rail" data-aria-label-en="Knowledge layer rail" data-aria-label-zh="知識領域層次直立測條">
+      <aside class="hub-vertical-rail" aria-label="知識領域層次直立測條">
         <div class="hub-rail-header">
           <span class="hub-rail-title">KNOWLEDGE LAYERS</span>
           <span class="hub-rail-tag">L1 ~ RES</span>
         </div>
-        <nav class="hub-rail-nav" role="navigation" aria-label="Layer navigation" data-aria-label-en="Layer navigation" data-aria-label-zh="層次跳轉">
+        <nav class="hub-rail-nav" role="navigation" aria-label="層次跳轉">
           <a class="hub-rail-btn active" href="#layer-foundations" data-target="layer-foundations">
             <span class="hub-rail-badge">L1</span>
             <div class="hub-rail-text">
