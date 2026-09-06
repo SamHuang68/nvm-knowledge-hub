@@ -1,5 +1,5 @@
-/* Memory Physics flagship readability — scoped page only. */
-body.research-page:not(.oip-page) {
+/* Hub readability — all knowledge pages. */
+body {
   --bg-base: #061018;
   --bg-surface: #0c1c26;
   --bg-elevated: #122430;
@@ -10,7 +10,7 @@ body.research-page:not(.oip-page) {
 }
 
 @supports (color: oklch(0.12 0.012 240)) {
-  body.research-page:not(.oip-page) {
+  body {
     --bg-base: oklch(0.12 0.012 240);
     --bg-surface: oklch(0.16 0.015 240);
     --bg-elevated: oklch(0.20 0.018 240);
@@ -21,20 +21,20 @@ body.research-page:not(.oip-page) {
   }
 }
 
-body.research-page:not(.oip-page) {
+body {
   background: var(--bg-base) !important;
   color: var(--ink-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-body.research-page:not(.oip-page) .site-header {
+body .site-header {
   min-height: 56px;
   backdrop-filter: blur(18px);
   background: color-mix(in srgb, var(--bg-base) 78%, transparent);
 }
 
-body.research-page:not(.oip-page) .site-breadcrumb {
+body .site-breadcrumb {
   position: sticky;
   top: 48px;
   z-index: 90;
@@ -43,42 +43,42 @@ body.research-page:not(.oip-page) .site-breadcrumb {
   background: color-mix(in srgb, var(--bg-base) 88%, transparent);
 }
 
-body.research-page:not(.oip-page) h1,
-body.research-page:not(.oip-page) h2,
-body.research-page:not(.oip-page) .abstract-copy h2,
-body.research-page:not(.oip-page) .paper-heading h2 {
+body h1,
+body h2,
+body .abstract-copy h2,
+body .paper-heading h2 {
   color: var(--ink-title) !important;
   letter-spacing: -0.03em;
   line-height: 1.12;
   font-weight: 650;
 }
 
-body.research-page:not(.oip-page) h1 em { color: #d4a05c; }
+body h1 em { color: #d4a05c; }
 
-body.research-page:not(.oip-page) p,
-body.research-page:not(.oip-page) li,
-body.research-page:not(.oip-page) .abstract-copy p,
-body.research-page:not(.oip-page) .paper-heading p,
-body.research-page:not(.oip-page) .claim-rung p,
-body.research-page:not(.oip-page) .correction-card p {
+body p,
+body li,
+body .abstract-copy p,
+body .paper-heading p,
+body .claim-rung p,
+body .correction-card p {
   color: var(--ink-body) !important;
   font-size: 1.0625rem;
   line-height: 1.65;
   letter-spacing: -0.01em;
 }
 
-body.research-page:not(.oip-page) .research-label,
-body.research-page:not(.oip-page) .paper-kicker,
-body.research-page:not(.oip-page) .abstract-verdict small {
+body .research-label,
+body .paper-kicker,
+body .abstract-verdict small {
   color: var(--ink-cyan) !important;
   letter-spacing: 0.1em;
 }
 
-body.research-page:not(.oip-page) .abstract-panel,
-body.research-page:not(.oip-page) .abstract-verdict,
-body.research-page:not(.oip-page) .claim-rung,
-body.research-page:not(.oip-page) .correction-card,
-body.research-page:not(.oip-page) .evidence-result {
+body .abstract-panel,
+body .abstract-verdict,
+body .claim-rung,
+body .correction-card,
+body .evidence-result {
   background: var(--bg-surface) !important;
   border: 1px solid transparent;
   background-image:
@@ -89,27 +89,27 @@ body.research-page:not(.oip-page) .evidence-result {
   color: var(--ink-body);
 }
 
-body.research-page:not(.oip-page) .abstract-verdict strong,
-body.research-page:not(.oip-page) .commercial-verdict,
-body.research-page:not(.oip-page) .corpus-verdict {
+body .abstract-verdict strong,
+body .commercial-verdict,
+body .corpus-verdict {
   color: var(--ink-title) !important;
   font-size: clamp(1.2rem, 2.2vw, 1.7rem);
   line-height: 1.35;
   letter-spacing: -0.02em;
 }
 
-body.research-page:not(.oip-page) .lens-vertical-rail,
-body.research-page:not(.oip-page) .hub-vertical-rail {
+body .lens-vertical-rail,
+body .hub-vertical-rail {
   background: var(--bg-elevated) !important;
   border: 1px solid rgba(255,255,255,.08);
 }
 
-body.research-page:not(.oip-page) .lens-name,
-body.research-page:not(.oip-page) .lens-node-item {
+body .lens-name,
+body .lens-node-item {
   color: var(--ink-body) !important;
 }
 
-body.research-page:not(.oip-page) .topic-switch a {
+body .topic-switch a {
   min-height: 32px;
   font-size: 10px;
 }
