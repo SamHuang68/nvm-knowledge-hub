@@ -1,0 +1,97 @@
+/* NVM Knowledge Hub — commercial token + index hierarchy. Load after site-shell. */
+:root {
+  --nv-midnight: #061b29;
+  --nv-navy: #092235;
+  --nv-panel: #0e2a38;
+  --nv-paper-ink: #e8e0d4;
+  --nv-muted: #8ea3ad;
+  --nv-cyan: #11d2d0;
+  --nv-cyan-dim: rgba(17, 210, 208, 0.16);
+  --nv-copper: #c78a4b;
+  --nv-copper-line: rgba(199, 138, 75, 0.28);
+  --nv-radius: 2px;
+  --nv-display: 700 clamp(28px, 3.4vw, 44px) / 1.12 Inter, "Noto Sans TC", sans-serif;
+  --nv-title: 650 clamp(18px, 1.6vw, 22px) / 1.25 Inter, "Noto Sans TC", sans-serif;
+  --nv-body: 400 14px / 1.65 Inter, "Noto Sans TC", sans-serif;
+  --nv-meta: 600 10px / 1.35 "IBM Plex Mono", ui-monospace, monospace;
+}
+
+.language-toggle [data-lang-option].is-active,
+.language-toggle b[aria-current],
+html[data-language="en"] .language-toggle [data-lang-option="en"],
+html[data-language="zh"] .language-toggle [data-lang-option="zh"] {
+  color: var(--nv-cyan);
+}
+
+#readingProgress,
+.reading-progress span,
+.progress span {
+  background: var(--nv-cyan);
+}
+
+.hub-hero-compact {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(1200px 420px at 82% -10%, rgba(17, 210, 208, 0.08), transparent 55%),
+    linear-gradient(135deg, #061925 0%, #082232 58%, #04141e 100%) !important;
+}
+.hub-hero-compact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(17, 210, 208, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 210, 208, 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(90deg, transparent 42%, #000 78%);
+}
+.hub-hero-compact > * {
+  position: relative;
+  z-index: 1;
+}
+.hub-hero-compact h1 {
+  font: var(--nv-display);
+}
+.hub-hero-compact .hero-metric b {
+  color: var(--nv-copper);
+}
+
+.hub-page .km-grid {
+  grid-template-columns: minmax(0, 1.28fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+@media (max-width: 900px) {
+  .hub-page .km-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.hub-page .km-card {
+  border-radius: var(--nv-radius) !important;
+  border-color: var(--nv-copper-line) !important;
+}
+.hub-page .km-card-featured {
+  background:
+    linear-gradient(180deg, rgba(17, 210, 208, 0.06), transparent 42%),
+    var(--nv-panel) !important;
+  border-left: 3px solid var(--nv-cyan) !important;
+  min-height: 188px;
+}
+.hub-page .km-card-featured .km-card-title {
+  font-size: 18px;
+}
+.hub-page .km-card-arrow {
+  color: var(--nv-copper);
+}
+
+.hub-rail-btn.active,
+.lens-node-item.active {
+  box-shadow: inset 2px 0 0 var(--nv-cyan);
+}
+.hub-rail-btn.active .hub-rail-badge,
+.lens-node-item.active .lens-badge {
+  color: var(--nv-cyan);
+}
