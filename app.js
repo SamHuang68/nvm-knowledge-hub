@@ -284,42 +284,24 @@ function updatePhase(index = activePhase) {
   document.querySelector("#phaseText").textContent = pick(detail.text);
 }
 
-function setLanguage(nextLanguage, persist = true) {
-  if (!['zh', 'en'].includes(nextLanguage)) return;
-  if (nextLanguage !== currentLanguage) translateStaticText(nextLanguage);
+function getLanguage() {
+  return window.HubLanguage ? window.HubLanguage.get() : currentLanguage;
+}
+
+function syncAppLanguage(nextLanguage) {
+  if (!["zh", "en"].includes(nextLanguage)) return;
   currentLanguage = nextLanguage;
-  document.documentElement.lang = nextLanguage === "zh" ? "zh-Hant" : "en";
-  document.body.dataset.language = nextLanguage;
-  document.querySelectorAll(".primary-nav [data-nav-key]").forEach(link => {
-    link.textContent = navigationLabels[link.dataset.navKey][nextLanguage];
-  });
-  document.querySelector(".primary-nav").setAttribute("aria-label", nextLanguage === "zh" ? "主要導覽" : "Primary navigation");
-  document.querySelector(".brand").setAttribute("aria-label", nextLanguage === "zh" ? "NVM Knowledge Hub 首頁" : "NVM Knowledge Hub home");
-  document.querySelector(".hero-proof").setAttribute("aria-label", nextLanguage === "zh" ? "供應商公開的產品組合數據" : "Vendor-reported portfolio figures");
-  document.querySelector(".signal-strip").setAttribute("aria-label", nextLanguage === "zh" ? "核心產品構成" : "Core product composition");
-  document.querySelector(".state-switch").setAttribute("aria-label", nextLanguage === "zh" ? "切換電源狀態" : "Switch power state");
-  document.querySelector(".silicon-stage").setAttribute("aria-label", nextLanguage === "zh" ? "Secure Storage 電源狀態示意" : "Secure Storage power-state model");
-  document.querySelector(".architecture-flow").setAttribute("aria-label", nextLanguage === "zh" ? "Secure Storage 架構" : "Secure Storage architecture");
-  document.querySelector(".compare-switch").setAttribute("aria-label", nextLanguage === "zh" ? "比較層級" : "Comparison level");
-  document.querySelector("#filters").setAttribute("aria-label", nextLanguage === "zh" ? "內容類型篩選" : "Content-type filters");
-  document.querySelector(".case-flow").setAttribute("aria-label", nextLanguage === "zh" ? "分層企業簽署參考架構" : "Layered enterprise-signing reference architecture");
-  document.querySelector(".stack-sources").setAttribute("aria-label", nextLanguage === "zh" ? "分層安全案例的主要來源" : "Primary sources for the layered security case study");
-  document.querySelector("#languageToggle").setAttribute("aria-label", nextLanguage === "zh" ? "Switch to English" : "Switch to Traditional Chinese");
-  document.querySelector("#searchInput").setAttribute("aria-label", nextLanguage === "zh" ? "搜尋學習內容" : "Search learning content");
-  if (window.HubTheme) window.HubTheme.syncToggleState();
-  syncMenuState(document.querySelector(".primary-nav").classList.contains("open"));
-  document.querySelector("#searchInput").placeholder = nextLanguage === "zh" ? "搜尋 OTP、PUF、retention、fault…" : "Search OTP, PUF, retention, fault…";
-  document.querySelector("#emptyState").textContent = nextLanguage === "zh" ? "找不到符合條件的內容。" : "No matching learning content.";
-  document.querySelector('meta[name="description"]').content = nextLanguage === "zh" ? "NVM Knowledge Hub：以 SRAM PUF、AES-256 與 OTP 為核心的 Secure Storage executive learning experience。" : "NVM Knowledge Hub: an executive Secure Storage learning experience built around SRAM PUF, AES-256 and OTP.";
   document.querySelector("#searchInput").value = "";
   activeType = "all";
+  document.querySelector("#emptyState").textContent = nextLanguage === "zh"
+    ? "找不到符合條件的內容。"
+    : "No matching learning content.";
   renderLearningPath();
   renderFilters();
   renderArticles();
   updatePowerState();
   updateArchitecture();
   updatePhase();
-  if (persist) localStorage.setItem("nvm-language", nextLanguage);
 }
 
 document.querySelector("#filters").addEventListener("click", event => {
@@ -350,8 +332,11 @@ document.querySelectorAll(".compare-switch button").forEach(button => {
 const menuButton = document.querySelector("#menuToggle");
 const nav = document.querySelector(".primary-nav");
 function syncMenuState(open) {
+  const lang = getLanguage();
   menuButton.setAttribute("aria-expanded", open ? "true" : "false");
-  menuButton.setAttribute("aria-label", open ? (currentLanguage === "zh" ? "關閉選單" : "Close menu") : (currentLanguage === "zh" ? "開啟選單" : "Open menu"));
+  menuButton.setAttribute("aria-label", open
+    ? (lang === "zh" ? "關閉選單" : "Close menu")
+    : (lang === "zh" ? "開啟選單" : "Open menu"));
 }
 function closeMenu(restoreFocus = false) {
   nav.classList.remove("open");
@@ -376,8 +361,6 @@ function syncMenuToLayout() {
   if (getComputedStyle(menuButton).display === "none") closeMenu();
 }
 window.addEventListener("resize", syncMenuToLayout, { passive: true });
-
-document.querySelector("#languageToggle").addEventListener("click", () => setLanguage(currentLanguage === "zh" ? "en" : "zh"));
 
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -416,7 +399,10 @@ updatePowerState("off");
 updateArchitecture("puf");
 updatePhase(0);
 const activeLang = window.HubLanguage ? window.HubLanguage.get() : "en";
-setLanguage(activeLang, false);
+syncAppLanguage(activeLang);
 updateScrollUI();
 
-window.addEventListener("hub:language-change", e => { if (typeof setLanguage === "function") setLanguage(e.detail.language, false); });
+window.addEventListener("hub:language-change", (e) => {
+  syncAppLanguage(e.detail.language);
+  syncMenuState(document.querySelector(".primary-nav").classList.contains("open"));
+});

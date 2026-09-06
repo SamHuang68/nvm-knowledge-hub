@@ -399,7 +399,7 @@
       color: #a5f3fc !important;
       margin-left: 6px !important;
     }
-    .immersive-chapter .chapter-copy span {
+    .immersive-chapter .chapter-copy > span:not([data-lang]) {
       display: inline-block !important;
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 10px !important;
@@ -424,7 +424,7 @@
         gap: 3px !important;
       }
       .immersive-chapter .chapter-copy h2,
-      .immersive-chapter .chapter-copy span {
+      .immersive-chapter .chapter-copy > span:not([data-lang]) {
         white-space: normal !important;
       }
     }
@@ -1648,7 +1648,7 @@
         <div><svg><use href="#i-control"/></svg><b>CONTROL</b><span>APB + policy</span></div><i></i>
         <div><svg><use href="#i-evidence"/></svg><b>LIFECYCLE</b><span>Provision + support</span></div>
       </div>
-      <p class="ownership-conclusion">Pre-integration can reduce cross-block hand-offs; contractual ownership, qualification support and product-response scope must still be confirmed.</p>
+      <p class="ownership-conclusion"><span data-lang="zh">Pre-integration 可減少跨 block hand-off；契約歸屬、qualification support 與 product-response scope 仍須確認。</span><span data-lang="en">Pre-integration can reduce cross-block hand-offs; contractual ownership, qualification support and product-response scope must still be confirmed.</span></p>
     </section>
 
     <section id="learn" class="section learning-section reveal">
@@ -1667,7 +1667,7 @@
           <span>CURATED PATH · 01</span><h3>Secure Storage Decision Path</h3><ol id="learningPath"></ol>
         </aside>
         <div class="library">
-          <div class="filters" id="filters" aria-label="Content-type filters"></div>
+          <div class="filters" id="filters" aria-label="Content-type filters" data-aria-label-en="Content-type filters" data-aria-label-zh="內容類型篩選"></div>
           <div class="article-grid" id="articleGrid"></div>
           <p class="empty-state" id="emptyState" hidden>No matching learning content.</p>
         </div>

@@ -85,18 +85,73 @@ for (const { url, checks, fullScan } of pages) {
         }
       }
 
-      return { leaks, bare: bare.slice(0, 5), ariaLeaks: ariaLeaks.slice(0, 8) };
+      const enVisibleInZh = [];
+      if (lang === 'zh') {
+        document.querySelectorAll('[data-lang="en"]').forEach((el) => {
+          if (getComputedStyle(el).display === 'none') return;
+          const text = (el.innerText || '').trim();
+          if (text.length > 12) enVisibleInZh.push(text.slice(0, 80));
+        });
+      }
+
+      return { leaks, bare: bare.slice(0, 5), ariaLeaks: ariaLeaks.slice(0, 8), enVisibleInZh: enVisibleInZh.slice(0, 5) };
     }, { checks, lang, fullScan });
 
     const label = `${url} [${lang}]`;
     const hasFail = report.leaks.length
       || (lang === 'en' && fullScan && report.bare.length)
-      || (lang === 'en' && report.ariaLeaks.length);
+      || (lang === 'en' && report.ariaLeaks.length)
+      || (lang === 'zh' && report.enVisibleInZh.length);
     if (hasFail) {
       console.log('FAIL', label, JSON.stringify(report, null, 2));
       failed += 1;
     } else {
       console.log('OK', label);
+    }
+  }
+  await page.close();
+}
+
+// 3× language-toggle residue (secure-storage)
+{
+  const page = await browser.newPage();
+  await page.goto('http://localhost:8765/secure-storage.html', { waitUntil: 'networkidle' });
+  for (const lang of ['en', 'zh', 'en', 'zh', 'en']) {
+    await page.evaluate((l) => window.HubLanguage.set(l, false), lang);
+    await page.waitForTimeout(250);
+    const bad = await page.evaluate((lang) => {
+      const cjk = /[\u4e00-\u9fff]/;
+      const issues = [];
+      if (lang === 'en') {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        let node;
+        while ((node = walker.nextNode())) {
+          const text = node.textContent.trim();
+          if (!text || !cjk.test(text)) continue;
+          const el = node.parentElement;
+          if (!el || el.closest('[data-lang="zh"], [data-assurance-zh], .language-toggle')) continue;
+          let hidden = false;
+          let p = el;
+          while (p) {
+            if (getComputedStyle(p).display === 'none') { hidden = true; break; }
+            p = p.parentElement;
+          }
+          if (!hidden) issues.push('cjk:' + text.slice(0, 40));
+        }
+      } else {
+        document.querySelectorAll('[data-lang="en"]').forEach((el) => {
+          if (getComputedStyle(el).display !== 'none' && (el.innerText || '').length > 12) {
+            issues.push('en:' + el.innerText.slice(0, 40));
+          }
+        });
+      }
+      return issues.slice(0, 3);
+    }, lang);
+    if (bad.length) {
+      console.log('FAIL toggle-residue', lang, bad);
+      failed += 1;
+    } else {
+      console.log('OK toggle-residue', lang);
     }
   }
   await page.close();

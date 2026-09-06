@@ -390,6 +390,16 @@ html:not([data-theme]) .ai-nvm-page #overview .evidence-ladder article > b {
   color: var(--text-primary) !important;
 }
 
+html[data-theme="light"] .ai-nvm-page #overview .evidence-ladder article > span,
+html:not([data-theme]) .ai-nvm-page #overview .evidence-ladder article > span {
+  color: var(--text-meta) !important;
+}
+
+html[data-theme="light"] .button.primary,
+html:not([data-theme]) .button.primary {
+  box-shadow: 0 12px 36px var(--accent-glow) !important;
+}
+
 html[data-theme="light"] .ai-nvm-page .record-copy .tier-tag:not(.inferred),
 html:not([data-theme]) .ai-nvm-page .record-copy .tier-tag:not(.inferred) {
   color: var(--accent-warn) !important;
