@@ -306,7 +306,7 @@ function setLanguage(nextLanguage, persist = true) {
   document.querySelector(".stack-sources").setAttribute("aria-label", nextLanguage === "zh" ? "分層安全案例的主要來源" : "Primary sources for the layered security case study");
   document.querySelector("#languageToggle").setAttribute("aria-label", nextLanguage === "zh" ? "Switch to English" : "Switch to Traditional Chinese");
   document.querySelector("#searchInput").setAttribute("aria-label", nextLanguage === "zh" ? "搜尋學習內容" : "Search learning content");
-  document.querySelector("#themeToggle").setAttribute("aria-label", nextLanguage === "zh" ? "切換顯示主題" : "Toggle display theme");
+  if (window.HubTheme) window.HubTheme.syncToggleState();
   syncMenuState(document.querySelector(".primary-nav").classList.contains("open"));
   document.querySelector("#searchInput").placeholder = nextLanguage === "zh" ? "搜尋 OTP、PUF、retention、fault…" : "Search OTP, PUF, retention, fault…";
   document.querySelector("#emptyState").textContent = nextLanguage === "zh" ? "找不到符合條件的內容。" : "No matching learning content.";
@@ -377,10 +377,6 @@ function syncMenuToLayout() {
 }
 window.addEventListener("resize", syncMenuToLayout, { passive: true });
 
-document.querySelector("#themeToggle").addEventListener("click", event => {
-  const active = document.body.classList.toggle("light-mode");
-  event.currentTarget.setAttribute("aria-pressed", active ? "true" : "false");
-});
 document.querySelector("#languageToggle").addEventListener("click", () => setLanguage(currentLanguage === "zh" ? "en" : "zh"));
 
 const revealObserver = new IntersectionObserver(entries => {

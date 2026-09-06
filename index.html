@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NVM Architecture Knowledge Hub · Industrial Non-Volatile Memory Whitepaper</title>
   <meta name="description" content="Industrial-grade NVM architecture forum and knowledge hub. Spanning Secure Storage IP, AI accelerator persistent states, TSMC IoT matrices, BCD power, high-voltage drivers, automotive-grade reliability, and bitcell physics.">
-  <meta name="theme-color" content="#0a1118">
+  <meta name="theme-color" content="#f3f7f8">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -44,28 +44,21 @@
        NVM KNOWLEDGE HUB V3.3 — PURE OBSIDIAN DARK ARCHITECTURE (ZERO CHEMICAL GREEN)
        ========================================================================== */
     :root {
-      /* 1. 底色全面改用無色相偏差的深空黑曜石，徹底消除綠色沉重感 */
-      --bg-deep: #08090a;          /* 最底層視窗背景（純淨深邃） */
-      --bg-surface: #101216;       /* 卡片主體背景（俐落微凸層級） */
-      --bg-surface-elevated: #181b20; /* 懸浮、Dropdown、標籤背景 */
-      
-      /* 2. 邊框與光學次像素細線 */
-      --border-subtle: rgba(255, 255, 255, 0.07);
-      --border-highlight: rgba(255, 255, 255, 0.15);
-
-      /* 3. 文字階梯：保證 10:1 以上超高清晰對比度 */
-      --text-primary: #f3f4f6;     /* 標題與核心數據：極致亮白 */
-      --text-secondary: #c5cbd5;   /* 正文內文：高亮清透銀灰（絕不泛綠） */
-      --text-muted: #7e8795;       /* 補充說明、專利編號、Meta 數據 */
-
-      /* 4. 點綴色：從「大片背景綠」退化成「點睛光學青（Electric Cyan）」 */
-      --accent-cyan: #00e5ff;      /* 僅用於微型 Badge、圖表折線、高光邊界 */
-      --accent-glow: rgba(0, 229, 255, 0.12);
-      --accent-amber: #f59e0b;     /* 警示與物理極限標記 */
+      --bg-deep: var(--canvas);
+      --bg-surface: var(--surface);
+      --bg-surface-elevated: var(--elevated);
+      --border-subtle: var(--border-subtle);
+      --border-highlight: var(--border-highlight);
+      --text-primary: var(--text-primary);
+      --text-secondary: var(--text-secondary);
+      --text-muted: var(--text-muted);
+      --accent-cyan: var(--accent);
+      --accent-glow: var(--accent-glow);
+      --accent-amber: #f59e0b;
 
       /* 5. 分層標籤專屬高光 (乾淨微型點綴) */
       --layer-l1-color: #a78bfa;
-      --layer-l2-color: #00e5ff;
+      --layer-l2-color: var(--accent);
       --layer-l3-color: #f59e0b;
       --layer-res-color: #94a3b8;
     }

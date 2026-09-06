@@ -761,22 +761,22 @@ html, body {
   scroll-margin-top: 88px;
 }
 
-/* Dual-tone SSOT: obsidian navy + copper. No white paper. */
+/* Theme-aware shell surfaces (Light Paper default / Dark Cyan optional). */
 html, body, body.hub-page, body.specialty-page {
-  background-color: #061925 !important;
+  background-color: var(--canvas) !important;
   background-image: none !important;
-  color: #e8e0d4 !important;
+  color: var(--text-secondary) !important;
   margin: 0 !important;
 }
 .language-toggle,
 #languageToggle {
-  background: #0e2a38 !important;
-  color: #c4a574 !important;
-  border: 1px solid rgba(196, 165, 116, 0.35) !important;
+  background: var(--surface) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border-highlight) !important;
 }
 .language-toggle b,
 #languageToggle b {
-  color: #c4a574 !important;
+  color: var(--accent) !important;
 }
 .km-card,
 .lens-vertical-rail,
@@ -790,27 +790,27 @@ html, body, body.hub-page, body.specialty-page {
 .lens-panel,
 .hub-rail-btn,
 .lens-node-item {
-  background-color: #0e2a38 !important;
-  color: #e8e0d4 !important;
-  border-color: rgba(196, 165, 116, 0.22) !important;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+  background-color: var(--surface) !important;
+  color: var(--text-secondary) !important;
+  border-color: var(--border-subtle) !important;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--text-primary) 6%, transparent) !important;
 }
 .hub-rail-btn.active,
 .lens-node-item.active {
-  background-color: #133445 !important;
-  box-shadow: inset 2px 0 0 #c4a574 !important;
+  background-color: var(--elevated) !important;
+  box-shadow: inset 2px 0 0 var(--accent) !important;
 }
 .km-card-title,
 .km-layer-title,
 .lens-name,
 .hub-rail-name {
-  color: #f3ebe0 !important;
+  color: var(--text-primary) !important;
 }
 .km-card-desc,
 .lens-sub,
 .hub-rail-sub,
 .panel-desc {
-  color: #b5aa9c !important;
+  color: var(--text-muted) !important;
 }
 
 .rail-title,
@@ -821,7 +821,7 @@ html, body, body.hub-page, body.specialty-page {
 .stat-label,
 .cell-note,
 .deck-step-num {
-  color: #c4a574 !important;
+  color: var(--accent) !important;
   background: transparent !important;
   border-color: transparent !important;
 }
@@ -831,11 +831,11 @@ html, body, body.hub-page, body.specialty-page {
 .pill-number,
 .tag-accent,
 .signal-chip {
-  background: #133445 !important;
-  color: #e8e0d4 !important;
-  border: 1px solid rgba(196, 165, 116, 0.35) !important;
+  background: var(--elevated) !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border-highlight) !important;
 }
-.matrix-header { color: #c4a574 !important; }
+.matrix-header { color: var(--accent) !important; }
 .source-list a,
 .thesis-cards article,
 .thesis-principles article,
@@ -849,14 +849,14 @@ html, body, body.hub-page, body.specialty-page {
 .source-card,
 .evidence-toolbar,
 .source-index {
-  background-color: #0e2a38 !important;
-  color: #e8e0d4 !important;
-  border-color: rgba(196, 165, 116, 0.22) !important;
+  background-color: var(--surface) !important;
+  color: var(--text-secondary) !important;
+  border-color: var(--border-subtle) !important;
 }
 .hero h1 em,
 h1 em,
 h2 em {
-  color: #c4a574 !important;
+  color: var(--accent-soft) !important;
 }
 .spec-card-val,
 .chip-v,
@@ -880,10 +880,10 @@ h2 em {
 .signal-chip.green,
 .signal-chip.purple,
 .stat-val {
-  color: #c4a574 !important;
+  color: var(--accent) !important;
 }
 input[type="range"] {
-  accent-color: #c4a574;
+  accent-color: var(--accent);
 }
 
 

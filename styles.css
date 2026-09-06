@@ -5,24 +5,24 @@ svg:not([width]):not(.svg-defs) { max-width: 100%; max-height: 100%; }
 .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; }
 
 :root {
-  --navy-950: #03131e;
-  --navy-900: #061b29;
-  --navy-850: #082334;
-  --navy-800: #0b2b3e;
-  --navy-700: #133d52;
-  --paper: #061925;
-  --paper-2: #0a2230;
-  --white: #fff;
-  --ink: #e8e0d4;
-  --muted: #b5aa9c;
-  --muted-light: #c9c0b4;
-  --line: rgba(196, 165, 116, .28);
-  --line-dark: rgba(176, 138, 91, .22);
-  --cyan: #b08a5b;
-  --cyan-2: #c4a574;
-  --teal: #8a6a42;
-  --copper: #b08a5b;
-  --copper-soft: #d4b896;
+  --navy-950: var(--scrim-deep);
+  --navy-900: var(--scrim-deep);
+  --navy-850: var(--scrim-deep);
+  --navy-800: var(--elevated);
+  --navy-700: var(--elevated);
+  --paper: var(--canvas);
+  --paper-2: var(--elevated);
+  --white: var(--surface);
+  --ink: var(--text-secondary);
+  --muted: var(--text-muted);
+  --muted-light: var(--text-secondary);
+  --line: color-mix(in srgb, var(--accent-warn-soft) 28%, transparent);
+  --line-dark: color-mix(in srgb, var(--accent-warn) 22%, transparent);
+  --cyan: var(--accent);
+  --cyan-2: var(--accent-soft);
+  --teal: var(--accent);
+  --copper: var(--accent-warn);
+  --copper-soft: var(--accent-warn-soft);
   --danger: #ef5743;
   --success: #38c99e;
   --shadow: 0 28px 80px rgba(3, 20, 31, .18);
@@ -177,7 +177,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
-body.light-mode { --paper: #061925; --paper-2: #0a2230; }
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; }
 button { color: inherit; }
