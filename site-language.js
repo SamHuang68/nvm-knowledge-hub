@@ -46,29 +46,10 @@
         const zhOpt = btn.querySelector('[data-lang-option="zh"]');
         const enOpt = btn.querySelector('[data-lang-option="en"]');
         if (zhOpt && enOpt) {
-          zhOpt.style.color = (target === "zh") ? "var(--accent)" : "var(--text-muted)";
-          enOpt.style.color = (target === "en") ? "var(--accent)" : "var(--text-muted)";
+          zhOpt.style.color = (target === "zh") ? "#c4a574" : "#8ea9b3";
+          enOpt.style.color = (target === "en") ? "#c4a574" : "#8ea9b3";
         }
       });
-      document.querySelectorAll("[data-placeholder-en][data-placeholder-zh]").forEach((input) => {
-        const nextPlaceholder = (target === "zh")
-          ? input.getAttribute("data-placeholder-zh")
-          : input.getAttribute("data-placeholder-en");
-        if (nextPlaceholder) input.placeholder = nextPlaceholder;
-      });
-      document.querySelectorAll("[data-aria-label-en][data-aria-label-zh]").forEach((el) => {
-        const nextLabel = (target === "zh")
-          ? el.getAttribute("data-aria-label-zh")
-          : el.getAttribute("data-aria-label-en");
-        if (nextLabel) el.setAttribute("aria-label", nextLabel);
-      });
-      const metaDesc = document.querySelector('meta[name="description"][data-description-en][data-description-zh]');
-      if (metaDesc) {
-        metaDesc.setAttribute("content", (target === "zh")
-          ? metaDesc.getAttribute("data-description-zh")
-          : metaDesc.getAttribute("data-description-en"));
-      }
-      if (window.HubTheme) window.HubTheme.syncToggleState();
       window.dispatchEvent(new CustomEvent("hub:language-change", {
         detail: { language: target }
       }));

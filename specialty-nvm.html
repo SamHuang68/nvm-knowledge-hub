@@ -2,8 +2,6 @@
 
 <html lang="en">
 <head>
-  <script src="theme.js?v=20260906-theme-v1"></script>
-  <link rel="stylesheet" href="theme.css?v=20260906-theme-v1">
 <meta charset="utf-8"/>
 <script src="site-language.js?v=20260906-navy-v3"></script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -50,31 +48,31 @@
        EDITORIAL LIGHT THEME: 全站統一白底輕盈工控風格 (M4 SPECIALTY NVM)
        ========================================================================= */
     :root, body.specialty-page {
-      --paper-bg: var(--canvas);
-      --paper-card: var(--surface);
-      --ink-heading: var(--text-primary);
-      --ink-body: var(--text-secondary);
-      --ink-muted: var(--text-muted);
-      --cyan-editorial: var(--accent);
-      --amber-editorial: var(--accent-warn);
+      --paper-bg: #061925;
+      --paper-card: #0e2a38;
+      --ink-heading: #0a1e2c;
+      --ink-body: #334155;
+      --ink-muted: #64748b;
+      --cyan-editorial: #8a6a42;
+      --amber-editorial: #d97706;
 
-      /* 覆寫 specialty-nvm.css 根變數 */
-      --spec-midnight: var(--canvas);
-      --spec-midnight-2: var(--elevated);
-      --spec-navy: var(--surface);
-      --spec-surface: var(--surface);
-      --spec-surface-card: var(--surface);
-      --spec-surface-elevated: var(--elevated);
-      --spec-cyan: var(--accent);
-      --spec-aqua: var(--accent-soft);
-      --spec-teal: var(--accent);
-      --spec-amber: var(--accent-warn);
-      --spec-green: var(--accent-warn-soft);
+      /* 覆寫 specialty-nvm.css 暗黑根變數 */
+      --spec-midnight: #061925;
+      --spec-midnight-2: #0a2230;
+      --spec-navy: #ffffff;
+      --spec-surface: #ffffff;
+      --spec-surface-card: #ffffff;
+      --spec-surface-elevated: #0e2a38;
+      --spec-cyan: #8a6a42;
+      --spec-aqua: #6f5536;
+      --spec-teal: #8a6a42;
+      --spec-amber: #d97706;
+      --spec-green: #6f5536;
       --spec-danger: #dc2626;
-      --spec-line: var(--border-subtle);
-      --spec-line-subtle: var(--border-subtle);
-      --spec-text-main: var(--text-primary);
-      --spec-text-muted: var(--text-secondary);
+      --spec-line: rgba(15, 23, 42, 0.08);
+      --spec-line-subtle: rgba(15, 23, 42, 0.06);
+      --spec-text-main: #0a1e2c;
+      --spec-text-muted: #334155;
       --spec-text-dim: #64748b;
       --spec-glow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
     }
@@ -375,8 +373,7 @@
 <button aria-controls="primaryNav" aria-expanded="false" aria-label="Open navigation menu" class="menu-button" id="menuToggle" type="button">
 <i></i><i></i>
 </button>
-<button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark theme"><svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
-      </div>
+</div>
 </header>
 <nav aria-label="Breadcrumb" class="site-breadcrumb">
 <a href="index.html">Knowledge Hub</a><i></i><strong><span data-lang="zh">特種半導體與高壓 eNVM 架構</span><span data-lang="en">Specialty Silicon eNVM Architecture</span></strong>

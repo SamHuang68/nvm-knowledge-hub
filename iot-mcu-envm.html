@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <script src="theme.js?v=20260906-theme-v1"></script>
-  <link rel="stylesheet" href="theme.css?v=20260906-theme-v1">
   <meta charset="utf-8">
   <script src="site-language.js?v=20260906-navy-v3"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -115,9 +113,9 @@
 
     /* 4-Metric 規格彩條 (高密度整合在 Hero 與 Signal 之間) */
     .stat-strip-compact {
-      max-width: 100%;
+      max-width: min(1780px, 97vw);
       margin: -24px auto 0;
-      padding: 0 var(--layout-side, clamp(12px, 2vw, 28px));
+      padding: 0 clamp(8px, 1.2vw, 16px);
       position: relative;
       z-index: 10;
       width: 100%;
@@ -192,16 +190,15 @@
        核心版面：EXECUTIVE LENS STUDIO (直立測條 + 高密度工作台)
        ======================================================= */
     .studio-workbench-wrapper {
-      max-width: 100%;
-      width: 100%;
+      max-width: min(1780px, 97vw);
       margin: 10px auto 30px;
-      padding: 0 var(--layout-side, clamp(12px, 2vw, 28px));
+      padding: 0 clamp(8px, 1.2vw, 16px);
       box-sizing: border-box;
     }
     .studio-layout {
       display: grid;
-      grid-template-columns: var(--layout-rail-studio, clamp(88px, 7vw, 108px)) minmax(0, 1fr);
-      gap: 10px;
+      grid-template-columns: 210px minmax(0, 1fr);
+      gap: 14px;
       align-items: start;
     }
     @media (max-width: 1024px) {
@@ -598,7 +595,7 @@
     </nav>
     <div class="header-actions">
       <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to English"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark theme"><svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
+      <button class="header-button" id="themeToggle" type="button" aria-label="Toggle display theme" aria-pressed="false"><span></span><span></span></button>
       <button class="menu-button" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
     </div>
   </header>
