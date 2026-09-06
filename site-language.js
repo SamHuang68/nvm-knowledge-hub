@@ -20,7 +20,6 @@
 
   const initialLang = resolveSavedLanguage();
 
-  // 立即在 DOM 繪製前設定 documentElement，杜絕閃爍
   document.documentElement.lang = (initialLang === "zh") ? "zh-Hant" : "en";
   document.documentElement.dataset.language = initialLang;
 
@@ -32,13 +31,9 @@
     set: function(lang, persist) {
       if (persist === undefined) persist = true;
       const target = (lang === "zh") ? "zh" : "en";
-      
       document.documentElement.lang = (target === "zh") ? "zh-Hant" : "en";
       document.documentElement.dataset.language = target;
-      if (document.body) {
-        document.body.dataset.language = target;
-      }
-
+      if (document.body) document.body.dataset.language = target;
       if (persist) {
         try {
           localStorage.setItem(STORAGE_KEY, target);
@@ -46,7 +41,6 @@
           localStorage.setItem(LEGACY_KEY_2, target);
         } catch (e) {}
       }
-
       document.querySelectorAll(".language-toggle, #languageToggle").forEach(btn => {
         btn.setAttribute("aria-label", target === "zh" ? "Switch to English" : "切換至繁體中文");
         const zhOpt = btn.querySelector('[data-lang-option="zh"]');
@@ -56,10 +50,7 @@
           enOpt.style.color = (target === "en") ? "#c4a574" : "#8ea9b3";
         }
       });
-
-      window.dispatchEvent(new CustomEvent("hub:language-change", {
-        detail: { language: target }
-      }));
+      window.dispatchEvent(new CustomEvent("hub:language-change", { detail: { language: target } }));
     },
     toggle: function() {
       const next = (this.get() === "zh") ? "en" : "zh";
@@ -69,9 +60,7 @@
   };
 
   function initDOM() {
-    if (document.body) {
-      document.body.dataset.language = window.HubLanguage.get();
-    }
+    if (document.body) document.body.dataset.language = window.HubLanguage.get();
     document.querySelectorAll(".language-toggle, #languageToggle").forEach(btn => {
       if (!btn._hubLangBound) {
         btn._hubLangBound = true;
@@ -89,4 +78,13 @@
   } else {
     initDOM();
   }
+})();
+
+(function loadFlagshipSurface(){
+  if (document.querySelector("link[data-flagship-surface]")) return;
+  var l=document.createElement("link");
+  l.rel="stylesheet";
+  l.href="flagship-surface.css?v=20260906-s1";
+  l.setAttribute("data-flagship-surface","true");
+  document.head.appendChild(l);
 })();
