@@ -97,3 +97,13 @@
   s.setAttribute("data-flagship-shader","true");
   document.head.appendChild(s);
 })();
+
+(function loadPhysicsFlagship(){
+  if (!/memory-physics\.html/i.test(location.pathname)) return;
+  if (document.querySelector("link[data-physics-flagship]")) return;
+  var l=document.createElement("link");
+  l.rel="stylesheet";
+  l.href="memory-physics-flagship.css?v=20260906-p1";
+  l.setAttribute("data-physics-flagship","true");
+  document.head.appendChild(l);
+})();
