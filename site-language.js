@@ -88,3 +88,12 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bind);
   else bind();
 })();
+
+(function loadFlagshipShader(){
+  if (document.querySelector("script[data-flagship-shader]")) return;
+  var s=document.createElement("script");
+  s.src="flagship-shader.js?v=20260906-s3";
+  s.defer=true;
+  s.setAttribute("data-flagship-shader","true");
+  document.head.appendChild(s);
+})();
