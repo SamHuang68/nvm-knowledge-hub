@@ -6,20 +6,16 @@ The site supports two visual themes controlled by `html[data-theme]` and persist
 
 | Token | Light Paper (default) | Dark Cyan |
 | --- | --- | --- |
-| Canvas | `#F3F7F8` | `#0B0B0B` (matte charcoal) |
-| Surface | `#FFFFFF` | `#1A1A1A` |
-| Elevated | `#EEF2F4` | `#222222` |
-| Text primary | `#061925` | `#F4F4F5` (off-white) |
-| Text secondary | `#3D5566` | `#A1A1AA` (muted mid-grey) |
-| Text muted | `#6B7F8C` | `#71717A` |
-| Accent | `#0E8F96` | `#6BB5C8` (soft desaturated cyan-blue) |
+| Canvas | `#F3F7F8` | `#08090A` |
+| Surface | `#FFFFFF` | `#101216` |
+| Elevated | `#EEF2F4` | `#181B20` |
+| Text primary | `#061925` | `#F3F4F6` |
+| Text secondary | `#3D5566` | `#C5CBD5` |
+| Text muted | `#6B7F8C` | `#7E8795` |
+| Accent | `#0E8F96` | `#00E5FF` |
 | Accent warn (copper) | `#B08A5B` / `#C4A574` | same |
 
 Light Paper is the default on first paint. `prefers-color-scheme` is intentionally ignored so the experience is consistent until the user opts into Dark Cyan.
-
-### Dark Cyan visual intent
-
-Dark mode follows a matte studio UI: charcoal canvas, `#1A1A1A` card surfaces with subtle rounding, thin borders, generous padding, and minimal chrome. Accent cyan is deliberately softened (not neon `#00E5FF`) for comfortable long-form reading.
 
 ## Files
 
