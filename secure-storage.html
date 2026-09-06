@@ -157,6 +157,70 @@
       color: #64748b;
       line-height: 1.3;
     }
+    .stat-strip-card.is-context {
+      border-left-color: #6f5536;
+      opacity: 0.96;
+    }
+    .stat-strip-card.is-context .stat-val {
+      color: #e6d4bc;
+    }
+
+    .vendor-ask {
+      max-width: min(1780px, 97vw);
+      margin: 8px auto 10px;
+      padding: 12px clamp(8px, 1.2vw, 16px) 4px;
+      box-sizing: border-box;
+    }
+    .vendor-ask-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+    .vendor-ask-head .eyebrow {
+      margin: 0;
+    }
+    .vendor-ask-head p {
+      margin: 0;
+      max-width: 62ch;
+      color: #9fb4bd;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .vendor-ask-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .vendor-ask article {
+      margin: 0;
+      padding: 10px 12px;
+      border: 1px solid rgba(196, 165, 116, 0.18);
+      background: rgba(7, 29, 42, 0.72);
+      border-radius: 6px;
+    }
+    .vendor-ask article b {
+      display: block;
+      color: #c4a574;
+      font: 700 10px/1.3 "IBM Plex Mono", monospace;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .vendor-ask article p {
+      margin: 0;
+      color: #d5e4ea;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    @media (max-width: 1100px) {
+      .vendor-ask-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      .vendor-ask-grid { grid-template-columns: 1fr; }
+      .vendor-ask-head { flex-direction: column; }
+    }
 
     /* 3. 吸頂章節導覽藥丸列 */
     .hub-nav-pills-bar {
@@ -1024,7 +1088,6 @@
 
   <nav class="site-breadcrumb" aria-label="Breadcrumb">
     <i></i><a href="index.html">Knowledge Hub</a><i></i><strong>Secure Storage</strong>
-    <span class="topic-switch"><a href="index.html#topics">All Topics</a><a aria-current="page" href="secure-storage.html">Secure Storage</a><a href="ai-nvm-opportunities.html">AI Systems</a><a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a></span>
   </nav>
 
   <main id="top">
@@ -1038,8 +1101,8 @@
           <span data-lang="en">Permanent Data At Rest<br><em>Ephemeral Silicon Root Key</em></span>
         </h1>
         <p class="hero-lede">
-          <span data-lang="zh">以 SRAM PUF 每次上電重建 device-unique root key，再由 AES-256 保護 OTP 內容。在已驗證的 shutdown 條件下，不保留刻意儲存或仍由電源維持的 reconstructed root。SRAM device mismatch、helper material 與 lifecycle state 可能持續存在；只有在 composed controls 成立時，sensitive payload 才應以 ciphertext 留存。</span>
-          <span data-lang="en">Reconstruct a device-unique root key from SRAM PUF at power-up, then protect OTP content with AES-256. Under verified shutdown, no intentionally stored or power-sustained reconstructed root remains. Transistor mismatch, helper material and lifecycle state may persist; only when composed controls hold does sensitive payload remain protected as ciphertext.</span>
+          <span data-lang="zh">以 SRAM PUF 在上電時重建 device-unique root key，再用 AES-256 保護 OTP 內容。已驗證 shutdown 下，不保留刻意儲存或仍由電源維持的 reconstructed root。</span>
+          <span data-lang="en">Reconstruct a device-unique root key from SRAM PUF at power-up, then protect OTP content with AES-256. Under verified shutdown, no intentionally stored or power-sustained reconstructed root remains.</span>
         </p>
         <div class="hero-actions">
           <a class="button primary" href="#power-lab"><span data-lang="zh">探索 Power-off State</span><span data-lang="en">Explore Power-off State</span> <svg><use href="#i-arrow"/></svg></a>
@@ -1049,7 +1112,7 @@
           <div data-record-id="OIP-PUF-SCALE-001"><strong>&gt;1.5B</strong><span>devices using SRAM PUF technology</span></div>
           <div data-record-id="OIP-PUF-HISTORY-001"><strong>&gt;15 years</strong><span>of proven SRAM PUF technology</span></div>
           <div data-record-id="OIP-ARCH-001"><strong>AES-256</strong><span>disclosed OTP data protection</span></div>
-          <small class="hero-proof-source">VENDOR-REPORTED PORTFOLIO CONTEXT · NOT TARGET-CONFIGURATION ASSURANCE</small>
+          <small class="hero-proof-source">VENDOR-REPORTED PORTFOLIO CONTEXT · NOT TARGET-CONFIGURATION ASSURANCE. Helper material, transistor mismatch and lifecycle state may persist; remanence and zeroization remain assurance targets.</small>
         </div>
       </div>
       <div class="hero-caption"><span>SRAM PUF ROOT KEY</span><b>RECONSTRUCTED AT POWER-UP · NOT INTENTIONALLY STORED</b></div>
@@ -1061,38 +1124,61 @@
       <div class="stat-strip-grid">
         <div class="stat-strip-card border-l-cyan">
           <div class="stat-card-head">
-            <span class="meta-code">RULE #01 · ZERO STORAGE</span>
+            <span class="meta-code">RULE #01 · NO STORED ROOT</span>
             <span class="pulse-chip-mini"></span>
           </div>
           <div class="stat-val">ABSENT AT REST</div>
-          <p><span data-lang="zh">SRAM PUF 上電即時重建，下電不留實體根金鑰痕跡</span><span data-lang="en">Reconstructed at power-up; zero physical root trace at rest</span></p>
+          <p><span data-lang="zh">上電重建；下電不保留 powered reconstructed root</span><span data-lang="en">Reconstructed at power-up; no powered reconstructed root at rest</span></p>
         </div>
         <div class="stat-strip-card border-l-teal">
           <div class="stat-card-head">
             <span class="meta-code">RULE #02 · CIPHER DATA</span>
             <span class="pulse-chip-mini"></span>
           </div>
-          <div class="stat-val">AES-256 GCM</div>
-          <p><span data-lang="zh">硬體密碼引擎保護 OTP 內容，實體讀出僅得密文</span><span data-lang="en">Hardware crypto engine protects OTP payload as ciphertext</span></p>
+          <div class="stat-val">AES-256</div>
+          <p><span data-lang="zh">硬體密碼引擎保護 OTP 內容；公開揭露為 AES-256，mode 待 target 關閉</span><span data-lang="en">Hardware crypto protects OTP as ciphertext; AES-256 is disclosed, mode remains target-specific</span></p>
         </div>
-        <div class="stat-strip-card border-l-emerald">
+        <div class="stat-strip-card is-context border-l-emerald">
           <div class="stat-card-head">
-            <span class="meta-code">RULE #03 · PROVEN SCALE</span>
+            <span class="meta-code">CONTEXT #03 · PROVEN SCALE</span>
             <span class="pulse-chip-mini"></span>
           </div>
           <div class="stat-val">&gt;1.5B UNITS</div>
-          <p><span data-lang="zh">超過 15 年晶圓驗證歷史，量產部署於全球一線 Foundry</span><span data-lang="en">&gt;15 years proven silicon history across global tier-1 foundries</span></p>
+          <p><span data-lang="zh">超過 15 年公開組合歷史；不自動等於本配置保證</span><span data-lang="en">&gt;15 years portfolio history; not automatic target-configuration assurance</span></p>
         </div>
-        <div class="stat-strip-card border-l-amber">
+        <div class="stat-strip-card is-context border-l-amber">
           <div class="stat-card-head">
-            <span class="meta-code">RULE #04 · ADVANCED NODES</span>
+            <span class="meta-code">CONTEXT #04 · ADVANCED NODES</span>
             <span class="pulse-chip-mini"></span>
           </div>
           <div class="stat-val">N7 → N3P</div>
-          <p><span data-lang="zh">純邏輯製程相容，無額外光罩直達 FinFET / GAA 節點</span><span data-lang="en">Pure logic compatible; 0 extra masks into FinFET/GAA nodes</span></p>
+          <p><span data-lang="zh">純邏輯相容節點脈絡；各配置仍需關閉</span><span data-lang="en">Logic-compatible node context; each configuration still requires closure</span></p>
         </div>
       </div>
     </div>
+
+    <section class="vendor-ask" id="vendor-ask" aria-labelledby="vendor-ask-title">
+      <div class="vendor-ask-head">
+        <div>
+          <p class="eyebrow light">DECISION STRIP</p>
+          <h2 id="vendor-ask-title" style="margin:6px 0 0;font-size:18px;line-height:1.3;color:#e9f4f5;font-weight:650">
+            <span data-lang="zh">關閉 target configuration 前先問這五件事</span>
+            <span data-lang="en">Five questions before closing a target configuration</span>
+          </h2>
+        </div>
+        <p>
+          <span data-lang="zh">把學習頁轉成決策頁：先問這五件事，再把 portfolio 數字當成起始脈絡。</span>
+          <span data-lang="en">Turn the learning page into a decision page: close these five questions before treating portfolio figures as applicable.</span>
+        </p>
+      </div>
+      <div class="vendor-ask-grid">
+        <article><b>01 Target</b><p><span data-lang="zh">本配置的 node、macro 與整合邊界是什麼？</span><span data-lang="en">What node, macro and integration boundary is the licensed target?</span></p></article>
+        <article><b>02 Cipher</b><p><span data-lang="zh">該配置公開的是 AES-256，還是已鎖定的 mode／engine？</span><span data-lang="en">Is AES-256 disclosed only, or is the mode and engine locked for this configuration?</span></p></article>
+        <article><b>03 Helper</b><p><span data-lang="zh">helper／activation data 的暴露模型與完整性假設為何？</span><span data-lang="en">What is the helper or activation-data exposure model and integrity assumption?</span></p></article>
+        <article><b>04 Zeroize</b><p><span data-lang="zh">remanence 與 zeroization 的驗證範圍到哪裡？</span><span data-lang="en">What remanence and zeroization evidence covers the powered-down window?</span></p></article>
+        <article><b>05 Attack</b><p><span data-lang="zh">FI、SCA 與 invasive readout 的證據 scope 是什麼？</span><span data-lang="en">What FI, SCA and invasive-readout evidence exists, and for which scope?</span></p></article>
+      </div>
+    </section>
 
     <!-- 吸頂章節導覽藥丸列 (Sticky Nav Pills Bar) -->
         <!-- =======================================================
@@ -1168,7 +1254,7 @@
               <span class="lens-badge">09</span>
               <div class="lens-info">
                 <span class="lens-name"><span data-lang="zh">矽驗證</span><span data-lang="en">Evidence</span></span>
-                <span class="lens-sub">&gt;1.5B Production Units</span>
+                <span class="lens-sub">Portfolio Context Only</span>
               </div>
             </a>
             <a class="nav-pill lens-node-item" href="#applications">
@@ -1204,14 +1290,14 @@
           <span data-lang="en">Security is not just how long data lasts,<br><em>but what remains in silicon under attack</em></span>
         </h2>
         <div class="thesis-copy">
-          <p>OTP 解決永久性；Secure Storage 解決機密性。即使攻擊者成功觀察記憶體狀態，他取得的也應該是受保護資料，而不是可直接使用的 root secret。</p>
+          <p><span data-lang="zh">OTP 解決永久性；Secure Storage 解決機密性。即使攻擊者成功觀察記憶體狀態，他取得的也應該是受保護資料，而不是可直接使用的 root secret。</span><span data-lang="en">OTP solves permanence; Secure Storage solves confidentiality. Even if an attacker observes the memory state, the recoverable result should be protected data, not a usable root secret.</span></p>
           <a class="text-link" href="#power-lab">用 Power-off State 檢驗設計 <svg><use href="#i-arrow"/></svg></a>
         </div>
       </div>
       <div class="thesis-principles">
-        <article><span>01</span><svg><use href="#i-power"/></svg><h3>Absent at rest</h3><p>在已驗證的 shutdown 條件下，不保留刻意儲存或已重建、仍由電源維持的 root；transistor mismatch 與 helper material 仍可能存在。</p></article>
-        <article><span>02</span><svg><use href="#i-memory"/></svg><h3>Ciphertext remains</h3><p>OTP 永久保存的是 AES-256 密文與安全狀態。</p></article>
-        <article><span>03</span><svg><use href="#i-control"/></svg><h3>One boundary</h3><p>PUF、crypto、OTP 與 controller 共同構成安全子系統。</p></article>
+        <article><span>01</span><svg><use href="#i-power"/></svg><h3>Absent at rest</h3><p><span data-lang="zh">在已驗證的 shutdown 條件下，不保留刻意儲存或已重建、仍由電源維持的 root；transistor mismatch 與 helper material 仍可能存在。</span><span data-lang="en">Under verified shutdown, no intentionally stored or powered reconstructed root remains; transistor mismatch and helper material may still exist.</span></p></article>
+        <article><span>02</span><svg><use href="#i-memory"/></svg><h3>Ciphertext remains</h3><p><span data-lang="zh">OTP 永久保存的是 AES-256 密文與安全狀態。</span><span data-lang="en">What OTP keeps permanently is AES-256 ciphertext and security state.</span></p></article>
+        <article><span>03</span><svg><use href="#i-control"/></svg><h3>One boundary</h3><p><span data-lang="zh">PUF、crypto、OTP 與 controller 共同構成安全子系統。</span><span data-lang="en">PUF, crypto, OTP and the controller compose one security subsystem.</span></p></article>
       </div>
     </section>
 
@@ -1235,7 +1321,7 @@
           <span data-lang="zh"><span class="statement-premise">先關掉電源</span><span class="statement-resolution">再看攻擊者能取得什麼</span></span>
           <span data-lang="en"><span class="statement-premise">Power off first,</span><span class="statement-resolution">then see what an attacker recovers</span></span>
         </h2>
-        <p class="section-lede">切換狀態，觀察 root key 的存在窗口。Secure Storage 的主張不是物理攻擊會消失，而是成功讀取後能揭露的內容被限制。</p>
+        <p class="section-lede"><span data-lang="zh">切換狀態，觀察 root key 的存在窗口。主張不是物理攻擊會消失，而是成功讀取後能揭露的內容被限制。</span><span data-lang="en">Switch state and watch the root-key residency window. The claim is not that physical attack disappears; it is that a successful readout should stop at protected content.</span></p>
         <div class="state-switch" role="group" aria-label="切換電源狀態">
           <button class="active" type="button" data-power="off"><svg><use href="#i-power"/></svg>POWER OFF</button>
           <button type="button" data-power="on"><svg><use href="#i-glitch"/></svg>POWER UP</button>
@@ -1314,7 +1400,7 @@
           <p class="eyebrow light">LAYERED TRUST · PRACTICAL CASE STUDY</p>
           <h2 id="identity-stack-title"><span data-assurance-zh><span class="stack-title-premise">不是三選一</span><span class="stack-title-resolution">讓每一層各自解決正確的問題</span></span><span data-assurance-en><span class="stack-title-premise">Not three alternatives</span><span class="stack-title-resolution">Give each layer the right security job</span></span></h2>
         </div>
-        <p><span data-assurance-zh>OpenPGP 保護資料與簽章；Okta FastPass 管理使用者、裝置狀態與存取政策；PUF 強化兩者下方的 silicon root，降低對永久儲存 root secret 的依賴。</span><span data-assurance-en>OpenPGP protects data and signatures. Okta FastPass governs users, device posture and access policy. A PUF strengthens the silicon root beneath them by reducing dependence on a persistently stored root secret.</span></p>
+        <p><span data-assurance-zh>這段是 trust-layer 職能拆分，不是產品 BOM 或現成 Okta 整合。OpenPGP 保護資料與簽章；Okta FastPass 管理使用者、裝置狀態與存取政策；PUF 強化兩者下方的 silicon root，降低對永久儲存 root secret 的依賴。</span><span data-assurance-en>This is a trust-layer job split, not a product BOM or a turnkey Okta integration. OpenPGP protects data and signatures. Okta FastPass governs users, device posture and access policy. A PUF strengthens the silicon root beneath them by reducing dependence on a persistently stored root secret.</span></p>
       </div>
 
       <div class="trust-layer-grid">
@@ -1375,12 +1461,12 @@
 
     <section id="architecture" class="section lens-panel architecture-section reveal" data-record-id="OIP-ARCH-001">
       <div class="architecture-intro">
-        <p class="eyebrow light">THE PRODUCT IS THE INTEGRATION</p>
+        <p class="eyebrow light">PUBLICLY DISCLOSED COMPOSITION</p>
         <h2 class="split-statement">
           <span data-lang="zh"><span class="statement-premise">四個功能區塊協同運作</span><span class="statement-resolution">共同交付一個安全結果</span></span>
           <span data-lang="en"><span class="statement-premise">Four functional blocks compose</span><span class="statement-resolution">to deliver a unified security outcome</span></span>
         </h2>
-        <p>產品決策不只評估四個各自正確的 primitives，而是評估從 root、crypto、storage、control 到 lifecycle 是否形成責任邊界清楚的 subsystem。</p>
+        <p><span data-lang="zh">公開揭露的是四塊功能如何組成一個 subsystem；契約歸屬、qualification 與 product-response scope 仍須另行關閉。</span><span data-lang="en">Public disclosure shows how four blocks compose a subsystem; contractual ownership, qualification and product-response scope still require closure.</span></p>
       </div>
       <div class="architecture-canvas">
         <div class="architecture-flow" role="group" aria-label="Secure Storage 架構">
