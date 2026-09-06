@@ -459,8 +459,8 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .lens-vertical-rail {
   position: sticky;
   top: 56px;
-  background: #0e2a38;
-  border: 1px solid rgba(28, 25, 23, 0.10);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
   border-radius: 0;
   padding: 10px 8px;
   box-shadow: none;
@@ -477,16 +477,16 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .rail-title {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.68rem;
-  color: #6f5536;
+  color: var(--accent);
   letter-spacing: 0.12em;
   font-weight: 700;
 }
 .rail-tag {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.62rem;
-  color: #b5aa9c;
-  background: #0a2230;
-  border: 1px solid rgba(15, 23, 42, 0.06);
+  color: var(--text-muted);
+  background: var(--elevated);
+  border: 1px solid var(--border-subtle);
   padding: 1px 5px;
   border-radius: 3px;
 }
@@ -525,30 +525,30 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   padding: 7px 8px;
   border-radius: 0;
   text-decoration: none;
-  color: #e8e0d4;
+  color: var(--text-secondary);
   background: transparent;
   border: 1px solid transparent;
   transition: all 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
   position: relative;
 }
 .lens-node-item:hover {
-  background: #061925;
-  border-color: rgba(176, 138, 91, 0.35);
-  color: #e8e0d4;
+  background: var(--elevated);
+  border-color: var(--border-highlight);
+  color: var(--text-primary);
   transform: none;
   box-shadow: none;
 }
 .lens-node-item.active {
-  background: #061925;
+  background: var(--elevated);
   border-color: transparent;
-  color: #e8e0d4;
-  box-shadow: inset 2px 0 0 #b08a5b;
+  color: var(--text-primary);
+  box-shadow: inset 2px 0 0 var(--accent);
 }
 .lens-badge {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.68rem;
   font-weight: 700;
-  color: #6f5536;
+  color: var(--accent);
   background: transparent;
   border: none;
   min-width: 22px;
@@ -560,7 +560,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 }
 .lens-node-item.active .lens-badge {
   background: transparent;
-  color: #6f5536;
+  color: var(--accent);
   border-color: transparent;
   font-weight: 800;
 }
@@ -573,27 +573,27 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .lens-name {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #f3ebe0;
+  color: var(--text-primary);
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .lens-node-item.active .lens-name {
-  color: #e8e0d4;
+  color: var(--text-primary);
   font-weight: 700;
 }
 .lens-sub {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.60rem;
-  color: #64748b;
+  color: var(--text-muted);
   line-height: 1.1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .lens-node-item.active .lens-sub {
-  color: #8a6a42;
+  color: var(--accent);
   font-weight: 600;
 }
 
@@ -857,7 +857,7 @@ html, body, body.hub-page, body.specialty-page {
 .hero h1 em,
 h1 em,
 h2 em {
-  color: var(--accent-soft) !important;
+  color: var(--accent) !important;
 }
 .spec-card-val,
 .chip-v,

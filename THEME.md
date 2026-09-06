@@ -10,8 +10,10 @@ The site supports two visual themes controlled by `html[data-theme]` and persist
 | Surface | `#FFFFFF` | `#101216` |
 | Elevated | `#EEF2F4` | `#181B20` |
 | Text primary | `#061925` | `#F3F4F6` |
-| Text secondary | `#3D5566` | `#C5CBD5` |
-| Text muted | `#6B7F8C` | `#7E8795` |
+| Text secondary | `#3D5566` → **`#243B4A`** | `#C5CBD5` |
+| Text muted | `#6B7F8C` → **`#3F5563`** | `#7E8795` |
+| Text meta / eyebrows | **`#4A6270`** | — |
+| Links (light) | **`#0A7279`** | — |
 | Accent | `#0E8F96` | `#00E5FF` |
 | Accent warn (copper) | `#B08A5B` / `#C4A574` | same |
 
