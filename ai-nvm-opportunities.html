@@ -75,16 +75,16 @@
       transition: all 0.2s ease !important;
     }
     .ai-nvm-page .topic-switch a[aria-current="page"] {
-      background: rgba(0, 229, 255, 0.12) !important;
-      border-color: rgba(0, 229, 255, 0.4) !important;
-      color: #00e5ff !important;
+      background: var(--accent-tint, var(--accent-glow)) !important;
+      border-color: var(--accent-border, var(--accent)) !important;
+      color: var(--accent) !important;
     }
 
     /* 2. Hero 容器與多層光學遮罩 (Multi-layer Overlay) */
     .ai-nvm-page .ai-research-hero {
       position: relative !important;
       isolation: isolate !important;
-      background: #07090e !important;
+      background: #0b0b0b !important;
       min-height: clamp(600px, 80vh, 760px) !important;
       padding: clamp(92px, 10vh, 124px) var(--ai-side) clamp(44px, 5.5vh, 68px) !important;
       display: flex !important;
@@ -129,7 +129,7 @@
       width: 440px !important;
       height: 440px !important;
       border-radius: 50% !important;
-      background: radial-gradient(circle, rgba(0, 229, 255, 0.16) 0%, rgba(37, 99, 235, 0.10) 45%, transparent 70%) !important;
+      background: radial-gradient(circle, var(--accent-glow) 0%, rgba(37, 99, 235, 0.08) 45%, transparent 70%) !important;
       filter: blur(90px) !important;
       pointer-events: none !important;
       z-index: -2 !important;
@@ -144,7 +144,7 @@
       margin: 0 !important;
       padding: 4px 10px !important;
       background: rgba(7, 9, 14, 0.85) !important;
-      border: 1px solid rgba(0, 229, 255, 0.25) !important;
+      border: 1px solid var(--accent-border, var(--border-highlight)) !important;
       border-radius: 4px !important;
       color: #38bdf8 !important;
       font-family: 'IBM Plex Mono', monospace !important;
@@ -168,8 +168,8 @@
       align-items: center !important;
       gap: 8px !important;
       padding: 5px 14px !important;
-      background: rgba(0, 229, 255, 0.06) !important;
-      border: 1px solid rgba(0, 229, 255, 0.22) !important;
+      background: var(--accent-tint, var(--accent-glow)) !important;
+      border: 1px solid var(--accent-border, var(--border-subtle)) !important;
       border-radius: 9999px !important;
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 11px !important;
@@ -188,8 +188,8 @@
       width: 6px !important;
       height: 6px !important;
       border-radius: 50% !important;
-      background: #00e5ff !important;
-      box-shadow: 0 0 8px #00e5ff !important;
+      background: var(--accent) !important;
+      box-shadow: none !important;
       display: inline-block !important;
       animation: dot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
     }
@@ -273,8 +273,8 @@
     .ai-nvm-page .research-hero-meta .bento-metric-card:hover,
     .ai-nvm-page .research-hero-meta > div:hover {
       background: rgba(15, 23, 42, 0.75) !important;
-      border-color: rgba(0, 229, 255, 0.35) !important;
-      box-shadow: 0 4px 20px rgba(0, 229, 255, 0.12) !important;
+      border-color: var(--accent-border, var(--accent)) !important;
+      box-shadow: none !important;
       transform: translateY(-2px) !important;
     }
     .ai-nvm-page .research-hero-meta b {
@@ -300,12 +300,12 @@
       gap: 12px !important;
     }
     .ai-nvm-page .research-hero-links .button.primary {
-      background: linear-gradient(135deg, rgba(0, 229, 255, 0.18) 0%, rgba(37, 99, 235, 0.28) 100%) !important;
-      border: 1px solid rgba(0, 229, 255, 0.4) !important;
+      background: linear-gradient(135deg, var(--accent-tint, var(--accent-glow)) 0%, rgba(37, 99, 235, 0.18) 100%) !important;
+      border: 1px solid var(--accent-border, var(--accent)) !important;
       color: #f8fafc !important;
       backdrop-filter: blur(8px) !important;
       border-radius: 6px !important;
-      box-shadow: 0 4px 16px rgba(0, 229, 255, 0.15) !important;
+      box-shadow: none !important;
       min-height: 38px !important;
       padding: 6px 18px !important;
       font-size: 13px !important;
@@ -315,8 +315,8 @@
       transition: all 0.2s ease !important;
     }
     .ai-nvm-page .research-hero-links .button.primary:hover {
-      border-color: #00e5ff !important;
-      box-shadow: 0 6px 24px rgba(0, 229, 255, 0.3) !important;
+      border-color: var(--accent) !important;
+      box-shadow: none !important;
       transform: translateY(-1px) !important;
     }
     .ai-nvm-page .research-hero-links .button.ghost {

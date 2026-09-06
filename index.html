@@ -84,7 +84,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(8, 9, 10, 0.85) !important;
+      background: color-mix(in srgb, var(--canvas) 88%, transparent) !important;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle) !important;
@@ -208,10 +208,10 @@
       border-radius: 12px;
       padding: clamp(36px, 4vw, 54px) clamp(24px, 5vw, 64px);
       background: 
-        radial-gradient(circle at 82% 28%, rgba(0, 229, 255, 0.05), transparent 42%),
-        linear-gradient(180deg, var(--bg-surface) 0%, #0d0f12 60%, var(--bg-deep) 100%) !important;
+        radial-gradient(circle at 82% 28%, var(--accent-tint, var(--accent-glow)), transparent 42%),
+        linear-gradient(180deg, var(--bg-surface) 0%, var(--elevated) 60%, var(--bg-deep) 100%) !important;
       border: 1px solid var(--border-subtle) !important;
-      box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.6), 0 0 24px -6px rgba(0, 229, 255, 0.04) !important;
+      box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.35) !important;
       position: relative;
       overflow: hidden;
     }
@@ -226,7 +226,7 @@
       content: "";
       position: absolute;
       top: 0; right: 0; width: 140px; height: 140px;
-      background: radial-gradient(circle, rgba(0, 229, 255, 0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, var(--accent-tint, var(--accent-glow)) 0%, transparent 70%);
       pointer-events: none;
     }
     .hub-hero-compact h1 {
@@ -241,7 +241,7 @@
       color: var(--accent-cyan) !important;
       font-style: normal;
       font-weight: 500;
-      text-shadow: 0 0 20px var(--accent-glow);
+      text-shadow: none;
     }
     .hub-hero-compact .hero-sub {
       font: 400 clamp(13px, 1.05vw, 15px)/1.65 Inter, sans-serif;
@@ -259,7 +259,7 @@
       background: var(--bg-surface-elevated) !important;
       border: 1px solid var(--border-subtle) !important;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
     }
     .hub-hero-compact .hero-metric b {
       font: 700 18px/1 'IBM Plex Mono', monospace;
@@ -300,7 +300,7 @@
       border: 1px solid var(--border-subtle) !important;
       border-radius: 10px;
       padding: 12px 10px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
       z-index: 40;
     }
     .hub-rail-header {
@@ -352,9 +352,9 @@
     }
     .hub-rail-btn.active {
       color: var(--text-primary) !important;
-      background: rgba(0, 229, 255, 0.05) !important;
-      border-color: var(--accent-cyan) !important;
-      box-shadow: 0 0 14px var(--accent-glow) !important;
+      background: var(--accent-tint, var(--accent-glow)) !important;
+      border-color: var(--accent-border, var(--accent)) !important;
+      box-shadow: none !important;
     }
     .hub-rail-badge {
       font-family: 'IBM Plex Mono', monospace;
@@ -375,7 +375,7 @@
     }
     .hub-rail-btn.active .hub-rail-badge {
       background: var(--accent-cyan) !important;
-      color: #08090a !important;
+      color: var(--canvas) !important;
       border-color: var(--accent-cyan) !important;
       font-weight: 800;
     }
@@ -437,7 +437,7 @@
       border: 1px solid var(--border-subtle) !important;
     }
     .km-layer-tag.foundations { color: var(--layer-l1-color) !important; border-color: rgba(167, 139, 250, 0.3) !important; }
-    .km-layer-tag.architecture { color: var(--layer-l2-color) !important; border-color: rgba(0, 229, 255, 0.3) !important; }
+    .km-layer-tag.architecture { color: var(--layer-l2-color) !important; border-color: var(--accent-border, color-mix(in srgb, var(--accent) 30%, transparent)) !important; }
     .km-layer-tag.applications { color: var(--layer-l3-color) !important; border-color: rgba(245, 158, 11, 0.3) !important; }
     .km-layer-tag.resources { color: var(--layer-res-color) !important; border-color: rgba(148, 163, 184, 0.3) !important; }
     .km-layer-title {
@@ -559,7 +559,7 @@
     /* 4. Search Trigger & Modal (Obsidian Glass) */
     .search-overlay {
       display: none; position: fixed; inset: 0; z-index: 9000;
-      background: rgba(8, 9, 10, 0.85) !important;
+      background: color-mix(in srgb, var(--canvas) 88%, transparent) !important;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       justify-content: center; padding-top: 15vh;
@@ -635,6 +635,23 @@
     }
     .hub-footer div a:hover {
       color: var(--accent-cyan) !important;
+    }
+
+    /* Dark Cyan: matte charcoal, no grid, minimal glow */
+    html[data-theme="dark"] body.hub-page {
+      background-image: none !important;
+    }
+    html[data-theme="dark"] .hub-minimal-header {
+      background: color-mix(in srgb, var(--canvas) 94%, transparent) !important;
+    }
+    html[data-theme="dark"] .hub-hero-compact {
+      box-shadow: none !important;
+    }
+    html[data-theme="dark"] .hub-vertical-rail {
+      box-shadow: none !important;
+    }
+    html[data-theme="dark"] .language-toggle b[data-lang-option] {
+      text-shadow: none !important;
     }
   </style>
 </head>

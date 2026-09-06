@@ -34,7 +34,7 @@
       );
     });
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", isDark ? "#08090a" : "#f3f7f8");
+    if (meta) meta.setAttribute("content", isDark ? "#0b0b0b" : "#f3f7f8");
   }
 
   applyTheme(resolveSavedTheme());
