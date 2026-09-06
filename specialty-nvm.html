@@ -50,31 +50,31 @@
        EDITORIAL LIGHT THEME: 全站統一白底輕盈工控風格 (M4 SPECIALTY NVM)
        ========================================================================= */
     :root, body.specialty-page {
-      --paper-bg: #061925;
-      --paper-card: #0e2a38;
-      --ink-heading: #0a1e2c;
-      --ink-body: #334155;
-      --ink-muted: #64748b;
-      --cyan-editorial: #8a6a42;
-      --amber-editorial: #d97706;
+      --paper-bg: var(--canvas);
+      --paper-card: var(--surface);
+      --ink-heading: var(--text-primary);
+      --ink-body: var(--text-secondary);
+      --ink-muted: var(--text-muted);
+      --cyan-editorial: var(--accent);
+      --amber-editorial: var(--accent-warn);
 
-      /* 覆寫 specialty-nvm.css 暗黑根變數 */
-      --spec-midnight: #061925;
-      --spec-midnight-2: #0a2230;
-      --spec-navy: #ffffff;
-      --spec-surface: #ffffff;
-      --spec-surface-card: #ffffff;
-      --spec-surface-elevated: #0e2a38;
-      --spec-cyan: #8a6a42;
-      --spec-aqua: #6f5536;
-      --spec-teal: #8a6a42;
-      --spec-amber: #d97706;
-      --spec-green: #6f5536;
+      /* 覆寫 specialty-nvm.css 根變數 */
+      --spec-midnight: var(--canvas);
+      --spec-midnight-2: var(--elevated);
+      --spec-navy: var(--surface);
+      --spec-surface: var(--surface);
+      --spec-surface-card: var(--surface);
+      --spec-surface-elevated: var(--elevated);
+      --spec-cyan: var(--accent);
+      --spec-aqua: var(--accent-soft);
+      --spec-teal: var(--accent);
+      --spec-amber: var(--accent-warn);
+      --spec-green: var(--accent-warn-soft);
       --spec-danger: #dc2626;
-      --spec-line: rgba(15, 23, 42, 0.08);
-      --spec-line-subtle: rgba(15, 23, 42, 0.06);
-      --spec-text-main: #0a1e2c;
-      --spec-text-muted: #334155;
+      --spec-line: var(--border-subtle);
+      --spec-line-subtle: var(--border-subtle);
+      --spec-text-main: var(--text-primary);
+      --spec-text-muted: var(--text-secondary);
       --spec-text-dim: #64748b;
       --spec-glow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
     }
