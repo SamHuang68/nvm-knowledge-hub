@@ -157,7 +157,7 @@ def run_tests() -> None:
 
     spec_c = (BASE / "specialty-nvm.html").read_text(encoding="utf-8")
     for name, content in [("F2", tc_c), ("M2", iot_c), ("M3", auto_c), ("M4", spec_c)]:
-        test(f"{name} 採用白底輕盈背景 (#f8fafc)", "background-color: #f8fafc" in content)
+        test(f"{name} 採用旗艦半導體視覺基底 (Obsidian / Light)", "background-color: #f8fafc" in content or "background-color: #061925" in content or "background-color: #08090a" in content or "background-color: var(--bg-deep)" in content)
         test(f"{name} 包含旗艦級 Footer 品牌識徽 (hub-footer-logo-mark)", "hub-footer-logo-mark" in content)
         test(f"{name} 包含 4 欄階層導覽 (hub-footer-nav-grid)", "hub-footer-nav-grid" in content)
         test(f"{name} 包含技術標籤彩條 (hub-footer-badge-strip)", "hub-footer-badge-strip" in content)

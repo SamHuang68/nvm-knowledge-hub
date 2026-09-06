@@ -39,81 +39,242 @@
     body[data-language="zh"] [data-lang="en"] { display: none !important; }
 
     /* ==========================================================================
-       NVM KNOWLEDGE HUB V3.2 — EDITORIAL WHITE THEME ARCHITECTURE
+       NVM KNOWLEDGE HUB V3.3 — PURE OBSIDIAN DARK ARCHITECTURE (ZERO CHEMICAL GREEN)
        ========================================================================== */
     :root {
-      --hub-paper-bg: #061925;
-      --hub-paper-card: #0e2a38;
-      --hub-paper-subtle: #0a2230;
-      --hub-ink-heading: #f3ebe0;
-      --hub-ink-body: #e8e0d4;
-      --hub-ink-muted: #b5aa9c;
-      --hub-border-hairline: rgba(196, 165, 116, 0.22);
-      --hub-border-hover: rgba(176, 138, 91, 0.45);
+      /* 1. 底色全面改用無色相偏差的深空黑曜石，徹底消除綠色沉重感 */
+      --bg-deep: #08090a;          /* 最底層視窗背景（純淨深邃） */
+      --bg-surface: #101216;       /* 卡片主體背景（俐落微凸層級） */
+      --bg-surface-elevated: #181b20; /* 懸浮、Dropdown、標籤背景 */
+      
+      /* 2. 邊框與光學次像素細線 */
+      --border-subtle: rgba(255, 255, 255, 0.07);
+      --border-highlight: rgba(255, 255, 255, 0.15);
 
-      --layer-l1-color: #e8e0d4;
-      --layer-l2-color: #e8e0d4;
-      --layer-l3-color: #e8e0d4;
-      --layer-res-color: #e8e0d4;
+      /* 3. 文字階梯：保證 10:1 以上超高清晰對比度 */
+      --text-primary: #f3f4f6;     /* 標題與核心數據：極致亮白 */
+      --text-secondary: #c5cbd5;   /* 正文內文：高亮清透銀灰（絕不泛綠） */
+      --text-muted: #7e8795;       /* 補充說明、專利編號、Meta 數據 */
 
-      --hub-shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
-      --hub-shadow-card-hover: 0 14px 30px -4px rgba(15, 23, 42, 0.10), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
+      /* 4. 點綴色：從「大片背景綠」退化成「點睛光學青（Electric Cyan）」 */
+      --accent-cyan: #00e5ff;      /* 僅用於微型 Badge、圖表折線、高光邊界 */
+      --accent-glow: rgba(0, 229, 255, 0.12);
+      --accent-amber: #f59e0b;     /* 警示與物理極限標記 */
+
+      /* 5. 分層標籤專屬高光 (乾淨微型點綴) */
+      --layer-l1-color: #a78bfa;
+      --layer-l2-color: #00e5ff;
+      --layer-l3-color: #f59e0b;
+      --layer-res-color: #94a3b8;
     }
 
-    /* 全站底色轉型為 Editorial Paper 白底 */
+    /* 全局基底重設：純淨深空黑曜石底色 */
     body.hub-page {
-      background-color: var(--hub-paper-bg) !important;
-      color: var(--hub-ink-body) !important;
-      font-family: 'Inter', 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
-      background-image: none;
+      background-color: var(--bg-deep) !important;
+      color: var(--text-secondary) !important;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.03), transparent 60%),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px) !important;
+      background-size: 100% 100%, 48px 48px, 48px 48px !important;
+      margin: 0;
+      padding: 0;
     }
 
-    /* 2. 緊湊型 Executive Hero：Obsidian 暗色半導體晶片展示窗 */
+    /* 頂部導覽列：輕量化半透明毛玻璃 */
+    .hub-minimal-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(8, 9, 10, 0.85) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle) !important;
+      padding: 10px clamp(16px, 3vw, 36px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hub-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hub-micro-logo {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: var(--bg-surface-elevated) !important;
+      border: 1px solid var(--border-highlight) !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 0 10px var(--accent-glow) !important;
+    }
+    .hub-micro-logo span {
+      color: var(--accent-cyan) !important;
+      font-family: "IBM Plex Mono", Consolas, monospace;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .hub-brand-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-primary) !important;
+      letter-spacing: 0.06em;
+    }
+    .hub-spec-badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--bg-surface-elevated) !important;
+      color: var(--text-muted) !important;
+      border: 1px solid var(--border-subtle) !important;
+      letter-spacing: 0.05em;
+    }
+    .hub-header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* 搜尋觸發按鈕與語言切換 */
+    .search-trigger {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: var(--bg-surface) !important;
+      border: 1px solid var(--border-subtle) !important;
+      border-radius: 6px;
+      color: var(--text-secondary) !important;
+      font: 500 12px/1.4 'IBM Plex Mono', monospace;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .search-trigger:hover {
+      border-color: var(--accent-cyan) !important;
+      color: var(--text-primary) !important;
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+    .search-trigger svg {
+      stroke: var(--accent-cyan);
+    }
+    .search-trigger kbd {
+      padding: 2px 6px;
+      font: 600 10px/1 'IBM Plex Mono', monospace;
+      background: var(--bg-surface-elevated) !important;
+      border: 1px solid var(--border-subtle) !important;
+      border-radius: 3px;
+      color: var(--accent-cyan) !important;
+    }
+    .language-toggle {
+      background: var(--bg-surface) !important;
+      border: 1px solid var(--border-subtle) !important;
+      border-radius: 6px;
+      padding: 5px 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      transition: all .2s ease;
+    }
+    .language-toggle:hover {
+      border-color: var(--border-highlight) !important;
+    }
+    .language-toggle b[data-lang-option] {
+      color: var(--text-muted);
+      transition: color .2s;
+    }
+    .language-toggle i {
+      color: var(--border-highlight);
+      font-style: normal;
+    }
+    html[data-language="zh"] .language-toggle b[data-lang-option="zh"],
+    html[data-language="en"] .language-toggle b[data-lang-option="en"] {
+      color: var(--accent-cyan) !important;
+      font-weight: 700;
+      text-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    /* 2. 緊湊型 Executive Hero：純淨深空黑曜石旗艦晶片展示窗 */
     .hub-hero-compact {
-      max-width: none;
-      margin: 0;
-      border-radius: 0;
-      padding: clamp(32px, 3.6vw, 48px) clamp(24px, 5vw, 64px) clamp(28px, 3vw, 40px);
-      background:
-        linear-gradient(135deg, #061925 0%, #082232 58%, #04141e 100%) !important;
-      border: none !important;
-      border-bottom: 1px solid rgba(196, 165, 116, 0.22) !important;
-      box-shadow: none;
+      max-width: 1440px;
+      margin: 16px auto 0;
+      border-radius: 12px;
+      padding: clamp(36px, 4vw, 54px) clamp(24px, 5vw, 64px);
+      background: 
+        radial-gradient(circle at 82% 28%, rgba(0, 229, 255, 0.05), transparent 42%),
+        linear-gradient(180deg, var(--bg-surface) 0%, #0d0f12 60%, var(--bg-deep) 100%) !important;
+      border: 1px solid var(--border-subtle) !important;
+      box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.6), 0 0 24px -6px rgba(0, 229, 255, 0.04) !important;
       position: relative;
       overflow: hidden;
     }
-    .hub-hero-compact::after { display: none; }
+    .hub-hero-compact::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      pointer-events: none;
+    }
+    .hub-hero-compact::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; width: 140px; height: 140px;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
     .hub-hero-compact h1 {
       font: 700 clamp(26px, 3.2vw, 42px)/1.15 Inter, sans-serif;
-      letter-spacing: -.03em; color: #f8fafc; margin: 0 0 12px;
-      max-width: 860px; text-wrap: balance;
+      letter-spacing: -0.025em;
+      color: var(--text-primary) !important;
+      margin: 0 0 12px;
+      max-width: 860px;
+      text-wrap: balance;
     }
-    .hub-hero-compact h1 em { color: #c4a574; font-style: normal; font-weight: 400; }
+    .hub-hero-compact h1 em {
+      color: var(--accent-cyan) !important;
+      font-style: normal;
+      font-weight: 500;
+      text-shadow: 0 0 20px var(--accent-glow);
+    }
     .hub-hero-compact .hero-sub {
-      font: 400 clamp(13px, 1.05vw, 15px)/1.6 Inter, sans-serif;
-      color: #94a3b8; max-width: 760px; margin: 0 0 20px;
+      font: 400 clamp(13px, 1.05vw, 15px)/1.65 Inter, sans-serif;
+      color: var(--text-secondary) !important;
+      max-width: 760px;
+      margin: 0 0 22px;
+      font-size: 1.02rem;
     }
     .hub-hero-compact .hero-metrics {
-      display: flex; gap: 0; flex-wrap: wrap;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,0.12);
+      display: flex; gap: 14px; flex-wrap: wrap;
     }
     .hub-hero-compact .hero-metric {
-      display: flex; align-items: baseline; gap: 8px;
-      padding: 0 20px 0 0;
-      margin-right: 20px;
-      background: none;
-      border: none;
-      border-right: 1px solid rgba(255,255,255,0.12);
-      border-radius: 0;
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 16px;
+      background: var(--bg-surface-elevated) !important;
+      border: 1px solid var(--border-subtle) !important;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
     }
-    .hub-hero-compact .hero-metric:last-child { border-right: none; }
     .hub-hero-compact .hero-metric b {
-      font: 700 18px/1 'IBM Plex Mono', monospace; color: #c4a574;
+      font: 700 18px/1 'IBM Plex Mono', monospace;
+      color: var(--text-primary) !important;
     }
     .hub-hero-compact .hero-metric span {
-      font: 600 10px/1.3 'IBM Plex Mono', monospace;
-      color: #cbd5e1; letter-spacing: .06em; text-transform: uppercase;
+      font: 600 10.5px/1.3 'IBM Plex Mono', monospace;
+      color: var(--text-muted) !important;
+      letter-spacing: .06em;
+      text-transform: uppercase;
     }
 
     /* 3. 高密度直立測條工作台版面 (Studio Workbench: Left Rail + Right Stage) */
@@ -136,21 +297,21 @@
       }
     }
 
-    /* 左側直立測條 (純白輕盈工控風格，高對比易讀) */
+    /* 左側直立測條 (純淨深空黑曜石，清晰高對比) */
     .hub-vertical-rail {
       position: sticky;
-      top: 56px;
-      background: #0e2a38;
-      border: 1px solid rgba(28, 25, 23, 0.10);
-      border-radius: 0;
-      padding: 10px 8px;
-      box-shadow: none;
+      top: 76px;
+      background: var(--bg-surface) !important;
+      border: 1px solid var(--border-subtle) !important;
+      border-radius: 10px;
+      padding: 12px 10px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
       z-index: 40;
     }
     .hub-rail-header {
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-      padding-bottom: 6px;
-      margin-bottom: 8px;
+      border-bottom: 1px solid var(--border-subtle) !important;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -158,76 +319,70 @@
     .hub-rail-title {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.68rem;
-      color: #6f5536;
+      color: var(--accent-cyan) !important;
       letter-spacing: 0.1em;
       font-weight: 700;
     }
     .hub-rail-tag {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.62rem;
-      color: #b5aa9c;
-      background: #0a2230;
-      border: 1px solid rgba(15, 23, 42, 0.06);
-      padding: 1px 5px;
-      border-radius: 3px;
+      color: var(--text-muted) !important;
+      background: var(--bg-surface-elevated) !important;
+      border: 1px solid var(--border-subtle) !important;
+      padding: 2px 6px;
+      border-radius: 4px;
     }
     .hub-rail-nav {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
     }
     .hub-rail-btn {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 7px 8px;
-      border-radius: 0;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 8px;
       text-decoration: none;
-      color: #e8e0d4;
-      background: transparent;
-      border: 1px solid transparent;
+      color: var(--text-secondary) !important;
+      background: transparent !important;
+      border: 1px solid transparent !important;
       transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .hub-rail-btn:hover {
-      color: #e8e0d4;
-      background: #061925;
-      border-color: rgba(176, 138, 91, 0.35);
-      transform: none;
-      box-shadow: none;
+      color: var(--text-primary) !important;
+      background: var(--bg-surface-elevated) !important;
+      border-color: var(--border-highlight) !important;
+      transform: translateX(2px);
     }
     .hub-rail-btn.active {
-      color: #e8e0d4;
-      background: #061925;
-      border-color: transparent;
-      box-shadow: inset 2px 0 0 #b08a5b;
+      color: var(--text-primary) !important;
+      background: rgba(0, 229, 255, 0.05) !important;
+      border-color: var(--accent-cyan) !important;
+      box-shadow: 0 0 14px var(--accent-glow) !important;
     }
     .hub-rail-badge {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.68rem;
       font-weight: 700;
-      padding: 0;
-      border-radius: 0;
-      background: transparent;
-      color: #6f5536;
-      border: none;
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: var(--bg-surface-elevated) !important;
+      color: var(--text-muted) !important;
+      border: 1px solid var(--border-subtle) !important;
       min-width: 22px;
-      text-align: left;
+      text-align: center;
       line-height: 1.1;
       flex-shrink: 0;
     }
+    .hub-rail-btn:hover .hub-rail-badge {
+      color: var(--text-primary) !important;
+    }
     .hub-rail-btn.active .hub-rail-badge {
-      background: transparent;
-      color: #6f5536;
-      border-color: transparent;
+      background: var(--accent-cyan) !important;
+      color: #08090a !important;
+      border-color: var(--accent-cyan) !important;
       font-weight: 800;
-    }
-    .hub-rail-btn.active .hub-rail-name {
-      color: #e8e0d4;
-      font-weight: 700;
-    }
-    .hub-rail-btn.active .hub-rail-sub {
-      color: #8a6a42;
-      font-weight: 600;
     }
     .hub-rail-text {
       display: flex;
@@ -236,30 +391,33 @@
       min-width: 0;
     }
     .hub-rail-name {
-      font-size: 0.75rem;
+      font-size: 0.76rem;
       font-weight: 600;
-      line-height: 1.2;
-      color: #f3ebe0;
+      line-height: 1.25;
+      color: var(--text-secondary) !important;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    .hub-rail-btn:hover .hub-rail-name {
+      color: var(--text-primary) !important;
+    }
     .hub-rail-btn.active .hub-rail-name {
-      color: #e8e0d4;
+      color: var(--text-primary) !important;
       font-weight: 700;
     }
     .hub-rail-sub {
-      font-size: 0.60rem;
+      font-size: 0.62rem;
       font-family: 'IBM Plex Mono', monospace;
-      color: #64748b;
+      color: var(--text-muted) !important;
       margin-top: 2px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
     .hub-rail-btn.active .hub-rail-sub {
-      color: #8a6a42;
-      font-weight: 600;
+      color: var(--accent-cyan) !important;
+      opacity: 0.85;
     }
 
     /* 右側主工作台 (Stage) */
@@ -274,25 +432,23 @@
     .km-layer-header {
       display: flex; align-items: center; gap: 10px;
       margin: 0 0 14px; padding: 0 0 8px;
-      border-bottom: 1px solid var(--hub-border-hairline);
+      border-bottom: 1px solid var(--border-subtle) !important;
     }
     .km-layer-tag {
-      padding: 2px 8px; border-radius: 3px;
-      font: 700 9px/1.4 'IBM Plex Mono', monospace;
+      padding: 3px 8px; border-radius: 4px;
+      font: 700 9.5px/1.4 'IBM Plex Mono', monospace;
       letter-spacing: .1em; text-transform: uppercase;
+      background: var(--bg-surface-elevated) !important;
+      border: 1px solid var(--border-subtle) !important;
     }
-    .km-layer-tag.foundations,
-    .km-layer-tag.architecture,
-    .km-layer-tag.applications,
-    .km-layer-tag.resources {
-      background: transparent;
-      color: #6f5536;
-      border: 1px solid rgba(176, 138, 91, 0.35);
-      border-radius: 0;
-    }
+    .km-layer-tag.foundations { color: var(--layer-l1-color) !important; border-color: rgba(167, 139, 250, 0.3) !important; }
+    .km-layer-tag.architecture { color: var(--layer-l2-color) !important; border-color: rgba(0, 229, 255, 0.3) !important; }
+    .km-layer-tag.applications { color: var(--layer-l3-color) !important; border-color: rgba(245, 158, 11, 0.3) !important; }
+    .km-layer-tag.resources { color: var(--layer-res-color) !important; border-color: rgba(148, 163, 184, 0.3) !important; }
     .km-layer-title {
       font: 600 12px/1.4 'IBM Plex Mono', monospace;
-      color: var(--hub-ink-muted); letter-spacing: .04em;
+      color: var(--text-muted) !important;
+      letter-spacing: .04em;
     }
     .km-grid {
       display: grid;
@@ -300,123 +456,190 @@
       gap: 14px;
     }
 
-    /* 11 大白底輕盈卡片系統 (純白 + 微投影 + 髮絲邊框) */
+    /* 11 大黑曜石卡片 (啞光黑卡 + 微發光細邊框 + 頂部微光掠影) */
     .km-card {
       position: relative; display: flex; flex-direction: column;
-      padding: 18px 20px; background: var(--hub-paper-card) !important;
-      border: 1px solid var(--hub-border-hairline) !important;
-      border-radius: 0 !important;
-      box-shadow: none !important;
+      padding: 22px 24px;
+      background: var(--bg-surface) !important;
+      border: 1px solid var(--border-subtle) !important;
+      border-radius: 12px !important;
+      box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.45) !important;
       text-decoration: none; color: inherit;
       transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
                   box-shadow 0.22s ease,
                   border-color 0.22s ease !important;
       overflow: hidden;
     }
-    .km-card:hover {
-      border-color: var(--hub-border-hover) !important;
-      transform: none !important;
-      box-shadow: none !important;
+
+    /* 頂部微光掠影 */
+    .km-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+      pointer-events: none;
     }
 
-    /* 4 大分層專屬左側彩色指示側條 */
+    .km-card:hover {
+      border-color: var(--border-highlight) !important;
+      transform: translateY(-3px) !important;
+      box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.7), 0 0 16px var(--accent-glow) !important;
+    }
+
+    /* 4 大分層專屬左側冷刀刻痕 */
     #layer-foundations .km-card {
-      border-left: 2px solid var(--layer-l1-color) !important;
+      border-left: 3px solid var(--layer-l1-color) !important;
     }
     #layer-foundations .km-card .km-card-num {
       color: var(--layer-l1-color) !important;
     }
 
     #layer-architecture .km-card {
-      border-left: 2px solid var(--layer-l2-color) !important;
+      border-left: 3px solid var(--layer-l2-color) !important;
     }
     #layer-architecture .km-card .km-card-num {
       color: var(--layer-l2-color) !important;
     }
 
     #layer-applications .km-card {
-      border-left: 2px solid var(--layer-l3-color) !important;
+      border-left: 3px solid var(--layer-l3-color) !important;
     }
     #layer-applications .km-card .km-card-num {
       color: var(--layer-l3-color) !important;
     }
 
     #layer-resources .km-card {
-      border-left: 2px solid var(--layer-res-color) !important;
+      border-left: 3px solid var(--layer-res-color) !important;
     }
     #layer-resources .km-card .km-card-num {
       color: var(--layer-res-color) !important;
     }
 
     .km-card-num {
-      font: 700 10.5px/1 'IBM Plex Mono', monospace;
-      letter-spacing: .08em; margin-bottom: 6px;
+      font: 700 11px/1 'IBM Plex Mono', monospace;
+      letter-spacing: .08em; margin-bottom: 8px;
     }
     .km-card-title {
-      font: 700 15px/1.3 Inter, sans-serif; color: var(--hub-ink-heading);
-      margin-bottom: 6px;
+      font: 700 16px/1.3 Inter, sans-serif;
+      color: var(--text-primary) !important;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
     }
     .km-card-desc {
-      font: 400 13px/1.6 Inter, sans-serif; color: var(--hub-ink-body);
-      flex: 1; margin-bottom: 12px;
+      font: 400 13.5px/1.65 Inter, sans-serif;
+      color: var(--text-secondary) !important;
+      flex: 1; margin-bottom: 14px;
+      line-height: 1.65;
     }
-    .km-card-tags { display: none !important; }
+    .km-card-tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px;
+    }
+    .km-card-tags span {
+      padding: 3px 8px;
+      font: 600 10px/1.3 'IBM Plex Mono', monospace;
+      color: var(--text-muted) !important;
+      background: var(--bg-surface-elevated) !important;
+      border: 1px solid var(--border-subtle) !important;
+      border-radius: 4px;
+      letter-spacing: .03em;
+      transition: all 0.2s ease;
+    }
+    .km-card:hover .km-card-tags span {
+      color: var(--text-secondary) !important;
+      border-color: rgba(255, 255, 255, 0.12) !important;
+    }
     .km-card-arrow {
-      font: 600 11.5px/1 'IBM Plex Mono', monospace; color: #8a6a42;
-      letter-spacing: .06em; display: flex; align-items: center; gap: 5px;
+      font: 600 12px/1 'IBM Plex Mono', monospace;
+      color: var(--accent-cyan) !important;
+      letter-spacing: .06em;
+      display: flex; align-items: center; gap: 6px;
+      transition: gap 0.2s ease;
     }
-    .km-card-arrow svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+    .km-card:hover .km-card-arrow {
+      gap: 9px;
+      text-shadow: 0 0 10px var(--accent-glow);
+    }
+    .km-card-arrow svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
 
-    /* 4. Search Trigger & Modal */
-    .search-trigger {
-      display: flex; align-items: center; gap: 8px;
-      padding: 6px 14px; background: rgba(8,28,42,.6);
-      border: 1px solid rgba(196,165,116,.2); border-radius: 6px;
-      color: #b5aa9c; font: 500 12px/1.4 'IBM Plex Mono', monospace;
-      cursor: pointer; transition: border-color .2s;
-    }
-    .search-trigger:hover { border-color: rgba(196,165,116,.5); color: #c4a574; }
-    .search-trigger kbd {
-      padding: 2px 6px; font: 600 10px/1 'IBM Plex Mono', monospace;
-      background: rgba(196,165,116,.1); border: 1px solid rgba(196,165,116,.2);
-      border-radius: 3px; color: #c4a574;
-    }
+    /* 4. Search Trigger & Modal (Obsidian Glass) */
     .search-overlay {
       display: none; position: fixed; inset: 0; z-index: 9000;
-      background: rgba(4,19,28,.85); backdrop-filter: blur(8px);
+      background: rgba(8, 9, 10, 0.85) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       justify-content: center; padding-top: 15vh;
     }
     .search-overlay.is-open { display: flex; }
     .search-box {
-      width: min(600px, 90vw); background: #0a2030;
-      border: 1px solid rgba(196,165,116,.3); border-radius: 10px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.5); overflow: hidden;
-      max-height: 60vh; display: flex; flex-direction: column;
+      width: min(640px, 92vw);
+      background: var(--bg-surface) !important;
+      border: 1px solid var(--border-highlight) !important;
+      border-radius: 12px;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 24px var(--accent-glow) !important;
+      overflow: hidden;
+      max-height: 60vh;
+      display: flex; flex-direction: column;
     }
     .search-input-row {
-      display: flex; align-items: center; gap: 10px;
-      padding: 16px 20px; border-bottom: 1px solid rgba(196,165,116,.15);
+      display: flex; align-items: center; gap: 12px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-subtle) !important;
     }
-    .search-input-row svg { width: 18px; height: 18px; stroke: #c4a574; fill: none; stroke-width: 2; flex-shrink: 0; }
+    .search-input-row svg {
+      width: 18px; height: 18px;
+      stroke: var(--accent-cyan) !important;
+      fill: none; stroke-width: 2; flex-shrink: 0;
+    }
     .search-input-row input {
       flex: 1; background: none; border: none; outline: none;
-      font: 400 16px/1.4 Inter, sans-serif; color: #eaf3f2;
+      font: 400 16px/1.4 Inter, sans-serif;
+      color: var(--text-primary) !important;
     }
-    .search-input-row input::placeholder { color: #5a7a86; }
+    .search-input-row input::placeholder { color: var(--text-muted) !important; }
     .search-results {
-      overflow-y: auto; padding: 8px;
+      overflow-y: auto; padding: 10px;
     }
     .search-result-item {
-      display: block; padding: 12px 16px; border-radius: 6px;
-      text-decoration: none; color: #eaf3f2;
-      transition: background .15s;
+      display: block; padding: 12px 16px; border-radius: 8px;
+      text-decoration: none; color: var(--text-secondary) !important;
+      border: 1px solid transparent;
+      transition: all .15s ease;
     }
-    .search-result-item:hover, .search-result-item.is-selected { background: rgba(196,165,116,.1); }
+    .search-result-item:hover, .search-result-item.is-selected {
+      background: var(--bg-surface-elevated) !important;
+      color: var(--text-primary) !important;
+      border-color: var(--border-subtle) !important;
+      border-left: 3px solid var(--accent-cyan) !important;
+    }
     .search-result-item .sr-title {
-      font: 600 14px/1.3 Inter, sans-serif; color: #eaf3f2;
+      font: 600 14px/1.3 Inter, sans-serif;
+      color: var(--text-primary) !important;
     }
     .search-result-item .sr-desc {
-      font: 400 12px/1.4 Inter, sans-serif; color: #8ea9b3; margin-top: 2px;
+      font: 400 12px/1.4 Inter, sans-serif;
+      color: var(--text-muted) !important;
+      margin-top: 3px;
+    }
+
+    /* 5. 旗艦 Footer：純淨深空黑曜石 */
+    .hub-footer {
+      background: var(--bg-deep) !important;
+      border-top: 1px solid var(--border-subtle) !important;
+      color: var(--text-muted) !important;
+      padding: 36px clamp(20px, 4vw, 64px);
+    }
+    .hub-footer p {
+      color: var(--text-muted) !important;
+    }
+    .hub-footer div a {
+      color: var(--text-secondary) !important;
+      text-decoration: none;
+      font: 600 10.5px/1.4 "IBM Plex Mono", monospace;
+      letter-spacing: .06em;
+      transition: color 0.2s ease;
+    }
+    .hub-footer div a:hover {
+      color: var(--accent-cyan) !important;
     }
   </style>
 </head>
