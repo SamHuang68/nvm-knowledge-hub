@@ -46,10 +46,11 @@
         const zhOpt = btn.querySelector('[data-lang-option="zh"]');
         const enOpt = btn.querySelector('[data-lang-option="en"]');
         if (zhOpt && enOpt) {
-          zhOpt.style.color = (target === "zh") ? "#c4a574" : "#8ea9b3";
-          enOpt.style.color = (target === "en") ? "#c4a574" : "#8ea9b3";
+          zhOpt.style.color = (target === "zh") ? "var(--accent)" : "var(--text-muted)";
+          enOpt.style.color = (target === "en") ? "var(--accent)" : "var(--text-muted)";
         }
       });
+      if (window.HubTheme) window.HubTheme.syncToggleState();
       window.dispatchEvent(new CustomEvent("hub:language-change", {
         detail: { language: target }
       }));

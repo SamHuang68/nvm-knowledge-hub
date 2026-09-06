@@ -5,17 +5,17 @@
   left: 16px;
   z-index: 10000;
   padding: 12px 20px;
-  background: #b08a5b;
-  color: #020617 !important;
+  background: var(--accent);
+  color: var(--text-primary) !important;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
-  border: 2px solid #c4a574;
+  border: 2px solid var(--accent-soft);
   border-radius: 4px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(176, 138, 91, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-glow);
   transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .skip-link:focus,
