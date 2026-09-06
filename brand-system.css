@@ -73,6 +73,7 @@ html[data-language="zh"] .language-toggle [data-lang-option="zh"] {
   border-radius: var(--nv-radius) !important;
   border-color: var(--nv-copper-line) !important;
 }
+#layer-foundations .km-grid > .km-card:first-child,
 .hub-page .km-card-featured {
   background:
     linear-gradient(180deg, rgba(17, 210, 208, 0.06), transparent 42%),
@@ -80,6 +81,7 @@ html[data-language="zh"] .language-toggle [data-lang-option="zh"] {
   border-left: 3px solid var(--nv-cyan) !important;
   min-height: 188px;
 }
+#layer-foundations .km-grid > .km-card:first-child .km-card-title,
 .hub-page .km-card-featured .km-card-title {
   font-size: 18px;
 }

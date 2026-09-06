@@ -20,7 +20,6 @@
 
   const initialLang = resolveSavedLanguage();
 
-  // 立即在 DOM 繪製前設定 documentElement，杜絕閃爍
   document.documentElement.lang = (initialLang === "zh") ? "zh-Hant" : "en";
   document.documentElement.dataset.language = initialLang;
 
@@ -47,7 +46,6 @@
         } catch (e) {}
       }
 
-      // 同步所有切換按鈕狀態
       document.querySelectorAll(".language-toggle, #languageToggle").forEach(btn => {
         btn.setAttribute("aria-label", target === "zh" ? "Switch to English" : "切換至繁體中文");
         const zhOpt = btn.querySelector('[data-lang-option="zh"]');
@@ -58,7 +56,6 @@
         }
       });
 
-      // 廣播自訂事件通知各模組更新圖表或特定內容
       window.dispatchEvent(new CustomEvent("hub:language-change", {
         detail: { language: target }
       }));
@@ -91,4 +88,13 @@
   } else {
     initDOM();
   }
+})();
+
+(function loadBrandSystem(){
+  if (document.querySelector("link[data-brand-system]")) return;
+  var l=document.createElement("link");
+  l.rel="stylesheet";
+  l.href="brand-system.css?v=20260906-b1";
+  l.setAttribute("data-brand-system","true");
+  document.head.appendChild(l);
 })();
