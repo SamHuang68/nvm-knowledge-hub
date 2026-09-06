@@ -1728,11 +1728,12 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .stat-strip-card {
-  background: rgba(13, 21, 32, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
   padding: 16px 18px;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
@@ -1881,7 +1882,7 @@ html[data-language="zh"] .data-table thead th {
 .state-contract-box {
   margin: 14px 0;
   padding: 12px 16px;
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
   background: #0b131e;
   border-left: 4px solid #8a6a42;
   border-top: 1px solid rgba(255, 255, 255, 0.08);

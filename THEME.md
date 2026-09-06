@@ -58,3 +58,28 @@ Shared layout tokens (in `theme.css`):
 | `--layout-rail-studio` | `clamp(88px, 7vw, 108px)` | Hub / lens left module rail column |
 
 `site-shell.css` applies edge-to-edge stages (100% width + `--layout-side` padding) and compact studio rails. On viewports ≥1025px, rail secondary labels (`.hub-rail-sub`, `.lens-sub`) hide to keep the left column narrow; mobile keeps the existing horizontal top-rail behavior at ≤1024px.
+
+## Radius & frosted glass
+
+Shared corner tokens (in `theme.css` on `html`):
+
+| Token | Value | Typical use |
+| --- | --- | --- |
+| `--radius-sm` | `4px` | Chips, badges, compact controls |
+| `--radius-md` | `8px` | Buttons, rail nodes, table wrappers |
+| `--radius-lg` | `12px` | Cards, panels, evidence ladders |
+| `--radius-xl` | `16px` | Deck stages, large floating panels |
+| `--radius-pill` | `9999px` | Pills, circular toggles, filter chips |
+
+Frosted surfaces use theme-scoped glass tokens — light instrument translucency, not heavy consumer blur:
+
+| Token | Role |
+| --- | --- |
+| `--glass-bg` | Floating panels, left rails, modal shells |
+| `--glass-bg-strong` | Sticky headers, sticky toolbars |
+| `--glass-blur` | `10px` (light) / `12px` (dark) backdrop blur |
+| `--glass-saturate` | Subtle saturation lift on frosted chrome |
+| `--glass-border` | Hairline edge on glass shells |
+| `--glass-shadow` | Soft elevation under rails and panels |
+
+Applied on sticky header, left module rails, search overlay, evidence toolbars, and primary cards. Technical SVG/diagram geometry inside architecture canvases is intentionally left square; `data-language` and theme toggle behavior are unchanged.

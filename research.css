@@ -324,7 +324,7 @@ body.research-page { color: var(--ink); background: var(--paper); }
 .paper-conclusion .button { margin: 8px; }
 
 .evidence-hero { min-height: 610px; }
-.evidence-toolbar { position: sticky; top: 70px; z-index: 4; display: grid; grid-template-columns: minmax(260px, 1fr) auto; gap: 18px; padding: 18px; background: rgba(6,25,37,.94); backdrop-filter: blur(12px); border: 1px solid var(--hairline); }
+.evidence-toolbar { position: sticky; top: 70px; z-index: 4; display: grid; grid-template-columns: minmax(260px, 1fr) auto; gap: 18px; padding: 18px; background: var(--glass-bg-strong); backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate)); border: 1px solid var(--hairline); border-radius: var(--radius-lg); }
 .evidence-search { display: flex; align-items: center; gap: 12px; padding: 0 18px; background: #0e2a38; border: 1px solid var(--hairline); }
 .evidence-search input { width: 100%; height: 44px; color: var(--ink); background: transparent; border: 0; outline: 0; font: inherit; }
 .evidence-search:focus-within { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(67,215,211,.16); }

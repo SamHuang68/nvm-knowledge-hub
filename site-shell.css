@@ -14,7 +14,7 @@
   text-transform: uppercase;
   text-decoration: none;
   border: 2px solid var(--accent-soft);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-glow);
   transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -38,6 +38,10 @@
   column-gap: clamp(16px, 2.5vw, 44px) !important;
   min-height: 48px !important;
   padding: 0 var(--layout-side, clamp(12px, 2vw, 28px)) !important;
+  background: var(--glass-bg-strong) !important;
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border-bottom: 1px solid var(--glass-border) !important;
 }
 
 .site-header .brand {
@@ -251,7 +255,7 @@ footer.hub-footer {
   height: 44px;
   background: linear-gradient(135deg, rgba(196, 165, 116, 0.18), rgba(176, 138, 91, 0.05));
   border: 1.5px solid #c4a574;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   color: #c4a574;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 15px;
@@ -293,7 +297,7 @@ footer.hub-footer {
   gap: 8px;
   background: rgba(8, 36, 51, 0.6);
   border: 1px solid rgba(196, 165, 116, 0.16);
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
   padding: 12px 18px;
 }
 
@@ -379,7 +383,7 @@ footer.hub-footer {
 .hub-footer-badge {
   background: rgba(196, 165, 116, 0.05);
   border: 1px solid rgba(196, 165, 116, 0.18);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   padding: 5px 12px;
   color: #c4a574;
   font-family: 'IBM Plex Mono', monospace;
@@ -411,7 +415,7 @@ footer.hub-footer {
   color: #b5aa9c;
   background: #02080d;
   padding: 4px 10px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   border: 1px solid #1e293b;
 }
 
@@ -477,11 +481,13 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .lens-vertical-rail {
   position: sticky;
   top: 56px;
-  background: var(--surface);
+  background: var(--glass-bg);
   border: 1px solid var(--border-subtle);
-  border-radius: 0;
+  border-radius: var(--radius-lg);
   padding: 10px 8px;
-  box-shadow: none;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
   z-index: 40;
 }
 .rail-header {
@@ -506,7 +512,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   background: var(--elevated);
   border: 1px solid var(--border-subtle);
   padding: 1px 5px;
-  border-radius: 3px;
+  border-radius: var(--radius-sm);
 }
 
 /* 直立節點列表 */
@@ -541,7 +547,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   align-items: center;
   gap: 8px;
   padding: 7px 8px;
-  border-radius: 0;
+  border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--text-secondary);
   background: transparent;
@@ -572,7 +578,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   min-width: 22px;
   text-align: left;
   padding: 0;
-  border-radius: 0;
+  border-radius: var(--radius-sm);
   line-height: 1.1;
   flex-shrink: 0;
 }
@@ -674,7 +680,7 @@ html, body {
   width: 100% !important;
   max-width: 100% !important;
   box-sizing: border-box !important;
-  border-radius: 8px;
+  border-radius: var(--radius-lg);
 }
 
 /* 5. 寬表格與矩陣容器強制水平安全滾動 (Responsive Safe Scroll Containers) */

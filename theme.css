@@ -52,6 +52,33 @@ html {
   --layout-side: clamp(12px, 2vw, 28px);
   --layout-rail-chapter: clamp(40px, 3.5vw, 56px);
   --layout-rail-studio: clamp(88px, 7vw, 108px);
+
+  /* Corner radius — semiconductor/OIP credible softening (not consumer pill overload) */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-pill: 9999px;
+}
+
+/* Light frosted surfaces — instrument-panel translucency, not heavy consumer blur */
+html[data-theme="light"],
+html:not([data-theme]) {
+  --glass-bg: color-mix(in srgb, var(--surface) 78%, transparent);
+  --glass-bg-strong: color-mix(in srgb, var(--canvas) 90%, transparent);
+  --glass-blur: 10px;
+  --glass-saturate: 108%;
+  --glass-border: var(--border-subtle);
+  --glass-shadow: 0 8px 28px color-mix(in srgb, var(--text-primary) 6%, transparent);
+}
+
+html[data-theme="dark"] {
+  --glass-bg: color-mix(in srgb, var(--surface) 70%, transparent);
+  --glass-bg-strong: color-mix(in srgb, var(--canvas) 86%, transparent);
+  --glass-blur: 12px;
+  --glass-saturate: 112%;
+  --glass-border: var(--border-subtle);
+  --glass-shadow: 0 10px 32px rgba(0, 0, 0, 0.42);
 }
 
 /* Base canvas */
@@ -405,4 +432,166 @@ html:not([data-theme]) .ai-nvm-page .record-copy .tier-tag:not(.inferred) {
   color: var(--accent-warn) !important;
   border-color: color-mix(in srgb, var(--accent-warn) 34%, transparent) !important;
   background: color-mix(in srgb, var(--accent-warn) 10%, var(--elevated)) !important;
+}
+
+/* =========================================================================
+   Radius + frosted chrome (hub, deep pages, studio rails)
+   SVG/diagram geometry inside .architecture-canvas, .silicon-stage,
+   .state-lab-stage, .topology-grid, and raw svg are intentionally excluded.
+   ========================================================================= */
+
+/* Sticky / floating frosted shells */
+.site-header,
+.hub-minimal-header,
+.hub-page .site-header,
+.hub-module-strip-container {
+  background: var(--glass-bg-strong) !important;
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border-bottom-color: var(--glass-border) !important;
+}
+
+.lens-vertical-rail,
+.hub-vertical-rail {
+  border-radius: var(--radius-lg) !important;
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  box-shadow: var(--glass-shadow) !important;
+}
+
+.search-overlay,
+.search-box,
+.evidence-toolbar,
+.compare-matrix-wrapper,
+.table-wrap,
+.taxonomy-wrap,
+.attack-matrix {
+  border-radius: var(--radius-lg);
+}
+
+.search-box,
+.evidence-toolbar,
+.drawer-workbench-box,
+.deck-stage-wrapper,
+.spec-drawer-btn,
+.spec-metric-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+}
+
+/* Primary controls & chips */
+.skip-link,
+.button:not(.header-button),
+.language-toggle,
+#languageToggle,
+.search-trigger,
+.hub-keyboard-hint-btn,
+.rail-tag,
+.hub-rail-tag,
+.km-layer-tag,
+.hub-footer-badge,
+.hub-footer-tag,
+.hub-footer-meta-pill,
+.topic-tags span,
+.km-card-tags span,
+.pill-number,
+.tag-accent,
+.signal-chip,
+.badge-win,
+.badge-lose,
+.status-verified,
+.stage-kicker,
+.engine-state-pill,
+.drawer-badge,
+.module-tab-btn,
+.hub-rail-badge,
+.deck-pillar-card,
+.engine-row,
+.stage-link-btn,
+.engine-trigger-btn {
+  border-radius: var(--radius-sm);
+}
+
+.theme-toggle,
+#themeToggle,
+.header-button,
+.filters button,
+.search-box,
+.versus,
+.workbench-badge {
+  border-radius: var(--radius-pill);
+}
+
+/* Cards, panels, rails, tables */
+.km-card,
+.lens-panel,
+.hub-rail-btn,
+.lens-node-item,
+.stat-strip-card,
+.gate-card,
+.topic-card,
+.workbench-card,
+.deck-stage-wrapper,
+.stage-engine-col,
+.drawer-workbench-box,
+.thesis-principles article,
+.evidence-numbers article,
+.phase-detail,
+.case-note,
+.source-list a,
+.app-card,
+.article-card,
+.attack-journey,
+.architecture-canvas,
+.comparison-side,
+.product-matrix,
+.evidence-ribbon,
+.node-map,
+.learning-paths,
+.research-equation,
+.assurance-preview article,
+.source-card,
+.source-index,
+.hub-hero-compact,
+.hub-hero-index > div,
+.hub-hero-index > .index-metric,
+.enterprise-signing-case,
+.case-flow article,
+.threat-coverage,
+.stack-sources a,
+.state-contract-box,
+.governing-physics-box,
+.ai-nvm-page .state-contract-card,
+.ai-nvm-page .evidence-ladder,
+.ai-nvm-page .state-spectrum {
+  border-radius: var(--radius-lg);
+}
+
+.lens-node-item,
+.hub-rail-btn {
+  border-radius: var(--radius-md) !important;
+}
+
+.lens-stage-container .paper-conclusion,
+.lens-stage-container section.paper-conclusion {
+  border-radius: var(--radius-lg) !important;
+}
+
+.compare-matrix-wrapper,
+.matrix-cell,
+.matrix-header,
+.matrix-row-header,
+.table-wrap,
+.taxonomy-wrap,
+.attack-matrix {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.hub-footer-logo-mark,
+.brand-mark,
+.hub-micro-logo {
+  border-radius: var(--radius-md);
 }

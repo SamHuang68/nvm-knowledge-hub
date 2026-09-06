@@ -24,7 +24,7 @@
       font-size: 13px !important; font-weight: 800 !important;
       letter-spacing: 0.05em !important; text-transform: uppercase !important;
       text-decoration: none !important; border: 2px solid var(--accent-soft) !important;
-      border-radius: 4px !important;
+      border-radius: var(--radius-sm) !important;
       box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 20px rgba(176,138,91,0.4) !important;
       transition: top 0.2s cubic-bezier(0.16,1,0.3,1) !important; display: inline-block !important;
     }
@@ -78,9 +78,9 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(8, 9, 10, 0.85) !important;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: var(--glass-bg-strong) !important;
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
       border-bottom: 1px solid var(--border-subtle) !important;
       padding: 10px var(--layout-side, clamp(12px, 2vw, 28px));
       display: flex;
@@ -95,7 +95,7 @@
     .hub-micro-logo {
       width: 24px;
       height: 24px;
-      border-radius: 6px;
+      border-radius: var(--radius-md);
       background: var(--bg-surface-elevated) !important;
       border: 1px solid var(--border-highlight) !important;
       display: flex;
@@ -122,7 +122,7 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.65rem;
       padding: 2px 7px;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       background: var(--bg-surface-elevated) !important;
       color: var(--text-muted) !important;
       border: 1px solid var(--border-subtle) !important;
@@ -142,7 +142,7 @@
       padding: 6px 14px;
       background: var(--bg-surface) !important;
       border: 1px solid var(--border-subtle) !important;
-      border-radius: 6px;
+      border-radius: var(--radius-md);
       color: var(--text-secondary) !important;
       font: 500 12px/1.4 'IBM Plex Mono', monospace;
       cursor: pointer;
@@ -161,13 +161,13 @@
       font: 600 10px/1 'IBM Plex Mono', monospace;
       background: var(--bg-surface-elevated) !important;
       border: 1px solid var(--border-subtle) !important;
-      border-radius: 3px;
+      border-radius: var(--radius-sm);
       color: var(--accent-cyan) !important;
     }
     .language-toggle {
       background: var(--bg-surface) !important;
       border: 1px solid var(--border-subtle) !important;
-      border-radius: 6px;
+      border-radius: var(--radius-md);
       padding: 5px 12px;
       cursor: pointer;
       display: inline-flex;
@@ -200,7 +200,7 @@
       max-width: none;
       width: auto;
       margin: 16px var(--layout-side, clamp(12px, 2vw, 28px)) 0;
-      border-radius: 12px;
+      border-radius: var(--radius-lg);
       padding: clamp(36px, 4vw, 54px) var(--layout-side, clamp(12px, 2vw, 28px));
       background: 
         radial-gradient(circle at 82% 28%, rgba(0, 229, 255, 0.05), transparent 42%),
@@ -253,7 +253,7 @@
       padding: 8px 16px;
       background: var(--bg-surface-elevated) !important;
       border: 1px solid var(--border-subtle) !important;
-      border-radius: 8px;
+      border-radius: var(--radius-md);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
     }
     .hub-hero-compact .hero-metric b {
@@ -292,11 +292,13 @@
     .hub-vertical-rail {
       position: sticky;
       top: 76px;
-      background: var(--bg-surface) !important;
+      background: var(--glass-bg) !important;
       border: 1px solid var(--border-subtle) !important;
-      border-radius: 10px;
+      border-radius: var(--radius-lg);
       padding: 8px 6px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5) !important;
+      box-shadow: var(--glass-shadow) !important;
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
       z-index: 40;
     }
     .hub-rail-header {
@@ -321,7 +323,7 @@
       background: var(--bg-surface-elevated) !important;
       border: 1px solid var(--border-subtle) !important;
       padding: 2px 6px;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
     }
     .hub-rail-nav {
       display: flex;
@@ -333,7 +335,7 @@
       align-items: center;
       gap: 6px;
       padding: 6px 6px;
-      border-radius: 8px;
+      border-radius: var(--radius-md);
       text-decoration: none;
       color: var(--text-secondary) !important;
       background: transparent !important;
@@ -357,7 +359,7 @@
       font-size: 0.68rem;
       font-weight: 700;
       padding: 2px 5px;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       background: var(--bg-surface-elevated) !important;
       color: var(--text-muted) !important;
       border: 1px solid var(--border-subtle) !important;
@@ -426,7 +428,7 @@
       border-bottom: 1px solid var(--border-subtle) !important;
     }
     .km-layer-tag {
-      padding: 3px 8px; border-radius: 4px;
+      padding: 3px 8px; border-radius: var(--radius-sm);
       font: 700 9.5px/1.4 'IBM Plex Mono', monospace;
       letter-spacing: .1em; text-transform: uppercase;
       background: var(--bg-surface-elevated) !important;
@@ -453,7 +455,7 @@
       padding: 22px 24px;
       background: var(--bg-surface) !important;
       border: 1px solid var(--border-subtle) !important;
-      border-radius: 12px !important;
+      border-radius: var(--radius-lg) !important;
       box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.45) !important;
       text-decoration: none; color: inherit;
       transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
@@ -531,7 +533,7 @@
       color: var(--text-muted) !important;
       background: var(--bg-surface-elevated) !important;
       border: 1px solid var(--border-subtle) !important;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
       letter-spacing: .03em;
       transition: all 0.2s ease;
     }
@@ -555,9 +557,9 @@
     /* 4. Search Trigger & Modal (Obsidian Glass) */
     .search-overlay {
       display: none; position: fixed; inset: 0; z-index: 9000;
-      background: rgba(8, 9, 10, 0.85) !important;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: var(--glass-bg-strong) !important;
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
       justify-content: center; padding-top: 15vh;
     }
     .search-overlay.is-open { display: flex; }
@@ -565,7 +567,7 @@
       width: min(640px, 92vw);
       background: var(--bg-surface) !important;
       border: 1px solid var(--border-highlight) !important;
-      border-radius: 12px;
+      border-radius: var(--radius-lg);
       box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 24px var(--accent-glow) !important;
       overflow: hidden;
       max-height: 60vh;
@@ -591,7 +593,7 @@
       overflow-y: auto; padding: 10px;
     }
     .search-result-item {
-      display: block; padding: 12px 16px; border-radius: 8px;
+      display: block; padding: 12px 16px; border-radius: var(--radius-md);
       text-decoration: none; color: var(--text-secondary) !important;
       border: 1px solid transparent;
       transition: all .15s ease;
