@@ -20,6 +20,7 @@
 
   const initialLang = resolveSavedLanguage();
 
+  // 立即在 DOM 繪製前設定 documentElement，杜絕閃爍
   document.documentElement.lang = (initialLang === "zh") ? "zh-Hant" : "en";
   document.documentElement.dataset.language = initialLang;
 
@@ -88,13 +89,4 @@
   } else {
     initDOM();
   }
-})();
-
-(function loadBrandSystem(){
-  if (document.querySelector("link[data-brand-system]")) return;
-  var l=document.createElement("link");
-  l.rel="stylesheet";
-  l.href="brand-system.css?v=20260906-b1";
-  l.setAttribute("data-brand-system","true");
-  document.head.appendChild(l);
 })();
