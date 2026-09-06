@@ -1346,8 +1346,8 @@
         </div>
         <div class="state-explanation" aria-live="polite">
           <span id="stateTag">AT REST</span>
-          <h3 id="stateTitle">Power-off 的核心安全優勢：沒有永久保存的 reconstructed root</h3>
-          <p id="stateText">在已驗證的 shutdown 條件下，OTP 保留 ciphertext、helper material 與 lifecycle state；不保留刻意儲存或 powered reconstructed root。Transistor mismatch、remanence 與 zeroization 仍是 assurance targets。</p>
+          <h3 id="stateTitle">Core power-off advantage: no intentionally stored or powered reconstructed root remains</h3>
+          <p id="stateText">Under verified shutdown, OTP retains ciphertext, helper material and lifecycle state; no intentionally stored or powered reconstructed root remains. Transistor mismatch, remanence and zeroization remain assurance targets.</p>
         </div>
       </div>
       <div class="silicon-stage" aria-label="Secure Storage 電源狀態示意">
@@ -1498,7 +1498,7 @@
         </div>
         <div class="arch-detail" id="archDetail" aria-live="polite" aria-atomic="true">
           <div class="detail-visual"><svg id="archIcon"><use href="#i-fingerprint"/></svg><span>DEVICE-UNIQUE</span></div>
-          <div><small id="archNumber">BLOCK 01</small><h3 id="archTitle">A root key with no permanent address</h3><p id="archText">SRAM startup variation is measured at power-up and processed into a stable device-unique root. The root key is never stored on-chip.</p><ul id="archList"><li>Power-up reconstruction</li><li>Public helper data</li><li>Short key residency</li></ul></div>
+          <div><small id="archNumber">BLOCK 01</small><h3 id="archTitle">A root key with no permanent address</h3><p id="archText">SRAM startup variation is measured at power-up and processed into a stable device-unique root. The reconstructed root is not kept as a permanently stored powered key.</p><ul id="archList"><li>Power-up reconstruction</li><li>Public helper data</li><li>Short key residency</li></ul></div>
         </div>
         <div class="architecture-footer"><span>CONFIGURABLE SECURE REGIONS</span><span>ADDRESS SCRAMBLING</span><span>AMBA APB</span><span>AUTO PROVISIONING</span></div>
       </div>
@@ -1513,7 +1513,7 @@
             <span data-lang="en">Keys exist only when actively working</span>
           </h2>
         </div>
-        <p>不是「把 key 藏得更好」，而是把存在時間縮短成受控窗口。</p>
+        <p><span data-lang="zh">不是「把 key 藏得更好」，而是把存在時間縮短成受控窗口。</span><span data-lang="en">The point is not hiding the key better; it is shortening residency to a controlled window.</span></p>
       </div>
       <div class="lifecycle-track" role="group" aria-label="Root key lifecycle">
         <button class="phase active" type="button" aria-pressed="true" data-phase="0"><span>01</span><svg><use href="#i-power"/></svg><b>POWER OFF</b><small>Absent</small></button>
@@ -1574,7 +1574,7 @@
       <div class="comparison-view" data-panel="product">
         <div class="product-matrix">
           <div class="matrix-head"><span>PUBLICLY DISCLOSED LENS</span><b>SYNOPSYS SECURE STORAGE</b><b>PUFSECURITY SECURE OTP</b></div>
-          <div><span>PUF root</span><p>SRAM PUF; root key never stored</p><p>NeoPUF; 1024-bit physical PUF</p></div>
+          <div><span>PUF root</span><p>SRAM PUF; reconstructed root not kept as a stored powered key</p><p>NeoPUF; 1024-bit physical PUF</p></div>
           <div><span>Data protection</span><p>AES-256 encryption/decryption + address scrambling</p><p>Instant hardware encryption + address/IO scrambling; algorithm not named publicly</p></div>
           <div><span>Integration</span><p>AMBA APB, simple API, auto provisioning and initialization</p><p>AMBA APB, firmware/API, autoload, locks and zeroization</p></div>
           <div class="matrix-emphasis"><span>Portfolio context</span><p data-record-ids="OIP-PUF-SCALE-001 OIP-PUF-HISTORY-001 OIP-OTP-SCALE-001">Synopsys reports &gt;1.5B devices using its SRAM PUF technology, &gt;15 years of proven SRAM PUF technology, and &gt;10B antifuse OTP NVM units shipped; target configuration still requires closure</p><p>Public platform availability; exact product evidence and assurance scope remain to be confirmed</p></div>
@@ -1635,13 +1635,13 @@
             <span data-lang="en">Technical value must protect target assets</span>
           </h2>
         </div>
-        <p>相同的 root-key lifecycle，因應不同市場中最昂貴、最敏感、最難替換的資料。</p>
+        <p><span data-lang="zh">相同的 root-key lifecycle，因應不同市場中最昂貴、最敏感、最難替換的資料。</span><span data-lang="en">The same root-key lifecycle is applied to the most expensive, sensitive and hardest-to-replace assets in each market.</span></p>
       </div>
       <div class="application-grid">
-        <article class="app-card app-ai"><svg><use href="#i-code"/></svg><span>AI / HPC</span><h3>保護模型價值與平台完整性</h3><p>Firmware anti-rollback · model/weight keys · platform identity</p><b>01</b></article>
-        <article class="app-card app-auto"><svg><use href="#i-car"/></svg><span>AUTOMOTIVE</span><h3>把安全資料綁定到正確裝置</h3><p>Calibration · configuration · secure boot · lifecycle state</p><b>02</b></article>
-        <article class="app-card app-aero"><svg><use href="#i-aircraft"/></svg><span>AEROSPACE & DEFENSE</span><h3>降低靜態金鑰擷取目標</h3><p>Mission algorithms · permanent identity · anti-cloning credentials</p><b>03</b></article>
-        <article class="app-card app-iot"><svg><use href="#i-iot"/></svg><span>IoT / CONNECTIVITY</span><h3>大規模建立 device-unique trust</h3><p>Protocol keys · ROM patches · anti-counterfeit identity</p><b>04</b></article>
+        <article class="app-card app-ai"><svg><use href="#i-code"/></svg><span>AI / HPC</span><h3><span data-lang="zh">保護模型價值與平台完整性</span><span data-lang="en">Protect model value and platform integrity</span></h3><p>Firmware anti-rollback · model/weight keys · platform identity</p><b>01</b></article>
+        <article class="app-card app-auto"><svg><use href="#i-car"/></svg><span>AUTOMOTIVE</span><h3><span data-lang="zh">把安全資料綁定到正確裝置</span><span data-lang="en">Bind security data to the correct device</span></h3><p>Calibration · configuration · secure boot · lifecycle state</p><b>02</b></article>
+        <article class="app-card app-aero"><svg><use href="#i-aircraft"/></svg><span>AEROSPACE & DEFENSE</span><h3><span data-lang="zh">降低靜態金鑰擷取目標</span><span data-lang="en">Reduce the static key-extraction target</span></h3><p>Mission algorithms · permanent identity · anti-cloning credentials</p><b>03</b></article>
+        <article class="app-card app-iot"><svg><use href="#i-iot"/></svg><span>IoT / CONNECTIVITY</span><h3><span data-lang="zh">大規模建立 device-unique trust</span><span data-lang="en">Establish device-unique trust at scale</span></h3><p>Protocol keys · ROM patches · anti-counterfeit identity</p><b>04</b></article>
       </div>
     </section>
 
@@ -1691,7 +1691,7 @@
           <span data-lang="zh">從記憶體物理，走到 AI 系統邊界<br><em>證據先於機會推論</em></span>
           <span data-lang="en">From memory physics to AI system frontiers<br><em>Evidence before opportunity inference</em></span>
         </h2>
-        <p>一條研究線拆解 bit-cell 與 sensing；另一條把 identity、repair、calibration、firmware 與 RAS evidence 映射到正確的 persistent-state contract。</p>
+        <p><span data-lang="zh">一條研究線拆解 bit-cell 與 sensing；另一條把 identity、repair、calibration、firmware 與 RAS evidence 映射到正確的 persistent-state contract。</span><span data-lang="en">One research line unpacks bit-cell and sensing; the other maps identity, repair, calibration, firmware and RAS evidence onto the right persistent-state contract.</span></p>
         <div class="research-topic-links">
           <a href="ai-nvm-opportunities.html"><small>NEW · AI SYSTEMS</small><strong>Persistent State Across AI Silicon</strong><span>Proof → state contract → NVM opportunity</span></a><a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a>
           <a href="memory-physics.html"><small>MEMORY PHYSICS</small><strong>Sense Mode × Bit-cell Economics</strong><span>SRAM PUF · OTP · differential read</span></a>
@@ -1746,7 +1746,7 @@
     <p><span data-lang="zh">僅限公開技術證據 · 2026</span><span data-lang="en">Public evidence only · 2026</span></p>
   </footer>
 
-  <script src="app.js?v=20260906-navy-v3"></script>
+  <script src="app.js?v=20260906-navy-v4"></script>
   <script>
     // Studio Layout Vertical Rail Scroll Spy
     document.addEventListener('DOMContentLoaded', () => {

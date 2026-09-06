@@ -1,4 +1,4 @@
-let currentLanguage = "zh";
+let currentLanguage = "en";
 let activeType = "all";
 let activeArchitecture = "puf";
 let activePhase = 0;
@@ -56,7 +56,7 @@ const architectureDetails = {
   puf: {
     number: "BLOCK 01", label: localized("DEVICE-UNIQUE", "DEVICE-UNIQUE"), icon: "i-fingerprint",
     title: localized("沒有永久地址的根金鑰", "A root key with no permanent address"),
-    text: localized("上電時量測 SRAM startup variation，經 PUF processing 重建穩定、裝置唯一的 root；根金鑰從不儲存在晶片中。", "SRAM startup variation is measured at power-up and processed into a stable device-unique root. The root key is never stored on-chip."),
+    text: localized("上電時量測 SRAM startup variation，經 PUF processing 重建穩定、裝置唯一的 root；根金鑰不作為 powered reconstructed key 永久存放。", "SRAM startup variation is measured at power-up and processed into a stable device-unique root. The reconstructed root is not kept as a permanently stored powered key."),
     list: localized(["上電重建", "公開 helper data", "縮短 key residency"], ["Power-up reconstruction", "Public helper data", "Short key residency"])
   },
   crypto: {
