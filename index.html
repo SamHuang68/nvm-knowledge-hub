@@ -13,6 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site-shell.css?v=20260906-navy-v3">
   <link rel="stylesheet" href="hub.css?v=20260906-navy-v3">
+  <link rel="preload" href="assets/nvm-hub-hero-dual-theme-v1-1600.webp" as="image" type="image/webp">
   <script src="site-language.js?v=20260906-navy-v3"></script>
   <style>
     /* 0. ACCESSIBILITY DEFENSE: High-contrast Skip Link */
@@ -195,33 +196,88 @@
       text-shadow: 0 0 8px var(--accent-glow);
     }
 
-    /* 2. 緊湊型 Executive Hero：純淨深空黑曜石旗艦晶片展示窗 */
+    /* 2. 緊湊型 Executive Hero：Dual Theme D 晶片視覺 + 毛玻璃可讀遮罩 */
     .hub-hero-compact {
       max-width: none;
       width: auto;
       margin: 16px var(--layout-side, clamp(12px, 2vw, 28px)) 0;
       border-radius: var(--radius-lg);
       padding: clamp(36px, 4vw, 54px) var(--layout-side, clamp(12px, 2vw, 28px));
-      background: 
-        radial-gradient(circle at 82% 28%, rgba(0, 229, 255, 0.05), transparent 42%),
-        linear-gradient(180deg, var(--bg-surface) 0%, #0d0f12 60%, var(--bg-deep) 100%) !important;
+      min-height: clamp(280px, 34vw, 420px);
+      background: var(--bg-surface) !important;
       border: 1px solid var(--border-subtle) !important;
-      box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.6), 0 0 24px -6px rgba(0, 229, 255, 0.04) !important;
+      box-shadow: var(--glass-shadow), 0 0 24px -6px var(--accent-glow) !important;
       position: relative;
+      isolation: isolate;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .hub-hero-media {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hub-hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 62%;
+      opacity: 0.92;
+      filter: saturate(1.06) brightness(1.02);
+    }
+    html[data-theme="dark"] .hub-hero-media img {
+      opacity: 0.62;
+      filter: saturate(1.1) brightness(0.86);
+    }
+    .hub-hero-shade {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg,
+          color-mix(in srgb, var(--canvas) 94%, transparent) 0%,
+          color-mix(in srgb, var(--canvas) 82%, transparent) 42%,
+          color-mix(in srgb, var(--canvas) 38%, transparent) 68%,
+          transparent 100%),
+        linear-gradient(180deg,
+          color-mix(in srgb, var(--canvas) 72%, transparent) 0%,
+          transparent 28%,
+          color-mix(in srgb, var(--canvas) 55%, transparent) 100%);
+    }
+    html[data-theme="dark"] .hub-hero-shade {
+      background:
+        linear-gradient(90deg,
+          var(--scrim-deep) 0%,
+          rgba(3, 19, 30, 0.9) 38%,
+          rgba(3, 19, 30, 0.55) 62%,
+          rgba(3, 19, 30, 0.12) 82%,
+          transparent 100%),
+        linear-gradient(180deg,
+          rgba(3, 19, 30, 0.82) 0%,
+          transparent 24%,
+          rgba(3, 19, 30, 0.78) 100%);
+    }
+    .hub-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: min(860px, 100%);
+      padding: clamp(12px, 1.6vw, 18px) clamp(14px, 2vw, 22px);
+      border-radius: var(--radius-lg);
+      background: var(--glass-bg);
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
     }
     .hub-hero-compact::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      pointer-events: none;
-    }
-    .hub-hero-compact::after {
-      content: "";
-      position: absolute;
-      top: 0; right: 0; width: 140px; height: 140px;
-      background: radial-gradient(circle, rgba(0, 229, 255, 0.06) 0%, transparent 70%);
+      z-index: 3;
+      background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 35%, transparent), transparent);
       pointer-events: none;
     }
     .hub-hero-compact h1 {
@@ -691,19 +747,31 @@
   <!-- HERO: COMPACT BRAND STATEMENT (極致壓縮版面)                        -->
   <!-- ================================================================= -->
   <section class="hub-hero-compact" aria-labelledby="hubHeroTitle">
-    <h1 id="hubHeroTitle">
-      <span data-lang="zh">非揮發性記憶體<br><em>架構知識中樞</em></span>
-      <span data-lang="en">Non-Volatile Memory<br><em>Architecture Knowledge Hub</em></span>
-    </h1>
-    <p class="hero-sub">
-      <span data-lang="zh">嵌入式非揮發性記憶體的架構決策與證據邊界 — 從位元胞物理、安全架構到 AI / IoT / 車規 / 特種矽。</span>
-      <span data-lang="en">Architecture and evidence boundaries for embedded NVM — bitcell physics, security architecture, AI / IoT / automotive / specialty silicon.</span>
-    </p>
-    <div class="hero-metrics">
-      <div class="hero-metric"><b>8</b><span><span data-lang="zh">知識領域</span><span data-lang="en">Knowledge Domains</span></span></div>
-      <div class="hero-metric"><b>44</b><span><span data-lang="zh">總帳紀錄</span><span data-lang="en">Ledger Records</span></span></div>
-      <div class="hero-metric"><b>12</b><span><span data-lang="zh">深度專頁</span><span data-lang="en">Deep-Dive Pages</span></span></div>
-      <div class="hero-metric"><b>4</b><span><span data-lang="zh">證據分級</span><span data-lang="en">Evidence Classes</span></span></div>
+    <picture class="hub-hero-media" aria-hidden="true">
+      <source media="(max-width: 768px)" srcset="assets/nvm-hub-hero-dual-theme-v1-900.webp" type="image/webp">
+      <img src="assets/nvm-hub-hero-dual-theme-v1-1600.webp"
+           alt="NVM architecture knowledge hub — navy silicon stack, teal neural cube, security and IoT capability cards"
+           data-alt-zh="NVM 架構知識中樞 — 深藍晶片堆疊、青藍神經立方體與安全／IoT 能力卡片"
+           data-alt-en="NVM architecture knowledge hub — navy silicon stack, teal neural cube, security and IoT capability cards"
+           width="1600" height="900"
+           loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+    <div class="hub-hero-shade" aria-hidden="true"></div>
+    <div class="hub-hero-content">
+      <h1 id="hubHeroTitle">
+        <span data-lang="zh">非揮發性記憶體<br><em>架構知識中樞</em></span>
+        <span data-lang="en">Non-Volatile Memory<br><em>Architecture Knowledge Hub</em></span>
+      </h1>
+      <p class="hero-sub">
+        <span data-lang="zh">嵌入式非揮發性記憶體的架構決策與證據邊界 — 從位元胞物理、安全架構到 AI / IoT / 車規 / 特種矽。</span>
+        <span data-lang="en">Architecture and evidence boundaries for embedded NVM — bitcell physics, security architecture, AI / IoT / automotive / specialty silicon.</span>
+      </p>
+      <div class="hero-metrics">
+        <div class="hero-metric"><b>8</b><span><span data-lang="zh">知識領域</span><span data-lang="en">Knowledge Domains</span></span></div>
+        <div class="hero-metric"><b>44</b><span><span data-lang="zh">總帳紀錄</span><span data-lang="en">Ledger Records</span></span></div>
+        <div class="hero-metric"><b>12</b><span><span data-lang="zh">深度專頁</span><span data-lang="en">Deep-Dive Pages</span></span></div>
+        <div class="hero-metric"><b>4</b><span><span data-lang="zh">證據分級</span><span data-lang="en">Evidence Classes</span></span></div>
+      </div>
     </div>
   </section>
 
