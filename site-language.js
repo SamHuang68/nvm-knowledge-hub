@@ -1,22 +1,33 @@
 // site-language.js · Top-Level Global Single Source of Truth for Language
 // Default Language: English ("en")
+// Single Source of Truth Key: "nvm-hub-language" (with legacy key backward compatibility)
 
 (function() {
   const STORAGE_KEY = "nvm-hub-language";
   const LEGACY_KEY_1 = "nvm-language";
   const LEGACY_KEY_2 = "hub-lang";
+
   function resolveSavedLanguage() {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_KEY_1) || localStorage.getItem(LEGACY_KEY_2);
+      const saved = localStorage.getItem(STORAGE_KEY) || 
+                    localStorage.getItem(LEGACY_KEY_1) || 
+                    localStorage.getItem(LEGACY_KEY_2);
       return (saved === "zh") ? "zh" : "en";
-    } catch (e) { return "en"; }
+    } catch (e) {
+      return "en";
+    }
   }
+
   const initialLang = resolveSavedLanguage();
+
   document.documentElement.lang = (initialLang === "zh") ? "zh-Hant" : "en";
   document.documentElement.dataset.language = initialLang;
+
   window.HubLanguage = {
     STORAGE_KEY: STORAGE_KEY,
-    get: function() { return document.documentElement.dataset.language || "en"; },
+    get: function() {
+      return document.documentElement.dataset.language || "en";
+    },
     set: function(lang, persist) {
       if (persist === undefined) persist = true;
       const target = (lang === "zh") ? "zh" : "en";
@@ -39,7 +50,9 @@
           enOpt.style.color = (target === "en") ? "#c4a574" : "#8ea9b3";
         }
       });
-      window.dispatchEvent(new CustomEvent("hub:language-change", { detail: { language: target } }));
+      window.dispatchEvent(new CustomEvent("hub:language-change", {
+        detail: { language: target }
+      }));
     },
     toggle: function() {
       const next = (this.get() === "zh") ? "en" : "zh";
@@ -47,6 +60,7 @@
       return next;
     }
   };
+
   function initDOM() {
     if (document.body) document.body.dataset.language = window.HubLanguage.get();
     document.querySelectorAll(".language-toggle, #languageToggle").forEach(btn => {
@@ -60,40 +74,10 @@
     });
     window.HubLanguage.set(window.HubLanguage.get(), false);
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initDOM);
-  else initDOM();
-})();
 
-(function loadFlagshipSurface(){
-  if (document.querySelector("link[data-flagship-surface]")) return;
-  var l=document.createElement("link");
-  l.rel="stylesheet";
-  l.href="flagship-surface.css?v=20260906-s2";
-  l.setAttribute("data-flagship-surface","true");
-  document.head.appendChild(l);
-})();
-
-(function flagshipPointerGlow(){
-  function bind(){
-    document.querySelectorAll(".km-card,.claim-rung,.rule-card").forEach(function(el){
-      if (el._fsGlow) return;
-      el._fsGlow = true;
-      el.addEventListener("pointermove", function(e){
-        var r = el.getBoundingClientRect();
-        el.style.setProperty("--fs-mx", ((e.clientX - r.left) / r.width * 100).toFixed(2) + "%");
-        el.style.setProperty("--fs-my", ((e.clientY - r.top) / r.height * 100).toFixed(2) + "%");
-      });
-    });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initDOM);
+  } else {
+    initDOM();
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", bind);
-  else bind();
-})();
-
-(function loadFlagshipShader(){
-  if (document.querySelector("script[data-flagship-shader]")) return;
-  var s=document.createElement("script");
-  s.src="flagship-shader.js?v=20260906-s3";
-  s.defer=true;
-  s.setAttribute("data-flagship-shader","true");
-  document.head.appendChild(s);
 })();
