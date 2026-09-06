@@ -51,7 +51,7 @@ html[data-theme="dark"] {
 html {
   --layout-side: clamp(12px, 2vw, 28px);
   --layout-rail-chapter: clamp(40px, 3.5vw, 56px);
-  --layout-rail-studio: clamp(88px, 7vw, 108px);
+  --layout-rail-studio: clamp(156px, 13vw, 184px);
 
   /* Corner radius — semiconductor/OIP credible softening (not consumer pill overload) */
   --radius-sm: 4px;

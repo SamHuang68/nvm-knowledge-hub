@@ -332,9 +332,9 @@
     }
     .hub-rail-btn {
       display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 6px;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px 8px;
       border-radius: var(--radius-md);
       text-decoration: none;
       color: var(--text-secondary) !important;
@@ -367,6 +367,7 @@
       text-align: center;
       line-height: 1.1;
       flex-shrink: 0;
+      margin-top: 2px;
     }
     .hub-rail-btn:hover .hub-rail-badge {
       color: var(--text-primary) !important;
@@ -386,11 +387,13 @@
     .hub-rail-name {
       font-size: 0.76rem;
       font-weight: 600;
-      line-height: 1.25;
+      line-height: 1.3;
       color: var(--text-secondary) !important;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      text-wrap: balance;
+      overflow-wrap: anywhere;
     }
     .hub-rail-btn:hover .hub-rail-name {
       color: var(--text-primary) !important;
@@ -404,9 +407,12 @@
       font-family: 'IBM Plex Mono', monospace;
       color: var(--text-muted) !important;
       margin-top: 2px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      line-height: 1.25;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: clip;
+      text-wrap: balance;
+      overflow-wrap: anywhere;
     }
     .hub-rail-btn.active .hub-rail-sub {
       color: var(--accent-cyan) !important;
@@ -715,28 +721,28 @@
           <span class="hub-rail-tag">L1 ~ RES</span>
         </div>
         <nav class="hub-rail-nav" role="navigation" aria-label="Layer navigation" data-aria-label-en="Layer navigation" data-aria-label-zh="層次跳轉">
-          <a class="hub-rail-btn active" href="#layer-foundations" data-target="layer-foundations">
+          <a class="hub-rail-btn active" href="#layer-foundations" data-target="layer-foundations" title="Foundations &amp; Physics" aria-label="Foundations and Physics">
             <span class="hub-rail-badge">L1</span>
             <div class="hub-rail-text">
               <span class="hub-rail-name"><span data-lang="zh">基礎科學與製程</span><span data-lang="en">Foundations &amp; Physics</span></span>
               <span class="hub-rail-sub">F1 · F2 Physics &amp; Matrix</span>
             </div>
           </a>
-          <a class="hub-rail-btn" href="#layer-architecture" data-target="layer-architecture">
+          <a class="hub-rail-btn" href="#layer-architecture" data-target="layer-architecture" title="Architecture &amp; Security" aria-label="Architecture and Security">
             <span class="hub-rail-badge">L2</span>
             <div class="hub-rail-text">
               <span class="hub-rail-name"><span data-lang="zh">架構與安全支柱</span><span data-lang="en">Architecture &amp; Security</span></span>
               <span class="hub-rail-sub">A1 · A2 Storage &amp; RoT</span>
             </div>
           </a>
-          <a class="hub-rail-btn" href="#layer-applications" data-target="layer-applications">
+          <a class="hub-rail-btn" href="#layer-applications" data-target="layer-applications" title="Market Applications" aria-label="Market Applications">
             <span class="hub-rail-badge">L3</span>
             <div class="hub-rail-text">
               <span class="hub-rail-name"><span data-lang="zh">市場垂直應用</span><span data-lang="en">Market Applications</span></span>
               <span class="hub-rail-sub">M1 ~ M4 AI · IoT · Auto · BCD</span>
             </div>
           </a>
-          <a class="hub-rail-btn" href="#layer-resources" data-target="layer-resources">
+          <a class="hub-rail-btn" href="#layer-resources" data-target="layer-resources" title="Resources &amp; Studio" aria-label="Resources and Studio">
             <span class="hub-rail-badge">RES</span>
             <div class="hub-rail-text">
               <span class="hub-rail-name"><span data-lang="zh">資源與白皮書</span><span data-lang="en">Resources &amp; Studio</span></span>

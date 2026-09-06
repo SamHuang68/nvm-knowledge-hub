@@ -544,7 +544,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 }
 .lens-node-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   padding: 7px 8px;
   border-radius: var(--radius-md);
@@ -581,6 +581,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   border-radius: var(--radius-sm);
   line-height: 1.1;
   flex-shrink: 0;
+  margin-top: 2px;
 }
 .lens-node-item.active .lens-badge {
   background: transparent;
@@ -598,10 +599,12 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.3;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 .lens-node-item.active .lens-name {
   color: var(--text-primary);
@@ -611,10 +614,12 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.60rem;
   color: var(--text-muted);
-  line-height: 1.1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 1.25;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 .lens-node-item.active .lens-sub {
   color: var(--accent);
@@ -978,36 +983,61 @@ input[type="range"] {
 @media (min-width: 1025px) {
   .lens-vertical-rail,
   .hub-vertical-rail {
-    padding: 8px 6px !important;
+    padding: 10px 8px !important;
   }
 
   .lens-node-item,
   .hub-rail-btn {
-    padding: 6px 6px !important;
-    gap: 6px !important;
+    padding: 8px 8px !important;
+    gap: 8px !important;
+    align-items: flex-start !important;
   }
 
   .lens-sub,
   .hub-rail-sub {
-    display: none !important;
+    display: block !important;
   }
 
   .rail-header,
   .hub-rail-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
   }
 
   .rail-title,
   .hub-rail-title {
-    font-size: 0.58rem !important;
-    letter-spacing: 0.08em !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 0.1em !important;
   }
 
   .hub-rail-name,
   .lens-name {
-    font-size: 0.68rem !important;
+    font-size: 0.72rem !important;
+    line-height: 1.3 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    text-wrap: balance !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .hub-rail-sub,
+  .lens-sub {
+    font-size: 0.58rem !important;
+    line-height: 1.25 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    text-wrap: balance !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .hub-rail-badge,
+  .lens-badge {
+    margin-top: 2px;
+    flex-shrink: 0;
   }
 }
 

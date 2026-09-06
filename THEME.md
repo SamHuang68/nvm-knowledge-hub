@@ -55,9 +55,9 @@ Shared layout tokens (in `theme.css`):
 | --- | --- | --- |
 | `--layout-side` | `clamp(12px, 2vw, 28px)` | Page horizontal inset / safe edge |
 | `--layout-rail-chapter` | `clamp(40px, 3.5vw, 56px)` | `.chapter-rail` width (immersive deep pages) |
-| `--layout-rail-studio` | `clamp(88px, 7vw, 108px)` | Hub / lens left module rail column |
+| `--layout-rail-studio` | `clamp(156px, 13vw, 184px)` | Hub / lens left module rail — wide enough for full labels (wraps to 2 lines when needed) |
 
-`site-shell.css` applies edge-to-edge stages (100% width + `--layout-side` padding) and compact studio rails. On viewports ≥1025px, rail secondary labels (`.hub-rail-sub`, `.lens-sub`) hide to keep the left column narrow; mobile keeps the existing horizontal top-rail behavior at ≤1024px.
+`site-shell.css` applies edge-to-edge stages (100% width + `--layout-side` padding) and readable studio rails. On desktop ≥1025px, primary and secondary rail labels (`.hub-rail-name`, `.lens-name`, `.hub-rail-sub`, `.lens-sub`) stay visible with balanced wrapping instead of ellipsis truncation; mobile keeps the existing horizontal top-rail behavior at ≤1024px.
 
 ## Radius & frosted glass
 
