@@ -50,6 +50,12 @@
           enOpt.style.color = (target === "en") ? "var(--accent)" : "var(--text-muted)";
         }
       });
+      document.querySelectorAll("[data-placeholder-en][data-placeholder-zh]").forEach((input) => {
+        const nextPlaceholder = (target === "zh")
+          ? input.getAttribute("data-placeholder-zh")
+          : input.getAttribute("data-placeholder-en");
+        if (nextPlaceholder) input.placeholder = nextPlaceholder;
+      });
       if (window.HubTheme) window.HubTheme.syncToggleState();
       window.dispatchEvent(new CustomEvent("hub:language-change", {
         detail: { language: target }

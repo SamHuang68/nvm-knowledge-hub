@@ -14,19 +14,7 @@
   <link rel="stylesheet" href="styles.css?v=20260906-navy-v3">
   <link rel="stylesheet" href="site-shell.css?v=20260906-navy-v3">
   <style>
-    /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
-    [data-lang="zh"] { display: none !important; }
-    [data-lang="en"] { display: revert; }
-
-    html[data-language="zh"] [data-lang="zh"],
-    body[data-language="zh"] [data-lang="zh"] {
-      display: revert !important;
-    }
-    html[data-language="zh"] [data-lang="en"],
-    body[data-language="zh"] [data-lang="en"] {
-      display: none !important;
-    }
-
+    /* Language visibility: site-shell.css (hub.css contract). Do not override display here. */
     /* Critical defensive inline styles: prevent SVG explosion & skip-link flash */
     .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
     .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: var(--surface); color: var(--accent); padding: 10px 18px; border: 1px solid var(--accent); border-radius: 4px; }
@@ -1311,7 +1299,7 @@
         </h2>
         <div class="thesis-copy">
           <p><span data-lang="zh">OTP 解決永久性；Secure Storage 解決機密性。即使攻擊者成功觀察記憶體狀態，他取得的也應該是受保護資料，而不是可直接使用的 root secret。</span><span data-lang="en">OTP solves permanence; Secure Storage solves confidentiality. Even if an attacker observes the memory state, the recoverable result should be protected data, not a usable root secret.</span></p>
-          <a class="text-link" href="#power-lab">用 Power-off State 檢驗設計 <svg><use href="#i-arrow"/></svg></a>
+          <a class="text-link" href="#power-lab"><span data-lang="zh">用 Power-off State 檢驗設計</span><span data-lang="en">Test the design with Power-off State</span> <svg><use href="#i-arrow"/></svg></a>
         </div>
       </div>
       <div class="thesis-principles">
@@ -1672,7 +1660,7 @@
             <span data-lang="en">From technical jargon to actionable decisions</span>
           </h2>
         </div>
-        <label class="search-box"><svg><use href="#i-search"/></svg><input id="searchInput" type="search" placeholder="搜尋 OTP、PUF、retention、fault…" aria-label="Search learning content"></label>
+        <label class="search-box"><svg><use href="#i-search"/></svg><input id="searchInput" type="search" placeholder="Search OTP, PUF, retention, fault…" data-placeholder-en="Search OTP, PUF, retention, fault…" data-placeholder-zh="搜尋 OTP、PUF、retention、fault…" aria-label="Search learning content"></label>
       </div>
       <div class="learning-body">
         <aside class="learning-paths">
@@ -1699,10 +1687,10 @@
           <a href="memory-physics.html"><small>MEMORY PHYSICS</small><strong>Sense Mode × Bit-cell Economics</strong><span>SRAM PUF · OTP · differential read</span></a>
         </div>
         <div class="research-launch-actions">
-          <a class="button primary" href="ai-nvm-opportunities.html">探索 AI × NVM 機會 <svg><use href="#i-arrow"/></svg></a><a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a>
-          <a class="text-link" href="memory-physics.html">開啟 Memory Physics <svg><use href="#i-arrow"/></svg></a>
+          <a class="button primary" href="ai-nvm-opportunities.html"><span data-lang="zh">探索 AI × NVM 機會</span><span data-lang="en">Explore AI × NVM Opportunities</span> <svg><use href="#i-arrow"/></svg></a><a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a>
+          <a class="text-link" href="memory-physics.html"><span data-lang="zh">開啟 Memory Physics</span><span data-lang="en">Open Memory Physics</span> <svg><use href="#i-arrow"/></svg></a>
           <a class="text-link" href="oip-secure-storage.html">OIP Secure Storage Brief <svg><use href="#i-arrow"/></svg></a>
-          <a class="text-link" href="memory-evidence.html">查看 Evidence Ledger <svg><use href="#i-arrow"/></svg></a>
+          <a class="text-link" href="memory-evidence.html"><span data-lang="zh">查看 Evidence Ledger</span><span data-lang="en">View Evidence Ledger</span> <svg><use href="#i-arrow"/></svg></a>
         </div>
       </div>
       <div class="research-launch-visual" aria-hidden="true">
@@ -1719,7 +1707,7 @@
     <section class="section sources-section reveal">
       <div class="sources-intro">
         <p class="eyebrow">PUBLIC EVIDENCE · SOURCE DISCIPLINE</p>
-        <p class="evidence-principle"><strong>本頁的證據原則：</strong><span>對已知內容提供可追溯的證據；</span><span>對尚未確認的部分清楚標示限制。</span></p>
+        <p class="evidence-principle"><strong><span data-lang="zh">本頁的證據原則：</span><span data-lang="en">Evidence principle for this page:</span></strong><span data-lang="zh">對已知內容提供可追溯的證據；</span><span data-lang="en">Provide traceable evidence for what is known;</span><span data-lang="zh">對尚未確認的部分清楚標示限制。</span><span data-lang="en">clearly mark limits for what remains unconfirmed.</span></p>
       </div>
       <div class="source-list">
         <a href="https://www.synopsys.com/designware-ip/memories-logic-libraries/secure-storage-otp-ip.html" target="_blank" rel="noreferrer"><span>01</span><b>Synopsys Secure Storage for OTP IP</b><small>Architecture · AES-256 · APB · provisioning</small></a>

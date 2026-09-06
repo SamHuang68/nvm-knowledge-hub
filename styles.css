@@ -756,9 +756,17 @@ footer { display: grid; grid-template-columns: 1fr auto auto; align-items: cente
 .assurance-preview-head { display:grid; grid-template-columns:1.2fr .8fr; gap:clamp(2rem,4vw,4rem); align-items:end; }
 .assurance-preview-head h2 { margin:.8rem 0 0; max-width:100%; font-size:clamp(1.8rem,3vw,3rem); line-height:1.2; letter-spacing:-.025em; font-weight:650; }
 .assurance-preview-head > p { color:#b8ccd0; line-height:1.85; max-width:42rem; }
-[data-assurance-en] { display:none; }
-body[data-language="en"] [data-assurance-zh] { display:none; }
-body[data-language="en"] [data-assurance-en] { display:inline; }
+[data-assurance-en] { display: none; }
+html[data-language="en"] [data-assurance-zh],
+html:not([data-language="zh"]) [data-assurance-zh],
+body[data-language="en"] [data-assurance-zh] { display: none !important; }
+html[data-language="en"] [data-assurance-en],
+html:not([data-language="zh"]) [data-assurance-en],
+body[data-language="en"] [data-assurance-en] { display: revert !important; }
+html[data-language="zh"] [data-assurance-en],
+body[data-language="zh"] [data-assurance-en] { display: none !important; }
+html[data-language="zh"] [data-assurance-zh],
+body[data-language="zh"] [data-assurance-zh] { display: revert !important; }
 .assurance-chain { display:grid; grid-template-columns:repeat(11,auto); align-items:center; gap:clamp(.35rem,1vw,1rem); margin:clamp(3rem,6vw,6.5rem) 0; }
 .assurance-chain article { min-width:0; padding:1.35rem 1rem; border-top:1px solid rgba(205,151,83,.85); background:rgba(255,255,255,.045); backdrop-filter:blur(8px); }
 .assurance-chain article span { display:block; color:#cd9753; font:600 .7rem/1 var(--font-mono,monospace); letter-spacing:.12em; }
@@ -1709,18 +1717,32 @@ h1 em,h2 em{font-family:var(--sans-zh);font-style:normal;font-weight:inherit}
 /* =========================================================
    全站語系切換最上層治理規範：英文為第一預設 (English as Default)
    ========================================================= */
-[data-lang="zh"] {
+[data-lang="zh"],
+[data-assurance-zh] {
   display: none !important;
 }
-[data-lang="en"] {
+[data-lang="en"],
+[data-assurance-en] {
   display: revert;
 }
 
-html[data-language="zh"] [data-lang="zh"],
-body[data-language="zh"] [data-lang="zh"] {
-  display: revert !important;
+html[data-language="en"] [data-lang="zh"],
+html[data-language="en"] [data-assurance-zh],
+html:not([data-language="zh"]) [data-lang="zh"],
+html:not([data-language="zh"]) [data-assurance-zh"],
+body[data-language="en"] [data-lang="zh"],
+body[data-language="en"] [data-assurance-zh] {
+  display: none !important;
 }
 html[data-language="zh"] [data-lang="en"],
-body[data-language="zh"] [data-lang="en"] {
+html[data-language="zh"] [data-assurance-en],
+body[data-language="zh"] [data-lang="en"],
+body[data-language="zh"] [data-assurance-en] {
   display: none !important;
+}
+html[data-language="zh"] [data-lang="zh"],
+html[data-language="zh"] [data-assurance-zh],
+body[data-language="zh"] [data-lang="zh"],
+body[data-language="zh"] [data-assurance-zh] {
+  display: revert !important;
 }

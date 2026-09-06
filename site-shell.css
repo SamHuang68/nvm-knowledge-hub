@@ -163,21 +163,39 @@
 
 /* =========================================================
    全站語系切換最上層治理規範：英文為第一預設 (English as Default)
+   Match hub.css + site-language.js (nvm-hub-language)
    ========================================================= */
-[data-lang="zh"] {
+[data-lang="zh"],
+[data-assurance-zh] {
   display: none !important;
 }
-[data-lang="en"] {
+
+[data-lang="en"],
+[data-assurance-en] {
   display: revert;
 }
 
-html[data-language="zh"] [data-lang="zh"],
-body[data-language="zh"] [data-lang="zh"] {
-  display: revert !important;
-}
-html[data-language="zh"] [data-lang="en"],
-body[data-language="zh"] [data-lang="en"] {
+html[data-language="en"] [data-lang="zh"],
+html[data-language="en"] [data-assurance-zh],
+html:not([data-language="zh"]) [data-lang="zh"],
+html:not([data-language="zh"]) [data-assurance-zh],
+body[data-language="en"] [data-lang="zh"],
+body[data-language="en"] [data-assurance-zh] {
   display: none !important;
+}
+
+html[data-language="zh"] [data-lang="en"],
+html[data-language="zh"] [data-assurance-en],
+body[data-language="zh"] [data-lang="en"],
+body[data-language="zh"] [data-assurance-en] {
+  display: none !important;
+}
+
+html[data-language="zh"] [data-lang="zh"],
+html[data-language="zh"] [data-assurance-zh],
+body[data-language="zh"] [data-lang="zh"],
+body[data-language="zh"] [data-assurance-zh] {
+  display: revert !important;
 }
 
 /* =========================================================
