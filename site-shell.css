@@ -881,9 +881,41 @@ html, body, body.hub-page, body.specialty-page {
   color: var(--text-secondary) !important;
   border-color: var(--border-subtle) !important;
 }
-.hero h1 em,
-h1 em,
-h2 em {
+.hero h1 em {
+  color: var(--accent) !important;
+}
+
+html[data-theme="dark"] h1 em,
+html[data-theme="dark"] h2 em {
+  color: var(--accent) !important;
+}
+
+/* Light Paper: h2 em defaults to ink; accent em only on dark scrims (loads after theme.css) */
+html[data-theme="light"] h2 em,
+html:not([data-theme]) h2 em {
+  color: var(--text-primary) !important;
+}
+
+html[data-theme="light"] :is(
+  .hub-hero,
+  .hub-hero-compact,
+  .hero,
+  .enterprise-strip,
+  .method-section,
+  .method-copy,
+  .research-hero,
+  .immersive-chapter
+) :is(h1, h2) em,
+html:not([data-theme]) :is(
+  .hub-hero,
+  .hub-hero-compact,
+  .hero,
+  .enterprise-strip,
+  .method-section,
+  .method-copy,
+  .research-hero,
+  .immersive-chapter
+) :is(h1, h2) em {
   color: var(--accent) !important;
 }
 .spec-card-val,

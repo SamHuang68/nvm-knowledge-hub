@@ -247,12 +247,34 @@ html:not([data-theme]) .hub-rail-btn.active .hub-rail-sub {
   opacity: 1 !important;
 }
 
-html[data-theme="light"] h1 em,
-html:not([data-theme]) h1 em,
 html[data-theme="light"] h2 em,
-html:not([data-theme]) h2 em,
-html[data-theme="light"] .hub-hero-compact h1 em,
-html:not([data-theme]) .hub-hero-compact h1 em {
+html:not([data-theme]) h2 em {
+  color: var(--text-primary) !important;
+}
+
+/* Accent em on dark scrims (hero strips, method band, enterprise panorama, immersive chapters) */
+html[data-theme="light"] :is(
+  .hub-hero,
+  .hub-hero-compact,
+  .hero,
+  .enterprise-strip,
+  .method-section,
+  .method-copy,
+  .research-hero,
+  .ai-nvm-page .ai-research-hero,
+  .immersive-chapter
+) :is(h1, h2) em,
+html:not([data-theme]) :is(
+  .hub-hero,
+  .hub-hero-compact,
+  .hero,
+  .enterprise-strip,
+  .method-section,
+  .method-copy,
+  .research-hero,
+  .ai-nvm-page .ai-research-hero,
+  .immersive-chapter
+) :is(h1, h2) em {
   color: var(--accent) !important;
 }
 

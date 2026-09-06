@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <script src="site-language.js?v=20260906-navy-v3"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="NVM Knowledge Hub：以 SRAM PUF、AES-256 與 OTP 為核心的 Secure Storage executive learning experience。">
+  <meta name="description" content="Secure Storage executive learning experience centered on SRAM PUF, AES-256, and OTP." data-description-en="Secure Storage executive learning experience centered on SRAM PUF, AES-256, and OTP." data-description-zh="NVM Knowledge Hub：以 SRAM PUF、AES-256 與 OTP 為核心的 Secure Storage executive learning experience。">
   <meta name="theme-color" content="#f3f7f8">
   <title>NVM Knowledge Hub · Secure Storage</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -1116,7 +1116,7 @@
           <a class="button primary" href="#power-lab"><span data-lang="zh">探索 Power-off State</span><span data-lang="en">Explore Power-off State</span> <svg><use href="#i-arrow"/></svg></a>
           <a class="button ghost" href="oip-secure-storage.html"><span data-lang="zh">開啟 OIP Brief</span><span data-lang="en">Open OIP Brief</span></a>
         </div>
-        <div class="hero-proof" aria-label="Synopsys 公開的產品組合資料">
+        <div class="hero-proof" aria-label="Synopsys public portfolio data" data-aria-label-en="Synopsys public portfolio data" data-aria-label-zh="Synopsys 公開的產品組合資料">
           <div data-record-id="OIP-PUF-SCALE-001"><strong>&gt;1.5B</strong><span>devices using SRAM PUF technology</span></div>
           <div data-record-id="OIP-PUF-HISTORY-001"><strong>&gt;15 years</strong><span>of proven SRAM PUF technology</span></div>
           <div data-record-id="OIP-ARCH-001"><strong>AES-256</strong><span>disclosed OTP data protection</span></div>
@@ -1128,7 +1128,7 @@
     </section>
 
     <!-- 4-Metric 規格彩條 (Executive Stat Strip) -->
-    <div class="stat-strip-compact" aria-label="Secure Storage 核心指標">
+    <div class="stat-strip-compact" aria-label="Secure Storage key metrics" data-aria-label-en="Secure Storage key metrics" data-aria-label-zh="Secure Storage 核心指標">
       <div class="stat-strip-grid">
         <div class="stat-strip-card border-l-cyan">
           <div class="stat-card-head">
@@ -1282,7 +1282,7 @@
         <!-- 右側高密度內容工作台 (Main Stage) -->
         <div class="lens-stage-container">
 
-    <section class="signal-strip" aria-label="核心產品構成">
+    <section class="signal-strip" aria-label="Core product composition" data-aria-label-en="Core product composition" data-aria-label-zh="核心產品構成">
       <span><svg><use href="#i-fingerprint"/></svg>SRAM PUF</span>
       <i></i><span><svg><use href="#i-cipher"/></svg>AES-256</span>
       <i></i><span><svg><use href="#i-memory"/></svg>ANTIFUSE OTP</span>
@@ -1330,7 +1330,7 @@
           <span data-lang="en"><span class="statement-premise">Power off first,</span><span class="statement-resolution">then see what an attacker recovers</span></span>
         </h2>
         <p class="section-lede"><span data-lang="zh">切換狀態，觀察 root key 的存在窗口。主張不是物理攻擊會消失，而是成功讀取後能揭露的內容被限制。</span><span data-lang="en">Switch state and watch the root-key residency window. The claim is not that physical attack disappears; it is that a successful readout should stop at protected content.</span></p>
-        <div class="state-switch" role="group" aria-label="切換電源狀態">
+        <div class="state-switch" role="group" aria-label="Switch power state" data-aria-label-en="Switch power state" data-aria-label-zh="切換電源狀態">
           <button class="active" type="button" data-power="off"><svg><use href="#i-power"/></svg>POWER OFF</button>
           <button type="button" data-power="on"><svg><use href="#i-glitch"/></svg>POWER UP</button>
         </div>
@@ -1340,7 +1340,7 @@
           <p id="stateText">Under verified shutdown, OTP retains ciphertext, helper material and lifecycle state; no intentionally stored or powered reconstructed root remains. Transistor mismatch, remanence and zeroization remain assurance targets.</p>
         </div>
       </div>
-      <div class="silicon-stage" aria-label="Secure Storage 電源狀態示意">
+      <div class="silicon-stage" aria-label="Secure Storage power-state diagram" data-aria-label-en="Secure Storage power-state diagram" data-aria-label-zh="Secure Storage 電源狀態示意">
         <div class="stage-grid"></div>
         <div class="chip-frame">
           <div class="chip-label"><span>SECURE STORAGE</span><b id="stagePower">POWER OFF</b></div>
@@ -1477,7 +1477,7 @@
         <p><span data-lang="zh">公開揭露的是四塊功能如何組成一個 subsystem；契約歸屬、qualification 與 product-response scope 仍須另行關閉。</span><span data-lang="en">Public disclosure shows how four blocks compose a subsystem; contractual ownership, qualification and product-response scope still require closure.</span></p>
       </div>
       <div class="architecture-canvas">
-        <div class="architecture-flow" role="group" aria-label="Secure Storage 架構">
+        <div class="architecture-flow" role="group" aria-label="Secure Storage architecture" data-aria-label-en="Secure Storage architecture" data-aria-label-zh="Secure Storage 架構">
           <button class="arch-node active" type="button" data-node="puf" data-record-id="OIP-PUF-001" aria-controls="archDetail" aria-pressed="true"><span>01</span><svg><use href="#i-fingerprint"/></svg><b>SRAM PUF</b><small><span data-lang="zh">金鑰重建</span><span data-lang="en">RECONSTRUCT</span></small></button>
           <i></i>
           <button class="arch-node" type="button" data-node="crypto" data-record-id="OIP-CRYPTO-001" aria-controls="archDetail" aria-pressed="false"><span>02</span><svg><use href="#i-cipher"/></svg><b>CRYPTO ENGINE</b><small><span data-lang="zh">即時加解密</span><span data-lang="en">PROTECT</span></small></button>
@@ -1541,7 +1541,7 @@
             <span data-lang="en"><span class="statement-premise">Establish fair comparison baselines</span><span class="statement-resolution">to judge true technical distinction</span></span>
           </h2>
         </div>
-        <div class="compare-switch" role="group" aria-label="比較層級">
+        <div class="compare-switch" role="group" aria-label="Comparison level" data-aria-label-en="Comparison level" data-aria-label-zh="比較層級">
           <button class="active" type="button" data-view="puf" aria-pressed="true">PUF LEVEL</button>
           <button type="button" data-view="product" aria-pressed="false">PRODUCT LEVEL</button>
         </div>

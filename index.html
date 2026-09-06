@@ -32,13 +32,7 @@
       top: 14px !important; outline: 3px solid #f59e0b !important; outline-offset: 3px !important;
     }
 
-    /* 1. Language: English default, one locale at a time */
-    [data-lang="zh"] { display: none !important; }
-    [data-lang="en"] { display: revert !important; }
-    html[data-language="zh"] [data-lang="zh"],
-    body[data-language="zh"] [data-lang="zh"] { display: revert !important; }
-    html[data-language="zh"] [data-lang="en"],
-    body[data-language="zh"] [data-lang="en"] { display: none !important; }
+    /* Language rules live in site-shell.css (nvm-hub-language single source) */
 
     /* ==========================================================================
        NVM KNOWLEDGE HUB V3.3 — PURE OBSIDIAN DARK ARCHITECTURE (ZERO CHEMICAL GREEN)
@@ -713,12 +707,12 @@
     <div class="hub-studio-layout">
 
       <!-- 左側直立測條 (Vertical Knowledge Rail) -->
-      <aside class="hub-vertical-rail" aria-label="知識領域層次直立測條">
+      <aside class="hub-vertical-rail" aria-label="Knowledge layer rail" data-aria-label-en="Knowledge layer rail" data-aria-label-zh="知識領域層次直立測條">
         <div class="hub-rail-header">
           <span class="hub-rail-title">KNOWLEDGE LAYERS</span>
           <span class="hub-rail-tag">L1 ~ RES</span>
         </div>
-        <nav class="hub-rail-nav" role="navigation" aria-label="層次跳轉">
+        <nav class="hub-rail-nav" role="navigation" aria-label="Layer navigation" data-aria-label-en="Layer navigation" data-aria-label-zh="層次跳轉">
           <a class="hub-rail-btn active" href="#layer-foundations" data-target="layer-foundations">
             <span class="hub-rail-badge">L1</span>
             <div class="hub-rail-text">

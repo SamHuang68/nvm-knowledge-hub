@@ -56,6 +56,18 @@
           : input.getAttribute("data-placeholder-en");
         if (nextPlaceholder) input.placeholder = nextPlaceholder;
       });
+      document.querySelectorAll("[data-aria-label-en][data-aria-label-zh]").forEach((el) => {
+        const nextLabel = (target === "zh")
+          ? el.getAttribute("data-aria-label-zh")
+          : el.getAttribute("data-aria-label-en");
+        if (nextLabel) el.setAttribute("aria-label", nextLabel);
+      });
+      const metaDesc = document.querySelector('meta[name="description"][data-description-en][data-description-zh]');
+      if (metaDesc) {
+        metaDesc.setAttribute("content", (target === "zh")
+          ? metaDesc.getAttribute("data-description-zh")
+          : metaDesc.getAttribute("data-description-en"));
+      }
       if (window.HubTheme) window.HubTheme.syncToggleState();
       window.dispatchEvent(new CustomEvent("hub:language-change", {
         detail: { language: target }
