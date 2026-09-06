@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="theme.js?v=20260906-theme-v1"></script>
+  <link rel="stylesheet" href="theme.css?v=20260906-theme-v1">
   <meta charset="utf-8">
   <script src="site-language.js?v=20260906-navy-v3"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,17 +47,17 @@
 
     /* Editorial Light Theme Tokens */
     :root {
-      --paper-bg: #061925;
-      --paper-card: #0e2a38;
-      --paper-subtle: #ebe6dc;
-      --ink-heading: #0a1e2c;
-      --ink-body: #334155;
-      --ink-muted: #64748b;
-      --cyan-editorial: #8a6a42;
-      --cyan-light: #f7f1e8;
-      --amber-editorial: #8a6a42;
-      --amber-light: #f7f1e8;
-      --emerald-editorial: #6f5536;
+      --paper-bg: var(--canvas);
+      --paper-card: var(--surface);
+      --paper-subtle: var(--elevated);
+      --ink-heading: var(--text-primary);
+      --ink-body: var(--text-secondary);
+      --ink-muted: var(--text-muted);
+      --cyan-editorial: var(--accent);
+      --cyan-light: var(--elevated);
+      --amber-editorial: var(--accent-warn);
+      --amber-light: var(--elevated);
+      --emerald-editorial: var(--accent-warn-soft);
       --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
       --card-shadow-hover: 0 12px 28px -4px rgba(15, 23, 42, 0.09), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
     }
@@ -65,9 +67,9 @@
     }
 
     .main-container {
-      max-width: min(1780px, 97vw);
+      max-width: 100%;
       margin: 0 auto;
-      padding: 2rem clamp(12px, 2vw, 32px) 4rem;
+      padding: 2rem var(--layout-side, clamp(12px, 2vw, 28px)) 4rem;
     }
 
     /* Hero Section - Executive Obsidian Silicon Visual */
@@ -616,6 +618,7 @@
     </nav>
     <div class="header-actions">
       <button class="language-toggle" id="languageToggle" type="button" aria-label="切換語系 Switch Language"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch to dark theme"><svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
       <button class="menu-button" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
     </div>
   </header>

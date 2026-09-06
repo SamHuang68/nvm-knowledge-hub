@@ -537,7 +537,7 @@
   border-top: 1px solid rgba(196, 165, 116, .14);
 }
 
-.ai-nvm-page .state-contract-card li span {
+.ai-nvm-page .state-contract-card li > span:first-child {
   color: var(--ai-copper);
   font-family: "IBM Plex Mono", Consolas, monospace;
   font-size: 10px;

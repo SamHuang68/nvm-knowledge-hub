@@ -1,0 +1,408 @@
+/* NVM Knowledge Hub — dual theme token contract (Light Paper default / Dark Cyan optional) */
+
+html[data-theme="light"],
+html:not([data-theme]) {
+  color-scheme: light;
+
+  --canvas: #f3f7f8;
+  --surface: #ffffff;
+  --elevated: #eef2f4;
+  --text-primary: #061925;
+  --text-secondary: #243b4a;
+  --text-muted: #3f5563;
+  --text-meta: #4a6270;
+  --accent: #0e8f96;
+  --accent-soft: #0a7a80;
+  --link: #0a7279;
+  --link-hover: #085f65;
+  --accent-warn: #b08a5b;
+  --accent-warn-soft: #c4a574;
+  --border-subtle: rgba(6, 25, 37, 0.1);
+  --border-highlight: rgba(6, 25, 37, 0.18);
+  --accent-glow: rgba(14, 143, 150, 0.12);
+
+  /* Fixed hero/media scrims — unchanged across themes */
+  --scrim-deep: #03131e;
+  --scrim-mid: rgba(3, 19, 30, 0.92);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  --canvas: #08090a;
+  --surface: #101216;
+  --elevated: #181b20;
+  --text-primary: #f3f4f6;
+  --text-secondary: #c5cbd5;
+  --text-muted: #7e8795;
+  --accent: #00e5ff;
+  --accent-soft: #66eeff;
+  --accent-warn: #b08a5b;
+  --accent-warn-soft: #c4a574;
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-highlight: rgba(255, 255, 255, 0.15);
+  --accent-glow: rgba(0, 229, 255, 0.12);
+
+  --scrim-deep: #03131e;
+  --scrim-mid: rgba(3, 19, 30, 0.92);
+}
+
+/* Shared layout — edge bleed stage + compact left rails */
+html {
+  --layout-side: clamp(12px, 2vw, 28px);
+  --layout-rail-chapter: clamp(40px, 3.5vw, 56px);
+  --layout-rail-studio: clamp(88px, 7vw, 108px);
+}
+
+/* Base canvas */
+html,
+body {
+  background-color: var(--canvas);
+  color: var(--text-secondary);
+}
+
+/* Theme toggle control */
+.theme-toggle,
+#themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid var(--border-highlight);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--accent);
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.theme-toggle:hover,
+#themeToggle:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.theme-toggle[aria-pressed="true"],
+#themeToggle[aria-pressed="true"] {
+  color: var(--accent-soft);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+
+.theme-toggle svg,
+#themeToggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme-toggle .theme-icon-sun,
+#themeToggle .theme-icon-sun {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle .theme-icon-moon,
+html[data-theme="dark"] #themeToggle .theme-icon-moon {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle .theme-icon-sun,
+html[data-theme="dark"] #themeToggle .theme-icon-sun {
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .theme-toggle,
+  #themeToggle {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* =========================================================================
+   Light Paper — raised contrast on pale surfaces (WCAG AA-ish body text)
+   ========================================================================= */
+html[data-theme="light"] a:not(.button):not(.km-card):not(.hub-rail-btn):not(.lens-node-item),
+html:not([data-theme]) a:not(.button):not(.km-card):not(.hub-rail-btn):not(.lens-node-item) {
+  color: var(--link);
+}
+
+html[data-theme="light"] a:not(.button):hover,
+html:not([data-theme]) a:not(.button):hover {
+  color: var(--link-hover);
+}
+
+html[data-theme="light"] .eyebrow,
+html:not([data-theme]) .eyebrow,
+html[data-theme="light"] .section-kicker,
+html:not([data-theme]) .section-kicker,
+html[data-theme="light"] .hub-kicker,
+html:not([data-theme]) .hub-kicker,
+html[data-theme="light"] .rail-title,
+html:not([data-theme]) .rail-title,
+html[data-theme="light"] .hub-rail-title,
+html:not([data-theme]) .hub-rail-title,
+html[data-theme="light"] .km-layer-title,
+html:not([data-theme]) .km-layer-title,
+html[data-theme="light"] .meta-code,
+html:not([data-theme]) .meta-code,
+html[data-theme="light"] .stat-label,
+html:not([data-theme]) .stat-label,
+html[data-theme="light"] .stat-sub,
+html:not([data-theme]) .stat-sub,
+html[data-theme="light"] .hub-spec-badge,
+html:not([data-theme]) .hub-spec-badge {
+  color: var(--text-meta) !important;
+}
+
+html[data-theme="light"] .km-card-tags span,
+html:not([data-theme]) .km-card-tags span,
+html[data-theme="light"] .topic-tags span,
+html:not([data-theme]) .topic-tags span,
+html[data-theme="light"] .pill-number,
+html:not([data-theme]) .pill-number,
+html[data-theme="light"] .tag-accent,
+html:not([data-theme]) .tag-accent,
+html[data-theme="light"] .signal-chip,
+html:not([data-theme]) .signal-chip {
+  color: var(--text-secondary) !important;
+  background: var(--elevated) !important;
+  border-color: var(--border-highlight) !important;
+}
+
+html[data-theme="light"] .km-card:hover .km-card-tags span,
+html:not([data-theme]) .km-card:hover .km-card-tags span {
+  color: var(--text-primary) !important;
+  border-color: var(--border-highlight) !important;
+}
+
+html[data-theme="light"] .km-card-arrow,
+html:not([data-theme]) .km-card-arrow,
+html[data-theme="light"] .topic-link,
+html:not([data-theme]) .topic-link,
+html[data-theme="light"] .lens-badge,
+html:not([data-theme]) .lens-badge,
+html[data-theme="light"] .hub-rail-badge,
+html:not([data-theme]) .hub-rail-badge {
+  color: var(--accent) !important;
+}
+
+html[data-theme="light"] .hub-section-heading > span,
+html:not([data-theme]) .hub-section-heading > span,
+html[data-theme="light"] .topic-body > p:not(:first-child),
+html:not([data-theme]) .topic-body > p:not(:first-child),
+html[data-theme="light"] .topic-body strong,
+html:not([data-theme]) .topic-body strong,
+html[data-theme="light"] .method-ladder p,
+html:not([data-theme]) .method-ladder p,
+html[data-theme="light"] .hub-intro,
+html:not([data-theme]) .hub-intro,
+html[data-theme="light"] .stat-strip-card p,
+html:not([data-theme]) .stat-strip-card p,
+html[data-theme="light"] .panel-desc,
+html:not([data-theme]) .panel-desc {
+  color: var(--text-secondary) !important;
+}
+
+html[data-theme="light"] .lens-sub,
+html:not([data-theme]) .lens-sub,
+html[data-theme="light"] .hub-rail-sub,
+html:not([data-theme]) .hub-rail-sub,
+html[data-theme="light"] .hub-rail-tag,
+html:not([data-theme]) .hub-rail-tag,
+html[data-theme="light"] .rail-tag,
+html:not([data-theme]) .rail-tag {
+  color: var(--text-muted) !important;
+}
+
+html[data-theme="light"] .lens-node-item,
+html:not([data-theme]) .lens-node-item,
+html[data-theme="light"] .hub-rail-btn,
+html:not([data-theme]) .hub-rail-btn {
+  color: var(--text-secondary) !important;
+}
+
+html[data-theme="light"] .lens-name,
+html:not([data-theme]) .lens-name,
+html[data-theme="light"] .hub-rail-name,
+html:not([data-theme]) .hub-rail-name,
+html[data-theme="light"] .km-card-title,
+html:not([data-theme]) .km-card-title,
+html[data-theme="light"] .stat-val,
+html:not([data-theme]) .stat-val {
+  color: var(--text-primary) !important;
+}
+
+html[data-theme="light"] .lens-node-item.active .lens-sub,
+html:not([data-theme]) .lens-node-item.active .lens-sub,
+html[data-theme="light"] .hub-rail-btn.active .hub-rail-sub,
+html:not([data-theme]) .hub-rail-btn.active .hub-rail-sub {
+  color: var(--accent) !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="light"] h2 em,
+html:not([data-theme]) h2 em {
+  color: var(--text-primary) !important;
+}
+
+/* Accent em on dark scrims (hero strips, method band, enterprise panorama, immersive chapters) */
+html[data-theme="light"] :is(
+  .hub-hero,
+  .hub-hero-compact,
+  .hero,
+  .enterprise-strip,
+  .method-section,
+  .method-copy,
+  .research-hero,
+  .ai-nvm-page .ai-research-hero,
+  .immersive-chapter
+) :is(h1, h2) em,
+html:not([data-theme]) :is(
+  .hub-hero,
+  .hub-hero-compact,
+  .hero,
+  .enterprise-strip,
+  .method-section,
+  .method-copy,
+  .research-hero,
+  .ai-nvm-page .ai-research-hero,
+  .immersive-chapter
+) :is(h1, h2) em {
+  color: var(--accent) !important;
+}
+
+html[data-theme="light"] .km-card,
+html:not([data-theme]) .km-card {
+  box-shadow: 0 2px 12px rgba(6, 25, 37, 0.06) !important;
+}
+
+html[data-theme="light"] .km-card::before,
+html:not([data-theme]) .km-card::before {
+  background: linear-gradient(90deg, transparent, rgba(6, 25, 37, 0.06), transparent);
+}
+
+html[data-theme="light"] .search-input-row input::placeholder,
+html:not([data-theme]) .search-input-row input::placeholder {
+  color: var(--text-muted) !important;
+  opacity: 1;
+}
+
+/* =========================================================================
+   Light Paper — AI-NVM page (Executive Thesis / paper headings on canvas)
+   ========================================================================= */
+
+/* P1: global h2 em accent (~3.6:1 on #F3F7F8) loses to page --ai-teal; restore ink */
+html[data-theme="light"] .ai-nvm-page .paper-heading h2,
+html:not([data-theme]) .ai-nvm-page .paper-heading h2,
+html[data-theme="light"] .ai-nvm-page .compact-heading h2,
+html:not([data-theme]) .ai-nvm-page .compact-heading h2 {
+  color: var(--text-primary) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .paper-heading h2 em,
+html:not([data-theme]) .ai-nvm-page .paper-heading h2 em,
+html[data-theme="light"] .ai-nvm-page .compact-heading h2 em,
+html:not([data-theme]) .ai-nvm-page .compact-heading h2 em {
+  color: var(--text-primary) !important;
+}
+
+/* P2: paper-kicker missing from hub kicker map (--ai-teal too light on paper) */
+html[data-theme="light"] .ai-nvm-page .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .paper-kicker {
+  color: var(--text-meta) !important;
+}
+
+/* P3: heading body copy — --ai-muted (#536C78) below hub secondary floor */
+html[data-theme="light"] .ai-nvm-page .paper-heading > p,
+html:not([data-theme]) .ai-nvm-page .paper-heading > p,
+html[data-theme="light"] .ai-nvm-page .compact-heading > p,
+html:not([data-theme]) .ai-nvm-page .compact-heading > p {
+  color: var(--text-secondary) !important;
+}
+
+/* P4: evidence-correction stays midnight; aqua/copper badges remain on dark scrim */
+html[data-theme="light"] .ai-nvm-page .evidence-correction,
+html:not([data-theme]) .ai-nvm-page .evidence-correction {
+  background:
+    linear-gradient(115deg, rgba(176, 138, 91, 0.06), transparent 38%),
+    #082536 !important;
+  color: #fffefa !important;
+  border-top-color: rgba(196, 165, 116, 0.18) !important;
+  border-bottom-color: rgba(196, 165, 116, 0.18) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .evidence-correction h2,
+html:not([data-theme]) .ai-nvm-page .evidence-correction h2 {
+  color: #fffefa !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .evidence-correction .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .evidence-correction .paper-kicker {
+  color: var(--accent-warn-soft) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .evidence-correction p:not(.paper-kicker),
+html:not([data-theme]) .ai-nvm-page .evidence-correction p:not(.paper-kicker) {
+  color: #b9cdd4 !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .evidence-correction .tier-tag,
+html:not([data-theme]) .ai-nvm-page .evidence-correction .tier-tag {
+  color: var(--accent-warn-soft) !important;
+  border-color: rgba(196, 165, 116, 0.28) !important;
+  background: rgba(196, 165, 116, 0.06) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .evidence-correction .correction-mark span,
+html:not([data-theme]) .ai-nvm-page .evidence-correction .correction-mark span {
+  color: var(--accent-warn-soft) !important;
+}
+
+/* Dark-panel kickers: keep warn/aqua on midnight (override P2) */
+html[data-theme="light"] .ai-nvm-page .decision-questions .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .decision-questions .paper-kicker,
+html[data-theme="light"] .ai-nvm-page .ai-unknowns > .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .ai-unknowns > .paper-kicker,
+html[data-theme="light"] .ai-nvm-page .research-intake .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .research-intake .paper-kicker,
+html[data-theme="light"] .ai-nvm-page .validation-cascade .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .validation-cascade .paper-kicker,
+html[data-theme="light"] .ai-nvm-page .repair-programming-head .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .repair-programming-head .paper-kicker {
+  color: var(--accent-warn-soft) !important;
+}
+
+/* P5: --ai-muted body on paper surfaces adjacent to thesis cluster */
+html[data-theme="light"] .ai-nvm-page #overview .evidence-ladder p,
+html:not([data-theme]) .ai-nvm-page #overview .evidence-ladder p {
+  color: var(--text-muted) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page #overview .evidence-ladder article > b,
+html:not([data-theme]) .ai-nvm-page #overview .evidence-ladder article > b {
+  color: var(--text-primary) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page #overview .evidence-ladder article > span,
+html:not([data-theme]) .ai-nvm-page #overview .evidence-ladder article > span {
+  color: var(--text-meta) !important;
+}
+
+html[data-theme="light"] .button.primary,
+html:not([data-theme]) .button.primary {
+  box-shadow: 0 12px 36px var(--accent-glow) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .record-copy .tier-tag:not(.inferred),
+html:not([data-theme]) .ai-nvm-page .record-copy .tier-tag:not(.inferred) {
+  color: var(--accent-warn) !important;
+  border-color: color-mix(in srgb, var(--accent-warn) 34%, transparent) !important;
+  background: color-mix(in srgb, var(--accent-warn) 10%, var(--elevated)) !important;
+}
