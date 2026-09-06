@@ -88,120 +88,129 @@ const lifecycleDetails = [
 
 const powerStates = {
   off: {
-    tag: localized("靜態", "AT REST"), title: localized("Power-off 的核心安全優勢：沒有永久保存的 reconstructed root", "Core power-off advantage: no intentionally stored or powered reconstructed root remains"),
+    tag: localized("靜態", "AT REST"),
+    title: localized("Power-off 的核心安全優勢：沒有永久保存的 reconstructed root", "Core power-off advantage: no intentionally stored or powered reconstructed root remains"),
     text: localized("在已驗證的 shutdown 條件下，OTP 保留 ciphertext、helper material 與 lifecycle state；transistor mismatch 仍可能存在，remanence 與 zeroization 仍須驗證。", "Under validated shutdown conditions, OTP retains ciphertext, helper material and lifecycle state. Transistor mismatch may persist; remanence and zeroization remain assurance targets."),
-    power: "POWER OFF", key: localized("沒有 powered reconstructed root", "NO POWERED RECONSTRUCTED ROOT"), result: localized("控制鏈成立時預期為密文", "EXPECTED CIPHERTEXT IF CONTROLS HOLD")
+    power: "POWER OFF",
+    keySmall: localized("重建根金鑰", "RECONSTRUCTED ROOT"),
+    key: localized("沒有 powered reconstructed root", "NO POWERED RECONSTRUCTED ROOT"),
+    readoutSmall: localized("攻擊者 recover", "ATTACKER RECOVERS"),
+    result: localized("控制鏈成立時預期為密文", "EXPECTED CIPHERTEXT IF CONTROLS HOLD")
   },
   on: {
-    tag: localized("受控窗口", "CONTROLLED WINDOW"), title: localized("Root key 已重建", "Root key is reconstructed"),
+    tag: localized("受控窗口", "CONTROLLED WINDOW"),
+    title: localized("Root key 已重建", "Root key is reconstructed"),
     text: localized("上電後，同一顆晶片在 secure boundary 內重建相同 root，再衍生工作金鑰保護 OTP 存取。", "At power-up, the same device reconstructs the same root inside the secure boundary and derives working keys to protect OTP access."),
-    power: "POWER UP", key: localized("已重建", "RECONSTRUCTED"), result: localized("授權存取", "AUTHORIZED ACCESS")
+    power: "POWER UP",
+    keySmall: localized("重建根金鑰", "RECONSTRUCTED ROOT"),
+    key: localized("已重建", "RECONSTRUCTED"),
+    readoutSmall: localized("攻擊者 recover", "ATTACKER RECOVERS"),
+    result: localized("授權存取", "AUTHORIZED ACCESS")
   }
 };
 
-const staticTextPairs = [
-  ["永久保存資料，", "Protect permanent data,"],
-  ["不永久保存根金鑰。", "with a root key that is not permanent."],
-  ["以 SRAM PUF 每次上電重建 device-unique root key，再由 AES-256 保護 OTP 內容。在已驗證的 shutdown 條件下，不保留刻意儲存或仍由電源維持的 reconstructed root。SRAM device mismatch、helper material 與 lifecycle state 可能持續存在；只有在 composed controls 成立時，sensitive payload 才應以 ciphertext 留存。", "Reconstruct a device-unique root key from SRAM PUF at every power-up, then protect OTP contents with AES-256. Under validated shutdown conditions, no intentionally stored or powered reconstructed root remains. SRAM device mismatch, helper material and lifecycle state may persist; sensitive payload should remain only as ciphertext when the composed controls hold."],
-  ["探索 Power-off State", "Explore the power-off state"],
-  ["開啟 OIP Brief", "Open the OIP brief"],
-  ["安全不是由資料能保存多久決定，", "Security is not decided by how long data can remain,"],
-  ["而是由攻擊發生時，", "but by what is still on the device"],
-  ["晶片裡還剩下什麼", "when an attack occurs"],
-  ["決定。", "."],
-  ["OTP 解決永久性；Secure Storage 解決機密性。即使攻擊者成功觀察記憶體狀態，他取得的也應該是受保護資料，而不是可直接使用的 root secret。", "OTP solves permanence; Secure Storage solves confidentiality. Even if an attacker observes the memory state, the result should be protected data rather than a directly usable root secret."],
-  ["用 Power-off State 檢驗設計", "Evaluate the design through its power-off state"],
-  ["在已驗證的 shutdown 條件下，不保留 powered reconstructed root；transistor mismatch 與 helper material 仍可能存在。", "Under validated shutdown conditions, no powered reconstructed root remains; transistor mismatch and helper material may persist."],
-  ["在已驗證的 shutdown 條件下，不保留刻意儲存或已重建、仍由電源維持的 root；transistor mismatch 與 helper material 仍可能存在。", "Under validated shutdown conditions, no intentionally stored, reconstructed or powered root remains; transistor mismatch and helper material may persist."],
-  ["OTP 永久保存的是 AES-256 密文與安全狀態。", "OTP permanently retains AES-256 ciphertext and security state."],
-  ["PUF、crypto、OTP 與 controller 共同構成安全子系統。", "PUF, crypto, OTP and the controller form one security subsystem."],
-  ["先看斷電時", "Start with what an attacker faces"],
-  ["攻擊者面對什麼。", "when the power is off."],
-  ["切換狀態，觀察 root key 的存在窗口。Secure Storage 的主張不是物理攻擊會消失，而是成功讀取後能揭露的內容被限制。", "Switch states to observe the root key's residency window. Secure Storage does not make physical attacks disappear; it limits what a successful readout can reveal."],
-  ["用公開攻擊界定 threat model，", "Use public attacks to define the threat model—"],
-  ["再把它轉成產品要求", "then translate it into product requirements"],
-  ["RP2350 是特定實作的公開 case，不代表所有 OTP 都同樣可攻。它揭示兩條平行路徑：fault 可能破壞 control assumptions；FIB／PVC 則接近 physical bit-state recovery。產品要求因此是：即使 readout 成功，也不應直接得到 usable secret。", "RP2350 is a public case for one implementation, not proof that every OTP is equally exploitable. It exposes two parallel paths: faults can collapse control assumptions, while FIB/PVC can approach physical bit-state recovery. The product requirement is that even a successful readout should not directly yield a usable secret."],
-  ["電壓、laser 或 EM disturbance 可能改變 boot、permission 或 lock 行為。", "Voltage, laser or EM disturbance can alter boot, permission or lock behavior."],
-  ["公開案例已讀出相鄰 bit pair 的 OR；完整逐 bit recovery 仍未被示範。", "The public case recovered the OR of adjacent bit pairs; complete per-bit recovery was not demonstrated."],
-  ["只有在所有 composed controls 成立時，readout 才應停在 scrambled ciphertext。", "Only when every composed control holds should readout stop at scrambled ciphertext."],
-  ["以 target node、macro、integration 與 FI／SCA／invasive evidence 驗證結果。", "Validate the outcome with evidence for the target node, macro, integration and FI/SCA/invasive scope."],
-  ["這個案例用來界定 threat model；它不構成任何 target Secure Storage configuration 的 resistance evidence。", "This case defines a threat model; it is not resistance evidence for any target Secure Storage configuration."],
-  ["四個 block，", "Four blocks."],
-  ["一個安全結果。", "One security outcome."],
-  ["產品決策不只評估四個各自正確的 primitives，而是評估從 root、crypto、storage、control 到 lifecycle 是否形成責任邊界清楚的 subsystem。", "A product decision evaluates more than four individually correct primitives; it evaluates whether root, crypto, storage, control and lifecycle form one subsystem with clear accountability."],
-  ["架構目標是把 reconstructed 與 derived key residency 限制在受控工作窗口。", "The architecture targets a bounded residency window for reconstructed and derived key material."],
-  ["這是 lifecycle objective；reset、remanence 與 zeroization 行為仍須證據支持。", "This is a lifecycle objective whose reset, remanence and zeroization behavior still requires evidence."],
-  ["公平比較，", "Compare fairly"],
-  ["才能凸顯真正差異。", "to expose the real difference."],
-  ["供應商揭露的成熟度證據，", "Vendor-reported maturity evidence"],
-  ["可縮小不確定性。", "can narrow uncertainty."],
-  ["但仍不能取代目標節點與配置的驗證。", "It does not replace validation on the target node and configuration."],
-  ["金鑰只在需要工作的時候存在", "Keys exist only while authorized work is in progress"],
-  ["不是「把 key 藏得更好」，而是把存在時間縮短成受控窗口。", "The goal is not to hide the key better, but to bound its residency to a controlled window."],
-  ["技術價值，最終必須落在要保護的資產", "Technical value must ultimately protect a recognizable asset"],
-  ["相同的 root-key lifecycle，因應不同市場中最昂貴、最敏感、最難替換的資料。", "The same root-key lifecycle protects the most expensive, sensitive and difficult-to-replace data across markets."],
-  ["保護模型價值與平台完整性", "Protect model value and platform integrity"],
-  ["把安全資料綁定到正確裝置", "Bind security data to the intended device"],
-  ["降低靜態金鑰擷取目標", "Reduce static key-extraction targets"],
-  ["大規模建立 device-unique trust", "Scale device-unique trust"],
-  ["產品決策必須涵蓋", "The product decision must cover"],
-  ["一個可歸責的安全結果。", "one accountable security outcome."],
-  ["從技術名詞，走到可以做決策", "Move from technical vocabulary to informed decisions"],
-  ["從記憶體物理，走到 AI 系統邊界", "From memory physics to AI-system boundaries"],
-  ["證據先於機會推論", "Evidence comes before opportunity inference"],
-  ["一條研究線拆解 bit-cell 與 sensing；另一條把 identity、repair、calibration、firmware 與 RAS evidence 映射到正確的 persistent-state contract。", "One research track examines bit-cells and sensing; another maps identity, repair, calibration, firmware and RAS evidence to the right persistent-state contract."],
-  ["探索 AI × NVM 機會", "Explore AI × NVM opportunities"],
-  ["開啟 Memory Physics", "Open Memory Physics"],
-  ["查看 Evidence Ledger", "View the Evidence Ledger"],
-  ["知道什麼，也清楚標示什麼還不知道", "State what is known—and clearly mark what is not"],
-  ["永久保存資料", "Protect permanent data"],
-  ["根金鑰不永久留存", "Keep the root key ephemeral"],
-  ["安全不只取決於資料能保存多久", "Security is not defined only by data retention"],
-  ["更取決於攻擊發生時，晶片裡還留下什麼", "It also depends on what remains on silicon when an attack occurs"],
-  ["好的矽智財，必須定義清楚", "Strong silicon IP starts with a clearly defined boundary"],
-  ["整合邊界也必須可以驗證", "That integration boundary must also be verifiable"],
-  ["先關掉電源", "Start by removing power"],
-  ["再看攻擊者能取得什麼", "Then examine what an attacker can obtain"],
-  ["四個功能區塊協同運作", "Four functional blocks work together"],
-  ["共同交付一個安全結果", "They deliver one security outcome"],
-  ["提出技術宣稱", "Make the technical claim"],
-  ["也要提出可以驗證的方法", "Then define how it can be verified"],
-  ["先建立公平的比較基準", "Begin with a fair comparison baseline"],
-  ["再判斷真正的技術差異", "Then identify the material technical difference"],
-  ["信任不只存在於單一功能", "Trust does not reside in a single function"],
-  ["它必須落實在系統邊界之內", "It must hold across the system boundary"],
-  ["成熟度能縮小不確定性", "Maturity can narrow uncertainty"],
-  ["Target evidence 才能決定適用性", "Target evidence determines applicability"],
-  ["長期 deployment、PVT、aging、認證與修補紀錄可降低起始風險；但不會自動轉移到 licensed Secure Storage configuration。", "Long-running deployment, PVT, aging, certification and remediation records can reduce initial risk, but they do not automatically transfer to the licensed Secure Storage configuration."],
-  ["產品決策不只涵蓋功能", "The product decision covers more than functionality"],
-  ["也必須涵蓋可歸責的安全結果", "It must also cover an accountable security outcome"],
-  ["從感測方式看見技術差異", "Use sensing architecture to expose technical differences"],
-  ["從量產條件檢視商業差異", "Use production constraints to evaluate commercial differentiation"],
-  ["本頁的證據原則：", "EVIDENCE PRINCIPLE"],
-  ["對已知內容提供可追溯的證據；", "Provide traceable evidence for what is known."],
-  ["對尚未確認的部分清楚標示限制。", "Clearly state the limits of what remains unconfirmed."],
-  ["回到開頭", "Back to top"]
-];
+function setBilingual(el, zh, en) {
+  if (!el) return;
+  el.innerHTML = `<span data-lang="zh">${zh}</span><span data-lang="en">${en}</span>`;
+}
 
-const zhToEn = new Map(staticTextPairs);
-const enToZh = new Map(staticTextPairs.map(([zh, en]) => [en, zh]));
+const STATIC_I18N = {
+  heroProofSource: localized(
+    "供應商公開的 portfolio context · 非 target-configuration assurance。Helper material、transistor mismatch 與 lifecycle state 可能持續存在；remanence 與 zeroization 仍是 assurance target。",
+    "VENDOR-REPORTED PORTFOLIO CONTEXT · NOT TARGET-CONFIGURATION ASSURANCE. Helper material, transistor mismatch and lifecycle state may persist; remanence and zeroization remain assurance targets."
+  ),
+  nodeCopyTitle: localized("公開的先進節點 OTP 脈絡", "Published advanced-node OTP context"),
+  nodeCopyBody: localized(
+    "Synopsys 報告所列 TSMC 製程已完成 OTP silicon verification。節點可用性不能證明每個配置的 Secure Storage release、PUF 整合或攻擊評估。",
+    "Synopsys reports OTP silicon-verified in the listed TSMC processes. Node availability does not prove Secure Storage release, PUF integration or attack evaluation for each configuration."
+  ),
+  portfolioScope: localized(
+    "來源範圍 · Synopsys 報告的 portfolio 數字 · 非交付配置的 independent assurance",
+    "SOURCE SCOPE · SYNOPSYS-REPORTED PORTFOLIO FIGURES · NOT INDEPENDENT ASSURANCE OF THE DELIVERED CONFIGURATION"
+  ),
+  compareSramP: localized(
+    "上電的 SRAM logic state 會消失；process mismatch 仍可能存在，但不會有 reconstructed root。",
+    "The powered SRAM logic state disappears; process mismatch remains, but no reconstructed root is present."
+  ),
+  compareSramPhy: localized("SRAM startup 的 transistor mismatch", "Transistor mismatch at SRAM startup"),
+  compareSramRecon: localized("Response + 公開 helper data → 穩定 root", "Response + public helper data → stable root"),
+  compareSramSec: localized("縮短 key residency 與受保護的 reconstruction", "Short key residency and protected reconstruction"),
+  compareVersusSmall: localized(
+    "持久 physical state 不等於 plaintext key storage。",
+    "Persistent physical state is not the same as plaintext key storage."
+  ),
+  compareNeoP: localized(
+    "Enrollment 形成永久的 quantum-tunneling conduction path。",
+    "Enrollment forms a permanent quantum-tunneling conduction path."
+  ),
+  compareNeoPhy: localized("高壓 enrolled NMOS cell pair", "High-voltage enrolled NMOS cell pair"),
+  compareNeoRecon: localized("Sense current；供應商表示無 helper data", "Sense current; vendor states no helper data"),
+  compareNeoSec: localized("保護 enrolled state 的可觀測性與完整性", "Protect observability and integrity of enrolled state"),
+  matrixPufRootSyn: localized("SRAM PUF；reconstructed root 不作為 stored powered key 保留", "SRAM PUF; reconstructed root not kept as a stored powered key"),
+  matrixPufRootNeo: localized("NeoPUF；1024-bit physical PUF", "NeoPUF; 1024-bit physical PUF"),
+  matrixDataSyn: localized("AES-256 encryption/decryption + address scrambling", "AES-256 encryption/decryption + address scrambling"),
+  matrixDataNeo: localized("Instant hardware encryption + address/IO scrambling；公開文件未命名 algorithm", "Instant hardware encryption + address/IO scrambling; algorithm not named publicly"),
+  matrixIntSyn: localized("AMBA APB、simple API、auto provisioning 與 initialization", "AMBA APB, simple API, auto provisioning and initialization"),
+  matrixIntNeo: localized("AMBA APB、firmware/API、autoload、locks 與 zeroization", "AMBA APB, firmware/API, autoload, locks and zeroization"),
+  matrixPortSyn: localized(
+    "Synopsys 報告 &gt;1.5B 裝置使用 SRAM PUF、&gt;15 年 proven SRAM PUF 與 &gt;10B antifuse OTP NVM 出貨；target configuration 仍須關閉",
+    "Synopsys reports &gt;1.5B devices using its SRAM PUF technology, &gt;15 years of proven SRAM PUF technology, and &gt;10B antifuse OTP NVM units shipped; target configuration still requires closure"
+  ),
+  matrixPortNeo: localized(
+    "公開平台可用性；精確產品證據與 assurance scope 仍待確認",
+    "Public platform availability; exact product evidence and assurance scope remain to be confirmed"
+  ),
+  compareConclusion: localized(
+    "以 absent-at-rest root key、可歸屬的 portfolio context 與 pre-integrated subsystem 為主；仍須確認 configuration 與 ownership。",
+    "Lead with an absent-at-rest root key, attributed portfolio context and a pre-integrated subsystem; confirm configuration and ownership."
+  ),
+  evidenceDev1: localized("使用 Synopsys SRAM PUF 技術的裝置", "devices using Synopsys SRAM PUF technology"),
+  evidenceDev2: localized("年 proven SRAM PUF 技術", "years of proven SRAM PUF technology"),
+  evidenceDev3: localized("Synopsys antifuse OTP NVM 出貨單位", "Synopsys antifuse OTP NVM units shipped"),
+  ribbon1: localized("供應商報告的 PUF 範圍 350 nm → 2 nm", "350 nm → 2 nm vendor-reported PUF range"),
+  ribbon2: localized("供應商報告的 characterization −40°C → 150°C", "−40°C → 150°C vendor-reported characterization"),
+  ribbon3: localized("portfolio 層級 automotive lineage ISO 26262 / 21434", "ISO 26262 / 21434 portfolio-level automotive lineage"),
+  ribbon4: localized("PSA · SESIP · NIST scope 須逐產品確認", "PSA · SESIP · NIST scope must be checked per product"),
+  attackH3Fault: localized("Fault 可能破壞 assumptions", "Fault can collapse assumptions"),
+  attackH3Fib: localized("FIB/PVC 可能暴露 physical state", "FIB/PVC can expose physical state"),
+  attackH3Encrypt: localized("Encrypt、scramble 與 govern", "Encrypt, scramble and govern"),
+  attackH3Close: localized("關閉 target configuration", "Close the target configuration"),
+  appAiP: localized("Firmware anti-rollback · 模型/權重 keys · 平台 identity", "Firmware anti-rollback · model/weight keys · platform identity"),
+  appAutoP: localized("Calibration · configuration · secure boot · lifecycle 狀態", "Calibration · configuration · secure boot · lifecycle state"),
+  appAeroP: localized("任務演算法 · 永久 identity · 防克隆 credentials", "Mission algorithms · permanent identity · anti-cloning credentials"),
+  appIotP: localized("Protocol keys · ROM patches · 防偽 identity", "Protocol keys · ROM patches · anti-counterfeit identity"),
+  chapterMetaWafer: localized("架構 · 介面 · lifecycle · 交付物", "Architecture · interface · lifecycle · deliverables"),
+  chapterMetaProbe: localized("PVT · BER · retention · 攻擊評估", "PVT · BER · retention · attack evaluation"),
+  chapterMetaSilicon: localized("Root · 保護 · 控制 · 偵測 · 舉證", "Root · protect · control · detect · prove"),
+  caseIntroSpan: localized("REFERENCE ARCHITECTURE · 非 turnkey Okta 整合", "REFERENCE ARCHITECTURE · NOT A TURNKEY OKTA INTEGRATION"),
+  caseFlow1: localized("使用者 · posture · policy · revoke", "user · posture · policy · revoke"),
+  caseFlow2: localized("reconstruct · derive · zeroize 流程", "reconstruct · derive · zeroize"),
+  caseFlow3: localized("可攜 data protection", "portable data protection"),
+  stackSrc1: localized("OpenPGP 私鑰 packet", "OpenPGP Secret Key Packet"),
+  stackSrc2: localized("FastPass 驗證流程", "FastPass authentication flow"),
+  stackSrc3: localized("Device registration 與 key storage", "Device registration & key storage"),
+  stackSrc4: localized("PUF-based Key Vault 架構", "PUF-based Key Vault"),
+  sourceSm1: localized("架構 · AES-256 · APB · provisioning", "Architecture · AES-256 · APB · provisioning"),
+  sourceSm2: localized("Root-key reconstruction · helper data · 場域 evidence", "Root-key reconstruction · helper data · field evidence"),
+  sourceSm3: localized("NeoPUF enrollment · 持久 conduction path", "NeoPUF enrollment · persistent conduction path"),
+  sourceSm4: localized("Taxonomy · 商業 vendor index", "Taxonomy · commercial vendor index"),
+  sourceSm5: localized("Fault injection · side-channel analysis · assurance 服務", "Fault injection · side-channel analysis · assurance services"),
+  learningPathTitle: localized("Secure Storage 決策路徑", "Secure Storage Decision Path"),
+  researchAiStrong: localized("跨 AI Silicon 的 Persistent State", "Persistent State Across AI Silicon"),
+  researchAiSpan: localized("Proof → state contract → NVM 機會", "Proof → state contract → NVM opportunity"),
+  researchPhysStrong: localized("Sense Mode × Bit-cell Economics", "Sense Mode × Bit-cell Economics"),
+  researchPhysSpan: localized("SRAM PUF · OTP · differential read", "SRAM PUF · OTP · differential read"),
+  researchOipBrief: localized("OIP Secure Storage Brief", "OIP Secure Storage Brief"),
+  readoutProtected: localized("受保護資料", "PROTECTED DATA"),
+  otpContentSmall: localized("OTP 內容", "OTP CONTENT"),
+  otpContentBold: localized("AES-256 密文", "AES-256 CIPHERTEXT")
+};
 
-function translateStaticText(nextLanguage) {
-  const map = nextLanguage === "en" ? zhToEn : enToZh;
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
-    acceptNode(node) {
-      const parent = node.parentElement;
-      if (!parent || parent.closest("script, style") || parent.closest("#learningPath, #filters, #articleGrid, #stateTitle, #stateText, #stateTag, #archDetail, #phaseDetail")) return NodeFilter.FILTER_REJECT;
-      return NodeFilter.FILTER_ACCEPT;
-    }
+function hydrateStaticI18n() {
+  document.querySelectorAll("[data-i18n-key]").forEach((el) => {
+    const copy = STATIC_I18N[el.dataset.i18nKey];
+    if (copy) setBilingual(el, copy.zh, copy.en);
   });
-  let node;
-  while ((node = walker.nextNode())) {
-    const raw = node.nodeValue;
-    const trimmed = raw.trim();
-    if (!map.has(trimmed)) continue;
-    node.nodeValue = raw.replace(trimmed, map.get(trimmed));
-  }
 }
 
 function renderLearningPath() {
@@ -247,12 +256,14 @@ function updatePowerState(state = document.querySelector("#power-lab").dataset.s
     item.classList.toggle("active", active);
     item.setAttribute("aria-pressed", active ? "true" : "false");
   });
-  document.querySelector("#stateTag").textContent = pick(copy.tag);
-  document.querySelector("#stateTitle").textContent = pick(copy.title);
-  document.querySelector("#stateText").textContent = pick(copy.text);
+  setBilingual(document.querySelector("#stateTag"), copy.tag.zh, copy.tag.en);
+  setBilingual(document.querySelector("#stateTitle"), copy.title.zh, copy.title.en);
+  setBilingual(document.querySelector("#stateText"), copy.text.zh, copy.text.en);
   document.querySelector("#stagePower").textContent = copy.power;
-  document.querySelector("#keyPresence b").textContent = pick(copy.key);
-  document.querySelector("#readoutResult").textContent = pick(copy.result);
+  setBilingual(document.querySelector("#keyPresence small"), copy.keySmall.zh, copy.keySmall.en);
+  setBilingual(document.querySelector("#keyPresence b"), copy.key.zh, copy.key.en);
+  setBilingual(document.querySelector(".readout-result small"), copy.readoutSmall.zh, copy.readoutSmall.en);
+  setBilingual(document.querySelector("#readoutResult"), copy.result.zh, copy.result.en);
 }
 
 function updateArchitecture(nodeKey = activeArchitecture) {
@@ -264,11 +275,15 @@ function updateArchitecture(nodeKey = activeArchitecture) {
     item.setAttribute("aria-pressed", active ? "true" : "false");
   });
   document.querySelector("#archNumber").textContent = detail.number;
-  document.querySelector("#archTitle").textContent = pick(detail.title);
-  document.querySelector("#archText").textContent = pick(detail.text);
+  setBilingual(document.querySelector("#archTitle"), detail.title.zh, detail.title.en);
+  setBilingual(document.querySelector("#archText"), detail.text.zh, detail.text.en);
   document.querySelector("#archIcon use").setAttribute("href", `#${detail.icon}`);
-  document.querySelector(".detail-visual span").textContent = pick(detail.label);
-  document.querySelector("#archList").innerHTML = pick(detail.list).map(item => `<li>${item}</li>`).join("");
+  setBilingual(document.querySelector(".detail-visual span"), detail.label.zh, detail.label.en);
+  const zhList = detail.list.zh;
+  const enList = detail.list.en;
+  document.querySelector("#archList").innerHTML = zhList.map((zh, index) =>
+    `<li><span data-lang="zh">${zh}</span><span data-lang="en">${enList[index]}</span></li>`
+  ).join("");
 }
 
 function updatePhase(index = activePhase) {
@@ -279,9 +294,9 @@ function updatePhase(index = activePhase) {
     item.classList.toggle("active", active);
     item.setAttribute("aria-pressed", active ? "true" : "false");
   });
-  document.querySelector("#phaseIndex").textContent = pick(detail.index);
-  document.querySelector("#phaseTitle").textContent = pick(detail.title);
-  document.querySelector("#phaseText").textContent = pick(detail.text);
+  setBilingual(document.querySelector("#phaseIndex"), detail.index.zh, detail.index.en);
+  setBilingual(document.querySelector("#phaseTitle"), detail.title.zh, detail.title.en);
+  setBilingual(document.querySelector("#phaseText"), detail.text.zh, detail.text.en);
 }
 
 function getLanguage() {
@@ -296,6 +311,7 @@ function syncAppLanguage(nextLanguage) {
   document.querySelector("#emptyState").textContent = nextLanguage === "zh"
     ? "找不到符合條件的內容。"
     : "No matching learning content.";
+  hydrateStaticI18n();
   renderLearningPath();
   renderFilters();
   renderArticles();
@@ -395,6 +411,7 @@ window.addEventListener("resize", updateScrollUI);
 renderLearningPath();
 renderFilters();
 renderArticles();
+hydrateStaticI18n();
 updatePowerState("off");
 updateArchitecture("puf");
 updatePhase(0);

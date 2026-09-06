@@ -36,6 +36,13 @@ for (const { url, checks, fullScan } of pages) {
 
     const report = await page.evaluate(({ checks, lang, fullScan }) => {
       const cjk = /[\u4e00-\u9fff]/;
+      const properNoun = /\b(AES-256|SRAM PUF|TSMC|Synopsys|OpenPGP|Okta|OTP|MCU|NVM|APB|PUF|FI|SCA|FIB|PVC|RP2350|ISO|PSA|SESIP|NIST|PVT|HPC|IoT|AMBA|NeoPUF|OKTA|OPENPGP|RFC|BER|EM|BMC|JEDEC|OCP|NDA|HBM|PMIC|SPD|RAS|MCU|GPU|CPU|AI|HPC|GO|GATE|SCREEN|EXCLUDE|HTTPS|URL|HTML|CSS|JS|API|BOM|TPM|FIB|PVC|MFA|APB|ABMA)\b/gi;
+      const isEnglishSentence = (text) => {
+        if (!text || text.length < 40 || cjk.test(text)) return false;
+        const stripped = text.replace(properNoun, ' ').replace(/[^A-Za-z\s]/g, ' ');
+        const words = stripped.split(/\s+/).filter((w) => w.length >= 4);
+        return words.length >= 3;
+      };
       const leaks = [];
       for (const sel of checks) {
         const el = document.querySelector(sel);
@@ -94,14 +101,36 @@ for (const { url, checks, fullScan } of pages) {
         });
       }
 
-      return { leaks, bare: bare.slice(0, 5), ariaLeaks: ariaLeaks.slice(0, 8), enVisibleInZh: enVisibleInZh.slice(0, 5) };
+      const bareEn = [];
+      if (fullScan && lang === 'zh') {
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        let node;
+        while ((node = walker.nextNode())) {
+          const text = node.textContent.trim();
+          if (!isEnglishSentence(text)) continue;
+          const el = node.parentElement;
+          if (!el) continue;
+          let hidden = false;
+          let p = el;
+          while (p) {
+            if (getComputedStyle(p).display === 'none') { hidden = true; break; }
+            p = p.parentElement;
+          }
+          if (hidden) continue;
+          if (el.closest('[data-lang="en"], [data-assurance-en], .language-toggle')) continue;
+          bareEn.push(text.slice(0, 80));
+        }
+      }
+
+      return { leaks, bare: bare.slice(0, 5), bareEn: bareEn.slice(0, 8), ariaLeaks: ariaLeaks.slice(0, 8), enVisibleInZh: enVisibleInZh.slice(0, 5) };
     }, { checks, lang, fullScan });
 
     const label = `${url} [${lang}]`;
     const hasFail = report.leaks.length
       || (lang === 'en' && fullScan && report.bare.length)
       || (lang === 'en' && report.ariaLeaks.length)
-      || (lang === 'zh' && report.enVisibleInZh.length);
+      || (lang === 'zh' && report.enVisibleInZh.length)
+      || (lang === 'zh' && fullScan && report.bareEn.length);
     if (hasFail) {
       console.log('FAIL', label, JSON.stringify(report, null, 2));
       failed += 1;
@@ -121,6 +150,13 @@ for (const { url, checks, fullScan } of pages) {
     await page.waitForTimeout(250);
     const bad = await page.evaluate((lang) => {
       const cjk = /[\u4e00-\u9fff]/;
+      const properNoun = /\b(AES-256|SRAM PUF|TSMC|Synopsys|OpenPGP|Okta|OTP|MCU|NVM|APB|PUF|FI|SCA|FIB|PVC|RP2350|ISO|PSA|SESIP|NIST|PVT|HPC|IoT|AMBA|NeoPUF|OKTA|OPENPGP|RFC|BER|EM|BMC|JEDEC|OCP|NDA|HBM|PMIC|SPD|RAS|MCU|GPU|CPU|AI|HPC|GO|GATE|SCREEN|EXCLUDE|HTTPS|URL|HTML|CSS|JS|API|BOM|TPM|FIB|PVC|MFA|APB|ABMA)\b/gi;
+      const isEnglishSentence = (text) => {
+        if (!text || text.length < 40 || cjk.test(text)) return false;
+        const stripped = text.replace(properNoun, ' ').replace(/[^A-Za-z\s]/g, ' ');
+        const words = stripped.split(/\s+/).filter((w) => w.length >= 4);
+        return words.length >= 3;
+      };
       const issues = [];
       if (lang === 'en') {
         const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -144,6 +180,21 @@ for (const { url, checks, fullScan } of pages) {
             issues.push('en:' + el.innerText.slice(0, 40));
           }
         });
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        let node;
+        while ((node = walker.nextNode())) {
+          const text = node.textContent.trim();
+          if (!isEnglishSentence(text)) continue;
+          const el = node.parentElement;
+          if (!el || el.closest('[data-lang="en"], [data-assurance-en], .language-toggle')) continue;
+          let hidden = false;
+          let p = el;
+          while (p) {
+            if (getComputedStyle(p).display === 'none') { hidden = true; break; }
+            p = p.parentElement;
+          }
+          if (!hidden) issues.push('en-bare:' + text.slice(0, 40));
+        }
       }
       return issues.slice(0, 3);
     }, lang);
