@@ -97,12 +97,3 @@
   s.setAttribute("data-flagship-shader","true");
   document.head.appendChild(s);
 })();
-
-(function loadPhysicsFlagship(){
-  if (document.querySelector("link[data-physics-flagship]")) return;
-  var l=document.createElement("link");
-  l.rel="stylesheet";
-  l.href="memory-physics-flagship.css?v=20260906-p2";
-  l.setAttribute("data-physics-flagship","true");
-  document.head.appendChild(l);
-})();
