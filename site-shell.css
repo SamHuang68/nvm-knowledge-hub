@@ -763,6 +763,15 @@ html, body {
 }
 
 /* Theme-aware shell surfaces (Light Paper default / Dark Cyan optional). */
+html[data-theme="light"],
+html:not([data-theme]) {
+  /* research.css loads after styles.css and resets dark-era tokens on :root */
+  --ink: var(--text-primary);
+  --muted-ink: var(--text-muted);
+  --paper: var(--canvas);
+  --paper-2: var(--elevated);
+}
+
 html, body, body.hub-page, body.specialty-page {
   background-color: var(--canvas) !important;
   background-image: none !important;

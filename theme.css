@@ -271,3 +271,106 @@ html:not([data-theme]) .search-input-row input::placeholder {
   color: var(--text-muted) !important;
   opacity: 1;
 }
+
+/* =========================================================================
+   Light Paper — AI-NVM page (Executive Thesis / paper headings on canvas)
+   ========================================================================= */
+
+/* P1: global h2 em accent (~3.6:1 on #F3F7F8) loses to page --ai-teal; restore ink */
+html[data-theme="light"] .ai-nvm-page .paper-heading h2,
+html:not([data-theme]) .ai-nvm-page .paper-heading h2,
+html[data-theme="light"] .ai-nvm-page .compact-heading h2,
+html:not([data-theme]) .ai-nvm-page .compact-heading h2 {
+  color: var(--text-primary) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .paper-heading h2 em,
+html:not([data-theme]) .ai-nvm-page .paper-heading h2 em,
+html[data-theme="light"] .ai-nvm-page .compact-heading h2 em,
+html:not([data-theme]) .ai-nvm-page .compact-heading h2 em {
+  color: var(--text-primary) !important;
+}
+
+/* P2: paper-kicker missing from hub kicker map (--ai-teal too light on paper) */
+html[data-theme="light"] .ai-nvm-page .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .paper-kicker {
+  color: var(--text-meta) !important;
+}
+
+/* P3: heading body copy — --ai-muted (#536C78) below hub secondary floor */
+html[data-theme="light"] .ai-nvm-page .paper-heading > p,
+html:not([data-theme]) .ai-nvm-page .paper-heading > p,
+html[data-theme="light"] .ai-nvm-page .compact-heading > p,
+html:not([data-theme]) .ai-nvm-page .compact-heading > p {
+  color: var(--text-secondary) !important;
+}
+
+/* P4: evidence-correction stays midnight; aqua/copper badges remain on dark scrim */
+html[data-theme="light"] .ai-nvm-page .evidence-correction,
+html:not([data-theme]) .ai-nvm-page .evidence-correction {
+  background:
+    linear-gradient(115deg, rgba(176, 138, 91, 0.06), transparent 38%),
+    #082536 !important;
+  color: #fffefa !important;
+  border-top-color: rgba(196, 165, 116, 0.18) !important;
+  border-bottom-color: rgba(196, 165, 116, 0.18) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .evidence-correction h2,
+html:not([data-theme]) .ai-nvm-page .evidence-correction h2 {
+  color: #fffefa !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .evidence-correction .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .evidence-correction .paper-kicker {
+  color: var(--accent-warn-soft) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .evidence-correction p:not(.paper-kicker),
+html:not([data-theme]) .ai-nvm-page .evidence-correction p:not(.paper-kicker) {
+  color: #b9cdd4 !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .evidence-correction .tier-tag,
+html:not([data-theme]) .ai-nvm-page .evidence-correction .tier-tag {
+  color: var(--accent-warn-soft) !important;
+  border-color: rgba(196, 165, 116, 0.28) !important;
+  background: rgba(196, 165, 116, 0.06) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .evidence-correction .correction-mark span,
+html:not([data-theme]) .ai-nvm-page .evidence-correction .correction-mark span {
+  color: var(--accent-warn-soft) !important;
+}
+
+/* Dark-panel kickers: keep warn/aqua on midnight (override P2) */
+html[data-theme="light"] .ai-nvm-page .decision-questions .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .decision-questions .paper-kicker,
+html[data-theme="light"] .ai-nvm-page .ai-unknowns > .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .ai-unknowns > .paper-kicker,
+html[data-theme="light"] .ai-nvm-page .research-intake .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .research-intake .paper-kicker,
+html[data-theme="light"] .ai-nvm-page .validation-cascade .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .validation-cascade .paper-kicker,
+html[data-theme="light"] .ai-nvm-page .repair-programming-head .paper-kicker,
+html:not([data-theme]) .ai-nvm-page .repair-programming-head .paper-kicker {
+  color: var(--accent-warn-soft) !important;
+}
+
+/* P5: --ai-muted body on paper surfaces adjacent to thesis cluster */
+html[data-theme="light"] .ai-nvm-page #overview .evidence-ladder p,
+html:not([data-theme]) .ai-nvm-page #overview .evidence-ladder p {
+  color: var(--text-muted) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page #overview .evidence-ladder article > b,
+html:not([data-theme]) .ai-nvm-page #overview .evidence-ladder article > b {
+  color: var(--text-primary) !important;
+}
+
+html[data-theme="light"] .ai-nvm-page .record-copy .tier-tag:not(.inferred),
+html:not([data-theme]) .ai-nvm-page .record-copy .tier-tag:not(.inferred) {
+  color: var(--accent-warn) !important;
+  border-color: color-mix(in srgb, var(--accent-warn) 34%, transparent) !important;
+  background: color-mix(in srgb, var(--accent-warn) 10%, var(--elevated)) !important;
+}
