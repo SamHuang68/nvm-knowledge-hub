@@ -37,7 +37,7 @@
   align-items: center !important;
   column-gap: clamp(16px, 2.5vw, 44px) !important;
   min-height: 48px !important;
-  padding: 0 clamp(16px, 3.5vw, 64px) !important;
+  padding: 0 var(--layout-side, clamp(12px, 2vw, 28px)) !important;
 }
 
 .site-header .brand {
@@ -436,15 +436,16 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
    EXECUTIVE STUDIO LAYOUT & VERTICAL LENS RAIL (全站共用雙欄工作台)
    ========================================================================= */
 .studio-main-workbench {
-  max-width: min(1780px, 97vw);
+  max-width: 100%;
+  width: 100%;
   margin: 10px auto 30px;
-  padding: 0 clamp(8px, 1.2vw, 16px);
+  padding: 0 var(--layout-side, clamp(12px, 2vw, 28px));
   box-sizing: border-box;
 }
 .studio-layout {
   display: grid;
-  grid-template-columns: 210px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: var(--layout-rail-studio, clamp(88px, 7vw, 108px)) minmax(0, 1fr);
+  gap: 10px;
   align-items: start;
 }
 @media (max-width: 1024px) {
@@ -745,8 +746,8 @@ html, body {
 
 /* 全站規格彩條同步對齊大寬度工作台 */
 .stat-strip-compact {
-  max-width: min(1780px, 97vw) !important;
-  padding: 0 clamp(8px, 1.2vw, 16px) !important;
+  max-width: 100% !important;
+  padding: 0 var(--layout-side, clamp(12px, 2vw, 28px)) !important;
   margin-left: auto !important;
   margin-right: auto !important;
   width: 100% !important;
@@ -886,5 +887,63 @@ input[type="range"] {
   accent-color: var(--accent);
 }
 
+/* =========================================================================
+   LAYOUT POLISH — compact left rails, edge-to-edge content stage
+   ========================================================================= */
+.hub-studio-wrapper,
+.lens-stage-container,
+.main-container {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: var(--layout-side, clamp(12px, 2vw, 28px)) !important;
+  padding-right: var(--layout-side, clamp(12px, 2vw, 28px)) !important;
+  box-sizing: border-box !important;
+}
+
+.hub-studio-layout {
+  grid-template-columns: var(--layout-rail-studio, clamp(88px, 7vw, 108px)) minmax(0, 1fr) !important;
+  gap: 10px !important;
+}
+
+.hub-minimal-header {
+  padding-left: var(--layout-side, clamp(12px, 2vw, 28px)) !important;
+  padding-right: var(--layout-side, clamp(12px, 2vw, 28px)) !important;
+}
+
+@media (min-width: 1025px) {
+  .lens-vertical-rail,
+  .hub-vertical-rail {
+    padding: 8px 6px !important;
+  }
+
+  .lens-node-item,
+  .hub-rail-btn {
+    padding: 6px 6px !important;
+    gap: 6px !important;
+  }
+
+  .lens-sub,
+  .hub-rail-sub {
+    display: none !important;
+  }
+
+  .rail-header,
+  .hub-rail-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+  }
+
+  .rail-title,
+  .hub-rail-title {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .hub-rail-name,
+  .lens-name {
+    font-size: 0.68rem !important;
+  }
+}
 
 

@@ -44,6 +44,13 @@ html[data-theme="dark"] {
   --scrim-mid: rgba(3, 19, 30, 0.92);
 }
 
+/* Shared layout — edge bleed stage + compact left rails */
+html {
+  --layout-side: clamp(12px, 2vw, 28px);
+  --layout-rail-chapter: clamp(40px, 3.5vw, 56px);
+  --layout-rail-studio: clamp(88px, 7vw, 108px);
+}
+
 /* Base canvas */
 html,
 body {

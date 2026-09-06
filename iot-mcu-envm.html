@@ -115,9 +115,9 @@
 
     /* 4-Metric 規格彩條 (高密度整合在 Hero 與 Signal 之間) */
     .stat-strip-compact {
-      max-width: min(1780px, 97vw);
+      max-width: 100%;
       margin: -24px auto 0;
-      padding: 0 clamp(8px, 1.2vw, 16px);
+      padding: 0 var(--layout-side, clamp(12px, 2vw, 28px));
       position: relative;
       z-index: 10;
       width: 100%;
@@ -192,15 +192,16 @@
        核心版面：EXECUTIVE LENS STUDIO (直立測條 + 高密度工作台)
        ======================================================= */
     .studio-workbench-wrapper {
-      max-width: min(1780px, 97vw);
+      max-width: 100%;
+      width: 100%;
       margin: 10px auto 30px;
-      padding: 0 clamp(8px, 1.2vw, 16px);
+      padding: 0 var(--layout-side, clamp(12px, 2vw, 28px));
       box-sizing: border-box;
     }
     .studio-layout {
       display: grid;
-      grid-template-columns: 210px minmax(0, 1fr);
-      gap: 14px;
+      grid-template-columns: var(--layout-rail-studio, clamp(88px, 7vw, 108px)) minmax(0, 1fr);
+      gap: 10px;
       align-items: start;
     }
     @media (max-width: 1024px) {

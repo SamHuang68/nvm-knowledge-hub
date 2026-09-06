@@ -44,3 +44,15 @@ window.HubTheme.toggle();
 Historical copper (`#B08A5B` / `#C4A574`) is reserved for `--accent-warn` only (warnings, vendor contrast, evidence callouts). Primary UI chrome, headings, buttons, and stats use `--accent`.
 
 Hero and media scrims keep fixed navy values (`--scrim-deep`) so photography and gradient overlays stay legible in both themes.
+
+## Layout polish
+
+Shared layout tokens (in `theme.css`):
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--layout-side` | `clamp(12px, 2vw, 28px)` | Page horizontal inset / safe edge |
+| `--layout-rail-chapter` | `clamp(40px, 3.5vw, 56px)` | `.chapter-rail` width (immersive deep pages) |
+| `--layout-rail-studio` | `clamp(88px, 7vw, 108px)` | Hub / lens left module rail column |
+
+`site-shell.css` applies edge-to-edge stages (100% width + `--layout-side` padding) and compact studio rails. On viewports ≥1025px, rail secondary labels (`.hub-rail-sub`, `.lens-sub`) hide to keep the left column narrow; mobile keeps the existing horizontal top-rail behavior at ≤1024px.
