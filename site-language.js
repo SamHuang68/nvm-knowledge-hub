@@ -62,15 +62,15 @@
   var l=document.createElement("link"); l.rel="stylesheet"; l.href="chapter-lens.css?v=20260908-l4";
   l.setAttribute("data-chapter-lens","true"); document.head.appendChild(l);
 })();
-(function loadAiNvmTune(){
-  if (!/ai-nvm-opportunities\.html/i.test(location.pathname)) return;
-  if (document.querySelector("link[data-ai-nvm-tune]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="ai-nvm-tune.css?v=20260908-a9";
-  l.setAttribute("data-ai-nvm-tune","true"); document.head.appendChild(l);
-})();
 (function loadAiNvmNode(){
   if (!/ai-nvm-opportunities\.html/i.test(location.pathname)) return;
   if (document.querySelector("link[data-ai-nvm-node]")) return;
   var l=document.createElement("link"); l.rel="stylesheet"; l.href="ai-nvm-node.css?v=20260908-n30";
   l.setAttribute("data-ai-nvm-node","true"); document.head.appendChild(l);
+})();
+(function loadAiNvmTune(){
+  if (!/ai-nvm-opportunities\.html/i.test(location.pathname)) return;
+  if (document.querySelector("link[data-ai-nvm-tune]")) return;
+  var l=document.createElement("link"); l.rel="stylesheet"; l.href="ai-nvm-tune.css?v=20260908-n31";
+  l.setAttribute("data-ai-nvm-tune","true"); document.head.appendChild(l);
 })();
