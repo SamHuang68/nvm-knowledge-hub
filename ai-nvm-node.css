@@ -1,8 +1,5 @@
-/* Language lock — must beat any display:block on wrappers */
 html[data-language="en"] .ai-nvm-page [data-lang="zh"],
-html[data-language="zh"] .ai-nvm-page [data-lang="en"] {
-  display: none !important;
-}
+html[data-language="zh"] .ai-nvm-page [data-lang="en"] { display: none !important; }
 
 .ai-nvm-page .paper-heading h2,
 .ai-nvm-page .compact-heading h2,
@@ -17,68 +14,41 @@ html[data-language="zh"] .ai-nvm-page [data-lang="en"] {
 .ai-nvm-page .selection-retention { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; background: #061925 !important; }
 .ai-nvm-page .selection-retention > span { grid-column: 1 / -1 !important; color: #e0b36a !important; }
 .ai-nvm-page .abstraction-verdict { background: #0b2432 !important; color: #f6f1e8 !important; }
-.ai-nvm-page .decision-questions {
-  background: #0b2432 !important;
-  border: 1px solid rgba(196, 165, 116, 0.18) !important;
-  border-radius: 12px !important;
-  padding: 16px 20px 12px !important;
-}
+.ai-nvm-page .decision-questions { background: #0b2432 !important; border: 1px solid rgba(196, 165, 116, 0.18) !important; border-radius: 12px !important; padding: 16px 20px 12px !important; }
 .ai-nvm-page .decision-questions ol { display: block !important; columns: 2 !important; padding-left: 1.2em !important; }
-.ai-nvm-page .decision-questions li {
-  display: list-item !important;
-  background: none !important;
-  border: 0 !important;
-  min-height: 0 !important;
-  color: #f3ebe0 !important;
-}
+.ai-nvm-page .decision-questions li { display: list-item !important; background: none !important; border: 0 !important; min-height: 0 !important; color: #f3ebe0 !important; }
 .ai-nvm-page .decision-questions li > span:first-child { display: none !important; }
 .ai-nvm-page .continuous-warning { background: #082536 !important; color: #f6f1e8 !important; }
-.ai-nvm-page .continuous-warning b, .ai-nvm-page .continuous-warning strong { color: #f6f1e8 !important; }
-
-/* Three node-path columns: same inset as the copy above */
-.ai-nvm-page .node-paths {
-  width: 100% !important;
-  align-items: stretch !important;
-}
-.ai-nvm-page .node-path {
-  display: grid !important;
-  grid-template-columns: 28px minmax(0, 1fr) !important;
-  padding: 20px 18px 16px !important;
-  box-sizing: border-box !important;
-}
-.ai-nvm-page .node-path-copy {
-  display: flex !important;
-  flex-direction: column !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: none !important;
-  text-align: left !important;
-}
+.ai-nvm-page .node-path { padding: 20px 18px 16px !important; }
 .ai-nvm-page .node-path-copy footer {
   display: flex !important;
   flex-direction: column !important;
-  align-items: stretch !important;
   gap: 6px !important;
   width: 100% !important;
-  max-width: none !important;
   min-height: 92px !important;
-  margin-top: auto !important;
-  padding: 14px 0 0 !important;
   background: transparent !important;
-  border-top: 1px solid rgba(196, 165, 116, 0.2) !important;
   text-align: left !important;
   font-family: inherit !important;
   letter-spacing: 0 !important;
 }
-.ai-nvm-page .node-path-copy footer > b {
-  display: block !important;
-  color: #d4a574 !important;
+.ai-nvm-page .node-path-copy footer > b { display: block !important; color: #d4a574 !important; }
+.ai-nvm-page .node-path-copy footer > span { display: block !important; color: #c2d0d6 !important; font-size: 14px !important; }
+.ai-nvm-page .node-path-copy > p { font-size: 14px !important; line-height: 1.55 !important; }
+
+/* 01 OXIDE SYSTEM row matches the 14px body above */
+.ai-nvm-page .node-constraint-ledger > div > b {
+  font-family: inherit !important;
   font-size: 12px !important;
   letter-spacing: .08em !important;
+  color: #d4a574 !important;
 }
-.ai-nvm-page .node-path-copy footer > span {
-  display: block !important;
-  color: #c2d0d6 !important;
+.ai-nvm-page .node-constraint-ledger > div > p,
+.ai-nvm-page .node-constraint-ledger > div > p span {
   font-size: 14px !important;
-  line-height: 1.4 !important;
+  line-height: 1.55 !important;
+  color: #c2d0d6 !important;
+}
+.ai-nvm-page .node-constraint-ledger > div > span {
+  color: #c4a574 !important;
+  font-size: 11px !important;
 }
