@@ -1,0 +1,25 @@
+/* Physics page only: lift Abstract / Verdict contrast. No site-wide palette. */
+body.research-page .abstract-copy h2,
+body.research-page .abstract-panel h2,
+body.research-page .paper-heading h2 {
+  color: #f3eee6 !important;
+}
+
+body.research-page .abstract-copy p,
+body.research-page .abstract-panel p,
+body.research-page .paper-heading p {
+  color: #d5dde6 !important;
+}
+
+body.research-page .abstract-verdict,
+body.research-page .abstract-verdict p,
+body.research-page .abstract-verdict strong,
+body.research-page .commercial-verdict,
+body.research-page .corpus-verdict {
+  color: #efe8dc !important;
+}
+
+body.research-page .abstract-verdict small,
+body.research-page .research-label {
+  color: #c4a574 !important;
+}

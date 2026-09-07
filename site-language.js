@@ -9,8 +9,8 @@
 
   function resolveSavedLanguage() {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) || 
-                    localStorage.getItem(LEGACY_KEY_1) || 
+      const saved = localStorage.getItem(STORAGE_KEY) ||
+                    localStorage.getItem(LEGACY_KEY_1) ||
                     localStorage.getItem(LEGACY_KEY_2);
       return (saved === "zh") ? "zh" : "en";
     } catch (e) {
@@ -19,7 +19,6 @@
   }
 
   const initialLang = resolveSavedLanguage();
-
   document.documentElement.lang = (initialLang === "zh") ? "zh-Hant" : "en";
   document.documentElement.dataset.language = initialLang;
 
@@ -80,4 +79,23 @@
   } else {
     initDOM();
   }
+})();
+
+(function loadPhysicsContrast(){
+  if (!/memory-physics\.html/i.test(location.pathname)) return;
+  if (document.querySelector("link[data-physics-contrast]")) return;
+  var l=document.createElement("link");
+  l.rel="stylesheet";
+  l.href="memory-physics-contrast.css?v=20260907-f1";
+  l.setAttribute("data-physics-contrast","true");
+  document.head.appendChild(l);
+})();
+
+(function loadF1CardAlign(){
+  if (document.querySelector("script[data-f1-align]")) return;
+  var s=document.createElement("script");
+  s.src="f1-card-align.js?v=20260907-f1";
+  s.defer=true;
+  s.setAttribute("data-f1-align","true");
+  document.head.appendChild(s);
 })();
