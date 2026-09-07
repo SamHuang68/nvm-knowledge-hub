@@ -99,3 +99,12 @@
   s.setAttribute("data-f1-align","true");
   document.head.appendChild(s);
 })();
+
+(function loadSurfaceRadius(){
+  if (document.querySelector("link[data-surface-radius]")) return;
+  var l=document.createElement("link");
+  l.rel="stylesheet";
+  l.href="surface-radius.css?v=20260908-r1";
+  l.setAttribute("data-surface-radius","true");
+  document.head.appendChild(l);
+})();
