@@ -90,3 +90,35 @@ html[data-language="zh"] .ai-nvm-page [data-lang="en"] { display: none !importan
   border: 0 !important;
 }
 .ai-nvm-page .decision-questions li b { color: #f3ebe0 !important; font-size: 14px !important; font-weight: 500 !important; }
+
+/* restored: dropped after n20–n27 overwrites */
+.ai-nvm-page .paper-note,
+.ai-nvm-page .paper-note b,
+.ai-nvm-page .paper-note span {
+  color: #071824 !important;
+}
+.ai-nvm-page .map-heading h3,
+.ai-nvm-page .map-heading h3 span,
+.ai-nvm-page .map-planes article b {
+  color: #071824 !important;
+}
+.ai-nvm-page .map-heading > div > p,
+.ai-nvm-page .map-planes article p,
+.ai-nvm-page .map-description {
+  color: #2c4450 !important;
+}
+.ai-nvm-page .read-domain-copy h3 em {
+  color: #6e4318 !important;
+}
+.ai-nvm-page .read-domain-lede,
+.ai-nvm-page .read-domain-lede span {
+  color: #2c4450 !important;
+}
+.ai-nvm-page .read-benefits article b { color: #092235 !important; }
+.ai-nvm-page .read-benefits article p { color: #3d5560 !important; }
+.ai-nvm-page .selection-retention > b { color: #fff8ee !important; }
+.ai-nvm-page .selection-retention > b:last-child { color: #f0a060 !important; }
+.ai-nvm-page .decision-grammar h3,
+.ai-nvm-page .decision-grammar h3 span {
+  color: #f6f1e8 !important;
+}
