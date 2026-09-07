@@ -124,7 +124,7 @@
   if (document.querySelector("link[data-ai-nvm-node]")) return;
   var l=document.createElement("link");
   l.rel="stylesheet";
-  l.href="ai-nvm-node.css?v=20260908-n1";
+  l.href="ai-nvm-node.css?v=20260908-n2";
   l.setAttribute("data-ai-nvm-node","true");
   document.head.appendChild(l);
 })();

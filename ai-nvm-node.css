@@ -52,3 +52,41 @@ html[data-language="en"] .ai-nvm-page .node-constraint-ledger [data-lang="zh"],
 html[data-language="zh"] .ai-nvm-page .node-constraint-ledger [data-lang="en"] {
   display: none !important;
 }
+
+/* Persistence row must share the 4-column card grid. Label is its own row. */
+.ai-nvm-page .selection-retention {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+}
+.ai-nvm-page .selection-retention > span {
+  grid-column: 1 / -1 !important;
+  justify-items: start !important;
+  text-align: left !important;
+  padding: 10px 16px 4px !important;
+}
+.ai-nvm-page .selection-retention > b {
+  display: grid !important;
+  place-items: center !important;
+  text-align: center !important;
+  padding: 8px 12px 12px !important;
+  border-right: 1px solid var(--ai-line, rgba(9, 34, 53, .15)) !important;
+}
+.ai-nvm-page .selection-retention > b:last-child {
+  border-right: 0 !important;
+}
+@media (max-width: 1180px) {
+  .ai-nvm-page .selection-retention {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 620px) {
+  .ai-nvm-page .selection-retention {
+    grid-template-columns: 1fr !important;
+  }
+  .ai-nvm-page .selection-retention > b {
+    text-align: left !important;
+    place-items: start !important;
+    padding-left: 16px !important;
+  }
+}
