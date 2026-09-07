@@ -108,3 +108,13 @@
   l.setAttribute("data-surface-radius","true");
   document.head.appendChild(l);
 })();
+
+(function loadAiNvmTune(){
+  if (!/ai-nvm-opportunities\.html/i.test(location.pathname)) return;
+  if (document.querySelector("link[data-ai-nvm-tune]")) return;
+  var l=document.createElement("link");
+  l.rel="stylesheet";
+  l.href="ai-nvm-tune.css?v=20260908-a1";
+  l.setAttribute("data-ai-nvm-tune","true");
+  document.head.appendChild(l);
+})();

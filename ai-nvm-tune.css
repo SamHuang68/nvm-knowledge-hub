@@ -1,0 +1,42 @@
+/* AI page only: drop seven-questions fill; give Decision Summary full width. */
+.ai-nvm-page .decision-questions,
+.decision-questions {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  outline: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.ai-nvm-page .paper-conclusion,
+.paper-conclusion.ai-conclusion,
+.ai-nvm-page .paper-conclusion.ai-conclusion {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.ai-nvm-page .conclusion-copy,
+.paper-conclusion .conclusion-copy {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+.ai-nvm-page .conclusion-copy strong,
+.paper-conclusion .conclusion-copy strong {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  line-height: 1.28 !important;
+  font-size: clamp(1.35rem, 2.1vw, 2rem) !important;
+}
