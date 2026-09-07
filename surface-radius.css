@@ -1,11 +1,10 @@
-/* Site-wide: round sharp panels, keep navy-copper. No palette rewrite. */
+/* Site-wide rounding. No sharp boxes. Circles stay circles. */
 :root {
   --surface-r: 12px;
   --surface-r-sm: 8px;
   --surface-edge: rgba(196, 165, 116, 0.22);
   --surface-hair: rgba(255, 255, 255, 0.08);
 }
-
 .km-card,
 .km-layer-nav,
 .abstract-panel,
@@ -61,50 +60,41 @@ article.card,
 section.card,
 .paper-card,
 .research-card,
-.research-hero-meta {
+.research-hero-meta,
+.ai-nvm-page article,
+.ai-nvm-page aside,
+.ai-nvm-page section,
+.ai-nvm-page .evidence-ladder,
+.ai-nvm-page .decision-grammar,
+.ai-nvm-page .state-contract-card,
+.ai-nvm-page .selection-matrix,
+.ai-nvm-page .node-transition,
+.ai-nvm-page .repair-programming-module,
+.ai-nvm-page .system-boundary-map,
+.ai-nvm-page .validation-cascade,
+.ai-nvm-page .paper-conclusion,
+.ai-nvm-page .read-domain-story,
+.ai-nvm-page .photonics-contract-v2,
+.ai-nvm-page .state-spectrum,
+.ai-nvm-page .sharepoint-extension {
   border-radius: var(--surface-r) !important;
-  border-color: var(--surface-edge) !important;
-  box-shadow:
-    inset 0 1px 0 var(--surface-hair),
-    0 8px 24px -16px rgba(0, 0, 0, 0.45);
 }
-
 .lens-badge,
 .rail-tag,
-.state-chip,
-.pulse-chip-mini,
-.hub-sec-badge,
-.hub-footer-badge,
-.lab-badge,
-.deck-slide-badge,
+.hero-metrics > *,
 .badge-win,
-.badge-lose,
-.km-card-tags span,
-.hero-metrics,
-.hero-metrics > * {
+.badge-lose {
   border-radius: var(--surface-r-sm) !important;
 }
-
-.hero-metrics,
-.metrics-row,
-.stat-row,
-.evidence-numbers,
-.metric-strip,
-.research-hero-meta {
-  border-radius: var(--surface-r) !important;
-  overflow: hidden;
-}
-
 a.button,
 .btn,
 .cta,
-.nav-cta,
-button.primary,
-.topic-pill,
 .language-toggle {
   border-radius: 999px !important;
 }
-
+.ai-nvm-page .evidence-ladder article > span {
+  border-radius: 50% !important;
+}
 header.site-header,
 nav.site-nav,
 .topbar,

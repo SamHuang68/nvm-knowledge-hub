@@ -19,9 +19,7 @@
       document.documentElement.lang = (target === "zh") ? "zh-Hant" : "en";
       document.documentElement.dataset.language = target;
       if (document.body) document.body.dataset.language = target;
-      if (persist) {
-        try { localStorage.setItem(STORAGE_KEY, target); } catch (e) {}
-      }
+      if (persist) { try { localStorage.setItem(STORAGE_KEY, target); } catch (e) {} }
       window.dispatchEvent(new CustomEvent("hub:language-change", { detail: { language: target } }));
     },
     toggle: function() {
@@ -56,7 +54,7 @@
 })();
 (function loadSurfaceRadius(){
   if (document.querySelector("link[data-surface-radius]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="surface-radius.css?v=20260908-r2";
+  var l=document.createElement("link"); l.rel="stylesheet"; l.href="surface-radius.css?v=20260908-r3";
   l.setAttribute("data-surface-radius","true"); document.head.appendChild(l);
 })();
 (function loadChapterLens(){
@@ -73,6 +71,6 @@
 (function loadAiNvmNode(){
   if (!/ai-nvm-opportunities\.html/i.test(location.pathname)) return;
   if (document.querySelector("link[data-ai-nvm-node]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="ai-nvm-node.css?v=20260908-n3";
+  var l=document.createElement("link"); l.rel="stylesheet"; l.href="ai-nvm-node.css?v=20260908-n4";
   l.setAttribute("data-ai-nvm-node","true"); document.head.appendChild(l);
 })();
