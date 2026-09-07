@@ -1,4 +1,4 @@
-/* AI page: seven-questions transparent; Decision Summary matches TARGET VALIDATION CASCADE bounds. */
+/* AI page: transparent questions; Decision Summary uses visual as ground, copy on left half. */
 .ai-nvm-page .decision-questions,
 .decision-questions {
   background: transparent !important;
@@ -10,29 +10,33 @@
   padding-right: 0 !important;
 }
 
-/* Same outer box as .validation-cascade: full width of the paper shell. */
 .ai-nvm-page .paper-conclusion.ai-conclusion,
 .paper-conclusion.ai-conclusion {
-  display: grid !important;
-  grid-template-columns: minmax(250px, .7fr) minmax(0, 1.3fr) !important;
-  align-items: stretch !important;
+  position: relative !important;
+  display: block !important;
   width: 100% !important;
   max-width: none !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
   padding: 0 !important;
+  min-height: 520px !important;
   box-sizing: border-box !important;
   overflow: hidden !important;
   border-radius: var(--ai-radius, 12px) !important;
+  background: var(--ai-midnight, #061925) !important;
 }
 
+/* Copy owns the left half. */
 .ai-nvm-page .conclusion-copy,
 .paper-conclusion.ai-conclusion .conclusion-copy {
-  width: auto !important;
-  max-width: none !important;
+  position: relative !important;
+  z-index: 2 !important;
+  width: 50% !important;
+  max-width: 50% !important;
   margin: 0 !important;
   padding: clamp(28px, 4vw, 48px) !important;
   box-sizing: border-box !important;
+  background: linear-gradient(90deg, rgba(6, 25, 37, .92) 0%, rgba(6, 25, 37, .78) 62%, rgba(6, 25, 37, 0) 100%) !important;
 }
 
 .ai-nvm-page .conclusion-copy > strong,
@@ -47,21 +51,24 @@
   font-size: clamp(1.4rem, 2.2vw, 2.15rem) !important;
 }
 
-/* Scale the figure down to fit. Never crop. */
+/* Visual is the ground layer. Scale to fit, no crop, sit on the right. */
 .ai-nvm-page .conclusion-visual,
 .paper-conclusion.ai-conclusion .conclusion-visual {
-  position: relative !important;
+  position: absolute !important;
+  inset: 0 0 0 42% !important;
+  z-index: 1 !important;
   display: flex !important;
-  flex-direction: column !important;
-  align-items: stretch !important;
+  align-items: center !important;
   justify-content: center !important;
   min-width: 0 !important;
   min-height: 0 !important;
   height: auto !important;
   margin: 0 !important;
-  padding: clamp(16px, 2vw, 28px) !important;
+  padding: clamp(12px, 1.6vw, 24px) !important;
   overflow: hidden !important;
   box-sizing: border-box !important;
+  border: 0 !important;
+  background: transparent !important;
 }
 
 .ai-nvm-page .conclusion-visual::after,
@@ -74,25 +81,33 @@
   position: static !important;
   inset: auto !important;
   width: 100% !important;
-  height: auto !important;
+  height: 100% !important;
   max-width: 100% !important;
-  max-height: min(520px, 70vh) !important;
+  max-height: 100% !important;
   object-fit: contain !important;
-  object-position: center !important;
+  object-position: center right !important;
 }
 
 .ai-nvm-page .conclusion-visual figcaption,
 .paper-conclusion.ai-conclusion .conclusion-visual figcaption {
-  position: static !important;
-  right: auto !important;
-  bottom: auto !important;
-  left: auto !important;
-  margin-top: 10px !important;
+  display: none !important;
 }
 
 @media (max-width: 900px) {
   .ai-nvm-page .paper-conclusion.ai-conclusion,
   .paper-conclusion.ai-conclusion {
-    grid-template-columns: 1fr !important;
+    min-height: 0 !important;
+  }
+  .ai-nvm-page .conclusion-copy,
+  .paper-conclusion.ai-conclusion .conclusion-copy {
+    width: 100% !important;
+    max-width: 100% !important;
+    background: rgba(6, 25, 37, .88) !important;
+  }
+  .ai-nvm-page .conclusion-visual,
+  .paper-conclusion.ai-conclusion .conclusion-visual {
+    position: relative !important;
+    inset: auto !important;
+    min-height: 240px !important;
   }
 }
