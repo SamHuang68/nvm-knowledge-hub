@@ -1,31 +1,35 @@
-/* Overlay rail: no frost. Content must remain readable under inactive items. */
-.studio-main-workbench {
+/* l5: AI-page overlay contract for every chapter rail.
+   Rail floats transparent over content. Copy uses the full workbench. */
+html body .studio-main-workbench {
   position: relative !important;
   max-width: none !important;
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
 }
-.studio-layout {
+html body .studio-layout {
   display: block !important;
   grid-template-columns: none !important;
   gap: 0 !important;
 }
-.lens-stage-container,
-.lens-stage-container .paper-shell,
-.lens-stage-container .ai-paper-shell {
+html body .lens-stage-container,
+html body .lens-stage-container .paper-shell,
+html body .lens-stage-container .ai-paper-shell {
   width: 100% !important;
   max-width: none !important;
   margin: 0 !important;
 }
-.lens-stage-container .paper-section,
-.lens-stage-container .lens-panel {
+html body .lens-stage-container .paper-section,
+html body .lens-stage-container .lens-panel {
   padding-left: clamp(28px, 4vw, 48px) !important;
   padding-right: clamp(28px, 4vw, 48px) !important;
 }
 
-.lens-vertical-rail,
-.ai-nvm-page .lens-vertical-rail {
+html body aside.lens-vertical-rail,
+html body .lens-vertical-rail,
+html body.specialty-page aside.lens-vertical-rail,
+html body.specialty-page .lens-vertical-rail,
+html body .ai-nvm-page .lens-vertical-rail {
   position: fixed !important;
   top: 88px !important;
   left: 16px !important;
@@ -44,26 +48,28 @@
   box-shadow: none !important;
   padding: 8px 6px !important;
 }
-.lens-vertical-rail .rail-header {
+html body .lens-vertical-rail .rail-header {
   margin-bottom: 6px !important;
   padding-bottom: 6px !important;
   border-bottom: 1px solid rgba(196, 165, 116, 0.18) !important;
   background: transparent !important;
 }
-.lens-vertical-rail .rail-title {
+html body .lens-vertical-rail .rail-title {
   opacity: 0.55 !important;
 }
-.lens-vertical-rail .rail-tag {
+html body .lens-vertical-rail .rail-tag {
   opacity: 0.4 !important;
   background: transparent !important;
   border-color: rgba(196, 165, 116, 0.25) !important;
 }
-.lens-vertical-rail .hub-nav-pills {
+html body .lens-vertical-rail .hub-nav-pills {
   gap: 2px !important;
   background: transparent !important;
 }
-.lens-vertical-rail .lens-node-item,
-.ai-nvm-page .lens-node-item {
+html body .lens-vertical-rail .lens-node-item,
+html body .lens-vertical-rail .nav-pill,
+html body.specialty-page .lens-vertical-rail .nav-pill,
+html body .ai-nvm-page .lens-node-item {
   min-height: 0 !important;
   padding: 5px 8px !important;
   border-radius: 8px !important;
@@ -73,36 +79,41 @@
   opacity: 0.22 !important;
   box-shadow: none !important;
 }
-.lens-vertical-rail .lens-node-item .lens-sub {
+html body .lens-vertical-rail .lens-node-item .lens-sub {
   display: none !important;
 }
-.lens-vertical-rail .lens-node-item:hover {
+html body .lens-vertical-rail .lens-node-item:hover,
+html body .lens-vertical-rail .nav-pill:hover {
   opacity: 0.55 !important;
   background: transparent !important;
+  background-color: transparent !important;
 }
-.lens-vertical-rail .lens-node-item.active,
-.ai-nvm-page .lens-node-item.active {
+html body .lens-vertical-rail .lens-node-item.active,
+html body .lens-vertical-rail .nav-pill.active,
+html body.specialty-page .lens-vertical-rail .nav-pill.active,
+html body .ai-nvm-page .lens-node-item.active {
   opacity: 1 !important;
   background: rgba(6, 25, 37, 0.18) !important;
   background-color: rgba(6, 25, 37, 0.18) !important;
   border-color: rgba(196, 165, 116, 0.45) !important;
   box-shadow: none !important;
 }
-.lens-vertical-rail .rail-footer {
+html body .lens-vertical-rail .rail-footer {
   display: none !important;
 }
-.lens-badge,
-.rail-tag {
+html body .lens-badge,
+html body .rail-tag {
   border-radius: 6px !important;
 }
-.lens-panel,
-.lens-stage-container .lens-panel,
-.lens-stage-container .paper-section {
+html body .lens-panel,
+html body .lens-stage-container .lens-panel,
+html body .lens-stage-container .paper-section {
   border-radius: 12px !important;
 }
 @media (max-width: 1024px) {
-  .lens-vertical-rail,
-  .ai-nvm-page .lens-vertical-rail {
+  html body aside.lens-vertical-rail,
+  html body .lens-vertical-rail,
+  html body.specialty-page aside.lens-vertical-rail {
     position: sticky !important;
     top: 56px !important;
     left: auto !important;
@@ -110,7 +121,7 @@
     max-width: none !important;
     margin: 8px 12px !important;
   }
-  .lens-vertical-rail .hub-nav-pills {
+  html body .lens-vertical-rail .hub-nav-pills {
     flex-direction: row !important;
   }
 }
