@@ -28,9 +28,6 @@
           localStorage.setItem(LEGACY_KEY_2, target);
         } catch (e) {}
       }
-      document.querySelectorAll(".language-toggle, #languageToggle").forEach(btn => {
-        btn.setAttribute("aria-label", target === "zh" ? "Switch to English" : "切換至繁體中文");
-      });
       window.dispatchEvent(new CustomEvent("hub:language-change", { detail: { language: target } }));
     },
     toggle: function() {
@@ -70,7 +67,7 @@
 })();
 (function loadChapterLens(){
   if (document.querySelector("link[data-chapter-lens]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="chapter-lens.css?v=20260908-l2";
+  var l=document.createElement("link"); l.rel="stylesheet"; l.href="chapter-lens.css?v=20260908-l3";
   l.setAttribute("data-chapter-lens","true"); document.head.appendChild(l);
 })();
 (function loadAiNvmTune(){

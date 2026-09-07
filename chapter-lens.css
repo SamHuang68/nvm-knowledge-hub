@@ -1,59 +1,88 @@
-/* Content uses the remaining page. Chapter Lens stays a slim glass rail. */
+/* Content is full-bleed. Chapter Lens overlays it as a compact glass chip. */
 .studio-main-workbench {
+  position: relative !important;
   max-width: none !important;
   width: 100% !important;
-  margin: 12px 0 32px !important;
-  padding-inline: clamp(12px, 2vw, 24px) !important;
-  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 .studio-layout {
-  grid-template-columns: 210px minmax(0, 1fr) !important;
-  gap: 16px !important;
+  display: block !important;
+  grid-template-columns: none !important;
+  gap: 0 !important;
 }
 .lens-stage-container,
 .lens-stage-container .paper-shell,
 .lens-stage-container .ai-paper-shell {
   width: 100% !important;
   max-width: none !important;
+  margin: 0 !important;
 }
+.lens-stage-container .paper-section,
+.lens-stage-container .lens-panel {
+  padding-left: clamp(28px, 4vw, 48px) !important;
+  padding-right: clamp(28px, 4vw, 48px) !important;
+}
+
 .lens-vertical-rail,
 .ai-nvm-page .lens-vertical-rail {
-  position: sticky !important;
-  top: 72px !important;
-  width: 210px !important;
-  max-width: 210px !important;
-  background: rgba(8, 24, 36, 0.38) !important;
-  background-color: rgba(8, 24, 36, 0.38) !important;
-  backdrop-filter: blur(18px) saturate(140%) !important;
-  -webkit-backdrop-filter: blur(18px) saturate(140%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  border-radius: 16px !important;
+  position: fixed !important;
+  top: 88px !important;
+  left: 16px !important;
+  z-index: 60 !important;
+  width: 196px !important;
+  max-width: 196px !important;
+  height: auto !important;
+  max-height: calc(100vh - 120px) !important;
+  overflow: auto !important;
+  align-self: start !important;
+  background: rgba(6, 25, 37, 0.28) !important;
+  background-color: rgba(6, 25, 37, 0.28) !important;
+  backdrop-filter: blur(14px) saturate(130%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(130%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 14px !important;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 16px 40px -24px rgba(0, 0, 0, 0.55) !important;
-  padding: 12px 10px !important;
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 10px 28px -18px rgba(0, 0, 0, 0.45) !important;
+  padding: 8px 8px 10px !important;
+  pointer-events: auto !important;
+}
+.lens-vertical-rail .rail-header {
+  margin-bottom: 6px !important;
+  padding-bottom: 6px !important;
+}
+.lens-vertical-rail .hub-nav-pills {
+  gap: 2px !important;
 }
 .lens-vertical-rail .lens-node-item,
 .ai-nvm-page .lens-node-item {
-  border-radius: 10px !important;
+  min-height: 0 !important;
+  padding: 5px 8px !important;
+  border-radius: 8px !important;
   background: transparent !important;
   background-color: transparent !important;
   border: 1px solid transparent !important;
-  opacity: 0.34 !important;
+  opacity: 0.28 !important;
   box-shadow: none !important;
 }
+.lens-vertical-rail .lens-node-item .lens-sub {
+  display: none !important;
+}
 .lens-vertical-rail .lens-node-item:hover {
-  opacity: 0.72 !important;
-  background: rgba(196, 165, 116, 0.08) !important;
-  border-color: rgba(196, 165, 116, 0.22) !important;
+  opacity: 0.7 !important;
+  background: rgba(196, 165, 116, 0.1) !important;
 }
 .lens-vertical-rail .lens-node-item.active,
 .ai-nvm-page .lens-node-item.active {
   opacity: 1 !important;
-  background: rgba(196, 165, 116, 0.16) !important;
-  background-color: rgba(196, 165, 116, 0.16) !important;
+  background: rgba(196, 165, 116, 0.2) !important;
+  background-color: rgba(196, 165, 116, 0.2) !important;
   border-color: rgba(196, 165, 116, 0.4) !important;
-  box-shadow: inset 2px 0 0 #c4a574 !important;
+  box-shadow: none !important;
+}
+.lens-vertical-rail .rail-footer {
+  display: none !important;
 }
 .lens-badge,
 .rail-tag {
@@ -65,12 +94,17 @@
   border-radius: 12px !important;
 }
 @media (max-width: 1024px) {
-  .studio-layout {
-    grid-template-columns: 1fr !important;
-  }
   .lens-vertical-rail,
   .ai-nvm-page .lens-vertical-rail {
-    width: 100% !important;
+    position: sticky !important;
+    top: 56px !important;
+    left: auto !important;
+    width: calc(100% - 24px) !important;
     max-width: none !important;
+    max-height: none !important;
+    margin: 8px 12px !important;
+  }
+  .lens-vertical-rail .hub-nav-pills {
+    flex-direction: row !important;
   }
 }
