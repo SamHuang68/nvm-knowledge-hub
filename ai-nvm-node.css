@@ -26,11 +26,8 @@ html[data-language="zh"] .ai-nvm-page [data-lang="en"] { display: none !importan
 }
 .ai-nvm-page .node-path-copy footer > b { display: block !important; color: #d4a574 !important; }
 .ai-nvm-page .node-path-copy footer > span { display: block !important; color: #c2d0d6 !important; font-size: 14px !important; }
-.ai-nvm-page .node-path-copy > p { font-size: 14px !important; }
 .ai-nvm-page .node-constraint-ledger > div > p { font-size: 14px !important; line-height: 1.55 !important; color: #c2d0d6 !important; }
-.ai-nvm-page .node-constraint-ledger > div > b { font-size: 12px !important; color: #d4a574 !important; }
 
-/* Title + 01-07 as body inside ONE panel */
 .ai-nvm-page .decision-questions {
   margin-top: 16px !important;
   padding: 18px 22px 14px !important;
@@ -45,14 +42,14 @@ html[data-language="zh"] .ai-nvm-page [data-lang="en"] { display: none !importan
 }
 .ai-nvm-page .decision-questions ol {
   display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 6px 28px !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: 6px 16px !important;
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
-  columns: auto !important;
 }
 .ai-nvm-page .decision-questions li {
+  grid-column: span 3 !important;
   display: grid !important;
   grid-template-columns: 28px minmax(0, 1fr) !important;
   align-items: baseline !important;
@@ -63,14 +60,13 @@ html[data-language="zh"] .ai-nvm-page [data-lang="en"] { display: none !importan
   background: none !important;
   border: 0 !important;
   box-shadow: none !important;
-  border-radius: 0 !important;
   list-style: none !important;
 }
-.ai-nvm-page .decision-questions li::before,
-.ai-nvm-page .decision-questions li::after {
-  display: none !important;
-  content: none !important;
+.ai-nvm-page .decision-questions li:nth-child(n + 5) {
+  grid-column: span 4 !important;
 }
+.ai-nvm-page .decision-questions li::before,
+.ai-nvm-page .decision-questions li::after { content: none !important; display: none !important; }
 .ai-nvm-page .decision-questions li > span:first-child {
   display: inline !important;
   color: #c4a574 !important;
@@ -85,4 +81,10 @@ html[data-language="zh"] .ai-nvm-page [data-lang="en"] { display: none !importan
   font-size: 14px !important;
   font-weight: 500 !important;
   line-height: 1.35 !important;
+}
+@media (max-width: 900px) {
+  .ai-nvm-page .decision-questions li,
+  .ai-nvm-page .decision-questions li:nth-child(n + 5) {
+    grid-column: span 6 !important;
+  }
 }
