@@ -1,4 +1,4 @@
-/* AI page only: drop seven-questions fill; give Decision Summary full width. */
+/* AI page: transparent questions; two-column Decision Summary aligned to page gutter. */
 .ai-nvm-page .decision-questions,
 .decision-questions {
   background: transparent !important;
@@ -10,33 +10,74 @@
   padding-right: 0 !important;
 }
 
-.ai-nvm-page .paper-conclusion,
-.paper-conclusion.ai-conclusion,
-.ai-nvm-page .paper-conclusion.ai-conclusion {
+/* Keep copy on the same left gutter as sibling sections.
+   Do not flush the whole card to 0 — that pulled copy left and clipped the figure. */
+.ai-nvm-page .paper-conclusion.ai-conclusion,
+.paper-conclusion.ai-conclusion {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.92fr) !important;
+  align-items: stretch !important;
   width: 100% !important;
-  max-width: 100% !important;
+  max-width: none !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  padding: 0 !important;
   box-sizing: border-box !important;
+  overflow: hidden !important;
 }
 
 .ai-nvm-page .conclusion-copy,
-.paper-conclusion .conclusion-copy {
-  width: 100% !important;
-  max-width: 100% !important;
+.paper-conclusion.ai-conclusion .conclusion-copy {
+  width: auto !important;
+  max-width: none !important;
   margin: 0 !important;
+  padding: clamp(28px, 3.2vw, 48px) clamp(22px, 2.4vw, 36px) !important;
+  padding-left: var(--ai-side, 24px) !important;
+  box-sizing: border-box !important;
 }
 
-.ai-nvm-page .conclusion-copy strong,
-.paper-conclusion .conclusion-copy strong {
+.ai-nvm-page .conclusion-copy > strong,
+.paper-conclusion.ai-conclusion .conclusion-copy strong {
   display: block !important;
-  width: 100% !important;
-  max-width: 100% !important;
+  width: auto !important;
+  max-width: 22ch !important;
   white-space: normal !important;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   word-break: normal;
-  line-height: 1.28 !important;
-  font-size: clamp(1.35rem, 2.1vw, 2rem) !important;
+  line-height: 1.22 !important;
+  font-size: clamp(1.35rem, 2vw, 2.05rem) !important;
+}
+
+.ai-nvm-page .conclusion-visual,
+.paper-conclusion.ai-conclusion .conclusion-visual {
+  min-width: 0 !important;
+  min-height: 520px !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+.ai-nvm-page .conclusion-visual img,
+.paper-conclusion.ai-conclusion .conclusion-visual img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 58% center !important;
+}
+
+@media (max-width: 1100px) {
+  .ai-nvm-page .paper-conclusion.ai-conclusion,
+  .paper-conclusion.ai-conclusion {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.88fr) !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .ai-nvm-page .paper-conclusion.ai-conclusion,
+  .paper-conclusion.ai-conclusion {
+    grid-template-columns: 1fr !important;
+  }
+  .ai-nvm-page .conclusion-visual,
+  .paper-conclusion.ai-conclusion .conclusion-visual {
+    min-height: 280px !important;
+  }
 }
