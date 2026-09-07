@@ -1,5 +1,41 @@
-/* 06 Advanced-Node type scale. Body copy is not 9px mono. */
+/* Shared keep-out for AI page modules. */
+.ai-nvm-page .state-contract-card,
+.ai-nvm-page .node-path,
+.ai-nvm-page .repair-programming-module {
+  box-sizing: border-box !important;
+}
+
+/* STATE CONTRACT: readable type, not 10px labels. */
+.ai-nvm-page .state-contract-card {
+  padding: clamp(28px, 4vw, 48px) !important;
+}
+.ai-nvm-page .state-contract-card > small {
+  font-size: 12px !important;
+  letter-spacing: .1em !important;
+}
+.ai-nvm-page .state-contract-card li span {
+  font-size: 12px !important;
+}
+.ai-nvm-page .state-contract-card li b {
+  font-size: 18px !important;
+  font-weight: 560 !important;
+  line-height: 1.45 !important;
+}
+
+/* PUBLIC EXAMPLE footers: full cell width, keep-out only. */
+.ai-nvm-page .node-path {
+  padding: clamp(28px, 4vw, 48px) !important;
+}
+.ai-nvm-page .node-path-copy {
+  width: 100% !important;
+  max-width: none !important;
+}
 .ai-nvm-page .node-path-copy footer {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 16px 0 0 !important;
   font-family: inherit !important;
   font-size: 15px !important;
   font-weight: 400 !important;
@@ -8,6 +44,7 @@
 }
 .ai-nvm-page .node-path-copy footer b {
   display: block !important;
+  width: 100% !important;
   font-family: "IBM Plex Mono", Consolas, monospace !important;
   font-size: 13px !important;
   font-weight: 700 !important;
@@ -17,6 +54,8 @@
   white-space: normal !important;
 }
 .ai-nvm-page .node-path-copy footer span {
+  display: block !important;
+  width: 100% !important;
   font-family: inherit !important;
   font-size: 15px !important;
   font-weight: 500 !important;
@@ -27,6 +66,10 @@
 html[data-language="en"] .ai-nvm-page .node-path-copy footer [data-lang="zh"],
 html[data-language="zh"] .ai-nvm-page .node-path-copy footer [data-lang="en"] {
   display: none !important;
+}
+
+.ai-nvm-page .node-constraint-ledger > div {
+  padding: clamp(28px, 4vw, 48px) !important;
 }
 .ai-nvm-page .node-constraint-ledger span {
   font-family: "IBM Plex Mono", Consolas, monospace !important;
@@ -53,16 +96,26 @@ html[data-language="zh"] .ai-nvm-page .node-constraint-ledger [data-lang="en"] {
   display: none !important;
 }
 
-/* Persistence row must share the 4-column card grid. Label is its own row. */
+/* REPAIR PROGRAMMING: same keep-out as other modules, not 56px island. */
+.ai-nvm-page .repair-programming-module {
+  padding: clamp(28px, 4vw, 48px) !important;
+}
+.ai-nvm-page .repair-programming-head {
+  max-width: none !important;
+}
+.ai-nvm-page .repair-programming-lede {
+  max-width: 72ch !important;
+}
+
+/* Persistence row stays 4-col under the cards. */
 .ai-nvm-page .selection-retention {
   display: grid !important;
   grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  align-items: stretch !important;
 }
 .ai-nvm-page .selection-retention > span {
   grid-column: 1 / -1 !important;
-  justify-items: start !important;
   text-align: left !important;
+  justify-items: start !important;
   padding: 10px 16px 4px !important;
 }
 .ai-nvm-page .selection-retention > b {
@@ -70,23 +123,4 @@ html[data-language="zh"] .ai-nvm-page .node-constraint-ledger [data-lang="en"] {
   place-items: center !important;
   text-align: center !important;
   padding: 8px 12px 12px !important;
-  border-right: 1px solid var(--ai-line, rgba(9, 34, 53, .15)) !important;
-}
-.ai-nvm-page .selection-retention > b:last-child {
-  border-right: 0 !important;
-}
-@media (max-width: 1180px) {
-  .ai-nvm-page .selection-retention {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-@media (max-width: 620px) {
-  .ai-nvm-page .selection-retention {
-    grid-template-columns: 1fr !important;
-  }
-  .ai-nvm-page .selection-retention > b {
-    text-align: left !important;
-    place-items: start !important;
-    padding-left: 16px !important;
-  }
 }
