@@ -1,4 +1,4 @@
-/* Titles must read on dark navy. Ink-on-paper colors are invisible here. */
+/* Titles on dark */
 .ai-nvm-page .paper-heading h2,
 .ai-nvm-page .compact-heading h2,
 .ai-nvm-page .repair-programming-head h3,
@@ -17,66 +17,44 @@
 .ai-nvm-page .lens-panel h2 em {
   color: #d4a574 !important;
 }
-.ai-nvm-page .paper-kicker {
-  color: #c4a574 !important;
-}
+.ai-nvm-page .paper-kicker { color: #c4a574 !important; }
 .ai-nvm-page .paper-heading > p,
-.ai-nvm-page .compact-heading > p {
-  color: #c9d6dc !important;
-}
+.ai-nvm-page .compact-heading > p { color: #c9d6dc !important; }
 
-/* 01 Executive Thesis: shorter stack */
-.ai-nvm-page .ai-thesis-grid {
-  gap: 14px !important;
-  align-items: start !important;
-}
-.ai-nvm-page .compact-heading h2 {
-  margin-top: 4px !important;
-  font-size: clamp(22px, 2.2vw, 30px) !important;
-  line-height: 1.15 !important;
-}
-.ai-nvm-page .compact-heading > p {
-  margin-top: 8px !important;
-  font-size: 15px !important;
-  line-height: 1.45 !important;
-}
+.ai-nvm-page .ai-thesis-grid { gap: 14px !important; align-items: start !important; }
+.ai-nvm-page .compact-heading h2 { margin-top: 4px !important; font-size: clamp(22px, 2.2vw, 30px) !important; line-height: 1.15 !important; }
+.ai-nvm-page .compact-heading > p { margin-top: 8px !important; font-size: 15px !important; }
 .ai-nvm-page #overview.paper-section,
-.ai-nvm-page #overview.lens-panel {
-  padding-top: 16px !important;
-  padding-bottom: 16px !important;
-}
-.ai-nvm-page .paper-heading {
-  margin-bottom: 10px !important;
-}
-.ai-nvm-page .state-contract-card {
-  padding: 16px 20px !important;
-}
-.ai-nvm-page .state-contract-card > small { font-size: 12px !important; color: #c4a574 !important; }
+.ai-nvm-page #overview.lens-panel { padding-top: 16px !important; padding-bottom: 16px !important; }
+.ai-nvm-page .state-contract-card { padding: 16px 20px !important; }
 .ai-nvm-page .state-contract-card li { padding: 8px 0 !important; }
-.ai-nvm-page .state-contract-card li b { font-size: 16px !important; line-height: 1.35 !important; color: #f3ebe0 !important; }
+.ai-nvm-page .state-contract-card li b { font-size: 16px !important; color: #f3ebe0 !important; }
 
-.ai-nvm-page .evidence-ladder {
-  position: relative !important;
-  margin-top: 16px !important;
-  padding-top: 48px !important;
-  overflow: hidden !important;
-  border-radius: 12px !important;
-}
-.ai-nvm-page .evidence-ladder::before {
-  height: 36px !important;
-  padding: 10px 18px 0 !important;
-}
-.ai-nvm-page .evidence-ladder article {
-  min-height: 0 !important;
-  padding-top: 36px !important;
-}
-.ai-nvm-page .evidence-ladder article > span {
-  margin-top: 0 !important;
-  border-radius: 50% !important;
-}
-.ai-nvm-page .node-path { padding: clamp(28px, 4vw, 48px) !important; }
-.ai-nvm-page .repair-programming-module { padding: clamp(28px, 4vw, 48px) !important; }
-.ai-nvm-page .repair-programming-head { max-width: none !important; }
+.ai-nvm-page .evidence-ladder { position: relative !important; margin-top: 16px !important; padding-top: 48px !important; border-radius: 12px !important; }
+.ai-nvm-page .evidence-ladder article > span { margin-top: 0 !important; border-radius: 50% !important; }
 .ai-nvm-page .selection-retention { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
-.ai-nvm-page .selection-retention > span { grid-column: 1 / -1 !important; text-align: left !important; }
+.ai-nvm-page .selection-retention > span { grid-column: 1 / -1 !important; }
 .ai-nvm-page .selection-retention > b { display: grid !important; place-items: center !important; }
+
+/* Inner labeled chips: no box. Keep type, drop frame. */
+.ai-nvm-page .map-path span,
+.ai-nvm-page .map-path.optical span,
+.ai-nvm-page .map-core span,
+.ai-nvm-page .map-core em,
+.ai-nvm-page .map-core > div,
+.ai-nvm-page .map-art-badge,
+.ai-nvm-page .read-domain-badge,
+.ai-nvm-page .core-domain > div,
+.ai-nvm-page .program-domain,
+.ai-nvm-page .state-domain,
+.ai-nvm-page .node-path-copy footer,
+.ai-nvm-page .map-planes article {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+.ai-nvm-page .map-path span {
+  min-height: 0 !important;
+  padding: 2px 0 !important;
+}
