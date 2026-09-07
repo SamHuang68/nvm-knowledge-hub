@@ -21,49 +21,36 @@
 .ai-nvm-page .selection-retention > span { grid-column: 1 / -1 !important; }
 .ai-nvm-page .selection-retention > b { display: grid !important; place-items: center !important; }
 
-/* 06 node paths: fill column to keep-out. Footer is a full-width stack, not a 1/3 chip. */
+/* Read-domain copy sits on light paper. Never use cream titles here. */
+.ai-nvm-page .read-domain-copy h3,
+.ai-nvm-page .read-domain-copy h3 span,
+.ai-nvm-page .read-domain-copy h3 em {
+  color: #071824 !important;
+}
+.ai-nvm-page .read-domain-copy h3 em {
+  color: #6e4318 !important;
+}
+.ai-nvm-page .read-domain-lede,
+.ai-nvm-page .read-domain-copy > p {
+  color: #2c4450 !important;
+}
+.ai-nvm-page .read-benefits article b {
+  color: #092235 !important;
+}
+.ai-nvm-page .read-benefits article p {
+  color: #3d5560 !important;
+}
+
 .ai-nvm-page .node-transition,
-.ai-nvm-page .node-paths {
-  width: 100% !important;
-  max-width: none !important;
-}
-.ai-nvm-page .node-path {
-  width: 100% !important;
-  min-width: 0 !important;
-  padding: 24px clamp(16px, 2vw, 24px) 20px !important;
-  box-sizing: border-box !important;
-}
-.ai-nvm-page .node-path-copy {
-  display: flex !important;
-  flex-direction: column !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: none !important;
-}
-.ai-nvm-page .node-path-copy > p {
-  max-width: none !important;
-}
+.ai-nvm-page .node-paths { width: 100% !important; max-width: none !important; }
+.ai-nvm-page .node-path { width: 100% !important; padding: 24px clamp(16px, 2vw, 24px) 20px !important; }
+.ai-nvm-page .node-path-copy { width: 100% !important; max-width: none !important; }
 .ai-nvm-page .node-path-copy footer {
   display: block !important;
   width: 100% !important;
   max-width: none !important;
-  margin: auto 0 0 !important;
-  padding: 16px 0 0 !important;
-  box-sizing: border-box !important;
   font-family: inherit !important;
   font-size: 14px !important;
-  font-weight: 500 !important;
   letter-spacing: 0 !important;
-  line-height: 1.45 !important;
-  white-space: normal !important;
 }
-.ai-nvm-page .node-path-copy footer b {
-  display: block !important;
-  margin-bottom: 4px !important;
-  font-size: 12px !important;
-  letter-spacing: .08em !important;
-}
-.ai-nvm-page .node-path-copy footer span {
-  display: block !important;
-  max-width: none !important;
-}
+.ai-nvm-page .node-path-copy footer b { display: block !important; font-size: 12px !important; letter-spacing: .08em !important; }
