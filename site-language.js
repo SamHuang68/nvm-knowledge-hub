@@ -41,11 +41,24 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initDOM);
   else initDOM();
 })();
+function appendHeadLink(attr, href) {
+  if (document.querySelector("link[" + attr + "]")) return;
+  var l = document.createElement("link");
+  l.rel = "stylesheet";
+  l.href = href;
+  l.setAttribute(attr.split("=")[0].replace(/data-/, "data-").replace(/\[|\]/g, "").replace(/"/g, ""), "true");
+  /* attr example: data-chapter-lens */
+  document.head.appendChild(l);
+}
 (function loadPhysicsContrast(){
   if (!/memory-physics\.html/i.test(location.pathname)) return;
-  if (document.querySelector("link[data-physics-contrast]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="memory-physics-contrast.css?v=20260907-f1";
-  l.setAttribute("data-physics-contrast","true"); document.head.appendChild(l);
+  function go() {
+    if (document.querySelector("link[data-physics-contrast]")) return;
+    var l=document.createElement("link"); l.rel="stylesheet"; l.href="memory-physics-contrast.css?v=20260907-f1";
+    l.setAttribute("data-physics-contrast","true"); document.head.appendChild(l);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+  else go();
 })();
 (function loadF1CardAlign(){
   if (document.querySelector("script[data-f1-align]")) return;
@@ -53,24 +66,40 @@
   s.setAttribute("data-f1-align","true"); document.head.appendChild(s);
 })();
 (function loadSurfaceRadius(){
-  if (document.querySelector("link[data-surface-radius]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="surface-radius.css?v=20260908-r3";
-  l.setAttribute("data-surface-radius","true"); document.head.appendChild(l);
+  function go() {
+    if (document.querySelector("link[data-surface-radius]")) return;
+    var l=document.createElement("link"); l.rel="stylesheet"; l.href="surface-radius.css?v=20260908-r3";
+    l.setAttribute("data-surface-radius","true"); document.head.appendChild(l);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+  else go();
 })();
 (function loadChapterLens(){
-  if (document.querySelector("link[data-chapter-lens]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="chapter-lens.css?v=20260908-l4";
-  l.setAttribute("data-chapter-lens","true"); document.head.appendChild(l);
+  function go() {
+    if (document.querySelector("link[data-chapter-lens]")) return;
+    var l=document.createElement("link"); l.rel="stylesheet"; l.href="chapter-lens.css?v=20260908-l5";
+    l.setAttribute("data-chapter-lens","true"); document.head.appendChild(l);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+  else go();
 })();
 (function loadAiNvmNode(){
   if (!/ai-nvm-opportunities\.html/i.test(location.pathname)) return;
-  if (document.querySelector("link[data-ai-nvm-node]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="ai-nvm-node.css?v=20260908-n30";
-  l.setAttribute("data-ai-nvm-node","true"); document.head.appendChild(l);
+  function go() {
+    if (document.querySelector("link[data-ai-nvm-node]")) return;
+    var l=document.createElement("link"); l.rel="stylesheet"; l.href="ai-nvm-node.css?v=20260908-n30";
+    l.setAttribute("data-ai-nvm-node","true"); document.head.appendChild(l);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+  else go();
 })();
 (function loadAiNvmTune(){
   if (!/ai-nvm-opportunities\.html/i.test(location.pathname)) return;
-  if (document.querySelector("link[data-ai-nvm-tune]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="ai-nvm-tune.css?v=20260908-n31";
-  l.setAttribute("data-ai-nvm-tune","true"); document.head.appendChild(l);
+  function go() {
+    if (document.querySelector("link[data-ai-nvm-tune]")) return;
+    var l=document.createElement("link"); l.rel="stylesheet"; l.href="ai-nvm-tune.css?v=20260908-n31";
+    l.setAttribute("data-ai-nvm-tune","true"); document.head.appendChild(l);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go);
+  else go();
 })();
