@@ -1,11 +1,9 @@
-// site-language.js · English first
+// site-language.js
 (function() {
   const STORAGE_KEY = "nvm-hub-language";
-  const LEGACY_KEY_1 = "nvm-language";
-  const LEGACY_KEY_2 = "hub-lang";
   function resolveSavedLanguage() {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_KEY_1) || localStorage.getItem(LEGACY_KEY_2);
+      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem("nvm-language") || localStorage.getItem("hub-lang");
       return (saved === "zh") ? "zh" : "en";
     } catch (e) { return "en"; }
   }
@@ -22,11 +20,7 @@
       document.documentElement.dataset.language = target;
       if (document.body) document.body.dataset.language = target;
       if (persist) {
-        try {
-          localStorage.setItem(STORAGE_KEY, target);
-          localStorage.setItem(LEGACY_KEY_1, target);
-          localStorage.setItem(LEGACY_KEY_2, target);
-        } catch (e) {}
+        try { localStorage.setItem(STORAGE_KEY, target); } catch (e) {}
       }
       window.dispatchEvent(new CustomEvent("hub:language-change", { detail: { language: target } }));
     },
@@ -67,7 +61,7 @@
 })();
 (function loadChapterLens(){
   if (document.querySelector("link[data-chapter-lens]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="chapter-lens.css?v=20260908-l3";
+  var l=document.createElement("link"); l.rel="stylesheet"; l.href="chapter-lens.css?v=20260908-l4";
   l.setAttribute("data-chapter-lens","true"); document.head.appendChild(l);
 })();
 (function loadAiNvmTune(){
