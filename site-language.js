@@ -71,6 +71,6 @@
 (function loadAiNvmNode(){
   if (!/ai-nvm-opportunities\.html/i.test(location.pathname)) return;
   if (document.querySelector("link[data-ai-nvm-node]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="ai-nvm-node.css?v=20260908-n4";
+  var l=document.createElement("link"); l.rel="stylesheet"; l.href="ai-nvm-node.css?v=20260908-n5";
   l.setAttribute("data-ai-nvm-node","true"); document.head.appendChild(l);
 })();
