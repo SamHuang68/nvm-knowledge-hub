@@ -1,4 +1,4 @@
-/* Carry-forward title contrast + compact thesis */
+/* Section titles on dark shells */
 .ai-nvm-page .paper-heading h2,
 .ai-nvm-page .compact-heading h2,
 .ai-nvm-page .repair-programming-head h3,
@@ -10,37 +10,37 @@
 }
 .ai-nvm-page .paper-heading h2 em,
 .ai-nvm-page .compact-heading h2 em,
-.ai-nvm-page .repair-programming-head h3 em,
-.ai-nvm-page .read-domain-copy h3 em,
 .ai-nvm-page .paper-section h2 em {
   color: #d4a574 !important;
 }
 .ai-nvm-page .paper-kicker { color: #c4a574 !important; }
 .ai-nvm-page .compact-heading h2 { margin-top: 4px !important; font-size: clamp(22px, 2.2vw, 30px) !important; }
 .ai-nvm-page .compact-heading > p { margin-top: 8px !important; }
-.ai-nvm-page #overview.paper-section { padding-top: 16px !important; padding-bottom: 16px !important; }
 
+/* State lanes are light paper. Titles must be ink, never cream. */
 .ai-nvm-page .state-lane h3,
 .ai-nvm-page .state-spectrum h3 {
-  color: #fff4e6 !important;
+  color: #092235 !important;
+  background: none !important;
   font-weight: 650 !important;
 }
+.ai-nvm-page .state-lane p {
+  color: #3d5560 !important;
+}
 .ai-nvm-page .state-lane small,
-.ai-nvm-page .state-lane > b { color: #d4a574 !important; }
+.ai-nvm-page .state-lane > b {
+  color: #8a5525 !important;
+}
 
-.ai-nvm-page .decision-questions,
-.decision-questions {
+.ai-nvm-page .decision-questions {
   background: transparent !important;
   border: 0 !important;
-  box-shadow: none !important;
   padding: 8px 0 !important;
-  margin-top: 10px !important;
 }
 .ai-nvm-page .decision-questions ol {
   display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   gap: 6px 32px !important;
-  margin: 10px 0 0 !important;
 }
 .ai-nvm-page .decision-questions li {
   display: flex !important;
@@ -51,31 +51,16 @@
   padding: 6px 0 !important;
   background: transparent !important;
   border: 0 !important;
-  box-shadow: none !important;
 }
-.ai-nvm-page .decision-questions li > span:first-child {
-  background: none !important;
-  border: 0 !important;
-  padding: 0 !important;
-  color: #c4a574 !important;
-}
-.ai-nvm-page .decision-questions li b {
-  font-size: 15px !important;
-  color: #f3ebe0 !important;
-}
+.ai-nvm-page .decision-questions li b { color: #f3ebe0 !important; font-size: 15px !important; }
 @media (min-width: 1200px) {
   .ai-nvm-page .decision-questions ol { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
-  .ai-nvm-page .decision-questions li:nth-child(7) { grid-column: 1 / span 1 !important; }
 }
 
-/* Opportunity Map: restore paper field. Site-shell navy must not win here. */
-.ai-nvm-page #opportunities .opportunity-list,
 .ai-nvm-page .opportunity-list {
   background: #f3f7f8 !important;
   border-radius: 12px !important;
-  overflow: hidden !important;
 }
-.ai-nvm-page #opportunities .opportunity-record,
 .ai-nvm-page .opportunity-record {
   background: rgba(255, 254, 250, .96) !important;
   color: #092235 !important;
@@ -84,27 +69,12 @@
   background: rgba(241, 238, 231, .96) !important;
 }
 .ai-nvm-page .opportunity-record h3,
-.ai-nvm-page .record-copy h3 {
-  color: #092235 !important;
-}
-.ai-nvm-page .record-copy p,
-.ai-nvm-page .record-fit span,
-.ai-nvm-page .record-fit em {
-  color: #3d5560 !important;
-}
-.ai-nvm-page .record-fit b,
-.ai-nvm-page .record-index span,
-.ai-nvm-page .tier-tag.case {
-  color: #8a5525 !important;
-  background: transparent !important;
-}
+.ai-nvm-page .record-copy h3 { color: #092235 !important; }
+.ai-nvm-page .record-copy p { color: #3d5560 !important; }
 .ai-nvm-page .map-path span,
-.ai-nvm-page .map-core span,
-.ai-nvm-page .read-domain-badge,
 .ai-nvm-page .state-domain {
   border: 0 !important;
   background: transparent !important;
-  box-shadow: none !important;
 }
 .ai-nvm-page .selection-retention {
   display: grid !important;
