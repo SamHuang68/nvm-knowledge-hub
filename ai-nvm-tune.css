@@ -10,6 +10,54 @@
   padding-right: 0 !important;
 }
 
+/* Number badge only — do not style bilingual spans inside the title. */
+.ai-nvm-page .decision-questions li > span:first-child {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 3px 10px !important;
+  margin-bottom: 12px !important;
+  color: var(--ai-copper) !important;
+  background: rgba(199, 138, 75, .15) !important;
+  border: 1px solid rgba(199, 138, 75, .35) !important;
+  border-radius: 4px !important;
+  font-family: "IBM Plex Mono", Consolas, monospace !important;
+  font-size: 13px !important;
+  font-weight: 750 !important;
+}
+
+.ai-nvm-page .decision-questions li b,
+.ai-nvm-page .decision-questions li b span,
+.ai-nvm-page .decision-questions li [data-lang] {
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  color: var(--ai-white, #e8eef2) !important;
+  font-family: inherit !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  letter-spacing: .01em !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+}
+
+@media (min-width: 1200px) {
+  .ai-nvm-page .decision-questions ol {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+  .ai-nvm-page .decision-questions li:nth-child(7) {
+    grid-column: 1 / span 1 !important;
+  }
+}
+
 .ai-nvm-page .paper-conclusion.ai-conclusion,
 .paper-conclusion.ai-conclusion {
   position: relative !important;
@@ -26,7 +74,6 @@
   background: var(--ai-midnight, #061925) !important;
 }
 
-/* Copy owns the left half. */
 .ai-nvm-page .conclusion-copy,
 .paper-conclusion.ai-conclusion .conclusion-copy {
   position: relative !important;
@@ -51,7 +98,6 @@
   font-size: clamp(1.4rem, 2.2vw, 2.15rem) !important;
 }
 
-/* Visual is the ground layer. Scale to fit, no crop, sit on the right. */
 .ai-nvm-page .conclusion-visual,
 .paper-conclusion.ai-conclusion .conclusion-visual {
   position: absolute !important;
