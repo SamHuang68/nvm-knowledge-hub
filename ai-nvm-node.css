@@ -6,52 +6,37 @@
 }
 .ai-nvm-page .paper-kicker { color: #c4a574 !important; }
 .ai-nvm-page .compact-heading h2 { font-size: clamp(22px, 2.2vw, 30px) !important; }
-.ai-nvm-page .state-lane h3,
-.ai-nvm-page .state-spectrum h3 {
-  color: #092235 !important;
-  background: none !important;
-  font-weight: 650 !important;
-}
-.ai-nvm-page .state-lane p { color: #3d5560 !important; }
+.ai-nvm-page .state-lane h3 { color: #092235 !important; background: none !important; }
 .ai-nvm-page .decision-questions { background: transparent !important; border: 0 !important; padding: 8px 0 !important; }
-.ai-nvm-page .decision-questions li { background: transparent !important; border: 0 !important; min-height: 0 !important; padding: 6px 0 !important; }
+.ai-nvm-page .decision-questions li { background: transparent !important; border: 0 !important; min-height: 0 !important; }
 .ai-nvm-page .opportunity-record { background: rgba(255, 254, 250, .96) !important; color: #092235 !important; }
 .ai-nvm-page .opportunity-record h3 { color: #092235 !important; }
 .ai-nvm-page .selection-retention { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
-.ai-nvm-page .selection-retention > span { grid-column: 1 / -1 !important; }
-.ai-nvm-page .selection-retention > b { display: grid !important; place-items: center !important; }
-
 .ai-nvm-page .read-domain-copy h3,
-.ai-nvm-page .read-domain-copy h3 span {
-  color: #071824 !important;
-}
-.ai-nvm-page .read-domain-copy h3 em { color: #6e4318 !important; }
+.ai-nvm-page .read-domain-copy h3 span { color: #071824 !important; }
 .ai-nvm-page .read-domain-lede { color: #2c4450 !important; }
-.ai-nvm-page .read-benefits article b { color: #092235 !important; }
-.ai-nvm-page .read-benefits article p { color: #3d5560 !important; }
-
-/* Assurance planes sit on light paper */
 .ai-nvm-page .assurance-planes article h3,
-.ai-nvm-page .assurance-planes article h3 span,
-.ai-nvm-page .abstraction-verdict strong,
-.ai-nvm-page .abstraction-verdict strong span {
+.ai-nvm-page .assurance-planes article h3 span { color: #071824 !important; }
+.ai-nvm-page .assurance-planes article p { color: #2c4450 !important; }
+
+.ai-nvm-page .abstraction-verdict {
+  background: #f4f1ea !important;
   color: #071824 !important;
+  border-left: 3px solid #c4a574 !important;
 }
-.ai-nvm-page .assurance-planes article p,
-.ai-nvm-page .abstraction-verdict p {
-  color: #2c4450 !important;
-}
-.ai-nvm-page .assurance-planes article small {
+.ai-nvm-page .abstraction-verdict > small {
   color: #8a5525 !important;
 }
-
-.ai-nvm-page .node-transition,
-.ai-nvm-page .node-paths { width: 100% !important; max-width: none !important; }
-.ai-nvm-page .node-path { width: 100% !important; padding: 24px clamp(16px, 2vw, 24px) 20px !important; }
-.ai-nvm-page .node-path-copy footer {
-  display: block !important;
-  width: 100% !important;
-  font-family: inherit !important;
-  font-size: 14px !important;
-  letter-spacing: 0 !important;
+.ai-nvm-page .abstraction-verdict > strong,
+.ai-nvm-page .abstraction-verdict > strong span {
+  color: #071824 !important;
 }
+.ai-nvm-page .abstraction-verdict > p,
+.ai-nvm-page .abstraction-verdict > p span {
+  color: #2c4450 !important;
+}
+
+.ai-nvm-page .node-path { width: 100% !important; padding: 24px clamp(16px, 2vw, 24px) 20px !important; }
+.ai-nvm-page .node-path-copy footer { display: block !important; width: 100% !important; font-family: inherit !important; font-size: 14px !important; letter-spacing: 0 !important; }
+.ai-nvm-page .selection-retention > span { grid-column: 1 / -1 !important; }
+.ai-nvm-page .selection-retention > b { display: grid !important; place-items: center !important; }
