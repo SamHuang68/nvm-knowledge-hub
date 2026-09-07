@@ -1,6 +1,4 @@
-// site-language.js · Top-Level Global Single Source of Truth for Language
-// Default Language: English ("en")
-
+// site-language.js · English first
 (function() {
   const STORAGE_KEY = "nvm-hub-language";
   const LEGACY_KEY_1 = "nvm-language";
@@ -32,12 +30,6 @@
       }
       document.querySelectorAll(".language-toggle, #languageToggle").forEach(btn => {
         btn.setAttribute("aria-label", target === "zh" ? "Switch to English" : "切換至繁體中文");
-        const zhOpt = btn.querySelector('[data-lang-option="zh"]');
-        const enOpt = btn.querySelector('[data-lang-option="en"]');
-        if (zhOpt && enOpt) {
-          zhOpt.style.color = (target === "zh") ? "#c4a574" : "#8ea9b3";
-          enOpt.style.color = (target === "en") ? "#c4a574" : "#8ea9b3";
-        }
       });
       window.dispatchEvent(new CustomEvent("hub:language-change", { detail: { language: target } }));
     },
@@ -60,12 +52,10 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initDOM);
   else initDOM();
 })();
-
 (function loadPhysicsContrast(){
   if (!/memory-physics\.html/i.test(location.pathname)) return;
   if (document.querySelector("link[data-physics-contrast]")) return;
-  var l=document.createElement("link");
-  l.rel="stylesheet"; l.href="memory-physics-contrast.css?v=20260907-f1";
+  var l=document.createElement("link"); l.rel="stylesheet"; l.href="memory-physics-contrast.css?v=20260907-f1";
   l.setAttribute("data-physics-contrast","true"); document.head.appendChild(l);
 })();
 (function loadF1CardAlign(){
@@ -75,8 +65,13 @@
 })();
 (function loadSurfaceRadius(){
   if (document.querySelector("link[data-surface-radius]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="surface-radius.css?v=20260908-r1";
+  var l=document.createElement("link"); l.rel="stylesheet"; l.href="surface-radius.css?v=20260908-r2";
   l.setAttribute("data-surface-radius","true"); document.head.appendChild(l);
+})();
+(function loadChapterLens(){
+  if (document.querySelector("link[data-chapter-lens]")) return;
+  var l=document.createElement("link"); l.rel="stylesheet"; l.href="chapter-lens.css?v=20260908-l1";
+  l.setAttribute("data-chapter-lens","true"); document.head.appendChild(l);
 })();
 (function loadAiNvmTune(){
   if (!/ai-nvm-opportunities\.html/i.test(location.pathname)) return;
