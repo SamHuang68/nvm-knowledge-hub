@@ -70,7 +70,7 @@
 })();
 (function loadChapterLens(){
   if (document.querySelector("link[data-chapter-lens]")) return;
-  var l=document.createElement("link"); l.rel="stylesheet"; l.href="chapter-lens.css?v=20260908-l1";
+  var l=document.createElement("link"); l.rel="stylesheet"; l.href="chapter-lens.css?v=20260908-l2";
   l.setAttribute("data-chapter-lens","true"); document.head.appendChild(l);
 })();
 (function loadAiNvmTune(){

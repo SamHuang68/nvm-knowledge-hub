@@ -1,19 +1,27 @@
-/* Chapter Lens: glass float, active visible, others faint, rounded, full stage. */
+/* Content uses the remaining page. Chapter Lens stays a slim glass rail. */
 .studio-main-workbench {
   max-width: none !important;
   width: 100% !important;
   margin: 12px 0 32px !important;
-  padding-inline: clamp(22px, 5.5vw, 84px) !important;
+  padding-inline: clamp(12px, 2vw, 24px) !important;
   box-sizing: border-box !important;
 }
 .studio-layout {
-  grid-template-columns: 228px minmax(0, 1fr) !important;
-  gap: 18px !important;
+  grid-template-columns: 210px minmax(0, 1fr) !important;
+  gap: 16px !important;
+}
+.lens-stage-container,
+.lens-stage-container .paper-shell,
+.lens-stage-container .ai-paper-shell {
+  width: 100% !important;
+  max-width: none !important;
 }
 .lens-vertical-rail,
 .ai-nvm-page .lens-vertical-rail {
   position: sticky !important;
   top: 72px !important;
+  width: 210px !important;
+  max-width: 210px !important;
   background: rgba(8, 24, 36, 0.38) !important;
   background-color: rgba(8, 24, 36, 0.38) !important;
   backdrop-filter: blur(18px) saturate(140%) !important;
@@ -33,12 +41,6 @@
   border: 1px solid transparent !important;
   opacity: 0.34 !important;
   box-shadow: none !important;
-  color: #d7e4e8 !important;
-}
-.lens-vertical-rail .lens-node-item .lens-name,
-.lens-vertical-rail .lens-node-item .lens-sub,
-.lens-vertical-rail .lens-node-item .lens-badge {
-  opacity: inherit;
 }
 .lens-vertical-rail .lens-node-item:hover {
   opacity: 0.72 !important;
@@ -66,14 +68,9 @@
   .studio-layout {
     grid-template-columns: 1fr !important;
   }
-  .lens-vertical-rail {
-    position: sticky !important;
-    top: 56px !important;
-  }
-  .lens-vertical-rail .hub-nav-pills {
-    flex-direction: row !important;
-  }
-  .lens-vertical-rail .lens-node-item {
-    min-width: 148px;
+  .lens-vertical-rail,
+  .ai-nvm-page .lens-vertical-rail {
+    width: 100% !important;
+    max-width: none !important;
   }
 }
