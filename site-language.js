@@ -114,7 +114,7 @@
   if (document.querySelector("link[data-ai-nvm-tune]")) return;
   var l=document.createElement("link");
   l.rel="stylesheet";
-  l.href="ai-nvm-tune.css?v=20260908-a8";
+  l.href="ai-nvm-tune.css?v=20260908-a9";
   l.setAttribute("data-ai-nvm-tune","true");
   document.head.appendChild(l);
 })();

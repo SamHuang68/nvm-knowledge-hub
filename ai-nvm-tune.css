@@ -1,4 +1,18 @@
-/* AI page: transparent questions; Decision Summary reads like the research hero. */
+/* Shared column: substrate, seven questions, Decision Summary.
+   Paper shell already owns --ai-side. Children use 100% of that inner width.
+   Copy keep-out is inside the module, never a second page gutter. */
+
+.ai-nvm-page .system-boundary-map,
+.ai-nvm-page .decision-questions,
+.ai-nvm-page .paper-conclusion.ai-conclusion,
+.paper-conclusion.ai-conclusion {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box !important;
+}
+
 .ai-nvm-page .decision-questions,
 .decision-questions {
   background: transparent !important;
@@ -6,8 +20,7 @@
   box-shadow: none !important;
   border: 0 !important;
   outline: 0 !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
+  padding: clamp(8px, 1vw, 16px) 0 !important;
 }
 
 .ai-nvm-page .decision-questions li > span:first-child {
@@ -27,8 +40,6 @@
 
 .ai-nvm-page .decision-questions li b {
   display: block !important;
-  width: auto !important;
-  max-width: none !important;
   padding: 0 !important;
   margin: 0 !important;
   border: 0 !important;
@@ -48,10 +59,7 @@
   box-shadow: none !important;
   border-radius: 0 !important;
   color: inherit !important;
-  font-family: inherit !important;
-  font-size: inherit !important;
-  font-weight: inherit !important;
-  white-space: normal !important;
+  font: inherit !important;
 }
 
 html[data-language="en"] .ai-nvm-page .decision-questions [data-lang="zh"],
@@ -75,19 +83,17 @@ body[data-language="zh"] .ai-nvm-page .decision-questions [data-lang="en"] {
   }
 }
 
+/* Decision Summary: in-column cinematic field, keep-out inside the module. */
 .ai-nvm-page .paper-conclusion.ai-conclusion,
 .paper-conclusion.ai-conclusion {
   position: relative !important;
   display: block !important;
   isolation: isolate !important;
-  width: 100% !important;
-  max-width: none !important;
   min-height: 560px !important;
-  margin: 0 !important;
   padding: 0 !important;
   overflow: hidden !important;
   border: 0 !important;
-  border-radius: 0 !important;
+  border-radius: 12px !important;
   box-shadow: none !important;
   background: #04121c !important;
 }
@@ -140,10 +146,10 @@ body[data-language="zh"] .ai-nvm-page .decision-questions [data-lang="en"] {
 .paper-conclusion.ai-conclusion .conclusion-copy {
   position: relative !important;
   z-index: 2 !important;
-  width: min(640px, 54%) !important;
+  width: min(640px, calc(100% - 2 * clamp(28px, 4vw, 48px))) !important;
   max-width: 640px !important;
   margin: 0 !important;
-  padding: clamp(48px, 6vw, 88px) 0 clamp(48px, 6vw, 88px) 0 !important;
+  padding: clamp(28px, 4vw, 48px) !important;
   background: none !important;
   box-shadow: none !important;
 }
@@ -176,10 +182,5 @@ body[data-language="zh"] .ai-nvm-page .decision-questions [data-lang="en"] {
   .paper-conclusion.ai-conclusion .conclusion-copy {
     width: 100% !important;
     max-width: none !important;
-    padding: 36px 0 28px !important;
-  }
-  .ai-nvm-page .conclusion-visual img,
-  .paper-conclusion.ai-conclusion .conclusion-visual img {
-    object-position: 66% center !important;
   }
 }
