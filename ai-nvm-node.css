@@ -20,18 +20,14 @@
 .ai-nvm-page .compact-heading > p { margin-top: 8px !important; }
 .ai-nvm-page #overview.paper-section { padding-top: 16px !important; padding-bottom: 16px !important; }
 
-/* Identity / state-lane titles: stronger, not washed into the field */
 .ai-nvm-page .state-lane h3,
 .ai-nvm-page .state-spectrum h3 {
   color: #fff4e6 !important;
   font-weight: 650 !important;
 }
 .ai-nvm-page .state-lane small,
-.ai-nvm-page .state-lane > b {
-  color: #d4a574 !important;
-}
+.ai-nvm-page .state-lane > b { color: #d4a574 !important; }
 
-/* Seven Questions: no cards, tight rows */
 .ai-nvm-page .decision-questions,
 .decision-questions {
   background: transparent !important;
@@ -52,64 +48,59 @@
   align-items: baseline !important;
   gap: 10px !important;
   min-height: 0 !important;
-  margin: 0 !important;
   padding: 6px 0 !important;
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
-  border-radius: 0 !important;
 }
 .ai-nvm-page .decision-questions li > span:first-child {
   background: none !important;
   border: 0 !important;
   padding: 0 !important;
-  margin: 0 !important;
-  min-width: 1.6em !important;
   color: #c4a574 !important;
-  font-size: 12px !important;
 }
 .ai-nvm-page .decision-questions li b {
   font-size: 15px !important;
-  font-weight: 560 !important;
-  line-height: 1.35 !important;
   color: #f3ebe0 !important;
 }
 @media (min-width: 1200px) {
-  .ai-nvm-page .decision-questions ol {
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  }
-  .ai-nvm-page .decision-questions li:nth-child(7) {
-    grid-column: 1 / span 1 !important;
-  }
+  .ai-nvm-page .decision-questions ol { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+  .ai-nvm-page .decision-questions li:nth-child(7) { grid-column: 1 / span 1 !important; }
 }
 
-/* Official product case / opportunity records / ladder cells: no frames */
-.ai-nvm-page .opportunity-record,
-.ai-nvm-page .record-copy,
-.ai-nvm-page .record-fit,
-.ai-nvm-page .record-index,
-.ai-nvm-page .evidence-ladder,
-.ai-nvm-page .evidence-ladder article,
-.ai-nvm-page .tier-tag,
-.ai-nvm-page .tier-tag.case {
-  border: 0 !important;
-  box-shadow: none !important;
-  background-image: none !important;
+/* Opportunity Map: restore paper field. Site-shell navy must not win here. */
+.ai-nvm-page #opportunities .opportunity-list,
+.ai-nvm-page .opportunity-list {
+  background: #f3f7f8 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
 }
-.ai-nvm-page .opportunity-record,
-.ai-nvm-page .evidence-ladder article {
-  background: transparent !important;
+.ai-nvm-page #opportunities .opportunity-record,
+.ai-nvm-page .opportunity-record {
+  background: rgba(255, 254, 250, .96) !important;
+  color: #092235 !important;
 }
+.ai-nvm-page .opportunity-record[data-evidence="inference"] {
+  background: rgba(241, 238, 231, .96) !important;
+}
+.ai-nvm-page .opportunity-record h3,
+.ai-nvm-page .record-copy h3 {
+  color: #092235 !important;
+}
+.ai-nvm-page .record-copy p,
+.ai-nvm-page .record-fit span,
+.ai-nvm-page .record-fit em {
+  color: #3d5560 !important;
+}
+.ai-nvm-page .record-fit b,
+.ai-nvm-page .record-index span,
 .ai-nvm-page .tier-tag.case {
+  color: #8a5525 !important;
   background: transparent !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
 }
 .ai-nvm-page .map-path span,
 .ai-nvm-page .map-core span,
-.ai-nvm-page .map-core em,
 .ai-nvm-page .read-domain-badge,
-.ai-nvm-page .core-domain > div,
 .ai-nvm-page .state-domain {
   border: 0 !important;
   background: transparent !important;
