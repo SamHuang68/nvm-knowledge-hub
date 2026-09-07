@@ -1,4 +1,4 @@
-/* Titles on dark */
+/* Carry-forward title contrast + compact thesis */
 .ai-nvm-page .paper-heading h2,
 .ai-nvm-page .compact-heading h2,
 .ai-nvm-page .repair-programming-head h3,
@@ -12,49 +12,112 @@
 .ai-nvm-page .compact-heading h2 em,
 .ai-nvm-page .repair-programming-head h3 em,
 .ai-nvm-page .read-domain-copy h3 em,
-.ai-nvm-page .decision-grammar h3 em,
-.ai-nvm-page .paper-section h2 em,
-.ai-nvm-page .lens-panel h2 em {
+.ai-nvm-page .paper-section h2 em {
   color: #d4a574 !important;
 }
 .ai-nvm-page .paper-kicker { color: #c4a574 !important; }
-.ai-nvm-page .paper-heading > p,
-.ai-nvm-page .compact-heading > p { color: #c9d6dc !important; }
+.ai-nvm-page .compact-heading h2 { margin-top: 4px !important; font-size: clamp(22px, 2.2vw, 30px) !important; }
+.ai-nvm-page .compact-heading > p { margin-top: 8px !important; }
+.ai-nvm-page #overview.paper-section { padding-top: 16px !important; padding-bottom: 16px !important; }
 
-.ai-nvm-page .ai-thesis-grid { gap: 14px !important; align-items: start !important; }
-.ai-nvm-page .compact-heading h2 { margin-top: 4px !important; font-size: clamp(22px, 2.2vw, 30px) !important; line-height: 1.15 !important; }
-.ai-nvm-page .compact-heading > p { margin-top: 8px !important; font-size: 15px !important; }
-.ai-nvm-page #overview.paper-section,
-.ai-nvm-page #overview.lens-panel { padding-top: 16px !important; padding-bottom: 16px !important; }
-.ai-nvm-page .state-contract-card { padding: 16px 20px !important; }
-.ai-nvm-page .state-contract-card li { padding: 8px 0 !important; }
-.ai-nvm-page .state-contract-card li b { font-size: 16px !important; color: #f3ebe0 !important; }
+/* Identity / state-lane titles: stronger, not washed into the field */
+.ai-nvm-page .state-lane h3,
+.ai-nvm-page .state-spectrum h3 {
+  color: #fff4e6 !important;
+  font-weight: 650 !important;
+}
+.ai-nvm-page .state-lane small,
+.ai-nvm-page .state-lane > b {
+  color: #d4a574 !important;
+}
 
-.ai-nvm-page .evidence-ladder { position: relative !important; margin-top: 16px !important; padding-top: 48px !important; border-radius: 12px !important; }
-.ai-nvm-page .evidence-ladder article > span { margin-top: 0 !important; border-radius: 50% !important; }
-.ai-nvm-page .selection-retention { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
-.ai-nvm-page .selection-retention > span { grid-column: 1 / -1 !important; }
-.ai-nvm-page .selection-retention > b { display: grid !important; place-items: center !important; }
-
-/* Inner labeled chips: no box. Keep type, drop frame. */
-.ai-nvm-page .map-path span,
-.ai-nvm-page .map-path.optical span,
-.ai-nvm-page .map-core span,
-.ai-nvm-page .map-core em,
-.ai-nvm-page .map-core > div,
-.ai-nvm-page .map-art-badge,
-.ai-nvm-page .read-domain-badge,
-.ai-nvm-page .core-domain > div,
-.ai-nvm-page .program-domain,
-.ai-nvm-page .state-domain,
-.ai-nvm-page .node-path-copy footer,
-.ai-nvm-page .map-planes article {
+/* Seven Questions: no cards, tight rows */
+.ai-nvm-page .decision-questions,
+.decision-questions {
+  background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
+  padding: 8px 0 !important;
+  margin-top: 10px !important;
+}
+.ai-nvm-page .decision-questions ol {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 6px 32px !important;
+  margin: 10px 0 0 !important;
+}
+.ai-nvm-page .decision-questions li {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: baseline !important;
+  gap: 10px !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 6px 0 !important;
   background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.ai-nvm-page .decision-questions li > span:first-child {
+  background: none !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-width: 1.6em !important;
+  color: #c4a574 !important;
+  font-size: 12px !important;
+}
+.ai-nvm-page .decision-questions li b {
+  font-size: 15px !important;
+  font-weight: 560 !important;
+  line-height: 1.35 !important;
+  color: #f3ebe0 !important;
+}
+@media (min-width: 1200px) {
+  .ai-nvm-page .decision-questions ol {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+  .ai-nvm-page .decision-questions li:nth-child(7) {
+    grid-column: 1 / span 1 !important;
+  }
+}
+
+/* Official product case / opportunity records / ladder cells: no frames */
+.ai-nvm-page .opportunity-record,
+.ai-nvm-page .record-copy,
+.ai-nvm-page .record-fit,
+.ai-nvm-page .record-index,
+.ai-nvm-page .evidence-ladder,
+.ai-nvm-page .evidence-ladder article,
+.ai-nvm-page .tier-tag,
+.ai-nvm-page .tier-tag.case {
+  border: 0 !important;
+  box-shadow: none !important;
   background-image: none !important;
 }
-.ai-nvm-page .map-path span {
-  min-height: 0 !important;
-  padding: 2px 0 !important;
+.ai-nvm-page .opportunity-record,
+.ai-nvm-page .evidence-ladder article {
+  background: transparent !important;
 }
+.ai-nvm-page .tier-tag.case {
+  background: transparent !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.ai-nvm-page .map-path span,
+.ai-nvm-page .map-core span,
+.ai-nvm-page .map-core em,
+.ai-nvm-page .read-domain-badge,
+.ai-nvm-page .core-domain > div,
+.ai-nvm-page .state-domain {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.ai-nvm-page .selection-retention {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+.ai-nvm-page .selection-retention > span { grid-column: 1 / -1 !important; }
+.ai-nvm-page .selection-retention > b { display: grid !important; place-items: center !important; }
