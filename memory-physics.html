@@ -37,41 +37,349 @@
       overflow-x: clip !important;
       max-width: 100% !important;
       width: 100% !important;
+      background-color: #f8fafc !important;
     }
-    .research-hero {
-      min-height: auto !important;
-      padding: clamp(36px, 4vw, 56px) clamp(16px, 2vw, 36px) clamp(24px, 3vw, 36px) !important;
+    /* 1. 導覽列與麵包屑：半透明毛玻璃與 1px hairline 微光分割線 */
+    .site-header {
+      background: rgba(10, 14, 23, 0.72) !important;
+      backdrop-filter: blur(16px) saturate(140%) !important;
+      -webkit-backdrop-filter: blur(16px) saturate(140%) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35) !important;
+      min-height: 64px !important;
+      transition: background 0.3s ease, min-height 0.3s ease !important;
     }
+    .site-header.scrolled {
+      background: rgba(8, 11, 18, 0.90) !important;
+      min-height: 56px !important;
+    }
+    .site-breadcrumb {
+      background: rgba(10, 14, 23, 0.40) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+      min-height: 38px !important;
+      padding-block: 5px !important;
+    }
+    .topic-switch a {
+      background: rgba(255, 255, 255, 0.04) !important;
+      border-color: rgba(255, 255, 255, 0.09) !important;
+      border-radius: 4px !important;
+      min-height: 26px !important;
+      padding: 3px 8px !important;
+      font-size: 10px !important;
+      transition: all 0.2s ease !important;
+    }
+    .topic-switch a[aria-current="page"] {
+      background: rgba(0, 229, 255, 0.12) !important;
+      border-color: rgba(0, 229, 255, 0.4) !important;
+      color: #00e5ff !important;
+    }
+
+    /* 2. Hero 容器與多層光學遮罩 (Multi-layer Overlay) */
+    .research-hero.f1-hero-container {
+      position: relative !important;
+      isolation: isolate !important;
+      background: #07090e !important;
+      min-height: clamp(580px, 78vh, 740px) !important;
+      padding: clamp(88px, 9.5vh, 120px) clamp(16px, 2.5vw, 36px) clamp(44px, 5.5vh, 64px) !important;
+      display: flex !important;
+      align-items: center !important;
+      overflow: hidden !important;
+    }
+    .f1-hero-media {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: -3 !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+    }
+    .f1-hero-media img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: 72% center !important;
+      opacity: 0.88 !important;
+      filter: saturate(0.95) contrast(1.04) brightness(0.96) !important;
+      transform: scale(1.02) !important;
+    }
+    /* 多層複合遮罩：左側減光 + 底部融光 + 頂部底襯 */
+    .f1-hero-shade {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: -2 !important;
+      pointer-events: none !important;
+      background:
+        linear-gradient(90deg, #07090e 0%, rgba(7, 9, 14, 0.94) 38%, rgba(7, 9, 14, 0.72) 58%, rgba(7, 9, 14, 0.20) 80%, transparent 100%),
+        linear-gradient(to top, #07090e 0%, rgba(7, 9, 14, 0.85) 16%, transparent 45%),
+        linear-gradient(180deg, rgba(7, 9, 14, 0.90) 0%, rgba(7, 9, 14, 0.40) 14%, transparent 32%) !important;
+    }
+    /* 矽光物理微觀環境光 (Ambient Glow) */
+    .f1-hero-ambient-glow {
+      position: absolute !important;
+      top: 28% !important;
+      right: 18% !important;
+      width: 440px !important;
+      height: 440px !important;
+      border-radius: 50% !important;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.16) 0%, rgba(0, 229, 255, 0.10) 45%, transparent 70%) !important;
+      filter: blur(90px) !important;
+      pointer-events: none !important;
+      z-index: -2 !important;
+    }
+
+    /* 3. Typography & Bento Metrics HUD */
     .research-hero-inner {
       max-width: min(1780px, 97vw) !important;
       margin: 0 auto !important;
+      position: relative !important;
+      z-index: 2 !important;
+      width: 100% !important;
     }
+    .research-label {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      padding: 5px 14px !important;
+      background: rgba(0, 229, 255, 0.06) !important;
+      border: 1px solid rgba(0, 229, 255, 0.22) !important;
+      border-radius: 9999px !important;
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.12em !important;
+      color: #38bdf8 !important;
+      text-transform: uppercase !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      margin-bottom: 12px !important;
+    }
+    .pulse-chip-mini {
+      width: 6px !important;
+      height: 6px !important;
+      border-radius: 50% !important;
+      background: #00e5ff !important;
+      box-shadow: 0 0 8px #00e5ff !important;
+      display: inline-block !important;
+      animation: dot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+    }
+    @keyframes dot-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.85); }
+    }
+    .research-hero h1#f1-hero-title,
     .research-hero h1 {
-      font-size: clamp(30px, 3.8vw, 52px) !important;
-      line-height: 1.15 !important;
-      letter-spacing: -0.03em !important;
-      margin: 10px 0 !important;
+      font-size: clamp(32px, 4.2vw, 54px) !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.02em !important;
+      line-height: 1.12 !important;
+      color: #f8fafc !important;
+      max-width: 840px !important;
+      margin: 8px 0 16px !important;
       text-wrap: balance !important;
     }
+    .research-hero h1 em {
+      color: transparent !important;
+      background: linear-gradient(135deg, #f8fafc 30%, #f59e0b 100%) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      font-weight: 700 !important;
+      font-style: normal !important;
+    }
+    .f1-hero-thesis {
+      margin: 0 0 14px !important;
+      padding: 4px 0 4px 16px !important;
+      border-left: 2px solid rgba(245, 158, 11, 0.85) !important;
+      font-size: clamp(16px, 1.35vw, 19px) !important;
+      font-weight: 500 !important;
+      line-height: 1.5 !important;
+      color: #f1f5f9 !important;
+      max-width: 680px !important;
+      letter-spacing: 0.01em !important;
+    }
+    .f1-hero-thesis p { margin: 0 !important; }
     .research-hero-lede {
-      font-size: clamp(14px, 1.15vw, 17px) !important;
-      line-height: 1.6 !important;
-      margin-top: 14px !important;
-      max-width: 860px !important;
-      color: #c4d7e0 !important;
+      font-size: clamp(13.5px, 1.05vw, 15px) !important;
+      line-height: 1.62 !important;
+      margin-top: 0 !important;
+      margin-bottom: 20px !important;
+      max-width: 650px !important;
+      color: #94a3b8 !important;
     }
-    .research-hero-meta {
-      margin-top: 20px !important;
+
+    /* Bento Hero Metrics HUD */
+    .bento-hero-metrics {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 12px !important;
+      width: min(100%, 780px) !important;
+      margin-top: 18px !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
     }
-    .research-hero-meta div {
+    @media (max-width: 760px) {
+      .bento-hero-metrics { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    .bento-metric-card {
+      background: rgba(15, 23, 42, 0.55) !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 8px !important;
       padding: 10px 14px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 4px !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
-    .research-hero-meta b {
-      font-size: 18px !important;
+    .bento-metric-card:hover {
+      background: rgba(15, 23, 42, 0.75) !important;
+      border-color: rgba(0, 229, 255, 0.35) !important;
+      box-shadow: 0 4px 20px rgba(0, 229, 255, 0.12) !important;
+      transform: translateY(-2px) !important;
+    }
+    .bento-metric-card b {
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-variant-numeric: tabular-nums !important;
+      font-size: clamp(20px, 1.8vw, 24px) !important;
+      font-weight: 700 !important;
+      color: #f8fafc !important;
+      line-height: 1.1 !important;
+    }
+    .bento-metric-card span {
+      font-size: 10px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.06em !important;
+      color: #94a3b8 !important;
+      text-transform: uppercase !important;
+      line-height: 1.25 !important;
     }
     .research-hero-links {
-      margin-top: 18px !important;
+      margin-top: 20px !important;
+      display: flex !important;
+      gap: 12px !important;
+    }
+    .research-hero-links .button.primary {
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.18) 0%, rgba(37, 99, 235, 0.28) 100%) !important;
+      border: 1px solid rgba(0, 229, 255, 0.4) !important;
+      color: #f8fafc !important;
+      backdrop-filter: blur(8px) !important;
+      border-radius: 6px !important;
+      box-shadow: 0 4px 16px rgba(0, 229, 255, 0.15) !important;
+      min-height: 38px !important;
+      padding: 6px 18px !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      transition: all 0.2s ease !important;
+    }
+    .research-hero-links .button.primary:hover {
+      border-color: #00e5ff !important;
+      box-shadow: 0 6px 24px rgba(0, 229, 255, 0.3) !important;
+      transform: translateY(-1px) !important;
+    }
+    .research-hero-links .button.ghost {
+      background: rgba(15, 23, 42, 0.45) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      color: #cbd5e1 !important;
+      backdrop-filter: blur(8px) !important;
+      border-radius: 6px !important;
+      min-height: 38px !important;
+      padding: 6px 18px !important;
+      font-size: 13px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      transition: all 0.2s ease !important;
+    }
+    .research-hero-links .button.ghost:hover {
+      border-color: rgba(255, 255, 255, 0.25) !important;
+      color: #ffffff !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* 4. 4-Metric 規格彩條 (F1 Stat Bridge) */
+    .f1-stat-bridge.stat-strip-compact {
+      max-width: min(1780px, 97vw) !important;
+      margin: -24px auto 14px !important;
+      padding: 0 clamp(16px, 2vw, 36px) !important;
+      position: relative !important;
+      z-index: 10 !important;
+    }
+    .f1-stat-bridge .stat-strip-grid {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
       gap: 10px !important;
+    }
+    @media (max-width: 900px) {
+      .f1-stat-bridge .stat-strip-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 560px) {
+      .f1-stat-bridge .stat-strip-grid { grid-template-columns: 1fr !important; }
+    }
+    .f1-stat-bridge .stat-strip-card {
+      background: #0e2a38 !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 6px !important;
+      padding: 10px 14px !important;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 3px !important;
+      transition: transform 0.2s ease, border-color 0.2s ease !important;
+    }
+    .f1-stat-bridge .stat-strip-card:hover {
+      transform: translateY(-2px) !important;
+      border-color: rgba(0, 229, 255, 0.3) !important;
+    }
+    .f1-stat-bridge .stat-strip-card.border-l-cyan { border-left: 4px solid #00e5ff !important; }
+    .f1-stat-bridge .stat-strip-card.border-l-teal { border-left: 4px solid #0d9488 !important; }
+    .f1-stat-bridge .stat-strip-card.border-l-emerald { border-left: 4px solid #10b981 !important; }
+    .f1-stat-bridge .stat-strip-card.border-l-amber { border-left: 4px solid #f59e0b !important; }
+    .f1-stat-bridge .stat-card-head {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+    }
+    .f1-stat-bridge .meta-code {
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 0.65rem !important;
+      font-weight: 700 !important;
+      color: #94a3b8 !important;
+      letter-spacing: 0.08em !important;
+    }
+    .f1-stat-bridge .stat-val {
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 1.15rem !important;
+      font-weight: 800 !important;
+      color: #f8fafc !important;
+      line-height: 1.1 !important;
+    }
+    .f1-stat-bridge .stat-strip-card p {
+      margin: 0 !important;
+      font-size: 0.72rem !important;
+      color: #94a3b8 !important;
+      line-height: 1.3 !important;
+    }
+
+    /* 5. 左側直立測條 (Lens Rail) 樣式強化 */
+    .lens-vertical-rail {
+      background: rgba(6, 25, 37, 0.95) !important;
+      border: 1px solid rgba(196, 165, 116, 0.22) !important;
+      border-radius: 8px !important;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
+      backdrop-filter: blur(16px) !important;
+    }
+    .lens-node-item.active {
+      background: rgba(196, 165, 116, 0.16) !important;
+      border-color: #c4a574 !important;
+      box-shadow: 0 0 16px rgba(196, 165, 116, 0.25) !important;
+    }
+    .lens-node-item.active .lens-badge {
+      background: #c4a574 !important;
+      color: #061925 !important;
+      font-weight: 800 !important;
     }
 
     /* 根治負 margin 導致的右側溢出 */
@@ -217,22 +525,34 @@
   </nav>
 
   <main id="main-content">
-    <section class="research-hero">
+    <section class="research-hero f1-hero-container">
+      <picture class="f1-hero-media">
+        <source srcset="assets/memory-physics-hero-1600.webp" media="(min-width: 900px)" type="image/webp">
+        <source srcset="assets/memory-physics-hero-900.webp" type="image/webp">
+        <img src="assets/memory-physics-hero.jpg" alt="Memory Physics & Hardware Security Bitcell Microarchitecture Visual" width="1600" height="900" loading="eager" decoding="async">
+      </picture>
+      <div class="f1-hero-ambient-glow" aria-hidden="true"></div>
+      <div class="f1-hero-shade" aria-hidden="true"></div>
+
       <div class="research-hero-inner">
-        <p class="research-label">RESEARCH NOTE 02 · MEMORY PHYSICS & HARDWARE SECURITY</p>
-        <h1>
+        <p class="research-label"><span class="label-dot"></span>RESEARCH NOTE 02 · MEMORY PHYSICS &amp; HARDWARE SECURITY</p>
+        <h1 id="f1-hero-title">
           <span data-lang="zh">可量產的互補式儲存，<br><em>形成可驗證的差異</em></span>
           <span data-lang="en">Scalable complementary storage<br><em>creates a verifiable difference</em></span>
         </h1>
+        <div class="f1-hero-thesis">
+          <span data-lang="zh">第一性原理：實體安全不是數學孤島，而是由微觀位元胞物理決定的經濟學與可觀察度賽局。</span>
+          <span data-lang="en">First Principles: Hardware security is not a mathematical silo, but an economic &amp; observability contest dictated by bitcell physics.</span>
+        </div>
         <p class="research-hero-lede">
           <span data-lang="zh">感測器可以比較 voltage 或 current；產品真正拉開差距的，是 bit-cell economics 能否支撐 complementary representation、降低一階資料相依訊號，再由 SRAM PUF、加密 OTP 與 secure controller 封閉完整攻擊鏈。</span>
           <span data-lang="en">A sense amplifier may compare voltage or current. Product differentiation comes from bit-cell economics that make complementary representation practical, suppress first-order data-dependent signatures, and combine with SRAM PUF, encrypted OTP and a secure controller to close the attack chain.</span>
         </p>
-        <div class="research-hero-meta">
-          <div><b>27</b><span><span data-lang="zh">核心來源</span><span data-lang="en">CORE SOURCES</span></span></div>
-          <div><b>5</b><span><span data-lang="zh">分析層級</span><span data-lang="en">ANALYSIS LAYERS</span></span></div>
-          <div><b>SRAM ↔ OTP</b><span><span data-lang="zh">主要比較軸</span><span data-lang="en">PRIMARY AXIS</span></span></div>
-          <div><b>2026-08-12</b><span><span data-lang="zh">研究版本</span><span data-lang="en">RESEARCH VERSION</span></span></div>
+        <div class="research-hero-meta bento-hero-metrics">
+          <div class="bento-metric-card"><b>27</b><span><span data-lang="zh">核心來源</span><span data-lang="en">CORE SOURCES</span></span></div>
+          <div class="bento-metric-card"><b>5</b><span><span data-lang="zh">分析層級</span><span data-lang="en">ANALYSIS LAYERS</span></span></div>
+          <div class="bento-metric-card"><b>SRAM ↔ OTP</b><span><span data-lang="zh">主要比較軸</span><span data-lang="en">PRIMARY AXIS</span></span></div>
+          <div class="bento-metric-card"><b>2026-08-12</b><span><span data-lang="zh">研究版本</span><span data-lang="en">RESEARCH VERSION</span></span></div>
         </div>
         <div class="research-hero-links">
           <a class="button primary" href="#abstract"><span data-lang="zh">閱讀研究摘要</span><span data-lang="en">Read the abstract</span></a>
@@ -240,6 +560,48 @@
         </div>
       </div>
     </section>
+
+    <!-- 4-Metric 規格彩條 (F1 Stat Bridge) -->
+    <div class="f1-stat-bridge stat-strip-compact" aria-label="F1 核心規格摘要">
+      <div class="stat-strip-grid">
+        <div class="stat-strip-card border-l-cyan">
+          <div class="stat-card-head">
+            <span class="meta-code">RULE #01</span>
+            <span class="meta-dot"></span>
+          </div>
+          <div class="stat-val">&Delta;V / &Delta;I DIFFERENTIAL</div>
+          <div class="stat-label"><span data-lang="zh">差動感測 · 抵消共模雜訊</span><span data-lang="en">Common-Mode Noise Rejection</span></div>
+          <div class="stat-sub"><span data-lang="zh">雙胞互補消除一階資料相依電流洩漏</span><span data-lang="en">Dual-cell complementary cancels 1st-order leakage</span></div>
+        </div>
+        <div class="stat-strip-card border-l-teal">
+          <div class="stat-card-head">
+            <span class="meta-code">RULE #02</span>
+            <span class="meta-dot"></span>
+          </div>
+          <div class="stat-val">FIB / TEM IMMUNE</div>
+          <div class="stat-label"><span data-lang="zh">微觀不可見 · 物理防逆向</span><span data-lang="en">Anti-Reconstruction Antifuse</span></div>
+          <div class="stat-sub"><span data-lang="zh">奈米級非晶氧化物崩潰微絲無法光學讀取</span><span data-lang="en">Nanoscale breakdown filament immune to optical reads</span></div>
+        </div>
+        <div class="stat-strip-card border-l-emerald">
+          <div class="stat-card-head">
+            <span class="meta-code">RULE #03</span>
+            <span class="meta-dot"></span>
+          </div>
+          <div class="stat-val">SRAM PUF KEYGEN</div>
+          <div class="stat-label"><span data-lang="zh">暫態根密鑰 · 零靜態殘留</span><span data-lang="en">Transient Root of Trust</span></div>
+          <div class="stat-sub"><span data-lang="zh">斷電即物理消失，不儲存於任何非揮發介質</span><span data-lang="en">Zero static footprint upon power-down</span></div>
+        </div>
+        <div class="stat-strip-card border-l-amber">
+          <div class="stat-card-head">
+            <span class="meta-code">RULE #04</span>
+            <span class="meta-dot"></span>
+          </div>
+          <div class="stat-val">LAYERED AIR-GAP</div>
+          <div class="stat-label"><span data-lang="zh">階層化安全邊界隔離</span><span data-lang="en">Attack Surface Separation</span></div>
+          <div class="stat-sub"><span data-lang="zh">PUF 根與 OTP 密文透過專屬硬體控制器解耦</span><span data-lang="en">Hardware controller decouples key roots from memory</span></div>
+        </div>
+      </div>
+    </div>
 
         <!-- =======================================================
          高密度直立測條工作台 (STUDIO WORKBENCH: 01~09 LENS RAIL)
@@ -613,10 +975,120 @@
     </div>
   </main>
 
-  <footer>
-    <a class="brand footer-brand" href="index.html"><span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span></a>
-    <p><span data-lang="zh">研究用途 · 公開來源 · 不取代產品安全評估</span><span data-lang="en">Research use · Public sources · Not a substitute for product security evaluation</span></p>
-    <p>Research Note 02 · 2026</p>
+  <!-- FLAGSHIP ENTERPRISE FOOTER (全站統一旗艦級頁尾) -->
+  <footer class="hub-footer">
+    <div class="hub-footer-inner">
+      <!-- Top Branding & Ecosystem Status -->
+      <div class="hub-footer-brand-row">
+        <div class="hub-footer-brand">
+          <a href="index.html" class="hub-footer-logo">
+            <span class="hub-footer-logo-mark">NVM</span>
+            <span class="hub-footer-logo-text">
+              <strong>KNOWLEDGE HUB</strong>
+              <small>SILICON ARCHITECTURE &amp; EVIDENCE DISCIPLINE</small>
+            </span>
+          </a>
+          <p class="hub-footer-desc">
+            <span data-lang="zh">面向先進半導體邏輯節點、車載功能安全與超低功耗邊緣運算的高可靠度嵌入式非揮發性記憶體 (eNVM) 架構決策與物理實證知識庫。</span>
+            <span data-lang="en">Industrial-grade non-volatile memory (eNVM) architecture, bitcell physics, and automotive functional safety knowledge repository for advanced silicon design.</span>
+          </p>
+        </div>
+
+        <div class="hub-footer-meta-pill">
+          <div class="meta-pill-item">
+            <span class="meta-pill-dot" style="background:#c4a574;"></span>
+            <span class="meta-pill-key">FOUNDRY MATRIX:</span>
+            <span class="meta-pill-val">TSMC · UMC · GF · SAMSUNG</span>
+          </div>
+          <div class="meta-pill-item">
+            <span class="meta-pill-dot" style="background:#c4a574;"></span>
+            <span class="meta-pill-key">RELIABILITY:</span>
+            <span class="meta-pill-val">AEC-Q100 GRADE 0 / ISO 26262 ASIL CONTEXT</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hierarchical Nav Columns (Desktop 4 Columns / Mobile Stack) -->
+      <div class="hub-footer-nav-grid">
+        <!-- Col 1: Foundations -->
+        <div class="hub-footer-col">
+          <h4 class="hub-footer-col-title">
+            <span data-lang="zh">基礎理論 · 物理原語</span>
+            <span data-lang="en">Foundations &amp; Physics</span>
+          </h4>
+          <ul class="hub-footer-links">
+            <li><a href="index.html"><span data-lang="zh">知識中樞首頁</span><span data-lang="en">Hub Portal</span></a></li>
+            <li><a href="memory-physics.html"><span data-lang="zh">記憶體物理基底 (F1)</span><span data-lang="en">Bitcell Physics (F1)</span></a></li>
+            <li><a href="memory-evidence.html"><span data-lang="zh">文獻與實證語料 (R3)</span><span data-lang="en">Evidence Corpus (R3)</span></a></li>
+            <li><a href="security-assurance.html"><span data-lang="zh">物理安全保證 (A2)</span><span data-lang="en">Security Assurance (A2)</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Architecture -->
+        <div class="hub-footer-col">
+          <h4 class="hub-footer-col-title">
+            <span data-lang="zh">架構矩陣 · 決策分析</span>
+            <span data-lang="en">Architecture &amp; Trade-Offs</span>
+          </h4>
+          <ul class="hub-footer-links">
+            <li><a href="technology-comparison.html"><span data-lang="zh">NVM 技術權衡矩陣 (F2)</span><span data-lang="en">Technology Comparison (F2)</span></a></li>
+            <li><a href="secure-storage.html"><span data-lang="zh">安全儲存架構 (A1)</span><span data-lang="en">Secure Storage (A1)</span></a></li>
+            <li><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點機遇 (M1)</span><span data-lang="en">AI &amp; Advanced Nodes (M1)</span></a></li>
+            <li><a href="specialty-nvm.html"><span data-lang="zh">特殊製程 eNVM (M4)</span><span data-lang="en">Specialty Foundry NVM (M4)</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Applications -->
+        <div class="hub-footer-col">
+          <h4 class="hub-footer-col-title">
+            <span data-lang="zh">垂直領域 · 晶片應用</span>
+            <span data-lang="en">Vertical Applications</span>
+          </h4>
+          <ul class="hub-footer-links">
+            <li><a href="iot-mcu-envm.html"><span data-lang="zh">ULP IoT 與 MCU eNVM (M2)</span><span data-lang="en">IoT &amp; Edge MCU eNVM (M2)</span></a></li>
+            <li><a href="automotive-nvm.html"><span data-lang="zh">車載車規 NVM (M3)</span><span data-lang="en">Automotive-Grade NVM (M3)</span></a></li>
+            <li><a href="oip-secure-storage.html"><span data-lang="zh">OIP 合作夥伴簡報</span><span data-lang="en">OIP Partner Briefing</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Resources -->
+        <div class="hub-footer-col">
+          <h4 class="hub-footer-col-title">
+            <span data-lang="zh">白皮書 · 決策工坊</span>
+            <span data-lang="en">Reports &amp; Studios</span>
+          </h4>
+          <ul class="hub-footer-links">
+            <li><a href="whitepaper/"><span data-lang="zh">技術白皮書工作坊 (R1)</span><span data-lang="en">Whitepaper Studio (R1)</span></a></li>
+            <li><a href="briefing/index.html"><span data-lang="zh">高階主管戰略簡報 (R2)</span><span data-lang="en">Executive Briefing (R2)</span></a></li>
+            <li><a href="index.html#searchTrigger"><span data-lang="zh">全局架構檢索 (Ctrl+K)</span><span data-lang="en">Global Search (Ctrl+K)</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tech Badges Strip -->
+      <div class="hub-footer-badge-strip">
+        <span class="hub-footer-badge">TSMC N2 / N3 GAA</span>
+        <span class="hub-footer-badge">0.5V NTV Operation</span>
+        <span class="hub-footer-badge">0-Mask Pure Logic</span>
+        <span class="hub-footer-badge">AEC-Q100 Grade 0 (175°C)</span>
+        <span class="hub-footer-badge">ISO 26262 ASIL-D Ready</span>
+        <span class="hub-footer-badge">Vector Patch CAM</span>
+        <span class="hub-footer-badge">TEM Invisibility</span>
+        <span class="hub-footer-badge">DPA 1st/2nd-Order Immune</span>
+      </div>
+
+      <!-- Bottom Copyright & Status Bar -->
+      <div class="hub-footer-bottom-bar">
+        <div class="hub-footer-copy">
+          &copy; 2026 <strong>NVM Architecture Knowledge Hub</strong>.
+          <span data-lang="zh">保留所有權利 · 基於一級半導體物理實證與工業級架構規範構建。</span>
+          <span data-lang="en">All Rights Reserved. Grounded in first-principles semiconductor physics &amp; foundry standards.</span>
+        </div>
+        <div class="hub-footer-controls">
+          <span class="hub-footer-tag">RELEASE V2026.09 · FLAGSHIP ENTERPRISE</span>
+        </div>
+      </div>
+    </div>
   </footer>
   <script src="research.js?v=20260906-navy-v3"></script>
   <script>

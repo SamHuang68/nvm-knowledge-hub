@@ -101,3 +101,15 @@ const SEARCH_INDEX = [
     tags: "oip tsmc secure storage brief event"
   }
 ];
+
+// Global Ctrl+K Search Shortcut
+document.addEventListener("keydown", (e) => {
+  if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+    const trigger = document.getElementById("searchTrigger");
+    if (trigger) {
+      e.preventDefault();
+      trigger.click();
+    }
+  }
+});
+

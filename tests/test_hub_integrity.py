@@ -61,8 +61,10 @@ def run_tests() -> None:
     print("\n═══ TEST 3: 全局搜尋 ═══")
     test("searchTrigger", "searchTrigger" in ic)
     test("searchOverlay", "searchOverlay" in ic)
-    test("Ctrl+K binding", 'key === "k"' in ic or "key === 'k'" in ic)
-    test("SEARCH_INDEX", "SEARCH_INDEX" in ic)
+    hub_js = (BASE / "hub.js").read_text(encoding="utf-8") if (BASE / "hub.js").exists() else ""
+    search_ctrl = (BASE / "搜尋控制器.js").read_text(encoding="utf-8") if (BASE / "搜尋控制器.js").exists() else ""
+    test("Ctrl+K binding", 'key === "k"' in ic or "key === 'k'" in ic or 'key === "k"' in hub_js or '=== \'k\'' in search_ctrl)
+    test("SEARCH_INDEX", "SEARCH_INDEX" in ic or "SEARCH_INDEX" in hub_js)
 
     # ===== TEST 4: 導覽一致性 =====
     print("\n═══ TEST 4: 導覽一致性 ═══")
@@ -156,7 +158,8 @@ def run_tests() -> None:
     test("site-shell.css 包含旗艦 hub-footer 完整樣式", "footer.hub-footer" in shell_css and "hub-footer-nav-grid" in shell_css)
 
     spec_c = (BASE / "specialty-nvm.html").read_text(encoding="utf-8")
-    for name, content in [("F2", tc_c), ("M2", iot_c), ("M3", auto_c), ("M4", spec_c)]:
+    f1_c = (BASE / "memory-physics.html").read_text(encoding="utf-8")
+    for name, content in [("F1", f1_c), ("F2", tc_c), ("M2", iot_c), ("M3", auto_c), ("M4", spec_c)]:
         test(f"{name} 採用旗艦半導體視覺基底 (Obsidian / Light)", "background-color: #f8fafc" in content or "background-color: #061925" in content or "background-color: #08090a" in content or "background-color: var(--bg-deep)" in content)
         test(f"{name} 包含旗艦級 Footer 品牌識徽 (hub-footer-logo-mark)", "hub-footer-logo-mark" in content)
         test(f"{name} 包含 4 欄階層導覽 (hub-footer-nav-grid)", "hub-footer-nav-grid" in content)
@@ -235,6 +238,20 @@ def run_tests() -> None:
          "lens-stage-container" in auto_c)
     test("M3 直立測條包含 4 個章節跳轉節點 (lens-node-item)",
          auto_c.count("lens-node-item") >= 4)
+
+    # ===== TEST 20: F1 Memory Physics 專屬主視覺、Stat Bridge 與旗艦結構驗證 =====
+    print("\n═══ TEST 20: F1 Memory Physics 專屬主視覺、Stat Bridge 與旗艦結構驗證 ═══")
+    test("F1 包含專屬 1600/900 webp 主視覺圖標籤",
+         "memory-physics-hero-1600.webp" in f1_c and "memory-physics-hero-900.webp" in f1_c)
+    test("F1 主視覺圖實體檔案存在",
+         (BASE / "assets" / "memory-physics-hero-1600.webp").exists() and
+         (BASE / "assets" / "memory-physics-hero-900.webp").exists())
+    test("F1 包含 f1-stat-bridge 與 4 項規格彩條 (RULE #01 ~ #04)",
+         "f1-stat-bridge" in f1_c and "RULE #01" in f1_c and "RULE #04" in f1_c)
+    test("F1 包含 Bento 數據指標卡片 (bento-metric-card)",
+         "bento-metric-card" in f1_c and "bento-hero-metrics" in f1_c)
+    test("F1 包含旗艦級 Footer (hub-footer) 與 4 欄導覽 (hub-footer-nav-grid)",
+         "hub-footer" in f1_c and "hub-footer-nav-grid" in f1_c)
 
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
