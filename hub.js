@@ -92,7 +92,7 @@ const SEARCH_INDEX = [
     title_zh: "矽驗證證據總帳",
     title_en: "Evidence Ledger",
     url: "memory-evidence.html",
-    tags: "evidence 44 claims ledger silicon verified"
+    tags: "evidence 31 claims ledger silicon verified"
   },
   {
     title_zh: "OIP Secure Storage Brief (展會版)",
@@ -101,81 +101,3 @@ const SEARCH_INDEX = [
     tags: "oip tsmc secure storage brief event"
   }
 ];
-
-/**
- * 搜尋互動控制器
- */
-function initSearchEngine() {
-  const overlay = document.getElementById("searchOverlay");
-  const input = document.getElementById("searchInput");
-  const results = document.getElementById("searchResults");
-  const trigger = document.getElementById("searchTrigger");
-
-  if (!overlay || !input || !results) return;
-
-  function openSearch() {
-    overlay.classList.add("is-open");
-    input.value = "";
-    renderResults("");
-    setTimeout(() => input.focus(), 50);
-  }
-
-  function closeSearch() {
-    overlay.classList.remove("is-open");
-  }
-
-  function renderResults(query) {
-    const lang = window.HubLanguage ? window.HubLanguage.get() : "en";
-    const q = query.toLowerCase().trim();
-    const filtered = q
-      ? SEARCH_INDEX.filter(item =>
-          item.title_en.toLowerCase().includes(q) ||
-          item.title_zh.includes(q) ||
-          item.tags.includes(q))
-      : SEARCH_INDEX;
-
-    results.innerHTML = filtered.map(item => `
-      <a class="search-result-item" href="${item.url}">
-        <div class="sr-title">${lang === "zh" ? item.title_zh : item.title_en}</div>
-        <div class="sr-desc">${item.url}</div>
-      </a>
-    `).join("");
-  }
-
-  if (trigger) {
-    trigger.addEventListener("click", openSearch);
-  }
-
-  overlay.addEventListener("click", (e) => {
-    if (e.target === overlay) closeSearch();
-  });
-
-  input.addEventListener("input", () => renderResults(input.value));
-
-  document.addEventListener("keydown", (e) => {
-    if ((e.ctrlKey || e.metaKey) && e.key === "k") {
-      e.preventDefault();
-      openSearch();
-    }
-    if (e.key === "Escape" && overlay.classList.contains("is-open")) {
-      closeSearch();
-    }
-  });
-}
-
-// 頁面就緒時啟動
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => {
-    syncHubLanguage();
-    initSearchEngine();
-  });
-} else {
-  syncHubLanguage();
-  initSearchEngine();
-}
-
-// 匯出至全域環境
-window.NVMHub = {
-  syncLanguage: syncHubLanguage,
-  searchIndex: SEARCH_INDEX
-};

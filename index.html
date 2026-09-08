@@ -642,6 +642,7 @@
       color: var(--accent-cyan) !important;
     }
   </style>
+  <link rel="stylesheet" href="首頁互動.css?v=20260908">
 </head>
 <body class="hub-page">
   <!-- WCAG High-Contrast Skip Link -->
@@ -658,7 +659,7 @@
     </div>
     <div class="hub-header-right">
       <!-- 全局搜尋觸發按鈕 -->
-      <button class="search-trigger" id="searchTrigger" type="button" aria-label="Search">
+      <button class="search-trigger" id="searchTrigger" type="button" aria-label="搜尋知識中心" aria-haspopup="dialog" aria-controls="searchOverlay" aria-expanded="false">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <span data-lang="zh">搜尋</span><span data-lang="en">Search</span>
         <kbd>Ctrl+K</kbd>
@@ -674,15 +675,17 @@
   <!-- ================================================================= -->
   <!-- SEARCH MODAL                                                       -->
   <!-- ================================================================= -->
-  <div class="search-overlay" id="searchOverlay" role="dialog" aria-label="Search Knowledge Hub">
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="搜尋知識中心" aria-hidden="true">
     <div class="search-box">
       <div class="search-input-row">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" id="searchInput" autocomplete="off"
+        <input type="text" id="searchInput" autocomplete="off" aria-label="搜尋主題與證據總帳" aria-describedby="searchStatus"
                data-placeholder-zh="搜尋知識領域、技術、頁面..."
                data-placeholder-en="Search domains, technologies, pages..."
-               placeholder="Search domains, technologies, pages...">
+               placeholder="搜尋主題、技術與總帳紀錄">
+        <button class="search-close" id="searchClose" type="button" aria-label="關閉搜尋">✕</button>
       </div>
+      <p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
       <div class="search-results" id="searchResults"></div>
     </div>
   </div>
@@ -701,7 +704,7 @@
     </p>
     <div class="hero-metrics">
       <div class="hero-metric"><b>8</b><span><span data-lang="zh">知識領域</span><span data-lang="en">Knowledge Domains</span></span></div>
-      <div class="hero-metric"><b>44</b><span><span data-lang="zh">總帳紀錄</span><span data-lang="en">Ledger Records</span></span></div>
+      <div class="hero-metric"><b>31</b><span><span data-lang="zh">總帳紀錄</span><span data-lang="en">Ledger Records</span></span></div>
       <div class="hero-metric"><b>12</b><span><span data-lang="zh">深度專頁</span><span data-lang="en">Deep-Dive Pages</span></span></div>
       <div class="hero-metric"><b>4</b><span><span data-lang="zh">證據分級</span><span data-lang="en">Evidence Classes</span></span></div>
     </div>
@@ -769,9 +772,9 @@
             <a class="km-card" href="memory-physics.html">
               <span class="km-card-num">F1</span>
               <span class="km-card-title"><span data-lang="zh">位元胞物理與可靠度</span><span data-lang="en">Bitcell Physics &amp; Reliability</span></span>
-              <span class="km-card-desc"><span data-lang="zh">AntiFuse 閘極氧化層介電擊穿、奈米金屬矽化物微絲穩定性、Fowler-Nordheim 穿隧模型，以及 44 筆證據總帳紀錄。</span><span data-lang="en">AntiFuse gate-oxide dielectric breakdown, nanoscale metallic silicide filament stability, Fowler-Nordheim tunneling models, and a 44-row evidence ledger.</span></span>
+              <span class="km-card-desc"><span data-lang="zh">AntiFuse 閘極氧化層介電擊穿、奈米金屬矽化物微絲穩定性、Fowler-Nordheim 穿隧模型，以及 31 筆證據總帳紀錄。</span><span data-lang="en">AntiFuse gate-oxide dielectric breakdown, nanoscale metallic silicide filament stability, Fowler-Nordheim tunneling models, and a 31-row evidence ledger.</span></span>
               <span class="km-card-tags">
-                <span>175°C Zero Drift</span><span>F-N Tunneling</span><span>44 Claims</span>
+                <span>175°C Zero Drift</span><span>F-N Tunneling</span><span>31 Claims</span>
               </span>
               <span class="km-card-arrow"><span data-lang="zh">深入探索</span><span data-lang="en">Explore</span> <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </a>
@@ -887,7 +890,7 @@
             <a class="km-card" href="whitepaper/">
               <span class="km-card-num">R1</span>
               <span class="km-card-title"><span data-lang="zh">白皮書決策工作台</span><span data-lang="en">Whitepaper Decision Studio</span></span>
-              <span class="km-card-desc"><span data-lang="zh">Phase 1 &amp; 2 互動閱讀器、44 筆證據總帳、即時檢索與架構比對工具。</span><span data-lang="en">Phase 1 &amp; 2 interactive readers, 44-row evidence ledger, real-time search and comparison tools.</span></span>
+              <span class="km-card-desc"><span data-lang="zh">Phase 1 &amp; 2 互動閱讀器、即時檢索與架構比對工具。</span><span data-lang="en">Phase 1 &amp; 2 interactive readers, real-time search and comparison tools.</span></span>
               <span class="km-card-tags"><span>Interactive Reader</span><span>Evidence Ledger</span></span>
               <span class="km-card-arrow"><span data-lang="zh">開啟工作台</span><span data-lang="en">Launch Studio</span> <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </a>
@@ -901,8 +904,8 @@
             <a class="km-card" href="memory-evidence.html">
               <span class="km-card-num">R3</span>
               <span class="km-card-title"><span data-lang="zh">證據總帳</span><span data-lang="en">Evidence Ledger</span></span>
-              <span class="km-card-desc"><span data-lang="zh">44 筆以第一手資料手冊為準繩的技術紀錄，不是閱讀清單，是證據邊界。</span><span data-lang="en">44 records grounded in primary datasheets — not a reading list, an evidence boundary.</span></span>
-              <span class="km-card-tags"><span>44 Claims</span><span>Primary Sources</span></span>
+              <span class="km-card-desc"><span data-lang="zh">31 筆以第一手資料手冊為準繩的技術紀錄，不是閱讀清單，是證據邊界。</span><span data-lang="en">31 records grounded in primary datasheets — not a reading list, an evidence boundary.</span></span>
+              <span class="km-card-tags"><span>31 Claims</span><span>Primary Sources</span></span>
               <span class="km-card-arrow"><span data-lang="zh">檢視總帳</span><span data-lang="en">View Ledger</span> <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </a>
           </div>
@@ -918,73 +921,20 @@
       <span data-lang="zh">&copy; 2026 NVM 架構知識中樞 · 證據紀律</span>
       <span data-lang="en">&copy; 2026 NVM Architecture Knowledge Hub · Evidence discipline</span>
     </p>
-    <div>
-      <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Portal</span></a>
-      <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
-      <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Advanced Nodes</span></a>
-      <a href="iot-mcu-envm.html"><span data-lang="zh">IoT 與 MCU</span><span data-lang="en">IoT &amp; MCU eNVM</span></a>
-      <a href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive NVM</span></a>
-      <a href="specialty-nvm.html"><span data-lang="zh">特種矽</span><span data-lang="en">Specialty NVM</span></a>
-      <a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Tech Comparison</span></a>
-      <a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper Studio</span></a>
-      <a href="briefing/index.html"><span data-lang="zh">技術簡報</span><span data-lang="en">Executive Briefing</span></a>
-    </div>
+<nav class="footer-groups" aria-label="頁尾導覽"><section class="footer-group"><h2>核心層次</h2><a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Portal</span></a>
+<a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
+<a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Tech Comparison</span></a></section>
+<section class="footer-group"><h2>垂直應用</h2><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Advanced Nodes</span></a>
+<a href="iot-mcu-envm.html"><span data-lang="zh">IoT 與 MCU</span><span data-lang="en">IoT &amp; MCU eNVM</span></a>
+<a href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive NVM</span></a>
+<a href="specialty-nvm.html"><span data-lang="zh">特種矽</span><span data-lang="en">Specialty NVM</span></a></section>
+<section class="footer-group"><h2>資源中心</h2><a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper Studio</span></a>
+<a href="briefing/index.html"><span data-lang="zh">技術簡報</span><span data-lang="en">Executive Briefing</span></a>
+<a href="memory-evidence.html">證據總帳</a></section></nav>
     <p>TSMC N2 GAA &middot; CXL 3.1 &middot; 3D SoIC &middot; AEC-Q100 Grade 0 &middot; PQC Stateful Boot</p>
   </footer>
 
-  <!-- JS: rail tracking only. Search + language live in hub.js (single SEARCH_INDEX). -->
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const railBtns = document.querySelectorAll(".hub-rail-btn");
-    const sections = Array.from(railBtns).map(btn => document.getElementById(btn.dataset.target)).filter(Boolean);
-
-    // 點擊平滑滾動
-    railBtns.forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        const targetId = btn.dataset.target;
-        const targetEl = document.getElementById(targetId);
-        if (targetEl) {
-          e.preventDefault();
-          targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-          railBtns.forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
-          history.pushState(null, "", `#${targetId}`);
-        }
-      });
-    });
-
-    // 滾動雙向同步
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            railBtns.forEach(btn => {
-              if (btn.dataset.target === id) {
-                btn.classList.add("active");
-              } else {
-                btn.classList.remove("active");
-              }
-            });
-          }
-        });
-      }, { rootMargin: "-20% 0px -70% 0px" });
-
-      sections.forEach(sec => observer.observe(sec));
-    }
-
-    // 全局快捷鍵監聽 (Ctrl+K / Cmd+K)
-    document.addEventListener("keydown", (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === "k") {
-        e.preventDefault();
-        const trigger = document.getElementById("searchTrigger");
-        if (trigger) trigger.click();
-      }
-    });
-  });
-
-  </script>
-  <script src="hub.js?v=20260906-navy-v3"></script>
-
+  <script src="hub.js?v=20260908"></script>
+  <script src="搜尋控制器.js?v=20260908"></script><script src="首頁導覽.js?v=20260908"></script>
 </body>
 </html>

@@ -1,0 +1,77 @@
+/* 首頁視覺與鍵盤互動；保留原有技術內容與分層。 */
+body.hub-page { background-image: none !important; isolation: isolate; }
+body.hub-page::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(#ffffff08 1px, transparent 1px), linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 20%, #000 15%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 20%, #000 15%, transparent 78%);
+}
+.hub-hero-compact { position: relative; isolation: isolate; }
+.hub-hero-compact::before {
+  content: ""; position: absolute; inset: -20px 0 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, #00e5ff0d, transparent 65%);
+}
+.hub-hero-compact h1 em {
+  background: linear-gradient(135deg, #e0f2fe 0%, #38bdf8 50%, #00f2fe 100%);
+  background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+.hub-hero-compact .hero-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; width: min(100%, 800px); }
+.hub-hero-compact .hero-metric {
+  flex-direction: column; justify-content: center; align-items: flex-start; gap: 8px; padding: 16px;
+  border-color: #00e5ff33 !important; background: #101216e6 !important;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.hub-hero-compact .hero-metric b { font-size: 26px; color: #38bdf8 !important; }
+.hub-hero-compact .hero-metric span { color: #aab4c3 !important; }
+.hub-hero-compact .hero-metric:hover { transform: translateY(-2px); border-color: #00e5ff80 !important; box-shadow: 0 4px 18px #00e5ff0d; }
+.hub-rail-nav { position: relative; }
+.hub-rail-indicator { position: absolute; height: 2px; top: 0; left: 0; background: #00e5ff; pointer-events: none; transition: transform 220ms ease, width 220ms ease; }
+.hub-rail-btn:hover { transform: none; }
+.km-section { scroll-margin-top: 90px; }
+.km-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.km-card-arrow svg { transition: transform 180ms ease; }
+.km-card:hover .km-card-arrow, .km-card:focus-visible .km-card-arrow { gap: 6px; }
+.km-card:hover .km-card-arrow svg, .km-card:focus-visible .km-card-arrow svg { transform: translateX(4px); }
+.km-card:focus-visible { border-color: #00e5ff !important; }
+:where(a, button, input, [tabindex]):focus-visible { outline: 2px solid #38bdf8 !important; outline-offset: 3px; }
+.hub-page .hub-footer { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 36px clamp(20px, 4vw, 64px); background: #08090a !important; }
+.hub-footer > p { text-align: left; }
+.hub-footer .footer-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; width: 100%; }
+.footer-group { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.footer-group h2 { color: #f3f4f6; font-size: 15px; margin: 0 0 8px; }
+.hub-footer .footer-group a { color: #c5cbd5 !important; text-decoration: none; font-size: 13px; min-height: 36px; display: flex; align-items: center; }
+.hub-footer .footer-group a:hover { color: #38bdf8 !important; }
+.search-input-row input { min-width: 0; }
+.search-overlay { align-items: flex-start; }
+.search-input-row { flex-shrink: 0; }
+.search-close { background: #181b20; color: #c5cbd5; border: 1px solid #7e8795; border-radius: 6px; min-height: 44px; min-width: 44px; cursor: pointer; }
+.search-status { color: #aab4c3; font-size: 13px; padding: 10px 20px; margin: 0; }
+.search-results { min-height: 0; overscroll-behavior: contain; }
+.search-result-item { overflow-wrap: anywhere; }
+.search-result-item .sr-desc { color: #aab4c3 !important; }
+@media (max-width: 640px) {
+  .hub-hero-compact .hero-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hub-header-left { min-width: 0; gap: 8px; }
+  .hub-brand-name { font-size: 10px; overflow-wrap: anywhere; }
+  .hub-header-right { flex-shrink: 0; gap: 6px; }
+  .search-trigger { min-height: 44px; padding: 6px 8px; }
+  .search-trigger kbd { display: none; }
+  .hub-minimal-header .language-toggle { min-height: 44px; padding: 5px 8px; }
+  .hub-footer .footer-groups { grid-template-columns: 1fr; }
+  .hub-footer .footer-group a { min-height: 44px; font-size: 14px; }
+  .search-overlay { padding-top: 5dvh; }
+  .search-box { max-height: 85dvh; }
+  .search-input-row { padding: 12px; gap: 8px; }
+  .km-card-desc { font-size: 15px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .hero-metric:hover, .km-card:hover, .km-card-arrow svg { transform: none !important; }
+}
+@media (forced-colors: active) {
+  .hub-hero-compact h1 em { background: none; -webkit-text-fill-color: CanvasText; }
+  .hub-rail-indicator { background: Highlight; }
+}

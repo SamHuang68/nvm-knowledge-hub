@@ -638,3 +638,7 @@ html[data-language="zh"] [data-lang="en"],
 body[data-language="zh"] [data-lang="en"] {
   display: none !important;
 }
+
+/* 搜尋紀錄錨點避開固定導覽列。 */
+.source-card[id] { scroll-margin-top: 100px; }
+.source-card:target { outline: 2px solid #38bdf8; outline-offset: 4px; }
