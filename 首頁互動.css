@@ -8,6 +8,12 @@ body.hub-page::before {
   -webkit-mask-image: radial-gradient(ellipse at 50% 20%, #000 15%, transparent 78%);
 }
 .hub-hero-compact { position: relative; isolation: isolate; }
+.hub-home-link {
+  display: inline-flex; align-items: center; gap: 8px; width: fit-content; min-height: 36px;
+  color: #aab4c3; font-size: 13px; line-height: 1.5; text-decoration: none;
+}
+.hub-home-link:hover { color: #38bdf8; }
+.hub-hero-compact .hub-home-link { margin-bottom: 14px; }
 .hub-hero-compact::before {
   content: ""; position: absolute; inset: -20px 0 0; z-index: -1; pointer-events: none;
   background: radial-gradient(ellipse at 50% 0%, #00e5ff0d, transparent 65%);
@@ -27,10 +33,18 @@ body.hub-page::before {
 .hub-hero-compact .hero-metric span { color: #aab4c3 !important; }
 .hub-hero-compact .hero-metric:hover { transform: translateY(-2px); border-color: #00e5ff80 !important; box-shadow: 0 4px 18px #00e5ff0d; }
 .hub-rail-nav { position: relative; }
+.hub-rail-btn { min-height: 56px; }
+.hub-rail-name { white-space: normal; line-height: 1.5; }
+.hub-rail-sub { white-space: normal; line-height: 1.5; color: #aab4c3 !important; }
 .hub-rail-indicator { position: absolute; height: 2px; top: 0; left: 0; background: #00e5ff; pointer-events: none; transition: transform 220ms ease, width 220ms ease; }
 .hub-rail-btn:hover { transform: none; }
 .km-section { scroll-margin-top: 90px; }
-.km-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.km-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.km-card-title { font-size: 17px; line-height: 1.45; }
+.km-card-desc { font-size: 15px; line-height: 1.75; }
+.km-card-tags span { color: #aab4c3 !important; }
+.km-layer-header { flex-wrap: wrap; }
+.km-layer-title { color: #aab4c3 !important; line-height: 1.6; }
 .km-card-arrow svg { transition: transform 180ms ease; }
 .km-card:hover .km-card-arrow, .km-card:focus-visible .km-card-arrow { gap: 6px; }
 .km-card:hover .km-card-arrow svg, .km-card:focus-visible .km-card-arrow svg { transform: translateX(4px); }
@@ -51,6 +65,14 @@ body.hub-page::before {
 .search-results { min-height: 0; overscroll-behavior: contain; }
 .search-result-item { overflow-wrap: anywhere; }
 .search-result-item .sr-desc { color: #aab4c3 !important; }
+@media (max-width: 1024px) {
+  .hub-vertical-rail { position: static; }
+  .hub-rail-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hub-rail-btn { padding: 10px; }
+}
+@media (max-width: 760px) {
+  .km-grid { grid-template-columns: 1fr; }
+}
 @media (max-width: 640px) {
   .hub-hero-compact .hero-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hub-header-left { min-width: 0; gap: 8px; }

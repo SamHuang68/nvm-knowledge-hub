@@ -8,6 +8,28 @@
   const close = document.getElementById('searchClose');
   if (!overlay || !input || !results) return;
   const index = [...SEARCH_INDEX];
+  const labels = {
+    zh: {
+      topic: '深入主題', ledger: '證據總帳',
+      count: (hits, records) => `${hits} 筆結果 · ${SEARCH_INDEX.length} 個主題${records === null ? '' : `、${records} 筆總帳`}。↑ ↓ 選擇，Enter 開啟，Esc 關閉。`,
+      empty: '找不到符合的結果，請試試技術名稱、紀錄編號或較短的關鍵字。',
+      loading: ' 正在載入總帳…',
+      failed: ' 總帳載入失敗；目前僅搜尋主題。重新開啟搜尋可重試。'
+    },
+    en: {
+      topic: 'Explore topic', ledger: 'Evidence Ledger',
+      count: (hits, records) => `${hits} results · ${SEARCH_INDEX.length} topics${records === null ? '' : `, ${records} ledger records`}. ↑ ↓ select, Enter open, Esc close.`,
+      empty: 'No matching results. Try a technology name, record ID, or shorter keyword.',
+      loading: ' Loading the evidence ledger…',
+      failed: ' The ledger could not be loaded; topic search remains available. Reopen search to retry.'
+    }
+  };
+  function syncInterfaceLabels() {
+    const language = window.HubLanguage?.get() === 'zh' ? 'zh' : 'en';
+    document.querySelectorAll('[data-aria-zh][data-aria-en]').forEach(element => {
+      element.setAttribute('aria-label', element.dataset[language === 'zh' ? 'ariaZh' : 'ariaEn']);
+    });
+  }
   let loading = null, loaded = false, failed = false, previousFocus, previousOverflow;
   let background = [];
   const isOpen = () => overlay.classList.contains('is-open');
@@ -35,20 +57,21 @@
     const q = normalize(input.value);
     const items = index.map(item => ({item, score:score(item,q)})).filter(hit => hit.score).sort((a,b)=>b.score-a.score);
     results.replaceChildren();
-    const language = window.HubLanguage?.get() || 'en';
+    const language = window.HubLanguage?.get() === 'zh' ? 'zh' : 'en';
+    const copy = labels[language];
     for (const {item} of items) {
       const link = document.createElement('a');
       link.className = 'search-result-item'; link.href = item.url;
       const title = document.createElement('div'); title.className = 'sr-title';
       title.textContent = language === 'zh' ? item.title_zh : item.title_en;
       const desc = document.createElement('div'); desc.className = 'sr-desc';
-      desc.textContent = item.id ? `證據總帳 · ${item.id} · ${item.summary}` : '深入主題';
+      const summary = item[`summary_${language}`] || '';
+      desc.textContent = item.id ? `${copy.ledger} · ${item.id}${summary ? ` · ${summary}` : ''}` : copy.topic;
       link.append(title, desc); results.append(link);
     }
-    status.textContent = `${items.length} 筆結果 · ${SEARCH_INDEX.length} 個主題${loaded ? `、${index.length-SEARCH_INDEX.length} 筆總帳` : ''}。↑ ↓ 選擇，Enter 開啟，Esc 關閉。`;
-    if (!items.length) status.textContent = '找不到符合的結果，請試試技術名稱、紀錄編號或較短的關鍵字。';
-    if (loading && !loaded) status.textContent += ' 正在載入總帳…';
-    if (failed) status.textContent += ' 總帳載入失敗；目前僅搜尋主題。重新開啟搜尋可重試。';
+    status.textContent = items.length ? copy.count(items.length, loaded ? index.length-SEARCH_INDEX.length : null) : copy.empty;
+    if (loading && !loaded) status.textContent += copy.loading;
+    if (failed) status.textContent += copy.failed;
   }
   async function loadLedger() {
     if (loaded || loading) return loading;
@@ -65,7 +88,8 @@
           if (card.id !== `evidence-${id}`) throw new Error('總帳缺少穩定錨點');
           const title = card.querySelector('h3').textContent.trim();
           const summary = card.querySelector('.source-content > p:not(.source-meta) [data-lang="zh"]')?.textContent.trim() || '';
-          return {id, title_zh: title, title_en: title, summary, url:`memory-evidence.html#${card.id}`, tags:`${card.dataset.keywords} ${card.textContent}`};
+          const summary_en = card.querySelector('.source-content > p:not(.source-meta) [data-lang="en"]')?.textContent.trim() || '';
+          return {id, title_zh: title, title_en: title, summary, summary_zh: summary, summary_en, url:`memory-evidence.html#${card.id}`, tags:`${card.dataset.keywords} ${card.textContent}`};
         });
         index.push(...records); loaded = true;
       } catch { failed = true; }
@@ -95,7 +119,7 @@
   overlay.addEventListener('click',event => {if (event.target === overlay) closeSearch();});
   input.addEventListener('input',render);
   results.addEventListener('click',event => {if (event.target.closest('a')) closeSearch();});
-  window.addEventListener('hub:language-change',() => {if (isOpen()) render();});
+  window.addEventListener('hub:language-change',() => {syncInterfaceLabels(); if (isOpen()) render();});
   const mac = /Mac|iPhone|iPad/.test(navigator.userAgentData?.platform || navigator.platform || navigator.userAgent);
   if (trigger?.querySelector('kbd')) trigger.querySelector('kbd').textContent = mac ? '⌘K' : 'Ctrl+K';
   trigger?.setAttribute('aria-keyshortcuts',mac ? 'Meta+K' : 'Control+K');
@@ -123,5 +147,6 @@
     }
   });
   syncHubLanguage();
+  syncInterfaceLabels();
   window.NVMHub = {syncLanguage:syncHubLanguage, searchIndex:index};
 })();

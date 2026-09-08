@@ -456,7 +456,7 @@
       gap: 14px;
     }
 
-    /* 11 大黑曜石卡片 (啞光黑卡 + 微發光細邊框 + 頂部微光掠影) */
+    /* 十二張黑曜石卡片，保留啞光表面、細邊框與頂部微光 */
     .km-card {
       position: relative; display: flex; flex-direction: column;
       padding: 22px 24px;
@@ -653,19 +653,19 @@
   <!-- ================================================================= -->
   <header class="hub-minimal-header" id="hubTopHeader">
     <div class="hub-header-left">
-      <a class="hub-micro-logo" href="index.html" aria-label="NVM Knowledge Hub Home"><span>N</span></a>
+      <a class="hub-micro-logo" href="index.html" aria-label="NVM 知識中心首頁" data-aria-zh="NVM 知識中心首頁" data-aria-en="NVM Knowledge Hub Home"><span>N</span></a>
       <span class="hub-brand-name"><span data-lang="zh">NVM 架構知識中樞</span><span data-lang="en">NVM ARCHITECTURE KNOWLEDGE HUB</span></span>
       <span class="hub-spec-badge">V3.2 · EDITORIAL</span>
     </div>
     <div class="hub-header-right">
       <!-- 全局搜尋觸發按鈕 -->
-      <button class="search-trigger" id="searchTrigger" type="button" aria-label="搜尋知識中心" aria-haspopup="dialog" aria-controls="searchOverlay" aria-expanded="false">
+      <button class="search-trigger" id="searchTrigger" type="button" aria-label="搜尋知識中心" data-aria-zh="搜尋知識中心" data-aria-en="Search the knowledge hub" aria-haspopup="dialog" aria-controls="searchOverlay" aria-expanded="false">
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <span data-lang="zh">搜尋</span><span data-lang="en">Search</span>
         <kbd>Ctrl+K</kbd>
       </button>
       <div class="hub-header-ctrls">
-        <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch Language (ZH/EN)">
+        <button class="language-toggle" id="languageToggle" type="button" aria-label="切換至英文" data-aria-zh="切換至英文" data-aria-en="Switch to Traditional Chinese">
           <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
         </button>
       </div>
@@ -675,15 +675,15 @@
   <!-- ================================================================= -->
   <!-- SEARCH MODAL                                                       -->
   <!-- ================================================================= -->
-  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="搜尋知識中心" aria-hidden="true">
+  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="搜尋知識中心" data-aria-zh="搜尋知識中心" data-aria-en="Search the knowledge hub" aria-hidden="true">
     <div class="search-box">
       <div class="search-input-row">
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="text" id="searchInput" autocomplete="off" aria-label="搜尋主題與證據總帳" aria-describedby="searchStatus"
+        <input type="text" id="searchInput" autocomplete="off" aria-label="搜尋主題與證據總帳" data-aria-zh="搜尋主題與證據總帳" data-aria-en="Search topics and the evidence ledger" aria-describedby="searchStatus"
                data-placeholder-zh="搜尋知識領域、技術、頁面..."
                data-placeholder-en="Search domains, technologies, pages..."
                placeholder="搜尋主題、技術與總帳紀錄">
-        <button class="search-close" id="searchClose" type="button" aria-label="關閉搜尋">✕</button>
+        <button class="search-close" id="searchClose" type="button" aria-label="關閉搜尋" data-aria-zh="關閉搜尋" data-aria-en="Close search">✕</button>
       </div>
       <p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
       <div class="search-results" id="searchResults"></div>
@@ -694,6 +694,7 @@
   <!-- HERO: COMPACT BRAND STATEMENT (極致壓縮版面)                        -->
   <!-- ================================================================= -->
   <section class="hub-hero-compact" aria-labelledby="hubHeroTitle">
+    <a class="hub-home-link" href="https://samhuang68.github.io/"><span aria-hidden="true">←</span><span data-lang="zh">Sam Huang 主站</span><span data-lang="en">Sam Huang · Home</span></a>
     <h1 id="hubHeroTitle">
       <span data-lang="zh">非揮發性記憶體<br><em>架構知識中樞</em></span>
       <span data-lang="en">Non-Volatile Memory<br><em>Architecture Knowledge Hub</em></span>
@@ -718,38 +719,38 @@
     <div class="hub-studio-layout">
 
       <!-- 左側直立測條 (Vertical Knowledge Rail) -->
-      <aside class="hub-vertical-rail" aria-label="知識領域層次直立測條">
+      <aside class="hub-vertical-rail" aria-label="知識領域章節導覽" data-aria-zh="知識領域章節導覽" data-aria-en="Knowledge domain chapter navigation">
         <div class="hub-rail-header">
-          <span class="hub-rail-title">KNOWLEDGE LAYERS</span>
+          <span class="hub-rail-title"><span data-lang="zh">選擇閱讀章節</span><span data-lang="en">KNOWLEDGE LAYERS</span></span>
           <span class="hub-rail-tag">L1 ~ RES</span>
         </div>
-        <nav class="hub-rail-nav" role="navigation" aria-label="層次跳轉">
+        <nav class="hub-rail-nav" role="navigation" aria-label="跳至章節" data-aria-zh="跳至章節" data-aria-en="Jump to a chapter">
           <a class="hub-rail-btn active" href="#layer-foundations" data-target="layer-foundations">
             <span class="hub-rail-badge">L1</span>
             <div class="hub-rail-text">
               <span class="hub-rail-name"><span data-lang="zh">基礎科學與製程</span><span data-lang="en">Foundations &amp; Physics</span></span>
-              <span class="hub-rail-sub">F1 · F2 Physics &amp; Matrix</span>
+              <span class="hub-rail-sub"><span data-lang="zh">F1–F2 · 物理與技術比較</span><span data-lang="en">F1–F2 · Physics &amp; Matrix</span></span>
             </div>
           </a>
           <a class="hub-rail-btn" href="#layer-architecture" data-target="layer-architecture">
             <span class="hub-rail-badge">L2</span>
             <div class="hub-rail-text">
               <span class="hub-rail-name"><span data-lang="zh">架構與安全支柱</span><span data-lang="en">Architecture &amp; Security</span></span>
-              <span class="hub-rail-sub">A1 · A2 Storage &amp; RoT</span>
+              <span class="hub-rail-sub"><span data-lang="zh">A1–A2 · 儲存與信任根</span><span data-lang="en">A1–A2 · Storage &amp; RoT</span></span>
             </div>
           </a>
           <a class="hub-rail-btn" href="#layer-applications" data-target="layer-applications">
             <span class="hub-rail-badge">L3</span>
             <div class="hub-rail-text">
               <span class="hub-rail-name"><span data-lang="zh">市場垂直應用</span><span data-lang="en">Market Applications</span></span>
-              <span class="hub-rail-sub">M1 ~ M4 AI · IoT · Auto · BCD</span>
+              <span class="hub-rail-sub"><span data-lang="zh">M1–M4 · AI、IoT、車規與 BCD</span><span data-lang="en">M1–M4 · AI, IoT, Auto &amp; BCD</span></span>
             </div>
           </a>
           <a class="hub-rail-btn" href="#layer-resources" data-target="layer-resources">
             <span class="hub-rail-badge">RES</span>
             <div class="hub-rail-text">
               <span class="hub-rail-name"><span data-lang="zh">資源與白皮書</span><span data-lang="en">Resources &amp; Studio</span></span>
-              <span class="hub-rail-sub">R1 ~ R3 Studio · Deck · Ledger</span>
+              <span class="hub-rail-sub"><span data-lang="zh">R1–R4 · 白皮書、簡報、總帳與 OIP</span><span data-lang="en">R1–R4 · Studio, Deck, Ledger &amp; OIP</span></span>
             </div>
           </a>
         </nav>
@@ -882,8 +883,8 @@
           <div class="km-layer-header">
             <span class="km-layer-tag resources">RESOURCES</span>
             <span class="km-layer-title">
-              <span data-lang="zh">資源中心 · 工具與交付物</span>
-              <span data-lang="en">Resources · Tools &amp; Deliverables</span>
+              <span data-lang="zh">資源中心 · 四個閱讀與查核入口</span>
+              <span data-lang="en">Resources · Four Reading &amp; Evidence Portals</span>
             </span>
           </div>
           <div class="km-grid">
@@ -908,6 +909,13 @@
               <span class="km-card-tags"><span>31 Claims</span><span>Primary Sources</span></span>
               <span class="km-card-arrow"><span data-lang="zh">檢視總帳</span><span data-lang="en">View Ledger</span> <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </a>
+            <a class="km-card" href="oip-secure-storage.html">
+              <span class="km-card-num">R4</span>
+              <span class="km-card-title"><span data-lang="zh">OIP 安全儲存簡報</span><span data-lang="en">OIP Secure Storage Brief</span></span>
+              <span class="km-card-desc"><span data-lang="zh">以 SRAM PUF 重建根金鑰，結合加密、位址擾亂與控制器，說明儲存與秘密分離的架構及驗證邊界。</span><span data-lang="en">SRAM PUF root-key reconstruction, encryption, address scrambling, and controller boundaries: architecture and evidence for separating storage from secrets.</span></span>
+              <span class="km-card-tags"><span>SRAM PUF</span><span>AES-256</span><span>Evidence Boundary</span></span>
+              <span class="km-card-arrow"><span data-lang="zh">閱讀 OIP 專頁</span><span data-lang="en">Read OIP Brief</span> <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </a>
           </div>
         </section>
 
@@ -921,16 +929,18 @@
       <span data-lang="zh">&copy; 2026 NVM 架構知識中樞 · 證據紀律</span>
       <span data-lang="en">&copy; 2026 NVM Architecture Knowledge Hub · Evidence discipline</span>
     </p>
-<nav class="footer-groups" aria-label="頁尾導覽"><section class="footer-group"><h2>核心層次</h2><a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Portal</span></a>
+<nav class="footer-groups" aria-label="頁尾導覽" data-aria-zh="頁尾導覽" data-aria-en="Footer navigation"><section class="footer-group"><h2><span data-lang="zh">核心層次</span><span data-lang="en">Core Knowledge</span></h2><a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Portal</span></a>
 <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
 <a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Tech Comparison</span></a></section>
-<section class="footer-group"><h2>垂直應用</h2><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Advanced Nodes</span></a>
+<section class="footer-group"><h2><span data-lang="zh">垂直應用</span><span data-lang="en">Applications</span></h2><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Advanced Nodes</span></a>
 <a href="iot-mcu-envm.html"><span data-lang="zh">IoT 與 MCU</span><span data-lang="en">IoT &amp; MCU eNVM</span></a>
 <a href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive NVM</span></a>
 <a href="specialty-nvm.html"><span data-lang="zh">特種矽</span><span data-lang="en">Specialty NVM</span></a></section>
-<section class="footer-group"><h2>資源中心</h2><a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper Studio</span></a>
+<section class="footer-group"><h2><span data-lang="zh">資源中心</span><span data-lang="en">Resources</span></h2><a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper Studio</span></a>
 <a href="briefing/index.html"><span data-lang="zh">技術簡報</span><span data-lang="en">Executive Briefing</span></a>
-<a href="memory-evidence.html">證據總帳</a></section></nav>
+<a href="memory-evidence.html"><span data-lang="zh">證據總帳</span><span data-lang="en">Evidence Ledger</span></a>
+<a href="oip-secure-storage.html"><span data-lang="zh">OIP 安全儲存</span><span data-lang="en">OIP Secure Storage</span></a></section></nav>
+    <a class="hub-home-link" href="https://samhuang68.github.io/"><span aria-hidden="true">←</span><span data-lang="zh">返回 Sam Huang 主站</span><span data-lang="en">Back to Sam Huang</span></a>
     <p>TSMC N2 GAA &middot; CXL 3.1 &middot; 3D SoIC &middot; AEC-Q100 Grade 0 &middot; PQC Stateful Boot</p>
   </footer>
 
