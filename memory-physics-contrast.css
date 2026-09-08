@@ -23,3 +23,121 @@ body.research-page .abstract-verdict small,
 body.research-page .research-label {
   color: #c4a574 !important;
 }
+
+/* 本頁閱讀版面：章節與正文分欄，窄幅使用可收合導覽。 */
+html body.memory-physics-page .studio-main-workbench {
+  max-width: 1680px !important;
+  margin: 24px auto 40px !important;
+  padding: 0 clamp(12px, 2vw, 28px) !important;
+}
+html body.memory-physics-page .studio-layout {
+  display: grid !important;
+  grid-template-columns: 208px minmax(0, 1fr) !important;
+  gap: 24px !important;
+  align-items: start !important;
+}
+html body.memory-physics-page aside.lens-vertical-rail {
+  position: sticky !important;
+  top: 84px !important;
+  left: auto !important;
+  width: 100% !important;
+  max-width: none !important;
+  max-height: calc(100dvh - 104px) !important;
+  margin: 0 !important;
+  padding: 12px !important;
+  background: #081a26 !important;
+  border: 1px solid #294551 !important;
+  border-radius: 12px !important;
+  z-index: 50 !important;
+}
+html body.memory-physics-page .lens-vertical-rail .rail-title,
+html body.memory-physics-page .lens-vertical-rail .rail-tag,
+html body.memory-physics-page .lens-vertical-rail .lens-node-item {
+  opacity: 1 !important;
+}
+html body.memory-physics-page .lens-vertical-rail .lens-node-item {
+  min-height: 44px !important;
+  padding: 8px !important;
+  margin: 0 !important;
+}
+html body.memory-physics-page .lens-vertical-rail .lens-node-item.active {
+  background: #113747 !important;
+  border-color: #45899b !important;
+}
+html body.memory-physics-page .lens-stage-container { min-width: 0 !important; }
+html body.memory-physics-page .lens-stage-container .paper-section {
+  padding: clamp(22px, 2.2vw, 32px) !important;
+  margin-bottom: 20px !important;
+}
+html body.memory-physics-page .paper-section { scroll-margin-top: var(--f1-anchor-offset, 96px); }
+html body.memory-physics-page .f1-chapter-toggle { display: none; }
+html body.memory-physics-page .paper-heading { align-items: start; }
+html body.memory-physics-page .abstract-copy p { max-width: 74ch; }
+html body.memory-physics-page .paper-note { font-size: 14px; line-height: 1.8; color: #c1d0d6; }
+html body.memory-physics-page .f1-stat-source { margin-top: auto; padding-top: 10px; color: #8ed5e4; font-size: 12px; line-height: 1.5; }
+html body.memory-physics-page .stat-sub { font-size: 13px; line-height: 1.6; color: #b5c7d2; }
+html body.memory-physics-page .f1-stat-bridge .stat-val { overflow-wrap: anywhere; font-size: 1rem !important; }
+.memory-physics-page .f1-reading-routes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0 0 24px; }
+.memory-physics-page .f1-reading-routes a { display: flex; flex-direction: column; gap: 9px; padding: 20px; background: #102d3a; border: 1px solid #365261; border-top: 2px solid #c4a574; border-radius: 10px; text-decoration: none; }
+.memory-physics-page .f1-reading-routes small { color: #c4a574; font: 600 12px/1.5 monospace; }
+.memory-physics-page .f1-reading-routes strong { color: #edf3f7; font-size: 17px; line-height: 1.4; }
+.memory-physics-page .f1-reading-routes a > span { color: #b8cad3; font-size: 14px; line-height: 1.7; }
+.memory-physics-page .f1-evidence-links { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; margin: 18px 0 24px; padding: 14px 18px; border-left: 2px solid #c4a574; background: #0b2330; color: #c9d9e1; font-size: 13px; line-height: 1.6; }
+.memory-physics-page .f1-evidence-links a { color: #94dce6; text-underline-offset: 4px; }
+html body.memory-physics-page :is(a, button, .table-scroll-container):focus-visible { outline: 3px solid #e8c67f; outline-offset: 4px; }
+html body.memory-physics-page .state-lab-controls button { min-height: 44px !important; }
+html body.memory-physics-page .memory-lane { padding-top: 30px !important; }
+html body.memory-physics-page .lane-title { position: static; width: 100%; margin-bottom: 48px; gap: 16px; align-items: start; }
+html body.memory-physics-page .lane-title b { font-size: 20px; line-height: 1.35; }
+html body.memory-physics-page .lane-title span { font-size: 10px; line-height: 1.5; text-align: right; }
+html body.memory-physics-page :is(.taxonomy-wrap, .attack-matrix) { overflow: hidden !important; }
+html body.memory-physics-page .table-scroll-container { overflow-x: auto !important; overscroll-behavior-inline: contain; }
+html body.memory-physics-page :is(.taxonomy-table, .attack-table) { display: table; min-width: 920px; width: 100%; }
+html body.memory-physics-page :is(.taxonomy-table, .attack-table) caption { padding: 16px; text-align: left; color: #c9d9e1; font-size: 13px; line-height: 1.6; }
+html body.memory-physics-page :is(.taxonomy-table, .attack-table) thead { display: table-header-group; }
+html body.memory-physics-page :is(.taxonomy-table, .attack-table) tbody { display: table-row-group; }
+html body.memory-physics-page :is(.taxonomy-table, .attack-table) tr { display: table-row; }
+html body.memory-physics-page :is(.taxonomy-table, .attack-table) :is(th, td) { display: table-cell; width: auto; padding: 16px; vertical-align: top; }
+html body.memory-physics-page :is(.taxonomy-table, .attack-table) td::before { display: none; }
+html body.memory-physics-page .scroll-hint-bar { color: #a5bac8 !important; }
+/* 證據階梯維持原結構與分類邊框，修正深底上的標題與階級小標。 */
+html body.memory-physics-page .claim-rung h3 { color: #f3eee6 !important; }
+html body.memory-physics-page .claim-rung > span { color: #8ed5e4 !important; }
+/* 原內嵌 verdict 規則同時顯示雙語；以頁面語系明確收斂。 */
+html[data-language="zh"] body.memory-physics-page [data-lang="en"],
+html[data-language="en"] body.memory-physics-page [data-lang="zh"] { display: none !important; }
+@media (max-width: 1320px) {
+  html body.memory-physics-page .site-header { grid-template-columns: minmax(0, 1fr) auto !important; gap: 10px !important; }
+  html body.memory-physics-page .site-header .primary-nav { display: none !important; }
+  html body.memory-physics-page .site-header .primary-nav.open { display: flex !important; position: absolute; top: 100% !important; inset-inline: 0; flex-direction: column; align-items: stretch !important; gap: 0 !important; background: #081a26; padding: 12px 20px; }
+  html body.memory-physics-page .site-header .primary-nav a { min-height: 44px; display: flex; align-items: center; }
+  html body.memory-physics-page .menu-button { display: inline-flex; min-width: 44px; min-height: 44px; }
+  html body.memory-physics-page .header-actions .home-pill { display: none; }
+}
+@media (max-width: 1024px) {
+  html body.memory-physics-page .studio-layout { grid-template-columns: minmax(0, 1fr) !important; gap: 16px !important; }
+  html body.memory-physics-page aside.lens-vertical-rail { top: 64px !important; max-height: calc(100dvh - 84px) !important; padding: 8px !important; }
+  html body.memory-physics-page .f1-chapter-toggle { display: flex; width: 100%; min-height: 44px; align-items: center; gap: 12px; padding: 8px 12px; border: 0; background: #102d3a; color: #eaf2f6; font-family: inherit; font-size: 15px; font-weight: 600; line-height: 1.5; cursor: pointer; }
+  html body.memory-physics-page .f1-current-chapter { margin-left: auto; color: #8ed5e4; font-family: monospace; }
+  html body.memory-physics-page .lens-vertical-rail .rail-header { display: none; }
+  html body.memory-physics-page .lens-vertical-rail .hub-nav-pills { display: none !important; }
+  html body.memory-physics-page .lens-vertical-rail.chapters-open .hub-nav-pills { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px !important; margin-top: 8px; max-height: 45dvh; overflow-y: auto; }
+  html body.memory-physics-page .lens-stage-container .paper-heading { grid-template-columns: minmax(0, 1fr) !important; }
+}
+@media (max-width: 640px) {
+  html body.memory-physics-page .site-header .brand-section { display: none !important; }
+  html body.memory-physics-page .site-header .brand { gap: 8px !important; }
+  html body.memory-physics-page .lens-stage-container .paper-section { padding: 22px 16px !important; }
+  html body.memory-physics-page .abstract-copy,
+  html body.memory-physics-page .abstract-verdict.glassmorphism-verdict { padding: 20px 16px !important; }
+  html body.memory-physics-page .f1-reading-routes { grid-template-columns: minmax(0, 1fr); }
+  html body.memory-physics-page .research-hero-links { flex-wrap: wrap; }
+  html body.memory-physics-page .state-lab-controls { gap: 6px !important; }
+  html body.memory-physics-page .state-lab-controls button { flex-basis: 100% !important; }
+  html body.memory-physics-page .memory-lane { padding: 24px 14px !important; }
+  html body.memory-physics-page .state-lab-copy { padding: 22px 16px; gap: 14px; }
+  html body.memory-physics-page .state-lab-copy h3 { font-size: 22px; line-height: 1.4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.memory-physics-page *, html body.memory-physics-page *::before, html body.memory-physics-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
