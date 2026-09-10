@@ -1,8 +1,8 @@
-# NVM IP 單元與技術全景
+# NVM 技術全景
 
 研究版本：2026-09-10
 
-先看具名嵌入式 IP：力旺 NeoBit、NeoFuse、NeoEE、NeoMTP，YMC 閱讀路徑的 CHI／BBHH 模型，以及 MRAM／ReRAM IP 範例。沿同一儲存區追蹤初始狀態、施加刺激、載子或自旋過程與感測結果。獨立式元件與通用物理家族作為背景參考。
+依主題查閱 IP 單元原理、技術沿革、晶圓代工製程或儲存物理；各專題將圖解、操作條件與公開來源連結。
 
 ## 儲存物理
 
@@ -361,6 +361,360 @@ NeoFuse — 單元結構
 #### IP 單元取捨
 
 這個單元的重點是介電層導電特性如何改變，不能只用理想短路代替超薄介電層中的物理。選擇與調節電晶體服務陣列操作；儲存區的缺陷與穿隧路徑決定寫入後的讀取差異。
+
+### Kilopass XPM：歷史 2T 反熔絲
+
+Kilopass；2018 年併入 Synopsys
+
+以原始專利明稱 XPM 的 2T 圖解，分清儲存 MOS 與選擇 MOS。
+
+Kilopass XPM — 單元結構
+
+原始專利圖 1 將 XPM 描述為 M0 儲存 MOS 與 M1 選擇 MOS 的 2T 單元；WLP 控制儲存閘極、WLR 選通 M1，BL 讀取電流。M0 區域為功能放大，不補畫原圖未公開的第二擴散或中間感測端。
+
+- e− · 藍色圓點為移動電子，藍色箭頭沿電子流向；不是保留在閘極內的儲存電荷。
+- I · 綠色為傳統電流，方向與電子相反。圖示支線固定為閘極正偏壓、BL 低電位。
+- OTP · 橘色局部路徑表示氧化層導通狀態；正常操作無電性抹除。
+- I_L / I_H · 短／長線條只示意低／高讀取電流的比較，不是量測值或固定邏輯編碼。
+- Geometry · 公開來源的歷史功能重建，非比例剖面或現行版圖；端點偏壓不構成製程操作規格。
+- M0 / M1 · M0 儲存、M1 選擇；兩者間的內部節點不增設原圖沒有的感測輸出。
+
+- [ip-kilopass-xpm-2007：Kilopass XPM 2T 歷史專利圖](https://patents.google.com/patent/WO2007090089A2/en)
+- [ip-kilopass-2t-2012：Kilopass 130／110 nm XPM 與 Gusto 2T 公告](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)
+
+#### Kilopass XPM — 寫入
+
+M0 閘氧局部崩潰形成可導通路徑；示意電子由 BL 經 M1、矽側流向正 WLP。
+
+閘極氧化層崩潰
+
+**1. 初始狀態**
+
+狀態: 閘氧完整；M0 的閘極到矽側只有低漏電，M1 尚未選通。
+
+刺激: 本次刺激尚未施加。
+
+閘氧完整；M0 的閘極到矽側只有低漏電，M1 尚未選通。
+
+**2. 建立寫入電場**
+
+狀態: WLP 加上正寫入偏壓、WLR 選通 M1、BL 接低電位，在 M0 閘氧建立高場。
+
+刺激: WLP 加上正寫入偏壓、WLR 選通 M1、BL 接低電位，在 M0 閘氧建立高場。
+
+WLP 加上正寫入偏壓、WLR 選通 M1、BL 接低電位，在 M0 閘氧建立高場。
+
+**3. 氧化層崩潰**
+
+狀態: M0 閘氧局部崩潰形成可導通路徑；示意電子由 BL 經 M1、矽側流向正 WLP。
+
+刺激: WLP 加上正寫入偏壓、WLR 選通 M1、BL 接低電位，在 M0 閘氧建立高場。
+
+M0 閘氧局部崩潰形成可導通路徑；示意電子由 BL 經 M1、矽側流向正 WLP。
+
+**4. 保持結果**
+
+狀態: 移除脈衝後，閘氧的導通差異仍存在；儲存的是氧化層狀態。
+
+刺激: 移除寫入偏壓。
+
+移除脈衝後，閘氧的導通差異仍存在；儲存的是氧化層狀態。
+
+- e− · 藍色圓點為移動電子，藍色箭頭沿電子流向；不是保留在閘極內的儲存電荷。
+- I · 綠色為傳統電流，方向與電子相反。圖示支線固定為閘極正偏壓、BL 低電位。
+- OTP · 橘色局部路徑表示氧化層導通狀態；正常操作無電性抹除。
+- I_L / I_H · 短／長線條只示意低／高讀取電流的比較，不是量測值或固定邏輯編碼。
+- Geometry · 公開來源的歷史功能重建，非比例剖面或現行版圖；端點偏壓不構成製程操作規格。
+- M0 / M1 · M0 儲存、M1 選擇；兩者間的內部節點不增設原圖沒有的感測輸出。
+
+採 2007 年專利明稱 XPM 的圖 1 與 2012 年產品公告，不混入後續自我感測、鎖存或 3T 圖。正 WLP、低 BL 是此 nMOS 教學支線；讀取只指定較低應力，不給可實作電壓。 收購公告只證明產品組合承接；現行 1T／2T 或先進製程文章不證明逐節點沿用此剖面。
+
+- [ip-kilopass-xpm-2007：Kilopass XPM 2T 歷史專利圖](https://patents.google.com/patent/WO2007090089A2/en)
+- [ip-kilopass-2t-2012：Kilopass 130／110 nm XPM 與 Gusto 2T 公告](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)
+- [ip-lineage-kilopass-2018：Synopsys 收購 Kilopass 官方公告](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
+- [ip-synopsys-otp-current：Synopsys OTP NVM 1T／2T 產品組合](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp：Synopsys 先進製程 OTP 可靠度與感測演進](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+#### Kilopass XPM — 抹除操作界線
+
+正常 OTP 不提供電性抹除；原單元無法藉一般反向操作回復未寫入狀態。
+
+正常 OTP 操作界線
+
+**1. 寫入後狀態**
+
+狀態: 已寫入後，局部閘氧導通狀態仍在。
+
+刺激: 本次刺激尚未施加。
+
+已寫入後，局部閘氧導通狀態仍在。
+
+**2. 正常操作界線**
+
+狀態: 正常 OTP 介面沒有可修復閘氧的電性抹除流程。
+
+刺激: 無正常電性抹除刺激。
+
+正常 OTP 介面沒有可修復閘氧的電性抹除流程。
+
+**3. 持續保持**
+
+狀態: 原單元保持；冗餘位元、重新配置或 eMTP 模擬更新屬於系統方法。
+
+刺激: 無正常電性抹除刺激。
+
+原單元保持；冗餘位元、重新配置或 eMTP 模擬更新屬於系統方法。
+
+- e− · 藍色圓點為移動電子，藍色箭頭沿電子流向；不是保留在閘極內的儲存電荷。
+- I · 綠色為傳統電流，方向與電子相反。圖示支線固定為閘極正偏壓、BL 低電位。
+- OTP · 橘色局部路徑表示氧化層導通狀態；正常操作無電性抹除。
+- I_L / I_H · 短／長線條只示意低／高讀取電流的比較，不是量測值或固定邏輯編碼。
+- Geometry · 公開來源的歷史功能重建，非比例剖面或現行版圖；端點偏壓不構成製程操作規格。
+- M0 / M1 · M0 儲存、M1 選擇；兩者間的內部節點不增設原圖沒有的感測輸出。
+
+採 2007 年專利明稱 XPM 的圖 1 與 2012 年產品公告，不混入後續自我感測、鎖存或 3T 圖。正 WLP、低 BL 是此 nMOS 教學支線；讀取只指定較低應力，不給可實作電壓。 收購公告只證明產品組合承接；現行 1T／2T 或先進製程文章不證明逐節點沿用此剖面。
+
+- [ip-kilopass-xpm-2007：Kilopass XPM 2T 歷史專利圖](https://patents.google.com/patent/WO2007090089A2/en)
+- [ip-kilopass-2t-2012：Kilopass 130／110 nm XPM 與 Gusto 2T 公告](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)
+- [ip-lineage-kilopass-2018：Synopsys 收購 Kilopass 官方公告](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
+- [ip-synopsys-otp-current：Synopsys OTP NVM 1T／2T 產品組合](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp：Synopsys 先進製程 OTP 可靠度與感測演進](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+#### Kilopass XPM — 讀取
+
+感測放大器比較 BL 的低／高電流；邏輯 0／1 對應由巨集定義，讀取不修復閘氧。
+
+氧化層導通電流感測
+
+**1. 保持狀態**
+
+狀態: 以已寫入單元示範；其氧化層導通狀態在沒有讀取刺激時仍保持。
+
+刺激: 本次刺激尚未施加。
+
+以已寫入單元示範；其氧化層導通狀態在沒有讀取刺激時仍保持。
+
+**2. 建立讀取條件**
+
+狀態: WLR 選通 M1，WLP 與 BL 建立較低應力的讀取條件。
+
+刺激: WLR 選通 M1，WLP 與 BL 建立較低應力的讀取條件。
+
+WLR 選通 M1，WLP 與 BL 建立較低應力的讀取條件。
+
+**3. 感測路徑**
+
+狀態: 圖示正 WLP、低 BL 條件下，傳統電流經閘氧、矽側與 M1 流向 BL，電子方向相反。
+
+刺激: WLR 選通 M1，WLP 與 BL 建立較低應力的讀取條件。
+
+圖示正 WLP、低 BL 條件下，傳統電流經閘氧、矽側與 M1 流向 BL，電子方向相反。
+
+**4. 比較結果**
+
+狀態: 感測放大器比較 BL 的低／高電流；邏輯 0／1 對應由巨集定義，讀取不修復閘氧。
+
+刺激: 完成感測；以巨集邏輯判讀。
+
+感測放大器比較 BL 的低／高電流；邏輯 0／1 對應由巨集定義，讀取不修復閘氧。
+
+- e− · 藍色圓點為移動電子，藍色箭頭沿電子流向；不是保留在閘極內的儲存電荷。
+- I · 綠色為傳統電流，方向與電子相反。圖示支線固定為閘極正偏壓、BL 低電位。
+- OTP · 橘色局部路徑表示氧化層導通狀態；正常操作無電性抹除。
+- I_L / I_H · 短／長線條只示意低／高讀取電流的比較，不是量測值或固定邏輯編碼。
+- Geometry · 公開來源的歷史功能重建，非比例剖面或現行版圖；端點偏壓不構成製程操作規格。
+- M0 / M1 · M0 儲存、M1 選擇；兩者間的內部節點不增設原圖沒有的感測輸出。
+
+採 2007 年專利明稱 XPM 的圖 1 與 2012 年產品公告，不混入後續自我感測、鎖存或 3T 圖。正 WLP、低 BL 是此 nMOS 教學支線；讀取只指定較低應力，不給可實作電壓。 收購公告只證明產品組合承接；現行 1T／2T 或先進製程文章不證明逐節點沿用此剖面。
+
+- [ip-kilopass-xpm-2007：Kilopass XPM 2T 歷史專利圖](https://patents.google.com/patent/WO2007090089A2/en)
+- [ip-kilopass-2t-2012：Kilopass 130／110 nm XPM 與 Gusto 2T 公告](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)
+- [ip-lineage-kilopass-2018：Synopsys 收購 Kilopass 官方公告](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
+- [ip-synopsys-otp-current：Synopsys OTP NVM 1T／2T 產品組合](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp：Synopsys 先進製程 OTP 可靠度與感測演進](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+#### IP 單元取捨
+
+2T 的角色分工與原始 XPM 來源；公司承接不等於所有節點沿用相同單元。
+
+### Sidense 1T-Fuse：分裂通道反熔絲
+
+Sidense；2017 年併入 Synopsys
+
+單一閘極跨越厚／薄氧化層；薄區永久導通形成 OTP 狀態。
+
+Sidense 1T-Fuse — 單元結構
+
+依 2007 年原作者圖 2，單一連續 poly 閘極接 WL，BL 接唯一 N+ 擴散。BL 側為厚 I/O 閘氧、遠 BL 端為薄 core 閘氧；薄區崩潰後連通閘極與通道。厚度與導通路徑為閱讀而放大。
+
+- e− · 藍色圓點為移動電子，藍色箭頭沿電子流向；不是保留在閘極內的儲存電荷。
+- I · 綠色為傳統電流，方向與電子相反。圖示支線固定為閘極正偏壓、BL 低電位。
+- OTP · 橘色局部路徑表示氧化層導通狀態；正常操作無電性抹除。
+- I_L / I_H · 短／長線條只示意低／高讀取電流的比較，不是量測值或固定邏輯編碼。
+- Geometry · 公開來源的歷史功能重建，非比例剖面或現行版圖；端點偏壓不構成製程操作規格。
+- WL / BL · WL 接單一 poly 閘極，BL 接唯一 N+ 擴散；只有薄 core 氧化層畫出崩潰。水平載子路徑是為閱讀而偏移的閘下表面通道示意，不表示 P 型本體導電。
+
+- [ip-sidense-cell-2007：Sidense 1T-Fuse 原作者單元剖面](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+- [ip-sidense-irreversible-2017：Sidense 1T-Fuse 不可逆狀態與 eMTP 界線](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+- [ip-sidense-patent-2006：Sidense 分裂通道反熔絲歷史專利](https://patents.google.com/patent/US20060244099A1/en)
+
+#### Sidense 1T-Fuse — 寫入
+
+薄 core 閘氧局部崩潰。電子由 BL 擴散經通道穿過該薄區流向 WL；厚區不畫成破裂。
+
+閘極氧化層崩潰
+
+**1. 初始狀態**
+
+狀態: 單一閘極下的厚／薄氧化層均完整，WL 至 BL 為初始低漏電狀態。
+
+刺激: 本次刺激尚未施加。
+
+單一閘極下的厚／薄氧化層均完整，WL 至 BL 為初始低漏電狀態。
+
+**2. 建立寫入電場**
+
+狀態: 在圖示 n 型教學條件中提高 WL、保持 BL 低電位；厚區控制通道，薄區承受較強氧化層電場。
+
+刺激: 在圖示 n 型教學條件中提高 WL、保持 BL 低電位；厚區控制通道，薄區承受較強氧化層電場。
+
+在圖示 n 型教學條件中提高 WL、保持 BL 低電位；厚區控制通道，薄區承受較強氧化層電場。
+
+**3. 氧化層崩潰**
+
+狀態: 薄 core 閘氧局部崩潰。電子由 BL 擴散經通道穿過該薄區流向 WL；厚區不畫成破裂。
+
+刺激: 在圖示 n 型教學條件中提高 WL、保持 BL 低電位；厚區控制通道，薄區承受較強氧化層電場。
+
+薄 core 閘氧局部崩潰。電子由 BL 擴散經通道穿過該薄區流向 WL；厚區不畫成破裂。
+
+**4. 保持結果**
+
+狀態: 寫入偏壓移除後，薄區的永久導通狀態保持，不靠閘極中儲存電子。
+
+刺激: 移除寫入偏壓。
+
+寫入偏壓移除後，薄區的永久導通狀態保持，不靠閘極中儲存電子。
+
+- e− · 藍色圓點為移動電子，藍色箭頭沿電子流向；不是保留在閘極內的儲存電荷。
+- I · 綠色為傳統電流，方向與電子相反。圖示支線固定為閘極正偏壓、BL 低電位。
+- OTP · 橘色局部路徑表示氧化層導通狀態；正常操作無電性抹除。
+- I_L / I_H · 短／長線條只示意低／高讀取電流的比較，不是量測值或固定邏輯編碼。
+- Geometry · 公開來源的歷史功能重建，非比例剖面或現行版圖；端點偏壓不構成製程操作規格。
+- WL / BL · WL 接單一 poly 閘極，BL 接唯一 N+ 擴散；只有薄 core 氧化層畫出崩潰。水平載子路徑是為閱讀而偏移的閘下表面通道示意，不表示 P 型本體導電。
+
+剖面採產品文章的 n 型結構；正 WL、低 BL 的方向為明示偏壓下的教學推導。歷史專利 p 型範例的詳細電壓不搬入此圖。分裂通道不是兩個獨立閘極，也不是浮動閘極。 收購公告只證明產品組合承接；現行 1T／2T 或先進製程文章不證明逐節點沿用此剖面。
+
+- [ip-sidense-cell-2007：Sidense 1T-Fuse 原作者單元剖面](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+- [ip-sidense-irreversible-2017：Sidense 1T-Fuse 不可逆狀態與 eMTP 界線](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+- [ip-sidense-patent-2006：Sidense 分裂通道反熔絲歷史專利](https://patents.google.com/patent/US20060244099A1/en)
+- [ip-lineage-sidense-2017：Synopsys 收購 Sidense 官方公告](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation)
+- [ip-synopsys-otp-current：Synopsys OTP NVM 1T／2T 產品組合](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp：Synopsys 先進製程 OTP 可靠度與感測演進](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+#### Sidense 1T-Fuse — 抹除操作界線
+
+正常 OTP 不提供電性抹除；原單元無法藉一般反向操作回復未寫入狀態。
+
+正常 OTP 操作界線
+
+**1. 寫入後狀態**
+
+狀態: 已寫入後，局部閘氧導通狀態仍在。
+
+刺激: 本次刺激尚未施加。
+
+已寫入後，局部閘氧導通狀態仍在。
+
+**2. 正常操作界線**
+
+狀態: 正常 OTP 介面沒有可修復閘氧的電性抹除流程。
+
+刺激: 無正常電性抹除刺激。
+
+正常 OTP 介面沒有可修復閘氧的電性抹除流程。
+
+**3. 持續保持**
+
+狀態: 原單元保持；冗餘位元、重新配置或 eMTP 模擬更新屬於系統方法。
+
+刺激: 無正常電性抹除刺激。
+
+原單元保持；冗餘位元、重新配置或 eMTP 模擬更新屬於系統方法。
+
+- e− · 藍色圓點為移動電子，藍色箭頭沿電子流向；不是保留在閘極內的儲存電荷。
+- I · 綠色為傳統電流，方向與電子相反。圖示支線固定為閘極正偏壓、BL 低電位。
+- OTP · 橘色局部路徑表示氧化層導通狀態；正常操作無電性抹除。
+- I_L / I_H · 短／長線條只示意低／高讀取電流的比較，不是量測值或固定邏輯編碼。
+- Geometry · 公開來源的歷史功能重建，非比例剖面或現行版圖；端點偏壓不構成製程操作規格。
+- WL / BL · WL 接單一 poly 閘極，BL 接唯一 N+ 擴散；只有薄 core 氧化層畫出崩潰。水平載子路徑是為閱讀而偏移的閘下表面通道示意，不表示 P 型本體導電。
+
+剖面採產品文章的 n 型結構；正 WL、低 BL 的方向為明示偏壓下的教學推導。歷史專利 p 型範例的詳細電壓不搬入此圖。分裂通道不是兩個獨立閘極，也不是浮動閘極。 收購公告只證明產品組合承接；現行 1T／2T 或先進製程文章不證明逐節點沿用此剖面。
+
+- [ip-sidense-cell-2007：Sidense 1T-Fuse 原作者單元剖面](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+- [ip-sidense-irreversible-2017：Sidense 1T-Fuse 不可逆狀態與 eMTP 界線](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+- [ip-sidense-patent-2006：Sidense 分裂通道反熔絲歷史專利](https://patents.google.com/patent/US20060244099A1/en)
+- [ip-lineage-sidense-2017：Synopsys 收購 Sidense 官方公告](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation)
+- [ip-synopsys-otp-current：Synopsys OTP NVM 1T／2T 產品組合](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp：Synopsys 先進製程 OTP 可靠度與感測演進](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+#### Sidense 1T-Fuse — 讀取
+
+比較 WL／BL 路徑的低／高電流；巨集定義邏輯編碼，正常讀取保留原狀態。
+
+氧化層導通電流感測
+
+**1. 保持狀態**
+
+狀態: 以已寫入的薄區示範；永久導通狀態在無刺激時保持。
+
+刺激: 本次刺激尚未施加。
+
+以已寫入的薄區示範；永久導通狀態在無刺激時保持。
+
+**2. 建立讀取條件**
+
+狀態: 以較低應力偏壓啟用通道與感測；本圖固定採正 WL、低 BL 的 n 型教學方向。
+
+刺激: 以較低應力偏壓啟用通道與感測；本圖固定採正 WL、低 BL 的 n 型教學方向。
+
+以較低應力偏壓啟用通道與感測；本圖固定採正 WL、低 BL 的 n 型教學方向。
+
+**3. 感測路徑**
+
+狀態: 傳統電流由 WL 經薄區崩潰路徑、通道與 BL 擴散流出；電子由 BL 朝 WL 移動。
+
+刺激: 以較低應力偏壓啟用通道與感測；本圖固定採正 WL、低 BL 的 n 型教學方向。
+
+傳統電流由 WL 經薄區崩潰路徑、通道與 BL 擴散流出；電子由 BL 朝 WL 移動。
+
+**4. 比較結果**
+
+狀態: 比較 WL／BL 路徑的低／高電流；巨集定義邏輯編碼，正常讀取保留原狀態。
+
+刺激: 完成感測；以巨集邏輯判讀。
+
+比較 WL／BL 路徑的低／高電流；巨集定義邏輯編碼，正常讀取保留原狀態。
+
+- e− · 藍色圓點為移動電子，藍色箭頭沿電子流向；不是保留在閘極內的儲存電荷。
+- I · 綠色為傳統電流，方向與電子相反。圖示支線固定為閘極正偏壓、BL 低電位。
+- OTP · 橘色局部路徑表示氧化層導通狀態；正常操作無電性抹除。
+- I_L / I_H · 短／長線條只示意低／高讀取電流的比較，不是量測值或固定邏輯編碼。
+- Geometry · 公開來源的歷史功能重建，非比例剖面或現行版圖；端點偏壓不構成製程操作規格。
+- WL / BL · WL 接單一 poly 閘極，BL 接唯一 N+ 擴散；只有薄 core 氧化層畫出崩潰。水平載子路徑是為閱讀而偏移的閘下表面通道示意，不表示 P 型本體導電。
+
+剖面採產品文章的 n 型結構；正 WL、低 BL 的方向為明示偏壓下的教學推導。歷史專利 p 型範例的詳細電壓不搬入此圖。分裂通道不是兩個獨立閘極，也不是浮動閘極。 收購公告只證明產品組合承接；現行 1T／2T 或先進製程文章不證明逐節點沿用此剖面。
+
+- [ip-sidense-cell-2007：Sidense 1T-Fuse 原作者單元剖面](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+- [ip-sidense-irreversible-2017：Sidense 1T-Fuse 不可逆狀態與 eMTP 界線](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+- [ip-sidense-patent-2006：Sidense 分裂通道反熔絲歷史專利](https://patents.google.com/patent/US20060244099A1/en)
+- [ip-lineage-sidense-2017：Synopsys 收購 Sidense 官方公告](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation)
+- [ip-synopsys-otp-current：Synopsys OTP NVM 1T／2T 產品組合](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp：Synopsys 先進製程 OTP 可靠度與感測演進](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+#### IP 單元取捨
+
+厚區控制存取、薄區儲存導通狀態；分裂通道不是兩個閘極或浮動閘極。
 
 ### NeoEE：FN／FN 單層多晶矽 MTP
 
@@ -899,6 +1253,180 @@ Iref 與兩種狀態需有可辨識間距；圖中對照與前格固定相同。
 #### IP 單元取捨
 
 這是本課程指定的 CHI／BBHH 機制模型。公開 YMC 資料支持其邏輯製程 MTP IP 定位；本圖的 BBHH 物理另由公開原始研究支持，未指定為現行 ymtp 某版本的完整剖面。FN、汲極雪崩熱電洞與能帶間熱電洞是不同路徑，不能只因受讓人相同就互換。
+
+### AEON：Impinj 起源的 FN／FN MTP 家族
+
+Impinj → Virage Logic → Synopsys
+
+依 2009 年具名 AEON 原廠資料，追蹤電子經 FN 存入與移出浮動閘極，再由讀取 MOS 感測；品牌與業務承接另列時間線。
+
+AEON MTP — 單元功能結構
+
+公開 FN／FN 功能模型：耦合區 C、隔離的浮動閘極 FG、穿隧對端及讀取 MOS。浮動閘極產品定位與具名 FN 寫抹證據分別標明；這是原創功能重建，未公開的實體接線保持未指定。
+
+- FG / e− · 棕色 FG 是介電質隔離的浮動閘極，沒有外接直流導線；藍色負號表示電子，數量只作電荷狀態示意。
+- C / T_P / T_E · C 表示電容耦合功能；T_P 與 T_E 分別表示寫入／抹除的穿隧對端。圖中共用放大窗不代表它們是同一實體接點，也不指定電容或電晶體數量。
+- Si / 介電質 · 藍灰色區表示矽功能區，淡黃色區表示隔離介電質。沒有指定摻雜、厚度、相對尺寸或實際單元版圖。
+- e− / E · 藍色開放箭頭表示電子移動；棕色開放箭頭表示穿隧區電場 E，方向與電子受力相反。寫入示意電子存入 FG，抹除示意移出；未指定官方 0／1 編碼。
+- A / B / I_R · A、B 是讀取元件的功能端，並非官方接腳。綠箭頭是 A 電位高於 B 時的傳統感測電流示意；未指定 nMOS／pMOS，故不畫載子方向或電荷對 ON／OFF 的固定關係。
+- 2009 AEON / FN–FN · 圖解依 2009 年具名 AEON 原廠文章建立。Impinj 業務轉移與 Synopsys 品牌承接另列時間線，不證明跨世代內部單元完全相同。
+
+- [aeon-impinj-2007：Impinj：AEON/MTP 浮動閘極產品公告](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009：Virage Logic：AEON MTP 寫抹與製造監測](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+
+#### AEON MTP — 寫入
+
+2009 年 AEON 原廠資料的 FN 寫入：電子經介電質存入隔離 FG。
+
+FN
+
+**1. 初始狀態**
+
+狀態: FG 保有較少負電荷；讀取 MOS 的狀態由這個隔離電荷控制。
+
+刺激: 維持保持條件，尚未建立 FN 穿隧高場。
+
+起始電荷僅作相對狀態示意，不表示 FG 必須完全中性。
+
+**2. 建立穿隧電場**
+
+狀態: 耦合與穿隧端條件形成可將電子移入 FG 的高場。
+
+刺激: 局部 E 由 FG 指向 T_P；電子受力方向相反。圖中沒有數值電壓。
+
+FN 由介電質電場促成，不以通道熱電子注入替代。C 僅經介電質耦合 FG。
+
+**3. 電子進入浮動閘極**
+
+狀態: 電子由 T_P 經介電質 FN 穿隧進入 FG，增加儲存負電荷。
+
+刺激: 維持寫入高場；藍箭頭朝向 FG，棕色 E 箭頭朝向 T_P。
+
+FN 穿隧跨越介電質；沒有畫成金屬短路，也沒有從外部導線直接注入 FG。
+
+**4. 保留寫入狀態**
+
+狀態: 移除寫入刺激後，FG 的新增負電荷受介電質隔離而保留。
+
+刺激: 回到保持條件；FN 箭頭與高場撤除。
+
+電荷差異可由讀取元件感測；不預設哪個電荷狀態必然對應導通或邏輯 1。
+
+- FG / e− · 棕色 FG 是介電質隔離的浮動閘極，沒有外接直流導線；藍色負號表示電子，數量只作電荷狀態示意。
+- C / T_P / T_E · C 表示電容耦合功能；T_P 與 T_E 分別表示寫入／抹除的穿隧對端。圖中共用放大窗不代表它們是同一實體接點，也不指定電容或電晶體數量。
+- Si / 介電質 · 藍灰色區表示矽功能區，淡黃色區表示隔離介電質。沒有指定摻雜、厚度、相對尺寸或實際單元版圖。
+- e− / E · 藍色開放箭頭表示電子移動；棕色開放箭頭表示穿隧區電場 E，方向與電子受力相反。寫入示意電子存入 FG，抹除示意移出；未指定官方 0／1 編碼。
+- A / B / I_R · A、B 是讀取元件的功能端，並非官方接腳。綠箭頭是 A 電位高於 B 時的傳統感測電流示意；未指定 nMOS／pMOS，故不畫載子方向或電荷對 ON／OFF 的固定關係。
+- 2009 AEON / FN–FN · 圖解依 2009 年具名 AEON 原廠文章建立。Impinj 業務轉移與 Synopsys 品牌承接另列時間線，不證明跨世代內部單元完全相同。
+
+圖中 T_P／T_E 是操作角色，不能直接當成同一實體接腳。MOS 極性、元件數、井結構、電壓及邏輯編碼未指定；不得把早期 Impinj 熱電子專利或現行 Synopsys 每一款 MTP 的內部單元套入此圖。
+
+- [aeon-impinj-2007：Impinj：AEON/MTP 浮動閘極產品公告](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009：Virage Logic：AEON MTP 寫抹與製造監測](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+
+#### AEON MTP — 抹除
+
+同一份具名資料以 FN 描述電性抹除；本模型用電子移出 FG 表達反向更新。
+
+FN
+
+**1. 寫入後狀態**
+
+狀態: FG 保有前次寫入留下的負電荷。
+
+刺激: 維持保持條件，尚未施加抹除高場。
+
+反向更新從已儲存的電荷狀態出發。
+
+**2. 建立反向穿隧條件**
+
+狀態: 抹除條件建立可將電子移出 FG 的局部電場。
+
+刺激: 局部 E 由 T_E 指向 FG；電子受力由 FG 指向 T_E。
+
+T_E 表示抹除的穿隧對端；它與 T_P 的實體關係未由本次來源完整揭露。
+
+**3. 電子移出浮動閘極**
+
+狀態: 電子由 FG 經介電質 FN 穿隧移向 T_E，FG 負電荷減少。
+
+刺激: 維持抹除高場；藍色電子箭頭與棕色 E 箭頭相反。
+
+這裡以電子移出解釋抹除，未採電洞注入中和模型。
+
+**4. 保留可再寫入狀態**
+
+狀態: 撤除高場後，FG 保留更新後的電荷狀態，可再次進行 FN 寫入。
+
+刺激: 回到保持條件；穿隧停止。
+
+電性抹除與再寫入構成 MTP 操作；不從示意粒子數推定耐久、速度或保持時間。
+
+- FG / e− · 棕色 FG 是介電質隔離的浮動閘極，沒有外接直流導線；藍色負號表示電子，數量只作電荷狀態示意。
+- C / T_P / T_E · C 表示電容耦合功能；T_P 與 T_E 分別表示寫入／抹除的穿隧對端。圖中共用放大窗不代表它們是同一實體接點，也不指定電容或電晶體數量。
+- Si / 介電質 · 藍灰色區表示矽功能區，淡黃色區表示隔離介電質。沒有指定摻雜、厚度、相對尺寸或實際單元版圖。
+- e− / E · 藍色開放箭頭表示電子移動；棕色開放箭頭表示穿隧區電場 E，方向與電子受力相反。寫入示意電子存入 FG，抹除示意移出；未指定官方 0／1 編碼。
+- A / B / I_R · A、B 是讀取元件的功能端，並非官方接腳。綠箭頭是 A 電位高於 B 時的傳統感測電流示意；未指定 nMOS／pMOS，故不畫載子方向或電荷對 ON／OFF 的固定關係。
+- 2009 AEON / FN–FN · 圖解依 2009 年具名 AEON 原廠文章建立。Impinj 業務轉移與 Synopsys 品牌承接另列時間線，不證明跨世代內部單元完全相同。
+
+圖中 T_P／T_E 是操作角色，不能直接當成同一實體接腳。MOS 極性、元件數、井結構、電壓及邏輯編碼未指定；不得把早期 Impinj 熱電子專利或現行 Synopsys 每一款 MTP 的內部單元套入此圖。
+
+- [aeon-impinj-2007：Impinj：AEON/MTP 浮動閘極產品公告](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009：Virage Logic：AEON MTP 寫抹與製造監測](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+
+#### AEON MTP — 讀取
+
+低刺激下感測讀取 MOS；四格保持同一電荷，不指定 p/n 極性或邏輯編碼。
+
+MOS 電流感測
+
+**1. 保持既有電荷**
+
+狀態: 四格皆維持同一 FG 電荷，沒有把讀取畫成第二次寫入。
+
+刺激: 尚未啟動本次感測。
+
+儲存的隔離電荷影響 MOS 電性；來源未指定本圖 MOS 極性，故不套用固定的 ON／OFF 關係。
+
+**2. 選擇並施加讀取條件**
+
+狀態: 讀取功能端形成小的感測電位差；FG 電荷維持不變。
+
+刺激: 本圖約定 A 高於 B；綠箭頭為 A→B 的傳統電流。
+
+讀取條件不建立 FN 更新高場。A、B 為教學端點，不是巨集接腳表。
+
+**3. 感測通道電流**
+
+狀態: 讀取路徑提供與既有儲存狀態相關的 I_R。
+
+刺激: 保持讀取偏壓，量測感測電流。
+
+電流沿讀取元件流動，沒有經 FG 或穿隧介電質搬移儲存電荷。
+
+**4. 比較並保留資料**
+
+狀態: 將 I_R 與參考值比較；FG 儲存電荷仍與第一格相同。
+
+刺激: 取樣感測結果，隨後可撤除讀取偏壓。
+
+參考策略、差動實作與 0／1 編碼由特定巨集定義；車用差動位元選項不泛化為全部 AEON。
+
+- FG / e− · 棕色 FG 是介電質隔離的浮動閘極，沒有外接直流導線；藍色負號表示電子，數量只作電荷狀態示意。
+- C / T_P / T_E · C 表示電容耦合功能；T_P 與 T_E 分別表示寫入／抹除的穿隧對端。圖中共用放大窗不代表它們是同一實體接點，也不指定電容或電晶體數量。
+- Si / 介電質 · 藍灰色區表示矽功能區，淡黃色區表示隔離介電質。沒有指定摻雜、厚度、相對尺寸或實際單元版圖。
+- e− / E · 藍色開放箭頭表示電子移動；棕色開放箭頭表示穿隧區電場 E，方向與電子受力相反。寫入示意電子存入 FG，抹除示意移出；未指定官方 0／1 編碼。
+- A / B / I_R · A、B 是讀取元件的功能端，並非官方接腳。綠箭頭是 A 電位高於 B 時的傳統感測電流示意；未指定 nMOS／pMOS，故不畫載子方向或電荷對 ON／OFF 的固定關係。
+- 2009 AEON / FN–FN · 圖解依 2009 年具名 AEON 原廠文章建立。Impinj 業務轉移與 Synopsys 品牌承接另列時間線，不證明跨世代內部單元完全相同。
+
+圖中 T_P／T_E 是操作角色，不能直接當成同一實體接腳。MOS 極性、元件數、井結構、電壓及邏輯編碼未指定；不得把早期 Impinj 熱電子專利或現行 Synopsys 每一款 MTP 的內部單元套入此圖。
+
+- [aeon-impinj-2007：Impinj：AEON/MTP 浮動閘極產品公告](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009：Virage Logic：AEON MTP 寫抹與製造監測](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+
+#### IP 單元取捨
+
+AEON 是 Impinj 起源的具名邏輯製程 MTP 家族。2009 年 Virage Logic 原廠文章明確支持 FN 寫入與抹除；圖解保留這個物理範圍，使用 C、T_P、T_E 與讀取 MOS 的功能角色，不假定未公開的 p/n 極性、實體元件數或現行接線。
 
 ### Numem：嵌入式 STT-MRAM IP 單元
 
@@ -1551,6 +2079,118 @@ TE 負偏壓使細粒子路徑向上端金屬區回縮或變得不連續；未�
 #### IP 單元取捨
 
 此圖採具名專利的金屬／非晶矽路徑模型，不能直接套用所有 ECM 的成核方向或理想連續銀橋。嵌入式宏的公開證據與本次引用的歷史單元實施例分別標明，供理解 cell 運作。
+
+## IP 技術沿革與產品承接
+
+從原始單元、產品公告與承接事件，追蹤三個 IP 家族如何進入 Synopsys 產品組合。每條沿革連回單元課程，再分別說明後續公開產品與可確認的物理範圍。
+
+### Kilopass XPM → Synopsys
+
+XPM 以閘氧反熔絲儲存一次寫入狀態。歷史 2T 單元將儲存 MOS 與選擇 MOS 分工，之後連同其他 Kilopass 產品進入 Synopsys。
+
+#### 2007-08-09 · 公開專利標明既有 XPM 2T 單元
+
+WO2007090089A2 圖 1 以 M0 儲存與 M1 選擇呈現既有 XPM；本課程依這個結構重建操作。
+
+- [ip-kilopass-xpm-2007：Kilopass XPM 2T 歷史專利圖](https://patents.google.com/patent/WO2007090089A2/en)
+
+#### 2012-05-15 · XPM／Gusto 公告連結 130／110 nm 2T 產品
+
+Kilopass 產品公告明列 XPM、Gusto 與 2T CMOS 反熔絲，補足具名產品和歷史單元的連結。
+
+- [ip-kilopass-2t-2012：Kilopass 130／110 nm XPM 與 Gusto 2T 公告](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)
+
+#### 2018-01-10 · Synopsys 宣布收購 Kilopass
+
+官方公告將 XPM、Gusto 與 SecretCode 納入承接產品組合，並說明 OTP 的 1T／2T 組合擴充。
+
+- [ip-lineage-kilopass-2018：Synopsys 收購 Kilopass 官方公告](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
+
+截至 2026-09-10 查核，Synopsys 公開資料仍列 1T／2T 反熔絲 OTP 組合。先進製程技術文章另說明單元面積、類比電源與感測、修復、ECC 及控制器的改良；這些是從單元延伸至巨集的設計層次，文章未逐款交代原廠單元譜系。
+
+單元課程使用公開專利圖 1 的歷史 XPM 2T 功能拓樸，沒有把圖 2 的自感測接點或現行 FinFET 製程剖面移入。承接關係與單元內部實施各有自己的來源範圍。
+
+- [ip-kilopass-xpm-2007：Kilopass XPM 2T 歷史專利圖](https://patents.google.com/patent/WO2007090089A2/en)
+- [ip-lineage-kilopass-2018：Synopsys 收購 Kilopass 官方公告](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
+- [ip-synopsys-otp-current：Synopsys OTP NVM 1T／2T 產品組合](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp：Synopsys 先進製程 OTP 可靠度與感測演進](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+### Sidense 1T-Fuse → Synopsys
+
+1T-Fuse 使用單一連續閘極跨越厚／薄氧化層，將通道選擇與反熔絲儲存整合在分裂通道單元。這是 Sidense 具名 1T 架構的閱讀起點。
+
+#### 2007-12-18 · 原作者公開 1T-Fuse 單元剖面
+
+Sidense 原作者文章圖 2 顯示厚／薄氧化層、連續 poly 與單一 BL 擴散區；本課程據此區分選擇區與永久導通區。
+
+- [ip-sidense-cell-2007：Sidense 1T-Fuse 原作者單元剖面](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+
+#### 2017-09-05 · 技術文章說明永久狀態與模擬更新
+
+1T-Fuse 的薄氧化層導通形成不可逆單元狀態。eMTP 的多次更新依靠多個儲存位置與管理機制，並不抹除或修復原反熔絲。
+
+- [ip-sidense-irreversible-2017：Sidense 1T-Fuse 不可逆狀態與 eMTP 界線](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+
+#### 2017-10-17 · Synopsys 宣布收購 Sidense
+
+官方公告明確點名 single-transistor、split-channel 1T-Fuse，連結原廠技術與併入產品組合。
+
+- [ip-lineage-sidense-2017：Synopsys 收購 Sidense 官方公告](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation)
+
+現行 Synopsys OTP 資料列出 1T 與 2T 組合。其後續設計說明涵蓋閘氧崩潰控制、漏電與感測，以及巨集修復和 ECC；公開資料未提供每個現行節點與 Sidense 歷史剖面的逐一對照。
+
+課程保留 2007 年原作者圖示的 n 型結構與一個 BL 擴散端，讀取箭頭依該結構推導。相關專利的 p 型偏壓、額外接點或現行巨集接線不混入此圖。
+
+- [ip-sidense-cell-2007：Sidense 1T-Fuse 原作者單元剖面](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+- [ip-sidense-irreversible-2017：Sidense 1T-Fuse 不可逆狀態與 eMTP 界線](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+- [ip-lineage-sidense-2017：Synopsys 收購 Sidense 官方公告](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation)
+- [ip-synopsys-otp-current：Synopsys OTP NVM 1T／2T 產品組合](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp：Synopsys 先進製程 OTP 可靠度與感測演進](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+### Impinj AEON → Virage Logic → Synopsys
+
+AEON 是 Impinj 起源的邏輯製程浮動閘極 MTP 家族。業務先由 Virage Logic 承接，之後隨 Virage Logic 進入 Synopsys，並延續為具名 AEON MTP ULP 產品。
+
+#### 2007-09-26 · Impinj 發布 AEON/MTP 浮動閘極產品
+
+原廠公告明列具名 AEON/MTP 與浮動閘極電晶體；該公告規格限定於當時產品。
+
+- [aeon-impinj-2007：Impinj：AEON/MTP 浮動閘極產品公告](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+
+#### 2008-06-26 · Virage Logic 承接 Impinj 邏輯 NVM IP 業務
+
+SEC 申報記載資產收購已於此日完成；並非收購 Impinj 全公司。
+
+- [aeon-transfer-2008：Virage Logic：Impinj NVM IP 業務收購申報](https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/d8k.htm)
+
+#### 2009-06-30 · Virage Logic 公開 AEON 的 FN 寫抹依據
+
+NVM 主管 Craig Zajac 的原廠署名文章記載 FN 用於 program 與 erase；本單元圖解以此為機制範圍。
+
+- [aeon-virage-fn-2009：Virage Logic：AEON MTP 寫抹與製造監測](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+
+#### 2010-09-02 · Synopsys 完成收購 Virage Logic
+
+原廠完成公告將 NVM 列入新增產品組合；承接鏈在此進入 Synopsys。
+
+- [aeon-transfer-2010：Synopsys：完成收購 Virage Logic](https://news.synopsys.com/home?item=123195)
+
+#### 2013-11-20 · Synopsys 發布 DesignWare AEON MTP ULP
+
+新產品公告明確使用 AEON 品牌，支持後續產品家族延續；不宣稱跨代接線完全相同。
+
+- [aeon-synopsys-2013：Synopsys：DesignWare AEON MTP ULP 公告](https://news.synopsys.com/2013-11-20-Synopsys-New-Ultra-Low-Power-Non-Volatile-Memory-IP-Cuts-Power-by-90-Percent-and-Size-in-Half)
+
+2013 年官方公告直接使用 DesignWare AEON MTP ULP 品牌。截至 2026-09-10 查核，Synopsys 現行 MTP ULP 頁面公開單層多晶矽、浮動閘極與零額外光罩的產品定位；此查核日並非產品發布日，也不代表所有世代都沿用相同單元接線。
+
+具名 FN／FN 依據為 2009 年 Virage Logic 原廠主管文章。圖解用耦合區、穿隧操作角色、浮動閘極與讀取 MOS 說明電子存入和移出；未公開的實體元件數、p/n 極性及接腳配置保持未指定。
+
+- [aeon-impinj-2007：Impinj：AEON/MTP 浮動閘極產品公告](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009：Virage Logic：AEON MTP 寫抹與製造監測](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+- [aeon-transfer-2008：Virage Logic：Impinj NVM IP 業務收購申報](https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/d8k.htm)
+- [aeon-transfer-2010：Synopsys：完成收購 Virage Logic](https://news.synopsys.com/home?item=123195)
+- [aeon-synopsys-2013：Synopsys：DesignWare AEON MTP ULP 公告](https://news.synopsys.com/2013-11-20-Synopsys-New-Ultra-Low-Power-Non-Volatile-Memory-IP-Cuts-Power-by-90-Percent-and-Size-in-Half)
+- [aeon-synopsys-current：Synopsys：現行 MTP ULP NVM 產品頁](https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/mtp-rfid.html)
 
 ## eFuse：以永久導通變化記住一個位元
 
@@ -3620,6 +4260,15 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)。原始技術來源；2021-01-19；定位：Figures 1–3; core nFET, gate oxide, dangling bonds, direct tunneling；限制：力旺署名原文；超薄氧化層的 DT 模型，不是所有世代的金屬導通絲。
 - [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)。官方轉載主管訪談；2024-12-09；定位：NeoFuse: patented 3T design and regulating transistor；限制：確認 3T 與調節功能，未確認全部現行接線及剖面。
 - [ip-neofuse-pat：三電晶體反熔絲相關專利](https://patents.google.com/patent/US20250024668A1/en)。公開專利；2025-01-16；定位：Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268；限制：同公司相關實施例，未直接以 NeoFuse 命名。
+- [ip-kilopass-xpm-2007：Kilopass XPM 2T 歷史專利圖](https://patents.google.com/patent/WO2007090089A2/en)。公開專利；2007-08-09；查閱 2026-09-10；定位：圖 1；段落 [0025]–[0029]；[0031] 的圖 2 差異；限制：圖 1 明稱既有 XPM；只重建 2T 功能，不混入圖 2 的中間輸出或後續自我感測電路。
+- [ip-kilopass-2t-2012：Kilopass 130／110 nm XPM 與 Gusto 2T 公告](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)。原廠新聞轉載；2012-05-15；查閱 2026-09-10；定位：內文 2T CMOS antifuse、XPM／Gusto 段落；限制：支持指定年代與節點產品的 2T 連結；不推定所有節點、現行巨集或各晶圓廠共用相同版圖。
+- [ip-lineage-kilopass-2018：Synopsys 收購 Kilopass 官方公告](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)。官方收購公告；2018-01-10；查閱 2026-09-10；定位：公告日期；XPM、Gusto、SecretCode 與 1T／2T 產品段落；限制：證明產品組合併入，不證明歷史單元等於現行所有實施。
+- [ip-synopsys-otp-current：Synopsys OTP NVM 1T／2T 產品組合](https://www.synopsys.com/articles/non-volatile-memory.html)。官方技術文章；未標示發布日期；查閱 2026-09-10；定位：Synopsys OTP NVM IP Solutions；限制：未標示文章日期；以查核日記錄公開 1T／2T 反熔絲組合，不自行對應每個現行產品的原廠譜系。
+- [ip-synopsys-advanced-otp：Synopsys 先進製程 OTP 可靠度與感測演進](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)。官方技術文章；未標示發布日期；查閱 2026-09-10；定位：Basic Operation；圖 2；感測、ECC 與控制器相關說明；限制：未標示文章日期；支持氧化層崩潰、電流感測與巨集層改良，不足以命名第三種全新單元。
+- [ip-sidense-cell-2007：Sidense 1T-Fuse 原作者單元剖面](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)。原作者技術文章；2007-12-18；查閱 2026-09-10；定位：作者 Wlodek Kurjanowicz；圖 2 與前後 1T-Fuse 原理說明；限制：圖 2 為 n 型教學結構：單一連續 poly、厚／薄氧化層、單一 BL 擴散。讀取箭頭由此結構與圖示偏壓推導，不是現行巨集偏壓表。
+- [ip-sidense-irreversible-2017：Sidense 1T-Fuse 不可逆狀態與 eMTP 界線](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)。原作者技術文章；2017-09-05；查閱 2026-09-10；定位：Where NVM Fits In；Sidense Antifuse-based Split-channel 1T-Fuse Bit Cell；圖 5；限制：支持薄閘氧永久導通及系統模擬更新；不採用文中的絕對安全或競品比較說法。
+- [ip-sidense-patent-2006：Sidense 分裂通道反熔絲歷史專利](https://patents.google.com/patent/US20060244099A1/en)。公開專利；2006-11-02；查閱 2026-09-10；定位：圖 4、5、11、12；段落 [0062]–[0067]、[0087]–[0091]；請求項 1–3、12–13；限制：厚／薄氧化層與可省略第二擴散的旁證；詳細 p 型偏壓不搬入 2007 年 n 型產品圖。
+- [ip-lineage-sidense-2017：Synopsys 收購 Sidense 官方公告](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation)。官方收購公告；2017-10-17；查閱 2026-09-10；定位：公告日期；single-transistor、split-channel 1T-Fuse 段落；限制：直接連結 Sidense 1T-Fuse 與收購；不證明收購後所有 OTP 使用同一剖面。
 - [ip-neoee：NeoEE 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles; capacitive-coupling MOS devices and selectors；限制：現行 FN/FN；未公開確切元件數、p/n 配置及節點偏壓。
 - [ip-neoee-history：NeoEE 概念單元的歷史原圖](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)。原始技術來源；2010-10-19；定位：NeoEE Technology; Figure 1(b), Tej tunneling junction；限制：歷史家族同時談 CHE/FN 與 FN/FN；不能覆蓋現行主線。
 - [ip-neomtp：NeoMTP 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles; p-type FG-MOSFET; extra erase gate；限制：熱電洞誘發電子注入及 FG 到抹除閘極的 FN；未公開完整剖面。
@@ -3631,6 +4280,8 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [physics-bbhh-fg：Wu 等：BBHH 與浮動閘極展示](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)。原始研究；2007；2026-09-10 查核；定位：IEDM 2007，頁 87–90；作者機構摘要；DOI 10.1109/IEDM.2007.4418870；限制：原文使用 BBHH 並提及浮動閘極展示；其 NAND、IIHE 寫入與數值不移入 YMC 模型。
 - [physics-btbt-carriers：Chu、Wu：BTBT 熱載子路徑](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf)。原始研究；2000-03；2026-09-10 查核；定位：IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576；限制：支撐矽內 BBT 載子產生與場輔助注入物理；圖 3 是 pMOS，不照搬至 nMOS。
 - [physics-fg-hole-erase：IEEE：浮動閘極熱電洞抹除觀察](https://ieeexplore.ieee.org/document/748914/)。原始研究；1999-03；2026-09-10 查核；定位：IEEE EDL 20(3)，頁 140–142；摘要；DOI 10.1109/55.748914；限制：觀察 FN 抹除中的 BBT／可能雪崩增強；只支持 FG 熱電洞物理，不當作純 BBHH 配方。
+- [aeon-impinj-2007：Impinj：AEON/MTP 浮動閘極產品公告](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)。原廠產品公告；2007-09-26；定位：開頭 AEON/MTP 及 floating-gate transistor 段落；限制：支持 AEON/MTP 浮動閘極家族；公告中的製程與電壓限定於該次產品，不提供完整單元剖面。
+- [aeon-virage-fn-2009：Virage Logic：AEON MTP 寫抹與製造監測](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)。原廠主管署名技術文章；2009-06-30；定位：Craig Zajac；Architectural decisions、Manufacturing 及作者簡介；限制：原廠署名文章明確說明寫入與抹除使用 FN；差動位元與錯誤修正限定於文中車用產品選項。未公開端點電壓、p/n 極性或實體區域配置。
 - [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)。原廠產品頁；未標示發布日期；查閱 2026-09-10；定位：What is Numem MRAM?；Numem MRAM IP；限制：支持嵌入式 IP 與晶圓代工廠標準 STT 單元；未公開現行材料配方。
 - [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)。原廠公開會議簡報；2019-08-05；查閱 2026-09-10；定位：第 2、4、5、7 頁：試驗晶片、WL／BL／SL、定電流感測、RMTJ；限制：這是第一代試驗晶片架構；未把其量測數值當成現行 NuRAM 規格。
 - [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)。原廠機制說明；未標示發布日期；查閱 2026-09-10；定位：Spin-transfer Torque MRAM Technology：電流方向、自由層、P／AP 電阻；限制：僅支持 STT 家族物理；不作為 Numem 的產品、材料或效能證據。
@@ -3642,6 +4293,10 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)。原廠公開產品簡介；未標示發布日期；查閱 2026-09-10；定位：第 1–2 頁：hard macro／architectural license、嵌入式宏與改寫；限制：支持歷史 IP 授權形態；本次未確認 2026 年可新授權的節點與宏清單。
 - [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)。原廠公開會議簡報；2015；查閱 2026-09-10；定位：第 3、4、7、8、15 頁：金屬路徑、單元與選擇器、BEOL 1T1R；限制：嵌入式 1T1R 與高密度 1S1R／1TnR 各有範圍，不合併為同一電路。
 - [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)。原始公開專利申請；2012-01-12；查閱 2026-09-10；定位：圖 1–3；[0023]–[0025]、[0037]：Ag／a-Si／p+ poly-Si、正向延伸、負向回縮；限制：選取其中的具名實施例；以金屬粒子與穿隧路徑描述，未宣稱已證明現售宏皆為此配方或一般陰極成核銀橋。
+- [aeon-transfer-2008：Virage Logic：Impinj NVM IP 業務收購申報](https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/d8k.htm)。SEC 原始申報；2008-06-26；定位：Item 2.01；2008-07-02 簽署；交易日 2008-06-26；限制：支持邏輯 NVM IP 業務資產收購；交易對方為 Virage Logic，並非 Synopsys 直接收購 Impinj。
+- [aeon-transfer-2010：Synopsys：完成收購 Virage Logic](https://news.synopsys.com/home?item=123195)。原廠交易完成公告；2010-09-02；定位：開頭完成收購段；NVM 加入產品組合；限制：支持公司收購與 NVM 產品組合承接；不證明 AEON 各代內部單元相同。
+- [aeon-synopsys-2013：Synopsys：DesignWare AEON MTP ULP 公告](https://news.synopsys.com/2013-11-20-Synopsys-New-Ultra-Low-Power-Non-Volatile-Memory-IP-Cuts-Power-by-90-Percent-and-Size-in-Half)。原廠產品公告；2013-11-20；定位：Highlights、首段與 Availability；限制：明確延續 AEON 品牌並推出 MTP ULP；本課程不引用效能比較數字，也不以品牌推定單元接線。
+- [aeon-synopsys-current：Synopsys：現行 MTP ULP NVM 產品頁](https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/mtp-rfid.html)。原廠現行產品頁；未標示發布日期；查閱 2026-09-10；定位：Overview 與 Highlights；查核日 2026-09-10；限制：公開單層多晶矽、浮動閘極與零額外光罩定位；此頁使用 MTP ULP 名稱，不據此斷言全部現行 MTP 與 2009 AEON 使用相同單元。
 - [op-pat-sonos-fn：賽普拉斯：SONOS ONO 堆疊縮放](https://patents.google.com/patent/WO2014008160A2/en)。公開專利；2014; 2026-09-10 查閱；定位：圖 1–3；全通道穿隧、電子寫入與電洞抹除段落；限制：用於具名 SONOS 穿隧原理；不推定與現行英飛凌巨集具有相同膜層或數值。
 - [op-pat-nrom-hhi：Saifun：自對準 NROM 寫入與抹除區](https://patents.google.com/patent/US6664588B2/en)。公開專利；2003; 2026-09-10 查閱；定位：圖 4、8A、9、10–11；能帶間穿隧產生電洞及局部熱電洞注入；限制：本案的口袋植入與局部電洞路徑；不把 US5768192A 當成此抹除路徑的來源。
 - [op-nand-hole-erase：鎧俠：蕭特基源極接點與電洞供應研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html)。原廠研究；2025-09-18; 2026-09-10 查閱；定位：圖 1、4；N+ 矽源極的 GIDL 電洞供應及蕭特基接點替代研究；限制：只支持載子供應方向與具名研究；本圖採傳統 GIDL 分支，未把蕭特基源極併入同一結構。

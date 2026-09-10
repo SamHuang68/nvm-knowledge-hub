@@ -140,12 +140,8 @@ export async function inspectSite(siteRoot = root) {
 
   for (const [page, document] of documents) inspectDocument(page, document);
   const home = documents.get("index.html");
-  const layers = {
-    "layer-foundations": ["NVM技術全景.html", "memory-physics.html", "technology-comparison.html"],
-    "layer-architecture": ["secure-storage.html", "security-assurance.html"],
-    "layer-applications": ["ai-nvm-opportunities.html", "iot-mcu-envm.html", "automotive-nvm.html", "specialty-nvm.html"],
-    "layer-resources": ["whitepaper/index.html", "briefing/index.html", "memory-evidence.html", "oip-secure-storage.html"]
-  };
+  const catalog = JSON.parse(fs.readFileSync(path.join(root,"data/NVM知識目錄.json"),"utf8"));
+  const layers = Object.fromEntries(catalog.sections.map(section=>[`layer-${section.id}`,section.items.map(item=>item.url)]));
   if (!home) fail("index.html：缺少知識中心首頁");
   else {
     const baseHref = home.nodes.find(node => node.tag === "base" && "href" in node.attributes)?.attributes.href;
@@ -154,13 +150,19 @@ export async function inspectSite(siteRoot = root) {
       if (!home.ids.has(layer)) fail(`index.html：缺少現行導覽層 #${layer}`);
       if (!links.some(({ reference }) => reference?.target === "index.html" && reference.fragment === layer)) fail(`index.html：缺少前往 #${layer} 的導覽連結`);
       for (const target of targets) {
+        const expected = localReference(target,"index.html",baseHref);
         const found = links.some(({ node, reference }) => {
-          if (reference?.target !== target) return false;
+          if (reference?.target !== expected?.target || reference?.fragment !== expected?.fragment) return false;
           for (let parent = node.parent; parent; parent = parent.parent) if (parent.attributes.id === layer) return true;
           return false;
         });
         if (!found) fail(`index.html：#${layer} 缺少入口 ${target}`);
       }
+    }
+    for(const alias of catalog.legacyAnchors||[]){
+      const item=catalog.sections.flatMap(section=>section.items).find(item=>item.id===alias.targetItem);
+      const anchor=home.nodes.find(node=>node.attributes.id===alias.id);
+      if(!item||anchor?.attributes.href!==item.url)fail(`index.html：舊入口 #${alias.id} 未保留正確內容`);
     }
   }
   for (const page of ["NVM技術全景.html", "NVM技術全景中文.html", ...publicDirectories.map(directory => `${directory}/index.html`)]) {
@@ -230,6 +232,6 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     console.error(result.failures.join("\n"));
     process.exitCode = 1;
   } else {
-    console.log(`通過：${result.pages.length} 個公開頁面、${result.references} 個參照及 ${result.renderedRoutes} 個動態錨點路由；本機路徑、錨點、中英頁面、品牌首頁連結與現行三層及資源導覽均有效。`);
+    console.log(`通過：${result.pages.length} 個公開頁面、${result.references} 個參照及 ${result.renderedRoutes} 個動態錨點路由；本機路徑、錨點、中英頁面、品牌首頁連結與四類主題導覽均有效。`);
   }
 }

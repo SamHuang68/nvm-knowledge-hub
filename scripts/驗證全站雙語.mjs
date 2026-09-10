@@ -6,7 +6,7 @@ const output=path.join(root,'qa','全站雙語與圖解改版_20260910');
 fs.mkdirSync(output,{recursive:true});
 const base=process.env.NVM_QA_BASE || 'http://127.0.0.1:8765/';
 const data=JSON.parse(fs.readFileSync(path.join(root,'data/NVM知識資料英文.json'),'utf8'));
-const routes=['panorama','comparison','foundry',...data.topics.map(t=>'topic-'+t.id),...data.comparison.systems.map(s=>'system-'+s.id),'patents','glossary','sources'];
+const routes=['panorama','ip-directory','ip-lineage','physics-library','comparison','foundry',...data.topics.map(t=>'topic-'+t.id),...data.comparison.systems.map(s=>'system-'+s.id),'patents','glossary','sources'];
 const failures=[],checks=[],errors=[];
 const browser=await chromium.launch({headless:true});
 const note=(condition,description,detail={})=>{checks.push({description,passed:Boolean(condition),...detail});if(!condition)failures.push({description,...detail});};

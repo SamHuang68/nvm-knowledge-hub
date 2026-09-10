@@ -28,22 +28,40 @@ export function collectIPCurriculum(index, language, rendererFor) {
     }
     return {...record, ...study};
   });
-  const sources = [...new Map(units.flatMap(unit => unit.operations.flatMap(operation => [...operation.sources,...operation.variants.flatMap(variant => variant.sources || [])])).map(source => [source.id, source])).values()];
+  const sources = [...new Map([...units.flatMap(unit => unit.operations.flatMap(operation => [...operation.sources,...operation.variants.flatMap(variant => variant.sources || [])])),...(index.lineage?.sources||[])].map(source => [source.id, source])).values()];
   const sourceIds = new Set(sources.map(source => source.id));
   for (const unit of units) {
     const references = [...(unit.structure.sourceIds || []),...unit.operations.flatMap(operation => operation.variants.flatMap(variant => variant.frames.flatMap(frame => frame.sourceIds)))];
     if (!references.length || references.some(id => !sourceIds.has(id))) throw new Error(`${unit.id} 引用不存在的 IP 來源`);
   }
-  return {schemaVersion:'1.0', revision:index.revision, language, groups:index.groups, units, sources};
+  if(index.lineage){
+    for(const entry of index.lineage.entries){
+      if(!entry.id||!entry.title||!entry.summary||!entry.events?.length||!entry.currentContext||!entry.cellBoundary||!entry.sourceIds?.length)throw new Error('IP 技術沿革欄位不完整');
+      if(!ids.has(entry.unitId)||[...entry.sourceIds,...entry.events.flatMap(event=>event.sourceIds||[])].some(id=>!sourceIds.has(id)))throw new Error('IP 技術沿革的單元或來源不存在');
+      if(entry.events.some(event=>!event.date||!event.title||!event.body||!event.sourceIds?.length))throw new Error('IP 承接事件缺少日期、說明或來源');
+    }
+  }
+  return {schemaVersion:'1.1', revision:index.revision, language, groups:index.groups, units, sources,...(index.lineage?{lineage:index.lineage}:{})};
 }
 
 export function renderIPDirectory(curriculum, language) {
   const t = (zh, en) => choose(language, zh, en);
-  return `<section class="nvm-ip-directory" id="ip-directory"><h3>${t('從具名 IP 的單元開始','Start with Named IP Cells')}</h3><p>${t('先選一款 IP，沿同一單元看寫入、反向更新與讀取。OTP、MTP、MRAM、ReRAM 的差異直接落在圖中的儲存區與操作路徑。','Choose an IP and follow the same cell through programming, reverse update and read. The storage region and operating paths explain the differences among OTP, MTP, MRAM and ReRAM.')}</p>${curriculum.groups.map(group => `<section class="nvm-ip-group"><div class="nvm-ip-group-label"><span>${esc(group.label)}</span><p>${esc(group.description)}</p></div><div class="nvm-ip-rows">${curriculum.units.filter(unit => unit.group === group.id).map(unit => `<article class="nvm-ip-row" data-ip-entry="${esc(unit.id)}"><div><p class="nvm-ip-vendor">${esc(unit.vendor)}</p><h4><a href="#ip-${esc(unit.id)}">${esc(unit.shortTitle)}</a></h4><span class="nvm-ip-entry-link">${t('開啟單元與操作圖','Explore the Cell and Operations')} →</span></div><dl><div><dt>${t('寫入','Program')}</dt><dd>${esc(unit.program)}</dd></div><div><dt>${t('反向操作','Reverse Operation')}</dt><dd>${esc(unit.reverse)}</dd></div><div><dt>${t('讀取','Read')}</dt><dd>${esc(unit.readout)}</dd></div></dl></article>`).join('')}</div></section>`).join('')}</section>`;
+  return `<article class="nvm-panel nvm-ip-directory" id="ip-directory" data-nvm-panel><header><h2>${t('IP 單元與操作原理','IP Cells and Operating Principles')}</h2><p>${t('先選一款 IP，沿同一單元看寫入、反向更新與讀取。OTP、MTP、MRAM、ReRAM 的差異直接落在圖中的儲存區與操作路徑。','Choose an IP and follow the same cell through programming, reverse update and read. The storage region and operating paths explain the differences among OTP, MTP, MRAM and ReRAM.')}</p></header>${curriculum.groups.map(group => `<section class="nvm-ip-group"><div class="nvm-ip-group-label"><span>${esc(group.label)}</span><p>${esc(group.description)}</p></div><div class="nvm-ip-rows">${curriculum.units.filter(unit => unit.group === group.id).map(unit => `<article class="nvm-ip-row" data-ip-entry="${esc(unit.id)}"><div><p class="nvm-ip-vendor">${esc(unit.vendor)}</p><h4><a href="#ip-${esc(unit.id)}">${esc(unit.shortTitle)}</a></h4><span class="nvm-ip-entry-link">${t('開啟單元與操作圖','Explore the Cell and Operations')} →</span></div><dl><div><dt>${t('寫入','Program')}</dt><dd>${esc(unit.program)}</dd></div><div><dt>${t('反向操作','Reverse Operation')}</dt><dd>${esc(unit.reverse)}</dd></div><div><dt>${t('讀取','Read')}</dt><dd>${esc(unit.readout)}</dd></div></dl></article>`).join('')}</div></section>`).join('')}</article>`;
 }
 
 export function renderIPNavigation(curriculum, language) {
-  return `<div class="nvm-ip-nav"><h3>${choose(language,'IP 單元主線','IP Cell Studies')}</h3>${curriculum.groups.map(group => `<p class="nvm-ip-nav-group">${esc(group.label)}</p>${curriculum.units.filter(unit => unit.group === group.id).map(unit => `<a class="nvm-ip-link" href="#ip-${esc(unit.id)}">${esc(unit.shortTitle)}</a>`).join('')}`).join('')}</div>`;
+  return `<details class="nvm-ip-nav"><summary>${choose(language,'IP 單元與操作原理','IP Cells and Operations')}</summary><a href="#ip-directory">${choose(language,'查看全部 IP 單元','Browse All IP Cells')}</a>${curriculum.groups.map(group => `<p class="nvm-ip-nav-group">${esc(group.label)}</p>${curriculum.units.filter(unit => unit.group === group.id).map(unit => `<a class="nvm-ip-link" href="#ip-${esc(unit.id)}">${esc(unit.shortTitle)}</a>`).join('')}`).join('')}</details>`;
+}
+
+export function renderIPLineage(curriculum,language,cite){
+  const t=(zh,en)=>choose(language,zh,en),lineage=curriculum.lineage;
+  if(!lineage)return '';
+  return `<article id="ip-lineage" class="nvm-panel nvm-ip-lineage" data-nvm-panel><header><p class="nvm-kicker">${t('IP 與製程 · 技術沿革','IP AND PROCESSES · TECHNOLOGY LINEAGE')}</p><h2>${esc(lineage.title)}</h2><div class="nvm-lede">${paragraphs(lineage.intro)}</div></header><nav class="nvm-lineage-index" aria-label="${t('技術家族','Technology Families')}">${lineage.entries.map(entry=>`<a href="#lineage-${esc(entry.id)}">${esc(entry.title)}</a>`).join('')}</nav>${lineage.entries.map(entry=>`<section id="lineage-${esc(entry.id)}" class="nvm-lineage-entry"><h3>${esc(entry.title)}</h3>${paragraphs(entry.summary)}<ol class="nvm-lineage-events">${entry.events.map(event=>`<li><time>${esc(event.date)}</time><div><h4>${esc(event.title)}</h4>${paragraphs(event.body)}${cite(event.sourceIds)}</div></li>`).join('')}</ol><div class="nvm-lineage-context"><h4>${t('後續產品與現況','Subsequent Products and Current Context')}</h4>${paragraphs(entry.currentContext)}<h4>${t('與單元圖解的對應','Relation to the Cell Study')}</h4>${paragraphs(entry.cellBoundary)}${cite(entry.sourceIds)}<a href="#ip-${esc(entry.unitId)}">${t('閱讀這個家族的單元與操作','Explore This Family’s Cell and Operations')} →</a></div></section>`).join('')}</article>`;
+}
+
+export function ipLineageMarkdown(curriculum,language,sourceMarkdown){
+  const lineage=curriculum.lineage;if(!lineage)return '';
+  return `## ${lineage.title}\n\n${lineage.intro}\n\n${lineage.entries.map(entry=>`### ${entry.title}\n\n${entry.summary}\n\n${entry.events.map(event=>`#### ${event.date} · ${event.title}\n\n${event.body}\n\n${sourceMarkdown(event.sourceIds)}`).join('\n\n')}\n\n${entry.currentContext}\n\n${entry.cellBoundary}\n\n${sourceMarkdown(entry.sourceIds)}`).join('\n\n')}`;
 }
 
 export function renderIPPanels(curriculum, language, cite) {
@@ -52,7 +70,7 @@ export function renderIPPanels(curriculum, language, cite) {
 <section class="nvm-ip-structure-section"><h3>${t('先看單元：儲存區、控制端與讀取路徑','The Cell: Storage, Control and Read Path')}</h3><figure class="nvm-ip-structure-figure" data-engineering-figure data-figure-name="ip-${esc(unit.id)}-structure"><figcaption class="nvm-ip-structure-heading"><h4>${esc(unit.structure.title)}</h4><span>${t('原理示意 · 可編輯 SVG','Principle Diagram · Editable SVG')}</span></figcaption><div class="nvm-ip-structure-drawing">${unit.structure.svg}</div><div class="nvm-ip-structure-notes" data-figure-notes><dl class="nvm-op-legend">${unit.structure.legend.map(item => `<div><dt>${esc(item.symbol)}</dt><dd>${esc(item.meaning)}</dd></div>`).join('')}</dl><p>${esc(unit.structure.caption)}</p></div><div class="nvm-figure-actions"><button type="button" data-engineering-zoom>${t('放大單元圖','Enlarge Cell')}</button><button type="button" data-engineering-download>${t('下載 SVG','Download SVG')}</button></div></figure>${cite(unit.structure.sourceIds)}</section>
 <section><h3>${t('沿同一單元追蹤完整操作','Follow the Complete Operation on the Same Cell')}</h3><div class="nvm-operation" data-operation-widget><div class="nvm-operation-buttons" role="group" aria-label="${esc(unit.shortTitle)} ${t('操作選擇','Operation Selection')}">${unit.operations.map((operation, operationIndex) => `<button type="button" data-operation-select="${esc(operation.operationId)}" aria-controls="ip-op-${esc(unit.id)}-${esc(operation.operationId)}" aria-pressed="${operationIndex === 0}">${esc(operation.title)}</button>`).join('')}</div>${unit.operations.map(operation => `<div id="ip-op-${esc(unit.id)}-${esc(operation.operationId)}" data-operation-detail="${esc(operation.operationId)}"><h4>${esc(operation.title)}</h4>${renderOperationStudy(operation,language)}</div>`).join('')}</div></section>
 <section class="nvm-ip-takeaway"><h3>${t('用這個單元理解 IP 取捨','What This Cell Explains About the IP')}</h3>${paragraphs(unit.lesson)}<p><a href="#topic-${esc(unit.hostTopic)}">${t('延伸閱讀相關儲存物理','Continue with the Related Device Physics')} →</a></p></section>
-<nav class="nvm-bottom-nav" aria-label="${t('IP 單元接續','Continue Through IP Cells')}"><a href="${index ? '#ip-'+esc(curriculum.units[index-1].id) : '#panorama'}">${index ? t('上一款：','Previous: ')+esc(curriculum.units[index-1].shortTitle) : t('回到 IP 主線','Back to the IP Overview')}</a><a href="${index < curriculum.units.length-1 ? '#ip-'+esc(curriculum.units[index+1].id) : '#panorama'}">${index < curriculum.units.length-1 ? t('下一款：','Next: ')+esc(curriculum.units[index+1].shortTitle) : t('回到 IP 主線','Back to the IP Overview')}</a></nav></article>`).join('');
+<nav class="nvm-bottom-nav" aria-label="${t('IP 單元接續','Continue Through IP Cells')}"><a href="${index ? '#ip-'+esc(curriculum.units[index-1].id) : '#ip-directory'}">${index ? t('上一款：','Previous: ')+esc(curriculum.units[index-1].shortTitle) : t('回到 IP 目錄','Back to the IP Directory')}</a><a href="${index < curriculum.units.length-1 ? '#ip-'+esc(curriculum.units[index+1].id) : '#ip-directory'}">${index < curriculum.units.length-1 ? t('下一款：','Next: ')+esc(curriculum.units[index+1].shortTitle) : t('回到 IP 目錄','Back to the IP Directory')}</a></nav></article>`).join('');
 }
 
 export function ipCurriculumMarkdown(curriculum, language, sourceMarkdown) {

@@ -1,0 +1,217 @@
+{
+  "schemaVersion": "1.0",
+  "revision": "2026-09-10",
+  "titleZh": "NVM 知識中心",
+  "titleEn": "NVM Knowledge Hub",
+  "introZh": "非揮發性記憶體的技術基礎、IP 與製程、應用架構及公開文獻。依主題查閱原理、具名實作與設計條件。",
+  "introEn": "Nonvolatile memory foundations, IP and processes, application architectures, and public literature. Browse by topic to connect principles, named implementations and design conditions.",
+  "legacyAnchors": [
+    {
+      "id": "layer-architecture",
+      "targetItem": "A1",
+      "meaningZh": "安全架構原有入口"
+    }
+  ],
+  "sections": [
+    {
+      "id": "foundations",
+      "number": "01",
+      "titleZh": "技術基礎",
+      "titleEn": "Technology Foundations",
+      "descriptionZh": "理解儲存狀態、讀寫物理與可靠度，再比較不同技術的取捨。",
+      "descriptionEn": "Understand stored states, read/write physics and reliability before comparing technology tradeoffs.",
+      "items": [
+        {
+          "id": "F1",
+          "url": "memory-physics.html",
+          "titleZh": "位元單元物理與可靠度",
+          "titleEn": "Bitcell Physics and Reliability",
+          "descriptionZh": "從電荷、電阻及讀取路徑，理解保持、耐久與可觀察性。",
+          "descriptionEn": "Understand retention, endurance, and observability through charge, resistance, and read paths.",
+          "metaEn": "Read paths · Physical limits",
+          "metaZh": "讀取路徑 · 物理限制"
+        },
+        {
+          "id": "F4",
+          "url": "NVM技術全景.html#nvm-physics-overview",
+          "titleZh": "儲存機制與技術家族",
+          "titleEn": "Storage Mechanisms and Technology Families",
+          "descriptionZh": "依電荷、磁性、電阻及極化分類，查閱十六類技術與獨立式元件背景。",
+          "descriptionEn": "Browse sixteen technology and reference topics by stored charge, magnetization, resistance and polarization.",
+          "metaZh": "技術家族 · 物理背景",
+          "metaEn": "Technology families · Physics"
+        },
+        {
+          "id": "F2",
+          "url": "technology-comparison.html",
+          "titleZh": "架構選型比較",
+          "titleEn": "Technology Selection Matrix",
+          "descriptionZh": "以資料生命週期與系統需求，評估記憶體家族與整合邊界。",
+          "descriptionEn": "Evaluate memory families and integration boundaries against data lifecycle and system requirements.",
+          "metaEn": "Selection · Integration",
+          "metaZh": "技術選擇 · 系統整合"
+        }
+      ]
+    },
+    {
+      "id": "ip-process",
+      "number": "02",
+      "titleZh": "IP 與製程",
+      "titleEn": "IP and Processes",
+      "descriptionZh": "從具名 IP 的單元原理，連到技術沿革與晶圓代工整合。",
+      "descriptionEn": "Connect named IP cell principles with technology lineage and foundry integration.",
+      "items": [
+        {
+          "id": "F3",
+          "url": "NVM技術全景.html#ip-directory",
+          "titleZh": "IP 單元與操作原理",
+          "titleEn": "IP Cells and Operating Principles",
+          "descriptionZh": "依 OTP、MTP、MRAM、ReRAM 查閱具名 IP 的結構、載子路徑與操作狀態。",
+          "descriptionEn": "Explore named OTP, MTP, MRAM and ReRAM IP through cell structures, carrier paths and operating states.",
+          "metaZh": "具名 IP · 操作圖解",
+          "metaEn": "Named IP · State diagrams"
+        },
+        {
+          "id": "P2",
+          "url": "NVM技術全景.html#ip-lineage",
+          "titleZh": "IP 技術沿革與承接關係",
+          "titleEn": "IP Technology Lineage",
+          "descriptionZh": "追蹤 Kilopass、Sidense、Impinj／Virage 與 Synopsys 的技術、產品及業務承接。",
+          "descriptionEn": "Trace technologies, products and business transfers across Kilopass, Sidense, Impinj/Virage and Synopsys.",
+          "metaZh": "歷史品牌 · 後續產品",
+          "metaEn": "Historical origins · Current context"
+        },
+        {
+          "id": "P3",
+          "url": "NVM技術全景.html#foundry",
+          "titleZh": "晶圓代工製程與路線圖",
+          "titleEn": "Foundry Processes and Roadmaps",
+          "descriptionZh": "逐年查看 GF／TSMC 的嵌入式記憶體整合、公開進度與產品條件。",
+          "descriptionEn": "Track GF/TSMC embedded-memory integration, public milestones and implementation conditions.",
+          "metaZh": "GF · TSMC · 製程選項",
+          "metaEn": "GF · TSMC · Process options"
+        }
+      ]
+    },
+    {
+      "id": "applications",
+      "number": "03",
+      "titleZh": "應用與系統",
+      "titleEn": "Applications and Systems",
+      "descriptionZh": "依要保存的資料與系統責任，查閱安全架構及各類應用。",
+      "descriptionEn": "Use data requirements and system responsibilities to explore security architectures and applications.",
+      "items": [
+        {
+          "id": "A1",
+          "url": "secure-storage.html",
+          "titleZh": "安全儲存架構",
+          "titleEn": "Secure Storage Architecture",
+          "descriptionZh": "SRAM PUF、金鑰重建、加密與控制器的責任邊界。",
+          "descriptionEn": "SRAM PUF, key reconstruction, encryption, and controller responsibilities.",
+          "metaEn": "Key lifecycle · Architecture",
+          "metaZh": "金鑰生命週期 · 架構"
+        },
+        {
+          "id": "A2",
+          "url": "security-assurance.html",
+          "titleZh": "安全保證與信任根",
+          "titleEn": "Security Assurance and Roots of Trust",
+          "descriptionZh": "威脅模型、攻擊面、測試與認證證據如何接到系統主張。",
+          "descriptionEn": "Connect threat models, attack surfaces, tests, and certification evidence to system claims.",
+          "metaEn": "Threats · Assurance",
+          "metaZh": "威脅模型 · 安全保證"
+        },
+        {
+          "id": "D1",
+          "url": "ai-nvm-opportunities.html",
+          "titleZh": "AI 系統與先進節點",
+          "titleEn": "AI Systems and Advanced Nodes",
+          "descriptionZh": "加速器、chiplet 與記憶體系統中的持久狀態需求。",
+          "descriptionEn": "Persistent-state requirements in accelerators, chiplets, and memory systems.",
+          "metaEn": "AI · Chiplets · State",
+          "metaZh": "AI · Chiplet · 狀態"
+        },
+        {
+          "id": "D2",
+          "url": "iot-mcu-envm.html",
+          "titleZh": "低功耗 IoT 與 MCU",
+          "titleEn": "Low-Power IoT and MCU eNVM",
+          "descriptionZh": "程式碼、校準、更新與待機能量的整體取捨。",
+          "descriptionEn": "System tradeoffs in code, calibration, updates, and standby energy.",
+          "metaEn": "Code · Updates · Energy",
+          "metaZh": "程式碼 · 更新 · 能量"
+        },
+        {
+          "id": "D3",
+          "url": "automotive-nvm.html",
+          "titleZh": "車用 NVM",
+          "titleEn": "Automotive NVM",
+          "descriptionZh": "溫度、使用任務與可靠度證據如何限制技術選擇。",
+          "descriptionEn": "How temperature, mission profiles, and reliability evidence constrain technology choice.",
+          "metaEn": "Temperature · Reliability",
+          "metaZh": "溫度 · 可靠度"
+        },
+        {
+          "id": "D4",
+          "url": "specialty-nvm.html",
+          "titleZh": "特種製程與 BCD",
+          "titleEn": "Specialty Processes and BCD",
+          "descriptionZh": "電源管理、高壓驅動與感測器的校準及配置資料。",
+          "descriptionEn": "Trim and configuration state in power management, high-voltage drivers, and sensors.",
+          "metaEn": "PMIC · Drivers · Sensors",
+          "metaZh": "電源管理 · 驅動 · 感測"
+        }
+      ]
+    },
+    {
+      "id": "resources",
+      "number": "04",
+      "titleZh": "文獻與工具",
+      "titleEn": "Literature and Tools",
+      "descriptionZh": "查核公開來源，使用決策工作台，並取得簡報與專題材料。",
+      "descriptionEn": "Check public sources, use the decision studio, and access briefings and topic materials.",
+      "items": [
+        {
+          "id": "R1",
+          "url": "memory-evidence.html",
+          "titleZh": "證據總帳",
+          "titleEn": "Evidence Ledger",
+          "descriptionZh": "逐筆檢視來源、可支持的主張與仍需驗證的範圍。",
+          "descriptionEn": "Inspect source records, supported claims, and remaining verification boundaries.",
+          "metaEn": "Primary sources",
+          "metaZh": "第一手來源"
+        },
+        {
+          "id": "R2",
+          "url": "whitepaper/index.html",
+          "titleZh": "白皮書決策工作台",
+          "titleEn": "Whitepaper Decision Studio",
+          "descriptionZh": "以可檢查的狀態需求與選型條件組織架構材料。",
+          "descriptionEn": "Organize architecture material around inspectable state requirements and selection conditions.",
+          "metaEn": "Decision tools",
+          "metaZh": "決策工具"
+        },
+        {
+          "id": "R3",
+          "url": "briefing/index.html",
+          "titleZh": "技術簡報與講稿",
+          "titleEn": "Technical Briefings and Talk Tracks",
+          "descriptionZh": "既有簡報、講稿及其來源入口。",
+          "descriptionEn": "Existing presentation material, talk tracks, and their source entry points.",
+          "metaEn": "Presentations",
+          "metaZh": "簡報資源"
+        },
+        {
+          "id": "R4",
+          "url": "oip-secure-storage.html",
+          "titleZh": "OIP 安全儲存專頁",
+          "titleEn": "OIP Secure Storage Brief",
+          "descriptionZh": "SRAM PUF 與安全儲存的展會論述、架構和證據邊界。",
+          "descriptionEn": "Event narrative, architecture, and evidence boundaries for SRAM PUF and secure storage.",
+          "metaEn": "OIP · Secure storage",
+          "metaZh": "OIP · 安全儲存"
+        }
+      ]
+    }
+  ]
+}

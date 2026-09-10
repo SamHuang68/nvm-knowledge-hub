@@ -1,13 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {chromium} from 'playwright';
-const root=path.resolve(import.meta.dirname,'..'),output=path.join(root,'qa/IP單元主線_20260910');
+const root=path.resolve(import.meta.dirname,'..'),output=path.join(root,'qa/入口與技術譜系_20260910');
 fs.mkdirSync(output,{recursive:true});
 const base=process.env.NVM_QA_BASE||'http://127.0.0.1:8765/';
 const data=JSON.parse(fs.readFileSync(path.join(root,'data/NVM知識資料英文.json'),'utf8'));
 const units=data.ipCurriculum.units,results=[],failures=[],errors=[];
 const note=(passed,label,details={})=>{const row={passed:Boolean(passed),label,...details};results.push(row);if(!passed)failures.push(row);};
-note(units.length===9&&units.map(unit=>unit.id).join(',')==='neobit,neofuse,neoee,neomtp,ymc-mtp,numem-mram,gf-emram,weebit-reram,crossbar-reram','九款 IP 依 OTP、MTP、MRAM 與 ReRAM 構成主線');
+const requiredIds=['neobit','neofuse','kilopass-xpm','sidense-1t-fuse','neoee','neomtp','ymc-mtp','impinj-aeon','numem-mram','gf-emram','weebit-reram','crossbar-reram'];
+note(units.length===requiredIds.length&&requiredIds.every(id=>units.some(unit=>unit.id===id))&&new Set(units.map(unit=>unit.id)).size===units.length,'IP 目錄包含既有單元及 Kilopass、Sidense、Impinj 技術');
 const sourceIds=new Set(data.sources.map(source=>source.id));
 for(const unit of units)note(unit.operations.length===3&&unit.structure.sourceIds.every(id=>sourceIds.has(id))&&unit.operations.every(operation=>operation.variants.every(variant=>variant.frames.length>=3&&variant.frames.every(frame=>frame.sourceIds.every(id=>sourceIds.has(id))))),'單元結構與所有逐格操作綁定有效來源',{id:unit.id});
 const browser=await chromium.launch({headless:true});
@@ -18,7 +19,10 @@ try{
   const file=language==='en'?'NVM技術全景.html':'NVM技術全景中文.html';
   await page.goto(new URL(file+'?lang='+language,base).href,{waitUntil:'networkidle'});
   await page.addStyleTag({content:'html{scroll-behavior:auto!important}'});
-  note(await page.locator('[data-ip-entry]:visible').count()===9&&!await page.locator('#nvm-physics-overview').evaluate(element=>element.open),'首次閱讀顯示九款 IP，物理背景預設收合',{language,width});
+  note(await page.locator('#panorama').isVisible()&&await page.locator('[data-ip-entry]:visible').count()===0&&await page.locator('#panorama .nvm-library-entries>a').count()===7,'首次閱讀呈現中性目錄，IP 單元為獨立項目',{language,width});
+  await page.locator('#panorama a[href="#ip-directory"]').click();
+  await page.waitForFunction(()=>document.getElementById('ip-directory')?.checkVisibility());
+  note(await page.locator('#ip-directory').isVisible()&&await page.locator('[data-ip-entry]:visible').count()===units.length,'由目錄進入完整 IP 名錄',{language,width});
   for(const unit of units){
    await page.evaluate(id=>{location.hash='ip-'+id;},unit.id);await page.waitForFunction(id=>!document.getElementById('ip-'+id).hidden,unit.id);
    const panel=page.locator('#ip-'+unit.id);

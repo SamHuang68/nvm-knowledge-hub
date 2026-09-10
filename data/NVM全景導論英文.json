@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0",
   "revision": "2026-09-10",
-  "title": "NVM IP Cells and Device Physics",
-  "subtitle": "Follow Programming, Reverse Update and Read Inside Named IP Cells",
-  "audience": "Readers who want to understand embedded NVM IP cells, storage physics and operating paths",
+  "title": "NVM Technology Atlas",
+  "subtitle": "IP Cells, Technology Lineage, Processes and Device Physics",
+  "audience": "Readers studying nonvolatile-memory IP, storage mechanisms and process integration",
   "pov": "Neutral educational content and public-source research from the NVM Knowledge Hub",
   "classification": "Public",
-  "intro": "Start with named embedded IP cells: eMemory NeoBit, NeoFuse, NeoEE and NeoMTP; a CHI/BBHH model for the YMC study path; and MRAM/ReRAM IP examples. Follow the same storage region from its initial state through the applied stimulus, carrier or spin process and sensed result. Standalone components and generic device families remain background references.",
-  "scope": "The main path covers named OTP, MTP, MRAM and ReRAM IP cells and their operation sequences. Sixteen device-physics topics, standalone EEPROM, comparison tables, patents and foundry milestones provide optional background. A named source may establish a functional cell, a specific historical embodiment or a current IP offering; the figure caption preserves that distinction.",
+  "intro": "Choose a topic to explore IP cell principles, technology lineage, foundry processes or storage physics. Each study connects diagrams and operating conditions to public sources.",
+  "scope": "Named OTP, MTP, MRAM and ReRAM IP studies are one section of this reference library. Sixteen physical-family and standalone-component topics, comparisons, patents and foundry milestones provide related context. Product history and demonstrated cell mechanisms are tracked separately.",
   "axes": [
     {
       "title": "Storage Physics",

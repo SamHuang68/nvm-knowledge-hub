@@ -14,6 +14,7 @@
 .nvm-ip-row dt{font-size:13px;font-weight:700;color:#1b5871;line-height:1.7}
 .nvm-ip-row dd{margin:0;font-size:15px;line-height:1.6;overflow-wrap:anywhere}
 .nvm-ip-nav,.nvm-background-nav{grid-column:1/-1}
+.nvm-sidebar details.nvm-ip-nav{display:block}
 .nvm-ip-nav-group{font-size:11px;font-weight:700;letter-spacing:.08em;color:#476477;margin:15px 0 4px;padding-left:12px}
 .nvm-ip-nav a{font-size:14px}
 .nvm-background-nav{margin-top:20px;padding-top:15px;border-top:1px solid #a9c0ce}

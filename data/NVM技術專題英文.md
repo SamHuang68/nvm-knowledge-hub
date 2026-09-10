@@ -1,8 +1,8 @@
-# NVM IP Cells and Device Physics
+# NVM Technology Atlas
 
 Research Revision: 2026-09-10
 
-Start with named embedded IP cells: eMemory NeoBit, NeoFuse, NeoEE and NeoMTP; a CHI/BBHH model for the YMC study path; and MRAM/ReRAM IP examples. Follow the same storage region from its initial state through the applied stimulus, carrier or spin process and sensed result. Standalone components and generic device families remain background references.
+Choose a topic to explore IP cell principles, technology lineage, foundry processes or storage physics. Each study connects diagrams and operating conditions to public sources.
 
 ## Storage Physics
 
@@ -361,6 +361,360 @@ No thick metallic short or FG storage; the damaged high-k/interfacial sublayer o
 #### IP Cell Tradeoffs
 
 The storage event changes dielectric conduction. An ideal short does not explain the ultrathin-dielectric physics. Selection and regulation transistors support array operation; defects and tunneling in the storage region create the programmed read-current difference.
+
+### Kilopass XPM: Historical 2T Antifuse
+
+Kilopass; acquired by Synopsys in 2018
+
+The original patent explicitly names XPM and distinguishes the storage MOS from the select MOS.
+
+Kilopass XPM — Cell Structure
+
+Original patent Figure 1 describes XPM as storage MOS M0 plus select MOS M1. WLP drives the storage gate, WLR selects M1, and BL senses current. The enlarged M0 region shows function without inventing a second diffusion or an intermediate sense terminal.
+
+- e− · Blue dots are mobile electrons and blue arrows follow electron flow; they are not charge retained inside the gate.
+- I · Green denotes conventional current, opposite to electrons. The illustrated branch fixes positive gate bias and a low BL.
+- OTP · The local orange path indicates conductive oxide state; normal operation has no electrical erase.
+- I_L / I_H · Short/long bars illustrate low/high read-current comparison, not measured values or fixed logic coding.
+- Geometry · Historical public-source functional reconstruction, not a scale section or current layout; terminal biases are not process operating specifications.
+- M0 / M1 · M0 stores and M1 selects. No sense output absent from the original is added at their internal node.
+
+- [ip-kilopass-xpm-2007: Historical Kilopass XPM 2T Patent Diagram](https://patents.google.com/patent/WO2007090089A2/en)
+- [ip-kilopass-2t-2012: Kilopass 130/110 nm XPM and Gusto 2T Announcement](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)
+
+#### Kilopass XPM — Program
+
+Local M0 oxide breakdown creates a conductive path; electrons are illustrated from BL through M1 and silicon toward positive WLP.
+
+Gate-Oxide Breakdown
+
+**1. Initial State**
+
+State: Gate oxide is intact; M0 has low gate-to-silicon leakage and M1 is not yet selected.
+
+Stimulus: The present operation has not yet applied a stimulus.
+
+Gate oxide is intact; M0 has low gate-to-silicon leakage and M1 is not yet selected.
+
+**2. Establish Program Field**
+
+State: Apply positive programming bias at WLP, select M1 through WLR, and hold BL low to stress M0 gate oxide.
+
+Stimulus: Apply positive programming bias at WLP, select M1 through WLR, and hold BL low to stress M0 gate oxide.
+
+Apply positive programming bias at WLP, select M1 through WLR, and hold BL low to stress M0 gate oxide.
+
+**3. Oxide Breakdown**
+
+State: Local M0 oxide breakdown creates a conductive path; electrons are illustrated from BL through M1 and silicon toward positive WLP.
+
+Stimulus: Apply positive programming bias at WLP, select M1 through WLR, and hold BL low to stress M0 gate oxide.
+
+Local M0 oxide breakdown creates a conductive path; electrons are illustrated from BL through M1 and silicon toward positive WLP.
+
+**4. Retained Result**
+
+State: After the pulse, the oxide conductance difference persists; the stored quantity is the oxide state.
+
+Stimulus: Remove programming bias.
+
+After the pulse, the oxide conductance difference persists; the stored quantity is the oxide state.
+
+- e− · Blue dots are mobile electrons and blue arrows follow electron flow; they are not charge retained inside the gate.
+- I · Green denotes conventional current, opposite to electrons. The illustrated branch fixes positive gate bias and a low BL.
+- OTP · The local orange path indicates conductive oxide state; normal operation has no electrical erase.
+- I_L / I_H · Short/long bars illustrate low/high read-current comparison, not measured values or fixed logic coding.
+- Geometry · Historical public-source functional reconstruction, not a scale section or current layout; terminal biases are not process operating specifications.
+- M0 / M1 · M0 stores and M1 selects. No sense output absent from the original is added at their internal node.
+
+Uses Figure 1 explicitly named XPM in the 2007 patent and the 2012 product announcement. Later self-sensing, latch and 3T drawings are excluded. Positive WLP and low BL define this nMOS teaching branch; read uses lower stress without implementation voltages. Acquisition announcements establish portfolio continuity; current 1T/2T or advanced-process articles do not prove this section is retained at every node.
+
+- [ip-kilopass-xpm-2007: Historical Kilopass XPM 2T Patent Diagram](https://patents.google.com/patent/WO2007090089A2/en)
+- [ip-kilopass-2t-2012: Kilopass 130/110 nm XPM and Gusto 2T Announcement](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)
+- [ip-lineage-kilopass-2018: Synopsys Acquisition of Kilopass](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
+- [ip-synopsys-otp-current: Synopsys OTP NVM 1T/2T Portfolio](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp: Synopsys Advanced-Process OTP Reliability and Sensing](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+#### Kilopass XPM — Erase Boundary
+
+Normal OTP provides no electrical erase; an ordinary reverse operation cannot restore the unprogrammed cell.
+
+Normal OTP Operating Boundary
+
+**1. Programmed State**
+
+State: The programmed local oxide conduction state remains.
+
+Stimulus: The present operation has not yet applied a stimulus.
+
+The programmed local oxide conduction state remains.
+
+**2. Normal Operating Boundary**
+
+State: The normal OTP interface has no electrical erase procedure that repairs gate oxide.
+
+Stimulus: No normal electrical erase stimulus.
+
+The normal OTP interface has no electrical erase procedure that repairs gate oxide.
+
+**3. Persistent State**
+
+State: The original cell remains programmed; spare bits, remapping or eMTP emulated updates are system methods.
+
+Stimulus: No normal electrical erase stimulus.
+
+The original cell remains programmed; spare bits, remapping or eMTP emulated updates are system methods.
+
+- e− · Blue dots are mobile electrons and blue arrows follow electron flow; they are not charge retained inside the gate.
+- I · Green denotes conventional current, opposite to electrons. The illustrated branch fixes positive gate bias and a low BL.
+- OTP · The local orange path indicates conductive oxide state; normal operation has no electrical erase.
+- I_L / I_H · Short/long bars illustrate low/high read-current comparison, not measured values or fixed logic coding.
+- Geometry · Historical public-source functional reconstruction, not a scale section or current layout; terminal biases are not process operating specifications.
+- M0 / M1 · M0 stores and M1 selects. No sense output absent from the original is added at their internal node.
+
+Uses Figure 1 explicitly named XPM in the 2007 patent and the 2012 product announcement. Later self-sensing, latch and 3T drawings are excluded. Positive WLP and low BL define this nMOS teaching branch; read uses lower stress without implementation voltages. Acquisition announcements establish portfolio continuity; current 1T/2T or advanced-process articles do not prove this section is retained at every node.
+
+- [ip-kilopass-xpm-2007: Historical Kilopass XPM 2T Patent Diagram](https://patents.google.com/patent/WO2007090089A2/en)
+- [ip-kilopass-2t-2012: Kilopass 130/110 nm XPM and Gusto 2T Announcement](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)
+- [ip-lineage-kilopass-2018: Synopsys Acquisition of Kilopass](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
+- [ip-synopsys-otp-current: Synopsys OTP NVM 1T/2T Portfolio](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp: Synopsys Advanced-Process OTP Reliability and Sensing](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+#### Kilopass XPM — Read
+
+The sense amplifier compares low/high BL current. The macro defines 0/1 coding; read does not repair the oxide.
+
+Oxide-Conduction Current Sensing
+
+**1. Retained State**
+
+State: The illustrated programmed cell retains its conductive oxide state without a read stimulus.
+
+Stimulus: The present operation has not yet applied a stimulus.
+
+The illustrated programmed cell retains its conductive oxide state without a read stimulus.
+
+**2. Establish Read Conditions**
+
+State: WLR selects M1; WLP and BL establish lower-stress read conditions.
+
+Stimulus: WLR selects M1; WLP and BL establish lower-stress read conditions.
+
+WLR selects M1; WLP and BL establish lower-stress read conditions.
+
+**3. Sense the Path**
+
+State: For the illustrated positive WLP and low BL, conventional current flows through oxide, silicon and M1 toward BL; electrons move oppositely.
+
+Stimulus: WLR selects M1; WLP and BL establish lower-stress read conditions.
+
+For the illustrated positive WLP and low BL, conventional current flows through oxide, silicon and M1 toward BL; electrons move oppositely.
+
+**4. Compare the Result**
+
+State: The sense amplifier compares low/high BL current. The macro defines 0/1 coding; read does not repair the oxide.
+
+Stimulus: Complete sensing and interpret using macro logic.
+
+The sense amplifier compares low/high BL current. The macro defines 0/1 coding; read does not repair the oxide.
+
+- e− · Blue dots are mobile electrons and blue arrows follow electron flow; they are not charge retained inside the gate.
+- I · Green denotes conventional current, opposite to electrons. The illustrated branch fixes positive gate bias and a low BL.
+- OTP · The local orange path indicates conductive oxide state; normal operation has no electrical erase.
+- I_L / I_H · Short/long bars illustrate low/high read-current comparison, not measured values or fixed logic coding.
+- Geometry · Historical public-source functional reconstruction, not a scale section or current layout; terminal biases are not process operating specifications.
+- M0 / M1 · M0 stores and M1 selects. No sense output absent from the original is added at their internal node.
+
+Uses Figure 1 explicitly named XPM in the 2007 patent and the 2012 product announcement. Later self-sensing, latch and 3T drawings are excluded. Positive WLP and low BL define this nMOS teaching branch; read uses lower stress without implementation voltages. Acquisition announcements establish portfolio continuity; current 1T/2T or advanced-process articles do not prove this section is retained at every node.
+
+- [ip-kilopass-xpm-2007: Historical Kilopass XPM 2T Patent Diagram](https://patents.google.com/patent/WO2007090089A2/en)
+- [ip-kilopass-2t-2012: Kilopass 130/110 nm XPM and Gusto 2T Announcement](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)
+- [ip-lineage-kilopass-2018: Synopsys Acquisition of Kilopass](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
+- [ip-synopsys-otp-current: Synopsys OTP NVM 1T/2T Portfolio](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp: Synopsys Advanced-Process OTP Reliability and Sensing](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+#### IP Cell Tradeoffs
+
+Learn the two transistor roles and the original XPM evidence; acquisition does not prove one cell is retained at every node.
+
+### Sidense 1T-Fuse: Split-Channel Antifuse
+
+Sidense; acquired by Synopsys in 2017
+
+One gate spans thick and thin oxide; persistent conduction through the thin region creates the OTP state.
+
+Sidense 1T-Fuse — Cell Structure
+
+Following original-author Figure 2 from 2007, one continuous poly gate connects to WL and the sole N+ diffusion connects to BL. Thick I/O oxide lies near BL; thin core oxide lies farther away. Breakdown links the gate to the channel through the thin region. Thicknesses and paths are enlarged for readability.
+
+- e− · Blue dots are mobile electrons and blue arrows follow electron flow; they are not charge retained inside the gate.
+- I · Green denotes conventional current, opposite to electrons. The illustrated branch fixes positive gate bias and a low BL.
+- OTP · The local orange path indicates conductive oxide state; normal operation has no electrical erase.
+- I_L / I_H · Short/long bars illustrate low/high read-current comparison, not measured values or fixed logic coding.
+- Geometry · Historical public-source functional reconstruction, not a scale section or current layout; terminal biases are not process operating specifications.
+- WL / BL · WL connects to one poly gate and BL to the sole N+ diffusion. Only the thin core oxide is shown breaking down. Horizontal carrier paths are offset for readability from the under-gate surface channel; they do not indicate conduction through the p-type bulk.
+
+- [ip-sidense-cell-2007: Sidense 1T-Fuse Original-Author Cell Section](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+- [ip-sidense-irreversible-2017: Sidense 1T-Fuse Irreversibility and eMTP Boundary](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+- [ip-sidense-patent-2006: Historical Sidense Split-Channel Antifuse Patent](https://patents.google.com/patent/US20060244099A1/en)
+
+#### Sidense 1T-Fuse — Program
+
+The thin core oxide locally breaks down. Electrons travel from BL diffusion through the channel and the thin region toward WL; the thick oxide remains intact.
+
+Gate-Oxide Breakdown
+
+**1. Initial State**
+
+State: Both thick and thin oxide beneath the single gate are intact; WL-to-BL leakage is initially low.
+
+Stimulus: The present operation has not yet applied a stimulus.
+
+Both thick and thin oxide beneath the single gate are intact; WL-to-BL leakage is initially low.
+
+**2. Establish Program Field**
+
+State: For the illustrated n-type teaching bias, raise WL and hold BL low. The thick region controls the channel while the thin region experiences stronger oxide field.
+
+Stimulus: For the illustrated n-type teaching bias, raise WL and hold BL low. The thick region controls the channel while the thin region experiences stronger oxide field.
+
+For the illustrated n-type teaching bias, raise WL and hold BL low. The thick region controls the channel while the thin region experiences stronger oxide field.
+
+**3. Oxide Breakdown**
+
+State: The thin core oxide locally breaks down. Electrons travel from BL diffusion through the channel and the thin region toward WL; the thick oxide remains intact.
+
+Stimulus: For the illustrated n-type teaching bias, raise WL and hold BL low. The thick region controls the channel while the thin region experiences stronger oxide field.
+
+The thin core oxide locally breaks down. Electrons travel from BL diffusion through the channel and the thin region toward WL; the thick oxide remains intact.
+
+**4. Retained Result**
+
+State: After programming bias is removed, the thin region retains persistent conduction rather than charge stored inside the gate.
+
+Stimulus: Remove programming bias.
+
+After programming bias is removed, the thin region retains persistent conduction rather than charge stored inside the gate.
+
+- e− · Blue dots are mobile electrons and blue arrows follow electron flow; they are not charge retained inside the gate.
+- I · Green denotes conventional current, opposite to electrons. The illustrated branch fixes positive gate bias and a low BL.
+- OTP · The local orange path indicates conductive oxide state; normal operation has no electrical erase.
+- I_L / I_H · Short/long bars illustrate low/high read-current comparison, not measured values or fixed logic coding.
+- Geometry · Historical public-source functional reconstruction, not a scale section or current layout; terminal biases are not process operating specifications.
+- WL / BL · WL connects to one poly gate and BL to the sole N+ diffusion. Only the thin core oxide is shown breaking down. Horizontal carrier paths are offset for readability from the under-gate surface channel; they do not indicate conduction through the p-type bulk.
+
+The section follows the product article’s n-type structure. Positive WL and low BL define the teaching bias from which directions are inferred. Detailed voltages from the historical p-type patent example are excluded. Split channel means neither two separate gates nor a floating gate. Acquisition announcements establish portfolio continuity; current 1T/2T or advanced-process articles do not prove this section is retained at every node.
+
+- [ip-sidense-cell-2007: Sidense 1T-Fuse Original-Author Cell Section](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+- [ip-sidense-irreversible-2017: Sidense 1T-Fuse Irreversibility and eMTP Boundary](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+- [ip-sidense-patent-2006: Historical Sidense Split-Channel Antifuse Patent](https://patents.google.com/patent/US20060244099A1/en)
+- [ip-lineage-sidense-2017: Synopsys Acquisition of Sidense](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation)
+- [ip-synopsys-otp-current: Synopsys OTP NVM 1T/2T Portfolio](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp: Synopsys Advanced-Process OTP Reliability and Sensing](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+#### Sidense 1T-Fuse — Erase Boundary
+
+Normal OTP provides no electrical erase; an ordinary reverse operation cannot restore the unprogrammed cell.
+
+Normal OTP Operating Boundary
+
+**1. Programmed State**
+
+State: The programmed local oxide conduction state remains.
+
+Stimulus: The present operation has not yet applied a stimulus.
+
+The programmed local oxide conduction state remains.
+
+**2. Normal Operating Boundary**
+
+State: The normal OTP interface has no electrical erase procedure that repairs gate oxide.
+
+Stimulus: No normal electrical erase stimulus.
+
+The normal OTP interface has no electrical erase procedure that repairs gate oxide.
+
+**3. Persistent State**
+
+State: The original cell remains programmed; spare bits, remapping or eMTP emulated updates are system methods.
+
+Stimulus: No normal electrical erase stimulus.
+
+The original cell remains programmed; spare bits, remapping or eMTP emulated updates are system methods.
+
+- e− · Blue dots are mobile electrons and blue arrows follow electron flow; they are not charge retained inside the gate.
+- I · Green denotes conventional current, opposite to electrons. The illustrated branch fixes positive gate bias and a low BL.
+- OTP · The local orange path indicates conductive oxide state; normal operation has no electrical erase.
+- I_L / I_H · Short/long bars illustrate low/high read-current comparison, not measured values or fixed logic coding.
+- Geometry · Historical public-source functional reconstruction, not a scale section or current layout; terminal biases are not process operating specifications.
+- WL / BL · WL connects to one poly gate and BL to the sole N+ diffusion. Only the thin core oxide is shown breaking down. Horizontal carrier paths are offset for readability from the under-gate surface channel; they do not indicate conduction through the p-type bulk.
+
+The section follows the product article’s n-type structure. Positive WL and low BL define the teaching bias from which directions are inferred. Detailed voltages from the historical p-type patent example are excluded. Split channel means neither two separate gates nor a floating gate. Acquisition announcements establish portfolio continuity; current 1T/2T or advanced-process articles do not prove this section is retained at every node.
+
+- [ip-sidense-cell-2007: Sidense 1T-Fuse Original-Author Cell Section](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+- [ip-sidense-irreversible-2017: Sidense 1T-Fuse Irreversibility and eMTP Boundary](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+- [ip-sidense-patent-2006: Historical Sidense Split-Channel Antifuse Patent](https://patents.google.com/patent/US20060244099A1/en)
+- [ip-lineage-sidense-2017: Synopsys Acquisition of Sidense](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation)
+- [ip-synopsys-otp-current: Synopsys OTP NVM 1T/2T Portfolio](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp: Synopsys Advanced-Process OTP Reliability and Sensing](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+#### Sidense 1T-Fuse — Read
+
+Compare low/high current along the WL/BL path. The macro defines logic coding and normal read preserves the state.
+
+Oxide-Conduction Current Sensing
+
+**1. Retained State**
+
+State: The illustrated programmed thin region retains its conductive state without stimulus.
+
+Stimulus: The present operation has not yet applied a stimulus.
+
+The illustrated programmed thin region retains its conductive state without stimulus.
+
+**2. Establish Read Conditions**
+
+State: Use lower-stress bias for channel access and sensing. This figure uses the positive-WL, low-BL n-type teaching direction.
+
+Stimulus: Use lower-stress bias for channel access and sensing. This figure uses the positive-WL, low-BL n-type teaching direction.
+
+Use lower-stress bias for channel access and sensing. This figure uses the positive-WL, low-BL n-type teaching direction.
+
+**3. Sense the Path**
+
+State: Conventional current leaves WL through the thin-oxide breakdown path, channel and BL diffusion; electrons move from BL toward WL.
+
+Stimulus: Use lower-stress bias for channel access and sensing. This figure uses the positive-WL, low-BL n-type teaching direction.
+
+Conventional current leaves WL through the thin-oxide breakdown path, channel and BL diffusion; electrons move from BL toward WL.
+
+**4. Compare the Result**
+
+State: Compare low/high current along the WL/BL path. The macro defines logic coding and normal read preserves the state.
+
+Stimulus: Complete sensing and interpret using macro logic.
+
+Compare low/high current along the WL/BL path. The macro defines logic coding and normal read preserves the state.
+
+- e− · Blue dots are mobile electrons and blue arrows follow electron flow; they are not charge retained inside the gate.
+- I · Green denotes conventional current, opposite to electrons. The illustrated branch fixes positive gate bias and a low BL.
+- OTP · The local orange path indicates conductive oxide state; normal operation has no electrical erase.
+- I_L / I_H · Short/long bars illustrate low/high read-current comparison, not measured values or fixed logic coding.
+- Geometry · Historical public-source functional reconstruction, not a scale section or current layout; terminal biases are not process operating specifications.
+- WL / BL · WL connects to one poly gate and BL to the sole N+ diffusion. Only the thin core oxide is shown breaking down. Horizontal carrier paths are offset for readability from the under-gate surface channel; they do not indicate conduction through the p-type bulk.
+
+The section follows the product article’s n-type structure. Positive WL and low BL define the teaching bias from which directions are inferred. Detailed voltages from the historical p-type patent example are excluded. Split channel means neither two separate gates nor a floating gate. Acquisition announcements establish portfolio continuity; current 1T/2T or advanced-process articles do not prove this section is retained at every node.
+
+- [ip-sidense-cell-2007: Sidense 1T-Fuse Original-Author Cell Section](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+- [ip-sidense-irreversible-2017: Sidense 1T-Fuse Irreversibility and eMTP Boundary](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+- [ip-sidense-patent-2006: Historical Sidense Split-Channel Antifuse Patent](https://patents.google.com/patent/US20060244099A1/en)
+- [ip-lineage-sidense-2017: Synopsys Acquisition of Sidense](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation)
+- [ip-synopsys-otp-current: Synopsys OTP NVM 1T/2T Portfolio](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp: Synopsys Advanced-Process OTP Reliability and Sensing](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+#### IP Cell Tradeoffs
+
+The thick region controls access and the thin region stores conductance; split channel means neither two gates nor a floating gate.
 
 ### NeoEE: FN/FN Single-Poly MTP
 
@@ -899,6 +1253,180 @@ A CHI / BBHH teaching model for YMC ymtp, using an equivalent 1T1C and qualitati
 #### IP Cell Tradeoffs
 
 This is the CHI/BBHH mechanism model selected for this course. Public YMC material supports its logic-process MTP IP positioning; independent primary research supports the BBHH physics. The figure is not identified as a complete cross-section of a current ymtp version. FN, drain-avalanche hot-hole injection and band-to-band hot-hole injection are distinct paths, even when related patents share an assignee.
+
+### AEON: An Impinj-Origin FN/FN MTP Family
+
+Impinj → Virage Logic → Synopsys
+
+Follow the named 2009 AEON company account: electrons enter and leave FG by FN, then a read MOS senses the state. Business and brand succession have a separate timeline.
+
+AEON MTP — Functional Cell Structure
+
+Public FN/FN functional model: coupling role C, isolated floating gate FG, tunnel counterparts and a read MOS. Floating-gate product positioning and named FN program/erase evidence are attributed separately. This original functional reconstruction leaves undisclosed physical wiring unspecified.
+
+- FG / e− · The brown FG is dielectric-isolated and has no external DC connection. Blue minus signs denote electrons; their count is qualitative.
+- C / T_P / T_E · C denotes capacitive coupling. T_P and T_E denote program/erase tunnel counterparts. Reusing the enlarged window does not assert one physical terminal or a fixed device count.
+- Si / Dielectric · Blue-gray regions represent silicon functions; pale yellow represents insulating dielectric. Doping, thickness, relative size and actual layout are unspecified.
+- e− / E · Blue open arrows show electron motion. Brown arrows show the tunnel-region electric field E, opposite to electron force. Program adds FG electrons; erase removes them in this convention. No official 0/1 coding is assigned.
+- A / B / I_R · A and B are functional read terminals, not official pins. The green arrow denotes conventional sensing current for A above B. MOS polarity is unspecified, so no carrier direction or fixed charge-to-ON/OFF relation is assigned.
+- 2009 AEON / FN–FN · The model follows the named 2009 AEON company article. Business transfers and Synopsys branding form a separate timeline and do not prove identical internal cells across generations.
+
+- [aeon-impinj-2007: Impinj AEON/MTP Floating-Gate Announcement](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009: Virage Logic AEON MTP Program/Erase and Monitoring](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+
+#### AEON MTP — Program
+
+FN program in the 2009 AEON company account: electrons cross dielectric into isolated FG.
+
+FN
+
+**1. Initial State**
+
+State: FG holds less negative charge; this isolated charge controls the read MOS state.
+
+Stimulus: Retention conditions; no FN high field has been established.
+
+The initial charge is a relative illustration, not a claim that FG must be neutral.
+
+**2. Establish the Tunnel Field**
+
+State: Coupling and tunnel conditions establish a high field that can add electrons to FG.
+
+Stimulus: Local E points from FG to T_P; electron force is opposite. No numerical biases are assigned.
+
+Dielectric field enables FN; channel hot-electron injection is not substituted. C couples to FG through dielectric only.
+
+**3. Tunnel Electrons Into FG**
+
+State: Electrons tunnel from T_P through dielectric into FG by FN, increasing stored negative charge.
+
+Stimulus: Maintain program field: blue arrows point toward FG; brown E arrows toward T_P.
+
+FN crosses dielectric. No metallic short or external DC injection wire is drawn into FG.
+
+**4. Retain the Programmed State**
+
+State: After removing program stimulus, dielectric isolation retains the added FG charge.
+
+Stimulus: Return to retention; FN and high-field arrows disappear.
+
+The read device senses charge-dependent behavior. No fixed charge-to-ON or charge-to-logic-1 mapping is assumed.
+
+- FG / e− · The brown FG is dielectric-isolated and has no external DC connection. Blue minus signs denote electrons; their count is qualitative.
+- C / T_P / T_E · C denotes capacitive coupling. T_P and T_E denote program/erase tunnel counterparts. Reusing the enlarged window does not assert one physical terminal or a fixed device count.
+- Si / Dielectric · Blue-gray regions represent silicon functions; pale yellow represents insulating dielectric. Doping, thickness, relative size and actual layout are unspecified.
+- e− / E · Blue open arrows show electron motion. Brown arrows show the tunnel-region electric field E, opposite to electron force. Program adds FG electrons; erase removes them in this convention. No official 0/1 coding is assigned.
+- A / B / I_R · A and B are functional read terminals, not official pins. The green arrow denotes conventional sensing current for A above B. MOS polarity is unspecified, so no carrier direction or fixed charge-to-ON/OFF relation is assigned.
+- 2009 AEON / FN–FN · The model follows the named 2009 AEON company article. Business transfers and Synopsys branding form a separate timeline and do not prove identical internal cells across generations.
+
+T_P/T_E are operating roles and must not be assumed to be one physical pin. MOS polarity, device count, wells, voltages and logic coding are unspecified. Do not substitute early Impinj hot-electron patents or the internal cell of every current Synopsys MTP product.
+
+- [aeon-impinj-2007: Impinj AEON/MTP Floating-Gate Announcement](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009: Virage Logic AEON MTP Program/Erase and Monitoring](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+
+#### AEON MTP — Erase
+
+The same named source identifies FN erase; this model represents reverse updating by removing FG electrons.
+
+FN
+
+**1. Programmed State**
+
+State: FG retains negative charge from the previous program operation.
+
+Stimulus: Retention conditions; no erase high field is applied.
+
+Reverse updating begins from the stored charge state.
+
+**2. Establish Erase Conditions**
+
+State: Erase conditions establish a local field that can remove electrons from FG.
+
+Stimulus: Local E points from T_E to FG; electron force points from FG to T_E.
+
+T_E denotes the erase tunnel counterpart. Its physical relationship to T_P is not fully disclosed by these sources.
+
+**3. Tunnel Electrons Out of FG**
+
+State: Electrons tunnel from FG through dielectric toward T_E by FN, reducing negative FG charge.
+
+Stimulus: Maintain erase field; blue electron arrows oppose brown E arrows.
+
+Erase is represented as electron removal, not neutralization by injected holes.
+
+**4. Retain a Reprogrammable State**
+
+State: After removing high field, FG retains its updated charge and can receive another FN program operation.
+
+Stimulus: Return to retention; tunneling stops.
+
+Electrical erase and reprogramming enable MTP. Particle counts do not imply endurance, speed or retention specifications.
+
+- FG / e− · The brown FG is dielectric-isolated and has no external DC connection. Blue minus signs denote electrons; their count is qualitative.
+- C / T_P / T_E · C denotes capacitive coupling. T_P and T_E denote program/erase tunnel counterparts. Reusing the enlarged window does not assert one physical terminal or a fixed device count.
+- Si / Dielectric · Blue-gray regions represent silicon functions; pale yellow represents insulating dielectric. Doping, thickness, relative size and actual layout are unspecified.
+- e− / E · Blue open arrows show electron motion. Brown arrows show the tunnel-region electric field E, opposite to electron force. Program adds FG electrons; erase removes them in this convention. No official 0/1 coding is assigned.
+- A / B / I_R · A and B are functional read terminals, not official pins. The green arrow denotes conventional sensing current for A above B. MOS polarity is unspecified, so no carrier direction or fixed charge-to-ON/OFF relation is assigned.
+- 2009 AEON / FN–FN · The model follows the named 2009 AEON company article. Business transfers and Synopsys branding form a separate timeline and do not prove identical internal cells across generations.
+
+T_P/T_E are operating roles and must not be assumed to be one physical pin. MOS polarity, device count, wells, voltages and logic coding are unspecified. Do not substitute early Impinj hot-electron patents or the internal cell of every current Synopsys MTP product.
+
+- [aeon-impinj-2007: Impinj AEON/MTP Floating-Gate Announcement](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009: Virage Logic AEON MTP Program/Erase and Monitoring](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+
+#### AEON MTP — Read
+
+Sense the read MOS under low stimulus; all frames retain the same charge without assigning p/n polarity or logic coding.
+
+MOS current sensing
+
+**1. Retain the Existing Charge**
+
+State: All four frames preserve the same FG charge; reading is not a second program operation.
+
+Stimulus: Sensing has not started.
+
+Isolated charge affects MOS behavior. MOS polarity is unspecified, so no fixed ON/OFF mapping is imposed.
+
+**2. Select and Apply Read Conditions**
+
+State: Read terminals establish a small sensing potential difference while FG charge remains unchanged.
+
+Stimulus: The model takes A above B; the green arrow is conventional current from A to B.
+
+Read conditions do not establish an FN update field. A and B are teaching terminals, not a macro pin table.
+
+**3. Sense the Channel Current**
+
+State: The read path supplies I_R associated with the existing stored state.
+
+Stimulus: Maintain read bias and measure sensing current.
+
+Current flows through the read device, without transporting stored charge through FG or the tunnel dielectric.
+
+**4. Compare and Preserve Data**
+
+State: Compare I_R with a reference; FG charge still matches the first frame.
+
+Stimulus: Sample the sensing result; read bias can then be removed.
+
+Reference strategy, differential implementation and 0/1 coding belong to a specific macro. Automotive differential-cell options are not generalized to all AEON products.
+
+- FG / e− · The brown FG is dielectric-isolated and has no external DC connection. Blue minus signs denote electrons; their count is qualitative.
+- C / T_P / T_E · C denotes capacitive coupling. T_P and T_E denote program/erase tunnel counterparts. Reusing the enlarged window does not assert one physical terminal or a fixed device count.
+- Si / Dielectric · Blue-gray regions represent silicon functions; pale yellow represents insulating dielectric. Doping, thickness, relative size and actual layout are unspecified.
+- e− / E · Blue open arrows show electron motion. Brown arrows show the tunnel-region electric field E, opposite to electron force. Program adds FG electrons; erase removes them in this convention. No official 0/1 coding is assigned.
+- A / B / I_R · A and B are functional read terminals, not official pins. The green arrow denotes conventional sensing current for A above B. MOS polarity is unspecified, so no carrier direction or fixed charge-to-ON/OFF relation is assigned.
+- 2009 AEON / FN–FN · The model follows the named 2009 AEON company article. Business transfers and Synopsys branding form a separate timeline and do not prove identical internal cells across generations.
+
+T_P/T_E are operating roles and must not be assumed to be one physical pin. MOS polarity, device count, wells, voltages and logic coding are unspecified. Do not substitute early Impinj hot-electron patents or the internal cell of every current Synopsys MTP product.
+
+- [aeon-impinj-2007: Impinj AEON/MTP Floating-Gate Announcement](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009: Virage Logic AEON MTP Program/Erase and Monitoring](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+
+#### IP Cell Tradeoffs
+
+AEON is a named logic-process MTP family originating at Impinj. A 2009 Virage Logic company article explicitly supports FN program and erase. The diagram retains that physical scope through C, T_P, T_E and read-MOS roles, without assuming undisclosed p/n polarity, device count or current wiring.
 
 ### Numem: Embedded STT-MRAM IP Cell
 
@@ -1551,6 +2079,118 @@ This is a published patent embodiment associated with historical embedded IP, no
 #### IP Cell Tradeoffs
 
 This figure follows the named patent's metal/amorphous-silicon model. Do not substitute another ECM cell's nucleation direction or an ideal continuous silver bridge. Evidence for the embedded macro and for the historical cell embodiment is identified separately.
+
+## IP Technology Lineage and Product Succession
+
+Follow three IP families into the Synopsys portfolio through original cells, product announcements and succession events. Each lineage links to its cell lesson, followed by subsequent public products and the physical scope supported by sources.
+
+### Kilopass XPM → Synopsys
+
+XPM stores a one-time state in a gate-oxide antifuse. Its historical 2T cell separates the storage and selection MOS roles. XPM later joined Synopsys with other Kilopass products.
+
+#### 2007-08-09 · Public Patent Identifies the Existing XPM 2T Cell
+
+Figure 1 of WO2007090089A2 identifies the existing XPM with M0 for storage and M1 for selection. This is the structure reconstructed in the lesson.
+
+- [ip-kilopass-xpm-2007: Historical Kilopass XPM 2T Patent Diagram](https://patents.google.com/patent/WO2007090089A2/en)
+
+#### 2012-05-15 · XPM/Gusto Announcement Links 130/110 nm 2T Products
+
+A Kilopass announcement names XPM, Gusto and 2T CMOS antifuse, linking the named historical products to the cell approach.
+
+- [ip-kilopass-2t-2012: Kilopass 130/110 nm XPM and Gusto 2T Announcement](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)
+
+#### 2018-01-10 · Synopsys Announces Its Kilopass Acquisition
+
+The official announcement includes XPM, Gusto and SecretCode in the acquired portfolio and describes an expanded 1T/2T OTP offering.
+
+- [ip-lineage-kilopass-2018: Synopsys Acquisition of Kilopass](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
+
+As checked on 2026-09-10, Synopsys publicly lists a 1T/2T antifuse OTP portfolio. Its advanced-node article discusses cell sizing, analog supply and sensing, repair, ECC and controller design. These span cell and macro design; the article does not trace every current product to an original vendor cell.
+
+The cell lesson uses the historical XPM 2T functional topology in patent Figure 1. It excludes the self-sensing node of Figure 2 and undisclosed current FinFET sections. Business succession and internal cell implementation have separate evidence scopes.
+
+- [ip-kilopass-xpm-2007: Historical Kilopass XPM 2T Patent Diagram](https://patents.google.com/patent/WO2007090089A2/en)
+- [ip-lineage-kilopass-2018: Synopsys Acquisition of Kilopass](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
+- [ip-synopsys-otp-current: Synopsys OTP NVM 1T/2T Portfolio](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp: Synopsys Advanced-Process OTP Reliability and Sensing](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+### Sidense 1T-Fuse → Synopsys
+
+1T-Fuse uses one continuous gate over thick and thin oxide, integrating channel selection and antifuse storage in a split-channel cell. This is the starting point for understanding the named Sidense 1T architecture.
+
+#### 2007-12-18 · Original Author Publishes the 1T-Fuse Cell Section
+
+Figure 2 in the Sidense author article shows thick/thin oxide, continuous poly and one BL diffusion. The lesson distinguishes its selection region from the persistent conduction region.
+
+- [ip-sidense-cell-2007: Sidense 1T-Fuse Original-Author Cell Section](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+
+#### 2017-09-05 · Technical Article Explains Persistent State and Emulated Updates
+
+Thin-oxide conduction creates an irreversible 1T-Fuse cell state. Emulated MTP updates use multiple storage locations and management; they do not erase or repair the original antifuse.
+
+- [ip-sidense-irreversible-2017: Sidense 1T-Fuse Irreversibility and eMTP Boundary](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+
+#### 2017-10-17 · Synopsys Announces Its Sidense Acquisition
+
+The official announcement names the single-transistor, split-channel 1T-Fuse technology, linking the original cell approach to the acquired portfolio.
+
+- [ip-lineage-sidense-2017: Synopsys Acquisition of Sidense](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation)
+
+Current Synopsys OTP material lists 1T and 2T offerings. Later design descriptions cover oxide-breakdown control, leakage and sensing, plus macro repair and ECC. Public material does not map every current node to the historical Sidense section.
+
+The lesson retains the n-type structure and single BL diffusion shown by the original author in 2007; read arrows are inferred from that structure. It does not import p-type patent biases, extra terminals or undisclosed current macro wiring.
+
+- [ip-sidense-cell-2007: Sidense 1T-Fuse Original-Author Cell Section](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+- [ip-sidense-irreversible-2017: Sidense 1T-Fuse Irreversibility and eMTP Boundary](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+- [ip-lineage-sidense-2017: Synopsys Acquisition of Sidense](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation)
+- [ip-synopsys-otp-current: Synopsys OTP NVM 1T/2T Portfolio](https://www.synopsys.com/articles/non-volatile-memory.html)
+- [ip-synopsys-advanced-otp: Synopsys Advanced-Process OTP Reliability and Sensing](https://www.synopsys.com/articles/reliable-secure-otp-ip.html)
+
+### Impinj AEON → Virage Logic → Synopsys
+
+AEON is a logic-process floating-gate MTP family originating at Impinj. Virage Logic acquired the business, which subsequently entered Synopsys with Virage Logic and continued in named AEON MTP ULP products.
+
+#### 2007-09-26 · Impinj Announces Floating-Gate AEON/MTP
+
+The company announcement names AEON/MTP and floating-gate transistors. Its specifications apply to that product announcement.
+
+- [aeon-impinj-2007: Impinj AEON/MTP Floating-Gate Announcement](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+
+#### 2008-06-26 · Virage Logic Acquires Impinj Logic NVM IP Business
+
+The SEC filing records completion of an asset purchase on this date; Impinj as a whole was not acquired.
+
+- [aeon-transfer-2008: Virage Logic Filing on the Impinj NVM IP Business](https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/d8k.htm)
+
+#### 2009-06-30 · Virage Logic Documents AEON FN Program and Erase
+
+NVM manager Craig Zajac identifies FN for both operations in a company-authored article. This defines the cell lesson scope.
+
+- [aeon-virage-fn-2009: Virage Logic AEON MTP Program/Erase and Monitoring](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+
+#### 2010-09-02 · Synopsys Completes Its Virage Logic Acquisition
+
+The completion announcement includes NVM in the added portfolio, bringing this succession chain into Synopsys.
+
+- [aeon-transfer-2010: Synopsys Completes the Virage Logic Acquisition](https://news.synopsys.com/home?item=123195)
+
+#### 2013-11-20 · Synopsys Announces DesignWare AEON MTP ULP
+
+The announcement explicitly uses AEON branding, supporting product-family continuity without asserting identical internal wiring.
+
+- [aeon-synopsys-2013: Synopsys DesignWare AEON MTP ULP Announcement](https://news.synopsys.com/2013-11-20-Synopsys-New-Ultra-Low-Power-Non-Volatile-Memory-IP-Cuts-Power-by-90-Percent-and-Size-in-Half)
+
+The 2013 official announcement explicitly uses DesignWare AEON MTP ULP branding. As checked on 2026-09-10, the current Synopsys MTP ULP page describes single-poly, floating-gate and zero-mask-adder positioning. That is a check date, not a launch date or evidence of unchanged wiring across generations.
+
+The named FN/FN basis is a 2009 article by a Virage Logic NVM manager. The diagrams use coupling, tunneling roles, FG and read MOS to explain electron entry and removal. Undisclosed device count, p/n polarity and pin arrangement remain unspecified.
+
+- [aeon-impinj-2007: Impinj AEON/MTP Floating-Gate Announcement](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009: Virage Logic AEON MTP Program/Erase and Monitoring](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+- [aeon-transfer-2008: Virage Logic Filing on the Impinj NVM IP Business](https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/d8k.htm)
+- [aeon-transfer-2010: Synopsys Completes the Virage Logic Acquisition](https://news.synopsys.com/home?item=123195)
+- [aeon-synopsys-2013: Synopsys DesignWare AEON MTP ULP Announcement](https://news.synopsys.com/2013-11-20-Synopsys-New-Ultra-Low-Power-Non-Volatile-Memory-IP-Cuts-Power-by-90-Percent-and-Size-in-Half)
+- [aeon-synopsys-current: Synopsys Current MTP ULP NVM Product Page](https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/mtp-rfid.html)
 
 ## eFuse: Permanent Conductance Programming
 
@@ -3620,6 +4260,15 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19). Primary Technical Source; 2021-01-19; Location in the Source: Figures 1–3; core nFET, gate oxide, dangling bonds, direct tunneling; Limitations: eMemory-authored article; an ultrathin-oxide DT model, not a metallic filament for all generations.
 - [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies). Officially Reposted Executive Interview; 2024-12-09; Location in the Source: NeoFuse: patented 3T design and regulating transistor; Limitations: Confirms 3T and a regulating function, not every current netlist or cross-section.
 - [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en). Public Patent; 2025-01-16; Location in the Source: Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268; Limitations: Related same-company embodiment, not explicitly branded NeoFuse.
+- [ip-kilopass-xpm-2007: Historical Kilopass XPM 2T Patent Diagram](https://patents.google.com/patent/WO2007090089A2/en). Public Patent; 2007-08-09; Accessed 2026-09-10; Location in the Source: Figure 1; paragraphs [0025]–[0029]; Figure 2 contrast in [0031]; Limitations: Figure 1 explicitly names existing XPM. Reconstruct only its 2T function; exclude the intermediate output in Figure 2 and later self-sensing circuits.
+- [ip-kilopass-2t-2012: Kilopass 130/110 nm XPM and Gusto 2T Announcement](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/). Republished Vendor Announcement; 2012-05-15; Accessed 2026-09-10; Location in the Source: Body paragraphs naming 2T CMOS antifuse and XPM/Gusto; Limitations: Supports the 2T link for the named historical products and nodes, not every node, current macro, or identical layout across foundries.
+- [ip-lineage-kilopass-2018: Synopsys Acquisition of Kilopass](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology). Official Acquisition Announcement; 2018-01-10; Accessed 2026-09-10; Location in the Source: Announcement date; XPM, Gusto, SecretCode and 1T/2T product paragraphs; Limitations: Confirms portfolio acquisition, not identity between historical cells and all current implementations.
+- [ip-synopsys-otp-current: Synopsys OTP NVM 1T/2T Portfolio](https://www.synopsys.com/articles/non-volatile-memory.html). Official Technical Article; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Synopsys OTP NVM IP Solutions; Limitations: Article is undated. Records the public 1T/2T antifuse portfolio as checked; does not assign every current product to a historical vendor cell.
+- [ip-synopsys-advanced-otp: Synopsys Advanced-Process OTP Reliability and Sensing](https://www.synopsys.com/articles/reliable-secure-otp-ip.html). Official Technical Article; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Basic Operation; Figure 2; sensing, ECC and controller discussion; Limitations: Article is undated. Supports oxide breakdown, current sensing and macro-level improvements, but does not establish a separately named third cell.
+- [ip-sidense-cell-2007: Sidense 1T-Fuse Original-Author Cell Section](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18). Original-Author Technical Article; 2007-12-18; Accessed 2026-09-10; Location in the Source: Wlodek Kurjanowicz; Figure 2 and adjacent 1T-Fuse explanation; Limitations: Figure 2 is an n-type teaching structure with one continuous poly gate, thick/thin oxide, and one BL diffusion. Read arrows are inferred from this structure and the stated teaching bias, not a current macro bias table.
+- [ip-sidense-irreversible-2017: Sidense 1T-Fuse Irreversibility and eMTP Boundary](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05). Original-Author Technical Article; 2017-09-05; Accessed 2026-09-10; Location in the Source: Where NVM Fits In; Sidense Antifuse-based Split-channel 1T-Fuse Bit Cell; Figure 5; Limitations: Supports persistent thin-oxide conduction and emulated updates at system level; absolute security and competitor-comparison claims are excluded.
+- [ip-sidense-patent-2006: Historical Sidense Split-Channel Antifuse Patent](https://patents.google.com/patent/US20060244099A1/en). Public Patent; 2006-11-02; Accessed 2026-09-10; Location in the Source: Figures 4, 5, 11, 12; paragraphs [0062]–[0067], [0087]–[0091]; claims 1–3, 12–13; Limitations: Corroborates thick/thin oxide and optional omission of the second diffusion. Detailed p-type biases are not transferred into the 2007 n-type product diagram.
+- [ip-lineage-sidense-2017: Synopsys Acquisition of Sidense](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation). Official Acquisition Announcement; 2017-10-17; Accessed 2026-09-10; Location in the Source: Announcement date; single-transistor and split-channel 1T-Fuse paragraphs; Limitations: Directly links Sidense 1T-Fuse to the acquisition; does not establish one unchanged cross-section for all later OTP.
 - [ip-neoee: NeoEE Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; capacitive-coupling MOS devices and selectors; Limitations: Current FN/FN; exact device count, p/n arrangement and biases are undisclosed.
 - [ip-neoee-history: Historical NeoEE Conceptual Cell](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19). Primary Technical Source; 2010-10-19; Location in the Source: NeoEE Technology; Figure 1(b), Tej tunneling junction; Limitations: Historical family includes CHE/FN and FN/FN; it does not override the current route.
 - [ip-neomtp: NeoMTP Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; p-type FG-MOSFET; extra erase gate; Limitations: Hot-hole-induced electron injection and FN from FG to erase gate; full cross-section is undisclosed.
@@ -3631,6 +4280,8 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [physics-bbhh-fg: Wu et al.: BBHH and Floating-Gate Demonstration](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/). Original Research; 2007; accessed 2026-09-10; Location in the Source: IEDM 2007, pages 87–90; author-institution abstract; DOI 10.1109/IEDM.2007.4418870; Limitations: Uses BBHH and reports a floating-gate demonstration; its NAND structure, IIHE programming and values are not transferred to the YMC model.
 - [physics-btbt-carriers: Chu and Wu: BTBT Hot-Carrier Paths](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf). Original Research; 2000-03; accessed 2026-09-10; Location in the Source: IEEE EDL 21(3), page 123 Introduction; page 125 Figure 4; DOI 10.1109/55.823576; Limitations: Supports silicon BBT carrier generation and field-assisted injection; Figure 3 is pMOS and is not copied into the nMOS model.
 - [physics-fg-hole-erase: IEEE: Hot-Hole Injection into a Floating Gate](https://ieeexplore.ieee.org/document/748914/). Original Research; 1999-03; accessed 2026-09-10; Location in the Source: IEEE EDL 20(3), pages 140–142; abstract; DOI 10.1109/55.748914; Limitations: Observes BBT/possible avalanche enhancement during FN erase; used only for floating-gate hot-hole physics, not a pure-BBHH recipe.
+- [aeon-impinj-2007: Impinj AEON/MTP Floating-Gate Announcement](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin). Company product announcement; 2007-09-26; Location in the Source: Opening AEON/MTP and floating-gate transistor paragraphs; Limitations: Supports the floating-gate family. Process and voltage claims apply to that announcement; no complete cell section is disclosed.
+- [aeon-virage-fn-2009: Virage Logic AEON MTP Program/Erase and Monitoring](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30). Company-authored technical article; 2009-06-30; Location in the Source: Craig Zajac; Architectural decisions, Manufacturing and author biography; Limitations: Explicitly identifies FN for program and erase. Differential cells and ECC concern the described automotive options. No terminal voltages, p/n polarity or physical geometry are disclosed.
 - [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/). Manufacturer product page; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: What is Numem MRAM?; Numem MRAM IP; Limitations: Supports embedded IP and foundry-standard STT cells; current material recipes are not disclosed.
 - [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf). Manufacturer public conference presentation; 2019-08-05; Accessed 2026-09-10; Location in the Source: Pages 2, 4, 5, 7: test chip, WL/BL/SL, forced-current sensing, RMTJ; Limitations: This is a first-generation test-chip architecture; its measured values are not treated as current NuRAM specifications.
 - [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology). Manufacturer mechanism explanation; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Spin-transfer Torque MRAM Technology: current direction, free layer, P/AP resistance; Limitations: Supports STT family physics only, not Numem product, material, or performance evidence.
@@ -3642,6 +4293,10 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf). Manufacturer public product brief; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Pages 1–2: hard macro/architectural license, embedded macro, and overwrite; Limitations: Supports historical IP licensing forms; this review does not confirm a 2026 list of newly licensable nodes or macros.
 - [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf). Manufacturer public conference presentation; 2015; Accessed 2026-09-10; Location in the Source: Pages 3, 4, 7, 8, 15: metallic path, cell versus selector, BEOL 1T1R; Limitations: Embedded 1T1R and high-density 1S1R/1TnR have separate scopes and are not merged into one circuit.
 - [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en). Original published patent application; 2012-01-12; Accessed 2026-09-10; Location in the Source: Figures 1–3; [0023]–[0025], [0037]: Ag/a-Si/p+ poly-Si, positive extension, negative retraction; Limitations: Selects a named embodiment with metal particles and tunneling paths; does not establish this recipe for all current macros or generic cathode-grown silver bridges.
+- [aeon-transfer-2008: Virage Logic Filing on the Impinj NVM IP Business](https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/d8k.htm). Original SEC filing; 2008-06-26; Location in the Source: Item 2.01; signed 2008-07-02; transaction 2008-06-26; Limitations: Supports acquisition of the logic NVM IP business assets by Virage Logic, not a direct Synopsys acquisition of Impinj.
+- [aeon-transfer-2010: Synopsys Completes the Virage Logic Acquisition](https://news.synopsys.com/home?item=123195). Company completion announcement; 2010-09-02; Location in the Source: Opening completion paragraph and added NVM portfolio; Limitations: Supports corporate acquisition and portfolio succession, not identical AEON internal cells across generations.
+- [aeon-synopsys-2013: Synopsys DesignWare AEON MTP ULP Announcement](https://news.synopsys.com/2013-11-20-Synopsys-New-Ultra-Low-Power-Non-Volatile-Memory-IP-Cuts-Power-by-90-Percent-and-Size-in-Half). Company product announcement; 2013-11-20; Location in the Source: Highlights, opening paragraph and Availability; Limitations: Explicitly continues AEON branding with MTP ULP. Performance comparisons are not used; branding does not establish a cell netlist.
+- [aeon-synopsys-current: Synopsys Current MTP ULP NVM Product Page](https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/mtp-rfid.html). Current company product page; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Overview and Highlights; checked 2026-09-10; Limitations: Publishes single-poly, floating-gate and zero-mask-adder positioning. The page uses MTP ULP naming; this does not prove all current MTP shares the 2009 AEON cell.
 - [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en). Public Patent; 2014; 2026-09-10 accessed; Location in the Source: Figures 1–3; uniform channel tunneling, electron programming, and hole erase; Limitations: A named SONOS tunneling example; no equivalence to the stack or biases of a current Infineon macro is asserted.
 - [op-pat-nrom-hhi: Saifun: Self-Aligned NROM Programming and Erasure Areas](https://patents.google.com/patent/US6664588B2/en). Public Patent; 2003; 2026-09-10 accessed; Location in the Source: Figures 4, 8A, 9, and 10–11; band-to-band hole generation and localized hot-hole injection; Limitations: The pocket implant and local hole path belong to this example; US5768192A is not used as evidence for this erase path.
 - [op-nand-hole-erase: KIOXIA: Schottky Source Contact and Hole Supply](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html). Manufacturer Research; 2025-09-18; 2026-09-10 accessed; Location in the Source: Figures 1 and 4; GIDL hole supply from an N+ silicon source and the Schottky-contact alternative; Limitations: Supports carrier supply and a named study; this diagram uses the conventional GIDL branch without merging in a Schottky source.

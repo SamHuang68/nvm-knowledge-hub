@@ -1,9 +1,27 @@
 window.NVMTopicIndex = [
   {
-    "title_zh": "NVM IP 單元與技術全景",
-    "title_en": "NVM IP Cells and Device Physics",
+    "title_zh": "NVM 技術全景",
+    "title_en": "NVM Technology Atlas",
     "url": "NVM技術全景.html",
     "tags": "NVM 全景 物理 比較 bitcell MRAM ReRAM GLOBALFOUNDRIES TSMC"
+  },
+  {
+    "title_zh": "IP 單元與操作原理",
+    "title_en": "IP Cells and Operating Principles",
+    "url": "NVM技術全景.html#ip-directory",
+    "tags": "IP 單元 目錄 operating principles directory"
+  },
+  {
+    "title_zh": "IP 技術沿革與產品承接",
+    "title_en": "IP Technology Lineage and Product Succession",
+    "url": "NVM技術全景.html#ip-lineage",
+    "tags": "Synopsys 收購 承接 技術沿革 acquisition lineage Kilopass Sidense Impinj Virage Logic AEON"
+  },
+  {
+    "title_zh": "儲存物理專題",
+    "title_en": "Device Physics Topics",
+    "url": "NVM技術全景.html#nvm-physics-overview",
+    "tags": "物理 基礎 儲存 standalone physics background"
   },
   {
     "title_zh": "NeoBit：浮動閘極 OTP 單元",
@@ -16,6 +34,18 @@ window.NVMTopicIndex = [
     "title_en": "NeoFuse: Gate-Dielectric Antifuse OTP Cell",
     "url": "NVM技術全景.html#ip-neofuse",
     "tags": "eMemory NeoFuse · Antifuse OTP Start at the n-type cell's gate dielectric and follow high-field defect creation, changes in effective tunneling distance and the gate current used for sensing. High-field dielectric defect generation No restoration of the pristine dielectric in normal use Gate current through the dielectric 從 n 型單元的閘極介電層出發，追蹤高場造成的缺陷、有效穿隧距離變化，以及讀取時可辨識的閘極電流。"
+  },
+  {
+    "title_zh": "Kilopass XPM：歷史 2T 反熔絲",
+    "title_en": "Kilopass XPM: Historical 2T Antifuse",
+    "url": "NVM技術全景.html#ip-kilopass-xpm",
+    "tags": "Kilopass; acquired by Synopsys in 2018 Kilopass XPM The original patent explicitly names XPM and distinguishes the storage MOS from the select MOS. High-field gate-oxide breakdown leaves a persistent conductance difference. The normal OTP interface has no electrical erase; remapping or emulated updates do not repair the original cell. After M1 selection, BL senses low/high current through M0 gate oxide. 以原始專利明稱 XPM 的 2T 圖解，分清儲存 MOS 與選擇 MOS。"
+  },
+  {
+    "title_zh": "Sidense 1T-Fuse：分裂通道反熔絲",
+    "title_en": "Sidense 1T-Fuse: Split-Channel Antifuse",
+    "url": "NVM技術全景.html#ip-sidense-1t-fuse",
+    "tags": "Sidense; acquired by Synopsys in 2017 Sidense 1T-Fuse One gate spans thick and thin oxide; persistent conduction through the thin region creates the OTP state. High-field gate-oxide breakdown leaves a persistent conductance difference. The normal OTP interface has no electrical erase; remapping or emulated updates do not repair the original cell. Sense low/high current between WL and BL at lower stress. 單一閘極跨越厚／薄氧化層；薄區永久導通形成 OTP 狀態。"
   },
   {
     "title_zh": "NeoEE：FN／FN 單層多晶矽 MTP",
@@ -34,6 +64,12 @@ window.NVMTopicIndex = [
     "title_en": "YMC MTP: CHI/BBHH Operation Model",
     "url": "NVM技術全景.html#ip-ymc-mtp",
     "tags": "Yield Microelectronics (YMC) YMC · CHI/BBHH Model Use the same equivalent 1T1C floating node to follow CHI electron programming and BBHH hole injection, then read the state through nMOS threshold voltage and channel current. CHI injects electrons into the floating node BBHH injects holes to neutralize stored charge NMOS threshold and channel current 以同一個等效 1T1C 浮動節點，追蹤 CHI 寫入電子與 BBHH 注入電洞的差異，並由 nMOS 臨界電壓與通道電流判讀資料。"
+  },
+  {
+    "title_zh": "AEON：Impinj 起源的 FN／FN MTP 家族",
+    "title_en": "AEON: An Impinj-Origin FN/FN MTP Family",
+    "url": "NVM技術全景.html#ip-impinj-aeon",
+    "tags": "Impinj → Virage Logic → Synopsys AEON · FN/FN MTP Follow the named 2009 AEON company account: electrons enter and leave FG by FN, then a read MOS senses the state. Business and brand succession have a separate timeline. FN adds electrons to floating gate FN removes electrons from floating gate Low-stimulus read-MOS current sensing 依 2009 年具名 AEON 原廠資料，追蹤電子經 FN 存入與移出浮動閘極，再由讀取 MOS 感測；品牌與業務承接另列時間線。"
   },
   {
     "title_zh": "Numem：嵌入式 STT-MRAM IP 單元",

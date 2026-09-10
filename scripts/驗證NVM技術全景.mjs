@@ -11,7 +11,7 @@ const data = JSON.parse(fs.readFileSync(path.join(root, 'data', 'NVM知識資料
 const failures = [];
 const audits = [];
 const browser = await chromium.launch({ headless: true });
-const routes = ['panorama','comparison','foundry',...data.topics.map(topic=>'topic-'+topic.id),...data.comparison.systems.map(system=>'system-'+system.id),'patents','glossary','sources'];
+const routes = ['panorama','ip-directory','ip-lineage','physics-library','comparison','foundry',...data.topics.map(topic=>'topic-'+topic.id),...data.comparison.systems.map(system=>'system-'+system.id),'patents','glossary','sources'];
 const widths = [1440,1361,1360,1280,1101,1100,901,900,800,768,621,620,390,312];
 
 try {
@@ -73,7 +73,8 @@ try {
     };
   });
   if (sourceAudit.duplicateIds.length || sourceAudit.missingTargets.length || sourceAudit.h1!==1 || sourceAudit.readyState!=='complete' || sourceAudit.sourceRecords!==data.sources.length) failures.push({sourceAudit});
-  await page.locator('#nvm-physics-overview').evaluate(disclosure => { disclosure.open = true; });
+  await page.evaluate(()=>{location.hash='nvm-physics-overview';});
+  await page.waitForFunction(()=>!document.getElementById('physics-library').hidden&&document.getElementById('nvm-physics-overview').open);
   await page.locator('#nvm-search').fill('SOT');
   if (await page.locator('[data-topic-row]:visible').count()!==1) failures.push('SOT 搜尋未精確得到一個專題');
   await page.locator('#nvm-family').selectOption('charge');

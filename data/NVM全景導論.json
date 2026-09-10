@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0",
   "revision": "2026-09-10",
-  "title": "NVM IP 單元與技術全景",
-  "subtitle": "從具名 IP 單元，追蹤寫入、反向更新與讀取",
-  "audience": "希望理解嵌入式 NVM IP 單元、儲存物理與操作路徑的讀者",
+  "title": "NVM 技術全景",
+  "subtitle": "IP 單元、技術沿革、製程與儲存物理",
+  "audience": "研究非揮發性記憶體 IP、儲存機制與製程整合的讀者",
   "pov": "NVM Knowledge Hub 的中立教學與公開來源研究",
   "classification": "Public",
-  "intro": "先看具名嵌入式 IP：力旺 NeoBit、NeoFuse、NeoEE、NeoMTP，YMC 閱讀路徑的 CHI／BBHH 模型，以及 MRAM／ReRAM IP 範例。沿同一儲存區追蹤初始狀態、施加刺激、載子或自旋過程與感測結果。獨立式元件與通用物理家族作為背景參考。",
-  "scope": "主線聚焦具名 OTP、MTP、MRAM、ReRAM IP 單元及其操作序列。十六個物理背景專題、獨立式 EEPROM、比較表、專利與晶圓代工紀錄供延伸閱讀。具名來源可能支持功能單元、特定歷史實施例或現行 IP 提供，圖說保留這些差異。",
+  "intro": "依主題查閱 IP 單元原理、技術沿革、晶圓代工製程或儲存物理；各專題將圖解、操作條件與公開來源連結。",
+  "scope": "具名 OTP、MTP、MRAM、ReRAM IP 是資料庫中的一個項目；另提供十六類儲存物理與獨立式元件背景、比較、專利及晶圓代工年度紀錄。產品沿革與已公開的單元機制分開追蹤。",
   "axes": [
     {
       "title": "儲存物理",

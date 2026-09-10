@@ -2,20 +2,475 @@
   "schemaVersion": "1.0",
   "revision": "2026-09-10",
   "groups": [
-    {"id":"otp","label":"OTP IP","description":"同樣是一次寫入，儲存電荷與改變介電層是不同的單元路徑。"},
-    {"id":"mtp","label":"MTP IP","description":"比較電子如何進入浮動節點，以及反向更新採電子移出或電洞注入。"},
-    {"id":"mram","label":"MRAM IP","description":"從磁性接面、選擇電晶體與讀寫電流理解嵌入式巨集。"},
-    {"id":"reram","label":"ReRAM IP","description":"從氧相關缺陷或金屬路徑的形成與斷續理解 SET、RESET 與感測。"}
+    {
+      "id": "otp",
+      "label": "OTP IP",
+      "description": "同樣是一次寫入，儲存電荷與改變介電層是不同的單元路徑。"
+    },
+    {
+      "id": "mtp",
+      "label": "MTP IP",
+      "description": "比較電子如何進入浮動節點，以及反向更新採電子移出或電洞注入。"
+    },
+    {
+      "id": "mram",
+      "label": "MRAM IP",
+      "description": "從磁性接面、選擇電晶體與讀寫電流理解嵌入式巨集。"
+    },
+    {
+      "id": "reram",
+      "label": "ReRAM IP",
+      "description": "從氧相關缺陷或金屬路徑的形成與斷續理解 SET、RESET 與感測。"
+    }
   ],
   "units": [
-    {"id":"neobit","title":"NeoBit：浮動閘極 OTP 單元","shortTitle":"NeoBit · 浮動閘極 OTP","vendor":"力旺 eMemory","group":"otp","hostTopic":"mtp","summary":"從串聯的選擇器與 p 型浮動閘極儲存電晶體，看電子注入如何改變讀取電流；再區分正常 OTP 操作與紫外線清除的物理可能性。","program":"電洞誘發熱電子注入","reverse":"正常 OTP 操作無電抹除","readout":"p 型儲存通道電流","lesson":"浮動閘極 OTP 的資料在儲存電荷中。選擇器控制哪個單元可讀寫，寫入則把儲存通道推到另一個可感測狀態。正常介面不提供電抹除，與介電層不可逆改變是不同的 OTP 設計路徑。"},
-    {"id":"neofuse","title":"NeoFuse：介電層型 Antifuse OTP 單元","shortTitle":"NeoFuse · Antifuse OTP","vendor":"力旺 eMemory","group":"otp","hostTopic":"antifuse","summary":"從 n 型單元的閘極介電層出發，追蹤高場造成的缺陷、有效穿隧距離變化，以及讀取時可辨識的閘極電流。","program":"高場產生介電層缺陷","reverse":"正常操作不恢復原始介電層","readout":"穿過介電層的閘極電流","lesson":"這個單元的重點是介電層導電特性如何改變，不能只用理想短路代替超薄介電層中的物理。選擇與調節電晶體服務陣列操作；儲存區的缺陷與穿隧路徑決定寫入後的讀取差異。"},
-    {"id":"neoee","title":"NeoEE：FN／FN 單層多晶矽 MTP","shortTitle":"NeoEE · FN／FN MTP","vendor":"力旺 eMemory","group":"mtp","hostTopic":"mtp","summary":"沿控制耦合區、浮動節點與穿隧區，分別追蹤 FN 如何將電子存入與移出，再由讀取電晶體感測儲存狀態。","program":"FN 將電子存入浮動節點","reverse":"FN 將電子移出浮動節點","readout":"電荷改變讀取電晶體狀態","lesson":"FN／FN 的兩個方向使用穿隧機制，但電場方向、選擇條件與施壓區域仍須分開辨識。單層多晶矽描述層數；控制耦合、穿隧區與讀取元件如何分工，才解釋這款 IP 的更新路徑。"},
-    {"id":"neomtp","title":"NeoMTP：CHI／FN 單層多晶矽 MTP","shortTitle":"NeoMTP · CHI／FN MTP","vendor":"力旺 eMemory","group":"mtp","hostTopic":"mtp","summary":"比較 p 型浮動閘極單元的熱載子寫入，以及電子經 FN 移向專用抹除閘極的反向路徑。兩種操作在同一儲存節點上完成。","program":"通道熱電洞誘發電子注入","reverse":"電子經 FN 移向抹除閘極","readout":"p 型浮動閘極元件電流","lesson":"本課程以 CHI／FN 表示操作組合；原廠將寫入描述為通道熱電洞誘發熱電子注入，標示 CHEI。抹除閘極提供另一個電子出口，因此不能把這個單元與沒有電抹除操作的 NeoBit，或 FN／FN 的 NeoEE 混成同一電路。"},
-    {"id":"ymc-mtp","title":"YMC MTP：CHI／BBHH 操作模型","shortTitle":"YMC · CHI／BBHH 模型","vendor":"億而得 YMC","group":"mtp","hostTopic":"mtp","summary":"以同一個等效 1T1C 浮動節點，追蹤 CHI 寫入電子與 BBHH 注入電洞的差異，並由 nMOS 臨界電壓與通道電流判讀資料。","program":"CHI 將電子注入浮動節點","reverse":"BBHH 注入電洞並中和電荷","readout":"nMOS 臨界電壓與通道電流","lesson":"這是本課程指定的 CHI／BBHH 機制模型。公開 YMC 資料支持其邏輯製程 MTP IP 定位；本圖的 BBHH 物理另由公開原始研究支持，未指定為現行 ymtp 某版本的完整剖面。FN、汲極雪崩熱電洞與能帶間熱電洞是不同路徑，不能只因受讓人相同就互換。"},
-    {"id":"numem-mram","title":"Numem：嵌入式 STT-MRAM IP 單元","shortTitle":"Numem · STT-MRAM IP","vendor":"Numem","group":"mram","hostTopic":"stt","summary":"從晶圓廠標準 STT-MRAM 單元與嵌入式 IP 的關係，辨認磁性接面、存取電晶體、位元線、源極線及感測路徑。","program":"自旋轉移力矩切換磁化","reverse":"反向電流覆寫另一狀態","readout":"磁性接面的電阻差","lesson":"Numem 的 IP 可利用晶圓廠標準 STT 單元，並在版圖、電路與記憶體架構上整合。先理解接面的兩個磁化狀態與選擇／感測，再看巨集提供的存取行為；不把控制架構的改善當成另一種儲存物理。"},
-    {"id":"gf-emram","title":"GLOBALFOUNDRIES：22FDX 嵌入式 MRAM 單元","shortTitle":"GF 22FDX · eMRAM 單元","vendor":"GLOBALFOUNDRIES","group":"mram","hostTopic":"stt","summary":"用 22FDX 公開研究單元理解 1T1MTJ、自由層與參考層，以及由該來源定義的雙向電流切換。","program":"依具名研究極性切換磁化","reverse":"反向覆寫；不需先抹除","readout":"低刺激下感測 P／AP 電阻","lesson":"晶圓廠嵌入式巨集把磁性接面與邏輯製程、存取電晶體和可靠度條件連在一起。本圖沿用指定公開研究的材料與極性慣例，便於逐格核對；這些細節不自動代表所有 22FDX 現行記憶體版本。"},
-    {"id":"weebit-reram","title":"Weebit Nano：氧化矽 ReRAM IP 單元","shortTitle":"Weebit · 氧化矽 ReRAM","vendor":"Weebit Nano","group":"reram","hostTopic":"vcm","summary":"以公開的氧化矽研究結構，追蹤氧交換、缺陷路徑與存取電晶體限流，理解嵌入式 ReRAM 的 SET、RESET 與讀取。","program":"SET 建立低電阻缺陷路徑","reverse":"RESET 改變氧與缺陷分布","readout":"低刺激感測電阻差","lesson":"在這個具名研究例中，儲存介質、氧交換電極與存取電晶體共同影響切換。限流與讀取刺激是 cell 操作的一部分，不能只看兩個電阻數值；材料與配方仍限定在引用的公開實作。"},
-    {"id":"crossbar-reram","title":"Crossbar：金屬路徑 ReRAM 嵌入式單元","shortTitle":"Crossbar · 金屬路徑 ReRAM","vendor":"Crossbar","group":"reram","hostTopic":"ecm","summary":"以 Crossbar 公開專利與歷史嵌入式宏資料，理解金屬粒子路徑延伸、回縮與低刺激感測。","program":"SET 使金屬路徑延伸","reverse":"RESET 使路徑回縮或不連續","readout":"導電路徑與粒子間傳輸","lesson":"此圖採具名專利的金屬／非晶矽路徑模型，不能直接套用所有 ECM 的成核方向或理想連續銀橋。嵌入式宏的公開證據與本次引用的歷史單元實施例分別標明，供理解 cell 運作。"}
-  ]
+    {
+      "id": "neobit",
+      "title": "NeoBit：浮動閘極 OTP 單元",
+      "shortTitle": "NeoBit · 浮動閘極 OTP",
+      "vendor": "力旺 eMemory",
+      "group": "otp",
+      "hostTopic": "mtp",
+      "summary": "從串聯的選擇器與 p 型浮動閘極儲存電晶體，看電子注入如何改變讀取電流；再區分正常 OTP 操作與紫外線清除的物理可能性。",
+      "program": "電洞誘發熱電子注入",
+      "reverse": "正常 OTP 操作無電抹除",
+      "readout": "p 型儲存通道電流",
+      "lesson": "浮動閘極 OTP 的資料在儲存電荷中。選擇器控制哪個單元可讀寫，寫入則把儲存通道推到另一個可感測狀態。正常介面不提供電抹除，與介電層不可逆改變是不同的 OTP 設計路徑。"
+    },
+    {
+      "id": "neofuse",
+      "title": "NeoFuse：介電層型 Antifuse OTP 單元",
+      "shortTitle": "NeoFuse · Antifuse OTP",
+      "vendor": "力旺 eMemory",
+      "group": "otp",
+      "hostTopic": "antifuse",
+      "summary": "從 n 型單元的閘極介電層出發，追蹤高場造成的缺陷、有效穿隧距離變化，以及讀取時可辨識的閘極電流。",
+      "program": "高場產生介電層缺陷",
+      "reverse": "正常操作不恢復原始介電層",
+      "readout": "穿過介電層的閘極電流",
+      "lesson": "這個單元的重點是介電層導電特性如何改變，不能只用理想短路代替超薄介電層中的物理。選擇與調節電晶體服務陣列操作；儲存區的缺陷與穿隧路徑決定寫入後的讀取差異。"
+    },
+    {
+      "id": "kilopass-xpm",
+      "title": "Kilopass XPM：歷史 2T 反熔絲",
+      "shortTitle": "Kilopass XPM",
+      "vendor": "Kilopass；2018 年併入 Synopsys",
+      "group": "otp",
+      "hostTopic": "antifuse",
+      "summary": "以原始專利明稱 XPM 的 2T 圖解，分清儲存 MOS 與選擇 MOS。",
+      "program": "以高場造成閘極氧化層崩潰，保留可感測的導通差異。",
+      "reverse": "正常 OTP 介面不提供電性抹除；重新配置或模擬更新不會修復原單元。",
+      "readout": "選通 M1 後由 BL 感測 M0 閘氧的低／高電流。",
+      "lesson": "2T 的角色分工與原始 XPM 來源；公司承接不等於所有節點沿用相同單元。"
+    },
+    {
+      "id": "sidense-1t-fuse",
+      "title": "Sidense 1T-Fuse：分裂通道反熔絲",
+      "shortTitle": "Sidense 1T-Fuse",
+      "vendor": "Sidense；2017 年併入 Synopsys",
+      "group": "otp",
+      "hostTopic": "antifuse",
+      "summary": "單一閘極跨越厚／薄氧化層；薄區永久導通形成 OTP 狀態。",
+      "program": "以高場造成閘極氧化層崩潰，保留可感測的導通差異。",
+      "reverse": "正常 OTP 介面不提供電性抹除；重新配置或模擬更新不會修復原單元。",
+      "readout": "以較低應力感測 WL 與 BL 間的低／高電流。",
+      "lesson": "厚區控制存取、薄區儲存導通狀態；分裂通道不是兩個閘極或浮動閘極。"
+    },
+    {
+      "id": "neoee",
+      "title": "NeoEE：FN／FN 單層多晶矽 MTP",
+      "shortTitle": "NeoEE · FN／FN MTP",
+      "vendor": "力旺 eMemory",
+      "group": "mtp",
+      "hostTopic": "mtp",
+      "summary": "沿控制耦合區、浮動節點與穿隧區，分別追蹤 FN 如何將電子存入與移出，再由讀取電晶體感測儲存狀態。",
+      "program": "FN 將電子存入浮動節點",
+      "reverse": "FN 將電子移出浮動節點",
+      "readout": "電荷改變讀取電晶體狀態",
+      "lesson": "FN／FN 的兩個方向使用穿隧機制，但電場方向、選擇條件與施壓區域仍須分開辨識。單層多晶矽描述層數；控制耦合、穿隧區與讀取元件如何分工，才解釋這款 IP 的更新路徑。"
+    },
+    {
+      "id": "neomtp",
+      "title": "NeoMTP：CHI／FN 單層多晶矽 MTP",
+      "shortTitle": "NeoMTP · CHI／FN MTP",
+      "vendor": "力旺 eMemory",
+      "group": "mtp",
+      "hostTopic": "mtp",
+      "summary": "比較 p 型浮動閘極單元的熱載子寫入，以及電子經 FN 移向專用抹除閘極的反向路徑。兩種操作在同一儲存節點上完成。",
+      "program": "通道熱電洞誘發電子注入",
+      "reverse": "電子經 FN 移向抹除閘極",
+      "readout": "p 型浮動閘極元件電流",
+      "lesson": "本課程以 CHI／FN 表示操作組合；原廠將寫入描述為通道熱電洞誘發熱電子注入，標示 CHEI。抹除閘極提供另一個電子出口，因此不能把這個單元與沒有電抹除操作的 NeoBit，或 FN／FN 的 NeoEE 混成同一電路。"
+    },
+    {
+      "id": "ymc-mtp",
+      "title": "YMC MTP：CHI／BBHH 操作模型",
+      "shortTitle": "YMC · CHI／BBHH 模型",
+      "vendor": "億而得 YMC",
+      "group": "mtp",
+      "hostTopic": "mtp",
+      "summary": "以同一個等效 1T1C 浮動節點，追蹤 CHI 寫入電子與 BBHH 注入電洞的差異，並由 nMOS 臨界電壓與通道電流判讀資料。",
+      "program": "CHI 將電子注入浮動節點",
+      "reverse": "BBHH 注入電洞並中和電荷",
+      "readout": "nMOS 臨界電壓與通道電流",
+      "lesson": "這是本課程指定的 CHI／BBHH 機制模型。公開 YMC 資料支持其邏輯製程 MTP IP 定位；本圖的 BBHH 物理另由公開原始研究支持，未指定為現行 ymtp 某版本的完整剖面。FN、汲極雪崩熱電洞與能帶間熱電洞是不同路徑，不能只因受讓人相同就互換。"
+    },
+    {
+      "id": "impinj-aeon",
+      "title": "AEON：Impinj 起源的 FN／FN MTP 家族",
+      "shortTitle": "AEON · FN／FN MTP",
+      "vendor": "Impinj → Virage Logic → Synopsys",
+      "group": "mtp",
+      "hostTopic": "mtp",
+      "summary": "依 2009 年具名 AEON 原廠資料，追蹤電子經 FN 存入與移出浮動閘極，再由讀取 MOS 感測；品牌與業務承接另列時間線。",
+      "program": "FN 將電子存入浮動閘極",
+      "reverse": "FN 將電子移出浮動閘極",
+      "readout": "低刺激感測讀取 MOS 電流",
+      "lesson": "AEON 是 Impinj 起源的具名邏輯製程 MTP 家族。2009 年 Virage Logic 原廠文章明確支持 FN 寫入與抹除；圖解保留這個物理範圍，使用 C、T_P、T_E 與讀取 MOS 的功能角色，不假定未公開的 p/n 極性、實體元件數或現行接線。"
+    },
+    {
+      "id": "numem-mram",
+      "title": "Numem：嵌入式 STT-MRAM IP 單元",
+      "shortTitle": "Numem · STT-MRAM IP",
+      "vendor": "Numem",
+      "group": "mram",
+      "hostTopic": "stt",
+      "summary": "從晶圓廠標準 STT-MRAM 單元與嵌入式 IP 的關係，辨認磁性接面、存取電晶體、位元線、源極線及感測路徑。",
+      "program": "自旋轉移力矩切換磁化",
+      "reverse": "反向電流覆寫另一狀態",
+      "readout": "磁性接面的電阻差",
+      "lesson": "Numem 的 IP 可利用晶圓廠標準 STT 單元，並在版圖、電路與記憶體架構上整合。先理解接面的兩個磁化狀態與選擇／感測，再看巨集提供的存取行為；不把控制架構的改善當成另一種儲存物理。"
+    },
+    {
+      "id": "gf-emram",
+      "title": "GLOBALFOUNDRIES：22FDX 嵌入式 MRAM 單元",
+      "shortTitle": "GF 22FDX · eMRAM 單元",
+      "vendor": "GLOBALFOUNDRIES",
+      "group": "mram",
+      "hostTopic": "stt",
+      "summary": "用 22FDX 公開研究單元理解 1T1MTJ、自由層與參考層，以及由該來源定義的雙向電流切換。",
+      "program": "依具名研究極性切換磁化",
+      "reverse": "反向覆寫；不需先抹除",
+      "readout": "低刺激下感測 P／AP 電阻",
+      "lesson": "晶圓廠嵌入式巨集把磁性接面與邏輯製程、存取電晶體和可靠度條件連在一起。本圖沿用指定公開研究的材料與極性慣例，便於逐格核對；這些細節不自動代表所有 22FDX 現行記憶體版本。"
+    },
+    {
+      "id": "weebit-reram",
+      "title": "Weebit Nano：氧化矽 ReRAM IP 單元",
+      "shortTitle": "Weebit · 氧化矽 ReRAM",
+      "vendor": "Weebit Nano",
+      "group": "reram",
+      "hostTopic": "vcm",
+      "summary": "以公開的氧化矽研究結構，追蹤氧交換、缺陷路徑與存取電晶體限流，理解嵌入式 ReRAM 的 SET、RESET 與讀取。",
+      "program": "SET 建立低電阻缺陷路徑",
+      "reverse": "RESET 改變氧與缺陷分布",
+      "readout": "低刺激感測電阻差",
+      "lesson": "在這個具名研究例中，儲存介質、氧交換電極與存取電晶體共同影響切換。限流與讀取刺激是 cell 操作的一部分，不能只看兩個電阻數值；材料與配方仍限定在引用的公開實作。"
+    },
+    {
+      "id": "crossbar-reram",
+      "title": "Crossbar：金屬路徑 ReRAM 嵌入式單元",
+      "shortTitle": "Crossbar · 金屬路徑 ReRAM",
+      "vendor": "Crossbar",
+      "group": "reram",
+      "hostTopic": "ecm",
+      "summary": "以 Crossbar 公開專利與歷史嵌入式宏資料，理解金屬粒子路徑延伸、回縮與低刺激感測。",
+      "program": "SET 使金屬路徑延伸",
+      "reverse": "RESET 使路徑回縮或不連續",
+      "readout": "導電路徑與粒子間傳輸",
+      "lesson": "此圖採具名專利的金屬／非晶矽路徑模型，不能直接套用所有 ECM 的成核方向或理想連續銀橋。嵌入式宏的公開證據與本次引用的歷史單元實施例分別標明，供理解 cell 運作。"
+    }
+  ],
+  "lineage": {
+    "title": "IP 技術沿革與產品承接",
+    "intro": "從原始單元、產品公告與承接事件，追蹤三個 IP 家族如何進入 Synopsys 產品組合。每條沿革連回單元課程，再分別說明後續公開產品與可確認的物理範圍。",
+    "sources": [
+      {
+        "id": "ip-kilopass-xpm-2007",
+        "url": "https://patents.google.com/patent/WO2007090089A2/en",
+        "date": "2007-08-09",
+        "accessedAt": "2026-09-10",
+        "kind": "公開專利",
+        "label": "Kilopass XPM 2T 歷史專利圖",
+        "locator": "圖 1；段落 [0025]–[0029]；[0031] 的圖 2 差異",
+        "limit": "圖 1 明稱既有 XPM；只重建 2T 功能，不混入圖 2 的中間輸出或後續自我感測電路。"
+      },
+      {
+        "id": "ip-kilopass-2t-2012",
+        "url": "https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/",
+        "date": "2012-05-15",
+        "accessedAt": "2026-09-10",
+        "kind": "原廠新聞轉載",
+        "label": "Kilopass 130／110 nm XPM 與 Gusto 2T 公告",
+        "locator": "內文 2T CMOS antifuse、XPM／Gusto 段落",
+        "limit": "支持指定年代與節點產品的 2T 連結；不推定所有節點、現行巨集或各晶圓廠共用相同版圖。"
+      },
+      {
+        "id": "ip-lineage-kilopass-2018",
+        "url": "https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology",
+        "date": "2018-01-10",
+        "accessedAt": "2026-09-10",
+        "kind": "官方收購公告",
+        "label": "Synopsys 收購 Kilopass 官方公告",
+        "locator": "公告日期；XPM、Gusto、SecretCode 與 1T／2T 產品段落",
+        "limit": "證明產品組合併入，不證明歷史單元等於現行所有實施。"
+      },
+      {
+        "id": "ip-sidense-cell-2007",
+        "url": "https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18",
+        "date": "2007-12-18",
+        "accessedAt": "2026-09-10",
+        "kind": "原作者技術文章",
+        "label": "Sidense 1T-Fuse 原作者單元剖面",
+        "locator": "作者 Wlodek Kurjanowicz；圖 2 與前後 1T-Fuse 原理說明",
+        "limit": "圖 2 為 n 型教學結構：單一連續 poly、厚／薄氧化層、單一 BL 擴散。讀取箭頭由此結構與圖示偏壓推導，不是現行巨集偏壓表。"
+      },
+      {
+        "id": "ip-sidense-irreversible-2017",
+        "url": "https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05",
+        "date": "2017-09-05",
+        "accessedAt": "2026-09-10",
+        "kind": "原作者技術文章",
+        "label": "Sidense 1T-Fuse 不可逆狀態與 eMTP 界線",
+        "locator": "Where NVM Fits In；Sidense Antifuse-based Split-channel 1T-Fuse Bit Cell；圖 5",
+        "limit": "支持薄閘氧永久導通及系統模擬更新；不採用文中的絕對安全或競品比較說法。"
+      },
+      {
+        "id": "ip-sidense-patent-2006",
+        "url": "https://patents.google.com/patent/US20060244099A1/en",
+        "date": "2006-11-02",
+        "accessedAt": "2026-09-10",
+        "kind": "公開專利",
+        "label": "Sidense 分裂通道反熔絲歷史專利",
+        "locator": "圖 4、5、11、12；段落 [0062]–[0067]、[0087]–[0091]；請求項 1–3、12–13",
+        "limit": "厚／薄氧化層與可省略第二擴散的旁證；詳細 p 型偏壓不搬入 2007 年 n 型產品圖。"
+      },
+      {
+        "id": "ip-lineage-sidense-2017",
+        "url": "https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation",
+        "date": "2017-10-17",
+        "accessedAt": "2026-09-10",
+        "kind": "官方收購公告",
+        "label": "Synopsys 收購 Sidense 官方公告",
+        "locator": "公告日期；single-transistor、split-channel 1T-Fuse 段落",
+        "limit": "直接連結 Sidense 1T-Fuse 與收購；不證明收購後所有 OTP 使用同一剖面。"
+      },
+      {
+        "id": "ip-synopsys-otp-current",
+        "url": "https://www.synopsys.com/articles/non-volatile-memory.html",
+        "date": null,
+        "accessedAt": "2026-09-10",
+        "kind": "官方技術文章",
+        "label": "Synopsys OTP NVM 1T／2T 產品組合",
+        "locator": "Synopsys OTP NVM IP Solutions",
+        "limit": "未標示文章日期；以查核日記錄公開 1T／2T 反熔絲組合，不自行對應每個現行產品的原廠譜系。"
+      },
+      {
+        "id": "ip-synopsys-advanced-otp",
+        "url": "https://www.synopsys.com/articles/reliable-secure-otp-ip.html",
+        "date": null,
+        "accessedAt": "2026-09-10",
+        "kind": "官方技術文章",
+        "label": "Synopsys 先進製程 OTP 可靠度與感測演進",
+        "locator": "Basic Operation；圖 2；感測、ECC 與控制器相關說明",
+        "limit": "未標示文章日期；支持氧化層崩潰、電流感測與巨集層改良，不足以命名第三種全新單元。"
+      },
+      {
+        "id": "aeon-impinj-2007",
+        "url": "https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin",
+        "date": "2007-09-26",
+        "label": "Impinj：AEON/MTP 浮動閘極產品公告",
+        "kind": "原廠產品公告",
+        "locator": "開頭 AEON/MTP 及 floating-gate transistor 段落",
+        "limit": "支持 AEON/MTP 浮動閘極家族；公告中的製程與電壓限定於該次產品，不提供完整單元剖面。"
+      },
+      {
+        "id": "aeon-virage-fn-2009",
+        "url": "https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30",
+        "date": "2009-06-30",
+        "label": "Virage Logic：AEON MTP 寫抹與製造監測",
+        "kind": "原廠主管署名技術文章",
+        "locator": "Craig Zajac；Architectural decisions、Manufacturing 及作者簡介",
+        "limit": "原廠署名文章明確說明寫入與抹除使用 FN；差動位元與錯誤修正限定於文中車用產品選項。未公開端點電壓、p/n 極性或實體區域配置。"
+      },
+      {
+        "id": "aeon-transfer-2008",
+        "url": "https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/d8k.htm",
+        "date": "2008-06-26",
+        "label": "Virage Logic：Impinj NVM IP 業務收購申報",
+        "kind": "SEC 原始申報",
+        "locator": "Item 2.01；2008-07-02 簽署；交易日 2008-06-26",
+        "limit": "支持邏輯 NVM IP 業務資產收購；交易對方為 Virage Logic，並非 Synopsys 直接收購 Impinj。"
+      },
+      {
+        "id": "aeon-transfer-2010",
+        "url": "https://news.synopsys.com/home?item=123195",
+        "date": "2010-09-02",
+        "label": "Synopsys：完成收購 Virage Logic",
+        "kind": "原廠交易完成公告",
+        "locator": "開頭完成收購段；NVM 加入產品組合",
+        "limit": "支持公司收購與 NVM 產品組合承接；不證明 AEON 各代內部單元相同。"
+      },
+      {
+        "id": "aeon-synopsys-2013",
+        "url": "https://news.synopsys.com/2013-11-20-Synopsys-New-Ultra-Low-Power-Non-Volatile-Memory-IP-Cuts-Power-by-90-Percent-and-Size-in-Half",
+        "date": "2013-11-20",
+        "label": "Synopsys：DesignWare AEON MTP ULP 公告",
+        "kind": "原廠產品公告",
+        "locator": "Highlights、首段與 Availability",
+        "limit": "明確延續 AEON 品牌並推出 MTP ULP；本課程不引用效能比較數字，也不以品牌推定單元接線。"
+      },
+      {
+        "id": "aeon-synopsys-current",
+        "url": "https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/mtp-rfid.html",
+        "date": null,
+        "accessedAt": "2026-09-10",
+        "label": "Synopsys：現行 MTP ULP NVM 產品頁",
+        "kind": "原廠現行產品頁",
+        "locator": "Overview 與 Highlights；查核日 2026-09-10",
+        "limit": "公開單層多晶矽、浮動閘極與零額外光罩定位；此頁使用 MTP ULP 名稱，不據此斷言全部現行 MTP 與 2009 AEON 使用相同單元。"
+      }
+    ],
+    "entries": [
+      {
+        "id": "kilopass",
+        "unitId": "kilopass-xpm",
+        "title": "Kilopass XPM → Synopsys",
+        "summary": "XPM 以閘氧反熔絲儲存一次寫入狀態。歷史 2T 單元將儲存 MOS 與選擇 MOS 分工，之後連同其他 Kilopass 產品進入 Synopsys。",
+        "events": [
+          {
+            "date": "2007-08-09",
+            "title": "公開專利標明既有 XPM 2T 單元",
+            "body": "WO2007090089A2 圖 1 以 M0 儲存與 M1 選擇呈現既有 XPM；本課程依這個結構重建操作。",
+            "sourceIds": [
+              "ip-kilopass-xpm-2007"
+            ]
+          },
+          {
+            "date": "2012-05-15",
+            "title": "XPM／Gusto 公告連結 130／110 nm 2T 產品",
+            "body": "Kilopass 產品公告明列 XPM、Gusto 與 2T CMOS 反熔絲，補足具名產品和歷史單元的連結。",
+            "sourceIds": [
+              "ip-kilopass-2t-2012"
+            ]
+          },
+          {
+            "date": "2018-01-10",
+            "title": "Synopsys 宣布收購 Kilopass",
+            "body": "官方公告將 XPM、Gusto 與 SecretCode 納入承接產品組合，並說明 OTP 的 1T／2T 組合擴充。",
+            "sourceIds": [
+              "ip-lineage-kilopass-2018"
+            ]
+          }
+        ],
+        "currentContext": "截至 2026-09-10 查核，Synopsys 公開資料仍列 1T／2T 反熔絲 OTP 組合。先進製程技術文章另說明單元面積、類比電源與感測、修復、ECC 及控制器的改良；這些是從單元延伸至巨集的設計層次，文章未逐款交代原廠單元譜系。",
+        "cellBoundary": "單元課程使用公開專利圖 1 的歷史 XPM 2T 功能拓樸，沒有把圖 2 的自感測接點或現行 FinFET 製程剖面移入。承接關係與單元內部實施各有自己的來源範圍。",
+        "sourceIds": [
+          "ip-kilopass-xpm-2007",
+          "ip-lineage-kilopass-2018",
+          "ip-synopsys-otp-current",
+          "ip-synopsys-advanced-otp"
+        ]
+      },
+      {
+        "id": "sidense",
+        "unitId": "sidense-1t-fuse",
+        "title": "Sidense 1T-Fuse → Synopsys",
+        "summary": "1T-Fuse 使用單一連續閘極跨越厚／薄氧化層，將通道選擇與反熔絲儲存整合在分裂通道單元。這是 Sidense 具名 1T 架構的閱讀起點。",
+        "events": [
+          {
+            "date": "2007-12-18",
+            "title": "原作者公開 1T-Fuse 單元剖面",
+            "body": "Sidense 原作者文章圖 2 顯示厚／薄氧化層、連續 poly 與單一 BL 擴散區；本課程據此區分選擇區與永久導通區。",
+            "sourceIds": [
+              "ip-sidense-cell-2007"
+            ]
+          },
+          {
+            "date": "2017-09-05",
+            "title": "技術文章說明永久狀態與模擬更新",
+            "body": "1T-Fuse 的薄氧化層導通形成不可逆單元狀態。eMTP 的多次更新依靠多個儲存位置與管理機制，並不抹除或修復原反熔絲。",
+            "sourceIds": [
+              "ip-sidense-irreversible-2017"
+            ]
+          },
+          {
+            "date": "2017-10-17",
+            "title": "Synopsys 宣布收購 Sidense",
+            "body": "官方公告明確點名 single-transistor、split-channel 1T-Fuse，連結原廠技術與併入產品組合。",
+            "sourceIds": [
+              "ip-lineage-sidense-2017"
+            ]
+          }
+        ],
+        "currentContext": "現行 Synopsys OTP 資料列出 1T 與 2T 組合。其後續設計說明涵蓋閘氧崩潰控制、漏電與感測，以及巨集修復和 ECC；公開資料未提供每個現行節點與 Sidense 歷史剖面的逐一對照。",
+        "cellBoundary": "課程保留 2007 年原作者圖示的 n 型結構與一個 BL 擴散端，讀取箭頭依該結構推導。相關專利的 p 型偏壓、額外接點或現行巨集接線不混入此圖。",
+        "sourceIds": [
+          "ip-sidense-cell-2007",
+          "ip-sidense-irreversible-2017",
+          "ip-lineage-sidense-2017",
+          "ip-synopsys-otp-current",
+          "ip-synopsys-advanced-otp"
+        ]
+      },
+      {
+        "id": "aeon",
+        "unitId": "impinj-aeon",
+        "title": "Impinj AEON → Virage Logic → Synopsys",
+        "summary": "AEON 是 Impinj 起源的邏輯製程浮動閘極 MTP 家族。業務先由 Virage Logic 承接，之後隨 Virage Logic 進入 Synopsys，並延續為具名 AEON MTP ULP 產品。",
+        "events": [
+          {
+            "date": "2007-09-26",
+            "title": "Impinj 發布 AEON/MTP 浮動閘極產品",
+            "body": "原廠公告明列具名 AEON/MTP 與浮動閘極電晶體；該公告規格限定於當時產品。",
+            "sourceIds": [
+              "aeon-impinj-2007"
+            ]
+          },
+          {
+            "date": "2008-06-26",
+            "title": "Virage Logic 承接 Impinj 邏輯 NVM IP 業務",
+            "body": "SEC 申報記載資產收購已於此日完成；並非收購 Impinj 全公司。",
+            "sourceIds": [
+              "aeon-transfer-2008"
+            ]
+          },
+          {
+            "date": "2009-06-30",
+            "title": "Virage Logic 公開 AEON 的 FN 寫抹依據",
+            "body": "NVM 主管 Craig Zajac 的原廠署名文章記載 FN 用於 program 與 erase；本單元圖解以此為機制範圍。",
+            "sourceIds": [
+              "aeon-virage-fn-2009"
+            ]
+          },
+          {
+            "date": "2010-09-02",
+            "title": "Synopsys 完成收購 Virage Logic",
+            "body": "原廠完成公告將 NVM 列入新增產品組合；承接鏈在此進入 Synopsys。",
+            "sourceIds": [
+              "aeon-transfer-2010"
+            ]
+          },
+          {
+            "date": "2013-11-20",
+            "title": "Synopsys 發布 DesignWare AEON MTP ULP",
+            "body": "新產品公告明確使用 AEON 品牌，支持後續產品家族延續；不宣稱跨代接線完全相同。",
+            "sourceIds": [
+              "aeon-synopsys-2013"
+            ]
+          }
+        ],
+        "currentContext": "2013 年官方公告直接使用 DesignWare AEON MTP ULP 品牌。截至 2026-09-10 查核，Synopsys 現行 MTP ULP 頁面公開單層多晶矽、浮動閘極與零額外光罩的產品定位；此查核日並非產品發布日，也不代表所有世代都沿用相同單元接線。",
+        "cellBoundary": "具名 FN／FN 依據為 2009 年 Virage Logic 原廠主管文章。圖解用耦合區、穿隧操作角色、浮動閘極與讀取 MOS 說明電子存入和移出；未公開的實體元件數、p/n 極性及接腳配置保持未指定。",
+        "sourceIds": [
+          "aeon-impinj-2007",
+          "aeon-virage-fn-2009",
+          "aeon-transfer-2008",
+          "aeon-transfer-2010",
+          "aeon-synopsys-2013",
+          "aeon-synopsys-current"
+        ]
+      }
+    ]
+  }
 }
