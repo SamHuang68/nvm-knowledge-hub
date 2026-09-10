@@ -1,0 +1,850 @@
+{
+  "sources": [
+    {
+      "id": "CMP-YU2016",
+      "label": "Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects",
+      "url": "https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf",
+      "kind": "Original Technical Review",
+      "locator": "IEEE Solid-State Circuits Magazine 8(2), 43–56; p44, Table 1; DOI 10.1109/MSSC.2016.2546199",
+      "date": "2016",
+      "limit": "The original table includes only STT-MRAM, PCRAM, and RRAM in its emerging-technology columns. Representative values and cell-level energy estimates are not guarantees for modern products."
+    },
+    {
+      "id": "CMP-LECTURE2021",
+      "label": "Shimeng Yu: Comparison Table from Lecture 6, 2021",
+      "url": "https://www.youtube.com/watch?v=_Ov2KUZTIv8&t=2165s",
+      "kind": "Lecture and Supplied Screenshot",
+      "locator": "Slide p14, dated 2021/11/1; comparison segment at 36:05–43:49; every table cell was checked against the screenshot at its original size",
+      "date": "2021-11-01",
+      "limit": "The course cites and extends the 2016 paper, adding SOT-MRAM, FeRAM, and FeFET. This website retains the historical values without presenting them as universal specifications for 2026."
+    },
+    {
+      "id": "CMP-FRAM-PRODUCT",
+      "label": "Infineon CY15B104QSN-108SXI Product Status",
+      "url": "https://www.infineon.com/part/CY15B104QSN-108SXI",
+      "kind": "Supplier Product Page",
+      "locator": "Product status, 4 Mb capacity, and interface specifications",
+      "date": "Verified 2026-09-10",
+      "limit": "Active supply status applies to the specified part number; it cannot be generalized to every ferroelectric-memory implementation."
+    },
+    {
+      "id": "CMP-FRAM-DS",
+      "label": "Infineon CY15B104QSN/CY15V104QSN Datasheet",
+      "url": "https://www.infineon.com/dgdl/Infineon-CY15B104QSN_CY15V104QSN_4Mb_EXCELON_Ultra_Ferroelectric_RAM_F-RAM_Serial_quad_SPI_512K_8_108_MHz_industrial-DataSheet-v15_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ee59c446d71",
+      "kind": "Product Datasheet",
+      "locator": "002-18293 Rev. *N; p1 and p105, Table 63",
+      "date": "2024-07-25",
+      "limit": "The 151-year retention rating applies at 65°C; retention at 85°C is 10 years. Interface frequency is not cell read or write latency."
+    },
+    {
+      "id": "CMP-MRAM-PRODUCT",
+      "label": "Everspin MR25H40 Products and Part Numbers",
+      "url": "https://www.everspin.com/products/series/mr25h40",
+      "kind": "Supplier Product Page",
+      "locator": "Toggle MRAM technology field, production status, and part numbers by temperature grade",
+      "date": "Verified 2026-09-10",
+      "limit": "Supply status and temperature grades vary by part number. Toggle MRAM specifications do not describe STT or SOT implementations."
+    },
+    {
+      "id": "CMP-MRAM-DS",
+      "label": "Everspin MR20H40/MR25H40 Datasheet",
+      "url": "https://www.everspin.com/sites/default/files/EST00459_MR2xH40_Datasheet_Rev12.6_08092020.pdf",
+      "kind": "Product Datasheet",
+      "locator": "Revision 12.6; p1 product features and interface description",
+      "date": "2020-08",
+      "limit": "Unlimited read/write cycling is the supplier's specification for this product, not a physical law that all MRAM can never fail."
+    },
+    {
+      "id": "CMP-EVERSPIN2024",
+      "label": "Everspin 2024 Annual Filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438423/000155837025001827/mram-20241231x10k.htm",
+      "kind": "Statutory Company Filing",
+      "locator": "STT-MRAM product and shipment disclosures",
+      "date": "Filed in 2025; fiscal year 2024",
+      "limit": "Supports commercial shipments of 256 Mb and 1 Gb STT-MRAM. It does not establish volume production for unlisted densities or technologies."
+    },
+    {
+      "id": "CMP-EVERSPIN2026",
+      "label": "Everspin High-Reliability xSPI MRAM Production Qualification Progress",
+      "url": "https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb",
+      "kind": "Supplier Announcement",
+      "locator": "Completed qualification and orderability of 64 Mb; expected schedules for 128 Mb/256 Mb",
+      "date": "2026-03-05",
+      "limit": "Only completed milestones establish completion. Passing a forecast date does not automatically demonstrate that the plan was fulfilled."
+    },
+    {
+      "id": "CMP-RERAM-PRODUCT",
+      "label": "RAMXEED ReRAM Product Family",
+      "url": "https://www.ramxeed.com/zh-tw/products/reram-products/",
+      "kind": "Supplier Product Page",
+      "locator": "Production-status fields for MB85AS8MT and MB85AS12MT",
+      "date": "Verified 2026-09-10",
+      "limit": "The 8 Mb device is listed as in mass production; the 12 Mb device requires an inquiry. A datasheet or sampling announcement is not evidence of volume production."
+    },
+    {
+      "id": "CMP-RERAM-DS",
+      "label": "RAMXEED MB85AS8MT Datasheet",
+      "url": "https://www.ramxeed.com/assets/images/products/datasheet/ReRAM/MB85AS8MT-DS2v2-E.pdf",
+      "kind": "Product Datasheet",
+      "locator": "DS501-00060-2v2-E; p8, p12–13, p17, and p20",
+      "date": "2024",
+      "limit": "Product tWC includes the internal nonvolatile-write sequence and differs from a switching pulse measured on a research cell. Endurance is specified per 4 bytes."
+    },
+    {
+      "id": "CMP-PCM-PRODUCT",
+      "label": "ST SR6P6C8 Microcontroller with Embedded PCM",
+      "url": "https://www.st.com/en/automotive-microcontrollers/sr6p6c8.html",
+      "kind": "Supplier Product Page",
+      "locator": "Production status at the top of the page, memory features, and the quality-and-reliability part-number table",
+      "date": "Verified 2026-09-10",
+      "limit": "Supports volume production of SR6P6C8 and its listed part numbers. It does not establish the status of every Stellar device or PCM implementation."
+    },
+    {
+      "id": "CMP-TSMC-STT2019",
+      "label": "TSMC 22 nm STT-MRAM: Reflow, Automotive Reliability, and Performance Options",
+      "url": "https://research.tsmc.com/page/mram/1.html",
+      "kind": "Authors' Research Abstract",
+      "locator": "Gallagher et al., 2019; 20 Mb design and alternative MTJ options",
+      "date": "2019",
+      "limit": "The 6 ns sensing result and write time slightly above 30 ns belong to a performance option that gives up reflow retention. They cannot be combined with the separate high-retention option."
+    },
+    {
+      "id": "CMP-KIOXIA2026",
+      "label": "Kioxia/Sandisk Research on 10th-Generation 2 Tb QLC NAND",
+      "url": "https://www.kioxia.com/en-jp/rd/technology/topics/topics-92.html",
+      "kind": "Author-Institution Research Article",
+      "locator": "ISSCC 2026; DOI 10.1109/ISSCC49663.2026.11409136; 332 layers and die-level density",
+      "date": "2026-07-15",
+      "limit": "Die-level Gb/mm² and write throughput cannot be substituted directly for cell F² or host-visible SSD performance. Publication of research does not by itself establish volume production across the product range."
+    },
+    {
+      "id": "CMP-OPTANE-PERF",
+      "label": "Intel Optane P5800X Performance and Test Conditions",
+      "url": "https://edc.intel.com/content/www/us/en/products/performance/benchmarks/intel-optane-ssd-p5800x-series/",
+      "kind": "Supplier System Measurement",
+      "locator": "Items 11 and 12; Xeon 8380, Ubuntu 20.04.2, and FIO 3.16",
+      "date": "Tested 2021-03-18",
+      "limit": "Average latency for 512 B and 4 KB random reads. These values are not tail latency, cell switching time, or evidence of new-product availability in 2026."
+    },
+    {
+      "id": "CMP-MICRON2021",
+      "label": "Micron 3D XPoint and Data-Center Portfolio Strategy Update",
+      "url": "https://investors.micron.com/news/press-release/2021/Micron-Updates-Data-Center-Portfolio-Strategy-to-Address-Growing-Opportunity-for-Memory-and-Storage-Hierarchy-Innovation-03-16-2021/default.aspx",
+      "kind": "Supplier Announcement",
+      "locator": "Immediate discontinuation of 3D XPoint development and a shift toward CXL-related investment",
+      "date": "2021-03-16",
+      "limit": "Establishes the end of development; it does not mean that manufacturing or shipments of all existing products stopped on the same date."
+    },
+    {
+      "id": "CMP-MICRON-CALL2021",
+      "label": "Micron 3D XPoint Strategy-Update Prepared Remarks",
+      "url": "https://investors.micron.com/static-files/c858cbb2-bfd2-4f84-ba10-f69b385cf4bf",
+      "kind": "Company Investor-Call Document",
+      "locator": "p4: manufacturing to end after industry commitments are fulfilled",
+      "date": "2021-03-16",
+      "limit": "Manufacturing withdrawal follows existing commitments. The document does not determine the last shipment date for every part number."
+    },
+    {
+      "id": "CMP-MICRON-LEHI2021",
+      "label": "Micron Completes the Sale of the Lehi Fab",
+      "url": "https://www.micron.com/about/blog/company/partners/sale-of-lehi-fab",
+      "kind": "Supplier Announcement",
+      "locator": "Transaction closing date and background on 3D XPoint production",
+      "date": "Transaction closed 2021-10-22",
+      "limit": "The fab sale is a separate event; it does not mean that all systems or support services ended at the same time."
+    },
+    {
+      "id": "CMP-INTEL2023",
+      "label": "Intel Optane Customer Letter",
+      "url": "https://cdrdv2-public.intel.com/774331/IOG-DCL-March%202023.pdf",
+      "kind": "Supplier Lifecycle Announcement",
+      "locator": "Discontinuation of further development in July 2022; inventory and support statements",
+      "date": "2023-03-21",
+      "limit": "Availability through 2025 was a demand-dependent inventory forecast made at the time. Support resources through 2030 are not a commitment to continued manufacturing."
+    },
+    {
+      "id": "CMP-SNIA-PM",
+      "label": "SNIA Definition of Persistent Memory",
+      "url": "https://www.snia.org/education/what-is-persistent-memory",
+      "kind": "Industry-Organization Technical Explanation",
+      "locator": "Nonvolatility, byte addressability, low latency, and CXL attachment",
+      "date": "Verified 2026-09-10",
+      "limit": "The definition and use of persistent memory depend on context; the term SCM has not been used identically across different periods."
+    },
+    {
+      "id": "CMP-CXL2022",
+      "label": "CXL 3.0 Specification",
+      "url": "https://computeexpresslink.org/wp-content/uploads/2024/02/CXL-3.0-Specification.pdf",
+      "kind": "Original Specification",
+      "locator": "Version 3.0, p636: flags for volatile and persistent memory ranges",
+      "date": "2022-08-01",
+      "limit": "Protocol support for persistence does not mean that every CXL device contains persistent media or shares the same failure-protection domain."
+    },
+    {
+      "id": "CMP-CXL-FAQ2021",
+      "label": "CXL Consortium Persistent-Memory Webinar Questions and Answers",
+      "url": "https://computeexpresslink.org/blog/questions-from-the-compute-express-link-cxl-supporting-persistent-memory-webinar-2407/",
+      "kind": "Standards-Organization Technical Q&A",
+      "locator": "CXL.mem, multiple media types, controllers, and device forms",
+      "date": "2021-07-27",
+      "limit": "Supports treating media and attachment as separate concepts. The concepts discussed do not guarantee that a particular product implements every optional capability."
+    },
+    {
+      "id": "CMP-SAMSUNG-CMM",
+      "label": "Samsung CXL Memory and CMM-D",
+      "url": "https://semiconductor.samsung.com/cxl-memory/",
+      "kind": "Supplier Product-Technology Explanation",
+      "locator": "CMM-D name, DRAM media, and CXL interface",
+      "date": "Verified 2026-09-10",
+      "limit": "DRAM memory expansion and sharing do not imply data retention through power loss."
+    },
+    {
+      "id": "CMP-CXL2026",
+      "label": "DRAM, NAND, and Backup Energy in CXL Persistent Memory",
+      "url": "https://computeexpresslink.org/blog/from-nvdimm-n-to-cxl-persistent-memory-bringing-persistence-to-the-memory-fabric-4635/",
+      "kind": "Member Technical Article Published by the CXL Consortium",
+      "locator": "Netlist: NVDIMM-N and CXL save/restore architectures",
+      "date": "2026-05-25",
+      "limit": "An architectural explanation, not direct evidence that a specific CXL persistent-memory product is in volume production. The DRAM cells themselves remain volatile."
+    },
+    {
+      "id": "CMP-IBM-SELECTOR2017",
+      "label": "IBM: Memory Selector Devices and Crossbar Array Design",
+      "url": "https://research.ibm.com/publications/memory-selector-devices-and-crossbar-array-design-a-modeling-based-assessment",
+      "kind": "Author-Institution Research Abstract",
+      "locator": "An Chen; nonlinearity, rectification, and array trade-offs for two-terminal selectors",
+      "date": "2017-09-02",
+      "limit": "Selector capabilities must be assessed together with the storage device and array conditions. A single nonlinearity ratio cannot establish complete-system feasibility."
+    },
+    {
+      "id": "CMP-IBM-ARRAY2014",
+      "label": "IBM: Design Space for Resistive-Memory Arrays with MIEC Selectors",
+      "url": "https://research.ibm.com/publications/exploring-the-design-space-for-resistive-nonvolatile-memory-crossbar-arrays-with-mixed-ionic-electronic-conduction-miec-based-access-devices",
+      "kind": "Authors' Research Abstract",
+      "locator": "DRC 2014; selector leakage, write power, wire resistance, and array size",
+      "date": "2014-06-22",
+      "limit": "This study uses a specific MIEC selector and circuit simulations. It illustrates trade-offs; it does not establish that the same factor limits every crossbar array."
+    },
+    {
+      "id": "CMP-NIST-VERIFY2017",
+      "label": "NIST: Impact of RRAM Read Fluctuations on Program Verify",
+      "url": "https://www.nist.gov/publications/impact-rram-read-fluctuations-program-verify-approach",
+      "kind": "Original-Research Page at the Authors' Institution",
+      "locator": "Nminibapiel et al.; IEEE Electron Device Letters; false reads and distribution tails",
+      "date": "2017-05-22",
+      "limit": "Experiments on a specific oxide RRAM show that read fluctuations can mislead verification. They do not imply that every program-verify method is ineffective."
+    },
+    {
+      "id": "CMP-IBM-PCM2020",
+      "label": "IBM: Precision Limits of Closed-Loop PCM Programming",
+      "url": "https://research.ibm.com/publications/precision-of-synaptic-weights-programmed-in-phase-change-memory-devices-for-deep-learning-inference",
+      "kind": "Authors' Research Abstract",
+      "locator": "IEDM 2020; array experiments with more than 1,000 PCM devices",
+      "date": "2020-12-12",
+      "limit": "Read-noise and drift results for analog-weight programming cannot be treated directly as product specifications for every digital PCM implementation."
+    },
+    {
+      "id": "CMP-TSMC-ECC2023",
+      "label": "TSMC and Collaborators: Read Compensation and ECC in an RRAM Macro",
+      "url": "https://research.tsmc.com/page/artificial-intelligence/3.html",
+      "kind": "Authors' Research Abstract",
+      "locator": "2023, 40 nm RRAM compute macro; offset, leakage, IR drop, and error rate after calibration",
+      "date": "2023",
+      "limit": "The compute-macro demonstration illustrates the importance of peripheral circuits and calibration. Its compute efficiency and error rate do not represent all storage-oriented RRAM."
+    },
+    {
+      "id": "CMP-PMDK",
+      "label": "PMDK libpmem Persistence Operations",
+      "url": "https://pmem.io/pmdk/libpmem/",
+      "kind": "Original Software-Project Documentation",
+      "locator": "Cache flushing and hardware-buffer draining for persistence; platform differences",
+      "date": "Verified 2026-09-10",
+      "limit": "An educational example of persistence semantics. Implementations still require the correct API for the platform and software version; this is not a universal processor-instruction sequence."
+    },
+    {
+      "id": "CMP-SNIA-ATOMICS2017",
+      "label": "SNIA: Persistent Memory Atomics and Transactions",
+      "url": "https://www.snia.org/sites/default/files/technical-work/whitepapers/SNIA-Persistent-Memory-Atomics-Transactions-WP.pdf",
+      "kind": "Industry-Organization Technical White Paper",
+      "locator": "p14 and related sections: flush ordering, linked data structures, and failure atomicity",
+      "date": "2017-01-10",
+      "limit": "Atomic-write granularity in the examples belongs to the assumed machine architecture. Persistence and transaction atomicity must not be conflated."
+    },
+    {
+      "id": "CMP-SNIA-NPM",
+      "label": "SNIA NVM Programming Model",
+      "url": "https://www.snia.org/sites/default/files/technical-work/npm/release/SNIA-NVM-Programming-Model-v1.pdf",
+      "kind": "Original Technical Specification",
+      "locator": "Version 1; Section 10.2.4 and p59: synchronization, persistence domains, and atomicity boundaries",
+      "date": "Version 1; historical specification",
+      "limit": "Used for fundamental semantics and the development of the concepts. This does not claim that the cited version is the latest implementation specification in 2026."
+    }
+  ],
+  "historicalTable": {
+    "intro": "This historical comparison table is reconstructed from the screenshot of slide 14 in the course dated 2021-11-01. That slide cites Yu and Chen's 2016 paper and adds SOT-MRAM, FeRAM, FeFET, and several numerical updates, so the complete table cannot be called the original 2016 table. The course values are retained as a baseline for learning how to compare technologies; they are not uniform product specifications for each family in 2026. F is the lithographic feature size used in the course, and energy is estimated at the cell level. The original slide also describes the values as representative, rather than best-case or worst-case figures.",
+    "columns": [
+      "SRAM",
+      "DRAM",
+      "NOR Flash",
+      "NAND Flash",
+      "PCM",
+      "RRAM",
+      "STT-MRAM",
+      "SOT-MRAM",
+      "FeRAM",
+      "FeFET"
+    ],
+    "rows": [
+      {
+        "metric": "Cell Area",
+        "values": [
+          ">150 F²",
+          "6 F²",
+          "10 F²",
+          "<4 F² (3D)",
+          "4–50 F²",
+          "4–50 F²",
+          "6–50 F²",
+          "12–100 F²",
+          "6–50 F²",
+          "6–50 F²"
+        ],
+        "note": "The course's area notation is retained. The original slide also states that PCM, RRAM, and FeFET could reach below 4 F² through 3D integration. This is not a strictly equivalent comparison of physical cell area, effective area per bit, and complete-die density within one process."
+      },
+      {
+        "metric": "Bits per Cell",
+        "values": [
+          "1",
+          "1",
+          "2",
+          "3–4",
+          "2–3",
+          "2–3",
+          "1",
+          "1",
+          "1",
+          "2–3"
+        ],
+        "note": "The course's representative values are retained. A multibit research demonstration does not establish the usable number of bits in a specified product under its temperature, endurance, and retention conditions."
+      },
+      {
+        "metric": "Operating Voltage",
+        "values": [
+          "<1 V",
+          "<1 V",
+          ">10 V",
+          ">10 V",
+          "<3 V",
+          "<3 V",
+          "<1 V",
+          "<1 V",
+          "<2 V",
+          "<3 V"
+        ],
+        "note": "The course does not distinguish supply, read, write, forming, and internally boosted voltages in every cell of the table. Updated product comparisons must separate these quantities; they cannot be compared directly with a part number's VDD."
+      },
+      {
+        "metric": "Read Time",
+        "values": [
+          "~1 ns",
+          "~10 ns",
+          "~50 ns",
+          "~10 µs",
+          "<10 ns",
+          "<10 ns",
+          "<10 ns",
+          "~1 ns",
+          "<100 ns",
+          "<50 ns"
+        ],
+        "note": "These are representative time scales from the course. They are not tied to common capacity, peripheral circuits, sensing methods, or interface completion points."
+      },
+      {
+        "metric": "Write Time",
+        "values": [
+          "~1 ns",
+          "~10 ns",
+          "10 µs–1 ms",
+          "100 µs–1 ms",
+          "~50 ns",
+          "<100 ns",
+          "<20 ns",
+          "<3 ns",
+          "<100 ns",
+          "<100 ns"
+        ],
+        "note": "An updated comparison must separately record erase, SET/RESET, pulse duration, verification and retries, and total time from entry into a data buffer to completion of the nonvolatile write."
+      },
+      {
+        "metric": "Data Retention",
+        "values": [
+          "N/A",
+          "~64 ms",
+          ">10 years",
+          ">10 years",
+          ">10 years",
+          ">10 years",
+          ">1 years",
+          ">1 years",
+          ">10 years",
+          ">1 years"
+        ],
+        "note": "The original table does not specify temperature, prior cycling, or extrapolation conditions for every entry. SRAM requires power. The time scale for dynamic storage or refresh in DRAM is not the same guarantee as power-off retention in NVM."
+      },
+      {
+        "metric": "Endurance",
+        "values": [
+          ">10¹⁶ cycles",
+          ">10¹⁶ cycles",
+          "~10⁵ cycles",
+          "10³–10⁴ cycles",
+          "10⁶–10⁹ cycles",
+          "10³–10⁹ cycles",
+          "10⁶–10¹⁴ cycles",
+          "~10¹² cycles",
+          "10⁹–10¹² cycles",
+          "10⁶–10⁹ cycles"
+        ],
+        "note": "Historical ranges are retained cell by cell. The sources do not use a common bit/page/block granularity, definition of a read/write cycle, error threshold, ECC policy, temperature, or retention test."
+      },
+      {
+        "metric": "Write Energy",
+        "values": [
+          "~fJ-scale/bit",
+          "~10 fJ/bit",
+          "100 pJ/bit",
+          "~10 fJ/bit",
+          "~10 pJ/bit",
+          "~pJ-scale/bit",
+          "~pJ-scale/bit",
+          "~pJ-scale/bit",
+          "~100 fJ/bit",
+          "~fJ-scale/bit"
+        ],
+        "note": "The original slide explicitly limits these estimates to the cell level, excluding the complete array periphery. fJ denotes 10⁻¹⁵ J and pJ denotes 10⁻¹² J. Entries without a numerical coefficient remain order-of-magnitude estimates; no precise value is invented."
+      }
+    ],
+    "corrections": [
+      {
+        "old": "Treating Every Technology and Value in the Course Screenshot as Table 1 of the 2016 Paper",
+        "current": "The emerging-technology columns in the 2016 paper contain only STT-MRAM, PCRAM, and RRAM. The 2021 course adds SOT-MRAM, FeRAM, and FeFET.",
+        "reason": "Distinguish the original paper from the lecturer's later additions so that the provenance remains traceable.",
+        "sourceIds": [
+          "CMP-YU2016",
+          "CMP-LECTURE2021"
+        ]
+      },
+      {
+        "old": "Assuming the 2016 and 2021 Tables Have Identical Values",
+        "current": "Three differences have been verified: SRAM area changes from >100 F² to >150 F²; NAND bits per cell change from 3 to 3–4; and STT-MRAM endurance changes from >10¹⁵ to 10⁶–10¹⁴ cycles.",
+        "reason": "These differences show that the course table was updated, but a representative value from any particular year is not a guarantee for an entire technology family.",
+        "sourceIds": [
+          "CMP-YU2016",
+          "CMP-LECTURE2021"
+        ]
+      },
+      {
+        "old": "Assuming FeRAM, MRAM, ReRAM, and PCM Are All Preproduction Because They Are Called Emerging Memories",
+        "current": "As of 2026-09-10, these families have verifiable commercial products or implementations in volume production: CY15B104QSN, MR25H40/Everspin STT-MRAM, MB85AS8MT, and ST SR6P6C8.",
+        "reason": "Maturity must be tied to the subtechnology, materials, process, and specific part number, not assigned solely by the family name.",
+        "sourceIds": [
+          "CMP-FRAM-PRODUCT",
+          "CMP-MRAM-PRODUCT",
+          "CMP-EVERSPIN2024",
+          "CMP-RERAM-PRODUCT",
+          "CMP-PCM-PRODUCT"
+        ]
+      },
+      {
+        "old": "Using a Nanosecond Cell Pulse to Label the Entire Product's Write Latency as Nanoseconds",
+        "current": "Separate cell switching, array sensing, macro completion, and host-visible latency. The MB85AS8MT specifies product tWC of 5 ms typical and 10 ms maximum, and write-completion status must be checked.",
+        "reason": "Buffering, internal programming, and control sequences can all add time.",
+        "sourceIds": [
+          "CMP-RERAM-DS",
+          "CMP-OPTANE-PERF"
+        ]
+      },
+      {
+        "old": "Equating 40 MHz SPI with a Complete Read or Write Transaction in 25 ns",
+        "current": "25 ns is the clock period. A complete transaction also includes the instruction, address, data transfer, and any internal write wait.",
+        "reason": "Frequency describes the transfer cadence; latency describes how long it takes to complete an operation.",
+        "sourceIds": [
+          "CMP-MRAM-DS",
+          "CMP-RERAM-DS"
+        ]
+      },
+      {
+        "old": "Treating 151-Year and 10-Year Retention as Unconditional Family Characteristics",
+        "current": "The CY15B104QSN's 151-year rating applies at 65°C; the rating is 38 years at 75°C and 10 years at 85°C. Retention must also be paired with the specified cycling and test conditions.",
+        "reason": "Temperature and usage history change the probability of state failure. Comparing years alone is insufficient.",
+        "sourceIds": [
+          "CMP-FRAM-DS"
+        ]
+      },
+      {
+        "old": "Treating Below 4 F², 332 Layers, and 37.6 Gb/mm² as the Same Density Metric",
+        "current": "Record physical cell footprint, layer count, bits per cell, array efficiency, and complete-die bit density separately.",
+        "reason": "3D stacking and multibit storage change effective bit density. Peripheral circuits, redundancy, and ECC also occupy area.",
+        "sourceIds": [
+          "CMP-LECTURE2021",
+          "CMP-KIOXIA2026"
+        ]
+      },
+      {
+        "old": "Using Cell-Level fJ per Bit to Rank Product or System Energy Efficiency",
+        "current": "Compare cell pulses, wire charging and discharging, selector leakage, charge pumps, verification, ECC, and interface energy at their respective levels.",
+        "reason": "Low cell energy does not guarantee the same advantage in a large array or a workload with low utilization.",
+        "sourceIds": [
+          "CMP-LECTURE2021",
+          "CMP-IBM-ARRAY2014",
+          "CMP-TSMC-ECC2023"
+        ]
+      },
+      {
+        "old": "Treating Volume Production, Emerging Memory, and SCM as Mutually Exclusive Bitcell Categories",
+        "current": "Volume production is a maturity state; emerging describes a development stage or a convention in the literature; SCM is a system role within the memory/storage hierarchy.",
+        "reason": "The same storage physics can support different maturity levels and applications. The classification dimensions must remain separate.",
+        "sourceIds": [
+          "CMP-YU2016",
+          "CMP-SNIA-PM",
+          "CMP-CXL-FAQ2021"
+        ]
+      },
+      {
+        "old": "Assuming Every CXL Device Retains Data After Power Loss",
+        "current": "CXL can carry volatile or persistent memory; Samsung CMM-D uses DRAM. Persistence must be established through the media, backup energy, and platform semantics together.",
+        "reason": "An interconnect protocol is not storage physics and does not automatically guarantee recovery after failure.",
+        "sourceIds": [
+          "CMP-CXL2022",
+          "CMP-SAMSUNG-CMM",
+          "CMP-CXL2026"
+        ]
+      },
+      {
+        "old": "Presenting Optane's Historical Commercial Implementation as an SCM Roadmap Still Investing in New Products",
+        "current": "Micron discontinued 3D XPoint development on 2021-03-16; Intel discontinued further Optane development in July 2022. The inventory forecasts and support statements in the 2023 letter must be recorded separately.",
+        "reason": "Development, manufacturing, inventory shipments, warranties, and support are different lifecycle events.",
+        "sourceIds": [
+          "CMP-MICRON2021",
+          "CMP-MICRON-CALL2021",
+          "CMP-INTEL2023"
+        ]
+      }
+    ]
+  },
+  "benchmarks": [
+    {
+      "id": "CMP-BENCH-FRAM",
+      "technology": "FeRAM/F-RAM",
+      "implementation": "Infineon CY15B104QSN, 4 Mb EXCELON Ultra F-RAM",
+      "level": "Complete Product",
+      "values": [
+        "Up to 108 MHz SDR or 54 MHz DDR",
+        "Endurance: 10¹⁴ read/write cycles",
+        "Data retention: 10 years at 85°C, 38 years at 75°C, and 151 years at 65°C"
+      ],
+      "conditions": [
+        "Datasheet 002-18293 Rev. *N, 2024-07-25, Table 63.",
+        "Endurance is specified over the operating-temperature range listed in the table. Each retention rating must be cited together with its corresponding temperature.",
+        "MHz describes the interface clock; it does not imply that a complete command takes a single cycle."
+      ],
+      "lesson": "Compare test conditions before comparing numbers. Removing 65°C from the 151-year rating changes the meaning of the specification.",
+      "sourceIds": [
+        "CMP-FRAM-DS",
+        "CMP-FRAM-PRODUCT"
+      ]
+    },
+    {
+      "id": "CMP-BENCH-TOGGLE",
+      "technology": "Toggle MRAM",
+      "implementation": "Everspin MR25H40, 4 Mb SPI MRAM",
+      "level": "Complete Product",
+      "values": [
+        "SPI up to 40 MHz",
+        "Supply voltage: 3.0–3.6 V",
+        "Data retention exceeding 20 years",
+        "The supplier specifies unlimited read/write cycling"
+      ],
+      "conditions": [
+        "MR2xH40 datasheet revision 12.6, 2020-08. This example uses the MR25H40's 40 MHz specification, not the MR20H40's 50 MHz specification.",
+        "The product has multiple temperature grades and part numbers; the design must use the applicable version.",
+        "Unlimited cycling is a product specification. It does not mean that the magnetic materials and dielectric layers never age under any conditions."
+      ],
+      "lesson": "Identify the write mechanism even within the same technology family. Toggle specifications cannot represent STT or SOT.",
+      "sourceIds": [
+        "CMP-MRAM-DS",
+        "CMP-MRAM-PRODUCT"
+      ]
+    },
+    {
+      "id": "CMP-BENCH-RERAM",
+      "technology": "Oxide ReRAM",
+      "implementation": "RAMXEED MB85AS8MT, 8 Mb SPI ReRAM",
+      "level": "Complete Product",
+      "values": [
+        "SPI up to 10 MHz",
+        "Endurance at 85°C: 10⁶ cycles per 4 bytes",
+        "Data retention at 85°C: 10 years",
+        "Write cycle tWC: 5,000 µs typical, 10,000 µs maximum"
+      ],
+      "conditions": [
+        "Datasheet DS501-00060-2v2-E, p17: tWC is specified with all data bits toggling.",
+        "Up to 256 bytes are first received in the data register; internal nonvolatile programming starts after CS rises.",
+        "During internal programming, completion must be checked through WIP in the status register. The 10 MHz interface rate is not the nonvolatile-write speed.",
+        "See p20 for endurance and retention conditions. The granularity of 4 bytes must be retained."
+      ],
+      "lesson": "A research cell may switch with ns pulses while a commercial product's complete write sequence takes ms. The two measurements describe different levels of implementation.",
+      "sourceIds": [
+        "CMP-RERAM-DS",
+        "CMP-RERAM-PRODUCT"
+      ]
+    },
+    {
+      "id": "CMP-BENCH-STT",
+      "technology": "STT-MRAM",
+      "implementation": "TSMC 22 nm Embedded STT-MRAM: 20 Mb Research Design and Performance Option",
+      "level": "Array / Research Design",
+      "values": [
+        "Sensing-signal development time: 6 ns at 125°C",
+        "Average write-pulse duration: slightly above 30 ns at −40°C"
+      ],
+      "conditions": [
+        "Gallagher et al., research abstract published in 2019.",
+        "These performance results use an option with smaller MTJs that gives up data retention through reflow.",
+        "The same paper also discusses options with stronger reflow and retention capability. The conditions of these options cannot be combined into a single implementation.",
+        "Neither sensing-signal development nor average write-pulse duration is the complete access latency visible to a CPU."
+      ],
+      "lesson": "The most useful comparison is often the explicit trade-off within one study, rather than a selection of best-case values from unrelated papers.",
+      "sourceIds": [
+        "CMP-TSMC-STT2019"
+      ]
+    },
+    {
+      "id": "CMP-BENCH-NAND",
+      "technology": "3D NAND / QLC",
+      "implementation": "Kioxia/Sandisk 10th-Generation 2 Tb BiCS FLASH, 4 Bits per Cell",
+      "level": "ISSCC 2026 Die Demonstration",
+      "values": [
+        "4 bits per cell",
+        "332 word-line layers",
+        "Die-level bit density: 37.6 Gb/mm²",
+        "Write throughput exceeding 85 MB/s"
+      ],
+      "conditions": [
+        "Kioxia's research article dated 2026-07-15 corresponds to an ISSCC 2026 paper.",
+        "The stated capacity is for the 2 Tb die, and density uses die area as the denominator.",
+        "Write throughput describes the memory die, not the host-visible write performance of an arbitrary SSD.",
+        "A research publication does not directly establish volume production of an entire product generation."
+      ],
+      "lesson": "Assess 3D density through layer count, bits per cell, and peripheral efficiency together. F² alone misses major contributors to cost.",
+      "sourceIds": [
+        "CMP-KIOXIA2026"
+      ]
+    },
+    {
+      "id": "CMP-BENCH-OPTANE",
+      "technology": "3D XPoint / Optane",
+      "implementation": "Intel Optane SSD P5800X: Historical Product-Platform Measurement",
+      "level": "Complete SSD and Host Platform",
+      "values": [
+        "Average 512 B random-read latency: 3.5 µs",
+        "Average 4 KB random-read latency: below 6 µs"
+      ],
+      "conditions": [
+        "Intel test date: 2021-03-18.",
+        "The platform included dual Xeon Platinum 8380 processors, 512 GB DDR4, Ubuntu 20.04.2, and FIO 3.16. See source items 11 and 12 for complete details.",
+        "512 B and 4 KB are different test granularities. An average is not a tail-latency measurement.",
+        "This is a historical system-level example, not evidence of new-product availability in 2026."
+      ],
+      "lesson": "User-visible latency also includes the controller, interface, and platform. SSD values in µs cannot be ranked directly against cell values in ns.",
+      "sourceIds": [
+        "CMP-OPTANE-PERF",
+        "CMP-INTEL2023"
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "id": "array",
+      "title": "From One Bit to a Complete Array: Selection, Sensing, and Program Verify",
+      "summary": "Switching a device twice establishes only that it has usable storage states. A practical memory must also select its target from a large population of cells, avoid disturbing its neighbors, and read data correctly across temperature, aging, and process variation. Selectors, wires, and peripheral circuits therefore determine how much of the cell-level advantage survives.",
+      "sections": [
+        {
+          "title": "A Storage Device Is Not Yet a Memory",
+          "body": "For a resistive cell, data may be represented by high- and low-resistance states, but an external address does not directly select a laboratory probe. Row and column decoders first identify the target. Word lines, bit lines, and access devices then establish the current path. The read circuit converts a finite current or voltage difference into digital data, while the controller schedules reads, writes, and error handling.\n\nThis path gives cell switching time and complete access time different meanings. The former may record only the pulse needed to change the material state; the latter also includes decoding, wire charging and discharging, sensing, verification, and data transfer. The first step in interpreting any performance number is therefore to identify where the measurement starts and what defines completion."
+        },
+        {
+          "title": "1T1R: Transistor Selection Also Provides Write Control",
+          "body": "A 1T1R cell consists of an access transistor and a resistive storage device. The transistor gate provides an independent control terminal that can isolate unselected cells. With an appropriate circuit design, the transistor can also limit forming or programming current to prevent excessive resistive switching. A read selects the target path, applies a lower bias, and uses the sensing circuit to determine the state.\n\nThe trade-off is transistor area. The required write current and voltage affect transistor sizing and voltage tolerance. Shrinking the storage material does not mean the complete cell can shrink by the same ratio. This explains why papers may report a very small resistive device while a practical 1T1R array occupies substantially more area."
+        },
+        {
+          "title": "1S1R and Crossbar Arrays: Density Depends on Suppressing Sneak Paths",
+          "body": "A 1S1R cell places a two-terminal selector in series with a storage device. Strong nonlinearity, rectification, or threshold switching can suppress current at low bias while delivering enough current at the selected read or write bias. The two-terminal structure fits at the intersection of crossing wires and creates opportunities for vertical stacking. A volatile selector does not prevent its series-connected storage device from retaining data: the two components perform different functions.\n\nWithout sufficient isolation, current can flow through other low-resistance cells along parasitic paths, overwhelming the target read signal or altering programming conditions. A selector also consumes voltage headroom and introduces leakage and variability. IBM's array research shows why the selector and storage device must be assessed together with the wires, operating biases, and array size. A high nonlinearity ratio does not establish operation at arbitrary scale. Devices with intrinsic rectification or selection require separate evidence for their array conditions."
+        },
+        {
+          "title": "Half-Select Bias: Cells Outside the Target Also Experience Stress",
+          "body": "Consider an idealized V/2 scheme: drive the selected word line to V, the selected bit line to 0, and all other word and bit lines to V/2. The target intersection sees V. Cells sharing one selected line with the target see approximately V/2. The remaining cells see no voltage difference if the wires are ideal. Cells selected at only one terminal are called half-selected cells.\n\nEven if a half-select voltage cannot switch a cell during one pulse, repeated exposure can cause cumulative disturbance. Real arrays also have wire voltage drops and voltage division across selectors, so the voltage delivered to a distant cell may differ from the driver's setting. V/2 is therefore a biasing strategy that must be validated, not a universal solution across materials and switching polarities."
+        },
+        {
+          "title": "Sense Margin Depends on Distribution Tails, Not Just Average Resistance",
+          "body": "The sense circuit compares a cell signal with a reference. Even when average high- and low-resistance states are widely separated, a minority of cells can approach the decision boundary because of process variation, temperature, read noise, or programming history. In a large array, these distribution tails can determine product yield more strongly than the typical curve of a well-behaved device.\n\nReducing read bias generally helps reduce disturbance, but it can also reduce the signal, require more settling time, or demand a more precise sense circuit. Practical macros use reference tracking, offset compensation, and measures to address wire voltage drop. The 40 nm RRAM macro studied by TSMC and collaborators treats read-channel mismatch, leakage, ADC offset, IR drop, and cell variability as coupled problems. The device resistance ratio cannot substitute for this circuit-level evidence."
+        },
+        {
+          "title": "Program Verify: Feedback Reduces Error but Adds Time and Energy",
+          "body": "Program verify applies a programming pulse, reads the cell back, and checks whether it lies within the target range. If it does not, the controller adjusts or adds pulses until the target is reached or the retry limit is exhausted. This feedback helps manage device-to-device and cycle-to-cycle variation. It is particularly important for multistate storage, where each state has a narrower usable margin.\n\nVerification has a cost and its own limitations. Every readback consumes time and energy, and the verification measurement is itself affected by noise. NIST's oxide-RRAM experiments show that read fluctuations can produce false-pass decisions and leave longer tails in the state distribution. IBM's analog-PCM work also shows that read noise and drift limit closed-loop programming precision. To assess write quality, report pulse count, verification thresholds, retries, failure fraction, and the delay after programming together."
+        },
+        {
+          "title": "ECC, Redundancy, and Repair: Include Usable Data in Density",
+          "body": "Error-correcting codes (ECC) add check information to detect or correct errors within a defined capability. Spare rows, spare columns, and defect replacement can avoid some permanent failures. These methods translate raw-cell error rates into data reliability acceptable to the system, but consume capacity, area, latency, or computation.\n\nSuccessful data retrieval does not mean that the raw bits contained no errors. Reports should distinguish error rates before and after ECC. ECC also has finite capability against overlapping state distributions, correlated errors, and failed bits. Effective density should divide actual usable data capacity by the area that includes the associated periphery, rather than simply multiplying layer count by bits per cell."
+        },
+        {
+          "title": "An Array's Ceiling Requires Three Accounts: Signal, Energy, and Area",
+          "body": "The signal account asks how much read and write margin remains at the worst location and under the worst data pattern. The energy account includes not only the selected cell but also wire charging and discharging, leakage through unselected paths, and repeated verification. The area account includes decoders, drivers, sense circuits, ECC, and redundancy.\n\nA larger array is therefore not necessarily more efficient. Partitioning it into smaller subarrays can add some peripheral overhead while improving voltage drop, speed, and reliability. A research result should identify the bottleneck under the stated material, array, and operating conditions, rather than declare that an entire technology family has reached an immutable physical endpoint. A persuasive improvement reports performance, reliability, and cost under the same conditions."
+        }
+      ],
+      "sourceIds": [
+        "CMP-YU2016",
+        "CMP-LECTURE2021",
+        "CMP-IBM-SELECTOR2017",
+        "CMP-IBM-ARRAY2014",
+        "CMP-NIST-VERIFY2017",
+        "CMP-IBM-PCM2020",
+        "CMP-TSMC-ECC2023",
+        "CMP-RERAM-DS"
+      ],
+      "quiz": {
+        "question": "A paper demonstrates that an RRAM cell switches with a 10 ns pulse. Does that establish a 10 ns write time for a 1 Gb memory? What additional categories of evidence are needed?",
+        "answer": "No. Establish whether the material and implementation are the same, whether selection uses 1T1R or 1S1R, the actual bias at the array's worst location, sense margin, pulse and verification counts, retry and failure thresholds, ECC and peripheral latency, and the product's definition of write completion. The cell pulse describes only one part of the complete path."
+      }
+    },
+    {
+      "id": "scm",
+      "title": "SCM and Persistent Memory: From Media to Systems",
+      "summary": "Storage-class memory (SCM) addresses the gap in requirements between DRAM and NAND storage. It is not another bitcell type, and adopting CXL does not automatically establish an SCM implementation. Understanding SCM requires distinguishing storage physics, attachment, access granularity, and which data can actually be recovered after failure.",
+      "sections": [
+        {
+          "title": "SCM Is a System Role; Persistent Memory Has Specific Semantics",
+          "body": "DRAM provides low-latency working memory, while NAND supports large-scale storage through high capacity and low cost per bit. SCM is often used to discuss the space between them in performance, capacity, cost, and endurance. Different publications may include low-latency storage products or NVM with a memory interface, so any discussion of SCM should first define its scope.\n\nThis topic treats SCM as a system role rather than a material name. Technologies such as PCM and ReRAM have been explored as candidates. Persistent-memory discussions focus more specifically on properties such as nonvolatility, byte addressability, and low latency, together with how software guarantees recoverability. Not every NVM is suitable as main memory, and not every low-latency SSD provides the same load/store semantics."
+        },
+        {
+          "title": "CXL Changes Attachment, Not DRAM Physics",
+          "body": "CXL is an interconnect protocol built on a PCIe physical link that can let a processor access memory on a device. The specification distinguishes volatile and persistent memory ranges. They can share an attachment architecture while retaining different data-persistence properties. Samsung CMM-D, for example, is a DRAM memory module using CXL.\n\nCapacity expansion, memory sharing, and pooling therefore do not establish retention through power loss. Assessing a CXL device requires identifying its media, exposed address ranges, platform-supported capabilities, and handling of host, link, or device failures. The interface name alone answers none of these questions."
+        },
+        {
+          "title": "Persistence Can Come from the Media or from a Complete Save/Restore Mechanism",
+          "body": "One approach uses media that inherently retain data. Another lets fast but volatile DRAM handle normal reads and writes, then combines it with NAND and backup energy to save data during power loss and restore it after restart. NVDIMM-N is an example of the latter. A member technical article published by the CXL Consortium in 2026 also discusses a similar CXL architecture.\n\nThe guarantee depends on sufficient backup energy, successful completion of the save sequence, firmware identification of valid data, and platform coordination. The architecture does not make a DRAM bitcell nonvolatile; it provides data persistence through system design. An architectural diagram must also keep conceptual feasibility, product qualification, and volume-production status separate."
+        },
+        {
+          "title": "3D XPoint and Optane: Commercial History Must Include the Exit Timeline",
+          "body": "3D XPoint and Optane are important commercial implementations in the history of SCM, but their lifecycle has changed. On 2021-03-16, Micron announced the immediate discontinuation of 3D XPoint development and stated that manufacturing would end after existing commitments were fulfilled. It completed the sale of the Lehi fab on 2021-10-22. Intel announced in July 2022 that it would discontinue further Optane product development.\n\nIntel's customer letter dated 2023-03-21 stated that, at the time, media inventory was expected to support customer demand through 2025, with support resources planned through 2030. Inventory, warranties, and support cannot be described as continued investment in next-generation manufacturing, nor does that letter establish that every part number remains available in 2026. The history also shows why the exit of one commercial roadmap does not eliminate an entire storage-physics family such as PCM: ST SR6P6C8 provides a separate embedded-PCM implementation in volume production."
+        },
+        {
+          "title": "A Completed Processor Store Does Not Mean the Data Is Safely Persistent",
+          "body": "After a program executes a store instruction, the new data may still reside in a CPU cache, memory controller, or device buffer. If any of those locations lack power-loss protection, the system can lose power before the nonvolatile media ever receive the data. The persistence domain is the boundary within which the platform guarantees that data are retained, or their retention is completed, under specified failure conditions.\n\nSoftware must use platform-appropriate synchronization, cache flushing, and ordering mechanisms to ensure that data reach this domain. PMDK documentation explains the process in terms of cache flushing and hardware-buffer draining, and notes that some platforms can omit certain steps. The objective is not to memorize a universal instruction sequence, but to identify what the platform protects and which completion event establishes persistence."
+        },
+        {
+          "title": "Persistence and Atomicity Are Different Problems",
+          "body": "Suppose a program creates a new data record and then updates an index pointer to refer to it. If the pointer becomes persistent before the content does, recovery may find an incomplete record. Requiring both writes to become persistent eventually does not remove the need to control their order. Conversely, persisting the content before updating the index can leave unreferenced data, which requires a reclamation or recovery strategy.\n\nThis is a failure-consistency problem. A persistence operation guarantees that data reach the persistence domain; it does not automatically combine multiple fields into an indivisible transaction. Logging, commit markers, version information, and transaction mechanisms establish recognizable recovery points. The platform must guarantee the relevant atomic-write granularity; arbitrary-size writes cannot be assumed to survive as complete units. SNIA's white paper on atomics and transactions illustrates these distinctions through data structures."
+        },
+        {
+          "title": "Latency and Granularity Must Match the Workload",
+          "body": "Byte or cache-line access can reduce some software and data-movement overheads. Block SSDs use controllers and parallelism to increase throughput. Each approach has suitable applications; one number in ns or µs cannot determine the role. Granularity, queue depth, read/write ratio, access locality, and synchronization frequency all affect user-visible performance.\n\nFor example, Intel's 2021 P5800X tests report average 512 B random-read latency of 3.5 µs and average 4 KB random-read latency below 6 µs. These are results for a specific complete SSD and host platform, not material-level pulse durations. Average latency also cannot substitute for tail latency. For databases and logging, the relevant measure is transaction latency after data become persistent, rather than merely the speed of handing data to a buffer."
+        },
+        {
+          "title": "SCM's Ceiling Also Includes Cost, Supply, and Software Adoption",
+          "body": "A technology positioned between DRAM and NAND does not necessarily sustain a commercial position between them. Media density, yield, controller and packaging costs, supply scale, software modification costs, and alternatives within existing systems all influence adoption. Micron's 2021 announcement explicitly cited insufficient market validation to support scaled investment as part of its decision. That is a commercial judgment, not proof that a single physical-performance metric failed.\n\nEvaluate an SCM candidate through three questions: Which specific workload bottleneck does it address? What is the complete system cost under the same capacity, reliability, and failure-protection requirements? If the media or supplier change, is there still a viable path for the software and hardware? This connects bitcell principles to practical product decisions."
+        }
+      ],
+      "sourceIds": [
+        "CMP-SNIA-PM",
+        "CMP-CXL2022",
+        "CMP-CXL-FAQ2021",
+        "CMP-SAMSUNG-CMM",
+        "CMP-CXL2026",
+        "CMP-MICRON2021",
+        "CMP-MICRON-CALL2021",
+        "CMP-MICRON-LEHI2021",
+        "CMP-INTEL2023",
+        "CMP-PCM-PRODUCT",
+        "CMP-PMDK",
+        "CMP-SNIA-NPM",
+        "CMP-SNIA-ATOMICS2017",
+        "CMP-OPTANE-PERF"
+      ],
+      "quiz": {
+        "question": "A CXL card uses DRAM plus NAND and advertises memory expansion. Can it be called persistent memory on that basis alone? Can power be removed immediately after a program completes a store?",
+        "answer": "The interface or combination of media is insufficient. Verify whether the device exposes a persistent range, its backup energy and save/restore mechanism, protection for buffers from host to device, synchronization and ordering semantics, and the software recovery method. Store completion does not necessarily mean the data have reached the persistence domain. Even after persistence, updates to multiple fields still require failure atomicity and consistency."
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Bitcell",
+      "definition": "The smallest circuit or combination of devices that stores data in a physical state. A complete bitcell may also include an access transistor or selector; it is not necessarily just the storage material."
+    },
+    {
+      "term": "Array and Macro",
+      "definition": "An array organizes many cells through wires. A macro generally also includes peripheral functions such as decoding, driving, sensing, and control, and can serve as a memory block within a chip design."
+    },
+    {
+      "term": "Word Line and Bit Line",
+      "definition": "A word line usually participates in selecting a row of cells, while a bit line carries a data-dependent current or voltage. Connections and biasing strategies differ across array architectures."
+    },
+    {
+      "term": "Selector",
+      "definition": "A device controlling which storage cell participates in a read or write. It may be a transistor, diode, nonlinear two-terminal device, or threshold-switching device. Its purpose is to conduct when selected and suppress unintended paths when unselected."
+    },
+    {
+      "term": "Half-Select Disturbance",
+      "definition": "Cells sharing one selected line with the target also experience part of the operating bias. Repeated stress can alter their stored state or reliability."
+    },
+    {
+      "term": "Sneak Path",
+      "definition": "An unintended current path through non-target cells. It can corrupt the read signal, alter programming bias, and increase energy consumption."
+    },
+    {
+      "term": "Sense Margin",
+      "definition": "The usable signal separation between a stored state and the decision boundary in the presence of noise, variability, and operating conditions. It must be evaluated across distributions and worst-case conditions."
+    },
+    {
+      "term": "Program Verify",
+      "definition": "A feedback sequence that reads a cell after programming, checks whether it meets the target, and adjusts or adds pulses if necessary. It improves state control but adds time and energy."
+    },
+    {
+      "term": "Endurance",
+      "definition": "The number of read/write or program/erase cycles supported under specified operating conditions, error thresholds, and retention requirements. The granularity—bit, byte, page, or block—must be stated."
+    },
+    {
+      "term": "Data Retention",
+      "definition": "How long data remain valid under specified temperature, prior cycling, power, and error requirements. Retention in years cannot be compared independently of those conditions."
+    },
+    {
+      "term": "F² and Effective Bit Density",
+      "definition": "F² expresses area normalized to the square of the feature size. Effective bit density also depends on layer count, multibit storage, peripheral circuits, redundancy, and ECC; the two measures must remain distinct."
+    },
+    {
+      "term": "Access Granularity",
+      "definition": "The amount of data involved in one read, write, erase, or guaranteed atomic operation. Byte, cache-line, page, and block granularities affect performance and software behavior."
+    },
+    {
+      "term": "Error-Correcting Code (ECC)",
+      "definition": "A method that adds check information to detect or correct errors within the code's capability. It adds capacity and processing overhead and has a defined boundary beyond which errors cannot be corrected."
+    },
+    {
+      "term": "Persistence Domain",
+      "definition": "The part of a platform within which data are guaranteed to be retained, or their retention completed, under specified failure conditions. It may involve media, controllers, buffers, and backup energy."
+    },
+    {
+      "term": "Failure Atomicity",
+      "definition": "After recovery from a failure, an update appears either fully completed or not completed, rather than as an ambiguous partial update. The platform or transaction mechanism must define the atomic granularity and guarantee."
+    },
+    {
+      "term": "Storage-Class Memory (SCM)",
+      "definition": "A system role used to discuss the performance, capacity, and cost space between DRAM and NAND storage. It is not a single material or bitcell type."
+    },
+    {
+      "term": "CXL",
+      "definition": "An interconnect protocol supporting memory-related access between processors and devices. It can attach volatile or persistent memory; the protocol name alone does not guarantee retention through power loss."
+    }
+  ]
+}

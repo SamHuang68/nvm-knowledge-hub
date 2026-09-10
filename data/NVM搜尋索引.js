@@ -1,142 +1,122 @@
 window.NVMTopicIndex = [
   {
     "title_zh": "NVM 技術全景",
-    "title_en": "NVM 技術全景",
+    "title_en": "NVM Technology Panorama",
     "url": "NVM技術全景.html",
-    "tags": "NVM 全景 物理 比較 科普 bitcell MRAM ReRAM GLOBALFOUNDRIES TSMC",
-    "language": "zh-Hant"
+    "tags": "NVM 全景 物理 比較 bitcell MRAM ReRAM GLOBALFOUNDRIES TSMC"
   },
   {
     "title_zh": "eFuse：以永久導通變化記住一個位元",
-    "title_en": "eFuse：以永久導通變化記住一個位元",
+    "title_en": "eFuse: Permanent Conductance Programming",
     "url": "NVM技術全景.html#topic-efuse",
-    "tags": "位元存在導電路徑的電阻差異中。未程式化熔絲通常保持低電阻；受控電流使指定區域發生材料遷移或斷開，形成較高電阻。邏輯 0／1 由感測與編碼定義，不能把高電阻天然指定為某個位元，也不能假定寫後一定是理想開路。 eFuse 適合把少量設定永久留在晶片上，例如校調碼、修復位址與識別資料。OTP 的一次是每個物理位置只允許一個不可逆方向的有效轉換；多個位置可分批寫入。巨集收到多次程式化命令，並不表示同一熔絲已具備可逆抹寫能力。 IBM 於 2007 年技術回顧中列出 180 nm 至 45 nm eFUSE 的演進及記憶體備援、晶片識別與類比校調應用，可確認此機制已有具名製程實作。本文另外以 IBM 與台積電兩件專利解釋多晶矽／矽化物及金屬導孔結構。 US7417300B2 US8847350B2",
-    "language": "zh-Hant"
+    "tags": "A bit is stored as a difference in the resistance of a conductive path. An unprogrammed fuse typically has low resistance; a controlled current causes material migration or a break in a designated region, producing higher resistance. Logic 0/1 is defined by sensing and encoding. High resistance does not intrinsically correspond to a particular bit value, and the programmed state must not be assumed to be an ideal open circuit. eFuse is suited to permanently storing small amounts of on-chip configuration, such as trim codes, repair addresses, and identification data. One-time programming means that each physical location supports an effective transition in only one irreversible direction; separate locations can be programmed in batches. Multiple programming commands to a macro do not make an individual fuse reversibly erasable and rewritable. 位元存在導電路徑的電阻差異中。未程式化熔絲通常保持低電阻；受控電流使指定區域發生材料遷移或斷開，形成較高電阻。邏輯 0／1 由感測與編碼定義，不能把高電阻天然指定為某個位元，也不能假定寫後一定是理想開路。 US7417300B2 US8847350B2"
   },
   {
     "title_zh": "Antifuse：以介電層崩潰建立永久導通",
-    "title_en": "Antifuse：以介電層崩潰建立永久導通",
+    "title_en": "Antifuse: Permanent Conduction Through Dielectric Breakdown",
     "url": "NVM技術全景.html#topic-antifuse",
-    "tags": "未程式化時，儲存介電層隔開兩個電極，只容許很小的漏電；程式化以高電場形成永久可感測導通路徑。資訊存在崩潰後與崩潰前的導通差異，方向與典型 eFuse 的低阻轉高阻相反。兩者都可提供 OTP，但儲存材料與寫入條件不同。 Antifuse 的設計不是讓整個晶片承受失控崩潰，而是使指定儲存介電層先形成可接受的導通，選擇器、周邊和半選單元仍保持功能。永久資料可用於識別、校調、程式碼或金鑰儲存；安全性則另由讀出介面、存取控制與防護設計決定。 新思科技 2018 年收購聲明確認 Kilopass 的 antifuse 1T／2T IP，列有 XPM、Gusto 與 SecretCode，並報告整體累計超過 100 億件出貨。現行 OTP 頁另列先進節點矽驗證及特定車用資格，顯示商用供應延續。 US6667902B2",
-    "language": "zh-Hant"
+    "tags": "Before programming, the storage dielectric separates two electrodes and permits only very small leakage. Programming creates a permanent, detectable conduction path through a high electric field. Information resides in the conduction difference before and after breakdown, opposite to the typical eFuse transition from low to high resistance. Both can provide OTP, but their storage materials and programming conditions differ. Antifuse design aims to establish acceptable conduction first in a designated storage dielectric while keeping selectors, peripheral circuits, and half-selected cells functional; it does not rely on uncontrolled breakdown across the chip. Permanent data can support identification, trimming, code, or key storage. Security is separately determined by the readout interface, access controls, and protective design. 未程式化時，儲存介電層隔開兩個電極，只容許很小的漏電；程式化以高電場形成永久可感測導通路徑。資訊存在崩潰後與崩潰前的導通差異，方向與典型 eFuse 的低阻轉高阻相反。兩者都可提供 OTP，但儲存材料與寫入條件不同。 US6667902B2"
   },
   {
     "title_zh": "EEPROM 與 MTP：以浮動閘極管理可更新電荷",
-    "title_en": "EEPROM 與 MTP：以浮動閘極管理可更新電荷",
+    "title_en": "EEPROM and MTP: Rewritable Floating-Gate Storage",
     "url": "NVM技術全景.html#topic-eeprom",
-    "tags": "浮動閘極是被絕緣層包圍的導電小島，沒有直流金屬接點直接連到它。留存電荷改變控制閘極對通道的作用，使 MOS 臨界電壓位移；對典型 n 通道例，增加電子使導通較困難。讀取量測通道，正常操作不必把儲存電子倒出來。 EEPROM 描述可電寫入及電抹除的非揮發性儲存；MTP 描述可多次程式化的使用能力或商品定位。新思科技公開的一款 MTP 就採浮動閘極 EEPROM，但 MTP 名稱本身不保證單層多晶矽、特定寫抹機制或固定耐久。教材先辨認物理結構，再查產品更新粒度與循環規格。 新思科技現行公開介紹將類比與混合訊號製程用 MTP EEPROM 定義為邏輯製程可整合、採浮動閘極且可電抹除的硬巨集，並提及整合 ECC 與矽資格。這是具名商品與機制對應的證據，可用來拆解 MTP 與 EEPROM 的分類軸。 US4115914A US5844271A",
-    "language": "zh-Hant"
+    "tags": "A floating gate is a conductive island surrounded by insulating layers, with no direct DC metal connection to it. Retained charge changes how the control gate acts on the channel, shifting the MOS threshold voltage. In a typical n-channel example, adding electrons makes conduction more difficult. Reading measures the channel; normal read operation does not require draining the stored electrons. EEPROM describes nonvolatile storage that can be electrically programmed and erased. MTP describes the ability to program multiple times or a product positioning. One publicly described Synopsys MTP product uses floating-gate EEPROM, but the MTP name alone does not guarantee single-poly construction, a particular program/erase mechanism, or a fixed endurance. Identify the physical structure first, then check the product's update granularity and cycling specification. 浮動閘極是被絕緣層包圍的導電小島，沒有直流金屬接點直接連到它。留存電荷改變控制閘極對通道的作用，使 MOS 臨界電壓位移；對典型 n 通道例，增加電子使導通較困難。讀取量測通道，正常操作不必把儲存電子倒出來。 US4115914A US5844271A"
   },
   {
     "title_zh": "NOR：從堆疊閘極到分離閘極的程式碼儲存",
-    "title_en": "NOR：從堆疊閘極到分離閘極的程式碼儲存",
+    "title_en": "NOR: Stacked-Gate and Split-Gate Code Storage",
     "url": "NVM技術全景.html#topic-nor",
-    "tags": "NOR 描述陣列的連接與存取組織，並不限定唯一儲存材料。本題以浮動閘極 NOR 說明：電荷改變單元臨界電壓，受選單元經位元線與源極路徑被感測。堆疊閘極與分離閘極都可服務 NOR，但選擇通道、寫入效率及抹除控制不同。 NOR 常用於需要直接、可預測讀取的程式碼儲存。堆疊閘極把儲存與選擇責任集中在單元的閘極控制；分離閘極加入選擇通道，有助阻斷過度抹除單元的非受選漏電。是否支援原地執行，還取決於介面、控制器及快取時序，不能從 NOR 名稱單獨保證。 微芯科技 SST39SF020A 在本次查核時標示量產中，公開摘要為 2 Mb、4.5–5.5 V 平行快閃。SST 的 SuperFlash 技術手冊另提供分離閘極、源極側注入與閘極間 FN 抹除的具名技術脈絡，可作商用實作與機制教材的對照。 US6232180B1",
-    "language": "zh-Hant"
+    "tags": "NOR describes array connectivity and access organization, not a unique storage material. This topic uses floating-gate NOR: charge changes cell threshold voltage, and the selected cell is sensed through the bitline and source path. Both stacked-gate and split-gate cells can serve NOR arrays, but their selection channels, programming efficiency, and erase control differ. NOR is commonly used for code storage requiring direct, predictable reads. Stacked-gate cells place storage and selection responsibilities under the cell's gate control; split-gate cells add a selection channel that helps block unselected leakage from overerased cells. Execute-in-place support also depends on the interface, controller, and cache timing and cannot be guaranteed by the NOR name alone. NOR 描述陣列的連接與存取組織，並不限定唯一儲存材料。本題以浮動閘極 NOR 說明：電荷改變單元臨界電壓，受選單元經位元線與源極路徑被感測。堆疊閘極與分離閘極都可服務 NOR，但選擇通道、寫入效率及抹除控制不同。 US6232180B1"
   },
   {
     "title_zh": "SONOS 與 NROM：把電荷留在絕緣捕捉層",
-    "title_en": "SONOS 與 NROM：把電荷留在絕緣捕捉層",
+    "title_en": "SONOS and NROM: Charge Trapping in Insulating Layers",
     "url": "NVM技術全景.html#topic-sonos",
-    "tags": "電子停留在氮化矽等絕緣材料的捕捉中心，改變通道所見電位與臨界電壓。捕捉層不是導電浮動閘極，電荷可具有位置分布；SONOS 全域寫抹例與 NROM 局部捕捉例因此需要不同的操作與讀取解說，不能只把浮動閘極改塗另一種顏色。 SONOS／MONOS 是材料堆疊或閘極材料的描述，NROM 代表利用局部捕捉與讀取方向的實作脈絡；兩者並非可直接互換的商品名稱。英飛凌 SONOS 已有量產平台，所以不能把整個捕捉型家族標成新興；同時也不能把它的 FN 寫抹與可靠度套到所有 NROM。 英飛凌公開列 SONOS eFlash 在 130、65、55、40 與 28 nm 的量產，明確描述 2T 單元及 FN 寫抹。其 MCU 出貨及可授權巨集說明支持成熟平台定位；局部捕捉的 NROM 則在本頁以 Saifun 原始專利作機制研究，另行標示證據範圍。 WO1981000790A1 US5768192A",
-    "language": "zh-Hant"
+    "tags": "Electrons remain in trapping centers within insulating materials such as silicon nitride, changing the potential seen by the channel and its threshold voltage. The trapping layer is not a conductive floating gate, and charge can have a spatial distribution. Channel-wide SONOS program/erase examples and localized NROM charge-trapping examples therefore require different operating and sensing explanations; simply recoloring a floating gate is not sufficient. SONOS/MONOS describe material stacks or gate materials, while NROM refers to an implementation lineage that uses localized trapping and read direction. They are not directly interchangeable product names. Infineon's SONOS has production platforms, so the entire charge-trap family must not be labeled emerging. Its FN program/erase mechanism and reliability figures also must not be transferred to every NROM implementation. 電子停留在氮化矽等絕緣材料的捕捉中心，改變通道所見電位與臨界電壓。捕捉層不是導電浮動閘極，電荷可具有位置分布；SONOS 全域寫抹例與 NROM 局部捕捉例因此需要不同的操作與讀取解說，不能只把浮動閘極改塗另一種顏色。 WO1981000790A1 US5768192A"
   },
   {
     "title_zh": "NAND：從平面串列到垂直堆疊與多階儲存",
-    "title_en": "NAND：從平面串列到垂直堆疊與多階儲存",
+    "title_en": "NAND: Planar Strings, Vertical Stacks, and Multilevel Storage",
     "url": "NVM技術全景.html#topic-nand",
-    "tags": "NAND 的資料仍可由浮動閘極或介電捕捉層中的電荷改變臨界電壓來保存；NAND 本身指多顆單元串接的陣列組織。每單元存 N 個位元就需區分 2 的 N 次方個狀態，例如 TLC 的八個及 QLC 的十六個；更多位元不是增加同樣寬度的免費窗口。 串接讓多顆單元分攤接點以提升密度，代價是讀取一顆時必須讓同串其他單元提供通路。平面縮小尺寸、3D 增加層數與多階增加每單元位元數是不同密度軸，各有電荷窗口、製程及可靠度代價。頁面寫入與區塊抹除又使控制器成為可用儲存的重要部分。 鎧俠原理解說記錄平面 15 nm 商用化及 BiCS FLASH 的商用代際：48 層在 2015 年、96 層在 2018 年、112 層在 2020 年、162 層在 2022 年。這足以確認 3D NAND 為成熟商用家族，並支持平面縮放與垂直堆疊的歷史比較。 US7696559B2",
-    "language": "zh-Hant"
+    "tags": "NAND data can still be retained by charge in a floating gate or dielectric trapping layer that changes threshold voltage. NAND itself describes an array organization with multiple cells connected in series. Storing N bits per cell requires 2 to the Nth power distinguishable states, such as eight for TLC and sixteen for QLC. More bits do not provide additional windows of unchanged width for free. Series connection increases density by sharing contact overhead across cells, but reading one cell requires the other cells in its string to provide a conduction path. Planar feature shrink, additional 3D layers, and more bits per cell are distinct density axes, each with charge-window, process, and reliability costs. Page programming and block erase also make the controller an important part of usable storage. NAND 的資料仍可由浮動閘極或介電捕捉層中的電荷改變臨界電壓來保存；NAND 本身指多顆單元串接的陣列組織。每單元存 N 個位元就需區分 2 的 N 次方個狀態，例如 TLC 的八個及 QLC 的十六個；更多位元不是增加同樣寬度的免費窗口。 US7696559B2"
   },
   {
     "title_zh": "Toggle MRAM：用磁場時序翻轉磁矩",
-    "title_en": "Toggle MRAM：用磁場時序翻轉磁矩",
+    "title_en": "Toggle MRAM: Magnetic-Field Sequencing",
     "url": "NVM技術全景.html#topic-toggle",
-    "tags": "位元儲存在自由磁層的磁化方向；相對參考層平行或反平行，會讓磁性穿隧接面的電阻不同。磁能障壁使方向在斷電後仍可維持。Toggle 特別指一類利用耦合磁矩旋轉來翻轉資料的寫入方式，並不是所有磁場寫入 MRAM 的通稱。 Toggle MRAM 把「保持資料」與「改變資料」分別交給磁能障壁及精確磁場時序。控制器先判斷原值與新值是否不同，只有需要時才執行翻轉。它沒有 Flash 必備的區塊抹除流程，但多了讀取、比較及翻轉控制；理解這個流程才能正確比較寫入延遲與能量。 Everspin 2025 年度申報明載 Toggle 產品自 2008 年開始量產，128kb–32Mb 容量仍有出貨。這是具名產品系列的商用證據，並非由專利或實驗元件推測成熟度。 US6545906B1",
-    "language": "zh-Hant"
+    "tags": "The bit is stored in the magnetization direction of the free magnetic layer. Parallel and antiparallel alignment relative to the reference layer produce different resistance levels in the magnetic tunnel junction. A magnetic energy barrier maintains the direction after power is removed. Toggle specifically denotes a write method that reverses data through the rotation of coupled magnetic moments; it is not a general name for all field-written MRAM. Toggle MRAM assigns data retention to the magnetic energy barrier and data modification to precisely sequenced magnetic fields. The controller first determines whether the existing and requested values differ, then toggles only when needed. It does not require the block-erase sequence of Flash, but it adds read, comparison, and toggle control. This complete sequence is essential to a valid comparison of write latency and energy. 位元儲存在自由磁層的磁化方向；相對參考層平行或反平行，會讓磁性穿隧接面的電阻不同。磁能障壁使方向在斷電後仍可維持。Toggle 特別指一類利用耦合磁矩旋轉來翻轉資料的寫入方式，並不是所有磁場寫入 MRAM 的通稱。 US6545906B1"
   },
   {
     "title_zh": "STT-MRAM：讓自旋電流穿過接面",
-    "title_en": "STT-MRAM：讓自旋電流穿過接面",
+    "title_en": "STT-MRAM: Spin Current Through the Junction",
     "url": "NVM技術全景.html#topic-stt",
-    "tags": "儲存量仍是自由磁層相對參考磁層的方向，讀取依賴磁性穿隧接面的電阻差。與 Toggle 的主要區別在寫入：電流經過磁性堆疊後攜帶自旋角動量，向自由層施加轉矩，使磁態改變。非揮發性由磁能障壁提供，不是把電流持續留在元件內。 STT 讓寫入電流集中在被選中的接面，改善磁場導線的縮放限制，因而成為商用獨立及嵌入式 MRAM 的重要路線。但加大電流可以縮短切換時間，同時增加存取電晶體需求與障壁應力；降低電流又會拉長延遲與錯誤率尾端，不能把速度、壽命與密度分別取最佳值拼成一個產品。 Everspin 已出貨 DDR 衍生介面的 STT 產品及 SPI 類產品；2026 年 64Mb 高可靠度 xSPI 另有完成生產認證與可訂購證據。嵌入式實作則須以特定 MCU 或製程文件逐一連結。 US5695864A",
-    "language": "zh-Hant"
+    "tags": "The stored quantity remains the orientation of the free magnetic layer relative to the reference layer, and reading relies on the resistance difference of the magnetic tunnel junction. The principal difference from Toggle is writing: current passing through the magnetic stack carries spin angular momentum and exerts torque on the free layer, changing its magnetic state. Nonvolatility comes from the magnetic energy barrier, not from keeping current inside the device. STT concentrates write current in the selected junction and improves on the scaling limitations of magnetic-field write lines, making it an important route for commercial discrete and embedded MRAM. Increasing current can shorten switching time, but also raises access-transistor requirements and barrier stress. Reducing current can lengthen latency and worsen the error-rate tail. The best speed, lifetime, and density values from separate conditions cannot be combined into one product specification. 儲存量仍是自由磁層相對參考磁層的方向，讀取依賴磁性穿隧接面的電阻差。與 Toggle 的主要區別在寫入：電流經過磁性堆疊後攜帶自旋角動量，向自由層施加轉矩，使磁態改變。非揮發性由磁能障壁提供，不是把電流持續留在元件內。 US5695864A"
   },
   {
     "title_zh": "SOT-MRAM：分開讀取與寫入路徑",
-    "title_en": "SOT-MRAM：分開讀取與寫入路徑",
+    "title_en": "SOT-MRAM: Separate Read and Write Paths",
     "url": "NVM技術全景.html#topic-sot",
-    "tags": "SOT-MRAM 同樣以 MTJ 的自由層磁化方向保存資料，並以磁阻感測。其新意在於寫入角動量主要由旁側或底部的自旋軌道材料產生，注入自由層，而不是讓主要寫入電流穿過穿隧障壁。因此物理儲存量與 STT 相近，寫入結構及陣列代價卻不同。 SOT 試圖用分離的讀寫路徑，同時追求短寫入脈衝與較低障壁應力，因而受到末級快取研究重視。但三端與額外導線會花掉面積，確定性無磁場切換、大陣列良率與製程整合也必須成立。單元的低能量或高循環展示，只完成了其中一部分驗證。 imec 在 2023–2024 年展示極縮元件與功能陣列；台積電 2025 年報另記錄 IEDM 2025 無外加磁場 Type-C SOT-MRAM。這些是具體元件及陣列研究，尚不足以標成已量產末級快取。 US10930843B2",
-    "language": "zh-Hant"
+    "tags": "SOT-MRAM also retains data in the magnetization direction of an MTJ free layer and senses it through magnetoresistance. Its distinguishing feature is that write angular momentum is generated primarily by a spin-orbit material beside or beneath the free layer and injected into it, rather than by sending the main write current through the tunnel barrier. The stored physical quantity is therefore similar to STT, while the write structure and array cost differ. SOT seeks short write pulses and lower barrier stress by separating the read and write paths, making it a focus of last-level-cache research. However, the third terminal and extra line consume area, and deterministic field-free switching, large-array yield, and process integration must also be established. Low-energy or high-cycle-count cell demonstrations satisfy only part of that validation. SOT-MRAM 同樣以 MTJ 的自由層磁化方向保存資料，並以磁阻感測。其新意在於寫入角動量主要由旁側或底部的自旋軌道材料產生，注入自由層，而不是讓主要寫入電流穿過穿隧障壁。因此物理儲存量與 STT 相近，寫入結構及陣列代價卻不同。 US10930843B2"
   },
   {
     "title_zh": "VCM ReRAM：重排氧離子與導電通道",
-    "title_en": "VCM ReRAM：重排氧離子與導電通道",
+    "title_en": "VCM ReRAM: Oxygen Redistribution and Conductive Paths",
     "url": "NVM技術全景.html#topic-vcm",
-    "tags": "VCM 以氧化物中的離子分布、局部氧化還原狀態或界面障壁儲存資料，表現為可區分的電阻狀態。典型通道模型用氧離子／氧空缺重分布解釋導通與斷裂，但並非所有元件都只有一根清晰細絲。材料、電極及量測證據才是機制判定依據，遲滯 I–V 本身不足以識別 VCM。 VCM 的操作重點是控制可逆的局部變化，避免把氧化物推入永久崩潰。SET 常使電阻降低，RESET 使電阻提高；部分堆疊需先以限流形成啟動通道。每次通道重建可能略有不同，因此形成、寫後驗證、循環分布與保存之間的關係，比一條漂亮的典型 I–V 曲線更重要。 Weebit／DB HiTek 130nm BCD RRAM 有技術資格完成的公開證據，SkyWater S130 亦有具名 1T1R 可靠性載具。這些支持電阻記憶體整合成熟度，不能僅由產品名稱反推其完整 VCM 材料剖面。 US8331131B2",
-    "language": "zh-Hant"
+    "tags": "VCM stores data in the ionic distribution, local redox state, or interfacial barrier of an oxide, producing distinguishable resistance states. A typical filament model explains conduction and rupture through redistribution of oxygen ions/oxygen vacancies, but not every device has a single clearly defined filament. Materials, electrodes, and measurement evidence determine the mechanism; a hysteretic I–V curve alone is insufficient to identify VCM. VCM operation centers on controlling reversible local changes without driving the oxide into permanent breakdown. SET commonly lowers resistance, while RESET raises it. Some stacks require initial current-limited forming to activate a conductive path. Rebuilding the path may differ slightly on each cycle, making the relationship among forming, write verification, cycling distributions, and retention more important than one attractive typical I–V curve. VCM 以氧化物中的離子分布、局部氧化還原狀態或界面障壁儲存資料，表現為可區分的電阻狀態。典型通道模型用氧離子／氧空缺重分布解釋導通與斷裂，但並非所有元件都只有一根清晰細絲。材料、電極及量測證據才是機制判定依據，遲滯 I–V 本身不足以識別 VCM。 US8331131B2"
   },
   {
     "title_zh": "ECM／CBRAM：長出並溶解金屬橋",
-    "title_en": "ECM／CBRAM：長出並溶解金屬橋",
+    "title_en": "ECM/CBRAM: Growing and Dissolving a Metal Bridge",
     "url": "NVM技術全景.html#topic-ecm",
-    "tags": "ECM 用活性金屬離子的移動與氧化還原改變導電路徑；導電橋存在時常為低阻態，橋的關鍵位置溶解後成為高阻態。它與氧空缺 VCM 都表現為電阻切換，但離子來源及通道材料不同。CBRAM 是此類導電橋記憶體的常見商業名稱，不能只因同叫 ReRAM 就合併物理模型。 SET 時活性金屬氧化成離子，在電場下穿過介質並還原，逐步建立金屬橋；RESET 則使橋的某處溶解。細橋可降低切換能量，但也容易受熱與表面能影響而不穩定。設計必須把快速形成與長期保持放在同一條件下檢查，而非分別挑選最佳實驗。 Adesto 2019 年度申報的 CBRAM 段落明確記錄商業產品已出貨，因此 ECM／CBRAM 不能一律標為尚未商用。這份證據支持歷史產品成熟度，不足以確認所有後續節點或 2026 年原型號供應。 US5761115A",
-    "language": "zh-Hant"
+    "tags": "ECM changes a conductive path through the motion and redox reactions of active-metal ions. An existing conductive bridge commonly produces a low-resistance state; dissolving a critical part of the bridge produces a high-resistance state. Both ECM and oxygen-vacancy VCM exhibit resistive switching, but their ion sources and path materials differ. CBRAM is a common commercial name for this conductive-bridge memory. Sharing the ReRAM label does not justify combining their physical models. During SET, the active metal oxidizes into ions, moves through the medium under an electric field, and is reduced to progressively establish a metal bridge. RESET dissolves part of that bridge. A thin bridge can reduce switching energy but may be destabilized by heat and surface energy. Fast formation and long-term retention must be checked under the same conditions rather than taken from separate best-case experiments. ECM 用活性金屬離子的移動與氧化還原改變導電路徑；導電橋存在時常為低阻態，橋的關鍵位置溶解後成為高阻態。它與氧空缺 VCM 都表現為電阻切換，但離子來源及通道材料不同。CBRAM 是此類導電橋記憶體的常見商業名稱，不能只因同叫 ReRAM 就合併物理模型。 US5761115A"
   },
   {
     "title_zh": "PCM：用熱歷程控制晶相",
-    "title_en": "PCM：用熱歷程控制晶相",
+    "title_en": "PCM: Controlling Phase with Thermal History",
     "url": "NVM技術全景.html#topic-pcm",
-    "tags": "PCM 把資料儲存在相變材料的晶態／非晶態比例與幾何形狀。典型電子式元件中，晶態較低阻、非晶態較高阻；斷電後依材料動力學保存狀態。真正的狀態不只是一個抽象電阻值，還包含相變區的位置、大小、結晶程度與時間演變，這些共同決定讀取與壽命。 RESET 用高峰值短脈衝使局部熔融，再快速冷卻成非晶；SET 則用合適熱歷程讓材料結晶。降低相變體積可減少能量，卻仍需兼顧保持、循環失效及熱串擾。PCM 可以出現在量產 MCU，也能被研究為儲存級記憶體或類比權重；用途不同不會改變其晶相儲存機制。 ST 的 SR6P6C8 產品頁於 2026-09-10 明列量產狀態，產品內容包含 PCM，並列具體訂購碼。這提供嵌入式 PCM 的實際商用例子，避免只用已退場的某一儲存級產品判斷整個技術家族。 US5912839A",
-    "language": "zh-Hant"
+    "tags": "PCM stores data in the fraction and geometry of crystalline and amorphous phase-change material. In a typical electronic device, the crystalline state has lower resistance and the amorphous state higher resistance; material kinetics retain the state after power removal. The actual state is more than an abstract resistance value. It includes the location and size of the phase-change region, degree of crystallization, and evolution over time, which jointly determine reading and lifetime. RESET locally melts material with a short, high-peak pulse and rapidly cools it into an amorphous state. SET uses an appropriate thermal history to crystallize the material. Reducing phase-change volume can lower energy, but retention, cycling failure, and thermal crosstalk must still be considered. PCM appears in production MCUs and is also researched for storage-class memory and analog weights. Different uses do not change its phase-based storage mechanism. PCM 把資料儲存在相變材料的晶態／非晶態比例與幾何形狀。典型電子式元件中，晶態較低阻、非晶態較高阻；斷電後依材料動力學保存狀態。真正的狀態不只是一個抽象電阻值，還包含相變區的位置、大小、結晶程度與時間演變，這些共同決定讀取與壽命。 US5912839A"
   },
   {
     "title_zh": "電容式 FeRAM：感測極化翻轉的電荷",
-    "title_en": "電容式 FeRAM：感測極化翻轉的電荷",
+    "title_en": "Capacitor FeRAM: Sensing Polarization-Switching Charge",
     "url": "NVM技術全景.html#topic-feram",
-    "tags": "位元由鐵電材料在移除外電場後仍保留的極化方向表示。與 DRAM 依賴暫存自由電荷不同，FeRAM 的核心是可切換剩餘極化；讀取則利用極化翻轉與未翻轉時不同的電荷響應。必須分清材料的保持機制與電路的感測方法，才能理解為何非揮發記憶體仍可能需要讀後恢復。 寫入以電場方向設定極化；讀取施加激勵後，利用是否翻轉產生的電荷差辨識原值。若讀取改變了極化，電路必須恢復原資料。商用 FeRAM 可把此流程包在介面內，讓使用者看到一般讀取命令，但內部的恢復、掉電條件與時序仍是可靠性的一部分。 Infineon EXCELON F-RAM 有具名商用系列與 16Mb CY15B116QI／CY15V116QI 資料表。文件明列介面、工作溫度及不同溫度的保存條件，可以用來討論有條件的產品性能，而不靠單一材料論文推估。 US4873664A",
-    "language": "zh-Hant"
+    "tags": "The bit is represented by the polarization direction retained in a ferroelectric material after the external electric field is removed. Unlike DRAM, which relies on temporarily stored free charge, FeRAM is based on switchable remanent polarization. Reading uses the different charge responses when polarization switches and when it does not. Distinguishing the material's retention mechanism from the circuit's sensing method explains why nonvolatile memory may still require restoration after a read. Writing sets polarization through the electric-field direction. Reading applies an excitation and identifies the original value from the charge difference between switching and non-switching responses. If reading changes polarization, the circuit must restore the original data. Commercial FeRAM can conceal this sequence behind its interface so that the user sees an ordinary read command, but internal restoration, power-failure conditions, and timing remain part of reliability. 位元由鐵電材料在移除外電場後仍保留的極化方向表示。與 DRAM 依賴暫存自由電荷不同，FeRAM 的核心是可切換剩餘極化；讀取則利用極化翻轉與未翻轉時不同的電荷響應。必須分清材料的保持機制與電路的感測方法，才能理解為何非揮發記憶體仍可能需要讀後恢復。 US4873664A"
   },
   {
     "title_zh": "FeFET：把極化轉成臨界電壓差",
-    "title_en": "FeFET：把極化轉成臨界電壓差",
+    "title_en": "FeFET: Translating Polarization into Threshold Voltage",
     "url": "NVM技術全景.html#topic-fefet",
-    "tags": "FeFET 利用閘極堆疊的鐵電極化改變通道靜電位勢，使電晶體具有可區分的高、低臨界電壓。讀取在兩個臨界電壓之間選一個閘極偏壓，感測通道電流。實際記憶視窗也會受到電荷捕獲與釋放影響，所以不能把所有臨界電壓變化都單獨歸因於極化。 FeFET 把鐵電的保持能力與電晶體電流增益結合，提供非破壞式讀取及密度縮放的研究空間。困難在於寫入電壓要同時跨過鐵電層與介面層，切換極化時也可能生成或充填陷阱。極化穩定、記憶視窗與耐久不是各自獨立最佳化的三項數字。 本次核讀的 KIOXIA IEDM 2023 對應研究明確展示以介面工程控制捕獲電荷與極化穩定；另有 FeFET PUF 原始論文。這些支持具體元件及電路研究，尚不足以為此堆疊指定商用量產型號。 US10153155B2 US11502083B2",
-    "language": "zh-Hant"
+    "tags": "FeFET uses ferroelectric polarization in the gate stack to change channel electrostatics, giving the transistor distinguishable high and low threshold voltages. Reading selects a gate bias between those thresholds and senses channel current. Charge trapping and detrapping also affect the actual memory window, so not every threshold-voltage change can be attributed solely to polarization. FeFET combines ferroelectric retention with transistor current gain, providing research opportunities for nondestructive reading and density scaling. The challenge is that write voltage is divided across both the ferroelectric and interfacial layers, while polarization switching may also generate or fill traps. Polarization stability, memory window, and endurance are not three independently optimizable numbers. FeFET 利用閘極堆疊的鐵電極化改變通道靜電位勢，使電晶體具有可區分的高、低臨界電壓。讀取在兩個臨界電壓之間選一個閘極偏壓，感測通道電流。實際記憶視窗也會受到電荷捕獲與釋放影響，所以不能把所有臨界電壓變化都單獨歸因於極化。 US10153155B2 US11502083B2"
   },
   {
     "title_zh": "FTJ：用極化改變穿隧障壁",
-    "title_en": "FTJ：用極化改變穿隧障壁",
+    "title_en": "FTJ: Modulating the Tunnel Barrier with Polarization",
     "url": "NVM技術全景.html#topic-ftj",
-    "tags": "FTJ 以薄鐵電障壁的極化方向控制穿隧電流，兩種方向對應不同的有效障壁形狀及電阻。此穿隧電阻差常以 TER 描述。它與 FeFET 都利用極化，但沒有依靠半導體通道的臨界電壓放大，因此讀取電流、障壁厚度、電極屏蔽與漏電的取捨成為核心。 FTJ 用較大的脈衝反轉極化，再以較小偏壓感測穿隧電流，追求兩端非破壞式儲存及互連層整合。挑戰是障壁要夠薄才能讀到電流，卻又要保有穩定鐵電性並抑制漏電。漂亮的電阻比不代表足夠的絕對讀取電流，更不代表大陣列已具備可靠的選址窗口。 本次核讀 2024 年 FTJ 原始論文與台積電 FTJ 結構公開專利，支持具體薄膜與可靠性研究。尚未取得能為此結構指定商用量產型號的資料表與供貨證據，因此保持研究展示標籤。 US20240057343A1",
-    "language": "zh-Hant"
+    "tags": "FTJ controls tunneling current through the polarization direction of a thin ferroelectric barrier. The two directions produce different effective barrier profiles and resistance levels, commonly described through tunnel electroresistance, or TER. FTJ and FeFET both use polarization, but FTJ does not rely on threshold-voltage amplification in a semiconductor channel. Read current, barrier thickness, electrode screening, and leakage therefore become central tradeoffs. FTJ reverses polarization with a larger pulse, then senses tunneling current at a smaller bias, pursuing two-terminal nondestructive storage and interconnect-layer integration. The barrier must be thin enough to provide readable current while retaining stable ferroelectricity and suppressing leakage. An attractive resistance ratio does not establish sufficient absolute read current, much less a reliable selection window for a large array. FTJ 以薄鐵電障壁的極化方向控制穿隧電流，兩種方向對應不同的有效障壁形狀及電阻。此穿隧電阻差常以 TER 描述。它與 FeFET 都利用極化，但沒有依靠半導體通道的臨界電壓放大，因此讀取電流、障壁厚度、電極屏蔽與漏電的取捨成為核心。 US20240057343A1"
   },
   {
     "title_zh": "從一個位元到完整陣列：選擇、感測與寫入驗證",
-    "title_en": "從一個位元到完整陣列：選擇、感測與寫入驗證",
+    "title_en": "From One Bit to a Complete Array: Selection, Sensing, and Program Verify",
     "url": "NVM技術全景.html#system-array",
-    "tags": "能把一個元件切換兩次，只證明有可用的儲存狀態。真正的記憶體還必須從大量單元中只選到目標、避免改變鄰居，並在溫度、老化與製程變異下正確讀出資料。選擇器、導線與周邊電路因此決定了單元優勢能保留多少。",
-    "language": "zh-Hant"
+    "tags": "Switching a device twice establishes only that it has usable storage states. A practical memory must also select its target from a large population of cells, avoid disturbing its neighbors, and read data correctly across temperature, aging, and process variation. Selectors, wires, and peripheral circuits therefore determine how much of the cell-level advantage survives."
   },
   {
     "title_zh": "SCM 與持久性記憶體：從媒體走到系統",
-    "title_en": "SCM 與持久性記憶體：從媒體走到系統",
+    "title_en": "SCM and Persistent Memory: From Media to Systems",
     "url": "NVM技術全景.html#system-scm",
-    "tags": "儲存級記憶體（SCM）關心如何填補 DRAM 與 NAND 儲存之間的需求落差。它不是另一種位元單元，也不因採用 CXL 就自動成立。要理解 SCM，必須同時區分儲存物理、接入方式、資料存取粒度，以及故障後哪些資料真正能復原。",
-    "language": "zh-Hant"
+    "tags": "Storage-class memory (SCM) addresses the gap in requirements between DRAM and NAND storage. It is not another bitcell type, and adopting CXL does not automatically establish an SCM implementation. Understanding SCM requires distinguishing storage physics, attachment, access granularity, and which data can actually be recovered after failure."
   },
   {
     "title_zh": "GF／TSMC 年度路線圖",
-    "title_en": "GF／TSMC 年度路線圖",
+    "title_en": "GF / TSMC Roadmap",
     "url": "NVM技術全景.html#foundry",
-    "tags": "GLOBALFOUNDRIES TSMC eMRAM ReRAM RRAM eNVM roadmap 22FDX 12LP AutoPro150",
-    "language": "zh-Hant"
+    "tags": "GLOBALFOUNDRIES TSMC eMRAM ReRAM RRAM eNVM roadmap 22FDX 12LP AutoPro150"
   },
   {
     "title_zh": "歷史總表與有條件比較",
-    "title_en": "歷史總表與有條件比較",
+    "title_en": "Historical and Current Comparisons",
     "url": "NVM技術全景.html#comparison",
-    "tags": "2016 2021 2026 比較 能量 耐久 保持 延遲",
-    "language": "zh-Hant"
+    "tags": "2016 2021 2026 比較 能量 耐久 保持 延遲 endurance retention latency energy"
   }
 ];

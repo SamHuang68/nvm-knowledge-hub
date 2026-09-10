@@ -1,0 +1,1116 @@
+{
+  "asOf": "2026-09-10",
+  "title": "Emerging Nonvolatile Memory: Physics, Arrays, and Maturity",
+  "sources": [
+    {
+      "id": "EMG-SEC",
+      "label": "Everspin 2025 Product and Manufacturing Filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm",
+      "kind": "Company Regulatory Filing",
+      "locator": "2025 product overview and manufacturing sections; the SEC index confirms a filing date of 2026-03-04 and an acceptance time of 17:20:43",
+      "date": "2026-03-04",
+      "limit": "Production and shipment claims apply to named products; specifications for one product must not be applied to the entire MRAM family.",
+      "accessedAt": "2026-09-10",
+      "verificationUrl": "https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/0001628280-26-014733-index.html"
+    },
+    {
+      "id": "EMG-XSPI",
+      "label": "Everspin 64Mb High-Reliability xSPI Production Qualification",
+      "url": "https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb",
+      "kind": "Manufacturer Announcement",
+      "locator": "64Mb qualification, ordering availability, and distributor inventory; schedules for other densities",
+      "date": "2026-03-05",
+      "limit": "The announcement describes 128Mb/256Mb qualification as planned. A passed target date does not establish completion.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-RA8",
+      "label": "Renesas RA8M2/RA8D2 MCUs with Embedded MRAM",
+      "url": "https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram",
+      "kind": "Manufacturer Product Announcement",
+      "locator": "Sections on 1MB MRAM, 22nm ULL, and availability",
+      "date": "2025-10-22",
+      "limit": "1GHz is the CPU clock frequency, not the MTJ write frequency. External Flash options are excluded from MRAM capacity.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-DBH",
+      "label": "Weebit/DB HiTek Technology Qualification and Product Adoption",
+      "url": "https://www.weebit-nano.com/news/press-releases/weebit-nano-signs-largest-customer-to-date-technology-qualified-at-db-hitek/",
+      "kind": "Manufacturer Quarterly Update",
+      "locator": "DB HiTek 130nm BCD qualification and customer tape-out progress",
+      "date": "2026-01-30",
+      "limit": "Technology qualification, licensing revenue, and volume shipments of customer products are distinct milestones.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-S130",
+      "label": "Weebit SkyWater S130 Reliability Validation",
+      "url": "https://www.weebit-nano.com/wp-content/uploads/2025/11/251124.-2025-Annual-General-Meeting-%E2%80%93-Chair-Address-and-CEO-Presentation.pdf",
+      "kind": "Manufacturer Technical Presentation",
+      "locator": "Page 18; S130/1T1R test vehicle and reliability conditions",
+      "date": "2025-11-24",
+      "limit": "The 150°C and cycling data apply to this test vehicle and must not be transferred to other foundries, nodes, or capacities.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-STPCM",
+      "label": "ST Stellar SR6P6C8 MCU with Phase-Change Memory",
+      "url": "https://www.st.com/en/automotive-microcontrollers/sr6p6c8.html",
+      "kind": "Manufacturer Product Page",
+      "locator": "Production status label, PCM description, and ordering-code quality table",
+      "date": "2026-09-10",
+      "limit": "The date is the verification date. Other devices in the same family may still be in design or engineering-sample stages.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-FRAM",
+      "label": "Infineon 16Mb EXCELON F-RAM Datasheet",
+      "url": "https://www.infineon.com/assets/row/public/documents/10/49/infineon-cy15b116qi-cy15v116qi-16mb-excelon-tm-lp-ferroelectric-ram-f-ram-datasheet-en.pdf",
+      "kind": "Manufacturer Datasheet",
+      "locator": "Rev. C; pages 1, 7, 27, and 30–31",
+      "date": "2022-05-25",
+      "limit": "Commercial operating temperature, retention temperature, and SPI clock frequency must be distinguished. Commercial F-RAM endurance must not be attributed to FeFET/FTJ.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-ADESTO",
+      "label": "Adesto 2019 CBRAM Commercial Shipment Filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1395848/000155837020002795/iots-20191231x10k.htm",
+      "kind": "Company Regulatory Filing",
+      "locator": "CBRAM product and commercial shipment sections",
+      "date": "2020",
+      "limit": "Evidence of historical shipments; continued availability of the original part numbers in 2026 has not been verified.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-SOT23",
+      "label": "imec Extremely Scaled SOT-MRAM Device Demonstration",
+      "url": "https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually",
+      "kind": "Research Institution Announcement",
+      "locator": "Experiments on 300mm wafers and approximately 50nm devices",
+      "date": "2023-12-13",
+      "limit": "The summary does not provide the complete pulse, temperature, sample, and error-rate matrix. Device energy is not memory-macro energy.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-SOT24",
+      "label": "imec SOT-MRAM Functional Arrays and Cache Research",
+      "url": "https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications",
+      "kind": "Research Institution Technical Article",
+      "locator": "Functional arrays, process damage, and magnetic-field effects; includes references to original papers",
+      "date": "2024-12-16",
+      "limit": "An array research demonstration does not establish a last-level cache in volume production.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-KIOXIA",
+      "label": "KIOXIA FeFET Charge Trapping and Polarization Stability Research",
+      "url": "https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html",
+      "kind": "Manufacturer Research Article",
+      "locator": "Metal-doped interfacial layer; associated IEDM 2023 paper. 2023 is the conference year; the webpage publication date is unspecified.",
+      "date": null,
+      "limit": "Research mechanisms and tradeoffs in a specific stack; these are not common specifications for all FeFETs.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-FTJ24",
+      "label": "Original Research on Atomic-Scale FTJ Resistance Ratio and Cycling",
+      "url": "https://www.nature.com/articles/s41467-024-44927-7",
+      "kind": "Original Research Paper",
+      "locator": "Material structure, SET/RESET conditions, and reliability figures",
+      "date": "2024",
+      "limit": "Research-device values must retain their stack and operating conditions; they do not represent production FTJ specifications.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-VCM08",
+      "label": "Resistive Switching Mechanisms in Metal/Oxide/Metal Devices",
+      "url": "https://www.nature.com/articles/nnano.2008.160",
+      "kind": "Original Research Paper",
+      "locator": "Abstract and accessible figure captions",
+      "date": "2008-06-15",
+      "limit": "The main text is subscription-restricted. This review does not claim access to all experimental details.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-PCMDRIFT",
+      "label": "IBM Research on Resistance Evolution in Projected PCM",
+      "url": "https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory",
+      "kind": "Original Paper Record and Abstract",
+      "locator": "Scientific Reports; state dependence and the projection branch",
+      "date": "2020-05-19",
+      "limit": "Based on the original authors' abstract and research description; inaccessible details have not been filled in with invented measurement values.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-PCMEND",
+      "label": "IBM Research on PCM Cycling Endurance and Atomic Migration",
+      "url": "https://research.ibm.com/publications/phase-change-memory-cycling-endurance",
+      "kind": "Author Institution Paper Record and Abstract",
+      "locator": "MRS Bulletin; cycling failure mechanisms",
+      "date": "2019-09-05",
+      "limit": "Mechanisms depend on the material. General discussion cannot support a lifetime commitment for an arbitrary product.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-PCMPROJ",
+      "label": "IBM Low-Drift Projected PCM Devices",
+      "url": "https://research.ibm.com/publications/design-of-projected-phase-change-memory-mushroom-cells-for-low-resistance-drift",
+      "kind": "Author Institution Paper Record and Abstract",
+      "locator": "Projection branch and mushroom-shaped phase-change devices",
+      "date": "2022-09-18",
+      "limit": "The research structure is not an established cross section of ST ePCM or another commercial product.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-FEPUF",
+      "label": "Original Research on FeFET Cycle Variation and Charge-Domain PUFs",
+      "url": "https://www.nature.com/articles/s41467-024-55380-x",
+      "kind": "Original Research Paper",
+      "locator": "Reconfigurable PUF structure, cycle variation, and validation",
+      "date": "2024",
+      "limit": "PUF reconfigurability does not establish reproducibility in arbitrary environments, nor does it independently demonstrate resistance to attacks.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-FMC",
+      "label": "FMC Industry News and Ferroelectric Memory Classification",
+      "url": "https://www.ferroelectric-memory.com/industry-news/",
+      "kind": "Manufacturer News Collection",
+      "locator": "Links to 2025 ferroelectric capacitor-based nonvolatile DRAM news and a 2026 interview",
+      "date": "2026-09-10",
+      "limit": "The date is the verification date. News headlines alone cannot establish the respective production status of FeFET and capacitor-based memory.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-P-STT",
+      "label": "IBM Spin-Torque Storage Structure Patent",
+      "url": "https://patents.google.com/patent/US5695864A/en",
+      "kind": "Published Patent",
+      "locator": "Independent claim 1; fixed and variable magnetic-moment structures",
+      "date": "1997-12-09",
+      "limit": "Patent disclosure does not establish adoption in modern MgO processes. No freedom-to-operate analysis has been performed.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-P-TOGGLE",
+      "label": "Motorola Toggle MRAM Operation Patent",
+      "url": "https://patents.google.com/patent/US6545906B1/en",
+      "kind": "Published Patent",
+      "locator": "Figures 3–5; claim 1",
+      "date": "2003-04-08",
+      "limit": "The interpretation covers the specific coupled free layer and write method in this patent; it does not define operation for all MRAM.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-P-SOT",
+      "label": "Spin Memory Scalable SOT Device Process Patent",
+      "url": "https://patents.google.com/patent/US10930843B2/en",
+      "kind": "Published Patent",
+      "locator": "Figures 3–6 and 7A–7F; claims 1–13",
+      "date": "2021-02-23",
+      "limit": "The original assignee and subsequent assignment history are distinguished. Area effects are not treated as production measurements.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-P-VCM",
+      "label": "HP Multilayer Resistive Switching and Intermediate-State Pulse Patent",
+      "url": "https://patents.google.com/patent/US8331131B2/en",
+      "kind": "Published Patent",
+      "locator": "Figures 3 and 5; claims on multilayer structures and pulse operation",
+      "date": "2012-12-11",
+      "limit": "The specific multilayer barrier and two-stage pulse method must not be generalized to all VCM.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-P-ECM",
+      "label": "Axon Programmable Metallization Cell Patent",
+      "url": "https://patents.google.com/patent/US5761115A/en",
+      "kind": "Published Patent",
+      "locator": "Figures 1A/1B and 4A/4B; claims 1–2",
+      "date": "1998-06-02",
+      "limit": "Assignment records include Axon and the Arizona Board of Regents; this does not establish adoption by every current CBRAM product.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-P-PCM",
+      "label": "Multilevel Phase-Change Memory Programming Patent",
+      "url": "https://patents.google.com/patent/US5912839A/en",
+      "kind": "Published Patent",
+      "locator": "Figure 1; claims 1, 18, and 23",
+      "date": "1999-06-15",
+      "limit": "Its specific cumulative read method does not mean that ordinary PCM resistance reads are all destructive.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-P-FERAM",
+      "label": "Ramtron Self-Restoring Ferroelectric Memory Patent",
+      "url": "https://patents.google.com/patent/US4873664A/en",
+      "kind": "Published Patent",
+      "locator": "Claim 1; word line, bit line, plate, and restoration",
+      "date": "1989-10-10",
+      "limit": "A historical circuit teaching reference; it does not prove the internal implementation of a modern Infineon chip.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-P-HFO",
+      "label": "Layered Doping of HfO₂ Ferroelectric Films Patent",
+      "url": "https://patents.google.com/patent/US10153155B2/en",
+      "kind": "Published Patent",
+      "locator": "Figures 1/2 and 4; claim 1",
+      "date": "2018-12-11",
+      "limit": "A material-formation method; this patent does not provide a complete FeFET array and system design.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-P-FEFET",
+      "label": "FeFET Gate Stack and Device Integration Patent",
+      "url": "https://patents.google.com/patent/US11502083B2/en",
+      "kind": "Published Patent",
+      "locator": "Figures 2 and 3A–3F; claim 1",
+      "date": "2022-11-15",
+      "limit": "Improvements in a specific stack do not establish production qualification or universally applicable endurance values.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-P-FTJ",
+      "label": "TSMC FTJ Structure and Low-Temperature Formation Application",
+      "url": "https://patents.google.com/patent/US20240057343A1/en",
+      "kind": "Published Patent Application",
+      "locator": "Figure 17; claims 1 and 17",
+      "date": "2024-02-15",
+      "limit": "The reviewed document is the A1 publication. The granted scope of a B2 family member requires a separate comparison.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "EMG-TSMC-SOT",
+      "label": "TSMC 2025 Annual Report: Type-C SOT-MRAM Research",
+      "url": "https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf",
+      "kind": "Supplier Annual Report: R&D Results",
+      "locator": "Printed pages 104–105; page 4 of the chapter PDF; IEDM 2025 Type-C section",
+      "date": "2026",
+      "limit": "A research demonstration. Qualification of other TSMC MRAM platforms does not establish SOT volume production; area and current improvements must retain their comparison baseline.",
+      "accessedAt": "2026-09-10"
+    }
+  ],
+  "topics": [
+    {
+      "id": "toggle",
+      "title": "Toggle MRAM: Magnetic-Field Sequencing",
+      "family": "Magnetic Memory",
+      "storage": "The bit is stored in the magnetization direction of the free magnetic layer. Parallel and antiparallel alignment relative to the reference layer produce different resistance levels in the magnetic tunnel junction. A magnetic energy barrier maintains the direction after power is removed. Toggle specifically denotes a write method that reverses data through the rotation of coupled magnetic moments; it is not a general name for all field-written MRAM.",
+      "structure": "A representative cross section contains a reference magnetic layer, a thin tunnel barrier, and a coupled free magnetic layer, with the MTJ connected to a read access transistor. Two intersecting write lines near the junction generate magnetic fields through their respective currents. Read current passes through the junction, whereas the write stimulus primarily flows through the lines. Their area and spacing must be included in the bit dimensions.",
+      "summary": "Toggle MRAM assigns data retention to the magnetic energy barrier and data modification to precisely sequenced magnetic fields. The controller first determines whether the existing and requested values differ, then toggles only when needed. It does not require the block-erase sequence of Flash, but it adds read, comparison, and toggle control. This complete sequence is essential to a valid comparison of write latency and energy.",
+      "maturity": {
+        "stage": "In Volume Production",
+        "claim": "Everspin's 2025 annual filing explicitly states that Toggle products entered volume production in 2008 and that devices with capacities of 128kb–32Mb continue to ship. This is commercial evidence for a named product family, rather than maturity inferred from a patent or experimental device.",
+        "sourceIds": [
+          "EMG-SEC"
+        ],
+        "limit": "Interfaces, capacities, and grades have individual specifications. Commercial history does not replace a datasheet and availability check for the selected part number."
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Write: Compare Before Toggling",
+          "before": "The MTJ is in the parallel, low-resistance state, and the requested data is the opposite value.",
+          "stimulus": "Read and compare first, then activate the currents in the two write lines in sequence.",
+          "after": "The coupled free magnetic moments rotate along the designed trajectory and settle into the antiparallel, high-resistance state.",
+          "explanation": "One Toggle sequence reverses the existing state. If the target and existing values match, toggling must be skipped. Products may define their own logic encoding; low resistance does not necessarily represent 0."
+        },
+        {
+          "id": "erase",
+          "title": "Restore: Toggle to the Other State",
+          "before": "The junction is in the antiparallel, high-resistance state, and the controller requests the earlier data value.",
+          "stimulus": "Compare the data, then apply another qualified Toggle write sequence.",
+          "after": "The free layer returns to the low-resistance state, parallel to the reference layer.",
+          "explanation": "Restoration here is performed through individual-bit rewriting, not a physical erase that clears the whole array. The result of the same toggle sequence depends on the current state, so the initial read and decision cannot be omitted."
+        },
+        {
+          "id": "read",
+          "title": "Read: Sense MTJ Resistance",
+          "before": "Data is retained in the parallel or antiparallel magnetic state.",
+          "stimulus": "Enable the access transistor, apply a small voltage, and compare the resulting current with a reference.",
+          "after": "The sense amplifier outputs data while the original magnetic state remains unchanged under normal operation.",
+          "explanation": "Reading requires separation between resistance distributions while keeping disturbance and stress within acceptable limits. Reference cells, temperature, and process variation affect the read margin."
+        }
+      ],
+      "selection": "For reading, the word line normally enables the access transistor and the bit line connects the cell to the sensing circuit. Writing selects the target through the sequence and intersection of two lines; cells that are not fully selected may still experience partial magnetic fields. Verification must therefore examine magnetic-field trajectories and data retention in half-selected cells, as well as the logical address and successful switching of the target cell.",
+      "variability": "Free-layer dimensions, coupling strength, magnetic anisotropy, and line current change the safe switching region. Circuits must keep process and temperature distributions within the qualified timing window, using write verification, redundancy, and error correction to control tail failures. If these variations are used for a PUF, reproducibility must also be demonstrated; occasional write errors are not automatically a usable fingerprint.",
+      "advantages": [
+        "The write stimulus does not require a large current through the tunnel barrier, helping reduce write stress on the barrier.",
+        "Long commercial product experience and individual-bit rewriting support systems that frequently preserve small data records.",
+        "Normal sensing does not require the read-and-restore sequence of ferroelectric capacitor memory, allowing straightforward system operation and interfaces."
+      ],
+      "tradeoffs": [
+        "The current, spacing, and half-select conditions of magnetic-field lines limit density scaling.",
+        "Reading and comparison are required before deciding to toggle, so the complete write sequence takes longer than a single physical reversal.",
+        "External magnetic fields, packaging, and temperature conditions require product-specific validation; the device cannot be assumed immune to magnetic fields."
+      ],
+      "ceilings": {
+        "device": "The magnetic energy barrier must be high enough to retain data yet permit reliable reversal by a field generated with reasonable current. An improperly designed coupled free layer can follow an incorrect rotation trajectory or lose stable states.",
+        "array": "The spacing, current distribution, and half-select disturbance of two write-line sets constrain array scaling. If the lines cannot scale with the bit, a smaller cell does not produce a proportional improvement in effective density.",
+        "process": "Magnetic-layer deposition, coupling-layer thickness, and junction etching affect magnetic uniformity. Thermal processing must accommodate the magnetic layers, tunnel barrier, and CMOS interconnects; package reflow conditions also require separate validation.",
+        "system": "Pre-write reading, comparison, and worst-case sequencing belong in the access time. Power-failure atomicity, bus transfers, and capacity cost determine system benefit; magnetic reversal time cannot substitute for complete write latency."
+      },
+      "fit": "Suitable for small records, industrial control, and equipment-state retention when available products meet capacity requirements, updates are frequent, and data must survive power loss. Selection should check actual capacity, interface, operating temperature, and magnetic-field conditions, considering the availability of mature products together with their lifetime conditions.",
+      "avoid": "For maximum bit density, low-cost bulk storage, or very small embedded caches at advanced nodes, commercial Toggle availability alone does not establish the best technology choice. Write-line area, drive current, and comparison operations may dominate cost; compare concrete STT implementations and other options with suitable interfaces.",
+      "patents": [
+        {
+          "id": "US6545906B1",
+          "url": "https://patents.google.com/patent/US6545906B1/en",
+          "priority": "2001-10-16",
+          "assignee": "Original Applicant/Assignee: Motorola",
+          "figures": "Figure 3: direct/Toggle regions; Figure 4: two-line current sequence; Figure 5: magnetic-moment rotation.",
+          "problem": "Keep field writing within a controllable switching region and reduce the sensitivity of direct writing to magnetic-field amplitude and half-select conditions.",
+          "mechanism": "Antiferromagnetically coupled free magnetic layers and sequentially applied write fields rotate the free magnetic moments along a designed trajectory to reverse the state.",
+          "claimReading": "Claim 1 links the coupled free layer with the write method. Read the layer structure, field order, and state transition together, rather than extracting only the word \"toggle.\"",
+          "limit": "This patent discloses a specific Toggle design. It does not establish the actual internal structure of every Everspin product or the patent's current legal status.",
+          "filing": "2001-10-16",
+          "publication": "2003-04-08",
+          "verifiedAt": "2026-09-10",
+          "dateNote": "Priority, the filing date of this U.S. application, and the publication/grant date of the listed publication number are recorded separately. Dates were checked against published patent bibliographic records; no conclusion on legal rights or status is made."
+        }
+      ],
+      "sourceIds": [
+        "EMG-SEC",
+        "EMG-P-TOGGLE"
+      ],
+      "quiz": {
+        "question": "If the stored data already matches the target value, why must the controller avoid executing another Toggle sequence?",
+        "answer": "A Toggle write reverses the current state. Executing it once would invert data that is already correct. The controller must read and compare first, toggling only when the existing and target values differ."
+      }
+    },
+    {
+      "id": "stt",
+      "title": "STT-MRAM: Spin Current Through the Junction",
+      "family": "Magnetic Memory",
+      "storage": "The stored quantity remains the orientation of the free magnetic layer relative to the reference layer, and reading relies on the resistance difference of the magnetic tunnel junction. The principal difference from Toggle is writing: current passing through the magnetic stack carries spin angular momentum and exerts torque on the free layer, changing its magnetic state. Nonvolatility comes from the magnetic energy barrier, not from keeping current inside the device.",
+      "structure": "A typical embedded cell places one access transistor in series with one MTJ. The MTJ contains a reference magnetic layer, a thin MgO barrier, and a free magnetic layer; modern designs often use perpendicular magnetic anisotropy. Bit and source lines apply write biases of opposite polarity, while the word line controls the access transistor. The sensing circuit reads through the same junction, creating a shared read/write path.",
+      "summary": "STT concentrates write current in the selected junction and improves on the scaling limitations of magnetic-field write lines, making it an important route for commercial discrete and embedded MRAM. Increasing current can shorten switching time, but also raises access-transistor requirements and barrier stress. Reducing current can lengthen latency and worsen the error-rate tail. The best speed, lifetime, and density values from separate conditions cannot be combined into one product specification.",
+      "maturity": {
+        "stage": "In Volume Production",
+        "claim": "Everspin has shipped STT products with DDR-derived interfaces and SPI-class products. In 2026, its 64Mb high-reliability xSPI product also has evidence of completed production qualification and ordering availability. Embedded implementations must be linked individually to a specific MCU or process document.",
+        "sourceIds": [
+          "EMG-SEC",
+          "EMG-XSPI",
+          "EMG-RA8"
+        ],
+        "limit": "Interface speed is not junction switching time. Production capacity, automotive grade, and qualification year must not be combined across product families."
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Write: Switch with Spin Torque in One Direction",
+          "before": "The MTJ is in the parallel, low-resistance state, and the target is the opposite data value.",
+          "stimulus": "Enable the word line and drive current of the selected polarity through the MTJ for a sufficient pulse duration.",
+          "after": "The free layer switches to antiparallel alignment, increasing the sensed resistance.",
+          "explanation": "Switching has a probability distribution. Pulse amplitude and duration must cover process, temperature, and the target error rate. A teaching diagram's current arrow represents one stack convention; actual direction must be checked against the electrodes and current convention."
+        },
+        {
+          "id": "erase",
+          "title": "Restore: Rewrite Directly with Reverse Current",
+          "before": "The MTJ is in the antiparallel, high-resistance state.",
+          "stimulus": "Reverse the junction write-current direction and apply a qualified pulse.",
+          "after": "The free layer returns to the parallel, low-resistance state.",
+          "explanation": "STT can directly rewrite either magnetic state without first erasing a whole block. A clear command in a particular product may be a controller or interface function; it does not establish a Flash-like physical erase mechanism."
+        },
+        {
+          "id": "read",
+          "title": "Read: Sense Resistance Within Read-Disturb Limits",
+          "before": "The junction retains one of its magnetic states.",
+          "stimulus": "Read with a small current signal far below the normal write requirement and compare it with a reference current.",
+          "after": "Output the bit while aiming to preserve the original magnetic state.",
+          "explanation": "Reading also produces spin torque, so the signal cannot be increased without limit. The design must simultaneously satisfy sensing speed, read margin, and the long-term cumulative probability of read disturbance."
+        }
+      ],
+      "selection": "The access transistor in a 1T1MTJ cell isolates unselected cells and supplies write current. The word line and bit/source lines jointly determine the address and current direction. The transistor must drive the MTJ at worst-case voltage and temperature, so its area may become a bottleneck before the magnetic device itself. Reference cells, sense amplifiers, and spare rows also count toward macro density.",
+      "variability": "MTJ diameter, barrier thickness, magnetic anisotropy, and reference-layer properties create distributions of resistance and critical current. Thermal fluctuations add a probabilistic switching tail, so average write latency alone is insufficient. Grouped pulse settings, write verification, ECC, redundancy, and read-reference design can reduce errors, but they add energy, time, and peripheral area.",
+      "advantages": [
+        "Write selection can concentrate current in a single junction, supporting further scaling more readily than field writing.",
+        "Individual bits can be rewritten directly, combining power-off retention with frequent updates.",
+        "Discrete chips and embedded platforms already exist, allowing actual capacity and reliability to be checked in product documents."
+      ],
+      "tradeoffs": [
+        "Reading and writing share the tunnel barrier, requiring joint design of write stress and read disturbance.",
+        "Retention, write speed, and current are subject to physical tradeoffs.",
+        "As capacity grows, the distribution tails of difficult-to-write or difficult-to-read bits are more likely to dominate yield."
+      ],
+      "ceilings": {
+        "device": "Shrinking the free layer reduces its magnetic energy barrier and may weaken high-temperature retention. Increasing anisotropy to restore stability can increase write current. Barrier breakdown lifetime and stochastic switching tails jointly constrain the operating window.",
+        "array": "Access-transistor size, bit-line voltage drop, and write-polarity asymmetry affect writability at the worst-case location. Large arrays must also account for reference drift, tail bits, redundancy, and the actual area overhead of ECC.",
+        "process": "MTJ etch redeposition, sidewall damage, and barrier uniformity directly affect shorts and the resistance ratio. The thermal budget must preserve magnetic properties while supporting interconnects and package reflow. Demonstrating room-temperature switching in a cell is insufficient.",
+        "system": "Complete latency includes the bus, macro access, possible write verification, and ECC. Higher-level power-failure consistency, cache writeback, and update frequency determine endurance requirements. A DDR-derived interface does not make every behavior equivalent to DRAM."
+      },
+      "fit": "Suitable for code, equipment state, data logging, and some persistent working memory that require power-off retention and frequent updates. MCU or SoC integration must jointly confirm available capacity, process options, write latency, temperature-dependent lifetime, and software update strategy. Select a concrete macro rather than the MRAM name alone.",
+      "avoid": "Generic STT figures are insufficient for decisions involving extremely high density, the lowest bit cost for long-term bulk storage, or unlimited high-frequency writes without workload conditions. Cache replacement also requires worst-case write error rate, energy, and read-disturb checks, rather than average switching speed alone.",
+      "patents": [
+        {
+          "id": "US5695864A",
+          "url": "https://patents.google.com/patent/US5695864A/en",
+          "priority": "1995-09-28",
+          "assignee": "Original Applicant/Assignee: IBM",
+          "figures": "Multilayer structure with fixed and variable magnetic moments; use claim 1 to trace the current path.",
+          "problem": "Change a magnetic moment with current flowing through a magnetic structure, providing state control without the magnetic field from external write lines.",
+          "mechanism": "Current passes through a layered structure containing fixed and variable magnetic moments. Angular-momentum exchange exerts torque on the variable magnetic moment.",
+          "claimReading": "Claim 1 focuses on the relationship among the magnetic roles of the layers, current direction, and the change in magnetic moment. Modern MgO junction materials and all 1T1MTJ peripheral circuits must not be read into this early claim.",
+          "limit": "A starting point for research into STT principles. It does not establish adoption of a specific embodiment by a foundry or product, nor does it support a conclusion on legal status.",
+          "filing": "1995-09-28",
+          "publication": "1997-12-09",
+          "verifiedAt": "2026-09-10",
+          "dateNote": "Priority, the filing date of this U.S. application, and the publication/grant date of the listed publication number are recorded separately. Dates were checked against published patent bibliographic records; no conclusion on legal rights or status is made."
+        }
+      ],
+      "sourceIds": [
+        "EMG-SEC",
+        "EMG-XSPI",
+        "EMG-RA8",
+        "EMG-P-STT"
+      ],
+      "quiz": {
+        "question": "Why cannot STT-MRAM read current simply be increased indefinitely to accelerate sensing?",
+        "answer": "Read current also passes through the MTJ, producing spin torque and electrical stress. Higher current increases the signal but may also increase read disturbance and barrier stress. Sensing margin and error rate must be considered together."
+      }
+    },
+    {
+      "id": "sot",
+      "title": "SOT-MRAM: Separate Read and Write Paths",
+      "family": "Magnetic Memory",
+      "storage": "SOT-MRAM also retains data in the magnetization direction of an MTJ free layer and senses it through magnetoresistance. Its distinguishing feature is that write angular momentum is generated primarily by a spin-orbit material beside or beneath the free layer and injected into it, rather than by sending the main write current through the tunnel barrier. The stored physical quantity is therefore similar to STT, while the write structure and array cost differ.",
+      "structure": "A typical three-terminal cell places a heavy-metal or other efficient SOT line next to the MTJ free layer. Lateral current flows through the line; vertical read current flows through the MTJ. Writing and reading require their own terminals and selection paths. Field-free switching may also require structural asymmetry, an internal magnetic field, or material engineering. The simplest schematic is not a complete production-ready stack.",
+      "summary": "SOT seeks short write pulses and lower barrier stress by separating the read and write paths, making it a focus of last-level-cache research. However, the third terminal and extra line consume area, and deterministic field-free switching, large-array yield, and process integration must also be established. Low-energy or high-cycle-count cell demonstrations satisfy only part of that validation.",
+      "maturity": {
+        "stage": "Research Demonstration",
+        "claim": "imec demonstrated extremely scaled devices and functional arrays in 2023–2024. TSMC's 2025 annual report also records field-free Type-C SOT-MRAM presented at IEDM 2025. These are concrete device and array research results, but they are insufficient to label a last-level cache as being in volume production.",
+        "sourceIds": [
+          "EMG-SOT23",
+          "EMG-SOT24",
+          "EMG-TSMC-SOT"
+        ],
+        "limit": "Existing STT-MRAM volume production and automotive qualifications cannot be transferred to SOT. Failure to identify a commercial product in this review is not a claim that none exists anywhere in the industry."
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Write: Generate Spin Torque with Lateral Current",
+          "before": "The MTJ free layer is in a stable magnetic state.",
+          "stimulus": "Send a write pulse through the SOT line and provide the symmetry-breaking conditions required by the design.",
+          "after": "Spin torque switches the free layer to the target magnetic state.",
+          "explanation": "A perpendicularly magnetized system generally needs an additional structure or mechanism to select the final direction reliably. A schematic must not assume that one ideal line alone provides deterministic writing with zero external magnetic field."
+        },
+        {
+          "id": "erase",
+          "title": "Restore: Change the SOT Current Direction or Sequence",
+          "before": "The free layer is already in the opposite magnetic state.",
+          "stimulus": "Reverse the line current or apply another qualified write sequence, as required by the device design.",
+          "after": "The free layer returns to its previous magnetic state, and the MTJ resistance changes accordingly.",
+          "explanation": "This is direct rewriting, with no inherent block-erase requirement. The relationship between current polarity and magnetic state depends on the SOT material, stack orientation, and field-free switching method."
+        },
+        {
+          "id": "read",
+          "title": "Read: Sense Through the Independent MTJ Branch",
+          "before": "The MTJ magnetic state retains the data; the SOT write line does not need continuous current.",
+          "stimulus": "Select the vertical read branch and sense MTJ resistance at low bias.",
+          "after": "Retrieve the data while preserving the original magnetic state under normal conditions.",
+          "explanation": "Separate paths can reduce the barrier stress from the main write current, but reading must still satisfy disturbance, leakage, resistance-distribution, and reference-circuit requirements."
+        }
+      ],
+      "selection": "Selection must manage both the lateral SOT line and the vertical MTJ read branch, using different transistor and shared-line arrangements as appropriate. Sharing can reduce area but introduces current through unselected devices, line-resistance effects, and current-distribution concerns. Density assessment must show all terminals, access transistors, and lines rather than comparing only MTJ diameters.",
+      "variability": "Differences in SOT conversion efficiency, line thickness, magnetic-layer dimensions, interface roughness, and field-free switching structures change the required current and the probability of the final magnetic state. Array validation must examine worst-case tails, thermal conditions, and mutual disturbance rather than only representative devices. Using stochastic switching for probabilistic computing requires retention specifications and statistical validation to be redefined.",
+      "advantages": [
+        "The main write current bypasses the tunnel barrier, helping reduce barrier write stress.",
+        "Read and write paths can be optimized separately, providing research opportunities for short pulses and high-cycle-count operation.",
+        "MTJ magnetoresistive sensing remains applicable, preserving some existing magnetic-memory sensing design experience."
+      ],
+      "tradeoffs": [
+        "The third terminal, write line, and selection circuits add area and may offset the benefit of cell scaling.",
+        "Deterministic switching without an external magnetic field is not inherent to every SOT stack.",
+        "Write-current density, heat, line resistance, and process damage may dominate macro performance."
+      ],
+      "ceilings": {
+        "device": "Spin-torque efficiency, magnetic stability, and deterministic switching must be achieved together. A material that lowers switching current may introduce high line resistance. Device pulse energy must include actual resistance and switching success probability.",
+        "array": "Three terminals and separate paths add selection-area cost, while shared lines introduce mutual disturbance and current shunting. Large arrays require validation of writability, sensing margin, and error-rate tails at every location.",
+        "process": "Alignment, etching, sidewall cleaning, and interface quality of the SOT line and MTJ affect both torque and read quality. Integration with advanced logic and subsequent thermal processing can also damage materials, requiring validation of the complete process flow.",
+        "system": "Last-level-cache requirements include capacity, standby leakage, worst-case write latency, and bandwidth, as well as ECC and coherence costs. Cell-level fJ energy and high cycle counts do not directly establish the energy per access or lifetime of a complete cache."
+      },
+      "fit": "Suitable for high-speed memory research combining frequent updates, short latency, and power-off retention, particularly where more complex selection and material integration are acceptable. Research programs should develop device, functional-array, and macro models together so that the benefits of separate read and write paths can be verified in effective density and system energy.",
+      "avoid": "A SOT research record alone does not establish production readiness for near-term products needing standard off-the-shelf chips, complete automotive qualification data, or a process replacement without integration risk. If area is tightly constrained or external magnetic fields and complex write assists are unacceptable, first verify the specific field-free approach and its array-selection cost.",
+      "patents": [
+        {
+          "id": "US10930843B2",
+          "url": "https://patents.google.com/patent/US10930843B2/en",
+          "priority": "2018-12-17",
+          "assignee": "Original Applicant/Assignee: Spin Memory; subsequent assignments require separate review",
+          "figures": "Figures 3–6: lines, selection, and sensing; Figures 7A–7F: process steps.",
+          "problem": "Arrange SOT devices, interconnects, and sensing in a scalable array while controlling the integration and area cost of a three-terminal structure.",
+          "mechanism": "Use differently oriented lines and SOT-device formation steps to arrange write excitation and read connections in a manufacturing method suitable for arrays.",
+          "claimReading": "Claim 1 emphasizes the relationship between lines in two directions and device formation. Use the process order in Figure 7 to distinguish required structural limitations from optional embodiments in the specification.",
+          "limit": "This patent does not define the general principle of all SOT devices or establish volume production at a specific foundry. Area claims in the specification are not measured density; patent-family and legal-status comparisons are incomplete.",
+          "filing": "2018-12-17",
+          "publication": "2021-02-23",
+          "verifiedAt": "2026-09-10",
+          "dateNote": "Priority, the filing date of this U.S. application, and the publication/grant date of the listed publication number are recorded separately. Dates were checked against published patent bibliographic records; no conclusion on legal rights or status is made."
+        }
+      ],
+      "sourceIds": [
+        "EMG-SOT23",
+        "EMG-SOT24",
+        "EMG-P-SOT",
+        "EMG-TSMC-SOT"
+      ],
+      "quiz": {
+        "question": "Why can a SOT macro still be larger than an STT macro even when the main write current is moved out of the MTJ?",
+        "answer": "SOT typically needs a third terminal, a SOT line, and additional selection paths. Shrinking the MTJ does not mean the entire bit and its peripheral circuits shrink together. Effective macro density must be calculated."
+      }
+    },
+    {
+      "id": "vcm",
+      "title": "VCM ReRAM: Oxygen Redistribution and Conductive Paths",
+      "family": "Resistive Switching Memory",
+      "storage": "VCM stores data in the ionic distribution, local redox state, or interfacial barrier of an oxide, producing distinguishable resistance states. A typical filament model explains conduction and rupture through redistribution of oxygen ions/oxygen vacancies, but not every device has a single clearly defined filament. Materials, electrodes, and measurement evidence determine the mechanism; a hysteretic I–V curve alone is insufficient to identify VCM.",
+      "structure": "The teaching cross section uses a metal/oxide/metal stack, optionally including an oxygen reservoir, barrier, or interface-control layer. A 1T1R cell uses a transistor for both selection and current compliance; a 1S1R cell uses a nonlinear selector to suppress unselected paths in a crosspoint array. The conductive path occupies a very small region, but the periphery still requires pulse drivers, forming control, sensing references, and verification circuits. Two-terminal device area alone cannot estimate macro cost.",
+      "summary": "VCM operation centers on controlling reversible local changes without driving the oxide into permanent breakdown. SET commonly lowers resistance, while RESET raises it. Some stacks require initial current-limited forming to activate a conductive path. Rebuilding the path may differ slightly on each cycle, making the relationship among forming, write verification, cycling distributions, and retention more important than one attractive typical I–V curve.",
+      "maturity": {
+        "stage": "Qualification Completed",
+        "claim": "Weebit/DB HiTek 130nm BCD RRAM has public evidence of completed technology qualification, and SkyWater S130 has a named 1T1R reliability test vehicle. These support the maturity of resistive-memory integration; a product name alone cannot reveal its complete VCM material cross section.",
+        "sourceIds": [
+          "EMG-DBH",
+          "EMG-S130"
+        ],
+        "limit": "The oxide VCM description here is a source-supported teaching model. It does not assign the same oxygen-vacancy stack to all commercial RRAM, including TSMC products. Technology qualification also does not establish volume shipments of customer products."
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "SET: Establish a Lower-Resistance State",
+          "before": "The device is in a high-resistance state; controlled forming has been completed first if required.",
+          "stimulus": "Apply a SET pulse with the polarity specified for the stack, limiting current through the access transistor or driver.",
+          "after": "Local ions and defects rearrange, creating a more conductive path or interface and lowering resistance.",
+          "explanation": "Current compliance controls path growth. Excessive SET can make RESET difficult or even cause hard breakdown. Forming is not required for every write, and not every process requires it."
+        },
+        {
+          "id": "erase",
+          "title": "RESET: Restore a Higher-Resistance State",
+          "before": "The device is in a readable low-resistance state.",
+          "stimulus": "Apply a reverse-polarity or different-amplitude pulse as specified by the design to promote local oxidation of the path or redistribution of defects.",
+          "after": "A gap appears in the conductive path or the barrier increases, raising resistance.",
+          "explanation": "RESET is a local resistance-state transition, not a Flash-like block erase. Polarity, thermal effects, and path morphology depend on the material. One bipolar operating mode cannot define the entire family."
+        },
+        {
+          "id": "read",
+          "title": "Read: Distinguish Resistance States at Low Bias",
+          "before": "The device retains a state within either the high- or low-resistance distribution.",
+          "stimulus": "Apply a low read bias sufficient for sensing but intended to avoid ionic rearrangement.",
+          "after": "Compare the sensed current with a reference, ideally preserving the original resistance state.",
+          "explanation": "Read bias and accumulated read count may cause disturbance. Check worst-case overlap of high- and low-resistance distributions, temperature variation, line resistance, and sensing noise."
+        }
+      ],
+      "selection": "In 1T1R, the word line controls the access transistor, while bit and source lines apply pulses; the transistor also limits current. In 1S1R, strong selector nonlinearity distinguishes fully selected from half-selected biases. The approaches differ in area, forming capability, and sneak paths. A device that switches under a probe does not necessarily have a usable array-selection window.",
+      "variability": "Device-to-device variation must be distinguished from cycle-to-cycle variation within the same device. Path location, width, and defect distribution cause SET/RESET voltages and resistance values to vary. Multipulse verification, differential encoding, ECC, and calibration can reduce the impact. Analog weights additionally require validation of update linearity, symmetry, effective state count, and read noise; demonstrating several resistance values is insufficient.",
+      "advantages": [
+        "The compact two-terminal structure provides design options for interconnect-layer integration and different selection architectures.",
+        "Resistance states can be rewritten directly, supporting research and product adoption for embedded code and configuration storage.",
+        "Tunable conductance creates opportunities for analog computing and multilevel-state research, with precision and reliability requiring separate evidence."
+      ],
+      "tradeoffs": [
+        "Forming and path growth are stochastic, so the verification algorithm may dominate write latency.",
+        "Lower current can reduce energy but may narrow the read margin or weaken path retention.",
+        "Crosspoint arrays must address sneak paths, line resistance, half-select disturbance, and selector integration."
+      ],
+      "ceilings": {
+        "device": "The conductive path must switch with bounded pulses while remaining stable at high temperature and low read bias over time. An overly thick path is difficult to reset; an overly thin path may relax. Defect generation can also accumulate into permanent breakdown.",
+        "array": "Sneak current and line resistance alter the bias actually reaching the target device, and forming may exceed the selector operating window. Large arrays require read/write reliability validation across position, half-select count, and the tails of resistance-state distributions.",
+        "process": "Oxygen content, electrode oxygen affinity, interfacial layers, and deposition uniformity govern reversible switching. Interconnect thermal budgets and contamination requirements must both be met. Low-temperature material deposition does not establish reliability qualification of the complete process.",
+        "system": "Write verification, ECC, redundancy, and wear management add time and energy. In-memory computing may be dominated by ADCs, DACs, line-resistance compensation, and model-level error tolerance; device conductance alone does not establish system cost."
+      },
+      "fit": "Suitable for embedded NVM when a concrete process provides design and qualification support and macro specifications cover the required capacity and endurance. Research applications include analog weights and small crosspoint computing arrays that can tolerate calibration and error compensation, provided array and peripheral costs are counted alongside device energy.",
+      "avoid": "VCM variation and selection requirements may be unsuitable when every write must reach exactly the same analog resistance, when a fixed short write time is required without verification, or when two-terminal devices are assumed to scale directly into an arbitrarily large array. A best-case pulse from one device or an image showing successful forming cannot replace high-capacity yield and post-cycling retention data.",
+      "patents": [
+        {
+          "id": "US8331131B2",
+          "url": "https://patents.google.com/patent/US8331131B2/en",
+          "priority": "2011-01-31",
+          "assignee": "Original Applicant/Assignee: Hewlett-Packard Development",
+          "figures": "Figure 3: pulses; Figure 5: ionic distributions and barrier states.",
+          "problem": "Control state transitions and intermediate states in multilayer resistive-switching devices, improving on the limited precision of simple two-state pulses.",
+          "mechanism": "Use a multilayer structure and specific segmented pulses to alter ionic or defect distributions and barriers, moving the device between target resistance states.",
+          "claimReading": "First identify the layer structure and operating relationships required by the independent claims, then connect pulses and physical states using Figures 3 and 5. Do not treat the specification's particular two-stage pulse as mandatory for all VCM.",
+          "limit": "A specific oxide-switching design, not substitute evidence for a known commercial RRAM cross section. Patent-family and subsequent granted-scope comparisons are incomplete.",
+          "filing": "2011-01-31",
+          "publication": "2012-12-11",
+          "verifiedAt": "2026-09-10",
+          "dateNote": "Priority, the filing date of this U.S. application, and the publication/grant date of the listed publication number are recorded separately. Dates were checked against published patent bibliographic records; no conclusion on legal rights or status is made."
+        }
+      ],
+      "sourceIds": [
+        "EMG-VCM08",
+        "EMG-P-VCM",
+        "EMG-DBH",
+        "EMG-S130"
+      ],
+      "quiz": {
+        "question": "Why does a hysteretic current–voltage curve alone not establish that a device uses oxygen-vacancy VCM?",
+        "answer": "Several ionic, interfacial, thermal, or electronic mechanisms can produce resistance hysteresis. Materials and electrodes, polarity, time and temperature response, and structural evidence must be considered together to identify the dominant switching mechanism reasonably."
+      }
+    },
+    {
+      "id": "ecm",
+      "title": "ECM/CBRAM: Growing and Dissolving a Metal Bridge",
+      "family": "Resistive Switching Memory",
+      "storage": "ECM changes a conductive path through the motion and redox reactions of active-metal ions. An existing conductive bridge commonly produces a low-resistance state; dissolving a critical part of the bridge produces a high-resistance state. Both ECM and oxygen-vacancy VCM exhibit resistive switching, but their ion sources and path materials differ. CBRAM is a common commercial name for this conductive-bridge memory. Sharing the ReRAM label does not justify combining their physical models.",
+      "structure": "A representative cross section contains an active electrode that supplies a metal such as Ag or Cu, a solid medium that permits ion migration, and a comparatively inert counter electrode. An access transistor or selector is connected in series and limits current during bridge formation. Practical stacks may also require diffusion barriers and interface control to prevent metal migration into CMOS or interconnect regions where contamination is unacceptable.",
+      "summary": "During SET, the active metal oxidizes into ions, moves through the medium under an electric field, and is reduced to progressively establish a metal bridge. RESET dissolves part of that bridge. A thin bridge can reduce switching energy but may be destabilized by heat and surface energy. Fast formation and long-term retention must be checked under the same conditions rather than taken from separate best-case experiments.",
+      "maturity": {
+        "stage": "Historical Commercial Shipments",
+        "claim": "The CBRAM section of Adesto's 2019 annual filing explicitly records commercial product shipments. ECM/CBRAM therefore cannot uniformly be labeled as never commercialized. This evidence supports historical product maturity, but does not establish every subsequent node or availability of the original part numbers in 2026.",
+        "sourceIds": [
+          "EMG-ADESTO"
+        ],
+        "limit": "Licensing, technology transfer, and new foundry-development programs cannot be elevated to volume-production status on the strength of historical shipments."
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "SET: Form a Conductive Bridge with Metal Ions",
+          "before": "The medium has no stable conductive bridge connecting the two electrodes, and the device is in a high-resistance state.",
+          "stimulus": "Oxidize the active electrode, apply an electric field to drive metal-ion migration, and limit forming current.",
+          "after": "Metal is reduced and grows at nucleation sites, establishing a lower-resistance conductive path.",
+          "explanation": "Growth direction and nucleation location depend on the material and kinetics. A single path in a schematic is not the morphology of every real device. Current compliance prevents an excessively thick bridge that would be difficult to RESET."
+        },
+        {
+          "id": "erase",
+          "title": "RESET: Dissolve a Critical Part of the Bridge",
+          "before": "A metal bridge creates a low-resistance state between the electrodes.",
+          "stimulus": "Apply an appropriate reverse bias to reoxidize and ionize local metal.",
+          "after": "A narrow part of the bridge opens, breaking the continuous path and returning the device to a high-resistance state.",
+          "explanation": "RESET does not remove all the metal. Residual metal or nucleation sites affect the next SET, creating cycle-history effects and variation that are important in reliability analysis."
+        },
+        {
+          "id": "read",
+          "title": "Read: Sense at Low Bias Without Reshaping the Bridge",
+          "before": "The device has a distinguishable resistance state corresponding to an intact or interrupted bridge.",
+          "stimulus": "Apply a lower read bias and sense current under conditions that limit disturbance.",
+          "after": "Determine the resistance state while normally preserving the metal-bridge morphology.",
+          "explanation": "Accumulated bias and temperature can still drive metal ions. Validate whether prolonged reading and half-select operations gradually change the bridge, rather than checking only a single low-voltage read."
+        }
+      ],
+      "selection": "1T1R can limit SET current while selecting the cell. Crosspoint implementations require a sufficiently nonlinear selector or an appropriate array-bias scheme. Selector tolerance for forming and RESET pulses, half-select leakage, and reverse current must be matched to the memory device. An active-metal bridge can have very low resistance; without current-limited driving, local overcurrent can easily destroy reversibility.",
+      "variability": "Metal-ion nucleation sites, bridge width, and residual metal distributions create both cycle-to-cycle and device-to-device variation. Short pulses, current compliance, and write verification can narrow the resistance window but increase operation count and energy. When using these differences for PUFs or stochastic computing, distinguish reproducible fixed features from path noise that changes each time the bridge is rebuilt.",
+      "advantages": [
+        "The two-terminal structure and localized metallization provide opportunities for low-energy switching.",
+        "Resistance states can be rewritten directly without Flash-like block erase.",
+        "CBRAM has a history of commercial shipments, allowing practical tradeoffs to be studied through named products and datasheets."
+      ],
+      "tradeoffs": [
+        "Rapid formation and long-term stability of thin metal bridges constrain each other.",
+        "Metal diffusion, electrode depletion, and contamination control complicate process integration.",
+        "Bridge morphology changes with cycling history, so average SET voltage does not represent tail reliability."
+      ],
+      "ceilings": {
+        "device": "Lower forming energy often implies a thinner bridge, which may break through thermal or surface-energy effects. An overly thick bridge increases RESET energy. Metal depletion, agglomeration, and residue progressively change the reversible switching window.",
+        "array": "Low-resistance bridges, sneak paths, and half-select bias can expose non-target devices to additional current. Bidirectional selector operation, current compliance, and line resistance must be matched, and resistance-distribution tails must be tested after extensive cycling.",
+        "process": "Active-metal diffusion barriers, medium uniformity, and interfacial nucleation control determine yield. CMOS contamination rules and subsequent thermal processing may impose stricter limits than the device-formation temperature. The full interconnect integration flow requires validation.",
+        "system": "Write verification, error correction, and data-update strategy determine achievable lifetime. If supply-chain evidence covers only historical products, current part numbers, temperature conditions, and long-term supply must be checked again. Material potential does not establish system availability."
+      },
+      "fit": "Suitable for embedded applications requiring low-energy updates of small data records when a specific product or process provides support, and for research into stochastic and analog functions of metal-ion paths. Practical selection must jointly consider post-cycling retention, read disturbance, temperature, and supply, rather than only one SET energy value or the initial resistance ratio.",
+      "avoid": "A conceptual ECM design should not be adopted directly for long-term retention at very high temperature without post-cycling retention data, or where active-metal process-contamination constraints are unacceptable. Maturity and algorithms from oxide VCM also cannot simply be transferred to a metal bridge, because the ion sources and failure paths differ.",
+      "patents": [
+        {
+          "id": "US5761115A",
+          "url": "https://patents.google.com/patent/US5761115A/en",
+          "priority": "1996-05-30",
+          "assignee": "Published Assignment Records Include Axon Technologies and the Arizona Board of Regents",
+          "figures": "Figures 1A/1B: lateral structure; Figures 4A/4B: vertical structure; claims 1–2.",
+          "problem": "Establish a nonvolatile conductive path that can be formed and restored electrically, rather than treating a one-time metal short as rewritable memory.",
+          "mechanism": "Control metal-dendrite growth in a solid medium and reverse the resulting conductive state with opposite polarity.",
+          "claimReading": "Read claims 1–2 against the metal source, growth path, and reverse-restoration conditions. The lateral and vertical arrangements in the figures are different embodiments; do not combine them into a cell that the patent does not disclose.",
+          "limit": "An early metallization-cell patent that provides an entry point to ECM principles. It does not establish that every CBRAM product uses its specific structure, and current legal status is not addressed.",
+          "filing": "1996-05-30",
+          "publication": "1998-06-02",
+          "verifiedAt": "2026-09-10",
+          "dateNote": "Priority, the filing date of this U.S. application, and the publication/grant date of the listed publication number are recorded separately. Dates were checked against published patent bibliographic records; no conclusion on legal rights or status is made."
+        }
+      ],
+      "sourceIds": [
+        "EMG-ADESTO",
+        "EMG-P-ECM"
+      ],
+      "quiz": {
+        "question": "Why can an ECM metal bridge still influence the next write after RESET?",
+        "answer": "RESET often dissolves only part of the bridge, leaving metal and nucleation sites in the medium. These remnants alter the path and threshold of subsequent metal growth, producing cycle-history effects and variation."
+      }
+    },
+    {
+      "id": "pcm",
+      "title": "PCM: Controlling Phase with Thermal History",
+      "family": "Phase-Change Memory",
+      "storage": "PCM stores data in the fraction and geometry of crystalline and amorphous phase-change material. In a typical electronic device, the crystalline state has lower resistance and the amorphous state higher resistance; material kinetics retain the state after power removal. The actual state is more than an abstract resistance value. It includes the location and size of the phase-change region, degree of crystallization, and evolution over time, which jointly determine reading and lifetime.",
+      "structure": "Common cross sections use a small bottom heater contact, phase-change material, and a top electrode, or a confined geometry that reduces the heated volume. Access may use a transistor or a selector in a crosspoint array. Thermal isolation, current concentration, and heat removal through interconnects jointly determine pulse efficiency. Projected-PCM research adds a conductive branch; this is not a standard structure shared by all PCM.",
+      "summary": "RESET locally melts material with a short, high-peak pulse and rapidly cools it into an amorphous state. SET uses an appropriate thermal history to crystallize the material. Reducing phase-change volume can lower energy, but retention, cycling failure, and thermal crosstalk must still be considered. PCM appears in production MCUs and is also researched for storage-class memory and analog weights. Different uses do not change its phase-based storage mechanism.",
+      "maturity": {
+        "stage": "In Volume Production",
+        "claim": "On 2026-09-10, ST's SR6P6C8 product page explicitly lists production status, includes PCM in the product description, and provides specific ordering codes. This is a concrete commercial example of embedded PCM, avoiding judgments about the entire technology family based only on one discontinued storage-class product.",
+        "sourceIds": [
+          "EMG-STPCM"
+        ],
+        "limit": "Other devices in the same family may still be in design or engineering-sample stages. The role of ePCM in an MCU does not establish a storage-class-memory interface or capacity."
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "SET: Recrystallize the Amorphous Region",
+          "before": "The phase-change region contains more amorphous material and has higher resistance.",
+          "stimulus": "Apply a pulse that maintains the crystallization-temperature range long enough for crystal nuclei to grow.",
+          "after": "The crystalline fraction in the conductive path increases, lowering resistance.",
+          "explanation": "SET is controlled jointly by time and temperature. A stronger pulse is not necessarily better: remelting followed by rapid cooling may return the material to an amorphous state."
+        },
+        {
+          "id": "erase",
+          "title": "RESET: Melt and Rapidly Quench",
+          "before": "The device has a lower-resistance crystalline conductive path.",
+          "stimulus": "Locally melt the material with a short, high-peak pulse, then rapidly reduce current to quench it.",
+          "after": "An amorphous region forms across the main path, increasing resistance.",
+          "explanation": "RESET requires control of peak amplitude, duration, and cooling rate. It rewrites the phase-change device state; it does not imply that a whole region must first be erased before writing."
+        },
+        {
+          "id": "read",
+          "title": "Read: Sense Resistance Without Thermal Switching",
+          "before": "The proportions and shapes of the crystalline and amorphous regions retain the data.",
+          "stimulus": "Read current at a low-disturbance bias, using state-dependent references when needed.",
+          "after": "Retrieve the data without changing the phase state under normal operation.",
+          "explanation": "Amorphous resistance drifts with time and temperature, and multilevel reading requires greater precision than binary reading. A cumulative read method in a specific patent may be destructive; ordinary PCM reads are not therefore all destructive."
+        }
+      ],
+      "selection": "In a transistor-based cell, the word line selects the heater paths that can conduct, and the access device must supply RESET current under worst-case conditions. A crosspoint version additionally requires a selector whose nonlinearity isolates half-selected cells. Selector turn-on, line resistance, and thermal crosstalk can all alter the actual thermal history of the phase-change region. An ideal current waveform cannot simply be assumed at every array location.",
+      "variability": "Material composition, heater-contact dimensions, amorphous-region shape, and local thermal resistance create write distributions. Structural relaxation also causes resistance to drift with time. Write verification, differential storage, drift compensation, and ECC can reduce errors. Projected PCM uses an additional branch to reduce the dependence of reading on the drifting material, but introduces new tradeoffs in current shunting and interface design.",
+      "advantages": [
+        "Direct rewriting and power-off retention are possible, with material and geometry choices offering different speed and energy options.",
+        "Controlled partial crystallization can create multilevel or cumulative states for analog-weight and in-memory-computing research.",
+        "Named embedded products already exist, connecting device thermal physics to real MCU operating conditions."
+      ],
+      "tradeoffs": [
+        "Peak RESET current may require a larger access transistor.",
+        "Material kinetics create a tradeoff between fast crystallization and long-term high-temperature retention.",
+        "Resistance drift, thermal crosstalk, and material migration after cycling limit multilevel precision and lifetime."
+      ],
+      "ceilings": {
+        "device": "The material must crystallize readily for fast SET while keeping the amorphous state stable over time. Repeated melting and crystallization can cause segregation, atomic migration, and voids, progressively changing resistance and the energy required for switching.",
+        "array": "RESET current, line resistance, and heat removal create position-dependent thermal histories, and neighboring devices can be heated. Selectors and access transistors must match the pulses while preserving half-selected data and the read-resistance window.",
+        "process": "Heater-contact dimensions, phase-change composition, interfaces, and package thermal history affect the switched volume. Confined and projected structures have different deposition, etching, and material-compatibility costs. Ideal thermal simulations alone are insufficient.",
+        "system": "Write verification, drift tracking, ECC, and update strategies increase control overhead. Storage-class-memory use requires persistence and power-failure consistency; analog-weight use must include data-conversion and calibration energy."
+      },
+      "fit": "Suitable for code and data storage on an available ePCM platform and for multilevel, cumulative, or analog-computing research that can accommodate verification and calibration. Selection requires post-cycling retention and read conditions for the specific product or stack at its operating temperature, with thermal management and access current included in the system assessment.",
+      "avoid": "PCM nonvolatility alone does not establish suitability for drift-free long-term precision analog weights, extremely low peak current, or unconditional long-term retention at high temperature. Production status of one ePCM MCU also cannot be converted into proof of volume production for arbitrary high-capacity SCM or crosspoint arrays.",
+      "patents": [
+        {
+          "id": "US5912839A",
+          "url": "https://patents.google.com/patent/US5912839A/en",
+          "priority": "1998-06-23",
+          "assignee": "Original Applicant/Assignee: Energy Conversion Devices",
+          "figures": "Figure 1: current and resistance operating regions; claims 1, 18, and 23.",
+          "problem": "Establish multilevel programming and controllable cumulative states in phase-change material rather than using only two resistance extremes.",
+          "mechanism": "Apply subthreshold or specific cumulative pulses to change the material state progressively, using corresponding sensing methods to distinguish multilevel data.",
+          "claimReading": "Read the claims for multilevel writing separately from those for the specific cumulative read method. The latter may change the state; it does not establish that ordinary low-bias resistance sensing is always destructive.",
+          "limit": "This patent is not evidence of the internal thermal structure of an ST product, nor does it guarantee identical multilevel precision, retention, or endurance for every PCM implementation.",
+          "filing": "1998-06-23",
+          "publication": "1999-06-15",
+          "verifiedAt": "2026-09-10",
+          "dateNote": "Priority, the filing date of this U.S. application, and the publication/grant date of the listed publication number are recorded separately. Dates were checked against published patent bibliographic records; no conclusion on legal rights or status is made."
+        }
+      ],
+      "sourceIds": [
+        "EMG-STPCM",
+        "EMG-P-PCM",
+        "EMG-PCMDRIFT",
+        "EMG-PCMEND",
+        "EMG-PCMPROJ"
+      ],
+      "quiz": {
+        "question": "Why might simply increasing the peak amplitude of a SET pulse fail to produce lower resistance?",
+        "answer": "A higher peak may melt the material. Rapid cooling afterward can then form an amorphous high-resistance region. The outcome depends on the complete time–temperature history, not current amplitude alone."
+      }
+    },
+    {
+      "id": "feram",
+      "title": "Capacitor FeRAM: Sensing Polarization-Switching Charge",
+      "family": "Ferroelectric Memory",
+      "storage": "The bit is represented by the polarization direction retained in a ferroelectric material after the external electric field is removed. Unlike DRAM, which relies on temporarily stored free charge, FeRAM is based on switchable remanent polarization. Reading uses the different charge responses when polarization switches and when it does not. Distinguishing the material's retention mechanism from the circuit's sensing method explains why nonvolatile memory may still require restoration after a read.",
+      "structure": "Common cells use one access transistor and one ferroelectric capacitor in 1T1C, or two transistors and two capacitors for differential 2T2C sensing. The word line controls the transistor, the bit line connects to the sense amplifier, and the plate line excites the ferroelectric capacitor. Capacitor material, area, and reference design determine the available sensing charge. Traditional commercial materials and HfO₂-based ferroelectric capacitors cannot be treated as the same process.",
+      "summary": "Writing sets polarization through the electric-field direction. Reading applies an excitation and identifies the original value from the charge difference between switching and non-switching responses. If reading changes polarization, the circuit must restore the original data. Commercial FeRAM can conceal this sequence behind its interface so that the user sees an ordinary read command, but internal restoration, power-failure conditions, and timing remain part of reliability.",
+      "maturity": {
+        "stage": "In Volume Production",
+        "claim": "Infineon EXCELON F-RAM is a named commercial family with a datasheet for the 16Mb CY15B116QI/CY15V116QI. The document specifies the interface, operating temperature, and retention conditions at different temperatures. It supports discussion of conditional product performance without extrapolating from a single material paper.",
+        "sourceIds": [
+          "EMG-FRAM"
+        ],
+        "limit": "This is commercial capacitor-based F-RAM. Its endurance and retention years must not be transferred to HfO₂ FeFET or FTJ."
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Write: Set Remanent Polarization with an Electric Field",
+          "before": "The ferroelectric capacitor has one polarization direction, and the target is the other logic state.",
+          "stimulus": "Select the cell and apply an electric field across the capacitor that exceeds the required switching condition.",
+          "after": "Polarization aligns in the target direction; remanent polarization remains after voltage removal.",
+          "explanation": "Positive and negative polarization can be assigned to logic 0/1 by the design. Validation must establish voltage distribution, switching charge, and write success probability at the worst-case temperature."
+        },
+        {
+          "id": "erase",
+          "title": "Restore: Repolarize with the Reverse Field",
+          "before": "The capacitor retains the previously written polarization direction.",
+          "stimulus": "Apply a reverse write field across the same capacitor.",
+          "after": "Polarization reverses into the other retained state.",
+          "explanation": "This is direct rewriting and usually does not require a prior block erase. If a product offers a chip-clear command, its controller behavior must be distinguished from the cell's polarization physics."
+        },
+        {
+          "id": "read",
+          "title": "Read: Compare Switching Charge and Restore Data",
+          "before": "One of the two polarization directions represents the original data.",
+          "stimulus": "Apply a read excitation through the plate line and sense the bit-line charge difference between switching and non-switching responses.",
+          "after": "Sense the original value; if reading changed the polarization, write it back afterward to restore it.",
+          "explanation": "Destructive reading means that the sensing operation may change the internal storage state. It does not mean that every external read loses the data. The complete read sequence must include sense latching and restoration timing."
+        }
+      ],
+      "selection": "The word line enables the access transistor, connecting the ferroelectric capacitor to the bit line. The plate line supplies excitation, and the sense amplifier compares charge with a reference cell. A 1T1C design depends on reference precision; 2T2C allows differential sensing at greater area cost. The array must also control voltage distribution across unselected capacitors to prevent unnecessary switching or fatigue from shared plate lines.",
+      "variability": "Capacitor area, grains, ferroelectric-phase fraction, and coercive-field distribution change switching charge. Fatigue reduces switchable polarization, imprint makes switching asymmetric between directions, and reference drift reduces sensing margin. Differential circuits, reference design, and timing control can reduce the impact, but a typical polarization curve cannot replace full-array validation of writing, reading, and restoration.",
+      "advantages": [
+        "Polarization switching offers fast, low-energy nonvolatile storage that supports frequent updates.",
+        "Commercial capacitor-based products have explicit datasheets and support practical applications such as industrial logging.",
+        "Direct rewriting without prior whole-block erase simplifies retention of small state records."
+      ],
+      "tradeoffs": [
+        "Reading may require restoration, so internal timing and power-failure scenarios must be included in reliability design.",
+        "Smaller capacitors provide less sensing charge, constraining high-density scaling.",
+        "Ferroelectric integration, reference circuits, and plate lines add process and array cost."
+      ],
+      "ceilings": {
+        "device": "Shrinking the capacitor reduces switchable charge. Increasing the field to strengthen the signal may increase fatigue and dielectric stress. Retention, imprint, and polarization back-switching also depend on material, temperature, and cycling history.",
+        "array": "Bit-line parasitic capacitance dilutes the sensing signal. Reference cells and plate-line distributions affect the worst-case read margin. Differential structures improve discrimination at an area cost, and restoration also consumes array timing.",
+        "process": "Ferroelectric-film phase, electrodes, and annealing conditions must be integrated with CMOS. Traditional oxides and HfO₂ systems have different material windows. The ability to deposit a ferroelectric material does not establish array-process maturity.",
+        "system": "Read restoration, supply droop, and interface completion conditions determine data consistency. Datasheet cycle counts, retention temperatures, and interface clocks describe different levels and must be matched to the actual update workload and environment."
+      },
+      "fit": "Suitable for frequent data logging, metering, industrial control, and equipment-state retention when existing capacities and interfaces meet the requirements. Selection can use commercial datasheet tables for temperature, retention, and cycling, while checking minimum supply voltage, write-completion conditions, and the power-failure sequence to turn nonvolatility into verifiable system reliability.",
+      "avoid": "If the primary goal is extremely high density, the lowest bit cost, or a read operation that never requires internal restoration, FeRAM's high cycle capability should not obscure its structural cost. Specifications of commercial capacitor-based products also cannot guarantee the performance of FeFET or FTJ technologies still under research.",
+      "patents": [
+        {
+          "id": "US4873664A",
+          "url": "https://patents.google.com/patent/US4873664A/en",
+          "priority": "1987-02-12",
+          "assignee": "Original Applicant/Assignee: Ramtron",
+          "figures": "Use claim 1 to identify the ferroelectric capacitor, switching device, bit line, word line, plate line, and restoration sequence.",
+          "problem": "Arrange nonvolatile-memory operation that restores the original value when polarization sensing may change the data.",
+          "mechanism": "Use an access transistor, plate excitation, and sensing/restoration circuits to read polarization charge and write data back when required.",
+          "claimReading": "Identify the capacitor, switching device, and three types of control lines in claim 1, then trace capacitor voltage and polarization before and after sensing. The RAM name alone does not make this DRAM-like free-charge storage.",
+          "limit": "A historical circuit patent used as a teaching reference. It does not establish that a specific Infineon product uses exactly the same internal circuit. No legal-status or freedom-to-operate judgment has been made.",
+          "filing": "1987-02-12",
+          "publication": "1989-10-10",
+          "verifiedAt": "2026-09-10",
+          "dateNote": "Priority, the filing date of this U.S. application, and the publication/grant date of the listed publication number are recorded separately. Dates were checked against published patent bibliographic records; no conclusion on legal rights or status is made."
+        }
+      ],
+      "sourceIds": [
+        "EMG-FRAM",
+        "EMG-P-FERAM"
+      ],
+      "quiz": {
+        "question": "If FeRAM retains data after power loss, why might reading still require a writeback?",
+        "answer": "Nonvolatility comes from remanent polarization, but some sensing sequences deliberately switch polarization to obtain a charge difference. The original direction must be restored after sensing to preserve the data held before the read."
+      }
+    },
+    {
+      "id": "fefet",
+      "title": "FeFET: Translating Polarization into Threshold Voltage",
+      "family": "Ferroelectric Memory",
+      "storage": "FeFET uses ferroelectric polarization in the gate stack to change channel electrostatics, giving the transistor distinguishable high and low threshold voltages. Reading selects a gate bias between those thresholds and senses channel current. Charge trapping and detrapping also affect the actual memory window, so not every threshold-voltage change can be attributed solely to polarization.",
+      "structure": "A typical cross section includes a control gate, ferroelectric layer, interfacial dielectric, and semiconductor channel, with the source and drain forming the read path. MFIS and MFMIS, which adds a floating metal layer, are different integration approaches. The crystalline phase, grains, and interfacial layer of HfO₂-based ferroelectrics control polarization and voltage division. A single transistor in a schematic does not mean every array can operate without additional selection.",
+      "summary": "FeFET combines ferroelectric retention with transistor current gain, providing research opportunities for nondestructive reading and density scaling. The challenge is that write voltage is divided across both the ferroelectric and interfacial layers, while polarization switching may also generate or fill traps. Polarization stability, memory window, and endurance are not three independently optimizable numbers.",
+      "maturity": {
+        "stage": "Research Demonstration",
+        "claim": "The KIOXIA study associated with IEDM 2023 and reviewed here explicitly demonstrates control of trapped charge and polarization stability through interface engineering. An original FeFET PUF paper provides additional evidence. These support concrete device and circuit research, but are insufficient to identify a commercial production part using this stack.",
+        "sourceIds": [
+          "EMG-KIOXIA",
+          "EMG-FEPUF"
+        ],
+        "limit": "Some suppliers' ferroelectric-memory production news may refer to capacitor-based structures. Company or material names alone do not establish FeFET volume production. Failure to identify a product in this review does not establish that none exists anywhere in the industry."
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Write: Set the Low-Threshold-Voltage State",
+          "before": "Device polarization and interfacial charge produce a higher threshold voltage.",
+          "stimulus": "Apply a gate write pulse in the selected direction to switch ferroelectric polarization.",
+          "after": "Channel electrostatics change, producing a larger current at the specified read gate voltage.",
+          "explanation": "This schematic uses an n-channel device and one stack orientation. The actual polarity corresponding to high and low threshold voltage must be checked against the structure. The pulse may also change trapped charge, so the two effects must be separated."
+        },
+        {
+          "id": "erase",
+          "title": "Restore: Set the High-Threshold-Voltage State",
+          "before": "The device is in a low-threshold-voltage state and conducts more readily during reading.",
+          "stimulus": "Apply an opposite gate pulse to rearrange polarization and the associated interfacial charge.",
+          "after": "Threshold voltage rises and current falls at the same read gate voltage.",
+          "explanation": "Research often calls the two directions programming and erasing. The physics is polarization rewriting, rather than Flash block erase involving substantial charge tunneling into or out of a floating gate."
+        },
+        {
+          "id": "read",
+          "title": "Read: Sense Between the Two Threshold Voltages",
+          "before": "High and low threshold-voltage distributions represent the two data states.",
+          "stimulus": "Apply a read gate voltage intended not to switch polarization, together with a small drain bias.",
+          "after": "Sense channel current, ideally preserving the original polarization.",
+          "explanation": "Read bias must avoid polarization-switching conditions and substantial trap charging or discharging. If the memory window shrinks or distributions overlap, reliable reading can fail even while a typical device still exhibits hysteresis."
+        }
+      ],
+      "selection": "The array uses word lines for gate operation and bit/source lines to sense the channel. Practical schemes may add access transistors or special biases to suppress write and read interference in unselected cells. Write voltage divides across the ferroelectric and interfacial layers. The terminal potentials of half-selected cells must be drawn explicitly; being a transistor does not automatically provide complete isolation.",
+      "variability": "A small device contains only a few ferroelectric grains and may switch in discrete steps. Grain orientation, coercive field, interface thickness, and trap distributions also create device-to-device differences. Analog weights require multilevel windows and update control. PUF research can exploit cycle variation, but reproducibility, bias, environment, and reconfiguration conditions need separate testing. Variation is not itself security.",
+      "advantages": [
+        "The transistor channel amplifies electrical differences caused by polarization, offering potential for nondestructive reading.",
+        "Gate integration provides opportunities for single-transistor storage and further scaling.",
+        "Multilevel storage, analog computing, and reconfigurable PUFs can be explored, with each application requiring its own validation metrics."
+      ],
+      "tradeoffs": [
+        "Voltage division between the ferroelectric and interfacial layers may require higher write voltage and increase dielectric stress.",
+        "Trapped charge may stabilize polarization but may also narrow or shift the memory window.",
+        "Few-grain switching and device variation make large-array tails and multilevel precision difficult to control."
+      ],
+      "ceilings": {
+        "device": "Polarization back-switching, depolarization fields, trap generation, and oxide lifetime jointly limit retention and endurance. Introducing trapped charge to stabilize polarization may sacrifice the initial window. Readable distributions must be compared after both cycling and retention.",
+        "array": "Write bias may disturb half-selected gates, while threshold-voltage tails and bit-line leakage limit read margin. A small cell does not imply small high-voltage drivers, references, or redundancy overhead. Multilevel data requires particularly fine control.",
+        "process": "Ferroelectric phase, grains, doping, annealing, and interfacial-layer thickness require stable control. The floating metal in MFMIS and the direct interface in MFIS introduce different integration problems. A material patent cannot replace complete process qualification.",
+        "system": "Analog computing must compensate for window drift, update asymmetry, and read noise. Digital storage requires ECC and update strategies. PUFs must validate entropy, reliability, and the attack model rather than merely provide an attractive threshold-voltage histogram."
+      },
+      "fit": "Suitable for research into dense embedded storage, transistor-based analog weights, and PUFs with explicit environmental validation. For a target process, first establish a coupled model of ferroelectric behavior and trapping, then validate the worst-case window through array operation so that small-device potential translates into usable sensing margin.",
+      "avoid": "FeFET research data is insufficient to promise a mature standard chip in the near term, calibration-free multilevel precision across all temperatures, or direct reuse of the high-cycle specifications of commercial FeRAM. Hysteresis alone does not establish nonvolatility, and short room-temperature retention cannot replace post-cycling lifetime at high temperature.",
+      "patents": [
+        {
+          "id": "US10153155B2",
+          "url": "https://patents.google.com/patent/US10153155B2/en",
+          "priority": "2015-10-09",
+          "assignee": "Original Applicant/Assignee: University of Florida Research Foundation",
+          "figures": "Figures 1/2: stack; Figure 4: material images; claim 1.",
+          "problem": "Control materials and thermal processing to form HfO₂-based ferroelectric films suitable for electronic devices.",
+          "mechanism": "Use layered doping and annealing to adjust film structure and obtain the required ferroelectric properties.",
+          "claimReading": "Claim 1 focuses on the film-formation method and layer structure. Descriptions of use in capacitors or transistor gates do not mean that the claim covers every FeFET array operation.",
+          "limit": "An entry point to material engineering, not a complete implementation or endurance qualification for any commercial FeFET.",
+          "filing": "2016-10-06",
+          "publication": "2018-12-11",
+          "verifiedAt": "2026-09-10",
+          "dateNote": "Priority, the filing date of this U.S. application, and the publication/grant date of the listed publication number are recorded separately. Dates were checked against published patent bibliographic records; no conclusion on legal rights or status is made."
+        },
+        {
+          "id": "US11502083B2",
+          "url": "https://patents.google.com/patent/US11502083B2/en",
+          "priority": "2019-03-26",
+          "assignee": "Original Applicant/Assignee: Xiangtan University",
+          "figures": "Figures 2 and 3A–3F: device and process steps; claim 1.",
+          "problem": "Arrange the gate stack and interfaces in a ferroelectric transistor to address polarization control and integration conditions.",
+          "mechanism": "A structure containing a substrate, isolation, source/drain regions, and a stack of buffer layer, floating electrode, ferroelectric layer, and control gate.",
+          "claimReading": "The individual layers of claim 1 cannot be omitted. Compare voltage division in MFMIS and MFIS; effects of a specific structure must not become universal FeFET specifications.",
+          "limit": "A published device design does not establish product volume production or complete array qualification. Patent-family and legal-status analysis is incomplete.",
+          "filing": "2021-09-25",
+          "publication": "2022-11-15",
+          "verifiedAt": "2026-09-10",
+          "dateNote": "Priority, the filing date of this U.S. application, and the publication/grant date of the listed publication number are recorded separately. Dates were checked against published patent bibliographic records; no conclusion on legal rights or status is made."
+        }
+      ],
+      "sourceIds": [
+        "EMG-KIOXIA",
+        "EMG-FEPUF",
+        "EMG-FMC",
+        "EMG-P-HFO",
+        "EMG-P-FEFET"
+      ],
+      "quiz": {
+        "question": "Why cannot all FeFET threshold-voltage drift be treated as weakening polarization?",
+        "answer": "Traps in the interface and dielectric capture and release charge, also changing threshold voltage and, in turn, polarization stability. Time, bias, and material evidence are needed to separate the two effects."
+      }
+    },
+    {
+      "id": "ftj",
+      "title": "FTJ: Modulating the Tunnel Barrier with Polarization",
+      "family": "Ferroelectric Memory",
+      "storage": "FTJ controls tunneling current through the polarization direction of a thin ferroelectric barrier. The two directions produce different effective barrier profiles and resistance levels, commonly described through tunnel electroresistance, or TER. FTJ and FeFET both use polarization, but FTJ does not rely on threshold-voltage amplification in a semiconductor channel. Read current, barrier thickness, electrode screening, and leakage therefore become central tradeoffs.",
+      "structure": "A typical cell sandwiches an ultrathin ferroelectric layer between two electrodes; it may also include an interfacial dielectric or asymmetric electrodes. A transistor or selector provides selection, and read current passes directly through the barrier. Electrode material, interfacial screening, ferroelectric thickness, and crystallization jointly determine TER. The cross section must identify which layers provide polarization and which primarily limit current.",
+      "summary": "FTJ reverses polarization with a larger pulse, then senses tunneling current at a smaller bias, pursuing two-terminal nondestructive storage and interconnect-layer integration. The barrier must be thin enough to provide readable current while retaining stable ferroelectricity and suppressing leakage. An attractive resistance ratio does not establish sufficient absolute read current, much less a reliable selection window for a large array.",
+      "maturity": {
+        "stage": "Research Demonstration",
+        "claim": "The 2024 original FTJ paper and TSMC FTJ structure patent publication reviewed here support concrete thin-film and reliability research. A datasheet and supply evidence identifying a commercial production part using this structure have not been obtained, so the research-demonstration label is retained.",
+        "sourceIds": [
+          "EMG-FTJ24",
+          "EMG-P-FTJ"
+        ],
+        "limit": "Production status of other TSMC MRAM/RRAM technologies does not automatically place FTJ in volume production. Patent publication, patent grant, and process-product supply are separate events."
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Write: Set a Lower Tunneling Resistance",
+          "before": "Ferroelectric polarization makes the effective barrier less favorable for electron tunneling.",
+          "stimulus": "Apply a write pulse across the barrier strong enough to reverse polarization.",
+          "after": "Polarization and interfacial potential change, increasing current at the specified low read voltage.",
+          "explanation": "The polarization direction corresponding to low resistance depends on electrode and interface asymmetry. A teaching diagram must not define a fixed relationship between up/down arrows and high/low resistance for the entire family."
+        },
+        {
+          "id": "erase",
+          "title": "Restore: Reverse Polarization to Raise Resistance",
+          "before": "The FTJ carries a higher current at the specified read bias.",
+          "stimulus": "Apply a reverse write pulse to reset ferroelectric polarization.",
+          "after": "The effective barrier returns to the other profile, reducing tunneling current.",
+          "explanation": "This is polarization rewriting, commonly described as SET/RESET or programming/erasing. The names do not imply Flash-like erase through discharge of an entire region."
+        },
+        {
+          "id": "read",
+          "title": "Read: Compare Tunneling Current at Low Bias",
+          "before": "One polarization direction and its corresponding barrier profile retain the data.",
+          "stimulus": "Apply a read bias below the normal polarization-switching condition.",
+          "after": "Sense current and determine the bit, ideally preserving the original polarization.",
+          "explanation": "TER and absolute current must both be observed. A high resistance ratio with extremely small currents may still be limited by sensing noise, leakage, and read time."
+        }
+      ],
+      "selection": "A single FTJ has only two terminals and does not inherently provide complete array isolation. A 1T1FTJ implementation uses a transistor for selection and biasing; a crosspoint array needs a selector or sufficiently nonlinear current characteristics. Half-select voltages may cumulatively affect polarization, and read leakage may obscure small tunneling currents. Device TER and array readability therefore require separate validation.",
+      "variability": "Small film-thickness differences can change tunneling current exponentially. Grains, ferroelectric phase, and interfacial traps also affect polarization switching and the barrier. Multilevel research must distinguish a controllable polarization fraction from random leakage paths. Differential cells, pulse verification, and reference calibration may improve behavior, but their additional area and time must also be quantified.",
+      "advantages": [
+        "The two-terminal structure and nondestructive resistance reading offer research potential for compact integration.",
+        "Electrode and interface engineering can tune the barrier, providing design choices different from FeFET.",
+        "Thin-film and multilevel-polarization research can support interconnect-layer storage and analog weights, provided the full operating conditions are validated."
+      ],
+      "tradeoffs": [
+        "Tunneling current and polarization retention impose competing requirements on film thickness.",
+        "High TER does not necessarily provide sufficient read current, and leakage may undermine practical sensing.",
+        "Low-temperature crystallization, interface quality, selectors, and large-array yield require complete integration evidence."
+      ],
+      "ceilings": {
+        "device": "A thinner barrier improves read current but may reduce polarization stability or increase leakage. A thicker barrier reduces the available sensing signal. Electrode screening, depolarization fields, and traps jointly affect retention and TER after cycling.",
+        "array": "Small tunneling currents are easily obscured by sneak currents and sensing noise. Half-select pulses may also change polarization cumulatively. The selector turn-on window, line resistance, and cell-current distributions determine the usable array size.",
+        "process": "Ultrathin-layer uniformity, ferroelectric crystallization, and electrode/interface reactions are highly sensitive. Lower annealing temperature can benefit interconnect integration, but phase, polarization, and leakage must all meet requirements; deposition alone is insufficient.",
+        "system": "With very small read current, sensing time, amplifiers, and calibration energy may offset device-level write savings. Multilevel weights also require management of drift and update distributions. TER or cell cycle count alone cannot compare complete memories."
+      },
+      "fit": "Suitable for research into two-terminal polarization storage, interconnect-layer integration, and analog weights that tolerate calibration, particularly when electrodes, interfaces, and selectors can be designed together. Research targets should jointly specify absolute read current, TER, pulses, area, retention, and post-cycling distributions to assess suitability for larger arrays.",
+      "avoid": "Available research abstracts do not guarantee standard chips deliverable in the near term, calibration-free high-capacity multilevel storage, or extremely low sensing energy without a long integration time. A low-temperature step in a patent also does not establish validation of the complete back-end process and its reliability.",
+      "patents": [
+        {
+          "id": "US20240057343A1",
+          "url": "https://patents.google.com/patent/US20240057343A1/en",
+          "priority": "2022-08-11",
+          "assignee": "Original Applicant/Assignee: Taiwan Semiconductor Manufacturing Company (TSMC)",
+          "figures": "Figure 17: FTJ connection to a transistor; claims 1 and 17.",
+          "problem": "Form a thin ferroelectric structure with the required properties within an integrable thermal budget and connect it to a memory circuit.",
+          "mechanism": "Bring a catalytic metal into contact with the ferroelectric material and use film and annealing steps to adjust formation conditions. The figures also show an embodiment connected to a transistor.",
+          "claimReading": "Claim 1 focuses on the material and its contact with a catalytic metal; claim 17 focuses on the formation method. Distinguish structure, method, and effects described in the specification. Do not read every feature from every figure into every claim as a required limitation.",
+          "limit": "The reviewed document is the A1 publication. Family records include US12550335B2, granted on 2026-02-10; discussing the granted scope requires a separate reading of B2. Neither publication nor grant establishes FTJ volume production.",
+          "filing": "2022-08-11",
+          "publication": "2024-02-15",
+          "verifiedAt": "2026-09-10",
+          "dateNote": "Priority, the filing date of this U.S. application, and the publication/grant date of the listed publication number are recorded separately. Dates were checked against published patent bibliographic records; no conclusion on legal rights or status is made."
+        }
+      ],
+      "sourceIds": [
+        "EMG-FTJ24",
+        "EMG-P-FTJ"
+      ],
+      "quiz": {
+        "question": "Why can an FTJ still read slowly despite a large high-to-low resistance ratio?",
+        "answer": "A large ratio does not mean a large absolute current. If both state currents are very small, the sense circuit needs a longer integration time and becomes more sensitive to leakage and noise. TER and current magnitude must be evaluated together."
+      }
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-title-en="Evidence Ledger · NVM Knowledge Hub" data-title-zh="證據總帳 · NVM 知識中心" data-description-en="Searchable research ledger for SRAM, OTP, PUF, optical/thermal side channels, FIB and Secure Storage: papers, patents, vendor documents and official cases." data-description-zh="可搜尋的 SRAM、OTP、PUF、光學與熱側通道、FIB 及安全儲存研究總帳，涵蓋論文、專利、供應商文件與官方案例。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260906-navy-v3"></script>
+  <script src="site-language.js?v=20260910-bilingual"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Searchable research ledger for SRAM, OTP, PUF, optical/thermal side channels, FIB and Secure Storage: papers, patents, vendor documents and official cases.">
   <meta name="theme-color" content="#061c2a">
@@ -41,7 +41,7 @@
       <span class="brand-mark"><svg viewBox="0 0 48 48" width="32" height="32"><rect x="11" y="11" width="26" height="26" rx="3"/><path d="M17 18h14M17 24h14M17 30h8M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></svg></span>
       <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span><span class="brand-section">EVIDENCE LEDGER</span>
     </a>
-    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation">
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation"><a data-lang="en" href="NVM技術全景.html">NVM Technology Atlas</a><a data-lang="zh" href="NVM技術全景中文.html">NVM 技術全景</a>
       <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a><a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a><a href="iot-mcu-envm.html"><span data-lang="zh">IoT &amp; MCU</span><span data-lang="en">IoT &amp; MCU</span></a><a href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive</span></a><a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty</span></a><a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
     </nav>
     <div class="header-actions">
@@ -52,8 +52,8 @@
   </header>
 
   <nav class="site-breadcrumb" aria-label="Breadcrumb">
-    <i></i><a href="index.html">Knowledge Hub</a><i></i><a href="memory-physics.html"><span data-lang="zh">記憶體物理</span><span data-lang="en">Memory Physics</span></a><i></i><strong><span data-lang="zh">矽驗證證據總帳</span><span data-lang="en">Evidence Ledger</span></strong>
-    <span class="topic-switch"><a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a><a href="memory-physics.html"><span data-lang="zh">記憶體物理</span><span data-lang="en">Memory Physics</span></a><a aria-current="page" href="memory-evidence.html"><span data-lang="zh">證據總帳</span><span data-lang="en">Evidence Ledger</span></a><a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Tech Comparison</span></a></span>
+    <i></i><a href="index.html"><span data-lang="zh">知識中心</span><span data-lang="en">Knowledge Hub</span></a><i></i><a href="memory-physics.html"><span data-lang="zh">記憶體物理</span><span data-lang="en">Memory Physics</span></a><i></i><strong><span data-lang="zh">矽驗證證據總帳</span><span data-lang="en">Evidence Ledger</span></strong>
+    <span class="topic-switch"><a data-lang="en" href="NVM技術全景.html">NVM Technology Atlas</a><a data-lang="zh" href="NVM技術全景中文.html">NVM 技術全景</a><a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a><a href="memory-physics.html"><span data-lang="zh">記憶體物理</span><span data-lang="en">Memory Physics</span></a><a aria-current="page" href="memory-evidence.html"><span data-lang="zh">證據總帳</span><span data-lang="en">Evidence Ledger</span></a><a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Tech Comparison</span></a></span>
   </nav>
 
   <main id="main-content">
@@ -87,7 +87,7 @@
         </div>
 
         <div class="evidence-toolbar">
-          <label class="evidence-search"><span aria-hidden="true">⌕</span><input id="evidenceSearch" type="search" placeholder="搜尋作者、技術、攻擊或 DOI…" autocomplete="off"></label>
+          <label class="evidence-search"><span aria-hidden="true">⌕</span><input id="evidenceSearch" type="search" placeholder="Search author, technology, attack or DOI…" data-placeholder-en="Search author, technology, attack or DOI…" data-placeholder-zh="搜尋作者、技術、攻擊或 DOI…" autocomplete="off"></label>
           <div class="evidence-filters" id="evidenceFilters">
             <button class="active" type="button" data-type="all" aria-pressed="true"><span data-lang="zh">全部</span><span data-lang="en">ALL</span></button>
             <button type="button" data-type="paper" aria-pressed="false"><span data-lang="zh">論文</span><span data-lang="en">PAPERS</span></button>
@@ -204,7 +204,7 @@
           </article>
 
                     <article class="source-card" id="evidence-V10" data-type="vendor" data-keywords="BCD Power PMIC trimming eMemory ChipEstimate zero mask adder LDMOS 150C 175C">
-            <div class="source-index"><b>V10</b><span>VENDOR DISCLOSURE</span></div>
+            <div class="source-index"><b>V10</b><span><span data-lang="zh">供應商揭露</span><span data-lang="en">VENDOR DISCLOSURE</span></span></div>
             <div class="source-content">
               <p class="source-meta">2021-07-06 · eMEMORY &amp; CHIPESTIMATE · E3</p>
               <h3>How eNVM Helps Power Controllers Be Smarter: BCD Zero Mask Adder Economics</h3>

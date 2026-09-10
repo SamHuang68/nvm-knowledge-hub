@@ -1,0 +1,729 @@
+{
+  "sources": [
+    {
+      "id": "ch-pat-efuse-poly",
+      "label": "IBM: Locally Narrowed Electrical Fuse Patent US7417300B2",
+      "url": "https://patents.google.com/patent/US7417300B2/en",
+      "kind": "Patent",
+      "locator": "Figures 3 and 4A; embodiment descriptions of electromigration and material backflow; claim 1",
+      "date": "Granted 2008-08-26; reviewed 2026-09-10",
+      "limit": "Supports a specific polysilicon/silicide fuse structure and its engineering problems. A patent embodiment is not a commercial product reliability guarantee, nor does it establish that all eFuses use the same materials or state transition."
+    },
+    {
+      "id": "ch-pat-efuse-via",
+      "label": "TSMC: Metal Via Fuse Patent US8847350B2",
+      "url": "https://patents.google.com/patent/US8847350B2/en",
+      "kind": "Patent",
+      "locator": "Figures 1 and 5A; sections on current crowding and via contact placement; claim 1",
+      "date": "Granted 2014-09-30; reviewed 2026-09-10",
+      "limit": "Supports a specific interconnect geometry and programming method. It does not provide process-independent programming current, area, or production yield figures."
+    },
+    {
+      "id": "ch-pat-antifuse",
+      "label": "Kilopass: Ultrathin Dielectric Breakdown Cell Patent US6667902B2",
+      "url": "https://patents.google.com/patent/US6667902B2/en",
+      "kind": "Patent",
+      "locator": "Descriptions corresponding to Figures 1, 3, and 8; selected/half-selected bias and read-current sections; additional structures in Figures 12–15",
+      "date": "Granted 2003-12-23; reviewed 2026-09-10",
+      "limit": "The 2.5 V, 7 V, and 1.5 V values in this material belong only to this early embodiment. They must not be reused as operating recommendations for current OTP IP, and this patent does not establish the topology of every commercial cell."
+    },
+    {
+      "id": "ch-pat-eeprom-window",
+      "label": "Hughes Aircraft Company: Local Tunnel-Window EEPROM Patent US4115914A",
+      "url": "https://patents.google.com/patent/US4115914A/en",
+      "kind": "Patent",
+      "locator": "Front page of the original publication; Figures 3i and 6; claims 2 and 9; parent application in the priority chain",
+      "date": "Granted 1978-09-26; reviewed 2026-09-10",
+      "limit": "1976-03-26 is the parent-application date found in the records; this application was filed in 1977. The earliest date in a priority chain is not a legal determination of the effective priority of every claim."
+    },
+    {
+      "id": "ch-pat-eeprom-singlepoly",
+      "label": "Cypress Semiconductor: Buried-Control-Gate Single-Poly EEPROM Patent US5844271A",
+      "url": "https://patents.google.com/patent/US5844271A/en",
+      "kind": "Patent",
+      "locator": "Figures 3–6; buried control electrode, thick/thin oxide regions, and operating descriptions; claim 1",
+      "date": "Granted 1998-12-01; reviewed 2026-09-10",
+      "limit": "Demonstrates one single-poly EEPROM implementation. It does not establish that current Synopsys MTP uses this structure or the same hot-electron injection and tunneling paths."
+    },
+    {
+      "id": "ch-pat-nor-splitgate",
+      "label": "Worldwide Semiconductor Manufacturing / TSMC: Split-Gate Flash Patent US6232180B1",
+      "url": "https://patents.google.com/patent/US6232180B1/en",
+      "kind": "Patent",
+      "locator": "Assignment records from 1999 and 2000; Figure 6 and its operating table; claims 4 and 6",
+      "date": "Granted 2001-05-15; reviewed 2026-09-10",
+      "limit": "This embodiment uses source-side injection and channel erase. Its operating table must not be combined with SuperFlash inter-gate FN erase in the same cross-section. Aggregated assignee metadata must be checked against the assignment timeline."
+    },
+    {
+      "id": "ch-pat-sonos",
+      "label": "NCR: SONOS Blocking-Oxide Patent WO1981000790A1",
+      "url": "https://patents.google.com/patent/WO1981000790A1/en",
+      "kind": "Patent",
+      "locator": "Figure 1; descriptions of silicon nitride and the upper/lower oxides; claim 1; PCT priority information",
+      "date": "Published 1981-03-19; reviewed 2026-09-10",
+      "limit": "Provides an early SONOS stack and retention/program-erase tradeoffs. Its film thicknesses, biases, and cycling results must not be extrapolated to modern SONOS, MONOS, or 3D NAND."
+    },
+    {
+      "id": "ch-pat-nrom",
+      "label": "Saifun: Asymmetric Charge-Trapping Patent US5768192A",
+      "url": "https://patents.google.com/patent/US5768192A/en",
+      "kind": "Patent",
+      "locator": "Front page of the original publication; localized hot-electron programming and reverse-read sections; claims 1 and 23",
+      "date": "Granted 1998-06-16; reviewed 2026-09-10",
+      "limit": "The original publication names Saifun; Spansion Israel in aggregated metadata reflects later corporate history. This patent alone does not establish the erase mechanisms or commercial specifications of every two-bit NROM implementation."
+    },
+    {
+      "id": "ch-pat-nand-vertical",
+      "label": "Toshiba: Columnar-Semiconductor Vertical NAND Patent US7696559B2",
+      "url": "https://patents.google.com/patent/US7696559B2/en",
+      "kind": "Patent",
+      "locator": "Figures 2 and 5–9; programming, erase, and bitline-discharge descriptions; claim 1",
+      "date": "Granted 2010-04-13; reviewed 2026-09-10",
+      "limit": "A specific early columnar-sidewall embodiment. It is not a substitute for every modern gate-all-around cross-section and is not a complete patent history of planar NAND."
+    },
+    {
+      "id": "ch-product-mtp",
+      "label": "Synopsys: MTP EEPROM NVM IP for Analog and Mixed-Signal Processes",
+      "url": "https://www.synopsys.com/resources/mtp-eeprom-nvm-ip-for-analog-and-mixed-signal-process-nodes-datasheet.html",
+      "kind": "Manufacturer Product Introduction",
+      "locator": "Public introduction and learning points: floating gate, logic process, electrical erase, and hard macro",
+      "date": "No publication date stated; reviewed 2026-09-10",
+      "limit": "Only the public introduction was reviewed; the detailed datasheet behind the registration form was not obtained. The product positioning and broad physical mechanism are confirmed. Undisclosed capacities, paired endurance/retention conditions, film stacks, and carrier paths are not inferred."
+    },
+    {
+      "id": "ch-product-sonos",
+      "label": "Infineon: SONOS Embedded Flash IP Solutions",
+      "url": "https://www.infineon.com/products/memories/embedded-flash-ip-solutions",
+      "kind": "Manufacturer Technology and Volume-Production Statement",
+      "locator": "SONOS technology section; production nodes; 2T cell and FN program/erase; macro-family specification list",
+      "date": "No publication date stated; reviewed 2026-09-10",
+      "limit": "The 25 ns, 100,000-cycle, and ten-year retention figures are listed at family level without fully pairing each node, capacity, temperature, and post-cycling retention condition. They are not combined into one guaranteed specification. This evidence does not cover all NROM or 3D NAND implementations."
+    },
+    {
+      "id": "ch-tech-superflash",
+      "label": "SST / Microchip: SuperFlash Technology Brochure DS00001425F",
+      "url": "https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf",
+      "kind": "Manufacturer Technical Brochure",
+      "locator": "Pages 2–3; stacked-gate/split-gate comparison; source-side injection, inter-gate FN erase, and three structural generations",
+      "date": "2018-03; reviewed 2026-09-10",
+      "limit": "Structures and mechanisms are read in the context of the identified SuperFlash generation. The 2018 shipment figures, node table, and typical reliability data are not guarantees for every product in 2026."
+    },
+    {
+      "id": "ch-tech-nand",
+      "label": "Kioxia: NAND Flash Memory Fundamentals",
+      "url": "https://www.kioxia.com/en-jp/rd/technology/nand-flash.html",
+      "kind": "Manufacturer Fundamentals Explanation",
+      "locator": "Figures 2–5; floating-gate and charge-trap storage; threshold voltage and series-string reading",
+      "date": "No publication date stated; reviewed 2026-09-10",
+      "limit": "An introductory teaching source, not a complete operating specification for a particular chip. Generic illustrations do not establish the materials and biases of all planar or 3D NAND."
+    },
+    {
+      "id": "ch-tech-multilevel",
+      "label": "Kioxia: Increasing Flash Capacity with Multilevel Cells",
+      "url": "https://www.kioxia.com/en-jp/rd/technology/multi-level-cell.html",
+      "kind": "Manufacturer Fundamentals Explanation",
+      "locator": "Figure 5 and adjacent text; bits per cell, threshold-voltage states, and speed/lifetime tradeoffs",
+      "date": "No publication date stated; reviewed 2026-09-10",
+      "limit": "Supports the requirement for 2 to the Nth power distinguishable states to store N bits and the qualitative tradeoffs. It does not provide universal endurance or speed ratios between TLC/QLC generations."
+    },
+    {
+      "id": "ch-tech-retention",
+      "label": "Kioxia: Data Retention in the Managed Flash Endurance and Reliability Series",
+      "url": "https://americas.kioxia.com/content/dam/kioxia/en-us/business/memory/mlc-nand/asset/KIOXIA_NAND_Flash_Data_Retention_Technical_Brief.pdf",
+      "kind": "Manufacturer Technical Brief",
+      "locator": "Pages 1–2; P/E cycling, temperature, and data retention",
+      "date": "2024-03; reviewed 2026-09-10",
+      "limit": "Supports evaluating NAND reliability under combined conditions. NAND values must not be transferred directly to EEPROM, SONOS, or OTP specifications."
+    },
+    {
+      "id": "ch-tech-ecc",
+      "label": "Kioxia: NAND Error-Correction Code Technical Brief",
+      "url": "https://www.kioxia.com/content/dam/kioxia/shared/business/memory/mlc-nand/asset/productbrief/KIOXIA_Understanding_ECC_Tech_Brief.pdf",
+      "kind": "Manufacturer Technical Brief",
+      "locator": "Page 1; raw NAND, managed NAND, and the role of ECC",
+      "date": "2022-05; reviewed 2026-09-10",
+      "limit": "Supports including error management in system comparisons. It does not supply a universal ECC strength, decoding latency, or spare-capacity ratio that can be applied directly throughout this material."
+    },
+    {
+      "id": "ch-tech-deepetch",
+      "label": "Kioxia: Improving Memory-Hole Process Productivity with a New Etch Gas",
+      "url": "https://www.kioxia.com/en-jp/rd/technology/topics/topics-62.html",
+      "kind": "Manufacturer Process Research",
+      "locator": "Sections on memory-hole profile, etch rate, and high-aspect-ratio processing",
+      "date": "2024-02-22; reviewed 2026-09-10",
+      "limit": "Describes a specific deep-hole etching study and process bottlenecks. Its improvement figures are not extrapolated to all equipment, stack heights, or production costs."
+    },
+    {
+      "id": "ch-paper-3dvariation",
+      "label": "Y. Luo et al.: Early Retention Loss and Process Variation in 3D NAND",
+      "url": "https://arxiv.org/abs/1807.05140",
+      "kind": "Abstract of Original Chip-Measurement Research",
+      "locator": "Abstract: layer-to-layer process variation, early retention loss, and retention interference",
+      "date": "2018; reviewed 2026-09-10",
+      "limit": "Only the abstract was reviewed to identify research questions. Unreviewed methods, sample counts, and quantitative improvements are not reused, and the distributions are not assumed to apply to all modern 3D NAND."
+    },
+    {
+      "id": "ch-paper-readdisturb",
+      "label": "Y. Cai et al.: Read-Disturb Errors in MLC NAND Flash",
+      "url": "https://arxiv.org/abs/1805.03283",
+      "kind": "Abstract of Original Chip-Measurement Research",
+      "locator": "Abstract: relationships among pass bias, accumulated cycling, and read disturb",
+      "date": "Research account published 2018-05-08; corresponding DSN 2015 work; reviewed 2026-09-10",
+      "limit": "Only qualitative relationships are supported by the reviewed abstract. Unreviewed quantitative results are not reused, and 2Y nm MLC samples are not treated as equivalent to modern 3D QLC."
+    },
+    {
+      "id": "ch-maturity-ibm-efuse",
+      "label": "IBM: eFUSE from Memory Redundancy to Autonomic Chips",
+      "url": "https://research.ibm.com/publications/electrically-programmable-fuse-efuse-from-memory-redundancy-to-autonomic-chips",
+      "kind": "Manufacturer Research Abstract",
+      "locator": "CICC 2007 abstract; IBM implementations and applications from 180 nm to 45 nm",
+      "date": "2007-09-16; reviewed 2026-09-10",
+      "limit": "Establishes historical implementations at an identified company across an identified process range. The abstract does not enumerate product models, shipment volumes, or current platform qualifications; 32 nm and beyond were prospective at the time."
+    },
+    {
+      "id": "ch-maturity-kilopass",
+      "label": "Synopsys: 2018 Kilopass Acquisition and OTP Shipment Statement",
+      "url": "https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology",
+      "kind": "Manufacturer Historical Product and Shipment Statement",
+      "locator": "Highlights and product sections; antifuse 1T/2T, XPM, Gusto, SecretCode, and cumulative shipments",
+      "date": "2018-01-10; reviewed 2026-09-10",
+      "limit": "More than 170 customers, 400 SoC designs, and 10 billion units were manufacturer statements in 2018, not an independent shipment audit conducted for this material. Portfolio-wide figures are not assigned to an individual model or node."
+    },
+    {
+      "id": "ch-maturity-otp-current",
+      "label": "Synopsys: Current Antifuse OTP NVM IP Product Page",
+      "url": "https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/otp.html",
+      "kind": "Manufacturer Product and Validation Statement",
+      "locator": "Overview; process availability; TSMC advanced-node silicon validation and N5A/N7A automotive qualification",
+      "date": "No publication date stated; reviewed 2026-09-10",
+      "limit": "Availability, silicon validation, automotive qualification, and volume-production shipments are different evidence levels. N5A/N7A AEC-Q100 Grade 1 qualifications are not extended to every node, nor are the claims restated as an unbreakable security guarantee."
+    },
+    {
+      "id": "ch-maturity-nor-product",
+      "label": "Microchip: SST39SF020A Parallel Flash Product Page",
+      "url": "https://www.microchip.com/en-us/product/SST39SF020A",
+      "kind": "Manufacturer Status for an Identified Product",
+      "locator": "Model, product status, and 2 Mb / 4.5–5.5 V parallel flash summary",
+      "date": "No publication date stated; reviewed 2026-09-10",
+      "limit": "Listed as in production when reviewed. The 4.5–5.5 V range is this product's supply range, not an interface voltage for all NOR and certainly not the cell's tunneling bias."
+    },
+    {
+      "id": "ch-maturity-bics",
+      "label": "Kioxia: BiCS FLASH Principles and Commercial Generations",
+      "url": "https://www.kioxia.com/en-jp/rd/technology/bics-flash.html",
+      "kind": "Manufacturer Fundamentals and Commercial History",
+      "locator": "Commercial-generation section; stacked electrodes, memory holes, and charge-storage film in Figures 4–5",
+      "date": "Page includes technical descriptions through 2023; reviewed 2026-09-10",
+      "limit": "48 layers / 2015, 96 layers / 2018, 112 layers / 2020, and 162 layers / 2022 are the manufacturer's listed commercial history. This page is not treated as the latest 2026 layer-count ranking or a complete specification for each generation."
+    }
+  ],
+  "topics": [
+    {
+      "id": "efuse",
+      "title": "eFuse: Permanent Conductance Programming",
+      "family": "One-Time Programming / Conductor Structure Change",
+      "storage": "A bit is stored as a difference in the resistance of a conductive path. An unprogrammed fuse typically has low resistance; a controlled current causes material migration or a break in a designated region, producing higher resistance. Logic 0/1 is defined by sensing and encoding. High resistance does not intrinsically correspond to a particular bit value, and the programmed state must not be assumed to be an ideal open circuit.",
+      "structure": "A polysilicon/silicide fuse has a narrow link between end contacts. A metal-via implementation places the region intended to change near an interconnect layer and via. Its equivalent circuit is a resistor whose state can change permanently, in series with a select or programming transistor and connected to a read sensor. Link dimensions, heat-flow paths, via placement, and peripheral drivers must be shown together; a broken line alone is insufficient.",
+      "summary": "eFuse is suited to permanently storing small amounts of on-chip configuration, such as trim codes, repair addresses, and identification data. One-time programming means that each physical location supports an effective transition in only one irreversible direction; separate locations can be programmed in batches. Multiple programming commands to a macro do not make an individual fuse reversibly erasable and rewritable.",
+      "maturity": {
+        "stage": "Identified Implementation",
+        "claim": "IBM's 2007 technology review describes eFUSE evolution from 180 nm to 45 nm and applications in memory redundancy, chip identification, and analog trimming, establishing implementations in identified processes. This material also uses IBM and TSMC patents to explain polysilicon/silicide and metal-via structures.",
+        "sourceIds": ["ch-maturity-ibm-efuse", "ch-pat-efuse-poly", "ch-pat-efuse-via"],
+        "limit": "The reviewed historical abstract does not enumerate product models or shipment volumes, so no named volume-production product is invented. A patent also does not establish that the same fuse macro can be used in any current TSMC node. Adoption requires qualification evidence for the specified process and IP version.",
+        "implementationStage": "Longstanding Implementations in Identified Processes"
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Program: Concentrate Current in a Controlled Region",
+          "before": "The conductor still has a continuous low-resistance path. The select transistor has not initiated programming, and the read bias is insufficient to induce the intended permanent material change.",
+          "stimulus": "Enable the selected driver and apply a programming current calibrated for both the device and pulse duration; keep unselected paths isolated. No process-independent voltage or current is specified here.",
+          "after": "A high-resistance path forms at the narrowed region or near the via. Post-program sensing verifies that resistance has crossed the decision boundary, while allowing for residual conduction and drift over time.",
+          "explanation": "Carriers travel along the conductor, while local current density and Joule heating increase the rate of material migration. US7417300B2 uses a narrowed geometry to control current crowding and address material backflow; US8847350B2 shapes current concentration through via contact placement. The teaching focus is permanent material redistribution and the final resistance distribution, rather than describing every mechanism as metal rupture."
+        },
+        {
+          "id": "erase",
+          "title": "Erase: No Reverse Recovery in Normal Operation",
+          "before": "The programmed conductor has material depletion, voids, or a changed conduction path. This is a structural state, not stored charge that can be moved back by changing a gate bias.",
+          "stimulus": "There is no specified normal electrical erase pulse that reconstructs the original low-resistance path. Additional high current may cause new damage and must not be treated as a RESET operation.",
+          "after": "The original location remains consumed. If an application must modify logical data, the design must use reserved fresh locations, version encoding, or another rewritable memory.",
+          "explanation": "Changing the data encoding or activating spare locations can change the information read by the system, but it does not restore the original fuse material. The number of available updates depends on reserved capacity and the protocol, not on the program/erase endurance of one bit. Test flows must also reserve sacrificial test cells rather than treating irreversible programming as a repeatedly recoverable functional test."
+        },
+        {
+          "id": "read",
+          "title": "Read: Measure Resistance Without Reprogramming",
+          "before": "The selected fuse lies in either the low-resistance or programmed high-resistance distribution. The sensor has a reference current, reference resistance, or voltage decision threshold.",
+          "stimulus": "Establish a current path under read conditions far below the programming stress. The selector connects the specified fuse, and sensing measures current magnitude or a node's charging/discharging rate.",
+          "after": "The low-resistance path conducts more readily than the high-resistance path. The sensor outputs the encoded bit, without requiring a change to the stored state during normal reading.",
+          "explanation": "The required guarantee is that the high- and low-resistance distributions remain distinguishable across temperature, process variation, and time in service. Programmed resistance is not infinite, and unprogrammed resistance is not zero; series resistance from the select transistor and wiring affects the result. The readout must therefore be analyzed with its reference path, rather than judging read reliability solely from a gap in a microscope image."
+        }
+      ],
+      "selection": "A transistor typically selects the cell's programming and read paths. The programming driver must withstand the pulse current, and supply or wiring drops must not leave distant cells underprogrammed; unselected cells must avoid additional stress on shared lines. A small fuse link therefore does not guarantee a small complete macro once drivers, sensing, and wiring are included.",
+      "variability": "Fuse width, silicide or metal thickness, via overlap, and the thermal environment change local current density. Programming pulses then translate those differences into a post-program resistance distribution. Measure the distributions before programming, after programming, after thermal treatment, and after read-life stress; examine material backflow, residual paths, and reference-sensing drift rather than reporting only an average programming success rate.",
+      "advantages": [
+        "A permanently retained physical state suits trim, identification, and repair settings that do not require reversal.",
+        "Implementations can use appropriate polysilicon/silicide or metal-interconnect structures, allowing selection to match the available process.",
+        "Readout can be reduced to resistance or current comparison and integrated with logic that loads configuration at power-up."
+      ],
+      "tradeoffs": [
+        "The same physical location cannot be erased in normal operation; field updates require reserved locations and data-validity encoding.",
+        "Programming current, supply drops, and select-transistor area may dominate the complete macro cost.",
+        "Post-program resistance and long-term drift must be controlled; permanence must not be equated directly with security protection or unlimited retention."
+      ],
+      "ceilings": {
+        "device": "The physical limit is the window for reproducible material change: too little stress produces overlapping resistance distributions, while too much may damage neighboring structures. Any local geometry improvement must be demonstrated through sensing margin across process corners and after aging. No single minimum linewidth or programming current applies to every material.",
+        "array": "Larger arrays require more decoding, programming-drive, and sensing resources. An individual resistor may shrink, but line drop, selected-cell isolation, reference matching, and test redundancy do not disappear with it. Effective density should be calculated as the number of reliable deliverable bits divided by the area of the complete macro.",
+        "process": "Fuse materials and contacts must comply with the baseline process's thermal budget, interconnect reliability requirements, and layout rules. Deliberately induced local migration must not propagate into ordinary wiring failure. Via placement and neighboring structures are part of process integration and cannot be signed off through logic simulation alone.",
+        "system": "System limits include remaining programmable locations, the cost of irreversible misprogramming, and the supply's pulse capability. If many data updates are required, additional encoding and redundancy progressively consume capacity. Permanent records still require access permissions, fault handling, and update-transaction integrity."
+      },
+      "fit": "Suitable for chip identification, analog trimming, manufacturing repair, and permanent options when programming is infrequent and the data lifecycle can be defined in advance. Before selecting it, establish the latest programming point, whether field appends are needed, the reserved bit count for each field, and whether the platform can provide the specified programming pulses and verification.",
+      "avoid": "Not suitable as a direct store for frequently rewritten counters, logs, or user settings that must be freely reversible. Low-cost, large-capacity updatable storage requires comparison of complete macro and management costs. The word Fuse also does not make a resettable electronic fuse IC for power protection equivalent to this memory cell.",
+      "patents": [
+        {
+          "id": "US7417300B2",
+          "url": "https://patents.google.com/patent/US7417300B2/en",
+          "priority": "2006-03-09",
+          "assignee": "IBM; checked against bibliographic and assignment records",
+          "figures": "Figures 3 and 4A; claim 1",
+          "problem": "Programming location and material backflow in a polysilicon/silicide fuse may leave resistance too low or unstable. The design must concentrate current density at an intended location while controlling the remaining post-program path so that the sensor can reliably distinguish the two states.",
+          "mechanism": "Local narrowing within the fuse body changes current-crowding and material-migration conditions. When reading Figures 3 and 4A, first trace where current enters the narrowed region from the contacts, then examine how silicide migration, residual polysilicon, and material backflow affect programmed resistance.",
+          "claimReading": "Claim 1 defines a combination through specific fuse geometry and structural relationships. Map each actual limitation onto the drawings. An eFuse that uses electromigration is only a technology category; that description does not replace reading the claim's narrowing, terminal, and relative-position requirements.",
+          "limit": "This is a lesson on an engineering problem and structure. Patent-family deduplication, validity, legal status, and freedom-to-operate analysis have not been completed, nor has any current IBM product been shown to require this implementation."
+        },
+        {
+          "id": "US8847350B2",
+          "url": "https://patents.google.com/patent/US8847350B2/en",
+          "priority": "2012-08-30",
+          "assignee": "Taiwan Semiconductor Manufacturing Company; checked against the initial 2012 assignment record",
+          "figures": "Figures 1 and 5A; claim 1",
+          "problem": "Inadequate concentration of current in a metal/via structure can constrain the programming window and required current. Material movement must also avoid unintended conduction to neighboring structures. The problem spans interconnect geometry, the programmable region, and driver capability.",
+          "mechanism": "A via that lands partly on the fuse, together with interconnects running in different directions, creates a region of local current concentration. Figure 1 identifies the upper and lower metals and the via; Figure 5A traces the complete current path from the select or programming transistor to the fuse.",
+          "claimReading": "Claim 1 centers on a specific arrangement of interconnects, the fuse, and the via contact region. Mark the via's partial overlap and its effect on the current path when reading it. The label metal fuse does not capture all of the patent's concrete limitations.",
+          "limit": "The patent supplies neither universal process design rules nor production reliability data. Publication alone is not used here to infer IP availability at a particular node, an actual license scope, or an infringement relationship."
+        }
+      ],
+      "sourceIds": ["ch-pat-efuse-poly", "ch-pat-efuse-via", "ch-maturity-ibm-efuse"],
+      "quiz": {
+        "question": "If an OTP macro allows ten data appends, does each eFuse have ten program/erase cycles of endurance?",
+        "answer": "No. The appends may use ten groups of previously unprogrammed locations and version encoding; each fuse still supports only one irreversible transition. Record the system's update count, the capacity consumed per update, and the rewritability of an individual physical cell separately."
+      }
+    },
+    {
+      "id": "antifuse",
+      "title": "Antifuse: Permanent Conduction Through Dielectric Breakdown",
+      "family": "One-Time Programming / Dielectric Conduction Path",
+      "storage": "Before programming, the storage dielectric separates two electrodes and permits only very small leakage. Programming creates a permanent, detectable conduction path through a high electric field. Information resides in the conduction difference before and after breakdown, opposite to the typical eFuse transition from low to high resistance. Both can provide OTP, but their storage materials and programming conditions differ.",
+      "structure": "The teaching embodiment in US6667902B2 places a thin-dielectric storage element in series with a select transistor. The column line connects to one side of the storage element; the other side reaches the source line through the selected channel, while the row line controls the select gate. The equivalent circuit combines a dielectric element that changes from low leakage to conduction with a MOS device for current control and isolation. The storage layer must not be drawn as an ordinary gate-controlled switch.",
+      "summary": "Antifuse design aims to establish acceptable conduction first in a designated storage dielectric while keeping selectors, peripheral circuits, and half-selected cells functional; it does not rely on uncontrolled breakdown across the chip. Permanent data can support identification, trimming, code, or key storage. Security is separately determined by the readout interface, access controls, and protective design.",
+      "maturity": {
+        "stage": "In Volume Production",
+        "claim": "Synopsys' 2018 acquisition statement identifies Kilopass antifuse 1T/2T IP, including XPM, Gusto, and SecretCode, and reports aggregate cumulative shipments exceeding 10 billion units. The current OTP page separately lists advanced-node silicon validation and specific automotive qualifications, indicating continued commercial availability.",
+        "sourceIds": ["ch-maturity-kilopass", "ch-maturity-otp-current"],
+        "limit": "The historical shipment figure is an aggregate manufacturer statement and cannot be assigned to an individual macro or the 3 nm node. Silicon validation is not volume production, and N5A/N7A automotive qualifications are not common qualifications for every product.",
+        "implementationStage": "Identified OTP IP with Volume-Production Shipments"
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Program: Apply the Breakdown Field Only to the Selected Dielectric",
+          "before": "The storage dielectric is intact and the selected bit has low leakage. Other cells in the same row and column must remain unprogrammed.",
+          "stimulus": "In the early embodiment of US6667902B2, Figures 1/8 use a 2.5 V row-select line, a 0 V source line, and a 7 V selected column line. These values apply only to that structure and period, not to current product operation.",
+          "after": "The thin dielectric develops detectable conduction. Program verification checks whether current reaches the specified window, rather than mistaking a slight leakage increase for sufficient programming.",
+          "explanation": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Charge transport accumulates defects in the dielectric and eventually establishes a conductive path; current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell."
+        },
+        {
+          "id": "erase",
+          "title": "Erase: No Repair of the Broken-Down Dielectric in Normal Operation",
+          "before": "Permanent defects and a conduction path have changed the dielectric's insulating state.",
+          "stimulus": "There is no normal erase operation that fully reconstructs the original dielectric with reverse bias. Repeated high-field stress may worsen damage or change current and cannot be treated as qualified reverse programming.",
+          "after": "The physical location remains programmed. Appending or correcting application data must consume a fresh location or use a separate rewritable storage region.",
+          "explanation": "Resistive memories that also contain conductive paths may perform SET/RESET through controlled ion migration; antifuse OTP does not provide a product operating contract for reversible recovery. The ability to draw a conductive filament in both devices does not make their endurance, operating directions, or array requirements equivalent."
+        },
+        {
+          "id": "read",
+          "title": "Read: Distinguish an Intact Dielectric from a Conductive Path",
+          "before": "An unprogrammed cell retains low leakage, while a programmed cell passes more current. The same selector and wiring participate in the actual readout.",
+          "stimulus": "In the early patent example above, the row line remains at 2.5 V, the selected column line changes to 1.5 V, and the source line is at 0 V. Read stress is lower than the programming condition.",
+          "after": "Current flows from the column line through the established dielectric path and selected MOS to the source line. The sensor compares its magnitude and outputs a bit; an unprogrammed cell does not produce the same effective current.",
+          "explanation": "The read criterion is the current distribution of each state under the actual read bias. Selector threshold, series resistance, dielectric leakage, and variation in programmed conduction all affect margin. Validate these over the specified temperature and time conditions rather than treating one high-current measurement immediately after programming as sufficient evidence of lifetime read reliability."
+        }
+      ],
+      "selection": "A selected cell needs both a high column potential and a select path that establishes the low-side potential. Cells in the same row but another column, the same column but another row, and fully unselected cells see different fields, so each category needs its own bias table. Isolation requires more than turning off a row line. High-voltage level shifting, well isolation, and current limiting together allow the storage layer to break down before other devices are damaged.",
+      "variability": "Dielectric thickness, local defects, area, and field distribution produce statistical distributions of breakdown time and post-breakdown current. Research should report pulse amplitude/duration, current compliance, initial leakage, and the post-program verify threshold together, and examine accumulated half-select stress. Comparing typical programming voltage alone cannot establish yield or sensing margin.",
+      "advantages": [
+        "Permanent conduction provides one-time-programmable storage for identification and trim data written after manufacturing.",
+        "Identified commercial IP is available in standard logic CMOS processes, although each process version still requires confirmation.",
+        "Topologies such as 1T and 2T offer tradeoffs among capacity, area, selection capability, and operating conditions."
+      ],
+      "tradeoffs": [
+        "No normal erase is available; misprogramming recovery and appended updates require reserved capacity and encoding from the outset.",
+        "Programming depends on dielectric-breakdown distributions and requires high-field peripheral circuits, current limiting, and post-program sensing verification.",
+        "Physical immutability does not imply that data cannot be read out. Security applications still need a separate threat model and product evidence."
+      ],
+      "ceilings": {
+        "device": "The usable window lies between reliably establishing sufficient conduction and avoiding unintended damage. Reducing storage area or changing the dielectric does not necessarily improve breakdown statistics and programmed current proportionally. Limits should be described by complete distributions, specified temperatures, and long-term sensing margin.",
+        "array": "Density is jointly limited by selectors, high-voltage decoding, half-select isolation, wiring drops, and sensors. Theoretical cell area is not a substitute for complete macro efficiency. As an array grows, additional unselected leakage and accumulated programming stress must enter its failure-rate budget.",
+        "process": "Availability in standard CMOS does not remove the need for qualification. Controlled breakdown of the storage dielectric, selector voltage tolerance, thick/thin oxide choices, and reliability tests must be reconfirmed for the foundry process version. Success at one node does not establish usable pulses at another.",
+        "system": "System bottlenecks often include the irreversible programming flow, remaining blank bits, and supply conditions during programming. For keys or boot settings, programming permissions, read isolation, lock state, and fault recovery must be validated separately from the storage physics. The OTP label does not replace system design."
+      },
+      "fit": "Suitable for parameters determined after manufacturing and intended to remain permanent, chip IDs, code with a defined lifecycle, and security settings. Selection starts with the required update count, latest programming location, supply, read timing, and capacity, followed by verification of the identified macro's process, test modes, and qualifications.",
+      "avoid": "Not suitable for unrestricted repeated overwrites without a redundancy plan. A system that must directly overwrite the same address or restore an old value should use electrically erasable storage or an upper-layer protocol for a bounded number of appends. High-field test results must not be equated with production yield or resistance to invasive attacks.",
+      "patents": [
+        {
+          "id": "US6667902B2",
+          "url": "https://patents.google.com/patent/US6667902B2/en",
+          "priority": "2001-09-18",
+          "assignee": "Kilopass Technology; checked against the initial assignment and continuation relationships",
+          "figures": "Figures 1, 3, and 8; additional embodiments in Figures 12–15",
+          "problem": "Using ultrathin dielectric breakdown as readable memory requires sufficient conduction in selected cells while avoiding half-select misprogramming, selector damage, and excessive post-breakdown current. The ability to break down an individual device does not establish a reliable array.",
+          "mechanism": "A half-transistor storage element works with a select transistor. Row-, column-, and source-line biases establish a high field across the storage dielectric. Reading lowers the column bias and distinguishes states through post-breakdown current; the figures show alternative cell and array arrangements.",
+          "claimReading": "Map the storage dielectric, its electrodes, and the select path onto the claim limitations, then use the Figure 1/8 biases to verify the selected path. The 7 V embodiment value is not the entire inventive concept, and half-select protection must not be omitted when describing the design as a breakdown-capable capacitor.",
+          "limit": "This patent supplies an early mechanism and bias lesson. The structures, voltage tolerance, verification algorithms, and qualifications of current Kilopass/Synopsys 1T or 2T IP require separate evidence and are not established directly by this patent."
+        }
+      ],
+      "sourceIds": ["ch-pat-antifuse", "ch-maturity-kilopass", "ch-maturity-otp-current"],
+      "quiz": {
+        "question": "Why is reducing the gate voltage of an unselected row insufficient to prove that an entire antifuse array is immune to half-select misprogramming?",
+        "answer": "Cells sharing a column or row, and internal floating nodes, can develop different storage-layer fields. Turning off a select MOS does not hold every node at zero potential. Each category's bias, leakage, and accumulated stress must be evaluated and then validated with the specified pulse sequence."
+      }
+    },
+    {
+      "id": "eeprom",
+      "title": "EEPROM and MTP: Rewritable Floating-Gate Storage",
+      "family": "Charge Storage / Floating Gate / Multiple Updates",
+      "storage": "A floating gate is a conductive island surrounded by insulating layers, with no direct DC metal connection to it. Retained charge changes how the control gate acts on the channel, shifting the MOS threshold voltage. In a typical n-channel example, adding electrons makes conduction more difficult. Reading measures the channel; normal read operation does not require draining the stored electrons.",
+      "structure": "The basic cross-section includes source, drain, channel, tunnel dielectric, floating gate, inter-gate dielectric, and a control electrode. An equivalent circuit must show coupling capacitances from the floating node to the other terminals. US4115914A localizes the thin tunneling window. US5844271A couples a buried n-type control electrode to a single-poly floating gate while retaining a selection function and regions of different oxide thickness.",
+      "summary": "EEPROM describes nonvolatile storage that can be electrically programmed and erased. MTP describes the ability to program multiple times or a product positioning. One publicly described Synopsys MTP product uses floating-gate EEPROM, but the MTP name alone does not guarantee single-poly construction, a particular program/erase mechanism, or a fixed endurance. Identify the physical structure first, then check the product's update granularity and cycling specification.",
+      "maturity": {
+        "stage": "Commercial IP",
+        "claim": "Synopsys' current public introduction defines its MTP EEPROM for analog and mixed-signal processes as an electrically erasable floating-gate hard macro that can be integrated in a logic process, and mentions integrated ECC and silicon qualification. This is evidence linking an identified product to a mechanism and helps separate the classification axes of MTP and EEPROM.",
+        "sourceIds": ["ch-product-mtp"],
+        "limit": "The complete datasheet behind a registration form was not obtained, nor were shipment volumes for the models associated with the page. The public introduction does not establish identical films, cells, endurance, retention, or automotive qualifications across all LD/MD/ULP MTP products.",
+        "implementationStage": "Publicly Offered Floating-Gate MTP EEPROM IP"
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Program: Establish a Field That Transfers Electrons into the Floating Gate",
+          "before": "The floating gate starts within a known charge and threshold-voltage range. The control terminal, source/drain, and wells jointly determine the floating node's capacitively coupled potential.",
+          "stimulus": "A tunneling implementation establishes a high field of the appropriate polarity across a localized thin dielectric. The single-poly embodiment of US5844271A instead uses channel hot-electron injection. Mechanisms and terminals must follow their respective cross-sections.",
+          "after": "Additional electrons remain on the insulated floating gate, raising the threshold voltage of a typical n-channel cell. Read verification after the actual pulse confirms that the cell lies within the target range.",
+          "explanation": "In FN tunneling, electrons cross a barrier narrowed by a high electric field. In hot-electron injection, the lateral channel field first raises carrier energy, and the field toward the gate then collects carriers into the floating gate. These mechanisms require different current and stress analyses. The control electrode influences the floating node through capacitive coupling; it does not charge that node directly through a metal wire."
+        },
+        {
+          "id": "erase",
+          "title": "Erase: Remove Stored Electrons Through a Defined Window",
+          "before": "The floating gate contains more electrons and the channel threshold is elevated. A lower-charge state must be restored for the next programming cycle.",
+          "stimulus": "Establish a high field between the floating gate and the designated erase terminal to remove electrons. A localized-window implementation controls the tunneling area; the specific US5844271A embodiment transfers electrons toward the source through FN tunneling.",
+          "after": "Fewer electrons remain on the floating gate and threshold voltage returns toward the erased range. Erase granularity depends on cell selection, shared terminals, and peripheral circuits; it cannot be inferred from the EEPROM or MTP name alone.",
+          "explanation": "Reversing the electric field can reverse charge transfer, but cannot undo defects accumulated during each passage through the dielectric. Overerase may also cause the storage channel to leak under unselected conditions, requiring selection and verify control. Rewritability, update granularity, and guaranteed cycle count are three separate questions that need separate product specifications."
+        },
+        {
+          "id": "read",
+          "title": "Read: Observe Charge Indirectly Through Channel Current",
+          "before": "Two or more charge states correspond to different threshold-voltage distributions. The selected path and reference-sensing conditions are established.",
+          "stimulus": "Apply a read potential to the control terminal, a small source-to-drain bias, and enable the required select transistor. Keep the read field within the normal non-program/erase range.",
+          "after": "At the same read-gate potential, a low-threshold state conducts more readily than a high-threshold state. The sensor maps the current difference to data.",
+          "explanation": "Read current flows through the source-to-drain channel while stored electrons remain on the floating gate. Read speed and margin depend not only on stored charge but also on coupling ratio, channel dimensions, selectors, bitline capacitance, and reference circuitry. If the product includes ECC, its correction capability and detection behavior must also be included in the reliability of the delivered data."
+        }
+      ],
+      "selection": "Localized thin windows, control electrodes, and select transistors expose selected cells to the specified program/erase field while isolating other cells on shared lines. Single-poly construction reduces only the number of polysilicon layers; it may still require large coupling electrodes, well isolation, and high-voltage peripheral circuits. A complete area comparison must include selectors, voltage boosting, sensing, and the array organization needed for the update granularity.",
+      "variability": "Floating-gate charge, coupling ratio, tunnel-oxide thickness, and interface defects determine threshold voltage and its drift. Traps accumulated through cycling change program/erase speed and retention. Studies should measure cycle count, temperature, retention time, and error criteria together. One product's typical cycle count cannot be combined with another product's best retention time to form a common limit.",
+      "advantages": [
+        "The same physical location can be electrically erased and reprogrammed, supporting parameters that require updates.",
+        "Localized tunneling windows and selection structures control charge transfer and access granularity.",
+        "Identified commercial MTP EEPROM IP with floating-gate storage and logic-process integration is available for selection against application conditions."
+      ],
+      "tradeoffs": [
+        "Repeated program/erase operations accumulate dielectric and interface defects; endurance and retention must be compared under combined conditions.",
+        "Single-poly construction still carries the area costs of coupling, isolation, selection, and high-voltage circuitry.",
+        "The MTP product label does not disclose a complete physical structure and cannot replace checking the process and datasheet."
+      ],
+      "ceilings": {
+        "device": "A thin dielectric improves charge-transfer efficiency but increases leakage, defect, and retention risks. Thicker films improve isolation but may require a higher field or longer pulses. The physical limit is the combined condition under which repeated program/erase operations retain sufficient threshold-voltage window, not a maximum cycle count considered alone.",
+        "array": "Fine update granularity generally requires more selection and control resources. Array efficiency must include high-voltage paths, references, ECC, redundancy, and bad-bit handling. Usable capacity and update latency also depend on erase units and program verification, so alternatives cannot be compared using the area of one floating gate alone.",
+        "process": "Tunnel-dielectric quality, capacitive coupling, and high-voltage isolation must be controlled together. A single-poly implementation may substitute a buried control terminal, but its doping, junctions, and area become additional design conditions. Availability in a standard logic process still requires memory-specific reliability qualification.",
+        "system": "Program/erase latency, update granularity, and cycle budgets limit the update rate of counters or event logs. Power-loss data integrity, version switching, and write distribution must be designed jointly at macro and system levels. A low interface supply does not mean that the cell needs no internal voltage boosting or high electric field."
+      },
+      "fit": "Suitable for analog trimming, sensor parameters, power-management settings, and device configuration requiring a limited to larger number of updates. First estimate lifetime cycle demand from the actual update frequency, then obtain the specified macro's ratings at the target temperature, retention time, capacity, and ECC conditions. Do not select solely on the largest endurance number.",
+      "avoid": "Not every MTP should be treated as a small RAM with unlimited rewrites. Frequent logging or large sequential datasets may be constrained by program/erase energy, speed, granularity, and area. If a setting is programmed permanently only once, compare the complete OTP cost as well; code execution additionally requires interface and access-timing validation.",
+      "patents": [
+        {
+          "id": "US4115914A",
+          "url": "https://patents.google.com/patent/US4115914A/en",
+          "priority": "1976-03-26; parent-application date found in the records; this application was filed in 1977",
+          "assignee": "Hughes Aircraft Company; verified from the front page of the original publication",
+          "figures": "Figures 3i and 6; claims 2 and 9",
+          "problem": "Nonvolatile charge requires good insulation for retention, while electrical erase needs a controlled path for electron transfer. Making the entire dielectric region too thin complicates retention and process control; making it uniformly too thick restricts charge transfer.",
+          "mechanism": "A localized thinner tunneling window is placed between the floating gate and semiconductor, while other regions retain stronger isolation. Control-terminal coupling and the field across the window govern charge transfer. Figure 3i shows the cross-section formed by the process; Figure 6 traces the operating arrangement.",
+          "claimReading": "The localized thin-dielectric and memory-structure limitations in claims 2 and 9 map to three questions: where the window lies, which terminal it reaches, and how the remaining regions are insulated. The thin window is a concrete structural limitation and cannot be omitted while retaining only the functional statement that the device can be electrically erased.",
+          "limit": "The parent-application date is neither a complete historical determination of EEPROM's invention date nor a conclusion about the effective priority of all claims. This lesson does not infer that any current MTP product implements this patent."
+        },
+        {
+          "id": "US5844271A",
+          "url": "https://patents.google.com/patent/US5844271A/en",
+          "priority": "1995-08-21",
+          "assignee": "Cypress Semiconductor; checked against bibliographic and 1995 assignment records",
+          "figures": "Figures 3–6; claim 1",
+          "problem": "Reducing the polysilicon layer count still requires effective floating-gate control, program/erase paths, and protection against leakage caused by overerase. Moving the control terminal into the substrate does not remove coupling, selection, or isolation requirements.",
+          "mechanism": "A buried n-type region serves as the control electrode and a single polysilicon layer forms the floating gate. Thick/thin oxide regions and a separate selection region shape the channel. The specified operation uses channel hot-electron programming and FN electron transfer toward the source for erase, demonstrating that a single-poly structure can still provide capacitive control.",
+          "claimReading": "Read claim 1 by tracing the buried control electrode, floating gate, oxide-thickness relationships, and split region. Single-poly is a process-layer characteristic, not a substitute for the complete structure. It also does not make every logic-only MTP product the same combination of claim limitations.",
+          "limit": "No public evidence links current Synopsys MTP to this patent, so it is used only for structural teaching. Actual commercial implementation, node qualification, and reliability require independent evidence."
+        }
+      ],
+      "sourceIds": ["ch-pat-eeprom-window", "ch-pat-eeprom-singlepoly", "ch-product-mtp"],
+      "quiz": {
+        "question": "If an IP product is called MTP, can it immediately be drawn as single-poly EEPROM and assigned 100,000-cycle endurance?",
+        "answer": "No. MTP describes multiple-programming capability or product positioning. The physical storage mechanism, polysilicon layer count, program/erase granularity, and endurance under specified conditions still require verification. Even a confirmed floating-gate implementation does not establish the control-electrode location or carrier paths."
+      }
+    },
+    {
+      "id": "nor",
+      "title": "NOR: Stacked-Gate and Split-Gate Code Storage",
+      "family": "Flash Array / Random Read / Floating-Gate Examples",
+      "storage": "NOR describes array connectivity and access organization, not a unique storage material. This topic uses floating-gate NOR: charge changes cell threshold voltage, and the selected cell is sensed through the bitline and source path. Both stacked-gate and split-gate cells can serve NOR arrays, but their selection channels, programming efficiency, and erase control differ.",
+      "structure": "A stacked-gate example places the control gate, inter-gate dielectric, floating gate, and channel vertically above one another. A split-gate example assigns part of the channel to an independent selection function in series with the storage-region channel. The equivalent circuit must clearly show both channel segments and the shared bitline. NOR cells can each connect to the bitline, unlike a NAND string of series-connected cells, at the cost of higher contact and wiring overhead per cell.",
+      "summary": "NOR is commonly used for code storage requiring direct, predictable reads. Stacked-gate cells place storage and selection responsibilities under the cell's gate control; split-gate cells add a selection channel that helps block unselected leakage from overerased cells. Execute-in-place support also depends on the interface, controller, and cache timing and cannot be guaranteed by the NOR name alone.",
+      "maturity": {
+        "stage": "In Volume Production",
+        "claim": "Microchip's SST39SF020A was listed as in production when reviewed, with a public summary specifying 2 Mb and a 4.5–5.5 V parallel flash interface. SST's SuperFlash technology brochure separately provides an identified technical lineage for split gates, source-side injection, and inter-gate FN erase, allowing commercial implementation evidence to be compared with the mechanism lesson.",
+        "sourceIds": ["ch-maturity-nor-product", "ch-tech-superflash"],
+        "limit": "A product's interface supply is not its internal cell bias. Typical endurance, retention, and generation figures in the 2018 brochure are not common guarantees for all NOR. The channel-erase table in US6232180B1 must not be applied to SuperFlash.",
+        "implementationStage": "Identified Split-Gate Product in Production"
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Program: Compare Channel Hot-Electron and Source-Side Injection",
+          "before": "The cell starts in an erased threshold range that permits programming. The selected storage and selection channels must establish the correct potential distribution.",
+          "stimulus": "A typical stacked-gate hot-electron example uses the lateral source-to-drain field; SuperFlash uses source-side injection. A separate, bounded embodiment in US6232180B1 specifies a 1.5–2 V select gate, 0 V drain, and 9–12 V source.",
+          "after": "Electrons enter the floating gate and the threshold voltage of a typical n-channel storage region rises. Verify the read state after the pulse and keep unselected cells free from program disturb.",
+          "explanation": "Source-side injection uses the potential drop at the boundary between the selection and storage regions to energize channel electrons, which are collected by the field toward the floating gate. Source/drain labels and biases must follow the original drawing; injection locations in different structures cannot be interchanged arbitrarily. Higher injection efficiency also does not eliminate the macro's need for voltage boosting, current limiting, or verification."
+        },
+        {
+          "id": "erase",
+          "title": "Erase: Follow the Structure's Electron Exit Path",
+          "before": "The floating gate retains programmed charge. Cells sharing an erase terminal generally need coordinated biasing.",
+          "stimulus": "The SuperFlash brochure describes FN tunneling from the floating gate to another gate. In contrast, the channel-erase example in US6232180B1 leaves the select gate, source, and drain floating and raises the p-well and deep n-well to 10–15 V.",
+          "after": "Electrons leave the floating gate through the designated exit and threshold voltage falls. A separate selection channel can suppress some unselected conduction caused by overerase, but does not remove storage-layer reliability requirements.",
+          "explanation": "Two split-gate implementations may have different erase barriers and charge exits, so their terminal voltages cannot be combined into one bias set. Erase scope depends on shared gates, wells, and array control. Updating a byte still requires the product's block-erase and data-preservation flow; fine-grained reading is not equivalent to fine-grained erase."
+        },
+        {
+          "id": "read",
+          "title": "Read: Sense the Selected Cell's Channel Directly",
+          "before": "Different floating-gate charge states produce different conduction levels. Unselected cells on the same bitline must remain isolated.",
+          "stimulus": "Apply a read potential to the selected wordline or select gate and establish a small bitline bias. The US6232180B1 example uses Vcc at the select gate, 2 V at the drain, and 0 V at the source and wells.",
+          "after": "Current flows through the selected cell's source-to-drain channel and, in a split-gate example, through the selection channel. The sensor distinguishes charge states from the current.",
+          "explanation": "NOR does not require an entire string of storage cells to conduct before one cell can be read, which favors random access. An overerased stacked-gate cell that conducts while unselected can corrupt the shared bitline; a separate selection function helps shut off that path. Actual latency still includes wordlines, bitlines, sensing, and the external interface, not only individual-cell speed."
+        }
+      ],
+      "selection": "NOR selects cells through wordlines and bitlines, and leakage from unselected rows directly affects sensing. A split gate adds a channel segment that can be turned off independently, addressing the selection problem associated with overerase. Programming, erase, and reading use different terminal combinations, so selected and unselected paths must be redrawn for each operation rather than inferring program/erase safety from a read circuit alone.",
+      "variability": "Floating-gate coupling, oxide thickness, and injection location change the threshold-voltage distribution. Cycling defects and erase nonuniformity widen it further. Split gates reduce certain array-leakage risks but do not eliminate charge-retention requirements, read disturb, or program/erase stress in the storage region. Comparisons must hold product generation, temperature, and cycling conditions constant.",
+      "advantages": [
+        "The array organization favors random reads and suits code and boot data.",
+        "A split gate provides an additional selection function that can suppress unselected leakage caused by overerase.",
+        "Identified production products and an established technical lineage allow selection against actual interface and update requirements."
+      ],
+      "tradeoffs": [
+        "More cell contacts and wiring reduce density relative to NAND; complete cost must be compared at the required capacity.",
+        "Erase granularity is usually larger than read granularity, so a small update may still require block-level relocation and data preservation.",
+        "Additional gates, coupling, and high-voltage control increase process and peripheral costs; split gates do not provide a cost-free endurance improvement."
+      ],
+      "ceilings": {
+        "device": "Injection efficiency, tunnel-dielectric quality, and the threshold-voltage window jointly limit program/erase speed and lifetime. Shrinking a cell can increase sensitivity to coupling, short-channel effects, and electron count. A generation's typical endurance must not be treated as the physical limit of the NOR family.",
+        "array": "Bitline contacts and wiring overhead constrain density, while long-line capacitance and leakage constrain sensing speed. Split gates can improve unselected-cell isolation, but erase control, references, and redundancy remain necessary. Comparisons should report capacity, array efficiency, and peripheral area.",
+        "process": "Floating gates, inter-gate dielectric, and injection-region geometry require dedicated process control. Different split-gate generations and erase exits are not interchangeable modules. Integration into a logic process requires checking added masks, thermal budget, voltage-tolerant devices, and qualification data.",
+        "system": "Code-read performance depends on the interface, controller, cache, and package, and execute-in-place requires a complete timing contract. Data updates are constrained by block erase, read availability during programming, power-loss handling, and cycle budgets. The fastest quoted read time alone cannot determine the solution."
+      },
+      "fit": "Suitable for boot code, firmware requiring predictable random reads, and resident code of moderate capacity. Execute-in-place must be matched to the processor bus, controller, cache, and actual worst-case access time. If firmware must be updated, additionally validate dual-image handling, erase granularity, and power-loss recovery.",
+      "avoid": "For workloads prioritizing large sequential datasets and low cost per bit, compare against NAND's management cost and complete system performance. Frequent small overwrites should not be mapped directly to NOR block erases without first estimating write amplification, movement of retained data, and cycle consumption.",
+      "patents": [
+        {
+          "id": "US6232180B1",
+          "url": "https://patents.google.com/patent/US6232180B1/en",
+          "priority": "1999-07-02",
+          "assignee": "The initial assignment names Worldwide Semiconductor Manufacturing; transferred to Taiwan Semiconductor Manufacturing Company in 2000",
+          "figures": "Figure 6 and its operating table; claims 4 and 6",
+          "problem": "A split-gate cell must combine efficient programming, controlled erase, and unselected-cell isolation. This patent places source-side injection and channel erase within a specific well and gate structure so that terminal roles support the different operations.",
+          "mechanism": "During programming, a low select-gate potential and raised source produce source-side injection. During erase, source, drain, and select gate float while the p-well and deep n-well are raised, removing electrons through the channel side. Reading instead uses a Vcc select gate and low drain bias for sensing.",
+          "claimReading": "Read claims 4 and 6 together with the Figure 6 operating table to check the combination of wells, storage region, and selection region. Explicitly identify floating terminals and channel erase; the fact that both technologies use split gates does not permit substituting a SuperFlash inter-gate FN diagram.",
+          "limit": "The earliest assignee found is Worldwide Semiconductor Manufacturing; TSMC in an aggregated field does not erase that original record. This is a lesson on a specific operation and does not establish implementation correspondence with SST39SF020A or all split-gate NOR."
+        }
+      ],
+      "sourceIds": ["ch-pat-nor-splitgate", "ch-tech-superflash", "ch-maturity-nor-product", "ch-tech-nand"],
+      "quiz": {
+        "question": "If two cells are both called split-gate NOR, can they share the same erase-bias table?",
+        "answer": "No. The SuperFlash brochure's example uses inter-gate FN tunneling, while US6232180B1 provides a channel-erase embodiment. Identify each electron exit, well, and floating terminal before citing its biases. A shared family name does not establish identical operation."
+      }
+    },
+    {
+      "id": "sonos",
+      "title": "SONOS and NROM: Charge Trapping in Insulating Layers",
+      "family": "Charge Storage / Dielectric Traps / Channel-Wide and Localized Implementations",
+      "storage": "Electrons remain in trapping centers within insulating materials such as silicon nitride, changing the potential seen by the channel and its threshold voltage. The trapping layer is not a conductive floating gate, and charge can have a spatial distribution. Channel-wide SONOS program/erase examples and localized NROM charge-trapping examples therefore require different operating and sensing explanations; simply recoloring a floating gate is not sufficient.",
+      "structure": "SONOS denotes silicon, oxide, nitride, oxide, and silicon in sequence. From channel toward gate, the stack contains a tunnel oxide, charge-trapping nitride, blocking oxide, and gate. Infineon's identified eFlash implementation adds a series MOS selector to form a 2T cell. NROM emphasizes charge localized near one terminal. Its equivalent model must preserve position along the channel instead of representing storage as one equipotential conductor.",
+      "summary": "SONOS/MONOS describe material stacks or gate materials, while NROM refers to an implementation lineage that uses localized trapping and read direction. They are not directly interchangeable product names. Infineon's SONOS has production platforms, so the entire charge-trap family must not be labeled emerging. Its FN program/erase mechanism and reliability figures also must not be transferred to every NROM implementation.",
+      "maturity": {
+        "stage": "In Volume Production",
+        "claim": "Infineon publicly lists SONOS eFlash production at 130, 65, 55, 40, and 28 nm and explicitly describes a 2T cell with FN program/erase. Its MCU shipments and licensable macro information support classification as an established platform. Localized-charge NROM is treated separately here through Saifun's original patent, with its own evidence boundary.",
+        "sourceIds": ["ch-product-sonos", "ch-pat-nrom"],
+        "limit": "The listed 25 ns, 100,000-cycle, and ten-year retention figures are not fully paired across all nodes, capacities, and temperatures, so they are not combined into one guarantee. SONOS production evidence does not automatically establish the same NROM specifications or current product status.",
+        "implementationStage": "Identified SONOS eFlash Platforms in Volume Production"
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Program: Distinguish Tunneling Capture from Local Hot-Electron Injection",
+          "before": "The trapping layer has a known initial charge distribution. A channel-wide SONOS example controls the storage region as a whole; a localized example must also specify which end stores the charge.",
+          "stimulus": "Infineon's identified SONOS uses FN programming. In the localized example of Saifun's US5768192A, high gate and drain biases with the source at low potential establish hot-electron injection conditions.",
+          "after": "Electrons remain in the trapping layer and raise the barrier in the corresponding channel region. SONOS represents data through distinguishable threshold-voltage windows; the localized example also uses charge position to influence reverse readout.",
+          "explanation": "In a tunneling example, charge crosses the thin dielectric from the channel side and is then trapped. In a hot-electron example, carriers first gain energy near the drain, producing localized stored charge. An insulating trapping layer does not automatically equalize potentials and charge distributions as a conductor does. The product page does not disclose the complete film thicknesses and terminal biases, so this explanation remains at the verified mechanism level."
+        },
+        {
+          "id": "erase",
+          "title": "Erase: Follow the Trap Stack and Identified Mechanism",
+          "before": "Programmed charge occupies a trapping material such as nitride, shifting channel threshold voltage or a local barrier.",
+          "stimulus": "Infineon's identified 2T SONOS uses FN erase, rearranging the field across the tunnel dielectric to reduce net stored charge. An NROM implementation's exact erase path requires separate verification for that implementation.",
+          "after": "SONOS returns to an erased window that permits reprogramming. Residual charge, interface defects, and changes in trapping centers may still affect the next operation.",
+          "explanation": "Removal or neutralization of trapped charge depends on barriers, trap depth, and terminal biases. The upper blocking layer suppresses unwanted exchange on the gate side. Knowing only that silicon nitride is used does not identify the terminal through which electrons or holes enter or leave. The Saifun seed reviewed here primarily supports localized programming and reverse reading; it is not used to invent an erase animation for every NROM implementation."
+        },
+        {
+          "id": "read",
+          "title": "Read: Sense the SONOS Window and the NROM Direction",
+          "before": "Stored SONOS charge changes threshold voltage. Localized NROM charge changes the channel barrier near a particular terminal.",
+          "stimulus": "The SONOS 2T example enables its selector and applies a read-gate bias. The localized US5768192A example reverses the direction relative to programming: the gate and original source are biased, while the original drain is held at low potential.",
+          "after": "Source-to-drain channel current is sensed. Reverse reading positions charge originally near the programming drain where it controls the carrier-injection-end barrier more effectively, increasing its influence on the readout.",
+          "explanation": "Read current travels through the channel; it does not empty all electrons from the nitride. A channel-wide threshold model explains many SONOS operations, but ignoring charge position in a localized cell can obscure why reverse reading works. Read direction must be labeled against the original programming terminals, rather than silently exchanging source and drain names in a drawing."
+        }
+      ],
+      "selection": "In Infineon's 2T SONOS, a MOS selector is in series with the charge-trap storage transistor, separating isolation and storage functions. High-field program/erase also requires consideration of shared wordlines and wells. Localized-charge arrays must additionally manage direction, half-selection, and neighboring data states. Successful reverse reading of one cell does not establish reliable storage of two independent bits in a large array.",
+      "variability": "Trap density, energy levels, interface quality, and film thickness affect programming speed, detrapping, and retention. Localized charge also varies in lateral position and distribution width. Compare windows initially, after cycling, and after high-temperature retention. Extending the concept to storage at both ends requires measuring their interaction rather than simply counting an additional possible storage position.",
+      "advantages": [
+        "The insulating trapping layer offers structural and scaling choices distinct from a conductive floating gate.",
+        "Identified SONOS embedded-memory production nodes and licensable macros exist; the technology cannot broadly be described as not yet commercial.",
+        "Localized charge position can participate in information encoding and readout design, but additional bits require separate proof that their states remain distinguishable."
+      ],
+      "tradeoffs": [
+        "Trap, interface, and blocking-layer quality jointly determine retention and endurance; charge-loss risk remains.",
+        "Channel-wide tunneling and localized hot-electron operations cannot share unqualified bias or reliability data.",
+        "Localized trapping increases sensitivity to position and interaction between terminals, requiring more detailed models and measurements."
+      ],
+      "ceilings": {
+        "device": "Program/erase speed and retention depend on the tunneling barrier, trap depth, and blocking layer. Charge that is easier to inject may also escape more readily. Cycling-induced defects change the window, while localized charge is additionally affected by short-channel behavior and lateral distribution. The SONOS name alone does not establish a fixed endurance ceiling.",
+        "array": "Selectors and shared biases determine isolation, granularity, and effective density. Localized multibit implementations must keep spatially distinct states distinguishable while accounting for programming direction, half-selection, and neighbor interference. Two charge clusters in a cell illustration do not establish two reliable deliverable bits.",
+        "process": "The upper/lower oxides, nitride, and interfaces must retain appropriate traps and barriers within the thermal budget. Changing the metal gate or blocking layer also changes field distribution. Production qualification for an embedded process belongs to a particular stack, node, and macro combination and cannot be extended to arbitrary charge-trap devices.",
+        "system": "The system must still budget program/erase latency, supply requirements, post-cycling retention, and ECC conditions. A macro family listing fast reads and long retention does not establish simultaneous operation at maximum temperature, maximum capacity, and maximum accumulated cycles. Obtain the fully paired conditions before committing to an application lifetime."
+      },
+      "fit": "Suitable for embedded code and parameter storage where the identified process has qualification evidence. When selecting a solution such as Infineon SONOS, obtain the corresponding macro data for the node, capacity, temperature, and read/write requirements. NROM is also useful for understanding the principles and costs of localized charge, reverse reading, and spatial multibit encoding.",
+      "avoid": "Do not treat SONOS, MONOS, NROM, and 3D NAND as one interchangeable cell. Requirements involving two-bit storage, very-high-temperature retention, or a specific cycling guarantee need complete product or measurement data for that implementation. The best figures from a different charge-trap family must not be used to fill missing evidence.",
+      "patents": [
+        {
+          "id": "WO1981000790A1",
+          "url": "https://patents.google.com/patent/WO1981000790A1/en",
+          "priority": "1979-09-13",
+          "assignee": "NCR; checked against PCT bibliographic and priority information",
+          "figures": "Figure 1; claim 1",
+          "problem": "Early charge-trap memories needed longer retention under practical program/erase conditions. If charge readily escapes toward the gate, simply thickening or changing the lower dielectric may not meet both programming-speed and retention requirements.",
+          "mechanism": "A blocking oxide is inserted between the silicon-nitride trapping layer and the silicon gate, while a thin tunnel oxide remains below. Figure 1 distinguishes the lower barrier used for electron transfer from the upper barrier that suppresses escape, showing the different responsibilities of the stack's layers.",
+          "claimReading": "Claim 1 includes a particular stack and thickness relationships. For example, the early limitations of a 70–100 Å blocking oxide and a lower oxide no thicker than 15 Å must be labeled as conditions of this patent. The technical focus is on which layers tunnel, trap, and block, not on treating these values as modern design rules.",
+          "limit": "This patent is not the complete structure or operating specification of modern Infineon SONOS. It also does not provide common performance figures for all MONOS, NROM, or 3D NAND."
+        },
+        {
+          "id": "US5768192A",
+          "url": "https://patents.google.com/patent/US5768192A/en",
+          "priority": "1996-07-23",
+          "assignee": "Saifun Semiconductors; verified from the original publication's front page and 1997 assignment record",
+          "figures": "Figure descriptions for localized charge and programming/reverse reading; claims 1 and 23",
+          "problem": "The effect of localized trapped charge on the channel depends on read direction. Reading in an unfavorable direction may weaken its control of current. Injection position and read terminals must be paired to distinguish data using the asymmetric charge distribution.",
+          "mechanism": "High gate and drain biases inject hot electrons into the trapping layer near the drain. Reversing current direction during readout makes that localized charge control the channel injection barrier more effectively. Storage position and read direction therefore become part of data interpretation.",
+          "claimReading": "Read claims 1 and 23 by identifying the localized trapping region, programming direction, and reverse-read conditions in sequence. Extracting only the phrase silicon nitride stores charge misses the relevant combination. A single localized charge region also does not establish that the patent fully describes every two-ended, two-bit array.",
+          "limit": "The original publication names Saifun; later Spansion Israel metadata does not replace the original corporate record. This material uses the patent for localized programming and reverse reading. Two-bit erase, current products, and production reliability require separate evidence."
+        }
+      ],
+      "sourceIds": ["ch-pat-sonos", "ch-pat-nrom", "ch-product-sonos"],
+      "quiz": {
+        "question": "If a SONOS nitride layer is drawn as one continuous film, does that mean all its charge can freely equalize as it would on a metallic floating gate?",
+        "answer": "No. Nitride is an insulating trapping material, so charge can remain at different positions. Readout of a localized-charge cell consequently depends on charge position and read direction. Distinguish continuity of the material, localization of charge, and the way the full channel is sensed."
+      }
+    },
+    {
+      "id": "nand",
+      "title": "NAND: Planar Strings, Vertical Stacks, and Multilevel Storage",
+      "family": "Flash Array / Series-Connected Cells / Planar and 3D",
+      "storage": "NAND data can still be retained by charge in a floating gate or dielectric trapping layer that changes threshold voltage. NAND itself describes an array organization with multiple cells connected in series. Storing N bits per cell requires 2 to the Nth power distinguishable states, such as eight for TLC and sixteen for QLC. More bits do not provide additional windows of unchanged width for free.",
+      "structure": "Planar NAND connects a row of memory transistors in series along the substrate, with string selectors, a bitline, and a source line at the ends. In 3D NAND, a vertical channel passes through multiple wordline layers, forming a cell at each intersection. BiCS illustrations show a storage film along the hole and a columnar channel. The equivalent circuit remains a string of wordline-controlled transistors. The early columnar-sidewall drawings in US7696559B2 are not substitutes for every modern gate-all-around cross-section.",
+      "summary": "Series connection increases density by sharing contact overhead across cells, but reading one cell requires the other cells in its string to provide a conduction path. Planar feature shrink, additional 3D layers, and more bits per cell are distinct density axes, each with charge-window, process, and reliability costs. Page programming and block erase also make the controller an important part of usable storage.",
+      "maturity": {
+        "stage": "Commercial Generations Established",
+        "claim": "Kioxia's fundamentals explanation records commercial planar 15 nm technology and BiCS FLASH generations: 48 layers in 2015, 96 layers in 2018, 112 layers in 2020, and 162 layers in 2022. This establishes 3D NAND as a mature commercial family and supports a historical comparison of planar scaling and vertical stacking.",
+        "sourceIds": ["ch-maturity-bics"],
+        "limit": "This material deliberately uses verifiable commercial history rather than claiming the latest 2026 layer-count or product ranking. Layer count, bits per cell, capacity, and performance must be cited together for each generation. Sampling or announcing a new layer count is not automatically volume production.",
+        "implementationStage": "Commercial History for Both Planar and 3D NAND"
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Program: Raise the Selected Wordline and Inhibit Other Channels",
+          "before": "The block starts in a programmable state, and the controller determines the page data. Bits on the same wordline may either require programming or need to remain unchanged.",
+          "stimulus": "Apply the programming potential to the selected wordline and appropriate pass potentials to other wordlines. Bitlines and selectors control each string's channel so that cells to be programmed see a larger tunneling field while inhibited cells see a reduced effective field.",
+          "after": "Electrons enter the floating gate or trapping layer from the channel side, raising threshold voltage toward the target state. Multilevel storage requires controlled programming and read verification to maintain state separation, not a single arbitrarily high pulse.",
+          "explanation": "The early US7696559B2 example uses Vpgm on the selected wordline and lower pass potentials on the others, with channel conditions inhibiting unwanted programming. Both planar and 3D implementations depend on the effective field across the storage layer, not merely the wordline-to-ground voltage. Specific channel boosting, pulse stepping, and selector timing require verification for each implementation."
+        },
+        {
+          "id": "erase",
+          "title": "Erase: Reset the Charge Window of a Shared Block",
+          "before": "Cells occupy different programmed threshold-voltage states. A block being reclaimed may still contain other pages whose data must be preserved.",
+          "stimulus": "Depending on the structure, raise the channel or well potential relative to the wordlines to establish an erase field that reduces stored electrons. The US7696559B2 example raises the common source line, holds the selected block's wordlines at 0 V, and leaves bitlines and selection-related terminals floating as specified in that embodiment.",
+          "after": "The block's cells return to the erased window. The controller must first preserve still-valid pages elsewhere; rewriting a single bit is not a substitute for block erase.",
+          "explanation": "Erase granularity follows shared wells, channels, and wordline-bias control, and differs from a read page or a host address. Planar floating-gate cells and modern 3D stacks may use different charge-removal or neutralization paths. This material preserves the boundary of the early embodiment and does not present one common-source bias as the erase specification of all NAND."
+        },
+        {
+          "id": "read",
+          "title": "Read: Pass Unselected Cells and Sense the Selected Threshold",
+          "before": "The bitline is precharged or otherwise placed in a sensing condition, and the selectors at both string ends prepare a path. The selected cell may occupy one of several threshold-voltage states.",
+          "stimulus": "Use a decision potential on the selected wordline and pass potentials on unselected wordlines so that they conduct despite their stored states. Multilevel reading uses the corresponding reference conditions to identify the state interval.",
+          "after": "If the selected cell conducts, the string permits a detectable bitline current or discharge; if it remains off, the path is blocked. Data mapping and any required ECC then recover the bits from the sensing results.",
+          "explanation": "When one cell is read, the other storage cells still experience pass bias, so the absence of a program command does not mean zero read disturb. String resistance, wordline/bitline loading, and threshold-voltage distributions jointly affect readout. In US7696559B2, the selected 0 V condition belongs only to that early example; one fixed potential cannot distinguish all multilevel states."
+        }
+      ],
+      "selection": "NAND selection has three levels: the block defines the shared control scope, the wordline identifies a position in the string, and bitlines with string selectors determine which strings are programmed or sensed. Half-select inhibition requires management of channel potential and pass stress. Unselected wordline potentials must enable the path without accumulating excessive disturb, so reporting only the selected wordline voltage is insufficient.",
+      "variability": "Planar scaling increases sensitivity to small charge losses and neighboring-cell coupling. 3D introduces hole-profile, layer-to-layer process, and channel differences. Abstracts of original measurement studies also identify early retention loss and retention interference. Narrower multilevel windows make these distribution differences more likely to cause errors, so analysis must include cycling, temperature, retention time, and ECC conditions together.",
+      "advantages": [
+        "Series connection shares contacts, supporting high density and large-capacity data storage.",
+        "3D stacking adds storage cells per unit planar area instead of relying only on lateral feature shrink.",
+        "Multilevel storage adds bits per cell and can be combined with vertical stacking, at the cost of tighter windows and additional management."
+      ],
+      "tradeoffs": [
+        "Page programming and block erase make small updates involve data movement, write amplification, and garbage collection.",
+        "More states reduce threshold-voltage separation and increase the burden on read/program procedures and error management.",
+        "Higher layer counts increase deep-hole etching, profile-control, and layer-variation challenges and do not automatically reduce effective cost per bit."
+      ],
+      "ceilings": {
+        "device": "The usable threshold-voltage range is finite; more bits divide that same range into more states. Charge loss, trapping/detrapping, cycling defects, and interference broaden distributions. Physical limits must be expressed through distinguishable state count and specified retention/cycling conditions, not minimum cell area alone.",
+        "array": "String length, selectors, pass bias, and wordline loading affect read/program timing and disturb. Layer variation in 3D and multilevel distributions also require reference adjustment, verification, and error correction. Effective density must account for redundancy and management overhead rather than treating layer count multiplied by bits per cell as usable capacity.",
+        "process": "High-aspect-ratio 3D memory holes require balanced control of profile, uniformity, etch time, and subsequent film quality. More layers also increase manufacturing time and cost risk. Kioxia's deep-hole process research identifies productivity as a key bottleneck; a layer-count record alone does not demonstrate lower cost per bit.",
+        "system": "Host-visible performance and lifetime depend on ECC, data movement, redundancy, the controller, and workload. Cycle count, temperature, and retention time jointly determine reliability. Performance after the cache fills, worst-case tail latency, and write amplification require measurement; a NAND die's peak transfer rate alone is insufficient."
+      },
+      "fit": "Suitable for SSDs, managed flash, and systems requiring large-capacity data storage. Selection must distinguish raw NAND from products with a controller and evaluate lifetime against actual read/write mix, retention time, operating temperature, and written data volume. Capacity, bits per cell, and ECC conditions must be tied to an identified product.",
+      "avoid": "Raw NAND should not be treated as directly and arbitrarily overwritable byte-addressable memory. Individual-device speed or performance with an empty cache is also not representative of application performance. When the primary requirements are small capacity, direct random reads, or highly predictable latency, compare alternatives with controller and management costs included.",
+      "patents": [
+        {
+          "id": "US7696559B2",
+          "url": "https://patents.google.com/patent/US7696559B2/en",
+          "priority": "2005-12-28",
+          "assignee": "Toshiba; checked against bibliographic records and the original publication",
+          "figures": "Figures 2 and 5–9; claim 1",
+          "problem": "Planar density growth is limited by cell dimensions and contacts. Storage cells need to be arranged vertically while retaining selectable NAND strings, a manufacturable process, and workable program/erase/read biases. Stacked materials alone, without a complete current path, do not form a memory array.",
+          "mechanism": "The sidewalls of a columnar semiconductor layer combine with stacked wordlines and an insulating charge-trap layer to form vertical cells. Selectors, bitlines, and a common source complete the string. Figures 7–9 provide specific examples of erase by raising the common source, programming a selected wordline, and reading by bitline discharge.",
+          "claimReading": "First map the spatial relationships among the columnar semiconductor layer, gates, and charge-storage dielectric in claim 1, then read them with the array and bias drawings. Vertical NAND is only a family name. This patent's particular sidewall and channel arrangement must not be drawn as the universal cross-section of all modern gate-all-around implementations.",
+          "limit": "This is an early vertical-NAND research seed, not a complete patent lineage for planar NAND, channel boosting, or pulse algorithms. The patent alone also does not establish that a contemporary BiCS product implements every claim limitation."
+        }
+      ],
+      "sourceIds": ["ch-pat-nand-vertical", "ch-tech-nand", "ch-tech-multilevel", "ch-tech-retention", "ch-tech-ecc", "ch-tech-deepetch", "ch-paper-3dvariation", "ch-paper-readdisturb", "ch-maturity-bics"],
+      "quiz": {
+        "question": "Does moving from TLC to QLC while increasing the layer count necessarily improve speed and endurance and reduce cost at the same time?",
+        "answer": "No. QLC must distinguish sixteen states, while TLC needs only eight; narrower windows increase verification and error-management demands. More layers add deep-hole process and layer-variation challenges. Evaluate an identified product's usable capacity, manufacturing and controller costs, workload, and reliability conditions together."
+      }
+    }
+  ]
+}

@@ -4,7 +4,24 @@
   "allowedClassifications": ["Public"],
   "blockedClassifications": ["Internal", "NDA", "Confidential", "Restricted"],
   "blockedAttachmentExtensions": [".pdf", ".ppt", ".pptx", ".doc", ".docx", ".xls", ".xlsx", ".zip", ".7z", ".rar"],
-  "allowedAttachmentExceptions": [],
+  "allowedAttachmentExceptions": [
+    "briefing/NVM_AI_OCP_NVM_Opportunities_Executive_v18_Comprehensive_Update_EN.pptx",
+    "briefing/NVM_AI_OCP_NVM_Opportunities_Executive_v19_EN.pptx"
+  ],
+  "attachmentExceptionEvidence": [
+    {
+      "path": "briefing/NVM_AI_OCP_NVM_Opportunities_Executive_v18_Comprehensive_Update_EN.pptx",
+      "sha256": "1862aa7d65b2aca41db251cb5306561550b99519fc411e6eec4f9fc96ed8e247",
+      "releasedBaseline": "4cec41c17e737d5bb0ad96e0c109b2448b382ae9",
+      "basis": "保留本次工作之前已在公開主站提供、且位元組完全相同的既有簡報；本次不新增或修改附件。"
+    },
+    {
+      "path": "briefing/NVM_AI_OCP_NVM_Opportunities_Executive_v19_EN.pptx",
+      "sha256": "1221288e82e4d6d2b6f7ae68f91113302080835ca68990728d3202be3029447f",
+      "releasedBaseline": "4cec41c17e737d5bb0ad96e0c109b2448b382ae9",
+      "basis": "保留本次工作之前已在公開主站提供、且位元組完全相同的既有簡報；本次不新增或修改附件。"
+    }
+  ],
   "rawPublicDataRoots": ["data"],
   "requiredPovContractId": "POV-NVM-WEB-2026-08-29",
   "releaseApprover": "Sam Huang",

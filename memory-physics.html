@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-title-en="Complementary Storage and Verifiable Differences · NVM Knowledge Hub" data-title-zh="互補儲存與可驗證差異 · NVM 知識中心" data-description-en="Complementary storage and verifiable differences: examine the evidence boundaries of SRAM PUF, encrypted OTP, and Secure Storage through bitcell cost, read paths, and physical observability." data-description-zh="互補儲存與可驗證差異：從位元胞成本、讀取路徑與物理可觀察性，檢視 SRAM PUF、加密 OTP 與安全儲存的證據邊界。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260906-navy-v3"></script>
+  <script src="site-language.js?v=20260910-bilingual"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="互補儲存與可驗證差異：從位元胞成本、讀取路徑與物理可觀察性，檢視 SRAM PUF、加密 OTP 與安全儲存的證據邊界。">
+  <meta name="description" content="Complementary storage and verifiable differences: examine the evidence boundaries of SRAM PUF, encrypted OTP, and Secure Storage through bitcell cost, read paths, and physical observability.">
   <meta name="theme-color" content="#061c2a">
-  <title>互補儲存與可驗證差異 · NVM Knowledge Hub</title>
+  <title>Complementary Storage and Verifiable Differences · NVM Knowledge Hub</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css?v=20260906-navy-v3">
   <link rel="stylesheet" href="research.css?v=20260906-navy-v3">
@@ -949,7 +949,7 @@
     }
   </style>
 </head>
-<body class="research-page memory-physics-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial">
+<body class="research-page memory-physics-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
   <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
 
@@ -959,7 +959,7 @@
       <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
       <span class="brand-section">MEMORY PHYSICS</span>
     </a>
-    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation">
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation"><a data-lang="en" href="NVM技術全景.html">NVM Technology Atlas</a><a data-lang="zh" href="NVM技術全景中文.html">NVM 技術全景</a>
       <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a><a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a><a href="iot-mcu-envm.html"><span data-lang="zh">IoT &amp; MCU</span><span data-lang="en">IoT &amp; MCU</span></a><a href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive</span></a><a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty</span></a><a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
     </nav>
     <div class="header-actions">
@@ -970,8 +970,8 @@
   </header>
 
   <nav class="site-breadcrumb" aria-label="Breadcrumb">
-    <i></i><a href="index.html">Knowledge Hub</a><i></i><a href="secure-storage.html">Secure Storage</a><i></i><strong>Memory Physics</strong>
-    <span class="topic-switch"><a href="index.html#topics">All Topics</a><a aria-current="page" href="secure-storage.html">Secure Storage</a><a href="ai-nvm-opportunities.html">AI Systems</a><a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a></span>
+    <i></i><a href="index.html"><span data-lang="zh">知識中心</span><span data-lang="en">Knowledge Hub</span></a><i></i><a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><i></i><strong><span data-lang="zh">記憶體物理</span><span data-lang="en">Memory Physics</span></strong>
+    <span class="topic-switch"><a data-lang="en" href="NVM技術全景.html">NVM Technology Atlas</a><a data-lang="zh" href="NVM技術全景中文.html">NVM 技術全景</a><a href="index.html#topics"><span data-lang="zh">所有專題</span><span data-lang="en">All Topics</span></a><a aria-current="page" href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 系統</span><span data-lang="en">AI Systems</span></a><a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a></span>
   </nav>
 
   <main id="main-content">
@@ -985,7 +985,7 @@
       <div class="f1-hero-shade" aria-hidden="true"></div>
 
       <div class="research-hero-inner">
-        <p class="research-label"><span class="label-dot"></span>RESEARCH NOTE 02 · MEMORY PHYSICS &amp; HARDWARE SECURITY</p>
+        <p class="research-label"><span class="label-dot"></span><span data-lang="zh">研究筆記 02 · 記憶體物理與硬體安全</span><span data-lang="en">RESEARCH NOTE 02 · MEMORY PHYSICS &amp; HARDWARE SECURITY</span></p>
         <h1 id="f1-hero-title">
           <span data-lang="zh">可量產的互補式儲存，<br><em>形成可驗證的差異</em></span>
           <span data-lang="en">Scalable complementary storage<br><em>creates a verifiable difference</em></span>
@@ -1012,7 +1012,7 @@
     </section>
 
     <!-- 4-Metric 規格彩條 (F1 Stat Bridge) -->
-    <div class="f1-stat-bridge stat-strip-compact" aria-label="F1 核心規格摘要">
+    <div class="f1-stat-bridge stat-strip-compact" aria-label="Key memory-physics metrics" data-aria-en="Key memory-physics metrics" data-aria-zh="F1 核心規格摘要">
       <div class="stat-strip-grid">
         <div class="stat-strip-card border-l-cyan">
           <div class="stat-card-head">
@@ -1064,13 +1064,13 @@
       <div class="studio-layout">
         
         <!-- 左側直立測條 (Vertical Lens Rail) -->
-        <aside class="lens-vertical-rail" aria-label="章節導覽">
+        <aside class="lens-vertical-rail" aria-label="Chapter navigation" data-aria-en="Chapter navigation" data-aria-zh="章節導覽">
           <button class="f1-chapter-toggle" type="button" aria-expanded="false" aria-controls="f1-chapters"><span data-lang="zh">章節導覽</span><span data-lang="en">Chapters</span><span class="f1-current-chapter">00</span><span aria-hidden="true">⌄</span></button>
           <div class="rail-header">
             <span class="rail-title"><span data-lang="zh">章節導覽</span><span data-lang="en">CHAPTERS</span></span>
             <span class="rail-tag">00–09</span>
           </div>
-          <nav class="hub-nav-pills" id="f1-chapters" aria-label="章節跳轉">
+          <nav class="hub-nav-pills" id="f1-chapters" aria-label="Chapter navigation" data-aria-en="Chapter navigation" data-aria-zh="章節跳轉">
             <a class="nav-pill lens-node-item active" href="#abstract">
               <span class="lens-badge">00</span>
               <div class="lens-info">
@@ -1175,7 +1175,7 @@
         <p class="paper-note"><b><span data-lang="zh">用語紀律：</span><span data-lang="en">Terminology discipline:</span></b> <span data-lang="zh">本文不把 persistent PUF response 直接稱為「明文 key」。NeoPUF 公開資料描述的是 enrollment 後的永久 tunneling-path 位置，再由電流感測導出 PUF bit；是否直接等同某個最終 cryptographic key，取決於後續 key derivation 與產品實作。</span><span data-lang="en">This paper does not equate a persistent PUF response with a plaintext key. NeoPUF literature describes a permanent enrolled tunneling-path location sensed into PUF bits; whether that equals a final cryptographic key depends on derivation and product implementation.</span></p>
       </section>
 
-      <nav class="f1-reading-routes" aria-label="依問題選擇閱讀路徑">
+      <nav class="f1-reading-routes" aria-label="Choose a reading path by question" data-aria-en="Choose a reading path by question" data-aria-zh="依問題選擇閱讀路徑">
         <a href="#economics"><small>02 → 03</small><strong><span data-lang="zh">先看電路與成本</span><span data-lang="en">Start with Circuits and Cost</span></strong><span data-lang="zh">互補表示、位元胞圖解與讀取示意</span><span data-lang="en">Complementary representation, bitcells and interactive readout</span></a>
         <a href="#emission"><small>04 → 06</small><strong><span data-lang="zh">先看攻擊與實證</span><span data-lang="en">Start with Attacks and Evidence</span></strong><span data-lang="zh">可觀察量、儲存變數與攻擊前提</span><span data-lang="en">Observables, storage variables and attack prerequisites</span></a>
         <a href="#system-consequence"><small>07 → 09</small><strong><span data-lang="zh">先看架構與主張</span><span data-lang="en">Start with Architecture and Claims</span></strong><span data-lang="zh">擷取後果、可防守說法與待驗證條件</span><span data-lang="en">Extraction consequences, defensible claims and open conditions</span></a>
@@ -1290,7 +1290,7 @@
               <div class="lane-reading"><small><span data-lang="zh">目前可觀察量</span><span data-lang="en">CURRENT OBSERVABLE</span></small><strong>無邏輯狀態</strong></div>
             </div>
             <div class="memory-lane">
-              <div class="lane-title"><b>ANTIFUSE / NeoPUF</b><span>PERSISTENT PATH</span></div>
+              <div class="lane-title"><b>ANTIFUSE / NeoPUF</b><span><span data-lang="zh">持久路徑</span><span data-lang="en">PERSISTENT PATH</span></span></div>
               <div class="otp-cell">
                 <i class="bitline bl"></i><span class="otp-filament"></span><span class="otp-reference"></span>
                 <b class="sense-block">ICELL ↔ IREF</b>
@@ -1311,7 +1311,7 @@
         <div class="primitive-scope"><small>ANALYSIS BOUNDARY · RAW OTP PRIMITIVE</small><strong><span data-lang="zh">這一節只回答「OTP cell 能不能被看見」，還沒有回答「secret 能不能被還原」。</span><span data-lang="en">This section asks whether OTP cells can be observed—not whether the secret can be recovered.</span></strong><p><span data-lang="zh">若 raw OTP 直接保存 plaintext，物理 readout 就可能完成資料揭露；若 OTP 保存的是由 PUF root 保護的 encrypted、address-scrambled data，cell-level reverse engineering 只完成攻擊鏈的第一段。</span><span data-lang="en">If raw OTP directly stores plaintext, physical readout may complete disclosure. If OTP stores encrypted, address-scrambled data protected by a PUF root, cell-level reverse engineering completes only the first segment of the attack chain.</span></p></div>
         <div class="energy-equation">
           <article class="energy-card"><h3>SRAM</h3><p><span data-lang="zh">動態讀取會產生 bitline charging/discharging 與 sense-amplifier switching；靜態保存也有 state-dependent leakage。</span><span data-lang="en">Dynamic reads charge/discharge bitlines and switch the sense amplifier; static retention also has state-dependent leakage.</span></p><ul><li><span data-lang="zh">已證明：Photon Emission、TLS、EOFM 可讀出 SRAM 內容。</span><span data-lang="en">Demonstrated: Photon Emission, TLS and EOFM can recover SRAM contents.</span></li><li><span data-lang="zh">亮點位置可隨儲存 0／1 對應到不同 NMOS leakage path。</span><span data-lang="en">Emission location can change with the NMOS leakage path selected by stored 0/1.</span></li><li><span data-lang="zh">需要供電、殘留狀態，或特定熱刺激／量測配置。</span><span data-lang="en">Requires power, remanent state, or a specific thermal-stimulation setup.</span></li></ul></article>
-          <div class="formula-block"><strong>P<sub>local</sub> = V · I</strong><small>NECESSARY ENERGY ≠ GUARANTEED OBSERVABILITY</small></div>
+          <div class="formula-block"><strong>P<sub>local</sub> = V · I</strong><small><span data-lang="zh">必要能量 ≠ 保證可觀測</span><span data-lang="en">NECESSARY ENERGY ≠ GUARANTEED OBSERVABILITY</span></small></div>
           <article class="energy-card"><h3>OTP / OTP-PUF</h3><p><span data-lang="zh">programmed path 的 I<sub>cell</sub> 與 unprogrammed leakage 不同；局部 Joule heating 與 emission 在物理上可能，但量測可見度必須實驗驗證。</span><span data-lang="en">A programmed path's I<sub>cell</sub> differs from unprogrammed leakage. Local Joule heating and emission are physically possible, but observability must be experimentally validated.</span></p><ul><li><span data-lang="zh">NeoPUF 文件描述 I<sub>cell</sub> 與 I<sub>ref</sub> 的 single-ended 比較。</span><span data-lang="en">NeoPUF literature describes a single-ended I<sub>cell</sub>-to-I<sub>ref</sub> comparison.</span></li><li><span data-lang="zh">同一份供應商資料報告其 InGaAs 測試未在 PUF array 找到可區分 hotspot。</span><span data-lang="en">The same vendor publication reports no distinguishable PUF-array hotspot in its InGaAs test.</span></li><li><span data-lang="zh">獨立 FIB-PVC 已直接擷取 40 nm antifuse OTP，無須依賴正常 read emission。</span><span data-lang="en">Independent FIB-PVC extracted 40 nm antifuse OTP without relying on normal-read emission.</span></li></ul></article>
         </div>
         <div class="evidence-triptych">
@@ -1346,15 +1346,15 @@
           <div class="table-scroll-container">
             <table class="taxonomy-table">
               <caption><span data-lang="zh">依儲存變數比較記憶體；技術分類不等同安全資格</span><span data-lang="en">Memories by storage variable; a technology class is not a security qualification</span></caption>
-              <thead><tr><th>Technology</th><th>Stored / expressed variable</th><th>Typical read observable</th><th>Power-off state</th><th>Security-relevant physical avenues</th></tr></thead>
+              <thead><tr><th><span data-lang="zh">技術</span><span data-lang="en">Technology</span></th><th><span data-lang="zh">儲存／表達的變數</span><span data-lang="en">Stored / expressed variable</span></th><th><span data-lang="zh">典型讀取觀測量</span><span data-lang="en">Typical read observable</span></th><th><span data-lang="zh">斷電狀態</span><span data-lang="en">Power-off state</span></th><th><span data-lang="zh">與安全相關的物理途徑</span><span data-lang="en">Security-relevant physical avenues</span></th></tr></thead>
               <tbody>
-                <tr><th>SRAM / SRAM PUF<br><span class="state-chip">VOLATILE RESPONSE</span></th><td><span data-lang="zh">cross-coupled latch 的 0/1；PUF 使用 power-up preference，其來源是 transistor mismatch。</span><span data-lang="en">Cross-coupled-latch 0/1; PUF uses power-up preference rooted in transistor mismatch.</span></td><td>Bitline ΔV, ΔI, timing; startup response.</td><td><span data-lang="zh">沒有 powered logic state；mismatch 仍在，下次上電表達。</span><span data-lang="en">No powered logical state; mismatch remains and is expressed at next power-up.</span></td><td>PEM, TLS, LLSI/EOFM, laser fault, low-temperature remanence, helper-data manipulation.</td></tr>
-                <tr><th>eFuse<br><span class="state-chip persistent">PERSISTENT STRUCTURE</span></th><td><span data-lang="zh">金屬 link 的完整／熔斷或電阻改變。</span><span data-lang="en">Intact/blown metal link or resistance change.</span></td><td>Resistance / current / derived voltage.</td><td><span data-lang="zh">永久幾何與電阻差異。</span><span data-lang="en">Persistent geometric and resistive difference.</span></td><td>Optical/SEM imaging, PVC, probing, focused repair/edit, address reconstruction.</td></tr>
-                <tr><th>Antifuse / NeoPUF<br><span class="state-chip persistent">PERSISTENT PATH</span></th><td><span data-lang="zh">programmed conductive path；NeoPUF 為成對 MOS oxide 中 enrollment 後的 tunneling-path 位置。</span><span data-lang="en">Programmed conductive path; NeoPUF uses the enrolled tunneling-path location in paired MOS oxides.</span></td><td>Cell current vs reference, resistance, or bitline voltage/charge.</td><td><span data-lang="zh">永久導通位置／路徑。</span><span data-lang="en">Persistent conduction location/path.</span></td><td>FIB-PVC, SEM/TEM attempts, emission/thermal contrast if measurable, decoder/read-path fault.</td></tr>
-                <tr><th>Floating-gate / Charge-trap<br><span class="state-chip persistent">PERSISTENT CHARGE</span></th><td><span data-lang="zh">trapped charge 改變 transistor threshold voltage。</span><span data-lang="en">Trapped charge shifts transistor threshold voltage.</span></td><td>Channel current / V<sub>th</sub> window.</td><td><span data-lang="zh">電荷與閾值分布持續存在。</span><span data-lang="en">Charge and threshold distribution persist.</span></td><td>SEM/PVC after preparation, charge contrast, UV/laser disturbance, read-threshold manipulation, remanence.</td></tr>
-                <tr><th>ReRAM / PCM<br><span class="state-chip persistent">PERSISTENT MATERIAL</span></th><td><span data-lang="zh">conductive filament／ionic state 或 amorphous-crystalline phase。</span><span data-lang="en">Conductive filament/ionic state or amorphous-crystalline phase.</span></td><td>Resistance / current / switching time.</td><td><span data-lang="zh">材料狀態持續存在。</span><span data-lang="en">Material state persists.</span></td><td>Resistance mapping, thermal sensitivity, microscopy depending stack, faulted selectors and sneak paths.</td></tr>
-                <tr><th>MRAM<br><span class="state-chip persistent">PERSISTENT MAGNETIC</span></th><td><span data-lang="zh">magnetic tunnel junction 的平行／反平行 magnetization。</span><span data-lang="en">Parallel/antiparallel magnetization of a magnetic tunnel junction.</span></td><td>Tunnel magnetoresistance.</td><td><span data-lang="zh">磁化方向持續存在。</span><span data-lang="en">Magnetization direction persists.</span></td><td>Magnetic field/thermal fault, resistance readout, magnetic imaging subject to stack and scale.</td></tr>
-                <tr><th>Specialty HV eNVM<br><span class="state-chip persistent">PROCESS-SPECIFIC STATE</span></th><td><span data-lang="zh">依具體記憶體技術與製程堆疊確認儲存變數；BCD／HV 相容性須由 macro 規格支持。</span><span data-lang="en">Identify the storage variable from the memory technology and process stack; BCD/HV compatibility requires macro specifications.</span></td><td><span data-lang="zh">感測模式與待機漏電須依目標配置量測。</span><span data-lang="en">Measure sensing mode and standby leakage in the target configuration.</span></td><td><span data-lang="zh">非揮發狀態持續存在；脈衝耐受、溫度與保持能力須分別驗證。</span><span data-lang="en">Nonvolatile state persists; pulse tolerance, temperature and retention require separate validation.</span></td><td>FIB-PVC, electrical pulse disturbance, thermal accelerated stress test.</td></tr>
+                <tr><th>SRAM / SRAM PUF<br><span class="state-chip"><span data-lang="zh">揮發性回應</span><span data-lang="en">VOLATILE RESPONSE</span></span></th><td><span data-lang="zh">cross-coupled latch 的 0/1；PUF 使用 power-up preference，其來源是 transistor mismatch。</span><span data-lang="en">Cross-coupled-latch 0/1; PUF uses power-up preference rooted in transistor mismatch.</span></td><td><span data-lang="zh">位元線 ΔV、ΔI 與時序；啟動回應。</span><span data-lang="en">Bitline ΔV, ΔI, timing; startup response.</span></td><td><span data-lang="zh">沒有 powered logic state；mismatch 仍在，下次上電表達。</span><span data-lang="en">No powered logical state; mismatch remains and is expressed at next power-up.</span></td><td><span data-lang="zh">PEM、TLS、LLSI／EOFM、雷射故障、低溫殘留與輔助資料操控。</span><span data-lang="en">PEM, TLS, LLSI/EOFM, laser fault, low-temperature remanence, helper-data manipulation.</span></td></tr>
+                <tr><th>eFuse<br><span class="state-chip persistent"><span data-lang="zh">持久結構</span><span data-lang="en">PERSISTENT STRUCTURE</span></span></th><td><span data-lang="zh">金屬 link 的完整／熔斷或電阻改變。</span><span data-lang="en">Intact/blown metal link or resistance change.</span></td><td><span data-lang="zh">電阻／電流／衍生電壓。</span><span data-lang="en">Resistance / current / derived voltage.</span></td><td><span data-lang="zh">永久幾何與電阻差異。</span><span data-lang="en">Persistent geometric and resistive difference.</span></td><td><span data-lang="zh">光學／SEM 成像、PVC、探測、局部修復／編修與位址重建。</span><span data-lang="en">Optical/SEM imaging, PVC, probing, focused repair/edit, address reconstruction.</span></td></tr>
+                <tr><th>Antifuse / NeoPUF<br><span class="state-chip persistent"><span data-lang="zh">持久路徑</span><span data-lang="en">PERSISTENT PATH</span></span></th><td><span data-lang="zh">programmed conductive path；NeoPUF 為成對 MOS oxide 中 enrollment 後的 tunneling-path 位置。</span><span data-lang="en">Programmed conductive path; NeoPUF uses the enrolled tunneling-path location in paired MOS oxides.</span></td><td><span data-lang="zh">單元電流相對參考值、電阻，或位元線電壓／電荷。</span><span data-lang="en">Cell current vs reference, resistance, or bitline voltage/charge.</span></td><td><span data-lang="zh">永久導通位置／路徑。</span><span data-lang="en">Persistent conduction location/path.</span></td><td><span data-lang="zh">FIB-PVC、SEM／TEM 嘗試、可量測時的發光／熱對比，以及解碼器／讀取路徑故障。</span><span data-lang="en">FIB-PVC, SEM/TEM attempts, emission/thermal contrast if measurable, decoder/read-path fault.</span></td></tr>
+                <tr><th><span data-lang="zh">浮動閘極／電荷捕捉</span><span data-lang="en">Floating-gate / Charge-trap</span><br><span class="state-chip persistent"><span data-lang="zh">持久電荷</span><span data-lang="en">PERSISTENT CHARGE</span></span></th><td><span data-lang="zh">trapped charge 改變 transistor threshold voltage。</span><span data-lang="en">Trapped charge shifts transistor threshold voltage.</span></td><td>Channel current / V<sub>th</sub> window.</td><td><span data-lang="zh">電荷與閾值分布持續存在。</span><span data-lang="en">Charge and threshold distribution persist.</span></td><td><span data-lang="zh">前處理後的 SEM／PVC、電荷對比、紫外線／雷射擾動、讀取閾值操控與殘留。</span><span data-lang="en">SEM/PVC after preparation, charge contrast, UV/laser disturbance, read-threshold manipulation, remanence.</span></td></tr>
+                <tr><th>ReRAM / PCM<br><span class="state-chip persistent"><span data-lang="zh">持久材料狀態</span><span data-lang="en">PERSISTENT MATERIAL</span></span></th><td><span data-lang="zh">conductive filament／ionic state 或 amorphous-crystalline phase。</span><span data-lang="en">Conductive filament/ionic state or amorphous-crystalline phase.</span></td><td><span data-lang="zh">電阻／電流／切換時間。</span><span data-lang="en">Resistance / current / switching time.</span></td><td><span data-lang="zh">材料狀態持續存在。</span><span data-lang="en">Material state persists.</span></td><td><span data-lang="zh">電阻映射、熱敏感度、依堆疊而定的顯微觀測、受故障影響的選擇器與潛行路徑。</span><span data-lang="en">Resistance mapping, thermal sensitivity, microscopy depending stack, faulted selectors and sneak paths.</span></td></tr>
+                <tr><th>MRAM<br><span class="state-chip persistent"><span data-lang="zh">持久磁性狀態</span><span data-lang="en">PERSISTENT MAGNETIC</span></span></th><td><span data-lang="zh">magnetic tunnel junction 的平行／反平行 magnetization。</span><span data-lang="en">Parallel/antiparallel magnetization of a magnetic tunnel junction.</span></td><td><span data-lang="zh">穿隧磁阻。</span><span data-lang="en">Tunnel magnetoresistance.</span></td><td><span data-lang="zh">磁化方向持續存在。</span><span data-lang="en">Magnetization direction persists.</span></td><td><span data-lang="zh">磁場／熱故障、電阻讀出，以及受堆疊與尺度限制的磁性成像。</span><span data-lang="en">Magnetic field/thermal fault, resistance readout, magnetic imaging subject to stack and scale.</span></td></tr>
+                <tr><th>Specialty HV eNVM<br><span class="state-chip persistent"><span data-lang="zh">製程特定狀態</span><span data-lang="en">PROCESS-SPECIFIC STATE</span></span></th><td><span data-lang="zh">依具體記憶體技術與製程堆疊確認儲存變數；BCD／HV 相容性須由 macro 規格支持。</span><span data-lang="en">Identify the storage variable from the memory technology and process stack; BCD/HV compatibility requires macro specifications.</span></td><td><span data-lang="zh">感測模式與待機漏電須依目標配置量測。</span><span data-lang="en">Measure sensing mode and standby leakage in the target configuration.</span></td><td><span data-lang="zh">非揮發狀態持續存在；脈衝耐受、溫度與保持能力須分別驗證。</span><span data-lang="en">Nonvolatile state persists; pulse tolerance, temperature and retention require separate validation.</span></td><td><span data-lang="zh">FIB-PVC、電脈衝擾動、熱加速應力測試。</span><span data-lang="en">FIB-PVC, electrical pulse disturbance, thermal accelerated stress test.</span></td></tr>
               </tbody>
             </table>
           </div>
@@ -1401,7 +1401,7 @@
             <div class="outcome-pivot"><span>CHANGES THE CONSEQUENCE</span><b>≠</b></div>
             <article class="secure-outcome"><span>SYNOPSYS SECURE STORAGE</span><h4><span data-lang="zh">Cell state → scrambled ciphertext</span><span data-lang="en">Cell state → scrambled ciphertext</span></h4><p><span data-lang="zh">SRAM PUF 在受控上電窗口重建不永久儲存的 root；AES-256 保護 OTP data；address scrambling 打亂 logical-to-physical mapping；Secure Controller 管理授權與資料路徑。即使 OTP array 被物理重建，也不能只靠 OTP reverse engineering 直接還原 plaintext。</span><span data-lang="en">SRAM PUF reconstructs a root that is never permanently stored; AES-256 protects OTP data; address scrambling obscures logical-to-physical mapping; and the Secure Controller governs authorization and data paths. Even if the OTP array is physically reconstructed, OTP reverse engineering alone should not directly recover plaintext.</span></p><div class="security-stack"><i>SRAM PUF ROOT</i><i>AES-256</i><i>ADDRESS SCRAMBLING</i><i>SECURE CONTROLLER</i></div></article>
           </div>
-          <div class="outcome-equation"><small>SECURE STORAGE PRINCIPLE</small><strong>OTP REVERSE ENGINEERING ≠ SECRET REVERSE ENGINEERING</strong></div>
+          <div class="outcome-equation"><small>SECURE STORAGE PRINCIPLE</small><strong><span data-lang="zh">OTP 逆向工程 ≠ 機密逆向工程</span><span data-lang="en">OTP REVERSE ENGINEERING ≠ SECRET REVERSE ENGINEERING</span></strong></div>
         </div>
         <div class="causal-chain">
           <article class="causal-node"><span>01 · PHYSICAL ACCESS</span><h3><span data-lang="zh">定位 memory array 與 read path</span><span data-lang="en">Locate the array and read path</span></h3><p><span data-lang="zh">decap、backside prep、FIB、SEM、optical 或 fault reconnaissance。</span><span data-lang="en">Decap, backside preparation, FIB, SEM, optical or fault reconnaissance.</span></p></article>
@@ -1508,7 +1508,7 @@
       </section>
 
       <section class="paper-conclusion reveal">
-        <small>CONCLUSION · SECURITY IS A LIFECYCLE PROPERTY</small>
+        <small><span data-lang="zh">結論 · 安全性是生命週期屬性</span><span data-lang="en">CONCLUSION · SECURITY IS A LIFECYCLE PROPERTY</span></small>
         <h2><span data-lang="zh">讓永久 state 可以被讀，<br>但不能直接變成永久 secret</span><span data-lang="en">Let persistent state be readable<br>without making it a persistent secret</span></h2>
         <p><span data-lang="zh">更有保障的答案不是單一 bit-cell，而是可驗證的責任鏈：1T economics 讓 differential OTP 可量產；互補讀取降低一階資料相依訊號；OTP 保存耐久 ciphertext；具供應商量產紀錄的 SRAM PUF 在受控窗口重建未永久儲存的 root；crypto 與 controller 讓兩條攻擊路徑不直接合流。</span><span data-lang="en">A stronger answer is not one bit cell but a verifiable chain: 1T economics make differential OTP practical; complementary read reduces first-order data-dependent signature; OTP retains durable ciphertext; a vendor-reported, production-deployed SRAM PUF reconstructs a root that is never permanently stored; crypto and controller keep the attack paths from collapsing into one.</span></p>
         <a class="button primary" href="memory-evidence.html"><span data-lang="zh">檢視完整證據庫</span><span data-lang="en">Inspect the evidence base</span></a>
@@ -1529,7 +1529,7 @@
             <span class="hub-footer-logo-mark">NVM</span>
             <span class="hub-footer-logo-text">
               <strong>KNOWLEDGE HUB</strong>
-              <small>SILICON ARCHITECTURE &amp; EVIDENCE DISCIPLINE</small>
+              <small><span data-lang="zh">晶片架構與證據紀律</span><span data-lang="en">SILICON ARCHITECTURE &amp; EVIDENCE DISCIPLINE</span></small>
             </span>
           </a>
           <p class="hub-footer-desc">
@@ -1547,7 +1547,7 @@
           <div class="meta-pill-item">
             <span class="meta-pill-dot" style="background:#c4a574;"></span>
             <span class="meta-pill-key">RELIABILITY:</span>
-            <span class="meta-pill-val">AEC-Q100 GRADE 0 / ISO 26262 ASIL CONTEXT</span>
+            <span class="meta-pill-val"><span data-lang="zh">AEC-Q100 Grade 0／ISO 26262 ASIL 背景</span><span data-lang="en">AEC-Q100 GRADE 0 / ISO 26262 ASIL CONTEXT</span></span>
           </div>
         </div>
       </div>

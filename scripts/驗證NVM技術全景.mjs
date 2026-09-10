@@ -6,7 +6,7 @@ import { chromium } from 'playwright';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const output = path.join(root, 'qa', 'NVM技術全景_20260910');
 fs.mkdirSync(output, { recursive: true });
-const base = 'http://127.0.0.1:8765/NVM技術全景.html';
+const base = 'http://127.0.0.1:8765/NVM技術全景中文.html?lang=zh';
 const data = JSON.parse(fs.readFileSync(path.join(root, 'data', 'NVM知識資料.json'), 'utf8'));
 const failures = [];
 const audits = [];

@@ -1,0 +1,707 @@
+{
+  "title": "Public Roadmap for GF and TSMC Embedded MRAM and RRAM",
+  "asOf": "2026-09-10",
+  "scope": "A traceable timeline based on public primary sources from 2022–2026, with earlier baselines retained. An annual report's reporting year is the period in which the events occurred; publication is usually in the following year. An undated product page establishes only the status observed on the verification date.",
+  "statusLegend": {
+    "announced": "Announced or planned; does not establish completed qualification",
+    "development": "In development or demonstrated on a test chip; does not establish commercial availability",
+    "designReady": "A design kit is available, prototyping is supported, or the technology is ready for tapeout",
+    "qualified": "Qualification is complete for a specific technology, version, or specification",
+    "productionReady": "Ready for production; does not establish customer volume shipments",
+    "production": "The supplier explicitly reports production or volume production",
+    "target": "Forward-looking target; no completion announcement has been obtained",
+    "unresolved": "Public information is insufficient to confirm the version, date, or completion status"
+  },
+  "sources": [
+    {
+      "id": "FND-GF-2020-MRAM",
+      "label": "GF: 22FDX eMRAM Production Announcement",
+      "url": "https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram",
+      "kind": "Supplier Press Release",
+      "date": "2020-02-27",
+      "locator": "Sections on production, reliability, and macros",
+      "claim": "22FDX eMRAM has entered production: one hundred thousand cycles, ten-year retention over the stated temperature range, and five solder-reflow cycles. Grade 2 design support is available; Grade 1 development was targeted for the following year.",
+      "evidence": "Full text reviewed",
+      "limit": "Applies to the platform and macro conditions disclosed at the time; cannot be generalized to all MRAM.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2020-CBRAM",
+      "label": "GF and Dialog: 22FDX CBRAM Licensing Agreement",
+      "url": "https://investors.gf.com/node/6441/pdf",
+      "kind": "Joint Supplier Press Release",
+      "date": "2020-10-19",
+      "locator": "Sections on licensing and the planned availability year",
+      "claim": "Dialog licensed conductive-bridge memory, with an embedded 22FDX option then planned for 2022.",
+      "evidence": "Text from the official search index",
+      "limit": "Establishes a planned schedule only. CBRAM and the later OxRAM offering must not be treated as the same material system or version.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2022-MAP",
+      "label": "GF 2022 Investor Presentation: Platform Feature Roadmap",
+      "url": "https://investors.gf.com/static-files/65f5f1b9-2aea-47a3-8455-10413c6560f4",
+      "kind": "Supplier Investor Presentation",
+      "date": "2022",
+      "locator": "Investing for a Bold Future chart",
+      "claim": "The chart lists platform features including 22FDX, 22FDX+, MRAM, and MRAM-G2.",
+      "evidence": "Text from the official index; the PDF could not be opened",
+      "limit": "The color legend and graphical associations have not been verified. Flattened text is not used to declare that a platform is in volume production, and MRAM-G2 is not independently mapped to later naming.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2023-MAP",
+      "label": "GF 2023 Investor Presentation: Platforms and Features",
+      "url": "https://investors.gf.com/static-files/9aecbb31-1a7a-43a5-b1ed-d5e0d4380cee",
+      "kind": "Supplier Investor Presentation",
+      "date": "2023",
+      "locator": "Platform feature roadmap on page 32",
+      "claim": "The chart continues to list MRAM, MRAM-G2, and development directions for multiple platforms.",
+      "evidence": "Text from the official index",
+      "limit": "Text extraction loses the association between individual features and the production/development legend. It does not establish that 12LP MRAM is in volume production.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2024-AUTO",
+      "label": "GF: Automotive Platform Innovation and 12LP+ AutoPro150",
+      "url": "https://gf.com/news-and-events/blog/driving-automotive-innovation-on-the-semiconductor-superhighway/",
+      "kind": "Supplier Technical Blog",
+      "date": "2024-06-11",
+      "locator": "Sections on eMRAM and 12LP+ features",
+      "claim": "Describes the 12LP+ automotive offering and lists MRAM among features being deployed, while describing some features as forthcoming.",
+      "evidence": "Main text reviewed",
+      "limit": "Does not provide a completed qualification date, production date, or full electrical conditions for the MRAM macro. Power improvements in the logic platform are not MRAM metrics.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2025-MCU",
+      "label": "GF: Automotive MCUs and Software-Defined Vehicles",
+      "url": "https://gf.com/news-and-events/blog/inside-a-cars-digital-brain-mcus-the-engine-powering-sdv-innovation/",
+      "kind": "Supplier Technical Blog",
+      "date": "2025-05-22",
+      "locator": "Sections on 12LP+ MRAM and 22FDX MRAM",
+      "claim": "GF lists 12LP+ MRAM and 22FDX MRAM as technologies for automotive controllers.",
+      "evidence": "Main text reviewed",
+      "limit": "These are platform and application claims; they do not provide macro-specific evidence of volume production or completed qualification for 12LP+ MRAM.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2025-RRAM",
+      "label": "GF 2025 Technology Summit: 22FDX+ RRAM Available for Prototyping",
+      "url": "https://gf.com/news-and-events/news/globalfoundries-announces-availability-of-22fdx-rram-technology-for-wireless-connectivity-and-ai-applications/",
+      "kind": "Supplier Technology Summit Press Release",
+      "date": "2025-08-28",
+      "locator": "Subtitle, OxRAM section, and final design-kit section",
+      "claim": "Uses OxRAM; preliminary macro design kits are available, with volume production targeted for 2026.",
+      "evidence": "Full text reviewed",
+      "limit": "The maturity wording in the opening paragraph of the regional Chinese page differs from the English original. This timeline follows the English original's distinction between prototyping and future volume production and does not repeat the mistranslated production claim.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2026-AUTO",
+      "label": "GF: FDX+ AutoPro150 eMRAM Available for Prototyping",
+      "url": "https://gf.com/news-and-events/news/globalfoundries-announces-availability-of-autopro-150-emram-technology-on-enhanced-fdx-platform-for-advanced-automotive-applications/",
+      "kind": "Supplier Press Release",
+      "date": "2026-03-09",
+      "locator": "Subtitle, performance section, design kits, and volume-production target",
+      "claim": "Auto Grade 1 ready; five hundred thousand cycles, read access below 10 ns, and operation up to 150°C. The PDK is available, with volume production in Dresden targeted for the second half of 2026.",
+      "evidence": "Full text reviewed",
+      "limit": "The announcement does not disclose a joint test matrix for all metrics, ECC, or the failure distribution. No subsequent announcement confirming completed volume-production ramp was obtained as of the verification date.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-CURRENT-FDX",
+      "label": "GF Current FDX Platform and Embedded Memory Page",
+      "url": "https://gf.com/technologies/cmos/fdx-fd-soi/",
+      "kind": "Dynamic Supplier Product Page",
+      "date": null,
+      "locator": "MRAM, RRAM, and AutoPro150 sections",
+      "claim": "The MRAM page states more than five hundred thousand cycles and twenty-year retention at 150°C; RRAM uses in-house OxRAM integration.",
+      "evidence": "Main text reviewed; verified on 2026-09-10",
+      "limit": "The page has no version or update date. Its performance claims are not treated as confirmation that a new version has entered volume production, and twenty-year retention and the maximum cycle count are not assumed to have been achieved together on the same sample under the same workload.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-EVERSPIN-12LP",
+      "label": "Everspin/GF 12LP MRAM Joint Development Agreement Amendment",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438423/000155837021002369/mram-20201231xex10d11d4.htm",
+      "kind": "Public Contract Exhibit",
+      "date": "2019-12-31",
+      "locator": "Preamble to Amendment No. 4 and Section 3.2.1",
+      "claim": "Establishes that the parties have a scope of work for joint development of 12LP MRAM.",
+      "evidence": "Official filing text reviewed",
+      "limit": "The agreement establishes collaboration, not commercial volume production, finished-product specifications, or macro compatibility between 12LP+ and 12LP.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-2022-AR",
+      "label": "TSMC 2022 Annual Report: 16FFC MRAM and 22/28ULL RRAM",
+      "url": "https://investor.tsmc.com/static/annualReports/2022/english/ebook/files/basic-html/page97.html",
+      "kind": "Supplier Annual Report",
+      "date": "2023",
+      "locator": "Printed page 95; e-book page 97",
+      "claim": "16FFC MRAM completed reliability qualification and was production-ready in 2022; automotive Grade 1 was targeted for 2023. Customer products using 22/28ULL RRAM began volume production in 2022.",
+      "evidence": "Official e-book text reviewed",
+      "limit": "Production readiness and volume production are distinct. Grade 1 was still a forward-looking target at that point.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-2023-AR",
+      "label": "TSMC 2023 Annual Report, Chapter Five: Process Services and Emerging Memory",
+      "url": "https://investor.tsmc.com/static/annualReports/2023/english/pdf/2023_tsmc_ar_e_ch5.pdf",
+      "kind": "Supplier Annual Report",
+      "date": "2024",
+      "locator": "Printed pages 97 and 101; PDF pages 2 and 4",
+      "claim": "The process-services chapter records Grade 1 qualification for 16FFC MRAM in 2023 and the second year of volume production for 22/28ULL RRAM. The R&D chapter separately records completed consumer-grade qualification for 16nm and exploration of a next-generation 16nm technology with smaller bits.",
+      "evidence": "Official PDF text reviewed",
+      "limit": "The MRAM scopes and versions described in different chapters of the same report are not fully mapped to one another. All 16nm qualification events must not be collapsed into a single first-completion date.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-2024-AR",
+      "label": "TSMC 2024 Annual Report: Emerging Memory with Smaller Bits",
+      "url": "https://investor.tsmc.com/static/annualReports/2024/english/ebook/files/basic-html/page104.html",
+      "kind": "Supplier Annual Report",
+      "date": "2025",
+      "locator": "Printed page 102; e-book page 104",
+      "claim": "12nm RRAM completed consumer-grade technology qualification; 6nm RRAM is in development. A smaller, more energy-efficient 16nm MRAM was targeted for automotive qualification in 2025; 12/5nm MRAM is in development.",
+      "evidence": "Official e-book text reviewed",
+      "limit": "No mapping of macro versions and names across generations is provided. Technology qualification for 12nm RRAM is not directly equivalent to volume production.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-2024-BUS",
+      "label": "TSMC 2024 Annual Report: Automotive Technology Services",
+      "url": "https://investor.tsmc.com/static/annualReports/2024/english/ebook/files/basic-html/page21.html",
+      "kind": "Supplier Annual Report",
+      "date": "2025",
+      "locator": "Printed page 19; e-book page 21",
+      "claim": "Reiterates that 16nm MRAM met automotive Grade 1 requirements in 2023.",
+      "evidence": "Official e-book text reviewed",
+      "limit": "Coexists with the R&D chapter's 2025 target. Differences in version scope must be retained.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-2025-AR",
+      "label": "TSMC 2025 Annual Report: Second-Generation MRAM and Third-Generation RRAM",
+      "url": "https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf",
+      "kind": "Supplier Annual Report",
+      "date": "2026",
+      "locator": "Printed page 101; Chapter Five PDF page 2; Section 5.1, Specialty Technologies",
+      "claim": "Second-generation 16MRAM passed automotive qualification in 2025, with a chip failure rate below 1 ppm after one million cycles. N12e RRAM completed consumer-grade qualification for production in 2025; 22RRAM completed qualification for one hundred thousand cycles.",
+      "evidence": "Official chapter PDF reviewed in full; the accessible official chapter version was used after the original full-report link failed",
+      "limit": "The annual report does not provide full capacity, ECC, temperature, or sample-distribution information. The chip failure rate cannot be extrapolated to arbitrary macros.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-2025-20F",
+      "label": "TSMC Form 20-F for Fiscal Year 2025",
+      "url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm",
+      "kind": "Official Company Regulatory Filing",
+      "date": "2026-04-17",
+      "locator": "Automotive platform technology section",
+      "claim": "Second-generation 16nm MRAM and 22ULL RRAM met Automotive Grade 1 requirements in 2025.",
+      "evidence": "Full-text excerpts from the official index; the filing could not be opened directly",
+      "limit": "Establishes completion within the reporting year, but provides no volume-production start date, customer part number, or full test conditions.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-CURRENT-LOGIC",
+      "label": "TSMC Current 16/12nm Technology Page",
+      "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/logic/l_16_12nm",
+      "kind": "Dynamic Supplier Product Page",
+      "date": null,
+      "locator": "Sections on N12 RRAM and N16 MRAM qualification",
+      "claim": "Records completed consumer-grade qualification for N12 RRAM and automotive Grade 1 qualification for N16 MRAM in 2025.",
+      "evidence": "Text from the official index; verified on 2026-09-10",
+      "limit": "The 2017 volume-production year of the underlying 12FFC+ logic platform must not be substituted for the RRAM macro's production year.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-CURRENT-NVM",
+      "label": "TSMC Current Embedded Nonvolatile Memory Page",
+      "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash",
+      "kind": "Dynamic Supplier Product Page",
+      "date": null,
+      "locator": "Main text on eMRAM and eRRAM",
+      "claim": "22/16nm eMRAM is automotive-qualified and in production; 40/28/22/12nm eRRAM is in volume production. 12nm automotive MRAM, 5nm high-speed MRAM, and 6nm RRAM are in development.",
+      "evidence": "Text from the official index; direct access returned only the specialty-technology navigation; verified on 2026-09-10",
+      "limit": "The website is dynamic and has no revision date. This is a snapshot of current status, not evidence of the first year of volume production.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-SYMP-2022",
+      "label": "TSMC 2022 North America Technology Symposium Press Release",
+      "url": "https://pr.tsmc.com/english/news/2939",
+      "kind": "Official Annual Technology Symposium Press Release",
+      "date": "2022-06-16",
+      "locator": "N6e ultra-low-power platform section",
+      "claim": "The public release mentions an embedded NVM technology portfolio.",
+      "evidence": "Main text reviewed",
+      "limit": "The public release does not contain a complete roadmap sufficient to determine volume-production status for each MRAM/RRAM generation.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-SYMP-2023",
+      "label": "TSMC 2023 North America Technology Symposium Press Release",
+      "url": "https://pr.tsmc.com/system/files/newspdf/attachment/af320740c347534184a5705ac01982e22e743978/2023%20Tech%20Symposium%20%28E%29_final_wmn.pdf",
+      "kind": "Official Annual Technology Symposium Press Release",
+      "date": "2023-04-26",
+      "locator": "Three-page public press release",
+      "claim": "The public technology highlights primarily cover logic and integration platforms.",
+      "evidence": "PDF reviewed and searched for MRAM",
+      "limit": "No occurrence of MRAM was found. A symposium date cited by media is not substituted for official evidence of completion.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-SYMP-2024",
+      "label": "TSMC 2024 North America Technology Symposium Press Release",
+      "url": "https://pr.tsmc.com/english/news/3136",
+      "kind": "Official Annual Technology Symposium Press Release",
+      "date": "2024-04-24",
+      "locator": "Sections on new technologies and advanced automotive packaging",
+      "claim": "The main public symposium release covers A16, system-on-wafer technology, and automotive packaging.",
+      "evidence": "Main text reviewed and searched for MRAM",
+      "limit": "The main release contains no complete MRAM/RRAM node timeline. Annual reports provide supplemental evidence; access to conference slides is not claimed.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-SYMP-2025",
+      "label": "TSMC 2025 North America Technology Symposium Press Release",
+      "url": "https://pr.tsmc.com/system/files/newspdf/attachment/167c59998c7117f14c13647c8e46a6b20a43316c/2025%20Tech%20Symposium%20%28E%29_Final_wmn.pdf",
+      "kind": "Official Annual Technology Symposium Press Release",
+      "date": "2025-04-23",
+      "locator": "Three-page public press release",
+      "claim": "The public technology highlights cover advanced logic, packaging, and platforms.",
+      "evidence": "PDF reviewed and searched for MRAM",
+      "limit": "The main release contains no complete MRAM/RRAM timeline suitable for verification. Unobtained internal symposium pages are not used to invent completion dates.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-SYMP-2026",
+      "label": "TSMC 2026 North America Technology Symposium Press Release and Public Video Portal",
+      "url": "https://pr.tsmc.com/english/news/3302",
+      "kind": "Official Annual Technology Symposium Press Release",
+      "date": "2026-04-23",
+      "locator": "The US event took place on 2026-04-22; press release and technology highlights",
+      "claim": "The public release records the annual technology symposium and progress in specialty technologies.",
+      "evidence": "Main text reviewed and searched for MRAM",
+      "limit": "The public release does not provide a complete MRAM/RRAM roadmap. A presentation uploaded by a third party is not treated as an official version.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-SYMP-ACCESS",
+      "label": "TSMC 2026 Technology Symposium Public Video Portal",
+      "url": "https://www.tsmc.com/english/symposium_highlights/2026",
+      "kind": "Official Conference Portal",
+      "date": "2026",
+      "locator": "Access instructions for the full on-demand videos",
+      "claim": "Public highlights and full conference videos are separate; full on-demand access requires an invitation.",
+      "evidence": "Official text reviewed",
+      "limit": "This review did not obtain invitation-only conference content and cannot claim to have checked the complete internal roadmap.",
+      "accessedAt": "2026-09-10"
+    }
+  ],
+  "annualForumCoverage": [
+    {
+      "year": 2022,
+      "tsmcSourceId": "FND-TSMC-SYMP-2022",
+      "gfSourceId": "FND-GF-2022-MAP",
+      "finding": "TSMC's public release establishes only the relevant platform scope; GF's investor platform chart was obtained through indexed text. Node-specific completion status is supported by annual reports and formal product announcements."
+    },
+    {
+      "year": 2023,
+      "tsmcSourceId": "FND-TSMC-SYMP-2023",
+      "gfSourceId": "FND-GF-2023-MAP",
+      "finding": "TSMC's main symposium release was reviewed, but no complete MRAM roadmap was found. The graphical associations in GF's chart were not fully verified, so the limitations are retained."
+    },
+    {
+      "year": 2024,
+      "tsmcSourceId": "FND-TSMC-SYMP-2024",
+      "gfSourceId": "FND-GF-2024-AUTO",
+      "finding": "TSMC's main release is not a complete memory timeline. GF's official automotive technical article supports the direction of 12LP+ MRAM but provides no volume-production date."
+    },
+    {
+      "year": 2025,
+      "tsmcSourceId": "FND-TSMC-SYMP-2025",
+      "gfSourceId": "FND-GF-2025-RRAM",
+      "finding": "GF's annual summit provides directly citable evidence of RRAM prototyping availability and a 2026 target. TSMC completion events are verified against the subsequent annual report."
+    },
+    {
+      "year": 2026,
+      "tsmcSourceId": "FND-TSMC-SYMP-2026",
+      "gfSourceId": "FND-GF-2026-AUTO",
+      "finding": "Access to TSMC's full videos beyond the public highlights requires an invitation; no access to restricted slides is claimed. GF's March AutoPro150 announcement and its undated current-status page are recorded separately."
+    }
+  ],
+  "performanceBoundaries": [
+    {
+      "platform": "GF 22FDX eMRAM (Version Announced in 2020)",
+      "values": "One hundred thousand cycles; ten-year retention over −40°C to 125°C; five solder-reflow cycles; silicon-validated macros from 4–48 Mbit.",
+      "conditions": "The announcement states Grade 2 design support; Grade 1 was a development target at the time.",
+      "sourceIds": [
+        "FND-GF-2020-MRAM"
+      ],
+      "limit": "The selectable 4–48 Mbit macro range, endurance, and retention metrics must not be treated as guaranteed in every combination. A complete test matrix is unavailable."
+    },
+    {
+      "platform": "GF FDX+ AutoPro150 eMRAM (2026)",
+      "values": "Press release: up to five hundred thousand cycles, reads below 10 ns, and operation up to 150°C. Current page: more than five hundred thousand cycles and twenty-year retention at 150°C.",
+      "conditions": "The sources use different wording, which is retained for each metric. Exact capacity, ECC, failure rate, and read/write conditions require the design kit.",
+      "sourceIds": [
+        "FND-GF-2026-AUTO",
+        "FND-GF-CURRENT-FDX"
+      ],
+      "limit": "Read latency is not write latency. Qualification for operation at 150°C and twenty-year data retention are different metrics."
+    },
+    {
+      "platform": "GF 12LP/12LP+ MRAM",
+      "values": "No MRAM macro performance specification with complete traceability was obtained in this review.",
+      "conditions": "12LP is a FinFET joint-development platform; official 12LP+ articles describe an automotive offering.",
+      "sourceIds": [
+        "FND-EVERSPIN-12LP",
+        "FND-GF-2024-AUTO",
+        "FND-GF-2025-MCU"
+      ],
+      "limit": "Neither 22FDX figures nor improvements in 12LP+ logic performance are transferred to MRAM performance."
+    },
+    {
+      "platform": "TSMC 16FFC/Second-Generation 16MRAM",
+      "values": "Early 16FFC: one million cycles and solder-reflow capability. Second-generation 16MRAM: chip failure rate below 1 ppm after one million cycles.",
+      "conditions": "Statements from different annual reports and technology generations are kept separate. The second generation completed automotive qualification in 2025.",
+      "sourceIds": [
+        "FND-TSMC-2023-AR",
+        "FND-TSMC-2025-AR"
+      ],
+      "limit": "The public summaries do not disclose complete capacity, temperature, ECC, or sample-distribution information. These results cannot be directly compared with the write error rate of an individual MTJ."
+    },
+    {
+      "platform": "TSMC 22RRAM/N12e RRAM",
+      "values": "22RRAM completed qualification for one hundred thousand cycles in 2025; N12e completed consumer-grade qualification for production in 2025.",
+      "conditions": "High-endurance options, automotive options, and consumer-grade platforms have distinct qualification scopes.",
+      "sourceIds": [
+        "FND-TSMC-2025-AR",
+        "FND-TSMC-2025-20F"
+      ],
+      "limit": "Without complete macro data, no single shared endurance or retention value is assigned to all RRAM."
+    }
+  ],
+  "corrections": [
+    {
+      "issue": "Assigning 2025 as the First Automotive Qualification Year for All 16nm MRAM",
+      "replacement": "16FFC has a documented Grade 1 completion in 2023. Separate automotive milestones for smaller bits and second-generation 16MRAM appear in 2024–2025. Preserve the version distinctions and the limitation that a complete macro mapping is unavailable.",
+      "sourceIds": [
+        "FND-TSMC-2023-AR",
+        "FND-TSMC-2024-AR",
+        "FND-TSMC-2025-AR"
+      ]
+    },
+    {
+      "issue": "Treating the 2024 N12 RRAM Technology Qualification as Volume Production",
+      "replacement": "Record the 2024 technology qualification, the 2025 consumer-grade qualification for production, and the product page's volume-production confirmation as of the verification date separately. No unique first volume-production date has been established.",
+      "sourceIds": [
+        "FND-TSMC-2024-AR",
+        "FND-TSMC-2025-AR",
+        "FND-TSMC-CURRENT-NVM"
+      ]
+    },
+    {
+      "issue": "Reporting GF 22FDX+ RRAM's 2026 Target as Completed",
+      "replacement": "The 2025 summit announced prototyping availability and preliminary design kits. The verifiable 2026 milestone remains a target and requires a subsequent completion announcement.",
+      "sourceIds": [
+        "FND-GF-2025-RRAM"
+      ]
+    },
+    {
+      "issue": "Treating GF's 2020 CBRAM Collaboration and 2025 OxRAM as the Same Product",
+      "replacement": "The conductive-bridge material mechanism and oxide resistive switching cannot be merged under the shared RRAM name. Record each collaboration, platform, version, and schedule separately.",
+      "sourceIds": [
+        "FND-GF-2020-CBRAM",
+        "FND-GF-2025-RRAM"
+      ]
+    },
+    {
+      "issue": "Conflating 12LP, 12LP+, and 22FDX as a Single MRAM Platform",
+      "replacement": "12LP/12LP+ belong to the FinFET family; 22FDX is FD-SOI. Joint development, application marketing, and production-macro qualification require separate evidence.",
+      "sourceIds": [
+        "FND-EVERSPIN-12LP",
+        "FND-GF-2024-AUTO",
+        "FND-GF-2020-MRAM"
+      ]
+    },
+    {
+      "issue": "Assuming That All Emerging NVM Remains Outside Volume Production",
+      "replacement": "Production evidence exists for GF 22FDX MRAM and multiple TSMC MRAM/RRAM nodes. New nodes, automotive variants, and high-endurance variants still require their own qualification.",
+      "sourceIds": [
+        "FND-GF-2020-MRAM",
+        "FND-TSMC-CURRENT-NVM"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "FND-M01",
+      "year": 2020,
+      "foundry": "GF",
+      "technology": "MRAM",
+      "node": "22FDX (22nm FD-SOI)",
+      "stage": "Volume Production",
+      "claim": "GF officially announced that eMRAM had entered production.",
+      "sourceIds": [
+        "FND-GF-2020-MRAM"
+      ],
+      "limit": "Provides a production baseline preceding 2022; it does not imply that every subsequent version was completed in 2020."
+    },
+    {
+      "id": "FND-M02",
+      "year": 2022,
+      "foundry": "GF",
+      "technology": "MRAM",
+      "node": "22FDX/22FDX+",
+      "stage": "Unresolved",
+      "claim": "The existing 22FDX production baseline traces back to 2020. MRAM-G2 appears in the 2022 roadmap, but this review has not established its separate qualification or completed volume-production status.",
+      "sourceIds": [
+        "FND-GF-2020-MRAM",
+        "FND-GF-2022-MAP"
+      ],
+      "limit": "Planned features shown in a chart must not all be marked as in production."
+    },
+    {
+      "id": "FND-M03",
+      "year": 2022,
+      "foundry": "TSMC",
+      "technology": "MRAM",
+      "node": "16FFC",
+      "stage": "Production-Ready",
+      "claim": "Completed reliability qualification, with one million cycles and solder-reflow capability. The technology was production-ready; Grade 1 was then targeted for 2023.",
+      "sourceIds": [
+        "FND-TSMC-2022-AR"
+      ],
+      "limit": "Does not establish completed automotive qualification or customer volume shipments in that year."
+    },
+    {
+      "id": "FND-M04",
+      "year": 2022,
+      "foundry": "TSMC",
+      "technology": "RRAM",
+      "node": "22ULL/28ULL",
+      "stage": "Volume Production",
+      "claim": "Several customers completed product qualification and began volume production.",
+      "sourceIds": [
+        "FND-TSMC-2022-AR"
+      ],
+      "limit": "Applies to specific platforms and customer products; does not establish automotive qualification for every capacity."
+    },
+    {
+      "id": "FND-M05",
+      "year": 2023,
+      "foundry": "GF",
+      "technology": "MRAM",
+      "node": "22FDX/22FDX+; 12LP Listed Separately",
+      "stage": "Unresolved",
+      "claim": "The platform chart continues to show MRAM development. Joint development is documented for 12LP, but this does not confirm embedded MRAM volume production in that year.",
+      "sourceIds": [
+        "FND-GF-2023-MAP",
+        "FND-EVERSPIN-12LP"
+      ],
+      "limit": "Foundry manufacturing of discrete STT-MRAM products and GF's embedded macro availability must be distinguished."
+    },
+    {
+      "id": "FND-M06",
+      "year": 2023,
+      "foundry": "TSMC",
+      "technology": "MRAM",
+      "node": "16FFC (Version in That Year's Process-Services Chapter)",
+      "stage": "Qualified",
+      "claim": "The annual report records completed AEC-Q100 Grade 1 reliability qualification, providing subsequent completion evidence for the target stated in 2022.",
+      "sourceIds": [
+        "FND-TSMC-2023-AR",
+        "FND-TSMC-2024-BUS"
+      ],
+      "limit": "The same year's R&D chapter separately describes a consumer-grade version and a next generation with smaller bits. A precise mapping of macro versions is unavailable."
+    },
+    {
+      "id": "FND-M07",
+      "year": 2023,
+      "foundry": "TSMC",
+      "technology": "MRAM",
+      "node": "22nm; 16nm R&D Version",
+      "stage": "Volume Production",
+      "claim": "The R&D chapter explicitly records volume production of 22nm consumer-grade MRAM, completed consumer-grade technology qualification at 16nm, and continued development of a next generation with smaller bits.",
+      "sourceIds": [
+        "FND-TSMC-2023-AR"
+      ],
+      "limit": "This statement of 22nm production is not used as the sole evidence for the first volume-production year. Distinct 16nm versions are not conflated."
+    },
+    {
+      "id": "FND-M08",
+      "year": 2023,
+      "foundry": "TSMC",
+      "technology": "RRAM",
+      "node": "40/28/22nm; 12nm",
+      "stage": "Volume Production",
+      "claim": "40/28/22nm was in volume production, while 12nm and the next generation remained in development. 22/28ULL was in its second year of volume production.",
+      "sourceIds": [
+        "FND-TSMC-2023-AR"
+      ],
+      "limit": "Volume production of the underlying 12nm logic platform does not establish volume production of embedded RRAM."
+    },
+    {
+      "id": "FND-M09",
+      "year": 2024,
+      "foundry": "GF",
+      "technology": "MRAM",
+      "node": "12LP+ AutoPro150 (FinFET)",
+      "stage": "Announced",
+      "claim": "The official article describes the direction of eMRAM deployment and its use in automotive MCUs.",
+      "sourceIds": [
+        "FND-GF-2024-AUTO"
+      ],
+      "limit": "No macro-specific qualification or production-completion date is available for verification. MRAM figures from 22FDX must not be applied."
+    },
+    {
+      "id": "FND-M10",
+      "year": 2024,
+      "foundry": "TSMC",
+      "technology": "MRAM",
+      "node": "Smaller, More Energy-Efficient 16nm Bits; 12/5nm",
+      "stage": "In Development",
+      "claim": "Automotive qualification for the smaller-bit 16nm technology was targeted for 2025; development began at the 12nm and 5nm nodes.",
+      "sourceIds": [
+        "FND-TSMC-2024-AR"
+      ],
+      "limit": "The earlier 16FFC Grade 1 completion in 2023 remains valid. A target for a new version must not be misrepresented as a delay of the entire node."
+    },
+    {
+      "id": "FND-M11",
+      "year": 2024,
+      "foundry": "TSMC",
+      "technology": "RRAM",
+      "node": "12nm; 6nm",
+      "stage": "Qualified",
+      "claim": "The annual report's R&D chapter states that 12nm consumer-grade technology qualification was completed and 6nm entered development.",
+      "sourceIds": [
+        "FND-TSMC-2024-AR"
+      ],
+      "limit": "The 2025 annual report additionally records consumer-grade qualification for production. Both source statements are retained; no single first-qualification date is assigned independently."
+    },
+    {
+      "id": "FND-M12",
+      "year": 2025,
+      "foundry": "GF",
+      "technology": "MRAM",
+      "node": "12LP+/22FDX",
+      "stage": "Announced",
+      "claim": "The automotive article lists MRAM on both platforms as technologies supporting MCUs.",
+      "sourceIds": [
+        "FND-GF-2025-MCU"
+      ],
+      "limit": "An application claim cannot replace production and quality documentation for a 12LP+ macro."
+    },
+    {
+      "id": "FND-M13",
+      "year": 2025,
+      "foundry": "GF",
+      "technology": "RRAM",
+      "node": "22FDX+ OxRAM",
+      "stage": "Design Kit Available",
+      "claim": "The technology summit announced prototyping availability and preliminary macro design kits, with volume production targeted for 2026.",
+      "sourceIds": [
+        "FND-GF-2025-RRAM"
+      ],
+      "limit": "Its mechanism and version differ from the 2020 Dialog CBRAM collaboration. It is not treated as evidence that the earlier plan was completed."
+    },
+    {
+      "id": "FND-M14",
+      "year": 2025,
+      "foundry": "TSMC",
+      "technology": "MRAM",
+      "node": "Second-Generation 16MRAM",
+      "stage": "Qualified",
+      "claim": "Passed automotive Grade 1. The annual report states a chip failure rate below 1 ppm after one million cycles.",
+      "sourceIds": [
+        "FND-TSMC-2025-AR",
+        "FND-TSMC-2025-20F",
+        "FND-TSMC-CURRENT-LOGIC"
+      ],
+      "limit": "Limited to the second generation; does not rewrite the earlier record of 16FFC completion in 2023."
+    },
+    {
+      "id": "FND-M15",
+      "year": 2025,
+      "foundry": "TSMC",
+      "technology": "RRAM",
+      "node": "N12e; 22RRAM/22ULL",
+      "stage": "Qualified",
+      "claim": "N12e completed consumer-grade qualification for production; 22RRAM completed qualification for one hundred thousand cycles; 22ULL RRAM met automotive Grade 1 requirements.",
+      "sourceIds": [
+        "FND-TSMC-2025-AR",
+        "FND-TSMC-2025-20F",
+        "FND-TSMC-CURRENT-LOGIC"
+      ],
+      "limit": "The three qualification scopes remain separate. One hundred thousand cycles and all automotive conditions must not be automatically combined into a commitment for the same macro."
+    },
+    {
+      "id": "FND-M16",
+      "year": 2026,
+      "foundry": "GF",
+      "technology": "MRAM",
+      "node": "FDX+ AutoPro150",
+      "stage": "Design Kit Available",
+      "claim": "The March announcement stated Grade 1 ready, PDK availability, and specified performance. Volume production in Dresden was targeted for the second half of 2026.",
+      "sourceIds": [
+        "FND-GF-2026-AUTO",
+        "FND-GF-CURRENT-FDX"
+      ],
+      "limit": "As of September 10, this review had not obtained an announcement confirming volume production of the new version. Entering the second half of the year does not establish volume production."
+    },
+    {
+      "id": "FND-M17",
+      "year": 2026,
+      "foundry": "GF",
+      "technology": "RRAM",
+      "node": "22FDX+ OxRAM",
+      "stage": "Volume-Production Target",
+      "claim": "Retains the 2026 volume-production target from the 2025 announcement; the current FDX page continues to describe RRAM.",
+      "sourceIds": [
+        "FND-GF-2025-RRAM",
+        "FND-GF-CURRENT-FDX"
+      ],
+      "limit": "No explicit completion announcement was obtained in this review. A feature listed on a product page is not evidence of its completion date."
+    },
+    {
+      "id": "FND-M18",
+      "year": 2026,
+      "foundry": "TSMC",
+      "technology": "MRAM",
+      "node": "22/16nm; 12nm Automotive; 5nm High-Speed",
+      "stage": "Volume Production",
+      "claim": "As of the verification date, official product text lists 22/16nm as automotive-qualified and in production, with 12nm automotive and 5nm high-write-speed versions in development.",
+      "sourceIds": [
+        "FND-TSMC-CURRENT-NVM"
+      ],
+      "limit": "This is a dynamic current-status snapshot. 2026 is not assigned as the first volume-production year of each platform; not all performance conditions are published."
+    },
+    {
+      "id": "FND-M19",
+      "year": 2026,
+      "foundry": "TSMC",
+      "technology": "RRAM",
+      "node": "40/28/22/12nm; 6nm",
+      "stage": "Volume Production",
+      "claim": "As of the verification date, official text lists 40/28/22/12nm in volume production and 6nm in development.",
+      "sourceIds": [
+        "FND-TSMC-CURRENT-NVM"
+      ],
+      "limit": "A 12nm automotive qualification date or 6nm volume-production date must not be added without public primary evidence of completion."
+    }
+  ],
+  "takeaways": [
+    "16FFC has a documented Grade 1 completion in 2023. Separate automotive milestones for smaller bits and second-generation 16MRAM appear in 2024–2025. Preserve the version distinctions and the limitation that a complete macro mapping is unavailable.",
+    "Record the 2024 technology qualification, the 2025 consumer-grade qualification for production, and the product page's volume-production confirmation as of the verification date separately. No unique first volume-production date has been established.",
+    "The 2025 summit announced prototyping availability and preliminary design kits. The verifiable 2026 milestone remains a target and requires a subsequent completion announcement.",
+    "The conductive-bridge material mechanism and oxide resistive switching cannot be merged under the shared RRAM name. Record each collaboration, platform, version, and schedule separately.",
+    "12LP/12LP+ belong to the FinFET family; 22FDX is FD-SOI. Joint development, application marketing, and production-macro qualification require separate evidence.",
+    "Production evidence exists for GF 22FDX MRAM and multiple TSMC MRAM/RRAM nodes. New nodes, automotive variants, and high-endurance variants still require their own qualification."
+  ]
+}

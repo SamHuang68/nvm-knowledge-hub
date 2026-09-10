@@ -26,13 +26,13 @@ const roleContent = {
   decision:[L("審查證據與認證範圍","Review evidence and certification scope"),L("判斷 TOE、證據成熟度、可重用性、限制、unknowns 與產品決策風險。","Assess TOE, evidence maturity, reuse, limits, unknowns and product decision risk."),"ASSURANCE REVIEW"]
 };
 
-function applyLanguage(){document.body.dataset.language=language;document.documentElement.lang=language==="zh"?"zh-Hant":"en";document.querySelectorAll("[data-zh][data-en]").forEach(el=>el.textContent=el.dataset[language]);document.querySelector("#languageToggle").setAttribute("aria-label",language==="zh"?"Switch to English":"Switch to Traditional Chinese");document.querySelector(".brand").setAttribute("aria-label",language==="zh"?"NVM Knowledge Hub 首頁":"NVM Knowledge Hub home");document.querySelector("#primaryNav").setAttribute("aria-label",language==="zh"?"頁面導覽":"Page navigation");document.querySelector("#controlMatrix").setAttribute("aria-label",language==="zh"?"安全控制比較表":"Security control comparison");document.querySelector(".role-tabs").setAttribute("aria-label",language==="zh"?"學習路徑起始角色":"Learning path starting role");renderPhase(document.querySelector(".phase-tabs button.active")?.dataset.phase||"off");renderEvidence(document.querySelector("#evidenceLadder button.active")?.dataset.level||0);renderRole(document.querySelector(".role-tabs button.active")?.dataset.role||"foundation");renderCertification();localStorage.setItem("nvm-language",language)}
+function applyLanguage(){document.body.dataset.language=language;document.documentElement.lang=language==="zh"?"zh-Hant":"en";document.querySelectorAll("[data-zh][data-en]").forEach(el=>el.textContent=el.dataset[language]);document.querySelector("#languageToggle").setAttribute("aria-label",language==="zh"?"Switch to English":"Switch to Traditional Chinese");document.querySelector(".brand").setAttribute("aria-label",language==="zh"?"NVM Knowledge Hub 首頁":"NVM Knowledge Hub home");document.querySelector("#primaryNav").setAttribute("aria-label",language==="zh"?"頁面導覽":"Page navigation");document.querySelector("#controlMatrix").setAttribute("aria-label",language==="zh"?"安全控制比較表":"Security control comparison");document.querySelector(".role-tabs").setAttribute("aria-label",language==="zh"?"學習路徑起始角色":"Learning path starting role");renderPhase(document.querySelector(".phase-tabs button.active")?.dataset.phase||"off");renderEvidence(document.querySelector("#evidenceLadder button.active")?.dataset.level||0);renderRole(document.querySelector(".role-tabs button.active")?.dataset.role||"foundation");renderCertification();updateCertSelectsLanguage();localStorage.setItem("nvm-language",language)}
 function renderPhase(id){const p=phases[id];document.querySelectorAll(".phase-tabs button").forEach(b=>{const a=b.dataset.phase===id;b.classList.toggle("active",a);b.setAttribute("aria-pressed",a)});document.querySelector("#windowDetail").innerHTML=`<span class="state">${p.number}</span><h3>${t(p.title)}</h3><p>${t(p.text)}</p><div class="detail-grid"><div><small>SENSITIVE ASSET</small><b>${t(p.asset)}</b></div><div><small>ATTACK METHOD</small><b>${t(p.method)}</b></div><div><small>TEST QUESTION</small><b>${t(p.question)}</b></div><div><small>EXPECTED OUTCOME</small><b>${t(p.outcome)}</b></div></div>`;document.querySelector("#keyState").textContent=p.key;document.querySelector("#resultState").textContent=p.result;document.querySelector("#windowVisual").classList.toggle("active",p.active)}
 function renderEvidence(level=0){const n=Number(level);const item=assuranceMaturity[n];document.querySelector("#evidenceLadder").innerHTML=assuranceMaturity.map((e,i)=>`<button data-level="${i}" class="${i===n?'active':''}" aria-pressed="${i===n}"><small>M${i+1}</small><b>${e.name}</b></button>`).join("");document.querySelector("#evidenceDetail").innerHTML=`<div><p class="kicker">MATURITY M${n+1}</p><h3>${t(item.title)}</h3></div><p>${t(item.text)}</p><ul>${t(item.items).map(x=>`<li>${x}</li>`).join("")}</ul>`}
 function renderRole(role){document.querySelectorAll(".role-tabs button").forEach(b=>{const active=b.dataset.role===role;b.classList.toggle("active",active);b.setAttribute("aria-pressed",active)});const order=["foundation","practitioner","evaluator","decision"],start=order.indexOf(role),items=[...order.slice(start),...order.slice(0,start)];document.querySelector("#rolePath").innerHTML=items.map((key,i)=>{const r=roleContent[key];return `<article><span>0${i+1} · ${key.toUpperCase()}</span><h3>${t(r[0])}</h3><p>${t(r[1])}</p><b>OUTPUT · ${r[2]}</b></article>`}).join("")}
 function renderCertification(){const target=document.querySelector("#targetSelect").value,market=document.querySelector("#marketSelect").value,goal=document.querySelector("#goalSelect").value;let schemes=[];if(market==="iot")schemes=["SESIP","PSA Certified","Common Criteria"];if(market==="auto")schemes=["ISO/SAE 21434 evidence","Common Criteria","UN R155/R156 context"];if(market==="payment")schemes=["Common Criteria","EMVCo","GlobalPlatform"];if(market==="general")schemes=["Independent evaluation","Common Criteria","Internal assurance case"];const scope=target==="ip"?L("建立可由 SoC／產品重用的 IP evidence package；先確認 scheme 是否接受 compositional reuse。","Build an IP evidence package reusable by SoC/product teams; confirm whether the scheme accepts compositional reuse."):target==="soc"?L("把 IP 證據納入 secure IC／SoC TOE，補上 integration、firmware、debug 與 lifecycle 控制。","Bring IP evidence into the secure IC/SoC TOE and cover integration, firmware, debug and lifecycle controls."):L("從裝置 threat model 回推 IP 與 SoC 證據，並涵蓋供應鏈、更新與營運要求。","Trace device threats back to IP and SoC evidence, including supply-chain, update and operational requirements.");const strength=goal==="high"?L("以認可實驗室與正式 scheme scope 為目標。","Target an accredited lab and formal scheme scope."):goal==="reuse"?L("優先建立版本化、可組合與可移轉的 evidence。","Prioritize versioned, composable and transferable evidence."):L("先完成 threat model、design review 與 pre-certification gap assessment。","Start with threat modeling, design review and a pre-certification gap assessment.");document.querySelector("#certResult").innerHTML=`<span class="route">DIRECTIONAL ROUTE</span><h3>${schemes[0]}</h3><p>${t(scope)} ${t(strength)}</p><div class="cert-tags">${schemes.map(s=>`<span>${s}</span>`).join("")}</div><p class="cert-warning">${language==="zh"?"需要確認：TOE、protection profile、assurance level、lab accreditation、產品版本與證據重用規則。此結果不表示已認證。":"Confirm TOE, protection profile, assurance level, lab accreditation, product version and evidence-reuse rules. This result does not indicate certification."}</p>`}
 
-document.querySelector("#languageToggle").addEventListener("click",()=>{language=language==="zh"?"en":"zh";applyLanguage()});document.querySelector(".phase-tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-phase]");if(b)renderPhase(b.dataset.phase)});document.querySelector("#evidenceLadder").addEventListener("click",e=>{const b=e.target.closest("button[data-level]");if(b)renderEvidence(b.dataset.level)});document.querySelector(".role-tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-role]");if(b)renderRole(b.dataset.role)});document.querySelector("#certForm").addEventListener("change",renderCertification);window.addEventListener("scroll",()=>{const max=document.documentElement.scrollHeight-innerHeight;document.querySelector("#progressBar").style.width=`${max>0?scrollY/max*100:0}%`});
+document.querySelector(".phase-tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-phase]");if(b)renderPhase(b.dataset.phase)});document.querySelector("#evidenceLadder").addEventListener("click",e=>{const b=e.target.closest("button[data-level]");if(b)renderEvidence(b.dataset.level)});document.querySelector(".role-tabs").addEventListener("click",e=>{const b=e.target.closest("button[data-role]");if(b)renderRole(b.dataset.role)});document.querySelector("#certForm").addEventListener("change",renderCertification);window.addEventListener("scroll",()=>{const max=document.documentElement.scrollHeight-innerHeight;document.querySelector("#progressBar").style.width=`${max>0?scrollY/max*100:0}%`});
 
 const primaryNav = document.querySelector("#primaryNav");
 const menuToggle = document.querySelector("#menuToggle");
@@ -67,21 +67,21 @@ const sectionObserver = new IntersectionObserver(entries => {
 navSections.forEach(section => sectionObserver.observe(section));
 const initialSection = location.hash.slice(1);
 if (navSections.some(section => section.id === initialSection)) setCurrentSection(initialSection);
-renderEvidence(0);renderRole("foundation");applyLanguage(); updateCertSelectsLanguage();
+
 
 
 // 認證導引表單下拉選單多語支援
 const certOptionDict = {
-  "Silicon IP / subsystem": { zh: "矽智財 / 安全子系統 (Silicon IP / subsystem)", en: "Silicon IP / subsystem" },
-  "SoC / secure IC": { zh: "系統單晶片 / 安全 IC (SoC / secure IC)", en: "SoC / secure IC" },
-  "Connected device": { zh: "終端聯網裝置 (Connected device)", en: "Connected device" },
-  "IoT / platform": { zh: "物聯網 / 運算平台 (IoT / platform)", en: "IoT / platform" },
-  "Automotive": { zh: "車用電子 (Automotive · ISO 21434)", en: "Automotive" },
-  "Payment / secure element": { zh: "支付 / 安全元件 (Payment / secure element)", en: "Payment / secure element" },
-  "General assurance": { zh: "通用高安全確證 (General assurance)", en: "General assurance" },
-  "Baseline market trust": { zh: "基礎市場信任 (Baseline market trust)", en: "Baseline market trust" },
-  "Reusable IP evidence": { zh: "可重用 IP 評估證據 (Reusable IP evidence)", en: "Reusable IP evidence" },
-  "High-assurance certification": { zh: "高保證等級認證 (High-assurance certification)", en: "High-assurance certification" }
+  "ip": { zh: "矽智財 / 安全子系統 (Silicon IP / subsystem)", en: "Silicon IP / subsystem" },
+  "soc": { zh: "系統單晶片 / 安全 IC (SoC / secure IC)", en: "SoC / secure IC" },
+  "device": { zh: "終端聯網裝置 (Connected device)", en: "Connected device" },
+  "iot": { zh: "物聯網 / 運算平台 (IoT / platform)", en: "IoT / platform" },
+  "auto": { zh: "車用電子 (Automotive · ISO 21434)", en: "Automotive" },
+  "payment": { zh: "支付 / 安全元件 (Payment / secure element)", en: "Payment / secure element" },
+  "general": { zh: "通用高安全確證 (General assurance)", en: "General assurance" },
+  "baseline": { zh: "基礎市場信任 (Baseline market trust)", en: "Baseline market trust" },
+  "reuse": { zh: "可重用 IP 評估證據 (Reusable IP evidence)", en: "Reusable IP evidence" },
+  "high": { zh: "高保證等級認證 (High-assurance certification)", en: "High-assurance certification" }
 };
 
 function updateCertSelectsLanguage() {
@@ -94,3 +94,5 @@ function updateCertSelectsLanguage() {
 }
 
 window.addEventListener("hub:language-change", e => { language = e.detail.language; if (typeof applyLanguage === "function") applyLanguage(); });
+
+renderEvidence(0);renderRole("foundation");applyLanguage();

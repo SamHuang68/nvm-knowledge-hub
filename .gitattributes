@@ -1,0 +1,14 @@
+# 來源雜湊以公開 JSON 的實際位元組為準；固定此匯出鏈的換行格式。
+data/ai-nvm-opportunities-knowledge.json text eol=lf
+data/ai-nvm-sharepoint-import.csv text eol=crlf
+data/ai-nvm-research-intake.csv text eol=crlf
+
+# 靜態雙語網頁與共用資料須和產生程式的 LF 輸出逐位元組一致。
+/index.html text eol=lf
+NVM技術全景.html text eol=lf
+NVM技術全景中文.html text eol=lf
+data/NVM知識資料.json text eol=lf
+data/NVM知識資料英文.json text eol=lf
+data/NVM技術專題.md text eol=lf
+data/NVM技術專題英文.md text eol=lf
+data/NVM搜尋索引.js text eol=lf

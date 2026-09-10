@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-title-en="Automotive-Grade NVM · AEC-Q100 Grade 0, ISO 26262 ASIL-D &amp; SECDED · NVM Knowledge Hub" data-title-zh="車規 NVM · AEC-Q100 Grade 0、ISO 26262 ASIL-D 與 SECDED · NVM 知識中心" data-description-en="Automotive eNVM learning page: AEC-Q100 Grade 0 context, ISO 26262 / ASIL scope, ECC/SECDED, and foundry qualification evidence — not a product certification." data-description-zh="車用 eNVM 學習專題：涵蓋 AEC-Q100 Grade 0 條件、ISO 26262／ASIL 範圍、ECC／SECDED 與晶圓代工資格證據；本頁不構成產品認證。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260906-navy-v3"></script>
+  <script src="site-language.js?v=20260910-bilingual"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Automotive-Grade NVM · AEC-Q100 Grade 0, ISO 26262 ASIL-D &amp; SECDED · NVM Knowledge Hub</title>
   <meta name="description" content="Automotive eNVM learning page: AEC-Q100 Grade 0 context, ISO 26262 / ASIL scope, ECC/SECDED, and foundry qualification evidence — not a product certification.">
@@ -657,7 +657,7 @@
     }
   </style>
 </head>
-<body class="specialty-page">
+<body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content">
     <span data-lang="zh">跳至主要內容</span>
     <span data-lang="en">Skip to main content</span>
@@ -670,7 +670,7 @@
       <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
       <span class="brand-section">AUTOMOTIVE NVM</span>
     </a>
-    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation">
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation"><a data-lang="en" href="NVM技術全景.html">NVM Technology Atlas</a><a data-lang="zh" href="NVM技術全景中文.html">NVM 技術全景</a>
       <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a>
       <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
       <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a>
@@ -680,7 +680,7 @@
       <a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
     </nav>
     <div class="header-actions">
-      <button class="language-toggle" id="languageToggle" type="button" aria-label="切換語系 Switch Language"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language" data-aria-en="Switch language" data-aria-zh="切換語系 Switch Language"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
       <button class="menu-button" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
     </div>
   </header>
@@ -692,7 +692,7 @@
     <span><span data-lang="zh">市場應用</span><span data-lang="en">Applications</span></span>
     <i>›</i>
     <strong><span data-lang="zh">車規級高可靠 NVM 架構</span><span data-lang="en">Automotive-Grade eNVM Architecture</span></strong>
-    <span class="topic-switch">
+    <span class="topic-switch"><a data-lang="en" href="NVM技術全景.html">NVM Technology Atlas</a><a data-lang="zh" href="NVM技術全景中文.html">NVM 技術全景</a>
       <a href="iot-mcu-envm.html"><span data-lang="zh">M2 IoT MCU</span><span data-lang="en">M2 IoT</span></a>
       <a class="is-active" href="automotive-nvm.html" aria-current="page"><span data-lang="zh">M3 車規級</span><span data-lang="en">M3 Auto</span></a>
       <a href="specialty-nvm.html"><span data-lang="zh">M4 特種矽</span><span data-lang="en">M4 Specialty</span></a>
@@ -968,8 +968,8 @@
               <canvas id="thermalCanvas" style="width: 100%; height: 280px; display: block;"></canvas>
             </div>
             <div style="display: flex; justify-content: space-between; font: 500 10.5px 'IBM Plex Mono'; color: #8ea9b3; margin-top: 8px;">
-              <span>* Green Trace: AntiFuse Ohmic Silicide Bridge (15 Yrs @ 175°C, Zero Resistance Drift &lt;0.08%)</span>
-              <span>* Red Trace: Floating-Gate Thermionic Escape (Loss of Sensing Margin beyond 2 Yrs @ 175°C)</span>
+              <span><span data-lang="zh">＊綠色曲線：反熔絲歐姆矽化物橋接（175°C 下 15 年，零電阻漂移 &lt;0.08%）</span><span data-lang="en">* Green Trace: AntiFuse Ohmic Silicide Bridge (15 Yrs @ 175°C, Zero Resistance Drift &lt;0.08%)</span></span>
+              <span><span data-lang="zh">＊紅色曲線：浮動閘極熱離子逸出（175°C 下超過 2 年後失去感測裕量）</span><span data-lang="en">* Red Trace: Floating-Gate Thermionic Escape (Loss of Sensing Margin beyond 2 Yrs @ 175°C)</span></span>
             </div>
           </section>
 
@@ -1025,7 +1025,7 @@
 
           <!-- LENS 04: 3 AUTOMOTIVE STATE CONTRACTS & ASIL-D METRICS -->
           <section id="sec-contracts" class="lens-panel" aria-labelledby="contracts-sec-title">
-            <div class="panel-kicker">LENS 04 · SYSTEM ARCHITECTURE CONTRACTS &amp; ASIL-D METRICS</div>
+            <div class="panel-kicker"><span data-lang="zh">視角 04 · 系統架構契約與 ASIL-D 指標</span><span data-lang="en">LENS 04 · SYSTEM ARCHITECTURE CONTRACTS &amp; ASIL-D METRICS</span></div>
             <h2 id="contracts-sec-title">
               <span data-lang="zh">車載核心系統三大持久狀態契約與 <em>ASIL-D 故障率指標</em></span>
               <span data-lang="en">Three Automotive Persistent-State Contracts &amp; <em>ASIL-D Reliability Matrix</em></span>
@@ -1050,7 +1050,7 @@
                   <span data-lang="en">Vehicle VIN, ECU UID, and NIST LMS post-quantum boot root keys. Physical write-path severed after programming, prohibiting tampering.</span>
                 </p>
                 <div style="font:600 10px 'IBM Plex Mono'; color:#8a6a42; background:#061925; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
-                  TARGET: FIT &lt; 0.1 · RETENTION: 20 Yrs @ 175&deg;C
+                  <span data-lang="zh">目標：FIT &lt; 0.1 · 資料保存：175°C 下 20 年</span><span data-lang="en">TARGET: FIT &lt; 0.1 · RETENTION: 20 Yrs @ 175&deg;C</span>
                 </div>
               </div>
 
@@ -1068,7 +1068,7 @@
                   <span data-lang="en">ADC gain offsets, bandgap voltages, and LiDAR calibration arrays. Bounded to factory testing and authorized OEM maintenance.</span>
                 </p>
                 <div style="font:600 10px 'IBM Plex Mono'; color:#d97706; background:#061925; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
-                  DRIFT: &lt; 1.5% @ 175&deg;C · WRITE: Bounded 16x
+                  <span data-lang="zh">漂移：175°C 下 &lt; 1.5% · 寫入：限定 16 次</span><span data-lang="en">DRIFT: &lt; 1.5% @ 175&deg;C · WRITE: Bounded 16x</span>
                 </div>
               </div>
 
@@ -1086,7 +1086,7 @@
                   <span data-lang="en">When primary processors encounter uncorrectable dual-bit ECC faults, hardware interrupts redirect to fallback boot vectors within 10ms.</span>
                 </p>
                 <div style="font:600 10px 'IBM Plex Mono'; color:#6f5536; background:#061925; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
-                  FAILOVER: &lt; 10 ms · SECDED ECC Autonomous
+                  <span data-lang="zh">容錯切換：&lt; 10 ms · SECDED ECC 自主運作</span><span data-lang="en">FAILOVER: &lt; 10 ms · SECDED ECC Autonomous</span>
                 </div>
               </div>
             </div>
@@ -1094,7 +1094,7 @@
             <!-- ASIL-D Matrix Table -->
             <div style="margin: 14px 0 6px; background: #0e2a38; border: 1px solid rgba(15,23,42,0.1); border-radius: 6px; overflow: hidden; box-shadow: 0 4px 16px rgba(15,23,42,0.04);">
               <div style="padding: 10px 16px; background: #0a2230; border-bottom: 2px solid #8a6a42; font: 700 11px 'IBM Plex Mono'; color: #f3ebe0; display:flex; justify-content:space-between; align-items:center;">
-                <span>ISO 26262 ASIL-D HARDWARE ARCHITECTURAL RELIABILITY METRICS</span>
+                <span><span data-lang="zh">ISO 26262 ASIL-D 硬體架構可靠度指標</span><span data-lang="en">ISO 26262 ASIL-D HARDWARE ARCHITECTURAL RELIABILITY METRICS</span></span>
                 <span style="color:#8a6a42; font-size:9.5px;">AEC-Q100 GRADE 0 CERTIFIED</span>
               </div>
               <div style="overflow-x: auto;">
@@ -1162,7 +1162,7 @@
             <span class="hub-footer-logo-mark">NVM</span>
             <span class="hub-footer-logo-text">
               <strong>KNOWLEDGE HUB</strong>
-              <small>SILICON ARCHITECTURE &amp; EVIDENCE DISCIPLINE</small>
+              <small><span data-lang="zh">晶片架構與證據紀律</span><span data-lang="en">SILICON ARCHITECTURE &amp; EVIDENCE DISCIPLINE</span></small>
             </span>
           </a>
           <p class="hub-footer-desc">
@@ -1544,5 +1544,6 @@
       panels.forEach(p => railObserver.observe(p));
     });
   </script>
+<script src="專題選單導覽.js?v=20260910-bilingual"></script>
 </body>
 </html>

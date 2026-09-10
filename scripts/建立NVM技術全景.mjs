@@ -2,10 +2,25 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
+import { bitcellFigure } from './NVM專業元件圖.mjs';
+import { englishInterface } from './NVM介面語系.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const check = process.argv.includes('--check');
-const read = name => JSON.parse(fs.readFileSync(path.join(root, 'data', name), 'utf8'));
+const language = process.argv.find(value => value.startsWith('--locale='))?.split('=')[1];
+if (!language) {
+  for (const locale of ['zh', 'en']) {
+    const result = spawnSync(process.execPath, [fileURLToPath(import.meta.url), `--locale=${locale}`, ...(check ? ['--check'] : [])], { stdio: 'inherit' });
+    if (result.status !== 0) process.exit(result.status || 1);
+  }
+  process.exit(0);
+}
+if (!['en', 'zh'].includes(language)) throw new Error('不支援的語系');
+const isEnglish = language === 'en';
+const dataSuffix = isEnglish ? '英文' : '';
+const pageFile = isEnglish ? 'NVM技術全景.html' : 'NVM技術全景中文.html';
+const read = name => JSON.parse(fs.readFileSync(path.join(root, 'data', name.replace('.json', `${dataSuffix}.json`)), 'utf8'));
 const intro = read('NVM全景導論.json');
 const charge = read('NVM電荷專題.json');
 const emerging = read('NVM新興專題.json');
@@ -51,39 +66,6 @@ const serialized = JSON.stringify({ intro, topics, sources, comparison, foundry 
 if (/[A-Z]:[\\/]Users[\\/]|INTERNAL\s+CONFIDENTIAL|Customer\s+Restricted\s+NDA/iu.test(serialized)) failures.push('內容帶有不應公開的路徑或標記');
 if (failures.length) throw new Error(`NVM 內容驗證失敗：\n${failures.join('\n')}`);
 
-function cellSvg(id, title) {
-  const rect = (x,y,w,h,cls='cell-state') => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="2" class="${cls}"/>`;
-  const text = (x,y,content,cls='',anchor='middle') => `<text x="${x}" y="${y}" text-anchor="${anchor}" class="${cls}">${esc(content)}</text>`;
-  const wire = d => `<path d="${d}" class="cell-wire"/>`;
-  const arrow = (x,y,direction='right') => wire(direction === 'right' ? `M${x} ${y}h54m-12 -8 12 8-12 8` : `M${x} ${y}v-40m-8 12 8-12 8 12`);
-  const chargeDots = y => [210,240,270,300].map(x => `<circle cx="${x}" cy="${y}" r="4" class="cell-charge"/>`).join('');
-  let drawing;
-  if (id === 'efuse') drawing = text(260,32,'eFuse 與選擇電晶體') + wire('M50 115H150M370 115H420V182H335M335 227H420V252M402 252h36m-29 7h22m-16 7h10') + rect(150,101,220,28,'cell-metal') + rect(244,101,32,28) + text(260,79,'局部導體／頸部') + wire('M270 182v45M250 182v45M270 182h65M270 227h65M220 204h30') + text(95,151,'位元線') + text(345,244,'選擇管') + text(123,213,'字元線') + text(260,270,'寫入使指定導體區域的電阻永久改變','small-label');
-  else if (id === 'antifuse') drawing = text(260,32,'薄介電層反熔絲示意') + rect(170,80,180,40,'cell-metal') + rect(170,123,180,18,'cell-oxide') + rect(170,144,180,48,'cell-metal') + wire('M260 50v30M260 192v35') + text(260,107,'電極') + text(260,176,'通道／下電極') + text(411,139,'介電層') + wire('M350 132h18') + text(260,262,'局部介電崩潰後建立導通路徑','small-label');
-  else if (['eeprom','nor','sonos','fefet'].includes(id)) {
-    const isNor = id === 'nor', isTrap = id === 'sonos', isFe = id === 'fefet';
-    drawing = text(260,29,isNor?'分離閘極概念剖面':isFe?'FeFET 概念剖面':isTrap?'SONOS 概念剖面':'浮動閘極概念剖面') + rect(70,195,380,54,'cell-oxide') + rect(82,198,67,23,'cell-metal') + rect(371,198,67,23,'cell-metal') + text(116,188,'源極') + text(406,188,'汲極') + text(260,234,'半導體通道') + rect(isNor?212:160,154,isNor?143:200,16,'cell-oxide') + rect(isNor?212:160,117,isNor?143:200,34) + rect(isNor?212:160,99,isNor?143:200,15,'cell-oxide') + rect(isNor?212:160,60,isNor?143:200,35,'cell-metal') + text(isNor?283:260,84,'控制閘極') + text(isNor?283:260,141,isFe?'鐵電層':isTrap?'捕捉層':'浮動閘極') + text(260,276,isFe?'極化與界面電荷共同影響臨界電壓':'儲存狀態透過通道電流讀出','small-label');
-    if (isNor) drawing += rect(106,137,88,34,'cell-metal') + text(148,129,'選擇閘');
-    if (isFe) drawing += arrow(390,146,'up');
-  } else if (id === 'nand') {
-    drawing = text(260,30,'垂直 NAND 串列概念') + rect(244,66,32,170,'cell-oxide') + wire('M260 45v21M260 236v24');
-    [92,140,188].forEach((y,i) => { drawing += rect(176,y,61,23,'cell-metal')+rect(283,y,61,23,'cell-metal')+rect(238,y,5,23)+rect(277,y,5,23)+text(100,y+18,`字元線 ${i+1}`)+wire(`M143 ${y+11}h33`); });
-    drawing += wire('M344 103h12v-21h9M280 163v12h76v-33h9M260 236v17h100v-40h5') + text(426,90,'環繞閘極')+text(426,150,'儲存介質')+text(426,221,'垂直通道')+text(260,280,'多個單元串聯；外側選擇閘與周邊電路另計','small-label');
-  } else if (['toggle','stt','sot'].includes(id)) {
-    drawing = text(260,30,`${id==='sot'?'SOT-MRAM':id==='toggle'?'磁場切換 MRAM':'STT-MRAM'} 磁穿隧接面`) + rect(140,84,240,36) + rect(140,123,240,15,'cell-oxide') + rect(140,141,240,36,'cell-metal') + text(260,108,'自由層') + text(432,137,'障壁') + text(260,165,'參考層') + arrow(60,102) + arrow(60,159);
-    if (id === 'sot') drawing += rect(97,66,326,18,'cell-metal')+wire('M38 75h59M423 75h58M260 177v25')+text(260,224,'橫向寫入路徑與垂直讀取路徑')+text(260,269,'SOT 通道接觸自由層；此處只畫拓撲','small-label');
-    else if (id === 'stt') drawing += wire('M260 48v34M260 177v56')+text(260,258,'寫入電流與讀取電流皆穿過接面','small-label');
-    else drawing += wire('M60 61h390M60 200h390')+text(260,253,'外部字元線／位元線電流產生磁場','small-label');
-  } else if (['vcm','ecm','pcm','ftj','feram'].includes(id)) {
-    const labels = { vcm:['上電極','氧化物與缺陷','下電極'], ecm:['活性金屬電極','離子導體','惰性電極'], pcm:['上電極','相變材料','局部加熱器'], ftj:['上電極','超薄鐵電障壁','下電極'], feram:['極板','鐵電電容','儲存節點'] }[id];
-    drawing = text(260,30,`${({vcm:'VCM ReRAM',ecm:'ECM／CBRAM',pcm:'PCM',ftj:'FTJ',feram:'電容式 FeRAM'})[id]} 概念結構`) + rect(142,66,236,37,'cell-metal') + rect(142,107,236,80) + rect(id==='pcm'?224:142,191,id==='pcm'?72:236,30,'cell-metal') + wire('M260 42v24M260 221v29') + text(260,91,labels[0]) + text(['vcm','ecm'].includes(id)?236:260,155,labels[1]) + text(260,215,labels[2]);
-    if (['vcm','ecm'].includes(id)) drawing += wire('M346 103l-8 15 12 15-9 14 9 14-5 15 5 15') + text(260,279,'局部導電路徑形成與斷裂受限流及材料控制','small-label');
-    if (id === 'pcm') drawing += text(260,279,'加熱器把電能集中成改變晶相的熱脈衝','small-label');
-    if (['feram','ftj'].includes(id)) drawing += arrow(410,170,'up') + text(260,279,id==='feram'?'電容需選擇電晶體與感測／回寫電路':'極化改變穿隧障壁，讀取電流差','small-label');
-  }
-  return `<svg viewBox="0 0 520 300" role="img" aria-labelledby="cell-title-${esc(id)}"><title id="cell-title-${esc(id)}">${esc(title)} 的原理結構示意</title>${drawing}</svg>`;
-}
-
 function patentDetail(patent, topic) {
   return `<details class="nvm-disclosure" id="patent-${esc(patent.id)}"><summary>${esc(patent.id)} · ${esc(patent.problem)}</summary><div><dl><dt>專題</dt><dd><a href="#topic-${esc(topic.id)}">${esc(topic.title)}</a></dd><dt>優先權日</dt><dd>${esc(patent.priority)}</dd><dt>受讓紀錄</dt><dd>${esc(patent.assignee)}</dd><dt>代表圖／段落</dt><dd>${esc(patent.figures)}</dd><dt>解法與物理</dt><dd>${esc(patent.mechanism)}</dd><dt>權利項導讀</dt><dd>${esc(patent.claimReading)}</dd><dt>可支持的範圍</dt><dd>${esc(patent.limit)}</dd><dt>原始文件</dt><dd><a href="${esc(patent.url)}" target="_blank" rel="noopener noreferrer">開啟 ${esc(patent.id)} 專利全文</a></dd></dl></div></details>`;
 }
@@ -94,7 +76,7 @@ function topicPanel(topic, index) {
   ${panelHeader(`技術專題 ${String(index+1).padStart(2,'0')} · ${family.title}`, topic.title, topic.summary)}
   <div>${tag(topic.maturity.stage)}<span class="nvm-meta">${esc(topic.maturity.claim)}</span></div>${cite(topic.maturity.sourceIds)}
   <p class="nvm-maturity-limit">${esc(topic.maturity.limit)}</p>
-  <section><h3>狀態存在哪裡</h3><div class="nvm-prose">${paras(topic.storage)}</div><figure class="nvm-cell">${cellSvg(topic.id,topic.title)}<figcaption>原理重畫，非比例剖面或特定產品版圖。${esc(topic.structure)}</figcaption></figure></section>
+  <section><h3>狀態存在哪裡</h3><div class="nvm-prose">${paras(topic.storage)}</div><figure class="nvm-cell">${bitcellFigure(topic.id,topic.title,language)}<figcaption>原理重畫，非比例剖面或特定產品版圖。${esc(topic.structure)}</figcaption></figure></section>
   <section><h3>寫入、反向操作與讀取</h3><div class="nvm-operation" data-operation-widget><div class="nvm-operation-buttons" role="group" aria-label="${esc(topic.title)} 操作選擇">${topic.operations.map((operation,i) => `<button type="button" data-operation-select="${esc(operation.id)}" aria-controls="op-${esc(topic.id)}-${esc(operation.id)}" aria-pressed="${i===0}">${esc(operation.title)}</button>`).join('')}</div>
   ${topic.operations.map((operation,i) => `<div id="op-${esc(topic.id)}-${esc(operation.id)}" data-operation-detail="${esc(operation.id)}"><h4>${esc(operation.title)}</h4><dl class="nvm-state-sequence"><div><dt>操作前</dt><dd>${esc(operation.before)}</dd></div><div><dt>施加的刺激</dt><dd>${esc(operation.stimulus)}</dd></div><div><dt>操作後</dt><dd>${esc(operation.after)}</dd></div></dl>${paras(operation.explanation)}</div>`).join('')}</div></section>
   <section><h3>選中、半選與變異</h3><div class="nvm-prose"><h4>陣列如何選擇</h4>${paras(topic.selection)}<h4>哪些分布會拉近讀取邊界</h4>${paras(topic.variability)}</div></section>
@@ -143,17 +125,17 @@ const patentPanel = `<article id="patents" class="nvm-panel" data-nvm-panel>${pa
 const glossaryPanel = `<article id="glossary" class="nvm-panel" data-nvm-panel>${panelHeader('共同語言','讀懂跨技術比較需要的詞彙','先辨別數字的物理意義與測量層級，才能比較其成本與適用範圍。')}<dl class="nvm-glossary">${comparison.glossary.map(item=>`<div><dt>${esc(item.term)}</dt><dd>${esc(item.definition)}</dd></div>`).join('')}</dl></article>`;
 
 let html = `<!doctype html>
-<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="${esc(intro.subtitle)}：十五個 NVM 技術專題、位元單元操作、比較表、專利與 GLOBALFOUNDRIES／TSMC MRAM、ReRAM 年度路線圖。"><meta name="theme-color" content="#0a1118"><title>${esc(intro.title)} · NVM Knowledge Hub</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="NVM技術全景.css"></head>
-<body data-language="zh" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang"><a class="nvm-skip" href="#main-content">跳至主要內容</a>
-<header class="nvm-header"><a class="brand" href="index.html" aria-label="NVM 知識中心首頁"><strong>NVM</strong><span>知識中心<br>物理與技術全景</span></a><nav aria-label="知識中心導覽"><a href="index.html">知識中心首頁</a><a href="#panorama">技術全景</a><a href="#foundry">晶圓代工路線圖</a><a href="#sources">來源與下載</a></nav></header>
-<section class="nvm-hero"><div><p class="nvm-kicker">NVM 技術全景 · 研究版本 ${intro.revision}</p><h1>從位元單元<br><em>看懂資料如何留下來</em></h1><p>十五個技術專題，從儲存物理、操作與專利，走向可量產的陣列與系統。每項優勢，都連著一項必須理解的代價。</p></div><div class="nvm-hero-map" aria-label="六個物理家族">${intro.families.map(family=>`<div><b>${esc(family.title)}</b><span>${esc(family.state)}</span></div>`).join('')}</div></section>
+<html lang="${isEnglish ? 'en' : 'zh-Hant'}" data-language="${language}" data-content-language="${language}" data-language-en="NVM技術全景.html" data-language-zh="NVM技術全景中文.html"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="${esc(intro.subtitle)}：十五個 NVM 技術專題、位元單元操作、比較表、專利與 GLOBALFOUNDRIES／TSMC MRAM、ReRAM 年度路線圖。"><meta name="theme-color" content="#0a1118"><title>${esc(intro.title)} · NVM Knowledge Hub</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="NVM技術全景.css?v=20260910-bilingual"><link rel="stylesheet" href="NVM專業元件圖.css?v=20260910"><script src="site-language.js?v=20260910-bilingual"></script></head>
+<body class="nvm-atlas-page" data-language="${language}" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang"><a class="nvm-skip" href="#main-content">跳至主要內容</a>
+<header class="nvm-header"><a class="brand" href="index.html" aria-label="NVM 知識中心首頁"><strong>NVM</strong><span>知識中心<br>物理與技術全景</span></a><nav aria-label="知識中心導覽"><a href="index.html">知識中心首頁</a><a href="#panorama">技術全景</a><a href="#foundry">晶圓代工路線圖</a><a href="#sources">來源與下載</a><button type="button" class="language-toggle" aria-label="${isEnglish ? 'Switch to Traditional Chinese' : '切換為英文'}"><span lang="en">EN</span><i aria-hidden="true">/</i><span lang="zh-Hant">中文</span></button></nav></header>
+<section class="nvm-hero"><div><p class="nvm-kicker">NVM 技術全景 · 研究版本 ${intro.revision}</p><h1>從位元單元<br><em>看懂資料如何留下來</em></h1><p>十五個技術專題，從儲存物理、操作與專利，走向可量產的陣列與系統。每項優勢，都連著一項必須理解的代價。</p></div><div class="nvm-hero-figure"><div class="nvm-figure-label">${isEnglish ? 'DEVICE PHYSICS / 15 TECHNOLOGY STUDIES' : '元件物理／十五個技術專題'}</div>${bitcellFigure('stt','STT-MRAM',language,true)}<div class="nvm-figure-caption">${isEnglish ? 'Perpendicular MTJ · Free Layer / Barrier / Reference Layer' : '垂直磁化接面 · 自由層／障壁／參考層'}</div></div></section>
 <nav class="nvm-breadcrumb" aria-label="麵包屑導覽"><a href="index.html">NVM 知識中心</a> ／ <span>NVM 技術全景</span></nav>
 <div class="nvm-layout"><aside class="nvm-sidebar"><button type="button" class="nvm-contents-button" id="nvm-contents-toggle" aria-expanded="false" aria-controls="nvm-contents">選擇閱讀主題 <span aria-hidden="true">＋</span></button><nav id="nvm-contents" aria-label="專題目錄"><a href="#panorama">全景與共同導論</a><a href="#comparison">歷史表與現行比較</a><a href="#foundry">GF／TSMC 年度路線圖</a>${intro.families.map(family=>`<h3>${esc(family.title)}</h3>${family.topics.map(id=>`<a class="nvm-topic-link" href="#topic-${id}">${esc(topics.find(topic=>topic.id===id).title)}</a>`).join('')}`).join('')}<h3>陣列、系統與證據</h3>${comparison.systems.map(system=>`<a href="#system-${esc(system.id)}">${esc(system.title)}</a>`).join('')}<a href="#patents">${patents.length} 件代表專利</a><a href="#glossary">共同詞彙</a><a href="#sources">來源與資料下載</a></nav></aside>
 <main class="nvm-main" id="main-content"><noscript><p class="nvm-nojs">此頁已包含全部專題文字。啟用 JavaScript 可使用分頁閱讀、篩選與操作切換。</p></noscript>${panorama}${comparisonPanel()}${foundryPanel()}${topics.map(topicPanel).join('')}${comparison.systems.map(systemPanel).join('')}${patentPanel}${glossaryPanel}${sourcePanel}</main></div>
 <footer class="nvm-footer"><p>NVM 知識中心 · 公開來源研究 · ${intro.revision}</p><a href="index.html">返回知識中心</a> · <a href="#sources">查看來源與共用資料</a></footer><script type="module" src="NVM技術全景.js"></script></body></html>\n`;
 // 全頁標題使用標籤語法，不保留句尾標點。
 html = html.replace(/<h([1-6])\b[^>]*>[\s\S]*?<\/h\1>/giu, heading => heading.replace(/[。.!?！？](?=(?:[”’"'）)}\]】》]+)?\s*(?:<br\b[^>]*>|<\/(?:span|em|h[1-6])>))/giu,''));
-const packageData = { schemaVersion: '1.0', revision: intro.revision, language: 'zh-Hant', classification: 'Public', title: intro.title, intro, topics, comparison, foundry, sources, provenance: { sourceFiles: ['NVM全景導論.json','NVM電荷專題.json','NVM新興專題.json','NVM比較與系統.json','NVM晶圓代工路線圖.json'], reviewScope: '公開來源與教學內容查核；網頁為後續簡報的取材來源' } };
+const packageData = { schemaVersion: '1.0', revision: intro.revision, language: isEnglish ? 'en' : 'zh-Hant', classification: 'Public', title: intro.title, intro, topics, comparison, foundry, sources, provenance: { sourceFiles: ['NVM全景導論.json','NVM電荷專題.json','NVM新興專題.json','NVM比較與系統.json','NVM晶圓代工路線圖.json'].map(name => name.replace('.json', `${dataSuffix}.json`)), reviewScope: isEnglish ? 'Public-source research and instructional review; shared source for future presentations' : '公開來源與教學內容查核；網頁為後續簡報的取材來源' } };
 const sourceMarkdown = ids => (ids || []).map(id => `- [${id}：${sourceMap.get(id).label}](${sourceMap.get(id).url})`).join('\n');
 let markdown = `# ${intro.title}\n\n研究版本：${intro.revision}\n\n${intro.intro}\n\n${intro.axes.map(axis=>`## ${axis.title}\n\n${axis.body}`).join('\n\n')}\n\n${topics.map(topic=>`## ${topic.title}\n\n${topic.summary}\n\n成熟度：${topic.maturity.stage}。${topic.maturity.claim}\n\n${topic.maturity.limit}\n\n### 儲存與結構\n\n${topic.storage}\n\n${topic.structure}\n\n### 操作\n\n${topic.operations.map(operation=>`#### ${operation.title}\n\n操作前：${operation.before}\n\n刺激：${operation.stimulus}\n\n操作後：${operation.after}\n\n${operation.explanation}`).join('\n\n')}\n\n### 選擇與變異\n\n${topic.selection}\n\n${topic.variability}\n\n### 優勢與代價\n\n${[...topic.advantages,...topic.tradeoffs].map(item=>'- '+item).join('\n')}\n\n### 四層天花板\n\n${[['device','單元'],['array','陣列'],['process','製程'],['system','系統']].map(([key,label])=>`- ${label}：${topic.ceilings[key]}`).join('\n')}\n\n### 適用與誤用\n\n${topic.fit}\n\n${topic.avoid}\n\n### 專利導讀\n\n${topic.patents.map(patent=>`- [${patent.id}](${patent.url})：${patent.problem}。${patent.mechanism}。權利項導讀：${patent.claimReading}。限制：${patent.limit}`).join('\n')}\n\n### 檢查理解\n\n${topic.quiz.question}\n\n${topic.quiz.answer}\n\n### 來源\n\n${sourceMarkdown([...new Set([...topic.sourceIds,...topic.maturity.sourceIds])])}`).join('\n\n')}\n\n## 晶圓代工年度路線圖\n\n${foundry.milestones.map(item=>`### ${item.year} · ${item.foundry} · ${item.technology} · ${item.node}\n\n${item.stage}：${item.claim}\n\n限制：${item.limit}\n\n${sourceMarkdown(item.sourceIds)}`).join('\n\n')}\n\n## 比較案例\n\n${comparison.benchmarks.map(item=>`### ${item.implementation}\n\n${item.level}\n\n${list(item.values).join('；')}\n\n條件：${list(item.conditions).join('；')}\n\n${item.lesson}\n\n${sourceMarkdown(item.sourceIds)}`).join('\n\n')}\n\n${comparison.systems.map(system=>`## ${system.title}\n\n${system.summary}\n\n${system.sections.map(section=>`### ${section.title}\n\n${section.body}`).join('\n\n')}\n\n${sourceMarkdown(system.sourceIds)}`).join('\n\n')}\n\n## 共同詞彙\n\n${comparison.glossary.map(item=>`- ${item.term}：${item.definition}`).join('\n')}\n\n## 來源紀錄\n\n${sources.map(source=>`- [${source.id}：${source.label}](${source.url})。${source.kind}；${sourceDate(source)}；定位：${source.locator}；限制：${source.limit}`).join('\n')}\n`;
 markdown += `
@@ -190,14 +172,23 @@ ${foundry.performanceBoundaries.map(item=>`### ${item.platform}\n\n${item.values
 
 ${foundry.corrections.map(item=>`### ${item.issue}\n\n${item.replacement}\n\n${sourceMarkdown(item.sourceIds)}`).join('\n\n')}
 `;
+const chineseIntro = isEnglish ? JSON.parse(fs.readFileSync(path.join(root,'data/NVM全景導論.json'),'utf8')) : intro;
+const chineseTopics = isEnglish ? ['NVM電荷專題.json','NVM新興專題.json'].flatMap(name=>JSON.parse(fs.readFileSync(path.join(root,'data',name),'utf8')).topics) : topics;
+const chineseSystems = isEnglish ? JSON.parse(fs.readFileSync(path.join(root,'data/NVM比較與系統.json'),'utf8')).systems : comparison.systems;
 const searchEntries = [
-  {title_zh:intro.title, title_en:intro.title, url:'NVM技術全景.html', tags:'NVM 全景 物理 比較 科普 bitcell MRAM ReRAM GLOBALFOUNDRIES TSMC', language:'zh-Hant'},
-  ...topics.map(topic=>({title_zh:topic.title,title_en:topic.title,url:`NVM技術全景.html#topic-${topic.id}`,tags:[topic.storage,topic.summary,topic.maturity.claim,...topic.patents.map(patent=>patent.id)].join(' '),language:'zh-Hant'})),
-  ...comparison.systems.map(system=>({title_zh:system.title,title_en:system.title,url:`NVM技術全景.html#system-${system.id}`,tags:system.summary,language:'zh-Hant'})),
-  {title_zh:'GF／TSMC 年度路線圖',title_en:'GF／TSMC 年度路線圖',url:'NVM技術全景.html#foundry',tags:'GLOBALFOUNDRIES TSMC eMRAM ReRAM RRAM eNVM roadmap 22FDX 12LP AutoPro150',language:'zh-Hant'},
-  {title_zh:'歷史總表與有條件比較',title_en:'歷史總表與有條件比較',url:'NVM技術全景.html#comparison',tags:'2016 2021 2026 比較 能量 耐久 保持 延遲',language:'zh-Hant'}
+ {title_zh:chineseIntro.title,title_en:intro.title,url:'NVM技術全景.html',tags:'NVM 全景 物理 比較 bitcell MRAM ReRAM GLOBALFOUNDRIES TSMC'},
+ ...topics.map(topic=>({title_zh:chineseTopics.find(t=>t.id===topic.id).title,title_en:topic.title,url:`NVM技術全景.html#topic-${topic.id}`,tags:[topic.storage,topic.summary,chineseTopics.find(t=>t.id===topic.id).storage,...topic.patents.map(p=>p.id)].join(' ')})),
+ ...comparison.systems.map(system=>({title_zh:chineseSystems.find(s=>s.id===system.id).title,title_en:system.title,url:`NVM技術全景.html#system-${system.id}`,tags:system.summary})),
+ {title_zh:'GF／TSMC 年度路線圖',title_en:'GF / TSMC Roadmap',url:'NVM技術全景.html#foundry',tags:'GLOBALFOUNDRIES TSMC eMRAM ReRAM RRAM eNVM roadmap 22FDX 12LP AutoPro150'},
+ {title_zh:'歷史總表與有條件比較',title_en:'Historical and Current Comparisons',url:'NVM技術全景.html#comparison',tags:'2016 2021 2026 比較 能量 耐久 保持 延遲 endurance retention latency energy'}
 ];
-const outputs = [['data/NVM搜尋索引.js','window.NVMTopicIndex = '+JSON.stringify(searchEntries,null,2)+';\n'],['NVM技術全景.html',html],['data/NVM知識資料.json',JSON.stringify(packageData,null,2)+'\n'],['data/NVM技術專題.md',markdown]];
+if (isEnglish) {
+  html = html.replace(/(?:href|src|data-language-en|data-language-zh)="([^"]+)"/g, attribute => attribute.replace(/[\u3400-\u9fff]+/g, value => encodeURIComponent(value)));
+  html = englishInterface(html).replaceAll('data/NVM%E7%9F%A5%E8%AD%98%E8%B3%87%E6%96%99.json','data/'+encodeURIComponent('NVM知識資料英文')+'.json').replaceAll('data/NVM%E6%8A%80%E8%A1%93%E5%B0%88%E9%A1%8C.md','data/'+encodeURIComponent('NVM技術專題英文')+'.md');
+  markdown = englishInterface(markdown).replace(/([.!?])。/g, '$1 ').replaceAll('。', '. ').replaceAll('；', '; ').replaceAll('：', ': ').replaceAll('／', '/').replaceAll('（', '(').replaceAll('）', ')').replace(/[ \t]+$/gm, '');
+}
+const outputs = [[pageFile,html],[`data/NVM知識資料${dataSuffix}.json`,JSON.stringify(packageData,null,2)+'\n'],[`data/NVM技術專題${dataSuffix}.md`,markdown]];
+if(isEnglish) outputs.push(['data/NVM搜尋索引.js','window.NVMTopicIndex = '+JSON.stringify(searchEntries,null,2)+';\n']);
 for (const [file,bytes] of outputs) {
   const target = path.join(root,file);
   if (check) {

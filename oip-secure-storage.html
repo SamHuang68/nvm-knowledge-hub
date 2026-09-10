@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-title-en="OIP Secure Storage Brief · NVM Knowledge Hub" data-title-zh="OIP 安全儲存技術簡介 · NVM 知識中心" data-description-en="TSMC OIP Secure Storage brief: RP2350 threat evidence, SRAM PUF root, AES-256 encrypted OTP, address scrambling, controller lifecycle and validation gaps." data-description-zh="TSMC OIP 安全儲存技術簡介：RP2350 威脅證據、SRAM PUF 根金鑰、AES-256 加密 OTP、位址混淆、控制器生命週期與待驗證缺口。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260906-navy-v3"></script>
+  <script src="site-language.js?v=20260910-bilingual"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="TSMC OIP Secure Storage brief: RP2350 threat evidence, SRAM PUF root, AES-256 encrypted OTP, address scrambling, controller lifecycle and validation gaps.">
   <meta name="theme-color" content="#061c2a">
@@ -42,7 +42,7 @@
       <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
       <span class="brand-section">OIP BRIEF</span>
     </a>
-    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation">
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation"><a data-lang="en" href="NVM技術全景.html">NVM Technology Atlas</a><a data-lang="zh" href="NVM技術全景中文.html">NVM 技術全景</a>
       <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a><a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a><a href="iot-mcu-envm.html"><span data-lang="zh">IoT &amp; MCU</span><span data-lang="en">IoT &amp; MCU</span></a><a href="automotive-nvm.html"><span data-lang="zh">車規 NVM</span><span data-lang="en">Automotive</span></a><a href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty</span></a><a href="technology-comparison.html"><span data-lang="zh">技術對比</span><span data-lang="en">Comparison</span></a>
     </nav>
     <div class="header-actions">
@@ -54,7 +54,7 @@
 
   <nav class="site-breadcrumb" aria-label="Breadcrumb">
     <i></i><a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Hub</span></a><i></i><span data-lang="zh">資源中心</span><span data-lang="en">Resources</span><i></i><strong><span data-lang="zh">TSMC OIP 展會專題簡報</span><span data-lang="en">OIP Secure Storage Brief (Event Edition)</span></strong>
-    <span class="topic-switch"><a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a><a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper Studio</span></a><a href="briefing/index.html"><span data-lang="zh">高階簡報</span><span data-lang="en">Executive Briefing</span></a></span>
+    <span class="topic-switch"><a data-lang="en" href="NVM技術全景.html">NVM Technology Atlas</a><a data-lang="zh" href="NVM技術全景中文.html">NVM 技術全景</a><a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a><a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><a href="whitepaper/"><span data-lang="zh">白皮書工作台</span><span data-lang="en">Whitepaper Studio</span></a><a href="briefing/index.html"><span data-lang="zh">高階簡報</span><span data-lang="en">Executive Briefing</span></a></span>
   </nav>
 
   <main id="main-content">
@@ -124,7 +124,7 @@
         <figure class="oip-image-band oip-image-band--helper"><img src="assets/oip-helper-reconstruction-v1-1440.webp" srcset="assets/oip-helper-reconstruction-v1-768.webp 768w, assets/oip-helper-reconstruction-v1-1440.webp 1440w" sizes="(max-width: 620px) calc(100vw - 48px), calc(100vw - 12vw)" width="1440" height="811" alt="Conceptual reconstruction of a device-unique root from SRAM PUF response and helper data" data-alt-zh="由 SRAM PUF response 與 helper data 重建 device-unique root 的概念視覺" data-alt-en="Conceptual reconstruction of a device-unique root from SRAM PUF response and helper data" loading="lazy" decoding="async"><figcaption><span data-lang="zh">概念視覺 · Helper data 支援重建，但不應等同 root secret；其 leakage、integrity 與 lifecycle 仍須驗證。</span><span data-lang="en">Concept visual · Helper data supports reconstruction but is not the root secret; leakage, integrity and lifecycle still require verification.</span></figcaption></figure>
         <div class="claim-ladder">
           <article class="claim-rung" data-record-id="OIP-OTP-001"><span>DIRECT OBSERVATION</span><h3><span data-lang="zh">RP2350 實體攻擊實證 (FIB/PVC)</span><span data-lang="en">RP2350 attack evidence</span></h3><p><span data-lang="zh">公開案例支持威脅模型與問題重要性。</span><span data-lang="en">Public cases support the threat model and urgency.</span></p></article>
-          <article class="claim-rung" data-record-id="OIP-ARCH-001 OIP-NODE-001"><span>VENDOR DISCLOSURE</span><h3><span data-lang="zh">架構與先進製程節點規格主張</span><span data-lang="en">Architecture & node claims</span></h3><p><span data-lang="zh">產品頁支持功能、AES-256、PUF root、APB 與 OTP node availability。</span><span data-lang="en">Product pages support functions, AES-256, PUF root, APB and OTP node availability.</span></p></article>
+          <article class="claim-rung" data-record-id="OIP-ARCH-001 OIP-NODE-001"><span><span data-lang="zh">供應商揭露</span><span data-lang="en">VENDOR DISCLOSURE</span></span><h3><span data-lang="zh">架構與先進製程節點規格主張</span><span data-lang="en">Architecture & node claims</span></h3><p><span data-lang="zh">產品頁支持功能、AES-256、PUF root、APB 與 OTP node availability。</span><span data-lang="en">Product pages support functions, AES-256, PUF root, APB and OTP node availability.</span></p></article>
           <article class="claim-rung" data-record-id="OIP-VAL-001"><span>VALIDATION GAP</span><h3><span data-lang="zh">第三方實作驗證與評估證據</span><span data-lang="en">Implementation evidence</span></h3><p><span data-lang="zh">PVT、aging、FI、SCA、invasive、DFT、zeroization 與 lifecycle evidence 尚需封閉。</span><span data-lang="en">PVT, aging, FI, SCA, invasive, DFT, zeroization and lifecycle evidence must still close.</span></p></article>
           <article class="claim-rung" data-record-id="OIP-SYS-001"><span>BOUNDED INFERENCE</span><h3><span data-lang="zh">可防守的現階段結論</span><span data-lang="en">The defensible conclusion today</span></h3><p><span data-lang="zh">此 architecture 合理地把 OTP physical recovery 與 usable-secret recovery 分離；但特定產品的 resistance、certification 與 residual risk 必須以 target implementation evidence 確認。</span><span data-lang="en">The architecture credibly separates physical OTP recovery from usable-secret recovery; resistance, certification and residual risk for a specific product require target-implementation evidence.</span></p></article>
         </div>

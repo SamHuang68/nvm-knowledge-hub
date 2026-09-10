@@ -77,6 +77,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('hub:language-change', (e) => {
     currentLang = e.detail.language;
     redrawAllLabs();
+    updateCalculator();
+    updateEinkMode();
+    if (btnRunTrim) btnRunTrim.textContent = currentLang === 'zh'
+      ? (isTrimmed ? '🔄 重置為未微調狀態' : '⚡ 執行 OTP 電性微調')
+      : (isTrimmed ? '🔄 Reset to Untrimmed' : '⚡ Execute OTP Electrical Trim');
+    if (btnToggleMura) btnToggleMura.textContent = currentLang === 'zh'
+      ? (isMuraCorrected ? '🔄 移除 De-Mura LUT 補償' : '💡 載入 NVM De-Mura LUT 補償')
+      : (isMuraCorrected ? '🔄 Bypass De-Mura LUT' : '💡 Apply NVM De-Mura LUT');
   });
 
   function redrawAllLabs() {
@@ -912,53 +920,57 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.stroke();
   }
 
-  // 模式切換
+  // 模式與語言切換共用同一個呈現函式，保留目前實驗狀態。
+  function updateEinkMode() {
+  const timingTrackEl = document.getElementById('waveformTimingTrack');
+  if (currentEinkMode === 'mono') {
+    lblEinkMode.textContent = currentLang === 'zh' ? '黑白快速更新' : 'MONO FAST REFRESH';
+    lblPulseVolt.textContent = currentLang === 'zh' ? '±15V 脈衝 (32 K-bit · 4 KB)' : '±15V PULSE (32 K-bit · 4 KB)';
+    valLutFootprint.textContent = '32 K-bit (4 KB)';
+    lblPhaseTag.textContent = currentLang === 'zh' ? 'MTP／OTP 均衡' : 'MTP / OTP BALANCED';
+    lblPhaseTag.className = 'phase-tag phase-otp';
+    if (timingTrackEl) {
+      timingTrackEl.innerHTML = '<span class="timing-step step-shake">Phase A: &plusmn;15V Shake (40ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-clear">Phase B: -15V Clear (60ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-drive">Phase C: +15V Drive (100ms)</span>';
+    }
+    txtPhaseDesc.innerHTML = currentLang === 'zh'
+      ? '黑白波形已完全穩定，DDIC 採用純邏輯反熔絲 OTP 以取得成本優勢。'
+      : 'Monochrome waveform is fully stabilized; DDICs deploy pure logic AntiFuse OTP for cost leadership.';
+  } else if (currentEinkMode === 'esl') {
+    lblEinkMode.textContent = currentLang === 'zh' ? '四色 ESL 電子貨架標籤' : '4-COLOR ESL LABEL';
+    lblPulseVolt.textContent = currentLang === 'zh' ? '±32V 脈衝 (48 K-bit · 6 KB)' : '±32V PULSE (48 K-bit · 6 KB)';
+    valLutFootprint.textContent = '48 K-bit (6 KB)';
+    lblPhaseTag.textContent = currentLang === 'zh' ? 'MTP 使用中（轉換期）' : 'MTP ACTIVE (TRANSITION ERA)';
+    lblPhaseTag.className = 'phase-tag phase-mtp';
+    if (timingTrackEl) {
+      timingTrackEl.innerHTML = '<span class="timing-step step-shake">Phase A: &plusmn;15V Shake (40ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-clear">Phase B: -32V Clear (80ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-drive">Phase C: +32V Color Drive (120ms)</span>';
+    }
+    txtPhaseDesc.innerHTML = currentLang === 'zh'
+      ? '四色 ESL 處於轉換後期；設計公司在 OTP 定版前使用 MTP 進行韌體校準。'
+      : '4-Color ESL is in late transition; design houses leverage MTP for firmware calibration before OTP freeze.';
+  } else {
+    lblEinkMode.textContent = currentLang === 'zh' ? 'Spectra 6 全彩' : 'SPECTRA 6 FULL COLOR';
+    lblPulseVolt.textContent = currentLang === 'zh' ? '±50V 超高壓脈衝 (64 K-bit · 8 KB)' : '±50V ULTRA-HV PULSE (64 K-bit · 8 KB)';
+    valLutFootprint.textContent = currentLang === 'zh' ? '64 K-bit（8 KB 高密度）' : '64 K-bit (8 KB High-Density)';
+    lblPhaseTag.textContent = currentLang === 'zh' ? '必須採用 MTP（持續演進）' : 'MTP MANDATORY (ACTIVE EVOLUTION)';
+    lblPhaseTag.className = 'phase-tag phase-mtp';
+    if (timingTrackEl) {
+      timingTrackEl.innerHTML = '<span class="timing-step step-shake">Phase A: &plusmn;15V Shake (40ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-clear">Phase B: -50V Clear (80ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-drive">Phase C: +50V Target Drive (120ms)</span>';
+    }
+    txtPhaseDesc.innerHTML = currentLang === 'zh'
+      ? '全彩粒子化學仍快速演進；波形無法一次定版，因此需要 64 K-bit (8 KB) MTP。'
+      : 'Full-color particle chemistry is rapidly evolving; waveforms cannot be frozen once, mandating 64 K-bit (8 KB) MTP.';
+  }
+    if (currentLang === 'zh' && timingTrackEl) {
+      const timingLabels = {"Phase A: ±15V Shake (40ms)": "階段 A：±15V 震盪 (40ms)", "Phase B: -15V Clear (60ms)": "階段 B：-15V 清除 (60ms)", "Phase C: +15V Drive (100ms)": "階段 C：+15V 驅動 (100ms)", "Phase B: -32V Clear (80ms)": "階段 B：-32V 清除 (80ms)", "Phase C: +32V Color Drive (120ms)": "階段 C：+32V 色彩驅動 (120ms)", "Phase B: -50V Clear (80ms)": "階段 B：-50V 清除 (80ms)", "Phase C: +50V Target Drive (120ms)": "階段 C：+50V 目標驅動 (120ms)"};
+      timingTrackEl.querySelectorAll('.timing-step').forEach(step => { step.textContent = timingLabels[step.textContent] || step.textContent; });
+    }
+    drawWaveform();
+  }
   modeButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      modeButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      modeButtons.forEach(button => button.classList.toggle('active', button === btn));
       currentEinkMode = btn.dataset.mode;
-
-      const timingTrackEl = document.getElementById('waveformTimingTrack');
-      if (currentEinkMode === 'mono') {
-        lblEinkMode.textContent = 'MONO FAST REFRESH';
-        lblPulseVolt.textContent = '±15V PULSE (32 K-bit · 4 KB)';
-        valLutFootprint.textContent = '32 K-bit (4 KB)';
-        lblPhaseTag.textContent = 'MTP / OTP BALANCED';
-        lblPhaseTag.className = 'phase-tag phase-otp';
-        if (timingTrackEl) {
-          timingTrackEl.innerHTML = '<span class="timing-step step-shake">Phase A: &plusmn;15V Shake (40ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-clear">Phase B: -15V Clear (60ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-drive">Phase C: +15V Drive (100ms)</span>';
-        }
-        txtPhaseDesc.innerHTML = currentLang === 'zh'
-          ? '黑白雙色波形已極度成熟，驅動晶片已全面轉向低成本純邏輯 AntiFuse OTP。'
-          : 'Monochrome waveform is fully stabilized; DDICs deploy pure logic AntiFuse OTP for cost leadership.';
-      } else if (currentEinkMode === 'esl') {
-        lblEinkMode.textContent = '4-COLOR ESL LABEL';
-        lblPulseVolt.textContent = '±32V PULSE (48 K-bit · 6 KB)';
-        valLutFootprint.textContent = '48 K-bit (6 KB)';
-        lblPhaseTag.textContent = 'MTP ACTIVE (TRANSITION ERA)';
-        lblPhaseTag.className = 'phase-tag phase-mtp';
-        if (timingTrackEl) {
-          timingTrackEl.innerHTML = '<span class="timing-step step-shake">Phase A: &plusmn;15V Shake (40ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-clear">Phase B: -32V Clear (80ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-drive">Phase C: +32V Color Drive (120ms)</span>';
-        }
-        txtPhaseDesc.innerHTML = currentLang === 'zh'
-          ? '四色電子貨架標籤正在由 MTP 逐步收斂轉向 OTP，在線彈性微調是當前關鍵。'
-          : '4-Color ESL is in late transition; design houses leverage MTP for firmware calibration before OTP freeze.';
-      } else {
-        lblEinkMode.textContent = 'SPECTRA 6 FULL COLOR';
-        lblPulseVolt.textContent = '±50V ULTRA-HV PULSE (64 K-bit · 8 KB)';
-        valLutFootprint.textContent = '64 K-bit (8 KB High-Density)';
-        lblPhaseTag.textContent = 'MTP MANDATORY (ACTIVE EVOLUTION)';
-        lblPhaseTag.className = 'phase-tag phase-mtp';
-        if (timingTrackEl) {
-          timingTrackEl.innerHTML = '<span class="timing-step step-shake">Phase A: &plusmn;15V Shake (40ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-clear">Phase B: -50V Clear (80ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-drive">Phase C: +50V Target Drive (120ms)</span>';
-        }
-        txtPhaseDesc.innerHTML = currentLang === 'zh'
-          ? '彩色粒子配方與微膠囊仍在快速演進，算法不易一次性出廠寫死，必須採用 64 K-bit (8 KB) MTP 保持彈性。'
-          : 'Full-color particle chemistry is rapidly evolving; waveforms cannot be frozen once, mandating 64 K-bit (8 KB) MTP.';
-      }
-
-      drawWaveform();
+      updateEinkMode();
     });
   });
 
@@ -972,4 +984,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // 初始化所有實驗室畫布
   redrawAllLabs();
   updateCalculator();
+  updateEinkMode();
 });

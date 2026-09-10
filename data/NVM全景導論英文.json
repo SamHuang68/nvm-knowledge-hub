@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "1.0",
+  "revision": "2026-09-10",
+  "title": "NVM Technology Panorama",
+  "subtitle": "Understanding How Data Persists, Starting with the Bitcell",
+  "audience": "Readers with a semiconductor background who want a systematic understanding of NVM devices and their operation",
+  "pov": "Neutral educational content and public-source research from the NVM Knowledge Hub",
+  "classification": "Public",
+  "intro": "Start by asking which physical state stores the data, then examine how that state is written, read, and retained—and what each operation costs. This panorama presents the technology families in parallel: a technology can already have products in volume production while new materials, process nodes, and applications remain under investigation.",
+  "scope": "The scope covers one-time programming, floating gates, charge trapping, magnetism, resistive switching, phase change, and ferroelectricity. SRAM and DRAM provide volatile-memory reference points. Optical discs, magnetic disks, mask ROM, EPROM, and other research candidates are outside this set of fifteen technology topics.",
+  "axes": [
+    {
+      "title": "Storage Physics",
+      "body": "Charge, conductive structures, magnetization, ion distributions, material phase, and polarization determine the fundamental write and read mechanisms. OTP/MTP describe how data can be updated; NOR/NAND describe array organization. They are different classification dimensions, not mutually exclusive alternatives within a single category."
+    },
+    {
+      "title": "Commercial Maturity",
+      "body": "Volume production, completed qualification, research demonstrations, and development plans must be tied to a named company, process node, version, and application. Finding one MRAM product in volume production does not establish the same maturity for every SOT-MRAM implementation."
+    },
+    {
+      "title": "System Role",
+      "body": "SCM describes an application role that addresses the gap between memory and storage; it is not another bitcell type. Application, access semantics, persistence through power loss, and current supply status must be explained separately."
+    }
+  ],
+  "families": [
+    {
+      "id": "irreversible",
+      "title": "Irreversible Structures",
+      "state": "Breaking or forming a conductive path",
+      "topics": [
+        "efuse",
+        "antifuse"
+      ]
+    },
+    {
+      "id": "charge",
+      "title": "Charge Storage",
+      "state": "Charge shifts the threshold voltage",
+      "topics": [
+        "eeprom",
+        "nor",
+        "sonos",
+        "nand"
+      ]
+    },
+    {
+      "id": "magnetic",
+      "title": "Magnetism",
+      "state": "Magnetization direction changes resistance",
+      "topics": [
+        "toggle",
+        "stt",
+        "sot"
+      ]
+    },
+    {
+      "id": "resistive",
+      "title": "Resistive Switching",
+      "state": "Ions and defects change conduction",
+      "topics": [
+        "vcm",
+        "ecm"
+      ]
+    },
+    {
+      "id": "phase",
+      "title": "Phase Change",
+      "state": "Resistance contrast between crystalline and amorphous states",
+      "topics": [
+        "pcm"
+      ]
+    },
+    {
+      "id": "ferroelectric",
+      "title": "Ferroelectricity",
+      "state": "Polarization changes charge or conduction",
+      "topics": [
+        "feram",
+        "fefet",
+        "ftj"
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "title": "Start with the Panorama",
+      "body": "Compare fifteen technologies using the same set of questions, then filter named examples by volume-production status or research demonstration."
+    },
+    {
+      "title": "Examine the Bitcell",
+      "body": "Open any topic and work through its storage state, structure, operation, variability, and the constraints at the device, array, process, and system levels."
+    },
+    {
+      "title": "Return to the Original Evidence",
+      "body": "Patent guides provide entry points to representative figures and claims. Product documents and papers support specific numbers, while annual roadmaps establish version and timeline context."
+    }
+  ],
+  "evidenceRules": [
+    "Supplier disclosures, datasheets, papers, patents, and editorial inferences serve different purposes. Source categories are not steps on a maturity ladder from weak to strong.",
+    "Every performance value must retain its device, capacity, temperature, granularity, test method, and source. Leave undisclosed values as gaps; do not combine the best numbers from unrelated implementations.",
+    "A patent supports the disclosure and interpretation of its claims. The assignee alone does not establish that the company's production process uses the same structure.",
+    "A technology ceiling describes the principal constraints and trade-offs of current designs. Without sufficient evidence, do not present an engineering limitation as a permanent physical limit."
+  ],
+  "sources": [
+    {
+      "id": "INTRO-COURSE",
+      "label": "Shimeng Yu: Lecture Six, Emerging NVM, Part One",
+      "url": "https://www.youtube.com/watch?v=_Ov2KUZTIv8",
+      "kind": "University Course",
+      "locator": "2021 course; comparison table at approximately 36:05–43:49, SCM at approximately 50:08, and arrays at approximately 1:00:04",
+      "date": "2021; accessed 2026-09-10",
+      "limit": "This page independently organizes the material and redraws the operating principles; it does not reproduce the complete lecture deck. Automatic captions cannot replace the original technical material."
+    },
+    {
+      "id": "INTRO-2016",
+      "label": "Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects",
+      "url": "https://asu.elsevierpure.com/en/publications/emerging-memory-technologies-recent-trends-and-prospects",
+      "kind": "Peer-Reviewed Review",
+      "locator": "IEEE Solid-State Circuits Magazine 8(2), 43–56; DOI 10.1109/MSSC.2016.2546199",
+      "date": "2016",
+      "limit": "A historical comparison baseline. Additions to the 2021 course and commercial status in 2026 are identified separately."
+    },
+    {
+      "id": "INTRO-IRDS",
+      "label": "IEEE 2024 IRDS: Beyond CMOS and Emerging Research Materials",
+      "url": "https://irds.ieee.org/images/files/pdf/2024/2024IRDS_BC.pdf",
+      "kind": "Technology Roadmap Assessment",
+      "locator": "Sections 2 and 2.5",
+      "date": "2024",
+      "limit": "Technology assessments and targets do not establish volume production of named products or a ranking under common measurement conditions."
+    }
+  ],
+  "terminology": "In the course, eNVM means emerging nonvolatile memory. In foundry terminology, eNVM usually means embedded nonvolatile memory. The shared abbreviation does not make the two terms interchangeable."
+}

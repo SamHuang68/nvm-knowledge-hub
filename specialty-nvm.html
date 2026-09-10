@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-title-en="Specialty NVM · BCD Power, Matrix Repair, HV Display &amp; E-Ink · NVM Knowledge Hub" data-title-zh="特種 NVM · BCD 電源、陣列修復、高壓顯示與電子紙 · NVM 知識中心" data-description-en="Flagship treatise on Specialty eNVM: BCD process for Power Management (PMIC, LED drivers, USB-PD, BLDC, BMIC), CIS &amp; DRAM array defect redundancy repair (BIST/BIRA/AntiFuse), High-Voltage Display Driver ICs, and E-Ink Ultra-HV Driving with MTP-to-OTP migration." data-description-zh="特種 eNVM 技術專題：電源管理 BCD 製程（PMIC、LED 驅動、USB-PD、BLDC、BMIC）、CIS 與 DRAM 陣列備援修復（BIST／BIRA／AntiFuse）、高壓顯示驅動，以及電子紙超高壓驅動的 MTP 至 OTP 轉換。">
 <head>
 <meta charset="utf-8"/>
-<script src="site-language.js?v=20260906-navy-v3"></script>
+<script src="site-language.js?v=20260910-bilingual"></script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Specialty NVM · BCD Power, Matrix Repair, HV Display &amp; E-Ink · NVM Knowledge Hub</title>
-<meta content="Flagship treatise on Specialty eNVM: BCD process for Power Management (PMIC, LED drivers, USB-PD, BLDC, BMIC), CIS &amp; DRAM array defect redundancy repair (BIST/BIRA/AntiFuse), High-Voltage Display Driver ICs, and E-Ink Ultra-HV Driving with MTP-to-OTP migration." name="description"/>
+<meta name="description" content="Flagship treatise on Specialty eNVM: BCD process for Power Management (PMIC, LED drivers, USB-PD, BLDC, BMIC), CIS &amp; DRAM array defect redundancy repair (BIST/BIRA/AntiFuse), High-Voltage Display Driver ICs, and E-Ink Ultra-HV Driving with MTP-to-OTP migration.">
 <meta content="#061b29" name="theme-color"/>
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
 <!-- Open Graph / Social Sharing -->
@@ -337,8 +337,56 @@
       color: #f3ebe0 !important;
     }
   </style>
+<style>
+  /* 手機實驗室維持可操作寬度，避免固定畫布與控制群組撐開網格。 */
+  @media (max-width: 700px) {
+    .interactive-lab-card .lab-body-grid {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+    .interactive-lab-card :is(.lab-subpanel, .calculator-controls, .subpanel-title, .lab-btn-group, .control-row, .node-toggle-group, .eink-mode-buttons, .canvas-wrapper) {
+      min-width: 0 !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+    .interactive-lab-card :is(.subpanel-title, .control-row) {
+      flex-direction: column !important;
+      align-items: stretch !important;
+    }
+    .interactive-lab-card :is(.lab-btn-group, .node-toggle-group, .eink-mode-buttons) {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      width: 100% !important;
+      gap: 8px !important;
+    }
+    .interactive-lab-card :is(.lab-btn, .node-btn, .mode-btn) {
+      flex: 1 1 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      min-height: 44px !important;
+      white-space: normal !important;
+      overflow-wrap: anywhere;
+      box-sizing: border-box;
+      background: #123247 !important;
+      color: #eef4f8 !important;
+      border: 1px solid #527287 !important;
+    }
+    .interactive-lab-card :is(.node-btn, .mode-btn).active {
+      background: #22526d !important;
+      border-color: #87bbd9 !important;
+    }
+    .interactive-lab-card input[type="range"] {
+      width: 100% !important;
+      min-width: 0 !important;
+      box-sizing: border-box;
+    }
+    .interactive-lab-card .canvas-wrapper canvas {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+  }
+</style>
 </head>
-<body class="specialty-page">
+<body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
 <a class="skip-link" href="#main-content">
 <span data-lang="zh">跳至主要內容</span>
 <span data-lang="en">Skip to main content</span>
@@ -357,7 +405,7 @@
 </span>
 <span class="brand-section">SPECIALTY eNVM</span>
 </a>
-<nav aria-label="Main Navigation" class="primary-nav" id="primaryNav">
+<nav aria-label="Main Navigation" class="primary-nav" id="primaryNav"><a data-lang="en" href="NVM技術全景.html">NVM Technology Atlas</a><a data-lang="zh" href="NVM技術全景中文.html">NVM 技術全景</a>
         <a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Map</span></a>
         <a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
         <a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點</span><span data-lang="en">AI &amp; Nodes</span></a>
@@ -376,8 +424,8 @@
 </div>
 </header>
 <nav aria-label="Breadcrumb" class="site-breadcrumb">
-<a href="index.html">Knowledge Hub</a><i></i><strong><span data-lang="zh">特種半導體與高壓 eNVM 架構</span><span data-lang="en">Specialty Silicon eNVM Architecture</span></strong>
-<span class="topic-switch"><a href="index.html#topics">All Topics</a><a href="secure-storage.html">Secure Storage</a><a href="ai-nvm-opportunities.html">AI Systems</a><a aria-current="page" href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a></span>
+<a href="index.html"><span data-lang="zh">知識中心</span><span data-lang="en">Knowledge Hub</span></a><i></i><strong><span data-lang="zh">特種半導體與高壓 eNVM 架構</span><span data-lang="en">Specialty Silicon eNVM Architecture</span></strong>
+<span class="topic-switch"><a data-lang="en" href="NVM技術全景.html">NVM Technology Atlas</a><a data-lang="zh" href="NVM技術全景中文.html">NVM 技術全景</a><a href="index.html#topics"><span data-lang="zh">所有專題</span><span data-lang="en">All Topics</span></a><a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 系統</span><span data-lang="en">AI Systems</span></a><a aria-current="page" href="specialty-nvm.html"><span data-lang="zh">特種 NVM</span><span data-lang="en">Specialty NVM</span></a></span>
 </nav>
 <main id="main-content">
 <!-- Hero Section -->
@@ -520,7 +568,7 @@
 <div class="specialty-hero-image-wrap" data-reticle="MICROSCOPY 100X · 1mm CALIBRATED">
 <img alt="Monolithic BCD Power Management IC (PMIC) silicon die micrograph layout showing 40V-85V LDMOS power switches, analog bandgap reference trimming circuit, AntiFuse OTP FuseBox memory array, and CMOS logic core" height="675" loading="eager" src="assets/specialty-bcd-pmic-die-v2.webp" width="1200"/>
 <div class="hero-image-caption">
-<span>FIG 0.1 · MONOLITHIC BCD PMIC SILICON DIE ARCHITECTURE • 40V-85V LDMOS POWER STAGE • ANALOG BANDGAP TRIMMING • ANTIFUSE OTP FUSEBOX • 1mm SCALE</span>
+<span><span data-lang="zh">圖 0.1 · 單晶粒 BCD PMIC 架構 • 40V-85V LDMOS 功率級 • 類比帶隙微調 • 反熔絲 OTP 熔絲陣列 • 1mm 比例</span><span data-lang="en">FIG 0.1 · MONOLITHIC BCD PMIC SILICON DIE ARCHITECTURE • 40V-85V LDMOS POWER STAGE • ANALOG BANDGAP TRIMMING • ANTIFUSE OTP FUSEBOX • 1mm SCALE</span></span>
 </div>
 </div>
 <!-- =========================================================
@@ -578,7 +626,7 @@
 <span data-lang="zh">1.1 低密度電性微調閉環管線 (Low-Density Trimming, 128-bit ～ 2K-bit)</span>
 <span data-lang="en">1.1 Low-Density Trimming Closed-Loop Pipeline (128-bit to 2K-bit)</span>
 </h3>
-<span class="tag-accent">CLOSED-LOOP CALIBRATION · DRIFT CANCELLATION</span>
+<span class="tag-accent"><span data-lang="zh">閉迴路校準 · 漂移消除</span><span data-lang="en">CLOSED-LOOP CALIBRATION · DRIFT CANCELLATION</span></span>
 </div>
 <!-- EDA 級類比帶隙閉環修調時序與流程圖 -->
 <!-- =========================================================
@@ -904,8 +952,8 @@
 <span data-lang="en">Select Process Node:</span>
 </label>
 <div class="node-toggle-group">
-<button class="node-btn active" data-node="180" type="button">0.18µm BCD (+10 Masks)</button>
-<button class="node-btn" data-node="55" type="button">55nm BCD (+14 Masks)</button>
+<button class="node-btn active" data-node="180" type="button"><span data-lang="zh">0.18µm BCD（增加 10 層光罩）</span><span data-lang="en">0.18µm BCD (+10 Masks)</span></button>
+<button class="node-btn" data-node="55" type="button"><span data-lang="zh">55nm BCD（增加 14 層光罩）</span><span data-lang="en">55nm BCD (+14 Masks)</span></button>
 </div>
 </div>
 </div>
@@ -1512,11 +1560,11 @@
 <div class="deck-visual-stage" style="flex-direction: column; gap: 4px; align-items: stretch;">
 <div style="background: #0c4a6e; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #e0f2fe; text-align: center;">TIER 1: 200MP PIXEL SENSOR</div>
 <div style="border-top: 1px dashed #facc15; font-family: monospace; font-size: 7.5px; color: #fde047; text-align: center; line-height: 1;">TSMC Cu-Cu HYBRID BONDING</div>
-<div style="background: #032f2f; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;">TIER 2: ISP + 128Kb Multi-Sector OTP / MTP</div>
+<div style="background: #032f2f; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;"><span data-lang="zh">第 2 層：ISP＋128Kb 多磁區 OTP／MTP</span><span data-lang="en">TIER 2: ISP + 128Kb Multi-Sector OTP / MTP</span></div>
 </div>
 <div class="deck-metric-callout">
 <span class="deck-metric-val">128 K-bit (16 KB) LUT</span>
-<span class="deck-metric-lbl">CP SORT + IN-FIELD DYNAMIC HOT PIXEL RETRIM</span>
+<span class="deck-metric-lbl"><span data-lang="zh">晶圓測試＋現場動態熱像素重新微調</span><span data-lang="en">CP SORT + IN-FIELD DYNAMIC HOT PIXEL RETRIM</span></span>
 </div>
 <div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">架構</span><span data-lang="en">ARCHITECTURE</span></span><span class="chip-v cyan"><span data-lang="zh">出廠靜態死點 + 運行時分區增量補償 (Multi-Sector)</span><span data-lang="en">STATIC CP + IN-FIELD INCREMENTAL REMAP</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">鍵合</span><span data-lang="en">HYBRID BOND</span></span><span class="chip-v green"><span data-lang="zh">三層晶圓垂直直接鍵合</span><span data-lang="en">CU-CU DIRECT STACK</span></span></div></div>
 </div>
@@ -2281,7 +2329,7 @@
 <div class="specialty-hero-image-wrap" data-reticle="ULTRA-HV DDIC · &lt;250μm SLIM PROFILE" style="margin: 24px auto; max-width: 780px;">
 <img alt="Ultra-High-Voltage E-Paper Display Driver IC (DDIC) silicon die layout showing 40V-50V HV level shifters, dynamic Waveform Look-Up Table (Waveform LUT) MTP/OTP memory, and peripheral gold bumping pads for COG/COF bonding" height="675" loading="lazy" src="assets/specialty-eink-ddic-die-v2.webp" width="1200"/>
 <div class="hero-image-caption">
-<span>FIG 4.1 · ULTRA-HV E-INK DISPLAY DRIVER IC (DDIC) SILICON DIE • 40V-50V SOURCE DRIVERS • WAVEFORM LUT (MTP/OTP) • &lt;250μm PROFILE • COG/COF Au-BUMP PADS</span>
+<span><span data-lang="zh">圖 4.1 · 超高壓電子紙顯示驅動晶片 (DDIC) • 40V-50V 源極驅動器 • 波形查找表 (MTP/OTP) • &lt;250μm 厚度 • COG/COF 金凸塊接墊</span><span data-lang="en">FIG 4.1 · ULTRA-HV E-INK DISPLAY DRIVER IC (DDIC) SILICON DIE • 40V-50V SOURCE DRIVERS • WAVEFORM LUT (MTP/OTP) • &lt;250μm PROFILE • COG/COF Au-BUMP PADS</span></span>
 </div>
 </div>
 <!-- DUO GRID: GOVERNING PHYSICS & STATE CONTRACT 04 -->
@@ -2552,7 +2600,7 @@
             <span class="hub-footer-logo-mark">NVM</span>
             <span class="hub-footer-logo-text">
               <strong>KNOWLEDGE HUB</strong>
-              <small>SILICON ARCHITECTURE &amp; EVIDENCE DISCIPLINE</small>
+              <small><span data-lang="zh">晶片架構與證據紀律</span><span data-lang="en">SILICON ARCHITECTURE &amp; EVIDENCE DISCIPLINE</span></small>
             </span>
           </a>
           <p class="hub-footer-desc">
@@ -2649,7 +2697,7 @@
     </div>
   </footer>
 <script src="hub.js?v=20260906-navy-v3"></script>
-<script src="specialty-nvm.js?v=20260906-navy-v3"></script>
+<script src="specialty-nvm.js?v=20260910-bilingual"></script>
   <script>
     // Studio Layout Vertical Rail Scroll Spy
     document.addEventListener('DOMContentLoaded', () => {
@@ -2697,5 +2745,6 @@
       panels.forEach(p => railObserver.observe(p));
     });
   </script>
+<script src="專題選單導覽.js?v=20260910-bilingual"></script>
 </body>
 </html>

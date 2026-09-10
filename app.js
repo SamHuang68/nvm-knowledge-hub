@@ -191,7 +191,7 @@ function translateStaticText(nextLanguage) {
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
       const parent = node.parentElement;
-      if (!parent || parent.closest("script, style") || parent.closest("#learningPath, #filters, #articleGrid, #stateTitle, #stateText, #stateTag, #archDetail, #phaseDetail")) return NodeFilter.FILTER_REJECT;
+      if (!parent || parent.closest("script, style, [data-lang]") || parent.closest("#learningPath, #filters, #articleGrid, #stateTitle, #stateText, #stateTag, #archDetail, #phaseDetail")) return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT;
     }
   });
@@ -286,7 +286,7 @@ function updatePhase(index = activePhase) {
 
 function setLanguage(nextLanguage, persist = true) {
   if (!['zh', 'en'].includes(nextLanguage)) return;
-  if (nextLanguage !== currentLanguage) translateStaticText(nextLanguage);
+  translateStaticText(nextLanguage);
   currentLanguage = nextLanguage;
   document.documentElement.lang = nextLanguage === "zh" ? "zh-Hant" : "en";
   document.body.dataset.language = nextLanguage;
@@ -381,7 +381,7 @@ document.querySelector("#themeToggle").addEventListener("click", event => {
   const active = document.body.classList.toggle("light-mode");
   event.currentTarget.setAttribute("aria-pressed", active ? "true" : "false");
 });
-document.querySelector("#languageToggle").addEventListener("click", () => setLanguage(currentLanguage === "zh" ? "en" : "zh"));
+
 
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {

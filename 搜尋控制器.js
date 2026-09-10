@@ -87,10 +87,12 @@
         const records = cards.map(card => {
           const id = card.querySelector('.source-index b').textContent.trim();
           if (card.id !== `evidence-${id}`) throw new Error('總帳缺少穩定錨點');
-          const title = card.querySelector('h3').textContent.trim();
+          const heading = card.querySelector('h3');
+          const title_zh = (heading.querySelector('[data-lang="zh"]') || heading).textContent.trim();
+          const title_en = (heading.querySelector('[data-lang="en"]') || heading).textContent.trim();
           const summary = card.querySelector('.source-content > p:not(.source-meta) [data-lang="zh"]')?.textContent.trim() || '';
           const summary_en = card.querySelector('.source-content > p:not(.source-meta) [data-lang="en"]')?.textContent.trim() || '';
-          return {id, title_zh: title, title_en: title, summary, summary_zh: summary, summary_en, url:`memory-evidence.html#${card.id}`, tags:`${card.dataset.keywords} ${card.textContent}`};
+          return {id, title_zh, title_en, summary, summary_zh: summary, summary_en, url:`memory-evidence.html#${card.id}`, tags:`${card.dataset.keywords} ${card.textContent}`};
         });
         index.push(...records); loaded = true;
       } catch { failed = true; }

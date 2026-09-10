@@ -24,6 +24,18 @@ const walk = directory => fs.readdirSync(directory, { withFileTypes: true }).fla
 });
 
 const files = walk(root);
+const attachmentEvidence = new Map((policy.attachmentExceptionEvidence ?? []).map(record => [record.path, record]));
+for (const exception of policy.allowedAttachmentExceptions) {
+  const record = attachmentEvidence.get(exception);
+  const file = path.resolve(root, exception);
+  if (!record || !/^[a-f0-9]{64}$/u.test(record.sha256 ?? '') || !/^[a-f0-9]{40}$/u.test(record.releasedBaseline ?? '') || !record.basis) {
+    failures.push(`附件例外缺少確切的既有發布證據：${exception}`);
+    continue;
+  }
+  if (!file.startsWith(root + path.sep) || !fs.existsSync(file) || crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex') !== record.sha256) {
+    failures.push(`附件與核對過的既有公開版本不同：${exception}`);
+  }
+}
 for (const file of files) {
   const relative = path.relative(root, file).replaceAll("\\", "/");
   const extension = path.extname(file).toLowerCase();

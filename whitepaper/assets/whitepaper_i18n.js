@@ -1,231 +1,565 @@
-/**
- * Whitepaper Studio Real-time Bilingual (ZH-TW / EN) Engine
- * Provides comprehensive translation for dynamically rendered Vite panels.
- * Single Source of Truth: site-language.js via "hub:language-change" event.
- */
+// 白皮書兩個入口共用單一內容翻譯器；全站語言狀態由 HubLanguage 管理。
 (function () {
   const DICT = {
-    // Specialty eNVM Architecture Additions
-    "Specialty NVM": "特種 NVM",
-    "Specialty eNVM": "特種製程 eNVM",
-    "BCD Power PMIC & LED Trimming": "BCD 電源 PMIC 與 LED 電性微調",
-    "CIS & DRAM Matrix Defect Repair": "CIS 與 DRAM 矩陣缺陷修復",
-    "HV Display Driver (OLED / LCD DDIC)": "高壓顯示驅動晶片 (OLED / LCD DDIC)",
-    "E-Ink Ultra-HV Driver (40V-50V / 110HV)": "電子紙超高壓驅動晶片 (40V-50V / 110HV)",
-    "Zero Mask Adder": "零額外光罩",
-    "Post-Package Repair (PPR)": "封裝後現場修復 (PPR)",
-    "Waveform LUT": "波形查找表 (Waveform LUT)",
-    "De-Mura Optical Calibration": "De-Mura 光學均勻性補償",
+  "Specialty NVM": "特種 NVM",
+  "Specialty eNVM": "特種製程 eNVM",
+  "BCD Power PMIC & LED Trimming": "BCD 電源 PMIC 與 LED 電性微調",
+  "CIS & DRAM Matrix Defect Repair": "CIS 與 DRAM 矩陣缺陷修復",
+  "HV Display Driver (OLED / LCD DDIC)": "高壓顯示驅動晶片 (OLED / LCD DDIC)",
+  "E-Ink Ultra-HV Driver (40V-50V / 110HV)": "電子紙超高壓驅動晶片 (40V-50V / 110HV)",
+  "Zero Mask Adder": "零額外光罩",
+  "Post-Package Repair (PPR)": "封裝後現場修復 (PPR)",
+  "Waveform LUT": "波形查找表 (Waveform LUT)",
+  "De-Mura Optical Calibration": "De-Mura 光學均勻性補償",
+  "TECHNOLOGY & SELECTION": "技術與架構決策",
+  "All Topics": "總門戶",
+  "Secure Storage": "安全儲存",
+  "AI Systems": "AI 與先進節點",
+  "Research Library": "研究與證據庫",
+  "Skip to main content": "跳至主要內容",
+  "NVM Knowledge Hub": "NVM 知識總體系",
+  "Knowledge Workbench": "知識決策工作台",
+  "Whitepaper Studio": "白皮書決策工作室",
+  "NVM KNOWLEDGE WORKBENCH · PUBLIC EDITION": "NVM 知識決策工作台 · 公開版",
+  "From NVM technology": "從 NVM 物理技術",
+  "to a defensible selection": "到可辯護的架構決策",
+  "A governed workspace for technology whitepapers, state-contract trade-offs and SharePoint content models—built around what can be supported, what must be validated and what remains open.": "針對半導體技術白皮書、持久狀態契約權衡與企業 SharePoint 內容模型所構建的受治理工作台——圍繞著何種技術可被支援、何種指標必須驗證、以及何種邊界仍待探索。",
+  "Read the whitepaper": "閱讀完整白皮書",
+  "Open decision matrix": "開啟架構決策矩陣",
+  "PUBLIC WORKING DRAFT": "公開工作草案",
+  "Illustrative profiles are decision aids, not product specifications.": "展示設定檔僅作為架構決策輔助，非商業產品保證規格。",
+  "Conceptual NVM state-contract map · not a physical floorplan": "概念性 NVM 狀態契約地圖 · 非物理佈局圖",
+  "program once · verify always": "單次寫入 · 永久驗證",
+  "rare updates · controlled owner": "極低更新 · 受控權威",
+  "managed change · recovery path": "受控變更 · 復原路徑",
+  "logs · repair · field learning": "運作日誌 · 修復 · 現場學習",
+  "IDENTITY": "晶片身分",
+  "CALIBRATION": "參數微調",
+  "FIRMWARE": "安全韌體",
+  "RAS STATE": "RAS 狀態",
+  "IMMUTABLE": "不可竄改",
+  "BOUNDED": "受限變更",
+  "ADAPTIVE": "自適應",
+  "OPERATIONAL": "運行維運",
+  "NVM SELECTION": "NVM 決策矩陣",
+  "STATE": "狀態",
+  "CONTRACT": "契約",
+  "EVIDENCE · SCOPE · LIMIT": "技術證據 · 範圍 · 邊界",
+  "EXPLORE THE WORKBENCH": "探索決策工作台",
+  "Each view preserves evidence status and a SharePoint-ready content contract.": "每一種檢視皆完整保留技術證據狀態與 SharePoint 就緒內容契約。",
+  "NVM Overview": "NVM 全貌總覽",
+  "Technical Whitepaper": "技術白皮書閱讀器",
+  "Decision Matrix": "架構決策矩陣",
+  "SharePoint Taxonomy": "SharePoint 分類體系",
+  "Content Templates": "技術內容範本",
+  "Selecting NVM by State Contract, Process Boundary and Evidence": "依狀態契約、製程邊界與證據鏈進行 NVM 架構選型",
+  "A public architecture guide for turning persistent-state requirements into defensible technology decisions": "一份將非揮發性持久狀態需求轉化為可辯護技術決策的公開架構指引",
+  "Begin With the State Contract": "以狀態契約為決策起點",
+  "Map Technology Families to the Contract": "將記憶體技術家族對齊狀態契約",
+  "Treat Node Migration as an Integration Decision": "將製程節點微縮視為系統整合決策",
+  "Make the Decision Evidence-Aware": "建立具備證據感知能力的架構決策",
+  "Transfer the Knowledge, Not Just the Page": "沉澱轉移架構知識，而非僅交付頁面",
+  "Start with the available voltage and device stack": "從可用電壓與元件堆疊出發",
+  "Treat scaling as an integration-economics boundary": "將製程微縮視為整合經濟學邊界",
+  "Decouple read supply from program infrastructure": "將讀取電源與燒錄基礎架構解耦",
+  "Move from one macro to a distributed state architecture": "從單一巨集轉向分散式狀態架構",
+  "Technology Family": "技術家族",
+  "State Contract Fit": "狀態契約適配性",
+  "Typical Density": "典型容量密度",
+  "Write Endurance": "寫入耐受度 (Endurance)",
+  "Read Latency": "讀取延遲",
+  "Key Trade-off": "核心權衡 (Trade-off)",
+  "Evidence Level": "證據等級",
+  "Silicon Proven": "矽驗證成熟 (Silicon Proven)",
+  "Production Qualified": "量產認證 (Qualified)",
+  "Exploratory": "前瞻探索 (Exploratory)",
+  "Primary Locus": "權威所在 (Locus)",
+  "Update Frequency": "更新頻率",
+  "Retention Boundary": "保存期限邊界",
+  "Recovery Contract": "故障復原契約",
+  "PUBLIC WORKBENCH · EVIDENCE-GOVERNED · SHAREPOINT TRANSFER MODEL · 2026": "公開工作台 · 證據治理 · SHAREPOINT 轉移模型 · 2026",
+  "Compare the state contract": "比較狀態契約",
+  "before comparing a macro": "先於比較記憶體巨集",
+  "FILTER BY TECHNOLOGY FAMILY": "依技術家族篩選",
+  "All public profiles (8)": "全部公開設定檔 (8)",
+  "Export CSV": "匯出 CSV",
+  "Export JSON": "匯出 JSON",
+  "STATE PROFILE": "狀態設定檔",
+  "TECHNOLOGY FAMILY": "技術家族",
+  "STATE CONTRACT & POWER-OFF KEY": "狀態契約與斷電金鑰",
+  "BUS EXPOSURE": "匯流排暴露度",
+  "LATENCY & BOM": "延遲與 BOM 成本",
+  "STRONGEST FIT": "最適應用場景",
+  "EVIDENCE STATUS": "證據成熟度",
+  "SRAM PUF Secure Storage": "SRAM PUF 安全儲存",
+  "Conventional Plain Antifuse OTP": "傳統純 AntiFuse OTP",
+  "Quantum Tunneling OTP-PUF": "量子穿隧型 OTP-PUF",
+  "Discrete Secure Element (SE)": "獨立安全元件 (SE)",
+  "Hardware Security Module (HSM)": "硬體安全模組 (HSM)",
+  "Embedded Flash (eFlash)": "嵌入式快閃記憶體 (eFlash)",
+  "Emerging NVM (MRAM / ReRAM)": "新興非揮發性記憶體 (MRAM / ReRAM)",
+  "CPO & 3D Chiplet NVM Trim": "CPO 與 3D 小晶片 NVM 微調",
+  "Define state before technology": "技術選型前先定義狀態生命週期",
+  "Separate immutability from update policy": "將不可變性與更新策略嚴格解耦",
+  "Treat recovery as part of retention": "將故障復原機制視為資料保存的一環",
+  "Never let UI polish promote an assumption to fact": "絕不因視覺精緻而把假設升格為事實",
+  "Bind every claim to scope and limitation": "將每一項技術主張綁定明確範疇與限制",
+  "Use open gaps to drive the next validation action": "以未封閉之缺口驅動下一步驗證行動",
+  "Preserve the eight-field content contract": "嚴格遵循八大核心欄位內容契約",
+  "Keep public and restricted evidence separate": "確保公開主張與受限證據嚴格分離",
+  "Make review status machine-readable": "使治理審查狀態具備機器可讀性",
+  "Template outline copied": "已複製範本大綱至剪貼簿",
+  "← PORTFOLIO": "← 作品集",
+  "Four persistent-state promises": "四大持久狀態承諾",
+  "Compare by fit and boundary": "依適配度與物理邊界比較",
+  "What changes as the process changes": "製程演進帶來的架構變化",
+  "A repeatable way to select NVM": "可重複驗證的 NVM 選型序列",
+  "STATE CONTRACTS": "狀態契約",
+  "TECHNOLOGY FAMILIES": "技術家族",
+  "PROCESS-NODE LENS": "製程節點視角",
+  "DECISION SEQUENCE": "選型序列",
+  "CHAPTER INDEX": "章節目錄",
+  "ARCHITECTURE TAKEAWAYS": "架構核心結論",
+  "EVIDENCE CLASS": "證據等級",
+  "LIMITATION": "限制條件",
+  "EDITORIAL OWNER": "架構負責人",
+  "STATUS": "狀態",
+  "REVIEW DATE": "審查日期",
+  "PUBLIC EVIDENCE RULE": "公開證據規則",
+  "CONTINUE THE EVIDENCE TRAIL": "延伸證據鏈追蹤",
+  "Use the Hub to separate source facts from architecture inference": "透過知識庫嚴格區分原始事實與架構推論",
+  "Open Evidence Ledger": "開啟證據總帳",
+  "Review Memory Physics": "查閱記憶體物理機制",
+  "Resources": "資源",
+  "Automotive NVM": "車規 NVM",
+  "Tech Comparison": "技術對比",
+  "Whitepaper chapters": "白皮書章節",
+  "Whitepaper Studio views": "白皮書工作台檢視",
+  "Knowledge Hub navigation": "知識中心導覽",
+  "Primary Navigation": "主要導覽",
+  "Footer navigation": "頁尾導覽",
+  "Breadcrumb": "導覽路徑",
+  "Open navigation": "開啟導覽",
+  "Close navigation": "關閉導覽",
+  "Conceptual NVM state-contract map": "NVM 狀態契約概念圖",
+  "Four persistent-state contracts connect through an evidence boundary to an NVM selection core.": "四種持久狀態契約，透過證據邊界連結至 NVM 選型核心。",
+  "Exact specifications require a source, scope and limitation. Otherwise this paper uses architecture-level language.": "精確規格必須附上來源、範圍與限制；缺少這些條件時，本白皮書僅使用架構層級的敘述。",
+  "© 2026 NVM Knowledge Hub · Public Workbench · Evidence-Governed Architecture": "© 2026 NVM 知識中心 · 公開工作台 · 證據治理架構",
+  "01 · NVM OVERVIEW": "01 · NVM 總覽",
+  "02 · TECHNICAL WHITEPAPER": "02 · 技術白皮書",
+  "03 · DECISION MATRIX": "03 · 決策矩陣",
+  "04 · SHAREPOINT TAXONOMY": "04 · SharePoint 分類體系",
+  "05 · CONTENT TEMPLATES": "05 · 內容範本",
+  "1.5B+ Devices · PSA L3 · SESIP L3 · AEC-Q100 G1": "超過 15 億顆裝置 · PSA L3 · SESIP L3 · AEC-Q100 G1",
+  "10B+ Units Shipped · Foundry Baseline": "累計出貨超過 100 億顆 · 晶圓代工基準",
+  "51.2T/102.4T CPO Switches, UCIe 2.0 D2D Links, Optical Compute Interconnect (OCI)": "51.2T/102.4T CPO 交換器、UCIe 2.0 晶粒間連結、光學運算互連 (OCI)",
+  "800G/1.6T Foundry-Verified · OCP OIF · UCIe 2.0": "800G/1.6T 晶圓代工驗證 · OCP OIF · UCIe 2.0",
+  "A categorical fit is not a qualification result": "類別上的適用性不等於資格驗證結果",
+  "A decision matrix is useful only when it makes uncertainty visible instead of converting assumptions into specifications.": "決策矩陣必須呈現不確定性，才能提供價值；不能將假設轉換成規格。",
+  "A single-VDD read path can simplify always-on and low-voltage domains, while programming may still require an I/O-derived foundation for an internal charge pump.": "單一 VDD 讀取路徑可簡化常時供電與低電壓電源域；寫入時仍可能需要以 I/O 電源作為內部電荷幫浦的基礎。",
+  "A useful state contract names who may create the state, when it may change, which failures must be recoverable and what evidence proves the contract across process, voltage, temperature and lifecycle conditions.": "實用的狀態契約需明確定義誰可以建立狀態、何時允許變更、哪些故障必須可以復原，以及哪些證據能在製程、電壓、溫度與生命週期條件下證明契約成立。",
+  "A written bit cannot become an update policy by itself": "已寫入的位元本身無法構成更新政策",
+  "Absent-at-rest; ephemeral root regenerated on-the-fly; encrypted ciphertext in OTP": "靜態時不保留根金鑰；運作時重新產生暫時性根金鑰；OTP 儲存加密密文",
+  "Adaptive firmware": "可調整韌體",
+  "ADVANCED NODE": "先進製程節點",
+  "Advanced-node embedded NVM where available": "依供應情況採用先進節點嵌入式 NVM",
+  "AEC-Q100 · Mature Node Mainstream": "AEC-Q100 · 成熟製程主流",
+  "AI Accelerators, LLM KV Cache cipher, Chiplet D2D Root-of-Trust, Automotive ADAS": "AI 加速器、LLM KV 快取加密、小晶片晶粒間信任根、車用 ADAS",
+  "AI Package Persistent-State Map": "AI 封裝持久狀態分布圖",
+  "AI systems": "AI 系統",
+  "Antifuse OTP (Raw / Unencrypted)": "反熔絲 OTP（原始／未加密）",
+  "APPLICATION": "應用",
+  "Application Domain": "應用領域",
+  "Application, state contract, node and business constraint.": "應用、狀態契約、製程節點與商業限制。",
+  "Apply the sequence in the Decision Matrix": "依決策矩陣中的順序進行選型",
+  "Architecture baseline": "架構基準",
+  "Architecture Brief": "架構簡報",
+  "Architecture choice": "架構選擇",
+  "Architecture inference": "架構推論",
+  "Architecture principle": "架構原則",
+  "Architecture review boards · Marketing teams": "架構審查委員會 · 行銷團隊",
+  "Asset Type": "內容類型",
+  "Assign owner, next action and review date.": "指定負責人、下一步行動與審查日期。",
+  "Assign ownership": "指定權責歸屬",
+  "Atomic calibration commit + instant cold-boot zeroization": "原子性校準提交＋冷啟動即時清除",
+  "Audience": "目標讀者",
+  "Automotive MCUs and IoT microcontrollers on mature nodes (40nm-180nm)": "成熟製程 (40nm-180nm) 的車用 MCU 與 IoT 微控制器",
+  "Availability does not automatically establish application readiness": "技術可取得，不代表已具備應用就緒度",
+  "Avoid technology labels without a state owner": "選用技術名稱之前，先指定狀態負責者",
+  "Battery-backed SRAM key vault inside active physical tamper-sensing envelope": "主動實體竄改偵測防護範圍內的電池備援 SRAM 金鑰儲存庫",
+  "Bind retention and endurance to mission profile (-40°C to 150°C)": "將資料保存與耐寫次數綁定任務剖面（-40°C 至 150°C）",
+  "Board-Level / PCIe HSM Module": "板級／PCIe HSM 模組",
+  "BOM:": "物料成本：",
+  "Boot code, patches, policy and feature configuration": "開機程式碼、修補程式、政策與功能組態",
+  "BOUNDARY": "邊界",
+  "Bounded calibration": "有限次校準",
+  "Bounded calibration and small firmware state": "有限次校準與小容量韌體狀態",
+  "Bounded Calibration Selection Note": "有限次校準選型筆記",
+  "Bounded mutable optical phase/heater calibration and UCIe D2D session keys": "有限次可變的光學相位／加熱器校準與 UCIe 晶粒間工作階段金鑰",
+  "Broad logic-node reach; implementation is provider specific": "涵蓋多種邏輯製程節點；實作依供應商而異",
+  "Bus Exposure & Security": "匯流排暴露與安全性",
+  "Can the state ever be rotated, revoked or recovered?": "狀態是否可能需要輪替、撤銷或復原？",
+  "Candidate families with strengths, limits and evidence class.": "列出候選技術家族的優勢、限制與證據等級。",
+  "CANONICAL CONTENT CONTRACT": "標準內容契約",
+  "Capture why one technology was selected for one state contract at one process boundary.": "記錄在特定製程邊界下，為何替特定狀態契約選用該技術。",
+  "CHAPTER 01": "第 01 章",
+  "CHAPTER 02": "第 02 章",
+  "CHAPTER 03": "第 03 章",
+  "CHAPTER 04": "第 04 章",
+  "CHAPTER 05": "第 05 章",
+  "Claim": "主張",
+  "Claim-to-Evidence Ledger Entry": "主張與證據對照紀錄",
+  "Close PVT, fault injection and physical tamper evidence on target silicon": "在目標晶片完成 PVT、故障注入與實體竄改的證據驗證",
+  "Close the evidence gap": "補齊證據缺口",
+  "Code-rich embedded systems": "程式碼容量需求較大的嵌入式系統",
+  "Commercial fit is shaped by mask cost and process-development complexity": "商業適用性取決於光罩成本與製程開發複雜度",
+  "Commercial IP · Foundry Specific": "商用 IP · 依晶圓代工平台而異",
+  "Common Criteria EAL6+ · FIPS 140-3": "共同準則 EAL6+ · FIPS 140-3",
+  "Companion architecture": "搭配使用的架構",
+  "Companion security layer above persistent ciphertext": "持久密文之上的搭配式安全層",
+  "Compare candidate NVM families and companion controls.": "比較候選 NVM 技術家族及其搭配控制機制。",
+  "Component ownership varies by platform architecture": "元件權責依平台架構而異",
+  "Confirm device stack, voltage options & power-off key residency": "確認元件堆疊、電壓選項與斷電時金鑰是否留存",
+  "Constrain the process": "界定製程限制",
+  "Content Owner": "內容負責人",
+  "Conventional embedded-flash commercialization is widely associated with the 28 nm generation. Crossing that boundary is not a hard physics cliff; mask count, development effort and manufacturing economics shape adoption.": "傳統嵌入式快閃記憶體的商業化常與 28 nm 世代相連結。跨越此邊界並非遇到絕對的物理極限；採用與否取決於光罩數量、開發投入及製造經濟性。",
+  "Copy template outline": "複製範本大綱",
+  "Datacenter Root CA, Cloud Key Management Service (KMS), Banking Core Attestation": "資料中心根憑證機構、雲端金鑰管理服務 (KMS)、銀行核心系統證明",
+  "Decision": "決策",
+  "Decision context": "決策背景",
+  "DECISION QUESTION": "決策問題",
+  "Decision rationale": "決策理由",
+  "Decision Record": "決策紀錄",
+  "Dedicated embedded charge-storage integration": "專用嵌入式電荷儲存整合",
+  "Dedicated Security Chip (e.g. NXP SE050)": "專用安全晶片（例如 NXP SE050）",
+  "Define ownership, trust boundary and recovery before technology.": "選型前先定義權責、信任邊界與復原機制。",
+  "Define required retention, endurance and environmental scope.": "定義所需的資料保存、耐寫次數與環境範圍。",
+  "Describe the stored physical variable and read observable.": "說明儲存的物理變數與讀取時觀測的量。",
+  "Device identity, lifecycle state and boot trust anchors": "裝置身分、生命週期狀態與開機信任錨點",
+  "Die-unique identity where helper data storage is completely disallowed": "完全不允許儲存輔助資料時的晶粒唯一身分",
+  "Direct memory-mapped write without block erase": "無須區塊抹除的直接記憶體映射寫入",
+  "Direct, supported, inferred or open gap": "直接證據、有來源支持、推論或待補缺口",
+  "Do not model PUF as stored NVM": "不要將 PUF 建模為儲存型 NVM",
+  "Do not start with a product name": "先定義需求，再對應產品名稱",
+  "Does capacity and update frequency justify an embedded array?": "容量與更新頻率是否足以支持導入嵌入式陣列？",
+  "Draft, reviewed, approved or evidence required": "草稿、已審查、已核准或待補證據",
+  "Dynamic boot generation + line-speed AES-256-XTS execution + instant zeroization": "開機時動態產生＋線速 AES-256-XTS 執行＋即時清除",
+  "Each NVM family expresses a different compromise among permanence, updates, density, voltage and process integration.": "各種 NVM 技術家族在永久性、更新能力、密度、電壓與製程整合之間有不同的取捨。",
+  "Each template begins with the decision or claim and ends with its evidence boundary. Copy an outline, then adapt it to the target audience.": "每個範本皆從決策或主張開始，以證據邊界收尾。複製大綱後，依目標讀者調整內容。",
+  "Editors · Validation owners · Copilot users": "編輯人員 · 驗證負責人 · Copilot 使用者",
+  "eFLASH TRANSITION": "eFlash 製程演進",
+  "Eight fields every NVM asset keeps": "每份 NVM 內容皆保留的八個欄位",
+  "Embedded Flash": "嵌入式快閃記憶體",
+  "Endurance, programming supply and retention must be jointly qualified": "耐寫次數、寫入電源與資料保存必須聯合驗證",
+  "Endurance, write energy and high-voltage availability are use-case specific.": "耐寫次數、寫入能量與高電壓可用性取決於使用情境。",
+  "Enrolled once at wafer sort; static physical response without fuzzy extractor": "於晶圓測試時單次註冊；無須模糊擷取器的靜態物理回應",
+  "Enterprise content architecture": "企業內容架構",
+  "Event or new evidence that requires the decision to be revisited.": "需要重新檢視決策的事件或新證據。",
+  "Every comparison row should therefore carry a source class, scope, limitation, review status and next validation action. Unsupported precision should be removed; a categorical range with an explicit evidence gap is more trustworthy than an exact number without provenance.": "因此，每一列比較都應包含來源類別、適用範圍、限制、審查狀態與下一步驗證行動。應移除沒有依據的精確數字；明示證據缺口的分類範圍，比缺乏出處的精確數值更可信。",
+  "Evidence boundary": "證據邊界",
+  "Evidence Class": "證據等級",
+  "Evidence Entry": "證據紀錄",
+  "Evidence governance method": "證據治理方法",
+  "Evidence required": "待補證據",
+  "Evidence Status": "證據狀態",
+  "Evidence varies by platform": "證據依平台而異",
+  "EXAMPLE · Advanced-node logic": "範例 · 先進節點邏輯製程",
+  "EXAMPLE · Architecture inference": "範例 · 架構推論",
+  "EXAMPLE · Evidence required": "範例 · 待補證據",
+  "EXAMPLE · Immutable identity": "範例 · 不可變身分",
+  "EXAMPLE · OTP": "範例 · OTP",
+  "EXAMPLE · Public evidence ledger": "範例 · 公開證據總帳",
+  "EXAMPLE · Secure boot": "範例 · 安全開機",
+  "EXAMPLE · Target-silicon PVT pending": "範例 · 待完成目標晶片 PVT 驗證",
+  "Explain a mechanism and its node, voltage, retention and integration constraints without overstating readiness.": "說明機制及其製程節點、電壓、資料保存與整合限制，避免誇大就緒程度。",
+  "Extreme ($1,000 - $20,000+ per unit)": "極高（每顆 $1,000 - $20,000 以上）",
+  "Fast byte-addressable persistent state with high endurance": "具高耐寫能力、可依位元組定址的快速持久狀態",
+  "Fields that make the system maintainable": "讓系統可維護的欄位",
+  "Final column types, permissions and retention policies must align with the company tenant.": "最終欄位類型、權限與資料保留政策必須符合公司租用戶設定。",
+  "FIPS 140-2 Level 4 · PCI-PTS": "FIPS 140-2 第 4 級 · PCI-PTS",
+  "Floating Gate / Charge Trap eFlash": "浮動閘極／電荷捕捉式 eFlash",
+  "Floating-gate feasibility is tied to oxide and high-voltage options; advanced-node read and program supplies can have different contracts.": "浮動閘極的可行性取決於氧化層與高電壓選項；先進節點的讀取與寫入電源可能具有不同契約。",
+  "Floating-gate MTP relies on an oxide and high-voltage environment capable of preserving programmed charge. A process portfolio that only exposes lower-voltage devices can therefore narrow implementation choices. Dedicated embedded-flash integration can introduce a purpose-built oxide, but additional process complexity changes the commercial equation.": "浮動閘極 MTP 仰賴能保存已寫入電荷的氧化層與高電壓環境。因此，若製程選項只提供低電壓元件，可行實作會受到限制。專用嵌入式快閃記憶體整合可引入特製氧化層，但新增製程複雜度也會改變商業評估。",
+  "For advanced-node OTP, a single-VDD read mode can reduce always-on power-domain dependencies and simplify power sequencing. Programming can remain a separate event that uses an I/O supply as the foundation for an internal charge pump. Public architecture should state that separation without disclosing proprietary circuit detail.": "對先進節點 OTP 而言，單一 VDD 讀取模式可降低對常時供電電源域的依賴，並簡化電源時序。寫入仍可作為獨立事件，以 I/O 電源作為內部電荷幫浦的基礎。公開架構應說明這項區隔，同時保護專有電路細節。",
+  "For power, BCD, sensor and interface products, I/O devices and programming-voltage generation often define the feasible NVM set before density does.": "對電源、BCD、感測器與介面產品而言，I/O 元件與寫入電壓產生能力，往往比密度更早決定可行的 NVM 選項。",
+  "Foundry module, density and qualification status dominate": "晶圓代工模組、密度與資格驗證狀態是主要因素",
+  "Foundry Qualified (22nm/16nm)": "晶圓代工資格驗證 (22nm/16nm)",
+  "Frame a persistent-state problem before proposing an IP or memory family.": "提出 IP 或記憶體技術家族之前，先界定持久狀態問題。",
+  "High (10-50 ms serial overhead)": "高（10-50 ms 序列傳輸額外延遲）",
+  "High (Dedicated chip + PCB area + assembly)": "高（專用晶片＋PCB 面積＋組裝）",
+  "High (External PCB trace sniffing)": "高（外部 PCB 走線側錄）",
+  "High mask cost (10-15 additional masks)": "高光罩成本（增加 10-15 層光罩）",
+  "High-voltage and oxide options constrain portability": "高電壓與氧化層選項限制可移植性",
+  "How many updates are required after test, package and field aging?": "測試、封裝與現場老化之後，需要更新多少次？",
+  "Identify required devices, voltages, modules and test assumptions.": "確認所需元件、電壓、模組與測試假設。",
+  "Identity, repair, calibration, firmware and operational logs may reside in different dies or controllers. The selection unit becomes the system state contract, not a single NVM array.": "身分、修復、校準、韌體與運作紀錄可能位於不同晶粒或控制器。此時選型單位應是系統狀態契約，而非單一 NVM 陣列。",
+  "Illustrative NVM selection profiles with explicit evidence boundaries (8 Profiles)": "具有明確證據邊界的 NVM 選型示例（8 個設定檔）",
+  "Immutable and monotonic state": "不可變與單調狀態",
+  "Immutable Device Identity Architecture": "不可變裝置身分架構",
+  "Immutable identity": "不可變身分",
+  "Implementation targets still require product- and process-specific validation.": "目標實作仍需依產品與製程進行專屬驗證。",
+  "Industry synthesis + expert calibration": "產業資料整合＋專家校準",
+  "Interactive multi-way security & NVM architecture comparison (8 canonical profiles). Filter by technology family, inspect latency and physical exposure, or export profiles for system engineering reviews.": "互動式安全與 NVM 架構多方比較（8 個標準設定檔）。可依技術家族篩選、檢視延遲與實體暴露範圍，或匯出設定檔供系統工程審查。",
+  "Internal bus": "內部匯流排",
+  "IoT & MCU": "物聯網與微控制器",
+  "IoT Gateways, payment POS terminals, smart meters, low-bandwidth crypto offload": "IoT 閘道器、支付 POS 終端、智慧電表、低頻寬密碼運算卸載",
+  "Keep vendor-specific mask-stack detail in the internal evidence layer.": "將供應商專屬的光罩堆疊細節保留於內部證據層。",
+  "KNOWLEDGE HUB": "知識中心",
+  "Last Reviewed": "最近審查日期",
+  "Latency & BOM": "延遲與物料成本",
+  "Latency:": "延遲：",
+  "LEADING EDGE & CHIPLET": "最先進製程與小晶片",
+  "LIMIT": "限制",
+  "Limitation": "限制條件",
+  "List missing supplier, PDK, silicon or qualification evidence.": "列出缺少的供應商、PDK、晶片或資格驗證證據。",
+  "Low (10-50 ns)": "低 (10-50 ns)",
+  "Low (20-100 ns)": "低 (20-100 ns)",
+  "Low (Standard macro)": "低（標準巨集）",
+  "Low to Medium (Foundry dependent)": "低至中等（依晶圓代工平台而異）",
+  "Low-latency persistent cache, AI edge inference weight storage, battery-less sensors": "低延遲持久快取、AI 邊緣推論權重儲存、無電池感測器",
+  "Magnetic or resistive state": "磁性或電阻狀態",
+  "Make evidence discipline": "將證據紀律",
+  "Managed change with rollback or recovery": "具有回復或復原機制的受控變更",
+  "Managed firmware updates; block erase and sector programming": "受控韌體更新；區塊抹除與磁區寫入",
+  "Manufacturing or hardware controller": "製造流程或硬體控制器",
+  "MATURE & SPECIALTY": "成熟與特種製程",
+  "Mechanism": "機制",
+  "Medium (15-30 ns read, ms write)": "中等（讀取 15-30 ns、寫入為 ms 等級）",
+  "Medium (3-5 extra BEOL masks)": "中等（增加 3-5 層 BEOL 光罩）",
+  "Medium-High (1-10 ms per RPC)": "中高（每次 RPC 為 1-10 ms）",
+  "Migration ID": "移轉識別碼",
+  "Model mask and qualification cost as system constraints": "將光罩與資格驗證成本納入系統限制",
+  "MTP / EEPROM class": "MTP／EEPROM 類別",
+  "Multi-die and advanced-node": "多晶粒與先進製程節點",
+  "Name the state": "定義狀態",
+  "Name the state, owner, update cadence and power-off obligation.": "定義狀態、負責者、更新頻率與斷電後義務。",
+  "Network/PCIe PKCS#11 / KMIP service requests with mTLS/SPDM authentication": "經 mTLS/SPDM 驗證的網路／PCIe PKCS#11／KMIP 服務請求",
+  "Node migration is an economics and integration decision—not a simple shrink": "製程節點移轉是經濟性與整合決策，不能只視為尺寸微縮",
+  "Node names are not portability proof": "製程節點名稱無法證明可移植性",
+  "Node or platform boundary without implying qualification": "標示製程節點或平台邊界，但不暗示已通過資格驗證",
+  "Node-specific decision": "特定製程節點的決策",
+  "Node-specific implementation": "特定製程節點的實作",
+  "None (Die-internal analog/interconnect boundary)": "無（晶粒內類比／互連邊界）",
+  "None (Monolithic on-die boundary)": "無（單晶粒內部邊界）",
+  "not a folder of pages": "而非堆疊頁面的資料夾",
+  "not a product-name decision": "而非依產品名稱決定",
+  "NVM engineers · Process integration teams": "NVM 工程師 · 製程整合團隊",
+  "NVM is a system state decision,": "NVM 選型是系統狀態決策，",
+  "NVM KNOWLEDGE HUB": "NVM 知識中心",
+  "NVM Knowledge Hub Editorial System": "NVM 知識中心編輯系統",
+  "NVM scaling is shaped by device options, mask economics, program voltage and qualification effort—not geometry alone.": "NVM 微縮受到元件選項、光罩經濟性、寫入電壓與資格驗證投入影響，不能只考慮幾何尺寸。",
+  "NVM Selection Decision Record": "NVM 選型決策紀錄",
+  "NVM State-Contract Brief": "NVM 狀態契約簡報",
+  "On-chip bus": "晶片內匯流排",
+  "On-chip bus (Registers vulnerable to glitching)": "晶片內匯流排（暫存器可能受突波攻擊）",
+  "On-Die Managed MTP / AntiFuse OTP": "晶粒內受控 MTP／反熔絲 OTP",
+  "One-time physical state transition": "一次性物理狀態轉換",
+  "Open evidence": "待補證據",
+  "Operational evidence": "運作證據",
+  "OPERATIONAL LAYER": "營運管理層",
+  "Options": "選項",
+  "OTP + companion key derivation": "OTP＋搭配式金鑰衍生",
+  "OTP is naturally aligned with immutable or monotonic state. MTP and EEPROM-class structures support bounded changes but introduce endurance, programming-energy and high-voltage questions. Embedded Flash addresses code-rich systems where its process integration is economically justified. MRAM and ReRAM extend the advanced-node portfolio, but availability and qualification remain platform specific.": "OTP 自然適合不可變或單調狀態。MTP 與 EEPROM 類結構支援有限次變更，但必須處理耐寫次數、寫入能量與高電壓問題。嵌入式快閃記憶體適用於程式碼容量需求較大，且製程整合具有經濟效益的系統。MRAM 與 ReRAM 擴充先進節點選項，但供應與資格驗證仍依平台而定。",
+  "OTP or MTP": "OTP 或 MTP",
+  "OTP, MTP, eFlash, MRAM, ReRAM or companion primitive": "OTP、MTP、eFlash、MRAM、ReRAM 或搭配使用的基礎元件",
+  "OWNER": "負責者",
+  "PCIe / Network TLS boundary": "PCIe／網路 TLS 邊界",
+  "Permanent physical oxide breakdown; static bit values readable under bias": "永久性氧化層物理崩潰；施加偏壓時可讀取靜態位元值",
+  "Permanent trapped-charge / tunneling paths; zero helper-data activation": "永久捕獲電荷／穿隧路徑；啟動無須輔助資料",
+  "Persistence promise and update semantics": "持久性承諾與更新語意",
+  "Persistent state carries an owner, update cadence, retention obligation, recovery rule and threat boundary. Two bit arrays of similar size can therefore require very different architectures: an immutable lifecycle transition is not governed like a field-updatable calibration table.": "持久狀態包含負責者、更新頻率、資料保存義務、復原規則與威脅邊界。因此，容量相近的兩個位元陣列可能需要截然不同的架構：不可逆的生命週期轉換，與可在現場更新的校準表，需要不同的治理方式。",
+  "Platform controller": "平台控制器",
+  "Portfolio decision": "技術組合決策",
+  "Power and mixed signal": "電源與混合訊號",
+  "Power-up-derived secret plus cryptographic protection": "上電衍生機密加上密碼學保護",
+  "Process boundary": "製程邊界",
+  "PROCESS LENS": "製程視角",
+  "Process Node": "製程節點",
+  "Program once (irreversible physical breakdown); no key rotation": "單次寫入（不可逆物理崩潰）；無法輪替金鑰",
+  "Program once; verify throughout life": "單次寫入；全生命週期驗證",
+  "Programming voltage and endurance need platform confirmation": "寫入電壓與耐寫次數需經平台確認",
+  "Provisioning authority": "佈建權責單位",
+  "PUBLIC / INTERNAL BOUNDARY": "公開／內部邊界",
+  "Public architecture now": "目前的公開架構",
+  "Public evidence can establish mechanisms, disclosed product availability and demonstrated use cases. Supplier claims may describe performance or qualification. Architecture inference can connect those facts to a system proposal. Target-silicon evidence is still required to close PVT, retention, endurance, power and attack-resilience claims for a specific implementation.": "公開證據可確立機制、已揭露的產品可用性與已展示的使用情境。供應商主張可能描述效能或資格驗證。架構推論可將這些事實連結至系統提案。對特定實作的 PVT、資料保存、耐寫次數、功耗與抗攻擊能力主張，仍需目標晶片證據才能完成驗證。",
+  "Public evidence needed per process": "各製程皆需公開證據",
+  "PUBLIC RECORD PREVIEW": "公開紀錄預覽",
+  "Public review complete": "公開內容審查完成",
+  "Public URL, document ID or restricted-library reference": "公開網址、文件識別碼或受限文件庫參照",
+  "Public working draft": "公開工作草案",
+  "Publish the architecture principle": "發布架構原則",
+  "Qualify program and read paths separately": "分別驗證寫入與讀取路徑",
+  "Quantum Tunneling / High-Voltage OTP-PUF": "量子穿隧／高電壓 OTP-PUF",
+  "Rare, controlled updates": "低頻率的受控更新",
+  "Record origin, date and whether evidence is direct, supported or inferred.": "記錄出處、日期，以及證據屬於直接觀測、來源支持或推論。",
+  "Record the preferred architecture, rejected alternatives and validation owner.": "記錄首選架構、未採用的替代方案與驗證負責人。",
+  "Reliability contract": "可靠度契約",
+  "Reliability, helper data and attack assurance still require validation": "可靠度、輔助資料與抗攻擊保證仍需驗證",
+  "Repair history, RAS logs, counters and field learning": "修復歷程、RAS 紀錄、計數器與現場學習資料",
+  "repeatable by design": "設計為可重複執行的流程",
+  "Repeated writes over system life": "在系統生命週期內重複寫入",
+  "Reprogrammable charge-based state": "可重新寫入的電荷儲存狀態",
+  "Restricted evidence later": "後續擴充受限證據",
+  "Retain portfolio detail internally": "於內部保留技術組合細節",
+  "Review Status": "審查狀態",
+  "Review trigger": "重新審查條件",
+  "Reviewed 2026-08-25": "審查日期 2026-08-25",
+  "Safe examples for the future SharePoint library": "供未來 SharePoint 文件庫使用的公開範例",
+  "Scope and limitation": "適用範圍與限制",
+  "Secure boot": "安全開機",
+  "Secure command APDU transactions via serial bus": "透過序列匯流排執行安全命令 APDU 交易",
+  "Secure update service": "安全更新服務",
+  "Secured smartcard micro-controller with internal tamper-shielded EEPROM/Flash": "內含防竄改屏蔽 EEPROM／Flash 的安全智慧卡微控制器",
+  "SELECTION GATE": "選型關卡",
+  "Separate code-storage needs from immutable security state.": "區分程式碼儲存需求與不可變安全狀態。",
+  "Separate read simplification from program infrastructure": "區分讀取簡化與寫入基礎設施",
+  "Separate source-backed facts, inference and target-silicon gaps.": "區分有來源支持的事實、推論與目標晶片證據缺口。",
+  "SharePoint migration succeeds when content has a stable contract before it enters the corporate system.": "內容在進入企業系統前先建立穩定契約，才能順利移轉至 SharePoint。",
+  "Signed in-system firmware updates with recovery dual-bank partition": "具簽章的系統內韌體更新，並搭配可復原的雙儲存區分割",
+  "Source": "來源",
+  "Source and class": "來源與類別",
+  "Specialty or mature logic": "特種或成熟邏輯製程",
+  "Specify read and program power contracts separately.": "分別指定讀取與寫入的電源契約。",
+  "Spin-Torque Transfer MRAM / ReRAM": "自旋轉移力矩 MRAM／ReRAM",
+  "SRAM PUF + crypto": "SRAM PUF＋密碼學保護",
+  "SRAM PUF is a companion security primitive rather than a peer non-volatile medium. It can derive a device-unique root secret at power-up so persistent memory stores ciphertext or helper data instead of a reusable root key. That architecture raises assurance requirements of its own; it does not erase them.": "SRAM PUF 是搭配使用的安全基礎元件，不是同類的非揮發性儲存媒介。它可在上電時衍生裝置唯一的根機密，讓持久記憶體儲存密文或輔助資料，而非可重複使用的根金鑰。這種架構具有自身的安全保證要求，並不會使要求消失。",
+  "Start with the state the system must preserve. Then constrain technology by ownership, update cadence, process options and evidence.": "先確認系統必須保存的狀態，再依權責、更新頻率、製程選項與證據界定技術範圍。",
+  "Start with the system state, evidence status and decision owner. Product mapping comes after the contract is understood.": "從系統狀態、證據狀態與決策負責人開始；理解契約之後，再進行產品對應。",
+  "State Contract": "狀態契約",
+  "State Contract & Power-Off Key": "狀態契約與斷電金鑰",
+  "State Profile": "狀態設定檔",
+  "State what the source does not prove.": "說明來源無法證明的事項。",
+  "Strongest Fit": "最適應用",
+  "Sub-10 ns read, atomic write": "讀取低於 10 ns，原子性寫入",
+  "Sub-microsecond (<1 µs)": "次微秒等級 (<1 µs)",
+  "Supported architecture synthesis": "有來源支持的架構整合分析",
+  "Supported synthesis": "有來源支持的整合分析",
+  "System architects · Product managers": "系統架構師 · 產品經理",
+  "System architecture rather than a peer storage medium": "屬於系統架構，並非同類儲存媒介",
+  "System context that gives the state meaning": "賦予狀態意義的系統背景",
+  "System retention and recovery may be more important than bit-cell density.": "系統資料保存與復原可能比位元單元密度更重要。",
+  "System state": "系統狀態",
+  "Target-silicon security assurance remains implementation specific": "目標晶片的安全保證仍取決於特定實作",
+  "Technical Note": "技術筆記",
+  "TECHNOLOGY": "技術",
+  "Technology availability, reliability and security claims vary by supplier and target process.": "技術可用性、可靠度與安全性主張依供應商及目標製程而異。",
+  "Technology Boundary Review": "技術邊界審查",
+  "TEMPLATE RULE": "範本規則",
+  "The canonical record begins with Technology Family, State Contract, Application Domain and Process Node. Evidence Class, Source, Limitation and Review Status make the record governable. Operational fields such as owner, visibility, review date and migration ID make it maintainable.": "標準紀錄從技術家族、狀態契約、應用領域與製程節點開始。證據等級、來源、限制與審查狀態讓紀錄可受治理；負責人、可見性、審查日期及移轉識別碼等營運欄位則讓紀錄可維護。",
+  "The company SharePoint edition can extend each record with foundry qualification, customer context, validation artifacts and confidential product data. Copilot then retrieves content through stable metadata and permissions.": "公司 SharePoint 版本可在各紀錄中擴充晶圓代工資格驗證、客戶背景、驗證成果與機密產品資料。Copilot 即可透過穩定的中繼資料與權限擷取內容。",
+  "The first decision is not OTP versus MTP. It is the promise the system must keep after power is removed.": "首要決策是系統斷電後必須履行的承諾，接著才是 OTP 或 MTP 的選擇。",
+  "The frequently cited 28 nm boundary for conventional embedded Flash is best read as a clear public commercialization high point, not a law of physics. Beyond it, development difficulty, mask-stack expansion and cost can outweigh the benefit. At more advanced nodes, foundry roadmaps increasingly turn to MRAM or ReRAM, while logic-compatible OTP continues to serve small persistent-state needs.": "傳統嵌入式快閃記憶體常被引用的 28 nm 邊界，較適合視為公開商業化的一個明確代表節點，而非物理定律。再往下微縮時，開發難度、光罩堆疊擴充與成本可能超過效益。更先進節點的晶圓代工路線逐漸採用 MRAM 或 ReRAM，而相容邏輯製程的 OTP 仍持續服務小容量持久狀態需求。",
+  "The public site supplies a clean knowledge spine. The internal SharePoint version can add confidential product data, foundry qualification, customer context and validation artifacts without changing the information architecture. Copilot then operates over governed metadata rather than an unstructured document dump.": "公開網站提供清楚的知識主軸。內部 SharePoint 版本可增加機密產品資料、晶圓代工資格驗證、客戶背景與驗證成果，無須改變資訊架構。Copilot 可據此使用受治理的中繼資料，而不是處理缺乏結構的文件集合。",
+  "The same eight fields organize public research now and restricted corporate evidence later. Operational fields add ownership without changing the content spine.": "相同的八個欄位可整理目前的公開研究，也能承接後續受限的企業證據。營運欄位可補上權責歸屬，並維持內容主軸。",
+  "This public workbench intentionally excludes confidential qualification and customer data.": "此公開工作台不包含機密資格驗證資料與客戶資料。",
+  "Threat model and provisioning flow must be explicit before selecting OTP.": "選用 OTP 前，必須明確定義威脅模型與佈建流程。",
+  "Trade-off logic and assumptions that materially affect the choice.": "實質影響選擇的取捨邏輯與假設。",
+  "Transfer a governed knowledge model,": "移轉受治理的知識模型，",
+  "TRANSFER MODEL": "移轉模型",
+  "Trim, remap, analog compensation and configuration": "電性微調、重新映射、類比補償與組態設定",
+  "Turn a statement into a reviewable knowledge record ready for public or restricted SharePoint libraries.": "將陳述轉為可審查的知識紀錄，供公開或受限的 SharePoint 文件庫使用。",
+  "Use the narrowest wording supported by the evidence.": "使用證據所支持的最精確且限縮的措辭。",
+  "Validate I/O voltage, charge pump, test flow and retention together.": "聯合驗證 I/O 電壓、電荷幫浦、測試流程與資料保存。",
+  "Vendor-specific voltage coverage, mask counts and product roadmaps require internal portfolio evidence before customer use.": "供應商專屬的電壓涵蓋範圍、光罩數量與產品路線圖，在對客戶使用前必須具備內部技術組合證據。",
+  "Vendor-specific voltage coverage, mask counts, foundry availability and qualification data belong in the restricted SharePoint evidence layer.": "供應商專屬的電壓涵蓋範圍、光罩數量、晶圓代工可用性與資格驗證資料，應放在受限的 SharePoint 證據層。",
+  "Very Low (10-30 ns read/write)": "極低（讀取／寫入 10-30 ns）",
+  "Visibility": "可見性",
+  "Wafer ID, analog trim, non-sensitive feature configuration, basic boot pointers": "晶圓識別碼、類比微調、非敏感功能組態、基本開機指標",
+  "What is sourced, inferred or still target-silicon dependent?": "哪些內容有來源、屬於推論，或仍取決於目標晶片？",
+  "What survives power loss—and why?": "哪些狀態必須在斷電後保留？原因為何？",
+  "What the evidence does not establish": "證據無法確立的事項",
+  "Which node, voltage and integration options actually exist?": "實際可用的製程節點、電壓與整合選項有哪些？",
+  "Which state must survive power loss, service events or module replacement?": "哪些狀態必須經歷斷電、維修事件或模組更換後仍能保留？",
+  "WHITEPAPER STUDIO": "白皮書工作室",
+  "Who may create, update, revoke or recover it?": "誰可以建立、更新、撤銷或復原這些狀態？",
+  "Zero extra mask adder in standard CMOS": "標準 CMOS 無須增加光罩",
+  "Zero mask adder (Standard CMOS)": "無額外光罩（標準 CMOS）",
+  "STATE CONTRACT": "狀態契約",
+  "Export current profiles as CSV": "將目前設定檔匯出為 CSV",
+  "Open Navigation": "開啟導覽",
+  "PROCESS NODE": "製程節點",
+  "NVM Knowledge Hub Home": "NVM 知識中心首頁",
+  "Export current profiles as JSON": "將目前設定檔匯出為 JSON",
+  "Decision matrix filters": "決策矩陣篩選",
+  "Review status": "審查狀態",
+  "NVM Knowledge Hub home": "NVM 知識中心首頁",
+  "Exported 1 profiles as CSV": "已匯出 1 筆設定檔 CSV",
+  "Exported 2 profiles as CSV": "已匯出 2 筆設定檔 CSV",
+  "Exported 3 profiles as CSV": "已匯出 3 筆設定檔 CSV",
+  "Exported 4 profiles as CSV": "已匯出 4 筆設定檔 CSV",
+  "Exported 5 profiles as CSV": "已匯出 5 筆設定檔 CSV",
+  "Exported 6 profiles as CSV": "已匯出 6 筆設定檔 CSV",
+  "Exported 7 profiles as CSV": "已匯出 7 筆設定檔 CSV",
+  "Exported 8 profiles as CSV": "已匯出 8 筆設定檔 CSV"
+};
+  const hubRoot = new URL('../../', document.currentScript.src);
+  const originals = new WeakMap();
+  const attributeOriginals = new WeakMap();
+  let observer;
+  const getLanguage = () => window.HubLanguage?.get() || document.documentElement.dataset.language || 'en';
+  const translateText = text => getLanguage() === 'zh'
+    ? text.split('\n').map(line => {
+        const key = line.trim();
+        return DICT[key] ? line.replace(key, DICT[key]) : line;
+      }).join('\n') : text;
 
-    // Top Bar & Navigation
-    "TECHNOLOGY & SELECTION": "技術與架構決策",
-    "All Topics": "總門戶",
-    "Secure Storage": "安全儲存",
-    "AI Systems": "AI 與先進節點",
-    "Research Library": "研究與證據庫",
-    "Skip to main content": "跳至主要內容",
-
-    // Breadcrumb
-    "NVM Knowledge Hub": "NVM 知識總體系",
-    "Knowledge Workbench": "知識決策工作台",
-    "Whitepaper Studio": "白皮書決策工作室",
-
-    // Hero Section
-    "NVM KNOWLEDGE WORKBENCH · PUBLIC EDITION": "NVM 知識決策工作台 · 公開版",
-    "From NVM technology": "從 NVM 物理技術",
-    "to a defensible selection": "到可辯護的架構決策",
-    "A governed workspace for technology whitepapers, state-contract trade-offs and SharePoint content models—built around what can be supported, what must be validated and what remains open.":
-      "針對半導體技術白皮書、持久狀態契約權衡與企業 SharePoint 內容模型所構建的受治理工作台——圍繞著何種技術可被支援、何種指標必須驗證、以及何種邊界仍待探索。",
-    "Read the whitepaper": "閱讀完整白皮書",
-    "Open decision matrix": "開啟架構決策矩陣",
-    "PUBLIC WORKING DRAFT": "公開工作草案",
-    "Illustrative profiles are decision aids, not product specifications.":
-      "展示設定檔僅作為架構決策輔助，非商業產品保證規格。",
-
-    // SVG Map
-    "Conceptual NVM state-contract map · not a physical floorplan":
-      "概念性 NVM 狀態契約地圖 · 非物理佈局圖",
-    "program once · verify always": "單次寫入 · 永久驗證",
-    "rare updates · controlled owner": "極低更新 · 受控權威",
-    "managed change · recovery path": "受控變更 · 復原路徑",
-    "logs · repair · field learning": "運作日誌 · 修復 · 現場學習",
-    "IDENTITY": "晶片身分",
-    "CALIBRATION": "參數微調",
-    "FIRMWARE": "安全韌體",
-    "RAS STATE": "RAS 狀態",
-    "IMMUTABLE": "不可竄改",
-    "BOUNDED": "受限變更",
-    "ADAPTIVE": "自適應",
-    "OPERATIONAL": "運行維運",
-    "NVM SELECTION": "NVM 決策矩陣",
-    "STATE": "狀態",
-    "CONTRACT": "契約",
-    "EVIDENCE · SCOPE · LIMIT": "技術證據 · 範圍 · 邊界",
-
-    // View Dock Tabs
-    "EXPLORE THE WORKBENCH": "探索決策工作台",
-    "Each view preserves evidence status and a SharePoint-ready content contract.":
-      "每一種檢視皆完整保留技術證據狀態與 SharePoint 就緒內容契約。",
-    "NVM Overview": "NVM 全貌總覽",
-    "Technical Whitepaper": "技術白皮書閱讀器",
-    "Decision Matrix": "架構決策矩陣",
-    "SharePoint Taxonomy": "SharePoint 分類體系",
-    "Content Templates": "技術內容範本",
-
-    // Dynamic Panels & Whitepaper Chapters
-    "Selecting NVM by State Contract, Process Boundary and Evidence":
-      "依狀態契約、製程邊界與證據鏈進行 NVM 架構選型",
-    "A public architecture guide for turning persistent-state requirements into defensible technology decisions":
-      "一份將非揮發性持久狀態需求轉化為可辯護技術決策的公開架構指引",
-    "Begin With the State Contract": "以狀態契約為決策起點",
-    "Map Technology Families to the Contract": "將記憶體技術家族對齊狀態契約",
-    "Treat Node Migration as an Integration Decision": "將製程節點微縮視為系統整合決策",
-    "Make the Decision Evidence-Aware": "建立具備證據感知能力的架構決策",
-    "Transfer the Knowledge, Not Just the Page": "沉澱轉移架構知識，而非僅交付頁面",
-    "Start with the available voltage and device stack": "從可用電壓與元件堆疊出發",
-    "Treat scaling as an integration-economics boundary": "將製程微縮視為整合經濟學邊界",
-    "Decouple read supply from program infrastructure": "將讀取電源與燒錄基礎架構解耦",
-    "Move from one macro to a distributed state architecture": "從單一巨集轉向分散式狀態架構",
-
-    // Matrix & Tables
-    "Technology Family": "技術家族",
-    "State Contract Fit": "狀態契約適配性",
-    "Typical Density": "典型容量密度",
-    "Write Endurance": "寫入耐受度 (Endurance)",
-    "Read Latency": "讀取延遲",
-    "Key Trade-off": "核心權衡 (Trade-off)",
-    "Evidence Level": "證據等級",
-    "Silicon Proven": "矽驗證成熟 (Silicon Proven)",
-    "Production Qualified": "量產認證 (Qualified)",
-    "Exploratory": "前瞻探索 (Exploratory)",
-    "Primary Locus": "權威所在 (Locus)",
-    "Update Frequency": "更新頻率",
-    "Retention Boundary": "保存期限邊界",
-    "Recovery Contract": "故障復原契約",
-
-    // Footer
-    "PUBLIC WORKBENCH · EVIDENCE-GOVERNED · SHAREPOINT TRANSFER MODEL · 2026":
-      "公開工作台 · 證據治理 · SHAREPOINT 轉移模型 · 2026"
-  };
-
-  function getCurrentLang() {
-    return (window.HubLanguage && window.HubLanguage.get()) ||
-      document.documentElement.dataset.language ||
-      "en";
-  }
-
-  function applyLanguage(lang) {
-    document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
-    if (document.body) {
-      document.body.dataset.language = lang;
-    }
-    translateDom(document.body, lang);
-  }
-
-  function translateDom(root, lang) {
+  function translate(root, language) {
     if (!root) return;
-
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     let node;
     while ((node = walker.nextNode())) {
       const parent = node.parentElement;
-      if (!parent || parent.tagName === "SCRIPT" || parent.tagName === "STYLE") continue;
-
-      const raw = node.nodeValue.trim();
-      if (!raw) continue;
-
-      if (lang === "zh") {
-        if (!node._originalEn) {
-          node._originalEn = node.nodeValue;
+      if (!parent || parent.closest('script, style, noscript, [data-lang], .language-toggle, #languageToggle')) continue;
+      const current = node.nodeValue;
+      if (!current.trim()) continue;
+      let record = originals.get(node);
+      if (!record || (current !== record.last && current !== record.original)) {
+        record = { original: current, last: current };
+        originals.set(node, record);
+      }
+      const key = record.original.trim();
+      const next = language === 'zh' && DICT[key]
+        ? record.original.replace(key, DICT[key]) : record.original;
+      if (node.nodeValue !== next) node.nodeValue = next;
+      record.last = next;
+    }
+    for (const element of root.querySelectorAll('[title], [aria-label], [placeholder], [data-label]')) {
+      if (element.closest('[data-lang], .language-toggle, #languageToggle')) continue;
+      let values = attributeOriginals.get(element);
+      if (!values) { values = {}; attributeOriginals.set(element, values); }
+      for (const attribute of ['title', 'aria-label', 'placeholder', 'data-label']) {
+        if (!element.hasAttribute(attribute)) continue;
+        if (attribute === 'aria-label' && element.hasAttribute('data-aria-en')) continue;
+        if (attribute === 'placeholder' && element.hasAttribute('data-placeholder-en')) continue;
+        const current = element.getAttribute(attribute);
+        let record = values[attribute];
+        if (!record || (current !== record.last && current !== record.original)) {
+          record = { original: current, last: current }; values[attribute] = record;
         }
-        const orig = node._originalEn.trim();
-        if (DICT[orig]) {
-          node.nodeValue = node._originalEn.replace(orig, DICT[orig]);
-        }
-      } else {
-        if (node._originalEn) {
-          node.nodeValue = node._originalEn;
-        }
+        const next = language === 'zh' && DICT[record.original] ? DICT[record.original] : record.original;
+        if (current !== next) element.setAttribute(attribute, next);
+        record.last = next;
       }
     }
-
-    const svgTexts = root.querySelectorAll("text");
-    svgTexts.forEach(function (st) {
-      const raw = st.textContent.trim();
-      if (lang === "zh") {
-        if (!st._originalEn) st._originalEn = raw;
-        if (DICT[st._originalEn]) {
-          st.textContent = DICT[st._originalEn];
-        }
-      } else {
-        if (st._originalEn) {
-          st.textContent = st._originalEn;
-        }
-      }
-    });
-
-    const titled = root.querySelectorAll("[title]");
-    titled.forEach(function (el) {
-      const t = el.getAttribute("title");
-      if (t && DICT[t]) {
-        if (lang === "zh") {
-          if (!el._origTitle) el._origTitle = t;
-          el.setAttribute("title", DICT[t]);
-        } else if (el._origTitle) {
-          el.setAttribute("title", el._origTitle);
-        }
-      }
-    });
+    for (const anchor of root.querySelectorAll('a[href]')) {
+      const prefix = 'https://samhuang68.github.io/nvm-knowledge-hub/';
+      if (!anchor.href.startsWith(prefix)) continue;
+      let relative = anchor.href.slice(prefix.length);
+      if (relative === '#research') relative = 'index.html#layer-resources';
+      anchor.href = new URL(relative, hubRoot).href;
+    }
   }
-
-  function setupObserver() {
-    const panels = document.querySelector(".studio-panels");
-    if (!panels) return;
-
-    const observer = new MutationObserver(function (mutations) {
-      const lang = getCurrentLang();
-      if (lang === "zh") {
-        mutations.forEach(function (m) {
-          m.addedNodes.forEach(function (n) {
-            if (n.nodeType === 1) {
-              translateDom(n, "zh");
-            }
-          });
-        });
-      }
-    });
-
-    observer.observe(panels, { childList: true, subtree: true });
+  function apply() {
+    observer?.disconnect();
+    translate(document.body, getLanguage());
+    observer?.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['aria-label', 'title', 'placeholder', 'data-label'] });
   }
-
-  function init() {
-    const tabBtns = document.querySelectorAll(".view-tab");
-    tabBtns.forEach(function (b) {
-      b.addEventListener("click", function () {
-        setTimeout(function () {
-          const lang = getCurrentLang();
-          if (lang === "zh") {
-            translateDom(document.querySelector(".studio-panels"), "zh");
-          }
-        }, 100);
-      });
-    });
-
-    setupObserver();
-
-    // 接入全域單一真相來源 site-language.js
-    window.addEventListener("hub:language-change", function (e) {
-      if (e.detail && e.detail.language) {
-        applyLanguage(e.detail.language);
-      }
-    });
-
-    applyLanguage(getCurrentLang());
+  function initialize() {
+    observer = new MutationObserver(apply);
+    window.addEventListener('hub:language-change', apply);
+    apply();
   }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  window.WhitepaperLanguage = { translateText, apply };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize);
+  else initialize();
 })();
