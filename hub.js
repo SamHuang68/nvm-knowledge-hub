@@ -103,14 +103,164 @@ const SEARCH_INDEX = [
   }
 ];
 
-// Global Ctrl+K Search Shortcut
-document.addEventListener("keydown", (e) => {
-  if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
-    const trigger = document.getElementById("searchTrigger");
+/**
+ * 搜尋互動控制器 (WCAG 2.1 AA Compliant Search Engine)
+ */
+function initSearchEngine() {
+  const overlay = document.getElementById("searchOverlay");
+  const input = document.getElementById("searchInput");
+  const results = document.getElementById("searchResults");
+  const trigger = document.getElementById("searchTrigger");
+
+  if (!overlay || !input || !results) return;
+
+  let previousActiveElement = null;
+
+  overlay.setAttribute("aria-modal", "true");
+  if (trigger) {
+    trigger.setAttribute("aria-haspopup", "dialog");
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.setAttribute("aria-controls", "searchOverlay");
+  }
+
+  function openSearch() {
+    previousActiveElement = document.activeElement;
+    overlay.classList.add("is-open");
+    if (trigger) trigger.setAttribute("aria-expanded", "true");
+    input.value = "";
+    renderResults("");
+    setTimeout(() => input.focus(), 50);
+  }
+
+  function closeSearch(restoreFocus = true) {
+    overlay.classList.remove("is-open");
     if (trigger) {
-      e.preventDefault();
-      trigger.click();
+      trigger.setAttribute("aria-expanded", "false");
+    }
+    if (restoreFocus) {
+      if (previousActiveElement && typeof previousActiveElement.focus === "function") {
+        previousActiveElement.focus();
+      } else if (trigger) {
+        trigger.focus();
+      }
     }
   }
-});
+
+  function getRootPrefix() {
+    const path = window.location.pathname;
+    if (path.includes("/briefing/") || path.includes("/whitepaper/")) {
+      return "../";
+    }
+    return "";
+  }
+
+  function renderResults(query) {
+    const lang = window.HubLanguage ? window.HubLanguage.get() : "en";
+    const q = query.toLowerCase().trim();
+    const prefix = getRootPrefix();
+    const filtered = q
+      ? SEARCH_INDEX.filter(item =>
+          item.title_en.toLowerCase().includes(q) ||
+          item.title_zh.includes(q) ||
+          item.tags.includes(q))
+      : SEARCH_INDEX;
+
+    if (filtered.length === 0) {
+      results.innerHTML = `
+        <div style="padding: 20px 16px; color: #8ea9b3; font: 500 13px/1.4 sans-serif; text-align: center;">
+          ${lang === "zh" ? "查無相符主題，請嘗試其他關鍵字。" : "No matching topics found. Please try another keyword."}
+        </div>`;
+      return;
+    }
+
+    results.innerHTML = filtered.map((item, idx) => {
+      const href = item.url.startsWith("http") || item.url.startsWith("/") ? item.url : prefix + item.url;
+      return `
+        <a class="search-result-item" href="${href}" tabindex="0" data-index="${idx}">
+          <div class="sr-title">${lang === "zh" ? item.title_zh : item.title_en}</div>
+          <div class="sr-desc">${item.url}</div>
+        </a>
+      `;
+    }).join("");
+  }
+
+  if (trigger) {
+    trigger.addEventListener("click", openSearch);
+  }
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeSearch(true);
+  });
+
+  results.addEventListener("click", (e) => {
+    if (e.target.closest("a")) closeSearch(false);
+  });
+
+  let searchDebounceTimer = null;
+  input.addEventListener("input", () => {
+    clearTimeout(searchDebounceTimer);
+    searchDebounceTimer = setTimeout(() => renderResults(input.value), 180);
+  });
+
+  // 鍵盤方向鍵上下導覽與無障礙焦點控制
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown") {
+      const firstItem = results.querySelector(".search-result-item");
+      if (firstItem) {
+        e.preventDefault();
+        firstItem.focus();
+      }
+    }
+  });
+
+  results.addEventListener("keydown", (e) => {
+    const active = document.activeElement;
+    if (!active || !active.classList.contains("search-result-item")) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      const next = active.nextElementSibling;
+      if (next && next.classList.contains("search-result-item")) next.focus();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      const prev = active.previousElementSibling;
+      if (prev && prev.classList.contains("search-result-item")) {
+        prev.focus();
+      } else {
+        input.focus();
+      }
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")) {
+      e.preventDefault();
+      if (overlay.classList.contains("is-open")) {
+        closeSearch(true);
+      } else {
+        openSearch();
+      }
+    }
+    if (e.key === "Escape" && overlay.classList.contains("is-open")) {
+      closeSearch(true);
+    }
+  });
+}
+
+// 頁面就緒時啟動
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    syncHubLanguage();
+    initSearchEngine();
+  });
+} else {
+  syncHubLanguage();
+  initSearchEngine();
+}
+
+// 匯出至全域環境
+window.NVMHub = {
+  syncLanguage: syncHubLanguage,
+  searchIndex: SEARCH_INDEX
+};
+
 

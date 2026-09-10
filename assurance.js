@@ -49,17 +49,20 @@ const closeMenu = ({ restoreFocus = false } = {}) => {
   menuToggle.setAttribute("aria-expanded", "false");
   if (restoreFocus) menuToggle.focus();
 };
-menuToggle.addEventListener("click", () => {
-  const open = !primaryNav.classList.contains("open");
-  primaryNav.classList.toggle("open", open);
-  menuToggle.classList.toggle("open", open);
-  menuToggle.setAttribute("aria-expanded", String(open));
-  if (open) navLinks[0]?.focus();
-});
-navLinks.forEach(link => link.addEventListener("click", () => closeMenu()));
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && primaryNav.classList.contains("open")) closeMenu({ restoreFocus: true });
-});
+if (menuToggle && primaryNav && !menuToggle._hubNavBound) {
+  menuToggle._hubNavBound = true;
+  menuToggle.addEventListener("click", () => {
+    const open = !primaryNav.classList.contains("open");
+    primaryNav.classList.toggle("open", open);
+    menuToggle.classList.toggle("open", open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+    if (open) navLinks[0]?.focus();
+  });
+  navLinks.forEach(link => link.addEventListener("click", () => closeMenu()));
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && primaryNav.classList.contains("open")) closeMenu({ restoreFocus: true });
+  });
+}
 const sectionObserver = new IntersectionObserver(entries => {
   const current = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
   if (current) setCurrentSection(current.target.id);

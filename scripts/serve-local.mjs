@@ -11,8 +11,10 @@ http.createServer((request, response) => {
   catch { response.writeHead(400, {"content-type":"text/plain; charset=utf-8"}); response.end("網址格式無效"); return; }
   const requested = pathname === "/" ? "index.html" : pathname.replace(/^\/+/, "");
   let file = path.resolve(root, requested);
-  if (file.startsWith(root + path.sep) && fs.existsSync(file) && fs.statSync(file).isDirectory()) file = path.join(file, "index.html");
-  if (!file.startsWith(root + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
+  if (fs.existsSync(file) && fs.statSync(file).isDirectory()) {
+    file = path.join(file, "index.html");
+  }
+  if (!file.startsWith(root) || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
     response.writeHead(404, { "content-type":"text/plain; charset=utf-8" });
     response.end("找不到頁面或檔案");
     return;

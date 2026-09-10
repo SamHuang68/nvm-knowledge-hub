@@ -25,6 +25,33 @@
   outline-offset: 3px;
 }
 
+/* 全站 WCAG 2.1 AA 高對比焦點可見性規範 */
+:focus-visible {
+  outline: 2px solid #c4a574 !important;
+  outline-offset: 2px !important;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #c4a574 !important;
+  outline-offset: 2px !important;
+}
+
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+}
+
+:target,
+main section[id],
+article[id] {
+  scroll-margin-top: 80px !important;
+}
+
 :root{--shell-header:48px}
 
 /* One shell contract: the header occupies layout space and maintains unified grid consistency across all pages. */
@@ -38,6 +65,20 @@
   column-gap: clamp(16px, 2.5vw, 44px) !important;
   min-height: 48px !important;
   padding: 0 clamp(16px, 3.5vw, 64px) !important;
+}
+
+@media (min-width: 1920px) {
+  .site-header {
+    padding-left: calc((100vw - min(1780px, 97vw)) / 2 + clamp(16px, 3.5vw, 64px)) !important;
+    padding-right: calc((100vw - min(1780px, 97vw)) / 2 + clamp(16px, 3.5vw, 64px)) !important;
+  }
+}
+
+@media (min-width: 2560px) {
+  .site-header {
+    padding-left: calc((100vw - min(2200px, 92vw)) / 2 + clamp(24px, 3.5vw, 80px)) !important;
+    padding-right: calc((100vw - min(2200px, 92vw)) / 2 + clamp(24px, 3.5vw, 80px)) !important;
+  }
 }
 
 .site-header .brand {

@@ -107,7 +107,7 @@ function renderEvidenceCards() {
   if (empty) empty.hidden = visible !== 0;
 }
 
-document.querySelector("#languageToggle")?.addEventListener("click", () => setResearchLanguage(researchLanguage === "zh" ? "en" : "zh"));
+window.addEventListener("hub:language-change", e => { if (typeof setResearchLanguage === "function") setResearchLanguage(e.detail.language); });
 document.querySelectorAll(".state-lab-controls button").forEach(button => button.addEventListener("click", () => updateResearchPhase(button.dataset.phase)));
 document.querySelector("#evidenceSearch")?.addEventListener("input", renderEvidenceCards);
 document.querySelector("#evidenceFilters")?.addEventListener("click", event => {
@@ -124,33 +124,36 @@ document.querySelector("#evidenceFilters")?.addEventListener("click", event => {
 
 const researchMenuButton = document.querySelector("#menuToggle");
 const researchNav = document.querySelector(".primary-nav");
-function syncResearchMenuState(open) {
-  researchMenuButton?.setAttribute("aria-expanded", open ? "true" : "false");
-  researchMenuButton?.setAttribute("aria-label", open ? (researchLanguage === "zh" ? "關閉選單" : "Close menu") : (researchLanguage === "zh" ? "開啟選單" : "Open menu"));
+if (researchMenuButton && researchNav && !researchMenuButton._hubNavBound) {
+  researchMenuButton._hubNavBound = true;
+  function syncResearchMenuState(open) {
+    researchMenuButton?.setAttribute("aria-expanded", open ? "true" : "false");
+    researchMenuButton?.setAttribute("aria-label", open ? (researchLanguage === "zh" ? "關閉選單" : "Close menu") : (researchLanguage === "zh" ? "開啟選單" : "Open menu"));
+  }
+  function closeResearchMenu(restoreFocus = false) {
+    researchNav?.classList.remove("open");
+    syncResearchMenuState(false);
+    if (restoreFocus) researchMenuButton?.focus();
+  }
+  researchMenuButton?.addEventListener("click", () => {
+    const open = researchNav.classList.toggle("open");
+    syncResearchMenuState(open);
+    if (open) researchNav.querySelector("a")?.focus();
+  });
+  researchNav?.addEventListener("click", event => {
+    if (event.target.closest("a")) closeResearchMenu();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && researchNav?.classList.contains("open")) closeResearchMenu(true);
+  });
+  window.matchMedia("(min-width: 1181px)").addEventListener("change", event => {
+    if (event.matches) closeResearchMenu();
+  });
+  function syncResearchMenuToLayout() {
+    if (researchMenuButton && getComputedStyle(researchMenuButton).display === "none") closeResearchMenu();
+  }
+  window.addEventListener("resize", syncResearchMenuToLayout, { passive: true });
 }
-function closeResearchMenu(restoreFocus = false) {
-  researchNav?.classList.remove("open");
-  syncResearchMenuState(false);
-  if (restoreFocus) researchMenuButton?.focus();
-}
-researchMenuButton?.addEventListener("click", () => {
-  const open = researchNav.classList.toggle("open");
-  syncResearchMenuState(open);
-  if (open) researchNav.querySelector("a")?.focus();
-});
-researchNav?.addEventListener("click", event => {
-  if (event.target.closest("a")) closeResearchMenu();
-});
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && researchNav?.classList.contains("open")) closeResearchMenu(true);
-});
-window.matchMedia("(min-width: 1181px)").addEventListener("change", event => {
-  if (event.matches) closeResearchMenu();
-});
-function syncResearchMenuToLayout() {
-  if (researchMenuButton && getComputedStyle(researchMenuButton).display === "none") closeResearchMenu();
-}
-window.addEventListener("resize", syncResearchMenuToLayout, { passive: true });
 
 const researchRevealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -176,5 +179,3 @@ window.addEventListener("resize", updateResearchScroll);
 setResearchLanguage(researchLanguage, false);
 updateResearchPhase("off");
 updateResearchScroll();
-
-window.addEventListener("hub:language-change", e => { if (typeof setResearchLanguage === "function") setResearchLanguage(e.detail.language, false); });

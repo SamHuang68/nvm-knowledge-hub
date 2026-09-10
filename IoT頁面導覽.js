@@ -9,9 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     menu?.setAttribute('aria-expanded', String(open));
     menu?.setAttribute('aria-label', language() === 'zh' ? (open ? '關閉選單' : '開啟選單') : (open ? 'Close menu' : 'Open menu'));
   };
-  menu?.addEventListener('click', () => setMenu(!nav?.classList.contains('open')));
-  nav?.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
-  document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
+  if (menu && nav && !menu._hubNavBound) {
+    menu._hubNavBound = true;
+    menu.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+    nav.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
+  }
   theme?.addEventListener('click', () => theme.setAttribute('aria-pressed', String(document.body.classList.toggle('light-mode'))));
   const syncLanguage = () => {
     setMenu(nav?.classList.contains('open') || false);

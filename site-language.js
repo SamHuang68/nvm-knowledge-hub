@@ -86,6 +86,48 @@
       button.addEventListener('click', event => { event.preventDefault(); window.HubLanguage.toggle(); });
     });
     window.HubLanguage.set(initial, false);
+
+    // 行動端漢堡選單全域監聽與 WCAG 2.1 AA 焦點管理
+    const menuBtn = document.querySelector('#menuToggle');
+    const nav = document.querySelector('#primaryNav, #globalNav, .primary-nav');
+    if (menuBtn && nav && !menuBtn._hubNavBound) {
+      menuBtn._hubNavBound = true;
+      const closeNav = (restoreFocus = false) => {
+        nav.classList.remove('open');
+        menuBtn.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        const isChinese = window.HubLanguage?.get() === 'zh';
+        menuBtn.setAttribute('aria-label', isChinese ? '開啟選單' : 'Open menu');
+        if (restoreFocus) menuBtn.focus();
+      };
+      menuBtn.addEventListener('click', e => {
+        e.preventDefault();
+        const isOpen = nav.classList.toggle('open');
+        menuBtn.classList.toggle('open', isOpen);
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+        const isChinese = window.HubLanguage?.get() === 'zh';
+        menuBtn.setAttribute('aria-label', isChinese ? (isOpen ? '關閉選單' : '開啟選單') : (isOpen ? 'Close menu' : 'Open menu'));
+        if (isOpen) {
+          const firstLink = nav.querySelector('a');
+          if (firstLink) firstLink.focus();
+        }
+      });
+      nav.addEventListener('click', e => {
+        if (e.target.closest('a')) closeNav();
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && nav.classList.contains('open')) closeNav(true);
+      });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 960) closeNav();
+      }, { passive: true });
+      window.addEventListener('hub:language-change', () => {
+        const isOpen = nav.classList.contains('open');
+        const isChinese = window.HubLanguage?.get() === 'zh';
+        menuBtn.setAttribute('aria-label', isChinese ? (isOpen ? '關閉選單' : '開啟選單') : (isOpen ? 'Close menu' : 'Open menu'));
+      });
+    }
+
     document.querySelectorAll('a[href]').forEach(link => {
       if (link.getAttribute('href')?.startsWith('#')) return;
       let target; try { target = new URL(link.href); } catch { return; }

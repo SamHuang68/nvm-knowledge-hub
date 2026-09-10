@@ -349,33 +349,36 @@ document.querySelectorAll(".compare-switch button").forEach(button => {
 
 const menuButton = document.querySelector("#menuToggle");
 const nav = document.querySelector(".primary-nav");
-function syncMenuState(open) {
-  menuButton.setAttribute("aria-expanded", open ? "true" : "false");
-  menuButton.setAttribute("aria-label", open ? (currentLanguage === "zh" ? "關閉選單" : "Close menu") : (currentLanguage === "zh" ? "開啟選單" : "Open menu"));
+if (menuButton && nav && !menuButton._hubNavBound) {
+  menuButton._hubNavBound = true;
+  function syncMenuState(open) {
+    menuButton.setAttribute("aria-expanded", open ? "true" : "false");
+    menuButton.setAttribute("aria-label", open ? (currentLanguage === "zh" ? "關閉選單" : "Close menu") : (currentLanguage === "zh" ? "開啟選單" : "Open menu"));
+  }
+  function closeMenu(restoreFocus = false) {
+    nav.classList.remove("open");
+    syncMenuState(false);
+    if (restoreFocus) menuButton.focus();
+  }
+  menuButton.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    syncMenuState(open);
+    if (open) nav.querySelector("a")?.focus();
+  });
+  nav.addEventListener("click", event => {
+    if (event.target.closest("a")) closeMenu();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && nav.classList.contains("open")) closeMenu(true);
+  });
+  window.matchMedia("(min-width: 1181px)").addEventListener("change", event => {
+    if (event.matches) closeMenu();
+  });
+  function syncMenuToLayout() {
+    if (getComputedStyle(menuButton).display === "none") closeMenu();
+  }
+  window.addEventListener("resize", syncMenuToLayout, { passive: true });
 }
-function closeMenu(restoreFocus = false) {
-  nav.classList.remove("open");
-  syncMenuState(false);
-  if (restoreFocus) menuButton.focus();
-}
-menuButton.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
-  syncMenuState(open);
-  if (open) nav.querySelector("a")?.focus();
-});
-nav.addEventListener("click", event => {
-  if (event.target.closest("a")) closeMenu();
-});
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && nav.classList.contains("open")) closeMenu(true);
-});
-window.matchMedia("(min-width: 1181px)").addEventListener("change", event => {
-  if (event.matches) closeMenu();
-});
-function syncMenuToLayout() {
-  if (getComputedStyle(menuButton).display === "none") closeMenu();
-}
-window.addEventListener("resize", syncMenuToLayout, { passive: true });
 
 document.querySelector("#themeToggle").addEventListener("click", event => {
   const active = document.body.classList.toggle("light-mode");
