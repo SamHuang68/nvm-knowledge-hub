@@ -23,7 +23,7 @@ function showRoute({ focus = false } = {}) {
     query.value = '';
     query.dispatchEvent(new Event('input'));
   }
-  if (anchor?.matches('[data-foundry]') && anchor.hidden) {
+  if (anchor?.matches('[data-foundry],[data-foundry-year]') && (anchor.hidden || anchor.closest('[data-foundry-year]')?.hidden)) {
     const select = document.querySelector('#nvm-foundry-filter');
     select.value = '';
     select.dispatchEvent(new Event('change'));
@@ -46,6 +46,9 @@ function showRoute({ focus = false } = {}) {
     widget.querySelectorAll('[data-operation-detail]').forEach(item => { item.hidden = !widget.hasAttribute('data-complete-cycle') && item !== operation; });
     widget.querySelectorAll('[data-operation-select]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.operationSelect===operation.dataset.operationDetail)));
   }
+  document.querySelectorAll('.nvm-sidebar details').forEach(detail => {
+    detail.open=[...detail.querySelectorAll('a')].some(link=>link.hash===`#${next.id}`);
+  });
   document.querySelectorAll('.nvm-sidebar a').forEach(link => {
     if (link.hash === `#${next.id}`) {
       link.setAttribute('aria-current', 'page');
@@ -60,9 +63,9 @@ function showRoute({ focus = false } = {}) {
   for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;
   if (focus) {
     const destination = anchor || next;
-    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study') ? destination.querySelector('h3') : destination;
+    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study,[data-foundry-year]') ? destination.querySelector('h3') : destination.matches('[data-foundry]') ? destination.querySelector('h4') : destination.matches('[data-source-record]') ? destination.querySelector('summary') : destination;
     heading?.setAttribute('tabindex', '-1');
-    if (heading?.matches('h2,h3')) heading.dataset.routeHeading = '';
+    if (heading?.matches('h2,h3,h4')) heading.dataset.routeHeading = '';
     heading?.focus({ preventScroll: true });
     destination.scrollIntoView({ block: 'start' });
   }
@@ -130,6 +133,12 @@ filterTopics();
 const foundryFilter = document.querySelector('#nvm-foundry-filter');
 foundryFilter?.addEventListener('change', () => {
   document.querySelectorAll('[data-foundry]').forEach(item => { item.hidden = Boolean(foundryFilter.value) && item.dataset.foundry !== foundryFilter.value; });
+  document.querySelectorAll('[data-foundry-year]').forEach(group => {
+    const count=[...group.querySelectorAll('[data-foundry]')].filter(item=>!item.hidden).length;
+    group.hidden=count===0;
+    const link=document.querySelector(`[data-foundry-year-link="${group.dataset.foundryYear}"]`);
+    if(link){link.hidden=count===0;link.querySelector('span').textContent=count;}
+  });
 });
 
 const landscapeSearch = document.querySelector('#nvm-landscape-search');
@@ -166,7 +175,7 @@ document.querySelector('#nvm-landscape-reset')?.addEventListener('click', () => 
 filterLandscape();
 
 const sourceSearch = document.querySelector('#nvm-source-search');
-sourceSearch?.addEventListener('input', () => {
+function filterSources() {
   const query = sourceSearch.value.normalize('NFKC').toLocaleLowerCase().trim();
   let count = 0;
   document.querySelectorAll('[data-source-record]').forEach(item => {
@@ -174,6 +183,12 @@ sourceSearch?.addEventListener('input', () => {
     if (!item.hidden) count++;
   });
   document.querySelector('#nvm-source-count').textContent = isEnglish ? `Showing ${count} source records` : `顯示 ${count} 筆來源`;
+  const empty=document.querySelector('#nvm-source-empty');
+  if(empty)empty.hidden=count!==0;
+}
+sourceSearch?.addEventListener('input', filterSources);
+document.querySelector('#nvm-source-reset')?.addEventListener('click',()=>{
+  sourceSearch.value='';filterSources();sourceSearch.focus();
 });
 
 // 來源的深層連結需優先顯示目標，避免先前的搜尋條件隱藏它。
