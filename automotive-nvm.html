@@ -934,21 +934,21 @@
                 <label for="tempSlider" style="font: 700 11px 'IBM Plex Mono'; color: #f59e0b;">
                   <span data-lang="zh">結溫 TJ (°C):</span><span data-lang="en">JUNCTION TJ:</span>
                 </label>
-                <input type="range" id="tempSlider" min="25" max="175" step="5" value="175" style="accent-color: #f59e0b; cursor: pointer; width: 120px;">
+                <input type="range" id="tempSlider" min="25" max="175" step="5" value="175" aria-valuetext="175 °C" style="accent-color: #f59e0b; cursor: pointer; width: 120px;">
                 <span class="mono-text" id="tempVal" style="color: #f59e0b; font-weight: 700; font-size: 1rem;">175 °C</span>
               </div>
               <div style="display: flex; align-items: center; gap: 10px;">
                 <label for="yearSlider" style="font: 700 11px 'IBM Plex Mono'; color: #c4a574;">
                   <span data-lang="zh">服役壽命 (Years):</span><span data-lang="en">SERVICE YEARS:</span>
                 </label>
-                <input type="range" id="yearSlider" min="1" max="25" step="1" value="15" style="accent-color: #c4a574; cursor: pointer; width: 110px;">
+                <input type="range" id="yearSlider" min="1" max="25" step="1" value="15" aria-valuetext="15 Yrs" style="accent-color: #c4a574; cursor: pointer; width: 110px;">
                 <span class="mono-text" id="yearVal" style="color: #c4a574; font-weight: 700; font-size: 1rem;">15 Yrs</span>
               </div>
               <div>
                 <span style="font: 600 11px 'IBM Plex Mono'; color: #8ea9b3;">
                   <span data-lang="zh">熱加速因數 (AF):</span><span data-lang="en">ACCEL FACTOR (AF):</span>
                 </span>
-                <b class="mono-text" id="afVal" style="color: #f59e0b; font-size: 1.1rem;">2,840×</b>
+                <b class="mono-text" id="afVal" aria-live="polite" style="color: #f59e0b; font-size: 1.1rem;">2,840×</b>
               </div>
             </div>
 
@@ -956,7 +956,7 @@
               <canvas id="thermalCanvas" style="width: 100%; height: 280px; display: block;"></canvas>
             </div>
             <div style="display: flex; justify-content: space-between; font: 500 10.5px 'IBM Plex Mono'; color: #8ea9b3; margin-top: 8px;">
-              <span><span data-lang="zh">＊綠色曲線：反熔絲永久介電質擊穿微絲（175°C 下 15 年，零電阻漂移 &lt;0.08%）</span><span data-lang="en">* Green Trace: AntiFuse Permanent Dielectric Breakdown Filament (15 Yrs @ 175°C, Zero Resistance Drift &lt;0.08%)</span></span>
+              <span><span data-lang="zh">＊金色曲線：反熔絲永久介電質擊穿微絲（175°C 下 15 年，零電阻漂移 &lt;0.08%）</span><span data-lang="en">* Gold Trace: AntiFuse Permanent Dielectric Breakdown Filament (15 Yrs @ 175°C, Zero Resistance Drift &lt;0.08%)</span></span>
               <span><span data-lang="zh">＊紅色曲線：浮動閘極熱離子逸出（175°C 下超過 2 年後失去感測裕量）</span><span data-lang="en">* Red Trace: Floating-Gate Thermionic Escape (Loss of Sensing Margin beyond 2 Yrs @ 175°C)</span></span>
             </div>
           </section>
@@ -1006,7 +1006,7 @@
               </div>
               <div>
                 <div style="color: #64748b; margin-bottom: 2px;">ISO 26262 SAFETY STATUS</div>
-                <div id="eccSafetyVal" style="color: #c4a574; font-size: 12.5px;">ASIL-D NOMINAL OPERATION</div>
+                <div id="eccSafetyVal" style="color: #c4a574; font-size: 12.5px;">SAFETY STATE: NOMINAL (TARGET: ASIL-D ARCHITECTURE)</div>
               </div>
             </div>
           </section>
@@ -1134,8 +1134,8 @@
                 </table>
               </div>
               <div style="padding: 10px 14px; font-size: 11px; color: #94a3b8; line-height: 1.55; border-top: 1px solid rgba(255,255,255,0.06); background: #061925;">
-                <span data-lang="zh"><strong>SEooC 假定使用條件 (Assumptions of Use, AoU)：</strong> 本 IP 依據 ISO 26262-10/11 SEooC 流程開發，具備 ASIL-D Systematic Capability (SC3)。系統級 ASIL-D 達成須依賴 Tier-1 / OEM 整合商落實外部安全機制（包括看門狗、電源監控與 SECDED 雙位元致命中斷處理）。</span>
-                <span data-lang="en"><strong>SEooC Assumptions of Use (AoU):</strong> IP developed under ISO 26262 SEooC methodology with ASIL-D SC3 systematic capability. Item-level ASIL-D compliance requires Tier-1/OEM integration of external safety mechanisms (watchdog, supply monitor, and fatal DED trap handling).</span>
+                <span data-lang="zh"><strong>SEooC 假定使用條件 (Assumptions of Use, AoU)：</strong> 本 IP 依據 ISO 26262-10/11 SEooC 流程開發，具備 ASIL-D Systematic Capability (SC3)。系統級 ASIL-D 達成須依賴 Tier-1 / OEM 整合商落實外部安全機制（包括看門狗、電源監控與 SECDED 雙位元致命中斷處理）。依據 ISO 26262-5 殘餘失效率因果數學模型：<code>&lambda;<sub>residual</sub> = &lambda;<sub>raw</sub> &middot; (1 - K<sub>DC</sub>) + &lambda;<sub>multi-bit</sub></code>，其中潛伏故障度量 <code>K<sub>DC,latent</sub> &ge; 90%</code>（ASIL-D 門檻）嚴格依賴系統級定期巡檢記憶體機制 (Periodic Memory Scrubbing)，以避免單一故障累積為不可校正的雙位元錯誤。</span>
+                <span data-lang="en"><strong>SEooC Assumptions of Use (AoU):</strong> IP developed under ISO 26262 SEooC methodology with ASIL-D SC3 systematic capability. Item-level ASIL-D compliance requires Tier-1/OEM integration of external safety mechanisms (watchdog, supply monitor, and fatal DED trap handling). Per ISO 26262-5 causal metrics, residual failure rate follows: <code>&lambda;<sub>residual</sub> = &lambda;<sub>raw</sub> &middot; (1 - K<sub>DC</sub>) + &lambda;<sub>multi-bit</sub></code>. Achieving latent fault metric <code>K<sub>DC,latent</sub> &ge; 90%</code> for ASIL-D strictly depends on system-level periodic Memory Scrubbing to prevent latent single-bit faults from accumulating into uncorrectable multi-bit failures.</span>
               </div>
             </div>
           </section>
@@ -1237,7 +1237,7 @@
         <span class="hub-footer-badge">ISO 26262 ASIL-D Ready</span>
         <span class="hub-footer-badge">Vector Patch CAM</span>
         <span class="hub-footer-badge">TEM Invisibility</span>
-        <span class="hub-footer-badge">DPA 1st/2nd-Order Immune</span>
+        <span class="hub-footer-badge">Differential Current Read (DPA Attenuation)</span>
       </div>
 
       <div class="hub-footer-bottom-bar">
@@ -1292,6 +1292,8 @@
 
         tempValElem.textContent = `${tempC} °C`;
         yearValElem.textContent = `${years} Yrs`;
+        tempSlider.setAttribute("aria-valuetext", `${tempC} °C`);
+        yearSlider.setAttribute("aria-valuetext", `${years} Yrs`);
 
         const kB = 8.61733e-5;
         const Tuse = tempC + 273.15;
@@ -1322,11 +1324,16 @@
         ctx.lineTo(plotX + plotW, plotY + plotH);
         ctx.stroke();
 
+        const isNarrow = w < 360;
         ctx.font = "700 11px 'IBM Plex Mono'";
         ctx.fillStyle = "#fff";
-        ctx.fillText(`SILICON RETENTION MARGIN VS TIME (Tj = ${tempC}°C)`, plotX + 10, 22);
+        ctx.fillText(
+          isNarrow ? `RETENTION VS TIME (${tempC}°C)` : `SILICON RETENTION MARGIN VS TIME (Tj = ${tempC}°C)`,
+          plotX + (isNarrow ? 4 : 10),
+          22
+        );
 
-        // 1. AntiFuse Dielectric Breakdown Filament (Green line: Flat / Zero Drift)
+        // 1. AntiFuse Dielectric Breakdown Filament (Gold line: Flat / Zero Drift)
         ctx.strokeStyle = "#c4a574";
         ctx.lineWidth = 3;
         ctx.beginPath();
@@ -1336,7 +1343,11 @@
         ctx.stroke();
 
         ctx.fillStyle = "#c4a574";
-        ctx.fillText("● AntiFuse Breakdown Filament: Zero-Drift (>99.9% Retention)", plotX + 16, plotY + 42);
+        ctx.fillText(
+          isNarrow ? "● AntiFuse: Zero-Drift (>99.9%)" : "● AntiFuse Breakdown Filament: Zero-Drift (>99.9% Retention)",
+          plotX + (isNarrow ? 8 : 16),
+          plotY + 42
+        );
 
         // 2. Floating-Gate eFlash (Red curve: Steep drop)
         ctx.strokeStyle = "#ef4444";
@@ -1353,7 +1364,11 @@
         ctx.stroke();
 
         ctx.fillStyle = "#f87171";
-        ctx.fillText("● Floating-Gate Charge Decay (Thermal Leakage)", plotX + 16, plotY + 64);
+        ctx.fillText(
+          isNarrow ? "● FG Decay (Thermal Leak)" : "● Floating-Gate Charge Decay (Thermal Leakage)",
+          plotX + (isNarrow ? 8 : 16),
+          plotY + 64
+        );
 
         // Failure threshold line
         ctx.strokeStyle = "rgba(239, 68, 68, 0.4)";
@@ -1364,7 +1379,11 @@
         ctx.stroke();
         ctx.setLineDash([]);
         ctx.fillStyle = "#f87171";
-        ctx.fillText("CRITICAL SENSE MARGIN THRESHOLD", plotX + plotW - 210, plotY + plotH * 0.65 - 6);
+        ctx.fillText(
+          isNarrow ? "CRITICAL THRESHOLD" : "CRITICAL SENSE MARGIN THRESHOLD",
+          isNarrow ? plotX + 10 : plotX + plotW - 210,
+          plotY + plotH * 0.65 - 6
+        );
 
         // Current Operating Year Marker
         const curPx = plotX + (years / 25) * plotW;
@@ -1437,7 +1456,7 @@
           syndromeVal.style.color = "#c4a574";
           actionVal.textContent = "NORMAL 0-CYCLE PASS";
           actionVal.style.color = "#c4a574";
-          safetyVal.textContent = "ASIL-D NOMINAL OPERATION";
+          safetyVal.textContent = "SAFETY STATE: NOMINAL (TARGET: ASIL-D ARCHITECTURE)";
           safetyVal.style.color = "#c4a574";
         } else if (errCount === 1) {
           const flippedIdx = Array.from(flippedIndices)[0];
@@ -1454,9 +1473,9 @@
           pill.textContent = `✖ ${errCount}-BIT ERROR DETECTED · ASIL-D TRAP!`;
           syndromeVal.textContent = "0xEE (DOUBLE-BIT PARITY MISMATCH)";
           syndromeVal.style.color = "#f87171";
-          actionVal.textContent = "ASSERT HARDWARE NMI INTERRUPT TO ECU";
+          actionVal.textContent = "SAFETY ACTION: HARDWARE DED TRAP ASSERTED (FTTI COMPLIANT)";
           actionVal.style.color = "#f87171";
-          safetyVal.textContent = "ASIL-D FAIL-SAFE SHUTDOWN TRIGGERED";
+          safetyVal.textContent = "SAFETY ACTION: HARDWARE DED TRAP ASSERTED (FTTI COMPLIANT)";
           safetyVal.style.color = "#f87171";
         }
       }
