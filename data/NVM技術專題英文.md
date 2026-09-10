@@ -653,7 +653,7 @@ A Toggle write reverses the current state. Executing it once would invert data t
 ### Sources
 
 - [EMG-SEC: Everspin 2025 Product and Manufacturing Filing](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
-- [EMG-P-TOGGLE: Motorola Toggle MRAM Operation Patent](https://patents.google.com/patent/US6545906B1/en)
+- [EMG-P-TOGGLE: Motorola: Toggle Writing Patent US6545906B1](https://patents.google.com/patent/US6545906B1/en)
 
 ## STT-MRAM: Spin Current Through the Junction
 
@@ -744,7 +744,7 @@ Read current also passes through the MTJ, producing spin torque and electrical s
 - [EMG-SEC: Everspin 2025 Product and Manufacturing Filing](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
 - [EMG-XSPI: Everspin 64Mb High-Reliability xSPI Production Qualification](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
 - [EMG-RA8: Renesas RA8M2/RA8D2 MCUs with Embedded MRAM](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)
-- [EMG-P-STT: IBM Spin-Torque Storage Structure Patent](https://patents.google.com/patent/US5695864A/en)
+- [EMG-P-STT: IBM: Spin-Torque Structure Patent US5695864A](https://patents.google.com/patent/US5695864A/en)
 
 ## SOT-MRAM: Separate Read and Write Paths
 
@@ -833,7 +833,7 @@ SOT typically needs a third terminal, a SOT line, and additional selection paths
 ### Sources
 
 - [EMG-SOT23: imec Extremely Scaled SOT-MRAM Device Demonstration](https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually)
-- [EMG-SOT24: imec SOT-MRAM Functional Arrays and Cache Research](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
+- [EMG-SOT24: imec: Functional SOT-MRAM Arrays and Cache Research](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
 - [EMG-P-SOT: Spin Memory Scalable SOT Device Process Patent](https://patents.google.com/patent/US10930843B2/en)
 - [EMG-TSMC-SOT: TSMC 2025 Annual Report: Type-C SOT-MRAM Research](https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf)
 
@@ -924,7 +924,7 @@ Several ionic, interfacial, thermal, or electronic mechanisms can produce resist
 ### Sources
 
 - [EMG-VCM08: Resistive Switching Mechanisms in Metal/Oxide/Metal Devices](https://www.nature.com/articles/nnano.2008.160)
-- [EMG-P-VCM: HP Multilayer Resistive Switching and Intermediate-State Pulse Patent](https://patents.google.com/patent/US8331131B2/en)
+- [EMG-P-VCM: HP: Multilayer Oxide Switching Patent US8331131B2](https://patents.google.com/patent/US8331131B2/en)
 - [EMG-DBH: Weebit/DB HiTek Technology Qualification and Product Adoption](https://www.weebit-nano.com/news/press-releases/weebit-nano-signs-largest-customer-to-date-technology-qualified-at-db-hitek/)
 - [EMG-S130: Weebit SkyWater S130 Reliability Validation](https://www.weebit-nano.com/wp-content/uploads/2025/11/251124.-2025-Annual-General-Meeting-%E2%80%93-Chair-Address-and-CEO-Presentation.pdf)
 
@@ -1015,7 +1015,7 @@ RESET often dissolves only part of the bridge, leaving metal and nucleation site
 ### Sources
 
 - [EMG-ADESTO: Adesto 2019 CBRAM Commercial Shipment Filing](https://www.sec.gov/Archives/edgar/data/1395848/000155837020002795/iots-20191231x10k.htm)
-- [EMG-P-ECM: Axon Programmable Metallization Cell Patent](https://patents.google.com/patent/US5761115A/en)
+- [EMG-P-ECM: Axon: Programmable Metallization Cell Patent US5761115A](https://patents.google.com/patent/US5761115A/en)
 
 ## PCM: Controlling Phase with Thermal History
 
@@ -1105,7 +1105,7 @@ A higher peak may melt the material. Rapid cooling afterward can then form an am
 
 - [EMG-STPCM: ST Stellar SR6P6C8 MCU with Phase-Change Memory](https://www.st.com/en/automotive-microcontrollers/sr6p6c8.html)
 - [EMG-P-PCM: Multilevel Phase-Change Memory Programming Patent](https://patents.google.com/patent/US5912839A/en)
-- [EMG-PCMDRIFT: IBM Research on Resistance Evolution in Projected PCM](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)
+- [EMG-PCMDRIFT: IBM: Temporal Resistance Evolution in Projected PCM](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)
 - [EMG-PCMEND: IBM Research on PCM Cycling Endurance and Atomic Migration](https://research.ibm.com/publications/phase-change-memory-cycling-endurance)
 - [EMG-PCMPROJ: IBM Low-Drift Projected PCM Devices](https://research.ibm.com/publications/design-of-projected-phase-change-memory-mushroom-cells-for-low-resistance-drift)
 
@@ -1196,7 +1196,7 @@ Nonvolatility comes from remanent polarization, but some sensing sequences delib
 ### Sources
 
 - [EMG-FRAM: Infineon 16Mb EXCELON F-RAM Datasheet](https://www.infineon.com/assets/row/public/documents/10/49/infineon-cy15b116qi-cy15v116qi-16mb-excelon-tm-lp-ferroelectric-ram-f-ram-datasheet-en.pdf)
-- [EMG-P-FERAM: Ramtron Self-Restoring Ferroelectric Memory Patent](https://patents.google.com/patent/US4873664A/en)
+- [EMG-P-FERAM: Ramtron: Self-Restoring Ferroelectric Memory Patent US4873664A](https://patents.google.com/patent/US4873664A/en)
 
 ## FeFET: Translating Polarization into Threshold Voltage
 
@@ -1285,7 +1285,7 @@ Traps in the interface and dielectric capture and release charge, also changing 
 
 ### Sources
 
-- [EMG-KIOXIA: KIOXIA FeFET Charge Trapping and Polarization Stability Research](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)
+- [EMG-KIOXIA: KIOXIA: FeFET Trapping and Polarization Stability](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)
 - [EMG-FEPUF: Original Research on FeFET Cycle Variation and Charge-Domain PUFs](https://www.nature.com/articles/s41467-024-55380-x)
 - [EMG-FMC: FMC Industry News and Ferroelectric Memory Classification](https://www.ferroelectric-memory.com/industry-news/)
 - [EMG-P-HFO: Layered Doping of HfO₂ Ferroelectric Films Patent](https://patents.google.com/patent/US10153155B2/en)
@@ -1377,7 +1377,7 @@ A large ratio does not mean a large absolute current. If both state currents are
 
 ### Sources
 
-- [EMG-FTJ24: Original Research on Atomic-Scale FTJ Resistance Ratio and Cycling](https://www.nature.com/articles/s41467-024-44927-7)
+- [EMG-FTJ24: Original Research: Atomic-Scale BSO Ferroelectric Tunnel Junctions](https://www.nature.com/articles/s41467-024-44927-7)
 - [EMG-P-FTJ: TSMC FTJ Structure and Low-Temperature Formation Application](https://patents.google.com/patent/US20240057343A1/en)
 
 ## Foundry Roadmap by Year
@@ -1776,7 +1776,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [INTRO-IRDS: IEEE 2024 IRDS: Beyond CMOS and Emerging Research Materials](https://irds.ieee.org/images/files/pdf/2024/2024IRDS_BC.pdf). Technology Roadmap Assessment; 2024; Location in the Source: Sections 2 and 2.5; Limitations: Technology assessments and targets do not establish volume production of named products or a ranking under common measurement conditions.
 - [ch-pat-efuse-poly: IBM: Locally Narrowed Electrical Fuse Patent US7417300B2](https://patents.google.com/patent/US7417300B2/en). Patent; Granted 2008-08-26; reviewed 2026-09-10; Location in the Source: Figures 3 and 4A; embodiment descriptions of electromigration and material backflow; claim 1; Limitations: Supports a specific polysilicon/silicide fuse structure and its engineering problems. A patent embodiment is not a commercial product reliability guarantee, nor does it establish that all eFuses use the same materials or state transition.
 - [ch-pat-efuse-via: TSMC: Metal Via Fuse Patent US8847350B2](https://patents.google.com/patent/US8847350B2/en). Patent; Granted 2014-09-30; reviewed 2026-09-10; Location in the Source: Figures 1 and 5A; sections on current crowding and via contact placement; claim 1; Limitations: Supports a specific interconnect geometry and programming method. It does not provide process-independent programming current, area, or production yield figures.
-- [ch-pat-antifuse: Kilopass: Ultrathin Dielectric Breakdown Cell Patent US6667902B2](https://patents.google.com/patent/US6667902B2/en). Patent; Granted 2003-12-23; reviewed 2026-09-10; Location in the Source: Descriptions corresponding to Figures 1, 3, and 8; selected/half-selected bias and read-current sections; additional structures in Figures 12–15; Limitations: The 2.5 V, 7 V, and 1.5 V values in this material belong only to this early embodiment. They must not be reused as operating recommendations for current OTP IP, and this patent does not establish the topology of every commercial cell.
+- [ch-pat-antifuse: Kilopass: Ultrathin Dielectric Breakdown Cell Patent US6667902B2](https://patents.google.com/patent/US6667902B2/en). Patent; Granted 2003-12-23; reviewed 2026-09-10; Location in the Source: Figures 1, 3, and 8: selection, programming, and read; Figures 12–15: stress and breakdown-characteristic plots; Limitations: The 2.5 V, 7 V, and 1.5 V values in this material belong only to this early embodiment. They must not be reused as operating recommendations for current OTP IP, and this patent does not establish the topology of every commercial cell.
 - [ch-pat-eeprom-window: Hughes Aircraft Company: Local Tunnel-Window EEPROM Patent US4115914A](https://patents.google.com/patent/US4115914A/en). Patent; Granted 1978-09-26; reviewed 2026-09-10; Location in the Source: Front page of the original publication; Figures 3i and 6; claims 2 and 9; parent application in the priority chain; Limitations: 1976-03-26 is the parent-application date found in the records; this application was filed in 1977. The earliest date in a priority chain is not a legal determination of the effective priority of every claim.
 - [ch-pat-eeprom-singlepoly: Cypress Semiconductor: Buried-Control-Gate Single-Poly EEPROM Patent US5844271A](https://patents.google.com/patent/US5844271A/en). Patent; Granted 1998-12-01; reviewed 2026-09-10; Location in the Source: Figures 3–6; buried control electrode, thick/thin oxide regions, and operating descriptions; claim 1; Limitations: Demonstrates one single-poly EEPROM implementation. It does not establish that current Synopsys MTP uses this structure or the same hot-electron injection and tunneling paths.
 - [ch-pat-nor-splitgate: Worldwide Semiconductor Manufacturing / TSMC: Split-Gate Flash Patent US6232180B1](https://patents.google.com/patent/US6232180B1/en). Patent; Granted 2001-05-15; reviewed 2026-09-10; Location in the Source: Assignment records from 1999 and 2000; Figure 6 and its operating table; claims 4 and 6; Limitations: This embodiment uses source-side injection and channel erase. Its operating table must not be combined with SuperFlash inter-gate FN erase in the same cross-section. Aggregated assignee metadata must be checked against the assignment timeline.
@@ -1807,22 +1807,22 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [EMG-FRAM: Infineon 16Mb EXCELON F-RAM Datasheet](https://www.infineon.com/assets/row/public/documents/10/49/infineon-cy15b116qi-cy15v116qi-16mb-excelon-tm-lp-ferroelectric-ram-f-ram-datasheet-en.pdf). Manufacturer Datasheet; 2022-05-25; Accessed 2026-09-10; Location in the Source: Rev. C; pages 1, 7, 27, and 30–31; Limitations: Commercial operating temperature, retention temperature, and SPI clock frequency must be distinguished. Commercial F-RAM endurance must not be attributed to FeFET/FTJ.
 - [EMG-ADESTO: Adesto 2019 CBRAM Commercial Shipment Filing](https://www.sec.gov/Archives/edgar/data/1395848/000155837020002795/iots-20191231x10k.htm). Company Regulatory Filing; 2020; Accessed 2026-09-10; Location in the Source: CBRAM product and commercial shipment sections; Limitations: Evidence of historical shipments; continued availability of the original part numbers in 2026 has not been verified.
 - [EMG-SOT23: imec Extremely Scaled SOT-MRAM Device Demonstration](https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually). Research Institution Announcement; 2023-12-13; Accessed 2026-09-10; Location in the Source: Experiments on 300mm wafers and approximately 50nm devices; Limitations: The summary does not provide the complete pulse, temperature, sample, and error-rate matrix. Device energy is not memory-macro energy.
-- [EMG-SOT24: imec SOT-MRAM Functional Arrays and Cache Research](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications). Research Institution Technical Article; 2024-12-16; Accessed 2026-09-10; Location in the Source: Functional arrays, process damage, and magnetic-field effects; includes references to original papers; Limitations: An array research demonstration does not establish a last-level cache in volume production.
-- [EMG-KIOXIA: KIOXIA FeFET Charge Trapping and Polarization Stability Research](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html). Manufacturer Research Article; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Metal-doped interfacial layer; associated IEDM 2023 paper. 2023 is the conference year; the webpage publication date is unspecified.; Limitations: Research mechanisms and tradeoffs in a specific stack; these are not common specifications for all FeFETs.
-- [EMG-FTJ24: Original Research on Atomic-Scale FTJ Resistance Ratio and Cycling](https://www.nature.com/articles/s41467-024-44927-7). Original Research Paper; 2024; Accessed 2026-09-10; Location in the Source: Material structure, SET/RESET conditions, and reliability figures; Limitations: Research-device values must retain their stack and operating conditions; they do not represent production FTJ specifications.
+- [EMG-SOT24: imec: Functional SOT-MRAM Arrays and Cache Research](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications). Research institute technical article; 2024-12-16; Location in the Source: Three-terminal SOT structure, separate read/write paths, and magnetic-field requirements; Limitations: A research mechanism, not SOT volume production; the diagram explicitly includes an assist field and makes no field-free claim.
+- [EMG-KIOXIA: KIOXIA: FeFET Trapping and Polarization Stability](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html). Manufacturer original research description; 2024-04-09; Location in the Source: Figures 1–3, IEDM 2023 reference; polarization, trapped charge, and memory window; Limitations: Uses a simplified n-channel MFIS electrostatic model, not a reproduction of the metal-doped TCIL process.
+- [EMG-FTJ24: Original Research: Atomic-Scale BSO Ferroelectric Tunnel Junctions](https://www.nature.com/articles/s41467-024-44927-7). Original research paper; 2024; Location in the Source: Figures 3a/3b: polarization, accumulation/depletion, and barriers in Cr/Au–BSO–NSTO; Limitations: The low-resistance mapping for P toward NSTO is limited to this named stack; HRS can include thermally assisted tunneling.
 - [EMG-VCM08: Resistive Switching Mechanisms in Metal/Oxide/Metal Devices](https://www.nature.com/articles/nnano.2008.160). Original Research Paper; 2008-06-15; Accessed 2026-09-10; Location in the Source: Abstract and accessible figure captions; Limitations: The main text is subscription-restricted. This review does not claim access to all experimental details.
-- [EMG-PCMDRIFT: IBM Research on Resistance Evolution in Projected PCM](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory). Original Paper Record and Abstract; 2020-05-19; Accessed 2026-09-10; Location in the Source: Scientific Reports; state dependence and the projection branch; Limitations: Based on the original authors' abstract and research description; inaccessible details have not been filled in with invented measurement values.
+- [EMG-PCMDRIFT: IBM: Temporal Resistance Evolution in Projected PCM](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory). Author-institution original paper record; 2020-05-19; Location in the Source: Abstract: state-dependent resistance and temporal drift; Limitations: Supports the read-drift caveat only; a projection branch is not drawn as mandatory for general PCM.
 - [EMG-PCMEND: IBM Research on PCM Cycling Endurance and Atomic Migration](https://research.ibm.com/publications/phase-change-memory-cycling-endurance). Author Institution Paper Record and Abstract; 2019-09-05; Accessed 2026-09-10; Location in the Source: MRS Bulletin; cycling failure mechanisms; Limitations: Mechanisms depend on the material. General discussion cannot support a lifetime commitment for an arbitrary product.
 - [EMG-PCMPROJ: IBM Low-Drift Projected PCM Devices](https://research.ibm.com/publications/design-of-projected-phase-change-memory-mushroom-cells-for-low-resistance-drift). Author Institution Paper Record and Abstract; 2022-09-18; Accessed 2026-09-10; Location in the Source: Projection branch and mushroom-shaped phase-change devices; Limitations: The research structure is not an established cross section of ST ePCM or another commercial product.
 - [EMG-FEPUF: Original Research on FeFET Cycle Variation and Charge-Domain PUFs](https://www.nature.com/articles/s41467-024-55380-x). Original Research Paper; 2024; Accessed 2026-09-10; Location in the Source: Reconfigurable PUF structure, cycle variation, and validation; Limitations: PUF reconfigurability does not establish reproducibility in arbitrary environments, nor does it independently demonstrate resistance to attacks.
 - [EMG-FMC: FMC Industry News and Ferroelectric Memory Classification](https://www.ferroelectric-memory.com/industry-news/). Manufacturer News Collection; 2026-09-10; Accessed 2026-09-10; Location in the Source: Links to 2025 ferroelectric capacitor-based nonvolatile DRAM news and a 2026 interview; Limitations: The date is the verification date. News headlines alone cannot establish the respective production status of FeFET and capacitor-based memory.
-- [EMG-P-STT: IBM Spin-Torque Storage Structure Patent](https://patents.google.com/patent/US5695864A/en). Published Patent; 1997-12-09; Accessed 2026-09-10; Location in the Source: Independent claim 1; fixed and variable magnetic-moment structures; Limitations: Patent disclosure does not establish adoption in modern MgO processes. No freedom-to-operate analysis has been performed.
-- [EMG-P-TOGGLE: Motorola Toggle MRAM Operation Patent](https://patents.google.com/patent/US6545906B1/en). Published Patent; 2003-04-08; Accessed 2026-09-10; Location in the Source: Figures 3–5; claim 1; Limitations: The interpretation covers the specific coupled free layer and write method in this patent; it does not define operation for all MRAM.
+- [EMG-P-STT: IBM: Spin-Torque Structure Patent US5695864A](https://patents.google.com/patent/US5695864A/en). Published patent; 1997-12-09; Location in the Source: Abstract and claim 1: fixed and variable moments and current through the stack; Limitations: An early magnetic structure, not a complete disclosure of modern perpendicular MgO MTJ processing.
+- [EMG-P-TOGGLE: Motorola: Toggle Writing Patent US6545906B1](https://patents.google.com/patent/US6545906B1/en). Published patent; 2003-04-08; Location in the Source: Figures 4–6; SAF free layer, t0–t4 pulse sequence, and read-before-toggle description; Limitations: Applies to the nearly balanced SAF toggle embodiment; drawn intermediate angles are illustrative.
 - [EMG-P-SOT: Spin Memory Scalable SOT Device Process Patent](https://patents.google.com/patent/US10930843B2/en). Published Patent; 2021-02-23; Accessed 2026-09-10; Location in the Source: Figures 3–6 and 7A–7F; claims 1–13; Limitations: The original assignee and subsequent assignment history are distinguished. Area effects are not treated as production measurements.
-- [EMG-P-VCM: HP Multilayer Resistive Switching and Intermediate-State Pulse Patent](https://patents.google.com/patent/US8331131B2/en). Published Patent; 2012-12-11; Accessed 2026-09-10; Location in the Source: Figures 3 and 5; claims on multilayer structures and pulse operation; Limitations: The specific multilayer barrier and two-stage pulse method must not be generalized to all VCM.
-- [EMG-P-ECM: Axon Programmable Metallization Cell Patent](https://patents.google.com/patent/US5761115A/en). Published Patent; 1998-06-02; Accessed 2026-09-10; Location in the Source: Figures 1A/1B and 4A/4B; claims 1–2; Limitations: Assignment records include Axon and the Arizona Board of Regents; this does not establish adoption by every current CBRAM product.
+- [EMG-P-VCM: HP: Multilayer Oxide Switching Patent US8331131B2](https://patents.google.com/patent/US8331131B2/en). Published patent; 2012-12-11; Location in the Source: Figures 3 and 5; ionic/defect redistribution and pulse conditions; Limitations: The patent-specific multilayer and two-stage pulse are not mandatory for every VCM.
+- [EMG-P-ECM: Axon: Programmable Metallization Cell Patent US5761115A](https://patents.google.com/patent/US5761115A/en). Published patent; 1998-06-02; Location in the Source: Vertical embodiment, Figures 4A/4B; metal source, cathode nucleation, and reverse-bias retraction; Limitations: The diagram selects an active Ag upper electrode and inert lower electrode; different kinetics can alter nucleation sites.
 - [EMG-P-PCM: Multilevel Phase-Change Memory Programming Patent](https://patents.google.com/patent/US5912839A/en). Published Patent; 1999-06-15; Accessed 2026-09-10; Location in the Source: Figure 1; claims 1, 18, and 23; Limitations: Its specific cumulative read method does not mean that ordinary PCM resistance reads are all destructive.
-- [EMG-P-FERAM: Ramtron Self-Restoring Ferroelectric Memory Patent](https://patents.google.com/patent/US4873664A/en). Published Patent; 1989-10-10; Accessed 2026-09-10; Location in the Source: Claim 1; word line, bit line, plate, and restoration; Limitations: A historical circuit teaching reference; it does not prove the internal implementation of a modern Infineon chip.
+- [EMG-P-FERAM: Ramtron: Self-Restoring Ferroelectric Memory Patent US4873664A](https://patents.google.com/patent/US4873664A/en). Published patent; 1989-10-10; Location in the Source: Figure 3: 1T1C and reference branch; Figures 1/3 and read, latch, plate-line fall, and restore description; Limitations: The two drawn branches are alternative initial states of one cell, not a merged circuit from Figures 3 and 4.
 - [EMG-P-HFO: Layered Doping of HfO₂ Ferroelectric Films Patent](https://patents.google.com/patent/US10153155B2/en). Published Patent; 2018-12-11; Accessed 2026-09-10; Location in the Source: Figures 1/2 and 4; claim 1; Limitations: A material-formation method; this patent does not provide a complete FeFET array and system design.
 - [EMG-P-FEFET: FeFET Gate Stack and Device Integration Patent](https://patents.google.com/patent/US11502083B2/en). Published Patent; 2022-11-15; Accessed 2026-09-10; Location in the Source: Figures 2 and 3A–3F; claim 1; Limitations: Improvements in a specific stack do not establish production qualification or universally applicable endurance values.
 - [EMG-P-FTJ: TSMC FTJ Structure and Low-Temperature Formation Application](https://patents.google.com/patent/US20240057343A1/en). Published Patent Application; 2024-02-15; Accessed 2026-09-10; Location in the Source: Figure 17; claims 1 and 17; Limitations: The reviewed document is the A1 publication. The granted scope of a B2 family member requires a separate comparison.
@@ -1882,6 +1882,13 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [FND-TSMC-SYMP-2025: TSMC 2025 North America Technology Symposium Press Release](https://pr.tsmc.com/system/files/newspdf/attachment/167c59998c7117f14c13647c8e46a6b20a43316c/2025%20Tech%20Symposium%20%28E%29_Final_wmn.pdf). Official Annual Technology Symposium Press Release; 2025-04-23; Accessed 2026-09-10; Location in the Source: Three-page public press release; Limitations: The main release contains no complete MRAM/RRAM timeline suitable for verification. Unobtained internal symposium pages are not used to invent completion dates.
 - [FND-TSMC-SYMP-2026: TSMC 2026 North America Technology Symposium Press Release and Public Video Portal](https://pr.tsmc.com/english/news/3302). Official Annual Technology Symposium Press Release; 2026-04-23; Accessed 2026-09-10; Location in the Source: The US event took place on 2026-04-22; press release and technology highlights; Limitations: The public release does not provide a complete MRAM/RRAM roadmap. A presentation uploaded by a third party is not treated as an official version.
 - [FND-TSMC-SYMP-ACCESS: TSMC 2026 Technology Symposium Public Video Portal](https://www.tsmc.com/english/symposium_highlights/2026). Official Conference Portal; 2026; Accessed 2026-09-10; Location in the Source: Access instructions for the full on-demand videos; Limitations: This review did not obtain invitation-only conference content and cannot claim to have checked the complete internal roadmap.
+- [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en). Public Patent; 2014; 2026-09-10 accessed; Location in the Source: Figures 1–3; uniform channel tunneling, electron programming, and hole erase; Limitations: A named SONOS tunneling example; no equivalence to the stack or biases of a current Infineon macro is asserted.
+- [op-pat-nrom-hhi: Saifun: Self-Aligned NROM Programming and Erasure Areas](https://patents.google.com/patent/US6664588B2/en). Public Patent; 2003; 2026-09-10 accessed; Location in the Source: Figures 4, 8A, 9, and 10–11; band-to-band hole generation and localized hot-hole injection; Limitations: The pocket implant and local hole path belong to this example; US5768192A is not used as evidence for this erase path.
+- [op-nand-hole-erase: KIOXIA: Schottky Source Contact and Hole Supply](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html). Manufacturer Research; 2025-09-18; 2026-09-10 accessed; Location in the Source: Figures 1 and 4; GIDL hole supply from an N+ silicon source and the Schottky-contact alternative; Limitations: Supports carrier supply and a named study; this diagram uses the conventional GIDL branch without merging in a Schottky source.
+- [op-pat-nand-gidl: SanDisk: GIDL-Assisted 3D NAND Erase](https://patents.google.com/patent/US10923196B1/en). Public Patent; 2021; 2026-09-10 accessed; Location in the Source: Figure 8 and GIDL erase description; terminal/select-gate bias difference, hole supply, and charge neutralization; Limitations: Uses its own BL/SL and select-gate biases; do not substitute the floating-terminal erase conditions of US7696559B2.
+- [op-stt-katine-2000: Katine et al.: Current-Driven Reversal in Co/Cu/Co Pillars](https://arxiv.org/abs/cond-mat/9908231). Original research paper; 2000; Location in the Source: Abstract: electron flow from thin to thick layer favors AP; reverse flow favors P; Limitations: Used for the current/electron-flow convention; not product data for an MgO MTJ.
+- [op-vcm-reservoir-2026: Yuan et al.: Controlled Oxygen-Reservoir Electrodes for WO₃ Memory](https://www.nature.com/articles/s43246-026-01143-8). Original research paper; 2026-04-06; Location in the Source: Figures 1b/4h and Discussion: positive-bias SET, reverse RESET, and oxygen-exchange model in ITO/WO₃/TiN; Limitations: A simplified teaching model. The paper supports the mechanism electrically and spectroscopically but does not directly track operando ion trajectories; these drawings are not in situ measurements.
+- [op-pcm-ibm-thermal-2016: Bakan et al.: Temperature Distribution during PCM Crystallization](https://research.ibm.com/publications/extracting-the-temperature-distribution-on-a-phase-change-memory-cell-during-crystallization). Author-institution original paper record; 2016-10-25; Location in the Source: Abstract: melt-quench amorphization and temperature/time-dependent crystallization; Limitations: Tx, Tm, and curves are qualitative symbols; no measured product temperature or pulse duration is asserted.
 
 
 ## Historical Course Table and Current Corrections
@@ -2244,3 +2251,1109 @@ Production evidence exists for GF 22FDX MRAM and multiple TSMC MRAM/RRAM nodes. 
 
 - [FND-GF-2020-MRAM: GF: 22FDX eMRAM Production Announcement](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
 - [FND-TSMC-CURRENT-NVM: TSMC Current Embedded Nonvolatile Memory Page](https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash)
+
+
+## Operation State Diagrams
+
+### efuse · Program: Concentrate Current in a Controlled Region
+
+#### Silicide/Polysilicon eFuse
+
+Electromigration opens a silicide gap at the neck; underlying polysilicon can remain, so high resistance does not imply complete physical separation.
+
+1. **Initial Path** — The intact conductor provides a low-resistance path. R ↓ Unprogrammed
+2. **Apply Program Conditions** — Current crowds at the constriction, producing local heat and electromigration. Before transition I_P → J ↑
+3. **Local Permanent Change** — Material migration leaves a local void or gap. R ↑ Controlled program pulse
+4. **Verify at Low Field** — After program stress is removed, read current identifies the permanent state. I_R ↓ V_R ≪ V_P
+
+- [ch-pat-efuse-poly: IBM: Locally Narrowed Electrical Fuse Patent US7417300B2](https://patents.google.com/patent/US7417300B2/en)
+
+#### Metal-Via eFuse
+
+Shows current crowding, local heating, and melt separation near the via; a silicide electromigration path is not substituted.
+
+1. **Initial Path** — The intact conductor provides a low-resistance path. R ↓ Unprogrammed
+2. **Apply Program Conditions** — Current crowding generates local heat near the via. Before transition I_P → J ↑
+3. **Local Permanent Change** — Material near the via heats, melts, and separates, leaving a high-resistance gap. R ↑ Controlled program pulse
+4. **Verify at Low Field** — After program stress is removed, read current identifies the permanent state. I_R ↓ V_R ≪ V_P
+
+- [ch-pat-efuse-via: TSMC: Metal Via Fuse Patent US8847350B2](https://patents.google.com/patent/US8847350B2/en)
+
+### efuse · Erase: No Reverse Recovery in Normal Operation
+
+#### Silicide/Polysilicon eFuse
+
+Electromigration opens a silicide gap at the neck; underlying polysilicon can remain, so high resistance does not imply complete physical separation.
+
+1. **Original Material** — Keep the unprogrammed structure as a reference. R ↓ No high-field pulse
+2. **After Permanent Change** — Removing normal power does not restore the original material. R ↑ Program pulse completed
+3. **Reverse Operation Unavailable** — No qualified electrical erase path exists; read still detects the changed state. I_R ↓ Reverse bias is not an erase procedure
+
+- [ch-pat-efuse-poly: IBM: Locally Narrowed Electrical Fuse Patent US7417300B2](https://patents.google.com/patent/US7417300B2/en)
+
+#### Metal-Via eFuse
+
+Shows current crowding, local heating, and melt separation near the via; a silicide electromigration path is not substituted.
+
+1. **Original Material** — Keep the unprogrammed structure as a reference. R ↓ No high-field pulse
+2. **After Permanent Change** — Removing normal power does not restore the original material. R ↑ Program pulse completed
+3. **Reverse Operation Unavailable** — No qualified electrical erase path exists; read still detects the changed state. I_R ↓ Reverse bias is not an erase procedure
+
+- [ch-pat-efuse-via: TSMC: Metal Via Fuse Patent US8847350B2](https://patents.google.com/patent/US8847350B2/en)
+
+### efuse · Read: Measure Resistance Without Reprogramming
+
+#### Silicide/Polysilicon eFuse
+
+Electromigration opens a silicide gap at the neck; underlying polysilicon can remain, so high resistance does not imply complete physical separation.
+
+1. **Written Material Retained** — Start with permanently changed material; reading does not repair it. R ↑ Before read bias
+2. **Apply Low-Field Read** — Observe the existing path under read conditions below program stress. R ↑ V_R ≪ V_P
+3. **Measure Existing Conduction** — The gap reduces read current; high resistance does not mean an ideal open circuit. I_R ↓ Maintain low-field read
+4. **Compare Initial and Written Branches** — Compare two pre-existing states at equal V_R; reading did not change the material. Resistance window distinguished V_R = const.
+
+- [ch-pat-efuse-poly: IBM: Locally Narrowed Electrical Fuse Patent US7417300B2](https://patents.google.com/patent/US7417300B2/en)
+
+#### Metal-Via eFuse
+
+Shows current crowding, local heating, and melt separation near the via; a silicide electromigration path is not substituted.
+
+1. **Written Material Retained** — Start with permanently changed material; reading does not repair it. R ↑ Before read bias
+2. **Apply Low-Field Read** — Observe the existing path under read conditions below program stress. R ↑ V_R ≪ V_P
+3. **Measure Existing Conduction** — The gap reduces read current; high resistance does not mean an ideal open circuit. I_R ↓ Maintain low-field read
+4. **Compare Initial and Written Branches** — Compare two pre-existing states at equal V_R; reading did not change the material. Resistance window distinguished V_R = const.
+
+- [ch-pat-efuse-via: TSMC: Metal Via Fuse Patent US8847350B2](https://patents.google.com/patent/US8847350B2/en)
+
+### antifuse · Program: Apply the Breakdown Field Only to the Selected Dielectric
+
+#### MOS Dielectric-Breakdown Antifuse
+
+Storage element only: gate connects to column C, silicon to an internal node. The series select MOS and array periphery are omitted, not a complete commercial OTP cell.
+
+1. **Initial Path** — Intact dielectric blocks low-field DC. R ↑ Unprogrammed
+2. **Apply Program Conditions** — A high field stresses the thin dielectric; periphery limits stress. Before transition V_P → E
+3. **Local Permanent Change** — A local conducting path lets electrons cross the former dielectric region. R ↓ Controlled program pulse
+4. **Verify at Low Field** — After program stress is removed, read current identifies the permanent state. I_R ↑ V_R ≪ V_P
+
+- [ch-pat-antifuse: Kilopass: Ultrathin Dielectric Breakdown Cell Patent US6667902B2](https://patents.google.com/patent/US6667902B2/en)
+
+### antifuse · Erase: No Repair of the Broken-Down Dielectric in Normal Operation
+
+#### MOS Dielectric-Breakdown Antifuse
+
+Storage element only: gate connects to column C, silicon to an internal node. The series select MOS and array periphery are omitted, not a complete commercial OTP cell.
+
+1. **Original Material** — Keep the unprogrammed structure as a reference. R ↑ No high-field pulse
+2. **After Permanent Change** — Removing normal power does not restore the original material. R ↓ Program pulse completed
+3. **Reverse Operation Unavailable** — No qualified electrical erase path exists; read still detects the changed state. I_R ↑ Reverse bias is not an erase procedure
+
+- [ch-pat-antifuse: Kilopass: Ultrathin Dielectric Breakdown Cell Patent US6667902B2](https://patents.google.com/patent/US6667902B2/en)
+
+### antifuse · Read: Distinguish an Intact Dielectric from a Conductive Path
+
+#### MOS Dielectric-Breakdown Antifuse
+
+Storage element only: gate connects to column C, silicon to an internal node. The series select MOS and array periphery are omitted, not a complete commercial OTP cell.
+
+1. **Written Material Retained** — Start with permanently changed material; reading does not repair it. R ↓ Before read bias
+2. **Apply Low-Field Read** — Observe the existing path under read conditions below program stress. R ↓ V_R ≪ V_P
+3. **Measure Existing Conduction** — The broken-down region conducts more strongly; its geometry is unchanged. I_R ↑ Maintain low-field read
+4. **Compare Initial and Written Branches** — Compare two pre-existing states at equal V_R; reading did not change the material. Resistance window distinguished V_R = const.
+
+- [ch-pat-antifuse: Kilopass: Ultrathin Dielectric Breakdown Cell Patent US6667902B2](https://patents.google.com/patent/US6667902B2/en)
+
+### eeprom · Program: Establish a Field That Transfers Electrons into the Floating Gate
+
+#### Local Window: FN Program/Tunnel Erase
+
+The n-channel branch expressly permitted by US4115914A is redrawn with n+ contacts and p-type silicon. Most original process figures use a p-channel example; this is not a literal reproduction of that process section. This sequence uses tunneling only.
+
+1. **Known Initial Charge** — Isolated storage starts within its programmable window. Q ≈ 0 Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q ≈ 0 V_G > V_CH
+3. **Track Electron Transfer** — Electrons tunnel through the local barrier into isolated storage. Q < 0 V_G > V_CH
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↑ Low-field read verification
+
+- [ch-pat-eeprom-window: Hughes Aircraft Company: Local Tunnel-Window EEPROM Patent US4115914A](https://patents.google.com/patent/US4115914A/en)
+
+#### Buried Control: CHE Program/Source FN Erase
+
+Two sections from Figures 4 and 5 share one FG conductor; control is buried in silicon. Erase coupling remains symbolic; inconsistent read entries in Table 2 are not reproduced.
+
+1. **Known Initial Charge** — Isolated storage starts within its programmable window. Q ≈ 0 Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q ≈ 0 G/CG +V_P; D +V_P; S = 0
+3. **Track Electron Transfer** — Channel electrons accelerate before local injection into storage. Q < 0 G/CG +V_P; D +V_P; S = 0
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↑ Low-field read verification
+
+- [ch-pat-eeprom-singlepoly: Cypress Semiconductor: Buried-Control-Gate Single-Poly EEPROM Patent US5844271A](https://patents.google.com/patent/US5844271A/en)
+
+### eeprom · Erase: Remove Stored Electrons Through a Defined Window
+
+#### Local Window: FN Program/Tunnel Erase
+
+The n-channel branch expressly permitted by US4115914A is redrawn with n+ contacts and p-type silicon. Most original process figures use a p-channel example; this is not a literal reproduction of that process section. This sequence uses tunneling only.
+
+1. **Known Initial Charge** — Locate programmed charge and this variant’s exit. Q < 0; Vₜ ↑ Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q < 0 V_G < V_CH
+3. **Track Electron Transfer** — Electrons leave storage through this variant’s specified exit. Q → 0 V_G < V_CH
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↓ Low-field read verification
+
+- [ch-pat-eeprom-window: Hughes Aircraft Company: Local Tunnel-Window EEPROM Patent US4115914A](https://patents.google.com/patent/US4115914A/en)
+
+#### Buried Control: CHE Program/Source FN Erase
+
+Two sections from Figures 4 and 5 share one FG conductor; control is buried in silicon. Erase coupling remains symbolic; inconsistent read entries in Table 2 are not reproduced.
+
+1. **Known Initial Charge** — Locate programmed charge and this variant’s exit. Q < 0; Vₜ ↑ Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q < 0 V_S > V_FG
+3. **Track Electron Transfer** — Electrons leave storage through this variant’s specified exit. Q → 0 V_S > V_FG
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↓ Low-field read verification
+
+- [ch-pat-eeprom-singlepoly: Cypress Semiconductor: Buried-Control-Gate Single-Poly EEPROM Patent US5844271A](https://patents.google.com/patent/US5844271A/en)
+
+### eeprom · Read: Observe Charge Indirectly Through Channel Current
+
+#### Local Window: FN Program/Tunnel Erase
+
+The n-channel branch expressly permitted by US4115914A is redrawn with n+ contacts and p-type silicon. Most original process figures use a p-channel example; this is not a literal reproduction of that process section. This sequence uses tunneling only.
+
+1. **Stored State Retained** — Drawn stored carriers represent data, not the source of read current. Q < 0 Inspect the existing state
+2. **Apply Low-Field Read Bias** — Select the measured path and apply low-field read conditions. Charge remains in storage V_R; |V_DS| = v
+3. **Conduction Response** — The stored state determines sense current under the same read bias. I_R ↓ Normal read field
+4. **Compare Sense Results** — Compare stored states under equal read conditions; logic encoding is not assigned. Distinguishable read window V_R = const.
+
+- [ch-pat-eeprom-window: Hughes Aircraft Company: Local Tunnel-Window EEPROM Patent US4115914A](https://patents.google.com/patent/US4115914A/en)
+
+#### Buried Control: CHE Program/Source FN Erase
+
+Two sections from Figures 4 and 5 share one FG conductor; control is buried in silicon. Erase coupling remains symbolic; inconsistent read entries in Table 2 are not reproduced.
+
+1. **Stored State Retained** — Drawn stored carriers represent data, not the source of read current. Q < 0 Inspect the existing state
+2. **Apply Low-Field Read Bias** — Select the measured path and apply low-field read conditions. Charge remains in storage V_R; |V_DS| = v
+3. **Conduction Response** — The stored state determines sense current under the same read bias. I_R ↓ Normal read field
+4. **Compare Sense Results** — Compare stored states under equal read conditions; logic encoding is not assigned. Distinguishable read window V_R = const.
+
+- [ch-pat-eeprom-singlepoly: Cypress Semiconductor: Buried-Control-Gate Single-Poly EEPROM Patent US5844271A](https://patents.google.com/patent/US5844271A/en)
+
+### nor · Program: Compare Channel Hot-Electron and Source-Side Injection
+
+#### Stacked Gate: Drain CHE/Source FN
+
+Corresponds to conventional stacked-gate mechanisms in the background of US6232180B1, not to its proposed split-gate invention.
+
+1. **Known Initial Charge** — Isolated storage starts within its programmable window. Q ≈ 0 Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q ≈ 0 G/CG +V_P; D +V_P; S = 0
+3. **Track Electron Transfer** — Channel electrons accelerate before local injection into storage. Q < 0 G/CG +V_P; D +V_P; S = 0
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↑ Low-field read verification
+
+- [ch-pat-nor-splitgate: Worldwide Semiconductor Manufacturing / TSMC: Split-Gate Flash Patent US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+
+#### SuperFlash: SSI/Inter-Gate FN
+
+WL-poly erase exit of the first/second generation; third-generation dedicated erase gates and another patent’s well-erase conditions are not substituted.
+
+1. **Known Initial Charge** — Isolated storage starts within its programmable window. Q ≈ 0 Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q ≈ 0 SG = V_ON; S +V_P; D = 0
+3. **Track Electron Transfer** — Channel electrons accelerate before local injection into storage. Q < 0 SG = V_ON; S +V_P; D = 0
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↑ Low-field read verification
+
+- [ch-tech-superflash: SST / Microchip: SuperFlash Technology Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### US6232180B1: SSI/Well-Channel FN
+
+SG is below an overlapping FG; source is raised for program, while SG/S/D float and the well is raised for erase.
+
+1. **Known Initial Charge** — Isolated storage starts within its programmable window. Q ≈ 0 Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q ≈ 0 SG = V_ON; S +V_P; D = 0
+3. **Track Electron Transfer** — Channel electrons accelerate before local injection into storage. Q < 0 SG = V_ON; S +V_P; D = 0
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↑ Low-field read verification
+
+- [ch-pat-nor-splitgate: Worldwide Semiconductor Manufacturing / TSMC: Split-Gate Flash Patent US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+
+### nor · Erase: Follow the Structure's Electron Exit Path
+
+#### Stacked Gate: Drain CHE/Source FN
+
+Corresponds to conventional stacked-gate mechanisms in the background of US6232180B1, not to its proposed split-gate invention.
+
+1. **Known Initial Charge** — Locate programmed charge and this variant’s exit. Q < 0; Vₜ ↑ Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q < 0 V_G < V_CH
+3. **Track Electron Transfer** — Electrons leave storage through this variant’s specified exit. Q → 0 V_G < V_CH
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↓ Low-field read verification
+
+- [ch-pat-nor-splitgate: Worldwide Semiconductor Manufacturing / TSMC: Split-Gate Flash Patent US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+
+#### SuperFlash: SSI/Inter-Gate FN
+
+WL-poly erase exit of the first/second generation; third-generation dedicated erase gates and another patent’s well-erase conditions are not substituted.
+
+1. **Known Initial Charge** — Locate programmed charge and this variant’s exit. Q < 0; Vₜ ↑ Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q < 0 V_WL > V_FG
+3. **Track Electron Transfer** — Electrons leave storage through this variant’s specified exit. Q → 0 V_WL > V_FG
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↓ Low-field read verification
+
+- [ch-tech-superflash: SST / Microchip: SuperFlash Technology Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### US6232180B1: SSI/Well-Channel FN
+
+SG is below an overlapping FG; source is raised for program, while SG/S/D float and the well is raised for erase.
+
+1. **Known Initial Charge** — Locate programmed charge and this variant’s exit. Q < 0; Vₜ ↑ Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q < 0 SG/S/D = FLT; W +V_E
+3. **Track Electron Transfer** — Electrons leave storage through this variant’s specified exit. Q → 0 SG/S/D = FLT; W +V_E
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↓ Low-field read verification
+
+- [ch-pat-nor-splitgate: Worldwide Semiconductor Manufacturing / TSMC: Split-Gate Flash Patent US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+
+### nor · Read: Sense the Selected Cell's Channel Directly
+
+#### Stacked Gate: Drain CHE/Source FN
+
+Corresponds to conventional stacked-gate mechanisms in the background of US6232180B1, not to its proposed split-gate invention.
+
+1. **Stored State Retained** — Drawn stored carriers represent data, not the source of read current. Q < 0 Inspect the existing state
+2. **Apply Low-Field Read Bias** — Select the measured path and apply low-field read conditions. Charge remains in storage V_R; |V_DS| = v
+3. **Conduction Response** — The stored state determines sense current under the same read bias. I_R ↓ Normal read field
+4. **Compare Sense Results** — Compare stored states under equal read conditions; logic encoding is not assigned. Distinguishable read window V_R = const.
+
+- [ch-pat-nor-splitgate: Worldwide Semiconductor Manufacturing / TSMC: Split-Gate Flash Patent US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+
+#### SuperFlash: SSI/Inter-Gate FN
+
+WL-poly erase exit of the first/second generation; third-generation dedicated erase gates and another patent’s well-erase conditions are not substituted.
+
+1. **Stored State Retained** — Drawn stored carriers represent data, not the source of read current. Q < 0 Inspect the existing state
+2. **Apply Low-Field Read Bias** — Select the measured path and apply low-field read conditions. Charge remains in storage V_R; |V_DS| = v
+3. **Conduction Response** — The stored state determines sense current under the same read bias. I_R ↓ Normal read field
+4. **Compare Sense Results** — Compare stored states under equal read conditions; logic encoding is not assigned. Distinguishable read window V_R = const.
+
+- [ch-tech-superflash: SST / Microchip: SuperFlash Technology Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### US6232180B1: SSI/Well-Channel FN
+
+SG is below an overlapping FG; source is raised for program, while SG/S/D float and the well is raised for erase.
+
+1. **Stored State Retained** — Drawn stored carriers represent data, not the source of read current. Q < 0 Inspect the existing state
+2. **Apply Low-Field Read Bias** — Select the measured path and apply low-field read conditions. Charge remains in storage V_R; |V_DS| = v
+3. **Conduction Response** — The stored state determines sense current under the same read bias. I_R ↓ Normal read field
+4. **Compare Sense Results** — Compare stored states under equal read conditions; logic encoding is not assigned. Distinguishable read window V_R = const.
+
+- [ch-pat-nor-splitgate: Worldwide Semiconductor Manufacturing / TSMC: Split-Gate Flash Patent US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+
+### sonos · Program: Distinguish Tunneling Capture from Local Hot-Electron Injection
+
+#### Uniform SONOS: Electron/Hole Tunneling
+
+Storage-transistor detail; Infineon’s 2T cell also has a series selector. Carrier paths follow the public Cypress patent without asserting a current macro’s complete stack.
+
+1. **Known Initial Charge** — Isolated storage starts within its programmable window. Q ≈ 0 Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q ≈ 0 V_G > V_CH
+3. **Track Electron Transfer** — Electrons tunnel through the local barrier into isolated storage. Q < 0 V_G > V_CH
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↑ Low-field read verification
+
+- [ch-product-sonos: Infineon: SONOS Embedded Flash IP Solutions](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)
+- [ch-pat-sonos: NCR: SONOS Blocking-Oxide Patent WO1981000790A1](https://patents.google.com/patent/WO1981000790A1/en)
+- [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en)
+
+#### Localized NROM: CHE/Reverse Read
+
+S/D keep their programming-time names; reverse read changes bias and current direction without silently renaming terminals.
+
+1. **Known Initial Charge** — Isolated storage starts within its programmable window. Q ≈ 0 Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q ≈ 0 G/CG +V_P; D +V_P; S = 0
+3. **Track Electron Transfer** — Channel electrons accelerate before local injection into storage. Q < 0 G/CG +V_P; D +V_P; S = 0
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↑ Low-field read verification
+
+- [ch-pat-nrom: Saifun: Asymmetric Charge-Trapping Patent US5768192A](https://patents.google.com/patent/US5768192A/en)
+
+### sonos · Erase: Follow the Trap Stack and Identified Mechanism
+
+#### Uniform SONOS: Electron/Hole Tunneling
+
+Storage-transistor detail; Infineon’s 2T cell also has a series selector. Carrier paths follow the public Cypress patent without asserting a current macro’s complete stack.
+
+1. **Known Initial Charge** — Locate programmed charge and this variant’s exit. Q < 0; Vₜ ↑ Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q < 0 V_G < V_CH
+3. **Hole Supply and Neutralization** — Holes enter the trap layer and reduce net stored negative charge. Q → 0 V_G < V_CH
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↓ Low-field read verification
+
+- [ch-product-sonos: Infineon: SONOS Embedded Flash IP Solutions](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)
+- [ch-pat-sonos: NCR: SONOS Blocking-Oxide Patent WO1981000790A1](https://patents.google.com/patent/WO1981000790A1/en)
+- [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en)
+
+#### US6664588B2: Pocket BBT/Hot-Hole Erase
+
+Follows the one-sided pocket of Figures 8A and 9; hole injection must overlap the stored-electron region. This separate erase example is not attributed to US5768192A.
+
+1. **Known Initial Charge** — Locate programmed charge and this variant’s exit. Q < 0; Vₜ ↑ Before the operation pulse
+2. **Establish the Required Field** — Negative gate and positive drain establish BBT and a local field at the pocket junction. Q < 0 G −V_E; D +V_E
+3. **Hole Supply and Neutralization** — Holes enter the trap layer and reduce net stored negative charge. Q → 0 G −V_E; D +V_E
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↓ Low-field read verification
+
+- [op-pat-nrom-hhi: Saifun: Self-Aligned NROM Programming and Erasure Areas](https://patents.google.com/patent/US6664588B2/en)
+
+### sonos · Read: Sense the SONOS Window and the NROM Direction
+
+#### Uniform SONOS: Electron/Hole Tunneling
+
+Storage-transistor detail; Infineon’s 2T cell also has a series selector. Carrier paths follow the public Cypress patent without asserting a current macro’s complete stack.
+
+1. **Stored State Retained** — Drawn stored carriers represent data, not the source of read current. Q < 0 Inspect the existing state
+2. **Apply Low-Field Read Bias** — Select the measured path and apply low-field read conditions. Charge remains in storage V_R; |V_DS| = v
+3. **Conduction Response** — The stored state determines sense current under the same read bias. I_R ↓ Normal read field
+4. **Compare Sense Results** — Compare stored states under equal read conditions; logic encoding is not assigned. Distinguishable read window V_R = const.
+
+- [ch-product-sonos: Infineon: SONOS Embedded Flash IP Solutions](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)
+- [ch-pat-sonos: NCR: SONOS Blocking-Oxide Patent WO1981000790A1](https://patents.google.com/patent/WO1981000790A1/en)
+- [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en)
+
+#### Localized NROM: CHE/Reverse Read
+
+S/D keep their programming-time names; reverse read changes bias and current direction without silently renaming terminals.
+
+1. **Stored State Retained** — Drawn stored carriers represent data, not the source of read current. Q < 0 Inspect the existing state
+2. **Apply Low-Field Read Bias** — Bias original S and ground original D, reversing the program direction. Charge remains in storage V_R; |V_DS| = v
+3. **Conduction Response** — The stored state determines sense current under the same read bias. I_R ↓ Normal read field
+4. **Compare Sense Results** — Compare stored states under equal read conditions; logic encoding is not assigned. Distinguishable read window V_R = const.
+
+- [ch-pat-nrom: Saifun: Asymmetric Charge-Trapping Patent US5768192A](https://patents.google.com/patent/US5768192A/en)
+
+### nand · Program: Raise the Selected Wordline and Inhibit Other Channels
+
+#### US7696559B2: Vertical String/Electron Tunneling
+
+A string topology with an unfolded local film section. Erase follows source-line raising and electron release, not an asserted GIDL hole mechanism.
+
+1. **Identify the String** — WL* identifies the target level; SGD/SGS control terminal access. Q ≈ 0 Before the program pulse
+2. **Bias the Selected Channel** — BL=0 keeps the selected channel low; target WL receives V_PGM and neighbors V_PASS. V_CH ≈ 0 V_PGM > V_PASS
+3. **Electrons Enter Storage** — The local section traces CH through tunnel dielectric into CTL, where electrons are trapped. Q < 0; Vₜ ↑ V_WL > V_CH
+4. **Selected versus Inhibited** — The low channel at left programs; BL=V_DD at right precharges a floating, boosted channel and reduces tunneling field. Left: program; right: retain Same V_PGM, different V_CH
+
+- [ch-pat-nand-vertical: Toshiba: Columnar-Semiconductor Vertical NAND Patent US7696559B2](https://patents.google.com/patent/US7696559B2/en)
+- [ch-tech-nand: Kioxia: NAND Flash Memory Fundamentals](https://www.kioxia.com/en-jp/rd/technology/nand-flash.html)
+
+### nand · Erase: Reset the Charge Window of a Shared Block
+
+#### US7696559B2: Vertical String/Electron Tunneling
+
+A string topology with an unfolded local film section. Erase follows source-line raising and electron release, not an asserted GIDL hole mechanism.
+
+1. **Known Initial Charge** — Locate programmed charge and this variant’s exit. Q < 0; Vₜ ↑ Before the operation pulse
+2. **Establish the Required Field** — Terminal conditions belong only to the named variant. Q < 0 SL +V_E; BL/SG = FLT
+3. **Track Electron Transfer** — Electrons leave storage through this variant’s specified exit. Q → 0 SL +V_E; BL/SG = FLT
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↓ Low-field read verification
+
+- [ch-pat-nand-vertical: Toshiba: Columnar-Semiconductor Vertical NAND Patent US7696559B2](https://patents.google.com/patent/US7696559B2/en)
+- [ch-tech-nand: Kioxia: NAND Flash Memory Fundamentals](https://www.kioxia.com/en-jp/rd/technology/nand-flash.html)
+
+#### GIDL Assist: Hole Supply/Trap Neutralization
+
+A positive terminal above the select-gate potential generates electron–hole pairs. Only the upper supply is expanded; the other end depends on the example. Separate from the older floating-terminal erase.
+
+1. **Known Initial Charge** — Locate programmed charge and this variant’s exit. Q < 0; Vₜ ↑ Before the operation pulse
+2. **Establish the Required Field** — A positive terminal above the select gate separates electron–hole pairs and supplies channel holes. Q < 0 V_BL/SL > V_GIDL; WL = 0
+3. **Hole Supply and Neutralization** — Holes enter the trap layer and reduce net stored negative charge. Q → 0 V_BL/SL > V_GIDL; WL = 0
+4. **Remove High Field and Verify** — The state shifts toward its target window; residual charge and defects are not assumed absent. Vₜ ↓ Low-field read verification
+
+- [op-nand-hole-erase: KIOXIA: Schottky Source Contact and Hole Supply](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html)
+- [op-pat-nand-gidl: SanDisk: GIDL-Assisted 3D NAND Erase](https://patents.google.com/patent/US10923196B1/en)
+
+### nand · Read: Pass Unselected Cells and Sense the Selected Threshold
+
+#### US7696559B2: Vertical String/Electron Tunneling
+
+A string topology with an unfolded local film section. Erase follows source-line raising and electron release, not an asserted GIDL hole mechanism.
+
+1. **Stored State Retained** — Drawn stored carriers represent data, not the source of read current. Start with a low-threshold state Inspect the existing state
+2. **Apply Low-Field Read Bias** — Select the measured path and apply low-field read conditions. Charge remains in storage V_R; |V_DS| = v
+3. **Conduction Response** — A low-threshold selected cell and pass-biased neighbors permit BL discharge; electrons travel SL to BL. I_R ↑ Normal read field
+4. **Compare Sense Results** — Comparison branch: a high-threshold selected cell blocks the string; reading did not change its charge. Distinguishable read window V_R = const.
+
+- [ch-pat-nand-vertical: Toshiba: Columnar-Semiconductor Vertical NAND Patent US7696559B2](https://patents.google.com/patent/US7696559B2/en)
+- [ch-tech-nand: Kioxia: NAND Flash Memory Fundamentals](https://www.kioxia.com/en-jp/rd/technology/nand-flash.html)
+
+### toggle · Toggle MRAM · Write / SET
+
+#### Nearly balanced two-layer SAF; ordered-field teaching model
+
+Compare data before following H1, overlapping H1/H2, H2, and field removal; reading senses junction resistance.
+
+1. **Read and Confirm a Toggle Is Needed** — M1 starts parallel at low R to REF. A read/compare decision precedes toggling. Initial state retained H1 = H2 = 0
+2. **H1 Rises: Rotation Starts** — H1 alone starts spin-flop rotation of the SAF moments while they remain largely antiparallel. Coupled moments rotating H1 only
+3. **H1 and H2 Overlap** — H2 rises before H1 ends. The resultant field changes direction and both moments continue along the same rotational sense. Coupled moments rotating H1 and H2 overlap
+4. **Remove H1; Retain H2** — H1 falls first. H2 continues driving the moments beyond the hard-axis instability. Coupled moments rotating H2 only
+5. **Remove H2; Settle in the Opposite State** — After H2 falls, the moments return to the easy axis. M1 has reversed about 180°, reaching antiparallel high R. Opposite state retained H1 = H2 = 0
+
+- [EMG-P-TOGGLE: Motorola: Toggle Writing Patent US6545906B1](https://patents.google.com/patent/US6545906B1/en)
+
+### toggle · Toggle MRAM · Reverse Rewrite / RESET
+
+#### Nearly balanced two-layer SAF; ordered-field teaching model
+
+Compare data before following H1, overlapping H1/H2, H2, and field removal; reading senses junction resistance.
+
+1. **Read and Confirm a Toggle Is Needed** — M1 starts antiparallel at high R to REF. A read/compare decision precedes toggling. Initial state retained H1 = H2 = 0
+2. **H1 Rises: Rotation Starts** — H1 alone starts spin-flop rotation of the SAF moments while they remain largely antiparallel. Coupled moments rotating H1 only
+3. **H1 and H2 Overlap** — H2 rises before H1 ends. The resultant field changes direction and both moments continue along the same rotational sense. Coupled moments rotating H1 and H2 overlap
+4. **Remove H1; Retain H2** — H1 falls first. H2 continues driving the moments beyond the hard-axis instability. Coupled moments rotating H2 only
+5. **Remove H2; Settle in the Opposite State** — After H2 falls, the moments return to the easy axis. M1 has reversed about 180°, reaching parallel low R. Opposite state retained H1 = H2 = 0
+
+- [EMG-P-TOGGLE: Motorola: Toggle Writing Patent US6545906B1](https://patents.google.com/patent/US6545906B1/en)
+
+### toggle · Toggle MRAM · Read
+
+#### Nearly balanced two-layer SAF: resistance sensing from M1/REF alignment
+
+Compare retained P/AP states at the same small bias, latch the current difference, then remove bias while retaining each alignment.
+
+1. **Initial: Retained P and AP** — The two diagrams represent possible P and AP states. Their access paths are open and carry no read current. P and AP alignments remain retained Write fields and write currents are zero
+2. **Select: Establish Small Read Currents** — Close the access paths at the same small bias. P carries more current and AP less current. Magnetic states unchanged; read nodes carry current Small read bias; access paths enabled
+3. **Latch: Isolate and Retain Magnetization** — The sense circuit latches the current difference and removes read bias. Each magnetic alignment is retained. P and AP alignments remain retained Write fields and write currents are zero
+
+- [EMG-P-TOGGLE: Motorola: Toggle Writing Patent US6545906B1](https://patents.google.com/patent/US6545906B1/en)
+
+### stt · STT-MRAM · Write / SET
+
+#### Perpendicular MTJ: upper free layer / MgO / lower reference
+
+Separate conventional current from electron flow, then follow spin torque, free-layer reversal, and low-bias sensing.
+
+1. **Initial: Access Transistor Off** — mF starts parallel to REF; no current crosses the junction. Initial stable magnetization Write current is zero
+2. **Pulse: Spin Torque Deflects the Free Layer** — Enable WL. Electrons flow from upper free layer to lower REF. Orange Ic points oppositely while the free moment deflects. Free layer precessing/reversing WL enabled; write pulse through the MTJ
+3. **Pulse Removed: Opposite Magnetization Retained** — After current stops, mF settles in AP at high R while REF retains its direction. Opposite stable magnetization Write current is zero
+
+- [EMG-P-STT: IBM: Spin-Torque Structure Patent US5695864A](https://patents.google.com/patent/US5695864A/en)
+- [op-stt-katine-2000: Katine et al.: Current-Driven Reversal in Co/Cu/Co Pillars](https://arxiv.org/abs/cond-mat/9908231)
+
+### stt · STT-MRAM · Reverse Rewrite / RESET
+
+#### Perpendicular MTJ: upper free layer / MgO / lower reference
+
+Separate conventional current from electron flow, then follow spin torque, free-layer reversal, and low-bias sensing.
+
+1. **Initial: Access Transistor Off** — mF starts antiparallel to REF; no current crosses the junction. Initial stable magnetization Write current is zero
+2. **Pulse: Spin Torque Deflects the Free Layer** — Enable WL. Electrons flow from lower REF to upper free layer. Orange Ic points oppositely while the free moment deflects. Free layer precessing/reversing WL enabled; write pulse through the MTJ
+3. **Pulse Removed: Opposite Magnetization Retained** — After current stops, mF settles in P at low R while REF retains its direction. Opposite stable magnetization Write current is zero
+
+- [EMG-P-STT: IBM: Spin-Torque Structure Patent US5695864A](https://patents.google.com/patent/US5695864A/en)
+- [op-stt-katine-2000: Katine et al.: Current-Driven Reversal in Co/Cu/Co Pillars](https://arxiv.org/abs/cond-mat/9908231)
+
+### stt · STT-MRAM · Read
+
+#### Perpendicular MTJ: upper free layer / MgO / lower reference
+
+Enable low-bias sensing, compare P/AP junction currents, then latch and isolate the paths while retaining free-layer magnetization.
+
+1. **Initial: Retained P and AP** — The two diagrams represent possible P and AP states. Their access paths are open and carry no read current. P and AP alignments remain retained Write fields and write currents are zero
+2. **Select: Establish Small Read Currents** — Close the access paths at the same small bias. P carries more current and AP less current. Magnetic states unchanged; read nodes carry current Small read bias; access paths enabled
+3. **Latch: Isolate and Retain Magnetization** — The sense circuit latches the current difference and removes read bias. Each magnetic alignment is retained. P and AP alignments remain retained Write fields and write currents are zero
+
+- [EMG-P-STT: IBM: Spin-Torque Structure Patent US5695864A](https://patents.google.com/patent/US5695864A/en)
+- [op-stt-katine-2000: Katine et al.: Current-Driven Reversal in Co/Cu/Co Pillars](https://arxiv.org/abs/cond-mat/9908231)
+
+### sot · SOT-MRAM · Write / SET
+
+#### Three-terminal SOT/MTJ teaching structure with an assist field
+
+A lateral write line supplies spin injection; an independent upper terminal and MTJ branch provide sensing.
+
+1. **Initial: Upper MTJ Terminal Isolated** — The free layer retains its initial state. R is isolated, so write current need not cross the barrier. Magnetization retained or relaxing to equilibrium Read/write excitation off
+2. **Lateral Pulse and Spin Injection** — A calibrated W1/W2 pulse injects Js into the free layer. Explicit Hassist supplies symmetry breaking for this example. Free layer deflecting Lateral W1/W2 pulse and Hassist
+3. **Relaxation after Pulse Removal** — Turn off the lateral pulse. The free moment relaxes toward the target equilibrium under effective fields and damping. Magnetization retained or relaxing to equilibrium Read/write excitation off
+4. **Final: Opposite Magnetization** — The free layer settles in the opposite state. The write line carries no current, and the MTJ can be read independently later. Magnetization retained or relaxing to equilibrium Read/write excitation off
+
+- [EMG-SOT24: imec: Functional SOT-MRAM Arrays and Cache Research](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
+
+### sot · SOT-MRAM · Reverse Rewrite / RESET
+
+#### Three-terminal SOT/MTJ teaching structure with an assist field
+
+A lateral write line supplies spin injection; an independent upper terminal and MTJ branch provide sensing.
+
+1. **Initial: Upper MTJ Terminal Isolated** — The free layer retains its initial state. R is isolated, so write current need not cross the barrier. Magnetization retained or relaxing to equilibrium Read/write excitation off
+2. **Lateral Pulse and Spin Injection** — A calibrated W1/W2 pulse injects Js into the free layer. Explicit Hassist supplies symmetry breaking for this example. Free layer deflecting Lateral W1/W2 pulse and Hassist
+3. **Relaxation after Pulse Removal** — Turn off the lateral pulse. The free moment relaxes toward the target equilibrium under effective fields and damping. Magnetization retained or relaxing to equilibrium Read/write excitation off
+4. **Final: Opposite Magnetization** — The free layer settles in the opposite state. The write line carries no current, and the MTJ can be read independently later. Magnetization retained or relaxing to equilibrium Read/write excitation off
+
+- [EMG-SOT24: imec: Functional SOT-MRAM Arrays and Cache Research](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
+
+### sot · SOT-MRAM · Read
+
+#### Three-terminal SOT/MTJ: R→W2 sensing path with W1 isolated
+
+Sense from R through the MTJ and return via W2 while W1 stays isolated; latch and remove read current while retaining magnetization.
+
+1. **Retain: Write and Read Paths Isolated** — The illustrated P state is retained with R and W1 isolated; no holding current is required. Magnetization retained or relaxing to equilibrium Read/write excitation off
+2. **Read: Enable Only the MTJ Branch** — Read current passes from R through REF/barrier/free layer and returns via W2. W1 is isolated, so no W1→W2 write drive is applied. Magnetization retained or relaxing to equilibrium Only the R→W2 read branch
+3. **Latch: Read Current Removed** — After latching the sensed value, open the R branch and stop read current; the free-layer direction is retained. Magnetization retained or relaxing to equilibrium Read/write excitation off
+
+- [EMG-SOT24: imec: Functional SOT-MRAM Arrays and Cache Research](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
+
+### vcm · VCM ReRAM · Write / SET
+
+#### Bipolar oxide model with an oxygen-exchange upper interface
+
+Follow oxygen-ion exchange, oxygen-vacancy distribution, and a local gap through SET, RESET, and low-bias read.
+
+1. **High-R Initial State: Gap in the Path** — The plate begins in a formed, RESET high-R state. A locally oxidized gap interrupts the oxygen-deficient path. Gapped oxygen-deficient path TE and BE are equipotential
+2. **SET Bias: Oxygen Migrates Upward** — With the selected positive TE bias, O²− moves toward the upper exchange interface, leaving oxygen-deficient sites along the path. Gapped oxygen-deficient path Positive TE bias; BE at zero; current compliance enabled
+3. **Oxygen-Vacancy Path Connects** — The local vacancy-rich path connects and resistance falls. Ilim limits excessive path growth and Joule heating. Connected oxygen-deficient low-R path Positive TE bias; BE at zero; current compliance enabled
+4. **Bias Removed: Low Resistance Retained** — After SET bias is removed, the oxygen-deficient path remains connected without a holding voltage. Connected oxygen-deficient low-R path TE and BE are equipotential
+
+- [op-vcm-reservoir-2026: Yuan et al.: Controlled Oxygen-Reservoir Electrodes for WO₃ Memory](https://www.nature.com/articles/s43246-026-01143-8)
+- [EMG-P-VCM: HP: Multilayer Oxide Switching Patent US8331131B2](https://patents.google.com/patent/US8331131B2/en)
+
+### vcm · VCM ReRAM · Reverse Rewrite / RESET
+
+#### Bipolar oxide model with an oxygen-exchange upper interface
+
+Follow oxygen-ion exchange, oxygen-vacancy distribution, and a local gap through SET, RESET, and low-bias read.
+
+1. **Low-R Initial State: Vacancy Path Connected** — After SET, an oxygen-deficient region connects the electrodes and retains low resistance without bias. Low-R path with returning oxygen TE and BE are equipotential
+2. **Reverse Bias: Oxygen Ions Return** — Reversing TE bias in this model returns O²− from the exchange region toward the local path; arrows indicate oxygen-ion motion. Low-R path with returning oxygen Negative TE bias; BE at zero
+3. **Neck Reoxidation: A Gap Opens** — Oxygen reincorporation interrupts the narrowest path segment. The entire pre-existing path need not disappear. High-R state with a local gap Negative TE bias; BE at zero
+4. **Bias Removed: High Resistance Retained** — After RESET bias is removed, the local gap and residual oxygen-deficient regions remain for a later high-R read. High-R state with a local gap TE and BE are equipotential
+
+- [op-vcm-reservoir-2026: Yuan et al.: Controlled Oxygen-Reservoir Electrodes for WO₃ Memory](https://www.nature.com/articles/s43246-026-01143-8)
+- [EMG-P-VCM: HP: Multilayer Oxide Switching Patent US8331131B2](https://patents.google.com/patent/US8331131B2/en)
+
+### vcm · VCM ReRAM · Read
+
+#### Bipolar oxide model with an oxygen-exchange upper interface
+
+Follow oxygen-ion exchange, oxygen-vacancy distribution, and a local gap through SET, RESET, and low-bias read.
+
+1. **Initial: Two Possible Resistance States** — Left and right are the low- and high-resistance alternatives for one cell. Read bias has not yet been applied. Low-R and high-R structures retained Operation bias is zero
+2. **Small Bias: Compare Electronic Current** — Compare currents at the same small read bias, chosen to avoid appreciable ionic redistribution. Electronic sensing; ionic state approximately unchanged Small read bias; no SET or RESET pulse
+3. **After Latching: Remove Bias and Retain Structure** — After the sense circuit latches the difference, current stops. The connected low-R path and local high-R gap remain retained. Low-R and high-R structures retained Operation bias is zero
+
+- [op-vcm-reservoir-2026: Yuan et al.: Controlled Oxygen-Reservoir Electrodes for WO₃ Memory](https://www.nature.com/articles/s43246-026-01143-8)
+- [EMG-P-VCM: HP: Multilayer Oxide Switching Patent US8331131B2](https://patents.google.com/patent/US8331131B2/en)
+
+### ecm · ECM / CBRAM · Write / SET
+
+#### Active Ag upper electrode / solid ion conductor / inert lower electrode
+
+The active Ag electrode releases Ag+ by oxidation; ions drift to the cathode for reduction and nucleation, then the growing bridge connects before bias removal.
+
+1. **High-R Initial State: No Metal Bridge** — Upper Ag is the oxidizable metal source and lower BE is inert. Initially no metallic bridge spans the medium. Unconnected state Operation bias is zero
+2. **Ag Oxidation, Ion Drift, and Nucleation** — The Ag anode releases Ag+ and electrons. Ag+ drifts toward the cathode, where electrons reduce ions and initiate nucleation. Cathodic nucleation and metal growth Positive bias at upper Ag; SET current compliance
+3. **Cathodic Reduction: Metal Grows Upward** — Cathodic metal deposition extends toward the Ag electrode. This selected growth direction is not universal across ECM. Cathodic nucleation and metal growth Positive bias at upper Ag; SET current compliance
+4. **After Connection: Remove Bias and Retain the Bridge** — Current compliance limits bridge thickening. After connection and bias removal, the retained bridge supplies a low-R electronic path. Continuous silver bridge Operation bias is zero
+
+- [EMG-P-ECM: Axon: Programmable Metallization Cell Patent US5761115A](https://patents.google.com/patent/US5761115A/en)
+
+### ecm · ECM / CBRAM · Reverse Rewrite / RESET
+
+#### Active Ag upper electrode / solid ion conductor / inert lower electrode
+
+Apply reverse bias to a connected silver bridge, oxidize and dissolve its neck locally, then remove bias while retaining a high-R gap and residual metal.
+
+1. **Low-R Initial State: Silver Bridge Connected** — A continuous silver bridge forms a low-R electronic path. Ionic transport and electronic conduction are distinct. Connected or locally dissolving metal bridge Operation bias is zero
+2. **Reverse Bias: Neck Oxidizes and Dissolves** — Reverse bias oxidizes Ag at the bridge neck into Ag+. Released cations move toward the active electrode, now cathodic. Connected or locally dissolving metal bridge Negative bias at the upper Ag electrode
+3. **Bridge Interrupted: Residual Metal Remains** — A critical neck gap interrupts the metallic connection between electrodes while residual deposits can remain. High-R gap with residual metal Negative bias at the upper Ag electrode
+4. **Bias Removed: High-R Gap Retained** — After bias removal, the high-R gap remains. A later SET can use residual nucleation sites. High-R gap with residual metal Operation bias is zero
+
+- [EMG-P-ECM: Axon: Programmable Metallization Cell Patent US5761115A](https://patents.google.com/patent/US5761115A/en)
+
+### ecm · ECM / CBRAM · Read
+
+#### Active Ag upper electrode / solid ion conductor / inert lower electrode
+
+Compare low-bias currents for a retained metal bridge and a local gap; latch and remove read bias with the ionic structure approximately unchanged.
+
+1. **Initial: Two Possible Resistance States** — Left and right are the low- and high-resistance alternatives for one cell. Read bias has not yet been applied. Low-R and high-R structures retained Operation bias is zero
+2. **Small Bias: Compare Electronic Current** — Compare currents at the same small read bias, chosen to avoid appreciable ionic redistribution. Electronic sensing; ionic state approximately unchanged Small read bias; no SET or RESET pulse
+3. **After Latching: Remove Bias and Retain Structure** — After the sense circuit latches the difference, current stops. The connected low-R path and local high-R gap remain retained. Low-R and high-R structures retained Operation bias is zero
+
+- [EMG-P-ECM: Axon: Programmable Metallization Cell Patent US5761115A](https://patents.google.com/patent/US5761115A/en)
+
+### pcm · Phase-Change Memory · Write / SET
+
+#### Locally heated mushroom-type PCM principle cross-section
+
+Heat the amorphous cap into a crystallization-favorable region below Tm, dwell for nucleation and growth, then cool into a retained crystalline low-R state.
+
+1. **SET Start: Amorphous High Resistance** — The RESET-created amorphous cap A sits above the heater and increases cell resistance. Amorphous high R No heating pulse
+2. **Heat into the Crystallization Region and Dwell** — SET raises the local temperature into a crystallization-favorable region below Tm and maintains sufficient dwell time. Crystallization-temperature region SET dwell; Tx < T < Tm
+3. **Nuclei Grow: Amorphous Volume Crystallizes** — Thermally activated nucleation and grain growth reduce amorphous volume, governed by material and the temperature-time history. Nucleation and growth SET dwell; Tx < T < Tm
+4. **Cooled Final State: Crystalline Low Resistance** — Cooling leaves continuous crystalline material C and lower resistance. This thermal history differs from melt-quench RESET. Crystalline low R No heating pulse
+
+- [op-pcm-ibm-thermal-2016: Bakan et al.: Temperature Distribution during PCM Crystallization](https://research.ibm.com/publications/extracting-the-temperature-distribution-on-a-phase-change-memory-cell-during-crystallization)
+- [EMG-PCMDRIFT: IBM: Temporal Resistance Evolution in Projected PCM](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)
+
+### pcm · Phase-Change Memory · Reverse Rewrite / RESET
+
+#### Locally heated mushroom-type PCM principle cross-section
+
+A short strong pulse melts a local crystalline volume above Tm; a steep pulse fall rapidly quenches it into a retained amorphous cap and high resistance.
+
+1. **RESET Start: Crystalline Low Resistance** — The initial local phase-change volume is crystalline, with conduction through material above the heater. Crystalline low R No heating pulse
+2. **Strong Short Pulse: Local Temperature Exceeds Melting** — A short strong RESET pulse produces Joule heat, taking a local volume above Tm into liquid state L. Local liquid Short strong RESET pulse; T > Tm
+3. **Rapid Cooling: Prevent Full Crystallization** — A steep pulse fall rapidly quenches the molten volume. Insufficient time for crystal growth produces an amorphous cap. Rapid quench forming amorphous material Steep pulse fall; rapid quench
+4. **Cooled Final State: Amorphous High Resistance** — The amorphous cap A interrupts the low-R crystalline path and retains high resistance after cooling; no material is removed. Amorphous high R No heating pulse
+
+- [op-pcm-ibm-thermal-2016: Bakan et al.: Temperature Distribution during PCM Crystallization](https://research.ibm.com/publications/extracting-the-temperature-distribution-on-a-phase-change-memory-cell-during-crystallization)
+- [EMG-PCMDRIFT: IBM: Temporal Resistance Evolution in Projected PCM](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)
+
+### pcm · Phase-Change Memory · Read
+
+#### Locally heated mushroom-type PCM principle cross-section
+
+Compare crystalline and amorphous currents at a small read bias, then latch and remove bias while retaining phase; read temperature stays below the crystallization region.
+
+1. **Initial: Crystalline and Amorphous Alternatives** — C and A are alternative stored states of one cell. The local amorphous cap increases resistance. Crystalline and amorphous alternatives retained Zero bias
+2. **Low-Energy Read: Below the Crystallization Region** — At a small read bias, the crystalline state carries greater current. Read energy is chosen to avoid appreciable crystallization or melting. Crystalline and amorphous alternatives retained Small read bias; Tread below Tx
+3. **Current Latched: Original Phase Retained** — After latching the current difference, remove bias and retain each phase. Resistance can still drift with time, requiring sense margin. Crystalline and amorphous alternatives retained Zero bias
+
+- [op-pcm-ibm-thermal-2016: Bakan et al.: Temperature Distribution during PCM Crystallization](https://research.ibm.com/publications/extracting-the-temperature-distribution-on-a-phase-change-memory-cell-during-crystallization)
+- [EMG-PCMDRIFT: IBM: Temporal Resistance Evolution in Projected PCM](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)
+
+### feram · Capacitor FeRAM · Write P↑
+
+#### 1T1C: A PL-above-BL pulse writes P↑
+
+Enable WL and raise PL above BL to switch domains with an upward field; remove capacitor bias and isolate the cell to retain P↑.
+
+1. **Initial: Opposite Remanent Polarization** — The starting remanent polarization represents opposite data, with no voltage across the capacitor. Remanent polarization retained Capacitor terminals equipotential; WL=0
+2. **Apply a Capacitor Pulse: Domains Switch** — Enable access and set PL above BL. A pulse meeting the effective switching condition drives domains upward. Domains switching BL=0; PL=V; WL=1
+3. **Remove the Field: Target Polarization Retained** — Remove capacitor voltage and isolate the cell. Remanent polarization is retained; opposite data is directly rewritten without a block erase. Remanent polarization retained Capacitor terminals equipotential; WL=0
+
+- [EMG-P-FERAM: Ramtron: Self-Restoring Ferroelectric Memory Patent US4873664A](https://patents.google.com/patent/US4873664A/en)
+
+### feram · Capacitor FeRAM · Reverse Rewrite P↓
+
+#### 1T1C: A BL-above-PL pulse rewrites P↓
+
+Enable WL and raise BL above PL so a downward field rewrites P↑ as P↓; remove bias and isolate the cell to retain the opposite data.
+
+1. **Initial: Opposite Remanent Polarization** — The starting remanent polarization represents opposite data, with no voltage across the capacitor. Remanent polarization retained Capacitor terminals equipotential; WL=0
+2. **Apply a Capacitor Pulse: Domains Switch** — Enable access and set BL above PL. A pulse meeting the effective switching condition drives domains downward. Domains switching BL=V; PL=0; WL=1
+3. **Remove the Field: Target Polarization Retained** — Remove capacitor voltage and isolate the cell. Remanent polarization is retained; opposite data is directly rewritten without a block erase. Remanent polarization retained Capacitor terminals equipotential; WL=0
+
+- [EMG-P-FERAM: Ramtron: Self-Restoring Ferroelectric Memory Patent US4873664A](https://patents.google.com/patent/US4873664A/en)
+
+### feram · Capacitor FeRAM · Read and Restore
+
+#### 1T1C with external reference: two alternative initial-state branches
+
+Distinguish switching and non-switching charge, latch the read value, then restore polarization as PL falls while WL stays enabled.
+
+1. **Before Read: Two Possible Remanent Polarizations** — A and B represent two possible initial states of one 1T1C cell: P↑ or P↓. BL and PL are zero and WL is off. Two original polarization alternatives BL=PL=0; WL=0
+2. **PL Rises: Separate Switching and Non-Switching Charge** — Enable WL and raise PL to create an upward field. A contributes Qns without switching; B switches and adds Qsw, creating distinct BL signals. B switches; unequal charge signals PL rises to V; WL=1
+3. **Sense and Latch: Preserve the Original Data Decision** — The sense amplifier compares against an external reference and latches. In this convention A drives BL to zero and B to V; both presently have P↑. Original data latched; B requires restore SA drives BL; PL=V; WL=1
+4. **PL Falls with WL Enabled: Restore B** — Keep WL enabled while PL falls to zero. A sees no reverse field; B retains BL at V, creating a downward field that restores its original P↓. B restores under downward field PL falls to zero; WL=1
+5. **Isolate and Precharge: Original Polarization Retained** — After restore, turn WL off and precharge BL to zero. A and B retain their respective pre-read polarization; sensing plus restore completes the read. Both original polarizations retained WL=0, then BL precharge
+
+- [EMG-P-FERAM: Ramtron: Self-Restoring Ferroelectric Memory Patent US4873664A](https://patents.google.com/patent/US4873664A/en)
+
+### fefet · FeFET · Write / SET
+
+#### Simplified n-channel MFIS: gate / ferroelectric / interface layer / silicon
+
+Polarization changes channel-side bound charge and threshold voltage; sense channel current between the two Vt distributions.
+
+1. **Initial: Opposite Polarization and Threshold** — Initial P points away from the channel, corresponding to higher n-channel Vt. Remanent polarization and Vt retained Read/write bias removed
+2. **Gate Pulse: Polarization and Bound Charge Change** — The selected gate pulse drives P toward the channel, creating positive channel-side bound charge and lowering Vt. Polarization switching and Vt shift Gate write pulse relative to the channel
+3. **Remanent Polarization: New Threshold Retained** — After the pulse, remanent polarization retains the Vt shift. Opposite data is directly rewritten; not every trap-related Vt shift is assigned to polarization. Remanent polarization and Vt retained Read/write bias removed
+
+- [EMG-KIOXIA: KIOXIA: FeFET Trapping and Polarization Stability](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)
+
+### fefet · FeFET · Reverse Rewrite / RESET
+
+#### Simplified n-channel MFIS: gate / ferroelectric / interface layer / silicon
+
+Polarization changes channel-side bound charge and threshold voltage; sense channel current between the two Vt distributions.
+
+1. **Initial: Opposite Polarization and Threshold** — Initial P points toward the channel, corresponding to lower n-channel Vt. Remanent polarization and Vt retained Read/write bias removed
+2. **Gate Pulse: Polarization and Bound Charge Change** — The selected gate pulse drives P away from the channel, creating negative channel-side bound charge and raising Vt. Polarization switching and Vt shift Gate write pulse relative to the channel
+3. **Remanent Polarization: New Threshold Retained** — After the pulse, remanent polarization retains the Vt shift. Opposite data is directly rewritten; not every trap-related Vt shift is assigned to polarization. Remanent polarization and Vt retained Read/write bias removed
+
+- [EMG-KIOXIA: KIOXIA: FeFET Trapping and Polarization Stability](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)
+
+### fefet · FeFET · Read
+
+#### Simplified n-channel MFIS: gate / ferroelectric / interface layer / silicon
+
+Polarization changes channel-side bound charge and threshold voltage; sense channel current between the two Vt distributions.
+
+1. **Before Read: Polarization Sets a Threshold Window** — The illustrated low-Vt state has polarization toward silicon and positive bound charge favoring an n-channel. The alternative high-Vt curve is also shown below. Polarization and two-state Vt window Read/write bias removed
+2. **Sense: Gate Bias between Two Thresholds** — Use a small drain bias and Vg,r between Vt,L and Vt,H. Low Vt gives larger Id and high Vt smaller Id, flowing through the source-drain channel. Polarization and two-state Vt window Small Vd; Vt,L < Vg,r < Vt,H
+3. **Remove Read Bias: Polarization Remains** — Remove read bias after latching the decision. Polarization and the Vt window remain; actual read bias must control disturbance. Polarization and two-state Vt window Read/write bias removed
+
+- [EMG-KIOXIA: KIOXIA: FeFET Trapping and Polarization Stability](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)
+
+### ftj · Ferroelectric Tunnel Junction · Write / SET
+
+#### Named research stack: Cr/Au / BSO / n-type NSTO
+
+Compare interfacial accumulation/depletion, effective barrier, and low-bias current for opposite polarizations.
+
+1. **Initial: Original Polarization Sets the Interface** — Initial P points toward Cr/Au, giving NSTO depletion and high R. Remanent polarization and interface state Write bias removed
+2. **Write Field: Polarization Reverses and Screening Rearranges** — Write voltage is defined at Cr/Au relative to NSTO, driving P toward NSTO. Interfacial bound charge and electronic screening rearrange. Polarization and screening switching Write pulse at Cr/Au relative to NSTO
+3. **Final without Bias: Barrier Change Retained** — After write bias removal, remanent P retains interfacial accumulation and a smaller effective barrier. This polarization/resistance mapping is limited to the named research stack. Remanent polarization and interface state Write bias removed
+
+- [EMG-FTJ24: Original Research: Atomic-Scale BSO Ferroelectric Tunnel Junctions](https://www.nature.com/articles/s41467-024-44927-7)
+
+### ftj · Ferroelectric Tunnel Junction · Reverse Rewrite / RESET
+
+#### Named research stack: Cr/Au / BSO / n-type NSTO
+
+Compare interfacial accumulation/depletion, effective barrier, and low-bias current for opposite polarizations.
+
+1. **Initial: Original Polarization Sets the Interface** — Initial P points toward NSTO, giving electron accumulation and low R. Remanent polarization and interface state Write bias removed
+2. **Write Field: Polarization Reverses and Screening Rearranges** — Write voltage is defined at Cr/Au relative to NSTO, driving P toward Cr/Au. Interfacial bound charge and electronic screening rearrange. Polarization and screening switching Write pulse at Cr/Au relative to NSTO
+3. **Final without Bias: Barrier Change Retained** — After write bias removal, remanent P retains NSTO depletion and a higher, wider effective barrier. This polarization/resistance mapping is limited to the named research stack. Remanent polarization and interface state Write bias removed
+
+- [EMG-FTJ24: Original Research: Atomic-Scale BSO Ferroelectric Tunnel Junctions](https://www.nature.com/articles/s41467-024-44927-7)
+
+### ftj · Ferroelectric Tunnel Junction · Read
+
+#### Named research stack: Cr/Au / BSO / n-type NSTO
+
+Compare interfacial accumulation/depletion, effective barrier, and low-bias current for opposite polarizations.
+
+1. **Before Read: Compare Low- and High-R Barriers** — The coordinate runs Cr/Au→BSO→NSTO. The illustrated low-R initial state has P toward NSTO; U(x) is a qualitative barrier, not a measured band profile. Low-R branch: electron accumulation in NSTO Operation bias is zero
+2. **Low-R Read: Accumulation and a Smaller Barrier** — Positive interfacial bound charge for P toward NSTO attracts electron accumulation. At the same small read bias, the smaller barrier permits greater electronic current. Low-R branch: electron accumulation in NSTO Same small read bias
+3. **High-R Read: Depletion Adds an Effective Barrier** — This frame compares the alternative high-R initial state; reading does not turn low R into high R. Reverse P depletes NSTO, adding a barrier and reducing current. High-R comparison branch: NSTO depletion Same small read bias
+4. **Remove Bias and Latch: Polarization and Barrier Retained** — Latch after removing small read bias. The diagram returns to the low-R branch with polarization, accumulation, and barrier retained; the high-R branch likewise retains its state. Low-R branch: electron accumulation in NSTO Operation bias is zero
+
+- [EMG-FTJ24: Original Research: Atomic-Scale BSO Ferroelectric Tunnel Junctions](https://www.nature.com/articles/s41467-024-44927-7)
+
+## Original Patent Drawings and Claim Reading
+
+### US7417300B2 · Steer the programmed resistance change into a controlled region
+
+Compare the terminal and neck widths, then trace current crowding and the local thermal gradient. Geometry and material distribution are the design variables.
+
+![US7417300B2 Fig. 4 / 4A](../assets/專利原圖/US7417300B2-02.png)
+
+[Fig. 4 / 4A · PDF 4](https://patentimages.storage.googleapis.com/1e/7d/12/c3ce4fbb0c479a/US7417300B2.pdf#page=4)
+
+- 410 / 420 · Terminal regions, wider than the connecting fuse
+- 430 · Elongated fuse joining the terminals
+- 440 · Narrowed region within the terminal, distinct from the fuse link
+
+Claim 1 combines terminal narrowing, different silicide and polysilicon footprints, and unsilicided boundaries. Figure 4A explains the narrowing; the material and boundary requirements remain part of the claim.
+
+Compare the eFuse write sequence: current path → material redistribution → high resistance. Different fuse stacks need different physical failure models.
+
+### US8847350B2 · Control the programming location through partial via contact
+
+Follow the top-view metal link into the two via cross-sections. A smaller contact area concentrates current and local heating.
+
+![US8847350B2 Fig. 4A–4C](../assets/專利原圖/US8847350B2-05.png)
+
+[Fig. 4A–4C · PDF 6](https://patentimages.storage.googleapis.com/f0/e6/d1/93874e8e69ad3a/US8847350.pdf#page=6)
+
+- 410 / 420 · Anode and cathode terminals
+- 430 · Metal fuse link
+- 435 / 435A / 435B · Via plugs and contact portions; compare their overlap with the link
+
+Claim 1 requires a via end that lands only partly on the fuse link and specifies the connection between two metal layers. Dimensions, resistance and other conditions appear in dependent claims.
+
+Compare localized heating and separation in a metal-via fuse. Its material explanation differs from the silicide electromigration example.
+
+### US6667902B2 · Separate dielectric breakdown from array selection
+
+Locate the storage element and select transistor in Figure 3, then compare selected and unselected biases in Figure 8. The listed voltages belong to this embodiment.
+
+![US6667902B2 Fig. 3](../assets/專利原圖/US6667902B2-03.png)
+
+[Fig. 3 · PDF 5](https://patentimages.storage.googleapis.com/7a/76/35/6662110a53d9f3/US6667902.pdf#page=5)
+
+![US6667902B2 Fig. 8](../assets/專利原圖/US6667902B2-08.png)
+
+[Fig. 8 · PDF 10](https://patentimages.storage.googleapis.com/7a/76/35/6662110a53d9f3/US6667902.pdf#page=10)
+
+- 311 / 312 · Conductive storage gate and underlying thin gate dielectric
+- 313 · Active region participating in the post-breakdown current path
+- 111 / 115 · Adjacent device arrangement; read with the selection lines
+
+Claim 1 combines a MOS select transistor, a thin-dielectric storage element, and row-select, column-select and row-program lines. The breakdown cross-section alone does not capture the array connections.
+
+Compare antifuse operation: intact dielectric → selected high field → permanent conduction path, followed by low-stress sensing.
+
+### US4115914A · Provide charge transfer through a localized thin dielectric
+
+Identify the floating gate, localized thin region and upper control gate in the late process cross-sections. Thin-region placement and the second dielectric determine coupling and tunneling paths.
+
+![US4115914A Fig. 3h / 3i / 4](../assets/專利原圖/US4115914A-02.png)
+
+[Fig. 3h / 3i / 4 · PDF 4](https://patentimages.storage.googleapis.com/31/47/ab/e89f6659da690c/US4115914.pdf#page=4)
+
+- 54 · First dielectric containing the localized thin region
+- 56 · Insulated floating gate
+- 58 / 62 · Second dielectric and upper second gate
+
+Claim 1 is a fabrication method: active regions, a localized thin dielectric, floating gate, isolating second dielectric and second gate covering the channel. Its process requirements are more specific than a generic EEPROM sketch.
+
+Compare EEPROM FN injection and removal: both directions must pass through the actual thin dielectric region.
+
+### US5844271A · Couple a single-poly floating gate through a buried control node
+
+Find the overlap between the buried control region and floating gate, then use the equivalent circuit to distinguish coupling, storage and channel conduction.
+
+![US5844271A Fig. 4–7](../assets/專利原圖/US5844271A-01.png)
+
+[Fig. 4–7 · PDF 3](https://patentimages.storage.googleapis.com/1e/60/1a/e2aacc35ea296c/US5844271.pdf#page=3)
+
+- 32 · Buried n+ control-gate region
+- 36 · Single-poly floating gate
+- 40 / 42 / 44 · Source, drain and channel
+
+Claim 1 includes a buried control gate, coupled floating gate and a thin tunnel region spanning part of the channel and a junction, with inhibition of an unselected overerased cell. Claim 4 separately specifies a split-gate structure.
+
+Compare the single-poly variant: CHE injection and FN removal must match this structure, without inventing a second upper control-gate layer.
+
+### US6232180B1 · Control operation with source coupling, split gates and well bias
+
+Follow floating-gate formation in Figure 5 into the source/drain structure in Figure 6. Locate the select gate and tunnel oxide; the nested wells support separately controlled erase bias.
+
+![US6232180B1 Fig. 5 / 6](../assets/專利原圖/US6232180B1-02.png)
+
+[Fig. 5 / 6 · PDF 4](https://patentimages.storage.googleapis.com/bf/a4/72/d2d74438bd3c5f/US6232180.pdf#page=4)
+
+- 501 / 113 · Floating gate and select gate
+- 403 · Tunnel oxide toward the channel
+- 103 / 105 · Deep n-well and enclosed p-well
+
+Claim 1 specifies nested wells, select and floating gates, and a source acting as the control-coupling node. Claims 4–6 add particular erase and programming biases; these values do not define all split-gate NOR.
+
+Compare the third NOR variant: source-side injection and well/channel-side FN erase, separately from implementations that tunnel toward a select gate.
+
+### WO1981000790A1 · Add a blocking oxide between the charge-trapping layer and gate
+
+Read upward from silicon: thin memory oxide, silicon nitride, interfacial oxide and polysilicon gate. The drawing explains the dielectric stack.
+
+![WO1981000790A1 Fig. 1](../assets/專利原圖/WO1981000790A1-頁14.png)
+
+[Fig. 1 · PDF 14](https://patentimages.storage.googleapis.com/28/0b/c1/62d59b67395c82/WO1981000790A1.pdf#page=14)
+
+- 11 / 12 · Thin memory oxide and nitride trapping layer
+- 13 / 14 · Interfacial oxide and polysilicon gate
+- 16 / 17 / 18 · Substrate and source/drain regions
+
+Claim 1 specifies a CVD second oxide with a thickness range and an upper limit for the first oxide. Claim 6 covers fabrication. This early SONOS stack does not specify every later engineered tunneling stack.
+
+For SONOS operation, distinguish the lower tunnel oxide from the upper blocking oxide. Stored charge resides in the nitride.
+
+### US5768192A · Use localized trapping and reverse read to increase sensing contrast
+
+Compare the prior-art A panels with embodiment B panels. Trace the localized charge region and READ arrow; reading direction changes which end of the channel barrier controls current.
+
+![US5768192A Fig. 5A / 5B](../assets/專利原圖/US5768192A-02.png)
+
+[Fig. 5A / 5B · PDF 4](https://patentimages.storage.googleapis.com/59/3c/28/7e679959ef55fa/US5768192.pdf#page=4)
+
+![US5768192A Fig. 8A / 8B](../assets/專利原圖/US5768192A-04.png)
+
+[Fig. 8A / 8B · PDF 6](https://patentimages.storage.googleapis.com/59/3c/28/7e679959ef55fa/US5768192.pdf#page=6)
+
+- 14 / 16 · Source/drain labels; interpret them with the operating bias
+- 20 · Nonconducting nitride trapping layer
+- 24 / 68 · Control gate and localized stored-charge region
+
+Claim 1 combines localized electron trapping near the programming drain with different thresholds for reverse and forward read. The directional behavior is essential to the reading, beyond the ONO stack alone.
+
+Compare the localized NROM sequence: CHE stores electrons near one end, reverse read senses from the opposite direction, and BBHH erase is explained with its separate source.
+
+### US7696559B2 · Move the NAND string into a vertical gate stack
+
+In Figure 2, trace the silicon pillar from the common source to the bit line. Figure 6 unfolds the same structure into a string circuit, with select gates at both ends.
+
+![US7696559B2 Fig. 2](../assets/專利原圖/US7696559B2-02.png)
+
+[Fig. 2 · PDF 4](https://patentimages.storage.googleapis.com/79/10/3c/cc469fa1eed4fc/US7696559.pdf#page=4)
+
+![US7696559B2 Fig. 6](../assets/專利原圖/US7696559B2-05.png)
+
+[Fig. 6 · PDF 7](https://patentimages.storage.googleapis.com/79/10/3c/cc469fa1eed4fc/US7696559.pdf#page=7)
+
+- 21 · Stacked gate wiring, including memory and end-select gates
+- 3 / 4 · Charge-storage gate dielectric and silicon pillar
+- 7 / 11 · Upper bit line and lower common-source diffusion
+
+Claim 1 specifies gate stacks, sidewall dielectric containing an insulating storage layer, semiconductor pillars, data lines and upper/lower select gates. It describes a particular vertical NAND structure, not every modern cylindrical-hole array.
+
+Compare selected-word-line injection, pass biases and program inhibit. This patent’s source-side electron removal is shown separately from later GIDL hole-assisted erase.
+
+### US6545906B1 · Rotate coupled moments with overlapping field pulses
+
+Start with the two pulse waveforms in Figure 4, then follow the moments through Figures 5 and 6. The overlap interval and turn-off order are part of the operation.
+
+![US6545906B1 Fig. 3 / 4](../assets/專利原圖/US6545906B1-02.png)
+
+[Fig. 3 / 4 · PDF 3](https://patentimages.storage.googleapis.com/1e/95/11/99d21025b0f19c/US6545906.pdf#page=3)
+
+![US6545906B1 Fig. 5 / 6](../assets/專利原圖/US6545906B1-03.png)
+
+[Fig. 5 / 6 · PDF 4](https://patentimages.storage.googleapis.com/1e/95/11/99d21025b0f19c/US6545906.pdf#page=4)
+
+- 60 / 70 · Word-line and digit-line pulses
+- 100 · Complete overlapping write sequence
+- 40 / 53 / 57 · Resultant moment and antiferromagnetically coupled sublayer moments
+
+Claim 1 combines at least two antiferromagnetically coupled free layers, a moment-balance condition and pulse order t₀<t₁<t₂<t₃<t₄. Arbitrary orthogonal field pulses are not equivalent.
+
+Compare the five-frame Toggle sequence and initial-state check: apply a toggle when the stored bit needs to change.
+
+### US5695864A · Transfer spin angular momentum with current through the layers
+
+Figure 1 is a five-layer metallic-conductor model. Follow A→F1→B→F2→C to locate fixed and variable moments, then relate current to torque on F2.
+
+![US5695864A Fig. 1 / 2](../assets/專利原圖/US5695864A-00.png)
+
+[Fig. 1 / 2 · PDF 2](https://patentimages.storage.googleapis.com/f2/de/53/7c37f0c1e307e4/US5695864.pdf#page=2)
+
+- 10 · Five-layer spin-transfer device
+- F1 / F2 · Fixed-moment and changeable-moment magnetic layers
+- A / B / C · Outer electrodes and central nonmagnetic conductor; current crosses the layers
+
+Claim 1 specifies fixed and changeable magnetic conducting layers, a nonmagnetic conductor between them and a perpendicular current source. This early embodiment has a metallic spacer, rather than a modern MgO tunnel barrier.
+
+Use this patent for spin-transfer physics, then the modern STT-MRAM plates for P/AP resistance sensing and the tunnel barrier.
+
+### US10930843B2 · Integrate SOT write conductors and magnetic stacks into an array
+
+Trace the first horizontal wire through the magnetic stack to wiring in the other direction. Access transistors and crossing interconnect explain array integration beyond one MTJ.
+
+![US10930843B2 Fig. 3](../assets/專利原圖/US10930843B2-03.png)
+
+[Fig. 3 · PDF 5](https://patentimages.storage.googleapis.com/1b/15/5f/552c7b2be8d3cd/US10930843.pdf#page=5)
+
+- 102a / 102b · First conductive wires carrying the lateral write path
+- 108 / 110 / 112 · Magnetic storage, spacing and reference layers
+- 116 / 118 / 314 · Control transistors and second wiring set
+
+Claim 1 is a fabrication method covering isolated first wires, common device layers formed and separated above them, and second wires in another direction. The drawing explains connectivity; the claim centers on fabrication steps.
+
+Compare three-terminal SOT read/write separation. Preserve the control terminals rather than reducing them to the STT current path.
+
+### US8331131B2 · Control resistance switching through an intermediate state and second pulse
+
+Follow the Figure 5 cycle through mobile-species, barrier and conductive-region changes. The intermediate state has a physical location; it is not a single-step SET/RESET diagram.
+
+![US8331131B2 Fig. 5](../assets/專利原圖/US8331131B2-04.png)
+
+[Fig. 5 · PDF 5](https://patentimages.storage.googleapis.com/90/dd/5a/259ef8491b3d97/US8331131.pdf#page=5)
+
+- 507 · Mobile species
+- 502 / 506 / 510 · Initial, intermediate and changed states
+- 511 / 517 / 519 · Tunneling barriers in the different stages
+
+Claim 1 requires three intermediate layers and two pulses: accumulation in the first layer, then motion into the third to complete the change. This specific multilayer memristor scheme does not define all bipolar VCM.
+
+Compare species redistribution in VCM operation; this patent additionally shows how pulse sequencing introduces an intermediate state.
+
+### US5761115A · Reversibly grow a metal bridge inside an ion conductor
+
+Trace the dendrite in Figure 1’s plan and cross-section, then compare the vertical geometry in Figure 4. Figure 5 adds an insulating condition that prevents direct contact.
+
+![US5761115A Fig. 1A / 1B / 2 / 3](../assets/專利原圖/US5761115A-00.png)
+
+[Fig. 1A / 1B / 2 / 3 · PDF 3](https://patentimages.storage.googleapis.com/8e/2a/ba/50b37273a2724f/US5761115.pdf#page=3)
+
+![US5761115A Fig. 4A / 4B / 5A / 5B](../assets/專利原圖/US5761115A-01.png)
+
+[Fig. 4A / 4B / 5A / 5B · PDF 4](https://patentimages.storage.googleapis.com/8e/2a/ba/50b37273a2724f/US5761115.pdf#page=4)
+
+- 12 / 22 · Fast ion conductor containing metal ions
+- 13 / 14 / 23 / 24 · Biased electrodes; 23 denotes the cathode
+- 15 / 25 · Metal dendrite growing from the negative electrode
+
+Claim 1 covers an ion-containing conductor, electrodes and dendrite growth from negative toward positive. Claim 2 adds opposite-polarity reversal. Claim 3’s blocking condition is an additional limitation, not universal to all embodiments.
+
+Compare ECM metal oxidation, ion migration, reduction/deposition and reverse dissolution. The bridge is metallic, rather than an oxygen-vacancy filament.
+
+### US5912839A · Use cumulative pulses to reach distinguishable phase-change resistance states
+
+First inspect Figure 1’s nonmonotonic resistance versus pulse-current relationship, then the material/electrode structure in Figure 2. The plot lacks a complete measurement contract for current product specifications.
+
+![US5912839A Fig. 1](../assets/專利原圖/US5912839A-00.png)
+
+[Fig. 1 · PDF 2](https://patentimages.storage.googleapis.com/b9/d0/ac/dfd15bdaa20dc7/US5912839.pdf#page=2)
+
+![US5912839A Fig. 2](../assets/專利原圖/US5912839A-01.png)
+
+[Fig. 2 · PDF 3](https://patentimages.storage.googleapis.com/b9/d0/ac/dfd15bdaa20dc7/US5912839.pdf#page=3)
+
+- 36 · Phase-change memory material
+- 42 · Electrode grid structure
+- 46 · Insulation layer
+
+Claim 1 focuses on a program pulse insufficient for a single SET but effective cumulatively with later pulses. Claim 2 adds RESET; claim 3 adds a read method that counts extra pulses. This is more specific than generic PCM heating.
+
+Compare PCM temperature and phase-state sequences, then examine how this patent uses repeated stimulation for data encoding.
+
+### US4873664A · Restore ferroelectric data through the sensing circuit
+
+Trace the 1T1C cell along the bit line into the sense/restore circuit, then compare word-line and plate-line timing. After charge sensing, the latched result restores the original polarization.
+
+![US4873664A Fig. 3 / 4](../assets/專利原圖/US4873664A-01.png)
+
+[Fig. 3 / 4 · PDF 3](https://patentimages.storage.googleapis.com/33/4c/dd/c26b6f9525498b/US4873664.pdf#page=3)
+
+![US4873664A Fig. 5](../assets/專利原圖/US4873664A-02.png)
+
+[Fig. 5 · PDF 4](https://patentimages.storage.googleapis.com/33/4c/dd/c26b6f9525498b/US4873664.pdf#page=4)
+
+- 22 / 24 · Ferroelectric capacitor and access transistor
+- 32 / 68 · Word line and separate plate line
+- 64 · Sense amplifier, with reference cells providing a comparison
+
+Claim 1 specifies cell connections to word, bit and separate plate lines, with one capacitor electrode connected to the bit line through a switch. Claim 2 adds a sense amplifier and dummy ferroelectric reference cell.
+
+Compare both initial polarizations, switching-charge contrast, latching and write-back in the FeRAM read plates. Restoration is an explicit stage.
+
+### US10153155B2 · Form a ferroelectric film through alternating dopants and heat treatment
+
+Figures 1 and 2 compare three- and four-layer film arrangements. Identify the material and outer conducting layers, then read the distinct dopant layers and heating requirements in the process claim.
+
+![US10153155B2 Fig. 1 / 2](../assets/專利原圖/US10153155B2-01.png)
+
+[Fig. 1 / 2 · PDF 3](https://patentimages.storage.googleapis.com/14/31/15/bbdde795e5e4a4/US10153155.pdf#page=3)
+
+- 110 / 120 / 130 · First, second and third material layers
+- 112 / 114 · Outer conductive layers
+- 210 / 220 / 230 / 240 · Extended four-layer arrangement
+
+Claim 1 is a film-formation method involving three hafnium/oxygen layers, two different dopant layers, heating and conductive layers on both sides. The figure is not a complete FeFET bitcell and does not define its read channel.
+
+Use this source for FeFET material/process constraints. The next transistor-stack patent and operation plates cover the electrical device.
+
+### US11502083B2 · Integrate a ferroelectric film into a specific composite gate
+
+Read layers 31, 32, 33b, 34 and 35 upward from the substrate, then trace the junctions back to the channel. This stack includes a floating gate and is not the simplest metal/ferroelectric/silicon structure.
+
+![US11502083B2 Fig. 1](../assets/專利原圖/US11502083B2-01.png)
+
+[Fig. 1 · PDF 3](https://patentimages.storage.googleapis.com/26/68/6f/921a8116ea99d7/US11502083.pdf#page=3)
+
+- 31 / 32 · Buffer layer and floating-gate electrode
+- 33b / 34 / 35 · Hafnium-based ferroelectric, control gate and film-electrode layer
+- 5 / 6 / 71 · Source, drain and silicide contact
+
+Claim 1 details the relative positions of the composite gate, isolation, sidewalls, source/drain and silicide. The drawing teaches one implementation, rather than a universal FeFET stack.
+
+Compare polarization-controlled threshold shift in FeFETs. Distinguish material layers from electrical terminals to locate the applied field.
+
+### US20240057343A1 · Design tunneling states with a catalytic interface and thin ferroelectric layer
+
+Read the five-layer stack in Figure 3, then compare polarization-dependent barriers in Figure 5. Figures 15–18 connect memory stacks to transistors.
+
+![US20240057343A1 Fig. 3–5](../assets/專利原圖/US20240057343A1-03.png)
+
+[Fig. 3–5 · PDF 4](https://patentimages.storage.googleapis.com/82/23/f6/5dcf02a41aa96f/US20240057343A1.pdf#page=4)
+
+![US20240057343A1 Fig. 15–18](../assets/專利原圖/US20240057343A1-08.png)
+
+[Fig. 15–18 · PDF 9](https://patentimages.storage.googleapis.com/82/23/f6/5dcf02a41aa96f/US20240057343A1.pdf#page=9)
+
+- 210 / 220 · Bottom electrode and catalytic metal layer
+- 230 / 240 / 250 · Ferroelectric layer, tunneling dielectric and top electrode
+- 122 / 124 / 200 · Access gate, source/drain regions and memory cell
+
+This is a published application. Claim 1 combines a first electrode, ferroelectric material and contacting catalytic metal; claims 2–3 add particular electronegativity and thickness limits. The five-layer embodiment includes details beyond the independent claim.
+
+Compare FTJ polarization reversal and barrier changes, keeping this stack distinct from research devices using other electrodes and ferroelectrics.

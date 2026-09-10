@@ -1,0 +1,78 @@
+.nvm-engineering-operation{margin-top:24px;color:#16364d}
+.nvm-op-reading-key{padding:14px 18px;border-left:4px solid #14777a;background:#eef7f6;font-size:15px;line-height:1.65}
+.nvm-op-variant{margin:30px 0 40px!important;padding:0!important;border-top:2px solid #143e5b}
+.nvm-op-variant>header{padding:18px 0 16px}
+.nvm-op-method{font-size:12px!important;font-weight:700;letter-spacing:.07em;color:#236979!important;margin:0 0 8px!important}
+.nvm-op-variant h5,.nvm-patent-guide h4{font-size:23px;line-height:1.4;color:#102f48;margin:0 0 10px}
+.nvm-op-variant>header>p:last-child{font-size:16px;line-height:1.7;max-width:100ch}
+.nvm-op-frames{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.nvm-op-frames[data-frame-count="4"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+.nvm-op-frame{min-width:0;margin:0!important;background:#fff;border:1px solid #b8cbd7;border-radius:4px;display:flex;flex-direction:column;overflow:hidden}
+.nvm-op-frame-heading{display:flex;align-items:flex-start;gap:11px;padding:14px 14px 11px!important;color:#102f48;background:#f0f5f8;border-bottom:1px solid #d3e0e8}
+.nvm-op-frame-heading>span{font:700 15px/1.4 ui-monospace,monospace;padding-top:3px;color:#19697b}
+.nvm-op-frame-heading h6{font-size:17px;line-height:1.45;font-weight:650;margin:0}
+.nvm-op-drawing{padding:8px 3px;background:white}
+.nvm-op-drawing>svg{display:block;width:100%;height:auto;color:#14334b}
+.nvm-op-caption{padding:0 16px 12px;font-size:15px;line-height:1.65;flex:1}
+.nvm-op-caption>dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:5px 10px;margin:9px 0 12px;font-size:14px}
+.nvm-op-caption dt{font-weight:700;color:#225873}
+.nvm-op-caption dd{margin:0;overflow-wrap:anywhere}
+.nvm-op-caption p{font-size:15px!important;line-height:1.65!important;margin:8px 0!important}
+.nvm-figure-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px 14px;padding:12px 15px;border-top:1px solid #d8e3eb;font-size:13px;line-height:1.5}
+.nvm-figure-actions>button,.nvm-figure-actions>a{font:inherit;font-weight:650;border:0;background:transparent;color:#075c89;padding:8px 0;min-height:40px;text-align:left;cursor:pointer;text-underline-offset:3px}
+.nvm-figure-actions>button:hover,.nvm-figure-actions>a:hover{text-decoration:underline}
+.nvm-figure-actions>button:focus-visible,.nvm-figure-actions>a:focus-visible{outline:3px solid #1977a8;outline-offset:3px}
+.nvm-op-legend{display:flex;flex-wrap:wrap;gap:14px 26px;padding:16px 0;margin:0;border-bottom:1px solid #d8e3eb}
+.nvm-op-legend>div{display:flex;gap:10px;flex:1 1 250px;align-items:baseline}
+.nvm-op-legend dt{font:700 15px/1.5 ui-monospace,monospace;min-width:25px;color:#0b5277;flex:0 0 auto;white-space:nowrap}
+.nvm-op-legend dd{margin:0;font-size:14px;line-height:1.65}
+.nvm-op-caveat{font-size:14px!important;line-height:1.65!important;color:#395c70}
+.nvm-op-sources{display:flex;flex-wrap:wrap;gap:7px 16px;font-size:13px;line-height:1.7;padding:8px 0}
+.nvm-op-sources>strong{width:100%;color:#25485e}
+.nvm-op-sources>a{overflow-wrap:anywhere}
+.nvm-operation-text{margin-top:20px;background:#f5f8fa;border:1px solid #c6d6e0;padding:14px 18px}
+.nvm-operation-text>summary{cursor:pointer;font-weight:650;color:#1d5474}
+.nvm-operation-text .nvm-state-sequence{margin-top:20px}
+.nvm-patent-guide{color:#153950;margin:12px 0 22px}
+.nvm-patent-guide>header p{line-height:1.75}
+.nvm-patent-originals{display:grid;grid-template-columns:1fr;gap:22px}
+.nvm-patent-figure{margin:0!important;background:#fff;border:1px solid #c4d3dd;border-radius:4px;overflow:hidden;min-width:0}
+.nvm-patent-image{padding:20px;background:white}
+.nvm-patent-image svg{display:block;width:100%;height:auto;max-height:650px}
+.nvm-patent-figure>figcaption{border-top:1px solid #e0e8ed;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:13px 18px;color:#1c4057;font-size:14px;line-height:1.6}
+.nvm-patent-figure>figcaption strong{color:#102f48}
+.nvm-patent-reading{display:grid;grid-template-columns:.85fr 1.15fr;gap:30px;padding:24px 0 0}
+.nvm-patent-reading>section{margin:0!important;padding:0!important;min-width:0}
+.nvm-patent-reading h5{font-size:19px;margin:0 0 12px;color:#103b56}
+.nvm-patent-reading h5:not(:first-child){margin-top:28px}
+.nvm-patent-reading p{font-size:16px;line-height:1.75}
+.nvm-patent-callouts{display:block!important;margin:0!important}
+.nvm-patent-callouts>div{padding:11px 0;border-bottom:1px solid #d5e1e9;display:grid;grid-template-columns:100px minmax(0,1fr);gap:15px}
+.nvm-patent-callouts dt{font:700 14px/1.7 ui-monospace,monospace;color:#095b82}
+.nvm-patent-callouts dd{font-size:15px;line-height:1.7;margin:0}
+.nvm-patent-teaser{display:grid;grid-template-columns:1.05fr .95fr;gap:25px;align-items:start;border-top:2px solid #234f6b;padding:25px 0 32px;margin:25px 0}
+.nvm-patent-teaser h4{font-size:21px;line-height:1.45;margin:0 0 12px;color:#113e59}
+.nvm-patent-teaser p{font-size:15px;line-height:1.7}
+.nvm-patent-guide-link{display:inline-block;font-size:15px;font-weight:650;margin-top:7px;line-height:1.7}
+.nvm-engineering-dialog{border:1px solid #829fb2;border-radius:7px;padding:0;width:min(1250px,96vw);max-width:96vw;height:92dvh;max-height:92dvh;color:#14334a;background:#fff;box-shadow:0 25px 80px #001c3455}
+.nvm-engineering-dialog::backdrop{background:#071b30bc}
+.nvm-engineering-dialog[open]{display:flex;flex-direction:column}
+.nvm-engineering-dialog-head{display:flex;gap:20px;align-items:flex-start;padding:15px 20px;border-bottom:1px solid #bbcfdd;background:#eef4f8;flex:0 0 auto}
+.nvm-engineering-dialog-head h2{font-size:19px;line-height:1.45;margin:0;flex:1;color:#123e59}
+.nvm-engineering-dialog-head button{font-size:27px;color:#173e57;background:transparent;border:0;min-width:44px;min-height:44px;cursor:pointer}
+.nvm-engineering-dialog-body{overflow:auto;overscroll-behavior:contain;flex:1;min-height:0;padding:12px 18px 24px}
+.nvm-engineering-zoom-scroll{overflow:auto;border:1px solid #cfdee6;background:white;margin-bottom:18px;touch-action:pan-x pan-y;overscroll-behavior:contain}
+.nvm-engineering-zoom-scroll svg{display:block;width:100%;min-width:900px;max-width:none;height:auto;max-height:none}
+.nvm-engineering-zoom-scroll[data-original="true"] svg{min-width:1200px}
+.nvm-engineering-zoom-notes{font-size:16px;line-height:1.75}
+.nvm-engineering-zoom-notes dl{display:grid;grid-template-columns:max-content 1fr;gap:10px}
+.nvm-engineering-zoom-notes dd{margin:0}
+.nvm-engineering-zoom-hint{font-size:13px;margin:0 0 10px;color:#44677b}
+.nvm-engineering-zoom-toolbar{display:flex;justify-content:flex-end;margin-bottom:8px;font-size:14px;color:#214d67}
+.nvm-engineering-zoom-toolbar label{display:flex;align-items:center;gap:10px}
+.nvm-engineering-zoom-toolbar select{font:inherit;background:#fff;color:#163c55;border:1px solid #9ab4c5;padding:8px 12px;min-height:42px;border-radius:4px}
+.nvm-engineering-zoom-notes .nvm-op-legend{display:flex}
+.nvm-engineering-zoom-notes .nvm-patent-callouts{max-width:850px}
+@media(max-width:1180px){.nvm-op-frames{grid-template-columns:repeat(2,minmax(0,1fr))}.nvm-patent-teaser{grid-template-columns:1fr}.nvm-patent-teaser .nvm-patent-image svg{max-height:480px}}
+@media(max-width:760px){.nvm-op-frames,.nvm-op-frames[data-frame-count="4"],.nvm-patent-reading{grid-template-columns:1fr}.nvm-op-variant h5{font-size:21px}.nvm-op-frames{gap:20px}.nvm-op-frame-heading h6{font-size:18px}.nvm-op-drawing{padding:8px 0}.nvm-op-caption p{font-size:16px!important}.nvm-op-legend>div{flex-basis:100%}.nvm-patent-image{padding:8px}.nvm-patent-callouts>div{grid-template-columns:95px minmax(0,1fr);gap:12px}.nvm-engineering-dialog{width:97vw;max-width:97vw;height:95dvh;max-height:95dvh}.nvm-engineering-dialog-head{padding:12px}.nvm-engineering-dialog-head h2{font-size:17px}.nvm-engineering-dialog-body{padding:10px 10px 22px}}
+@media print{.nvm-figure-actions{display:none}.nvm-op-frame,.nvm-patent-figure{break-inside:avoid}.nvm-op-frames{grid-template-columns:repeat(2,minmax(0,1fr))}}

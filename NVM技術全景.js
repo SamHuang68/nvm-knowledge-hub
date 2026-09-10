@@ -21,6 +21,12 @@ function showRoute({ focus = false } = {}) {
   const panel = anchor?.matches('[data-nvm-panel]') ? anchor : anchor?.closest('[data-nvm-panel]');
   const next = panel || document.getElementById('panorama');
   panels.forEach(item => { item.hidden = item !== next; });
+  const operation = anchor?.matches('[data-operation-detail]') ? anchor : anchor?.closest('[data-operation-detail]');
+  if (operation) {
+    const widget = operation.closest('[data-operation-widget]');
+    widget.querySelectorAll('[data-operation-detail]').forEach(item => { item.hidden = item !== operation; });
+    widget.querySelectorAll('[data-operation-select]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.operationSelect===operation.dataset.operationDetail)));
+  }
   document.querySelectorAll('.nvm-sidebar a').forEach(link => {
     if (link.hash === `#${next.id}`) link.setAttribute('aria-current', 'page');
     else link.removeAttribute('aria-current');
@@ -58,7 +64,6 @@ document.addEventListener('keydown', event => {
   }
 });
 window.addEventListener('hashchange', () => showRoute({ focus: true }));
-showRoute({ focus: Boolean(location.hash) });
 
 document.querySelectorAll('[data-operation-widget]').forEach(widget => {
   widget.querySelectorAll('[data-operation-detail]').forEach((item, index) => { item.hidden = index > 0; });
@@ -66,9 +71,11 @@ document.querySelectorAll('[data-operation-widget]').forEach(widget => {
     button.addEventListener('click', () => {
       widget.querySelectorAll('[data-operation-select]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       widget.querySelectorAll('[data-operation-detail]').forEach(item => { item.hidden = item.dataset.operationDetail !== button.dataset.operationSelect; });
+      history.replaceState(null,'',`#${button.getAttribute('aria-controls')}`);
     });
   });
 });
+showRoute({ focus: Boolean(location.hash) });
 
 const filters = [...document.querySelectorAll('[data-topic-filter]')];
 const rows = [...document.querySelectorAll('[data-topic-row]')];

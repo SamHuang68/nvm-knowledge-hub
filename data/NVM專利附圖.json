@@ -1,0 +1,421 @@
+{
+  "schemaVersion": "1.0",
+  "classification": "Public",
+  "accessedAt": "2026-09-10",
+  "patents": [
+    {
+      "id": "US7417300B2",
+      "url": "https://patents.google.com/patent/US7417300B2/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/1e/7d/12/c3ce4fbb0c479a/US7417300B2.pdf",
+      "pdfSHA256": "b47c2630c47d21d0214af0492f25af69013a821b0785fd61136fd5c5c4d97635",
+      "figures": [
+        {
+          "index": 2,
+          "asset": "assets/專利原圖/US7417300B2-02.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/07/75/fd/44c9418dfb4e69/US07417300-20080826-D00002.png",
+          "width": 1609,
+          "height": 2314,
+          "sha256": "db69fc68563c1ada99b96bcf0c332e47fd8ba531603b8660d5255690788daead",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "CLM-00001"
+    },
+    {
+      "id": "US8847350B2",
+      "url": "https://patents.google.com/patent/US8847350B2/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/f0/e6/d1/93874e8e69ad3a/US8847350.pdf",
+      "pdfSHA256": "6aaf624e26db2859bb81a535de0c6f8490bd7b8232f469211013c72e5f6552c0",
+      "figures": [
+        {
+          "index": 5,
+          "asset": "assets/專利原圖/US8847350B2-05.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/34/a3/18/9092a7367d0ba9/US08847350-20140930-D00005.png",
+          "width": 1640,
+          "height": 2280,
+          "sha256": "bcde906996c1395fab71bd2c6d2ec4e496fcccb16808330449c7ccd1daa10ed9",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "CLM-00001"
+    },
+    {
+      "id": "US6667902B2",
+      "url": "https://patents.google.com/patent/US6667902B2/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/7a/76/35/6662110a53d9f3/US6667902.pdf",
+      "pdfSHA256": "9c0a99a9782524e2a71b8671e7eb34cc0a8596a95251737e9aadb7867e67ee6f",
+      "figures": [
+        {
+          "index": 3,
+          "asset": "assets/專利原圖/US6667902B2-03.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/82/88/13/a4df7386b44a3b/US06667902-20031223-D00003.png",
+          "width": 2225,
+          "height": 1270,
+          "sha256": "455ce33e58efd334417d2d7657b43452ccd5aa2490eb535f1261278954193aac",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        },
+        {
+          "index": 8,
+          "asset": "assets/專利原圖/US6667902B2-08.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/af/b0/02/fd8fdd331b2e1f/US06667902-20031223-D00008.png",
+          "width": 1972,
+          "height": 2656,
+          "sha256": "a707b4a000b5bdf1127c1fee64c7181b50ac6577e93437357a8fe0accba1e905",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "claims"
+    },
+    {
+      "id": "US4115914A",
+      "url": "https://patents.google.com/patent/US4115914A/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/31/47/ab/e89f6659da690c/US4115914.pdf",
+      "pdfSHA256": "8c6bef688eb252357ec79e7ec50f5b6d1c18f12da41d7d2f37cf433200232b76",
+      "figures": [
+        {
+          "index": 2,
+          "asset": "assets/專利原圖/US4115914A-02.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/12/33/e1/2cb8b66fa7f27d/US4115914-drawings-page-4.png",
+          "width": 2320,
+          "height": 3408,
+          "sha256": "dd6d59e174d5e2c4a13e81762eb51b67063d1183460a2b4b6b3e76a734193a7a",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "claims"
+    },
+    {
+      "id": "US5844271A",
+      "url": "https://patents.google.com/patent/US5844271A/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/1e/60/1a/e2aacc35ea296c/US5844271.pdf",
+      "pdfSHA256": "9a86696cfa7d63e4814a4cc4eb7685cd2d1858c9f0da827f2cb8336113a91e69",
+      "figures": [
+        {
+          "index": 1,
+          "asset": "assets/專利原圖/US5844271A-01.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/fa/4a/68/7a7c54b97561d6/US5844271-drawings-page-3.png",
+          "width": 2320,
+          "height": 3408,
+          "sha256": "b221cac47e3fbd65c9212156e6aa86e226a248b69af6cab5c5eec7ce936bb95e",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "claims"
+    },
+    {
+      "id": "US6232180B1",
+      "url": "https://patents.google.com/patent/US6232180B1/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/bf/a4/72/d2d74438bd3c5f/US6232180.pdf",
+      "pdfSHA256": "5bc956720b593340c417a5517ab62a9db311a17cfeb3ea8b22305793a747e10c",
+      "figures": [
+        {
+          "index": 2,
+          "asset": "assets/專利原圖/US6232180B1-02.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/b1/55/21/46c03d545b7e13/US6232180-drawings-page-4.png",
+          "width": 2320,
+          "height": 3408,
+          "sha256": "b4d03ede9c2f3f1640f4daad6e684fdc76f8c312afbff254047a98e731d97379",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "claims"
+    },
+    {
+      "id": "WO1981000790A1",
+      "url": "https://patents.google.com/patent/WO1981000790A1/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/28/0b/c1/62d59b67395c82/WO1981000790A1.pdf",
+      "pdfSHA256": "9b79ef9879328f6e13bec48d22e308a8afb92a81ff7e1079ad5ac8279b6f0d38",
+      "figures": [
+        {
+          "index": "頁14",
+          "asset": "assets/專利原圖/WO1981000790A1-頁14.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/28/0b/c1/62d59b67395c82/WO1981000790A1.pdf#page=14",
+          "width": 1190,
+          "height": 1684,
+          "sha256": "c613ce66a81264b4e7de5429f09bbfe24d954511271dff59f61e026b05fd744f",
+          "derivation": "PDF page rasterization at 144 dpi; original page retained"
+        }
+      ],
+      "claimsAnchor": "clm-0001"
+    },
+    {
+      "id": "US5768192A",
+      "url": "https://patents.google.com/patent/US5768192A/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/59/3c/28/7e679959ef55fa/US5768192.pdf",
+      "pdfSHA256": "adac5eaf2606b88dce8016253a311ce45e29cea4f3a3c0c8b67100e55828f325",
+      "figures": [
+        {
+          "index": 2,
+          "asset": "assets/專利原圖/US5768192A-02.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/c2/c9/0d/3e92be3d3e563f/US5768192-drawings-page-4.png",
+          "width": 2320,
+          "height": 3408,
+          "sha256": "cf07c9a594ee5feaff26ac29658c7d1a413c3825609a33123085cc71dae45e7b",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        },
+        {
+          "index": 4,
+          "asset": "assets/專利原圖/US5768192A-04.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/60/1c/a0/3e4147cc4984e9/US5768192-drawings-page-6.png",
+          "width": 2320,
+          "height": 3408,
+          "sha256": "5ab745fc4757499feee5b4236a0e9ca5d894b6663dd104dc8c9248da4e68e7c9",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "claims"
+    },
+    {
+      "id": "US7696559B2",
+      "url": "https://patents.google.com/patent/US7696559B2/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/79/10/3c/cc469fa1eed4fc/US7696559.pdf",
+      "pdfSHA256": "0b0c7d37e87048a7b15191cb406da157a753c45e7a6c1e5cd411fdd24e38d9c5",
+      "figures": [
+        {
+          "index": 2,
+          "asset": "assets/專利原圖/US7696559B2-02.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/64/6a/3d/0e37ed0d4905b2/US07696559-20100413-D00002.png",
+          "width": 1777,
+          "height": 2375,
+          "sha256": "a889cd52e9c8510e52b3dbffa1c63f1baa5e4d9098f9b7efdf13f4429bcf9fd3",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        },
+        {
+          "index": 5,
+          "asset": "assets/專利原圖/US7696559B2-05.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/37/b1/30/4526847ae152da/US07696559-20100413-D00005.png",
+          "width": 1847,
+          "height": 2393,
+          "sha256": "60dfdaa8e0699c7e4101068400897fa82be39219eabc85704a647ae7adaacef0",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "CLM-00001"
+    },
+    {
+      "id": "US6545906B1",
+      "url": "https://patents.google.com/patent/US6545906B1/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/1e/95/11/99d21025b0f19c/US6545906.pdf",
+      "pdfSHA256": "ae3fabdfea83ecfb9b13c73da1e94d495b0d44fdbf5712878a7ef6285d7f2348",
+      "figures": [
+        {
+          "index": 2,
+          "asset": "assets/專利原圖/US6545906B1-02.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/51/79/5d/9cc1ec58e864f6/US06545906-20030408-D00002.png",
+          "width": 2561,
+          "height": 3783,
+          "sha256": "ff6df4c3ba5dcdbe0aa6cab7a3ae6c07b7b27763c61b0c5ae8e62ff4fe87eee1",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        },
+        {
+          "index": 3,
+          "asset": "assets/專利原圖/US6545906B1-03.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/ca/44/a5/696add7f3b04fe/US06545906-20030408-D00003.png",
+          "width": 2882,
+          "height": 4262,
+          "sha256": "5982b79fc583d3cfaf080afe7d42e55724bdc576ca19136cdab48cb46452ba1f",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "claims"
+    },
+    {
+      "id": "US5695864A",
+      "url": "https://patents.google.com/patent/US5695864A/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/f2/de/53/7c37f0c1e307e4/US5695864.pdf",
+      "pdfSHA256": "0b81e247fd3eeecfdf18b9cc6b83d4376a593117fe089ff243a01f20a5933722",
+      "figures": [
+        {
+          "index": 0,
+          "asset": "assets/專利原圖/US5695864A-00.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/d5/c3/f7/acf89decac571d/US5695864-drawings-page-2.png",
+          "width": 2320,
+          "height": 3408,
+          "sha256": "afdb7a46edf66dedd4b13154a32f849ef3b6b81193136a5b9c00903cd6e41e93",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "claims"
+    },
+    {
+      "id": "US10930843B2",
+      "url": "https://patents.google.com/patent/US10930843B2/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/1b/15/5f/552c7b2be8d3cd/US10930843.pdf",
+      "pdfSHA256": "c07dcece4c78100144e33d7c1fdb66e64b6850eb548eb43cbaa1ef4f3b520a68",
+      "figures": [
+        {
+          "index": 3,
+          "asset": "assets/專利原圖/US10930843B2-03.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/2a/b4/68/4fb3c282faad7d/US10930843-20210223-D00003.png",
+          "width": 1762,
+          "height": 3043,
+          "sha256": "a96411aebda522093912692d133ccf7efef7275f6ae8a2c3bf840a7c1562ad98",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "CLM-00001"
+    },
+    {
+      "id": "US8331131B2",
+      "url": "https://patents.google.com/patent/US8331131B2/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/90/dd/5a/259ef8491b3d97/US8331131.pdf",
+      "pdfSHA256": "034e7f70066676c58ae67070bed569f0b5e5eccbafc8868cde75f74100d0060f",
+      "figures": [
+        {
+          "index": 4,
+          "asset": "assets/專利原圖/US8331131B2-04.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/15/34/96/9ffc0006ed2616/US08331131-20121211-D00004.png",
+          "width": 1879,
+          "height": 2542,
+          "sha256": "a3510cee59daeecefbe366a21ef92b162f98993c05baebecdce72ec3549014c4",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "CLM-00001"
+    },
+    {
+      "id": "US5761115A",
+      "url": "https://patents.google.com/patent/US5761115A/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/8e/2a/ba/50b37273a2724f/US5761115.pdf",
+      "pdfSHA256": "c9ab1089e6ac71e243bf52bdb9f77ea55155eb7de2ae1d2dfe8138df40647afe",
+      "figures": [
+        {
+          "index": 0,
+          "asset": "assets/專利原圖/US5761115A-00.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/c5/4b/da/a67c59749b4244/US5761115-drawings-page-3.png",
+          "width": 2320,
+          "height": 3408,
+          "sha256": "7d87a05d2b19684052c097199023ba9ed780c0dcc11e666b06ae70cd4ae6ced4",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        },
+        {
+          "index": 1,
+          "asset": "assets/專利原圖/US5761115A-01.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/fe/41/a2/b0f067916141e2/US5761115-drawings-page-4.png",
+          "width": 2320,
+          "height": 3408,
+          "sha256": "8b67eaeefc4c5b39a8391c3403859ea3509e420f744fc58bdc34ff8e2abc10ec",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "claims"
+    },
+    {
+      "id": "US5912839A",
+      "url": "https://patents.google.com/patent/US5912839A/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/b9/d0/ac/dfd15bdaa20dc7/US5912839.pdf",
+      "pdfSHA256": "8b30d5df0a0d9cbe529a52c4c3a5994ee89a580c3b5c3464165e643b4c0cfc04",
+      "figures": [
+        {
+          "index": 0,
+          "asset": "assets/專利原圖/US5912839A-00.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/b3/cb/70/7f77078e581b14/US5912839-drawings-page-2.png",
+          "width": 2320,
+          "height": 3408,
+          "sha256": "3b23a54e74b20397b10520826e107eff5fef57fbbe96dec9fdb93730170d8642",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        },
+        {
+          "index": 1,
+          "asset": "assets/專利原圖/US5912839A-01.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/0c/6f/b2/44466d7509968f/US5912839-drawings-page-3.png",
+          "width": 2320,
+          "height": 3408,
+          "sha256": "7361309fb9a64b7d798b58f4e5a1eab9c7b961f3ff3c0fe06387b0cea7bbf3ec",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "claims"
+    },
+    {
+      "id": "US4873664A",
+      "url": "https://patents.google.com/patent/US4873664A/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/33/4c/dd/c26b6f9525498b/US4873664.pdf",
+      "pdfSHA256": "e61f54ff1bde26e517ef9d1f176efe36d288417b01d263a27b77f1c94b633c34",
+      "figures": [
+        {
+          "index": 1,
+          "asset": "assets/專利原圖/US4873664A-01.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/53/64/3a/1b67fbecee17d1/US4873664-drawings-page-3.png",
+          "width": 2320,
+          "height": 3408,
+          "sha256": "f33c6841a8d899525de8e291ed71ab171f32478c8c8d46dd4ba09456a51a4906",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        },
+        {
+          "index": 2,
+          "asset": "assets/專利原圖/US4873664A-02.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/e5/75/0d/65c6dc4f8c3062/US4873664-drawings-page-4.png",
+          "width": 2320,
+          "height": 3408,
+          "sha256": "87242a0b8416d67440cf6feddbe6ef6108b32cd58671790d2293c6244e15347c",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "claims"
+    },
+    {
+      "id": "US10153155B2",
+      "url": "https://patents.google.com/patent/US10153155B2/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/14/31/15/bbdde795e5e4a4/US10153155.pdf",
+      "pdfSHA256": "93a9edbb031bce82e5344fffbc5135fac22d0974c3826339d5aae07b79a34fdc",
+      "figures": [
+        {
+          "index": 1,
+          "asset": "assets/專利原圖/US10153155B2-01.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/ab/a3/87/9508786407df82/US10153155-20181211-D00001.png",
+          "width": 1816,
+          "height": 2066,
+          "sha256": "0263bd83de135a66fd51299e0fd37d66154ee978fd20c57fbb6d484d05d01cb0",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "CLM-00001"
+    },
+    {
+      "id": "US11502083B2",
+      "url": "https://patents.google.com/patent/US11502083B2/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/26/68/6f/921a8116ea99d7/US11502083.pdf",
+      "pdfSHA256": "de83f8538a14d08540dd7bcc264981d34da5585a0eba0c11fc0ad630a31c9972",
+      "figures": [
+        {
+          "index": 1,
+          "asset": "assets/專利原圖/US11502083B2-01.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/67/28/26/419e4806fbfccf/US11502083-20221115-D00001.png",
+          "width": 1195,
+          "height": 972,
+          "sha256": "9190eed298b295500e0f7abb45ed6c10c3b1bdaaf142f9888bd765b598ae7503",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "CLM-00001"
+    },
+    {
+      "id": "US20240057343A1",
+      "url": "https://patents.google.com/patent/US20240057343A1/en",
+      "pdfUrl": "https://patentimages.storage.googleapis.com/82/23/f6/5dcf02a41aa96f/US20240057343A1.pdf",
+      "pdfSHA256": "624cfc9aa755f7ed4a58e8aadb724bce76b28675e4ab5dfd4c00e18f3c7e8a3e",
+      "figures": [
+        {
+          "index": 3,
+          "asset": "assets/專利原圖/US20240057343A1-03.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/b4/94/5b/d7075f4a246b4b/US20240057343A1-20240215-D00003.png",
+          "width": 1859,
+          "height": 1728,
+          "sha256": "b99d9dd463005b020a9d12bf0d4bc54bf16aef376e373214ff1ae17209fcffb0",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        },
+        {
+          "index": 8,
+          "asset": "assets/專利原圖/US20240057343A1-08.png",
+          "originalUrl": "https://patentimages.storage.googleapis.com/03/07/1a/19e6c536045a94/US20240057343A1-20240215-D00008.png",
+          "width": 1882,
+          "height": 2001,
+          "sha256": "8dc5936f2fd5f6b4bfecf1378cf75965cee25f9c593dcb0bc75b4df637ba8101",
+          "derivation": "Original public patent drawing; bytes unchanged"
+        }
+      ],
+      "claimsAnchor": "CLM-00001"
+    }
+  ]
+}

@@ -653,7 +653,7 @@ Toggle 序列執行一次會翻轉原狀態。若目標與原值相同，應跳�
 ### 來源
 
 - [EMG-SEC：Everspin 2025 年度產品與製造申報](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
-- [EMG-P-TOGGLE：Motorola Toggle MRAM 操作專利](https://patents.google.com/patent/US6545906B1/en)
+- [EMG-P-TOGGLE：Motorola：Toggle 寫入專利 US6545906B1](https://patents.google.com/patent/US6545906B1/en)
 
 ## STT-MRAM：讓自旋電流穿過接面
 
@@ -744,7 +744,7 @@ MTJ 直徑、障壁厚度、磁異向性與參考層特性會造成阻值及臨�
 - [EMG-SEC：Everspin 2025 年度產品與製造申報](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
 - [EMG-XSPI：Everspin 64Mb 高可靠度 xSPI 生產認證](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
 - [EMG-RA8：Renesas RA8M2／RA8D2 嵌入式 MRAM MCU](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)
-- [EMG-P-STT：IBM 自旋轉矩儲存結構專利](https://patents.google.com/patent/US5695864A/en)
+- [EMG-P-STT：IBM：自旋力矩結構專利 US5695864A](https://patents.google.com/patent/US5695864A/en)
 
 ## SOT-MRAM：分開讀取與寫入路徑
 
@@ -833,7 +833,7 @@ SOT 把主要寫入電流移出 MTJ，為什麼巨集面積仍可能比 STT 大�
 ### 來源
 
 - [EMG-SOT23：imec 極縮 SOT-MRAM 元件展示](https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually)
-- [EMG-SOT24：imec SOT-MRAM 功能陣列與快取研究](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
+- [EMG-SOT24：imec：SOT-MRAM 功能陣列與快取研究](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
 - [EMG-P-SOT：Spin Memory 可縮放 SOT 元件製程專利](https://patents.google.com/patent/US10930843B2/en)
 - [EMG-TSMC-SOT：台積電 2025 年報：Type-C SOT-MRAM 研究](https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf)
 
@@ -924,7 +924,7 @@ RESET 是局部阻態轉換，不是 Flash 式區塊抹除；極性、熱作用�
 ### 來源
 
 - [EMG-VCM08：金屬／氧化物／金屬元件的電阻切換機制](https://www.nature.com/articles/nnano.2008.160)
-- [EMG-P-VCM：HP 多層電阻切換與中間態脈衝專利](https://patents.google.com/patent/US8331131B2/en)
+- [EMG-P-VCM：HP：多層氧化物切換專利 US8331131B2](https://patents.google.com/patent/US8331131B2/en)
 - [EMG-DBH：Weebit／DB HiTek 技術資格與產品導入](https://www.weebit-nano.com/news/press-releases/weebit-nano-signs-largest-customer-to-date-technology-qualified-at-db-hitek/)
 - [EMG-S130：Weebit SkyWater S130 可靠性驗證](https://www.weebit-nano.com/wp-content/uploads/2025/11/251124.-2025-Annual-General-Meeting-%E2%80%93-Chair-Address-and-CEO-Presentation.pdf)
 
@@ -1015,7 +1015,7 @@ RESET 常只溶解橋的局部，介質仍留有金屬與成核點。這些殘�
 ### 來源
 
 - [EMG-ADESTO：Adesto 2019 年度 CBRAM 商用出貨申報](https://www.sec.gov/Archives/edgar/data/1395848/000155837020002795/iots-20191231x10k.htm)
-- [EMG-P-ECM：Axon 可程式金屬化單元專利](https://patents.google.com/patent/US5761115A/en)
+- [EMG-P-ECM：Axon：可程式化金屬化單元專利 US5761115A](https://patents.google.com/patent/US5761115A/en)
 
 ## PCM：用熱歷程控制晶相
 
@@ -1105,7 +1105,7 @@ RESET 需要控制峰值、時間與冷卻速度。它是相變元件的狀態�
 
 - [EMG-STPCM：ST Stellar SR6P6C8 相變記憶體 MCU](https://www.st.com/en/automotive-microcontrollers/sr6p6c8.html)
 - [EMG-P-PCM：相變記憶體多階程式化專利](https://patents.google.com/patent/US5912839A/en)
-- [EMG-PCMDRIFT：IBM 投影式 PCM 電阻的時間演變](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)
+- [EMG-PCMDRIFT：IBM：投影式 PCM 電阻的時間演變](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)
 - [EMG-PCMEND：IBM PCM 循環耐久度與原子遷移](https://research.ibm.com/publications/phase-change-memory-cycling-endurance)
 - [EMG-PCMPROJ：IBM 低漂移投影式 PCM 元件](https://research.ibm.com/publications/design-of-projected-phase-change-memory-mushroom-cells-for-low-resistance-drift)
 
@@ -1196,7 +1196,7 @@ FeRAM 已能在斷電後保留資料，為什麼讀取仍可能需要寫回？
 ### 來源
 
 - [EMG-FRAM：Infineon 16Mb EXCELON F-RAM 資料表](https://www.infineon.com/assets/row/public/documents/10/49/infineon-cy15b116qi-cy15v116qi-16mb-excelon-tm-lp-ferroelectric-ram-f-ram-datasheet-en.pdf)
-- [EMG-P-FERAM：Ramtron 自動恢復鐵電記憶體專利](https://patents.google.com/patent/US4873664A/en)
+- [EMG-P-FERAM：Ramtron：自還原鐵電記憶體專利 US4873664A](https://patents.google.com/patent/US4873664A/en)
 
 ## FeFET：把極化轉成臨界電壓差
 
@@ -1285,7 +1285,7 @@ FeFET 的臨界電壓漂移，為什麼不能全部當成極化變弱？
 
 ### 來源
 
-- [EMG-KIOXIA：KIOXIA FeFET 電荷捕獲與極化穩定研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)
+- [EMG-KIOXIA：KIOXIA：FeFET 陷阱與極化穩定性研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)
 - [EMG-FEPUF：FeFET 循環變異與電荷域 PUF 原始研究](https://www.nature.com/articles/s41467-024-55380-x)
 - [EMG-FMC：FMC 產業新聞與鐵電記憶體分類](https://www.ferroelectric-memory.com/industry-news/)
 - [EMG-P-HFO：分層摻雜 HfO₂ 鐵電薄膜專利](https://patents.google.com/patent/US10153155B2/en)
@@ -1377,7 +1377,7 @@ FTJ 的高低阻比很大，為什麼仍可能讀得慢？
 
 ### 來源
 
-- [EMG-FTJ24：原子尺度 FTJ 電阻比與循環原始研究](https://www.nature.com/articles/s41467-024-44927-7)
+- [EMG-FTJ24：原始研究：原子尺度 BSO 鐵電穿隧接面](https://www.nature.com/articles/s41467-024-44927-7)
 - [EMG-P-FTJ：台積電 FTJ 結構與低溫形成公開案](https://patents.google.com/patent/US20240057343A1/en)
 
 ## 晶圓代工年度路線圖
@@ -1776,7 +1776,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [INTRO-IRDS：IEEE 2024 IRDS：超越 CMOS 與新興研究材料](https://irds.ieee.org/images/files/pdf/2024/2024IRDS_BC.pdf)。技術路線評估；2024；定位：第 2 節與第 2.5 節；限制：技術評估與目標不是具名產品量產或共同量測條件下的排名。
 - [ch-pat-efuse-poly：IBM：局部窄化電熔絲專利 US7417300B2](https://patents.google.com/patent/US7417300B2/en)。專利；2008-08-26 公告；2026-09-10 查核；定位：圖 3、4A；實施例的電遷移與材料回流說明；權利項 1；限制：支持特定多晶矽／矽化物熔絲結構與技術問題；專利實施例不等於商用產品可靠度保證，亦不代表所有 eFuse 的材料與狀態轉換都相同。
 - [ch-pat-efuse-via：台積電：金屬導孔熔絲專利 US8847350B2](https://patents.google.com/patent/US8847350B2/en)。專利；2014-09-30 公告；2026-09-10 查核；定位：圖 1、5A；電流聚集與導孔接觸位置段落；權利項 1；限制：支持特定互連層幾何及程式化方法；不提供跨製程的通用寫入電流、面積或量產良率。
-- [ch-pat-antifuse：Kilopass：超薄介電層崩潰單元專利 US6667902B2](https://patents.google.com/patent/US6667902B2/en)。專利；2003-12-23 公告；2026-09-10 查核；定位：圖 1、3、8 對應說明、受選／半選偏壓與讀電流段落；圖 12–15 延伸結構；限制：本教材的 2.5 V、7 V 與 1.5 V 只屬此早期實施例；不得移用為現行 OTP IP 的操作建議，也不得從該專利推定所有商用單元拓撲。
+- [ch-pat-antifuse：Kilopass：超薄介電層崩潰單元專利 US6667902B2](https://patents.google.com/patent/US6667902B2/en)。專利；2003-12-23 公告；2026-09-10 查核；定位：圖 1、3、8：選擇、寫入與讀取；圖 12–15：應力與崩潰特性曲線；限制：本教材的 2.5 V、7 V 與 1.5 V 只屬此早期實施例；不得移用為現行 OTP IP 的操作建議，也不得從該專利推定所有商用單元拓撲。
 - [ch-pat-eeprom-window：休斯飛機公司：局部穿隧窗口 EEPROM 專利 US4115914A](https://patents.google.com/patent/US4115914A/en)。專利；1978-09-26 公告；2026-09-10 查核；定位：原始公報首頁；圖 3i、6；權利項 2、9；優先權鏈中的母案；限制：1976-03-26 是所見母案日期，本案於 1977 年提出；最早優先權鏈不等於每一權利項的法律有效優先權判斷。
 - [ch-pat-eeprom-singlepoly：賽普拉斯：埋入式控制閘極單層多晶矽 EEPROM 專利 US5844271A](https://patents.google.com/patent/US5844271A/en)。專利；1998-12-01 公告；2026-09-10 查核；定位：圖 3–6；埋入控制電極、厚薄氧化層及操作說明；權利項 1；限制：示範一種單層多晶矽 EEPROM；不可據此聲稱新思科技現行 MTP 採用本案結構或同一熱電子／穿隧路徑。
 - [ch-pat-nor-splitgate：世大積體電路／台積電：分離閘極快閃專利 US6232180B1](https://patents.google.com/patent/US6232180B1/en)。專利；2001-05-15 公告；2026-09-10 查核；定位：1999 與 2000 年受讓紀錄；圖 6 與操作表；權利項 4、6；限制：本案採源極側注入及通道抹除；不可把操作表與 SuperFlash 的閘極間 FN 抹除混在同一張剖面圖。彙整書目的受讓人欄位須與時間軸交叉讀取。
@@ -1807,22 +1807,22 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [EMG-FRAM：Infineon 16Mb EXCELON F-RAM 資料表](https://www.infineon.com/assets/row/public/documents/10/49/infineon-cy15b116qi-cy15v116qi-16mb-excelon-tm-lp-ferroelectric-ram-f-ram-datasheet-en.pdf)。原廠資料表；2022-05-25；查閱 2026-09-10；定位：Rev. C；第 1、7、27、30–31 頁；限制：商規工作溫度、保存溫度與 SPI 時脈須分開；不能把商用 F-RAM 耐久度套到 FeFET／FTJ。
 - [EMG-ADESTO：Adesto 2019 年度 CBRAM 商用出貨申報](https://www.sec.gov/Archives/edgar/data/1395848/000155837020002795/iots-20191231x10k.htm)。公司監管申報；2020；查閱 2026-09-10；定位：CBRAM 產品與商業出貨段落；限制：歷史出貨證據；尚未核實 2026 年原型號持續供貨。
 - [EMG-SOT23：imec 極縮 SOT-MRAM 元件展示](https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually)。研究機構公告；2023-12-13；查閱 2026-09-10；定位：300mm 晶圓與約 50nm 元件實驗；限制：摘要未列完整脈衝、溫度、樣本及錯誤率矩陣；元件能量不等於巨集能量。
-- [EMG-SOT24：imec SOT-MRAM 功能陣列與快取研究](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)。研究機構技術文章；2024-12-16；查閱 2026-09-10；定位：功能陣列、製程損傷與磁場影響；附原始論文書目；限制：陣列研究展示，不能視為已量產末級快取。
-- [EMG-KIOXIA：KIOXIA FeFET 電荷捕獲與極化穩定研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)。原廠研究說明；未標示發布日期；查閱 2026-09-10；定位：金屬摻雜介面層；對應 IEDM 2023 論文。2023 是會議年，網頁發布日未明。；限制：研究機制與特定堆疊的取捨；不是所有 FeFET 共同規格。
-- [EMG-FTJ24：原子尺度 FTJ 電阻比與循環原始研究](https://www.nature.com/articles/s41467-024-44927-7)。原始研究論文；2024；查閱 2026-09-10；定位：材料結構、SET／RESET 條件與可靠性圖；限制：研究元件數值須連同堆疊及操作條件，不代表量產 FTJ。
+- [EMG-SOT24：imec：SOT-MRAM 功能陣列與快取研究](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)。研究機構技術文章；2024-12-16；定位：三端 SOT 結構、獨立讀寫路徑與磁場需求；限制：研究機制，不代表 SOT 已量產；此圖明示輔助場，未宣稱無外加磁場切換。
+- [EMG-KIOXIA：KIOXIA：FeFET 陷阱與極化穩定性研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)。原廠原始研究說明；2024-04-09；定位：圖 1–3；IEDM 2023 參考文獻；極化、陷阱電荷與記憶視窗；限制：本文使用簡化 n 通道 MFIS 電靜力示意，並未複製金屬摻雜 TCIL 製程。
+- [EMG-FTJ24：原始研究：原子尺度 BSO 鐵電穿隧接面](https://www.nature.com/articles/s41467-024-44927-7)。原始研究論文；2024；定位：圖 3a/3b：Cr/Au–BSO–NSTO 的極化、累積／耗盡與能障；限制：P 指向 NSTO 的低阻關係只用於這個具名結構；HRS 可能包含熱輔助穿隧。
 - [EMG-VCM08：金屬／氧化物／金屬元件的電阻切換機制](https://www.nature.com/articles/nnano.2008.160)。原始研究論文；2008-06-15；查閱 2026-09-10；定位：摘要與可讀圖說；限制：主文受訂閱限制；本研究不假稱取得所有實驗細節。
-- [EMG-PCMDRIFT：IBM 投影式 PCM 電阻的時間演變](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)。原始論文登錄與摘要；2020-05-19；查閱 2026-09-10；定位：Scientific Reports；狀態依賴與投影支路；限制：使用原作者摘要與研究說明；未將未讀到的細節補成量測數字。
+- [EMG-PCMDRIFT：IBM：投影式 PCM 電阻的時間演變](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)。作者機構原始論文紀錄；2020-05-19；定位：摘要：狀態相依電阻與時間漂移；限制：僅支持讀取漂移提醒；此處沒有把投影支路畫成一般 PCM 的必要構件。
 - [EMG-PCMEND：IBM PCM 循環耐久度與原子遷移](https://research.ibm.com/publications/phase-change-memory-cycling-endurance)。作者機構論文登錄與摘要；2019-09-05；查閱 2026-09-10；定位：MRS Bulletin；循環失效機制；限制：機制與材料相關；不能由一般論述承諾任意產品壽命。
 - [EMG-PCMPROJ：IBM 低漂移投影式 PCM 元件](https://research.ibm.com/publications/design-of-projected-phase-change-memory-mushroom-cells-for-low-resistance-drift)。作者機構論文登錄與摘要；2022-09-18；查閱 2026-09-10；定位：投影支路、蘑菇形相變元件；限制：研究結構不是 ST ePCM 或其他商用產品的已知剖面。
 - [EMG-FEPUF：FeFET 循環變異與電荷域 PUF 原始研究](https://www.nature.com/articles/s41467-024-55380-x)。原始研究論文；2024；查閱 2026-09-10；定位：可重組 PUF 結構、循環變異與驗證；限制：PUF 的可重組性不等於任意環境的可再現性，更不單獨證明抗攻擊能力。
 - [EMG-FMC：FMC 產業新聞與鐵電記憶體分類](https://www.ferroelectric-memory.com/industry-news/)。原廠新聞彙整；2026-09-10；查閱 2026-09-10；定位：2025 年鐵電電容式非揮發 DRAM 與 2026 訪談連結；限制：查核日；新聞標題不足以辨識 FeFET、電容式記憶體的個別量產狀態。
-- [EMG-P-STT：IBM 自旋轉矩儲存結構專利](https://patents.google.com/patent/US5695864A/en)。公開專利；1997-12-09；查閱 2026-09-10；定位：獨立權利項 1；固定與可變磁矩結構；限制：專利揭露不等於現代 MgO 製程採用；未做實施自由分析。
-- [EMG-P-TOGGLE：Motorola Toggle MRAM 操作專利](https://patents.google.com/patent/US6545906B1/en)。公開專利；2003-04-08；查閱 2026-09-10；定位：圖 3–5；權利項 1；限制：只解讀該案特定耦合自由層與寫入方法；不替所有 MRAM 定義操作。
+- [EMG-P-STT：IBM：自旋力矩結構專利 US5695864A](https://patents.google.com/patent/US5695864A/en)。公開專利；1997-12-09；定位：摘要及請求項 1：固定與可變磁矩、穿越堆疊的電流；限制：早期磁性結構，不是現代 MgO 垂直 MTJ 製程的完整揭露。
+- [EMG-P-TOGGLE：Motorola：Toggle 寫入專利 US6545906B1](https://patents.google.com/patent/US6545906B1/en)。公開專利；2003-04-08；定位：圖 4–6；SAF 自由層、t0–t4 脈衝序列及讀取比較說明；限制：僅表示此近似平衡 SAF 的 Toggle 實施例；旋轉角度為教材示意。
 - [EMG-P-SOT：Spin Memory 可縮放 SOT 元件製程專利](https://patents.google.com/patent/US10930843B2/en)。公開專利；2021-02-23；查閱 2026-09-10；定位：圖 3–6、7A–7F；權利項 1–13；限制：原始受讓人與後續受讓鏈分開；面積效果不當作量產量測。
-- [EMG-P-VCM：HP 多層電阻切換與中間態脈衝專利](https://patents.google.com/patent/US8331131B2/en)。公開專利；2012-12-11；查閱 2026-09-10；定位：圖 3、5；多層結構與脈衝操作權利項；限制：特定多層障壁與兩段脈衝方法不能概括所有 VCM。
-- [EMG-P-ECM：Axon 可程式金屬化單元專利](https://patents.google.com/patent/US5761115A/en)。公開專利；1998-06-02；查閱 2026-09-10；定位：圖 1A／1B、4A／4B；權利項 1–2；限制：受讓紀錄含 Axon 與 Arizona Board of Regents；不等於現行 CBRAM 商品全部採用。
+- [EMG-P-VCM：HP：多層氧化物切換專利 US8331131B2](https://patents.google.com/patent/US8331131B2/en)。公開專利；2012-12-11；定位：圖 3、5；離子／缺陷調整與脈衝條件；限制：專利的多層與兩階段脈衝不是所有 VCM 必備條件。
+- [EMG-P-ECM：Axon：可程式化金屬化單元專利 US5761115A](https://patents.google.com/patent/US5761115A/en)。公開專利；1998-06-02；定位：垂直實施例圖 4A/4B；金屬源、陰極成核與反向偏壓回縮；限制：此圖選擇活性 Ag 上電極與惰性下電極；其他動力學可能改變成核位置。
 - [EMG-P-PCM：相變記憶體多階程式化專利](https://patents.google.com/patent/US5912839A/en)。公開專利；1999-06-15；查閱 2026-09-10；定位：圖 1；權利項 1、18、23；限制：其特定累積讀法不代表普通 PCM 電阻讀取皆具破壞性。
-- [EMG-P-FERAM：Ramtron 自動恢復鐵電記憶體專利](https://patents.google.com/patent/US4873664A/en)。公開專利；1989-10-10；查閱 2026-09-10；定位：權利項 1；字線、位元線、板極與恢復；限制：歷史電路教學入口；不當成現代 Infineon 晶片的內部實作證明。
+- [EMG-P-FERAM：Ramtron：自還原鐵電記憶體專利 US4873664A](https://patents.google.com/patent/US4873664A/en)。公開專利；1989-10-10；定位：圖 3：1T1C 與參考支路；圖 1、3 及說明中的讀取、鎖存、PL 先下降、資料還原；限制：兩個並列圖是同一單元的兩種可能初態，並非把圖 3 與圖 4 合成未揭露的電路。
 - [EMG-P-HFO：分層摻雜 HfO₂ 鐵電薄膜專利](https://patents.google.com/patent/US10153155B2/en)。公開專利；2018-12-11；查閱 2026-09-10；定位：圖 1／2、4；權利項 1；限制：材料形成方法；本案不是完整 FeFET 陣列與系統設計。
 - [EMG-P-FEFET：FeFET 閘極堆疊與元件整合專利](https://patents.google.com/patent/US11502083B2/en)。公開專利；2022-11-15；查閱 2026-09-10；定位：圖 2、3A–3F；權利項 1；限制：特定堆疊改善不等於量產認證或普遍適用的耐久數值。
 - [EMG-P-FTJ：台積電 FTJ 結構與低溫形成公開案](https://patents.google.com/patent/US20240057343A1/en)。公開專利申請；2024-02-15；查閱 2026-09-10；定位：圖 17；權利項 1、17；限制：閱讀的是 A1 公開案；同族 B2 核准範圍必須另行比對。
@@ -1882,6 +1882,13 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [FND-TSMC-SYMP-2025：台積電 2025 北美技術論壇新聞稿](https://pr.tsmc.com/system/files/newspdf/attachment/167c59998c7117f14c13647c8e46a6b20a43316c/2025%20Tech%20Symposium%20%28E%29_Final_wmn.pdf)。年度技術論壇官方新聞稿；2025-04-23；查閱 2026-09-10；定位：三頁公開新聞稿；限制：主稿沒有可核用的 MRAM／RRAM 完整年表；不能用未取得的論壇內頁補出完成日期。
 - [FND-TSMC-SYMP-2026：台積電 2026 北美技術論壇新聞稿與公開影音入口](https://pr.tsmc.com/english/news/3302)。年度技術論壇官方新聞稿；2026-04-23；查閱 2026-09-10；定位：美國活動日為 2026-04-22；新聞稿與技術亮點；限制：公開稿未提供 MRAM／RRAM 完整路線圖；不能採用第三方上傳簡報作為官方版本。
 - [FND-TSMC-SYMP-ACCESS：台積電 2026 技術論壇公開影音入口](https://www.tsmc.com/english/symposium_highlights/2026)。官方會議入口；2026；查閱 2026-09-10；定位：完整隨選視訊存取說明；限制：本研究未取得受邀會議內容；無法宣稱已核對全部內部路線圖。
+- [op-pat-sonos-fn：賽普拉斯：SONOS ONO 堆疊縮放](https://patents.google.com/patent/WO2014008160A2/en)。公開專利；2014; 2026-09-10 查閱；定位：圖 1–3；全通道穿隧、電子寫入與電洞抹除段落；限制：用於具名 SONOS 穿隧原理；不推定與現行英飛凌巨集具有相同膜層或數值。
+- [op-pat-nrom-hhi：Saifun：自對準 NROM 寫入與抹除區](https://patents.google.com/patent/US6664588B2/en)。公開專利；2003; 2026-09-10 查閱；定位：圖 4、8A、9、10–11；能帶間穿隧產生電洞及局部熱電洞注入；限制：本案的口袋植入與局部電洞路徑；不把 US5768192A 當成此抹除路徑的來源。
+- [op-nand-hole-erase：鎧俠：蕭特基源極接點與電洞供應研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html)。原廠研究；2025-09-18; 2026-09-10 查閱；定位：圖 1、4；N+ 矽源極的 GIDL 電洞供應及蕭特基接點替代研究；限制：只支持載子供應方向與具名研究；本圖採傳統 GIDL 分支，未把蕭特基源極併入同一結構。
+- [op-pat-nand-gidl：SanDisk：GIDL 輔助 3D NAND 抹除](https://patents.google.com/patent/US10923196B1/en)。公開專利；2021; 2026-09-10 查閱；定位：圖 8 及 GIDL 抹除段；端點與選擇閘的電位差、電洞供應與捕捉層中和；限制：此變體須用自己的 BL／SL 與選擇閘偏壓；不得混入 US7696559B2 的浮接端點抹除條件。
+- [op-stt-katine-2000：Katine 等：Co/Cu/Co 電流驅動磁化反轉](https://arxiv.org/abs/cond-mat/9908231)。原始研究論文；2000；定位：摘要：薄層至厚層的電子流對應 AP，反向電子流對應 P；限制：只用於說明電流與電子流的符號慣例；不是 MgO MTJ 產品數據。
+- [op-vcm-reservoir-2026：Yuan 等：WO₃ 記憶體的可控氧交換電極](https://www.nature.com/articles/s43246-026-01143-8)。原始研究論文；2026-04-06；定位：圖 1b、4h 與討論：ITO／WO₃／TiN 的正偏 SET、反向 RESET 及氧交換模型；限制：圖採簡化氧交換教材結構。論文以電性與光譜支持機制，明言沒有直接追蹤運作中的氧離子軌跡；本圖亦非原位量測。
+- [op-pcm-ibm-thermal-2016：Bakan 等：PCM 結晶期間的溫度分布](https://research.ibm.com/publications/extracting-the-temperature-distribution-on-a-phase-change-memory-cell-during-crystallization)。作者機構原始論文紀錄；2016-10-25；定位：摘要：熔融淬冷非晶化，以及依溫度與脈衝時間而定的結晶；限制：圖中 Tx、Tm 與曲線皆為定性符號；未引用任何產品的實測溫度或脈衝長度。
 
 
 ## 歷史課程表與現況修正
@@ -2244,3 +2251,1109 @@ GF 22FDX MRAM 及台積電多個 MRAM／RRAM 節點已有生產證據；新節�
 
 - [FND-GF-2020-MRAM：GF：22FDX eMRAM 進入生產公告](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
 - [FND-TSMC-CURRENT-NVM：台積電現行嵌入式非揮發性記憶體頁](https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash)
+
+
+## 操作狀態圖
+
+### efuse · 程式化：讓電流集中於可控區域
+
+#### 矽化物／多晶矽電熔絲
+
+局部頸部的電遷移與矽化物缺口；下層多晶矽可能仍存在，不能把高電阻一律畫成整體斷裂。
+
+1. **建立原始路徑** — 完整導體提供低電阻路徑。 R ↓ 未寫入
+2. **施加寫入條件** — 電流在狹窄區聚集並產生局部熱與電遷移。 轉換前 I_P → J ↑
+3. **形成局部永久改變** — 材料遷移留下局部空洞或缺口。 R ↑ 受控寫入脈衝
+4. **低場驗證狀態** — 移除寫入應力後，依讀電流辨識永久狀態。 I_R ↓ V_R ≪ V_P
+
+- [ch-pat-efuse-poly：IBM：局部窄化電熔絲專利 US7417300B2](https://patents.google.com/patent/US7417300B2/en)
+
+#### 金屬導孔電熔絲
+
+以導孔接觸處的電流聚集、局部熱與熔化分離示意；不套用矽化物電遷移的同一原子路徑。
+
+1. **建立原始路徑** — 完整導體提供低電阻路徑。 R ↓ 未寫入
+2. **施加寫入條件** — 電流在導孔附近聚集並產生局部熱。 轉換前 I_P → J ↑
+3. **形成局部永久改變** — 導孔附近材料受熱熔化、分離並留下高電阻缺口。 R ↑ 受控寫入脈衝
+4. **低場驗證狀態** — 移除寫入應力後，依讀電流辨識永久狀態。 I_R ↓ V_R ≪ V_P
+
+- [ch-pat-efuse-via：台積電：金屬導孔熔絲專利 US8847350B2](https://patents.google.com/patent/US8847350B2/en)
+
+### efuse · 抹除：正常操作中不存在反向恢復
+
+#### 矽化物／多晶矽電熔絲
+
+局部頸部的電遷移與矽化物缺口；下層多晶矽可能仍存在，不能把高電阻一律畫成整體斷裂。
+
+1. **原始材料** — 保留尚未程式化的結構作比較。 R ↓ 未施加高場
+2. **永久改變後** — 正常移除電源不會恢復原始材料。 R ↑ 程式化已完成
+3. **反向操作不成立** — 沒有合格電抹除路徑；讀取仍辨識已改變的狀態。 I_R ↓ 禁止把反向偏壓當抹除
+
+- [ch-pat-efuse-poly：IBM：局部窄化電熔絲專利 US7417300B2](https://patents.google.com/patent/US7417300B2/en)
+
+#### 金屬導孔電熔絲
+
+以導孔接觸處的電流聚集、局部熱與熔化分離示意；不套用矽化物電遷移的同一原子路徑。
+
+1. **原始材料** — 保留尚未程式化的結構作比較。 R ↓ 未施加高場
+2. **永久改變後** — 正常移除電源不會恢復原始材料。 R ↑ 程式化已完成
+3. **反向操作不成立** — 沒有合格電抹除路徑；讀取仍辨識已改變的狀態。 I_R ↓ 禁止把反向偏壓當抹除
+
+- [ch-pat-efuse-via：台積電：金屬導孔熔絲專利 US8847350B2](https://patents.google.com/patent/US8847350B2/en)
+
+### efuse · 讀取：量測電阻而不再次程式化
+
+#### 矽化物／多晶矽電熔絲
+
+局部頸部的電遷移與矽化物缺口；下層多晶矽可能仍存在，不能把高電阻一律畫成整體斷裂。
+
+1. **已寫材料仍保留** — 先固定已永久改變的材料狀態，讀取不修復材料。 R ↑ 尚未施加讀取偏壓
+2. **施加低場讀取** — 以低於寫入應力的讀取條件觀察原有路徑。 R ↑ V_R ≪ V_P
+3. **量測既有電流響應** — 缺口使讀電流較小；高電阻不等於理想開路。 I_R ↓ 維持低場讀取
+4. **原始與已寫分支比較** — 以相同 V_R 比較兩個既有狀態，不表示讀取改變材料。 電阻窗口可辨 V_R = const.
+
+- [ch-pat-efuse-poly：IBM：局部窄化電熔絲專利 US7417300B2](https://patents.google.com/patent/US7417300B2/en)
+
+#### 金屬導孔電熔絲
+
+以導孔接觸處的電流聚集、局部熱與熔化分離示意；不套用矽化物電遷移的同一原子路徑。
+
+1. **已寫材料仍保留** — 先固定已永久改變的材料狀態，讀取不修復材料。 R ↑ 尚未施加讀取偏壓
+2. **施加低場讀取** — 以低於寫入應力的讀取條件觀察原有路徑。 R ↑ V_R ≪ V_P
+3. **量測既有電流響應** — 缺口使讀電流較小；高電阻不等於理想開路。 I_R ↓ 維持低場讀取
+4. **原始與已寫分支比較** — 以相同 V_R 比較兩個既有狀態，不表示讀取改變材料。 電阻窗口可辨 V_R = const.
+
+- [ch-pat-efuse-via：台積電：金屬導孔熔絲專利 US8847350B2](https://patents.google.com/patent/US8847350B2/en)
+
+### antifuse · 程式化：只讓受選介電層承受崩潰電場
+
+#### MOS 介電層崩潰反熔絲
+
+只畫儲存元件：閘極接欄線 C，矽端為內部節點；串接選擇 MOS 與陣列周邊省略，不代表完整商用 OTP 單元。
+
+1. **建立原始路徑** — 完整介電層阻擋低場直流。 R ↑ 未寫入
+2. **施加寫入條件** — 在薄介電層形成高場，周邊限制應力。 轉換前 V_P → E
+3. **形成局部永久改變** — 形成局部導電路徑，電子可穿越原介電區。 R ↓ 受控寫入脈衝
+4. **低場驗證狀態** — 移除寫入應力後，依讀電流辨識永久狀態。 I_R ↑ V_R ≪ V_P
+
+- [ch-pat-antifuse：Kilopass：超薄介電層崩潰單元專利 US6667902B2](https://patents.google.com/patent/US6667902B2/en)
+
+### antifuse · 抹除：崩潰介電層不在正常操作中修復
+
+#### MOS 介電層崩潰反熔絲
+
+只畫儲存元件：閘極接欄線 C，矽端為內部節點；串接選擇 MOS 與陣列周邊省略，不代表完整商用 OTP 單元。
+
+1. **原始材料** — 保留尚未程式化的結構作比較。 R ↑ 未施加高場
+2. **永久改變後** — 正常移除電源不會恢復原始材料。 R ↓ 程式化已完成
+3. **反向操作不成立** — 沒有合格電抹除路徑；讀取仍辨識已改變的狀態。 I_R ↑ 禁止把反向偏壓當抹除
+
+- [ch-pat-antifuse：Kilopass：超薄介電層崩潰單元專利 US6667902B2](https://patents.google.com/patent/US6667902B2/en)
+
+### antifuse · 讀取：分辨完整介電層與已導通通路
+
+#### MOS 介電層崩潰反熔絲
+
+只畫儲存元件：閘極接欄線 C，矽端為內部節點；串接選擇 MOS 與陣列周邊省略，不代表完整商用 OTP 單元。
+
+1. **已寫材料仍保留** — 先固定已永久改變的材料狀態，讀取不修復材料。 R ↓ 尚未施加讀取偏壓
+2. **施加低場讀取** — 以低於寫入應力的讀取條件觀察原有路徑。 R ↓ V_R ≪ V_P
+3. **量測既有電流響應** — 已崩潰區導電較強；其幾何與前一張相同。 I_R ↑ 維持低場讀取
+4. **原始與已寫分支比較** — 以相同 V_R 比較兩個既有狀態，不表示讀取改變材料。 電阻窗口可辨 V_R = const.
+
+- [ch-pat-antifuse：Kilopass：超薄介電層崩潰單元專利 US6667902B2](https://patents.google.com/patent/US6667902B2/en)
+
+### eeprom · 寫入：建立電場讓電子進入浮動閘極
+
+#### 局部窗口：FN 寫入／穿隧抹除
+
+依 US4115914A 明示容許的 n 通道分支，將局部窗口重繪為 n+ 接點與 p 型矽；原文多數製程圖以 p 通道為例，本圖不逐項複製該製程剖面。本序列只採穿隧變體。
+
+1. **已知初始電荷** — 隔離儲存區位於可程式化的初始窗口。 Q ≈ 0 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q ≈ 0 V_G > V_CH
+3. **追蹤電子傳輸** — 電子穿越局部能障，進入隔離儲存區。 Q < 0 V_G > V_CH
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↑ 低場讀取驗證
+
+- [ch-pat-eeprom-window：休斯飛機公司：局部穿隧窗口 EEPROM 專利 US4115914A](https://patents.google.com/patent/US4115914A/en)
+
+#### 埋入控制端：CHE 寫入／源極 FN 抹除
+
+將圖 4、5 的兩個剖切方向並列並以同一 FG 導體連結；控制端位於矽中。CG 抹除耦合採符號表示，未複製正文與表 2 不一致的讀取欄。
+
+1. **已知初始電荷** — 隔離儲存區位於可程式化的初始窗口。 Q ≈ 0 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q ≈ 0 G/CG +V_P; D +V_P; S = 0
+3. **追蹤電子傳輸** — 通道電子先加速，再由局部高場注入儲存區。 Q < 0 G/CG +V_P; D +V_P; S = 0
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↑ 低場讀取驗證
+
+- [ch-pat-eeprom-singlepoly：賽普拉斯：埋入式控制閘極單層多晶矽 EEPROM 專利 US5844271A](https://patents.google.com/patent/US5844271A/en)
+
+### eeprom · 抹除：利用指定窗口移出儲存電子
+
+#### 局部窗口：FN 寫入／穿隧抹除
+
+依 US4115914A 明示容許的 n 通道分支，將局部窗口重繪為 n+ 接點與 p 型矽；原文多數製程圖以 p 通道為例，本圖不逐項複製該製程剖面。本序列只採穿隧變體。
+
+1. **已知初始電荷** — 先定位程式化電荷及本變體的指定出口。 Q < 0; Vₜ ↑ 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q < 0 V_G < V_CH
+3. **追蹤電子傳輸** — 電子經本變體指定出口離開儲存層。 Q → 0 V_G < V_CH
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↓ 低場讀取驗證
+
+- [ch-pat-eeprom-window：休斯飛機公司：局部穿隧窗口 EEPROM 專利 US4115914A](https://patents.google.com/patent/US4115914A/en)
+
+#### 埋入控制端：CHE 寫入／源極 FN 抹除
+
+將圖 4、5 的兩個剖切方向並列並以同一 FG 導體連結；控制端位於矽中。CG 抹除耦合採符號表示，未複製正文與表 2 不一致的讀取欄。
+
+1. **已知初始電荷** — 先定位程式化電荷及本變體的指定出口。 Q < 0; Vₜ ↑ 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q < 0 V_S > V_FG
+3. **追蹤電子傳輸** — 電子經本變體指定出口離開儲存層。 Q → 0 V_S > V_FG
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↓ 低場讀取驗證
+
+- [ch-pat-eeprom-singlepoly：賽普拉斯：埋入式控制閘極單層多晶矽 EEPROM 專利 US5844271A](https://patents.google.com/patent/US5844271A/en)
+
+### eeprom · 讀取：用通道電流間接觀察電荷
+
+#### 局部窗口：FN 寫入／穿隧抹除
+
+依 US4115914A 明示容許的 n 通道分支，將局部窗口重繪為 n+ 接點與 p 型矽；原文多數製程圖以 p 通道為例，本圖不逐項複製該製程剖面。本序列只採穿隧變體。
+
+1. **儲存狀態仍保留** — 圖中載子代表儲存電荷，不是讀電流來源。 Q < 0 先確認既有狀態
+2. **建立低場讀取偏壓** — 選擇受測路徑並施加低場讀取條件。 電荷不搬離儲存層 V_R; |V_DS| = v
+3. **通道或導體響應** — 同一讀偏壓下，儲存狀態決定感測電流。 I_R ↓ 正常讀取場
+4. **比較感測結果** — 以相同讀取條件比較不同儲存狀態；不指定邏輯編碼。 可分辨讀取窗口 V_R = const.
+
+- [ch-pat-eeprom-window：休斯飛機公司：局部穿隧窗口 EEPROM 專利 US4115914A](https://patents.google.com/patent/US4115914A/en)
+
+#### 埋入控制端：CHE 寫入／源極 FN 抹除
+
+將圖 4、5 的兩個剖切方向並列並以同一 FG 導體連結；控制端位於矽中。CG 抹除耦合採符號表示，未複製正文與表 2 不一致的讀取欄。
+
+1. **儲存狀態仍保留** — 圖中載子代表儲存電荷，不是讀電流來源。 Q < 0 先確認既有狀態
+2. **建立低場讀取偏壓** — 選擇受測路徑並施加低場讀取條件。 電荷不搬離儲存層 V_R; |V_DS| = v
+3. **通道或導體響應** — 同一讀偏壓下，儲存狀態決定感測電流。 I_R ↓ 正常讀取場
+4. **比較感測結果** — 以相同讀取條件比較不同儲存狀態；不指定邏輯編碼。 可分辨讀取窗口 V_R = const.
+
+- [ch-pat-eeprom-singlepoly：賽普拉斯：埋入式控制閘極單層多晶矽 EEPROM 專利 US5844271A](https://patents.google.com/patent/US5844271A/en)
+
+### nor · 寫入：比較通道熱電子與源極側注入
+
+#### 堆疊閘：汲極 CHE／源極 FN
+
+對照 US6232180B1 背景中的傳統堆疊閘機制；不把它標為該案提出的新分離閘結構。
+
+1. **已知初始電荷** — 隔離儲存區位於可程式化的初始窗口。 Q ≈ 0 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q ≈ 0 G/CG +V_P; D +V_P; S = 0
+3. **追蹤電子傳輸** — 通道電子先加速，再由局部高場注入儲存區。 Q < 0 G/CG +V_P; D +V_P; S = 0
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↑ 低場讀取驗證
+
+- [ch-pat-nor-splitgate：世大積體電路／台積電：分離閘極快閃專利 US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+
+#### SuperFlash：SSI／閘極間 FN
+
+第一代／第二代的 WL 多晶矽抹除出口；未混入第三代獨立抹除閘，也未使用另一專利的井區抹除條件。
+
+1. **已知初始電荷** — 隔離儲存區位於可程式化的初始窗口。 Q ≈ 0 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q ≈ 0 SG = V_ON; S +V_P; D = 0
+3. **追蹤電子傳輸** — 通道電子先加速，再由局部高場注入儲存區。 Q < 0 SG = V_ON; S +V_P; D = 0
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↑ 低場讀取驗證
+
+- [ch-tech-superflash：SST／微芯科技：SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### US6232180B1：SSI／井區通道 FN
+
+SG 在下、FG 部分覆於 SG 上；受選寫入源極較高，抹除時 SG／S／D 浮接且井區升壓。
+
+1. **已知初始電荷** — 隔離儲存區位於可程式化的初始窗口。 Q ≈ 0 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q ≈ 0 SG = V_ON; S +V_P; D = 0
+3. **追蹤電子傳輸** — 通道電子先加速，再由局部高場注入儲存區。 Q < 0 SG = V_ON; S +V_P; D = 0
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↑ 低場讀取驗證
+
+- [ch-pat-nor-splitgate：世大積體電路／台積電：分離閘極快閃專利 US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+
+### nor · 抹除：電子出口必須跟隨具體結構
+
+#### 堆疊閘：汲極 CHE／源極 FN
+
+對照 US6232180B1 背景中的傳統堆疊閘機制；不把它標為該案提出的新分離閘結構。
+
+1. **已知初始電荷** — 先定位程式化電荷及本變體的指定出口。 Q < 0; Vₜ ↑ 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q < 0 V_G < V_CH
+3. **追蹤電子傳輸** — 電子經本變體指定出口離開儲存層。 Q → 0 V_G < V_CH
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↓ 低場讀取驗證
+
+- [ch-pat-nor-splitgate：世大積體電路／台積電：分離閘極快閃專利 US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+
+#### SuperFlash：SSI／閘極間 FN
+
+第一代／第二代的 WL 多晶矽抹除出口；未混入第三代獨立抹除閘，也未使用另一專利的井區抹除條件。
+
+1. **已知初始電荷** — 先定位程式化電荷及本變體的指定出口。 Q < 0; Vₜ ↑ 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q < 0 V_WL > V_FG
+3. **追蹤電子傳輸** — 電子經本變體指定出口離開儲存層。 Q → 0 V_WL > V_FG
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↓ 低場讀取驗證
+
+- [ch-tech-superflash：SST／微芯科技：SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### US6232180B1：SSI／井區通道 FN
+
+SG 在下、FG 部分覆於 SG 上；受選寫入源極較高，抹除時 SG／S／D 浮接且井區升壓。
+
+1. **已知初始電荷** — 先定位程式化電荷及本變體的指定出口。 Q < 0; Vₜ ↑ 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q < 0 SG/S/D = FLT; W +V_E
+3. **追蹤電子傳輸** — 電子經本變體指定出口離開儲存層。 Q → 0 SG/S/D = FLT; W +V_E
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↓ 低場讀取驗證
+
+- [ch-pat-nor-splitgate：世大積體電路／台積電：分離閘極快閃專利 US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+
+### nor · 讀取：直接感測受選單元的通道
+
+#### 堆疊閘：汲極 CHE／源極 FN
+
+對照 US6232180B1 背景中的傳統堆疊閘機制；不把它標為該案提出的新分離閘結構。
+
+1. **儲存狀態仍保留** — 圖中載子代表儲存電荷，不是讀電流來源。 Q < 0 先確認既有狀態
+2. **建立低場讀取偏壓** — 選擇受測路徑並施加低場讀取條件。 電荷不搬離儲存層 V_R; |V_DS| = v
+3. **通道或導體響應** — 同一讀偏壓下，儲存狀態決定感測電流。 I_R ↓ 正常讀取場
+4. **比較感測結果** — 以相同讀取條件比較不同儲存狀態；不指定邏輯編碼。 可分辨讀取窗口 V_R = const.
+
+- [ch-pat-nor-splitgate：世大積體電路／台積電：分離閘極快閃專利 US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+
+#### SuperFlash：SSI／閘極間 FN
+
+第一代／第二代的 WL 多晶矽抹除出口；未混入第三代獨立抹除閘，也未使用另一專利的井區抹除條件。
+
+1. **儲存狀態仍保留** — 圖中載子代表儲存電荷，不是讀電流來源。 Q < 0 先確認既有狀態
+2. **建立低場讀取偏壓** — 選擇受測路徑並施加低場讀取條件。 電荷不搬離儲存層 V_R; |V_DS| = v
+3. **通道或導體響應** — 同一讀偏壓下，儲存狀態決定感測電流。 I_R ↓ 正常讀取場
+4. **比較感測結果** — 以相同讀取條件比較不同儲存狀態；不指定邏輯編碼。 可分辨讀取窗口 V_R = const.
+
+- [ch-tech-superflash：SST／微芯科技：SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### US6232180B1：SSI／井區通道 FN
+
+SG 在下、FG 部分覆於 SG 上；受選寫入源極較高，抹除時 SG／S／D 浮接且井區升壓。
+
+1. **儲存狀態仍保留** — 圖中載子代表儲存電荷，不是讀電流來源。 Q < 0 先確認既有狀態
+2. **建立低場讀取偏壓** — 選擇受測路徑並施加低場讀取條件。 電荷不搬離儲存層 V_R; |V_DS| = v
+3. **通道或導體響應** — 同一讀偏壓下，儲存狀態決定感測電流。 I_R ↓ 正常讀取場
+4. **比較感測結果** — 以相同讀取條件比較不同儲存狀態；不指定邏輯編碼。 可分辨讀取窗口 V_R = const.
+
+- [ch-pat-nor-splitgate：世大積體電路／台積電：分離閘極快閃專利 US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+
+### sonos · 寫入：分辨穿隧捕捉與局部熱電子注入
+
+#### 全通道 SONOS：電子／電洞穿隧
+
+剖面為儲存電晶體局部；英飛凌 2T 單元另有串接選擇器。載子路徑對照公開 Cypress 專利，不推定現行巨集的完整膜層。
+
+1. **已知初始電荷** — 隔離儲存區位於可程式化的初始窗口。 Q ≈ 0 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q ≈ 0 V_G > V_CH
+3. **追蹤電子傳輸** — 電子穿越局部能障，進入隔離儲存區。 Q < 0 V_G > V_CH
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↑ 低場讀取驗證
+
+- [ch-product-sonos：英飛凌：SONOS 嵌入式快閃 IP 方案](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)
+- [ch-pat-sonos：NCR：SONOS 阻擋氧化層專利 WO1981000790A1](https://patents.google.com/patent/WO1981000790A1/en)
+- [op-pat-sonos-fn：賽普拉斯：SONOS ONO 堆疊縮放](https://patents.google.com/patent/WO2014008160A2/en)
+
+#### 局部 NROM：CHE／反向讀取
+
+端點 S／D 始終以寫入時名稱保留；反向讀取只改偏壓與電流方向，不在無提示下交換端點名稱。
+
+1. **已知初始電荷** — 隔離儲存區位於可程式化的初始窗口。 Q ≈ 0 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q ≈ 0 G/CG +V_P; D +V_P; S = 0
+3. **追蹤電子傳輸** — 通道電子先加速，再由局部高場注入儲存區。 Q < 0 G/CG +V_P; D +V_P; S = 0
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↑ 低場讀取驗證
+
+- [ch-pat-nrom：Saifun：非對稱電荷捕捉專利 US5768192A](https://patents.google.com/patent/US5768192A/en)
+
+### sonos · 抹除：依捕捉層堆疊與具名機制處理電荷
+
+#### 全通道 SONOS：電子／電洞穿隧
+
+剖面為儲存電晶體局部；英飛凌 2T 單元另有串接選擇器。載子路徑對照公開 Cypress 專利，不推定現行巨集的完整膜層。
+
+1. **已知初始電荷** — 先定位程式化電荷及本變體的指定出口。 Q < 0; Vₜ ↑ 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q < 0 V_G < V_CH
+3. **電洞供應與中和** — 電洞進入捕捉層，降低儲存淨負電荷。 Q → 0 V_G < V_CH
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↓ 低場讀取驗證
+
+- [ch-product-sonos：英飛凌：SONOS 嵌入式快閃 IP 方案](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)
+- [ch-pat-sonos：NCR：SONOS 阻擋氧化層專利 WO1981000790A1](https://patents.google.com/patent/WO1981000790A1/en)
+- [op-pat-sonos-fn：賽普拉斯：SONOS ONO 堆疊縮放](https://patents.google.com/patent/WO2014008160A2/en)
+
+#### US6664588B2：口袋區 BBT／熱電洞抹除
+
+對照單端口袋植入的圖 8A、9；局部電洞注入區須對準原電子區。這是獨立抹除案例，不聲稱 US5768192A 已揭露此流程。
+
+1. **已知初始電荷** — 先定位程式化電荷及本變體的指定出口。 Q < 0; Vₜ ↑ 未施加操作脈衝
+2. **建立指定電場** — 負閘極與正汲極在口袋接面形成 BBT 及局部高場。 Q < 0 G −V_E; D +V_E
+3. **電洞供應與中和** — 電洞進入捕捉層，降低儲存淨負電荷。 Q → 0 G −V_E; D +V_E
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↓ 低場讀取驗證
+
+- [op-pat-nrom-hhi：Saifun：自對準 NROM 寫入與抹除區](https://patents.google.com/patent/US6664588B2/en)
+
+### sonos · 讀取：SONOS 看窗口，NROM 還要看方向
+
+#### 全通道 SONOS：電子／電洞穿隧
+
+剖面為儲存電晶體局部；英飛凌 2T 單元另有串接選擇器。載子路徑對照公開 Cypress 專利，不推定現行巨集的完整膜層。
+
+1. **儲存狀態仍保留** — 圖中載子代表儲存電荷，不是讀電流來源。 Q < 0 先確認既有狀態
+2. **建立低場讀取偏壓** — 選擇受測路徑並施加低場讀取條件。 電荷不搬離儲存層 V_R; |V_DS| = v
+3. **通道或導體響應** — 同一讀偏壓下，儲存狀態決定感測電流。 I_R ↓ 正常讀取場
+4. **比較感測結果** — 以相同讀取條件比較不同儲存狀態；不指定邏輯編碼。 可分辨讀取窗口 V_R = const.
+
+- [ch-product-sonos：英飛凌：SONOS 嵌入式快閃 IP 方案](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)
+- [ch-pat-sonos：NCR：SONOS 阻擋氧化層專利 WO1981000790A1](https://patents.google.com/patent/WO1981000790A1/en)
+- [op-pat-sonos-fn：賽普拉斯：SONOS ONO 堆疊縮放](https://patents.google.com/patent/WO2014008160A2/en)
+
+#### 局部 NROM：CHE／反向讀取
+
+端點 S／D 始終以寫入時名稱保留；反向讀取只改偏壓與電流方向，不在無提示下交換端點名稱。
+
+1. **儲存狀態仍保留** — 圖中載子代表儲存電荷，不是讀電流來源。 Q < 0 先確認既有狀態
+2. **建立低場讀取偏壓** — 原 S 加讀偏壓、原 D 接低電位，與寫入相反。 電荷不搬離儲存層 V_R; |V_DS| = v
+3. **通道或導體響應** — 同一讀偏壓下，儲存狀態決定感測電流。 I_R ↓ 正常讀取場
+4. **比較感測結果** — 以相同讀取條件比較不同儲存狀態；不指定邏輯編碼。 可分辨讀取窗口 V_R = const.
+
+- [ch-pat-nrom：Saifun：非對稱電荷捕捉專利 US5768192A](https://patents.google.com/patent/US5768192A/en)
+
+### nand · 寫入：提高受選字線並抑制其他通道
+
+#### US7696559B2：垂直字串與電子穿隧
+
+字串為拓撲簡圖，局部膜層攤平展示順序。抹除依該案源線升壓／電子釋出，不宣稱此案採 GIDL 電洞注入。
+
+1. **先辨識串接單元** — WL* 是目標層，SGD／SGS 決定端點連通。 Q ≈ 0 尚未施加寫入脈衝
+2. **設定受選通道** — BL=0 維持低通道電位；目標 WL 加 V_PGM，其餘加 V_PASS。 V_CH ≈ 0 V_PGM > V_PASS
+3. **電子穿入儲存層** — 局部展開 CH→穿隧介電層→CTL，電子留在絕緣捕捉層。 Q < 0; Vₜ ↑ V_WL > V_CH
+4. **受選與抑制對照** — 左側低通道可寫入；右側 BL=V_DD 後通道浮接升壓，降低穿隧場。 左：寫入；右：保留 相同 V_PGM，不同 V_CH
+
+- [ch-pat-nand-vertical：東芝：柱狀半導體層垂直 NAND 專利 US7696559B2](https://patents.google.com/patent/US7696559B2/en)
+- [ch-tech-nand：鎧俠：NAND 快閃記憶體基本原理](https://www.kioxia.com/en-jp/rd/technology/nand-flash.html)
+
+### nand · 抹除：對共用區塊重設電荷窗口
+
+#### US7696559B2：垂直字串與電子穿隧
+
+字串為拓撲簡圖，局部膜層攤平展示順序。抹除依該案源線升壓／電子釋出，不宣稱此案採 GIDL 電洞注入。
+
+1. **已知初始電荷** — 先定位程式化電荷及本變體的指定出口。 Q < 0; Vₜ ↑ 未施加操作脈衝
+2. **建立指定電場** — 端點條件只屬目前具名變體。 Q < 0 SL +V_E; BL/SG = FLT
+3. **追蹤電子傳輸** — 電子經本變體指定出口離開儲存層。 Q → 0 SL +V_E; BL/SG = FLT
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↓ 低場讀取驗證
+
+- [ch-pat-nand-vertical：東芝：柱狀半導體層垂直 NAND 專利 US7696559B2](https://patents.google.com/patent/US7696559B2/en)
+- [ch-tech-nand：鎧俠：NAND 快閃記憶體基本原理](https://www.kioxia.com/en-jp/rd/technology/nand-flash.html)
+
+#### GIDL 輔助：電洞供應與捕捉層中和
+
+端點正偏壓高於選擇閘以產生電子—電洞對；圖中只展開上端供應，另一端可依具名實作參與。與舊專利浮接端點條件分開。
+
+1. **已知初始電荷** — 先定位程式化電荷及本變體的指定出口。 Q < 0; Vₜ ↑ 未施加操作脈衝
+2. **建立指定電場** — 正端點高於選擇閘，分離電子與電洞；電洞送入通道。 Q < 0 V_BL/SL > V_GIDL; WL = 0
+3. **電洞供應與中和** — 電洞進入捕捉層，降低儲存淨負電荷。 Q → 0 V_BL/SL > V_GIDL; WL = 0
+4. **移除高場並驗證** — 狀態移入目標窗口；圖中不把殘留電荷或缺陷假設為零。 Vₜ ↓ 低場讀取驗證
+
+- [op-nand-hole-erase：鎧俠：蕭特基源極接點與電洞供應研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html)
+- [op-pat-nand-gidl：SanDisk：GIDL 輔助 3D NAND 抹除](https://patents.google.com/patent/US10923196B1/en)
+
+### nand · 讀取：讓未選單元通過，觀察受選門檻
+
+#### US7696559B2：垂直字串與電子穿隧
+
+字串為拓撲簡圖，局部膜層攤平展示順序。抹除依該案源線升壓／電子釋出，不宣稱此案採 GIDL 電洞注入。
+
+1. **儲存狀態仍保留** — 圖中載子代表儲存電荷，不是讀電流來源。 先讀低臨界狀態 先確認既有狀態
+2. **建立低場讀取偏壓** — 選擇受測路徑並施加低場讀取條件。 電荷不搬離儲存層 V_R; |V_DS| = v
+3. **通道或導體響應** — 低臨界狀態及未選通過閘導通，BL 可放電；電子由 SL 往 BL。 I_R ↑ 正常讀取場
+4. **比較感測結果** — 比較分支：高臨界受選單元阻斷字串；這不是讀取造成電荷改變。 可分辨讀取窗口 V_R = const.
+
+- [ch-pat-nand-vertical：東芝：柱狀半導體層垂直 NAND 專利 US7696559B2](https://patents.google.com/patent/US7696559B2/en)
+- [ch-tech-nand：鎧俠：NAND 快閃記憶體基本原理](https://www.kioxia.com/en-jp/rd/technology/nand-flash.html)
+
+### toggle · Toggle MRAM · 寫入／SET
+
+#### 近似平衡的雙磁層 SAF；磁場先後次序示意
+
+先比較資料，再沿 H1、重疊 H1/H2、H2、撤場的路徑反轉磁矩；讀取只感測接面電阻。
+
+1. **先讀取並確認需要反轉** — M1 與 REF 起始為平行低阻；讀取比較後才啟動 Toggle。 初始磁態已保留 H1 = H2 = 0
+2. **H1 上升：開始旋轉** — H1 單獨作用，SAF 磁矩開始自旋翻倒式旋轉，兩者仍大致反平行。 耦合磁矩正在旋轉 僅 H1
+3. **H1 與 H2 重疊** — H2 在 H1 尚未結束時上升；合成磁場轉向，兩磁矩持續沿同方向旋轉。 耦合磁矩正在旋轉 H1 與 H2 同時作用
+4. **H1 撤除：保留 H2** — 先撤除 H1，H2 繼續驅動，讓磁矩跨越硬軸不穩定位置。 耦合磁矩正在旋轉 僅 H2
+5. **H2 撤除：落入反向穩態** — 撤除 H2 後回到易軸；M1 反轉約 180°，成為反平行高阻。 反向磁態已保留 H1 = H2 = 0
+
+- [EMG-P-TOGGLE：Motorola：Toggle 寫入專利 US6545906B1](https://patents.google.com/patent/US6545906B1/en)
+
+### toggle · Toggle MRAM · 反向重寫／RESET
+
+#### 近似平衡的雙磁層 SAF；磁場先後次序示意
+
+先比較資料，再沿 H1、重疊 H1/H2、H2、撤場的路徑反轉磁矩；讀取只感測接面電阻。
+
+1. **先讀取並確認需要反轉** — M1 與 REF 起始為反平行高阻；讀取比較後才啟動 Toggle。 初始磁態已保留 H1 = H2 = 0
+2. **H1 上升：開始旋轉** — H1 單獨作用，SAF 磁矩開始自旋翻倒式旋轉，兩者仍大致反平行。 耦合磁矩正在旋轉 僅 H1
+3. **H1 與 H2 重疊** — H2 在 H1 尚未結束時上升；合成磁場轉向，兩磁矩持續沿同方向旋轉。 耦合磁矩正在旋轉 H1 與 H2 同時作用
+4. **H1 撤除：保留 H2** — 先撤除 H1，H2 繼續驅動，讓磁矩跨越硬軸不穩定位置。 耦合磁矩正在旋轉 僅 H2
+5. **H2 撤除：落入反向穩態** — 撤除 H2 後回到易軸；M1 反轉約 180°，成為平行低阻。 反向磁態已保留 H1 = H2 = 0
+
+- [EMG-P-TOGGLE：Motorola：Toggle 寫入專利 US6545906B1](https://patents.google.com/patent/US6545906B1/en)
+
+### toggle · Toggle MRAM · 讀取
+
+#### 近似平衡雙磁層 SAF：以 M1 與 REF 的排列感測電阻
+
+以相同小偏壓比較保留的 P／AP 磁態；感測電流差後撤壓，原磁矩排列保持。
+
+1. **初態：保留 P 與 AP** — 兩個圖代表 P 與 AP 兩種可能磁態；選擇支路未開啟，沒有讀取電流。 P 與 AP 磁態各自保留 寫入場與寫入電流皆為零
+2. **選通：建立小感測電流** — 施加相同小偏壓並開啟選擇支路；P 的電流較大，AP 的電流較小。 磁態不變；讀取節點有電流 小讀取偏壓；選擇支路開啟
+3. **鎖存：關閉支路並保留磁態** — 感測器鎖存電流差，撤除讀取偏壓；兩種磁矩排列各自保留。 P 與 AP 磁態各自保留 寫入場與寫入電流皆為零
+
+- [EMG-P-TOGGLE：Motorola：Toggle 寫入專利 US6545906B1](https://patents.google.com/patent/US6545906B1/en)
+
+### stt · STT-MRAM · 寫入／SET
+
+#### 上自由層／MgO／下參考層的垂直 MTJ 示意
+
+畫開傳統電流與電子流，再追蹤自旋力矩、自由層反轉與低偏壓感測。
+
+1. **初態：選擇管關閉** — mF 起始平行於 REF；尚無穿越接面的電流。 起始穩定磁態 寫入電流為零
+2. **脈衝：自旋力矩使自由層偏轉** — 開啟 WL；電子由上方自由層流向下方 REF。橘色 Ic 方向相反，自由磁矩偏轉。 自由層進動／反轉中 WL 開啟；穿越 MTJ 的寫入脈衝
+3. **撤去脈衝：反向磁態保留** — 電流停止後 mF 落入AP 高阻狀態，REF 保持原方向。 反向穩定磁態 寫入電流為零
+
+- [EMG-P-STT：IBM：自旋力矩結構專利 US5695864A](https://patents.google.com/patent/US5695864A/en)
+- [op-stt-katine-2000：Katine 等：Co/Cu/Co 電流驅動磁化反轉](https://arxiv.org/abs/cond-mat/9908231)
+
+### stt · STT-MRAM · 反向重寫／RESET
+
+#### 上自由層／MgO／下參考層的垂直 MTJ 示意
+
+畫開傳統電流與電子流，再追蹤自旋力矩、自由層反轉與低偏壓感測。
+
+1. **初態：選擇管關閉** — mF 起始反平行於 REF；尚無穿越接面的電流。 起始穩定磁態 寫入電流為零
+2. **脈衝：自旋力矩使自由層偏轉** — 開啟 WL；電子由下方 REF 流向上方自由層。橘色 Ic 方向相反，自由磁矩偏轉。 自由層進動／反轉中 WL 開啟；穿越 MTJ 的寫入脈衝
+3. **撤去脈衝：反向磁態保留** — 電流停止後 mF 落入P 低阻狀態，REF 保持原方向。 反向穩定磁態 寫入電流為零
+
+- [EMG-P-STT：IBM：自旋力矩結構專利 US5695864A](https://patents.google.com/patent/US5695864A/en)
+- [op-stt-katine-2000：Katine 等：Co/Cu/Co 電流驅動磁化反轉](https://arxiv.org/abs/cond-mat/9908231)
+
+### stt · STT-MRAM · 讀取
+
+#### 上自由層／MgO／下參考層的垂直 MTJ 示意
+
+開啟小偏壓讀取支路，比較 P／AP 的接面電流；鎖存後隔離支路，保留自由層磁態。
+
+1. **初態：保留 P 與 AP** — 兩個圖代表 P 與 AP 兩種可能磁態；選擇支路未開啟，沒有讀取電流。 P 與 AP 磁態各自保留 寫入場與寫入電流皆為零
+2. **選通：建立小感測電流** — 施加相同小偏壓並開啟選擇支路；P 的電流較大，AP 的電流較小。 磁態不變；讀取節點有電流 小讀取偏壓；選擇支路開啟
+3. **鎖存：關閉支路並保留磁態** — 感測器鎖存電流差，撤除讀取偏壓；兩種磁矩排列各自保留。 P 與 AP 磁態各自保留 寫入場與寫入電流皆為零
+
+- [EMG-P-STT：IBM：自旋力矩結構專利 US5695864A](https://patents.google.com/patent/US5695864A/en)
+- [op-stt-katine-2000：Katine 等：Co/Cu/Co 電流驅動磁化反轉](https://arxiv.org/abs/cond-mat/9908231)
+
+### sot · SOT-MRAM · 寫入／SET
+
+#### 帶輔助場的三端 SOT／MTJ 教材結構
+
+橫向寫入線提供自旋注入；獨立上端點與 MTJ 分支負責讀取。
+
+1. **初態：垂直 MTJ 上端隔離** — 自由層維持起始磁態；上端 R 隔離，寫入電流不必穿越障壁。 磁態保留或鬆弛至終態 讀寫激勵關閉
+2. **橫向脈衝與自旋注入** — 對 W1/W2 施加已校準脈衝，Js 注入自由層；Hassist 明確提供所選示意的對稱性破缺。 自由層偏轉中 W1/W2 橫向脈衝與 Hassist
+3. **脈衝撤除後鬆弛** — 關閉橫向脈衝；自由磁矩在有效磁場與阻尼下向目標穩態鬆弛。 磁態保留或鬆弛至終態 讀寫激勵關閉
+4. **終態：相反磁化方向** — 自由層落入反向穩態；寫入線無電流，MTJ 可在後續獨立讀取。 磁態保留或鬆弛至終態 讀寫激勵關閉
+
+- [EMG-SOT24：imec：SOT-MRAM 功能陣列與快取研究](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
+
+### sot · SOT-MRAM · 反向重寫／RESET
+
+#### 帶輔助場的三端 SOT／MTJ 教材結構
+
+橫向寫入線提供自旋注入；獨立上端點與 MTJ 分支負責讀取。
+
+1. **初態：垂直 MTJ 上端隔離** — 自由層維持起始磁態；上端 R 隔離，寫入電流不必穿越障壁。 磁態保留或鬆弛至終態 讀寫激勵關閉
+2. **橫向脈衝與自旋注入** — 對 W1/W2 施加已校準脈衝，Js 注入自由層；Hassist 明確提供所選示意的對稱性破缺。 自由層偏轉中 W1/W2 橫向脈衝與 Hassist
+3. **脈衝撤除後鬆弛** — 關閉橫向脈衝；自由磁矩在有效磁場與阻尼下向目標穩態鬆弛。 磁態保留或鬆弛至終態 讀寫激勵關閉
+4. **終態：相反磁化方向** — 自由層落入反向穩態；寫入線無電流，MTJ 可在後續獨立讀取。 磁態保留或鬆弛至終態 讀寫激勵關閉
+
+- [EMG-SOT24：imec：SOT-MRAM 功能陣列與快取研究](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
+
+### sot · SOT-MRAM · 讀取
+
+#### 三端 SOT／MTJ：R→W2 感測支路，W1 隔離
+
+由 R 穿過 MTJ 並經 W2 回流，W1 保持隔離；鎖存後撤去讀取電流，磁態保留。
+
+1. **保留：寫入線與讀取端隔離** — 圖示 P 磁態；R、W1 皆隔離，磁化不靠持續電流維持。 磁態保留或鬆弛至終態 讀寫激勵關閉
+2. **讀取：僅開啟垂直 MTJ 分支** — 電流由 R 穿過 REF／障壁／自由層，再經 W2 回流；W1 隔離，沒有 W1→W2 寫入電流。 磁態保留或鬆弛至終態 僅 R→W2 讀取支路
+3. **鎖存：讀取電流撤除** — 感測值鎖存後開啟 R 支路，停止讀取；自由層方向保留。 磁態保留或鬆弛至終態 讀寫激勵關閉
+
+- [EMG-SOT24：imec：SOT-MRAM 功能陣列與快取研究](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
+
+### vcm · VCM ReRAM · 寫入／SET
+
+#### 具氧交換上界面的雙極性氧化物示意
+
+以氧離子交換、氧空缺分布與局部間隙，分別呈現 SET、RESET 與低偏壓讀取。
+
+1. **高阻初態：通道中有間隙** — 圖從已成形且完成 RESET 的高阻狀態開始；局部氧化間隙阻斷缺氧路徑。 有間隙的缺氧通道 TE 與 BE 等電位
+2. **SET 偏壓：氧向上界面遷移** — 選定 TE 正偏壓時，O²− 朝上方氧交換界面移動，在通道留下缺氧位置。 有間隙的缺氧通道 TE 正偏壓，BE 為零，啟用限流
+3. **氧空缺路徑連接** — 局部氧空缺路徑接通，電阻下降；Ilim 控制通道過度成長與焦耳熱。 連接的缺氧低阻通道 TE 正偏壓，BE 為零，啟用限流
+4. **撤去偏壓：低阻保留** — SET 偏壓撤除後，缺氧路徑保持連接；保留狀態不依賴持續施壓。 連接的缺氧低阻通道 TE 與 BE 等電位
+
+- [op-vcm-reservoir-2026：Yuan 等：WO₃ 記憶體的可控氧交換電極](https://www.nature.com/articles/s43246-026-01143-8)
+- [EMG-P-VCM：HP：多層氧化物切換專利 US8331131B2](https://patents.google.com/patent/US8331131B2/en)
+
+### vcm · VCM ReRAM · 反向重寫／RESET
+
+#### 具氧交換上界面的雙極性氧化物示意
+
+以氧離子交換、氧空缺分布與局部間隙，分別呈現 SET、RESET 與低偏壓讀取。
+
+1. **低阻初態：缺氧路徑連接** — SET 後的缺氧區連接上下電極，沒有讀寫偏壓時仍保持低阻。 低阻通道，氧逐步返回 TE 與 BE 等電位
+2. **反向偏壓：氧離子返回** — 本示意反向 TE 偏壓使 O²− 從氧交換區返回局部通道；箭頭代表氧離子運動。 低阻通道，氧逐步返回 TE 負偏壓，BE 為零
+3. **頸部再氧化：間隙打開** — 通道最窄處獲得氧，局部缺氧路徑中斷；不必抹去整條已形成的通道。 局部間隙形成的高阻態 TE 負偏壓，BE 為零
+4. **撤去偏壓：高阻保留** — 撤除 RESET 偏壓後，局部間隙與剩餘缺氧區保留，高阻可供後續讀取。 局部間隙形成的高阻態 TE 與 BE 等電位
+
+- [op-vcm-reservoir-2026：Yuan 等：WO₃ 記憶體的可控氧交換電極](https://www.nature.com/articles/s43246-026-01143-8)
+- [EMG-P-VCM：HP：多層氧化物切換專利 US8331131B2](https://patents.google.com/patent/US8331131B2/en)
+
+### vcm · VCM ReRAM · 讀取
+
+#### 具氧交換上界面的雙極性氧化物示意
+
+以氧離子交換、氧空缺分布與局部間隙，分別呈現 SET、RESET 與低偏壓讀取。
+
+1. **初態：兩種可能的電阻狀態** — 左、右是同一單元的低阻與高阻兩種可能初態；尚未施加讀取偏壓。 低阻與高阻結構各自保留 操作偏壓為零
+2. **小偏壓：比較電子電流** — 在相同的小讀取偏壓下比較電流；偏壓以避免驅動可觀的離子重新分布為設計目標。 以電子電流感測；離子狀態近似不變 小讀取偏壓；不使用 SET 或 RESET 脈衝
+3. **鎖存後：撤去偏壓並保留結構** — 感測器鎖存差異後停止電流；低阻的連接路徑與高阻的局部間隙仍各自保留。 低阻與高阻結構各自保留 操作偏壓為零
+
+- [op-vcm-reservoir-2026：Yuan 等：WO₃ 記憶體的可控氧交換電極](https://www.nature.com/articles/s43246-026-01143-8)
+- [EMG-P-VCM：HP：多層氧化物切換專利 US8331131B2](https://patents.google.com/patent/US8331131B2/en)
+
+### ecm · ECM／CBRAM · 寫入／SET
+
+#### Ag 活性上電極／固態離子介質／惰性下電極
+
+Ag 活性電極氧化釋出 Ag+；離子遷移至陰極還原成核，金屬橋成長接通後撤去偏壓。
+
+1. **高阻初態：尚無金屬橋** — 上方 Ag 是可氧化金屬源，下方 BE 是惰性電極；起始沒有跨越介質的金屬橋。 未連接狀態 操作偏壓為零
+2. **Ag 氧化、離子遷移與成核** — Ag 陽極釋出 Ag+ 與電子；Ag+ 朝陰極遷移，電子在陰極附近還原銀離子並開始成核。 陰極成核與金屬成長 Ag 上電極正偏壓；SET 限流
+3. **陰極還原：金屬朝上成長** — 陰極側金屬沉積向 Ag 電極延伸；此選定實施例的成長方向不是所有 ECM 的固定法則。 陰極成核與金屬成長 Ag 上電極正偏壓；SET 限流
+4. **接通後撤壓：銀橋保留** — 限流限制橋接粗化；接通後移除偏壓，金屬橋仍提供低阻電子路徑。 連續銀橋 操作偏壓為零
+
+- [EMG-P-ECM：Axon：可程式化金屬化單元專利 US5761115A](https://patents.google.com/patent/US5761115A/en)
+
+### ecm · ECM／CBRAM · 反向重寫／RESET
+
+#### Ag 活性上電極／固態離子介質／惰性下電極
+
+對已連接的銀橋施加反向偏壓，使頸部局部氧化溶解；形成間隙後撤壓，保留高阻及殘餘金屬。
+
+1. **低阻初態：銀橋連接** — 連續銀橋形成低阻電子導通路徑；離子傳輸與電子導通不可混為一談。 連接或局部溶解的金屬橋 操作偏壓為零
+2. **反向偏壓：頸部氧化溶解** — 反向偏壓使局部橋頸的 Ag 氧化為 Ag+；溶出的陽離子朝此時為陰極的活性電極移動。 連接或局部溶解的金屬橋 Ag 上電極負偏壓
+3. **橋接中斷：保留部分金屬** — 關鍵頸部形成間隙，使兩電極之間失去連續金屬通路；其餘沉積物仍可能存在。 含殘留金屬的高阻間隙 Ag 上電極負偏壓
+4. **撤去偏壓：高阻間隙保留** — 撤去偏壓後保留高阻間隙；下一次 SET 可以利用殘留成核位置。 含殘留金屬的高阻間隙 操作偏壓為零
+
+- [EMG-P-ECM：Axon：可程式化金屬化單元專利 US5761115A](https://patents.google.com/patent/US5761115A/en)
+
+### ecm · ECM／CBRAM · 讀取
+
+#### Ag 活性上電極／固態離子介質／惰性下電極
+
+比較已保留金屬橋與局部間隙的小偏壓電流；鎖存判讀後撤去讀取偏壓，離子結構近似不變。
+
+1. **初態：兩種可能的電阻狀態** — 左、右是同一單元的低阻與高阻兩種可能初態；尚未施加讀取偏壓。 低阻與高阻結構各自保留 操作偏壓為零
+2. **小偏壓：比較電子電流** — 在相同的小讀取偏壓下比較電流；偏壓以避免驅動可觀的離子重新分布為設計目標。 以電子電流感測；離子狀態近似不變 小讀取偏壓；不使用 SET 或 RESET 脈衝
+3. **鎖存後：撤去偏壓並保留結構** — 感測器鎖存差異後停止電流；低阻的連接路徑與高阻的局部間隙仍各自保留。 低阻與高阻結構各自保留 操作偏壓為零
+
+- [EMG-P-ECM：Axon：可程式化金屬化單元專利 US5761115A](https://patents.google.com/patent/US5761115A/en)
+
+### pcm · 相變化記憶體 · 寫入／SET
+
+#### 局部加熱的蘑菇型 PCM 原理剖面
+
+加熱非晶帽至有利結晶且低於 Tm 的區域，保溫使晶核成長；冷卻後保留晶態低阻。
+
+1. **SET 起點：非晶高阻** — RESET 留下的非晶帽 A 位於加熱接點上方，增加單元電阻。 非晶高阻 無加熱脈衝
+2. **加熱到結晶區域並保溫** — SET 把局部溫度帶到有利結晶、但低於 Tm 的區域，維持足夠時間。 結晶溫度區域 SET 保溫；Tx < T < Tm
+3. **晶核成長：非晶區轉為晶態** — 熱活化成核與晶粒成長逐步減少非晶體積；狀態由材料與溫度時間積分共同決定。 晶核形成與成長 SET 保溫；Tx < T < Tm
+4. **冷卻終態：晶態低阻** — 冷卻後留下連續晶態 C 與較低電阻；這條熱歷程與熔融淬冷的 RESET 不同。 晶態低阻 無加熱脈衝
+
+- [op-pcm-ibm-thermal-2016：Bakan 等：PCM 結晶期間的溫度分布](https://research.ibm.com/publications/extracting-the-temperature-distribution-on-a-phase-change-memory-cell-during-crystallization)
+- [EMG-PCMDRIFT：IBM：投影式 PCM 電阻的時間演變](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)
+
+### pcm · 相變化記憶體 · 反向重寫／RESET
+
+#### 局部加熱的蘑菇型 PCM 原理剖面
+
+短強脈衝使局部晶態材料超過 Tm 熔融；脈衝陡降後快速淬冷，保留非晶帽與高阻。
+
+1. **RESET 起點：晶態低阻** — 起始局部相變材料為晶態，電流通過加熱接點上方的導電區。 晶態低阻 無加熱脈衝
+2. **強短脈衝：局部溫度高於熔點** — 短而強的 RESET 脈衝以焦耳熱使局部材料超過 Tm，形成液態區 L。 局部液態 短強 RESET 脈衝；T > Tm
+3. **快速降溫：避開充分結晶** — 脈衝陡降後局部液態快速淬冷；冷卻時間不足以完成晶體成長，形成非晶帽。 快速淬冷形成非晶 脈衝快速下降；快速淬冷
+4. **冷卻終態：非晶高阻** — 非晶帽 A 阻斷低阻晶態路徑，冷卻後保留高阻；不是靠移走材料抹除。 非晶高阻 無加熱脈衝
+
+- [op-pcm-ibm-thermal-2016：Bakan 等：PCM 結晶期間的溫度分布](https://research.ibm.com/publications/extracting-the-temperature-distribution-on-a-phase-change-memory-cell-during-crystallization)
+- [EMG-PCMDRIFT：IBM：投影式 PCM 電阻的時間演變](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)
+
+### pcm · 相變化記憶體 · 讀取
+
+#### 局部加熱的蘑菇型 PCM 原理剖面
+
+以小讀取偏壓比較晶態與非晶態的電流；鎖存後撤壓並保留相態，讀取溫度低於結晶區域。
+
+1. **初態：晶態與非晶態** — 左 C 與右 A 是同一單元的兩個可能儲存狀態；局部非晶帽增加電阻。 晶態與非晶態各自保留 偏壓為零
+2. **低能量讀取：溫度低於結晶區域** — 在小讀取偏壓下，晶態電流較大；讀取能量以避免可觀結晶或熔融為設計目標。 晶態與非晶態各自保留 小讀取偏壓；Tread 低於 Tx
+3. **電流鎖存：保留原相態** — 鎖存電流差後撤除偏壓，各相態保留；電阻仍可能隨時間漂移，須留感測裕量。 晶態與非晶態各自保留 偏壓為零
+
+- [op-pcm-ibm-thermal-2016：Bakan 等：PCM 結晶期間的溫度分布](https://research.ibm.com/publications/extracting-the-temperature-distribution-on-a-phase-change-memory-cell-during-crystallization)
+- [EMG-PCMDRIFT：IBM：投影式 PCM 電阻的時間演變](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)
+
+### feram · 電容式 FeRAM · 寫入 P↑
+
+#### 1T1C：以 PL 高於 BL 的脈衝寫入 P↑
+
+開啟 WL 並使 PL 高於 BL，向上電場使電域切換；撤去電容偏壓並隔離單元後保留 P↑。
+
+1. **初態：相反方向的剩餘極化** — 圖從相反資料的剩餘極化開始；沒有施加跨電容電壓。 剩餘極化保留 電容兩端等電位；WL=0
+2. **施加跨電容脈衝：電域切換** — 開啟選擇管並使PL 高於 BL；超過有效切換條件的脈衝使電域朝上切換。 電域正在切換 BL=0；PL=V；WL=1
+3. **撤去電場：目標極化保留** — 撤去跨電容電壓並隔離單元，剩餘極化保留；反向資料可直接重寫，沒有區塊抹除。 剩餘極化保留 電容兩端等電位；WL=0
+
+- [EMG-P-FERAM：Ramtron：自還原鐵電記憶體專利 US4873664A](https://patents.google.com/patent/US4873664A/en)
+
+### feram · 電容式 FeRAM · 反向重寫 P↓
+
+#### 1T1C：以 BL 高於 PL 的脈衝重寫 P↓
+
+開啟 WL 並使 BL 高於 PL，向下電場把原 P↑ 改為 P↓；撤去偏壓並隔離後保留反向資料。
+
+1. **初態：相反方向的剩餘極化** — 圖從相反資料的剩餘極化開始；沒有施加跨電容電壓。 剩餘極化保留 電容兩端等電位；WL=0
+2. **施加跨電容脈衝：電域切換** — 開啟選擇管並使BL 高於 PL；超過有效切換條件的脈衝使電域朝下切換。 電域正在切換 BL=V；PL=0；WL=1
+3. **撤去電場：目標極化保留** — 撤去跨電容電壓並隔離單元，剩餘極化保留；反向資料可直接重寫，沒有區塊抹除。 剩餘極化保留 電容兩端等電位；WL=0
+
+- [EMG-P-FERAM：Ramtron：自還原鐵電記憶體專利 US4873664A](https://patents.google.com/patent/US4873664A/en)
+
+### feram · 電容式 FeRAM · 讀取與還原
+
+#### 1T1C 及外部參考：並列兩種可能初態
+
+先分清翻轉與未翻轉電荷，再鎖存讀值；PL 下降且 WL 保持開啟時還原原始極化。
+
+1. **讀前：兩種可能的剩餘極化** — A 與 B 代表同一 1T1C 的兩個可能初態：P↑ 或 P↓。BL 與 PL 為零，WL 關閉。 兩種原始極化 BL=PL=0；WL=0
+2. **PL 上升：分開切換與未切換電荷** — WL 開啟、PL 上升，電場向上。A 不翻轉只提供 Qns；B 翻轉並多出 Qsw，兩者形成不同 BL 訊號。 B 翻轉；兩支路電荷不同 PL 升至 V；WL=1
+3. **感測與鎖存：保留原始資料判斷** — 感測放大器與外部參考比較後鎖存。此慣例把 A 的 BL 驅動至零，B 的 BL 驅動至 V；兩者當下均為 P↑。 原始資料已鎖存，B 需還原 SA 驅動 BL；PL=V；WL=1
+4. **PL 下降且 WL 開啟：還原 B** — 保持 WL 開啟並先讓 PL 回零。A 的電容沒有反向電場；B 的 BL 仍為 V，使場向下並還原原 P↓。 B 在向下電場中還原 PL 降至 0；WL=1
+5. **隔離並預充：原始極化保留** — 完成還原後關閉 WL，再把 BL 預充回零。A 與 B 各自恢復讀取前的極化；感測加還原才完成本次讀取。 兩種原始極化均已保留 WL=0，再預充 BL
+
+- [EMG-P-FERAM：Ramtron：自還原鐵電記憶體專利 US4873664A](https://patents.google.com/patent/US4873664A/en)
+
+### fefet · FeFET · 寫入／SET
+
+#### 簡化 n 通道 MFIS：閘極／鐵電／界面層／矽
+
+極化改變通道側束縛電荷與臨界電壓；在兩個 Vt 分布間感測通道電流。
+
+1. **初態：相反極化與臨界電壓** — 初始 P 遠離通道，對應較高的 n 通道 Vt。 剩餘極化與 Vt 保留 讀寫偏壓撤除
+2. **閘極脈衝：極化與束縛電荷改變** — 選定閘極脈衝使 P 朝向通道；通道側束縛電荷變為正，臨界電壓降低。 極化切換與 Vt 位移 相對通道的閘極寫入脈衝
+3. **剩餘極化：新臨界電壓保留** — 脈衝撤除後剩餘極化使 Vt 位移保留。反向資料是直接改寫；圖未把陷阱電荷造成的所有 Vt 位移算成極化。 剩餘極化與 Vt 保留 讀寫偏壓撤除
+
+- [EMG-KIOXIA：KIOXIA：FeFET 陷阱與極化穩定性研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)
+
+### fefet · FeFET · 反向重寫／RESET
+
+#### 簡化 n 通道 MFIS：閘極／鐵電／界面層／矽
+
+極化改變通道側束縛電荷與臨界電壓；在兩個 Vt 分布間感測通道電流。
+
+1. **初態：相反極化與臨界電壓** — 初始 P 朝向通道，對應較低的 n 通道 Vt。 剩餘極化與 Vt 保留 讀寫偏壓撤除
+2. **閘極脈衝：極化與束縛電荷改變** — 選定閘極脈衝使 P 遠離通道；通道側束縛電荷變為負，臨界電壓升高。 極化切換與 Vt 位移 相對通道的閘極寫入脈衝
+3. **剩餘極化：新臨界電壓保留** — 脈衝撤除後剩餘極化使 Vt 位移保留。反向資料是直接改寫；圖未把陷阱電荷造成的所有 Vt 位移算成極化。 剩餘極化與 Vt 保留 讀寫偏壓撤除
+
+- [EMG-KIOXIA：KIOXIA：FeFET 陷阱與極化穩定性研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)
+
+### fefet · FeFET · 讀取
+
+#### 簡化 n 通道 MFIS：閘極／鐵電／界面層／矽
+
+極化改變通道側束縛電荷與臨界電壓；在兩個 Vt 分布間感測通道電流。
+
+1. **讀前：極化建立臨界電壓視窗** — 圖示低 Vt 初態；極化朝矽通道，正束縛電荷有利於 n 通道形成。下方同時畫出另一高 Vt 曲線。 極化狀態與兩種 Vt 視窗 讀寫偏壓撤除
+2. **感測：閘極位於兩個 Vt 之間** — 以小汲極偏壓及介於 Vt,L、Vt,H 的 Vg,r 讀取；低 Vt 有較大 Id，高 Vt 的 Id 較小。電流走源極至汲極通道。 極化狀態與兩種 Vt 視窗 小 Vd；Vt,L < Vg,r < Vt,H
+3. **撤去讀取偏壓：極化保持** — 撤除讀取偏壓並鎖存判讀，極化與 Vt 視窗保留；實際偏壓須控制讀取擾動。 極化狀態與兩種 Vt 視窗 讀寫偏壓撤除
+
+- [EMG-KIOXIA：KIOXIA：FeFET 陷阱與極化穩定性研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)
+
+### ftj · 鐵電穿隧接面 · 寫入／SET
+
+#### 具名研究結構：Cr/Au／BSO／n 型 NSTO
+
+對照兩個極化方向下的界面累積／耗盡、有效能障與低偏壓電流。
+
+1. **初態：原始極化決定界面狀態** — 起始 P 朝 Cr/Au，對應NSTO 耗盡與高阻。 剩餘極化及界面狀態 寫入偏壓撤除
+2. **寫入場：極化翻轉與屏蔽重排** — 圖中寫入電壓以 Cr/Au 相對 NSTO 定義，使 P 轉向 NSTO；界面束縛電荷與電子屏蔽隨之改變。 極化與屏蔽切換中 Cr/Au 相對 NSTO 的寫入脈衝
+3. **撤壓終態：能障變化保留** — 撤去寫入偏壓後，剩餘 P 保持界面累積與較小的有效能障。此極化與電阻關係只對應具名研究結構。 剩餘極化及界面狀態 寫入偏壓撤除
+
+- [EMG-FTJ24：原始研究：原子尺度 BSO 鐵電穿隧接面](https://www.nature.com/articles/s41467-024-44927-7)
+
+### ftj · 鐵電穿隧接面 · 反向重寫／RESET
+
+#### 具名研究結構：Cr/Au／BSO／n 型 NSTO
+
+對照兩個極化方向下的界面累積／耗盡、有效能障與低偏壓電流。
+
+1. **初態：原始極化決定界面狀態** — 起始 P 朝 NSTO，對應電子累積與低阻。 剩餘極化及界面狀態 寫入偏壓撤除
+2. **寫入場：極化翻轉與屏蔽重排** — 圖中寫入電壓以 Cr/Au 相對 NSTO 定義，使 P 轉向 Cr/Au；界面束縛電荷與電子屏蔽隨之改變。 極化與屏蔽切換中 Cr/Au 相對 NSTO 的寫入脈衝
+3. **撤壓終態：能障變化保留** — 撤去寫入偏壓後，剩餘 P 保持NSTO 耗盡與較高較寬的有效能障。此極化與電阻關係只對應具名研究結構。 剩餘極化及界面狀態 寫入偏壓撤除
+
+- [EMG-FTJ24：原始研究：原子尺度 BSO 鐵電穿隧接面](https://www.nature.com/articles/s41467-024-44927-7)
+
+### ftj · 鐵電穿隧接面 · 讀取
+
+#### 具名研究結構：Cr/Au／BSO／n 型 NSTO
+
+對照兩個極化方向下的界面累積／耗盡、有效能障與低偏壓電流。
+
+1. **讀前：對照低阻與高阻能障** — 採 Cr/Au→BSO→NSTO 座標。圖示 P 朝 NSTO 的低阻初態；下方 U(x) 是定性能障，不是實測能帶。 低阻支路：NSTO 電子累積 操作偏壓為零
+2. **低阻讀取：界面累積與較小能障** — P 朝 NSTO 的正界面束縛電荷吸引電子累積；同一小讀取偏壓下，較小能障允許較大電子電流。 低阻支路：NSTO 電子累積 同一小讀取偏壓
+3. **高阻讀取：耗盡區增加有效能障** — 這一格是另一高阻初態的比較，並非讀取把低阻改成高阻。反向 P 引起 NSTO 耗盡，額外能障使電流較小。 高阻比較支路：NSTO 耗盡 同一小讀取偏壓
+4. **撤壓鎖存：極化與能障保留** — 撤去小讀取偏壓後鎖存結果；圖回示低阻支路，極化、累積與定性能障保留，高阻支路也同樣保留。 低阻支路：NSTO 電子累積 操作偏壓為零
+
+- [EMG-FTJ24：原始研究：原子尺度 BSO 鐵電穿隧接面](https://www.nature.com/articles/s41467-024-44927-7)
+
+## 專利原始附圖與權利項導讀
+
+### US7417300B2 · 把失效位置導向可預期的區域
+
+先比較端點與細頸寬度，再追蹤電流擁擠和局部熱梯度；這張圖的設計變數是幾何與材料分布。
+
+![US7417300B2 Fig. 4 / 4A](../assets/專利原圖/US7417300B2-02.png)
+
+[Fig. 4 / 4A · PDF 4](https://patentimages.storage.googleapis.com/1e/7d/12/c3ce4fbb0c479a/US7417300B2.pdf#page=4)
+
+- 410 / 420 · 兩個端點；寬度不是相同的細線
+- 430 · 狹長熔絲本體，連接兩個端點
+- 440 · 端點中的縮頸區；與熔絲本體分開辨認
+
+權利項 1 同時限定端點縮頸、矽化物／多晶矽的不同平面形狀，以及未矽化邊界。圖 4A 用來理解縮頸，但權利項的材料與邊界條件仍須回讀全文。
+
+對照 eFuse 寫入序列：電流路徑 → 材料遷移 → 高阻態。不要把所有 eFuse 都畫成同一種均勻熔斷。
+
+### US8847350B2 · 利用導孔的局部接觸面控制程式化位置
+
+由俯視圖的金屬連線，對照兩個剖面中的導孔落點。接觸面積縮小會集中電流與局部發熱。
+
+![US8847350B2 Fig. 4A–4C](../assets/專利原圖/US8847350B2-05.png)
+
+[Fig. 4A–4C · PDF 6](https://patentimages.storage.googleapis.com/f0/e6/d1/93874e8e69ad3a/US8847350.pdf#page=6)
+
+- 410 / 420 · 陽極與陰極端點
+- 430 · 金屬熔絲連線
+- 435 / 435A / 435B · 導孔及其接觸部分；比較導孔與連線的重疊
+
+權利項 1 的關鍵是導孔一端只有部分面積落在熔絲連線上，並限定兩層金屬間的連接。尺寸、電阻與其他條件分布在從屬項。
+
+對照金屬導孔 eFuse 的局部加熱與分離。此例不能直接沿用矽化物電遷移的材料圖說。
+
+### US6667902B2 · 把介電層擊穿與陣列選擇分開設計
+
+先在圖 3 找到儲存元件與選擇電晶體，再用圖 8 對照選中與未選中的偏壓組合。表內電壓只屬於此實施例。
+
+![US6667902B2 Fig. 3](../assets/專利原圖/US6667902B2-03.png)
+
+[Fig. 3 · PDF 5](https://patentimages.storage.googleapis.com/7a/76/35/6662110a53d9f3/US6667902.pdf#page=5)
+
+![US6667902B2 Fig. 8](../assets/專利原圖/US6667902B2-08.png)
+
+[Fig. 8 · PDF 10](https://patentimages.storage.googleapis.com/7a/76/35/6662110a53d9f3/US6667902.pdf#page=10)
+
+- 311 / 312 · 儲存端導電閘極與其下方薄閘介電層
+- 313 · 主動區；擊穿後形成儲存端的導電路徑
+- 111 / 115 · 相鄰元件的配置；必須連同選擇線閱讀
+
+權利項 1 結合 MOS 選擇電晶體、薄介電層儲存元件，以及列選擇、行選擇與列程式化線。只看到擊穿剖面，還不足以讀完其陣列連接限定。
+
+對照反熔絲操作：完整介電層 → 選中後高電場 → 永久導電路徑；讀取採低刺激。
+
+### US4115914A · 用局部薄介電層提供電荷進出路徑
+
+由製程末段剖面辨認浮動閘、局部薄區與上方控制閘。薄區的位置及第二介電層的覆蓋，決定耦合與穿隧路徑。
+
+![US4115914A Fig. 3h / 3i / 4](../assets/專利原圖/US4115914A-02.png)
+
+[Fig. 3h / 3i / 4 · PDF 4](https://patentimages.storage.googleapis.com/31/47/ab/e89f6659da690c/US4115914.pdf#page=4)
+
+- 54 · 第一介電層；包含局部較薄區域
+- 56 · 被絕緣包覆的浮動閘
+- 58 / 62 · 第二介電層與上方第二閘極
+
+權利項 1 是製作方法：形成主動區、局部薄介電層、浮動閘、隔離它的第二介電層，以及覆蓋通道的第二閘極。不可把方法項簡化成所有 EEPROM 的一般結構。
+
+對照 EEPROM 的 FN 進入與 FN 移出：兩個方向都必須穿過實際存在的薄介電層。
+
+### US5844271A · 單層多晶矽以埋入控制端耦合浮動閘
+
+在剖面找出埋入式控制區與浮動閘重疊，再用等效電路區分耦合端、儲存閘與可導通的通道。
+
+![US5844271A Fig. 4–7](../assets/專利原圖/US5844271A-01.png)
+
+[Fig. 4–7 · PDF 3](https://patentimages.storage.googleapis.com/1e/60/1a/e2aacc35ea296c/US5844271.pdf#page=3)
+
+- 32 · 埋入式控制閘的 n+ 區
+- 36 · 單層多晶矽浮動閘
+- 40 / 42 / 44 · 源極、汲極與通道
+
+權利項 1 包含埋入控制閘、耦合的浮動閘，以及延伸跨過部分通道與接面的薄穿隧區，並限定過度抹除時未選中元件的抑制作用。權利項 4 另寫分離閘結構。
+
+對照單層多晶矽變體：CHE 注入與 FN 移出必須對應此結構，不能畫成上方另有一層控制閘。
+
+### US6232180B1 · 以源極耦合、分離閘與井區偏壓控制操作
+
+從圖 5 的浮動閘成形讀到圖 6 的源／汲極，再追蹤選擇閘與薄穿隧氧化層的位置。深井使抹除偏壓具有獨立控制路徑。
+
+![US6232180B1 Fig. 5 / 6](../assets/專利原圖/US6232180B1-02.png)
+
+[Fig. 5 / 6 · PDF 4](https://patentimages.storage.googleapis.com/bf/a4/72/d2d74438bd3c5f/US6232180.pdf#page=4)
+
+- 501 / 113 · 浮動閘與選擇閘
+- 403 · 通道側的穿隧氧化層
+- 103 / 105 · 深 n 井及其中的 p 井
+
+權利項 1 指定深 n 井、p 井、選擇閘、浮動閘及作為控制耦合端的源極。權利項 4–6 再限定特定抹除與程式化偏壓；數字不可當成所有分離閘 NOR 的規格。
+
+對照第三個 NOR 變體：源側注入與井區／通道側 FN 抹除，和向選擇閘穿隧的實作分開。
+
+### WO1981000790A1 · 在電荷捕獲層與閘極間加入阻擋氧化層
+
+沿閘堆疊由矽基板往上讀：薄記憶氧化層、氮化矽、介面氧化層，再到多晶矽閘。這是材料堆疊導讀。
+
+![WO1981000790A1 Fig. 1](../assets/專利原圖/WO1981000790A1-頁14.png)
+
+[Fig. 1 · PDF 14](https://patentimages.storage.googleapis.com/28/0b/c1/62d59b67395c82/WO1981000790A1.pdf#page=14)
+
+- 11 / 12 · 薄記憶氧化層與氮化矽捕獲層
+- 13 / 14 · 介面氧化層與多晶矽閘
+- 16 / 17 / 18 · 基板及源／汲極區
+
+權利項 1 限定 CVD 形成的第二氧化層及其厚度範圍，並限定第一氧化層上限；權利項 6 是製作方法。此早期 SONOS 堆疊不能直接代表後來所有穿隧工程配方。
+
+對照 SONOS 操作時，分清底部穿隧氧化層與頂部阻擋氧化層；儲存位置在氮化層。
+
+### US5768192A · 利用局部捕獲與反向讀取放大感測差異
+
+比較標示先前技術的 A 圖與實施例 B 圖，再追蹤局部電荷區和 READ 箭頭。讀取方向改變了哪一端的能障最影響電流。
+
+![US5768192A Fig. 5A / 5B](../assets/專利原圖/US5768192A-02.png)
+
+[Fig. 5A / 5B · PDF 4](https://patentimages.storage.googleapis.com/59/3c/28/7e679959ef55fa/US5768192.pdf#page=4)
+
+![US5768192A Fig. 8A / 8B](../assets/專利原圖/US5768192A-04.png)
+
+[Fig. 8A / 8B · PDF 6](https://patentimages.storage.googleapis.com/59/3c/28/7e679959ef55fa/US5768192.pdf#page=6)
+
+- 14 / 16 · 源／汲極標號；操作時需同時看偏壓方向
+- 20 · 非導電氮化矽捕獲層
+- 24 / 68 · 控制閘與局部儲存電荷區
+
+權利項 1 結合局部電子捕獲、靠近程式化汲極的儲存區，以及反向與同向讀取呈現不同臨界電壓。不能只留下 ONO 堆疊而省略方向性。
+
+對照局部 NROM 序列：CHE 電子留在一端；反向讀取從相反方向感測；BBHH 抹除另以有來源的變體說明。
+
+### US7696559B2 · 把平面 NAND 串列轉成垂直堆疊
+
+圖 2 由底部共用源極沿矽柱往位元線讀；圖 6 再把同一結構展開為串列電路。選擇閘位於記憶閘堆疊的兩端。
+
+![US7696559B2 Fig. 2](../assets/專利原圖/US7696559B2-02.png)
+
+[Fig. 2 · PDF 4](https://patentimages.storage.googleapis.com/79/10/3c/cc469fa1eed4fc/US7696559.pdf#page=4)
+
+![US7696559B2 Fig. 6](../assets/專利原圖/US7696559B2-05.png)
+
+[Fig. 6 · PDF 7](https://patentimages.storage.googleapis.com/79/10/3c/cc469fa1eed4fc/US7696559.pdf#page=7)
+
+- 21 · 堆疊閘配線，包含記憶閘與端點選擇閘
+- 3 / 4 · 含電荷儲存層的閘介電層與矽柱
+- 7 / 11 · 上方位元線與底部共用源極擴散區
+
+權利項 1 詳列閘堆疊、含絕緣儲存層的側壁介電層、柱狀半導體、資料線與上下選擇閘。它是具體垂直 NAND 結構，不能把附圖當成所有現代圓柱孔陣列的版圖。
+
+對照 NAND 操作：選中字線的注入、未選字線的通過偏壓與寫入抑制；此專利的源極電子移出和後來 GIDL 電洞抹除分開呈現。
+
+### US6545906B1 · 用交錯脈衝讓耦合磁矩完成翻轉
+
+先看圖 4 的兩條脈衝時序，再沿圖 5／6 逐格追蹤磁矩。兩條線同時作用的區間與結束順序是操作的一部分。
+
+![US6545906B1 Fig. 3 / 4](../assets/專利原圖/US6545906B1-02.png)
+
+[Fig. 3 / 4 · PDF 3](https://patentimages.storage.googleapis.com/1e/95/11/99d21025b0f19c/US6545906.pdf#page=3)
+
+![US6545906B1 Fig. 5 / 6](../assets/專利原圖/US6545906B1-03.png)
+
+[Fig. 5 / 6 · PDF 4](https://patentimages.storage.googleapis.com/1e/95/11/99d21025b0f19c/US6545906.pdf#page=4)
+
+- 60 / 70 · 字線與 digit line 脈衝
+- 100 · 整組交錯寫入時序
+- 40 / 53 / 57 · 合成磁矩及反鐵磁耦合子層磁矩
+
+權利項 1 同時要求至少兩層反鐵磁耦合自由層、磁矩平衡條件，以及 t₀<t₁<t₂<t₃<t₄ 的脈衝順序。不是任意兩個正交磁場都具有相同結果。
+
+對照 Toggle 的五格序列與初態檢查：需要改寫時才觸發翻轉。
+
+### US5695864A · 以穿層電流把自旋角動量傳給可轉動磁層
+
+圖 1 是五層金屬導體模型，沿 A→F1→B→F2→C 讀出固定與可變磁矩，再比較電流方向與 F2 的轉矩。
+
+![US5695864A Fig. 1 / 2](../assets/專利原圖/US5695864A-00.png)
+
+[Fig. 1 / 2 · PDF 2](https://patentimages.storage.googleapis.com/f2/de/53/7c37f0c1e307e4/US5695864.pdf#page=2)
+
+- 10 · 五層自旋轉移元件
+- F1 / F2 · 固定磁矩層與可改變磁矩層
+- A / B / C · 兩端電極與中央非磁性導體；電流垂直穿過各層
+
+權利項 1 限定固定／可變磁導體層、其間非磁導體與穿層電流源。這個早期自旋轉移實施例使用金屬間隔，不是現代 MgO 穿隧障壁剖面。
+
+以這件專利理解自旋轉移原理，再用現代 STT-MRAM 圖區分 P／AP 電阻讀取與穿隧障壁。
+
+### US10930843B2 · 把 SOT 寫入導線與磁性堆疊組成可整合陣列
+
+追蹤水平第一配線，再經過其上磁性堆疊至另一方向配線。圖中控制電晶體和交叉配線比單一 MTJ 更能說明陣列整合成本。
+
+![US10930843B2 Fig. 3](../assets/專利原圖/US10930843B2-03.png)
+
+[Fig. 3 · PDF 5](https://patentimages.storage.googleapis.com/1b/15/5f/552c7b2be8d3cd/US10930843.pdf#page=5)
+
+- 102a / 102b · 第一導電配線，提供橫向寫入路徑
+- 108 / 110 / 112 · 磁性儲存層、間隔層與參考層
+- 116 / 118 / 314 · 控制電晶體與另一組配線
+
+權利項 1 是製造方法，限定第一導電層分離成配線、其上共同元件層的形成與分離，以及不同方向的第二配線。圖可解釋連接，權利項主軸仍是製程順序。
+
+對照 SOT 三端讀寫分離；附圖中的多重控制端必須保留，不能簡化成 STT 的同一路徑。
+
+### US8331131B2 · 利用中間態與第二脈衝控制阻態切換
+
+沿圖 5 的循環箭頭逐格看可移動物種、障壁與導電區如何改變。中間態有明確物理位置，不能省略成一次 SET／RESET。
+
+![US8331131B2 Fig. 5](../assets/專利原圖/US8331131B2-04.png)
+
+[Fig. 5 · PDF 5](https://patentimages.storage.googleapis.com/90/dd/5a/259ef8491b3d97/US8331131.pdf#page=5)
+
+- 507 · 可移動物種
+- 502 / 506 / 510 · 初始、中間與改變後的狀態
+- 511 / 517 / 519 · 各階段的穿隧障壁
+
+權利項 1 規定三個中間層與兩個脈衝：先累積到第一層，再移往第三層完成改變。這是特殊多層 memristor 操作，不能代替所有 VCM 的通用雙極序列。
+
+對照 VCM 操作，保留氧空缺／物種重分布的物理意義；這件專利另展示脈衝路徑如何增加中間態。
+
+### US5761115A · 在離子導體中可逆生成金屬橋
+
+在圖 1 的平面與剖面中追蹤枝晶，再比較圖 4 的垂直配置。圖 5 另加入阻止直接接觸的隔離條件。
+
+![US5761115A Fig. 1A / 1B / 2 / 3](../assets/專利原圖/US5761115A-00.png)
+
+[Fig. 1A / 1B / 2 / 3 · PDF 3](https://patentimages.storage.googleapis.com/8e/2a/ba/50b37273a2724f/US5761115.pdf#page=3)
+
+![US5761115A Fig. 4A / 4B / 5A / 5B](../assets/專利原圖/US5761115A-01.png)
+
+[Fig. 4A / 4B / 5A / 5B · PDF 4](https://patentimages.storage.googleapis.com/8e/2a/ba/50b37273a2724f/US5761115.pdf#page=4)
+
+- 12 / 22 · 含金屬離子的快速離子導體
+- 13 / 14 / 23 / 24 · 施加偏壓的電極；23 為陰極
+- 15 / 25 · 由負電極方向成長的金屬枝晶
+
+權利項 1 包含金屬離子導體、電極與由負端朝正端成長的枝晶；權利項 2 加入相反偏壓使成長反轉。權利項 3 的阻擋條件不能誤套到所有實施例。
+
+對照 ECM 的金屬氧化、離子遷移、還原沉積與反向溶解；不要把金屬絲畫成氧空缺。
+
+### US5912839A · 以累積脈衝設定相變材料的可辨識阻態
+
+先看圖 1 電阻對脈衝電流的非單調關係，再看圖 2 的記憶材料與電極配置。曲線沒有完整量測條件，不能抽取為現行產品規格。
+
+![US5912839A Fig. 1](../assets/專利原圖/US5912839A-00.png)
+
+[Fig. 1 · PDF 2](https://patentimages.storage.googleapis.com/b9/d0/ac/dfd15bdaa20dc7/US5912839.pdf#page=2)
+
+![US5912839A Fig. 2](../assets/專利原圖/US5912839A-01.png)
+
+[Fig. 2 · PDF 3](https://patentimages.storage.googleapis.com/b9/d0/ac/dfd15bdaa20dc7/US5912839.pdf#page=3)
+
+- 36 · 相變記憶材料
+- 42 · 電極網格結構
+- 46 · 隔離層
+
+權利項 1 聚焦不足以單次 SET、但能與後續脈衝累積的程式化方法；權利項 2 加入 RESET，權利項 3 加入計數額外脈衝的讀法。不是所有 PCM 的一般加熱權利項。
+
+對照 PCM 的溫度與晶相序列，再理解此件專利如何把多次刺激加入資料編碼。
+
+### US4873664A · 在感測之後以電路自動還原鐵電資料
+
+由 1T1C 單元沿位元線接到感測與還原電路，再比較 word line 和 plate line 時序。讀出電荷後，原始極化必須依鎖存結果恢復。
+
+![US4873664A Fig. 3 / 4](../assets/專利原圖/US4873664A-01.png)
+
+[Fig. 3 / 4 · PDF 3](https://patentimages.storage.googleapis.com/33/4c/dd/c26b6f9525498b/US4873664.pdf#page=3)
+
+![US4873664A Fig. 5](../assets/專利原圖/US4873664A-02.png)
+
+[Fig. 5 · PDF 4](https://patentimages.storage.googleapis.com/33/4c/dd/c26b6f9525498b/US4873664.pdf#page=4)
+
+- 22 / 24 · 鐵電電容與存取電晶體
+- 32 / 68 · 字線與獨立 plate line
+- 64 · 感測放大器；參照單元提供比較基準
+
+權利項 1 限定字線、位元線與獨立 plate line 的單元連接，電容一端經切換元件接到位元線。權利項 2 再加入感測放大器與虛擬鐵電參照單元。
+
+對照 FeRAM 讀取的兩種初始極化、切換電荷差、鎖存與回寫；還原步驟必須在圖中出現。
+
+### US10153155B2 · 以交替摻雜與熱處理形成鐵電薄膜
+
+圖 1／2 比較三層與四層薄膜安排。先辨認材料層與上下導電層，再回讀製程中不同摻雜層和退火的要求。
+
+![US10153155B2 Fig. 1 / 2](../assets/專利原圖/US10153155B2-01.png)
+
+[Fig. 1 / 2 · PDF 3](https://patentimages.storage.googleapis.com/14/31/15/bbdde795e5e4a4/US10153155.pdf#page=3)
+
+- 110 / 120 / 130 · 第一、第二、第三材料層
+- 112 / 114 · 上下導電層
+- 210 / 220 / 230 / 240 · 延伸的四層配置
+
+權利項 1 是形成薄膜的方法：含鉿與氧的三層材料、兩種不同摻雜層、加熱與兩側導電層。此圖不是完整 FeFET 位元單元，也不能單靠它判定讀寫通道。
+
+把此來源放在 FeFET 的材料／製程限制層；電晶體操作則由下一件具體閘堆疊專利與操作圖補足。
+
+### US11502083B2 · 把鐵電薄膜整合進具體複合閘結構
+
+沿基板往上逐層核對 31、32、33b、34、35，再沿左右接面回到通道。堆疊包含浮動閘，不能直接標成最簡單的金屬／鐵電／矽。
+
+![US11502083B2 Fig. 1](../assets/專利原圖/US11502083B2-01.png)
+
+[Fig. 1 · PDF 3](https://patentimages.storage.googleapis.com/26/68/6f/921a8116ea99d7/US11502083.pdf#page=3)
+
+- 31 / 32 · 緩衝層與浮動閘電極
+- 33b / 34 / 35 · 鉿基鐵電層、控制閘與薄膜電極層
+- 5 / 6 / 71 · 源極、汲極及金屬矽化物接觸
+
+權利項 1 詳列複合閘、隔離、側壁、源汲極與矽化物的相對位置。讀此圖可了解一種實作，不能據此把全部 FeFET 都定義成同一個堆疊。
+
+對照 FeFET 的極化控制臨界電壓；將材料層與電氣控制端分別標示，才能看清電場落在哪裡。
+
+### US20240057343A1 · 以催化接面與薄鐵電層設計穿隧阻態
+
+先看圖 3 的五層堆疊，再以圖 5 比較不同極化的能障；圖 15–18 將同一記憶堆疊接到電晶體。
+
+![US20240057343A1 Fig. 3–5](../assets/專利原圖/US20240057343A1-03.png)
+
+[Fig. 3–5 · PDF 4](https://patentimages.storage.googleapis.com/82/23/f6/5dcf02a41aa96f/US20240057343A1.pdf#page=4)
+
+![US20240057343A1 Fig. 15–18](../assets/專利原圖/US20240057343A1-08.png)
+
+[Fig. 15–18 · PDF 9](https://patentimages.storage.googleapis.com/82/23/f6/5dcf02a41aa96f/US20240057343A1.pdf#page=9)
+
+- 210 / 220 · 底電極與催化金屬層
+- 230 / 240 / 250 · 鐵電層、穿隧介電層與頂電極
+- 122 / 124 / 200 · 存取閘、源汲區與記憶單元
+
+本文件是公開申請文本。權利項 1 結合第一電極、鐵電材料與接觸它的催化金屬；權利項 2–3 才加入特定電負度與厚度限制。完整五層圖含實施例細節，不能全部當成獨立項必要條件。
+
+對照 FTJ 的極化翻轉與能障變化，並將此堆疊和其他電極／鐵電材料的研究器件分開。
