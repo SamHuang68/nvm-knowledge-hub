@@ -61,15 +61,19 @@ try {
 
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   await page.goto(base, { waitUntil:'networkidle' });
+  await page.waitForLoadState('load');
   const sourceAudit = await page.evaluate(() => {
     const ids=[...document.querySelectorAll('[id]')].map(item=>item.id);
     return {
       duplicateIds:ids.filter((id,index)=>ids.indexOf(id)!==index),
       missingTargets:[...document.querySelectorAll('a[href^="#"]')].filter(link=>!document.getElementById(decodeURIComponent(link.hash.slice(1)))).map(link=>link.hash),
-      h1:document.querySelectorAll('h1').length
+      h1:document.querySelectorAll('h1').length,
+      readyState:document.readyState,
+      sourceRecords:document.querySelectorAll('[data-source-record]').length
     };
   });
-  if (sourceAudit.duplicateIds.length || sourceAudit.missingTargets.length || sourceAudit.h1!==1) failures.push({sourceAudit});
+  if (sourceAudit.duplicateIds.length || sourceAudit.missingTargets.length || sourceAudit.h1!==1 || sourceAudit.readyState!=='complete' || sourceAudit.sourceRecords!==data.sources.length) failures.push({sourceAudit});
+  await page.locator('#nvm-physics-overview').evaluate(disclosure => { disclosure.open = true; });
   await page.locator('#nvm-search').fill('SOT');
   if (await page.locator('[data-topic-row]:visible').count()!==1) failures.push('SOT 搜尋未精確得到一個專題');
   await page.locator('#nvm-family').selectOption('charge');
@@ -103,6 +107,7 @@ try {
   const mobile=await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
   await mobile.goto(base,{waitUntil:'networkidle'});
   await mobile.locator('#nvm-contents-toggle').click();
+  await mobile.locator('.nvm-background-nav > summary').click();
   await mobile.locator('.nvm-sidebar a[href="#topic-ecm"]').click();
   await mobile.waitForFunction(()=>!document.getElementById('topic-ecm').hidden);
   if (await mobile.locator('[data-nvm-panel]:visible').getAttribute('id')!=='topic-ecm' || await mobile.locator('#nvm-contents-toggle').getAttribute('aria-expanded')!=='false') failures.push('手機目錄未正確選題並收合');
@@ -114,7 +119,7 @@ try {
   const nojs=await browser.newPage({javaScriptEnabled:false});
   await nojs.goto(base,{waitUntil:'networkidle'});
   if (await nojs.locator('[data-operation-detail][hidden]').count()) failures.push('無 JavaScript 仍有隱藏操作文字');
-  if (await nojs.locator('[data-nvm-panel]:visible').count()!==routes.length) failures.push('無 JavaScript 未顯示全部專題');
+  if (await nojs.locator('[data-nvm-panel]:visible').count()!==routes.length+data.ipCurriculum.units.length) failures.push('無 JavaScript 未顯示全部 IP 與背景專題');
   await nojs.close();
   await page.emulateMedia({media:'print'});
   if (await page.locator('[data-operation-detail]').count()!==await page.locator('[data-operation-detail]:visible').count()) failures.push('列印未顯示全部操作');

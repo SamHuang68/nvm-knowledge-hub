@@ -1,0 +1,52 @@
+.nvm-ip-directory{margin-top:28px}
+.nvm-ip-group{display:grid;grid-template-columns:145px minmax(0,1fr);gap:22px;border-top:2px solid #204c67;padding-top:23px!important;margin-top:32px!important}
+.nvm-ip-group-label>span{font-size:24px;font-weight:700;letter-spacing:.02em;color:#174764}
+.nvm-ip-group-label>p{font-size:14px;line-height:1.7;color:#526579;margin:8px 0}
+.nvm-ip-rows{min-width:0}
+.nvm-ip-row{display:grid;grid-template-columns:minmax(180px,.8fr) minmax(0,1.2fr);gap:20px;padding:18px 0 23px;border-bottom:1px solid #c6d5e0}
+.nvm-ip-row:first-child{padding-top:0}
+.nvm-ip-vendor{font-size:13px!important;font-weight:650;letter-spacing:.025em;color:#4b6578;margin:0 0 5px!important}
+.nvm-ip-row h4{font-size:22px;line-height:1.35;margin:0 0 12px}
+.nvm-ip-row h4 a{color:#113e5b;text-decoration-thickness:1px}
+.nvm-ip-entry-link{font-size:13px;color:#4c687c;line-height:1.6}
+.nvm-ip-row dl{margin:0;display:grid;gap:9px}
+.nvm-ip-row dl>div{display:grid;grid-template-columns:105px minmax(0,1fr);gap:12px}
+.nvm-ip-row dt{font-size:13px;font-weight:700;color:#1b5871;line-height:1.7}
+.nvm-ip-row dd{margin:0;font-size:15px;line-height:1.6;overflow-wrap:anywhere}
+.nvm-ip-nav,.nvm-background-nav{grid-column:1/-1}
+.nvm-ip-nav-group{font-size:11px;font-weight:700;letter-spacing:.08em;color:#476477;margin:15px 0 4px;padding-left:12px}
+.nvm-ip-nav a{font-size:14px}
+.nvm-background-nav{margin-top:20px;padding-top:15px;border-top:1px solid #a9c0ce}
+.nvm-background-nav>summary{cursor:pointer;font-size:14px;font-weight:650;color:#284e66;padding:8px 0;line-height:1.6}
+.nvm-background-nav h3{font-size:13px}
+.nvm-background-nav a{font-size:13px}
+.nvm-ip-structure-figure{border:1px solid #bfd0dc;border-radius:4px;overflow:hidden;background:white;margin:20px 0 0}
+.nvm-ip-structure-heading{display:flex;justify-content:space-between;gap:20px;align-items:baseline;padding:16px 20px;background:#eff5f8;border-bottom:1px solid #cad8e2}
+.nvm-ip-structure-heading h4{font-size:19px;line-height:1.4;margin:0}
+.nvm-ip-structure-heading>span{font-size:12px;line-height:1.6;color:#446277;flex:0 0 auto}
+.nvm-ip-structure-drawing{background:#f7f9fc;padding:10px 16px}
+.nvm-ip-structure-drawing svg{display:block;width:100%;height:auto;max-height:620px}
+.nvm-ip-structure-notes{padding:0 20px 15px}
+.nvm-ip-structure-notes>p{font-size:14px;line-height:1.7;color:#3d5e74;margin:12px 0 0}
+.nvm-ip-structure-notes .nvm-op-legend{padding:17px 0;gap:13px 25px}
+.nvm-ip-structure-notes .nvm-op-legend>div{flex-basis:40%;min-width:0}
+.nvm-ip-takeaway{padding:20px 24px!important;border-left:4px solid #315674;background:#e9f0f5}
+.nvm-ip-takeaway p{font-size:16px;line-height:1.8}
+.nvm-ip-panel .nvm-op-frames{grid-template-columns:repeat(2,minmax(0,1fr))}
+.nvm-ip-panel .nvm-op-variant>.nvm-op-legend>div{display:block;min-width:0}
+.nvm-ip-panel .nvm-op-variant>.nvm-op-legend dt{white-space:normal;overflow-wrap:anywhere;margin-bottom:4px}
+.nvm-ip-panel .nvm-op-variant>.nvm-op-legend dd{overflow-wrap:anywhere}
+.nvm-ip-panel h2,.nvm-ip-panel .nvm-bottom-nav a{overflow-wrap:anywhere}
+.nvm-physical-background{margin-top:36px;border-top:1px solid #aabfce;padding-top:20px}
+.nvm-physical-background>summary{font-size:20px;font-weight:650;cursor:pointer;line-height:1.5;color:#173f59;padding:13px 0}
+.nvm-reference-body{margin-top:25px}
+.nvm-reference-body>summary{font-size:18px;font-weight:650;cursor:pointer;background:#e8eef3;padding:14px 18px;border:1px solid #b8cbd9}
+.nvm-reference-intro{padding:20px 24px;border-left:4px solid #315674;background:#e9f0f5;margin-top:22px}
+.nvm-reference-intro p{font-size:16px;line-height:1.8}
+@media(max-width:1280px){.nvm-ip-panel .nvm-op-frames{grid-template-columns:1fr}}
+@media(max-width:1100px){.nvm-ip-group{grid-template-columns:115px minmax(0,1fr);gap:16px}.nvm-ip-row{grid-template-columns:1fr;gap:10px}.nvm-ip-entry-link{display:none}.nvm-ip-row h4{margin-bottom:0}}
+@media(max-width:800px){.nvm-ip-group{grid-template-columns:1fr;gap:12px}.nvm-ip-group-label{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}.nvm-ip-group-label>p{flex:1 1 190px}.nvm-ip-row{background:#fff;padding:18px!important;border:1px solid #c7d7e1;margin-bottom:13px}.nvm-ip-row dl>div{grid-template-columns:93px minmax(0,1fr)}.nvm-ip-nav{display:grid;grid-template-columns:1fr 1fr;gap:3px}.nvm-ip-nav>h3,.nvm-ip-nav-group{grid-column:1/-1}.nvm-ip-structure-heading{display:block;padding:15px 16px}.nvm-ip-structure-heading>span{display:block;margin-top:6px}.nvm-ip-structure-drawing{padding:8px 0}.nvm-ip-structure-notes{padding:0 15px 14px}.nvm-ip-structure-notes .nvm-op-legend>div{flex-basis:100%}.nvm-ip-takeaway{padding:18px!important}.nvm-reference-intro{padding:18px}.nvm-physical-background>summary{font-size:18px}}
+@media(max-width:390px){.nvm-ip-row dl>div{grid-template-columns:78px minmax(0,1fr);gap:9px}.nvm-ip-row dd{font-size:14px}.nvm-ip-row h4{font-size:21px}.nvm-ip-nav{grid-template-columns:1fr}}
+@media(max-width:600px){.nvm-ip-panel .nvm-op-legend>div,.nvm-engineering-zoom-notes .nvm-op-legend>div{display:block;min-width:0}.nvm-ip-panel .nvm-op-legend dt,.nvm-engineering-zoom-notes .nvm-op-legend dt{white-space:normal;overflow-wrap:anywhere;margin-bottom:4px}.nvm-ip-panel .nvm-op-legend dd,.nvm-engineering-zoom-notes .nvm-op-legend dd{min-width:0;overflow-wrap:anywhere}}
+@media(max-width:600px){.nvm-ip-panel .nvm-op-drawing,.nvm-ip-structure-drawing{overflow-x:auto;overscroll-behavior-x:contain}.nvm-ip-panel .nvm-op-drawing>svg,.nvm-ip-structure-drawing>svg{min-width:520px}.nvm-ip-panel .nvm-op-drawing::before,.nvm-ip-structure-drawing::before{content:"可橫向閱讀圖面，或開啟放大";display:block;font-size:12px;line-height:1.6;color:#3d6079;padding:5px 12px 10px;position:sticky;left:0;width:max-content;max-width:100%}html[lang="en"] .nvm-ip-panel .nvm-op-drawing::before,html[lang="en"] .nvm-ip-structure-drawing::before{content:"Scroll the diagram sideways or enlarge it"}}
+@media print{.nvm-ip-nav,.nvm-ip-entry-link{display:none}.nvm-ip-group{break-inside:avoid}.nvm-ip-structure-figure,.nvm-ip-row{break-inside:avoid}.nvm-physical-background::details-content,.nvm-reference-body::details-content{content-visibility:visible;display:block}.nvm-physical-background:not([open])>:not(summary),.nvm-reference-body:not([open])>:not(summary){display:block!important}}

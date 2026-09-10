@@ -1,8 +1,8 @@
-# NVM Technology Panorama
+# NVM IP Cells and Device Physics
 
 Research Revision: 2026-09-10
 
-Start by asking which physical state stores the data, then examine how that state is written, read, and retained—and what each operation costs. This panorama presents the technology families in parallel: a technology can already have products in volume production while new materials, process nodes, and applications remain under investigation.
+Start with named embedded IP cells: eMemory NeoBit, NeoFuse, NeoEE and NeoMTP; a CHI/BBHH model for the YMC study path; and MRAM/ReRAM IP examples. Follow the same storage region from its initial state through the applied stimulus, carrier or spin process and sensed result. Standalone components and generic device families remain background references.
 
 ## Storage Physics
 
@@ -15,6 +15,1542 @@ Volume production, completed qualification, research demonstrations, and develop
 ## System Role
 
 SCM describes an application role that addresses the gap between memory and storage; it is not another bitcell type. Application, access semantics, persistence through power loss, and current supply status must be explained separately.
+
+## Named IP Cells and Operating Principles
+
+### NeoBit: Floating-Gate OTP Cell
+
+eMemory
+
+Follow the series select transistor and p-type floating-gate storage transistor as electron injection changes read current. Then distinguish normal OTP operation from the physical possibility of ultraviolet erasure.
+
+NeoBit — Cell Structure
+
+Series pMOS selector and pMOS floating-gate cell. Historical section: n-well in p substrate, p+ source/shared region/drain, separate select gate and p+ FG; no FG wire or stacked control gate. Dielectric isolates FG. The historical p+ model adds electron–hole recombination leaving localized negative ionic charge; stored Q− is not entirely free electrons.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- FG / Q− · FG has no DC terminal. Q− follows the historical p+ charge model, including localized negative ionic charge.
+- UV* · The 2021 brief lists UV erase. Normal OTP lacks electrical erase; UV access depends on implementation and package.
+
+- [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+- [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en)
+- [ip-neobit-link: Official NeoBit-to-Patent Link](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)
+- [ip-neobit-uv: Published NeoBit UV-Erase Boundary](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)
+
+#### NeoBit — Program
+
+Carriers: accelerated holes create electron–hole pairs; some hot electrons enter FG through oxide.
+
+Hot-hole-induced electron injection
+
+**1. Initial State**
+
+State: Initial: less stored negative FG charge; p-channel is not in its programmed conductive state.
+
+Stimulus: Retain the stored state before the operation.
+
+Initial: less stored negative FG charge; p-channel is not in its programmed conductive state.
+
+**2. Apply Conditions**
+
+State: Stimulus: select pMOS and establish a lateral channel field; coupling shifts FG potential.
+
+Stimulus: Stimulus: select pMOS and establish a lateral channel field; coupling shifts FG potential.
+
+Stimulus: select pMOS and establish a lateral channel field; coupling shifts FG potential.
+
+**3. Carrier Motion**
+
+State: Carriers: accelerated holes create electron–hole pairs; some hot electrons enter FG through oxide.
+
+Stimulus: Maintain the operating conditions and observe the carrier or sensing path.
+
+Carriers: accelerated holes create electron–hole pairs; some hot electrons enter FG through oxide.
+
+**4. Retained Result**
+
+State: Hold: Q− remains after the pulse; the p-channel conducts more readily at specified read bias.
+
+Stimulus: Return to retention conditions after the operation.
+
+Hold: Q− remains after the pulse; the p-channel conducts more readily at specified read bias.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- FG / Q− · FG has no DC terminal. Q− follows the historical p+ charge model, including localized negative ionic charge.
+- UV* · The 2021 brief lists UV erase. Normal OTP lacks electrical erase; UV access depends on implementation and package.
+
+Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent voltages or universal current p+ doping. SL, SG/WL, BL and NW; FG floats. SG is separate from FG; capacitive BL coupling is not a DC connection.
+
+- [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+- [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en)
+- [ip-neobit-link: Official NeoBit-to-Patent Link](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)
+- [ip-neobit-uv: Published NeoBit UV-Erase Boundary](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)
+
+#### NeoBit — Erase Boundary
+
+The normal OTP interface lacks electrical erase. This does not imply physical irreversibility: the 2021 brief lists UV erase, subject to implementation and package.
+
+Normal OTP operating boundary
+
+**1. Programmed State**
+
+State: After programming: FG retains Q−.
+
+Stimulus: Retain the stored state before the operation.
+
+After programming: FG retains Q−.
+
+**2. Normal Operating Boundary**
+
+State: Boundary: normal OTP operation provides no electrical erase path.
+
+Stimulus: Boundary: normal OTP operation provides no electrical erase path.
+
+Boundary: normal OTP operation provides no electrical erase path.
+
+**3. Historical UV Boundary**
+
+State: Historical exception: UV erase was published; package support is not implied.
+
+Stimulus: No normal electrical erase stimulus; this frame explains the operating boundary.
+
+Historical exception: UV erase was published; package support is not implied.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- FG / Q− · FG has no DC terminal. Q− follows the historical p+ charge model, including localized negative ionic charge.
+- UV* · The 2021 brief lists UV erase. Normal OTP lacks electrical erase; UV access depends on implementation and package.
+
+Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent voltages or universal current p+ doping. SL, SG/WL, BL and NW; FG floats. SG is separate from FG; capacitive BL coupling is not a DC connection.
+
+- [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+- [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en)
+- [ip-neobit-link: Official NeoBit-to-Patent Link](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)
+- [ip-neobit-uv: Published NeoBit UV-Erase Boundary](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)
+
+#### NeoBit — Read
+
+Sense output current while preserving the stored state; the macro defines logic coding.
+
+Channel-current sensing
+
+**1. Retained State**
+
+State: Hold: FG charge is unchanged before reading.
+
+Stimulus: Retain the stored state before the operation.
+
+Hold: FG charge is unchanged before reading.
+
+**2. Select the Cell**
+
+State: Stimulus: select the cell with low-field read conditions.
+
+Stimulus: Stimulus: select the cell with low-field read conditions.
+
+Stimulus: select the cell with low-field read conditions.
+
+**3. Sense the Path**
+
+State: Path: holes flow along the p-channel; FG charge is not discharged into BL.
+
+Stimulus: Maintain the operating conditions and observe the carrier or sensing path.
+
+Path: holes flow along the p-channel; FG charge is not discharged into BL.
+
+**4. Compare the Result**
+
+State: Result: sense channel current; the macro defines the 0/1 mapping.
+
+Stimulus: Return to retention conditions after the operation.
+
+Result: sense channel current; the macro defines the 0/1 mapping.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- FG / Q− · FG has no DC terminal. Q− follows the historical p+ charge model, including localized negative ionic charge.
+- UV* · The 2021 brief lists UV erase. Normal OTP lacks electrical erase; UV access depends on implementation and package.
+
+Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent voltages or universal current p+ doping. SL, SG/WL, BL and NW; FG floats. SG is separate from FG; capacitive BL coupling is not a DC connection.
+
+- [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+- [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en)
+- [ip-neobit-link: Official NeoBit-to-Patent Link](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)
+- [ip-neobit-uv: Published NeoBit UV-Erase Boundary](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)
+
+#### IP Cell Tradeoffs
+
+A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change.
+
+### NeoFuse: Gate-Dielectric Antifuse OTP Cell
+
+eMemory
+
+Start at the n-type cell's gate dielectric and follow high-field defect creation, changes in effective tunneling distance and the gate current used for sensing.
+
+NeoFuse — Cell Structure
+
+Storage uses an nFET gate dielectric and gate-current sensing. Published 3T adds regulation; show selection, regulation and antifuse functions with conceptual connectivity. The programmed dielectric-defect state persists; data is not an FG electron count.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- DT / 3T · DT describes direct tunneling through a shorter effective barrier after defect generation. SEL/REG are published functions; the related patent is not a verified current NeoFuse netlist.
+
+- [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
+- [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
+- [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
+- [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en)
+
+#### NeoFuse — Program
+
+Carriers: defects shorten the effective barrier; electrons tunnel across it.
+
+High-field defect generation and enhanced tunneling
+
+**1. Initial State**
+
+State: Initial: few dielectric defects and low gate current.
+
+Stimulus: Retain the stored state before the operation.
+
+Initial: few dielectric defects and low gate current.
+
+**2. Apply Conditions**
+
+State: Stimulus: selection/regulation establishes high dielectric field.
+
+Stimulus: Stimulus: selection/regulation establishes high dielectric field.
+
+Stimulus: selection/regulation establishes high dielectric field.
+
+**3. Carrier Motion**
+
+State: Carriers: defects shorten the effective barrier; electrons tunnel across it.
+
+Stimulus: Maintain the operating conditions and observe the carrier or sensing path.
+
+Carriers: defects shorten the effective barrier; electrons tunnel across it.
+
+**4. Retained Result**
+
+State: Hold: the defect state remains after stress removal.
+
+Stimulus: Return to retention conditions after the operation.
+
+Hold: the defect state remains after stress removal.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- DT / 3T · DT describes direct tunneling through a shorter effective barrier after defect generation. SEL/REG are published functions; the related patent is not a verified current NeoFuse netlist.
+
+No thick metallic short or FG storage; the damaged high-k/interfacial sublayer of current advanced processes is unverified. Antifuse gate AF, underlying Si, selection/regulation controls and BL; storage dielectric lies between AF and Si, not in the selector oxide.
+
+- [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
+- [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
+- [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
+- [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en)
+
+#### NeoFuse — Erase Boundary
+
+Normal operation has no defect-repair erase step; reducing bias does not restore the initial dielectric.
+
+Normal OTP operating boundary
+
+**1. Programmed State**
+
+State: After programming: the defect state has changed.
+
+Stimulus: Retain the stored state before the operation.
+
+After programming: the defect state has changed.
+
+**2. Normal Operating Boundary**
+
+State: Boundary: ordinary bias does not repair the dielectric.
+
+Stimulus: Boundary: ordinary bias does not repair the dielectric.
+
+Boundary: ordinary bias does not repair the dielectric.
+
+**3. Persistent State**
+
+State: Result: normal use retains the OTP state.
+
+Stimulus: No normal electrical erase stimulus; this frame explains the operating boundary.
+
+Result: normal use retains the OTP state.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- DT / 3T · DT describes direct tunneling through a shorter effective barrier after defect generation. SEL/REG are published functions; the related patent is not a verified current NeoFuse netlist.
+
+No thick metallic short or FG storage; the damaged high-k/interfacial sublayer of current advanced processes is unverified. Antifuse gate AF, underlying Si, selection/regulation controls and BL; storage dielectric lies between AF and Si, not in the selector oxide.
+
+- [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
+- [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
+- [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
+- [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en)
+
+#### NeoFuse — Read
+
+Sense output current while preserving the stored state; the macro defines logic coding.
+
+Gate-current sensing
+
+**1. Retained State**
+
+State: Compare: initial and programmed states have different defect densities.
+
+Stimulus: Retain the stored state before the operation.
+
+Compare: initial and programmed states have different defect densities.
+
+**2. Select the Cell**
+
+State: Stimulus: use read conditions below programming stress.
+
+Stimulus: Stimulus: use read conditions below programming stress.
+
+Stimulus: use read conditions below programming stress.
+
+**3. Sense the Path**
+
+State: Path: sense gate current; Si-to-AF electrons oppose conventional current.
+
+Stimulus: Maintain the operating conditions and observe the carrier or sensing path.
+
+Path: sense gate current; Si-to-AF electrons oppose conventional current.
+
+**4. Compare the Result**
+
+State: Result: compare with a current reference without resetting defects.
+
+Stimulus: Return to retention conditions after the operation.
+
+Result: compare with a current reference without resetting defects.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- DT / 3T · DT describes direct tunneling through a shorter effective barrier after defect generation. SEL/REG are published functions; the related patent is not a verified current NeoFuse netlist.
+
+No thick metallic short or FG storage; the damaged high-k/interfacial sublayer of current advanced processes is unverified. Antifuse gate AF, underlying Si, selection/regulation controls and BL; storage dielectric lies between AF and Si, not in the selector oxide.
+
+- [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
+- [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
+- [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
+- [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en)
+
+#### IP Cell Tradeoffs
+
+The storage event changes dielectric conduction. An ideal short does not explain the ultrathin-dielectric physics. Selection and regulation transistors support array operation; defects and tunneling in the storage region create the programmed read-current difference.
+
+### NeoEE: FN/FN Single-Poly MTP
+
+eMemory
+
+Follow the control-coupling region, floating node and tunneling region as FN transport stores and removes electrons. A read transistor then senses the stored state.
+
+NeoEE — Cell Structure
+
+Single-poly FG with capacitive-coupling MOS structures and selectors. Coupling and tunneling are functional roles; public evidence does not fix the device count or p/n arrangement. After high-field removal, isolated FG charge shifts the read-channel threshold.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- FG / Q− · FG is an isolated floating gate; blue minus signs indicate stored electrons.
+- C / T / S / R · Coupling, tunneling, selection and read roles; not official pins or a fixed device count. T groups the MOS tunneling regions used by the operations, without asserting one physical terminal. No charge-to-ON/OFF polarity is assigned.
+
+- [ip-neoee: NeoEE Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ip-neoee-history: Historical NeoEE Conceptual Cell](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)
+
+#### NeoEE — Program
+
+Carriers: electrons enter FG from a MOS tunneling region by FN tunneling.
+
+FN
+
+**1. Initial State**
+
+State: Initial: FG is shown with fewer electrons.
+
+Stimulus: Retain the stored state before the operation.
+
+Initial: FG is shown with fewer electrons.
+
+**2. Apply Conditions**
+
+State: Stimulus: coupling and tunneling terminals establish oxide field.
+
+Stimulus: Stimulus: coupling and tunneling terminals establish oxide field.
+
+Stimulus: coupling and tunneling terminals establish oxide field.
+
+**3. Carrier Motion**
+
+State: Carriers: electrons enter FG from a MOS tunneling region by FN tunneling.
+
+Stimulus: Maintain the operating conditions and observe the carrier or sensing path.
+
+Carriers: electrons enter FG from a MOS tunneling region by FN tunneling.
+
+**4. Retained Result**
+
+State: Hold: field removal leaves increased FG charge.
+
+Stimulus: Return to retention conditions after the operation.
+
+Hold: field removal leaves increased FG charge.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- FG / Q− · FG is an isolated floating gate; blue minus signs indicate stored electrons.
+- C / T / S / R · Coupling, tunneling, selection and read roles; not official pins or a fixed device count. T groups the MOS tunneling regions used by the operations, without asserting one physical terminal. No charge-to-ON/OFF polarity is assigned.
+
+Exclude the historical CHE/FN branch; do not assert exactly two physical capacitors or that more electrons always mean ON. C, T, R and S denote coupling, tunneling, read-channel and selection functions, not official pins. Shared FG has no external supply connection.
+
+- [ip-neoee: NeoEE Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ip-neoee-history: Historical NeoEE Conceptual Cell](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)
+
+#### NeoEE — Erase
+
+An FN charge-removal path enables electrical rewriting; dielectric wear and macro conditions limit cycling.
+
+FN
+
+**1. Programmed State**
+
+State: Initial: FG retains programmed charge.
+
+Stimulus: Retain the stored state before the operation.
+
+Initial: FG retains programmed charge.
+
+**2. Switch Terminal Conditions**
+
+State: Stimulus: switch terminal conditions to establish charge-removal field.
+
+Stimulus: Stimulus: switch terminal conditions to establish charge-removal field.
+
+Stimulus: switch terminal conditions to establish charge-removal field.
+
+**3. Remove Electrons**
+
+State: Carriers: electrons leave FG by FN tunneling into a MOS receiving region.
+
+Stimulus: Maintain the operating conditions and observe the carrier or sensing path.
+
+Carriers: electrons leave FG by FN tunneling into a MOS receiving region.
+
+**4. Ready to Reprogram**
+
+State: Result: reduced FG charge permits another program cycle.
+
+Stimulus: Return to retention conditions after the operation.
+
+Result: reduced FG charge permits another program cycle.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- FG / Q− · FG is an isolated floating gate; blue minus signs indicate stored electrons.
+- C / T / S / R · Coupling, tunneling, selection and read roles; not official pins or a fixed device count. T groups the MOS tunneling regions used by the operations, without asserting one physical terminal. No charge-to-ON/OFF polarity is assigned.
+
+Exclude the historical CHE/FN branch; do not assert exactly two physical capacitors or that more electrons always mean ON. C, T, R and S denote coupling, tunneling, read-channel and selection functions, not official pins. Shared FG has no external supply connection.
+
+- [ip-neoee: NeoEE Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ip-neoee-history: Historical NeoEE Conceptual Cell](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)
+
+#### NeoEE — Read
+
+Sense output current while preserving the stored state; the macro defines logic coding.
+
+Channel-current sensing
+
+**1. Retained State**
+
+State: Hold: two FG charge states create different thresholds.
+
+Stimulus: Retain the stored state before the operation.
+
+Hold: two FG charge states create different thresholds.
+
+**2. Select the Cell**
+
+State: Stimulus: selectors enable the read channel.
+
+Stimulus: Stimulus: selectors enable the read channel.
+
+Stimulus: selectors enable the read channel.
+
+**3. Sense the Path**
+
+State: Path: sense channel conductance without FN charge transfer.
+
+Stimulus: Maintain the operating conditions and observe the carrier or sensing path.
+
+Path: sense channel conductance without FN charge transfer.
+
+**4. Compare the Result**
+
+State: Result: compare against a reference while preserving FG charge.
+
+Stimulus: Return to retention conditions after the operation.
+
+Result: compare against a reference while preserving FG charge.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- FG / Q− · FG is an isolated floating gate; blue minus signs indicate stored electrons.
+- C / T / S / R · Coupling, tunneling, selection and read roles; not official pins or a fixed device count. T groups the MOS tunneling regions used by the operations, without asserting one physical terminal. No charge-to-ON/OFF polarity is assigned.
+
+Exclude the historical CHE/FN branch; do not assert exactly two physical capacitors or that more electrons always mean ON. C, T, R and S denote coupling, tunneling, read-channel and selection functions, not official pins. Shared FG has no external supply connection.
+
+- [ip-neoee: NeoEE Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ip-neoee-history: Historical NeoEE Conceptual Cell](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)
+
+#### IP Cell Tradeoffs
+
+Both update directions use tunneling, but field direction, selection and biased regions must still be distinguished. Single poly describes layer count; the division of work among coupling, tunneling and read devices explains this IP's update path.
+
+### NeoMTP: CHI/FN Single-Poly MTP
+
+eMemory
+
+Compare hot-carrier programming of the p-type floating-gate cell with FN electron transfer toward a dedicated erase gate. Both operations act on the same storage node.
+
+NeoMTP — Cell Structure
+
+Single-poly p-type FG-MOSFET related to NeoBit, with an additional erase gate EG. Dielectric separates EG and FG; they are not shorted. Dielectric isolates FG charge; EG provides an FN exit under erase conditions.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- FG / Q− · FG is an isolated floating gate; blue minus signs indicate stored electrons.
+- EG / SL / SG / BL / NW · EG is the published erase function; the remaining labels are pMOS teaching terminals. EG geometry/materials are not a current layout; its arrow expresses the FG-to-EG FN path.
+
+- [ip-neomtp: NeoMTP Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ip-neomtp-pat: Related pMOS and Edge-Erase-Gate Patent](https://patents.google.com/patent/US20030235082A1/en)
+- [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+
+#### NeoMTP — Program
+
+Carriers: hot holes induce hot electrons, which cross oxide into FG.
+
+Hot-hole-induced electron injection
+
+**1. Initial State**
+
+State: Initial: less FG charge; p-channel is in the erased state.
+
+Stimulus: Retain the stored state before the operation.
+
+Initial: less FG charge; p-channel is in the erased state.
+
+**2. Apply Conditions**
+
+State: Stimulus: selection establishes a lateral channel field.
+
+Stimulus: Stimulus: selection establishes a lateral channel field.
+
+Stimulus: selection establishes a lateral channel field.
+
+**3. Carrier Motion**
+
+State: Carriers: hot holes induce hot electrons, which cross oxide into FG.
+
+Stimulus: Maintain the operating conditions and observe the carrier or sensing path.
+
+Carriers: hot holes induce hot electrons, which cross oxide into FG.
+
+**4. Retained Result**
+
+State: Hold: negative FG charge remains; p-channel conducts at read bias.
+
+Stimulus: Return to retention conditions after the operation.
+
+Hold: negative FG charge remains; p-channel conducts at read bias.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- FG / Q− · FG is an isolated floating gate; blue minus signs indicate stored electrons.
+- EG / SL / SG / BL / NW · EG is the published erase function; the remaining labels are pMOS teaching terminals. EG geometry/materials are not a current layout; its arrow expresses the FG-to-EG FN path.
+
+Do not draw injected holes in FG or substitute conventional nMOS CHE; historical edge n+ EG requires separate attribution. SL, SG, BL and well contact follow the pMOS concept; EG is a published erase terminal. Current EG doping, geometry and voltages are not fully disclosed. These are teaching terminals, not an official pin table.
+
+- [ip-neomtp: NeoMTP Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ip-neomtp-pat: Related pMOS and Edge-Erase-Gate Patent](https://patents.google.com/patent/US20030235082A1/en)
+- [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+
+#### NeoMTP — Erase
+
+EG removes electrons for later reinjection; the OTP electrical-erase boundary does not apply.
+
+FN
+
+**1. Programmed State**
+
+State: Initial: FG retains programmed negative charge.
+
+Stimulus: Retain the stored state before the operation.
+
+Initial: FG retains programmed negative charge.
+
+**2. Switch Terminal Conditions**
+
+State: Stimulus: EG erase conditions establish charge-removal field.
+
+Stimulus: Stimulus: EG erase conditions establish charge-removal field.
+
+Stimulus: EG erase conditions establish charge-removal field.
+
+**3. Remove Electrons**
+
+State: Carriers: electrons tunnel from FG toward EG by FN.
+
+Stimulus: Maintain the operating conditions and observe the carrier or sensing path.
+
+Carriers: electrons tunnel from FG toward EG by FN.
+
+**4. Ready to Reprogram**
+
+State: Result: reduced FG electrons turn the p-channel off at specified read bias.
+
+Stimulus: Return to retention conditions after the operation.
+
+Result: reduced FG electrons turn the p-channel off at specified read bias.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- FG / Q− · FG is an isolated floating gate; blue minus signs indicate stored electrons.
+- EG / SL / SG / BL / NW · EG is the published erase function; the remaining labels are pMOS teaching terminals. EG geometry/materials are not a current layout; its arrow expresses the FG-to-EG FN path.
+
+Do not draw injected holes in FG or substitute conventional nMOS CHE; historical edge n+ EG requires separate attribution. SL, SG, BL and well contact follow the pMOS concept; EG is a published erase terminal. Current EG doping, geometry and voltages are not fully disclosed. These are teaching terminals, not an official pin table.
+
+- [ip-neomtp: NeoMTP Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ip-neomtp-pat: Related pMOS and Edge-Erase-Gate Patent](https://patents.google.com/patent/US20030235082A1/en)
+- [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+
+#### NeoMTP — Read
+
+Sense output current while preserving the stored state; the macro defines logic coding.
+
+Channel-current sensing
+
+**1. Retained State**
+
+State: Hold: retain the FG state before reading; charge level affects the p-channel.
+
+Stimulus: Retain the stored state before the operation.
+
+Hold: retain the FG state before reading; charge level affects the p-channel.
+
+**2. Select the Cell**
+
+State: Stimulus: apply read conditions; EG does not erase.
+
+Stimulus: Stimulus: apply read conditions; EG does not erase.
+
+Stimulus: apply read conditions; EG does not erase.
+
+**3. Sense the Path**
+
+State: Path: holes move along the p-channel without net FG charge transfer.
+
+Stimulus: Maintain the operating conditions and observe the carrier or sensing path.
+
+Path: holes move along the p-channel without net FG charge transfer.
+
+**4. Compare the Result**
+
+State: Result: compare channel current while retaining the stored state.
+
+Stimulus: Return to retention conditions after the operation.
+
+Result: compare channel current while retaining the stored state.
+
+- e− / h+ · Blue indicates electrons; red indicates holes. Arrows follow carriers.
+- I · Green arrows show conventional current, opposite to electrons and aligned with holes.
+- Bias · Only operating roles are shown; terminal voltages and pulse specifications are not supplied.
+- Scale · Geometry and dielectrics are enlarged for readability, not a process layout.
+- FG / Q− · FG is an isolated floating gate; blue minus signs indicate stored electrons.
+- EG / SL / SG / BL / NW · EG is the published erase function; the remaining labels are pMOS teaching terminals. EG geometry/materials are not a current layout; its arrow expresses the FG-to-EG FN path.
+
+Do not draw injected holes in FG or substitute conventional nMOS CHE; historical edge n+ EG requires separate attribution. SL, SG, BL and well contact follow the pMOS concept; EG is a published erase terminal. Current EG doping, geometry and voltages are not fully disclosed. These are teaching terminals, not an official pin table.
+
+- [ip-neomtp: NeoMTP Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ip-neomtp-pat: Related pMOS and Edge-Erase-Gate Patent](https://patents.google.com/patent/US20030235082A1/en)
+- [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+
+#### IP Cell Tradeoffs
+
+CHI/FN is the operation-pair shorthand used here. eMemory describes programming as channel-hot-hole-induced hot-electron injection and labels it CHEI. The erase gate provides a separate electron exit, distinguishing this cell from NeoBit's normal OTP interface and NeoEE's FN/FN mechanism.
+
+### YMC MTP: CHI/BBHH Operation Model
+
+Yield Microelectronics (YMC)
+
+Use the same equivalent 1T1C floating node to follow CHI electron programming and BBHH hole injection, then read the state through nMOS threshold voltage and channel current.
+
+YMC ymtp: CHI / BBHH 1T1C Operating Model
+
+One nMOS and one functional coupling capacitor share FG. Official information supports ymtp and the 1T1C family; this original equivalent drawing does not assert current product junctions, wells or dimensions. FG and CG have no DC short.
+
+- FG / Cc / CG · FG is a floating gate with no DC terminal. Cc is a functional coupling capacitor; CG is its external control terminal.
+- N+ / p / B · N+ denotes model source/drain regions, p the nMOS body, and B its terminal. Concentrations, well layout and dimensions are unspecified.
+- S / D* · S is the model source. D* is the selected high-field end and model drain, not a ymtp macro-pin mapping.
+- e− / h+ · Blue e− and arrows represent electrons; red h+ and arrows represent holes. Particle counts and animation speed are qualitative.
+- I / I_R / Iref · Green I is conventional current, opposite to electron motion. I_R is read current and Iref is the sensing reference.
+- BBT / BBHH · BBT is band-to-band tunneling in silicon. BBHH uses the resulting holes for hot-hole injection; crossing the dielectric is a subsequent step.
+- Vth / QFG · Vth is the effective nMOS threshold and QFG is FG charge. The actual product defines biases, sensing margins and logic encoding.
+
+- [ymc-product: YMC: Logic-Process ymtp MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ymc-1t1c: YMC: 1T1C Core Technology](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
+- [physics-bbhh-fg: Wu et al.: BBHH and Floating-Gate Demonstration](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)
+
+#### CHI Program: Electrons Enter the Floating Gate
+
+CG controls the channel through the coupling capacitor. Electrons accelerate near the model high-field end; a fraction crosses the dielectric, producing higher Vth and lower read current.
+
+Channel Hot-Carrier Injection; Electrons Enter FG in This nMOS Model
+
+**1. Form the Conducting Channel**
+
+State: FG holds its initial charge.
+
+Stimulus: CG couples through Cc; D* is above S.
+
+CG and FG remain separated by the capacitor dielectric; an electron channel forms between the model source and drain.
+
+**2. Accelerate Channel Electrons**
+
+State: Electrons move from S through the channel toward D*.
+
+Stimulus: The source/drain potential difference establishes a lateral field.
+
+Blue arrows follow electrons; green arrows show conventional current in the opposite direction. Only a fraction acquires sufficient injection energy.
+
+**3. Inject Energetic Electrons into FG**
+
+State: Some high-field electrons have gained energy; local E⊥ points toward silicon at the injection region.
+
+Stimulus: Channel acceleration combines with local E⊥ toward silicon, so the electron force is toward FG.
+
+The local vertical field is an explicit injection condition, not implied by D* relative to S alone. Electrons cross the dielectric into FG and increase negative charge; this is neither oxide rupture nor a CG-to-FG DC connection.
+
+**4. Retain More Negative Charge**
+
+State: FG stores more electrons after injection.
+
+Stimulus: Remove program stimulation; compare later under read conditions.
+
+At the same read bias, the effective nMOS has higher Vth and smaller I_R: the sensed consequence of its charge state.
+
+- FG / Cc / CG · FG is a floating gate with no DC terminal. Cc is a functional coupling capacitor; CG is its external control terminal.
+- N+ / p / B · N+ denotes model source/drain regions, p the nMOS body, and B its terminal. Concentrations, well layout and dimensions are unspecified.
+- S / D* · S is the model source. D* is the selected high-field end and model drain, not a ymtp macro-pin mapping.
+- e− / h+ · Blue e− and arrows represent electrons; red h+ and arrows represent holes. Particle counts and animation speed are qualitative.
+- I / I_R / Iref · Green I is conventional current, opposite to electron motion. I_R is read current and Iref is the sensing reference.
+- BBT / BBHH · BBT is band-to-band tunneling in silicon. BBHH uses the resulting holes for hot-hole injection; crossing the dielectric is a subsequent step.
+- Vth / QFG · Vth is the effective nMOS threshold and QFG is FG charge. The actual product defines biases, sensing margins and logic encoding.
+
+A CHI / BBHH teaching model for YMC ymtp, using an equivalent 1T1C and qualitative directions rather than a current version-specific cross-section or bias table. Independent original research supports BBHH physics; YMC FN/DAHHI patent variants retain their distinct mechanisms.
+
+- [ymc-product: YMC: Logic-Process ymtp MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ymc-1t1c: YMC: 1T1C Core Technology](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
+- [ymc-pat-7423903: YMC: Historical Single-Floating-Gate Example](https://patents.google.com/patent/US7423903B2/en)
+- [ymc-pat-dahhi: YMC: DAHCI Program and DAHHI Erase Variant](https://patents.google.com/patent/US20070158733A1/en)
+
+#### BBHH Erase: Holes Reduce Negative FG Charge
+
+A high-field region in silicon first produces electron/hole pairs. Some holes then cross the dielectric into FG. Silicon BBT and hot-carrier injection into FG are distinct physical steps.
+
+Band-to-Band Carrier Generation Followed by Hot-Hole Injection into FG
+
+**1. Establish the High-Field Junction**
+
+State: FG holds net negative charge from programming.
+
+Stimulus: D* is positive relative to B; FG is lower than D*. Injection also requires local E⊥ toward FG.
+
+Terminal relationships describe the model junction condition but do not alone guarantee the local vertical field. E⊥ toward FG is a separate condition; D* is not a current ymtp terminal specification.
+
+**2. Generate Holes by BBT in Silicon**
+
+State: Band bending in the high-field region permits BBT.
+
+Stimulus: A valence-band electron tunnels into the conduction band, leaving a hole.
+
+Electrons are collected by the high-field junction while holes move toward the channel/body side. This tunneling occurs in silicon, not across the FG oxide.
+
+**3. Inject Hot Holes into FG**
+
+State: Some holes have gained energy; local E⊥ points toward FG at the injection region.
+
+Stimulus: Lateral acceleration combines with local E⊥ toward FG; hole force follows the field.
+
+Under this local field condition, a few red holes cross the dielectric into FG and reduce negative charge. Silicon BBT generation and subsequent dielectric injection each require suitable conditions; neither FN electron removal nor DAHHI avalanche generation is substituted.
+
+**4. Reach a Lower-Threshold State**
+
+State: FG holds less net negative charge.
+
+Stimulus: End erase stimulation and return to read conditions.
+
+Vth is lower and I_R is larger at the same read bias. This qualitative direction does not guarantee neutrality, a fixed endpoint or self-convergent erase.
+
+- FG / Cc / CG · FG is a floating gate with no DC terminal. Cc is a functional coupling capacitor; CG is its external control terminal.
+- N+ / p / B · N+ denotes model source/drain regions, p the nMOS body, and B its terminal. Concentrations, well layout and dimensions are unspecified.
+- S / D* · S is the model source. D* is the selected high-field end and model drain, not a ymtp macro-pin mapping.
+- e− / h+ · Blue e− and arrows represent electrons; red h+ and arrows represent holes. Particle counts and animation speed are qualitative.
+- I / I_R / Iref · Green I is conventional current, opposite to electron motion. I_R is read current and Iref is the sensing reference.
+- BBT / BBHH · BBT is band-to-band tunneling in silicon. BBHH uses the resulting holes for hot-hole injection; crossing the dielectric is a subsequent step.
+- Vth / QFG · Vth is the effective nMOS threshold and QFG is FG charge. The actual product defines biases, sensing margins and logic encoding.
+
+A CHI / BBHH teaching model for YMC ymtp, using an equivalent 1T1C and qualitative directions rather than a current version-specific cross-section or bias table. Independent original research supports BBHH physics; YMC FN/DAHHI patent variants retain their distinct mechanisms.
+
+- [ymc-product: YMC: Logic-Process ymtp MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ymc-1t1c: YMC: 1T1C Core Technology](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
+- [physics-bbhh-fg: Wu et al.: BBHH and Floating-Gate Demonstration](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)
+- [physics-btbt-carriers: Chu and Wu: BTBT Hot-Carrier Paths](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf)
+- [physics-fg-hole-erase: IEEE: Hot-Hole Injection into a Floating Gate](https://ieeexplore.ieee.org/document/748914/)
+
+#### Read: Translate FG Charge into a Current Difference
+
+A and B are fixed alternative initial states, not sequential updates. At the same read bias, A has more negative charge, higher Vth and smaller current; B has the opposite. Reading preserves either state.
+
+nMOS Threshold Modulation and Reference-Current Sensing
+
+**1. Apply the Same Read Conditions**
+
+State: A and B are two separately established alternative initial states.
+
+Stimulus: CG couples a control potential; S/D* provide the same sensing conditions.
+
+All four frames retain the same two-state comparison. There is no A-to-B program or erase and no carrier transfer across the dielectric.
+
+**2. Alternative State A: Lower Read Current**
+
+State: Before reading, A already has more negative charge and higher Vth.
+
+Stimulus: Apply the same read bias used for B while retaining A charge.
+
+This is an independent read example for A. Higher Vth gives smaller I_R; reading does not add FG electrons.
+
+**3. Alternative State B: Higher Read Current**
+
+State: Before reading, B already has less negative charge and lower Vth.
+
+Stimulus: Apply the same read bias used for A while retaining B charge.
+
+B is an alternative example, not a conversion from A in the previous frame. Lower Vth gives larger I_R; the green arrow denotes conventional current.
+
+**4. Sense the Existing State with Iref**
+
+State: A and B retain their respective charge and produce different read currents.
+
+Stimulus: The sensing circuit compares I_R with Iref without updating FG.
+
+Iref must separate the states with adequate margin; the comparison is unchanged from earlier frames. Process, temperature and usage history affect the window; product specifications define margins and 0/1 encoding.
+
+- FG / Cc / CG · FG is a floating gate with no DC terminal. Cc is a functional coupling capacitor; CG is its external control terminal.
+- N+ / p / B · N+ denotes model source/drain regions, p the nMOS body, and B its terminal. Concentrations, well layout and dimensions are unspecified.
+- S / D* · S is the model source. D* is the selected high-field end and model drain, not a ymtp macro-pin mapping.
+- e− / h+ · Blue e− and arrows represent electrons; red h+ and arrows represent holes. Particle counts and animation speed are qualitative.
+- I / I_R / Iref · Green I is conventional current, opposite to electron motion. I_R is read current and Iref is the sensing reference.
+- BBT / BBHH · BBT is band-to-band tunneling in silicon. BBHH uses the resulting holes for hot-hole injection; crossing the dielectric is a subsequent step.
+- Vth / QFG · Vth is the effective nMOS threshold and QFG is FG charge. The actual product defines biases, sensing margins and logic encoding.
+
+A CHI / BBHH teaching model for YMC ymtp, using an equivalent 1T1C and qualitative directions rather than a current version-specific cross-section or bias table. Independent original research supports BBHH physics; YMC FN/DAHHI patent variants retain their distinct mechanisms.
+
+- [ymc-product: YMC: Logic-Process ymtp MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ymc-1t1c: YMC: 1T1C Core Technology](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
+- [ymc-pat-dahhi: YMC: DAHCI Program and DAHHI Erase Variant](https://patents.google.com/patent/US20070158733A1/en)
+- [physics-bbhh-fg: Wu et al.: BBHH and Floating-Gate Demonstration](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)
+
+#### IP Cell Tradeoffs
+
+This is the CHI/BBHH mechanism model selected for this course. Public YMC material supports its logic-process MTP IP positioning; independent primary research supports the BBHH physics. The figure is not identified as a complete cross-section of a current ymtp version. FN, drain-avalanche hot-hole injection and band-to-band hot-hole injection are distinct paths, even when related patents share an assignee.
+
+### Numem: Embedded STT-MRAM IP Cell
+
+Numem
+
+Connect foundry-standard STT-MRAM cells to embedded IP by identifying the magnetic junction, access transistor, bit line, source line and sensing path.
+
+Numem MRAM IP: STT Teaching Reconstruction
+
+FL/tunnel barrier/RL represent STT functions; A/B are teaching terminals. WL/BL/SL follow the 2019 Numem architecture without claiming a layer-to-line mapping.
+
+- FL / RL · Free/reference layers; arrows are moments, not particle flow
+- Ic / e− · Orange solid line: conventional current; blue dashed electrons flow oppositely
+- A / B; BL* / SL* · A/B define drawing terminals; asterisks mean the actual layer-to-array-line mapping is not asserted
+- WL; P / AP · Word-line selection; parallel low resistance / antiparallel high resistance
+- τSTT · Spin-transfer torque; the intermediate arrow only illustrates reversal
+
+- [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/)
+- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Numem MRAM IP: STT Teaching Reconstruction — Write
+
+Write free-layer magnetization through spin-transfer torque.
+
+MTJ free-layer magnetization stores information
+
+**1. Initial AP State**
+
+State: AP
+
+Stimulus: WL off; drive zero
+
+WL is off and the cell retains AP; this sequence writes P.
+
+**2. Select and Apply Spin Drive**
+
+State: Switching
+
+Stimulus: WL on; bidirectional MTJ drive
+
+WL turns on and teaching drive A/B crosses the MTJ; electron and conventional-current arrows oppose each other. The actual BL/SL layer mapping requires the PDK.
+
+**3. Free Layer Switches to P**
+
+State: P
+
+Stimulus: WL on; bidirectional MTJ drive
+
+Magnetization reaches P; the intermediate angle is not a measured trajectory or deterministic switching time.
+
+**4. Remove Drive and Retain P**
+
+State: P
+
+Stimulus: WL off; drive zero
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+- FL / RL · Free/reference layers; arrows are moments, not particle flow
+- Ic / e− · Orange solid line: conventional current; blue dashed electrons flow oppositely
+- A / B; BL* / SL* · A/B define drawing terminals; asterisks mean the actual layer-to-array-line mapping is not asserted
+- WL; P / AP · Word-line selection; parallel low resistance / antiparallel high resistance
+- τSTT · Spin-transfer torque; the intermediate arrow only illustrates reversal
+
+This reconstructs the public Numem IP architecture for teaching. Current sources do not disclose materials, thicknesses, vertical order, write-terminal polarity, or logic encoding. Directions A/B mean two calibrated opposite drives. The 2019 forced-current read is not a specification for every product.
+
+- [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/)
+- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Numem MRAM IP: STT Teaching Reconstruction — Reverse Overwrite
+
+Use the opposite MTJ drive to overwrite magnetization.
+
+MTJ free-layer magnetization stores information
+
+**1. Initial P State**
+
+State: P
+
+Stimulus: WL off; drive zero
+
+WL is off and the cell retains P; this sequence overwrites AP.
+
+**2. Select and Apply Spin Drive**
+
+State: Switching
+
+Stimulus: WL on; bidirectional MTJ drive
+
+WL turns on and teaching drive A/B crosses the MTJ; electron and conventional-current arrows oppose each other. The actual BL/SL layer mapping requires the PDK.
+
+**3. Free Layer Switches to AP**
+
+State: AP
+
+Stimulus: WL on; bidirectional MTJ drive
+
+Magnetization reaches AP; the intermediate angle is not a measured trajectory or deterministic switching time.
+
+**4. Remove Drive and Retain AP**
+
+State: AP
+
+Stimulus: WL off; drive zero
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+- FL / RL · Free/reference layers; arrows are moments, not particle flow
+- Ic / e− · Orange solid line: conventional current; blue dashed electrons flow oppositely
+- A / B; BL* / SL* · A/B define drawing terminals; asterisks mean the actual layer-to-array-line mapping is not asserted
+- WL; P / AP · Word-line selection; parallel low resistance / antiparallel high resistance
+- τSTT · Spin-transfer torque; the intermediate arrow only illustrates reversal
+
+This reconstructs the public Numem IP architecture for teaching. Current sources do not disclose materials, thicknesses, vertical order, write-terminal polarity, or logic encoding. Directions A/B mean two calibrated opposite drives. The 2019 forced-current read is not a specification for every product.
+
+- [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/)
+- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### Numem MRAM IP: STT Teaching Reconstruction — Read
+
+Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.
+
+MTJ free-layer magnetization stores information
+
+**1. Before Selection: P Is Retained**
+
+State: P remains unchanged
+
+Stimulus: WL off; read stimulus zero
+
+The same cell starts in retained P with WL off; reading does not first reverse its moment.
+
+**2. Forced Current Produces Sense Voltage**
+
+State: P remains unchanged
+
+Stimulus: WL on; small read stimulus
+
+Following the 2019 architecture, a small forced current produces a voltage including access-path resistance; P voltage is below AP at equal current.
+
+**3. Latch and Remove Read Stimulus**
+
+State: P remains unchanged
+
+Stimulus: WL off; read stimulus zero
+
+After the sensor latches, WL turns off; free/reference layers remain P without a read-restore cycle.
+
+- FL / RL · Free/reference layers; arrows are moments, not particle flow
+- Ic / e− · Orange solid line: conventional current; blue dashed electrons flow oppositely
+- A / B; BL* / SL* · A/B define drawing terminals; asterisks mean the actual layer-to-array-line mapping is not asserted
+- WL; P / AP · Word-line selection; parallel low resistance / antiparallel high resistance
+- τSTT · Spin-transfer torque; the intermediate arrow only illustrates reversal
+
+This reconstructs the public Numem IP architecture for teaching. Current sources do not disclose materials, thicknesses, vertical order, write-terminal polarity, or logic encoding. Directions A/B mean two calibrated opposite drives. The 2019 forced-current read is not a specification for every product.
+
+- [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/)
+- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
+#### IP Cell Tradeoffs
+
+Numem can use foundry-standard STT cells while integrating its layout, circuits and memory architecture. Understand the two junction states and access/sense paths before considering macro behavior; a control-architecture improvement is not a new storage mechanism.
+
+### GLOBALFOUNDRIES: 22FDX Embedded MRAM Cell
+
+GLOBALFOUNDRIES
+
+Use a publicly reported 22FDX research cell to examine 1T1MTJ, free and reference layers, and bidirectional switching under the source's current convention.
+
+GF 22FDX eMRAM: Published Research Cell
+
+The 2024 research uses CoFeB free/reference layers, a tunnel barrier, SAF pinning, and an access transistor. Their vertical placement here defines a drawing coordinate.
+
+- FL / RL · Free/reference layers; arrows are moments, not particle flow
+- Ic / e− · Orange solid line: conventional current; blue dashed electrons flow oppositely
+- A / B; BL* / SL* · A/B define drawing terminals; asterisks mean the actual layer-to-array-line mapping is not asserted
+- WL; P / AP · Word-line selection; parallel low resistance / antiparallel high resistance
+- τSTT · Spin-transfer torque; the intermediate arrow only illustrates reversal
+
+- [ip-gf-platform: GF: 22FDX Embedded MRAM Platform](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
+- [ip-gf-cell-2024: GF Coauthored Research: 22FDX STT-MRAM Cells](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/)
+
+#### GF 22FDX eMRAM: Published Research Cell — Write
+
+Write free-layer magnetization through spin-transfer torque.
+
+P/AP magnetization and resistance in 1T1MTJ
+
+**1. Initial AP State**
+
+State: AP
+
+Stimulus: WL off; drive zero
+
+WL is off and the cell retains AP; this sequence writes P.
+
+**2. Select and Apply Spin Drive**
+
+State: Switching
+
+Stimulus: WL on; bidirectional MTJ drive
+
+WL turns on; conventional current RL-to-FL applies STT, with opposite electron flow.
+
+**3. Free Layer Switches to P**
+
+State: P
+
+Stimulus: WL on; bidirectional MTJ drive
+
+Magnetization reaches P; the intermediate angle is not a measured trajectory or deterministic switching time.
+
+**4. Remove Drive and Retain P**
+
+State: P
+
+Stimulus: WL off; drive zero
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+- FL / RL · Free/reference layers; arrows are moments, not particle flow
+- Ic / e− · Orange solid line: conventional current; blue dashed electrons flow oppositely
+- A / B; BL* / SL* · A/B define drawing terminals; asterisks mean the actual layer-to-array-line mapping is not asserted
+- WL; P / AP · Word-line selection; parallel low resistance / antiparallel high resistance
+- τSTT · Spin-transfer torque; the intermediate arrow only illustrates reversal
+
+Polarity follows this paper: positive Ic flows RL-to-FL and writes P; reverse writes AP. This sign convention and recipe are not universal to MRAM. Obtain BL/SL layer mapping and values from the PDK; undisclosed barrier material and exact thicknesses are omitted.
+
+- [ip-gf-platform: GF: 22FDX Embedded MRAM Platform](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
+- [ip-gf-cell-2024: GF Coauthored Research: 22FDX STT-MRAM Cells](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/)
+
+#### GF 22FDX eMRAM: Published Research Cell — Reverse Overwrite
+
+Use the opposite MTJ drive to overwrite magnetization.
+
+P/AP magnetization and resistance in 1T1MTJ
+
+**1. Initial P State**
+
+State: P
+
+Stimulus: WL off; drive zero
+
+WL is off and the cell retains P; this sequence overwrites AP.
+
+**2. Select and Apply Spin Drive**
+
+State: Switching
+
+Stimulus: WL on; bidirectional MTJ drive
+
+WL turns on; conventional current FL-to-RL applies STT, with opposite electron flow.
+
+**3. Free Layer Switches to AP**
+
+State: AP
+
+Stimulus: WL on; bidirectional MTJ drive
+
+Magnetization reaches AP; the intermediate angle is not a measured trajectory or deterministic switching time.
+
+**4. Remove Drive and Retain AP**
+
+State: AP
+
+Stimulus: WL off; drive zero
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+- FL / RL · Free/reference layers; arrows are moments, not particle flow
+- Ic / e− · Orange solid line: conventional current; blue dashed electrons flow oppositely
+- A / B; BL* / SL* · A/B define drawing terminals; asterisks mean the actual layer-to-array-line mapping is not asserted
+- WL; P / AP · Word-line selection; parallel low resistance / antiparallel high resistance
+- τSTT · Spin-transfer torque; the intermediate arrow only illustrates reversal
+
+Polarity follows this paper: positive Ic flows RL-to-FL and writes P; reverse writes AP. This sign convention and recipe are not universal to MRAM. Obtain BL/SL layer mapping and values from the PDK; undisclosed barrier material and exact thicknesses are omitted.
+
+- [ip-gf-platform: GF: 22FDX Embedded MRAM Platform](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
+- [ip-gf-cell-2024: GF Coauthored Research: 22FDX STT-MRAM Cells](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/)
+
+#### GF 22FDX eMRAM: Published Research Cell — Read
+
+Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.
+
+P/AP magnetization and resistance in 1T1MTJ
+
+**1. Before Selection: P Is Retained**
+
+State: P remains unchanged
+
+Stimulus: WL off; read stimulus zero
+
+The same cell starts in retained P with WL off; reading does not first reverse its moment.
+
+**2. Low Bias Produces Sense Current**
+
+State: P remains unchanged
+
+Stimulus: WL on; small read stimulus
+
+WL enables a low-bias current through the MTJ/access device; P has greater current than AP at equal bias.
+
+**3. Latch and Remove Read Stimulus**
+
+State: P remains unchanged
+
+Stimulus: WL off; read stimulus zero
+
+After the sensor latches, WL turns off; free/reference layers remain P without a read-restore cycle.
+
+- FL / RL · Free/reference layers; arrows are moments, not particle flow
+- Ic / e− · Orange solid line: conventional current; blue dashed electrons flow oppositely
+- A / B; BL* / SL* · A/B define drawing terminals; asterisks mean the actual layer-to-array-line mapping is not asserted
+- WL; P / AP · Word-line selection; parallel low resistance / antiparallel high resistance
+- τSTT · Spin-transfer torque; the intermediate arrow only illustrates reversal
+
+Polarity follows this paper: positive Ic flows RL-to-FL and writes P; reverse writes AP. This sign convention and recipe are not universal to MRAM. Obtain BL/SL layer mapping and values from the PDK; undisclosed barrier material and exact thicknesses are omitted.
+
+- [ip-gf-platform: GF: 22FDX Embedded MRAM Platform](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
+- [ip-gf-cell-2024: GF Coauthored Research: 22FDX STT-MRAM Cells](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/)
+
+#### IP Cell Tradeoffs
+
+A foundry embedded macro joins the magnetic junction to logic processing, the access transistor and reliability conditions. This figure retains the named study's materials and polarity convention for step-by-step reading; those details do not automatically describe every current 22FDX memory version.
+
+### Weebit Nano: Silicon-Oxide ReRAM IP Cell
+
+Weebit Nano
+
+Follow oxygen exchange, a defect-related conduction path and access-transistor current compliance in a public silicon-oxide research structure to understand embedded ReRAM SET, RESET and read.
+
+Weebit ReRAM IP: CEA Research Cell
+
+Uses the coauthored CEA 130nm 1T1R: Ti top electrode, SiOx switching layer, and TiN bottom electrode. The access transistor selects and limits current.
+
+- Ti / SiOx / TiN · Top electrode/switching oxide/bottom electrode, limited to the public CEA example
+- O²− / VO · Filled blue circles are oxygen ions; open orange circles are vacancies, with no silver metal
+- TE / BE; WL · Top/bottom electrodes and select gate; TE bias is referenced to BE
+- Ic / e− · Conventional current and electrons flow oppositely; neither denotes oxygen motion
+
+- [ip-weebit-product: Weebit: Embedded ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/)
+- [ip-weebit-bitcell: Weebit: ReRAM Bitcell](https://www.weebit-nano.com/technology/reram-bitcell/)
+- [ip-weebit-cell-2021: Weebit/CEA-Leti/Silvaco: Original Oxide ReRAM Model](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf)
+
+#### Weebit ReRAM IP: CEA Research Cell — SET Write
+
+Positive TE bias restores the conduction path and produces low resistance.
+
+Oxygen-ion exchange and an oxygen-vacancy conduction path
+
+**1. Initial High-R Gap**
+
+State: HRS
+
+Stimulus: WL off; TE bias zero
+
+Start in a formed HRS with a local BE-side gap; forming is not repeated on every cycle.
+
+**2. Oxygen Moves toward the Ti Interface**
+
+State: Switching
+
+Stimulus: WL on; positive TE bias
+
+Positive TE drives O²− toward Ti for interfacial exchange; the access transistor limits current.
+
+**3. Vacancy Path Reconnects**
+
+State: LRS
+
+Stimulus: WL on; positive TE bias
+
+The oxygen-deficient conduction path reconnects; current rises under compliance.
+
+**4. Remove Bias and Retain Low R**
+
+State: LRS
+
+Stimulus: WL off; TE bias zero
+
+After removing bias and WL selection, the path retains LRS.
+
+- Ti / SiOx / TiN · Top electrode/switching oxide/bottom electrode, limited to the public CEA example
+- O²− / VO · Filled blue circles are oxygen ions; open orange circles are vacancies, with no silver metal
+- TE / BE; WL · Top/bottom electrodes and select gate; TE bias is referenced to BE
+- Ic / e− · Conventional current and electrons flow oppositely; neither denotes oxygen motion
+
+This is the public Weebit/CEA-Leti/Silvaco research model, not a product recipe for every foundry node. SET: positive TE, O²− toward Ti. RESET: negative TE, oxygen returns into SiOx and recombines near the BE-side path. Forming is an initial condition, not every write.
+
+- [ip-weebit-product: Weebit: Embedded ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/)
+- [ip-weebit-bitcell: Weebit: ReRAM Bitcell](https://www.weebit-nano.com/technology/reram-bitcell/)
+- [ip-weebit-cell-2021: Weebit/CEA-Leti/Silvaco: Original Oxide ReRAM Model](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf)
+
+#### Weebit ReRAM IP: CEA Research Cell — Reverse RESET
+
+Reverse TE bias interrupts the conduction path and produces high resistance.
+
+Oxygen-ion exchange and an oxygen-vacancy conduction path
+
+**1. Initial Vacancy Path Conducts**
+
+State: LRS
+
+Stimulus: WL off; TE bias zero
+
+A vacancy path already exists; this operation changes LRS to HRS.
+
+**2. Reverse Bias Returns Oxygen**
+
+State: Switching
+
+Stimulus: WL on; negative TE bias
+
+TE is negative relative to BE; oxygen returns from the Ti interface into SiOx. Blue arrows denote oxygen motion.
+
+**3. The BE-Side Path Breaks**
+
+State: HRS
+
+Stimulus: WL on; negative TE bias
+
+Oxygen recombines with vacancies and opens a critical BE-side gap; RESET does not restore the entire layer to its as-fabricated material.
+
+**4. Remove Bias and Retain High R**
+
+State: HRS
+
+Stimulus: WL off; TE bias zero
+
+HRS remains after bias removal; vacancies and interfacial oxygen may remain.
+
+- Ti / SiOx / TiN · Top electrode/switching oxide/bottom electrode, limited to the public CEA example
+- O²− / VO · Filled blue circles are oxygen ions; open orange circles are vacancies, with no silver metal
+- TE / BE; WL · Top/bottom electrodes and select gate; TE bias is referenced to BE
+- Ic / e− · Conventional current and electrons flow oppositely; neither denotes oxygen motion
+
+This is the public Weebit/CEA-Leti/Silvaco research model, not a product recipe for every foundry node. SET: positive TE, O²− toward Ti. RESET: negative TE, oxygen returns into SiOx and recombines near the BE-side path. Forming is an initial condition, not every write.
+
+- [ip-weebit-product: Weebit: Embedded ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/)
+- [ip-weebit-bitcell: Weebit: ReRAM Bitcell](https://www.weebit-nano.com/technology/reram-bitcell/)
+- [ip-weebit-cell-2021: Weebit/CEA-Leti/Silvaco: Original Oxide ReRAM Model](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf)
+
+#### Weebit ReRAM IP: CEA Research Cell — Read
+
+Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.
+
+Oxygen-ion exchange and an oxygen-vacancy conduction path
+
+**1. Before Selection: Low-R Structure Is Retained**
+
+State: LRS structure retained
+
+Stimulus: WL off; TE bias zero
+
+The same cell starts in retained LRS with selection off. HRS can follow the same read sequence.
+
+**2. Sense the Path at Small Bias**
+
+State: LRS structure retained
+
+Stimulus: WL on; small positive TE bias
+
+A small bias senses the vacancy path; ILRS > IHRS at equal bias, without using the read pulse to rearrange oxygen.
+
+**3. Latch and Isolate the Cell**
+
+State: LRS structure retained
+
+Stimulus: WL off; TE bias zero
+
+After latching, remove bias and retain the original path; actual read-disturb limits remain supplier-specific.
+
+- Ti / SiOx / TiN · Top electrode/switching oxide/bottom electrode, limited to the public CEA example
+- O²− / VO · Filled blue circles are oxygen ions; open orange circles are vacancies, with no silver metal
+- TE / BE; WL · Top/bottom electrodes and select gate; TE bias is referenced to BE
+- Ic / e− · Conventional current and electrons flow oppositely; neither denotes oxygen motion
+
+This is the public Weebit/CEA-Leti/Silvaco research model, not a product recipe for every foundry node. SET: positive TE, O²− toward Ti. RESET: negative TE, oxygen returns into SiOx and recombines near the BE-side path. Forming is an initial condition, not every write.
+
+- [ip-weebit-product: Weebit: Embedded ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/)
+- [ip-weebit-bitcell: Weebit: ReRAM Bitcell](https://www.weebit-nano.com/technology/reram-bitcell/)
+- [ip-weebit-cell-2021: Weebit/CEA-Leti/Silvaco: Original Oxide ReRAM Model](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf)
+
+#### IP Cell Tradeoffs
+
+In this named research example, the storage medium, oxygen-exchange electrode and access transistor jointly shape switching. Current compliance and read stimulus are part of cell operation. Materials and recipes remain scoped to the cited implementation.
+
+### Crossbar: Metallic-Path Embedded ReRAM Cell
+
+Crossbar
+
+Read Crossbar's public patent and historical embedded-macro materials through metallic-path extension, retraction and low-stimulus sensing.
+
+Crossbar ReRAM IP: Historical Patent Cell
+
+Selects the Ag/amorphous-Si/p+ poly-Si embodiment of US20120007035A1; an access transistor represents the separately published embedded 1T1R integration.
+
+- Ag / a-Si / p+ poly-Si · Silver top electrode/amorphous silicon/selected lower buffer-contact embodiment
+- Ag · Purple region and dots denote metal region/particles without asserting each charge state
+- TE / BE; WL · Top/bottom electrodes and select gate; 1T1R integration has a separate manufacturer source
+- Ic / e− · Conventional current opposes electron motion; electrons may tunnel between neighboring particles
+
+- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
+
+#### Crossbar ReRAM IP: Historical Patent Cell — SET Write
+
+Positive TE bias restores the conduction path and produces low resistance.
+
+Extension/retraction from an upper metal region changes interparticle tunneling
+
+**1. High-R State after Forming**
+
+State: HRS
+
+Stimulus: WL off; TE bias zero
+
+Forming has established an upper metal region; the HRS particle path does not yet extend effectively toward the lower contact.
+
+**2. Positive Bias Extends the Particle Path**
+
+State: Switching
+
+Stimulus: WL on; positive TE bias
+
+Positive TE bias extends the path from the upper metal region toward BE, following this patent rather than assuming generic upward cathodic nucleation.
+
+**3. Interparticle Tunneling Path Strengthens**
+
+State: LRS
+
+Stimulus: WL on; positive TE bias
+
+Closer neighboring metal particles strengthen tunneling conduction; the dots do not claim a fully solid silver bridge.
+
+**4. Remove Bias and Retain Low R**
+
+State: LRS
+
+Stimulus: WL off; TE bias zero
+
+Turn selection off and remove bias to retain the low-R path.
+
+- Ag / a-Si / p+ poly-Si · Silver top electrode/amorphous silicon/selected lower buffer-contact embodiment
+- Ag · Purple region and dots denote metal region/particles without asserting each charge state
+- TE / BE; WL · Top/bottom electrodes and select gate; 1T1R integration has a separate manufacturer source
+- Ic / e− · Conventional current opposes electron motion; electrons may tunnel between neighboring particles
+
+This is a published patent embodiment associated with historical embedded IP, not proof of current macro recipes or newly licensable nodes in 2026. The patent describes metal particles and interparticle tunneling; the path is not equated to a solid silver bridge or generic cathode-nucleated ECM.
+
+- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
+
+#### Crossbar ReRAM IP: Historical Patent Cell — Reverse RESET
+
+Reverse TE bias interrupts the conduction path and produces high resistance.
+
+Extension/retraction from an upper metal region changes interparticle tunneling
+
+**1. Initial Particle Path Is Low R**
+
+State: LRS
+
+Stimulus: WL off; TE bias zero
+
+Start with the existing low-R particle path; the upper metal region and narrow path are shown separately.
+
+**2. Reverse Bias Retracts the Path**
+
+State: Switching
+
+Stimulus: WL on; negative TE bias
+
+Negative TE bias retracts or disconnects the narrow particle path toward the upper metal region; each particle charge state is unspecified.
+
+**3. A Larger Gap Forms in the Particle Path**
+
+State: HRS
+
+Stimulus: WL on; negative TE bias
+
+The effective lower-side spacing increases and tunneling current falls; the upper residual metal region remains.
+
+**4. Remove Bias and Retain High R**
+
+State: HRS
+
+Stimulus: WL off; TE bias zero
+
+HRS remains after bias removal. This is reverse RESET, without a preceding block-erase cycle.
+
+- Ag / a-Si / p+ poly-Si · Silver top electrode/amorphous silicon/selected lower buffer-contact embodiment
+- Ag · Purple region and dots denote metal region/particles without asserting each charge state
+- TE / BE; WL · Top/bottom electrodes and select gate; 1T1R integration has a separate manufacturer source
+- Ic / e− · Conventional current opposes electron motion; electrons may tunnel between neighboring particles
+
+This is a published patent embodiment associated with historical embedded IP, not proof of current macro recipes or newly licensable nodes in 2026. The patent describes metal particles and interparticle tunneling; the path is not equated to a solid silver bridge or generic cathode-nucleated ECM.
+
+- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
+
+#### Crossbar ReRAM IP: Historical Patent Cell — Read
+
+Select the same cell, sense its retained resistance with a small stimulus, then latch and isolate.
+
+Extension/retraction from an upper metal region changes interparticle tunneling
+
+**1. Before Selection: Low-R Structure Is Retained**
+
+State: LRS structure retained
+
+Stimulus: WL off; TE bias zero
+
+The same cell starts in retained LRS with selection off. HRS can follow the same read sequence.
+
+**2. Sense the Path at Small Bias**
+
+State: LRS structure retained
+
+Stimulus: WL on; small positive TE bias
+
+A small bias senses the metal-particle path; ILRS > IHRS at equal bias and transport can involve interparticle tunneling.
+
+**3. Latch and Isolate the Cell**
+
+State: LRS structure retained
+
+Stimulus: WL off; TE bias zero
+
+After latching, remove bias and retain the original path; actual read-disturb limits remain supplier-specific.
+
+- Ag / a-Si / p+ poly-Si · Silver top electrode/amorphous silicon/selected lower buffer-contact embodiment
+- Ag · Purple region and dots denote metal region/particles without asserting each charge state
+- TE / BE; WL · Top/bottom electrodes and select gate; 1T1R integration has a separate manufacturer source
+- Ic / e− · Conventional current opposes electron motion; electrons may tunnel between neighboring particles
+
+This is a published patent embodiment associated with historical embedded IP, not proof of current macro recipes or newly licensable nodes in 2026. The patent describes metal particles and interparticle tunneling; the path is not equated to a solid silver bridge or generic cathode-nucleated ECM.
+
+- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
+
+#### IP Cell Tradeoffs
+
+This figure follows the named patent's metal/amorphous-silicon model. Do not substitute another ECM cell's nucleation direction or an ideal continuous silver bridge. Evidence for the embedded macro and for the historical cell embodiment is identified separately.
 
 ## eFuse: Permanent Conductance Programming
 
@@ -1926,6 +3462,11 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 
 ## Glossary
 
+- CHI and CHEI: CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate.
+- Fowler–Nordheim (FN) Tunneling: A sufficiently strong field changes the dielectric energy barrier so electrons can tunnel through it. State the electron origin, destination and field direction separately. NeoEE uses FN transport for both updates; NeoMTP uses FN electron transfer toward an erase gate for the reverse update.
+- BBT, BBHH and DAHHI: Band-to-band tunneling (BBT) creates electron/hole pairs inside silicon. Band-to-band hot-hole injection (BBHH) then uses energetic holes to cross the dielectric. Drain-avalanche hot-hole injection (DAHHI) uses avalanche generation instead; shared hot-hole injection does not make the carrier-generation mechanisms identical.
+- Direct Tunneling and Antifuse Readout: In eMemory's published ultrathin-dielectric explanation, programming generates defects that reduce effective tunneling distance and increase gate current. Preserve this named mechanism when discussing NeoFuse; an ideal metal short or a generic trap-assisted-tunneling label is not a substitute.
+- P/AP and SET/RESET: P and AP describe parallel and antiparallel magnetic-layer states, generally associated with lower and higher MTJ resistance. SET and RESET describe transitions to lower and higher resistance in the ReRAM examples. These state labels do not prescribe a universal terminal polarity or logic 0/1 encoding.
 - Bitcell: The smallest circuit or combination of devices that stores data in a physical state. A complete bitcell may also include an access transistor or selector; it is not necessarily just the storage material.
 - Array and Macro: An array organizes many cells through wires. A macro generally also includes peripheral functions such as decoding, driving, sensing, and control, and can serve as a memory block within a chip design.
 - Word Line and Bit Line: A word line usually participates in selecting a row of cells, while a bit line carries a data-dependent current or voltage. Connections and biasing strategies differ across array architectures.
@@ -2071,6 +3612,36 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [FND-TSMC-SYMP-2025: TSMC 2025 North America Technology Symposium Press Release](https://pr.tsmc.com/system/files/newspdf/attachment/167c59998c7117f14c13647c8e46a6b20a43316c/2025%20Tech%20Symposium%20%28E%29_Final_wmn.pdf). Official Annual Technology Symposium Press Release; 2025-04-23; Accessed 2026-09-10; Location in the Source: Three-page public press release; Limitations: The main release contains no complete MRAM/RRAM timeline suitable for verification. Unobtained internal symposium pages are not used to invent completion dates.
 - [FND-TSMC-SYMP-2026: TSMC 2026 North America Technology Symposium Press Release and Public Video Portal](https://pr.tsmc.com/english/news/3302). Official Annual Technology Symposium Press Release; 2026-04-23; Accessed 2026-09-10; Location in the Source: The US event took place on 2026-04-22; press release and technology highlights; Limitations: The public release does not provide a complete MRAM/RRAM roadmap. A presentation uploaded by a third party is not treated as an official version.
 - [FND-TSMC-SYMP-ACCESS: TSMC 2026 Technology Symposium Public Video Portal](https://www.tsmc.com/english/symposium_highlights/2026). Official Conference Portal; 2026; Accessed 2026-09-10; Location in the Source: Access instructions for the full on-demand videos; Limitations: This review did not obtain invitation-only conference content and cannot claim to have checked the complete internal roadmap.
+- [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; Limitations: Current product principle; full biases and layout are not disclosed.
+- [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en). Public Patent; 2005-07-05; Location in the Source: Figures 2(a), 2(b), 6; claims 1, 4; Limitations: Historical p+ floating-gate model linked by 2005 company news; not every current process.
+- [ip-neobit-link: Official NeoBit-to-Patent Link](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414). Primary Technical Source; 2005-10-04; Location in the Source: Second body paragraph: patent title and inventors; Limitations: Direct historical association between NeoBit and the named patent.
+- [ip-neobit-uv: Published NeoBit UV-Erase Boundary](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf). Primary Technical Source; 2021; filename version 2021-03-30; Location in the Source: Page 1: Feature/Advantage, Other benefits; UV erase; Limitations: UV erase was published; this does not make every current package UV erasable.
+- [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; Limitations: Impedance-based OTP and GIDL suppression; full dielectric materials are undisclosed.
+- [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19). Primary Technical Source; 2021-01-19; Location in the Source: Figures 1–3; core nFET, gate oxide, dangling bonds, direct tunneling; Limitations: eMemory-authored article; an ultrathin-oxide DT model, not a metallic filament for all generations.
+- [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies). Officially Reposted Executive Interview; 2024-12-09; Location in the Source: NeoFuse: patented 3T design and regulating transistor; Limitations: Confirms 3T and a regulating function, not every current netlist or cross-section.
+- [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en). Public Patent; 2025-01-16; Location in the Source: Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268; Limitations: Related same-company embodiment, not explicitly branded NeoFuse.
+- [ip-neoee: NeoEE Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; capacitive-coupling MOS devices and selectors; Limitations: Current FN/FN; exact device count, p/n arrangement and biases are undisclosed.
+- [ip-neoee-history: Historical NeoEE Conceptual Cell](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19). Primary Technical Source; 2010-10-19; Location in the Source: NeoEE Technology; Figure 1(b), Tej tunneling junction; Limitations: Historical family includes CHE/FN and FN/FN; it does not override the current route.
+- [ip-neomtp: NeoMTP Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; p-type FG-MOSFET; extra erase gate; Limitations: Hot-hole-induced electron injection and FN from FG to erase gate; full cross-section is undisclosed.
+- [ip-neomtp-pat: Related pMOS and Edge-Erase-Gate Patent](https://patents.google.com/patent/US20030235082A1/en). Public Patent; 2003-12-25; Location in the Source: Figures 2, 3A–3C, 4, 5; paragraphs 0019–0035; Limitations: Historical same-company patent; lateral n+ EG is not established as current NeoMTP.
+- [ymc-product: YMC: Logic-Process ymtp MTP IP](https://www.ymc.com.tw/index_en.php). Manufacturer Information; Undated; accessed 2026-09-10; Location in the Source: About YMC paragraph; Limitations: Confirms product positioning; no cell or operating-bias disclosure for a specific version.
+- [ymc-1t1c: YMC: 1T1C Core Technology](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25). Manufacturer Information; 2024; accessed 2026-09-10; Location in the Source: Pre-listing business presentation, page 25; Limitations: Confirms a 1T1C family and multiple generations; does not establish this model as a current product cross-section.
+- [ymc-pat-7423903: YMC: Historical Single-Floating-Gate Example](https://patents.google.com/patent/US7423903B2/en). Public Patent; 2008-09-09; accessed 2026-09-10; Location in the Source: Figures 1, 2A and 2B; first embodiment; FN erase in Summary; Limitations: Four-terminal nMOS/N-type capacitor example; its stated FN erase is not evidence for BBHH.
+- [ymc-pat-dahhi: YMC: DAHCI Program and DAHHI Erase Variant](https://patents.google.com/patent/US20070158733A1/en). Public Patent; 2007-07-12; accessed 2026-09-10; Location in the Source: Figures 3B, 5A, 6B and 8A with adjacent description; Limitations: Supports hot-carrier and threshold directions; avalanche-based DAHHI is distinct from BBHH.
+- [physics-bbhh-fg: Wu et al.: BBHH and Floating-Gate Demonstration](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/). Original Research; 2007; accessed 2026-09-10; Location in the Source: IEDM 2007, pages 87–90; author-institution abstract; DOI 10.1109/IEDM.2007.4418870; Limitations: Uses BBHH and reports a floating-gate demonstration; its NAND structure, IIHE programming and values are not transferred to the YMC model.
+- [physics-btbt-carriers: Chu and Wu: BTBT Hot-Carrier Paths](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf). Original Research; 2000-03; accessed 2026-09-10; Location in the Source: IEEE EDL 21(3), page 123 Introduction; page 125 Figure 4; DOI 10.1109/55.823576; Limitations: Supports silicon BBT carrier generation and field-assisted injection; Figure 3 is pMOS and is not copied into the nMOS model.
+- [physics-fg-hole-erase: IEEE: Hot-Hole Injection into a Floating Gate](https://ieeexplore.ieee.org/document/748914/). Original Research; 1999-03; accessed 2026-09-10; Location in the Source: IEEE EDL 20(3), pages 140–142; abstract; DOI 10.1109/55.748914; Limitations: Observes BBT/possible avalanche enhancement during FN erase; used only for floating-gate hot-hole physics, not a pure-BBHH recipe.
+- [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/). Manufacturer product page; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: What is Numem MRAM?; Numem MRAM IP; Limitations: Supports embedded IP and foundry-standard STT cells; current material recipes are not disclosed.
+- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf). Manufacturer public conference presentation; 2019-08-05; Accessed 2026-09-10; Location in the Source: Pages 2, 4, 5, 7: test chip, WL/BL/SL, forced-current sensing, RMTJ; Limitations: This is a first-generation test-chip architecture; its measured values are not treated as current NuRAM specifications.
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology). Manufacturer mechanism explanation; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Spin-transfer Torque MRAM Technology: current direction, free layer, P/AP resistance; Limitations: Supports STT family physics only, not Numem product, material, or performance evidence.
+- [ip-gf-platform: GF: 22FDX Embedded MRAM Platform](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram). Original foundry announcement; 2020-02-27; Accessed 2026-09-10; Location in the Source: Opening and Custom design kits: production entry and drop-in silicon-validated MRAM macros; Limitations: Platform identity is separate from the research-cell recipe; confirm macro availability, nodes, and conditions with the supplier.
+- [ip-gf-cell-2024: GF Coauthored Research: 22FDX STT-MRAM Cells](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/). Original research paper; 2024-09-18; Accessed 2026-09-10; Location in the Source: Materials and Methods: MRAM array structure and fabrication; Figure 2; Limitations: Limited to the reported CoFeB/SAF and 1T1MTJ example; positive Ic is RL-to-FL and writes P. Barrier material is not specified here.
+- [ip-weebit-product: Weebit: Embedded ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/). Manufacturer IP product page; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: IP module, design deliverables, control, and analog periphery; Limitations: Product identity does not imply every foundry node uses the same published research recipe.
+- [ip-weebit-bitcell: Weebit: ReRAM Bitcell](https://www.weebit-nano.com/technology/reram-bitcell/). Manufacturer mechanism explanation; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Two electrodes/thin oxide, forming, positive SET, and reverse RESET; Limitations: Forming is distinct from recurring SET; the page does not specify all materials or terminal voltages.
+- [ip-weebit-cell-2021: Weebit/CEA-Leti/Silvaco: Original Oxide ReRAM Model](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf). Author-posted original research paper; 2021-05; Accessed 2026-09-10; Location in the Source: PDF pages 2–5; Sections II–IV and Figures 1, 3, 5, 11: Ti/SiOx/TiN and oxygen exchange; Limitations: Model/electrical comparison for a CEA 130nm research cell; neither direct operando ion tracking nor a recipe disclosure for every SkyWater macro.
+- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf). Manufacturer public product brief; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Pages 1–2: hard macro/architectural license, embedded macro, and overwrite; Limitations: Supports historical IP licensing forms; this review does not confirm a 2026 list of newly licensable nodes or macros.
+- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf). Manufacturer public conference presentation; 2015; Accessed 2026-09-10; Location in the Source: Pages 3, 4, 7, 8, 15: metallic path, cell versus selector, BEOL 1T1R; Limitations: Embedded 1T1R and high-density 1S1R/1TnR have separate scopes and are not merged into one circuit.
+- [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en). Original published patent application; 2012-01-12; Accessed 2026-09-10; Location in the Source: Figures 1–3; [0023]–[0025], [0037]: Ag/a-Si/p+ poly-Si, positive extension, negative retraction; Limitations: Selects a named embodiment with metal particles and tunneling paths; does not establish this recipe for all current macros or generic cathode-grown silver bridges.
 - [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en). Public Patent; 2014; 2026-09-10 accessed; Location in the Source: Figures 1–3; uniform channel tunneling, electron programming, and hole erase; Limitations: A named SONOS tunneling example; no equivalence to the stack or biases of a current Infineon macro is asserted.
 - [op-pat-nrom-hhi: Saifun: Self-Aligned NROM Programming and Erasure Areas](https://patents.google.com/patent/US6664588B2/en). Public Patent; 2003; 2026-09-10 accessed; Location in the Source: Figures 4, 8A, 9, and 10–11; band-to-band hole generation and localized hot-hole injection; Limitations: The pocket implant and local hole path belong to this example; US5768192A is not used as evidence for this erase path.
 - [op-nand-hole-erase: KIOXIA: Schottky Source Contact and Hole Supply](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html). Manufacturer Research; 2025-09-18; 2026-09-10 accessed; Location in the Source: Figures 1 and 4; GIDL hole supply from an N+ silicon source and the Schottky-contact alternative; Limitations: Supports carrier supply and a named study; this diagram uses the conventional GIDL branch without merging in a Schottky source.

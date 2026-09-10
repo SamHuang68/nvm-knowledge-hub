@@ -203,23 +203,23 @@
             <div class="source-index"><b>V09</b><span>FOUNDRY NEWS</span></div><div class="source-content"><p class="source-meta">2005 · TSMC · E3</p><h3>Kilopass XPM Qualified on TSMC 0.18 µm Process</h3><p><span data-lang="zh">TSMC 官方新聞記錄 Kilopass XPM 在 TSMC 製程完成 qualification，建立雙方公開可追溯的早期合作關係。</span><span data-lang="en">TSMC's official release records Kilopass XPM qualification on a TSMC process, establishing an early, publicly traceable relationship.</span></p><div class="source-proof"><div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">TSMC／Kilopass 的歷史合作與技術血統。</span><span data-lang="en">Historical TSMC/Kilopass collaboration and technology lineage.</span></p></div><div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">10 nm 以下授權合約、延續條款或 5 nm macro 的直接來源。</span><span data-lang="en">Sub-10 nm licensing terms, continuity clauses or the direct origin of the 5 nm macro.</span></p></div></div><a href="https://pr.tsmc.com/chinese/news/1361" target="_blank" rel="noreferrer">TSMC Official Release ↗</a></div>
           </article>
 
-                    <article class="source-card" id="evidence-V10" data-type="vendor" data-keywords="BCD Power PMIC trimming eMemory ChipEstimate zero mask adder LDMOS 150C 175C">
+                    <article class="source-card" id="evidence-V10" data-type="vendor" data-keywords="BCD Power PMIC trimming eMemory ChipEstimate OTP NeoMTP floating gate mask version process conditions">
             <div class="source-index"><b>V10</b><span><span data-lang="zh">供應商揭露</span><span data-lang="en">VENDOR DISCLOSURE</span></span></div>
             <div class="source-content">
               <p class="source-meta">2021-07-06 · eMEMORY &amp; CHIPESTIMATE · E3</p>
-              <h3>How eNVM Helps Power Controllers Be Smarter: BCD Zero Mask Adder Economics</h3>
+              <h3>How eNVM Helps Power Controllers Be Smarter</h3>
               <p>
-                <span data-lang="zh">eMemory 於 ChipEstimate 發表的技術專題揭露：純邏輯 AntiFuse OTP 與 NeoMTP 可無縫整合於標準 BCD（0.18µm 至 55nm）製程，達成「零額外光罩 (Zero Extra Masks)」，徹底免除 eFlash 高溫退火對 LDMOS 擊穿電壓的破壞，並在 150°C-175°C 結溫下實現 15 年以上資料留存。</span>
-                <span data-lang="en">eMemory's technical disclosure on ChipEstimate reveals that pure-logic AntiFuse OTP and NeoMTP integrate natively into standard BCD (0.18µm to 55nm) platforms with zero mask adders, eliminating high-temperature thermal cycles that degrade LDMOS breakdown voltages, while guaranteeing 15+ year retention at 150°C-175°C junction temperatures.</span>
+                <span data-lang="zh">eMemory 的原作者文章區分固定微調用 OTP 與可更新控制資料用 NeoMTP；NeoMTP 屬浮動閘 MTP。文中分別說明零額外光罩設計與採額外光罩縮小單元的後續版本，成本、耐久度及保存條件須綁定具名 IP、版本與製程驗證。</span>
+                <span data-lang="en">eMemory's author article distinguishes OTP for fixed trimming from NeoMTP for updateable control data; NeoMTP is floating-gate MTP. It describes a zero-mask design and a later version with additional masks for a smaller cell. Cost, endurance and retention require validation for the named IP, version and process.</span>
               </p>
               <div class="source-proof">
                 <div>
                   <b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b>
-                  <p><span data-lang="zh">BCD 製程下原生邏輯 eNVM 相對傳統 eFlash 具備顯著的光罩成本優勢與高溫耐受性。</span><span data-lang="en">Pure logic eNVM in BCD delivers decisive mask cost savings and thermal reliability over eFlash.</span></p>
+                  <p style="color: #c8dce6 !important;"><span data-lang="zh">OTP 與浮動閘 NeoMTP 的用途分流，以及具名 BCD 版本的製程整合與光罩取捨。</span><span data-lang="en">Separate roles for OTP and floating-gate NeoMTP, plus process integration and mask tradeoffs for named BCD versions.</span></p>
                 </div>
                 <div>
                   <b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b>
-                  <p><span data-lang="zh">所有晶圓廠所有 BCD 節點皆具備相同 macro 面積，具體 PPA 需以特定 Foundry PDK 為準。</span><span data-lang="en">Identical macro area across every foundry BCD node; specific PPA depends on foundry PDK rules.</span></p>
+                  <p style="color: #c8dce6 !important;"><span data-lang="zh">所有 OTP 與 NeoMTP 版本共用相同物理機制、零光罩條件或高溫保存保證；PPA 與可靠度仍須依具名 IP 和晶圓廠 PDK 驗證。</span><span data-lang="en">A common physical mechanism, zero-mask condition or high-temperature retention guarantee for every OTP and NeoMTP version; PPA and reliability still require named-IP and foundry-PDK validation.</span></p>
                 </div>
               </div>
               <a href="https://www.chipestimate.com/How-eNVM-Helps-Power-Controllers-Be-Smarter/eMemory/Technical-Article/2021/07/06" target="_blank" rel="noreferrer">ChipEstimate Technical Article ↗</a>

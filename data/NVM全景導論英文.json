@@ -1,13 +1,13 @@
 {
   "schemaVersion": "1.0",
   "revision": "2026-09-10",
-  "title": "NVM Technology Panorama",
-  "subtitle": "Understanding How Data Persists, Starting with the Bitcell",
-  "audience": "Readers with a semiconductor background who want a systematic understanding of NVM devices and their operation",
+  "title": "NVM IP Cells and Device Physics",
+  "subtitle": "Follow Programming, Reverse Update and Read Inside Named IP Cells",
+  "audience": "Readers who want to understand embedded NVM IP cells, storage physics and operating paths",
   "pov": "Neutral educational content and public-source research from the NVM Knowledge Hub",
   "classification": "Public",
-  "intro": "Start by asking which physical state stores the data, then examine how that state is written, read, and retained—and what each operation costs. This panorama presents the technology families in parallel: a technology can already have products in volume production while new materials, process nodes, and applications remain under investigation.",
-  "scope": "The scope covers one-time programming, floating gates, charge trapping, magnetism, resistive switching, phase change, and ferroelectricity. SRAM and DRAM provide volatile-memory reference points. Optical discs, magnetic disks, mask ROM, EPROM, and other research candidates are outside this set of sixteen technology topics.",
+  "intro": "Start with named embedded IP cells: eMemory NeoBit, NeoFuse, NeoEE and NeoMTP; a CHI/BBHH model for the YMC study path; and MRAM/ReRAM IP examples. Follow the same storage region from its initial state through the applied stimulus, carrier or spin process and sensed result. Standalone components and generic device families remain background references.",
+  "scope": "The main path covers named OTP, MTP, MRAM and ReRAM IP cells and their operation sequences. Sixteen device-physics topics, standalone EEPROM, comparison tables, patents and foundry milestones provide optional background. A named source may establish a functional cell, a specific historical embodiment or a current IP offering; the figure caption preserves that distinction.",
   "axes": [
     {
       "title": "Storage Physics",
@@ -84,16 +84,20 @@
   ],
   "reading": [
     {
-      "title": "Start with the Panorama",
-      "body": "Compare sixteen technologies using the same set of questions, then filter named examples by volume-production status or research demonstration."
+      "title": "Compare the Two OTP Storage Events",
+      "body": "Read NeoBit and NeoFuse side by side: stored floating-gate charge versus altered gate-dielectric transport."
     },
     {
-      "title": "Examine the Bitcell",
-      "body": "Open a study to inspect storage, structure, operation, variability, and device, array, process and system limits. For EEPROM and MTP, establish whether the delivery is a packaged component or an embedded macro before comparing the bitcell."
+      "title": "Trace the Three MTP Update Pairs",
+      "body": "Compare NeoEE FN/FN, NeoMTP CHI/FN and the YMC CHI/BBHH operation model on their own cells."
     },
     {
-      "title": "Return to the Original Evidence",
-      "body": "Patent guides provide entry points to representative figures and claims. Product documents and papers support specific numbers, while annual roadmaps establish version and timeline context."
+      "title": "Follow Magnetic and Resistive IP Cells",
+      "body": "Trace STT switching and sensing, then compare oxygen-related and metallic-path ReRAM SET/RESET."
+    },
+    {
+      "title": "Return to Physics and Integration When Needed",
+      "body": "Use the background topics for device, array, process and system limits. Standalone products provide context rather than the main learning path."
     }
   ],
   "evidenceRules": [

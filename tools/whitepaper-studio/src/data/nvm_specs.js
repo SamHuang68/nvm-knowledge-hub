@@ -114,10 +114,10 @@ export const nvmIpSpecs = [
   {
     id: 'bcd_power_pmic_trim',
     profile: 'BCD Power PMIC & LED Trimming',
-    family: 'Pure Logic AntiFuse OTP / NeoMTP',
-    contract: 'Permanent analog Vref bandgap (±0.5%) & oscillator calibration; multi-channel LED balance',
+    family: 'Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)',
+    contract: 'Fixed OTP or updateable NeoMTP analog Vref bandgap (±0.5%) & oscillator calibration; multi-channel LED balance',
     nodeLens: '0.18µm, 0.13µm, 90nm, 55nm BCD Foundry Platforms (VIS, TSMC, PSMC, UMC)',
-    updateModel: 'Wafer sort (CP) & final test (FT) electrical trimming; zero thermal budget penalty',
+    updateModel: 'Wafer sort (CP) & final test (FT) trimming; OTP fixed after programming; NeoMTP updates within the qualified IP budget',
     strongestFit: 'PMIC, USB-PD 3.1 240W EPR Controllers, BLDC Motor Drivers, BMIC 16-24 Cell AFEs',
     boundary: 'Requires high-temperature retention validation up to 150°C-175°C automotive junction temp',
     evidenceStatus: 'AEC-Q100 Grade 0 · Multi-Foundry BCD Baseline',

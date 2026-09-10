@@ -1,9 +1,63 @@
 window.NVMTopicIndex = [
   {
-    "title_zh": "NVM 技術全景",
-    "title_en": "NVM Technology Panorama",
+    "title_zh": "NVM IP 單元與技術全景",
+    "title_en": "NVM IP Cells and Device Physics",
     "url": "NVM技術全景.html",
     "tags": "NVM 全景 物理 比較 bitcell MRAM ReRAM GLOBALFOUNDRIES TSMC"
+  },
+  {
+    "title_zh": "NeoBit：浮動閘極 OTP 單元",
+    "title_en": "NeoBit: Floating-Gate OTP Cell",
+    "url": "NVM技術全景.html#ip-neobit",
+    "tags": "eMemory NeoBit · Floating-Gate OTP Follow the series select transistor and p-type floating-gate storage transistor as electron injection changes read current. Then distinguish normal OTP operation from the physical possibility of ultraviolet erasure. Hot-hole-induced electron injection No electrical erase in normal OTP operation P-type storage-channel current 從串聯的選擇器與 p 型浮動閘極儲存電晶體，看電子注入如何改變讀取電流；再區分正常 OTP 操作與紫外線清除的物理可能性。"
+  },
+  {
+    "title_zh": "NeoFuse：介電層型 Antifuse OTP 單元",
+    "title_en": "NeoFuse: Gate-Dielectric Antifuse OTP Cell",
+    "url": "NVM技術全景.html#ip-neofuse",
+    "tags": "eMemory NeoFuse · Antifuse OTP Start at the n-type cell's gate dielectric and follow high-field defect creation, changes in effective tunneling distance and the gate current used for sensing. High-field dielectric defect generation No restoration of the pristine dielectric in normal use Gate current through the dielectric 從 n 型單元的閘極介電層出發，追蹤高場造成的缺陷、有效穿隧距離變化，以及讀取時可辨識的閘極電流。"
+  },
+  {
+    "title_zh": "NeoEE：FN／FN 單層多晶矽 MTP",
+    "title_en": "NeoEE: FN/FN Single-Poly MTP",
+    "url": "NVM技術全景.html#ip-neoee",
+    "tags": "eMemory NeoEE · FN/FN MTP Follow the control-coupling region, floating node and tunneling region as FN transport stores and removes electrons. A read transistor then senses the stored state. FN transfers electrons into the floating node FN transfers electrons out of the floating node Charge changes the read-transistor state 沿控制耦合區、浮動節點與穿隧區，分別追蹤 FN 如何將電子存入與移出，再由讀取電晶體感測儲存狀態。"
+  },
+  {
+    "title_zh": "NeoMTP：CHI／FN 單層多晶矽 MTP",
+    "title_en": "NeoMTP: CHI/FN Single-Poly MTP",
+    "url": "NVM技術全景.html#ip-neomtp",
+    "tags": "eMemory NeoMTP · CHI/FN MTP Compare hot-carrier programming of the p-type floating-gate cell with FN electron transfer toward a dedicated erase gate. Both operations act on the same storage node. Channel-hot-hole-induced electron injection FN electron transfer toward the erase gate P-type floating-gate transistor current 比較 p 型浮動閘極單元的熱載子寫入，以及電子經 FN 移向專用抹除閘極的反向路徑。兩種操作在同一儲存節點上完成。"
+  },
+  {
+    "title_zh": "YMC MTP：CHI／BBHH 操作模型",
+    "title_en": "YMC MTP: CHI/BBHH Operation Model",
+    "url": "NVM技術全景.html#ip-ymc-mtp",
+    "tags": "Yield Microelectronics (YMC) YMC · CHI/BBHH Model Use the same equivalent 1T1C floating node to follow CHI electron programming and BBHH hole injection, then read the state through nMOS threshold voltage and channel current. CHI injects electrons into the floating node BBHH injects holes to neutralize stored charge NMOS threshold and channel current 以同一個等效 1T1C 浮動節點，追蹤 CHI 寫入電子與 BBHH 注入電洞的差異，並由 nMOS 臨界電壓與通道電流判讀資料。"
+  },
+  {
+    "title_zh": "Numem：嵌入式 STT-MRAM IP 單元",
+    "title_en": "Numem: Embedded STT-MRAM IP Cell",
+    "url": "NVM技術全景.html#ip-numem-mram",
+    "tags": "Numem Numem · STT-MRAM IP Connect foundry-standard STT-MRAM cells to embedded IP by identifying the magnetic junction, access transistor, bit line, source line and sensing path. Spin-transfer torque switches magnetization Opposite write current overwrites the state Magnetic-junction resistance contrast 從晶圓廠標準 STT-MRAM 單元與嵌入式 IP 的關係，辨認磁性接面、存取電晶體、位元線、源極線及感測路徑。"
+  },
+  {
+    "title_zh": "GLOBALFOUNDRIES：22FDX 嵌入式 MRAM 單元",
+    "title_en": "GLOBALFOUNDRIES: 22FDX Embedded MRAM Cell",
+    "url": "NVM技術全景.html#ip-gf-emram",
+    "tags": "GLOBALFOUNDRIES GF 22FDX · eMRAM Cell Use a publicly reported 22FDX research cell to examine 1T1MTJ, free and reference layers, and bidirectional switching under the source's current convention. Switch under the named study's polarity convention Reverse overwrite; no prior erase cycle Sense P/AP resistance with a small stimulus 用 22FDX 公開研究單元理解 1T1MTJ、自由層與參考層，以及由該來源定義的雙向電流切換。"
+  },
+  {
+    "title_zh": "Weebit Nano：氧化矽 ReRAM IP 單元",
+    "title_en": "Weebit Nano: Silicon-Oxide ReRAM IP Cell",
+    "url": "NVM技術全景.html#ip-weebit-reram",
+    "tags": "Weebit Nano Weebit · Silicon-Oxide ReRAM Follow oxygen exchange, a defect-related conduction path and access-transistor current compliance in a public silicon-oxide research structure to understand embedded ReRAM SET, RESET and read. SET establishes a low-resistance defect path RESET changes oxygen and defect distributions Sense resistance with a small stimulus 以公開的氧化矽研究結構，追蹤氧交換、缺陷路徑與存取電晶體限流，理解嵌入式 ReRAM 的 SET、RESET 與讀取。"
+  },
+  {
+    "title_zh": "Crossbar：金屬路徑 ReRAM 嵌入式單元",
+    "title_en": "Crossbar: Metallic-Path Embedded ReRAM Cell",
+    "url": "NVM技術全景.html#ip-crossbar-reram",
+    "tags": "Crossbar Crossbar · Metallic-Path ReRAM Read Crossbar's public patent and historical embedded-macro materials through metallic-path extension, retraction and low-stimulus sensing. SET extends the metallic path RESET retracts or disconnects the path Conduction paths and interparticle transport 以 Crossbar 公開專利與歷史嵌入式宏資料，理解金屬粒子路徑延伸、回縮與低刺激感測。"
   },
   {
     "title_zh": "eFuse：以永久導通變化記住一個位元",

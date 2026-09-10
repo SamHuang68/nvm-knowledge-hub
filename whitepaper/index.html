@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="../site-shell.css?v=20260906-navy-v3">
   <script type="module" crossorigin src="./assets/index-_SFXHrp_.js?v=20260910-mtp"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-D9MQ5Guq.css?v=20260906-navy-v3">
-  <script src="./assets/whitepaper_i18n.js?v=20260910-mtp"></script>
+  <script src="./assets/whitepaper_i18n.js?v=20260910-neomtp"></script>
 
   <style id="studio-typography-override">
     /* 0. ACCESSIBILITY DEFENSE: High-contrast Skip Link */
@@ -480,7 +480,7 @@
         <span>FILTER BY TECHNOLOGY FAMILY</span>
         <select id="filter-family">
           <option value="ALL">All public profiles (12)</option>
-          <option value="SRAM PUF + 1T OTP + AES-256">SRAM PUF + 1T OTP + AES-256</option><option value="Antifuse OTP (Raw / Unencrypted)">Antifuse OTP (Raw / Unencrypted)</option><option value="Quantum Tunneling / High-Voltage OTP-PUF">Quantum Tunneling / High-Voltage OTP-PUF</option><option value="Dedicated Security Chip (e.g. NXP SE050)">Dedicated Security Chip (e.g. NXP SE050)</option><option value="Board-Level / PCIe HSM Module">Board-Level / PCIe HSM Module</option><option value="Floating Gate / Charge Trap eFlash">Floating Gate / Charge Trap eFlash</option><option value="Spin-Torque Transfer MRAM / ReRAM">Spin-Torque Transfer MRAM / ReRAM</option><option value="On-Die Managed MTP / AntiFuse OTP">On-Die Managed MTP / AntiFuse OTP</option><option value="Pure Logic AntiFuse OTP / NeoMTP">Pure Logic AntiFuse OTP / NeoMTP</option><option value="AntiFuse OTP Hard FuseBox & PPR">AntiFuse OTP Hard FuseBox & PPR</option><option value="High-Density Embedded MTP / Pure Logic OTP">High-Density Embedded MTP / Pure Logic OTP</option><option value="MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity">MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity</option>
+          <option value="SRAM PUF + 1T OTP + AES-256">SRAM PUF + 1T OTP + AES-256</option><option value="Antifuse OTP (Raw / Unencrypted)">Antifuse OTP (Raw / Unencrypted)</option><option value="Quantum Tunneling / High-Voltage OTP-PUF">Quantum Tunneling / High-Voltage OTP-PUF</option><option value="Dedicated Security Chip (e.g. NXP SE050)">Dedicated Security Chip (e.g. NXP SE050)</option><option value="Board-Level / PCIe HSM Module">Board-Level / PCIe HSM Module</option><option value="Floating Gate / Charge Trap eFlash">Floating Gate / Charge Trap eFlash</option><option value="Spin-Torque Transfer MRAM / ReRAM">Spin-Torque Transfer MRAM / ReRAM</option><option value="On-Die Managed MTP / AntiFuse OTP">On-Die Managed MTP / AntiFuse OTP</option><option value="Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)">Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)</option><option value="AntiFuse OTP Hard FuseBox & PPR">AntiFuse OTP Hard FuseBox & PPR</option><option value="High-Density Embedded MTP / Pure Logic OTP">High-Density Embedded MTP / Pure Logic OTP</option><option value="MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity">MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity</option>
         </select>
       </label>
       <div class="matrix-actions">
@@ -655,10 +655,10 @@
     <tr>
       <th scope="row" data-label="STATE PROFILE">
         <strong>BCD Power PMIC & LED Trimming</strong>
-        <small>Wafer sort (CP) & final test (FT) electrical trimming; zero thermal budget penalty</small>
+        <small>Wafer sort (CP) & final test (FT) trimming; OTP fixed after programming; NeoMTP updates within the qualified IP budget</small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">Pure Logic AntiFuse OTP / NeoMTP</span></td>
-      <td data-label="STATE CONTRACT">Permanent analog Vref bandgap (±0.5%) & oscillator calibration; multi-channel LED balance</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)</span></td>
+      <td data-label="STATE CONTRACT">Fixed OTP or updateable NeoMTP analog Vref bandgap (±0.5%) & oscillator calibration; multi-channel LED balance</td>
       <td data-label="BUS EXPOSURE">
         <span class="security-chip sec-high">None (Internal analog resistor ladder trim boundary)</span>
       </td>

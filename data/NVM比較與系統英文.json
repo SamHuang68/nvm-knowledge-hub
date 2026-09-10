@@ -779,6 +779,26 @@
   ],
   "glossary": [
     {
+      "term": "CHI and CHEI",
+      "definition": "CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate."
+    },
+    {
+      "term": "Fowler–Nordheim (FN) Tunneling",
+      "definition": "A sufficiently strong field changes the dielectric energy barrier so electrons can tunnel through it. State the electron origin, destination and field direction separately. NeoEE uses FN transport for both updates; NeoMTP uses FN electron transfer toward an erase gate for the reverse update."
+    },
+    {
+      "term": "BBT, BBHH and DAHHI",
+      "definition": "Band-to-band tunneling (BBT) creates electron/hole pairs inside silicon. Band-to-band hot-hole injection (BBHH) then uses energetic holes to cross the dielectric. Drain-avalanche hot-hole injection (DAHHI) uses avalanche generation instead; shared hot-hole injection does not make the carrier-generation mechanisms identical."
+    },
+    {
+      "term": "Direct Tunneling and Antifuse Readout",
+      "definition": "In eMemory's published ultrathin-dielectric explanation, programming generates defects that reduce effective tunneling distance and increase gate current. Preserve this named mechanism when discussing NeoFuse; an ideal metal short or a generic trap-assisted-tunneling label is not a substitute."
+    },
+    {
+      "term": "P/AP and SET/RESET",
+      "definition": "P and AP describe parallel and antiparallel magnetic-layer states, generally associated with lower and higher MTJ resistance. SET and RESET describe transitions to lower and higher resistance in the ReRAM examples. These state labels do not prescribe a universal terminal polarity or logic 0/1 encoding."
+    },
+    {
       "term": "Bitcell",
       "definition": "The smallest circuit or combination of devices that stores data in a physical state. A complete bitcell may also include an access transistor or selector; it is not necessarily just the storage material."
     },

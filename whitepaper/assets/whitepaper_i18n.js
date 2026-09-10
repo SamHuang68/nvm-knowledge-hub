@@ -1,6 +1,9 @@
 // 白皮書兩個入口共用單一內容翻譯器；全站語言狀態由 HubLanguage 管理。
 (function () {
   const DICT = {
+  "Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)": "AntiFuse OTP（固定）／NeoMTP（浮動閘 MTP）",
+  "Fixed OTP or updateable NeoMTP analog Vref bandgap (±0.5%) & oscillator calibration; multi-channel LED balance": "OTP 固定或 NeoMTP 可更新的類比 Vref 能隙（±0.5%）與振盪器校準；多通道 LED 平衡",
+  "Wafer sort (CP) & final test (FT) trimming; OTP fixed after programming; NeoMTP updates within the qualified IP budget": "晶圓測試（CP）與最終測試（FT）微調；OTP 寫入後固定；NeoMTP 依已驗證 IP 預算更新",
   "Specialty NVM": "特種 NVM",
   "Specialty eNVM": "特種製程 eNVM",
   "BCD Power PMIC & LED Trimming": "BCD 電源 PMIC 與 LED 電性微調",

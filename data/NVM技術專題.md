@@ -1,8 +1,8 @@
-# NVM 技術全景
+# NVM IP 單元與技術全景
 
 研究版本：2026-09-10
 
-先問資料存在哪個物理狀態，再看如何寫入、如何讀取，以及維持狀態需要付出什麼代價。這份全景把各家族平行展開：同一項技術可以已有量產產品，同時仍有新材料、新節點與新用途在研究。
+先看具名嵌入式 IP：力旺 NeoBit、NeoFuse、NeoEE、NeoMTP，YMC 閱讀路徑的 CHI／BBHH 模型，以及 MRAM／ReRAM IP 範例。沿同一儲存區追蹤初始狀態、施加刺激、載子或自旋過程與感測結果。獨立式元件與通用物理家族作為背景參考。
 
 ## 儲存物理
 
@@ -15,6 +15,1542 @@
 ## 系統角色
 
 SCM 是填補記憶體與儲存落差的用途視角，並非另一種位元單元。用途、存取語意、斷電持久性與供應現況，必須分開說明。
+
+## 具名 IP 單元與操作主線
+
+### NeoBit：浮動閘極 OTP 單元
+
+力旺 eMemory
+
+從串聯的選擇器與 p 型浮動閘極儲存電晶體，看電子注入如何改變讀取電流；再區分正常 OTP 操作與紫外線清除的物理可能性。
+
+NeoBit — 單元結構
+
+串聯 pMOS 選擇器與 pMOS 浮動閘極單元。歷史剖面：p 型基板內的 n 井、p+ 源／共用區／汲極、獨立選擇閘極與 p+ 浮動閘極；FG 不接導線，也沒有堆疊控制閘極。 介電質隔離 FG。歷史 p+ 模型另說明注入電子與自由電洞復合，留下局部負離子電荷；圖中 Q− 表示儲存狀態，不全是自由電子。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- FG / Q− · FG 不接直流端；Q− 採歷史 p+ 專利的儲存電荷符號，包含局部負離子電荷。
+- UV* · 官方 2021 簡介曾列紫外光抹除；正常 OTP 不提供電性抹除，UV 是否可用須核對實施與封裝。
+
+- [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+- [ip-neobit-pat：NeoBit 歷史保留電荷專利](https://patents.google.com/patent/US6914825B2/en)
+- [ip-neobit-link：NeoBit 與保留電荷專利的官方連結](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)
+- [ip-neobit-uv：NeoBit 紫外光抹除的公開界線](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)
+
+#### NeoBit — 寫入
+
+載子：加速電洞產生電子／電洞對；部分熱電子穿過氧化層進入 FG。
+
+熱電洞誘發電子注入
+
+**1. 初始狀態**
+
+狀態: 初始：FG 儲存負電荷較少，p 通道未進入寫入後的導通狀態。
+
+刺激: 維持儲存狀態；尚未施加本次刺激。
+
+初始：FG 儲存負電荷較少，p 通道未進入寫入後的導通狀態。
+
+**2. 施加條件**
+
+狀態: 刺激：選通 pMOS，在通道建立橫向高場；FG 經電容耦合改變電位。
+
+刺激: 刺激：選通 pMOS，在通道建立橫向高場；FG 經電容耦合改變電位。
+
+刺激：選通 pMOS，在通道建立橫向高場；FG 經電容耦合改變電位。
+
+**3. 載子移動**
+
+狀態: 載子：加速電洞產生電子／電洞對；部分熱電子穿過氧化層進入 FG。
+
+刺激: 維持本次操作條件，觀察載子或感測路徑。
+
+載子：加速電洞產生電子／電洞對；部分熱電子穿過氧化層進入 FG。
+
+**4. 保持結果**
+
+狀態: 保持：脈衝移除後保留 Q−；p 通道在指定讀取條件下較易導通。
+
+刺激: 完成本次操作後回到保持條件。
+
+保持：脈衝移除後保留 Q−；p 通道在指定讀取條件下較易導通。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- FG / Q− · FG 不接直流端；Q− 採歷史 p+ 專利的儲存電荷符號，包含局部負離子電荷。
+- UV* · 官方 2021 簡介曾列紫外光抹除；正常 OTP 不提供電性抹除，UV 是否可用須核對實施與封裝。
+
+不畫介電質擊穿、永久導電絲、nMOS CHE；不補數值電壓或所有現行型號的 p+ 摻雜保證。 SL、SG/WL、BL、NW；FG 為浮動節點。SG 與 FG 不相連；BL 的電容耦合不能畫成直流導線。
+
+- [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+- [ip-neobit-pat：NeoBit 歷史保留電荷專利](https://patents.google.com/patent/US6914825B2/en)
+- [ip-neobit-link：NeoBit 與保留電荷專利的官方連結](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)
+- [ip-neobit-uv：NeoBit 紫外光抹除的公開界線](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)
+
+#### NeoBit — 抹除操作界線
+
+正常 OTP 介面沒有電性抹除操作；不能據此聲稱物理上永不可清除。2021 年官方簡介明列 UV erase，是否能照光取決於實施與封裝。
+
+正常 OTP 操作界線
+
+**1. 寫入後狀態**
+
+狀態: 寫入後：FG 保留 Q−。
+
+刺激: 維持儲存狀態；尚未施加本次刺激。
+
+寫入後：FG 保留 Q−。
+
+**2. 正常操作界線**
+
+狀態: 操作界線：正常 OTP 不提供電性抹除路徑。
+
+刺激: 操作界線：正常 OTP 不提供電性抹除路徑。
+
+操作界線：正常 OTP 不提供電性抹除路徑。
+
+**3. 歷史 UV 界線**
+
+狀態: 歷史例外：官方曾列 UV erase；不代表本封裝可用。
+
+刺激: 沒有一般電性抹除刺激；此格說明使用界線。
+
+歷史例外：官方曾列 UV erase；不代表本封裝可用。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- FG / Q− · FG 不接直流端；Q− 採歷史 p+ 專利的儲存電荷符號，包含局部負離子電荷。
+- UV* · 官方 2021 簡介曾列紫外光抹除；正常 OTP 不提供電性抹除，UV 是否可用須核對實施與封裝。
+
+不畫介電質擊穿、永久導電絲、nMOS CHE；不補數值電壓或所有現行型號的 p+ 摻雜保證。 SL、SG/WL、BL、NW；FG 為浮動節點。SG 與 FG 不相連；BL 的電容耦合不能畫成直流導線。
+
+- [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+- [ip-neobit-pat：NeoBit 歷史保留電荷專利](https://patents.google.com/patent/US6914825B2/en)
+- [ip-neobit-link：NeoBit 與保留電荷專利的官方連結](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)
+- [ip-neobit-uv：NeoBit 紫外光抹除的公開界線](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)
+
+#### NeoBit — 讀取
+
+感測輸出電流並保留儲存狀態；邏輯編碼由巨集定義。
+
+通道電流感測
+
+**1. 保持狀態**
+
+狀態: 保持：讀取前 FG 電荷狀態不變。
+
+刺激: 維持儲存狀態；尚未施加本次刺激。
+
+保持：讀取前 FG 電荷狀態不變。
+
+**2. 選擇單元**
+
+狀態: 刺激：選通單元並施加低場讀取條件。
+
+刺激: 刺激：選通單元並施加低場讀取條件。
+
+刺激：選通單元並施加低場讀取條件。
+
+**3. 感測路徑**
+
+狀態: 路徑：電洞沿 p 通道流動；不把 FG 電荷拉進位元線。
+
+刺激: 維持本次操作條件，觀察載子或感測路徑。
+
+路徑：電洞沿 p 通道流動；不把 FG 電荷拉進位元線。
+
+**4. 比較結果**
+
+狀態: 結果：感測通道電流；資料 0/1 對應由巨集定義。
+
+刺激: 完成本次操作後回到保持條件。
+
+結果：感測通道電流；資料 0/1 對應由巨集定義。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- FG / Q− · FG 不接直流端；Q− 採歷史 p+ 專利的儲存電荷符號，包含局部負離子電荷。
+- UV* · 官方 2021 簡介曾列紫外光抹除；正常 OTP 不提供電性抹除，UV 是否可用須核對實施與封裝。
+
+不畫介電質擊穿、永久導電絲、nMOS CHE；不補數值電壓或所有現行型號的 p+ 摻雜保證。 SL、SG/WL、BL、NW；FG 為浮動節點。SG 與 FG 不相連；BL 的電容耦合不能畫成直流導線。
+
+- [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+- [ip-neobit-pat：NeoBit 歷史保留電荷專利](https://patents.google.com/patent/US6914825B2/en)
+- [ip-neobit-link：NeoBit 與保留電荷專利的官方連結](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)
+- [ip-neobit-uv：NeoBit 紫外光抹除的公開界線](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)
+
+#### IP 單元取捨
+
+浮動閘極 OTP 的資料在儲存電荷中。選擇器控制哪個單元可讀寫，寫入則把儲存通道推到另一個可感測狀態。正常介面不提供電抹除，與介電層不可逆改變是不同的 OTP 設計路徑。
+
+### NeoFuse：介電層型 Antifuse OTP 單元
+
+力旺 eMemory
+
+從 n 型單元的閘極介電層出發，追蹤高場造成的缺陷、有效穿隧距離變化，以及讀取時可辨識的閘極電流。
+
+NeoFuse — 單元結構
+
+儲存核心是 nFET 閘極介電質，讀取閘極電流。公開 3T 說明增加調節電晶體；主圖可用選擇／調節／反熔絲三功能，並標示連線為概念。 寫入後介電質缺陷狀態保留；資料不是 FG 內的電子數。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- DT / 3T · DT 是缺陷增加後有效障壁縮短的直接穿隧模型；SEL／REG 是公開功能，相關專利不等同現行 NeoFuse 接線。
+
+- [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
+- [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
+- [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
+- [ip-neofuse-pat：三電晶體反熔絲相關專利](https://patents.google.com/patent/US20250024668A1/en)
+
+#### NeoFuse — 寫入
+
+載子：缺陷生成，有效穿隧距離縮短；電子穿越介電質。
+
+高場缺陷生成與穿隧增強
+
+**1. 初始狀態**
+
+狀態: 初始：閘極介電質缺陷少、閘極電流低。
+
+刺激: 維持儲存狀態；尚未施加本次刺激。
+
+初始：閘極介電質缺陷少、閘極電流低。
+
+**2. 施加條件**
+
+狀態: 刺激：選擇／調節路徑施加介電質高場。
+
+刺激: 刺激：選擇／調節路徑施加介電質高場。
+
+刺激：選擇／調節路徑施加介電質高場。
+
+**3. 載子移動**
+
+狀態: 載子：缺陷生成，有效穿隧距離縮短；電子穿越介電質。
+
+刺激: 維持本次操作條件，觀察載子或感測路徑。
+
+載子：缺陷生成，有效穿隧距離縮短；電子穿越介電質。
+
+**4. 保持結果**
+
+狀態: 保持：移除刺激後缺陷狀態保留。
+
+刺激: 完成本次操作後回到保持條件。
+
+保持：移除刺激後缺陷狀態保留。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- DT / 3T · DT 是缺陷增加後有效障壁縮短的直接穿隧模型；SEL／REG 是公開功能，相關專利不等同現行 NeoFuse 接線。
+
+不畫粗金屬短路或 FG 儲存；未證明現行先進製程是高介電常數層或介面層哪一層先損傷。 反熔絲閘極 AF、下方矽區 Si、選擇與調節控制、BL；AF 與 Si 間的儲存介電質不同於選擇器氧化層。
+
+- [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
+- [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
+- [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
+- [ip-neofuse-pat：三電晶體反熔絲相關專利](https://patents.google.com/patent/US20250024668A1/en)
+
+#### NeoFuse — 抹除操作界線
+
+正常操作沒有修復介電質缺陷的抹除步驟；降低偏壓不會回復原始低缺陷狀態。
+
+正常 OTP 操作界線
+
+**1. 寫入後狀態**
+
+狀態: 寫入後：缺陷狀態已改變。
+
+刺激: 維持儲存狀態；尚未施加本次刺激。
+
+寫入後：缺陷狀態已改變。
+
+**2. 正常操作界線**
+
+狀態: 操作界線：一般偏壓不能修復介電質。
+
+刺激: 操作界線：一般偏壓不能修復介電質。
+
+操作界線：一般偏壓不能修復介電質。
+
+**3. 持續保持**
+
+狀態: 結果：正常使用維持 OTP 狀態。
+
+刺激: 沒有一般電性抹除刺激；此格說明使用界線。
+
+結果：正常使用維持 OTP 狀態。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- DT / 3T · DT 是缺陷增加後有效障壁縮短的直接穿隧模型；SEL／REG 是公開功能，相關專利不等同現行 NeoFuse 接線。
+
+不畫粗金屬短路或 FG 儲存；未證明現行先進製程是高介電常數層或介面層哪一層先損傷。 反熔絲閘極 AF、下方矽區 Si、選擇與調節控制、BL；AF 與 Si 間的儲存介電質不同於選擇器氧化層。
+
+- [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
+- [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
+- [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
+- [ip-neofuse-pat：三電晶體反熔絲相關專利](https://patents.google.com/patent/US20250024668A1/en)
+
+#### NeoFuse — 讀取
+
+感測輸出電流並保留儲存狀態；邏輯編碼由巨集定義。
+
+閘極電流感測
+
+**1. 保持狀態**
+
+狀態: 比較：原始與寫入後的缺陷密度不同。
+
+刺激: 維持儲存狀態；尚未施加本次刺激。
+
+比較：原始與寫入後的缺陷密度不同。
+
+**2. 選擇單元**
+
+狀態: 刺激：施加低於寫入應力的感測條件。
+
+刺激: 刺激：施加低於寫入應力的感測條件。
+
+刺激：施加低於寫入應力的感測條件。
+
+**3. 感測路徑**
+
+狀態: 路徑：讀取閘極電流；Si→AF 電子與傳統電流反向。
+
+刺激: 維持本次操作條件，觀察載子或感測路徑。
+
+路徑：讀取閘極電流；Si→AF 電子與傳統電流反向。
+
+**4. 比較結果**
+
+狀態: 結果：比較參考電流，保留介電質狀態。
+
+刺激: 完成本次操作後回到保持條件。
+
+結果：比較參考電流，保留介電質狀態。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- DT / 3T · DT 是缺陷增加後有效障壁縮短的直接穿隧模型；SEL／REG 是公開功能，相關專利不等同現行 NeoFuse 接線。
+
+不畫粗金屬短路或 FG 儲存；未證明現行先進製程是高介電常數層或介面層哪一層先損傷。 反熔絲閘極 AF、下方矽區 Si、選擇與調節控制、BL；AF 與 Si 間的儲存介電質不同於選擇器氧化層。
+
+- [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
+- [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
+- [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
+- [ip-neofuse-pat：三電晶體反熔絲相關專利](https://patents.google.com/patent/US20250024668A1/en)
+
+#### IP 單元取捨
+
+這個單元的重點是介電層導電特性如何改變，不能只用理想短路代替超薄介電層中的物理。選擇與調節電晶體服務陣列操作；儲存區的缺陷與穿隧路徑決定寫入後的讀取差異。
+
+### NeoEE：FN／FN 單層多晶矽 MTP
+
+力旺 eMemory
+
+沿控制耦合區、浮動節點與穿隧區，分別追蹤 FN 如何將電子存入與移出，再由讀取電晶體感測儲存狀態。
+
+NeoEE — 單元結構
+
+單層多晶矽 FG、電容耦合 MOS 結構與選擇器。控制耦合與穿隧是功能角色，可能由多個 MOS 區域實現；公開資料不足以固定數量或 p/n 配置。 移除高場後，隔離 FG 保存電荷並改變讀取通道的臨界條件。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- FG / Q− · FG 是隔離的浮動閘極；藍色負號標示儲存電子。
+- C / T / S / R · 分別是耦合、穿隧、選擇與讀取功能；不是官方接腳或固定元件數。T 概括各操作的 MOS 穿隧區，不宣稱是同一實體接點。電子多寡與 ON／OFF 對應未指定。
+
+- [ip-neoee：NeoEE 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ip-neoee-history：NeoEE 概念單元的歷史原圖](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)
+
+#### NeoEE — 寫入
+
+載子：電子由 MOS 穿隧區以 FN 方式進入 FG。
+
+FN
+
+**1. 初始狀態**
+
+狀態: 初始：FG 處於較少電子的示意狀態。
+
+刺激: 維持儲存狀態；尚未施加本次刺激。
+
+初始：FG 處於較少電子的示意狀態。
+
+**2. 施加條件**
+
+狀態: 刺激：耦合及穿隧端建立所需氧化層電場。
+
+刺激: 刺激：耦合及穿隧端建立所需氧化層電場。
+
+刺激：耦合及穿隧端建立所需氧化層電場。
+
+**3. 載子移動**
+
+狀態: 載子：電子由 MOS 穿隧區以 FN 方式進入 FG。
+
+刺激: 維持本次操作條件，觀察載子或感測路徑。
+
+載子：電子由 MOS 穿隧區以 FN 方式進入 FG。
+
+**4. 保持結果**
+
+狀態: 保持：電場解除，FG 電荷增加並保留。
+
+刺激: 完成本次操作後回到保持條件。
+
+保持：電場解除，FG 電荷增加並保留。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- FG / Q− · FG 是隔離的浮動閘極；藍色負號標示儲存電子。
+- C / T / S / R · 分別是耦合、穿隧、選擇與讀取功能；不是官方接腳或固定元件數。T 概括各操作的 MOS 穿隧區，不宣稱是同一實體接點。電子多寡與 ON／OFF 對應未指定。
+
+不將 2010 年 CHE/FN 分支混入；不把 C、T 都畫成固定兩顆實體電容；不指定電子多必為 ON。 耦合端 C、穿隧端 T、讀取通道 R、選擇端 S 是示意功能名稱，並非官方接腳。共享 FG 不接外部電源。
+
+- [ip-neoee：NeoEE 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ip-neoee-history：NeoEE 概念單元的歷史原圖](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)
+
+#### NeoEE — 抹除
+
+具備反向 FN 電荷移出路徑，因而可電性更新；循環壽命仍由介電質與巨集條件限制。
+
+FN
+
+**1. 寫入後狀態**
+
+狀態: 初始：FG 保留已寫入電荷。
+
+刺激: 維持儲存狀態；尚未施加本次刺激。
+
+初始：FG 保留已寫入電荷。
+
+**2. 切換端點條件**
+
+狀態: 刺激：切換端點條件，建立移出電荷所需電場。
+
+刺激: 刺激：切換端點條件，建立移出電荷所需電場。
+
+刺激：切換端點條件，建立移出電荷所需電場。
+
+**3. 移出電子**
+
+狀態: 載子：電子由 FG 經 FN 穿隧移至 MOS 接收區。
+
+刺激: 維持本次操作條件，觀察載子或感測路徑。
+
+載子：電子由 FG 經 FN 穿隧移至 MOS 接收區。
+
+**4. 可再次寫入**
+
+狀態: 結果：FG 電荷減少，可再次寫入。
+
+刺激: 完成本次操作後回到保持條件。
+
+結果：FG 電荷減少，可再次寫入。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- FG / Q− · FG 是隔離的浮動閘極；藍色負號標示儲存電子。
+- C / T / S / R · 分別是耦合、穿隧、選擇與讀取功能；不是官方接腳或固定元件數。T 概括各操作的 MOS 穿隧區，不宣稱是同一實體接點。電子多寡與 ON／OFF 對應未指定。
+
+不將 2010 年 CHE/FN 分支混入；不把 C、T 都畫成固定兩顆實體電容；不指定電子多必為 ON。 耦合端 C、穿隧端 T、讀取通道 R、選擇端 S 是示意功能名稱，並非官方接腳。共享 FG 不接外部電源。
+
+- [ip-neoee：NeoEE 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ip-neoee-history：NeoEE 概念單元的歷史原圖](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)
+
+#### NeoEE — 讀取
+
+感測輸出電流並保留儲存狀態；邏輯編碼由巨集定義。
+
+通道電流感測
+
+**1. 保持狀態**
+
+狀態: 保持：兩種 FG 電荷狀態形成不同臨界條件。
+
+刺激: 維持儲存狀態；尚未施加本次刺激。
+
+保持：兩種 FG 電荷狀態形成不同臨界條件。
+
+**2. 選擇單元**
+
+狀態: 刺激：選擇器開啟讀取通道。
+
+刺激: 刺激：選擇器開啟讀取通道。
+
+刺激：選擇器開啟讀取通道。
+
+**3. 感測路徑**
+
+狀態: 路徑：感測通道導電差異，不產生 FN 電荷搬移。
+
+刺激: 維持本次操作條件，觀察載子或感測路徑。
+
+路徑：感測通道導電差異，不產生 FN 電荷搬移。
+
+**4. 比較結果**
+
+狀態: 結果：比較參考值，保持 FG 電荷。
+
+刺激: 完成本次操作後回到保持條件。
+
+結果：比較參考值，保持 FG 電荷。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- FG / Q− · FG 是隔離的浮動閘極；藍色負號標示儲存電子。
+- C / T / S / R · 分別是耦合、穿隧、選擇與讀取功能；不是官方接腳或固定元件數。T 概括各操作的 MOS 穿隧區，不宣稱是同一實體接點。電子多寡與 ON／OFF 對應未指定。
+
+不將 2010 年 CHE/FN 分支混入；不把 C、T 都畫成固定兩顆實體電容；不指定電子多必為 ON。 耦合端 C、穿隧端 T、讀取通道 R、選擇端 S 是示意功能名稱，並非官方接腳。共享 FG 不接外部電源。
+
+- [ip-neoee：NeoEE 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ip-neoee-history：NeoEE 概念單元的歷史原圖](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)
+
+#### IP 單元取捨
+
+FN／FN 的兩個方向使用穿隧機制，但電場方向、選擇條件與施壓區域仍須分開辨識。單層多晶矽描述層數；控制耦合、穿隧區與讀取元件如何分工，才解釋這款 IP 的更新路徑。
+
+### NeoMTP：CHI／FN 單層多晶矽 MTP
+
+力旺 eMemory
+
+比較 p 型浮動閘極單元的熱載子寫入，以及電子經 FN 移向專用抹除閘極的反向路徑。兩種操作在同一儲存節點上完成。
+
+NeoMTP — 單元結構
+
+類似 NeoBit 的單層多晶矽 p 型 FG-MOSFET，另有抹除閘極 EG。EG 與 FG 以介電質隔離，不能畫成導線短接。 FG 電荷受介電質隔離；EG 僅在抹除條件下提供 FN 出口。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- FG / Q− · FG 是隔離的浮動閘極；藍色負號標示儲存電子。
+- EG / SL / SG / BL / NW · EG 是公開抹除功能，其餘為 pMOS 教學端點。EG 的方位與材料不代表現行版圖；箭頭只表達 FG→EG 的 FN 路徑。
+
+- [ip-neomtp：NeoMTP 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ip-neomtp-pat：pMOS 與邊緣抹除閘極的相關專利](https://patents.google.com/patent/US20030235082A1/en)
+- [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+
+#### NeoMTP — 寫入
+
+載子：熱電洞誘發熱電子，電子穿過氧化層進 FG。
+
+熱電洞誘發電子注入
+
+**1. 初始狀態**
+
+狀態: 初始：FG 電荷較少，p 通道為抹除後狀態。
+
+刺激: 維持儲存狀態；尚未施加本次刺激。
+
+初始：FG 電荷較少，p 通道為抹除後狀態。
+
+**2. 施加條件**
+
+狀態: 刺激：選通後建立通道橫向高場。
+
+刺激: 刺激：選通後建立通道橫向高場。
+
+刺激：選通後建立通道橫向高場。
+
+**3. 載子移動**
+
+狀態: 載子：熱電洞誘發熱電子，電子穿過氧化層進 FG。
+
+刺激: 維持本次操作條件，觀察載子或感測路徑。
+
+載子：熱電洞誘發熱電子，電子穿過氧化層進 FG。
+
+**4. 保持結果**
+
+狀態: 保持：FG 留下負電荷；p 通道在讀取條件下導通。
+
+刺激: 完成本次操作後回到保持條件。
+
+保持：FG 留下負電荷；p 通道在讀取條件下導通。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- FG / Q− · FG 是隔離的浮動閘極；藍色負號標示儲存電子。
+- EG / SL / SG / BL / NW · EG 是公開抹除功能，其餘為 pMOS 教學端點。EG 的方位與材料不代表現行版圖；箭頭只表達 FG→EG 的 FN 路徑。
+
+不把電洞箭頭直接畫進 FG；不以 nMOS 傳統 CHE 代替；歷史邊緣 n+ EG 需另標來源。 SL、SG、BL 與井接點沿用 pMOS 概念；EG 是公開抹除端。現行 EG 摻雜、相對方位與電壓未完整公開。這些是教學端點，並非官方接腳表。
+
+- [ip-neomtp：NeoMTP 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ip-neomtp-pat：pMOS 與邊緣抹除閘極的相關專利](https://patents.google.com/patent/US20030235082A1/en)
+- [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+
+#### NeoMTP — 抹除
+
+可用 EG 移出電子，並重新注入；不能把 OTP 無電性抹除界線套在本單元。
+
+FN
+
+**1. 寫入後狀態**
+
+狀態: 初始：FG 保有寫入負電荷。
+
+刺激: 維持儲存狀態；尚未施加本次刺激。
+
+初始：FG 保有寫入負電荷。
+
+**2. 切換端點條件**
+
+狀態: 刺激：施加 EG 抹除條件，建立移出電荷的電場。
+
+刺激: 刺激：施加 EG 抹除條件，建立移出電荷的電場。
+
+刺激：施加 EG 抹除條件，建立移出電荷的電場。
+
+**3. 移出電子**
+
+狀態: 載子：電子由 FG 經 FN 穿隧移向 EG。
+
+刺激: 維持本次操作條件，觀察載子或感測路徑。
+
+載子：電子由 FG 經 FN 穿隧移向 EG。
+
+**4. 可再次寫入**
+
+狀態: 結果：FG 電子減少，p 通道在指定讀取條件下關閉。
+
+刺激: 完成本次操作後回到保持條件。
+
+結果：FG 電子減少，p 通道在指定讀取條件下關閉。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- FG / Q− · FG 是隔離的浮動閘極；藍色負號標示儲存電子。
+- EG / SL / SG / BL / NW · EG 是公開抹除功能，其餘為 pMOS 教學端點。EG 的方位與材料不代表現行版圖；箭頭只表達 FG→EG 的 FN 路徑。
+
+不把電洞箭頭直接畫進 FG；不以 nMOS 傳統 CHE 代替；歷史邊緣 n+ EG 需另標來源。 SL、SG、BL 與井接點沿用 pMOS 概念；EG 是公開抹除端。現行 EG 摻雜、相對方位與電壓未完整公開。這些是教學端點，並非官方接腳表。
+
+- [ip-neomtp：NeoMTP 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ip-neomtp-pat：pMOS 與邊緣抹除閘極的相關專利](https://patents.google.com/patent/US20030235082A1/en)
+- [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+
+#### NeoMTP — 讀取
+
+感測輸出電流並保留儲存狀態；邏輯編碼由巨集定義。
+
+通道電流感測
+
+**1. 保持狀態**
+
+狀態: 保持：讀取前維持 FG 儲存狀態；電荷多寡影響 p 通道。
+
+刺激: 維持儲存狀態；尚未施加本次刺激。
+
+保持：讀取前維持 FG 儲存狀態；電荷多寡影響 p 通道。
+
+**2. 選擇單元**
+
+狀態: 刺激：選通並施加讀取條件，EG 不執行抹除。
+
+刺激: 刺激：選通並施加讀取條件，EG 不執行抹除。
+
+刺激：選通並施加讀取條件，EG 不執行抹除。
+
+**3. 感測路徑**
+
+狀態: 路徑：電洞沿 p 通道移動，FG 無淨電荷搬移。
+
+刺激: 維持本次操作條件，觀察載子或感測路徑。
+
+路徑：電洞沿 p 通道移動，FG 無淨電荷搬移。
+
+**4. 比較結果**
+
+狀態: 結果：比較通道電流，保留儲存狀態。
+
+刺激: 完成本次操作後回到保持條件。
+
+結果：比較通道電流，保留儲存狀態。
+
+- e− / h+ · 藍色為電子、紅色為電洞；箭頭表示載子方向。
+- I · 綠色箭頭為傳統電流；它與電子方向相反、與電洞方向相同。
+- Bias · 圖示只給操作角色；不提供可直接使用的端點電壓或脈衝規格。
+- Scale · 幾何與介電質厚度為閱讀而放大；不是製程佈局。
+- FG / Q− · FG 是隔離的浮動閘極；藍色負號標示儲存電子。
+- EG / SL / SG / BL / NW · EG 是公開抹除功能，其餘為 pMOS 教學端點。EG 的方位與材料不代表現行版圖；箭頭只表達 FG→EG 的 FN 路徑。
+
+不把電洞箭頭直接畫進 FG；不以 nMOS 傳統 CHE 代替；歷史邊緣 n+ EG 需另標來源。 SL、SG、BL 與井接點沿用 pMOS 概念；EG 是公開抹除端。現行 EG 摻雜、相對方位與電壓未完整公開。這些是教學端點，並非官方接腳表。
+
+- [ip-neomtp：NeoMTP 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ip-neomtp-pat：pMOS 與邊緣抹除閘極的相關專利](https://patents.google.com/patent/US20030235082A1/en)
+- [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+
+#### IP 單元取捨
+
+本課程以 CHI／FN 表示操作組合；原廠將寫入描述為通道熱電洞誘發熱電子注入，標示 CHEI。抹除閘極提供另一個電子出口，因此不能把這個單元與沒有電抹除操作的 NeoBit，或 FN／FN 的 NeoEE 混成同一電路。
+
+### YMC MTP：CHI／BBHH 操作模型
+
+億而得 YMC
+
+以同一個等效 1T1C 浮動節點，追蹤 CHI 寫入電子與 BBHH 注入電洞的差異，並由 nMOS 臨界電壓與通道電流判讀資料。
+
+YMC ymtp：CHI／BBHH 1T1C 操作模型
+
+一個 nMOS 與一個功能耦合電容共享 FG。官方資料支持 ymtp 與 1T1C 技術家族；此原創等效圖不主張現行產品的接面、井結構或尺寸。FG 與 CG 沒有直流短路。
+
+- FG / Cc / CG · FG 是無直流接點的浮動閘極；Cc 是功能耦合電容，CG 是其外部控制端。
+- N+ / p / B · N+ 是模型源／汲極，p 是 nMOS 的本體，B 為本體端；未指定濃度、井配置或尺寸。
+- S / D* · S 是模型源極；D* 是本圖選定的高場端與模型汲極，不是 ymtp 巨集腳位對照。
+- e− / h+ · 藍色 e− 與箭頭代表電子，紅色 h+ 與箭頭代表電洞；粒子數與動畫速度不代表物理量。
+- I / I_R / Iref · 綠色 I 是傳統電流，方向與電子相反；I_R 為讀取電流，Iref 為判讀參考。
+- BBT / BBHH · BBT 是矽內能帶間穿隧；BBHH 是其產生電洞後的熱電洞注入。跨介電層的注入是後一步。
+- Vth / QFG · Vth 為等效 nMOS 閾值，QFG 為 FG 電荷；偏壓、讀取窗口與邏輯 0／1 僅由實際產品定義。
+
+- [ymc-product：YMC：ymtp 邏輯製程 MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ymc-1t1c：YMC：1T1C 核心技術](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
+- [physics-bbhh-fg：Wu 等：BBHH 與浮動閘極展示](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)
+
+#### CHI 寫入：電子進入浮動閘極
+
+CG 經耦合電容控制通道，電子在模型高場端加速；少數電子跨過介電層，讓儲存狀態轉為較高 Vth、較低讀取電流。
+
+通道熱載子注入；nMOS 模型以電子入 FG
+
+**1. 建立導通通道**
+
+狀態: FG 保有初始電荷。
+
+刺激: CG 透過 Cc 耦合；D* 高於 S。
+
+CG 與 FG 隔著電容介電層；模型的源／汲極間形成電子通道。
+
+**2. 通道電子在高場區加速**
+
+狀態: 電子從 S 沿通道向 D* 移動。
+
+刺激: 源／汲極電位差建立橫向場。
+
+藍色箭頭跟隨電子；綠色箭頭表示反向的傳統電流。只有部分電子取得足夠注入能量。
+
+**3. 高能電子跨介電層入 FG**
+
+狀態: 高場端的部分電子已獲能；注入區局部垂直場 E⊥ 指向矽。
+
+刺激: 通道加速配合局部 E⊥ 向矽，使電子受力朝 FG。
+
+局部垂直場方向是本圖的注入條件，不能只由 D* 與 S 的端點關係推定。電子跨介電層進 FG，使淨負電荷增加；這不是氧化層破裂或 CG 與 FG 的直流導通。
+
+**4. 保留較多負電荷**
+
+狀態: 注入後 FG 儲存較多電子。
+
+刺激: 結束寫入刺激；後續用讀取條件比較。
+
+同一讀取偏壓下，等效 nMOS 的 Vth 較高、I_R 較小；這是電荷狀態的讀出結果。
+
+- FG / Cc / CG · FG 是無直流接點的浮動閘極；Cc 是功能耦合電容，CG 是其外部控制端。
+- N+ / p / B · N+ 是模型源／汲極，p 是 nMOS 的本體，B 為本體端；未指定濃度、井配置或尺寸。
+- S / D* · S 是模型源極；D* 是本圖選定的高場端與模型汲極，不是 ymtp 巨集腳位對照。
+- e− / h+ · 藍色 e− 與箭頭代表電子，紅色 h+ 與箭頭代表電洞；粒子數與動畫速度不代表物理量。
+- I / I_R / Iref · 綠色 I 是傳統電流，方向與電子相反；I_R 為讀取電流，Iref 為判讀參考。
+- BBT / BBHH · BBT 是矽內能帶間穿隧；BBHH 是其產生電洞後的熱電洞注入。跨介電層的注入是後一步。
+- Vth / QFG · Vth 為等效 nMOS 閾值，QFG 為 FG 電荷；偏壓、讀取窗口與邏輯 0／1 僅由實際產品定義。
+
+本組為 YMC ymtp 的 CHI／BBHH 教學操作模型；使用等效 1T1C 與方向示意，不是現行特定版本剖面或偏壓表。BBHH 物理由獨立原始研究支撐；YMC 公開專利的 FN／DAHHI 變體維持各自機制。
+
+- [ymc-product：YMC：ymtp 邏輯製程 MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ymc-1t1c：YMC：1T1C 核心技術](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
+- [ymc-pat-7423903：YMC：單一浮動閘極歷史實施例](https://patents.google.com/patent/US7423903B2/en)
+- [ymc-pat-dahhi：YMC：DAHCI 寫入與 DAHHI 抹除變體](https://patents.google.com/patent/US20070158733A1/en)
+
+#### BBHH 抹除：電洞降低 FG 淨負電荷
+
+矽內高場區先產生電子／電洞，再由部分電洞跨介電層進入 FG。將「矽內 BBT」與「入 FG 的熱載子注入」分成兩個物理步驟。
+
+能帶間穿隧產生載子，再以熱電洞注入 FG
+
+**1. 建立高場接面**
+
+狀態: FG 保有寫入後的淨負電荷。
+
+刺激: D* 相對 B 為正；FG 相對 D* 較低。注入另需局部 E⊥ 向 FG。
+
+端點關係描述模型接面條件，不能單獨保證注入區垂直場。局部 E⊥ 向 FG 是另列條件；D* 不是現行 ymtp 端點規格。
+
+**2. 矽內能帶間穿隧產生電洞**
+
+狀態: 高場區形成可發生 BBT 的能帶彎曲。
+
+刺激: 價帶電子穿隧至導帶，留下電洞。
+
+電子由高場接面收集，電洞往通道／本體側移動；本格的穿隧發生在矽內，不是穿越 FG 氧化層。
+
+**3. 熱電洞進入 FG**
+
+狀態: 部分電洞已獲能；注入區局部 E⊥ 指向 FG。
+
+刺激: 橫向加速配合局部 E⊥ 向 FG，電洞受力與電場同向。
+
+在此局部場條件下，少數紅色電洞跨介電層進 FG，降低儲存淨負電荷。矽內 BBT 產生電洞與其後的跨介電層注入各自需要適當條件；未借用 FN 電子移出或 DAHHI 雪崩機制。
+
+**4. 恢復較低的閾值狀態**
+
+狀態: FG 的淨負電荷較少。
+
+刺激: 結束抹除刺激，回到讀取條件。
+
+相同讀偏壓下 Vth 較低、I_R 較大。此方向示意不保證完全中性、固定終點或自收斂抹除。
+
+- FG / Cc / CG · FG 是無直流接點的浮動閘極；Cc 是功能耦合電容，CG 是其外部控制端。
+- N+ / p / B · N+ 是模型源／汲極，p 是 nMOS 的本體，B 為本體端；未指定濃度、井配置或尺寸。
+- S / D* · S 是模型源極；D* 是本圖選定的高場端與模型汲極，不是 ymtp 巨集腳位對照。
+- e− / h+ · 藍色 e− 與箭頭代表電子，紅色 h+ 與箭頭代表電洞；粒子數與動畫速度不代表物理量。
+- I / I_R / Iref · 綠色 I 是傳統電流，方向與電子相反；I_R 為讀取電流，Iref 為判讀參考。
+- BBT / BBHH · BBT 是矽內能帶間穿隧；BBHH 是其產生電洞後的熱電洞注入。跨介電層的注入是後一步。
+- Vth / QFG · Vth 為等效 nMOS 閾值，QFG 為 FG 電荷；偏壓、讀取窗口與邏輯 0／1 僅由實際產品定義。
+
+本組為 YMC ymtp 的 CHI／BBHH 教學操作模型；使用等效 1T1C 與方向示意，不是現行特定版本剖面或偏壓表。BBHH 物理由獨立原始研究支撐；YMC 公開專利的 FN／DAHHI 變體維持各自機制。
+
+- [ymc-product：YMC：ymtp 邏輯製程 MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ymc-1t1c：YMC：1T1C 核心技術](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
+- [physics-bbhh-fg：Wu 等：BBHH 與浮動閘極展示](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)
+- [physics-btbt-carriers：Chu、Wu：BTBT 熱載子路徑](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf)
+- [physics-fg-hole-erase：IEEE：浮動閘極熱電洞抹除觀察](https://ieeexplore.ieee.org/document/748914/)
+
+#### 讀取：將 FG 電荷轉成電流差
+
+固定對照替代初態 A／B；各格不是連續改寫。相同讀取條件下，A 的負電荷較多、Vth 較高、電流較小；B 則相反，讀取保留各自電荷。
+
+nMOS 閾值調變與參考電流判讀
+
+**1. 施加相同讀取條件**
+
+狀態: A／B 是分別已建立的兩種替代初態。
+
+刺激: CG 耦合控制電位；S/D* 提供相同感測條件。
+
+四格固定顯示兩態對照；沒有 A→B 寫入或抹除，也沒有載子跨介電層。
+
+**2. 替代初態 A：低讀取電流**
+
+狀態: A 在讀取前已有較多負電荷與較高 Vth。
+
+刺激: 對 A 施加與 B 相同的讀取偏壓；保持 A 電荷。
+
+這是 A 的獨立讀取例。較高 Vth 使 I_R 較小，讀取不產生更多 FG 電子。
+
+**3. 替代初態 B：高讀取電流**
+
+狀態: B 在讀取前已有較少負電荷與較低 Vth。
+
+刺激: 對 B 施加與 A 相同的讀取偏壓；保持 B 電荷。
+
+這是 B 的替代例，未由上一格 A 轉換而來。較低 Vth 使 I_R 較大；綠箭頭表示傳統電流。
+
+**4. 用 Iref 判斷既有狀態**
+
+狀態: A／B 的既有電荷各自保留，形成不同讀取電流。
+
+刺激: 感測電路比較 I_R 與參考 Iref，不更新 FG。
+
+Iref 與兩種狀態需有可辨識間距；圖中對照與前格固定相同。實際窗口受製程、溫度與使用歷程影響，0／1 編碼及規格由產品定義。
+
+- FG / Cc / CG · FG 是無直流接點的浮動閘極；Cc 是功能耦合電容，CG 是其外部控制端。
+- N+ / p / B · N+ 是模型源／汲極，p 是 nMOS 的本體，B 為本體端；未指定濃度、井配置或尺寸。
+- S / D* · S 是模型源極；D* 是本圖選定的高場端與模型汲極，不是 ymtp 巨集腳位對照。
+- e− / h+ · 藍色 e− 與箭頭代表電子，紅色 h+ 與箭頭代表電洞；粒子數與動畫速度不代表物理量。
+- I / I_R / Iref · 綠色 I 是傳統電流，方向與電子相反；I_R 為讀取電流，Iref 為判讀參考。
+- BBT / BBHH · BBT 是矽內能帶間穿隧；BBHH 是其產生電洞後的熱電洞注入。跨介電層的注入是後一步。
+- Vth / QFG · Vth 為等效 nMOS 閾值，QFG 為 FG 電荷；偏壓、讀取窗口與邏輯 0／1 僅由實際產品定義。
+
+本組為 YMC ymtp 的 CHI／BBHH 教學操作模型；使用等效 1T1C 與方向示意，不是現行特定版本剖面或偏壓表。BBHH 物理由獨立原始研究支撐；YMC 公開專利的 FN／DAHHI 變體維持各自機制。
+
+- [ymc-product：YMC：ymtp 邏輯製程 MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ymc-1t1c：YMC：1T1C 核心技術](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
+- [ymc-pat-dahhi：YMC：DAHCI 寫入與 DAHHI 抹除變體](https://patents.google.com/patent/US20070158733A1/en)
+- [physics-bbhh-fg：Wu 等：BBHH 與浮動閘極展示](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)
+
+#### IP 單元取捨
+
+這是本課程指定的 CHI／BBHH 機制模型。公開 YMC 資料支持其邏輯製程 MTP IP 定位；本圖的 BBHH 物理另由公開原始研究支持，未指定為現行 ymtp 某版本的完整剖面。FN、汲極雪崩熱電洞與能帶間熱電洞是不同路徑，不能只因受讓人相同就互換。
+
+### Numem：嵌入式 STT-MRAM IP 單元
+
+Numem
+
+從晶圓廠標準 STT-MRAM 單元與嵌入式 IP 的關係，辨認磁性接面、存取電晶體、位元線、源極線及感測路徑。
+
+Numem MRAM IP：STT 教材重建
+
+以 FL／穿隧障壁／RL 畫出 STT 功能；A、B 是教材端點。WL／BL／SL 依 Numem 2019 年架構，未指定實際層對線映射。
+
+- FL / RL · 自由層／參考層；箭頭是磁矩，不是粒子流
+- Ic / e− · 橘色實線為傳統電流；藍色虛線電子流方向相反
+- A / B; BL* / SL* · A/B 定義教材接面座標；星號表示未宣稱實際層對陣列線映射
+- WL; P / AP · 字元線選取；平行低阻／反平行高阻
+- τSTT · 自旋轉移力矩；中間箭頭只是翻轉過程示意
+
+- [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)
+- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)
+
+#### Numem MRAM IP：STT 教材重建 — 寫入
+
+以自旋轉移力矩寫入自由層磁態。
+
+MTJ 自由層磁化保存資訊
+
+**1. 原始 AP 磁態**
+
+狀態: AP
+
+刺激: WL 關閉；驅動為零
+
+WL 關閉，單元保存 AP。此序列的目標是寫入 P。
+
+**2. 選取並施加反向自旋驅動**
+
+狀態: 切換中
+
+刺激: WL 開啟；MTJ 雙向驅動
+
+WL 開啟，教材方向 A/B 的驅動穿過 MTJ；電子流與傳統電流相反，層對實際 BL／SL 的映射需由 PDK 確認。
+
+**3. 自由層切換至 P**
+
+狀態: P
+
+刺激: WL 開啟；MTJ 雙向驅動
+
+磁化切換至 P；中間角度不表示量測軌跡或確定性切換時間。
+
+**4. 撤去驅動，保留 P**
+
+狀態: P
+
+刺激: WL 關閉；驅動為零
+
+關閉 WL 並撤去偏壓，磁態保留；反向資料由另一寫入方向覆寫，沒有浮動閘抹除步驟。
+
+- FL / RL · 自由層／參考層；箭頭是磁矩，不是粒子流
+- Ic / e− · 橘色實線為傳統電流；藍色虛線電子流方向相反
+- A / B; BL* / SL* · A/B 定義教材接面座標；星號表示未宣稱實際層對陣列線映射
+- WL; P / AP · 字元線選取；平行低阻／反平行高阻
+- τSTT · 自旋轉移力矩；中間箭頭只是翻轉過程示意
+
+這是 Numem 公開 IP 架構的教學重建。材料、厚度、上下層序、寫入端點極性及邏輯編碼未由現行來源公開；方向 A/B 僅表示校準後的兩種反向驅動。2019 年定電流感測不是全系列規格。
+
+- [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)
+- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)
+
+#### Numem MRAM IP：STT 教材重建 — 反向覆寫
+
+以另一方向的 MTJ 驅動覆寫磁態。
+
+MTJ 自由層磁化保存資訊
+
+**1. 原始 P 磁態**
+
+狀態: P
+
+刺激: WL 關閉；驅動為零
+
+WL 關閉，單元保存 P。此序列的目標是反向覆寫 AP。
+
+**2. 選取並施加反向自旋驅動**
+
+狀態: 切換中
+
+刺激: WL 開啟；MTJ 雙向驅動
+
+WL 開啟，教材方向 A/B 的驅動穿過 MTJ；電子流與傳統電流相反，層對實際 BL／SL 的映射需由 PDK 確認。
+
+**3. 自由層切換至 AP**
+
+狀態: AP
+
+刺激: WL 開啟；MTJ 雙向驅動
+
+磁化切換至 AP；中間角度不表示量測軌跡或確定性切換時間。
+
+**4. 撤去驅動，保留 AP**
+
+狀態: AP
+
+刺激: WL 關閉；驅動為零
+
+關閉 WL 並撤去偏壓，磁態保留；反向資料由另一寫入方向覆寫，沒有浮動閘抹除步驟。
+
+- FL / RL · 自由層／參考層；箭頭是磁矩，不是粒子流
+- Ic / e− · 橘色實線為傳統電流；藍色虛線電子流方向相反
+- A / B; BL* / SL* · A/B 定義教材接面座標；星號表示未宣稱實際層對陣列線映射
+- WL; P / AP · 字元線選取；平行低阻／反平行高阻
+- τSTT · 自旋轉移力矩；中間箭頭只是翻轉過程示意
+
+這是 Numem 公開 IP 架構的教學重建。材料、厚度、上下層序、寫入端點極性及邏輯編碼未由現行來源公開；方向 A/B 僅表示校準後的兩種反向驅動。2019 年定電流感測不是全系列規格。
+
+- [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)
+- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)
+
+#### Numem MRAM IP：STT 教材重建 — 讀取
+
+選取同一單元，以小感測刺激讀出已保留的電阻態，再鎖存與隔離。
+
+MTJ 自由層磁化保存資訊
+
+**1. 選取前：P 磁態已保留**
+
+狀態: P 保持不變
+
+刺激: WL 關閉；讀取刺激為零
+
+同一個單元從既有 P 狀態開始，WL 關閉；讀取不先翻轉磁矩。
+
+**2. 定電流產生感測電壓**
+
+狀態: P 保持不變
+
+刺激: WL 開啟；小讀取刺激
+
+依 2019 年架構施加小感測電流，量得含存取路徑的電壓；同電流下 P 電壓低於 AP。
+
+**3. 鎖存後撤去讀取刺激**
+
+狀態: P 保持不變
+
+刺激: WL 關閉；讀取刺激為零
+
+感測器鎖存後關閉 WL；畫中的自由層與參考層仍為 P，沒有讀後還原週期。
+
+- FL / RL · 自由層／參考層；箭頭是磁矩，不是粒子流
+- Ic / e− · 橘色實線為傳統電流；藍色虛線電子流方向相反
+- A / B; BL* / SL* · A/B 定義教材接面座標；星號表示未宣稱實際層對陣列線映射
+- WL; P / AP · 字元線選取；平行低阻／反平行高阻
+- τSTT · 自旋轉移力矩；中間箭頭只是翻轉過程示意
+
+這是 Numem 公開 IP 架構的教學重建。材料、厚度、上下層序、寫入端點極性及邏輯編碼未由現行來源公開；方向 A/B 僅表示校準後的兩種反向驅動。2019 年定電流感測不是全系列規格。
+
+- [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)
+- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)
+
+#### IP 單元取捨
+
+Numem 的 IP 可利用晶圓廠標準 STT 單元，並在版圖、電路與記憶體架構上整合。先理解接面的兩個磁化狀態與選擇／感測，再看巨集提供的存取行為；不把控制架構的改善當成另一種儲存物理。
+
+### GLOBALFOUNDRIES：22FDX 嵌入式 MRAM 單元
+
+GLOBALFOUNDRIES
+
+用 22FDX 公開研究單元理解 1T1MTJ、自由層與參考層，以及由該來源定義的雙向電流切換。
+
+GF 22FDX eMRAM：公開研究單元
+
+2024 年原始研究採用 CoFeB 自由層、穿隧障壁、由 SAF 固定的 CoFeB 參考層與選擇電晶體。層在圖中的上下位置是示意座標。
+
+- FL / RL · 自由層／參考層；箭頭是磁矩，不是粒子流
+- Ic / e− · 橘色實線為傳統電流；藍色虛線電子流方向相反
+- A / B; BL* / SL* · A/B 定義教材接面座標；星號表示未宣稱實際層對陣列線映射
+- WL; P / AP · 字元線選取；平行低阻／反平行高阻
+- τSTT · 自旋轉移力矩；中間箭頭只是翻轉過程示意
+
+- [ip-gf-platform：GF：22FDX 嵌入式 MRAM 平台](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
+- [ip-gf-cell-2024：GF 共同作者研究：22FDX STT-MRAM 單元](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/)
+
+#### GF 22FDX eMRAM：公開研究單元 — 寫入
+
+以自旋轉移力矩寫入自由層磁態。
+
+1T1MTJ 的 P／AP 磁態與電阻
+
+**1. 原始 AP 磁態**
+
+狀態: AP
+
+刺激: WL 關閉；驅動為零
+
+WL 關閉，單元保存 AP。此序列的目標是寫入 P。
+
+**2. 選取並施加反向自旋驅動**
+
+狀態: 切換中
+
+刺激: WL 開啟；MTJ 雙向驅動
+
+WL 開啟，RL→FL 的傳統電流施加 STT，電子方向相反。
+
+**3. 自由層切換至 P**
+
+狀態: P
+
+刺激: WL 開啟；MTJ 雙向驅動
+
+磁化切換至 P；中間角度不表示量測軌跡或確定性切換時間。
+
+**4. 撤去驅動，保留 P**
+
+狀態: P
+
+刺激: WL 關閉；驅動為零
+
+關閉 WL 並撤去偏壓，磁態保留；反向資料由另一寫入方向覆寫，沒有浮動閘抹除步驟。
+
+- FL / RL · 自由層／參考層；箭頭是磁矩，不是粒子流
+- Ic / e− · 橘色實線為傳統電流；藍色虛線電子流方向相反
+- A / B; BL* / SL* · A/B 定義教材接面座標；星號表示未宣稱實際層對陣列線映射
+- WL; P / AP · 字元線選取；平行低阻／反平行高阻
+- τSTT · 自旋轉移力矩；中間箭頭只是翻轉過程示意
+
+極性遵循這篇研究：正向 Ic 由 RL 流向 FL，寫入 P；反向寫入 AP。未把此符號或配方推廣到所有 MRAM。BL／SL 的層對端點映射及數值依正式 PDK；圖不給未公開障壁材料或精確厚度。
+
+- [ip-gf-platform：GF：22FDX 嵌入式 MRAM 平台](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
+- [ip-gf-cell-2024：GF 共同作者研究：22FDX STT-MRAM 單元](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/)
+
+#### GF 22FDX eMRAM：公開研究單元 — 反向覆寫
+
+以另一方向的 MTJ 驅動覆寫磁態。
+
+1T1MTJ 的 P／AP 磁態與電阻
+
+**1. 原始 P 磁態**
+
+狀態: P
+
+刺激: WL 關閉；驅動為零
+
+WL 關閉，單元保存 P。此序列的目標是反向覆寫 AP。
+
+**2. 選取並施加反向自旋驅動**
+
+狀態: 切換中
+
+刺激: WL 開啟；MTJ 雙向驅動
+
+WL 開啟，FL→RL 的傳統電流施加 STT，電子方向相反。
+
+**3. 自由層切換至 AP**
+
+狀態: AP
+
+刺激: WL 開啟；MTJ 雙向驅動
+
+磁化切換至 AP；中間角度不表示量測軌跡或確定性切換時間。
+
+**4. 撤去驅動，保留 AP**
+
+狀態: AP
+
+刺激: WL 關閉；驅動為零
+
+關閉 WL 並撤去偏壓，磁態保留；反向資料由另一寫入方向覆寫，沒有浮動閘抹除步驟。
+
+- FL / RL · 自由層／參考層；箭頭是磁矩，不是粒子流
+- Ic / e− · 橘色實線為傳統電流；藍色虛線電子流方向相反
+- A / B; BL* / SL* · A/B 定義教材接面座標；星號表示未宣稱實際層對陣列線映射
+- WL; P / AP · 字元線選取；平行低阻／反平行高阻
+- τSTT · 自旋轉移力矩；中間箭頭只是翻轉過程示意
+
+極性遵循這篇研究：正向 Ic 由 RL 流向 FL，寫入 P；反向寫入 AP。未把此符號或配方推廣到所有 MRAM。BL／SL 的層對端點映射及數值依正式 PDK；圖不給未公開障壁材料或精確厚度。
+
+- [ip-gf-platform：GF：22FDX 嵌入式 MRAM 平台](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
+- [ip-gf-cell-2024：GF 共同作者研究：22FDX STT-MRAM 單元](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/)
+
+#### GF 22FDX eMRAM：公開研究單元 — 讀取
+
+選取同一單元，以小感測刺激讀出已保留的電阻態，再鎖存與隔離。
+
+1T1MTJ 的 P／AP 磁態與電阻
+
+**1. 選取前：P 磁態已保留**
+
+狀態: P 保持不變
+
+刺激: WL 關閉；讀取刺激為零
+
+同一個單元從既有 P 狀態開始，WL 關閉；讀取不先翻轉磁矩。
+
+**2. 低偏壓產生感測電流**
+
+狀態: P 保持不變
+
+刺激: WL 開啟；小讀取刺激
+
+WL 開啟，低讀取偏壓沿 MTJ 與選擇元件形成電流；同偏壓下 P 電流高於 AP。
+
+**3. 鎖存後撤去讀取刺激**
+
+狀態: P 保持不變
+
+刺激: WL 關閉；讀取刺激為零
+
+感測器鎖存後關閉 WL；畫中的自由層與參考層仍為 P，沒有讀後還原週期。
+
+- FL / RL · 自由層／參考層；箭頭是磁矩，不是粒子流
+- Ic / e− · 橘色實線為傳統電流；藍色虛線電子流方向相反
+- A / B; BL* / SL* · A/B 定義教材接面座標；星號表示未宣稱實際層對陣列線映射
+- WL; P / AP · 字元線選取；平行低阻／反平行高阻
+- τSTT · 自旋轉移力矩；中間箭頭只是翻轉過程示意
+
+極性遵循這篇研究：正向 Ic 由 RL 流向 FL，寫入 P；反向寫入 AP。未把此符號或配方推廣到所有 MRAM。BL／SL 的層對端點映射及數值依正式 PDK；圖不給未公開障壁材料或精確厚度。
+
+- [ip-gf-platform：GF：22FDX 嵌入式 MRAM 平台](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
+- [ip-gf-cell-2024：GF 共同作者研究：22FDX STT-MRAM 單元](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/)
+
+#### IP 單元取捨
+
+晶圓廠嵌入式巨集把磁性接面與邏輯製程、存取電晶體和可靠度條件連在一起。本圖沿用指定公開研究的材料與極性慣例，便於逐格核對；這些細節不自動代表所有 22FDX 現行記憶體版本。
+
+### Weebit Nano：氧化矽 ReRAM IP 單元
+
+Weebit Nano
+
+以公開的氧化矽研究結構，追蹤氧交換、缺陷路徑與存取電晶體限流，理解嵌入式 ReRAM 的 SET、RESET 與讀取。
+
+Weebit ReRAM IP：CEA 研究單元
+
+採用原廠共同發表的 CEA 130nm 1T1R：Ti 上電極、SiOx 切換層、TiN 下電極。選擇電晶體提供選取與限流。
+
+- Ti / SiOx / TiN · 上電極／切換氧化物／下電極；僅限公開 CEA 範例
+- O²− / VO · 藍色實心圓為氧離子；橘色空心圓為氧空缺，沒有金屬銀
+- TE / BE; WL · 上／下電極及選擇閘極；TE 偏壓以 BE 為基準
+- Ic / e− · 傳統電流與電子流方向相反；不是氧離子移動方向
+
+- [ip-weebit-product：Weebit：嵌入式 ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/)
+- [ip-weebit-bitcell：Weebit：ReRAM 位元單元](https://www.weebit-nano.com/technology/reram-bitcell/)
+- [ip-weebit-cell-2021：Weebit／CEA-Leti／Silvaco：氧化物 ReRAM 原始模型](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf)
+
+#### Weebit ReRAM IP：CEA 研究單元 — SET 寫入
+
+正 TE 偏壓重建導電路徑，形成低阻。
+
+氧離子交換與氧空缺導電路徑
+
+**1. 初始高阻間隙**
+
+狀態: HRS
+
+刺激: WL 關閉；TE 偏壓為零
+
+從成形後的 HRS 開始，BE 側有局部間隙；不是每次重新成形。
+
+**2. 氧離子移向 Ti 界面**
+
+狀態: 切換中
+
+刺激: WL 開啟；TE 正偏壓
+
+TE 相對 BE 為正，O²− 朝 Ti 移動並參與界面交換；選擇電晶體限制電流。
+
+**3. 氧空缺路徑恢復導通**
+
+狀態: LRS
+
+刺激: WL 開啟；TE 正偏壓
+
+缺氧位置的導電路徑接通，電流上升並受限流約束。
+
+**4. 撤去偏壓，保留低阻**
+
+狀態: LRS
+
+刺激: WL 關閉；TE 偏壓為零
+
+撤去偏壓與 WL 後，路徑保留為 LRS。
+
+- Ti / SiOx / TiN · 上電極／切換氧化物／下電極；僅限公開 CEA 範例
+- O²− / VO · 藍色實心圓為氧離子；橘色空心圓為氧空缺，沒有金屬銀
+- TE / BE; WL · 上／下電極及選擇閘極；TE 偏壓以 BE 為基準
+- Ic / e− · 傳統電流與電子流方向相反；不是氧離子移動方向
+
+此為 Weebit／CEA-Leti／Silvaco 公開研究模型，不是所有代工節點的產品配方。SET：正 TE，O²− 朝 Ti；RESET：負 TE，氧回入 SiOx，在靠近 BE 的路徑處復合。成形只作初始條件，不列為每次寫入。
+
+- [ip-weebit-product：Weebit：嵌入式 ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/)
+- [ip-weebit-bitcell：Weebit：ReRAM 位元單元](https://www.weebit-nano.com/technology/reram-bitcell/)
+- [ip-weebit-cell-2021：Weebit／CEA-Leti／Silvaco：氧化物 ReRAM 原始模型](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf)
+
+#### Weebit ReRAM IP：CEA 研究單元 — 反向 RESET
+
+反向 TE 偏壓使導電路徑中斷，形成高阻。
+
+氧離子交換與氧空缺導電路徑
+
+**1. 原氧空缺路徑導通**
+
+狀態: LRS
+
+刺激: WL 關閉；TE 偏壓為零
+
+氧空缺導電路徑已形成；這次操作把 LRS 改為 HRS。
+
+**2. 反向偏壓使氧回入**
+
+狀態: 切換中
+
+刺激: WL 開啟；TE 負偏壓
+
+TE 相對 BE 為負，Ti 界面的氧返回 SiOx；藍色箭頭是氧離子移動。
+
+**3. 靠近下端的路徑中斷**
+
+狀態: HRS
+
+刺激: WL 開啟；TE 負偏壓
+
+氧與空缺復合，在靠近 BE 的關鍵位置打開間隙；RESET 不代表整層完全恢復原始材料。
+
+**4. 撤去偏壓，保留高阻**
+
+狀態: HRS
+
+刺激: WL 關閉；TE 偏壓為零
+
+撤壓後保留 HRS；空缺與界面氧仍可存在。
+
+- Ti / SiOx / TiN · 上電極／切換氧化物／下電極；僅限公開 CEA 範例
+- O²− / VO · 藍色實心圓為氧離子；橘色空心圓為氧空缺，沒有金屬銀
+- TE / BE; WL · 上／下電極及選擇閘極；TE 偏壓以 BE 為基準
+- Ic / e− · 傳統電流與電子流方向相反；不是氧離子移動方向
+
+此為 Weebit／CEA-Leti／Silvaco 公開研究模型，不是所有代工節點的產品配方。SET：正 TE，O²− 朝 Ti；RESET：負 TE，氧回入 SiOx，在靠近 BE 的路徑處復合。成形只作初始條件，不列為每次寫入。
+
+- [ip-weebit-product：Weebit：嵌入式 ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/)
+- [ip-weebit-bitcell：Weebit：ReRAM 位元單元](https://www.weebit-nano.com/technology/reram-bitcell/)
+- [ip-weebit-cell-2021：Weebit／CEA-Leti／Silvaco：氧化物 ReRAM 原始模型](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf)
+
+#### Weebit ReRAM IP：CEA 研究單元 — 讀取
+
+選取同一單元，以小感測刺激讀出已保留的電阻態，再鎖存與隔離。
+
+氧離子交換與氧空缺導電路徑
+
+**1. 選取前：低阻結構已保留**
+
+狀態: LRS 結構保持
+
+刺激: WL 關閉；TE 偏壓為零
+
+同一單元從已保留的 LRS 開始，選擇閘極關閉。HRS 可沿相同程序讀取。
+
+**2. 小偏壓感測導電路徑**
+
+狀態: LRS 結構保持
+
+刺激: WL 開啟；TE 小正偏壓
+
+小偏壓感測氧空缺路徑；同偏壓下 ILRS > IHRS，未以讀取脈衝重排氧離子。
+
+**3. 鎖存後隔離單元**
+
+狀態: LRS 結構保持
+
+刺激: WL 關閉；TE 偏壓為零
+
+鎖存後撤去偏壓，原導電路徑保留；實際讀取擾動限制仍由供應商條件決定。
+
+- Ti / SiOx / TiN · 上電極／切換氧化物／下電極；僅限公開 CEA 範例
+- O²− / VO · 藍色實心圓為氧離子；橘色空心圓為氧空缺，沒有金屬銀
+- TE / BE; WL · 上／下電極及選擇閘極；TE 偏壓以 BE 為基準
+- Ic / e− · 傳統電流與電子流方向相反；不是氧離子移動方向
+
+此為 Weebit／CEA-Leti／Silvaco 公開研究模型，不是所有代工節點的產品配方。SET：正 TE，O²− 朝 Ti；RESET：負 TE，氧回入 SiOx，在靠近 BE 的路徑處復合。成形只作初始條件，不列為每次寫入。
+
+- [ip-weebit-product：Weebit：嵌入式 ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/)
+- [ip-weebit-bitcell：Weebit：ReRAM 位元單元](https://www.weebit-nano.com/technology/reram-bitcell/)
+- [ip-weebit-cell-2021：Weebit／CEA-Leti／Silvaco：氧化物 ReRAM 原始模型](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf)
+
+#### IP 單元取捨
+
+在這個具名研究例中，儲存介質、氧交換電極與存取電晶體共同影響切換。限流與讀取刺激是 cell 操作的一部分，不能只看兩個電阻數值；材料與配方仍限定在引用的公開實作。
+
+### Crossbar：金屬路徑 ReRAM 嵌入式單元
+
+Crossbar
+
+以 Crossbar 公開專利與歷史嵌入式宏資料，理解金屬粒子路徑延伸、回縮與低刺激感測。
+
+Crossbar ReRAM IP：歷史專利單元
+
+選取 US20120007035A1 的 Ag／非晶矽／p+ 多晶矽實施例；外接選擇電晶體表達原廠公開的嵌入式 1T1R 整合。
+
+- Ag / a-Si / p+ poly-Si · 銀上電極／非晶矽／選定的下端緩衝與接點實施例
+- Ag · 紫色實心區與圓點表示金屬區與粒子；不指定粒子電荷態
+- TE / BE; WL · 上／下電極與選擇閘極；1T1R 整合是原廠另一公開來源
+- Ic / e− · 傳統電流與電子方向相反；電子可在相鄰粒子間穿隧
+
+- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
+
+#### Crossbar ReRAM IP：歷史專利單元 — SET 寫入
+
+正 TE 偏壓重建導電路徑，形成低阻。
+
+上端金屬區延伸／回縮，改變粒子間穿隧路徑
+
+**1. 成形後的高阻初態**
+
+狀態: HRS
+
+刺激: WL 關閉；TE 偏壓為零
+
+成形已在上端建立金屬區；HRS 初態的細粒子路徑尚未有效延伸到下端。
+
+**2. 正偏壓使粒子路徑延伸**
+
+狀態: 切換中
+
+刺激: WL 開啟；TE 正偏壓
+
+正 TE 偏壓使路徑由上端金屬區向 BE 延伸；此圖依該專利，沒有改畫成通用的陰極向上成核。
+
+**3. 粒子間穿隧路徑增強**
+
+狀態: LRS
+
+刺激: WL 開啟；TE 正偏壓
+
+相鄰金屬粒子距離縮短，穿隧導電增強；圖中的圓點不是已證實的完整實心銀橋。
+
+**4. 撤去偏壓，保留低阻**
+
+狀態: LRS
+
+刺激: WL 關閉；TE 偏壓為零
+
+關閉選擇閘極並撤壓，保留低阻路徑。
+
+- Ag / a-Si / p+ poly-Si · 銀上電極／非晶矽／選定的下端緩衝與接點實施例
+- Ag · 紫色實心區與圓點表示金屬區與粒子；不指定粒子電荷態
+- TE / BE; WL · 上／下電極與選擇閘極；1T1R 整合是原廠另一公開來源
+- Ic / e− · 傳統電流與電子方向相反；電子可在相鄰粒子間穿隧
+
+這是歷史嵌入式 IP 的公開專利實施例，不證明現售宏配方或 2026 年可新授權節點。專利以金屬粒子與粒子間穿隧描述路徑；未把路徑等同完整實心銀橋，也未指定一般 ECM 的陰極起始成核。
+
+- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
+
+#### Crossbar ReRAM IP：歷史專利單元 — 反向 RESET
+
+反向 TE 偏壓使導電路徑中斷，形成高阻。
+
+上端金屬區延伸／回縮，改變粒子間穿隧路徑
+
+**1. 原粒子路徑為低阻**
+
+狀態: LRS
+
+刺激: WL 關閉；TE 偏壓為零
+
+從既有的低阻粒子路徑開始；上端金屬區與細路徑分開表示。
+
+**2. 反向偏壓驅動路徑回縮**
+
+狀態: 切換中
+
+刺激: WL 開啟；TE 負偏壓
+
+TE 負偏壓使細粒子路徑向上端金屬區回縮或變得不連續；未指定每個粒子的電荷態。
+
+**3. 粒子路徑形成較大間隙**
+
+狀態: HRS
+
+刺激: WL 開啟；TE 負偏壓
+
+靠近下端的有效間距增加，穿隧電流減少；上端殘留金屬區未消失。
+
+**4. 撤去偏壓，保留高阻**
+
+狀態: HRS
+
+刺激: WL 關閉；TE 偏壓為零
+
+撤去偏壓後保留 HRS。這是反向 RESET，不是先做區塊抹除再寫入。
+
+- Ag / a-Si / p+ poly-Si · 銀上電極／非晶矽／選定的下端緩衝與接點實施例
+- Ag · 紫色實心區與圓點表示金屬區與粒子；不指定粒子電荷態
+- TE / BE; WL · 上／下電極與選擇閘極；1T1R 整合是原廠另一公開來源
+- Ic / e− · 傳統電流與電子方向相反；電子可在相鄰粒子間穿隧
+
+這是歷史嵌入式 IP 的公開專利實施例，不證明現售宏配方或 2026 年可新授權節點。專利以金屬粒子與粒子間穿隧描述路徑；未把路徑等同完整實心銀橋，也未指定一般 ECM 的陰極起始成核。
+
+- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
+
+#### Crossbar ReRAM IP：歷史專利單元 — 讀取
+
+選取同一單元，以小感測刺激讀出已保留的電阻態，再鎖存與隔離。
+
+上端金屬區延伸／回縮，改變粒子間穿隧路徑
+
+**1. 選取前：低阻結構已保留**
+
+狀態: LRS 結構保持
+
+刺激: WL 關閉；TE 偏壓為零
+
+同一單元從已保留的 LRS 開始，選擇閘極關閉。HRS 可沿相同程序讀取。
+
+**2. 小偏壓感測導電路徑**
+
+狀態: LRS 結構保持
+
+刺激: WL 開啟；TE 小正偏壓
+
+小偏壓感測金屬粒子路徑；同偏壓下 ILRS > IHRS，電流可經粒子間穿隧。
+
+**3. 鎖存後隔離單元**
+
+狀態: LRS 結構保持
+
+刺激: WL 關閉；TE 偏壓為零
+
+鎖存後撤去偏壓，原導電路徑保留；實際讀取擾動限制仍由供應商條件決定。
+
+- Ag / a-Si / p+ poly-Si · 銀上電極／非晶矽／選定的下端緩衝與接點實施例
+- Ag · 紫色實心區與圓點表示金屬區與粒子；不指定粒子電荷態
+- TE / BE; WL · 上／下電極與選擇閘極；1T1R 整合是原廠另一公開來源
+- Ic / e− · 傳統電流與電子方向相反；電子可在相鄰粒子間穿隧
+
+這是歷史嵌入式 IP 的公開專利實施例，不證明現售宏配方或 2026 年可新授權節點。專利以金屬粒子與粒子間穿隧描述路徑；未把路徑等同完整實心銀橋，也未指定一般 ECM 的陰極起始成核。
+
+- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
+
+#### IP 單元取捨
+
+此圖採具名專利的金屬／非晶矽路徑模型，不能直接套用所有 ECM 的成核方向或理想連續銀橋。嵌入式宏的公開證據與本次引用的歷史單元實施例分別標明，供理解 cell 運作。
 
 ## eFuse：以永久導通變化記住一個位元
 
@@ -1926,6 +3462,11 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 
 ## 共同詞彙
 
+- CHI 與 CHEI：CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。YMC 課程模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。
+- Fowler–Nordheim（FN）穿隧：足夠強的電場改變介電層能障，使電子能夠穿隧。電子起點、終點及電場方向須分別說明。NeoEE 的雙向更新均採 FN；NeoMTP 的反向更新則讓電子以 FN 朝抹除閘極移動。
+- BBT、BBHH 與 DAHHI：能帶間穿隧（BBT）先在矽內產生電子／電洞對，再由高能電洞跨介電層，構成能帶間熱電洞注入（BBHH）。汲極雪崩熱電洞注入（DAHHI）以雪崩產生載子；同樣有熱電洞入閘極，不代表載子生成機制相同。
+- 直接穿隧與反熔絲讀取：力旺公開的超薄介電層說明指出，寫入造成缺陷、縮短有效穿隧距離，進而提高閘極電流。解讀 NeoFuse 時須保留這個具名機制，不能以理想金屬短路或泛稱陷阱輔助穿隧取代。
+- P／AP 與 SET／RESET：P 與 AP 指磁層平行與反平行狀態，通常分別對應較低與較高 MTJ 電阻；ReRAM 範例的 SET 與 RESET 分別表示朝低阻態與高阻態切換。這些狀態名稱不規定通用端點極性，也不固定對應邏輯 0／1。
 - 位元儲存單元（bitcell）：用某種物理狀態儲存資料的最小電路或元件組合；完整 bitcell 可能還包含存取電晶體或選擇元件，不等於只有儲存材料。
 - 陣列與巨集：陣列是大量單元依導線組織的結構；巨集通常還包含解碼、驅動、感測及控制等周邊，可作為晶片設計中的記憶體區塊。
 - 字線與位元線：字線通常參與選擇一列單元，位元線承接資料相關的電流或電壓；不同陣列的接法與偏壓策略並不完全相同。
@@ -2071,6 +3612,36 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [FND-TSMC-SYMP-2025：台積電 2025 北美技術論壇新聞稿](https://pr.tsmc.com/system/files/newspdf/attachment/167c59998c7117f14c13647c8e46a6b20a43316c/2025%20Tech%20Symposium%20%28E%29_Final_wmn.pdf)。年度技術論壇官方新聞稿；2025-04-23；查閱 2026-09-10；定位：三頁公開新聞稿；限制：主稿沒有可核用的 MRAM／RRAM 完整年表；不能用未取得的論壇內頁補出完成日期。
 - [FND-TSMC-SYMP-2026：台積電 2026 北美技術論壇新聞稿與公開影音入口](https://pr.tsmc.com/english/news/3302)。年度技術論壇官方新聞稿；2026-04-23；查閱 2026-09-10；定位：美國活動日為 2026-04-22；新聞稿與技術亮點；限制：公開稿未提供 MRAM／RRAM 完整路線圖；不能採用第三方上傳簡報作為官方版本。
 - [FND-TSMC-SYMP-ACCESS：台積電 2026 技術論壇公開影音入口](https://www.tsmc.com/english/symposium_highlights/2026)。官方會議入口；2026；查閱 2026-09-10；定位：完整隨選視訊存取說明；限制：本研究未取得受邀會議內容；無法宣稱已核對全部內部路線圖。
+- [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles；限制：現行產品原理；未公開全部偏壓及佈局。
+- [ip-neobit-pat：NeoBit 歷史保留電荷專利](https://patents.google.com/patent/US6914825B2/en)。公開專利；2005-07-05；定位：Figures 2(a), 2(b), 6; claims 1, 4；限制：p+ 浮動閘極模型；由 2005 年官方新聞連結，不能推定所有現行製程。
+- [ip-neobit-link：NeoBit 與保留電荷專利的官方連結](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)。原始技術來源；2005-10-04；定位：Second body paragraph: patent title and inventors；限制：同名專利與 NeoBit 的直接歷史關聯。
+- [ip-neobit-uv：NeoBit 紫外光抹除的公開界線](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)。原始技術來源；2021；檔名版本 2021-03-30；定位：第 1 頁：功能優點的其他效益段落；UV erase；限制：曾公開支援紫外光抹除；不代表任意現行封裝可照光抹除。
+- [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles；限制：阻抗式 OTP 及 GIDL 抑制；未公開完整層材。
+- [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)。原始技術來源；2021-01-19；定位：Figures 1–3; core nFET, gate oxide, dangling bonds, direct tunneling；限制：力旺署名原文；超薄氧化層的 DT 模型，不是所有世代的金屬導通絲。
+- [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)。官方轉載主管訪談；2024-12-09；定位：NeoFuse: patented 3T design and regulating transistor；限制：確認 3T 與調節功能，未確認全部現行接線及剖面。
+- [ip-neofuse-pat：三電晶體反熔絲相關專利](https://patents.google.com/patent/US20250024668A1/en)。公開專利；2025-01-16；定位：Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268；限制：同公司相關實施例，未直接以 NeoFuse 命名。
+- [ip-neoee：NeoEE 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles; capacitive-coupling MOS devices and selectors；限制：現行 FN/FN；未公開確切元件數、p/n 配置及節點偏壓。
+- [ip-neoee-history：NeoEE 概念單元的歷史原圖](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)。原始技術來源；2010-10-19；定位：NeoEE Technology; Figure 1(b), Tej tunneling junction；限制：歷史家族同時談 CHE/FN 與 FN/FN；不能覆蓋現行主線。
+- [ip-neomtp：NeoMTP 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles; p-type FG-MOSFET; extra erase gate；限制：熱電洞誘發電子注入及 FG 到抹除閘極的 FN；未公開完整剖面。
+- [ip-neomtp-pat：pMOS 與邊緣抹除閘極的相關專利](https://patents.google.com/patent/US20030235082A1/en)。公開專利；2003-12-25；定位：Figures 2, 3A–3C, 4, 5; paragraphs 0019–0035；限制：歷史同公司專利；n+ 側向 EG 不能直接指稱現行 NeoMTP。
+- [ymc-product：YMC：ymtp 邏輯製程 MTP IP](https://www.ymc.com.tw/index_en.php)。原廠公開資料；未標示；2026-09-10 查核；定位：About YMC 段落；限制：確認產品定位；未公開特定版本單元與寫抹偏壓。
+- [ymc-1t1c：YMC：1T1C 核心技術](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)。原廠公開資料；2024；2026-09-10 查核；定位：上市前業績發表會第 25 頁；限制：確認 1T1C 技術家族及多代演進；未支撐本圖是現行產品剖面。
+- [ymc-pat-7423903：YMC：單一浮動閘極歷史實施例](https://patents.google.com/patent/US7423903B2/en)。公開專利；2008-09-09；2026-09-10 查核；定位：圖 1、2A、2B；第一實施例；Summary 的 FN 抹除段；限制：四端 nMOS／N 型電容結構；正文使用 FN 抹除，不作 BBHH 來源。
+- [ymc-pat-dahhi：YMC：DAHCI 寫入與 DAHHI 抹除變體](https://patents.google.com/patent/US20070158733A1/en)。公開專利；2007-07-12；2026-09-10 查核；定位：圖 3B、5A、6B、8A 及相鄰說明；限制：支持熱載子與閾值方向；雪崩熱電洞 DAHHI 不等於 BBHH。
+- [physics-bbhh-fg：Wu 等：BBHH 與浮動閘極展示](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)。原始研究；2007；2026-09-10 查核；定位：IEDM 2007，頁 87–90；作者機構摘要；DOI 10.1109/IEDM.2007.4418870；限制：原文使用 BBHH 並提及浮動閘極展示；其 NAND、IIHE 寫入與數值不移入 YMC 模型。
+- [physics-btbt-carriers：Chu、Wu：BTBT 熱載子路徑](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf)。原始研究；2000-03；2026-09-10 查核；定位：IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576；限制：支撐矽內 BBT 載子產生與場輔助注入物理；圖 3 是 pMOS，不照搬至 nMOS。
+- [physics-fg-hole-erase：IEEE：浮動閘極熱電洞抹除觀察](https://ieeexplore.ieee.org/document/748914/)。原始研究；1999-03；2026-09-10 查核；定位：IEEE EDL 20(3)，頁 140–142；摘要；DOI 10.1109/55.748914；限制：觀察 FN 抹除中的 BBT／可能雪崩增強；只支持 FG 熱電洞物理，不當作純 BBHH 配方。
+- [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)。原廠產品頁；未標示發布日期；查閱 2026-09-10；定位：What is Numem MRAM?；Numem MRAM IP；限制：支持嵌入式 IP 與晶圓代工廠標準 STT 單元；未公開現行材料配方。
+- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)。原廠公開會議簡報；2019-08-05；查閱 2026-09-10；定位：第 2、4、5、7 頁：試驗晶片、WL／BL／SL、定電流感測、RMTJ；限制：這是第一代試驗晶片架構；未把其量測數值當成現行 NuRAM 規格。
+- [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)。原廠機制說明；未標示發布日期；查閱 2026-09-10；定位：Spin-transfer Torque MRAM Technology：電流方向、自由層、P／AP 電阻；限制：僅支持 STT 家族物理；不作為 Numem 的產品、材料或效能證據。
+- [ip-gf-platform：GF：22FDX 嵌入式 MRAM 平台](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)。晶圓代工廠原始公告；2020-02-27；查閱 2026-09-10；定位：首段與 Custom design kits：進入生產、可嵌入的矽驗證 MRAM 巨集；限制：平台身分與單元研究配方分開；可用宏、節點與條件須以供應商交付確認。
+- [ip-gf-cell-2024：GF 共同作者研究：22FDX STT-MRAM 單元](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/)。原始研究論文；2024-09-18；查閱 2026-09-10；定位：Materials and Methods：MRAM array structure and fabrication；圖 2；限制：僅限文中 CoFeB／SAF 與 1T1MTJ 範例；文中正向 Ic：RL→FL，寫入 P。未指定障壁材料。
+- [ip-weebit-product：Weebit：嵌入式 ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/)。原廠 IP 產品頁；未標示發布日期；查閱 2026-09-10；定位：IP 模組、設計交付、控制與類比周邊；限制：產品身分不代表每個代工節點採用同一公開研究配方。
+- [ip-weebit-bitcell：Weebit：ReRAM 位元單元](https://www.weebit-nano.com/technology/reram-bitcell/)。原廠機制說明；未標示發布日期；查閱 2026-09-10；定位：雙電極／薄氧化物、成形、正向 SET 與反向 RESET；限制：成形與日常 SET 分開；頁面未給所有材料與逐端點電壓。
+- [ip-weebit-cell-2021：Weebit／CEA-Leti／Silvaco：氧化物 ReRAM 原始模型](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf)。原始研究論文的作者公開版本；2021-05；查閱 2026-09-10；定位：PDF 第 2–5 頁；II–IV 節、圖 1、3、5、11：Ti／SiOx／TiN 與氧交換；限制：CEA 130nm 研究單元的模型與電性比對；不是現場直接追蹤離子，也不是所有 SkyWater 宏的配方揭露。
+- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)。原廠公開產品簡介；未標示發布日期；查閱 2026-09-10；定位：第 1–2 頁：hard macro／architectural license、嵌入式宏與改寫；限制：支持歷史 IP 授權形態；本次未確認 2026 年可新授權的節點與宏清單。
+- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)。原廠公開會議簡報；2015；查閱 2026-09-10；定位：第 3、4、7、8、15 頁：金屬路徑、單元與選擇器、BEOL 1T1R；限制：嵌入式 1T1R 與高密度 1S1R／1TnR 各有範圍，不合併為同一電路。
+- [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)。原始公開專利申請；2012-01-12；查閱 2026-09-10；定位：圖 1–3；[0023]–[0025]、[0037]：Ag／a-Si／p+ poly-Si、正向延伸、負向回縮；限制：選取其中的具名實施例；以金屬粒子與穿隧路徑描述，未宣稱已證明現售宏皆為此配方或一般陰極成核銀橋。
 - [op-pat-sonos-fn：賽普拉斯：SONOS ONO 堆疊縮放](https://patents.google.com/patent/WO2014008160A2/en)。公開專利；2014; 2026-09-10 查閱；定位：圖 1–3；全通道穿隧、電子寫入與電洞抹除段落；限制：用於具名 SONOS 穿隧原理；不推定與現行英飛凌巨集具有相同膜層或數值。
 - [op-pat-nrom-hhi：Saifun：自對準 NROM 寫入與抹除區](https://patents.google.com/patent/US6664588B2/en)。公開專利；2003; 2026-09-10 查閱；定位：圖 4、8A、9、10–11；能帶間穿隧產生電洞及局部熱電洞注入；限制：本案的口袋植入與局部電洞路徑；不把 US5768192A 當成此抹除路徑的來源。
 - [op-nand-hole-erase：鎧俠：蕭特基源極接點與電洞供應研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html)。原廠研究；2025-09-18; 2026-09-10 查閱；定位：圖 1、4；N+ 矽源極的 GIDL 電洞供應及蕭特基接點替代研究；限制：只支持載子供應方向與具名研究；本圖採傳統 GIDL 分支，未把蕭特基源極併入同一結構。

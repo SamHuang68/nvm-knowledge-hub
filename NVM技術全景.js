@@ -28,13 +28,17 @@ function showRoute({ focus = false } = {}) {
     widget.querySelectorAll('[data-operation-select]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.operationSelect===operation.dataset.operationDetail)));
   }
   document.querySelectorAll('.nvm-sidebar a').forEach(link => {
-    if (link.hash === `#${next.id}`) link.setAttribute('aria-current', 'page');
+    if (link.hash === `#${next.id}`) {
+      link.setAttribute('aria-current', 'page');
+      const parentDisclosure = link.closest('details');
+      if (parentDisclosure) parentDisclosure.open = true;
+    }
     else link.removeAttribute('aria-current');
   });
   document.title = next.id === 'panorama' ? baseTitle : `${next.querySelector('h2')?.textContent || (isEnglish ? 'NVM Study' : 'NVM 專題')} · NVM Knowledge Hub`;
   contents.classList.remove('open');
   contentsButton.setAttribute('aria-expanded', 'false');
-  if (anchor?.closest('details')) anchor.closest('details').open = true;
+  for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;
   if (focus) {
     const destination = anchor || next;
     const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination;
