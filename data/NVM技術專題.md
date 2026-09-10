@@ -6,7 +6,7 @@
 
 ## 儲存物理
 
-電荷、導電結構、磁化、離子分布、晶相與極化決定物理機制。傳統獨立式 EEPROM 與嵌入式 MTP IP 分題閱讀；MTP IP 再區分 foundry 雙層多晶矽 EEPROM 與第三方單層多晶矽路徑。NOR／NAND 則描述陣列組織。
+電荷、導電結構、磁化、離子分布、晶相與極化決定物理機制。OTP 不是單一物理：浮動閘 OTP 屬電荷儲存，AntiFuse OTP 屬介電路徑。傳統獨立式 EEPROM 與嵌入式 MTP IP 分題閱讀；MTP IP 再區分 foundry 雙層多晶矽 EEPROM 與第三方單層多晶矽路徑。NOR／NAND 則描述陣列組織。
 
 ## 商用成熟度
 

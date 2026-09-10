@@ -10,8 +10,13 @@ export function storageGlyph(kind) {
 }
 
 export function physicsIndex(bi) {
- const items=[['charge','電荷','Charge','臨界電壓的位移','A shift in threshold voltage','EEPROM · Flash','topic-nor'],['magnetic','磁態','Magnetization','磁層的相對方向','Relative magnetic orientation','Toggle · STT · SOT','topic-stt'],['resistance','電阻','Resistance','導電路徑或相態','Conductive path or phase','ReRAM · PCM','topic-vcm'],['polarization','極化','Polarization','可切換的極化方向','Switchable polarization','FeRAM · FeFET · FTJ','topic-feram']];
- return `<details class="knowledge-physics" open><summary>${bi('儲存狀態的四個觀察角度','Four Ways to Read a Stored State')}</summary><div class="knowledge-physics-index">${items.map(([kind,zh,en,descZh,descEn,examples,target])=>`<a href="NVM技術全景.html#${target}">${storageGlyph(kind)}<div><strong>${bi(zh,en)}</strong><span>${bi(descZh,descEn)}</span></div><small>${examples}</small></a>`).join('')}</div><p>${bi('物理概念示意；各實作的材料與操作條件請見專題。','Conceptual symbols; see each study for materials and operating conditions.')}</p></details>`;
+ const items=[
+  ['charge','電荷','Charge','浮閘電荷改變閾值電壓','Floating-gate charge shifts threshold voltage','FG OTP · EEPROM · Flash','ip-neobit'],
+  ['magnetic','磁態','Magnetization','磁層的相對方向','Relative magnetic orientation','Toggle · STT · SOT','topic-stt'],
+  ['resistance','電阻','Resistance','導電路徑、介電擊穿或相態','Conductive path, dielectric breakdown, or phase','AntiFuse OTP · ReRAM · PCM','topic-antifuse'],
+  ['polarization','極化','Polarization','可切換的極化方向','Switchable polarization','FeRAM · FeFET · FTJ','topic-feram']
+ ];
+ return `<details class="knowledge-physics" open><summary>${bi('儲存狀態的四個觀察角度','Four Ways to Read a Stored State')}</summary><div class="knowledge-physics-index">${items.map(([kind,zh,en,descZh,descEn,examples,target])=>`<a href="NVM技術全景.html#${target}">${storageGlyph(kind)}<div><strong>${bi(zh,en)}</strong><span>${bi(descZh,descEn)}</span></div><small>${examples}</small></a>`).join('')}</div><p>${bi('物理概念示意。OTP 不是單一物理：浮動閘 OTP 是電荷，AntiFuse OTP 是介電路徑。各實作的材料與操作條件請見專題。','Conceptual symbols. OTP is not one physics: floating-gate OTP is charge; AntiFuse OTP is a dielectric path. See each study for materials and operating conditions.')}</p></details>`;
 }
 
 export function researchShowcase(zh,en,bi) {

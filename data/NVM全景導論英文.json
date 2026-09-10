@@ -11,7 +11,7 @@
   "axes": [
     {
       "title": "Storage Physics",
-      "body": "Charge, conductive structure, magnetization, ion distribution, crystal phase and polarization determine the physical mechanism. Study conventional standalone EEPROM separately from embedded MTP IP; within MTP IP, distinguish foundry double-poly EEPROM and third-party single-poly routes. NOR and NAND still describe array organization."
+      "body": "Charge, conductive structure, magnetization, ion distribution, crystal phase and polarization determine the physical mechanism. OTP is not one physics: floating-gate OTP stores charge; AntiFuse OTP forms a dielectric path. Study conventional standalone EEPROM separately from embedded MTP IP; within MTP IP, distinguish foundry double-poly EEPROM and third-party single-poly routes. NOR and NAND still describe array organization."
     },
     {
       "title": "Commercial Maturity",
@@ -26,7 +26,7 @@
     {
       "id": "irreversible",
       "title": "Irreversible Structures",
-      "state": "Breaking or forming a conductive path",
+        "state": "Breaking or forming a conductive path, including eFuse and AntiFuse OTP",
       "topics": [
         "efuse",
         "antifuse"
@@ -35,7 +35,7 @@
     {
       "id": "charge",
       "title": "Charge Storage",
-      "state": "Charge shifts the threshold voltage",
+        "state": "Charge shifts the threshold voltage, including one-time floating-gate OTP as well as rewritable EEPROM, MTP and Flash",
       "topics": [
         "eeprom",
         "mtp",

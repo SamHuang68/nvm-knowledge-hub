@@ -40,7 +40,17 @@ try{
   const context=await browser.newContext({viewport:{width,height:1000},reducedMotion:'reduce'}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base+'index.html?lang='+language,{waitUntil:'networkidle'});
   await audit(page,language,width,'首頁','#main-content');
-  check(await page.locator('.knowledge-physics-index a').count()===4,'四個物理符號有實際導讀入口',{language,width});
+  const physicsLinks=page.locator('.knowledge-physics-index a');
+  check(await physicsLinks.count()===4,'四個物理符號有實際導讀入口',{language,width});
+  const chargeCopy=await physicsLinks.nth(0).evaluate(e=>e.textContent);
+  const resistanceCopy=await physicsLinks.nth(2).evaluate(e=>e.textContent);
+  const physicsNote=await page.locator('.knowledge-physics>p').evaluate(e=>e.textContent);
+  check(/FG OTP/.test(chargeCopy),'電荷列含 Floating-Gate OTP，而非僅 EEPROM／Flash',{language,width});
+  check(await physicsLinks.nth(0).getAttribute('href').then(h=>h.endsWith('#ip-neobit')),'電荷列進入 NeoBit 浮動閘 OTP 單元',{language,width});
+  check(/AntiFuse OTP/.test(resistanceCopy),'電阻列含 AntiFuse OTP，而非僅多次寫入電阻記憶體',{language,width});
+  check(await physicsLinks.nth(2).getAttribute('href').then(h=>h.endsWith('#topic-antifuse')),'電阻列進入 AntiFuse OTP 專題',{language,width});
+  check(/OTP/.test(physicsNote),'物理索引註記 OTP 不是單一物理',{language,width});
+  if(width>=1181)check(await physicsLinks.nth(0).locator('small').evaluate(e=>getComputedStyle(e).display!=='none'),'桌面寬度可見電荷／電阻範例標籤',{language,width});
   check(await page.locator('.knowledge-coverage dd').first().innerText()==='74','首頁涵蓋數由正式資料產生',{language,width});
   if([1440,390].includes(width)){await page.screenshot({path:path.join(out,`${language}-首頁-${width}.png`)});if(width===1440)copy.push(await page.locator('#main-content').innerText());}
   check(await page.locator('.knowledge-features a').count()===5,'首頁五篇專題有完整導讀入口',{language,width});
@@ -50,6 +60,7 @@ try{
    check(await details.getAttribute('open')===null,'手機物理索引預設收合',{language});
    await details.locator('summary').focus();await page.keyboard.press('Enter');
    check(await details.locator('.knowledge-physics-index a').first().isVisible(),'鍵盤可展開物理索引',{language});
+   check(await details.locator('small').first().isVisible(),'展開後可見 FG OTP／AntiFuse OTP 範例',{language});
    await page.keyboard.press('Space');check(await details.getAttribute('open')===null,'鍵盤可收合物理索引',{language});
    await page.keyboard.press('Control+k');check(await page.locator('#searchOverlay').getAttribute('aria-hidden')==='false','手機版鍵盤搜尋可用',{language});await page.keyboard.press('Escape');
   }

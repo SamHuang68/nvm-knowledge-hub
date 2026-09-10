@@ -53,7 +53,7 @@ body.hub-reading-home, body.nvm-atlas-page { -webkit-font-smoothing: antialiased
 .knowledge-physics-index strong { display: block; font-size: 19px; font-weight: 500; color: #f7fafa; }
 .knowledge-physics-index span { display: block; color: #bdd1d7; font-size: 15px; margin-top: 2px; }
 .knowledge-physics-index [data-lang] { font-size: inherit; color: inherit; margin: 0; }
-.knowledge-physics-index small { color: #adc4cc; font-size: 11px; text-align: right; }
+.knowledge-physics-index small { color: #adc4cc; font-size: 11px; text-align: right; max-width: 11.5rem; line-height: 1.35; white-space: normal; overflow-wrap: anywhere; }
 .knowledge-physics>p { margin: 13px 0 0; font-size: 12px; line-height: 1.7; color: #b4cbd1; }
 .knowledge-coverage { max-width: 1324px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr) 1.25fr; border-top: 1px solid #44606a; }
 .knowledge-coverage>div { padding: 24px 25px 25px; border-left: 1px solid #34515c; display: flex; align-items: baseline; gap: 18px; }
@@ -116,8 +116,8 @@ html:not(.nvm-keyboard-navigation) .nvm-atlas-page [data-route-heading]:focus-vi
  .knowledge-editorial-inner { padding-inline: 30px; gap: 36px; grid-template-columns: 1fr 1fr; }
  .knowledge-coverage { margin-inline: 30px; }
  .knowledge-coverage>div { padding-inline: 19px; gap: 12px; }
- .knowledge-physics-index a { grid-template-columns: 57px 1fr; gap: 12px; }
- .knowledge-physics-index small { display: none; }
+ .knowledge-physics-index a { grid-template-columns: 57px 1fr; gap: 8px 12px; align-items: start; }
+ .knowledge-physics-index small { grid-column: 2; display: block; max-width: none; text-align: left; }
  .knowledge-section { gap: 30px; grid-template-columns: minmax(180px,.32fr) minmax(0,1fr); }
  .nvm-layout { grid-template-columns: 192px minmax(0,1fr); gap: 26px; padding-inline: 28px; }
 }
@@ -154,6 +154,7 @@ html:not(.nvm-keyboard-navigation) .nvm-atlas-page [data-route-heading]:focus-vi
  .knowledge-physics summary { font-size: 14px; padding-top: 15px; }
  .knowledge-physics-index { column-gap: 16px; }
  .knowledge-physics-index a { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; align-content: start; }
+ .knowledge-physics-index small { grid-column: 1; }
  .knowledge-physics-index strong { font-size: 18px; }
  .knowledge-physics-index a>div>span { font-size: 15px; line-height: 1.55; }
  .knowledge-physics .storage-glyph { width: 59px; height: 54px; }

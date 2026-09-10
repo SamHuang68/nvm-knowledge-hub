@@ -36,8 +36,8 @@
           "url": "NVM技術全景.html#nvm-physics-overview",
           "titleZh": "儲存機制與技術家族",
           "titleEn": "Storage Mechanisms and Technology Families",
-          "descriptionZh": "依電荷、磁性、電阻及極化分類，查閱十六類技術與獨立式元件背景。",
-          "descriptionEn": "Browse sixteen technology and reference topics by stored charge, magnetization, resistance and polarization.",
+          "descriptionZh": "依電荷、磁性、電阻及極化查閱十六類技術。電荷含浮動閘 OTP，電阻路徑含 AntiFuse OTP。",
+          "descriptionEn": "Browse sixteen technology topics by charge, magnetization, resistance and polarization, including floating-gate OTP and AntiFuse OTP.",
           "metaZh": "技術家族 · 物理背景",
           "metaEn": "Technology families · Physics"
         },

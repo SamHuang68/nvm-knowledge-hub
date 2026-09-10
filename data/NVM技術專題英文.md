@@ -6,7 +6,7 @@ Choose a topic to explore IP cell principles, technology lineage, foundry proces
 
 ## Storage Physics
 
-Charge, conductive structure, magnetization, ion distribution, crystal phase and polarization determine the physical mechanism. Study conventional standalone EEPROM separately from embedded MTP IP; within MTP IP, distinguish foundry double-poly EEPROM and third-party single-poly routes. NOR and NAND still describe array organization.
+Charge, conductive structure, magnetization, ion distribution, crystal phase and polarization determine the physical mechanism. OTP is not one physics: floating-gate OTP stores charge; AntiFuse OTP forms a dielectric path. Study conventional standalone EEPROM separately from embedded MTP IP; within MTP IP, distinguish foundry double-poly EEPROM and third-party single-poly routes. NOR and NAND still describe array organization.
 
 ## Commercial Maturity
 

@@ -17,7 +17,7 @@
     "axes": [
       {
         "title": "儲存物理",
-        "body": "電荷、導電結構、磁化、離子分布、晶相與極化決定物理機制。傳統獨立式 EEPROM 與嵌入式 MTP IP 分題閱讀；MTP IP 再區分 foundry 雙層多晶矽 EEPROM 與第三方單層多晶矽路徑。NOR／NAND 則描述陣列組織。"
+        "body": "電荷、導電結構、磁化、離子分布、晶相與極化決定物理機制。OTP 不是單一物理：浮動閘 OTP 屬電荷儲存，AntiFuse OTP 屬介電路徑。傳統獨立式 EEPROM 與嵌入式 MTP IP 分題閱讀；MTP IP 再區分 foundry 雙層多晶矽 EEPROM 與第三方單層多晶矽路徑。NOR／NAND 則描述陣列組織。"
       },
       {
         "title": "商用成熟度",
@@ -32,7 +32,7 @@
       {
         "id": "irreversible",
         "title": "不可逆結構",
-        "state": "導電路徑斷開或建立",
+        "state": "導電路徑斷開或建立，含 eFuse 與 AntiFuse OTP",
         "topics": [
           "efuse",
           "antifuse"
@@ -41,7 +41,7 @@
       {
         "id": "charge",
         "title": "電荷儲存",
-        "state": "電荷改變臨界電壓",
+        "state": "電荷改變臨界電壓，含一次寫入浮動閘 OTP，以及可重寫的 EEPROM、MTP 與 Flash",
         "topics": [
           "eeprom",
           "mtp",
