@@ -4,16 +4,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.querySelector('#primaryNav');
   const theme = document.querySelector('#themeToggle');
   const language = () => window.HubLanguage?.get() || 'en';
-  const setMenu = open => {
+  const setMenu = (open, restoreFocus = false) => {
     nav?.classList.toggle('open', open);
+    menu?.classList.toggle('open', open);
     menu?.setAttribute('aria-expanded', String(open));
     menu?.setAttribute('aria-label', language() === 'zh' ? (open ? '關閉選單' : '開啟選單') : (open ? 'Close menu' : 'Open menu'));
+    if (open) {
+      const first = nav?.querySelector('a, button, [tabindex="0"]');
+      if (first) first.focus();
+    } else if (restoreFocus && menu) {
+      menu.focus();
+    }
   };
   if (menu && nav && !menu._hubNavBound) {
     menu._hubNavBound = true;
     menu.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
     nav.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
-    document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
+    document.addEventListener('keydown', event => {
+      if (!nav.classList.contains('open')) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setMenu(false, true);
+        return;
+      }
+      if (event.key === 'Tab') {
+        const focusable = [menu, ...nav.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]')].filter(Boolean);
+        if (!focusable.length) return;
+        const index = focusable.indexOf(document.activeElement);
+        if (event.shiftKey) {
+          if (index <= 0) {
+            event.preventDefault();
+            focusable[focusable.length - 1].focus();
+          }
+        } else {
+          if (index === focusable.length - 1 || index === -1) {
+            event.preventDefault();
+            focusable[0].focus();
+          }
+        }
+      }
+    });
   }
   theme?.addEventListener('click', () => theme.setAttribute('aria-pressed', String(document.body.classList.toggle('light-mode'))));
   const syncLanguage = () => {
