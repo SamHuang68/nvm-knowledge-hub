@@ -1,0 +1,707 @@
+{
+  "title": "GF 與台積電嵌入式 MRAM／RRAM 公開路線圖",
+  "asOf": "2026-09-10",
+  "scope": "以 2022–2026 年公開一手資料建立可追溯年表；保留較早基準。年報所屬年度是事件期間，通常於次年發布；無日期的產品頁只能代表查核日狀態。",
+  "statusLegend": {
+    "announced": "宣布或規畫；不能視為驗證完成",
+    "development": "研發或試驗晶片；不能視為商業供應",
+    "designReady": "已有設計套件、可原型設計或準備投片",
+    "qualified": "特定技術、版本或規格完成資格驗證",
+    "productionReady": "已具生產準備；不等於客戶大量出貨",
+    "production": "供應商明確表示已生產或量產",
+    "target": "前瞻目標；尚未取得完成公告",
+    "unresolved": "公開資料不足以確認版本、日期或完成狀態"
+  },
+  "sources": [
+    {
+      "id": "FND-GF-2020-MRAM",
+      "label": "GF：22FDX eMRAM 進入生產公告",
+      "url": "https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram",
+      "kind": "供應商新聞稿",
+      "date": "2020-02-27",
+      "locator": "生產、可靠性與巨集段落",
+      "claim": "22FDX eMRAM 已進入生產；十萬次循環、指定溫區十年保持、五次回流焊；Grade 2 設計支援，Grade 1 為次年開發目標。",
+      "evidence": "已核讀全文",
+      "limit": "屬當時平台及巨集條件；不能套用至所有 MRAM。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2020-CBRAM",
+      "label": "GF 與 Dialog：22FDX CBRAM 授權",
+      "url": "https://investors.gf.com/node/6441/pdf",
+      "kind": "供應商聯合新聞稿",
+      "date": "2020-10-19",
+      "locator": "授權與預計供應年份段落",
+      "claim": "Dialog 授權導電橋記憶體，當時規畫 2022 年提供 22FDX 嵌入式選項。",
+      "evidence": "官方檢索正文",
+      "limit": "只有預計時程；也不能把 CBRAM 與後來 OxRAM 視為相同材料及版本。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2022-MAP",
+      "label": "GF 2022 投資人簡報：平台功能發展圖",
+      "url": "https://investors.gf.com/static-files/65f5f1b9-2aea-47a3-8455-10413c6560f4",
+      "kind": "供應商投資人簡報",
+      "date": "2022",
+      "locator": "Investing for a Bold Future 圖",
+      "claim": "圖中列有 22FDX、22FDX+、MRAM 與 MRAM-G2 等平台功能。",
+      "evidence": "官方索引文字；PDF 開啟失敗",
+      "limit": "尚未確認圖例顏色與圖形歸屬，不以攤平文字判定某平台已量產，也不把 MRAM-G2 自行映射到後續命名。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2023-MAP",
+      "label": "GF 2023 投資人簡報：平台與功能",
+      "url": "https://investors.gf.com/static-files/9aecbb31-1a7a-43a5-b1ed-d5e0d4380cee",
+      "kind": "供應商投資人簡報",
+      "date": "2023",
+      "locator": "第 32 頁平台功能發展圖",
+      "claim": "圖中持續列有 MRAM、MRAM-G2 與多種平台的發展方向。",
+      "evidence": "官方索引文字",
+      "limit": "文字抽取遺失量產／開發圖例歸屬，不據此宣布 12LP MRAM 量產。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2024-AUTO",
+      "label": "GF：車用平台創新與 12LP+ AutoPro150",
+      "url": "https://gf.com/news-and-events/blog/driving-automotive-innovation-on-the-semiconductor-superhighway/",
+      "kind": "供應商技術部落格",
+      "date": "2024-06-11",
+      "locator": "eMRAM 與 12LP+ 功能段落",
+      "claim": "描述 12LP+ 車用布局並把 MRAM 列為部署中的功能，另以即將提供描述部分功能。",
+      "evidence": "已核讀正文",
+      "limit": "未給該 MRAM 巨集的完成資格日期、量產日期或完整電性條件；邏輯平台功耗改善不可當成 MRAM 指標。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2025-MCU",
+      "label": "GF：車用 MCU 與軟體定義車輛",
+      "url": "https://gf.com/news-and-events/blog/inside-a-cars-digital-brain-mcus-the-engine-powering-sdv-innovation/",
+      "kind": "供應商技術部落格",
+      "date": "2025-05-22",
+      "locator": "12LP+ MRAM 與 22FDX MRAM 段落",
+      "claim": "官方把 12LP+ MRAM、22FDX MRAM 列為車用控制器技術。",
+      "evidence": "已核讀正文",
+      "limit": "是平台及應用主張，不提供 12LP+ MRAM 個別巨集的量產及資格驗證收據。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2025-RRAM",
+      "label": "GF 2025 技術高峰會：22FDX+ RRAM 原型設計供應",
+      "url": "https://gf.com/news-and-events/news/globalfoundries-announces-availability-of-22fdx-rram-technology-for-wireless-connectivity-and-ai-applications/",
+      "kind": "供應商技術高峰會新聞稿",
+      "date": "2025-08-28",
+      "locator": "副標題、OxRAM 及最後設計套件段落",
+      "claim": "採 OxRAM；初步巨集設計套件可用；2026 年為量產目標。",
+      "evidence": "已核讀全文",
+      "limit": "中文地區頁首段與英文原稿的成熟度措辭不一致；依英文原稿的原型設計／未來量產區分，不引用其量產誤譯。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-2026-AUTO",
+      "label": "GF：FDX+ AutoPro150 eMRAM 可供原型設計",
+      "url": "https://gf.com/news-and-events/news/globalfoundries-announces-availability-of-autopro-150-emram-technology-on-enhanced-fdx-platform-for-advanced-automotive-applications/",
+      "kind": "供應商新聞稿",
+      "date": "2026-03-09",
+      "locator": "副標題、性能段落、設計套件與量產目標",
+      "claim": "Auto Grade 1 ready；五十萬次循環、低於 10 ns 讀取、最高 150°C；PDK 已可用，德勒斯登量產目標為 2026 下半年。",
+      "evidence": "已核讀全文",
+      "limit": "公告沒有把所有指標的聯合測試條件、ECC 與失效分布列出；截至查核日未取得量產完成的新公告。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-GF-CURRENT-FDX",
+      "label": "GF 現行 FDX 平台與嵌入式記憶體頁",
+      "url": "https://gf.com/technologies/cmos/fdx-fd-soi/",
+      "kind": "供應商動態產品頁",
+      "date": null,
+      "locator": "MRAM、RRAM 與 AutoPro150 區段",
+      "claim": "MRAM 頁面列出超過五十萬次循環與 150°C 二十年保持；RRAM 為內部 OxRAM 整合。",
+      "evidence": "已核讀正文；查核日 2026-09-10",
+      "limit": "頁面無版本與更新日期；未把性能主張直接等同新版本的量產完成，也不推定二十年與循環上限在同一樣本、同一負載同時達成。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-EVERSPIN-12LP",
+      "label": "Everspin／GF 12LP MRAM 共同開發契約修訂",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438423/000155837021002369/mram-20201231xex10d11d4.htm",
+      "kind": "公開契約附件",
+      "date": "2019-12-31",
+      "locator": "修訂第 4 號之前言與第 3.2.1 條",
+      "claim": "雙方共同開發 12LP MRAM 的工作範圍存在。",
+      "evidence": "已核讀官方申報正文",
+      "limit": "契約證明合作，不證明商業量產、成品規格或 12LP+ 與 12LP 巨集相容。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-2022-AR",
+      "label": "台積電 2022 年報：16FFC MRAM、22／28ULL RRAM",
+      "url": "https://investor.tsmc.com/static/annualReports/2022/english/ebook/files/basic-html/page97.html",
+      "kind": "供應商年報",
+      "date": "2023",
+      "locator": "紙本第 95 頁；電子書第 97 頁",
+      "claim": "16FFC MRAM 於 2022 完成可靠性驗證並具生產準備；車用 Grade 1 目標為 2023。22／28ULL RRAM 客戶產品 2022 年開始量產。",
+      "evidence": "已核讀官方電子書正文",
+      "limit": "生產準備與大量生產不同；Grade 1 此時仍是前瞻目標。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-2023-AR",
+      "label": "台積電 2023 年報第五章：製程服務與新興記憶體",
+      "url": "https://investor.tsmc.com/static/annualReports/2023/english/pdf/2023_tsmc_ar_e_ch5.pdf",
+      "kind": "供應商年報",
+      "date": "2024",
+      "locator": "紙本第 97、101 頁；PDF 第 2、4 頁",
+      "claim": "製程服務章記錄 16FFC MRAM 2023 通過 Grade 1、22／28ULL RRAM 第二年量產；研發章另記 16nm 消費級資格完成、探索縮小位元的下一代 16nm。",
+      "evidence": "已核讀官方 PDF 正文",
+      "limit": "同份年報不同章節的 MRAM 範圍與版本沒有完整對照；不可把所有 16nm 資格事件合成同一個首次日期。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-2024-AR",
+      "label": "台積電 2024 年報：縮小位元的新興記憶體",
+      "url": "https://investor.tsmc.com/static/annualReports/2024/english/ebook/files/basic-html/page104.html",
+      "kind": "供應商年報",
+      "date": "2025",
+      "locator": "紙本第 102 頁；電子書第 104 頁",
+      "claim": "12nm RRAM 消費級技術資格完成；6nm RRAM 開發。更小、更省能的 16nm MRAM 車規目標為 2025，12／5nm MRAM 開發。",
+      "evidence": "已核讀官方電子書正文",
+      "limit": "未提供各代巨集版本與名稱對照；12nm RRAM 的技術資格不直接等同量產。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-2024-BUS",
+      "label": "台積電 2024 年報：車用技術服務",
+      "url": "https://investor.tsmc.com/static/annualReports/2024/english/ebook/files/basic-html/page21.html",
+      "kind": "供應商年報",
+      "date": "2025",
+      "locator": "紙本第 19 頁；電子書第 21 頁",
+      "claim": "再次記錄 16nm MRAM 在 2023 通過車用 Grade 1 要求。",
+      "evidence": "已核讀官方電子書正文",
+      "limit": "與研發章 2025 目標並存；須保留版本範圍差異。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-2025-AR",
+      "label": "台積電 2025 年報：第二代 MRAM 與第三代 RRAM",
+      "url": "https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf",
+      "kind": "供應商年報",
+      "date": "2026",
+      "locator": "紙本第 101 頁；第五章 PDF 第 2 頁；第 5.1 節特殊製程",
+      "claim": "第二代 16MRAM 2025 通過車規，一百萬次循環後晶片失效率低於 1 ppm；N12e RRAM 2025 通過供生產的消費級資格；22RRAM 完成十萬次循環資格。",
+      "evidence": "已核讀官方分章 PDF 全文；原整本連結失敗後，改用可讀的官方分章版本",
+      "limit": "年報未列完整容量、ECC、溫度與樣本分布；不能把晶片失效率外推到任意巨集。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-2025-20F",
+      "label": "台積電 2025 年度 Form 20-F",
+      "url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm",
+      "kind": "公司官方監管申報",
+      "date": "2026-04-17",
+      "locator": "汽車平台技術段落",
+      "claim": "第二代 16nm MRAM 與 22ULL RRAM 於 2025 通過 Automotive Grade 1 要求。",
+      "evidence": "官方索引全文片段；正文直接開啟失敗",
+      "limit": "年度完成資訊；沒有量產起始日、客戶型號或完整試驗條件。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-CURRENT-LOGIC",
+      "label": "台積電現行 16／12nm 技術頁",
+      "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/logic/l_16_12nm",
+      "kind": "供應商動態產品頁",
+      "date": null,
+      "locator": "N12 RRAM 與 N16 MRAM 資格段落",
+      "claim": "記錄 2025 完成 N12 RRAM 消費級資格與 N16 MRAM 車用 Grade 1 資格。",
+      "evidence": "官方索引正文；查核日 2026-09-10",
+      "limit": "不能以 12FFC+ 基礎邏輯平台 2017 量產年份替代 RRAM 巨集年份。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-CURRENT-NVM",
+      "label": "台積電現行嵌入式非揮發性記憶體頁",
+      "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash",
+      "kind": "供應商動態產品頁",
+      "date": null,
+      "locator": "eMRAM 與 eRRAM 正文",
+      "claim": "22／16nm eMRAM 已車規驗證並生產；40／28／22／12nm eRRAM 大量生產。12nm 車規與 5nm 高速 MRAM、6nm RRAM 研發中。",
+      "evidence": "官方索引正文；直接開啟僅回特殊製程導覽；查核日 2026-09-10",
+      "limit": "網站為動態內容且無修訂日期；此處是現況快照，不是年度首次量產證明。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-SYMP-2022",
+      "label": "台積電 2022 北美技術論壇新聞稿",
+      "url": "https://pr.tsmc.com/english/news/2939",
+      "kind": "年度技術論壇官方新聞稿",
+      "date": "2022-06-16",
+      "locator": "N6e 超低功耗平台段落",
+      "claim": "公開稿提及嵌入式 NVM 技術組合。",
+      "evidence": "已核讀正文",
+      "limit": "公開稿不含可用於逐代 MRAM／RRAM 量產判定的完整路線圖。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-SYMP-2023",
+      "label": "台積電 2023 北美技術論壇新聞稿",
+      "url": "https://pr.tsmc.com/system/files/newspdf/attachment/af320740c347534184a5705ac01982e22e743978/2023%20Tech%20Symposium%20%28E%29_final_wmn.pdf",
+      "kind": "年度技術論壇官方新聞稿",
+      "date": "2023-04-26",
+      "locator": "三頁公開新聞稿",
+      "claim": "公開技術亮點以邏輯及整合平台為主。",
+      "evidence": "已核讀 PDF 並檢索 MRAM",
+      "limit": "未找到 MRAM 字樣；不以媒體轉述的論壇日期代替官方完成證據。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-SYMP-2024",
+      "label": "台積電 2024 北美技術論壇新聞稿",
+      "url": "https://pr.tsmc.com/english/news/3136",
+      "kind": "年度技術論壇官方新聞稿",
+      "date": "2024-04-24",
+      "locator": "新技術與車用先進封裝段落",
+      "claim": "公開論壇主稿說明 A16、系統級晶圓與車用封裝。",
+      "evidence": "已核讀正文並檢索 MRAM",
+      "limit": "主稿沒有完整 MRAM／RRAM 節點年表；以年報補足，不能假裝取得會議投影片。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-SYMP-2025",
+      "label": "台積電 2025 北美技術論壇新聞稿",
+      "url": "https://pr.tsmc.com/system/files/newspdf/attachment/167c59998c7117f14c13647c8e46a6b20a43316c/2025%20Tech%20Symposium%20%28E%29_Final_wmn.pdf",
+      "kind": "年度技術論壇官方新聞稿",
+      "date": "2025-04-23",
+      "locator": "三頁公開新聞稿",
+      "claim": "公開技術亮點涵蓋先進邏輯、封裝與平台。",
+      "evidence": "已核讀 PDF 並檢索 MRAM",
+      "limit": "主稿沒有可核用的 MRAM／RRAM 完整年表；不能用未取得的論壇內頁補出完成日期。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-SYMP-2026",
+      "label": "台積電 2026 北美技術論壇新聞稿與公開影音入口",
+      "url": "https://pr.tsmc.com/english/news/3302",
+      "kind": "年度技術論壇官方新聞稿",
+      "date": "2026-04-23",
+      "locator": "美國活動日為 2026-04-22；新聞稿與技術亮點",
+      "claim": "公開稿記錄年度技術論壇與特殊製程進展。",
+      "evidence": "已核讀正文並檢索 MRAM",
+      "limit": "公開稿未提供 MRAM／RRAM 完整路線圖；不能採用第三方上傳簡報作為官方版本。",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-TSMC-SYMP-ACCESS",
+      "label": "台積電 2026 技術論壇公開影音入口",
+      "url": "https://www.tsmc.com/english/symposium_highlights/2026",
+      "kind": "官方會議入口",
+      "date": "2026",
+      "locator": "完整隨選視訊存取說明",
+      "claim": "公開精華與完整會議影音分開；完整隨選視訊需邀請。",
+      "evidence": "已核讀官方正文",
+      "limit": "本研究未取得受邀會議內容；無法宣稱已核對全部內部路線圖。",
+      "accessedAt": "2026-09-10"
+    }
+  ],
+  "annualForumCoverage": [
+    {
+      "year": 2022,
+      "tsmcSourceId": "FND-TSMC-SYMP-2022",
+      "gfSourceId": "FND-GF-2022-MAP",
+      "finding": "台積電公開稿只交代相關平台範圍；GF 取得投資人平台圖索引。各節點完成狀態由年報及正式產品公告支持。"
+    },
+    {
+      "year": 2023,
+      "tsmcSourceId": "FND-TSMC-SYMP-2023",
+      "gfSourceId": "FND-GF-2023-MAP",
+      "finding": "已核讀台積電論壇主稿，未找到 MRAM 完整路線圖；GF 圖形歸屬未完全核定，維持限制。"
+    },
+    {
+      "year": 2024,
+      "tsmcSourceId": "FND-TSMC-SYMP-2024",
+      "gfSourceId": "FND-GF-2024-AUTO",
+      "finding": "台積電主稿不是記憶體完整年表；GF 車用官方技術文章支持 12LP+ MRAM 方向，未提供量產日期。"
+    },
+    {
+      "year": 2025,
+      "tsmcSourceId": "FND-TSMC-SYMP-2025",
+      "gfSourceId": "FND-GF-2025-RRAM",
+      "finding": "GF 年度高峰會有可直接引用的 RRAM 原型供應與 2026 目標；台積電完成事件使用後續年報核實。"
+    },
+    {
+      "year": 2026,
+      "tsmcSourceId": "FND-TSMC-SYMP-2026",
+      "gfSourceId": "FND-GF-2026-AUTO",
+      "finding": "台積電公開精華之外的完整影音需要邀請，未宣稱取得受限投影片；GF AutoPro150 3 月公告與無日期現況頁分開記錄。"
+    }
+  ],
+  "performanceBoundaries": [
+    {
+      "platform": "GF 22FDX eMRAM（2020 公告版本）",
+      "values": "十萬次循環；−40°C 至 125°C 範圍的十年保持；五次回流焊；4–48 Mbit 矽驗證巨集。",
+      "conditions": "公告表示支援 Grade 2 設計；Grade 1 當時是開發目標。",
+      "sourceIds": [
+        "FND-GF-2020-MRAM"
+      ],
+      "limit": "不得把 4–48 Mbit 可選巨集範圍、壽命與保持指標當成任意組合皆保證；無完整測試矩陣。"
+    },
+    {
+      "platform": "GF FDX+ AutoPro150 eMRAM（2026）",
+      "values": "新聞稿：最高五十萬次循環、讀取低於 10 ns、最高 150°C；現行頁：超過五十萬次與 150°C 二十年保持。",
+      "conditions": "來源措辭不同，逐項保留；確切容量、ECC、失效率、讀寫條件須看設計套件。",
+      "sourceIds": [
+        "FND-GF-2026-AUTO",
+        "FND-GF-CURRENT-FDX"
+      ],
+      "limit": "讀取延遲不是寫入延遲；150°C 工作驗證與二十年資料保持屬不同指標。"
+    },
+    {
+      "platform": "GF 12LP／12LP+ MRAM",
+      "values": "本次未取得可完整追溯的 MRAM 巨集性能規格。",
+      "conditions": "12LP 為 FinFET 共同開發平台；12LP+ 官方文章屬車用布局。",
+      "sourceIds": [
+        "FND-EVERSPIN-12LP",
+        "FND-GF-2024-AUTO",
+        "FND-GF-2025-MCU"
+      ],
+      "limit": "不把 22FDX 數字或 12LP+ 邏輯效能改善移植為 MRAM 性能。"
+    },
+    {
+      "platform": "台積電 16FFC／第二代 16MRAM",
+      "values": "早期 16FFC：一百萬循環與回流焊；第二代 16MRAM：一百萬循環後晶片失效率低於 1 ppm。",
+      "conditions": "不同年報及代際陳述分開；第二代車規完成年為 2025。",
+      "sourceIds": [
+        "FND-TSMC-2023-AR",
+        "FND-TSMC-2025-AR"
+      ],
+      "limit": "公開摘要未揭露完整容量、溫度、ECC 與樣本分布；不能與單顆 MTJ 的寫入錯誤率直接比較。"
+    },
+    {
+      "platform": "台積電 22RRAM／N12e RRAM",
+      "values": "22RRAM 2025 完成十萬次循環資格；N12e 2025 完成供生產的消費級資格。",
+      "conditions": "高耐久選項、車規選項與消費級平台是不同資格範圍。",
+      "sourceIds": [
+        "FND-TSMC-2025-AR",
+        "FND-TSMC-2025-20F"
+      ],
+      "limit": "缺少完整巨集資料時，不替所有 RRAM 寫入一個共用 endurance 或 retention 數值。"
+    }
+  ],
+  "corrections": [
+    {
+      "issue": "把所有 16nm MRAM 的車規首次完成年寫成 2025",
+      "replacement": "16FFC 在 2023 年已有 Grade 1 完成紀錄；2024–2025 年另有較小位元與第二代 16MRAM 的車規里程碑。保留版本差異與尚缺巨集對照的限制。",
+      "sourceIds": [
+        "FND-TSMC-2023-AR",
+        "FND-TSMC-2024-AR",
+        "FND-TSMC-2025-AR"
+      ]
+    },
+    {
+      "issue": "把 2024 的 N12 RRAM 技術資格直接當成量產",
+      "replacement": "分列 2024 技術資格、2025 供生產的消費級資格，以及查核日產品頁確認大量生產；未鎖定唯一首次量產日期。",
+      "sourceIds": [
+        "FND-TSMC-2024-AR",
+        "FND-TSMC-2025-AR",
+        "FND-TSMC-CURRENT-NVM"
+      ]
+    },
+    {
+      "issue": "把 GF 22FDX+ RRAM 的 2026 目標寫成已完成",
+      "replacement": "2025 高峰會宣布原型供應與初步設計套件，2026 仍是本次可核實的目標；需後續完成公告。",
+      "sourceIds": [
+        "FND-GF-2025-RRAM"
+      ]
+    },
+    {
+      "issue": "把 GF 2020 CBRAM 合作與 2025 OxRAM 當成同一產品",
+      "replacement": "導電橋材料機制與氧化物電阻切換不可由共同的 RRAM 名稱合併；各自記錄合作、平台、版本與時程。",
+      "sourceIds": [
+        "FND-GF-2020-CBRAM",
+        "FND-GF-2025-RRAM"
+      ]
+    },
+    {
+      "issue": "將 12LP、12LP+ 與 22FDX 混稱同一個 MRAM 平台",
+      "replacement": "12LP／12LP+ 是 FinFET 系列；22FDX 是 FD-SOI。共同開發、應用宣傳與量產巨集資格分開舉證。",
+      "sourceIds": [
+        "FND-EVERSPIN-12LP",
+        "FND-GF-2024-AUTO",
+        "FND-GF-2020-MRAM"
+      ]
+    },
+    {
+      "issue": "認為新興 NVM 都尚未量產",
+      "replacement": "GF 22FDX MRAM 及台積電多個 MRAM／RRAM 節點已有生產證據；新節點、車規與高耐久變體仍需各自資格。",
+      "sourceIds": [
+        "FND-GF-2020-MRAM",
+        "FND-TSMC-CURRENT-NVM"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "FND-M01",
+      "year": 2020,
+      "foundry": "GF",
+      "technology": "MRAM",
+      "node": "22FDX（22nm FD-SOI）",
+      "stage": "量產",
+      "claim": "官方已宣告 eMRAM 進入生產。",
+      "sourceIds": [
+        "FND-GF-2020-MRAM"
+      ],
+      "limit": "作為 2022 年以前的量產基準；不是所有後續版本都在 2020 完成。"
+    },
+    {
+      "id": "FND-M02",
+      "year": 2022,
+      "foundry": "GF",
+      "technology": "MRAM",
+      "node": "22FDX／22FDX+",
+      "stage": "待確認",
+      "claim": "既有 22FDX 生產基準可追至 2020；2022 路線圖出現 MRAM-G2，但本次未證明其獨立資格或量產完成。",
+      "sourceIds": [
+        "FND-GF-2020-MRAM",
+        "FND-GF-2022-MAP"
+      ],
+      "limit": "不得將圖上的規畫功能全部標成已生產。"
+    },
+    {
+      "id": "FND-M03",
+      "year": 2022,
+      "foundry": "台積電",
+      "technology": "MRAM",
+      "node": "16FFC",
+      "stage": "具生產準備",
+      "claim": "完成可靠性驗證；一百萬次循環與回流焊能力；具生產準備，Grade 1 當時目標為 2023。",
+      "sourceIds": [
+        "FND-TSMC-2022-AR"
+      ],
+      "limit": "尚不等同當年完成車規或客戶大量出貨。"
+    },
+    {
+      "id": "FND-M04",
+      "year": 2022,
+      "foundry": "台積電",
+      "technology": "RRAM",
+      "node": "22ULL／28ULL",
+      "stage": "量產",
+      "claim": "數個客戶完成產品驗證並開始量產。",
+      "sourceIds": [
+        "FND-TSMC-2022-AR"
+      ],
+      "limit": "特定平台與客戶產品；不表示所有容量皆完成車規。"
+    },
+    {
+      "id": "FND-M05",
+      "year": 2023,
+      "foundry": "GF",
+      "technology": "MRAM",
+      "node": "22FDX／22FDX+；12LP 另列",
+      "stage": "待確認",
+      "claim": "平台圖持續顯示 MRAM 發展；12LP 有共同開發依據，沒有據此確認當年嵌入式 MRAM 大量生產。",
+      "sourceIds": [
+        "FND-GF-2023-MAP",
+        "FND-EVERSPIN-12LP"
+      ],
+      "limit": "獨立 STT-MRAM 產品代工與 GF 嵌入式巨集供應必須分開。"
+    },
+    {
+      "id": "FND-M06",
+      "year": 2023,
+      "foundry": "台積電",
+      "technology": "MRAM",
+      "node": "16FFC（當年製程服務章版本）",
+      "stage": "完成驗證",
+      "claim": "年報記錄通過 AEC-Q100 Grade 1 可靠性資格；原先 2022 的目標獲得後續完成證據。",
+      "sourceIds": [
+        "FND-TSMC-2023-AR",
+        "FND-TSMC-2024-BUS"
+      ],
+      "limit": "同年度研發章另描述消費級版本與下一代縮小位元；缺少精確巨集版本對照。"
+    },
+    {
+      "id": "FND-M07",
+      "year": 2023,
+      "foundry": "台積電",
+      "technology": "MRAM",
+      "node": "22nm；16nm 研發版本",
+      "stage": "量產",
+      "claim": "研發章明確記錄 22nm 消費級 MRAM 已量產，16nm 消費級技術資格完成，下一代較小位元持續開發。",
+      "sourceIds": [
+        "FND-TSMC-2023-AR"
+      ],
+      "limit": "此段 22nm 量產陳述不作首次量產年份的唯一證據；16nm 各版本不混為一談。"
+    },
+    {
+      "id": "FND-M08",
+      "year": 2023,
+      "foundry": "台積電",
+      "technology": "RRAM",
+      "node": "40／28／22nm；12nm",
+      "stage": "量產",
+      "claim": "40／28／22nm 已量產，12nm 與下一代仍在開發；22／28ULL 為第二年量產。",
+      "sourceIds": [
+        "FND-TSMC-2023-AR"
+      ],
+      "limit": "12nm 基礎邏輯平台量產不等於嵌入式 RRAM 量產。"
+    },
+    {
+      "id": "FND-M09",
+      "year": 2024,
+      "foundry": "GF",
+      "technology": "MRAM",
+      "node": "12LP+ AutoPro150（FinFET）",
+      "stage": "宣布",
+      "claim": "官方文章公開 eMRAM 部署方向與車用 MCU 用途。",
+      "sourceIds": [
+        "FND-GF-2024-AUTO"
+      ],
+      "limit": "沒有可核對的個別巨集驗證／量產完成時間；不可套用 22FDX 的 MRAM 數值。"
+    },
+    {
+      "id": "FND-M10",
+      "year": 2024,
+      "foundry": "台積電",
+      "technology": "MRAM",
+      "node": "更小、更省能的 16nm 位元；12／5nm",
+      "stage": "研發中",
+      "claim": "縮小位元的 16nm 車用資格目標為 2025；12nm、5nm 節點開始開發。",
+      "sourceIds": [
+        "FND-TSMC-2024-AR"
+      ],
+      "limit": "較早 16FFC Grade 1 於 2023 完成仍成立；不能把新版本目標誤稱整個節點延誤。"
+    },
+    {
+      "id": "FND-M11",
+      "year": 2024,
+      "foundry": "台積電",
+      "technology": "RRAM",
+      "node": "12nm；6nm",
+      "stage": "完成驗證",
+      "claim": "年報研發章稱完成 12nm 消費級技術資格，6nm 進入開發。",
+      "sourceIds": [
+        "FND-TSMC-2024-AR"
+      ],
+      "limit": "2025 年報又記錄供生產的消費級資格；兩條原文應並存，不自行指定唯一首次資格日。"
+    },
+    {
+      "id": "FND-M12",
+      "year": 2025,
+      "foundry": "GF",
+      "technology": "MRAM",
+      "node": "12LP+／22FDX",
+      "stage": "宣布",
+      "claim": "車用文章把兩平台 MRAM 列為支援 MCU 的技術。",
+      "sourceIds": [
+        "FND-GF-2025-MCU"
+      ],
+      "limit": "應用主張不能取代 12LP+ 巨集量產及品質文件。"
+    },
+    {
+      "id": "FND-M13",
+      "year": 2025,
+      "foundry": "GF",
+      "technology": "RRAM",
+      "node": "22FDX+ OxRAM",
+      "stage": "設計套件可用",
+      "claim": "技術高峰會宣布可供原型設計，初步巨集設計套件已可用；量產目標為 2026。",
+      "sourceIds": [
+        "FND-GF-2025-RRAM"
+      ],
+      "limit": "與 2020 Dialog CBRAM 的機制及版本不同；不當作舊計畫完成的證明。"
+    },
+    {
+      "id": "FND-M14",
+      "year": 2025,
+      "foundry": "台積電",
+      "technology": "MRAM",
+      "node": "第二代 16MRAM",
+      "stage": "完成驗證",
+      "claim": "通過車用 Grade 1；年報列一百萬次循環後晶片失效率低於 1 ppm。",
+      "sourceIds": [
+        "FND-TSMC-2025-AR",
+        "FND-TSMC-2025-20F",
+        "FND-TSMC-CURRENT-LOGIC"
+      ],
+      "limit": "限定第二代；不改寫較早 16FFC 於 2023 完成的紀錄。"
+    },
+    {
+      "id": "FND-M15",
+      "year": 2025,
+      "foundry": "台積電",
+      "technology": "RRAM",
+      "node": "N12e；22RRAM／22ULL",
+      "stage": "完成驗證",
+      "claim": "N12e 通過供生產的消費級資格；22RRAM 完成十萬次循環資格；22ULL RRAM 通過車用 Grade 1。",
+      "sourceIds": [
+        "FND-TSMC-2025-AR",
+        "FND-TSMC-2025-20F",
+        "FND-TSMC-CURRENT-LOGIC"
+      ],
+      "limit": "三個資格範圍分開；不能把十萬次循環與全部車規條件自動合成同一巨集承諾。"
+    },
+    {
+      "id": "FND-M16",
+      "year": 2026,
+      "foundry": "GF",
+      "technology": "MRAM",
+      "node": "FDX+ AutoPro150",
+      "stage": "設計套件可用",
+      "claim": "3 月公開 Grade 1 ready、PDK 可用及指定性能；德勒斯登量產目標為 2026 下半年。",
+      "sourceIds": [
+        "FND-GF-2026-AUTO",
+        "FND-GF-CURRENT-FDX"
+      ],
+      "limit": "截至 9 月 10 日本研究未取得新版本量產完成公告；不能因已進入下半年就標成量產。"
+    },
+    {
+      "id": "FND-M17",
+      "year": 2026,
+      "foundry": "GF",
+      "technology": "RRAM",
+      "node": "22FDX+ OxRAM",
+      "stage": "量產目標",
+      "claim": "沿用 2025 公告的 2026 量產目標；現行 FDX 頁持續介紹 RRAM。",
+      "sourceIds": [
+        "FND-GF-2025-RRAM",
+        "FND-GF-CURRENT-FDX"
+      ],
+      "limit": "本次未取得明確完成公告；產品頁列出功能不等於完成時間證據。"
+    },
+    {
+      "id": "FND-M18",
+      "year": 2026,
+      "foundry": "台積電",
+      "technology": "MRAM",
+      "node": "22／16nm；12nm 車用；5nm 高速",
+      "stage": "量產",
+      "claim": "查核日官方產品正文列 22／16nm 已完成車規並生產，12nm 車用與 5nm 高寫速版本開發中。",
+      "sourceIds": [
+        "FND-TSMC-CURRENT-NVM"
+      ],
+      "limit": "動態現況，不把 2026 當各平台首次量產年；未公布全部性能條件。"
+    },
+    {
+      "id": "FND-M19",
+      "year": 2026,
+      "foundry": "台積電",
+      "technology": "RRAM",
+      "node": "40／28／22／12nm；6nm",
+      "stage": "量產",
+      "claim": "查核日官方正文列 40／28／22／12nm 大量生產，6nm 開發中。",
+      "sourceIds": [
+        "FND-TSMC-CURRENT-NVM"
+      ],
+      "limit": "未查到公開一手完成證據前，不能自行加入 12nm 車規完成日或 6nm 量產日。"
+    }
+  ],
+  "takeaways": [
+    "16FFC 在 2023 年已有 Grade 1 完成紀錄；2024–2025 年另有較小位元與第二代 16MRAM 的車規里程碑。保留版本差異與尚缺巨集對照的限制。",
+    "分列 2024 技術資格、2025 供生產的消費級資格，以及查核日產品頁確認大量生產；未鎖定唯一首次量產日期。",
+    "2025 高峰會宣布原型供應與初步設計套件，2026 仍是本次可核實的目標；需後續完成公告。",
+    "導電橋材料機制與氧化物電阻切換不可由共同的 RRAM 名稱合併；各自記錄合作、平台、版本與時程。",
+    "12LP／12LP+ 是 FinFET 系列；22FDX 是 FD-SOI。共同開發、應用宣傳與量產巨集資格分開舉證。",
+    "GF 22FDX MRAM 及台積電多個 MRAM／RRAM 節點已有生產證據；新節點、車規與高耐久變體仍需各自資格。"
+  ]
+}

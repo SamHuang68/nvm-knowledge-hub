@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "1.0",
+  "revision": "2026-09-10",
+  "title": "NVM 技術全景",
+  "subtitle": "從位元單元，看懂資料如何留下來",
+  "audience": "有半導體背景、希望系統理解 NVM 元件與操作的讀者",
+  "pov": "NVM Knowledge Hub 的中立教學與公開來源研究",
+  "classification": "Public",
+  "intro": "先問資料存在哪個物理狀態，再看如何寫入、如何讀取，以及維持狀態需要付出什麼代價。這份全景把各家族平行展開：同一項技術可以已有量產產品，同時仍有新材料、新節點與新用途在研究。",
+  "scope": "涵蓋一次寫入、浮動閘極、電荷捕捉、磁性、電阻切換、相變與鐵電。SRAM、DRAM 作為揮發性比較基準；光碟、磁碟、遮罩式 ROM、EPROM 與其他研究候選不在本輪十五個技術專題範圍。",
+  "axes": [
+    {
+      "title": "儲存物理",
+      "body": "電荷、導電結構、磁化、離子分布、晶相與極化，決定基本寫讀機制。OTP／MTP 描述可更新方式；NOR／NAND 描述陣列組織，不能放在同一層互相排斥。"
+    },
+    {
+      "title": "商用成熟度",
+      "body": "量產、完成驗證、研究展示與開發規畫，綁定具名公司、節點、版本及應用。找到一種量產 MRAM，不能讓所有 SOT-MRAM 都取得同一成熟度。"
+    },
+    {
+      "title": "系統角色",
+      "body": "SCM 是填補記憶體與儲存落差的用途視角，並非另一種位元單元。用途、存取語意、斷電持久性與供應現況，必須分開說明。"
+    }
+  ],
+  "families": [
+    {
+      "id": "irreversible",
+      "title": "不可逆結構",
+      "state": "導電路徑斷開或建立",
+      "topics": [
+        "efuse",
+        "antifuse"
+      ]
+    },
+    {
+      "id": "charge",
+      "title": "電荷儲存",
+      "state": "電荷改變臨界電壓",
+      "topics": [
+        "eeprom",
+        "nor",
+        "sonos",
+        "nand"
+      ]
+    },
+    {
+      "id": "magnetic",
+      "title": "磁性",
+      "state": "磁化方向改變電阻",
+      "topics": [
+        "toggle",
+        "stt",
+        "sot"
+      ]
+    },
+    {
+      "id": "resistive",
+      "title": "電阻切換",
+      "state": "離子與缺陷改變導電",
+      "topics": [
+        "vcm",
+        "ecm"
+      ]
+    },
+    {
+      "id": "phase",
+      "title": "相變",
+      "state": "晶態與非晶態的電阻差",
+      "topics": [
+        "pcm"
+      ]
+    },
+    {
+      "id": "ferroelectric",
+      "title": "鐵電",
+      "state": "極化改變電荷或導電",
+      "topics": [
+        "feram",
+        "fefet",
+        "ftj"
+      ]
+    }
+  ],
+  "reading": [
+    {
+      "title": "先看全景",
+      "body": "用同一套欄位比較十五個技術，再用已量產或研究展示篩選具名案例。"
+    },
+    {
+      "title": "拆開位元單元",
+      "body": "進入任一專題，依序檢查儲存狀態、結構、操作、變異，以及單元、陣列、製程和系統四層限制。"
+    },
+    {
+      "title": "回到原始證據",
+      "body": "專利導讀提供代表圖與權利項入口；產品與論文資料支持具體數字，年度路線圖提供版本和時間脈絡。"
+    }
+  ],
+  "evidenceRules": [
+    "原廠揭露、規格書、論文、專利與編輯推論具有不同用途；來源類別不是由弱到強的成熟度階梯。",
+    "每個性能值必須帶著器件、容量、溫度、粒度、測試方式與來源。未公開的值保留缺口，不拼接其他實作的最佳數字。",
+    "專利只支持其文字揭露與權利項閱讀，不能單靠受讓人推論該公司量產製程採用相同結構。",
+    "天花板描述目前設計的主要約束與取捨；沒有足夠證據時，不把現有工程限制宣稱為永久物理極限。"
+  ],
+  "sources": [
+    {
+      "id": "INTRO-COURSE",
+      "label": "Shimeng Yu：第六講，新興 NVM 第一部分",
+      "url": "https://www.youtube.com/watch?v=_Ov2KUZTIv8",
+      "kind": "大學課程",
+      "locator": "2021 課程；比較表約 36:05–43:49，SCM 約 50:08，陣列約 1:00:04",
+      "date": "2021；查閱 2026-09-10",
+      "limit": "本頁獨立整理與重畫原理，未整套重製講義；自動字幕不能代替技術原文。"
+    },
+    {
+      "id": "INTRO-2016",
+      "label": "Yu 與 Chen：新興記憶體技術的近期趨勢與展望",
+      "url": "https://asu.elsevierpure.com/en/publications/emerging-memory-technologies-recent-trends-and-prospects",
+      "kind": "同儕審查綜述",
+      "locator": "IEEE 固態電路雜誌 8(2)，43–56；DOI 10.1109/MSSC.2016.2546199",
+      "date": "2016",
+      "limit": "歷史比較基線；2021 課程增補內容與 2026 商用現況另行辨識。"
+    },
+    {
+      "id": "INTRO-IRDS",
+      "label": "IEEE 2024 IRDS：超越 CMOS 與新興研究材料",
+      "url": "https://irds.ieee.org/images/files/pdf/2024/2024IRDS_BC.pdf",
+      "kind": "技術路線評估",
+      "locator": "第 2 節與第 2.5 節",
+      "date": "2024",
+      "limit": "技術評估與目標不是具名產品量產或共同量測條件下的排名。"
+    }
+  ],
+  "terminology": "課程中的 eNVM 指新興非揮發性記憶體（emerging NVM）；晶圓代工的 eNVM 通常指嵌入式非揮發性記憶體（embedded NVM）。兩者不能只看縮寫就當成同義詞。"
+}

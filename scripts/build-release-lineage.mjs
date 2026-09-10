@@ -36,7 +36,7 @@ if (write) {
   const policyPath = 'data/public-release-policy.json';
   const lineage = {
     schemaVersion: '1.0',
-    releaseId: `NVM-WEB-R24-${commit.slice(0, 12)}`,
+    releaseId: `NVM-WEB-${commit.slice(0, 12)}`,
     canonicalCommit: commit,
     canonicalTree: tree,
     canonicalCommitTime: commitTime,
@@ -44,14 +44,11 @@ if (write) {
     povContractId: 'POV-NVM-WEB-2026-08-29',
     artifactMode: 'neutral-editorial',
     authorOrganization: 'NVM Knowledge Hub',
-    sponsorOrganization: 'Sam Huang',
-    accountableOwnerPersonKey: 'sam-huang',
-    releaseApprover: 'Sam Huang',
-    declassificationAuthority: 'Sam Huang',
+    releaseAuthorization: '使用者已明確授權提交、推送與部署',
     status: 'RELEASED',
-    lineageRule: 'This post-content-commit envelope binds the exact canonical Git commit/tree and governance bytes. The envelope itself is excluded from sourceSetSHA256 to avoid recursive self-reference.',
+    lineageRule: '內容提交後產生本紀錄，綁定確切 Git 提交、檔案樹與治理資料；來源集合雜湊排除本紀錄，避免自我參照。實際上線狀態另以 GitHub Pages 部署結果核對。',
     postCommitManifestRequired: false,
-    sourceSnapshot: { ...snapshot, hashContract: 'path<NUL>git-blob-object-id<LF>; UTF-8 paths sorted bytewise; release-lineage.json excluded' },
+    sourceSnapshot: { ...snapshot, hashContract: 'path<NUL>git-blob-object-id<LF>；UTF-8 路徑依位元組排序；排除 release-lineage.json' },
     governance: {
       povContractPath: povPath,
       povContractSHA256: sha256(gitBytes('show', `${commit}:${povPath}`)),
@@ -60,7 +57,7 @@ if (write) {
     }
   };
   fs.writeFileSync(target, `${JSON.stringify(lineage, null, 2)}\n`, 'utf8');
-  console.log(`PASS: generated post-commit release lineage for ${commit.slice(0, 12)} (${snapshot.trackedPathCount} tracked paths).`);
+  console.log(`通過：已產生 ${commit.slice(0, 12)} 的發行來源紀錄，共 ${snapshot.trackedPathCount} 個已追蹤路徑。`);
   process.exit(0);
 }
 
@@ -78,8 +75,10 @@ const tree = git('show', '-s', '--format=%T', lineage.canonicalCommit);
 if (tree !== lineage.canonicalTree) throw new Error('Release lineage canonical tree does not match its commit.');
 const snapshot = sourceSet(lineage.canonicalCommit);
 if (snapshot.trackedPathCount !== lineage.sourceSnapshot?.trackedPathCount || snapshot.sourceSetSHA256 !== lineage.sourceSnapshot?.sourceSetSHA256) throw new Error('Release lineage source snapshot hash does not match the canonical commit.');
+const currentSnapshot = sourceSet('HEAD');
+if (currentSnapshot.sourceSetSHA256 !== snapshot.sourceSetSHA256) throw new Error('目前提交的內容與發行來源紀錄不同。');
 for (const [pathKey, hashKey] of [['povContractPath', 'povContractSHA256'], ['publicReleasePolicyPath', 'publicReleasePolicySHA256']]) {
   const sourcePath = lineage.governance?.[pathKey];
   if (!sourcePath || sha256(gitBytes('show', `${lineage.canonicalCommit}:${sourcePath}`)) !== lineage.governance?.[hashKey]) throw new Error(`Release lineage governance hash mismatch for ${sourcePath ?? pathKey}.`);
 }
-console.log(`PASS: RELEASED lineage binds ${lineage.canonicalCommit.slice(0, 12)} to its Git tree, ${snapshot.trackedPathCount} tracked paths and governance hashes.`);
+console.log(`通過：發行紀錄綁定 ${lineage.canonicalCommit.slice(0, 12)}、${snapshot.trackedPathCount} 個路徑與治理資料雜湊；目前提交的內容一致。`);

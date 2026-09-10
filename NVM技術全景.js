@@ -1,0 +1,115 @@
+document.documentElement.classList.add('nvm-enhanced');
+const panels = [...document.querySelectorAll('[data-nvm-panel]')];
+const contents = document.querySelector('.nvm-sidebar');
+const contentsButton = document.querySelector('#nvm-contents-toggle');
+const baseTitle = document.title;
+
+function showRoute({ focus = false } = {}) {
+  let target;
+  try { target = decodeURIComponent(location.hash.slice(1)) || 'panorama'; } catch { target = 'panorama'; }
+  const anchor = document.getElementById(target);
+  if (target === 'main-content') {
+    const current = panels.find(item => !item.hidden) || panels[0];
+    panels.forEach(item => { item.hidden = item !== current; });
+    const heading = current.querySelector('h2');
+    heading.setAttribute('tabindex', '-1');
+    heading.focus({ preventScroll: true });
+    heading.scrollIntoView({ block: 'start' });
+    return;
+  }
+  const panel = anchor?.matches('[data-nvm-panel]') ? anchor : anchor?.closest('[data-nvm-panel]');
+  const next = panel || document.getElementById('panorama');
+  panels.forEach(item => { item.hidden = item !== next; });
+  document.querySelectorAll('.nvm-sidebar a').forEach(link => {
+    if (link.hash === `#${next.id}`) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
+  });
+  document.title = next.id === 'panorama' ? baseTitle : `${next.querySelector('h2')?.textContent || 'NVM 專題'} · NVM Knowledge Hub`;
+  contents.classList.remove('open');
+  contentsButton.setAttribute('aria-expanded', 'false');
+  if (anchor?.closest('details')) anchor.closest('details').open = true;
+  if (focus) {
+    const destination = anchor || next;
+    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination;
+    heading?.setAttribute('tabindex', '-1');
+    heading?.focus({ preventScroll: true });
+    destination.scrollIntoView({ block: 'start' });
+  }
+}
+
+contentsButton.addEventListener('click', () => {
+  const open = contents.classList.toggle('open');
+  contentsButton.setAttribute('aria-expanded', String(open));
+});
+
+contents.addEventListener('click', event => {
+  const link = event.target.closest('a[href^="#"]');
+  if (link && link.hash === location.hash) {
+    event.preventDefault();
+    showRoute({ focus: true });
+  }
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && contents.classList.contains('open')) {
+    contents.classList.remove('open');
+    contentsButton.setAttribute('aria-expanded', 'false');
+    contentsButton.focus();
+  }
+});
+window.addEventListener('hashchange', () => showRoute({ focus: true }));
+showRoute({ focus: Boolean(location.hash) });
+
+document.querySelectorAll('[data-operation-widget]').forEach(widget => {
+  widget.querySelectorAll('[data-operation-detail]').forEach((item, index) => { item.hidden = index > 0; });
+  widget.querySelectorAll('[data-operation-select]').forEach(button => {
+    button.addEventListener('click', () => {
+      widget.querySelectorAll('[data-operation-select]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+      widget.querySelectorAll('[data-operation-detail]').forEach(item => { item.hidden = item.dataset.operationDetail !== button.dataset.operationSelect; });
+    });
+  });
+});
+
+const filters = [...document.querySelectorAll('[data-topic-filter]')];
+const rows = [...document.querySelectorAll('[data-topic-row]')];
+function filterTopics() {
+  const query = document.querySelector('#nvm-search').value.normalize('NFKC').toLocaleLowerCase().trim();
+  const family = document.querySelector('#nvm-family').value;
+  const stage = document.querySelector('#nvm-stage').value;
+  let count = 0;
+  rows.forEach(row => {
+    const match = (!query || row.dataset.search.normalize('NFKC').toLocaleLowerCase().includes(query)) && (!family || row.dataset.family === family) && (!stage || row.dataset.stage === stage);
+    row.hidden = !match;
+    if (match) count++;
+  });
+  document.querySelector('#nvm-count').textContent = `顯示 ${count}／${rows.length} 個技術專題`;
+  document.querySelector('#nvm-empty').hidden = count > 0;
+}
+filters.forEach(input => input.addEventListener(input.tagName === 'INPUT' ? 'input' : 'change', filterTopics));
+document.querySelector('#nvm-reset').addEventListener('click', () => { filters.forEach(input => { input.value = ''; }); filterTopics(); document.querySelector('#nvm-search').focus(); });
+filterTopics();
+
+const foundryFilter = document.querySelector('#nvm-foundry-filter');
+foundryFilter?.addEventListener('change', () => {
+  document.querySelectorAll('[data-foundry]').forEach(item => { item.hidden = Boolean(foundryFilter.value) && item.dataset.foundry !== foundryFilter.value; });
+});
+
+const sourceSearch = document.querySelector('#nvm-source-search');
+sourceSearch?.addEventListener('input', () => {
+  const query = sourceSearch.value.normalize('NFKC').toLocaleLowerCase().trim();
+  let count = 0;
+  document.querySelectorAll('[data-source-record]').forEach(item => {
+    item.hidden = Boolean(query) && !item.textContent.normalize('NFKC').toLocaleLowerCase().includes(query);
+    if (!item.hidden) count++;
+  });
+  document.querySelector('#nvm-source-count').textContent = `顯示 ${count} 筆來源`;
+});
+
+// 來源的深層連結需優先顯示目標，避免先前的搜尋條件隱藏它。
+window.addEventListener('hashchange', () => {
+  const id = location.hash.slice(1);
+  if (id.startsWith('source-') && sourceSearch.value) {
+    sourceSearch.value = '';
+    sourceSearch.dispatchEvent(new Event('input'));
+    showRoute({ focus: true });
+  }
+});

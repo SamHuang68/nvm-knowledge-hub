@@ -1,0 +1,850 @@
+{
+  "sources": [
+    {
+      "id": "CMP-YU2016",
+      "label": "Yu 與 Chen：新興記憶體技術的近期趨勢與展望",
+      "url": "https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf",
+      "kind": "原始技術綜論",
+      "locator": "IEEE Solid-State Circuits Magazine 8(2)，43–56；p44 表 1；DOI 10.1109/MSSC.2016.2546199",
+      "date": "2016",
+      "limit": "原表的新興技術欄只有 STT-MRAM、PCRAM 與 RRAM；代表值與單元層級能量不可直接視為現代產品保證。"
+    },
+    {
+      "id": "CMP-LECTURE2021",
+      "label": "Shimeng Yu：2021 年第 6 講比較表",
+      "url": "https://www.youtube.com/watch?v=_Ov2KUZTIv8&t=2165s",
+      "kind": "講者課程與提供之截圖",
+      "locator": "投影片 p14，日期 2021/11/1；影片比較段落 36:05–43:49；本表依原尺寸截圖逐格核對",
+      "date": "2021-11-01",
+      "limit": "課程引用並延伸 2016 年論文，新增 SOT-MRAM、FeRAM 與 FeFET；本網站保留其歷史值，不把它們標成 2026 年通用規格。"
+    },
+    {
+      "id": "CMP-FRAM-PRODUCT",
+      "label": "Infineon CY15B104QSN-108SXI 產品狀態",
+      "url": "https://www.infineon.com/part/CY15B104QSN-108SXI",
+      "kind": "供應商產品頁",
+      "locator": "產品狀態、4 Mb 容量與介面規格",
+      "date": "2026-09-10 查核",
+      "limit": "有效供應狀態屬指定料號；不能擴張到所有鐵電記憶體實作。"
+    },
+    {
+      "id": "CMP-FRAM-DS",
+      "label": "Infineon CY15B104QSN／CY15V104QSN 規格書",
+      "url": "https://www.infineon.com/dgdl/Infineon-CY15B104QSN_CY15V104QSN_4Mb_EXCELON_Ultra_Ferroelectric_RAM_F-RAM_Serial_quad_SPI_512K_8_108_MHz_industrial-DataSheet-v15_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ee59c446d71",
+      "kind": "產品規格書",
+      "locator": "002-18293 Rev. *N；p1 與 p105 表 63",
+      "date": "2024-07-25",
+      "limit": "151 年資料保持力限定 65°C；85°C 為 10 年。介面時脈不等於單元讀寫延遲。"
+    },
+    {
+      "id": "CMP-MRAM-PRODUCT",
+      "label": "Everspin MR25H40 產品及料號清單",
+      "url": "https://www.everspin.com/products/series/mr25h40",
+      "kind": "供應商產品頁",
+      "locator": "Toggle MRAM 技術欄、量產狀態與各溫度等級料號",
+      "date": "2026-09-10 查核",
+      "limit": "不同料號的供應狀態與溫度等級不同；Toggle MRAM 規格不代表 STT 或 SOT 實作。"
+    },
+    {
+      "id": "CMP-MRAM-DS",
+      "label": "Everspin MR20H40／MR25H40 規格書",
+      "url": "https://www.everspin.com/sites/default/files/EST00459_MR2xH40_Datasheet_Rev12.6_08092020.pdf",
+      "kind": "產品規格書",
+      "locator": "版本 12.6；p1 產品特徵及介面說明",
+      "date": "2020-08",
+      "limit": "不設讀寫次數上限是該產品的供應商規格用語，不是所有 MRAM 永不失效的物理定律。"
+    },
+    {
+      "id": "CMP-EVERSPIN2024",
+      "label": "Everspin 2024 年年度申報文件",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438423/000155837025001827/mram-20241231x10k.htm",
+      "kind": "公司法定申報文件",
+      "locator": "STT-MRAM 產品與出貨說明",
+      "date": "2025 年申報；2024 年度",
+      "limit": "支持 256 Mb 與 1 Gb STT-MRAM 的商業出貨；不能據此推定未列出的密度與技術均已量產。"
+    },
+    {
+      "id": "CMP-EVERSPIN2026",
+      "label": "Everspin 高可靠性 xSPI MRAM 量產認證進展",
+      "url": "https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb",
+      "kind": "供應商公告",
+      "locator": "64 Mb 完成認證及可訂購；128 Mb／256 Mb 的預期時程",
+      "date": "2026-03-05",
+      "limit": "只有已完成的里程碑可當完成證據；預計日期已過，不會自動證明計畫落實。"
+    },
+    {
+      "id": "CMP-RERAM-PRODUCT",
+      "label": "RAMXEED ReRAM 產品系列",
+      "url": "https://www.ramxeed.com/zh-tw/products/reram-products/",
+      "kind": "供應商產品頁",
+      "locator": "MB85AS8MT 與 MB85AS12MT 量產狀態欄",
+      "date": "2026-09-10 查核",
+      "limit": "8 Mb 列為量產中；12 Mb 要求洽詢，不能把規格書或送樣當作量產證據。"
+    },
+    {
+      "id": "CMP-RERAM-DS",
+      "label": "RAMXEED MB85AS8MT 規格書",
+      "url": "https://www.ramxeed.com/assets/images/products/datasheet/ReRAM/MB85AS8MT-DS2v2-E.pdf",
+      "kind": "產品規格書",
+      "locator": "DS501-00060-2v2-E；p8、p12–13、p17、p20",
+      "date": "2024",
+      "limit": "產品 tWC 包含內部非揮發性寫入流程，與研究單元切換脈衝不同；耐久性以每 4 位元組計。"
+    },
+    {
+      "id": "CMP-PCM-PRODUCT",
+      "label": "ST SR6P6C8 嵌入式 PCM 微控制器",
+      "url": "https://www.st.com/en/automotive-microcontrollers/sr6p6c8.html",
+      "kind": "供應商產品頁",
+      "locator": "頁首量產狀態、記憶體特徵、品質與可靠性料號表",
+      "date": "2026-09-10 查核",
+      "limit": "支持 SR6P6C8 及其列示料號已量產；不能延伸為全部 Stellar 或所有 PCM 實作的狀態。"
+    },
+    {
+      "id": "CMP-TSMC-STT2019",
+      "label": "TSMC 22 nm STT-MRAM 的回焊、汽車可靠性與效能選項",
+      "url": "https://research.tsmc.com/page/mram/1.html",
+      "kind": "原始研究的作者摘要",
+      "locator": "Gallagher 等，2019；20 Mb 設計與不同 MTJ 選項",
+      "date": "2019",
+      "limit": "6 ns 感測與稍高於 30 ns 寫入來自放棄回焊能力的效能選項，不能與另一高保持力選項合併。"
+    },
+    {
+      "id": "CMP-KIOXIA2026",
+      "label": "Kioxia／Sandisk 第 10 代 2 Tb QLC NAND 研究",
+      "url": "https://www.kioxia.com/en-jp/rd/technology/topics/topics-92.html",
+      "kind": "作者機構研究說明",
+      "locator": "ISSCC 2026；DOI 10.1109/ISSCC49663.2026.11409136；332 層與晶粒密度",
+      "date": "2026-07-15",
+      "limit": "晶粒的 Gb/mm² 與寫入吞吐量不能直接代換成單元 F² 或 SSD 主機效能；研究發表本身不證明全面量產。"
+    },
+    {
+      "id": "CMP-OPTANE-PERF",
+      "label": "Intel Optane P5800X 效能與測試條件",
+      "url": "https://edc.intel.com/content/www/us/en/products/performance/benchmarks/intel-optane-ssd-p5800x-series/",
+      "kind": "供應商系統量測",
+      "locator": "第 11、12 項；Xeon 8380、Ubuntu 20.04.2、FIO 3.16",
+      "date": "2021-03-18 測試",
+      "limit": "512 B 與 4 KB 隨機讀取的平均延遲；不是尾端延遲、單元切換時間或 2026 年新產品供貨證據。"
+    },
+    {
+      "id": "CMP-MICRON2021",
+      "label": "Micron 3D XPoint 與資料中心產品策略更新",
+      "url": "https://investors.micron.com/news/press-release/2021/Micron-Updates-Data-Center-Portfolio-Strategy-to-Address-Growing-Opportunity-for-Memory-and-Storage-Hierarchy-Innovation-03-16-2021/default.aspx",
+      "kind": "供應商公告",
+      "locator": "即刻停止 3D XPoint 開發與轉向 CXL 相關投資",
+      "date": "2021-03-16",
+      "limit": "支持開發停止，不等同所有既有產品同日停止製造或出貨。"
+    },
+    {
+      "id": "CMP-MICRON-CALL2021",
+      "label": "Micron 3D XPoint 策略更新法說稿",
+      "url": "https://investors.micron.com/static-files/c858cbb2-bfd2-4f84-ba10-f69b385cf4bf",
+      "kind": "公司法說文件",
+      "locator": "p4：履行產業承諾後停止製造",
+      "date": "2021-03-16",
+      "limit": "製造退出依既有承諾安排；不能由此推算每一料號的最後出貨日。"
+    },
+    {
+      "id": "CMP-MICRON-LEHI2021",
+      "label": "Micron 完成 Lehi 晶圓廠出售",
+      "url": "https://www.micron.com/about/blog/company/partners/sale-of-lehi-fab",
+      "kind": "供應商公告",
+      "locator": "交易完成日及 3D XPoint 生產背景",
+      "date": "2021-10-22 交易完成",
+      "limit": "工廠交易是獨立事件，不代表所有系統或售後支援同步結束。"
+    },
+    {
+      "id": "CMP-INTEL2023",
+      "label": "Intel Optane 客戶信",
+      "url": "https://cdrdv2-public.intel.com/774331/IOG-DCL-March%202023.pdf",
+      "kind": "供應商生命週期公告",
+      "locator": "2022 年 7 月停止後續開發；庫存與售後支援說明",
+      "date": "2023-03-21",
+      "limit": "可供應至 2025 年是當時依需求而定的庫存預估；支援資源至 2030 年不是持續製造承諾。"
+    },
+    {
+      "id": "CMP-SNIA-PM",
+      "label": "SNIA 持久性記憶體定義",
+      "url": "https://www.snia.org/education/what-is-persistent-memory",
+      "kind": "產業組織技術說明",
+      "locator": "非揮發性、位元組定址、低延遲與 CXL 接入",
+      "date": "2026-09-10 查核",
+      "limit": "持久性記憶體的定義與用途有其語境；SCM 在不同年代的用法不完全一致。"
+    },
+    {
+      "id": "CMP-CXL2022",
+      "label": "CXL 3.0 規格",
+      "url": "https://computeexpresslink.org/wp-content/uploads/2024/02/CXL-3.0-Specification.pdf",
+      "kind": "原始規格",
+      "locator": "版本 3.0，p636：揮發性與持久性記憶體範圍旗標",
+      "date": "2022-08-01",
+      "limit": "協定支持持久性不代表每個 CXL 裝置都有持久性媒體或同一故障保護範圍。"
+    },
+    {
+      "id": "CMP-CXL-FAQ2021",
+      "label": "CXL 聯盟持久性記憶體研討會問答",
+      "url": "https://computeexpresslink.org/blog/questions-from-the-compute-express-link-cxl-supporting-persistent-memory-webinar-2407/",
+      "kind": "規格組織技術問答",
+      "locator": "CXL.mem、多種媒體、控制器與裝置形式",
+      "date": "2021-07-27",
+      "limit": "支持媒體與接入方式分開理解；文內概念不保證特定產品具備所有選配能力。"
+    },
+    {
+      "id": "CMP-SAMSUNG-CMM",
+      "label": "Samsung CXL 記憶體與 CMM-D",
+      "url": "https://semiconductor.samsung.com/cxl-memory/",
+      "kind": "供應商產品技術說明",
+      "locator": "CMM-D 名稱及 DRAM 媒體；CXL 介面",
+      "date": "2026-09-10 查核",
+      "limit": "DRAM 記憶體擴充與共用能力不等於斷電保存能力。"
+    },
+    {
+      "id": "CMP-CXL2026",
+      "label": "CXL 持久性記憶體中的 DRAM、NAND 與備援能源",
+      "url": "https://computeexpresslink.org/blog/from-nvdimm-n-to-cxl-persistent-memory-bringing-persistence-to-the-memory-fabric-4635/",
+      "kind": "CXL 聯盟刊載的成員技術說明",
+      "locator": "Netlist：NVDIMM-N 與 CXL 保存／還原架構",
+      "date": "2026-05-25",
+      "limit": "屬架構說明，不直接證明特定 CXL 持久性產品已量產；DRAM 單元本身仍為揮發性。"
+    },
+    {
+      "id": "CMP-IBM-SELECTOR2017",
+      "label": "IBM：記憶體選擇元件與交叉陣列設計",
+      "url": "https://research.ibm.com/publications/memory-selector-devices-and-crossbar-array-design-a-modeling-based-assessment",
+      "kind": "作者機構研究摘要",
+      "locator": "An Chen；二端選擇器的非線性、整流與陣列取捨",
+      "date": "2017-09-02",
+      "limit": "不同選擇器的能力必須配合儲存元件及陣列條件，不能用單一非線性比推論完整系統可行性。"
+    },
+    {
+      "id": "CMP-IBM-ARRAY2014",
+      "label": "IBM：含 MIEC 選擇器的電阻記憶體陣列設計空間",
+      "url": "https://research.ibm.com/publications/exploring-the-design-space-for-resistive-nonvolatile-memory-crossbar-arrays-with-mixed-ionic-electronic-conduction-miec-based-access-devices",
+      "kind": "原始研究的作者摘要",
+      "locator": "DRC 2014；選擇器漏電、寫入功耗、導線電阻與陣列尺寸",
+      "date": "2014-06-22",
+      "limit": "該研究為特定 MIEC 選擇器與電路模擬；用來示範取捨，不能推定所有交叉陣列由同一因素限制。"
+    },
+    {
+      "id": "CMP-NIST-VERIFY2017",
+      "label": "NIST：RRAM 讀取波動對寫入驗證的影響",
+      "url": "https://www.nist.gov/publications/impact-rram-read-fluctuations-program-verify-approach",
+      "kind": "原始研究的作者機構頁",
+      "locator": "Nminibapiel 等；IEEE Electron Device Letters；假讀取與分布尾端",
+      "date": "2017-05-22",
+      "limit": "特定氧化物 RRAM 實驗顯示驗證也可能被讀取波動誤導；不能推論所有寫入驗證方法無效。"
+    },
+    {
+      "id": "CMP-IBM-PCM2020",
+      "label": "IBM：PCM 閉迴路編程的精度限制",
+      "url": "https://research.ibm.com/publications/precision-of-synaptic-weights-programmed-in-phase-change-memory-devices-for-deep-learning-inference",
+      "kind": "原始研究的作者摘要",
+      "locator": "IEDM 2020；超過 1,000 個 PCM 元件的陣列實驗",
+      "date": "2020-12-12",
+      "limit": "類比權重編程的讀取雜訊與漂移結果，不能直接當作所有數位 PCM 的產品規格。"
+    },
+    {
+      "id": "CMP-TSMC-ECC2023",
+      "label": "TSMC／合作作者：RRAM 巨集的讀取補償與 ECC",
+      "url": "https://research.tsmc.com/page/artificial-intelligence/3.html",
+      "kind": "原始研究的作者摘要",
+      "locator": "2023 年 40 nm RRAM 運算巨集；偏移、漏電、IR 壓降與校正後錯誤率",
+      "date": "2023",
+      "limit": "運算巨集展示可說明周邊與校正的重要性；其中運算效率與錯誤率不代表所有儲存型 RRAM。"
+    },
+    {
+      "id": "CMP-PMDK",
+      "label": "PMDK libpmem 的持久化操作說明",
+      "url": "https://pmem.io/pmdk/libpmem/",
+      "kind": "軟體專案原始文件",
+      "locator": "持久化的快取清除與硬體緩衝排空；平台差異",
+      "date": "2026-09-10 查核",
+      "limit": "作為持久化語意的教學例子；實作仍須依平台與相應版本選擇正確 API，不能視為通用處理器指令流程。"
+    },
+    {
+      "id": "CMP-SNIA-ATOMICS2017",
+      "label": "SNIA：持久性記憶體的原子性與交易",
+      "url": "https://www.snia.org/sites/default/files/technical-work/whitepapers/SNIA-Persistent-Memory-Atomics-Transactions-WP.pdf",
+      "kind": "產業組織技術白皮書",
+      "locator": "p14 等：清除順序、鏈結資料結構與故障原子性",
+      "date": "2017-01-10",
+      "limit": "範例中的原子寫入粒度屬所假定機器架構；持久化與交易原子性不可混為一談。"
+    },
+    {
+      "id": "CMP-SNIA-NPM",
+      "label": "SNIA NVM 程式設計模型",
+      "url": "https://www.snia.org/sites/default/files/technical-work/npm/release/SNIA-NVM-Programming-Model-v1.pdf",
+      "kind": "原始技術規範",
+      "locator": "版本 1；第 10.2.4 節與 p59：同步、持久性範圍及原子性界線",
+      "date": "版本 1；歷史規範",
+      "limit": "用於基本語意與概念沿革；不是聲稱此版本為 2026 年最新實作規範。"
+    }
+  ],
+  "historicalTable": {
+    "intro": "這是依 2021 年 11 月 1 日課程第 14 頁截圖重製的歷史比較表。該頁引用 Yu 與 Chen 的 2016 年論文，並加入 SOT-MRAM、FeRAM、FeFET 及若干數值更新，因此整表不能稱為「2016 年原表」。以下保留課程數字，作為學習比較方法的基線；它們不是 2026 年各家族的統一產品規格。F 為課程所採用的微影特徵尺寸，能量是單元層級估算，原表並稱數字是代表值，不是最佳或最差值。",
+    "columns": [
+      "SRAM",
+      "DRAM",
+      "NOR Flash",
+      "NAND Flash",
+      "PCM",
+      "RRAM",
+      "STT-MRAM",
+      "SOT-MRAM",
+      "FeRAM",
+      "FeFET"
+    ],
+    "rows": [
+      {
+        "metric": "單元面積",
+        "values": [
+          ">150 F²",
+          "6 F²",
+          "10 F²",
+          "<4 F²（3D）",
+          "4–50 F²",
+          "4–50 F²",
+          "6–50 F²",
+          "12–100 F²",
+          "6–50 F²",
+          "6–50 F²"
+        ],
+        "note": "保留課程的面積表示法。原頁另稱 PCM、RRAM、FeFET 可能透過 3D 整合達到低於 4 F²；這不是同一製程下實體單元、有效位元面積與完整晶粒密度的嚴格等價比較。"
+      },
+      {
+        "metric": "每單元位元數",
+        "values": [
+          "1",
+          "1",
+          "2",
+          "3–4",
+          "2–3",
+          "2–3",
+          "1",
+          "1",
+          "1",
+          "2–3"
+        ],
+        "note": "保留課程代表值。多位元研究展示不等於指定產品在溫度、耐久與保持條件下的可用位元數。"
+      },
+      {
+        "metric": "操作電壓",
+        "values": [
+          "<1 V",
+          "<1 V",
+          ">10 V",
+          ">10 V",
+          "<3 V",
+          "<3 V",
+          "<1 V",
+          "<1 V",
+          "<2 V",
+          "<3 V"
+        ],
+        "note": "課程未逐格區分供電、讀取、寫入、成形或內部升壓；新版產品比較必須拆欄，不能直接與料號的 VDD 比較。"
+      },
+      {
+        "metric": "讀取時間",
+        "values": [
+          "約 1 ns",
+          "約 10 ns",
+          "約 50 ns",
+          "約 10 µs",
+          "<10 ns",
+          "<10 ns",
+          "<10 ns",
+          "約 1 ns",
+          "<100 ns",
+          "<50 ns"
+        ],
+        "note": "此為課程的代表尺度；未綁定相同容量、周邊電路、感測方法與介面完成點。"
+      },
+      {
+        "metric": "寫入時間",
+        "values": [
+          "約 1 ns",
+          "約 10 ns",
+          "10 µs–1 ms",
+          "100 µs–1 ms",
+          "約 50 ns",
+          "<100 ns",
+          "<20 ns",
+          "<3 ns",
+          "<100 ns",
+          "<100 ns"
+        ],
+        "note": "新版比較須另列擦除、SET／RESET、脈衝、驗證與重試，以及資料進入緩衝器後直到非揮發性寫入完成的總時間。"
+      },
+      {
+        "metric": "資料保持力",
+        "values": [
+          "不適用",
+          "約 64 ms",
+          ">10 年",
+          ">10 年",
+          ">10 年",
+          ">10 年",
+          ">1 年",
+          ">1 年",
+          ">10 年",
+          ">1 年"
+        ],
+        "note": "原表未列逐項溫度、已經歷循環與外推條件。SRAM 需要供電；DRAM 的動態儲存／重新整理尺度與 NVM 的斷電保持不是同一保證。"
+      },
+      {
+        "metric": "耐久性",
+        "values": [
+          ">10¹⁶ 次",
+          ">10¹⁶ 次",
+          "約 10⁵ 次",
+          "10³–10⁴ 次",
+          "10⁶–10⁹ 次",
+          "10³–10⁹ 次",
+          "10⁶–10¹⁴ 次",
+          "約 10¹² 次",
+          "10⁹–10¹² 次",
+          "10⁶–10⁹ 次"
+        ],
+        "note": "逐格保留歷史範圍。來源未統一位元／頁／區塊粒度、讀寫循環定義、錯誤門檻、ECC、溫度與保持測試。"
+      },
+      {
+        "metric": "寫入能量",
+        "values": [
+          "約 fJ 級／位元",
+          "約 10 fJ／位元",
+          "100 pJ／位元",
+          "約 10 fJ／位元",
+          "約 10 pJ／位元",
+          "約 pJ 級／位元",
+          "約 pJ 級／位元",
+          "約 pJ 級／位元",
+          "約 100 fJ／位元",
+          "約 fJ 級／位元"
+        ],
+        "note": "原頁明確限定為單元層級，未包含完整陣列周邊。fJ 為 10⁻¹⁵ J，pJ 為 10⁻¹² J；未寫數字的項目保留為能量量級，不補造精確值。"
+      }
+    ],
+    "corrections": [
+      {
+        "old": "把課程截圖的全部技術與數字當成 2016 年原文表 1。",
+        "current": "2016 年原文的新興技術欄只有 STT-MRAM、PCRAM、RRAM；2021 年課程新增 SOT-MRAM、FeRAM 與 FeFET。",
+        "reason": "應區分原論文與講者後續增補，讓來源沿革可追溯。",
+        "sourceIds": [
+          "CMP-YU2016",
+          "CMP-LECTURE2021"
+        ]
+      },
+      {
+        "old": "認為 2016 年與 2021 年表格數字完全一致。",
+        "current": "三個已核對差異：SRAM 面積由 >100 F² 變為 >150 F²；NAND 每單元位元數由 3 變為 3–4；STT-MRAM 耐久性由 >10¹⁵ 變為 10⁶–10¹⁴ 次。",
+        "reason": "差異證明課程表已有更新，但不表示某一年代表值可當成全家族的保證。",
+        "sourceIds": [
+          "CMP-YU2016",
+          "CMP-LECTURE2021"
+        ]
+      },
+      {
+        "old": "以「新興記憶體」統稱 FeRAM、MRAM、ReRAM、PCM，因而推定它們都尚未量產。",
+        "current": "截至 2026-09-10，這些家族都有可核對的商用品或量產實作：CY15B104QSN、MR25H40／Everspin STT-MRAM、MB85AS8MT、ST SR6P6C8。",
+        "reason": "成熟度應綁定子技術、材料、製程與具體料號，不能只按家族名稱分類。",
+        "sourceIds": [
+          "CMP-FRAM-PRODUCT",
+          "CMP-MRAM-PRODUCT",
+          "CMP-EVERSPIN2024",
+          "CMP-RERAM-PRODUCT",
+          "CMP-PCM-PRODUCT"
+        ]
+      },
+      {
+        "old": "某個單元有奈秒級脈衝，就把整顆產品寫入也標成奈秒。",
+        "current": "單元切換、陣列感測、巨集完成與主機可見延遲要分開。MB85AS8MT 的產品 tWC 為典型 5 ms、最大 10 ms，並需要確認寫入完成狀態。",
+        "reason": "資料暫存、內部編程與控制流程都可能增加時間。",
+        "sourceIds": [
+          "CMP-RERAM-DS",
+          "CMP-OPTANE-PERF"
+        ]
+      },
+      {
+        "old": "40 MHz SPI 等於整個讀寫交易只需 25 ns。",
+        "current": "25 ns 是時脈週期；完整交易還包含指令、位址、資料傳輸與可能的內部寫入等待。",
+        "reason": "頻率描述傳輸節拍，延遲描述完成一件事需要多久。",
+        "sourceIds": [
+          "CMP-MRAM-DS",
+          "CMP-RERAM-DS"
+        ]
+      },
+      {
+        "old": "把「151 年保持」與「10 年保持」當成不帶條件的家族特性。",
+        "current": "CY15B104QSN 的 151 年限定 65°C；75°C 為 38 年，85°C 為 10 年。保持力還須配合指定循環與測試條件。",
+        "reason": "溫度與使用歷史會改變資料狀態的失效機率，不能只比較年數。",
+        "sourceIds": [
+          "CMP-FRAM-DS"
+        ]
+      },
+      {
+        "old": "把低於 4 F²、332 層與 37.6 Gb/mm² 視為同一種密度指標。",
+        "current": "分開記錄實體單元占地、層數、每單元位元數、陣列效率與完整晶粒位元密度。",
+        "reason": "3D 堆疊與多位元會改變有效位元密度，周邊、備援及 ECC 也占面積。",
+        "sourceIds": [
+          "CMP-LECTURE2021",
+          "CMP-KIOXIA2026"
+        ]
+      },
+      {
+        "old": "依單元 fJ／位元數字直接判定產品或系統最省電。",
+        "current": "單元脈衝、導線充放電、選擇器漏電、電荷幫浦、驗證、ECC 與介面能量應分層比較。",
+        "reason": "低單元能量不保證大陣列或低利用率工作負載有同樣優勢。",
+        "sourceIds": [
+          "CMP-LECTURE2021",
+          "CMP-IBM-ARRAY2014",
+          "CMP-TSMC-ECC2023"
+        ]
+      },
+      {
+        "old": "把「已量產／新興／SCM」當成三種互斥的 bitcell 類別。",
+        "current": "已量產是成熟度，新興是發展階段或文獻慣稱，SCM 是記憶體與儲存階層中的系統定位。",
+        "reason": "同一種儲存物理可以有不同成熟度與用途；分類軸需要分開。",
+        "sourceIds": [
+          "CMP-YU2016",
+          "CMP-SNIA-PM",
+          "CMP-CXL-FAQ2021"
+        ]
+      },
+      {
+        "old": "只要裝置採用 CXL，就會在斷電後保留資料。",
+        "current": "CXL 可承載揮發性或持久性記憶體；Samsung CMM-D 是 DRAM。持久性必須由媒體、備援能源與平台語意共同確認。",
+        "reason": "互連協定不是儲存物理，也不自動保證故障後復原。",
+        "sourceIds": [
+          "CMP-CXL2022",
+          "CMP-SAMSUNG-CMM",
+          "CMP-CXL2026"
+        ]
+      },
+      {
+        "old": "把 Optane 的歷史商業成功實作描述成仍持續投入新產品的主流 SCM 路線。",
+        "current": "Micron 於 2021-03-16 停止 3D XPoint 開發；Intel 於 2022 年 7 月停止 Optane 後續開發。2023 年信中的庫存預估與售後支援應另列。",
+        "reason": "開發、製造、庫存出貨、保固和售後支援是不同的生命週期事件。",
+        "sourceIds": [
+          "CMP-MICRON2021",
+          "CMP-MICRON-CALL2021",
+          "CMP-INTEL2023"
+        ]
+      }
+    ]
+  },
+  "benchmarks": [
+    {
+      "id": "CMP-BENCH-FRAM",
+      "technology": "FeRAM／F-RAM",
+      "implementation": "Infineon CY15B104QSN，4 Mb EXCELON Ultra F-RAM",
+      "level": "完整產品",
+      "values": [
+        "最高 108 MHz SDR 或 54 MHz DDR",
+        "耐久性 10¹⁴ 次讀寫",
+        "資料保持力：85°C 為 10 年、75°C 為 38 年、65°C 為 151 年"
+      ],
+      "conditions": [
+        "規格書 002-18293 Rev. *N，2024-07-25，表 63。",
+        "耐久性表列工作溫度範圍內的規格；保持年數必須和各自溫度成對引用。",
+        "MHz 是介面時脈，不能反推完整指令只需一個週期。"
+      ],
+      "lesson": "先比測試條件，再比數字。「151 年」若拿掉 65°C，就會改變規格的原意。",
+      "sourceIds": [
+        "CMP-FRAM-DS",
+        "CMP-FRAM-PRODUCT"
+      ]
+    },
+    {
+      "id": "CMP-BENCH-TOGGLE",
+      "technology": "Toggle MRAM",
+      "implementation": "Everspin MR25H40，4 Mb SPI MRAM",
+      "level": "完整產品",
+      "values": [
+        "SPI 最高 40 MHz",
+        "供電 3.0–3.6 V",
+        "資料保持超過 20 年",
+        "供應商規格列不設讀寫次數上限"
+      ],
+      "conditions": [
+        "MR2xH40 規格書版本 12.6，2020-08；本例使用 MR25H40 的 40 MHz，不套用 MR20H40 的 50 MHz。",
+        "產品有不同溫度等級與料號，設計時須選擇對應版本。",
+        "不設次數上限是產品規格描述；不是磁性材料與介電層在任何條件下永不老化。"
+      ],
+      "lesson": "同一家族內也要辨認寫入機制；Toggle 的規格不能用來代表 STT 或 SOT。",
+      "sourceIds": [
+        "CMP-MRAM-DS",
+        "CMP-MRAM-PRODUCT"
+      ]
+    },
+    {
+      "id": "CMP-BENCH-RERAM",
+      "technology": "氧化物 ReRAM",
+      "implementation": "RAMXEED MB85AS8MT，8 Mb SPI ReRAM",
+      "level": "完整產品",
+      "values": [
+        "SPI 最高 10 MHz",
+        "85°C 下耐久性 10⁶ 次／4 位元組",
+        "85°C 下資料保持力 10 年",
+        "寫入週期 tWC：典型 5,000 µs，最大 10,000 µs"
+      ],
+      "conditions": [
+        "規格書 DS501-00060-2v2-E，p17 的 tWC 條件為資料全部翻轉。",
+        "一次最多先接收 256 位元組至資料暫存器；CS 上升後開始內部非揮發性寫入。",
+        "內部寫入期間需透過狀態暫存器的 WIP 確認完成；10 MHz 不是非揮發性寫入速度。",
+        "耐久與保持條件見 p20；每 4 位元組的粒度不能省略。"
+      ],
+      "lesson": "研究單元可能以 ns 脈衝切換，商用品的總寫入流程卻可能以 ms 計；兩者描述的是不同層級。",
+      "sourceIds": [
+        "CMP-RERAM-DS",
+        "CMP-RERAM-PRODUCT"
+      ]
+    },
+    {
+      "id": "CMP-BENCH-STT",
+      "technology": "STT-MRAM",
+      "implementation": "TSMC 22 nm 嵌入式 STT-MRAM 的 20 Mb 研究設計與效能選項",
+      "level": "陣列／研究設計",
+      "values": [
+        "125°C 感測訊號建立時間 6 ns",
+        "−40°C 平均寫入脈衝時間稍高於 30 ns"
+      ],
+      "conditions": [
+        "Gallagher 等，2019 年研究摘要。",
+        "這組效能來自較小 MTJ、放棄回焊保持能力的選項。",
+        "同篇文章還討論較高回焊與保持能力的選項，兩組條件不能合併成同一實作。",
+        "感測訊號建立與平均寫入脈衝均不是 CPU 可見完整存取延遲。"
+      ],
+      "lesson": "最有價值的比較往往是同一研究中清楚呈現的取捨，而不是跨論文挑選最佳值。",
+      "sourceIds": [
+        "CMP-TSMC-STT2019"
+      ]
+    },
+    {
+      "id": "CMP-BENCH-NAND",
+      "technology": "3D NAND／QLC",
+      "implementation": "Kioxia／Sandisk 第 10 代 2 Tb、每單元 4 位元 BiCS FLASH",
+      "level": "ISSCC 2026 晶粒展示",
+      "values": [
+        "每單元 4 位元",
+        "332 層字線",
+        "晶粒位元密度 37.6 Gb/mm²",
+        "寫入吞吐量超過 85 MB/s"
+      ],
+      "conditions": [
+        "Kioxia 2026-07-15 研究說明對應 ISSCC 2026 論文。",
+        "容量為該顆 2 Tb 晶粒，密度以晶粒面積為分母。",
+        "寫入吞吐量描述該記憶體晶片，並非任意 SSD 的主機端寫入表現。",
+        "研究發表不直接證明整個同代產品系列均已量產。"
+      ],
+      "lesson": "3D 密度要同時看層數、每單元位元數與周邊效率；只看 F² 會漏掉主要成本來源。",
+      "sourceIds": [
+        "CMP-KIOXIA2026"
+      ]
+    },
+    {
+      "id": "CMP-BENCH-OPTANE",
+      "technology": "3D XPoint／Optane",
+      "implementation": "Intel Optane SSD P5800X，歷史產品平台量測",
+      "level": "完整 SSD 與主機平台",
+      "values": [
+        "512 B 隨機讀取平均延遲 3.5 µs",
+        "4 KB 隨機讀取平均延遲低於 6 µs"
+      ],
+      "conditions": [
+        "Intel 測試日期 2021-03-18。",
+        "平台含雙路 Xeon Platinum 8380、512 GB DDR4、Ubuntu 20.04.2 與 FIO 3.16；完整細節見來源第 11、12 項。",
+        "512 B 與 4 KB 為不同測試粒度；平均值不是尾端延遲。",
+        "作為歷史系統層案例，不代表 2026 年的新產品供應狀態。"
+      ],
+      "lesson": "使用者感受到的延遲還包含控制器、介面與平台；不能把 SSD 的 µs 與單元的 ns 直接排列高下。",
+      "sourceIds": [
+        "CMP-OPTANE-PERF",
+        "CMP-INTEL2023"
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "id": "array",
+      "title": "從一個位元到完整陣列：選擇、感測與寫入驗證",
+      "summary": "能把一個元件切換兩次，只證明有可用的儲存狀態。真正的記憶體還必須從大量單元中只選到目標、避免改變鄰居，並在溫度、老化與製程變異下正確讀出資料。選擇器、導線與周邊電路因此決定了單元優勢能保留多少。",
+      "sections": [
+        {
+          "title": "一個儲存元件，還不是一顆記憶體",
+          "body": "以電阻式單元為例，資料可能由高阻與低阻狀態表示，但外部位址不會直接指定一條實驗探針。陣列先由列解碼器與欄解碼器選出目標，再透過字線、位元線及選擇元件建立電流路徑。讀取電路把有限的電流或電壓差轉成數位資料，控制器則安排讀取、寫入與錯誤處理。\n\n這條路徑讓「單元切換時間」與「完整存取時間」有不同意義。前者可能只記錄材料狀態改變所需的脈衝，後者還包含解碼、導線充放電、感測、驗證與資料傳輸。因此，閱讀任何性能數字的第一步，都是確認量測的起點與完成點。"
+        },
+        {
+          "title": "1T1R：用電晶體選擇，也為寫入提供控制",
+          "body": "1T1R 由一個存取電晶體和一個電阻式儲存元件構成。電晶體的閘極提供獨立控制端，可將未選單元隔離；在合適的電路設計中，也可限制成形或寫入電流，避免電阻切換過度。讀取時，選通目標路徑，施加較低偏壓，再由感測電路判斷狀態。\n\n代價是電晶體占面積，而且寫入所需的電流與電壓會影響電晶體尺寸及耐壓需求。把儲存材料做得更小，不代表整個單元能按相同比例縮小。這也是為什麼同為一個電阻儲存元件，有的論文報很小的元件面積，實際 1T1R 陣列占地卻大得多。"
+        },
+        {
+          "title": "1S1R 與交叉陣列：密度取決於是否能關住旁路",
+          "body": "1S1R 把一個二端選擇元件與一個儲存元件串接。選擇元件可以具有強非線性、整流或臨界切換特性，使低偏壓下的電流很小，而目標偏壓下能提供足夠讀寫電流。二端結構適合放在交叉導線的交點，也為垂直堆疊提供機會。選擇元件即使是揮發性的，也不妨礙串接的儲存元件保留資料；兩者的工作不同。\n\n沒有足夠隔離時，電流可能繞過其他低阻單元形成寄生路徑，淹沒目標讀取訊號或改變寫入條件。但加入選擇器也會占用電壓裕度、產生漏電與變異。IBM 的陣列研究顯示，選擇器與儲存元件必須連同導線、操作偏壓及陣列大小一起評估；非線性比很高，並不等於任何規模都可工作。部分元件具自身整流或選擇能力，則需另外證明其陣列條件。"
+        },
+        {
+          "title": "半選偏壓：目標之外的單元也會承受壓力",
+          "body": "以理想化的 V/2 配置說明：把選中字線設為 V，選中位元線設為 0，其餘字線與位元線設為 V/2。目標交點承受 V；與目標共用一條選中導線的單元承受約 V/2；其餘單元在理想導線下沒有電位差。這些只被選中一端的單元稱為半選單元。\n\n半選電壓即使不足以在一次脈衝中切換，也可能因反覆施加而造成累積擾動。真實陣列還有導線壓降與選擇器分壓，遠端單元收到的實際電壓未必等於驅動器設定值。V/2 因而是一種需要驗證的偏壓策略，不是跨材料、跨極性都有效的通用解方。"
+        },
+        {
+          "title": "感測裕度看分布尾端，不能只看平均高低阻",
+          "body": "感測電路比較單元訊號與參考值。即使平均低阻和高阻相差很大，少數單元仍可能因製程、溫度、讀取雜訊或寫入歷史靠近判斷界線。當陣列包含大量位元，這些分布尾端比「一顆好元件的典型曲線」更能決定產品良率。\n\n降低讀取偏壓通常有助於降低擾動，但也可能使訊號變小、需要更長建立時間或更精確的感測器。實際巨集會採用參考追蹤、偏移補償與導線壓降處理。TSMC 與合作作者的 40 nm RRAM 巨集研究，就把讀取通道不匹配、漏電、ADC 偏移、IR 壓降及單元變異列為共同處理的問題；元件本身的阻值比不能代替這些電路證據。"
+        },
+        {
+          "title": "寫入驗證：用回授縮小誤差，也增加時間和能量",
+          "body": "寫入驗證先施加一個編程脈衝，再讀回單元，檢查是否進入目標範圍；未達標時調整或追加脈衝，直到成功或達到重試上限。這種回授有助於處理元件間和循環間變異，對多狀態儲存尤其重要，因為每個狀態可用的裕度更小。\n\n驗證不是免費，也不是萬能。每次回讀都消耗時間與能量，驗證讀值本身也受雜訊影響。NIST 的氧化物 RRAM 實驗指出，讀取波動可能造成錯誤通過判定，留下較長的狀態分布尾端；IBM 的類比 PCM 研究也顯示閉迴路編程精度受讀取雜訊與漂移限制。這些結果提醒我們：需同時記錄脈衝數、驗證門檻、重試、失敗比例與寫入後等待時間，才能理解寫入品質。"
+        },
+        {
+          "title": "ECC、備援與修復：把可用資料率納入密度",
+          "body": "錯誤更正碼（ECC）藉由額外校驗資訊偵測或修正一定範圍的錯誤；備援列、備援欄與缺陷替換則可避開部分永久失效。這些方法能把原始單元的錯誤率轉成系統可接受的資料可靠性，但會占用容量、面積、延遲或計算資源。\n\n讀到資料不等於原始位元完全沒有錯誤，報告時應分開寫出 ECC 前與 ECC 後的錯誤率。ECC 也不能無限制修復所有狀態重疊、相關錯誤或失效位元。比較有效密度時，應把實際可用資料量除以包含相關周邊的面積，而不是只乘上層數和每單元位元數。"
+        },
+        {
+          "title": "判斷陣列的天花板，需要同時看三筆帳",
+          "body": "第一筆是訊號帳：最差位置與最差資料圖樣下，目標單元還有多少感測及寫入裕度？第二筆是能量帳：除了目標單元，還有多少導線需要充放電、多少未選路徑在漏電，以及多少次驗證會發生？第三筆是面積帳：解碼器、驅動器、感測器、ECC 與備援占了多少？\n\n因此，陣列越大不一定越有效率，切成較小子陣列雖增加部分周邊，卻可能改善壓降、速度與可靠性。研究中的限制應寫成「在這組材料、陣列與操作條件下，瓶頸是什麼」，而不是直接宣布某家族已到不可突破的物理終點。真正有說服力的改進，是在同一組條件下同時交代性能、可靠性與代價。"
+        }
+      ],
+      "sourceIds": [
+        "CMP-YU2016",
+        "CMP-LECTURE2021",
+        "CMP-IBM-SELECTOR2017",
+        "CMP-IBM-ARRAY2014",
+        "CMP-NIST-VERIFY2017",
+        "CMP-IBM-PCM2020",
+        "CMP-TSMC-ECC2023",
+        "CMP-RERAM-DS"
+      ],
+      "quiz": {
+        "question": "某篇論文展示 RRAM 單元在 10 ns 脈衝下完成切換。能否據此宣稱一顆 1 Gb 記憶體具有 10 ns 寫入時間？還需要哪幾類證據？",
+        "answer": "不能。需要確認是否為同一材料與實作、1T1R 或 1S1R 選擇方式、陣列最差位置的實際偏壓、感測裕度、脈衝與驗證次數、重試及失敗門檻、ECC 和周邊延遲，以及產品寫入完成點。單元脈衝只描述整條路徑中的一部分。"
+      }
+    },
+    {
+      "id": "scm",
+      "title": "SCM 與持久性記憶體：從媒體走到系統",
+      "summary": "儲存級記憶體（SCM）關心如何填補 DRAM 與 NAND 儲存之間的需求落差。它不是另一種位元單元，也不因採用 CXL 就自動成立。要理解 SCM，必須同時區分儲存物理、接入方式、資料存取粒度，以及故障後哪些資料真正能復原。",
+      "sections": [
+        {
+          "title": "SCM 是系統定位，持久性記憶體則有明確語意",
+          "body": "DRAM 提供低延遲工作記憶體，NAND 以高容量與低每位元成本支撐大量儲存。SCM 一詞常用來討論兩者之間的性能、容量、成本與耐久性空間。不同文獻也可能把低延遲儲存產品或記憶體介面的 NVM 放進這個討論，所以引用 SCM 時，應先定義所採用的範圍。\n\n本專題把 SCM 當作系統用途，不當作材料名稱；PCM、ReRAM 等技術都曾被探索為候選。持久性記憶體的討論則更聚焦非揮發性、位元組定址及低延遲等特性，以及軟體如何保證資料可復原。不是所有 NVM 都適合擔任主記憶體，也不是所有低延遲 SSD 都提供相同的載入／儲存語意。"
+        },
+        {
+          "title": "CXL 改變如何接入，沒有改變 DRAM 的物理",
+          "body": "CXL 是建立在 PCIe 實體連結上的互連協定，可讓處理器存取裝置上的記憶體。其規格分開描述揮發性與持久性記憶體範圍，表示兩者可以共用接入架構，但具有不同資料保存性質。Samsung CMM-D 就是採用 CXL 的 DRAM 記憶體模組。\n\n因此，容量擴充、記憶體共用或池化，不能直接推導成斷電保存。評估一個 CXL 裝置時，應問它接了什麼媒體、暴露什麼位址範圍、平台支持哪些能力，以及在主機、連結或裝置故障時如何處理資料。介面名稱本身沒有回答這些問題。"
+        },
+        {
+          "title": "持久性可以來自媒體，也可以來自整體保存機制",
+          "body": "一種設計使用本身能保留資料的媒體；另一種設計則讓快速但揮發性的 DRAM 承接正常讀寫，並搭配 NAND 與備援能源，在斷電時保存、重啟時還原。NVDIMM-N 是後者的例子，CXL 聯盟 2026 年刊載的成員技術說明也討論了類似的 CXL 架構。\n\n這類架構的保證取決於備援能源是否足夠、保存流程是否能完成、韌體如何辨識有效資料，以及平台如何協調。它沒有把 DRAM bitcell 變成非揮發性，而是用系統設計提供資料持久性。看到架構示意圖時，也應把概念可行、產品資格認證與量產狀態分開。"
+        },
+        {
+          "title": "3D XPoint 與 Optane：商用歷史必須保留退出時間",
+          "body": "3D XPoint 與 Optane 是 SCM 討論中重要的商業實作，但其生命週期已經改變。Micron 於 2021 年 3 月 16 日宣布即刻停止 3D XPoint 開發，並表示將在履行既有承諾後停止製造；2021 年 10 月 22 日完成 Lehi 晶圓廠出售。Intel 則在 2022 年 7 月宣布停止 Optane 後續產品開發。\n\nIntel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客戶需求供應至 2025 年，並規畫售後支援資源至 2030 年。庫存、保固與支援不能寫成持續投入新一代製造，也不能由該信推定 2026 年每個料號仍可購得。這段歷史同時說明：一條商業路線退出，不代表 PCM 等整個儲存物理家族消失；ST SR6P6C8 仍提供另一種已量產的嵌入式 PCM 實作。"
+        },
+        {
+          "title": "處理器完成一次寫入，不等於資料已經安全保存",
+          "body": "程式執行一次儲存指令後，新資料可能仍留在 CPU 快取、記憶體控制器或裝置緩衝區。若其中某些區域不受斷電保護，系統失去電力時，媒體雖然非揮發，也可能從未收到這筆資料。持久性範圍就是平台在指定故障條件下，保證資料可以保存的邊界。\n\n軟體需要使用與平台相符的同步、快取清除及排序機制，確保資料到達該範圍。PMDK 文件用快取清除與硬體緩衝排空說明這個流程，也指出某些平台可省略部分步驟。重點不是背一串通用指令，而是知道平台究竟保護到哪裡，以及哪個操作的完成才代表資料具有持久性。"
+        },
+        {
+          "title": "持久化與原子性是兩個問題",
+          "body": "假設程式先建立一筆新資料，再把索引指標改為指向它。若指標先被保存而內容還沒保存，重啟後就可能找到不完整資料；即使最後兩者都有持久化要求，也必須控制先後順序。反過來，先保存內容再更新索引，可能留下尚未被引用的資料，這又需要回收或復原策略。\n\n這是故障一致性的問題。持久化操作保證資料到達持久性範圍，並不自動使多個欄位成為不可分割的一次交易。日誌、提交記號、版本資訊或交易機制用來建立可判定的復原點；其中原子寫入粒度必須由平台保證，不能假定任何大小的寫入都會完整留下。SNIA 的原子性與交易白皮書以資料結構案例說明這些差別。"
+        },
+        {
+          "title": "延遲與粒度要配合實際工作負載",
+          "body": "位元組或快取列存取可以減少某些軟體與資料搬移開銷；區塊式 SSD 則透過控制器與併行處理提高吞吐。兩者各有合適情境，不能單憑一個 ns 或 µs 數字決定用途。粒度、佇列深度、讀寫比例、存取局部性與同步頻率，都會影響使用者看到的性能。\n\n例如 Intel 2021 年的 P5800X 測試，512 B 隨機讀取平均延遲為 3.5 µs，4 KB 隨機讀取平均延遲低於 6 µs。這是特定完整 SSD 與主機平台的結果，與材料單元的脈衝時間不同；平均延遲也不能替代長尾延遲。在資料庫或日誌情境，真正要衡量的是資料完成持久化後的交易延遲，而不是只衡量把資料交給緩衝器的速度。"
+        },
+        {
+          "title": "SCM 的天花板還包含成本、供應與軟體採用",
+          "body": "技術上介於 DRAM 與 NAND 之間，未必能在商業上穩定占住一個位置。媒體密度、良率、控制器與封裝成本、供應規模、軟體修改成本，以及既有系統的替代路徑，都會影響採用。Micron 在 2021 年公告中明確把不足以支持規模化投資的市場驗證列為決策背景；這是商業判斷，不能改寫成單一物理性能失敗的證明。\n\n評估 SCM 候選時，可以從三個問題收斂：它解決了哪個具體工作負載瓶頸？在相同容量、可靠性與故障保護要求下，完整系統代價是多少？若更換媒體或供應商，軟體與硬體是否仍有可行路徑？這樣的比較才能把 bitcell 原理連到實際產品決策。"
+        }
+      ],
+      "sourceIds": [
+        "CMP-SNIA-PM",
+        "CMP-CXL2022",
+        "CMP-CXL-FAQ2021",
+        "CMP-SAMSUNG-CMM",
+        "CMP-CXL2026",
+        "CMP-MICRON2021",
+        "CMP-MICRON-CALL2021",
+        "CMP-MICRON-LEHI2021",
+        "CMP-INTEL2023",
+        "CMP-PCM-PRODUCT",
+        "CMP-PMDK",
+        "CMP-SNIA-NPM",
+        "CMP-SNIA-ATOMICS2017",
+        "CMP-OPTANE-PERF"
+      ],
+      "quiz": {
+        "question": "一張 CXL 卡使用 DRAM 加 NAND，並標示可做記憶體擴充。能否直接說它是持久性記憶體？程式完成 store 之後是否可以立刻斷電？",
+        "answer": "不能只依介面或媒體組合判定。需確認裝置是否暴露持久性範圍、備援能源及保存／還原機制、主機到裝置的緩衝保護、同步與排序語意，以及軟體復原方法。store 完成也不必然代表資料到達持久性範圍；即使已持久化，多欄位更新仍需考慮故障原子性與一致性。"
+      }
+    }
+  ],
+  "glossary": [
+    {
+      "term": "位元儲存單元（bitcell）",
+      "definition": "用某種物理狀態儲存資料的最小電路或元件組合；完整 bitcell 可能還包含存取電晶體或選擇元件，不等於只有儲存材料。"
+    },
+    {
+      "term": "陣列與巨集",
+      "definition": "陣列是大量單元依導線組織的結構；巨集通常還包含解碼、驅動、感測及控制等周邊，可作為晶片設計中的記憶體區塊。"
+    },
+    {
+      "term": "字線與位元線",
+      "definition": "字線通常參與選擇一列單元，位元線承接資料相關的電流或電壓；不同陣列的接法與偏壓策略並不完全相同。"
+    },
+    {
+      "term": "選擇元件（selector）",
+      "definition": "控制哪個儲存單元能參與讀寫的元件，可為電晶體、二極體、非線性二端元件或臨界切換元件；目標是在選中時通流、未選時抑制旁路。"
+    },
+    {
+      "term": "半選干擾",
+      "definition": "與目標單元共用一條已選導線的其他單元，也承受部分操作偏壓；反覆壓力可能改變其儲存狀態或可靠性。"
+    },
+    {
+      "term": "寄生電流路徑（sneak path）",
+      "definition": "電流經由非目標單元繞行的路徑，可能污染讀取訊號、改變寫入偏壓並增加能耗。"
+    },
+    {
+      "term": "感測裕度（sense margin）",
+      "definition": "在雜訊、變異與操作條件下，儲存狀態與判斷界線之間仍可用的訊號差；必須看分布與最差條件。"
+    },
+    {
+      "term": "寫入驗證（program-verify）",
+      "definition": "編程後讀回檢查是否達標，未達標時再調整或追加脈衝的回授流程；可改善狀態控制，但增加時間與能量。"
+    },
+    {
+      "term": "耐久性（endurance）",
+      "definition": "在規定的操作、錯誤門檻與保持要求下，可承受的讀寫或編程／擦除循環；需標明每位元、位元組、頁或區塊。"
+    },
+    {
+      "term": "資料保持力（retention）",
+      "definition": "資料在指定溫度、已使用循環、供電及錯誤要求下能維持多久；年數不可脫離條件單獨比較。"
+    },
+    {
+      "term": "F² 與有效位元密度",
+      "definition": "F² 是以特徵尺寸平方正規化的面積表達；有效位元密度還取決於堆疊層數、多位元、周邊、備援與 ECC，兩者須分清楚。"
+    },
+    {
+      "term": "存取粒度",
+      "definition": "一次讀、寫、擦除或保證原子操作涉及的資料大小；位元組、快取列、頁與區塊粒度會改變性能與軟體行為。"
+    },
+    {
+      "term": "錯誤更正碼（ECC）",
+      "definition": "增加校驗資訊，依編碼能力偵測或修正一定範圍錯誤的方法；會帶來容量及處理開銷，也有無法修正的錯誤界線。"
+    },
+    {
+      "term": "持久性範圍（persistence domain）",
+      "definition": "平台在指定故障條件下，保證其中資料可保存或完成保存的範圍；可能涉及媒體、控制器、緩衝與備援能源。"
+    },
+    {
+      "term": "故障原子性",
+      "definition": "故障復原後，一項更新呈現為完整完成或未完成，而非難以辨識的部分更新；原子粒度及保證須由平台或交易機制界定。"
+    },
+    {
+      "term": "儲存級記憶體（SCM）",
+      "definition": "用來討論填補 DRAM 與 NAND 儲存之間性能、容量及成本空間的系統定位；不是單一材料或 bitcell 類型。"
+    },
+    {
+      "term": "CXL",
+      "definition": "讓處理器與裝置進行記憶體相關存取的互連協定；可連接揮發性或持久性記憶體，協定名稱本身不保證斷電保存。"
+    }
+  ]
+}

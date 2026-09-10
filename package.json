@@ -5,11 +5,14 @@
   "type": "module",
   "scripts": {
     "serve": "node scripts/serve-local.mjs",
-    "check": "node scripts/normalize-heading-punctuation.mjs --check && node scripts/check-site-ia.mjs && node scripts/build-oip-sharepoint.mjs --check && node scripts/build-ai-nvm-sharepoint.mjs --check && node scripts/check-ai-nvm-integrity.mjs && node scripts/check-release-gates.mjs && node scripts/build-release-lineage.mjs --check",
+    "check": "node scripts/normalize-heading-punctuation.mjs --check && node scripts/check-site-ia.mjs && node scripts/build-oip-sharepoint.mjs --check && node scripts/build-ai-nvm-sharepoint.mjs --check && node scripts/check-ai-nvm-integrity.mjs && node scripts/check-release-gates.mjs && node scripts/build-release-lineage.mjs --check && npm run check:nvm",
     "release:lineage": "node scripts/build-release-lineage.mjs --write",
     "format:headings": "node scripts/normalize-heading-punctuation.mjs",
     "export:sharepoint": "node scripts/build-oip-sharepoint.mjs && node scripts/build-ai-nvm-sharepoint.mjs",
-    "qa:render": "node scripts/render-site-ia.mjs"
+    "qa:render": "node scripts/render-site-ia.mjs",
+    "build:nvm": "node scripts/建立NVM技術全景.mjs",
+    "check:nvm": "node --check NVM技術全景.js && node scripts/建立NVM技術全景.mjs --check",
+    "qa:nvm": "node scripts/驗證NVM技術全景.mjs"
   },
   "devDependencies": {
     "playwright": "^1.55.0"

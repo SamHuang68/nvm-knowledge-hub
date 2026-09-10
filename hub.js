@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", syncHubLanguage);
  * 涵蓋全站 12 個核心知識領域與資源頁面
  */
 const SEARCH_INDEX = [
+  ...(window.NVMTopicIndex || []),
   {
     title_zh: "位元胞物理與可靠度",
     title_en: "Bitcell Physics & Reliability",

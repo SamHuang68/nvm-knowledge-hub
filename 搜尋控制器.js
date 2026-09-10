@@ -62,6 +62,7 @@
     for (const {item} of items) {
       const link = document.createElement('a');
       link.className = 'search-result-item'; link.href = item.url;
+      if (item.language) link.lang = item.language;
       const title = document.createElement('div'); title.className = 'sr-title';
       title.textContent = language === 'zh' ? item.title_zh : item.title_en;
       const desc = document.createElement('div'); desc.className = 'sr-desc';
