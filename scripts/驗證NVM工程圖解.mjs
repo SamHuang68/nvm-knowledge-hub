@@ -95,6 +95,6 @@ try{
 finally{await browser.close();}
 function locationSafe(url){return new URL(url);}
 if(errors.length)failures.push({label:'網頁或資源錯誤',errors});
-const report={passed:failures.length===0,base,checkedAt:new Date().toISOString(),operations:45,variants:variantCount,framesPerLanguage:frameCount,patents:19,checks:checks.length,failures,results:checks};
+const report={passed:failures.length===0,base,checkedAt:new Date().toISOString(),operations:data.engineering.operations.length,variants:variantCount,framesPerLanguage:frameCount,patents:19,checks:checks.length,failures,results:checks};
 fs.writeFileSync(path.join(output,'工程圖解查核.json'),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify({passed:report.passed,checks:checks.length,framesPerLanguage:frameCount,failures:failures.map(f=>({label:f.label,id:f.id,width:f.width,language:f.language,message:f.message,drawingProblems:f.drawingProblems,minimumText:f.minimumText,clipped:f.clipped,cjk:f.cjk})).slice(0,20)}));if(!report.passed)process.exitCode=1;
