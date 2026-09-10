@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import {chromium} from 'playwright';
-const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'qa/商用編排第四輪_20260910');
+const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'qa/商用編排第五輪_20260910');
 fs.mkdirSync(out,{recursive:true});
 const widths=process.argv.includes('--quick')?[1440,390]:[1440,1361,1360,1280,1101,1100,901,900,800,768,621,620,390,312];
 const checks=[],errors=[],copy=[];
@@ -19,7 +19,7 @@ async function audit(page,language,width,route,scope){
  check(geometry.overflow<=1,'頁面無水平溢出',{language,width,route,overflow:geometry.overflow});check(geometry.clips.length===0,'語意區塊內部沒有裁切',{language,width,route,clips:geometry.clips});
  if(language==='en'){const text=await page.locator(scope).innerText();check(!/[\u3400-\u9fff]/u.test(text),'英文主要內容沒有中文漏譯',{width,route,hits:text.match(/[\u3400-\u9fff]+/gu)?.slice(0,8)});}
  check(geometry.headings.every(h=>h.size<=(width<=600?44:h.tag==='H1'?72:56)),'主要標題尺度受控',{language,width,route,headings:geometry.headings});
- if([1440,390].includes(width)&&['首頁','ecosystem','research','panorama','physics-library','comparison','foundry','sources'].includes(route)){
+ if([1440,390].includes(width)&&['首頁','ecosystem','research','panorama','physics-library','comparison','foundry','sources','topic-stt','topic-stt-tradeoffs','topic-stt-ceilings'].includes(route)){
   const contrast=await page.evaluate(selector=>{
    const rgb=c=>c.match(/[\d.]+/g)?.slice(0,3).map(Number)||[255,255,255];
    const lum=c=>rgb(c).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;}).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0);
@@ -54,7 +54,7 @@ try{
    await page.keyboard.press('Control+k');check(await page.locator('#searchOverlay').getAttribute('aria-hidden')==='false','手機版鍵盤搜尋可用',{language});await page.keyboard.press('Escape');
   }
   const atlas=language==='zh'?'NVM技術全景中文.html':'NVM技術全景.html';await page.goto(new URL(atlas+'?lang='+language+'#ecosystem',base).href,{waitUntil:'networkidle'});
-  for(const route of ['panorama','physics-library','comparison','benchmark-CMP-BENCH-FRAM','benchmark-CMP-BENCH-OPTANE','comparison-history','ecosystem','research','research-everspin','research-panasonic','research-itri','ip-neoee','topic-stt','foundry','foundry-year-2026','sources']){
+  for(const route of ['panorama','physics-library','comparison','benchmark-CMP-BENCH-FRAM','benchmark-CMP-BENCH-OPTANE','comparison-history','ecosystem','research','research-everspin','research-panasonic','research-itri','ip-neoee','topic-stt','topic-stt-storage','topic-stt-tradeoffs','topic-stt-ceilings','topic-vcm','topic-eeprom','foundry','foundry-year-2026','sources']){
    await page.evaluate(hash=>{location.hash=hash;},route);await page.waitForFunction(id=>document.getElementById(id)?.checkVisibility(),route);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
    await audit(page,language,width,route,'#'+route);
    if(route.startsWith('research-')){const bounds=await page.evaluate(id=>{const a=document.getElementById(id).getBoundingClientRect(),h=document.querySelector('.nvm-header').getBoundingClientRect();return{top:a.top,headerBottom:h.bottom};},route);check(bounds.top>=bounds.headerBottom&&bounds.top<=bounds.headerBottom+40,'專題錨點緊接固定頁首且不被遮擋',{language,width,route,...bounds});check(await page.evaluate(()=>document.activeElement.tagName==='H3'),'專題焦點落在標題而非整章外框',{language,width,route});}
@@ -62,6 +62,18 @@ try{
    if([1440,390].includes(width)&&['panorama','physics-library','comparison','benchmark-CMP-BENCH-FRAM'].includes(route)){await page.screenshot({path:path.join(out,`${language}-${route}-${width}.png`)});if(width===1440)copy.push(await page.locator('#'+route).innerText());}
    if([1440,390].includes(width)&&['foundry','foundry-year-2026','sources'].includes(route)){await page.screenshot({path:path.join(out,`${language}-${route}-${width}.png`)});if(width===1440)copy.push(await page.locator('#'+route).innerText());}
   }
+  if([1440,390].includes(width))for(const route of ['topic-stt','topic-stt-storage','topic-stt-tradeoffs','topic-stt-ceilings']){await page.evaluate(hash=>location.hash=hash,route);await page.waitForFunction(id=>document.activeElement===document.getElementById(id).querySelector(id==='topic-stt'?'h2':'h3'),route);await page.screenshot({path:path.join(out,language+'-'+route+'-'+width+'.png')});if(width===1440)copy.push(await page.locator('#'+route).innerText());}
+  if(width===1440){
+   const ids=await page.locator('.nvm-topic-editorial').evaluateAll(es=>es.map(e=>e.id));
+   check(ids.length===16,'十六個物理背景專題均使用一致編排',{language});
+   for(const id of ids){
+    await page.evaluate(hash=>location.hash=hash,id);await page.locator('#'+id).waitFor();
+    const links=await page.locator('#'+id+' .nvm-topic-index a').evaluateAll(es=>es.map(e=>e.hash.slice(1)));
+    check(links.length===9,'專題保留九個閱讀章節',{language,id});
+    for(const target of links){await page.locator('#'+id+' .nvm-topic-index a[href="#'+target+'"]').click();await page.waitForFunction(t=>document.activeElement===document.getElementById(t).querySelector('h3'),target);check(await page.locator('#'+target).isVisible(),'章節連結展開並聚焦正確標題',{language,id,target});}
+   }
+  }
+  await page.evaluate(()=>location.hash='topic-eeprom');await page.locator('#eeprom-reference').evaluate(e=>e.open=false);await page.locator('#topic-eeprom .nvm-topic-index a').first().click();await page.waitForFunction(()=>document.activeElement===document.querySelector('#topic-eeprom-storage h3'));check(await page.locator('#eeprom-reference').getAttribute('open')!==null,'EEPROM章節連結可展開收合背景內容',{language,width});
   await page.evaluate(()=>location.hash='foundry');
   const foundry=JSON.parse(fs.readFileSync(path.join(root,`data/NVM晶圓代工路線圖${language==='en'?'英文':''}.json`),'utf8'));
   const expectedYears=[...new Set(foundry.milestones.map(r=>r.year))].sort((a,b)=>b-a);
