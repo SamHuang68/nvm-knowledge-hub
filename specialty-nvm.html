@@ -505,6 +505,143 @@
 </div>
 </div>
 </section>
+
+<!-- =========================================================
+     支配物理模型專區 (FOUR GOVERNING FIRST-PRINCIPLES PHYSICS FORMULAS)
+     ========================================================= -->
+<section class="governing-physics-section" id="sec-governing-physics" style="max-width: 1400px; margin: 24px auto 32px; padding: 0 24px;">
+  <div style="margin-bottom: 16px;">
+    <div style="display: flex; align-items: center; gap: 8px; font-family: var(--spec-mono); font-size: 11px; color: var(--spec-aqua); letter-spacing: 0.08em; text-transform: uppercase;">
+      <span class="pulse-dot" style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--spec-aqua);"></span>
+      <span data-lang="zh">第一性原理支配物理公式</span>
+      <span data-lang="en">FIRST-PRINCIPLES GOVERNING PHYSICS FORMULAS</span>
+    </div>
+    <h3 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 4px 0 0; font-family: var(--spec-sans);">
+      <span data-lang="zh">特種半導體 4 大底層物理與邊界約束</span>
+      <span data-lang="en">Four Governing Microphysical Models &amp; Foundry Boundaries</span>
+    </h3>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+    
+    <!-- 01 · BANDGAP 帶隙基準溫漂模型 -->
+    <div class="physics-formula-card" id="formula-bandgap" style="margin: 0;">
+      <div class="formula-header">
+        <span class="formula-badge">EQUATION 01</span>
+        <h4>
+          <span data-lang="zh">01 · BANDGAP 帶隙基準溫漂模型</span>
+          <span data-lang="en">01 · BANDGAP Reference Temp Drift Model</span>
+        </h4>
+      </div>
+      <div class="governing-physics-formula">
+        <em>V</em><sub>REF</sub>(<em>T</em>) = <em>V</em><sub>BE</sub>(<em>T</em>) + (<em>k T</em> / <em>q</em>) · ln(<em>N</em>) · (<em>R</em><sub>2</sub> / <em>R</em><sub>1</sub>)
+      </div>
+      <div class="formula-equation">
+        <strong>
+          <span data-lang="zh">一階溫漂相消條件：</span><span data-lang="en">1st-Order Drift Cancellation:</span>
+          &part;<em>V</em><sub>REF</sub> / &part;<em>T</em> = 0 &nbsp;|&nbsp; <em>V</em><sub>REF</sub> &approx; 1.205 V
+        </strong>
+        <small>
+          <span data-lang="zh">CTAT (&minus;2.0 mV/°C) 與 PTAT (+0.086 mV/°C &times; M) 互補相消。AntiFuse OTP 修調電阻微調比值，消除 &plusmn;5% 製程偏差至 &plusmn;0.35%。</span>
+          <span data-lang="en">CTAT (&minus;2.0 mV/°C) cancels PTAT (+0.086 mV/°C &times; M). Pure-logic AntiFuse OTP tunes series R-ladder to compress &plusmn;5% raw drift down to &plusmn;0.35%.</span>
+        </small>
+      </div>
+      <div class="governing-physics-desc">
+        <span class="physics-desc-title"><span data-lang="zh">微觀物理與製程約束</span><span data-lang="en">PHYSICS &amp; FOUNDRY BOUNDARY</span></span>
+        <span data-lang="zh">BCD 高壓 DMOS 易受寄生發熱影響，零熱預算 AntiFuse 避免 eFlash 浮閘退火高溫，確保 AEC-Q100 Grade 0 (175°C) 基準電壓長效穩定。</span>
+        <span data-lang="en">BCD high-voltage DMOS is sensitive to thermal budgets. Pure-logic AntiFuse eliminates eFlash anneal penalty, ensuring AEC-Q100 Grade 0 (175°C) long-term stability.</span>
+      </div>
+    </div>
+
+    <!-- 02 · POISSON 泊松介電擊穿統計 -->
+    <div class="physics-formula-card" id="formula-poisson" style="margin: 0;">
+      <div class="formula-header">
+        <span class="formula-badge">EQUATION 02</span>
+        <h4>
+          <span data-lang="zh">02 · POISSON 泊松介電擊穿統計</span>
+          <span data-lang="en">02 · POISSON Dielectric Breakdown Statistics</span>
+        </h4>
+      </div>
+      <div class="governing-physics-formula">
+        <em>P</em>(<em>k</em>) = (&lambda;<sup><em>k</em></sup> · e<sup>&minus;&lambda;</sup>) / <em>k</em>! &nbsp;|&nbsp; <em>Y</em><sub>repaired</sub> = &sum;<sub><em>k</em>=0</sub><sup><em>N</em><sub>red</sub></sup> <em>P</em>(<em>k</em>)
+      </div>
+      <div class="formula-equation">
+        <strong>
+          <span data-lang="zh">晶圓缺陷與擊穿機率：</span><span data-lang="en">Defect &amp; Breakdown Model:</span>
+          &lambda; = <em>D</em><sub>0</sub> · <em>A</em><sub>die</sub> &nbsp;|&nbsp; <em>F</em>(<em>t</em>) = 1 &minus; exp[&minus;&eta; · (<em>t</em> / <em>t</em><sub>63</sub>)<sup>&beta;</sup>]
+        </strong>
+        <small>
+          <span data-lang="zh">在 CIS/DRAM 大面積晶粒中，缺陷服從泊松分佈。透過 BIRA 演算法與 AntiFuse OTP 硬體重映射備援行/列，良率由 <em>e</em><sup>&minus;&lambda;</sup> 巨幅提升 +55.8%。</span>
+          <span data-lang="en">Defect clustering obeys Poisson statistics in large CIS/DRAM dies. Remapping failed rows/columns via AntiFuse OTP elevates raw yield by +55.8%.</span>
+        </small>
+      </div>
+      <div class="governing-physics-desc">
+        <span class="physics-desc-title"><span data-lang="zh">微觀物理與製程約束</span><span data-lang="en">PHYSICS &amp; FOUNDRY BOUNDARY</span></span>
+        <span data-lang="zh">AntiFuse 介電擊穿形成永久金屬矽化物微絲，阻值自 &gt;10<sup>11</sup> &Omega; 驟降至 &sim;100 &Omega;，無 eFuse 電遷移回跳與熱鬆弛風險。</span>
+        <span data-lang="en">AntiFuse dielectric breakdown forms a permanent silicide filament, dropping resistance from &gt;10<sup>11</sup> &Omega; to &sim;100 &Omega; without eFuse thermal regrowth risks.</span>
+      </div>
+    </div>
+
+    <!-- 03 · GAMMA 2.2 亮度轉換 -->
+    <div class="physics-formula-card" id="formula-gamma" style="margin: 0;">
+      <div class="formula-header">
+        <span class="formula-badge">EQUATION 03</span>
+        <h4>
+          <span data-lang="zh">03 · GAMMA 2.2 亮度轉換</span>
+          <span data-lang="en">03 · GAMMA 2.2 Optical Transfer Function</span>
+        </h4>
+      </div>
+      <div class="governing-physics-formula">
+        <em>L</em>(<em>V</em>) = <em>L</em><sub>max</sub> · [(<em>V</em><sub>gray</sub> &minus; <em>V</em><sub>black</sub>) / (<em>V</em><sub>white</sub> &minus; <em>V</em><sub>black</sub>)]<sup>&gamma;</sup> &nbsp;|&nbsp; &gamma; = 2.2
+      </div>
+      <div class="formula-equation">
+        <strong>
+          <span data-lang="zh">高壓顯示 R-DAC 灰階電壓：</span><span data-lang="en">HV Display R-DAC Voltages:</span>
+          <em>V</em><sub>i</sub> = <em>V</em><sub>0</sub> + &Delta;<em>V</em> · (<em>i</em> / 255)<sup>1/&gamma;</sup> &plusmn; &delta;<em>V</em><sub>trim</sub>
+        </strong>
+        <small>
+          <span data-lang="zh">人眼視覺感知符合冪律 (&gamma;&approx;2.2)。HV DDIC 透過 OTP 燒錄 Gamma LUT 與 Vcom 微調值，消除面板 flicker 頻閃與 OLED 空間亮度不均 (De-Mura)。</span>
+          <span data-lang="en">Human vision follows power-law luminance response (&gamma;&approx;2.2). HV DDIC leverages internal OTP to lock Gamma LUT &amp; Vcom trim, eliminating flicker and OLED Mura.</span>
+        </small>
+      </div>
+      <div class="governing-physics-desc">
+        <span class="physics-desc-title"><span data-lang="zh">微觀物理與製程約束</span><span data-lang="en">PHYSICS &amp; FOUNDRY BOUNDARY</span></span>
+        <span data-lang="zh">高壓 18V-32V 驅動晶片要求長條形窄邊框 (&lt;250 &mu;m) 封裝，AntiFuse 宏單元面積遠小於 eFlash，且耐受金凸塊 COG/COF 封裝剪切應力。</span>
+        <span data-lang="en">HV 18V-32V DDIC imposes strict slim-border (&lt;250 &mu;m) form factor. AntiFuse macro occupies minimal area and survives COG/COF bonding shear stresses.</span>
+      </div>
+    </div>
+
+    <!-- 04 · STOKES 斯托克斯電泳微粒流動 -->
+    <div class="physics-formula-card" id="formula-stokes" style="margin: 0;">
+      <div class="formula-header">
+        <span class="formula-badge">EQUATION 04</span>
+        <h4>
+          <span data-lang="zh">04 · STOKES 斯托克斯電泳微粒流動</span>
+          <span data-lang="en">04 · STOKES Electrophoretic Particle Dynamics</span>
+        </h4>
+      </div>
+      <div class="governing-physics-formula">
+        <em>v</em> = (<em>q</em> · <em>E</em>) / (6 &pi; &eta; <em>r</em>) &nbsp;|&nbsp; &mu;<sub>e</sub> = <em>q</em> / (6 &pi; &eta; <em>r</em>)
+      </div>
+      <div class="formula-equation">
+        <strong>
+          <span data-lang="zh">電泳位移與溫度黏滯度關聯：</span><span data-lang="en">Electrophoretic Drift &amp; Viscosity:</span>
+          <em>x</em>(<em>t</em>) = &int; <em>v</em> <em>dt</em> &nbsp;|&nbsp; &eta;(<em>T</em>) &prop; exp(<em>E</em><sub>a</sub> / <em>k T</em>)
+        </strong>
+        <small>
+          <span data-lang="zh">電子紙懸浮液中帶電顏料微粒受斯托克斯黏性阻力制約。低溫下流體黏度 &eta; 劇增，需藉由 40V-50V 超高壓及 OTP 多溫區波形查找表 (Waveform LUT) 消除殘影。</span>
+          <span data-lang="en">Pigment particles in E-Ink microcapsules are governed by Stokes drag. Viscosity surges at cold temperatures, requiring 40V-50V pulses and OTP multi-temp Waveform LUTs to prevent ghosting.</span>
+        </small>
+      </div>
+      <div class="governing-physics-desc">
+        <span class="physics-desc-title"><span data-lang="zh">微觀物理與製程約束</span><span data-lang="en">PHYSICS &amp; FOUNDRY BOUNDARY</span></span>
+        <span data-lang="zh">超高壓 40V–50V 製程中，MTP 用於研發期波形反覆調教，成熟量產期無縫轉移至 AntiFuse OTP，單晶片成本降低 30% 以上且永不流失波形。</span>
+        <span data-lang="en">In 40V-50V ultra-HV nodes, MTP serves R&amp;D waveform tuning, migrating smoothly to AntiFuse OTP in mass production to cut die cost &gt;30% while locking waveforms permanently.</span>
+      </div>
+    </div>
+
+  </div>
+</section>
 <!-- Quick Navigation Bar -->
 <!-- =========================================================
      高密度直立測條工作台 (STUDIO WORKBENCH: 01~04 LENS RAIL)
@@ -850,7 +987,7 @@
 <div class="deck-step-card border-green">
 <div class="deck-step-meta">
 <span class="deck-step-num">DOMAIN C</span>
-<span class="deck-step-status">GRADE 0 ASIL-D</span>
+<span class="deck-step-status">GRADE 0 · ASIL-D READY (SEooC)</span>
 </div>
 <h5 class="deck-step-title">
 <span data-lang="zh">車規電池管理與功能安全</span>
@@ -864,7 +1001,7 @@
 </div>
 <div class="deck-metric-callout">
 <span class="deck-metric-val">175°C Tj Max</span>
-<span class="deck-metric-lbl">ISO 26262 ASIL-D SAFETY LOG</span>
+<span class="deck-metric-lbl">GRADE 0 · ASIL-D READY (SEooC) SAFETY LOG</span>
 </div>
 <div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">紀錄</span><span data-lang="en">SAFETY LOG</span></span><span class="chip-v cyan"><span data-lang="zh">電池阻抗黑盒子查表</span><span data-lang="en">CELL IMPEDANCE LUT</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">車規</span><span data-lang="en">QUALIFICATION</span></span><span class="chip-v green"><span data-lang="zh">AEC-Q100 Grade 0 認證</span><span data-lang="en">AEC-Q100 GRADE 0</span></span></div></div>
 </div>
@@ -2610,7 +2747,7 @@
           <div class="meta-pill-item">
             <span class="meta-pill-dot" style="background:#c4a574;"></span>
             <span class="meta-pill-key">RELIABILITY:</span>
-            <span class="meta-pill-val">AEC-Q100 GRADE 0 / ISO 26262 ASIL-D</span>
+            <span class="meta-pill-val">AEC-Q100 GRADE 0 · ASIL-D READY (SEooC)</span>
           </div>
         </div>
       </div>

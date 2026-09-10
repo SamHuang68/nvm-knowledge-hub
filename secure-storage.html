@@ -1563,7 +1563,7 @@
           <ul>
             <li><b>Physical source</b><span><span data-lang="zh">SRAM 開機電晶體微觀失配 (Intra-HD: 3%~8%, Inter-HD: ~50%)</span><span data-lang="en">Transistor mismatch at SRAM startup (Intra-HD: 3%~8%, Inter-HD: ~50%)</span></span></li>
             <li><b>Reconstruction</b><span><span data-lang="zh">回應＋公開輔助資料 → 穩定根金鑰 (Fuzzy Extractor / BCH 碼約 4x~8x 開銷)</span><span data-lang="en">Response + public helper data → stable root (Fuzzy extractor / BCH code overhead ~4x-8x)</span></span></li>
-            <li><b>Security engineering</b><span><span data-lang="zh">防護低溫急凍殘留 (Cold Boot) 與 NBTI 老化需具備主動放電迴路 (Active Bleeder)、低溫感測與重建後即時歸零 (Zeroization)</span><span data-lang="en">Requires active bleeder circuit against cold-boot remanence / NBTI aging, temperature monitors, and post-reconstruction instant zeroization</span></span></li>
+            <li><b>Security engineering</b><span><span data-lang="zh">防護低溫急凍殘留 (Cold Boot) 與 NBTI 電氣老化之先決條件：整合 Active Bleeder 主動放電迴路（放電常數 &tau; &lt; 1&mu;s）、低溫聯鎖鎖定閥值 Tj &lt; -40&deg;C 鎖定開機感測、以及金鑰導出後 1 週期內即時硬體清除歸零 (Zeroization in 1 cycle)</span><span data-lang="en">Defensive prerequisites against cold-boot remanence &amp; NBTI aging: integrated active bleeder circuit (discharge constant &tau; &lt; 1&mu;s), low-temperature interlock threshold (Tj &lt; -40&deg;C lockup), and post-reconstruction 1-cycle hardware zeroization</span></span></li>
           </ul>
         </article>
         <div class="versus"><span>DECISION LENS</span><b>ENTROPY &amp;<br>LIFECYCLE</b><small><span data-lang="zh">在零輔助資料與永久物理微導通路徑之間權衡攻擊面與架構複雜度。</span><span data-lang="en">Balance zero helper-data activation against permanent physical conduction and attack surface.</span></small></div>

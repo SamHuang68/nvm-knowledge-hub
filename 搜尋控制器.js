@@ -1,4 +1,5 @@
 /* 搜尋直接讀取公開總帳，避免維護另一份紀錄清單。 */
+window.__NVM_SEARCH_ENHANCED = true;
 (() => {
   const overlay = document.getElementById('searchOverlay');
   const input = document.getElementById('searchInput');

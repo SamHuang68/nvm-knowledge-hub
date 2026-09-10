@@ -4435,6 +4435,38 @@ SoC 平台流片驗證：智原公告 RRAM SoC 開發平台完成並經流片驗
 
 - [RES-FARADAY-RRAM-2025：智原：FlashKit-22RRAM 流片驗證](https://www.faraday-tech.com/html/News/pressRelease/CHI_01_0441.jsp)
 
+### 2019 · Samsung Foundry · eMRAM · 28FDS（28nm FD-SOI）
+
+量產：Samsung 正式宣布商用量產 28nm FD-SOI 嵌入式 MRAM，寫入速度比 eFlash 快 1000 倍。
+
+限制：專屬 FD-SOI 工藝線，不同於 Bulk CMOS 或 FinFET 結構。
+
+- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-eflash-type-embedded-mram-based-on-28nm-fd-soi-process)
+
+### 2019 · Intel Foundry · STT-MRAM · 22FFL（22nm FinFET）
+
+生產就緒：IEDM 發表 22FFL 嵌入式 STT-MRAM 進入生產就緒，位元單元 0.0446 µm²，耐受 10^6 次循環。
+
+限制：公開文獻以 22FFL 原型與測試晶片為主，非全客戶通用開架式 PDK。
+
+- [FND-INTC-2018-22FFL：Intel Foundry：22FFL 嵌入式 STT-MRAM 技術發表 (IEDM 2018)](https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html)
+
+### 2024 · Samsung Foundry · 次世代 eMRAM／MBCFET GAA · SF3 / SF2（3nm / 2nm MBCFET）
+
+研發與技術路線規劃：Samsung Foundry Forum 公布 3nm 與 2nm MBCFET 先進節點整合次世代高密度 eMRAM 之路線圖。
+
+限制：屬前瞻路線目標，需解決奈米片閘極熱應力與 BEOL MTJ 磁熱穩定性。
+
+- [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/advanced-nodes/)
+
+### 2024 · Intel Foundry · 先進 eNVM／AntiFuse OTP／RibbonFET BSPDN · 18A（1.8nm RibbonFET + PowerVia）
+
+生產準備與生態系整合：Intel Foundry Direct Connect 發表 18A 進入生產準備，具備 PowerVia 背面供電，支援原生邏輯 AntiFuse OTP 與先進嵌入式記憶體。
+
+限制：18A 晶圓廠量產投片進行中；完整通用 eNVM 巨集商業供應仍受認證進度制約。
+
+- [FND-INTC-2024-18A：Intel Foundry：18A RibbonFET 與 PowerVia BSPDN 先進架構路線圖](https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html)
+
 ## 比較案例
 
 ### Infineon CY15B104QSN，4 Mb EXCELON Ultra F-RAM
@@ -4793,6 +4825,10 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [FND-TSMC-SYMP-2025：台積電 2025 北美技術論壇新聞稿](https://pr.tsmc.com/system/files/newspdf/attachment/167c59998c7117f14c13647c8e46a6b20a43316c/2025%20Tech%20Symposium%20%28E%29_Final_wmn.pdf)。年度技術論壇官方新聞稿；2025-04-23；查閱 2026-09-10；定位：三頁公開新聞稿；限制：主稿沒有可核用的 MRAM／RRAM 完整年表；不能用未取得的論壇內頁補出完成日期。
 - [FND-TSMC-SYMP-2026：台積電 2026 北美技術論壇新聞稿與公開影音入口](https://pr.tsmc.com/english/news/3302)。年度技術論壇官方新聞稿；2026-04-23；查閱 2026-09-10；定位：美國活動日為 2026-04-22；新聞稿與技術亮點；限制：公開稿未提供 MRAM／RRAM 完整路線圖；不能採用第三方上傳簡報作為官方版本。
 - [FND-TSMC-SYMP-ACCESS：台積電 2026 技術論壇公開影音入口](https://www.tsmc.com/english/symposium_highlights/2026)。官方會議入口；2026；查閱 2026-09-10；定位：完整隨選視訊存取說明；限制：本研究未取得受邀會議內容；無法宣稱已核對全部內部路線圖。
+- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-eflash-type-embedded-mram-based-on-28nm-fd-soi-process)。供應商官方新聞稿；2019-03-06；查閱 2026-09-10；定位：28FDS eMRAM 商用出貨與可靠性段落；限制：屬 28FDS 專用平台，後續延伸至 14FDS 與 8nm 射頻/車規需個別製程巨集資格。
+- [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/advanced-nodes/)。供應商技術論壇與產品白皮書；2024-06-12；查閱 2026-09-10；定位：SFF 2024 MBCFET GAA 與先進嵌入式非揮發記憶體規劃；限制：SF3 / SF2 平台之 eMRAM 目前處於技術研發與驗證目標階段，尚未宣告大量商用出貨。
+- [FND-INTC-2018-22FFL：Intel Foundry：22FFL 嵌入式 STT-MRAM 技術發表 (IEDM 2018)](https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html)。技術論壇論文與官方發布；2018-12-03；查閱 2026-09-10；定位：IEDM 2018 論文 13.3，22FFL STT-MRAM 單元與可靠性；限制：屬 22FFL 低功耗 FinFET 特殊製程，指標取決於 ECC 配置與工作溫度。
+- [FND-INTC-2024-18A：Intel Foundry：18A RibbonFET 與 PowerVia BSPDN 先進架構路線圖](https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html)。供應商官方活動發布；2024-02-21；查閱 2026-09-10；定位：IFDC 2024 18A 生產計畫、PowerVia 背面供電與嵌入式 IP ecosystem；限制：18A 於 2024–2025 進入生產準備，前瞻 eNVM/MRAM 仍在研發驗證階段，需依 PDK 與晶圓驗證進度逐代落地。
 - [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles；限制：現行產品原理；未公開全部偏壓及佈局。
 - [ip-neobit-pat：NeoBit 歷史保留電荷專利](https://patents.google.com/patent/US6914825B2/en)。公開專利；2005-07-05；定位：Figures 2(a), 2(b), 6; claims 1, 4；限制：p+ 浮動閘極模型；由 2005 年官方新聞連結，不能推定所有現行製程。
 - [ip-neobit-link：NeoBit 與保留電荷專利的官方連結](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)。原始技術來源；2005-10-04；定位：Second body paragraph: patent title and inventors；限制：同名專利與 NeoBit 的直接歷史關聯。
@@ -5251,6 +5287,46 @@ GF 年度高峰會有可直接引用的 RRAM 原型供應與 2026 目標；台�
 
 - [FND-TSMC-2025-AR：台積電 2025 年報：第二代 MRAM 與第三代 RRAM](https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf)
 - [FND-TSMC-2025-20F：台積電 2025 年度 Form 20-F](https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm)
+
+### Samsung Foundry 28FDS eMRAM
+
+寫入速度比 eFlash 快 1000 倍；10^6 次寫入循環；-40°C 至 125°C 下 10 年資料保持；支援五次回流焊 (JEDEC 260°C)。
+
+商用量產發布；商業 MCU／IoT 應用（如 NXP 晶片採用）；具 0-Mask Adder 邏輯相容性特質。
+
+14FDS 與 8nm 衍生節點之車規 Grade 1/Grade 0 需對應巨集之專屬驗證報告。
+
+- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-eflash-type-embedded-mram-based-on-28nm-fd-soi-process)
+
+### Samsung Foundry SF3／SF2 MBCFET eNVM
+
+規劃支援高密度 BEOL STT-MRAM 與微型化 OTP 密鑰單元；瞄準低於 1.0V 工作電壓與高溫車規 retention。
+
+3nm GAA / 2nm MBCFET 先進邏輯平台相容；須嚴格控管 BEOL 沉積熱預算 (<400°C) 以防磁性穿隧結損壞。
+
+屬於先進節點研發與路線圖前瞻規劃，目前無公開出貨之單元電性測試矩陣。
+
+- [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/advanced-nodes/)
+
+### Intel Foundry 22FFL STT-MRAM
+
+單元面積 0.0446 µm²；10^6 次循環；125°C 下 10 年保持、200°C 下 100 萬秒保持；1E-9 BER (低錯誤率)；百萬門邏輯相容。
+
+IEDM 2018 論文揭露並進入生產就緒；採用 22nm 低漏電 FinFET 基礎製程；純 BEOL 整合。
+
+寫入錯誤率受限於電流脈衝寬度與陣列磁場干擾，需搭配內部 ECC 引擎達到汽車級高可靠性。
+
+- [FND-INTC-2018-22FFL：Intel Foundry：22FFL 嵌入式 STT-MRAM 技術發表 (IEDM 2018)](https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html)
+
+### Intel Foundry 18A RibbonFET BSPDN eNVM
+
+結合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路；原生純邏輯 AntiFuse OTP 與後段先進 eNVM 整合；消除前段 IR drop。
+
+1.8nm 級先進晶圓代工平台；背面供電網有效降低動態開關雜訊，提供高精度微調與高密度密鑰空間。
+
+目前處於生產準備與客戶投片測試階段，前瞻 eMRAM / FeFET 巨集完成量產仍需後續里程碑確認。
+
+- [FND-INTC-2024-18A：Intel Foundry：18A RibbonFET 與 PowerVia BSPDN 先進架構路線圖](https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html)
 
 ## 路線圖閱讀修正
 

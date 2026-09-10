@@ -116,7 +116,28 @@
         if (e.target.closest('a')) closeNav();
       });
       document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && nav.classList.contains('open')) closeNav(true);
+        if (!nav.classList.contains('open')) return;
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          closeNav(true);
+          return;
+        }
+        if (e.key === 'Tab') {
+          const focusable = [menuBtn, ...nav.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]')].filter(Boolean);
+          if (!focusable.length) return;
+          const index = focusable.indexOf(document.activeElement);
+          if (e.shiftKey) {
+            if (index <= 0) {
+              e.preventDefault();
+              focusable[focusable.length - 1].focus();
+            }
+          } else {
+            if (index === focusable.length - 1 || index === -1) {
+              e.preventDefault();
+              focusable[0].focus();
+            }
+          }
+        }
       });
       window.addEventListener('resize', () => {
         if (window.innerWidth > 960) closeNav();

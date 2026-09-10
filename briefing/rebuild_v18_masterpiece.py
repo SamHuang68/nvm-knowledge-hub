@@ -62,8 +62,10 @@ def configure_perfect_card_slide(slide, kicker_text, title_line1, title_line2, s
                                  pill_text, page_num_str,
                                  t1_kicker, t1_title, t1_body,
                                  t2_kicker, t2_title, t2_body,
-                                 syn_kicker, syn_title, syn_bullets,
-                                 bottom_banner_text):
+                                 syn_kicker=None, syn_title=None, syn_bullets=None,
+                                 bottom_banner_text=None, eval_kicker=None):
+    if eval_kicker is not None:
+        syn_kicker = eval_kicker
     for sh in slide.shapes:
         if not sh.has_text_frame: continue
         txt = sh.text_frame.text.strip()
@@ -192,7 +194,7 @@ def main():
         t2_kicker="TARGET 2 · UCIE 1.3 / 2.0 SECURITY",
         t2_title="Die-to-Die zero-trust link security",
         t2_body="Public proof: SPDM 1.3 mandates per-die cryptographic authentication before link traffic",
-        syn_kicker="SYNOPSYS QUALIFICATION CONTRACT",
+        eval_kicker="CANDIDATE NVM QUALIFICATION CRITERIA",
         syn_title="Deploy AntiFuse OTP + PUF per die",
         syn_bullets=[
             "• die-unique immutable identity and versioning",
@@ -222,7 +224,7 @@ def main():
         t2_kicker="TARGET 2 · AEC-Q100 GRADE 0 (175°C)",
         t2_title="SILC physics in automotive powertrain",
         t2_body="Public proof: 175°C stress causes trap-assisted tunneling and charge loss in floating gates",
-        syn_kicker="SYNOPSYS QUALIFICATION CONTRACT",
+        eval_kicker="CANDIDATE NVM QUALIFICATION CRITERIA",
         syn_title="1-to-0 Hard Breakdown Advantage",
         syn_bullets=[
             "• nanoscale metallic silicide has 0 drift at 175°C",
@@ -232,7 +234,7 @@ def main():
             "• ISO 26262 ASIL-D ready automotive delivery",
             "• candidate unit: high-reliability secure RoT"
         ],
-        bottom_banner_text="Physics proof: Metallic silicide conducts permanently; pure CMOS gate oxide breakdown achieves ASIL-D & PQC compliance"
+        bottom_banner_text="Physics proof: Metallic silicide conducts permanently; developed as SEooC supporting item-level ASIL-D & PQC compliance"
     )
 
     # 6. Reorder slides to 17-slide sequence

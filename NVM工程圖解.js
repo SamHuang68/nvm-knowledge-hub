@@ -1,5 +1,5 @@
-const english=document.documentElement.lang==='en';
-const say=(zh,en)=>english?en:zh;
+const isEnglish = () => (window.HubLanguage?.get() || document.documentElement.lang) === 'en';
+const say = (zh, en) => isEnglish() ? en : zh;
 const dialog=document.createElement('dialog');
 dialog.className='nvm-engineering-dialog';
 dialog.setAttribute('aria-labelledby','nvm-engineering-zoom-title');
@@ -7,6 +7,16 @@ dialog.innerHTML=`<header class="nvm-engineering-dialog-head"><h2 id="nvm-engine
 document.body.append(dialog);
 dialog.querySelector('button').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+const syncDialogLabels = () => {
+  dialog.querySelector('header button')?.setAttribute('aria-label', say('關閉放大圖', 'Close Enlarged Figure'));
+  const lbl = dialog.querySelector('.nvm-engineering-zoom-toolbar label');
+  if (lbl && lbl.childNodes[0]) lbl.childNodes[0].textContent = say('檢視倍率 ', 'Inspection Scale ');
+  dialog.querySelector('.nvm-engineering-zoom-toolbar select')?.setAttribute('aria-label', say('調整圖像倍率', 'Adjust Figure Scale'));
+  const hint = dialog.querySelector('.nvm-engineering-zoom-hint');
+  if (hint) hint.textContent = say('可左右與上下捲動檢查完整元件、接點與編號；下方保留本圖說明。', 'Scroll horizontally and vertically to inspect the complete device, terminals and numerals. The figure explanation remains below.');
+  dialog.querySelector('.nvm-engineering-zoom-scroll')?.setAttribute('aria-label', say('可捲動的放大圖', 'Scrollable Enlarged Figure'));
+};
+window.addEventListener('hub:language-change', syncDialogLabels);
 const cloneDiagram=original=>{
  const svg=original.cloneNode(true),ids=new Map([svg,...svg.querySelectorAll('[id]')].filter(node=>node.id).map(node=>[node.id,`${node.id}--engineering-zoom`]));
  for(const node of [svg,...svg.querySelectorAll('*')]){

@@ -332,6 +332,16 @@
     </div>
   </header>
 
+  <!-- BREADCRUMB -->
+  <nav class="site-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html"><span data-lang="zh">知識中心</span><span data-lang="en">NVM Knowledge Hub</span></a>
+    <i></i>
+    <span><span data-lang="zh">文獻與工具</span><span data-lang="en">Literature &amp; Tools</span></span>
+    <i></i>
+    <strong><span data-lang="zh">高階技術簡報與講稿</span><span data-lang="en">Executive Briefing &amp; Speaker Notes</span></strong>
+    <span class="topic-switch"><a href="../whitepaper/index.html"><span data-lang="en">Whitepaper Studio</span><span data-lang="zh">白皮書工作台</span></a><a href="../memory-evidence.html"><span data-lang="en">Evidence Ledger</span><span data-lang="zh">證據總帳</span></a></span>
+  </nav>
+
   <main id="main-content">
     <section class="briefing-hero">
       <span class="briefing-badge">VERSION 19 &middot; EXECUTIVE BRIEFING PORTAL</span>
@@ -385,7 +395,7 @@
       <div class="slide-card-header">
         <span class="slide-badge">SLIDE 01</span>
         <h3><span data-lang="zh">AI 硬體為持久狀態開啟三大驗證技術家族</span><span data-lang="en">AI Hardware Opens Three Persistent-State Qualification Families</span></h3>
-        <small class="slide-kicker">SYNOPSYS NVM · AI, CHIPLET & IoT OPPORTUNITY BRIEF</small>
+        <small class="slide-kicker">NVM KNOWLEDGE HUB · AI, CHIPLET & IoT OPPORTUNITY BRIEF</small>
       </div>
       <div class="slide-card-body">
         <div class="slide-bullets">
@@ -626,17 +636,17 @@
             <li><span data-lang="zh">抗量子簽章 (LMS/XMSS) 僅需在 OTP 內保存極精簡 32 位元組根雜湊</span><span data-lang="en">Post-quantum stateful signatures (LMS/XMSS) anchor to a compact 32-byte root hash</span></li>
             <li><span data-lang="zh">一次性金鑰狀態 (OTS) 嚴禁重用，依賴硬體級不可逆單調遞增計數器</span><span data-lang="en">One-time signing states strictly forbid reuse, requiring irreversible hardware counters</span></li>
             <li><span data-lang="zh">車規 175°C AEC-Q100 Grade 0 結溫環境下傳統浮閘記憶體電荷嚴重流失</span><span data-lang="en">Legacy floating-gate cells suffer severe charge leakage at 175°C automotive Grade 0</span></li>
-            <li><span data-lang="zh">閘極介電質擊穿微絲物理機制高溫零電荷漂移，奠定 ASIL-D 堅實防禦</span><span data-lang="en">Gate-dielectric breakdown filament physics exhibit zero thermal charge drift, securing ASIL-D</span></li>
+            <li><span data-lang="zh">閘極介電質擊穿微絲物理機制高溫零電荷漂移，提供車用 ASIL-D 系統所需之 SEooC 物理基礎</span><span data-lang="en">Gate-dielectric breakdown filament physics exhibit zero thermal charge drift, providing SEooC physical basis for ASIL-D automotive systems</span></li>
           </ul>
         </div>
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>後量子密碼學 (PQC) 時代的降臨使傳統安全開機面臨巨大挑戰：基於晶格 (Lattice) 的非對稱演算法會造成公鑰體積暴增超過 40 倍，極大超出嵌入式晶片的儲存預算。NIST SP 800-208 推薦的狀態化雜湊簽章 (Stateful Hash-Based Signature, 如 LMS 與 XMSS)，僅需在晶片 OTP 中儲存極為精簡的 32 位元組根雜湊 (Root Hash)。然而，狀態化簽章的致命死穴在於一次性金鑰 (OTS) 絕對不可重複使用，否則密鑰系統瞬間瓦解。同時，車用動力總成 (Powertrain) 要求達到嚴苛的 AEC-Q100 Grade 0 (175°C 結溫) 可靠度，傳統浮閘 (Floating Gate) 記憶體在該高溫下會產生嚴重的應力誘發漏電 (SILC) 與電荷流失。業界標準 CMOS AntiFuse OTP 具備『閘極介電質擊穿微絲 (Gate-Dielectric Breakdown Filament)』的固體物理優勢，高溫零電荷漂移，且不可逆的物理擊穿特性保證一次性簽章單調計數器無法被竄改倒退，是抵禦量子威脅與車規極限環境的硬體根基。</p>
+            <p>後量子密碼學 (PQC) 時代的降臨使傳統安全開機面臨巨大挑戰：基於晶格 (Lattice) 的非對稱演算法會造成公鑰體積暴增超過 40 倍，極大超出嵌入式晶片的儲存預算。NIST SP 800-208 推薦的狀態化雜湊簽章 (Stateful Hash-Based Signature, 如 LMS 與 XMSS)，僅需在晶片 OTP 中儲存極為精簡的 32 位元組根雜湊 (Root Hash)。然而，狀態化簽章的致命死穴在於一次性金鑰 (OTS) 絕對不可重複使用，否則密鑰系統瞬間瓦解。同時，車用動力總成 (Powertrain) 要求達到嚴苛的 AEC-Q100 Grade 0 (175°C 結溫) 可靠度，傳統浮閘 (Floating Gate) 記憶體在該高溫下會產生嚴重的應力誘發漏電 (SILC) 與電荷流失。業界標準 CMOS AntiFuse OTP 具備『閘極介電質擊穿微絲 (Gate-Dielectric Breakdown Filament)』的固體物理優勢，高溫零電荷漂移，且不可逆的物理擊穿特性保證一次性簽章單調計數器無法被竄改倒退，是抵禦量子威脅與提供車用 ASIL-D 系統所需之 SEooC 物理基礎。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>The post-quantum cryptography transition exposes conventional secure boot to acute silicon overhead: lattice-based signatures inflate key payloads by over 40x, overwhelming embedded non-volatile memory budgets. NIST SP 800-208 stateful hash-based signatures (LMS and XMSS) solve this by anchoring security to a compact 32-byte root hash in OTP. However, stateful schemes introduce a catastrophic vulnerability: one-time signature (OTS) leaf reuse completely breaks the private key. Concurrently, automotive powertrain applications mandate AEC-Q100 Grade 0 reliability at 175°C junction temperature, where legacy floating-gate cells suffer severe Stress-Induced Leakage Current (SILC) and trap-assisted discharge. Industry-standard CMOS AntiFuse OTP leverages irreversible gate-dielectric breakdown filament physics that exhibit zero thermal charge drift at 175°C, providing the physical hardware foundation for stateful anti-rollback protection and ASIL-D automotive compliance.</p>
+            <p>The post-quantum cryptography transition exposes conventional secure boot to acute silicon overhead: lattice-based signatures inflate key payloads by over 40x, overwhelming embedded non-volatile memory budgets. NIST SP 800-208 stateful hash-based signatures (LMS and XMSS) solve this by anchoring security to a compact 32-byte root hash in OTP. However, stateful schemes introduce a catastrophic vulnerability: one-time signature (OTS) leaf reuse completely breaks the private key. Concurrently, automotive powertrain applications mandate AEC-Q100 Grade 0 reliability at 175°C junction temperature, where legacy floating-gate cells suffer severe Stress-Induced Leakage Current (SILC) and trap-assisted discharge. Industry-standard CMOS AntiFuse OTP leverages irreversible gate-dielectric breakdown filament physics that exhibit zero thermal charge drift at 175°C, providing the physical hardware foundation for stateful anti-rollback protection, providing SEooC physical basis for ASIL-D automotive systems.</p>
           </div>
         </div>
       </div>

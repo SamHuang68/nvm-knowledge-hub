@@ -11,7 +11,7 @@
     "export:sharepoint": "node scripts/build-oip-sharepoint.mjs && node scripts/build-ai-nvm-sharepoint.mjs",
     "qa:render": "node scripts/render-site-ia.mjs",
     "build:nvm": "node scripts/建立NVM技術全景.mjs && node scripts/建立知識中心首頁.mjs",
-    "check:nvm": "node --check NVM技術全景.js && node --check NVM工程圖解.js && node --check site-language.js && node scripts/建立NVM技術全景.mjs --check && node scripts/建立知識中心首頁.mjs --check",
+    "check:nvm": "node --check ai-nvm.js app.js assurance.js f1-card-align.js hub.js IoT頁面導覽.js NVM工程圖解.js NVM技術全景.js research.js site-language.js specialty-nvm.js 專題選單導覽.js 搜尋控制器.js 記憶體物理導覽.js 首頁導覽.js && node scripts/建立NVM技術全景.mjs --check && node scripts/建立知識中心首頁.mjs --check",
     "qa:nvm": "node scripts/驗證NVM技術全景.mjs",
     "qa:bilingual": "node scripts/驗證全站雙語.mjs",
     "qa:engineering": "node scripts/驗證NVM工程圖解.mjs",

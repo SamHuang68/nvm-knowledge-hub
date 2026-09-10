@@ -3,7 +3,7 @@ const panels = [...document.querySelectorAll('[data-nvm-panel]')];
 const contents = document.querySelector('.nvm-sidebar');
 const contentsButton = document.querySelector('#nvm-contents-toggle');
 const baseTitle = document.title;
-const isEnglish = document.documentElement.lang === 'en';
+const isEnglish = () => (window.HubLanguage?.get() || document.documentElement.lang) === 'en';
 document.addEventListener('keydown', event => {
   if (['Tab','Enter',' ','ArrowUp','ArrowDown','Home','End'].includes(event.key)) document.documentElement.classList.add('nvm-keyboard-navigation');
 });
@@ -57,7 +57,7 @@ function showRoute({ focus = false } = {}) {
     }
     else link.removeAttribute('aria-current');
   });
-  document.title = next.id === 'panorama' ? baseTitle : `${next.querySelector('h2')?.textContent || (isEnglish ? 'NVM Study' : 'NVM 專題')} · NVM Knowledge Hub`;
+  document.title = next.id === 'panorama' ? baseTitle : `${next.querySelector('h2')?.textContent || (isEnglish() ? 'NVM Study' : 'NVM 專題')} · NVM Knowledge Hub`;
   contents.classList.remove('open');
   contentsButton.setAttribute('aria-expanded', 'false');
   for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;
@@ -123,7 +123,7 @@ function filterTopics() {
     row.hidden = !match;
     if (match) count++;
   });
-  document.querySelector('#nvm-count').textContent = isEnglish ? `Showing ${count} of ${rows.length} technology studies` : `顯示 ${count}／${rows.length} 個技術專題`;
+  document.querySelector('#nvm-count').textContent = isEnglish() ? `Showing ${count} of ${rows.length} technology studies` : `顯示 ${count}／${rows.length} 個技術專題`;
   document.querySelector('#nvm-empty').hidden = count > 0;
 }
 filters.forEach(input => input.addEventListener(input.tagName === 'INPUT' ? 'input' : 'change', filterTopics));
@@ -152,7 +152,7 @@ function filterLandscape() {
     row.hidden = Boolean(query && !row.dataset.search.normalize('NFKC').toLocaleLowerCase().includes(query)) || Boolean(landscapeFamily.value && row.dataset.family !== landscapeFamily.value);
     if (!row.hidden) count++;
   }
-  document.querySelector('#nvm-landscape-count').textContent = isEnglish ? `Showing ${count} of ${landscapeRows.length} named routes` : `顯示 ${count}／${landscapeRows.length} 條具名路線`;
+  document.querySelector('#nvm-landscape-count').textContent = isEnglish() ? `Showing ${count} of ${landscapeRows.length} named routes` : `顯示 ${count}／${landscapeRows.length} 條具名路線`;
   document.querySelector('#nvm-landscape-empty').hidden = count !== 0;
   document.querySelectorAll('[data-landscape-family-shortcut]').forEach(button => {
     button.setAttribute('aria-pressed', String(button.dataset.landscapeFamilyShortcut === landscapeFamily.value));
@@ -182,7 +182,7 @@ function filterSources() {
     item.hidden = Boolean(query) && !item.textContent.normalize('NFKC').toLocaleLowerCase().includes(query);
     if (!item.hidden) count++;
   });
-  document.querySelector('#nvm-source-count').textContent = isEnglish ? `Showing ${count} source records` : `顯示 ${count} 筆來源`;
+  document.querySelector('#nvm-source-count').textContent = isEnglish() ? `Showing ${count} source records` : `顯示 ${count} 筆來源`;
   const empty=document.querySelector('#nvm-source-empty');
   if(empty)empty.hidden=count!==0;
 }
@@ -205,11 +205,22 @@ window.addEventListener('hashchange', () => {
 const diagramDialog = document.createElement('dialog');
 diagramDialog.className = 'bc-zoom-dialog';
 diagramDialog.setAttribute('aria-labelledby', 'bc-zoom-title');
-diagramDialog.innerHTML = `<div class="bc-zoom-heading"><h2 id="bc-zoom-title"></h2><button type="button" aria-label="${isEnglish ? 'Close enlarged diagram' : '關閉放大元件圖'}">×</button></div><div class="bc-zoom-canvas"><p class="bc-pan-hint">${isEnglish ? 'Drag or scroll sideways to inspect the complete diagram.' : '左右拖曳或水平捲動，查看完整元件圖。'}</p><div class="bc-zoom-scroll" tabindex="0" aria-label="${isEnglish ? 'Enlarged diagram; scroll horizontally' : '放大元件圖，可水平捲動'}"></div><div class="bc-zoom-notes"></div></div>`;
+diagramDialog.innerHTML = `<div class="bc-zoom-heading"><h2 id="bc-zoom-title"></h2><button type="button" aria-label="${isEnglish() ? 'Close enlarged diagram' : '關閉放大元件圖'}">×</button></div><div class="bc-zoom-canvas"><p class="bc-pan-hint">${isEnglish() ? 'Drag or scroll sideways to inspect the complete diagram.' : '左右拖曳或水平捲動，查看完整元件圖。'}</p><div class="bc-zoom-scroll" tabindex="0" aria-label="${isEnglish() ? 'Enlarged diagram; scroll horizontally' : '放大元件圖，可水平捲動'}"></div><div class="bc-zoom-notes"></div></div>`;
 document.body.append(diagramDialog);
 const diagramCanvas = diagramDialog.querySelector('.bc-zoom-canvas');
 diagramDialog.querySelector('button').addEventListener('click', () => diagramDialog.close());
 diagramDialog.addEventListener('click', event => { if (event.target === diagramDialog) diagramDialog.close(); });
+
+window.addEventListener('hub:language-change', () => {
+  filterTopics();
+  filterLandscape();
+  filterSources();
+  diagramDialog.querySelector('.bc-zoom-heading button')?.setAttribute('aria-label', isEnglish() ? 'Close enlarged diagram' : '關閉放大元件圖');
+  const panHint = diagramDialog.querySelector('.bc-pan-hint');
+  if (panHint) panHint.textContent = isEnglish() ? 'Drag or scroll sideways to inspect the complete diagram.' : '左右拖曳或水平捲動，查看完整元件圖。';
+  diagramDialog.querySelector('.bc-zoom-scroll')?.setAttribute('aria-label', isEnglish() ? 'Enlarged diagram; scroll horizontally' : '放大元件圖，可水平捲動');
+});
+
 document.querySelectorAll('[data-zoom-diagram]').forEach(button => {
   button.addEventListener('click', () => {
     const figure = button.closest('.nvm-cell');
@@ -224,10 +235,15 @@ document.querySelectorAll('[data-zoom-diagram]').forEach(button => {
         if (value !== attribute.value) element.setAttribute(attribute.name, value);
       }
     }
-    diagramDialog.querySelector('h2').textContent = figure.querySelector('.bc-figure-head>span').textContent;
+    diagramDialog.querySelector('h2').textContent = figure.querySelector('.bc-figure-head>span')?.textContent || '';
     const scroller = diagramCanvas.querySelector('.bc-zoom-scroll');
     scroller.replaceChildren(svg);
-    diagramCanvas.querySelector('.bc-zoom-notes').replaceChildren(figure.querySelector('.bc-legend').cloneNode(true), figure.querySelector('.bc-mechanism').cloneNode(true));
+    const legend = figure.querySelector('.bc-legend');
+    const mechanism = figure.querySelector('.bc-mechanism');
+    const notesChildren = [];
+    if (legend) notesChildren.push(legend.cloneNode(true));
+    if (mechanism) notesChildren.push(mechanism.cloneNode(true));
+    diagramCanvas.querySelector('.bc-zoom-notes').replaceChildren(...notesChildren);
     diagramDialog.showModal();
     diagramCanvas.scrollTop = 0;
     scroller.scrollLeft = Math.max(0, (scroller.scrollWidth-scroller.clientWidth)/2);

@@ -872,7 +872,7 @@
             <span data-lang="zh">製程微縮路線極限</span><span data-lang="en">Scaling Roadblocks</span>
             <small>FinFET &amp; GAA</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">Sub-3nm (N2 / A16)</b><span class="badge-win">Unrestricted</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">Sub-3nm (N2 / A16)</b><span class="badge-win">GAA Thermal &amp; Inner-Spacer Constrained</span></div>
           <div class="matrix-cell">Stalls at 16nm<span class="cell-note">IR Drop Penalty</span></div>
           <div class="matrix-cell" style="color:#b91c1c;">Stalls at 28nm<span class="badge-lose">Scaling Cliff</span></div>
           <div class="matrix-cell">Scalable to 12nm / N6<span class="cell-note">BEOL Limited</span></div>
@@ -1038,21 +1038,23 @@
             <span data-lang="en">Fowler–Nordheim tunneling current</span>
           </h4>
           <p style="color:#94a3b8; font-size:0.88rem; line-height:1.55;">
-            <span data-lang="zh">薄閘極氧化層在高電場（E<sub>ox</sub> > 10&nbsp;MV/cm）下誘發載子穿隧與撞擊游離，形成局域導電微絲：</span>
-            <span data-lang="en">Carrier tunneling and percolation under extreme oxide field (E<sub>ox</sub> > 10&nbsp;MV/cm) form a local conductive filament:</span>
+            <span data-lang="zh">穿隧機制由氧化層電壓決定：薄氧化層在 <em>V</em><sub>ox</sub> &lt; 3.15V (Φ<sub>B</sub>/<em>q</em>) 時由直接穿隧 (Direct Tunneling) 主導；厚氧化層在 <em>V</em><sub>ox</sub> &gt; 3.15V 誘發 Fowler–Nordheim (FN) 穿隧，極限崩潰電場 <em>E</em><sub>ox</sub> &gt; 10&nbsp;MV/cm 觸發撞擊游離形成永久導電微絲：</span>
+            <span data-lang="en">Tunneling regime is voltage-governed: thin oxide is dominated by Direct Tunneling at <em>V</em><sub>ox</sub> &lt; 3.15V (Φ<sub>B</sub>/<em>q</em>); thicker oxide undergoes Fowler–Nordheim (FN) tunneling when <em>V</em><sub>ox</sub> &gt; 3.15V, where critical breakdown field <em>E</em><sub>ox</sub> &gt; 10&nbsp;MV/cm triggers impact ionization to form a permanent filament:</span>
           </p>
           <div class="formula-box-math">
             <em>J</em><sub>FN</sub> = <em>A</em><sub>FN</sub> · <em>E</em><sub>ox</sub><sup>2</sup> · exp(−<em>B</em><sub>FN</sub> / <em>E</em><sub>ox</sub>)
           </div>
           <div class="formula-notes">
             <span data-lang="zh">
-              • A<sub>FN</sub> = q<sup>3</sup> / (8π h Φ<sub>B</sub>)，B<sub>FN</sub> = 8π √(2m*) Φ<sub>B</sub><sup>3/2</sup> / (3 q h)<br>
-              • Φ<sub>B</sub> ≈ 3.15&nbsp;eV（Si–SiO<sub>2</sub> 界面能障），m* ≈ 0.5 m<sub>0</sub><br>
+              • 穿隧條件分界：薄氧化層在 <em>V</em><sub>ox</sub> &lt; 3.15V (Φ<sub>B</sub>/<em>q</em>) 為梯形能障直接穿隧 (Direct Tunneling)；厚氧化層在 <em>V</em><sub>ox</sub> &gt; 3.15V 進入三角形能障 FN 穿隧，崩潰電場 <em>E</em><sub>ox</sub> &gt; 10 MV/cm。<br>
+              • <em>A</em><sub>FN</sub> = <em>q</em><sup>3</sup> / (8π <em>h</em> Φ<sub>B</sub>)，<em>B</em><sub>FN</sub> = 8π √(2<em>m</em>*) Φ<sub>B</sub><sup>3/2</sup> / (3 <em>q</em> <em>h</em>)<br>
+              • Φ<sub>B</sub> ≈ 3.15&nbsp;eV（Si–SiO<sub>2</sub> 界面能障），<em>m</em>* ≈ 0.5 <em>m</em><sub>0</sub><br>
               • 編程後模型：阻值由 >10<sup>11</sup> Ω 降至約 10<sup>2</sup> Ω。這是位元胞物理描述，不是出貨規格。
             </span>
             <span data-lang="en">
-              • A<sub>FN</sub> = q<sup>3</sup> / (8π h Φ<sub>B</sub>), B<sub>FN</sub> = 8π √(2m*) Φ<sub>B</sub><sup>3/2</sup> / (3 q h)<br>
-              • Φ<sub>B</sub> ≈ 3.15&nbsp;eV (Si–SiO<sub>2</sub> barrier), m* ≈ 0.5 m<sub>0</sub><br>
+              • Tunneling Regime Boundary: thin oxide is dominated by Direct Tunneling (trapezoidal barrier) at <em>V</em><sub>ox</sub> &lt; 3.15V (Φ<sub>B</sub>/<em>q</em>); thicker oxide transitions to FN tunneling (triangular barrier) at <em>V</em><sub>ox</sub> &gt; 3.15V with breakdown field <em>E</em><sub>ox</sub> &gt; 10 MV/cm.<br>
+              • <em>A</em><sub>FN</sub> = <em>q</em><sup>3</sup> / (8π <em>h</em> Φ<sub>B</sub>), <em>B</em><sub>FN</sub> = 8π √(2<em>m</em>*) Φ<sub>B</sub><sup>3/2</sup> / (3 <em>q</em> <em>h</em>)<br>
+              • Φ<sub>B</sub> ≈ 3.15&nbsp;eV (Si–SiO<sub>2</sub> barrier), <em>m</em>* ≈ 0.5 <em>m</em><sub>0</sub><br>
               • Programmed-state model: resistance falls from >10<sup>11</sup> Ω to ~10<sup>2</sup> Ω. Physics description, not a shipment spec.
             </span>
           </div>
@@ -1070,7 +1072,7 @@
             <span data-lang="en">Express process adder as an inspectable identity in extra masks N<sub>extra</sub> and yield hit ΔY<sub>nvm</sub> — not a foundry quote:</span>
           </p>
           <div class="formula-box-math">
-            <em>C</em><sub>wafer</sub> = <em>C</em><sub>base</sub> · (1 + Σ γ<sub>i</sub>) / (<em>Y</em><sub>base</sub> − Δ<em>Y</em><sub>nvm</sub>)
+            <em>C</em><sub>die_effective</sub> = <em>C</em><sub>base</sub> · (1 + Σ γ<sub>i</sub>) / (<em>Y</em><sub>base</sub> − Δ<em>Y</em><sub>nvm</sub>)
           </div>
           <div class="formula-notes">
             <span data-lang="zh">
@@ -1357,7 +1359,7 @@
         <span class="hub-footer-badge">ISO 26262 ASIL-D Ready</span>
         <span class="hub-footer-badge">Vector Patch CAM</span>
         <span class="hub-footer-badge">TEM Invisibility</span>
-        <span class="hub-footer-badge">DPA 1st/2nd-Order Immune</span>
+        <span class="hub-footer-badge">Differential Current Read (DPA Attenuation)</span>
       </div>
 
       <!-- Bottom Copyright & Status Bar -->
@@ -1473,8 +1475,9 @@
       function setupRadarHiDPI() {
         if (!radarCanvas) return;
         const dpr = Math.min(window.devicePixelRatio || 1, 3);
-        const cssW = 380;
-        const cssH = 340;
+        const parentW = radarCanvas.parentElement ? radarCanvas.parentElement.clientWidth : 380;
+        const cssW = Math.min(380, Math.max(260, parentW - 32));
+        const cssH = Math.round(cssW * (340 / 380));
         radarCanvas.width = Math.round(cssW * dpr);
         radarCanvas.height = Math.round(cssH * dpr);
         radarCanvas.style.width = cssW + "px";
@@ -1486,12 +1489,14 @@
 
       function drawRadar(topCand, runnerCand) {
         if (!radarCtx) return;
-        const w = 380, h = 340;
+        const parentW = radarCanvas.parentElement ? radarCanvas.parentElement.clientWidth : 380;
+        const w = Math.min(380, Math.max(260, parentW - 32));
+        const h = Math.round(w * (340 / 380));
         radarCtx.clearRect(0, 0, w, h);
 
         const cx = w / 2;
-        const cy = h / 2 + 10;
-        const maxR = 105;
+        const cy = h / 2 + 10 * (w / 380);
+        const maxR = 105 * (w / 380);
         const axes = [
           { nameZh: "微縮先進度", nameEn: "Scaling", angle: -Math.PI / 2 },
           { nameZh: "0光罩成本", nameEn: "0-Mask Cost", angle: -Math.PI / 2 + (2 * Math.PI / 5) },

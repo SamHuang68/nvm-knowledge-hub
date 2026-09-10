@@ -804,7 +804,7 @@
               <div class="card-compact">
                 <span class="badge-compact">04 · LIFETIME</span>
                 <h4><span data-lang="zh">15年長效</span><span data-lang="en">15+ Yr Longevity</span></h4>
-                <p><span data-lang="zh">125°C 物理金屬矽化物微絲零漂移，終生免維護免換電池。</span><span data-lang="en">Permanent silicide filament with zero drift at 125°C, battery-free lifetime.</span></p>
+                <p><span data-lang="zh">125°C 閘介電質擊穿再結晶矽微絲零漂移，終生免維護免換電池。</span><span data-lang="en">Permanent recrystallized silicon filament with zero drift at 125°C, battery-free lifetime.</span></p>
               </div>
             </div>
           </section>
@@ -817,8 +817,8 @@
               <span data-lang="en">Step Down Supply Voltage: <em>Dynamic Power Drops by Square Law</em></span>
             </h2>
             <p class="panel-desc">
-              <span data-lang="zh">滑動調節 Vdd 供電電壓，觀察 0.5V 近閾值 (Near-Threshold) 下開機時序波形與動態功耗指數跳水。AntiFuse OTP 原生支援 0.5V 讀取，無需傳統 eFlash 40ms 的電荷泵暖機預充。</span>
-              <span data-lang="en">Adjust the Vdd slider to observe boot waveforms and square-law dynamic power reduction at 0.5V near-threshold voltage. AntiFuse OTP natively reads at 0.5V, bypassing conventional eFlash 40ms charge-pump warmup.</span>
+              <span data-lang="zh">滑動調節 Vdd 供電電壓，觀察 0.5V 近閾值 (Near-Threshold) 下開機時序波形與動態功耗指數跳水。AntiFuse OTP 原生支援 0.5V 讀取，無需傳統 eFlash 20~50µs 的電荷泵暖機預充。</span>
+              <span data-lang="en">Adjust the Vdd slider to observe boot waveforms and square-law dynamic power reduction at 0.5V near-threshold voltage. AntiFuse OTP natively reads at 0.5V, bypassing conventional eFlash 20~50µs charge-pump warmup.</span>
             </p>
 
             <div class="scope-instrument-deck">
@@ -832,11 +832,11 @@
               <div class="scope-controls">
                 <div class="slider-group">
                   <label for="ntvVdd">Vdd (V):</label>
-                  <input type="range" id="ntvVdd" min="0.5" max="1.2" step="0.1" value="0.5">
+                  <input type="range" id="ntvVdd" min="0.5" max="1.2" step="0.1" value="0.5" aria-valuetext="0.50 V">
                   <span class="vdd-readout" id="vddDisplay">0.50 V</span>
                 </div>
                 <div style="font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:#94a3b8;">
-                  <span id="ntvStateTag" style="color:#c4a574;">NEAR-THRESHOLD CONTINUUM (0.5V)</span>
+                  <span id="ntvStateTag" style="color:#c4a574;" aria-live="polite">NEAR-THRESHOLD CONTINUUM (0.5V)</span>
                 </div>
                 <button id="btnRunBootScope" class="button primary" type="button" style="padding: 6px 14px; font-size: 0.8125rem;">
                   <svg style="width:12px;height:12px;"><use href="#i-power"/></svg>
@@ -1328,6 +1328,7 @@
           ntvVdd.addEventListener('input', (e) => {
             const val = parseFloat(e.target.value);
             if (vddDisplay) vddDisplay.textContent = `${val.toFixed(2)} V`;
+            ntvVdd.setAttribute('aria-valuetext', `${val.toFixed(2)} V`);
             drawScope(val, 0);
             const pPct = ((1 - (val / 1.2) ** 2) * 100).toFixed(1);
             if (ntvStateTag) {

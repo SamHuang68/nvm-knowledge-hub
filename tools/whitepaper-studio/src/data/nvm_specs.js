@@ -8,7 +8,7 @@ export const nvmIpSpecs = [
     updateModel: 'Dynamic boot generation + line-speed AES-256-XTS execution + instant zeroization',
     strongestFit: 'AI Accelerators, LLM KV Cache cipher, Chiplet D2D Root-of-Trust, Automotive ADAS',
     boundary: 'Requires helper data integrity checks and hardware trust-boundary enclosure',
-    evidenceStatus: '1.5B+ Devices · PSA L3 · SESIP L3 · AEC-Q100 G1',
+    evidenceStatus: '1.5B+ Devices (Vendor-Aggregated Portfolio Claim) · PSA L3 · SESIP L3 · AEC-Q100 G1',
     latency: 'Sub-microsecond (<1 µs)',
     busExposure: 'None (Monolithic on-die boundary)',
     bomCost: 'Zero mask adder (Standard CMOS)'
@@ -36,7 +36,7 @@ export const nvmIpSpecs = [
     updateModel: 'Enrolled once at wafer sort; static physical response without fuzzy extractor',
     strongestFit: 'Die-unique identity where helper data storage is completely disallowed',
     boundary: 'Permanent physical conductivity requires thermal/FIB tamper validation',
-    evidenceStatus: 'Commercial IP · Foundry Specific',
+    evidenceStatus: '100M+ Shipped · PSA L3 · SESIP L3 · AEC-Q100 G0/G1 Lineage',
     latency: 'Low (20-100 ns)',
     busExposure: 'On-chip bus',
     bomCost: 'Low to Medium (Foundry dependent)'

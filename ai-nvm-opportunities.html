@@ -1023,9 +1023,15 @@
           </article>
 
           <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-UCIe-001 AI-NVM-INF-001 AI-NVM-INF-002" data-fit-record-ids="AI-NVM-INF-001 AI-NVM-INF-002" data-copy-revision="AI-OPPORTUNITY-VIEW-R27">
-            <div class="record-index"><span>08</span><small>CHIPLET LIFECYCLE</small></div>
-            <div class="record-copy"><span class="tier-tag inferred">INFERRED OPPORTUNITY</span><h3><span data-lang="zh">Per-Die Lifecycle State 與 Package-Level Trust</span><span data-lang="en">Per-Die Lifecycle State and Package-Level Trust</span></h3><p><span data-lang="zh">UCIe 2.0 擴充 manageability 與 DFx lifecycle。這支持 per-die identity、repair ownership、debug lock 與 firmware metadata 的機會，但 UCIe 的 MTP 是 Management Transport Protocol。</span><span data-lang="en">UCIe 2.0 expands manageability and DFx lifecycle. That supports opportunities for per-die identity, repair ownership, debug locks and firmware metadata—but UCIe's MTP means Management Transport Protocol.</span></p></div>
-            <div class="record-fit"><small>STATE / FIT</small><b>PER-DIE OWNERSHIP</b><span>OTP identity + managed lifecycle state</span><em><span data-lang="zh">先定義 die、package 與 platform 的權責</span><span data-lang="en">Define die, package and platform ownership first</span></em></div>
+            <div class="record-index"><span>08</span><small>CHIPLET LIFECYCLE &amp; BOOT TIMING</small></div>
+            <div class="record-copy">
+              <span class="tier-tag inferred">INFERRED OPPORTUNITY · BOOT TIMING RESOLUTION</span>
+              <h3><span data-lang="zh">Per-Die 信任狀態與 PCIe/CXL LTSSM 100ms 開機架構</span><span data-lang="en">Per-Die Trust State and PCIe/CXL LTSSM 100ms Boot Architecture</span></h3>
+              <p><span data-lang="zh">UCIe 2.0 擴充 manageability 與 DFx lifecycle，確立 per-die identity、repair ownership、debug lock 與 firmware metadata 的機會（UCIe 規範中的 MTP 係指 Management Transport Protocol）。在高速小晶片開機架構中，PCIe/CXL 實體層鏈路訓練 (LTSSM) 在系統重置後具備嚴苛的 100ms 鏈路握手超時窗口；若嘗試自片上慢速嵌入式 NVM（讀取頻寬通常僅 10~50 MB/s）直接載入數十至數百 MB 的複雜 AI 韌體，耗時將高達數秒並觸發 LTSSM 超時斷鏈。架構解答是<strong>「片上不可變微型 RoT (32B Hash) + 片外高速分層載入」</strong>：片上僅需微型 OTP/PUF 儲存 32 位元組 LMS/SHA-256 根雜湊（次微秒內極速錨定信任），大容量韌體則透過外掛高頻 Quad/Octal SPI 或主機通道分層載入 SRAM/DRAM 並由硬體管線即時驗簽，完美兼顧信任根與 100ms 鏈路訓練時限。</span><span data-lang="en">UCIe 2.0 expands manageability and DFx lifecycle, supporting per-die identity, repair ownership, debug locks, and firmware metadata (note that UCIe's MTP denotes Management Transport Protocol). In advanced chiplet architectures, PCIe/CXL physical layer LTSSM enforces a strict 100ms link-training timeout window upon reset de-assertion. Attempting to boot tens or hundreds of megabytes of complex accelerator firmware directly from slow on-die eNVM (typically 10-50 MB/s read bandwidth) takes seconds and causes fatal LTSSM link-down panics. The architectural resolution decouples this into <strong>"On-die Immutable Micro-RoT (32B Hash) + Hierarchical Off-chip High-speed Loading"</strong>: on-die OTP/PUF stores only a 32-byte LMS/SHA-256 root hash (anchored in sub-microseconds), while bulk firmware is streamed via high-speed external Quad/Octal SPI or host memory into SRAM/DRAM with pipelined signature verification—strictly meeting the 100ms LTSSM window.</span></p>
+            </div>
+            <div class="record-fit">
+              <small>STATE / FIT</small><b>MICRO-RoT + TIERED BOOT</b><span>32B on-die OTP hash + off-chip fast boot</span><em><span data-lang="zh">片上 32B 信任根錨定 + 片外高速分層載入，消除 LTSSM 100ms 逾時矛盾</span><span data-lang="en">On-die 32B RoT anchor + off-chip high-speed boot resolves 100ms LTSSM timeout</span></em>
+            </div>
           </article>
 
           <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-CXL-001 AI-NVM-INF-002" data-fit-record-ids="AI-NVM-INF-002" data-copy-revision="AI-OPPORTUNITY-VIEW-R27">
@@ -1267,6 +1273,62 @@
               <strong>READ AVAILABILITY <i>≠</i> PROGRAM AVAILABILITY</strong>
               <p><span data-lang="zh">Core supply 可支援正常讀取；PGM 仍需要 I/O 電源作為 charge pump 的基礎電壓。這是操作模式分離，不是所有模式共用單一供電。</span><span data-lang="en">Core supply can support normal reads; PGM still requires the I/O supply as the charge pump's base voltage. This separates operating modes—it does not mean one supply serves every mode.</span></p>
             </div>
+          </div>
+        </div>
+
+        <!-- AI Compute-in-Memory (CIM/IMC) 物理邊界深度剖析 -->
+        <div class="cim-physics-boundary" style="margin-top: 24px; background: #071f2c; border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 8px; padding: 22px 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div style="display: inline-flex; align-items: center; gap: 8px;">
+              <span class="pulse-dot" style="background: #ef4444;" aria-hidden="true"></span>
+              <span style="font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: 0.12em; color: #ef4444; text-transform: uppercase;">PHYSICAL BOUNDARY ANALYSIS · CIM / IMC</span>
+            </div>
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #88a0aa; background: rgba(255,255,255,0.05); padding: 3px 8px; border-radius: 4px;">FIRST-PRINCIPLES LIMITS</span>
+          </div>
+
+          <h3 style="font-size: 20px; font-weight: 700; color: #ffffff; margin: 0 0 10px; line-height: 1.3;">
+            <span data-lang="zh">AI 存算一體 (CIM/IMC) 的<em>三大物理極限與架構邊界</em></span>
+            <span data-lang="en">Physical Boundaries of AI Compute-in-Memory (CIM/IMC) <em>Three Fundamental Silicon Limits</em></span>
+          </h3>
+
+          <p style="font-size: 13.5px; line-height: 1.68; color: #b4c7d0; margin-bottom: 18px;">
+            <span data-lang="zh">在非揮發性記憶體 (ReRAM、MRAM、Flash) 陣列內直接進行類比向量矩陣乘法 (VMM, Vector-Matrix Multiplication) 概念極具吸引力，但在先進節點大規模量產 AI 晶片中，存算一體面臨不可妥協的底層固體物理與混訊電路邊界：</span>
+            <span data-lang="en">Performing analog Vector-Matrix Multiplication (VMM) directly within non-volatile memory arrays (ReRAM, MRAM, Flash) is conceptually attractive, but deploying CIM/IMC in production advanced-node AI accelerators faces insurmountable solid-state physics and mixed-signal boundaries:</span>
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 16px;">
+            <article style="background: rgba(10, 42, 55, 0.5); border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #ef4444; border-radius: 4px; padding: 14px 16px;">
+              <div style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #ef4444; margin-bottom: 4px;">LIMIT 01 · MIXED-SIGNAL OVERHEAD</div>
+              <h4 style="font-size: 14.5px; font-weight: 700; color: #e2e8f0; margin: 0 0 6px;"><span data-lang="zh">ADC/DAC 佔據 60%~85% 功耗與面積</span><span data-lang="en">ADC/DAC Consumes 60%~85% Power &amp; Area</span></h4>
+              <p style="font-size: 12.5px; line-height: 1.6; color: #94a3b8; margin: 0;">
+                <span data-lang="zh">雖然電阻陣列歐姆定律計算本身近乎零動態延遲，但陣列周邊的輸入 DAC 與高精度並行 ADC 轉換電路佔據了整個 CIM 巨集 60% 至 85% 的矽面積與能耗開銷，實質抵消了存算一體的陣列級能效優勢。</span>
+                <span data-lang="en">While Ohm's law current summation within the resistive array executes with near-zero dynamic latency, peripheral input DACs and high-speed parallel ADCs dominate 60% to 85% of total CIM macro silicon area and power, negating raw array efficiency gains.</span>
+              </p>
+            </article>
+
+            <article style="background: rgba(10, 42, 55, 0.5); border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #f59e0b; border-radius: 4px; padding: 14px 16px;">
+              <div style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #f59e0b; margin-bottom: 4px;">LIMIT 02 · INTERCONNECT RESISTANCE</div>
+              <h4 style="font-size: 14.5px; font-weight: 700; color: #e2e8f0; margin: 0 0 6px;"><span data-lang="zh">金屬走線 IR-Drop 導致線性度失真</span><span data-lang="en">Interconnect IR-Drop Destroys Linearity</span></h4>
+              <p style="font-size: 12.5px; line-height: 1.6; color: #94a3b8; margin: 0;">
+                <span data-lang="zh">隨字元線 (Wordline) 與位元線 (Bitline) 陣列長度增加，金屬連線寄生電阻伴隨大電流引發嚴重的非線性 IR-drop 電壓降，使末端儲存單元實際工作偏壓顯著失真，導致累加電流偏離權重線性對應關係。</span>
+                <span data-lang="en">As Wordline and Bitline arrays scale, non-negligible metallic parasitic resistance under high summing currents induces severe non-linear IR-drop, severely compressing sensing margins and skewing mathematical linearity across distant bitcells.</span>
+              </p>
+            </article>
+
+            <article style="background: rgba(10, 42, 55, 0.5); border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #38bdf8; border-radius: 4px; padding: 14px 16px;">
+              <div style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; margin-bottom: 4px;">LIMIT 03 · PRECISION CEILING</div>
+              <h4 style="font-size: 14.5px; font-weight: 700; color: #e2e8f0; margin: 0 0 6px;"><span data-lang="zh">有限精度瓶頸 (INT8/INT4) 難援大模型</span><span data-lang="en">Limited Precision (INT8/INT4) vs. LLM Needs</span></h4>
+              <p style="font-size: 12.5px; line-height: 1.6; color: #94a3b8; margin: 0;">
+                <span data-lang="zh">非揮發性元件電導漂移 (Conductance Drift)、熱雜訊與製程離散限制了訊噪比 (SNR)，使類比 CIM 實務上限於 INT8 甚至 INT4 推論；無法直接支援現代大語言模型核心的 FP16/BF16/FP8 高動態範圍浮點運算。</span>
+                <span data-lang="en">Conductance drift, thermal noise, and PVT mismatch bound analog SNR, capping practical CIM precision at INT8 or INT4 inference. This fundamentally prevents native acceleration of modern LLM workloads requiring FP16/BF16/FP8 dynamic ranges.</span>
+              </p>
+            </article>
+          </div>
+
+          <div style="font-size: 12px; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 10px; line-height: 1.55;">
+            <strong style="color: #c4a574;"><span data-lang="zh">架構結論：</span><span data-lang="en">Architectural Verdict:</span></strong>
+            <span data-lang="zh">在先進節點 AI 加速器中，NVM 的關鍵價值在於「確定性狀態儲存、開機信任錨定、與晶圓級修復重映射」，而非強行替代數位算力單元。</span>
+            <span data-lang="en">In advanced AI accelerators, embedded NVM provides maximum architectural value in deterministic state persistence, secure boot anchoring, and wafer repair remapping—rather than forcing analog replacements of digital tensor compute.</span>
           </div>
         </div>
 
