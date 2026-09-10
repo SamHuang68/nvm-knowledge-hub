@@ -229,3 +229,86 @@ html:not(.nvm-keyboard-navigation) .nvm-atlas-page [data-route-heading]:focus-vi
  .knowledge-product-tracks { grid-template-columns: repeat(3,minmax(0,1fr)); }
  .knowledge-product-tracks span { border-top: 0; border-left: 1px solid #b1c7bf; padding: 13px 5px; font-size: 12px; }
 }
+
+/* 全景目錄與工程比較：章節索引、具名實作及測量條件各自保留層級。 */
+.nvm-library-index>.nvm-atlas-cover { display: grid; grid-template-columns: minmax(0,1fr) 175px; gap: 40px; align-items: center; padding: 32px; background: #092b3b; color: #f4faf9; border: 0; margin-bottom: 28px; }
+.nvm-atlas-cover .nvm-kicker { color: #74e4d7; font-size: 12px; letter-spacing: .08em; }
+.nvm-library-index>.nvm-atlas-cover h2 { color: #f4faf9; font-size: 40px; line-height: 1.25; margin: 14px 0 20px; }
+.nvm-atlas-cover .nvm-lede { color: #cadde1; font-size: 17px; line-height: 1.85; }
+.nvm-atlas-cover .nvm-lede p { margin: 0; }
+.nvm-atlas-cover aside { border-left: 1px solid #47656c; padding-left: 28px; }
+.nvm-atlas-cover aside strong { display: block; color: #8be5d7; font-size: 68px; font-weight: 400; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.nvm-atlas-cover aside span,.nvm-atlas-cover aside small { display: block; font-size: 14px; line-height: 1.6; margin-top: 12px; }
+.nvm-atlas-cover aside small { font-size: 12px; color: #bed6dc; }
+.nvm-library-entries { grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 32px; }
+.nvm-library-entries>a { align-items: start; padding: 24px 0; grid-template-columns: 25px minmax(0,1fr) 18px; gap: 13px; }
+.nvm-library-entries h3 { font-size: 21px; font-weight: 500; line-height: 1.4; color: #173b49; margin-bottom: 11px; }
+.nvm-library-entries>a>span:first-child { color: #805828; font: 12px/1.6 Consolas,monospace; }
+.nvm-library-entries p { line-height: 1.8; }
+.nvm-library-entries>a:hover { background: #eaf1ed; }
+.nvm-comparison-editorial>header { border-top: 3px solid #367c70; padding: 25px 0 26px; }
+.nvm-comparison-editorial>header h2 { font-size: 40px; line-height: 1.3; }
+.nvm-comparison-editorial>header .nvm-lede { font-size: 18px; line-height: 1.85; max-width: 60em; }
+.nvm-benchmark-index { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 30px; border-top: 1px solid #c1d3cf; }
+.nvm-benchmark-index a { display: grid; grid-template-columns: 25px minmax(0,1fr) 18px; gap: 4px 13px; padding: 18px 5px; border-bottom: 1px solid #c1d3cf; text-decoration: none; align-items: baseline; }
+.nvm-benchmark-index a>span:first-child { color: #805828; font: 12px/1.7 Consolas,monospace; }
+.nvm-benchmark-index strong { font-size: 18px; font-weight: 500; color: #173b49; }
+.nvm-benchmark-index small { grid-column: 2; font-size: 13px; line-height: 1.7; color: #526a72; }
+.nvm-benchmark-index a>span:last-child { grid-column: 3; grid-row: 1/3; align-self: center; }
+.nvm-benchmark-index a:hover { background: #eaf1ed; }
+.nvm-comparison-history-link { font-size: 14px; text-align: right; margin: 10px 0 32px; }
+.nvm-comparison-history-link a { display: inline-flex; gap: 16px; align-items: center; min-height: 44px; }
+.nvm-benchmark-section-title { font-size: 23px; font-weight: 500; }
+.nvm-benchmark-study { margin: 30px 0 45px; padding: 26px 0 0; border-top: 2px solid #367c70; border-bottom: 0; scroll-margin-top: 0; }
+.nvm-benchmark-study>header { display: grid; grid-template-columns: 58px minmax(0,1fr); gap: 23px; margin-bottom: 25px; }
+.nvm-benchmark-number { font-size: 44px; line-height: 1.15; color: #56867a; font-weight: 400; }
+.nvm-benchmark-study .nvm-kicker { font-size: 12px; line-height: 1.7; margin: 0 0 10px; }
+.nvm-benchmark-study h3 { font-size: 28px; font-weight: 500; line-height: 1.4; margin: 0; overflow-wrap: anywhere; }
+.nvm-benchmark-study .nvm-two { grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 28px; align-items: stretch; }
+.nvm-benchmark-values,.nvm-benchmark-conditions { padding: 22px 25px; }
+.nvm-benchmark-values { background: #e9f0ec; border-top: 2px solid #6e998b; }
+.nvm-benchmark-conditions { border-top: 2px solid #adbeb8; }
+.nvm-benchmark-study h4 { font-size: 16px; line-height: 1.6; margin: 0 0 15px; font-weight: 600; color: #265f56; }
+.nvm-benchmark-study ul { padding-left: 20px; font-size: 16px; line-height: 1.85; }
+.nvm-benchmark-study li+li { margin-top: 10px; }
+.nvm-benchmark-study .nvm-lesson { display: grid; grid-template-columns: 125px minmax(0,1fr); gap: 18px; padding: 20px 23px; margin-top: 22px; color: #5a4831; background: #f2eee4; line-height: 1.85; }
+.nvm-benchmark-study .nvm-lesson strong { font-size: 14px; }
+.nvm-benchmark-return { display: inline-flex; align-items: center; gap: 20px; min-height: 44px; font-size: 14px; }
+.nvm-comparison-history { border-top: 3px solid #8b7454; padding-top: 27px; }
+.nvm-comparison-history>.nvm-kicker { color: #805828; }
+.nvm-comparison-history>h3 { font-size: 28px; font-weight: 500; }
+.nvm-physics-editorial .nvm-axes { border: 0; column-gap: 27px; counter-reset: axis; margin-block: 32px; }
+.nvm-physics-editorial .nvm-axes article { border: 0; border-top: 2px solid #719a8c; padding: 18px 0; }
+.nvm-physics-editorial .nvm-axes article::before { counter-increment: axis; content: '0' counter(axis); color: #805828; font: 12px/1.8 Consolas,monospace; }
+.nvm-physics-editorial .nvm-axes h3 { font-size: 23px; font-weight: 500; margin: 11px 0 16px; }
+.nvm-physics-editorial .nvm-tech-table th { background: #e3ece6; padding-block: 17px; }
+.nvm-physics-editorial .nvm-tech-table td { padding-block: 23px; }
+.nvm-physics-editorial .nvm-tech-table tbody tr:nth-child(even) { background: #f0f4ef; }
+.nvm-physics-editorial .nvm-tech-table td:first-child>a { font-size: 17px; line-height: 1.6; font-weight: 500; }
+@media(max-width:1100px) {
+ .nvm-library-index>.nvm-atlas-cover { grid-template-columns: minmax(0,1fr) 135px; gap: 25px; padding: 27px; }
+ .nvm-library-index>.nvm-atlas-cover h2,.nvm-comparison-editorial>header h2 { font-size: 35px; }
+ .nvm-atlas-cover aside { padding-left: 22px; }
+ .nvm-atlas-cover aside strong { font-size: 56px; }
+ .nvm-library-entries { column-gap: 23px; }
+ .nvm-library-entries h3 { font-size: 20px; }
+ .nvm-benchmark-study .nvm-two { grid-template-columns: 1fr; gap: 18px; }
+ .nvm-benchmark-study h3 { font-size: 25px; }
+}
+@media(max-width:800px) {
+ .nvm-library-entries { grid-template-columns: 1fr; }
+ .nvm-benchmark-index { grid-template-columns: 1fr; }
+ .nvm-physics-editorial .nvm-tech-table td { padding-block: 9px; }
+}
+@media(max-width:600px) {
+ .nvm-library-index>.nvm-atlas-cover { grid-template-columns: 1fr; padding: 24px 22px; gap: 20px; }
+ .nvm-library-index>.nvm-atlas-cover h2,.nvm-comparison-editorial>header h2 { font-size: 31px; }
+ .nvm-atlas-cover .nvm-lede,.nvm-comparison-editorial>header .nvm-lede { font-size: 16px; }
+ .nvm-atlas-cover aside { display: grid; grid-template-columns: auto 1fr; gap: 3px 20px; padding: 17px 0 0; border-left: 0; border-top: 1px solid #47656c; }
+ .nvm-atlas-cover aside strong { grid-row: span 2; font-size: 45px; }
+ .nvm-atlas-cover aside span,.nvm-atlas-cover aside small { margin: 0; }
+ .nvm-benchmark-study>header { grid-template-columns: 1fr; gap: 13px; }
+ .nvm-benchmark-number { font-size: 34px; }
+ .nvm-benchmark-values,.nvm-benchmark-conditions { padding: 21px 19px; }
+ .nvm-benchmark-study .nvm-lesson { grid-template-columns: 1fr; gap: 8px; padding: 19px; }
+}

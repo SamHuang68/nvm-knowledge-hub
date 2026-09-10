@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import {chromium} from 'playwright';
-const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'qa/商用編排第二輪_20260910');
+const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'qa/商用編排第三輪_20260910');
 fs.mkdirSync(out,{recursive:true});
 const widths=process.argv.includes('--quick')?[1440,390]:[1440,1361,1360,1280,1101,1100,901,900,800,768,621,620,390,312];
 const checks=[],errors=[],copy=[];
@@ -19,7 +19,7 @@ async function audit(page,language,width,route,scope){
  check(geometry.overflow<=1,'頁面無水平溢出',{language,width,route,overflow:geometry.overflow});check(geometry.clips.length===0,'語意區塊內部沒有裁切',{language,width,route,clips:geometry.clips});
  if(language==='en'){const text=await page.locator(scope).innerText();check(!/[\u3400-\u9fff]/u.test(text),'英文主要內容沒有中文漏譯',{width,route,hits:text.match(/[\u3400-\u9fff]+/gu)?.slice(0,8)});}
  check(geometry.headings.every(h=>h.size<=(width<=600?44:h.tag==='H1'?72:56)),'主要標題尺度受控',{language,width,route,headings:geometry.headings});
- if([1440,390].includes(width)&&['首頁','ecosystem','research'].includes(route)){
+ if([1440,390].includes(width)&&['首頁','ecosystem','research','panorama','physics-library','comparison'].includes(route)){
   const contrast=await page.evaluate(selector=>{
    const rgb=c=>c.match(/[\d.]+/g)?.slice(0,3).map(Number)||[255,255,255];
    const lum=c=>rgb(c).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;}).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0);
@@ -54,12 +54,23 @@ try{
    await page.keyboard.press('Control+k');check(await page.locator('#searchOverlay').getAttribute('aria-hidden')==='false','手機版鍵盤搜尋可用',{language});await page.keyboard.press('Escape');
   }
   const atlas=language==='zh'?'NVM技術全景中文.html':'NVM技術全景.html';await page.goto(new URL(atlas+'?lang='+language+'#ecosystem',base).href,{waitUntil:'networkidle'});
-  for(const route of ['ecosystem','research','research-everspin','research-panasonic','research-itri','ip-neoee','topic-stt','foundry']){
+  for(const route of ['panorama','physics-library','comparison','benchmark-CMP-BENCH-FRAM','benchmark-CMP-BENCH-OPTANE','comparison-history','ecosystem','research','research-everspin','research-panasonic','research-itri','ip-neoee','topic-stt','foundry']){
    await page.evaluate(hash=>{location.hash=hash;},route);await page.waitForFunction(id=>document.getElementById(id)?.checkVisibility(),route);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
    await audit(page,language,width,route,'#'+route);
    if(route.startsWith('research-')){const bounds=await page.evaluate(id=>{const a=document.getElementById(id).getBoundingClientRect(),h=document.querySelector('.nvm-header').getBoundingClientRect();return{top:a.top,headerBottom:h.bottom};},route);check(bounds.top>=bounds.headerBottom&&bounds.top<=bounds.headerBottom+40,'專題錨點緊接固定頁首且不被遮擋',{language,width,route,...bounds});check(await page.evaluate(()=>document.activeElement.tagName==='H3'),'專題焦點落在標題而非整章外框',{language,width,route});}
    if([1440,390].includes(width)&&['ecosystem','research','research-everspin','research-panasonic','research-itri'].includes(route)){await page.screenshot({path:path.join(out,`${language}-${route}-${width}.png`)});if(width===1440&&['ecosystem','research'].includes(route))copy.push(await page.locator('#'+route).innerText());}
+   if([1440,390].includes(width)&&['panorama','physics-library','comparison','benchmark-CMP-BENCH-FRAM'].includes(route)){await page.screenshot({path:path.join(out,`${language}-${route}-${width}.png`)});if(width===1440)copy.push(await page.locator('#'+route).innerText());}
   }
+  await page.evaluate(()=>location.hash='comparison');
+  const comparison=JSON.parse(fs.readFileSync(path.join(root,`data/NVM比較與系統${language==='en'?'英文':''}.json`),'utf8'));
+  check(await page.locator('.nvm-benchmark-index a').count()===comparison.benchmarks.length,'比較索引涵蓋全部具名實作',{language,width});
+  for(const record of comparison.benchmarks){const study=page.locator('#benchmark-'+record.id);check(JSON.stringify(await study.locator('.nvm-benchmark-values li').allTextContents())===JSON.stringify(record.values)&&JSON.stringify(await study.locator('.nvm-benchmark-conditions li').allTextContents())===JSON.stringify(record.conditions),'數值與全部測量條件逐筆保留',{language,width,id:record.id});}
+  await page.locator('.nvm-benchmark-index a').first().click();await page.waitForFunction(()=>location.hash==='#benchmark-CMP-BENCH-FRAM'&&document.activeElement.matches('#benchmark-CMP-BENCH-FRAM h3'));
+  check(await page.evaluate(()=>document.activeElement.tagName==='H3'),'具名比較案例連結聚焦標題',{language,width});
+  await page.locator('#benchmark-CMP-BENCH-FRAM .nvm-benchmark-return').click();await page.waitForFunction(()=>location.hash==='#comparison');
+  await page.locator('.nvm-comparison-history-link a').click();await page.locator('#comparison-history details>summary').click();
+  check(await page.locator('#comparison-history details').getAttribute('open')!==null&&await page.locator('.nvm-history-table tbody tr').count()===comparison.historicalTable.rows.length,'歷史表完整保留並可展開',{language,width});
+  await audit(page,language,width,'歷史表展開','#comparison-history');
   await page.evaluate(()=>location.hash='ecosystem');await page.locator('[data-landscape-family-shortcut="MRAM"]').click();check(await page.locator('[data-landscape-row]:visible').count()===19&&await page.locator('#nvm-landscape-family').inputValue()==='MRAM','家族快捷按鈕與原生選單同步',{language,width});
   await page.locator('#nvm-landscape-reset').click();check(await page.locator('[data-landscape-row]:visible').count()===74&&await page.locator('[data-landscape-family-shortcut=""]').getAttribute('aria-pressed')==='true','重設同步全部家族狀態',{language,width});
   const entry=page.locator('#company-everspin-toggle'),drawer=entry.locator('.nvm-evidence-drawer');
