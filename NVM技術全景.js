@@ -63,7 +63,7 @@ function showRoute({ focus = false } = {}) {
   for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;
   if (focus) {
     const destination = anchor || next;
-    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study,.nvm-topic-section,[data-foundry-year]') ? destination.querySelector('h3') : destination.matches('[data-foundry]') ? destination.querySelector('h4') : destination.matches('[data-source-record]') ? destination.querySelector('summary') : destination;
+    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study,.nvm-topic-section,.nvm-ip-group,.nvm-system-section,.nvm-system-end,[data-foundry-year]') ? destination.querySelector('h3') : destination.matches('[data-foundry]') ? destination.querySelector('h4') : destination.matches('.nvm-system-index') ? destination.querySelector('a') : destination.matches('[data-source-record]') ? destination.querySelector('summary') : destination;
     heading?.setAttribute('tabindex', '-1');
     if (heading?.matches('h2,h3,h4')) heading.dataset.routeHeading = '';
     heading?.focus({ preventScroll: true });

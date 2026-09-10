@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import {chromium} from 'playwright';
-const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'qa/商用編排第五輪_20260910');
+const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'qa/商用編排第六輪_20260910');
 fs.mkdirSync(out,{recursive:true});
 const widths=process.argv.includes('--quick')?[1440,390]:[1440,1361,1360,1280,1101,1100,901,900,800,768,621,620,390,312];
 const checks=[],errors=[],copy=[];
@@ -19,7 +19,7 @@ async function audit(page,language,width,route,scope){
  check(geometry.overflow<=1,'頁面無水平溢出',{language,width,route,overflow:geometry.overflow});check(geometry.clips.length===0,'語意區塊內部沒有裁切',{language,width,route,clips:geometry.clips});
  if(language==='en'){const text=await page.locator(scope).innerText();check(!/[\u3400-\u9fff]/u.test(text),'英文主要內容沒有中文漏譯',{width,route,hits:text.match(/[\u3400-\u9fff]+/gu)?.slice(0,8)});}
  check(geometry.headings.every(h=>h.size<=(width<=600?44:h.tag==='H1'?72:56)),'主要標題尺度受控',{language,width,route,headings:geometry.headings});
- if([1440,390].includes(width)&&['首頁','ecosystem','research','panorama','physics-library','comparison','foundry','sources','topic-stt','topic-stt-tradeoffs','topic-stt-ceilings'].includes(route)){
+ if([1440,390].includes(width)&&['首頁','ecosystem','research','panorama','physics-library','comparison','foundry','sources','topic-stt','topic-stt-tradeoffs','topic-stt-ceilings','ip-directory','ip-group-mtp','system-array','system-array-section-3','system-scm'].includes(route)){
   const contrast=await page.evaluate(selector=>{
    const rgb=c=>c.match(/[\d.]+/g)?.slice(0,3).map(Number)||[255,255,255];
    const lum=c=>rgb(c).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;}).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0);
@@ -54,7 +54,7 @@ try{
    await page.keyboard.press('Control+k');check(await page.locator('#searchOverlay').getAttribute('aria-hidden')==='false','手機版鍵盤搜尋可用',{language});await page.keyboard.press('Escape');
   }
   const atlas=language==='zh'?'NVM技術全景中文.html':'NVM技術全景.html';await page.goto(new URL(atlas+'?lang='+language+'#ecosystem',base).href,{waitUntil:'networkidle'});
-  for(const route of ['panorama','physics-library','comparison','benchmark-CMP-BENCH-FRAM','benchmark-CMP-BENCH-OPTANE','comparison-history','ecosystem','research','research-everspin','research-panasonic','research-itri','ip-neoee','topic-stt','topic-stt-storage','topic-stt-tradeoffs','topic-stt-ceilings','topic-vcm','topic-eeprom','foundry','foundry-year-2026','sources']){
+  for(const route of ['panorama','physics-library','comparison','benchmark-CMP-BENCH-FRAM','benchmark-CMP-BENCH-OPTANE','comparison-history','ecosystem','research','research-everspin','research-panasonic','research-itri','ip-neoee','topic-stt','topic-stt-storage','topic-stt-tradeoffs','topic-stt-ceilings','topic-vcm','topic-eeprom','ip-directory','ip-group-mtp','system-array','system-array-section-3','system-scm','system-scm-section-5','foundry','foundry-year-2026','sources']){
    await page.evaluate(hash=>{location.hash=hash;},route);await page.waitForFunction(id=>document.getElementById(id)?.checkVisibility(),route);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
    await audit(page,language,width,route,'#'+route);
    if(route.startsWith('research-')){const bounds=await page.evaluate(id=>{const a=document.getElementById(id).getBoundingClientRect(),h=document.querySelector('.nvm-header').getBoundingClientRect();return{top:a.top,headerBottom:h.bottom};},route);check(bounds.top>=bounds.headerBottom&&bounds.top<=bounds.headerBottom+40,'專題錨點緊接固定頁首且不被遮擋',{language,width,route,...bounds});check(await page.evaluate(()=>document.activeElement.tagName==='H3'),'專題焦點落在標題而非整章外框',{language,width,route});}
@@ -63,6 +63,20 @@ try{
    if([1440,390].includes(width)&&['foundry','foundry-year-2026','sources'].includes(route)){await page.screenshot({path:path.join(out,`${language}-${route}-${width}.png`)});if(width===1440)copy.push(await page.locator('#'+route).innerText());}
   }
   if([1440,390].includes(width))for(const route of ['topic-stt','topic-stt-storage','topic-stt-tradeoffs','topic-stt-ceilings']){await page.evaluate(hash=>location.hash=hash,route);await page.waitForFunction(id=>document.activeElement===document.getElementById(id).querySelector(id==='topic-stt'?'h2':'h3'),route);await page.screenshot({path:path.join(out,language+'-'+route+'-'+width+'.png')});if(width===1440)copy.push(await page.locator('#'+route).innerText());}
+  for(const id of ['ip-directory','ip-group-mtp','system-array','system-array-section-3','system-scm','system-scm-section-5']){
+   await page.evaluate(hash=>location.hash=hash,id);await page.waitForFunction(id=>document.getElementById(id)?.checkVisibility(),id);
+   if([1440,390].includes(width)){await page.screenshot({path:path.join(out,language+'-'+id+'-'+width+'.png')});if(width===1440)copy.push(await page.locator('#'+id).innerText());}
+  }
+  await page.evaluate(()=>location.hash='ip-directory');
+  check(await page.locator('.nvm-ip-family-index a').count()===4&&await page.locator('[data-ip-entry]:visible').count()===12,'IP家族入口及具名單元完整',{language,width});
+  const ipData=JSON.parse(fs.readFileSync(path.join(root,'data/NVMIP單元導論'+(language==='en'?'英文':'')+'.json'),'utf8'));
+  if(width===1440)for(const unit of ipData.units){const text=await page.locator('[data-ip-entry="'+unit.id+'"]').innerText();check([unit.vendor,unit.shortTitle,unit.program,unit.reverse,unit.readout].every(value=>text.includes(value)),'IP操作名錄保留正式文字',{language,id:unit.id});}
+  await page.locator('.nvm-ip-family-index a[href="#ip-group-mtp"]').click();await page.waitForFunction(()=>document.activeElement===document.querySelector('#ip-group-mtp h3'));check(await page.locator('#ip-group-mtp [data-ip-entry]').count()===4,'家族定位聚焦標題並顯示完整單元',{language,width});
+  await page.locator('[data-ip-entry="neoee"] .nvm-ip-entry-link').click();await page.waitForFunction(()=>location.hash==='#ip-neoee'&&document.activeElement===document.querySelector('#ip-neoee h2'));check(await page.locator('#ip-neoee').isVisible(),'操作圖入口可實際開啟具名單元',{language,width});
+  const systems=JSON.parse(fs.readFileSync(path.join(root,'data/NVM比較與系統'+(language==='en'?'英文':'')+'.json'),'utf8')).systems;
+  for(const system of systems){const prefix='system-'+system.id;await page.evaluate(hash=>location.hash=hash,prefix);check(await page.locator('#'+prefix+' .nvm-system-index a').count()===system.sections.length,'系統索引涵蓋全部正式章節',{language,width,id:system.id});if(width===1440)for(const [i,section] of system.sections.entries()){const text=await page.locator('#'+prefix+'-section-'+(i+1)).innerText();check([section.title,...section.body.split('\n\n')].every(value=>text.includes(value)),'系統段落保留原始正文及條件',{language,id:system.id,index:i+1});}
+   await page.locator('#'+prefix+' .nvm-system-index a').first().click();await page.waitForFunction(id=>document.activeElement===document.querySelector('#'+id+'-section-1 h3'),prefix);check(await page.locator('#'+prefix+'-section-1').isVisible(),'系統章節定位至標題',{language,width,id:system.id});await page.locator('#'+prefix+'-section-1 .nvm-system-return').click();await page.waitForFunction(id=>document.activeElement===document.querySelector('#'+id+' .nvm-system-index a'),prefix);check(await page.locator('#'+prefix+'-contents').isVisible(),'返回索引聚焦第一個閱讀入口',{language,width,id:system.id});
+  }
   if(width===1440){
    const ids=await page.locator('.nvm-topic-editorial').evaluateAll(es=>es.map(e=>e.id));
    check(ids.length===16,'十六個物理背景專題均使用一致編排',{language});

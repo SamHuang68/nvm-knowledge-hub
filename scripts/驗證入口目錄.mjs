@@ -39,7 +39,7 @@ for(const language of ['en','zh'])for(const width of [1440,1024,768,390,320]){
  await page.locator('#layer-ip-process .knowledge-row[href$="#ip-directory"]').click();
  await page.waitForFunction(()=>document.getElementById('ip-directory')?.checkVisibility());
  note(await page.locator('[data-ip-entry]:visible').count()===data.ipCurriculum.units.length&&(await page.locator('html').getAttribute('lang'))===(language==='en'?'en':'zh-Hant'),'首頁 IP 項目直接進入完整名錄並保留語言',{language,width});
- await page.locator('#ip-directory a[href="#ip-kilopass-xpm"]').click();
+ await page.locator('#ip-directory h4 a[href="#ip-kilopass-xpm"]').click();
  await page.waitForFunction(()=>document.getElementById('ip-kilopass-xpm')?.checkVisibility());
  note(await page.locator('#ip-kilopass-xpm .nvm-ip-structure-figure').isVisible(),'IP 名錄可直接開啟 Kilopass 結構與操作',{language,width});
  const file=language==='en'?'NVM技術全景.html':'NVM技術全景中文.html';
