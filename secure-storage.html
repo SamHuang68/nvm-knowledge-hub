@@ -1544,7 +1544,7 @@
     <section id="compare" class="section lens-panel comparison-section reveal">
       <div class="comparison-head">
         <div>
-          <p class="eyebrow light">PRECISE COMPETITIVE POSITIONING</p>
+          <p class="eyebrow light">TECHNICAL ARCHITECTURE BENCHMARK</p>
           <h2 class="split-statement">
             <span data-lang="zh"><span class="statement-premise">先建立公平的比較基準</span><span class="statement-resolution">再判斷真正的技術差異</span></span>
             <span data-lang="en"><span class="statement-premise">Establish fair comparison baselines</span><span class="statement-resolution">to judge true technical distinction</span></span>
@@ -1560,13 +1560,21 @@
         <article class="comparison-side synopsys">
           <header><span>SYNOPSYS</span><h3>SRAM PUF</h3><svg><use href="#i-fingerprint"/></svg></header>
           <div class="state-hero"><small>POWER-OFF PHYSICAL STATE</small><strong>NO POWERED LOGIC STATE</strong><p><span data-lang="zh">供電時的 SRAM 邏輯狀態消失；製程失配仍存在，但不保留已重建的根機密。</span><span data-lang="en">The powered SRAM logic state disappears; process mismatch remains, but no reconstructed root is present.</span></p></div>
-          <ul><li><b>Physical source</b><span>Transistor mismatch at SRAM startup</span></li><li><b>Reconstruction</b><span><span data-lang="zh">回應＋公開輔助資料 → 穩定根機密</span><span data-lang="en">Response + public helper data → stable root</span></span></li><li><b>Security focus</b><span><span data-lang="zh">短暫金鑰留存與受保護的重建</span><span data-lang="en">Short key residency and protected reconstruction</span></span></li></ul>
+          <ul>
+            <li><b>Physical source</b><span><span data-lang="zh">SRAM 開機電晶體微觀失配 (Intra-HD: 3%~8%, Inter-HD: ~50%)</span><span data-lang="en">Transistor mismatch at SRAM startup (Intra-HD: 3%~8%, Inter-HD: ~50%)</span></span></li>
+            <li><b>Reconstruction</b><span><span data-lang="zh">回應＋公開輔助資料 → 穩定根金鑰 (Fuzzy Extractor / BCH 碼約 4x~8x 開銷)</span><span data-lang="en">Response + public helper data → stable root (Fuzzy extractor / BCH code overhead ~4x-8x)</span></span></li>
+            <li><b>Security engineering</b><span><span data-lang="zh">防護低溫急凍殘留 (Cold Boot) 與 NBTI 老化需具備主動放電迴路 (Active Bleeder)、低溫感測與重建後即時歸零 (Zeroization)</span><span data-lang="en">Requires active bleeder circuit against cold-boot remanence / NBTI aging, temperature monitors, and post-reconstruction instant zeroization</span></span></li>
+          </ul>
         </article>
-        <div class="versus"><span>DECISION LENS</span><b>POWER-OFF<br>STATE</b><small><span data-lang="zh">持久物理狀態不等同於明文金鑰儲存。</span><span data-lang="en">Persistent physical state is not the same as plaintext key storage.</span></small></div>
+        <div class="versus"><span>DECISION LENS</span><b>ENTROPY &amp;<br>LIFECYCLE</b><small><span data-lang="zh">在零輔助資料與永久物理微導通路徑之間權衡攻擊面與架構複雜度。</span><span data-lang="en">Balance zero helper-data activation against permanent physical conduction and attack surface.</span></small></div>
         <article class="comparison-side neopuf">
-          <header><span>PUFSECURITY</span><h3>NeoPUF</h3><svg><use href="#i-memory"/></svg></header>
-          <div class="state-hero"><small>POWER-OFF PHYSICAL STATE</small><strong>PERSISTENT RESPONSE STATE</strong><p><span data-lang="zh">註冊會形成永久的量子穿隧導通路徑。</span><span data-lang="en">Enrollment forms a permanent quantum-tunneling conduction path.</span></p></div>
-          <ul><li><b>Physical source</b><span>High-voltage enrolled NMOS cell pair</span></li><li><b>Reconstruction</b><span><span data-lang="zh">感測電流；供應商表示無須輔助資料</span><span data-lang="en">Sense current; vendor states no helper data</span></span></li><li><b>Security focus</b><span><span data-lang="zh">保護已註冊狀態的可觀測性與完整性</span><span data-lang="en">Protect observability and integrity of enrolled state</span></span></li></ul>
+          <header><span>PUFSECURITY / EMEMORY</span><h3>NeoPUF</h3><svg><use href="#i-memory"/></svg></header>
+          <div class="state-hero"><small>POWER-OFF PHYSICAL STATE</small><strong>PERSISTENT CONDUCTION PATH</strong><p><span data-lang="zh">量子穿隧氧化層介電質擊穿形成永久微觀電流失配（零輔助資料 Zero Helper Data）。</span><span data-lang="en">Quantum-tunneling dielectric breakdown creates permanent microscopic current mismatch (Zero Helper Data).</span></p></div>
+          <ul>
+            <li><b>Physical source</b><span><span data-lang="zh">NMOS 汲極氧化層擊穿穿隧電流失配</span><span data-lang="en">Oxide breakdown tunneling current mismatch in NMOS cell pair</span></span></li>
+            <li><b>Reconstruction</b><span><span data-lang="zh">直接感測讀取；零輔助資料／無 Fuzzy Extractor 邏輯開銷</span><span data-lang="en">Direct read; zero helper data / zero fuzzy extractor overhead</span></span></li>
+            <li><b>Security engineering</b><span><span data-lang="zh">永久微觀通道需頂層主動屏蔽 (Active Shielding) 防範 FIB/微探針直接讀取</span><span data-lang="en">Permanent microscopic filament requires top-layer active shielding against physical probing</span></span></li>
+          </ul>
         </article>
       </div>
 
@@ -1576,9 +1584,9 @@
           <div><span>PUF root</span><p><span data-lang="zh">SRAM PUF；重建的根機密不作為持續供電的金鑰儲存</span><span data-lang="en">SRAM PUF; reconstructed root not kept as a stored powered key</span></p><p>NeoPUF; 1024-bit physical PUF</p></div>
           <div><span>Data protection</span><p><span data-lang="zh">AES-256 加密／解密＋位址擾碼</span><span data-lang="en">AES-256 encryption/decryption + address scrambling</span></p><p><span data-lang="zh">即時硬體加密＋位址／I/O 擾碼；公開資料未指明演算法</span><span data-lang="en">Instant hardware encryption + address/IO scrambling; algorithm not named publicly</span></p></div>
           <div><span>Integration</span><p><span data-lang="zh">AMBA APB、簡易 API、自動佈建與初始化</span><span data-lang="en">AMBA APB, simple API, auto provisioning and initialization</span></p><p><span data-lang="zh">AMBA APB、韌體／API、自動載入、鎖定與清除</span><span data-lang="en">AMBA APB, firmware/API, autoload, locks and zeroization</span></p></div>
-          <div class="matrix-emphasis"><span>Portfolio context</span><p data-record-ids="OIP-PUF-SCALE-001 OIP-PUF-HISTORY-001 OIP-OTP-SCALE-001"><span data-lang="zh">Synopsys 報告其 SRAM PUF 技術已用於超過 15 億顆裝置、SRAM PUF 技術累積超過 15 年實證，以及反熔絲 OTP NVM 累計出貨超過 100 億顆；目標組態仍需完成驗證</span><span data-lang="en">Synopsys reports &gt;1.5B devices using its SRAM PUF technology, &gt;15 years of proven SRAM PUF technology, and &gt;10B antifuse OTP NVM units shipped; target configuration still requires closure</span></p><p><span data-lang="zh">公開平台可用性；特定產品證據與安全保證範圍仍待確認</span><span data-lang="en">Public platform availability; exact product evidence and assurance scope remain to be confirmed</span></p></div>
+          <div class="matrix-emphasis"><span>Portfolio context</span><p data-record-ids="OIP-PUF-SCALE-001 OIP-PUF-HISTORY-001 OIP-OTP-SCALE-001"><span data-lang="zh">Synopsys 報告其 SRAM PUF 技術已用於超過 15 億顆裝置、SRAM PUF 技術累積超過 15 年實證，以及反熔絲 OTP NVM 累計出貨超過 100 億顆；目標組態仍需完成驗證</span><span data-lang="en">Synopsys reports &gt;1.5B devices using its SRAM PUF technology, &gt;15 years of proven SRAM PUF technology, and &gt;10B antifuse OTP NVM units shipped; target configuration still requires closure</span></p><p><span data-lang="zh">PUFsecurity 報告廣泛商用採用（累積逾 1 億顆出貨橫跨 IoT/AI/車規，承襲力旺 eMemory IP 血統）；具體配置仍需確認</span><span data-lang="en">PUFsecurity reports broad commercial adoption (&gt;100M+ units across IoT/AI/automotive with eMemory IP lineage); target configuration requires verification</span></p></div>
         </div>
-        <p class="comparison-conclusion"><b><span data-lang="zh">定位</span><span data-lang="en">POSITIONING</span></b><span data-lang="zh">以靜態時不留存的根金鑰、標明來源的技術組合背景與預先整合的子系統作為定位；仍須確認組態與權責。</span><span data-lang="en">Lead with an absent-at-rest root key, attributed portfolio context and a pre-integrated subsystem; confirm configuration and ownership.</span></p>
+        <p class="comparison-conclusion"><b><span data-lang="zh">架構綜述</span><span data-lang="en">ENGINEERING SUMMARY</span></b><span data-lang="zh">兩者皆透過差異化實體熵源解決信任根佈建：靜態不留存的 SRAM PUF 結合整合式密碼子系統，對比專屬氧化層擊穿 PUF OTP。晶片架構師應依目標製程節點、輔助資料管理負擔與認證邊界進行客觀評估。</span><span data-lang="en">Both architectures address root-of-trust provisioning through differentiated physical entropy sources: absent-at-rest SRAM PUF with an integrated cryptographic subsystem versus dedicated oxide-breakdown PUF OTP, requiring architects to evaluate based on target process node, helper data handling, and certification boundaries.</span></p>
       </div>
     </section>
 

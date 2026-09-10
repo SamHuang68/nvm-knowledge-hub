@@ -709,10 +709,10 @@
           <span data-lang="en">Automotive NVM: <em>175°C Harsh Thermal &amp; Zero-Defect Rigor</em></span>
         </h1>
         <p class="lead-desc">
-          <span data-lang="zh">全面解析 AEC-Q100 Grade 0 (175°C 結溫) 認證、ISO 26262 ASIL-D 功能安全防護、金屬矽化物微絲零電阻漂移熱物理特性、SECDED (72, 64) 漢明碼即時自愈機制，以及車載核心控制器出廠零缺陷 (Zero PPM) 簽核標準。</span>
-          <span data-lang="en">Comprehensive architectural treatise on AEC-Q100 Grade 0 (175°C Tj) qualification, ISO 26262 ASIL-D safety integrity, permanent silicide nanofilament zero-drift physics, SECDED (72, 64) Hamming code auto-correction, and wafer-level zero-defect sign-off.</span>
+          <span data-lang="zh">全面解析 AEC-Q100 Grade 0 (175°C 結溫) 認證、ISO 26262 ASIL-D 功能安全防護、永久閘極介電質擊穿微絲 (Localized Silicon Percolation Path) 零電阻漂移熱物理特性、SECDED (72, 64) 漢明碼即時自愈機制，以及車載核心控制器出廠零缺陷 (Zero PPM) 簽核標準。</span>
+          <span data-lang="en">Comprehensive architectural treatise on AEC-Q100 Grade 0 (175°C Tj) qualification, ISO 26262 ASIL-D safety integrity, permanent gate-dielectric breakdown filament zero-drift physics, SECDED (72, 64) Hamming code auto-correction, and wafer-level zero-defect sign-off.</span>
         </p>
-        <div class="m3-hero-proof" aria-label="Automotive NVM headline figures">
+        <div class="m3-hero-proof" aria-label="車規級 NVM 核心指標">
           <div>
             <strong class="mono-text" style="color: #f59e0b;">175°C Tj</strong>
             <span><span data-lang="zh">AEC-Q100 Grade 0</span><span data-lang="en">Grade 0 Passed</span></span>
@@ -723,7 +723,7 @@
           </div>
           <div>
             <strong class="mono-text" style="color: #c4a574;">ASIL-D</strong>
-            <span><span data-lang="zh">最高功能安全認證</span><span data-lang="en">ISO 26262 ASIL-D</span></span>
+            <span><span data-lang="zh">ISO 26262 ASIL-D Ready (SEooC)</span><span data-lang="en">ISO 26262 ASIL-D Ready (SEooC) · SC3</span></span>
           </div>
           <div>
             <strong class="mono-text" style="color: #c4a574;">&lt; 0.001 PPM</strong>
@@ -775,10 +775,10 @@
             <span class="meta-code">RULE #03 · SAFETY INTEGRITY</span>
             <span class="pulse-chip-mini" style="background:#6f5536;"></span>
           </div>
-          <div class="stat-val">ISO 26262 ASIL-D</div>
+          <div class="stat-val">ISO 26262 ASIL-D Ready</div>
           <div class="stat-label">
-            <span data-lang="zh">車載最高功能安全等級</span>
-            <span data-lang="en">FUNCTIONAL SAFETY INTEGRITY</span>
+            <span data-lang="zh">車載最高安全等級 (SEooC SC3)</span>
+            <span data-lang="en">FUNCTIONAL SAFETY (SEooC SC3)</span>
           </div>
           <div class="stat-sub">
             <span style="color: #6f5536; font-weight: 600;">
@@ -902,8 +902,8 @@
                   <span data-lang="en">Reflow Endurance & Au-Bump Shear</span>
                 </h4>
                 <p>
-                  <span data-lang="zh">通過 260°C 無鉛迴焊爐峰值衝擊。金屬矽化物共晶溫度高達 &gt;850°C，徹底免疫高溫退火，確保在引擎周邊與逆變器長效運作 15 年以上。</span>
-                  <span data-lang="en">Survives 260°C Pb-free reflow peak. Silicide eutectic above 850°C is immune to high-temperature anneal, supporting 15+ years beside engine and inverter.</span>
+                  <span data-lang="zh">通過 260°C 無鉛迴焊爐峰值衝擊。永久閘極介電質擊穿微絲形成局部矽滲透導電通道，徹底免疫高溫退火，確保在引擎周邊與逆變器長效運作 15 年以上。</span>
+                  <span data-lang="en">Survives 260°C Pb-free reflow peak. Permanent gate-dielectric breakdown filament with localized silicon percolation path is immune to high-temperature anneal, supporting 15+ years beside engine and inverter.</span>
                 </p>
               </div>
             </div>
@@ -917,7 +917,7 @@
               <span data-lang="en">175°C Filament Thermal Aging &amp; Arrhenius Predictor</span>
             </h2>
             <p class="panel-desc">
-              <span data-lang="zh">調控結溫 (Tj) 與服役壽命，即時運算 Arrhenius 熱加速因數 (AF)，直觀檢驗 AntiFuse 金屬微絲歐姆接觸與傳統浮閘在高溫下的物理留存邊際對比。</span>
+              <span data-lang="zh">調控結溫 (Tj) 與服役壽命，即時運算 Arrhenius 熱加速因數 (AF)，直觀檢驗 AntiFuse 閘極介電質擊穿微絲歐姆接觸與傳統浮閘在高溫下的物理留存邊際對比。</span>
               <span data-lang="en">Adjust junction temperature (Tj) and service life to compute real-time Arrhenius acceleration factors (AF), demonstrating AntiFuse zero-drift vs floating-gate decay.</span>
             </p>
 
@@ -925,7 +925,7 @@
             <div class="formula-box-math">
               <strong>[ARRHENIUS THERMAL ACCELERATION MODEL]</strong><br>
               \mathrm{AF} = \exp\left[\frac{E_a}{k_B} \left(\frac{1}{T_{\mathrm{use}}} - \frac{1}{T_{\mathrm{stress}}}\right)\right] 
-              \quad (<em>E_a = 1.1\,\mathrm{eV}</em> for Silicide Filament vs <em>0.65\,\mathrm{eV}</em> for Floating Gate)
+              \quad (<em>E_a = 1.1\,\mathrm{eV}</em> for Breakdown Filament vs <em>0.65\,\mathrm{eV}</em> for Floating Gate)
             </div>
 
             <!-- Instrument Sliders & HUD -->
@@ -956,7 +956,7 @@
               <canvas id="thermalCanvas" style="width: 100%; height: 280px; display: block;"></canvas>
             </div>
             <div style="display: flex; justify-content: space-between; font: 500 10.5px 'IBM Plex Mono'; color: #8ea9b3; margin-top: 8px;">
-              <span><span data-lang="zh">＊綠色曲線：反熔絲歐姆矽化物橋接（175°C 下 15 年，零電阻漂移 &lt;0.08%）</span><span data-lang="en">* Green Trace: AntiFuse Ohmic Silicide Bridge (15 Yrs @ 175°C, Zero Resistance Drift &lt;0.08%)</span></span>
+              <span><span data-lang="zh">＊綠色曲線：反熔絲永久介電質擊穿微絲（175°C 下 15 年，零電阻漂移 &lt;0.08%）</span><span data-lang="en">* Green Trace: AntiFuse Permanent Dielectric Breakdown Filament (15 Yrs @ 175°C, Zero Resistance Drift &lt;0.08%)</span></span>
               <span><span data-lang="zh">＊紅色曲線：浮動閘極熱離子逸出（175°C 下超過 2 年後失去感測裕量）</span><span data-lang="en">* Red Trace: Floating-Gate Thermionic Escape (Loss of Sensing Margin beyond 2 Yrs @ 175°C)</span></span>
             </div>
           </section>
@@ -1027,7 +1027,7 @@
               <div style="background:#0e2a38; border:1px solid rgba(15,23,42,0.08); border-radius:6px; padding:14px; border-top: 4px solid #8a6a42; box-shadow:0 2px 10px rgba(15,23,42,0.04);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#8a6a42;">CONTRACT 01 · IMMUTABLE ID</span>
-                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#8a6a42; background:#0e2a38; padding:1px 6px; border-radius:3px; border:1px solid #f0e6d6;">ASIL-D ASSURED</span>
+                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#8a6a42; background:#0e2a38; padding:1px 6px; border-radius:3px; border:1px solid #f0e6d6;">ASIL-D READY / SEooC SC3</span>
                 </div>
                 <h4 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">不可變車輛身分與金鑰憑證</span>
@@ -1082,8 +1082,8 @@
             <!-- ASIL-D Matrix Table -->
             <div style="margin: 14px 0 6px; background: #0e2a38; border: 1px solid rgba(15,23,42,0.1); border-radius: 6px; overflow: hidden; box-shadow: 0 4px 16px rgba(15,23,42,0.04);">
               <div style="padding: 10px 16px; background: #0a2230; border-bottom: 2px solid #8a6a42; font: 700 11px 'IBM Plex Mono'; color: #f3ebe0; display:flex; justify-content:space-between; align-items:center;">
-                <span><span data-lang="zh">ISO 26262 ASIL-D 硬體架構可靠度指標</span><span data-lang="en">ISO 26262 ASIL-D HARDWARE ARCHITECTURAL RELIABILITY METRICS</span></span>
-                <span style="color:#8a6a42; font-size:9.5px;">AEC-Q100 GRADE 0 CERTIFIED</span>
+                <span><span data-lang="zh">ISO 26262 ASIL-D SEooC 硬體架構可靠度指標</span><span data-lang="en">ISO 26262 ASIL-D SEooC HARDWARE ARCHITECTURAL RELIABILITY METRICS</span></span>
+                <span style="color:#8a6a42; font-size:9.5px;">AEC-Q100 GRADE 0 QUALIFIED</span>
               </div>
               <div style="overflow-x: auto;">
                 <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">
@@ -1091,9 +1091,9 @@
                     <tr style="background: #061925; border-bottom: 1px solid #e2e8f0; font-family:'IBM Plex Mono'; font-size:10.5px; color:#b5aa9c;">
                       <th style="padding: 10px 14px;">STATE CONTRACT</th>
                       <th style="padding: 10px 14px;">SILICON PRIMITIVE</th>
-                      <th style="padding: 10px 14px;">SPFM (REQ &ge;99%)</th>
-                      <th style="padding: 10px 14px;">LFM (REQ &ge;90%)</th>
-                      <th style="padding: 10px 14px;">RANDOM FIT RATE</th>
+                      <th style="padding: 10px 14px;">ASSUMED DC (REQ &ge;99%)</th>
+                      <th style="padding: 10px 14px;">LATENT DC (REQ &ge;90%)</th>
+                      <th style="padding: 10px 14px;">RANDOM HARDWARE FIT</th>
                       <th style="padding: 10px 14px;">SAFETY STATUS</th>
                     </tr>
                   </thead>
@@ -1104,7 +1104,7 @@
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">99.8%</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">95.4%</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:700; color:#8a6a42;">&lt; 0.1 FIT</td>
-                      <td style="padding: 10px 14px;"><span style="background:#133445; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D PASSED</span></td>
+                      <td style="padding: 10px 14px;"><span style="background:#133445; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D READY / SC3</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9; background:#0a2230;">
                       <td style="padding: 10px 14px; font-weight:600; color:#f3ebe0;">CONTRACT 02 · Trim</td>
@@ -1112,7 +1112,7 @@
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">99.2%</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">92.8%</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:700; color:#8a6a42;">&lt; 0.5 FIT</td>
-                      <td style="padding: 10px 14px;"><span style="background:#133445; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D PASSED</span></td>
+                      <td style="padding: 10px 14px;"><span style="background:#133445; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D READY / SC3</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
                       <td style="padding: 10px 14px; font-weight:600; color:#f3ebe0;">CONTRACT 03 · Recovery</td>
@@ -1120,18 +1120,22 @@
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">99.9%</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#6f5536;">96.1%</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:700; color:#8a6a42;">&lt; 0.05 FIT</td>
-                      <td style="padding: 10px 14px;"><span style="background:#133445; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D PASSED</span></td>
+                      <td style="padding: 10px 14px;"><span style="background:#133445; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ASIL-D READY / SC3</span></td>
                     </tr>
                     <tr style="background:#2a1e22;">
-                      <td style="padding: 10px 14px; font-style:italic; color:#be123c;">Legacy Benchmark · eFlash</td>
+                      <td style="padding: 10px 14px; font-style:italic; color:#be123c;">Industry Baseline · eFlash</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; color:#be123c;">Floating-Gate</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#e11d48;">91.5%</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#e11d48;">78.0%</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:700; color:#be123c;">15~40 FIT</td>
-                      <td style="padding: 10px 14px;"><span style="background:#2a1e22; color:#b91c1c; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #fca5a5;">ASIL-B ONLY</span></td>
+                      <td style="padding: 10px 14px;"><span style="background:#2a1e22; color:#d97706; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid rgba(217, 119, 6, 0.4);"><span data-lang="zh">需依賴雙單元或外部進階 ECC 機制以達成 ASIL-D</span><span data-lang="en">Requires dual-cell or external advanced ECC for ASIL-D</span></span></td>
                     </tr>
                   </tbody>
                 </table>
+              </div>
+              <div style="padding: 10px 14px; font-size: 11px; color: #94a3b8; line-height: 1.55; border-top: 1px solid rgba(255,255,255,0.06); background: #061925;">
+                <span data-lang="zh"><strong>SEooC 假定使用條件 (Assumptions of Use, AoU)：</strong> 本 IP 依據 ISO 26262-10/11 SEooC 流程開發，具備 ASIL-D Systematic Capability (SC3)。系統級 ASIL-D 達成須依賴 Tier-1 / OEM 整合商落實外部安全機制（包括看門狗、電源監控與 SECDED 雙位元致命中斷處理）。</span>
+                <span data-lang="en"><strong>SEooC Assumptions of Use (AoU):</strong> IP developed under ISO 26262 SEooC methodology with ASIL-D SC3 systematic capability. Item-level ASIL-D compliance requires Tier-1/OEM integration of external safety mechanisms (watchdog, supply monitor, and fatal DED trap handling).</span>
               </div>
             </div>
           </section>
@@ -1322,7 +1326,7 @@
         ctx.fillStyle = "#fff";
         ctx.fillText(`SILICON RETENTION MARGIN VS TIME (Tj = ${tempC}°C)`, plotX + 10, 22);
 
-        // 1. AntiFuse Silicide Filament (Green line: Flat / Zero Drift)
+        // 1. AntiFuse Dielectric Breakdown Filament (Green line: Flat / Zero Drift)
         ctx.strokeStyle = "#c4a574";
         ctx.lineWidth = 3;
         ctx.beginPath();
@@ -1332,7 +1336,7 @@
         ctx.stroke();
 
         ctx.fillStyle = "#c4a574";
-        ctx.fillText("● AntiFuse Ohmic Filament: Zero-Drift (>99.9% Retention)", plotX + 16, plotY + 42);
+        ctx.fillText("● AntiFuse Breakdown Filament: Zero-Drift (>99.9% Retention)", plotX + 16, plotY + 42);
 
         // 2. Floating-Gate eFlash (Red curve: Steep drop)
         ctx.strokeStyle = "#ef4444";
@@ -1443,7 +1447,7 @@
           syndromeVal.style.color = "#60a5fa";
           actionVal.textContent = "HARDWARE ON-THE-FLY XOR AUTO-REPAIR";
           actionVal.style.color = "#60a5fa";
-          safetyVal.textContent = "ASIL-D SAFE · 100% FAULT TOLERANT";
+          safetyVal.textContent = "ASIL-D SAFE · SINGLE-BIT CORRECTED (SECDED ENVELOPE)";
           safetyVal.style.color = "#60a5fa";
         } else {
           pill.className = "ecc-status-pill ded";

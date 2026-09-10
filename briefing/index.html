@@ -429,11 +429,11 @@
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>這頁是全場的核心結論。我們要求核准五份有邊界的 qualification brief（DDR5、AI 電源、TSMC IoT、3D Chiplets、PQC），並發起兩項需要先做 discovery 的 initiative。同時再次向管理層明確邊界：資格驗證授權絕非商業 design win 或 forecast 承諾。</p>
+            <p>該頁呈現核心架構結論：建議核准五份具備明確邊界的 qualification brief（DDR5、AI 電源、TSMC IoT、3D Chiplets、PQC），並啟動兩項需先期探索的 discovery initiative。同時向管理層明確邊界：資格驗證授權絕非商業 design win 或 forecast 承諾。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>This slide delivers our core executive verdict. We request authorization for five target-bound qualification briefs (DDR5, AI Power, TSMC IoT, 3D Chiplets, PQC) and two discovery-led initiatives. Concurrently, we remind leadership that technical qualification remains strictly firewalled from commercial design wins or forecasts.</p>
+            <p>This slide delivers the core executive verdict: proposing authorization for five target-bound qualification briefs (DDR5, AI Power, TSMC IoT, 3D Chiplets, PQC) and two discovery-led initiatives. Concurrently, technical qualification remains strictly firewalled from commercial design wins or forecasts.</p>
           </div>
         </div>
       </div>
@@ -480,7 +480,7 @@
           <ul>
             <li><span data-lang="zh">JEDEC DDR5 標準確立伺服器記憶體模組之持久狀態需求</span><span data-lang="en">JEDEC DDR5 standards mandate persistent state in memory modules</span></li>
             <li><span data-lang="zh">SPD Hub 要求高達 1024 位元組之配置與熱感測非揮發性儲存</span><span data-lang="en">SPD Hub specifies up to 1024B configuration and thermal NVM</span></li>
-            <li><span data-lang="zh">PMIC 電源管理晶片需即時微調、錯誤記錄與安全邊界</span><span data-lang="en">PMICs require real-time trimming, fault logging and secure boundaries</span></li>
+            <li><span data-lang="zh">PMIC 電源管理晶片需出廠校準、開機時序預設微調與安全邊界 (10~100 Cycles Bounded MTP)</span><span data-lang="en">PMICs require factory trim, power-on sequence defaults and safety boundaries (10~100 cycles bounded MTP)</span></li>
             <li><span data-lang="zh">標準 CMOS 純邏輯製程 AntiFuse OTP 與 MTP 提供零額外光罩優勢</span><span data-lang="en">Standard CMOS logic AntiFuse OTP and MTP provide zero-mask advantage</span></li>
           </ul>
         </div>
@@ -491,7 +491,7 @@
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>DDR5 represents an immediate, qualification-ready market. JEDEC specifications explicitly mandate persistent state across SPD Hubs and PMICs. Our standard CMOS AntiFuse OTP and MTP deliver zero-mask-adder integration, eliminating specialized eFlash cost and enabling immediate customer qualification.</p>
+            <p>DDR5 represents an immediate, qualification-ready market. JEDEC specifications explicitly mandate persistent state across SPD Hubs and PMICs. Industry-standard CMOS AntiFuse OTP and MTP deliver zero-mask-adder integration, eliminating specialized eFlash cost and enabling immediate customer qualification.</p>
           </div>
         </div>
       </div>
@@ -516,11 +516,11 @@
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>AI 加速器對電源控制的要求極為苛刻。這類晶片內部有明確的 NVM 插槽需求：不可變的 trim 資料可用 OTP，受控更新的電壓補償與故障黑盒子日誌則需要 MTP。這個 payload 分區讓 Synopsys 的混合 IP 方案具備壓倒性適配優勢。</p>
+            <p>AI 加速器對電源控制的要求極為苛刻。這類晶片內部有明確的 NVM 插槽需求：不可變的 trim 資料可用 OTP，受控更新的電壓補償與故障黑盒子日誌則需要 MTP。這個 payload 分區使混合 IP 方案具備明確的架構適配優勢。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>AI accelerators impose extreme dynamic load demands on power stages. Named multiphase controllers expose clear on-die NVM requirements: immutable trims map to OTP, while bounded calibration curves and fault logs map to MTP. This partitioned payload gives our IP suite a decisive architectural advantage.</p>
+            <p>AI accelerators impose extreme dynamic load demands on power stages. Named multiphase controllers expose clear on-die NVM requirements: immutable trims map to OTP, while bounded calibration curves and fault logs map to MTP. This partitioned payload architecture provides a robust, proven integration model.</p>
           </div>
         </div>
       </div>
@@ -574,11 +574,11 @@
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>在物聯網與超低功耗邊緣運算領域，晶圓製程微縮面臨深刻的經濟學斷崖：28nm 以下傳統 eFlash 已經絕跡，而若改採 ReRAM（需額外 2 道光罩）或 MRAM（需額外 4 道光罩），將直接使晶圓成本上升 15% 至 30%，重創平價 MCU 的毛利結構。台積電 22ULL、12FFC+ 到 N4e 提供低至 0.5V 的近閾值運作電壓，能大幅削減 75% 以上的動態功耗。Synopsys AntiFuse OTP 的核心戰略價值在於『標準 CMOS 邏輯製程零額外光罩』，能以原生純邏輯單元直接作為 MCU 的非揮發性韌體儲存庫。透過硬體間接跳轉表 (Indirection Jump Tables)，更能實現虛擬的韌體錯誤修補 (Virtual Bug Patching)，在提供 10 年以上零待機漏電壽命的同時，徹底守住先進邊緣節點的極致成本邊界。</p>
+            <p>在物聯網與超低功耗邊緣運算領域，晶圓製程微縮面臨深刻的經濟學斷崖：28nm 以下傳統 eFlash 已經絕跡，而若改採 ReRAM（需額外 2 道光罩）或 MRAM（需額外 4 道光罩），將直接使晶圓成本上升 15% 至 30%，重創平價 MCU 的毛利結構。台積電 22ULL、12FFC+ 到 N4e 提供低至 0.5V 的近閾值運作電壓，能大幅削減 75% 以上的動態功耗。業界先進標準 CMOS AntiFuse OTP 的核心戰略價值在於『標準 CMOS 邏輯製程零額外光罩』，能以原生純邏輯單元直接作為 MCU 的非揮發性韌體儲存庫。透過硬體間接跳轉表 (Indirection Jump Tables)，更能實現虛擬的韌體錯誤修補 (Virtual Bug Patching)，在提供 10 年以上零待機漏電壽命的同時，徹底守住先進邊緣節點的極致成本邊界。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>In the IoT and ultra-low-power edge computing domain, process scaling confronts an integration economics cliff: embedded Flash (eFlash) becomes physically extinct below 28nm, while alternative emerging memories like ReRAM (+2 masks) and MRAM (+4 masks) inflate wafer costs by 15% to 30%, destroying MCU unit margins. TSMC's 22ULL, 12FFC+, and N4e continuum offers sub-0.6V near-threshold operation, slashing dynamic power by over 75%. Our qualification thesis establishes pure-logic AntiFuse OTP as the primary on-chip MCU code storage macro. By leveraging hardware indirection jump tables, designers achieve virtual bug-patching without rewritable cells, delivering zero standby leakage and zero adder-mask cost across TSMC's leading-edge ultra-low-power logic nodes.</p>
+            <p>In the IoT and ultra-low-power edge computing domain, process scaling confronts an integration economics cliff: embedded Flash (eFlash) becomes physically extinct below 28nm, while alternative emerging memories like ReRAM (+2 masks) and MRAM (+4 masks) inflate wafer costs by 15% to 30%, destroying MCU unit margins. TSMC's 22ULL, 12FFC+, and N4e continuum offers sub-0.6V near-threshold operation, slashing dynamic power by over 75%. The qualification thesis establishes pure-logic AntiFuse OTP as the primary on-chip MCU code storage macro. By leveraging hardware indirection jump tables, designers achieve virtual bug-patching without rewritable cells, delivering zero standby leakage and zero adder-mask cost across TSMC's leading-edge ultra-low-power logic nodes.</p>
           </div>
         </div>
       </div>
@@ -603,11 +603,11 @@
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>先進 3D 封裝（如台積電 3D SoIC 與 CoWoS）為異質整合帶來了前所未有的運算密度，但也帶來了致命的封裝良率與供應鏈信任風險。在多晶粒垂直堆疊架構中，任何一顆未經驗證的瑕疵晶粒 (Defective Die)，都將直接導致整顆價值數千美元的 3D 複合封裝全面報廢。因此，『封裝前已知良品晶粒 (KGD) 鑑別』成為絕對剛需。同時，業界新標準如 SPDM 1.3 與 UCIe 2.0 明確要求晶粒間 (D2D) 在傳輸資料前必須完成零信任雙向硬體驗證。我們在此推進的資格驗證契約，是為每顆獨立小晶片 (Chiplet) 部署微型化的 AntiFuse OTP 與 SRAM PUF 專屬信任根，提供晶粒獨一無二的不可竄改身份識別碼與晶圓探針獨立測試金鑰，達成零熱應力衝擊、零待機金鑰留存的 3D 封裝全生命週期安全保障。</p>
+            <p>先進 3D 封裝（如台積電 3D SoIC 與 CoWoS）為異質整合帶來了前所未有的運算密度，但也帶來了致命的封裝良率與供應鏈信任風險。在多晶粒垂直堆疊架構中，任何一顆未經驗證的瑕疵晶粒 (Defective Die)，都將直接導致整顆價值數千美元的 3D 複合封裝全面報廢。因此，『封裝前已知良品晶粒 (KGD) 鑑別』成為絕對剛需。同時，業界新標準如 SPDM 1.3 與 UCIe 2.0 明確要求晶粒間 (D2D) 在傳輸資料前必須完成零信任雙向硬體驗證。此處推進的資格驗證契約，是為每顆獨立小晶片 (Chiplet) 部署微型化的 AntiFuse OTP 與 SRAM PUF 專屬信任根，提供晶粒獨一無二的不可竄改身份識別碼與晶圓探針獨立測試金鑰，達成零熱應力衝擊、零待機金鑰留存的 3D 封裝全生命週期安全保障。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>Advanced 3D packaging technologies such as TSMC 3D SoIC and CoWoS deliver unprecedented compute density, but introduce acute packaging yield risks and supply chain security vulnerabilities. In a multi-die vertically integrated stack, a single defective or unauthenticated chiplet destroys the entire multi-thousand-dollar multi-die assembly. Consequently, pre-bond Known Good Die (KGD) verification is a strict economic imperative. Furthermore, emerging standards including SPDM 1.3 and UCIe 2.0 mandate cryptographic mutual authentication across D2D links prior to traffic enablement. Our qualification contract embeds a dedicated, ultra-compact AntiFuse OTP and SRAM PUF Root of Trust into every individual chiplet, providing die-unique immutable IDs and pre-bond wafer probe keys that guarantee zero-thermal-penalty, zero-at-rest 3D packaging integrity.</p>
+            <p>Advanced 3D packaging technologies such as TSMC 3D SoIC and CoWoS deliver unprecedented compute density, but introduce acute packaging yield risks and supply chain security vulnerabilities. In a multi-die vertically integrated stack, a single defective or unauthenticated chiplet destroys the entire multi-thousand-dollar multi-die assembly. Consequently, pre-bond Known Good Die (KGD) verification is a strict economic imperative. Furthermore, emerging standards including SPDM 1.3 and UCIe 2.0 mandate cryptographic mutual authentication across D2D links prior to traffic enablement. The qualification thesis advances chiplet-level root-of-trust provisioning via ultra-compact AntiFuse OTP and SRAM PUF macros, providing die-unique immutable IDs and pre-bond wafer probe keys that guarantee zero-thermal-penalty, zero-at-rest 3D packaging integrity.</p>
           </div>
         </div>
       </div>
@@ -616,7 +616,7 @@
     <article class="slide-card" id="slide-09" data-filter-group="qualify">
       <div class="slide-card-header">
         <span class="slide-badge">SLIDE 09</span>
-        <h3><span data-lang="zh">NIST SP 800-208 狀態化啟動：耐受 175°C 金屬導電細絲物理機制</span><span data-lang="en">NIST SP 800-208 Stateful Boot: 175°C Immune Metallic Filament Physics</span></h3>
+        <h3><span data-lang="zh">NIST SP 800-208 狀態化啟動：耐受 175°C 介電質擊穿微絲物理機制</span><span data-lang="en">NIST SP 800-208 Stateful Boot: 175°C Immune Dielectric Breakdown Filament Physics</span></h3>
         <small class="slide-kicker">08 · QUALIFY NOW · PQC & AUTOMOTIVE SILC</small>
       </div>
       <div class="slide-card-body">
@@ -626,17 +626,17 @@
             <li><span data-lang="zh">抗量子簽章 (LMS/XMSS) 僅需在 OTP 內保存極精簡 32 位元組根雜湊</span><span data-lang="en">Post-quantum stateful signatures (LMS/XMSS) anchor to a compact 32-byte root hash</span></li>
             <li><span data-lang="zh">一次性金鑰狀態 (OTS) 嚴禁重用，依賴硬體級不可逆單調遞增計數器</span><span data-lang="en">One-time signing states strictly forbid reuse, requiring irreversible hardware counters</span></li>
             <li><span data-lang="zh">車規 175°C AEC-Q100 Grade 0 結溫環境下傳統浮閘記憶體電荷嚴重流失</span><span data-lang="en">Legacy floating-gate cells suffer severe charge leakage at 175°C automotive Grade 0</span></li>
-            <li><span data-lang="zh">奈米金屬導電細絲物理機制高溫零電荷漂移，奠定 ASIL-D 終極防禦</span><span data-lang="en">Nanoscale metallic filament physics exhibit zero thermal charge drift, securing ASIL-D</span></li>
+            <li><span data-lang="zh">閘極介電質擊穿微絲物理機制高溫零電荷漂移，奠定 ASIL-D 堅實防禦</span><span data-lang="en">Gate-dielectric breakdown filament physics exhibit zero thermal charge drift, securing ASIL-D</span></li>
           </ul>
         </div>
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>後量子密碼學 (PQC) 時代的降臨使傳統安全開機面臨巨大挑戰：基於晶格 (Lattice) 的非對稱演算法會造成公鑰體積暴增超過 40 倍，極大超出嵌入式晶片的儲存預算。NIST SP 800-208 推薦的狀態化雜湊簽章 (Stateful Hash-Based Signature, 如 LMS 與 XMSS)，僅需在晶片 OTP 中儲存極為精簡的 32 位元組根雜湊 (Root Hash)。然而，狀態化簽章的致命死穴在於一次性金鑰 (OTS) 絕對不可重複使用，否則密鑰系統瞬間瓦解。同時，車用動力總成 (Powertrain) 要求達到嚴苛的 AEC-Q100 Grade 0 (175°C 結溫) 可靠度，傳統浮閘 (Floating Gate) 記憶體在該高溫下會產生嚴重的應力誘發漏電 (SILC) 與電荷流失。Synopsys AntiFuse OTP 具備『奈米金屬矽化物永久熔斷導電細絲』的固體物理優勢，高溫零電荷漂移，且不可逆的物理燒斷特性保證一次性簽章單調計數器無法被竄改倒退，是抵禦量子威脅與車規極限環境的終極硬體根基。</p>
+            <p>後量子密碼學 (PQC) 時代的降臨使傳統安全開機面臨巨大挑戰：基於晶格 (Lattice) 的非對稱演算法會造成公鑰體積暴增超過 40 倍，極大超出嵌入式晶片的儲存預算。NIST SP 800-208 推薦的狀態化雜湊簽章 (Stateful Hash-Based Signature, 如 LMS 與 XMSS)，僅需在晶片 OTP 中儲存極為精簡的 32 位元組根雜湊 (Root Hash)。然而，狀態化簽章的致命死穴在於一次性金鑰 (OTS) 絕對不可重複使用，否則密鑰系統瞬間瓦解。同時，車用動力總成 (Powertrain) 要求達到嚴苛的 AEC-Q100 Grade 0 (175°C 結溫) 可靠度，傳統浮閘 (Floating Gate) 記憶體在該高溫下會產生嚴重的應力誘發漏電 (SILC) 與電荷流失。業界標準 CMOS AntiFuse OTP 具備『閘極介電質擊穿微絲 (Gate-Dielectric Breakdown Filament)』的固體物理優勢，高溫零電荷漂移，且不可逆的物理擊穿特性保證一次性簽章單調計數器無法被竄改倒退，是抵禦量子威脅與車規極限環境的硬體根基。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>The post-quantum cryptography transition exposes conventional secure boot to acute silicon overhead: lattice-based signatures inflate key payloads by over 40x, overwhelming embedded non-volatile memory budgets. NIST SP 800-208 stateful hash-based signatures (LMS and XMSS) solve this by anchoring security to a compact 32-byte root hash in OTP. However, stateful schemes introduce a catastrophic vulnerability: one-time signature (OTS) leaf reuse completely breaks the private key. Concurrently, automotive powertrain applications mandate AEC-Q100 Grade 0 reliability at 175°C junction temperature, where legacy floating-gate cells suffer severe Stress-Induced Leakage Current (SILC) and trap-assisted discharge. Our AntiFuse OTP leverages irreversible nanoscale metallic silicide filament physics that exhibit zero thermal charge drift at 175°C, providing the physical hardware foundation for stateful anti-rollback protection and ASIL-D automotive compliance.</p>
+            <p>The post-quantum cryptography transition exposes conventional secure boot to acute silicon overhead: lattice-based signatures inflate key payloads by over 40x, overwhelming embedded non-volatile memory budgets. NIST SP 800-208 stateful hash-based signatures (LMS and XMSS) solve this by anchoring security to a compact 32-byte root hash in OTP. However, stateful schemes introduce a catastrophic vulnerability: one-time signature (OTS) leaf reuse completely breaks the private key. Concurrently, automotive powertrain applications mandate AEC-Q100 Grade 0 reliability at 175°C junction temperature, where legacy floating-gate cells suffer severe Stress-Induced Leakage Current (SILC) and trap-assisted discharge. Industry-standard CMOS AntiFuse OTP leverages irreversible gate-dielectric breakdown filament physics that exhibit zero thermal charge drift at 175°C, providing the physical hardware foundation for stateful anti-rollback protection and ASIL-D automotive compliance.</p>
           </div>
         </div>
       </div>
@@ -653,19 +653,19 @@
           <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
           <ul>
             <li><span data-lang="zh">800mm² 先進節點超大 ASIC 晶粒良率復原是不可妥協的必備功能</span><span data-lang="en">Yield recovery on 800mm² leading-edge ASICs is a non-negotiable requirement</span></li>
-            <li><span data-lang="zh">Synopsys STAR AntiFuse OTP 介面直接提供原生晶粒邏輯與 SRAM 修復</span><span data-lang="en">Synopsys STAR AntiFuse OTP interface powers on-die logic and SRAM repair</span></li>
+            <li><span data-lang="zh">STAR AntiFuse OTP 介面直接提供原生晶粒邏輯與 SRAM 修復</span><span data-lang="en">STAR AntiFuse OTP interface powers on-die logic and SRAM repair</span></li>
             <li><span data-lang="zh">在 UCIe 2.0 D2D 微凸塊備援領域提前佈局專利與標準架構</span><span data-lang="en">Forecast decisive yield battle in UCIe 2.0 D2D micro-bump redundancy</span></li>
-            <li><span data-lang="zh">小晶片專屬 OTP 於封裝前燒錄通道重新對齊映射表，搶佔業界規格話語權</span><span data-lang="en">Dedicated chiplet OTP stores pre-bond remapping to lead packaging standards</span></li>
+            <li><span data-lang="zh">小晶片專屬 OTP 於封裝前燒錄通道重新對齊映射表，建立多晶粒封裝主動權</span><span data-lang="en">Dedicated chiplet OTP stores pre-bond remapping to lead packaging standards</span></li>
           </ul>
         </div>
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>在修復架構上我們採取主動進攻戰略。單晶粒 AI SoC 的 SRAM 與邏輯修復已有充分產品依據：在 800mm² 的 N5/N4/N3 超大晶片中，良率復原是客戶絕不妥協的核心生命線，由我們的 STAR AntiFuse OTP 介面直接驅動。而在先進 3D 封裝領域，我們不等大宗 HBM 標準達成共識——我們準確預測良率決戰點在於 UCIe 2.0 晶粒間 (D2D) 微凸塊備援。透過在每個小晶片中錨定專屬 OTP 來儲存封裝前的通道重新對齊映射，我們在標準僵化前主導多晶粒封裝架構。</p>
+            <p>在修復架構上應採取主動戰略。單晶粒 AI SoC 的 SRAM 與邏輯修復已有充分產品依據：在 800mm² 的 N5/N4/N3 超大晶片中，良率復原是客戶絕不妥協的核心生命線，可由 STAR AntiFuse OTP 介面直接驅動。而在先進 3D 封裝領域，無需被動等待大宗 HBM 標準達成共識——良率關鍵戰場在於 UCIe 2.0 晶粒間 (D2D) 微凸塊備援。透過在每個小晶片中錨定專屬 OTP 來儲存封裝前的通道重新對齊映射，可在標準僵化前掌握多晶粒封裝架構主動權。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>We take the offensive on repair architecture. On-die AI SoC SRAM/logic repair qualifies immediately: in 800mm² N5/N4/N3 ASICs, yield recovery is a non-negotiable SoC-owned domain powered by our STAR AntiFuse OTP interface. For advanced 3D packaging, we do not passively wait for commodity HBM consensus—we forecast that the decisive yield battle lies in UCIe 2.0 Die-to-Die (D2D) micro-bump redundancy. By anchoring dedicated OTP per chiplet to store D2D lane remapping pre-bond, we lead the multi-die packaging architecture before the standard becomes rigid.</p>
+            <p>Architects take a proactive stance on repair architecture. On-die AI SoC SRAM/logic repair qualifies immediately: in 800mm² N5/N4/N3 ASICs, yield recovery is a non-negotiable SoC-owned domain powered by the STAR AntiFuse OTP interface. For advanced 3D packaging, rather than passively waiting for commodity HBM consensus, analysis indicates that the decisive yield battle lies in UCIe 2.0 Die-to-Die (D2D) micro-bump redundancy. By anchoring dedicated OTP per chiplet to store D2D lane remapping pre-bond, SoC designs establish leadership in multi-die packaging architecture before the standard becomes rigid.</p>
           </div>
         </div>
       </div>
@@ -690,11 +690,11 @@
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>OCP 伺服器模組面臨嚴重的安全斷層：加速器板卡上的維運日誌、更換零件資訊與微調數據，目前大量存放在毫無保護的板級 EEPROM 中，任何人透過實體匯流排都能輕易讀取或篡改。我們的戰略倡議是推動產業將這些服務狀態整合進安全邊界，受晶片端 Caliptra 硬體信任根保護。這是一項先鋒探索，將為我們在下一代資料中心規格中奠定統御地位。</p>
+            <p>OCP 伺服器模組面臨嚴重的安全斷層：加速器板卡上的維運日誌、更換零件資訊與微調數據，目前大量存放在毫無保護的板級 EEPROM 中，任何人透過實體匯流排都能輕易讀取或篡改。該戰略倡議主張推動產業將這些服務狀態整合進安全邊界，受晶片端 Caliptra 硬體信任根保護。這是一項先鋒探索，將在下一代資料中心規格中奠定關鍵架構地位。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>OCP server modules suffer from a critical security disconnect: field operational logs, FRU tracking, and calibration data currently sit in vulnerable, unprotected board-level EEPROMs and SPI Flash chips open to physical tampering. Our initiative advocates elevating this service state into the secure silicon boundary under Caliptra hardware RoT governance. This strategic discovery effort positions our IP at the center of future hyperscale specifications.</p>
+            <p>OCP server modules suffer from a critical security disconnect: field operational logs, FRU tracking, and calibration data currently sit in vulnerable, unprotected board-level EEPROMs and SPI Flash chips open to physical tampering. The initiative advocates elevating this service state into the secure silicon boundary under Caliptra hardware RoT governance. This strategic discovery effort positions NVM IP at the center of future hyperscale specifications.</p>
           </div>
         </div>
       </div>
@@ -719,11 +719,11 @@
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>最後總結明確的行動要求：第一，核准五項已具備充分公開證據與客戶明確插槽的 qualification 任務；第二，啟動兩項具備百億級潛力的先鋒探索；第三，堅守技術治理紀律，資格驗證與商業合約嚴格脫鉤。這份簡報將 Synopsys 確立為不僅販售矽智財，更是定義全球半導體安全標準的架構領袖。</p>
+            <p>最後總結明確的架構建議：第一，核准五項已具備充分公開證據與明確硬體插槽的 qualification 任務；第二，啟動兩項具備長期平台槓桿潛力的先鋒探索；第三，堅守技術治理紀律，資格驗證與商業合約嚴格脫鉤。該論述將技術方案確立為立足於定義嚴謹半導體安全標準的架構領先地位。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>Our closing request is crisp and actionable: First, authorize five qualification briefs where market need and customer sockets are fully validated. Second, sponsor two strategic discovery initiatives with immense long-term platform leverage. Third, uphold strict governance by separating technical readiness from commercial forecasting. This narrative establishes our company as the definitive architect of AI silicon security.</p>
+            <p>The closing recommendation is crisp and actionable: First, authorize five qualification briefs where market need and customer sockets are fully validated. Second, sponsor two strategic discovery initiatives with immense long-term platform leverage. Third, uphold strict governance by separating technical readiness from commercial forecasting. This narrative establishes the technical portfolio as a definitive architecture for AI silicon security.</p>
           </div>
         </div>
       </div>
@@ -748,11 +748,11 @@
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>這頁是給所有行銷與工程團隊的防禦天花板。公開標準如 JEDEC 或 OCP 寫出規格，只證明這個 socket 存在，絕不代表客戶會直接採用我們的巨集；更不等於 design win 或出貨保證。我們必須依賴證據層層收斂，不能跨越治理紅線。</p>
+            <p>這頁是提供團隊的防禦天花板規範。公開標準如 JEDEC 或 OCP 寫出規格，只證明該 socket 存在，絕不代表客戶會直接採用特定供應商的巨集；更不等於 design win 或出貨保證。團隊必須依賴證據層層收斂，不能跨越治理紅線。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>This slide establishes our defensive evidence ceiling. A published standard proves the existence of a socket, but does not prove Synopsys macro selection, let alone a commercial design win or royalty shipment. We must progress through verifiable evidence gates without blurring marketing discipline.</p>
+            <p>This slide establishes the defensive evidence ceiling. A published standard proves the existence of a socket, but does not prove specific macro selection, let alone a commercial design win or royalty shipment. Architecture validation must progress through verifiable evidence gates without blurring governance discipline.</p>
           </div>
         </div>
       </div>
@@ -781,7 +781,7 @@
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>Every claim in this briefing is indexed in our public source ledger, referencing primary publications from JEDEC, PMBus, TSMC OIP, and NIST. All technical statements are 100% defensible, fully public, and independently auditable.</p>
+            <p>Every claim in this briefing is indexed in the public source ledger, referencing primary publications from JEDEC, PMBus, TSMC OIP, and NIST. All technical statements are 100% defensible, fully public, and independently auditable.</p>
           </div>
         </div>
       </div>
@@ -800,17 +800,17 @@
             <li><span data-lang="zh">OCP Caliptra 規範要求加密的持久儲存與單調計數器</span><span data-lang="en">OCP Caliptra mandates encrypted persistent storage and monotonic counters</span></li>
             <li><span data-lang="zh">DICE 架構清楚定義複合裝置識別碼 (CDI) 與安全度量標準</span><span data-lang="en">DICE engine explicitly defines Compound Device Identifiers (CDI)</span></li>
             <li><span data-lang="zh">標準僅定義通訊介面與安全語意，未指定底層物理單元</span><span data-lang="en">Standards specify interfaces and semantics—not silicon cell physics</span></li>
-            <li><span data-lang="zh">Synopsys 的價值在於以經過矽驗證的 IP 填補標準與物理實現之鴻溝</span><span data-lang="en">Our value lies in bridging standard semantics to silicon-proven macros</span></li>
+            <li><span data-lang="zh">該架構的價值在於以經過矽驗證的 IP 填補標準與物理實現之鴻溝</span><span data-lang="en">The architectural value lies in bridging standard semantics to silicon-proven macros</span></li>
           </ul>
         </div>
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>安全規範定義的是語意與行為要求，但沒有告訴晶片工程師如何用標準 CMOS 達成。我們的商業模式就是提供已通過 PSA L3、SESIP L3 與 AEC-Q100 認證的矽智財，幫客戶以最低風險將標準規格化為實體晶片。</p>
+            <p>安全規範定義的是語意與行為要求，但沒有告訴晶片工程師如何用標準 CMOS 達成。其授權模式提供具備支援客戶晶片通過 PSA Certified L3 與 SESIP L3 評估之 IP 證據包與 AEC-Q100 符合性資料，協助晶片架構師以最低風險將標準規格化為實體晶片。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>Standards prescribe functional semantics and security boundaries, but leave physical realization to circuit architects. Our mission is to provide silicon-proven, pre-certified IP that bridges normative specifications to flawless silicon execution.</p>
+            <p>Standards prescribe functional semantics and security boundaries, but leave physical realization to circuit architects. The licensing model provides silicon-proven IP backed by comprehensive evidence packages supporting PSA Certified L3 and SESIP L3 evaluations, bridging normative specifications to robust silicon execution.</p>
           </div>
         </div>
       </div>
@@ -839,7 +839,7 @@
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>Repair is never just burning a spare bitcell. Without strict write authority and cryptographic attestation, a repair interface becomes a catastrophic backdoor. We mandate a rigorous state contract before any silicon macro is selected.</p>
+            <p>Repair is never just burning a spare bitcell. Without strict write authority and cryptographic attestation, a repair interface becomes a catastrophic backdoor. Engineering discipline mandates a rigorous state contract before any silicon macro is selected.</p>
           </div>
         </div>
       </div>
@@ -865,11 +865,11 @@
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>這五個是 peer gates，不是 serial maturity process。五個都關閉後，才可形成 target-bound Synopsys product-fit conclusion；即使如此，customer design win、shipment 與 royalty 仍是獨立 commercial rail。</p>
+            <p>這五個是同級驗證閘門 (peer gates)，不是循序成熟過程。五個都關閉後，才可形成 target-bound product-fit 結論；即使如此，客戶 design win、出貨與 royalty 仍是獨立的商業軌道。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>These are peer gates. They do not occur as a serial maturity process. All five must close before a target-bound Synopsys product-fit conclusion. Even then, customer design win, shipment and royalty remain a separate commercial rail.</p>
+            <p>These are peer gates. They do not occur as a serial maturity process. All five must close before a target-bound product-fit conclusion. Even then, customer design win, shipment and royalty remain a separate commercial rail.</p>
           </div>
         </div>
       </div>
@@ -896,11 +896,11 @@
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>特種製程 eNVM 是晶圓代工與利基晶片市場中出貨量極大、利潤豐厚的關鍵護城河。在 BCD 電源領域，我們主打零額外光罩（Zero Mask Adder）對決傳統 eFlash，免除破壞 LDMOS 擊穿電壓的高溫退火；在 CIS/DRAM 領域，AntiFuse 取代體積大且無法封裝後修復的雷射熔斷，成為 HBM3e 現場修復唯一的標準解；而在年複合增長 50% 的電子紙市場，我們以專屬 110HV 高壓製程配合「演進期 32Kb~64Kb MTP 儲存動態波形 LUT、量產成熟期轉向極小面積純邏輯 OTP」的雙階段策略，協助天鈺、晶宏等領導廠商以最佳長寬比（高度 &lt;250µm）搶佔全球顯示先機。</p>
+            <p>特種製程 eNVM 是晶圓代工與利基晶片市場中出貨量極大、具備高技術壁壘的關鍵領域。在 BCD 電源領域，標準 CMOS 方案主打零額外光罩（Zero Mask Adder）對決傳統 eFlash，免除破壞 LDMOS 擊穿電壓的高溫退火；在 CIS/DRAM 領域，AntiFuse 取代體積大且無法封裝後修復的雷射熔斷，成為 HBM3e 現場修復的標準解；而在年複合增長 50% 的電子紙市場，專屬 110HV 高壓製程配合「演進期 32Kb~64Kb MTP 儲存動態波形 LUT、量產成熟期轉向極小面積純邏輯 OTP」的雙階段策略，協助顯示晶片領導廠商以最佳長寬比（高度 &lt;250µm）佈局全球顯示市場。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>Specialty foundry eNVM forms a high-volume, high-margin commercial moat across mature and specialty nodes. In BCD power management, our zero-mask-adder value proposition directly displaces legacy eFlash, eliminating the severe thermal cycles that degrade high-voltage LDMOS switches. In CIS and high-density memory, AntiFuse OTP fundamentally replaces bulky laser fuses, delivering the sole silicon-proven solution for JEDEC DDR5 and HBM3e in-field Post-Package Repair (PPR). Finally, within the ~50% CAGR electronic paper market, our specialized 110HV strategy bridges the transition: deploying 32Kb-64Kb MTP for evolving color waveforms, then migrating to pure logic AntiFuse OTP (&lt;250µm macro height) for ultimate cost and yield leadership in mass production.</p>
+            <p>Specialty foundry eNVM forms a high-volume, high-margin commercial domain across mature and specialty nodes. In BCD power management, the zero-mask-adder value proposition directly displaces legacy eFlash, eliminating the severe thermal cycles that degrade high-voltage LDMOS switches. In CIS and high-density memory, AntiFuse OTP fundamentally replaces bulky laser fuses, delivering a robust silicon-proven solution for JEDEC DDR5 and HBM3e in-field Post-Package Repair (PPR). Finally, within the ~50% CAGR electronic paper market, the specialized 110HV strategy bridges the transition: deploying 32Kb-64Kb MTP for evolving color waveforms, then migrating to pure logic AntiFuse OTP (&lt;250µm macro height) for optimal cost and yield in mass production.</p>
           </div>
         </div>
       </div>

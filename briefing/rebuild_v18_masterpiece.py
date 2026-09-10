@@ -127,7 +127,7 @@ def main():
         elif "DDR5 PMIC + SPD Hub" in txt:
             clear_and_set_text(sh, "DDR5 & AI Power Subsystems", "Arial", 20.0, True, C_DARK_NAVY)
         elif "MTP-class configuration" in txt:
-            clear_and_set_text(sh, "PMIC 100k MTP + SPD Hub protected EEPROM + multi-phase VR calibration", "Arial", 14.8, False, C_SLATE_BODY)
+            clear_and_set_text(sh, "PMIC 10-100 cycles Bounded Config MTP + SPD Hub protected EEPROM + static VR calibration", "Arial", 14.8, False, C_SLATE_BODY)
         elif "Accelerator power controller" in txt:
             clear_and_set_text(sh, "TSMC IoT Continuum (22ULL to N4e)", "Arial", 20.0, True, C_DARK_NAVY)
         elif "Rail policy · calibration" in txt:

@@ -70,6 +70,19 @@
       padding: 2rem clamp(12px, 2vw, 32px) 4rem;
     }
 
+    .selector-grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (max-width: 960px) {
+      .selector-grid-layout {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+      }
+    }
+
     /* Hero Section - Executive Obsidian Silicon Visual */
     .f2-hero-container {
       position: relative;
@@ -766,8 +779,8 @@
       <div class="hub-sec-header">
         <div class="hub-sec-badge">01 · COMPREHENSIVE BENCHMARK</div>
         <h2 id="matrix-sec-title">
-          <span data-lang="zh">六大嵌入式記憶體 7 維度嚴密對比矩陣</span>
-          <span data-lang="en">7-Dimension Technical Benchmark Across 6 Memory Families</span>
+          <span data-lang="zh">六大嵌入式記憶體 8 維度嚴密對比矩陣</span>
+          <span data-lang="en">8-Dimension Technical Benchmark Across 6 Memory Families</span>
         </h2>
       </div>
 
@@ -826,7 +839,7 @@
           <div class="matrix-cell focus-tech"><b style="color:#6f5536;">&gt;10 Yrs @ 175°C</b><span class="badge-win">Grade 0 Passed</span></div>
           <div class="matrix-cell">&gt;10 Yrs @ 125°C<span class="cell-note">Anneal Re-heal</span></div>
           <div class="matrix-cell">10 Yrs @ 125°C<span class="badge-lose">Charge Leakage</span></div>
-          <div class="matrix-cell">10 Yrs @ 105°C<span class="cell-note">Magnetic Drift</span></div>
+          <div class="matrix-cell">10 Yrs @ 125°C<span class="cell-note">AEC-Q100 G1</span></div>
           <div class="matrix-cell">10 Yrs @ 125°C<span class="cell-note">Vacancy Diffusion</span></div>
           <div class="matrix-cell">&gt;25 Yrs @ 175°C<span class="badge-win">Permanent</span></div>
 
@@ -837,17 +850,17 @@
           </div>
           <div class="matrix-cell focus-tech"><b style="color:#6f5536;">&lt; 10 ns (Direct)</b><span class="badge-win">Instant XIP</span></div>
           <div class="matrix-cell">&lt; 12 ns<span class="cell-note">Direct</span></div>
-          <div class="matrix-cell">25 - 45 ns<span class="cell-note">Wordline Sense</span></div>
-          <div class="matrix-cell">&lt; 15 ns<span class="badge-win">SRAM-Like</span></div>
-          <div class="matrix-cell">15 - 30 ns<span class="cell-note">Resistive</span></div>
-          <div class="matrix-cell">&lt; 8 ns<span class="badge-win">Fastest</span></div>
+          <div class="matrix-cell">15 ~ 30 ns<span class="cell-note">Charge Sense</span></div>
+          <div class="matrix-cell">10 ~ 25 ns<span class="cell-note">TMR Sense</span></div>
+          <div class="matrix-cell">15 ~ 50 ns<span class="cell-note">Filament Sense</span></div>
+          <div class="matrix-cell">&lt; 15 ns<span class="cell-note">Direct</span></div>
 
           <!-- Row 6: Anti-Tamper Security -->
           <div class="matrix-row-header">
             <span data-lang="zh">實體防竄改與逆向</span><span data-lang="en">Anti-Tamper Security</span>
             <small>TEM / FIB Immunity</small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">Invisible under TEM</b><span class="badge-win">Zero Footprint</span></div>
+          <div class="matrix-cell focus-tech"><b style="color:#c4a574;">Blind TEM Resistant</b><span class="badge-win">FIB-PVC Bounded</span></div>
           <div class="matrix-cell">Visible Melt Void<span class="badge-lose">SEM/Optical Read</span></div>
           <div class="matrix-cell">Charge Probing Attack<span class="badge-lose">EM/Laser Attack</span></div>
           <div class="matrix-cell">MFM Probe Vulnerable<span class="cell-note">Magnetic Attack</span></div>
@@ -865,6 +878,18 @@
           <div class="matrix-cell">Scalable to 12nm / N6<span class="cell-note">BEOL Limited</span></div>
           <div class="matrix-cell">Scalable to 16nm<span class="cell-note">Forming Variation</span></div>
           <div class="matrix-cell">Scalable with Logic<span class="cell-note">Metal Pitch Bound</span></div>
+
+          <!-- Row 8: Endurance -->
+          <div class="matrix-row-header">
+            <span data-lang="zh">覆寫耐久度</span><span data-lang="en">Endurance</span>
+            <small>Rewrite Cycles</small>
+          </div>
+          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">1 次 (不可逆 / Monotonic)</b><span class="cell-note">One-Time Programmable</span></div>
+          <div class="matrix-cell">1 次 (不可逆 / Monotonic)<span class="cell-note">Fuse-Blown</span></div>
+          <div class="matrix-cell" style="color:#b91c1c;">10^4 - 10^5 次<span class="badge-lose">Oxide Wear-out</span></div>
+          <div class="matrix-cell"><b style="color:#6f5536;">&gt;10^12 次 (SRAM-like)</b><span class="badge-win">Unlimited Cycles</span></div>
+          <div class="matrix-cell">10^5 - 10^6 次<span class="cell-note">Filament Wear</span></div>
+          <div class="matrix-cell">0 次 (唯讀 / Mask ROM)<span class="cell-note">Read-Only</span></div>
         </div>
       </div>
     </section>
@@ -883,7 +908,7 @@
         <span data-lang="en">Move the five constraint sliders to redraw relative hulls. The top score is relative fit under the current sliders — not a default winner and not shipment proof.</span>
       </p>
 
-      <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; align-items: center;">
+      <div class="selector-grid-layout">
         <!-- Left: Sliders Panel -->
         <div style="background: rgba(6, 25, 37, 0.85); border: 1px solid rgba(196, 165, 116, 0.22); border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem;">
           
@@ -983,7 +1008,7 @@
       <!-- Architect Verdict -->
       <div class="match-verdict-box" id="matchVerdictBox" style="background: #061925; border: 1px solid rgba(196, 165, 116, 0.35); border-radius: 6px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 12px;">
         <span class="verdict-tag" style="background: rgba(196, 165, 116, 0.15); border: 1px solid #c4a574; color: #c4a574; font: 700 10px 'IBM Plex Mono', monospace; padding: 3px 6px; border-radius: 3px; white-space: nowrap; margin-top: 2px;">[RELATIVE FIT]</span>
-        <div id="verdictText" style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;">
+        <div id="verdictText" style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;" aria-live="polite" aria-atomic="true">
           <span data-lang="zh">相對適配計算中…</span>
           <span data-lang="en">Computing relative fit…</span>
         </div>
@@ -1559,6 +1584,18 @@
         const tempIdx = parseInt(document.getElementById("selTemp").value, 10);
         const endIdx = parseInt(document.getElementById("selEndurance").value, 10);
 
+        const elNode = document.getElementById("selNode");
+        const elPower = document.getElementById("sliderPower");
+        const elMask = document.getElementById("selMask");
+        const elTemp = document.getElementById("selTemp");
+        const elEnd = document.getElementById("selEndurance");
+
+        if (elNode) elNode.setAttribute("aria-valuetext", nodeLabels[nodeIdx]);
+        if (elPower) elPower.setAttribute("aria-valuetext", powerLabels[powerIdx]);
+        if (elMask) elMask.setAttribute("aria-valuetext", maskLabels[maskIdx]);
+        if (elTemp) elTemp.setAttribute("aria-valuetext", tempLabels[tempIdx]);
+        if (elEnd) elEnd.setAttribute("aria-valuetext", endLabels[endIdx]);
+
         document.getElementById("valNode").textContent = nodeLabels[nodeIdx];
         document.getElementById("valPower").textContent = powerLabels[powerIdx];
         document.getElementById("valMask").textContent = maskLabels[maskIdx];
@@ -1624,12 +1661,23 @@
         verdictElem.innerHTML = isZh ? vMsgZh : vMsgEn;
       }
 
+      let rafPending = false;
+      function scheduleUpdate() {
+        if (!rafPending) {
+          rafPending = true;
+          requestAnimationFrame(() => {
+            updateSelector();
+            rafPending = false;
+          });
+        }
+      }
+
       ["selNode", "sliderPower", "selMask", "selTemp", "selEndurance"].forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.addEventListener("input", updateSelector);
+        if (el) el.addEventListener("input", scheduleUpdate);
       });
 
-      window.addEventListener("resize", () => { setupRadarHiDPI(); updateSelector(); });
+      window.addEventListener("resize", () => { setupRadarHiDPI(); scheduleUpdate(); });
       window.addEventListener("hub:language-change", updateSelector);
       document.addEventListener("DOMContentLoaded", () => { setupRadarHiDPI(); updateSelector(); });
     })();
