@@ -48,7 +48,12 @@ function routeFromLocation({ scrollChapter = false } = {}) {
 
   setView(next, { updateHistory: false });
   if (chapterRoute && next === 'whitepaper' && scrollChapter) {
-    requestAnimationFrame(() => document.querySelector(window.location.hash)?.scrollIntoView({ block: 'start' }));
+    requestAnimationFrame(() => {
+      const targetId = decodeURIComponent((window.location.hash || '').replace(/^#/, ''));
+      if (targetId) {
+        document.getElementById(targetId)?.scrollIntoView({ block: 'start' });
+      }
+    });
   }
 }
 

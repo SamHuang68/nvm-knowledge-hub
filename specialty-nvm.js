@@ -6,8 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   // 0. Hi-DPI (Retina/4K) 縮放校正與精密半導體儀表引擎
   // =========================================================
-  function setupHiDPICanvas(canvas, cssWidth, cssHeight) {
+  function setupHiDPICanvas(canvas, preferredW, preferredH) {
     if (!canvas) return null;
+    const parentW = canvas.parentElement ? canvas.parentElement.clientWidth : preferredW;
+    const cssWidth = Math.min(preferredW, parentW > 50 ? parentW : preferredW);
+    const cssHeight = Math.round(preferredH * (cssWidth / preferredW));
     const dpr = Math.min(window.devicePixelRatio || 1, 3);
     const targetW = Math.round(cssWidth * dpr);
     const targetH = Math.round(cssHeight * dpr);
@@ -21,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const ctx = canvas.getContext('2d');
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.scale(dpr, dpr);
+    const scaleFactor = (cssWidth / preferredW) * dpr;
+    ctx.scale(scaleFactor, scaleFactor);
     return ctx;
   }
 
@@ -94,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     drawMuraCanvas();
     drawWaveform();
   }
+  window.addEventListener('resize', redrawAllLabs, { passive: true });
 
   // =========================================================
   // 2. 錨點平滑滾動
@@ -455,18 +460,21 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 支援直接點擊或觸控晶圓矩陣注入/清除缺陷
     function handleMatrixCellClick(e) {
-      e.preventDefault();
       const rect = canvasMatrix.getBoundingClientRect();
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-      const x = clientX - rect.left;
-      const y = clientY - rect.top;
+      const scaleX = 280 / rect.width;
+      const scaleY = 280 / rect.height;
+      const localX = (clientX - rect.left) * scaleX;
+      const localY = (clientY - rect.top) * scaleY;
       
-      const cellSize = canvasMatrix.width / GRID_SIZE;
-      const c = Math.floor(x / (rect.width / GRID_SIZE));
-      const r = Math.floor(y / (rect.height / GRID_SIZE));
+      const pad = 12;
+      const cellSize = (280 - pad * 2) / GRID_SIZE;
+      const c = Math.floor((localX - pad) / cellSize);
+      const r = Math.floor((localY - pad) / cellSize);
       
       if (r >= 0 && r < GRID_SIZE && c >= 0 && c < GRID_SIZE) {
+        if (e.cancelable) e.preventDefault();
         if (matrixCells[r][c] === 0) {
           // 注入缺陷
           matrixCells[r][c] = 1;
@@ -499,11 +507,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    canvasMatrix.addEventListener('click', handleMatrixCellClick);
-    canvasMatrix.addEventListener('touchstart', handleMatrixCellClick, { passive: false });
+    let activeScanInterval = null;
+    let activeBiraTimeout = null;
+    let activeBurnTimeout = null;
+
+    function clearAllBistTimers() {
+      if (activeScanInterval) { clearInterval(activeScanInterval); activeScanInterval = null; }
+      if (activeBiraTimeout) { clearTimeout(activeBiraTimeout); activeBiraTimeout = null; }
+      if (activeBurnTimeout) { clearTimeout(activeBurnTimeout); activeBurnTimeout = null; }
+    }
+
+    canvasMatrix.addEventListener('pointerdown', handleMatrixCellClick);
     canvasMatrix.style.cursor = 'crosshair';
 
     btnGenDefect.addEventListener('click', () => {
+      clearAllBistTimers();
       initMatrix();
       // 隨機產生 2 到 3 個缺陷
       const numDefects = 2 + Math.floor(Math.random() * 2);
@@ -531,32 +549,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnRunBIST.addEventListener('click', () => {
+      clearAllBistTimers();
       btnRunBIST.disabled = true;
+      btnGenDefect.disabled = true;
       lblScanStatus.textContent = 'BIST SCANNING...';
       logTerminal('RUNNING MARCH C- ALGORITHM ACROSS 144 BITCELLS...');
 
       let cur = 0;
-      const scanInterval = setInterval(() => {
+      activeScanInterval = setInterval(() => {
         scanProgressLine = cur;
         drawMatrix();
         cur++;
         if (cur >= GRID_SIZE) {
-          clearInterval(scanInterval);
+          clearInterval(activeScanInterval);
+          activeScanInterval = null;
           scanProgressLine = -1;
           drawMatrix();
           lblScanStatus.textContent = 'BIST COMPLETED';
           logTerminal(`BIST COMPLETED: Fault addresses captured at [${defects.map(d => `R${d.r}C${d.c}`).join(', ')}].`);
           btnRunBIRA.disabled = false;
+          btnGenDefect.disabled = false;
         }
       }, 50);
     });
 
     btnRunBIRA.addEventListener('click', () => {
+      clearAllBistTimers();
       btnRunBIRA.disabled = true;
       lblScanStatus.textContent = 'BIRA SOLVING...';
       logTerminal('BIRA HARDWARE SOLVER: Calculating minimum vertex cover...');
 
-      setTimeout(() => {
+      activeBiraTimeout = setTimeout(() => {
+        activeBiraTimeout = null;
         spareRows = [...new Set(defects.map(d => d.r))];
         statSparesUsed.textContent = `${spareRows.length} / 4`;
         lblScanStatus.textContent = 'BIRA SOLUTION LOCKED';
@@ -567,11 +591,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnBurnFuse.addEventListener('click', () => {
+      clearAllBistTimers();
       btnBurnFuse.disabled = true;
       lblScanStatus.textContent = 'BURNING ANTIFUSE...';
       logTerminal('⚡ [ATE_PROG] APPLYING 5.5V @ 10µs PULSE TO ANTIFUSE FUSEBOX MACRO...');
 
-      setTimeout(() => {
+      activeBurnTimeout = setTimeout(() => {
+        activeBurnTimeout = null;
         spareRows.forEach((r, idx) => {
           const rVal = [82, 78, 85, 76][idx % 4];
           logTerminal(`[ATE_BURN] ⚡ Row-CAM[${r}] Gate Oxide Hard Rupture... R_fil = ${rVal}Ω (<100Ω PASS).`);

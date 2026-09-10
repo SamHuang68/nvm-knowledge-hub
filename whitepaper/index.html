@@ -467,7 +467,7 @@
         <span>FILTER BY TECHNOLOGY FAMILY</span>
         <select id="filter-family">
           <option value="ALL">All public profiles (12)</option>
-          <option value="SRAM PUF + 1T OTP + AES-256">SRAM PUF + 1T OTP + AES-256</option><option value="Antifuse OTP (Raw / Unencrypted)">Antifuse OTP (Raw / Unencrypted)</option><option value="Quantum Tunneling / High-Voltage OTP-PUF">Quantum Tunneling / High-Voltage OTP-PUF</option><option value="Dedicated Security Chip (e.g. NXP SE050)">Dedicated Security Chip (e.g. NXP SE050)</option><option value="Board-Level / PCIe HSM Module">Board-Level / PCIe HSM Module</option><option value="Floating Gate / Charge Trap eFlash">Floating Gate / Charge Trap eFlash</option><option value="Spin-Torque Transfer MRAM / ReRAM">Spin-Torque Transfer MRAM / ReRAM</option><option value="On-Die Managed MTP / AntiFuse OTP">On-Die Managed MTP / AntiFuse OTP</option><option value="Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)">Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)</option><option value="AntiFuse OTP Hard FuseBox & PPR">AntiFuse OTP Hard FuseBox & PPR</option><option value="High-Density Embedded MTP / Pure Logic OTP">High-Density Embedded MTP / Pure Logic OTP</option><option value="MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity">MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity</option>
+          <option value="SRAM PUF + 1T OTP + AES-256">SRAM PUF + 1T OTP + AES-256</option><option value="Antifuse OTP (Raw / Unencrypted)">Antifuse OTP (Raw / Unencrypted)</option><option value="Quantum Tunneling / High-Voltage OTP-PUF">Quantum Tunneling / High-Voltage OTP-PUF</option><option value="Dedicated Security Chip (e.g. NXP SE050)">Dedicated Security Chip (e.g. NXP SE050)</option><option value="Board-Level / PCIe HSM Module">Board-Level / PCIe HSM Module</option><option value="Floating Gate / Charge Trap eFlash">Floating Gate / Charge Trap eFlash</option><option value="Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)">Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)</option><option value="On-Die Managed MTP / AntiFuse OTP">On-Die Managed MTP / AntiFuse OTP</option><option value="Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)">Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)</option><option value="AntiFuse OTP Hard FuseBox & PPR">AntiFuse OTP Hard FuseBox & PPR</option><option value="High-Density Embedded MTP / Pure Logic OTP">High-Density Embedded MTP / Pure Logic OTP</option><option value="MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity">MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity</option>
         </select>
       </label>
       <div class="matrix-actions">
@@ -537,7 +537,7 @@
         <small>Enrolled once at wafer sort; static physical response without fuzzy extractor</small>
       </th>
       <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">Quantum Tunneling / High-Voltage OTP-PUF</span></td>
-      <td data-label="STATE CONTRACT">Permanent trapped-charge / tunneling paths; zero helper-data activation</td>
+      <td data-label="STATE CONTRACT">Permanent dielectric breakdown tunneling paths; zero helper-data activation (No trapped charge)</td>
       <td data-label="BUS EXPOSURE">
         <span class="security-chip sec-med">On-chip bus</span>
       </td>
@@ -608,14 +608,15 @@
         <strong>Emerging NVM (MRAM / ReRAM)</strong>
         <small>Direct memory-mapped write without block erase</small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">Spin-Torque Transfer MRAM / ReRAM</span></td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)</span></td>
       <td data-label="STATE CONTRACT">Fast byte-addressable persistent state with high endurance</td>
       <td data-label="BUS EXPOSURE">
         <span class="security-chip sec-med">Internal bus</span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> Very Low (10-30 ns read/write)</small><br>
-        <small><strong>BOM:</strong> Medium (3-5 extra BEOL masks)</small>
+        <small><strong>Latency:</strong> MRAM: 10-30 ns read/write; ReRAM: 100 ns ~ 10 µs</small><br>
+        <small><strong>BOM:</strong> Medium (3-5 extra BEOL masks)</small><br>
+        <small><strong>Note:</strong> Analog CIM ReRAM constrained by Read Disturb &amp; conductance drift, ADC/DAC area &amp; IR-drop scaling.</small>
       </td>
       <td data-label="STRONGEST FIT">Low-latency persistent cache, AI edge inference weight storage, battery-less sensors</td>
       <td data-label="EVIDENCE STATUS"><span class="status-chip">Foundry Qualified (22nm/16nm)</span></td>

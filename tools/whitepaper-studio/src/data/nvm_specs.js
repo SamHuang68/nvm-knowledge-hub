@@ -31,7 +31,7 @@ export const nvmIpSpecs = [
     id: 'otp_puf_tunneling',
     profile: 'Quantum Tunneling OTP-PUF',
     family: 'Quantum Tunneling / High-Voltage OTP-PUF',
-    contract: 'Permanent trapped-charge / tunneling paths; zero helper-data activation',
+    contract: 'Permanent dielectric breakdown tunneling paths; zero helper-data activation (No trapped charge)',
     nodeLens: 'Requires specialized high-voltage write characterization per foundry/node',
     updateModel: 'Enrolled once at wafer sort; static physical response without fuzzy extractor',
     strongestFit: 'Die-unique identity where helper data storage is completely disallowed',
@@ -86,7 +86,7 @@ export const nvmIpSpecs = [
   {
     id: 'mram_reram',
     profile: 'Emerging NVM (MRAM / ReRAM)',
-    family: 'Spin-Torque Transfer MRAM / ReRAM',
+    family: 'Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)',
     contract: 'Fast byte-addressable persistent state with high endurance',
     nodeLens: 'Advanced foundry backend modules (22nm, 16nm, 12nm, N7 available from select foundries)',
     updateModel: 'Direct memory-mapped write without block erase',
