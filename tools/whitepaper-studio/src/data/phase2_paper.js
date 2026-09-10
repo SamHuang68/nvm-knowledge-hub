@@ -24,7 +24,7 @@ export const phase2Whitepaper = {
       title: 'Map Technology Families to the Contract',
       lede: 'Each NVM family expresses a different compromise among permanence, updates, density, voltage and process integration.',
       paragraphs: [
-        'OTP is naturally aligned with immutable or monotonic state. MTP and EEPROM-class structures support bounded changes but introduce endurance, programming-energy and high-voltage questions. Embedded Flash addresses code-rich systems where its process integration is economically justified. MRAM and ReRAM extend the advanced-node portfolio, but availability and qualification remain platform specific.',
+        'OTP is naturally aligned with immutable or monotonic state. Embedded MTP IP provides repeatedly programmable storage inside the host chip and may use an EEPROM structure. External standalone EEPROM is a separate memory device; a shared storage principle does not make these the same integration option. Endurance, programming energy and supply requirements must be checked for the selected implementation. Embedded Flash addresses code-rich systems where its process integration is economically justified. MRAM and ReRAM extend the advanced-node portfolio, but availability and qualification remain platform specific.',
         'SRAM PUF is a companion security primitive rather than a peer non-volatile medium. It can derive a device-unique root secret at power-up so persistent memory stores ciphertext or helper data instead of a reusable root key. That architecture raises assurance requirements of its own; it does not erase them.'
       ],
       takeaways: ['Do not model PUF as stored NVM', 'Qualify program and read paths separately', 'Avoid technology labels without a state owner'],

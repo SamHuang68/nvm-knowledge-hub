@@ -75,7 +75,7 @@ try {
   await page.locator('#nvm-family').selectOption('charge');
   if (await page.locator('[data-topic-row]:visible').count()!==0) failures.push('交集篩選未顯示空結果');
   await page.locator('#nvm-reset').click();
-  if (await page.locator('[data-topic-row]:visible').count()!==15) failures.push('清除篩選未恢復十五個專題');
+  if (await page.locator('[data-topic-row]:visible').count()!==data.topics.length) failures.push('清除篩選未恢復全部正式專題');
   await page.locator('#nvm-stage').selectOption('研究展示');
   if (!await page.locator('[data-topic-row]:visible').count()) failures.push('研究展示篩選無結果');
   await page.goto(base+'#topic-stt',{waitUntil:'networkidle'});
@@ -123,5 +123,5 @@ try {
   if (failures.length) {
     console.error(`NVM 網站檢查未通過：${failures.length} 項\n${JSON.stringify(failures.slice(0,30),null,2)}`);
     process.exitCode=1;
-  } else console.log(`通過：${audits.length} 組路由／寬度檢查、十五個技術、來源與專利深層連結、搜尋篩選、操作切換、手機目錄、重新載入、返回、無 JavaScript 與列印可讀性。`);
+  } else console.log(`通過：${audits.length} 組路由／寬度檢查、十六個技術與 IP 專題、來源與專利深層連結、搜尋篩選、操作切換、手機目錄、重新載入、返回、無 JavaScript 與列印可讀性。`);
 } finally { await browser.close(); }

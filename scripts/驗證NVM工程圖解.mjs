@@ -9,7 +9,7 @@ const data=JSON.parse(fs.readFileSync(path.join(root,'data/NVM知識資料英文
 const checks=[],errors=[],failures=[];
 const note=(passed,label,detail={})=>{const result={passed:Boolean(passed),label,...detail};checks.push(result);if(!passed)failures.push(result);};
 const hash=bytes=>crypto.createHash('sha256').update(bytes).digest('hex');
-note(data.engineering?.operations.length===45,'十五個技術各有三種完整操作');
+note(data.engineering?.operations.length===48,'十六個技術與 IP 專題各有三種完整操作');
 const frameCount=data.engineering.operations.reduce((n,study)=>n+study.variants.reduce((v,item)=>v+item.frames.length,0),0);
 const variantCount=data.engineering.operations.reduce((n,study)=>n+study.variants.length,0);
 const sources=new Set(data.sources.map(source=>source.id));

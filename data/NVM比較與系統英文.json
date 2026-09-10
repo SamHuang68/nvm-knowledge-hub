@@ -845,6 +845,26 @@
     {
       "term": "CXL",
       "definition": "An interconnect protocol supporting memory-related access between processors and devices. It can attach volatile or persistent memory; the protocol name alone does not guarantee retention through power loss."
+    },
+    {
+      "term": "Standalone EEPROM",
+      "definition": "Delivered as a separate memory IC, with an external interface to the host chip; a packaged I²C serial EEPROM is one example. Capacity, page-write behavior and timing describe the component interface, not its undisclosed internal poly stack."
+    },
+    {
+      "term": "Embedded MTP IP",
+      "definition": "A reprogrammable NVM macro integrated inside a SoC, ASIC or analog chip. Distinguish a foundry double-poly EEPROM route from third-party single-poly MTP IP, then verify the named cell, process, update granularity and reliability."
+    },
+    {
+      "term": "Double-Poly EEPROM",
+      "definition": "The first poly layer forms the floating gate and a second poly layer forms the control gate, separated by an interpoly dielectric. This describes the NVM stack; a base-logic process label does not determine an optional memory module."
+    },
+    {
+      "term": "Single-Poly MTP",
+      "definition": "One poly layer implements storage and the required gates, with MOS capacitors, wells or other specified terminals coupling the floating node. Single-poly implementations can still differ in carriers, program/erase paths, selectors and area costs."
+    },
+    {
+      "term": "NVM Process Option",
+      "definition": "An optional memory process module on a selected foundry platform. Verify second-poly, tunnel-oxide and added-mask requirements for that module. Logic compatibility and zero added masks are separate integration claims."
     }
   ]
 }

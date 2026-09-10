@@ -215,6 +215,87 @@
       "locator": "Commercial-generation section; stacked electrodes, memory holes, and charge-storage film in Figures 4–5",
       "date": "Page includes technical descriptions through 2023; reviewed 2026-09-10",
       "limit": "48 layers / 2015, 96 layers / 2018, 112 layers / 2020, and 162 layers / 2022 are the manufacturer's listed commercial history. This page is not treated as the latest 2026 layer-count ranking or a complete specification for each generation."
+    },
+    {
+      "id": "ch-mtp-standalone-microchip",
+      "url": "https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA256-24LC256-24FC256-256K-I2C-Serial-EEPROM-DS20001203.pdf",
+      "label": "Microchip: 24AA256/24LC256/24FC256 Standalone Serial EEPROM Datasheet",
+      "kind": "Manufacturer Datasheet",
+      "locator": "DS20001203Y pages 1–2: product, packages, and block diagram; Section 6: byte/page writes; Section 8: reads",
+      "date": "2022 revision; reviewed 2026-09-10",
+      "limit": "Establishes a standalone device, I2C interface, 64-byte page buffer, and internal erase/write control. The datasheet does not disclose the bitcell cross-section or polysilicon layer count; a teaching patent is not evidence of this product's implementation."
+    },
+    {
+      "id": "ch-mtp-synopsys",
+      "url": "https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/mtp-eeprom.html",
+      "label": "Synopsys: Single-Poly Floating-Gate MTP EEPROM IP",
+      "kind": "Manufacturer Product Page",
+      "locator": "Product overview paragraphs 1–2; first Highlights item; integrated high-voltage circuitry description",
+      "date": "No publication date stated; reviewed 2026-09-10",
+      "limit": "Confirms single-poly floating-gate storage and zero added masks for this product family. Control-terminal cross-sections and carrier paths are not disclosed. Family maxima and qualifications for selected nodes cannot be combined into a guarantee for every macro."
+    },
+    {
+      "id": "ch-mtp-xfab-xc06",
+      "url": "https://www.fbe-asic.com/documents/is-xc06.pdf",
+      "label": "X-FAB: Historical XC06 Double-Poly Embedded EEPROM Process Brief",
+      "kind": "Manufacturer-Authored Process Document",
+      "locator": "Page 1 Main Process Features: Flash/EEPROM tunnel oxide and double-poly stack; page 2 EEPROM macros; revision footer",
+      "date": "Rev 09/2003; reviewed 2026-09-10",
+      "limit": "A 2003 X-FAB-authored document publicly hosted by FBE ASIC. Used only as a historical foundry example. Current availability, the complete EEPROM cross-section, and carrier paths are not established. Base-CMOS single-poly specifications cannot substitute for the NVM-option stack."
+    },
+    {
+      "id": "ch-mtp-ymc-product",
+      "url": "https://www.ymc.com.tw/index_en.php",
+      "label": "Yield Microelectronics: Logic-Process Embedded MTP IP",
+      "kind": "Manufacturer Company and Product Introduction",
+      "locator": "About YMC paragraph: ymtp core technology, logic-process-based MTP eNVM, and licensing customers",
+      "date": "No publication date stated; reviewed 2026-09-10",
+      "limit": "Confirms YMC's MTP IP business and customer types. This paragraph does not disclose the polysilicon count, bitcell, or program/erase mechanism of every product."
+    },
+    {
+      "id": "ch-mtp-ymc-singlepoly",
+      "url": "https://patents.google.com/patent/US7423903B2/en",
+      "label": "Yield Microelectronics: Single-Floating-Gate NVM Patent US7423903B2",
+      "kind": "Patent",
+      "locator": "Figures 1, 2A, and 2B; fabrication paragraphs describing one polysilicon deposition and patterning; original-assignee field",
+      "date": "Granted 2008-09-09; reviewed 2026-09-10",
+      "limit": "Establishes a disclosed YMC single-poly implementation connecting transistor and capacitor gates into one floating node. It does not identify the cell of every current ymtp product; bias conditions and transfer directions must be read separately for each embodiment."
+    },
+    {
+      "id": "ch-mtp-ememory-neoee",
+      "url": "https://www.ememory.com.tw/en-US/Products/MTP/NeoEE",
+      "label": "eMemory: NeoEE Single-Poly Embedded EEPROM",
+      "kind": "Manufacturer Technical Product Page",
+      "locator": "Opening single-poly description; Technical Principles: capacitive-coupling MOS devices, selectors, and FN charge transfer in both directions",
+      "date": "No publication date stated; reviewed 2026-09-10",
+      "limit": "Confirms the identified single-poly floating-gate technology and FN program/erase principles. Complete terminal biases, cross-section dimensions, and paired reliability ratings for a target macro were not obtained."
+    },
+    {
+      "id": "ch-mtp-ememory-neomtp",
+      "url": "https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP",
+      "label": "eMemory: NeoMTP Single-Poly p-Type Floating-Gate Principles",
+      "kind": "Manufacturer Technical Product Page",
+      "locator": "Opening single-poly and additional-erase-gate descriptions; Technical Principles: p-type FG-MOSFET, CHEI, and FN erase destination",
+      "date": "No publication date stated; reviewed 2026-09-10",
+      "limit": "The manufacturer describes channel-hot-hole-induced hot-electron injection and FN electron transfer from floating gate to erase gate. Do not substitute an n-channel/source-erase cross-section or extend this mechanism to NeoEE or other vendors' MTP."
+    },
+    {
+      "id": "ch-mtp-floadia-zt",
+      "url": "https://floadia.com/product/lee-flash-zt/",
+      "label": "Floadia: LEE Flash ZT Zero-Added-Mask MTP",
+      "kind": "Manufacturer Product Page",
+      "locator": "Product Info; Major Features items 4–5; FN program/erase paragraph",
+      "date": "No publication date stated; reviewed 2026-09-10",
+      "limit": "Confirms MTP, standard CMOS, zero added masks, and FN programming/erase. This page does not explicitly state the polysilicon count. Cycle figures differ across page sections and are not adopted as a common guarantee."
+    },
+    {
+      "id": "ch-mtp-floadia-zt-fg",
+      "url": "https://floadia.com/news/422/",
+      "label": "Floadia and Maxchip: Public Floating-Gate LEE Flash ZT MTP Integration",
+      "kind": "Manufacturer Announcement",
+      "locator": "2016-05-20 title and announcement; paragraph identifying floating-gate storage and FN program/erase",
+      "date": "2016-05-20; reviewed 2026-09-10",
+      "limit": "An identified historical integration on Maxchip 0.18 um BCD supports floating-gate storage and FN program/erase. The polysilicon count is not stated and cannot be inferred from zero added masks. These generation-specific ratings do not apply to all current ZT products."
     }
   ],
   "topics": [
@@ -228,7 +309,11 @@
       "maturity": {
         "stage": "Identified Implementation",
         "claim": "IBM's 2007 technology review describes eFUSE evolution from 180 nm to 45 nm and applications in memory redundancy, chip identification, and analog trimming, establishing implementations in identified processes. This material also uses IBM and TSMC patents to explain polysilicon/silicide and metal-via structures.",
-        "sourceIds": ["ch-maturity-ibm-efuse", "ch-pat-efuse-poly", "ch-pat-efuse-via"],
+        "sourceIds": [
+          "ch-maturity-ibm-efuse",
+          "ch-pat-efuse-poly",
+          "ch-pat-efuse-via"
+        ],
         "limit": "The reviewed historical abstract does not enumerate product models or shipment volumes, so no named volume-production product is invented. A patent also does not establish that the same fuse macro can be used in any current TSMC node. Adoption requires qualification evidence for the specified process and IP version.",
         "implementationStage": "Longstanding Implementations in Identified Processes"
       },
@@ -302,7 +387,11 @@
           "limit": "The patent supplies neither universal process design rules nor production reliability data. Publication alone is not used here to infer IP availability at a particular node, an actual license scope, or an infringement relationship."
         }
       ],
-      "sourceIds": ["ch-pat-efuse-poly", "ch-pat-efuse-via", "ch-maturity-ibm-efuse"],
+      "sourceIds": [
+        "ch-pat-efuse-poly",
+        "ch-pat-efuse-via",
+        "ch-maturity-ibm-efuse"
+      ],
       "quiz": {
         "question": "If an OTP macro allows ten data appends, does each eFuse have ten program/erase cycles of endurance?",
         "answer": "No. The appends may use ten groups of previously unprogrammed locations and version encoding; each fuse still supports only one irreversible transition. Record the system's update count, the capacity consumed per update, and the rewritability of an individual physical cell separately."
@@ -318,7 +407,10 @@
       "maturity": {
         "stage": "In Volume Production",
         "claim": "Synopsys' 2018 acquisition statement identifies Kilopass antifuse 1T/2T IP, including XPM, Gusto, and SecretCode, and reports aggregate cumulative shipments exceeding 10 billion units. The current OTP page separately lists advanced-node silicon validation and specific automotive qualifications, indicating continued commercial availability.",
-        "sourceIds": ["ch-maturity-kilopass", "ch-maturity-otp-current"],
+        "sourceIds": [
+          "ch-maturity-kilopass",
+          "ch-maturity-otp-current"
+        ],
         "limit": "The historical shipment figure is an aggregate manufacturer statement and cannot be assigned to an individual macro or the 3 nm node. Silicon validation is not volume production, and N5A/N7A automotive qualifications are not common qualifications for every product.",
         "implementationStage": "Identified OTP IP with Volume-Production Shipments"
       },
@@ -381,7 +473,11 @@
           "limit": "This patent supplies an early mechanism and bias lesson. The structures, voltage tolerance, verification algorithms, and qualifications of current Kilopass/Synopsys 1T or 2T IP require separate evidence and are not established directly by this patent."
         }
       ],
-      "sourceIds": ["ch-pat-antifuse", "ch-maturity-kilopass", "ch-maturity-otp-current"],
+      "sourceIds": [
+        "ch-pat-antifuse",
+        "ch-maturity-kilopass",
+        "ch-maturity-otp-current"
+      ],
       "quiz": {
         "question": "Why is reducing the gate voltage of an unselected row insufficient to prove that an entire antifuse array is immune to half-select misprogramming?",
         "answer": "Cells sharing a column or row, and internal floating nodes, can develop different storage-layer fields. Turning off a select MOS does not hold every node at zero potential. Each category's bias, leakage, and accumulated stress must be evaluated and then validated with the specified pulse sequence."
@@ -389,64 +485,66 @@
     },
     {
       "id": "eeprom",
-      "title": "EEPROM and MTP: Rewritable Floating-Gate Storage",
-      "family": "Charge Storage / Floating Gate / Multiple Updates",
+      "title": "Conventional Standalone EEPROM: Local Windows and Fine Updates",
+      "family": "Charge Storage / Standalone Device / Electrical Erase",
       "storage": "A floating gate is a conductive island surrounded by insulating layers, with no direct DC metal connection to it. Retained charge changes how the control gate acts on the channel, shifting the MOS threshold voltage. In a typical n-channel example, adding electrons makes conduction more difficult. Reading measures the channel; normal read operation does not require draining the stored electrons.",
-      "structure": "The basic cross-section includes source, drain, channel, tunnel dielectric, floating gate, inter-gate dielectric, and a control electrode. An equivalent circuit must show coupling capacitances from the floating node to the other terminals. US4115914A localizes the thin tunneling window. US5844271A couples a buried n-type control electrode to a single-poly floating gate while retaining a selection function and regions of different oxide thickness.",
-      "summary": "EEPROM describes nonvolatile storage that can be electrically programmed and erased. MTP describes the ability to program multiple times or a product positioning. One publicly described Synopsys MTP product uses floating-gate EEPROM, but the MTP name alone does not guarantee single-poly construction, a particular program/erase mechanism, or a fixed endurance. Identify the physical structure first, then check the product's update granularity and cycling specification.",
+      "structure": "The teaching cross-section contains source, drain, channel, a localized thin tunneling window, floating gate, inter-gate dielectric, and control gate, with a selection function isolating unselected paths. US4115914A explains the local window and capacitive coupling; it is not a teardown of a current serial EEPROM.",
+      "summary": "This topic covers conventional standalone EEPROM: the array, voltage boosting, controller, and interface are packaged as a separate device accessed through a serial or parallel interface. Microchip 24LC256 is an identified I2C serial example. Foundry EEPROM macros and third-party MTP IP integrated within a chip are compared in the separate Embedded MTP IP topic.",
       "maturity": {
-        "stage": "Commercial IP",
-        "claim": "Synopsys' current public introduction defines its MTP EEPROM for analog and mixed-signal processes as an electrically erasable floating-gate hard macro that can be integrated in a logic process, and mentions integrated ECC and silicon qualification. This is evidence linking an identified product to a mechanism and helps separate the classification axes of MTP and EEPROM.",
-        "sourceIds": ["ch-product-mtp"],
-        "limit": "The complete datasheet behind a registration form was not obtained, nor were shipment volumes for the models associated with the page. The public introduction does not establish identical films, cells, endurance, retention, or automotive qualifications across all LD/MD/ULP MTP products.",
-        "implementationStage": "Publicly Offered Floating-Gate MTP EEPROM IP"
+        "stage": "Production Device",
+        "claim": "Microchip publicly offers the 24LC256 serial EEPROM and its full datasheet, covering packages, I2C, byte writes, a page buffer, and an internal high-voltage generator. This establishes a standalone product; the local-window teaching diagram is supported separately by a public patent.",
+        "sourceIds": [
+          "ch-mtp-standalone-microchip"
+        ],
+        "limit": "The datasheet does not disclose the bitcell cross-section, polysilicon count, or precise tunneling terminals. US4115914A cannot be treated as the 24LC256 implementation. Capacity, endurance, and retention must follow the specified part and conditions.",
+        "implementationStage": "Commercial Standalone Serial EEPROM"
       },
       "operations": [
         {
           "id": "write",
-          "title": "Program: Establish a Field That Transfers Electrons into the Floating Gate",
-          "before": "The floating gate starts within a known charge and threshold-voltage range. The control terminal, source/drain, and wells jointly determine the floating node's capacitively coupled potential.",
-          "stimulus": "A tunneling implementation establishes a high field of the appropriate polarity across a localized thin dielectric. The single-poly embodiment of US5844271A instead uses channel hot-electron injection. Mechanisms and terminals must follow their respective cross-sections.",
-          "after": "Additional electrons remain on the insulated floating gate, raising the threshold voltage of a typical n-channel cell. Read verification after the actual pulse confirms that the cell lies within the target range.",
-          "explanation": "In FN tunneling, electrons cross a barrier narrowed by a high electric field. In hot-electron injection, the lateral channel field first raises carrier energy, and the field toward the gate then collects carriers into the floating gate. These mechanisms require different current and stress analyses. The control electrode influences the floating node through capacitive coupling; it does not charge that node directly through a metal wire."
+          "title": "Program: Establish Stored Charge Through a Local Window",
+          "before": "The floating gate starts in a known charge range. The control electrode and terminal across the window determine its potential.",
+          "stimulus": "The local-window teaching example establishes a high field across the thin dielectric to transfer electrons into the floating gate. In the n-channel explanation, additional electrons raise threshold voltage.",
+          "after": "Electrons remain on the insulated floating gate and change channel conduction. In a device, the internal controller executes the write sequence and the system checks completion as specified.",
+          "explanation": "FN tunneling occurs at the thin dielectric's high-field region. The control gate acts through capacitive coupling and has no metal connection to the floating gate. Byte/page write commands are interface behavior and do not directly describe bare-cell bias voltages."
         },
         {
           "id": "erase",
-          "title": "Erase: Remove Stored Electrons Through a Defined Window",
-          "before": "The floating gate contains more electrons and the channel threshold is elevated. A lower-charge state must be restored for the next programming cycle.",
-          "stimulus": "Establish a high field between the floating gate and the designated erase terminal to remove electrons. A localized-window implementation controls the tunneling area; the specific US5844271A embodiment transfers electrons toward the source through FN tunneling.",
-          "after": "Fewer electrons remain on the floating gate and threshold voltage returns toward the erased range. Erase granularity depends on cell selection, shared terminals, and peripheral circuits; it cannot be inferred from the EEPROM or MTP name alone.",
-          "explanation": "Reversing the electric field can reverse charge transfer, but cannot undo defects accumulated during each passage through the dielectric. Overerase may also cause the storage channel to leak under unselected conditions, requiring selection and verify control. Rewritability, update granularity, and guaranteed cycle count are three separate questions that need separate product specifications."
+          "title": "Erase: Reverse the Window Field to Remove Electrons",
+          "before": "The floating gate holds more electrons and the n-channel teaching example has an elevated threshold.",
+          "stimulus": "Change terminal potentials within the same identified local-window structure so that its field supports electron transfer out of the floating gate.",
+          "after": "Fewer electrons remain and threshold voltage returns toward the erased range for reprogramming.",
+          "explanation": "Separate physical erase from host commands. A 24LC256 write includes an internally timed erase/write cycle; the host does not directly apply bare-cell erase biases. Selection lines, shared terminals, and page organization determine the affected region, which the EEPROM label alone does not specify."
         },
         {
           "id": "read",
-          "title": "Read: Observe Charge Indirectly Through Channel Current",
-          "before": "Two or more charge states correspond to different threshold-voltage distributions. The selected path and reference-sensing conditions are established.",
-          "stimulus": "Apply a read potential to the control terminal, a small source-to-drain bias, and enable the required select transistor. Keep the read field within the normal non-program/erase range.",
-          "after": "At the same read-gate potential, a low-threshold state conducts more readily than a high-threshold state. The sensor maps the current difference to data.",
-          "explanation": "Read current flows through the source-to-drain channel while stored electrons remain on the floating gate. Read speed and margin depend not only on stored charge but also on coupling ratio, channel dimensions, selectors, bitline capacitance, and reference circuitry. If the product includes ECC, its correction capability and detection behavior must also be included in the reliability of the delivered data."
+          "title": "Read: Sense the Channel and Return Data Through the Interface",
+          "before": "Stored charge maps to distinguishable threshold ranges and address decoding selects the data.",
+          "stimulus": "Apply normal low-stress read biases and enable the selected path. Internal sensing and output control respond to the host read command.",
+          "after": "The sensor distinguishes channel-current levels and the serial interface returns data while stored electrons remain on the floating gate.",
+          "explanation": "The source-to-drain channel carries the read current; floating-gate electrons need not leave. Interface clock rate, serial transfer, and random/sequential access are device timing conditions, separate from bare-cell sensing time."
         }
       ],
-      "selection": "Localized thin windows, control electrodes, and select transistors expose selected cells to the specified program/erase field while isolating other cells on shared lines. Single-poly construction reduces only the number of polysilicon layers; it may still require large coupling electrodes, well isolation, and high-voltage peripheral circuits. A complete area comparison must include selectors, voltage boosting, sensing, and the array organization needed for the update granularity.",
+      "selection": "The local window confines charge transfer while selection controls which storage path receives program, erase, or read biases. A standalone device also contains address decoding, page latches, voltage boosting, and command control. Byte-update costs require checking internal update granularity and page-boundary rules.",
       "variability": "Floating-gate charge, coupling ratio, tunnel-oxide thickness, and interface defects determine threshold voltage and its drift. Traps accumulated through cycling change program/erase speed and retention. Studies should measure cycle count, temperature, retention time, and error criteria together. One product's typical cycle count cannot be combined with another product's best retention time to form a common limit.",
       "advantages": [
-        "The same physical location can be electrically erased and reprogrammed, supporting parameters that require updates.",
-        "Localized tunneling windows and selection structures control charge transfer and access granularity.",
-        "Identified commercial MTP EEPROM IP with floating-gate storage and logic-process integration is available for selection against application conditions."
+        "The same location can be electrically erased and reprogrammed for settings and calibration that need updates.",
+        "A separate package and standard interface support reuse across host chips, with memory high-voltage control inside the device.",
+        "Byte/page update behavior can be checked against a complete datasheet to establish a traceable update sequence."
       ],
       "tradeoffs": [
-        "Repeated program/erase operations accumulate dielectric and interface defects; endurance and retention must be compared under combined conditions.",
-        "Single-poly construction still carries the area costs of coupling, isolation, selection, and high-voltage circuitry.",
-        "The MTP product label does not disclose a complete physical structure and cannot replace checking the process and datasheet."
+        "The external device consumes package, board, and interface resources; serial transfer adds end-to-end latency.",
+        "Repeated tunneling accumulates dielectric defects, so endurance and retention require joint evaluation.",
+        "Interface write size does not identify physical cell erase granularity; power-loss consistency still needs system design."
       ],
       "ceilings": {
-        "device": "A thin dielectric improves charge-transfer efficiency but increases leakage, defect, and retention risks. Thicker films improve isolation but may require a higher field or longer pulses. The physical limit is the combined condition under which repeated program/erase operations retain sufficient threshold-voltage window, not a maximum cycle count considered alone.",
-        "array": "Fine update granularity generally requires more selection and control resources. Array efficiency must include high-voltage paths, references, ECC, redundancy, and bad-bit handling. Usable capacity and update latency also depend on erase units and program verification, so alternatives cannot be compared using the area of one floating gate alone.",
-        "process": "Tunnel-dielectric quality, capacitive coupling, and high-voltage isolation must be controlled together. A single-poly implementation may substitute a buried control terminal, but its doping, junctions, and area become additional design conditions. Availability in a standard logic process still requires memory-specific reliability qualification.",
-        "system": "Program/erase latency, update granularity, and cycle budgets limit the update rate of counters or event logs. Power-loss data integrity, version switching, and write distribution must be designed jointly at macro and system levels. A low interface supply does not mean that the cell needs no internal voltage boosting or high electric field."
+        "device": "The localized thin window must support tunneling while preserving long-term insulation. Defect accumulation, coupling ratio, and charge distributions determine the threshold window remaining after repeated operation.",
+        "array": "Fine updates require selection, decoding, page latches, and high-voltage distribution. Page boundaries, internal erase/write units, and verification jointly limit update speed; one floating gate's area is an incomplete comparison.",
+        "process": "A dedicated memory process controls the tunneling window, inter-gate dielectric, and high-voltage devices. Public teaching cross-sections explain principles; the stack and process conditions of a current part require separate manufacturer evidence.",
+        "system": "Serial transfer, internal erase/write busy time, write protection, and power-loss handling define system behavior. Budget lifetime cycles at the actual updated locations; important settings can use versions, checksums, and a controlled switchover."
       },
-      "fit": "Suitable for analog trimming, sensor parameters, power-management settings, and device configuration requiring a limited to larger number of updates. First estimate lifetime cycle demand from the actual update frequency, then obtain the specified macro's ratings at the target temperature, retention time, capacity, and ECC conditions. Do not select solely on the largest endurance number.",
-      "avoid": "Not every MTP should be treated as a small RAM with unlimited rewrites. Frequent logging or large sequential datasets may be constrained by program/erase energy, speed, granularity, and area. If a setting is programmed permanently only once, compare the complete OTP cost as well; code execution additionally requires interface and access-timing validation.",
+      "fit": "Suitable for settings, calibration, product identification, and moderately updated state stored outside the host chip. Establish capacity, interface, page rules, write latency, and lifetime cycle demand before selecting a part and temperature grade.",
+      "avoid": "Frequent high-throughput logging, large sequential data, and very low latency workloads may be constrained by interface and erase/write timing. For integration within the same chip, use the Embedded MTP IP topic's process routes.",
       "patents": [
         {
           "id": "US4115914A",
@@ -458,7 +556,86 @@
           "mechanism": "A localized thinner tunneling window is placed between the floating gate and semiconductor, while other regions retain stronger isolation. Control-terminal coupling and the field across the window govern charge transfer. Figure 3i shows the cross-section formed by the process; Figure 6 traces the operating arrangement.",
           "claimReading": "The localized thin-dielectric and memory-structure limitations in claims 2 and 9 map to three questions: where the window lies, which terminal it reaches, and how the remaining regions are insulated. The thin window is a concrete structural limitation and cannot be omitted while retaining only the functional statement that the device can be electrically erased.",
           "limit": "The parent-application date is neither a complete historical determination of EEPROM's invention date nor a conclusion about the effective priority of all claims. This lesson does not infer that any current MTP product implements this patent."
+        }
+      ],
+      "sourceIds": [
+        "ch-pat-eeprom-window",
+        "ch-mtp-standalone-microchip"
+      ],
+      "quiz": {
+        "question": "Does 24LC256 page-write support prove its polysilicon count and local-window cross-section?",
+        "answer": "No. The datasheet establishes device interface behavior, update rules, and ratings. A bitcell cross-section needs separate implementation evidence. This topic uses US4115914A to explain a local window without assigning that patent to the 24LC256."
+      }
+    },
+    {
+      "id": "mtp",
+      "title": "Embedded MTP IP: Foundry Double-Poly and Third-Party Single-Poly",
+      "family": "Charge Storage / Embedded IP / Process Integration",
+      "storage": "This topic focuses on floating-gate embedded MTP/EEPROM IP. Charge remains on an insulated conductive floating node and alters channel conduction through capacitive coupling. n-type and p-type storage transistors have different read-state behavior: adding electrons makes the n-channel US5844271A example harder to turn on, while eMemory describes its p-type NeoMTP device as turning on after electron injection.",
+      "structure": "Compare two integration routes: foundry double-poly EEPROM options and third-party single-poly MTP IP. A double-poly stack can place control and floating gates in separate polysilicon layers; a single-poly solution uses capacitive-control regions and a floating node. The buried n-type control electrode in US5844271A is one identified teaching implementation, not the cell of every third-party product.",
+      "summary": "MTP IP provides rewritable nonvolatile storage inside the host chip, so selection centers on process and macro integration. Foundry double-poly EEPROM can be supplied through a dedicated NVM option; identified public evidence for third-party single-poly alternatives includes Synopsys MTP EEPROM and eMemory NeoEE/NeoMTP. This category is separate from packaged standalone EEPROM and does not merge SONOS Flash or antifuse OTP into floating-gate MTP.",
+      "maturity": {
+        "stage": "Commercial IP",
+        "claim": "Current Synopsys and eMemory product pages directly identify single-poly MTP/EEPROM IP. The 2003 X-FAB XC06 brief provides a historical foundry double-poly NVM example. YMC has a logic-process MTP offering and a separate single-poly patent; Floadia ZT has a public floating-gate/FN program-and-erase example.",
+        "sourceIds": [
+          "ch-mtp-synopsys",
+          "ch-mtp-ememory-neoee",
+          "ch-mtp-ememory-neomtp",
+          "ch-mtp-xfab-xc06",
+          "ch-mtp-ymc-product",
+          "ch-mtp-ymc-singlepoly",
+          "ch-mtp-floadia-zt-fg"
+        ],
+        "limit": "Each product family requires its target process, macro revision, and qualification conditions. A YMC patent does not identify all current ymtp cells; the reviewed Floadia documents do not explicitly state polysilicon count. The historical X-FAB document does not establish current availability.",
+        "implementationStage": "Publicly Offered Embedded MTP/EEPROM IP"
+      },
+      "operations": [
+        {
+          "id": "write",
+          "title": "Program: Establish the Identified Cell's Charge-Transfer Path",
+          "before": "The floating node starts in an identifiable charge state. Control capacitances, source/drain, wells, and selectors jointly establish the selected path.",
+          "stimulus": "The US5844271A teaching example combines buried-control coupling with drain-side channel hot-electron injection. NeoEE instead publicly describes FN programming. Each mechanism has its own structure and terminals; do not overlay their arrows on one generic cell.",
+          "after": "Electrons remain on the floating node and alter the read conduction state. The target macro's controller manages pulses, verification, and retries.",
+          "explanation": "Single-poly does not specify an injection mechanism. NeoMTP uses channel-hot-hole-induced hot-electron injection in a p-type device, distinct from the n-channel teaching example. Floadia ZT separately discloses FN programming. A low core supply does not eliminate internal voltage boosting or high fields."
         },
+        {
+          "id": "erase",
+          "title": "Erase: Remove Electrons Through the Specified Exit",
+          "before": "The floating node retains charge from the previous data state and the macro has selected the page, word, or block allowed to update.",
+          "stimulus": "The US5844271A teaching example transfers electrons from floating gate to source through FN tunneling. NeoMTP instead identifies an additional erase gate as its destination; NeoEE provides FN paths through MOS structures.",
+          "after": "Charge decreases and the floating node returns to a state suitable for programming. Completion is determined by erase verification and the target macro specification.",
+          "explanation": "Polysilicon count cannot establish erase destination, polarity, or granularity. Capacitive-control regions and tunneling exits may differ. Changing a control voltage is not a direct metal connection that drains the floating gate. Dielectric defects still accumulate through cycling."
+        },
+        {
+          "id": "read",
+          "title": "Read: Sense the Selected Channel Under Normal Bias",
+          "before": "Charge states correspond to distinguishable conduction ranges, with array selection and references established.",
+          "stimulus": "Apply normal read biases to the selected storage transistor and selectors, sensing a small current or voltage signal without initiating high-field program/erase.",
+          "after": "The sensing circuit returns data while charge remains on the floating node. n-type and p-type conduction states and logical mappings are defined by their respective circuits.",
+          "explanation": "Macro read behavior depends on the cell, coupling ratio, selectors, bitlines, references, and ECC. A public cross-section explains storage principles but does not replace macro timing, output protocol, or usable read margin."
+        }
+      ],
+      "selection": "Single-poly shifts control requirements into capacitive coupling and layout while retaining selectors, well isolation, and controlled high-voltage distribution. Both foundry NVM options and third-party IP require selected, half-selected, and unselected operating conditions, update granularity, and disturb limits. Total area includes boosting, control, sensing, ECC, and redundancy.",
+      "variability": "Coupling ratio, oxide quality, channel type, charge-transfer mechanism, and cycling defects jointly govern distribution drift. FN and hot-carrier paths have different energy and stress conditions. Compare vendors at fixed capacity, temperature, cycle count, retention time, and error criteria instead of combining the best figures from unrelated macros.",
+      "advantages": [
+        "Stores updateable parameters within the same chip, reducing external memory interfaces and packaging needs.",
+        "Third-party single-poly solutions can integrate with specified logic, analog, or BCD processes, with zero-added-mask options in identified products.",
+        "Foundry NVM options and third-party IP offer distinct integration conditions that can be matched to update lifetime and available process resources."
+      ],
+      "tradeoffs": [
+        "Single-poly does not eliminate area or qualification cost; coupling capacitors, isolation, and high-voltage peripherals still consume die resources.",
+        "The MTP label can cover different carrier mechanisms, update granularities, and endurance; verify the specified macro.",
+        "An IP listed by a foundry is not necessarily double-poly. Third-party licensed IP can appear in foundry catalogs, so technology origin needs separate checking."
+      ],
+      "ceilings": {
+        "device": "Coupling, tunneling or hot-carrier efficiency, and dielectric reliability limit the usable read window after repeated updates. n/p channel types and different erase destinations cannot share one universal operating limit.",
+        "array": "Boosting, selectors, references, ECC, redundancy, and verification determine total macro area and usable throughput. Fine updates can reduce array efficiency; shared lines and half-select disturb constrain parallel program/erase.",
+        "process": "Double-poly NVM options and single-poly logic integration have distinct masks, oxides, wells, thermal budgets, and model requirements. Zero added masks still requires memory qualification on the target process. Base-process poly count cannot substitute for the NVM-option stack.",
+        "system": "Update frequency, program/erase stalls, power budgets, and power-loss consistency jointly define usability. The host must honor macro busy states, locks, error handling, and test modes while budgeting cycles over product lifetime."
+      },
+      "fit": "Suitable for analog trimming, PMIC settings, sensor parameters, and device configuration that require updates within the same chip. Fix the foundry process and use lifetime first, then compare foundry EEPROM options, third-party MTP macros, total area, and qualification conditions.",
+      "avoid": "Do not substitute the MTP label for physical and macro documentation or treat it as RAM with unlimited rewrites. For a separate memory device, return to conventional EEPROM. Classify SONOS, embedded Flash, and antifuse by their respective storage mechanisms.",
+      "patents": [
         {
           "id": "US5844271A",
           "url": "https://patents.google.com/patent/US5844271A/en",
@@ -471,11 +648,91 @@
           "limit": "No public evidence links current Synopsys MTP to this patent, so it is used only for structural teaching. Actual commercial implementation, node qualification, and reliability require independent evidence."
         }
       ],
-      "sourceIds": ["ch-pat-eeprom-window", "ch-pat-eeprom-singlepoly", "ch-product-mtp"],
+      "sourceIds": [
+        "ch-pat-eeprom-singlepoly",
+        "ch-product-mtp",
+        "ch-mtp-synopsys",
+        "ch-mtp-ememory-neoee",
+        "ch-mtp-ememory-neomtp",
+        "ch-mtp-xfab-xc06",
+        "ch-mtp-ymc-product",
+        "ch-mtp-ymc-singlepoly",
+        "ch-mtp-floadia-zt",
+        "ch-mtp-floadia-zt-fg"
+      ],
       "quiz": {
-        "question": "If an IP product is called MTP, can it immediately be drawn as single-poly EEPROM and assigned 100,000-cycle endurance?",
-        "answer": "No. MTP describes multiple-programming capability or product positioning. The physical storage mechanism, polysilicon layer count, program/erase granularity, and endurance under specified conditions still require verification. Even a confirmed floating-gate implementation does not establish the control-electrode location or carrier paths."
-      }
+        "question": "If two third-party MTP products are both single-poly, can both use the same n-channel hot-electron program and source-FN erase diagram?",
+        "answer": "No. NeoEE publicly describes FN charge transfer in both directions. NeoMTP describes a p-type floating-gate device, channel-hot-hole-induced hot-electron injection, and an erase-gate exit. Single-poly establishes layer count; a complete diagram must still match the identified cell, terminals, and operating conditions."
+      },
+      "integrationRoutes": [
+        {
+          "id": "foundry-double-poly",
+          "title": "Foundry Double-Poly EEPROM Option",
+          "provider": "X-FAB XC06 (historical 2003 example)",
+          "polyLayers": "2: double-poly NVM stack",
+          "controlTopology": "Separate polysilicon layers can form floating and control gates; the XC06 brief does not disclose the complete EEPROM cross-section.",
+          "processContract": "Use the target foundry's EEPROM/NVM option and check the actual mask combination and memory specification.",
+          "operationContract": "The EEPROM macro defines program/erase mechanism, biases, and granularity; neither layer count nor a process brief is sufficient.",
+          "sourceIds": [
+            "ch-mtp-xfab-xc06"
+          ]
+        },
+        {
+          "id": "third-party-single-poly",
+          "title": "Third-Party Single-Poly MTP IP",
+          "provider": "Synopsys MTP EEPROM; eMemory NeoEE/NeoMTP",
+          "polyLayers": "1: explicitly stated for the identified products",
+          "controlTopology": "Capacitive coupling controls a floating node; control capacitors, storage transistors, and erase regions are vendor-specific.",
+          "processContract": "Integrate on a specified logic, analog, or BCD platform. Zero added masks applies only to explicitly supported versions.",
+          "operationContract": "NeoEE uses FN program/erase; NeoMTP uses p-type storage and an erase gate. The reviewed Synopsys source does not disclose carrier paths.",
+          "sourceIds": [
+            "ch-mtp-synopsys",
+            "ch-mtp-ememory-neoee",
+            "ch-mtp-ememory-neomtp"
+          ]
+        }
+      ],
+      "implementations": [
+        {
+          "vendor": "Synopsys",
+          "title": "MTP EEPROM IP",
+          "polyLayers": "Single-poly",
+          "storage": "Floating gate",
+          "program": "Not disclosed in the reviewed public product page",
+          "erase": "Not disclosed in the reviewed public product page",
+          "integration": "Specified standard-CMOS platforms; zero added masks; integrated high-voltage circuitry",
+          "limit": "Do not assign US5844271A or another vendor's carrier paths to this product.",
+          "sourceIds": [
+            "ch-mtp-synopsys"
+          ]
+        },
+        {
+          "vendor": "eMemory",
+          "title": "NeoEE",
+          "polyLayers": "Single-poly",
+          "storage": "Floating gate; capacitive-coupling MOS devices and selectors",
+          "program": "FN transfer stores charge on the floating gate",
+          "erase": "FN transfer removes charge from the floating gate",
+          "integration": "Specified logic processes; zero added masks; integrated high-voltage and control circuits",
+          "limit": "Complete terminal biases and macro update units require the specified version.",
+          "sourceIds": [
+            "ch-mtp-ememory-neoee"
+          ]
+        },
+        {
+          "vendor": "eMemory",
+          "title": "NeoMTP",
+          "polyLayers": "Single-poly",
+          "storage": "p-type floating-gate MOSFET; additional erase gate",
+          "program": "Channel-hot-hole-induced hot-electron injection (manufacturer label: CHEI)",
+          "erase": "FN electron transfer from floating gate to erase gate",
+          "integration": "Specified logic/BCD platforms; zero-added-mask versions",
+          "limit": "Do not substitute an n-type storage transistor or source-erase diagram; use the macro's terminal specifications.",
+          "sourceIds": [
+            "ch-mtp-ememory-neomtp"
+          ]
+        }
+      ]
     },
     {
       "id": "nor",
@@ -487,7 +744,10 @@
       "maturity": {
         "stage": "In Volume Production",
         "claim": "Microchip's SST39SF020A was listed as in production when reviewed, with a public summary specifying 2 Mb and a 4.5–5.5 V parallel flash interface. SST's SuperFlash technology brochure separately provides an identified technical lineage for split gates, source-side injection, and inter-gate FN erase, allowing commercial implementation evidence to be compared with the mechanism lesson.",
-        "sourceIds": ["ch-maturity-nor-product", "ch-tech-superflash"],
+        "sourceIds": [
+          "ch-maturity-nor-product",
+          "ch-tech-superflash"
+        ],
         "limit": "A product's interface supply is not its internal cell bias. Typical endurance, retention, and generation figures in the 2018 brochure are not common guarantees for all NOR. The channel-erase table in US6232180B1 must not be applied to SuperFlash.",
         "implementationStage": "Identified Split-Gate Product in Production"
       },
@@ -550,7 +810,12 @@
           "limit": "The earliest assignee found is Worldwide Semiconductor Manufacturing; TSMC in an aggregated field does not erase that original record. This is a lesson on a specific operation and does not establish implementation correspondence with SST39SF020A or all split-gate NOR."
         }
       ],
-      "sourceIds": ["ch-pat-nor-splitgate", "ch-tech-superflash", "ch-maturity-nor-product", "ch-tech-nand"],
+      "sourceIds": [
+        "ch-pat-nor-splitgate",
+        "ch-tech-superflash",
+        "ch-maturity-nor-product",
+        "ch-tech-nand"
+      ],
       "quiz": {
         "question": "If two cells are both called split-gate NOR, can they share the same erase-bias table?",
         "answer": "No. The SuperFlash brochure's example uses inter-gate FN tunneling, while US6232180B1 provides a channel-erase embodiment. Identify each electron exit, well, and floating terminal before citing its biases. A shared family name does not establish identical operation."
@@ -566,7 +831,10 @@
       "maturity": {
         "stage": "In Volume Production",
         "claim": "Infineon publicly lists SONOS eFlash production at 130, 65, 55, 40, and 28 nm and explicitly describes a 2T cell with FN program/erase. Its MCU shipments and licensable macro information support classification as an established platform. Localized-charge NROM is treated separately here through Saifun's original patent, with its own evidence boundary.",
-        "sourceIds": ["ch-product-sonos", "ch-pat-nrom"],
+        "sourceIds": [
+          "ch-product-sonos",
+          "ch-pat-nrom"
+        ],
         "limit": "The listed 25 ns, 100,000-cycle, and ten-year retention figures are not fully paired across all nodes, capacities, and temperatures, so they are not combined into one guarantee. SONOS production evidence does not automatically establish the same NROM specifications or current product status.",
         "implementationStage": "Identified SONOS eFlash Platforms in Volume Production"
       },
@@ -640,7 +908,11 @@
           "limit": "The original publication names Saifun; later Spansion Israel metadata does not replace the original corporate record. This material uses the patent for localized programming and reverse reading. Two-bit erase, current products, and production reliability require separate evidence."
         }
       ],
-      "sourceIds": ["ch-pat-sonos", "ch-pat-nrom", "ch-product-sonos"],
+      "sourceIds": [
+        "ch-pat-sonos",
+        "ch-pat-nrom",
+        "ch-product-sonos"
+      ],
       "quiz": {
         "question": "If a SONOS nitride layer is drawn as one continuous film, does that mean all its charge can freely equalize as it would on a metallic floating gate?",
         "answer": "No. Nitride is an insulating trapping material, so charge can remain at different positions. Readout of a localized-charge cell consequently depends on charge position and read direction. Distinguish continuity of the material, localization of charge, and the way the full channel is sensed."
@@ -656,7 +928,9 @@
       "maturity": {
         "stage": "Commercial Generations Established",
         "claim": "Kioxia's fundamentals explanation records commercial planar 15 nm technology and BiCS FLASH generations: 48 layers in 2015, 96 layers in 2018, 112 layers in 2020, and 162 layers in 2022. This establishes 3D NAND as a mature commercial family and supports a historical comparison of planar scaling and vertical stacking.",
-        "sourceIds": ["ch-maturity-bics"],
+        "sourceIds": [
+          "ch-maturity-bics"
+        ],
         "limit": "This material deliberately uses verifiable commercial history rather than claiming the latest 2026 layer-count or product ranking. Layer count, bits per cell, capacity, and performance must be cited together for each generation. Sampling or announcing a new layer count is not automatically volume production.",
         "implementationStage": "Commercial History for Both Planar and 3D NAND"
       },
@@ -719,7 +993,17 @@
           "limit": "This is an early vertical-NAND research seed, not a complete patent lineage for planar NAND, channel boosting, or pulse algorithms. The patent alone also does not establish that a contemporary BiCS product implements every claim limitation."
         }
       ],
-      "sourceIds": ["ch-pat-nand-vertical", "ch-tech-nand", "ch-tech-multilevel", "ch-tech-retention", "ch-tech-ecc", "ch-tech-deepetch", "ch-paper-3dvariation", "ch-paper-readdisturb", "ch-maturity-bics"],
+      "sourceIds": [
+        "ch-pat-nand-vertical",
+        "ch-tech-nand",
+        "ch-tech-multilevel",
+        "ch-tech-retention",
+        "ch-tech-ecc",
+        "ch-tech-deepetch",
+        "ch-paper-3dvariation",
+        "ch-paper-readdisturb",
+        "ch-maturity-bics"
+      ],
       "quiz": {
         "question": "Does moving from TLC to QLC while increasing the layer count necessarily improve speed and endurance and reduce cost at the same time?",
         "answer": "No. QLC must distinguish sixteen states, while TLC needs only eight; narrower windows increase verification and error-management demands. More layers add deep-hole process and layer-variation challenges. Evaluate an identified product's usable capacity, manufacturing and controller costs, workload, and reliability conditions together."

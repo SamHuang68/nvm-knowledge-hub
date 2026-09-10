@@ -7,7 +7,7 @@ import { readFileSync } from 'node:fs';
 /** @typedef {{title:string,summary:string,variant:string,frames:OperationFrame[],legend:OperationLegend[],sources:OperationSource[],caveat:string,variants:OperationVariant[]}} OperationPlate */
 
 const data = Object.fromEntries(['zh', 'en'].map(lang => [lang, JSON.parse(readFileSync(new URL(lang === 'zh' ? '../data/NVM電荷專題.json' : '../data/NVM電荷專題英文.json', import.meta.url), 'utf8'))]));
-const topics = new Set(['efuse', 'antifuse', 'eeprom', 'nor', 'sonos', 'nand']);
+const topics = new Set(['efuse', 'antifuse', 'eeprom', 'mtp', 'nor', 'sonos', 'nand']);
 const esc = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const choose = (lang, zh, en) => lang === 'zh' ? zh : en;
 const C = { ink: '#16334c', silicon: '#bed1e2', doped: '#7299b9', oxide: '#f3e2af', trap: '#d98762', fg: '#c2a269', metal: '#899ba9', electron: '#075f9d', hole: '#b52f43', field: '#a34b10', current: '#087766', white: '#fff' };
@@ -272,7 +272,10 @@ const variantSpecs = {
   antifuse: [{ id: 'mos-breakdown', kind: 'antifuse', label: ['MOS 介電層崩潰反熔絲', 'MOS Dielectric-Breakdown Antifuse'], sourceIds: ['ch-pat-antifuse'], mechanism: 'BD', note: ['只畫儲存元件：閘極接欄線 C，矽端為內部節點；串接選擇 MOS 與陣列周邊省略，不代表完整商用 OTP 單元。', 'Storage element only: gate connects to column C, silicon to an internal node. The series select MOS and array periphery are omitted, not a complete commercial OTP cell.'] }],
   eeprom: [
     { id: 'local-window', kind: 'window', label: ['局部窗口：FN 寫入／穿隧抹除', 'Local Window: FN Program/Tunnel Erase'], sourceIds: ['ch-pat-eeprom-window'], mechanism: 'FN', note: ['依 US4115914A 明示容許的 n 通道分支，將局部窗口重繪為 n+ 接點與 p 型矽；原文多數製程圖以 p 通道為例，本圖不逐項複製該製程剖面。本序列只採穿隧變體。', 'The n-channel branch expressly permitted by US4115914A is redrawn with n+ contacts and p-type silicon. Most original process figures use a p-channel example; this is not a literal reproduction of that process section. This sequence uses tunneling only.'] },
-    { id: 'buried-control', kind: 'single-poly', label: ['埋入控制端：CHE 寫入／源極 FN 抹除', 'Buried Control: CHE Program/Source FN Erase'], sourceIds: ['ch-pat-eeprom-singlepoly'], mechanism: 'CHE / FN', note: ['將圖 4、5 的兩個剖切方向並列並以同一 FG 導體連結；控制端位於矽中。CG 抹除耦合採符號表示，未複製正文與表 2 不一致的讀取欄。', 'Two sections from Figures 4 and 5 share one FG conductor; control is buried in silicon. Erase coupling remains symbolic; inconsistent read entries in Table 2 are not reproduced.'] },
+  ],
+  mtp: [
+    { id: 'double-poly-window', kind: 'window', label: ['雙層多晶矽 EEPROM：局部窗口原理', 'Double-Poly EEPROM: Local-Window Principle'], sourceIds: ['ch-pat-eeprom-window'], mechanism: 'FN', note: ['本圖用 US4115914A 的控制閘極／浮動閘極及局部窗口，說明雙層多晶矽 EEPROM 路徑；並非特定 foundry 巨集的製程截面。具名製程、穿隧端及操作條件仍以供應商文件為準。', 'Uses the control/floating gates and local window in US4115914A to explain the double-poly EEPROM route. This is not a named foundry macro cross-section; process details, tunneling terminals and operating conditions remain vendor-specific.'] },
+    { id: 'buried-control', kind: 'single-poly', label: ['單層多晶矽：埋入控制端 CHE／源極 FN 範例', 'Single Poly: Buried-Control CHE/Source FN Example'], sourceIds: ['ch-pat-eeprom-singlepoly'], mechanism: 'CHE / FN', note: ['US5844271A 的圖 4、5 兩個剖切方向以同一 FG 導體連結，控制端位於矽中。這是單層多晶矽結構與操作的代表教案，不代替現行各家 MTP IP 的實際單元與載子路徑。CG 抹除耦合採符號表示，未複製正文與表 2 不一致的讀取欄。', 'Figures 4 and 5 of US5844271A share one FG conductor, with control buried in silicon. This teaching example does not define current vendors’ MTP cells or carrier paths. Erase coupling remains symbolic; inconsistent read entries in Table 2 are not reproduced.'] },
   ],
   nor: [
     { id: 'stacked-che', kind: 'stacked', label: ['堆疊閘：汲極 CHE／源極 FN', 'Stacked Gate: Drain CHE/Source FN'], sourceIds: ['ch-pat-nor-splitgate'], mechanism: 'CHE / FN', note: ['對照 US6232180B1 背景中的傳統堆疊閘機制；不把它標為該案提出的新分離閘結構。', 'Corresponds to conventional stacked-gate mechanisms in the background of US6232180B1, not to its proposed split-gate invention.'] },

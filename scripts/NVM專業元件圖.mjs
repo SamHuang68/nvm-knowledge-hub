@@ -42,6 +42,22 @@ export function bitcellFigure(id, title, language = 'en', compact = false) {
     labels=[set('控制閘極與字元線接點','Control Gate and Word-Line Contact'),set(id==='fefet'?'可切換極化的鐵電層':id==='sonos'?'氮化物內的局部電荷陷阱':'被介電層包覆的導電浮動閘極',id==='fefet'?'Ferroelectric Layer with Switchable Polarization':id==='sonos'?'Localized Charge Traps in Silicon Nitride':'Conductive Floating Gate Enclosed by Dielectric'),set('介電層／通道界面','Dielectric–Channel Interface'),set('源極、汲極與矽通道；讀取臨界電壓差','Source, Drain, and Silicon Channel; Read the Threshold Shift')];
     mechanism=set(id==='nor'?'分離閘極變體：局部注入把電荷送入浮動閘極。':id==='fefet'?'以極化狀態改變通道臨界電壓；界面陷阱仍影響讀取視窗。':id==='sonos'?'電子分布在絕緣捕捉層的局部陷阱，與導電浮動閘極不同。':'電子經穿隧或特定注入路徑進出絕緣包覆的浮動閘極。',id==='nor'?'Split-Gate Variant: Local Injection Transfers Charge into the Floating Gate.':id==='fefet'?'Polarization Shifts the Channel Threshold; Interface Traps Also Affect the Read Window.':id==='sonos'?'Electrons Occupy Localized Traps in an Insulator, Unlike a Conductive Floating Gate.':'Electrons Enter or Leave an Insulated Floating Gate through Tunneling or an Implementation-Specific Injection Path.');
     view=set('元件剖面與接點','Device Cross-Section and Contacts');
+  } else if(id==='mtp') {
+    drawing=slab(138,266,438,79,g('silicon'));
+    drawing+=path('M167 266h145v33q-70 25-145 0Z',g('implant'));
+    drawing+=path('M379 266h46v29q-23 15-46 0Z',g('implant'))+path('M517 266h43v29q-21 15-43 0Z',g('implant'));
+    drawing+=line('M425 270H517','#298f94',4);
+    drawing+=slab(186,251,112,12,palette.oxide,22)+slab(426,251,90,12,palette.oxide,22);
+    drawing+=slab(192,220,100,29,g('floating'),22)+slab(431,220,80,29,g('floating'),22)+line('M250 220V180H470V220','#bb864a',9);
+    drawing+=[214,247,461,490].map(x=>charge(x,235)).join('');
+    drawing+=slab(166,224,18,40,g('contact'),14)+slab(387,224,18,40,g('contact'),14)+slab(530,224,18,40,g('contact'),14);
+    drawing+=txt(364,144,'POLY 1 / FG','text-anchor="middle"')+line('M364 154v18');
+    drawing+=txt(181,203,'CG','text-anchor="middle"')+txt(403,203,'S','text-anchor="middle"')+txt(547,203,'D','text-anchor="middle"');
+    drawing+=txt(230,302,'N+ CONTROL','text-anchor="middle" class="bc-small"')+txt(476,302,'p-Si','text-anchor="middle" class="bc-small"');
+    drawing+=call(1,110,116,318,180)+call(2,104,315,237,279,354)+call(3,630,307,473,270,369)+call(4,628,123,474,257,166);
+    labels=[set('唯一一層多晶矽形成連續浮動閘極；沒有上層控制多晶矽','One Continuous Poly Layer Forms the Floating Gate; No Upper Control Poly'),set('埋入式 N+ 控制電極，經介電層耦合浮動節點','Buried N+ Control Electrode Capacitively Couples the Floating Node'),set('儲存／讀取通道及源汲極；升壓與選擇周邊另行整合','Storage/Read Channel and Source/Drain; High-Voltage and Selection Circuits Are Separate'),set('耦合區與儲存區的介電層厚度及應力各自設計','Coupling and Storage Dielectrics Have Distinct Thickness and Stress Requirements')];
+    mechanism=set('依 US5844271A 將耦合區與讀取區兩個剖面並列；棕色連線表示同一浮動閘極，非實際版圖走線。控制電極位於矽中。現行各家 MTP IP 的單元、寫抹路徑與周邊依其具名文件核對。','Two Sections from US5844271A Show Coupling and Read Regions; the Brown Link Indicates One Floating Node, Not a Literal Layout Route. Control Is in Silicon. Current MTP IP Cells, Carrier Paths and Periphery Follow Their Own Documentation.');
+    view=set('第三方 MTP IP：單層多晶矽結構範例','Third-Party MTP IP: Single-Poly Structure Example');
   } else if(id==='efuse') {
     drawing=slab(145,230,400,85,g('dielectric'),48);
     drawing+=path('M169 173l42 -24h101l36 34h43l36 -34h110l-42 24H424l-35 34h-70l-36 -34Z',g('copper'),'stroke="#956d46" stroke-width="1.3"');

@@ -1,7 +1,7 @@
 import { operationPlate as chargePlate } from './NVM電荷操作圖.mjs';
 import { operationPlate as emergingPlate } from './NVM新興操作圖.mjs';
 import { patentStudy } from './NVM專利圖解.mjs';
-const chargeIds=new Set(['efuse','antifuse','eeprom','nor','sonos','nand']);
+const chargeIds=new Set(['efuse','antifuse','eeprom','mtp','nor','sonos','nand']);
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const text=(language,zh,en)=>language==='en'?en:zh;
 export function collectEngineeringStudies(topics,language){

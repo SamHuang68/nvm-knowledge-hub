@@ -12,9 +12,9 @@
   <title>NVM Whitepaper &amp; Decision Studio · NVM Knowledge Hub</title>
 
   <link rel="stylesheet" href="../site-shell.css?v=20260906-navy-v3">
-  <script type="module" crossorigin src="./assets/index-_SFXHrp_.js?v=20260910-bilingual"></script>
+  <script type="module" crossorigin src="./assets/index-_SFXHrp_.js?v=20260910-mtp"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-D9MQ5Guq.css?v=20260906-navy-v3">
-  <script src="./assets/whitepaper_i18n.js?v=20260910-bilingual"></script>
+  <script src="./assets/whitepaper_i18n.js?v=20260910-mtp"></script>
 
   <style id="studio-typography-override">
     /* 0. ACCESSIBILITY DEFENSE: High-contrast Skip Link */
@@ -342,10 +342,10 @@
         
           <article>
             <span class="technology-number">02</span>
-            <div class="technology-name"><p>Public evidence needed per process</p><h4>MTP / EEPROM class</h4><span>Reprogrammable charge-based state</span></div>
+            <div class="technology-name"><p>Public evidence needed per process</p><h4>Embedded MTP IP</h4><span>Reprogrammable on-chip state; may use EEPROM storage</span></div>
             <div><small>STRONGEST FIT</small><p>Bounded calibration and small firmware state</p></div>
-            <div><small>PROCESS LENS</small><p>High-voltage and oxide options constrain portability</p></div>
-            <div class="technology-limit"><small>BOUNDARY</small><p>Endurance, programming supply and retention must be jointly qualified</p></div>
+            <div><small>PROCESS LENS</small><p>EEPROM-based IP depends on high-voltage and oxide options</p></div>
+            <div class="technology-limit"><small>BOUNDARY</small><p>An embedded macro, distinct from external standalone EEPROM; endurance, programming supply and retention need joint qualification</p></div>
           </article>
         
           <article>
@@ -431,7 +431,7 @@
         
           <article id="chap-technology-boundaries" class="paper-chapter">
             <header><p>CHAPTER 02</p><h3>Map Technology Families to the Contract</h3><strong>Each NVM family expresses a different compromise among permanence, updates, density, voltage and process integration.</strong></header>
-            <div class="chapter-copy"><p>OTP is naturally aligned with immutable or monotonic state. MTP and EEPROM-class structures support bounded changes but introduce endurance, programming-energy and high-voltage questions. Embedded Flash addresses code-rich systems where its process integration is economically justified. MRAM and ReRAM extend the advanced-node portfolio, but availability and qualification remain platform specific.</p><p>SRAM PUF is a companion security primitive rather than a peer non-volatile medium. It can derive a device-unique root secret at power-up so persistent memory stores ciphertext or helper data instead of a reusable root key. That architecture raises assurance requirements of its own; it does not erase them.</p></div>
+            <div class="chapter-copy"><p>OTP is naturally aligned with immutable or monotonic state. Embedded MTP IP provides repeatedly programmable storage inside the host chip and may use an EEPROM structure. External standalone EEPROM is a separate memory device; a shared storage principle does not make these the same integration option. Endurance, programming energy and supply requirements must be checked for the selected implementation. Embedded Flash addresses code-rich systems where its process integration is economically justified. MRAM and ReRAM extend the advanced-node portfolio, but availability and qualification remain platform specific.</p><p>SRAM PUF is a companion security primitive rather than a peer non-volatile medium. It can derive a device-unique root secret at power-up so persistent memory stores ciphertext or helper data instead of a reusable root key. That architecture raises assurance requirements of its own; it does not erase them.</p></div>
             <div class="chapter-takeaways"><p>ARCHITECTURE TAKEAWAYS</p><ul><li>Do not model PUF as stored NVM</li><li>Qualify program and read paths separately</li><li>Avoid technology labels without a state owner</li></ul></div>
             <dl class="evidence-contract"><div><dt>EVIDENCE CLASS</dt><dd>Supported architecture synthesis</dd></div><div><dt>LIMITATION</dt><dd>Technology availability, reliability and security claims vary by supplier and target process.</dd></div></dl>
           </article>

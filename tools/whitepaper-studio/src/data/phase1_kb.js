@@ -52,11 +52,11 @@ export const phase1KnowledgeBase = {
       status: 'Architecture baseline'
     },
     {
-      family: 'MTP / EEPROM class',
-      mechanism: 'Reprogrammable charge-based state',
+      family: 'Embedded MTP IP',
+      mechanism: 'Reprogrammable on-chip state; may use EEPROM storage',
       strongestFit: 'Bounded calibration and small firmware state',
-      processLens: 'High-voltage and oxide options constrain portability',
-      limit: 'Endurance, programming supply and retention must be jointly qualified',
+      processLens: 'EEPROM-based IP depends on high-voltage and oxide options',
+      limit: 'An embedded macro, distinct from external standalone EEPROM; endurance, programming supply and retention need joint qualification',
       status: 'Public evidence needed per process'
     },
     {

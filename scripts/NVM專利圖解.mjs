@@ -43,7 +43,7 @@ const defs={
   trace:L('在剖面找出埋入式控制區與浮動閘重疊，再用等效電路區分耦合端、儲存閘與可導通的通道。','Find the overlap between the buried control region and floating gate, then use the equivalent circuit to distinguish coupling, storage and channel conduction.'),
   callouts:[['32',L('埋入式控制閘的 n+ 區','Buried n+ control-gate region')],['36',L('單層多晶矽浮動閘','Single-poly floating gate')],['40 / 42 / 44',L('源極、汲極與通道','Source, drain and channel')]],
   claim:L('權利項 1 包含埋入控制閘、耦合的浮動閘，以及延伸跨過部分通道與接面的薄穿隧區，並限定過度抹除時未選中元件的抑制作用。權利項 4 另寫分離閘結構。','Claim 1 includes a buried control gate, coupled floating gate and a thin tunnel region spanning part of the channel and a junction, with inhibition of an unselected overerased cell. Claim 4 separately specifies a split-gate structure.'),
-  bridge:L('對照單層多晶矽變體：CHE 注入與 FN 移出必須對應此結構，不能畫成上方另有一層控制閘。','Compare the single-poly variant: CHE injection and FN removal must match this structure, without inventing a second upper control-gate layer.')
+  bridge:L('對照 MTP IP 專題的單層多晶矽教學變體：本案的 CHE 注入與 FN 移出對應埋入式控制端，浮動閘上方沒有第二層控制多晶矽。現行產品的操作機制另依其具名文件核對。','Compare the MTP IP study’s single-poly teaching variant: this patent’s CHE injection and FN removal use a buried control node, with no second control-poly layer above the floating gate. Current product mechanisms require their own documentation.')
  },
  US6232180B1:{
   images:[[2,'Fig. 5 / 6',0,4]],
