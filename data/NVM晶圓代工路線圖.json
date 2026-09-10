@@ -1,5 +1,5 @@
 {
-  "title": "GF 與台積電嵌入式 MRAM／RRAM 公開路線圖",
+  "title": "GF、台積電與 UMC 嵌入式記憶體路線圖",
   "asOf": "2026-09-10",
   "scope": "以 2022–2026 年公開一手資料建立可追溯年表；保留較早基準。年報所屬年度是事件期間，通常於次年發布；無日期的產品頁只能代表查核日狀態。",
   "statusLegend": {
@@ -694,6 +694,71 @@
         "FND-TSMC-CURRENT-NVM"
       ],
       "limit": "未查到公開一手完成證據前，不能自行加入 12nm 車規完成日或 6nm 量產日。"
+    },
+    {
+      "id": "UMC-2017",
+      "year": 2017,
+      "foundry": "UMC",
+      "technology": "ReRAM",
+      "node": "40nm",
+      "stage": "共同開發",
+      "claim": "與 Panasonic 合作整合 ReRAM，當時預計 2018 年供樣。",
+      "limit": "供樣與量產當時仍是計畫；180nm 既有量產不可轉寫成 40nm 已量產。",
+      "sourceIds": [
+        "RES-PANASONIC-UMC-2017"
+      ]
+    },
+    {
+      "id": "UMC-2018",
+      "year": 2018,
+      "foundry": "UMC",
+      "technology": "MRAM",
+      "node": "28nm",
+      "stage": "共同開發",
+      "claim": "與 Avalanche 以 28nm CMOS 為起點共同開發 MRAM。",
+      "limit": "合作公告不能證明當時所有嵌入式巨集已可供應。",
+      "sourceIds": [
+        "RES-UMC-MRAM-2018"
+      ]
+    },
+    {
+      "id": "UMC-2022",
+      "year": 2022,
+      "foundry": "UMC",
+      "technology": "STT-MRAM／獨立式 P-SRAM",
+      "node": "22nm",
+      "stage": "具名商品生產供應",
+      "claim": "Avalanche 第三代 P-SRAM 宣布立即供應。",
+      "limit": "這是獨立式商品的交付證據，不是 UMC 通用嵌入式巨集的共同規格。",
+      "sourceIds": [
+        "RES-UMC-MRAM-2022"
+      ]
+    },
+    {
+      "id": "UMC-2023",
+      "year": 2023,
+      "foundry": "UMC",
+      "technology": "RRAM／eMemory IP",
+      "node": "22nm ULP",
+      "stage": "資格驗證完成",
+      "claim": "8Mb 加 16Kb RRAM IP 完成認證；平台使用 0.8V／2.5V。",
+      "limit": "16Mb 車用版與 0.8V／1.8V 版在公告時仍屬開發。",
+      "sourceIds": [
+        "RES-UMC-RRAM-2023"
+      ]
+    },
+    {
+      "id": "UMC-2025",
+      "year": 2025,
+      "foundry": "UMC",
+      "technology": "RRAM／FlashKit-22RRAM",
+      "node": "22nm ULP",
+      "stage": "SoC 平台流片驗證",
+      "claim": "智原公告 RRAM SoC 開發平台完成並經流片驗證。",
+      "limit": "控制器與處理器整合的驗證不等同具名客戶大量出貨。",
+      "sourceIds": [
+        "RES-FARADAY-RRAM-2025"
+      ]
     }
   ],
   "takeaways": [

@@ -1,0 +1,2571 @@
+{
+  "schemaVersion": "1.0",
+  "asOf": "2026-09-10",
+  "title": "主要產研路線深度比較",
+  "intro": "從可採購的記憶體、可整合的 IP 與製程，到仍在驗證的材料與陣列，逐一追蹤具名實作。工程比較先對齊機制、測量層級與成熟度，再討論應用價值。",
+  "thesisTitle": "同一技術名稱，不代表相同交付能力",
+  "thesis": "RRAM 的導電絲、STT 的隧穿寫入與 SOT 的分離路徑，對製程、耐久與週邊電路提出不同要求。供應商商品、代工平台與研究論文各回答不同問題；比較時保留原本的測試條件與成果歸屬。",
+  "comparisonTitle": "把研究數字轉成工程問題",
+  "comparison": [
+    {
+      "title": "先界定延遲量測的起終點",
+      "body": "單元切換脈衝不包括全部解碼、驗證、ECC 或序列傳輸。工程判讀：先列測量層級，再比較讀寫時間與每次更新能量。",
+      "sourceIds": [
+        "RES-IBM-14NM-2020",
+        "RES-FUJITSU-RERAM-2019"
+      ]
+    },
+    {
+      "title": "把循環、保持與溫度放在同一份條件表",
+      "body": "熱預算描述製程承受能力；保持溫度描述資料存留；操作溫區又是另一項規格。不同實驗中的最佳值不能組成一項產品承諾。",
+      "sourceIds": [
+        "RES-PANASONIC-SSDM-2018",
+        "RES-SOT-BETAW-2025"
+      ]
+    },
+    {
+      "title": "讓商業價值建立在可交付條件上",
+      "body": "工程判讀：選型時把零件、IP、PDK 與共同研究分開。低功耗、高耐久與高密度只有在測試、良率、控制器、授權及供應條件能滿足產品需求時，才構成導入優勢。",
+      "sourceIds": [
+        "RES-FARADAY-RRAM-2025",
+        "RES-ITRI-SERVICE"
+      ]
+    },
+    {
+      "title": "NRAM：獨立辨識材料路線與歷史狀態",
+      "body": "Fujitsu 2016 年官方存檔將 NRAM 識別為碳奈米管記憶體，並記載與 Nantero 的 55nm 共同開發計畫。此證據不支持將它畫成氧化物導電絲 ReRAM，也不證明目前有可採購產品。具體寫入、反向更新與讀取波形仍需對應元件論文或資料表，不能由授權公告推定電壓或耐久規格。",
+      "sourceIds": [
+        "NRAM-NANTERO-FUJITSU-2016"
+      ]
+    }
+  ],
+  "researchScope": "研究查核截至 2026-09-10。以官方公告、產品資料、作者論文及公開摘要為主；未取得全文的項目依摘要限制表述。此頁的工程判讀是比較推論，不是供應商性能保證。",
+  "profiles": [
+    {
+      "id": "everspin",
+      "name": "Everspin",
+      "role": "獨立式 MRAM 產品供應商",
+      "title": "Toggle、DDR STT 與 xSPI 的三條產品線",
+      "summary": "Everspin 是 MRAM 商用比較不可缺少的核心案例。三條產品線的寫入物理、介面、保持與認證條件各不相同，必須以完整料號與文件版本比較。",
+      "stage": "商用產品；各密度與可靠度版本分開認證",
+      "boundary": "DDR4-like 不等於任意 DDR4 直接替換；HR 64Mb 認證不能外推全家族。",
+      "integration": "獨立式 Toggle MRAM、1Gb STT 持續性記憶體與 EMxxLX xSPI。",
+      "figureTitle": "Everspin 產品線與物理／介面差異",
+      "figureCaption": "產品路線示意；Toggle 與 STT 的寫入機制不同，DDR／xSPI 則是介面與應用配置，不是新的儲存物理。",
+      "program": "Toggle 以選定線路產生磁場切換磁化；STT 以穿過 MTJ 的自旋極化電流切換自由層。",
+      "reverse": "兩種路線皆可更新另一磁態，不必先做 Flash 區塊抹除。晶片的命令、資料粒度與時序仍需依各介面。",
+      "read": "以 MTJ 阻態感測資料；系統延遲還包含非同步匯流排、DDR 或 xSPI 交易，不能只用單元切換脈衝代替。",
+      "sourceIds": [
+        "everspin-toggle",
+        "everspin-ddr-technology",
+        "EMG-P-TOGGLE"
+      ],
+      "sections": [
+        {
+          "title": "Toggle：成熟介面與明確料號",
+          "body": "現行 PERSYST 目錄將 MR3A16ACYS35 標為量產，列 8Mb、x16 非同步介面、35ns、3.3V 與 −40～85°C。這是具名料號條件；不能把它當成所有 MRAM 的密度、速度或保持規格。",
+          "sourceIds": [
+            "everspin-toggle"
+          ]
+        },
+        {
+          "title": "1Gb STT：面向企業儲存的持續性緩衝",
+          "body": "2025 年度申報確認 1Gb STT-MRAM 持續出貨，官方技術頁將其定位為類 DDR4 介面的持續性 DRAM。其保持條件與控制器需求必須由對應資料表確認，不可套用 Toggle 或 xSPI 的長期保存數字。",
+          "sourceIds": [
+            "everspin-1gb-ddr",
+            "everspin-ddr-technology"
+          ]
+        },
+        {
+          "title": "xSPI：把密度供應與 HR 認證分開",
+          "body": "2026-03-05 官方公告確認 HR 64Mb 完成 AEC-Q100 Grade 1 量產認證並可訂購。HR 128Mb／256Mb 時程是當時規畫；本次核讀的一手文字尚未確認後續完成狀態，不能據此斷言目前仍未完成。9 月 2 日 Teledyne 合作從 256Mb 開始，預計 Q4 向合作通路客戶供應。",
+          "sourceIds": [
+            "everspin-xspi",
+            "RES-EVERSPIN-TELEDYNE-2026"
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "value": "8Mb／35ns",
+          "condition": "MR3A16ACYS35 的容量與非同步週期條件。",
+          "limit": "不是 1Gb DDR 或 EMxxLX 的規格。",
+          "sourceIds": [
+            "everspin-toggle"
+          ]
+        },
+        {
+          "value": "HR 64Mb／Grade 1",
+          "condition": "2026-03-05 已完成認證並可訂購。",
+          "limit": "其他容量或版本不可自動沿用此認證。",
+          "sourceIds": [
+            "everspin-xspi"
+          ]
+        }
+      ],
+      "opportunity": "工程判讀：Toggle、持續性 DDR 緩衝與低接腳 xSPI 分別對應不同控制器及資料生命週期。商業比較應落在斷電資料保護、更新頻率、延遲、認證與既有板級設計成本。",
+      "qualification": "指定完整料號、資料表修訂、保持溫度、耐寫條件、控制器支援及確切認證範圍。"
+    },
+    {
+      "id": "umc",
+      "name": "UMC 聯電",
+      "role": "晶圓代工與生態整合",
+      "title": "RRAM 嵌入式平台與 MRAM 商品路徑並進",
+      "summary": "UMC 的重點是製程與 IP 生態的可用性。22nm RRAM 的資格驗證、智原的 SoC 平台，以及 Avalanche 的獨立式 MRAM，代表不同交付層級。",
+      "stage": "RRAM IP 已認證；具名 MRAM 商品已供應",
+      "boundary": "不能把獨立式 MRAM 商品等同可用的嵌入式巨集。",
+      "integration": "22nm ULP／ULL RRAM；另有 Avalanche 22nm pMTJ STT-MRAM。",
+      "figureTitle": "UMC 的兩條記憶體交付路徑",
+      "figureCaption": "關係示意，並非元件截面。RRAM IP 與獨立式 MRAM 商品各自需要驗證，不能互換規格。",
+      "program": "RRAM 以 SET 建立低阻態；UMC／eMemory 公告未公開材料、偏壓及脈衝演算法。",
+      "reverse": "RESET 返回高阻態；不等於快閃區塊抹除。Avalanche STT-MRAM 則以磁態直接覆寫。",
+      "read": "低擾動感測後配合驗證、ECC 與修復；控制器行為須依具名 IP 文件。",
+      "sourceIds": [
+        "RES-UMC-RRAM-2023",
+        "RES-UMC-MRAM-2022"
+      ],
+      "sections": [
+        {
+          "title": "從 40nm 合作走向 22nm IP",
+          "body": "2017 年與 Panasonic 的 40nm ReRAM 合作提供歷史起點；2023 年的 22nm 版本由 eMemory 公告認證。公開證據尚不能把兩者視為同一材料堆疊或 IP 版本。22nm RRAM 的低溫後段流程與邏輯平台相容性，是 SoC 整合的重要條件。",
+          "sourceIds": [
+            "RES-PANASONIC-UMC-2017",
+            "RES-UMC-RRAM-2023"
+          ]
+        },
+        {
+          "title": "MRAM：開發協議與供應商品分開讀",
+          "body": "2018 年合作從 28nm CMOS 出發。2022 年立即供應的證據則指向 Avalanche 第三代 22nm P-SRAM。這能證明具名 MRAM 商品路徑，但不足以推定所有 UMC 客戶均可取得同規格嵌入式巨集。",
+          "sourceIds": [
+            "RES-UMC-MRAM-2018",
+            "RES-UMC-MRAM-2022"
+          ]
+        },
+        {
+          "title": "SoC 導入進度與仍待確認的規畫",
+          "body": "2025 年智原 FlashKit-22RRAM 已流片驗證，補上控制器、BIST 與處理器整合證據。2023 年公告的 16Mb 車用版及 0.8V／1.8V 版，若缺少後續完成公告，仍不能升格為已完成。Infineon／UMC 的 40nm 車用合作只明稱專有 eNVM，不能自行標為 RRAM。",
+          "sourceIds": [
+            "RES-FARADAY-RRAM-2025",
+            "RES-UMC-RRAM-2023",
+            "RES-UMC-INFINEON-2023"
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "value": "8Mb＋16Kb",
+          "condition": "2023 年認證 RRAM 巨集與資訊區；10k 次、10 年至 105°C。",
+          "limit": "數字屬該版本；不是所有 22nm eNVM 的共通值。",
+          "sourceIds": [
+            "RES-UMC-RRAM-2023"
+          ]
+        },
+        {
+          "value": "22nm P-SRAM",
+          "condition": "2022 年 Avalanche 獨立式商品立即供應。",
+          "limit": "不能據此標記嵌入式 MRAM 巨集認證完成。",
+          "sourceIds": [
+            "RES-UMC-MRAM-2022"
+          ]
+        }
+      ],
+      "opportunity": "工程判讀：RRAM 值得在低待機功耗 MCU、AIoT 與內嵌程式儲存候選中評估；價值取決於具名 IP 的保持條件、更新預算、測試成本與控制器整合。",
+      "qualification": "核對版本、PDK、巨集容量、ECC、更新粒度、車規完成狀態與可投片時程。"
+    },
+    {
+      "id": "panasonic",
+      "name": "Panasonic",
+      "role": "ReRAM 技術與商品沿革",
+      "title": "Ta 氧化物的導電絲控制與商品證據",
+      "summary": "Panasonic 是 ReRAM 的重要商用先行者。180nm 量產、40nm 試驗巨集與 Fujitsu 合作商品應沿不同來源追蹤，才能看見機制如何走向可靠度與產品。",
+      "stage": "歷史量產＋試驗巨集＋具名商品",
+      "boundary": "2017 年供樣目標與 2018 年試驗巨集不等於所有 40nm 商品量產。",
+      "integration": "Ta 氧化物 ReRAM；40nm 標準代工 CMOS 整合研究。",
+      "figureTitle": "Panasonic Ta 氧化物 ReRAM 機制示意",
+      "figureCaption": "功能層示意，不代表實際厚度、電極材料或偏壓極性；SET／RESET 透過氧離子與缺陷重分布改變導電路徑。",
+      "program": "先以 forming 在氧化層形成局部導電路徑；後續 SET 使單元進入低阻態。Forming 與每次寫入是不同階段。",
+      "reverse": "RESET 藉氧化還原與缺陷重分布返回高阻態，不是移除整層材料，也不是一次性熔斷。",
+      "read": "以低擾動偏壓量測高／低阻態，需留意狀態分布與循環後感測窗。",
+      "sourceIds": [
+        "RES-PANASONIC-SSDM-2018"
+      ],
+      "sections": [
+        {
+          "title": "可靠度必須保留測試順序",
+          "body": "2018 年作者論文以 8Mbit 巨集為載具，分別報告 100k 次耐寫，以及 10k 次循環後在 85°C 的逾 10 年保持。這兩項結果不能拼成「100k 次後仍保持十年」。工程上也需看 HRS／LRS 分布尾端，而不只平均電阻。",
+          "sourceIds": [
+            "RES-PANASONIC-SSDM-2018"
+          ]
+        },
+        {
+          "title": "合作關係不是未揭露製程的證據",
+          "body": "2017 年公告確認 180nm ReRAM 自 2013 年量產，40nm 合作則以未來供樣描述。2019 年 Fujitsu／Panasonic MB85AS8MT 已有具名 SPI 商品公告，但該來源沒有揭露製程節點或代工廠。不能把商品名稱直接串成 UMC 40nm 量產證據。",
+          "sourceIds": [
+            "RES-PANASONIC-UMC-2017",
+            "RES-FUJITSU-RERAM-2019"
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "value": "100k 次",
+          "condition": "40nm、8Mbit 試驗巨集之耐寫結果。",
+          "limit": "保持結果另以 10k 次後為條件。",
+          "sourceIds": [
+            "RES-PANASONIC-SSDM-2018"
+          ]
+        },
+        {
+          "value": "0.15mA @ 5MHz",
+          "condition": "MB85AS8MT 的平均讀取電流，獨立式 SPI 商品。",
+          "limit": "不是單元寫入能量，也不能與巨集速度直接比較。",
+          "sourceIds": [
+            "RES-FUJITSU-RERAM-2019"
+          ]
+        }
+      ],
+      "opportunity": "工程判讀：這條路線適合研究低功耗資料保存與嵌入式非揮發性儲存。商品選型要分清獨立式序列介面的系統成本與晶片內巨集的製程成本。",
+      "qualification": "確認供貨料號、現行供應商、讀寫介面、循環與保持聯合條件；不以歷史合作替代現行規格。"
+    },
+    {
+      "id": "ibm",
+      "name": "IBM Research",
+      "role": "元件與製程研究",
+      "title": "把 MRAM 微縮、電流與保持放在一起看",
+      "summary": "IBM 的價值在於可追溯的元件物理與 CMOS 整合成果。不同年份的 MTJ 尺寸、製程節點與寫入錯誤率，不能拼成一顆不存在的最佳規格產品。",
+      "stage": "元件與 CMOS 整合研究實證",
+      "boundary": "IBM 論文不是 IBM 對外量產代工服務清單。",
+      "integration": "垂直 STT-MRAM；14nm CMOS 整合與更小 MTJ 研究分開。",
+      "figureTitle": "STT-MRAM 寫入與讀取路徑",
+      "figureCaption": "通用單 MTJ 功能示意；不宣稱每篇 IBM 論文都使用相同堆疊或單 MTJ。箭頭僅表達雙向更新。",
+      "program": "電流穿過 MTJ，轉移自旋角動量，使自由層進入 P 或 AP 狀態；達成目標 WER 所需電流取決於脈衝長度與材料。",
+      "reverse": "以相反方向的磁態切換覆寫另一個邏輯值；不需 Flash 型先抹除區塊。兩個方向的門檻可不對稱。",
+      "read": "由 MTJ 電阻感測 P／AP；讀取裕度、讀擾與 MgO 障壁壽命限制了讀寫電壓配置。",
+      "sourceIds": [
+        "RES-IBM-REVIEW-2024",
+        "RES-IBM-11NM-2017"
+      ],
+      "sections": [
+        {
+          "title": "14nm 是 CMOS 節點；11nm 是 MTJ 尺寸",
+          "body": "2020 年 14nm 研究將 MTJ 放在 M1–M2 間，增加三層光罩與單一電極模組；400°C 指堆疊製程相容性。2017 年 11nm 結果則以 MTJ 尺寸描述低電流切換，並非更先進的 11nm CMOS 平台。",
+          "sourceIds": [
+            "RES-IBM-14NM-2020",
+            "RES-IBM-11NM-2017"
+          ]
+        },
+        {
+          "title": "保持與速度的共同設計",
+          "body": "2024 年有序合金自由層研究追求低磁矩與強垂直磁異向性，展示高能障及 2ns 操作。這是材料與切換條件的進展；能障不能在缺少溫度與統計條件時直接換算成產品保證年限。",
+          "sourceIds": [
+            "RES-IBM-ALLOY-2024"
+          ]
+        },
+        {
+          "title": "2025：快取用雙自旋力矩陣列",
+          "body": "IEDM 2025 公開 4kbit DS-MTJ 陣列全部元件以 2ns 脈衝切換，約 40nm 關鍵尺寸對應約 60kT 能障。這把證據推進到研究陣列，仍須區分元件幾何尺寸與 CMOS 節點。",
+          "sourceIds": [
+            "RES-IBM-DSMTJ-2025"
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "value": "0.0273μm²／4ns",
+          "condition": "14nm CMOS 整合研究的單元面積與最低展示寫入時間。",
+          "limit": "不是含週邊的每位元系統面積或完整存取延遲。",
+          "sourceIds": [
+            "RES-IBM-14NM-2020"
+          ]
+        },
+        {
+          "value": "8μA／10ns／10⁻⁹",
+          "condition": "11nm MTJ 的電流、脈衝與 WER 組合。",
+          "limit": "不自動代表大容量陣列良率或相同保持能力。",
+          "sourceIds": [
+            "RES-IBM-11NM-2017"
+          ]
+        }
+      ],
+      "opportunity": "工程判讀：適合用來建立嵌入式 MRAM 或快取候選的物理與整合評估框架。採購與授權決策仍需另查具名供應商的可交付巨集、控制器及量產條件。",
+      "qualification": "統一 node／MTJ 尺寸、脈衝／完整延遲、單元／陣列 WER、保持溫度與熱預算的定義。"
+    },
+    {
+      "id": "itri",
+      "name": "工研院 ITRI",
+      "role": "合作研究、試作與技術移轉",
+      "title": "從 SOT 寫入通道走向陣列與運算",
+      "summary": "工研院應以具名合作與版本呈現：台積電合作的 SOT、陽明交大合作的低溫 STT、跨機構 β-W 陣列，以及 8 吋試作與 RRAM 技轉，分屬不同成果。",
+      "stage": "研究陣列、原型與初步試產服務",
+      "boundary": "合作成果不能改稱工研院獨立量產產品。",
+      "integration": "SOT-MRAM 與 BEOL 整合；另有 1S1R RRAM 技轉。",
+      "figureTitle": "SOT-MRAM 分離讀寫路徑",
+      "figureCaption": "通用底部通道 SOT 機制示意；不是 2023 年 top-SOT 或高 RA 雙 MTJ 實際截面。",
+      "program": "平面內通道電流產生自旋軌道力矩，切換自由層；外場需求、輔助脈衝與方向性依具名實作。",
+      "reverse": "反向更新另一磁態，屬直接覆寫；讀寫路徑分離可降低寫入時穿過隧穿障壁的壓力，但不代表無限耐久。",
+      "read": "讀取仍由 MTJ 電阻識別磁態；記憶體內運算還需考慮 RA、讀電流、互連壓降與週邊電路。",
+      "sourceIds": [
+        "RES-ITRI-SOT-2022",
+        "RES-ITRI-CIM-2024",
+        "RES-ITRI-SERVICE"
+      ],
+      "sections": [
+        {
+          "title": "2022 與 2023 的研究目標不同",
+          "body": "2022 年公告的 0.4ns 與 7 兆次是台積電合作 SOT 成果；同文 −269°C 至 127°C 則屬陽明交大合作低溫 STT。2024 年發布的 IEDM 2023 成果聚焦 10ns 單元與運算架構，功耗「1%」缺少完整比較負載，不能宣稱普遍百倍改善。",
+          "sourceIds": [
+            "RES-ITRI-SOT-2022",
+            "RES-ITRI-CIM-2024"
+          ]
+        },
+        {
+          "title": "2025：熱穩定材料進入 64kb 研究陣列",
+          "body": "陽明交大、台積電、工研院、同步輻射中心、史丹佛與中興大學共同論文，以 Co 插層穩定 β-W。材料通過 400°C、10 小時相穩定測試，記憶體展示 1ns 切換。這提供製程整合證據，但仍不是量產平台公告。",
+          "sourceIds": [
+            "RES-SOT-BETAW-2025"
+          ]
+        },
+        {
+          "title": "試作服務與 RRAM 技轉另有契約",
+          "body": "8 吋 BEOL 平台提供 Kb 至 Mb 研究晶片、原型與初步試產。另有 1S1R RRAM 技轉頁，列出選擇比、電流與幾何規格；無日期頁面不能證明現行量產狀態，也不能代表今日整個 ReRAM 市場成熟度。",
+          "sourceIds": [
+            "RES-ITRI-SERVICE",
+            "RES-ITRI-RRAM"
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "value": "64kb／1ns",
+          "condition": "2025 年 β-W SOT 研究陣列；摘要另列 >10 年保持、146% TMR。",
+          "limit": "公開摘要未列保持溫度、完整 WER 或 CMOS 節點。",
+          "sourceIds": [
+            "RES-SOT-BETAW-2025"
+          ]
+        },
+        {
+          "value": "1S1R／≤4F²",
+          "condition": "RRAM 技轉頁列選擇比 ≥100、電流 ≤100μA。",
+          "limit": "技轉規格，不是量產密度、良率或節點保證。",
+          "sourceIds": [
+            "RES-ITRI-RRAM"
+          ]
+        }
+      ],
+      "opportunity": "工程判讀：可評估共同研究、製程試作與運算架構驗證。SOT 的寫入速度與障壁可靠度潛力，需與額外通道、選擇元件、佈線面積及驅動電流一起評估。",
+      "qualification": "索取對應版本的陣列容量、WER、外場或輔助需求、保持條件、製程相容性與可交付服務範圍。"
+    }
+  ],
+  "sources": [
+    {
+      "id": "RES-UMC-RRAM-2023",
+      "url": "https://www.umc.com/en/News/press_release/Content/technology_related/20230328",
+      "date": "2023-03-28",
+      "label": "UMC／eMemory：22nm RRAM 認證",
+      "claim": "22nm ULP RRAM IP 已認證，8Mb 加 16Kb；16Mb 車用版仍在開發。",
+      "limit": "資格只涵蓋公告版本，不證明所有客戶出貨。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-UMC-MRAM-2018",
+      "url": "https://www.umc.com/en/News/press_release/Content/technology_related/20180806",
+      "date": "2018-08-06",
+      "label": "UMC／Avalanche：MRAM 合作起點",
+      "claim": "以 28nm CMOS 為初始基礎共同開發 MRAM。",
+      "limit": "合作公告不等於嵌入式巨集已量產。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-UMC-MRAM-2022",
+      "url": "https://www.umc.com/en/News/press_release/Content/technology_related/20220913",
+      "date": "2022-09-13",
+      "label": "UMC／Avalanche：22nm P-SRAM 供應",
+      "claim": "第三代 pMTJ STT-MRAM 獨立式商品宣布立即供應。",
+      "limit": "商品規格不可回填為通用嵌入式 IP 規格。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-FARADAY-RRAM-2025",
+      "url": "https://www.faraday-tech.com/html/News/pressRelease/CHI_01_0441.jsp",
+      "date": "2025-06-10",
+      "label": "智原：FlashKit-22RRAM 流片驗證",
+      "claim": "UMC 22ULP SoC 開發平台已流片驗證。",
+      "limit": "平台驗證不等於具名客戶大量出貨。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-UMC-ENVMPAGE",
+      "url": "https://www.umc.com/en/Product/technologies/Detail/envm",
+      "date": null,
+      "label": "UMC：現行 eNVM 平台表",
+      "claim": "產品表列 22uLP／uLL RRAM。",
+      "limit": "無發布日期；不能由 SRAM 面積欄推得 RRAM 單元面積。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-UMC-INFINEON-2023",
+      "url": "https://www.umc.com/en/News/press_release/Content/technology_related/20230307",
+      "date": "2023-03-07",
+      "label": "UMC／Infineon：40nm 車用 MCU 合作",
+      "claim": "新加坡 Fab 12i 使用 Infineon 專有 eNVM。",
+      "limit": "公告未指定 RRAM 或 MRAM；材料不公開。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-PANASONIC-UMC-2017",
+      "url": "https://news.panasonic.com/global/press/en170201-3",
+      "date": "2017-02-01",
+      "label": "Panasonic／UMC：40nm ReRAM 合作",
+      "claim": "180nm ReRAM 自 2013 年量產；40nm 當時計畫於 2018 年供樣。",
+      "limit": "未來計畫不能單憑公告改列完成。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-PANASONIC-SSDM-2018",
+      "url": "https://confit.atlas.jp/guide/event-img/ssdm2018/B-1-01/public/pdf_archive?type=in",
+      "date": "2018",
+      "label": "Panasonic：40nm ReRAM 可靠度與機制",
+      "claim": "8Mbit 試驗巨集與 Ta 氧化物導電絲機制。",
+      "limit": "100k 循環與 10k 循環後保持是不同條件；不得合成規格。",
+      "locator": "SSDM 2018，第 91–92 頁，§2",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-FUJITSU-RERAM-2019",
+      "url": "https://info.archives.global.fujitsu/tw/about/resources/news/press-releases/2019/fep-0812.html",
+      "date": "2019-08-12",
+      "label": "Fujitsu／Panasonic：8Mbit ReRAM 商品",
+      "claim": "MB85AS8MT 為具名 SPI ReRAM，公告合作開發與預定供貨。",
+      "limit": "此公告未揭露製程節點與代工廠。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-IBM-14NM-2020",
+      "url": "https://research.ibm.com/publications/a-14-nm-embedded-stt-mram-cmos-technology",
+      "date": "2020-12-12",
+      "label": "IBM：14nm CMOS 嵌入式 STT-MRAM",
+      "claim": "展示 14nm CMOS 整合與最低 4ns 寫入。",
+      "limit": "研究整合實證，不是公開 PDK 或量產代工公告。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-IBM-11NM-2017",
+      "url": "https://research.ibm.com/publications/low-current-spin-transfer-torque-mram--1",
+      "date": "2017-06-05",
+      "label": "IBM：11nm MTJ 低電流研究",
+      "claim": "11nm MTJ 的 10ns 寫入脈衝、8μA 與 WER 10⁻⁹。",
+      "limit": "11nm 是 MTJ 尺寸，並非 CMOS 節點。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-IBM-ALLOY-2024",
+      "url": "https://research.ibm.com/publications/first-demonstration-of-high-retention-energy-barriers-and-2-ns-switching-using-magnetic-ordered-alloy-based-stt-mram-devices",
+      "date": "2024-06-16",
+      "label": "IBM：有序合金自由層研究",
+      "claim": "強垂直磁異向性自由層展示高能障與 2ns 操作。",
+      "limit": "未給節點、陣列容量或量產資格；能障不是全條件保持保證。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-IBM-REVIEW-2024",
+      "url": "https://research.ibm.com/publications/spin-transfer-torque-magnetoresistive-random-access-memory-technology-status-and-future-directions",
+      "date": "2024-11-06",
+      "label": "IBM 作者：STT-MRAM 現況與方向",
+      "claim": "區分獨立式、嵌入式、工作記憶體與末級快取需求。",
+      "limit": "綜述中的商用技術類別不等於 IBM 自身供貨。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-ITRI-SOT-2022",
+      "url": "https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=111061510283488782&MmmID=1036276263153520257&SiteID=1",
+      "date": "2022-06-15",
+      "label": "工研院：SOT 與低溫 STT 合作成果",
+      "claim": "台積電合作 SOT；陽明交大合作低溫 STT，兩者分開。",
+      "limit": "新聞未提供完整誤碼率、節點及保持溫度。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-ITRI-CIM-2024",
+      "url": "https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=113011710184808020&MmmID=1036276263153520257&SiteID=1",
+      "date": "2024-01-17",
+      "label": "工研院／台積電：IEDM 2023 SOT-CIM",
+      "claim": "10ns SOT 單元與記憶體內運算；新聞宣稱功耗為比較 STT 產品的 1%。",
+      "limit": "未揭露完整比較負載，不能推廣成 SOT 普遍節能百倍。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-SOT-BETAW-2025",
+      "url": "https://www.nature.com/articles/s41928-025-01434-x",
+      "date": "2025-09-02",
+      "label": "跨機構研究：β-W 64kb SOT-MRAM",
+      "claim": "Co 插層改善 β-W 熱穩定，展示 64kb 研究記憶體。",
+      "limit": "僅核讀公開摘要與作者資訊；熱處理不是使用溫度，未據此宣稱量產。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-ITRI-SERVICE",
+      "url": "https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=01_content&MGID=1126511563713777471&MmmID=1071732317047353240&SiteID=1",
+      "date": null,
+      "label": "工研院：8 吋 MRAM 研發服務",
+      "claim": "提供 MRAM 研發、原型製作與初步試產服務。",
+      "limit": "8 吋是晶圓尺寸，不是節點；服務不等於大量量產。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-ITRI-RRAM",
+      "url": "https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=13_content&MmmID=1036233405427625204&SiteID=1&Trt_idx=4557",
+      "date": null,
+      "label": "工研院：1S1R 三維 RRAM 技轉",
+      "claim": "交叉陣列、雙向選擇器與元件量測技轉項目。",
+      "limit": "無日期且未證實當前量產；不可用此舊頁描述整個 ReRAM 市場現況。",
+      "locator": "正文／摘要",
+      "kind": "官方一手資料／作者研究",
+      "evidence": "已核讀正文或公開摘要",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "everspin-toggle",
+      "label": "Everspin Toggle MRAM · Toggle MRAM",
+      "url": "https://www.everspin.com/persyst?page=2",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "現行PERSYST目錄保留Toggle量產料號，例如MR3A16ACYS35為8Mb、x16非同步介面、35ns、3.3V、−40～85°C，標示MP。",
+      "limit": "此組數值僅屬MR3A16ACYS35；其他料號的速度、溫度及車規不能混用。舊MR4A16B資料表無法取得，故不引用其逾20年保存值。"
+    },
+    {
+      "id": "everspin-1gb-ddr",
+      "label": "Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm",
+      "date": "2026-03-04",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2025年度10-K確認1Gb STT-MRAM持續出貨，採DDR衍生介面；官方技術頁將1Gb定位為類DDR4介面的持續性DRAM。",
+      "limit": "DDR4-like不代表所有DDR4控制器可直接替換；不得套用Toggle或xSPI的保存年限、耐寫及車規。舊family網址已404。"
+    },
+    {
+      "id": "everspin-xspi",
+      "label": "Everspin EMxxLX xSPI · STT-MRAM / xSPI",
+      "url": "https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb",
+      "date": "2026-03-05",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2026-03-05官方投資人公告：HR 64Mb xSPI STT-MRAM完成AEC-Q100 Grade 1量產認證，可訂購且通路有庫存；HR 128Mb預定5月、256Mb預定7月完成認證，256Mb預期下半年供量。",
+      "limit": "128Mb與256Mb時程是2026-03-05當時的預測，本輪未核實後續完成。HR系列認證不可套用其他EMxxLX版本；此公告未給吞吐量或保存年限。"
+    },
+    {
+      "id": "avalanche-umc22",
+      "label": "Avalanche Technology / UMC · pMTJ STT-MRAM",
+      "url": "https://www.umc.com/en/News/press_release/Content/technology_related/20220913",
+      "date": "2022-09-13",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2022-09-13宣布UMC 22nm第三代P-SRAM立即供應，Parallel x32系列所述規格為逾10^14次耐寫、85°C保存1,000年及−40～125°C操作。",
+      "limit": "這是獨立式商品，不代表UMC通用嵌入式巨集具有相同規格；保存期是廠商可靠度規格。"
+    },
+    {
+      "id": "avalanche-scaling2026",
+      "label": "Avalanche Technology · STT-MRAM",
+      "url": "https://www.avalanche-technology.com/avalanche-technology-phase-one-magnetic-cell-scaling-space-grade-mram-us-government/",
+      "date": "2026-03-02",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2026年網頁公告完成政府合約第一階段MTJ縮放，以支援未來更高密度太空級MRAM。",
+      "limit": "頁面標2026-03-02、內文日期卻為2025-03-02；16倍密度是後續縮放目標，不能視為已出貨產品。"
+    },
+    {
+      "id": "samsung-emram",
+      "label": "Samsung Foundry · STT-MRAM / eMRAM",
+      "url": "https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方現行特殊製程頁確認2019年28nm FD-SOI eMRAM量產，並表示MTJ模組已擴展至14LPU及8LPU，5nm仍列計畫。",
+      "limit": "平台相容或擴展不等於每節點均有具名客戶大量出貨；不得將2023年的2026／2027時程直接當完成證據。"
+    },
+    {
+      "id": "intel-22ffl-research",
+      "label": "Intel · STT-MRAM",
+      "url": "https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf",
+      "date": "2018-12-04",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "IEDM 2018官方議程列Intel作者22FFL FinFET嵌入式MRAM論文，提供整合技術的一手研究證據。",
+      "limit": "本輪未找到更新且可核的Intel MRAM商用品項或量產公告；不得從論文或Intel16名稱推論現行MRAM供應。"
+    },
+    {
+      "id": "tsmc-16mram2025",
+      "label": "TSMC · eMRAM / STT route",
+      "url": "https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report.E.pdf",
+      "date": "2025",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2025年報確認16nm第二代MRAM通過車用Grade 1並提供客戶；12nm車用及5nm高速MRAM仍在開發。",
+      "limit": "認證不等同具名MCU大量出貨；SOT研究另列，不能與量產平台混稱。"
+    },
+    {
+      "id": "tsmc-sot2025",
+      "label": "TSMC SOT-MRAM · SOT-MRAM",
+      "url": "https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report.E.pdf",
+      "date": "2025-12",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2025年報記載IEDM 2025展示Type-C SOT-MRAM，以圓形MTJ與內建磁異向性達成無外加磁場操作。",
+      "limit": "論文展示不是商用製程或SRAM替代品供貨；不可套用16nm車規MRAM成熟度。"
+    },
+    {
+      "id": "gf-22fdx",
+      "label": "GlobalFoundries · STT-MRAM / 22FDX",
+      "url": "https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram",
+      "date": "2020-02-27",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2020-02-27官方確認22FDX eMRAM進入生產，供應4～48Mb矽驗證巨集；公告展示100k耐寫、10年保存與−40～125°C範圍。",
+      "limit": "當時Grade 1為未來目標，不能由2020公告宣稱完成；GF現行FDX頁仍列MRAM，節點與客戶資格須另查。"
+    },
+    {
+      "id": "renesas-ra8-2025",
+      "label": "Renesas RA8M2 / RA8D2 · Embedded MRAM",
+      "url": "https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram",
+      "date": "2025-10-22",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2025-10-22推出RA8M2與RA8D2，內建MRAM、1GHz Cortex-M85與250MHz Cortex-M33；官方可供貨，不應只停留在2024年試驗巨集紀錄。",
+      "limit": "CPU時脈不等於MRAM原生讀取速度；2024年22nm試驗巨集的數字不能直接轉寫成RA8商品規格。"
+    },
+    {
+      "id": "st-pcm-boundary",
+      "label": "STMicroelectronics · PCM, not established MRAM offering",
+      "url": "https://newsroom.st.com/media-center/press-item.html/p4733.html",
+      "date": "2025-11-18",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2025-11-18 STM32V8官方公告明確採18nm FD-SOI與嵌入式PCM，並與Samsung Foundry合作製造。",
+      "limit": "不能因Samsung合作或先進eNVM而標為MRAM；若要列ST的MRAM研發，需另外取得直接來源。"
+    },
+    {
+      "id": "nxp-s32k5",
+      "label": "NXP S32K5 · Embedded MRAM",
+      "url": "https://www.nxp.com/assets/block-diagram/en/S32K5.pdf",
+      "date": "2025-10-30",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2025-03-11宣布16nm FinFET S32K5內建MRAM；2025-10-30官方產品摘要仍標示量產前產品。",
+      "limit": "15倍快寫為廠商與嵌入式Flash比較，不能當絕對延遲；不得以產品發表直接標量產。"
+    },
+    {
+      "id": "netsol-stt",
+      "label": "NETSOL · STT-MRAM",
+      "url": "https://netsol.co.kr/wp-content/uploads/2024/03/S3RxxxxR1M_rev1.1.pdf",
+      "date": "2024-03",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2024年3月S3RxxxxR1M資料表列1～16Mbit STT-MRAM、x8／x16非同步平行介面及−40～85°C工業溫度；官網另列串列系列。",
+      "limit": "不將其他系列或媒體報導的更大密度、製程節點套入此資料表；大量出貨數未公開。"
+    },
+    {
+      "id": "tdk-headway",
+      "label": "TDK / Headway · STT-MRAM",
+      "url": "https://www.tdk.com/system/files/tdk_investor_day_20250901_en.pdf",
+      "date": "2025-09-01",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "TDK 2025 投資人日資料把 STT-MRAM 列入自旋電子技術。",
+      "limit": "磁頭量產與MTJ能力不等同獨立式MRAM量產；本輪未核得可購MRAM料號、PDK或指定代工供應承諾。"
+    },
+    {
+      "id": "numem-aime",
+      "label": "Numem · Foundry-based STT-MRAM",
+      "url": "https://numem.com/news",
+      "date": "2025-06-10",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方網站將方案定位為以代工STT-MRAM單元為基礎的IP及晶粒／小晶片，搭配AIME；2025-06-10新聞稱AI記憶體引擎已可供量產。",
+      "limit": "節能與SRAM級效能是廠商主張，缺少統一條件的獨立對測；不等於自有新磁性材料或具名客戶大量出貨。"
+    },
+    {
+      "id": "imec-sot",
+      "label": "imec · SOT-MRAM",
+      "url": "https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually",
+      "date": "2023-12-13",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2023-12-13公開300mm晶圓上約50nm關鍵尺寸SOT元件，切換能量低於100fJ/bit、耐受超過10^15次循環，供快取應用研發。",
+      "limit": "單元能量不含完整巨集週邊、匯流排與系統功耗；50nm是元件關鍵尺寸，不能直接稱50nm CMOS節點。"
+    },
+    {
+      "id": "RRAM-WEEBIT-2026",
+      "label": "Weebit Nano · ReRAM",
+      "url": "https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/",
+      "date": "2026-07-31",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2026 年 7 月公告三個客戶設計已投片，已有原型執行軟體。",
+      "limit": "首款客戶產品量產仍是後續里程碑。"
+    },
+    {
+      "id": "RRAM-ONSEMI-2026",
+      "label": "onsemi · ReRAM",
+      "url": "https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/",
+      "date": "2026-07-31",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "Weebit 公告對 onsemi 的 ReRAM 技轉按計畫進行。",
+      "limit": "不得由授權或技轉推論成品量產。"
+    },
+    {
+      "id": "RRAM-TI-2026",
+      "label": "Texas Instruments · ReRAM",
+      "url": "https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/",
+      "date": "2026-07-31",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "Weebit 公告對 TI 的 ReRAM 技轉按計畫進行。",
+      "limit": "不可將 TI 已商用 FRAM 與此 ReRAM 導入混為一談。"
+    },
+    {
+      "id": "RRAM-SKYWATER-S130",
+      "label": "SkyWater／Weebit Nano · ReRAM",
+      "url": "https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方 IP 頁列 S130 130 nm CMOS 已依 JEDEC 與 AEC-Q100 驗證、可供整合；BEOL 增加 2 層光罩。",
+      "limit": "IP 已驗證不等於每款客戶晶片皆完成車規或量產；規格依模組。"
+    },
+    {
+      "id": "RRAM-DBHITEK-130",
+      "label": "DB HiTek／Weebit Nano · ReRAM",
+      "url": "https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "130 nm BCD 的 ReRAM IP 已矽驗證與資格驗證，使用 2 層加罩；官方列 10K 次耐寫、125°C 保存超過 10 年。",
+      "limit": "100K 次屬可延伸選項；不能把基礎 BCD 量產量當成 ReRAM 客戶產品出貨。"
+    },
+    {
+      "id": "RRAM-TSMC-IOT",
+      "label": "TSMC · ReRAM",
+      "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/platform_IoT_tech_NVM",
+      "date": "2024",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方 IoT NVM 頁列 40RRAM、22RRAM 已量產；12RRAM 於 2024 年進入消費級風險試產，記憶單元位於後段金屬層間。",
+      "limit": "12RRAM 風險試產不是全產品量產或車規資格。"
+    },
+    {
+      "id": "RRAM-INFINEON-TC4X",
+      "label": "Infineon／TSMC · ReRAM",
+      "url": "https://www.infineon.com/technology-news/2022/infatv202211-031",
+      "date": "2022-11-25",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2022 年公告準備將台積電 RRAM 導入下一代 AURIX TC4x，支援位元寫入而不需先抹除。",
+      "limit": "這份公告不證明所有 TC4x 型號均採 RRAM 或已完成量產；須查型號文件。"
+    },
+    {
+      "id": "CBRAM-GF-RENESAS",
+      "label": "GlobalFoundries／Renesas／Dialog · CBRAM",
+      "url": "https://gf.com/news-and-events/news/globalfoundries-acquires-renesas-non-volatile-resistive-ram-technology-to-proliferate-iot-and-5g-applications/",
+      "date": "2023-02-09",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "GF 於 2023 年向 Renesas 收購已具量產實績的 CBRAM 技術；GF 先於 2020 年向 Dialog 授權，2023 年公告 22FDX 正在驗證。",
+      "limit": "既有 CBRAM 量產實績不等於 22FDX 已量產；不可誤記為 Infineon 收購。"
+    },
+    {
+      "id": "RRAM-NUVOTON-M2L31",
+      "label": "Nuvoton · ReRAM",
+      "url": "https://www.nuvoton.com/products/microcontrollers/arm-cortex-m23-mcus/m2l31-series/index.html",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "M2L31 產品頁列 Arm Cortex-M23、64–512 KB ReRAM 與 72 MHz；ReRAM 寫入前不需頁抹除。",
+      "limit": "72 MHz 是 MCU 時脈，不是單元寫入延遲；須依確切型號確認容量與可靠度。"
+    },
+    {
+      "id": "RRAM-PANASONIC-UMC",
+      "label": "Panasonic／UMC · ReRAM",
+      "url": "https://news.panasonic.com/global/press/en170201-3",
+      "date": "2017-02-01",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2017 年宣布共同開發 40 nm ReRAM 量產製程，將 Panasonic ReRAM 與 UMC 製造能力結合。",
+      "limit": "共同開發目標不是 2026 年供貨證明，也不能自行推定現行 Nuvoton 型號均由此製程製造。"
+    },
+    {
+      "id": "RRAM-RAMXEED-PRODUCT",
+      "label": "RAMXEED · ReRAM",
+      "url": "https://www.ramxeed.com/products/reram/reram-products.html",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方清單將 MB85AS8MT 8 Mbit SPI ReRAM 標示量產，列 100 萬次循環；12 Mbit 型號則要求洽詢業務。",
+      "limit": "不能把 8 Mbit 的量產狀態或耐受度套用至 12 Mbit 型號。"
+    },
+    {
+      "id": "RRAM-CROSSBAR-DARIC",
+      "label": "CrossBar · ReRAM",
+      "url": "https://crossbar-inc.com/blogs/all/overview-of-crossbar-hardware-reram-and-chip",
+      "date": "2026-05-06",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2026 年官方文章介紹採 ReRAM 的 22 nm Daric 安全處理器，將 NVM、運算與密碼功能整合於單晶片。",
+      "limit": "文章不能代替完整供貨資格或獨立安全認證；避免採用普遍免疫攻擊、免疫輻射等絕對宣稱。"
+    },
+    {
+      "id": "XPOINT-MICRON-EXIT",
+      "label": "Micron · 3D XPoint",
+      "url": "https://investors.micron.com/news/press-release/2021/Micron-Updates-Data-Center-Portfolio-Strategy-to-Address-Growing-Opportunity-for-Memory-and-Storage-Hierarchy-Innovation-03-16-2021/default.aspx",
+      "date": "2021-03-16",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "Micron 於 2021 年宣布立即停止 3D XPoint 開發，將資源轉向 CXL 記憶體產品。",
+      "limit": "停止該產品路線不表示所有 PCM 研究終止；CXL 是互連介面，不是新的記憶單元機制。"
+    },
+    {
+      "id": "XPOINT-INTEL-EXIT",
+      "label": "Intel · 3D XPoint",
+      "url": "https://www.intc.com/filings-reports/all-sec-filings/content/0000050863-23-000006/intc-20221231.htm",
+      "date": "2022",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "Intel 2022 年年報確認該年啟動 Optane 記憶體業務收尾。",
+      "limit": "不能將歷史產品頁或存貨銷售視為持續開發；也不能據此推論其他廠商 PCM 退出。"
+    },
+    {
+      "id": "PCM-ST-P3E",
+      "label": "STMicroelectronics · PCM",
+      "url": "https://www.st.com/content/st_com/en/campaigns/stellar-p3e-automotive-mcu-with-npu-accelerator-and-xmemory.html",
+      "date": "2026",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2026 年 Stellar P3E 官方公告採 xMemory PCM；完整車規驗證與量產準備排定於 2026 下半年。",
+      "limit": "已到排定季度不等於已完成資格；P3E 時程不能套用到所有 Stellar 型號。"
+    },
+    {
+      "id": "PCM-IBM-AIMC",
+      "label": "IBM Research · PCM",
+      "url": "https://research.ibm.com/publications/deep-neural-network-inference-with-a-64-core-in-memory-compute-chip-based-on-phase-change-memory",
+      "date": "2023-09-17",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "14 nm CMOS 後段整合 PCM 的研究晶片包含 64 個 256×256 類比運算核心及數位處理／通訊，展示神經網路推論。",
+      "limit": "類比權重運算結果不等於可採購通用 PCM 記憶體或完整 AI 系統效能保證。"
+    },
+    {
+      "id": "FERAM-TI-MSP430",
+      "label": "Texas Instruments · FeRAM",
+      "url": "https://www.ti.com/tool/TIDM-FRAM-EEPROM",
+      "date": "2016-12-20",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "MSP430 FRAM 參考設計以嵌入式 FRAM 模擬 EEPROM，列出可採用的 MCU 與 I²C／SPI 主機介面。",
+      "limit": "FRAM 是儲存技術；EEPROM 模擬是介面功能，不代表浮動閘或 FeFET 結構。"
+    },
+    {
+      "id": "FERAM-RAMXEED",
+      "label": "RAMXEED · FeRAM",
+      "url": "https://www.ramxeed.com/faq/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方 FAQ 說明 FeRAM 自 1999 年持續量產，應用於高頻寫入紀錄；保存年限必須依產品規定溫度解讀。",
+      "limit": "不同型號的循環數、介面、溫度不可混用；FeRAM 不是所有鐵電 FeFET／FTJ 的同義詞。"
+    },
+    {
+      "id": "FERAM-INFINEON",
+      "label": "Infineon · FeRAM",
+      "url": "https://www.infineon.com/products/memories/f-ram-ferroelectric-ram",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "Infineon 列出串列／並列及 EXCELON F-RAM，採 PZT 鐵電薄膜，最高 100 兆次讀寫循環依系列而定。",
+      "limit": "最高數字不適用全部型號；不能據此認定採 HfO₂ FeFET 或 FTJ。"
+    },
+    {
+      "id": "FERAM-GF-IPMS-2026",
+      "label": "GlobalFoundries／Fraunhofer IPMS · FeRAM",
+      "url": "https://www.ipms.fraunhofer.de/en/press-media/press/2026/Ferroelectric-memory-storage.html",
+      "date": "2026-06-11",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2026 年共同成果將 HfO₂ 鐵電 FRAM 整合於 22FDX，公告低於 1 V 與奈秒級切換。",
+      "limit": "公告未列可採購料號、完整資格報告或出貨量；不宜改寫成全面商用供應。"
+    },
+    {
+      "id": "FERRO-NAMLAB-2025",
+      "label": "NaMLab · FeFET／FTJ",
+      "url": "https://www.namlab.com/publications/",
+      "date": "2025",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2025 年官方論文清單包括 HZO 雙層 FTJ 厚度微縮及 CMOS 嵌入式 FeFET 的電荷捕陷挑戰。",
+      "limit": "論文名單證明研究參與，不是晶圓代工、PDK 開放或量產證據。"
+    },
+    {
+      "id": "FERRO-FMC",
+      "label": "FMC · 鐵電記憶體",
+      "url": "https://www.ferroelectric-memory.com/technology/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "現行官網提出 DRAM+ 持久記憶體模組與 CACHE+ 持久快取晶粒，主張鐵電技術可整合既有製造流程。",
+      "limit": "現行技術頁描述鐵電電容，未證明 DRAM+ 或 CACHE+ 採 FeFET／FTJ；未核實產品資格與出貨規模。"
+    },
+    {
+      "id": "FERRO-IMEC-NDREAD",
+      "label": "imec · FeRAM／FeCAP",
+      "url": "https://www.imec-int.com/en/articles/non-destructive-readout-mechanism-ferroelectric-capacitors",
+      "date": "2023",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "與 Georgia Tech 研究展示 FeCAP 非破壞讀取，在 IEDM 2023 發表超過 10¹¹ 次讀取耐受度。",
+      "limit": "讀取耐受度不是寫入耐受度；不能套到一般破壞性讀取 FeRAM 或宣稱已量產。"
+    },
+    {
+      "id": "RRAM-CEA-LETI",
+      "label": "CEA-Leti／Weebit Nano · ReRAM",
+      "url": "https://www.cea.fr/cea-tech/leti/english/Pages/What's-On/Press%20release/Weebit-Nano-and-CEA-Leti-to-demonstrate-brain-inspired-neuromorphic-demo-.aspx",
+      "date": "2019-07-18",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方公告結合 CEA-Leti 脈衝神經網路與 Weebit SiOx ReRAM，展示物件辨識方向的神經形態運算。",
+      "limit": "研究展示不代表可採購完整 AI 加速器；須另查製程移轉與產品資格。"
+    },
+    {
+      "id": "industry-infineon-sonos",
+      "label": "Infineon／Cypress · SONOS eFlash",
+      "url": "https://www.infineon.com/products/memories/embedded-flash-ip-solutions",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方列出 2T SONOS、FN 寫抹與多個量產節點，提供製程及設計授權。",
+      "limit": "Cypress 歷史與現行 Infineon 巨集分開；不合併全家族最佳規格。"
+    },
+    {
+      "id": "industry-sst-superflash",
+      "label": "SST／Microchip · SuperFlash NOR／eFlash",
+      "url": "https://www.sst.com/services/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方列出 SuperFlash 製程整合與授權，適合補上獨立 NOR 以外的嵌入式技術入口。",
+      "limit": "技術授權不等於每個列示節點目前均有相同資格；原理按世代核對。"
+    },
+    {
+      "id": "industry-st-estm",
+      "label": "STMicroelectronics · eSTM eFlash／Page EEPROM",
+      "url": "https://www.st.com/content/st_com/en/about/innovation-and-technology/estm.html",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方 eSTM 頁連結 40 nm 浮動閘極與垂直選擇電晶體，以及 STM32H5、Page EEPROM 的實施。",
+      "limit": "與 Stellar PCM 分列；不把一種 NVM 單元指定為所有 ST MCU 的結構。"
+    },
+    {
+      "id": "industry-renesas-sgmonos",
+      "label": "Renesas · SG-MONOS eFlash",
+      "url": "https://www.renesas.com/en/about/press-room/renesas-electronics-announces-world-s-first-development-fin-shaped-monos-flash-memory-cells-high",
+      "date": "2016-12-07",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2016 公告確認當時 40 nm MCU 採 SG-MONOS 量產，並展示 16／14 nm Fin 結構研究。",
+      "limit": "這份公告不證明 16／14 nm 已量產；現行料號與機制須另查。"
+    },
+    {
+      "id": "industry-xfab-xt011",
+      "label": "X-FAB · XT011 eFlash／EEPROM",
+      "url": "https://www.xfab.com/news/details/article/x-fab-releases-embedded-flash-solution-on-its-110nm-automotive-bcd-on-soi-technology",
+      "date": "2024-12-03",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2024 年公告 XT011 110 nm BCD-on-SOI 平台的嵌入式 Flash 與 EEPROM。",
+      "limit": "不取代站內 2003 XC06 歷史例；兩代不能共用未經證明的單元結構。"
+    },
+    {
+      "id": "industry-floadia-zt",
+      "label": "Floadia · LEE Flash ZT MTP",
+      "url": "https://floadia.com/product/lee-flash-zt/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "ZT 官方頁說明 FN 寫抹、零新增光罩與具名平台量產紀錄。",
+      "limit": "概述與平台範例的循環數不同，不合成通用耐久或推定多晶矽層數。"
+    },
+    {
+      "id": "industry-samsung-vnand9",
+      "label": "Samsung · 第九代 TLC V-NAND",
+      "url": "https://news.samsung.com/global/samsung-electronics-begins-industrys-first-mass-production-of-9th-gen-v-nand",
+      "date": "2024-04-23",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2024 年 4 月公告 1 Tb TLC 第九代 V-NAND 開始量產。",
+      "limit": "只證明此世代與 TLC；不將後續展示或當時預期 QLC 視為本公告已量產。"
+    },
+    {
+      "id": "industry-skhynix-321tlc",
+      "label": "SK hynix · 321 層 TLC 4D NAND",
+      "url": "https://news.skhynix.com/en/sk-hynix-starts-mass-production-of-world-first-321-high-nand/",
+      "date": "2024-11-21",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2024 年 11 月公告 321 層、1 Tb TLC NAND 開始量產。",
+      "limit": "量產與客戶供貨時程分開；不把此單元指定為所有 Solidigm SSD 的媒體。"
+    },
+    {
+      "id": "industry-solidigm-p5336",
+      "label": "Solidigm · D5-P5336 QLC SSD",
+      "url": "https://www.solidigm.com/products/data-center/d5/p5336.html",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方 D5-P5336 產品頁提供 QLC 企業級 SSD 的產品與容量選項。",
+      "limit": "SSD 容量、韌體與系統指標不是裸晶規格；不以集團關係推定所有產品使用同一 NAND。"
+    },
+    {
+      "id": "industry-micron-g9",
+      "label": "Micron · G9 TLC NAND",
+      "url": "https://investors.micron.com/news/press-release/2024/Micron-Announces-Volume-Production-of-Ninth-Generation-NAND-Flash-Technology-07-30-2024/default.aspx",
+      "date": "2024-07-30",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2024 年 7 月公告 G9 TLC NAND 及採用該世代的 Micron 2650 SSD 量產出貨。",
+      "limit": "不將 TLC 的證據移至全部 QLC 或 NOR；介面速度不等於單元寫入速度。"
+    },
+    {
+      "id": "industry-kioxia-sandisk-gen10",
+      "label": "Kioxia／Sandisk · 第十代 BiCS 3D NAND",
+      "url": "https://www.kioxia.com/en-jp/about/news/2026/20260703-2.html",
+      "date": "2026-07-03",
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "2026 年 7 月共同公告北上 K2 開始第十代 3D Flash 生產。",
+      "limit": "開始生產不等於所有容量與客戶產品已全面出貨；合作製造不代表兩家成品完全相同。"
+    },
+    {
+      "id": "industry-ymtc-xtacking",
+      "label": "YMTC · Xtacking 3D NAND",
+      "url": "https://www.ymtc.com/en/technicalintroduction.html",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方頁說明周邊與陣列分別製造再鍵合，並列 2025 年 Xtacking 4.0 的 X4 系列產品。",
+      "limit": "獎項及架構頁不單獨證明每款產品量產、層數或供貨量；不得用推測補完。"
+    },
+    {
+      "id": "industry-macronix-nor",
+      "label": "Macronix · Serial NOR／OctaBus",
+      "url": "https://www.macronix.com/en-us/products/NOR-Flash/Serial-NOR-Flash/Pages/default.aspx",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方 Serial NOR 目錄提供產品組合與 OctaBus 介面方案。",
+      "limit": "此來源直接支持 NOR；NAND 型號及可靠度須另查，不從介面推定單元剖面。"
+    },
+    {
+      "id": "industry-winbond-w25q",
+      "label": "Winbond · W25Q16JW Serial NOR",
+      "url": "https://www.winbond.com/hq/new-online-purchasing-guide/?__locale=en&pLine=/product/code-storage-flash/qspi-nor/&pNo=W25Q16JW",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "原廠目錄提供 W25Q16JW 序列 NOR 及對應料號入口。",
+      "limit": "不以目錄存在保證庫存；NAND 家族與其他容量的狀態須逐項核對。"
+    },
+    {
+      "id": "industry-gigadevice-flash",
+      "label": "GigaDevice · GD25／GD55 NOR；GD5F NAND",
+      "url": "https://www.gigadevice.com/product/flash",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方一手資料",
+      "locator": "產品、技術或公告正文",
+      "claim": "官方頁列出 GD25／GD55 SPI NOR 與 GD5F SPI／平行 NAND。",
+      "limit": "家族範圍不能代替特定料號量產狀態、溫度、耐久與保持規格。"
+    },
+    {
+      "id": "everspin-ddr-technology",
+      "label": "1Gb DDR4-like持續性DRAM定位。",
+      "url": "https://www.everspin.com/stt-mram-technology",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方補充來源",
+      "locator": "正文／對應規格",
+      "limit": "只適用具名版本與所列條件。"
+    },
+    {
+      "id": "gf-current-fdx",
+      "label": "現行平台仍列MRAM。",
+      "url": "https://gf.com/technologies/cmos/fdx-fd-soi/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方補充來源",
+      "locator": "正文／對應規格",
+      "limit": "只適用具名版本與所列條件。"
+    },
+    {
+      "id": "headway-author-research",
+      "label": "Headway作者嵌入式STT-MRAM技術簡報；不得當商用供應證明。",
+      "url": "https://www.cea.fr/cea-tech/leti/Documents/%C3%A9v%C3%A9nements/Prez%20workshop%20memory%202017/2.2.pdf",
+      "date": "2017",
+      "accessedAt": "2026-09-10",
+      "kind": "官方補充來源",
+      "locator": "正文／對應規格",
+      "limit": "只適用具名版本與所列條件。"
+    },
+    {
+      "id": "numem-current",
+      "label": "當前網站明列foundry-based STT-MRAM與AIME。",
+      "url": "https://www.numem.com/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方補充來源",
+      "locator": "正文／對應規格",
+      "limit": "只適用具名版本與所列條件。"
+    },
+    {
+      "id": "nxp-launch",
+      "label": "S32K5發表與比較主張。",
+      "url": "https://www.nxp.com/company/about-nxp/newsroom/NW-NEW-S32K5-MICROCONTROLLER",
+      "date": "2025-03-11",
+      "accessedAt": "2026-09-10",
+      "kind": "官方補充來源",
+      "locator": "正文／對應規格",
+      "limit": "只適用具名版本與所列條件。"
+    },
+    {
+      "id": "samsung-history",
+      "label": "歷史節點時程應與現行特殊製程頁分開。",
+      "url": "https://semiconductor.samsung.com/news-events/tech-blog/developing-the-industrys-most-energy-efficient-next-generation-mram-selected-as-iedm-highlight-paper/",
+      "date": "2023",
+      "accessedAt": "2026-09-10",
+      "kind": "官方補充來源",
+      "locator": "正文／對應規格",
+      "limit": "只適用具名版本與所列條件。"
+    },
+    {
+      "id": "everspin-persyst-catalog",
+      "label": "現行官方目錄；MR3A16ACYS35列為MP、8Mb、x16、35ns、3.3V及−40～85°C。",
+      "url": "https://www.everspin.com/persyst?page=2",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "官方補充來源",
+      "locator": "正文／對應規格",
+      "limit": "只適用具名版本與所列條件。"
+    },
+    {
+      "id": "everspin-2025-10k",
+      "label": "官方年度申報確認1Gb STT-MRAM持續出貨；申報日期亦由2026-03-05官方新聞稿明載。",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm",
+      "date": "2026-03-04",
+      "accessedAt": "2026-09-10",
+      "kind": "官方補充來源",
+      "locator": "正文／對應規格",
+      "limit": "只適用具名版本與所列條件。"
+    },
+    {
+      "id": "everspin-hr-xspi-20260305",
+      "label": "官方原始公告；HR 64Mb認證完成可訂購，HR 128／256Mb認證與供貨時程仍為預測。",
+      "url": "https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb",
+      "date": "2026-03-05",
+      "accessedAt": "2026-09-10",
+      "kind": "官方補充來源",
+      "locator": "正文／對應規格",
+      "limit": "只適用具名版本與所列條件。"
+    },
+    {
+      "id": "RES-IBM-DSMTJ-2025",
+      "url": "https://research.ibm.com/publications/progress-and-gaps-in-double-spin-torque-mtjs-for-last-level-cache-applications",
+      "date": "2025-12-06",
+      "label": "IBM：快取用雙自旋力矩 MTJ",
+      "claim": "4kbit 研究陣列展示 2ns 寫入脈衝。",
+      "limit": "研究陣列實證；未證明量產良率或已出貨快取產品。",
+      "kind": "官方一手資料",
+      "locator": "公開摘要／正文",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-EVERSPIN-TELEDYNE-2026",
+      "url": "https://investor.everspin.com/news-releases/news-release-details/everspin-technologies-and-teledyne-hirel-semiconductors-partner",
+      "date": "2026-09-02",
+      "label": "Everspin／Teledyne HiRel 合作",
+      "claim": "合作從 256Mb PERSYST 開始，Teledyne 預計 2026 Q4 向客戶供應。",
+      "limit": "合作供應計畫不能反推所有 HR 料號均已完成認證。",
+      "kind": "官方一手資料",
+      "locator": "公開摘要／正文",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-SONY-MICRON-2014",
+      "url": "https://investors.micron.com/static-files/7ac25c4b-edd0-4482-97ad-267a7263bcf0",
+      "date": "2014-06-05",
+      "label": "Micron／Sony：銅 ReRAM 研究",
+      "claim": "Micron 公告與 Sony 合作的銅 ReRAM 研究，對應 16Gb 儲存級記憶體展示。",
+      "limit": "歷史研發證據，不是現行供應、Sony 感測器導入或量產規模證明。",
+      "kind": "官方一手資料",
+      "locator": "公開摘要／正文",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "MRAM-KIOXIA-SKHYNIX-64GB-2025",
+      "url": "https://www.kioxia.com/en-jp/rd/technology/topics/topics-80.html",
+      "date": "2025-04-15",
+      "label": "Kioxia／SK hynix · 64 Gbit 1Selector–1MTJ Cross-Point MRAM",
+      "claim": "共同開發 64 Gbit 交叉點 MRAM，以兩端選擇器取代選擇電晶體；MTJ 直徑 20 nm、半節距 20.5 nm，單元面積 0.001681 µm²。",
+      "limit": "屬研究陣列，未證明商品供貨；20 nm 是 MTJ 直徑而非 CMOS 製程節點，典型位元測試不能代替全陣列良率。",
+      "locator": "官方正文；NRAM 使用 2016 年 8 月官方存檔條目",
+      "kind": "官方一手資料",
+      "evidence": "已核讀公開正文或官方存檔條目",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RRAM-TETRAMEM-MLX200-2026",
+      "url": "https://tetramem.com/tetramem-completes-mlx200-silicon-validation/",
+      "date": "2026-05-19",
+      "label": "TetraMem · MLX200 Multi-Level RRAM Analog IMC",
+      "claim": "2026 年 5 月公告 MLX200 在 TSMC 22nm 製程完成投片與初步矽驗證，將多階 RRAM 與混合訊號運算整合於 SoC。",
+      "limit": "評估套件在公告時預計於 2026 年下半年推出；初步驗證不等於量產或已交付，運算用途不能直接套用一般儲存規格。",
+      "locator": "官方正文；NRAM 使用 2016 年 8 月官方存檔條目",
+      "kind": "官方一手資料",
+      "evidence": "已核讀公開正文或官方存檔條目",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RRAM-INTRINSIC-SURECORE",
+      "url": "https://www.intrinsicsemi.com/",
+      "date": null,
+      "label": "Intrinsic／sureCore · SiOx RRAM",
+      "claim": "Intrinsic 官網以氧化矽 RRAM 為核心，並列出與 sureCore 合作，結合 CMOS 相容單元、記憶體架構及編譯器設計能力。",
+      "limit": "合作公告不足以證明具名製程巨集已通過認證或量產；官網未提供可據此認定現行供貨的完整料號與資料表。",
+      "locator": "官方正文；NRAM 使用 2016 年 8 月官方存檔條目",
+      "kind": "官方一手資料",
+      "evidence": "已核讀公開正文或官方存檔條目",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "NRAM-NANTERO-FUJITSU-2016",
+      "url": "https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/",
+      "date": "2016-08-31",
+      "label": "Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM",
+      "claim": "Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 碳奈米管 NRAM 授權，並共同開發 55nm 產品。",
+      "limit": "此為歷史開發證據，不能視為 2026 年量產、供貨或計畫終止的證明；NRAM 應與氧化物 RRAM 分開分類。",
+      "locator": "官方正文；NRAM 使用 2016 年 8 月官方存檔條目",
+      "kind": "官方一手資料",
+      "evidence": "已核讀公開正文或官方存檔條目",
+      "accessedAt": "2026-09-10"
+    }
+  ],
+  "landscape": [
+    {
+      "id": "everspin-toggle",
+      "name": "Everspin Toggle MRAM",
+      "technology": "Toggle MRAM",
+      "family": "MRAM",
+      "role": "獨立式記憶體供應商",
+      "maturity": "商品供應",
+      "claim": "現行PERSYST目錄保留Toggle量產料號，例如MR3A16ACYS35為8Mb、x16非同步介面、35ns、3.3V、−40～85°C，標示MP。",
+      "limit": "此組數值僅屬MR3A16ACYS35；其他料號的速度、溫度及車規不能混用。舊MR4A16B資料表無法取得，故不引用其逾20年保存值。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "everspin-toggle",
+        "everspin-persyst-catalog"
+      ],
+      "target": "research-everspin",
+      "search": "Everspin Toggle MRAM 現行PERSYST目錄保留Toggle量產料號，例如MR3A16ACYS35為8Mb、x16非同步介面、35ns、3.3V、−40～85°C，標示MP。 The current PERSYST catalog lists Toggle production parts. MR3A16ACYS35 is marked MP and specifies 8Mb, asynchronous x16, 35ns, 3.3V and −40 to 85°C."
+    },
+    {
+      "id": "everspin-1gb-ddr",
+      "name": "Everspin 1Gb STT-MRAM",
+      "technology": "STT-MRAM / DDR4-derived",
+      "family": "MRAM",
+      "role": "獨立式持續性記憶體供應商",
+      "maturity": "持續出貨",
+      "claim": "2025年度10-K確認1Gb STT-MRAM持續出貨，採DDR衍生介面；官方技術頁將1Gb定位為類DDR4介面的持續性DRAM。",
+      "limit": "DDR4-like不代表所有DDR4控制器可直接替換；不得套用Toggle或xSPI的保存年限、耐寫及車規。舊family網址已404。",
+      "dateLabel": "來源日期／事件期間: 2026-03-04 · 查核 2026-09-10",
+      "sourceIds": [
+        "everspin-1gb-ddr",
+        "everspin-ddr-technology",
+        "everspin-2025-10k"
+      ],
+      "target": "research-everspin",
+      "search": "Everspin 1Gb STT-MRAM 2025年度10-K確認1Gb STT-MRAM持續出貨，採DDR衍生介面；官方技術頁將1Gb定位為類DDR4介面的持續性DRAM。 The 2025 Form 10-K confirms continuing 1Gb STT-MRAM shipments. The technology page identifies a DDR4-like persistent-DRAM product for enterprise storage."
+    },
+    {
+      "id": "everspin-xspi",
+      "name": "Everspin EMxxLX xSPI",
+      "technology": "STT-MRAM / xSPI",
+      "family": "MRAM",
+      "role": "獨立式記憶體供應商",
+      "maturity": "HR 64Mb已認證可訂購；HR 128／256Mb為當時預定",
+      "claim": "2026-03-05官方投資人公告：HR 64Mb xSPI STT-MRAM完成AEC-Q100 Grade 1量產認證，可訂購且通路有庫存；HR 128Mb預定5月、256Mb預定7月完成認證，256Mb預期下半年供量。",
+      "limit": "128Mb與256Mb時程是2026-03-05當時的預測，本輪未核實後續完成。HR系列認證不可套用其他EMxxLX版本；此公告未給吞吐量或保存年限。",
+      "dateLabel": "來源日期／事件期間: 2026-03-05 · 查核 2026-09-10",
+      "sourceIds": [
+        "everspin-xspi",
+        "everspin-hr-xspi-20260305",
+        "everspin-ddr-technology"
+      ],
+      "target": "research-everspin",
+      "search": "Everspin EMxxLX xSPI 2026-03-05官方投資人公告：HR 64Mb xSPI STT-MRAM完成AEC-Q100 Grade 1量產認證，可訂購且通路有庫存；HR 128Mb預定5月、256Mb預定7月完成認證，256Mb預期下半年供量。 The March 5, 2026 investor release confirms HR 64Mb xSPI STT-MRAM completed AEC-Q100 Grade 1 production qualification and is orderable with distributor inventory. HR 128Mb qualification was expected in May and 256Mb in July, with 256Mb volume availability expected in the second half of 2026."
+    },
+    {
+      "id": "avalanche-umc22",
+      "name": "Avalanche Technology / UMC",
+      "technology": "pMTJ STT-MRAM",
+      "family": "MRAM",
+      "role": "記憶體產品商／晶圓代工",
+      "maturity": "具名商品已生產供應",
+      "claim": "2022-09-13宣布UMC 22nm第三代P-SRAM立即供應，Parallel x32系列所述規格為逾10^14次耐寫、85°C保存1,000年及−40～125°C操作。",
+      "limit": "這是獨立式商品，不代表UMC通用嵌入式巨集具有相同規格；保存期是廠商可靠度規格。",
+      "dateLabel": "來源日期／事件期間: 2022-09-13 · 查核 2026-09-10",
+      "sourceIds": [
+        "avalanche-umc22"
+      ],
+      "target": "topic-stt",
+      "search": "Avalanche Technology / UMC 2022-09-13宣布UMC 22nm第三代P-SRAM立即供應，Parallel x32系列所述規格為逾10^14次耐寫、85°C保存1,000年及−40～125°C操作。 The September 13, 2022 release announces immediate availability of Gen 3 P-SRAM on UMC 22nm. The cited parallel x32 product specifies over 10^14 writes and 1,000-year retention at 85°C."
+    },
+    {
+      "id": "avalanche-scaling2026",
+      "name": "Avalanche Technology",
+      "technology": "STT-MRAM",
+      "family": "MRAM",
+      "role": "記憶體產品及技術開發商",
+      "maturity": "磁性單元縮放里程碑",
+      "claim": "2026年網頁公告完成政府合約第一階段MTJ縮放，以支援未來更高密度太空級MRAM。",
+      "limit": "頁面標2026-03-02、內文日期卻為2025-03-02；16倍密度是後續縮放目標，不能視為已出貨產品。",
+      "dateLabel": "來源日期／事件期間: 2026-03-02 · 查核 2026-09-10",
+      "sourceIds": [
+        "avalanche-scaling2026"
+      ],
+      "target": "topic-stt",
+      "search": "Avalanche Technology 2026年網頁公告完成政府合約第一階段MTJ縮放，以支援未來更高密度太空級MRAM。 The 2026 web announcement reports completion of a first-phase MTJ scaling milestone for future higher-density space-grade MRAM."
+    },
+    {
+      "id": "samsung-emram",
+      "name": "Samsung Foundry",
+      "technology": "STT-MRAM / eMRAM",
+      "family": "MRAM",
+      "role": "晶圓代工平台",
+      "maturity": "28FDS已量產；FinFET擴展",
+      "claim": "官方現行特殊製程頁確認2019年28nm FD-SOI eMRAM量產，並表示MTJ模組已擴展至14LPU及8LPU，5nm仍列計畫。",
+      "limit": "平台相容或擴展不等於每節點均有具名客戶大量出貨；不得將2023年的2026／2027時程直接當完成證據。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "samsung-emram"
+      ],
+      "target": "topic-stt",
+      "search": "Samsung Foundry 官方現行特殊製程頁確認2019年28nm FD-SOI eMRAM量產，並表示MTJ模組已擴展至14LPU及8LPU，5nm仍列計畫。 The current specialty-process page confirms 28nm FD-SOI eMRAM mass production since 2019 and expansion to 14LPU and 8LPU, with 5nm still planned."
+    },
+    {
+      "id": "intel-22ffl-research",
+      "name": "Intel",
+      "technology": "STT-MRAM",
+      "family": "MRAM",
+      "role": "製程及元件研發",
+      "maturity": "作者研究發表；現行商品未核實",
+      "claim": "IEDM 2018官方議程列Intel作者22FFL FinFET嵌入式MRAM論文，提供整合技術的一手研究證據。",
+      "limit": "本輪未找到更新且可核的Intel MRAM商用品項或量產公告；不得從論文或Intel16名稱推論現行MRAM供應。",
+      "dateLabel": "來源日期／事件期間: 2018-12-04 · 查核 2026-09-10",
+      "sourceIds": [
+        "intel-22ffl-research"
+      ],
+      "target": "topic-stt",
+      "search": "Intel IEDM 2018官方議程列Intel作者22FFL FinFET嵌入式MRAM論文，提供整合技術的一手研究證據。 The official IEDM 2018 program lists Intel-authored work on MRAM embedded in 22FFL FinFET, establishing primary evidence of process-integration research."
+    },
+    {
+      "id": "tsmc-16mram2025",
+      "name": "TSMC",
+      "technology": "eMRAM / STT route",
+      "family": "MRAM",
+      "role": "晶圓代工平台",
+      "maturity": "車用Grade 1認證完成",
+      "claim": "2025年報確認16nm第二代MRAM通過車用Grade 1並提供客戶；12nm車用及5nm高速MRAM仍在開發。",
+      "limit": "認證不等同具名MCU大量出貨；SOT研究另列，不能與量產平台混稱。",
+      "dateLabel": "來源日期／事件期間: 2025 · 查核 2026-09-10",
+      "sourceIds": [
+        "tsmc-16mram2025"
+      ],
+      "target": "topic-stt",
+      "search": "TSMC 2025年報確認16nm第二代MRAM通過車用Grade 1並提供客戶；12nm車用及5nm高速MRAM仍在開發。 The 2025 annual report confirms qualification and customer availability of second-generation 16nm automotive Grade 1 MRAM. 12nm automotive and 5nm high-speed MRAM remain in development."
+    },
+    {
+      "id": "tsmc-sot2025",
+      "name": "TSMC SOT-MRAM",
+      "technology": "SOT-MRAM",
+      "family": "MRAM",
+      "role": "前瞻記憶體研發",
+      "maturity": "研究展示",
+      "claim": "2025年報記載IEDM 2025展示Type-C SOT-MRAM，以圓形MTJ與內建磁異向性達成無外加磁場操作。",
+      "limit": "論文展示不是商用製程或SRAM替代品供貨；不可套用16nm車規MRAM成熟度。",
+      "dateLabel": "來源日期／事件期間: 2025-12 · 查核 2026-09-10",
+      "sourceIds": [
+        "tsmc-sot2025"
+      ],
+      "target": "topic-sot",
+      "search": "TSMC SOT-MRAM 2025年報記載IEDM 2025展示Type-C SOT-MRAM，以圓形MTJ與內建磁異向性達成無外加磁場操作。 The 2025 annual report describes an IEDM 2025 Type-C SOT-MRAM demonstration using a circular MTJ with built-in magnetic anisotropy for field-free operation."
+    },
+    {
+      "id": "gf-22fdx",
+      "name": "GlobalFoundries",
+      "technology": "STT-MRAM / 22FDX",
+      "family": "MRAM",
+      "role": "晶圓代工平台",
+      "maturity": "平台已進入生產",
+      "claim": "2020-02-27官方確認22FDX eMRAM進入生產，供應4～48Mb矽驗證巨集；公告展示100k耐寫、10年保存與−40～125°C範圍。",
+      "limit": "當時Grade 1為未來目標，不能由2020公告宣稱完成；GF現行FDX頁仍列MRAM，節點與客戶資格須另查。",
+      "dateLabel": "來源日期／事件期間: 2020-02-27 · 查核 2026-09-10",
+      "sourceIds": [
+        "gf-22fdx",
+        "gf-current-fdx"
+      ],
+      "target": "topic-stt",
+      "search": "GlobalFoundries 2020-02-27官方確認22FDX eMRAM進入生產，供應4～48Mb矽驗證巨集；公告展示100k耐寫、10年保存與−40～125°C範圍。 The February 27, 2020 announcement confirms production entry of 22FDX eMRAM and 4–48Mb silicon-validated macros, with 100k endurance and 10-year retention across the stated temperature range."
+    },
+    {
+      "id": "renesas-ra8-2025",
+      "name": "Renesas RA8M2 / RA8D2",
+      "technology": "Embedded MRAM",
+      "family": "MRAM",
+      "role": "MCU產品商",
+      "maturity": "商品供應／日文公告確認量產",
+      "claim": "2025-10-22推出RA8M2與RA8D2，內建MRAM、1GHz Cortex-M85與250MHz Cortex-M33；官方可供貨，不應只停留在2024年試驗巨集紀錄。",
+      "limit": "CPU時脈不等於MRAM原生讀取速度；2024年22nm試驗巨集的數字不能直接轉寫成RA8商品規格。",
+      "dateLabel": "來源日期／事件期間: 2025-10-22 · 查核 2026-09-10",
+      "sourceIds": [
+        "renesas-ra8-2025"
+      ],
+      "target": "topic-stt",
+      "search": "Renesas RA8M2 / RA8D2 2025-10-22推出RA8M2與RA8D2，內建MRAM、1GHz Cortex-M85與250MHz Cortex-M33；官方可供貨，不應只停留在2024年試驗巨集紀錄。 The October 22, 2025 release announces available RA8M2 and RA8D2 MCUs with embedded MRAM, a 1GHz Cortex-M85 and a 250MHz Cortex-M33."
+    },
+    {
+      "id": "nxp-s32k5",
+      "name": "NXP S32K5",
+      "technology": "Embedded MRAM",
+      "family": "MRAM",
+      "role": "車用MCU產品商",
+      "maturity": "產品發表；官方資料仍標量產前",
+      "claim": "2025-03-11宣布16nm FinFET S32K5內建MRAM；2025-10-30官方產品摘要仍標示量產前產品。",
+      "limit": "15倍快寫為廠商與嵌入式Flash比較，不能當絕對延遲；不得以產品發表直接標量產。",
+      "dateLabel": "來源日期／事件期間: 2025-10-30 · 查核 2026-09-10",
+      "sourceIds": [
+        "nxp-s32k5",
+        "nxp-launch"
+      ],
+      "target": "topic-stt",
+      "search": "NXP S32K5 2025-03-11宣布16nm FinFET S32K5內建MRAM；2025-10-30官方產品摘要仍標示量產前產品。 NXP announced the 16nm FinFET S32K5 with embedded MRAM on March 11, 2025. Its October 30, 2025 product brief still labels the family preproduction."
+    },
+    {
+      "id": "netsol-stt",
+      "name": "NETSOL",
+      "technology": "STT-MRAM",
+      "family": "MRAM",
+      "role": "獨立式記憶體供應商",
+      "maturity": "具名產品資料表",
+      "claim": "2024年3月S3RxxxxR1M資料表列1～16Mbit STT-MRAM、x8／x16非同步平行介面及−40～85°C工業溫度；官網另列串列系列。",
+      "limit": "不將其他系列或媒體報導的更大密度、製程節點套入此資料表；大量出貨數未公開。",
+      "dateLabel": "來源日期／事件期間: 2024-03 · 查核 2026-09-10",
+      "sourceIds": [
+        "netsol-stt"
+      ],
+      "target": "topic-stt",
+      "search": "NETSOL 2024年3月S3RxxxxR1M資料表列1～16Mbit STT-MRAM、x8／x16非同步平行介面及−40～85°C工業溫度；官網另列串列系列。 The March 2024 S3RxxxxR1M datasheet specifies 1–16Mbit STT-MRAM, asynchronous x8/x16 interfaces and an industrial −40 to 85°C range; the website also lists serial products."
+    },
+    {
+      "id": "tdk-headway",
+      "name": "TDK / Headway",
+      "technology": "STT-MRAM",
+      "family": "MRAM",
+      "role": "磁性材料、MTJ與技術研發",
+      "maturity": "技術能力／研發；未核商用記憶體料號",
+      "claim": "TDK 2025-09-01投資人日資料將STT-MRAM列為累積自旋電子技術；Headway作者亦有公開STT-MRAM嵌入式研究簡報。",
+      "limit": "磁頭量產與MTJ能力不等同獨立式MRAM量產；本輪未核得可購MRAM料號、PDK或指定代工供應承諾。",
+      "dateLabel": "來源日期／事件期間: 2025-09-01 · 查核 2026-09-10",
+      "sourceIds": [
+        "tdk-headway",
+        "headway-author-research"
+      ],
+      "target": "topic-stt",
+      "search": "TDK / Headway TDK 2025-09-01投資人日資料將STT-MRAM列為累積自旋電子技術；Headway作者亦有公開STT-MRAM嵌入式研究簡報。 TDK's September 1, 2025 investor-day presentation includes STT-MRAM among its spintronics technologies; Headway authors also have public embedded-STT-MRAM research presentations."
+    },
+    {
+      "id": "numem-aime",
+      "name": "Numem",
+      "technology": "Foundry-based STT-MRAM",
+      "family": "MRAM",
+      "role": "記憶體IP與晶粒／小晶片架構商",
+      "maturity": "廠商稱可供量產；客戶出貨未核",
+      "claim": "官方網站將方案定位為以代工STT-MRAM單元為基礎的IP及晶粒／小晶片，搭配AIME；2025-06-10新聞稱AI記憶體引擎已可供量產。",
+      "limit": "節能與SRAM級效能是廠商主張，缺少統一條件的獨立對測；不等於自有新磁性材料或具名客戶大量出貨。",
+      "dateLabel": "來源日期／事件期間: 2025-06-10 · 查核 2026-09-10",
+      "sourceIds": [
+        "numem-aime",
+        "numem-current"
+      ],
+      "target": "ip-numem-mram",
+      "search": "Numem 官方網站將方案定位為以代工STT-MRAM單元為基礎的IP及晶粒／小晶片，搭配AIME；2025-06-10新聞稱AI記憶體引擎已可供量產。 Numem describes foundry-based STT-MRAM IP and chips/chiplets enhanced by AIME. Its June 10, 2025 announcement claims production readiness."
+    },
+    {
+      "id": "imec-sot",
+      "name": "imec",
+      "technology": "SOT-MRAM",
+      "family": "MRAM",
+      "role": "研究機構／技術平台研發",
+      "maturity": "300mm研究元件展示",
+      "claim": "2023-12-13公開300mm晶圓上約50nm關鍵尺寸SOT元件，切換能量低於100fJ/bit、耐受超過10^15次循環，供快取應用研發。",
+      "limit": "單元能量不含完整巨集週邊、匯流排與系統功耗；50nm是元件關鍵尺寸，不能直接稱50nm CMOS節點。",
+      "dateLabel": "來源日期／事件期間: 2023-12-13 · 查核 2026-09-10",
+      "sourceIds": [
+        "imec-sot"
+      ],
+      "target": "topic-sot",
+      "search": "imec 2023-12-13公開300mm晶圓上約50nm關鍵尺寸SOT元件，切換能量低於100fJ/bit、耐受超過10^15次循環，供快取應用研發。 On December 13, 2023 imec reported roughly 50nm critical-dimension SOT devices on 300mm wafers, below 100fJ/bit switching energy and endurance above 10^15 cycles."
+    },
+    {
+      "id": "ibm-research",
+      "name": "IBM Research",
+      "technology": "STT-MRAM",
+      "family": "MRAM",
+      "role": "元件與製程研究",
+      "maturity": "元件與 CMOS 整合研究實證",
+      "claim": "IBM 的價值在於可追溯的元件物理與 CMOS 整合成果。不同年份的 MTJ 尺寸、製程節點與寫入錯誤率，不能拼成一顆不存在的最佳規格產品。",
+      "limit": "IBM 論文不是 IBM 對外量產代工服務清單。",
+      "dateLabel": "查核 2026-09-10",
+      "sourceIds": [
+        "RES-IBM-REVIEW-2024",
+        "RES-IBM-11NM-2017"
+      ],
+      "target": "research-ibm",
+      "search": "IBM Research STT-MRAM"
+    },
+    {
+      "id": "itri-research",
+      "name": "工研院 ITRI",
+      "technology": "SOT-MRAM",
+      "family": "MRAM",
+      "role": "合作研究、試作與技術移轉",
+      "maturity": "研究陣列、原型與初步試產服務",
+      "claim": "工研院應以具名合作與版本呈現：台積電合作的 SOT、陽明交大合作的低溫 STT、跨機構 β-W 陣列，以及 8 吋試作與 RRAM 技轉，分屬不同成果。",
+      "limit": "合作成果不能改稱工研院獨立量產產品。",
+      "dateLabel": "查核 2026-09-10",
+      "sourceIds": [
+        "RES-ITRI-SOT-2022",
+        "RES-ITRI-CIM-2024",
+        "RES-ITRI-SERVICE"
+      ],
+      "target": "research-itri",
+      "search": "工研院 ITRI SOT-MRAM"
+    },
+    {
+      "id": "rram-weebit-2026",
+      "name": "Weebit Nano",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "ReRAM IP 授權商",
+      "maturity": "授權與客戶原型",
+      "claim": "2026 年 7 月公告三個客戶設計已投片，已有原型執行軟體。",
+      "limit": "首款客戶產品量產仍是後續里程碑。",
+      "dateLabel": "來源日期／事件期間: 2026-07-31 · 查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-WEEBIT-2026"
+      ],
+      "target": "ip-weebit-reram",
+      "search": "Weebit Nano 2026 年 7 月公告三個客戶設計已投片，已有原型執行軟體。 Three customer designs had taped out by July 2026, with a prototype running software."
+    },
+    {
+      "id": "rram-onsemi-2026",
+      "name": "onsemi",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "ReRAM 技術導入 IDM",
+      "maturity": "技術移轉中",
+      "claim": "Weebit 公告對 onsemi 的 ReRAM 技轉按計畫進行。",
+      "limit": "不得由授權或技轉推論成品量產。",
+      "dateLabel": "來源日期／事件期間: 2026-07-31 · 查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-ONSEMI-2026"
+      ],
+      "target": "topic-vcm",
+      "search": "onsemi Weebit 公告對 onsemi 的 ReRAM 技轉按計畫進行。 Weebit reported onsemi ReRAM technology transfer progressing to schedule."
+    },
+    {
+      "id": "rram-ti-2026",
+      "name": "Texas Instruments",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "ReRAM 技術導入 IDM",
+      "maturity": "技術移轉中",
+      "claim": "Weebit 公告對 TI 的 ReRAM 技轉按計畫進行。",
+      "limit": "不可將 TI 已商用 FRAM 與此 ReRAM 導入混為一談。",
+      "dateLabel": "來源日期／事件期間: 2026-07-31 · 查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-TI-2026"
+      ],
+      "target": "topic-vcm",
+      "search": "Texas Instruments Weebit 公告對 TI 的 ReRAM 技轉按計畫進行。 Weebit reported TI ReRAM technology transfer progressing to schedule."
+    },
+    {
+      "id": "rram-skywater-s130",
+      "name": "SkyWater / Weebit Nano",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "晶圓代工與 IP 合作",
+      "maturity": "已驗證、可供 SoC 整合",
+      "claim": "官方 IP 頁列 S130 130 nm CMOS 已依 JEDEC 與 AEC-Q100 驗證、可供整合；BEOL 增加 2 層光罩。",
+      "limit": "IP 已驗證不等於每款客戶晶片皆完成車規或量產；規格依模組。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-SKYWATER-S130"
+      ],
+      "target": "topic-vcm",
+      "search": "SkyWater／Weebit Nano 官方 IP 頁列 S130 130 nm CMOS 已依 JEDEC 與 AEC-Q100 驗證、可供整合；BEOL 增加 2 層光罩。 The official IP page lists qualified S130 130 nm CMOS ReRAM, available for integration, with two added masks in BEOL."
+    },
+    {
+      "id": "rram-dbhitek-130",
+      "name": "DB HiTek / Weebit Nano",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "晶圓代工與 IP 合作",
+      "maturity": "已驗證、可供整合",
+      "claim": "130 nm BCD 的 ReRAM IP 已矽驗證與資格驗證，使用 2 層加罩；官方列 10K 次耐寫、125°C 保存超過 10 年。",
+      "limit": "100K 次屬可延伸選項；不能把基礎 BCD 量產量當成 ReRAM 客戶產品出貨。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-DBHITEK-130"
+      ],
+      "target": "topic-vcm",
+      "search": "DB HiTek／Weebit Nano 130 nm BCD 的 ReRAM IP 已矽驗證與資格驗證，使用 2 層加罩；官方列 10K 次耐寫、125°C 保存超過 10 年。 130 nm BCD ReRAM IP is silicon-proven and qualified, adding two masks; listed specifications include 10K writes and over ten years retention at 125°C."
+    },
+    {
+      "id": "rram-tsmc-iot",
+      "name": "TSMC",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "嵌入式記憶體晶圓代工",
+      "maturity": "40／22 已量產；12 風險試產",
+      "claim": "官方 IoT NVM 頁列 40RRAM、22RRAM 已量產；12RRAM 於 2024 年進入消費級風險試產，記憶單元位於後段金屬層間。",
+      "limit": "12RRAM 風險試產不是全產品量產或車規資格。",
+      "dateLabel": "來源日期／事件期間: 2024 · 查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-TSMC-IOT"
+      ],
+      "target": "topic-vcm",
+      "search": "TSMC 官方 IoT NVM 頁列 40RRAM、22RRAM 已量產；12RRAM 於 2024 年進入消費級風險試產，記憶單元位於後段金屬層間。 The IoT NVM page lists 40RRAM and 22RRAM in production; 12RRAM entered consumer-grade risk production in 2024, with cells between BEOL metal layers."
+    },
+    {
+      "id": "rram-infineon-tc4x",
+      "name": "Infineon / TSMC",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "車用 MCU 與製程合作",
+      "maturity": "導入合作公告",
+      "claim": "2022 年公告準備將台積電 RRAM 導入下一代 AURIX TC4x，支援位元寫入而不需先抹除。",
+      "limit": "這份公告不證明所有 TC4x 型號均採 RRAM 或已完成量產；須查型號文件。",
+      "dateLabel": "來源日期／事件期間: 2022-11-25 · 查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-INFINEON-TC4X"
+      ],
+      "target": "topic-vcm",
+      "search": "Infineon／TSMC 2022 年公告準備將台積電 RRAM 導入下一代 AURIX TC4x，支援位元寫入而不需先抹除。 The 2022 announcement describes preparing TSMC RRAM for next-generation AURIX TC4x, supporting bit-wise writes without prior erase."
+    },
+    {
+      "id": "cbram-gf-renesas",
+      "name": "GlobalFoundries / Renesas / Dialog",
+      "technology": "CBRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "CBRAM 技術收購與代工整合",
+      "maturity": "2023 收購；22FDX 當時驗證中",
+      "claim": "GF 於 2023 年向 Renesas 收購已具量產實績的 CBRAM 技術；GF 先於 2020 年向 Dialog 授權，2023 年公告 22FDX 正在驗證。",
+      "limit": "既有 CBRAM 量產實績不等於 22FDX 已量產；不可誤記為 Infineon 收購。",
+      "dateLabel": "來源日期／事件期間: 2023-02-09 · 查核 2026-09-10",
+      "sourceIds": [
+        "CBRAM-GF-RENESAS"
+      ],
+      "target": "topic-ecm",
+      "search": "GlobalFoundries／Renesas／Dialog GF 於 2023 年向 Renesas 收購已具量產實績的 CBRAM 技術；GF 先於 2020 年向 Dialog 授權，2023 年公告 22FDX 正在驗證。 GF acquired production-proven CBRAM technology from Renesas in 2023, following a 2020 Dialog license; 22FDX qualification was underway."
+    },
+    {
+      "id": "rram-nuvoton-m2l31",
+      "name": "Nuvoton",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "嵌入式 ReRAM MCU 供應商",
+      "maturity": "商用產品系列",
+      "claim": "M2L31 產品頁列 Arm Cortex-M23、64–512 KB ReRAM 與 72 MHz；ReRAM 寫入前不需頁抹除。",
+      "limit": "72 MHz 是 MCU 時脈，不是單元寫入延遲；須依確切型號確認容量與可靠度。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-NUVOTON-M2L31"
+      ],
+      "target": "topic-vcm",
+      "search": "Nuvoton M2L31 產品頁列 Arm Cortex-M23、64–512 KB ReRAM 與 72 MHz；ReRAM 寫入前不需頁抹除。 The M2L31 family lists an Arm Cortex-M23, 64–512 KB ReRAM and 72 MHz operation; writes do not require a page erase."
+    },
+    {
+      "id": "rram-panasonic-umc",
+      "name": "Panasonic / UMC",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "歷史 ReRAM 製程開發合作",
+      "maturity": "2017 年共同開發公告",
+      "claim": "2017 年宣布共同開發 40 nm ReRAM 量產製程，將 Panasonic ReRAM 與 UMC 製造能力結合。",
+      "limit": "共同開發目標不是 2026 年供貨證明，也不能自行推定現行 Nuvoton 型號均由此製程製造。",
+      "dateLabel": "來源日期／事件期間: 2017-02-01 · 查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-PANASONIC-UMC"
+      ],
+      "target": "research-panasonic",
+      "search": "Panasonic／UMC 2017 年宣布共同開發 40 nm ReRAM 量產製程，將 Panasonic ReRAM 與 UMC 製造能力結合。 The 2017 agreement combined Panasonic ReRAM with UMC manufacturing to develop a 40 nm mass-production process."
+    },
+    {
+      "id": "rram-ramxeed-product",
+      "name": "RAMXEED",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "獨立式 ReRAM 產品供應商",
+      "maturity": "特定型號量產",
+      "claim": "官方清單將 MB85AS8MT 8 Mbit SPI ReRAM 標示量產，列 100 萬次循環；12 Mbit 型號則要求洽詢業務。",
+      "limit": "不能把 8 Mbit 的量產狀態或耐受度套用至 12 Mbit 型號。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-RAMXEED-PRODUCT"
+      ],
+      "target": "topic-vcm",
+      "search": "RAMXEED 官方清單將 MB85AS8MT 8 Mbit SPI ReRAM 標示量產，列 100 萬次循環；12 Mbit 型號則要求洽詢業務。 The product list marks the MB85AS8MT 8 Mbit SPI ReRAM as mass-produced with one million cycles; the 12 Mbit part requires sales contact."
+    },
+    {
+      "id": "rram-crossbar-daric",
+      "name": "CrossBar",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "ReRAM IP 與安全處理器開發商",
+      "maturity": "廠商架構與晶片揭露",
+      "claim": "2026 年官方文章介紹採 ReRAM 的 22 nm Daric 安全處理器，將 NVM、運算與密碼功能整合於單晶片。",
+      "limit": "文章不能代替完整供貨資格或獨立安全認證；避免採用普遍免疫攻擊、免疫輻射等絕對宣稱。",
+      "dateLabel": "來源日期／事件期間: 2026-05-06 · 查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-CROSSBAR-DARIC"
+      ],
+      "target": "ip-crossbar-reram",
+      "search": "CrossBar 2026 年官方文章介紹採 ReRAM 的 22 nm Daric 安全處理器，將 NVM、運算與密碼功能整合於單晶片。 A 2026 company article describes the 22 nm Daric secure processor integrating ReRAM, computing and cryptography on one die."
+    },
+    {
+      "id": "rram-cea-leti",
+      "name": "CEA-Leti / Weebit Nano",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "ReRAM 與神經形態運算研究合作",
+      "maturity": "研究展示",
+      "claim": "官方公告結合 CEA-Leti 脈衝神經網路與 Weebit SiOx ReRAM，展示物件辨識方向的神經形態運算。",
+      "limit": "研究展示不代表可採購完整 AI 加速器；須另查製程移轉與產品資格。",
+      "dateLabel": "來源日期／事件期間: 2019-07-18 · 查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-CEA-LETI"
+      ],
+      "target": "topic-vcm",
+      "search": "CEA-Leti／Weebit Nano 官方公告結合 CEA-Leti 脈衝神經網路與 Weebit SiOx ReRAM，展示物件辨識方向的神經形態運算。 The announcement combines CEA-Leti spiking neural networks with Weebit SiOx ReRAM in a neuromorphic object-recognition demonstration."
+    },
+    {
+      "id": "umc-research",
+      "name": "UMC 聯電",
+      "technology": "22nm RRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "晶圓代工與生態整合",
+      "maturity": "RRAM IP 已認證；具名 MRAM 商品已供應",
+      "claim": "UMC 的重點是製程與 IP 生態的可用性。22nm RRAM 的資格驗證、智原的 SoC 平台，以及 Avalanche 的獨立式 MRAM，代表不同交付層級。",
+      "limit": "不能把獨立式 MRAM 商品等同可用的嵌入式巨集。",
+      "dateLabel": "查核 2026-09-10",
+      "sourceIds": [
+        "RES-UMC-RRAM-2023",
+        "RES-UMC-MRAM-2022"
+      ],
+      "target": "research-umc",
+      "search": "UMC 聯電 22nm RRAM"
+    },
+    {
+      "id": "itri-1s1r",
+      "name": "ITRI",
+      "technology": "1S1R RRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "技術移轉",
+      "maturity": "無日期的研究／技轉項目",
+      "claim": "交叉陣列 RRAM 與選擇器開發，列有電性與幾何條件。",
+      "limit": "未證明目前大量量產。",
+      "dateLabel": "查核 2026-09-10",
+      "sourceIds": [
+        "RES-ITRI-RRAM"
+      ],
+      "target": "research-itri",
+      "search": "ITRI 1S1R RRAM"
+    },
+    {
+      "id": "st-pcm-boundary",
+      "name": "STMicroelectronics",
+      "technology": "PCM, not established MRAM offering",
+      "family": "PCM",
+      "role": "MCU產品商；技術邊界排除",
+      "maturity": "產品發表／指定客戶早期導入",
+      "claim": "2025-11-18 STM32V8官方公告明確採18nm FD-SOI與嵌入式PCM，並與Samsung Foundry合作製造。",
+      "limit": "2025 年公告限定指定客戶早期導入，主要 OEM 預計 2026 Q1，廣泛供應排在後續；時間已到不能代替完成證據。",
+      "dateLabel": "來源日期／事件期間: 2025-11-18 · 查核 2026-09-10",
+      "sourceIds": [
+        "st-pcm-boundary"
+      ],
+      "target": "topic-pcm",
+      "search": "STMicroelectronics 2025-11-18 STM32V8官方公告明確採18nm FD-SOI與嵌入式PCM，並與Samsung Foundry合作製造。 The November 18, 2025 STM32V8 announcement explicitly identifies 18nm FD-SOI and embedded PCM, with Samsung Foundry manufacturing cooperation."
+    },
+    {
+      "id": "xpoint-micron-exit",
+      "name": "Micron",
+      "technology": "3D XPoint",
+      "family": "PCM",
+      "role": "3D XPoint 歷史供應與開發者",
+      "maturity": "已停止開發的歷史路線",
+      "claim": "Micron 於 2021 年宣布立即停止 3D XPoint 開發，將資源轉向 CXL 記憶體產品。",
+      "limit": "停止該產品路線不表示所有 PCM 研究終止；CXL 是互連介面，不是新的記憶單元機制。",
+      "dateLabel": "來源日期／事件期間: 2021-03-16 · 查核 2026-09-10",
+      "sourceIds": [
+        "XPOINT-MICRON-EXIT"
+      ],
+      "target": "topic-pcm",
+      "search": "Micron Micron 於 2021 年宣布立即停止 3D XPoint 開發，將資源轉向 CXL 記憶體產品。 Micron announced an immediate end to 3D XPoint development in 2021 and redirected resources toward CXL memory products."
+    },
+    {
+      "id": "xpoint-intel-exit",
+      "name": "Intel",
+      "technology": "3D XPoint",
+      "family": "PCM",
+      "role": "Optane 歷史產品供應商",
+      "maturity": "業務收尾的歷史路線",
+      "claim": "Intel 2022 年年報確認該年啟動 Optane 記憶體業務收尾。",
+      "limit": "不能將歷史產品頁或存貨銷售視為持續開發；也不能據此推論其他廠商 PCM 退出。",
+      "dateLabel": "來源日期／事件期間: 2022 · 查核 2026-09-10",
+      "sourceIds": [
+        "XPOINT-INTEL-EXIT"
+      ],
+      "target": "topic-pcm",
+      "search": "Intel Intel 2022 年年報確認該年啟動 Optane 記憶體業務收尾。 Intel's 2022 annual filing states that the Optane memory business wind-down began in 2022."
+    },
+    {
+      "id": "pcm-st-p3e",
+      "name": "STMicroelectronics",
+      "technology": "PCM",
+      "family": "PCM",
+      "role": "車用嵌入式 PCM MCU 供應商",
+      "maturity": "Stellar 商用家族；P3E 取樣與量產規畫",
+      "claim": "2026 年 Stellar P3E 官方公告採 xMemory PCM；完整車規驗證與量產準備排定於 2026 下半年。",
+      "limit": "已到排定季度不等於已完成資格；P3E 時程不能套用到所有 Stellar 型號。",
+      "dateLabel": "來源日期／事件期間: 2026 · 查核 2026-09-10",
+      "sourceIds": [
+        "PCM-ST-P3E"
+      ],
+      "target": "topic-pcm",
+      "search": "STMicroelectronics 2026 年 Stellar P3E 官方公告採 xMemory PCM；完整車規驗證與量產準備排定於 2026 下半年。 The 2026 Stellar P3E page identifies xMemory PCM, with full automotive qualification and production readiness planned for H2 2026."
+    },
+    {
+      "id": "pcm-ibm-aimc",
+      "name": "IBM Research",
+      "technology": "PCM",
+      "family": "PCM",
+      "role": "類比記憶體內運算研究",
+      "maturity": "研究晶片",
+      "claim": "14 nm CMOS 後段整合 PCM 的研究晶片包含 64 個 256×256 類比運算核心及數位處理／通訊，展示神經網路推論。",
+      "limit": "類比權重運算結果不等於可採購通用 PCM 記憶體或完整 AI 系統效能保證。",
+      "dateLabel": "來源日期／事件期間: 2023-09-17 · 查核 2026-09-10",
+      "sourceIds": [
+        "PCM-IBM-AIMC"
+      ],
+      "target": "topic-pcm",
+      "search": "IBM Research 14 nm CMOS 後段整合 PCM 的研究晶片包含 64 個 256×256 類比運算核心及數位處理／通訊，展示神經網路推論。 A 14 nm CMOS research chip with backend PCM integrates 64 256×256 analog cores and digital processing and communication for neural-network inference."
+    },
+    {
+      "id": "feram-ti-msp430",
+      "name": "Texas Instruments",
+      "technology": "FeRAM",
+      "family": "FeRAM",
+      "role": "嵌入式 FRAM MCU 供應商",
+      "maturity": "商用 MCU 與參考設計",
+      "claim": "MSP430 FRAM 參考設計以嵌入式 FRAM 模擬 EEPROM，列出可採用的 MCU 與 I²C／SPI 主機介面。",
+      "limit": "FRAM 是儲存技術；EEPROM 模擬是介面功能，不代表浮動閘或 FeFET 結構。",
+      "dateLabel": "來源日期／事件期間: 2016-12-20 · 查核 2026-09-10",
+      "sourceIds": [
+        "FERAM-TI-MSP430"
+      ],
+      "target": "topic-feram",
+      "search": "Texas Instruments MSP430 FRAM 參考設計以嵌入式 FRAM 模擬 EEPROM，列出可採用的 MCU 與 I²C／SPI 主機介面。 An MSP430 reference design emulates EEPROM using embedded FRAM and lists supported MCUs and I2C/SPI host interfaces."
+    },
+    {
+      "id": "feram-ramxeed",
+      "name": "RAMXEED",
+      "technology": "FeRAM",
+      "family": "FeRAM",
+      "role": "獨立式 FeRAM 與嵌入式應用供應商",
+      "maturity": "量產產品",
+      "claim": "官方 FAQ 說明 FeRAM 自 1999 年持續量產，應用於高頻寫入紀錄；保存年限必須依產品規定溫度解讀。",
+      "limit": "不同型號的循環數、介面、溫度不可混用；FeRAM 不是所有鐵電 FeFET／FTJ 的同義詞。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "FERAM-RAMXEED"
+      ],
+      "target": "topic-feram",
+      "search": "RAMXEED 官方 FAQ 說明 FeRAM 自 1999 年持續量產，應用於高頻寫入紀錄；保存年限必須依產品規定溫度解讀。 The FAQ states FeRAM has been mass-produced since 1999 for frequent-write applications; retention must be interpreted at the specified temperature."
+    },
+    {
+      "id": "feram-infineon",
+      "name": "Infineon",
+      "technology": "FeRAM",
+      "family": "FeRAM",
+      "role": "獨立式 F-RAM 供應商",
+      "maturity": "商用產品家族",
+      "claim": "Infineon 列出串列／並列及 EXCELON F-RAM，採 PZT 鐵電薄膜，最高 100 兆次讀寫循環依系列而定。",
+      "limit": "最高數字不適用全部型號；不能據此認定採 HfO₂ FeFET 或 FTJ。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "FERAM-INFINEON"
+      ],
+      "target": "topic-feram",
+      "search": "Infineon Infineon 列出串列／並列及 EXCELON F-RAM，採 PZT 鐵電薄膜，最高 100 兆次讀寫循環依系列而定。 Infineon lists serial, parallel and EXCELON F-RAM using PZT ferroelectric films, with family-dependent endurance up to 100 trillion cycles."
+    },
+    {
+      "id": "feram-gf-ipms-2026",
+      "name": "GlobalFoundries / Fraunhofer IPMS",
+      "technology": "FeRAM",
+      "family": "FeRAM",
+      "role": "鐵電製程與研究合作",
+      "maturity": "22FDX 工業製程整合實證",
+      "claim": "2026 年共同成果將 HfO₂ 鐵電 FRAM 整合於 22FDX，公告低於 1 V 與奈秒級切換。",
+      "limit": "公告未列可採購料號、完整資格報告或出貨量；不宜改寫成全面商用供應。",
+      "dateLabel": "來源日期／事件期間: 2026-06-11 · 查核 2026-09-10",
+      "sourceIds": [
+        "FERAM-GF-IPMS-2026"
+      ],
+      "target": "topic-feram",
+      "search": "GlobalFoundries／Fraunhofer IPMS 2026 年共同成果將 HfO₂ 鐵電 FRAM 整合於 22FDX，公告低於 1 V 與奈秒級切換。 The 2026 collaboration reports HfO2 ferroelectric FRAM integrated in 22FDX, operating below 1 V with nanosecond switching."
+    },
+    {
+      "id": "ferro-imec-ndread",
+      "name": "imec",
+      "technology": "FeRAM / FeCAP",
+      "family": "FeRAM",
+      "role": "鐵電元件與記憶體內運算研究",
+      "maturity": "研究實證",
+      "claim": "與 Georgia Tech 研究展示 FeCAP 非破壞讀取，在 IEDM 2023 發表超過 10¹¹ 次讀取耐受度。",
+      "limit": "讀取耐受度不是寫入耐受度；不能套到一般破壞性讀取 FeRAM 或宣稱已量產。",
+      "dateLabel": "來源日期／事件期間: 2023 · 查核 2026-09-10",
+      "sourceIds": [
+        "FERRO-IMEC-NDREAD"
+      ],
+      "target": "topic-feram",
+      "search": "imec 與 Georgia Tech 研究展示 FeCAP 非破壞讀取，在 IEDM 2023 發表超過 10¹¹ 次讀取耐受度。 Joint work with Georgia Tech demonstrated nondestructive FeCAP reading, reporting over 10^11 read cycles at IEDM 2023."
+    },
+    {
+      "id": "ferro-namlab-2025",
+      "name": "NaMLab",
+      "technology": "FeFET / FTJ",
+      "family": "FeFET / FTJ",
+      "role": "鐵電元件研究機構",
+      "maturity": "研究與發表",
+      "claim": "2025 年官方論文清單包括 HZO 雙層 FTJ 厚度微縮及 CMOS 嵌入式 FeFET 的電荷捕陷挑戰。",
+      "limit": "論文名單證明研究參與，不是晶圓代工、PDK 開放或量產證據。",
+      "dateLabel": "來源日期／事件期間: 2025 · 查核 2026-09-10",
+      "sourceIds": [
+        "FERRO-NAMLAB-2025"
+      ],
+      "target": "topic-ftj",
+      "search": "NaMLab 2025 年官方論文清單包括 HZO 雙層 FTJ 厚度微縮及 CMOS 嵌入式 FeFET 的電荷捕陷挑戰。 The official 2025 publication list includes HZO bilayer FTJ thickness scaling and charge-trapping challenges in CMOS-embedded FeFETs."
+    },
+    {
+      "id": "ferro-fmc",
+      "name": "FMC",
+      "technology": "HfO2 Ferroelectric Memory",
+      "family": "FeRAM",
+      "role": "鐵電記憶體商業化開發商",
+      "maturity": "商業化開發與廠商方案主張",
+      "claim": "現行官網提出 DRAM+ 持久記憶體模組與 CACHE+ 持久快取晶粒，主張鐵電技術可整合既有製造流程。",
+      "limit": "現行技術頁描述鐵電電容，未證明 DRAM+ 或 CACHE+ 採 FeFET／FTJ；未核實產品資格與出貨規模。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "FERRO-FMC"
+      ],
+      "target": "topic-feram",
+      "search": "FMC 現行官網提出 DRAM+ 持久記憶體模組與 CACHE+ 持久快取晶粒，主張鐵電技術可整合既有製造流程。 The current site proposes DRAM+ persistent modules and CACHE+ persistent chiplets based on ferroelectric technology."
+    },
+    {
+      "id": "industry-infineon-sonos",
+      "name": "Infineon / Cypress",
+      "technology": "SONOS eFlash",
+      "family": "NOR / eFlash / SONOS",
+      "role": "技術與 IP 授權商",
+      "maturity": "具名量產平台與授權",
+      "claim": "官方列出 2T SONOS、FN 寫抹與多個量產節點，提供製程及設計授權。",
+      "limit": "Cypress 歷史與現行 Infineon 巨集分開；不合併全家族最佳規格。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "industry-infineon-sonos"
+      ],
+      "target": "topic-sonos",
+      "search": "Infineon／Cypress 官方列出 2T SONOS、FN 寫抹與多個量產節點，提供製程及設計授權。 The official page identifies 2T SONOS, FN program/erase, production nodes and process/design licensing."
+    },
+    {
+      "id": "industry-sst-superflash",
+      "name": "SST / Microchip",
+      "technology": "SuperFlash NOR / eFlash",
+      "family": "NOR / eFlash / SONOS",
+      "role": "技術與 IP 授權商",
+      "maturity": "商用技術授權",
+      "claim": "官方列出 SuperFlash 製程整合與授權，適合補上獨立 NOR 以外的嵌入式技術入口。",
+      "limit": "技術授權不等於每個列示節點目前均有相同資格；原理按世代核對。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "industry-sst-superflash"
+      ],
+      "target": "topic-nor",
+      "search": "SST／Microchip 官方列出 SuperFlash 製程整合與授權，適合補上獨立 NOR 以外的嵌入式技術入口。 SST lists SuperFlash process integration and licensing, complementing standalone NOR coverage."
+    },
+    {
+      "id": "industry-st-estm",
+      "name": "STMicroelectronics",
+      "technology": "eSTM eFlash / Page EEPROM",
+      "family": "NOR / eFlash / SONOS",
+      "role": "整合元件製造商",
+      "maturity": "具名商用實施",
+      "claim": "官方 eSTM 頁連結 40 nm 浮動閘極與垂直選擇電晶體，以及 STM32H5、Page EEPROM 的實施。",
+      "limit": "與 Stellar PCM 分列；不把一種 NVM 單元指定為所有 ST MCU 的結構。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "industry-st-estm"
+      ],
+      "target": "topic-nor",
+      "search": "STMicroelectronics 官方 eSTM 頁連結 40 nm 浮動閘極與垂直選擇電晶體，以及 STM32H5、Page EEPROM 的實施。 ST links 40nm floating-gate eSTM with vertical select transistors to STM32H5 and Page EEPROM implementations."
+    },
+    {
+      "id": "industry-renesas-sgmonos",
+      "name": "Renesas",
+      "technology": "SG-MONOS eFlash",
+      "family": "NOR / eFlash / SONOS",
+      "role": "整合元件製造商",
+      "maturity": "歷史量產與較小節點研究",
+      "claim": "2016 公告確認當時 40 nm MCU 採 SG-MONOS 量產，並展示 16／14 nm Fin 結構研究。",
+      "limit": "這份公告不證明 16／14 nm 已量產；現行料號與機制須另查。",
+      "dateLabel": "來源日期／事件期間: 2016-12-07 · 查核 2026-09-10",
+      "sourceIds": [
+        "industry-renesas-sgmonos"
+      ],
+      "target": "topic-sonos",
+      "search": "Renesas 2016 公告確認當時 40 nm MCU 採 SG-MONOS 量產，並展示 16／14 nm Fin 結構研究。 The 2016 announcement identifies production 40nm SG-MONOS MCUs and research on 16/14nm fin-shaped cells."
+    },
+    {
+      "id": "industry-xfab-xt011",
+      "name": "X-FAB",
+      "technology": "XT011 eFlash / EEPROM",
+      "family": "NOR / eFlash / SONOS",
+      "role": "晶圓代工與平台供應商",
+      "maturity": "具名平台發布",
+      "claim": "2024 年公告 XT011 110 nm BCD-on-SOI 平台的嵌入式 Flash 與 EEPROM。",
+      "limit": "不取代站內 2003 XC06 歷史例；兩代不能共用未經證明的單元結構。",
+      "dateLabel": "來源日期／事件期間: 2024-12-03 · 查核 2026-09-10",
+      "sourceIds": [
+        "industry-xfab-xt011"
+      ],
+      "target": "topic-nor",
+      "search": "X-FAB 2024 年公告 XT011 110 nm BCD-on-SOI 平台的嵌入式 Flash 與 EEPROM。 The 2024 announcement identifies embedded Flash and EEPROM on the XT011 110nm BCD-on-SOI platform."
+    },
+    {
+      "id": "industry-macronix-nor",
+      "name": "Macronix",
+      "technology": "Serial NOR / OctaBus",
+      "family": "NOR / eFlash / SONOS",
+      "role": "NOR／NAND 產品供應商",
+      "maturity": "官方產品組合",
+      "claim": "官方 Serial NOR 目錄提供產品組合與 OctaBus 介面方案。",
+      "limit": "此來源直接支持 NOR；NAND 型號及可靠度須另查，不從介面推定單元剖面。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "industry-macronix-nor"
+      ],
+      "target": "topic-nor",
+      "search": "Macronix 官方 Serial NOR 目錄提供產品組合與 OctaBus 介面方案。 Macronix's official Serial NOR page provides its product portfolio and OctaBus interface offerings."
+    },
+    {
+      "id": "industry-winbond-w25q",
+      "name": "Winbond",
+      "technology": "W25Q16JW Serial NOR",
+      "family": "NOR / eFlash / SONOS",
+      "role": "程式碼儲存記憶體供應商",
+      "maturity": "具名產品目錄",
+      "claim": "原廠目錄提供 W25Q16JW 序列 NOR 及對應料號入口。",
+      "limit": "不以目錄存在保證庫存；NAND 家族與其他容量的狀態須逐項核對。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "industry-winbond-w25q"
+      ],
+      "target": "topic-nor",
+      "search": "Winbond 原廠目錄提供 W25Q16JW 序列 NOR 及對應料號入口。 The official catalog identifies W25Q16JW Serial NOR and associated ordering entries."
+    },
+    {
+      "id": "industry-samsung-vnand9",
+      "name": "Samsung",
+      "technology": "第九代 TLC V-NAND",
+      "family": "NAND",
+      "role": "NAND 元件與儲存產品供應商",
+      "maturity": "具名世代量產",
+      "claim": "2024 年 4 月公告 1 Tb TLC 第九代 V-NAND 開始量產。",
+      "limit": "只證明此世代與 TLC；不將後續展示或當時預期 QLC 視為本公告已量產。",
+      "dateLabel": "來源日期／事件期間: 2024-04-23 · 查核 2026-09-10",
+      "sourceIds": [
+        "industry-samsung-vnand9"
+      ],
+      "target": "topic-nand",
+      "search": "Samsung 2024 年 4 月公告 1 Tb TLC 第九代 V-NAND 開始量產。 Samsung announced mass production of 1Tb TLC ninth-generation V-NAND in April 2024."
+    },
+    {
+      "id": "industry-skhynix-321tlc",
+      "name": "SK hynix",
+      "technology": "321 層 TLC 4D NAND",
+      "family": "NAND",
+      "role": "NAND 元件與儲存產品供應商",
+      "maturity": "具名世代開始量產",
+      "claim": "2024 年 11 月公告 321 層、1 Tb TLC NAND 開始量產。",
+      "limit": "量產與客戶供貨時程分開；不把此單元指定為所有 Solidigm SSD 的媒體。",
+      "dateLabel": "來源日期／事件期間: 2024-11-21 · 查核 2026-09-10",
+      "sourceIds": [
+        "industry-skhynix-321tlc"
+      ],
+      "target": "topic-nand",
+      "search": "SK hynix 2024 年 11 月公告 321 層、1 Tb TLC NAND 開始量產。 SK hynix announced the start of 321-layer 1Tb TLC NAND mass production in November 2024."
+    },
+    {
+      "id": "industry-solidigm-p5336",
+      "name": "Solidigm",
+      "technology": "D5-P5336 QLC SSD",
+      "family": "NAND",
+      "role": "企業級 SSD 供應商",
+      "maturity": "具名商用產品",
+      "claim": "官方 D5-P5336 產品頁提供 QLC 企業級 SSD 的產品與容量選項。",
+      "limit": "SSD 容量、韌體與系統指標不是裸晶規格；不以集團關係推定所有產品使用同一 NAND。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "industry-solidigm-p5336"
+      ],
+      "target": "topic-nand",
+      "search": "Solidigm 官方 D5-P5336 產品頁提供 QLC 企業級 SSD 的產品與容量選項。 The official D5-P5336 page identifies a commercial enterprise QLC SSD family and capacity options."
+    },
+    {
+      "id": "industry-micron-g9",
+      "name": "Micron",
+      "technology": "G9 TLC NAND",
+      "family": "NAND",
+      "role": "NAND 元件與儲存產品供應商",
+      "maturity": "量產與具名 SSD 出貨",
+      "claim": "2024 年 7 月公告 G9 TLC NAND 及採用該世代的 Micron 2650 SSD 量產出貨。",
+      "limit": "不將 TLC 的證據移至全部 QLC 或 NOR；介面速度不等於單元寫入速度。",
+      "dateLabel": "來源日期／事件期間: 2024-07-30 · 查核 2026-09-10",
+      "sourceIds": [
+        "industry-micron-g9"
+      ],
+      "target": "topic-nand",
+      "search": "Micron 2024 年 7 月公告 G9 TLC NAND 及採用該世代的 Micron 2650 SSD 量產出貨。 The July 2024 release reports G9 TLC NAND and volume shipment of the Micron 2650 SSD using it."
+    },
+    {
+      "id": "industry-kioxia-sandisk-gen10",
+      "name": "Kioxia / Sandisk",
+      "technology": "第十代 BiCS 3D NAND",
+      "family": "NAND",
+      "role": "共同開發與製造合作方",
+      "maturity": "具名工廠開始生產",
+      "claim": "2026 年 7 月共同公告北上 K2 開始第十代 3D Flash 生產。",
+      "limit": "開始生產不等於所有容量與客戶產品已全面出貨；合作製造不代表兩家成品完全相同。",
+      "dateLabel": "來源日期／事件期間: 2026-07-03 · 查核 2026-09-10",
+      "sourceIds": [
+        "industry-kioxia-sandisk-gen10"
+      ],
+      "target": "topic-nand",
+      "search": "Kioxia／Sandisk 2026 年 7 月共同公告北上 K2 開始第十代 3D Flash 生產。 The July 2026 joint announcement states that tenth-generation 3D Flash production began at Kitakami K2."
+    },
+    {
+      "id": "industry-ymtc-xtacking",
+      "name": "YMTC",
+      "technology": "Xtacking 3D NAND",
+      "family": "NAND",
+      "role": "NAND 技術與產品供應商",
+      "maturity": "公開架構與具名產品家族",
+      "claim": "官方頁說明周邊與陣列分別製造再鍵合，並列 2025 年 Xtacking 4.0 的 X4 系列產品。",
+      "limit": "獎項及架構頁不單獨證明每款產品量產、層數或供貨量；不得用推測補完。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "industry-ymtc-xtacking"
+      ],
+      "target": "topic-nand",
+      "search": "YMTC 官方頁說明周邊與陣列分別製造再鍵合，並列 2025 年 Xtacking 4.0 的 X4 系列產品。 The official page explains separate peripheral/array wafers joined by bonding and names Xtacking 4.0 X4 products in 2025."
+    },
+    {
+      "id": "industry-gigadevice-flash",
+      "name": "GigaDevice",
+      "technology": "GD25 / GD55 NOR",
+      "family": "NOR / eFlash / SONOS",
+      "role": "NOR／NAND 產品供應商",
+      "maturity": "官方產品組合",
+      "claim": "官方產品組合列出 GD25／GD55 NOR。",
+      "limit": "家族範圍不能代替特定料號量產狀態、溫度、耐久與保持規格。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "industry-gigadevice-flash"
+      ],
+      "target": "topic-nor",
+      "search": "GigaDevice 官方頁列出 GD25／GD55 SPI NOR 與 GD5F SPI／平行 NAND。 The official portfolio identifies GD25/GD55 SPI NOR and GD5F SPI/parallel NAND."
+    },
+    {
+      "id": "industry-floadia-zt",
+      "name": "Floadia",
+      "technology": "LEE Flash ZT MTP",
+      "family": "OTP / MTP",
+      "role": "技術與 IP 授權商",
+      "maturity": "具名商用 IP",
+      "claim": "ZT 官方頁說明 FN 寫抹、零新增光罩與具名平台量產紀錄。",
+      "limit": "概述與平台範例的循環數不同，不合成通用耐久或推定多晶矽層數。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "industry-floadia-zt"
+      ],
+      "target": "topic-mtp",
+      "search": "Floadia ZT 官方頁說明 FN 寫抹、零新增光罩與具名平台量產紀錄。 The ZT page describes FN program/erase, zero added masks and named platform production records."
+    },
+    {
+      "id": "ip-neobit",
+      "name": "力旺 eMemory · NeoBit · 浮動閘極 OTP",
+      "technology": "OTP",
+      "family": "OTP / MTP",
+      "role": "記憶體 IP／技術沿革",
+      "maturity": "具名 IP 專題；資格依製程版本",
+      "claim": "從串聯的選擇器與 p 型浮動閘極儲存電晶體，看電子注入如何改變讀取電流；再區分正常 OTP 操作與紫外線清除的物理可能性。",
+      "limit": "歷史單元與專利不代表每個現行版本均採相同結構。",
+      "dateLabel": "查核 2026-09-10",
+      "sourceIds": [
+        "ip-neobit",
+        "ip-neobit-pat"
+      ],
+      "target": "ip-neobit",
+      "search": "力旺 eMemory · NeoBit · 浮動閘極 OTP OTP"
+    },
+    {
+      "id": "ip-neofuse",
+      "name": "力旺 eMemory · NeoFuse · Antifuse OTP",
+      "technology": "OTP",
+      "family": "OTP / MTP",
+      "role": "記憶體 IP／技術沿革",
+      "maturity": "具名 IP 專題；資格依製程版本",
+      "claim": "從 n 型單元的閘極介電層出發，追蹤高場造成的缺陷、有效穿隧距離變化，以及讀取時可辨識的閘極電流。",
+      "limit": "歷史單元與專利不代表每個現行版本均採相同結構。",
+      "dateLabel": "查核 2026-09-10",
+      "sourceIds": [
+        "ip-neofuse",
+        "ip-neofuse-dt"
+      ],
+      "target": "ip-neofuse",
+      "search": "力旺 eMemory · NeoFuse · Antifuse OTP OTP"
+    },
+    {
+      "id": "ip-kilopass-xpm",
+      "name": "Kilopass；2018 年併入 Synopsys · Kilopass XPM",
+      "technology": "OTP",
+      "family": "OTP / MTP",
+      "role": "記憶體 IP／技術沿革",
+      "maturity": "具名 IP 專題；資格依製程版本",
+      "claim": "以原始專利明稱 XPM 的 2T 圖解，分清儲存 MOS 與選擇 MOS。",
+      "limit": "歷史單元與專利不代表每個現行版本均採相同結構。",
+      "dateLabel": "查核 2026-09-10",
+      "sourceIds": [
+        "ip-kilopass-xpm-2007",
+        "ip-kilopass-2t-2012"
+      ],
+      "target": "ip-kilopass-xpm",
+      "search": "Kilopass；2018 年併入 Synopsys · Kilopass XPM OTP"
+    },
+    {
+      "id": "ip-sidense-1t-fuse",
+      "name": "Sidense；2017 年併入 Synopsys · Sidense 1T-Fuse",
+      "technology": "OTP",
+      "family": "OTP / MTP",
+      "role": "記憶體 IP／技術沿革",
+      "maturity": "具名 IP 專題；資格依製程版本",
+      "claim": "單一閘極跨越厚／薄氧化層；薄區永久導通形成 OTP 狀態。",
+      "limit": "歷史單元與專利不代表每個現行版本均採相同結構。",
+      "dateLabel": "查核 2026-09-10",
+      "sourceIds": [
+        "ip-sidense-cell-2007",
+        "ip-sidense-irreversible-2017"
+      ],
+      "target": "ip-sidense-1t-fuse",
+      "search": "Sidense；2017 年併入 Synopsys · Sidense 1T-Fuse OTP"
+    },
+    {
+      "id": "ip-neoee",
+      "name": "力旺 eMemory · NeoEE · FN／FN MTP",
+      "technology": "MTP",
+      "family": "OTP / MTP",
+      "role": "記憶體 IP／技術沿革",
+      "maturity": "具名 IP 專題；資格依製程版本",
+      "claim": "沿控制耦合區、浮動節點與穿隧區，分別追蹤 FN 如何將電子存入與移出，再由讀取電晶體感測儲存狀態。",
+      "limit": "歷史單元與專利不代表每個現行版本均採相同結構。",
+      "dateLabel": "查核 2026-09-10",
+      "sourceIds": [
+        "ip-neoee",
+        "ip-neoee-history"
+      ],
+      "target": "ip-neoee",
+      "search": "力旺 eMemory · NeoEE · FN／FN MTP MTP"
+    },
+    {
+      "id": "ip-neomtp",
+      "name": "力旺 eMemory · NeoMTP · CHI／FN MTP",
+      "technology": "MTP",
+      "family": "OTP / MTP",
+      "role": "記憶體 IP／技術沿革",
+      "maturity": "具名 IP 專題；資格依製程版本",
+      "claim": "比較 p 型浮動閘極單元的熱載子寫入，以及電子經 FN 移向專用抹除閘極的反向路徑。兩種操作在同一儲存節點上完成。",
+      "limit": "歷史單元與專利不代表每個現行版本均採相同結構。",
+      "dateLabel": "查核 2026-09-10",
+      "sourceIds": [
+        "ip-neomtp",
+        "ip-neomtp-pat"
+      ],
+      "target": "ip-neomtp",
+      "search": "力旺 eMemory · NeoMTP · CHI／FN MTP MTP"
+    },
+    {
+      "id": "ip-ymc-mtp",
+      "name": "億而得 YMC · YMC · MTP 與機制界線",
+      "technology": "MTP",
+      "family": "OTP / MTP",
+      "role": "記憶體 IP／技術沿革",
+      "maturity": "具名 IP 專題；資格依製程版本",
+      "claim": "YMC 公開提供邏輯製程 MTP 家族。下方 CHI／BBHH 是獨立機制示意，並非現行 ymtp 商品採 BBHH 的證據；產品能力與 1T1C 教學模型分開閱讀。",
+      "limit": "歷史單元與專利不代表每個現行版本均採相同結構。",
+      "dateLabel": "查核 2026-09-10",
+      "sourceIds": [
+        "ymc-product",
+        "ymc-1t1c"
+      ],
+      "target": "ip-ymc-mtp",
+      "search": "億而得 YMC · YMC · MTP 與機制界線 MTP"
+    },
+    {
+      "id": "ip-impinj-aeon",
+      "name": "Impinj → Virage Logic → Synopsys · AEON · FN／FN MTP",
+      "technology": "MTP",
+      "family": "OTP / MTP",
+      "role": "記憶體 IP／技術沿革",
+      "maturity": "具名 IP 專題；資格依製程版本",
+      "claim": "依 2009 年具名 AEON 原廠資料，追蹤電子經 FN 存入與移出浮動閘極，再由讀取 MOS 感測；品牌與業務承接另列時間線。",
+      "limit": "歷史單元與專利不代表每個現行版本均採相同結構。",
+      "dateLabel": "查核 2026-09-10",
+      "sourceIds": [
+        "aeon-impinj-2007",
+        "aeon-virage-fn-2009"
+      ],
+      "target": "ip-impinj-aeon",
+      "search": "Impinj → Virage Logic → Synopsys · AEON · FN／FN MTP MTP"
+    },
+    {
+      "id": "sony-micron-reram",
+      "name": "Sony / Micron",
+      "technology": "Copper ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "合作元件與記憶體研發",
+      "maturity": "歷史研究展示",
+      "claim": "Micron 2014 年 VLSI 公告明確列出與 Sony 合作的銅 ReRAM，對應 16Gb 儲存級記憶體展示。",
+      "limit": "未證明當前商品或 Sony 影像感測器已導入。",
+      "dateLabel": "來源：2014-06-05；查核 2026-09-10",
+      "sourceIds": [
+        "RES-SONY-MICRON-2014"
+      ],
+      "target": "topic-ecm",
+      "search": "Sony Micron 索尼 銅 Copper ReRAM CBRAM"
+    },
+    {
+      "id": "industry-gigadevice-nand",
+      "name": "GigaDevice",
+      "technology": "GD5F NAND",
+      "family": "NAND",
+      "role": "NOR／NAND 產品供應商",
+      "maturity": "官方產品組合",
+      "claim": "官方產品組合另列 GD5F NAND。",
+      "limit": "家族範圍不能代替特定料號量產狀態、溫度、耐久與保持規格。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "industry-gigadevice-flash"
+      ],
+      "target": "topic-nand",
+      "search": "GigaDevice 官方頁列出 GD25／GD55 SPI NOR 與 GD5F SPI／平行 NAND。 The official portfolio identifies GD25/GD55 SPI NOR and GD5F SPI/parallel NAND."
+    },
+    {
+      "id": "kioxia-skhynix-crosspoint",
+      "name": "Kioxia／SK hynix",
+      "technology": "64 Gbit 1Selector–1MTJ Cross-Point MRAM",
+      "family": "MRAM",
+      "role": "高密度 MRAM 共同研究",
+      "maturity": "IEDM 2024 研究原型；2025 年官網說明",
+      "claim": "共同開發 64 Gbit 交叉點 MRAM，以兩端選擇器取代選擇電晶體；MTJ 直徑 20 nm、半節距 20.5 nm，單元面積 0.001681 µm²。",
+      "limit": "屬研究陣列，未證明商品供貨；20 nm 是 MTJ 直徑而非 CMOS 製程節點，典型位元測試不能代替全陣列良率。",
+      "dateLabel": "來源日期 2025-04-15",
+      "sourceIds": [
+        "MRAM-KIOXIA-SKHYNIX-64GB-2025"
+      ],
+      "target": "topic-stt",
+      "search": "Kioxia／SK hynix 64 Gbit 1Selector–1MTJ Cross-Point MRAM Joint high-density MRAM research 高密度 MRAM 共同研究"
+    },
+    {
+      "id": "tetramem-mlx200",
+      "name": "TetraMem",
+      "technology": "MLX200 Multi-Level RRAM Analog IMC",
+      "family": "ReRAM / CBRAM",
+      "role": "多階 RRAM 類比記憶體內運算開發商",
+      "maturity": "投片與初步矽驗證完成",
+      "claim": "2026 年 5 月公告 MLX200 在 TSMC 22nm 製程完成投片與初步矽驗證，將多階 RRAM 與混合訊號運算整合於 SoC。",
+      "limit": "評估套件在公告時預計於 2026 年下半年推出；初步驗證不等於量產或已交付，運算用途不能直接套用一般儲存規格。",
+      "dateLabel": "來源日期 2026-05-19",
+      "sourceIds": [
+        "RRAM-TETRAMEM-MLX200-2026"
+      ],
+      "target": "topic-vcm",
+      "search": "TetraMem MLX200 Multi-Level RRAM Analog IMC Multi-level RRAM analog in-memory computing developer 多階 RRAM 類比記憶體內運算開發商"
+    },
+    {
+      "id": "intrinsic-surecore",
+      "name": "Intrinsic／sureCore",
+      "technology": "SiOx RRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "氧化矽 RRAM 與嵌入式記憶體架構合作",
+      "maturity": "技術開發與商業化合作",
+      "claim": "Intrinsic 官網以氧化矽 RRAM 為核心，並列出與 sureCore 合作，結合 CMOS 相容單元、記憶體架構及編譯器設計能力。",
+      "limit": "合作公告不足以證明具名製程巨集已通過認證或量產；官網未提供可據此認定現行供貨的完整料號與資料表。",
+      "dateLabel": "來源未標日期；查核 2026-09-10",
+      "sourceIds": [
+        "RRAM-INTRINSIC-SURECORE"
+      ],
+      "target": "topic-vcm",
+      "search": "Intrinsic／sureCore SiOx RRAM Silicon-oxide RRAM and embedded-memory architecture collaboration 氧化矽 RRAM 與嵌入式記憶體架構合作"
+    },
+    {
+      "id": "nantero-fujitsu-nram",
+      "name": "Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor",
+      "technology": "Carbon-Nanotube NRAM",
+      "family": "NRAM",
+      "role": "碳奈米管 NRAM 歷史授權與共同開發",
+      "maturity": "2016 年授權與 55nm 共同開發公告",
+      "claim": "Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 碳奈米管 NRAM 授權，並共同開發 55nm 產品。",
+      "limit": "此為歷史開發證據，不能視為 2026 年量產、供貨或計畫終止的證明；NRAM 應與氧化物 RRAM 分開分類。",
+      "dateLabel": "來源日期 2016-08-31",
+      "sourceIds": [
+        "NRAM-NANTERO-FUJITSU-2016"
+      ],
+      "target": "research",
+      "search": "Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor Carbon-Nanotube NRAM Historical carbon-nanotube NRAM licensing and joint development 碳奈米管 NRAM 歷史授權與共同開發"
+    }
+  ]
+}

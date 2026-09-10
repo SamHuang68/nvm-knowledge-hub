@@ -9,6 +9,17 @@ function showRoute({ focus = false } = {}) {
   let target;
   try { target = decodeURIComponent(location.hash.slice(1)) || 'panorama'; } catch { target = 'panorama'; }
   const anchor = document.getElementById(target);
+  if (anchor?.matches('[data-landscape-row]') && anchor.hidden) {
+    document.querySelector('#nvm-landscape-family').value = '';
+    const query = document.querySelector('#nvm-landscape-search');
+    query.value = '';
+    query.dispatchEvent(new Event('input'));
+  }
+  if (anchor?.matches('[data-foundry]') && anchor.hidden) {
+    const select = document.querySelector('#nvm-foundry-filter');
+    select.value = '';
+    select.dispatchEvent(new Event('change'));
+  }
   if (target === 'main-content') {
     const current = panels.find(item => !item.hidden) || panels[0];
     panels.forEach(item => { item.hidden = item !== current; });
@@ -24,7 +35,7 @@ function showRoute({ focus = false } = {}) {
   const operation = anchor?.matches('[data-operation-detail]') ? anchor : anchor?.closest('[data-operation-detail]');
   if (operation) {
     const widget = operation.closest('[data-operation-widget]');
-    widget.querySelectorAll('[data-operation-detail]').forEach(item => { item.hidden = item !== operation; });
+    widget.querySelectorAll('[data-operation-detail]').forEach(item => { item.hidden = !widget.hasAttribute('data-complete-cycle') && item !== operation; });
     widget.querySelectorAll('[data-operation-select]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.operationSelect===operation.dataset.operationDetail)));
   }
   document.querySelectorAll('.nvm-sidebar a').forEach(link => {
@@ -70,12 +81,19 @@ document.addEventListener('keydown', event => {
 window.addEventListener('hashchange', () => showRoute({ focus: true }));
 
 document.querySelectorAll('[data-operation-widget]').forEach(widget => {
-  widget.querySelectorAll('[data-operation-detail]').forEach((item, index) => { item.hidden = index > 0; });
+  const completeCycle = widget.hasAttribute('data-complete-cycle');
+  widget.querySelectorAll('[data-operation-detail]').forEach((item, index) => { item.hidden = !completeCycle && index > 0; });
   widget.querySelectorAll('[data-operation-select]').forEach(button => {
     button.addEventListener('click', () => {
       widget.querySelectorAll('[data-operation-select]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-      widget.querySelectorAll('[data-operation-detail]').forEach(item => { item.hidden = item.dataset.operationDetail !== button.dataset.operationSelect; });
+      widget.querySelectorAll('[data-operation-detail]').forEach(item => { item.hidden = !completeCycle && item.dataset.operationDetail !== button.dataset.operationSelect; });
       history.replaceState(null,'',`#${button.getAttribute('aria-controls')}`);
+      if (completeCycle) {
+        const destination = document.getElementById(button.getAttribute('aria-controls'));
+        destination.setAttribute('tabindex', '-1');
+        destination.focus({preventScroll:true});
+        destination.scrollIntoView({block:'start'});
+      }
     });
   });
 });
@@ -104,6 +122,30 @@ const foundryFilter = document.querySelector('#nvm-foundry-filter');
 foundryFilter?.addEventListener('change', () => {
   document.querySelectorAll('[data-foundry]').forEach(item => { item.hidden = Boolean(foundryFilter.value) && item.dataset.foundry !== foundryFilter.value; });
 });
+
+const landscapeSearch = document.querySelector('#nvm-landscape-search');
+const landscapeFamily = document.querySelector('#nvm-landscape-family');
+const landscapeRows = [...document.querySelectorAll('[data-landscape-row]')];
+function filterLandscape() {
+  if (!landscapeSearch || !landscapeFamily) return;
+  const query = landscapeSearch.value.normalize('NFKC').toLocaleLowerCase().trim();
+  let count = 0;
+  for (const row of landscapeRows) {
+    row.hidden = Boolean(query && !row.dataset.search.normalize('NFKC').toLocaleLowerCase().includes(query)) || Boolean(landscapeFamily.value && row.dataset.family !== landscapeFamily.value);
+    if (!row.hidden) count++;
+  }
+  document.querySelector('#nvm-landscape-count').textContent = isEnglish ? `Showing ${count} of ${landscapeRows.length} named routes` : `顯示 ${count}／${landscapeRows.length} 條具名路線`;
+  document.querySelector('#nvm-landscape-empty').hidden = count !== 0;
+}
+landscapeSearch?.addEventListener('input', filterLandscape);
+landscapeFamily?.addEventListener('change', filterLandscape);
+document.querySelector('#nvm-landscape-reset')?.addEventListener('click', () => {
+  landscapeSearch.value = '';
+  landscapeFamily.value = '';
+  filterLandscape();
+  landscapeSearch.focus();
+});
+filterLandscape();
 
 const sourceSearch = document.querySelector('#nvm-source-search');
 sourceSearch?.addEventListener('input', () => {

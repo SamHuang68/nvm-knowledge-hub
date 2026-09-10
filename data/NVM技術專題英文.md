@@ -722,6 +722,27 @@ eMemory
 
 Follow the control-coupling region, floating node and tunneling region as FN transport stores and removes electrons. A read transistor then senses the stored state.
 
+#### Floating-Gate MTP in This Chapter: PGM / ERS Cycle
+
+The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.
+
+PGM → ERS → PGM
+
+Initial: FG retains programmed charge.
+
+FN — Carriers: electrons leave FG by FN tunneling into a MOS receiving region.
+
+Result: reduced FG charge permits another program cycle.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+The official NeoEE page describes page/word operation units and a byte-write function. Verify the exact macro’s erase unit rather than inferring it from the host write size.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [ip-neoee: NeoEE Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ip-neoee-history: Historical NeoEE Conceptual Cell](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)
+
 NeoEE — Cell Structure
 
 Single-poly FG with capacitive-coupling MOS structures and selectors. Coupling and tunneling are functional roles; public evidence does not fix the device count or p/n arrangement. After high-field removal, isolated FG charge shifts the read-channel threshold.
@@ -896,6 +917,28 @@ eMemory
 
 Compare hot-carrier programming of the p-type floating-gate cell with FN electron transfer toward a dedicated erase gate. Both operations act on the same storage node.
 
+#### Floating-Gate MTP in This Chapter: PGM / ERS Cycle
+
+The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.
+
+PGM → ERS → PGM
+
+Initial: FG retains programmed negative charge.
+
+FN — Carriers: electrons tunnel from FG toward EG by FN.
+
+Result: reduced FG electrons turn the p-channel off at specified read bias.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [ip-neomtp: NeoMTP Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ip-neomtp-pat: Related pMOS and Edge-Erase-Gate Patent](https://patents.google.com/patent/US20030235082A1/en)
+- [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+
 NeoMTP — Cell Structure
 
 Single-poly p-type FG-MOSFET related to NeoBit, with an additional erase gate EG. Dielectric separates EG and FG; they are not shorted. Dielectric isolates FG charge; EG provides an FN exit under erase conditions.
@@ -1068,13 +1111,37 @@ Do not draw injected holes in FG or substitute conventional nMOS CHE; historical
 
 CHI/FN is the operation-pair shorthand used here. eMemory describes programming as channel-hot-hole-induced hot-electron injection and labels it CHEI. The erase gate provides a separate electron exit, distinguishing this cell from NeoBit's normal OTP interface and NeoEE's FN/FN mechanism.
 
-### YMC MTP: CHI/BBHH Operation Model
+### YMC MTP: Program, Erase and Public Evidence
 
 Yield Microelectronics (YMC)
 
-Use the same equivalent 1T1C floating node to follow CHI electron programming and BBHH hole injection, then read the state through nMOS threshold voltage and channel current.
+YMC publicly identifies a logic-process MTP family. The CHI/BBHH sequence below is an independent mechanism illustration, not evidence that a current ymtp product uses BBHH. Separate product capability from an illustrative 1T1C model.
 
-YMC ymtp: CHI / BBHH 1T1C Operating Model
+#### Floating-Gate MTP in This Chapter: PGM / ERS Cycle
+
+The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.
+
+PGM → ERS → PGM
+
+FG holds net negative charge from programming.
+
+Band-to-Band Carrier Generation Followed by Hot-Hole Injection into FG — Under this local field condition, a few red holes cross the dielectric into FG and reduce negative charge. Silicon BBT generation and subsequent dielectric injection each require suitable conditions; neither FN electron removal nor DAHHI avalanche generation is substituted.
+
+Vth is lower and I_R is larger at the same read bias. This qualitative direction does not guarantee neutrality, a fixed endpoint or self-convergent erase.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+The cited public product sources do not establish BBHH for a current ymtp version. The diagrams illustrate independent CHI/BBHH physics; obtain the target macro’s actual PGM/ERS mechanism, biases, granularity and cycling specification.
+
+- [ymc-product: YMC: Logic-Process ymtp MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ymc-1t1c: YMC: 1T1C Core Technology](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
+- [physics-bbhh-fg: Wu et al.: BBHH and Floating-Gate Demonstration](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)
+- [physics-btbt-carriers: Chu and Wu: BTBT Hot-Carrier Paths](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf)
+- [physics-fg-hole-erase: IEEE: Hot-Hole Injection into a Floating Gate](https://ieeexplore.ieee.org/document/748914/)
+
+Independent Mechanism Study: CHI / BBHH Equivalent 1T1C
 
 One nMOS and one functional coupling capacitor share FG. Official information supports ymtp and the 1T1C family; this original equivalent drawing does not assert current product junctions, wells or dimensions. FG and CG have no DC short.
 
@@ -1136,7 +1203,7 @@ At the same read bias, the effective nMOS has higher Vth and smaller I_R: the se
 - BBT / BBHH · BBT is band-to-band tunneling in silicon. BBHH uses the resulting holes for hot-hole injection; crossing the dielectric is a subsequent step.
 - Vth / QFG · Vth is the effective nMOS threshold and QFG is FG charge. The actual product defines biases, sensing margins and logic encoding.
 
-A CHI / BBHH teaching model for YMC ymtp, using an equivalent 1T1C and qualitative directions rather than a current version-specific cross-section or bias table. Independent original research supports BBHH physics; YMC FN/DAHHI patent variants retain their distinct mechanisms.
+An independent CHI / BBHH teaching model; cited sources do not establish BBHH in current YMC ymtp products. It uses an equivalent 1T1C and qualitative directions rather than a current version-specific cross-section or bias table. Independent original research supports BBHH physics; YMC FN/DAHHI patent variants retain their distinct mechanisms.
 
 - [ymc-product: YMC: Logic-Process ymtp MTP IP](https://www.ymc.com.tw/index_en.php)
 - [ymc-1t1c: YMC: 1T1C Core Technology](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
@@ -1189,7 +1256,7 @@ Vth is lower and I_R is larger at the same read bias. This qualitative direction
 - BBT / BBHH · BBT is band-to-band tunneling in silicon. BBHH uses the resulting holes for hot-hole injection; crossing the dielectric is a subsequent step.
 - Vth / QFG · Vth is the effective nMOS threshold and QFG is FG charge. The actual product defines biases, sensing margins and logic encoding.
 
-A CHI / BBHH teaching model for YMC ymtp, using an equivalent 1T1C and qualitative directions rather than a current version-specific cross-section or bias table. Independent original research supports BBHH physics; YMC FN/DAHHI patent variants retain their distinct mechanisms.
+An independent CHI / BBHH teaching model; cited sources do not establish BBHH in current YMC ymtp products. It uses an equivalent 1T1C and qualitative directions rather than a current version-specific cross-section or bias table. Independent original research supports BBHH physics; YMC FN/DAHHI patent variants retain their distinct mechanisms.
 
 - [ymc-product: YMC: Logic-Process ymtp MTP IP](https://www.ymc.com.tw/index_en.php)
 - [ymc-1t1c: YMC: 1T1C Core Technology](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
@@ -1243,7 +1310,7 @@ Iref must separate the states with adequate margin; the comparison is unchanged 
 - BBT / BBHH · BBT is band-to-band tunneling in silicon. BBHH uses the resulting holes for hot-hole injection; crossing the dielectric is a subsequent step.
 - Vth / QFG · Vth is the effective nMOS threshold and QFG is FG charge. The actual product defines biases, sensing margins and logic encoding.
 
-A CHI / BBHH teaching model for YMC ymtp, using an equivalent 1T1C and qualitative directions rather than a current version-specific cross-section or bias table. Independent original research supports BBHH physics; YMC FN/DAHHI patent variants retain their distinct mechanisms.
+An independent CHI / BBHH teaching model; cited sources do not establish BBHH in current YMC ymtp products. It uses an equivalent 1T1C and qualitative directions rather than a current version-specific cross-section or bias table. Independent original research supports BBHH physics; YMC FN/DAHHI patent variants retain their distinct mechanisms.
 
 - [ymc-product: YMC: Logic-Process ymtp MTP IP](https://www.ymc.com.tw/index_en.php)
 - [ymc-1t1c: YMC: 1T1C Core Technology](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
@@ -1259,6 +1326,27 @@ This is the CHI/BBHH mechanism model selected for this course. Public YMC materi
 Impinj → Virage Logic → Synopsys
 
 Follow the named 2009 AEON company account: electrons enter and leave FG by FN, then a read MOS senses the state. Business and brand succession have a separate timeline.
+
+#### Floating-Gate MTP in This Chapter: PGM / ERS Cycle
+
+The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.
+
+PGM → ERS → PGM
+
+FG retains negative charge from the previous program operation.
+
+FN — Erase is represented as electron removal, not neutralization by injected holes.
+
+Electrical erase and reprogramming enable MTP. Particle counts do not imply endurance, speed or retention specifications.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [aeon-impinj-2007: Impinj AEON/MTP Floating-Gate Announcement](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009: Virage Logic AEON MTP Program/Erase and Monitoring](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
 
 AEON MTP — Functional Cell Structure
 
@@ -1434,6 +1522,28 @@ Numem
 
 Connect foundry-standard STT-MRAM cells to embedded IP by identifying the magnetic junction, access transistor, bit line, source line and sensing path.
 
+#### Erase Semantics: Direct Magnetic Overwrite, No Separate ERS
+
+MRAM overwrites existing data by changing magnetic state, without a Flash-style erase-before-program step. Clearing to all zeros or ones is a series of target-state writes; the P/AP-to-data mapping is product-specific.
+
+P ⇄ AP
+
+P
+
+MTJ free-layer magnetization stores information — Magnetization reaches AP; the intermediate angle is not a measured trajectory or deterministic switching time.
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/)
+- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
+
 Numem MRAM IP: STT Teaching Reconstruction
 
 FL/tunnel barrier/RL represent STT functions; A/B are teaching terminals. WL/BL/SL follow the 2019 Numem architecture without claiming a layer-to-line mapping.
@@ -1512,7 +1622,7 @@ Stimulus: WL off; drive zero
 
 WL is off and the cell retains P; this sequence overwrites AP.
 
-**2. Select and Apply Spin Drive**
+**2. Select and Apply Reverse Spin Drive**
 
 State: Switching
 
@@ -1600,6 +1710,27 @@ GLOBALFOUNDRIES
 
 Use a publicly reported 22FDX research cell to examine 1T1MTJ, free and reference layers, and bidirectional switching under the source's current convention.
 
+#### Erase Semantics: Direct Magnetic Overwrite, No Separate ERS
+
+MRAM overwrites existing data by changing magnetic state, without a Flash-style erase-before-program step. Clearing to all zeros or ones is a series of target-state writes; the P/AP-to-data mapping is product-specific.
+
+P ⇄ AP
+
+P
+
+P/AP magnetization and resistance in 1T1MTJ — Magnetization reaches AP; the intermediate angle is not a measured trajectory or deterministic switching time.
+
+Turn WL off and remove bias to retain the moment; the other drive overwrites the opposite data without a floating-gate erase step.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [ip-gf-platform: GF: 22FDX Embedded MRAM Platform](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
+- [ip-gf-cell-2024: GF Coauthored Research: 22FDX STT-MRAM Cells](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/)
+
 GF 22FDX eMRAM: Published Research Cell
 
 The 2024 research uses CoFeB free/reference layers, a tunnel barrier, SAF pinning, and an access transistor. Their vertical placement here defines a drawing coordinate.
@@ -1676,7 +1807,7 @@ Stimulus: WL off; drive zero
 
 WL is off and the cell retains P; this sequence overwrites AP.
 
-**2. Select and Apply Spin Drive**
+**2. Select and Apply Reverse Spin Drive**
 
 State: Switching
 
@@ -1761,6 +1892,28 @@ A foundry embedded macro joins the magnetic junction to logic processing, the ac
 Weebit Nano
 
 Follow oxygen exchange, a defect-related conduction path and access-transistor current compliance in a public silicon-oxide research structure to understand embedded ReRAM SET, RESET and read.
+
+#### Erase Semantics: RESET Followed by Another SET
+
+RESET is the reverse data-state update from low to high resistance; a later SET restores low resistance. This is reversible resistance switching rather than Flash-style block erase. The circuit defines logical zero/one encoding.
+
+SET → RESET → SET
+
+LRS
+
+Oxygen-ion exchange and an oxygen-vacancy conduction path — Oxygen recombines with vacancies and opens a critical BE-side gap; RESET does not restore the entire layer to its as-fabricated material.
+
+HRS remains after bias removal; vacancies and interfacial oxygen may remain.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [ip-weebit-product: Weebit: Embedded ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/)
+- [ip-weebit-bitcell: Weebit: ReRAM Bitcell](https://www.weebit-nano.com/technology/reram-bitcell/)
+- [ip-weebit-cell-2021: Weebit/CEA-Leti/Silvaco: Original Oxide ReRAM Model](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf)
 
 Weebit ReRAM IP: CEA Research Cell
 
@@ -1923,6 +2076,28 @@ In this named research example, the storage medium, oxygen-exchange electrode an
 Crossbar
 
 Read Crossbar's public patent and historical embedded-macro materials through metallic-path extension, retraction and low-stimulus sensing.
+
+#### Erase Semantics: RESET Followed by Another SET
+
+RESET is the reverse data-state update from low to high resistance; a later SET restores low resistance. This is reversible resistance switching rather than Flash-style block erase. The circuit defines logical zero/one encoding.
+
+SET → RESET → SET
+
+LRS
+
+Extension/retraction from an upper metal region changes interparticle tunneling — The effective lower-side spacing increases and tunneling current falls; the upper residual metal region remains.
+
+HRS remains after bias removal. This is reverse RESET, without a preceding block-erase cycle.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
 
 Crossbar ReRAM IP: Historical Patent Cell
 
@@ -2377,6 +2552,27 @@ Cells sharing a column or row, and internal floating nodes, can develop differen
 
 This topic covers conventional standalone EEPROM: the array, voltage boosting, controller, and interface are packaged as a separate device accessed through a serial or parallel interface. Microchip 24LC256 is an identified I2C serial example. Foundry EEPROM macros and third-party MTP IP integrated within a chip are compared in the separate Embedded MTP IP topic.
 
+#### Electrical Erase: The Complete PGM / ERS Cycle
+
+The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.
+
+PGM → ERS → PGM
+
+The floating gate holds more electrons and the n-channel teaching example has an elevated threshold.
+
+Change terminal potentials within the same identified local-window structure so that its field supports electron transfer out of the floating gate.
+
+Fewer electrons remain and threshold voltage returns toward the erased range for reprogramming.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [ch-pat-eeprom-window: Hughes Aircraft Company: Local Tunnel-Window EEPROM Patent US4115914A](https://patents.google.com/patent/US4115914A/en)
+- [ch-mtp-standalone-microchip: Microchip: 24AA256/24LC256/24FC256 Standalone Serial EEPROM Datasheet](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA256-24LC256-24FC256-256K-I2C-Serial-EEPROM-DS20001203.pdf)
+
 Maturity: Production Device. Microchip publicly offers the 24LC256 serial EEPROM and its full datasheet, covering packages, I2C, byte writes, a page buffer, and an internal high-voltage generator. This establishes a standalone product; the local-window teaching diagram is supported separately by a public patent.
 
 The datasheet does not disclose the bitcell cross-section, polysilicon count, or precise tunneling terminals. US4115914A cannot be treated as the 24LC256 implementation. Capacity, endurance, and retention must follow the specified part and conditions.
@@ -2466,6 +2662,35 @@ No. The datasheet establishes device interface behavior, update rules, and ratin
 
 MTP IP provides rewritable nonvolatile storage inside the host chip, so selection centers on process and macro integration. Foundry double-poly EEPROM can be supplied through a dedicated NVM option; identified public evidence for third-party single-poly alternatives includes Synopsys MTP EEPROM and eMemory NeoEE/NeoMTP. This category is separate from packaged standalone EEPROM and does not merge SONOS Flash or antifuse OTP into floating-gate MTP.
 
+#### Floating-Gate MTP in This Chapter: PGM / ERS Cycle
+
+The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.
+
+PGM → ERS → PGM
+
+The floating node retains charge from the previous data state and the macro has selected the page, word, or block allowed to update.
+
+The US5844271A teaching example transfers electrons from floating gate to source through FN tunneling. NeoMTP instead identifies an additional erase gate as its destination; NeoEE provides FN paths through MOS structures.
+
+Charge decreases and the floating node returns to a state suitable for programming. Completion is determined by erase verification and the target macro specification.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [ch-pat-eeprom-singlepoly: Cypress Semiconductor: Buried-Control-Gate Single-Poly EEPROM Patent US5844271A](https://patents.google.com/patent/US5844271A/en)
+- [ch-product-mtp: Synopsys: MTP EEPROM NVM IP for Analog and Mixed-Signal Processes](https://www.synopsys.com/resources/mtp-eeprom-nvm-ip-for-analog-and-mixed-signal-process-nodes-datasheet.html)
+- [ch-mtp-synopsys: Synopsys: Single-Poly Floating-Gate MTP EEPROM IP](https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/mtp-eeprom.html)
+- [ch-mtp-ememory-neoee: eMemory: NeoEE Single-Poly Embedded EEPROM](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ch-mtp-ememory-neomtp: eMemory: NeoMTP Single-Poly p-Type Floating-Gate Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ch-mtp-xfab-xc06: X-FAB: Historical XC06 Double-Poly Embedded EEPROM Process Brief](https://www.fbe-asic.com/documents/is-xc06.pdf)
+- [ch-mtp-ymc-product: Yield Microelectronics: Logic-Process Embedded MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ch-mtp-ymc-singlepoly: Yield Microelectronics: Single-Floating-Gate NVM Patent US7423903B2](https://patents.google.com/patent/US7423903B2/en)
+- [ch-mtp-floadia-zt: Floadia: LEE Flash ZT Zero-Added-Mask MTP](https://floadia.com/product/lee-flash-zt/)
+- [ch-mtp-floadia-zt-fg: Floadia and Maxchip: Public Floating-Gate LEE Flash ZT MTP Integration](https://floadia.com/news/422/)
+
 Maturity: Commercial IP. Current Synopsys and eMemory product pages directly identify single-poly MTP/EEPROM IP. The 2003 X-FAB XC06 brief provides a historical foundry double-poly NVM example. YMC has a logic-process MTP offering and a separate single-poly patent; Floadia ZT has a public floating-gate/FN program-and-erase example.
 
 Each product family requires its target process, macro revision, and qualification conditions. A YMC patent does not identify all current ymtp cells; the reviewed Floadia documents do not explicitly state polysilicon count. The historical X-FAB document does not establish current availability.
@@ -2508,9 +2733,9 @@ Single-poly
 
 Floating gate
 
-Program: Not disclosed in the reviewed public product page
+Program: PGM is supported; the reviewed product page does not disclose carrier paths or terminal biases.
 
-Erase: Not disclosed in the reviewed public product page
+Erase: Electrical ERS is supported; the reviewed product page does not disclose the microscopic erase path or terminal biases.
 
 Specified standard-CMOS platforms; zero added masks; integrated high-voltage circuitry
 
@@ -2568,7 +2793,7 @@ After: Electrons remain on the floating node and alter the read conduction state
 
 Single-poly does not specify an injection mechanism. NeoMTP uses channel-hot-hole-induced hot-electron injection in a p-type device, distinct from the n-channel teaching example. Floadia ZT separately discloses FN programming. A low core supply does not eliminate internal voltage boosting or high fields.
 
-#### Erase: Remove Electrons Through the Specified Exit
+#### ERS: Restore a State Suitable for Reprogramming
 
 Before: The floating node retains charge from the previous data state and the macro has selected the page, word, or block allowed to update.
 
@@ -2576,7 +2801,7 @@ Stimulus: The US5844271A teaching example transfers electrons from floating gate
 
 After: Charge decreases and the floating node returns to a state suitable for programming. Completion is determined by erase verification and the target macro specification.
 
-Polysilicon count cannot establish erase destination, polarity, or granularity. Capacitive-control regions and tunneling exits may differ. Changing a control voltage is not a direct metal connection that drains the floating gate. Dielectric defects still accumulate through cycling.
+Polysilicon count cannot establish erase destination, polarity, or granularity. Capacitive-control regions and tunneling exits may differ. Changing a control voltage is not a direct metal connection that drains the floating gate. Dielectric defects still accumulate through cycling. Electron removal by FN and net-charge reduction by hot-hole injection are different mechanisms. The separate BBHH teaching model is not evidence that a current YMC product uses BBHH.
 
 #### Read: Sense the Selected Channel Under Normal Bias
 
@@ -2642,6 +2867,29 @@ No. NeoEE publicly describes FN charge transfer in both directions. NeoMTP descr
 ## NOR: Stacked-Gate and Split-Gate Code Storage
 
 NOR is commonly used for code storage requiring direct, predictable reads. Stacked-gate cells place storage and selection responsibilities under the cell's gate control; split-gate cells add a selection channel that helps block unselected leakage from overerased cells. Execute-in-place support also depends on the interface, controller, and cache timing and cannot be guaranteed by the NOR name alone.
+
+#### Electrical Erase: The Complete PGM / ERS Cycle
+
+The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.
+
+PGM → ERS → PGM
+
+The floating gate retains programmed charge. Cells sharing an erase terminal generally need coordinated biasing.
+
+The SuperFlash brochure describes FN tunneling from the floating gate to another gate. In contrast, the channel-erase example in US6232180B1 leaves the select gate, source, and drain floating and raises the p-well and deep n-well to 10–15 V.
+
+Electrons leave the floating gate through the designated exit and threshold voltage falls. A separate selection channel can suppress some unselected conduction caused by overerase, but does not remove storage-layer reliability requirements.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Erase acts on the region defined by shared array controls, commonly a sector or block in the cited products. Preserve still-valid data before erasing; read or program granularity does not define erase granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [ch-pat-nor-splitgate: Worldwide Semiconductor Manufacturing / TSMC: Split-Gate Flash Patent US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+- [ch-tech-superflash: SST / Microchip: SuperFlash Technology Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ch-maturity-nor-product: Microchip: SST39SF020A Parallel Flash Product Page](https://www.microchip.com/en-us/product/SST39SF020A)
+- [ch-tech-nand: Kioxia: NAND Flash Memory Fundamentals](https://www.kioxia.com/en-jp/rd/technology/nand-flash.html)
 
 Maturity: In Volume Production. Microchip's SST39SF020A was listed as in production when reviewed, with a public summary specifying 2 Mb and a 4.5–5.5 V parallel flash interface. SST's SuperFlash technology brochure separately provides an identified technical lineage for split gates, source-side injection, and inter-gate FN erase, allowing commercial implementation evidence to be compared with the mechanism lesson.
 
@@ -2734,6 +2982,29 @@ No. The SuperFlash brochure's example uses inter-gate FN tunneling, while US6232
 
 SONOS/MONOS describe material stacks or gate materials, while NROM refers to an implementation lineage that uses localized trapping and read direction. They are not directly interchangeable product names. Infineon's SONOS has production platforms, so the entire charge-trap family must not be labeled emerging. Its FN program/erase mechanism and reliability figures also must not be transferred to every NROM implementation.
 
+#### Electrical Erase: The Complete PGM / ERS Cycle
+
+The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.
+
+PGM → ERS → PGM
+
+Programmed charge occupies a trapping material such as nitride, shifting channel threshold voltage or a local barrier.
+
+The cited Infineon 2T SONOS uses FN erase. In the separate US6664588B2 NROM example, band-to-band tunneling generates holes near the selected bit-line/channel junction; lateral acceleration and the gate field inject hot holes into the local nitride storage region.
+
+The selected storage region returns toward its erase window for subsequent programming. In the NROM example, hole injection must overlap the programmed-electron region; residual electrons or excess holes can otherwise disturb the read threshold.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [ch-pat-sonos: NCR: SONOS Blocking-Oxide Patent WO1981000790A1](https://patents.google.com/patent/WO1981000790A1/en)
+- [ch-pat-nrom: Saifun: Asymmetric Charge-Trapping Patent US5768192A](https://patents.google.com/patent/US5768192A/en)
+- [ch-product-sonos: Infineon: SONOS Embedded Flash IP Solutions](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)
+- [op-pat-nrom-hhi: Saifun: Self-Aligned NROM Programming and Erasure Areas](https://patents.google.com/patent/US6664588B2/en)
+
 Maturity: In Volume Production. Infineon publicly lists SONOS eFlash production at 130, 65, 55, 40, and 28 nm and explicitly describes a 2T cell with FN program/erase. Its MCU shipments and licensable macro information support classification as an established platform. Localized-charge NROM is treated separately here through Saifun's original patent, with its own evidence boundary.
 
 The listed 25 ns, 100,000-cycle, and ten-year retention figures are not fully paired across all nodes, capacities, and temperatures, so they are not combined into one guarantee. SONOS production evidence does not automatically establish the same NROM specifications or current product status.
@@ -2760,11 +3031,11 @@ In a tunneling example, charge crosses the thin dielectric from the channel side
 
 Before: Programmed charge occupies a trapping material such as nitride, shifting channel threshold voltage or a local barrier.
 
-Stimulus: Infineon's identified 2T SONOS uses FN erase, rearranging the field across the tunnel dielectric to reduce net stored charge. An NROM implementation's exact erase path requires separate verification for that implementation.
+Stimulus: The cited Infineon 2T SONOS uses FN erase. In the separate US6664588B2 NROM example, band-to-band tunneling generates holes near the selected bit-line/channel junction; lateral acceleration and the gate field inject hot holes into the local nitride storage region.
 
-After: SONOS returns to an erased window that permits reprogramming. Residual charge, interface defects, and changes in trapping centers may still affect the next operation.
+After: The selected storage region returns toward its erase window for subsequent programming. In the NROM example, hole injection must overlap the programmed-electron region; residual electrons or excess holes can otherwise disturb the read threshold.
 
-Removal or neutralization of trapped charge depends on barriers, trap depth, and terminal biases. The upper blocking layer suppresses unwanted exchange on the gate side. Knowing only that silicon nitride is used does not identify the terminal through which electrons or holes enter or leave. The Saifun seed reviewed here primarily supports localized programming and reverse reading; it is not used to invent an erase animation for every NROM implementation.
+Read US6664588B2 Figures 8A and 9–11 as a named pocket-implant erase example. Do not attribute that structure to US5768192A or substitute the SONOS FN diagram for NROM hot-hole erase. The cited implementation defines selection, pulse verification and erase granularity.
 
 #### Read: Sense the SONOS Window and the NROM Direction
 
@@ -2820,10 +3091,39 @@ No. Nitride is an insulating trapping material, so charge can remain at differen
 - [ch-pat-sonos: NCR: SONOS Blocking-Oxide Patent WO1981000790A1](https://patents.google.com/patent/WO1981000790A1/en)
 - [ch-pat-nrom: Saifun: Asymmetric Charge-Trapping Patent US5768192A](https://patents.google.com/patent/US5768192A/en)
 - [ch-product-sonos: Infineon: SONOS Embedded Flash IP Solutions](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)
+- [op-pat-nrom-hhi: Saifun: Self-Aligned NROM Programming and Erasure Areas](https://patents.google.com/patent/US6664588B2/en)
 
 ## NAND: Planar Strings, Vertical Stacks, and Multilevel Storage
 
 Series connection increases density by sharing contact overhead across cells, but reading one cell requires the other cells in its string to provide a conduction path. Planar feature shrink, additional 3D layers, and more bits per cell are distinct density axes, each with charge-window, process, and reliability costs. Page programming and block erase also make the controller an important part of usable storage.
+
+#### Electrical Erase: The Complete PGM / ERS Cycle
+
+The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.
+
+PGM → ERS → PGM
+
+Cells occupy different programmed threshold-voltage states. A block being reclaimed may still contain other pages whose data must be preserved.
+
+Depending on the structure, raise the channel or well potential relative to the wordlines to establish an erase field that reduces stored electrons. The US7696559B2 example raises the common source line, holds the selected block's wordlines at 0 V, and leaves bitlines and selection-related terminals floating as specified in that embodiment.
+
+The block's cells return to the erased window. The controller must first preserve still-valid pages elsewhere; rewriting a single bit is not a substitute for block erase.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Erase acts on the region defined by shared array controls, commonly a sector or block in the cited products. Preserve still-valid data before erasing; read or program granularity does not define erase granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [ch-pat-nand-vertical: Toshiba: Columnar-Semiconductor Vertical NAND Patent US7696559B2](https://patents.google.com/patent/US7696559B2/en)
+- [ch-tech-nand: Kioxia: NAND Flash Memory Fundamentals](https://www.kioxia.com/en-jp/rd/technology/nand-flash.html)
+- [ch-tech-multilevel: Kioxia: Increasing Flash Capacity with Multilevel Cells](https://www.kioxia.com/en-jp/rd/technology/multi-level-cell.html)
+- [ch-tech-retention: Kioxia: Data Retention in the Managed Flash Endurance and Reliability Series](https://americas.kioxia.com/content/dam/kioxia/en-us/business/memory/mlc-nand/asset/KIOXIA_NAND_Flash_Data_Retention_Technical_Brief.pdf)
+- [ch-tech-ecc: Kioxia: NAND Error-Correction Code Technical Brief](https://www.kioxia.com/content/dam/kioxia/shared/business/memory/mlc-nand/asset/productbrief/KIOXIA_Understanding_ECC_Tech_Brief.pdf)
+- [ch-tech-deepetch: Kioxia: Improving Memory-Hole Process Productivity with a New Etch Gas](https://www.kioxia.com/en-jp/rd/technology/topics/topics-62.html)
+- [ch-paper-3dvariation: Y. Luo et al.: Early Retention Loss and Process Variation in 3D NAND](https://arxiv.org/abs/1807.05140)
+- [ch-paper-readdisturb: Y. Cai et al.: Read-Disturb Errors in MLC NAND Flash](https://arxiv.org/abs/1805.03283)
+- [ch-maturity-bics: Kioxia: BiCS FLASH Principles and Commercial Generations](https://www.kioxia.com/en-jp/rd/technology/bics-flash.html)
 
 Maturity: Commercial Generations Established. Kioxia's fundamentals explanation records commercial planar 15 nm technology and BiCS FLASH generations: 48 layers in 2015, 96 layers in 2018, 112 layers in 2020, and 162 layers in 2022. This establishes 3D NAND as a mature commercial family and supports a historical comparison of planar scaling and vertical stacking.
 
@@ -2921,6 +3221,27 @@ No. QLC must distinguish sixteen states, while TLC needs only eight; narrower wi
 
 Toggle MRAM assigns data retention to the magnetic energy barrier and data modification to precisely sequenced magnetic fields. The controller first determines whether the existing and requested values differ, then toggles only when needed. It does not require the block-erase sequence of Flash, but it adds read, comparison, and toggle control. This complete sequence is essential to a valid comparison of write latency and energy.
 
+#### Erase Semantics: Direct Magnetic Overwrite, No Separate ERS
+
+MRAM overwrites existing data by changing magnetic state, without a Flash-style erase-before-program step. Clearing to all zeros or ones is a series of target-state writes; the P/AP-to-data mapping is product-specific.
+
+P ⇄ AP
+
+The junction is in the antiparallel, high-resistance state, and the controller requests the earlier data value.
+
+Compare the data, then apply another qualified Toggle write sequence.
+
+The free layer returns to the low-resistance state, parallel to the reference layer.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [EMG-SEC: Everspin 2025 Product and Manufacturing Filing](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+- [EMG-P-TOGGLE: Motorola: Toggle Writing Patent US6545906B1](https://patents.google.com/patent/US6545906B1/en)
+
 Maturity: In Volume Production. Everspin's 2025 annual filing explicitly states that Toggle products entered volume production in 2008 and that devices with capacities of 128kb–32Mb continue to ship. This is commercial evidence for a named product family, rather than maturity inferred from a patent or experimental device.
 
 Interfaces, capacities, and grades have individual specifications. Commercial history does not replace a datasheet and availability check for the selected part number.
@@ -2943,7 +3264,7 @@ After: The coupled free magnetic moments rotate along the designed trajectory an
 
 One Toggle sequence reverses the existing state. If the target and existing values match, toggling must be skipped. Products may define their own logic encoding; low resistance does not necessarily represent 0.
 
-#### Restore: Toggle to the Other State
+#### Reverse Overwrite: No Separate Physical Erase
 
 Before: The junction is in the antiparallel, high-resistance state, and the controller requests the earlier data value.
 
@@ -3010,6 +3331,29 @@ A Toggle write reverses the current state. Executing it once would invert data t
 
 STT concentrates write current in the selected junction and improves on the scaling limitations of magnetic-field write lines, making it an important route for commercial discrete and embedded MRAM. Increasing current can shorten switching time, but also raises access-transistor requirements and barrier stress. Reducing current can lengthen latency and worsen the error-rate tail. The best speed, lifetime, and density values from separate conditions cannot be combined into one product specification.
 
+#### Erase Semantics: Direct Magnetic Overwrite, No Separate ERS
+
+MRAM overwrites existing data by changing magnetic state, without a Flash-style erase-before-program step. Clearing to all zeros or ones is a series of target-state writes; the P/AP-to-data mapping is product-specific.
+
+P ⇄ AP
+
+The MTJ is in the antiparallel, high-resistance state.
+
+Reverse the junction write-current direction and apply a qualified pulse.
+
+The free layer returns to the parallel, low-resistance state.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [EMG-SEC: Everspin 2025 Product and Manufacturing Filing](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+- [EMG-XSPI: Everspin 64Mb High-Reliability xSPI Production Qualification](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
+- [EMG-RA8: Renesas RA8M2/RA8D2 MCUs with Embedded MRAM](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)
+- [EMG-P-STT: IBM: Spin-Torque Structure Patent US5695864A](https://patents.google.com/patent/US5695864A/en)
+
 Maturity: In Volume Production. Everspin has shipped STT products with DDR-derived interfaces and SPI-class products. In 2026, its 64Mb high-reliability xSPI product also has evidence of completed production qualification and ordering availability. Embedded implementations must be linked individually to a specific MCU or process document.
 
 Interface speed is not junction switching time. Production capacity, automotive grade, and qualification year must not be combined across product families.
@@ -3032,7 +3376,7 @@ After: The free layer switches to antiparallel alignment, increasing the sensed 
 
 Switching has a probability distribution. Pulse amplitude and duration must cover process, temperature, and the target error rate. A teaching diagram's current arrow represents one stack convention; actual direction must be checked against the electrodes and current convention.
 
-#### Restore: Rewrite Directly with Reverse Current
+#### Reverse Overwrite: No Separate Physical Erase
 
 Before: The MTJ is in the antiparallel, high-resistance state.
 
@@ -3101,6 +3445,29 @@ Read current also passes through the MTJ, producing spin torque and electrical s
 
 SOT seeks short write pulses and lower barrier stress by separating the read and write paths, making it a focus of last-level-cache research. However, the third terminal and extra line consume area, and deterministic field-free switching, large-array yield, and process integration must also be established. Low-energy or high-cycle-count cell demonstrations satisfy only part of that validation.
 
+#### Erase Semantics: Direct Magnetic Overwrite, No Separate ERS
+
+MRAM overwrites existing data by changing magnetic state, without a Flash-style erase-before-program step. Clearing to all zeros or ones is a series of target-state writes; the P/AP-to-data mapping is product-specific.
+
+P ⇄ AP
+
+The free layer is already in the opposite magnetic state.
+
+Reverse the line current or apply another qualified write sequence, as required by the device design.
+
+The free layer returns to its previous magnetic state, and the MTJ resistance changes accordingly.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [EMG-SOT23: imec Extremely Scaled SOT-MRAM Device Demonstration](https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually)
+- [EMG-SOT24: imec: Functional SOT-MRAM Arrays and Cache Research](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
+- [EMG-P-SOT: Spin Memory Scalable SOT Device Process Patent](https://patents.google.com/patent/US10930843B2/en)
+- [EMG-TSMC-SOT: TSMC 2025 Annual Report: Type-C SOT-MRAM Research](https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf)
+
 Maturity: Research Demonstration. imec demonstrated extremely scaled devices and functional arrays in 2023–2024. TSMC's 2025 annual report also records field-free Type-C SOT-MRAM presented at IEDM 2025. These are concrete device and array research results, but they are insufficient to label a last-level cache as being in volume production.
 
 Existing STT-MRAM volume production and automotive qualifications cannot be transferred to SOT. Failure to identify a commercial product in this review is not a claim that none exists anywhere in the industry.
@@ -3123,7 +3490,7 @@ After: Spin torque switches the free layer to the target magnetic state.
 
 A perpendicularly magnetized system generally needs an additional structure or mechanism to select the final direction reliably. A schematic must not assume that one ideal line alone provides deterministic writing with zero external magnetic field.
 
-#### Restore: Change the SOT Current Direction or Sequence
+#### Reverse Overwrite: No Separate Physical Erase
 
 Before: The free layer is already in the opposite magnetic state.
 
@@ -3191,6 +3558,29 @@ SOT typically needs a third terminal, a SOT line, and additional selection paths
 ## VCM ReRAM: Oxygen Redistribution and Conductive Paths
 
 VCM operation centers on controlling reversible local changes without driving the oxide into permanent breakdown. SET commonly lowers resistance, while RESET raises it. Some stacks require initial current-limited forming to activate a conductive path. Rebuilding the path may differ slightly on each cycle, making the relationship among forming, write verification, cycling distributions, and retention more important than one attractive typical I–V curve.
+
+#### Erase Semantics: RESET Followed by Another SET
+
+RESET is the reverse data-state update from low to high resistance; a later SET restores low resistance. This is reversible resistance switching rather than Flash-style block erase. The circuit defines logical zero/one encoding.
+
+SET → RESET → SET
+
+The device is in a readable low-resistance state.
+
+Apply a reverse-polarity or different-amplitude pulse as specified by the design to promote local oxidation of the path or redistribution of defects.
+
+A gap appears in the conductive path or the barrier increases, raising resistance.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [EMG-VCM08: Resistive Switching Mechanisms in Metal/Oxide/Metal Devices](https://www.nature.com/articles/nnano.2008.160)
+- [EMG-P-VCM: HP: Multilayer Oxide Switching Patent US8331131B2](https://patents.google.com/patent/US8331131B2/en)
+- [EMG-DBH: Weebit/DB HiTek Technology Qualification and Product Adoption](https://www.weebit-nano.com/news/press-releases/weebit-nano-signs-largest-customer-to-date-technology-qualified-at-db-hitek/)
+- [EMG-S130: Weebit SkyWater S130 Reliability Validation](https://www.weebit-nano.com/wp-content/uploads/2025/11/251124.-2025-Annual-General-Meeting-%E2%80%93-Chair-Address-and-CEO-Presentation.pdf)
 
 Maturity: Qualification Completed. Weebit/DB HiTek 130nm BCD RRAM has public evidence of completed technology qualification, and SkyWater S130 has a named 1T1R reliability test vehicle. These support the maturity of resistive-memory integration; a product name alone cannot reveal its complete VCM material cross section.
 
@@ -3283,6 +3673,27 @@ Several ionic, interfacial, thermal, or electronic mechanisms can produce resist
 
 During SET, the active metal oxidizes into ions, moves through the medium under an electric field, and is reduced to progressively establish a metal bridge. RESET dissolves part of that bridge. A thin bridge can reduce switching energy but may be destabilized by heat and surface energy. Fast formation and long-term retention must be checked under the same conditions rather than taken from separate best-case experiments.
 
+#### Erase Semantics: RESET Followed by Another SET
+
+RESET is the reverse data-state update from low to high resistance; a later SET restores low resistance. This is reversible resistance switching rather than Flash-style block erase. The circuit defines logical zero/one encoding.
+
+SET → RESET → SET
+
+A metal bridge creates a low-resistance state between the electrodes.
+
+In this bipolar teaching example, apply a suitable reverse bias to oxidize and ionize metal locally.
+
+A narrow part of the bridge opens, breaking the continuous path and returning the device to a high-resistance state.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [EMG-ADESTO: Adesto 2019 CBRAM Commercial Shipment Filing](https://www.sec.gov/Archives/edgar/data/1395848/000155837020002795/iots-20191231x10k.htm)
+- [EMG-P-ECM: Axon: Programmable Metallization Cell Patent US5761115A](https://patents.google.com/patent/US5761115A/en)
+
 Maturity: Historical Commercial Shipments. The CBRAM section of Adesto's 2019 annual filing explicitly records commercial product shipments. ECM/CBRAM therefore cannot uniformly be labeled as never commercialized. This evidence supports historical product maturity, but does not establish every subsequent node or availability of the original part numbers in 2026.
 
 Licensing, technology transfer, and new foundry-development programs cannot be elevated to volume-production status on the strength of historical shipments.
@@ -3309,7 +3720,7 @@ Growth direction and nucleation location depend on the material and kinetics. A 
 
 Before: A metal bridge creates a low-resistance state between the electrodes.
 
-Stimulus: Apply an appropriate reverse bias to reoxidize and ionize local metal.
+Stimulus: In this bipolar teaching example, apply a suitable reverse bias to oxidize and ionize metal locally.
 
 After: A narrow part of the bridge opens, breaking the continuous path and returning the device to a high-resistance state.
 
@@ -3371,6 +3782,30 @@ RESET often dissolves only part of the bridge, leaving metal and nucleation site
 ## PCM: Controlling Phase with Thermal History
 
 RESET locally melts material with a short, high-peak pulse and rapidly cools it into an amorphous state. SET uses an appropriate thermal history to crystallize the material. Reducing phase-change volume can lower energy, but retention, cycling failure, and thermal crosstalk must still be considered. PCM appears in production MCUs and is also researched for storage-class memory and analog weights. Different uses do not change its phase-based storage mechanism.
+
+#### Erase Semantics: RESET Quenching and SET Crystallization
+
+PCM RESET creates a high-resistance amorphous region through local melting and rapid quenching; SET promotes crystallization with a suitable thermal profile. Data is rewritten through pulse-induced thermal histories, not merely voltage reversal or mandatory Flash-style block erase.
+
+SET → RESET → SET
+
+The device has a lower-resistance crystalline conductive path.
+
+Locally melt the material with a short, high-peak pulse, then rapidly reduce current to quench it.
+
+An amorphous region forms across the main path, increasing resistance.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [EMG-STPCM: ST Stellar SR6P6C8 MCU with Phase-Change Memory](https://www.st.com/en/automotive-microcontrollers/sr6p6c8.html)
+- [EMG-P-PCM: Multilevel Phase-Change Memory Programming Patent](https://patents.google.com/patent/US5912839A/en)
+- [EMG-PCMDRIFT: IBM: Temporal Resistance Evolution in Projected PCM](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)
+- [EMG-PCMEND: IBM Research on PCM Cycling Endurance and Atomic Migration](https://research.ibm.com/publications/phase-change-memory-cycling-endurance)
+- [EMG-PCMPROJ: IBM Low-Drift Projected PCM Devices](https://research.ibm.com/publications/design-of-projected-phase-change-memory-mushroom-cells-for-low-resistance-drift)
 
 Maturity: In Volume Production. On 2026-09-10, ST's SR6P6C8 product page explicitly lists production status, includes PCM in the product description, and provides specific ordering codes. This is a concrete commercial example of embedded PCM, avoiding judgments about the entire technology family based only on one discontinued storage-class product.
 
@@ -3464,6 +3899,27 @@ A higher peak may melt the material. Rapid cooling afterward can then form an am
 
 Writing sets polarization through the electric-field direction. Reading applies an excitation and identifies the original value from the charge difference between switching and non-switching responses. If reading changes polarization, the circuit must restore the original data. Commercial FeRAM can conceal this sequence behind its interface so that the user sees an ordinary read command, but internal restoration, power-failure conditions, and timing remain part of reliability.
 
+#### Erase Semantics: Polarization Reversal and Subsequent Write
+
+An opposite write stimulus changes ferroelectric polarization to another readable state, which can be rewritten again. Research labels such as ERS or RESET refer to that polarization mechanism, not necessarily floating-gate charge removal or block erase.
+
+A → B → A
+
+The capacitor retains the previously written polarization direction.
+
+Apply a reverse write field across the same capacitor.
+
+Polarization reverses into the other retained state.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [EMG-FRAM: Infineon 16Mb EXCELON F-RAM Datasheet](https://www.infineon.com/assets/row/public/documents/10/49/infineon-cy15b116qi-cy15v116qi-16mb-excelon-tm-lp-ferroelectric-ram-f-ram-datasheet-en.pdf)
+- [EMG-P-FERAM: Ramtron: Self-Restoring Ferroelectric Memory Patent US4873664A](https://patents.google.com/patent/US4873664A/en)
+
 Maturity: In Volume Production. Infineon EXCELON F-RAM is a named commercial family with a datasheet for the 16Mb CY15B116QI/CY15V116QI. The document specifies the interface, operating temperature, and retention conditions at different temperatures. It supports discussion of conditional product performance without extrapolating from a single material paper.
 
 This is commercial capacitor-based F-RAM. Its endurance and retention years must not be transferred to HfO₂ FeFET or FTJ.
@@ -3486,7 +3942,7 @@ After: Polarization aligns in the target direction; remanent polarization remain
 
 Positive and negative polarization can be assigned to logic 0/1 by the design. Validation must establish voltage distribution, switching charge, and write success probability at the worst-case temperature.
 
-#### Restore: Repolarize with the Reverse Field
+#### Polarization Overwrite: No Separate Block Erase
 
 Before: The capacitor retains the previously written polarization direction.
 
@@ -3553,6 +4009,30 @@ Nonvolatility comes from remanent polarization, but some sensing sequences delib
 
 FeFET combines ferroelectric retention with transistor current gain, providing research opportunities for nondestructive reading and density scaling. The challenge is that write voltage is divided across both the ferroelectric and interfacial layers, while polarization switching may also generate or fill traps. Polarization stability, memory window, and endurance are not three independently optimizable numbers.
 
+#### Erase Semantics: Polarization Reversal and Subsequent Write
+
+An opposite write stimulus changes ferroelectric polarization to another readable state, which can be rewritten again. Research labels such as ERS or RESET refer to that polarization mechanism, not necessarily floating-gate charge removal or block erase.
+
+A → B → A
+
+The device is in a low-threshold-voltage state and conducts more readily during reading.
+
+Apply an opposite gate pulse to rearrange polarization and the associated interfacial charge.
+
+Threshold voltage rises and current falls at the same read gate voltage.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [EMG-KIOXIA: KIOXIA: FeFET Trapping and Polarization Stability](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)
+- [EMG-FEPUF: Original Research on FeFET Cycle Variation and Charge-Domain PUFs](https://www.nature.com/articles/s41467-024-55380-x)
+- [EMG-FMC: FMC Industry News and Ferroelectric Memory Classification](https://www.ferroelectric-memory.com/industry-news/)
+- [EMG-P-HFO: Layered Doping of HfO₂ Ferroelectric Films Patent](https://patents.google.com/patent/US10153155B2/en)
+- [EMG-P-FEFET: FeFET Gate Stack and Device Integration Patent](https://patents.google.com/patent/US11502083B2/en)
+
 Maturity: Research Demonstration. The KIOXIA study associated with IEDM 2023 and reviewed here explicitly demonstrates control of trapped charge and polarization stability through interface engineering. An original FeFET PUF paper provides additional evidence. These support concrete device and circuit research, but are insufficient to identify a commercial production part using this stack.
 
 Some suppliers' ferroelectric-memory production news may refer to capacitor-based structures. Company or material names alone do not establish FeFET volume production. Failure to identify a product in this review does not establish that none exists anywhere in the industry.
@@ -3575,7 +4055,7 @@ After: Channel electrostatics change, producing a larger current at the specifie
 
 This schematic uses an n-channel device and one stack orientation. The actual polarity corresponding to high and low threshold voltage must be checked against the structure. The pulse may also change trapped charge, so the two effects must be separated.
 
-#### Restore: Set the High-Threshold-Voltage State
+#### Erase / Polarization Reversal: Set the High-Threshold State
 
 Before: The device is in a low-threshold-voltage state and conducts more readily during reading.
 
@@ -3583,7 +4063,7 @@ Stimulus: Apply an opposite gate pulse to rearrange polarization and the associa
 
 After: Threshold voltage rises and current falls at the same read gate voltage.
 
-Research often calls the two directions programming and erasing. The physics is polarization rewriting, rather than Flash block erase involving substantial charge tunneling into or out of a floating gate.
+Research often calls the two directions program and erase, but the mechanism is polarization rewriting. It differs from Flash erase through charge removal or neutralization; the named stack defines its threshold direction and operating conditions.
 
 #### Read: Sense Between the Two Threshold Voltages
 
@@ -3646,6 +4126,27 @@ Traps in the interface and dielectric capture and release charge, also changing 
 
 FTJ reverses polarization with a larger pulse, then senses tunneling current at a smaller bias, pursuing two-terminal nondestructive storage and interconnect-layer integration. The barrier must be thin enough to provide readable current while retaining stable ferroelectricity and suppressing leakage. An attractive resistance ratio does not establish sufficient absolute read current, much less a reliable selection window for a large array.
 
+#### Erase Semantics: Polarization Reversal and Subsequent Write
+
+An opposite write stimulus changes ferroelectric polarization to another readable state, which can be rewritten again. Research labels such as ERS or RESET refer to that polarization mechanism, not necessarily floating-gate charge removal or block erase.
+
+A → B → A
+
+The FTJ carries a higher current at the specified read bias.
+
+Apply a reverse write pulse to reset ferroelectric polarization.
+
+The effective barrier returns to the other profile, reducing tunneling current.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
+
+- [EMG-FTJ24: Original Research: Atomic-Scale BSO Ferroelectric Tunnel Junctions](https://www.nature.com/articles/s41467-024-44927-7)
+- [EMG-P-FTJ: TSMC FTJ Structure and Low-Temperature Formation Application](https://patents.google.com/patent/US20240057343A1/en)
+
 Maturity: Research Demonstration. The 2024 original FTJ paper and TSMC FTJ structure patent publication reviewed here support concrete thin-film and reliability research. A datasheet and supply evidence identifying a commercial production part using this structure have not been obtained, so the research-demonstration label is retained.
 
 Production status of other TSMC MRAM/RRAM technologies does not automatically place FTJ in volume production. Patent publication, patent grant, and process-product supply are separate events.
@@ -3668,7 +4169,7 @@ After: Polarization and interfacial potential change, increasing current at the 
 
 The polarization direction corresponding to low resistance depends on electrode and interface asymmetry. A teaching diagram must not define a fixed relationship between up/down arrows and high/low resistance for the entire family.
 
-#### Restore: Reverse Polarization to Raise Resistance
+#### RESET / Polarization Reversal: Set the Higher-Resistance State
 
 Before: The FTJ carries a higher current at the specified read bias.
 
@@ -3676,7 +4177,7 @@ Stimulus: Apply a reverse write pulse to reset ferroelectric polarization.
 
 After: The effective barrier returns to the other profile, reducing tunneling current.
 
-This is polarization rewriting, commonly described as SET/RESET or programming/erasing. The names do not imply Flash-like erase through discharge of an entire region.
+This is polarization rewriting, sometimes called SET/RESET or program/erase. Those labels do not imply Flash-style block erase; the electrode structure defines the relation between polarization and resistance.
 
 #### Read: Compare Tunneling Current at Low Bias
 
@@ -3893,6 +4394,46 @@ Volume Production: As of the verification date, official text lists 40/28/22/12n
 Limitations: A 12nm automotive qualification date or 6nm volume-production date must not be added without public primary evidence of completion.
 
 - [FND-TSMC-CURRENT-NVM: TSMC Current Embedded Nonvolatile Memory Page](https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash)
+
+### 2017 · UMC · ReRAM · 40nm
+
+Joint development: Panasonic collaboration targeting samples in 2018.
+
+Limitations: Sampling and production were forward plans; existing 180nm production does not establish 40nm production.
+
+- [RES-PANASONIC-UMC-2017: Panasonic / UMC: 40nm ReRAM Collaboration](https://news.panasonic.com/global/press/en170201-3)
+
+### 2018 · UMC · MRAM · 28nm
+
+Joint development: MRAM development with Avalanche starting from 28nm CMOS.
+
+Limitations: An agreement does not establish availability of every embedded macro.
+
+- [RES-UMC-MRAM-2018: UMC / Avalanche: MRAM Development Agreement](https://www.umc.com/en/News/press_release/Content/technology_related/20180806)
+
+### 2022 · UMC · STT-MRAM / Standalone P-SRAM · 22nm
+
+Named product production: Avalanche third-generation P-SRAM announced immediately available.
+
+Limitations: Standalone-product evidence is not a specification for a general UMC embedded macro.
+
+- [RES-UMC-MRAM-2022: UMC / Avalanche: 22nm P-SRAM Availability](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)
+
+### 2023 · UMC · RRAM / eMemory IP · 22nm ULP
+
+Qualified: 8Mb plus 16Kb RRAM IP qualified on the 0.8V/2.5V platform.
+
+Limitations: The 16Mb automotive and 0.8V/1.8V versions remained under development in this announcement.
+
+- [RES-UMC-RRAM-2023: UMC / eMemory: 22nm RRAM Qualification](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)
+
+### 2025 · UMC · RRAM / FlashKit-22RRAM · 22nm ULP
+
+SoC platform silicon validation: Faraday announced completion and silicon validation of its RRAM SoC development platform.
+
+Limitations: Controller and processor integration evidence does not establish named customer volume shipments.
+
+- [RES-FARADAY-RRAM-2025: Faraday: FlashKit-22RRAM Silicon Validation](https://www.faraday-tech.com/html/News/pressRelease/CHI_01_0441.jsp)
 
 ## Comparison Examples
 
@@ -4125,7 +4666,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - Storage-Class Memory (SCM): A system role used to discuss the performance, capacity, and cost space between DRAM and NAND storage. It is not a single material or bitcell type.
 - CXL: An interconnect protocol supporting memory-related access between processors and devices. It can attach volatile or persistent memory; the protocol name alone does not guarantee retention through power loss.
 - Standalone EEPROM: Delivered as a separate memory IC, with an external interface to the host chip; a packaged I²C serial EEPROM is one example. Capacity, page-write behavior and timing describe the component interface, not its undisclosed internal poly stack.
-- Embedded MTP IP: A reprogrammable NVM macro integrated inside a SoC, ASIC or analog chip. Distinguish a foundry double-poly EEPROM route from third-party single-poly MTP IP, then verify the named cell, process, update granularity and reliability.
+- Embedded MTP IP: MTP describes programmability more than once. This site uses its embedded MTP IP chapter for floating-gate MTP/EEPROM macros; it is not a reclassification of MRAM, ReRAM, Flash or SONOS. Identify the actual storage mechanism, erase or overwrite behavior, process, update granularity and reliability for each implementation.
 - Double-Poly EEPROM: The first poly layer forms the floating gate and a second poly layer forms the control gate, separated by an interpoly dielectric. This describes the NVM stack; a base-logic process label does not determine an optional memory module.
 - Single-Poly MTP: One poly layer implements storage and the required gates, with MOS capacitors, wells or other specified terminals coupling the floating node. Single-poly implementations can still differ in carriers, program/erase paths, selectors and area costs.
 - NVM Process Option: An optional memory process module on a selected foundry platform. Verify second-poly, tunnel-oxide and added-mask requirements for that module. Logic compatibility and zero added masks are separate integration claims.
@@ -4297,8 +4838,98 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [aeon-transfer-2010: Synopsys Completes the Virage Logic Acquisition](https://news.synopsys.com/home?item=123195). Company completion announcement; 2010-09-02; Location in the Source: Opening completion paragraph and added NVM portfolio; Limitations: Supports corporate acquisition and portfolio succession, not identical AEON internal cells across generations.
 - [aeon-synopsys-2013: Synopsys DesignWare AEON MTP ULP Announcement](https://news.synopsys.com/2013-11-20-Synopsys-New-Ultra-Low-Power-Non-Volatile-Memory-IP-Cuts-Power-by-90-Percent-and-Size-in-Half). Company product announcement; 2013-11-20; Location in the Source: Highlights, opening paragraph and Availability; Limitations: Explicitly continues AEON branding with MTP ULP. Performance comparisons are not used; branding does not establish a cell netlist.
 - [aeon-synopsys-current: Synopsys Current MTP ULP NVM Product Page](https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/mtp-rfid.html). Current company product page; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Overview and Highlights; checked 2026-09-10; Limitations: Publishes single-poly, floating-gate and zero-mask-adder positioning. The page uses MTP ULP naming; this does not prove all current MTP shares the 2009 AEON cell.
-- [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en). Public Patent; 2014; 2026-09-10 accessed; Location in the Source: Figures 1–3; uniform channel tunneling, electron programming, and hole erase; Limitations: A named SONOS tunneling example; no equivalence to the stack or biases of a current Infineon macro is asserted.
+- [RES-UMC-RRAM-2023: UMC / eMemory: 22nm RRAM Qualification](https://www.umc.com/en/News/press_release/Content/technology_related/20230328). Official primary source / author research; 2023-03-28; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: Qualification applies to the announced version, not shipments by every customer.
+- [RES-UMC-MRAM-2018: UMC / Avalanche: MRAM Development Agreement](https://www.umc.com/en/News/press_release/Content/technology_related/20180806). Official primary source / author research; 2018-08-06; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: A development agreement does not establish embedded-macro production.
+- [RES-UMC-MRAM-2022: UMC / Avalanche: 22nm P-SRAM Availability](https://www.umc.com/en/News/press_release/Content/technology_related/20220913). Official primary source / author research; 2022-09-13; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: Standalone specifications are not specifications for a general embedded IP offering.
+- [RES-FARADAY-RRAM-2025: Faraday: FlashKit-22RRAM Silicon Validation](https://www.faraday-tech.com/html/News/pressRelease/CHI_01_0441.jsp). Official primary source / author research; 2025-06-10; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: Platform validation does not establish a named customer shipment volume.
+- [RES-UMC-ENVMPAGE: UMC: eNVM Platform Table](https://www.umc.com/en/Product/technologies/Detail/envm). Official primary source / author research; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: Undated page; SRAM area entries are not RRAM bitcell areas.
+- [RES-UMC-INFINEON-2023: UMC / Infineon: 40nm Automotive MCU Agreement](https://www.umc.com/en/News/press_release/Content/technology_related/20230307). Official primary source / author research; 2023-03-07; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: The announcement does not identify RRAM, MRAM, or the memory material.
+- [RES-PANASONIC-UMC-2017: Panasonic / UMC: 40nm ReRAM Collaboration](https://news.panasonic.com/global/press/en170201-3). Official primary source / author research; 2017-02-01; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: A forward-looking sampling plan does not establish completion.
+- [RES-PANASONIC-SSDM-2018: Panasonic: 40nm ReRAM Mechanism and Reliability](https://confit.atlas.jp/guide/event-img/ssdm2018/B-1-01/public/pdf_archive?type=in). Official primary source / author research; 2018; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: 100k-cycle endurance and retention after 10k cycles are distinct conditions.
+- [RES-FUJITSU-RERAM-2019: Fujitsu / Panasonic: 8Mbit ReRAM Product](https://info.archives.global.fujitsu/tw/about/resources/news/press-releases/2019/fep-0812.html). Official primary source / author research; 2019-08-12; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: This announcement does not identify the process node or foundry.
+- [RES-IBM-14NM-2020: IBM: 14nm CMOS Embedded STT-MRAM](https://research.ibm.com/publications/a-14-nm-embedded-stt-mram-cmos-technology). Official primary source / author research; 2020-12-12; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: An integration demonstration, not a public PDK or foundry-production announcement.
+- [RES-IBM-11NM-2017: IBM: Low-Current 11nm MTJ Research](https://research.ibm.com/publications/low-current-spin-transfer-torque-mram--1). Official primary source / author research; 2017-06-05; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: 11nm describes the MTJ size, not a CMOS node.
+- [RES-IBM-ALLOY-2024: IBM: Ordered-Alloy Free-Layer Research](https://research.ibm.com/publications/first-demonstration-of-high-retention-energy-barriers-and-2-ns-switching-using-magnetic-ordered-alloy-based-stt-mram-devices). Official primary source / author research; 2024-06-16; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: No node, array capacity or production qualification is stated; an energy barrier is not an unconditional retention guarantee.
+- [RES-IBM-REVIEW-2024: IBM Authors: STT-MRAM Status and Directions](https://research.ibm.com/publications/spin-transfer-torque-magnetoresistive-random-access-memory-technology-status-and-future-directions). Official primary source / author research; 2024-11-06; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: Commercial technology categories in a review do not establish IBM product availability.
+- [RES-ITRI-SOT-2022: ITRI: SOT and Cryogenic STT Collaborations](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=111061510283488782&MmmID=1036276263153520257&SiteID=1). Official primary source / author research; 2022-06-15; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: The release omits full error-rate, node and retention-temperature conditions.
+- [RES-ITRI-CIM-2024: ITRI / TSMC: IEDM 2023 SOT-CIM](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=113011710184808020&MmmID=1036276263153520257&SiteID=1). Official primary source / author research; 2024-01-17; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: The comparison workload is not fully disclosed; this is not a universal 100× SOT advantage.
+- [RES-SOT-BETAW-2025: Joint Research: β-W 64kb SOT-MRAM](https://www.nature.com/articles/s41928-025-01434-x). Official primary source / author research; 2025-09-02; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: Public abstract and author information reviewed; annealing is not operating temperature and does not establish production.
+- [RES-ITRI-SERVICE: ITRI: 8-Inch MRAM Development Services](https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=01_content&MGID=1126511563713777471&MmmID=1071732317047353240&SiteID=1). Official primary source / author research; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: 8 inches is wafer size, not a node; these services do not imply high-volume production.
+- [RES-ITRI-RRAM: ITRI: 1S1R 3D RRAM Technology Transfer](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=13_content&MmmID=1036233405427625204&SiteID=1&Trt_idx=4557). Official primary source / author research; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Main text / abstract; Limitations: Undated and without current production evidence; this older listing does not describe the entire ReRAM market today.
+- [everspin-toggle: Everspin Toggle MRAM · Toggle MRAM](https://www.everspin.com/persyst?page=2). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: These values belong only to MR3A16ACYS35. Do not mix speed, temperature or automotive ratings across parts. The old MR4A16B datasheet is inaccessible, so its over-20-year retention is not cited.
+- [everspin-1gb-ddr: Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm). Official primary source; 2026-03-04; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: DDR4-like does not imply drop-in compatibility with every DDR4 controller. Do not transfer Toggle or xSPI retention, endurance or automotive ratings. The old family URL is now 404.
+- [everspin-xspi: Everspin EMxxLX xSPI · STT-MRAM / xSPI](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb). Official primary source; 2026-03-05; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: The 128Mb and 256Mb dates were forecasts as of March 5, 2026; subsequent completion was not verified. HR qualification does not transfer to other EMxxLX variants. This release does not specify bandwidth or retention.
+- [avalanche-umc22: Avalanche Technology / UMC · pMTJ STT-MRAM](https://www.umc.com/en/News/press_release/Content/technology_related/20220913). Official primary source; 2022-09-13; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: This is a discrete product, not proof of identical specifications for general UMC embedded macros. Retention is a supplier reliability specification.
+- [avalanche-scaling2026: Avalanche Technology · STT-MRAM](https://www.avalanche-technology.com/avalanche-technology-phase-one-magnetic-cell-scaling-space-grade-mram-us-government/). Official primary source; 2026-03-02; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: The page is dated March 2, 2026, but the body says March 2, 2025. A 16x density increase is a future goal, not a shipped product.
+- [samsung-emram: Samsung Foundry · STT-MRAM / eMRAM](https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Platform expansion does not establish named high-volume customers at every node. Earlier roadmap dates are not completion evidence.
+- [intel-22ffl-research: Intel · STT-MRAM](https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf). Official primary source; 2018-12-04; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: No newer verified Intel commercial MRAM offering was found in this bounded review. Do not infer availability from the paper or the Intel 16 name.
+- [tsmc-16mram2025: TSMC · eMRAM / STT route](https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report.E.pdf). Official primary source; 2025; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Qualification is not proof of volume shipment of a named MCU. SOT research must remain separate from qualified platforms.
+- [tsmc-sot2025: TSMC SOT-MRAM · SOT-MRAM](https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report.E.pdf). Official primary source; 2025-12; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: A research demonstration is not a commercial process or a shipping SRAM replacement; 16nm automotive MRAM maturity does not transfer.
+- [gf-22fdx: GlobalFoundries · STT-MRAM / 22FDX](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram). Official primary source; 2020-02-27; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Grade 1 was a future target in that release. The current FDX page still lists MRAM, but customer-specific qualification requires separate evidence.
+- [renesas-ra8-2025: Renesas RA8M2 / RA8D2 · Embedded MRAM](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram). Official primary source; 2025-10-22; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: CPU clock is not native MRAM read speed. Do not transfer 2024 research-macro measurements directly to the RA8 products.
+- [st-pcm-boundary: STMicroelectronics · PCM, not established MRAM offering](https://newsroom.st.com/media-center/press-item.html/p4733.html). Official primary source; 2025-11-18; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Samsung cooperation or advanced eNVM does not make this MRAM. Any ST MRAM research requires its own direct source.
+- [nxp-s32k5: NXP S32K5 · Embedded MRAM](https://www.nxp.com/assets/block-diagram/en/S32K5.pdf). Official primary source; 2025-10-30; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: The claimed 15x write advantage is a supplier comparison against embedded flash, not an absolute latency. Announcement is not volume-production evidence.
+- [netsol-stt: NETSOL · STT-MRAM](https://netsol.co.kr/wp-content/uploads/2024/03/S3RxxxxR1M_rev1.1.pdf). Official primary source; 2024-03; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Do not transfer larger densities or process nodes from other series or media reports into this datasheet. Shipment volume is not disclosed.
+- [tdk-headway: TDK / Headway · STT-MRAM](https://www.tdk.com/system/files/tdk_investor_day_20250901_en.pdf). Official primary source; 2025-09-01; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: HDD-head production and MTJ expertise do not establish commercial discrete MRAM. No orderable MRAM SKU, PDK or specific foundry commitment was verified.
+- [numem-aime: Numem · Foundry-based STT-MRAM](https://numem.com/news). Official primary source; 2025-06-10; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Power and SRAM-class performance are supplier claims without uniform independent benchmarking. This is not evidence of a new magnetic material or named volume shipments.
+- [imec-sot: imec · SOT-MRAM](https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually). Official primary source; 2023-12-13; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Device switching energy excludes full macro, bus and system overhead. The 50nm dimension is not a 50nm CMOS process-node claim.
+- [RRAM-WEEBIT-2026: Weebit Nano · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/). Official primary source; 2026-07-31; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: First customer product mass production remained a future milestone.
+- [RRAM-ONSEMI-2026: onsemi · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/). Official primary source; 2026-07-31; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Licensing or transfer does not establish product mass production.
+- [RRAM-TI-2026: Texas Instruments · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/). Official primary source; 2026-07-31; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: TI commercial FRAM and this ReRAM transfer are separate technology routes.
+- [RRAM-SKYWATER-S130: SkyWater/Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: IP qualification does not qualify every customer chip or prove its mass production.
+- [RRAM-DBHITEK-130: DB HiTek/Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: 100K cycles is an extension option; base BCD volume does not establish ReRAM product shipments.
+- [RRAM-TSMC-IOT: TSMC · ReRAM](https://www.tsmc.com/english/dedicatedFoundry/technology/platform_IoT_tech_NVM). Official primary source; 2024; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: 12RRAM risk production is not full production or automotive qualification.
+- [RRAM-INFINEON-TC4X: Infineon/TSMC · ReRAM](https://www.infineon.com/technology-news/2022/infatv202211-031). Official primary source; 2022-11-25; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: This announcement does not prove every TC4x variant uses RRAM or has reached production.
+- [CBRAM-GF-RENESAS: GlobalFoundries/Renesas/Dialog · CBRAM](https://gf.com/news-and-events/news/globalfoundries-acquires-renesas-non-volatile-resistive-ram-technology-to-proliferate-iot-and-5g-applications/). Official primary source; 2023-02-09; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Prior CBRAM production does not establish 22FDX production; the acquirer was GF, not Infineon.
+- [RRAM-NUVOTON-M2L31: Nuvoton · ReRAM](https://www.nuvoton.com/products/microcontrollers/arm-cortex-m23-mcus/m2l31-series/index.html). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: 72 MHz is the MCU clock, not cell write latency; density and reliability are part-specific.
+- [RRAM-PANASONIC-UMC: Panasonic/UMC · ReRAM](https://news.panasonic.com/global/press/en170201-3). Official primary source; 2017-02-01; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: The development target is not evidence of 2026 availability or the process used by every current Nuvoton part.
+- [RRAM-RAMXEED-PRODUCT: RAMXEED · ReRAM](https://www.ramxeed.com/products/reram/reram-products.html). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Do not transfer the 8 Mbit production status or endurance to the 12 Mbit part.
+- [RRAM-CROSSBAR-DARIC: CrossBar · ReRAM](https://crossbar-inc.com/blogs/all/overview-of-crossbar-hardware-reram-and-chip). Official primary source; 2026-05-06; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: The article does not establish production qualification or independent security certification; avoid blanket immunity claims.
+- [XPOINT-MICRON-EXIT: Micron · 3D XPoint](https://investors.micron.com/news/press-release/2021/Micron-Updates-Data-Center-Portfolio-Strategy-to-Address-Growing-Opportunity-for-Memory-and-Storage-Hierarchy-Innovation-03-16-2021/default.aspx). Official primary source; 2021-03-16; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Ending this route does not end all PCM research; CXL is an interconnect, not a memory-cell mechanism.
+- [XPOINT-INTEL-EXIT: Intel · 3D XPoint](https://www.intc.com/filings-reports/all-sec-filings/content/0000050863-23-000006/intc-20221231.htm). Official primary source; 2022; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Historical product pages or inventory sales do not establish continuing development or other vendors' PCM exits.
+- [PCM-ST-P3E: STMicroelectronics · PCM](https://www.st.com/content/st_com/en/campaigns/stellar-p3e-automotive-mcu-with-npu-accelerator-and-xmemory.html). Official primary source; 2026; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Reaching the planned quarter does not prove completion; P3E timing does not apply to every Stellar part.
+- [PCM-IBM-AIMC: IBM Research · PCM](https://research.ibm.com/publications/deep-neural-network-inference-with-a-64-core-in-memory-compute-chip-based-on-phase-change-memory). Official primary source; 2023-09-17; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Analog weight-compute results do not establish a purchasable general-purpose PCM memory or complete-system performance.
+- [FERAM-TI-MSP430: Texas Instruments · FeRAM](https://www.ti.com/tool/TIDM-FRAM-EEPROM). Official primary source; 2016-12-20; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: FRAM is the storage technology; EEPROM emulation is interface behavior, not floating-gate or FeFET construction.
+- [FERAM-RAMXEED: RAMXEED · FeRAM](https://www.ramxeed.com/faq/). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Cycle ratings, interfaces and temperatures are part-specific; FeRAM is not synonymous with all FeFET or FTJ devices.
+- [FERAM-INFINEON: Infineon · FeRAM](https://www.infineon.com/products/memories/f-ram-ferroelectric-ram). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Maximum ratings do not apply to every part; this does not establish HfO2 FeFET or FTJ construction.
+- [FERAM-GF-IPMS-2026: GlobalFoundries/Fraunhofer IPMS · FeRAM](https://www.ipms.fraunhofer.de/en/press-media/press/2026/Ferroelectric-memory-storage.html). Official primary source; 2026-06-11; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: The announcement lacks orderable parts, a complete qualification report or shipment volumes.
+- [FERRO-NAMLAB-2025: NaMLab · FeFET/FTJ](https://www.namlab.com/publications/). Official primary source; 2025; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Publication listings establish research participation, not foundry service, PDK availability or mass production.
+- [FERRO-FMC: FMC · Ferroelectric Memory](https://www.ferroelectric-memory.com/technology/). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: The current page describes ferroelectric capacitors; it does not establish that DRAM+ or CACHE+ uses a FeFET or FTJ. Product qualification and shipment volumes are not verified.
+- [FERRO-IMEC-NDREAD: imec · FeRAM/FeCAP](https://www.imec-int.com/en/articles/non-destructive-readout-mechanism-ferroelectric-capacitors). Official primary source; 2023; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Read endurance is not write endurance and does not establish conventional FeRAM behavior or mass production.
+- [RRAM-CEA-LETI: CEA-Leti/Weebit Nano · ReRAM](https://www.cea.fr/cea-tech/leti/english/Pages/What's-On/Press%20release/Weebit-Nano-and-CEA-Leti-to-demonstrate-brain-inspired-neuromorphic-demo-.aspx). Official primary source; 2019-07-18; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: The demonstration is not an orderable complete AI accelerator; transfer and qualification require separate evidence.
+- [industry-infineon-sonos: Infineon/Cypress · SONOS eFlash](https://www.infineon.com/products/memories/embedded-flash-ip-solutions). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Separate Cypress history from current macros; do not combine family-wide maximum specifications.
+- [industry-sst-superflash: SST/Microchip · SuperFlash NOR/eFlash](https://www.sst.com/services/). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Licensing does not establish identical current qualification across nodes; verify each technology generation.
+- [industry-st-estm: STMicroelectronics · eSTM eFlash/Page EEPROM](https://www.st.com/content/st_com/en/about/innovation-and-technology/estm.html). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Keep eSTM separate from Stellar PCM; it is not the cell used by every ST MCU.
+- [industry-renesas-sgmonos: Renesas · SG-MONOS eFlash](https://www.renesas.com/en/about/press-room/renesas-electronics-announces-world-s-first-development-fin-shaped-monos-flash-memory-cells-high). Official primary source; 2016-12-07; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: This announcement does not prove 16/14nm production; verify current part numbers separately.
+- [industry-xfab-xt011: X-FAB · XT011 eFlash/EEPROM](https://www.xfab.com/news/details/article/x-fab-releases-embedded-flash-solution-on-its-110nm-automotive-bcd-on-soi-technology). Official primary source; 2024-12-03; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Keep this separate from the historical 2003 XC06 example; do not assume identical cells.
+- [industry-floadia-zt: Floadia · LEE Flash ZT MTP](https://floadia.com/product/lee-flash-zt/). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: General and platform-specific endurance figures differ; do not infer universal endurance or polysilicon count.
+- [industry-samsung-vnand9: Samsung · Ninth-Generation TLC V-NAND](https://news.samsung.com/global/samsung-electronics-begins-industrys-first-mass-production-of-9th-gen-v-nand). Official primary source; 2024-04-23; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Evidence concerns this TLC generation; later demonstrations and projected QLC timing are separate.
+- [industry-skhynix-321tlc: SK hynix · 321-Layer TLC 4D NAND](https://news.skhynix.com/en/sk-hynix-starts-mass-production-of-world-first-321-high-nand/). Official primary source; 2024-11-21; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Separate production from customer delivery; do not assign this die to every Solidigm SSD.
+- [industry-solidigm-p5336: Solidigm · D5-P5336 QLC SSD](https://www.solidigm.com/products/data-center/d5/p5336.html). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: SSD capacity and system metrics are not die specifications; corporate relationships do not establish common NAND.
+- [industry-micron-g9: Micron · G9 TLC NAND](https://investors.micron.com/news/press-release/2024/Micron-Announces-Volume-Production-of-Ninth-Generation-NAND-Flash-Technology-07-30-2024/default.aspx). Official primary source; 2024-07-30; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Do not extend TLC evidence to every QLC or NOR product; interface speed is not cell programming speed.
+- [industry-kioxia-sandisk-gen10: Kioxia/Sandisk · Tenth-Generation BiCS 3D NAND](https://www.kioxia.com/en-jp/about/news/2026/20260703-2.html). Official primary source; 2026-07-03; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Production start does not establish universal customer availability or identical finished products.
+- [industry-ymtc-xtacking: YMTC · Xtacking 3D NAND](https://www.ymtc.com/en/technicalintroduction.html). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Awards and architecture descriptions alone do not prove each product's volume, layer count or shipment status.
+- [industry-macronix-nor: Macronix · Serial NOR/OctaBus](https://www.macronix.com/en-us/products/NOR-Flash/Serial-NOR-Flash/Pages/default.aspx). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: This source directly supports NOR; verify NAND parts separately and do not infer cell geometry from interfaces.
+- [industry-winbond-w25q: Winbond · W25Q16JW Serial NOR](https://www.winbond.com/hq/new-online-purchasing-guide/?__locale=en&pLine=/product/code-storage-flash/qspi-nor/&pNo=W25Q16JW). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Catalog presence does not guarantee stock; verify NAND families and other capacities separately.
+- [industry-gigadevice-flash: GigaDevice · GD25/GD55 NOR; GD5F NAND](https://www.gigadevice.com/product/flash). Official primary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Family coverage does not replace part-specific production status, temperature, endurance or retention specifications.
+- [everspin-ddr-technology: Current official explanation of 1Gb DDR4-like persistent DRAM and separate xSPI STT products.](https://www.everspin.com/stt-mram-technology). Official supplementary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
+- [gf-current-fdx: Current FDX platform page continues to list MRAM.](https://gf.com/technologies/cmos/fdx-fd-soi/). Official supplementary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
+- [headway-author-research: Headway-authored embedded STT-MRAM research presentation; not commercial supply evidence.](https://www.cea.fr/cea-tech/leti/Documents/%C3%A9v%C3%A9nements/Prez%20workshop%20memory%202017/2.2.pdf). Official supplementary source; 2017; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
+- [numem-current: Current site explicitly identifies foundry-based STT-MRAM and AIME.](https://www.numem.com/). Official supplementary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
+- [nxp-launch: S32K5 launch and supplier comparison claims.](https://www.nxp.com/company/about-nxp/newsroom/NW-NEW-S32K5-MICROCONTROLLER). Official supplementary source; 2025-03-11; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
+- [samsung-history: Historical node schedules must remain separate from current platform evidence.](https://semiconductor.samsung.com/news-events/tech-blog/developing-the-industrys-most-energy-efficient-next-generation-mram-selected-as-iedm-highlight-paper/). Official supplementary source; 2023; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
+- [everspin-persyst-catalog: Current official catalog lists MR3A16ACYS35 as MP, 8Mb, x16, 35ns, 3.3V and −40 to 85°C.](https://www.everspin.com/persyst?page=2). Official supplementary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
+- [everspin-2025-10k: The annual filing confirms continuing 1Gb STT-MRAM shipments; its March 4 filing date is explicitly stated in the March 5 official release.](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm). Official supplementary source; 2026-03-04; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
+- [everspin-hr-xspi-20260305: Original official release: HR 64Mb qualified and orderable; HR 128/256Mb qualification and volume dates remain forecasts.](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb). Official supplementary source; 2026-03-05; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
+- [RES-IBM-DSMTJ-2025: IBM: Double Spin-Torque MTJs for Cache](https://research.ibm.com/publications/progress-and-gaps-in-double-spin-torque-mtjs-for-last-level-cache-applications). Official primary source; 2025-12-06; Accessed 2026-09-10; Location in the Source: Public abstract / main text; Limitations: Research-array demonstration; does not establish production yield or a shipped cache product.
+- [RES-EVERSPIN-TELEDYNE-2026: Everspin / Teledyne HiRel Partnership](https://investor.everspin.com/news-releases/news-release-details/everspin-technologies-and-teledyne-hirel-semiconductors-partner). Official primary source; 2026-09-02; Accessed 2026-09-10; Location in the Source: Public abstract / main text; Limitations: A planned partner delivery does not prove completed qualification of every HR SKU.
+- [RES-SONY-MICRON-2014: Micron / Sony: Copper ReRAM Research](https://investors.micron.com/static-files/7ac25c4b-edd0-4482-97ad-267a7263bcf0). Official primary source; 2014-06-05; Accessed 2026-09-10; Location in the Source: Public abstract / main text; Limitations: Historical R&D evidence, not current availability, a Sony sensor design win or production volume.
+- [MRAM-KIOXIA-SKHYNIX-64GB-2025: Kioxia/SK hynix · 64 Gbit 1Selector–1MTJ Cross-Point MRAM](https://www.kioxia.com/en-jp/rd/technology/topics/topics-80.html). Primary official source; 2025-04-15; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: This is a research array, not evidence of product availability. The 20 nm figure is MTJ diameter, not a CMOS process node; typical-bit tests do not establish full-array yield.
+- [RRAM-TETRAMEM-MLX200-2026: TetraMem · MLX200 Multi-Level RRAM Analog IMC](https://tetramem.com/tetramem-completes-mlx200-silicon-validation/). Primary official source; 2026-05-19; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: Evaluation kits were scheduled for H2 2026 at announcement. Initial validation does not establish mass production or delivery, and computing results are not general-purpose storage specifications.
+- [RRAM-INTRINSIC-SURECORE: Intrinsic/sureCore · SiOx RRAM](https://www.intrinsicsemi.com/). Primary official source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: The collaboration does not establish qualification or mass production of a named process macro; the site does not provide a complete orderable part and datasheet proving current supply.
+- [NRAM-NANTERO-FUJITSU-2016: Nantero/Fujitsu Semiconductor/Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/). Primary official source; 2016-08-31; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: This historical development evidence establishes neither 2026 production and availability nor program termination; NRAM should be classified separately from oxide RRAM.
 - [op-pat-nrom-hhi: Saifun: Self-Aligned NROM Programming and Erasure Areas](https://patents.google.com/patent/US6664588B2/en). Public Patent; 2003; 2026-09-10 accessed; Location in the Source: Figures 4, 8A, 9, and 10–11; band-to-band hole generation and localized hot-hole injection; Limitations: The pocket implant and local hole path belong to this example; US5768192A is not used as evidence for this erase path.
+- [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en). Public Patent; 2014; 2026-09-10 accessed; Location in the Source: Figures 1–3; uniform channel tunneling, electron programming, and hole erase; Limitations: A named SONOS tunneling example; no equivalence to the stack or biases of a current Infineon macro is asserted.
 - [op-nand-hole-erase: KIOXIA: Schottky Source Contact and Hole Supply](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html). Manufacturer Research; 2025-09-18; 2026-09-10 accessed; Location in the Source: Figures 1 and 4; GIDL hole supply from an N+ silicon source and the Schottky-contact alternative; Limitations: Supports carrier supply and a named study; this diagram uses the conventional GIDL branch without merging in a Schottky source.
 - [op-pat-nand-gidl: SanDisk: GIDL-Assisted 3D NAND Erase](https://patents.google.com/patent/US10923196B1/en). Public Patent; 2021; 2026-09-10 accessed; Location in the Source: Figure 8 and GIDL erase description; terminal/select-gate bias difference, hole supply, and charge neutralization; Limitations: Uses its own BL/SL and select-gate biases; do not substitute the floating-terminal erase conditions of US7696559B2.
 - [op-stt-katine-2000: Katine et al.: Current-Driven Reversal in Co/Cu/Co Pillars](https://arxiv.org/abs/cond-mat/9908231). Original research paper; 2000; Location in the Source: Abstract: electron flow from thin to thick layer favors AP; reverse flow favors P; Limitations: Used for the current/electron-flow convention; not product data for an MgO MTJ.
@@ -4841,7 +5472,7 @@ Figures 4 and 5 of US5844271A share one FG conductor, with control buried in sil
 
 - [ch-pat-eeprom-singlepoly: Cypress Semiconductor: Buried-Control-Gate Single-Poly EEPROM Patent US5844271A](https://patents.google.com/patent/US5844271A/en)
 
-### mtp · Erase: Remove Electrons Through the Specified Exit
+### mtp · ERS: Restore a State Suitable for Reprogramming
 
 #### Double-Poly EEPROM: Local-Window Principle
 
@@ -5811,3 +6442,1205 @@ Read the five-layer stack in Figure 3, then compare polarization-dependent barri
 This is a published application. Claim 1 combines a first electrode, ferroelectric material and contacting catalytic metal; claims 2–3 add particular electronegativity and thickness limits. The five-layer embodiment includes details beyond the independent claim.
 
 Compare FTJ polarization reversal and barrier changes, keeping this stack distinct from research devices using other electrodes and ferroelectrics.
+
+
+## Major Industry and Research Routes
+
+Trace named implementations from purchasable memories and integrable IP/processes to materials and arrays still under validation. Align mechanisms, measurement levels and maturity before assessing application value.
+
+### A Technology Name Does Not Define a Deliverable
+
+RRAM filaments, STT tunneling-current writes and SOT separate paths impose different process, endurance and peripheral requirements. Products, foundry platforms and research papers answer different questions; preserve their conditions and attribution.
+
+### Everspin · Three Product Lines: Toggle, DDR STT and xSPI
+
+Standalone MRAM Product Supplier
+
+Everspin is a core commercial MRAM reference. Its three product lines differ in write physics, interfaces, retention and qualification; compare exact ordering codes and document versions.
+
+Commercial Products; Qualification Is Version-Specific: DDR4-like does not mean a drop-in replacement for every DDR4 device; HR 64Mb qualification does not cover the whole family.
+
+Standalone Toggle MRAM, 1Gb persistent STT memory and EMxxLX xSPI.
+
+Toggle uses fields from selected lines to switch magnetization; STT switches the free layer with spin-polarized current through the MTJ.
+
+Both routes can update the opposite magnetic state without a Flash block erase. Commands, update granularity and timing remain interface-specific.
+
+Sense data through MTJ resistance. System latency includes asynchronous-bus, DDR or xSPI transactions and cannot be reduced to a switching pulse.
+
+- [everspin-toggle: Everspin Toggle MRAM · Toggle MRAM](https://www.everspin.com/persyst?page=2)
+- [everspin-ddr-technology: Current official explanation of 1Gb DDR4-like persistent DRAM and separate xSPI STT products.](https://www.everspin.com/stt-mram-technology)
+- [EMG-P-TOGGLE: Motorola: Toggle Writing Patent US6545906B1](https://patents.google.com/patent/US6545906B1/en)
+
+#### Toggle: Mature Interfaces and Exact Parts
+
+The current PERSYST catalog marks MR3A16ACYS35 as mass production, with 8Mb, asynchronous x16, 35ns, 3.3V and −40°C to 85°C. These are named-part conditions, not universal MRAM density, speed or retention specifications.
+
+- [everspin-toggle: Everspin Toggle MRAM · Toggle MRAM](https://www.everspin.com/persyst?page=2)
+
+#### 1Gb STT: Persistent Buffers for Enterprise Storage
+
+The 2025 filing confirms continuing 1Gb STT-MRAM shipments; the technology page describes a DDR4-like persistent-DRAM interface. Retention and controller requirements need the relevant datasheet, rather than values copied from Toggle or xSPI.
+
+- [everspin-1gb-ddr: Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+- [everspin-ddr-technology: Current official explanation of 1Gb DDR4-like persistent DRAM and separate xSPI STT products.](https://www.everspin.com/stt-mram-technology)
+
+#### xSPI: Separate Density Availability from HR Qualification
+
+The March 5, 2026 release confirms HR 64Mb AEC-Q100 Grade 1 production qualification and order availability. Its HR 128Mb/256Mb dates are announcement-time plans; later completion is not established by the primary text reviewed here. A September 2 Teledyne partnership starts with 256Mb and anticipates partner customer availability in Q4 2026.
+
+- [everspin-xspi: Everspin EMxxLX xSPI · STT-MRAM / xSPI](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
+- [RES-EVERSPIN-TELEDYNE-2026: Everspin / Teledyne HiRel Partnership](https://investor.everspin.com/news-releases/news-release-details/everspin-technologies-and-teledyne-hirel-semiconductors-partner)
+
+- **8Mb / 35ns**: Capacity and asynchronous cycle specification for MR3A16ACYS35. Not a specification for 1Gb DDR or EMxxLX.
+
+- [everspin-toggle: Everspin Toggle MRAM · Toggle MRAM](https://www.everspin.com/persyst?page=2)
+
+- **HR 64Mb / Grade 1**: Qualified and available for orders on March 5, 2026. Other capacities and versions do not inherit this qualification.
+
+- [everspin-xspi: Everspin EMxxLX xSPI · STT-MRAM / xSPI](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
+
+Engineering interpretation: Toggle, persistent DDR buffers and low-pin-count xSPI serve different controllers and data lifecycles. Compare power-loss protection, update frequency, latency, qualification and board-integration cost.
+
+Specify the complete part number, datasheet revision, retention temperature, endurance conditions, controller support and exact qualification scope.
+
+### UMC · Embedded RRAM and a Distinct MRAM Product Route
+
+Foundry and Ecosystem Integration
+
+UMC evidence spans process availability, qualified RRAM IP, a SoC development platform and standalone MRAM products. These are distinct delivery levels.
+
+Qualified RRAM IP; Named MRAM Products Available: A standalone MRAM product does not establish an available embedded macro.
+
+22nm ULP/ULL RRAM; separately, Avalanche 22nm pMTJ STT-MRAM.
+
+RRAM SET establishes a low-resistance state; the UMC/eMemory announcement does not disclose material, bias or pulse algorithms.
+
+RESET returns to high resistance, unlike Flash block erase. Avalanche STT-MRAM directly overwrites a magnetic state.
+
+Low-disturb sensing is combined with verification, ECC and repair; controller behavior is specific to the IP.
+
+- [RES-UMC-RRAM-2023: UMC / eMemory: 22nm RRAM Qualification](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)
+- [RES-UMC-MRAM-2022: UMC / Avalanche: 22nm P-SRAM Availability](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)
+
+#### From 40nm Collaboration to 22nm IP
+
+The 2017 Panasonic collaboration establishes a 40nm history; eMemory announced qualification of a 22nm version in 2023. Public evidence does not establish an identical stack or IP lineage. Low-temperature backend integration and logic-platform compatibility matter to SoC adoption.
+
+- [RES-PANASONIC-UMC-2017: Panasonic / UMC: 40nm ReRAM Collaboration](https://news.panasonic.com/global/press/en170201-3)
+- [RES-UMC-RRAM-2023: UMC / eMemory: 22nm RRAM Qualification](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)
+
+#### MRAM: Separate Agreements from Products
+
+The 2018 agreement began with 28nm CMOS. The 2022 immediate-availability evidence concerns Avalanche third-generation 22nm P-SRAM. This establishes a named MRAM product route, not a universally available embedded macro.
+
+- [RES-UMC-MRAM-2018: UMC / Avalanche: MRAM Development Agreement](https://www.umc.com/en/News/press_release/Content/technology_related/20180806)
+- [RES-UMC-MRAM-2022: UMC / Avalanche: 22nm P-SRAM Availability](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)
+
+#### SoC Adoption Evidence and Open Roadmap Items
+
+Faraday FlashKit-22RRAM adds silicon-validated controller, BIST and processor integration in 2025. The 16Mb automotive and 0.8V/1.8V variants targeted in 2023 still require completion evidence. The Infineon/UMC 40nm automotive agreement identifies proprietary eNVM without identifying RRAM.
+
+- [RES-FARADAY-RRAM-2025: Faraday: FlashKit-22RRAM Silicon Validation](https://www.faraday-tech.com/html/News/pressRelease/CHI_01_0441.jsp)
+- [RES-UMC-RRAM-2023: UMC / eMemory: 22nm RRAM Qualification](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)
+- [RES-UMC-INFINEON-2023: UMC / Infineon: 40nm Automotive MCU Agreement](https://www.umc.com/en/News/press_release/Content/technology_related/20230307)
+
+- **8Mb + 16Kb**: The 2023 qualified RRAM macro and information area; 10k cycles and 10-year retention up to 105°C. These values belong to the named version, not all 22nm eNVM.
+
+- [RES-UMC-RRAM-2023: UMC / eMemory: 22nm RRAM Qualification](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)
+
+- **22nm P-SRAM**: Avalanche standalone products announced immediately available in 2022. This does not establish qualification of an embedded MRAM macro.
+
+- [RES-UMC-MRAM-2022: UMC / Avalanche: 22nm P-SRAM Availability](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)
+
+Engineering interpretation: evaluate RRAM for low-standby-power MCUs, AIoT and embedded code storage. Value depends on the selected IP retention conditions, update budget, test cost and controller integration.
+
+Confirm the version, PDK, macro capacity, ECC, update granularity, automotive qualification and tapeout availability.
+
+### Panasonic · Tantalum-Oxide Filaments and Product Evidence
+
+ReRAM Technology and Product Lineage
+
+Panasonic is an important early commercial ReRAM developer. Trace 180nm production, 40nm test macros and Fujitsu products separately to connect the mechanism with reliability and products.
+
+Historical Production, Test Macros and Named Products: Sampling targets and test macros do not establish production of every 40nm product.
+
+Tantalum-oxide ReRAM; integration in foundry-standard 40nm CMOS.
+
+Forming first creates a localized conductive path in the oxide; later SET enters the low-resistance state. Forming is distinct from each data write.
+
+RESET returns to high resistance through redox and defect redistribution; it neither removes the layer nor irreversibly blows a fuse.
+
+Sense high and low resistance with a low-disturb bias, accounting for state distributions and the post-cycling sensing window.
+
+- [RES-PANASONIC-SSDM-2018: Panasonic: 40nm ReRAM Mechanism and Reliability](https://confit.atlas.jp/guide/event-img/ssdm2018/B-1-01/public/pdf_archive?type=in)
+
+#### Reliability Must Preserve the Test Sequence
+
+The 2018 8Mbit test macro separately reports 100k-cycle endurance and over ten years at 85°C after 10k cycles. These do not establish ten-year retention after 100k cycles. Engineering evaluation also needs HRS/LRS distribution tails, not only average resistance.
+
+- [RES-PANASONIC-SSDM-2018: Panasonic: 40nm ReRAM Mechanism and Reliability](https://confit.atlas.jp/guide/event-img/ssdm2018/B-1-01/public/pdf_archive?type=in)
+
+#### Partnerships Do Not Reveal Undisclosed Processes
+
+The 2017 announcement confirms 180nm production since 2013 and describes future 40nm sampling. The 2019 Fujitsu/Panasonic MB85AS8MT release names an SPI product without identifying its node or foundry. It cannot by itself establish UMC 40nm product production.
+
+- [RES-PANASONIC-UMC-2017: Panasonic / UMC: 40nm ReRAM Collaboration](https://news.panasonic.com/global/press/en170201-3)
+- [RES-FUJITSU-RERAM-2019: Fujitsu / Panasonic: 8Mbit ReRAM Product](https://info.archives.global.fujitsu/tw/about/resources/news/press-releases/2019/fep-0812.html)
+
+- **100k Cycles**: Endurance result for a 40nm 8Mbit test macro. The retention result uses a separate 10k-cycle condition.
+
+- [RES-PANASONIC-SSDM-2018: Panasonic: 40nm ReRAM Mechanism and Reliability](https://confit.atlas.jp/guide/event-img/ssdm2018/B-1-01/public/pdf_archive?type=in)
+
+- **0.15mA @ 5MHz**: Average read current for the standalone MB85AS8MT SPI product. Not bitcell write energy and not directly comparable with macro speed.
+
+- [RES-FUJITSU-RERAM-2019: Fujitsu / Panasonic: 8Mbit ReRAM Product](https://info.archives.global.fujitsu/tw/about/resources/news/press-releases/2019/fep-0812.html)
+
+Engineering interpretation: this lineage informs low-power persistent storage. Product selection must separate standalone serial-interface system costs from embedded-macro process costs.
+
+Confirm current supplier, ordering code, interface and combined cycling/retention conditions rather than relying on historical partnerships.
+
+### IBM Research · Read MRAM Scaling, Current and Retention Together
+
+Device and Integration Research
+
+IBM contributes traceable device physics and CMOS integration results. MTJ size, process node and write-error rate from different studies must not be combined into an imaginary best-specification product.
+
+Device and CMOS Integration Demonstrations: IBM papers are not a list of IBM production foundry services.
+
+Perpendicular STT-MRAM; distinguish 14nm CMOS integration from smaller-MTJ research.
+
+Current through the MTJ transfers spin angular momentum to set P or AP. The current required for a target WER depends on pulse width and materials.
+
+Switch magnetization in the opposite direction to overwrite the other value, without a Flash-style block erase. The two switching thresholds can differ.
+
+Sense P/AP through MTJ resistance; sensing margin, read disturb and MgO barrier lifetime constrain the bias design.
+
+- [RES-IBM-REVIEW-2024: IBM Authors: STT-MRAM Status and Directions](https://research.ibm.com/publications/spin-transfer-torque-magnetoresistive-random-access-memory-technology-status-and-future-directions)
+- [RES-IBM-11NM-2017: IBM: Low-Current 11nm MTJ Research](https://research.ibm.com/publications/low-current-spin-transfer-torque-mram--1)
+
+#### 14nm Is a CMOS Node; 11nm Is an MTJ Size
+
+The 2020 14nm study places MTJs between M1 and M2 with three added masks and one electrode module; 400°C describes process compatibility. The 2017 11nm result describes a junction size for low-current switching, not an 11nm CMOS platform.
+
+- [RES-IBM-14NM-2020: IBM: 14nm CMOS Embedded STT-MRAM](https://research.ibm.com/publications/a-14-nm-embedded-stt-mram-cmos-technology)
+- [RES-IBM-11NM-2017: IBM: Low-Current 11nm MTJ Research](https://research.ibm.com/publications/low-current-spin-transfer-torque-mram--1)
+
+#### Co-Designing Retention and Speed
+
+The 2024 ordered-alloy study combines a low magnetic moment with strong perpendicular anisotropy, demonstrating a high energy barrier and 2ns operation. This advances material and switching design; retention guarantees still require temperature and statistical conditions.
+
+- [RES-IBM-ALLOY-2024: IBM: Ordered-Alloy Free-Layer Research](https://research.ibm.com/publications/first-demonstration-of-high-retention-energy-barriers-and-2-ns-switching-using-magnetic-ordered-alloy-based-stt-mram-devices)
+
+#### 2025: Double Spin-Torque Arrays for Cache
+
+IEDM 2025 reports a 4-kbit DS-MTJ array in which all devices switch with 2ns pulses, with an approximately 60kT energy barrier at about 40nm critical dimension. This extends the evidence to a research array while preserving the distinction between device geometry and CMOS node.
+
+- [RES-IBM-DSMTJ-2025: IBM: Double Spin-Torque MTJs for Cache](https://research.ibm.com/publications/progress-and-gaps-in-double-spin-torque-mtjs-for-last-level-cache-applications)
+
+- **0.0273μm² / 4ns**: Cell area and minimum demonstrated write time in the 14nm CMOS integration study. Not system area per bit including periphery, nor full access latency.
+
+- [RES-IBM-14NM-2020: IBM: 14nm CMOS Embedded STT-MRAM](https://research.ibm.com/publications/a-14-nm-embedded-stt-mram-cmos-technology)
+
+- **8μA / 10ns / 10⁻⁹**: Current, pulse duration and WER for an 11nm MTJ. Does not establish large-array yield or identical retention.
+
+- [RES-IBM-11NM-2017: IBM: Low-Current 11nm MTJ Research](https://research.ibm.com/publications/low-current-spin-transfer-torque-mram--1)
+
+Engineering interpretation: use these studies to evaluate the physics and integration of embedded MRAM or cache candidates. Procurement still requires a named supplier and a deliverable macro, controller and production contract.
+
+Align definitions of node versus MTJ size, pulse versus access time, device versus array WER, retention temperature and thermal budget.
+
+### ITRI · From SOT Write Channels to Arrays and Computing
+
+Collaborative Research, Prototyping and Transfer
+
+ITRI evidence spans distinct collaborations and versions: SOT with TSMC, cryogenic STT with NYCU, a joint β-W array, an 8-inch prototyping service and RRAM technology transfer.
+
+Research Arrays, Prototypes and Trial Production: Collaborative research must not be represented as an ITRI standalone production product.
+
+SOT-MRAM and BEOL integration; separately, 1S1R RRAM transfer.
+
+In-plane channel current generates spin-orbit torque to switch the free layer; field requirements, assist pulses and directionality depend on the implementation.
+
+Update the opposite magnetic state by direct overwrite. Separate paths can reduce write stress across the tunnel barrier without implying unlimited endurance.
+
+MTJ resistance still reads the state; compute-in-memory also depends on RA, read current, interconnect drop and peripheral circuitry.
+
+- [RES-ITRI-SOT-2022: ITRI: SOT and Cryogenic STT Collaborations](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=111061510283488782&MmmID=1036276263153520257&SiteID=1)
+- [RES-ITRI-CIM-2024: ITRI / TSMC: IEDM 2023 SOT-CIM](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=113011710184808020&MmmID=1036276263153520257&SiteID=1)
+- [RES-ITRI-SERVICE: ITRI: 8-Inch MRAM Development Services](https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=01_content&MGID=1126511563713777471&MmmID=1071732317047353240&SiteID=1)
+
+#### Different Research Targets in 2022 and 2023
+
+The 2022 0.4ns and seven-trillion-cycle claim concerns SOT with TSMC; the same release attributes −269°C to 127°C operation to cryogenic STT with NYCU. The IEDM 2023 result released in 2024 addresses 10ns devices and computing. Its 1% power claim lacks a fully disclosed comparison workload.
+
+- [RES-ITRI-SOT-2022: ITRI: SOT and Cryogenic STT Collaborations](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=111061510283488782&MmmID=1036276263153520257&SiteID=1)
+- [RES-ITRI-CIM-2024: ITRI / TSMC: IEDM 2023 SOT-CIM](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=113011710184808020&MmmID=1036276263153520257&SiteID=1)
+
+#### 2025: Thermally Stable Materials in a 64kb Array
+
+A joint NYCU, TSMC, ITRI, NSRRC, Stanford and NCHU paper uses Co insertion to stabilize β-W. The film maintains phase stability at 400°C for ten hours, and the memory demonstrates 1ns switching. This is integration evidence, not a production-platform announcement.
+
+- [RES-SOT-BETAW-2025: Joint Research: β-W 64kb SOT-MRAM](https://www.nature.com/articles/s41928-025-01434-x)
+
+#### Prototyping and RRAM Transfer Have Separate Contracts
+
+The 8-inch BEOL platform supports Kb-to-Mb research, prototypes and initial trial production. A separate 1S1R RRAM transfer page lists selector, current and geometry specifications. Its undated status cannot establish current production or the maturity of the overall ReRAM market.
+
+- [RES-ITRI-SERVICE: ITRI: 8-Inch MRAM Development Services](https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=01_content&MGID=1126511563713777471&MmmID=1071732317047353240&SiteID=1)
+- [RES-ITRI-RRAM: ITRI: 1S1R 3D RRAM Technology Transfer](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=13_content&MmmID=1036233405427625204&SiteID=1&Trt_idx=4557)
+
+- **64kb / 1ns**: The 2025 β-W SOT research memory; the abstract also reports >10-year retention and 146% TMR. The public abstract omits retention temperature, full WER and CMOS node.
+
+- [RES-SOT-BETAW-2025: Joint Research: β-W 64kb SOT-MRAM](https://www.nature.com/articles/s41928-025-01434-x)
+
+- **1S1R / ≤4F²**: The RRAM transfer listing specifies selectivity ≥100 and current ≤100μA. Transfer specifications, not production density, yield or a node guarantee.
+
+- [RES-ITRI-RRAM: ITRI: 1S1R 3D RRAM Technology Transfer](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=13_content&MmmID=1036233405427625204&SiteID=1&Trt_idx=4557)
+
+Engineering interpretation: consider joint research, process prototyping and compute-architecture validation. SOT speed and barrier-reliability potential must be weighed against channel area, selectors, routing and drive current.
+
+Request version-specific capacity, WER, field or assist requirements, retention, process compatibility and deliverable service scope.
+
+### Turn Research Numbers into Engineering Questions
+
+#### Define the Timing Boundary
+
+A switching pulse excludes some or all decoding, verification, ECC and serial-transfer overhead. Engineering interpretation: establish the measurement level before comparing access time or update energy.
+
+- [RES-IBM-14NM-2020: IBM: 14nm CMOS Embedded STT-MRAM](https://research.ibm.com/publications/a-14-nm-embedded-stt-mram-cmos-technology)
+- [RES-FUJITSU-RERAM-2019: Fujitsu / Panasonic: 8Mbit ReRAM Product](https://info.archives.global.fujitsu/tw/about/resources/news/press-releases/2019/fep-0812.html)
+
+#### Bind Cycling, Retention and Temperature
+
+Thermal budget describes processing, retention temperature describes storage and operating range is a separate specification. Best values from different experiments do not form a product guarantee.
+
+- [RES-PANASONIC-SSDM-2018: Panasonic: 40nm ReRAM Mechanism and Reliability](https://confit.atlas.jp/guide/event-img/ssdm2018/B-1-01/public/pdf_archive?type=in)
+- [RES-SOT-BETAW-2025: Joint Research: β-W 64kb SOT-MRAM](https://www.nature.com/articles/s41928-025-01434-x)
+
+#### Ground Commercial Value in Deliverables
+
+Engineering interpretation: separate components, IP, PDKs and joint research. Power, endurance and density become adoption advantages only when testing, yield, controllers, licensing and supply meet the product requirements.
+
+- [RES-FARADAY-RRAM-2025: Faraday: FlashKit-22RRAM Silicon Validation](https://www.faraday-tech.com/html/News/pressRelease/CHI_01_0441.jsp)
+- [RES-ITRI-SERVICE: ITRI: 8-Inch MRAM Development Services](https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=01_content&MGID=1126511563713777471&MmmID=1071732317047353240&SiteID=1)
+
+#### NRAM: Keep the Material Route and Historical Status Separate
+
+The 2016 Fujitsu archive identifies carbon nanotubes as the NRAM storage technology and a 55nm joint-development plan with Nantero. That evidence does not identify an oxide-filament ReRAM device, nor does it establish a currently available product. The detailed write, reverse-update and read waveforms require a specific device publication or datasheet; no voltage or endurance specification is inferred from the licensing announcement.
+
+- [NRAM-NANTERO-FUJITSU-2016: Nantero/Fujitsu Semiconductor/Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)
+
+Reviewed through 2026-09-10 using official releases, product documents, author papers and public abstracts. Claims based on abstracts remain limited to those abstracts. Engineering interpretations are comparative analysis, not supplier guarantees.
+
+
+## Global NVM Industry and Research Map
+
+### Everspin Toggle MRAM · Toggle MRAM
+
+Discrete memory supplier · Commercial products
+
+The current PERSYST catalog lists Toggle production parts. MR3A16ACYS35 is marked MP and specifies 8Mb, asynchronous x16, 35ns, 3.3V and −40 to 85°C.
+
+These values belong only to MR3A16ACYS35. Do not mix speed, temperature or automotive ratings across parts. The old MR4A16B datasheet is inaccessible, so its over-20-year retention is not cited.
+
+Undated source; checked 2026-09-10
+
+- [everspin-toggle: Everspin Toggle MRAM · Toggle MRAM](https://www.everspin.com/persyst?page=2)
+- [everspin-persyst-catalog: Current official catalog lists MR3A16ACYS35 as MP, 8Mb, x16, 35ns, 3.3V and −40 to 85°C.](https://www.everspin.com/persyst?page=2)
+
+### Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived
+
+Discrete persistent-memory supplier · Shipping
+
+The 2025 Form 10-K confirms continuing 1Gb STT-MRAM shipments. The technology page identifies a DDR4-like persistent-DRAM product for enterprise storage.
+
+DDR4-like does not imply drop-in compatibility with every DDR4 controller. Do not transfer Toggle or xSPI retention, endurance or automotive ratings. The old family URL is now 404.
+
+Source date / event period: 2026-03-04 · Checked 2026-09-10
+
+- [everspin-1gb-ddr: Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+- [everspin-ddr-technology: Current official explanation of 1Gb DDR4-like persistent DRAM and separate xSPI STT products.](https://www.everspin.com/stt-mram-technology)
+- [everspin-2025-10k: The annual filing confirms continuing 1Gb STT-MRAM shipments; its March 4 filing date is explicitly stated in the March 5 official release.](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+
+### Everspin EMxxLX xSPI · STT-MRAM / xSPI
+
+Discrete memory supplier · HR 64Mb qualified and orderable; HR 128/256Mb scheduled at release
+
+The March 5, 2026 investor release confirms HR 64Mb xSPI STT-MRAM completed AEC-Q100 Grade 1 production qualification and is orderable with distributor inventory. HR 128Mb qualification was expected in May and 256Mb in July, with 256Mb volume availability expected in the second half of 2026.
+
+The 128Mb and 256Mb dates were forecasts as of March 5, 2026; subsequent completion was not verified. HR qualification does not transfer to other EMxxLX variants. This release does not specify bandwidth or retention.
+
+Source date / event period: 2026-03-05 · Checked 2026-09-10
+
+- [everspin-xspi: Everspin EMxxLX xSPI · STT-MRAM / xSPI](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
+- [everspin-hr-xspi-20260305: Original official release: HR 64Mb qualified and orderable; HR 128/256Mb qualification and volume dates remain forecasts.](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
+- [everspin-ddr-technology: Current official explanation of 1Gb DDR4-like persistent DRAM and separate xSPI STT products.](https://www.everspin.com/stt-mram-technology)
+
+### Avalanche Technology / UMC · pMTJ STT-MRAM
+
+Memory supplier / foundry · Named product in production
+
+The September 13, 2022 release announces immediate availability of Gen 3 P-SRAM on UMC 22nm. The cited parallel x32 product specifies over 10^14 writes and 1,000-year retention at 85°C.
+
+This is a discrete product, not proof of identical specifications for general UMC embedded macros. Retention is a supplier reliability specification.
+
+Source date / event period: 2022-09-13 · Checked 2026-09-10
+
+- [avalanche-umc22: Avalanche Technology / UMC · pMTJ STT-MRAM](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)
+
+### Avalanche Technology · STT-MRAM
+
+Memory and technology developer · Cell-scaling milestone
+
+The 2026 web announcement reports completion of a first-phase MTJ scaling milestone for future higher-density space-grade MRAM.
+
+The page is dated March 2, 2026, but the body says March 2, 2025. A 16x density increase is a future goal, not a shipped product.
+
+Source date / event period: 2026-03-02 · Checked 2026-09-10
+
+- [avalanche-scaling2026: Avalanche Technology · STT-MRAM](https://www.avalanche-technology.com/avalanche-technology-phase-one-magnetic-cell-scaling-space-grade-mram-us-government/)
+
+### Samsung Foundry · STT-MRAM / eMRAM
+
+Foundry platform · 28FDS production; FinFET expansion
+
+The current specialty-process page confirms 28nm FD-SOI eMRAM mass production since 2019 and expansion to 14LPU and 8LPU, with 5nm still planned.
+
+Platform expansion does not establish named high-volume customers at every node. Earlier roadmap dates are not completion evidence.
+
+Undated source; checked 2026-09-10
+
+- [samsung-emram: Samsung Foundry · STT-MRAM / eMRAM](https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/)
+
+### Intel · STT-MRAM
+
+Process and device R&D · Published research; current product unverified
+
+The official IEDM 2018 program lists Intel-authored work on MRAM embedded in 22FFL FinFET, establishing primary evidence of process-integration research.
+
+No newer verified Intel commercial MRAM offering was found in this bounded review. Do not infer availability from the paper or the Intel 16 name.
+
+Source date / event period: 2018-12-04 · Checked 2026-09-10
+
+- [intel-22ffl-research: Intel · STT-MRAM](https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf)
+
+### TSMC · eMRAM / STT route
+
+Foundry platform · Automotive Grade 1 qualified
+
+The 2025 annual report confirms qualification and customer availability of second-generation 16nm automotive Grade 1 MRAM. 12nm automotive and 5nm high-speed MRAM remain in development.
+
+Qualification is not proof of volume shipment of a named MCU. SOT research must remain separate from qualified platforms.
+
+Source date / event period: 2025 · Checked 2026-09-10
+
+- [tsmc-16mram2025: TSMC · eMRAM / STT route](https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report.E.pdf)
+
+### TSMC SOT-MRAM · SOT-MRAM
+
+Advanced memory R&D · Research demonstration
+
+The 2025 annual report describes an IEDM 2025 Type-C SOT-MRAM demonstration using a circular MTJ with built-in magnetic anisotropy for field-free operation.
+
+A research demonstration is not a commercial process or a shipping SRAM replacement; 16nm automotive MRAM maturity does not transfer.
+
+Source date / event period: 2025-12 · Checked 2026-09-10
+
+- [tsmc-sot2025: TSMC SOT-MRAM · SOT-MRAM](https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report.E.pdf)
+
+### GlobalFoundries · STT-MRAM / 22FDX
+
+Foundry platform · Platform entered production
+
+The February 27, 2020 announcement confirms production entry of 22FDX eMRAM and 4–48Mb silicon-validated macros, with 100k endurance and 10-year retention across the stated temperature range.
+
+Grade 1 was a future target in that release. The current FDX page still lists MRAM, but customer-specific qualification requires separate evidence.
+
+Source date / event period: 2020-02-27 · Checked 2026-09-10
+
+- [gf-22fdx: GlobalFoundries · STT-MRAM / 22FDX](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
+- [gf-current-fdx: Current FDX platform page continues to list MRAM.](https://gf.com/technologies/cmos/fdx-fd-soi/)
+
+### Renesas RA8M2 / RA8D2 · Embedded MRAM
+
+MCU supplier · Available; Japanese release confirms production
+
+The October 22, 2025 release announces available RA8M2 and RA8D2 MCUs with embedded MRAM, a 1GHz Cortex-M85 and a 250MHz Cortex-M33.
+
+CPU clock is not native MRAM read speed. Do not transfer 2024 research-macro measurements directly to the RA8 products.
+
+Source date / event period: 2025-10-22 · Checked 2026-09-10
+
+- [renesas-ra8-2025: Renesas RA8M2 / RA8D2 · Embedded MRAM](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)
+
+### NXP S32K5 · Embedded MRAM
+
+Automotive MCU supplier · Announced; official brief says preproduction
+
+NXP announced the 16nm FinFET S32K5 with embedded MRAM on March 11, 2025. Its October 30, 2025 product brief still labels the family preproduction.
+
+The claimed 15x write advantage is a supplier comparison against embedded flash, not an absolute latency. Announcement is not volume-production evidence.
+
+Source date / event period: 2025-10-30 · Checked 2026-09-10
+
+- [nxp-s32k5: NXP S32K5 · Embedded MRAM](https://www.nxp.com/assets/block-diagram/en/S32K5.pdf)
+- [nxp-launch: S32K5 launch and supplier comparison claims.](https://www.nxp.com/company/about-nxp/newsroom/NW-NEW-S32K5-MICROCONTROLLER)
+
+### NETSOL · STT-MRAM
+
+Discrete memory supplier · Named product datasheet
+
+The March 2024 S3RxxxxR1M datasheet specifies 1–16Mbit STT-MRAM, asynchronous x8/x16 interfaces and an industrial −40 to 85°C range; the website also lists serial products.
+
+Do not transfer larger densities or process nodes from other series or media reports into this datasheet. Shipment volume is not disclosed.
+
+Source date / event period: 2024-03 · Checked 2026-09-10
+
+- [netsol-stt: NETSOL · STT-MRAM](https://netsol.co.kr/wp-content/uploads/2024/03/S3RxxxxR1M_rev1.1.pdf)
+
+### TDK / Headway · STT-MRAM
+
+Magnetics, MTJ and technology R&D · Technology and R&D; commercial memory SKU unverified
+
+TDK's September 1, 2025 investor-day presentation includes STT-MRAM among its spintronics technologies; Headway authors also have public embedded-STT-MRAM research presentations.
+
+HDD-head production and MTJ expertise do not establish commercial discrete MRAM. No orderable MRAM SKU, PDK or specific foundry commitment was verified.
+
+Source date / event period: 2025-09-01 · Checked 2026-09-10
+
+- [tdk-headway: TDK / Headway · STT-MRAM](https://www.tdk.com/system/files/tdk_investor_day_20250901_en.pdf)
+- [headway-author-research: Headway-authored embedded STT-MRAM research presentation; not commercial supply evidence.](https://www.cea.fr/cea-tech/leti/Documents/%C3%A9v%C3%A9nements/Prez%20workshop%20memory%202017/2.2.pdf)
+
+### Numem · Foundry-based STT-MRAM
+
+Memory IP and chip/chiplet architecture provider · Supplier claims production readiness; shipments unverified
+
+Numem describes foundry-based STT-MRAM IP and chips/chiplets enhanced by AIME. Its June 10, 2025 announcement claims production readiness.
+
+Power and SRAM-class performance are supplier claims without uniform independent benchmarking. This is not evidence of a new magnetic material or named volume shipments.
+
+Source date / event period: 2025-06-10 · Checked 2026-09-10
+
+- [numem-aime: Numem · Foundry-based STT-MRAM](https://numem.com/news)
+- [numem-current: Current site explicitly identifies foundry-based STT-MRAM and AIME.](https://www.numem.com/)
+
+### imec · SOT-MRAM
+
+Research institute / technology R&D · 300mm research-device demonstration
+
+On December 13, 2023 imec reported roughly 50nm critical-dimension SOT devices on 300mm wafers, below 100fJ/bit switching energy and endurance above 10^15 cycles.
+
+Device switching energy excludes full macro, bus and system overhead. The 50nm dimension is not a 50nm CMOS process-node claim.
+
+Source date / event period: 2023-12-13 · Checked 2026-09-10
+
+- [imec-sot: imec · SOT-MRAM](https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually)
+
+### IBM Research · STT-MRAM
+
+Device and Integration Research · Device and CMOS Integration Demonstrations
+
+IBM contributes traceable device physics and CMOS integration results. MTJ size, process node and write-error rate from different studies must not be combined into an imaginary best-specification product.
+
+IBM papers are not a list of IBM production foundry services.
+
+Checked 2026-09-10
+
+- [RES-IBM-REVIEW-2024: IBM Authors: STT-MRAM Status and Directions](https://research.ibm.com/publications/spin-transfer-torque-magnetoresistive-random-access-memory-technology-status-and-future-directions)
+- [RES-IBM-11NM-2017: IBM: Low-Current 11nm MTJ Research](https://research.ibm.com/publications/low-current-spin-transfer-torque-mram--1)
+
+### ITRI · SOT-MRAM
+
+Collaborative Research, Prototyping and Transfer · Research Arrays, Prototypes and Trial Production
+
+ITRI evidence spans distinct collaborations and versions: SOT with TSMC, cryogenic STT with NYCU, a joint β-W array, an 8-inch prototyping service and RRAM technology transfer.
+
+Collaborative research must not be represented as an ITRI standalone production product.
+
+Checked 2026-09-10
+
+- [RES-ITRI-SOT-2022: ITRI: SOT and Cryogenic STT Collaborations](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=111061510283488782&MmmID=1036276263153520257&SiteID=1)
+- [RES-ITRI-CIM-2024: ITRI / TSMC: IEDM 2023 SOT-CIM](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=113011710184808020&MmmID=1036276263153520257&SiteID=1)
+- [RES-ITRI-SERVICE: ITRI: 8-Inch MRAM Development Services](https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=01_content&MGID=1126511563713777471&MmmID=1071732317047353240&SiteID=1)
+
+### Weebit Nano · ReRAM
+
+ReRAM IP licensor · Licensing and customer prototypes
+
+Three customer designs had taped out by July 2026, with a prototype running software.
+
+First customer product mass production remained a future milestone.
+
+Source date / event period: 2026-07-31 · Checked 2026-09-10
+
+- [RRAM-WEEBIT-2026: Weebit Nano · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)
+
+### onsemi · ReRAM
+
+IDM adopting ReRAM · Technology transfer
+
+Weebit reported onsemi ReRAM technology transfer progressing to schedule.
+
+Licensing or transfer does not establish product mass production.
+
+Source date / event period: 2026-07-31 · Checked 2026-09-10
+
+- [RRAM-ONSEMI-2026: onsemi · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)
+
+### Texas Instruments · ReRAM
+
+IDM adopting ReRAM · Technology transfer
+
+Weebit reported TI ReRAM technology transfer progressing to schedule.
+
+TI commercial FRAM and this ReRAM transfer are separate technology routes.
+
+Source date / event period: 2026-07-31 · Checked 2026-09-10
+
+- [RRAM-TI-2026: Texas Instruments · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)
+
+### SkyWater / Weebit Nano · ReRAM
+
+Foundry and IP partnership · Qualified IP available for SoC integration
+
+The official IP page lists qualified S130 130 nm CMOS ReRAM, available for integration, with two added masks in BEOL.
+
+IP qualification does not qualify every customer chip or prove its mass production.
+
+Undated source; checked 2026-09-10
+
+- [RRAM-SKYWATER-S130: SkyWater/Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/)
+
+### DB HiTek / Weebit Nano · ReRAM
+
+Foundry and IP partnership · Qualified and available for integration
+
+130 nm BCD ReRAM IP is silicon-proven and qualified, adding two masks; listed specifications include 10K writes and over ten years retention at 125°C.
+
+100K cycles is an extension option; base BCD volume does not establish ReRAM product shipments.
+
+Undated source; checked 2026-09-10
+
+- [RRAM-DBHITEK-130: DB HiTek/Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)
+
+### TSMC · ReRAM
+
+Embedded-memory foundry · 40/22 in production; 12 risk production
+
+The IoT NVM page lists 40RRAM and 22RRAM in production; 12RRAM entered consumer-grade risk production in 2024, with cells between BEOL metal layers.
+
+12RRAM risk production is not full production or automotive qualification.
+
+Source date / event period: 2024 · Checked 2026-09-10
+
+- [RRAM-TSMC-IOT: TSMC · ReRAM](https://www.tsmc.com/english/dedicatedFoundry/technology/platform_IoT_tech_NVM)
+
+### Infineon / TSMC · ReRAM
+
+Automotive MCU and process partnership · Announced integration partnership
+
+The 2022 announcement describes preparing TSMC RRAM for next-generation AURIX TC4x, supporting bit-wise writes without prior erase.
+
+This announcement does not prove every TC4x variant uses RRAM or has reached production.
+
+Source date / event period: 2022-11-25 · Checked 2026-09-10
+
+- [RRAM-INFINEON-TC4X: Infineon/TSMC · ReRAM](https://www.infineon.com/technology-news/2022/infatv202211-031)
+
+### GlobalFoundries / Renesas / Dialog · CBRAM
+
+CBRAM acquisition and foundry integration · 2023 acquisition; 22FDX then in qualification
+
+GF acquired production-proven CBRAM technology from Renesas in 2023, following a 2020 Dialog license; 22FDX qualification was underway.
+
+Prior CBRAM production does not establish 22FDX production; the acquirer was GF, not Infineon.
+
+Source date / event period: 2023-02-09 · Checked 2026-09-10
+
+- [CBRAM-GF-RENESAS: GlobalFoundries/Renesas/Dialog · CBRAM](https://gf.com/news-and-events/news/globalfoundries-acquires-renesas-non-volatile-resistive-ram-technology-to-proliferate-iot-and-5g-applications/)
+
+### Nuvoton · ReRAM
+
+Embedded ReRAM MCU supplier · Commercial product family
+
+The M2L31 family lists an Arm Cortex-M23, 64–512 KB ReRAM and 72 MHz operation; writes do not require a page erase.
+
+72 MHz is the MCU clock, not cell write latency; density and reliability are part-specific.
+
+Undated source; checked 2026-09-10
+
+- [RRAM-NUVOTON-M2L31: Nuvoton · ReRAM](https://www.nuvoton.com/products/microcontrollers/arm-cortex-m23-mcus/m2l31-series/index.html)
+
+### Panasonic / UMC · ReRAM
+
+Historical ReRAM process collaboration · 2017 joint-development announcement
+
+The 2017 agreement combined Panasonic ReRAM with UMC manufacturing to develop a 40 nm mass-production process.
+
+The development target is not evidence of 2026 availability or the process used by every current Nuvoton part.
+
+Source date / event period: 2017-02-01 · Checked 2026-09-10
+
+- [RRAM-PANASONIC-UMC: Panasonic/UMC · ReRAM](https://news.panasonic.com/global/press/en170201-3)
+
+### RAMXEED · ReRAM
+
+Standalone ReRAM supplier · Specific part in mass production
+
+The product list marks the MB85AS8MT 8 Mbit SPI ReRAM as mass-produced with one million cycles; the 12 Mbit part requires sales contact.
+
+Do not transfer the 8 Mbit production status or endurance to the 12 Mbit part.
+
+Undated source; checked 2026-09-10
+
+- [RRAM-RAMXEED-PRODUCT: RAMXEED · ReRAM](https://www.ramxeed.com/products/reram/reram-products.html)
+
+### CrossBar · ReRAM
+
+ReRAM IP and secure-processor developer · Vendor architecture and chip disclosure
+
+A 2026 company article describes the 22 nm Daric secure processor integrating ReRAM, computing and cryptography on one die.
+
+The article does not establish production qualification or independent security certification; avoid blanket immunity claims.
+
+Source date / event period: 2026-05-06 · Checked 2026-09-10
+
+- [RRAM-CROSSBAR-DARIC: CrossBar · ReRAM](https://crossbar-inc.com/blogs/all/overview-of-crossbar-hardware-reram-and-chip)
+
+### CEA-Leti / Weebit Nano · ReRAM
+
+ReRAM and neuromorphic research partnership · Research demonstration
+
+The announcement combines CEA-Leti spiking neural networks with Weebit SiOx ReRAM in a neuromorphic object-recognition demonstration.
+
+The demonstration is not an orderable complete AI accelerator; transfer and qualification require separate evidence.
+
+Source date / event period: 2019-07-18 · Checked 2026-09-10
+
+- [RRAM-CEA-LETI: CEA-Leti/Weebit Nano · ReRAM](https://www.cea.fr/cea-tech/leti/english/Pages/What's-On/Press%20release/Weebit-Nano-and-CEA-Leti-to-demonstrate-brain-inspired-neuromorphic-demo-.aspx)
+
+### UMC · 22nm RRAM
+
+Foundry and Ecosystem Integration · Qualified RRAM IP; Named MRAM Products Available
+
+UMC evidence spans process availability, qualified RRAM IP, a SoC development platform and standalone MRAM products. These are distinct delivery levels.
+
+A standalone MRAM product does not establish an available embedded macro.
+
+Checked 2026-09-10
+
+- [RES-UMC-RRAM-2023: UMC / eMemory: 22nm RRAM Qualification](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)
+- [RES-UMC-MRAM-2022: UMC / Avalanche: 22nm P-SRAM Availability](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)
+
+### ITRI · 1S1R RRAM
+
+Technology transfer · Undated research / transfer listing
+
+Cross-point RRAM and selector development with published electrical and geometry targets.
+
+Not evidence of current high-volume manufacturing.
+
+Checked 2026-09-10
+
+- [RES-ITRI-RRAM: ITRI: 1S1R 3D RRAM Technology Transfer](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=13_content&MmmID=1036233405427625204&SiteID=1&Trt_idx=4557)
+
+### STMicroelectronics · PCM, not established MRAM offering
+
+MCU supplier; classification boundary · Announced; selected-customer early access
+
+The November 18, 2025 STM32V8 announcement explicitly identifies 18nm FD-SOI and embedded PCM, with Samsung Foundry manufacturing cooperation.
+
+The 2025 announcement offered early access to selected customers and targeted major OEM availability for Q1 2026, with broad availability later. Calendar passage does not prove completion.
+
+Source date / event period: 2025-11-18 · Checked 2026-09-10
+
+- [st-pcm-boundary: STMicroelectronics · PCM, not established MRAM offering](https://newsroom.st.com/media-center/press-item.html/p4733.html)
+
+### Micron · 3D XPoint
+
+Historical 3D XPoint developer and supplier · Historical route; development ceased
+
+Micron announced an immediate end to 3D XPoint development in 2021 and redirected resources toward CXL memory products.
+
+Ending this route does not end all PCM research; CXL is an interconnect, not a memory-cell mechanism.
+
+Source date / event period: 2021-03-16 · Checked 2026-09-10
+
+- [XPOINT-MICRON-EXIT: Micron · 3D XPoint](https://investors.micron.com/news/press-release/2021/Micron-Updates-Data-Center-Portfolio-Strategy-to-Address-Growing-Opportunity-for-Memory-and-Storage-Hierarchy-Innovation-03-16-2021/default.aspx)
+
+### Intel · 3D XPoint
+
+Historical Optane supplier · Historical route; business wind-down
+
+Intel's 2022 annual filing states that the Optane memory business wind-down began in 2022.
+
+Historical product pages or inventory sales do not establish continuing development or other vendors' PCM exits.
+
+Source date / event period: 2022 · Checked 2026-09-10
+
+- [XPOINT-INTEL-EXIT: Intel · 3D XPoint](https://www.intc.com/filings-reports/all-sec-filings/content/0000050863-23-000006/intc-20221231.htm)
+
+### STMicroelectronics · PCM
+
+Automotive embedded-PCM MCU supplier · Stellar family; P3E sampling and production plan
+
+The 2026 Stellar P3E page identifies xMemory PCM, with full automotive qualification and production readiness planned for H2 2026.
+
+Reaching the planned quarter does not prove completion; P3E timing does not apply to every Stellar part.
+
+Source date / event period: 2026 · Checked 2026-09-10
+
+- [PCM-ST-P3E: STMicroelectronics · PCM](https://www.st.com/content/st_com/en/campaigns/stellar-p3e-automotive-mcu-with-npu-accelerator-and-xmemory.html)
+
+### IBM Research · PCM
+
+Analog in-memory-computing research · Research chip
+
+A 14 nm CMOS research chip with backend PCM integrates 64 256×256 analog cores and digital processing and communication for neural-network inference.
+
+Analog weight-compute results do not establish a purchasable general-purpose PCM memory or complete-system performance.
+
+Source date / event period: 2023-09-17 · Checked 2026-09-10
+
+- [PCM-IBM-AIMC: IBM Research · PCM](https://research.ibm.com/publications/deep-neural-network-inference-with-a-64-core-in-memory-compute-chip-based-on-phase-change-memory)
+
+### Texas Instruments · FeRAM
+
+Embedded FRAM MCU supplier · Commercial MCUs and reference design
+
+An MSP430 reference design emulates EEPROM using embedded FRAM and lists supported MCUs and I2C/SPI host interfaces.
+
+FRAM is the storage technology; EEPROM emulation is interface behavior, not floating-gate or FeFET construction.
+
+Source date / event period: 2016-12-20 · Checked 2026-09-10
+
+- [FERAM-TI-MSP430: Texas Instruments · FeRAM](https://www.ti.com/tool/TIDM-FRAM-EEPROM)
+
+### RAMXEED · FeRAM
+
+Standalone FeRAM and embedded-application supplier · Mass-produced products
+
+The FAQ states FeRAM has been mass-produced since 1999 for frequent-write applications; retention must be interpreted at the specified temperature.
+
+Cycle ratings, interfaces and temperatures are part-specific; FeRAM is not synonymous with all FeFET or FTJ devices.
+
+Undated source; checked 2026-09-10
+
+- [FERAM-RAMXEED: RAMXEED · FeRAM](https://www.ramxeed.com/faq/)
+
+### Infineon · FeRAM
+
+Standalone F-RAM supplier · Commercial product family
+
+Infineon lists serial, parallel and EXCELON F-RAM using PZT ferroelectric films, with family-dependent endurance up to 100 trillion cycles.
+
+Maximum ratings do not apply to every part; this does not establish HfO2 FeFET or FTJ construction.
+
+Undated source; checked 2026-09-10
+
+- [FERAM-INFINEON: Infineon · FeRAM](https://www.infineon.com/products/memories/f-ram-ferroelectric-ram)
+
+### GlobalFoundries / Fraunhofer IPMS · FeRAM
+
+Ferroelectric process and research partnership · 22FDX industrial-process integration demonstration
+
+The 2026 collaboration reports HfO2 ferroelectric FRAM integrated in 22FDX, operating below 1 V with nanosecond switching.
+
+The announcement lacks orderable parts, a complete qualification report or shipment volumes.
+
+Source date / event period: 2026-06-11 · Checked 2026-09-10
+
+- [FERAM-GF-IPMS-2026: GlobalFoundries/Fraunhofer IPMS · FeRAM](https://www.ipms.fraunhofer.de/en/press-media/press/2026/Ferroelectric-memory-storage.html)
+
+### imec · FeRAM / FeCAP
+
+Ferroelectric-device and compute-in-memory research · Research demonstration
+
+Joint work with Georgia Tech demonstrated nondestructive FeCAP reading, reporting over 10^11 read cycles at IEDM 2023.
+
+Read endurance is not write endurance and does not establish conventional FeRAM behavior or mass production.
+
+Source date / event period: 2023 · Checked 2026-09-10
+
+- [FERRO-IMEC-NDREAD: imec · FeRAM/FeCAP](https://www.imec-int.com/en/articles/non-destructive-readout-mechanism-ferroelectric-capacitors)
+
+### NaMLab · FeFET / FTJ
+
+Ferroelectric-device research institute · Research and publications
+
+The official 2025 publication list includes HZO bilayer FTJ thickness scaling and charge-trapping challenges in CMOS-embedded FeFETs.
+
+Publication listings establish research participation, not foundry service, PDK availability or mass production.
+
+Source date / event period: 2025 · Checked 2026-09-10
+
+- [FERRO-NAMLAB-2025: NaMLab · FeFET/FTJ](https://www.namlab.com/publications/)
+
+### FMC · HfO2 Ferroelectric Memory
+
+Ferroelectric-memory commercialization developer · Commercialization and vendor solution claims
+
+The current site proposes DRAM+ persistent modules and CACHE+ persistent chiplets based on ferroelectric technology.
+
+The current page describes ferroelectric capacitors; it does not establish that DRAM+ or CACHE+ uses a FeFET or FTJ. Product qualification and shipment volumes are not verified.
+
+Undated source; checked 2026-09-10
+
+- [FERRO-FMC: FMC · Ferroelectric Memory](https://www.ferroelectric-memory.com/technology/)
+
+### Infineon / Cypress · SONOS eFlash
+
+Technology and IP licensor · Named production platforms and licensing
+
+The official page identifies 2T SONOS, FN program/erase, production nodes and process/design licensing.
+
+Separate Cypress history from current macros; do not combine family-wide maximum specifications.
+
+Undated source; checked 2026-09-10
+
+- [industry-infineon-sonos: Infineon/Cypress · SONOS eFlash](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)
+
+### SST / Microchip · SuperFlash NOR / eFlash
+
+Technology and IP licensor · Commercial technology licensing
+
+SST lists SuperFlash process integration and licensing, complementing standalone NOR coverage.
+
+Licensing does not establish identical current qualification across nodes; verify each technology generation.
+
+Undated source; checked 2026-09-10
+
+- [industry-sst-superflash: SST/Microchip · SuperFlash NOR/eFlash](https://www.sst.com/services/)
+
+### STMicroelectronics · eSTM eFlash / Page EEPROM
+
+Integrated device manufacturer · Named commercial implementation
+
+ST links 40nm floating-gate eSTM with vertical select transistors to STM32H5 and Page EEPROM implementations.
+
+Keep eSTM separate from Stellar PCM; it is not the cell used by every ST MCU.
+
+Undated source; checked 2026-09-10
+
+- [industry-st-estm: STMicroelectronics · eSTM eFlash/Page EEPROM](https://www.st.com/content/st_com/en/about/innovation-and-technology/estm.html)
+
+### Renesas · SG-MONOS eFlash
+
+Integrated device manufacturer · Historical production and smaller-node research
+
+The 2016 announcement identifies production 40nm SG-MONOS MCUs and research on 16/14nm fin-shaped cells.
+
+This announcement does not prove 16/14nm production; verify current part numbers separately.
+
+Source date / event period: 2016-12-07 · Checked 2026-09-10
+
+- [industry-renesas-sgmonos: Renesas · SG-MONOS eFlash](https://www.renesas.com/en/about/press-room/renesas-electronics-announces-world-s-first-development-fin-shaped-monos-flash-memory-cells-high)
+
+### X-FAB · XT011 eFlash / EEPROM
+
+Foundry and platform provider · Named platform release
+
+The 2024 announcement identifies embedded Flash and EEPROM on the XT011 110nm BCD-on-SOI platform.
+
+Keep this separate from the historical 2003 XC06 example; do not assume identical cells.
+
+Source date / event period: 2024-12-03 · Checked 2026-09-10
+
+- [industry-xfab-xt011: X-FAB · XT011 eFlash/EEPROM](https://www.xfab.com/news/details/article/x-fab-releases-embedded-flash-solution-on-its-110nm-automotive-bcd-on-soi-technology)
+
+### Macronix · Serial NOR / OctaBus
+
+NOR/NAND product supplier · Official product portfolio
+
+Macronix's official Serial NOR page provides its product portfolio and OctaBus interface offerings.
+
+This source directly supports NOR; verify NAND parts separately and do not infer cell geometry from interfaces.
+
+Undated source; checked 2026-09-10
+
+- [industry-macronix-nor: Macronix · Serial NOR/OctaBus](https://www.macronix.com/en-us/products/NOR-Flash/Serial-NOR-Flash/Pages/default.aspx)
+
+### Winbond · W25Q16JW Serial NOR
+
+Code-storage memory supplier · Named product catalog
+
+The official catalog identifies W25Q16JW Serial NOR and associated ordering entries.
+
+Catalog presence does not guarantee stock; verify NAND families and other capacities separately.
+
+Undated source; checked 2026-09-10
+
+- [industry-winbond-w25q: Winbond · W25Q16JW Serial NOR](https://www.winbond.com/hq/new-online-purchasing-guide/?__locale=en&pLine=/product/code-storage-flash/qspi-nor/&pNo=W25Q16JW)
+
+### Samsung · Ninth-Generation TLC V-NAND
+
+NAND and storage supplier · Named generation in mass production
+
+Samsung announced mass production of 1Tb TLC ninth-generation V-NAND in April 2024.
+
+Evidence concerns this TLC generation; later demonstrations and projected QLC timing are separate.
+
+Source date / event period: 2024-04-23 · Checked 2026-09-10
+
+- [industry-samsung-vnand9: Samsung · Ninth-Generation TLC V-NAND](https://news.samsung.com/global/samsung-electronics-begins-industrys-first-mass-production-of-9th-gen-v-nand)
+
+### SK hynix · 321-Layer TLC 4D NAND
+
+NAND and storage supplier · Named generation starts mass production
+
+SK hynix announced the start of 321-layer 1Tb TLC NAND mass production in November 2024.
+
+Separate production from customer delivery; do not assign this die to every Solidigm SSD.
+
+Source date / event period: 2024-11-21 · Checked 2026-09-10
+
+- [industry-skhynix-321tlc: SK hynix · 321-Layer TLC 4D NAND](https://news.skhynix.com/en/sk-hynix-starts-mass-production-of-world-first-321-high-nand/)
+
+### Solidigm · D5-P5336 QLC SSD
+
+Enterprise SSD supplier · Named commercial product
+
+The official D5-P5336 page identifies a commercial enterprise QLC SSD family and capacity options.
+
+SSD capacity and system metrics are not die specifications; corporate relationships do not establish common NAND.
+
+Undated source; checked 2026-09-10
+
+- [industry-solidigm-p5336: Solidigm · D5-P5336 QLC SSD](https://www.solidigm.com/products/data-center/d5/p5336.html)
+
+### Micron · G9 TLC NAND
+
+NAND and storage supplier · Volume production and named SSD shipments
+
+The July 2024 release reports G9 TLC NAND and volume shipment of the Micron 2650 SSD using it.
+
+Do not extend TLC evidence to every QLC or NOR product; interface speed is not cell programming speed.
+
+Source date / event period: 2024-07-30 · Checked 2026-09-10
+
+- [industry-micron-g9: Micron · G9 TLC NAND](https://investors.micron.com/news/press-release/2024/Micron-Announces-Volume-Production-of-Ninth-Generation-NAND-Flash-Technology-07-30-2024/default.aspx)
+
+### Kioxia / Sandisk · Tenth-Generation BiCS 3D NAND
+
+Joint development and manufacturing partners · Production begins at a named fab
+
+The July 2026 joint announcement states that tenth-generation 3D Flash production began at Kitakami K2.
+
+Production start does not establish universal customer availability or identical finished products.
+
+Source date / event period: 2026-07-03 · Checked 2026-09-10
+
+- [industry-kioxia-sandisk-gen10: Kioxia/Sandisk · Tenth-Generation BiCS 3D NAND](https://www.kioxia.com/en-jp/about/news/2026/20260703-2.html)
+
+### YMTC · Xtacking 3D NAND
+
+NAND technology and product supplier · Published architecture and named product family
+
+The official page explains separate peripheral/array wafers joined by bonding and names Xtacking 4.0 X4 products in 2025.
+
+Awards and architecture descriptions alone do not prove each product's volume, layer count or shipment status.
+
+Undated source; checked 2026-09-10
+
+- [industry-ymtc-xtacking: YMTC · Xtacking 3D NAND](https://www.ymtc.com/en/technicalintroduction.html)
+
+### GigaDevice · GD25 / GD55 NOR
+
+NOR/NAND product supplier · Official product portfolio
+
+The official portfolio lists GD25/GD55 NOR products.
+
+Family coverage does not replace part-specific production status, temperature, endurance or retention specifications.
+
+Undated source; checked 2026-09-10
+
+- [industry-gigadevice-flash: GigaDevice · GD25/GD55 NOR; GD5F NAND](https://www.gigadevice.com/product/flash)
+
+### Floadia · LEE Flash ZT MTP
+
+Technology and IP licensor · Named commercial IP
+
+The ZT page describes FN program/erase, zero added masks and named platform production records.
+
+General and platform-specific endurance figures differ; do not infer universal endurance or polysilicon count.
+
+Undated source; checked 2026-09-10
+
+- [industry-floadia-zt: Floadia · LEE Flash ZT MTP](https://floadia.com/product/lee-flash-zt/)
+
+### eMemory · NeoBit · Floating-Gate OTP · OTP
+
+Memory IP / technology lineage · Named IP study; qualification is process-specific
+
+Follow the series select transistor and p-type floating-gate storage transistor as electron injection changes read current. Then distinguish normal OTP operation from the physical possibility of ultraviolet erasure.
+
+Historical cells and patents do not establish the structure of every current implementation.
+
+Checked 2026-09-10
+
+- [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+- [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en)
+
+### eMemory · NeoFuse · Antifuse OTP · OTP
+
+Memory IP / technology lineage · Named IP study; qualification is process-specific
+
+Start at the n-type cell's gate dielectric and follow high-field defect creation, changes in effective tunneling distance and the gate current used for sensing.
+
+Historical cells and patents do not establish the structure of every current implementation.
+
+Checked 2026-09-10
+
+- [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
+- [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
+
+### Kilopass; acquired by Synopsys in 2018 · Kilopass XPM · OTP
+
+Memory IP / technology lineage · Named IP study; qualification is process-specific
+
+The original patent explicitly names XPM and distinguishes the storage MOS from the select MOS.
+
+Historical cells and patents do not establish the structure of every current implementation.
+
+Checked 2026-09-10
+
+- [ip-kilopass-xpm-2007: Historical Kilopass XPM 2T Patent Diagram](https://patents.google.com/patent/WO2007090089A2/en)
+- [ip-kilopass-2t-2012: Kilopass 130/110 nm XPM and Gusto 2T Announcement](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)
+
+### Sidense; acquired by Synopsys in 2017 · Sidense 1T-Fuse · OTP
+
+Memory IP / technology lineage · Named IP study; qualification is process-specific
+
+One gate spans thick and thin oxide; persistent conduction through the thin region creates the OTP state.
+
+Historical cells and patents do not establish the structure of every current implementation.
+
+Checked 2026-09-10
+
+- [ip-sidense-cell-2007: Sidense 1T-Fuse Original-Author Cell Section](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+- [ip-sidense-irreversible-2017: Sidense 1T-Fuse Irreversibility and eMTP Boundary](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+
+### eMemory · NeoEE · FN/FN MTP · MTP
+
+Memory IP / technology lineage · Named IP study; qualification is process-specific
+
+Follow the control-coupling region, floating node and tunneling region as FN transport stores and removes electrons. A read transistor then senses the stored state.
+
+Historical cells and patents do not establish the structure of every current implementation.
+
+Checked 2026-09-10
+
+- [ip-neoee: NeoEE Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ip-neoee-history: Historical NeoEE Conceptual Cell](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)
+
+### eMemory · NeoMTP · CHI/FN MTP · MTP
+
+Memory IP / technology lineage · Named IP study; qualification is process-specific
+
+Compare hot-carrier programming of the p-type floating-gate cell with FN electron transfer toward a dedicated erase gate. Both operations act on the same storage node.
+
+Historical cells and patents do not establish the structure of every current implementation.
+
+Checked 2026-09-10
+
+- [ip-neomtp: NeoMTP Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ip-neomtp-pat: Related pMOS and Edge-Erase-Gate Patent](https://patents.google.com/patent/US20030235082A1/en)
+
+### Yield Microelectronics (YMC) · YMC · MTP and Mechanism Boundaries · MTP
+
+Memory IP / technology lineage · Named IP study; qualification is process-specific
+
+YMC publicly identifies a logic-process MTP family. The CHI/BBHH sequence below is an independent mechanism illustration, not evidence that a current ymtp product uses BBHH. Separate product capability from an illustrative 1T1C model.
+
+Historical cells and patents do not establish the structure of every current implementation.
+
+Checked 2026-09-10
+
+- [ymc-product: YMC: Logic-Process ymtp MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ymc-1t1c: YMC: 1T1C Core Technology](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
+
+### Impinj → Virage Logic → Synopsys · AEON · FN/FN MTP · MTP
+
+Memory IP / technology lineage · Named IP study; qualification is process-specific
+
+Follow the named 2009 AEON company account: electrons enter and leave FG by FN, then a read MOS senses the state. Business and brand succession have a separate timeline.
+
+Historical cells and patents do not establish the structure of every current implementation.
+
+Checked 2026-09-10
+
+- [aeon-impinj-2007: Impinj AEON/MTP Floating-Gate Announcement](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009: Virage Logic AEON MTP Program/Erase and Monitoring](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+
+### Sony / Micron · Copper ReRAM
+
+Joint device and memory R&D · Historical research demonstration
+
+Micron’s 2014 VLSI announcement identifies Sony collaboration on copper ReRAM for a 16Gb storage-class-memory demonstration.
+
+This does not establish current products or adoption in a Sony image sensor.
+
+Source: 2014-06-05; checked 2026-09-10
+
+- [RES-SONY-MICRON-2014: Micron / Sony: Copper ReRAM Research](https://investors.micron.com/static-files/7ac25c4b-edd0-4482-97ad-267a7263bcf0)
+
+### GigaDevice · GD5F NAND
+
+NOR/NAND product supplier · Official product portfolio
+
+The official portfolio separately lists GD5F NAND products.
+
+Family coverage does not replace part-specific production status, temperature, endurance or retention specifications.
+
+Undated source; checked 2026-09-10
+
+- [industry-gigadevice-flash: GigaDevice · GD25/GD55 NOR; GD5F NAND](https://www.gigadevice.com/product/flash)
+
+### Kioxia/SK hynix · 64 Gbit 1Selector–1MTJ Cross-Point MRAM
+
+Joint high-density MRAM research · IEDM 2024 research prototype; described publicly in 2025
+
+The jointly developed 64 Gbit cross-point MRAM replaces select transistors with two-terminal selectors; MTJ diameter is 20 nm, half-pitch 20.5 nm, and cell area 0.001681 µm².
+
+This is a research array, not evidence of product availability. The 20 nm figure is MTJ diameter, not a CMOS process node; typical-bit tests do not establish full-array yield.
+
+Source date 2025-04-15
+
+- [MRAM-KIOXIA-SKHYNIX-64GB-2025: Kioxia/SK hynix · 64 Gbit 1Selector–1MTJ Cross-Point MRAM](https://www.kioxia.com/en-jp/rd/technology/topics/topics-80.html)
+
+### TetraMem · MLX200 Multi-Level RRAM Analog IMC
+
+Multi-level RRAM analog in-memory computing developer · Tape-out and initial silicon validation completed
+
+In May 2026, TetraMem reported MLX200 tape-out and initial silicon validation on TSMC 22nm, integrating multi-level RRAM with mixed-signal computing in a SoC.
+
+Evaluation kits were scheduled for H2 2026 at announcement. Initial validation does not establish mass production or delivery, and computing results are not general-purpose storage specifications.
+
+Source date 2026-05-19
+
+- [RRAM-TETRAMEM-MLX200-2026: TetraMem · MLX200 Multi-Level RRAM Analog IMC](https://tetramem.com/tetramem-completes-mlx200-silicon-validation/)
+
+### Intrinsic/sureCore · SiOx RRAM
+
+Silicon-oxide RRAM and embedded-memory architecture collaboration · Technology development and commercialization collaboration
+
+Intrinsic identifies silicon-oxide RRAM as its core technology and lists a sureCore collaboration combining CMOS-compatible cells, memory architectures and compiler-design expertise.
+
+The collaboration does not establish qualification or mass production of a named process macro; the site does not provide a complete orderable part and datasheet proving current supply.
+
+Undated source; reviewed 2026-09-10
+
+- [RRAM-INTRINSIC-SURECORE: Intrinsic/sureCore · SiOx RRAM](https://www.intrinsicsemi.com/)
+
+### Nantero/Fujitsu Semiconductor/Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM
+
+Historical carbon-nanotube NRAM licensing and joint development · 2016 licensing and 55nm joint-development announcement
+
+Fujitsu's official archive confirms that its two semiconductor businesses licensed Nantero carbon-nanotube NRAM in 2016 and began joint development toward a 55nm product.
+
+This historical development evidence establishes neither 2026 production and availability nor program termination; NRAM should be classified separately from oxide RRAM.
+
+Source date 2016-08-31
+
+- [NRAM-NANTERO-FUJITSU-2016: Nantero/Fujitsu Semiconductor/Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)

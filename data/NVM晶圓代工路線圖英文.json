@@ -1,5 +1,5 @@
 {
-  "title": "Public Roadmap for GF and TSMC Embedded MRAM and RRAM",
+  "title": "GF, TSMC and UMC Embedded Memory Roadmaps",
   "asOf": "2026-09-10",
   "scope": "A traceable timeline based on public primary sources from 2022–2026, with earlier baselines retained. An annual report's reporting year is the period in which the events occurred; publication is usually in the following year. An undated product page establishes only the status observed on the verification date.",
   "statusLegend": {
@@ -694,6 +694,71 @@
         "FND-TSMC-CURRENT-NVM"
       ],
       "limit": "A 12nm automotive qualification date or 6nm volume-production date must not be added without public primary evidence of completion."
+    },
+    {
+      "id": "UMC-2017",
+      "year": 2017,
+      "foundry": "UMC",
+      "technology": "ReRAM",
+      "node": "40nm",
+      "stage": "Joint development",
+      "claim": "Panasonic collaboration targeting samples in 2018.",
+      "limit": "Sampling and production were forward plans; existing 180nm production does not establish 40nm production.",
+      "sourceIds": [
+        "RES-PANASONIC-UMC-2017"
+      ]
+    },
+    {
+      "id": "UMC-2018",
+      "year": 2018,
+      "foundry": "UMC",
+      "technology": "MRAM",
+      "node": "28nm",
+      "stage": "Joint development",
+      "claim": "MRAM development with Avalanche starting from 28nm CMOS.",
+      "limit": "An agreement does not establish availability of every embedded macro.",
+      "sourceIds": [
+        "RES-UMC-MRAM-2018"
+      ]
+    },
+    {
+      "id": "UMC-2022",
+      "year": 2022,
+      "foundry": "UMC",
+      "technology": "STT-MRAM / Standalone P-SRAM",
+      "node": "22nm",
+      "stage": "Named product production",
+      "claim": "Avalanche third-generation P-SRAM announced immediately available.",
+      "limit": "Standalone-product evidence is not a specification for a general UMC embedded macro.",
+      "sourceIds": [
+        "RES-UMC-MRAM-2022"
+      ]
+    },
+    {
+      "id": "UMC-2023",
+      "year": 2023,
+      "foundry": "UMC",
+      "technology": "RRAM / eMemory IP",
+      "node": "22nm ULP",
+      "stage": "Qualified",
+      "claim": "8Mb plus 16Kb RRAM IP qualified on the 0.8V/2.5V platform.",
+      "limit": "The 16Mb automotive and 0.8V/1.8V versions remained under development in this announcement.",
+      "sourceIds": [
+        "RES-UMC-RRAM-2023"
+      ]
+    },
+    {
+      "id": "UMC-2025",
+      "year": 2025,
+      "foundry": "UMC",
+      "technology": "RRAM / FlashKit-22RRAM",
+      "node": "22nm ULP",
+      "stage": "SoC platform silicon validation",
+      "claim": "Faraday announced completion and silicon validation of its RRAM SoC development platform.",
+      "limit": "Controller and processor integration evidence does not establish named customer volume shipments.",
+      "sourceIds": [
+        "RES-FARADAY-RRAM-2025"
+      ]
     }
   ],
   "takeaways": [

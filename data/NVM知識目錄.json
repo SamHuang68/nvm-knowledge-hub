@@ -86,10 +86,30 @@
           "url": "NVM技術全景.html#foundry",
           "titleZh": "晶圓代工製程與路線圖",
           "titleEn": "Foundry Processes and Roadmaps",
-          "descriptionZh": "逐年查看 GF／TSMC 的嵌入式記憶體整合、公開進度與產品條件。",
-          "descriptionEn": "Track GF/TSMC embedded-memory integration, public milestones and implementation conditions.",
-          "metaZh": "GF · TSMC · 製程選項",
-          "metaEn": "GF · TSMC · Process options"
+          "descriptionZh": "逐年查看 GF／TSMC／UMC 的記憶體整合、公開進度與產品條件。",
+          "descriptionEn": "Track GF/TSMC/UMC memory integration, public milestones and implementation conditions.",
+          "metaZh": "GF · TSMC · UMC",
+          "metaEn": "GF · TSMC · UMC"
+        },
+        {
+          "id": "P4",
+          "url": "NVM技術全景.html#ecosystem",
+          "titleZh": "全球產業與研究地圖",
+          "titleEn": "Global Industry and Research Map",
+          "descriptionZh": "按技術家族查找 Everspin、Samsung、Renesas、Weebit 等主要廠商與研究機構。",
+          "descriptionEn": "Find Everspin, Samsung, Renesas, Weebit and other major suppliers and research organizations by technology family.",
+          "metaZh": "具名實作 · 成熟度 · 一手來源",
+          "metaEn": "Implementations · Maturity · Sources"
+        },
+        {
+          "id": "P5",
+          "url": "NVM技術全景.html#research",
+          "titleZh": "主要產研路線深度比較",
+          "titleEn": "In-Depth Industry and Research Studies",
+          "descriptionZh": "深入 Everspin、UMC、Panasonic、IBM 與工研院的機制、整合條件與導入意涵。",
+          "descriptionEn": "Explore Everspin, UMC, Panasonic, IBM and ITRI mechanisms, integration conditions and adoption implications.",
+          "metaZh": "操作機制 · 實測條件",
+          "metaEn": "Mechanisms · Measured Conditions"
         }
       ]
     },

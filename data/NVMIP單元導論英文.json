@@ -10,7 +10,7 @@
     {
       "id": "mtp",
       "label": "MTP IP",
-      "description": "Compare how electrons enter the floating node and how electron removal or hole injection reverses the state."
+      "description": "Follow PGM, ERS and subsequent PGM on reusable storage cells. Identify each implementation’s carrier mechanism separately."
     },
     {
       "id": "mram",
@@ -87,7 +87,20 @@
       "program": "FN transfers electrons into the floating node",
       "reverse": "FN transfers electrons out of the floating node",
       "readout": "Charge changes the read-transistor state",
-      "lesson": "Both update directions use tunneling, but field direction, selection and biased regions must still be distinguished. Single poly describes layer count; the division of work among coupling, tunneling and read devices explains this IP's update path."
+      "lesson": "Both update directions use tunneling, but field direction, selection and biased regions must still be distinguished. Single poly describes layer count; the division of work among coupling, tunneling and read devices explains this IP's update path.",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "Floating-Gate MTP in This Chapter: PGM / ERS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "The official NeoEE page describes page/word operation units and a byte-write function. Verify the exact macro’s erase unit rather than inferring it from the host write size.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "ip-neoee",
+          "ip-neoee-history"
+        ]
+      }
     },
     {
       "id": "neomtp",
@@ -100,20 +113,50 @@
       "program": "Channel-hot-hole-induced electron injection",
       "reverse": "FN electron transfer toward the erase gate",
       "readout": "P-type floating-gate transistor current",
-      "lesson": "CHI/FN is the operation-pair shorthand used here. eMemory describes programming as channel-hot-hole-induced hot-electron injection and labels it CHEI. The erase gate provides a separate electron exit, distinguishing this cell from NeoBit's normal OTP interface and NeoEE's FN/FN mechanism."
+      "lesson": "CHI/FN is the operation-pair shorthand used here. eMemory describes programming as channel-hot-hole-induced hot-electron injection and labels it CHEI. The erase gate provides a separate electron exit, distinguishing this cell from NeoBit's normal OTP interface and NeoEE's FN/FN mechanism.",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "Floating-Gate MTP in This Chapter: PGM / ERS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "ip-neomtp",
+          "ip-neomtp-pat",
+          "ip-neobit"
+        ]
+      }
     },
     {
       "id": "ymc-mtp",
-      "title": "YMC MTP: CHI/BBHH Operation Model",
-      "shortTitle": "YMC · CHI/BBHH Model",
+      "title": "YMC MTP: Program, Erase and Public Evidence",
+      "shortTitle": "YMC · MTP and Mechanism Boundaries",
       "vendor": "Yield Microelectronics (YMC)",
       "group": "mtp",
       "hostTopic": "mtp",
-      "summary": "Use the same equivalent 1T1C floating node to follow CHI electron programming and BBHH hole injection, then read the state through nMOS threshold voltage and channel current.",
-      "program": "CHI injects electrons into the floating node",
-      "reverse": "BBHH injects holes to neutralize stored charge",
+      "summary": "YMC publicly identifies a logic-process MTP family. The CHI/BBHH sequence below is an independent mechanism illustration, not evidence that a current ymtp product uses BBHH. Separate product capability from an illustrative 1T1C model.",
+      "program": "Product: programmable; illustration: CHI electron injection",
+      "reverse": "Product: rewritable MTP; illustration: BBHH hole injection",
       "readout": "NMOS threshold and channel current",
-      "lesson": "This is the CHI/BBHH mechanism model selected for this course. Public YMC material supports its logic-process MTP IP positioning; independent primary research supports the BBHH physics. The figure is not identified as a complete cross-section of a current ymtp version. FN, drain-avalanche hot-hole injection and band-to-band hot-hole injection are distinct paths, even when related patents share an assignee."
+      "lesson": "This is the CHI/BBHH mechanism model selected for this course. Public YMC material supports its logic-process MTP IP positioning; independent primary research supports the BBHH physics. The figure is not identified as a complete cross-section of a current ymtp version. FN, drain-avalanche hot-hole injection and band-to-band hot-hole injection are distinct paths, even when related patents share an assignee.",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "Floating-Gate MTP in This Chapter: PGM / ERS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "The cited public product sources do not establish BBHH for a current ymtp version. The diagrams illustrate independent CHI/BBHH physics; obtain the target macro’s actual PGM/ERS mechanism, biases, granularity and cycling specification.",
+        "sourceIds": [
+          "ymc-product",
+          "ymc-1t1c",
+          "physics-bbhh-fg",
+          "physics-btbt-carriers",
+          "physics-fg-hole-erase"
+        ]
+      }
     },
     {
       "id": "impinj-aeon",
@@ -126,7 +169,20 @@
       "program": "FN adds electrons to floating gate",
       "reverse": "FN removes electrons from floating gate",
       "readout": "Low-stimulus read-MOS current sensing",
-      "lesson": "AEON is a named logic-process MTP family originating at Impinj. A 2009 Virage Logic company article explicitly supports FN program and erase. The diagram retains that physical scope through C, T_P, T_E and read-MOS roles, without assuming undisclosed p/n polarity, device count or current wiring."
+      "lesson": "AEON is a named logic-process MTP family originating at Impinj. A 2009 Virage Logic company article explicitly supports FN program and erase. The diagram retains that physical scope through C, T_P, T_E and read-MOS roles, without assuming undisclosed p/n polarity, device count or current wiring.",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "Floating-Gate MTP in This Chapter: PGM / ERS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "aeon-impinj-2007",
+          "aeon-virage-fn-2009"
+        ]
+      }
     },
     {
       "id": "numem-mram",
@@ -139,7 +195,21 @@
       "program": "Spin-transfer torque switches magnetization",
       "reverse": "Opposite write current overwrites the state",
       "readout": "Magnetic-junction resistance contrast",
-      "lesson": "Numem can use foundry-standard STT cells while integrating its layout, circuits and memory architecture. Understand the two junction states and access/sense paths before considering macro behavior; a control-architecture improvement is not a new storage mechanism."
+      "lesson": "Numem can use foundry-standard STT cells while integrating its layout, circuits and memory architecture. Understand the two junction states and access/sense paths before considering macro behavior; a control-architecture improvement is not a new storage mechanism.",
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "Erase Semantics: Direct Magnetic Overwrite, No Separate ERS",
+        "sequence": "P ⇄ AP",
+        "definition": "MRAM overwrites existing data by changing magnetic state, without a Flash-style erase-before-program step. Clearing to all zeros or ones is a series of target-state writes; the P/AP-to-data mapping is product-specific.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "ip-numem-current",
+          "ip-numem-2019",
+          "ip-stt-physics"
+        ]
+      }
     },
     {
       "id": "gf-emram",
@@ -152,7 +222,20 @@
       "program": "Switch under the named study's polarity convention",
       "reverse": "Reverse overwrite; no prior erase cycle",
       "readout": "Sense P/AP resistance with a small stimulus",
-      "lesson": "A foundry embedded macro joins the magnetic junction to logic processing, the access transistor and reliability conditions. This figure retains the named study's materials and polarity convention for step-by-step reading; those details do not automatically describe every current 22FDX memory version."
+      "lesson": "A foundry embedded macro joins the magnetic junction to logic processing, the access transistor and reliability conditions. This figure retains the named study's materials and polarity convention for step-by-step reading; those details do not automatically describe every current 22FDX memory version.",
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "Erase Semantics: Direct Magnetic Overwrite, No Separate ERS",
+        "sequence": "P ⇄ AP",
+        "definition": "MRAM overwrites existing data by changing magnetic state, without a Flash-style erase-before-program step. Clearing to all zeros or ones is a series of target-state writes; the P/AP-to-data mapping is product-specific.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "ip-gf-platform",
+          "ip-gf-cell-2024"
+        ]
+      }
     },
     {
       "id": "weebit-reram",
@@ -165,7 +248,21 @@
       "program": "SET establishes a low-resistance defect path",
       "reverse": "RESET changes oxygen and defect distributions",
       "readout": "Sense resistance with a small stimulus",
-      "lesson": "In this named research example, the storage medium, oxygen-exchange electrode and access transistor jointly shape switching. Current compliance and read stimulus are part of cell operation. Materials and recipes remain scoped to the cited implementation."
+      "lesson": "In this named research example, the storage medium, oxygen-exchange electrode and access transistor jointly shape switching. Current compliance and read stimulus are part of cell operation. Materials and recipes remain scoped to the cited implementation.",
+      "eraseCycle": {
+        "kind": "resistance",
+        "title": "Erase Semantics: RESET Followed by Another SET",
+        "sequence": "SET → RESET → SET",
+        "definition": "RESET is the reverse data-state update from low to high resistance; a later SET restores low resistance. This is reversible resistance switching rather than Flash-style block erase. The circuit defines logical zero/one encoding.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "ip-weebit-product",
+          "ip-weebit-bitcell",
+          "ip-weebit-cell-2021"
+        ]
+      }
     },
     {
       "id": "crossbar-reram",
@@ -178,7 +275,21 @@
       "program": "SET extends the metallic path",
       "reverse": "RESET retracts or disconnects the path",
       "readout": "Conduction paths and interparticle transport",
-      "lesson": "This figure follows the named patent's metal/amorphous-silicon model. Do not substitute another ECM cell's nucleation direction or an ideal continuous silver bridge. Evidence for the embedded macro and for the historical cell embodiment is identified separately."
+      "lesson": "This figure follows the named patent's metal/amorphous-silicon model. Do not substitute another ECM cell's nucleation direction or an ideal continuous silver bridge. Evidence for the embedded macro and for the historical cell embodiment is identified separately.",
+      "eraseCycle": {
+        "kind": "resistance",
+        "title": "Erase Semantics: RESET Followed by Another SET",
+        "sequence": "SET → RESET → SET",
+        "definition": "RESET is the reverse data-state update from low to high resistance; a later SET restores low resistance. This is reversible resistance switching rather than Flash-style block erase. The circuit defines logical zero/one encoding.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "ip-crossbar-macro",
+          "ip-crossbar-2015",
+          "ip-crossbar-cell-2012"
+        ]
+      }
     }
   ],
   "lineage": {

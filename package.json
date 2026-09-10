@@ -17,7 +17,9 @@
     "qa:engineering": "node scripts/驗證NVM工程圖解.mjs",
     "qa:mtp": "node scripts/驗證MTP分類.mjs",
     "qa:ip": "node scripts/驗證IP單元.mjs",
-    "qa:entry": "node scripts/驗證入口目錄.mjs"
+    "qa:entry": "node scripts/驗證入口目錄.mjs",
+    "qa:rewrite": "node scripts/驗證可重寫操作.mjs",
+    "qa:research": "node scripts/驗證產研地圖.mjs"
   },
   "devDependencies": {
     "playwright": "^1.55.0"

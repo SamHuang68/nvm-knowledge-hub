@@ -343,8 +343,8 @@ export function getIPStudy(id, language = 'zh') {
   const lang = language === 'en' ? 'en' : 'zh';
   const idx = lang === 'en' ? 1 : 0;
   const l = (zh, en) => phrase(lang, zh, en);
-  const caveat = l('本組為 YMC ymtp 的 CHI／BBHH 教學操作模型；使用等效 1T1C 與方向示意，不是現行特定版本剖面或偏壓表。BBHH 物理由獨立原始研究支撐；YMC 公開專利的 FN／DAHHI 變體維持各自機制。', 'A CHI / BBHH teaching model for YMC ymtp, using an equivalent 1T1C and qualitative directions rather than a current version-specific cross-section or bias table. Independent original research supports BBHH physics; YMC FN/DAHHI patent variants retain their distinct mechanisms.');
-  const structureTitle = l('YMC ymtp：CHI／BBHH 1T1C 操作模型', 'YMC ymtp: CHI / BBHH 1T1C Operating Model');
+  const caveat = l('本組為獨立的 CHI／BBHH 教學操作模型；引用來源未證明現行 YMC ymtp 採 BBHH。使用等效 1T1C 與方向示意，不是現行特定版本剖面或偏壓表。BBHH 物理由獨立原始研究支撐；YMC 公開專利的 FN／DAHHI 變體維持各自機制。', 'An independent CHI / BBHH teaching model; cited sources do not establish BBHH in current YMC ymtp products. It uses an equivalent 1T1C and qualitative directions rather than a current version-specific cross-section or bias table. Independent original research supports BBHH physics; YMC FN/DAHHI patent variants retain their distinct mechanisms.');
+  const structureTitle = l('獨立機制示意：CHI／BBHH 等效 1T1C', 'Independent Mechanism Study: CHI / BBHH Equivalent 1T1C');
   return {
     id,
     structure: {

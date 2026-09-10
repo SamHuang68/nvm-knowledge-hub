@@ -1,0 +1,2571 @@
+{
+  "schemaVersion": "1.0",
+  "asOf": "2026-09-10",
+  "title": "Major Industry and Research Routes",
+  "intro": "Trace named implementations from purchasable memories and integrable IP/processes to materials and arrays still under validation. Align mechanisms, measurement levels and maturity before assessing application value.",
+  "thesisTitle": "A Technology Name Does Not Define a Deliverable",
+  "thesis": "RRAM filaments, STT tunneling-current writes and SOT separate paths impose different process, endurance and peripheral requirements. Products, foundry platforms and research papers answer different questions; preserve their conditions and attribution.",
+  "comparisonTitle": "Turn Research Numbers into Engineering Questions",
+  "comparison": [
+    {
+      "title": "Define the Timing Boundary",
+      "body": "A switching pulse excludes some or all decoding, verification, ECC and serial-transfer overhead. Engineering interpretation: establish the measurement level before comparing access time or update energy.",
+      "sourceIds": [
+        "RES-IBM-14NM-2020",
+        "RES-FUJITSU-RERAM-2019"
+      ]
+    },
+    {
+      "title": "Bind Cycling, Retention and Temperature",
+      "body": "Thermal budget describes processing, retention temperature describes storage and operating range is a separate specification. Best values from different experiments do not form a product guarantee.",
+      "sourceIds": [
+        "RES-PANASONIC-SSDM-2018",
+        "RES-SOT-BETAW-2025"
+      ]
+    },
+    {
+      "title": "Ground Commercial Value in Deliverables",
+      "body": "Engineering interpretation: separate components, IP, PDKs and joint research. Power, endurance and density become adoption advantages only when testing, yield, controllers, licensing and supply meet the product requirements.",
+      "sourceIds": [
+        "RES-FARADAY-RRAM-2025",
+        "RES-ITRI-SERVICE"
+      ]
+    },
+    {
+      "title": "NRAM: Keep the Material Route and Historical Status Separate",
+      "body": "The 2016 Fujitsu archive identifies carbon nanotubes as the NRAM storage technology and a 55nm joint-development plan with Nantero. That evidence does not identify an oxide-filament ReRAM device, nor does it establish a currently available product. The detailed write, reverse-update and read waveforms require a specific device publication or datasheet; no voltage or endurance specification is inferred from the licensing announcement.",
+      "sourceIds": [
+        "NRAM-NANTERO-FUJITSU-2016"
+      ]
+    }
+  ],
+  "researchScope": "Reviewed through 2026-09-10 using official releases, product documents, author papers and public abstracts. Claims based on abstracts remain limited to those abstracts. Engineering interpretations are comparative analysis, not supplier guarantees.",
+  "profiles": [
+    {
+      "id": "everspin",
+      "name": "Everspin",
+      "role": "Standalone MRAM Product Supplier",
+      "title": "Three Product Lines: Toggle, DDR STT and xSPI",
+      "summary": "Everspin is a core commercial MRAM reference. Its three product lines differ in write physics, interfaces, retention and qualification; compare exact ordering codes and document versions.",
+      "stage": "Commercial Products; Qualification Is Version-Specific",
+      "boundary": "DDR4-like does not mean a drop-in replacement for every DDR4 device; HR 64Mb qualification does not cover the whole family.",
+      "integration": "Standalone Toggle MRAM, 1Gb persistent STT memory and EMxxLX xSPI.",
+      "figureTitle": "Everspin Product Lines, Physics and Interfaces",
+      "figureCaption": "Product-route diagram: Toggle and STT use different write mechanisms; DDR/xSPI describe interfaces and application configurations, not new storage physics.",
+      "program": "Toggle uses fields from selected lines to switch magnetization; STT switches the free layer with spin-polarized current through the MTJ.",
+      "reverse": "Both routes can update the opposite magnetic state without a Flash block erase. Commands, update granularity and timing remain interface-specific.",
+      "read": "Sense data through MTJ resistance. System latency includes asynchronous-bus, DDR or xSPI transactions and cannot be reduced to a switching pulse.",
+      "sourceIds": [
+        "everspin-toggle",
+        "everspin-ddr-technology",
+        "EMG-P-TOGGLE"
+      ],
+      "sections": [
+        {
+          "title": "Toggle: Mature Interfaces and Exact Parts",
+          "body": "The current PERSYST catalog marks MR3A16ACYS35 as mass production, with 8Mb, asynchronous x16, 35ns, 3.3V and −40°C to 85°C. These are named-part conditions, not universal MRAM density, speed or retention specifications.",
+          "sourceIds": [
+            "everspin-toggle"
+          ]
+        },
+        {
+          "title": "1Gb STT: Persistent Buffers for Enterprise Storage",
+          "body": "The 2025 filing confirms continuing 1Gb STT-MRAM shipments; the technology page describes a DDR4-like persistent-DRAM interface. Retention and controller requirements need the relevant datasheet, rather than values copied from Toggle or xSPI.",
+          "sourceIds": [
+            "everspin-1gb-ddr",
+            "everspin-ddr-technology"
+          ]
+        },
+        {
+          "title": "xSPI: Separate Density Availability from HR Qualification",
+          "body": "The March 5, 2026 release confirms HR 64Mb AEC-Q100 Grade 1 production qualification and order availability. Its HR 128Mb/256Mb dates are announcement-time plans; later completion is not established by the primary text reviewed here. A September 2 Teledyne partnership starts with 256Mb and anticipates partner customer availability in Q4 2026.",
+          "sourceIds": [
+            "everspin-xspi",
+            "RES-EVERSPIN-TELEDYNE-2026"
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "value": "8Mb / 35ns",
+          "condition": "Capacity and asynchronous cycle specification for MR3A16ACYS35.",
+          "limit": "Not a specification for 1Gb DDR or EMxxLX.",
+          "sourceIds": [
+            "everspin-toggle"
+          ]
+        },
+        {
+          "value": "HR 64Mb / Grade 1",
+          "condition": "Qualified and available for orders on March 5, 2026.",
+          "limit": "Other capacities and versions do not inherit this qualification.",
+          "sourceIds": [
+            "everspin-xspi"
+          ]
+        }
+      ],
+      "opportunity": "Engineering interpretation: Toggle, persistent DDR buffers and low-pin-count xSPI serve different controllers and data lifecycles. Compare power-loss protection, update frequency, latency, qualification and board-integration cost.",
+      "qualification": "Specify the complete part number, datasheet revision, retention temperature, endurance conditions, controller support and exact qualification scope."
+    },
+    {
+      "id": "umc",
+      "name": "UMC",
+      "role": "Foundry and Ecosystem Integration",
+      "title": "Embedded RRAM and a Distinct MRAM Product Route",
+      "summary": "UMC evidence spans process availability, qualified RRAM IP, a SoC development platform and standalone MRAM products. These are distinct delivery levels.",
+      "stage": "Qualified RRAM IP; Named MRAM Products Available",
+      "boundary": "A standalone MRAM product does not establish an available embedded macro.",
+      "integration": "22nm ULP/ULL RRAM; separately, Avalanche 22nm pMTJ STT-MRAM.",
+      "figureTitle": "Two UMC Memory Delivery Routes",
+      "figureCaption": "Relationship diagram, not a cross-section. RRAM IP and standalone MRAM require separate qualification and specifications.",
+      "program": "RRAM SET establishes a low-resistance state; the UMC/eMemory announcement does not disclose material, bias or pulse algorithms.",
+      "reverse": "RESET returns to high resistance, unlike Flash block erase. Avalanche STT-MRAM directly overwrites a magnetic state.",
+      "read": "Low-disturb sensing is combined with verification, ECC and repair; controller behavior is specific to the IP.",
+      "sourceIds": [
+        "RES-UMC-RRAM-2023",
+        "RES-UMC-MRAM-2022"
+      ],
+      "sections": [
+        {
+          "title": "From 40nm Collaboration to 22nm IP",
+          "body": "The 2017 Panasonic collaboration establishes a 40nm history; eMemory announced qualification of a 22nm version in 2023. Public evidence does not establish an identical stack or IP lineage. Low-temperature backend integration and logic-platform compatibility matter to SoC adoption.",
+          "sourceIds": [
+            "RES-PANASONIC-UMC-2017",
+            "RES-UMC-RRAM-2023"
+          ]
+        },
+        {
+          "title": "MRAM: Separate Agreements from Products",
+          "body": "The 2018 agreement began with 28nm CMOS. The 2022 immediate-availability evidence concerns Avalanche third-generation 22nm P-SRAM. This establishes a named MRAM product route, not a universally available embedded macro.",
+          "sourceIds": [
+            "RES-UMC-MRAM-2018",
+            "RES-UMC-MRAM-2022"
+          ]
+        },
+        {
+          "title": "SoC Adoption Evidence and Open Roadmap Items",
+          "body": "Faraday FlashKit-22RRAM adds silicon-validated controller, BIST and processor integration in 2025. The 16Mb automotive and 0.8V/1.8V variants targeted in 2023 still require completion evidence. The Infineon/UMC 40nm automotive agreement identifies proprietary eNVM without identifying RRAM.",
+          "sourceIds": [
+            "RES-FARADAY-RRAM-2025",
+            "RES-UMC-RRAM-2023",
+            "RES-UMC-INFINEON-2023"
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "value": "8Mb + 16Kb",
+          "condition": "The 2023 qualified RRAM macro and information area; 10k cycles and 10-year retention up to 105°C.",
+          "limit": "These values belong to the named version, not all 22nm eNVM.",
+          "sourceIds": [
+            "RES-UMC-RRAM-2023"
+          ]
+        },
+        {
+          "value": "22nm P-SRAM",
+          "condition": "Avalanche standalone products announced immediately available in 2022.",
+          "limit": "This does not establish qualification of an embedded MRAM macro.",
+          "sourceIds": [
+            "RES-UMC-MRAM-2022"
+          ]
+        }
+      ],
+      "opportunity": "Engineering interpretation: evaluate RRAM for low-standby-power MCUs, AIoT and embedded code storage. Value depends on the selected IP retention conditions, update budget, test cost and controller integration.",
+      "qualification": "Confirm the version, PDK, macro capacity, ECC, update granularity, automotive qualification and tapeout availability."
+    },
+    {
+      "id": "panasonic",
+      "name": "Panasonic",
+      "role": "ReRAM Technology and Product Lineage",
+      "title": "Tantalum-Oxide Filaments and Product Evidence",
+      "summary": "Panasonic is an important early commercial ReRAM developer. Trace 180nm production, 40nm test macros and Fujitsu products separately to connect the mechanism with reliability and products.",
+      "stage": "Historical Production, Test Macros and Named Products",
+      "boundary": "Sampling targets and test macros do not establish production of every 40nm product.",
+      "integration": "Tantalum-oxide ReRAM; integration in foundry-standard 40nm CMOS.",
+      "figureTitle": "Panasonic Tantalum-Oxide ReRAM Mechanism",
+      "figureCaption": "Functional layers, not exact thickness, electrode materials or bias polarity. SET/RESET change conduction through oxygen-ion and defect redistribution.",
+      "program": "Forming first creates a localized conductive path in the oxide; later SET enters the low-resistance state. Forming is distinct from each data write.",
+      "reverse": "RESET returns to high resistance through redox and defect redistribution; it neither removes the layer nor irreversibly blows a fuse.",
+      "read": "Sense high and low resistance with a low-disturb bias, accounting for state distributions and the post-cycling sensing window.",
+      "sourceIds": [
+        "RES-PANASONIC-SSDM-2018"
+      ],
+      "sections": [
+        {
+          "title": "Reliability Must Preserve the Test Sequence",
+          "body": "The 2018 8Mbit test macro separately reports 100k-cycle endurance and over ten years at 85°C after 10k cycles. These do not establish ten-year retention after 100k cycles. Engineering evaluation also needs HRS/LRS distribution tails, not only average resistance.",
+          "sourceIds": [
+            "RES-PANASONIC-SSDM-2018"
+          ]
+        },
+        {
+          "title": "Partnerships Do Not Reveal Undisclosed Processes",
+          "body": "The 2017 announcement confirms 180nm production since 2013 and describes future 40nm sampling. The 2019 Fujitsu/Panasonic MB85AS8MT release names an SPI product without identifying its node or foundry. It cannot by itself establish UMC 40nm product production.",
+          "sourceIds": [
+            "RES-PANASONIC-UMC-2017",
+            "RES-FUJITSU-RERAM-2019"
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "value": "100k Cycles",
+          "condition": "Endurance result for a 40nm 8Mbit test macro.",
+          "limit": "The retention result uses a separate 10k-cycle condition.",
+          "sourceIds": [
+            "RES-PANASONIC-SSDM-2018"
+          ]
+        },
+        {
+          "value": "0.15mA @ 5MHz",
+          "condition": "Average read current for the standalone MB85AS8MT SPI product.",
+          "limit": "Not bitcell write energy and not directly comparable with macro speed.",
+          "sourceIds": [
+            "RES-FUJITSU-RERAM-2019"
+          ]
+        }
+      ],
+      "opportunity": "Engineering interpretation: this lineage informs low-power persistent storage. Product selection must separate standalone serial-interface system costs from embedded-macro process costs.",
+      "qualification": "Confirm current supplier, ordering code, interface and combined cycling/retention conditions rather than relying on historical partnerships."
+    },
+    {
+      "id": "ibm",
+      "name": "IBM Research",
+      "role": "Device and Integration Research",
+      "title": "Read MRAM Scaling, Current and Retention Together",
+      "summary": "IBM contributes traceable device physics and CMOS integration results. MTJ size, process node and write-error rate from different studies must not be combined into an imaginary best-specification product.",
+      "stage": "Device and CMOS Integration Demonstrations",
+      "boundary": "IBM papers are not a list of IBM production foundry services.",
+      "integration": "Perpendicular STT-MRAM; distinguish 14nm CMOS integration from smaller-MTJ research.",
+      "figureTitle": "STT-MRAM Write and Read Paths",
+      "figureCaption": "Generic single-MTJ schematic; IBM studies need not share this stack or junction count. Arrows indicate opposite update directions only.",
+      "program": "Current through the MTJ transfers spin angular momentum to set P or AP. The current required for a target WER depends on pulse width and materials.",
+      "reverse": "Switch magnetization in the opposite direction to overwrite the other value, without a Flash-style block erase. The two switching thresholds can differ.",
+      "read": "Sense P/AP through MTJ resistance; sensing margin, read disturb and MgO barrier lifetime constrain the bias design.",
+      "sourceIds": [
+        "RES-IBM-REVIEW-2024",
+        "RES-IBM-11NM-2017"
+      ],
+      "sections": [
+        {
+          "title": "14nm Is a CMOS Node; 11nm Is an MTJ Size",
+          "body": "The 2020 14nm study places MTJs between M1 and M2 with three added masks and one electrode module; 400°C describes process compatibility. The 2017 11nm result describes a junction size for low-current switching, not an 11nm CMOS platform.",
+          "sourceIds": [
+            "RES-IBM-14NM-2020",
+            "RES-IBM-11NM-2017"
+          ]
+        },
+        {
+          "title": "Co-Designing Retention and Speed",
+          "body": "The 2024 ordered-alloy study combines a low magnetic moment with strong perpendicular anisotropy, demonstrating a high energy barrier and 2ns operation. This advances material and switching design; retention guarantees still require temperature and statistical conditions.",
+          "sourceIds": [
+            "RES-IBM-ALLOY-2024"
+          ]
+        },
+        {
+          "title": "2025: Double Spin-Torque Arrays for Cache",
+          "body": "IEDM 2025 reports a 4-kbit DS-MTJ array in which all devices switch with 2ns pulses, with an approximately 60kT energy barrier at about 40nm critical dimension. This extends the evidence to a research array while preserving the distinction between device geometry and CMOS node.",
+          "sourceIds": [
+            "RES-IBM-DSMTJ-2025"
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "value": "0.0273μm² / 4ns",
+          "condition": "Cell area and minimum demonstrated write time in the 14nm CMOS integration study.",
+          "limit": "Not system area per bit including periphery, nor full access latency.",
+          "sourceIds": [
+            "RES-IBM-14NM-2020"
+          ]
+        },
+        {
+          "value": "8μA / 10ns / 10⁻⁹",
+          "condition": "Current, pulse duration and WER for an 11nm MTJ.",
+          "limit": "Does not establish large-array yield or identical retention.",
+          "sourceIds": [
+            "RES-IBM-11NM-2017"
+          ]
+        }
+      ],
+      "opportunity": "Engineering interpretation: use these studies to evaluate the physics and integration of embedded MRAM or cache candidates. Procurement still requires a named supplier and a deliverable macro, controller and production contract.",
+      "qualification": "Align definitions of node versus MTJ size, pulse versus access time, device versus array WER, retention temperature and thermal budget."
+    },
+    {
+      "id": "itri",
+      "name": "ITRI",
+      "role": "Collaborative Research, Prototyping and Transfer",
+      "title": "From SOT Write Channels to Arrays and Computing",
+      "summary": "ITRI evidence spans distinct collaborations and versions: SOT with TSMC, cryogenic STT with NYCU, a joint β-W array, an 8-inch prototyping service and RRAM technology transfer.",
+      "stage": "Research Arrays, Prototypes and Trial Production",
+      "boundary": "Collaborative research must not be represented as an ITRI standalone production product.",
+      "integration": "SOT-MRAM and BEOL integration; separately, 1S1R RRAM transfer.",
+      "figureTitle": "Separate Read and Write Paths in SOT-MRAM",
+      "figureCaption": "Generic bottom-channel SOT mechanism, not the exact 2023 top-SOT or high-RA dual-MTJ cross-section.",
+      "program": "In-plane channel current generates spin-orbit torque to switch the free layer; field requirements, assist pulses and directionality depend on the implementation.",
+      "reverse": "Update the opposite magnetic state by direct overwrite. Separate paths can reduce write stress across the tunnel barrier without implying unlimited endurance.",
+      "read": "MTJ resistance still reads the state; compute-in-memory also depends on RA, read current, interconnect drop and peripheral circuitry.",
+      "sourceIds": [
+        "RES-ITRI-SOT-2022",
+        "RES-ITRI-CIM-2024",
+        "RES-ITRI-SERVICE"
+      ],
+      "sections": [
+        {
+          "title": "Different Research Targets in 2022 and 2023",
+          "body": "The 2022 0.4ns and seven-trillion-cycle claim concerns SOT with TSMC; the same release attributes −269°C to 127°C operation to cryogenic STT with NYCU. The IEDM 2023 result released in 2024 addresses 10ns devices and computing. Its 1% power claim lacks a fully disclosed comparison workload.",
+          "sourceIds": [
+            "RES-ITRI-SOT-2022",
+            "RES-ITRI-CIM-2024"
+          ]
+        },
+        {
+          "title": "2025: Thermally Stable Materials in a 64kb Array",
+          "body": "A joint NYCU, TSMC, ITRI, NSRRC, Stanford and NCHU paper uses Co insertion to stabilize β-W. The film maintains phase stability at 400°C for ten hours, and the memory demonstrates 1ns switching. This is integration evidence, not a production-platform announcement.",
+          "sourceIds": [
+            "RES-SOT-BETAW-2025"
+          ]
+        },
+        {
+          "title": "Prototyping and RRAM Transfer Have Separate Contracts",
+          "body": "The 8-inch BEOL platform supports Kb-to-Mb research, prototypes and initial trial production. A separate 1S1R RRAM transfer page lists selector, current and geometry specifications. Its undated status cannot establish current production or the maturity of the overall ReRAM market.",
+          "sourceIds": [
+            "RES-ITRI-SERVICE",
+            "RES-ITRI-RRAM"
+          ]
+        }
+      ],
+      "metrics": [
+        {
+          "value": "64kb / 1ns",
+          "condition": "The 2025 β-W SOT research memory; the abstract also reports >10-year retention and 146% TMR.",
+          "limit": "The public abstract omits retention temperature, full WER and CMOS node.",
+          "sourceIds": [
+            "RES-SOT-BETAW-2025"
+          ]
+        },
+        {
+          "value": "1S1R / ≤4F²",
+          "condition": "The RRAM transfer listing specifies selectivity ≥100 and current ≤100μA.",
+          "limit": "Transfer specifications, not production density, yield or a node guarantee.",
+          "sourceIds": [
+            "RES-ITRI-RRAM"
+          ]
+        }
+      ],
+      "opportunity": "Engineering interpretation: consider joint research, process prototyping and compute-architecture validation. SOT speed and barrier-reliability potential must be weighed against channel area, selectors, routing and drive current.",
+      "qualification": "Request version-specific capacity, WER, field or assist requirements, retention, process compatibility and deliverable service scope."
+    }
+  ],
+  "sources": [
+    {
+      "id": "RES-UMC-RRAM-2023",
+      "url": "https://www.umc.com/en/News/press_release/Content/technology_related/20230328",
+      "date": "2023-03-28",
+      "label": "UMC / eMemory: 22nm RRAM Qualification",
+      "claim": "22nm ULP RRAM IP qualified at 8Mb plus 16Kb; a 16Mb automotive version remained in development.",
+      "limit": "Qualification applies to the announced version, not shipments by every customer.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-UMC-MRAM-2018",
+      "url": "https://www.umc.com/en/News/press_release/Content/technology_related/20180806",
+      "date": "2018-08-06",
+      "label": "UMC / Avalanche: MRAM Development Agreement",
+      "claim": "Joint MRAM development initially based on 28nm CMOS.",
+      "limit": "A development agreement does not establish embedded-macro production.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-UMC-MRAM-2022",
+      "url": "https://www.umc.com/en/News/press_release/Content/technology_related/20220913",
+      "date": "2022-09-13",
+      "label": "UMC / Avalanche: 22nm P-SRAM Availability",
+      "claim": "Third-generation standalone pMTJ STT-MRAM products announced as immediately available.",
+      "limit": "Standalone specifications are not specifications for a general embedded IP offering.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-FARADAY-RRAM-2025",
+      "url": "https://www.faraday-tech.com/html/News/pressRelease/CHI_01_0441.jsp",
+      "date": "2025-06-10",
+      "label": "Faraday: FlashKit-22RRAM Silicon Validation",
+      "claim": "A UMC 22ULP SoC development platform has been validated in silicon.",
+      "limit": "Platform validation does not establish a named customer shipment volume.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-UMC-ENVMPAGE",
+      "url": "https://www.umc.com/en/Product/technologies/Detail/envm",
+      "date": null,
+      "label": "UMC: eNVM Platform Table",
+      "claim": "The product table lists 22uLP/uLL RRAM.",
+      "limit": "Undated page; SRAM area entries are not RRAM bitcell areas.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-UMC-INFINEON-2023",
+      "url": "https://www.umc.com/en/News/press_release/Content/technology_related/20230307",
+      "date": "2023-03-07",
+      "label": "UMC / Infineon: 40nm Automotive MCU Agreement",
+      "claim": "Infineon proprietary eNVM is used at Singapore Fab 12i.",
+      "limit": "The announcement does not identify RRAM, MRAM, or the memory material.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-PANASONIC-UMC-2017",
+      "url": "https://news.panasonic.com/global/press/en170201-3",
+      "date": "2017-02-01",
+      "label": "Panasonic / UMC: 40nm ReRAM Collaboration",
+      "claim": "180nm ReRAM had been produced since 2013; 40nm samples were planned for 2018.",
+      "limit": "A forward-looking sampling plan does not establish completion.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-PANASONIC-SSDM-2018",
+      "url": "https://confit.atlas.jp/guide/event-img/ssdm2018/B-1-01/public/pdf_archive?type=in",
+      "date": "2018",
+      "label": "Panasonic: 40nm ReRAM Mechanism and Reliability",
+      "claim": "An 8Mbit test macro and a tantalum-oxide filament mechanism.",
+      "limit": "100k-cycle endurance and retention after 10k cycles are distinct conditions.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-FUJITSU-RERAM-2019",
+      "url": "https://info.archives.global.fujitsu/tw/about/resources/news/press-releases/2019/fep-0812.html",
+      "date": "2019-08-12",
+      "label": "Fujitsu / Panasonic: 8Mbit ReRAM Product",
+      "claim": "MB85AS8MT is a named SPI ReRAM product with joint development and planned availability announced.",
+      "limit": "This announcement does not identify the process node or foundry.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-IBM-14NM-2020",
+      "url": "https://research.ibm.com/publications/a-14-nm-embedded-stt-mram-cmos-technology",
+      "date": "2020-12-12",
+      "label": "IBM: 14nm CMOS Embedded STT-MRAM",
+      "claim": "Demonstrates 14nm CMOS integration and writing down to 4ns.",
+      "limit": "An integration demonstration, not a public PDK or foundry-production announcement.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-IBM-11NM-2017",
+      "url": "https://research.ibm.com/publications/low-current-spin-transfer-torque-mram--1",
+      "date": "2017-06-05",
+      "label": "IBM: Low-Current 11nm MTJ Research",
+      "claim": "An 11nm MTJ with 10ns pulses, 8μA and WER of 10⁻⁹.",
+      "limit": "11nm describes the MTJ size, not a CMOS node.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-IBM-ALLOY-2024",
+      "url": "https://research.ibm.com/publications/first-demonstration-of-high-retention-energy-barriers-and-2-ns-switching-using-magnetic-ordered-alloy-based-stt-mram-devices",
+      "date": "2024-06-16",
+      "label": "IBM: Ordered-Alloy Free-Layer Research",
+      "claim": "A strongly perpendicular free layer demonstrates a high energy barrier and 2ns operation.",
+      "limit": "No node, array capacity or production qualification is stated; an energy barrier is not an unconditional retention guarantee.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-IBM-REVIEW-2024",
+      "url": "https://research.ibm.com/publications/spin-transfer-torque-magnetoresistive-random-access-memory-technology-status-and-future-directions",
+      "date": "2024-11-06",
+      "label": "IBM Authors: STT-MRAM Status and Directions",
+      "claim": "Distinguishes standalone, embedded, working-memory and last-level-cache requirements.",
+      "limit": "Commercial technology categories in a review do not establish IBM product availability.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-ITRI-SOT-2022",
+      "url": "https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=111061510283488782&MmmID=1036276263153520257&SiteID=1",
+      "date": "2022-06-15",
+      "label": "ITRI: SOT and Cryogenic STT Collaborations",
+      "claim": "SOT with TSMC and cryogenic STT with NYCU are separate collaborations.",
+      "limit": "The release omits full error-rate, node and retention-temperature conditions.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-ITRI-CIM-2024",
+      "url": "https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=113011710184808020&MmmID=1036276263153520257&SiteID=1",
+      "date": "2024-01-17",
+      "label": "ITRI / TSMC: IEDM 2023 SOT-CIM",
+      "claim": "10ns SOT devices and compute-in-memory; the release claims 1% of a compared STT product power.",
+      "limit": "The comparison workload is not fully disclosed; this is not a universal 100× SOT advantage.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-SOT-BETAW-2025",
+      "url": "https://www.nature.com/articles/s41928-025-01434-x",
+      "date": "2025-09-02",
+      "label": "Joint Research: β-W 64kb SOT-MRAM",
+      "claim": "Co insertion improves β-W thermal stability in a 64kb research memory.",
+      "limit": "Public abstract and author information reviewed; annealing is not operating temperature and does not establish production.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-ITRI-SERVICE",
+      "url": "https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=01_content&MGID=1126511563713777471&MmmID=1071732317047353240&SiteID=1",
+      "date": null,
+      "label": "ITRI: 8-Inch MRAM Development Services",
+      "claim": "Provides MRAM development, prototyping and preliminary trial production.",
+      "limit": "8 inches is wafer size, not a node; these services do not imply high-volume production.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-ITRI-RRAM",
+      "url": "https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=13_content&MmmID=1036233405427625204&SiteID=1&Trt_idx=4557",
+      "date": null,
+      "label": "ITRI: 1S1R 3D RRAM Technology Transfer",
+      "claim": "A transfer listing for cross-point arrays, bidirectional selectors and device measurements.",
+      "limit": "Undated and without current production evidence; this older listing does not describe the entire ReRAM market today.",
+      "locator": "Main text / abstract",
+      "kind": "Official primary source / author research",
+      "evidence": "Main text or public abstract reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "everspin-toggle",
+      "label": "Everspin Toggle MRAM · Toggle MRAM",
+      "url": "https://www.everspin.com/persyst?page=2",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The current PERSYST catalog lists Toggle production parts. MR3A16ACYS35 is marked MP and specifies 8Mb, asynchronous x16, 35ns, 3.3V and −40 to 85°C.",
+      "limit": "These values belong only to MR3A16ACYS35. Do not mix speed, temperature or automotive ratings across parts. The old MR4A16B datasheet is inaccessible, so its over-20-year retention is not cited."
+    },
+    {
+      "id": "everspin-1gb-ddr",
+      "label": "Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm",
+      "date": "2026-03-04",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The 2025 Form 10-K confirms continuing 1Gb STT-MRAM shipments. The technology page identifies a DDR4-like persistent-DRAM product for enterprise storage.",
+      "limit": "DDR4-like does not imply drop-in compatibility with every DDR4 controller. Do not transfer Toggle or xSPI retention, endurance or automotive ratings. The old family URL is now 404."
+    },
+    {
+      "id": "everspin-xspi",
+      "label": "Everspin EMxxLX xSPI · STT-MRAM / xSPI",
+      "url": "https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb",
+      "date": "2026-03-05",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The March 5, 2026 investor release confirms HR 64Mb xSPI STT-MRAM completed AEC-Q100 Grade 1 production qualification and is orderable with distributor inventory. HR 128Mb qualification was expected in May and 256Mb in July, with 256Mb volume availability expected in the second half of 2026.",
+      "limit": "The 128Mb and 256Mb dates were forecasts as of March 5, 2026; subsequent completion was not verified. HR qualification does not transfer to other EMxxLX variants. This release does not specify bandwidth or retention."
+    },
+    {
+      "id": "avalanche-umc22",
+      "label": "Avalanche Technology / UMC · pMTJ STT-MRAM",
+      "url": "https://www.umc.com/en/News/press_release/Content/technology_related/20220913",
+      "date": "2022-09-13",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The September 13, 2022 release announces immediate availability of Gen 3 P-SRAM on UMC 22nm. The cited parallel x32 product specifies over 10^14 writes and 1,000-year retention at 85°C.",
+      "limit": "This is a discrete product, not proof of identical specifications for general UMC embedded macros. Retention is a supplier reliability specification."
+    },
+    {
+      "id": "avalanche-scaling2026",
+      "label": "Avalanche Technology · STT-MRAM",
+      "url": "https://www.avalanche-technology.com/avalanche-technology-phase-one-magnetic-cell-scaling-space-grade-mram-us-government/",
+      "date": "2026-03-02",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The 2026 web announcement reports completion of a first-phase MTJ scaling milestone for future higher-density space-grade MRAM.",
+      "limit": "The page is dated March 2, 2026, but the body says March 2, 2025. A 16x density increase is a future goal, not a shipped product."
+    },
+    {
+      "id": "samsung-emram",
+      "label": "Samsung Foundry · STT-MRAM / eMRAM",
+      "url": "https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The current specialty-process page confirms 28nm FD-SOI eMRAM mass production since 2019 and expansion to 14LPU and 8LPU, with 5nm still planned.",
+      "limit": "Platform expansion does not establish named high-volume customers at every node. Earlier roadmap dates are not completion evidence."
+    },
+    {
+      "id": "intel-22ffl-research",
+      "label": "Intel · STT-MRAM",
+      "url": "https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf",
+      "date": "2018-12-04",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The official IEDM 2018 program lists Intel-authored work on MRAM embedded in 22FFL FinFET, establishing primary evidence of process-integration research.",
+      "limit": "No newer verified Intel commercial MRAM offering was found in this bounded review. Do not infer availability from the paper or the Intel 16 name."
+    },
+    {
+      "id": "tsmc-16mram2025",
+      "label": "TSMC · eMRAM / STT route",
+      "url": "https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report.E.pdf",
+      "date": "2025",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The 2025 annual report confirms qualification and customer availability of second-generation 16nm automotive Grade 1 MRAM. 12nm automotive and 5nm high-speed MRAM remain in development.",
+      "limit": "Qualification is not proof of volume shipment of a named MCU. SOT research must remain separate from qualified platforms."
+    },
+    {
+      "id": "tsmc-sot2025",
+      "label": "TSMC SOT-MRAM · SOT-MRAM",
+      "url": "https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report.E.pdf",
+      "date": "2025-12",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The 2025 annual report describes an IEDM 2025 Type-C SOT-MRAM demonstration using a circular MTJ with built-in magnetic anisotropy for field-free operation.",
+      "limit": "A research demonstration is not a commercial process or a shipping SRAM replacement; 16nm automotive MRAM maturity does not transfer."
+    },
+    {
+      "id": "gf-22fdx",
+      "label": "GlobalFoundries · STT-MRAM / 22FDX",
+      "url": "https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram",
+      "date": "2020-02-27",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The February 27, 2020 announcement confirms production entry of 22FDX eMRAM and 4–48Mb silicon-validated macros, with 100k endurance and 10-year retention across the stated temperature range.",
+      "limit": "Grade 1 was a future target in that release. The current FDX page still lists MRAM, but customer-specific qualification requires separate evidence."
+    },
+    {
+      "id": "renesas-ra8-2025",
+      "label": "Renesas RA8M2 / RA8D2 · Embedded MRAM",
+      "url": "https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram",
+      "date": "2025-10-22",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The October 22, 2025 release announces available RA8M2 and RA8D2 MCUs with embedded MRAM, a 1GHz Cortex-M85 and a 250MHz Cortex-M33.",
+      "limit": "CPU clock is not native MRAM read speed. Do not transfer 2024 research-macro measurements directly to the RA8 products."
+    },
+    {
+      "id": "st-pcm-boundary",
+      "label": "STMicroelectronics · PCM, not established MRAM offering",
+      "url": "https://newsroom.st.com/media-center/press-item.html/p4733.html",
+      "date": "2025-11-18",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The November 18, 2025 STM32V8 announcement explicitly identifies 18nm FD-SOI and embedded PCM, with Samsung Foundry manufacturing cooperation.",
+      "limit": "Samsung cooperation or advanced eNVM does not make this MRAM. Any ST MRAM research requires its own direct source."
+    },
+    {
+      "id": "nxp-s32k5",
+      "label": "NXP S32K5 · Embedded MRAM",
+      "url": "https://www.nxp.com/assets/block-diagram/en/S32K5.pdf",
+      "date": "2025-10-30",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "NXP announced the 16nm FinFET S32K5 with embedded MRAM on March 11, 2025. Its October 30, 2025 product brief still labels the family preproduction.",
+      "limit": "The claimed 15x write advantage is a supplier comparison against embedded flash, not an absolute latency. Announcement is not volume-production evidence."
+    },
+    {
+      "id": "netsol-stt",
+      "label": "NETSOL · STT-MRAM",
+      "url": "https://netsol.co.kr/wp-content/uploads/2024/03/S3RxxxxR1M_rev1.1.pdf",
+      "date": "2024-03",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The March 2024 S3RxxxxR1M datasheet specifies 1–16Mbit STT-MRAM, asynchronous x8/x16 interfaces and an industrial −40 to 85°C range; the website also lists serial products.",
+      "limit": "Do not transfer larger densities or process nodes from other series or media reports into this datasheet. Shipment volume is not disclosed."
+    },
+    {
+      "id": "tdk-headway",
+      "label": "TDK / Headway · STT-MRAM",
+      "url": "https://www.tdk.com/system/files/tdk_investor_day_20250901_en.pdf",
+      "date": "2025-09-01",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "TDK lists STT-MRAM among its spintronics technologies in the 2025 investor-day presentation.",
+      "limit": "HDD-head production and MTJ expertise do not establish commercial discrete MRAM. No orderable MRAM SKU, PDK or specific foundry commitment was verified."
+    },
+    {
+      "id": "numem-aime",
+      "label": "Numem · Foundry-based STT-MRAM",
+      "url": "https://numem.com/news",
+      "date": "2025-06-10",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "Numem describes foundry-based STT-MRAM IP and chips/chiplets enhanced by AIME. Its June 10, 2025 announcement claims production readiness.",
+      "limit": "Power and SRAM-class performance are supplier claims without uniform independent benchmarking. This is not evidence of a new magnetic material or named volume shipments."
+    },
+    {
+      "id": "imec-sot",
+      "label": "imec · SOT-MRAM",
+      "url": "https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually",
+      "date": "2023-12-13",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "On December 13, 2023 imec reported roughly 50nm critical-dimension SOT devices on 300mm wafers, below 100fJ/bit switching energy and endurance above 10^15 cycles.",
+      "limit": "Device switching energy excludes full macro, bus and system overhead. The 50nm dimension is not a 50nm CMOS process-node claim."
+    },
+    {
+      "id": "RRAM-WEEBIT-2026",
+      "label": "Weebit Nano · ReRAM",
+      "url": "https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/",
+      "date": "2026-07-31",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "Three customer designs had taped out by July 2026, with a prototype running software.",
+      "limit": "First customer product mass production remained a future milestone."
+    },
+    {
+      "id": "RRAM-ONSEMI-2026",
+      "label": "onsemi · ReRAM",
+      "url": "https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/",
+      "date": "2026-07-31",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "Weebit reported onsemi ReRAM technology transfer progressing to schedule.",
+      "limit": "Licensing or transfer does not establish product mass production."
+    },
+    {
+      "id": "RRAM-TI-2026",
+      "label": "Texas Instruments · ReRAM",
+      "url": "https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/",
+      "date": "2026-07-31",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "Weebit reported TI ReRAM technology transfer progressing to schedule.",
+      "limit": "TI commercial FRAM and this ReRAM transfer are separate technology routes."
+    },
+    {
+      "id": "RRAM-SKYWATER-S130",
+      "label": "SkyWater／Weebit Nano · ReRAM",
+      "url": "https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The official IP page lists qualified S130 130 nm CMOS ReRAM, available for integration, with two added masks in BEOL.",
+      "limit": "IP qualification does not qualify every customer chip or prove its mass production."
+    },
+    {
+      "id": "RRAM-DBHITEK-130",
+      "label": "DB HiTek／Weebit Nano · ReRAM",
+      "url": "https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "130 nm BCD ReRAM IP is silicon-proven and qualified, adding two masks; listed specifications include 10K writes and over ten years retention at 125°C.",
+      "limit": "100K cycles is an extension option; base BCD volume does not establish ReRAM product shipments."
+    },
+    {
+      "id": "RRAM-TSMC-IOT",
+      "label": "TSMC · ReRAM",
+      "url": "https://www.tsmc.com/english/dedicatedFoundry/technology/platform_IoT_tech_NVM",
+      "date": "2024",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The IoT NVM page lists 40RRAM and 22RRAM in production; 12RRAM entered consumer-grade risk production in 2024, with cells between BEOL metal layers.",
+      "limit": "12RRAM risk production is not full production or automotive qualification."
+    },
+    {
+      "id": "RRAM-INFINEON-TC4X",
+      "label": "Infineon／TSMC · ReRAM",
+      "url": "https://www.infineon.com/technology-news/2022/infatv202211-031",
+      "date": "2022-11-25",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The 2022 announcement describes preparing TSMC RRAM for next-generation AURIX TC4x, supporting bit-wise writes without prior erase.",
+      "limit": "This announcement does not prove every TC4x variant uses RRAM or has reached production."
+    },
+    {
+      "id": "CBRAM-GF-RENESAS",
+      "label": "GlobalFoundries／Renesas／Dialog · CBRAM",
+      "url": "https://gf.com/news-and-events/news/globalfoundries-acquires-renesas-non-volatile-resistive-ram-technology-to-proliferate-iot-and-5g-applications/",
+      "date": "2023-02-09",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "GF acquired production-proven CBRAM technology from Renesas in 2023, following a 2020 Dialog license; 22FDX qualification was underway.",
+      "limit": "Prior CBRAM production does not establish 22FDX production; the acquirer was GF, not Infineon."
+    },
+    {
+      "id": "RRAM-NUVOTON-M2L31",
+      "label": "Nuvoton · ReRAM",
+      "url": "https://www.nuvoton.com/products/microcontrollers/arm-cortex-m23-mcus/m2l31-series/index.html",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The M2L31 family lists an Arm Cortex-M23, 64–512 KB ReRAM and 72 MHz operation; writes do not require a page erase.",
+      "limit": "72 MHz is the MCU clock, not cell write latency; density and reliability are part-specific."
+    },
+    {
+      "id": "RRAM-PANASONIC-UMC",
+      "label": "Panasonic／UMC · ReRAM",
+      "url": "https://news.panasonic.com/global/press/en170201-3",
+      "date": "2017-02-01",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The 2017 agreement combined Panasonic ReRAM with UMC manufacturing to develop a 40 nm mass-production process.",
+      "limit": "The development target is not evidence of 2026 availability or the process used by every current Nuvoton part."
+    },
+    {
+      "id": "RRAM-RAMXEED-PRODUCT",
+      "label": "RAMXEED · ReRAM",
+      "url": "https://www.ramxeed.com/products/reram/reram-products.html",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The product list marks the MB85AS8MT 8 Mbit SPI ReRAM as mass-produced with one million cycles; the 12 Mbit part requires sales contact.",
+      "limit": "Do not transfer the 8 Mbit production status or endurance to the 12 Mbit part."
+    },
+    {
+      "id": "RRAM-CROSSBAR-DARIC",
+      "label": "CrossBar · ReRAM",
+      "url": "https://crossbar-inc.com/blogs/all/overview-of-crossbar-hardware-reram-and-chip",
+      "date": "2026-05-06",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "A 2026 company article describes the 22 nm Daric secure processor integrating ReRAM, computing and cryptography on one die.",
+      "limit": "The article does not establish production qualification or independent security certification; avoid blanket immunity claims."
+    },
+    {
+      "id": "XPOINT-MICRON-EXIT",
+      "label": "Micron · 3D XPoint",
+      "url": "https://investors.micron.com/news/press-release/2021/Micron-Updates-Data-Center-Portfolio-Strategy-to-Address-Growing-Opportunity-for-Memory-and-Storage-Hierarchy-Innovation-03-16-2021/default.aspx",
+      "date": "2021-03-16",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "Micron announced an immediate end to 3D XPoint development in 2021 and redirected resources toward CXL memory products.",
+      "limit": "Ending this route does not end all PCM research; CXL is an interconnect, not a memory-cell mechanism."
+    },
+    {
+      "id": "XPOINT-INTEL-EXIT",
+      "label": "Intel · 3D XPoint",
+      "url": "https://www.intc.com/filings-reports/all-sec-filings/content/0000050863-23-000006/intc-20221231.htm",
+      "date": "2022",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "Intel's 2022 annual filing states that the Optane memory business wind-down began in 2022.",
+      "limit": "Historical product pages or inventory sales do not establish continuing development or other vendors' PCM exits."
+    },
+    {
+      "id": "PCM-ST-P3E",
+      "label": "STMicroelectronics · PCM",
+      "url": "https://www.st.com/content/st_com/en/campaigns/stellar-p3e-automotive-mcu-with-npu-accelerator-and-xmemory.html",
+      "date": "2026",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The 2026 Stellar P3E page identifies xMemory PCM, with full automotive qualification and production readiness planned for H2 2026.",
+      "limit": "Reaching the planned quarter does not prove completion; P3E timing does not apply to every Stellar part."
+    },
+    {
+      "id": "PCM-IBM-AIMC",
+      "label": "IBM Research · PCM",
+      "url": "https://research.ibm.com/publications/deep-neural-network-inference-with-a-64-core-in-memory-compute-chip-based-on-phase-change-memory",
+      "date": "2023-09-17",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "A 14 nm CMOS research chip with backend PCM integrates 64 256×256 analog cores and digital processing and communication for neural-network inference.",
+      "limit": "Analog weight-compute results do not establish a purchasable general-purpose PCM memory or complete-system performance."
+    },
+    {
+      "id": "FERAM-TI-MSP430",
+      "label": "Texas Instruments · FeRAM",
+      "url": "https://www.ti.com/tool/TIDM-FRAM-EEPROM",
+      "date": "2016-12-20",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "An MSP430 reference design emulates EEPROM using embedded FRAM and lists supported MCUs and I2C/SPI host interfaces.",
+      "limit": "FRAM is the storage technology; EEPROM emulation is interface behavior, not floating-gate or FeFET construction."
+    },
+    {
+      "id": "FERAM-RAMXEED",
+      "label": "RAMXEED · FeRAM",
+      "url": "https://www.ramxeed.com/faq/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The FAQ states FeRAM has been mass-produced since 1999 for frequent-write applications; retention must be interpreted at the specified temperature.",
+      "limit": "Cycle ratings, interfaces and temperatures are part-specific; FeRAM is not synonymous with all FeFET or FTJ devices."
+    },
+    {
+      "id": "FERAM-INFINEON",
+      "label": "Infineon · FeRAM",
+      "url": "https://www.infineon.com/products/memories/f-ram-ferroelectric-ram",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "Infineon lists serial, parallel and EXCELON F-RAM using PZT ferroelectric films, with family-dependent endurance up to 100 trillion cycles.",
+      "limit": "Maximum ratings do not apply to every part; this does not establish HfO2 FeFET or FTJ construction."
+    },
+    {
+      "id": "FERAM-GF-IPMS-2026",
+      "label": "GlobalFoundries／Fraunhofer IPMS · FeRAM",
+      "url": "https://www.ipms.fraunhofer.de/en/press-media/press/2026/Ferroelectric-memory-storage.html",
+      "date": "2026-06-11",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The 2026 collaboration reports HfO2 ferroelectric FRAM integrated in 22FDX, operating below 1 V with nanosecond switching.",
+      "limit": "The announcement lacks orderable parts, a complete qualification report or shipment volumes."
+    },
+    {
+      "id": "FERRO-NAMLAB-2025",
+      "label": "NaMLab · FeFET／FTJ",
+      "url": "https://www.namlab.com/publications/",
+      "date": "2025",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The official 2025 publication list includes HZO bilayer FTJ thickness scaling and charge-trapping challenges in CMOS-embedded FeFETs.",
+      "limit": "Publication listings establish research participation, not foundry service, PDK availability or mass production."
+    },
+    {
+      "id": "FERRO-FMC",
+      "label": "FMC · Ferroelectric Memory",
+      "url": "https://www.ferroelectric-memory.com/technology/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The current site proposes DRAM+ persistent modules and CACHE+ persistent chiplets based on ferroelectric technology.",
+      "limit": "The current page describes ferroelectric capacitors; it does not establish that DRAM+ or CACHE+ uses a FeFET or FTJ. Product qualification and shipment volumes are not verified."
+    },
+    {
+      "id": "FERRO-IMEC-NDREAD",
+      "label": "imec · FeRAM／FeCAP",
+      "url": "https://www.imec-int.com/en/articles/non-destructive-readout-mechanism-ferroelectric-capacitors",
+      "date": "2023",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "Joint work with Georgia Tech demonstrated nondestructive FeCAP reading, reporting over 10^11 read cycles at IEDM 2023.",
+      "limit": "Read endurance is not write endurance and does not establish conventional FeRAM behavior or mass production."
+    },
+    {
+      "id": "RRAM-CEA-LETI",
+      "label": "CEA-Leti／Weebit Nano · ReRAM",
+      "url": "https://www.cea.fr/cea-tech/leti/english/Pages/What's-On/Press%20release/Weebit-Nano-and-CEA-Leti-to-demonstrate-brain-inspired-neuromorphic-demo-.aspx",
+      "date": "2019-07-18",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The announcement combines CEA-Leti spiking neural networks with Weebit SiOx ReRAM in a neuromorphic object-recognition demonstration.",
+      "limit": "The demonstration is not an orderable complete AI accelerator; transfer and qualification require separate evidence."
+    },
+    {
+      "id": "industry-infineon-sonos",
+      "label": "Infineon／Cypress · SONOS eFlash",
+      "url": "https://www.infineon.com/products/memories/embedded-flash-ip-solutions",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The official page identifies 2T SONOS, FN program/erase, production nodes and process/design licensing.",
+      "limit": "Separate Cypress history from current macros; do not combine family-wide maximum specifications."
+    },
+    {
+      "id": "industry-sst-superflash",
+      "label": "SST／Microchip · SuperFlash NOR／eFlash",
+      "url": "https://www.sst.com/services/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "SST lists SuperFlash process integration and licensing, complementing standalone NOR coverage.",
+      "limit": "Licensing does not establish identical current qualification across nodes; verify each technology generation."
+    },
+    {
+      "id": "industry-st-estm",
+      "label": "STMicroelectronics · eSTM eFlash／Page EEPROM",
+      "url": "https://www.st.com/content/st_com/en/about/innovation-and-technology/estm.html",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "ST links 40nm floating-gate eSTM with vertical select transistors to STM32H5 and Page EEPROM implementations.",
+      "limit": "Keep eSTM separate from Stellar PCM; it is not the cell used by every ST MCU."
+    },
+    {
+      "id": "industry-renesas-sgmonos",
+      "label": "Renesas · SG-MONOS eFlash",
+      "url": "https://www.renesas.com/en/about/press-room/renesas-electronics-announces-world-s-first-development-fin-shaped-monos-flash-memory-cells-high",
+      "date": "2016-12-07",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The 2016 announcement identifies production 40nm SG-MONOS MCUs and research on 16/14nm fin-shaped cells.",
+      "limit": "This announcement does not prove 16/14nm production; verify current part numbers separately."
+    },
+    {
+      "id": "industry-xfab-xt011",
+      "label": "X-FAB · XT011 eFlash／EEPROM",
+      "url": "https://www.xfab.com/news/details/article/x-fab-releases-embedded-flash-solution-on-its-110nm-automotive-bcd-on-soi-technology",
+      "date": "2024-12-03",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The 2024 announcement identifies embedded Flash and EEPROM on the XT011 110nm BCD-on-SOI platform.",
+      "limit": "Keep this separate from the historical 2003 XC06 example; do not assume identical cells."
+    },
+    {
+      "id": "industry-floadia-zt",
+      "label": "Floadia · LEE Flash ZT MTP",
+      "url": "https://floadia.com/product/lee-flash-zt/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The ZT page describes FN program/erase, zero added masks and named platform production records.",
+      "limit": "General and platform-specific endurance figures differ; do not infer universal endurance or polysilicon count."
+    },
+    {
+      "id": "industry-samsung-vnand9",
+      "label": "Samsung · Ninth-Generation TLC V-NAND",
+      "url": "https://news.samsung.com/global/samsung-electronics-begins-industrys-first-mass-production-of-9th-gen-v-nand",
+      "date": "2024-04-23",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "Samsung announced mass production of 1Tb TLC ninth-generation V-NAND in April 2024.",
+      "limit": "Evidence concerns this TLC generation; later demonstrations and projected QLC timing are separate."
+    },
+    {
+      "id": "industry-skhynix-321tlc",
+      "label": "SK hynix · 321-Layer TLC 4D NAND",
+      "url": "https://news.skhynix.com/en/sk-hynix-starts-mass-production-of-world-first-321-high-nand/",
+      "date": "2024-11-21",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "SK hynix announced the start of 321-layer 1Tb TLC NAND mass production in November 2024.",
+      "limit": "Separate production from customer delivery; do not assign this die to every Solidigm SSD."
+    },
+    {
+      "id": "industry-solidigm-p5336",
+      "label": "Solidigm · D5-P5336 QLC SSD",
+      "url": "https://www.solidigm.com/products/data-center/d5/p5336.html",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The official D5-P5336 page identifies a commercial enterprise QLC SSD family and capacity options.",
+      "limit": "SSD capacity and system metrics are not die specifications; corporate relationships do not establish common NAND."
+    },
+    {
+      "id": "industry-micron-g9",
+      "label": "Micron · G9 TLC NAND",
+      "url": "https://investors.micron.com/news/press-release/2024/Micron-Announces-Volume-Production-of-Ninth-Generation-NAND-Flash-Technology-07-30-2024/default.aspx",
+      "date": "2024-07-30",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The July 2024 release reports G9 TLC NAND and volume shipment of the Micron 2650 SSD using it.",
+      "limit": "Do not extend TLC evidence to every QLC or NOR product; interface speed is not cell programming speed."
+    },
+    {
+      "id": "industry-kioxia-sandisk-gen10",
+      "label": "Kioxia／Sandisk · Tenth-Generation BiCS 3D NAND",
+      "url": "https://www.kioxia.com/en-jp/about/news/2026/20260703-2.html",
+      "date": "2026-07-03",
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The July 2026 joint announcement states that tenth-generation 3D Flash production began at Kitakami K2.",
+      "limit": "Production start does not establish universal customer availability or identical finished products."
+    },
+    {
+      "id": "industry-ymtc-xtacking",
+      "label": "YMTC · Xtacking 3D NAND",
+      "url": "https://www.ymtc.com/en/technicalintroduction.html",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The official page explains separate peripheral/array wafers joined by bonding and names Xtacking 4.0 X4 products in 2025.",
+      "limit": "Awards and architecture descriptions alone do not prove each product's volume, layer count or shipment status."
+    },
+    {
+      "id": "industry-macronix-nor",
+      "label": "Macronix · Serial NOR／OctaBus",
+      "url": "https://www.macronix.com/en-us/products/NOR-Flash/Serial-NOR-Flash/Pages/default.aspx",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "Macronix's official Serial NOR page provides its product portfolio and OctaBus interface offerings.",
+      "limit": "This source directly supports NOR; verify NAND parts separately and do not infer cell geometry from interfaces."
+    },
+    {
+      "id": "industry-winbond-w25q",
+      "label": "Winbond · W25Q16JW Serial NOR",
+      "url": "https://www.winbond.com/hq/new-online-purchasing-guide/?__locale=en&pLine=/product/code-storage-flash/qspi-nor/&pNo=W25Q16JW",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The official catalog identifies W25Q16JW Serial NOR and associated ordering entries.",
+      "limit": "Catalog presence does not guarantee stock; verify NAND families and other capacities separately."
+    },
+    {
+      "id": "industry-gigadevice-flash",
+      "label": "GigaDevice · GD25／GD55 NOR；GD5F NAND",
+      "url": "https://www.gigadevice.com/product/flash",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official primary source",
+      "locator": "Product, technology or announcement text",
+      "claim": "The official portfolio identifies GD25/GD55 SPI NOR and GD5F SPI/parallel NAND.",
+      "limit": "Family coverage does not replace part-specific production status, temperature, endurance or retention specifications."
+    },
+    {
+      "id": "everspin-ddr-technology",
+      "label": "Current official explanation of 1Gb DDR4-like persistent DRAM and separate xSPI STT products.",
+      "url": "https://www.everspin.com/stt-mram-technology",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official supplementary source",
+      "locator": "Main text / relevant specification",
+      "limit": "Applies only to the named version and stated conditions."
+    },
+    {
+      "id": "gf-current-fdx",
+      "label": "Current FDX platform page continues to list MRAM.",
+      "url": "https://gf.com/technologies/cmos/fdx-fd-soi/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official supplementary source",
+      "locator": "Main text / relevant specification",
+      "limit": "Applies only to the named version and stated conditions."
+    },
+    {
+      "id": "headway-author-research",
+      "label": "Headway-authored embedded STT-MRAM research presentation; not commercial supply evidence.",
+      "url": "https://www.cea.fr/cea-tech/leti/Documents/%C3%A9v%C3%A9nements/Prez%20workshop%20memory%202017/2.2.pdf",
+      "date": "2017",
+      "accessedAt": "2026-09-10",
+      "kind": "Official supplementary source",
+      "locator": "Main text / relevant specification",
+      "limit": "Applies only to the named version and stated conditions."
+    },
+    {
+      "id": "numem-current",
+      "label": "Current site explicitly identifies foundry-based STT-MRAM and AIME.",
+      "url": "https://www.numem.com/",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official supplementary source",
+      "locator": "Main text / relevant specification",
+      "limit": "Applies only to the named version and stated conditions."
+    },
+    {
+      "id": "nxp-launch",
+      "label": "S32K5 launch and supplier comparison claims.",
+      "url": "https://www.nxp.com/company/about-nxp/newsroom/NW-NEW-S32K5-MICROCONTROLLER",
+      "date": "2025-03-11",
+      "accessedAt": "2026-09-10",
+      "kind": "Official supplementary source",
+      "locator": "Main text / relevant specification",
+      "limit": "Applies only to the named version and stated conditions."
+    },
+    {
+      "id": "samsung-history",
+      "label": "Historical node schedules must remain separate from current platform evidence.",
+      "url": "https://semiconductor.samsung.com/news-events/tech-blog/developing-the-industrys-most-energy-efficient-next-generation-mram-selected-as-iedm-highlight-paper/",
+      "date": "2023",
+      "accessedAt": "2026-09-10",
+      "kind": "Official supplementary source",
+      "locator": "Main text / relevant specification",
+      "limit": "Applies only to the named version and stated conditions."
+    },
+    {
+      "id": "everspin-persyst-catalog",
+      "label": "Current official catalog lists MR3A16ACYS35 as MP, 8Mb, x16, 35ns, 3.3V and −40 to 85°C.",
+      "url": "https://www.everspin.com/persyst?page=2",
+      "date": null,
+      "accessedAt": "2026-09-10",
+      "kind": "Official supplementary source",
+      "locator": "Main text / relevant specification",
+      "limit": "Applies only to the named version and stated conditions."
+    },
+    {
+      "id": "everspin-2025-10k",
+      "label": "The annual filing confirms continuing 1Gb STT-MRAM shipments; its March 4 filing date is explicitly stated in the March 5 official release.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm",
+      "date": "2026-03-04",
+      "accessedAt": "2026-09-10",
+      "kind": "Official supplementary source",
+      "locator": "Main text / relevant specification",
+      "limit": "Applies only to the named version and stated conditions."
+    },
+    {
+      "id": "everspin-hr-xspi-20260305",
+      "label": "Original official release: HR 64Mb qualified and orderable; HR 128/256Mb qualification and volume dates remain forecasts.",
+      "url": "https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb",
+      "date": "2026-03-05",
+      "accessedAt": "2026-09-10",
+      "kind": "Official supplementary source",
+      "locator": "Main text / relevant specification",
+      "limit": "Applies only to the named version and stated conditions."
+    },
+    {
+      "id": "RES-IBM-DSMTJ-2025",
+      "url": "https://research.ibm.com/publications/progress-and-gaps-in-double-spin-torque-mtjs-for-last-level-cache-applications",
+      "date": "2025-12-06",
+      "label": "IBM: Double Spin-Torque MTJs for Cache",
+      "claim": "4-kbit research array with 2ns write pulses.",
+      "limit": "Research-array demonstration; does not establish production yield or a shipped cache product.",
+      "kind": "Official primary source",
+      "locator": "Public abstract / main text",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-EVERSPIN-TELEDYNE-2026",
+      "url": "https://investor.everspin.com/news-releases/news-release-details/everspin-technologies-and-teledyne-hirel-semiconductors-partner",
+      "date": "2026-09-02",
+      "label": "Everspin / Teledyne HiRel Partnership",
+      "claim": "A partnership begins with 256Mb PERSYST, with Teledyne availability anticipated in Q4 2026.",
+      "limit": "A planned partner delivery does not prove completed qualification of every HR SKU.",
+      "kind": "Official primary source",
+      "locator": "Public abstract / main text",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-SONY-MICRON-2014",
+      "url": "https://investors.micron.com/static-files/7ac25c4b-edd0-4482-97ad-267a7263bcf0",
+      "date": "2014-06-05",
+      "label": "Micron / Sony: Copper ReRAM Research",
+      "claim": "Micron announced copper ReRAM work for a 16Gb storage-class-memory demonstration with Sony.",
+      "limit": "Historical R&D evidence, not current availability, a Sony sensor design win or production volume.",
+      "kind": "Official primary source",
+      "locator": "Public abstract / main text",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "MRAM-KIOXIA-SKHYNIX-64GB-2025",
+      "url": "https://www.kioxia.com/en-jp/rd/technology/topics/topics-80.html",
+      "date": "2025-04-15",
+      "label": "Kioxia／SK hynix · 64 Gbit 1Selector–1MTJ Cross-Point MRAM",
+      "claim": "The jointly developed 64 Gbit cross-point MRAM replaces select transistors with two-terminal selectors; MTJ diameter is 20 nm, half-pitch 20.5 nm, and cell area 0.001681 µm².",
+      "limit": "This is a research array, not evidence of product availability. The 20 nm figure is MTJ diameter, not a CMOS process node; typical-bit tests do not establish full-array yield.",
+      "locator": "Official body; NRAM uses the August 2016 archive entry",
+      "kind": "Primary official source",
+      "evidence": "Public body or archive entry reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RRAM-TETRAMEM-MLX200-2026",
+      "url": "https://tetramem.com/tetramem-completes-mlx200-silicon-validation/",
+      "date": "2026-05-19",
+      "label": "TetraMem · MLX200 Multi-Level RRAM Analog IMC",
+      "claim": "In May 2026, TetraMem reported MLX200 tape-out and initial silicon validation on TSMC 22nm, integrating multi-level RRAM with mixed-signal computing in a SoC.",
+      "limit": "Evaluation kits were scheduled for H2 2026 at announcement. Initial validation does not establish mass production or delivery, and computing results are not general-purpose storage specifications.",
+      "locator": "Official body; NRAM uses the August 2016 archive entry",
+      "kind": "Primary official source",
+      "evidence": "Public body or archive entry reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RRAM-INTRINSIC-SURECORE",
+      "url": "https://www.intrinsicsemi.com/",
+      "date": null,
+      "label": "Intrinsic／sureCore · SiOx RRAM",
+      "claim": "Intrinsic identifies silicon-oxide RRAM as its core technology and lists a sureCore collaboration combining CMOS-compatible cells, memory architectures and compiler-design expertise.",
+      "limit": "The collaboration does not establish qualification or mass production of a named process macro; the site does not provide a complete orderable part and datasheet proving current supply.",
+      "locator": "Official body; NRAM uses the August 2016 archive entry",
+      "kind": "Primary official source",
+      "evidence": "Public body or archive entry reviewed",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "NRAM-NANTERO-FUJITSU-2016",
+      "url": "https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/",
+      "date": "2016-08-31",
+      "label": "Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM",
+      "claim": "Fujitsu's official archive confirms that its two semiconductor businesses licensed Nantero carbon-nanotube NRAM in 2016 and began joint development toward a 55nm product.",
+      "limit": "This historical development evidence establishes neither 2026 production and availability nor program termination; NRAM should be classified separately from oxide RRAM.",
+      "locator": "Official body; NRAM uses the August 2016 archive entry",
+      "kind": "Primary official source",
+      "evidence": "Public body or archive entry reviewed",
+      "accessedAt": "2026-09-10"
+    }
+  ],
+  "landscape": [
+    {
+      "id": "everspin-toggle",
+      "name": "Everspin Toggle MRAM",
+      "technology": "Toggle MRAM",
+      "family": "MRAM",
+      "role": "Discrete memory supplier",
+      "maturity": "Commercial products",
+      "claim": "The current PERSYST catalog lists Toggle production parts. MR3A16ACYS35 is marked MP and specifies 8Mb, asynchronous x16, 35ns, 3.3V and −40 to 85°C.",
+      "limit": "These values belong only to MR3A16ACYS35. Do not mix speed, temperature or automotive ratings across parts. The old MR4A16B datasheet is inaccessible, so its over-20-year retention is not cited.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "everspin-toggle",
+        "everspin-persyst-catalog"
+      ],
+      "target": "research-everspin",
+      "search": "Everspin Toggle MRAM 現行PERSYST目錄保留Toggle量產料號，例如MR3A16ACYS35為8Mb、x16非同步介面、35ns、3.3V、−40～85°C，標示MP。 The current PERSYST catalog lists Toggle production parts. MR3A16ACYS35 is marked MP and specifies 8Mb, asynchronous x16, 35ns, 3.3V and −40 to 85°C."
+    },
+    {
+      "id": "everspin-1gb-ddr",
+      "name": "Everspin 1Gb STT-MRAM",
+      "technology": "STT-MRAM / DDR4-derived",
+      "family": "MRAM",
+      "role": "Discrete persistent-memory supplier",
+      "maturity": "Shipping",
+      "claim": "The 2025 Form 10-K confirms continuing 1Gb STT-MRAM shipments. The technology page identifies a DDR4-like persistent-DRAM product for enterprise storage.",
+      "limit": "DDR4-like does not imply drop-in compatibility with every DDR4 controller. Do not transfer Toggle or xSPI retention, endurance or automotive ratings. The old family URL is now 404.",
+      "dateLabel": "Source date / event period: 2026-03-04 · Checked 2026-09-10",
+      "sourceIds": [
+        "everspin-1gb-ddr",
+        "everspin-ddr-technology",
+        "everspin-2025-10k"
+      ],
+      "target": "research-everspin",
+      "search": "Everspin 1Gb STT-MRAM 2025年度10-K確認1Gb STT-MRAM持續出貨，採DDR衍生介面；官方技術頁將1Gb定位為類DDR4介面的持續性DRAM。 The 2025 Form 10-K confirms continuing 1Gb STT-MRAM shipments. The technology page identifies a DDR4-like persistent-DRAM product for enterprise storage."
+    },
+    {
+      "id": "everspin-xspi",
+      "name": "Everspin EMxxLX xSPI",
+      "technology": "STT-MRAM / xSPI",
+      "family": "MRAM",
+      "role": "Discrete memory supplier",
+      "maturity": "HR 64Mb qualified and orderable; HR 128/256Mb scheduled at release",
+      "claim": "The March 5, 2026 investor release confirms HR 64Mb xSPI STT-MRAM completed AEC-Q100 Grade 1 production qualification and is orderable with distributor inventory. HR 128Mb qualification was expected in May and 256Mb in July, with 256Mb volume availability expected in the second half of 2026.",
+      "limit": "The 128Mb and 256Mb dates were forecasts as of March 5, 2026; subsequent completion was not verified. HR qualification does not transfer to other EMxxLX variants. This release does not specify bandwidth or retention.",
+      "dateLabel": "Source date / event period: 2026-03-05 · Checked 2026-09-10",
+      "sourceIds": [
+        "everspin-xspi",
+        "everspin-hr-xspi-20260305",
+        "everspin-ddr-technology"
+      ],
+      "target": "research-everspin",
+      "search": "Everspin EMxxLX xSPI 2026-03-05官方投資人公告：HR 64Mb xSPI STT-MRAM完成AEC-Q100 Grade 1量產認證，可訂購且通路有庫存；HR 128Mb預定5月、256Mb預定7月完成認證，256Mb預期下半年供量。 The March 5, 2026 investor release confirms HR 64Mb xSPI STT-MRAM completed AEC-Q100 Grade 1 production qualification and is orderable with distributor inventory. HR 128Mb qualification was expected in May and 256Mb in July, with 256Mb volume availability expected in the second half of 2026."
+    },
+    {
+      "id": "avalanche-umc22",
+      "name": "Avalanche Technology / UMC",
+      "technology": "pMTJ STT-MRAM",
+      "family": "MRAM",
+      "role": "Memory supplier / foundry",
+      "maturity": "Named product in production",
+      "claim": "The September 13, 2022 release announces immediate availability of Gen 3 P-SRAM on UMC 22nm. The cited parallel x32 product specifies over 10^14 writes and 1,000-year retention at 85°C.",
+      "limit": "This is a discrete product, not proof of identical specifications for general UMC embedded macros. Retention is a supplier reliability specification.",
+      "dateLabel": "Source date / event period: 2022-09-13 · Checked 2026-09-10",
+      "sourceIds": [
+        "avalanche-umc22"
+      ],
+      "target": "topic-stt",
+      "search": "Avalanche Technology / UMC 2022-09-13宣布UMC 22nm第三代P-SRAM立即供應，Parallel x32系列所述規格為逾10^14次耐寫、85°C保存1,000年及−40～125°C操作。 The September 13, 2022 release announces immediate availability of Gen 3 P-SRAM on UMC 22nm. The cited parallel x32 product specifies over 10^14 writes and 1,000-year retention at 85°C."
+    },
+    {
+      "id": "avalanche-scaling2026",
+      "name": "Avalanche Technology",
+      "technology": "STT-MRAM",
+      "family": "MRAM",
+      "role": "Memory and technology developer",
+      "maturity": "Cell-scaling milestone",
+      "claim": "The 2026 web announcement reports completion of a first-phase MTJ scaling milestone for future higher-density space-grade MRAM.",
+      "limit": "The page is dated March 2, 2026, but the body says March 2, 2025. A 16x density increase is a future goal, not a shipped product.",
+      "dateLabel": "Source date / event period: 2026-03-02 · Checked 2026-09-10",
+      "sourceIds": [
+        "avalanche-scaling2026"
+      ],
+      "target": "topic-stt",
+      "search": "Avalanche Technology 2026年網頁公告完成政府合約第一階段MTJ縮放，以支援未來更高密度太空級MRAM。 The 2026 web announcement reports completion of a first-phase MTJ scaling milestone for future higher-density space-grade MRAM."
+    },
+    {
+      "id": "samsung-emram",
+      "name": "Samsung Foundry",
+      "technology": "STT-MRAM / eMRAM",
+      "family": "MRAM",
+      "role": "Foundry platform",
+      "maturity": "28FDS production; FinFET expansion",
+      "claim": "The current specialty-process page confirms 28nm FD-SOI eMRAM mass production since 2019 and expansion to 14LPU and 8LPU, with 5nm still planned.",
+      "limit": "Platform expansion does not establish named high-volume customers at every node. Earlier roadmap dates are not completion evidence.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "samsung-emram"
+      ],
+      "target": "topic-stt",
+      "search": "Samsung Foundry 官方現行特殊製程頁確認2019年28nm FD-SOI eMRAM量產，並表示MTJ模組已擴展至14LPU及8LPU，5nm仍列計畫。 The current specialty-process page confirms 28nm FD-SOI eMRAM mass production since 2019 and expansion to 14LPU and 8LPU, with 5nm still planned."
+    },
+    {
+      "id": "intel-22ffl-research",
+      "name": "Intel",
+      "technology": "STT-MRAM",
+      "family": "MRAM",
+      "role": "Process and device R&D",
+      "maturity": "Published research; current product unverified",
+      "claim": "The official IEDM 2018 program lists Intel-authored work on MRAM embedded in 22FFL FinFET, establishing primary evidence of process-integration research.",
+      "limit": "No newer verified Intel commercial MRAM offering was found in this bounded review. Do not infer availability from the paper or the Intel 16 name.",
+      "dateLabel": "Source date / event period: 2018-12-04 · Checked 2026-09-10",
+      "sourceIds": [
+        "intel-22ffl-research"
+      ],
+      "target": "topic-stt",
+      "search": "Intel IEDM 2018官方議程列Intel作者22FFL FinFET嵌入式MRAM論文，提供整合技術的一手研究證據。 The official IEDM 2018 program lists Intel-authored work on MRAM embedded in 22FFL FinFET, establishing primary evidence of process-integration research."
+    },
+    {
+      "id": "tsmc-16mram2025",
+      "name": "TSMC",
+      "technology": "eMRAM / STT route",
+      "family": "MRAM",
+      "role": "Foundry platform",
+      "maturity": "Automotive Grade 1 qualified",
+      "claim": "The 2025 annual report confirms qualification and customer availability of second-generation 16nm automotive Grade 1 MRAM. 12nm automotive and 5nm high-speed MRAM remain in development.",
+      "limit": "Qualification is not proof of volume shipment of a named MCU. SOT research must remain separate from qualified platforms.",
+      "dateLabel": "Source date / event period: 2025 · Checked 2026-09-10",
+      "sourceIds": [
+        "tsmc-16mram2025"
+      ],
+      "target": "topic-stt",
+      "search": "TSMC 2025年報確認16nm第二代MRAM通過車用Grade 1並提供客戶；12nm車用及5nm高速MRAM仍在開發。 The 2025 annual report confirms qualification and customer availability of second-generation 16nm automotive Grade 1 MRAM. 12nm automotive and 5nm high-speed MRAM remain in development."
+    },
+    {
+      "id": "tsmc-sot2025",
+      "name": "TSMC SOT-MRAM",
+      "technology": "SOT-MRAM",
+      "family": "MRAM",
+      "role": "Advanced memory R&D",
+      "maturity": "Research demonstration",
+      "claim": "The 2025 annual report describes an IEDM 2025 Type-C SOT-MRAM demonstration using a circular MTJ with built-in magnetic anisotropy for field-free operation.",
+      "limit": "A research demonstration is not a commercial process or a shipping SRAM replacement; 16nm automotive MRAM maturity does not transfer.",
+      "dateLabel": "Source date / event period: 2025-12 · Checked 2026-09-10",
+      "sourceIds": [
+        "tsmc-sot2025"
+      ],
+      "target": "topic-sot",
+      "search": "TSMC SOT-MRAM 2025年報記載IEDM 2025展示Type-C SOT-MRAM，以圓形MTJ與內建磁異向性達成無外加磁場操作。 The 2025 annual report describes an IEDM 2025 Type-C SOT-MRAM demonstration using a circular MTJ with built-in magnetic anisotropy for field-free operation."
+    },
+    {
+      "id": "gf-22fdx",
+      "name": "GlobalFoundries",
+      "technology": "STT-MRAM / 22FDX",
+      "family": "MRAM",
+      "role": "Foundry platform",
+      "maturity": "Platform entered production",
+      "claim": "The February 27, 2020 announcement confirms production entry of 22FDX eMRAM and 4–48Mb silicon-validated macros, with 100k endurance and 10-year retention across the stated temperature range.",
+      "limit": "Grade 1 was a future target in that release. The current FDX page still lists MRAM, but customer-specific qualification requires separate evidence.",
+      "dateLabel": "Source date / event period: 2020-02-27 · Checked 2026-09-10",
+      "sourceIds": [
+        "gf-22fdx",
+        "gf-current-fdx"
+      ],
+      "target": "topic-stt",
+      "search": "GlobalFoundries 2020-02-27官方確認22FDX eMRAM進入生產，供應4～48Mb矽驗證巨集；公告展示100k耐寫、10年保存與−40～125°C範圍。 The February 27, 2020 announcement confirms production entry of 22FDX eMRAM and 4–48Mb silicon-validated macros, with 100k endurance and 10-year retention across the stated temperature range."
+    },
+    {
+      "id": "renesas-ra8-2025",
+      "name": "Renesas RA8M2 / RA8D2",
+      "technology": "Embedded MRAM",
+      "family": "MRAM",
+      "role": "MCU supplier",
+      "maturity": "Available; Japanese release confirms production",
+      "claim": "The October 22, 2025 release announces available RA8M2 and RA8D2 MCUs with embedded MRAM, a 1GHz Cortex-M85 and a 250MHz Cortex-M33.",
+      "limit": "CPU clock is not native MRAM read speed. Do not transfer 2024 research-macro measurements directly to the RA8 products.",
+      "dateLabel": "Source date / event period: 2025-10-22 · Checked 2026-09-10",
+      "sourceIds": [
+        "renesas-ra8-2025"
+      ],
+      "target": "topic-stt",
+      "search": "Renesas RA8M2 / RA8D2 2025-10-22推出RA8M2與RA8D2，內建MRAM、1GHz Cortex-M85與250MHz Cortex-M33；官方可供貨，不應只停留在2024年試驗巨集紀錄。 The October 22, 2025 release announces available RA8M2 and RA8D2 MCUs with embedded MRAM, a 1GHz Cortex-M85 and a 250MHz Cortex-M33."
+    },
+    {
+      "id": "nxp-s32k5",
+      "name": "NXP S32K5",
+      "technology": "Embedded MRAM",
+      "family": "MRAM",
+      "role": "Automotive MCU supplier",
+      "maturity": "Announced; official brief says preproduction",
+      "claim": "NXP announced the 16nm FinFET S32K5 with embedded MRAM on March 11, 2025. Its October 30, 2025 product brief still labels the family preproduction.",
+      "limit": "The claimed 15x write advantage is a supplier comparison against embedded flash, not an absolute latency. Announcement is not volume-production evidence.",
+      "dateLabel": "Source date / event period: 2025-10-30 · Checked 2026-09-10",
+      "sourceIds": [
+        "nxp-s32k5",
+        "nxp-launch"
+      ],
+      "target": "topic-stt",
+      "search": "NXP S32K5 2025-03-11宣布16nm FinFET S32K5內建MRAM；2025-10-30官方產品摘要仍標示量產前產品。 NXP announced the 16nm FinFET S32K5 with embedded MRAM on March 11, 2025. Its October 30, 2025 product brief still labels the family preproduction."
+    },
+    {
+      "id": "netsol-stt",
+      "name": "NETSOL",
+      "technology": "STT-MRAM",
+      "family": "MRAM",
+      "role": "Discrete memory supplier",
+      "maturity": "Named product datasheet",
+      "claim": "The March 2024 S3RxxxxR1M datasheet specifies 1–16Mbit STT-MRAM, asynchronous x8/x16 interfaces and an industrial −40 to 85°C range; the website also lists serial products.",
+      "limit": "Do not transfer larger densities or process nodes from other series or media reports into this datasheet. Shipment volume is not disclosed.",
+      "dateLabel": "Source date / event period: 2024-03 · Checked 2026-09-10",
+      "sourceIds": [
+        "netsol-stt"
+      ],
+      "target": "topic-stt",
+      "search": "NETSOL 2024年3月S3RxxxxR1M資料表列1～16Mbit STT-MRAM、x8／x16非同步平行介面及−40～85°C工業溫度；官網另列串列系列。 The March 2024 S3RxxxxR1M datasheet specifies 1–16Mbit STT-MRAM, asynchronous x8/x16 interfaces and an industrial −40 to 85°C range; the website also lists serial products."
+    },
+    {
+      "id": "tdk-headway",
+      "name": "TDK / Headway",
+      "technology": "STT-MRAM",
+      "family": "MRAM",
+      "role": "Magnetics, MTJ and technology R&D",
+      "maturity": "Technology and R&D; commercial memory SKU unverified",
+      "claim": "TDK's September 1, 2025 investor-day presentation includes STT-MRAM among its spintronics technologies; Headway authors also have public embedded-STT-MRAM research presentations.",
+      "limit": "HDD-head production and MTJ expertise do not establish commercial discrete MRAM. No orderable MRAM SKU, PDK or specific foundry commitment was verified.",
+      "dateLabel": "Source date / event period: 2025-09-01 · Checked 2026-09-10",
+      "sourceIds": [
+        "tdk-headway",
+        "headway-author-research"
+      ],
+      "target": "topic-stt",
+      "search": "TDK / Headway TDK 2025-09-01投資人日資料將STT-MRAM列為累積自旋電子技術；Headway作者亦有公開STT-MRAM嵌入式研究簡報。 TDK's September 1, 2025 investor-day presentation includes STT-MRAM among its spintronics technologies; Headway authors also have public embedded-STT-MRAM research presentations."
+    },
+    {
+      "id": "numem-aime",
+      "name": "Numem",
+      "technology": "Foundry-based STT-MRAM",
+      "family": "MRAM",
+      "role": "Memory IP and chip/chiplet architecture provider",
+      "maturity": "Supplier claims production readiness; shipments unverified",
+      "claim": "Numem describes foundry-based STT-MRAM IP and chips/chiplets enhanced by AIME. Its June 10, 2025 announcement claims production readiness.",
+      "limit": "Power and SRAM-class performance are supplier claims without uniform independent benchmarking. This is not evidence of a new magnetic material or named volume shipments.",
+      "dateLabel": "Source date / event period: 2025-06-10 · Checked 2026-09-10",
+      "sourceIds": [
+        "numem-aime",
+        "numem-current"
+      ],
+      "target": "ip-numem-mram",
+      "search": "Numem 官方網站將方案定位為以代工STT-MRAM單元為基礎的IP及晶粒／小晶片，搭配AIME；2025-06-10新聞稱AI記憶體引擎已可供量產。 Numem describes foundry-based STT-MRAM IP and chips/chiplets enhanced by AIME. Its June 10, 2025 announcement claims production readiness."
+    },
+    {
+      "id": "imec-sot",
+      "name": "imec",
+      "technology": "SOT-MRAM",
+      "family": "MRAM",
+      "role": "Research institute / technology R&D",
+      "maturity": "300mm research-device demonstration",
+      "claim": "On December 13, 2023 imec reported roughly 50nm critical-dimension SOT devices on 300mm wafers, below 100fJ/bit switching energy and endurance above 10^15 cycles.",
+      "limit": "Device switching energy excludes full macro, bus and system overhead. The 50nm dimension is not a 50nm CMOS process-node claim.",
+      "dateLabel": "Source date / event period: 2023-12-13 · Checked 2026-09-10",
+      "sourceIds": [
+        "imec-sot"
+      ],
+      "target": "topic-sot",
+      "search": "imec 2023-12-13公開300mm晶圓上約50nm關鍵尺寸SOT元件，切換能量低於100fJ/bit、耐受超過10^15次循環，供快取應用研發。 On December 13, 2023 imec reported roughly 50nm critical-dimension SOT devices on 300mm wafers, below 100fJ/bit switching energy and endurance above 10^15 cycles."
+    },
+    {
+      "id": "ibm-research",
+      "name": "IBM Research",
+      "technology": "STT-MRAM",
+      "family": "MRAM",
+      "role": "Device and Integration Research",
+      "maturity": "Device and CMOS Integration Demonstrations",
+      "claim": "IBM contributes traceable device physics and CMOS integration results. MTJ size, process node and write-error rate from different studies must not be combined into an imaginary best-specification product.",
+      "limit": "IBM papers are not a list of IBM production foundry services.",
+      "dateLabel": "Checked 2026-09-10",
+      "sourceIds": [
+        "RES-IBM-REVIEW-2024",
+        "RES-IBM-11NM-2017"
+      ],
+      "target": "research-ibm",
+      "search": "IBM Research STT-MRAM"
+    },
+    {
+      "id": "itri-research",
+      "name": "ITRI",
+      "technology": "SOT-MRAM",
+      "family": "MRAM",
+      "role": "Collaborative Research, Prototyping and Transfer",
+      "maturity": "Research Arrays, Prototypes and Trial Production",
+      "claim": "ITRI evidence spans distinct collaborations and versions: SOT with TSMC, cryogenic STT with NYCU, a joint β-W array, an 8-inch prototyping service and RRAM technology transfer.",
+      "limit": "Collaborative research must not be represented as an ITRI standalone production product.",
+      "dateLabel": "Checked 2026-09-10",
+      "sourceIds": [
+        "RES-ITRI-SOT-2022",
+        "RES-ITRI-CIM-2024",
+        "RES-ITRI-SERVICE"
+      ],
+      "target": "research-itri",
+      "search": "ITRI SOT-MRAM"
+    },
+    {
+      "id": "rram-weebit-2026",
+      "name": "Weebit Nano",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "ReRAM IP licensor",
+      "maturity": "Licensing and customer prototypes",
+      "claim": "Three customer designs had taped out by July 2026, with a prototype running software.",
+      "limit": "First customer product mass production remained a future milestone.",
+      "dateLabel": "Source date / event period: 2026-07-31 · Checked 2026-09-10",
+      "sourceIds": [
+        "RRAM-WEEBIT-2026"
+      ],
+      "target": "ip-weebit-reram",
+      "search": "Weebit Nano 2026 年 7 月公告三個客戶設計已投片，已有原型執行軟體。 Three customer designs had taped out by July 2026, with a prototype running software."
+    },
+    {
+      "id": "rram-onsemi-2026",
+      "name": "onsemi",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "IDM adopting ReRAM",
+      "maturity": "Technology transfer",
+      "claim": "Weebit reported onsemi ReRAM technology transfer progressing to schedule.",
+      "limit": "Licensing or transfer does not establish product mass production.",
+      "dateLabel": "Source date / event period: 2026-07-31 · Checked 2026-09-10",
+      "sourceIds": [
+        "RRAM-ONSEMI-2026"
+      ],
+      "target": "topic-vcm",
+      "search": "onsemi Weebit 公告對 onsemi 的 ReRAM 技轉按計畫進行。 Weebit reported onsemi ReRAM technology transfer progressing to schedule."
+    },
+    {
+      "id": "rram-ti-2026",
+      "name": "Texas Instruments",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "IDM adopting ReRAM",
+      "maturity": "Technology transfer",
+      "claim": "Weebit reported TI ReRAM technology transfer progressing to schedule.",
+      "limit": "TI commercial FRAM and this ReRAM transfer are separate technology routes.",
+      "dateLabel": "Source date / event period: 2026-07-31 · Checked 2026-09-10",
+      "sourceIds": [
+        "RRAM-TI-2026"
+      ],
+      "target": "topic-vcm",
+      "search": "Texas Instruments Weebit 公告對 TI 的 ReRAM 技轉按計畫進行。 Weebit reported TI ReRAM technology transfer progressing to schedule."
+    },
+    {
+      "id": "rram-skywater-s130",
+      "name": "SkyWater / Weebit Nano",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "Foundry and IP partnership",
+      "maturity": "Qualified IP available for SoC integration",
+      "claim": "The official IP page lists qualified S130 130 nm CMOS ReRAM, available for integration, with two added masks in BEOL.",
+      "limit": "IP qualification does not qualify every customer chip or prove its mass production.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "RRAM-SKYWATER-S130"
+      ],
+      "target": "topic-vcm",
+      "search": "SkyWater／Weebit Nano 官方 IP 頁列 S130 130 nm CMOS 已依 JEDEC 與 AEC-Q100 驗證、可供整合；BEOL 增加 2 層光罩。 The official IP page lists qualified S130 130 nm CMOS ReRAM, available for integration, with two added masks in BEOL."
+    },
+    {
+      "id": "rram-dbhitek-130",
+      "name": "DB HiTek / Weebit Nano",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "Foundry and IP partnership",
+      "maturity": "Qualified and available for integration",
+      "claim": "130 nm BCD ReRAM IP is silicon-proven and qualified, adding two masks; listed specifications include 10K writes and over ten years retention at 125°C.",
+      "limit": "100K cycles is an extension option; base BCD volume does not establish ReRAM product shipments.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "RRAM-DBHITEK-130"
+      ],
+      "target": "topic-vcm",
+      "search": "DB HiTek／Weebit Nano 130 nm BCD 的 ReRAM IP 已矽驗證與資格驗證，使用 2 層加罩；官方列 10K 次耐寫、125°C 保存超過 10 年。 130 nm BCD ReRAM IP is silicon-proven and qualified, adding two masks; listed specifications include 10K writes and over ten years retention at 125°C."
+    },
+    {
+      "id": "rram-tsmc-iot",
+      "name": "TSMC",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "Embedded-memory foundry",
+      "maturity": "40/22 in production; 12 risk production",
+      "claim": "The IoT NVM page lists 40RRAM and 22RRAM in production; 12RRAM entered consumer-grade risk production in 2024, with cells between BEOL metal layers.",
+      "limit": "12RRAM risk production is not full production or automotive qualification.",
+      "dateLabel": "Source date / event period: 2024 · Checked 2026-09-10",
+      "sourceIds": [
+        "RRAM-TSMC-IOT"
+      ],
+      "target": "topic-vcm",
+      "search": "TSMC 官方 IoT NVM 頁列 40RRAM、22RRAM 已量產；12RRAM 於 2024 年進入消費級風險試產，記憶單元位於後段金屬層間。 The IoT NVM page lists 40RRAM and 22RRAM in production; 12RRAM entered consumer-grade risk production in 2024, with cells between BEOL metal layers."
+    },
+    {
+      "id": "rram-infineon-tc4x",
+      "name": "Infineon / TSMC",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "Automotive MCU and process partnership",
+      "maturity": "Announced integration partnership",
+      "claim": "The 2022 announcement describes preparing TSMC RRAM for next-generation AURIX TC4x, supporting bit-wise writes without prior erase.",
+      "limit": "This announcement does not prove every TC4x variant uses RRAM or has reached production.",
+      "dateLabel": "Source date / event period: 2022-11-25 · Checked 2026-09-10",
+      "sourceIds": [
+        "RRAM-INFINEON-TC4X"
+      ],
+      "target": "topic-vcm",
+      "search": "Infineon／TSMC 2022 年公告準備將台積電 RRAM 導入下一代 AURIX TC4x，支援位元寫入而不需先抹除。 The 2022 announcement describes preparing TSMC RRAM for next-generation AURIX TC4x, supporting bit-wise writes without prior erase."
+    },
+    {
+      "id": "cbram-gf-renesas",
+      "name": "GlobalFoundries / Renesas / Dialog",
+      "technology": "CBRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "CBRAM acquisition and foundry integration",
+      "maturity": "2023 acquisition; 22FDX then in qualification",
+      "claim": "GF acquired production-proven CBRAM technology from Renesas in 2023, following a 2020 Dialog license; 22FDX qualification was underway.",
+      "limit": "Prior CBRAM production does not establish 22FDX production; the acquirer was GF, not Infineon.",
+      "dateLabel": "Source date / event period: 2023-02-09 · Checked 2026-09-10",
+      "sourceIds": [
+        "CBRAM-GF-RENESAS"
+      ],
+      "target": "topic-ecm",
+      "search": "GlobalFoundries／Renesas／Dialog GF 於 2023 年向 Renesas 收購已具量產實績的 CBRAM 技術；GF 先於 2020 年向 Dialog 授權，2023 年公告 22FDX 正在驗證。 GF acquired production-proven CBRAM technology from Renesas in 2023, following a 2020 Dialog license; 22FDX qualification was underway."
+    },
+    {
+      "id": "rram-nuvoton-m2l31",
+      "name": "Nuvoton",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "Embedded ReRAM MCU supplier",
+      "maturity": "Commercial product family",
+      "claim": "The M2L31 family lists an Arm Cortex-M23, 64–512 KB ReRAM and 72 MHz operation; writes do not require a page erase.",
+      "limit": "72 MHz is the MCU clock, not cell write latency; density and reliability are part-specific.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "RRAM-NUVOTON-M2L31"
+      ],
+      "target": "topic-vcm",
+      "search": "Nuvoton M2L31 產品頁列 Arm Cortex-M23、64–512 KB ReRAM 與 72 MHz；ReRAM 寫入前不需頁抹除。 The M2L31 family lists an Arm Cortex-M23, 64–512 KB ReRAM and 72 MHz operation; writes do not require a page erase."
+    },
+    {
+      "id": "rram-panasonic-umc",
+      "name": "Panasonic / UMC",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "Historical ReRAM process collaboration",
+      "maturity": "2017 joint-development announcement",
+      "claim": "The 2017 agreement combined Panasonic ReRAM with UMC manufacturing to develop a 40 nm mass-production process.",
+      "limit": "The development target is not evidence of 2026 availability or the process used by every current Nuvoton part.",
+      "dateLabel": "Source date / event period: 2017-02-01 · Checked 2026-09-10",
+      "sourceIds": [
+        "RRAM-PANASONIC-UMC"
+      ],
+      "target": "research-panasonic",
+      "search": "Panasonic／UMC 2017 年宣布共同開發 40 nm ReRAM 量產製程，將 Panasonic ReRAM 與 UMC 製造能力結合。 The 2017 agreement combined Panasonic ReRAM with UMC manufacturing to develop a 40 nm mass-production process."
+    },
+    {
+      "id": "rram-ramxeed-product",
+      "name": "RAMXEED",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "Standalone ReRAM supplier",
+      "maturity": "Specific part in mass production",
+      "claim": "The product list marks the MB85AS8MT 8 Mbit SPI ReRAM as mass-produced with one million cycles; the 12 Mbit part requires sales contact.",
+      "limit": "Do not transfer the 8 Mbit production status or endurance to the 12 Mbit part.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "RRAM-RAMXEED-PRODUCT"
+      ],
+      "target": "topic-vcm",
+      "search": "RAMXEED 官方清單將 MB85AS8MT 8 Mbit SPI ReRAM 標示量產，列 100 萬次循環；12 Mbit 型號則要求洽詢業務。 The product list marks the MB85AS8MT 8 Mbit SPI ReRAM as mass-produced with one million cycles; the 12 Mbit part requires sales contact."
+    },
+    {
+      "id": "rram-crossbar-daric",
+      "name": "CrossBar",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "ReRAM IP and secure-processor developer",
+      "maturity": "Vendor architecture and chip disclosure",
+      "claim": "A 2026 company article describes the 22 nm Daric secure processor integrating ReRAM, computing and cryptography on one die.",
+      "limit": "The article does not establish production qualification or independent security certification; avoid blanket immunity claims.",
+      "dateLabel": "Source date / event period: 2026-05-06 · Checked 2026-09-10",
+      "sourceIds": [
+        "RRAM-CROSSBAR-DARIC"
+      ],
+      "target": "ip-crossbar-reram",
+      "search": "CrossBar 2026 年官方文章介紹採 ReRAM 的 22 nm Daric 安全處理器，將 NVM、運算與密碼功能整合於單晶片。 A 2026 company article describes the 22 nm Daric secure processor integrating ReRAM, computing and cryptography on one die."
+    },
+    {
+      "id": "rram-cea-leti",
+      "name": "CEA-Leti / Weebit Nano",
+      "technology": "ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "ReRAM and neuromorphic research partnership",
+      "maturity": "Research demonstration",
+      "claim": "The announcement combines CEA-Leti spiking neural networks with Weebit SiOx ReRAM in a neuromorphic object-recognition demonstration.",
+      "limit": "The demonstration is not an orderable complete AI accelerator; transfer and qualification require separate evidence.",
+      "dateLabel": "Source date / event period: 2019-07-18 · Checked 2026-09-10",
+      "sourceIds": [
+        "RRAM-CEA-LETI"
+      ],
+      "target": "topic-vcm",
+      "search": "CEA-Leti／Weebit Nano 官方公告結合 CEA-Leti 脈衝神經網路與 Weebit SiOx ReRAM，展示物件辨識方向的神經形態運算。 The announcement combines CEA-Leti spiking neural networks with Weebit SiOx ReRAM in a neuromorphic object-recognition demonstration."
+    },
+    {
+      "id": "umc-research",
+      "name": "UMC",
+      "technology": "22nm RRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "Foundry and Ecosystem Integration",
+      "maturity": "Qualified RRAM IP; Named MRAM Products Available",
+      "claim": "UMC evidence spans process availability, qualified RRAM IP, a SoC development platform and standalone MRAM products. These are distinct delivery levels.",
+      "limit": "A standalone MRAM product does not establish an available embedded macro.",
+      "dateLabel": "Checked 2026-09-10",
+      "sourceIds": [
+        "RES-UMC-RRAM-2023",
+        "RES-UMC-MRAM-2022"
+      ],
+      "target": "research-umc",
+      "search": "UMC 22nm RRAM"
+    },
+    {
+      "id": "itri-1s1r",
+      "name": "ITRI",
+      "technology": "1S1R RRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "Technology transfer",
+      "maturity": "Undated research / transfer listing",
+      "claim": "Cross-point RRAM and selector development with published electrical and geometry targets.",
+      "limit": "Not evidence of current high-volume manufacturing.",
+      "dateLabel": "Checked 2026-09-10",
+      "sourceIds": [
+        "RES-ITRI-RRAM"
+      ],
+      "target": "research-itri",
+      "search": "ITRI 1S1R RRAM"
+    },
+    {
+      "id": "st-pcm-boundary",
+      "name": "STMicroelectronics",
+      "technology": "PCM, not established MRAM offering",
+      "family": "PCM",
+      "role": "MCU supplier; classification boundary",
+      "maturity": "Announced; selected-customer early access",
+      "claim": "The November 18, 2025 STM32V8 announcement explicitly identifies 18nm FD-SOI and embedded PCM, with Samsung Foundry manufacturing cooperation.",
+      "limit": "The 2025 announcement offered early access to selected customers and targeted major OEM availability for Q1 2026, with broad availability later. Calendar passage does not prove completion.",
+      "dateLabel": "Source date / event period: 2025-11-18 · Checked 2026-09-10",
+      "sourceIds": [
+        "st-pcm-boundary"
+      ],
+      "target": "topic-pcm",
+      "search": "STMicroelectronics 2025-11-18 STM32V8官方公告明確採18nm FD-SOI與嵌入式PCM，並與Samsung Foundry合作製造。 The November 18, 2025 STM32V8 announcement explicitly identifies 18nm FD-SOI and embedded PCM, with Samsung Foundry manufacturing cooperation."
+    },
+    {
+      "id": "xpoint-micron-exit",
+      "name": "Micron",
+      "technology": "3D XPoint",
+      "family": "PCM",
+      "role": "Historical 3D XPoint developer and supplier",
+      "maturity": "Historical route; development ceased",
+      "claim": "Micron announced an immediate end to 3D XPoint development in 2021 and redirected resources toward CXL memory products.",
+      "limit": "Ending this route does not end all PCM research; CXL is an interconnect, not a memory-cell mechanism.",
+      "dateLabel": "Source date / event period: 2021-03-16 · Checked 2026-09-10",
+      "sourceIds": [
+        "XPOINT-MICRON-EXIT"
+      ],
+      "target": "topic-pcm",
+      "search": "Micron Micron 於 2021 年宣布立即停止 3D XPoint 開發，將資源轉向 CXL 記憶體產品。 Micron announced an immediate end to 3D XPoint development in 2021 and redirected resources toward CXL memory products."
+    },
+    {
+      "id": "xpoint-intel-exit",
+      "name": "Intel",
+      "technology": "3D XPoint",
+      "family": "PCM",
+      "role": "Historical Optane supplier",
+      "maturity": "Historical route; business wind-down",
+      "claim": "Intel's 2022 annual filing states that the Optane memory business wind-down began in 2022.",
+      "limit": "Historical product pages or inventory sales do not establish continuing development or other vendors' PCM exits.",
+      "dateLabel": "Source date / event period: 2022 · Checked 2026-09-10",
+      "sourceIds": [
+        "XPOINT-INTEL-EXIT"
+      ],
+      "target": "topic-pcm",
+      "search": "Intel Intel 2022 年年報確認該年啟動 Optane 記憶體業務收尾。 Intel's 2022 annual filing states that the Optane memory business wind-down began in 2022."
+    },
+    {
+      "id": "pcm-st-p3e",
+      "name": "STMicroelectronics",
+      "technology": "PCM",
+      "family": "PCM",
+      "role": "Automotive embedded-PCM MCU supplier",
+      "maturity": "Stellar family; P3E sampling and production plan",
+      "claim": "The 2026 Stellar P3E page identifies xMemory PCM, with full automotive qualification and production readiness planned for H2 2026.",
+      "limit": "Reaching the planned quarter does not prove completion; P3E timing does not apply to every Stellar part.",
+      "dateLabel": "Source date / event period: 2026 · Checked 2026-09-10",
+      "sourceIds": [
+        "PCM-ST-P3E"
+      ],
+      "target": "topic-pcm",
+      "search": "STMicroelectronics 2026 年 Stellar P3E 官方公告採 xMemory PCM；完整車規驗證與量產準備排定於 2026 下半年。 The 2026 Stellar P3E page identifies xMemory PCM, with full automotive qualification and production readiness planned for H2 2026."
+    },
+    {
+      "id": "pcm-ibm-aimc",
+      "name": "IBM Research",
+      "technology": "PCM",
+      "family": "PCM",
+      "role": "Analog in-memory-computing research",
+      "maturity": "Research chip",
+      "claim": "A 14 nm CMOS research chip with backend PCM integrates 64 256×256 analog cores and digital processing and communication for neural-network inference.",
+      "limit": "Analog weight-compute results do not establish a purchasable general-purpose PCM memory or complete-system performance.",
+      "dateLabel": "Source date / event period: 2023-09-17 · Checked 2026-09-10",
+      "sourceIds": [
+        "PCM-IBM-AIMC"
+      ],
+      "target": "topic-pcm",
+      "search": "IBM Research 14 nm CMOS 後段整合 PCM 的研究晶片包含 64 個 256×256 類比運算核心及數位處理／通訊，展示神經網路推論。 A 14 nm CMOS research chip with backend PCM integrates 64 256×256 analog cores and digital processing and communication for neural-network inference."
+    },
+    {
+      "id": "feram-ti-msp430",
+      "name": "Texas Instruments",
+      "technology": "FeRAM",
+      "family": "FeRAM",
+      "role": "Embedded FRAM MCU supplier",
+      "maturity": "Commercial MCUs and reference design",
+      "claim": "An MSP430 reference design emulates EEPROM using embedded FRAM and lists supported MCUs and I2C/SPI host interfaces.",
+      "limit": "FRAM is the storage technology; EEPROM emulation is interface behavior, not floating-gate or FeFET construction.",
+      "dateLabel": "Source date / event period: 2016-12-20 · Checked 2026-09-10",
+      "sourceIds": [
+        "FERAM-TI-MSP430"
+      ],
+      "target": "topic-feram",
+      "search": "Texas Instruments MSP430 FRAM 參考設計以嵌入式 FRAM 模擬 EEPROM，列出可採用的 MCU 與 I²C／SPI 主機介面。 An MSP430 reference design emulates EEPROM using embedded FRAM and lists supported MCUs and I2C/SPI host interfaces."
+    },
+    {
+      "id": "feram-ramxeed",
+      "name": "RAMXEED",
+      "technology": "FeRAM",
+      "family": "FeRAM",
+      "role": "Standalone FeRAM and embedded-application supplier",
+      "maturity": "Mass-produced products",
+      "claim": "The FAQ states FeRAM has been mass-produced since 1999 for frequent-write applications; retention must be interpreted at the specified temperature.",
+      "limit": "Cycle ratings, interfaces and temperatures are part-specific; FeRAM is not synonymous with all FeFET or FTJ devices.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "FERAM-RAMXEED"
+      ],
+      "target": "topic-feram",
+      "search": "RAMXEED 官方 FAQ 說明 FeRAM 自 1999 年持續量產，應用於高頻寫入紀錄；保存年限必須依產品規定溫度解讀。 The FAQ states FeRAM has been mass-produced since 1999 for frequent-write applications; retention must be interpreted at the specified temperature."
+    },
+    {
+      "id": "feram-infineon",
+      "name": "Infineon",
+      "technology": "FeRAM",
+      "family": "FeRAM",
+      "role": "Standalone F-RAM supplier",
+      "maturity": "Commercial product family",
+      "claim": "Infineon lists serial, parallel and EXCELON F-RAM using PZT ferroelectric films, with family-dependent endurance up to 100 trillion cycles.",
+      "limit": "Maximum ratings do not apply to every part; this does not establish HfO2 FeFET or FTJ construction.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "FERAM-INFINEON"
+      ],
+      "target": "topic-feram",
+      "search": "Infineon Infineon 列出串列／並列及 EXCELON F-RAM，採 PZT 鐵電薄膜，最高 100 兆次讀寫循環依系列而定。 Infineon lists serial, parallel and EXCELON F-RAM using PZT ferroelectric films, with family-dependent endurance up to 100 trillion cycles."
+    },
+    {
+      "id": "feram-gf-ipms-2026",
+      "name": "GlobalFoundries / Fraunhofer IPMS",
+      "technology": "FeRAM",
+      "family": "FeRAM",
+      "role": "Ferroelectric process and research partnership",
+      "maturity": "22FDX industrial-process integration demonstration",
+      "claim": "The 2026 collaboration reports HfO2 ferroelectric FRAM integrated in 22FDX, operating below 1 V with nanosecond switching.",
+      "limit": "The announcement lacks orderable parts, a complete qualification report or shipment volumes.",
+      "dateLabel": "Source date / event period: 2026-06-11 · Checked 2026-09-10",
+      "sourceIds": [
+        "FERAM-GF-IPMS-2026"
+      ],
+      "target": "topic-feram",
+      "search": "GlobalFoundries／Fraunhofer IPMS 2026 年共同成果將 HfO₂ 鐵電 FRAM 整合於 22FDX，公告低於 1 V 與奈秒級切換。 The 2026 collaboration reports HfO2 ferroelectric FRAM integrated in 22FDX, operating below 1 V with nanosecond switching."
+    },
+    {
+      "id": "ferro-imec-ndread",
+      "name": "imec",
+      "technology": "FeRAM / FeCAP",
+      "family": "FeRAM",
+      "role": "Ferroelectric-device and compute-in-memory research",
+      "maturity": "Research demonstration",
+      "claim": "Joint work with Georgia Tech demonstrated nondestructive FeCAP reading, reporting over 10^11 read cycles at IEDM 2023.",
+      "limit": "Read endurance is not write endurance and does not establish conventional FeRAM behavior or mass production.",
+      "dateLabel": "Source date / event period: 2023 · Checked 2026-09-10",
+      "sourceIds": [
+        "FERRO-IMEC-NDREAD"
+      ],
+      "target": "topic-feram",
+      "search": "imec 與 Georgia Tech 研究展示 FeCAP 非破壞讀取，在 IEDM 2023 發表超過 10¹¹ 次讀取耐受度。 Joint work with Georgia Tech demonstrated nondestructive FeCAP reading, reporting over 10^11 read cycles at IEDM 2023."
+    },
+    {
+      "id": "ferro-namlab-2025",
+      "name": "NaMLab",
+      "technology": "FeFET / FTJ",
+      "family": "FeFET / FTJ",
+      "role": "Ferroelectric-device research institute",
+      "maturity": "Research and publications",
+      "claim": "The official 2025 publication list includes HZO bilayer FTJ thickness scaling and charge-trapping challenges in CMOS-embedded FeFETs.",
+      "limit": "Publication listings establish research participation, not foundry service, PDK availability or mass production.",
+      "dateLabel": "Source date / event period: 2025 · Checked 2026-09-10",
+      "sourceIds": [
+        "FERRO-NAMLAB-2025"
+      ],
+      "target": "topic-ftj",
+      "search": "NaMLab 2025 年官方論文清單包括 HZO 雙層 FTJ 厚度微縮及 CMOS 嵌入式 FeFET 的電荷捕陷挑戰。 The official 2025 publication list includes HZO bilayer FTJ thickness scaling and charge-trapping challenges in CMOS-embedded FeFETs."
+    },
+    {
+      "id": "ferro-fmc",
+      "name": "FMC",
+      "technology": "HfO2 Ferroelectric Memory",
+      "family": "FeRAM",
+      "role": "Ferroelectric-memory commercialization developer",
+      "maturity": "Commercialization and vendor solution claims",
+      "claim": "The current site proposes DRAM+ persistent modules and CACHE+ persistent chiplets based on ferroelectric technology.",
+      "limit": "The current page describes ferroelectric capacitors; it does not establish that DRAM+ or CACHE+ uses a FeFET or FTJ. Product qualification and shipment volumes are not verified.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "FERRO-FMC"
+      ],
+      "target": "topic-feram",
+      "search": "FMC 現行官網提出 DRAM+ 持久記憶體模組與 CACHE+ 持久快取晶粒，主張鐵電技術可整合既有製造流程。 The current site proposes DRAM+ persistent modules and CACHE+ persistent chiplets based on ferroelectric technology."
+    },
+    {
+      "id": "industry-infineon-sonos",
+      "name": "Infineon / Cypress",
+      "technology": "SONOS eFlash",
+      "family": "NOR / eFlash / SONOS",
+      "role": "Technology and IP licensor",
+      "maturity": "Named production platforms and licensing",
+      "claim": "The official page identifies 2T SONOS, FN program/erase, production nodes and process/design licensing.",
+      "limit": "Separate Cypress history from current macros; do not combine family-wide maximum specifications.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "industry-infineon-sonos"
+      ],
+      "target": "topic-sonos",
+      "search": "Infineon／Cypress 官方列出 2T SONOS、FN 寫抹與多個量產節點，提供製程及設計授權。 The official page identifies 2T SONOS, FN program/erase, production nodes and process/design licensing."
+    },
+    {
+      "id": "industry-sst-superflash",
+      "name": "SST / Microchip",
+      "technology": "SuperFlash NOR / eFlash",
+      "family": "NOR / eFlash / SONOS",
+      "role": "Technology and IP licensor",
+      "maturity": "Commercial technology licensing",
+      "claim": "SST lists SuperFlash process integration and licensing, complementing standalone NOR coverage.",
+      "limit": "Licensing does not establish identical current qualification across nodes; verify each technology generation.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "industry-sst-superflash"
+      ],
+      "target": "topic-nor",
+      "search": "SST／Microchip 官方列出 SuperFlash 製程整合與授權，適合補上獨立 NOR 以外的嵌入式技術入口。 SST lists SuperFlash process integration and licensing, complementing standalone NOR coverage."
+    },
+    {
+      "id": "industry-st-estm",
+      "name": "STMicroelectronics",
+      "technology": "eSTM eFlash / Page EEPROM",
+      "family": "NOR / eFlash / SONOS",
+      "role": "Integrated device manufacturer",
+      "maturity": "Named commercial implementation",
+      "claim": "ST links 40nm floating-gate eSTM with vertical select transistors to STM32H5 and Page EEPROM implementations.",
+      "limit": "Keep eSTM separate from Stellar PCM; it is not the cell used by every ST MCU.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "industry-st-estm"
+      ],
+      "target": "topic-nor",
+      "search": "STMicroelectronics 官方 eSTM 頁連結 40 nm 浮動閘極與垂直選擇電晶體，以及 STM32H5、Page EEPROM 的實施。 ST links 40nm floating-gate eSTM with vertical select transistors to STM32H5 and Page EEPROM implementations."
+    },
+    {
+      "id": "industry-renesas-sgmonos",
+      "name": "Renesas",
+      "technology": "SG-MONOS eFlash",
+      "family": "NOR / eFlash / SONOS",
+      "role": "Integrated device manufacturer",
+      "maturity": "Historical production and smaller-node research",
+      "claim": "The 2016 announcement identifies production 40nm SG-MONOS MCUs and research on 16/14nm fin-shaped cells.",
+      "limit": "This announcement does not prove 16/14nm production; verify current part numbers separately.",
+      "dateLabel": "Source date / event period: 2016-12-07 · Checked 2026-09-10",
+      "sourceIds": [
+        "industry-renesas-sgmonos"
+      ],
+      "target": "topic-sonos",
+      "search": "Renesas 2016 公告確認當時 40 nm MCU 採 SG-MONOS 量產，並展示 16／14 nm Fin 結構研究。 The 2016 announcement identifies production 40nm SG-MONOS MCUs and research on 16/14nm fin-shaped cells."
+    },
+    {
+      "id": "industry-xfab-xt011",
+      "name": "X-FAB",
+      "technology": "XT011 eFlash / EEPROM",
+      "family": "NOR / eFlash / SONOS",
+      "role": "Foundry and platform provider",
+      "maturity": "Named platform release",
+      "claim": "The 2024 announcement identifies embedded Flash and EEPROM on the XT011 110nm BCD-on-SOI platform.",
+      "limit": "Keep this separate from the historical 2003 XC06 example; do not assume identical cells.",
+      "dateLabel": "Source date / event period: 2024-12-03 · Checked 2026-09-10",
+      "sourceIds": [
+        "industry-xfab-xt011"
+      ],
+      "target": "topic-nor",
+      "search": "X-FAB 2024 年公告 XT011 110 nm BCD-on-SOI 平台的嵌入式 Flash 與 EEPROM。 The 2024 announcement identifies embedded Flash and EEPROM on the XT011 110nm BCD-on-SOI platform."
+    },
+    {
+      "id": "industry-macronix-nor",
+      "name": "Macronix",
+      "technology": "Serial NOR / OctaBus",
+      "family": "NOR / eFlash / SONOS",
+      "role": "NOR/NAND product supplier",
+      "maturity": "Official product portfolio",
+      "claim": "Macronix's official Serial NOR page provides its product portfolio and OctaBus interface offerings.",
+      "limit": "This source directly supports NOR; verify NAND parts separately and do not infer cell geometry from interfaces.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "industry-macronix-nor"
+      ],
+      "target": "topic-nor",
+      "search": "Macronix 官方 Serial NOR 目錄提供產品組合與 OctaBus 介面方案。 Macronix's official Serial NOR page provides its product portfolio and OctaBus interface offerings."
+    },
+    {
+      "id": "industry-winbond-w25q",
+      "name": "Winbond",
+      "technology": "W25Q16JW Serial NOR",
+      "family": "NOR / eFlash / SONOS",
+      "role": "Code-storage memory supplier",
+      "maturity": "Named product catalog",
+      "claim": "The official catalog identifies W25Q16JW Serial NOR and associated ordering entries.",
+      "limit": "Catalog presence does not guarantee stock; verify NAND families and other capacities separately.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "industry-winbond-w25q"
+      ],
+      "target": "topic-nor",
+      "search": "Winbond 原廠目錄提供 W25Q16JW 序列 NOR 及對應料號入口。 The official catalog identifies W25Q16JW Serial NOR and associated ordering entries."
+    },
+    {
+      "id": "industry-samsung-vnand9",
+      "name": "Samsung",
+      "technology": "Ninth-Generation TLC V-NAND",
+      "family": "NAND",
+      "role": "NAND and storage supplier",
+      "maturity": "Named generation in mass production",
+      "claim": "Samsung announced mass production of 1Tb TLC ninth-generation V-NAND in April 2024.",
+      "limit": "Evidence concerns this TLC generation; later demonstrations and projected QLC timing are separate.",
+      "dateLabel": "Source date / event period: 2024-04-23 · Checked 2026-09-10",
+      "sourceIds": [
+        "industry-samsung-vnand9"
+      ],
+      "target": "topic-nand",
+      "search": "Samsung 2024 年 4 月公告 1 Tb TLC 第九代 V-NAND 開始量產。 Samsung announced mass production of 1Tb TLC ninth-generation V-NAND in April 2024."
+    },
+    {
+      "id": "industry-skhynix-321tlc",
+      "name": "SK hynix",
+      "technology": "321-Layer TLC 4D NAND",
+      "family": "NAND",
+      "role": "NAND and storage supplier",
+      "maturity": "Named generation starts mass production",
+      "claim": "SK hynix announced the start of 321-layer 1Tb TLC NAND mass production in November 2024.",
+      "limit": "Separate production from customer delivery; do not assign this die to every Solidigm SSD.",
+      "dateLabel": "Source date / event period: 2024-11-21 · Checked 2026-09-10",
+      "sourceIds": [
+        "industry-skhynix-321tlc"
+      ],
+      "target": "topic-nand",
+      "search": "SK hynix 2024 年 11 月公告 321 層、1 Tb TLC NAND 開始量產。 SK hynix announced the start of 321-layer 1Tb TLC NAND mass production in November 2024."
+    },
+    {
+      "id": "industry-solidigm-p5336",
+      "name": "Solidigm",
+      "technology": "D5-P5336 QLC SSD",
+      "family": "NAND",
+      "role": "Enterprise SSD supplier",
+      "maturity": "Named commercial product",
+      "claim": "The official D5-P5336 page identifies a commercial enterprise QLC SSD family and capacity options.",
+      "limit": "SSD capacity and system metrics are not die specifications; corporate relationships do not establish common NAND.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "industry-solidigm-p5336"
+      ],
+      "target": "topic-nand",
+      "search": "Solidigm 官方 D5-P5336 產品頁提供 QLC 企業級 SSD 的產品與容量選項。 The official D5-P5336 page identifies a commercial enterprise QLC SSD family and capacity options."
+    },
+    {
+      "id": "industry-micron-g9",
+      "name": "Micron",
+      "technology": "G9 TLC NAND",
+      "family": "NAND",
+      "role": "NAND and storage supplier",
+      "maturity": "Volume production and named SSD shipments",
+      "claim": "The July 2024 release reports G9 TLC NAND and volume shipment of the Micron 2650 SSD using it.",
+      "limit": "Do not extend TLC evidence to every QLC or NOR product; interface speed is not cell programming speed.",
+      "dateLabel": "Source date / event period: 2024-07-30 · Checked 2026-09-10",
+      "sourceIds": [
+        "industry-micron-g9"
+      ],
+      "target": "topic-nand",
+      "search": "Micron 2024 年 7 月公告 G9 TLC NAND 及採用該世代的 Micron 2650 SSD 量產出貨。 The July 2024 release reports G9 TLC NAND and volume shipment of the Micron 2650 SSD using it."
+    },
+    {
+      "id": "industry-kioxia-sandisk-gen10",
+      "name": "Kioxia / Sandisk",
+      "technology": "Tenth-Generation BiCS 3D NAND",
+      "family": "NAND",
+      "role": "Joint development and manufacturing partners",
+      "maturity": "Production begins at a named fab",
+      "claim": "The July 2026 joint announcement states that tenth-generation 3D Flash production began at Kitakami K2.",
+      "limit": "Production start does not establish universal customer availability or identical finished products.",
+      "dateLabel": "Source date / event period: 2026-07-03 · Checked 2026-09-10",
+      "sourceIds": [
+        "industry-kioxia-sandisk-gen10"
+      ],
+      "target": "topic-nand",
+      "search": "Kioxia／Sandisk 2026 年 7 月共同公告北上 K2 開始第十代 3D Flash 生產。 The July 2026 joint announcement states that tenth-generation 3D Flash production began at Kitakami K2."
+    },
+    {
+      "id": "industry-ymtc-xtacking",
+      "name": "YMTC",
+      "technology": "Xtacking 3D NAND",
+      "family": "NAND",
+      "role": "NAND technology and product supplier",
+      "maturity": "Published architecture and named product family",
+      "claim": "The official page explains separate peripheral/array wafers joined by bonding and names Xtacking 4.0 X4 products in 2025.",
+      "limit": "Awards and architecture descriptions alone do not prove each product's volume, layer count or shipment status.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "industry-ymtc-xtacking"
+      ],
+      "target": "topic-nand",
+      "search": "YMTC 官方頁說明周邊與陣列分別製造再鍵合，並列 2025 年 Xtacking 4.0 的 X4 系列產品。 The official page explains separate peripheral/array wafers joined by bonding and names Xtacking 4.0 X4 products in 2025."
+    },
+    {
+      "id": "industry-gigadevice-flash",
+      "name": "GigaDevice",
+      "technology": "GD25 / GD55 NOR",
+      "family": "NOR / eFlash / SONOS",
+      "role": "NOR/NAND product supplier",
+      "maturity": "Official product portfolio",
+      "claim": "The official portfolio lists GD25/GD55 NOR products.",
+      "limit": "Family coverage does not replace part-specific production status, temperature, endurance or retention specifications.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "industry-gigadevice-flash"
+      ],
+      "target": "topic-nor",
+      "search": "GigaDevice 官方頁列出 GD25／GD55 SPI NOR 與 GD5F SPI／平行 NAND。 The official portfolio identifies GD25/GD55 SPI NOR and GD5F SPI/parallel NAND."
+    },
+    {
+      "id": "industry-floadia-zt",
+      "name": "Floadia",
+      "technology": "LEE Flash ZT MTP",
+      "family": "OTP / MTP",
+      "role": "Technology and IP licensor",
+      "maturity": "Named commercial IP",
+      "claim": "The ZT page describes FN program/erase, zero added masks and named platform production records.",
+      "limit": "General and platform-specific endurance figures differ; do not infer universal endurance or polysilicon count.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "industry-floadia-zt"
+      ],
+      "target": "topic-mtp",
+      "search": "Floadia ZT 官方頁說明 FN 寫抹、零新增光罩與具名平台量產紀錄。 The ZT page describes FN program/erase, zero added masks and named platform production records."
+    },
+    {
+      "id": "ip-neobit",
+      "name": "eMemory · NeoBit · Floating-Gate OTP",
+      "technology": "OTP",
+      "family": "OTP / MTP",
+      "role": "Memory IP / technology lineage",
+      "maturity": "Named IP study; qualification is process-specific",
+      "claim": "Follow the series select transistor and p-type floating-gate storage transistor as electron injection changes read current. Then distinguish normal OTP operation from the physical possibility of ultraviolet erasure.",
+      "limit": "Historical cells and patents do not establish the structure of every current implementation.",
+      "dateLabel": "Checked 2026-09-10",
+      "sourceIds": [
+        "ip-neobit",
+        "ip-neobit-pat"
+      ],
+      "target": "ip-neobit",
+      "search": "eMemory · NeoBit · Floating-Gate OTP OTP"
+    },
+    {
+      "id": "ip-neofuse",
+      "name": "eMemory · NeoFuse · Antifuse OTP",
+      "technology": "OTP",
+      "family": "OTP / MTP",
+      "role": "Memory IP / technology lineage",
+      "maturity": "Named IP study; qualification is process-specific",
+      "claim": "Start at the n-type cell's gate dielectric and follow high-field defect creation, changes in effective tunneling distance and the gate current used for sensing.",
+      "limit": "Historical cells and patents do not establish the structure of every current implementation.",
+      "dateLabel": "Checked 2026-09-10",
+      "sourceIds": [
+        "ip-neofuse",
+        "ip-neofuse-dt"
+      ],
+      "target": "ip-neofuse",
+      "search": "eMemory · NeoFuse · Antifuse OTP OTP"
+    },
+    {
+      "id": "ip-kilopass-xpm",
+      "name": "Kilopass; acquired by Synopsys in 2018 · Kilopass XPM",
+      "technology": "OTP",
+      "family": "OTP / MTP",
+      "role": "Memory IP / technology lineage",
+      "maturity": "Named IP study; qualification is process-specific",
+      "claim": "The original patent explicitly names XPM and distinguishes the storage MOS from the select MOS.",
+      "limit": "Historical cells and patents do not establish the structure of every current implementation.",
+      "dateLabel": "Checked 2026-09-10",
+      "sourceIds": [
+        "ip-kilopass-xpm-2007",
+        "ip-kilopass-2t-2012"
+      ],
+      "target": "ip-kilopass-xpm",
+      "search": "Kilopass; acquired by Synopsys in 2018 · Kilopass XPM OTP"
+    },
+    {
+      "id": "ip-sidense-1t-fuse",
+      "name": "Sidense; acquired by Synopsys in 2017 · Sidense 1T-Fuse",
+      "technology": "OTP",
+      "family": "OTP / MTP",
+      "role": "Memory IP / technology lineage",
+      "maturity": "Named IP study; qualification is process-specific",
+      "claim": "One gate spans thick and thin oxide; persistent conduction through the thin region creates the OTP state.",
+      "limit": "Historical cells and patents do not establish the structure of every current implementation.",
+      "dateLabel": "Checked 2026-09-10",
+      "sourceIds": [
+        "ip-sidense-cell-2007",
+        "ip-sidense-irreversible-2017"
+      ],
+      "target": "ip-sidense-1t-fuse",
+      "search": "Sidense; acquired by Synopsys in 2017 · Sidense 1T-Fuse OTP"
+    },
+    {
+      "id": "ip-neoee",
+      "name": "eMemory · NeoEE · FN/FN MTP",
+      "technology": "MTP",
+      "family": "OTP / MTP",
+      "role": "Memory IP / technology lineage",
+      "maturity": "Named IP study; qualification is process-specific",
+      "claim": "Follow the control-coupling region, floating node and tunneling region as FN transport stores and removes electrons. A read transistor then senses the stored state.",
+      "limit": "Historical cells and patents do not establish the structure of every current implementation.",
+      "dateLabel": "Checked 2026-09-10",
+      "sourceIds": [
+        "ip-neoee",
+        "ip-neoee-history"
+      ],
+      "target": "ip-neoee",
+      "search": "eMemory · NeoEE · FN/FN MTP MTP"
+    },
+    {
+      "id": "ip-neomtp",
+      "name": "eMemory · NeoMTP · CHI/FN MTP",
+      "technology": "MTP",
+      "family": "OTP / MTP",
+      "role": "Memory IP / technology lineage",
+      "maturity": "Named IP study; qualification is process-specific",
+      "claim": "Compare hot-carrier programming of the p-type floating-gate cell with FN electron transfer toward a dedicated erase gate. Both operations act on the same storage node.",
+      "limit": "Historical cells and patents do not establish the structure of every current implementation.",
+      "dateLabel": "Checked 2026-09-10",
+      "sourceIds": [
+        "ip-neomtp",
+        "ip-neomtp-pat"
+      ],
+      "target": "ip-neomtp",
+      "search": "eMemory · NeoMTP · CHI/FN MTP MTP"
+    },
+    {
+      "id": "ip-ymc-mtp",
+      "name": "Yield Microelectronics (YMC) · YMC · MTP and Mechanism Boundaries",
+      "technology": "MTP",
+      "family": "OTP / MTP",
+      "role": "Memory IP / technology lineage",
+      "maturity": "Named IP study; qualification is process-specific",
+      "claim": "YMC publicly identifies a logic-process MTP family. The CHI/BBHH sequence below is an independent mechanism illustration, not evidence that a current ymtp product uses BBHH. Separate product capability from an illustrative 1T1C model.",
+      "limit": "Historical cells and patents do not establish the structure of every current implementation.",
+      "dateLabel": "Checked 2026-09-10",
+      "sourceIds": [
+        "ymc-product",
+        "ymc-1t1c"
+      ],
+      "target": "ip-ymc-mtp",
+      "search": "Yield Microelectronics (YMC) · YMC · MTP and Mechanism Boundaries MTP"
+    },
+    {
+      "id": "ip-impinj-aeon",
+      "name": "Impinj → Virage Logic → Synopsys · AEON · FN/FN MTP",
+      "technology": "MTP",
+      "family": "OTP / MTP",
+      "role": "Memory IP / technology lineage",
+      "maturity": "Named IP study; qualification is process-specific",
+      "claim": "Follow the named 2009 AEON company account: electrons enter and leave FG by FN, then a read MOS senses the state. Business and brand succession have a separate timeline.",
+      "limit": "Historical cells and patents do not establish the structure of every current implementation.",
+      "dateLabel": "Checked 2026-09-10",
+      "sourceIds": [
+        "aeon-impinj-2007",
+        "aeon-virage-fn-2009"
+      ],
+      "target": "ip-impinj-aeon",
+      "search": "Impinj → Virage Logic → Synopsys · AEON · FN/FN MTP MTP"
+    },
+    {
+      "id": "sony-micron-reram",
+      "name": "Sony / Micron",
+      "technology": "Copper ReRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "Joint device and memory R&D",
+      "maturity": "Historical research demonstration",
+      "claim": "Micron’s 2014 VLSI announcement identifies Sony collaboration on copper ReRAM for a 16Gb storage-class-memory demonstration.",
+      "limit": "This does not establish current products or adoption in a Sony image sensor.",
+      "dateLabel": "Source: 2014-06-05; checked 2026-09-10",
+      "sourceIds": [
+        "RES-SONY-MICRON-2014"
+      ],
+      "target": "topic-ecm",
+      "search": "Sony Micron 索尼 銅 Copper ReRAM CBRAM"
+    },
+    {
+      "id": "industry-gigadevice-nand",
+      "name": "GigaDevice",
+      "technology": "GD5F NAND",
+      "family": "NAND",
+      "role": "NOR/NAND product supplier",
+      "maturity": "Official product portfolio",
+      "claim": "The official portfolio separately lists GD5F NAND products.",
+      "limit": "Family coverage does not replace part-specific production status, temperature, endurance or retention specifications.",
+      "dateLabel": "Undated source; checked 2026-09-10",
+      "sourceIds": [
+        "industry-gigadevice-flash"
+      ],
+      "target": "topic-nand",
+      "search": "GigaDevice 官方頁列出 GD25／GD55 SPI NOR 與 GD5F SPI／平行 NAND。 The official portfolio identifies GD25/GD55 SPI NOR and GD5F SPI/parallel NAND."
+    },
+    {
+      "id": "kioxia-skhynix-crosspoint",
+      "name": "Kioxia／SK hynix",
+      "technology": "64 Gbit 1Selector–1MTJ Cross-Point MRAM",
+      "family": "MRAM",
+      "role": "Joint high-density MRAM research",
+      "maturity": "IEDM 2024 research prototype; described publicly in 2025",
+      "claim": "The jointly developed 64 Gbit cross-point MRAM replaces select transistors with two-terminal selectors; MTJ diameter is 20 nm, half-pitch 20.5 nm, and cell area 0.001681 µm².",
+      "limit": "This is a research array, not evidence of product availability. The 20 nm figure is MTJ diameter, not a CMOS process node; typical-bit tests do not establish full-array yield.",
+      "dateLabel": "Source date 2025-04-15",
+      "sourceIds": [
+        "MRAM-KIOXIA-SKHYNIX-64GB-2025"
+      ],
+      "target": "topic-stt",
+      "search": "Kioxia／SK hynix 64 Gbit 1Selector–1MTJ Cross-Point MRAM Joint high-density MRAM research 高密度 MRAM 共同研究"
+    },
+    {
+      "id": "tetramem-mlx200",
+      "name": "TetraMem",
+      "technology": "MLX200 Multi-Level RRAM Analog IMC",
+      "family": "ReRAM / CBRAM",
+      "role": "Multi-level RRAM analog in-memory computing developer",
+      "maturity": "Tape-out and initial silicon validation completed",
+      "claim": "In May 2026, TetraMem reported MLX200 tape-out and initial silicon validation on TSMC 22nm, integrating multi-level RRAM with mixed-signal computing in a SoC.",
+      "limit": "Evaluation kits were scheduled for H2 2026 at announcement. Initial validation does not establish mass production or delivery, and computing results are not general-purpose storage specifications.",
+      "dateLabel": "Source date 2026-05-19",
+      "sourceIds": [
+        "RRAM-TETRAMEM-MLX200-2026"
+      ],
+      "target": "topic-vcm",
+      "search": "TetraMem MLX200 Multi-Level RRAM Analog IMC Multi-level RRAM analog in-memory computing developer 多階 RRAM 類比記憶體內運算開發商"
+    },
+    {
+      "id": "intrinsic-surecore",
+      "name": "Intrinsic／sureCore",
+      "technology": "SiOx RRAM",
+      "family": "ReRAM / CBRAM",
+      "role": "Silicon-oxide RRAM and embedded-memory architecture collaboration",
+      "maturity": "Technology development and commercialization collaboration",
+      "claim": "Intrinsic identifies silicon-oxide RRAM as its core technology and lists a sureCore collaboration combining CMOS-compatible cells, memory architectures and compiler-design expertise.",
+      "limit": "The collaboration does not establish qualification or mass production of a named process macro; the site does not provide a complete orderable part and datasheet proving current supply.",
+      "dateLabel": "Undated source; reviewed 2026-09-10",
+      "sourceIds": [
+        "RRAM-INTRINSIC-SURECORE"
+      ],
+      "target": "topic-vcm",
+      "search": "Intrinsic／sureCore SiOx RRAM Silicon-oxide RRAM and embedded-memory architecture collaboration 氧化矽 RRAM 與嵌入式記憶體架構合作"
+    },
+    {
+      "id": "nantero-fujitsu-nram",
+      "name": "Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor",
+      "technology": "Carbon-Nanotube NRAM",
+      "family": "NRAM",
+      "role": "Historical carbon-nanotube NRAM licensing and joint development",
+      "maturity": "2016 licensing and 55nm joint-development announcement",
+      "claim": "Fujitsu's official archive confirms that its two semiconductor businesses licensed Nantero carbon-nanotube NRAM in 2016 and began joint development toward a 55nm product.",
+      "limit": "This historical development evidence establishes neither 2026 production and availability nor program termination; NRAM should be classified separately from oxide RRAM.",
+      "dateLabel": "Source date 2016-08-31",
+      "sourceIds": [
+        "NRAM-NANTERO-FUJITSU-2016"
+      ],
+      "target": "research",
+      "search": "Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor Carbon-Nanotube NRAM Historical carbon-nanotube NRAM licensing and joint development 碳奈米管 NRAM 歷史授權與共同開發"
+    }
+  ]
+}

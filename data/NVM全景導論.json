@@ -88,8 +88,8 @@
       "body": "並讀 NeoBit 與 NeoFuse：浮動閘極電荷與閘極介電層傳輸改變。"
     },
     {
-      "title": "再追蹤三組 MTP 寫抹機制",
-      "body": "在各自單元上比較 NeoEE FN／FN、NeoMTP CHI／FN 與 YMC CHI／BBHH 操作模型。"
+      "title": "追蹤寫入、抹除與反覆更新",
+      "body": "MTP 描述可寫入超過一次的能力。本章浮動閘極 IP 比較具名 PGM／ERS 機制；MRAM、ReRAM 保留新興 NVM 分類，Flash／SONOS 依自己的結構分類。各章都須閱讀反向更新及再次寫入；YMC 產品證據與獨立 CHI／BBHH 示意分開。"
     },
     {
       "title": "接著看磁性與電阻切換 IP",

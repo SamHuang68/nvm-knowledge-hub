@@ -722,6 +722,27 @@ Sidense 1T-Fuse — 單元結構
 
 沿控制耦合區、浮動節點與穿隧區，分別追蹤 FN 如何將電子存入與移出，再由讀取電晶體感測儲存狀態。
 
+#### 本章浮動閘極 MTP：PGM／ERS 循環
+
+同一儲存單元可寫入、電性抹除及再次寫入，才構成本章的可重複更新操作。ERS 使儲存狀態回到可再次程式化的窗口，不代表所有載子完全消失；主機是否另送抹除命令由巨集或元件介面決定。
+
+PGM → ERS → PGM
+
+初始：FG 保留已寫入電荷。
+
+FN — 載子：電子由 FG 經 FN 穿隧移至 MOS 接收區。
+
+結果：FG 電荷減少，可再次寫入。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+NeoEE 官方頁明列頁／字操作單位及位元組寫入功能。實際 ERS 單位仍須核對指定巨集，不由主機寫入大小推定。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [ip-neoee：NeoEE 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ip-neoee-history：NeoEE 概念單元的歷史原圖](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)
+
 NeoEE — 單元結構
 
 單層多晶矽 FG、電容耦合 MOS 結構與選擇器。控制耦合與穿隧是功能角色，可能由多個 MOS 區域實現；公開資料不足以固定數量或 p/n 配置。 移除高場後，隔離 FG 保存電荷並改變讀取通道的臨界條件。
@@ -896,6 +917,28 @@ FN／FN 的兩個方向使用穿隧機制，但電場方向、選擇條件與施
 
 比較 p 型浮動閘極單元的熱載子寫入，以及電子經 FN 移向專用抹除閘極的反向路徑。兩種操作在同一儲存節點上完成。
 
+#### 本章浮動閘極 MTP：PGM／ERS 循環
+
+同一儲存單元可寫入、電性抹除及再次寫入，才構成本章的可重複更新操作。ERS 使儲存狀態回到可再次程式化的窗口，不代表所有載子完全消失；主機是否另送抹除命令由巨集或元件介面決定。
+
+PGM → ERS → PGM
+
+初始：FG 保有寫入負電荷。
+
+FN — 載子：電子由 FG 經 FN 穿隧移向 EG。
+
+結果：FG 電子減少，p 通道在指定讀取條件下關閉。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [ip-neomtp：NeoMTP 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ip-neomtp-pat：pMOS 與邊緣抹除閘極的相關專利](https://patents.google.com/patent/US20030235082A1/en)
+- [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+
 NeoMTP — 單元結構
 
 類似 NeoBit 的單層多晶矽 p 型 FG-MOSFET，另有抹除閘極 EG。EG 與 FG 以介電質隔離，不能畫成導線短接。 FG 電荷受介電質隔離；EG 僅在抹除條件下提供 FN 出口。
@@ -1068,13 +1111,37 @@ FN
 
 本課程以 CHI／FN 表示操作組合；原廠將寫入描述為通道熱電洞誘發熱電子注入，標示 CHEI。抹除閘極提供另一個電子出口，因此不能把這個單元與沒有電抹除操作的 NeoBit，或 FN／FN 的 NeoEE 混成同一電路。
 
-### YMC MTP：CHI／BBHH 操作模型
+### YMC MTP：寫入、抹除與公開證據
 
 億而得 YMC
 
-以同一個等效 1T1C 浮動節點，追蹤 CHI 寫入電子與 BBHH 注入電洞的差異，並由 nMOS 臨界電壓與通道電流判讀資料。
+YMC 公開提供邏輯製程 MTP 家族。下方 CHI／BBHH 是獨立機制示意，並非現行 ymtp 商品採 BBHH 的證據；產品能力與 1T1C 教學模型分開閱讀。
 
-YMC ymtp：CHI／BBHH 1T1C 操作模型
+#### 本章浮動閘極 MTP：PGM／ERS 循環
+
+同一儲存單元可寫入、電性抹除及再次寫入，才構成本章的可重複更新操作。ERS 使儲存狀態回到可再次程式化的窗口，不代表所有載子完全消失；主機是否另送抹除命令由巨集或元件介面決定。
+
+PGM → ERS → PGM
+
+FG 保有寫入後的淨負電荷。
+
+能帶間穿隧產生載子，再以熱電洞注入 FG — 在此局部場條件下，少數紅色電洞跨介電層進 FG，降低儲存淨負電荷。矽內 BBT 產生電洞與其後的跨介電層注入各自需要適當條件；未借用 FN 電子移出或 DAHHI 雪崩機制。
+
+相同讀偏壓下 Vth 較低、I_R 較大。此方向示意不保證完全中性、固定終點或自收斂抹除。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+目前引用的公開產品來源未證明現行 ymtp 版本採 BBHH。圖解僅呈現獨立 CHI／BBHH 物理；實際 PGM／ERS 機制、偏壓、粒度及循環規格須取得目標巨集資料。
+
+- [ymc-product：YMC：ymtp 邏輯製程 MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ymc-1t1c：YMC：1T1C 核心技術](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
+- [physics-bbhh-fg：Wu 等：BBHH 與浮動閘極展示](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)
+- [physics-btbt-carriers：Chu、Wu：BTBT 熱載子路徑](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf)
+- [physics-fg-hole-erase：IEEE：浮動閘極熱電洞抹除觀察](https://ieeexplore.ieee.org/document/748914/)
+
+獨立機制示意：CHI／BBHH 等效 1T1C
 
 一個 nMOS 與一個功能耦合電容共享 FG。官方資料支持 ymtp 與 1T1C 技術家族；此原創等效圖不主張現行產品的接面、井結構或尺寸。FG 與 CG 沒有直流短路。
 
@@ -1136,7 +1203,7 @@ CG 與 FG 隔著電容介電層；模型的源／汲極間形成電子通道。
 - BBT / BBHH · BBT 是矽內能帶間穿隧；BBHH 是其產生電洞後的熱電洞注入。跨介電層的注入是後一步。
 - Vth / QFG · Vth 為等效 nMOS 閾值，QFG 為 FG 電荷；偏壓、讀取窗口與邏輯 0／1 僅由實際產品定義。
 
-本組為 YMC ymtp 的 CHI／BBHH 教學操作模型；使用等效 1T1C 與方向示意，不是現行特定版本剖面或偏壓表。BBHH 物理由獨立原始研究支撐；YMC 公開專利的 FN／DAHHI 變體維持各自機制。
+本組為獨立的 CHI／BBHH 教學操作模型；引用來源未證明現行 YMC ymtp 採 BBHH。使用等效 1T1C 與方向示意，不是現行特定版本剖面或偏壓表。BBHH 物理由獨立原始研究支撐；YMC 公開專利的 FN／DAHHI 變體維持各自機制。
 
 - [ymc-product：YMC：ymtp 邏輯製程 MTP IP](https://www.ymc.com.tw/index_en.php)
 - [ymc-1t1c：YMC：1T1C 核心技術](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
@@ -1189,7 +1256,7 @@ CG 與 FG 隔著電容介電層；模型的源／汲極間形成電子通道。
 - BBT / BBHH · BBT 是矽內能帶間穿隧；BBHH 是其產生電洞後的熱電洞注入。跨介電層的注入是後一步。
 - Vth / QFG · Vth 為等效 nMOS 閾值，QFG 為 FG 電荷；偏壓、讀取窗口與邏輯 0／1 僅由實際產品定義。
 
-本組為 YMC ymtp 的 CHI／BBHH 教學操作模型；使用等效 1T1C 與方向示意，不是現行特定版本剖面或偏壓表。BBHH 物理由獨立原始研究支撐；YMC 公開專利的 FN／DAHHI 變體維持各自機制。
+本組為獨立的 CHI／BBHH 教學操作模型；引用來源未證明現行 YMC ymtp 採 BBHH。使用等效 1T1C 與方向示意，不是現行特定版本剖面或偏壓表。BBHH 物理由獨立原始研究支撐；YMC 公開專利的 FN／DAHHI 變體維持各自機制。
 
 - [ymc-product：YMC：ymtp 邏輯製程 MTP IP](https://www.ymc.com.tw/index_en.php)
 - [ymc-1t1c：YMC：1T1C 核心技術](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
@@ -1243,7 +1310,7 @@ Iref 與兩種狀態需有可辨識間距；圖中對照與前格固定相同。
 - BBT / BBHH · BBT 是矽內能帶間穿隧；BBHH 是其產生電洞後的熱電洞注入。跨介電層的注入是後一步。
 - Vth / QFG · Vth 為等效 nMOS 閾值，QFG 為 FG 電荷；偏壓、讀取窗口與邏輯 0／1 僅由實際產品定義。
 
-本組為 YMC ymtp 的 CHI／BBHH 教學操作模型；使用等效 1T1C 與方向示意，不是現行特定版本剖面或偏壓表。BBHH 物理由獨立原始研究支撐；YMC 公開專利的 FN／DAHHI 變體維持各自機制。
+本組為獨立的 CHI／BBHH 教學操作模型；引用來源未證明現行 YMC ymtp 採 BBHH。使用等效 1T1C 與方向示意，不是現行特定版本剖面或偏壓表。BBHH 物理由獨立原始研究支撐；YMC 公開專利的 FN／DAHHI 變體維持各自機制。
 
 - [ymc-product：YMC：ymtp 邏輯製程 MTP IP](https://www.ymc.com.tw/index_en.php)
 - [ymc-1t1c：YMC：1T1C 核心技術](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
@@ -1259,6 +1326,27 @@ Iref 與兩種狀態需有可辨識間距；圖中對照與前格固定相同。
 Impinj → Virage Logic → Synopsys
 
 依 2009 年具名 AEON 原廠資料，追蹤電子經 FN 存入與移出浮動閘極，再由讀取 MOS 感測；品牌與業務承接另列時間線。
+
+#### 本章浮動閘極 MTP：PGM／ERS 循環
+
+同一儲存單元可寫入、電性抹除及再次寫入，才構成本章的可重複更新操作。ERS 使儲存狀態回到可再次程式化的窗口，不代表所有載子完全消失；主機是否另送抹除命令由巨集或元件介面決定。
+
+PGM → ERS → PGM
+
+FG 保有前次寫入留下的負電荷。
+
+FN — 這裡以電子移出解釋抹除，未採電洞注入中和模型。
+
+電性抹除與再寫入構成 MTP 操作；不從示意粒子數推定耐久、速度或保持時間。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [aeon-impinj-2007：Impinj：AEON/MTP 浮動閘極產品公告](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009：Virage Logic：AEON MTP 寫抹與製造監測](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
 
 AEON MTP — 單元功能結構
 
@@ -1434,6 +1522,28 @@ Numem
 
 從晶圓廠標準 STT-MRAM 單元與嵌入式 IP 的關係，辨認磁性接面、存取電晶體、位元線、源極線及感測路徑。
 
+#### 抹除如何對應：直接覆寫磁態，無獨立 ERS
+
+MRAM 透過改寫磁態覆蓋既有資料，不需要 Flash 式先抹除再寫入。清除為全 0 或全 1 是一連串目標狀態寫入；邏輯值與 P／AP 對應依產品定義。
+
+P ⇄ AP
+
+P
+
+MTJ 自由層磁化保存資訊 — 磁化切換至 AP；中間角度不表示量測軌跡或確定性切換時間。
+
+關閉 WL 並撤去偏壓，磁態保留；反向資料由另一寫入方向覆寫，沒有浮動閘抹除步驟。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)
+- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)
+
 Numem MRAM IP：STT 教材重建
 
 以 FL／穿隧障壁／RL 畫出 STT 功能；A、B 是教材端點。WL／BL／SL 依 Numem 2019 年架構，未指定實際層對線映射。
@@ -1462,7 +1572,7 @@ MTJ 自由層磁化保存資訊
 
 WL 關閉，單元保存 AP。此序列的目標是寫入 P。
 
-**2. 選取並施加反向自旋驅動**
+**2. 選取並施加自旋驅動**
 
 狀態: 切換中
 
@@ -1600,6 +1710,27 @@ GLOBALFOUNDRIES
 
 用 22FDX 公開研究單元理解 1T1MTJ、自由層與參考層，以及由該來源定義的雙向電流切換。
 
+#### 抹除如何對應：直接覆寫磁態，無獨立 ERS
+
+MRAM 透過改寫磁態覆蓋既有資料，不需要 Flash 式先抹除再寫入。清除為全 0 或全 1 是一連串目標狀態寫入；邏輯值與 P／AP 對應依產品定義。
+
+P ⇄ AP
+
+P
+
+1T1MTJ 的 P／AP 磁態與電阻 — 磁化切換至 AP；中間角度不表示量測軌跡或確定性切換時間。
+
+關閉 WL 並撤去偏壓，磁態保留；反向資料由另一寫入方向覆寫，沒有浮動閘抹除步驟。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [ip-gf-platform：GF：22FDX 嵌入式 MRAM 平台](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
+- [ip-gf-cell-2024：GF 共同作者研究：22FDX STT-MRAM 單元](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/)
+
 GF 22FDX eMRAM：公開研究單元
 
 2024 年原始研究採用 CoFeB 自由層、穿隧障壁、由 SAF 固定的 CoFeB 參考層與選擇電晶體。層在圖中的上下位置是示意座標。
@@ -1627,7 +1758,7 @@ GF 22FDX eMRAM：公開研究單元
 
 WL 關閉，單元保存 AP。此序列的目標是寫入 P。
 
-**2. 選取並施加反向自旋驅動**
+**2. 選取並施加自旋驅動**
 
 狀態: 切換中
 
@@ -1761,6 +1892,28 @@ WL 開啟，低讀取偏壓沿 MTJ 與選擇元件形成電流；同偏壓下 P 
 Weebit Nano
 
 以公開的氧化矽研究結構，追蹤氧交換、缺陷路徑與存取電晶體限流，理解嵌入式 ReRAM 的 SET、RESET 與讀取。
+
+#### 抹除如何對應：RESET 後仍可再次 SET
+
+本章以 RESET 說明資料狀態的反向更新：由低阻態回到高阻態，再以 SET 建立低阻態。這是可逆阻態切換，不是 Flash 式區塊抹除；邏輯 0／1 編碼由電路定義。
+
+SET → RESET → SET
+
+LRS
+
+氧離子交換與氧空缺導電路徑 — 氧與空缺復合，在靠近 BE 的關鍵位置打開間隙；RESET 不代表整層完全恢復原始材料。
+
+撤壓後保留 HRS；空缺與界面氧仍可存在。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [ip-weebit-product：Weebit：嵌入式 ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/)
+- [ip-weebit-bitcell：Weebit：ReRAM 位元單元](https://www.weebit-nano.com/technology/reram-bitcell/)
+- [ip-weebit-cell-2021：Weebit／CEA-Leti／Silvaco：氧化物 ReRAM 原始模型](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf)
 
 Weebit ReRAM IP：CEA 研究單元
 
@@ -1923,6 +2076,28 @@ TE 相對 BE 為負，Ti 界面的氧返回 SiOx；藍色箭頭是氧離子移�
 Crossbar
 
 以 Crossbar 公開專利與歷史嵌入式宏資料，理解金屬粒子路徑延伸、回縮與低刺激感測。
+
+#### 抹除如何對應：RESET 後仍可再次 SET
+
+本章以 RESET 說明資料狀態的反向更新：由低阻態回到高阻態，再以 SET 建立低阻態。這是可逆阻態切換，不是 Flash 式區塊抹除；邏輯 0／1 編碼由電路定義。
+
+SET → RESET → SET
+
+LRS
+
+上端金屬區延伸／回縮，改變粒子間穿隧路徑 — 靠近下端的有效間距增加，穿隧電流減少；上端殘留金屬區未消失。
+
+撤去偏壓後保留 HRS。這是反向 RESET，不是先做區塊抹除再寫入。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
 
 Crossbar ReRAM IP：歷史專利單元
 
@@ -2377,6 +2552,27 @@ US6667902B2 的教學例以薄介電層儲存元件串接選擇電晶體；欄�
 
 本頁聚焦 conventional standalone EEPROM：記憶體陣列、升壓、控制與介面包在獨立元件內，系統透過序列或平行介面存取。Microchip 24LC256 是具名 I²C 序列元件範例；嵌入晶片內部的 foundry EEPROM 巨集與第三方 MTP IP，另在嵌入式 MTP IP 主題比較。
 
+#### 電性抹除：PGM 與 ERS 的完整循環
+
+同一儲存單元可寫入、電性抹除及再次寫入，才構成本章的可重複更新操作。ERS 使儲存狀態回到可再次程式化的窗口，不代表所有載子完全消失；主機是否另送抹除命令由巨集或元件介面決定。
+
+PGM → ERS → PGM
+
+浮動閘極保有較多電子，n 通道教學例的臨界電壓偏高。
+
+在同一具名局部窗口結構中改變端點電位，使窗口電場支持電子離開浮動閘極。
+
+浮動閘極電子減少，臨界電壓回到抹除區間，可重新寫入。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [ch-pat-eeprom-window：休斯飛機公司：局部穿隧窗口 EEPROM 專利 US4115914A](https://patents.google.com/patent/US4115914A/en)
+- [ch-mtp-standalone-microchip：微晶片科技：24AA256／24LC256／24FC256 獨立式序列 EEPROM 資料表](https://ww1.microchip.com/downloads/aemDocuments/documents/MPD/ProductDocuments/DataSheets/24AA256-24LC256-24FC256-256K-I2C-Serial-EEPROM-DS20001203.pdf)
+
 成熟度：量產元件。Microchip 公開提供 24LC256 序列 EEPROM 與完整資料表，包含封裝、I²C 介面、位元組寫入、頁面緩衝與內部高壓產生器。這是獨立式元件的產品證據；本頁的局部窗口圖另由公開專利支持。
 
 產品資料表沒有公開位元單元剖面、多晶矽層數或精確穿隧端點；不能把 US4115914A 當成 24LC256 的實際單元。容量、耐久與保持依指定料號及條件核對。
@@ -2466,6 +2662,35 @@ FN 穿隧發生在薄介電層的高場區；控制閘極透過電容耦合改�
 
 MTP IP 在主晶片內提供可重寫非揮發性儲存，選型重點是製程與巨集整合。代工廠雙層多晶矽 EEPROM 可依專用 NVM 選配供應；第三方單層多晶矽方案則有 Synopsys MTP EEPROM、eMemory NeoEE／NeoMTP 等具名公開證據。此分類與獨立封裝 EEPROM 分開，也不把 SONOS Flash 或 Antifuse OTP 混入浮動閘極 MTP。
 
+#### 本章浮動閘極 MTP：PGM／ERS 循環
+
+同一儲存單元可寫入、電性抹除及再次寫入，才構成本章的可重複更新操作。ERS 使儲存狀態回到可再次程式化的窗口，不代表所有載子完全消失；主機是否另送抹除命令由巨集或元件介面決定。
+
+PGM → ERS → PGM
+
+浮動節點保有前次資料對應的電荷，目標巨集已選定允許更新的頁、字或區塊。
+
+US5844271A 教學例使電子由浮動閘極經 FN 移向源極；NeoMTP 公開原理的出口是額外抹除閘極，NeoEE 則由 MOS 結構提供 FN 路徑。
+
+浮動節點電荷減少並回到可重新寫入的狀態；實際完成條件由抹除驗證及目標巨集規格決定。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [ch-pat-eeprom-singlepoly：賽普拉斯：埋入式控制閘極單層多晶矽 EEPROM 專利 US5844271A](https://patents.google.com/patent/US5844271A/en)
+- [ch-product-mtp：新思科技：類比與混合訊號製程的 MTP EEPROM NVM IP](https://www.synopsys.com/resources/mtp-eeprom-nvm-ip-for-analog-and-mixed-signal-process-nodes-datasheet.html)
+- [ch-mtp-synopsys：新思科技：單層多晶矽浮動閘極 MTP EEPROM IP](https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/mtp-eeprom.html)
+- [ch-mtp-ememory-neoee：力旺電子：NeoEE 單層多晶矽嵌入式 EEPROM](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ch-mtp-ememory-neomtp：力旺電子：NeoMTP 單層多晶矽 p 型浮動閘極原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ch-mtp-xfab-xc06：X-FAB：XC06 雙層多晶矽嵌入式 EEPROM 製程歷史簡介](https://www.fbe-asic.com/documents/is-xc06.pdf)
+- [ch-mtp-ymc-product：億而得微電子：邏輯製程嵌入式 MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ch-mtp-ymc-singlepoly：億而得微電子：單一浮動閘極 NVM 專利 US7423903B2](https://patents.google.com/patent/US7423903B2/en)
+- [ch-mtp-floadia-zt：Floadia：LEE Flash ZT 零新增光罩 MTP](https://floadia.com/product/lee-flash-zt/)
+- [ch-mtp-floadia-zt-fg：Floadia 與力積電子：LEE Flash ZT 浮動閘極 MTP 公開整合](https://floadia.com/news/422/)
+
 成熟度：商品 IP。Synopsys 與 eMemory 的現行官方產品頁直接確認單層多晶矽 MTP／EEPROM IP。X-FAB 2003 年 XC06 文件提供代工雙層多晶矽 NVM 的歷史範例。YMC 有邏輯製程 MTP 商品定位及獨立單層多晶矽專利；Floadia ZT 有浮動閘極與 FN 寫抹公開實例。
 
 每一產品族需對應目標製程、巨集版本與資格條件。YMC 專利不直接辨識所有現行 ymtp；本次 Floadia 公開文件未直接確認多晶矽層數。X-FAB 歷史文件不等於現行供應確認。
@@ -2508,9 +2733,9 @@ NeoEE 採 FN 寫抹；NeoMTP 採 p 型儲存元件及抹除閘極；Synopsys 本
 
 浮動閘極
 
-寫入: 本次公開產品頁未揭露
+寫入: 已確認支援 PGM；本次產品頁未揭露載子路徑與端點偏壓。
 
-抹除: 本次公開產品頁未揭露
+抹除: 已確認支援電性 ERS；本次產品頁未揭露微觀抹除路徑與端點偏壓。
 
 具名標準 CMOS 平臺；零新增光罩；整合高壓周邊
 
@@ -2568,7 +2793,7 @@ p 型浮動閘極 MOSFET；另有抹除閘極
 
 單層多晶矽不指定載子注入方式。NeoMTP 的 p 型單元由熱電洞誘發熱電子注入，與 US5844271A 的 n 通道教學例有別；Floadia ZT 另公開 FN 寫入。使用低電壓核心電源也不代表儲存單元內沒有升壓或高電場。
 
-#### 抹除：依指定出口移出浮動節點電子
+#### ERS 抹除：恢復可再次寫入的狀態
 
 操作前：浮動節點保有前次資料對應的電荷，目標巨集已選定允許更新的頁、字或區塊。
 
@@ -2576,7 +2801,7 @@ p 型浮動閘極 MOSFET；另有抹除閘極
 
 操作後：浮動節點電荷減少並回到可重新寫入的狀態；實際完成條件由抹除驗證及目標巨集規格決定。
 
-不可用多晶矽層數推定抹除出口、極性或粒度。電容耦合端與穿隧出口可能是不同區域；控制端改變電位不等於金屬線直接抽走浮動閘極電荷。循環造成的介電層缺陷仍會累積。
+不可用多晶矽層數推定抹除出口、極性或粒度。電容耦合端與穿隧出口可能是不同區域；控制端改變電位不等於金屬線直接抽走浮動閘極電荷。循環造成的介電層缺陷仍會累積。FN 電子移出與熱電洞注入造成的淨電荷降低是不同機制。獨立的 BBHH 教學模型不能證明現行 YMC 商品採用 BBHH。
 
 #### 讀取：在正常偏壓下感測所選通道
 
@@ -2642,6 +2867,29 @@ p 型浮動閘極 MOSFET；另有抹除閘極
 ## NOR：從堆疊閘極到分離閘極的程式碼儲存
 
 NOR 常用於需要直接、可預測讀取的程式碼儲存。堆疊閘極把儲存與選擇責任集中在單元的閘極控制；分離閘極加入選擇通道，有助阻斷過度抹除單元的非受選漏電。是否支援原地執行，還取決於介面、控制器及快取時序，不能從 NOR 名稱單獨保證。
+
+#### 電性抹除：PGM 與 ERS 的完整循環
+
+同一儲存單元可寫入、電性抹除及再次寫入，才構成本章的可重複更新操作。ERS 使儲存狀態回到可再次程式化的窗口，不代表所有載子完全消失；主機是否另送抹除命令由巨集或元件介面決定。
+
+PGM → ERS → PGM
+
+浮動閘極儲有程式化電荷；多顆共用抹除端點的單元通常需要一起安排偏壓。
+
+SuperFlash 手冊描述浮動閘極到另一閘極的 FN 穿隧；US6232180B1 的通道抹除例則將選擇閘、源汲極浮接，p 型井與深 n 型井升到 10–15 V。
+
+電子由指定出口離開浮動閘極，臨界電壓降低。分離選擇通道可抑制部分過度抹除造成的非受選導通，但不消除儲存層可靠度需求。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+抹除作用於共用陣列控制定義的區域；引用產品常以扇區或區塊為單位。抹除前保留仍有效的資料，讀取或寫入粒度不能代替抹除粒度。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [ch-pat-nor-splitgate：世大積體電路／台積電：分離閘極快閃專利 US6232180B1](https://patents.google.com/patent/US6232180B1/en)
+- [ch-tech-superflash：SST／微芯科技：SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ch-maturity-nor-product：微芯科技：SST39SF020A 平行快閃產品頁](https://www.microchip.com/en-us/product/SST39SF020A)
+- [ch-tech-nand：鎧俠：NAND 快閃記憶體基本原理](https://www.kioxia.com/en-jp/rd/technology/nand-flash.html)
 
 成熟度：已量產。微芯科技 SST39SF020A 在本次查核時標示量產中，公開摘要為 2 Mb、4.5–5.5 V 平行快閃。SST 的 SuperFlash 技術手冊另提供分離閘極、源極側注入與閘極間 FN 抹除的具名技術脈絡，可作商用實作與機制教材的對照。
 
@@ -2734,6 +2982,29 @@ NOR 透過字線及位元線選擇單元，未選列漏電會直接影響感測�
 
 SONOS／MONOS 是材料堆疊或閘極材料的描述，NROM 代表利用局部捕捉與讀取方向的實作脈絡；兩者並非可直接互換的商品名稱。英飛凌 SONOS 已有量產平台，所以不能把整個捕捉型家族標成新興；同時也不能把它的 FN 寫抹與可靠度套到所有 NROM。
 
+#### 電性抹除：PGM 與 ERS 的完整循環
+
+同一儲存單元可寫入、電性抹除及再次寫入，才構成本章的可重複更新操作。ERS 使儲存狀態回到可再次程式化的窗口，不代表所有載子完全消失；主機是否另送抹除命令由巨集或元件介面決定。
+
+PGM → ERS → PGM
+
+氮化層等捕捉材料中存在程式化電荷，通道臨界電壓或局部障壁偏移。
+
+英飛凌具名 2T SONOS 採 FN 抹除。獨立的 US6664588B2 NROM 例中，受選位元線與通道接面透過能帶間穿隧產生電洞，再由橫向場加速及閘極場使熱電洞注入局部氮化層儲存區。
+
+受選儲存區回到可再次寫入的抹除窗口。NROM 例的電洞注入區須對準原寫入電子區，否則殘餘電子或過量電洞可能影響讀取閾值。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [ch-pat-sonos：NCR：SONOS 阻擋氧化層專利 WO1981000790A1](https://patents.google.com/patent/WO1981000790A1/en)
+- [ch-pat-nrom：Saifun：非對稱電荷捕捉專利 US5768192A](https://patents.google.com/patent/US5768192A/en)
+- [ch-product-sonos：英飛凌：SONOS 嵌入式快閃 IP 方案](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)
+- [op-pat-nrom-hhi：Saifun：自對準 NROM 寫入與抹除區](https://patents.google.com/patent/US6664588B2/en)
+
 成熟度：已量產。英飛凌公開列 SONOS eFlash 在 130、65、55、40 與 28 nm 的量產，明確描述 2T 單元及 FN 寫抹。其 MCU 出貨及可授權巨集說明支持成熟平台定位；局部捕捉的 NROM 則在本頁以 Saifun 原始專利作機制研究，另行標示證據範圍。
 
 原廠列示的 25 ns、100,000 次與十年保持尚未完整配對所有節點、容量與溫度，故不組合成單一保證。SONOS 的量產證據不自動延伸成 NROM 的相同規格或現行產品狀態。
@@ -2760,11 +3031,11 @@ SONOS 名稱依序對應矽、氧化層、氮化層、氧化層與矽；由通�
 
 操作前：氮化層等捕捉材料中存在程式化電荷，通道臨界電壓或局部障壁偏移。
 
-刺激：英飛凌具名 2T SONOS 採 FN 抹除，重新安排穿隧介電層兩側的場以降低儲存淨電荷；NROM 的精確抹除路徑須由對應實作另外查證。
+刺激：英飛凌具名 2T SONOS 採 FN 抹除。獨立的 US6664588B2 NROM 例中，受選位元線與通道接面透過能帶間穿隧產生電洞，再由橫向場加速及閘極場使熱電洞注入局部氮化層儲存區。
 
-操作後：SONOS 回到可再程式化的抹除窗口；實際殘留電荷、介面缺陷與捕捉中心變化仍可能影響下一輪操作。
+操作後：受選儲存區回到可再次寫入的抹除窗口。NROM 例的電洞注入區須對準原寫入電子區，否則殘餘電子或過量電洞可能影響讀取閾值。
 
-捕捉電荷的移出或中和受能障、陷阱深度與端點偏壓控制；上方阻擋層則抑制不希望的閘極側交換。僅知道『使用氮化矽』不足以決定電子或電洞從哪一端進出。本次 Saifun 種子主要支持局部寫入與反向讀取，不用它填造全部 NROM 的抹除動畫。
+US6664588B2 圖 8A、9–11 是具名口袋植入抹除案例，不可歸屬為 US5768192A 的相同結構，也不可拿 SONOS 的 FN 圖替代 NROM 熱電洞抹除。受選條件、脈衝驗證及抹除粒度仍依具名實作。
 
 #### 讀取：SONOS 看窗口，NROM 還要看方向
 
@@ -2820,10 +3091,39 @@ SONOS 名稱依序對應矽、氧化層、氮化層、氧化層與矽；由通�
 - [ch-pat-sonos：NCR：SONOS 阻擋氧化層專利 WO1981000790A1](https://patents.google.com/patent/WO1981000790A1/en)
 - [ch-pat-nrom：Saifun：非對稱電荷捕捉專利 US5768192A](https://patents.google.com/patent/US5768192A/en)
 - [ch-product-sonos：英飛凌：SONOS 嵌入式快閃 IP 方案](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)
+- [op-pat-nrom-hhi：Saifun：自對準 NROM 寫入與抹除區](https://patents.google.com/patent/US6664588B2/en)
 
 ## NAND：從平面串列到垂直堆疊與多階儲存
 
 串接讓多顆單元分攤接點以提升密度，代價是讀取一顆時必須讓同串其他單元提供通路。平面縮小尺寸、3D 增加層數與多階增加每單元位元數是不同密度軸，各有電荷窗口、製程及可靠度代價。頁面寫入與區塊抹除又使控制器成為可用儲存的重要部分。
+
+#### 電性抹除：PGM 與 ERS 的完整循環
+
+同一儲存單元可寫入、電性抹除及再次寫入，才構成本章的可重複更新操作。ERS 使儲存狀態回到可再次程式化的窗口，不代表所有載子完全消失；主機是否另送抹除命令由巨集或元件介面決定。
+
+PGM → ERS → PGM
+
+多個單元處於不同程式化臨界電壓狀態；欲再利用的區塊仍可能包含需要保留的其他頁面。
+
+依結構提高通道或井區相對字線的電位，形成降低儲存電子的抹除場。US7696559B2 的例子採公共源極線升壓、受選區塊字線 0 V，位元線與選擇相關端點依原例浮接。
+
+區塊單元回到抹除窗口。仍需有效資料的頁面必須由控制器事先保留到其他位置，不能直接以單一位元寫回來取代區塊抹除。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+抹除作用於共用陣列控制定義的區域；引用產品常以扇區或區塊為單位。抹除前保留仍有效的資料，讀取或寫入粒度不能代替抹除粒度。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [ch-pat-nand-vertical：東芝：柱狀半導體層垂直 NAND 專利 US7696559B2](https://patents.google.com/patent/US7696559B2/en)
+- [ch-tech-nand：鎧俠：NAND 快閃記憶體基本原理](https://www.kioxia.com/en-jp/rd/technology/nand-flash.html)
+- [ch-tech-multilevel：鎧俠：利用多階單元提高快閃記憶體容量](https://www.kioxia.com/en-jp/rd/technology/multi-level-cell.html)
+- [ch-tech-retention：鎧俠：管理式快閃壽命可靠度系列之資料保持](https://americas.kioxia.com/content/dam/kioxia/en-us/business/memory/mlc-nand/asset/KIOXIA_NAND_Flash_Data_Retention_Technical_Brief.pdf)
+- [ch-tech-ecc：鎧俠：NAND 錯誤更正碼技術簡介](https://www.kioxia.com/content/dam/kioxia/shared/business/memory/mlc-nand/asset/productbrief/KIOXIA_Understanding_ECC_Tech_Brief.pdf)
+- [ch-tech-deepetch：鎧俠：以新型蝕刻氣體改善記憶孔製程生產力](https://www.kioxia.com/en-jp/rd/technology/topics/topics-62.html)
+- [ch-paper-3dvariation：Y. Luo 等人：3D NAND 早期保持損失與製程變異研究](https://arxiv.org/abs/1807.05140)
+- [ch-paper-readdisturb：Y. Cai 等人：MLC NAND 讀取擾動錯誤研究](https://arxiv.org/abs/1805.03283)
+- [ch-maturity-bics：鎧俠：BiCS FLASH 原理與商用代際](https://www.kioxia.com/en-jp/rd/technology/bics-flash.html)
 
 成熟度：已有商用世代。鎧俠原理解說記錄平面 15 nm 商用化及 BiCS FLASH 的商用代際：48 層在 2015 年、96 層在 2018 年、112 層在 2020 年、162 層在 2022 年。這足以確認 3D NAND 為成熟商用家族，並支持平面縮放與垂直堆疊的歷史比較。
 
@@ -2921,6 +3221,27 @@ NAND 的選擇有三層：區塊決定共用控制範圍，字線決定串中的
 
 Toggle MRAM 把「保持資料」與「改變資料」分別交給磁能障壁及精確磁場時序。控制器先判斷原值與新值是否不同，只有需要時才執行翻轉。它沒有 Flash 必備的區塊抹除流程，但多了讀取、比較及翻轉控制；理解這個流程才能正確比較寫入延遲與能量。
 
+#### 抹除如何對應：直接覆寫磁態，無獨立 ERS
+
+MRAM 透過改寫磁態覆蓋既有資料，不需要 Flash 式先抹除再寫入。清除為全 0 或全 1 是一連串目標狀態寫入；邏輯值與 P／AP 對應依產品定義。
+
+P ⇄ AP
+
+接面為反平行高阻態，控制器要求原先資料。
+
+比較資料後，再施加一次合格的 Toggle 寫入時序。
+
+自由層回到與參考層平行的低阻態。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [EMG-SEC：Everspin 2025 年度產品與製造申報](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+- [EMG-P-TOGGLE：Motorola：Toggle 寫入專利 US6545906B1](https://patents.google.com/patent/US6545906B1/en)
+
 成熟度：已量產。Everspin 2025 年度申報明載 Toggle 產品自 2008 年開始量產，128kb–32Mb 容量仍有出貨。這是具名產品系列的商用證據，並非由專利或實驗元件推測成熟度。
 
 不同介面、容量與等級有個別規格；商用歷史不能替代選定型號的資料表與供貨查核。
@@ -2943,7 +3264,7 @@ Toggle MRAM 把「保持資料」與「改變資料」分別交給磁能障壁�
 
 Toggle 序列執行一次會翻轉原狀態。若目標與原值相同，應跳過翻轉；實際正負邏輯編碼可由產品定義，低阻不必固定代表 0。
 
-#### 回復：再次翻轉至另一狀態
+#### 反向覆寫：不需要獨立物理抹除
 
 操作前：接面為反平行高阻態，控制器要求原先資料。
 
@@ -3010,6 +3331,29 @@ Toggle 序列執行一次會翻轉原狀態。若目標與原值相同，應跳�
 
 STT 讓寫入電流集中在被選中的接面，改善磁場導線的縮放限制，因而成為商用獨立及嵌入式 MRAM 的重要路線。但加大電流可以縮短切換時間，同時增加存取電晶體需求與障壁應力；降低電流又會拉長延遲與錯誤率尾端，不能把速度、壽命與密度分別取最佳值拼成一個產品。
 
+#### 抹除如何對應：直接覆寫磁態，無獨立 ERS
+
+MRAM 透過改寫磁態覆蓋既有資料，不需要 Flash 式先抹除再寫入。清除為全 0 或全 1 是一連串目標狀態寫入；邏輯值與 P／AP 對應依產品定義。
+
+P ⇄ AP
+
+MTJ 處於反平行高阻態。
+
+反轉接面寫入電流方向，施加合格脈衝。
+
+自由層回到平行低阻態。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [EMG-SEC：Everspin 2025 年度產品與製造申報](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+- [EMG-XSPI：Everspin 64Mb 高可靠度 xSPI 生產認證](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
+- [EMG-RA8：Renesas RA8M2／RA8D2 嵌入式 MRAM MCU](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)
+- [EMG-P-STT：IBM：自旋力矩結構專利 US5695864A](https://patents.google.com/patent/US5695864A/en)
+
 成熟度：已量產。Everspin 已出貨 DDR 衍生介面的 STT 產品及 SPI 類產品；2026 年 64Mb 高可靠度 xSPI 另有完成生產認證與可訂購證據。嵌入式實作則須以特定 MCU 或製程文件逐一連結。
 
 介面速度不是接面切換時間；量產容量、車用等級及認證年份不能跨系列合併。
@@ -3032,7 +3376,7 @@ STT 讓寫入電流集中在被選中的接面，改善磁場導線的縮放限�
 
 切換具有機率分布，脈衝幅度與長度要覆蓋製程、溫度及目標錯誤率。教學中的電流箭頭只表示一種堆疊定義，實際方向須依電極與電流慣例確認。
 
-#### 回復：以相反方向直接重寫
+#### 反向覆寫：不需要獨立物理抹除
 
 操作前：MTJ 處於反平行高阻態。
 
@@ -3101,6 +3445,29 @@ MTJ 直徑、障壁厚度、磁異向性與參考層特性會造成阻值及臨�
 
 SOT 試圖用分離的讀寫路徑，同時追求短寫入脈衝與較低障壁應力，因而受到末級快取研究重視。但三端與額外導線會花掉面積，確定性無磁場切換、大陣列良率與製程整合也必須成立。單元的低能量或高循環展示，只完成了其中一部分驗證。
 
+#### 抹除如何對應：直接覆寫磁態，無獨立 ERS
+
+MRAM 透過改寫磁態覆蓋既有資料，不需要 Flash 式先抹除再寫入。清除為全 0 或全 1 是一連串目標狀態寫入；邏輯值與 P／AP 對應依產品定義。
+
+P ⇄ AP
+
+自由層已處於相反磁態。
+
+依元件設計反轉導線電流或施加另一組合格寫入序列。
+
+自由層回復先前磁態，MTJ 電阻對應改變。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [EMG-SOT23：imec 極縮 SOT-MRAM 元件展示](https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually)
+- [EMG-SOT24：imec：SOT-MRAM 功能陣列與快取研究](https://www.imec-int.com/en/articles/bringing-sot-mram-technology-closer-last-level-cache-memory-specifications)
+- [EMG-P-SOT：Spin Memory 可縮放 SOT 元件製程專利](https://patents.google.com/patent/US10930843B2/en)
+- [EMG-TSMC-SOT：台積電 2025 年報：Type-C SOT-MRAM 研究](https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf)
+
 成熟度：研究展示。imec 在 2023–2024 年展示極縮元件與功能陣列；台積電 2025 年報另記錄 IEDM 2025 無外加磁場 Type-C SOT-MRAM。這些是具體元件及陣列研究，尚不足以標成已量產末級快取。
 
 既有 STT-MRAM 的量產與車規資格不能轉移到 SOT；不將本輪未找到商用品寫成全產業不存在。
@@ -3123,7 +3490,7 @@ SOT-MRAM 同樣以 MTJ 的自由層磁化方向保存資料，並以磁阻感測
 
 垂直磁化系統要可靠選定最終方向，通常需額外結構或機制；示意不能默認單靠一條理想導線就能在零外加磁場下確定性寫入。
 
-#### 回復：切換 SOT 寫入方向或序列
+#### 反向覆寫：不需要獨立物理抹除
 
 操作前：自由層已處於相反磁態。
 
@@ -3191,6 +3558,29 @@ SOT 把主要寫入電流移出 MTJ，為什麼巨集面積仍可能比 STT 大�
 ## VCM ReRAM：重排氧離子與導電通道
 
 VCM 的操作重點是控制可逆的局部變化，避免把氧化物推入永久崩潰。SET 常使電阻降低，RESET 使電阻提高；部分堆疊需先以限流形成啟動通道。每次通道重建可能略有不同，因此形成、寫後驗證、循環分布與保存之間的關係，比一條漂亮的典型 I–V 曲線更重要。
+
+#### 抹除如何對應：RESET 後仍可再次 SET
+
+本章以 RESET 說明資料狀態的反向更新：由低阻態回到高阻態，再以 SET 建立低阻態。這是可逆阻態切換，不是 Flash 式區塊抹除；邏輯 0／1 編碼由電路定義。
+
+SET → RESET → SET
+
+元件處於可讀取的低阻態。
+
+以設計規定的反向或不同幅度脈衝，促使通道局部氧化或缺陷重新分布。
+
+導電路徑出現間隙或障壁增加，電阻升高。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [EMG-VCM08：金屬／氧化物／金屬元件的電阻切換機制](https://www.nature.com/articles/nnano.2008.160)
+- [EMG-P-VCM：HP：多層氧化物切換專利 US8331131B2](https://patents.google.com/patent/US8331131B2/en)
+- [EMG-DBH：Weebit／DB HiTek 技術資格與產品導入](https://www.weebit-nano.com/news/press-releases/weebit-nano-signs-largest-customer-to-date-technology-qualified-at-db-hitek/)
+- [EMG-S130：Weebit SkyWater S130 可靠性驗證](https://www.weebit-nano.com/wp-content/uploads/2025/11/251124.-2025-Annual-General-Meeting-%E2%80%93-Chair-Address-and-CEO-Presentation.pdf)
 
 成熟度：完成驗證。Weebit／DB HiTek 130nm BCD RRAM 有技術資格完成的公開證據，SkyWater S130 亦有具名 1T1R 可靠性載具。這些支持電阻記憶體整合成熟度，不能僅由產品名稱反推其完整 VCM 材料剖面。
 
@@ -3283,6 +3673,27 @@ RESET 是局部阻態轉換，不是 Flash 式區塊抹除；極性、熱作用�
 
 SET 時活性金屬氧化成離子，在電場下穿過介質並還原，逐步建立金屬橋；RESET 則使橋的某處溶解。細橋可降低切換能量，但也容易受熱與表面能影響而不穩定。設計必須把快速形成與長期保持放在同一條件下檢查，而非分別挑選最佳實驗。
 
+#### 抹除如何對應：RESET 後仍可再次 SET
+
+本章以 RESET 說明資料狀態的反向更新：由低阻態回到高阻態，再以 SET 建立低阻態。這是可逆阻態切換，不是 Flash 式區塊抹除；邏輯 0／1 編碼由電路定義。
+
+SET → RESET → SET
+
+金屬橋使兩電極間呈低阻態。
+
+本雙極性教學例施加合適反向偏壓，讓局部金屬重新氧化與離子化。
+
+橋的窄處斷開，導電路徑不再連通，元件回到高阻態。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [EMG-ADESTO：Adesto 2019 年度 CBRAM 商用出貨申報](https://www.sec.gov/Archives/edgar/data/1395848/000155837020002795/iots-20191231x10k.htm)
+- [EMG-P-ECM：Axon：可程式化金屬化單元專利 US5761115A](https://patents.google.com/patent/US5761115A/en)
+
 成熟度：歷史商用。Adesto 2019 年度申報的 CBRAM 段落明確記錄商業產品已出貨，因此 ECM／CBRAM 不能一律標為尚未商用。這份證據支持歷史產品成熟度，不足以確認所有後續節點或 2026 年原型號供應。
 
 授權、技術移轉及新的晶圓廠開發計畫，不能由歷史出貨一併升格為已量產。
@@ -3309,7 +3720,7 @@ ECM 用活性金屬離子的移動與氧化還原改變導電路徑；導電橋�
 
 操作前：金屬橋使兩電極間呈低阻態。
 
-刺激：施加合適反向偏壓，讓局部金屬重新氧化與離子化。
+刺激：本雙極性教學例施加合適反向偏壓，讓局部金屬重新氧化與離子化。
 
 操作後：橋的窄處斷開，導電路徑不再連通，元件回到高阻態。
 
@@ -3371,6 +3782,30 @@ RESET 常只溶解橋的局部，介質仍留有金屬與成核點。這些殘�
 ## PCM：用熱歷程控制晶相
 
 RESET 用高峰值短脈衝使局部熔融，再快速冷卻成非晶；SET 則用合適熱歷程讓材料結晶。降低相變體積可減少能量，卻仍需兼顧保持、循環失效及熱串擾。PCM 可以出現在量產 MCU，也能被研究為儲存級記憶體或類比權重；用途不同不會改變其晶相儲存機制。
+
+#### 抹除如何對應：RESET 淬火與 SET 結晶
+
+PCM 的 RESET 以局部熔融與快速淬火建立高阻非晶區；SET 以適當熱歷程促進結晶。兩者靠脈衝熱歷程改寫資料，不能簡化為反轉電壓，也不要求 Flash 式整區抹除。
+
+SET → RESET → SET
+
+元件具有較低電阻的晶態導電路徑。
+
+以高峰值短脈衝局部熔融，再快速降低電流以淬火。
+
+形成阻斷主要路徑的非晶區，電阻升高。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [EMG-STPCM：ST Stellar SR6P6C8 相變記憶體 MCU](https://www.st.com/en/automotive-microcontrollers/sr6p6c8.html)
+- [EMG-P-PCM：相變記憶體多階程式化專利](https://patents.google.com/patent/US5912839A/en)
+- [EMG-PCMDRIFT：IBM：投影式 PCM 電阻的時間演變](https://research.ibm.com/publications/state-dependence-and-temporal-evolution-of-resistance-in-projected-phase-change-memory)
+- [EMG-PCMEND：IBM PCM 循環耐久度與原子遷移](https://research.ibm.com/publications/phase-change-memory-cycling-endurance)
+- [EMG-PCMPROJ：IBM 低漂移投影式 PCM 元件](https://research.ibm.com/publications/design-of-projected-phase-change-memory-mushroom-cells-for-low-resistance-drift)
 
 成熟度：已量產。ST 的 SR6P6C8 產品頁於 2026-09-10 明列量產狀態，產品內容包含 PCM，並列具體訂購碼。這提供嵌入式 PCM 的實際商用例子，避免只用已退場的某一儲存級產品判斷整個技術家族。
 
@@ -3464,6 +3899,27 @@ RESET 需要控制峰值、時間與冷卻速度。它是相變元件的狀態�
 
 寫入以電場方向設定極化；讀取施加激勵後，利用是否翻轉產生的電荷差辨識原值。若讀取改變了極化，電路必須恢復原資料。商用 FeRAM 可把此流程包在介面內，讓使用者看到一般讀取命令，但內部的恢復、掉電條件與時序仍是可靠性的一部分。
 
+#### 抹除如何對應：反向極化與再次寫入
+
+以反向寫入刺激改變鐵電極化，建立另一可讀狀態，再寫回目標狀態。研究中的 ERS／RESET 名稱需對應其極化機制，不代表 Flash 式浮動閘極電荷移除或必然的區塊抹除。
+
+A → B → A
+
+電容保存原先寫入的極化方向。
+
+在同一電容兩端施加反向寫入電場。
+
+極化翻轉，形成另一個可保存狀態。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [EMG-FRAM：Infineon 16Mb EXCELON F-RAM 資料表](https://www.infineon.com/assets/row/public/documents/10/49/infineon-cy15b116qi-cy15v116qi-16mb-excelon-tm-lp-ferroelectric-ram-f-ram-datasheet-en.pdf)
+- [EMG-P-FERAM：Ramtron：自還原鐵電記憶體專利 US4873664A](https://patents.google.com/patent/US4873664A/en)
+
 成熟度：已量產。Infineon EXCELON F-RAM 有具名商用系列與 16Mb CY15B116QI／CY15V116QI 資料表。文件明列介面、工作溫度及不同溫度的保存條件，可以用來討論有條件的產品性能，而不靠單一材料論文推估。
 
 此為電容式商用 F-RAM，不能把其耐久度與保存年限轉移至 HfO₂ FeFET 或 FTJ。
@@ -3486,7 +3942,7 @@ RESET 需要控制峰值、時間與冷卻速度。它是相變元件的狀態�
 
 圖示的正負極化與邏輯 0／1 可自行編碼；真正要驗證的是電壓分配、切換電荷及最差溫度下的寫入成功率。
 
-#### 回復：以反向電場重新極化
+#### 極化覆寫：不需要獨立區塊抹除
 
 操作前：電容保存原先寫入的極化方向。
 
@@ -3553,6 +4009,30 @@ FeRAM 已能在斷電後保留資料，為什麼讀取仍可能需要寫回？
 
 FeFET 把鐵電的保持能力與電晶體電流增益結合，提供非破壞式讀取及密度縮放的研究空間。困難在於寫入電壓要同時跨過鐵電層與介面層，切換極化時也可能生成或充填陷阱。極化穩定、記憶視窗與耐久不是各自獨立最佳化的三項數字。
 
+#### 抹除如何對應：反向極化與再次寫入
+
+以反向寫入刺激改變鐵電極化，建立另一可讀狀態，再寫回目標狀態。研究中的 ERS／RESET 名稱需對應其極化機制，不代表 Flash 式浮動閘極電荷移除或必然的區塊抹除。
+
+A → B → A
+
+元件處於低臨界電壓、讀取時較易導通的狀態。
+
+施加相反方向的閘極脈衝，重新安排極化及相關界面電荷。
+
+臨界電壓提高，在相同讀取閘壓下電流降低。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [EMG-KIOXIA：KIOXIA：FeFET 陷阱與極化穩定性研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-67.html)
+- [EMG-FEPUF：FeFET 循環變異與電荷域 PUF 原始研究](https://www.nature.com/articles/s41467-024-55380-x)
+- [EMG-FMC：FMC 產業新聞與鐵電記憶體分類](https://www.ferroelectric-memory.com/industry-news/)
+- [EMG-P-HFO：分層摻雜 HfO₂ 鐵電薄膜專利](https://patents.google.com/patent/US10153155B2/en)
+- [EMG-P-FEFET：FeFET 閘極堆疊與元件整合專利](https://patents.google.com/patent/US11502083B2/en)
+
 成熟度：研究展示。本次核讀的 KIOXIA IEDM 2023 對應研究明確展示以介面工程控制捕獲電荷與極化穩定；另有 FeFET PUF 原始論文。這些支持具體元件及電路研究，尚不足以為此堆疊指定商用量產型號。
 
 部分廠商的鐵電記憶體量產新聞可能指電容式結構，不能只由公司或材料名稱推定 FeFET 已量產；本輪未找到不代表全產業不存在。
@@ -3575,7 +4055,7 @@ FeFET 利用閘極堆疊的鐵電極化改變通道靜電位勢，使電晶體�
 
 此示意以 n 通道與一種堆疊方向說明；實際高低臨界電壓的極性需依結構確認。脈衝也可能改變陷阱電荷，需分離兩者效應。
 
-#### 回復：設定高臨界電壓狀態
+#### 抹除／反向極化：設定高臨界電壓狀態
 
 操作前：元件處於低臨界電壓、讀取時較易導通的狀態。
 
@@ -3583,7 +4063,7 @@ FeFET 利用閘極堆疊的鐵電極化改變通道靜電位勢，使電晶體�
 
 操作後：臨界電壓提高，在相同讀取閘壓下電流降低。
 
-常見研究稱兩方向操作為程式化與抹除，但其物理是極化重寫，不等於 Flash 以大量電荷穿隧進出浮動閘極的區塊抹除。
+研究常將兩個方向稱為程式化與抹除，但其物理是極化重寫，不同於 Flash 透過電荷移出或中和改變儲存狀態的抹除機制；臨界電壓方向與操作條件依具名堆疊而定。
 
 #### 讀取：在兩個臨界電壓之間感測
 
@@ -3646,6 +4126,27 @@ FeFET 的臨界電壓漂移，為什麼不能全部當成極化變弱？
 
 FTJ 用較大的脈衝反轉極化，再以較小偏壓感測穿隧電流，追求兩端非破壞式儲存及互連層整合。挑戰是障壁要夠薄才能讀到電流，卻又要保有穩定鐵電性並抑制漏電。漂亮的電阻比不代表足夠的絕對讀取電流，更不代表大陣列已具備可靠的選址窗口。
 
+#### 抹除如何對應：反向極化與再次寫入
+
+以反向寫入刺激改變鐵電極化，建立另一可讀狀態，再寫回目標狀態。研究中的 ERS／RESET 名稱需對應其極化機制，不代表 Flash 式浮動閘極電荷移除或必然的區塊抹除。
+
+A → B → A
+
+FTJ 在指定讀取偏壓下呈較高電流。
+
+施加反向寫入脈衝，重新設定鐵電極化。
+
+有效障壁形狀回復另一配置，穿隧電流降低。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
+
+- [EMG-FTJ24：原始研究：原子尺度 BSO 鐵電穿隧接面](https://www.nature.com/articles/s41467-024-44927-7)
+- [EMG-P-FTJ：台積電 FTJ 結構與低溫形成公開案](https://patents.google.com/patent/US20240057343A1/en)
+
 成熟度：研究展示。本次核讀 2024 年 FTJ 原始論文與台積電 FTJ 結構公開專利，支持具體薄膜與可靠性研究。尚未取得能為此結構指定商用量產型號的資料表與供貨證據，因此保持研究展示標籤。
 
 台積電其他 MRAM／RRAM 的量產狀態不會使 FTJ 自動量產；專利公開、核准與製程產品供應是不同事件。
@@ -3668,7 +4169,7 @@ FTJ 以薄鐵電障壁的極化方向控制穿隧電流，兩種方向對應不�
 
 哪一個極化方向對應低阻取決於電極及介面不對稱；教學不應把上下箭頭與高低阻的關係寫成全家族固定規則。
 
-#### 回復：反轉極化形成較高電阻
+#### RESET／反向極化：設定較高阻態
 
 操作前：FTJ 在指定讀取偏壓下呈較高電流。
 
@@ -3676,7 +4177,7 @@ FTJ 以薄鐵電障壁的極化方向控制穿隧電流，兩種方向對應不�
 
 操作後：有效障壁形狀回復另一配置，穿隧電流降低。
 
-此為極化重寫，通常以 SET／RESET 或程式化／抹除描述；名稱不表示存在 Flash 式整區放電抹除。
+此為極化重寫，可稱 SET／RESET 或程式化／抹除；名稱不表示存在 Flash 式區塊抹除，極化與阻態的對應由電極結構定義。
 
 #### 讀取：低偏壓比較穿隧電流
 
@@ -3894,6 +4395,46 @@ FTJ 的高低阻比很大，為什麼仍可能讀得慢？
 
 - [FND-TSMC-CURRENT-NVM：台積電現行嵌入式非揮發性記憶體頁](https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash)
 
+### 2017 · UMC · ReRAM · 40nm
+
+共同開發：與 Panasonic 合作整合 ReRAM，當時預計 2018 年供樣。
+
+限制：供樣與量產當時仍是計畫；180nm 既有量產不可轉寫成 40nm 已量產。
+
+- [RES-PANASONIC-UMC-2017：Panasonic／UMC：40nm ReRAM 合作](https://news.panasonic.com/global/press/en170201-3)
+
+### 2018 · UMC · MRAM · 28nm
+
+共同開發：與 Avalanche 以 28nm CMOS 為起點共同開發 MRAM。
+
+限制：合作公告不能證明當時所有嵌入式巨集已可供應。
+
+- [RES-UMC-MRAM-2018：UMC／Avalanche：MRAM 合作起點](https://www.umc.com/en/News/press_release/Content/technology_related/20180806)
+
+### 2022 · UMC · STT-MRAM／獨立式 P-SRAM · 22nm
+
+具名商品生產供應：Avalanche 第三代 P-SRAM 宣布立即供應。
+
+限制：這是獨立式商品的交付證據，不是 UMC 通用嵌入式巨集的共同規格。
+
+- [RES-UMC-MRAM-2022：UMC／Avalanche：22nm P-SRAM 供應](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)
+
+### 2023 · UMC · RRAM／eMemory IP · 22nm ULP
+
+資格驗證完成：8Mb 加 16Kb RRAM IP 完成認證；平台使用 0.8V／2.5V。
+
+限制：16Mb 車用版與 0.8V／1.8V 版在公告時仍屬開發。
+
+- [RES-UMC-RRAM-2023：UMC／eMemory：22nm RRAM 認證](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)
+
+### 2025 · UMC · RRAM／FlashKit-22RRAM · 22nm ULP
+
+SoC 平台流片驗證：智原公告 RRAM SoC 開發平台完成並經流片驗證。
+
+限制：控制器與處理器整合的驗證不等同具名客戶大量出貨。
+
+- [RES-FARADAY-RRAM-2025：智原：FlashKit-22RRAM 流片驗證](https://www.faraday-tech.com/html/News/pressRelease/CHI_01_0441.jsp)
+
 ## 比較案例
 
 ### Infineon CY15B104QSN，4 Mb EXCELON Ultra F-RAM
@@ -4102,7 +4643,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 
 ## 共同詞彙
 
-- CHI 與 CHEI：CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。YMC 課程模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。
+- CHI 與 CHEI：CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。獨立 CHI／BBHH 教學模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。
 - Fowler–Nordheim（FN）穿隧：足夠強的電場改變介電層能障，使電子能夠穿隧。電子起點、終點及電場方向須分別說明。NeoEE 的雙向更新均採 FN；NeoMTP 的反向更新則讓電子以 FN 朝抹除閘極移動。
 - BBT、BBHH 與 DAHHI：能帶間穿隧（BBT）先在矽內產生電子／電洞對，再由高能電洞跨介電層，構成能帶間熱電洞注入（BBHH）。汲極雪崩熱電洞注入（DAHHI）以雪崩產生載子；同樣有熱電洞入閘極，不代表載子生成機制相同。
 - 直接穿隧與反熔絲讀取：力旺公開的超薄介電層說明指出，寫入造成缺陷、縮短有效穿隧距離，進而提高閘極電流。解讀 NeoFuse 時須保留這個具名機制，不能以理想金屬短路或泛稱陷阱輔助穿隧取代。
@@ -4125,7 +4666,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - 儲存級記憶體（SCM）：用來討論填補 DRAM 與 NAND 儲存之間性能、容量及成本空間的系統定位；不是單一材料或 bitcell 類型。
 - CXL：讓處理器與裝置進行記憶體相關存取的互連協定；可連接揮發性或持久性記憶體，協定名稱本身不保證斷電保存。
 - 獨立式 EEPROM：作為獨立記憶體 IC 交付，透過其外部介面與主晶片交換資料；例如具封裝與 I²C 介面的串列 EEPROM。封裝成品的容量、頁面寫入及時序是系統介面規格，不直接揭露內部多晶矽層數。
-- 嵌入式 MTP IP：整合在 SoC、ASIC 或類比晶片內的可多次更新 NVM 巨集。選型先分 foundry 製程提供的雙層多晶矽 EEPROM 路徑與第三方單層多晶矽 MTP IP 路徑，再核對具名單元、製程、寫抹粒度與可靠度。
+- 嵌入式 MTP IP：MTP 描述可寫入超過一次的能力。本網站的嵌入式 MTP IP 章節聚焦浮動閘極 MTP／EEPROM 巨集，不因此把 MRAM、ReRAM、Flash 或 SONOS 重新歸入此章。各實作仍須核對儲存機制、抹除或覆寫行為、製程、更新粒度與可靠度。
 - 雙層多晶矽 EEPROM：以第一層多晶矽作浮動閘極、第二層多晶矽作控制閘極，兩者以介電層隔離並電容耦合。此處指 NVM 單元堆疊；不可由基礎邏輯製程的層數描述推定選配記憶體模組。
 - 單層多晶矽 MTP：單元以一層多晶矽實現儲存與所需閘極，透過 MOS 電容、井區或其他公開指定端點耦合控制浮動節點。同為單層多晶矽，各家仍可有不同載子、寫抹路徑、選擇器與面積代價。
 - NVM 製程選項：在選定晶圓代工平台上額外採用的記憶體製程模組；是否需要第二層多晶矽、穿隧氧化層或新增光罩，須按該模組核對。邏輯相容與零額外光罩是分別需要證據的整合條件。
@@ -4297,8 +4838,98 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [aeon-transfer-2010：Synopsys：完成收購 Virage Logic](https://news.synopsys.com/home?item=123195)。原廠交易完成公告；2010-09-02；定位：開頭完成收購段；NVM 加入產品組合；限制：支持公司收購與 NVM 產品組合承接；不證明 AEON 各代內部單元相同。
 - [aeon-synopsys-2013：Synopsys：DesignWare AEON MTP ULP 公告](https://news.synopsys.com/2013-11-20-Synopsys-New-Ultra-Low-Power-Non-Volatile-Memory-IP-Cuts-Power-by-90-Percent-and-Size-in-Half)。原廠產品公告；2013-11-20；定位：Highlights、首段與 Availability；限制：明確延續 AEON 品牌並推出 MTP ULP；本課程不引用效能比較數字，也不以品牌推定單元接線。
 - [aeon-synopsys-current：Synopsys：現行 MTP ULP NVM 產品頁](https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/mtp-rfid.html)。原廠現行產品頁；未標示發布日期；查閱 2026-09-10；定位：Overview 與 Highlights；查核日 2026-09-10；限制：公開單層多晶矽、浮動閘極與零額外光罩定位；此頁使用 MTP ULP 名稱，不據此斷言全部現行 MTP 與 2009 AEON 使用相同單元。
-- [op-pat-sonos-fn：賽普拉斯：SONOS ONO 堆疊縮放](https://patents.google.com/patent/WO2014008160A2/en)。公開專利；2014; 2026-09-10 查閱；定位：圖 1–3；全通道穿隧、電子寫入與電洞抹除段落；限制：用於具名 SONOS 穿隧原理；不推定與現行英飛凌巨集具有相同膜層或數值。
+- [RES-UMC-RRAM-2023：UMC／eMemory：22nm RRAM 認證](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)。官方一手資料／作者研究；2023-03-28；查閱 2026-09-10；定位：正文／摘要；限制：資格只涵蓋公告版本，不證明所有客戶出貨。
+- [RES-UMC-MRAM-2018：UMC／Avalanche：MRAM 合作起點](https://www.umc.com/en/News/press_release/Content/technology_related/20180806)。官方一手資料／作者研究；2018-08-06；查閱 2026-09-10；定位：正文／摘要；限制：合作公告不等於嵌入式巨集已量產。
+- [RES-UMC-MRAM-2022：UMC／Avalanche：22nm P-SRAM 供應](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)。官方一手資料／作者研究；2022-09-13；查閱 2026-09-10；定位：正文／摘要；限制：商品規格不可回填為通用嵌入式 IP 規格。
+- [RES-FARADAY-RRAM-2025：智原：FlashKit-22RRAM 流片驗證](https://www.faraday-tech.com/html/News/pressRelease/CHI_01_0441.jsp)。官方一手資料／作者研究；2025-06-10；查閱 2026-09-10；定位：正文／摘要；限制：平台驗證不等於具名客戶大量出貨。
+- [RES-UMC-ENVMPAGE：UMC：現行 eNVM 平台表](https://www.umc.com/en/Product/technologies/Detail/envm)。官方一手資料／作者研究；未標示發布日期；查閱 2026-09-10；定位：正文／摘要；限制：無發布日期；不能由 SRAM 面積欄推得 RRAM 單元面積。
+- [RES-UMC-INFINEON-2023：UMC／Infineon：40nm 車用 MCU 合作](https://www.umc.com/en/News/press_release/Content/technology_related/20230307)。官方一手資料／作者研究；2023-03-07；查閱 2026-09-10；定位：正文／摘要；限制：公告未指定 RRAM 或 MRAM；材料不公開。
+- [RES-PANASONIC-UMC-2017：Panasonic／UMC：40nm ReRAM 合作](https://news.panasonic.com/global/press/en170201-3)。官方一手資料／作者研究；2017-02-01；查閱 2026-09-10；定位：正文／摘要；限制：未來計畫不能單憑公告改列完成。
+- [RES-PANASONIC-SSDM-2018：Panasonic：40nm ReRAM 可靠度與機制](https://confit.atlas.jp/guide/event-img/ssdm2018/B-1-01/public/pdf_archive?type=in)。官方一手資料／作者研究；2018；查閱 2026-09-10；定位：SSDM 2018，第 91–92 頁，§2；限制：100k 循環與 10k 循環後保持是不同條件；不得合成規格。
+- [RES-FUJITSU-RERAM-2019：Fujitsu／Panasonic：8Mbit ReRAM 商品](https://info.archives.global.fujitsu/tw/about/resources/news/press-releases/2019/fep-0812.html)。官方一手資料／作者研究；2019-08-12；查閱 2026-09-10；定位：正文／摘要；限制：此公告未揭露製程節點與代工廠。
+- [RES-IBM-14NM-2020：IBM：14nm CMOS 嵌入式 STT-MRAM](https://research.ibm.com/publications/a-14-nm-embedded-stt-mram-cmos-technology)。官方一手資料／作者研究；2020-12-12；查閱 2026-09-10；定位：正文／摘要；限制：研究整合實證，不是公開 PDK 或量產代工公告。
+- [RES-IBM-11NM-2017：IBM：11nm MTJ 低電流研究](https://research.ibm.com/publications/low-current-spin-transfer-torque-mram--1)。官方一手資料／作者研究；2017-06-05；查閱 2026-09-10；定位：正文／摘要；限制：11nm 是 MTJ 尺寸，並非 CMOS 節點。
+- [RES-IBM-ALLOY-2024：IBM：有序合金自由層研究](https://research.ibm.com/publications/first-demonstration-of-high-retention-energy-barriers-and-2-ns-switching-using-magnetic-ordered-alloy-based-stt-mram-devices)。官方一手資料／作者研究；2024-06-16；查閱 2026-09-10；定位：正文／摘要；限制：未給節點、陣列容量或量產資格；能障不是全條件保持保證。
+- [RES-IBM-REVIEW-2024：IBM 作者：STT-MRAM 現況與方向](https://research.ibm.com/publications/spin-transfer-torque-magnetoresistive-random-access-memory-technology-status-and-future-directions)。官方一手資料／作者研究；2024-11-06；查閱 2026-09-10；定位：正文／摘要；限制：綜述中的商用技術類別不等於 IBM 自身供貨。
+- [RES-ITRI-SOT-2022：工研院：SOT 與低溫 STT 合作成果](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=111061510283488782&MmmID=1036276263153520257&SiteID=1)。官方一手資料／作者研究；2022-06-15；查閱 2026-09-10；定位：正文／摘要；限制：新聞未提供完整誤碼率、節點及保持溫度。
+- [RES-ITRI-CIM-2024：工研院／台積電：IEDM 2023 SOT-CIM](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=113011710184808020&MmmID=1036276263153520257&SiteID=1)。官方一手資料／作者研究；2024-01-17；查閱 2026-09-10；定位：正文／摘要；限制：未揭露完整比較負載，不能推廣成 SOT 普遍節能百倍。
+- [RES-SOT-BETAW-2025：跨機構研究：β-W 64kb SOT-MRAM](https://www.nature.com/articles/s41928-025-01434-x)。官方一手資料／作者研究；2025-09-02；查閱 2026-09-10；定位：正文／摘要；限制：僅核讀公開摘要與作者資訊；熱處理不是使用溫度，未據此宣稱量產。
+- [RES-ITRI-SERVICE：工研院：8 吋 MRAM 研發服務](https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=01_content&MGID=1126511563713777471&MmmID=1071732317047353240&SiteID=1)。官方一手資料／作者研究；未標示發布日期；查閱 2026-09-10；定位：正文／摘要；限制：8 吋是晶圓尺寸，不是節點；服務不等於大量量產。
+- [RES-ITRI-RRAM：工研院：1S1R 三維 RRAM 技轉](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=13_content&MmmID=1036233405427625204&SiteID=1&Trt_idx=4557)。官方一手資料／作者研究；未標示發布日期；查閱 2026-09-10；定位：正文／摘要；限制：無日期且未證實當前量產；不可用此舊頁描述整個 ReRAM 市場現況。
+- [everspin-toggle：Everspin Toggle MRAM · Toggle MRAM](https://www.everspin.com/persyst?page=2)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：此組數值僅屬MR3A16ACYS35；其他料號的速度、溫度及車規不能混用。舊MR4A16B資料表無法取得，故不引用其逾20年保存值。
+- [everspin-1gb-ddr：Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)。官方一手資料；2026-03-04；查閱 2026-09-10；定位：產品、技術或公告正文；限制：DDR4-like不代表所有DDR4控制器可直接替換；不得套用Toggle或xSPI的保存年限、耐寫及車規。舊family網址已404。
+- [everspin-xspi：Everspin EMxxLX xSPI · STT-MRAM / xSPI](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)。官方一手資料；2026-03-05；查閱 2026-09-10；定位：產品、技術或公告正文；限制：128Mb與256Mb時程是2026-03-05當時的預測，本輪未核實後續完成。HR系列認證不可套用其他EMxxLX版本；此公告未給吞吐量或保存年限。
+- [avalanche-umc22：Avalanche Technology / UMC · pMTJ STT-MRAM](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)。官方一手資料；2022-09-13；查閱 2026-09-10；定位：產品、技術或公告正文；限制：這是獨立式商品，不代表UMC通用嵌入式巨集具有相同規格；保存期是廠商可靠度規格。
+- [avalanche-scaling2026：Avalanche Technology · STT-MRAM](https://www.avalanche-technology.com/avalanche-technology-phase-one-magnetic-cell-scaling-space-grade-mram-us-government/)。官方一手資料；2026-03-02；查閱 2026-09-10；定位：產品、技術或公告正文；限制：頁面標2026-03-02、內文日期卻為2025-03-02；16倍密度是後續縮放目標，不能視為已出貨產品。
+- [samsung-emram：Samsung Foundry · STT-MRAM / eMRAM](https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：平台相容或擴展不等於每節點均有具名客戶大量出貨；不得將2023年的2026／2027時程直接當完成證據。
+- [intel-22ffl-research：Intel · STT-MRAM](https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf)。官方一手資料；2018-12-04；查閱 2026-09-10；定位：產品、技術或公告正文；限制：本輪未找到更新且可核的Intel MRAM商用品項或量產公告；不得從論文或Intel16名稱推論現行MRAM供應。
+- [tsmc-16mram2025：TSMC · eMRAM / STT route](https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report.E.pdf)。官方一手資料；2025；查閱 2026-09-10；定位：產品、技術或公告正文；限制：認證不等同具名MCU大量出貨；SOT研究另列，不能與量產平台混稱。
+- [tsmc-sot2025：TSMC SOT-MRAM · SOT-MRAM](https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report.E.pdf)。官方一手資料；2025-12；查閱 2026-09-10；定位：產品、技術或公告正文；限制：論文展示不是商用製程或SRAM替代品供貨；不可套用16nm車規MRAM成熟度。
+- [gf-22fdx：GlobalFoundries · STT-MRAM / 22FDX](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)。官方一手資料；2020-02-27；查閱 2026-09-10；定位：產品、技術或公告正文；限制：當時Grade 1為未來目標，不能由2020公告宣稱完成；GF現行FDX頁仍列MRAM，節點與客戶資格須另查。
+- [renesas-ra8-2025：Renesas RA8M2 / RA8D2 · Embedded MRAM](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)。官方一手資料；2025-10-22；查閱 2026-09-10；定位：產品、技術或公告正文；限制：CPU時脈不等於MRAM原生讀取速度；2024年22nm試驗巨集的數字不能直接轉寫成RA8商品規格。
+- [st-pcm-boundary：STMicroelectronics · PCM, not established MRAM offering](https://newsroom.st.com/media-center/press-item.html/p4733.html)。官方一手資料；2025-11-18；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不能因Samsung合作或先進eNVM而標為MRAM；若要列ST的MRAM研發，需另外取得直接來源。
+- [nxp-s32k5：NXP S32K5 · Embedded MRAM](https://www.nxp.com/assets/block-diagram/en/S32K5.pdf)。官方一手資料；2025-10-30；查閱 2026-09-10；定位：產品、技術或公告正文；限制：15倍快寫為廠商與嵌入式Flash比較，不能當絕對延遲；不得以產品發表直接標量產。
+- [netsol-stt：NETSOL · STT-MRAM](https://netsol.co.kr/wp-content/uploads/2024/03/S3RxxxxR1M_rev1.1.pdf)。官方一手資料；2024-03；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不將其他系列或媒體報導的更大密度、製程節點套入此資料表；大量出貨數未公開。
+- [tdk-headway：TDK / Headway · STT-MRAM](https://www.tdk.com/system/files/tdk_investor_day_20250901_en.pdf)。官方一手資料；2025-09-01；查閱 2026-09-10；定位：產品、技術或公告正文；限制：磁頭量產與MTJ能力不等同獨立式MRAM量產；本輪未核得可購MRAM料號、PDK或指定代工供應承諾。
+- [numem-aime：Numem · Foundry-based STT-MRAM](https://numem.com/news)。官方一手資料；2025-06-10；查閱 2026-09-10；定位：產品、技術或公告正文；限制：節能與SRAM級效能是廠商主張，缺少統一條件的獨立對測；不等於自有新磁性材料或具名客戶大量出貨。
+- [imec-sot：imec · SOT-MRAM](https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually)。官方一手資料；2023-12-13；查閱 2026-09-10；定位：產品、技術或公告正文；限制：單元能量不含完整巨集週邊、匯流排與系統功耗；50nm是元件關鍵尺寸，不能直接稱50nm CMOS節點。
+- [RRAM-WEEBIT-2026：Weebit Nano · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)。官方一手資料；2026-07-31；查閱 2026-09-10；定位：產品、技術或公告正文；限制：首款客戶產品量產仍是後續里程碑。
+- [RRAM-ONSEMI-2026：onsemi · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)。官方一手資料；2026-07-31；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不得由授權或技轉推論成品量產。
+- [RRAM-TI-2026：Texas Instruments · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)。官方一手資料；2026-07-31；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不可將 TI 已商用 FRAM 與此 ReRAM 導入混為一談。
+- [RRAM-SKYWATER-S130：SkyWater／Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：IP 已驗證不等於每款客戶晶片皆完成車規或量產；規格依模組。
+- [RRAM-DBHITEK-130：DB HiTek／Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：100K 次屬可延伸選項；不能把基礎 BCD 量產量當成 ReRAM 客戶產品出貨。
+- [RRAM-TSMC-IOT：TSMC · ReRAM](https://www.tsmc.com/english/dedicatedFoundry/technology/platform_IoT_tech_NVM)。官方一手資料；2024；查閱 2026-09-10；定位：產品、技術或公告正文；限制：12RRAM 風險試產不是全產品量產或車規資格。
+- [RRAM-INFINEON-TC4X：Infineon／TSMC · ReRAM](https://www.infineon.com/technology-news/2022/infatv202211-031)。官方一手資料；2022-11-25；查閱 2026-09-10；定位：產品、技術或公告正文；限制：這份公告不證明所有 TC4x 型號均採 RRAM 或已完成量產；須查型號文件。
+- [CBRAM-GF-RENESAS：GlobalFoundries／Renesas／Dialog · CBRAM](https://gf.com/news-and-events/news/globalfoundries-acquires-renesas-non-volatile-resistive-ram-technology-to-proliferate-iot-and-5g-applications/)。官方一手資料；2023-02-09；查閱 2026-09-10；定位：產品、技術或公告正文；限制：既有 CBRAM 量產實績不等於 22FDX 已量產；不可誤記為 Infineon 收購。
+- [RRAM-NUVOTON-M2L31：Nuvoton · ReRAM](https://www.nuvoton.com/products/microcontrollers/arm-cortex-m23-mcus/m2l31-series/index.html)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：72 MHz 是 MCU 時脈，不是單元寫入延遲；須依確切型號確認容量與可靠度。
+- [RRAM-PANASONIC-UMC：Panasonic／UMC · ReRAM](https://news.panasonic.com/global/press/en170201-3)。官方一手資料；2017-02-01；查閱 2026-09-10；定位：產品、技術或公告正文；限制：共同開發目標不是 2026 年供貨證明，也不能自行推定現行 Nuvoton 型號均由此製程製造。
+- [RRAM-RAMXEED-PRODUCT：RAMXEED · ReRAM](https://www.ramxeed.com/products/reram/reram-products.html)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不能把 8 Mbit 的量產狀態或耐受度套用至 12 Mbit 型號。
+- [RRAM-CROSSBAR-DARIC：CrossBar · ReRAM](https://crossbar-inc.com/blogs/all/overview-of-crossbar-hardware-reram-and-chip)。官方一手資料；2026-05-06；查閱 2026-09-10；定位：產品、技術或公告正文；限制：文章不能代替完整供貨資格或獨立安全認證；避免採用普遍免疫攻擊、免疫輻射等絕對宣稱。
+- [XPOINT-MICRON-EXIT：Micron · 3D XPoint](https://investors.micron.com/news/press-release/2021/Micron-Updates-Data-Center-Portfolio-Strategy-to-Address-Growing-Opportunity-for-Memory-and-Storage-Hierarchy-Innovation-03-16-2021/default.aspx)。官方一手資料；2021-03-16；查閱 2026-09-10；定位：產品、技術或公告正文；限制：停止該產品路線不表示所有 PCM 研究終止；CXL 是互連介面，不是新的記憶單元機制。
+- [XPOINT-INTEL-EXIT：Intel · 3D XPoint](https://www.intc.com/filings-reports/all-sec-filings/content/0000050863-23-000006/intc-20221231.htm)。官方一手資料；2022；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不能將歷史產品頁或存貨銷售視為持續開發；也不能據此推論其他廠商 PCM 退出。
+- [PCM-ST-P3E：STMicroelectronics · PCM](https://www.st.com/content/st_com/en/campaigns/stellar-p3e-automotive-mcu-with-npu-accelerator-and-xmemory.html)。官方一手資料；2026；查閱 2026-09-10；定位：產品、技術或公告正文；限制：已到排定季度不等於已完成資格；P3E 時程不能套用到所有 Stellar 型號。
+- [PCM-IBM-AIMC：IBM Research · PCM](https://research.ibm.com/publications/deep-neural-network-inference-with-a-64-core-in-memory-compute-chip-based-on-phase-change-memory)。官方一手資料；2023-09-17；查閱 2026-09-10；定位：產品、技術或公告正文；限制：類比權重運算結果不等於可採購通用 PCM 記憶體或完整 AI 系統效能保證。
+- [FERAM-TI-MSP430：Texas Instruments · FeRAM](https://www.ti.com/tool/TIDM-FRAM-EEPROM)。官方一手資料；2016-12-20；查閱 2026-09-10；定位：產品、技術或公告正文；限制：FRAM 是儲存技術；EEPROM 模擬是介面功能，不代表浮動閘或 FeFET 結構。
+- [FERAM-RAMXEED：RAMXEED · FeRAM](https://www.ramxeed.com/faq/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不同型號的循環數、介面、溫度不可混用；FeRAM 不是所有鐵電 FeFET／FTJ 的同義詞。
+- [FERAM-INFINEON：Infineon · FeRAM](https://www.infineon.com/products/memories/f-ram-ferroelectric-ram)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：最高數字不適用全部型號；不能據此認定採 HfO₂ FeFET 或 FTJ。
+- [FERAM-GF-IPMS-2026：GlobalFoundries／Fraunhofer IPMS · FeRAM](https://www.ipms.fraunhofer.de/en/press-media/press/2026/Ferroelectric-memory-storage.html)。官方一手資料；2026-06-11；查閱 2026-09-10；定位：產品、技術或公告正文；限制：公告未列可採購料號、完整資格報告或出貨量；不宜改寫成全面商用供應。
+- [FERRO-NAMLAB-2025：NaMLab · FeFET／FTJ](https://www.namlab.com/publications/)。官方一手資料；2025；查閱 2026-09-10；定位：產品、技術或公告正文；限制：論文名單證明研究參與，不是晶圓代工、PDK 開放或量產證據。
+- [FERRO-FMC：FMC · 鐵電記憶體](https://www.ferroelectric-memory.com/technology/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：現行技術頁描述鐵電電容，未證明 DRAM+ 或 CACHE+ 採 FeFET／FTJ；未核實產品資格與出貨規模。
+- [FERRO-IMEC-NDREAD：imec · FeRAM／FeCAP](https://www.imec-int.com/en/articles/non-destructive-readout-mechanism-ferroelectric-capacitors)。官方一手資料；2023；查閱 2026-09-10；定位：產品、技術或公告正文；限制：讀取耐受度不是寫入耐受度；不能套到一般破壞性讀取 FeRAM 或宣稱已量產。
+- [RRAM-CEA-LETI：CEA-Leti／Weebit Nano · ReRAM](https://www.cea.fr/cea-tech/leti/english/Pages/What's-On/Press%20release/Weebit-Nano-and-CEA-Leti-to-demonstrate-brain-inspired-neuromorphic-demo-.aspx)。官方一手資料；2019-07-18；查閱 2026-09-10；定位：產品、技術或公告正文；限制：研究展示不代表可採購完整 AI 加速器；須另查製程移轉與產品資格。
+- [industry-infineon-sonos：Infineon／Cypress · SONOS eFlash](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：Cypress 歷史與現行 Infineon 巨集分開；不合併全家族最佳規格。
+- [industry-sst-superflash：SST／Microchip · SuperFlash NOR／eFlash](https://www.sst.com/services/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：技術授權不等於每個列示節點目前均有相同資格；原理按世代核對。
+- [industry-st-estm：STMicroelectronics · eSTM eFlash／Page EEPROM](https://www.st.com/content/st_com/en/about/innovation-and-technology/estm.html)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：與 Stellar PCM 分列；不把一種 NVM 單元指定為所有 ST MCU 的結構。
+- [industry-renesas-sgmonos：Renesas · SG-MONOS eFlash](https://www.renesas.com/en/about/press-room/renesas-electronics-announces-world-s-first-development-fin-shaped-monos-flash-memory-cells-high)。官方一手資料；2016-12-07；查閱 2026-09-10；定位：產品、技術或公告正文；限制：這份公告不證明 16／14 nm 已量產；現行料號與機制須另查。
+- [industry-xfab-xt011：X-FAB · XT011 eFlash／EEPROM](https://www.xfab.com/news/details/article/x-fab-releases-embedded-flash-solution-on-its-110nm-automotive-bcd-on-soi-technology)。官方一手資料；2024-12-03；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不取代站內 2003 XC06 歷史例；兩代不能共用未經證明的單元結構。
+- [industry-floadia-zt：Floadia · LEE Flash ZT MTP](https://floadia.com/product/lee-flash-zt/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：概述與平台範例的循環數不同，不合成通用耐久或推定多晶矽層數。
+- [industry-samsung-vnand9：Samsung · 第九代 TLC V-NAND](https://news.samsung.com/global/samsung-electronics-begins-industrys-first-mass-production-of-9th-gen-v-nand)。官方一手資料；2024-04-23；查閱 2026-09-10；定位：產品、技術或公告正文；限制：只證明此世代與 TLC；不將後續展示或當時預期 QLC 視為本公告已量產。
+- [industry-skhynix-321tlc：SK hynix · 321 層 TLC 4D NAND](https://news.skhynix.com/en/sk-hynix-starts-mass-production-of-world-first-321-high-nand/)。官方一手資料；2024-11-21；查閱 2026-09-10；定位：產品、技術或公告正文；限制：量產與客戶供貨時程分開；不把此單元指定為所有 Solidigm SSD 的媒體。
+- [industry-solidigm-p5336：Solidigm · D5-P5336 QLC SSD](https://www.solidigm.com/products/data-center/d5/p5336.html)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：SSD 容量、韌體與系統指標不是裸晶規格；不以集團關係推定所有產品使用同一 NAND。
+- [industry-micron-g9：Micron · G9 TLC NAND](https://investors.micron.com/news/press-release/2024/Micron-Announces-Volume-Production-of-Ninth-Generation-NAND-Flash-Technology-07-30-2024/default.aspx)。官方一手資料；2024-07-30；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不將 TLC 的證據移至全部 QLC 或 NOR；介面速度不等於單元寫入速度。
+- [industry-kioxia-sandisk-gen10：Kioxia／Sandisk · 第十代 BiCS 3D NAND](https://www.kioxia.com/en-jp/about/news/2026/20260703-2.html)。官方一手資料；2026-07-03；查閱 2026-09-10；定位：產品、技術或公告正文；限制：開始生產不等於所有容量與客戶產品已全面出貨；合作製造不代表兩家成品完全相同。
+- [industry-ymtc-xtacking：YMTC · Xtacking 3D NAND](https://www.ymtc.com/en/technicalintroduction.html)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：獎項及架構頁不單獨證明每款產品量產、層數或供貨量；不得用推測補完。
+- [industry-macronix-nor：Macronix · Serial NOR／OctaBus](https://www.macronix.com/en-us/products/NOR-Flash/Serial-NOR-Flash/Pages/default.aspx)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：此來源直接支持 NOR；NAND 型號及可靠度須另查，不從介面推定單元剖面。
+- [industry-winbond-w25q：Winbond · W25Q16JW Serial NOR](https://www.winbond.com/hq/new-online-purchasing-guide/?__locale=en&pLine=/product/code-storage-flash/qspi-nor/&pNo=W25Q16JW)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不以目錄存在保證庫存；NAND 家族與其他容量的狀態須逐項核對。
+- [industry-gigadevice-flash：GigaDevice · GD25／GD55 NOR；GD5F NAND](https://www.gigadevice.com/product/flash)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：產品、技術或公告正文；限制：家族範圍不能代替特定料號量產狀態、溫度、耐久與保持規格。
+- [everspin-ddr-technology：1Gb DDR4-like持續性DRAM定位。](https://www.everspin.com/stt-mram-technology)。官方補充來源；未標示發布日期；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
+- [gf-current-fdx：現行平台仍列MRAM。](https://gf.com/technologies/cmos/fdx-fd-soi/)。官方補充來源；未標示發布日期；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
+- [headway-author-research：Headway作者嵌入式STT-MRAM技術簡報；不得當商用供應證明。](https://www.cea.fr/cea-tech/leti/Documents/%C3%A9v%C3%A9nements/Prez%20workshop%20memory%202017/2.2.pdf)。官方補充來源；2017；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
+- [numem-current：當前網站明列foundry-based STT-MRAM與AIME。](https://www.numem.com/)。官方補充來源；未標示發布日期；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
+- [nxp-launch：S32K5發表與比較主張。](https://www.nxp.com/company/about-nxp/newsroom/NW-NEW-S32K5-MICROCONTROLLER)。官方補充來源；2025-03-11；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
+- [samsung-history：歷史節點時程應與現行特殊製程頁分開。](https://semiconductor.samsung.com/news-events/tech-blog/developing-the-industrys-most-energy-efficient-next-generation-mram-selected-as-iedm-highlight-paper/)。官方補充來源；2023；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
+- [everspin-persyst-catalog：現行官方目錄；MR3A16ACYS35列為MP、8Mb、x16、35ns、3.3V及−40～85°C。](https://www.everspin.com/persyst?page=2)。官方補充來源；未標示發布日期；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
+- [everspin-2025-10k：官方年度申報確認1Gb STT-MRAM持續出貨；申報日期亦由2026-03-05官方新聞稿明載。](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)。官方補充來源；2026-03-04；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
+- [everspin-hr-xspi-20260305：官方原始公告；HR 64Mb認證完成可訂購，HR 128／256Mb認證與供貨時程仍為預測。](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)。官方補充來源；2026-03-05；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
+- [RES-IBM-DSMTJ-2025：IBM：快取用雙自旋力矩 MTJ](https://research.ibm.com/publications/progress-and-gaps-in-double-spin-torque-mtjs-for-last-level-cache-applications)。官方一手資料；2025-12-06；查閱 2026-09-10；定位：公開摘要／正文；限制：研究陣列實證；未證明量產良率或已出貨快取產品。
+- [RES-EVERSPIN-TELEDYNE-2026：Everspin／Teledyne HiRel 合作](https://investor.everspin.com/news-releases/news-release-details/everspin-technologies-and-teledyne-hirel-semiconductors-partner)。官方一手資料；2026-09-02；查閱 2026-09-10；定位：公開摘要／正文；限制：合作供應計畫不能反推所有 HR 料號均已完成認證。
+- [RES-SONY-MICRON-2014：Micron／Sony：銅 ReRAM 研究](https://investors.micron.com/static-files/7ac25c4b-edd0-4482-97ad-267a7263bcf0)。官方一手資料；2014-06-05；查閱 2026-09-10；定位：公開摘要／正文；限制：歷史研發證據，不是現行供應、Sony 感測器導入或量產規模證明。
+- [MRAM-KIOXIA-SKHYNIX-64GB-2025：Kioxia／SK hynix · 64 Gbit 1Selector–1MTJ Cross-Point MRAM](https://www.kioxia.com/en-jp/rd/technology/topics/topics-80.html)。官方一手資料；2025-04-15；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：屬研究陣列，未證明商品供貨；20 nm 是 MTJ 直徑而非 CMOS 製程節點，典型位元測試不能代替全陣列良率。
+- [RRAM-TETRAMEM-MLX200-2026：TetraMem · MLX200 Multi-Level RRAM Analog IMC](https://tetramem.com/tetramem-completes-mlx200-silicon-validation/)。官方一手資料；2026-05-19；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：評估套件在公告時預計於 2026 年下半年推出；初步驗證不等於量產或已交付，運算用途不能直接套用一般儲存規格。
+- [RRAM-INTRINSIC-SURECORE：Intrinsic／sureCore · SiOx RRAM](https://www.intrinsicsemi.com/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：合作公告不足以證明具名製程巨集已通過認證或量產；官網未提供可據此認定現行供貨的完整料號與資料表。
+- [NRAM-NANTERO-FUJITSU-2016：Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)。官方一手資料；2016-08-31；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：此為歷史開發證據，不能視為 2026 年量產、供貨或計畫終止的證明；NRAM 應與氧化物 RRAM 分開分類。
 - [op-pat-nrom-hhi：Saifun：自對準 NROM 寫入與抹除區](https://patents.google.com/patent/US6664588B2/en)。公開專利；2003; 2026-09-10 查閱；定位：圖 4、8A、9、10–11；能帶間穿隧產生電洞及局部熱電洞注入；限制：本案的口袋植入與局部電洞路徑；不把 US5768192A 當成此抹除路徑的來源。
+- [op-pat-sonos-fn：賽普拉斯：SONOS ONO 堆疊縮放](https://patents.google.com/patent/WO2014008160A2/en)。公開專利；2014; 2026-09-10 查閱；定位：圖 1–3；全通道穿隧、電子寫入與電洞抹除段落；限制：用於具名 SONOS 穿隧原理；不推定與現行英飛凌巨集具有相同膜層或數值。
 - [op-nand-hole-erase：鎧俠：蕭特基源極接點與電洞供應研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html)。原廠研究；2025-09-18; 2026-09-10 查閱；定位：圖 1、4；N+ 矽源極的 GIDL 電洞供應及蕭特基接點替代研究；限制：只支持載子供應方向與具名研究；本圖採傳統 GIDL 分支，未把蕭特基源極併入同一結構。
 - [op-pat-nand-gidl：SanDisk：GIDL 輔助 3D NAND 抹除](https://patents.google.com/patent/US10923196B1/en)。公開專利；2021; 2026-09-10 查閱；定位：圖 8 及 GIDL 抹除段；端點與選擇閘的電位差、電洞供應與捕捉層中和；限制：此變體須用自己的 BL／SL 與選擇閘偏壓；不得混入 US7696559B2 的浮接端點抹除條件。
 - [op-stt-katine-2000：Katine 等：Co/Cu/Co 電流驅動磁化反轉](https://arxiv.org/abs/cond-mat/9908231)。原始研究論文；2000；定位：摘要：薄層至厚層的電子流對應 AP，反向電子流對應 P；限制：只用於說明電流與電子流的符號慣例；不是 MgO MTJ 產品數據。
@@ -4841,7 +5472,7 @@ US5844271A 的圖 4、5 兩個剖切方向以同一 FG 導體連結，控制端�
 
 - [ch-pat-eeprom-singlepoly：賽普拉斯：埋入式控制閘極單層多晶矽 EEPROM 專利 US5844271A](https://patents.google.com/patent/US5844271A/en)
 
-### mtp · 抹除：依指定出口移出浮動節點電子
+### mtp · ERS 抹除：恢復可再次寫入的狀態
 
 #### 雙層多晶矽 EEPROM：局部窗口原理
 
@@ -5811,3 +6442,1205 @@ Ag 活性電極氧化釋出 Ag+；離子遷移至陰極還原成核，金屬橋�
 本文件是公開申請文本。權利項 1 結合第一電極、鐵電材料與接觸它的催化金屬；權利項 2–3 才加入特定電負度與厚度限制。完整五層圖含實施例細節，不能全部當成獨立項必要條件。
 
 對照 FTJ 的極化翻轉與能障變化，並將此堆疊和其他電極／鐵電材料的研究器件分開。
+
+
+## 主要產研路線深度比較
+
+從可採購的記憶體、可整合的 IP 與製程，到仍在驗證的材料與陣列，逐一追蹤具名實作。工程比較先對齊機制、測量層級與成熟度，再討論應用價值。
+
+### 同一技術名稱，不代表相同交付能力
+
+RRAM 的導電絲、STT 的隧穿寫入與 SOT 的分離路徑，對製程、耐久與週邊電路提出不同要求。供應商商品、代工平台與研究論文各回答不同問題；比較時保留原本的測試條件與成果歸屬。
+
+### Everspin · Toggle、DDR STT 與 xSPI 的三條產品線
+
+獨立式 MRAM 產品供應商
+
+Everspin 是 MRAM 商用比較不可缺少的核心案例。三條產品線的寫入物理、介面、保持與認證條件各不相同，必須以完整料號與文件版本比較。
+
+商用產品；各密度與可靠度版本分開認證：DDR4-like 不等於任意 DDR4 直接替換；HR 64Mb 認證不能外推全家族。
+
+獨立式 Toggle MRAM、1Gb STT 持續性記憶體與 EMxxLX xSPI。
+
+Toggle 以選定線路產生磁場切換磁化；STT 以穿過 MTJ 的自旋極化電流切換自由層。
+
+兩種路線皆可更新另一磁態，不必先做 Flash 區塊抹除。晶片的命令、資料粒度與時序仍需依各介面。
+
+以 MTJ 阻態感測資料；系統延遲還包含非同步匯流排、DDR 或 xSPI 交易，不能只用單元切換脈衝代替。
+
+- [everspin-toggle：Everspin Toggle MRAM · Toggle MRAM](https://www.everspin.com/persyst?page=2)
+- [everspin-ddr-technology：1Gb DDR4-like持續性DRAM定位。](https://www.everspin.com/stt-mram-technology)
+- [EMG-P-TOGGLE：Motorola：Toggle 寫入專利 US6545906B1](https://patents.google.com/patent/US6545906B1/en)
+
+#### Toggle：成熟介面與明確料號
+
+現行 PERSYST 目錄將 MR3A16ACYS35 標為量產，列 8Mb、x16 非同步介面、35ns、3.3V 與 −40～85°C。這是具名料號條件；不能把它當成所有 MRAM 的密度、速度或保持規格。
+
+- [everspin-toggle：Everspin Toggle MRAM · Toggle MRAM](https://www.everspin.com/persyst?page=2)
+
+#### 1Gb STT：面向企業儲存的持續性緩衝
+
+2025 年度申報確認 1Gb STT-MRAM 持續出貨，官方技術頁將其定位為類 DDR4 介面的持續性 DRAM。其保持條件與控制器需求必須由對應資料表確認，不可套用 Toggle 或 xSPI 的長期保存數字。
+
+- [everspin-1gb-ddr：Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+- [everspin-ddr-technology：1Gb DDR4-like持續性DRAM定位。](https://www.everspin.com/stt-mram-technology)
+
+#### xSPI：把密度供應與 HR 認證分開
+
+2026-03-05 官方公告確認 HR 64Mb 完成 AEC-Q100 Grade 1 量產認證並可訂購。HR 128Mb／256Mb 時程是當時規畫；本次核讀的一手文字尚未確認後續完成狀態，不能據此斷言目前仍未完成。9 月 2 日 Teledyne 合作從 256Mb 開始，預計 Q4 向合作通路客戶供應。
+
+- [everspin-xspi：Everspin EMxxLX xSPI · STT-MRAM / xSPI](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
+- [RES-EVERSPIN-TELEDYNE-2026：Everspin／Teledyne HiRel 合作](https://investor.everspin.com/news-releases/news-release-details/everspin-technologies-and-teledyne-hirel-semiconductors-partner)
+
+- **8Mb／35ns**：MR3A16ACYS35 的容量與非同步週期條件。 不是 1Gb DDR 或 EMxxLX 的規格。
+
+- [everspin-toggle：Everspin Toggle MRAM · Toggle MRAM](https://www.everspin.com/persyst?page=2)
+
+- **HR 64Mb／Grade 1**：2026-03-05 已完成認證並可訂購。 其他容量或版本不可自動沿用此認證。
+
+- [everspin-xspi：Everspin EMxxLX xSPI · STT-MRAM / xSPI](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
+
+工程判讀：Toggle、持續性 DDR 緩衝與低接腳 xSPI 分別對應不同控制器及資料生命週期。商業比較應落在斷電資料保護、更新頻率、延遲、認證與既有板級設計成本。
+
+指定完整料號、資料表修訂、保持溫度、耐寫條件、控制器支援及確切認證範圍。
+
+### UMC 聯電 · RRAM 嵌入式平台與 MRAM 商品路徑並進
+
+晶圓代工與生態整合
+
+UMC 的重點是製程與 IP 生態的可用性。22nm RRAM 的資格驗證、智原的 SoC 平台，以及 Avalanche 的獨立式 MRAM，代表不同交付層級。
+
+RRAM IP 已認證；具名 MRAM 商品已供應：不能把獨立式 MRAM 商品等同可用的嵌入式巨集。
+
+22nm ULP／ULL RRAM；另有 Avalanche 22nm pMTJ STT-MRAM。
+
+RRAM 以 SET 建立低阻態；UMC／eMemory 公告未公開材料、偏壓及脈衝演算法。
+
+RESET 返回高阻態；不等於快閃區塊抹除。Avalanche STT-MRAM 則以磁態直接覆寫。
+
+低擾動感測後配合驗證、ECC 與修復；控制器行為須依具名 IP 文件。
+
+- [RES-UMC-RRAM-2023：UMC／eMemory：22nm RRAM 認證](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)
+- [RES-UMC-MRAM-2022：UMC／Avalanche：22nm P-SRAM 供應](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)
+
+#### 從 40nm 合作走向 22nm IP
+
+2017 年與 Panasonic 的 40nm ReRAM 合作提供歷史起點；2023 年的 22nm 版本由 eMemory 公告認證。公開證據尚不能把兩者視為同一材料堆疊或 IP 版本。22nm RRAM 的低溫後段流程與邏輯平台相容性，是 SoC 整合的重要條件。
+
+- [RES-PANASONIC-UMC-2017：Panasonic／UMC：40nm ReRAM 合作](https://news.panasonic.com/global/press/en170201-3)
+- [RES-UMC-RRAM-2023：UMC／eMemory：22nm RRAM 認證](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)
+
+#### MRAM：開發協議與供應商品分開讀
+
+2018 年合作從 28nm CMOS 出發。2022 年立即供應的證據則指向 Avalanche 第三代 22nm P-SRAM。這能證明具名 MRAM 商品路徑，但不足以推定所有 UMC 客戶均可取得同規格嵌入式巨集。
+
+- [RES-UMC-MRAM-2018：UMC／Avalanche：MRAM 合作起點](https://www.umc.com/en/News/press_release/Content/technology_related/20180806)
+- [RES-UMC-MRAM-2022：UMC／Avalanche：22nm P-SRAM 供應](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)
+
+#### SoC 導入進度與仍待確認的規畫
+
+2025 年智原 FlashKit-22RRAM 已流片驗證，補上控制器、BIST 與處理器整合證據。2023 年公告的 16Mb 車用版及 0.8V／1.8V 版，若缺少後續完成公告，仍不能升格為已完成。Infineon／UMC 的 40nm 車用合作只明稱專有 eNVM，不能自行標為 RRAM。
+
+- [RES-FARADAY-RRAM-2025：智原：FlashKit-22RRAM 流片驗證](https://www.faraday-tech.com/html/News/pressRelease/CHI_01_0441.jsp)
+- [RES-UMC-RRAM-2023：UMC／eMemory：22nm RRAM 認證](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)
+- [RES-UMC-INFINEON-2023：UMC／Infineon：40nm 車用 MCU 合作](https://www.umc.com/en/News/press_release/Content/technology_related/20230307)
+
+- **8Mb＋16Kb**：2023 年認證 RRAM 巨集與資訊區；10k 次、10 年至 105°C。 數字屬該版本；不是所有 22nm eNVM 的共通值。
+
+- [RES-UMC-RRAM-2023：UMC／eMemory：22nm RRAM 認證](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)
+
+- **22nm P-SRAM**：2022 年 Avalanche 獨立式商品立即供應。 不能據此標記嵌入式 MRAM 巨集認證完成。
+
+- [RES-UMC-MRAM-2022：UMC／Avalanche：22nm P-SRAM 供應](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)
+
+工程判讀：RRAM 值得在低待機功耗 MCU、AIoT 與內嵌程式儲存候選中評估；價值取決於具名 IP 的保持條件、更新預算、測試成本與控制器整合。
+
+核對版本、PDK、巨集容量、ECC、更新粒度、車規完成狀態與可投片時程。
+
+### Panasonic · Ta 氧化物的導電絲控制與商品證據
+
+ReRAM 技術與商品沿革
+
+Panasonic 是 ReRAM 的重要商用先行者。180nm 量產、40nm 試驗巨集與 Fujitsu 合作商品應沿不同來源追蹤，才能看見機制如何走向可靠度與產品。
+
+歷史量產＋試驗巨集＋具名商品：2017 年供樣目標與 2018 年試驗巨集不等於所有 40nm 商品量產。
+
+Ta 氧化物 ReRAM；40nm 標準代工 CMOS 整合研究。
+
+先以 forming 在氧化層形成局部導電路徑；後續 SET 使單元進入低阻態。Forming 與每次寫入是不同階段。
+
+RESET 藉氧化還原與缺陷重分布返回高阻態，不是移除整層材料，也不是一次性熔斷。
+
+以低擾動偏壓量測高／低阻態，需留意狀態分布與循環後感測窗。
+
+- [RES-PANASONIC-SSDM-2018：Panasonic：40nm ReRAM 可靠度與機制](https://confit.atlas.jp/guide/event-img/ssdm2018/B-1-01/public/pdf_archive?type=in)
+
+#### 可靠度必須保留測試順序
+
+2018 年作者論文以 8Mbit 巨集為載具，分別報告 100k 次耐寫，以及 10k 次循環後在 85°C 的逾 10 年保持。這兩項結果不能拼成「100k 次後仍保持十年」。工程上也需看 HRS／LRS 分布尾端，而不只平均電阻。
+
+- [RES-PANASONIC-SSDM-2018：Panasonic：40nm ReRAM 可靠度與機制](https://confit.atlas.jp/guide/event-img/ssdm2018/B-1-01/public/pdf_archive?type=in)
+
+#### 合作關係不是未揭露製程的證據
+
+2017 年公告確認 180nm ReRAM 自 2013 年量產，40nm 合作則以未來供樣描述。2019 年 Fujitsu／Panasonic MB85AS8MT 已有具名 SPI 商品公告，但該來源沒有揭露製程節點或代工廠。不能把商品名稱直接串成 UMC 40nm 量產證據。
+
+- [RES-PANASONIC-UMC-2017：Panasonic／UMC：40nm ReRAM 合作](https://news.panasonic.com/global/press/en170201-3)
+- [RES-FUJITSU-RERAM-2019：Fujitsu／Panasonic：8Mbit ReRAM 商品](https://info.archives.global.fujitsu/tw/about/resources/news/press-releases/2019/fep-0812.html)
+
+- **100k 次**：40nm、8Mbit 試驗巨集之耐寫結果。 保持結果另以 10k 次後為條件。
+
+- [RES-PANASONIC-SSDM-2018：Panasonic：40nm ReRAM 可靠度與機制](https://confit.atlas.jp/guide/event-img/ssdm2018/B-1-01/public/pdf_archive?type=in)
+
+- **0.15mA @ 5MHz**：MB85AS8MT 的平均讀取電流，獨立式 SPI 商品。 不是單元寫入能量，也不能與巨集速度直接比較。
+
+- [RES-FUJITSU-RERAM-2019：Fujitsu／Panasonic：8Mbit ReRAM 商品](https://info.archives.global.fujitsu/tw/about/resources/news/press-releases/2019/fep-0812.html)
+
+工程判讀：這條路線適合研究低功耗資料保存與嵌入式非揮發性儲存。商品選型要分清獨立式序列介面的系統成本與晶片內巨集的製程成本。
+
+確認供貨料號、現行供應商、讀寫介面、循環與保持聯合條件；不以歷史合作替代現行規格。
+
+### IBM Research · 把 MRAM 微縮、電流與保持放在一起看
+
+元件與製程研究
+
+IBM 的價值在於可追溯的元件物理與 CMOS 整合成果。不同年份的 MTJ 尺寸、製程節點與寫入錯誤率，不能拼成一顆不存在的最佳規格產品。
+
+元件與 CMOS 整合研究實證：IBM 論文不是 IBM 對外量產代工服務清單。
+
+垂直 STT-MRAM；14nm CMOS 整合與更小 MTJ 研究分開。
+
+電流穿過 MTJ，轉移自旋角動量，使自由層進入 P 或 AP 狀態；達成目標 WER 所需電流取決於脈衝長度與材料。
+
+以相反方向的磁態切換覆寫另一個邏輯值；不需 Flash 型先抹除區塊。兩個方向的門檻可不對稱。
+
+由 MTJ 電阻感測 P／AP；讀取裕度、讀擾與 MgO 障壁壽命限制了讀寫電壓配置。
+
+- [RES-IBM-REVIEW-2024：IBM 作者：STT-MRAM 現況與方向](https://research.ibm.com/publications/spin-transfer-torque-magnetoresistive-random-access-memory-technology-status-and-future-directions)
+- [RES-IBM-11NM-2017：IBM：11nm MTJ 低電流研究](https://research.ibm.com/publications/low-current-spin-transfer-torque-mram--1)
+
+#### 14nm 是 CMOS 節點；11nm 是 MTJ 尺寸
+
+2020 年 14nm 研究將 MTJ 放在 M1–M2 間，增加三層光罩與單一電極模組；400°C 指堆疊製程相容性。2017 年 11nm 結果則以 MTJ 尺寸描述低電流切換，並非更先進的 11nm CMOS 平台。
+
+- [RES-IBM-14NM-2020：IBM：14nm CMOS 嵌入式 STT-MRAM](https://research.ibm.com/publications/a-14-nm-embedded-stt-mram-cmos-technology)
+- [RES-IBM-11NM-2017：IBM：11nm MTJ 低電流研究](https://research.ibm.com/publications/low-current-spin-transfer-torque-mram--1)
+
+#### 保持與速度的共同設計
+
+2024 年有序合金自由層研究追求低磁矩與強垂直磁異向性，展示高能障及 2ns 操作。這是材料與切換條件的進展；能障不能在缺少溫度與統計條件時直接換算成產品保證年限。
+
+- [RES-IBM-ALLOY-2024：IBM：有序合金自由層研究](https://research.ibm.com/publications/first-demonstration-of-high-retention-energy-barriers-and-2-ns-switching-using-magnetic-ordered-alloy-based-stt-mram-devices)
+
+#### 2025：快取用雙自旋力矩陣列
+
+IEDM 2025 公開 4kbit DS-MTJ 陣列全部元件以 2ns 脈衝切換，約 40nm 關鍵尺寸對應約 60kT 能障。這把證據推進到研究陣列，仍須區分元件幾何尺寸與 CMOS 節點。
+
+- [RES-IBM-DSMTJ-2025：IBM：快取用雙自旋力矩 MTJ](https://research.ibm.com/publications/progress-and-gaps-in-double-spin-torque-mtjs-for-last-level-cache-applications)
+
+- **0.0273μm²／4ns**：14nm CMOS 整合研究的單元面積與最低展示寫入時間。 不是含週邊的每位元系統面積或完整存取延遲。
+
+- [RES-IBM-14NM-2020：IBM：14nm CMOS 嵌入式 STT-MRAM](https://research.ibm.com/publications/a-14-nm-embedded-stt-mram-cmos-technology)
+
+- **8μA／10ns／10⁻⁹**：11nm MTJ 的電流、脈衝與 WER 組合。 不自動代表大容量陣列良率或相同保持能力。
+
+- [RES-IBM-11NM-2017：IBM：11nm MTJ 低電流研究](https://research.ibm.com/publications/low-current-spin-transfer-torque-mram--1)
+
+工程判讀：適合用來建立嵌入式 MRAM 或快取候選的物理與整合評估框架。採購與授權決策仍需另查具名供應商的可交付巨集、控制器及量產條件。
+
+統一 node／MTJ 尺寸、脈衝／完整延遲、單元／陣列 WER、保持溫度與熱預算的定義。
+
+### 工研院 ITRI · 從 SOT 寫入通道走向陣列與運算
+
+合作研究、試作與技術移轉
+
+工研院應以具名合作與版本呈現：台積電合作的 SOT、陽明交大合作的低溫 STT、跨機構 β-W 陣列，以及 8 吋試作與 RRAM 技轉，分屬不同成果。
+
+研究陣列、原型與初步試產服務：合作成果不能改稱工研院獨立量產產品。
+
+SOT-MRAM 與 BEOL 整合；另有 1S1R RRAM 技轉。
+
+平面內通道電流產生自旋軌道力矩，切換自由層；外場需求、輔助脈衝與方向性依具名實作。
+
+反向更新另一磁態，屬直接覆寫；讀寫路徑分離可降低寫入時穿過隧穿障壁的壓力，但不代表無限耐久。
+
+讀取仍由 MTJ 電阻識別磁態；記憶體內運算還需考慮 RA、讀電流、互連壓降與週邊電路。
+
+- [RES-ITRI-SOT-2022：工研院：SOT 與低溫 STT 合作成果](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=111061510283488782&MmmID=1036276263153520257&SiteID=1)
+- [RES-ITRI-CIM-2024：工研院／台積電：IEDM 2023 SOT-CIM](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=113011710184808020&MmmID=1036276263153520257&SiteID=1)
+- [RES-ITRI-SERVICE：工研院：8 吋 MRAM 研發服務](https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=01_content&MGID=1126511563713777471&MmmID=1071732317047353240&SiteID=1)
+
+#### 2022 與 2023 的研究目標不同
+
+2022 年公告的 0.4ns 與 7 兆次是台積電合作 SOT 成果；同文 −269°C 至 127°C 則屬陽明交大合作低溫 STT。2024 年發布的 IEDM 2023 成果聚焦 10ns 單元與運算架構，功耗「1%」缺少完整比較負載，不能宣稱普遍百倍改善。
+
+- [RES-ITRI-SOT-2022：工研院：SOT 與低溫 STT 合作成果](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=111061510283488782&MmmID=1036276263153520257&SiteID=1)
+- [RES-ITRI-CIM-2024：工研院／台積電：IEDM 2023 SOT-CIM](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=113011710184808020&MmmID=1036276263153520257&SiteID=1)
+
+#### 2025：熱穩定材料進入 64kb 研究陣列
+
+陽明交大、台積電、工研院、同步輻射中心、史丹佛與中興大學共同論文，以 Co 插層穩定 β-W。材料通過 400°C、10 小時相穩定測試，記憶體展示 1ns 切換。這提供製程整合證據，但仍不是量產平台公告。
+
+- [RES-SOT-BETAW-2025：跨機構研究：β-W 64kb SOT-MRAM](https://www.nature.com/articles/s41928-025-01434-x)
+
+#### 試作服務與 RRAM 技轉另有契約
+
+8 吋 BEOL 平台提供 Kb 至 Mb 研究晶片、原型與初步試產。另有 1S1R RRAM 技轉頁，列出選擇比、電流與幾何規格；無日期頁面不能證明現行量產狀態，也不能代表今日整個 ReRAM 市場成熟度。
+
+- [RES-ITRI-SERVICE：工研院：8 吋 MRAM 研發服務](https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=01_content&MGID=1126511563713777471&MmmID=1071732317047353240&SiteID=1)
+- [RES-ITRI-RRAM：工研院：1S1R 三維 RRAM 技轉](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=13_content&MmmID=1036233405427625204&SiteID=1&Trt_idx=4557)
+
+- **64kb／1ns**：2025 年 β-W SOT 研究陣列；摘要另列 >10 年保持、146% TMR。 公開摘要未列保持溫度、完整 WER 或 CMOS 節點。
+
+- [RES-SOT-BETAW-2025：跨機構研究：β-W 64kb SOT-MRAM](https://www.nature.com/articles/s41928-025-01434-x)
+
+- **1S1R／≤4F²**：RRAM 技轉頁列選擇比 ≥100、電流 ≤100μA。 技轉規格，不是量產密度、良率或節點保證。
+
+- [RES-ITRI-RRAM：工研院：1S1R 三維 RRAM 技轉](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=13_content&MmmID=1036233405427625204&SiteID=1&Trt_idx=4557)
+
+工程判讀：可評估共同研究、製程試作與運算架構驗證。SOT 的寫入速度與障壁可靠度潛力，需與額外通道、選擇元件、佈線面積及驅動電流一起評估。
+
+索取對應版本的陣列容量、WER、外場或輔助需求、保持條件、製程相容性與可交付服務範圍。
+
+### 把研究數字轉成工程問題
+
+#### 先界定延遲量測的起終點
+
+單元切換脈衝不包括全部解碼、驗證、ECC 或序列傳輸。工程判讀：先列測量層級，再比較讀寫時間與每次更新能量。
+
+- [RES-IBM-14NM-2020：IBM：14nm CMOS 嵌入式 STT-MRAM](https://research.ibm.com/publications/a-14-nm-embedded-stt-mram-cmos-technology)
+- [RES-FUJITSU-RERAM-2019：Fujitsu／Panasonic：8Mbit ReRAM 商品](https://info.archives.global.fujitsu/tw/about/resources/news/press-releases/2019/fep-0812.html)
+
+#### 把循環、保持與溫度放在同一份條件表
+
+熱預算描述製程承受能力；保持溫度描述資料存留；操作溫區又是另一項規格。不同實驗中的最佳值不能組成一項產品承諾。
+
+- [RES-PANASONIC-SSDM-2018：Panasonic：40nm ReRAM 可靠度與機制](https://confit.atlas.jp/guide/event-img/ssdm2018/B-1-01/public/pdf_archive?type=in)
+- [RES-SOT-BETAW-2025：跨機構研究：β-W 64kb SOT-MRAM](https://www.nature.com/articles/s41928-025-01434-x)
+
+#### 讓商業價值建立在可交付條件上
+
+工程判讀：選型時把零件、IP、PDK 與共同研究分開。低功耗、高耐久與高密度只有在測試、良率、控制器、授權及供應條件能滿足產品需求時，才構成導入優勢。
+
+- [RES-FARADAY-RRAM-2025：智原：FlashKit-22RRAM 流片驗證](https://www.faraday-tech.com/html/News/pressRelease/CHI_01_0441.jsp)
+- [RES-ITRI-SERVICE：工研院：8 吋 MRAM 研發服務](https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=01_content&MGID=1126511563713777471&MmmID=1071732317047353240&SiteID=1)
+
+#### NRAM：獨立辨識材料路線與歷史狀態
+
+Fujitsu 2016 年官方存檔將 NRAM 識別為碳奈米管記憶體，並記載與 Nantero 的 55nm 共同開發計畫。此證據不支持將它畫成氧化物導電絲 ReRAM，也不證明目前有可採購產品。具體寫入、反向更新與讀取波形仍需對應元件論文或資料表，不能由授權公告推定電壓或耐久規格。
+
+- [NRAM-NANTERO-FUJITSU-2016：Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)
+
+研究查核截至 2026-09-10。以官方公告、產品資料、作者論文及公開摘要為主；未取得全文的項目依摘要限制表述。此頁的工程判讀是比較推論，不是供應商性能保證。
+
+
+## 全球 NVM 產業與研究地圖
+
+### Everspin Toggle MRAM · Toggle MRAM
+
+獨立式記憶體供應商 · 商品供應
+
+現行PERSYST目錄保留Toggle量產料號，例如MR3A16ACYS35為8Mb、x16非同步介面、35ns、3.3V、−40～85°C，標示MP。
+
+此組數值僅屬MR3A16ACYS35；其他料號的速度、溫度及車規不能混用。舊MR4A16B資料表無法取得，故不引用其逾20年保存值。
+
+來源未標日期；查核 2026-09-10
+
+- [everspin-toggle：Everspin Toggle MRAM · Toggle MRAM](https://www.everspin.com/persyst?page=2)
+- [everspin-persyst-catalog：現行官方目錄；MR3A16ACYS35列為MP、8Mb、x16、35ns、3.3V及−40～85°C。](https://www.everspin.com/persyst?page=2)
+
+### Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived
+
+獨立式持續性記憶體供應商 · 持續出貨
+
+2025年度10-K確認1Gb STT-MRAM持續出貨，採DDR衍生介面；官方技術頁將1Gb定位為類DDR4介面的持續性DRAM。
+
+DDR4-like不代表所有DDR4控制器可直接替換；不得套用Toggle或xSPI的保存年限、耐寫及車規。舊family網址已404。
+
+來源日期／事件期間: 2026-03-04 · 查核 2026-09-10
+
+- [everspin-1gb-ddr：Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+- [everspin-ddr-technology：1Gb DDR4-like持續性DRAM定位。](https://www.everspin.com/stt-mram-technology)
+- [everspin-2025-10k：官方年度申報確認1Gb STT-MRAM持續出貨；申報日期亦由2026-03-05官方新聞稿明載。](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+
+### Everspin EMxxLX xSPI · STT-MRAM / xSPI
+
+獨立式記憶體供應商 · HR 64Mb已認證可訂購；HR 128／256Mb為當時預定
+
+2026-03-05官方投資人公告：HR 64Mb xSPI STT-MRAM完成AEC-Q100 Grade 1量產認證，可訂購且通路有庫存；HR 128Mb預定5月、256Mb預定7月完成認證，256Mb預期下半年供量。
+
+128Mb與256Mb時程是2026-03-05當時的預測，本輪未核實後續完成。HR系列認證不可套用其他EMxxLX版本；此公告未給吞吐量或保存年限。
+
+來源日期／事件期間: 2026-03-05 · 查核 2026-09-10
+
+- [everspin-xspi：Everspin EMxxLX xSPI · STT-MRAM / xSPI](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
+- [everspin-hr-xspi-20260305：官方原始公告；HR 64Mb認證完成可訂購，HR 128／256Mb認證與供貨時程仍為預測。](https://investor.everspin.com/news-releases/news-release-details/everspin-advances-high-reliability-xspi-mram-portfolio-256mb)
+- [everspin-ddr-technology：1Gb DDR4-like持續性DRAM定位。](https://www.everspin.com/stt-mram-technology)
+
+### Avalanche Technology / UMC · pMTJ STT-MRAM
+
+記憶體產品商／晶圓代工 · 具名商品已生產供應
+
+2022-09-13宣布UMC 22nm第三代P-SRAM立即供應，Parallel x32系列所述規格為逾10^14次耐寫、85°C保存1,000年及−40～125°C操作。
+
+這是獨立式商品，不代表UMC通用嵌入式巨集具有相同規格；保存期是廠商可靠度規格。
+
+來源日期／事件期間: 2022-09-13 · 查核 2026-09-10
+
+- [avalanche-umc22：Avalanche Technology / UMC · pMTJ STT-MRAM](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)
+
+### Avalanche Technology · STT-MRAM
+
+記憶體產品及技術開發商 · 磁性單元縮放里程碑
+
+2026年網頁公告完成政府合約第一階段MTJ縮放，以支援未來更高密度太空級MRAM。
+
+頁面標2026-03-02、內文日期卻為2025-03-02；16倍密度是後續縮放目標，不能視為已出貨產品。
+
+來源日期／事件期間: 2026-03-02 · 查核 2026-09-10
+
+- [avalanche-scaling2026：Avalanche Technology · STT-MRAM](https://www.avalanche-technology.com/avalanche-technology-phase-one-magnetic-cell-scaling-space-grade-mram-us-government/)
+
+### Samsung Foundry · STT-MRAM / eMRAM
+
+晶圓代工平台 · 28FDS已量產；FinFET擴展
+
+官方現行特殊製程頁確認2019年28nm FD-SOI eMRAM量產，並表示MTJ模組已擴展至14LPU及8LPU，5nm仍列計畫。
+
+平台相容或擴展不等於每節點均有具名客戶大量出貨；不得將2023年的2026／2027時程直接當完成證據。
+
+來源未標日期；查核 2026-09-10
+
+- [samsung-emram：Samsung Foundry · STT-MRAM / eMRAM](https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/)
+
+### Intel · STT-MRAM
+
+製程及元件研發 · 作者研究發表；現行商品未核實
+
+IEDM 2018官方議程列Intel作者22FFL FinFET嵌入式MRAM論文，提供整合技術的一手研究證據。
+
+本輪未找到更新且可核的Intel MRAM商用品項或量產公告；不得從論文或Intel16名稱推論現行MRAM供應。
+
+來源日期／事件期間: 2018-12-04 · 查核 2026-09-10
+
+- [intel-22ffl-research：Intel · STT-MRAM](https://ieee-iedm.org/wp-content/uploads/2026/05/2018-IEDM-Archive.pdf)
+
+### TSMC · eMRAM / STT route
+
+晶圓代工平台 · 車用Grade 1認證完成
+
+2025年報確認16nm第二代MRAM通過車用Grade 1並提供客戶；12nm車用及5nm高速MRAM仍在開發。
+
+認證不等同具名MCU大量出貨；SOT研究另列，不能與量產平台混稱。
+
+來源日期／事件期間: 2025 · 查核 2026-09-10
+
+- [tsmc-16mram2025：TSMC · eMRAM / STT route](https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report.E.pdf)
+
+### TSMC SOT-MRAM · SOT-MRAM
+
+前瞻記憶體研發 · 研究展示
+
+2025年報記載IEDM 2025展示Type-C SOT-MRAM，以圓形MTJ與內建磁異向性達成無外加磁場操作。
+
+論文展示不是商用製程或SRAM替代品供貨；不可套用16nm車規MRAM成熟度。
+
+來源日期／事件期間: 2025-12 · 查核 2026-09-10
+
+- [tsmc-sot2025：TSMC SOT-MRAM · SOT-MRAM](https://investor.tsmc.com/sites/ir/annual-report/2025/2025%20Annual%20Report.E.pdf)
+
+### GlobalFoundries · STT-MRAM / 22FDX
+
+晶圓代工平台 · 平台已進入生產
+
+2020-02-27官方確認22FDX eMRAM進入生產，供應4～48Mb矽驗證巨集；公告展示100k耐寫、10年保存與−40～125°C範圍。
+
+當時Grade 1為未來目標，不能由2020公告宣稱完成；GF現行FDX頁仍列MRAM，節點與客戶資格須另查。
+
+來源日期／事件期間: 2020-02-27 · 查核 2026-09-10
+
+- [gf-22fdx：GlobalFoundries · STT-MRAM / 22FDX](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)
+- [gf-current-fdx：現行平台仍列MRAM。](https://gf.com/technologies/cmos/fdx-fd-soi/)
+
+### Renesas RA8M2 / RA8D2 · Embedded MRAM
+
+MCU產品商 · 商品供應／日文公告確認量產
+
+2025-10-22推出RA8M2與RA8D2，內建MRAM、1GHz Cortex-M85與250MHz Cortex-M33；官方可供貨，不應只停留在2024年試驗巨集紀錄。
+
+CPU時脈不等於MRAM原生讀取速度；2024年22nm試驗巨集的數字不能直接轉寫成RA8商品規格。
+
+來源日期／事件期間: 2025-10-22 · 查核 2026-09-10
+
+- [renesas-ra8-2025：Renesas RA8M2 / RA8D2 · Embedded MRAM](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)
+
+### NXP S32K5 · Embedded MRAM
+
+車用MCU產品商 · 產品發表；官方資料仍標量產前
+
+2025-03-11宣布16nm FinFET S32K5內建MRAM；2025-10-30官方產品摘要仍標示量產前產品。
+
+15倍快寫為廠商與嵌入式Flash比較，不能當絕對延遲；不得以產品發表直接標量產。
+
+來源日期／事件期間: 2025-10-30 · 查核 2026-09-10
+
+- [nxp-s32k5：NXP S32K5 · Embedded MRAM](https://www.nxp.com/assets/block-diagram/en/S32K5.pdf)
+- [nxp-launch：S32K5發表與比較主張。](https://www.nxp.com/company/about-nxp/newsroom/NW-NEW-S32K5-MICROCONTROLLER)
+
+### NETSOL · STT-MRAM
+
+獨立式記憶體供應商 · 具名產品資料表
+
+2024年3月S3RxxxxR1M資料表列1～16Mbit STT-MRAM、x8／x16非同步平行介面及−40～85°C工業溫度；官網另列串列系列。
+
+不將其他系列或媒體報導的更大密度、製程節點套入此資料表；大量出貨數未公開。
+
+來源日期／事件期間: 2024-03 · 查核 2026-09-10
+
+- [netsol-stt：NETSOL · STT-MRAM](https://netsol.co.kr/wp-content/uploads/2024/03/S3RxxxxR1M_rev1.1.pdf)
+
+### TDK / Headway · STT-MRAM
+
+磁性材料、MTJ與技術研發 · 技術能力／研發；未核商用記憶體料號
+
+TDK 2025-09-01投資人日資料將STT-MRAM列為累積自旋電子技術；Headway作者亦有公開STT-MRAM嵌入式研究簡報。
+
+磁頭量產與MTJ能力不等同獨立式MRAM量產；本輪未核得可購MRAM料號、PDK或指定代工供應承諾。
+
+來源日期／事件期間: 2025-09-01 · 查核 2026-09-10
+
+- [tdk-headway：TDK / Headway · STT-MRAM](https://www.tdk.com/system/files/tdk_investor_day_20250901_en.pdf)
+- [headway-author-research：Headway作者嵌入式STT-MRAM技術簡報；不得當商用供應證明。](https://www.cea.fr/cea-tech/leti/Documents/%C3%A9v%C3%A9nements/Prez%20workshop%20memory%202017/2.2.pdf)
+
+### Numem · Foundry-based STT-MRAM
+
+記憶體IP與晶粒／小晶片架構商 · 廠商稱可供量產；客戶出貨未核
+
+官方網站將方案定位為以代工STT-MRAM單元為基礎的IP及晶粒／小晶片，搭配AIME；2025-06-10新聞稱AI記憶體引擎已可供量產。
+
+節能與SRAM級效能是廠商主張，缺少統一條件的獨立對測；不等於自有新磁性材料或具名客戶大量出貨。
+
+來源日期／事件期間: 2025-06-10 · 查核 2026-09-10
+
+- [numem-aime：Numem · Foundry-based STT-MRAM](https://numem.com/news)
+- [numem-current：當前網站明列foundry-based STT-MRAM與AIME。](https://www.numem.com/)
+
+### imec · SOT-MRAM
+
+研究機構／技術平台研發 · 300mm研究元件展示
+
+2023-12-13公開300mm晶圓上約50nm關鍵尺寸SOT元件，切換能量低於100fJ/bit、耐受超過10^15次循環，供快取應用研發。
+
+單元能量不含完整巨集週邊、匯流排與系統功耗；50nm是元件關鍵尺寸，不能直接稱50nm CMOS節點。
+
+來源日期／事件期間: 2023-12-13 · 查核 2026-09-10
+
+- [imec-sot：imec · SOT-MRAM](https://www.imec-int.com/en/press/imecs-extremely-scaled-sot-mram-devices-show-record-low-switching-energy-and-virtually)
+
+### IBM Research · STT-MRAM
+
+元件與製程研究 · 元件與 CMOS 整合研究實證
+
+IBM 的價值在於可追溯的元件物理與 CMOS 整合成果。不同年份的 MTJ 尺寸、製程節點與寫入錯誤率，不能拼成一顆不存在的最佳規格產品。
+
+IBM 論文不是 IBM 對外量產代工服務清單。
+
+查核 2026-09-10
+
+- [RES-IBM-REVIEW-2024：IBM 作者：STT-MRAM 現況與方向](https://research.ibm.com/publications/spin-transfer-torque-magnetoresistive-random-access-memory-technology-status-and-future-directions)
+- [RES-IBM-11NM-2017：IBM：11nm MTJ 低電流研究](https://research.ibm.com/publications/low-current-spin-transfer-torque-mram--1)
+
+### 工研院 ITRI · SOT-MRAM
+
+合作研究、試作與技術移轉 · 研究陣列、原型與初步試產服務
+
+工研院應以具名合作與版本呈現：台積電合作的 SOT、陽明交大合作的低溫 STT、跨機構 β-W 陣列，以及 8 吋試作與 RRAM 技轉，分屬不同成果。
+
+合作成果不能改稱工研院獨立量產產品。
+
+查核 2026-09-10
+
+- [RES-ITRI-SOT-2022：工研院：SOT 與低溫 STT 合作成果](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=111061510283488782&MmmID=1036276263153520257&SiteID=1)
+- [RES-ITRI-CIM-2024：工研院／台積電：IEDM 2023 SOT-CIM](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=01_content&MGID=113011710184808020&MmmID=1036276263153520257&SiteID=1)
+- [RES-ITRI-SERVICE：工研院：8 吋 MRAM 研發服務](https://www.itri.org.tw/english/ListStyle.aspx?DisplayStyle=01_content&MGID=1126511563713777471&MmmID=1071732317047353240&SiteID=1)
+
+### Weebit Nano · ReRAM
+
+ReRAM IP 授權商 · 授權與客戶原型
+
+2026 年 7 月公告三個客戶設計已投片，已有原型執行軟體。
+
+首款客戶產品量產仍是後續里程碑。
+
+來源日期／事件期間: 2026-07-31 · 查核 2026-09-10
+
+- [RRAM-WEEBIT-2026：Weebit Nano · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)
+
+### onsemi · ReRAM
+
+ReRAM 技術導入 IDM · 技術移轉中
+
+Weebit 公告對 onsemi 的 ReRAM 技轉按計畫進行。
+
+不得由授權或技轉推論成品量產。
+
+來源日期／事件期間: 2026-07-31 · 查核 2026-09-10
+
+- [RRAM-ONSEMI-2026：onsemi · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)
+
+### Texas Instruments · ReRAM
+
+ReRAM 技術導入 IDM · 技術移轉中
+
+Weebit 公告對 TI 的 ReRAM 技轉按計畫進行。
+
+不可將 TI 已商用 FRAM 與此 ReRAM 導入混為一談。
+
+來源日期／事件期間: 2026-07-31 · 查核 2026-09-10
+
+- [RRAM-TI-2026：Texas Instruments · ReRAM](https://www.weebit-nano.com/news/press-releases/weebit-nano-expands-licensing-agreements-with-key-customers-three-customer-chip-designs-taped-out-to-date/)
+
+### SkyWater / Weebit Nano · ReRAM
+
+晶圓代工與 IP 合作 · 已驗證、可供 SoC 整合
+
+官方 IP 頁列 S130 130 nm CMOS 已依 JEDEC 與 AEC-Q100 驗證、可供整合；BEOL 增加 2 層光罩。
+
+IP 已驗證不等於每款客戶晶片皆完成車規或量產；規格依模組。
+
+來源未標日期；查核 2026-09-10
+
+- [RRAM-SKYWATER-S130：SkyWater／Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/weebit-reram-nvm-in-skywater-130nm-cmos/)
+
+### DB HiTek / Weebit Nano · ReRAM
+
+晶圓代工與 IP 合作 · 已驗證、可供整合
+
+130 nm BCD 的 ReRAM IP 已矽驗證與資格驗證，使用 2 層加罩；官方列 10K 次耐寫、125°C 保存超過 10 年。
+
+100K 次屬可延伸選項；不能把基礎 BCD 量產量當成 ReRAM 客戶產品出貨。
+
+來源未標日期；查核 2026-09-10
+
+- [RRAM-DBHITEK-130：DB HiTek／Weebit Nano · ReRAM](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)
+
+### TSMC · ReRAM
+
+嵌入式記憶體晶圓代工 · 40／22 已量產；12 風險試產
+
+官方 IoT NVM 頁列 40RRAM、22RRAM 已量產；12RRAM 於 2024 年進入消費級風險試產，記憶單元位於後段金屬層間。
+
+12RRAM 風險試產不是全產品量產或車規資格。
+
+來源日期／事件期間: 2024 · 查核 2026-09-10
+
+- [RRAM-TSMC-IOT：TSMC · ReRAM](https://www.tsmc.com/english/dedicatedFoundry/technology/platform_IoT_tech_NVM)
+
+### Infineon / TSMC · ReRAM
+
+車用 MCU 與製程合作 · 導入合作公告
+
+2022 年公告準備將台積電 RRAM 導入下一代 AURIX TC4x，支援位元寫入而不需先抹除。
+
+這份公告不證明所有 TC4x 型號均採 RRAM 或已完成量產；須查型號文件。
+
+來源日期／事件期間: 2022-11-25 · 查核 2026-09-10
+
+- [RRAM-INFINEON-TC4X：Infineon／TSMC · ReRAM](https://www.infineon.com/technology-news/2022/infatv202211-031)
+
+### GlobalFoundries / Renesas / Dialog · CBRAM
+
+CBRAM 技術收購與代工整合 · 2023 收購；22FDX 當時驗證中
+
+GF 於 2023 年向 Renesas 收購已具量產實績的 CBRAM 技術；GF 先於 2020 年向 Dialog 授權，2023 年公告 22FDX 正在驗證。
+
+既有 CBRAM 量產實績不等於 22FDX 已量產；不可誤記為 Infineon 收購。
+
+來源日期／事件期間: 2023-02-09 · 查核 2026-09-10
+
+- [CBRAM-GF-RENESAS：GlobalFoundries／Renesas／Dialog · CBRAM](https://gf.com/news-and-events/news/globalfoundries-acquires-renesas-non-volatile-resistive-ram-technology-to-proliferate-iot-and-5g-applications/)
+
+### Nuvoton · ReRAM
+
+嵌入式 ReRAM MCU 供應商 · 商用產品系列
+
+M2L31 產品頁列 Arm Cortex-M23、64–512 KB ReRAM 與 72 MHz；ReRAM 寫入前不需頁抹除。
+
+72 MHz 是 MCU 時脈，不是單元寫入延遲；須依確切型號確認容量與可靠度。
+
+來源未標日期；查核 2026-09-10
+
+- [RRAM-NUVOTON-M2L31：Nuvoton · ReRAM](https://www.nuvoton.com/products/microcontrollers/arm-cortex-m23-mcus/m2l31-series/index.html)
+
+### Panasonic / UMC · ReRAM
+
+歷史 ReRAM 製程開發合作 · 2017 年共同開發公告
+
+2017 年宣布共同開發 40 nm ReRAM 量產製程，將 Panasonic ReRAM 與 UMC 製造能力結合。
+
+共同開發目標不是 2026 年供貨證明，也不能自行推定現行 Nuvoton 型號均由此製程製造。
+
+來源日期／事件期間: 2017-02-01 · 查核 2026-09-10
+
+- [RRAM-PANASONIC-UMC：Panasonic／UMC · ReRAM](https://news.panasonic.com/global/press/en170201-3)
+
+### RAMXEED · ReRAM
+
+獨立式 ReRAM 產品供應商 · 特定型號量產
+
+官方清單將 MB85AS8MT 8 Mbit SPI ReRAM 標示量產，列 100 萬次循環；12 Mbit 型號則要求洽詢業務。
+
+不能把 8 Mbit 的量產狀態或耐受度套用至 12 Mbit 型號。
+
+來源未標日期；查核 2026-09-10
+
+- [RRAM-RAMXEED-PRODUCT：RAMXEED · ReRAM](https://www.ramxeed.com/products/reram/reram-products.html)
+
+### CrossBar · ReRAM
+
+ReRAM IP 與安全處理器開發商 · 廠商架構與晶片揭露
+
+2026 年官方文章介紹採 ReRAM 的 22 nm Daric 安全處理器，將 NVM、運算與密碼功能整合於單晶片。
+
+文章不能代替完整供貨資格或獨立安全認證；避免採用普遍免疫攻擊、免疫輻射等絕對宣稱。
+
+來源日期／事件期間: 2026-05-06 · 查核 2026-09-10
+
+- [RRAM-CROSSBAR-DARIC：CrossBar · ReRAM](https://crossbar-inc.com/blogs/all/overview-of-crossbar-hardware-reram-and-chip)
+
+### CEA-Leti / Weebit Nano · ReRAM
+
+ReRAM 與神經形態運算研究合作 · 研究展示
+
+官方公告結合 CEA-Leti 脈衝神經網路與 Weebit SiOx ReRAM，展示物件辨識方向的神經形態運算。
+
+研究展示不代表可採購完整 AI 加速器；須另查製程移轉與產品資格。
+
+來源日期／事件期間: 2019-07-18 · 查核 2026-09-10
+
+- [RRAM-CEA-LETI：CEA-Leti／Weebit Nano · ReRAM](https://www.cea.fr/cea-tech/leti/english/Pages/What's-On/Press%20release/Weebit-Nano-and-CEA-Leti-to-demonstrate-brain-inspired-neuromorphic-demo-.aspx)
+
+### UMC 聯電 · 22nm RRAM
+
+晶圓代工與生態整合 · RRAM IP 已認證；具名 MRAM 商品已供應
+
+UMC 的重點是製程與 IP 生態的可用性。22nm RRAM 的資格驗證、智原的 SoC 平台，以及 Avalanche 的獨立式 MRAM，代表不同交付層級。
+
+不能把獨立式 MRAM 商品等同可用的嵌入式巨集。
+
+查核 2026-09-10
+
+- [RES-UMC-RRAM-2023：UMC／eMemory：22nm RRAM 認證](https://www.umc.com/en/News/press_release/Content/technology_related/20230328)
+- [RES-UMC-MRAM-2022：UMC／Avalanche：22nm P-SRAM 供應](https://www.umc.com/en/News/press_release/Content/technology_related/20220913)
+
+### ITRI · 1S1R RRAM
+
+技術移轉 · 無日期的研究／技轉項目
+
+交叉陣列 RRAM 與選擇器開發，列有電性與幾何條件。
+
+未證明目前大量量產。
+
+查核 2026-09-10
+
+- [RES-ITRI-RRAM：工研院：1S1R 三維 RRAM 技轉](https://www.itri.org.tw/ListStyle.aspx?DisplayStyle=13_content&MmmID=1036233405427625204&SiteID=1&Trt_idx=4557)
+
+### STMicroelectronics · PCM, not established MRAM offering
+
+MCU產品商；技術邊界排除 · 產品發表／指定客戶早期導入
+
+2025-11-18 STM32V8官方公告明確採18nm FD-SOI與嵌入式PCM，並與Samsung Foundry合作製造。
+
+2025 年公告限定指定客戶早期導入，主要 OEM 預計 2026 Q1，廣泛供應排在後續；時間已到不能代替完成證據。
+
+來源日期／事件期間: 2025-11-18 · 查核 2026-09-10
+
+- [st-pcm-boundary：STMicroelectronics · PCM, not established MRAM offering](https://newsroom.st.com/media-center/press-item.html/p4733.html)
+
+### Micron · 3D XPoint
+
+3D XPoint 歷史供應與開發者 · 已停止開發的歷史路線
+
+Micron 於 2021 年宣布立即停止 3D XPoint 開發，將資源轉向 CXL 記憶體產品。
+
+停止該產品路線不表示所有 PCM 研究終止；CXL 是互連介面，不是新的記憶單元機制。
+
+來源日期／事件期間: 2021-03-16 · 查核 2026-09-10
+
+- [XPOINT-MICRON-EXIT：Micron · 3D XPoint](https://investors.micron.com/news/press-release/2021/Micron-Updates-Data-Center-Portfolio-Strategy-to-Address-Growing-Opportunity-for-Memory-and-Storage-Hierarchy-Innovation-03-16-2021/default.aspx)
+
+### Intel · 3D XPoint
+
+Optane 歷史產品供應商 · 業務收尾的歷史路線
+
+Intel 2022 年年報確認該年啟動 Optane 記憶體業務收尾。
+
+不能將歷史產品頁或存貨銷售視為持續開發；也不能據此推論其他廠商 PCM 退出。
+
+來源日期／事件期間: 2022 · 查核 2026-09-10
+
+- [XPOINT-INTEL-EXIT：Intel · 3D XPoint](https://www.intc.com/filings-reports/all-sec-filings/content/0000050863-23-000006/intc-20221231.htm)
+
+### STMicroelectronics · PCM
+
+車用嵌入式 PCM MCU 供應商 · Stellar 商用家族；P3E 取樣與量產規畫
+
+2026 年 Stellar P3E 官方公告採 xMemory PCM；完整車規驗證與量產準備排定於 2026 下半年。
+
+已到排定季度不等於已完成資格；P3E 時程不能套用到所有 Stellar 型號。
+
+來源日期／事件期間: 2026 · 查核 2026-09-10
+
+- [PCM-ST-P3E：STMicroelectronics · PCM](https://www.st.com/content/st_com/en/campaigns/stellar-p3e-automotive-mcu-with-npu-accelerator-and-xmemory.html)
+
+### IBM Research · PCM
+
+類比記憶體內運算研究 · 研究晶片
+
+14 nm CMOS 後段整合 PCM 的研究晶片包含 64 個 256×256 類比運算核心及數位處理／通訊，展示神經網路推論。
+
+類比權重運算結果不等於可採購通用 PCM 記憶體或完整 AI 系統效能保證。
+
+來源日期／事件期間: 2023-09-17 · 查核 2026-09-10
+
+- [PCM-IBM-AIMC：IBM Research · PCM](https://research.ibm.com/publications/deep-neural-network-inference-with-a-64-core-in-memory-compute-chip-based-on-phase-change-memory)
+
+### Texas Instruments · FeRAM
+
+嵌入式 FRAM MCU 供應商 · 商用 MCU 與參考設計
+
+MSP430 FRAM 參考設計以嵌入式 FRAM 模擬 EEPROM，列出可採用的 MCU 與 I²C／SPI 主機介面。
+
+FRAM 是儲存技術；EEPROM 模擬是介面功能，不代表浮動閘或 FeFET 結構。
+
+來源日期／事件期間: 2016-12-20 · 查核 2026-09-10
+
+- [FERAM-TI-MSP430：Texas Instruments · FeRAM](https://www.ti.com/tool/TIDM-FRAM-EEPROM)
+
+### RAMXEED · FeRAM
+
+獨立式 FeRAM 與嵌入式應用供應商 · 量產產品
+
+官方 FAQ 說明 FeRAM 自 1999 年持續量產，應用於高頻寫入紀錄；保存年限必須依產品規定溫度解讀。
+
+不同型號的循環數、介面、溫度不可混用；FeRAM 不是所有鐵電 FeFET／FTJ 的同義詞。
+
+來源未標日期；查核 2026-09-10
+
+- [FERAM-RAMXEED：RAMXEED · FeRAM](https://www.ramxeed.com/faq/)
+
+### Infineon · FeRAM
+
+獨立式 F-RAM 供應商 · 商用產品家族
+
+Infineon 列出串列／並列及 EXCELON F-RAM，採 PZT 鐵電薄膜，最高 100 兆次讀寫循環依系列而定。
+
+最高數字不適用全部型號；不能據此認定採 HfO₂ FeFET 或 FTJ。
+
+來源未標日期；查核 2026-09-10
+
+- [FERAM-INFINEON：Infineon · FeRAM](https://www.infineon.com/products/memories/f-ram-ferroelectric-ram)
+
+### GlobalFoundries / Fraunhofer IPMS · FeRAM
+
+鐵電製程與研究合作 · 22FDX 工業製程整合實證
+
+2026 年共同成果將 HfO₂ 鐵電 FRAM 整合於 22FDX，公告低於 1 V 與奈秒級切換。
+
+公告未列可採購料號、完整資格報告或出貨量；不宜改寫成全面商用供應。
+
+來源日期／事件期間: 2026-06-11 · 查核 2026-09-10
+
+- [FERAM-GF-IPMS-2026：GlobalFoundries／Fraunhofer IPMS · FeRAM](https://www.ipms.fraunhofer.de/en/press-media/press/2026/Ferroelectric-memory-storage.html)
+
+### imec · FeRAM / FeCAP
+
+鐵電元件與記憶體內運算研究 · 研究實證
+
+與 Georgia Tech 研究展示 FeCAP 非破壞讀取，在 IEDM 2023 發表超過 10¹¹ 次讀取耐受度。
+
+讀取耐受度不是寫入耐受度；不能套到一般破壞性讀取 FeRAM 或宣稱已量產。
+
+來源日期／事件期間: 2023 · 查核 2026-09-10
+
+- [FERRO-IMEC-NDREAD：imec · FeRAM／FeCAP](https://www.imec-int.com/en/articles/non-destructive-readout-mechanism-ferroelectric-capacitors)
+
+### NaMLab · FeFET / FTJ
+
+鐵電元件研究機構 · 研究與發表
+
+2025 年官方論文清單包括 HZO 雙層 FTJ 厚度微縮及 CMOS 嵌入式 FeFET 的電荷捕陷挑戰。
+
+論文名單證明研究參與，不是晶圓代工、PDK 開放或量產證據。
+
+來源日期／事件期間: 2025 · 查核 2026-09-10
+
+- [FERRO-NAMLAB-2025：NaMLab · FeFET／FTJ](https://www.namlab.com/publications/)
+
+### FMC · HfO2 Ferroelectric Memory
+
+鐵電記憶體商業化開發商 · 商業化開發與廠商方案主張
+
+現行官網提出 DRAM+ 持久記憶體模組與 CACHE+ 持久快取晶粒，主張鐵電技術可整合既有製造流程。
+
+現行技術頁描述鐵電電容，未證明 DRAM+ 或 CACHE+ 採 FeFET／FTJ；未核實產品資格與出貨規模。
+
+來源未標日期；查核 2026-09-10
+
+- [FERRO-FMC：FMC · 鐵電記憶體](https://www.ferroelectric-memory.com/technology/)
+
+### Infineon / Cypress · SONOS eFlash
+
+技術與 IP 授權商 · 具名量產平台與授權
+
+官方列出 2T SONOS、FN 寫抹與多個量產節點，提供製程及設計授權。
+
+Cypress 歷史與現行 Infineon 巨集分開；不合併全家族最佳規格。
+
+來源未標日期；查核 2026-09-10
+
+- [industry-infineon-sonos：Infineon／Cypress · SONOS eFlash](https://www.infineon.com/products/memories/embedded-flash-ip-solutions)
+
+### SST / Microchip · SuperFlash NOR / eFlash
+
+技術與 IP 授權商 · 商用技術授權
+
+官方列出 SuperFlash 製程整合與授權，適合補上獨立 NOR 以外的嵌入式技術入口。
+
+技術授權不等於每個列示節點目前均有相同資格；原理按世代核對。
+
+來源未標日期；查核 2026-09-10
+
+- [industry-sst-superflash：SST／Microchip · SuperFlash NOR／eFlash](https://www.sst.com/services/)
+
+### STMicroelectronics · eSTM eFlash / Page EEPROM
+
+整合元件製造商 · 具名商用實施
+
+官方 eSTM 頁連結 40 nm 浮動閘極與垂直選擇電晶體，以及 STM32H5、Page EEPROM 的實施。
+
+與 Stellar PCM 分列；不把一種 NVM 單元指定為所有 ST MCU 的結構。
+
+來源未標日期；查核 2026-09-10
+
+- [industry-st-estm：STMicroelectronics · eSTM eFlash／Page EEPROM](https://www.st.com/content/st_com/en/about/innovation-and-technology/estm.html)
+
+### Renesas · SG-MONOS eFlash
+
+整合元件製造商 · 歷史量產與較小節點研究
+
+2016 公告確認當時 40 nm MCU 採 SG-MONOS 量產，並展示 16／14 nm Fin 結構研究。
+
+這份公告不證明 16／14 nm 已量產；現行料號與機制須另查。
+
+來源日期／事件期間: 2016-12-07 · 查核 2026-09-10
+
+- [industry-renesas-sgmonos：Renesas · SG-MONOS eFlash](https://www.renesas.com/en/about/press-room/renesas-electronics-announces-world-s-first-development-fin-shaped-monos-flash-memory-cells-high)
+
+### X-FAB · XT011 eFlash / EEPROM
+
+晶圓代工與平台供應商 · 具名平台發布
+
+2024 年公告 XT011 110 nm BCD-on-SOI 平台的嵌入式 Flash 與 EEPROM。
+
+不取代站內 2003 XC06 歷史例；兩代不能共用未經證明的單元結構。
+
+來源日期／事件期間: 2024-12-03 · 查核 2026-09-10
+
+- [industry-xfab-xt011：X-FAB · XT011 eFlash／EEPROM](https://www.xfab.com/news/details/article/x-fab-releases-embedded-flash-solution-on-its-110nm-automotive-bcd-on-soi-technology)
+
+### Macronix · Serial NOR / OctaBus
+
+NOR／NAND 產品供應商 · 官方產品組合
+
+官方 Serial NOR 目錄提供產品組合與 OctaBus 介面方案。
+
+此來源直接支持 NOR；NAND 型號及可靠度須另查，不從介面推定單元剖面。
+
+來源未標日期；查核 2026-09-10
+
+- [industry-macronix-nor：Macronix · Serial NOR／OctaBus](https://www.macronix.com/en-us/products/NOR-Flash/Serial-NOR-Flash/Pages/default.aspx)
+
+### Winbond · W25Q16JW Serial NOR
+
+程式碼儲存記憶體供應商 · 具名產品目錄
+
+原廠目錄提供 W25Q16JW 序列 NOR 及對應料號入口。
+
+不以目錄存在保證庫存；NAND 家族與其他容量的狀態須逐項核對。
+
+來源未標日期；查核 2026-09-10
+
+- [industry-winbond-w25q：Winbond · W25Q16JW Serial NOR](https://www.winbond.com/hq/new-online-purchasing-guide/?__locale=en&pLine=/product/code-storage-flash/qspi-nor/&pNo=W25Q16JW)
+
+### Samsung · 第九代 TLC V-NAND
+
+NAND 元件與儲存產品供應商 · 具名世代量產
+
+2024 年 4 月公告 1 Tb TLC 第九代 V-NAND 開始量產。
+
+只證明此世代與 TLC；不將後續展示或當時預期 QLC 視為本公告已量產。
+
+來源日期／事件期間: 2024-04-23 · 查核 2026-09-10
+
+- [industry-samsung-vnand9：Samsung · 第九代 TLC V-NAND](https://news.samsung.com/global/samsung-electronics-begins-industrys-first-mass-production-of-9th-gen-v-nand)
+
+### SK hynix · 321 層 TLC 4D NAND
+
+NAND 元件與儲存產品供應商 · 具名世代開始量產
+
+2024 年 11 月公告 321 層、1 Tb TLC NAND 開始量產。
+
+量產與客戶供貨時程分開；不把此單元指定為所有 Solidigm SSD 的媒體。
+
+來源日期／事件期間: 2024-11-21 · 查核 2026-09-10
+
+- [industry-skhynix-321tlc：SK hynix · 321 層 TLC 4D NAND](https://news.skhynix.com/en/sk-hynix-starts-mass-production-of-world-first-321-high-nand/)
+
+### Solidigm · D5-P5336 QLC SSD
+
+企業級 SSD 供應商 · 具名商用產品
+
+官方 D5-P5336 產品頁提供 QLC 企業級 SSD 的產品與容量選項。
+
+SSD 容量、韌體與系統指標不是裸晶規格；不以集團關係推定所有產品使用同一 NAND。
+
+來源未標日期；查核 2026-09-10
+
+- [industry-solidigm-p5336：Solidigm · D5-P5336 QLC SSD](https://www.solidigm.com/products/data-center/d5/p5336.html)
+
+### Micron · G9 TLC NAND
+
+NAND 元件與儲存產品供應商 · 量產與具名 SSD 出貨
+
+2024 年 7 月公告 G9 TLC NAND 及採用該世代的 Micron 2650 SSD 量產出貨。
+
+不將 TLC 的證據移至全部 QLC 或 NOR；介面速度不等於單元寫入速度。
+
+來源日期／事件期間: 2024-07-30 · 查核 2026-09-10
+
+- [industry-micron-g9：Micron · G9 TLC NAND](https://investors.micron.com/news/press-release/2024/Micron-Announces-Volume-Production-of-Ninth-Generation-NAND-Flash-Technology-07-30-2024/default.aspx)
+
+### Kioxia / Sandisk · 第十代 BiCS 3D NAND
+
+共同開發與製造合作方 · 具名工廠開始生產
+
+2026 年 7 月共同公告北上 K2 開始第十代 3D Flash 生產。
+
+開始生產不等於所有容量與客戶產品已全面出貨；合作製造不代表兩家成品完全相同。
+
+來源日期／事件期間: 2026-07-03 · 查核 2026-09-10
+
+- [industry-kioxia-sandisk-gen10：Kioxia／Sandisk · 第十代 BiCS 3D NAND](https://www.kioxia.com/en-jp/about/news/2026/20260703-2.html)
+
+### YMTC · Xtacking 3D NAND
+
+NAND 技術與產品供應商 · 公開架構與具名產品家族
+
+官方頁說明周邊與陣列分別製造再鍵合，並列 2025 年 Xtacking 4.0 的 X4 系列產品。
+
+獎項及架構頁不單獨證明每款產品量產、層數或供貨量；不得用推測補完。
+
+來源未標日期；查核 2026-09-10
+
+- [industry-ymtc-xtacking：YMTC · Xtacking 3D NAND](https://www.ymtc.com/en/technicalintroduction.html)
+
+### GigaDevice · GD25 / GD55 NOR
+
+NOR／NAND 產品供應商 · 官方產品組合
+
+官方產品組合列出 GD25／GD55 NOR。
+
+家族範圍不能代替特定料號量產狀態、溫度、耐久與保持規格。
+
+來源未標日期；查核 2026-09-10
+
+- [industry-gigadevice-flash：GigaDevice · GD25／GD55 NOR；GD5F NAND](https://www.gigadevice.com/product/flash)
+
+### Floadia · LEE Flash ZT MTP
+
+技術與 IP 授權商 · 具名商用 IP
+
+ZT 官方頁說明 FN 寫抹、零新增光罩與具名平台量產紀錄。
+
+概述與平台範例的循環數不同，不合成通用耐久或推定多晶矽層數。
+
+來源未標日期；查核 2026-09-10
+
+- [industry-floadia-zt：Floadia · LEE Flash ZT MTP](https://floadia.com/product/lee-flash-zt/)
+
+### 力旺 eMemory · NeoBit · 浮動閘極 OTP · OTP
+
+記憶體 IP／技術沿革 · 具名 IP 專題；資格依製程版本
+
+從串聯的選擇器與 p 型浮動閘極儲存電晶體，看電子注入如何改變讀取電流；再區分正常 OTP 操作與紫外線清除的物理可能性。
+
+歷史單元與專利不代表每個現行版本均採相同結構。
+
+查核 2026-09-10
+
+- [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)
+- [ip-neobit-pat：NeoBit 歷史保留電荷專利](https://patents.google.com/patent/US6914825B2/en)
+
+### 力旺 eMemory · NeoFuse · Antifuse OTP · OTP
+
+記憶體 IP／技術沿革 · 具名 IP 專題；資格依製程版本
+
+從 n 型單元的閘極介電層出發，追蹤高場造成的缺陷、有效穿隧距離變化，以及讀取時可辨識的閘極電流。
+
+歷史單元與專利不代表每個現行版本均採相同結構。
+
+查核 2026-09-10
+
+- [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
+- [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
+
+### Kilopass；2018 年併入 Synopsys · Kilopass XPM · OTP
+
+記憶體 IP／技術沿革 · 具名 IP 專題；資格依製程版本
+
+以原始專利明稱 XPM 的 2T 圖解，分清儲存 MOS 與選擇 MOS。
+
+歷史單元與專利不代表每個現行版本均採相同結構。
+
+查核 2026-09-10
+
+- [ip-kilopass-xpm-2007：Kilopass XPM 2T 歷史專利圖](https://patents.google.com/patent/WO2007090089A2/en)
+- [ip-kilopass-2t-2012：Kilopass 130／110 nm XPM 與 Gusto 2T 公告](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/)
+
+### Sidense；2017 年併入 Synopsys · Sidense 1T-Fuse · OTP
+
+記憶體 IP／技術沿革 · 具名 IP 專題；資格依製程版本
+
+單一閘極跨越厚／薄氧化層；薄區永久導通形成 OTP 狀態。
+
+歷史單元與專利不代表每個現行版本均採相同結構。
+
+查核 2026-09-10
+
+- [ip-sidense-cell-2007：Sidense 1T-Fuse 原作者單元剖面](https://www.chipestimate.com/1T-OTP-Memory-Delivering-Quality-and-Reliability/Sidense-a-part-of-Synopsys/Technical-Article/2007/12/18)
+- [ip-sidense-irreversible-2017：Sidense 1T-Fuse 不可逆狀態與 eMTP 界線](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)
+
+### 力旺 eMemory · NeoEE · FN／FN MTP · MTP
+
+記憶體 IP／技術沿革 · 具名 IP 專題；資格依製程版本
+
+沿控制耦合區、浮動節點與穿隧區，分別追蹤 FN 如何將電子存入與移出，再由讀取電晶體感測儲存狀態。
+
+歷史單元與專利不代表每個現行版本均採相同結構。
+
+查核 2026-09-10
+
+- [ip-neoee：NeoEE 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)
+- [ip-neoee-history：NeoEE 概念單元的歷史原圖](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)
+
+### 力旺 eMemory · NeoMTP · CHI／FN MTP · MTP
+
+記憶體 IP／技術沿革 · 具名 IP 專題；資格依製程版本
+
+比較 p 型浮動閘極單元的熱載子寫入，以及電子經 FN 移向專用抹除閘極的反向路徑。兩種操作在同一儲存節點上完成。
+
+歷史單元與專利不代表每個現行版本均採相同結構。
+
+查核 2026-09-10
+
+- [ip-neomtp：NeoMTP 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)
+- [ip-neomtp-pat：pMOS 與邊緣抹除閘極的相關專利](https://patents.google.com/patent/US20030235082A1/en)
+
+### 億而得 YMC · YMC · MTP 與機制界線 · MTP
+
+記憶體 IP／技術沿革 · 具名 IP 專題；資格依製程版本
+
+YMC 公開提供邏輯製程 MTP 家族。下方 CHI／BBHH 是獨立機制示意，並非現行 ymtp 商品採 BBHH 的證據；產品能力與 1T1C 教學模型分開閱讀。
+
+歷史單元與專利不代表每個現行版本均採相同結構。
+
+查核 2026-09-10
+
+- [ymc-product：YMC：ymtp 邏輯製程 MTP IP](https://www.ymc.com.tw/index_en.php)
+- [ymc-1t1c：YMC：1T1C 核心技術](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
+
+### Impinj → Virage Logic → Synopsys · AEON · FN／FN MTP · MTP
+
+記憶體 IP／技術沿革 · 具名 IP 專題；資格依製程版本
+
+依 2009 年具名 AEON 原廠資料，追蹤電子經 FN 存入與移出浮動閘極，再由讀取 MOS 感測；品牌與業務承接另列時間線。
+
+歷史單元與專利不代表每個現行版本均採相同結構。
+
+查核 2026-09-10
+
+- [aeon-impinj-2007：Impinj：AEON/MTP 浮動閘極產品公告](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)
+- [aeon-virage-fn-2009：Virage Logic：AEON MTP 寫抹與製造監測](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)
+
+### Sony / Micron · Copper ReRAM
+
+合作元件與記憶體研發 · 歷史研究展示
+
+Micron 2014 年 VLSI 公告明確列出與 Sony 合作的銅 ReRAM，對應 16Gb 儲存級記憶體展示。
+
+未證明當前商品或 Sony 影像感測器已導入。
+
+來源：2014-06-05；查核 2026-09-10
+
+- [RES-SONY-MICRON-2014：Micron／Sony：銅 ReRAM 研究](https://investors.micron.com/static-files/7ac25c4b-edd0-4482-97ad-267a7263bcf0)
+
+### GigaDevice · GD5F NAND
+
+NOR／NAND 產品供應商 · 官方產品組合
+
+官方產品組合另列 GD5F NAND。
+
+家族範圍不能代替特定料號量產狀態、溫度、耐久與保持規格。
+
+來源未標日期；查核 2026-09-10
+
+- [industry-gigadevice-flash：GigaDevice · GD25／GD55 NOR；GD5F NAND](https://www.gigadevice.com/product/flash)
+
+### Kioxia／SK hynix · 64 Gbit 1Selector–1MTJ Cross-Point MRAM
+
+高密度 MRAM 共同研究 · IEDM 2024 研究原型；2025 年官網說明
+
+共同開發 64 Gbit 交叉點 MRAM，以兩端選擇器取代選擇電晶體；MTJ 直徑 20 nm、半節距 20.5 nm，單元面積 0.001681 µm²。
+
+屬研究陣列，未證明商品供貨；20 nm 是 MTJ 直徑而非 CMOS 製程節點，典型位元測試不能代替全陣列良率。
+
+來源日期 2025-04-15
+
+- [MRAM-KIOXIA-SKHYNIX-64GB-2025：Kioxia／SK hynix · 64 Gbit 1Selector–1MTJ Cross-Point MRAM](https://www.kioxia.com/en-jp/rd/technology/topics/topics-80.html)
+
+### TetraMem · MLX200 Multi-Level RRAM Analog IMC
+
+多階 RRAM 類比記憶體內運算開發商 · 投片與初步矽驗證完成
+
+2026 年 5 月公告 MLX200 在 TSMC 22nm 製程完成投片與初步矽驗證，將多階 RRAM 與混合訊號運算整合於 SoC。
+
+評估套件在公告時預計於 2026 年下半年推出；初步驗證不等於量產或已交付，運算用途不能直接套用一般儲存規格。
+
+來源日期 2026-05-19
+
+- [RRAM-TETRAMEM-MLX200-2026：TetraMem · MLX200 Multi-Level RRAM Analog IMC](https://tetramem.com/tetramem-completes-mlx200-silicon-validation/)
+
+### Intrinsic／sureCore · SiOx RRAM
+
+氧化矽 RRAM 與嵌入式記憶體架構合作 · 技術開發與商業化合作
+
+Intrinsic 官網以氧化矽 RRAM 為核心，並列出與 sureCore 合作，結合 CMOS 相容單元、記憶體架構及編譯器設計能力。
+
+合作公告不足以證明具名製程巨集已通過認證或量產；官網未提供可據此認定現行供貨的完整料號與資料表。
+
+來源未標日期；查核 2026-09-10
+
+- [RRAM-INTRINSIC-SURECORE：Intrinsic／sureCore · SiOx RRAM](https://www.intrinsicsemi.com/)
+
+### Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM
+
+碳奈米管 NRAM 歷史授權與共同開發 · 2016 年授權與 55nm 共同開發公告
+
+Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 碳奈米管 NRAM 授權，並共同開發 55nm 產品。
+
+此為歷史開發證據，不能視為 2026 年量產、供貨或計畫終止的證明；NRAM 應與氧化物 RRAM 分開分類。
+
+來源日期 2016-08-31
+
+- [NRAM-NANTERO-FUJITSU-2016：Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)

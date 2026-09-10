@@ -872,7 +872,7 @@
     },
     {
       "term": "Embedded MTP IP",
-      "definition": "A reprogrammable NVM macro integrated inside a SoC, ASIC or analog chip. Distinguish a foundry double-poly EEPROM route from third-party single-poly MTP IP, then verify the named cell, process, update granularity and reliability."
+      "definition": "MTP describes programmability more than once. This site uses its embedded MTP IP chapter for floating-gate MTP/EEPROM macros; it is not a reclassification of MRAM, ReRAM, Flash or SONOS. Identify the actual storage mechanism, erase or overwrite behavior, process, update granularity and reliability for each implementation."
     },
     {
       "term": "Double-Poly EEPROM",

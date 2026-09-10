@@ -88,8 +88,8 @@
       "body": "Read NeoBit and NeoFuse side by side: stored floating-gate charge versus altered gate-dielectric transport."
     },
     {
-      "title": "Trace the Three MTP Update Pairs",
-      "body": "Compare NeoEE FN/FN, NeoMTP CHI/FN and the YMC CHI/BBHH operation model on their own cells."
+      "title": "Trace PGM, Erase and Repeated Updates",
+      "body": "MTP describes the ability to program more than once. The floating-gate IP lessons compare named PGM/ERS mechanisms; MRAM and ReRAM remain in emerging-NVM categories, while Flash/SONOS retain their own structures. Read each reverse-update operation and its subsequent write. YMC product evidence is separate from the independent CHI/BBHH teaching example."
     },
     {
       "title": "Follow Magnetic and Resistive IP Cells",

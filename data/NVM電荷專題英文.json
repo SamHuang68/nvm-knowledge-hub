@@ -565,6 +565,19 @@
       "quiz": {
         "question": "Does 24LC256 page-write support prove its polysilicon count and local-window cross-section?",
         "answer": "No. The datasheet establishes device interface behavior, update rules, and ratings. A bitcell cross-section needs separate implementation evidence. This topic uses US4115914A to explain a local window without assigning that patent to the 24LC256."
+      },
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "Electrical Erase: The Complete PGM / ERS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "ch-pat-eeprom-window",
+          "ch-mtp-standalone-microchip"
+        ]
       }
     },
     {
@@ -600,11 +613,11 @@
         },
         {
           "id": "erase",
-          "title": "Erase: Remove Electrons Through the Specified Exit",
+          "title": "ERS: Restore a State Suitable for Reprogramming",
           "before": "The floating node retains charge from the previous data state and the macro has selected the page, word, or block allowed to update.",
           "stimulus": "The US5844271A teaching example transfers electrons from floating gate to source through FN tunneling. NeoMTP instead identifies an additional erase gate as its destination; NeoEE provides FN paths through MOS structures.",
           "after": "Charge decreases and the floating node returns to a state suitable for programming. Completion is determined by erase verification and the target macro specification.",
-          "explanation": "Polysilicon count cannot establish erase destination, polarity, or granularity. Capacitive-control regions and tunneling exits may differ. Changing a control voltage is not a direct metal connection that drains the floating gate. Dielectric defects still accumulate through cycling."
+          "explanation": "Polysilicon count cannot establish erase destination, polarity, or granularity. Capacitive-control regions and tunneling exits may differ. Changing a control voltage is not a direct metal connection that drains the floating gate. Dielectric defects still accumulate through cycling. Electron removal by FN and net-charge reduction by hot-hole injection are different mechanisms. The separate BBHH teaching model is not evidence that a current YMC product uses BBHH."
         },
         {
           "id": "read",
@@ -698,8 +711,8 @@
           "title": "MTP EEPROM IP",
           "polyLayers": "Single-poly",
           "storage": "Floating gate",
-          "program": "Not disclosed in the reviewed public product page",
-          "erase": "Not disclosed in the reviewed public product page",
+          "program": "PGM is supported; the reviewed product page does not disclose carrier paths or terminal biases.",
+          "erase": "Electrical ERS is supported; the reviewed product page does not disclose the microscopic erase path or terminal biases.",
           "integration": "Specified standard-CMOS platforms; zero added masks; integrated high-voltage circuitry",
           "limit": "Do not assign US5844271A or another vendor's carrier paths to this product.",
           "sourceIds": [
@@ -732,7 +745,28 @@
             "ch-mtp-ememory-neomtp"
           ]
         }
-      ]
+      ],
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "Floating-Gate MTP in This Chapter: PGM / ERS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "ch-pat-eeprom-singlepoly",
+          "ch-product-mtp",
+          "ch-mtp-synopsys",
+          "ch-mtp-ememory-neoee",
+          "ch-mtp-ememory-neomtp",
+          "ch-mtp-xfab-xc06",
+          "ch-mtp-ymc-product",
+          "ch-mtp-ymc-singlepoly",
+          "ch-mtp-floadia-zt",
+          "ch-mtp-floadia-zt-fg"
+        ]
+      }
     },
     {
       "id": "nor",
@@ -819,6 +853,21 @@
       "quiz": {
         "question": "If two cells are both called split-gate NOR, can they share the same erase-bias table?",
         "answer": "No. The SuperFlash brochure's example uses inter-gate FN tunneling, while US6232180B1 provides a channel-erase embodiment. Identify each electron exit, well, and floating terminal before citing its biases. A shared family name does not establish identical operation."
+      },
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "Electrical Erase: The Complete PGM / ERS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Erase acts on the region defined by shared array controls, commonly a sector or block in the cited products. Preserve still-valid data before erasing; read or program granularity does not define erase granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "ch-pat-nor-splitgate",
+          "ch-tech-superflash",
+          "ch-maturity-nor-product",
+          "ch-tech-nand"
+        ]
       }
     },
     {
@@ -851,9 +900,9 @@
           "id": "erase",
           "title": "Erase: Follow the Trap Stack and Identified Mechanism",
           "before": "Programmed charge occupies a trapping material such as nitride, shifting channel threshold voltage or a local barrier.",
-          "stimulus": "Infineon's identified 2T SONOS uses FN erase, rearranging the field across the tunnel dielectric to reduce net stored charge. An NROM implementation's exact erase path requires separate verification for that implementation.",
-          "after": "SONOS returns to an erased window that permits reprogramming. Residual charge, interface defects, and changes in trapping centers may still affect the next operation.",
-          "explanation": "Removal or neutralization of trapped charge depends on barriers, trap depth, and terminal biases. The upper blocking layer suppresses unwanted exchange on the gate side. Knowing only that silicon nitride is used does not identify the terminal through which electrons or holes enter or leave. The Saifun seed reviewed here primarily supports localized programming and reverse reading; it is not used to invent an erase animation for every NROM implementation."
+          "stimulus": "The cited Infineon 2T SONOS uses FN erase. In the separate US6664588B2 NROM example, band-to-band tunneling generates holes near the selected bit-line/channel junction; lateral acceleration and the gate field inject hot holes into the local nitride storage region.",
+          "after": "The selected storage region returns toward its erase window for subsequent programming. In the NROM example, hole injection must overlap the programmed-electron region; residual electrons or excess holes can otherwise disturb the read threshold.",
+          "explanation": "Read US6664588B2 Figures 8A and 9–11 as a named pocket-implant erase example. Do not attribute that structure to US5768192A or substitute the SONOS FN diagram for NROM hot-hole erase. The cited implementation defines selection, pulse verification and erase granularity."
         },
         {
           "id": "read",
@@ -911,11 +960,27 @@
       "sourceIds": [
         "ch-pat-sonos",
         "ch-pat-nrom",
-        "ch-product-sonos"
+        "ch-product-sonos",
+        "op-pat-nrom-hhi"
       ],
       "quiz": {
         "question": "If a SONOS nitride layer is drawn as one continuous film, does that mean all its charge can freely equalize as it would on a metallic floating gate?",
         "answer": "No. Nitride is an insulating trapping material, so charge can remain at different positions. Readout of a localized-charge cell consequently depends on charge position and read direction. Distinguish continuity of the material, localization of charge, and the way the full channel is sensed."
+      },
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "Electrical Erase: The Complete PGM / ERS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "ch-pat-sonos",
+          "ch-pat-nrom",
+          "ch-product-sonos",
+          "op-pat-nrom-hhi"
+        ]
       }
     },
     {
@@ -1007,6 +1072,26 @@
       "quiz": {
         "question": "Does moving from TLC to QLC while increasing the layer count necessarily improve speed and endurance and reduce cost at the same time?",
         "answer": "No. QLC must distinguish sixteen states, while TLC needs only eight; narrower windows increase verification and error-management demands. More layers add deep-hole process and layer-variation challenges. Evaluate an identified product's usable capacity, manufacturing and controller costs, workload, and reliability conditions together."
+      },
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "Electrical Erase: The Complete PGM / ERS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation; it does not require every carrier to disappear. Whether the host issues a separate erase command depends on the macro or component interface.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Erase acts on the region defined by shared array controls, commonly a sector or block in the cited products. Preserve still-valid data before erasing; read or program granularity does not define erase granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "ch-pat-nand-vertical",
+          "ch-tech-nand",
+          "ch-tech-multilevel",
+          "ch-tech-retention",
+          "ch-tech-ecc",
+          "ch-tech-deepetch",
+          "ch-paper-3dvariation",
+          "ch-paper-readdisturb",
+          "ch-maturity-bics"
+        ]
       }
     }
   ]

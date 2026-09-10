@@ -321,7 +321,7 @@
         },
         {
           "id": "erase",
-          "title": "Restore: Toggle to the Other State",
+          "title": "Reverse Overwrite: No Separate Physical Erase",
           "before": "The junction is in the antiparallel, high-resistance state, and the controller requests the earlier data value.",
           "stimulus": "Compare the data, then apply another qualified Toggle write sequence.",
           "after": "The free layer returns to the low-resistance state, parallel to the reference layer.",
@@ -380,6 +380,19 @@
       "quiz": {
         "question": "If the stored data already matches the target value, why must the controller avoid executing another Toggle sequence?",
         "answer": "A Toggle write reverses the current state. Executing it once would invert data that is already correct. The controller must read and compare first, toggling only when the existing and target values differ."
+      },
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "Erase Semantics: Direct Magnetic Overwrite, No Separate ERS",
+        "sequence": "P ⇄ AP",
+        "definition": "MRAM overwrites existing data by changing magnetic state, without a Flash-style erase-before-program step. Clearing to all zeros or ones is a series of target-state writes; the P/AP-to-data mapping is product-specific.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "EMG-SEC",
+          "EMG-P-TOGGLE"
+        ]
       }
     },
     {
@@ -410,7 +423,7 @@
         },
         {
           "id": "erase",
-          "title": "Restore: Rewrite Directly with Reverse Current",
+          "title": "Reverse Overwrite: No Separate Physical Erase",
           "before": "The MTJ is in the antiparallel, high-resistance state.",
           "stimulus": "Reverse the junction write-current direction and apply a qualified pulse.",
           "after": "The free layer returns to the parallel, low-resistance state.",
@@ -471,6 +484,21 @@
       "quiz": {
         "question": "Why cannot STT-MRAM read current simply be increased indefinitely to accelerate sensing?",
         "answer": "Read current also passes through the MTJ, producing spin torque and electrical stress. Higher current increases the signal but may also increase read disturbance and barrier stress. Sensing margin and error rate must be considered together."
+      },
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "Erase Semantics: Direct Magnetic Overwrite, No Separate ERS",
+        "sequence": "P ⇄ AP",
+        "definition": "MRAM overwrites existing data by changing magnetic state, without a Flash-style erase-before-program step. Clearing to all zeros or ones is a series of target-state writes; the P/AP-to-data mapping is product-specific.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "EMG-SEC",
+          "EMG-XSPI",
+          "EMG-RA8",
+          "EMG-P-STT"
+        ]
       }
     },
     {
@@ -501,7 +529,7 @@
         },
         {
           "id": "erase",
-          "title": "Restore: Change the SOT Current Direction or Sequence",
+          "title": "Reverse Overwrite: No Separate Physical Erase",
           "before": "The free layer is already in the opposite magnetic state.",
           "stimulus": "Reverse the line current or apply another qualified write sequence, as required by the device design.",
           "after": "The free layer returns to its previous magnetic state, and the MTJ resistance changes accordingly.",
@@ -562,6 +590,21 @@
       "quiz": {
         "question": "Why can a SOT macro still be larger than an STT macro even when the main write current is moved out of the MTJ?",
         "answer": "SOT typically needs a third terminal, a SOT line, and additional selection paths. Shrinking the MTJ does not mean the entire bit and its peripheral circuits shrink together. Effective macro density must be calculated."
+      },
+      "eraseCycle": {
+        "kind": "magnetic",
+        "title": "Erase Semantics: Direct Magnetic Overwrite, No Separate ERS",
+        "sequence": "P ⇄ AP",
+        "definition": "MRAM overwrites existing data by changing magnetic state, without a Flash-style erase-before-program step. Clearing to all zeros or ones is a series of target-state writes; the P/AP-to-data mapping is product-specific.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "EMG-SOT23",
+          "EMG-SOT24",
+          "EMG-P-SOT",
+          "EMG-TSMC-SOT"
+        ]
       }
     },
     {
@@ -652,6 +695,21 @@
       "quiz": {
         "question": "Why does a hysteretic current–voltage curve alone not establish that a device uses oxygen-vacancy VCM?",
         "answer": "Several ionic, interfacial, thermal, or electronic mechanisms can produce resistance hysteresis. Materials and electrodes, polarity, time and temperature response, and structural evidence must be considered together to identify the dominant switching mechanism reasonably."
+      },
+      "eraseCycle": {
+        "kind": "resistance",
+        "title": "Erase Semantics: RESET Followed by Another SET",
+        "sequence": "SET → RESET → SET",
+        "definition": "RESET is the reverse data-state update from low to high resistance; a later SET restores low resistance. This is reversible resistance switching rather than Flash-style block erase. The circuit defines logical zero/one encoding.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "EMG-VCM08",
+          "EMG-P-VCM",
+          "EMG-DBH",
+          "EMG-S130"
+        ]
       }
     },
     {
@@ -682,7 +740,7 @@
           "id": "erase",
           "title": "RESET: Dissolve a Critical Part of the Bridge",
           "before": "A metal bridge creates a low-resistance state between the electrodes.",
-          "stimulus": "Apply an appropriate reverse bias to reoxidize and ionize local metal.",
+          "stimulus": "In this bipolar teaching example, apply a suitable reverse bias to oxidize and ionize metal locally.",
           "after": "A narrow part of the bridge opens, breaking the continuous path and returning the device to a high-resistance state.",
           "explanation": "RESET does not remove all the metal. Residual metal or nucleation sites affect the next SET, creating cycle-history effects and variation that are important in reliability analysis."
         },
@@ -739,6 +797,19 @@
       "quiz": {
         "question": "Why can an ECM metal bridge still influence the next write after RESET?",
         "answer": "RESET often dissolves only part of the bridge, leaving metal and nucleation sites in the medium. These remnants alter the path and threshold of subsequent metal growth, producing cycle-history effects and variation."
+      },
+      "eraseCycle": {
+        "kind": "resistance",
+        "title": "Erase Semantics: RESET Followed by Another SET",
+        "sequence": "SET → RESET → SET",
+        "definition": "RESET is the reverse data-state update from low to high resistance; a later SET restores low resistance. This is reversible resistance switching rather than Flash-style block erase. The circuit defines logical zero/one encoding.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "EMG-ADESTO",
+          "EMG-P-ECM"
+        ]
       }
     },
     {
@@ -829,6 +900,22 @@
       "quiz": {
         "question": "Why might simply increasing the peak amplitude of a SET pulse fail to produce lower resistance?",
         "answer": "A higher peak may melt the material. Rapid cooling afterward can then form an amorphous high-resistance region. The outcome depends on the complete time–temperature history, not current amplitude alone."
+      },
+      "eraseCycle": {
+        "kind": "thermal",
+        "title": "Erase Semantics: RESET Quenching and SET Crystallization",
+        "sequence": "SET → RESET → SET",
+        "definition": "PCM RESET creates a high-resistance amorphous region through local melting and rapid quenching; SET promotes crystallization with a suitable thermal profile. Data is rewritten through pulse-induced thermal histories, not merely voltage reversal or mandatory Flash-style block erase.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "EMG-STPCM",
+          "EMG-P-PCM",
+          "EMG-PCMDRIFT",
+          "EMG-PCMEND",
+          "EMG-PCMPROJ"
+        ]
       }
     },
     {
@@ -857,7 +944,7 @@
         },
         {
           "id": "erase",
-          "title": "Restore: Repolarize with the Reverse Field",
+          "title": "Polarization Overwrite: No Separate Block Erase",
           "before": "The capacitor retains the previously written polarization direction.",
           "stimulus": "Apply a reverse write field across the same capacitor.",
           "after": "Polarization reverses into the other retained state.",
@@ -916,6 +1003,19 @@
       "quiz": {
         "question": "If FeRAM retains data after power loss, why might reading still require a writeback?",
         "answer": "Nonvolatility comes from remanent polarization, but some sensing sequences deliberately switch polarization to obtain a charge difference. The original direction must be restored after sensing to preserve the data held before the read."
+      },
+      "eraseCycle": {
+        "kind": "polarization",
+        "title": "Erase Semantics: Polarization Reversal and Subsequent Write",
+        "sequence": "A → B → A",
+        "definition": "An opposite write stimulus changes ferroelectric polarization to another readable state, which can be rewritten again. Research labels such as ERS or RESET refer to that polarization mechanism, not necessarily floating-gate charge removal or block erase.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "EMG-FRAM",
+          "EMG-P-FERAM"
+        ]
       }
     },
     {
@@ -945,11 +1045,11 @@
         },
         {
           "id": "erase",
-          "title": "Restore: Set the High-Threshold-Voltage State",
+          "title": "Erase / Polarization Reversal: Set the High-Threshold State",
           "before": "The device is in a low-threshold-voltage state and conducts more readily during reading.",
           "stimulus": "Apply an opposite gate pulse to rearrange polarization and the associated interfacial charge.",
           "after": "Threshold voltage rises and current falls at the same read gate voltage.",
-          "explanation": "Research often calls the two directions programming and erasing. The physics is polarization rewriting, rather than Flash block erase involving substantial charge tunneling into or out of a floating gate."
+          "explanation": "Research often calls the two directions program and erase, but the mechanism is polarization rewriting. It differs from Flash erase through charge removal or neutralization; the named stack defines its threshold direction and operating conditions."
         },
         {
           "id": "read",
@@ -1022,6 +1122,22 @@
       "quiz": {
         "question": "Why cannot all FeFET threshold-voltage drift be treated as weakening polarization?",
         "answer": "Traps in the interface and dielectric capture and release charge, also changing threshold voltage and, in turn, polarization stability. Time, bias, and material evidence are needed to separate the two effects."
+      },
+      "eraseCycle": {
+        "kind": "polarization",
+        "title": "Erase Semantics: Polarization Reversal and Subsequent Write",
+        "sequence": "A → B → A",
+        "definition": "An opposite write stimulus changes ferroelectric polarization to another readable state, which can be rewritten again. Research labels such as ERS or RESET refer to that polarization mechanism, not necessarily floating-gate charge removal or block erase.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "EMG-KIOXIA",
+          "EMG-FEPUF",
+          "EMG-FMC",
+          "EMG-P-HFO",
+          "EMG-P-FEFET"
+        ]
       }
     },
     {
@@ -1051,11 +1167,11 @@
         },
         {
           "id": "erase",
-          "title": "Restore: Reverse Polarization to Raise Resistance",
+          "title": "RESET / Polarization Reversal: Set the Higher-Resistance State",
           "before": "The FTJ carries a higher current at the specified read bias.",
           "stimulus": "Apply a reverse write pulse to reset ferroelectric polarization.",
           "after": "The effective barrier returns to the other profile, reducing tunneling current.",
-          "explanation": "This is polarization rewriting, commonly described as SET/RESET or programming/erasing. The names do not imply Flash-like erase through discharge of an entire region."
+          "explanation": "This is polarization rewriting, sometimes called SET/RESET or program/erase. Those labels do not imply Flash-style block erase; the electrode structure defines the relation between polarization and resistance."
         },
         {
           "id": "read",
@@ -1110,6 +1226,19 @@
       "quiz": {
         "question": "Why can an FTJ still read slowly despite a large high-to-low resistance ratio?",
         "answer": "A large ratio does not mean a large absolute current. If both state currents are very small, the sense circuit needs a longer integration time and becomes more sensitive to leakage and noise. TER and current magnitude must be evaluated together."
+      },
+      "eraseCycle": {
+        "kind": "polarization",
+        "title": "Erase Semantics: Polarization Reversal and Subsequent Write",
+        "sequence": "A → B → A",
+        "definition": "An opposite write stimulus changes ferroelectric polarization to another readable state, which can be rewritten again. Research labels such as ERS or RESET refer to that polarization mechanism, not necessarily floating-gate charge removal or block erase.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.",
+        "sourceIds": [
+          "EMG-FTJ24",
+          "EMG-P-FTJ"
+        ]
       }
     }
   ]

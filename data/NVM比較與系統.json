@@ -780,7 +780,7 @@
   "glossary": [
     {
       "term": "CHI 與 CHEI",
-      "definition": "CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。YMC 課程模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。"
+      "definition": "CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。獨立 CHI／BBHH 教學模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。"
     },
     {
       "term": "Fowler–Nordheim（FN）穿隧",
@@ -872,7 +872,7 @@
     },
     {
       "term": "嵌入式 MTP IP",
-      "definition": "整合在 SoC、ASIC 或類比晶片內的可多次更新 NVM 巨集。選型先分 foundry 製程提供的雙層多晶矽 EEPROM 路徑與第三方單層多晶矽 MTP IP 路徑，再核對具名單元、製程、寫抹粒度與可靠度。"
+      "definition": "MTP 描述可寫入超過一次的能力。本網站的嵌入式 MTP IP 章節聚焦浮動閘極 MTP／EEPROM 巨集，不因此把 MRAM、ReRAM、Flash 或 SONOS 重新歸入此章。各實作仍須核對儲存機制、抹除或覆寫行為、製程、更新粒度與可靠度。"
     },
     {
       "term": "雙層多晶矽 EEPROM",
