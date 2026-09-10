@@ -1,5 +1,7 @@
 /* 錨點導覽共用一個狀態；滑動指示線跟隨實際位置。 */
 (() => {
+  const physicsIndex = document.querySelector('.knowledge-physics');
+  if (physicsIndex) physicsIndex.open = !matchMedia('(max-width:600px)').matches;
   const nav = document.querySelector('.hub-rail-nav');
   if (!nav) return;
   const links = [...nav.querySelectorAll('.hub-rail-btn')];

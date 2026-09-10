@@ -1,0 +1,185 @@
+/* 知識中心與技術全景共用閱讀識別；不改變其他網站頁面的主題。 */
+:root {
+  --editorial-navy: #092b3b;
+  --editorial-ink: #173b49;
+  --editorial-muted: #526a72;
+  --editorial-teal: #006f70;
+  --editorial-cyan: #74e4d7;
+  --editorial-paper: #fafaf7;
+  --editorial-line: #cddbdc;
+  --editorial-copper: #805828;
+  --home-navy: var(--editorial-navy);
+  --home-ink: var(--editorial-ink);
+  --home-muted: var(--editorial-muted);
+  --home-paper: var(--editorial-paper);
+  --home-line: var(--editorial-line);
+  --home-blue: var(--editorial-teal);
+  --nvm-dark: var(--editorial-navy);
+  --nvm-ink: var(--editorial-ink);
+  --nvm-muted: var(--editorial-muted);
+  --nvm-paper: var(--editorial-paper);
+  --nvm-line: var(--editorial-line);
+  --nvm-teal: var(--editorial-teal);
+  --nvm-aqua: var(--editorial-cyan);
+}
+
+body.hub-reading-home, body.nvm-atlas-page { -webkit-font-smoothing: antialiased; }
+:where(a, button, input, select, summary, [tabindex]):focus-visible { outline: 3px solid #008580; outline-offset: 5px; }
+.knowledge-header, .nvm-header { background: var(--editorial-navy); border-bottom-color: #33525e; }
+.knowledge-header a:focus-visible, .nvm-header a:focus-visible,
+.knowledge-header button:focus-visible, .nvm-header button:focus-visible { outline-color: var(--editorial-cyan); }
+.knowledge-header .search-trigger, .knowledge-header .language-toggle, .nvm-header .language-toggle { min-height: 44px; }
+.knowledge-header nav a, .nvm-header nav a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* 首頁：一個主要敘事，配合可閱讀、可點選的物理索引。 */
+.knowledge-editorial-hero { background: var(--editorial-navy); color: #fff; }
+.knowledge-editorial-inner { max-width: 1420px; margin: auto; padding: 54px 48px 42px; display: grid; grid-template-columns: 1.14fr 1fr; gap: 64px; align-items: center; }
+.knowledge-editorial-hero .knowledge-intro-header { padding: 0; margin: 0; }
+.knowledge-editorial-hero .eyebrow { color: var(--editorial-cyan); font-size: 12px; margin-bottom: 23px; letter-spacing: .08em; }
+.knowledge-editorial-hero h1 { font-size: clamp(42px, 4.5vw, 64px); line-height: 1.16; letter-spacing: -.03em; max-width: 11em; font-weight: 600; }
+.knowledge-editorial-hero .knowledge-intro { font-size: 18px; line-height: 1.85; color: #ccdde1; max-width: 37em; margin-top: 26px; }
+.knowledge-editorial-hero .knowledge-actions { gap: 20px; margin-top: 30px; }
+.knowledge-editorial-hero .knowledge-actions a { font-size: 15px; min-height: 48px; color: #e0eeed; }
+.knowledge-editorial-hero .knowledge-primary { background: var(--editorial-cyan); color: #083a40 !important; padding: 13px 19px; border-radius: 2px; }
+.knowledge-editorial-hero .knowledge-primary:hover { background: #a4f4e9; }
+.knowledge-editorial-hero a:focus-visible { outline-color: var(--editorial-cyan); }
+.knowledge-physics { margin: 0; min-width: 0; border-top: 1px solid #4b6971; }
+.knowledge-physics summary { color: #e6f3f1; font-size: 15px; padding: 17px 0 12px; }
+.knowledge-physics-index a { display: grid; grid-template-columns: 65px 1fr auto; align-items: center; gap: 16px; min-height: 74px; padding: 9px 0; border-top: 1px solid #34515c; text-decoration: none; }
+.knowledge-physics-index a:hover { background: #123b48; }
+.storage-glyph { display: block; width: 64px; height: 60px; fill: none; stroke: #81ddd2; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.storage-glyph .storage-fill { fill: #81ddd2; stroke: none; }
+.storage-glyph .storage-faint { fill: #234c55; stroke: none; }
+.knowledge-physics-index strong { display: block; font-size: 19px; font-weight: 500; color: #f7fafa; }
+.knowledge-physics-index span { display: block; color: #bdd1d7; font-size: 15px; margin-top: 2px; }
+.knowledge-physics-index [data-lang] { font-size: inherit; color: inherit; margin: 0; }
+.knowledge-physics-index small { color: #adc4cc; font-size: 11px; text-align: right; }
+.knowledge-physics>p { margin: 13px 0 0; font-size: 12px; line-height: 1.7; color: #b4cbd1; }
+.knowledge-coverage { max-width: 1324px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr) 1.25fr; border-top: 1px solid #44606a; }
+.knowledge-coverage>div { padding: 24px 25px 25px; border-left: 1px solid #34515c; display: flex; align-items: baseline; gap: 18px; }
+.knowledge-coverage>div:first-child { padding-left: 0; border-left: 0; }
+.knowledge-coverage dt { order: 2; font-size: 13px; line-height: 1.5; color: #c5d8dd; }
+.knowledge-coverage dd { order: 1; font-size: 38px; line-height: 1; font-weight: 500; margin: 0; font-variant-numeric: tabular-nums; }
+.knowledge-coverage .knowledge-coverage-note { flex-direction: column; justify-content: center; gap: 8px; padding-right: 0; }
+.knowledge-coverage-note dd { font-size: 17px; }
+.knowledge-coverage-note dt { font-size: 12px; }
+
+/* 目錄：章節與條目分工，保留連續的掃讀基準。 */
+.knowledge-map { padding-top: 24px; }
+.hub-rail-nav { background: var(--editorial-paper); }
+.hub-rail-btn { min-height: 60px; }
+.hub-rail-btn.active { color: var(--editorial-teal); }
+.hub-rail-indicator { background: var(--editorial-teal); }
+.knowledge-section { display: grid; grid-template-columns: minmax(180px, .34fr) minmax(0, 1fr); gap: 42px; padding: 46px 0 12px; }
+.knowledge-section>header { display: block; padding-right: 8px; }
+.knowledge-section .section-number { display: block; font-size: 13px; color: var(--editorial-copper); margin-bottom: 12px; padding: 0; }
+.knowledge-section h2 { font-size: 30px; font-weight: 500; line-height: 1.3; }
+.knowledge-section>header p { font-size: 15px; line-height: 1.8; margin-top: 17px; }
+.knowledge-row { grid-template-columns: 27px minmax(0,1fr) 20px; padding: 25px 6px; gap: 15px; align-items: center; }
+.knowledge-row h3 { font-size: 21px; line-height: 1.4; }
+.knowledge-row p { font-size: 15px; margin-top: 9px; }
+.knowledge-row .knowledge-meta { display: none; }
+.knowledge-row:hover { background: #eaf1ef; }
+.knowledge-id { font-size: 12px; color: #5c747d; }
+.knowledge-method { background: #e9f0ec; padding-block: 46px; }
+.knowledge-method h2 { font-size: 32px; font-weight: 500; max-width: 16em; }
+.knowledge-method li p { font-size: 15px; }
+.knowledge-footer p, .knowledge-footer>div { font-size: 13px; }
+
+/* 全景共用外框：一致的閱讀寬度、字級與錨點空間。 */
+html:has(.nvm-atlas-page) { scroll-padding-top: var(--nvm-anchor-top, 100px); }
+.nvm-atlas-page .nvm-panel,
+.nvm-atlas-page .nvm-research-study,
+.nvm-atlas-page .nvm-landscape-row { scroll-margin-top: 0; }
+.nvm-library-header { padding: 31px 40px 28px; background: #eaf0ed; border-bottom-color: #c4d4d2; }
+.nvm-library-header h1 { font-size: 40px; font-weight: 500; }
+.nvm-library-header .nvm-kicker { font-size: 11px; letter-spacing: .08em; }
+.nvm-library-header>p:last-child { font-size: 16px; }
+.nvm-breadcrumb { padding: 20px 40px 24px; font-size: 13px; }
+.nvm-layout { grid-template-columns: 222px minmax(0,1fr); padding-inline: 40px; gap: 40px; }
+.nvm-sidebar { padding-right: 16px; top: var(--nvm-anchor-top,100px); }
+.nvm-sidebar a { border-radius: 0; padding: 10px 12px; }
+.nvm-sidebar a[aria-current=page] { background: #dfede8; color: #08594f; border-color: #00786f; }
+.nvm-sidebar a:hover { background: #eaf1ed; }
+.nvm-sidebar>nav>a { font-size: 14px; }
+.nvm-atlas-page .nvm-panel>header h2 { font-weight: 500; }
+.nvm-atlas-page .nvm-panel p { text-wrap: pretty; }
+.nvm-atlas-page .nvm-source-links a { font-size: 13px; line-height: 1.7; }
+.nvm-atlas-page .nvm-actions a { min-height: 46px; border-radius: 2px; }
+.nvm-atlas-page .nvm-cell { box-shadow: none; border-radius: 3px; }
+.nvm-atlas-page .nvm-contents-button { min-height: 48px; }
+.nvm-atlas-page .nvm-milestone h3 { overflow-wrap: anywhere; }
+.nvm-technical-term { white-space: nowrap; }
+html:not(.nvm-keyboard-navigation) .nvm-atlas-page [data-route-heading]:focus-visible { outline: none; }
+
+@media(max-width:1180px) {
+ .knowledge-editorial-inner { padding-inline: 30px; gap: 36px; grid-template-columns: 1fr 1fr; }
+ .knowledge-coverage { margin-inline: 30px; }
+ .knowledge-coverage>div { padding-inline: 19px; gap: 12px; }
+ .knowledge-physics-index a { grid-template-columns: 57px 1fr; gap: 12px; }
+ .knowledge-physics-index small { display: none; }
+ .knowledge-section { gap: 30px; grid-template-columns: minmax(180px,.32fr) minmax(0,1fr); }
+ .nvm-layout { grid-template-columns: 192px minmax(0,1fr); gap: 26px; padding-inline: 28px; }
+}
+@media(max-width:900px) {
+ .knowledge-editorial-inner { grid-template-columns: 1fr; gap: 32px; padding: 28px 28px 24px; }
+ .knowledge-editorial-hero h1 { font-size: 48px; max-width: 14em; }
+ .knowledge-editorial-hero .knowledge-intro { max-width: 46em; }
+ .knowledge-physics-index { display: grid; grid-template-columns: 1fr 1fr; column-gap: 26px; }
+ .knowledge-physics-index a { grid-template-columns: 58px 1fr; }
+ .knowledge-physics-index strong { font-size: 18px; }
+ .knowledge-coverage { grid-template-columns: repeat(3,1fr); margin-inline: 28px; }
+ .knowledge-coverage .knowledge-coverage-note { display: none; }
+ .knowledge-coverage>div { flex-direction: column; gap: 8px; }
+ .knowledge-coverage dt { font-size: 13px; }
+ .knowledge-section { grid-template-columns: 1fr; gap: 14px; padding-top: 34px; }
+ .knowledge-section>header { display: flex; gap: 18px; margin-bottom: 12px; }
+ .knowledge-section .section-number { padding-top: 7px; }
+ .knowledge-section>header p { margin-top: 10px; }
+}
+@media(max-width:800px) {
+ .nvm-layout { display: block; padding: 0 24px 50px; }
+ .nvm-library-header { padding: 28px 24px 25px; }
+ .nvm-library-header h1 { font-size: 34px; }
+ .nvm-breadcrumb { padding: 17px 24px; }
+ .nvm-sidebar { position: relative; top: auto; padding: 0 0 20px; }
+}
+@media(max-width:600px) {
+ .knowledge-editorial-inner { padding: 21px 22px 18px; gap: 30px; }
+ .knowledge-editorial-hero h1 { font-size: 40px; line-height: 1.18; }
+ .knowledge-editorial-hero .eyebrow { font-size: 11px; margin-bottom: 18px; }
+ .knowledge-editorial-hero .knowledge-intro { font-size: 16px; line-height: 1.8; margin-top: 20px; }
+ .knowledge-editorial-hero .knowledge-actions { gap: 8px 18px; margin-top: 23px; }
+ .knowledge-editorial-hero .knowledge-actions a { font-size: 14px; }
+ .knowledge-physics summary { font-size: 14px; padding-top: 15px; }
+ .knowledge-physics-index { column-gap: 16px; }
+ .knowledge-physics-index a { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; align-content: start; }
+ .knowledge-physics-index strong { font-size: 18px; }
+ .knowledge-physics-index a>div>span { font-size: 15px; line-height: 1.55; }
+ .knowledge-physics .storage-glyph { width: 59px; height: 54px; }
+ .knowledge-coverage { margin-inline: 22px; }
+ .knowledge-coverage>div { padding: 18px 13px; }
+ .knowledge-coverage dd { font-size: 30px; }
+ .knowledge-coverage dt { font-size: 12px; }
+ .knowledge-map { padding-top: 18px; }
+ .knowledge-section h2 { font-size: 28px; }
+ .knowledge-row h3 { font-size: 19px; }
+ .knowledge-row { padding-block: 22px; gap: 10px; grid-template-columns: 24px minmax(0,1fr) 17px; }
+ .knowledge-method h2 { font-size: 28px; }
+ .nvm-library-header h1 { font-size: 31px; }
+ .nvm-library-header>p:last-child { font-size: 15px; }
+}
+@media(max-width:390px) {
+ .knowledge-editorial-hero h1 { font-size: 36px; }
+ .knowledge-editorial-inner { padding-inline: 20px; }
+ .nvm-layout { padding-inline: 18px; }
+ .nvm-breadcrumb, .nvm-library-header { padding-inline: 20px; }
+ .knowledge-coverage>div { padding-inline: 10px; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } }
+@media print { .knowledge-editorial-hero { color: #173b49; background: #fff; } .knowledge-physics { display: none; } }
+
+.knowledge-physics summary{cursor:pointer;min-height:48px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px}.knowledge-physics summary::-webkit-details-marker{display:none}.knowledge-physics summary::after{content:"+";font:22px/1 Arial,sans-serif;color:#74e4d7}.knowledge-physics[open] summary::after{content:"−"}.knowledge-physics summary:focus-visible{outline-color:#74e4d7}
+
+.knowledge-header .search-trigger { min-width: 44px; }
+@media(max-width:390px) { .nvm-atlas-page .nvm-milestone h3 { line-break: anywhere; } }

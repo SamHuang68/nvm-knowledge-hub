@@ -1,0 +1,70 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import http from 'node:http';
+import {chromium} from 'playwright';
+const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'qa/商用編排_20260910');
+fs.mkdirSync(out,{recursive:true});
+const widths=process.argv.includes('--quick')?[1440,390]:[1440,1361,1360,1280,1101,1100,901,900,800,768,621,620,390,312];
+const checks=[],errors=[],copy=[];
+const check=(pass,label,details={})=>checks.push({pass:Boolean(pass),label,...details});
+const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.json':'application/json'};
+const server=http.createServer((req,res)=>{let file;try{file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));}catch{res.writeHead(400).end();return;}if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404).end();return;}res.writeHead(200,{'content-type':mime[path.extname(file)]||'application/octet-stream'});fs.createReadStream(file).pipe(res);});
+await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const base=`http://127.0.0.1:${server.address().port}/`;let browser;
+async function audit(page,language,width,route,scope){
+ const geometry=await page.evaluate(selector=>{
+  const root=document.querySelector(selector);const visible=e=>e.getClientRects().length&&getComputedStyle(e).visibility!=='hidden';
+  const clips=[...root.querySelectorAll('header,p,h1,h2,h3,h4,button,figcaption,td,dd')].filter(e=>visible(e)&&e.clientWidth>0&&e.scrollWidth>e.clientWidth+2).map(e=>({tag:e.tagName,class:e.className,text:e.textContent.slice(0,80),delta:e.scrollWidth-e.clientWidth}));
+  return{overflow:document.documentElement.scrollWidth-innerWidth,clips,headings:[...root.querySelectorAll('h1,h2')].filter(visible).map(e=>({tag:e.tagName,size:parseFloat(getComputedStyle(e).fontSize)}))};
+ },scope);
+ check(geometry.overflow<=1,'頁面無水平溢出',{language,width,route,overflow:geometry.overflow});check(geometry.clips.length===0,'語意區塊內部沒有裁切',{language,width,route,clips:geometry.clips});
+ if(language==='en'){const text=await page.locator(scope).innerText();check(!/[\u3400-\u9fff]/u.test(text),'英文主要內容沒有中文漏譯',{width,route,hits:text.match(/[\u3400-\u9fff]+/gu)?.slice(0,8)});}
+ check(geometry.headings.every(h=>h.size<=(width<=600?44:h.tag==='H1'?72:56)),'主要標題尺度受控',{language,width,route,headings:geometry.headings});
+ if([1440,390].includes(width)&&['首頁','ecosystem','research'].includes(route)){
+  const contrast=await page.evaluate(selector=>{
+   const rgb=c=>c.match(/[\d.]+/g)?.slice(0,3).map(Number)||[255,255,255];
+   const lum=c=>rgb(c).map(v=>{v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;}).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0);
+   const background=e=>{for(let p=e;p;p=p.parentElement){const c=getComputedStyle(p).backgroundColor;if(c!=='rgba(0, 0, 0, 0)'&&c!=='transparent')return c;}return 'rgb(255,255,255)';};
+   const failures=[];let count=0;
+   for(const e of document.querySelector(selector).querySelectorAll('p,h1,h2,h3,h4,dt,dd,a,button,small,figcaption,strong,span')){
+    if(!e.getClientRects().length||!Array.from(e.childNodes).some(n=>n.nodeType===3&&n.textContent.trim()))continue;
+    const s=getComputedStyle(e);if(s.visibility==='hidden')continue;const bg=background(e),l1=lum(s.color),l2=lum(bg),ratio=(Math.max(l1,l2)+.05)/(Math.min(l1,l2)+.05),size=parseFloat(s.fontSize),threshold=size>=24||size>=18.66&&parseFloat(s.fontWeight)>=700?3:4.5;
+    count++;if(ratio+.01<threshold)failures.push({tag:e.tagName,class:e.className,text:e.textContent.trim().slice(0,60),ratio:Number(ratio.toFixed(2)),threshold,color:s.color,bg});
+   }return{count,failures};
+  },scope);
+  check(contrast.failures.length===0,'實際文字與承載底色符合 AA 對比',{language,width,route,...contrast});
+ }
+}
+try{
+ browser=await chromium.launch({headless:true});
+ for(const language of ['zh','en'])for(const width of widths){
+  const context=await browser.newContext({viewport:{width,height:1000},reducedMotion:'reduce'}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
+  await page.goto(base+'index.html?lang='+language,{waitUntil:'networkidle'});
+  await audit(page,language,width,'首頁','#main-content');
+  check(await page.locator('.knowledge-physics-index a').count()===4,'四個物理符號有實際導讀入口',{language,width});
+  check(await page.locator('.knowledge-coverage dd').first().innerText()==='74','首頁涵蓋數由正式資料產生',{language,width});
+  if([1440,390].includes(width)){await page.screenshot({path:path.join(out,`${language}-首頁-${width}.png`)});if(width===1440)copy.push(await page.locator('#main-content').innerText());}
+  if(width===390){
+   const details=page.locator('.knowledge-physics');
+   check(await details.getAttribute('open')===null,'手機物理索引預設收合',{language});
+   await details.locator('summary').focus();await page.keyboard.press('Enter');
+   check(await details.locator('.knowledge-physics-index a').first().isVisible(),'鍵盤可展開物理索引',{language});
+   await page.keyboard.press('Space');check(await details.getAttribute('open')===null,'鍵盤可收合物理索引',{language});
+   await page.keyboard.press('Control+k');check(await page.locator('#searchOverlay').getAttribute('aria-hidden')==='false','手機版鍵盤搜尋可用',{language});await page.keyboard.press('Escape');
+  }
+  const atlas=language==='zh'?'NVM技術全景中文.html':'NVM技術全景.html';await page.goto(new URL(atlas+'?lang='+language+'#ecosystem',base).href,{waitUntil:'networkidle'});
+  for(const route of ['ecosystem','research','research-everspin','research-panasonic','research-itri','ip-neoee','topic-stt','foundry']){
+   await page.evaluate(hash=>{location.hash=hash;},route);await page.waitForFunction(id=>document.getElementById(id)?.checkVisibility(),route);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+   await audit(page,language,width,route,'#'+route);
+   if(route.startsWith('research-')){const bounds=await page.evaluate(id=>{const a=document.getElementById(id).getBoundingClientRect(),h=document.querySelector('.nvm-header').getBoundingClientRect();return{top:a.top,headerBottom:h.bottom};},route);check(bounds.top>=bounds.headerBottom&&bounds.top<=bounds.headerBottom+40,'專題錨點緊接固定頁首且不被遮擋',{language,width,route,...bounds});check(await page.evaluate(()=>document.activeElement.tagName==='H3'),'專題焦點落在標題而非整章外框',{language,width,route});}
+   if([1440,390].includes(width)&&['ecosystem','research','research-everspin','research-panasonic','research-itri'].includes(route)){await page.screenshot({path:path.join(out,`${language}-${route}-${width}.png`)});if(width===1440&&['ecosystem','research'].includes(route))copy.push(await page.locator('#'+route).innerText());}
+  }
+  await page.evaluate(()=>location.hash='ecosystem');await page.locator('[data-landscape-family-shortcut="MRAM"]').click();check(await page.locator('[data-landscape-row]:visible').count()===19&&await page.locator('#nvm-landscape-family').inputValue()==='MRAM','家族快捷按鈕與原生選單同步',{language,width});
+  await page.locator('#nvm-landscape-reset').click();check(await page.locator('[data-landscape-row]:visible').count()===74&&await page.locator('[data-landscape-family-shortcut=""]').getAttribute('aria-pressed')==='true','重設同步全部家族狀態',{language,width});
+  await page.evaluate(()=>location.hash='research-everspin');await page.locator('#research-everspin [data-zoom-diagram]').click();check(await page.locator('dialog[open]').isVisible(),'圖形放大按鈕可操作',{language,width});await page.keyboard.press('Escape');
+  await page.keyboard.press('Tab');await page.evaluate(()=>location.hash='research-panasonic');check(await page.evaluate(()=>getComputedStyle(document.activeElement).outlineStyle!=='none'),'鍵盤導覽後標題仍有可見焦點',{language,width});
+  await context.close();
+ }
+ check(errors.length===0,'沒有未處理的瀏覽器腳本錯誤',{errors});
+}catch(e){check(false,'驗收執行完整',{error:e.stack});}finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
+const failures=checks.filter(c=>!c.pass);fs.writeFileSync(path.join(out,'編排瀏覽器查核.json'),JSON.stringify({date:'2026-09-10',checks:checks.length,failures,errors,results:checks},null,2)+'\n');fs.writeFileSync(path.join(out,'可見文案.txt'),copy.join('\n\n'));
+console.log(JSON.stringify({checks:checks.length,failed:failures.length,failures},null,2));if(failures.length)process.exitCode=1;

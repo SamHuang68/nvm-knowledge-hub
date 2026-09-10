@@ -4,6 +4,14 @@ const contents = document.querySelector('.nvm-sidebar');
 const contentsButton = document.querySelector('#nvm-contents-toggle');
 const baseTitle = document.title;
 const isEnglish = document.documentElement.lang === 'en';
+document.addEventListener('keydown', event => {
+  if (['Tab','Enter',' ','ArrowUp','ArrowDown','Home','End'].includes(event.key)) document.documentElement.classList.add('nvm-keyboard-navigation');
+});
+document.addEventListener('pointerdown', () => document.documentElement.classList.remove('nvm-keyboard-navigation'));
+const pageHeader = document.querySelector('.nvm-header');
+const measureHeader = () => document.documentElement.style.setProperty('--nvm-anchor-top', `${(pageHeader?.getBoundingClientRect().height || 76) + 24}px`);
+if (pageHeader) new ResizeObserver(measureHeader).observe(pageHeader);
+measureHeader();
 
 function showRoute({ focus = false } = {}) {
   let target;
@@ -52,8 +60,9 @@ function showRoute({ focus = false } = {}) {
   for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;
   if (focus) {
     const destination = anchor || next;
-    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination;
+    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study') ? destination.querySelector('h3') : destination;
     heading?.setAttribute('tabindex', '-1');
+    if (heading?.matches('h2,h3')) heading.dataset.routeHeading = '';
     heading?.focus({ preventScroll: true });
     destination.scrollIntoView({ block: 'start' });
   }
@@ -136,9 +145,18 @@ function filterLandscape() {
   }
   document.querySelector('#nvm-landscape-count').textContent = isEnglish ? `Showing ${count} of ${landscapeRows.length} named routes` : `顯示 ${count}／${landscapeRows.length} 條具名路線`;
   document.querySelector('#nvm-landscape-empty').hidden = count !== 0;
+  document.querySelectorAll('[data-landscape-family-shortcut]').forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.landscapeFamilyShortcut === landscapeFamily.value));
+  });
 }
 landscapeSearch?.addEventListener('input', filterLandscape);
 landscapeFamily?.addEventListener('change', filterLandscape);
+document.querySelectorAll('[data-landscape-family-shortcut]').forEach(button => {
+  button.addEventListener('click', () => {
+    landscapeFamily.value = button.dataset.landscapeFamilyShortcut;
+    filterLandscape();
+  });
+});
 document.querySelector('#nvm-landscape-reset')?.addEventListener('click', () => {
   landscapeSearch.value = '';
   landscapeFamily.value = '';

@@ -19,7 +19,8 @@
     "qa:ip": "node scripts/驗證IP單元.mjs",
     "qa:entry": "node scripts/驗證入口目錄.mjs",
     "qa:rewrite": "node scripts/驗證可重寫操作.mjs",
-    "qa:research": "node scripts/驗證產研地圖.mjs"
+    "qa:research": "node scripts/驗證產研地圖.mjs",
+    "qa:editorial": "node scripts/驗證商用編排.mjs"
   },
   "devDependencies": {
     "playwright": "^1.55.0"

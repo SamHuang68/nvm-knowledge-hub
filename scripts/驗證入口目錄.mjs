@@ -44,7 +44,7 @@ for(const language of ['en','zh'])for(const width of [1440,1024,768,390,320]){
  note(await page.locator('#ip-kilopass-xpm .nvm-ip-structure-figure').isVisible(),'IP 名錄可直接開啟 Kilopass 結構與操作',{language,width});
  const file=language==='en'?'NVM技術全景.html':'NVM技術全景中文.html';
  await page.goto(new URL(file+'?lang='+language+'#panorama',base).href,{waitUntil:'load'});await page.locator('#panorama').waitFor();
- note(await page.locator('#panorama .nvm-library-entries>a').count()===7&&await page.locator('[data-ip-entry]:visible').count()===0,'全景預設顯示中性章節目錄',{language,width});
+ note(JSON.stringify(await page.locator('#panorama .nvm-library-entries>a').evaluateAll(es=>es.map(e=>e.getAttribute('href'))))===JSON.stringify(['#ip-directory','#ip-lineage','#ecosystem','#research','#foundry','#physics-library','#comparison','#system-array','#patents'])&&await page.locator('[data-ip-entry]:visible').count()===0,'全景預設顯示中性章節目錄',{language,width});
  if([1440,390].includes(width))await page.screenshot({path:path.join(output,`全景目錄-${language}-${width}.png`),fullPage:false});
  await page.locator('#panorama a[href="#ip-lineage"]').click();await page.locator('#ip-lineage').waitFor();
  const lineage=await page.locator('#ip-lineage').evaluate(element=>({entries:element.querySelectorAll('.nvm-lineage-entry').length,events:element.querySelectorAll('.nvm-lineage-events li').length,overflow:document.documentElement.scrollWidth-innerWidth,clipped:[...element.querySelectorAll('h2,h3,h4,p,time')].filter(item=>item.checkVisibility()&&item.scrollWidth>item.clientWidth+2).map(item=>item.textContent)}));
