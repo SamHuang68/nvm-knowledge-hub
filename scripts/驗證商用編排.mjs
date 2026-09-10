@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import {chromium} from 'playwright';
-const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'qa/商用編排_20260910');
+const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'qa/商用編排第二輪_20260910');
 fs.mkdirSync(out,{recursive:true});
 const widths=process.argv.includes('--quick')?[1440,390]:[1440,1361,1360,1280,1101,1100,901,900,800,768,621,620,390,312];
 const checks=[],errors=[],copy=[];
@@ -43,6 +43,8 @@ try{
   check(await page.locator('.knowledge-physics-index a').count()===4,'四個物理符號有實際導讀入口',{language,width});
   check(await page.locator('.knowledge-coverage dd').first().innerText()==='74','首頁涵蓋數由正式資料產生',{language,width});
   if([1440,390].includes(width)){await page.screenshot({path:path.join(out,`${language}-首頁-${width}.png`)});if(width===1440)copy.push(await page.locator('#main-content').innerText());}
+  check(await page.locator('.knowledge-features a').count()===5,'首頁五篇專題有完整導讀入口',{language,width});
+  if([1440,390].includes(width))await page.locator('.knowledge-features').screenshot({path:path.join(out,`${language}-專題導讀-${width}.png`),style:'.knowledge-header,.hub-rail-nav,.skip-link{visibility:hidden}'});
   if(width===390){
    const details=page.locator('.knowledge-physics');
    check(await details.getAttribute('open')===null,'手機物理索引預設收合',{language});
@@ -60,6 +62,18 @@ try{
   }
   await page.evaluate(()=>location.hash='ecosystem');await page.locator('[data-landscape-family-shortcut="MRAM"]').click();check(await page.locator('[data-landscape-row]:visible').count()===19&&await page.locator('#nvm-landscape-family').inputValue()==='MRAM','家族快捷按鈕與原生選單同步',{language,width});
   await page.locator('#nvm-landscape-reset').click();check(await page.locator('[data-landscape-row]:visible').count()===74&&await page.locator('[data-landscape-family-shortcut=""]').getAttribute('aria-pressed')==='true','重設同步全部家族狀態',{language,width});
+  const entry=page.locator('#company-everspin-toggle'),drawer=entry.locator('.nvm-evidence-drawer');
+  check(await drawer.getAttribute('open')===null&&await entry.locator('.nvm-maturity-limit').isVisible(),'來源收合時適用邊界仍直接可見',{language,width});
+  await drawer.locator('summary').focus();await page.keyboard.press('Enter');
+  check(await drawer.locator('a').first().isVisible(),'鍵盤可展開原始來源',{language,width});
+  await audit(page,language,width,'來源展開','#company-everspin-toggle');
+  if([1440,390].includes(width))await entry.screenshot({path:path.join(out,`${language}-來源分層-${width}.png`),style:'.nvm-header{visibility:hidden}'});
+  const target=await drawer.locator('a').first().getAttribute('href');await drawer.locator('a').first().click();await page.locator(target).waitFor({state:'visible'});
+  check(await page.locator(target).isVisible(),'展開來源連結可回到具名來源記錄',{language,width});
+  await page.evaluate(()=>location.hash='research-everspin');await page.locator('#research-everspin .nvm-study-pagination a').last().click();
+  check(await page.locator('#research-umc').isVisible()&&await page.evaluate(()=>location.hash==='#research-umc'),'下一篇導覽進入 UMC 專題',{language,width});
+  await page.locator('#research-umc .nvm-study-pagination a').first().click();
+  check(await page.evaluate(()=>location.hash==='#research-everspin'),'上一篇導覽返回 Everspin 專題',{language,width});
   await page.evaluate(()=>location.hash='research-everspin');await page.locator('#research-everspin [data-zoom-diagram]').click();check(await page.locator('dialog[open]').isVisible(),'圖形放大按鈕可操作',{language,width});await page.keyboard.press('Escape');
   await page.keyboard.press('Tab');await page.evaluate(()=>location.hash='research-panasonic');check(await page.evaluate(()=>getComputedStyle(document.activeElement).outlineStyle!=='none'),'鍵盤導覽後標題仍有可見焦點',{language,width});
   await context.close();
