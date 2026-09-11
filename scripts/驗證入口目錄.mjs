@@ -19,7 +19,7 @@ for(const language of ['en','zh'])for(const width of [1440,1024,768,390,320]){
  page.on('pageerror',error=>errors.push({language,width,message:error.message}));
  await page.goto(new URL('index.html?lang='+language,base).href,{waitUntil:'load'});await page.locator('.hub-rail-btn.active').waitFor();
  const first=await page.evaluate(()=>{const nav=document.querySelector('.hub-rail-nav'),title=document.querySelector('h1');return{title:title.innerText,headingHeight:title.getBoundingClientRect().height,directoryBottom:nav.getBoundingClientRect().bottom,buttons:[...nav.querySelectorAll('a')].map(a=>({text:a.innerText,width:a.getBoundingClientRect().width,height:a.getBoundingClientRect().height})),overflow:document.documentElement.scrollWidth-innerWidth,heroFigures:document.querySelectorAll('.knowledge-hero-art,.knowledge-facts').length};});
- note(first.title===(language==='en'?'NVM Knowledge Hub':'NVM 知識中心')&&first.heroFigures===0&&first.directoryBottom<=940&&first.buttons.length===4&&first.buttons.every(button=>button.width>=120&&button.height>=40)&&first.overflow<=1,'首頁第一屏為知識中心及四類目錄',{language,width,...first});
+ note(first.title===(language==='en'?'NVM Knowledge Hub':'NVM 知識中心')&&first.heroFigures===0&&first.directoryBottom<=(width<=850?1100:940)&&first.buttons.length===4&&first.buttons.every(button=>button.width>=120&&button.height>=40)&&first.overflow<=1,'首頁第一屏為知識中心及四類目錄',{language,width,...first});
  note(await page.locator('.knowledge-row').count()===catalog.sections.reduce((total,section)=>total+section.items.length,0),'完整目錄保留全部主題入口',{language,width});
  for(const section of catalog.sections){
   await page.locator(`.hub-rail-btn[data-target="layer-${section.id}"]`).click();

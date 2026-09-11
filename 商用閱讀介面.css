@@ -195,7 +195,7 @@ html:not(.nvm-keyboard-navigation) .nvm-atlas-page [data-route-heading]:focus-vi
 .nvm-roadmap-year .nvm-milestone::before { content: none; }
 .nvm-roadmap-year .nvm-milestone>header { display: flex; flex-wrap: wrap; gap: 10px 20px; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
 .nvm-roadmap-year .nvm-year { font-size: 15px; font-weight: 600; }
-.nvm-roadmap-year .nvm-milestone h4 { font-size: 24px; line-height: 1.45; font-weight: 500; margin: 0 0 17px; overflow-wrap: anywhere; }
+.nvm-roadmap-year .nvm-milestone h4, .nvm-benchmark h4 { font-size: 22px; line-height: 1.45; font-weight: 500; margin: 0 0 17px; overflow-wrap: anywhere; line-break: anywhere; word-break: break-word; text-wrap: wrap; }
 .nvm-roadmap-year .nvm-milestone .nvm-maturity-limit { padding: 14px 17px; background: #edf2ee; font-size: 15px; line-height: 1.85; }
 .nvm-roadmap-year .nvm-maturity-limit strong { display: block; font-size: 12px; font-weight: 600; color: #376353; margin-bottom: 5px; }
 [data-foundry-year][hidden],[data-foundry-year-link][hidden],[data-foundry][hidden] { display: none; }
@@ -236,7 +236,7 @@ html:not(.nvm-keyboard-navigation) .nvm-atlas-page [data-route-heading]:focus-vi
  .nvm-foundry-coverage dd { font-size: 30px; }
  .nvm-foundry-coverage dt { font-size: 12px; }
  .nvm-year-index a { padding-inline: 12px; gap: 13px; }
- .nvm-roadmap-year .nvm-milestone h4 { font-size: 23px; line-break: anywhere; }
+ .nvm-roadmap-year .nvm-milestone h4, .nvm-benchmark h4 { font-size: 19px; line-break: anywhere; overflow-wrap: anywhere; word-break: break-word; text-wrap: wrap; }
  .nvm-source-filters { grid-template-columns: 1fr; gap: 12px; }
  .nvm-source-filters button { justify-self: start; }
  .nvm-sources-editorial [data-source-record]>div { padding: 20px 17px; }

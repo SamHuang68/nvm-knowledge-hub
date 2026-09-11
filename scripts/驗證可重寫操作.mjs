@@ -59,6 +59,9 @@ try{
    await page.evaluate(id=>{location.hash=id;},record.panel);
    await page.waitForFunction(id=>document.getElementById(id)?.checkVisibility(),record.panel);
    const panel=page.locator('#'+record.panel);
+   if(record.id==='eeprom'&&!await panel.locator('#eeprom-reference').evaluate(el=>el.open)){
+    await panel.locator('#eeprom-reference > summary').click();
+   }
    note(await panel.locator('[data-cycle-summary]').isVisible()&&await panel.locator('[data-operation-detail]:visible').count()===3,'進入章節就能閱讀完整三種操作',{language,width,id:record.id});
    for(const operation of ['erase','write','read']){
     await panel.locator(`[data-operation-select="${operation}"]`).click();

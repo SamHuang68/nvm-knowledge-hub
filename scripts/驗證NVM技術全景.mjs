@@ -11,7 +11,7 @@ const data = JSON.parse(fs.readFileSync(path.join(root, 'data', 'NVM知識資料
 const failures = [];
 const audits = [];
 const browser = await chromium.launch({ headless: true });
-const routes = ['panorama','ip-directory','ip-lineage','physics-library','comparison','foundry',...data.topics.map(topic=>'topic-'+topic.id),...data.comparison.systems.map(system=>'system-'+system.id),'patents','glossary','sources'];
+const routes = ['panorama','ip-directory','ip-lineage','physics-library','comparison','foundry','ecosystem','research',...data.topics.map(topic=>'topic-'+topic.id),...data.comparison.systems.map(system=>'system-'+system.id),'patents','glossary','sources'];
 const widths = [1440,1361,1360,1280,1101,1100,901,900,800,768,621,620,390,312];
 
 try {
@@ -23,6 +23,7 @@ try {
     page.on('requestfailed', request => errors.push(request.url()+' '+request.failure()?.errorText));
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto(base, { waitUntil: 'networkidle' });
+    await page.waitForFunction(() => document.documentElement.classList.contains('nvm-enhanced'));
     for (const route of routes) {
       await page.evaluate(id => { location.hash = id; }, route);
       await page.waitForFunction(id => !document.getElementById(id).hidden, route);
@@ -85,7 +86,7 @@ try {
   if (!await page.locator('[data-topic-row]:visible').count()) failures.push('研究展示篩選無結果');
   await page.goto(base+'#topic-stt',{waitUntil:'networkidle'});
   await page.locator('#topic-stt [data-operation-select="read"]').click();
-  if (await page.locator('#topic-stt [data-operation-detail]:visible').getAttribute('data-operation-detail')!=='read') failures.push('操作切換未顯示讀取');
+  if (await page.locator('#topic-stt [data-operation-select="read"]').getAttribute('aria-pressed') !== 'true' || !await page.locator('#topic-stt [data-operation-detail="read"]').isVisible()) failures.push('操作切換未顯示讀取');
   await page.locator('.nvm-skip').focus();
   await page.keyboard.press('Enter');
   if (await page.locator('[data-nvm-panel]:visible').getAttribute('id')!=='topic-stt') failures.push('跳至主內容改變目前專題');

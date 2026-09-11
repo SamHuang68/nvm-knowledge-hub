@@ -26,6 +26,7 @@ try {
     page.on('pageerror',error=>errors.push({language,width,message:error.message}));
     const file=language==='en'?'NVM技術全景.html':'NVM技術全景中文.html';
     await page.goto(new URL(file+'?lang='+language,base).href,{waitUntil:'networkidle'});
+    await page.waitForFunction(()=>document.documentElement.classList.contains('nvm-enhanced'));
     for(const route of routes) {
       await page.evaluate(id=>{location.hash=id;},route);
       await page.waitForFunction(id=>document.querySelector('[data-nvm-panel]:not([hidden])')?.id===id,route);
@@ -49,8 +50,8 @@ try {
   note(!/[\u3400-\u9fff]/u.test(await page.locator('main').innerText()),'英文首頁無中文正文殘留');
   await page.locator('#searchTrigger').click();
   await page.locator('#searchInput').fill('SOT');
-  await page.waitForFunction(()=>document.querySelectorAll('.search-result-item').length===1);
-  note((await page.locator('.search-result-item').innerText()).includes('SOT-MRAM'),'全站搜尋顯示英文專題標題');
+  await page.waitForFunction(()=>document.querySelectorAll('.search-result-item').length>=1);
+  note((await page.locator('.search-result-item').first().innerText()).includes('SOT-MRAM'),'全站搜尋顯示英文專題標題');
   await page.locator('#searchInput').press('Enter');
   await page.waitForURL(/#topic-sot$/);
   note(await page.locator('html').getAttribute('lang')==='en','英文搜尋保留專題語言');

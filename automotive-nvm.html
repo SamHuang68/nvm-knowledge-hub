@@ -1091,8 +1091,8 @@
                     <tr style="background: #061925; border-bottom: 1px solid #e2e8f0; font-family:'IBM Plex Mono'; font-size:10.5px; color:#b5aa9c;">
                       <th style="padding: 10px 14px;">STATE CONTRACT</th>
                       <th style="padding: 10px 14px;">SILICON PRIMITIVE</th>
-                      <th style="padding: 10px 14px;">ASSUMED DC (REQ &ge;99%)</th>
-                      <th style="padding: 10px 14px;">LATENT DC (REQ &ge;90%)</th>
+                      <th style="padding: 10px 14px;">TARGET SPFM (REQ &ge;99%)</th>
+                      <th style="padding: 10px 14px;">TARGET LFM (REQ &ge;90%)</th>
                       <th style="padding: 10px 14px;">RANDOM HARDWARE FIT</th>
                       <th style="padding: 10px 14px;">SAFETY STATUS</th>
                     </tr>
@@ -1128,14 +1128,14 @@
                       <td style="padding: 10px 14px; font-weight:700; color:#e11d48;">91.5%</td>
                       <td style="padding: 10px 14px; font-weight:700; color:#e11d48;">78.0%</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:700; color:#be123c;">15~40 FIT</td>
-                      <td style="padding: 10px 14px;"><span style="background:#2a1e22; color:#d97706; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid rgba(217, 119, 6, 0.4);"><span data-lang="zh">需依賴雙單元或外部進階 ECC 機制以達成 ASIL-D</span><span data-lang="en">Requires dual-cell or external advanced ECC for ASIL-D</span></span></td>
+                      <td style="padding: 10px 14px;"><span style="background:#2a1e22; color:#d97706; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid rgba(217, 119, 6, 0.4);"><span data-lang="zh">需依賴雙單元或外部進階 ECC 機制以支援系統級 ASIL-D 目標</span><span data-lang="en">Requires dual-cell or external advanced ECC to support item-level ASIL-D target</span></span></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <div style="padding: 10px 14px; font-size: 11px; color: #94a3b8; line-height: 1.55; border-top: 1px solid rgba(255,255,255,0.06); background: #061925;">
-                <span data-lang="zh"><strong>SEooC 假定使用條件 (Assumptions of Use, AoU)：</strong> 本 IP 依據 ISO 26262-10/11 SEooC 流程開發，具備 ASIL-D Systematic Capability (SC3)。系統級 ASIL-D 達成須依賴 Tier-1 / OEM 整合商落實外部安全機制（包括看門狗、電源監控與 SECDED 雙位元致命中斷處理）。依據 ISO 26262-5 殘餘失效率因果數學模型：<code>&lambda;<sub>residual</sub> = &lambda;<sub>raw</sub> &middot; (1 - K<sub>DC</sub>) + &lambda;<sub>multi-bit</sub></code>，其中潛伏故障度量 <code>K<sub>DC,latent</sub> &ge; 90%</code>（ASIL-D 門檻）嚴格依賴系統級定期巡檢記憶體機制 (Periodic Memory Scrubbing)，以避免單一故障累積為不可校正的雙位元錯誤。</span>
-                <span data-lang="en"><strong>SEooC Assumptions of Use (AoU):</strong> IP developed under ISO 26262 SEooC methodology with ASIL-D SC3 systematic capability. Item-level ASIL-D compliance requires Tier-1/OEM integration of external safety mechanisms (watchdog, supply monitor, and fatal DED trap handling). Per ISO 26262-5 causal metrics, residual failure rate follows: <code>&lambda;<sub>residual</sub> = &lambda;<sub>raw</sub> &middot; (1 - K<sub>DC</sub>) + &lambda;<sub>multi-bit</sub></code>. Achieving latent fault metric <code>K<sub>DC,latent</sub> &ge; 90%</code> for ASIL-D strictly depends on system-level periodic Memory Scrubbing to prevent latent single-bit faults from accumulating into uncorrectable multi-bit failures.</span>
+                <span data-lang="zh"><strong>SEooC 假定使用條件 (Assumptions of Use, AoU)：</strong> 本 IP 依據 ISO 26262-10/11 SEooC 流程開發，具備 ASIL-D Systematic Capability (SC3)。系統級 ASIL-D 達成須依賴 Tier-1 / OEM 整合商落實外部安全機制（包括看門狗、電源監控與 SECDED 雙位元致命中斷處理）。依據 ISO 26262-5 殘餘失效率因果數學模型：<code>&lambda;<sub>residual</sub> = &lambda;<sub>raw</sub> &middot; (1 - K<sub>DC</sub>) + &lambda;<sub>multi-bit</sub></code>，其中潛伏故障度量目標 <code>LFM &ge; 90%</code>（ASIL-D 門檻，由 <code>K<sub>DC,latent</sub></code> 支撐）嚴格依賴系統級定期巡檢週期 (Periodic Memory Scrubbing Interval, <code>T<sub>scrub</sub> &le; T<sub>latent_budget</sub></code>)，以確保潛伏單點故障在累積為不可校正的雙位元錯誤前被即時偵測修復。</span>
+                <span data-lang="en"><strong>SEooC Assumptions of Use (AoU):</strong> IP developed under ISO 26262 SEooC methodology with ASIL-D SC3 systematic capability. Item-level ASIL-D compliance requires Tier-1/OEM integration of external safety mechanisms (watchdog, supply monitor, and fatal DED trap handling). Per ISO 26262-5 causal metrics, residual failure rate follows: <code>&lambda;<sub>residual</sub> = &lambda;<sub>raw</sub> &middot; (1 - K<sub>DC</sub>) + &lambda;<sub>multi-bit</sub></code>. Achieving latent fault metric target <code>LFM &ge; 90%</code> for ASIL-D (supported by <code>K<sub>DC,latent</sub></code>) strictly depends on system-level periodic Memory Scrubbing interval constraints (<code>T<sub>scrub</sub> &le; T<sub>latent_budget</sub></code>) to detect and correct latent single-bit faults before dual-bit accumulation.</span>
               </div>
             </div>
           </section>
@@ -1172,7 +1172,7 @@
           <div class="meta-pill-item">
             <span class="meta-pill-dot" style="background:#c4a574;"></span>
             <span class="meta-pill-key">RELIABILITY:</span>
-            <span class="meta-pill-val">AEC-Q100 GRADE 0 / ISO 26262 ASIL-D</span>
+            <span class="meta-pill-val">AEC-Q100 GRADE 0 / ISO 26262 ASIL-D READY (SEooC SC3)</span>
           </div>
         </div>
       </div>
@@ -1466,11 +1466,11 @@
           syndromeVal.style.color = "#60a5fa";
           actionVal.textContent = "HARDWARE ON-THE-FLY XOR AUTO-REPAIR";
           actionVal.style.color = "#60a5fa";
-          safetyVal.textContent = "ASIL-D SAFE · SINGLE-BIT CORRECTED (SECDED ENVELOPE)";
+          safetyVal.textContent = "SAFETY STATUS: SEC CORRECTED (SECDED ENVELOPE)";
           safetyVal.style.color = "#60a5fa";
         } else {
           pill.className = "ecc-status-pill ded";
-          pill.textContent = `✖ ${errCount}-BIT ERROR DETECTED · ASIL-D TRAP!`;
+          pill.textContent = `✖ ${errCount}-BIT ERROR DETECTED · SAFETY TRAP ASSERTED (DED)`;
           syndromeVal.textContent = "0xEE (DOUBLE-BIT PARITY MISMATCH)";
           syndromeVal.style.color = "#f87171";
           actionVal.textContent = "SAFETY ACTION: HARDWARE DED TRAP ASSERTED (FTTI COMPLIANT)";
