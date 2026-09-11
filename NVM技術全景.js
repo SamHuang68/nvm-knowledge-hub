@@ -17,6 +17,14 @@ function showRoute({ focus = false } = {}) {
   let target;
   try { target = decodeURIComponent(location.hash.slice(1)) || 'panorama'; } catch { target = 'panorama'; }
   const anchor = document.getElementById(target);
+  for (const kind of ['patent', 'glossary']) {
+    if (anchor?.matches(`[data-${kind}-record]`) && anchor.hidden) {
+      document.querySelector(`#nvm-${kind}-search`).value = '';
+      const topic = document.querySelector(`#nvm-${kind}-topic`);
+      if (topic) topic.value = '';
+      filterReference(kind);
+    }
+  }
   if (anchor?.matches('[data-landscape-row]') && anchor.hidden) {
     document.querySelector('#nvm-landscape-family').value = '';
     const query = document.querySelector('#nvm-landscape-search');
@@ -63,7 +71,7 @@ function showRoute({ focus = false } = {}) {
   for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;
   if (focus) {
     const destination = anchor || next;
-    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study,.nvm-topic-section,.nvm-ip-group,.nvm-system-section,.nvm-system-end,[data-foundry-year]') ? destination.querySelector('h3') : destination.matches('[data-foundry]') ? destination.querySelector('h4') : destination.matches('.nvm-system-index') ? destination.querySelector('a') : destination.matches('[data-source-record]') ? destination.querySelector('summary') : destination;
+    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study,.nvm-topic-section,.nvm-ip-group,.nvm-system-section,.nvm-system-end,[data-foundry-year]') ? destination.querySelector('h3') : destination.matches('[data-foundry]') ? destination.querySelector('h4') : destination.matches('.nvm-system-index') ? destination.querySelector('a') : destination.matches('[data-source-record],[data-patent-record]') ? destination.querySelector('summary') : destination.matches('[data-glossary-record]') ? destination.querySelector('dt') : destination;
     heading?.setAttribute('tabindex', '-1');
     if (heading?.matches('h2,h3,h4')) heading.dataset.routeHeading = '';
     heading?.focus({ preventScroll: true });
@@ -110,6 +118,33 @@ document.querySelectorAll('[data-operation-widget]').forEach(widget => {
   });
 });
 showRoute({ focus: Boolean(location.hash) });
+
+function filterReference(kind) {
+  const query = document.querySelector(`#nvm-${kind}-search`).value.normalize('NFKC').toLocaleLowerCase().trim();
+  const topic = document.querySelector(`#nvm-${kind}-topic`)?.value || '';
+  const records = [...document.querySelectorAll(`[data-${kind}-record]`)];
+  let count = 0;
+  records.forEach(record => {
+    record.hidden = Boolean(query && !record.dataset.referenceSearch.normalize('NFKC').toLocaleLowerCase().includes(query)) || Boolean(topic && record.dataset.patentTopic !== topic);
+    if (!record.hidden) count++;
+  });
+  if (kind === 'patent') document.querySelectorAll('[data-patent-group]').forEach(group => { group.hidden = ![...group.querySelectorAll('[data-patent-record]')].some(record => !record.hidden); });
+  document.querySelector(`#nvm-${kind}-count`).textContent = isEnglish() ? `Showing ${count} of ${records.length} ${kind === 'patent' ? 'patent studies' : 'terms'}` : `顯示 ${count}／${records.length} ${kind === 'patent' ? '件研究專利' : '個詞彙'}`;
+  document.querySelector(`#nvm-${kind}-empty`).hidden = count > 0;
+}
+for (const kind of ['patent', 'glossary']) {
+  const search = document.querySelector(`#nvm-${kind}-search`);
+  const topic = document.querySelector(`#nvm-${kind}-topic`);
+  search.addEventListener('input', () => filterReference(kind));
+  topic?.addEventListener('change', () => filterReference(kind));
+  document.querySelector(`#nvm-${kind}-reset`).addEventListener('click', () => {
+    search.value = '';
+    if (topic) topic.value = '';
+    filterReference(kind);
+    search.focus();
+  });
+  filterReference(kind);
+}
 
 const filters = [...document.querySelectorAll('[data-topic-filter]')];
 const rows = [...document.querySelectorAll('[data-topic-row]')];
@@ -212,6 +247,8 @@ diagramDialog.querySelector('button').addEventListener('click', () => diagramDia
 diagramDialog.addEventListener('click', event => { if (event.target === diagramDialog) diagramDialog.close(); });
 
 window.addEventListener('hub:language-change', () => {
+  filterReference('patent');
+  filterReference('glossary');
   filterTopics();
   filterLandscape();
   filterSources();

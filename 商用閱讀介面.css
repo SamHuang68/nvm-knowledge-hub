@@ -508,3 +508,50 @@ html[data-language='en'] :is(.nvm-ip-editorial,.nvm-system-editorial) { line-bre
  .nvm-system-prose h3,.nvm-system-end h3 { font-size: 24px; }
  .nvm-system-prose p { font-size: 16px; }
 }
+/* 專利與術語：研究索引的閱讀層次與查找控制。 */
+.nvm-reference-controls { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:end; padding:24px; margin:28px 0 14px; background:#edf3ef; border:1px solid #c6d4cc; }
+.nvm-patent-controls { grid-template-columns:minmax(0,1fr) minmax(180px,.65fr) auto; }
+.nvm-reference-controls label { display:grid; gap:8px; min-width:0; font-size:14px; font-weight:600; color:#27443e; }
+.nvm-reference-controls :is(input,select,button) { width:100%; min-width:0; min-height:46px; padding:10px 12px; border:1px solid #81998e; background:#fff; color:#203b34; font-size:15px; line-height:1.5; }
+.nvm-reference-controls input::placeholder { color:#53685f; opacity:1; }
+.nvm-reference-controls button { background:#234b3f; color:#fff; border-color:#234b3f; font-weight:600; }
+.nvm-reference-controls button:hover { background:#163a2f; }
+.nvm-reference-count { font-size:14px; color:#52665c; margin-bottom:28px; }
+.nvm-reference-empty { padding:22px; border-left:3px solid #69816e; background:#f0f3ed; }
+.nvm-patent-group { margin:38px 0; }
+.nvm-patent-group>h3 { font-size:22px; padding-bottom:14px; border-bottom:2px solid #3d6555; }
+.nvm-patent-record { margin:0; border:0; border-bottom:1px solid #cbd5cb; border-radius:0; background:transparent; }
+.nvm-patent-record>summary { display:grid; grid-template-columns:155px minmax(0,1fr) 20px; gap:7px 24px; padding:23px 12px; list-style:none; align-items:start; }
+.nvm-patent-record>summary::-webkit-details-marker { display:none; }
+.nvm-patent-record>summary::after { content:'+'; grid-column:3; grid-row:1 / 3; font-size:24px; line-height:1; color:#285a46; }
+.nvm-patent-record[open]>summary::after { content:'−'; }
+.nvm-patent-id { grid-column:1; grid-row:1 / 3; font-size:14px; color:#365746; letter-spacing:.025em; overflow-wrap:anywhere; }
+.nvm-patent-record>summary strong { grid-column:2; font-size:18px; line-height:1.6; font-weight:600; }
+.nvm-patent-meta { grid-column:2; font-size:13px; color:#52665c; line-height:1.7; }
+.nvm-patent-record[open] { background:#fff; }
+.nvm-patent-record>div { padding:12px 24px 28px; }
+.nvm-patent-record dl { font-size:16px; line-height:1.85; }
+.nvm-glossary-editorial .nvm-glossary { display:block; margin-top:0; }
+.nvm-glossary-editorial .nvm-glossary>div { display:grid; grid-template-columns:minmax(200px,.38fr) minmax(0,1fr); gap:30px; padding:25px 12px; border:0; border-bottom:1px solid #cbd5cb; background:transparent; scroll-margin-top:var(--nvm-anchor-top,100px); }
+.nvm-glossary-editorial dt { display:grid; grid-template-columns:24px minmax(0,1fr); gap:14px; margin:0; font-size:18px; line-height:1.65; }
+.nvm-term-number { color:#5c7163; font-size:12px; font-weight:400; padding-top:5px; }
+.nvm-glossary-editorial dt a { color:#244d3b; text-decoration:none; }
+.nvm-glossary-editorial dt a:hover { text-decoration:underline; }
+.nvm-glossary-editorial dd { margin:0; font-size:17px; line-height:1.9; max-width:58em; }
+@media(max-width:1100px) {
+ .nvm-patent-controls { grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+ .nvm-patent-controls label:first-child { grid-column:1 / -1; }
+ .nvm-patent-record>summary { grid-template-columns:125px minmax(0,1fr) 20px; gap:6px 16px; }
+ .nvm-glossary-editorial .nvm-glossary>div { grid-template-columns:minmax(150px,.42fr) minmax(0,1fr); gap:22px; }
+}
+@media(max-width:620px) {
+ .nvm-reference-controls,.nvm-patent-controls { grid-template-columns:minmax(0,1fr); padding:18px; gap:14px; }
+ .nvm-patent-record>summary { grid-template-columns:minmax(0,1fr) 20px; padding:21px 4px; gap:7px 12px; }
+ .nvm-patent-id { grid-column:1; grid-row:auto; font-size:13px; }
+ .nvm-patent-record>summary strong,.nvm-patent-meta { grid-column:1; }
+ .nvm-patent-record>summary::after { grid-column:2; grid-row:1 / 4; }
+ .nvm-patent-record>summary strong { font-size:17px; }
+ .nvm-patent-record>div { padding:12px 12px 24px; }
+ .nvm-glossary-editorial .nvm-glossary>div { grid-template-columns:minmax(0,1fr); gap:12px; padding:22px 4px; }
+ .nvm-glossary-editorial dd { font-size:16px; line-height:1.9; padding-left:38px; }
+}
