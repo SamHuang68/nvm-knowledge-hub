@@ -71,9 +71,9 @@ function showRoute({ focus = false } = {}) {
   for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;
   if (focus) {
     const destination = anchor || next;
-    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study,.nvm-topic-section,.nvm-ip-group,.nvm-system-section,.nvm-system-end,.nvm-history-editorial,.nvm-corrections,[data-foundry-year]') ? destination.querySelector('h3') : destination.matches('[data-foundry],.nvm-correction') ? destination.querySelector('h4') : destination.matches('.nvm-system-index') ? destination.querySelector('a') : destination.matches('[data-source-record],[data-patent-record],.nvm-history-disclosure') ? destination.querySelector('summary') : destination.matches('[data-glossary-record]') ? destination.querySelector('dt') : destination;
+    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study,.nvm-topic-section,.nvm-ip-group,.nvm-system-section,.nvm-system-end,.nvm-history-editorial,.nvm-corrections,.nvm-lineage-entry,[data-foundry-year]') ? destination.querySelector('h3') : destination.matches('[data-foundry],.nvm-correction,.nvm-lineage-events-block,.nvm-lineage-current,.nvm-lineage-boundary') ? destination.querySelector('h4') : destination.matches('.nvm-lineage-event') ? destination.querySelector('h5') : destination.matches('.nvm-system-index,.nvm-lineage-index') ? destination.querySelector('a') : destination.matches('[data-source-record],[data-patent-record],.nvm-history-disclosure') ? destination.querySelector('summary') : destination.matches('[data-glossary-record]') ? destination.querySelector('dt') : destination;
     heading?.setAttribute('tabindex', '-1');
-    if (heading?.matches('h2,h3,h4')) heading.dataset.routeHeading = '';
+    if (heading?.matches('h2,h3,h4,h5')) heading.dataset.routeHeading = '';
     heading?.focus({ preventScroll: true });
     destination.scrollIntoView({ block: 'start' });
   }
