@@ -19,6 +19,7 @@ try{
   const file=language==='en'?'NVM技術全景.html':'NVM技術全景中文.html';
   await page.goto(new URL(file+'?lang='+language,base).href,{waitUntil:'networkidle'});
   await page.addStyleTag({content:'html{scroll-behavior:auto!important}'});
+  await page.waitForFunction(()=>document.documentElement.classList.contains('nvm-enhanced'));
   note(await page.locator('#panorama').isVisible()&&await page.locator('[data-ip-entry]:visible').count()===0&&await page.locator('#panorama .nvm-library-entries>a').count()===9,'首次閱讀呈現中性目錄，IP 單元為獨立項目',{language,width});
   await page.locator('#panorama a[href="#ip-directory"]').click();
   await page.waitForFunction(()=>document.getElementById('ip-directory')?.checkVisibility());

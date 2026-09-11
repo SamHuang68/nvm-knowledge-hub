@@ -755,7 +755,7 @@ document.addEventListener('DOMContentLoaded', () => {
       drawMuraCanvas();
 
       if (isMuraCorrected) {
-        statUniformity.textContent = '99.4% (Flawless)';
+        statUniformity.textContent = '99.4% (Compensated)';
         statUniformity.className = 'stat-val text-green';
         statDeltaE.textContent = '0.45 (Imperceptible)';
         statDeltaE.className = 'stat-val text-cyan';
@@ -1000,12 +1000,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 動畫循環
+  // 動畫循環：使用 IntersectionObserver 於視口可見時才驅動，並支援 prefers-reduced-motion
+  let einkRafId = null;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const capsuleCanvas = document.getElementById('canvasCapsule');
+
   function einkLoop() {
     drawCapsule();
-    requestAnimationFrame(einkLoop);
+    if (!prefersReduced) {
+      einkRafId = requestAnimationFrame(einkLoop);
+    }
   }
-  requestAnimationFrame(einkLoop);
+
+  if (capsuleCanvas && 'IntersectionObserver' in window && !prefersReduced) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!einkRafId) einkRafId = requestAnimationFrame(einkLoop);
+        } else {
+          if (einkRafId) { cancelAnimationFrame(einkRafId); einkRafId = null; }
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(capsuleCanvas);
+  } else {
+    drawCapsule();
+  }
 
   // 初始化所有實驗室畫布
   redrawAllLabs();

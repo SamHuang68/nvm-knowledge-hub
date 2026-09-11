@@ -227,14 +227,14 @@ def main():
         eval_kicker="CANDIDATE NVM QUALIFICATION CRITERIA",
         syn_title="1-to-0 Hard Breakdown Advantage",
         syn_bullets=[
-            "• gate dielectric breakdown filament has 0 drift at 175°C",
+            "• gate dielectric breakdown filament has 0 drift at 175°C Tj",
             "• irreversible OTP burn blocks OTS key reuse",
             "• 1T current-balanced sensing attenuates 1st-order DPA correlation",
-            "• 1000h HTOL @ 175°C AEC-Q100 Grade 0 qualified",
-            "• ISO 26262 ASIL-D ready automotive delivery",
-            "• candidate unit: high-reliability secure RoT"
+            "• 1000h HTOL + Retention Bake @ 175°C AEC-Q100 Grade 0 qualified",
+            "• ISO 26262 ASIL-D Ready (SEooC SC3) automotive delivery",
+            "• candidate unit: high-reliability secure RoT (SPFM ≥99%, PMHF <0.1 FIT)"
         ],
-        bottom_banner_text="Physics proof: Dielectric breakdown filament conducts permanently; developed as SEooC supporting item-level ASIL-D & PQC compliance"
+        bottom_banner_text="Physics proof: Dielectric breakdown filament conducts permanently; developed as SEooC (SC3) supporting item-level ASIL-D & PQC compliance per AoU"
     )
 
     # 6. Reorder slides to 17-slide sequence
@@ -406,7 +406,7 @@ def main():
         elif "Internal NVM in accelerator" in txt:
             clear_and_set_text(sh, "Internal NVM in controller + pure-logic OTP Code Core", "Arial", 13.5, False, C_SLATE_BODY)
         elif "Exact state partition" in txt:
-            clear_and_set_text(sh, "0.5V VDD · indirection patch tables · Synopsys fit", "Arial", 13.5, False, C_SLATE_BODY)
+            clear_and_set_text(sh, "0.5V VDD · indirection patch tables · Product-Specific Fit", "Arial", 13.5, False, C_SLATE_BODY)
             
         # Update Row 4 (AI Power TI to Chiplet & PQC)
         elif "TI TPS536C9T" in txt:

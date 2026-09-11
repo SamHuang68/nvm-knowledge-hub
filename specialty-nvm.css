@@ -10,17 +10,17 @@
   --spec-surface: #0e2a38;
   --spec-surface-card: #0e2a38;
   --spec-surface-elevated: #0e2a38;
-  --spec-cyan: #8a6a42;
-  --spec-aqua: #8a6a42;
-  --spec-teal: #6f5536;
-  --spec-amber: #8a6a42;
-  --spec-green: #6f5536;
+  --spec-cyan: #5eead4;
+  --spec-aqua: #d5b78a;
+  --spec-teal: #38bdf8;
+  --spec-amber: #fcd34d;
+  --spec-green: #34d399;
   --spec-danger: #dc2626;
   --spec-line: rgba(28, 25, 23, 0.10);
   --spec-line-subtle: rgba(28, 25, 23, 0.06);
   --spec-text-main: #f3ebe0;
   --spec-text-muted: #e8e0d4;
-  --spec-text-dim: #6b645c;
+  --spec-text-dim: #94a3b8;
   --spec-mono: 'IBM Plex Mono', Consolas, monospace;
   --spec-sans: 'Plus Jakarta Sans', 'Noto Sans TC', 'Microsoft JhengHei', -apple-system, BlinkMacSystemFont, sans-serif;
   --spec-glow: 0 4px 16px rgba(15, 23, 42, 0.06);
@@ -2775,6 +2775,8 @@ html[data-language="zh"] .data-table thead th {
 
 .canvas-wrapper canvas {
   display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
 }
 
 /* ATE Stat Readouts (Digital Instrument Boxes) */

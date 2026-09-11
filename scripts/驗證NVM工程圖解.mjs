@@ -35,6 +35,7 @@ try{
   const file=language==='en'?'NVM技術全景.html':'NVM技術全景中文.html';
   await page.goto(new URL(file+'?lang='+language,base).href,{waitUntil:'networkidle'});
   await page.addStyleTag({content:'html{scroll-behavior:auto!important}'});
+  await page.waitForFunction(()=>document.documentElement.classList.contains('nvm-enhanced'));
   note(await page.evaluate(()=>{const ids=[...document.querySelectorAll('[id]')].map(el=>el.id);return new Set(ids).size===ids.length;}),'完整頁面識別碼不重複',{language,width});
   for(const study of data.engineering.operations){
    const id=`op-${study.topicId}-${study.operationId}`;

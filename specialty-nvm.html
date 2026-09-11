@@ -548,8 +548,8 @@
       </div>
       <div class="governing-physics-desc">
         <span class="physics-desc-title"><span data-lang="zh">微觀物理與製程約束</span><span data-lang="en">PHYSICS &amp; FOUNDRY BOUNDARY</span></span>
-        <span data-lang="zh">BCD 高壓 DMOS 易受寄生發熱影響，零熱預算 AntiFuse 避免 eFlash 浮閘退火高溫，確保 AEC-Q100 Grade 0 (175°C) 基準電壓長效穩定。</span>
-        <span data-lang="en">BCD high-voltage DMOS is sensitive to thermal budgets. Pure-logic AntiFuse eliminates eFlash anneal penalty, ensuring AEC-Q100 Grade 0 (175°C) long-term stability.</span>
+        <span data-lang="zh">BCD 高壓 DMOS 易受寄生發熱影響，零熱預算 AntiFuse 避免 eFlash 浮閘退火高溫，確保 AEC-Q100 Grade 0 (TA=150°C，極限結溫 Tj=175°C) 基準電壓長效穩定。</span>
+        <span data-lang="en">BCD high-voltage DMOS is sensitive to thermal budgets. Pure-logic AntiFuse eliminates eFlash anneal penalty, ensuring AEC-Q100 Grade 0 (TA=150°C, peak junction 175°C Tj) long-term stability.</span>
       </div>
     </div>
 
@@ -577,8 +577,8 @@
       </div>
       <div class="governing-physics-desc">
         <span class="physics-desc-title"><span data-lang="zh">微觀物理與製程約束</span><span data-lang="en">PHYSICS &amp; FOUNDRY BOUNDARY</span></span>
-        <span data-lang="zh">AntiFuse 介電擊穿形成永久金屬矽化物微絲，阻值自 &gt;10<sup>11</sup> &Omega; 驟降至 &sim;100 &Omega;，無 eFuse 電遷移回跳與熱鬆弛風險。</span>
-        <span data-lang="en">AntiFuse dielectric breakdown forms a permanent silicide filament, dropping resistance from &gt;10<sup>11</sup> &Omega; to &sim;100 &Omega; without eFuse thermal regrowth risks.</span>
+        <span data-lang="zh">AntiFuse 介電擊穿形成永久局域再結晶矽導電微絲 (Recrystallized Silicon Filament)，阻值自 &gt;10<sup>11</sup> &Omega; 驟降至 &sim;100 &Omega;，無 eFuse 電遷移回跳與熱鬆弛風險。</span>
+        <span data-lang="en">AntiFuse dielectric breakdown forms a permanent localized recrystallized silicon filament, dropping resistance from &gt;10<sup>11</sup> &Omega; to &sim;100 &Omega; without eFuse electromigration regrowth risks.</span>
       </div>
     </div>
 
@@ -1003,7 +1003,11 @@
 <span class="deck-metric-val">175°C Tj Max</span>
 <span class="deck-metric-lbl">GRADE 0 · ASIL-D READY (SEooC) SAFETY LOG</span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">紀錄</span><span data-lang="en">SAFETY LOG</span></span><span class="chip-v cyan"><span data-lang="zh">電池阻抗黑盒子查表</span><span data-lang="en">CELL IMPEDANCE LUT</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">車規</span><span data-lang="en">QUALIFICATION</span></span><span class="chip-v green"><span data-lang="zh">AEC-Q100 Grade 0 認證</span><span data-lang="en">AEC-Q100 GRADE 0</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">紀錄</span><span data-lang="en">SAFETY LOG</span></span><span class="chip-v cyan"><span data-lang="zh">電池阻抗黑盒子查表</span><span data-lang="en">CELL IMPEDANCE LUT</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">車規</span><span data-lang="en">QUALIFICATION</span></span><span class="chip-v green"><span data-lang="zh">AEC-Q100 Grade 0 車規驗證符合</span><span data-lang="en">AEC-Q100 GRADE 0 QUALIFIED</span></span></div></div>
+<div style="padding: 6px 8px; font-size: 10px; color: #94a3b8; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 8px;">
+<span data-lang="zh"><strong>SEooC 假定使用 (AoU)：</strong> 支援 ASIL-D 系統化能力 (SC3)。BMS AFE 電池阻抗 LUT 查表需配合系統級週期巡檢 (<em>T</em><sub>scrub</sub> &le; <em>T</em><sub>latent_budget</sub>)，以落實潛伏故障度量 <code>LFM &ge; 90%</code> 要求。</span>
+<span data-lang="en"><strong>SEooC AoU:</strong> Supports ASIL-D SC3 systematic capability. BMS AFE impedance LUT requires system-level periodic scrubbing (<em>T</em><sub>scrub</sub> &le; <em>T</em><sub>latent_budget</sub>) to fulfill <code>LFM &ge; 90%</code> latent fault metric constraints.</span>
+</div>
 </div>
 </div>
 </div>
@@ -1183,7 +1187,7 @@
 <!-- 底部微標籤狀態條 -->
 <div class="abstract-truth-strip">
 <div class="truth-pill"><span class="pill-k">TEMPCO</span><span class="pill-v">&lt; 5 ppm/°C</span></div>
-<div class="truth-pill"><span class="pill-k">RANGE</span><span class="pill-v">-40°C ~ 175°C (AEC-Q100)</span></div>
+<div class="truth-pill"><span class="pill-k">RANGE</span><span class="pill-v">-40°C ~ 150°C Ta / 175°C Tj (AEC-Q100 Grade 0)</span></div>
 <div class="truth-pill"><span class="pill-k">CALIBRATION</span><span class="pill-v">ZERO-MASK OTP R-LADDER</span></div>
 <div class="truth-pill"><span class="pill-k">REDUNDANCY</span><span class="pill-v">PERMANENT HARD LOCK</span></div>
 </div>
@@ -2747,7 +2751,7 @@
           <div class="meta-pill-item">
             <span class="meta-pill-dot" style="background:#c4a574;"></span>
             <span class="meta-pill-key">RELIABILITY:</span>
-            <span class="meta-pill-val">AEC-Q100 GRADE 0 · ASIL-D READY (SEooC)</span>
+            <span class="meta-pill-val">AEC-Q100 GRADE 0 · ISO 26262 ASIL-D READY (SEooC SC3)</span>
           </div>
         </div>
       </div>
@@ -2809,7 +2813,7 @@
         <span class="hub-footer-badge">CIS &amp; DRAM Defect Redundancy</span>
         <span class="hub-footer-badge">0-Mask Pure Logic</span>
         <span class="hub-footer-badge">HV DDIC &amp; Ultra-HV E-Ink</span>
-        <span class="hub-footer-badge">AEC-Q100 Grade 0 (175°C)</span>
+        <span class="hub-footer-badge">AEC-Q100 Grade 0 Qualified (175°C Tj)</span>
         <span class="hub-footer-badge">MTP-to-OTP Cost Migration</span>
       </div>
 

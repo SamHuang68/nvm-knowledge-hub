@@ -380,10 +380,13 @@ if (menuButton && nav && !menuButton._hubNavBound) {
   window.addEventListener("resize", syncMenuToLayout, { passive: true });
 }
 
-document.querySelector("#themeToggle").addEventListener("click", event => {
-  const active = document.body.classList.toggle("light-mode");
-  event.currentTarget.setAttribute("aria-pressed", active ? "true" : "false");
-});
+const themeToggleBtn = document.querySelector("#themeToggle");
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", event => {
+    const active = document.body.classList.toggle("light-mode");
+    event.currentTarget.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+}
 
 
 const revealObserver = new IntersectionObserver(entries => {

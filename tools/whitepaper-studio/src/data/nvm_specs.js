@@ -165,6 +165,6 @@ export const nvmIpSpecs = [
     evidenceStatus: 'E-Ink Panel Partner Standard · Fitipower / UltraChip / Solomon Baseline',
     latency: 'Fast multi-frame waveform index (<50 ns)',
     busExposure: 'Internal driver waveform generator engine',
-    bomCost: 'Zero extra mask adder; slashes BOM vs discrete external SPI Flash'
+    bomCost: 'Zero extra mask adder; reduces BOM cost by eliminating discrete external SPI Flash'
   }
 ];
