@@ -78,7 +78,9 @@ try{
    }
   }
   if(width===390){
-   await page.goto(new URL(file+'?lang='+language+'#op-feram-read',base).href,{waitUntil:'networkidle'});
+   await page.goto('about:blank');
+   await page.goto(new URL(file+'?lang='+language+'#op-feram-read',base).href,{waitUntil:'domcontentloaded'});
+   await page.waitForFunction(()=>document.querySelector('#op-feram-read')?.checkVisibility());
    note(await page.locator('#op-feram-read').isVisible()&&await page.locator('#topic-feram [data-operation-select="read"]').getAttribute('aria-pressed')==='true','直接進入非預設操作會展開正確圖組',{language,width});
    await page.locator('.language-toggle').click();await page.waitForFunction(()=>document.querySelector('#op-feram-read')?.checkVisibility());
    note(locationSafe(page.url()).hash==='#op-feram-read','切換語言保留操作圖位置',{language,width});

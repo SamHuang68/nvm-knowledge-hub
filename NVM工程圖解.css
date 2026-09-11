@@ -76,3 +76,11 @@
 @media(max-width:1180px){.nvm-op-frames{grid-template-columns:repeat(2,minmax(0,1fr))}.nvm-patent-teaser{grid-template-columns:1fr}.nvm-patent-teaser .nvm-patent-image svg{max-height:480px}}
 @media(max-width:760px){.nvm-op-frames,.nvm-op-frames[data-frame-count="4"],.nvm-patent-reading{grid-template-columns:1fr}.nvm-op-variant h5{font-size:21px}.nvm-op-frames{gap:20px}.nvm-op-frame-heading h6{font-size:18px}.nvm-op-drawing{padding:8px 0}.nvm-op-caption p{font-size:16px!important}.nvm-op-legend>div{flex-basis:100%}.nvm-patent-image{padding:8px}.nvm-patent-callouts>div{grid-template-columns:95px minmax(0,1fr);gap:12px}.nvm-engineering-dialog{width:97vw;max-width:97vw;height:95dvh;max-height:95dvh}.nvm-engineering-dialog-head{padding:12px}.nvm-engineering-dialog-head h2{font-size:17px}.nvm-engineering-dialog-body{padding:10px 10px 22px}}
 @media print{.nvm-figure-actions{display:none}.nvm-op-frame,.nvm-patent-figure{break-inside:avoid}.nvm-op-frames{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.nvm-engineering-dialog .nvm-engineering-zoom-toolbar{position:sticky;top:-12px;z-index:2;justify-content:space-between;align-items:end;gap:12px;padding:12px 0;background:#fff;border-bottom:1px solid #c3d2c7;margin-bottom:14px}
+.nvm-engineering-dialog .nvm-engineering-zoom-toolbar label{display:grid;gap:6px;min-width:0;color:#315742;font-size:14px}
+.nvm-engineering-dialog .nvm-engineering-zoom-toolbar select{min-height:46px;border-color:#81998e;color:#254637;width:100%}
+.nvm-engineering-zoom-toolbar [data-engineering-fit]{min-height:46px;padding:10px 15px;border:1px solid #234b3f;background:#234b3f;color:#fff;font-family:inherit;font-size:14px;font-weight:600;line-height:1.6;cursor:pointer}
+.nvm-engineering-zoom-toolbar [data-engineering-fit]:hover{background:#163a2f}
+.nvm-engineering-dialog .nvm-engineering-zoom-scroll[data-fit="true"] svg{min-width:0;max-width:100%}
+body .nvm-figure-actions>button,body .nvm-figure-actions>a{min-height:44px}
+@media(max-width:760px){.nvm-engineering-dialog .nvm-engineering-zoom-toolbar{top:-10px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;gap:10px}.nvm-engineering-zoom-toolbar [data-engineering-fit]{padding-inline:10px;font-size:14px}}

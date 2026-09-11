@@ -5,9 +5,21 @@ dialog.className='nvm-engineering-dialog';
 dialog.setAttribute('aria-labelledby','nvm-engineering-zoom-title');
 dialog.innerHTML=`<header class="nvm-engineering-dialog-head"><h2 id="nvm-engineering-zoom-title"></h2><button type="button" aria-label="${say('關閉放大圖','Close Enlarged Figure')}">×</button></header><div class="nvm-engineering-dialog-body"><div class="nvm-engineering-zoom-toolbar"><label>${say('檢視倍率','Inspection Scale')} <select aria-label="${say('調整圖像倍率','Adjust Figure Scale')}"><option value="1">1×</option><option value="1.5">1.5×</option><option value="2">2×</option><option value="3">3×</option></select></label></div><p class="nvm-engineering-zoom-hint">${say('可左右與上下捲動檢查完整元件、接點與編號；下方保留本圖說明。','Scroll horizontally and vertically to inspect the complete device, terminals and numerals. The figure explanation remains below.')}</p><div class="nvm-engineering-zoom-scroll" tabindex="0" aria-label="${say('可捲動的放大圖','Scrollable Enlarged Figure')}"></div><div class="nvm-engineering-zoom-notes"></div></div>`;
 document.body.append(dialog);
+
+const fitOption=document.createElement('option');
+fitOption.value='fit';
+fitOption.textContent=say('符合視窗','Fit to Window');
+dialog.querySelector('select').append(fitOption);
+const fitButton=document.createElement('button');
+fitButton.type='button';
+fitButton.dataset.engineeringFit='';
+fitButton.textContent=say('檢視完整圖面','View Complete Figure');
+dialog.querySelector('.nvm-engineering-zoom-toolbar').append(fitButton);
 dialog.querySelector('button').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
 const syncDialogLabels = () => {
+  fitOption.textContent=say('符合視窗','Fit to Window');
+  fitButton.textContent=say('檢視完整圖面','View Complete Figure');
   dialog.querySelector('header button')?.setAttribute('aria-label', say('關閉放大圖', 'Close Enlarged Figure'));
   const lbl = dialog.querySelector('.nvm-engineering-zoom-toolbar label');
   if (lbl && lbl.childNodes[0]) lbl.childNodes[0].textContent = say('檢視倍率 ', 'Inspection Scale ');
@@ -35,6 +47,13 @@ const scaleSelect=dialog.querySelector('select');
 const updateScale=()=>{
  const scroller=dialog.querySelector('.nvm-engineering-zoom-scroll'),svg=scroller.querySelector('svg');if(!svg)return;
  const body=dialog.querySelector('.nvm-engineering-dialog-body'),before=svg.getBoundingClientRect(),bodyRect=body.getBoundingClientRect();
+ const fit=scaleSelect.value==='fit';
+ scroller.dataset.fit=String(fit);
+ if(fit){
+  svg.style.width=`${Math.max(1,scroller.clientWidth)}px`;
+  scroller.scrollLeft=0;
+  return;
+ }
  const centerX=before.width?(scroller.scrollLeft+scroller.clientWidth/2)/before.width:.5;
  const centerY=before.height?Math.max(0,Math.min(1,(bodyRect.top+bodyRect.height/2-before.top)/before.height)):.5;
  const size=scroller.dataset.original==='true'?1200:900;svg.style.width=`${size*Number(scaleSelect.value)}px`;
@@ -43,7 +62,10 @@ const updateScale=()=>{
   body.scrollTop+=after.top+centerY*after.height-(bodyRect.top+bodyRect.height/2);
  }
 };
-scaleSelect.addEventListener('change',updateScale);
+const showCompleteFigure=()=>{scaleSelect.value='fit';updateScale();dialog.querySelector('.nvm-engineering-dialog-body').scrollTop=0;};
+scaleSelect.addEventListener('change',()=>{if(scaleSelect.value==='fit')showCompleteFigure();else updateScale();});
+fitButton.addEventListener('click',showCompleteFigure);
+new ResizeObserver(()=>{if(dialog.open&&scaleSelect.value==='fit')updateScale();}).observe(dialog.querySelector('.nvm-engineering-zoom-scroll'));
 document.addEventListener('click',event=>{
  const button=event.target.closest('[data-engineering-zoom], [data-engineering-download]');if(!button)return;
  const figure=button.closest('[data-engineering-figure]'),original=figure?.querySelector('svg');if(!original)return;
