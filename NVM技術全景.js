@@ -71,7 +71,7 @@ function showRoute({ focus = false } = {}) {
   for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;
   if (focus) {
     const destination = anchor || next;
-    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study,.nvm-topic-section,.nvm-ip-group,.nvm-system-section,.nvm-system-end,[data-foundry-year]') ? destination.querySelector('h3') : destination.matches('[data-foundry]') ? destination.querySelector('h4') : destination.matches('.nvm-system-index') ? destination.querySelector('a') : destination.matches('[data-source-record],[data-patent-record]') ? destination.querySelector('summary') : destination.matches('[data-glossary-record]') ? destination.querySelector('dt') : destination;
+    const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study,.nvm-topic-section,.nvm-ip-group,.nvm-system-section,.nvm-system-end,.nvm-history-editorial,.nvm-corrections,[data-foundry-year]') ? destination.querySelector('h3') : destination.matches('[data-foundry],.nvm-correction') ? destination.querySelector('h4') : destination.matches('.nvm-system-index') ? destination.querySelector('a') : destination.matches('[data-source-record],[data-patent-record],.nvm-history-disclosure') ? destination.querySelector('summary') : destination.matches('[data-glossary-record]') ? destination.querySelector('dt') : destination;
     heading?.setAttribute('tabindex', '-1');
     if (heading?.matches('h2,h3,h4')) heading.dataset.routeHeading = '';
     heading?.focus({ preventScroll: true });
@@ -118,6 +118,22 @@ document.querySelectorAll('[data-operation-widget]').forEach(widget => {
   });
 });
 showRoute({ focus: Boolean(location.hash) });
+
+function filterHistoricalMetrics() {
+  const select = document.querySelector('#nvm-history-metric');
+  const total = select.options.length - 1;
+  document.querySelectorAll('[data-history-metric]').forEach(item => { item.hidden = select.value !== '' && item.dataset.historyMetric !== select.value; });
+  document.querySelector('.nvm-history-notes').open = select.value !== '';
+  document.querySelector('#nvm-history-count').textContent = isEnglish() ? `Showing ${select.value === '' ? total : 1} of ${total} historical metrics. These are course values, not current product specifications.` : `顯示 ${select.value === '' ? total : 1}／${total} 個歷史指標。數值僅供課程對照，不是現行產品規格。`;
+}
+document.querySelector('#nvm-history-metric').addEventListener('change', filterHistoricalMetrics);
+document.querySelector('#nvm-history-reset').addEventListener('click', () => {
+  const select = document.querySelector('#nvm-history-metric');
+  select.value = '';
+  filterHistoricalMetrics();
+  select.focus();
+});
+filterHistoricalMetrics();
 
 function filterReference(kind) {
   const query = document.querySelector(`#nvm-${kind}-search`).value.normalize('NFKC').toLocaleLowerCase().trim();
@@ -247,6 +263,7 @@ diagramDialog.querySelector('button').addEventListener('click', () => diagramDia
 diagramDialog.addEventListener('click', event => { if (event.target === diagramDialog) diagramDialog.close(); });
 
 window.addEventListener('hub:language-change', () => {
+  filterHistoricalMetrics();
   filterReference('patent');
   filterReference('glossary');
   filterTopics();
