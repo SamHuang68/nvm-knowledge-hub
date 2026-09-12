@@ -779,10 +779,10 @@
             <!-- 第一性原理物理公式 -->
             <div class="formula-box-math">
               <strong>[FIRST-PRINCIPLES PHYSICS EQUATION]</strong><br>
-              <span data-lang="zh">近閾值電壓動態功耗降幅模型：</span><span data-lang="en">Near-threshold dynamic-power reduction model:</span>
-              <em>P<sub>dyn</sub> = α · C<sub>load</sub> · V<sub>dd</sub><sup>2</sup> · f</em><br>
+              <span data-lang="zh">近閾值電壓動態能耗與等頻功耗模型：</span><span data-lang="en">Near-threshold dynamic energy &amp; iso-frequency power model:</span>
+              <em>E<sub>cycle</sub> = α · C<sub>load</sub> · V<sub>dd</sub><sup>2</sup></em><span data-lang="zh">，等頻功耗 </span><span data-lang="en">, iso-frequency power </span><em>P<sub>dyn</sub> = E<sub>cycle</sub> · f</em><br>
               <span data-lang="zh">當供應電壓由</span><span data-lang="en">When the supply voltage decreases from</span> <em>V<sub>nom</sub> = 1.2V</em><span data-lang="zh"> 降至 </span><span data-lang="en"> to </span><em>V<sub>ntv</sub> = 0.5V</em>：<br>
-              <em>ΔP = 1 - (0.5 / 1.2)<sup>2</sup> = 1 - 0.1736 = 82.6%</em> <span data-lang="zh">動態功耗淨節省，同時</span><span data-lang="en">net dynamic-power saving, with</span> <em>I<sub>leak</sub> &lt; 10nA</em> (AON Domain)。
+              <em>ΔE = 1 - (0.5 / 1.2)<sup>2</sup> = 1 - 0.1736 = 82.6%</em> <span data-lang="zh">每週期動態能耗淨節省，同時靜態漏電</span><span data-lang="en">net dynamic energy saving per cycle, with static leakage</span> <em>I<sub>leak</sub> &lt; 10nA</em> (AON Domain)。
             </div>
 
             <div class="grid-4-compact">

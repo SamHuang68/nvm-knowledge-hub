@@ -1,5 +1,5 @@
 # SYNOPSYS NVM · AI, CHIPLET & IOT OPPORTUNITY BRIEF (VERSION 18)
-## 旗艦高階簡報 17 頁逐頁架構解析、演講講稿與物理證據總覽 (最終完美修復版)
+## 旗艦高階簡報 17 頁逐頁架構解析、演講講稿與物理證據總覽 (Executive v18 規範修訂版)
 
 ---
 
@@ -220,7 +220,7 @@ Synopsys first-party opportunity qualification
 **核心標題**：NIST SP 800-208 Stateful Boot
 
 #### 投影片關鍵技術要點：
-- NIST SP 800-208 Stateful Boot 175°C immune metallic filament physics
+- NIST SP 800-208 Stateful Boot 175°C resilient dielectric breakdown filament physics
 - Compact 32-byte LMS hash boot · AEC-Q100 Grade 0 reliability
 - SYNOPSYS POV · PUBLIC-SOURCE QUALIFICATION BRIEF
 - 09
