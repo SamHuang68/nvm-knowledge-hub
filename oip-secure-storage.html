@@ -50,7 +50,7 @@
     </div>
   </header>
 
-  <nav class="site-breadcrumb" aria-label="Breadcrumb">
+  <nav class="site-breadcrumb" aria-label="Breadcrumb" data-aria-en="Breadcrumb" data-aria-zh="麵包屑導覽">
     <i></i><a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Hub</span></a><i></i><span data-lang="zh">資源中心</span><span data-lang="en">Resources</span><i></i><strong><span data-lang="zh">TSMC OIP 展會專題簡報</span><span data-lang="en">OIP Secure Storage Brief (Event Edition)</span></strong>
     <span class="topic-switch"><a href="secure-storage.html"><span data-lang="en">Secure Storage</span><span data-lang="zh">安全儲存架構</span></a><a href="whitepaper/index.html"><span data-lang="en">Decision Studio</span><span data-lang="zh">決策工作台</span></a><a href="briefing/index.html"><span data-lang="en">Briefings and Talk Tracks</span><span data-lang="zh">簡報與講稿</span></a></span>
   </nav>
@@ -109,7 +109,7 @@
           <article><b>04</b><small>SECURE CONTROLLER</small><h3><span data-lang="zh">約束可用明文的時間窗</span><span data-lang="en">Bound the usable-plaintext window</span></h3><p><span data-lang="zh">管理 provisioning、APB access、error response、lifecycle 與 software contract。</span><span data-lang="en">Governs provisioning, APB access, error response, lifecycle and the software contract.</span></p></article>
         </div>
         <div class="outcome-equation oip-equation" data-record-id="OIP-SYS-001"><small>COMPOSED SYSTEM INFERENCE</small><strong>OTP readout → scrambled ciphertext ≠ usable secret</strong></div>
-        <div class="oip-closure-strip" aria-label="Lifecycle, helper-data and accountability closure points">
+        <div class="oip-closure-strip" aria-label="Lifecycle, helper-data and accountability closure points" data-aria-en="Lifecycle, helper-data and accountability closure points" data-aria-zh="生命週期、輔助資料與課責閉環點">
           <article id="lifecycle" data-record-id="OIP-PUF-001"><span>01 · LIFECYCLE</span><h3><span data-lang="zh">斷電靜態 → 上電重建 → 授權存取 → 零化銷毀</span><span data-lang="en">Power-off → reconstruct → authorize → zeroize</span></h3><p><span data-lang="zh">Absent-at-rest 只處理永久 root target；runtime residency、reset interruption 與 zeroization 必須另行驗證。</span><span data-lang="en">Absent-at-rest removes a persistent root target; runtime residency, reset interruption and zeroization still require separate evidence.</span></p></article>
           <article id="helper-data" data-record-id="OIP-PUF-001"><span>02 · HELPER DATA</span><h3><span data-lang="zh">重建材料不是 root-key 備份</span><span data-lang="en">Reconstruction material is not a root-key backup</span></h3><p><span data-lang="zh">公開 helper data 仍需要 leakage、integrity、replay、rollback 與 fault evidence。</span><span data-lang="en">Public helper data still requires leakage, integrity, replay, rollback and fault evidence.</span></p></article>
           <article id="accountability"><span>03 · ACCOUNTABILITY</span><h3><span data-lang="zh">預先整合架構有助於減少跨 IP 交付斷層與邊界安全風險</span><span data-lang="en">Pre-integration mitigates cross-IP hand-off and boundary security risks</span></h3><p><span data-lang="zh">Contractual ownership、qualification support 與 product-response scope 仍須在 target configuration 確認。</span><span data-lang="en">Contractual ownership, qualification support and product-response scope must still be confirmed for the target configuration.</span></p></article>

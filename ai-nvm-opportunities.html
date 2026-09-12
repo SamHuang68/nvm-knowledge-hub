@@ -645,7 +645,7 @@
     </div>
   </header>
 
-  <nav class="site-breadcrumb" aria-label="Breadcrumb">
+  <nav class="site-breadcrumb" aria-label="Breadcrumb" data-aria-en="Breadcrumb" data-aria-zh="麵包屑導覽">
     <i></i><a href="index.html"><span data-lang="zh">知識中心</span><span data-lang="en">Knowledge Hub</span></a><i></i><strong><span data-lang="zh">AI 系統與先進 NVM 架構</span><span data-lang="en">AI Systems &amp; NVM</span></strong>
     <span class="topic-switch"><a href="specialty-nvm.html"><span data-lang="en">Specialty Applications</span><span data-lang="zh">特種製程應用</span></a><a href="NVM技術全景.html#system-scm"><span data-lang="en">Persistence and Systems</span><span data-lang="zh">持久性與系統</span></a></span>
   </nav>
@@ -845,7 +845,7 @@
           </aside>
         </div>
 
-        <div class="evidence-ladder" aria-label="Evidence classification ladder">
+        <div class="evidence-ladder" aria-label="Evidence classification ladder" data-aria-en="Evidence classification ladder" data-aria-zh="證據等級階梯">
           <article><span>01</span><b><span data-lang="zh">直接需求</span><span data-lang="en">DIRECT REQUIREMENT</span></b><p><span data-lang="zh">標準或 supplied PDF 明確要求的行為。</span><span data-lang="en">Behavior explicitly required by a standard or supplied paper.</span></p></article>
           <article><span>02</span><b>OFFICIAL PRODUCT CASE</b><p><span data-lang="zh">具名產品或官方實作展示此 lifecycle 已存在。</span><span data-lang="en">A named product or official implementation demonstrates that the lifecycle exists.</span></p></article>
           <article><span>03</span><b>TECHNICAL EVIDENCE</b><p><span data-lang="zh">同儕審查實作或獨立實體分析支持機制。</span><span data-lang="en">Peer-reviewed implementation or independent physical analysis supports the mechanism.</span></p></article>
@@ -927,7 +927,7 @@
             </div>
           </div>
 
-          <div class="map-planes" aria-label="Persistent-state contract planes">
+          <div class="map-planes" aria-label="Persistent-state contract planes" data-aria-en="Persistent-state contract planes" data-aria-zh="持久狀態契約平面">
             <article>
               <small><i>01</i> COMPUTE + MEMORY</small>
               <div class="map-path"><span>HBM REPAIR DOMAIN</span><i>CONTRACT</i><span>XPU SECURITY ISLAND</span></div>
@@ -965,11 +965,11 @@
         </div>
 
         <div class="opportunity-controls">
-          <div class="view-switch" role="group" aria-label="Opportunity evidence view">
+          <div class="view-switch" role="group" aria-label="Opportunity evidence view" data-aria-en="Opportunity evidence view" data-aria-zh="機會證據視圖">
             <button class="active" type="button" data-opportunity-view="source-grounded" aria-pressed="true"><span data-lang="zh">只看來源支持</span><span data-lang="en">Source-grounded</span></button>
             <button type="button" data-opportunity-view="all" aria-pressed="false"><span data-lang="zh">包含有界推論</span><span data-lang="en">Include bounded inference</span></button>
           </div>
-          <div class="write-filters" role="group" aria-label="Persistent-state write profile">
+          <div class="write-filters" role="group" aria-label="Persistent-state write profile" data-aria-en="Persistent-state write profile" data-aria-zh="持久狀態寫入特徵">
             <button class="active" type="button" data-write-filter="all" aria-pressed="true">ALL</button>
             <button type="button" data-write-filter="immutable" aria-pressed="false">IMMUTABLE</button>
             <button type="button" data-write-filter="few" aria-pressed="false">FEW-WRITE</button>
@@ -1072,7 +1072,7 @@
               <small>01 · CONDUCTOR-LINK eFUSE</small>
               <h4><span data-lang="zh">高電流轉化為供電負擔</span><span data-lang="en">High Current Becomes Delivery Overhead</span></h4>
               <p><span data-lang="zh">較大或分散式 repair map 可能需要 large blow devices、reinforced rails、wide metal，以及額外的 PGM／VSS current-injection pads 或 bumps。共用 programming rail 可降低供電端數量；能否序列燒錄與 test-time 取捨仍須逐 macro 驗證。</span><span data-lang="en">Large or distributed repair maps may require large blow devices, reinforced rails, wide metal and additional PGM/VSS current-injection pads or bumps. A shared programming rail can reduce feed count; serialization and test-time tradeoffs remain macro-specific.</span></p>
-              <ol class="programming-chain" aria-label="eFuse programming consequence chain">
+              <ol class="programming-chain" aria-label="eFuse programming consequence chain" data-aria-en="eFuse programming consequence chain" data-aria-zh="eFuse 燒錄影響鏈">
                 <li><i>01</i><span>HIGH CURRENT PER BIT</span></li>
                 <li><i>02</i><span>DELIVERY NETWORK</span></li>
                 <li><i>03</i><span>AREA · IR-DROP · TEST TIME</span></li>
@@ -1083,7 +1083,7 @@
               <small>02 · GATE-DIELECTRIC ANTIFUSE OTP</small>
               <h4><span data-lang="zh">以 Programming Voltage 換取較低電流</span><span data-lang="en">Trade Current for Programming Voltage</span></h4>
               <p><span data-lang="zh">Gate-dielectric AntiFuse OTP 以較高 programming voltage、較低 current path 完成寫入。內建 charge pump 可由既有電源產生 VPGM，降低外部 programming-pin 壓力；但並非每個 macro 都包含 charge pump。</span><span data-lang="en">Gate-dielectric antifuse OTP uses a higher programming voltage with a lower-current path. An internal charge pump may generate VPGM from existing rails and reduce external programming-pin pressure, but not every macro includes one.</span></p>
-              <ol class="programming-chain" aria-label="Antifuse programming consequence chain">
+              <ol class="programming-chain" aria-label="Antifuse programming consequence chain" data-aria-en="Antifuse programming consequence chain" data-aria-zh="Antifuse 燒錄影響鏈">
                 <li><i>01</i><span>HIGHER VPGM</span></li>
                 <li><i>02</i><span>LOWER-CURRENT PATH</span></li>
                 <li><i>03</i><span>INTERNAL PUMP OPTION</span></li>
@@ -1096,7 +1096,7 @@
             <p><span data-lang="zh">公開資料證明 post-assembly repair 行為存在，但不能據此推論所有 HBM 都使用 AntiFuse、repair state 必定位於 Base／Logic Die，或需要固定數量的 PGM pads／bumps。Fuse physics、pad count 與 die placement 均須逐產品驗證。</span><span data-lang="en">Public evidence demonstrates post-assembly repair behavior. It does not establish that every HBM uses antifuse, that repair state must reside on the Base/Logic Die, or that a fixed number of PGM pads or bumps is required. Fuse physics, pad count and die placement remain product-specific.</span></p>
           </div>
 
-          <nav class="repair-evidence-links" aria-label="Repair programming evidence sources">
+          <nav class="repair-evidence-links" aria-label="Repair programming evidence sources" data-aria-en="Repair programming evidence sources" data-aria-zh="修復燒錄證據來源">
             <a href="https://bitsavers.org/pdf/ibm/IBM_Journal_of_Research_and_Development/511/rizzolo.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-EFUSE-001"><span>IBM JRD</span><b>eFUSE current delivery ↗</b></a>
             <a href="https://techinsights.com/blog/samsungs-anti-fuse-technology-found-18-nm-dram" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DRAM-001"><span>TEARDOWN</span><b>18 nm DDR4 AntiFuse ↗</b></a>
             <a href="https://www.jstage.jst.go.jp/article/transele/E94.C/10/E94.C_10_1690/_article/-char/en" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DRAM-002"><span>PEER REVIEW</span><b>DRAM PPR architecture ↗</b></a>
@@ -1126,7 +1126,7 @@
                 <ul><li>Per-unit identity</li><li>Factory trim</li><li>Safe operating limits</li><li>Qualification digest</li></ul>
                 <p><span data-lang="zh">這些是由系統需求推導的候選 persistent state；最終 medium、位置與 owner 仍須由產品架構驗證。</span><span data-lang="en">These are candidate persistent states inferred from system needs. The final medium, location and owner remain product-specific.</span></p>
               </article>
-              <div class="activation-gate" aria-label="Power-up activation gate">
+              <div class="activation-gate" aria-label="Power-up activation gate" data-aria-en="Power-up activation gate" data-aria-zh="上電致能閘門">
                 <small>POWER-UP READ · PROPOSED LOGICAL FLOW</small>
                 <ol><li><i>01</i><b>VERIFY</b></li><li><i>02</i><b>LOAD</b></li><li><i>03</i><b>ACTIVATE</b></li></ol>
                 <span><b>DOMAIN A → DOMAIN B</b><span data-lang="zh">驗證候選 baseline，再載入 volatile control</span><span data-lang="en">Verify the candidate baseline before loading volatile control</span></span>
@@ -1140,7 +1140,7 @@
             </div>
             <div class="commit-pipeline">
               <div><small>QUALIFIED UPDATE · PROPOSED LOGICAL FLOW</small><b>DOMAIN B · CANDIDATE UPDATE</b><span><span data-lang="zh">只有通過資格驗證的稀疏更新才跨越持久化邊界</span><span data-lang="en">Only qualified sparse updates cross the persistence boundary</span></span></div>
-              <ol aria-label="Qualified update lifecycle"><li><i>01</i><span>OBSERVE</span></li><li><i>02</i><span>QUALIFY</span></li><li><i>03</i><span>AUTHORIZE</span></li><li><i>04</i><span>ATOMIC COMMIT</span></li></ol>
+              <ol aria-label="Qualified update lifecycle" data-aria-en="Qualified update lifecycle" data-aria-zh="合格更新生命週期"><li><i>01</i><span>OBSERVE</span></li><li><i>02</i><span>QUALIFY</span></li><li><i>03</i><span>AUTHORIZE</span></li><li><i>04</i><span>ATOMIC COMMIT</span></li></ol>
               <p><strong>→ CANDIDATE DOMAIN A · QUALIFIED PROFILE BANK</strong><span data-lang="zh">Qualified recalibration 可能形成 managed-NVM opportunity；update cadence、rollback 與 recovery 必須先被界定。</span><span data-lang="en">Qualified recalibration may create a managed-NVM opportunity, but update cadence, rollback and recovery must be bounded first.</span></p>
             </div>
           </div>
@@ -1189,7 +1189,7 @@
           <p><span data-lang="zh">先分開三件事：process device availability、embedded NVM technology 與 system supply contract。把 I/O oxide、外部 rail 與 macro operation 混為一談，會導出錯誤的節點與架構結論。</span><span data-lang="en">Separate three things first: process-device availability, embedded-NVM technology and the system supply contract. Conflating I/O oxide, external rails and macro operation leads to the wrong node and architecture conclusions.</span></p>
         </div>
 
-        <div class="node-transition" data-record-ids="AI-NVM-ADV-001 AI-NVM-ADV-002 AI-NVM-ADV-003 AI-NVM-ADV-004" aria-label="Public embedded NVM portfolio transition by process node">
+        <div class="node-transition" data-record-ids="AI-NVM-ADV-001 AI-NVM-ADV-002 AI-NVM-ADV-003 AI-NVM-ADV-004" aria-label="Public embedded NVM portfolio transition by process node" data-aria-en="Public embedded NVM portfolio transition by process node" data-aria-zh="依製程節點之公開嵌入式 NVM 組合演進">
           <header class="node-transition-header">
             <span>PUBLIC PORTFOLIO SIGNAL</span>
             <strong><i>40nm</i><b>→</b><i>28nm</i><b>→</b><i>22 / 16 / 12nm+</i></strong>
@@ -1240,7 +1240,7 @@
         </div>
 
         <div class="read-domain-story" data-record-ids="AI-NVM-ADV-005 AI-NVM-ADV-006 AI-NVM-ADV-007">
-          <div class="read-domain-diagram" role="img" aria-label="TSMC N5 OTP core-supply read plane separated from the controlled programming domain">
+          <div class="read-domain-diagram" role="img" aria-label="TSMC N5 OTP core-supply read plane separated from the controlled programming domain" data-aria-en="TSMC N5 OTP core-supply read plane separated from the controlled programming domain" data-aria-zh="TSMC N5 OTP 核心供電讀取平面與受控燒錄域隔離圖">
             <div class="read-domain-topline"><span>SYNOPSYS XHF OTP</span><b>TSMC N5</b></div>
             <div class="core-domain">
               <small>CORE / ALWAYS-ON DOMAIN</small>
@@ -1332,7 +1332,7 @@
           </div>
         </div>
 
-        <aside class="sharepoint-extension" aria-label="SharePoint internal completion placeholder">
+        <aside class="sharepoint-extension" aria-label="SharePoint internal completion placeholder" data-aria-en="SharePoint internal completion placeholder" data-aria-zh="SharePoint 內部補齊預留區">
           <div class="sharepoint-lock" aria-hidden="true"><i></i><span>SP</span></div>
           <div><p class="paper-kicker">SHAREPOINT HANDOFF · INTERNAL COMPLETION</p><h3><span data-lang="zh">公開層先定義 Architecture Boundary<br><em>內部層再補 Exact Product Contract</em></span><span data-lang="en">Define the Architecture Boundary Publicly<br><em>Complete the Exact Product Contract Internally</em></span></h3><p><span data-lang="zh">公司內部版保留給 exact macro release、PGM supply window、允許的 power sequence、wrapper-domain requirement 與 qualification evidence。公開網站不推測未發布的電壓數值、pin、waveform、controller state 或 circuit topology。</span><span data-lang="en">Reserve the internal version for exact macro release, PGM supply window, permitted power sequence, wrapper-domain requirements and qualification evidence. The public site does not speculate about unpublished voltage values, pins, waveforms, controller states or circuit topology.</span></p></div>
           <ul><li><span>01</span>MACRO RELEASE</li><li><span>02</span>POWER SEQUENCE</li><li><span>03</span>WRAPPER DOMAIN</li><li><span>04</span>QUALIFICATION</li></ul>
@@ -1373,7 +1373,7 @@
             <img src="assets/assurance-evidence-v1.webp" width="1792" height="1024" loading="lazy" alt="Illustrative semiconductor evidence lab scene" data-alt-zh="半導體證據驗證實驗室概念場景" data-alt-en="Illustrative semiconductor evidence lab scene">
             <figcaption><span>ILLUSTRATIVE EVIDENCE SCENE</span><b><span data-lang="zh">視覺不代表特定量測配置</span><span data-lang="en">Not a specific test configuration</span></b></figcaption>
           </figure>
-          <div class="evidence-flow" role="list" aria-label="Evidence closure cases">
+          <div class="evidence-flow" role="list" aria-label="Evidence closure cases" data-aria-en="Evidence closure cases" data-aria-zh="證據閉環案例">
             <div class="evidence-flow-head" aria-hidden="true"><span>OBSERVED BEHAVIOR</span><span>WHAT IT PROVES</span><span>WHAT IT DOES NOT PROVE</span></div>
             <a href="https://docs.nvidia.com/attestation/secureai-advisory-hbm3-resiliency-impact-on-driver-versions-r550-0-r550-90-12/index.html" target="_blank" rel="noreferrer" data-record-id="AI-NVM-GPU-003" role="listitem">
               <div class="evidence-id"><i>01</i><small>FIRST-PARTY</small><b>NVIDIA ↗</b></div>
@@ -1422,7 +1422,7 @@
 
         <div class="validation-cascade">
           <div class="validation-cascade-intro"><p class="paper-kicker">TARGET VALIDATION CASCADE</p><h3><span data-lang="zh">每個 Opportunity 都必須通過<br><em>四個 Closure Gate</em></span><span data-lang="en">Every Opportunity Must Pass<br><em>Four Closure Gates</em></span></h3><p><span data-lang="zh">先確定 authoritative copy，再封閉 workload、recovery 與 assurance；任何一關未封閉，都只能是 hypothesis。</span><span data-lang="en">Establish the authoritative copy, then close workload, recovery and assurance. An open gate keeps the placement a hypothesis.</span></p></div>
-          <ol aria-label="Four validation gates">
+          <ol aria-label="Four validation gates" data-aria-en="Four validation gates" data-aria-zh="四道驗證門禁">
             <li><i>01</i><span><b>OWNERSHIP</b><small><span data-lang="zh">誰擁有 authoritative copy</span><span data-lang="en">Who owns the authoritative copy</span></small></span></li>
             <li><i>02</i><span><b>WORKLOAD / PVT</b><small><span data-lang="zh">容量位元組 · 寫入頻率 · 結溫 · 留存年限 · ECC 容錯</span><span data-lang="en">Bytes · cadence · Tj · retention · ECC</span></small></span></li>
             <li><i>03</i><span><b>ATOMIC RECOVERY</b><small><span data-lang="zh">掉電保護 · 復位重啟 · 局部寫入中斷恢復</span><span data-lang="en">Brownout · reset · partial program</span></small></span></li>
@@ -1498,13 +1498,13 @@
             <article><span>QUARANTINE</span><b><span data-lang="zh">隔離未證實主張</span><span data-lang="en">Quarantine unsupported claims</span></b><p><span data-lang="zh">數量、mandatory 技術、良率與「物理不可見」不得直接引用。</span><span data-lang="en">Do not promote quantities, mandatory technologies, yield or “physical invisibility.”</span></p></article>
             <article><span>NEXT</span><b><span data-lang="zh">封閉剩餘產品邊界</span><span data-lang="en">Close the remaining product fit</span></b><p><span data-lang="zh">DDR5 與 BMC sockets 已由一級資料確證；下一步驗證 macro、PVT、workload、recovery 與攻擊邊界。</span><span data-lang="en">DDR5 and BMC sockets are now primary-evidence backed; next qualify the macro, PVT, workload, recovery and attack boundary.</span></p></article>
           </div>
-          <div class="research-pipeline" aria-label="Research claim promotion pipeline">
+          <div class="research-pipeline" aria-label="Research claim promotion pipeline" data-aria-en="Research claim promotion pipeline" data-aria-zh="研究主張推進流程">
             <span><i>01</i><b>INTAKE</b><small><span data-lang="zh">捕捉候選機會</span><span data-lang="en">Capture the candidate</span></small></span>
             <span><i>02</i><b>QUARANTINE</b><small><span data-lang="zh">隔離未證實主張</span><span data-lang="en">Isolate unsupported claims</span></small></span>
             <span><i>03</i><b>VERIFY</b><small><span data-lang="zh">回到一級資料</span><span data-lang="en">Return to primary evidence</span></small></span>
             <span><i>04</i><b>PROMOTE</b><small><span data-lang="zh">只發布可防守結論</span><span data-lang="en">Publish only defensible conclusions</span></small></span>
           </div>
-          <ol class="research-hypotheses" aria-label="Five validation hypotheses">
+          <ol class="research-hypotheses" aria-label="Five validation hypotheses" data-aria-en="Five validation hypotheses" data-aria-zh="五項驗證假設">
             <li><i>01</i><span><b>PERIPHERAL MULTIPLIER</b><small><span data-lang="zh">先驗證 BOM 與 architecture ownership</span><span data-lang="en">Validate BOM and architecture ownership</span></small></span></li>
             <li><i>02</i><span><b>DDR5 MTP ENVELOPE</b><small><span data-lang="zh">JEDEC 應用已確證；驗證 cycles、PVT、atomicity 與 recovery</span><span data-lang="en">JEDEC sockets proven; qualify cycles, PVT, atomicity and recovery</span></small></span></li>
             <li><i>03</i><span><b>RETIMER</b><small><span data-lang="zh">分開驗證 factory trim／cold-start profile 與 live EQ</span><span data-lang="en">Evaluate factory trim / cold-start profile separately from live EQ</span></small></span></li>
