@@ -2087,19 +2087,7 @@ html[data-language="zh"] .data-table thead th {
   color: #ffffff;
 }
 
-.badge-cell-win {
-  color: #c4a574 !important;
-  font-weight: 600;
-  background: rgba(196, 165, 116, 0.08);
-}
 
-.badge-cell-lose {
-  color: #fb7185 !important;
-}
-
-.badge-cell-warn {
-  color: #fbbf24 !important;
-}
 
 
 /* =========================================================

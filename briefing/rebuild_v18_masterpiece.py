@@ -214,7 +214,7 @@ def main():
         s9,
         kicker_text="08 · QUALIFY NOW · PQC & AUTOMOTIVE SILC",
         title_line1="NIST SP 800-208 Stateful Boot",
-        title_line2="175°C immune metallic filament physics",
+        title_line2="175°C resilient dielectric breakdown filament physics",
         subtitle_text="Compact 32-byte LMS hash boot · AEC-Q100 Grade 0 reliability",
         pill_text="PHYSICS & QUANTUM GATE",
         page_num_str="09",
