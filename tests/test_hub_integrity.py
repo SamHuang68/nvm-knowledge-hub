@@ -579,6 +579,59 @@ def run_tests() -> None:
     test("site-language.js 包含 WCAG G201 外部連結新視窗雙語提示器 (syncExternalLinks)",
          "syncExternalLinks" in sl_text and "opens in a new tab" in sl_text and "另開新分頁" in sl_text)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 29: 國際化 SEO、Reciprocal Hreflang、OG Locale 與搜尋引擎 Robots 標籤驗證
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 29: 國際化 SEO、Reciprocal Hreflang、OG Locale 與搜尋引擎 Robots 標籤驗證 ═══")
+
+    # 1. 驗證 404.html 包含 noindex, nofollow 搜尋防護
+    p404_text = (BASE / "404.html").read_text(encoding="utf-8")
+    test("404.html 具備 meta name='robots' content='noindex, nofollow' 搜尋防護",
+         '<meta name="robots" content="noindex, nofollow">' in p404_text)
+
+    # 2. 驗證 16 個公開頁面 100% 具備標準 index, follow 與進階摘要標籤
+    public_surfaces = [p for p in ALL_SURFACES if p != "404.html"]
+    for p in public_surfaces:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        has_robots = ('content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"' in p_text and
+                      'name="robots"' in p_text)
+        test(f"{p} 具備標準 meta robots (index, follow, max-image-preview:large)", has_robots)
+
+    # 3. 驗證 16 個公開頁面具備雙語 Open Graph og:locale 與 og:locale:alternate
+    for p in public_surfaces:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        if p == "NVM技術全景中文.html":
+            has_og_locale = ('property="og:locale" content="zh_TW"' in p_text and
+                             'property="og:locale:alternate" content="en_US"' in p_text)
+            test(f"{p} 具備繁中主要 og:locale (zh_TW) 與備選 og:locale:alternate (en_US)", has_og_locale)
+        else:
+            has_og_locale = (('property="og:locale" content="en_US"' in p_text or 'property="og:locale" content="en_US"/>' in p_text) and
+                             ('property="og:locale:alternate" content="zh_TW"' in p_text or 'property="og:locale:alternate" content="zh_TW"/>' in p_text))
+            test(f"{p} 具備英文主要 og:locale (en_US) 與備選 og:locale:alternate (zh_TW)", has_og_locale)
+
+    # 4. 驗證 NVM技術全景 (中英雙語) 具備雙向 Reciprocal Hreflang 連結與 x-default
+    en_atlas = (BASE / "NVM技術全景.html").read_text(encoding="utf-8")
+    zh_atlas = (BASE / "NVM技術全景中文.html").read_text(encoding="utf-8")
+    en_href = "https://samhuang68.github.io/nvm-knowledge-hub/NVM%E6%8A%80%E8%A1%93%E5%85%A8%E6%99%AF.html"
+    zh_href = "https://samhuang68.github.io/nvm-knowledge-hub/NVM%E6%8A%80%E8%A1%93%E5%85%A8%E6%99%AF%E4%B8%AD%E6%96%87.html"
+
+    test("NVM技術全景.html 包含 hreflang='en' 參照", f'hreflang="en" href="{en_href}"' in en_atlas)
+    test("NVM技術全景.html 包含 hreflang='zh-TW' 雙向參照", f'hreflang="zh-TW" href="{zh_href}"' in en_atlas)
+    test("NVM技術全景.html 包含 hreflang='x-default' 預設語系宣告", f'hreflang="x-default" href="{en_href}"' in en_atlas)
+
+    test("NVM技術全景中文.html 包含 hreflang='en' 雙向參照", f'hreflang="en" href="{en_href}"' in zh_atlas)
+    test("NVM技術全景中文.html 包含 hreflang='zh-TW' 參照", f'hreflang="zh-TW" href="{zh_href}"' in zh_atlas)
+    test("NVM技術全景中文.html 包含 hreflang='x-default' 預設語系宣告", f'hreflang="x-default" href="{en_href}"' in zh_atlas)
+
+    # 5. 驗證載入 Google Fonts 之頁面全面具備 DNS Prefetch 備援加速
+    font_pages = ["index.html", "404.html", "automotive-nvm.html", "iot-mcu-envm.html", "specialty-nvm.html", "technology-comparison.html"]
+    for fp in font_pages:
+        fp_text = (BASE / fp).read_text(encoding="utf-8")
+        has_dns_prefetch = ("dns-prefetch" in fp_text and
+                            "fonts.googleapis.com" in fp_text and
+                            "fonts.gstatic.com" in fp_text)
+        test(f"{fp} 具備 Google Fonts 雙重 dns-prefetch 備援加速 (googleapis 與 gstatic)", has_dns_prefetch)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
