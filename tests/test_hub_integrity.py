@@ -421,6 +421,37 @@ def run_tests() -> None:
     test("site-shell.css 包含完整的 @media print 高保真列印樣式", "@media print" in shell_css and "break-inside: avoid" in shell_css)
     test("hub.css 包含 @media print 列印防護規則", "@media print" in hub_css)
 
+    # ===== TEST 26: 全站 PWA WebManifest、100% SVG 無障礙規範與語系切換語音播報驗證 =====
+    print("\n═══ TEST 26: 全站 PWA WebManifest、100% SVG 無障礙規範與語系切換語音播報驗證 ═══")
+    # 1. 驗證全站 17 個頁面 100% 具備 PWA WebManifest 連結
+    for p in ALL_SURFACES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        test(f"{p} 包含 PWA WebManifest 連結 (rel=\"manifest\")",
+             'rel="manifest"' in p_text or "rel='manifest'" in p_text)
+
+    # 2. 驗證全站所有 SVG 標籤皆具備可訪問性定義 (aria-hidden/aria-label/role)
+    total_svgs = 0
+    missing_svg_a11y = 0
+    for p in ALL_SURFACES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        svgs = re.findall(r'<svg\b([^>]*)>', p_text, re.IGNORECASE)
+        total_svgs += len(svgs)
+        for attrs in svgs:
+            has_a11y = ('aria-hidden=' in attrs or 'aria-label=' in attrs or
+                        'aria-labelledby=' in attrs or 'role=' in attrs)
+            if not has_a11y:
+                missing_svg_a11y += 1
+
+    test(f"全站 SVG 總數符合規模 (共計 {total_svgs} 個向量圖形元件)", total_svgs >= 1000)
+    test("全站所有 <svg> 標籤 100% 具備無障礙定義 (aria-hidden/label/role，零無標籤視覺噪音)", missing_svg_a11y == 0)
+
+    # 3. 驗證 site-language.js 具備動態語音播報器 (aria-live polite announcer)
+    sl_text = (BASE / "site-language.js").read_text(encoding="utf-8")
+    test("site-language.js 包含 aria-live='polite' 語音即時廣播器 (hubLanguageAnnouncer)",
+         "hubLanguageAnnouncer" in sl_text and 'aria-live' in sl_text)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

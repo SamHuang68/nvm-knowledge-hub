@@ -50,6 +50,19 @@
       button.setAttribute('title', language === 'en' ? 'Switch to Traditional Chinese' : '切換為英文');
       button.querySelectorAll('[data-lang-option]').forEach(option => option.classList.toggle('is-active', option.dataset.langOption === language));
     });
+    let announcer = document.getElementById('hubLanguageAnnouncer');
+    if (!announcer && document.body) {
+      announcer = document.createElement('div');
+      announcer.id = 'hubLanguageAnnouncer';
+      announcer.className = 'sr-only';
+      announcer.setAttribute('aria-live', 'polite');
+      announcer.setAttribute('aria-atomic', 'true');
+      announcer.style.cssText = 'position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;';
+      document.body.appendChild(announcer);
+    }
+    if (announcer) {
+      announcer.textContent = language === 'zh' ? '已切換為繁體中文' : 'Language switched to English';
+    }
   }
   window.HubLanguage = {
     STORAGE_KEY,
