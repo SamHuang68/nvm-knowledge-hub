@@ -1001,7 +1001,7 @@
           <article class="opportunity-record" data-evidence="inference" data-write="few" data-record-ids="AI-NVM-OCP-004 AI-NVM-OIF-001 AI-NVM-INF-002" data-fit-record-ids="AI-NVM-INF-002" data-copy-revision="AI-OPPORTUNITY-VIEW-R27">
             <div class="record-index"><span>04</span><small>PHOTONICS / CPO</small></div>
             <div class="record-copy"><span class="tier-tag inferred">INFERRED OPPORTUNITY</span><h3><span data-lang="zh">Factory Baseline 與 Live Thermal Control</span><span data-lang="en">Factory Baseline and Live Thermal Control</span></h3><p><span data-lang="zh">OCP 指出 ring wavelength 對溫度敏感；CMIS 支援 diagnostics 與 statistics。這支持 per-unit trim／safe limit 的持久化機會，但 continuous tuning 應留在 volatile control。</span><span data-lang="en">OCP identifies temperature-sensitive ring wavelength; CMIS supports diagnostics and statistics. That supports persistent per-unit trim and safe limits, while continuous tuning should remain volatile.</span></p></div>
-            <div class="record-fit"><small>STATE / FIT</small><b>BASELINE + RUNTIME LOOP</b><span>OTP baseline + optional MTP profile</span><em><span data-lang="zh">Continuous tuning ≠ continuous NVM writes</span><span data-lang="en">Continuous tuning ≠ continuous NVM writes</span></em></div>
+            <div class="record-fit"><small>STATE / FIT</small><b>BASELINE + RUNTIME LOOP</b><span>OTP baseline + optional MTP profile</span><em><span data-lang="zh">連續微調 ≠ 連續 NVM 寫入</span><span data-lang="en">Continuous tuning ≠ continuous NVM writes</span></em></div>
           </article>
 
           <article class="opportunity-record" data-evidence="source-grounded" data-write="immutable" data-record-id="AI-NVM-PMIC-001" data-fit-record-ids="AI-NVM-PMIC-001" data-copy-revision="AI-OPPORTUNITY-VIEW-R27">
@@ -1266,7 +1266,7 @@
               <article><span>01</span><b><span data-lang="zh">Fabric 前置修復</span><span data-lang="en">Pre-Fabric Repair</span></b><p><span data-lang="zh">在運算 fabric 啟動前取得 SRAM repair map。</span><span data-lang="en">Make SRAM repair maps available before compute-fabric activation.</span></p></article>
               <article><span>02</span><b><span data-lang="zh">I/O 前置安全</span><span data-lang="en">Pre-I/O Security</span></b><p><span data-lang="zh">在外部介面啟用前載入 lock、identity 與 lifecycle policy。</span><span data-lang="en">Load locks, identity and lifecycle policy before external interfaces enable.</span></p></article>
               <article><span>03</span><b><span data-lang="zh">分階段啟動</span><span data-lang="en">Staged Bring-Up</span></b><p><span data-lang="zh">降低正常讀取對另一個 power domain 的時序依賴。</span><span data-lang="en">Reduce mission-mode read sequencing dependence on another power domain.</span></p></article>
-              <article><span>04</span><b><span data-lang="zh">Resume State</span><span data-lang="en">Resume State</span></b><p><span data-lang="zh">為 always-on controller 與 power-gated resume 提供候選路徑。</span><span data-lang="en">Create a candidate path for always-on control and power-gated resume.</span></p></article>
+              <article><span>04</span><b><span data-lang="zh">喚醒回復狀態</span><span data-lang="en">Resume State</span></b><p><span data-lang="zh">為 always-on controller 與 power-gated resume 提供候選路徑。</span><span data-lang="en">Create a candidate path for always-on control and power-gated resume.</span></p></article>
             </div>
             <div class="read-program-verdict" data-pov-scope-id="POV-SAM-OWNER-NOTE-2026-08-29" data-artifact-mode="neutral-editorial" data-note-id="OWNER-NOTE-PGM-IO-001" data-source-role="owner-provided" data-note-role="owner-provided-public-engineering-note" data-release-approval="user-authorized-2026-08-29">
               <small>OWNER-PROVIDED PUBLIC ENGINEERING NOTE</small>
@@ -1360,7 +1360,7 @@
             <article id="assurance-panel-attestation" data-assurance-panel="attestation"><span>04</span><small>ATTESTATION COHERENCE</small><h3><span data-lang="zh">Authorized Change 與 Measurement 一致性</span><span data-lang="en">Authorized Change and Measurement Coherence</span></h3><p><span data-lang="zh">repair、configuration 與 firmware state 必須綁定到 measurement／RIM lifecycle，避免可靠度事件被誤判成 compromise。</span><span data-lang="en">Bind repair, configuration and firmware state to the measurement/RIM lifecycle so reliability events are not mistaken for compromise.</span></p></article>
           </div>
         </div>
-        <div class="abstraction-verdict"><small>PRODUCT DIFFERENTIATION</small><strong><span data-lang="zh">Threat-Modelled Root × Encrypted State × Atomic Update × Coherent Evidence</span><span data-lang="en">Threat-Modelled Root × Encrypted State × Atomic Update × Coherent Evidence</span></strong><p><span data-lang="zh">PUF／AES 不會自動解決 endurance 或 torn write；MTP／ECC 也不會自動解決 secret exposure。完整 abstraction 必須把四者納入同一責任邊界。</span><span data-lang="en">PUF/AES does not automatically solve endurance or torn writes; MTP/ECC does not automatically solve secret exposure. The abstraction must own all four outcomes.</span></p></div>
+        <div class="abstraction-verdict"><small>PRODUCT DIFFERENTIATION</small><strong><span data-lang="zh">威脅模型根信任 × 加密狀態 × 原子更新 × 一致證據</span><span data-lang="en">Threat-Modelled Root × Encrypted State × Atomic Update × Coherent Evidence</span></strong><p><span data-lang="zh">PUF／AES 不會自動解決 endurance 或 torn write；MTP／ECC 也不會自動解決 secret exposure。完整 abstraction 必須把四者納入同一責任邊界。</span><span data-lang="en">PUF/AES does not automatically solve endurance or torn writes; MTP/ECC does not automatically solve secret exposure. The abstraction must own all four outcomes.</span></p></div>
       </section>
 
       <section id="evidence" class="paper-section lens-panel reveal">
@@ -1424,9 +1424,9 @@
           <div class="validation-cascade-intro"><p class="paper-kicker">TARGET VALIDATION CASCADE</p><h3><span data-lang="zh">每個 Opportunity 都必須通過<br><em>四個 Closure Gate</em></span><span data-lang="en">Every Opportunity Must Pass<br><em>Four Closure Gates</em></span></h3><p><span data-lang="zh">先確定 authoritative copy，再封閉 workload、recovery 與 assurance；任何一關未封閉，都只能是 hypothesis。</span><span data-lang="en">Establish the authoritative copy, then close workload, recovery and assurance. An open gate keeps the placement a hypothesis.</span></p></div>
           <ol aria-label="Four validation gates">
             <li><i>01</i><span><b>OWNERSHIP</b><small><span data-lang="zh">誰擁有 authoritative copy</span><span data-lang="en">Who owns the authoritative copy</span></small></span></li>
-            <li><i>02</i><span><b>WORKLOAD / PVT</b><small><span data-lang="zh">Bytes · cadence · Tj · retention · ECC</span><span data-lang="en">Bytes · cadence · Tj · retention · ECC</span></small></span></li>
-            <li><i>03</i><span><b>ATOMIC RECOVERY</b><small><span data-lang="zh">Brownout · reset · partial program</span><span data-lang="en">Brownout · reset · partial program</span></small></span></li>
-            <li><i>04</i><span><b>ASSURANCE</b><small><span data-lang="zh">DFT · debug · FI · SCA · invasive</span><span data-lang="en">DFT · debug · FI · SCA · invasive</span></small></span></li>
+            <li><i>02</i><span><b>WORKLOAD / PVT</b><small><span data-lang="zh">容量位元組 · 寫入頻率 · 結溫 · 留存年限 · ECC 容錯</span><span data-lang="en">Bytes · cadence · Tj · retention · ECC</span></small></span></li>
+            <li><i>03</i><span><b>ATOMIC RECOVERY</b><small><span data-lang="zh">掉電保護 · 復位重啟 · 局部寫入中斷恢復</span><span data-lang="en">Brownout · reset · partial program</span></small></span></li>
+            <li><i>04</i><span><b>ASSURANCE</b><small><span data-lang="zh">可測試性設計 · 除錯隔離 · 故障注入 · 側信道 · 侵入防禦</span><span data-lang="en">DFT · debug · FI · SCA · invasive</span></small></span></li>
           </ol>
         </div>
       </section>
@@ -1451,7 +1451,7 @@
             </div>
           </details>
           <details class="source-group">
-            <summary><span>02</span><b><span data-lang="zh">First-Party Cases</span><span data-lang="en">First-Party Cases</span></b><small>4 IMPLEMENTATIONS</small><i>+</i></summary>
+            <summary><span>02</span><b><span data-lang="zh">第一方實作案例</span><span data-lang="en">First-Party Cases</span></b><small>4 IMPLEMENTATIONS</small><i>+</i></summary>
             <div class="ai-source-list">
           <a href="https://developer.nvidia.com/blog/?p=68661" target="_blank" rel="noreferrer"><span>FIRST-PARTY</span><b>NVIDIA H100 Confidential Computing</b><small>On-die RoT · measured boot · attestation</small></a>
           <a href="https://docs.nvidia.com/deploy/a100-gpu-mem-error-mgmt/latest/row-remapping.html" target="_blank" rel="noreferrer"><span>FIRST-PARTY</span><b>NVIDIA Row Remapping</b><small>Persistent repair lifecycle</small></a>
@@ -1460,7 +1460,7 @@
             </div>
           </details>
           <details class="source-group">
-            <summary><span>03</span><b><span data-lang="zh">Vendor Capability Envelopes</span><span data-lang="en">Vendor Capability Envelopes</span></b><small>4 BOUNDED CLAIMS</small><i>+</i></summary>
+            <summary><span>03</span><b><span data-lang="zh">原廠規格邊界</span><span data-lang="en">Vendor Capability Envelopes</span></b><small>4 BOUNDED CLAIMS</small><i>+</i></summary>
             <div class="ai-source-list">
           <a href="https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/otp.html" target="_blank" rel="noreferrer"><span>VENDOR CLAIM</span><b>Synopsys OTP NVM</b><small>Trim · calibration · repair · keys</small></a>
           <a href="https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP" target="_blank" rel="noreferrer"><span>VENDOR CLAIM</span><b>eMemory NeoMTP</b><small>One MTP capability envelope—not the whole category</small></a>
@@ -1469,7 +1469,7 @@
             </div>
           </details>
           <details class="source-group">
-            <summary><span>04</span><b><span data-lang="zh">Foundry Roadmaps</span><span data-lang="en">Foundry Roadmaps</span></b><small>2 DIRECTIONAL SOURCES</small><i>+</i></summary>
+            <summary><span>04</span><b><span data-lang="zh">晶圓代工藍圖</span><span data-lang="en">Foundry Roadmaps</span></b><small>2 DIRECTIONAL SOURCES</small><i>+</i></summary>
             <div class="ai-source-list">
           <a href="https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash" target="_blank" rel="noreferrer"><span>FOUNDRY ROADMAP</span><b>TSMC Embedded NVM</b><small>eFlash · eMRAM · eRRAM node maturity</small></a>
           <a href="https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/" target="_blank" rel="noreferrer"><span>FOUNDRY ROADMAP</span><b>Samsung Specialty Technology</b><small>28nm eFlash · advanced eMRAM direction</small></a>
