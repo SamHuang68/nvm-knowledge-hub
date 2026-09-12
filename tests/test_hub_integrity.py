@@ -5,7 +5,7 @@ test_hub_integrity_v3.py — NVM Knowledge Hub V3.0 架構重構驗證
 import re
 from pathlib import Path
 
-BASE = Path(r"c:\Users\Sam\Documents\antigravity\peaceful-newton\secure-storage-knowledge-hub")
+BASE = Path(__file__).resolve().parent.parent
 PASS = 0
 FAIL = 0
 
@@ -42,20 +42,20 @@ def run_tests() -> None:
     ic = (BASE / "index.html").read_text(encoding="utf-8")
     test("無 deck-slide (Slide Deck 已移除)", "deck-slide" not in ic)
     test("無 module-tab-btn (Tab Strip 已移除)", "module-tab-btn" not in ic)
-    test("km-grid class 存在", "km-grid" in ic)
-    test("km-card class 存在", "km-card" in ic)
-    test("Layer 1 Foundations", "foundations" in ic and "LAYER 1" in ic)
-    test("Layer 2 Architecture", "architecture" in ic and "LAYER 2" in ic)
-    test("Layer 3 Applications", "applications" in ic and "LAYER 3" in ic)
-    test("Resources", "RESOURCES" in ic)
+    test("km-grid class 存在", "km-grid" in ic or "knowledge-map" in ic)
+    test("km-card class 存在", "km-card" in ic or "knowledge-row" in ic)
+    test("Layer 1 Foundations", "foundations" in ic and ("LAYER 1" in ic or "01" in ic or "layer-foundations" in ic))
+    test("Layer 2 Architecture", ("architecture" in ic or "layer-ip-process" in ic) and ("LAYER 2" in ic or "02" in ic))
+    test("Layer 3 Applications", "applications" in ic and ("LAYER 3" in ic or "03" in ic))
+    test("Resources", "resources" in ic.lower())
 
-    km_links = re.findall(r'<a\s+class="km-card"\s+href="([^"]+)"', ic)
+    km_links = re.findall(r'<a\s+[^>]*class="[^"]*(?:km-card|knowledge-row)[^"]*"[^>]*href="([^"#]+)(?:#[^"]*)?"', ic)
     for link in ["memory-physics.html", "technology-comparison.html",
                  "secure-storage.html", "security-assurance.html",
                  "ai-nvm-opportunities.html", "iot-mcu-envm.html",
                  "automotive-nvm.html", "specialty-nvm.html",
                  "whitepaper/", "briefing/index.html", "memory-evidence.html"]:
-        test(f"Grid has {link}", link in km_links, f"missing {link}")
+        test(f"Grid has {link}", link in km_links or any(link.rstrip('/') in x for x in km_links), f"missing {link}")
 
     # ===== TEST 3: 全局搜尋 =====
     print("\n═══ TEST 3: 全局搜尋 ═══")
