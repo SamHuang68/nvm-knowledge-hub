@@ -10,18 +10,21 @@
 <meta content="#061b29" name="theme-color"/>
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
 <!-- Open Graph / Social Sharing -->
-<meta content="article" property="og:type"/>
-<meta content="https://samhuang68.github.io/nvm-knowledge-hub/specialty-nvm.html" property="og:url"/>
-<meta content="Specialty Foundry eNVM: BCD Power, Matrix Repair &amp; E-Ink Ultra-HV Drivers" property="og:title"/>
-<meta content="Deep architectural treatise on zero-mask BCD PMIC trimming, CIS/DRAM array redundancy repair, and 40V-50V E-Ink driving with 4 interactive labs." property="og:description"/>
-<meta content="https://samhuang68.github.io/nvm-knowledge-hub/assets/specialty-foundry-v1.webp" property="og:image"/>
-<meta content="1200" property="og:image:width"/>
-<meta content="675" property="og:image:height"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="NVM Knowledge Hub"/>
+<meta property="og:url" content="https://samhuang68.github.io/nvm-knowledge-hub/specialty-nvm.html"/>
+<meta property="og:title" content="Specialty Foundry eNVM: BCD Power, Matrix Repair &amp; E-Ink Ultra-HV Drivers"/>
+<meta property="og:description" content="Deep architectural treatise on zero-mask BCD PMIC trimming, CIS/DRAM array redundancy repair, and 40V-50V E-Ink driving with 4 interactive labs."/>
+<meta property="og:image" content="https://samhuang68.github.io/nvm-knowledge-hub/assets/specialty-foundry-v1.webp"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="675"/>
 <!-- Twitter Card -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="Specialty Foundry eNVM Architecture &amp; 4 Flagship Labs" name="twitter:title"/>
-<meta content="BCD zero-mask adder economics, CIS/DRAM JEDEC PPR, HV DDIC De-Mura, and 110HV E-Ink MTP-to-OTP migration." name="twitter:description"/>
-<meta content="https://samhuang68.github.io/nvm-knowledge-hub/assets/specialty-foundry-v1.webp" name="twitter:image"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Specialty Foundry eNVM Architecture &amp; 4 Flagship Labs"/>
+<meta name="twitter:description" content="BCD zero-mask adder economics, CIS/DRAM JEDEC PPR, HV DDIC De-Mura, and 110HV E-Ink MTP-to-OTP migration."/>
+<meta name="twitter:image" content="https://samhuang68.github.io/nvm-knowledge-hub/assets/specialty-foundry-v1.webp"/>
+<!-- Canonical URL -->
+<link rel="canonical" href="https://samhuang68.github.io/nvm-knowledge-hub/specialty-nvm.html"/>
 <!-- PWA Manifest -->
 <link href="site.webmanifest" rel="manifest"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -695,7 +698,7 @@
     <div class="lens-stage-container">
 <!-- Silicon Micrograph Hero Panorama: Plan A BCD PMIC + eNVM -->
 <div class="specialty-hero-image-wrap" data-reticle="MICROSCOPY 100X · 1mm CALIBRATED">
-<img alt="Monolithic BCD Power Management IC (PMIC) silicon die micrograph layout showing 40V-85V LDMOS power switches, analog bandgap reference trimming circuit, AntiFuse OTP FuseBox memory array, and CMOS logic core" height="675" loading="eager" src="assets/specialty-bcd-pmic-die-v2.webp" width="1200"/>
+<img src="assets/specialty-bcd-pmic-die-v2.webp" width="1200" height="675" alt="Monolithic BCD Power Management IC (PMIC) silicon die micrograph layout showing 40V-85V LDMOS power switches, analog bandgap reference trimming circuit, AntiFuse OTP FuseBox memory array, and CMOS logic core" data-alt-en="Monolithic BCD Power Management IC (PMIC) silicon die micrograph layout showing 40V-85V LDMOS power switches, analog bandgap reference trimming circuit, AntiFuse OTP FuseBox memory array, and CMOS logic core" data-alt-zh="單晶粒 BCD 電源管理晶片 (PMIC) 晶圓顯微佈局，展示 40V-85V LDMOS 功率開關、類比能隙基準微調電路、AntiFuse OTP FuseBox 記憶體陣列與 CMOS 邏輯核心" loading="eager" fetchpriority="high" decoding="async"/>
 <div class="hero-image-caption">
 <span><span data-lang="zh">圖 0.1 · 單晶粒 BCD PMIC 架構 • 40V-85V LDMOS 功率級 • 類比帶隙微調 • 反熔絲 OTP 熔絲陣列 • 1mm 比例</span><span data-lang="en">FIG 0.1 · MONOLITHIC BCD PMIC SILICON DIE ARCHITECTURE • 40V-85V LDMOS POWER STAGE • ANALOG BANDGAP TRIMMING • ANTIFUSE OTP FUSEBOX • 1mm SCALE</span></span>
 </div>
@@ -2460,7 +2463,7 @@
 </div>
 <!-- E-Ink DDIC Die Architecture Panorama: Plan B Ultra-HV DDIC + NVM -->
 <div class="specialty-hero-image-wrap" data-reticle="ULTRA-HV DDIC · &lt;250μm SLIM PROFILE" style="margin: 24px auto; max-width: 780px;">
-<img alt="Ultra-High-Voltage E-Paper Display Driver IC (DDIC) silicon die layout showing 40V-50V HV level shifters, dynamic Waveform Look-Up Table (Waveform LUT) MTP/OTP memory, and peripheral gold bumping pads for COG/COF bonding" height="675" loading="lazy" src="assets/specialty-eink-ddic-die-v2.webp" width="1200"/>
+<img src="assets/specialty-eink-ddic-die-v2.webp" width="1200" height="675" alt="Ultra-High-Voltage E-Paper Display Driver IC (DDIC) silicon die layout showing 40V-50V HV level shifters, dynamic Waveform Look-Up Table (Waveform LUT) MTP/OTP memory, and peripheral gold bumping pads for COG/COF bonding" data-alt-en="Ultra-High-Voltage E-Paper Display Driver IC (DDIC) silicon die layout showing 40V-50V HV level shifters, dynamic Waveform Look-Up Table (Waveform LUT) MTP/OTP memory, and peripheral gold bumping pads for COG/COF bonding" data-alt-zh="超高壓電子紙顯示驅動晶片 (DDIC) 晶圓佈局，展示 40V-50V 高壓電位移位器、動態波形查找表 (Waveform LUT) MTP/OTP 記憶體與週邊金凸塊 (Gold Bumping) 銲墊" loading="lazy" decoding="async"/>
 <div class="hero-image-caption">
 <span><span data-lang="zh">圖 4.1 · 超高壓電子紙顯示驅動晶片 (DDIC) • 40V-50V 源極驅動器 • 波形查找表 (MTP/OTP) • &lt;250μm 厚度 • COG/COF 金凸塊接墊</span><span data-lang="en">FIG 4.1 · ULTRA-HV E-INK DISPLAY DRIVER IC (DDIC) SILICON DIE • 40V-50V SOURCE DRIVERS • WAVEFORM LUT (MTP/OTP) • &lt;250μm PROFILE • COG/COF Au-BUMP PADS</span></span>
 </div>
