@@ -339,6 +339,56 @@ def run_tests() -> None:
                 missing_count += 1
         test(f"{p} 所有具備 aria-label 的元件 100% 具備動態雙語 data-aria-zh/en", missing_count == 0)
 
+    # ===== TEST 24: 全站 SEO / Canonical / Open Graph / Twitter Cards 與圖片零 CLS 完整性驗證 =====
+    print("\n═══ TEST 24: 全站 SEO / Canonical / Open Graph / Twitter Cards 與圖片零 CLS 完整性驗證 ═══")
+    ALL_INDEXABLE_PAGES = [
+        "index.html", "NVM技術全景.html", "NVM技術全景中文.html", "secure-storage.html",
+        "security-assurance.html", "ai-nvm-opportunities.html", "iot-mcu-envm.html",
+        "automotive-nvm.html", "specialty-nvm.html", "memory-physics.html",
+        "memory-evidence.html", "technology-comparison.html", "oip-secure-storage.html",
+        "briefing/index.html", "whitepaper/index.html", "tools/whitepaper-studio/index.html"
+    ]
+    # 1. 驗證 16 個公開頁面具備 canonical 與社群分享元資料
+    for p in ALL_INDEXABLE_PAGES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        test(f"{p} 具備標準 Canonical 標籤", '<link rel="canonical"' in p_text)
+        test(f"{p} 具備 Open Graph 完整元資料 (type/site_name/url/title/description/image)",
+             'property="og:type"' in p_text and 'property="og:site_name"' in p_text and
+             'property="og:url"' in p_text and 'property="og:title"' in p_text and
+             'property="og:description"' in p_text and 'property="og:image"' in p_text)
+        test(f"{p} 具備 Twitter Card 完整元資料 (card/title/description/image)",
+             'name="twitter:card"' in p_text and 'name="twitter:title"' in p_text and
+             'name="twitter:description"' in p_text and 'name="twitter:image"' in p_text)
+
+    # 2. 驗證全站所有圖片具備 loading, width, height, decoding 與雙語 data-alt 屬性 (零 CLS 防禦)
+    total_imgs = 0
+    missing_loading = 0
+    missing_dimensions = 0
+    missing_decoding = 0
+    missing_bilingual_alt = 0
+
+    for p in ALL_SURFACES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        imgs = re.findall(r'<img\b[^>]*>', p_text, re.IGNORECASE)
+        for img in imgs:
+            total_imgs += 1
+            if "loading=" not in img:
+                missing_loading += 1
+            if "width=" not in img or "height=" not in img:
+                missing_dimensions += 1
+            if 'decoding="async"' not in img:
+                missing_decoding += 1
+            if 'data-alt-en=' not in img or 'data-alt-zh=' not in img:
+                missing_bilingual_alt += 1
+
+    test(f"全站圖片總數符合預期 (共計 {total_imgs} 張圖片)", total_imgs == 13)
+    test("全站所有 <img> 標籤皆具備 loading 屬性 (eager/lazy 規範)", missing_loading == 0)
+    test("全站所有 <img> 標籤皆具備 width 與 height 屬性 (零 CLS 佈局位移防禦)", missing_dimensions == 0)
+    test("全站所有 <img> 標籤皆具備 decoding='async' 非同步解碼優化", missing_decoding == 0)
+    test("全站所有 <img> 標籤皆具備 data-alt-en 與 data-alt-zh 雙語動態支援", missing_bilingual_alt == 0)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

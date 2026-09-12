@@ -23,11 +23,23 @@
   function syncInterface(language) {
     const title = html.dataset[language === 'zh' ? 'titleZh' : 'titleEn'];
     const description = html.dataset[language === 'zh' ? 'descriptionZh' : 'descriptionEn'];
-    if (title) document.title = title;
-    if (description) document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+    if (title) {
+      document.title = title;
+      document.querySelector('meta[property="og:title"]')?.setAttribute('content', title);
+      document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', title);
+    }
+    if (description) {
+      document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+      document.querySelector('meta[property="og:description"]')?.setAttribute('content', description);
+      document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', description);
+    }
     document.querySelectorAll('[data-aria-en], [data-aria-zh]').forEach(element => {
       const label = element.dataset[language === 'zh' ? 'ariaZh' : 'ariaEn'];
       if (label) element.setAttribute('aria-label', label);
+    });
+    document.querySelectorAll('[data-alt-en], [data-alt-zh]').forEach(element => {
+      const alt = element.dataset[language === 'zh' ? 'altZh' : 'altEn'];
+      if (alt) element.setAttribute('alt', alt);
     });
     document.querySelectorAll('[data-placeholder-en], [data-placeholder-zh]').forEach(element => {
       const value = element.dataset[language === 'zh' ? 'placeholderZh' : 'placeholderEn'];
