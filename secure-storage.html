@@ -1065,7 +1065,7 @@
   </style>
 </head>
 <body data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
-  <a class="skip-link" href="#top">Skip to main content</a>
+  <a class="skip-link" href="#top"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
   <svg class="svg-defs" aria-hidden="true">
     <symbol id="i-fingerprint" viewBox="0 0 48 48"><path d="M10 23c0-8 6-14 14-14s14 6 14 14c0 9-3 15-7 20M15 25c0-5 4-9 9-9s9 4 9 9c0 7-2 12-5 17M20 27c0-3 2-5 4-5s4 2 4 5c0 5-1 9-3 13M9 31c1 5 3 9 6 13M15 34c1 3 2 6 4 8"/></symbol>
     <symbol id="i-memory" viewBox="0 0 48 48"><rect x="9" y="11" width="30" height="26" rx="3"/><path d="M15 18h18M15 24h18M15 30h11M5 18h4M5 25h4M5 32h4M39 18h4M39 25h4M39 32h4"/></symbol>
@@ -1378,7 +1378,7 @@
         <p><span data-lang="zh">RP2350 是特定實作的公開 case，不代表所有 OTP 都同樣可攻。它揭示兩條平行路徑：fault 可能破壞 control assumptions；FIB／PVC 則接近 physical bit-state recovery。產品要求因此是：即使 readout 成功，也不應直接得到 usable secret。</span><span data-lang="en">RP2350 is a public case of one implementation, not a claim that every OTP is equally attackable. It shows two parallel paths: fault can break control assumptions; FIB/PVC approaches physical bit-state recovery. The product requirement is that a successful readout should still not yield a usable secret.</span></p>
       </div>
       <div class="attack-journey">
-        <article><div class="journey-icon danger"><svg><use href="#i-glitch"/></svg></div><span>01A · CONTROL PATH</span><h3>Fault can collapse assumptions</h3><p><span data-lang="zh">電壓、laser 或 EM disturbance 可能改變 boot、permission 或 lock 行為。</span><span data-lang="en">Voltage, laser or EM disturbance can change boot, permission or lock behavior.</span></p></article>
+        <article><div class="journey-icon danger"><svg><use href="#i-glitch"/></svg></div><span>01A · CONTROL PATH</span><h3>Fault can collapse assumptions</h3><p><span data-lang="zh">背部雷射故障注入 (LFI)、電壓突波 (Voltage Glitch)、電磁脈衝 (EMFI) 或時鐘干擾可能引發指令跳躍 (instruction skip)，破壞安全啟動、權限狀態或鎖定暫存器。</span><span data-lang="en">Backside laser fault injection (LFI), voltage glitch, electromagnetic fault injection (EMFI), or clock disturbance can cause instruction skip, corrupting secure boot, privilege states, or lock registers.</span></p></article>
         <article data-record-id="OIP-OTP-002"><div class="journey-icon danger"><svg><use href="#i-probe"/></svg></div><span>01B · INVASIVE PATH</span><h3>FIB/PVC can expose physical state</h3><p><span data-lang="zh">公開案例已讀出相鄰 bit pair 的 OR；完整逐 bit recovery 仍未被示範。</span><span data-lang="en">A public case recovered the OR of adjacent bit pairs; full bit-by-bit recovery has not been demonstrated.</span></p></article>
         <article data-record-id="OIP-SYS-001"><div class="journey-icon copper"><svg><use href="#i-cipher"/></svg></div><span>02 · COMPOSED RESPONSE</span><h3>Encrypt, scramble and govern</h3><p><span data-lang="zh">只有在所有 composed controls 成立時，readout 才應停在 scrambled ciphertext。</span><span data-lang="en">Only when all composed controls hold should readout stop at scrambled ciphertext.</span></p></article>
         <article data-record-id="OIP-VAL-001"><div class="journey-icon teal"><svg><use href="#i-evidence"/></svg></div><span>03 · EVIDENCE GATE</span><h3>Close the target configuration</h3><p><span data-lang="zh">以 target node、macro、integration 與 FI／SCA／invasive evidence 驗證結果。</span><span data-lang="en">Close the result against the target node, macro, integration and FI/SCA/invasive evidence.</span></p></article>
@@ -1561,9 +1561,9 @@
           <header><span>SYNOPSYS</span><h3>SRAM PUF</h3><svg><use href="#i-fingerprint"/></svg></header>
           <div class="state-hero"><small>POWER-OFF PHYSICAL STATE</small><strong>NO POWERED LOGIC STATE</strong><p><span data-lang="zh">供電時的 SRAM 邏輯狀態消失；製程失配仍存在，但不保留已重建的根機密。</span><span data-lang="en">The powered SRAM logic state disappears; process mismatch remains, but no reconstructed root is present.</span></p></div>
           <ul>
-            <li><b>Physical source</b><span><span data-lang="zh">SRAM 開機電晶體微觀失配 (Intra-HD: 3%~8%, Inter-HD: ~50%)</span><span data-lang="en">Transistor mismatch at SRAM startup (Intra-HD: 3%~8%, Inter-HD: ~50%)</span></span></li>
-            <li><b>Reconstruction</b><span><span data-lang="zh">回應＋公開輔助資料 → 穩定根金鑰 (Fuzzy Extractor / BCH 碼約 4x~8x 開銷)</span><span data-lang="en">Response + public helper data → stable root (Fuzzy extractor / BCH code overhead ~4x-8x)</span></span></li>
-            <li><b>Security engineering</b><span><span data-lang="zh">防護低溫急凍殘留 (Cold Boot) 與 NBTI 電氣老化之先決條件：整合 Active Bleeder 主動放電迴路（放電常數 &tau; &lt; 1&mu;s）、低溫聯鎖鎖定閥值 Tj &lt; -40&deg;C 鎖定開機感測、以及金鑰導出後 1 週期內即時硬體清除歸零 (Zeroization in 1 cycle)</span><span data-lang="en">Defensive prerequisites against cold-boot remanence &amp; NBTI aging: integrated active bleeder circuit (discharge constant &tau; &lt; 1&mu;s), low-temperature interlock threshold (Tj &lt; -40&deg;C lockup), and post-reconstruction 1-cycle hardware zeroization</span></span></li>
+            <li><b>Physical source</b><span><span data-lang="zh">SRAM 開機電晶體微觀失配 (Raw Intra-HD / BER: 3%~8%, Inter-HD: ~50%)</span><span data-lang="en">Transistor mismatch at SRAM startup (Raw Intra-HD / BER: 3%~8%, Inter-HD: ~50%)</span></span></li>
+            <li><b>Reconstruction</b><span><span data-lang="zh">回應＋公開輔助資料 → 穩定根金鑰 (Fuzzy Extractor / BCH / Reed-Solomon 演算法約 4x~8x 位元冗餘開銷與隱私放大)</span><span data-lang="en">Response + public helper data → stable root (Fuzzy Extractor / BCH / Reed-Solomon code overhead ~4x-8x &amp; privacy amplification)</span></span></li>
+            <li><b>Security engineering</b><span><span data-lang="zh">防護低溫急凍殘留 (Cold Boot) 與 NBTI 電氣老化之先決條件：整合 Active Bleeder 主動放電迴路（放電常數 &tau; &lt; 1&mu;s）、低溫聯鎖鎖定閥值 Tj &lt; -40&deg;C 鎖定開機感測、頂層主動金屬屏蔽 (Active Top-Metal Shield) 保護上電重建時窗，以及金鑰導出後 1 週期內即時硬體清除歸零 (Zeroization in 1 cycle)</span><span data-lang="en">Defensive prerequisites against cold-boot remanence &amp; NBTI aging: integrated active bleeder circuit (discharge constant &tau; &lt; 1&mu;s), low-temperature interlock threshold (Tj &lt; -40&deg;C lockup), active top-metal shield for reconstruction window, and post-reconstruction 1-cycle hardware zeroization</span></span></li>
           </ul>
         </article>
         <div class="versus"><span>DECISION LENS</span><b>ENTROPY &amp;<br>LIFECYCLE</b><small><span data-lang="zh">在零輔助資料與永久物理微導通路徑之間權衡攻擊面與架構複雜度。</span><span data-lang="en">Balance zero helper-data activation against permanent physical conduction and attack surface.</span></small></div>
@@ -1571,9 +1571,9 @@
           <header><span>PUFSECURITY / EMEMORY</span><h3>NeoPUF</h3><svg><use href="#i-memory"/></svg></header>
           <div class="state-hero"><small>POWER-OFF PHYSICAL STATE</small><strong>PERSISTENT CONDUCTION PATH</strong><p><span data-lang="zh">量子穿隧氧化層介電質擊穿形成永久微觀電流失配（零輔助資料 Zero Helper Data）。</span><span data-lang="en">Quantum-tunneling dielectric breakdown creates permanent microscopic current mismatch (Zero Helper Data).</span></p></div>
           <ul>
-            <li><b>Physical source</b><span><span data-lang="zh">NMOS 汲極氧化層擊穿穿隧電流失配</span><span data-lang="en">Oxide breakdown tunneling current mismatch in NMOS cell pair</span></span></li>
-            <li><b>Reconstruction</b><span><span data-lang="zh">直接感測讀取；零輔助資料／無 Fuzzy Extractor 邏輯開銷</span><span data-lang="en">Direct read; zero helper data / zero fuzzy extractor overhead</span></span></li>
-            <li><b>Security engineering</b><span><span data-lang="zh">永久微觀通道需頂層主動屏蔽 (Active Shielding) 防範 FIB/微探針直接讀取</span><span data-lang="en">Permanent microscopic filament requires top-layer active shielding against physical probing</span></span></li>
+            <li><b>Physical source</b><span><span data-lang="zh">NMOS 成對閘極氧化層擊穿穿隧電流失配 (原生 Intra-HD ≈ 0%，需經工廠端高壓 Enrollment 應力與高低溫極端邊界單元篩選)</span><span data-lang="en">Oxide breakdown tunneling current mismatch in NMOS cell pair (Native Intra-HD ≈ 0%, requiring factory high-voltage enrollment stress &amp; extreme-PVT marginal cell screening)</span></span></li>
+            <li><b>Reconstruction</b><span><span data-lang="zh">直接感測讀取；零輔助資料／無 Fuzzy Extractor 演算法額外位元開銷</span><span data-lang="en">Direct read; zero helper data / zero fuzzy extractor algorithm bit overhead</span></span></li>
+            <li><b>Security engineering</b><span><span data-lang="zh">永久微觀通道需頂層主動金屬屏蔽 (Active Top-Metal Mesh) 防範 FIB 微探針與背面減薄研磨，入侵觸發單週期即時密鑰清除</span><span data-lang="en">Permanent microscopic filament requires top-layer active metal mesh against FIB probing &amp; backside thinning, triggering single-cycle instant zeroization</span></span></li>
           </ul>
         </article>
       </div>
@@ -1622,7 +1622,7 @@
         <span><b>350 nm → 2 nm</b> vendor-reported PUF range</span>
         <span><b>−40°C → 150°C</b> vendor-reported characterization</span>
         <span><b>ISO 26262 / 21434</b> portfolio-level automotive lineage</span>
-        <span><b>PSA · SESIP · NIST</b> scope must be checked per product</span>
+        <span><b>NIST SP 800-90B/208 · SESIP Level 3+ · CC AVA_VAN.5</b> scope must be checked per product</span>
       </div>
       <div class="node-map">
         <div class="node-copy"><h3>Published advanced-node OTP context</h3><p><span data-lang="zh">Synopsys 報告其 OTP 已於所列 TSMC 製程完成晶片驗證。節點可用性無法證明每種組態的 Secure Storage 已發布、已整合 PUF，或已完成攻擊評估。</span><span data-lang="en">Synopsys reports OTP silicon-verified in the listed TSMC processes. Node availability does not prove Secure Storage release, PUF integration or attack evaluation for each configuration.</span></p></div>

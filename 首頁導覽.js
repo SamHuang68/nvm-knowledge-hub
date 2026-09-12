@@ -76,8 +76,8 @@
   window.addEventListener('hub:language-change', restoreAnchor);
   window.addEventListener('load', restoreAnchor);
   const resize = new ResizeObserver(() => { measureAnchor(); select(active); });
-  resize.observe(nav);
-  resize.observe(document.querySelector('.knowledge-header'));
+  const knowledgeHeader = document.querySelector('.knowledge-header');
+  if (knowledgeHeader) resize.observe(knowledgeHeader);
   measureAnchor();
   select(active);
 })();

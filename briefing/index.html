@@ -317,7 +317,7 @@
   </style>
 </head>
 <body class="theme-dark"  data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
 
   <header class="site-header" role="banner">
     <a class="brand" href="../index.html" aria-label="NVM Knowledge Hub home" data-aria-en="NVM Knowledge Hub home" data-aria-zh="NVM Knowledge Hub 首頁">
@@ -350,8 +350,8 @@
         <span data-lang="en">Executive Deck &amp; <em>Speaker Notes Whitepaper</em></span>
       </h1>
       <p>
-        <span data-lang="zh">收錄 Synopsys NVM 團隊針對 AI 加速器、DDR5 子系統、TSMC 先進節點、特種晶圓製程與資料中心 OCP 架構的 Version 19 旗艦簡報。貫徹 Technical Marketing 前瞻戰略，核准五大產品級資格驗證，啟動兩大先鋒探索，並嚴格遵循技術治理與實體驗證邊界。</span>
-        <span data-lang="en">Comprehensive Version 19 flagship technical briefing by Synopsys NVM team covering AI accelerators, DDR5 subsystems, TSMC advanced nodes, specialty foundry processes and datacenter OCP architectures. Rigorously authorizes five product qualifications, launches two discovery initiatives, and enforces governance boundaries.</span>
+        <span data-lang="zh">收錄針對先進 AI 加速器、DDR5 子系統、TSMC 先進節點、特種晶圓製程與資料中心 OCP 架構的 Version 19 高階架構簡報。由 NVM Knowledge Hub 以中立視角解析技術行銷戰略、五大產品級資格驗證規範與實體驗證邊界。</span>
+        <span data-lang="en">Architectural analysis of the Version 19 executive technical briefing covering AI accelerators, DDR5 subsystems, TSMC advanced nodes, specialty foundry processes, and datacenter OCP architectures. Curated by NVM Knowledge Hub from an objective editorial perspective to evaluate qualification theses and physical validation boundaries.</span>
       </p>
       
       <div class="briefing-actions">
@@ -368,22 +368,22 @@
       
       <!-- 18 頁四大分組篩選列 -->
       <nav class="briefing-filter-bar" aria-label="Filter slides by category" data-aria-en="Filter slides by category" data-aria-zh="投影片分類篩選">
-        <button class="filter-btn active" data-filter="all">
+        <button class="filter-btn active" type="button" aria-pressed="true" data-filter="all">
           <span data-lang="zh">全部 18 頁</span><span data-lang="en">All 18 Slides</span>
         </button>
-        <button class="filter-btn" data-filter="core">
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="core">
           <span data-lang="zh">01-03 管理層核心</span><span data-lang="en">01-03 Executive Core</span>
         </button>
-        <button class="filter-btn" data-filter="qualify">
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="qualify">
           <span data-lang="zh">04-09 五大產品驗證</span><span data-lang="en">04-09 Five Qualifications</span>
         </button>
-        <button class="filter-btn" data-filter="strategy">
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="strategy">
           <span data-lang="zh">10-12 先鋒戰略倡議</span><span data-lang="en">10-12 Strategic Foresight</span>
         </button>
-        <button class="filter-btn" data-filter="appendix">
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="appendix">
           <span data-lang="zh">13-17 治理附錄 A-E</span><span data-lang="en">13-17 Appendices A-E</span>
         </button>
-        <button class="filter-btn" data-filter="specialty">
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="specialty">
           <span data-lang="zh">18 特種製程戰略</span><span data-lang="en">18 Specialty eNVM</span>
         </button>
       </nav>
@@ -547,19 +547,19 @@
           <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
           <ul>
             <li><span data-lang="zh">OCP Caliptra 與 DICE 架構確立雙層晶片安全模型</span><span data-lang="en">OCP Caliptra and DICE architectures establish two-layer silicon trust</span></li>
-            <li><span data-lang="zh">SRAM PUF 負責晶粒專屬動態根金鑰（斷電零電荷留存）</span><span data-lang="en">SRAM PUF generates ephemeral root keys with zero state at rest</span></li>
-            <li><span data-lang="zh">AntiFuse OTP 負責認證密文、憑證鏈與韌體安全版本 (SVN)</span><span data-lang="en">AntiFuse OTP stores authenticated ciphertexts, certificates and SVN</span></li>
-            <li><span data-lang="zh">硬體狀態機閉環防禦差分功耗分析 (DPA) 與故障注入 (FI)</span><span data-lang="en">Closed-loop hardware FSM neutralizes DPA and fault-injection vectors</span></li>
+            <li><span data-lang="zh">SRAM PUF 負責晶粒專屬動態根金鑰（斷電無常駐邏輯態，消除靜態金鑰提取靶點）</span><span data-lang="en">SRAM PUF generates ephemeral root keys with absent-at-rest state, removing static extraction targets</span></li>
+            <li><span data-lang="zh">AntiFuse OTP 負責保存認證密文、憑證鏈與 NIST SP 800-208 不可逆單調遞增計數器</span><span data-lang="en">AntiFuse OTP stores authenticated ciphertexts, certificates, and NIST SP 800-208 irreversible monotonic counters</span></li>
+            <li><span data-lang="zh">閉環硬體狀態機有效緩解差分功耗分析 (DPA/CPA) 與光學/電壓故障注入 (LFI/Glitch)</span><span data-lang="en">Closed-loop hardware FSM mitigates DPA/CPA side-channels and optical/voltage fault-injection (LFI/Glitch) vectors</span></li>
           </ul>
         </div>
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>平台信任不能只靠單一技術。PUF 解決的是『斷電時不留金鑰』，消除靜態物理提取風險；OTP 解決的是『永久保存憑證與防回滾計數器』。兩者在硬體安全邊界內無縫協同，才能滿足 OCP Caliptra 與 CNSA 2.0 的最高資安規格。</p>
+            <p>平台信任不能只靠單一技術。SRAM PUF 解決的是『斷電不保留常駐根金鑰』，大幅衰減靜態逆向工程與物理提取威脅；AntiFuse OTP 解決的是『憑證與狀態化雜湊簽章防回滾單調計數器的物理不可變保存』。兩者在硬體安全邊界內緊密協同，並以頂層主動屏蔽加固，方能滿足 OCP Caliptra、CNSA 2.0 及 Common Criteria AVA_VAN.5 高強度物理安全規範。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>Platform trust cannot rely on a single primitive. SRAM PUF solves the zero-at-rest challenge, eliminating physical reverse-engineering vectors; AntiFuse OTP provides tamper-resistant non-volatile retention for certificates and anti-rollback counters. Together, they form an unshakeable OCP Caliptra root.</p>
+            <p>Platform trust cannot rely on a single primitive. SRAM PUF solves the zero-at-rest challenge, substantially attenuating static physical reverse-engineering vectors; AntiFuse OTP provides tamper-resistant non-volatile retention for certificates and irreversible anti-rollback counters. Together, protected by active top-metal shielding, they form a hardened OCP Caliptra root of trust aligned with CNSA 2.0 and Common Criteria AVA_VAN.5 standards.</p>
           </div>
         </div>
       </div>
@@ -626,7 +626,7 @@
     <article class="slide-card" id="slide-09" data-filter-group="qualify">
       <div class="slide-card-header">
         <span class="slide-badge">SLIDE 09</span>
-        <h3><span data-lang="zh">NIST SP 800-208 狀態化啟動：耐受 175°C 介電質擊穿微絲物理機制</span><span data-lang="en">NIST SP 800-208 Stateful Boot: 175°C Immune Dielectric Breakdown Filament Physics</span></h3>
+        <h3><span data-lang="zh">NIST SP 800-208 狀態化啟動：耐受 175°C 介電質擊穿微絲物理機制</span><span data-lang="en">NIST SP 800-208 Stateful Boot: 175°C Resilient Dielectric Breakdown Filament Physics</span></h3>
         <small class="slide-kicker">08 · QUALIFY NOW · PQC & AUTOMOTIVE SILC</small>
       </div>
       <div class="slide-card-body">
@@ -635,18 +635,18 @@
           <ul>
             <li><span data-lang="zh">抗量子簽章 (LMS/XMSS) 僅需在 OTP 內保存極精簡 32 位元組根雜湊</span><span data-lang="en">Post-quantum stateful signatures (LMS/XMSS) anchor to a compact 32-byte root hash</span></li>
             <li><span data-lang="zh">一次性金鑰狀態 (OTS) 嚴禁重用，依賴硬體級不可逆單調遞增計數器</span><span data-lang="en">One-time signing states strictly forbid reuse, requiring irreversible hardware counters</span></li>
-            <li><span data-lang="zh">車規 175°C AEC-Q100 Grade 0 結溫環境下傳統浮閘記憶體電荷嚴重流失</span><span data-lang="en">Legacy floating-gate cells suffer severe charge leakage at 175°C automotive Grade 0</span></li>
-            <li><span data-lang="zh">閘極介電質擊穿微絲物理機制高溫零電荷漂移，提供車用 ASIL-D 系統所需之 SEooC 物理基礎</span><span data-lang="en">Gate-dielectric breakdown filament physics exhibit zero thermal charge drift, providing SEooC physical basis for ASIL-D automotive systems</span></li>
+            <li><span data-lang="zh">車規 AEC-Q100 Grade 0 (TA=150°C，極限結溫 Tj=175°C) 環境下傳統浮閘記憶體電荷嚴重流失</span><span data-lang="en">Legacy floating-gate cells suffer severe charge leakage at AEC-Q100 Grade 0 (150°C Ta / 175°C Tj)</span></li>
+            <li><span data-lang="zh">再結晶矽介電質擊穿微絲物理機制高溫歐姆導通零漂移，提供符合 ISO 26262 ASIL-D Systematic Capability (SC3) 之 SEooC 信任根，支援 SPFM ≥ 99% 與 LFM ≥ 90% 安全度量</span><span data-lang="en">Recrystallized-silicon dielectric breakdown filament physics exhibit zero thermal charge drift, delivering an ISO 26262 ASIL-D Systematic Capability (SC3) SEooC root that satisfies SPFM ≥ 99% and LFM ≥ 90% metrics</span></li>
           </ul>
         </div>
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>後量子密碼學 (PQC) 時代的降臨使傳統安全開機面臨巨大挑戰：基於晶格 (Lattice) 的非對稱演算法會造成公鑰體積暴增超過 40 倍，極大超出嵌入式晶片的儲存預算。NIST SP 800-208 推薦的狀態化雜湊簽章 (Stateful Hash-Based Signature, 如 LMS 與 XMSS)，僅需在晶片 OTP 中儲存極為精簡的 32 位元組根雜湊 (Root Hash)。然而，狀態化簽章的致命死穴在於一次性金鑰 (OTS) 絕對不可重複使用，否則密鑰系統瞬間瓦解。同時，車用動力總成 (Powertrain) 要求達到嚴苛的 AEC-Q100 Grade 0 (175°C 結溫) 可靠度，傳統浮閘 (Floating Gate) 記憶體在該高溫下會產生嚴重的應力誘發漏電 (SILC) 與電荷流失。業界標準 CMOS AntiFuse OTP 具備『閘極介電質擊穿微絲 (Gate-Dielectric Breakdown Filament)』的固體物理優勢，高溫零電荷漂移，且不可逆的物理擊穿特性保證一次性簽章單調計數器無法被竄改倒退，是抵禦量子威脅與提供車用 ASIL-D 系統所需之 SEooC 物理基礎。</p>
+            <p>後量子密碼學 (PQC) 時代的降臨使傳統安全開機面臨巨大挑戰：基於晶格 (Lattice) 的非對稱演算法會造成公鑰體積暴增超過 40 倍，極大超出嵌入式晶片的儲存預算。NIST SP 800-208 推薦的狀態化雜湊簽章 (Stateful Hash-Based Signature, 如 LMS 與 XMSS)，僅需在晶片 OTP 中儲存極為精簡的 32 位元組根雜湊 (Root Hash)。在 NIST SP 800-208 規範下，狀態化簽章的一次回滾即導致私鑰安全性失效。同時，車用動力總成要求達到嚴苛的 AEC-Q100 Grade 0 (環境溫度 TA=150°C，極限晶粒結溫 Tj=175°C) 可靠度。傳統浮閘記憶體在該高溫下，因熱離子發射與電應力誘發漏電 (SILC / 陷阱輔助穿隧 TAT) 會造成嚴重的電荷流失。業界標準 CMOS AntiFuse OTP 具備『再結晶矽介電質擊穿微絲』的固體物理優勢，在高溫下為歐姆導通而零電荷漂移，且不可逆的物理擊穿特性保證一次性簽章單調計數器無法被竄改倒退。此 AntiFuse OTP 巨集遵循 ISO 26262 SEooC 流程開發，具備 ASIL-D Systematic Capability (SC3) 等級；在假定使用條件 (AoU) 下支援 SPFM ≥ 99%、LFM ≥ 90% 與分配 PMHF &lt; 0.1 FIT，結合系統端週期巡檢 (T_scrub ≤ T_latent_budget)，是抵禦量子威脅與達成系統級 ASIL-D 認證的堅實基礎。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>The post-quantum cryptography transition exposes conventional secure boot to acute silicon overhead: lattice-based signatures inflate key payloads by over 40x, overwhelming embedded non-volatile memory budgets. NIST SP 800-208 stateful hash-based signatures (LMS and XMSS) solve this by anchoring security to a compact 32-byte root hash in OTP. However, stateful schemes introduce a catastrophic vulnerability: one-time signature (OTS) leaf reuse completely breaks the private key. Concurrently, automotive powertrain applications mandate AEC-Q100 Grade 0 reliability at 175°C junction temperature, where legacy floating-gate cells suffer severe Stress-Induced Leakage Current (SILC) and trap-assisted discharge. Industry-standard CMOS AntiFuse OTP leverages irreversible gate-dielectric breakdown filament physics that exhibit zero thermal charge drift at 175°C, providing the physical hardware foundation for stateful anti-rollback protection, providing SEooC physical basis for ASIL-D automotive systems.</p>
+            <p>The post-quantum cryptography transition exposes conventional secure boot to acute silicon overhead: lattice-based signatures inflate key payloads by over 40x, overwhelming embedded non-volatile memory budgets. NIST SP 800-208 stateful hash-based signatures (LMS and XMSS) solve this by anchoring security to a compact 32-byte root hash in OTP. However, stateful schemes strictly forbid one-time signature (OTS) reuse. Concurrently, automotive powertrain applications mandate AEC-Q100 Grade 0 reliability (TA=150°C, peak junction Tj=175°C), where legacy floating-gate cells suffer catastrophic charge loss driven by thermionic emission and Stress-Induced Leakage Current (SILC / Trap-Assisted Tunneling). Industry-standard CMOS AntiFuse OTP leverages irreversible recrystallized-silicon breakdown filament physics that exhibit ohmic zero-drift at 175°C, providing hardware-enforced monotonic counters. Developed as an ISO 26262 SEooC element with ASIL-D SC3 systematic capability, it delivers SPFM ≥ 99%, LFM ≥ 90%, and allocated PMHF &lt; 0.1 FIT under defined Assumptions of Use (AoU), pairing with periodic memory scrubbing (T_scrub ≤ T_latent_budget) to eliminate latent dual-bit accumulation.</p>
           </div>
         </div>
       </div>
@@ -742,7 +742,7 @@
     <article class="slide-card" id="slide-13" data-filter-group="appendix">
       <div class="slide-card-header">
         <span class="slide-badge">SLIDE 13</span>
-        <h3><span data-lang="zh">證據天花板：公開標準 ≠ 產品適配 ≠ 設計獲取 ≠ 實際出貨</span><span data-lang="en">Public Requirement ≠ Synopsys Fit ≠ Design Win ≠ Shipment</span></h3>
+        <h3><span data-lang="zh">證據天花板：公開標準 ≠ 產品適配 ≠ 設計獲取 ≠ 實際出貨</span><span data-lang="en">Public Requirement ≠ Product-Specific Fit ≠ Design Win ≠ Shipment</span></h3>
         <small class="slide-kicker">APPENDIX A · EVIDENCE CEILING</small>
       </div>
       <div class="slide-card-body">
@@ -758,7 +758,7 @@
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>這頁是提供團隊的防禦天花板規範。公開標準如 JEDEC 或 OCP 寫出規格，只證明該 socket 存在，絕不代表客戶會直接採用特定供應商的巨集；更不等於 design win 或出貨保證。團隊必須依賴證據層層收斂，不能跨越治理紅線。</p>
+            <p>此頁確立防禦性證據天花板規範。公開標準如 JEDEC 或 OCP 寫出規格，僅證明該架構介面需求存在，絕不代表特定微架構已獲設計適配；更不等於商業 design win 或量產出貨。所有選型結論必須依賴驗證證據層層收斂，嚴守技術治理紅線。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
@@ -906,11 +906,11 @@
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>特種製程 eNVM 是晶圓代工與利基晶片市場中出貨量極大、具備高技術壁壘的關鍵領域。在 BCD 電源領域，標準 CMOS 方案主打零額外光罩（Zero Mask Adder）對決傳統 eFlash，免除破壞 LDMOS 擊穿電壓的高溫退火；在 CIS/DRAM 領域，AntiFuse 取代體積大且無法封裝後修復的雷射熔斷，成為 HBM3e 現場修復的標準解；而在年複合增長 50% 的電子紙市場，專屬 110HV 高壓製程配合「演進期 32Kb~64Kb MTP 儲存動態波形 LUT、量產成熟期轉向極小面積純邏輯 OTP」的雙階段策略，協助顯示晶片領導廠商以最佳長寬比（高度 &lt;250µm）佈局全球顯示市場。</p>
+            <p>特種製程 eNVM 是晶圓代工與利基晶片市場中出貨量極大、具備高技術壁壘的關鍵領域。在 BCD 電源領域，標準 CMOS 方案主打零額外光罩（Zero Mask Adder）對決傳統 eFlash，免除破壞 LDMOS 擊穿電壓的高溫退火；在 CIS/DRAM 領域，AntiFuse 取代傳統佔用晶圓面積且無法封裝後修復的雷射熔斷，成為 HBM3e 現場修復的標準解；而在年複合增長 50% 的電子紙市場，專屬 110HV 高壓製程配合「演進期 32Kb~64Kb MTP 儲存動態波形 LUT、量產成熟期轉向極小面積純邏輯 OTP」的雙階段策略，協助顯示晶片領導廠商以最佳長寬比（高度 &lt;250µm）佈局全球顯示市場。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>Specialty foundry eNVM forms a high-volume, high-margin commercial domain across mature and specialty nodes. In BCD power management, the zero-mask-adder value proposition directly displaces legacy eFlash, eliminating the severe thermal cycles that degrade high-voltage LDMOS switches. In CIS and high-density memory, AntiFuse OTP fundamentally replaces bulky laser fuses, delivering a robust silicon-proven solution for JEDEC DDR5 and HBM3e in-field Post-Package Repair (PPR). Finally, within the ~50% CAGR electronic paper market, the specialized 110HV strategy bridges the transition: deploying 32Kb-64Kb MTP for evolving color waveforms, then migrating to pure logic AntiFuse OTP (&lt;250µm macro height) for optimal cost and yield in mass production.</p>
+            <p>Specialty foundry eNVM forms a high-volume, high-margin commercial domain across mature and specialty nodes. In BCD power management, the zero-mask-adder value proposition directly displaces legacy eFlash, eliminating the severe thermal cycles that degrade high-voltage LDMOS switches. In CIS and high-density memory, AntiFuse OTP replaces conventional area-intensive laser fuses, delivering a robust silicon-proven solution for JEDEC DDR5 and HBM3e in-field Post-Package Repair (PPR). Finally, within the ~50% CAGR electronic paper market, the specialized 110HV strategy bridges the transition: deploying 32Kb-64Kb MTP for evolving color waveforms, then migrating to pure logic AntiFuse OTP (&lt;250µm macro height) for optimal cost and yield in mass production.</p>
           </div>
         </div>
       </div>
@@ -941,8 +941,11 @@
       
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          filterBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
+          filterBtns.forEach(b => {
+            const isCurrent = (b === btn);
+            b.classList.toggle('active', isCurrent);
+            b.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
+          });
           const filter = btn.dataset.filter;
           
           cards.forEach(card => {

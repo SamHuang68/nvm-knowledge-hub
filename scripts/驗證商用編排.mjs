@@ -110,10 +110,10 @@ try{
   check(await page.locator('#nvm-foundry-filter').inputValue()===''&&await page.locator('[data-foundry]:visible').count()===foundry.milestones.length,'直達被篩除年度可解除衝突條件',{language,width});
   check(await page.evaluate(()=>document.activeElement.matches('#foundry-year-2026>h3')),'年度跳轉聚焦標題',{language,width});
   check(await page.locator('.nvm-sidebar details[open]').count()===0,'離開單元分類後收合無關側欄',{language,width});
-  await page.evaluate(()=>location.hash='sources');await page.locator('#nvm-source-search').fill('unmatched_source_20260910');
+  await page.evaluate(()=>location.hash='sources');const allSourceCount=await page.locator('[data-source-record]').count();await page.locator('#nvm-source-search').fill('unmatched_source_20260910');
   check(await page.locator('#nvm-source-empty').isVisible()&&await page.locator('[data-source-record]:visible').count()===0,'來源查無結果有明確狀態',{language,width});
   await page.locator('#nvm-source-reset').focus();await page.keyboard.press('Enter');
-  check(await page.locator('[data-source-record]:visible').count()===262&&await page.evaluate(()=>document.activeElement.id==='nvm-source-search'),'鍵盤清除恢復來源並返回搜尋焦點',{language,width});
+  check(await page.locator('[data-source-record]:visible').count()===allSourceCount&&await page.evaluate(()=>document.activeElement.id==='nvm-source-search'),'鍵盤清除恢復來源並返回搜尋焦點',{language,width});
   await page.locator('#nvm-source-search').fill('unmatched_source_20260910');await page.evaluate(()=>location.hash='source-INTRO-COURSE');await page.locator('#source-INTRO-COURSE').waitFor();
   check(await page.locator('#nvm-source-search').inputValue()===''&&await page.locator('#source-INTRO-COURSE').getAttribute('open')!==null,'來源深層連結解除衝突搜尋並展開',{language,width});
   await audit(page,language,width,'來源詳細內容','#source-INTRO-COURSE');

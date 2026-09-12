@@ -156,8 +156,8 @@ Synopsys first-party opportunity qualification
 
 #### 投影片關鍵技術要點：
 - AI platform trust needs OTP and PUF to solve different state problems
-- Standards define persistent trust state; a named implementation closes the Synopsys fit
-- SYNOPSYS POV · PUBLIC-SOURCE QUALIFICATION BRIEF
+- Standards define persistent trust state; a named implementation closes the product-specific fit
+- INDEPENDENT TECHNICAL QUALIFICATION BRIEF
 - 06
 - PUBLIC REQUIREMENT
 
@@ -280,7 +280,7 @@ Synopsys first-party opportunity qualification
 Strategic foresight involves identifying commodity vulnerabilities before system architectures suffer security breaches. While legacy OCP modules rely on external I2C EEPROMs for service logging, those exposed buses represent critical physical attack vectors (MitM sniffing and tampering). Industry roadmaps indicate datacenter convergence toward OCP Caliptra and SPDM 1.3: lifecycle state, decommission bits, anti-rollback counters, and golden measurements must reside inside the silicon's OTP + PUF boundary (Zero at Rest). System architects increasingly drive this transition ahead of formal zero-trust mandate rollouts.
 
 [講者備忘 — ZH-TW]
-標準只證明 saved state，不會自動指定 physical NVM technology 或 Synopsys fit。OAI UBB FRU 是明確的 board EEPROM socket；ELSFP 定義 nonvolatile save/restore semantics，但 implementation 不在規範範圍。真正的 qualification 問題是：相較公開的 external baseline，integration 是否創造足夠 system value。
+標準只證明 saved state，不會自動指定 physical NVM technology 或 product-specific fit。OAI UBB FRU 是明確的 board EEPROM socket；ELSFP 定義 nonvolatile save/restore semantics，但 implementation 不在規範範圍。真正的 qualification 問題是：相較公開的 external baseline，integration 是否創造足夠 system value。
 
 [POV]
 Synopsys first-party opportunity qualification
@@ -323,21 +323,21 @@ Synopsys first-party opportunity qualification
 ---
 
 ### 【Slide 13】APPENDIX A · EVIDENCE CEILING
-**核心標題**：Public requirement ≠ Synopsys fit ≠ design win ≠ shipment
+**核心標題**：Public Requirement ≠ Product-Specific Fit ≠ Design Win ≠ Shipment
 
 #### 投影片關鍵技術要點：
 - Six distinct stages prevent a public fact from becoming a commercial claim
-- SYNOPSYS POV · PUBLIC-SOURCE QUALIFICATION BRIEF
+- INDEPENDENT TECHNICAL QUALIFICATION BRIEF
 - 13
 - 01
 
 #### 完整中英文演講稿與技術論述（Speaker Notes）：
 `	ext
 [SPEAKER NOTES — EN]
-Use this appendix once, then stop repeating the disclaimer. The deck can support requirement, disclosure and target-bound Synopsys fit. It does not establish customer selection, shipment or royalty.
+Use this appendix once, then stop repeating the disclaimer. The deck can support requirement, disclosure and target-bound product-specific fit. It does not establish customer selection, shipment or royalty.
 
 [講者備忘 — ZH-TW]
-這個 appendix 說明一次即可，不要在主線反覆重複。此 deck 可支撐 requirement、disclosure 與 target-bound Synopsys fit；不能證明 customer selection、shipment 或 royalty。
+這個 appendix 說明一次即可，不要在主線反覆重複。此 deck 可支撐 requirement、disclosure 與 target-bound product-specific fit；不能證明 customer selection、shipment 或 royalty。
 
 [POV]
 Synopsys first-party opportunity qualification

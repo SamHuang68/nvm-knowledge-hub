@@ -27,6 +27,7 @@ try{
   const file=language==='en'?'NVM技術全景.html':'NVM技術全景中文.html';
   for(const topic of ['eeprom','mtp'])for(const operation of ['write','erase','read']){
    await page.goto(base+file+`?lang=${language}#op-${topic}-${operation}`,{waitUntil:'networkidle'});
+   await page.waitForFunction(()=>document.documentElement.classList.contains('nvm-enhanced'));
    await page.addStyleTag({content:'html{scroll-behavior:auto!important}'});
    const state=await page.evaluate(({topic,operation})=>{
     const panel=document.querySelector('#topic-'+topic),detail=document.querySelector(`#op-${topic}-${operation}`);
@@ -48,7 +49,7 @@ try{
   await page.locator('#searchTrigger').click();await page.locator('#searchInput').fill('NeoEE');
   const result=page.locator('#searchResults a[href*="#topic-mtp"]').first();
   await result.waitFor({state:'visible'});await result.click();
-  await page.waitForFunction(()=>location.hash==='#topic-mtp'&&!document.querySelector('#topic-mtp').hidden);
+  await page.waitForFunction(()=>location.hash==='#topic-mtp'&&document.querySelector('#topic-mtp')&&!document.querySelector('#topic-mtp').hidden);
   note(await page.evaluate(()=>document.documentElement.lang)===(language==='en'?'en':'zh-Hant'),'全站搜尋具名 IP 可進入 MTP 並保留語言',{language,width});
   await context.close();
  }
