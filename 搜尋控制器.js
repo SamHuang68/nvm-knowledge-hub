@@ -150,7 +150,7 @@ window.__NVM_SEARCH_ENHANCED = true;
       else if (!event.shiftKey && current === focusable.length-1) {event.preventDefault(); input.focus();}
     }
   });
-  syncHubLanguage();
+  if (typeof syncHubLanguage === 'function') syncHubLanguage();
   syncInterfaceLabels();
-  window.NVMHub = {syncLanguage:syncHubLanguage, searchIndex:index};
+  window.NVMHub = {syncLanguage: typeof syncHubLanguage === 'function' ? syncHubLanguage : () => {}, searchIndex:index};
 })();

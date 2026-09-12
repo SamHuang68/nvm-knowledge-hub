@@ -253,6 +253,27 @@ def run_tests() -> None:
     test("F1 包含旗艦級 Footer (hub-footer) 與 4 欄導覽 (hub-footer-nav-grid)",
          "hub-footer" in f1_c and "hub-footer-nav-grid" in f1_c)
 
+    # ===== TEST 21: 全站 17 頁 HTML Head 元資料、Favicon 與無障礙滑桿全域驗證 =====
+    print("\n═══ TEST 21: 全站 17 頁 HTML Head 元資料、Favicon 與無障礙滑桿全域驗證 ═══")
+    ALL_SURFACES = [
+        "index.html", "NVM技術全景.html", "NVM技術全景中文.html", "secure-storage.html",
+        "security-assurance.html", "ai-nvm-opportunities.html", "iot-mcu-envm.html",
+        "automotive-nvm.html", "specialty-nvm.html", "memory-physics.html",
+        "memory-evidence.html", "technology-comparison.html", "oip-secure-storage.html",
+        "404.html", "briefing/index.html", "whitepaper/index.html", "tools/whitepaper-studio/index.html"
+    ]
+    test("全站 17 個公開頁面實體存在", all((BASE / p).exists() for p in ALL_SURFACES))
+    for p in ALL_SURFACES:
+        p_path = BASE / p
+        if not p_path.exists():
+            continue
+        p_text = p_path.read_text(encoding="utf-8")
+        test(f"{p} 包含 favicon.svg 識徽連結", "favicon.svg" in p_text)
+        test(f"{p} 包含響應式 viewport 與 charset", "viewport" in p_text and "charset" in p_text)
+        sliders = re.findall(r'<input[^>]*type=[\x22\x27]range[\x22\x27][^>]*>', p_text)
+        for s in sliders:
+            test(f"{p} 滑桿控制項包含 aria-label", "aria-label=" in s)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
