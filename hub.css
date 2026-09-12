@@ -1083,3 +1083,14 @@ body[data-language="zh"] [data-lang="en"] {
     gap: 12px;
   }
 }
+
+@media print {
+  .hub-toc-bar,
+  .hub-reading-tracker,
+  .stage-deck-controller,
+  .stage-topbar,
+  .hub-hero-orbit,
+  .hub-hero-actions {
+    display: none !important;
+  }
+}
