@@ -389,6 +389,38 @@ def run_tests() -> None:
     test("全站所有 <img> 標籤皆具備 decoding='async' 非同步解碼優化", missing_decoding == 0)
     test("全站所有 <img> 標籤皆具備 data-alt-en 與 data-alt-zh 雙語動態支援", missing_bilingual_alt == 0)
 
+    # ===== TEST 25: 全站 JSON-LD 結構化資料、統一 Main 地標、鍵盤區域無障礙與列印規範驗證 =====
+    print("\n═══ TEST 25: 全站 JSON-LD 結構化資料、統一 Main 地標、鍵盤區域無障礙與列印規範驗證 ═══")
+    # 1. 驗證全站 16 個公開主要頁面 100% 具備合規 JSON-LD 結構化資料
+    for p in ALL_INDEXABLE_PAGES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        ld_m = re.search(r'<script type=[\x22\x27]application/ld\+json[\x22\x27]>([\s\S]*?)</script>', p_text)
+        test(f"{p} 包含合規 JSON-LD 結構化資料腳本", ld_m is not None)
+
+    # 2. 驗證全站 17 個頁面 100% 統一具備 <main id="main-content"> 與跳轉目標
+    for p in ALL_SURFACES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        test(f"{p} 具備標準語意地標 <main id=\"main-content\">",
+             bool(re.search(r'<main\b[^>]*id=[\x22\x27]main-content[\x22\x27]', p_text)))
+        test(f"{p} 具備指向 #main-content 之跳轉連結",
+             'href="#main-content"' in p_text)
+
+    # 3. 驗證橫向捲動表格容器皆具備鍵盤可訪問性 (tabindex="0" 與 role="region")
+    TABLE_PAGES = ["automotive-nvm.html", "specialty-nvm.html", "memory-physics.html", "whitepaper/index.html"]
+    for p in TABLE_PAGES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        test(f"{p} 包含鍵盤可聚焦的捲動表格容器 (tabindex=0 與 role=region)",
+             'tabindex="0"' in p_text and 'role="region"' in p_text)
+
+    # 4. 驗證 site-shell.css 與 hub.css 具備 @media print 高保真列印樣式
+    shell_css = (BASE / "site-shell.css").read_text(encoding="utf-8")
+    hub_css = (BASE / "hub.css").read_text(encoding="utf-8")
+    test("site-shell.css 包含完整的 @media print 高保真列印樣式", "@media print" in shell_css and "break-inside: avoid" in shell_css)
+    test("hub.css 包含 @media print 列印防護規則", "@media print" in hub_css)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
