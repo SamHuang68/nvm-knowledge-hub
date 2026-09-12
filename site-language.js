@@ -181,9 +181,18 @@
       link.addEventListener('click', () => {
         const name = window.HubLanguage.get() === 'zh' ? 'NVM技術全景中文.html' : 'NVM技術全景.html';
         target.pathname = target.pathname.replace(/[^/]+$/, encodeURIComponent(name));
-        target.searchParams.set('lang', window.HubLanguage.get()); link.href = target.href;
       });
     });
+
+    // Register Service Worker for PWA Offline Resilience
+    if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+      const swPath = location.pathname.includes('/tools/whitepaper-studio/')
+        ? '../../sw.js'
+        : (location.pathname.includes('/briefing/') || location.pathname.includes('/whitepaper/'))
+          ? '../sw.js'
+          : './sw.js';
+      navigator.serviceWorker.register(swPath).catch(() => {});
+    }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready); else ready();
 })();

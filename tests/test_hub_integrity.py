@@ -3,6 +3,7 @@ test_hub_integrity_v3.py — NVM Knowledge Hub V3.0 架構重構驗證
 驗證三層知識架構、Knowledge Map Grid、導覽一致性、孤兒頁收編、語系完整性
 """
 import re
+import json
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
@@ -451,6 +452,64 @@ def run_tests() -> None:
     sl_text = (BASE / "site-language.js").read_text(encoding="utf-8")
     test("site-language.js 包含 aria-live='polite' 語音即時廣播器 (hubLanguageAnnouncer)",
          "hubLanguageAnnouncer" in sl_text and 'aria-live' in sl_text)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 27: 全站 PWA Service Worker、Apple Touch Icon、顏色主題與減少動態無障礙規範驗證
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 27: 全站 PWA Service Worker、Apple Touch Icon、顏色主題與減少動態無障礙規範驗證 ═══")
+
+    # 1. 驗證全站 17 個頁面具備 meta color-scheme
+    for p in ALL_SURFACES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        test(f"{p} 具備標準 meta color-scheme (dark light)",
+             'color-scheme' in p_text and 'dark light' in p_text)
+
+    # 2. 驗證全站 17 個頁面具備 apple-touch-icon 且實體檔案存在
+    for p in ALL_SURFACES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        match = re.search(r'<link[^>]+rel=["\']apple-touch-icon["\'][^>]+href=["\']([^"\']+)["\']|<link[^>]+href=["\']([^"\']+)["\'][^>]+rel=["\']apple-touch-icon["\']', p_text)
+        has_ati = match is not None
+        icon_href = (match.group(1) or match.group(2)) if match else ""
+        icon_exists = (p_path.parent / icon_href).resolve().is_file() if icon_href else False
+        test(f"{p} 包含有效且指向存在檔案之 apple-touch-icon ({icon_href})", has_ati and icon_exists)
+
+    # 3. 驗證全站頁面包含 iOS WebKit PWA 增強標籤 (apple-mobile-web-app-title)
+    all_have_ios_pwa = True
+    for p in ALL_SURFACES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        if 'name="apple-mobile-web-app-title"' not in p_text:
+            all_have_ios_pwa = False
+            break
+    test("全站 17 頁全面包含 iOS WebKit PWA 元資料標籤 (apple-mobile-web-app-title)", all_have_ios_pwa)
+
+    # 4. 驗證 PWA 高解析圖示資產實體 (180x180, 192x192, 512x512)
+    for icon_name in ["apple-touch-icon.png", "icon-192.png", "icon-512.png"]:
+        icon_file = BASE / "assets" / icon_name
+        test(f"assets/{icon_name} 實體檔案存在且大小正常 (>1KB)", icon_file.is_file() and icon_file.stat().st_size > 1024)
+
+    # 5. 驗證 site.webmanifest 圖示多尺寸覆蓋 (192x192 與 512x512)
+    manifest_data = json.loads((BASE / "site.webmanifest").read_text(encoding="utf-8"))
+    manifest_sizes = [ic.get("sizes") for ic in manifest_data.get("icons", [])]
+    test("site.webmanifest 包含 PWA 規範之 192x192 與 512x512 圖標規格",
+         "192x192" in manifest_sizes and "512x512" in manifest_sizes)
+
+    # 6. 驗證 site-shell.css 包含全站 WCAG 2.1 SC 2.3.3 prefers-reduced-motion 無障礙防禦
+    shell_text = (BASE / "site-shell.css").read_text(encoding="utf-8")
+    test("site-shell.css 包含全站 WCAG 2.1 SC 2.3.3 prefers-reduced-motion 減少動態防護",
+         "@media (prefers-reduced-motion: reduce)" in shell_text and "animation-duration: 0.01ms" in shell_text)
+
+    # 7. 驗證 sw.js Service Worker 存在且配置完整離線快取
+    sw_path = BASE / "sw.js"
+    sw_text = sw_path.read_text(encoding="utf-8") if sw_path.is_file() else ""
+    test("sw.js 存在且包含 Service Worker 生命週期 (install/activate/fetch) 與預快取",
+         sw_path.is_file() and "addEventListener('install'" in sw_text and "addEventListener('fetch'" in sw_text)
+
+    # 8. 驗證 site-language.js 註冊 Service Worker
+    test("site-language.js 包含 Service Worker 自動註冊邏輯 (serviceWorker.register)",
+         "serviceWorker.register" in sl_text)
 
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")

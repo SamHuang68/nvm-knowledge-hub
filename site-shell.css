@@ -52,6 +52,21 @@ article[id] {
   scroll-margin-top: 80px !important;
 }
 
+/* 全站 WCAG 2.1 SC 2.3.3 輔助技術減少動態規範 (Prefers-Reduced-Motion) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 :root{--shell-header:48px}
 
 /* One shell contract: the header occupies layout space and maintains unified grid consistency across all pages. */
