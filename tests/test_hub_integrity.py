@@ -303,6 +303,42 @@ def run_tests() -> None:
             test(f"{p} 麵包屑導覽包含完整的雙語語意標籤 (data-lang zh/en)",
                  'data-lang="zh"' in bc_inner and 'data-lang="en"' in bc_inner)
 
+    # ===== TEST 23: 全站互動元件、滑桿與導覽 ARIA 動態雙語無障礙完整度驗證 =====
+    print("\n═══ TEST 23: 全站互動元件、滑桿與導覽 ARIA 動態雙語無障礙完整度驗證 ═══")
+    # 1. 驗證全站所有 range 滑桿均具備 data-aria-zh 與 data-aria-en
+    total_sliders = 0
+    for p in BILINGUAL_DYNAMIC_PAGES:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        sliders = re.findall(r'<input[^>]*type=[\x22\x27]range[\x22\x27][^>]*>', p_text)
+        for s in sliders:
+            total_sliders += 1
+            test(f"{p} 滑桿具備雙語無障礙 data-aria-zh/en 屬性",
+                 'data-aria-zh=' in s and 'data-aria-en=' in s)
+    test("全站共計驗證 10 組互動滑桿無障礙雙語屬性", total_sliders == 10)
+
+    # 2. 驗證所有具備麵包屑的頁面其 nav 標籤具備雙語 ARIA
+    total_bcs = 0
+    for p in BILINGUAL_DYNAMIC_PAGES:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        bcs = re.findall(r'<nav[^>]*class=[\x22\x27][^>]*breadcrumb[^>]*[\x22\x27][^>]*>', p_text, re.IGNORECASE)
+        for bc in bcs:
+            total_bcs += 1
+            test(f"{p} 麵包屑導覽具備雙語 ARIA 標籤 (Breadcrumb / 麵包屑導覽)",
+                 'data-aria-zh="麵包屑導覽"' in bc and 'data-aria-en="Breadcrumb"' in bc)
+    test("全站共計驗證 13 處麵包屑導覽雙語 ARIA 屬性", total_bcs >= 13)
+
+    # 3. 驗證全站 15 個動態頁面之靜態 aria-label 100% 具備雙語支援
+    for p in BILINGUAL_DYNAMIC_PAGES:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        tags = re.findall(r'(<[a-zA-Z0-9\-]+[^>]*?aria-label="[^"]*"[^>]*?>)', p_text, re.DOTALL)
+        missing_count = 0
+        for tag in tags:
+            if 'id="languageToggle"' in tag or "id='languageToggle'" in tag:
+                continue
+            if 'data-aria-zh' not in tag or 'data-aria-en' not in tag:
+                missing_count += 1
+        test(f"{p} 所有具備 aria-label 的元件 100% 具備動態雙語 data-aria-zh/en", missing_count == 0)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

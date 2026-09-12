@@ -42,7 +42,7 @@
     <div class="header-actions"><button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to English"><b>中</b><i>/</i><b>EN</b></button><button class="menu-button" id="menuToggle" type="button" aria-label="Open menu" data-aria-en="Open menu" data-aria-zh="開啟選單" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button></div>
   </header>
 
-  <nav class="site-breadcrumb" aria-label="Breadcrumb">
+  <nav class="site-breadcrumb" aria-label="Breadcrumb" data-aria-en="Breadcrumb" data-aria-zh="麵包屑導覽">
     <i></i><a href="index.html"><span data-lang="zh">知識地圖</span><span data-lang="en">Knowledge Hub</span></a><i></i><a href="secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a><i></i><strong><span data-lang="zh">安全保證與信任根</span><span data-lang="en">Security Assurance</span></strong>
     <span class="topic-switch"><a href="secure-storage.html"><span data-lang="en">Secure Storage</span><span data-lang="zh">安全儲存架構</span></a><a href="memory-evidence.html"><span data-lang="en">Evidence Ledger</span><span data-lang="zh">證據總帳</span></a></span>
   </nav>
@@ -56,7 +56,7 @@
         <p class="lead" data-zh="永久資料與短暫根金鑰的安全價值，必須在真實攻擊模型中被量測、挑戰、修正並界定適用範圍。" data-en="The security value of permanent data and an ephemeral root key must be measured, challenged, improved and scoped against realistic attack models.">The security value of permanent data and an ephemeral root key must be measured, challenged, improved and scoped against realistic attack models.</p>
         <div class="hero-actions"><a href="#windows" class="primary" data-zh="檢視攻擊時窗" data-en="Explore attack windows">Explore attack windows</a><a href="#navigator" class="secondary" data-zh="規劃確證路線" data-en="Plan assurance route">Plan assurance route</a></div>
       </div>
-      <div class="signal-panel" aria-label="Assurance signal model">
+      <div class="signal-panel" aria-label="Assurance signal model" data-aria-en="Assurance signal model" data-aria-zh="保證訊號模型">
         <div class="trace"><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <div class="signal-readout"><small>OBSERVABLE</small><b>POWER · EM · TIMING</b></div>
         <div class="signal-readout alert"><small>DISTURBANCE</small><b>VOLTAGE · CLOCK · EM · LASER</b></div>
@@ -83,7 +83,7 @@
     <section id="windows" class="section windows">
       <header class="section-head"><div><p class="kicker">02 / ATTACK-WINDOW LIFECYCLE</p><h2 data-zh="根金鑰沒有永久位址；風險仍有明確時窗" data-en="The root has no permanent address; risk still has windows">The root has no permanent address; risk still has windows</h2></div><p data-zh="選擇 lifecycle 階段，查看資產、攻擊面、測試問題與預期安全結果。" data-en="Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.">Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.</p></header>
       <div class="window-layout">
-        <div class="phase-tabs" role="group" aria-label="Lifecycle phase">
+        <div class="phase-tabs" role="group" aria-label="Lifecycle phase" data-aria-en="Lifecycle phase" data-aria-zh="生命週期階段">
           <button class="active" type="button" data-phase="off" aria-pressed="true"><b>01</b><span>POWER-OFF</span></button><button type="button" data-phase="boot" aria-pressed="false"><b>02</b><span>BOOT</span></button><button type="button" data-phase="derive" aria-pressed="false"><b>03</b><span>DERIVE</span></button><button type="button" data-phase="access" aria-pressed="false"><b>04</b><span>ACCESS</span></button><button type="button" data-phase="zeroize" aria-pressed="false"><b>05</b><span>ZEROIZE</span></button>
         </div>
         <article class="window-detail" id="windowDetail" aria-live="polite"></article>
@@ -94,7 +94,7 @@
     <section class="section controls">
       <header class="section-head"><div><p class="kicker">03 / COUNTERMEASURE PATTERNS</p><h2 data-zh="防禦不是功能清單，而是被驗證的因果鏈" data-en="A defense is not a feature list; it is a validated causal chain">A defense is not a feature list; it is a validated causal chain</h2></div></header>
       <p class="matrix-scroll-hint" data-zh="逐項檢視完整控制鏈。" data-en="Review the full control chain item by item.">Review the full control chain item by item.</p>
-      <div class="control-matrix" id="controlMatrix" tabindex="0" role="region" aria-label="Security control comparison, scroll horizontally">
+      <div class="control-matrix" id="controlMatrix" tabindex="0" role="region" aria-label="Security control comparison, scroll horizontally" data-aria-en="Security control comparison, scroll horizontally" data-aria-zh="安全控制比較（可水平捲動）">
         <div class="matrix-row head"><span>SECURITY BLOCK</span><span>CLAIM</span><span>TEST</span><span>EXPECTED EVIDENCE</span><span>LIMIT</span></div>
         <div class="matrix-row"><b>SRAM PUF</b><span data-zh="root 不永久儲存" data-en="Root is not stored">Root is not stored</span><span>SCA · FI · PVT · aging</span><span data-zh="重建率、leakage、失敗模式" data-en="Reconstruction, leakage, failure mode">Reconstruction, leakage, failure mode</span><span data-zh="運作時仍有敏感中間值" data-en="Sensitive intermediates exist at runtime">Sensitive intermediates exist at runtime</span></div>
         <div class="matrix-row"><b>AES / KDF</b><span data-zh="讀取 OTP 不等於取得明文" data-en="OTP readout does not equal plaintext">OTP readout does not equal plaintext</span><span>DPA/CPA · DFA · protocol abuse</span><span data-zh="攻擊成本與殘餘風險" data-en="Attack cost and residual risk">Attack cost and residual risk</span><span data-zh="實作與整合品質決定結果" data-en="Implementation and integration determine outcome">Implementation and integration determine outcome</span></div>
@@ -123,7 +123,7 @@
 
     <section id="learn" class="section learning">
       <header class="section-head"><div><p class="kicker">06 / ROLE-BASED LEARNING</p><h2 data-zh="從看懂攻擊，到能審查確證計畫" data-en="From understanding attacks to reviewing an assurance plan">From understanding attacks to reviewing an assurance plan</h2></div></header>
-      <div class="role-tabs" aria-label="Learning path starting role"><button class="active" data-role="foundation">FOUNDATION</button><button data-role="practitioner">PRACTITIONER</button><button data-role="evaluator">EVALUATOR</button><button data-role="decision">DECISION MAKER</button></div>
+      <div class="role-tabs" aria-label="Learning path starting role" data-aria-en="Learning path starting role" data-aria-zh="學習路徑角色起點"><button class="active" data-role="foundation">FOUNDATION</button><button data-role="practitioner">PRACTITIONER</button><button data-role="evaluator">EVALUATOR</button><button data-role="decision">DECISION MAKER</button></div>
       <div id="rolePath" class="role-path"></div>
     </section>
 
