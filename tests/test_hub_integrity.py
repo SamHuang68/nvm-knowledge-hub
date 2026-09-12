@@ -253,8 +253,8 @@ def run_tests() -> None:
     test("F1 包含旗艦級 Footer (hub-footer) 與 4 欄導覽 (hub-footer-nav-grid)",
          "hub-footer" in f1_c and "hub-footer-nav-grid" in f1_c)
 
-    # ===== TEST 21: 全站 17 頁 HTML Head 元資料、Favicon 與無障礙滑桿全域驗證 =====
-    print("\n═══ TEST 21: 全站 17 頁 HTML Head 元資料、Favicon 與無障礙滑桿全域驗證 ═══")
+    # ===== TEST 21: 全站 17 頁 HTML Head 元資料、Favicon 與無障礙雙語全域驗證 =====
+    print("\n═══ TEST 21: 全站 17 頁 HTML Head 元資料、Favicon 與無障礙雙語全域驗證 ═══")
     ALL_SURFACES = [
         "index.html", "NVM技術全景.html", "NVM技術全景中文.html", "secure-storage.html",
         "security-assurance.html", "ai-nvm-opportunities.html", "iot-mcu-envm.html",
@@ -273,6 +273,13 @@ def run_tests() -> None:
         sliders = re.findall(r'<input[^>]*type=[\x22\x27]range[\x22\x27][^>]*>', p_text)
         for s in sliders:
             test(f"{p} 滑桿控制項包含 aria-label", "aria-label=" in s)
+        skip_match = re.search(r'<a class=[\x22\x27]skip-link[\x22\x27][^>]*>([\s\S]*?)</a>', p_text)
+        if skip_match:
+            test(f"{p} 快速跳轉連結具備雙語 data-lang 標籤", 'data-lang="zh"' in skip_match.group(1) and 'data-lang="en"' in skip_match.group(1))
+        menu_match = re.search(r'<button[^>]*id=[\x22\x27]menuToggle[\x22\x27][^>]*>', p_text)
+        if menu_match:
+            s = menu_match.group(0)
+            test(f"{p} 漢堡選單包含動態無障礙 data-aria-zh/en 屬性", 'data-aria-zh="開啟選單"' in s and 'data-aria-en="Open menu"' in s)
 
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
