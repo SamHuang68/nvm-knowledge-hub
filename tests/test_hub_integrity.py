@@ -511,6 +511,74 @@ def run_tests() -> None:
     test("site-language.js 包含 Service Worker 自動註冊邏輯 (serviceWorker.register)",
          "serviceWorker.register" in sl_text)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 28: 表格可訪問性名稱 (Caption)、表頭範圍 (TH Scope) 與外部連結安全性無障礙驗證
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 28: 表格可訪問性名稱 (Caption)、表頭範圍 (TH Scope) 與外部連結安全性無障礙驗證 ═══")
+
+    # 1. 驗證全站所有資料表皆具備 <caption> 或可訪問性名稱
+    total_tables = 0
+    missing_table_captions = 0
+    for p in ALL_SURFACES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        # 尋找所有 <table> 標籤及其內部 <caption> 或 aria-label
+        tables = re.findall(r'<table\b([^>]*)>(.*?)(?=<\/table>)', p_text, re.DOTALL | re.IGNORECASE)
+        total_tables += len(tables)
+        for t_attrs, t_body in tables:
+            has_caption = '<caption' in t_body.lower()
+            has_aria = 'aria-label=' in t_attrs.lower() or 'aria-labelledby=' in t_attrs.lower()
+            if not (has_caption or has_aria):
+                missing_table_captions += 1
+
+    test(f"全站資料表總數符合預期 (共計 {total_tables} 張專業資料表格)", total_tables >= 15)
+    test("全站所有 <table> 標籤 100% 具備可訪問性標題 (caption 或 aria-label，零無名資料表)",
+         missing_table_captions == 0)
+
+    # 2. 驗證全站所有 <th> 標籤 100% 具備 scope 屬性 (col 或 row)
+    total_ths = 0
+    missing_th_scopes = 0
+    for p in ALL_SURFACES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        ths = re.findall(r'<th\b([^>]*)>', p_text, re.IGNORECASE)
+        total_ths += len(ths)
+        for th_attr in ths:
+            if 'scope=' not in th_attr.lower():
+                missing_th_scopes += 1
+
+    test(f"全站表頭單元格總數符合預期 (共計 {total_ths} 個 <th> 表頭)", total_ths >= 110)
+    test("全站所有 <th> 表頭 100% 具備 scope 語意宣告 (scope='col' 或 'row'，符合 WCAG SC 1.3.1)",
+         missing_th_scopes == 0)
+
+    # 3. 驗證 memory-physics.html 表格 row header 具備 scope="row"
+    mp_text = (BASE / "memory-physics.html").read_text(encoding="utf-8")
+    for row_name in ["SRAM / SRAM PUF", "eFuse", "Antifuse / NeoPUF", "ReRAM / PCM", "MRAM"]:
+        test(f"memory-physics.html 列標題 {row_name} 具備 scope='row'",
+             f'scope="row">{row_name}' in mp_text or f"scope='row'>{row_name}" in mp_text)
+
+    # 4. 驗證全站 target='_blank' 連結 100% 包含 rel="noopener noreferrer" 安全防護
+    total_blanks = 0
+    unprotected_blanks = 0
+    for p in ALL_SURFACES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        blank_links = re.findall(r'<a\b([^>]*target=["\']_blank["\'][^>]*)>', p_text, re.IGNORECASE)
+        total_blanks += len(blank_links)
+        for link_attr in blank_links:
+            rel_match = re.search(r'rel=["\']([^"\']+)["\']', link_attr, re.IGNORECASE)
+            rel_val = rel_match.group(1).lower() if rel_match else ""
+            if 'noopener' not in rel_val or 'noreferrer' not in rel_val:
+                unprotected_blanks += 1
+
+    test(f"全站外連與彈窗連結總數符合規模 (共計 {total_blanks} 處 target='_blank')", total_blanks >= 800)
+    test("全站所有 target='_blank' 連結 100% 具備 rel='noopener noreferrer' 反釣魚與反頁籤劫持防禦",
+         unprotected_blanks == 0)
+
+    # 5. 驗證 site-language.js 包含 WCAG G201 外連動態新視窗提示器
+    test("site-language.js 包含 WCAG G201 外部連結新視窗雙語提示器 (syncExternalLinks)",
+         "syncExternalLinks" in sl_text and "opens in a new tab" in sl_text and "另開新分頁" in sl_text)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

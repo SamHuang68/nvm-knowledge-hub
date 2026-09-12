@@ -1112,10 +1112,10 @@
           </div>
 
           <nav class="repair-evidence-links" aria-label="Repair programming evidence sources" data-aria-en="Repair programming evidence sources" data-aria-zh="修復燒錄證據來源">
-            <a href="https://bitsavers.org/pdf/ibm/IBM_Journal_of_Research_and_Development/511/rizzolo.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-EFUSE-001"><span>IBM JRD</span><b>eFUSE current delivery ↗</b></a>
-            <a href="https://techinsights.com/blog/samsungs-anti-fuse-technology-found-18-nm-dram" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DRAM-001"><span>TEARDOWN</span><b>18 nm DDR4 AntiFuse ↗</b></a>
-            <a href="https://www.jstage.jst.go.jp/article/transele/E94.C/10/E94.C_10_1690/_article/-char/en" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DRAM-002"><span>PEER REVIEW</span><b>DRAM PPR architecture ↗</b></a>
-            <a href="https://assets.micron.com/adobe/assets/urn:aaid:aem:275edf31-79e3-4b6c-8bbd-a233babe9281/original/as/micron-hbm2e-memory-wp.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-HBM-001"><span>FIRST PARTY</span><b>HBM2E post-assembly repair ↗</b></a>
+            <a href="https://bitsavers.org/pdf/ibm/IBM_Journal_of_Research_and_Development/511/rizzolo.pdf" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-EFUSE-001"><span>IBM JRD</span><b>eFUSE current delivery ↗</b></a>
+            <a href="https://techinsights.com/blog/samsungs-anti-fuse-technology-found-18-nm-dram" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-DRAM-001"><span>TEARDOWN</span><b>18 nm DDR4 AntiFuse ↗</b></a>
+            <a href="https://www.jstage.jst.go.jp/article/transele/E94.C/10/E94.C_10_1690/_article/-char/en" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-DRAM-002"><span>PEER REVIEW</span><b>DRAM PPR architecture ↗</b></a>
+            <a href="https://assets.micron.com/adobe/assets/urn:aaid:aem:275edf31-79e3-4b6c-8bbd-a233babe9281/original/as/micron-hbm2e-memory-wp.pdf" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-HBM-001"><span>FIRST PARTY</span><b>HBM2E post-assembly repair ↗</b></a>
           </nav>
         </aside>
       </section>
@@ -1390,43 +1390,43 @@
           </figure>
           <div class="evidence-flow" role="list" aria-label="Evidence closure cases" data-aria-en="Evidence closure cases" data-aria-zh="證據閉環案例">
             <div class="evidence-flow-head" aria-hidden="true"><span>OBSERVED BEHAVIOR</span><span>WHAT IT PROVES</span><span>WHAT IT DOES NOT PROVE</span></div>
-            <a href="https://docs.nvidia.com/attestation/secureai-advisory-hbm3-resiliency-impact-on-driver-versions-r550-0-r550-90-12/index.html" target="_blank" rel="noreferrer" data-record-id="AI-NVM-GPU-003" role="listitem">
+            <a href="https://docs.nvidia.com/attestation/secureai-advisory-hbm3-resiliency-impact-on-driver-versions-r550-0-r550-90-12/index.html" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-GPU-003" role="listitem">
               <div class="evidence-id"><i>01</i><small>FIRST-PARTY</small><b>NVIDIA ↗</b></div>
               <div class="evidence-observed"><h3>HBM repair changes measurement</h3><p><span data-lang="zh">永久 channel repair 會改變 physical measurement。</span><span data-lang="en">Permanent channel repair changes physical measurements.</span></p></div>
               <div class="evidence-proves"><small>PROVES</small><p><span data-lang="zh">合法 repair state 必須與 driver／RIM lifecycle 一致。</span><span data-lang="en">Authorized repair state must remain coherent with the driver/RIM lifecycle.</span></p></div>
               <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">未指定通用 NVM medium 或所有 HBM 實作。</span><span data-lang="en">It does not prescribe one NVM medium or cover every HBM implementation.</span></p></div>
             </a>
-            <a href="https://www.nxp.com/docs/en/data-sheet/PF8100_PF8200.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-PMIC-001" role="listitem">
+            <a href="https://www.nxp.com/docs/en/data-sheet/PF8100_PF8200.pdf" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-PMIC-001" role="listitem">
               <div class="evidence-id"><i>02</i><small>FIRST-PARTY</small><b>NXP ↗</b></div>
               <div class="evidence-observed"><h3>OTP establishes startup truth</h3><p><span data-lang="zh">OTP → mirror register → functional register。</span><span data-lang="en">OTP loads mirror registers and then functional registers.</span></p></div>
               <div class="evidence-proves"><small>PROVES</small><p><span data-lang="zh">immutable baseline 可支援可重複的 power-up 行為。</span><span data-lang="en">An immutable baseline can support repeatable power-up behavior.</span></p></div>
               <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">不代表每個 PMIC 都需要相同 medium。</span><span data-lang="en">It does not mean every PMIC needs the same storage medium.</span></p></div>
             </a>
-            <a href="https://www.analog.com/media/en/technical-documentation/data-sheets/adp1055.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-PMIC-002" role="listitem">
+            <a href="https://www.analog.com/media/en/technical-documentation/data-sheets/adp1055.pdf" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-PMIC-002" role="listitem">
               <div class="evidence-id"><i>03</i><small>FIRST-PARTY</small><b>ANALOG DEVICES ↗</b></div>
               <div class="evidence-observed"><h3>Black-box logging is bounded</h3><p><span data-lang="zh">temperature、write count、buffer 與 hold-up energy 共同限制記錄。</span><span data-lang="en">Temperature, write count, buffering and hold-up energy bound the record.</span></p></div>
               <div class="evidence-proves"><small>PROVES</small><p><span data-lang="zh">logging 必須以 workload 與 power-fail envelope 定義。</span><span data-lang="en">Logging must be defined by its workload and power-fail envelope.</span></p></div>
               <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">不形成通用 endurance 或 AI attach-rate。</span><span data-lang="en">It does not establish universal endurance or an AI attach rate.</span></p></div>
             </a>
-            <a href="https://www.oiforum.com/wp-content/uploads/OIF-CMIS-05.3.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-OIF-001" role="listitem">
+            <a href="https://www.oiforum.com/wp-content/uploads/OIF-CMIS-05.3.pdf" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-OIF-001" role="listitem">
               <div class="evidence-id"><i>04</i><small>STANDARD</small><b>OIF ↗</b></div>
               <div class="evidence-observed"><h3>CMIS defines behavior, not media</h3><p><span data-lang="zh">diagnostics、statistics 與 firmware interface 定義清楚。</span><span data-lang="en">Diagnostics, statistics and firmware interfaces are explicit.</span></p></div>
               <div class="evidence-proves"><small>PROVES</small><p><span data-lang="zh">系統需要可管理的 operational state。</span><span data-lang="en">The system needs manageable operational state.</span></p></div>
               <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">standard 未指定 OTP、MTP 或其他實體 technology。</span><span data-lang="en">The standard does not select OTP, MTP or another physical technology.</span></p></div>
             </a>
-            <a href="https://www.jedec.org/standards-documents/docs/jesd301-2" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DDR5-001" role="listitem">
+            <a href="https://www.jedec.org/standards-documents/docs/jesd301-2" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-DDR5-001" role="listitem">
               <div class="evidence-id"><i>05</i><small>STANDARD</small><b>JEDEC ↗</b></div>
               <div class="evidence-observed"><h3>DDR5 PMIC explicitly includes MTP</h3><p><span data-lang="zh">JESD301-2 定義 MTP NVM 與持久 programming／status 行為。</span><span data-lang="en">JESD301-2 defines MTP NVM and persistent programming/status behavior.</span></p></div>
               <div class="evidence-proves"><small>PROVES</small><p><span data-lang="zh">DDR5 PMIC 是標準建立的 MTP application socket。</span><span data-lang="en">The DDR5 PMIC is a standards-defined MTP application socket.</span></p></div>
               <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">不指定供應商 bitcell、node、PVT 或 endurance margin。</span><span data-lang="en">It does not prescribe a supplier bitcell, node, PVT or endurance margin.</span></p></div>
             </a>
-            <a href="https://www.jedec.org/standards-documents/docs/jesd300-5b01" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DDR5-002" role="listitem">
+            <a href="https://www.jedec.org/standards-documents/docs/jesd300-5b01" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-DDR5-002" role="listitem">
               <div class="evidence-id"><i>06</i><small>STANDARD</small><b>JEDEC ↗</b></div>
               <div class="evidence-observed"><h3>SPD Hub includes 8-Kbit rewritable NVM</h3><p><span data-lang="zh">JESD300-5B.01 定義 1024-byte NVM 與 16 個 64-byte blocks。</span><span data-lang="en">JESD300-5B.01 defines 1024 bytes of NVM in sixteen 64-byte blocks.</span></p></div>
               <div class="evidence-proves"><small>PROVES</small><p><span data-lang="zh">SPD Hub 是直接的 EEPROM／MTP-class opportunity。</span><span data-lang="en">The SPD Hub is a direct EEPROM/MTP-class opportunity.</span></p></div>
               <div class="evidence-limit"><small>LIMIT</small><p><span data-lang="zh">JEDEC 指定裝置行為，不強制單一 embedded bitcell。</span><span data-lang="en">JEDEC specifies device behavior, not one embedded bitcell.</span></p></div>
             </a>
-            <a href="https://axiado.com/wp-content/uploads/2025/03/Axiado_AI-Driven_Secure_Management_Card_Product_Brief.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-BMC-002" role="listitem">
+            <a href="https://axiado.com/wp-content/uploads/2025/03/Axiado_AI-Driven_Secure_Management_Card_Product_Brief.pdf" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-BMC-002" role="listitem">
               <div class="evidence-id"><i>07</i><small><span data-lang="zh">供應商揭露</span><span data-lang="en">VENDOR DISCLOSURE</span></small><b>AXIADO ↗</b></div>
               <div class="evidence-observed"><h3>BMC-integrated silicon discloses OTP and PUF</h3><p><span data-lang="zh">SCM3003 product brief 公開 OTP roots、三個 4-Kbyte OTP、on-chip PUF 與 BMC support。</span><span data-lang="en">The SCM3003 product brief discloses OTP roots, three 4-Kbyte OTPs, an on-chip PUF and BMC support.</span></p></div>
               <div class="evidence-proves"><small>VENDOR DISCLOSES</small><p><span data-lang="zh">產品資料將 OTP＋PUF 列為 BMC-integrated management platform 的能力。</span><span data-lang="en">The product brief lists OTP plus PUF as capabilities of a BMC-integrated management platform.</span></p></div>
@@ -1455,48 +1455,48 @@
           <details class="source-group" open>
             <summary><span>01</span><b><span data-lang="zh">Standards 與 Protocols</span><span data-lang="en">Standards and Protocols</span></b><small>8 PRIMARY SOURCES</small><i>+</i></summary>
             <div class="ai-source-list">
-          <a href="https://www.opencompute.org/documents/2025-ocp-ras-api-v0-9-final-pdf" target="_blank" rel="noreferrer"><span>STANDARD</span><b>OCP RAS API v0.9</b><small>Discovery · configuration · event/action queues</small></a>
-          <a href="https://www.oiforum.com/wp-content/uploads/OIF-CMIS-05.3.pdf" target="_blank" rel="noreferrer"><span>STANDARD</span><b>OIF CMIS 5.3</b><small>Diagnostics · statistics · firmware revisions</small></a>
-          <a href="https://www.dmtf.org/sites/default/files/standards/documents/DSP0274_1.4.0.pdf" target="_blank" rel="noreferrer"><span>STANDARD</span><b>DMTF SPDM 1.4</b><small>Identity · attestation · measurements</small></a>
-          <a href="https://computeexpresslink.org/wp-content/uploads/2024/12/CXL_3.2-Spec-Announcement_FINAL-1.pdf" target="_blank" rel="noreferrer"><span>STANDARD</span><b>CXL 3.2</b><small>Firmware activation · PPR · security</small></a>
-          <a href="https://www.uciexpress.org/specifications" target="_blank" rel="noreferrer"><span>STANDARD</span><b>UCIe 2.0</b><small>Manageability · DFx · chiplet lifecycle</small></a>
-          <a href="https://www.jedec.org/standards-documents/docs/jesd301-2" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DDR5-001"><span>STANDARD</span><b>JEDEC JESD301-2 DDR5 PMIC</b><small>MTP NVM · persistent programming and status</small></a>
-          <a href="https://www.jedec.org/standards-documents/docs/jesd300-5b01" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DDR5-002"><span>STANDARD</span><b>JEDEC JESD300-5B.01 SPD Hub</b><small>1024-byte rewritable NVM · 16 blocks</small></a>
-          <a href="https://www.opencompute.org/documents/secure-boot-2-pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-BMC-001"><span>STANDARD</span><b>OCP Hardware Secure Boot</b><small>BMC scope · immutable root · revocation · rollback</small></a>
+          <a href="https://www.opencompute.org/documents/2025-ocp-ras-api-v0-9-final-pdf" target="_blank" rel="noopener noreferrer"><span>STANDARD</span><b>OCP RAS API v0.9</b><small>Discovery · configuration · event/action queues</small></a>
+          <a href="https://www.oiforum.com/wp-content/uploads/OIF-CMIS-05.3.pdf" target="_blank" rel="noopener noreferrer"><span>STANDARD</span><b>OIF CMIS 5.3</b><small>Diagnostics · statistics · firmware revisions</small></a>
+          <a href="https://www.dmtf.org/sites/default/files/standards/documents/DSP0274_1.4.0.pdf" target="_blank" rel="noopener noreferrer"><span>STANDARD</span><b>DMTF SPDM 1.4</b><small>Identity · attestation · measurements</small></a>
+          <a href="https://computeexpresslink.org/wp-content/uploads/2024/12/CXL_3.2-Spec-Announcement_FINAL-1.pdf" target="_blank" rel="noopener noreferrer"><span>STANDARD</span><b>CXL 3.2</b><small>Firmware activation · PPR · security</small></a>
+          <a href="https://www.uciexpress.org/specifications" target="_blank" rel="noopener noreferrer"><span>STANDARD</span><b>UCIe 2.0</b><small>Manageability · DFx · chiplet lifecycle</small></a>
+          <a href="https://www.jedec.org/standards-documents/docs/jesd301-2" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-DDR5-001"><span>STANDARD</span><b>JEDEC JESD301-2 DDR5 PMIC</b><small>MTP NVM · persistent programming and status</small></a>
+          <a href="https://www.jedec.org/standards-documents/docs/jesd300-5b01" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-DDR5-002"><span>STANDARD</span><b>JEDEC JESD300-5B.01 SPD Hub</b><small>1024-byte rewritable NVM · 16 blocks</small></a>
+          <a href="https://www.opencompute.org/documents/secure-boot-2-pdf" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-BMC-001"><span>STANDARD</span><b>OCP Hardware Secure Boot</b><small>BMC scope · immutable root · revocation · rollback</small></a>
             </div>
           </details>
           <details class="source-group">
             <summary><span>02</span><b><span data-lang="zh">第一方實作案例</span><span data-lang="en">First-Party Cases</span></b><small>4 IMPLEMENTATIONS</small><i>+</i></summary>
             <div class="ai-source-list">
-          <a href="https://developer.nvidia.com/blog/?p=68661" target="_blank" rel="noreferrer"><span>FIRST-PARTY</span><b>NVIDIA H100 Confidential Computing</b><small>On-die RoT · measured boot · attestation</small></a>
-          <a href="https://docs.nvidia.com/deploy/a100-gpu-mem-error-mgmt/latest/row-remapping.html" target="_blank" rel="noreferrer"><span>FIRST-PARTY</span><b>NVIDIA Row Remapping</b><small>Persistent repair lifecycle</small></a>
-          <a href="https://blogs.sw.siemens.com/eda-support/2024/05/14/the-roles-of-fusebox-and-its-interface-as-part-of-tessent-memory-bist-repair-solution/" target="_blank" rel="noreferrer"><span>FIRST-PARTY</span><b>Siemens Tessent Fusebox</b><small>BISR repair storage · programming sessions</small></a>
-          <a href="https://axiado.com/wp-content/uploads/2025/03/Axiado_AI-Driven_Secure_Management_Card_Product_Brief.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-BMC-002"><span>FIRST-PARTY</span><b>Axiado SCM3003</b><small>On-chip OTP roots · 3 × 4-Kbyte OTP · on-chip PUF · BMC support</small></a>
+          <a href="https://developer.nvidia.com/blog/?p=68661" target="_blank" rel="noopener noreferrer"><span>FIRST-PARTY</span><b>NVIDIA H100 Confidential Computing</b><small>On-die RoT · measured boot · attestation</small></a>
+          <a href="https://docs.nvidia.com/deploy/a100-gpu-mem-error-mgmt/latest/row-remapping.html" target="_blank" rel="noopener noreferrer"><span>FIRST-PARTY</span><b>NVIDIA Row Remapping</b><small>Persistent repair lifecycle</small></a>
+          <a href="https://blogs.sw.siemens.com/eda-support/2024/05/14/the-roles-of-fusebox-and-its-interface-as-part-of-tessent-memory-bist-repair-solution/" target="_blank" rel="noopener noreferrer"><span>FIRST-PARTY</span><b>Siemens Tessent Fusebox</b><small>BISR repair storage · programming sessions</small></a>
+          <a href="https://axiado.com/wp-content/uploads/2025/03/Axiado_AI-Driven_Secure_Management_Card_Product_Brief.pdf" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-BMC-002"><span>FIRST-PARTY</span><b>Axiado SCM3003</b><small>On-chip OTP roots · 3 × 4-Kbyte OTP · on-chip PUF · BMC support</small></a>
             </div>
           </details>
           <details class="source-group">
             <summary><span>03</span><b><span data-lang="zh">原廠規格邊界</span><span data-lang="en">Vendor Capability Envelopes</span></b><small>4 BOUNDED CLAIMS</small><i>+</i></summary>
             <div class="ai-source-list">
-          <a href="https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/otp.html" target="_blank" rel="noreferrer"><span>VENDOR CLAIM</span><b>Synopsys OTP NVM</b><small>Trim · calibration · repair · keys</small></a>
-          <a href="https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP" target="_blank" rel="noreferrer"><span>VENDOR CLAIM</span><b>eMemory NeoMTP</b><small>One MTP capability envelope—not the whole category</small></a>
-          <a href="https://www.synopsys.com/dw/ipdir.php?c=dwc_nvm_ts40np5sse32aemeei" target="_blank" rel="noreferrer"><span>VENDOR CLAIM</span><b>Synopsys 40nm / 2.5V MTP</b><small>Public process-device-class example</small></a>
-          <a href="https://www.synopsys.com/dw/doc.php/ds/e/dwc_nvm_xhf_otp_ds.pdf" target="_blank" rel="noreferrer"><span>VENDOR CLAIM</span><b>Synopsys XHF OTP at TSMC N5</b><small>Direct core-supply read · N5 evidence boundary</small></a>
+          <a href="https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/otp.html" target="_blank" rel="noopener noreferrer"><span>VENDOR CLAIM</span><b>Synopsys OTP NVM</b><small>Trim · calibration · repair · keys</small></a>
+          <a href="https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP" target="_blank" rel="noopener noreferrer"><span>VENDOR CLAIM</span><b>eMemory NeoMTP</b><small>One MTP capability envelope—not the whole category</small></a>
+          <a href="https://www.synopsys.com/dw/ipdir.php?c=dwc_nvm_ts40np5sse32aemeei" target="_blank" rel="noopener noreferrer"><span>VENDOR CLAIM</span><b>Synopsys 40nm / 2.5V MTP</b><small>Public process-device-class example</small></a>
+          <a href="https://www.synopsys.com/dw/doc.php/ds/e/dwc_nvm_xhf_otp_ds.pdf" target="_blank" rel="noopener noreferrer"><span>VENDOR CLAIM</span><b>Synopsys XHF OTP at TSMC N5</b><small>Direct core-supply read · N5 evidence boundary</small></a>
             </div>
           </details>
           <details class="source-group">
             <summary><span>04</span><b><span data-lang="zh">晶圓代工藍圖</span><span data-lang="en">Foundry Roadmaps</span></b><small>2 DIRECTIONAL SOURCES</small><i>+</i></summary>
             <div class="ai-source-list">
-          <a href="https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash" target="_blank" rel="noreferrer"><span>FOUNDRY ROADMAP</span><b>TSMC Embedded NVM</b><small>eFlash · eMRAM · eRRAM node maturity</small></a>
-          <a href="https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/" target="_blank" rel="noreferrer"><span>FOUNDRY ROADMAP</span><b>Samsung Specialty Technology</b><small>28nm eFlash · advanced eMRAM direction</small></a>
+          <a href="https://www.tsmc.com/english/dedicatedFoundry/technology/specialty/eflash" target="_blank" rel="noopener noreferrer"><span>FOUNDRY ROADMAP</span><b>TSMC Embedded NVM</b><small>eFlash · eMRAM · eRRAM node maturity</small></a>
+          <a href="https://semiconductor.samsung.com/foundry/process-technology/specialty-technology/" target="_blank" rel="noopener noreferrer"><span>FOUNDRY ROADMAP</span><b>Samsung Specialty Technology</b><small>28nm eFlash · advanced eMRAM direction</small></a>
             </div>
           </details>
           <details class="source-group">
             <summary><span>05</span><b><span data-lang="zh">Repair Physics 與 HBM Behavior</span><span data-lang="en">Repair Physics and HBM Behavior</span></b><small>4 BOUNDED SOURCES</small><i>+</i></summary>
             <div class="ai-source-list">
-          <a href="https://bitsavers.org/pdf/ibm/IBM_Journal_of_Research_and_Development/511/rizzolo.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-EFUSE-001"><span>PEER REVIEW</span><b>IBM System z9 eFUSE</b><small>10–15 mA implementation · Fsource routing constraint</small></a>
-          <a href="https://techinsights.com/blog/samsungs-anti-fuse-technology-found-18-nm-dram" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DRAM-001"><span>TEARDOWN</span><b>Samsung 18 nm DDR4 AntiFuse</b><small>Physical array evidence · not a universal HBM topology</small></a>
-          <a href="https://www.jstage.jst.go.jp/article/transele/E94.C/10/E94.C_10_1690/_article/-char/en" target="_blank" rel="noreferrer" data-record-id="AI-NVM-DRAM-002"><span>PEER REVIEW</span><b>Samsung DRAM AntiFuse PPR</b><small>Programming current · external-HV versus pump tradeoff</small></a>
-          <a href="https://assets.micron.com/adobe/assets/urn:aaid:aem:275edf31-79e3-4b6c-8bbd-a233babe9281/original/as/micron-hbm2e-memory-wp.pdf" target="_blank" rel="noreferrer" data-record-id="AI-NVM-HBM-001"><span>FIRST-PARTY</span><b>Micron HBM2E Test and Repair</b><small>Post-assembly behavior · fuse implementation undisclosed</small></a>
+          <a href="https://bitsavers.org/pdf/ibm/IBM_Journal_of_Research_and_Development/511/rizzolo.pdf" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-EFUSE-001"><span>PEER REVIEW</span><b>IBM System z9 eFUSE</b><small>10–15 mA implementation · Fsource routing constraint</small></a>
+          <a href="https://techinsights.com/blog/samsungs-anti-fuse-technology-found-18-nm-dram" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-DRAM-001"><span>TEARDOWN</span><b>Samsung 18 nm DDR4 AntiFuse</b><small>Physical array evidence · not a universal HBM topology</small></a>
+          <a href="https://www.jstage.jst.go.jp/article/transele/E94.C/10/E94.C_10_1690/_article/-char/en" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-DRAM-002"><span>PEER REVIEW</span><b>Samsung DRAM AntiFuse PPR</b><small>Programming current · external-HV versus pump tradeoff</small></a>
+          <a href="https://assets.micron.com/adobe/assets/urn:aaid:aem:275edf31-79e3-4b6c-8bbd-a233babe9281/original/as/micron-hbm2e-memory-wp.pdf" target="_blank" rel="noopener noreferrer" data-record-id="AI-NVM-HBM-001"><span>FIRST-PARTY</span><b>Micron HBM2E Test and Repair</b><small>Post-assembly behavior · fuse implementation undisclosed</small></a>
             </div>
           </details>
         </div>

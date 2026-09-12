@@ -184,6 +184,27 @@
       });
     });
 
+    // WCAG 2.1 SC 3.2.5 / G201: Accessible notification for links opening in a new tab
+    function syncExternalLinks(lang) {
+      const isZh = (lang || window.HubLanguage?.get()) === 'zh';
+      const extNotice = isZh ? '（另開新分頁）' : ' (opens in a new tab)';
+      document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        if (!link.hasAttribute('data-original-label')) {
+          const raw = link.getAttribute('aria-label') || link.textContent.trim();
+          link.setAttribute('data-original-label', raw);
+        }
+        const base = link.getAttribute('data-original-label');
+        if (base && !base.includes('opens in') && !base.includes('新分頁') && !base.includes('另開')) {
+          link.setAttribute('aria-label', `${base}${extNotice}`);
+        }
+      });
+    }
+
+    syncExternalLinks(window.HubLanguage?.get());
+    window.addEventListener('hub:language-change', (e) => {
+      syncExternalLinks(e.detail?.language);
+    });
+
     // Register Service Worker for PWA Offline Resilience
     if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
       const swPath = location.pathname.includes('/tools/whitepaper-studio/')
