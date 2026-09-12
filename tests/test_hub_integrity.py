@@ -281,6 +281,28 @@ def run_tests() -> None:
             s = menu_match.group(0)
             test(f"{p} 漢堡選單包含動態無障礙 data-aria-zh/en 屬性", 'data-aria-zh="開啟選單"' in s and 'data-aria-en="Open menu"' in s)
 
+    # ===== TEST 22: 全站麵包屑雙語與動態頁面元資料全域防禦驗證 =====
+    print("\n═══ TEST 22: 全站麵包屑雙語與動態頁面元資料全域防禦驗證 ═══")
+    BILINGUAL_DYNAMIC_PAGES = [
+        "index.html", "secure-storage.html", "security-assurance.html", "ai-nvm-opportunities.html",
+        "iot-mcu-envm.html", "automotive-nvm.html", "specialty-nvm.html", "memory-physics.html",
+        "memory-evidence.html", "technology-comparison.html", "oip-secure-storage.html",
+        "404.html", "briefing/index.html", "whitepaper/index.html", "tools/whitepaper-studio/index.html"
+    ]
+    for p in BILINGUAL_DYNAMIC_PAGES:
+        p_path = BASE / p
+        p_text = p_path.read_text(encoding="utf-8")
+        html_m = re.search(r'<html\b([^>]*)>', p_text, re.IGNORECASE)
+        test(f"{p} 根標籤具備雙語標題與描述資料 (data-title / data-description)",
+             html_m is not None and 'data-title-en=' in html_m.group(1) and 'data-title-zh=' in html_m.group(1)
+             and 'data-description-en=' in html_m.group(1) and 'data-description-zh=' in html_m.group(1))
+
+        bc_m = re.search(r'<nav[^>]*class=[\x22\x27][^>]*breadcrumb[^>]*[\x22\x27][^>]*>([\s\S]*?)</nav>', p_text, re.IGNORECASE)
+        if bc_m:
+            bc_inner = bc_m.group(1)
+            test(f"{p} 麵包屑導覽包含完整的雙語語意標籤 (data-lang zh/en)",
+                 'data-lang="zh"' in bc_inner and 'data-lang="en"' in bc_inner)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
