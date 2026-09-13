@@ -632,6 +632,34 @@ def run_tests() -> None:
                             "fonts.gstatic.com" in fp_text)
         test(f"{fp} 具備 Google Fonts 雙重 dns-prefetch 備援加速 (googleapis 與 gstatic)", has_dns_prefetch)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 30: 根節點多語資料集 (HTML Dataset)、編輯作者 (Meta Author) 與社群預覽卡無障礙 (Image Alt) 驗證
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 30: 根節點多語資料集 (HTML Dataset)、編輯作者 (Meta Author) 與社群預覽卡無障礙 (Image Alt) 驗證 ═══")
+
+    # 1. 驗證全站 17 頁 <html> 標籤 100% 具備雙語標題與描述屬性 (data-title-*, data-description-*)
+    for p in ALL_SURFACES:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        has_dataset = ("data-title-en=" in p_text and
+                       "data-title-zh=" in p_text and
+                       "data-description-en=" in p_text and
+                       "data-description-zh=" in p_text)
+        test(f"{p} 根節點具備完整雙語資料集 (data-title-*/data-description-*)", has_dataset)
+
+    # 2. 驗證全站 17 頁 100% 具備標準編輯委員會作者中繼標籤 (meta name="author")
+    for p in ALL_SURFACES:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        has_author = ('name="author" content="NVM Knowledge Hub Editorial Board"' in p_text or
+                      'content="NVM Knowledge Hub Editorial Board" name="author"' in p_text)
+        test(f"{p} 具備標準編輯委員會作者標籤 (<meta name='author'>)", has_author)
+
+    # 3. 驗證 16 個公開頁面 100% 具備社群預覽卡影像替代文字 (og:image:alt 與 twitter:image:alt)
+    for p in public_surfaces:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        has_og_alt = 'property="og:image:alt"' in p_text
+        has_tw_alt = 'name="twitter:image:alt"' in p_text
+        test(f"{p} 具備社群預覽卡影像替代文字 (og:image:alt 與 twitter:image:alt)", has_og_alt and has_tw_alt)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
