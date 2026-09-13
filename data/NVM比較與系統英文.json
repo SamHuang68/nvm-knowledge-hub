@@ -780,7 +780,7 @@
   "glossary": [
     {
       "term": "CHI and CHEI",
-      "definition": "CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate. For an I/O PMOS floating-gate cell, a 3.3 V device programs near 6.5 V and a 5 V device near 7.5 V; an NMOS floating-gate cell at the same node needs a higher Vpgm. That pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory, and must not be mixed with 9 V core-GOX AntiFuse program stress."
+      "definition": "CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate. For an I/O PMOS floating-gate cell, a 3.3 V device programs near 6.5 V and a 5 V device near 7.5 V; an NMOS floating-gate cell at the same node needs a higher Vpgm. That pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory, and must not be mixed with core-oxide-breakdown AntiFuse, whose program voltage tracks that process gate oxide rather than this I/O floating-gate window."
     },
     {
       "term": "Fowler–Nordheim (FN) Tunneling",

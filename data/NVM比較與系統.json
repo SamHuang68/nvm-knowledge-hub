@@ -780,7 +780,7 @@
   "glossary": [
     {
       "term": "CHI 與 CHEI",
-      "definition": "CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。獨立 CHI／BBHH 教學模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。I/O PMOS 浮閘 cell：3.3 V 約 6.5 V PGM、5 V 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。這組對照由本站作者依力旺任職期間的 datasheet 與 testing review 核可，不可與 core GOX 擊穿 AntiFuse 的 9 V 編程應力混用。"
+      "definition": "CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。獨立 CHI／BBHH 教學模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。I/O PMOS 浮閘 cell：3.3 V 約 6.5 V PGM、5 V 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。這組對照由本站作者依力旺任職期間的 datasheet 與 testing review 核可，不可與 core 閘氧擊穿 AntiFuse 混用；後者的編程電壓跟隨該製程閘氧，不是這組 I/O 浮閘視窗。"
     },
     {
       "term": "Fowler–Nordheim（FN）穿隧",

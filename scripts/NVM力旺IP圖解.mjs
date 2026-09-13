@@ -367,13 +367,13 @@ const DATA={
       "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
       "kind": "原廠新聞",
       "zh": {
-        "label": "0.18 µm 1.8 V NeoFuse：core 編程時承受 9 V",
+        "label": "具名例：0.18 µm 1.8 V NeoFuse 編程時 core 承受 9 V",
         "date": "2016-01-14",
         "locator": "0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming",
         "limit": "具名源極驅動例的編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
       },
       "en": {
-        "label": "0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program",
+        "label": "Named example: 0.18 µm 1.8 V NeoFuse core sustains 9 V during program",
         "date": "2016-01-14",
         "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming",
         "limit": "Named source-driver program stress; not a node-independent breakdown voltage and not FG HCI."

@@ -762,15 +762,15 @@
             <div class="stat-top-meta">
               <span class="meta-code">RULE #03 · SCALING EDGE</span>
             </div>
-            <div class="stat-val">FROM ~0.18 µm</div>
+            <div class="stat-val">FROM 1.8 V CORE</div>
             <div class="stat-label">
               <span data-lang="zh">Core 閘氧 AntiFuse 製程窗</span>
-              <span data-lang="en">CORE-GOX ANTIFUSE WINDOW</span>
+              <span data-lang="en">CORE-OXIDE ANTIFUSE WINDOW</span>
             </div>
             <div class="stat-sub">
               <span style="color: #6f5536; font-weight: 600;">
-                <span data-lang="zh">0.25 µm 的 2.5 V 閘氧會先接面擊穿</span>
-                <span data-lang="en">0.25 µm 2.5 V GOX: junction fails first</span>
+                <span data-lang="zh">較厚的 2.5 V 閘氧常先碰上接面崩潰</span>
+                <span data-lang="en">Thicker 2.5 V oxide often loses to junction BV</span>
               </span>
             </div>
           </div>
@@ -865,8 +865,8 @@
             <small><span data-lang="zh">隨製程裝置，不是常數</span><span data-lang="en">Process-set, not a constant</span></small>
           </div>
           <div class="matrix-cell focus-tech">
-            <b style="color:#6f5536;"><span data-lang="zh">隨 core 閘氧</span><span data-lang="en">Core-GOX HV</span></b>
-            <span class="cell-note"><span data-lang="zh">0.18 µm／1.8 V core 約 9 V；不是 I/O PMOS 浮閘的 6.5／7.5 V</span><span data-lang="en">~9 V at 0.18 µm 1.8 V core; not I/O PMOS FG 6.5/7.5 V</span></span>
+            <b style="color:#6f5536;"><span data-lang="zh">隨 core 閘氧場強</span><span data-lang="en">Tracks core oxide</span></b>
+            <span class="cell-note"><span data-lang="zh">由 tox 與允許的擊穿時間決定，約數倍 core Vdd；不是 I/O 浮閘 HCI 視窗</span><span data-lang="en">Set by tox and allowed T<sub>BD</sub> — several × core Vdd, not I/O FG HCI</span></span>
           </div>
           <div class="matrix-cell">
             <b><span data-lang="zh">高電流 · 約 10–15 mA</span><span data-lang="en">High I · ~10–15 mA</span></b>
@@ -949,8 +949,8 @@
             <small><span data-lang="zh">成熟節點下限與先進節點上限</span><span data-lang="en">Mature-node floor and advanced-node ceiling</span></small>
           </div>
           <div class="matrix-cell focus-tech">
-            <b style="color:#6f5536;"><span data-lang="zh">約 0.18 µm → 先進邏輯</span><span data-lang="en">~0.18 µm → advanced logic</span></b>
-            <span class="cell-note"><span data-lang="zh">0.25 µm 的 2.5 V 閘氧：高壓先接面擊穿、燒掉通道</span><span data-lang="en">0.25 µm 2.5 V GOX: junction breaks and burns the channel first</span></span>
+            <b style="color:#6f5536;"><span data-lang="zh">閘氧先於接面崩潰</span><span data-lang="en">Oxide before junction BV</span></b>
+            <span class="cell-note"><span data-lang="zh">實務窗自 1.8 V 級 core 打開並延伸到先進邏輯；2.5 V 級厚氧常先碰上源／汲崩潰</span><span data-lang="en">Opens on 1.8 V-class cores into advanced logic; 2.5 V-class oxide often avalanches the junction first</span></span>
           </div>
           <div class="matrix-cell">
             <b><span data-lang="zh">電流／IR 受限</span><span data-lang="en">Current / IR limited</span></b>
@@ -987,8 +987,8 @@
         </div>
       </div>
       <p class="matrix-footnote">
-        <span data-lang="zh">表內數字是架構量級，不是具名巨集 datasheet。AntiFuse PGM 是把 core 裝置 bitcell 的閘氧擊穿，電壓與該製程 gate oxide 強相關，不能寫成固定 2.8–3.5 V。力旺 2016-01-14 公開 0.18 µm 1.8 V／13.5 V NeoFuse 例：core device 編程時承受 9 V 高壓應力。不要把浮閘 HCI 當成閘氧擊穿：I/O PMOS 浮閘 cell 的 3.3 V 約 6.5 V PGM、5 V 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。這組 I/O 對照由本站作者依力旺任職期間的 datasheet 與 testing review 核可。能做 core-GOX AntiFuse 的落後製程下限約 0.18 µm：0.25 µm 要擊穿 2.5 V 閘氧的高壓，會先發生接面擊穿把通道燒壞。讀取延遲指陣列／sense amplifier 路徑；eFuse 原生約 µs 量級，實務上開機 shadow 到 SRAM。OTP 陣列讀取普遍極限約 25 ns、多數約 40 ns（SA 翻轉取決於 cell current）。SST 分離閘極 eFlash 通常稍快，約 15–25 ns 量級。具名產品仍以該版 IP 為準。</span>
-        <span data-lang="en">Figures are architecture-class ranges, not a named-macro datasheet. AntiFuse programming is core-device bitcell gate-oxide breakdown, so Vpgm tracks that node’s gate oxide — not a fixed 2.8–3.5 V. eMemory’s 14 Jan 2016 0.18 µm 1.8 V/13.5 V NeoFuse example states the core device sustains 9 V high-voltage stress during programming. Do not treat floating-gate HCI as oxide breakdown: an I/O PMOS floating-gate cell programs near 6.5 V on 3.3 V I/O and 7.5 V on 5 V I/O; an NMOS floating-gate cell at the same node needs a higher Vpgm. That I/O pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. The mature-node floor for core-GOX AntiFuse is about 0.18 µm: at 0.25 µm the voltage needed to break a 2.5 V gate oxide hits junction breakdown first and burns the channel. Read latency is the array/sense-amplifier path. Native eFuse sensing is ~µs-class, so systems almost always shadow fuses into SRAM at boot. OTP array reads typically sit near 40 ns, with a practical floor around 25 ns because the sense amplifier must trip and that time depends on cell current. SST split-gate eFlash is usually a little faster, ~15–25 ns class. Check the specific IP revision.</span>
+        <span data-lang="zh">表內數字是架構量級，不是具名巨集 datasheet。AntiFuse 編程是 core 裝置閘氧崩潰：電壓由該製程閘氧厚度與允許的擊穿時間決定，通常為數倍 core Vdd，不能寫成固定 2.8–3.5 V。公開專利把約 32 Å 閘氧的 VPP 放在 8–9 V、約 20 Å 放在 5–6 V；原廠具名製程例另顯示 1.8 V core 須承受遠高於 Vdd 的編程應力。I/O 浮閘熱載子注入是另一條路徑：3.3 V／5 V PMOS 約 6.5 V／7.5 V PGM，同節點 NMOS 浮閘更高；此對照由本站作者依力旺任職期間的 datasheet 與 testing review 核可。以 core 裝置做 AntiFuse 的實務窗，是閘氧能在源／汲接面崩潰之前擊穿，通常自 1.8 V 級 core 打開並延伸到先進邏輯；2.5 V 級較厚閘氧往往先碰上接面崩潰。讀取延遲指陣列／sense amplifier 路徑；eFuse 原生約 µs 量級，實務上開機 shadow 到 SRAM。OTP 陣列讀取普遍極限約 25 ns、多數約 40 ns（SA 翻轉取決於 cell current）。SST 分離閘極 eFlash 通常稍快，約 15–25 ns 量級。具名產品仍以該版 IP 為準。</span>
+        <span data-lang="en">Figures are architecture-class ranges, not a named-macro datasheet. AntiFuse programming is core-device gate-oxide breakdown: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a fixed 2.8–3.5 V. Public teaching places VPP near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å; a named foundry case separately shows that a 1.8 V core must survive program stress well above Vdd. I/O floating-gate hot-carrier injection is a different path: about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS, with a higher Vpgm for an NMOS floating-gate cell at the same node. That I/O pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. A core-device AntiFuse is practical when the oxide ruptures before the source/drain junction avalanches — typically from 1.8 V-class cores into advanced logic; a 2.5 V-class thicker oxide often loses that race. Read latency is the array/sense-amplifier path. Native eFuse sensing is ~µs-class, so systems almost always shadow fuses into SRAM at boot. OTP array reads typically sit near 40 ns, with a practical floor around 25 ns because the sense amplifier must trip and that time depends on cell current. SST split-gate eFlash is usually a little faster, ~15–25 ns class. Check the specific IP revision.</span>
       </p>
     </section>
 
@@ -1147,16 +1147,16 @@
               • 穿隧條件分界：超薄氧化層 <em>t</em><sub>ox</sub> &lt; 3.0 nm 且 <em>V</em><sub>ox</sub> &lt; 3.15V (Φ<sub>B</sub>/<em>q</em>) 為梯形能障直接穿隧；當 <em>V</em><sub>ox</sub> &gt; 3.15V 進入三角形能障 FN 穿隧，崩潰電場 <em>E</em><sub>ox</sub> &ge; 6~8 MV/cm。<br>
               • <em>A</em><sub>FN</sub> = <em>q</em><sup>3</sup> / (8π <em>h</em> Φ<sub>B</sub>)，<em>B</em><sub>FN</sub> = 8π √(2<em>m</em>*) Φ<sub>B</sub><sup>3/2</sup> / (3 <em>q</em> <em>h</em>) ≈ 2.5 &times; 10<sup>8</sup> V/cm<br>
               • Φ<sub>B</sub> ≈ 3.15&nbsp;eV（Si–SiO<sub>2</sub> 界面能障），<em>m</em>* ≈ 0.5 <em>m</em><sub>0</sub>（電子有效質量）<br>
-              • PGM 是擊穿 core 裝置 bitcell 的閘氧。力旺 2016 年 0.18 µm 1.8 V／13.5 V NeoFuse 例：core 編程時承受 9 V 應力；不是固定 2.8–3.5 V。<br>
-              • 不要與 I/O PMOS 浮閘 HCI 混淆：3.3 V cell 約 6.5 V PGM、5 V cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM。<br>
+              • 編程電壓由 <em>E</em><sub>ox</sub> × <em>t</em><sub>ox</sub> 與允許的擊穿時間決定，隨 core 閘氧縮放，不是固定 2.8–3.5 V。<br>
+              • 這與 I/O 浮閘 HCI 不同：後者跟隨 I/O 裝置（3.3 V／5 V PMOS 約 6.5 V／7.5 V PGM），不可回填到閘氧擊穿 AntiFuse。<br>
               • 崩潰物理模型：經滲透模型 (Percolation Model) 誘發介電質軟崩潰至硬崩潰，形成歐姆特性的局域再結晶矽導電微絲，阻值由 &gt;10<sup>11</sup> Ω 降至約 10<sup>2</sup> Ω。這是物理機理描述，非出貨規格保證。
             </span>
             <span data-lang="en">
               • Tunneling Regime Boundary: ultrathin oxide <em>t</em><sub>ox</sub> &lt; 3.0 nm and <em>V</em><sub>ox</sub> &lt; 3.15V (Φ<sub>B</sub>/<em>q</em>) exhibits trapezoidal direct tunneling; transitions to triangular FN tunneling when <em>V</em><sub>ox</sub> &gt; 3.15V, with breakdown electric field <em>E</em><sub>ox</sub> &ge; 6~8 MV/cm.<br>
               • <em>A</em><sub>FN</sub> = <em>q</em><sup>3</sup> / (8π <em>h</em> Φ<sub>B</sub>), <em>B</em><sub>FN</sub> = 8π √(2<em>m</em>*) Φ<sub>B</sub><sup>3/2</sup> / (3 <em>q</em> <em>h</em>) ≈ 2.5 &times; 10<sup>8</sup> V/cm<br>
               • Φ<sub>B</sub> ≈ 3.15&nbsp;eV (Si–SiO<sub>2</sub> interface barrier), <em>m</em>* ≈ 0.5 <em>m</em><sub>0</sub> (electron effective mass)<br>
-              • Programming ruptures the core-device bitcell gate oxide. eMemory’s 2016 0.18 µm 1.8 V/13.5 V NeoFuse example: the core sustains 9 V program stress — not a fixed 2.8–3.5 V.<br>
-              • Do not confuse with I/O PMOS FG HCI: ~6.5 V PGM for a 3.3 V cell, ~7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm.<br>
+              • Program voltage is set by <em>E</em><sub>ox</sub> × <em>t</em><sub>ox</sub> and the allowed time-to-breakdown; it scales with the core oxide, not a fixed 2.8–3.5 V.<br>
+              • Distinct from I/O floating-gate HCI, whose window follows the I/O device (~6.5 V PGM on 3.3 V PMOS, ~7.5 V on 5 V PMOS) and must not be back-filled onto oxide-breakdown AntiFuse.<br>
               • Breakdown Model: defect percolation triggers soft-to-hard dielectric breakdown forming an ohmic localized recrystallized silicon filament; resistance shifts from &gt;10<sup>11</sup> Ω to ~10<sup>2</sup> Ω. Physics description, not a shipment guarantee.
             </span>
           </div>
