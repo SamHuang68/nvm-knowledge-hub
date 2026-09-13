@@ -108,7 +108,7 @@
     ],
     "evidenceRules": [
       "Supplier disclosures, datasheets, papers, patents, and editorial inferences serve different purposes. Source categories are not steps on a maturity ladder from weak to strong.",
-      "Every performance value must retain its device, capacity, temperature, granularity, test method, and source. Leave undisclosed values as gaps; do not combine the best numbers from unrelated implementations. Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory is a separate source class: it does not quote unpublished file pages, and it is not a current-macro shipment spec.",
+      "Every performance value must retain its device, capacity, temperature, granularity, test method, and source. Leave undisclosed values as gaps; do not combine the best numbers from unrelated implementations. Public literature and architecture-class pairings are kept as a separate source class: it does not quote unpublished file pages, and it is not a current-macro shipment spec.",
       "A patent supports the disclosure and interpretation of its claims. The assignee alone does not establish that the company's production process uses the same structure.",
       "A technology ceiling describes the principal constraints and trade-offs of current designs. Without sufficient evidence, do not present an engineering limitation as a permanent physical limit."
     ],
@@ -266,7 +266,7 @@
           "before": "The storage dielectric is intact and the selected bit has low leakage. Other cells in the same row and column must remain unprogrammed.",
           "stimulus": "In the early embodiment of US6667902B2, Figures 1/8 use a 2.5 V row-select line, a 0 V source line, and a 7 V selected column line. These values apply only to that structure and period, not to current product operation.",
           "after": "The thin dielectric develops detectable conduction. Program verification checks whether current reaches the specified window, rather than mistaking a slight leakage increase for sufficient programming.",
-          "explanation": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is dielectric breakdown of the core-device gate oxide: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a node-independent 2.8–3.5 V. Public Kilopass teaching places program voltage near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å. A named foundry example separately shows that a 1.8 V core must survive program stress well above Vdd; that is evidence of the stress class, not a universal Vpgm. This path is not I/O floating-gate hot-carrier injection, whose program window follows the I/O device (about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS; an NMOS floating-gate cell at the same node needs a higher Vpgm). That I/O pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory, and must not be back-filled onto oxide-breakdown AntiFuse. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell."
+          "explanation": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is dielectric breakdown of the core-device gate oxide: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a node-independent 2.8–3.5 V. Public Kilopass teaching places program voltage near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å. A named foundry example separately shows that a 1.8 V core must survive program stress well above Vdd; that is evidence of the stress class, not a universal Vpgm. This path is not I/O floating-gate hot-carrier injection, whose program window follows the I/O device (about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS; an NMOS floating-gate cell at the same node needs a higher Vpgm). That I/O FG HCI pairing is public literature / architecture-class and must not be back-filled onto oxide-breakdown AntiFuse. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell."
         },
         {
           "id": "erase",
@@ -2717,7 +2717,7 @@
     "glossary": [
       {
         "term": "CHI and CHEI",
-        "definition": "CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate. For an I/O PMOS floating-gate cell, a 3.3 V device programs near 6.5 V and a 5 V device near 7.5 V; an NMOS floating-gate cell at the same node needs a higher Vpgm. That pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory, and must not be mixed with core-oxide-breakdown AntiFuse, whose program voltage tracks that process gate oxide rather than this I/O floating-gate window."
+        "definition": "CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate. For an I/O PMOS floating-gate cell, a 3.3 V device programs near 6.5 V and a 5 V device near 7.5 V; an NMOS floating-gate cell at the same node needs a higher Vpgm. That I/O FG HCI pairing is public literature / architecture-class and must not be mixed with core-oxide-breakdown AntiFuse, whose program voltage tracks that process gate oxide rather than this I/O floating-gate window."
       },
       {
         "term": "Fowler–Nordheim (FN) Tunneling",
@@ -6270,12 +6270,12 @@
     },
     {
       "id": "ch-author-pmos-io-pgm",
-      "label": "Site-author engineering attestation: I/O PMOS floating-gate OTP program voltages",
-      "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-      "kind": "Author engineering attestation",
-      "date": "Author-attested 2026-09-11",
+      "label": "Public literature / architecture-class: I/O PMOS floating-gate OTP program voltages",
+      "url": "https://patents.google.com/patent/US6920067B2/en",
+      "kind": "Architecture-class reference",
+      "date": "reviewed 2026-09-11",
       "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
-      "limit": "Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+      "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
     },
     {
       "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -7470,12 +7470,12 @@
     },
     {
       "id": "ip-neobit-io-pgm-author",
-      "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
-      "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-      "kind": "Author Engineering Attestation",
-      "date": "Author-attested 2026-09-11",
+      "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+      "url": "https://patents.google.com/patent/US6920067B2/en",
+      "kind": "Architecture-class Reference",
+      "date": "reviewed 2026-09-11",
       "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-      "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+      "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
     },
     {
       "id": "ip-neofuse",
@@ -9556,7 +9556,7 @@
         "topicId": "antifuse",
         "operationId": "write",
         "title": "Program: Apply the Breakdown Field Only to the Selected Dielectric",
-        "summary": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is dielectric breakdown of the core-device gate oxide: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a node-independent 2.8–3.5 V. Public Kilopass teaching places program voltage near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å. A named foundry example separately shows that a 1.8 V core must survive program stress well above Vdd; that is evidence of the stress class, not a universal Vpgm. This path is not I/O floating-gate hot-carrier injection, whose program window follows the I/O device (about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS; an NMOS floating-gate cell at the same node needs a higher Vpgm). That I/O pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory, and must not be back-filled onto oxide-breakdown AntiFuse. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell.",
+        "summary": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is dielectric breakdown of the core-device gate oxide: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a node-independent 2.8–3.5 V. Public Kilopass teaching places program voltage near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å. A named foundry example separately shows that a 1.8 V core must survive program stress well above Vdd; that is evidence of the stress class, not a universal Vpgm. This path is not I/O floating-gate hot-carrier injection, whose program window follows the I/O device (about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS; an NMOS floating-gate cell at the same node needs a higher Vpgm). That I/O FG HCI pairing is public literature / architecture-class and must not be back-filled onto oxide-breakdown AntiFuse. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell.",
         "sources": [
           {
             "id": "ch-pat-antifuse",
@@ -9614,12 +9614,12 @@
           },
           {
             "id": "ch-author-pmos-io-pgm",
-            "label": "Site-author engineering attestation: I/O PMOS floating-gate OTP program voltages",
-            "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-            "kind": "Author engineering attestation",
-            "date": "Author-attested 2026-09-11",
+            "label": "Public literature / architecture-class: I/O PMOS floating-gate OTP program voltages",
+            "url": "https://patents.google.com/patent/US6920067B2/en",
+            "kind": "Architecture-class reference",
+            "date": "reviewed 2026-09-11",
             "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
-            "limit": "Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+            "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
           },
           {
             "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -9800,12 +9800,12 @@
           },
           {
             "id": "ch-author-pmos-io-pgm",
-            "label": "Site-author engineering attestation: I/O PMOS floating-gate OTP program voltages",
-            "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-            "kind": "Author engineering attestation",
-            "date": "Author-attested 2026-09-11",
+            "label": "Public literature / architecture-class: I/O PMOS floating-gate OTP program voltages",
+            "url": "https://patents.google.com/patent/US6920067B2/en",
+            "kind": "Architecture-class reference",
+            "date": "reviewed 2026-09-11",
             "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
-            "limit": "Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+            "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
           },
           {
             "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -9975,12 +9975,12 @@
           },
           {
             "id": "ch-author-pmos-io-pgm",
-            "label": "Site-author engineering attestation: I/O PMOS floating-gate OTP program voltages",
-            "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-            "kind": "Author engineering attestation",
-            "date": "Author-attested 2026-09-11",
+            "label": "Public literature / architecture-class: I/O PMOS floating-gate OTP program voltages",
+            "url": "https://patents.google.com/patent/US6920067B2/en",
+            "kind": "Architecture-class reference",
+            "date": "reviewed 2026-09-11",
             "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
-            "limit": "Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+            "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
           },
           {
             "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -17159,12 +17159,12 @@
               },
               {
                 "id": "ip-neobit-io-pgm-author",
-                "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
-                "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-                "kind": "Author Engineering Attestation",
-                "date": "Author-attested 2026-09-11",
+                "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "kind": "Architecture-class Reference",
+                "date": "reviewed 2026-09-11",
                 "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-                "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+                "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
               }
             ],
             "variants": [
@@ -17339,12 +17339,12 @@
                   },
                   {
                     "id": "ip-neobit-io-pgm-author",
-                    "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
-                    "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-                    "kind": "Author Engineering Attestation",
-                    "date": "Author-attested 2026-09-11",
+                    "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+                    "url": "https://patents.google.com/patent/US6920067B2/en",
+                    "kind": "Architecture-class Reference",
+                    "date": "reviewed 2026-09-11",
                     "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-                    "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+                    "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
                   }
                 ],
                 "caveat": "Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent voltages or universal current p+ doping. SL, SG/WL, BL and NW; FG floats. SG is separate from FG; capacitive BL coupling is not a DC connection."
@@ -17422,12 +17422,12 @@
               },
               {
                 "id": "ip-neobit-io-pgm-author",
-                "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
-                "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-                "kind": "Author Engineering Attestation",
-                "date": "Author-attested 2026-09-11",
+                "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "kind": "Architecture-class Reference",
+                "date": "reviewed 2026-09-11",
                 "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-                "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+                "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
               }
             ],
             "variants": [
@@ -17584,12 +17584,12 @@
                   },
                   {
                     "id": "ip-neobit-io-pgm-author",
-                    "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
-                    "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-                    "kind": "Author Engineering Attestation",
-                    "date": "Author-attested 2026-09-11",
+                    "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+                    "url": "https://patents.google.com/patent/US6920067B2/en",
+                    "kind": "Architecture-class Reference",
+                    "date": "reviewed 2026-09-11",
                     "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-                    "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+                    "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
                   }
                 ],
                 "caveat": "Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent voltages or universal current p+ doping. SL, SG/WL, BL and NW; FG floats. SG is separate from FG; capacitive BL coupling is not a DC connection."
@@ -17667,12 +17667,12 @@
               },
               {
                 "id": "ip-neobit-io-pgm-author",
-                "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
-                "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-                "kind": "Author Engineering Attestation",
-                "date": "Author-attested 2026-09-11",
+                "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "kind": "Architecture-class Reference",
+                "date": "reviewed 2026-09-11",
                 "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-                "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+                "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
               }
             ],
             "variants": [
@@ -17847,12 +17847,12 @@
                   },
                   {
                     "id": "ip-neobit-io-pgm-author",
-                    "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
-                    "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-                    "kind": "Author Engineering Attestation",
-                    "date": "Author-attested 2026-09-11",
+                    "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+                    "url": "https://patents.google.com/patent/US6920067B2/en",
+                    "kind": "Architecture-class Reference",
+                    "date": "reviewed 2026-09-11",
                     "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-                    "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+                    "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
                   }
                 ],
                 "caveat": "Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent voltages or universal current p+ doping. SL, SG/WL, BL and NW; FG floats. SG is separate from FG; capacitive BL coupling is not a DC connection."
@@ -23896,12 +23896,12 @@
       },
       {
         "id": "ip-neobit-io-pgm-author",
-        "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
-        "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-        "kind": "Author Engineering Attestation",
-        "date": "Author-attested 2026-09-11",
+        "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+        "url": "https://patents.google.com/patent/US6920067B2/en",
+        "kind": "Architecture-class Reference",
+        "date": "reviewed 2026-09-11",
         "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-        "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+        "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
       },
       {
         "id": "ip-neofuse",

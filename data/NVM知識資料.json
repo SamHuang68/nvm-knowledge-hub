@@ -108,7 +108,7 @@
     ],
     "evidenceRules": [
       "原廠揭露、規格書、論文、專利與編輯推論具有不同用途；來源類別不是由弱到強的成熟度階梯。",
-      "每個性能值必須帶著器件、容量、溫度、粒度、測試方式與來源。未公開的值保留缺口，不拼接其他實作的最佳數字。本站作者依任職期間 datasheet 與 testing review 核可的工程慣例，標成獨立來源類別；不引用未公開檔案頁次，也不升格成現行巨集出貨規格。",
+      "每個性能值必須帶著器件、容量、溫度、粒度、測試方式與來源。未公開的值保留缺口，不拼接其他實作的最佳數字。公開文獻與架構量級對照保留為獨立來源類別；不引用未公開檔案頁次，也不升格成現行巨集出貨規格。",
       "專利只支持其文字揭露與權利項閱讀，不能單靠受讓人推論該公司量產製程採用相同結構。",
       "天花板描述目前設計的主要約束與取捨；沒有足夠證據時，不把現有工程限制宣稱為永久物理極限。"
     ],
@@ -266,7 +266,7 @@
           "before": "儲存介電層完整，受選位元的漏電低；同列與同欄其他單元仍須維持未寫狀態。",
           "stimulus": "US6667902B2 圖 1／8 的早期例：列選擇線 2.5 V、源極線 0 V、受選欄線 7 V。數值僅服務此結構與年代，不作現行產品操作值。",
           "after": "薄介電層形成可感測導通；寫入驗證比較電流是否達到規定視窗，避免把僅略增漏電的狀態誤判為充分程式化。",
-          "explanation": "受選 MOS 提供通路，使高電位欄線與低電位內部節點之間形成儲存層電場。程式化是 core 裝置閘氧崩潰：所需電壓由該製程閘氧厚度與允許的擊穿時間決定，通常是數倍 core Vdd，不能寫成與節點無關的固定 2.8–3.5 V。公開的 Kilopass 教學把約 32 Å 閘氧的編程電壓放在 8–9 V、約 20 Å 放在 5–6 V。原廠另有具名製程例，說明 1.8 V core 在編程時須承受遠高於 Vdd 的應力；那是應力量級的旁證，不是跨節點通用 Vpgm。這與 I/O 浮閘熱載子注入是不同機制——後者把電荷送進浮閘，編程窗跟隨 I/O 裝置（3.3 V／5 V PMOS 約 6.5 V／7.5 V PGM；同節點 NMOS 浮閘更高），由本站作者依力旺任職期間的 datasheet 與 testing review 核可，不可回填到閘氧擊穿 AntiFuse。電流須受控制以保護選擇器。軟崩潰到較強導通是分布性過程，不能想像成每顆單元都形成相同尺寸、相同電阻的理想金屬線。"
+          "explanation": "受選 MOS 提供通路，使高電位欄線與低電位內部節點之間形成儲存層電場。程式化是 core 裝置閘氧崩潰：所需電壓由該製程閘氧厚度與允許的擊穿時間決定，通常是數倍 core Vdd，不能寫成與節點無關的固定 2.8–3.5 V。公開的 Kilopass 教學把約 32 Å 閘氧的編程電壓放在 8–9 V、約 20 Å 放在 5–6 V。原廠另有具名製程例，說明 1.8 V core 在編程時須承受遠高於 Vdd 的應力；那是應力量級的旁證，不是跨節點通用 Vpgm。這與 I/O 浮閘熱載子注入是不同機制——後者把電荷送進浮閘，編程窗跟隨 I/O 裝置（3.3 V／5 V PMOS 約 6.5 V／7.5 V PGM；同節點 NMOS 浮閘更高），此 I/O 浮閘 HCI 對照為公開文獻／架構量級，不得回填到閘氧擊穿 AntiFuse。電流須受控制以保護選擇器。軟崩潰到較強導通是分布性過程，不能想像成每顆單元都形成相同尺寸、相同電阻的理想金屬線。"
         },
         {
           "id": "erase",
@@ -2717,7 +2717,7 @@
     "glossary": [
       {
         "term": "CHI 與 CHEI",
-        "definition": "CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。獨立 CHI／BBHH 教學模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。I/O PMOS 浮閘 cell：3.3 V 約 6.5 V PGM、5 V 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。這組對照由本站作者依力旺任職期間的 datasheet 與 testing review 核可，不可與 core 閘氧擊穿 AntiFuse 混用；後者的編程電壓跟隨該製程閘氧，不是這組 I/O 浮閘視窗。"
+        "definition": "CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。獨立 CHI／BBHH 教學模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。I/O PMOS 浮閘 cell：3.3 V 約 6.5 V PGM、5 V 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。此 I/O 浮閘 HCI 對照為公開文獻／架構量級，不可與 core 閘氧擊穿 AntiFuse 混用；後者的編程電壓跟隨該製程閘氧，不是這組 I/O 浮閘視窗。"
       },
       {
         "term": "Fowler–Nordheim（FN）穿隧",
@@ -6406,12 +6406,12 @@
     },
     {
       "id": "ch-author-pmos-io-pgm",
-      "label": "本站作者工程核可：I/O PMOS 浮閘 OTP 編程電壓",
-      "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-      "kind": "作者工程核可",
-      "date": "2026-09-11 作者核可",
+      "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+      "url": "https://patents.google.com/patent/US6920067B2/en",
+      "kind": "架構量級參考",
+      "date": "2026-09-11 查核",
       "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM",
-      "limit": "依作者於力旺任職期間撰寫 datasheet 與參與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。"
+      "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。"
     },
     {
       "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -7654,12 +7654,12 @@
     },
     {
       "id": "ip-neobit-io-pgm-author",
-      "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
-      "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-      "kind": "作者工程核可",
-      "date": "2026-09-11 作者核可",
+      "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+      "url": "https://patents.google.com/patent/US6920067B2/en",
+      "kind": "架構量級參考",
+      "date": "2026-09-11 查核",
       "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
-      "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
+      "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
     },
     {
       "id": "ip-neofuse",
@@ -9740,7 +9740,7 @@
         "topicId": "antifuse",
         "operationId": "write",
         "title": "程式化：只讓受選介電層承受崩潰電場",
-        "summary": "受選 MOS 提供通路，使高電位欄線與低電位內部節點之間形成儲存層電場。程式化是 core 裝置閘氧崩潰：所需電壓由該製程閘氧厚度與允許的擊穿時間決定，通常是數倍 core Vdd，不能寫成與節點無關的固定 2.8–3.5 V。公開的 Kilopass 教學把約 32 Å 閘氧的編程電壓放在 8–9 V、約 20 Å 放在 5–6 V。原廠另有具名製程例，說明 1.8 V core 在編程時須承受遠高於 Vdd 的應力；那是應力量級的旁證，不是跨節點通用 Vpgm。這與 I/O 浮閘熱載子注入是不同機制——後者把電荷送進浮閘，編程窗跟隨 I/O 裝置（3.3 V／5 V PMOS 約 6.5 V／7.5 V PGM；同節點 NMOS 浮閘更高），由本站作者依力旺任職期間的 datasheet 與 testing review 核可，不可回填到閘氧擊穿 AntiFuse。電流須受控制以保護選擇器。軟崩潰到較強導通是分布性過程，不能想像成每顆單元都形成相同尺寸、相同電阻的理想金屬線。",
+        "summary": "受選 MOS 提供通路，使高電位欄線與低電位內部節點之間形成儲存層電場。程式化是 core 裝置閘氧崩潰：所需電壓由該製程閘氧厚度與允許的擊穿時間決定，通常是數倍 core Vdd，不能寫成與節點無關的固定 2.8–3.5 V。公開的 Kilopass 教學把約 32 Å 閘氧的編程電壓放在 8–9 V、約 20 Å 放在 5–6 V。原廠另有具名製程例，說明 1.8 V core 在編程時須承受遠高於 Vdd 的應力；那是應力量級的旁證，不是跨節點通用 Vpgm。這與 I/O 浮閘熱載子注入是不同機制——後者把電荷送進浮閘，編程窗跟隨 I/O 裝置（3.3 V／5 V PMOS 約 6.5 V／7.5 V PGM；同節點 NMOS 浮閘更高），此 I/O 浮閘 HCI 對照為公開文獻／架構量級，不得回填到閘氧擊穿 AntiFuse。電流須受控制以保護選擇器。軟崩潰到較強導通是分布性過程，不能想像成每顆單元都形成相同尺寸、相同電阻的理想金屬線。",
         "sources": [
           {
             "id": "ch-pat-antifuse",
@@ -9798,12 +9798,12 @@
           },
           {
             "id": "ch-author-pmos-io-pgm",
-            "label": "本站作者工程核可：I/O PMOS 浮閘 OTP 編程電壓",
-            "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-            "kind": "作者工程核可",
-            "date": "2026-09-11 作者核可",
+            "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+            "url": "https://patents.google.com/patent/US6920067B2/en",
+            "kind": "架構量級參考",
+            "date": "2026-09-11 查核",
             "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM",
-            "limit": "依作者於力旺任職期間撰寫 datasheet 與參與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。"
+            "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。"
           },
           {
             "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -9984,12 +9984,12 @@
           },
           {
             "id": "ch-author-pmos-io-pgm",
-            "label": "本站作者工程核可：I/O PMOS 浮閘 OTP 編程電壓",
-            "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-            "kind": "作者工程核可",
-            "date": "2026-09-11 作者核可",
+            "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+            "url": "https://patents.google.com/patent/US6920067B2/en",
+            "kind": "架構量級參考",
+            "date": "2026-09-11 查核",
             "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM",
-            "limit": "依作者於力旺任職期間撰寫 datasheet 與參與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。"
+            "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。"
           },
           {
             "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -10159,12 +10159,12 @@
           },
           {
             "id": "ch-author-pmos-io-pgm",
-            "label": "本站作者工程核可：I/O PMOS 浮閘 OTP 編程電壓",
-            "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-            "kind": "作者工程核可",
-            "date": "2026-09-11 作者核可",
+            "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+            "url": "https://patents.google.com/patent/US6920067B2/en",
+            "kind": "架構量級參考",
+            "date": "2026-09-11 查核",
             "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM",
-            "limit": "依作者於力旺任職期間撰寫 datasheet 與參與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。"
+            "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。"
           },
           {
             "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -17343,12 +17343,12 @@
               },
               {
                 "id": "ip-neobit-io-pgm-author",
-                "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
-                "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-                "kind": "作者工程核可",
-                "date": "2026-09-11 作者核可",
+                "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "kind": "架構量級參考",
+                "date": "2026-09-11 查核",
                 "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
-                "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
+                "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
               }
             ],
             "variants": [
@@ -17523,12 +17523,12 @@
                   },
                   {
                     "id": "ip-neobit-io-pgm-author",
-                    "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
-                    "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-                    "kind": "作者工程核可",
-                    "date": "2026-09-11 作者核可",
+                    "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+                    "url": "https://patents.google.com/patent/US6920067B2/en",
+                    "kind": "架構量級參考",
+                    "date": "2026-09-11 查核",
                     "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
-                    "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
+                    "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
                   }
                 ],
                 "caveat": "不畫介電質擊穿、永久導電絲、nMOS CHE；不補數值電壓或所有現行型號的 p+ 摻雜保證。 SL、SG/WL、BL、NW；FG 為浮動節點。SG 與 FG 不相連；BL 的電容耦合不能畫成直流導線。"
@@ -17606,12 +17606,12 @@
               },
               {
                 "id": "ip-neobit-io-pgm-author",
-                "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
-                "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-                "kind": "作者工程核可",
-                "date": "2026-09-11 作者核可",
+                "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "kind": "架構量級參考",
+                "date": "2026-09-11 查核",
                 "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
-                "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
+                "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
               }
             ],
             "variants": [
@@ -17768,12 +17768,12 @@
                   },
                   {
                     "id": "ip-neobit-io-pgm-author",
-                    "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
-                    "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-                    "kind": "作者工程核可",
-                    "date": "2026-09-11 作者核可",
+                    "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+                    "url": "https://patents.google.com/patent/US6920067B2/en",
+                    "kind": "架構量級參考",
+                    "date": "2026-09-11 查核",
                     "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
-                    "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
+                    "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
                   }
                 ],
                 "caveat": "不畫介電質擊穿、永久導電絲、nMOS CHE；不補數值電壓或所有現行型號的 p+ 摻雜保證。 SL、SG/WL、BL、NW；FG 為浮動節點。SG 與 FG 不相連；BL 的電容耦合不能畫成直流導線。"
@@ -17851,12 +17851,12 @@
               },
               {
                 "id": "ip-neobit-io-pgm-author",
-                "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
-                "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-                "kind": "作者工程核可",
-                "date": "2026-09-11 作者核可",
+                "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "kind": "架構量級參考",
+                "date": "2026-09-11 查核",
                 "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
-                "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
+                "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
               }
             ],
             "variants": [
@@ -18031,12 +18031,12 @@
                   },
                   {
                     "id": "ip-neobit-io-pgm-author",
-                    "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
-                    "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-                    "kind": "作者工程核可",
-                    "date": "2026-09-11 作者核可",
+                    "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+                    "url": "https://patents.google.com/patent/US6920067B2/en",
+                    "kind": "架構量級參考",
+                    "date": "2026-09-11 查核",
                     "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
-                    "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
+                    "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
                   }
                 ],
                 "caveat": "不畫介電質擊穿、永久導電絲、nMOS CHE；不補數值電壓或所有現行型號的 p+ 摻雜保證。 SL、SG/WL、BL、NW；FG 為浮動節點。SG 與 FG 不相連；BL 的電容耦合不能畫成直流導線。"
@@ -24080,12 +24080,12 @@
       },
       {
         "id": "ip-neobit-io-pgm-author",
-        "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
-        "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-        "kind": "作者工程核可",
-        "date": "2026-09-11 作者核可",
+        "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+        "url": "https://patents.google.com/patent/US6920067B2/en",
+        "kind": "架構量級參考",
+        "date": "2026-09-11 查核",
         "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
-        "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
+        "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
       },
       {
         "id": "ip-neofuse",

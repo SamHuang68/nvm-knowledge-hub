@@ -42,7 +42,7 @@ NeoBit — 單元結構
 - [ip-neobit-pgm-pat：串聯 PMOS 嵌入式 EPROM 寫入偏壓專利](https://patents.google.com/patent/US6678190B2/en)
 - [ip-neobit-io-pat：與 I/O 裝置同結構的單層多晶矽 NVM 專利](https://patents.google.com/patent/US6920067B2/en)
 - [ip-neobit-eetimes-2003：EE Times：0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ip-neobit-io-pgm-author：本站作者：I/O PMOS 浮閘 OTP 編程電壓](https://samhuang68.github.io/nvm-knowledge-hub/)
+- [ip-neobit-io-pgm-author：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
 
 #### NeoBit — 寫入
 
@@ -98,7 +98,7 @@ NeoBit — 單元結構
 - [ip-neobit-pgm-pat：串聯 PMOS 嵌入式 EPROM 寫入偏壓專利](https://patents.google.com/patent/US6678190B2/en)
 - [ip-neobit-io-pat：與 I/O 裝置同結構的單層多晶矽 NVM 專利](https://patents.google.com/patent/US6920067B2/en)
 - [ip-neobit-eetimes-2003：EE Times：0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ip-neobit-io-pgm-author：本站作者：I/O PMOS 浮閘 OTP 編程電壓](https://samhuang68.github.io/nvm-knowledge-hub/)
+- [ip-neobit-io-pgm-author：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
 
 #### NeoBit — 抹除操作界線
 
@@ -146,7 +146,7 @@ NeoBit — 單元結構
 - [ip-neobit-pgm-pat：串聯 PMOS 嵌入式 EPROM 寫入偏壓專利](https://patents.google.com/patent/US6678190B2/en)
 - [ip-neobit-io-pat：與 I/O 裝置同結構的單層多晶矽 NVM 專利](https://patents.google.com/patent/US6920067B2/en)
 - [ip-neobit-eetimes-2003：EE Times：0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ip-neobit-io-pgm-author：本站作者：I/O PMOS 浮閘 OTP 編程電壓](https://samhuang68.github.io/nvm-knowledge-hub/)
+- [ip-neobit-io-pgm-author：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
 
 #### NeoBit — 讀取
 
@@ -202,7 +202,7 @@ NeoBit — 單元結構
 - [ip-neobit-pgm-pat：串聯 PMOS 嵌入式 EPROM 寫入偏壓專利](https://patents.google.com/patent/US6678190B2/en)
 - [ip-neobit-io-pat：與 I/O 裝置同結構的單層多晶矽 NVM 專利](https://patents.google.com/patent/US6920067B2/en)
 - [ip-neobit-eetimes-2003：EE Times：0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ip-neobit-io-pgm-author：本站作者：I/O PMOS 浮閘 OTP 編程電壓](https://samhuang68.github.io/nvm-knowledge-hub/)
+- [ip-neobit-io-pgm-author：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
 
 #### IP 單元取捨
 
@@ -2502,7 +2502,7 @@ US6667902B2 的教學例以薄介電層儲存元件串接選擇電晶體；欄�
 
 操作後：薄介電層形成可感測導通；寫入驗證比較電流是否達到規定視窗，避免把僅略增漏電的狀態誤判為充分程式化。
 
-受選 MOS 提供通路，使高電位欄線與低電位內部節點之間形成儲存層電場。程式化是 core 裝置閘氧崩潰：所需電壓由該製程閘氧厚度與允許的擊穿時間決定，通常是數倍 core Vdd，不能寫成與節點無關的固定 2.8–3.5 V。公開的 Kilopass 教學把約 32 Å 閘氧的編程電壓放在 8–9 V、約 20 Å 放在 5–6 V。原廠另有具名製程例，說明 1.8 V core 在編程時須承受遠高於 Vdd 的應力；那是應力量級的旁證，不是跨節點通用 Vpgm。這與 I/O 浮閘熱載子注入是不同機制——後者把電荷送進浮閘，編程窗跟隨 I/O 裝置（3.3 V／5 V PMOS 約 6.5 V／7.5 V PGM；同節點 NMOS 浮閘更高），由本站作者依力旺任職期間的 datasheet 與 testing review 核可，不可回填到閘氧擊穿 AntiFuse。電流須受控制以保護選擇器。軟崩潰到較強導通是分布性過程，不能想像成每顆單元都形成相同尺寸、相同電阻的理想金屬線。
+受選 MOS 提供通路，使高電位欄線與低電位內部節點之間形成儲存層電場。程式化是 core 裝置閘氧崩潰：所需電壓由該製程閘氧厚度與允許的擊穿時間決定，通常是數倍 core Vdd，不能寫成與節點無關的固定 2.8–3.5 V。公開的 Kilopass 教學把約 32 Å 閘氧的編程電壓放在 8–9 V、約 20 Å 放在 5–6 V。原廠另有具名製程例，說明 1.8 V core 在編程時須承受遠高於 Vdd 的應力；那是應力量級的旁證，不是跨節點通用 Vpgm。這與 I/O 浮閘熱載子注入是不同機制——後者把電荷送進浮閘，編程窗跟隨 I/O 裝置（3.3 V／5 V PMOS 約 6.5 V／7.5 V PGM；同節點 NMOS 浮閘更高），此 I/O 浮閘 HCI 對照為公開文獻／架構量級，不得回填到閘氧擊穿 AntiFuse。電流須受控制以保護選擇器。軟崩潰到較強導通是分布性過程，不能想像成每顆單元都形成相同尺寸、相同電阻的理想金屬線。
 
 #### 抹除：崩潰介電層不在正常操作中修復
 
@@ -2570,7 +2570,7 @@ US6667902B2 的教學例以薄介電層儲存元件串接選擇電晶體；欄�
 - [ch-pat-pmos-otp-6678190：力旺：串聯 PMOS 單層多晶矽嵌入式 EPROM 專利 US6678190B2](https://patents.google.com/patent/US6678190B2/en)
 - [ch-pat-io-nvm-6920067：力旺：與 I/O 裝置同結構的單層多晶矽 NVM 專利 US6920067B2](https://patents.google.com/patent/US6920067B2/en)
 - [ch-eetimes-neobit-2003：EE Times：Hsu 公開 0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
-- [ch-author-pmos-io-pgm：本站作者工程核可：I/O PMOS 浮閘 OTP 編程電壓](https://samhuang68.github.io/nvm-knowledge-hub/)
+- [ch-author-pmos-io-pgm：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)
 - [ch-pat-pmos-vs-nmos-5761121：Ohsaki 等：PMOS 單層多晶矽 NVM 專利 US5761121A](https://patents.google.com/patent/US5761121A/en)
 - [ch-maturity-kilopass：新思科技：2018 年收購 Kilopass 與 OTP 出貨聲明](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
 - [ch-maturity-otp-current：新思科技：現行 antifuse OTP NVM IP 產品頁](https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/otp.html)
@@ -4702,7 +4702,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 
 ## 共同詞彙
 
-- CHI 與 CHEI：CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。獨立 CHI／BBHH 教學模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。I/O PMOS 浮閘 cell：3.3 V 約 6.5 V PGM、5 V 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。這組對照由本站作者依力旺任職期間的 datasheet 與 testing review 核可，不可與 core 閘氧擊穿 AntiFuse 混用；後者的編程電壓跟隨該製程閘氧，不是這組 I/O 浮閘視窗。
+- CHI 與 CHEI：CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。獨立 CHI／BBHH 教學模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。I/O PMOS 浮閘 cell：3.3 V 約 6.5 V PGM、5 V 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。此 I/O 浮閘 HCI 對照為公開文獻／架構量級，不可與 core 閘氧擊穿 AntiFuse 混用；後者的編程電壓跟隨該製程閘氧，不是這組 I/O 浮閘視窗。
 - Fowler–Nordheim（FN）穿隧：足夠強的電場改變介電層能障，使電子能夠穿隧。電子起點、終點及電場方向須分別說明。NeoEE 的雙向更新均採 FN；NeoMTP 的反向更新則讓電子以 FN 朝抹除閘極移動。
 - BBT、BBHH 與 DAHHI：能帶間穿隧（BBT）先在矽內產生電子／電洞對，再由高能電洞跨介電層，構成能帶間熱電洞注入（BBHH）。汲極雪崩熱電洞注入（DAHHI）以雪崩產生載子；同樣有熱電洞入閘極，不代表載子生成機制相同。
 - 直接穿隧與反熔絲讀取：力旺公開的超薄介電層說明指出，寫入造成缺陷、縮短有效穿隧距離，進而提高閘極電流。解讀 NeoFuse 時須保留這個具名機制，不能以理想金屬短路或泛稱陷阱輔助穿隧取代。
@@ -4743,7 +4743,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ch-pat-pmos-otp-6678190：力旺：串聯 PMOS 單層多晶矽嵌入式 EPROM 專利 US6678190B2](https://patents.google.com/patent/US6678190B2/en)。專利；2004-01-13 公告；2026-09-11 查核；定位：圖 5、9、10 與寫入「1」偏壓段：VSL／VNW 3–8 V；閘極電流峰值約在汲極 −5 至 −6 V、閘極約 −1 V；限制：實施例偏壓屬此 PMOS 無控制閘結構；不得改寫成 3.3 V／5 V cell 對 6.5 V／7.5 V 的通則，也不得移作閘氧擊穿 AntiFuse。
 - [ch-pat-io-nvm-6920067：力旺：與 I/O 裝置同結構的單層多晶矽 NVM 專利 US6920067B2](https://patents.google.com/patent/US6920067B2/en)。專利；2005-07-19 公告；2026-09-11 查核；定位：說明書：I/O 裝置如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V，另有較佳 6 V 的模式；限制：支持 p 型（及請求項中的 n 型變體）可採 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。
 - [ch-eetimes-neobit-2003：EE Times：Hsu 公開 0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)。當代產業報導；2003-11-05；2026-09-11 查核；定位：Charles Hsu 引述：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM；限制：支持 0.35 µm 世代的公開電壓對照；不是 180 nm core GOX 擊穿電壓。
-- [ch-author-pmos-io-pgm：本站作者工程核可：I/O PMOS 浮閘 OTP 編程電壓](https://samhuang68.github.io/nvm-knowledge-hub/)。作者工程核可；2026-09-11 作者核可；定位：3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM；限制：依作者於力旺任職期間撰寫 datasheet 與參與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。
+- [ch-author-pmos-io-pgm：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)。架構量級參考；2026-09-11 查核；定位：3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM；限制：依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。
 - [ch-pat-pmos-vs-nmos-5761121：Ohsaki 等：PMOS 單層多晶矽 NVM 專利 US5761121A](https://patents.google.com/patent/US5761121A/en)。專利；1998-06-02 公告；2026-09-11 查核；定位：背景：傳統 n 通道單層多晶矽編程／抹除可高達約 20 V；本案 p 通道例約 8.5 V，浮動閘極耦合約 7.5 V；限制：這是有控制閘耦合的單層多晶矽單元，不是 NeoBit。8.5 V／7.5 V／20 V 不得改寫成 NeoBit 的 3.3 V／5 V I/O 對照表。
 - [ch-pat-eeprom-window：休斯飛機公司：局部穿隧窗口 EEPROM 專利 US4115914A](https://patents.google.com/patent/US4115914A/en)。專利；1978-09-26 公告；2026-09-10 查核；定位：原始公報首頁；圖 3i、6；權利項 2、9；優先權鏈中的母案；限制：1976-03-26 是所見母案日期，本案於 1977 年提出；最早優先權鏈不等於每一權利項的法律有效優先權判斷。
 - [ch-pat-eeprom-singlepoly：賽普拉斯：埋入式控制閘極單層多晶矽 EEPROM 專利 US5844271A](https://patents.google.com/patent/US5844271A/en)。專利；1998-12-01 公告；2026-09-10 查核；定位：圖 3–6；埋入控制電極、厚薄氧化層及操作說明；權利項 1；限制：示範一種單層多晶矽 EEPROM；不可據此聲稱新思科技現行 MTP 採用本案結構或同一熱電子／穿隧路徑。
@@ -4870,7 +4870,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ip-neobit-pgm-pat：串聯 PMOS 嵌入式 EPROM 寫入偏壓專利](https://patents.google.com/patent/US6678190B2/en)。公開專利；2004-01-13；定位：圖 5、9、10；寫入「1」：VSL／VNW 3–8 V；Ig 峰值約在 Vd −5 至 −6 V；限制：實施例偏壓屬此無控制閘 PMOS 結構；不得改寫成 3.3 V／5 V 對 6.5 V／7.5 V 通則。
 - [ip-neobit-io-pat：與 I/O 裝置同結構的單層多晶矽 NVM 專利](https://patents.google.com/patent/US6920067B2/en)。公開專利；2005-07-19；定位：I/O 如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V；限制：支持 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。
 - [ip-neobit-eetimes-2003：EE Times：0.35 µm NeoBit 編程 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)。當代產業報導；2003-11-05；定位：Hsu：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM；限制：0.35 µm 世代公開對照；不是 180 nm core GOX 擊穿電壓。
-- [ip-neobit-io-pgm-author：本站作者：I/O PMOS 浮閘 OTP 編程電壓](https://samhuang68.github.io/nvm-knowledge-hub/)。作者工程核可；2026-09-11 作者核可；定位：3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM；限制：依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。
+- [ip-neobit-io-pgm-author：公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓](https://patents.google.com/patent/US6920067B2/en)。架構量級參考；2026-09-11 查核；定位：3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM；限制：依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。
 - [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles；限制：阻抗式 OTP 及 GIDL 抑制；未公開完整層材。
 - [ip-neofuse-dt：NeoFuse 的量子穿隧機制](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)。原始技術來源；2021-01-19；定位：Figures 1–3; core nFET, gate oxide, dangling bonds, direct tunneling；限制：力旺署名原文；超薄氧化層的 DT 模型，不是所有世代的金屬導通絲。
 - [ip-neofuse-3t：NeoFuse 具名三電晶體架構](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)。官方轉載主管訪談；2024-12-09；定位：NeoFuse: patented 3T design and regulating transistor；限制：確認 3T 與調節功能，未確認全部現行接線及剖面。
