@@ -409,6 +409,7 @@
     }
     /* Sticky Row Header Column (Column 1) */
     .matrix-group-header.span-1,
+    .matrix-dim-header,
     .matrix-header:first-of-type,
     .matrix-row-header {
       position: sticky;
@@ -420,6 +421,7 @@
       background: #061925;
       z-index: 6;
     }
+    .matrix-dim-header,
     .matrix-header:first-of-type {
       background: #061925;
       z-index: 6;
@@ -881,6 +883,319 @@
       letter-spacing: 0.12em;
       display: block;
     }
+  
+    /* =========================================================================
+       INTERACTIVE MATRIX: L1 CATEGORY COLLAPSE & L2 TECH DRAG-AND-DROP
+       ========================================================================= */
+    .matrix-interactive-toolbar {
+      background: #061925;
+      border: 1px solid rgba(196, 165, 116, 0.28);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 6px 20px -3px rgba(3, 19, 30, 0.5);
+    }
+    .matrix-toolbar-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .matrix-toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+    .matrix-toolbar-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font: 800 10.5px/1 'IBM Plex Mono', monospace;
+      letter-spacing: 0.1em;
+      color: #c4a574;
+      text-transform: uppercase;
+    }
+    .toolbar-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 8px #38bdf8;
+      display: inline-block;
+    }
+    .matrix-cat-pills {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .cat-filter-pill {
+      background: #03131e;
+      border: 1px solid rgba(196, 165, 116, 0.3);
+      border-radius: 6px;
+      color: #cbd5e1;
+      font: 600 11px/1 'IBM Plex Mono', monospace;
+      padding: 6px 10px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.18s ease;
+    }
+    .cat-filter-pill:hover {
+      background: rgba(196, 165, 116, 0.12);
+      border-color: #c4a574;
+      color: #f8fafc;
+    }
+    .cat-filter-pill.is-expanded {
+      background: rgba(56, 189, 248, 0.08);
+      border-color: rgba(56, 189, 248, 0.5);
+      color: #f8fafc;
+    }
+    .cat-filter-pill.is-collapsed {
+      background: #020b12;
+      border-color: rgba(148, 163, 184, 0.2);
+      color: #64748b;
+      opacity: 0.75;
+    }
+    .pill-state-icon {
+      font-size: 10px;
+      color: #38bdf8;
+      font-weight: 700;
+    }
+    .pill-count-badge {
+      background: rgba(196, 165, 116, 0.18);
+      color: #c4a574;
+      border-radius: 10px;
+      padding: 1px 5px;
+      font-size: 9.5px;
+      font-weight: 700;
+    }
+    .matrix-toolbar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .matrix-action-btn {
+      background: #03131e;
+      border: 1px solid rgba(196, 165, 116, 0.3);
+      border-radius: 6px;
+      color: #cbd5e1;
+      font: 700 10.5px 'IBM Plex Mono', monospace;
+      padding: 6px 11px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.18s ease;
+    }
+    .matrix-action-btn:hover {
+      background: rgba(196, 165, 116, 0.18);
+      border-color: #c4a574;
+      color: #f8fafc;
+    }
+    .matrix-action-btn.btn-reset {
+      border-color: rgba(245, 158, 11, 0.4);
+      color: #fcd34d;
+    }
+    .matrix-action-btn.btn-reset:hover {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: #f59e0b;
+    }
+    .matrix-drag-guidance {
+      margin-top: 0.75rem;
+      padding: 6px 12px;
+      background: rgba(3, 19, 30, 0.7);
+      border: 1px solid rgba(196, 165, 116, 0.15);
+      border-radius: 5px;
+      font: 500 11px/1.5 'IBM Plex Mono', monospace;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .guidance-icon {
+      font-size: 13px;
+    }
+
+    /* Category Headers (L1 Collapsible) */
+    .matrix-group-header.is-interactive-cat {
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .matrix-group-header.is-interactive-cat:hover {
+      background: #0e3044;
+      border-bottom-color: #c4a574;
+    }
+    .cat-fold-chevron {
+      font-size: 10.5px;
+      color: #38bdf8;
+      display: inline-block;
+      margin-left: 5px;
+    }
+    .matrix-group-header.is-cat-collapsed {
+      background: #03131e !important;
+      padding: 0.5rem 0.25rem !important;
+      cursor: pointer;
+      border-right: 1px dashed rgba(196, 165, 116, 0.35);
+    }
+    .cat-expand-trigger {
+      background: none;
+      border: none;
+      color: #c4a574;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      width: 100%;
+      font: 700 9px 'IBM Plex Mono', monospace;
+    }
+    .fold-plus-icon {
+      font: 800 13px/1 'IBM Plex Mono', monospace;
+      color: #38bdf8;
+    }
+    .fold-badge {
+      background: rgba(56, 189, 248, 0.2);
+      color: #7dd3fc;
+      border-radius: 6px;
+      padding: 1px 4px;
+      font-size: 9px;
+    }
+
+    /* Leaf Headers (L2 Draggable & Move Buttons) */
+    .matrix-header.is-draggable-header {
+      cursor: grab;
+      user-select: none;
+      position: relative;
+      transition: background 0.18s ease, transform 0.18s ease;
+    }
+    .matrix-header.is-draggable-header:hover {
+      background: #092e42;
+    }
+    .matrix-header.is-dragging {
+      opacity: 0.45;
+      cursor: grabbing;
+      border: 1px dashed #c4a574 !important;
+      transform: scale(0.98);
+    }
+    .col-dragging {
+      opacity: 0.45;
+      background: rgba(196, 165, 116, 0.08) !important;
+    }
+    .drop-target-before {
+      border-left: 3px solid #38bdf8 !important;
+      box-shadow: -4px 0 12px rgba(56, 189, 248, 0.45);
+    }
+    .drop-target-after {
+      border-right: 3px solid #38bdf8 !important;
+      box-shadow: 4px 0 12px rgba(56, 189, 248, 0.45);
+    }
+    .header-drag-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 5px;
+      opacity: 0.75;
+      transition: opacity 0.15s ease;
+    }
+    .matrix-header:hover .header-drag-bar {
+      opacity: 1;
+    }
+    .drag-handle-grip {
+      font: 800 12px/1 'IBM Plex Mono', monospace;
+      color: #c4a574;
+      cursor: grab;
+      letter-spacing: -2px;
+      padding: 0 4px;
+    }
+    .col-shift-btn {
+      background: #03131e;
+      border: 1px solid rgba(196, 165, 116, 0.3);
+      border-radius: 3px;
+      color: #94a3b8;
+      font: 800 11px/1 'IBM Plex Mono', monospace;
+      padding: 2px 5px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .col-shift-btn:hover {
+      background: #c4a574;
+      color: #03131e;
+      border-color: #dfb77c;
+    }
+    .header-name-wrap {
+      font-weight: 700;
+      color: #f8fafc;
+    }
+
+    /* Collapsed Mini-Columns in Grid */
+    .matrix-header.is-col-collapsed {
+      background: #03131e !important;
+      padding: 0.5rem 0.25rem !important;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px dashed rgba(196, 165, 116, 0.25);
+    }
+    .col-expand-btn {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 4px;
+      color: #38bdf8;
+      font: 800 11px/1 'IBM Plex Mono', monospace;
+      padding: 5px 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .col-expand-btn:hover {
+      background: #38bdf8;
+      color: #03131e;
+    }
+    .matrix-cell.is-cell-collapsed {
+      background: #03131e !important;
+      color: #475569 !important;
+      font: 700 12px 'IBM Plex Mono', monospace;
+      letter-spacing: 2px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px dashed rgba(196, 165, 116, 0.15);
+    }
+    .matrix-cell.is-cell-collapsed:hover {
+      background: rgba(56, 189, 248, 0.06) !important;
+      color: #38bdf8 !important;
+    }
+
+    /* Toast Notification */
+    .matrix-feedback-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      background: #061925;
+      border: 1px solid #c4a574;
+      border-radius: 6px;
+      color: #f8fafc;
+      font: 600 12px/1.4 'IBM Plex Mono', monospace;
+      padding: 10px 18px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      pointer-events: none;
+    }
+    .matrix-feedback-toast.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
   </style>
 </head>
 <body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
@@ -1071,181 +1386,173 @@
         <div class="compare-matrix">
           <!-- Group headers (st-nvm-family-v0) -->
           <div class="matrix-corner"><span data-lang="zh">技術分類</span><span data-lang="en">CATEGORY</span></div>
-          <div class="matrix-group-header span-3"><span data-lang="zh">晶圓廠製程類</span><span data-lang="en">Foundry Process</span></div>
-          <div class="matrix-group-header span-2"><span data-lang="zh">一次性寫入 (OTP)</span><span data-lang="en">Logic OTP</span></div>
-          <div class="matrix-group-header span-2"><span data-lang="zh">多次抹寫 (MTP)</span><span data-lang="en">Logic MTP</span></div>
-          <div class="matrix-group-header span-2"><span data-lang="zh">嵌入式 Flash</span><span data-lang="en">Embedded Flash</span></div>
-          <div class="matrix-group-header span-2"><span data-lang="zh">新興記憶體</span><span data-lang="en">Emerging NVM</span></div>
+          <div class="matrix-group-header span-3" data-category="foundry" data-cat-name-zh="晶圓廠製程類" data-cat-name-en="Foundry Process"><span data-lang="zh">晶圓廠製程類</span><span data-lang="en">Foundry Process</span></div>
+          <div class="matrix-group-header span-2" data-category="otp" data-cat-name-zh="一次性寫入 (OTP)" data-cat-name-en="Logic OTP"><span data-lang="zh">一次性寫入 (OTP)</span><span data-lang="en">Logic OTP</span></div>
+          <div class="matrix-group-header span-2" data-category="mtp" data-cat-name-zh="多次抹寫 (MTP)" data-cat-name-en="Logic MTP"><span data-lang="zh">多次抹寫 (MTP)</span><span data-lang="en">Logic MTP</span></div>
+          <div class="matrix-group-header span-2" data-category="eflash" data-cat-name-zh="嵌入式 Flash" data-cat-name-en="Embedded Flash"><span data-lang="zh">嵌入式 Flash</span><span data-lang="en">Embedded Flash</span></div>
+          <div class="matrix-group-header span-2" data-category="emerging" data-cat-name-zh="新興記憶體" data-cat-name-en="Emerging NVM"><span data-lang="zh">新興記憶體</span><span data-lang="en">Emerging NVM</span></div>
 
           <!-- Leaf headers -->
-          <div class="matrix-header"><span data-lang="zh">評估維度</span><span data-lang="en">DIMENSION</span></div>
-          <div class="matrix-header">eFuse</div>
-          <div class="matrix-header">Mask ROM</div>
-          <div class="matrix-header">EEPROM</div>
-          <div class="matrix-header">FG-OTP</div>
-          <div class="matrix-header focus-tech">AntiFuse</div>
-          <div class="matrix-header">LD-MTP</div>
-          <div class="matrix-header">HD-MTP</div>
-          <div class="matrix-header">SST</div>
-          <div class="matrix-header">SONOS</div>
-          <div class="matrix-header">ReRAM</div>
-          <div class="matrix-header">MRAM</div>
+          <div class="matrix-header matrix-dim-header"><span data-lang="zh">評估維度</span><span data-lang="en">DIMENSION</span></div>
+          <div class="matrix-header" data-tech="efuse" data-category="foundry">eFuse</div>
+          <div class="matrix-header" data-tech="maskrom" data-category="foundry">Mask ROM</div>
+          <div class="matrix-header" data-tech="eeprom" data-category="foundry">EEPROM</div>
+          <div class="matrix-header" data-tech="fgotp" data-category="otp">FG-OTP</div>
+          <div class="matrix-header focus-tech" data-tech="antifuse" data-category="otp">AntiFuse</div>
+          <div class="matrix-header" data-tech="ldmtp" data-category="mtp">LD-MTP</div>
+          <div class="matrix-header" data-tech="hdmtp" data-category="mtp">HD-MTP</div>
+          <div class="matrix-header" data-tech="sst" data-category="eflash">SST</div>
+          <div class="matrix-header" data-tech="sonos" data-category="eflash">SONOS</div>
+          <div class="matrix-header" data-tech="reram" data-category="emerging">ReRAM</div>
+          <div class="matrix-header" data-tech="mram" data-category="emerging">MRAM</div>
 
-          <!-- Row 1: Mask Adders -->
-          <div class="matrix-row-header">
-            <span data-lang="zh">光罩增加道數</span><span data-lang="en">Mask Adders</span>
-            <small><span data-lang="zh">晶圓成本加價</span><span data-lang="en">Wafer cost adder</span></small>
-          </div>
-          <div class="matrix-cell"><b>+0</b><span class="cell-note"><span data-lang="zh">代工標準整合</span><span data-lang="en">Foundry standard</span></span></div>
-          <div class="matrix-cell"><b>0–1</b><span class="cell-note"><span data-lang="zh">via／contact 圖樣</span><span data-lang="en">Via / contact pattern</span></span></div>
-          <div class="matrix-cell"><b>VERIFY</b><span class="cell-note"><span data-lang="zh">額外 poly／模組層數</span><span data-lang="en">Extra poly / module count</span></span></div>
-          <div class="matrix-cell"><b>+0</b><span class="cell-note"><span data-lang="zh">logic-IP 級；PDK VERIFY</span><span data-lang="en">Logic-IP class; VERIFY per PDK</span></span></div>
-          <div class="matrix-cell focus-tech"><b style="color:#dfb77c;">+0</b><span class="cell-note"><span data-lang="zh">logic-IP 級；PDK VERIFY</span><span data-lang="en">Logic-IP class; VERIFY per PDK</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">通常 +0</span><span data-lang="en">Typically +0</span></b><span class="cell-note"><span data-lang="zh">非恆為 +0；VERIFY</span><span data-lang="en">Not always +0; VERIFY</span></span></div>
-          <div class="matrix-cell"><b>+0 ~ +2</b><span class="cell-note"><span data-lang="zh">供應商分流；見脚注</span><span data-lang="en">Vendor-split; see footnote</span></span></div>
-          <div class="matrix-cell"><b>+4 / VERIFY / +10</b><span class="cell-note"><span data-lang="zh">ESF1／ESF2／ESF3</span><span data-lang="en">ESF1 / ESF2 / ESF3</span></span></div>
-          <div class="matrix-cell"><b>+2 ~ +3</b><span class="cell-note"><span data-lang="zh">Floadia G1 級</span><span data-lang="en">Floadia G1 class</span></span></div>
-          <div class="matrix-cell"><b>+2 ~ +4</b><span class="cell-note"><span data-lang="zh">BEOL；VERIFY</span><span data-lang="en">BEOL; VERIFY</span></span></div>
-          <div class="matrix-cell"><b>+3 ~ +5</b><span class="cell-note"><span data-lang="zh">BEOL MTJ；VERIFY</span><span data-lang="en">BEOL MTJ; VERIFY</span></span></div>
+           Row 1: Mask Adders 
+<div class="matrix-row-header" data-row="1">
+<span data-lang="zh">光罩增加道數</span><span data-lang="en">Mask Adders</span>
+<small><span data-lang="zh">晶圓成本加價</span><span data-lang="en">Wafer cost adder</span></small>
+</div>
+<div class="matrix-cell" data-category="foundry" data-row="1" data-tech="efuse"><b>+0</b><span class="cell-note"><span data-lang="zh">代工標準整合</span><span data-lang="en">Foundry standard</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="1" data-tech="maskrom"><b>0–1</b><span class="cell-note"><span data-lang="zh">via／contact 圖樣</span><span data-lang="en">Via / contact pattern</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="1" data-tech="eeprom"><b>VERIFY</b><span class="cell-note"><span data-lang="zh">額外 poly／模組層數</span><span data-lang="en">Extra poly / module count</span></span></div>
+<div class="matrix-cell" data-category="otp" data-row="1" data-tech="fgotp"><b>+0</b><span class="cell-note"><span data-lang="zh">logic-IP 級；PDK VERIFY</span><span data-lang="en">Logic-IP class; VERIFY per PDK</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="1" data-tech="antifuse"><b style="color:#dfb77c;">+0</b><span class="cell-note"><span data-lang="zh">logic-IP 級；PDK VERIFY</span><span data-lang="en">Logic-IP class; VERIFY per PDK</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="1" data-tech="ldmtp"><b><span data-lang="zh">通常 +0</span><span data-lang="en">Typically +0</span></b><span class="cell-note"><span data-lang="zh">非恆為 +0；VERIFY</span><span data-lang="en">Not always +0; VERIFY</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="1" data-tech="hdmtp"><b>+0 ~ +2</b><span class="cell-note"><span data-lang="zh">供應商分流；見脚注</span><span data-lang="en">Vendor-split; see footnote</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="1" data-tech="sst"><b>+4 / VERIFY / +10</b><span class="cell-note"><span data-lang="zh">ESF1／ESF2／ESF3</span><span data-lang="en">ESF1 / ESF2 / ESF3</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="1" data-tech="sonos"><b>+2 ~ +3</b><span class="cell-note"><span data-lang="zh">Floadia G1 級</span><span data-lang="en">Floadia G1 class</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="1" data-tech="reram"><b>+2 ~ +4</b><span class="cell-note"><span data-lang="zh">BEOL；VERIFY</span><span data-lang="en">BEOL; VERIFY</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="1" data-tech="mram"><b>+3 ~ +5</b><span class="cell-note"><span data-lang="zh">BEOL MTJ；VERIFY</span><span data-lang="en">BEOL MTJ; VERIFY</span></span></div>
+ Row 2: Cell Area Class 
+<div class="matrix-row-header" data-row="2">
+<span data-lang="zh">位元胞面積等級</span><span data-lang="en">Cell Area Class</span>
+<small><span data-lang="zh">矽面積量級</span><span data-lang="en">Silicon footprint class</span></small>
+</div>
+<div class="matrix-cell" data-category="foundry" data-row="2" data-tech="efuse"><b><span data-lang="zh">大</span><span data-lang="en">Large</span></b><span class="cell-note">60–120 F²</span></div>
+<div class="matrix-cell" data-category="foundry" data-row="2" data-tech="maskrom"><b><span data-lang="zh">最小</span><span data-lang="en">Smallest</span></b><span class="cell-note">&lt; 8 F²</span></div>
+<div class="matrix-cell" data-category="foundry" data-row="2" data-tech="eeprom"><b><span data-lang="zh">中</span><span data-lang="en">Medium</span></b><span class="cell-note">20–40 F²</span></div>
+<div class="matrix-cell" data-category="otp" data-row="2" data-tech="fgotp"><b><span data-lang="zh">緊湊</span><span data-lang="en">Compact</span></b><span class="cell-note">12–30 F²</span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="2" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">極緊湊</span><span data-lang="en">Ultra-compact</span></b><span class="cell-note">10–25 F²</span></div>
+<div class="matrix-cell" data-category="mtp" data-row="2" data-tech="ldmtp"><b><span data-lang="zh">大</span><span data-lang="en">Large</span></b><span class="cell-note">60–120+ F²</span></div>
+<div class="matrix-cell" data-category="mtp" data-row="2" data-tech="hdmtp"><b><span data-lang="zh">中／緊湊</span><span data-lang="en">Medium/Compact</span></b><span class="cell-note">25–50 F²</span></div>
+<div class="matrix-cell" data-category="eflash" data-row="2" data-tech="sst"><b><span data-lang="zh">緊湊</span><span data-lang="en">Compact</span></b><span class="cell-note">12–30 F²</span></div>
+<div class="matrix-cell" data-category="eflash" data-row="2" data-tech="sonos"><b><span data-lang="zh">中</span><span data-lang="en">Medium</span></b><span class="cell-note">15–35 F²</span></div>
+<div class="matrix-cell" data-category="emerging" data-row="2" data-tech="reram"><b><span data-lang="zh">緊湊</span><span data-lang="en">Compact</span></b><span class="cell-note">15–35 F²</span></div>
+<div class="matrix-cell" data-category="emerging" data-row="2" data-tech="mram"><b><span data-lang="zh">中</span><span data-lang="en">Medium</span></b><span class="cell-note">30–50 F²</span></div>
+ Row 3: PGM/ERS Mechanism (mandatory) 
+<div class="matrix-row-header" data-row="3">
+<span data-lang="zh">PGM／ERS 機制</span><span data-lang="en">PGM / ERS Mechanism</span>
+<small><span data-lang="zh">寫入與抹除物理</span><span data-lang="en">Program &amp; erase physics</span></small>
+</div>
+<div class="matrix-cell" data-category="foundry" data-row="3" data-tech="efuse"><b><span data-lang="zh">電遷移熔斷</span><span data-lang="en">EM link blow</span></b><span class="cell-note"><span data-lang="zh">不可逆開路</span><span data-lang="en">Irreversible open</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="3" data-tech="maskrom"><b><span data-lang="zh">光罩圖樣</span><span data-lang="en">Mask pattern</span></b><span class="cell-note"><span data-lang="zh">無電氣 PGM</span><span data-lang="en">No electrical PGM</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="3" data-tech="eeprom"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">雙層多晶矽浮閘</span><span data-lang="en">Double-poly floating gate</span></span></div>
+<div class="matrix-cell" data-category="otp" data-row="3" data-tech="fgotp"><b>CHEI / None</b><span class="cell-note"><span data-lang="zh">浮閘注入；無電氣抹除</span><span data-lang="en">FG inject; no electrical erase</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="3" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">閘氧擊穿</span><span data-lang="en">Gate-oxide breakdown</span></b><span class="cell-note"><span data-lang="zh">不可逆導通微絲</span><span data-lang="en">Irreversible filament</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="3" data-tech="ldmtp"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">低擾動單層多晶矽</span><span data-lang="en">Low-disturb SP cell</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="3" data-tech="hdmtp"><b>CHI / FN</b><span class="cell-note"><span data-lang="zh">熱載子寫入／FN 抹除</span><span data-lang="en">Hot-carrier write / FN erase</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="3" data-tech="sst"><b>SSI / FN</b><span class="cell-note"><span data-lang="zh">來源端注入／尖端 FN 抹除</span><span data-lang="en">Source-side inject / tip FN erase</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="3" data-tech="sonos"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">氮化層捕捉電荷</span><span data-lang="en">Nitride charge trap</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="3" data-tech="reram"><b>Forming + SET/RESET</b><span class="cell-note"><span data-lang="zh">細絲形成與切換</span><span data-lang="en">Filament form &amp; switch</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="3" data-tech="mram"><b>STT toggle</b><span class="cell-note"><span data-lang="zh">自旋轉矩切換</span><span data-lang="en">Spin-torque switching</span></span></div>
+ Row 4: Program V/I 
+<div class="matrix-row-header" data-row="4">
+<span data-lang="zh">編程電壓與電流</span><span data-lang="en">Program V / I</span>
+<small><span data-lang="zh">隨製程裝置，不是常數</span><span data-lang="en">Process-set, not a constant</span></small>
+</div>
+<div class="matrix-cell" data-category="foundry" data-row="4" data-tech="efuse"><b><span data-lang="zh">高電流</span><span data-lang="en">High I</span></b><span class="cell-note"><span data-lang="zh">~10–15 mA 量級</span><span data-lang="en">~10–15 mA class</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="4" data-tech="maskrom"><b>N/A</b><span class="cell-note"><span data-lang="zh">光罩寫入</span><span data-lang="en">Mask write</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="4" data-tech="eeprom"><b>FN / HV pump</b><span class="cell-note"><span data-lang="zh">~8–14 V 量級</span><span data-lang="en">~8–14 V class</span></span></div>
+<div class="matrix-cell" data-category="otp" data-row="4" data-tech="fgotp"><b><span data-lang="zh">I/O 裝置視窗</span><span data-lang="en">I/O device window</span></b><span class="cell-note"><span data-lang="zh">見脚注 FG-OTP</span><span data-lang="en">See FG-OTP footnote</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="4" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">隨 core 閘氧</span><span data-lang="en">Tracks core oxide</span></b><span class="cell-note"><span data-lang="zh">數倍 core Vdd</span><span data-lang="en">Several × core Vdd</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="4" data-tech="ldmtp"><b>FN window</b><span class="cell-note"><span data-lang="zh">低擾動幫浦</span><span data-lang="en">Low-disturb pump</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="4" data-tech="hdmtp"><b>CHI + FN</b><span class="cell-note"><span data-lang="zh">寫／抹不同偏壓</span><span data-lang="en">Split write/erase bias</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="4" data-tech="sst"><b>SSI + HV pump</b><span class="cell-note"><span data-lang="zh">寫 10V+5V／抹 12–15V</span><span data-lang="en">Prog 10V+5V / Ers 12–15V</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="4" data-tech="sonos"><b>FN / HV pump</b><span class="cell-note"><span data-lang="zh">~8–16 V 量級</span><span data-lang="en">~8–16 V class</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="4" data-tech="reram"><b>Forming / SET</b><span class="cell-note"><span data-lang="zh">Forming 2.5V / SET 1.5V</span><span data-lang="en">Forming 2.5V / SET 1.5V</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="4" data-tech="mram"><b>Near VDD</b><span class="cell-note"><span data-lang="zh">~1.1V · Ic ~30–80 µA</span><span data-lang="en">~1.1V · Ic ~30–80 µA</span></span></div>
+ Row 5: Retention Class 
+<div class="matrix-row-header" data-row="5">
+<span data-lang="zh">高溫留存等級</span><span data-lang="en">Retention Class</span>
+<small><span data-lang="zh">架構等級，非認證</span><span data-lang="en">Architecture class, not cert</span></small>
+</div>
+<div class="matrix-cell" data-category="foundry" data-row="5" data-tech="efuse"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="5" data-tech="maskrom"><b><span data-lang="zh">永久級</span><span data-lang="en">Permanent class</span></b><span class="cell-note"><span data-lang="zh">光罩固定</span><span data-lang="en">Mask-fixed</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="5" data-tech="eeprom"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
+<div class="matrix-cell" data-category="otp" data-row="5" data-tech="fgotp"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="5" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">高溫級</span><span data-lang="en">High-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 175°C 量級</span><span data-lang="en">~10 yr @ 175°C class</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="5" data-tech="ldmtp"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="5" data-tech="hdmtp"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="5" data-tech="sst"><b><span data-lang="zh">高溫車規級</span><span data-lang="en">Auto Grade 0</span></b><span class="cell-note"><span data-lang="zh">10 yr @ 150°C / 20 yr @ 125°C</span><span data-lang="en">10 yr @ 150°C / 20 yr @ 125°C</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="5" data-tech="sonos"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="5" data-tech="reram"><b><span data-lang="zh">商業/工業級</span><span data-lang="en">Commercial/Ind</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 85–105°C</span><span data-lang="en">~10 yr @ 85–105°C</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="5" data-tech="mram"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
+ Row 6: Read Latency 
+<div class="matrix-row-header" data-row="6">
+<span data-lang="zh">讀取延遲（陣列／SA）</span><span data-lang="en">Read Latency (Array / SA)</span>
+<small><span data-lang="zh">非 SRAM shadow 路徑</span><span data-lang="en">Not SRAM shadow path</span></small>
+</div>
+<div class="matrix-cell" data-category="foundry" data-row="6" data-tech="efuse"><b>~1 µs</b><span class="cell-note"><span data-lang="zh">開機 shadow 到 SRAM</span><span data-lang="en">Boot-shadow to SRAM</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="6" data-tech="maskrom"><b>~5–15 ns</b><span class="cell-note"><span data-lang="zh">靜態 1T 陣列</span><span data-lang="en">Static 1T array</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="6" data-tech="eeprom"><b>~20–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
+<div class="matrix-cell" data-category="otp" data-row="6" data-tech="fgotp"><b>~25–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="6" data-tech="antifuse"><b style="color:#dfb77c;">~25–40 ns</b><span class="cell-note"><span data-lang="zh">受 cell current 限制</span><span data-lang="en">Cell-current limited</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="6" data-tech="ldmtp"><b>~20–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="6" data-tech="hdmtp"><b>~20–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="6" data-tech="sst"><b>~15–25 ns</b><span class="cell-note"><span data-lang="zh">分離閘極較快</span><span data-lang="en">Split-gate faster</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="6" data-tech="sonos"><b>~20–35 ns</b><span class="cell-note"><span data-lang="zh">2T 捕捉型</span><span data-lang="en">2T charge-trap</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="6" data-tech="reram"><b><span data-lang="zh">數十 ns</span><span data-lang="en">Tens of ns</span></b><span class="cell-note"><span data-lang="zh">陣列／SA 受限</span><span data-lang="en">Array / SA limited</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="6" data-tech="mram"><b>~10–25 ns</b><span class="cell-note"><span data-lang="zh">TMR 裕度與防擾動限制</span><span data-lang="en">TMR margin &amp; disturb bound</span></span></div>
+ Row 7: Endurance 
+<div class="matrix-row-header" data-row="7">
+<span data-lang="zh">覆寫耐久度</span><span data-lang="en">Endurance</span>
+<small><span data-lang="zh">可重寫次數等級</span><span data-lang="en">Rewrite cycle class</span></small>
+</div>
+<div class="matrix-cell" data-category="foundry" data-row="7" data-tech="efuse"><b><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">不可逆</span><span data-lang="en">Irreversible</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="7" data-tech="maskrom"><b><span data-lang="zh">0 次</span><span data-lang="en">0 cycles</span></b><span class="cell-note"><span data-lang="zh">唯讀</span><span data-lang="en">Read-only</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="7" data-tech="eeprom"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">氧化層磨耗</span><span data-lang="en">Oxide wear</span></span></div>
+<div class="matrix-cell" data-category="otp" data-row="7" data-tech="fgotp"><b><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">OTP 單調</span><span data-lang="en">OTP monotonic</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="7" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">不可逆</span><span data-lang="en">Irreversible</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="7" data-tech="ldmtp"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">低擾動磨耗</span><span data-lang="en">Low-disturb wear</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="7" data-tech="hdmtp"><b>10<sup>3</sup>–10<sup>4</sup></b><span class="cell-note"><span data-lang="zh">熱載子注入介面磨耗</span><span data-lang="en">Hot-carrier interface wear</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="7" data-tech="sst"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">氧化層磨耗</span><span data-lang="en">Oxide wear</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="7" data-tech="sonos"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">捕捉層磨耗</span><span data-lang="en">Trap-layer wear</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="7" data-tech="reram"><b>10<sup>5</sup>–10<sup>6</sup></b><span class="cell-note"><span data-lang="zh">細絲磨耗</span><span data-lang="en">Filament wear</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="7" data-tech="mram"><b>10<sup>6</sup>–10<sup>10</sup></b><span class="cell-note"><span data-lang="zh">受限於 1nm MgO TDDB</span><span data-lang="en">Bounded by MgO TDDB</span></span></div>
+ Row 8: Scaling 
+<div class="matrix-row-header" data-row="8">
+<span data-lang="zh">製程微縮</span><span data-lang="en">Scaling</span>
+<small><span data-lang="zh">成熟下限與先進上限</span><span data-lang="en">Mature floor &amp; advanced ceiling</span></small>
+</div>
+<div class="matrix-cell" data-category="foundry" data-row="8" data-tech="efuse"><b><span data-lang="zh">電流／IR 受限</span><span data-lang="en">Current / IR limited</span></b><span class="cell-note"><span data-lang="zh">非固定 16 nm 止點</span><span data-lang="en">Not a hard 16 nm stop</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="8" data-tech="maskrom"><b><span data-lang="zh">金屬間距</span><span data-lang="en">Metal pitch</span></b><span class="cell-note"><span data-lang="zh">接觸密度受限</span><span data-lang="en">Contact density bound</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="8" data-tech="eeprom"><b><span data-lang="zh">平面 ~90/130 nm</span><span data-lang="en">Planar ~90/130 nm</span></b><span class="cell-note"><span data-lang="zh">雙層多晶矽熱預算限制</span><span data-lang="en">DP thermal budget bound</span></span></div>
+<div class="matrix-cell" data-category="otp" data-row="8" data-tech="fgotp"><b><span data-lang="zh">I/O 或 logic FG</span><span data-lang="en">I/O or logic FG</span></b><span class="cell-note"><span data-lang="zh">依整合路徑</span><span data-lang="en">Integration-path set</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="8" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">微縮至 2nm GAA</span><span data-lang="en">Down to 2nm GAA</span></b><span class="cell-note"><span data-lang="zh">先進節點唯一 0-Mask OTP</span><span data-lang="en">Only 0-mask OTP in GAA</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="8" data-tech="ldmtp"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">FinFET 無法實作單層浮閘</span><span data-lang="en">FinFET stops single-poly FG</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="8" data-tech="hdmtp"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">FinFET 無法實作單層浮閘</span><span data-lang="en">FinFET stops single-poly FG</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="8" data-tech="sst" style="color:#b91c1c;"><b><span data-lang="zh">平面 ~28 nm</span><span data-lang="en">Planar ~28 nm</span></b><span class="cell-note"><span data-lang="zh">HV 幫浦 vs FinFET</span><span data-lang="en">HV pump vs FinFET</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="8" data-tech="sonos" style="color:#b91c1c;"><b><span data-lang="zh">平面 ~28 nm</span><span data-lang="en">Planar ~28 nm</span></b><span class="cell-note"><span data-lang="zh">捕捉層熱預算</span><span data-lang="en">Trap thermal budget</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="8" data-tech="reram"><b>BEOL</b><span class="cell-note"><span data-lang="zh">Forming 隨節點</span><span data-lang="en">Forming node-set</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="8" data-tech="mram"><b>BEOL MTJ</b><span class="cell-note"><span data-lang="zh">隨代工 BEOL</span><span data-lang="en">Foundry BEOL set</span></span></div>
+ Row 9: Anti-Tamper Geometry 
+<div class="matrix-row-header" data-row="9">
+<span data-lang="zh">防竄改幾何</span><span data-lang="en">Anti-Tamper Geometry</span>
+<small><span data-lang="zh">TEM／探針衰減，非免疫</span><span data-lang="en">TEM / probe attenuation, not immunity</span></small>
+</div>
+<div class="matrix-cell" data-category="foundry" data-row="9" data-tech="efuse"><b><span data-lang="zh">熔斷空洞可見</span><span data-lang="en">Melt void visible</span></b><span class="cell-note"><span data-lang="zh">SEM／光學可讀</span><span data-lang="en">SEM / optical read</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="9" data-tech="maskrom"><b><span data-lang="zh">去層全暴露</span><span data-lang="en">De-layer exposed</span></b><span class="cell-note"><span data-lang="zh">光學可見</span><span data-lang="en">Optically visible</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="9" data-tech="eeprom"><b><span data-lang="zh">電荷探測</span><span data-lang="en">Charge probing</span></b><span class="cell-note"><span data-lang="zh">EM／雷射攻擊面</span><span data-lang="en">EM / laser attack surface</span></span></div>
+<div class="matrix-cell" data-category="otp" data-row="9" data-tech="fgotp"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷／雷射面</span><span data-lang="en">Charge / laser surface</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="9" data-tech="antifuse"><b style="color:#c4a574;"><span data-lang="zh">次閘氧微絲</span><span data-lang="en">Sub-gate filament</span></b><span class="cell-note"><span data-lang="zh">FIB 衰減，非免疫</span><span data-lang="en">FIB attenuation, not immunity</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="9" data-tech="ldmtp"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷探測面</span><span data-lang="en">Charge probe surface</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="9" data-tech="hdmtp"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷探測面</span><span data-lang="en">Charge probe surface</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="9" data-tech="sst"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷探測面</span><span data-lang="en">Charge probe surface</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="9" data-tech="sonos"><b><span data-lang="zh">捕捉層電荷</span><span data-lang="en">Trap charge</span></b><span class="cell-note"><span data-lang="zh">電荷探測面</span><span data-lang="en">Charge probe surface</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="9" data-tech="reram"><b><span data-lang="zh">細絲部分可見</span><span data-lang="en">Filament partly visible</span></b><span class="cell-note"><span data-lang="zh">STEM 可觀測</span><span data-lang="en">STEM observable</span></span></div>
+<div class="matrix-cell" data-category="emerging" data-row="9" data-tech="mram"><b><span data-lang="zh">磁化可探</span><span data-lang="en">Magnetization probeable</span></b><span class="cell-note"><span data-lang="zh">MFM 攻擊面</span><span data-lang="en">MFM attack surface</span></span></div>
 
-          <!-- Row 2: Cell Area Class -->
-          <div class="matrix-row-header">
-            <span data-lang="zh">位元胞面積等級</span><span data-lang="en">Cell Area Class</span>
-            <small><span data-lang="zh">矽面積量級</span><span data-lang="en">Silicon footprint class</span></small>
-          </div>
-          <div class="matrix-cell"><b><span data-lang="zh">大</span><span data-lang="en">Large</span></b><span class="cell-note">60–120 F²</span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">最小</span><span data-lang="en">Smallest</span></b><span class="cell-note">&lt; 8 F²</span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">中</span><span data-lang="en">Medium</span></b><span class="cell-note">20–40 F²</span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">緊湊</span><span data-lang="en">Compact</span></b><span class="cell-note">12–30 F²</span></div>
-          <div class="matrix-cell focus-tech"><b style="color:#dfb77c;"><span data-lang="zh">極緊湊</span><span data-lang="en">Ultra-compact</span></b><span class="cell-note">10–25 F²</span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">大</span><span data-lang="en">Large</span></b><span class="cell-note">60–120+ F²</span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">中／緊湊</span><span data-lang="en">Medium/Compact</span></b><span class="cell-note">25–50 F²</span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">緊湊</span><span data-lang="en">Compact</span></b><span class="cell-note">12–30 F²</span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">中</span><span data-lang="en">Medium</span></b><span class="cell-note">15–35 F²</span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">緊湊</span><span data-lang="en">Compact</span></b><span class="cell-note">15–35 F²</span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">中</span><span data-lang="en">Medium</span></b><span class="cell-note">30–50 F²</span></div>
 
-          <!-- Row 3: PGM/ERS Mechanism (mandatory) -->
-          <div class="matrix-row-header">
-            <span data-lang="zh">PGM／ERS 機制</span><span data-lang="en">PGM / ERS Mechanism</span>
-            <small><span data-lang="zh">寫入與抹除物理</span><span data-lang="en">Program &amp; erase physics</span></small>
-          </div>
-          <div class="matrix-cell"><b><span data-lang="zh">電遷移熔斷</span><span data-lang="en">EM link blow</span></b><span class="cell-note"><span data-lang="zh">不可逆開路</span><span data-lang="en">Irreversible open</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">光罩圖樣</span><span data-lang="en">Mask pattern</span></b><span class="cell-note"><span data-lang="zh">無電氣 PGM</span><span data-lang="en">No electrical PGM</span></span></div>
-          <div class="matrix-cell"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">雙層多晶矽浮閘</span><span data-lang="en">Double-poly floating gate</span></span></div>
-          <div class="matrix-cell"><b>CHEI / None</b><span class="cell-note"><span data-lang="zh">浮閘注入；無電氣抹除</span><span data-lang="en">FG inject; no electrical erase</span></span></div>
-          <div class="matrix-cell focus-tech"><b style="color:#dfb77c;"><span data-lang="zh">閘氧擊穿</span><span data-lang="en">Gate-oxide breakdown</span></b><span class="cell-note"><span data-lang="zh">不可逆導通微絲</span><span data-lang="en">Irreversible filament</span></span></div>
-          <div class="matrix-cell"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">低擾動單層多晶矽</span><span data-lang="en">Low-disturb SP cell</span></span></div>
-          <div class="matrix-cell"><b>CHI / FN</b><span class="cell-note"><span data-lang="zh">熱載子寫入／FN 抹除</span><span data-lang="en">Hot-carrier write / FN erase</span></span></div>
-          <div class="matrix-cell"><b>SSI / FN</b><span class="cell-note"><span data-lang="zh">來源端注入／尖端 FN 抹除</span><span data-lang="en">Source-side inject / tip FN erase</span></span></div>
-          <div class="matrix-cell"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">氮化層捕捉電荷</span><span data-lang="en">Nitride charge trap</span></span></div>
-          <div class="matrix-cell"><b>Forming + SET/RESET</b><span class="cell-note"><span data-lang="zh">細絲形成與切換</span><span data-lang="en">Filament form &amp; switch</span></span></div>
-          <div class="matrix-cell"><b>STT toggle</b><span class="cell-note"><span data-lang="zh">自旋轉矩切換</span><span data-lang="en">Spin-torque switching</span></span></div>
-
-          <!-- Row 4: Program V/I -->
-          <div class="matrix-row-header">
-            <span data-lang="zh">編程電壓與電流</span><span data-lang="en">Program V / I</span>
-            <small><span data-lang="zh">隨製程裝置，不是常數</span><span data-lang="en">Process-set, not a constant</span></small>
-          </div>
-          <div class="matrix-cell"><b><span data-lang="zh">高電流</span><span data-lang="en">High I</span></b><span class="cell-note"><span data-lang="zh">~10–15 mA 量級</span><span data-lang="en">~10–15 mA class</span></span></div>
-          <div class="matrix-cell"><b>N/A</b><span class="cell-note"><span data-lang="zh">光罩寫入</span><span data-lang="en">Mask write</span></span></div>
-          <div class="matrix-cell"><b>FN / HV pump</b><span class="cell-note"><span data-lang="zh">~8–14 V 量級</span><span data-lang="en">~8–14 V class</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">I/O 裝置視窗</span><span data-lang="en">I/O device window</span></b><span class="cell-note"><span data-lang="zh">見脚注 FG-OTP</span><span data-lang="en">See FG-OTP footnote</span></span></div>
-          <div class="matrix-cell focus-tech"><b style="color:#dfb77c;"><span data-lang="zh">隨 core 閘氧</span><span data-lang="en">Tracks core oxide</span></b><span class="cell-note"><span data-lang="zh">數倍 core Vdd</span><span data-lang="en">Several × core Vdd</span></span></div>
-          <div class="matrix-cell"><b>FN window</b><span class="cell-note"><span data-lang="zh">低擾動幫浦</span><span data-lang="en">Low-disturb pump</span></span></div>
-          <div class="matrix-cell"><b>CHI + FN</b><span class="cell-note"><span data-lang="zh">寫／抹不同偏壓</span><span data-lang="en">Split write/erase bias</span></span></div>
-          <div class="matrix-cell"><b>SSI + HV pump</b><span class="cell-note"><span data-lang="zh">寫 10V+5V／抹 12–15V</span><span data-lang="en">Prog 10V+5V / Ers 12–15V</span></span></div>
-          <div class="matrix-cell"><b>FN / HV pump</b><span class="cell-note"><span data-lang="zh">~8–16 V 量級</span><span data-lang="en">~8–16 V class</span></span></div>
-          <div class="matrix-cell"><b>Forming / SET</b><span class="cell-note"><span data-lang="zh">Forming 2.5V / SET 1.5V</span><span data-lang="en">Forming 2.5V / SET 1.5V</span></span></div>
-          <div class="matrix-cell"><b>Near VDD</b><span class="cell-note"><span data-lang="zh">~1.1V · Ic ~30–80 µA</span><span data-lang="en">~1.1V · Ic ~30–80 µA</span></span></div>
-
-          <!-- Row 5: Retention Class -->
-          <div class="matrix-row-header">
-            <span data-lang="zh">高溫留存等級</span><span data-lang="en">Retention Class</span>
-            <small><span data-lang="zh">架構等級，非認證</span><span data-lang="en">Architecture class, not cert</span></small>
-          </div>
-          <div class="matrix-cell"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">永久級</span><span data-lang="en">Permanent class</span></b><span class="cell-note"><span data-lang="zh">光罩固定</span><span data-lang="en">Mask-fixed</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
-          <div class="matrix-cell focus-tech"><b style="color:#dfb77c;"><span data-lang="zh">高溫級</span><span data-lang="en">High-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 175°C 量級</span><span data-lang="en">~10 yr @ 175°C class</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">高溫車規級</span><span data-lang="en">Auto Grade 0</span></b><span class="cell-note"><span data-lang="zh">10 yr @ 150°C / 20 yr @ 125°C</span><span data-lang="en">10 yr @ 150°C / 20 yr @ 125°C</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">商業/工業級</span><span data-lang="en">Commercial/Ind</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 85–105°C</span><span data-lang="en">~10 yr @ 85–105°C</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
-
-          <!-- Row 6: Read Latency -->
-          <div class="matrix-row-header">
-            <span data-lang="zh">讀取延遲（陣列／SA）</span><span data-lang="en">Read Latency (Array / SA)</span>
-            <small><span data-lang="zh">非 SRAM shadow 路徑</span><span data-lang="en">Not SRAM shadow path</span></small>
-          </div>
-          <div class="matrix-cell"><b>~1 µs</b><span class="cell-note"><span data-lang="zh">開機 shadow 到 SRAM</span><span data-lang="en">Boot-shadow to SRAM</span></span></div>
-          <div class="matrix-cell"><b>~5–15 ns</b><span class="cell-note"><span data-lang="zh">靜態 1T 陣列</span><span data-lang="en">Static 1T array</span></span></div>
-          <div class="matrix-cell"><b>~20–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
-          <div class="matrix-cell"><b>~25–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
-          <div class="matrix-cell focus-tech"><b style="color:#dfb77c;">~25–40 ns</b><span class="cell-note"><span data-lang="zh">受 cell current 限制</span><span data-lang="en">Cell-current limited</span></span></div>
-          <div class="matrix-cell"><b>~20–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
-          <div class="matrix-cell"><b>~20–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
-          <div class="matrix-cell"><b>~15–25 ns</b><span class="cell-note"><span data-lang="zh">分離閘極較快</span><span data-lang="en">Split-gate faster</span></span></div>
-          <div class="matrix-cell"><b>~20–35 ns</b><span class="cell-note"><span data-lang="zh">2T 捕捉型</span><span data-lang="en">2T charge-trap</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">數十 ns</span><span data-lang="en">Tens of ns</span></b><span class="cell-note"><span data-lang="zh">陣列／SA 受限</span><span data-lang="en">Array / SA limited</span></span></div>
-          <div class="matrix-cell"><b>~10–25 ns</b><span class="cell-note"><span data-lang="zh">TMR 裕度與防擾動限制</span><span data-lang="en">TMR margin &amp; disturb bound</span></span></div>
-
-          <!-- Row 7: Endurance -->
-          <div class="matrix-row-header">
-            <span data-lang="zh">覆寫耐久度</span><span data-lang="en">Endurance</span>
-            <small><span data-lang="zh">可重寫次數等級</span><span data-lang="en">Rewrite cycle class</span></small>
-          </div>
-          <div class="matrix-cell"><b><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">不可逆</span><span data-lang="en">Irreversible</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">0 次</span><span data-lang="en">0 cycles</span></b><span class="cell-note"><span data-lang="zh">唯讀</span><span data-lang="en">Read-only</span></span></div>
-          <div class="matrix-cell"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">氧化層磨耗</span><span data-lang="en">Oxide wear</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">OTP 單調</span><span data-lang="en">OTP monotonic</span></span></div>
-          <div class="matrix-cell focus-tech"><b style="color:#dfb77c;"><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">不可逆</span><span data-lang="en">Irreversible</span></span></div>
-          <div class="matrix-cell"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">低擾動磨耗</span><span data-lang="en">Low-disturb wear</span></span></div>
-          <div class="matrix-cell"><b>10<sup>3</sup>–10<sup>4</sup></b><span class="cell-note"><span data-lang="zh">熱載子注入介面磨耗</span><span data-lang="en">Hot-carrier interface wear</span></span></div>
-          <div class="matrix-cell"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">氧化層磨耗</span><span data-lang="en">Oxide wear</span></span></div>
-          <div class="matrix-cell"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">捕捉層磨耗</span><span data-lang="en">Trap-layer wear</span></span></div>
-          <div class="matrix-cell"><b>10<sup>5</sup>–10<sup>6</sup></b><span class="cell-note"><span data-lang="zh">細絲磨耗</span><span data-lang="en">Filament wear</span></span></div>
-          <div class="matrix-cell"><b>10<sup>6</sup>–10<sup>10</sup></b><span class="cell-note"><span data-lang="zh">受限於 1nm MgO TDDB</span><span data-lang="en">Bounded by MgO TDDB</span></span></div>
-
-          <!-- Row 8: Scaling -->
-          <div class="matrix-row-header">
-            <span data-lang="zh">製程微縮</span><span data-lang="en">Scaling</span>
-            <small><span data-lang="zh">成熟下限與先進上限</span><span data-lang="en">Mature floor &amp; advanced ceiling</span></small>
-          </div>
-          <div class="matrix-cell"><b><span data-lang="zh">電流／IR 受限</span><span data-lang="en">Current / IR limited</span></b><span class="cell-note"><span data-lang="zh">非固定 16 nm 止點</span><span data-lang="en">Not a hard 16 nm stop</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">金屬間距</span><span data-lang="en">Metal pitch</span></b><span class="cell-note"><span data-lang="zh">接觸密度受限</span><span data-lang="en">Contact density bound</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">平面 ~90/130 nm</span><span data-lang="en">Planar ~90/130 nm</span></b><span class="cell-note"><span data-lang="zh">雙層多晶矽熱預算限制</span><span data-lang="en">DP thermal budget bound</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">I/O 或 logic FG</span><span data-lang="en">I/O or logic FG</span></b><span class="cell-note"><span data-lang="zh">依整合路徑</span><span data-lang="en">Integration-path set</span></span></div>
-          <div class="matrix-cell focus-tech"><b style="color:#dfb77c;"><span data-lang="zh">微縮至 2nm GAA</span><span data-lang="en">Down to 2nm GAA</span></b><span class="cell-note"><span data-lang="zh">先進節點唯一 0-Mask OTP</span><span data-lang="en">Only 0-mask OTP in GAA</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">FinFET 無法實作單層浮閘</span><span data-lang="en">FinFET stops single-poly FG</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">FinFET 無法實作單層浮閘</span><span data-lang="en">FinFET stops single-poly FG</span></span></div>
-          <div class="matrix-cell" style="color:#b91c1c;"><b><span data-lang="zh">平面 ~28 nm</span><span data-lang="en">Planar ~28 nm</span></b><span class="cell-note"><span data-lang="zh">HV 幫浦 vs FinFET</span><span data-lang="en">HV pump vs FinFET</span></span></div>
-          <div class="matrix-cell" style="color:#b91c1c;"><b><span data-lang="zh">平面 ~28 nm</span><span data-lang="en">Planar ~28 nm</span></b><span class="cell-note"><span data-lang="zh">捕捉層熱預算</span><span data-lang="en">Trap thermal budget</span></span></div>
-          <div class="matrix-cell"><b>BEOL</b><span class="cell-note"><span data-lang="zh">Forming 隨節點</span><span data-lang="en">Forming node-set</span></span></div>
-          <div class="matrix-cell"><b>BEOL MTJ</b><span class="cell-note"><span data-lang="zh">隨代工 BEOL</span><span data-lang="en">Foundry BEOL set</span></span></div>
-
-          <!-- Row 9: Anti-Tamper Geometry -->
-          <div class="matrix-row-header">
-            <span data-lang="zh">防竄改幾何</span><span data-lang="en">Anti-Tamper Geometry</span>
-            <small><span data-lang="zh">TEM／探針衰減，非免疫</span><span data-lang="en">TEM / probe attenuation, not immunity</span></small>
-          </div>
-          <div class="matrix-cell"><b><span data-lang="zh">熔斷空洞可見</span><span data-lang="en">Melt void visible</span></b><span class="cell-note"><span data-lang="zh">SEM／光學可讀</span><span data-lang="en">SEM / optical read</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">去層全暴露</span><span data-lang="en">De-layer exposed</span></b><span class="cell-note"><span data-lang="zh">光學可見</span><span data-lang="en">Optically visible</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">電荷探測</span><span data-lang="en">Charge probing</span></b><span class="cell-note"><span data-lang="zh">EM／雷射攻擊面</span><span data-lang="en">EM / laser attack surface</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷／雷射面</span><span data-lang="en">Charge / laser surface</span></span></div>
-          <div class="matrix-cell focus-tech"><b style="color:#c4a574;"><span data-lang="zh">次閘氧微絲</span><span data-lang="en">Sub-gate filament</span></b><span class="cell-note"><span data-lang="zh">FIB 衰減，非免疫</span><span data-lang="en">FIB attenuation, not immunity</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷探測面</span><span data-lang="en">Charge probe surface</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷探測面</span><span data-lang="en">Charge probe surface</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷探測面</span><span data-lang="en">Charge probe surface</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">捕捉層電荷</span><span data-lang="en">Trap charge</span></b><span class="cell-note"><span data-lang="zh">電荷探測面</span><span data-lang="en">Charge probe surface</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">細絲部分可見</span><span data-lang="en">Filament partly visible</span></b><span class="cell-note"><span data-lang="zh">STEM 可觀測</span><span data-lang="en">STEM observable</span></span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">磁化可探</span><span data-lang="en">Magnetization probeable</span></b><span class="cell-note"><span data-lang="zh">MFM 攻擊面</span><span data-lang="en">MFM attack surface</span></span></div>
-        </div>
-      </div>
-            <!-- STRUCTURED ENGINEERING NOTES PANEL -->
+<!-- STRUCTURED ENGINEERING NOTES PANEL -->
       <div class="matrix-notes-panel" role="region" aria-label="Architectural Boundary &amp; 9-Dimension Engineering Notes" data-aria-zh="架構工程邊界與九維度註解規範" data-aria-en="Architectural Boundary &amp; 9-Dimension Engineering Notes">
         <div class="matrix-notes-header">
           <div class="matrix-notes-title">
@@ -1694,7 +2001,7 @@
 
             <div class="foundry-node-tile">
               <div class="node-header-row">
-                <span class="node-pill">邏輯 OTP / MTP 生態系</span>
+                <span class="node-pill"><span data-lang="zh">邏輯 OTP / MTP 生態系</span><span data-lang="en">Logic OTP / MTP Ecosystem</span></span>
                 <span class="status-pill status-prod">0-Mask Native</span>
               </div>
               <div>
@@ -1767,7 +2074,7 @@
 
             <div class="foundry-node-tile">
               <div class="node-header-row">
-                <span class="node-pill">SF4A (4nm) 與 SF3 / SF2</span>
+                <span class="node-pill"><span data-lang="zh">SF4A (4nm) 與 SF3 / SF2</span><span data-lang="en">SF4A (4nm) &amp; SF3 / SF2</span></span>
                 <span class="status-pill status-rd">MBCFET GAA Next-Gen</span>
               </div>
               <div>
@@ -2394,6 +2701,7 @@
       panels.forEach(p => railObserver.observe(p));
     });
   </script>
+<script src="matrix-interactive.js?v=20260914-v1"></script>
 <script src="專題選單導覽.js?v=20260910-bilingual"></script>
 </body>
 </html>
