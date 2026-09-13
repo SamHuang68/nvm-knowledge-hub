@@ -4,6 +4,7 @@ test_hub_integrity_v3.py — NVM Knowledge Hub V3.0 架構重構驗證
 """
 import re
 import json
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 BASE = Path(__file__).resolve().parent.parent
@@ -783,6 +784,115 @@ def run_tests() -> None:
 
     test("全站 16 個公開頁面之 JSON-LD publisher 100% 完整宣告官方首頁 URL",
          missing_pub_urls == 0)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 33: 搜尋引擎 Sitemap 索引對齊、Robots 協定與 Schema.org 時間軸作者宣告
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 33: 搜尋引擎 Sitemap 索引對齊、Robots 協定與 Schema.org 時間軸作者宣告 ═══")
+
+    # 1. 驗證 robots.txt 存在且宣告全站 Allow 與 Sitemap 指引
+    robots_path = BASE / "robots.txt"
+    test("robots.txt 實體存在", robots_path.exists())
+    robots_txt = robots_path.read_text(encoding="utf-8")
+    test("robots.txt 宣告 Allow: / 全站抓取權限與 sitemap.xml 索引指引",
+         "Allow: /" in robots_txt and "Sitemap: https://samhuang68.github.io/nvm-knowledge-hub/sitemap.xml" in robots_txt)
+
+    # 2. 驗證 sitemap.xml 與全站 16 個公開頁面 canonical URL 雙向對齊 (Bijection)
+    sitemap_path = BASE / "sitemap.xml"
+    test("sitemap.xml 實體存在", sitemap_path.exists())
+    tree = ET.parse(sitemap_path)
+    ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    sitemap_elements = tree.getroot().findall("sm:url", ns)
+    sitemap_urls = [elem.find("sm:loc", ns).text.strip() for elem in sitemap_elements if elem.find("sm:loc", ns) is not None]
+
+    canonical_map = {}
+    for p in public_surfaces:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        can_match = re.search(r'<link\s+[^>]*rel=["\']canonical["\'][^>]*href=["\']([^"\']+)["\']', p_text)
+        if not can_match:
+            can_match = re.search(r'<link\s+[^>]*href=["\']([^"\']+)["\'][^>]*rel=["\']canonical["\']', p_text)
+        canonical_map[p] = can_match.group(1) if can_match else ""
+
+    test("sitemap.xml 包含完整 16 個公開頁面 URL 且與全站 Canonical 100% 雙向對齊 (零遺漏、零死連結)",
+         set(sitemap_urls) == set(canonical_map.values()) and len(sitemap_urls) == len(public_surfaces))
+
+    # 3. 驗證 sitemap.xml 中每個 URL 之 lastmod 格式符合 W3C Datetime
+    invalid_lastmods = 0
+    for elem in sitemap_elements:
+        loc = elem.find("sm:loc", ns).text.strip()
+        lastmod = elem.find("sm:lastmod", ns)
+        lastmod_val = lastmod.text.strip() if lastmod is not None else ""
+        is_valid_date = bool(re.match(r"^\d{4}-\d{2}-\d{2}$", lastmod_val))
+        if not is_valid_date:
+            invalid_lastmods += 1
+        test(f"sitemap.xml 項目 {loc.split('/')[-1] or 'root'} lastmod 符合 W3C 日期格式 ({lastmod_val})", is_valid_date)
+    test("sitemap.xml 所有條目 100% 具備標準 W3C YYYY-MM-DD lastmod 格式", invalid_lastmods == 0)
+
+    # 4. 驗證 sitemap.xml priority 範圍 (0.0 ~ 1.0) 與 changefreq 列舉有效性
+    valid_freqs = {"always", "hourly", "daily", "weekly", "monthly", "yearly", "never"}
+    invalid_prios = 0
+    invalid_freqs_cnt = 0
+    for elem in sitemap_elements:
+        prio = elem.find("sm:priority", ns)
+        prio_val = float(prio.text.strip()) if prio is not None else -1.0
+        if not (0.0 <= prio_val <= 1.0):
+            invalid_prios += 1
+        freq = elem.find("sm:changefreq", ns)
+        freq_val = freq.text.strip() if freq is not None else ""
+        if freq_val not in valid_freqs:
+            invalid_freqs_cnt += 1
+    test("sitemap.xml 所有條目 priority 介於 0.0 至 1.0 之間", invalid_prios == 0)
+    test("sitemap.xml 所有條目 changefreq 均為 W3C 標準列舉值", invalid_freqs_cnt == 0)
+
+    # 5. 驗證全站 16 個公開頁面 JSON-LD 100% 包含標準 author 組織宣告
+    missing_authors = 0
+    for p in public_surfaces:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        s_match = re.search(r'<script\s+type=["\']application/ld\+json["\']>(.*?)</script>', p_text, re.DOTALL)
+        has_author = False
+        if s_match:
+            try:
+                ld = json.loads(s_match.group(1))
+                auth = ld.get("author", {})
+                has_author = (auth.get("@type") == "Organization" and
+                              auth.get("name") == "NVM Knowledge Hub Editorial Board" and
+                              auth.get("url") == hub_url)
+            except Exception:
+                pass
+        if not has_author:
+            missing_authors += 1
+        test(f"{p} JSON-LD 具備標準 author 編輯委員會組織宣告與官方網址", has_author)
+    test("全站 16 個公開頁面之 JSON-LD 100% 包含標準 author 組織結構化實體", missing_authors == 0)
+
+    # 6. 驗證全站 15 個 TechArticle 頁面 100% 宣告 datePublished 與 dateModified 標準時間軸
+    missing_timeline = 0
+    for p in tech_articles:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        s_match = re.search(r'<script\s+type=["\']application/ld\+json["\']>(.*?)</script>', p_text, re.DOTALL)
+        has_timeline = False
+        if s_match:
+            try:
+                ld = json.loads(s_match.group(1))
+                has_timeline = (ld.get("datePublished") == "2026-08-29T00:00:00+08:00" and
+                                ld.get("dateModified") == "2026-09-10T00:00:00+08:00")
+            except Exception:
+                pass
+        if not has_timeline:
+            missing_timeline += 1
+        test(f"{p} JSON-LD 具備標準 datePublished 與 dateModified 時間軸", has_timeline)
+    test("全站 15 個 TechArticle 頁面 100% 宣告符合 ISO 8601 之發布與修訂時間軸", missing_timeline == 0)
+
+    # 7. 驗證全站 15 個 TechArticle 頁面 100% 宣告 Open Graph article 延伸標籤
+    missing_og_articles = 0
+    for p in tech_articles:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        has_og_art = ('property="article:published_time" content="2026-08-29T00:00:00+08:00"' in p_text and
+                      'property="article:modified_time" content="2026-09-10T00:00:00+08:00"' in p_text and
+                      'property="article:author" content="NVM Knowledge Hub Editorial Board"' in p_text)
+        if not has_og_art:
+            missing_og_articles += 1
+        test(f"{p} 具備完整 Open Graph article:published_time/modified_time/author 標籤", has_og_art)
+    test("全站 15 個 TechArticle 頁面 100% 包含完整 Open Graph article 延伸中繼標籤", missing_og_articles == 0)
 
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
