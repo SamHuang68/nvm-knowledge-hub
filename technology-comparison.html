@@ -599,34 +599,200 @@
       transition: width 0.35s ease;
     }
 
-    /* Foundry Grid */
+    /* Matrix Notes Panel - Re-architectured Structured Notes */
+    .matrix-notes-panel {
+      margin: 1.5rem 0 2rem;
+      background: #051a26;
+      border: 1px solid rgba(196, 165, 116, 0.25);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 24px -4px rgba(3, 19, 30, 0.4);
+    }
+    .matrix-notes-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px solid rgba(196, 165, 116, 0.18);
+      padding-bottom: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .matrix-notes-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font: 700 1.05rem 'IBM Plex Mono', monospace;
+      color: #f8fafc;
+    }
+    .notes-badge {
+      font: 700 10px 'IBM Plex Mono', monospace;
+      background: rgba(196, 165, 116, 0.15);
+      color: #c4a574;
+      border: 1px solid rgba(196, 165, 116, 0.35);
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+    .matrix-disclaimer-pill {
+      font: 500 11.5px/1.4 'IBM Plex Mono', monospace;
+      color: #f59e0b;
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .matrix-notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .matrix-note-card {
+      background: #082433;
+      border: 1px solid rgba(196, 165, 116, 0.18);
+      border-radius: 6px;
+      padding: 1.15rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .note-card-badge {
+      font: 700 10px 'IBM Plex Mono', monospace;
+      letter-spacing: 0.06em;
+    }
+    .matrix-note-card h3, .matrix-note-card .note-card-title {
+      margin: 0;
+      font: 700 1.02rem 'IBM Plex Mono', monospace;
+      color: #f1f5f9;
+      border-bottom: 1px solid rgba(196, 165, 116, 0.12);
+      padding-bottom: 0.4rem;
+    }
+    .note-card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+    .note-card-list li {
+      position: relative;
+      padding-left: 14px;
+    }
+    .note-card-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: #c4a574;
+      font-size: 0.75rem;
+      top: 0;
+    }
+    .note-card-list b {
+      color: #e2e8f0;
+    }
+
+    /* Enhanced Foundry Cards & Node Tiles */
     .foundry-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.5rem;
       margin: 2rem 0;
     }
     .foundry-card {
-      background: #082433;
-      border: 1px solid rgba(196, 165, 116, 0.2);
+      background: #061b27;
+      border: 1px solid rgba(196, 165, 116, 0.22);
       border-radius: 8px;
       padding: 1.5rem;
       border-top: 4px solid #c4a574;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
       transition: transform 0.2s, border-color 0.2s;
     }
     .foundry-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       border-color: rgba(196, 165, 116, 0.45);
     }
     .foundry-card.tsmc { border-top-color: #c4a574; }
     .foundry-card.umc { border-top-color: #f59e0b; }
     .foundry-card.gf { border-top-color: #c4a574; }
     .foundry-card.sec { border-top-color: #3b82f6; }
-    .foundry-card h3,
-    .foundry-card h4 {
-      font: 700 1.25rem/1.2 'IBM Plex Mono', monospace;
+    .foundry-card-top {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      border-bottom: 1px solid rgba(196, 165, 116, 0.15);
+      padding-bottom: 0.75rem;
+    }
+    .foundry-brand-pill {
+      font: 700 10.5px 'IBM Plex Mono', monospace;
+      letter-spacing: 0.08em;
+    }
+    .foundry-card h3 {
+      font: 800 1.35rem 'IBM Plex Mono', monospace;
       color: #f8fafc;
-      margin: 0 0 0.5rem;
+      margin: 0;
+    }
+    .foundry-node-tiles {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .foundry-node-tile {
+      background: rgba(8, 36, 51, 0.75);
+      border: 1px solid rgba(196, 165, 116, 0.16);
+      border-radius: 6px;
+      padding: 0.75rem 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: #cbd5e1;
+    }
+    .foundry-node-tile:hover {
+      background: rgba(8, 36, 51, 0.95);
+      border-color: rgba(196, 165, 116, 0.3);
+    }
+    .node-header-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+    .node-pill {
+      font: 700 11px 'IBM Plex Mono', monospace;
+      color: #f1f5f9;
+    }
+    .status-pill {
+      font: 700 9.5px 'IBM Plex Mono', monospace;
+      padding: 2px 6px;
+      border-radius: 3px;
+      letter-spacing: 0.04em;
+    }
+    .status-prod {
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+    .status-auto {
+      background: rgba(245, 158, 11, 0.12);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+    .status-rd {
+      background: rgba(59, 130, 246, 0.12);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    .status-cliff {
+      background: rgba(239, 68, 68, 0.12);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.3);
     }
 
     /* Decision Pipeline */
@@ -857,11 +1023,11 @@
           <div class="matrix-header"><span data-lang="zh">評估維度</span><span data-lang="en">DIMENSION</span></div>
           <div class="matrix-header">eFuse</div>
           <div class="matrix-header">Mask ROM</div>
-          <div class="matrix-header">EEPROM-DP<br><span class="cell-note"><span data-lang="zh">雙層多晶 EEPROM</span><span data-lang="en">Double-poly EEPROM</span></span></div>
+          <div class="matrix-header">EEPROM</div>
           <div class="matrix-header">FG-OTP</div>
           <div class="matrix-header focus-tech">AntiFuse</div>
-          <div class="matrix-header">LD-MTP<br><span class="badge-win">FN / FN</span></div>
-          <div class="matrix-header">HD-MTP<br><span class="badge-win">CHI / FN</span></div>
+          <div class="matrix-header">LD-MTP</div>
+          <div class="matrix-header">HD-MTP</div>
           <div class="matrix-header">SST</div>
           <div class="matrix-header">SONOS</div>
           <div class="matrix-header">ReRAM</div>
@@ -898,7 +1064,7 @@
           <div class="matrix-cell"><b><span data-lang="zh">中／緊湊</span><span data-lang="en">Medium/Compact</span></b><span class="cell-note">25–50 F²</span></div>
           <div class="matrix-cell"><b><span data-lang="zh">緊湊</span><span data-lang="en">Compact</span></b><span class="cell-note">12–30 F²</span></div>
           <div class="matrix-cell"><b><span data-lang="zh">中</span><span data-lang="en">Medium</span></b><span class="cell-note">15–35 F²</span></div>
-          <div class="matrix-cell"><b><span data-lang="zh">大</span><span data-lang="en">Large</span></b><span class="cell-note">60–120+ F²</span></div>
+          <div class="matrix-cell"><b><span data-lang="zh">緊湊</span><span data-lang="en">Compact</span></b><span class="cell-note">15–35 F²</span></div>
           <div class="matrix-cell"><b><span data-lang="zh">中</span><span data-lang="en">Medium</span></b><span class="cell-note">30–50 F²</span></div>
 
           <!-- Row 3: PGM/ERS Mechanism (mandatory) -->
@@ -947,9 +1113,9 @@
           <div class="matrix-cell focus-tech"><b style="color:#6f5536;"><span data-lang="zh">高溫級</span><span data-lang="en">High-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 175°C 量級</span><span data-lang="en">~10 yr @ 175°C class</span></span></div>
           <div class="matrix-cell"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
           <div class="matrix-cell"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
-          <div class="matrix-cell><b><span data-lang="zh">高溫車規級</span><span data-lang="en">Auto Grade 0</span></b><span class="cell-note"><span data-lang="zh">10 yr @ 150°C / 20 yr @ 125°C</span><span data-lang="en">10 yr @ 150°C / 20 yr @ 125°C</span></span></div>
+          <div class="matrix-cell"><b><span data-lang="zh">高溫車規級</span><span data-lang="en">Auto Grade 0</span></b><span class="cell-note"><span data-lang="zh">10 yr @ 150°C / 20 yr @ 125°C</span><span data-lang="en">10 yr @ 150°C / 20 yr @ 125°C</span></span></div>
           <div class="matrix-cell"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
-          <div class="matrix-cell><b><span data-lang="zh">商業/工業級</span><span data-lang="en">Commercial/Ind</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 85–105°C</span><span data-lang="en">~10 yr @ 85–105°C</span></span></div>
+          <div class="matrix-cell"><b><span data-lang="zh">商業/工業級</span><span data-lang="en">Commercial/Ind</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 85–105°C</span><span data-lang="en">~10 yr @ 85–105°C</span></span></div>
           <div class="matrix-cell"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
 
           <!-- Row 6: Read Latency -->
@@ -1021,10 +1187,126 @@
           <div class="matrix-cell"><b><span data-lang="zh">磁化可探</span><span data-lang="en">Magnetization probeable</span></b><span class="cell-note"><span data-lang="zh">MFM 攻擊面</span><span data-lang="en">MFM attack surface</span></span></div>
         </div>
       </div>
-      <p class="matrix-footnote">
-        <span data-lang="zh">表內數字是架構量級，不是具名巨集 datasheet，也不是出貨證明。零額外光罩 ≠ 晶圓免費。光罩增加道數為架構等級，不是 PDK 報價。EEPROM-DP 不得硬編 +4–8，須依額外 poly／模組層數 VERIFY。LD-MTP 通常為 +0（如 NeoEE 類，但需 &gt;80% 耦合比使單元面積達 60–120+ F²）。HD-MTP 須供應商分流：Impinj／AEON 級 +0；YMC +0–2；eMemory NeoMTP baseline +0、gen2 +2（well-implant 光罩，單元面積 25–50 F²，見 <a href="https://www.chipestimate.com/CMOS-Compatible-MTP-in-Advanced-BCD-Applications/eMemory/Technical-Article/2022/11/29" target="_blank" rel="noopener noreferrer">ChipEstimate 2022-11-29</a>）。單層多晶矽 MTP 受限於平面擴散區耦合電容與 3D 閘極幾何衝突，其製程微縮止於 28nm/22nm 平面節點，無法延伸至 FinFET。SST 分離閘極 eFlash 不得合併：ESF1 例 +4（GF 130BCDLite）；ESF2 VERIFY；ESF3 例 +10（GF 28SLPe 含 5V I/O）；其寫入採用專利來源端注入（SSI）高效率熱電子傳輸，抹除為多晶矽尖端 FN 穿隧。SONOS 為 Floadia G1 級 +2–3，非 +6–10；原廠 PDK／SPICE 保留（Floadia 公開）。代工量產 eMRAM 覆寫受限於約 1 nm MgO 穿隧絕緣層之 TDDB 介電崩潰，eFlash 替換模式量產規格為 10⁵–10⁶ 次，工作快取模式為 10⁸–10¹⁰ 次，不應與實驗室原型之 &gt;10¹² 次混淆；STT-MRAM 讀取延遲受限於 100%–180% 之微弱 TMR 信號與防止誤翻轉之低壓偏置，原生陣列延遲為 10–25 ns，非 SRAM 級別之 1–2 ns。AntiFuse 編程是 core 裝置閘氧崩潰：Vpgm 由該製程閘氧厚度與允許的擊穿時間決定，隨 core 縮放並成功延伸至 2nm GAA 奈米片。公開專利把約 32 Å 閘氧的 VPP 放在 8–9 V、約 20 Å 放在 5–6 V；原廠具名製程例另顯示 1.8 V core 須承受遠高於 Vdd 的編程應力。FG-OTP 的 I/O 浮閘熱載子注入是另一條路徑：3.3 V／5 V PMOS 約 6.5 V／7.5 V PGM，同節點 NMOS 浮閘更高；此 I/O 浮閘 HCI 對照為公開文獻／架構量級，不得回填到 core 閘氧 AntiFuse。讀取延遲指陣列／sense amplifier 路徑；eFuse 原生約 µs 量級，實務上開機 shadow 到 SRAM。TEM／DPA 描述為幾何與架構衰減，非絕對免疫。具名產品仍以該版 IP 為準。</span>
-        <span data-lang="en">Figures are architecture-class ranges, not a named-macro datasheet and not shipment proof. Zero extra masks ≠ free wafers. Mask adder counts are architecture-class, not PDK quotes. Do not hard-code EEPROM-DP at +4–8; count extra poly/module layers and VERIFY. LD-MTP is typically +0 (e.g. NeoEE-class, requiring &gt;80% coupling ratio yielding 60–120+ F² cells). HD-MTP requires vendor split: Impinj/AEON-class +0; YMC +0–2; eMemory NeoMTP baseline +0 / gen2 +2 (well-implant masks, cell 25–50 F² per <a href="https://www.chipestimate.com/CMOS-Compatible-MTP-in-Advanced-BCD-Applications/eMemory/Technical-Article/2022/11/29" target="_blank" rel="noopener noreferrer">ChipEstimate 2022-11-29</a>). Single-poly MTP scaling stops at 28nm/22nm planar nodes due to 3D FinFET coupling-capacitor topology barriers. SST must not be lumped: ESF1 ex. +4 (GF 130BCDLite); ESF2 VERIFY; ESF3 ex. +10 (GF 28SLPe incl. 5V I/O); programming relies on patented Source-Side Injection (SSI) and poly-tip FN erase. SONOS is Floadia G1-class +2–3, not +6–10; original PDK/SPICE preserved (Floadia public). Commercial eMRAM endurance is bounded by 1nm MgO TDDB (10⁵–10⁶ for eFlash replacement; 10⁸–10¹⁰ for cache), distinct from &gt;10¹² lab prototypes. STT-MRAM array read latency is 10–25 ns due to 100%–180% TMR margins and disturb bounds, not 1–2 ns SRAM-speed. AntiFuse programming is core-device gate-oxide breakdown scaling cleanly to 2nm GAA nanosheets. Public teaching places VPP near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å; a named foundry case separately shows that a 1.8 V core must survive program stress well above Vdd. FG-OTP I/O floating-gate hot-carrier injection (~6.5 V PGM on 3.3 V PMOS, ~7.5 V on 5 V PMOS) is public literature / architecture-class and must not be back-filled onto core-oxide AntiFuse. Read latency is the array/sense-amplifier path. Native eFuse sensing is ~µs-class, so systems shadow fuses into SRAM at boot. TEM/DPA descriptions represent geometric/architectural attenuation, not absolute immunity. Check the specific IP revision.</span>
-      </p>
+            <!-- STRUCTURED ENGINEERING NOTES PANEL -->
+      <div class="matrix-notes-panel" role="region" aria-label="Architectural Boundary &amp; 9-Dimension Engineering Notes" data-aria-zh="架構工程邊界與九維度註解規範" data-aria-en="Architectural Boundary &amp; 9-Dimension Engineering Notes">
+        <div class="matrix-notes-header">
+          <div class="matrix-notes-title">
+            <span class="notes-badge">NOTES &amp; BOUNDARIES</span>
+            <span data-lang="zh">架構工程邊界與九維度註解規範</span>
+            <span data-lang="en">Architectural Boundary &amp; 9-Dimension Engineering Notes</span>
+          </div>
+          <div class="matrix-disclaimer-pill">
+            <span data-lang="zh">⚠️ 表內數據為架構量級，非具名巨集 Datasheet 或出貨保證；零額外光罩 ≠ 晶圓免費</span>
+            <span data-lang="en">⚠️ Figures are architecture-class ranges, not named-macro datasheets; zero extra masks ≠ free wafers</span>
+          </div>
+        </div>
+
+        <div class="matrix-notes-grid">
+          <!-- Card 1: 0-Mask 成本與加價階梯 -->
+          <div class="matrix-note-card">
+            <div class="note-card-badge" style="color: #c4a574;">01 · MASK ADDERS &amp; WAFER ECONOMICS</div>
+            <h3 class="note-card-title">
+              <span data-lang="zh">光罩加價道數與供應商分流</span>
+              <span data-lang="en">Mask Adders &amp; Vendor Split</span>
+            </h3>
+            <ul class="note-card-list">
+              <li>
+                <b><span data-lang="zh">光罩增加道數為架構等級</span><span data-lang="en">Architecture Class</span></b>：
+                <span data-lang="zh">非代工廠 PDK 報價。EEPROM-DP 不得硬編 +4–8，須依額外 poly／模組層數 VERIFY。</span>
+                <span data-lang="en">Not PDK quotes. Do not hard-code EEPROM-DP at +4–8; count extra poly/module layers and VERIFY.</span>
+              </li>
+              <li>
+                <b><span data-lang="zh">MTP 供應商分流</span><span data-lang="en">MTP Vendor Split</span></b>：
+                <span data-lang="zh">LD-MTP 通常為 +0（如 NeoEE 類）。HD-MTP 須分流：Impinj／AEON 級 +0；YMC +0–2；eMemory NeoMTP baseline +0、gen2 +2（well-implant 光罩，單元面積 25–50 F²，見 <a href="https://www.chipestimate.com/CMOS-Compatible-MTP-in-Advanced-BCD-Applications/eMemory/Technical-Article/2022/11/29" target="_blank" rel="noopener noreferrer">ChipEstimate 2022-11-29</a>）。</span>
+                <span data-lang="en">LD-MTP is typically +0 (e.g. NeoEE). HD-MTP requires vendor split: Impinj/AEON +0; YMC +0–2; eMemory NeoMTP baseline +0 / gen2 +2 (well-implant masks, cell 25–50 F² per <a href="https://www.chipestimate.com/CMOS-Compatible-MTP-in-Advanced-BCD-Applications/eMemory/Technical-Article/2022/11/29" target="_blank" rel="noopener noreferrer">ChipEstimate 2022-11-29</a>).</span>
+              </li>
+              <li>
+                <b><span data-lang="zh">eFlash 模組階梯</span><span data-lang="en">eFlash Hierarchy</span></b>：
+                <span data-lang="zh">SST 不得合併：ESF1 例 +4（GF 130BCDLite）；ESF2 VERIFY；ESF3 例 +10（GF 28SLPe 含 5V I/O）。SONOS 為 Floadia G1 級 +2–3，非 +6–10；原廠 PDK／SPICE 保留（Floadia 公開）。</span>
+                <span data-lang="en">SST must not be lumped: ESF1 ex. +4 (GF 130BCDLite); ESF2 VERIFY; ESF3 ex. +10 (GF 28SLPe incl. 5V I/O). SONOS is Floadia G1-class +2–3, not +6–10; original PDK/SPICE preserved (Floadia public).</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2: 單元拓撲與微縮斷崖 -->
+          <div class="matrix-note-card">
+            <div class="note-card-badge" style="color: #f59e0b;">02 · CELL TOPOLOGY &amp; SCALING CLIFF</div>
+            <h3 class="note-card-title">
+              <span data-lang="zh">位元胞幾何與 3D 微縮邊界</span>
+              <span data-lang="en">Cell Geometry &amp; 3D Scaling Limits</span>
+            </h3>
+            <ul class="note-card-list">
+              <li>
+                <b><span data-lang="zh">單元面積物理約束</span><span data-lang="en">Cell Area Constraint</span></b>：
+                <span data-lang="zh">LD-MTP 因需 &gt;80% 電容耦合比，單元面積達 60–120+ F²；HD-MTP 藉熱載子注入大幅縮小耦合電容，面積壓縮至 25–50 F²。</span>
+                <span data-lang="en">LD-MTP requires &gt;80% coupling ratio, requiring 60–120+ F² cells; HD-MTP leverages hot-carrier injection to compress cell area to 25–50 F².</span>
+              </li>
+              <li>
+                <b><span data-lang="zh">FinFET 3D 閘極微縮斷崖</span><span data-lang="en">FinFET 3D Scaling Cliff</span></b>：
+                <span data-lang="zh">單層多晶矽 MTP 受限於平面擴散區耦合電容與 3D 鰭狀閘極幾何衝突，其製程微縮止於 28nm/22nm 平面節點，無法延伸至 FinFET。</span>
+                <span data-lang="en">Single-poly MTP scaling stops at 28nm/22nm planar nodes due to 3D FinFET coupling-capacitor topology barriers.</span>
+              </li>
+              <li>
+                <b><span data-lang="zh">先進節點 0-Mask 延伸</span><span data-lang="en">Advanced Node Extension</span></b>：
+                <span data-lang="zh">AntiFuse 編程是 core 裝置閘氧崩潰：Vpgm 由該製程閘氧厚度與允許擊穿時間決定，隨 core 縮放並成功延伸至 2nm GAA 奈米片。</span>
+                <span data-lang="en">AntiFuse programming is core-device gate-oxide breakdown scaling cleanly to 2nm GAA nanosheets.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 3: 寫入機制與可靠度邊界 -->
+          <div class="matrix-note-card">
+            <div class="note-card-badge" style="color: #c4a574;">03 · PROGRAMMING &amp; RELIABILITY</div>
+            <h3 class="note-card-title">
+              <span data-lang="zh">載子傳輸機制與耐久度極限</span>
+              <span data-lang="en">Carrier Transport &amp; Endurance Limits</span>
+            </h3>
+            <ul class="note-card-list">
+              <li>
+                <b><span data-lang="zh">SST 來源端注入 (SSI)</span><span data-lang="en">SST Source-Side Injection</span></b>：
+                <span data-lang="zh">寫入採用專利來源端注入（SSI）高效率熱電子傳輸，抹除則為多晶矽尖端 FN 穿隧。</span>
+                <span data-lang="en">SST eFlash programming relies on patented Source-Side Injection (SSI) and poly-tip FN erase.</span>
+              </li>
+              <li>
+                <b><span data-lang="zh">eMRAM TDDB 壽命極限</span><span data-lang="en">eMRAM TDDB Limit</span></b>：
+                <span data-lang="zh">代工量產 eMRAM 覆寫受限於約 1 nm MgO 穿隧絕緣層之 TDDB 介電崩潰，eFlash 替換模式量產規格為 10⁵–10⁶ 次，工作快取模式為 10⁸–10¹⁰ 次，不應與實驗室原型之 &gt;10¹² 次混淆。</span>
+                <span data-lang="en">Commercial eMRAM endurance is bounded by 1nm MgO TDDB (10⁵–10⁶ for eFlash replacement; 10⁸–10¹⁰ for cache), distinct from &gt;10¹² lab prototypes.</span>
+              </li>
+              <li>
+                <b><span data-lang="zh">STT-MRAM 陣列讀取延遲</span><span data-lang="en">STT-MRAM Read Latency</span></b>：
+                <span data-lang="zh">受限於 100%–180% 之微弱 TMR 信號與防止誤翻轉之低壓偏置，原生陣列延遲為 10–25 ns，非 SRAM 級別之 1–2 ns。</span>
+                <span data-lang="en">STT-MRAM array read latency is 10–25 ns due to 100%–180% TMR margins and disturb bounds, not 1–2 ns SRAM-speed.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 4: 編程電壓與實體安全屏障 -->
+          <div class="matrix-note-card">
+            <div class="note-card-badge" style="color: #3b82f6;">04 · VOLTAGE WINDOWS &amp; SECURITY</div>
+            <h3 class="note-card-title">
+              <span data-lang="zh">電壓視窗與實體安全責任鏈</span>
+              <span data-lang="en">Voltage Windows &amp; Layered Security</span>
+            </h3>
+            <ul class="note-card-list">
+              <li>
+                <b><span data-lang="zh">編程電壓視窗區隔</span><span data-lang="en">Voltage Window Separation</span></b>：
+                <span data-lang="zh">公開專利把約 32 Å 閘氧的 VPP 放在 8–9 V、約 20 Å 放在 5–6 V；原廠具名製程例顯示 1.8 V core 須承受遠高於 Vdd 的編程應力。FG-OTP 的 I/O 浮閘熱載子注入（3.3 V／5 V PMOS 約 6.5 V／7.5 V PGM）為公開文獻／架構量級，不得回填到 core 閘氧 AntiFuse。</span>
+                <span data-lang="en">Public teaching places VPP near 8–9 V for ~32 Å and 5–6 V for ~20 Å. FG-OTP I/O floating-gate HCI (~6.5 V on 3.3V PMOS, ~7.5 V on 5V) is public literature and must not be back-filled onto core-oxide AntiFuse.</span>
+              </li>
+              <li>
+                <b><span data-lang="zh">讀取延遲與開機快取</span><span data-lang="en">Read Path &amp; Boot Shadowing</span></b>：
+                <span data-lang="zh">讀取延遲指陣列／sense amplifier 路徑；eFuse 原生約 µs 量級，實務上開機 shadow 到 SRAM。OTP 陣列讀取普遍極限約 25 ns、多數約 40 ns。SST 分離閘極 eFlash 通常稍快，約 15–25 ns 量級。</span>
+                <span data-lang="en">Read latency is array/SA path. Native eFuse sensing is ~µs-class, shadowed to SRAM at boot. OTP array reads typically sit near 40 ns, practical floor ~25 ns. SST split-gate is ~15–25 ns class.</span>
+              </li>
+              <li>
+                <b><span data-lang="zh">TEM / DPA 防護責任鏈</span><span data-lang="en">TEM / DPA Layered Defense</span></b>：
+                <span data-lang="zh">非揮發微絲為永久性物理歐姆結構，位元單元本身無法「單週期自我清除」；系統防護依賴主動頂層金屬網感測觸發揮發暫存器即時清零。TEM／DPA 描述為幾何與架構衰減，非絕對免疫。具名產品仍以該版 IP 為準。</span>
+                <span data-lang="en">Physical filament is an irreversible ohmic structure and cannot self-zeroize; system defense relies on active mesh detecting tampering to zeroize volatile shadow registers. TEM/DPA descriptions represent geometric/architectural attenuation, not absolute immunity. Check the specific IP revision.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- SECTION 2: 5-AXIS ARCHITECTURAL RADAR SELECTOR LAB (HIGH-TECH INSTRUMENT WORKBENCH) -->
@@ -1258,6 +1540,7 @@
 
     <!-- SECTION 4: FOUNDRY ECOSYSTEM & PHYSICAL SECURITY -->
         <!-- SECTION 4: FOUNDRY ECOSYSTEM & PHYSICAL SECURITY (REVISED) -->
+        <!-- SECTION 4: FOUNDRY ECOSYSTEM & PHYSICAL SECURITY -->
     <section id="sec-foundry" class="lens-panel" aria-labelledby="foundry-sec-title">
       <div class="hub-sec-header">
         <div class="hub-sec-badge">04 · FOUNDRY &amp; SECURITY</div>
@@ -1265,55 +1548,183 @@
           <span data-lang="zh">四大晶圓代工廠製程路線與奈米實體防護機制</span>
           <span data-lang="en">Foundry Ecosystem Roadmap &amp; Physical Security Integrity</span>
         </h2>
+        <p style="color:#b5aa9c;font-size:0.92rem;line-height:1.65;max-width:46rem;margin:0.75rem 0 0;">
+          <span data-lang="zh">主流晶圓代工廠真實 PDK 量產狀態、車規等級驗證進展與奈米級實體防護責任鏈。</span>
+          <span data-lang="en">Foundry PDK qualification envelopes, automotive grade readiness, and layered physical anti-tamper security chains.</span>
+        </p>
       </div>
 
       <div class="foundry-grid">
         <!-- TSMC -->
         <div class="foundry-card tsmc">
-          <div style="font: 700 11px 'IBM Plex Mono'; color: #c4a574; margin-bottom: 4px;">TAIWAN SEMICONDUCTOR</div>
-          <h3>TSMC</h3>
-          <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
-            <li><b>40nm / 28nm eFlash &amp; 28eHV</b>: <span data-lang="zh">40LP/ULP 與 28HPC+ 為車用 eFlash 長期主力，但 28nm 面臨 8~12 道額外光罩與 &gt;1000°C 熱預算破壞 HKMG 之微縮斷崖；28eHV 普遍以 0-mask AntiFuse OTP 進行 OLED Gamma/De-Mura 校準。</span><span data-lang="en">40LP/ULP &amp; 28HPC+ are mature eFlash bastions; scaling beyond 28nm hits an 8-12 mask adder cliff and HKMG thermal destruction. 28eHV adopts 0-mask AntiFuse OTP for OLED Gamma/De-Mura trimming.</span></li>
-            <li><b>22ULL / 22ULP</b>: <span data-lang="zh">eRRAM 於 2022 年量產並於 2025 年通過 AEC-Q100 Grade 1 (10萬次循環)；STT-eMRAM 商業量產；純邏輯 AntiFuse OTP 作為 0-mask 標配。</span><span data-lang="en">eRRAM entered production in 2022, qualifying for AEC-Q100 Grade 1 (100K cycles) in 2025; STT-eMRAM production-ready; logic OTP standard at 0-mask.</span></li>
-            <li><b>16FFC / 12FFC+ (N12e)</b>: <span data-lang="zh">16FFC eMRAM 於 2023 年通過 Grade 1，第二代 16MRAM 於 2025 年達成 100 萬次循環失效率 &lt;1 ppm；N12e eRRAM 於 2025 年完成生產級消費資格。</span><span data-lang="en">16FFC eMRAM passed Grade 1 in 2023; Gen-2 16MRAM qualified in 2025 with &lt;1 ppm failure rate at 1M cycles; N12e eRRAM production consumer qualification in 2025.</span></li>
-            <li><b>N6e / N4e / N2 GAA</b>: <span data-lang="zh">N6e (6nm) eRRAM 與 N4e/N5 5nm 高速 eMRAM 開發中；N2 奈米片架構因 BEOL 熱預算與微縮限制，以純邏輯 AntiFuse OTP 作為硬體信任根 (RoT) 核心。</span><span data-lang="en">N6e 6nm eRRAM and N4e/N5 5nm high-speed eMRAM in R&amp;D; N2 GAA nanosheet relies on 0-mask logic AntiFuse OTP as the primary Root of Trust due to BEOL thermal constraints.</span></li>
-          </ul>
+          <div class="foundry-card-top">
+            <div class="foundry-brand-pill" style="color: #c4a574;">FOUNDRY 01 · TAIWAN SEMICONDUCTOR</div>
+            <h3>TSMC</h3>
+          </div>
+          <div class="foundry-node-tiles">
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill">40nm / 28nm eFlash &amp; 28eHV</span>
+                <span class="status-pill status-cliff">Scaling Cliff</span>
+              </div>
+              <div>
+                <span data-lang="zh">40LP/ULP 與 28HPC+ 為車用 eFlash 長期主力，但 28nm 面臨 8~12 道額外光罩與 &gt;1000°C 熱預算破壞 HKMG 之微縮斷崖；28eHV 普遍以 0-mask AntiFuse OTP 進行 OLED Gamma/De-Mura 校準。</span>
+                <span data-lang="en">40LP/ULP &amp; 28HPC+ are mature eFlash bastions; scaling beyond 28nm hits an 8-12 mask adder cliff and HKMG thermal destruction. 28eHV adopts 0-mask AntiFuse OTP for OLED Gamma/De-Mura trimming.</span>
+              </div>
+            </div>
+
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill">22ULL / 22ULP</span>
+                <span class="status-pill status-auto">Auto Grade 1</span>
+              </div>
+              <div>
+                <span data-lang="zh">eRRAM 於 2022 年量產並於 2025 年通過 AEC-Q100 Grade 1 (10萬次循環)；STT-eMRAM 商業量產；純邏輯 AntiFuse OTP 作為 0-mask 標配。</span>
+                <span data-lang="en">eRRAM entered production in 2022, qualifying for AEC-Q100 Grade 1 (100K cycles) in 2025; STT-eMRAM production-ready; logic OTP standard at 0-mask.</span>
+              </div>
+            </div>
+
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill">16FFC / 12FFC+ (N12e)</span>
+                <span class="status-pill status-prod">&lt;1 ppm @ 1M</span>
+              </div>
+              <div>
+                <span data-lang="zh">16FFC eMRAM 於 2023 年通過 Grade 1，第二代 16MRAM 於 2025 年達成 100 萬次循環失效率 &lt;1 ppm；N12e eRRAM 於 2025 年完成生產級消費資格。</span>
+                <span data-lang="en">16FFC eMRAM passed Grade 1 in 2023; Gen-2 16MRAM qualified in 2025 with &lt;1 ppm failure rate at 1M cycles; N12e eRRAM production consumer qualification in 2025.</span>
+              </div>
+            </div>
+
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill">N6e / N4e / N2 GAA</span>
+                <span class="status-pill status-rd">Nanosheet RoT</span>
+              </div>
+              <div>
+                <span data-lang="zh">N6e (6nm) eRRAM 與 N4e/N5 5nm 高速 eMRAM 開發中；N2 奈米片架構因 BEOL 熱預算與微縮限制，以純邏輯 AntiFuse OTP 作為硬體信任根 (RoT) 核心。</span>
+                <span data-lang="en">N6e 6nm eRRAM and N4e/N5 5nm high-speed eMRAM in R&amp;D; N2 GAA nanosheet relies on 0-mask logic AntiFuse OTP as the primary Root of Trust due to BEOL thermal constraints.</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- UMC -->
         <div class="foundry-card umc">
-          <div style="font: 700 11px 'IBM Plex Mono'; color: #f59e0b; margin-bottom: 4px;">UNITED MICROELECTRONICS</div>
-          <h3>UMC</h3>
-          <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
-            <li><b>55nm / 40nm eFlash &amp; 40eHV</b>: <span data-lang="zh">採用 SST SuperFlash 分離閘極技術量產車用 Grade 1 eFlash；40/28eHV 驅動 IC 整合高壓校準 OTP。</span><span data-lang="en">Production SST SuperFlash split-gate for Auto Grade 1 MCUs; 40/28eHV DDICs incorporate trim OTP.</span></li>
-            <li><b>28HPC+ / 22ULL (eMRAM &amp; eRRAM)</b>: <span data-lang="zh">與 Avalanche 合作之 22nm pMTJ STT-MRAM 於 2022 年商業量產 (P-SRAM)；22ULL eMemory RRAM IP 於 2023 認證，智原 FlashKit-22RRAM 平台於 2025 完成流片驗證。</span><span data-lang="en">Avalanche 22nm pMTJ STT-MRAM in commercial production since 2022 (P-SRAM); 22ULL eMemory RRAM IP qualified in 2023; Faraday FlashKit-22RRAM SoC tape-out validated in 2025.</span></li>
-            <li><b>邏輯 OTP / MTP 生態系</b>: <span data-lang="zh">全面支援力旺 (NeoBit / NeoFuse) 與晶豪科旗下 YMC (yMTP BBHH 帶帶熱電洞注入) 0-mask 解決方案。</span><span data-lang="en">Full PDK support for eMemory (NeoBit/NeoFuse) and YMC (yMTP BBHH) 0-mask logic NVM solutions across 55nm–22nm.</span></li>
-          </ul>
+          <div class="foundry-card-top">
+            <div class="foundry-brand-pill" style="color: #f59e0b;">FOUNDRY 02 · UNITED MICROELECTRONICS</div>
+            <h3>UMC</h3>
+          </div>
+          <div class="foundry-node-tiles">
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill">55nm / 40nm eFlash &amp; 40eHV</span>
+                <span class="status-pill status-prod">Production SSI</span>
+              </div>
+              <div>
+                <span data-lang="zh">採用 SST SuperFlash 分離閘極技術量產車用 Grade 1 eFlash；40/28eHV 驅動 IC 整合高壓校準 OTP。</span>
+                <span data-lang="en">Production SST SuperFlash split-gate for Auto Grade 1 MCUs; 40/28eHV DDICs incorporate trim OTP.</span>
+              </div>
+            </div>
+
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill">28HPC+ / 22ULL (MRAM &amp; RRAM)</span>
+                <span class="status-pill status-auto">Commercial P-SRAM</span>
+              </div>
+              <div>
+                <span data-lang="zh">與 Avalanche 合作之 22nm pMTJ STT-MRAM 於 2022 年商業量產 (P-SRAM)；22ULL eMemory RRAM IP 於 2023 認證，智原 FlashKit-22RRAM 平台於 2025 完成流片驗證。</span>
+                <span data-lang="en">Avalanche 22nm pMTJ STT-MRAM in commercial production since 2022 (P-SRAM); 22ULL eMemory RRAM IP qualified in 2023; Faraday FlashKit-22RRAM SoC tape-out validated in 2025.</span>
+              </div>
+            </div>
+
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill">邏輯 OTP / MTP 生態系</span>
+                <span class="status-pill status-prod">0-Mask Native</span>
+              </div>
+              <div>
+                <span data-lang="zh">全面支援力旺 (NeoBit / NeoFuse) 與晶豪科旗下 YMC (yMTP BBHH 帶帶熱電洞注入) 0-mask 解決方案。</span>
+                <span data-lang="en">Full PDK support for eMemory (NeoBit/NeoFuse) and YMC (yMTP BBHH) 0-mask logic NVM solutions across 55nm–22nm.</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- GlobalFoundries -->
         <div class="foundry-card gf">
-          <div style="font: 700 11px 'IBM Plex Mono'; color: #c4a574; margin-bottom: 4px;">GLOBALFOUNDRIES</div>
-          <h3>GlobalFoundries</h3>
-          <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
-            <li><b>22FDX / FDX+ (FD-SOI eMRAM &amp; OxRAM)</b>: <span data-lang="zh">2020 年業界首創生產就緒 eMRAM；2026 年 FDX+ AutoPro150 達成 Grade 1 ready (150°C、50萬次、&lt;10ns讀取)；22FDX+ OxRAM (ReRAM) 原型於 2025 釋出，目標 2026 量產。</span><span data-lang="en">Industry-first production-ready eMRAM in 2020; 2026 FDX+ AutoPro150 delivers Grade 1 (150°C, 500K cycles, &lt;10ns read); 22FDX+ OxRAM (ReRAM) prototyping available with 2026 volume target.</span></li>
-            <li><b>28SLP &amp; 12LP / 12LP+ FinFET</b>: <span data-lang="zh">28SLP 支援成熟 eFlash；12LP 與 Everspin 共同開發 MRAM；12LP+ AutoPro150 推進車用 MCU 與邊緣 AI 部署（注意：12LP/12LP+ 為 Bulk FinFET，與 22FDX FD-SOI 物理特性不同）。</span><span data-lang="en">28SLP supports mature eFlash; 12LP FinFET MRAM co-developed with Everspin; 12LP+ AutoPro150 targets automotive MCUs (Note: 12LP is FinFET, distinct from 22FDX FD-SOI).</span></li>
-          </ul>
+          <div class="foundry-card-top">
+            <div class="foundry-brand-pill" style="color: #c4a574;">FOUNDRY 03 · GLOBALFOUNDRIES</div>
+            <h3>GlobalFoundries</h3>
+          </div>
+          <div class="foundry-node-tiles">
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill">22FDX / FDX+ (FD-SOI)</span>
+                <span class="status-pill status-auto">AutoPro150 Ready</span>
+              </div>
+              <div>
+                <span data-lang="zh">2020 年業界首創生產就緒 eMRAM；2026 年 FDX+ AutoPro150 達成 Grade 1 ready (150°C、50萬次、&lt;10ns讀取)；22FDX+ OxRAM (ReRAM) 原型於 2025 釋出，目標 2026 量產。</span>
+                <span data-lang="en">Industry-first production-ready eMRAM in 2020; 2026 FDX+ AutoPro150 delivers Grade 1 (150°C, 500K cycles, &lt;10ns read); 22FDX+ OxRAM (ReRAM) prototyping available with 2026 volume target.</span>
+              </div>
+            </div>
+
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill">28SLP &amp; 12LP / 12LP+ FinFET</span>
+                <span class="status-pill status-rd">Edge AI Co-Dev</span>
+              </div>
+              <div>
+                <span data-lang="zh">28SLP 支援成熟 eFlash；12LP 與 Everspin 共同開發 MRAM；12LP+ AutoPro150 推進車用 MCU 與邊緣 AI 部署（注意：12LP/12LP+ 為 Bulk FinFET，與 22FDX FD-SOI 物理特性不同）。</span>
+                <span data-lang="en">28SLP supports mature eFlash; 12LP FinFET MRAM co-developed with Everspin; 12LP+ AutoPro150 targets automotive MCUs (Note: 12LP is FinFET, distinct from 22FDX FD-SOI).</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Samsung -->
         <div class="foundry-card sec">
-          <div style="font: 700 11px 'IBM Plex Mono'; color: #3b82f6; margin-bottom: 4px;">SAMSUNG FOUNDRY</div>
-          <h3>Samsung Foundry</h3>
-          <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
-            <li><b>28FDS (FD-SOI eMRAM 量產先驅)</b>: <span data-lang="zh">自 2019 年 3 月宣布商用出貨 eFlash 替代型 eMRAM，寫入快 1000 倍，具備 100 萬次循環與 125°C 10 年保存，支援 5 次 260°C 回流焊。</span><span data-lang="en">Commercial shipment of 28FDS eFlash-type eMRAM since March 2019: 1000x faster write, 1M cycles, 10-yr retention at 125°C, surviving 5x 260°C reflows.</span></li>
-            <li><b>14LPP / 8LPU 車用與射頻擴展</b>: <span data-lang="zh">將 eMRAM 技術自 FD-SOI 延伸至 14nm FinFET 與 8LPU，提供高密度車規 Grade 1 與穿戴式 SoC 支援。</span><span data-lang="en">Extended eMRAM to 14nm FinFET and 8LPU, targeting automotive Grade 1 and low-power wearable SoCs.</span></li>
-            <li><b>SF4A (4nm) 與 SF3 / SF2 (MBCFET GAA)</b>: <span data-lang="zh">SFF 2024 公布次世代高密度 eMRAM 路線圖，整合於 4nm 車用與 3nm/2nm 環繞閘極奈米片，專注於邊緣 AI 與軟體定義汽車 (SDV)。</span><span data-lang="en">SFF 2024 roadmap integrates next-gen eMRAM on SF4A (4nm Auto) and SF3/SF2 MBCFET GAA for edge AI and software-defined vehicles.</span></li>
-          </ul>
+          <div class="foundry-card-top">
+            <div class="foundry-brand-pill" style="color: #3b82f6;">FOUNDRY 04 · SAMSUNG FOUNDRY</div>
+            <h3>Samsung Foundry</h3>
+          </div>
+          <div class="foundry-node-tiles">
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill">28FDS (FD-SOI eMRAM)</span>
+                <span class="status-pill status-prod">Shipped Since 2019</span>
+              </div>
+              <div>
+                <span data-lang="zh">自 2019 年 3 月宣布商用出貨 eFlash 替代型 eMRAM，寫入快 1000 倍，具備 100 萬次循環與 125°C 10 年保存，支援 5 次 260°C 回流焊。</span>
+                <span data-lang="en">Commercial shipment of 28FDS eFlash-type eMRAM since March 2019: 1000x faster write, 1M cycles, 10-yr retention at 125°C, surviving 5x 260°C reflows.</span>
+              </div>
+            </div>
+
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill">14LPP / 8LPU FinFET</span>
+                <span class="status-pill status-auto">Auto &amp; RF SoC</span>
+              </div>
+              <div>
+                <span data-lang="zh">將 eMRAM 技術自 FD-SOI 延伸至 14nm FinFET 與 8LPU，提供高密度車規 Grade 1 與穿戴式 SoC 支援。</span>
+                <span data-lang="en">Extended eMRAM to 14nm FinFET and 8LPU, targeting automotive Grade 1 and low-power wearable SoCs.</span>
+              </div>
+            </div>
+
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill">SF4A (4nm) 與 SF3 / SF2</span>
+                <span class="status-pill status-rd">MBCFET GAA Next-Gen</span>
+              </div>
+              <div>
+                <span data-lang="zh">SFF 2024 公布次世代高密度 eMRAM 路線圖，整合於 4nm 車用與 3nm/2nm 環繞閘極奈米片，專注於邊緣 AI 與軟體定義汽車 (SDV)。</span>
+                <span data-lang="en">SFF 2024 roadmap integrates next-gen eMRAM on SF4A (4nm Auto) and SF3/SF2 MBCFET GAA for edge AI and software-defined vehicles.</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Physical Security Deep-Dive Block (CORRECTED DEFENSE BOUNDARIES) -->
+      <!-- Physical Security Deep-Dive Block -->
       <div style="background: #082433; border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 8px; padding: 1.75rem; margin-top: 1.5rem;">
         <div class="hub-sec-badge" style="color: #c4a574;">SILICON-LEVEL ANTI-TAMPER SECURITY</div>
         <h3 style="color: #f8fafc; margin: 0.5rem 0 1rem; font: 700 1.25rem 'IBM Plex Mono', monospace;">
@@ -1321,12 +1732,12 @@
           <span data-lang="en">TEM Attenuation &amp; DPA Side-Channel Layered Defense Chain (Not Absolute Immunity)</span>
         </h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; font-size: 0.9rem; line-height: 1.65; color: #cbd5e1;">
-          <div>
+          <div style="background: rgba(4, 18, 28, 0.6); padding: 1.25rem; border-radius: 6px; border: 1px solid rgba(196, 165, 116, 0.15);">
             <b style="color: #c4a574;">① TEM / FIB Visibility &amp; Active Shielding Boundary</b><br>
             <span data-lang="zh">AntiFuse 崩潰微絲約 3–8nm，局域包裹於標準閘極氧化層中，無表面形貌變化，較 eFuse 熔斷空洞具備極高的物理逆向成本。但需注意：<b>非揮發微絲為永久性物理歐姆結構，位元單元本身無法「單週期自我清除」</b>；系統級防禦依賴開機時將密鑰載入揮發性快取 (Volatile Shadow RAM)，當頂層主動金屬屏蔽 (Active Metal Mesh) 偵測到 FIB 微探針或開路時，由控制器觸發暫存器之單週期即時零化 (Zeroization)。此為物理衰減結合系統聯防，非位元單元絕對免疫。</span>
             <span data-lang="en">AntiFuse filaments are ~3–8nm localized inside standard gate oxide without surface topological changes, imposing high reverse-engineering barriers compared to eFuse voids. Note: <b>the physical filament is an irreversible ohmic structure and cannot self-zeroize</b>. System security relies on shadowing keys into volatile RAM at boot; when the active top-metal mesh detects FIB probing, the controller triggers instantaneous register zeroization. Hardware attenuation + architectural co-defense, not bitcell-level absolute immunity.</span>
           </div>
-          <div>
+          <div style="background: rgba(4, 18, 28, 0.6); padding: 1.25rem; border-radius: 6px; border: 1px solid rgba(196, 165, 116, 0.15);">
             <b style="color: #c4a574;">② Complementary Differential Read (DPA/CPA Attenuation Boundary)</b><br>
             <span data-lang="zh">成對互補差動讀取（A=HRS, B=LRS）使兩條位元線同時抽取電流，瞬態總功耗近似常數 <em>I</em><sub>total</sub> = <em>I</em><sub>HRS</sub> + <em>I</em><sub>LRS</sub>，可大幅衰減一階差分功耗 (DPA) 與相關功耗 (CPA) 訊跡。但面對高階差分功耗 (Higher-order DPA) 與局域電磁輻射分析 (EMA)，晶圓佈線不對稱性仍可能洩漏側信道特徵。因此，完備防禦必須落實<b>多層責任鏈</b>：位元層差動對消 + 控制器層隨機遮罩 (Masking) 與時脈抖動 + 密碼引擎擾碼。</span>
             <span data-lang="en">Complementary differential read pairs (A=HRS, B=LRS) draw current simultaneously on both bitlines (<em>I</em><sub>total</sub> = <em>I</em><sub>HRS</sub> + <em>I</em><sub>LRS</sub>), significantly attenuating first-order DPA and CPA traces. However, against higher-order DPA and localized EMA probes, layout asymmetry can still leak side-channel signatures. Complete protection mandates a <b>layered defense chain</b>: bitcell-level current cancellation + controller-level algorithmic masking/jitter + cryptographic engine bus scrambling.</span>
