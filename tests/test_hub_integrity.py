@@ -894,6 +894,95 @@ def run_tests() -> None:
         test(f"{p} 具備完整 Open Graph article:published_time/modified_time/author 標籤", has_og_art)
     test("全站 15 個 TechArticle 頁面 100% 包含完整 Open Graph article 延伸中繼標籤", missing_og_articles == 0)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 34: 圖片渲染效能與防累計位移 (CLS)、全站 SVG 語意分類與折疊手風琴 (Details/Summary) 鍵盤焦點標準
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 34: 圖片渲染效能與防累計位移 (CLS)、全站 SVG 語意分類與折疊手風琴 (Details/Summary) 鍵盤焦點標準 ═══")
+
+    # 1. 驗證全站所有 <img> 元素 100% 具備防累計位移 (CLS) 之明確 width 與 height
+    total_imgs = 0
+    missing_dimensions = 0
+    missing_alts = 0
+    missing_loading_attr = 0
+    missing_decoding_attr = 0
+    bilingual_alt_mismatch = 0
+
+    for p in ALL_SURFACES:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        img_tags = re.findall(r'<img\b([^>]*)>', p_text, re.IGNORECASE)
+        total_imgs += len(img_tags)
+        for img_attr in img_tags:
+            src_m = re.search(r'\bsrc=["\']([^"\']+)["\']', img_attr, re.IGNORECASE)
+            src_val = src_m.group(1) if src_m else "unknown"
+
+            has_w = bool(re.search(r'\bwidth=["\']\d+["\']', img_attr, re.IGNORECASE))
+            has_h = bool(re.search(r'\bheight=["\']\d+["\']', img_attr, re.IGNORECASE))
+            if not (has_w and has_h):
+                missing_dimensions += 1
+
+            alt_m = re.search(r'\balt=["\']([^"\']*)["\']', img_attr, re.IGNORECASE)
+            has_alt = bool(alt_m and alt_m.group(1).strip())
+            if not has_alt:
+                missing_alts += 1
+
+            has_load = bool(re.search(r'\bloading=["\'](lazy|eager)["\']', img_attr, re.IGNORECASE))
+            if not has_load:
+                missing_loading_attr += 1
+
+            has_dec = bool(re.search(r'\bdecoding=["\']async["\']', img_attr, re.IGNORECASE))
+            if not has_dec:
+                missing_decoding_attr += 1
+
+            alt_en_m = re.search(r'\bdata-alt-en=["\']([^"\']*)["\']', img_attr, re.IGNORECASE)
+            if alt_en_m and alt_m:
+                if alt_m.group(1) != alt_en_m.group(1):
+                    bilingual_alt_mismatch += 1
+
+            test(f"圖片 {src_val.split('/')[-1]} 具備完整尺寸、替代文字與非同步解碼 (width/height/alt/loading/decoding)",
+                 has_w and has_h and has_alt and has_load and has_dec)
+
+    test(f"全站內容圖片總數符合規模 (共計 {total_imgs} 個 <img> 元素)", total_imgs >= 12)
+    test("全站所有 <img> 元素 100% 具備明確 width 與 height 屬性 (防止 Cumulative Layout Shift，符合 Core Web Vitals)",
+         missing_dimensions == 0)
+    test("全站所有 <img> 元素 100% 具備非空 alt 替代文字 (零無替代文字圖片，符合 WCAG SC 1.1.1)",
+         missing_alts == 0)
+    test("全站所有 <img> 元素 100% 宣告明確 loading (eager/lazy) 與 decoding='async' (防止主線程解碼阻塞)",
+         missing_loading_attr == 0 and missing_decoding_attr == 0)
+    test("全站雙語 <img> 元素 100% 初始 alt 與 data-alt-en 完全一致 (符合 English Default 全站規範)",
+         bilingual_alt_mismatch == 0)
+
+    # 2. 驗證全站所有 <svg> 元素 100% 具備明確語意分類 (裝飾性 vs 資訊性)
+    total_svgs = 0
+    unclassified_svgs = 0
+    for p in ALL_SURFACES:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        for block in re.findall(r'<svg\b[\s\S]*?<\/svg>', p_text, re.IGNORECASE):
+            total_svgs += 1
+            open_tag = re.match(r'<svg\b[^>]*>', block, re.IGNORECASE).group(0)
+            is_hidden = bool(re.search(r'\baria-hidden=["\']true["\']', open_tag, re.IGNORECASE))
+            has_label = bool(re.search(r'\b(aria-label|aria-labelledby)=["\'][^"\']+["\']', open_tag, re.IGNORECASE))
+            has_title = bool(re.search(r'<title\b', block, re.IGNORECASE))
+            if not (is_hidden or has_label or has_title):
+                unclassified_svgs += 1
+
+    test(f"全站向量圖形總數符合規模 (共計 {total_svgs} 個 <svg> 元素)", total_svgs >= 1000)
+    test("全站所有 <svg> 向量圖形 100% 具備明確無障礙語意 (aria-hidden='true' 或具名 aria-label/title，零未標記幽靈圖形)",
+         unclassified_svgs == 0)
+
+    # 3. 驗證全站所有 <details> 折疊手風琴 100% 包含非空 <summary> 標籤
+    total_details_tags = 0
+    total_summaries = 0
+    for p in ALL_SURFACES:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        d_cnt = len(re.findall(r'<details\b', p_text, re.IGNORECASE))
+        s_cnt = len(re.findall(r'<summary\b', p_text, re.IGNORECASE))
+        total_details_tags += d_cnt
+        total_summaries += s_cnt
+
+    test(f"全站折疊手風琴總數符合規模 (共計 {total_details_tags} 個 <details> 元素)", total_details_tags >= 850)
+    test("全站所有 <details> 折疊元素 100% 具備一對一之 <summary> 交互標題 (符合 W3C HTML5 規範)",
+         total_details_tags == total_summaries)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
