@@ -407,9 +407,20 @@
     }
     .matrix-cell:hover { background: #061925; }
     .matrix-cell .cell-note {
-      color: #6b645c;
+      color: #9aa8ae;
       font-size: 10px;
       margin-top: 4px;
+      line-height: 1.4;
+      max-width: 14.5rem;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+    .matrix-footnote {
+      margin: 0 1.1rem 1.4rem;
+      font-size: 12px;
+      line-height: 1.7;
+      color: #b5aa9c;
+      max-width: 72rem;
     }
     .matrix-cell.focus-tech {
       background: #0e2a38;
@@ -751,15 +762,15 @@
             <div class="stat-top-meta">
               <span class="meta-code">RULE #03 · SCALING EDGE</span>
             </div>
-            <div class="stat-val">SUB-3nm (GAA)</div>
+            <div class="stat-val">FROM ~0.18 µm</div>
             <div class="stat-label">
-              <span data-lang="zh">先進節點無縫微縮</span>
-              <span data-lang="en">ADVANCED NODE SCALABILITY</span>
+              <span data-lang="zh">Core 閘氧 AntiFuse 製程窗</span>
+              <span data-lang="en">CORE-GOX ANTIFUSE WINDOW</span>
             </div>
             <div class="stat-sub">
               <span style="color: #6f5536; font-weight: 600;">
-                <span data-lang="zh">標準閘極氧化層 · 穿越 FinFET 至 N2</span>
-                <span data-lang="en">Standard Gate Oxide · Scalable to N2</span>
+                <span data-lang="zh">0.25 µm 的 2.5 V 閘氧會先接面擊穿</span>
+                <span data-lang="en">0.25 µm 2.5 V GOX: junction fails first</span>
               </span>
             </div>
           </div>
@@ -851,14 +862,32 @@
           <!-- Row 3: Programming Supply -->
           <div class="matrix-row-header">
             <span data-lang="zh">編程電壓與電流</span><span data-lang="en">Programming V / I</span>
-            <small>Charge Pump / Energy</small>
+            <small><span data-lang="zh">隨製程裝置，不是常數</span><span data-lang="en">Process-set, not a constant</span></small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">2.8V - 3.5V / &lt;1mA</b><span class="cell-note">Micro-Pump</span></div>
-          <div class="matrix-cell">1.8V - 2.5V / &gt;15mA<span class="cell-note">High Current IR</span></div>
-          <div class="matrix-cell">&gt;10V - 18V / Low I<span class="cell-note">High Voltage Pump</span></div>
-          <div class="matrix-cell">1.2V - 1.8V / ~100µA<span class="cell-note">Spin-Torque</span></div>
-          <div class="matrix-cell">1.5V - 3.0V / ~50µA<span class="cell-note">Forming Required</span></div>
-          <div class="matrix-cell">N/A (Factory Mask)<span class="cell-note">0V Write</span></div>
+          <div class="matrix-cell focus-tech">
+            <b style="color:#6f5536;"><span data-lang="zh">隨 core 閘氧</span><span data-lang="en">Core-GOX HV</span></b>
+            <span class="cell-note"><span data-lang="zh">0.18 µm／1.8 V core 約 9 V；不是 I/O PMOS 浮閘的 6.5／7.5 V</span><span data-lang="en">~9 V at 0.18 µm 1.8 V core; not I/O PMOS FG 6.5/7.5 V</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b><span data-lang="zh">高電流 · 約 10–15 mA</span><span data-lang="en">High I · ~10–15 mA</span></b>
+            <span class="cell-note"><span data-lang="zh">電遷移熔絲；V 由 link／驅動 FET 決定</span><span data-lang="en">EM fuse; V set by link and drive FET</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b><span data-lang="zh">FN／高壓幫浦</span><span data-lang="en">FN / HV pump</span></b>
+            <span class="cell-note"><span data-lang="zh">約 8–18 V 量級，隨單元與節點</span><span data-lang="en">~8–18 V class, cell- and node-set</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b>Near VDD</b>
+            <span class="cell-note"><span data-lang="zh">Ic 由 MTJ＋1T 決定</span><span data-lang="en">Ic set by MTJ + 1T</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b>SET / Forming</b>
+            <span class="cell-note"><span data-lang="zh">V 由阻變堆疊決定</span><span data-lang="en">V set by the resistive stack</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b>N/A</b>
+            <span class="cell-note"><span data-lang="zh">光罩寫入，無電氣 PGM</span><span data-lang="en">Mask write; no electrical PGM</span></span>
+          </div>
 
           <!-- Row 4: Retention -->
           <div class="matrix-row-header">
@@ -875,14 +904,32 @@
           <!-- Row 5: Read Latency -->
           <div class="matrix-row-header">
             <span data-lang="zh">讀取存取延遲</span><span data-lang="en">Read Latency</span>
-            <small>XIP Performance</small>
+            <small><span data-lang="zh">陣列／感測路徑，不是 SRAM shadow</span><span data-lang="en">Array / sense path, not SRAM shadow</span></small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">&lt; 10 ns (Direct)</b><span class="cell-note">Instant XIP</span></div>
-          <div class="matrix-cell">&lt; 12 ns<span class="cell-note">Direct</span></div>
-          <div class="matrix-cell">15 ~ 30 ns<span class="cell-note">Charge Sense</span></div>
-          <div class="matrix-cell">10 ~ 25 ns<span class="cell-note">TMR Sense</span></div>
-          <div class="matrix-cell">15 ~ 50 ns<span class="cell-note">Filament Sense</span></div>
-          <div class="matrix-cell">&lt; 15 ns<span class="cell-note">Direct</span></div>
+          <div class="matrix-cell focus-tech">
+            <b style="color:#6f5536;">~25–40 ns</b>
+            <span class="cell-note"><span data-lang="zh">SA 翻轉時間；受 cell current 限制</span><span data-lang="en">SA trip; limited by cell current</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b>~1 µs native</b>
+            <span class="cell-note"><span data-lang="zh">開機 shadow 到 SRAM 再讀</span><span data-lang="en">Boot-shadow to SRAM, then read</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b>~15–25 ns SST</b>
+            <span class="cell-note"><span data-lang="zh">分離閘極通常較快，可到約 15–20 ns</span><span data-lang="en">Split-gate often faster, ~15–20 ns class</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b>ns-class</b>
+            <span class="cell-note"><span data-lang="zh">感測受限，不是 cache 延遲</span><span data-lang="en">Sense-limited, not cache delay</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b>tens of ns</b>
+            <span class="cell-note"><span data-lang="zh">陣列／SA 受限</span><span data-lang="en">Array / SA limited</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b>compiled ROM</b>
+            <span class="cell-note"><span data-lang="zh">無擊穿感測，視編譯 ROM 路徑</span><span data-lang="en">No rupture SA; compiled-ROM path</span></span>
+          </div>
 
           <!-- Row 6: Anti-Tamper Security -->
           <div class="matrix-row-header">
@@ -899,14 +946,32 @@
           <!-- Row 7: Scaling Limit -->
           <div class="matrix-row-header">
             <span data-lang="zh">製程微縮路線極限</span><span data-lang="en">Scaling Roadblocks</span>
-            <small>FinFET &amp; GAA</small>
+            <small><span data-lang="zh">成熟節點下限與先進節點上限</span><span data-lang="en">Mature-node floor and advanced-node ceiling</span></small>
           </div>
-          <div class="matrix-cell focus-tech"><b style="color:#6f5536;">Sub-3nm (N2 / A16)</b><span class="cell-note">GAA Thermal &amp; Inner-Spacer Constrained</span></div>
-          <div class="matrix-cell">Stalls at 16nm<span class="cell-note">IR Drop Penalty</span></div>
-          <div class="matrix-cell">Stalls at 28nm<span class="cell-note">Scaling Cliff</span></div>
-          <div class="matrix-cell">Scalable to 12nm / N6<span class="cell-note">BEOL Limited</span></div>
-          <div class="matrix-cell">Scalable to 16nm<span class="cell-note">Forming Variation</span></div>
-          <div class="matrix-cell">Scalable with Logic<span class="cell-note">Metal Pitch Bound</span></div>
+          <div class="matrix-cell focus-tech">
+            <b style="color:#6f5536;"><span data-lang="zh">約 0.18 µm → 先進邏輯</span><span data-lang="en">~0.18 µm → advanced logic</span></b>
+            <span class="cell-note"><span data-lang="zh">0.25 µm 的 2.5 V 閘氧：高壓先接面擊穿、燒掉通道</span><span data-lang="en">0.25 µm 2.5 V GOX: junction breaks and burns the channel first</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b><span data-lang="zh">電流／IR 受限</span><span data-lang="en">Current / IR limited</span></b>
+            <span class="cell-note"><span data-lang="zh">不是固定停在 16 nm</span><span data-lang="en">Not a hard stop at 16 nm</span></span>
+          </div>
+          <div class="matrix-cell" style="color:#b91c1c;">
+            <b><span data-lang="zh">平面浮閘約 28 nm</span><span data-lang="en">Planar FG ~28 nm</span></b>
+            <span class="cell-note"><span data-lang="zh">HV 幫浦與鰭片不相容</span><span data-lang="en">HV pump vs FinFET incompatibility</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b>BEOL MTJ</b>
+            <span class="cell-note"><span data-lang="zh">節點隨代工 BEOL 選項</span><span data-lang="en">Node follows foundry BEOL options</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b>BEOL OxRAM</b>
+            <span class="cell-note"><span data-lang="zh">Forming 變異隨節點</span><span data-lang="en">Forming variation is node-specific</span></span>
+          </div>
+          <div class="matrix-cell">
+            <b>Logic metal</b>
+            <span class="cell-note"><span data-lang="zh">受接觸／金屬間距限制</span><span data-lang="en">Bound by contact / metal pitch</span></span>
+          </div>
 
           <!-- Row 8: Endurance -->
           <div class="matrix-row-header">
@@ -921,6 +986,10 @@
           <div class="matrix-cell">0 次 (唯讀 / Mask ROM)<span class="cell-note">Read-Only</span></div>
         </div>
       </div>
+      <p class="matrix-footnote">
+        <span data-lang="zh">表內數字是架構量級，不是具名巨集 datasheet。AntiFuse PGM 是把 core 裝置 bitcell 的閘氧擊穿，電壓與該製程 gate oxide 強相關，不能寫成固定 2.8–3.5 V。力旺 2016-01-14 公開 0.18 µm 1.8 V／13.5 V NeoFuse 例：core device 編程時承受 9 V 高壓應力。不要把浮閘 HCI 當成閘氧擊穿：I/O PMOS 浮閘 cell 的 3.3 V 約 6.5 V PGM、5 V 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。這組 I/O 對照由本站作者依力旺任職期間的 datasheet 與 testing review 核可。能做 core-GOX AntiFuse 的落後製程下限約 0.18 µm：0.25 µm 要擊穿 2.5 V 閘氧的高壓，會先發生接面擊穿把通道燒壞。讀取延遲指陣列／sense amplifier 路徑；eFuse 原生約 µs 量級，實務上開機 shadow 到 SRAM。OTP 陣列讀取普遍極限約 25 ns、多數約 40 ns（SA 翻轉取決於 cell current）。SST 分離閘極 eFlash 通常稍快，約 15–25 ns 量級。具名產品仍以該版 IP 為準。</span>
+        <span data-lang="en">Figures are architecture-class ranges, not a named-macro datasheet. AntiFuse programming is core-device bitcell gate-oxide breakdown, so Vpgm tracks that node’s gate oxide — not a fixed 2.8–3.5 V. eMemory’s 14 Jan 2016 0.18 µm 1.8 V/13.5 V NeoFuse example states the core device sustains 9 V high-voltage stress during programming. Do not treat floating-gate HCI as oxide breakdown: an I/O PMOS floating-gate cell programs near 6.5 V on 3.3 V I/O and 7.5 V on 5 V I/O; an NMOS floating-gate cell at the same node needs a higher Vpgm. That I/O pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. The mature-node floor for core-GOX AntiFuse is about 0.18 µm: at 0.25 µm the voltage needed to break a 2.5 V gate oxide hits junction breakdown first and burns the channel. Read latency is the array/sense-amplifier path. Native eFuse sensing is ~µs-class, so systems almost always shadow fuses into SRAM at boot. OTP array reads typically sit near 40 ns, with a practical floor around 25 ns because the sense amplifier must trip and that time depends on cell current. SST split-gate eFlash is usually a little faster, ~15–25 ns class. Check the specific IP revision.</span>
+      </p>
     </section>
 
     <!-- SECTION 2: 5-AXIS ARCHITECTURAL RADAR SELECTOR LAB (HIGH-TECH INSTRUMENT WORKBENCH) -->
@@ -1078,12 +1147,16 @@
               • 穿隧條件分界：超薄氧化層 <em>t</em><sub>ox</sub> &lt; 3.0 nm 且 <em>V</em><sub>ox</sub> &lt; 3.15V (Φ<sub>B</sub>/<em>q</em>) 為梯形能障直接穿隧；當 <em>V</em><sub>ox</sub> &gt; 3.15V 進入三角形能障 FN 穿隧，崩潰電場 <em>E</em><sub>ox</sub> &ge; 6~8 MV/cm。<br>
               • <em>A</em><sub>FN</sub> = <em>q</em><sup>3</sup> / (8π <em>h</em> Φ<sub>B</sub>)，<em>B</em><sub>FN</sub> = 8π √(2<em>m</em>*) Φ<sub>B</sub><sup>3/2</sup> / (3 <em>q</em> <em>h</em>) ≈ 2.5 &times; 10<sup>8</sup> V/cm<br>
               • Φ<sub>B</sub> ≈ 3.15&nbsp;eV（Si–SiO<sub>2</sub> 界面能障），<em>m</em>* ≈ 0.5 <em>m</em><sub>0</sub>（電子有效質量）<br>
+              • PGM 是擊穿 core 裝置 bitcell 的閘氧。力旺 2016 年 0.18 µm 1.8 V／13.5 V NeoFuse 例：core 編程時承受 9 V 應力；不是固定 2.8–3.5 V。<br>
+              • 不要與 I/O PMOS 浮閘 HCI 混淆：3.3 V cell 約 6.5 V PGM、5 V cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM。<br>
               • 崩潰物理模型：經滲透模型 (Percolation Model) 誘發介電質軟崩潰至硬崩潰，形成歐姆特性的局域再結晶矽導電微絲，阻值由 &gt;10<sup>11</sup> Ω 降至約 10<sup>2</sup> Ω。這是物理機理描述，非出貨規格保證。
             </span>
             <span data-lang="en">
               • Tunneling Regime Boundary: ultrathin oxide <em>t</em><sub>ox</sub> &lt; 3.0 nm and <em>V</em><sub>ox</sub> &lt; 3.15V (Φ<sub>B</sub>/<em>q</em>) exhibits trapezoidal direct tunneling; transitions to triangular FN tunneling when <em>V</em><sub>ox</sub> &gt; 3.15V, with breakdown electric field <em>E</em><sub>ox</sub> &ge; 6~8 MV/cm.<br>
               • <em>A</em><sub>FN</sub> = <em>q</em><sup>3</sup> / (8π <em>h</em> Φ<sub>B</sub>), <em>B</em><sub>FN</sub> = 8π √(2<em>m</em>*) Φ<sub>B</sub><sup>3/2</sup> / (3 <em>q</em> <em>h</em>) ≈ 2.5 &times; 10<sup>8</sup> V/cm<br>
               • Φ<sub>B</sub> ≈ 3.15&nbsp;eV (Si–SiO<sub>2</sub> interface barrier), <em>m</em>* ≈ 0.5 <em>m</em><sub>0</sub> (electron effective mass)<br>
+              • Programming ruptures the core-device bitcell gate oxide. eMemory’s 2016 0.18 µm 1.8 V/13.5 V NeoFuse example: the core sustains 9 V program stress — not a fixed 2.8–3.5 V.<br>
+              • Do not confuse with I/O PMOS FG HCI: ~6.5 V PGM for a 3.3 V cell, ~7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm.<br>
               • Breakdown Model: defect percolation triggers soft-to-hard dielectric breakdown forming an ohmic localized recrystallized silicon filament; resistance shifts from &gt;10<sup>11</sup> Ω to ~10<sup>2</sup> Ω. Physics description, not a shipment guarantee.
             </span>
           </div>

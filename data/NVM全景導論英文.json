@@ -102,7 +102,7 @@
   ],
   "evidenceRules": [
     "Supplier disclosures, datasheets, papers, patents, and editorial inferences serve different purposes. Source categories are not steps on a maturity ladder from weak to strong.",
-    "Every performance value must retain its device, capacity, temperature, granularity, test method, and source. Leave undisclosed values as gaps; do not combine the best numbers from unrelated implementations.",
+    "Every performance value must retain its device, capacity, temperature, granularity, test method, and source. Leave undisclosed values as gaps; do not combine the best numbers from unrelated implementations. Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory is a separate source class: it does not quote unpublished file pages, and it is not a current-macro shipment spec.",
     "A patent supports the disclosure and interpretation of its claims. The assignee alone does not establish that the company's production process uses the same structure.",
     "A technology ceiling describes the principal constraints and trade-offs of current designs. Without sufficient evidence, do not present an engineering limitation as a permanent physical limit."
   ],

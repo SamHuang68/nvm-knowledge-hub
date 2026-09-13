@@ -108,7 +108,7 @@
     ],
     "evidenceRules": [
       "原廠揭露、規格書、論文、專利與編輯推論具有不同用途；來源類別不是由弱到強的成熟度階梯。",
-      "每個性能值必須帶著器件、容量、溫度、粒度、測試方式與來源。未公開的值保留缺口，不拼接其他實作的最佳數字。",
+      "每個性能值必須帶著器件、容量、溫度、粒度、測試方式與來源。未公開的值保留缺口，不拼接其他實作的最佳數字。本站作者依任職期間 datasheet 與 testing review 核可的工程慣例，標成獨立來源類別；不引用未公開檔案頁次，也不升格成現行巨集出貨規格。",
       "專利只支持其文字揭露與權利項閱讀，不能單靠受讓人推論該公司量產製程採用相同結構。",
       "天花板描述目前設計的主要約束與取捨；沒有足夠證據時，不把現有工程限制宣稱為永久物理極限。"
     ],
@@ -266,7 +266,7 @@
           "before": "儲存介電層完整，受選位元的漏電低；同列與同欄其他單元仍須維持未寫狀態。",
           "stimulus": "US6667902B2 圖 1／8 的早期例：列選擇線 2.5 V、源極線 0 V、受選欄線 7 V。數值僅服務此結構與年代，不作現行產品操作值。",
           "after": "薄介電層形成可感測導通；寫入驗證比較電流是否達到規定視窗，避免把僅略增漏電的狀態誤判為充分程式化。",
-          "explanation": "受選 MOS 提供通路，使高電位欄線與低電位內部節點之間形成儲存層電場。電荷傳輸在介電層累積缺陷，最後建立導通路徑；電流須受控制以保護選擇器。軟崩潰到較強導通是分布性過程，不能想像成每顆單元都形成相同尺寸、相同電阻的理想金屬線。"
+          "explanation": "受選 MOS 提供通路，使高電位欄線與低電位內部節點之間形成儲存層電場。程式化機制是把 core 裝置 bitcell 的閘氧擊穿，因此 Vpgm 跟隨該製程 gate oxide，不能寫成與節點無關的固定 2.8–3.5 V。力旺 2016-01-14 公開 0.18 µm 1.8 V／13.5 V NeoFuse 例：core device 在編程時承受 9 V 高壓應力。不要與 I/O PMOS 浮閘 HCI 混淆：3.3 V cell 約 6.5 V PGM、5 V cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。這組 I/O 對照由本站作者依力旺任職期間的 datasheet 與 testing review 核可。電流須受控制以保護選擇器。軟崩潰到較強導通是分布性過程，不能想像成每顆單元都形成相同尺寸、相同電阻的理想金屬線。"
         },
         {
           "id": "erase",
@@ -300,7 +300,7 @@
       "ceilings": {
         "device": "可用視窗夾在足以穩定形成導通與避免非預期損傷之間。縮小儲存面積或改變介電層後，崩潰統計和寫後電流未必等比例改善；上限應由完整分布、指定溫度及長期讀取餘裕描述。",
         "array": "密度受選擇器、高壓解碼、半選隔離、配線電壓降及感測器共同限制。單元的理論面積不能取代完整巨集效率；陣列放大時，更多未選漏電與累積程式化應力也須納入失效率預算。",
-        "process": "標準 CMOS 可用不代表不需要資格驗證。儲存介電層的可控崩潰、選擇器耐壓、厚薄氧化層搭配及可靠度測試需跟隨代工製程版本重新確認；單一節點成功不能直接推出另一節點的可用脈衝。",
+        "process": "標準 CMOS 可用不代表不需要資格驗證。Core-GOX AntiFuse 的落後製程下限約 0.18 µm：0.25 µm 要擊穿 2.5 V 閘氧的高壓，會先發生接面擊穿把 bitcell 通道燒壞。儲存介電層的可控崩潰、選擇器耐壓、厚薄氧化層搭配及可靠度測試需跟隨代工製程版本重新確認；單一節點成功不能直接推出另一節點的可用脈衝。",
         "system": "系統瓶頸常是不可逆寫入流程、剩餘空白位元與寫入時供電條件。若提供金鑰或啟動設定，需把寫入權限、讀取隔離、鎖定狀態及故障復原與儲存物理分開驗證，不能以 OTP 名稱替代系統設計。"
       },
       "fit": "適合製造後才決定且預期永久保留的參數、晶片 ID、已確定生命週期的程式碼與安全設定。選型先詢問可更新次數、最晚寫入地點、供應電源、資料讀取時序及容量，再核對具名巨集的製程、測試模式與資格。",
@@ -320,6 +320,12 @@
       ],
       "sourceIds": [
         "ch-pat-antifuse",
+        "ch-ememory-neofuse-9v-2016",
+        "ch-pat-pmos-otp-6678190",
+        "ch-pat-io-nvm-6920067",
+        "ch-eetimes-neobit-2003",
+        "ch-author-pmos-io-pgm",
+        "ch-pat-pmos-vs-nmos-5761121",
         "ch-maturity-kilopass",
         "ch-maturity-otp-current"
       ],
@@ -2710,7 +2716,7 @@
     "glossary": [
       {
         "term": "CHI 與 CHEI",
-        "definition": "CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。獨立 CHI／BBHH 教學模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。"
+        "definition": "CHI 是通道熱載子注入的簡稱，仍須辨別載子與單元極性。獨立 CHI／BBHH 教學模型注入高能通道電子；力旺則將 NeoBit／NeoMTP 寫入描述為通道熱電洞誘發的熱電子注入（CHEI）。後者由電洞在矽內產生載子，進入浮動閘極的是電子。I/O PMOS 浮閘 cell：3.3 V 約 6.5 V PGM、5 V 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。這組對照由本站作者依力旺任職期間的 datasheet 與 testing review 核可，不可與 core GOX 擊穿 AntiFuse 的 9 V 編程應力混用。"
       },
       {
         "term": "Fowler–Nordheim（FN）穿隧",
@@ -6353,6 +6359,60 @@
       "limit": "本教材的 2.5 V、7 V 與 1.5 V 只屬此早期實施例；不得移用為現行 OTP IP 的操作建議，也不得從該專利推定所有商用單元拓撲。"
     },
     {
+      "id": "ch-ememory-neofuse-9v-2016",
+      "label": "力旺：0.18 µm 1.8 V NeoFuse 編程時 core 承受 9 V",
+      "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+      "kind": "原廠新聞",
+      "date": "2016-01-14；2026-09-11 查核",
+      "locator": "內文 0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming；read 1.0 V",
+      "limit": "支持具名 0.18 µm 1.8 V／13.5 V 源極驅動例的 9 V 編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
+    },
+    {
+      "id": "ch-pat-pmos-otp-6678190",
+      "label": "力旺：串聯 PMOS 單層多晶矽嵌入式 EPROM 專利 US6678190B2",
+      "url": "https://patents.google.com/patent/US6678190B2/en",
+      "kind": "專利",
+      "date": "2004-01-13 公告；2026-09-11 查核",
+      "locator": "圖 5、9、10 與寫入「1」偏壓段：VSL／VNW 3–8 V；閘極電流峰值約在汲極 −5 至 −6 V、閘極約 −1 V",
+      "limit": "實施例偏壓屬此 PMOS 無控制閘結構；不得改寫成 3.3 V／5 V cell 對 6.5 V／7.5 V 的通則，也不得移作閘氧擊穿 AntiFuse。"
+    },
+    {
+      "id": "ch-pat-io-nvm-6920067",
+      "label": "力旺：與 I/O 裝置同結構的單層多晶矽 NVM 專利 US6920067B2",
+      "url": "https://patents.google.com/patent/US6920067B2/en",
+      "kind": "專利",
+      "date": "2005-07-19 公告；2026-09-11 查核",
+      "locator": "說明書：I/O 裝置如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V，另有較佳 6 V 的模式",
+      "limit": "支持 p 型（及請求項中的 n 型變體）可採 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。"
+    },
+    {
+      "id": "ch-eetimes-neobit-2003",
+      "label": "EE Times：Hsu 公開 0.35 µm NeoBit 編程 6–6.5 V",
+      "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+      "kind": "當代產業報導",
+      "date": "2003-11-05；2026-09-11 查核",
+      "locator": "Charles Hsu 引述：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+      "limit": "支持 0.35 µm 世代的公開電壓對照；不是 180 nm core GOX 擊穿電壓。"
+    },
+    {
+      "id": "ch-author-pmos-io-pgm",
+      "label": "本站作者工程核可：I/O PMOS 浮閘 OTP 編程電壓",
+      "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+      "kind": "作者工程核可",
+      "date": "2026-09-11 作者核可",
+      "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM",
+      "limit": "依作者於力旺任職期間撰寫 datasheet 與參與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。"
+    },
+    {
+      "id": "ch-pat-pmos-vs-nmos-5761121",
+      "label": "Ohsaki 等：PMOS 單層多晶矽 NVM 專利 US5761121A",
+      "url": "https://patents.google.com/patent/US5761121A/en",
+      "kind": "專利",
+      "date": "1998-06-02 公告；2026-09-11 查核",
+      "locator": "背景：傳統 n 通道單層多晶矽編程／抹除可高達約 20 V；本案 p 通道例約 8.5 V，浮動閘極耦合約 7.5 V",
+      "limit": "這是有控制閘耦合的單層多晶矽單元，不是 NeoBit。8.5 V／7.5 V／20 V 不得改寫成 NeoBit 的 3.3 V／5 V I/O 對照表。"
+    },
+    {
       "id": "ch-pat-eeprom-window",
       "label": "休斯飛機公司：局部穿隧窗口 EEPROM 專利 US4115914A",
       "url": "https://patents.google.com/patent/US4115914A/en",
@@ -7556,6 +7616,42 @@
       "limit": "曾公開支援紫外光抹除；不代表任意現行封裝可照光抹除。"
     },
     {
+      "id": "ip-neobit-pgm-pat",
+      "label": "串聯 PMOS 嵌入式 EPROM 寫入偏壓專利",
+      "url": "https://patents.google.com/patent/US6678190B2/en",
+      "kind": "公開專利",
+      "date": "2004-01-13",
+      "locator": "圖 5、9、10；寫入「1」：VSL／VNW 3–8 V；Ig 峰值約在 Vd −5 至 −6 V",
+      "limit": "實施例偏壓屬此無控制閘 PMOS 結構；不得改寫成 3.3 V／5 V 對 6.5 V／7.5 V 通則。"
+    },
+    {
+      "id": "ip-neobit-io-pat",
+      "label": "與 I/O 裝置同結構的單層多晶矽 NVM 專利",
+      "url": "https://patents.google.com/patent/US6920067B2/en",
+      "kind": "公開專利",
+      "date": "2005-07-19",
+      "locator": "I/O 如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V",
+      "limit": "支持 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。"
+    },
+    {
+      "id": "ip-neobit-eetimes-2003",
+      "label": "EE Times：0.35 µm NeoBit 編程 6–6.5 V",
+      "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+      "kind": "當代產業報導",
+      "date": "2003-11-05",
+      "locator": "Hsu：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+      "limit": "0.35 µm 世代公開對照；不是 180 nm core GOX 擊穿電壓。"
+    },
+    {
+      "id": "ip-neobit-io-pgm-author",
+      "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
+      "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+      "kind": "作者工程核可",
+      "date": "2026-09-11 作者核可",
+      "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
+      "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
+    },
+    {
       "id": "ip-neofuse",
       "label": "NeoFuse 官方技術原理",
       "url": "https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse",
@@ -7590,6 +7686,15 @@
       "date": "2025-01-16",
       "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
       "limit": "同公司相關實施例，未直接以 NeoFuse 命名。"
+    },
+    {
+      "id": "ip-neofuse-9v-2016",
+      "label": "0.18 µm 1.8 V NeoFuse：core 編程時承受 9 V",
+      "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+      "kind": "原廠新聞",
+      "date": "2016-01-14",
+      "locator": "0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming",
+      "limit": "具名源極驅動例的編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
     },
     {
       "id": "ip-kilopass-xpm-2007",
@@ -9625,7 +9730,7 @@
         "topicId": "antifuse",
         "operationId": "write",
         "title": "程式化：只讓受選介電層承受崩潰電場",
-        "summary": "受選 MOS 提供通路，使高電位欄線與低電位內部節點之間形成儲存層電場。電荷傳輸在介電層累積缺陷，最後建立導通路徑；電流須受控制以保護選擇器。軟崩潰到較強導通是分布性過程，不能想像成每顆單元都形成相同尺寸、相同電阻的理想金屬線。",
+        "summary": "受選 MOS 提供通路，使高電位欄線與低電位內部節點之間形成儲存層電場。程式化機制是把 core 裝置 bitcell 的閘氧擊穿，因此 Vpgm 跟隨該製程 gate oxide，不能寫成與節點無關的固定 2.8–3.5 V。力旺 2016-01-14 公開 0.18 µm 1.8 V／13.5 V NeoFuse 例：core device 在編程時承受 9 V 高壓應力。不要與 I/O PMOS 浮閘 HCI 混淆：3.3 V cell 約 6.5 V PGM、5 V cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM。這組 I/O 對照由本站作者依力旺任職期間的 datasheet 與 testing review 核可。電流須受控制以保護選擇器。軟崩潰到較強導通是分布性過程，不能想像成每顆單元都形成相同尺寸、相同電阻的理想金屬線。",
         "sources": [
           {
             "id": "ch-pat-antifuse",
@@ -9635,6 +9740,60 @@
             "date": "2003-12-23 公告；2026-09-10 查核",
             "locator": "圖 1、3、8：選擇、寫入與讀取；圖 12–15：應力與崩潰特性曲線",
             "limit": "本教材的 2.5 V、7 V 與 1.5 V 只屬此早期實施例；不得移用為現行 OTP IP 的操作建議，也不得從該專利推定所有商用單元拓撲。"
+          },
+          {
+            "id": "ch-ememory-neofuse-9v-2016",
+            "label": "力旺：0.18 µm 1.8 V NeoFuse 編程時 core 承受 9 V",
+            "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+            "kind": "原廠新聞",
+            "date": "2016-01-14；2026-09-11 查核",
+            "locator": "內文 0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming；read 1.0 V",
+            "limit": "支持具名 0.18 µm 1.8 V／13.5 V 源極驅動例的 9 V 編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
+          },
+          {
+            "id": "ch-pat-pmos-otp-6678190",
+            "label": "力旺：串聯 PMOS 單層多晶矽嵌入式 EPROM 專利 US6678190B2",
+            "url": "https://patents.google.com/patent/US6678190B2/en",
+            "kind": "專利",
+            "date": "2004-01-13 公告；2026-09-11 查核",
+            "locator": "圖 5、9、10 與寫入「1」偏壓段：VSL／VNW 3–8 V；閘極電流峰值約在汲極 −5 至 −6 V、閘極約 −1 V",
+            "limit": "實施例偏壓屬此 PMOS 無控制閘結構；不得改寫成 3.3 V／5 V cell 對 6.5 V／7.5 V 的通則，也不得移作閘氧擊穿 AntiFuse。"
+          },
+          {
+            "id": "ch-pat-io-nvm-6920067",
+            "label": "力旺：與 I/O 裝置同結構的單層多晶矽 NVM 專利 US6920067B2",
+            "url": "https://patents.google.com/patent/US6920067B2/en",
+            "kind": "專利",
+            "date": "2005-07-19 公告；2026-09-11 查核",
+            "locator": "說明書：I/O 裝置如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V，另有較佳 6 V 的模式",
+            "limit": "支持 p 型（及請求項中的 n 型變體）可採 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。"
+          },
+          {
+            "id": "ch-eetimes-neobit-2003",
+            "label": "EE Times：Hsu 公開 0.35 µm NeoBit 編程 6–6.5 V",
+            "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+            "kind": "當代產業報導",
+            "date": "2003-11-05；2026-09-11 查核",
+            "locator": "Charles Hsu 引述：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+            "limit": "支持 0.35 µm 世代的公開電壓對照；不是 180 nm core GOX 擊穿電壓。"
+          },
+          {
+            "id": "ch-author-pmos-io-pgm",
+            "label": "本站作者工程核可：I/O PMOS 浮閘 OTP 編程電壓",
+            "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+            "kind": "作者工程核可",
+            "date": "2026-09-11 作者核可",
+            "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM",
+            "limit": "依作者於力旺任職期間撰寫 datasheet 與參與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。"
+          },
+          {
+            "id": "ch-pat-pmos-vs-nmos-5761121",
+            "label": "Ohsaki 等：PMOS 單層多晶矽 NVM 專利 US5761121A",
+            "url": "https://patents.google.com/patent/US5761121A/en",
+            "kind": "專利",
+            "date": "1998-06-02 公告；2026-09-11 查核",
+            "locator": "背景：傳統 n 通道單層多晶矽編程／抹除可高達約 20 V；本案 p 通道例約 8.5 V，浮動閘極耦合約 7.5 V",
+            "limit": "這是有控制閘耦合的單層多晶矽單元，不是 NeoBit。8.5 V／7.5 V／20 V 不得改寫成 NeoBit 的 3.3 V／5 V I/O 對照表。"
           },
           {
             "id": "ch-maturity-kilopass",
@@ -9760,6 +9919,60 @@
             "limit": "本教材的 2.5 V、7 V 與 1.5 V 只屬此早期實施例；不得移用為現行 OTP IP 的操作建議，也不得從該專利推定所有商用單元拓撲。"
           },
           {
+            "id": "ch-ememory-neofuse-9v-2016",
+            "label": "力旺：0.18 µm 1.8 V NeoFuse 編程時 core 承受 9 V",
+            "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+            "kind": "原廠新聞",
+            "date": "2016-01-14；2026-09-11 查核",
+            "locator": "內文 0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming；read 1.0 V",
+            "limit": "支持具名 0.18 µm 1.8 V／13.5 V 源極驅動例的 9 V 編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
+          },
+          {
+            "id": "ch-pat-pmos-otp-6678190",
+            "label": "力旺：串聯 PMOS 單層多晶矽嵌入式 EPROM 專利 US6678190B2",
+            "url": "https://patents.google.com/patent/US6678190B2/en",
+            "kind": "專利",
+            "date": "2004-01-13 公告；2026-09-11 查核",
+            "locator": "圖 5、9、10 與寫入「1」偏壓段：VSL／VNW 3–8 V；閘極電流峰值約在汲極 −5 至 −6 V、閘極約 −1 V",
+            "limit": "實施例偏壓屬此 PMOS 無控制閘結構；不得改寫成 3.3 V／5 V cell 對 6.5 V／7.5 V 的通則，也不得移作閘氧擊穿 AntiFuse。"
+          },
+          {
+            "id": "ch-pat-io-nvm-6920067",
+            "label": "力旺：與 I/O 裝置同結構的單層多晶矽 NVM 專利 US6920067B2",
+            "url": "https://patents.google.com/patent/US6920067B2/en",
+            "kind": "專利",
+            "date": "2005-07-19 公告；2026-09-11 查核",
+            "locator": "說明書：I/O 裝置如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V，另有較佳 6 V 的模式",
+            "limit": "支持 p 型（及請求項中的 n 型變體）可採 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。"
+          },
+          {
+            "id": "ch-eetimes-neobit-2003",
+            "label": "EE Times：Hsu 公開 0.35 µm NeoBit 編程 6–6.5 V",
+            "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+            "kind": "當代產業報導",
+            "date": "2003-11-05；2026-09-11 查核",
+            "locator": "Charles Hsu 引述：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+            "limit": "支持 0.35 µm 世代的公開電壓對照；不是 180 nm core GOX 擊穿電壓。"
+          },
+          {
+            "id": "ch-author-pmos-io-pgm",
+            "label": "本站作者工程核可：I/O PMOS 浮閘 OTP 編程電壓",
+            "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+            "kind": "作者工程核可",
+            "date": "2026-09-11 作者核可",
+            "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM",
+            "limit": "依作者於力旺任職期間撰寫 datasheet 與參與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。"
+          },
+          {
+            "id": "ch-pat-pmos-vs-nmos-5761121",
+            "label": "Ohsaki 等：PMOS 單層多晶矽 NVM 專利 US5761121A",
+            "url": "https://patents.google.com/patent/US5761121A/en",
+            "kind": "專利",
+            "date": "1998-06-02 公告；2026-09-11 查核",
+            "locator": "背景：傳統 n 通道單層多晶矽編程／抹除可高達約 20 V；本案 p 通道例約 8.5 V，浮動閘極耦合約 7.5 V",
+            "limit": "這是有控制閘耦合的單層多晶矽單元，不是 NeoBit。8.5 V／7.5 V／20 V 不得改寫成 NeoBit 的 3.3 V／5 V I/O 對照表。"
+          },
+          {
             "id": "ch-maturity-kilopass",
             "label": "新思科技：2018 年收購 Kilopass 與 OTP 出貨聲明",
             "url": "https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology",
@@ -9870,6 +10083,60 @@
             "date": "2003-12-23 公告；2026-09-10 查核",
             "locator": "圖 1、3、8：選擇、寫入與讀取；圖 12–15：應力與崩潰特性曲線",
             "limit": "本教材的 2.5 V、7 V 與 1.5 V 只屬此早期實施例；不得移用為現行 OTP IP 的操作建議，也不得從該專利推定所有商用單元拓撲。"
+          },
+          {
+            "id": "ch-ememory-neofuse-9v-2016",
+            "label": "力旺：0.18 µm 1.8 V NeoFuse 編程時 core 承受 9 V",
+            "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+            "kind": "原廠新聞",
+            "date": "2016-01-14；2026-09-11 查核",
+            "locator": "內文 0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming；read 1.0 V",
+            "limit": "支持具名 0.18 µm 1.8 V／13.5 V 源極驅動例的 9 V 編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
+          },
+          {
+            "id": "ch-pat-pmos-otp-6678190",
+            "label": "力旺：串聯 PMOS 單層多晶矽嵌入式 EPROM 專利 US6678190B2",
+            "url": "https://patents.google.com/patent/US6678190B2/en",
+            "kind": "專利",
+            "date": "2004-01-13 公告；2026-09-11 查核",
+            "locator": "圖 5、9、10 與寫入「1」偏壓段：VSL／VNW 3–8 V；閘極電流峰值約在汲極 −5 至 −6 V、閘極約 −1 V",
+            "limit": "實施例偏壓屬此 PMOS 無控制閘結構；不得改寫成 3.3 V／5 V cell 對 6.5 V／7.5 V 的通則，也不得移作閘氧擊穿 AntiFuse。"
+          },
+          {
+            "id": "ch-pat-io-nvm-6920067",
+            "label": "力旺：與 I/O 裝置同結構的單層多晶矽 NVM 專利 US6920067B2",
+            "url": "https://patents.google.com/patent/US6920067B2/en",
+            "kind": "專利",
+            "date": "2005-07-19 公告；2026-09-11 查核",
+            "locator": "說明書：I/O 裝置如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V，另有較佳 6 V 的模式",
+            "limit": "支持 p 型（及請求項中的 n 型變體）可採 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。"
+          },
+          {
+            "id": "ch-eetimes-neobit-2003",
+            "label": "EE Times：Hsu 公開 0.35 µm NeoBit 編程 6–6.5 V",
+            "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+            "kind": "當代產業報導",
+            "date": "2003-11-05；2026-09-11 查核",
+            "locator": "Charles Hsu 引述：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+            "limit": "支持 0.35 µm 世代的公開電壓對照；不是 180 nm core GOX 擊穿電壓。"
+          },
+          {
+            "id": "ch-author-pmos-io-pgm",
+            "label": "本站作者工程核可：I/O PMOS 浮閘 OTP 編程電壓",
+            "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+            "kind": "作者工程核可",
+            "date": "2026-09-11 作者核可",
+            "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 浮閘 cell 需要更高 PGM",
+            "limit": "依作者於力旺任職期間撰寫 datasheet 與參與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse，也不得當成每一版現行 NeoBit 巨集的量測表。"
+          },
+          {
+            "id": "ch-pat-pmos-vs-nmos-5761121",
+            "label": "Ohsaki 等：PMOS 單層多晶矽 NVM 專利 US5761121A",
+            "url": "https://patents.google.com/patent/US5761121A/en",
+            "kind": "專利",
+            "date": "1998-06-02 公告；2026-09-11 查核",
+            "locator": "背景：傳統 n 通道單層多晶矽編程／抹除可高達約 20 V；本案 p 通道例約 8.5 V，浮動閘極耦合約 7.5 V",
+            "limit": "這是有控制閘耦合的單層多晶矽單元，不是 NeoBit。8.5 V／7.5 V／20 V 不得改寫成 NeoBit 的 3.3 V／5 V I/O 對照表。"
           },
           {
             "id": "ch-maturity-kilopass",
@@ -16925,7 +17192,7 @@
         "program": "電洞誘發熱電子注入",
         "reverse": "正常 OTP 操作無電抹除",
         "readout": "p 型儲存通道電流",
-        "lesson": "浮動閘極 OTP 的資料在儲存電荷中。選擇器控制哪個單元可讀寫，寫入則把儲存通道推到另一個可感測狀態。正常介面不提供電抹除，與介電層不可逆改變是不同的 OTP 設計路徑。",
+        "lesson": "浮動閘極 OTP 的資料在儲存電荷中。選擇器控制哪個單元可讀寫，寫入則把儲存通道推到另一個可感測狀態。正常介面不提供電抹除，與介電層不可逆改變是不同的 OTP 設計路徑。NeoBit 公開原理為串聯兩個 p-MOSFET，CHEI 寫入。單元採 I/O 裝置：3.3 V cell 約 6.5 V PGM、5 V cell 約 7.5 V PGM；同節點 n 型浮閘 cell 需要更高 PGM。這是 p 型 cell 能嵌入標準邏輯 CMOS 的電壓窗口，不是 core GOX 擊穿 AntiFuse。",
         "structure": {
           "title": "NeoBit — 單元結構",
           "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 560 400\" role=\"img\" aria-labelledby=\"emip-neobit-structure-0-zh-title\" style=\"font-family:Arial,Microsoft JhengHei,sans-serif;background:#f8fafc\"><title id=\"emip-neobit-structure-0-zh-title\">NeoBit — 單元結構</title><defs><marker id=\"emip-neobit-structure-0-zh-e\" markerWidth=\"11\" markerHeight=\"11\" refX=\"9\" refY=\"5.5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L9 5.5L1 10\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"emip-neobit-structure-0-zh-h\" markerWidth=\"11\" markerHeight=\"11\" refX=\"9\" refY=\"5.5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L9 5.5L1 10\" fill=\"none\" stroke=\"#bd354a\" stroke-width=\"2\"/></marker><marker id=\"emip-neobit-structure-0-zh-i\" markerWidth=\"11\" markerHeight=\"11\" refX=\"9\" refY=\"5.5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L9 5.5L1 10\" fill=\"none\" stroke=\"#087968\" stroke-width=\"2\"/></marker><marker id=\"emip-neobit-structure-0-zh-field\" markerWidth=\"11\" markerHeight=\"11\" refX=\"9\" refY=\"5.5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L9 5.5L1 10\" fill=\"none\" stroke=\"#a45410\" stroke-width=\"2\"/></marker></defs><text x=\"280\" y=\"31\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">歷史 pMOS 單元剖面</text><rect x=\"26\" y=\"230\" width=\"505\" height=\"116\" fill=\"#bfd3e4\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"42\" y=\"230\" width=\"460\" height=\"89\" fill=\"#a9c7df\" stroke=\"#16334c\" stroke-width=\"1.5\" /><text x=\"105\" y=\"309\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">n-well</text><text x=\"281\" y=\"340\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p-Si</text><rect x=\"62\" y=\"230\" width=\"69\" height=\"36\" fill=\"#7d9fbb\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"205\" y=\"230\" width=\"61\" height=\"36\" fill=\"#7d9fbb\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"376\" y=\"230\" width=\"65\" height=\"36\" fill=\"#7d9fbb\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"122\" y=\"211\" width=\"266\" height=\"19\" fill=\"#f4e0a9\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"122\" y=\"178\" width=\"81\" height=\"33\" fill=\"#9badba\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"265\" y=\"174\" width=\"123\" height=\"37\" fill=\"#c6a16b\" stroke=\"#16334c\" stroke-width=\"1.5\" data-storage-region=\"fg\"/><text x=\"162\" y=\"202\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SG</text><text x=\"96\" y=\"256\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p+</text><text x=\"236\" y=\"256\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p+</text><text x=\"408\" y=\"256\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p+</text><path d=\"M94 82V230\" fill=\"none\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><text x=\"94\" y=\"69\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SL</text><path d=\"M162 82V178\" fill=\"none\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><text x=\"162\" y=\"69\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SG</text><path d=\"M408 82V230\" fill=\"none\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><text x=\"408\" y=\"69\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">BL</text><path d=\"M478 82V295\" fill=\"none\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><text x=\"478\" y=\"69\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">NW</text><text x=\"326\" y=\"155\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p+ FG</text><text x=\"326\" y=\"202\" text-anchor=\"middle\" fill=\"#075f9d\" font-size=\"22\" font-weight=\"600\">Q−</text><text x=\"280\" y=\"395\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">公開來源重建；非比例佈局</text></svg>",
@@ -16960,7 +17227,11 @@
             "ip-neobit",
             "ip-neobit-pat",
             "ip-neobit-link",
-            "ip-neobit-uv"
+            "ip-neobit-uv",
+            "ip-neobit-pgm-pat",
+            "ip-neobit-io-pat",
+            "ip-neobit-eetimes-2003",
+            "ip-neobit-io-pgm-author"
           ]
         },
         "operations": [
@@ -17005,6 +17276,42 @@
                 "date": "2021；檔名版本 2021-03-30",
                 "locator": "第 1 頁：功能優點的其他效益段落；UV erase",
                 "limit": "曾公開支援紫外光抹除；不代表任意現行封裝可照光抹除。"
+              },
+              {
+                "id": "ip-neobit-pgm-pat",
+                "label": "串聯 PMOS 嵌入式 EPROM 寫入偏壓專利",
+                "url": "https://patents.google.com/patent/US6678190B2/en",
+                "kind": "公開專利",
+                "date": "2004-01-13",
+                "locator": "圖 5、9、10；寫入「1」：VSL／VNW 3–8 V；Ig 峰值約在 Vd −5 至 −6 V",
+                "limit": "實施例偏壓屬此無控制閘 PMOS 結構；不得改寫成 3.3 V／5 V 對 6.5 V／7.5 V 通則。"
+              },
+              {
+                "id": "ip-neobit-io-pat",
+                "label": "與 I/O 裝置同結構的單層多晶矽 NVM 專利",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "kind": "公開專利",
+                "date": "2005-07-19",
+                "locator": "I/O 如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V",
+                "limit": "支持 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。"
+              },
+              {
+                "id": "ip-neobit-eetimes-2003",
+                "label": "EE Times：0.35 µm NeoBit 編程 6–6.5 V",
+                "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+                "kind": "當代產業報導",
+                "date": "2003-11-05",
+                "locator": "Hsu：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+                "limit": "0.35 µm 世代公開對照；不是 180 nm core GOX 擊穿電壓。"
+              },
+              {
+                "id": "ip-neobit-io-pgm-author",
+                "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
+                "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+                "kind": "作者工程核可",
+                "date": "2026-09-11 作者核可",
+                "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
+                "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
               }
             ],
             "variants": [
@@ -17025,7 +17332,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17039,7 +17350,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17053,7 +17368,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17067,7 +17386,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   }
                 ],
@@ -17133,6 +17456,42 @@
                     "date": "2021；檔名版本 2021-03-30",
                     "locator": "第 1 頁：功能優點的其他效益段落；UV erase",
                     "limit": "曾公開支援紫外光抹除；不代表任意現行封裝可照光抹除。"
+                  },
+                  {
+                    "id": "ip-neobit-pgm-pat",
+                    "label": "串聯 PMOS 嵌入式 EPROM 寫入偏壓專利",
+                    "url": "https://patents.google.com/patent/US6678190B2/en",
+                    "kind": "公開專利",
+                    "date": "2004-01-13",
+                    "locator": "圖 5、9、10；寫入「1」：VSL／VNW 3–8 V；Ig 峰值約在 Vd −5 至 −6 V",
+                    "limit": "實施例偏壓屬此無控制閘 PMOS 結構；不得改寫成 3.3 V／5 V 對 6.5 V／7.5 V 通則。"
+                  },
+                  {
+                    "id": "ip-neobit-io-pat",
+                    "label": "與 I/O 裝置同結構的單層多晶矽 NVM 專利",
+                    "url": "https://patents.google.com/patent/US6920067B2/en",
+                    "kind": "公開專利",
+                    "date": "2005-07-19",
+                    "locator": "I/O 如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V",
+                    "limit": "支持 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。"
+                  },
+                  {
+                    "id": "ip-neobit-eetimes-2003",
+                    "label": "EE Times：0.35 µm NeoBit 編程 6–6.5 V",
+                    "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+                    "kind": "當代產業報導",
+                    "date": "2003-11-05",
+                    "locator": "Hsu：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+                    "limit": "0.35 µm 世代公開對照；不是 180 nm core GOX 擊穿電壓。"
+                  },
+                  {
+                    "id": "ip-neobit-io-pgm-author",
+                    "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
+                    "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+                    "kind": "作者工程核可",
+                    "date": "2026-09-11 作者核可",
+                    "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
+                    "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
                   }
                 ],
                 "caveat": "不畫介電質擊穿、永久導電絲、nMOS CHE；不補數值電壓或所有現行型號的 p+ 摻雜保證。 SL、SG/WL、BL、NW；FG 為浮動節點。SG 與 FG 不相連；BL 的電容耦合不能畫成直流導線。"
@@ -17180,6 +17539,42 @@
                 "date": "2021；檔名版本 2021-03-30",
                 "locator": "第 1 頁：功能優點的其他效益段落；UV erase",
                 "limit": "曾公開支援紫外光抹除；不代表任意現行封裝可照光抹除。"
+              },
+              {
+                "id": "ip-neobit-pgm-pat",
+                "label": "串聯 PMOS 嵌入式 EPROM 寫入偏壓專利",
+                "url": "https://patents.google.com/patent/US6678190B2/en",
+                "kind": "公開專利",
+                "date": "2004-01-13",
+                "locator": "圖 5、9、10；寫入「1」：VSL／VNW 3–8 V；Ig 峰值約在 Vd −5 至 −6 V",
+                "limit": "實施例偏壓屬此無控制閘 PMOS 結構；不得改寫成 3.3 V／5 V 對 6.5 V／7.5 V 通則。"
+              },
+              {
+                "id": "ip-neobit-io-pat",
+                "label": "與 I/O 裝置同結構的單層多晶矽 NVM 專利",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "kind": "公開專利",
+                "date": "2005-07-19",
+                "locator": "I/O 如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V",
+                "limit": "支持 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。"
+              },
+              {
+                "id": "ip-neobit-eetimes-2003",
+                "label": "EE Times：0.35 µm NeoBit 編程 6–6.5 V",
+                "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+                "kind": "當代產業報導",
+                "date": "2003-11-05",
+                "locator": "Hsu：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+                "limit": "0.35 µm 世代公開對照；不是 180 nm core GOX 擊穿電壓。"
+              },
+              {
+                "id": "ip-neobit-io-pgm-author",
+                "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
+                "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+                "kind": "作者工程核可",
+                "date": "2026-09-11 作者核可",
+                "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
+                "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
               }
             ],
             "variants": [
@@ -17200,7 +17595,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17214,7 +17613,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17228,7 +17631,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   }
                 ],
@@ -17294,6 +17701,42 @@
                     "date": "2021；檔名版本 2021-03-30",
                     "locator": "第 1 頁：功能優點的其他效益段落；UV erase",
                     "limit": "曾公開支援紫外光抹除；不代表任意現行封裝可照光抹除。"
+                  },
+                  {
+                    "id": "ip-neobit-pgm-pat",
+                    "label": "串聯 PMOS 嵌入式 EPROM 寫入偏壓專利",
+                    "url": "https://patents.google.com/patent/US6678190B2/en",
+                    "kind": "公開專利",
+                    "date": "2004-01-13",
+                    "locator": "圖 5、9、10；寫入「1」：VSL／VNW 3–8 V；Ig 峰值約在 Vd −5 至 −6 V",
+                    "limit": "實施例偏壓屬此無控制閘 PMOS 結構；不得改寫成 3.3 V／5 V 對 6.5 V／7.5 V 通則。"
+                  },
+                  {
+                    "id": "ip-neobit-io-pat",
+                    "label": "與 I/O 裝置同結構的單層多晶矽 NVM 專利",
+                    "url": "https://patents.google.com/patent/US6920067B2/en",
+                    "kind": "公開專利",
+                    "date": "2005-07-19",
+                    "locator": "I/O 如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V",
+                    "limit": "支持 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。"
+                  },
+                  {
+                    "id": "ip-neobit-eetimes-2003",
+                    "label": "EE Times：0.35 µm NeoBit 編程 6–6.5 V",
+                    "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+                    "kind": "當代產業報導",
+                    "date": "2003-11-05",
+                    "locator": "Hsu：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+                    "limit": "0.35 µm 世代公開對照；不是 180 nm core GOX 擊穿電壓。"
+                  },
+                  {
+                    "id": "ip-neobit-io-pgm-author",
+                    "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
+                    "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+                    "kind": "作者工程核可",
+                    "date": "2026-09-11 作者核可",
+                    "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
+                    "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
                   }
                 ],
                 "caveat": "不畫介電質擊穿、永久導電絲、nMOS CHE；不補數值電壓或所有現行型號的 p+ 摻雜保證。 SL、SG/WL、BL、NW；FG 為浮動節點。SG 與 FG 不相連；BL 的電容耦合不能畫成直流導線。"
@@ -17341,6 +17784,42 @@
                 "date": "2021；檔名版本 2021-03-30",
                 "locator": "第 1 頁：功能優點的其他效益段落；UV erase",
                 "limit": "曾公開支援紫外光抹除；不代表任意現行封裝可照光抹除。"
+              },
+              {
+                "id": "ip-neobit-pgm-pat",
+                "label": "串聯 PMOS 嵌入式 EPROM 寫入偏壓專利",
+                "url": "https://patents.google.com/patent/US6678190B2/en",
+                "kind": "公開專利",
+                "date": "2004-01-13",
+                "locator": "圖 5、9、10；寫入「1」：VSL／VNW 3–8 V；Ig 峰值約在 Vd −5 至 −6 V",
+                "limit": "實施例偏壓屬此無控制閘 PMOS 結構；不得改寫成 3.3 V／5 V 對 6.5 V／7.5 V 通則。"
+              },
+              {
+                "id": "ip-neobit-io-pat",
+                "label": "與 I/O 裝置同結構的單層多晶矽 NVM 專利",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "kind": "公開專利",
+                "date": "2005-07-19",
+                "locator": "I/O 如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V",
+                "limit": "支持 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。"
+              },
+              {
+                "id": "ip-neobit-eetimes-2003",
+                "label": "EE Times：0.35 µm NeoBit 編程 6–6.5 V",
+                "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+                "kind": "當代產業報導",
+                "date": "2003-11-05",
+                "locator": "Hsu：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+                "limit": "0.35 µm 世代公開對照；不是 180 nm core GOX 擊穿電壓。"
+              },
+              {
+                "id": "ip-neobit-io-pgm-author",
+                "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
+                "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+                "kind": "作者工程核可",
+                "date": "2026-09-11 作者核可",
+                "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
+                "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
               }
             ],
             "variants": [
@@ -17361,7 +17840,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17375,7 +17858,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17389,7 +17876,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17403,7 +17894,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   }
                 ],
@@ -17469,6 +17964,42 @@
                     "date": "2021；檔名版本 2021-03-30",
                     "locator": "第 1 頁：功能優點的其他效益段落；UV erase",
                     "limit": "曾公開支援紫外光抹除；不代表任意現行封裝可照光抹除。"
+                  },
+                  {
+                    "id": "ip-neobit-pgm-pat",
+                    "label": "串聯 PMOS 嵌入式 EPROM 寫入偏壓專利",
+                    "url": "https://patents.google.com/patent/US6678190B2/en",
+                    "kind": "公開專利",
+                    "date": "2004-01-13",
+                    "locator": "圖 5、9、10；寫入「1」：VSL／VNW 3–8 V；Ig 峰值約在 Vd −5 至 −6 V",
+                    "limit": "實施例偏壓屬此無控制閘 PMOS 結構；不得改寫成 3.3 V／5 V 對 6.5 V／7.5 V 通則。"
+                  },
+                  {
+                    "id": "ip-neobit-io-pat",
+                    "label": "與 I/O 裝置同結構的單層多晶矽 NVM 專利",
+                    "url": "https://patents.google.com/patent/US6920067B2/en",
+                    "kind": "公開專利",
+                    "date": "2005-07-19",
+                    "locator": "I/O 如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V",
+                    "limit": "支持 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。"
+                  },
+                  {
+                    "id": "ip-neobit-eetimes-2003",
+                    "label": "EE Times：0.35 µm NeoBit 編程 6–6.5 V",
+                    "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+                    "kind": "當代產業報導",
+                    "date": "2003-11-05",
+                    "locator": "Hsu：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+                    "limit": "0.35 µm 世代公開對照；不是 180 nm core GOX 擊穿電壓。"
+                  },
+                  {
+                    "id": "ip-neobit-io-pgm-author",
+                    "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
+                    "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+                    "kind": "作者工程核可",
+                    "date": "2026-09-11 作者核可",
+                    "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
+                    "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
                   }
                 ],
                 "caveat": "不畫介電質擊穿、永久導電絲、nMOS CHE；不補數值電壓或所有現行型號的 p+ 摻雜保證。 SL、SG/WL、BL、NW；FG 為浮動節點。SG 與 FG 不相連；BL 的電容耦合不能畫成直流導線。"
@@ -17519,7 +18050,8 @@
             "ip-neofuse",
             "ip-neofuse-dt",
             "ip-neofuse-3t",
-            "ip-neofuse-pat"
+            "ip-neofuse-pat",
+            "ip-neofuse-9v-2016"
           ]
         },
         "operations": [
@@ -17564,6 +18096,15 @@
                 "date": "2025-01-16",
                 "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
                 "limit": "同公司相關實施例，未直接以 NeoFuse 命名。"
+              },
+              {
+                "id": "ip-neofuse-9v-2016",
+                "label": "0.18 µm 1.8 V NeoFuse：core 編程時承受 9 V",
+                "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+                "kind": "原廠新聞",
+                "date": "2016-01-14",
+                "locator": "0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming",
+                "limit": "具名源極驅動例的編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
               }
             ],
             "variants": [
@@ -17584,7 +18125,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17598,7 +18140,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17612,7 +18155,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17626,7 +18170,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   }
                 ],
@@ -17688,6 +18233,15 @@
                     "date": "2025-01-16",
                     "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
                     "limit": "同公司相關實施例，未直接以 NeoFuse 命名。"
+                  },
+                  {
+                    "id": "ip-neofuse-9v-2016",
+                    "label": "0.18 µm 1.8 V NeoFuse：core 編程時承受 9 V",
+                    "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+                    "kind": "原廠新聞",
+                    "date": "2016-01-14",
+                    "locator": "0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming",
+                    "limit": "具名源極驅動例的編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
                   }
                 ],
                 "caveat": "不畫粗金屬短路或 FG 儲存；未證明現行先進製程是高介電常數層或介面層哪一層先損傷。 反熔絲閘極 AF、下方矽區 Si、選擇與調節控制、BL；AF 與 Si 間的儲存介電質不同於選擇器氧化層。"
@@ -17735,6 +18289,15 @@
                 "date": "2025-01-16",
                 "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
                 "limit": "同公司相關實施例，未直接以 NeoFuse 命名。"
+              },
+              {
+                "id": "ip-neofuse-9v-2016",
+                "label": "0.18 µm 1.8 V NeoFuse：core 編程時承受 9 V",
+                "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+                "kind": "原廠新聞",
+                "date": "2016-01-14",
+                "locator": "0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming",
+                "limit": "具名源極驅動例的編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
               }
             ],
             "variants": [
@@ -17755,7 +18318,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17769,7 +18333,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17783,7 +18348,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   }
                 ],
@@ -17845,6 +18411,15 @@
                     "date": "2025-01-16",
                     "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
                     "limit": "同公司相關實施例，未直接以 NeoFuse 命名。"
+                  },
+                  {
+                    "id": "ip-neofuse-9v-2016",
+                    "label": "0.18 µm 1.8 V NeoFuse：core 編程時承受 9 V",
+                    "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+                    "kind": "原廠新聞",
+                    "date": "2016-01-14",
+                    "locator": "0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming",
+                    "limit": "具名源極驅動例的編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
                   }
                 ],
                 "caveat": "不畫粗金屬短路或 FG 儲存；未證明現行先進製程是高介電常數層或介面層哪一層先損傷。 反熔絲閘極 AF、下方矽區 Si、選擇與調節控制、BL；AF 與 Si 間的儲存介電質不同於選擇器氧化層。"
@@ -17892,6 +18467,15 @@
                 "date": "2025-01-16",
                 "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
                 "limit": "同公司相關實施例，未直接以 NeoFuse 命名。"
+              },
+              {
+                "id": "ip-neofuse-9v-2016",
+                "label": "0.18 µm 1.8 V NeoFuse：core 編程時承受 9 V",
+                "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+                "kind": "原廠新聞",
+                "date": "2016-01-14",
+                "locator": "0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming",
+                "limit": "具名源極驅動例的編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
               }
             ],
             "variants": [
@@ -17912,7 +18496,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17926,7 +18511,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17940,7 +18526,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17954,7 +18541,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   }
                 ],
@@ -18016,6 +18604,15 @@
                     "date": "2025-01-16",
                     "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
                     "limit": "同公司相關實施例，未直接以 NeoFuse 命名。"
+                  },
+                  {
+                    "id": "ip-neofuse-9v-2016",
+                    "label": "0.18 µm 1.8 V NeoFuse：core 編程時承受 9 V",
+                    "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+                    "kind": "原廠新聞",
+                    "date": "2016-01-14",
+                    "locator": "0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming",
+                    "limit": "具名源極驅動例的編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
                   }
                 ],
                 "caveat": "不畫粗金屬短路或 FG 儲存；未證明現行先進製程是高介電常數層或介面層哪一層先損傷。 反熔絲閘極 AF、下方矽區 Si、選擇與調節控制、BL；AF 與 Si 間的儲存介電質不同於選擇器氧化層。"
@@ -23418,6 +24015,42 @@
         "limit": "曾公開支援紫外光抹除；不代表任意現行封裝可照光抹除。"
       },
       {
+        "id": "ip-neobit-pgm-pat",
+        "label": "串聯 PMOS 嵌入式 EPROM 寫入偏壓專利",
+        "url": "https://patents.google.com/patent/US6678190B2/en",
+        "kind": "公開專利",
+        "date": "2004-01-13",
+        "locator": "圖 5、9、10；寫入「1」：VSL／VNW 3–8 V；Ig 峰值約在 Vd −5 至 −6 V",
+        "limit": "實施例偏壓屬此無控制閘 PMOS 結構；不得改寫成 3.3 V／5 V 對 6.5 V／7.5 V 通則。"
+      },
+      {
+        "id": "ip-neobit-io-pat",
+        "label": "與 I/O 裝置同結構的單層多晶矽 NVM 專利",
+        "url": "https://patents.google.com/patent/US6920067B2/en",
+        "kind": "公開專利",
+        "date": "2005-07-19",
+        "locator": "I/O 如 3.3 V；單元與 I/O 電晶體同一電性行為；寫入較佳約 5 V",
+        "limit": "支持 I/O 裝置規則；未給出 5 V I/O cell 必須 7.5 V PGM。"
+      },
+      {
+        "id": "ip-neobit-eetimes-2003",
+        "label": "EE Times：0.35 µm NeoBit 編程 6–6.5 V",
+        "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+        "kind": "當代產業報導",
+        "date": "2003-11-05",
+        "locator": "Hsu：0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+        "limit": "0.35 µm 世代公開對照；不是 180 nm core GOX 擊穿電壓。"
+      },
+      {
+        "id": "ip-neobit-io-pgm-author",
+        "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
+        "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+        "kind": "作者工程核可",
+        "date": "2026-09-11 作者核可",
+        "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
+        "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
+      },
+      {
         "id": "ip-neofuse",
         "label": "NeoFuse 官方技術原理",
         "url": "https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse",
@@ -23452,6 +24085,15 @@
         "date": "2025-01-16",
         "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
         "limit": "同公司相關實施例，未直接以 NeoFuse 命名。"
+      },
+      {
+        "id": "ip-neofuse-9v-2016",
+        "label": "0.18 µm 1.8 V NeoFuse：core 編程時承受 9 V",
+        "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+        "kind": "原廠新聞",
+        "date": "2016-01-14",
+        "locator": "0.18um 1.8V/13.5V 例：core device can sustain 9V high-voltage stress during programming",
+        "limit": "具名源極驅動例的編程應力，不是跨節點通用擊穿電壓，也不是浮閘 HCI。"
       },
       {
         "id": "ip-kilopass-xpm-2007",

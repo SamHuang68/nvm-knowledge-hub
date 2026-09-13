@@ -39,6 +39,10 @@ Series pMOS selector and pMOS floating-gate cell. Historical section: n-well in 
 - [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en)
 - [ip-neobit-link: Official NeoBit-to-Patent Link](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)
 - [ip-neobit-uv: Published NeoBit UV-Erase Boundary](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)
+- [ip-neobit-pgm-pat: Series-PMOS Embedded EPROM Write-Bias Patent](https://patents.google.com/patent/US6678190B2/en)
+- [ip-neobit-io-pat: I/O-Device Single-Poly NVM Patent](https://patents.google.com/patent/US6920067B2/en)
+- [ip-neobit-eetimes-2003: EE Times: 0.35 µm NeoBit Programs at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
+- [ip-neobit-io-pgm-author: Site Author: I/O PMOS Floating-Gate OTP Program Voltages](https://samhuang68.github.io/nvm-knowledge-hub/)
 
 #### NeoBit — Program
 
@@ -91,6 +95,10 @@ Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent volta
 - [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en)
 - [ip-neobit-link: Official NeoBit-to-Patent Link](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)
 - [ip-neobit-uv: Published NeoBit UV-Erase Boundary](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)
+- [ip-neobit-pgm-pat: Series-PMOS Embedded EPROM Write-Bias Patent](https://patents.google.com/patent/US6678190B2/en)
+- [ip-neobit-io-pat: I/O-Device Single-Poly NVM Patent](https://patents.google.com/patent/US6920067B2/en)
+- [ip-neobit-eetimes-2003: EE Times: 0.35 µm NeoBit Programs at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
+- [ip-neobit-io-pgm-author: Site Author: I/O PMOS Floating-Gate OTP Program Voltages](https://samhuang68.github.io/nvm-knowledge-hub/)
 
 #### NeoBit — Erase Boundary
 
@@ -135,6 +143,10 @@ Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent volta
 - [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en)
 - [ip-neobit-link: Official NeoBit-to-Patent Link](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)
 - [ip-neobit-uv: Published NeoBit UV-Erase Boundary](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)
+- [ip-neobit-pgm-pat: Series-PMOS Embedded EPROM Write-Bias Patent](https://patents.google.com/patent/US6678190B2/en)
+- [ip-neobit-io-pat: I/O-Device Single-Poly NVM Patent](https://patents.google.com/patent/US6920067B2/en)
+- [ip-neobit-eetimes-2003: EE Times: 0.35 µm NeoBit Programs at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
+- [ip-neobit-io-pgm-author: Site Author: I/O PMOS Floating-Gate OTP Program Voltages](https://samhuang68.github.io/nvm-knowledge-hub/)
 
 #### NeoBit — Read
 
@@ -187,10 +199,14 @@ Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent volta
 - [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en)
 - [ip-neobit-link: Official NeoBit-to-Patent Link](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414)
 - [ip-neobit-uv: Published NeoBit UV-Erase Boundary](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf)
+- [ip-neobit-pgm-pat: Series-PMOS Embedded EPROM Write-Bias Patent](https://patents.google.com/patent/US6678190B2/en)
+- [ip-neobit-io-pat: I/O-Device Single-Poly NVM Patent](https://patents.google.com/patent/US6920067B2/en)
+- [ip-neobit-eetimes-2003: EE Times: 0.35 µm NeoBit Programs at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
+- [ip-neobit-io-pgm-author: Site Author: I/O PMOS Floating-Gate OTP Program Voltages](https://samhuang68.github.io/nvm-knowledge-hub/)
 
 #### IP Cell Tradeoffs
 
-A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change.
+A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change. Public NeoBit principles describe two series p-MOSFETs and CHEI. The cell uses I/O devices: about 6.5 V PGM for a 3.3 V cell and 7.5 V for a 5 V cell; an n-type floating-gate cell at the same node needs a higher Vpgm. That I/O window is why a p-type cell can embed in standard logic CMOS — not core-GOX-breakdown AntiFuse.
 
 ### NeoFuse: Gate-Dielectric Antifuse OTP Cell
 
@@ -212,6 +228,7 @@ Storage uses an nFET gate dielectric and gate-current sensing. Published 3T adds
 - [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
 - [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
 - [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en)
+- [ip-neofuse-9v-2016: 0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
 
 #### NeoFuse — Program
 
@@ -263,6 +280,7 @@ No thick metallic short or FG storage; the damaged high-k/interfacial sublayer o
 - [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
 - [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
 - [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en)
+- [ip-neofuse-9v-2016: 0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
 
 #### NeoFuse — Erase Boundary
 
@@ -306,6 +324,7 @@ No thick metallic short or FG storage; the damaged high-k/interfacial sublayer o
 - [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
 - [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
 - [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en)
+- [ip-neofuse-9v-2016: 0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
 
 #### NeoFuse — Read
 
@@ -357,6 +376,7 @@ No thick metallic short or FG storage; the damaged high-k/interfacial sublayer o
 - [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19)
 - [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies)
 - [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en)
+- [ip-neofuse-9v-2016: 0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
 
 #### IP Cell Tradeoffs
 
@@ -2482,7 +2502,7 @@ Stimulus: In the early embodiment of US6667902B2, Figures 1/8 use a 2.5 V row-se
 
 After: The thin dielectric develops detectable conduction. Program verification checks whether current reaches the specified window, rather than mistaking a slight leakage increase for sufficient programming.
 
-The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Charge transport accumulates defects in the dielectric and eventually establishes a conductive path; current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell.
+The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is core-device bitcell gate-oxide breakdown, so Vpgm tracks that process gate oxide — not a node-independent 2.8–3.5 V. eMemory’s 14 Jan 2016 0.18 µm 1.8 V/13.5 V NeoFuse example states that the core device sustains 9 V high-voltage stress during programming. Do not confuse that with I/O PMOS floating-gate HCI: about 6.5 V PGM for a 3.3 V cell and 7.5 V for a 5 V cell; an NMOS floating-gate cell at the same node needs a higher Vpgm. That I/O pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell.
 
 #### Erase: No Repair of the Broken-Down Dielectric in Normal Operation
 
@@ -2523,7 +2543,7 @@ Dielectric thickness, local defects, area, and field distribution produce statis
 
 - Device: The usable window lies between reliably establishing sufficient conduction and avoiding unintended damage. Reducing storage area or changing the dielectric does not necessarily improve breakdown statistics and programmed current proportionally. Limits should be described by complete distributions, specified temperatures, and long-term sensing margin.
 - Array: Density is jointly limited by selectors, high-voltage decoding, half-select isolation, wiring drops, and sensors. Theoretical cell area is not a substitute for complete macro efficiency. As an array grows, additional unselected leakage and accumulated programming stress must enter its failure-rate budget.
-- Process: Availability in standard CMOS does not remove the need for qualification. Controlled breakdown of the storage dielectric, selector voltage tolerance, thick/thin oxide choices, and reliability tests must be reconfirmed for the foundry process version. Success at one node does not establish usable pulses at another.
+- Process: Availability in standard CMOS does not remove the need for qualification. The mature-node floor for core-GOX AntiFuse is about 0.18 µm: at 0.25 µm the voltage needed to break a 2.5 V gate oxide hits junction breakdown first and burns the bitcell channel. Controlled breakdown of the storage dielectric, selector voltage tolerance, thick/thin oxide choices, and reliability tests must be reconfirmed for the foundry process version. Success at one node does not establish usable pulses at another.
 - System: System bottlenecks often include the irreversible programming flow, remaining blank bits, and supply conditions during programming. For keys or boot settings, programming permissions, read isolation, lock state, and fault recovery must be validated separately from the storage physics. The OTP label does not replace system design.
 
 ### Fit and Misuse
@@ -2545,6 +2565,12 @@ Cells sharing a column or row, and internal floating nodes, can develop differen
 ### Sources
 
 - [ch-pat-antifuse: Kilopass: Ultrathin Dielectric Breakdown Cell Patent US6667902B2](https://patents.google.com/patent/US6667902B2/en)
+- [ch-ememory-neofuse-9v-2016: eMemory: 0.18 µm 1.8 V NeoFuse core sustains 9 V during program](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC)
+- [ch-pat-pmos-otp-6678190: eMemory: Series-PMOS Single-Poly Embedded EPROM Patent US6678190B2](https://patents.google.com/patent/US6678190B2/en)
+- [ch-pat-io-nvm-6920067: eMemory: I/O-Device Single-Poly NVM Patent US6920067B2](https://patents.google.com/patent/US6920067B2/en)
+- [ch-eetimes-neobit-2003: EE Times: Hsu on 0.35 µm NeoBit program at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/)
+- [ch-author-pmos-io-pgm: Site-author engineering attestation: I/O PMOS floating-gate OTP program voltages](https://samhuang68.github.io/nvm-knowledge-hub/)
+- [ch-pat-pmos-vs-nmos-5761121: Ohsaki et al.: PMOS Single-Poly NVM Patent US5761121A](https://patents.google.com/patent/US5761121A/en)
 - [ch-maturity-kilopass: Synopsys: 2018 Kilopass Acquisition and OTP Shipment Statement](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology)
 - [ch-maturity-otp-current: Synopsys: Current Antifuse OTP NVM IP Product Page](https://www.synopsys.com/designware-ip/memories-logic-libraries/non-volatile-memory/otp.html)
 
@@ -4643,7 +4669,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 
 ## Glossary
 
-- CHI and CHEI: CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate.
+- CHI and CHEI: CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate. For an I/O PMOS floating-gate cell, a 3.3 V device programs near 6.5 V and a 5 V device near 7.5 V; an NMOS floating-gate cell at the same node needs a higher Vpgm. That pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory, and must not be mixed with 9 V core-GOX AntiFuse program stress.
 - Fowler–Nordheim (FN) Tunneling: A sufficiently strong field changes the dielectric energy barrier so electrons can tunnel through it. State the electron origin, destination and field direction separately. NeoEE uses FN transport for both updates; NeoMTP uses FN electron transfer toward an erase gate for the reverse update.
 - BBT, BBHH and DAHHI: Band-to-band tunneling (BBT) creates electron/hole pairs inside silicon. Band-to-band hot-hole injection (BBHH) then uses energetic holes to cross the dielectric. Drain-avalanche hot-hole injection (DAHHI) uses avalanche generation instead; shared hot-hole injection does not make the carrier-generation mechanisms identical.
 - Direct Tunneling and Antifuse Readout: In eMemory's published ultrathin-dielectric explanation, programming generates defects that reduce effective tunneling distance and increase gate current. Preserve this named mechanism when discussing NeoFuse; an ideal metal short or a generic trap-assisted-tunneling label is not a substitute.
@@ -4679,6 +4705,12 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ch-pat-efuse-poly: IBM: Locally Narrowed Electrical Fuse Patent US7417300B2](https://patents.google.com/patent/US7417300B2/en). Patent; Granted 2008-08-26; reviewed 2026-09-10; Location in the Source: Figures 3 and 4A; embodiment descriptions of electromigration and material backflow; claim 1; Limitations: Supports a specific polysilicon/silicide fuse structure and its engineering problems. A patent embodiment is not a commercial product reliability guarantee, nor does it establish that all eFuses use the same materials or state transition.
 - [ch-pat-efuse-via: TSMC: Metal Via Fuse Patent US8847350B2](https://patents.google.com/patent/US8847350B2/en). Patent; Granted 2014-09-30; reviewed 2026-09-10; Location in the Source: Figures 1 and 5A; sections on current crowding and via contact placement; claim 1; Limitations: Supports a specific interconnect geometry and programming method. It does not provide process-independent programming current, area, or production yield figures.
 - [ch-pat-antifuse: Kilopass: Ultrathin Dielectric Breakdown Cell Patent US6667902B2](https://patents.google.com/patent/US6667902B2/en). Patent; Granted 2003-12-23; reviewed 2026-09-10; Location in the Source: Figures 1, 3, and 8: selection, programming, and read; Figures 12–15: stress and breakdown-characteristic plots; Limitations: The 2.5 V, 7 V, and 1.5 V values in this material belong only to this early embodiment. They must not be reused as operating recommendations for current OTP IP, and this patent does not establish the topology of every commercial cell.
+- [ch-ememory-neofuse-9v-2016: eMemory: 0.18 µm 1.8 V NeoFuse core sustains 9 V during program](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC). Vendor news; 2016-01-14; reviewed 2026-09-11; Location in the Source: 0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming; 1.0 V read; Limitations: Supports 9 V program stress in that named 0.18 µm 1.8 V/13.5 V source-driver example. It is not a node-independent breakdown voltage and not floating-gate HCI.
+- [ch-pat-pmos-otp-6678190: eMemory: Series-PMOS Single-Poly Embedded EPROM Patent US6678190B2](https://patents.google.com/patent/US6678190B2/en). Patent; Granted 2004-01-13; reviewed 2026-09-11; Location in the Source: Figures 5, 9 and 10 and the write-“1” bias text: VSL/VNW 3–8 V; gate-current peak near drain −5 to −6 V and gate about −1 V; Limitations: Embodiment biases belong to this PMOS, no-control-gate cell. They must not be rewritten as a 3.3 V/5 V to 6.5 V/7.5 V rule, nor moved onto gate-oxide-breakdown AntiFuse.
+- [ch-pat-io-nvm-6920067: eMemory: I/O-Device Single-Poly NVM Patent US6920067B2](https://patents.google.com/patent/US6920067B2/en). Patent; Granted 2005-07-19; reviewed 2026-09-11; Location in the Source: Specification: I/O devices such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V, with another mode preferably 6 V; Limitations: Supports p-type cells (and an NMOS claim variant) built to I/O device rules. It does not state that a 5 V I/O cell must program at 7.5 V.
+- [ch-eetimes-neobit-2003: EE Times: Hsu on 0.35 µm NeoBit program at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/). Contemporary industry report; 2003-11-05; reviewed 2026-09-11; Location in the Source: Charles Hsu quoted: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM; Limitations: Supports a 0.35 µm-generation public voltage comparison. It is not 180 nm core-GOX breakdown.
+- [ch-author-pmos-io-pgm: Site-author engineering attestation: I/O PMOS floating-gate OTP program voltages](https://samhuang68.github.io/nvm-knowledge-hub/). Author engineering attestation; Author-attested 2026-09-11; Location in the Source: About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm; Limitations: Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro.
+- [ch-pat-pmos-vs-nmos-5761121: Ohsaki et al.: PMOS Single-Poly NVM Patent US5761121A](https://patents.google.com/patent/US5761121A/en). Patent; Granted 1998-06-02; reviewed 2026-09-11; Location in the Source: Background: conventional n-channel single-poly program/erase may be as high as about 20 V; this p-channel example about 8.5 V, with about 7.5 V coupled onto the floating gate; Limitations: This cell has control-gate coupling and is not NeoBit. The 8.5 V / 7.5 V / 20 V figures must not be rewritten as a NeoBit 3.3 V / 5 V I/O table.
 - [ch-pat-eeprom-window: Hughes Aircraft Company: Local Tunnel-Window EEPROM Patent US4115914A](https://patents.google.com/patent/US4115914A/en). Patent; Granted 1978-09-26; reviewed 2026-09-10; Location in the Source: Front page of the original publication; Figures 3i and 6; claims 2 and 9; parent application in the priority chain; Limitations: 1976-03-26 is the parent-application date found in the records; this application was filed in 1977. The earliest date in a priority chain is not a legal determination of the effective priority of every claim.
 - [ch-pat-eeprom-singlepoly: Cypress Semiconductor: Buried-Control-Gate Single-Poly EEPROM Patent US5844271A](https://patents.google.com/patent/US5844271A/en). Patent; Granted 1998-12-01; reviewed 2026-09-10; Location in the Source: Figures 3–6; buried control electrode, thick/thin oxide regions, and operating descriptions; claim 1; Limitations: Demonstrates one single-poly EEPROM implementation. It does not establish that current Synopsys MTP uses this structure or the same hot-electron injection and tunneling paths.
 - [ch-pat-nor-splitgate: Worldwide Semiconductor Manufacturing / TSMC: Split-Gate Flash Patent US6232180B1](https://patents.google.com/patent/US6232180B1/en). Patent; Granted 2001-05-15; reviewed 2026-09-10; Location in the Source: Assignment records from 1999 and 2000; Figure 6 and its operating table; claims 4 and 6; Limitations: This embodiment uses source-side injection and channel erase. Its operating table must not be combined with SuperFlash inter-gate FN erase in the same cross-section. Aggregated assignee metadata must be checked against the assignment timeline.
@@ -4797,10 +4829,15 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en). Public Patent; 2005-07-05; Location in the Source: Figures 2(a), 2(b), 6; claims 1, 4; Limitations: Historical p+ floating-gate model linked by 2005 company news; not every current process.
 - [ip-neobit-link: Official NeoBit-to-Patent Link](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414). Primary Technical Source; 2005-10-04; Location in the Source: Second body paragraph: patent title and inventors; Limitations: Direct historical association between NeoBit and the named patent.
 - [ip-neobit-uv: Published NeoBit UV-Erase Boundary](https://www.ememory.com.tw/Content/Upload/files/Product%20Brief/07_NeoBit%C2%AE%E2%80%93%20Most%20Widely%20Used%20OTP%20Solution_20210330.pdf). Primary Technical Source; 2021; filename version 2021-03-30; Location in the Source: Page 1: Feature/Advantage, Other benefits; UV erase; Limitations: UV erase was published; this does not make every current package UV erasable.
+- [ip-neobit-pgm-pat: Series-PMOS Embedded EPROM Write-Bias Patent](https://patents.google.com/patent/US6678190B2/en). Public Patent; 2004-01-13; Location in the Source: Figures 5, 9 and 10; write-“1”: VSL/VNW 3–8 V; Ig peak near Vd −5 to −6 V; Limitations: Embodiment biases belong to this no-control-gate PMOS cell; not a 3.3 V/5 V to 6.5 V/7.5 V rule.
+- [ip-neobit-io-pat: I/O-Device Single-Poly NVM Patent](https://patents.google.com/patent/US6920067B2/en). Public Patent; 2005-07-19; Location in the Source: I/O such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V; Limitations: Supports I/O-device rules; does not require 7.5 V PGM for a 5 V I/O cell.
+- [ip-neobit-eetimes-2003: EE Times: 0.35 µm NeoBit Programs at 6–6.5 V](https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/). Primary Technical Source; 2003-11-05; Location in the Source: Hsu: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM; Limitations: A 0.35 µm-generation public comparison; not 180 nm core-GOX breakdown.
+- [ip-neobit-io-pgm-author: Site Author: I/O PMOS Floating-Gate OTP Program Voltages](https://samhuang68.github.io/nvm-knowledge-hub/). Author Engineering Attestation; Author-attested 2026-09-11; Location in the Source: About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm; Limitations: Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse.
 - [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; Limitations: Impedance-based OTP and GIDL suppression; full dielectric materials are undisclosed.
 - [ip-neofuse-dt: Quantum Tunneling Mechanism in NeoFuse](https://www.chipestimate.com/Quantum-Tunneling-Mechanism-in-NeoFuse/eMemory/Technical-Article/2021/01/19). Primary Technical Source; 2021-01-19; Location in the Source: Figures 1–3; core nFET, gate oxide, dangling bonds, direct tunneling; Limitations: eMemory-authored article; an ultrathin-oxide DT model, not a metallic filament for all generations.
 - [ip-neofuse-3t: Named NeoFuse Three-Transistor Architecture](https://www.ememory.com.tw/en-US/News/2024-12-09/Powering-the-NVM-and-Embedded-Chip-Security-Technologies). Officially Reposted Executive Interview; 2024-12-09; Location in the Source: NeoFuse: patented 3T design and regulating transistor; Limitations: Confirms 3T and a regulating function, not every current netlist or cross-section.
 - [ip-neofuse-pat: Related Three-Transistor Antifuse Patent](https://patents.google.com/patent/US20250024668A1/en). Public Patent; 2025-01-16; Location in the Source: Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268; Limitations: Related same-company embodiment, not explicitly branded NeoFuse.
+- [ip-neofuse-9v-2016: 0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program](https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC). Primary Technical Source; 2016-01-14; Location in the Source: 0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming; Limitations: Named source-driver program stress; not a node-independent breakdown voltage and not FG HCI.
 - [ip-kilopass-xpm-2007: Historical Kilopass XPM 2T Patent Diagram](https://patents.google.com/patent/WO2007090089A2/en). Public Patent; 2007-08-09; Accessed 2026-09-10; Location in the Source: Figure 1; paragraphs [0025]–[0029]; Figure 2 contrast in [0031]; Limitations: Figure 1 explicitly names existing XPM. Reconstruct only its 2T function; exclude the intermediate output in Figure 2 and later self-sensing circuits.
 - [ip-kilopass-2t-2012: Kilopass 130/110 nm XPM and Gusto 2T Announcement](https://www.design-reuse.com/news/202521997-kilopass-nvm-ip-cores-first-to-deliver-footprint-and-pin-compatibility-across-eight-top-tier-silicon-foundries-for-the-130-110nm-process-node/). Republished Vendor Announcement; 2012-05-15; Accessed 2026-09-10; Location in the Source: Body paragraphs naming 2T CMOS antifuse and XPM/Gusto; Limitations: Supports the 2T link for the named historical products and nodes, not every node, current macro, or identical layout across foundries.
 - [ip-lineage-kilopass-2018: Synopsys Acquisition of Kilopass](https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology). Official Acquisition Announcement; 2018-01-10; Accessed 2026-09-10; Location in the Source: Announcement date; XPM, Gusto, SecretCode and 1T/2T product paragraphs; Limitations: Confirms portfolio acquisition, not identity between historical cells and all current implementations.

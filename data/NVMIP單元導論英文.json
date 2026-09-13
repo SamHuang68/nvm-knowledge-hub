@@ -35,7 +35,7 @@
       "program": "Hot-hole-induced electron injection",
       "reverse": "No electrical erase in normal OTP operation",
       "readout": "P-type storage-channel current",
-      "lesson": "A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change."
+      "lesson": "A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change. Public NeoBit principles describe two series p-MOSFETs and CHEI. The cell uses I/O devices: about 6.5 V PGM for a 3.3 V cell and 7.5 V for a 5 V cell; an n-type floating-gate cell at the same node needs a higher Vpgm. That I/O window is why a p-type cell can embed in standard logic CMOS — not core-GOX-breakdown AntiFuse."
     },
     {
       "id": "neofuse",

@@ -35,7 +35,7 @@
       "program": "電洞誘發熱電子注入",
       "reverse": "正常 OTP 操作無電抹除",
       "readout": "p 型儲存通道電流",
-      "lesson": "浮動閘極 OTP 的資料在儲存電荷中。選擇器控制哪個單元可讀寫，寫入則把儲存通道推到另一個可感測狀態。正常介面不提供電抹除，與介電層不可逆改變是不同的 OTP 設計路徑。"
+      "lesson": "浮動閘極 OTP 的資料在儲存電荷中。選擇器控制哪個單元可讀寫，寫入則把儲存通道推到另一個可感測狀態。正常介面不提供電抹除，與介電層不可逆改變是不同的 OTP 設計路徑。NeoBit 公開原理為串聯兩個 p-MOSFET，CHEI 寫入。單元採 I/O 裝置：3.3 V cell 約 6.5 V PGM、5 V cell 約 7.5 V PGM；同節點 n 型浮閘 cell 需要更高 PGM。這是 p 型 cell 能嵌入標準邏輯 CMOS 的電壓窗口，不是 core GOX 擊穿 AntiFuse。"
     },
     {
       "id": "neofuse",

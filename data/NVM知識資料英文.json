@@ -108,7 +108,7 @@
     ],
     "evidenceRules": [
       "Supplier disclosures, datasheets, papers, patents, and editorial inferences serve different purposes. Source categories are not steps on a maturity ladder from weak to strong.",
-      "Every performance value must retain its device, capacity, temperature, granularity, test method, and source. Leave undisclosed values as gaps; do not combine the best numbers from unrelated implementations.",
+      "Every performance value must retain its device, capacity, temperature, granularity, test method, and source. Leave undisclosed values as gaps; do not combine the best numbers from unrelated implementations. Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory is a separate source class: it does not quote unpublished file pages, and it is not a current-macro shipment spec.",
       "A patent supports the disclosure and interpretation of its claims. The assignee alone does not establish that the company's production process uses the same structure.",
       "A technology ceiling describes the principal constraints and trade-offs of current designs. Without sufficient evidence, do not present an engineering limitation as a permanent physical limit."
     ],
@@ -266,7 +266,7 @@
           "before": "The storage dielectric is intact and the selected bit has low leakage. Other cells in the same row and column must remain unprogrammed.",
           "stimulus": "In the early embodiment of US6667902B2, Figures 1/8 use a 2.5 V row-select line, a 0 V source line, and a 7 V selected column line. These values apply only to that structure and period, not to current product operation.",
           "after": "The thin dielectric develops detectable conduction. Program verification checks whether current reaches the specified window, rather than mistaking a slight leakage increase for sufficient programming.",
-          "explanation": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Charge transport accumulates defects in the dielectric and eventually establishes a conductive path; current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell."
+          "explanation": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is core-device bitcell gate-oxide breakdown, so Vpgm tracks that process gate oxide — not a node-independent 2.8–3.5 V. eMemory’s 14 Jan 2016 0.18 µm 1.8 V/13.5 V NeoFuse example states that the core device sustains 9 V high-voltage stress during programming. Do not confuse that with I/O PMOS floating-gate HCI: about 6.5 V PGM for a 3.3 V cell and 7.5 V for a 5 V cell; an NMOS floating-gate cell at the same node needs a higher Vpgm. That I/O pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell."
         },
         {
           "id": "erase",
@@ -300,7 +300,7 @@
       "ceilings": {
         "device": "The usable window lies between reliably establishing sufficient conduction and avoiding unintended damage. Reducing storage area or changing the dielectric does not necessarily improve breakdown statistics and programmed current proportionally. Limits should be described by complete distributions, specified temperatures, and long-term sensing margin.",
         "array": "Density is jointly limited by selectors, high-voltage decoding, half-select isolation, wiring drops, and sensors. Theoretical cell area is not a substitute for complete macro efficiency. As an array grows, additional unselected leakage and accumulated programming stress must enter its failure-rate budget.",
-        "process": "Availability in standard CMOS does not remove the need for qualification. Controlled breakdown of the storage dielectric, selector voltage tolerance, thick/thin oxide choices, and reliability tests must be reconfirmed for the foundry process version. Success at one node does not establish usable pulses at another.",
+        "process": "Availability in standard CMOS does not remove the need for qualification. The mature-node floor for core-GOX AntiFuse is about 0.18 µm: at 0.25 µm the voltage needed to break a 2.5 V gate oxide hits junction breakdown first and burns the bitcell channel. Controlled breakdown of the storage dielectric, selector voltage tolerance, thick/thin oxide choices, and reliability tests must be reconfirmed for the foundry process version. Success at one node does not establish usable pulses at another.",
         "system": "System bottlenecks often include the irreversible programming flow, remaining blank bits, and supply conditions during programming. For keys or boot settings, programming permissions, read isolation, lock state, and fault recovery must be validated separately from the storage physics. The OTP label does not replace system design."
       },
       "fit": "Suitable for parameters determined after manufacturing and intended to remain permanent, chip IDs, code with a defined lifecycle, and security settings. Selection starts with the required update count, latest programming location, supply, read timing, and capacity, followed by verification of the identified macro's process, test modes, and qualifications.",
@@ -320,6 +320,12 @@
       ],
       "sourceIds": [
         "ch-pat-antifuse",
+        "ch-ememory-neofuse-9v-2016",
+        "ch-pat-pmos-otp-6678190",
+        "ch-pat-io-nvm-6920067",
+        "ch-eetimes-neobit-2003",
+        "ch-author-pmos-io-pgm",
+        "ch-pat-pmos-vs-nmos-5761121",
         "ch-maturity-kilopass",
         "ch-maturity-otp-current"
       ],
@@ -2710,7 +2716,7 @@
     "glossary": [
       {
         "term": "CHI and CHEI",
-        "definition": "CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate."
+        "definition": "CHI is shorthand for channel hot-carrier injection. Name the actual carrier and cell polarity: the YMC course model injects energetic channel electrons, while eMemory describes NeoBit/NeoMTP programming as channel-hot-hole-induced hot-electron injection (CHEI). In the latter case, holes generate carriers in silicon and electrons enter the floating gate. For an I/O PMOS floating-gate cell, a 3.3 V device programs near 6.5 V and a 5 V device near 7.5 V; an NMOS floating-gate cell at the same node needs a higher Vpgm. That pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory, and must not be mixed with 9 V core-GOX AntiFuse program stress."
       },
       {
         "term": "Fowler–Nordheim (FN) Tunneling",
@@ -6217,6 +6223,60 @@
       "limit": "The 2.5 V, 7 V, and 1.5 V values in this material belong only to this early embodiment. They must not be reused as operating recommendations for current OTP IP, and this patent does not establish the topology of every commercial cell."
     },
     {
+      "id": "ch-ememory-neofuse-9v-2016",
+      "label": "eMemory: 0.18 µm 1.8 V NeoFuse core sustains 9 V during program",
+      "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+      "kind": "Vendor news",
+      "date": "2016-01-14; reviewed 2026-09-11",
+      "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming; 1.0 V read",
+      "limit": "Supports 9 V program stress in that named 0.18 µm 1.8 V/13.5 V source-driver example. It is not a node-independent breakdown voltage and not floating-gate HCI."
+    },
+    {
+      "id": "ch-pat-pmos-otp-6678190",
+      "label": "eMemory: Series-PMOS Single-Poly Embedded EPROM Patent US6678190B2",
+      "url": "https://patents.google.com/patent/US6678190B2/en",
+      "kind": "Patent",
+      "date": "Granted 2004-01-13; reviewed 2026-09-11",
+      "locator": "Figures 5, 9 and 10 and the write-“1” bias text: VSL/VNW 3–8 V; gate-current peak near drain −5 to −6 V and gate about −1 V",
+      "limit": "Embodiment biases belong to this PMOS, no-control-gate cell. They must not be rewritten as a 3.3 V/5 V to 6.5 V/7.5 V rule, nor moved onto gate-oxide-breakdown AntiFuse."
+    },
+    {
+      "id": "ch-pat-io-nvm-6920067",
+      "label": "eMemory: I/O-Device Single-Poly NVM Patent US6920067B2",
+      "url": "https://patents.google.com/patent/US6920067B2/en",
+      "kind": "Patent",
+      "date": "Granted 2005-07-19; reviewed 2026-09-11",
+      "locator": "Specification: I/O devices such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V, with another mode preferably 6 V",
+      "limit": "Supports p-type cells (and an NMOS claim variant) built to I/O device rules. It does not state that a 5 V I/O cell must program at 7.5 V."
+    },
+    {
+      "id": "ch-eetimes-neobit-2003",
+      "label": "EE Times: Hsu on 0.35 µm NeoBit program at 6–6.5 V",
+      "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+      "kind": "Contemporary industry report",
+      "date": "2003-11-05; reviewed 2026-09-11",
+      "locator": "Charles Hsu quoted: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+      "limit": "Supports a 0.35 µm-generation public voltage comparison. It is not 180 nm core-GOX breakdown."
+    },
+    {
+      "id": "ch-author-pmos-io-pgm",
+      "label": "Site-author engineering attestation: I/O PMOS floating-gate OTP program voltages",
+      "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+      "kind": "Author engineering attestation",
+      "date": "Author-attested 2026-09-11",
+      "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
+      "limit": "Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+    },
+    {
+      "id": "ch-pat-pmos-vs-nmos-5761121",
+      "label": "Ohsaki et al.: PMOS Single-Poly NVM Patent US5761121A",
+      "url": "https://patents.google.com/patent/US5761121A/en",
+      "kind": "Patent",
+      "date": "Granted 1998-06-02; reviewed 2026-09-11",
+      "locator": "Background: conventional n-channel single-poly program/erase may be as high as about 20 V; this p-channel example about 8.5 V, with about 7.5 V coupled onto the floating gate",
+      "limit": "This cell has control-gate coupling and is not NeoBit. The 8.5 V / 7.5 V / 20 V figures must not be rewritten as a NeoBit 3.3 V / 5 V I/O table."
+    },
+    {
       "id": "ch-pat-eeprom-window",
       "label": "Hughes Aircraft Company: Local Tunnel-Window EEPROM Patent US4115914A",
       "url": "https://patents.google.com/patent/US4115914A/en",
@@ -7372,6 +7432,42 @@
       "limit": "UV erase was published; this does not make every current package UV erasable."
     },
     {
+      "id": "ip-neobit-pgm-pat",
+      "label": "Series-PMOS Embedded EPROM Write-Bias Patent",
+      "url": "https://patents.google.com/patent/US6678190B2/en",
+      "kind": "Public Patent",
+      "date": "2004-01-13",
+      "locator": "Figures 5, 9 and 10; write-“1”: VSL/VNW 3–8 V; Ig peak near Vd −5 to −6 V",
+      "limit": "Embodiment biases belong to this no-control-gate PMOS cell; not a 3.3 V/5 V to 6.5 V/7.5 V rule."
+    },
+    {
+      "id": "ip-neobit-io-pat",
+      "label": "I/O-Device Single-Poly NVM Patent",
+      "url": "https://patents.google.com/patent/US6920067B2/en",
+      "kind": "Public Patent",
+      "date": "2005-07-19",
+      "locator": "I/O such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V",
+      "limit": "Supports I/O-device rules; does not require 7.5 V PGM for a 5 V I/O cell."
+    },
+    {
+      "id": "ip-neobit-eetimes-2003",
+      "label": "EE Times: 0.35 µm NeoBit Programs at 6–6.5 V",
+      "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+      "kind": "Primary Technical Source",
+      "date": "2003-11-05",
+      "locator": "Hsu: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+      "limit": "A 0.35 µm-generation public comparison; not 180 nm core-GOX breakdown."
+    },
+    {
+      "id": "ip-neobit-io-pgm-author",
+      "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
+      "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+      "kind": "Author Engineering Attestation",
+      "date": "Author-attested 2026-09-11",
+      "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
+      "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+    },
+    {
       "id": "ip-neofuse",
       "label": "NeoFuse Technical Principles",
       "url": "https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse",
@@ -7406,6 +7502,15 @@
       "date": "2025-01-16",
       "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
       "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+    },
+    {
+      "id": "ip-neofuse-9v-2016",
+      "label": "0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program",
+      "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+      "kind": "Primary Technical Source",
+      "date": "2016-01-14",
+      "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming",
+      "limit": "Named source-driver program stress; not a node-independent breakdown voltage and not FG HCI."
     },
     {
       "id": "ip-kilopass-xpm-2007",
@@ -9441,7 +9546,7 @@
         "topicId": "antifuse",
         "operationId": "write",
         "title": "Program: Apply the Breakdown Field Only to the Selected Dielectric",
-        "summary": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Charge transport accumulates defects in the dielectric and eventually establishes a conductive path; current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell.",
+        "summary": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is core-device bitcell gate-oxide breakdown, so Vpgm tracks that process gate oxide — not a node-independent 2.8–3.5 V. eMemory’s 14 Jan 2016 0.18 µm 1.8 V/13.5 V NeoFuse example states that the core device sustains 9 V high-voltage stress during programming. Do not confuse that with I/O PMOS floating-gate HCI: about 6.5 V PGM for a 3.3 V cell and 7.5 V for a 5 V cell; an NMOS floating-gate cell at the same node needs a higher Vpgm. That I/O pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell.",
         "sources": [
           {
             "id": "ch-pat-antifuse",
@@ -9451,6 +9556,60 @@
             "date": "Granted 2003-12-23; reviewed 2026-09-10",
             "locator": "Figures 1, 3, and 8: selection, programming, and read; Figures 12–15: stress and breakdown-characteristic plots",
             "limit": "The 2.5 V, 7 V, and 1.5 V values in this material belong only to this early embodiment. They must not be reused as operating recommendations for current OTP IP, and this patent does not establish the topology of every commercial cell."
+          },
+          {
+            "id": "ch-ememory-neofuse-9v-2016",
+            "label": "eMemory: 0.18 µm 1.8 V NeoFuse core sustains 9 V during program",
+            "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+            "kind": "Vendor news",
+            "date": "2016-01-14; reviewed 2026-09-11",
+            "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming; 1.0 V read",
+            "limit": "Supports 9 V program stress in that named 0.18 µm 1.8 V/13.5 V source-driver example. It is not a node-independent breakdown voltage and not floating-gate HCI."
+          },
+          {
+            "id": "ch-pat-pmos-otp-6678190",
+            "label": "eMemory: Series-PMOS Single-Poly Embedded EPROM Patent US6678190B2",
+            "url": "https://patents.google.com/patent/US6678190B2/en",
+            "kind": "Patent",
+            "date": "Granted 2004-01-13; reviewed 2026-09-11",
+            "locator": "Figures 5, 9 and 10 and the write-“1” bias text: VSL/VNW 3–8 V; gate-current peak near drain −5 to −6 V and gate about −1 V",
+            "limit": "Embodiment biases belong to this PMOS, no-control-gate cell. They must not be rewritten as a 3.3 V/5 V to 6.5 V/7.5 V rule, nor moved onto gate-oxide-breakdown AntiFuse."
+          },
+          {
+            "id": "ch-pat-io-nvm-6920067",
+            "label": "eMemory: I/O-Device Single-Poly NVM Patent US6920067B2",
+            "url": "https://patents.google.com/patent/US6920067B2/en",
+            "kind": "Patent",
+            "date": "Granted 2005-07-19; reviewed 2026-09-11",
+            "locator": "Specification: I/O devices such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V, with another mode preferably 6 V",
+            "limit": "Supports p-type cells (and an NMOS claim variant) built to I/O device rules. It does not state that a 5 V I/O cell must program at 7.5 V."
+          },
+          {
+            "id": "ch-eetimes-neobit-2003",
+            "label": "EE Times: Hsu on 0.35 µm NeoBit program at 6–6.5 V",
+            "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+            "kind": "Contemporary industry report",
+            "date": "2003-11-05; reviewed 2026-09-11",
+            "locator": "Charles Hsu quoted: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+            "limit": "Supports a 0.35 µm-generation public voltage comparison. It is not 180 nm core-GOX breakdown."
+          },
+          {
+            "id": "ch-author-pmos-io-pgm",
+            "label": "Site-author engineering attestation: I/O PMOS floating-gate OTP program voltages",
+            "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+            "kind": "Author engineering attestation",
+            "date": "Author-attested 2026-09-11",
+            "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
+            "limit": "Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+          },
+          {
+            "id": "ch-pat-pmos-vs-nmos-5761121",
+            "label": "Ohsaki et al.: PMOS Single-Poly NVM Patent US5761121A",
+            "url": "https://patents.google.com/patent/US5761121A/en",
+            "kind": "Patent",
+            "date": "Granted 1998-06-02; reviewed 2026-09-11",
+            "locator": "Background: conventional n-channel single-poly program/erase may be as high as about 20 V; this p-channel example about 8.5 V, with about 7.5 V coupled onto the floating gate",
+            "limit": "This cell has control-gate coupling and is not NeoBit. The 8.5 V / 7.5 V / 20 V figures must not be rewritten as a NeoBit 3.3 V / 5 V I/O table."
           },
           {
             "id": "ch-maturity-kilopass",
@@ -9576,6 +9735,60 @@
             "limit": "The 2.5 V, 7 V, and 1.5 V values in this material belong only to this early embodiment. They must not be reused as operating recommendations for current OTP IP, and this patent does not establish the topology of every commercial cell."
           },
           {
+            "id": "ch-ememory-neofuse-9v-2016",
+            "label": "eMemory: 0.18 µm 1.8 V NeoFuse core sustains 9 V during program",
+            "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+            "kind": "Vendor news",
+            "date": "2016-01-14; reviewed 2026-09-11",
+            "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming; 1.0 V read",
+            "limit": "Supports 9 V program stress in that named 0.18 µm 1.8 V/13.5 V source-driver example. It is not a node-independent breakdown voltage and not floating-gate HCI."
+          },
+          {
+            "id": "ch-pat-pmos-otp-6678190",
+            "label": "eMemory: Series-PMOS Single-Poly Embedded EPROM Patent US6678190B2",
+            "url": "https://patents.google.com/patent/US6678190B2/en",
+            "kind": "Patent",
+            "date": "Granted 2004-01-13; reviewed 2026-09-11",
+            "locator": "Figures 5, 9 and 10 and the write-“1” bias text: VSL/VNW 3–8 V; gate-current peak near drain −5 to −6 V and gate about −1 V",
+            "limit": "Embodiment biases belong to this PMOS, no-control-gate cell. They must not be rewritten as a 3.3 V/5 V to 6.5 V/7.5 V rule, nor moved onto gate-oxide-breakdown AntiFuse."
+          },
+          {
+            "id": "ch-pat-io-nvm-6920067",
+            "label": "eMemory: I/O-Device Single-Poly NVM Patent US6920067B2",
+            "url": "https://patents.google.com/patent/US6920067B2/en",
+            "kind": "Patent",
+            "date": "Granted 2005-07-19; reviewed 2026-09-11",
+            "locator": "Specification: I/O devices such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V, with another mode preferably 6 V",
+            "limit": "Supports p-type cells (and an NMOS claim variant) built to I/O device rules. It does not state that a 5 V I/O cell must program at 7.5 V."
+          },
+          {
+            "id": "ch-eetimes-neobit-2003",
+            "label": "EE Times: Hsu on 0.35 µm NeoBit program at 6–6.5 V",
+            "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+            "kind": "Contemporary industry report",
+            "date": "2003-11-05; reviewed 2026-09-11",
+            "locator": "Charles Hsu quoted: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+            "limit": "Supports a 0.35 µm-generation public voltage comparison. It is not 180 nm core-GOX breakdown."
+          },
+          {
+            "id": "ch-author-pmos-io-pgm",
+            "label": "Site-author engineering attestation: I/O PMOS floating-gate OTP program voltages",
+            "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+            "kind": "Author engineering attestation",
+            "date": "Author-attested 2026-09-11",
+            "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
+            "limit": "Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+          },
+          {
+            "id": "ch-pat-pmos-vs-nmos-5761121",
+            "label": "Ohsaki et al.: PMOS Single-Poly NVM Patent US5761121A",
+            "url": "https://patents.google.com/patent/US5761121A/en",
+            "kind": "Patent",
+            "date": "Granted 1998-06-02; reviewed 2026-09-11",
+            "locator": "Background: conventional n-channel single-poly program/erase may be as high as about 20 V; this p-channel example about 8.5 V, with about 7.5 V coupled onto the floating gate",
+            "limit": "This cell has control-gate coupling and is not NeoBit. The 8.5 V / 7.5 V / 20 V figures must not be rewritten as a NeoBit 3.3 V / 5 V I/O table."
+          },
+          {
             "id": "ch-maturity-kilopass",
             "label": "Synopsys: 2018 Kilopass Acquisition and OTP Shipment Statement",
             "url": "https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology",
@@ -9686,6 +9899,60 @@
             "date": "Granted 2003-12-23; reviewed 2026-09-10",
             "locator": "Figures 1, 3, and 8: selection, programming, and read; Figures 12–15: stress and breakdown-characteristic plots",
             "limit": "The 2.5 V, 7 V, and 1.5 V values in this material belong only to this early embodiment. They must not be reused as operating recommendations for current OTP IP, and this patent does not establish the topology of every commercial cell."
+          },
+          {
+            "id": "ch-ememory-neofuse-9v-2016",
+            "label": "eMemory: 0.18 µm 1.8 V NeoFuse core sustains 9 V during program",
+            "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+            "kind": "Vendor news",
+            "date": "2016-01-14; reviewed 2026-09-11",
+            "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming; 1.0 V read",
+            "limit": "Supports 9 V program stress in that named 0.18 µm 1.8 V/13.5 V source-driver example. It is not a node-independent breakdown voltage and not floating-gate HCI."
+          },
+          {
+            "id": "ch-pat-pmos-otp-6678190",
+            "label": "eMemory: Series-PMOS Single-Poly Embedded EPROM Patent US6678190B2",
+            "url": "https://patents.google.com/patent/US6678190B2/en",
+            "kind": "Patent",
+            "date": "Granted 2004-01-13; reviewed 2026-09-11",
+            "locator": "Figures 5, 9 and 10 and the write-“1” bias text: VSL/VNW 3–8 V; gate-current peak near drain −5 to −6 V and gate about −1 V",
+            "limit": "Embodiment biases belong to this PMOS, no-control-gate cell. They must not be rewritten as a 3.3 V/5 V to 6.5 V/7.5 V rule, nor moved onto gate-oxide-breakdown AntiFuse."
+          },
+          {
+            "id": "ch-pat-io-nvm-6920067",
+            "label": "eMemory: I/O-Device Single-Poly NVM Patent US6920067B2",
+            "url": "https://patents.google.com/patent/US6920067B2/en",
+            "kind": "Patent",
+            "date": "Granted 2005-07-19; reviewed 2026-09-11",
+            "locator": "Specification: I/O devices such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V, with another mode preferably 6 V",
+            "limit": "Supports p-type cells (and an NMOS claim variant) built to I/O device rules. It does not state that a 5 V I/O cell must program at 7.5 V."
+          },
+          {
+            "id": "ch-eetimes-neobit-2003",
+            "label": "EE Times: Hsu on 0.35 µm NeoBit program at 6–6.5 V",
+            "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+            "kind": "Contemporary industry report",
+            "date": "2003-11-05; reviewed 2026-09-11",
+            "locator": "Charles Hsu quoted: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+            "limit": "Supports a 0.35 µm-generation public voltage comparison. It is not 180 nm core-GOX breakdown."
+          },
+          {
+            "id": "ch-author-pmos-io-pgm",
+            "label": "Site-author engineering attestation: I/O PMOS floating-gate OTP program voltages",
+            "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+            "kind": "Author engineering attestation",
+            "date": "Author-attested 2026-09-11",
+            "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
+            "limit": "Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+          },
+          {
+            "id": "ch-pat-pmos-vs-nmos-5761121",
+            "label": "Ohsaki et al.: PMOS Single-Poly NVM Patent US5761121A",
+            "url": "https://patents.google.com/patent/US5761121A/en",
+            "kind": "Patent",
+            "date": "Granted 1998-06-02; reviewed 2026-09-11",
+            "locator": "Background: conventional n-channel single-poly program/erase may be as high as about 20 V; this p-channel example about 8.5 V, with about 7.5 V coupled onto the floating gate",
+            "limit": "This cell has control-gate coupling and is not NeoBit. The 8.5 V / 7.5 V / 20 V figures must not be rewritten as a NeoBit 3.3 V / 5 V I/O table."
           },
           {
             "id": "ch-maturity-kilopass",
@@ -16741,7 +17008,7 @@
         "program": "Hot-hole-induced electron injection",
         "reverse": "No electrical erase in normal OTP operation",
         "readout": "P-type storage-channel current",
-        "lesson": "A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change.",
+        "lesson": "A floating-gate OTP stores its state in charge. The selector controls access, while programming moves the storage transistor to another sensed state. An interface without electrical erase is a different OTP design path from an irreversible dielectric change. Public NeoBit principles describe two series p-MOSFETs and CHEI. The cell uses I/O devices: about 6.5 V PGM for a 3.3 V cell and 7.5 V for a 5 V cell; an n-type floating-gate cell at the same node needs a higher Vpgm. That I/O window is why a p-type cell can embed in standard logic CMOS — not core-GOX-breakdown AntiFuse.",
         "structure": {
           "title": "NeoBit — Cell Structure",
           "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 560 400\" role=\"img\" aria-labelledby=\"emip-neobit-structure-0-en-title\" style=\"font-family:Arial,Microsoft JhengHei,sans-serif;background:#f8fafc\"><title id=\"emip-neobit-structure-0-en-title\">NeoBit — Cell Structure</title><defs><marker id=\"emip-neobit-structure-0-en-e\" markerWidth=\"11\" markerHeight=\"11\" refX=\"9\" refY=\"5.5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L9 5.5L1 10\" fill=\"none\" stroke=\"#075f9d\" stroke-width=\"2\"/></marker><marker id=\"emip-neobit-structure-0-en-h\" markerWidth=\"11\" markerHeight=\"11\" refX=\"9\" refY=\"5.5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L9 5.5L1 10\" fill=\"none\" stroke=\"#bd354a\" stroke-width=\"2\"/></marker><marker id=\"emip-neobit-structure-0-en-i\" markerWidth=\"11\" markerHeight=\"11\" refX=\"9\" refY=\"5.5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L9 5.5L1 10\" fill=\"none\" stroke=\"#087968\" stroke-width=\"2\"/></marker><marker id=\"emip-neobit-structure-0-en-field\" markerWidth=\"11\" markerHeight=\"11\" refX=\"9\" refY=\"5.5\" orient=\"auto\" markerUnits=\"userSpaceOnUse\"><path d=\"M1 1L9 5.5L1 10\" fill=\"none\" stroke=\"#a45410\" stroke-width=\"2\"/></marker></defs><text x=\"280\" y=\"31\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Historical pMOS Cell Section</text><rect x=\"26\" y=\"230\" width=\"505\" height=\"116\" fill=\"#bfd3e4\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"42\" y=\"230\" width=\"460\" height=\"89\" fill=\"#a9c7df\" stroke=\"#16334c\" stroke-width=\"1.5\" /><text x=\"105\" y=\"309\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">n-well</text><text x=\"281\" y=\"340\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p-Si</text><rect x=\"62\" y=\"230\" width=\"69\" height=\"36\" fill=\"#7d9fbb\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"205\" y=\"230\" width=\"61\" height=\"36\" fill=\"#7d9fbb\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"376\" y=\"230\" width=\"65\" height=\"36\" fill=\"#7d9fbb\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"122\" y=\"211\" width=\"266\" height=\"19\" fill=\"#f4e0a9\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"122\" y=\"178\" width=\"81\" height=\"33\" fill=\"#9badba\" stroke=\"#16334c\" stroke-width=\"1.5\" /><rect x=\"265\" y=\"174\" width=\"123\" height=\"37\" fill=\"#c6a16b\" stroke=\"#16334c\" stroke-width=\"1.5\" data-storage-region=\"fg\"/><text x=\"162\" y=\"202\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SG</text><text x=\"96\" y=\"256\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p+</text><text x=\"236\" y=\"256\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p+</text><text x=\"408\" y=\"256\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p+</text><path d=\"M94 82V230\" fill=\"none\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><text x=\"94\" y=\"69\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SL</text><path d=\"M162 82V178\" fill=\"none\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><text x=\"162\" y=\"69\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">SG</text><path d=\"M408 82V230\" fill=\"none\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><text x=\"408\" y=\"69\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">BL</text><path d=\"M478 82V295\" fill=\"none\" stroke=\"#16334c\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" /><text x=\"478\" y=\"69\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">NW</text><text x=\"326\" y=\"155\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">p+ FG</text><text x=\"326\" y=\"202\" text-anchor=\"middle\" fill=\"#075f9d\" font-size=\"22\" font-weight=\"600\">Q−</text><text x=\"280\" y=\"395\" text-anchor=\"middle\" fill=\"#16334c\" font-size=\"22\" font-weight=\"600\">Public-source reconstruction; not to scale</text></svg>",
@@ -16776,7 +17043,11 @@
             "ip-neobit",
             "ip-neobit-pat",
             "ip-neobit-link",
-            "ip-neobit-uv"
+            "ip-neobit-uv",
+            "ip-neobit-pgm-pat",
+            "ip-neobit-io-pat",
+            "ip-neobit-eetimes-2003",
+            "ip-neobit-io-pgm-author"
           ]
         },
         "operations": [
@@ -16821,6 +17092,42 @@
                 "date": "2021; filename version 2021-03-30",
                 "locator": "Page 1: Feature/Advantage, Other benefits; UV erase",
                 "limit": "UV erase was published; this does not make every current package UV erasable."
+              },
+              {
+                "id": "ip-neobit-pgm-pat",
+                "label": "Series-PMOS Embedded EPROM Write-Bias Patent",
+                "url": "https://patents.google.com/patent/US6678190B2/en",
+                "kind": "Public Patent",
+                "date": "2004-01-13",
+                "locator": "Figures 5, 9 and 10; write-“1”: VSL/VNW 3–8 V; Ig peak near Vd −5 to −6 V",
+                "limit": "Embodiment biases belong to this no-control-gate PMOS cell; not a 3.3 V/5 V to 6.5 V/7.5 V rule."
+              },
+              {
+                "id": "ip-neobit-io-pat",
+                "label": "I/O-Device Single-Poly NVM Patent",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "kind": "Public Patent",
+                "date": "2005-07-19",
+                "locator": "I/O such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V",
+                "limit": "Supports I/O-device rules; does not require 7.5 V PGM for a 5 V I/O cell."
+              },
+              {
+                "id": "ip-neobit-eetimes-2003",
+                "label": "EE Times: 0.35 µm NeoBit Programs at 6–6.5 V",
+                "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+                "kind": "Primary Technical Source",
+                "date": "2003-11-05",
+                "locator": "Hsu: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+                "limit": "A 0.35 µm-generation public comparison; not 180 nm core-GOX breakdown."
+              },
+              {
+                "id": "ip-neobit-io-pgm-author",
+                "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
+                "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+                "kind": "Author Engineering Attestation",
+                "date": "Author-attested 2026-09-11",
+                "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
+                "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
               }
             ],
             "variants": [
@@ -16841,7 +17148,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -16855,7 +17166,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -16869,7 +17184,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -16883,7 +17202,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   }
                 ],
@@ -16949,6 +17272,42 @@
                     "date": "2021; filename version 2021-03-30",
                     "locator": "Page 1: Feature/Advantage, Other benefits; UV erase",
                     "limit": "UV erase was published; this does not make every current package UV erasable."
+                  },
+                  {
+                    "id": "ip-neobit-pgm-pat",
+                    "label": "Series-PMOS Embedded EPROM Write-Bias Patent",
+                    "url": "https://patents.google.com/patent/US6678190B2/en",
+                    "kind": "Public Patent",
+                    "date": "2004-01-13",
+                    "locator": "Figures 5, 9 and 10; write-“1”: VSL/VNW 3–8 V; Ig peak near Vd −5 to −6 V",
+                    "limit": "Embodiment biases belong to this no-control-gate PMOS cell; not a 3.3 V/5 V to 6.5 V/7.5 V rule."
+                  },
+                  {
+                    "id": "ip-neobit-io-pat",
+                    "label": "I/O-Device Single-Poly NVM Patent",
+                    "url": "https://patents.google.com/patent/US6920067B2/en",
+                    "kind": "Public Patent",
+                    "date": "2005-07-19",
+                    "locator": "I/O such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V",
+                    "limit": "Supports I/O-device rules; does not require 7.5 V PGM for a 5 V I/O cell."
+                  },
+                  {
+                    "id": "ip-neobit-eetimes-2003",
+                    "label": "EE Times: 0.35 µm NeoBit Programs at 6–6.5 V",
+                    "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+                    "kind": "Primary Technical Source",
+                    "date": "2003-11-05",
+                    "locator": "Hsu: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+                    "limit": "A 0.35 µm-generation public comparison; not 180 nm core-GOX breakdown."
+                  },
+                  {
+                    "id": "ip-neobit-io-pgm-author",
+                    "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
+                    "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+                    "kind": "Author Engineering Attestation",
+                    "date": "Author-attested 2026-09-11",
+                    "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
+                    "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
                   }
                 ],
                 "caveat": "Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent voltages or universal current p+ doping. SL, SG/WL, BL and NW; FG floats. SG is separate from FG; capacitive BL coupling is not a DC connection."
@@ -16996,6 +17355,42 @@
                 "date": "2021; filename version 2021-03-30",
                 "locator": "Page 1: Feature/Advantage, Other benefits; UV erase",
                 "limit": "UV erase was published; this does not make every current package UV erasable."
+              },
+              {
+                "id": "ip-neobit-pgm-pat",
+                "label": "Series-PMOS Embedded EPROM Write-Bias Patent",
+                "url": "https://patents.google.com/patent/US6678190B2/en",
+                "kind": "Public Patent",
+                "date": "2004-01-13",
+                "locator": "Figures 5, 9 and 10; write-“1”: VSL/VNW 3–8 V; Ig peak near Vd −5 to −6 V",
+                "limit": "Embodiment biases belong to this no-control-gate PMOS cell; not a 3.3 V/5 V to 6.5 V/7.5 V rule."
+              },
+              {
+                "id": "ip-neobit-io-pat",
+                "label": "I/O-Device Single-Poly NVM Patent",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "kind": "Public Patent",
+                "date": "2005-07-19",
+                "locator": "I/O such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V",
+                "limit": "Supports I/O-device rules; does not require 7.5 V PGM for a 5 V I/O cell."
+              },
+              {
+                "id": "ip-neobit-eetimes-2003",
+                "label": "EE Times: 0.35 µm NeoBit Programs at 6–6.5 V",
+                "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+                "kind": "Primary Technical Source",
+                "date": "2003-11-05",
+                "locator": "Hsu: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+                "limit": "A 0.35 µm-generation public comparison; not 180 nm core-GOX breakdown."
+              },
+              {
+                "id": "ip-neobit-io-pgm-author",
+                "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
+                "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+                "kind": "Author Engineering Attestation",
+                "date": "Author-attested 2026-09-11",
+                "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
+                "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
               }
             ],
             "variants": [
@@ -17016,7 +17411,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17030,7 +17429,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17044,7 +17447,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   }
                 ],
@@ -17110,6 +17517,42 @@
                     "date": "2021; filename version 2021-03-30",
                     "locator": "Page 1: Feature/Advantage, Other benefits; UV erase",
                     "limit": "UV erase was published; this does not make every current package UV erasable."
+                  },
+                  {
+                    "id": "ip-neobit-pgm-pat",
+                    "label": "Series-PMOS Embedded EPROM Write-Bias Patent",
+                    "url": "https://patents.google.com/patent/US6678190B2/en",
+                    "kind": "Public Patent",
+                    "date": "2004-01-13",
+                    "locator": "Figures 5, 9 and 10; write-“1”: VSL/VNW 3–8 V; Ig peak near Vd −5 to −6 V",
+                    "limit": "Embodiment biases belong to this no-control-gate PMOS cell; not a 3.3 V/5 V to 6.5 V/7.5 V rule."
+                  },
+                  {
+                    "id": "ip-neobit-io-pat",
+                    "label": "I/O-Device Single-Poly NVM Patent",
+                    "url": "https://patents.google.com/patent/US6920067B2/en",
+                    "kind": "Public Patent",
+                    "date": "2005-07-19",
+                    "locator": "I/O such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V",
+                    "limit": "Supports I/O-device rules; does not require 7.5 V PGM for a 5 V I/O cell."
+                  },
+                  {
+                    "id": "ip-neobit-eetimes-2003",
+                    "label": "EE Times: 0.35 µm NeoBit Programs at 6–6.5 V",
+                    "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+                    "kind": "Primary Technical Source",
+                    "date": "2003-11-05",
+                    "locator": "Hsu: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+                    "limit": "A 0.35 µm-generation public comparison; not 180 nm core-GOX breakdown."
+                  },
+                  {
+                    "id": "ip-neobit-io-pgm-author",
+                    "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
+                    "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+                    "kind": "Author Engineering Attestation",
+                    "date": "Author-attested 2026-09-11",
+                    "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
+                    "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
                   }
                 ],
                 "caveat": "Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent voltages or universal current p+ doping. SL, SG/WL, BL and NW; FG floats. SG is separate from FG; capacitive BL coupling is not a DC connection."
@@ -17157,6 +17600,42 @@
                 "date": "2021; filename version 2021-03-30",
                 "locator": "Page 1: Feature/Advantage, Other benefits; UV erase",
                 "limit": "UV erase was published; this does not make every current package UV erasable."
+              },
+              {
+                "id": "ip-neobit-pgm-pat",
+                "label": "Series-PMOS Embedded EPROM Write-Bias Patent",
+                "url": "https://patents.google.com/patent/US6678190B2/en",
+                "kind": "Public Patent",
+                "date": "2004-01-13",
+                "locator": "Figures 5, 9 and 10; write-“1”: VSL/VNW 3–8 V; Ig peak near Vd −5 to −6 V",
+                "limit": "Embodiment biases belong to this no-control-gate PMOS cell; not a 3.3 V/5 V to 6.5 V/7.5 V rule."
+              },
+              {
+                "id": "ip-neobit-io-pat",
+                "label": "I/O-Device Single-Poly NVM Patent",
+                "url": "https://patents.google.com/patent/US6920067B2/en",
+                "kind": "Public Patent",
+                "date": "2005-07-19",
+                "locator": "I/O such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V",
+                "limit": "Supports I/O-device rules; does not require 7.5 V PGM for a 5 V I/O cell."
+              },
+              {
+                "id": "ip-neobit-eetimes-2003",
+                "label": "EE Times: 0.35 µm NeoBit Programs at 6–6.5 V",
+                "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+                "kind": "Primary Technical Source",
+                "date": "2003-11-05",
+                "locator": "Hsu: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+                "limit": "A 0.35 µm-generation public comparison; not 180 nm core-GOX breakdown."
+              },
+              {
+                "id": "ip-neobit-io-pgm-author",
+                "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
+                "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+                "kind": "Author Engineering Attestation",
+                "date": "Author-attested 2026-09-11",
+                "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
+                "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
               }
             ],
             "variants": [
@@ -17177,7 +17656,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17191,7 +17674,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17205,7 +17692,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   },
                   {
@@ -17219,7 +17710,11 @@
                       "ip-neobit",
                       "ip-neobit-pat",
                       "ip-neobit-link",
-                      "ip-neobit-uv"
+                      "ip-neobit-uv",
+                      "ip-neobit-pgm-pat",
+                      "ip-neobit-io-pat",
+                      "ip-neobit-eetimes-2003",
+                      "ip-neobit-io-pgm-author"
                     ]
                   }
                 ],
@@ -17285,6 +17780,42 @@
                     "date": "2021; filename version 2021-03-30",
                     "locator": "Page 1: Feature/Advantage, Other benefits; UV erase",
                     "limit": "UV erase was published; this does not make every current package UV erasable."
+                  },
+                  {
+                    "id": "ip-neobit-pgm-pat",
+                    "label": "Series-PMOS Embedded EPROM Write-Bias Patent",
+                    "url": "https://patents.google.com/patent/US6678190B2/en",
+                    "kind": "Public Patent",
+                    "date": "2004-01-13",
+                    "locator": "Figures 5, 9 and 10; write-“1”: VSL/VNW 3–8 V; Ig peak near Vd −5 to −6 V",
+                    "limit": "Embodiment biases belong to this no-control-gate PMOS cell; not a 3.3 V/5 V to 6.5 V/7.5 V rule."
+                  },
+                  {
+                    "id": "ip-neobit-io-pat",
+                    "label": "I/O-Device Single-Poly NVM Patent",
+                    "url": "https://patents.google.com/patent/US6920067B2/en",
+                    "kind": "Public Patent",
+                    "date": "2005-07-19",
+                    "locator": "I/O such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V",
+                    "limit": "Supports I/O-device rules; does not require 7.5 V PGM for a 5 V I/O cell."
+                  },
+                  {
+                    "id": "ip-neobit-eetimes-2003",
+                    "label": "EE Times: 0.35 µm NeoBit Programs at 6–6.5 V",
+                    "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+                    "kind": "Primary Technical Source",
+                    "date": "2003-11-05",
+                    "locator": "Hsu: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+                    "limit": "A 0.35 µm-generation public comparison; not 180 nm core-GOX breakdown."
+                  },
+                  {
+                    "id": "ip-neobit-io-pgm-author",
+                    "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
+                    "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+                    "kind": "Author Engineering Attestation",
+                    "date": "Author-attested 2026-09-11",
+                    "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
+                    "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
                   }
                 ],
                 "caveat": "Do not draw oxide rupture, a permanent filament or nMOS CHE; do not invent voltages or universal current p+ doping. SL, SG/WL, BL and NW; FG floats. SG is separate from FG; capacitive BL coupling is not a DC connection."
@@ -17335,7 +17866,8 @@
             "ip-neofuse",
             "ip-neofuse-dt",
             "ip-neofuse-3t",
-            "ip-neofuse-pat"
+            "ip-neofuse-pat",
+            "ip-neofuse-9v-2016"
           ]
         },
         "operations": [
@@ -17380,6 +17912,15 @@
                 "date": "2025-01-16",
                 "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
                 "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+              },
+              {
+                "id": "ip-neofuse-9v-2016",
+                "label": "0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program",
+                "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+                "kind": "Primary Technical Source",
+                "date": "2016-01-14",
+                "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming",
+                "limit": "Named source-driver program stress; not a node-independent breakdown voltage and not FG HCI."
               }
             ],
             "variants": [
@@ -17400,7 +17941,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17414,7 +17956,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17428,7 +17971,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17442,7 +17986,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   }
                 ],
@@ -17504,6 +18049,15 @@
                     "date": "2025-01-16",
                     "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
                     "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+                  },
+                  {
+                    "id": "ip-neofuse-9v-2016",
+                    "label": "0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program",
+                    "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+                    "kind": "Primary Technical Source",
+                    "date": "2016-01-14",
+                    "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming",
+                    "limit": "Named source-driver program stress; not a node-independent breakdown voltage and not FG HCI."
                   }
                 ],
                 "caveat": "No thick metallic short or FG storage; the damaged high-k/interfacial sublayer of current advanced processes is unverified. Antifuse gate AF, underlying Si, selection/regulation controls and BL; storage dielectric lies between AF and Si, not in the selector oxide."
@@ -17551,6 +18105,15 @@
                 "date": "2025-01-16",
                 "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
                 "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+              },
+              {
+                "id": "ip-neofuse-9v-2016",
+                "label": "0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program",
+                "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+                "kind": "Primary Technical Source",
+                "date": "2016-01-14",
+                "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming",
+                "limit": "Named source-driver program stress; not a node-independent breakdown voltage and not FG HCI."
               }
             ],
             "variants": [
@@ -17571,7 +18134,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17585,7 +18149,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17599,7 +18164,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   }
                 ],
@@ -17661,6 +18227,15 @@
                     "date": "2025-01-16",
                     "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
                     "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+                  },
+                  {
+                    "id": "ip-neofuse-9v-2016",
+                    "label": "0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program",
+                    "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+                    "kind": "Primary Technical Source",
+                    "date": "2016-01-14",
+                    "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming",
+                    "limit": "Named source-driver program stress; not a node-independent breakdown voltage and not FG HCI."
                   }
                 ],
                 "caveat": "No thick metallic short or FG storage; the damaged high-k/interfacial sublayer of current advanced processes is unverified. Antifuse gate AF, underlying Si, selection/regulation controls and BL; storage dielectric lies between AF and Si, not in the selector oxide."
@@ -17708,6 +18283,15 @@
                 "date": "2025-01-16",
                 "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
                 "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+              },
+              {
+                "id": "ip-neofuse-9v-2016",
+                "label": "0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program",
+                "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+                "kind": "Primary Technical Source",
+                "date": "2016-01-14",
+                "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming",
+                "limit": "Named source-driver program stress; not a node-independent breakdown voltage and not FG HCI."
               }
             ],
             "variants": [
@@ -17728,7 +18312,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17742,7 +18327,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17756,7 +18342,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   },
                   {
@@ -17770,7 +18357,8 @@
                       "ip-neofuse",
                       "ip-neofuse-dt",
                       "ip-neofuse-3t",
-                      "ip-neofuse-pat"
+                      "ip-neofuse-pat",
+                      "ip-neofuse-9v-2016"
                     ]
                   }
                 ],
@@ -17832,6 +18420,15 @@
                     "date": "2025-01-16",
                     "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
                     "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+                  },
+                  {
+                    "id": "ip-neofuse-9v-2016",
+                    "label": "0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program",
+                    "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+                    "kind": "Primary Technical Source",
+                    "date": "2016-01-14",
+                    "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming",
+                    "limit": "Named source-driver program stress; not a node-independent breakdown voltage and not FG HCI."
                   }
                 ],
                 "caveat": "No thick metallic short or FG storage; the damaged high-k/interfacial sublayer of current advanced processes is unverified. Antifuse gate AF, underlying Si, selection/regulation controls and BL; storage dielectric lies between AF and Si, not in the selector oxide."
@@ -23234,6 +23831,42 @@
         "limit": "UV erase was published; this does not make every current package UV erasable."
       },
       {
+        "id": "ip-neobit-pgm-pat",
+        "label": "Series-PMOS Embedded EPROM Write-Bias Patent",
+        "url": "https://patents.google.com/patent/US6678190B2/en",
+        "kind": "Public Patent",
+        "date": "2004-01-13",
+        "locator": "Figures 5, 9 and 10; write-“1”: VSL/VNW 3–8 V; Ig peak near Vd −5 to −6 V",
+        "limit": "Embodiment biases belong to this no-control-gate PMOS cell; not a 3.3 V/5 V to 6.5 V/7.5 V rule."
+      },
+      {
+        "id": "ip-neobit-io-pat",
+        "label": "I/O-Device Single-Poly NVM Patent",
+        "url": "https://patents.google.com/patent/US6920067B2/en",
+        "kind": "Public Patent",
+        "date": "2005-07-19",
+        "locator": "I/O such as 3.3 V; cell transistors share I/O electrical behavior; preferred write about 5 V",
+        "limit": "Supports I/O-device rules; does not require 7.5 V PGM for a 5 V I/O cell."
+      },
+      {
+        "id": "ip-neobit-eetimes-2003",
+        "label": "EE Times: 0.35 µm NeoBit Programs at 6–6.5 V",
+        "url": "https://www.eetimes.com/flash-maker-ememory-gaining-foundry-converts-2/",
+        "kind": "Primary Technical Source",
+        "date": "2003-11-05",
+        "locator": "Hsu: 0.35 micron programming voltage 6 to 6.5 volts versus about 10 volts for EEPROM",
+        "limit": "A 0.35 µm-generation public comparison; not 180 nm core-GOX breakdown."
+      },
+      {
+        "id": "ip-neobit-io-pgm-author",
+        "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
+        "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
+        "kind": "Author Engineering Attestation",
+        "date": "Author-attested 2026-09-11",
+        "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
+        "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+      },
+      {
         "id": "ip-neofuse",
         "label": "NeoFuse Technical Principles",
         "url": "https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse",
@@ -23268,6 +23901,15 @@
         "date": "2025-01-16",
         "locator": "Figures 2, 3A, 3B; first 3T embodiment; gate dielectric 262/264/266/268",
         "limit": "Related same-company embodiment, not explicitly branded NeoFuse."
+      },
+      {
+        "id": "ip-neofuse-9v-2016",
+        "label": "0.18 µm 1.8 V NeoFuse: Core Sustains 9 V During Program",
+        "url": "https://www.ememory.com.tw/en-US/News/2016-01-14/eMemory%E2%80%99s-NeoFuse-Technology-A-Major-Advance-in-Automotive-Panel-Driver-IC",
+        "kind": "Primary Technical Source",
+        "date": "2016-01-14",
+        "locator": "0.18um 1.8V/13.5V example: core device can sustain 9V high-voltage stress during programming",
+        "limit": "Named source-driver program stress; not a node-independent breakdown voltage and not FG HCI."
       },
       {
         "id": "ip-kilopass-xpm-2007",
