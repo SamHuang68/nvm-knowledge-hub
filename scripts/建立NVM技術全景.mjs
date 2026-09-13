@@ -118,7 +118,7 @@ function topicPanel(topic, index) {
   return `<article id="topic-${esc(topic.id)}" class="nvm-panel nvm-topic-editorial" data-nvm-panel>
   ${panelHeader(`${isEnglish?'Physics Background':'物理背景'} ${String(index+1).padStart(2,'0')} · ${family.title}`, topic.title, topic.summary)}
 
-  <nav class="nvm-topic-index" aria-label="${isEnglish?'On This Page':'本篇閱讀索引'}">${readingSections.map(([id,zh,en],i)=>`<a href="#topic-${esc(topic.id)}-${id}"><span>${String(i+1).padStart(2,'0')}</span><strong>${isEnglish?en:zh}</strong></a>`).join('')}</nav>
+  <nav class="nvm-topic-index" aria-label="${isEnglish?'On This Page: '+esc(topic.title):esc(topic.title)+' 閱讀索引'}">${readingSections.map(([id,zh,en],i)=>`<a href="#topic-${esc(topic.id)}-${id}"><span>${String(i+1).padStart(2,'0')}</span><strong>${isEnglish?en:zh}</strong></a>`).join('')}</nav>
 ${referenceOnly ? `<aside class="nvm-reference-intro"><p>${isEnglish ? 'A standalone EEPROM is a packaged component with a controller and external interface. Use it here to understand the component boundary; the main learning path follows embedded IP cells and their operating mechanisms.' : '獨立式 EEPROM 是帶控制器與外部介面的封裝元件。此處只用它理解元件邊界；主要閱讀路徑放在嵌入式 IP 單元與各自操作機制。'}</p><a href="#ip-neoee">${isEnglish ? 'Continue with NeoEE FN/FN MTP' : '接著看 NeoEE FN／FN MTP'}</a> · <a href="#ip-neomtp">${isEnglish ? 'Compare NeoMTP CHI/FN' : '比較 NeoMTP CHI／FN'}</a></aside><details class="nvm-reference-body" id="eeprom-reference"><summary>${isEnglish ? 'Optional Reference: Standalone EEPROM Details' : '背景補充：獨立式 EEPROM 詳細資料'}</summary>` : ''}
   <aside class="nvm-topic-evidence"><div>${tag(topic.maturity.stage)}<span class="nvm-meta">${esc(topic.maturity.claim)}</span></div>${cite(topic.maturity.sourceIds)}
   <p class="nvm-maturity-limit">${esc(topic.maturity.limit)}</p></aside>
@@ -136,7 +136,7 @@ ${implementationTable(topic)}
   <section class="nvm-topic-section" id="topic-${esc(topic.id)}-sources"><h3>來源與解讀範圍</h3>${cite(topic.sourceIds)}<p class="nvm-small">原理示意由所列來源綜合整理；性能、量產與專利主張分別綁定其原始文件。未公開的偏壓、材料配方與製程條件，保留為實作缺口。</p></section>
   <section class="nvm-topic-section nvm-quiz" id="topic-${esc(topic.id)}-quiz"><h3>檢查理解</h3><p>${esc(topic.quiz.question)}</p><details><summary>展開推理</summary>${paras(topic.quiz.answer)}</details></section>
 ${referenceOnly ? '</details>' : ''}
-  <nav class="nvm-bottom-nav" aria-label="專題接續"><a href="#panorama">${isEnglish?'Return to the IP Cell Overview':'回到 IP 單元主線'}</a><a href="#${index<topics.length-1?'topic-'+topics[index+1].id:'system-array'}">${index<topics.length-1?'下一題：'+esc(topics[index+1].title):'接著讀：陣列與系統'}</a></nav>
+  <nav class="nvm-bottom-nav" aria-label="${isEnglish?'Continue Reading: '+esc(topic.title):esc(topic.title)+' 專題接續'}"><a href="#panorama">${isEnglish?'Return to the IP Cell Overview':'回到 IP 單元主線'}</a><a href="#${index<topics.length-1?'topic-'+topics[index+1].id:'system-array'}">${index<topics.length-1?(isEnglish?'Next: '+esc(topics[index+1].title):'下一題：'+esc(topics[index+1].title)):(isEnglish?'Continue: Arrays and Systems':'接著讀：陣列與系統')}</a></nav>
   </article>`;
 }
 
@@ -173,11 +173,11 @@ function foundryPanel() {
 function systemPanel(system) {
   const prefix='system-'+esc(system.id);
   return `<article id="${prefix}" class="nvm-panel nvm-system-editorial" data-nvm-panel>${panelHeader('整合專題',system.title,system.summary)}
-  <nav class="nvm-system-index" id="${prefix}-contents" aria-label="${isEnglish?'Study Sections':'專題章節'}">${system.sections.map((section,i)=>`<a href="#${prefix}-section-${i+1}"><span>${String(i+1).padStart(2,'0')}</span><strong>${esc(section.title)}</strong></a>`).join('')}</nav>
+  <nav class="nvm-system-index" id="${prefix}-contents" aria-label="${isEnglish?'Study Sections: '+esc(system.title):esc(system.title)+' 專題章節'}">${system.sections.map((section,i)=>`<a href="#${prefix}-section-${i+1}"><span>${String(i+1).padStart(2,'0')}</span><strong>${esc(section.title)}</strong></a>`).join('')}</nav>
   <div class="nvm-system-evidence-links"><span>${system.sections.length} ${isEnglish?'Reading Sections':'個閱讀章節'}</span><a href="#${prefix}-sources">${isEnglish?'Sources and References':'來源與參考資料'} · ${system.sourceIds.length}</a><a href="#${prefix}-quiz">${isEnglish?'Check Your Understanding':'檢查理解'}</a></div>
   ${system.sections.map((section,i)=>`<section class="nvm-system-section" id="${prefix}-section-${i+1}"><span class="nvm-system-section-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div class="nvm-system-prose"><h3>${esc(section.title)}</h3>${paras(section.body)}<a class="nvm-system-return" href="#${prefix}-contents">${isEnglish?'Back to the Section Index':'回到章節索引'} ↑</a></div></section>`).join('')}
   <section class="nvm-system-end" id="${prefix}-sources"><h3>來源</h3>${cite(system.sourceIds)}</section><section class="nvm-system-end nvm-quiz" id="${prefix}-quiz"><h3>檢查理解</h3><p>${esc(system.quiz.question)}</p><details><summary>展開推理</summary>${paras(system.quiz.answer)}</details></section>
-  <nav class="nvm-bottom-nav"><a href="#panorama">回到全景</a><a href="#comparison">查看有條件的比較</a></nav></article>`;
+  <nav class="nvm-bottom-nav" aria-label="${isEnglish?'System study navigation: '+esc(system.title):esc(system.title)+' 整合專題導覽'}"><a href="#panorama">${isEnglish?'Back to the Atlas':'回到全景'}</a><a href="#comparison">${isEnglish?'Compare Implementations':'查看有條件的比較'}</a></nav></article>`;
 }
 
 const libraryEntries=[

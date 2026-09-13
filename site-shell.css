@@ -25,6 +25,19 @@
   outline-offset: 3px;
 }
 
+/* 全站 WCAG 2.1 螢幕閱讀器與輔助技術專用無障礙類別 (Screen Reader Only) */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 /* 全站 WCAG 2.1 AA 高對比焦點可見性規範 */
 :focus-visible {
   outline: 2px solid #c4a574 !important;
