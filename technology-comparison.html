@@ -857,11 +857,11 @@
           <div class="matrix-header"><span data-lang="zh">評估維度</span><span data-lang="en">DIMENSION</span></div>
           <div class="matrix-header">eFuse</div>
           <div class="matrix-header">Mask ROM</div>
-          <div class="matrix-header">EEPROM-DP</div>
+          <div class="matrix-header">EEPROM-DP<br><span class="cell-note"><span data-lang="zh">雙層多晶 EEPROM</span><span data-lang="en">Double-poly EEPROM</span></span></div>
           <div class="matrix-header">FG-OTP</div>
           <div class="matrix-header focus-tech">AntiFuse</div>
-          <div class="matrix-header">LD-MTP<br><span class="cell-note">FN / FN</span></div>
-          <div class="matrix-header">HD-MTP<br><span class="cell-note">CHI / FN</span></div>
+          <div class="matrix-header">LD-MTP<br><span class="badge-win">FN / FN</span></div>
+          <div class="matrix-header">HD-MTP<br><span class="badge-win">CHI / FN</span></div>
           <div class="matrix-header">SST</div>
           <div class="matrix-header">SONOS</div>
           <div class="matrix-header">ReRAM</div>
@@ -911,8 +911,8 @@
           <div class="matrix-cell"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">雙層多晶矽浮閘</span><span data-lang="en">Double-poly floating gate</span></span></div>
           <div class="matrix-cell"><b>HCI / FN</b><span class="cell-note"><span data-lang="zh">浮閘注入；無電氣抹除</span><span data-lang="en">FG inject; no electrical erase</span></span></div>
           <div class="matrix-cell focus-tech"><b style="color:#6f5536;"><span data-lang="zh">閘氧擊穿</span><span data-lang="en">Gate-oxide breakdown</span></b><span class="cell-note"><span data-lang="zh">不可逆導通微絲</span><span data-lang="en">Irreversible filament</span></span></div>
-          <div class="matrix-cell"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">低擾動單層多晶矽</span><span data-lang="en">Low-disturb SP cell</span></span></div>
-          <div class="matrix-cell"><b>CHI / FN</b><span class="cell-note"><span data-lang="zh">熱載子寫入／FN 抹除</span><span data-lang="en">Hot-carrier write / FN erase</span></span></div>
+          <div class="matrix-cell"><b>LD-MTP</b><span class="badge-win">FN / FN</span><span class="cell-note"><span data-lang="zh">低擾動單層多晶矽</span><span data-lang="en">Low-disturb SP cell</span></span></div>
+          <div class="matrix-cell"><b>HD-MTP</b><span class="badge-win">CHI / FN</span><span class="cell-note"><span data-lang="zh">熱載子寫入／FN 抹除</span><span data-lang="en">Hot-carrier write / FN erase</span></span></div>
           <div class="matrix-cell"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">分離閘極浮閘</span><span data-lang="en">Split-gate floating gate</span></span></div>
           <div class="matrix-cell"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">氮化層捕捉電荷</span><span data-lang="en">Nitride charge trap</span></span></div>
           <div class="matrix-cell"><b>Forming + SET/RESET</b><span class="cell-note"><span data-lang="zh">細絲形成與切換</span><span data-lang="en">Filament form &amp; switch</span></span></div>
@@ -1310,8 +1310,8 @@
       <div style="background: #082433; border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 8px; padding: 1.75rem; margin-top: 1.5rem;">
         <div class="hub-sec-badge" style="color: #c4a574;">SILICON-LEVEL ANTI-TAMPER SECURITY</div>
         <h3 style="color: #f8fafc; margin: 0.5rem 0 1rem; font: 700 1.25rem 'IBM Plex Mono', monospace;">
-          <span data-lang="zh">穿透式電子顯微鏡 (TEM) 與差分功耗分析 (DPA) 實體防禦機制</span>
-          <span data-lang="en">TEM Analysis Resistance &amp; DPA Side-Channel Attenuation</span>
+          <span data-lang="zh">TEM 衰減與差分功耗分析 (DPA) 幾何邊界（非絕對免疫）</span>
+          <span data-lang="en">TEM Attenuation &amp; DPA Side-Channel Geometry (Not Absolute Immunity)</span>
         </h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; font-size: 0.9rem; line-height: 1.65; color: #cbd5e1;">
           <div>
@@ -1389,7 +1389,7 @@
             <span data-lang="en">Qualify per AEC-Q100 Grade 0 specifications at 175°C Tj HTOL 1000h, early life failure rate (ELFR 2,400 units c=0), and data retention bake, alongside TEM anti-tamper boundary analysis to ensure zero ohmic drift.</span>
           </p>
           <div style="font:600 11px 'IBM Plex Mono'; color:#6f5536; background:#061925; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
-            CRITERION: TEM Invisibility · Zero Drift @ 175&deg;C
+            CRITERION: TEM Attenuation (Not Immunity) · Grade 0 Class Checklist @ 175&deg;C Tj
           </div>
         </div>
       </div>
@@ -1492,11 +1492,11 @@
         <span class="hub-footer-badge">TSMC N2 / N3 GAA</span>
         <span class="hub-footer-badge">0.5V NTV Operation</span>
         <span class="hub-footer-badge">0-Mask Pure Logic</span>
-        <span class="hub-footer-badge">AEC-Q100 Grade 0 Qualified (-40°C~150°C Ambient / 175°C Tj)</span>
+        <span class="hub-footer-badge">AEC-Q100 Grade 0 Class Target (-40°C~150°C Ambient / 175°C Tj) · Checklist, Not Cert</span>
         <span class="hub-footer-badge">ISO 26262 ASIL-D Ready (SEooC SC3)</span>
         <span class="hub-footer-badge">Vector Patch CAM</span>
-        <span class="hub-footer-badge">TEM Invisibility</span>
-        <span class="hub-footer-badge">Differential Current Read (DPA Attenuation)</span>
+        <span class="hub-footer-badge">TEM Attenuation (Not Immunity) · Geometry Edge</span>
+        <span class="hub-footer-badge">Differential Current Read (DPA Attenuation · Not Absolute Immunity)</span>
       </div>
 
       <!-- Bottom Copyright & Status Bar -->
