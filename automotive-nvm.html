@@ -554,6 +554,7 @@
       align-items: center;
       gap: 6px;
     }
+    .gate-card h3,
     .gate-card h4 {
       font: 700 1.05rem/1.25 'IBM Plex Mono', monospace;
       color: #f3ebe0;
@@ -900,10 +901,10 @@
             <div class="gate-stepper" id="gate-stepper">
               <div class="gate-card">
                 <div class="gate-badge">GATE 01 · WAFER LOT AUDIT</div>
-                <h4>
+                <h3>
                   <span data-lang="zh">3-Lot 跨批次高溫壽命試驗 (HTOL)</span>
                   <span data-lang="en">3-Lot Cross-Lot HTOL</span>
-                </h4>
+                </h3>
                 <p>
                   <span data-lang="zh">跨越 3 個非連續晶圓生產批次，每批抽取 77 顆晶片在 175°C 結溫與 1.1× 標稱電壓下持續運行 1,000 小時。零單元擊穿退化，拒絕任何軟性位元翻轉。</span>
                   <span data-lang="en">Across three non-consecutive wafer lots, 77 dice per lot run 1,000 hours at 175°C Tj and 1.1× nominal voltage. Zero cell breakdown; no soft-bit flips accepted.</span>
@@ -912,10 +913,10 @@
 
               <div class="gate-card">
                 <div class="gate-badge">GATE 02 · STRESS CYCLING</div>
-                <h4>
+                <h3>
                   <span data-lang="zh">-55°C ~ 150°C 極限熱衝擊與 ELFR</span>
                   <span data-lang="en">-55°C ~ 150°C Thermal Shock & ELFR</span>
-                </h4>
+                </h3>
                 <p>
                   <span data-lang="zh">承受 1,000 次極限溫差循環熱衝擊 (-55°C 至 +150°C)，考核封裝膨脹剪切應力。搭配 3 批次共 2,400 顆早期失效率 (ELFR, c=0) 高溫篩選，消除浴盆曲線初期微觀缺陷。</span>
                   <span data-lang="en">1,000 extreme thermal-shock cycles (-55°C to +150°C) to qualify package expansion shear, paired with 2,400-unit early life failure rate screening (ELFR, 3 lots, c=0) to eliminate infant mortality on the bathtub curve.</span>
@@ -924,10 +925,10 @@
 
               <div class="gate-card">
                 <div class="gate-badge">GATE 03 · PACKAGING INTEGRITY</div>
-                <h4>
+                <h3>
                   <span data-lang="zh">迴焊熱耐受與高溫數據保持烘烤</span>
                   <span data-lang="en">Reflow Endurance & High-Temp Retention Bake</span>
-                </h4>
+                </h3>
                 <p>
                   <span data-lang="zh">通過 260°C 無鉛迴焊爐峰值衝擊，並依據 AEC-Q100-005 / JESD22-A103 執行高溫數據保持烘烤 (150°C 1,000 小時或 175°C 加速烘烤)。永久閘極介電質擊穿形成局域再結晶矽導電通道，高溫退火下幾無電荷漏失退化，確保在引擎周邊與逆變器長效運作 15 年以上。</span>
                   <span data-lang="en">Survives 260°C Pb-free reflow peak, followed by AEC-Q100-005 / JESD22-A103 non-volatile data retention bake (150°C 1,000 hrs or equivalent 175°C accelerated bake). Permanent gate dielectric breakdown with localized recrystallized silicon percolation path exhibits zero charge-loss drift under thermal annealing, supporting 15+ years beside engine and inverter.</span>
@@ -1058,10 +1059,10 @@
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#8a6a42;">CONTRACT 01 · IMMUTABLE ID</span>
                   <span style="font:700 9.5px 'IBM Plex Mono'; color:#8a6a42; background:#0e2a38; padding:1px 6px; border-radius:3px; border:1px solid #f0e6d6;">ASIL-D READY / SEooC SC3</span>
                 </div>
-                <h4 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
+                <h3 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">不可變車輛身分與金鑰憑證</span>
                   <span data-lang="en">Immutable Vehicle ID &amp; Root Keys</span>
-                </h4>
+                </h3>
                 <p style="color:#b5aa9c; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
                   <span data-lang="zh">車輛 VIN 碼、ECU 唯一序號、NIST LMS 後量子啟動根憑證。寫入後不可抹除、不可降級，全生命週期嚴禁任何未授權篡改。</span>
                   <span data-lang="en">Vehicle VIN, ECU UID, and NIST LMS post-quantum boot root keys. Physical write-path severed after programming, prohibiting tampering.</span>
@@ -1076,10 +1077,10 @@
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#d97706;">CONTRACT 02 · CALIBRATION</span>
                   <span style="font:700 9.5px 'IBM Plex Mono'; color:#d97706; background:#133445; padding:1px 6px; border-radius:3px; border:1px solid #1a3340;">GRADE 0 BOUNDED</span>
                 </div>
-                <h4 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
+                <h3 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">引擎與雷達感測器工廠標定參數</span>
                   <span data-lang="en">Sensor Factory Calibration</span>
-                </h4>
+                </h3>
                 <p style="color:#b5aa9c; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
                   <span data-lang="zh">ADC 增益偏差、帶隙基準電壓、LiDAR 光學陣列校準。僅限出廠封裝與受控車廠 OTA 維護時進行有限次數單向補丁。</span>
                   <span data-lang="en">ADC gain offsets, bandgap voltages, and LiDAR calibration arrays. Bounded to factory testing and authorized OEM maintenance.</span>
@@ -1094,10 +1095,10 @@
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#6f5536;">CONTRACT 03 · RESILIENT RECOVERY</span>
                   <span style="font:700 9.5px 'IBM Plex Mono'; color:#6f5536; background:#133445; padding:1px 6px; border-radius:3px; border:1px solid #2a3f3a;">FAIL-SAFE READY</span>
                 </div>
-                <h4 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
+                <h3 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">ADAS 安全備援與緊急開機向量</span>
                   <span data-lang="en">ADAS Safe Recovery Vectors</span>
-                </h4>
+                </h3>
                 <p style="color:#b5aa9c; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
                   <span data-lang="zh">當主控晶片遭遇雙位元故障或匯流排雪崩，硬體中斷即刻切入 AntiFuse 備援安全引導程式，保證車輛煞車與轉向安全降級停靠。</span>
                   <span data-lang="en">When primary processors encounter uncorrectable dual-bit ECC faults, hardware interrupts redirect to fallback boot vectors within 10ms.</span>
@@ -1209,10 +1210,10 @@
 
       <div class="hub-footer-nav-grid">
         <div class="hub-footer-col">
-          <h4 class="hub-footer-col-title">
+          <h3 class="hub-footer-col-title">
             <span data-lang="zh">基礎理論 · 物理原語</span>
             <span data-lang="en">Foundations &amp; Physics</span>
-          </h4>
+          </h3>
           <ul class="hub-footer-links">
             <li><a href="index.html"><span data-lang="zh">知識中樞首頁</span><span data-lang="en">Hub Portal</span></a></li>
             <li><a href="memory-physics.html"><span data-lang="zh">記憶體物理基底 (F1)</span><span data-lang="en">Bitcell Physics (F1)</span></a></li>
@@ -1222,10 +1223,10 @@
         </div>
 
         <div class="hub-footer-col">
-          <h4 class="hub-footer-col-title">
+          <h3 class="hub-footer-col-title">
             <span data-lang="zh">架構矩陣 · 決策分析</span>
             <span data-lang="en">Architecture &amp; Trade-Offs</span>
-          </h4>
+          </h3>
           <ul class="hub-footer-links">
             <li><a href="technology-comparison.html"><span data-lang="zh">NVM 技術權衡矩陣 (F2)</span><span data-lang="en">Technology Comparison (F2)</span></a></li>
             <li><a href="secure-storage.html"><span data-lang="zh">安全儲存架構 (A1)</span><span data-lang="en">Secure Storage (A1)</span></a></li>
@@ -1235,10 +1236,10 @@
         </div>
 
         <div class="hub-footer-col">
-          <h4 class="hub-footer-col-title">
+          <h3 class="hub-footer-col-title">
             <span data-lang="zh">垂直領域 · 晶片應用</span>
             <span data-lang="en">Vertical Applications</span>
-          </h4>
+          </h3>
           <ul class="hub-footer-links">
             <li><a href="iot-mcu-envm.html"><span data-lang="zh">ULP IoT 與 MCU eNVM (M2)</span><span data-lang="en">IoT &amp; Edge MCU eNVM (M2)</span></a></li>
             <li><a href="automotive-nvm.html"><span data-lang="zh">車載車規 NVM (M3)</span><span data-lang="en">Automotive-Grade NVM (M3)</span></a></li>
@@ -1247,10 +1248,10 @@
         </div>
 
         <div class="hub-footer-col">
-          <h4 class="hub-footer-col-title">
+          <h3 class="hub-footer-col-title">
             <span data-lang="zh">白皮書 · 決策工坊</span>
             <span data-lang="en">Reports &amp; Studios</span>
-          </h4>
+          </h3>
           <ul class="hub-footer-links">
             <li><a href="whitepaper/"><span data-lang="zh">技術白皮書工作坊 (R1)</span><span data-lang="en">Whitepaper Studio (R1)</span></a></li>
             <li><a href="briefing/index.html"><span data-lang="zh">高階主管戰略簡報 (R2)</span><span data-lang="en">Executive Briefing (R2)</span></a></li>
