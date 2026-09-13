@@ -1007,6 +1007,36 @@ def run_tests() -> None:
     test(f"全站標題總數符合規模 (共計 {total_headings_audited} 個標題元素)", total_headings_audited >= 350)
     test("全站 17 個公開頁面 100% 達成零標題越級跳號 (Zero Heading Skips, hX -> hX+2+ = 0)", total_skips_found == 0)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 36: NVM 技術對比矩陣數據核實、第一性原理物理常數與 5 軸動態雷達決策器門禁
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 36: NVM 技術對比矩陣數據核實、第一性原理物理常數與 5 軸動態雷達決策器門禁 ═══")
+    tc_text = (BASE / "technology-comparison.html").read_text(encoding="utf-8")
+
+    # 1. 矩陣數據：面積倒掛修復 (LD-MTP 60-120+ F^2 vs HD-MTP 25-50 F^2)
+    test("technology-comparison.html 矩陣包含 LD-MTP 60–120+ F² 與 HD-MTP 25–50 F² (徹底解決面積倒掛)",
+         "60–120+ F²" in tc_text and "25–50 F²" in tc_text and tc_text.find("60–120+ F²") < tc_text.find("25–50 F²"))
+
+    # 2. 矩陣數據：SST SSI 與 FG-OTP 無抹除
+    test("technology-comparison.html 載明 SST 來源端注入 SSI/FN 與 FG-OTP 無電氣抹除 CHEI/None",
+         "SSI / FN" in tc_text and "CHEI / None" in tc_text)
+
+    # 3. 矩陣數據：MRAM 耐久度 TDDB 與延遲校準
+    test("technology-comparison.html 載明 MRAM 商業量產 10⁶–10¹⁰ 耐久度與 10–25 ns 陣列讀取延遲",
+         "10<sup>6</sup>–10<sup>10</sup>" in tc_text and "~10–25 ns" in tc_text)
+
+    # 4. 物理方程式：FN 穿隧理論係數與 4 階段微觀崩潰
+    test("technology-comparison.html 具備 FN 穿隧理論解 (270 MV/cm 理論 vs 250 MV/cm 經驗) 與 4 階段滲透崩潰微絲模型",
+         "2.70&times;10<sup>8</sup> V/cm (270 MV/cm)" in tc_text and "2.48&times;10<sup>8</sup> V/cm &approx; 2.5&times;10<sup>8</sup> V/cm" in tc_text and "局域再結晶矽微絲" in tc_text)
+
+    # 5. 代工廠路線：TSMC/UMC/GF/Samsung 與實體資安責任鏈
+    test("technology-comparison.html 具備四大晶圓代工廠最新量產路線圖與多層實體防護責任鏈 (非單週期位元消除)",
+         "2025 年通過 AEC-Q100 Grade 1 (10萬次循環)" in tc_text and "Avalanche" in tc_text and "FDX+ AutoPro150" in tc_text and "SF4A (4nm) 與 SF3 / SF2" in tc_text and "非揮發微絲為永久性物理歐姆結構" in tc_text)
+
+    # 6. 雷達決策器：軸向對齊與硬性排除閘
+    test("technology-comparison.html 雷達選型器軸向與 baseProfile 100% 對齊且包含 >1M 次工作 RAM 硬性排除閘",
+         'nameZh: "微縮先進度"' in tc_text and 'nameZh: "高溫留存力"' in tc_text and 'nameZh: "覆寫耐受性"' in tc_text and "if (endIdx === 2) return 5;" in tc_text)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

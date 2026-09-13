@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
-  "releaseId": "NVM-WEB-b2f7838a80f6",
-  "canonicalCommit": "b2f7838a80f6dfe95f3bb9b0da77c64ecd3c6177",
-  "canonicalTree": "ae30b4ba284c2378d56992ead6d4ea4b70b9bee3",
-  "canonicalCommitTime": "2026-09-13T06:08:10+00:00",
-  "generatedAt": "2026-09-13T06:08:10+00:00",
+  "releaseId": "NVM-WEB-ac0c47bceba7",
+  "canonicalCommit": "ac0c47bceba750c890b3ed664d73b8f88a10fb24",
+  "canonicalTree": "55a9bc098f697f0d4debc45d473c3620a134215c",
+  "canonicalCommitTime": "2026-09-13T23:13:57+08:00",
+  "generatedAt": "2026-09-13T23:13:57+08:00",
   "povContractId": "POV-NVM-WEB-2026-08-29",
   "artifactMode": "neutral-editorial",
   "authorOrganization": "NVM Knowledge Hub",
@@ -13,8 +13,8 @@
   "lineageRule": "內容提交後產生本紀錄，綁定確切 Git 提交、檔案樹與治理資料；來源集合雜湊排除本紀錄，避免自我參照。實際上線狀態另以 GitHub Pages 部署結果核對。",
   "postCommitManifestRequired": false,
   "sourceSnapshot": {
-    "trackedPathCount": 243,
-    "sourceSetSHA256": "6725cda6653d21a51a690eaaa0492ba0ed65792e9541d7ac4d197a252a29390f",
+    "trackedPathCount": 244,
+    "sourceSetSHA256": "6b4206365f1f01a6e3d5b1ab98d9c6fdeb63dc208419f694a37476b8101a1e36",
     "hashContract": "path<NUL>git-blob-object-id<LF>；UTF-8 路徑依位元組排序；排除 release-lineage.json"
   },
   "governance": {
