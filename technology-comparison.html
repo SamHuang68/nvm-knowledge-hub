@@ -860,28 +860,25 @@
       margin: 2rem 0;
     }
     .pipeline-step-card {
-      background: #0e2a38;
-      border: 1px solid rgba(15, 23, 42, 0.1);
+      background: #061925;
+      border: 1px solid rgba(196, 165, 116, 0.2);
       border-radius: 8px;
       padding: 1.75rem;
       position: relative;
-      box-shadow: var(--card-shadow);
+      box-shadow: 0 8px 24px -4px rgba(3, 19, 30, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .pipeline-step-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: #c4a574;
-      border-radius: 8px 0 0 8px;
+    .pipeline-step-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(196, 165, 116, 0.45);
+      box-shadow: 0 14px 32px -6px rgba(0, 0, 0, 0.45);
     }
     .step-num {
       font: 800 11px/1 'IBM Plex Mono', monospace;
-      color: #f59e0b;
       letter-spacing: 0.12em;
-      margin-bottom: 8px;
       display: block;
     }
   </style>
@@ -978,7 +975,7 @@
               <span data-lang="en">LOGIC-COMPATIBLE MASK MODEL</span>
             </div>
             <div class="stat-sub">
-              <span style="color: #6f5536; font-weight: 600;">
+              <span style="color: #38bdf8; font-weight: 600;">
                 <span data-lang="zh">零額外光罩 ≠ 晶圓免費 · 見成本恆等式</span>
                 <span data-lang="en">Zero extra masks ≠ free wafers · see cost identity</span>
               </span>
@@ -994,7 +991,7 @@
               <span data-lang="en">HIGH-TEMP RETENTION CLASS</span>
             </div>
             <div class="stat-sub">
-              <span style="color: #8a6a42; font-weight: 600;">
+              <span style="color: #2dd4bf; font-weight: 600;">
                 <span data-lang="zh">架構等級 · 非認證保證</span>
                 <span data-lang="en">Architecture class · not a cert claim</span>
               </span>
@@ -1010,7 +1007,7 @@
               <span data-lang="en">CORE-OXIDE ANTIFUSE WINDOW</span>
             </div>
             <div class="stat-sub">
-              <span style="color: #6f5536; font-weight: 600;">
+              <span style="color: #34d399; font-weight: 600;">
                 <span data-lang="zh">較厚的 2.5 V 閘氧常先碰上接面崩潰</span>
                 <span data-lang="en">Thicker 2.5 V oxide often loses to junction BV</span>
               </span>
@@ -1026,7 +1023,7 @@
               <span data-lang="en">eFLASH PUMP CHARGE CLIFF</span>
             </div>
             <div class="stat-sub">
-              <span style="color: #b45309; font-weight: 600;">
+              <span style="color: #fbbf24; font-weight: 600;">
                 <span data-lang="zh">&gt;10V 擦除電壓崩潰 · 無法導入立體鰭片</span>
                 <span data-lang="en">&gt;10V Erase Collapse · Incompatible with Fins</span>
               </span>
@@ -1053,6 +1050,10 @@
           <span class="pill-number">04</span>
           <span class="pill-text"><span data-lang="zh">四大晶圓廠與實體防護</span><span data-lang="en">Foundries &amp; Security</span></span>
         </a>
+        <a class="nav-pill" href="#sec-pipeline">
+          <span class="pill-number">05</span>
+          <span class="pill-text"><span data-lang="zh">決策簽核管線</span><span data-lang="en">Decision Pipeline</span></span>
+        </a>
       </nav>
     </section>
 
@@ -1069,12 +1070,12 @@
       <div class="compare-matrix-wrapper">
         <div class="compare-matrix">
           <!-- Group headers (st-nvm-family-v0) -->
-          <div class="matrix-corner" aria-hidden="true"></div>
-          <div class="matrix-group-header span-3"><span data-lang="zh">Foundry process</span><span data-lang="en">Foundry process</span></div>
-          <div class="matrix-group-header span-2"><span data-lang="zh">OTP</span><span data-lang="en">OTP</span></div>
-          <div class="matrix-group-header span-2"><span data-lang="zh">MTP</span><span data-lang="en">MTP</span></div>
-          <div class="matrix-group-header span-2"><span data-lang="zh">eFlash</span><span data-lang="en">eFlash</span></div>
-          <div class="matrix-group-header span-2"><span data-lang="zh">Emerging</span><span data-lang="en">Emerging</span></div>
+          <div class="matrix-corner"><span data-lang="zh">技術分類</span><span data-lang="en">CATEGORY</span></div>
+          <div class="matrix-group-header span-3"><span data-lang="zh">晶圓廠製程類</span><span data-lang="en">Foundry Process</span></div>
+          <div class="matrix-group-header span-2"><span data-lang="zh">一次性寫入 (OTP)</span><span data-lang="en">Logic OTP</span></div>
+          <div class="matrix-group-header span-2"><span data-lang="zh">多次抹寫 (MTP)</span><span data-lang="en">Logic MTP</span></div>
+          <div class="matrix-group-header span-2"><span data-lang="zh">嵌入式 Flash</span><span data-lang="en">Embedded Flash</span></div>
+          <div class="matrix-group-header span-2"><span data-lang="zh">新興記憶體</span><span data-lang="en">Emerging NVM</span></div>
 
           <!-- Leaf headers -->
           <div class="matrix-header"><span data-lang="zh">評估維度</span><span data-lang="en">DIMENSION</span></div>
@@ -1488,7 +1489,6 @@
     </section>
 
     <!-- SECTION 3: FIRST-PRINCIPLES PHYSICS & COST FORMULAS -->
-        <!-- SECTION 3: FIRST-PRINCIPLES PHYSICS & COST FORMULAS -->
     <section id="sec-physics" class="lens-panel" aria-labelledby="physics-sec-title">
       <div class="hub-sec-header">
         <div class="hub-sec-badge">03 · FIRST-PRINCIPLES MODELS</div>
@@ -1596,8 +1596,6 @@
     </section>
 
     <!-- SECTION 4: FOUNDRY ECOSYSTEM & PHYSICAL SECURITY -->
-        <!-- SECTION 4: FOUNDRY ECOSYSTEM & PHYSICAL SECURITY (REVISED) -->
-        <!-- SECTION 4: FOUNDRY ECOSYSTEM & PHYSICAL SECURITY -->
     <section id="sec-foundry" class="lens-panel" aria-labelledby="foundry-sec-title">
       <div class="hub-sec-header">
         <div class="hub-sec-badge">04 · FOUNDRY &amp; SECURITY</div>
@@ -1814,56 +1812,56 @@
       </div>
 
       <div class="pipeline-step-grid">
-        <div class="pipeline-step-card" style="border-top: 4px solid #8a6a42;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span class="step-num">STEP 01</span>
-            <span style="font:700 10px 'IBM Plex Mono'; color:#8a6a42; background:#0e2a38; padding:2px 8px; border-radius:4px; border:1px solid #f0e6d6;">GATE 1 · AUDIT</span>
+        <div class="pipeline-step-card" style="border-top: 4px solid #38bdf8;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span class="step-num" style="color:#38bdf8;">STEP 01</span>
+            <span style="font:700 10.5px 'IBM Plex Mono', monospace; color:#38bdf8; background:rgba(56, 189, 248, 0.12); padding:3px 9px; border-radius:4px; border:1px solid rgba(56, 189, 248, 0.35);">GATE 1 · AUDIT</span>
           </div>
-          <h3 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
+          <h3 style="color:#f8fafc; margin:0 0 0.75rem; font-family:'IBM Plex Mono', monospace; font-size:1.1rem;">
             <span data-lang="zh">狀態契約與生命週期審查</span>
             <span data-lang="en">State Contract Audit</span>
           </h3>
-          <p style="color:#b5aa9c; font-size:0.9rem; line-height:1.65; margin:0 0 1rem;">
+          <p style="color:#94a3b8; font-size:0.9rem; line-height:1.65; margin:0 0 1.25rem;">
             <span data-lang="zh">區分不可變身分 (Immutable ID)、校準邊界 (Calibration) 與韌體代碼。若資料僅需工廠寫入或偶發修補，優先評估 AntiFuse + Patch CAM。</span>
             <span data-lang="en">Distinguish immutable identity from firmware. For write-once or bounded patch models, evaluate AntiFuse paired with Vector CAM.</span>
           </p>
-          <div style="font:600 11px 'IBM Plex Mono'; color:#8a6a42; background:#061925; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
+          <div style="font:600 11px 'IBM Plex Mono', monospace; color:#7dd3fc; background:#03131e; padding:10px 14px; border-radius:6px; border:1px solid rgba(56, 189, 248, 0.25);">
             CRITERION: 0-Overhead Retention · Zero Bus Leak
           </div>
         </div>
 
-        <div class="pipeline-step-card" style="border-top: 4px solid #d97706;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span class="step-num" style="color:#d97706;">STEP 02</span>
-            <span style="font:700 10px 'IBM Plex Mono'; color:#d97706; background:#133445; padding:2px 8px; border-radius:4px; border:1px solid #1a3340;">GATE 2 · BUDGET</span>
+        <div class="pipeline-step-card" style="border-top: 4px solid #f59e0b;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span class="step-num" style="color:#f59e0b;">STEP 02</span>
+            <span style="font:700 10.5px 'IBM Plex Mono', monospace; color:#f59e0b; background:rgba(245, 158, 11, 0.12); padding:3px 9px; border-radius:4px; border:1px solid rgba(245, 158, 11, 0.35);">GATE 2 · BUDGET</span>
           </div>
-          <h3 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
+          <h3 style="color:#f8fafc; margin:0 0 0.75rem; font-family:'IBM Plex Mono', monospace; font-size:1.1rem;">
             <span data-lang="zh">製程微縮與熱預算可行性</span>
             <span data-lang="en">Process Node &amp; Thermal Budget</span>
           </h3>
-          <p style="color:#b5aa9c; font-size:0.9rem; line-height:1.65; margin:0 0 1rem;">
+          <p style="color:#94a3b8; font-size:0.9rem; line-height:1.65; margin:0 0 1.25rem;">
             <span data-lang="zh">檢查晶圓代工廠 PDK。若節點小於 28nm，eFlash 直接否決；評估是否具備 3~5 道 BEOL 光罩預算導入 MRAM，或採用 0-Mask 純邏輯相容方案。</span>
             <span data-lang="en">Verify foundry PDK roadmap. If scaling beyond 28nm, rule out eFlash. Decide between BEOL mask adders (MRAM) and 0-mask logic NVM.</span>
           </p>
-          <div style="font:600 11px 'IBM Plex Mono'; color:#d97706; background:#061925; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
+          <div style="font:600 11px 'IBM Plex Mono', monospace; color:#fcd34d; background:#03131e; padding:10px 14px; border-radius:6px; border:1px solid rgba(245, 158, 11, 0.25);">
             CRITERION: 0-Mask Logic Compatibility · &le;450&deg;C Safe
           </div>
         </div>
 
-        <div class="pipeline-step-card" style="border-top: 4px solid #6f5536;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span class="step-num" style="color:#6f5536;">STEP 03</span>
-            <span style="font:700 10px 'IBM Plex Mono'; color:#6f5536; background:#133445; padding:2px 8px; border-radius:4px; border:1px solid #2a3f3a;">GATE 3 · QUALIFIED</span>
+        <div class="pipeline-step-card" style="border-top: 4px solid #10b981;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span class="step-num" style="color:#10b981;">STEP 03</span>
+            <span style="font:700 10.5px 'IBM Plex Mono', monospace; color:#10b981; background:rgba(16, 185, 129, 0.12); padding:3px 9px; border-radius:4px; border:1px solid rgba(16, 185, 129, 0.35);">GATE 3 · QUALIFIED</span>
           </div>
-          <h3 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
+          <h3 style="color:#f8fafc; margin:0 0 0.75rem; font-family:'IBM Plex Mono', monospace; font-size:1.1rem;">
             <span data-lang="zh">實體驗證與防禦簽核</span>
             <span data-lang="en">Physical Verification Sign-Off</span>
           </h3>
-          <p style="color:#b5aa9c; font-size:0.9rem; line-height:1.65; margin:0 0 1rem;">
+          <p style="color:#94a3b8; font-size:0.9rem; line-height:1.65; margin:0 0 1.25rem;">
             <span data-lang="zh">依據 AEC-Q100 Grade 0 規範驗證 175°C 結溫高溫工作壽命 (HTOL 1000h)、早期失效率 (ELFR 2400 顆 c=0) 與高溫數據保持烘烤 (Retention Bake)，並評估 TEM 逆向防護邊界，確保微絲歐姆接觸無熱漂移退化。</span>
             <span data-lang="en">Qualify per AEC-Q100 Grade 0 specifications at 175°C Tj HTOL 1000h, early life failure rate (ELFR 2,400 units c=0), and data retention bake, alongside TEM anti-tamper boundary analysis to ensure zero ohmic drift.</span>
           </p>
-          <div style="font:600 11px 'IBM Plex Mono'; color:#6f5536; background:#061925; padding:8px 12px; border-radius:4px; border:1px solid #e2e8f0;">
+          <div style="font:600 11px 'IBM Plex Mono', monospace; color:#6ee7b7; background:#03131e; padding:10px 14px; border-radius:6px; border:1px solid rgba(16, 185, 129, 0.25);">
             CRITERION: TEM Attenuation (Not Immunity) · Grade 0 Class Checklist @ 175&deg;C Tj
           </div>
         </div>
