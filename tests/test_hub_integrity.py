@@ -712,6 +712,78 @@ def run_tests() -> None:
     test("briefing/index.html 包含 <h2 class='sr-only'> 維持文件標題大綱連續性 (h1 -> h2 -> h3)",
          '<h2 class="sr-only">' in briefing_text)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 32: Open Graph MIME 媒體型別標準化 (og:image:type) 與結構化資料實體綁定 (JSON-LD mainEntityOfPage & publisher.url)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 32: Open Graph MIME 媒體型別標準化 (og:image:type) 與結構化資料實體綁定 (JSON-LD mainEntityOfPage & publisher.url) ═══")
+
+    # 1. 驗證 16 個公開頁面 100% 具備精確 Open Graph 影像 MIME 型別 (og:image:type)
+    mismatched_og_types = 0
+    for p in public_surfaces:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        expected_mime = "image/jpeg" if p == "iot-mcu-envm.html" else "image/webp"
+        has_type = (f'property="og:image:type" content="{expected_mime}"' in p_text or
+                    f'content="{expected_mime}" property="og:image:type"' in p_text)
+        if not has_type:
+            mismatched_og_types += 1
+        test(f"{p} 具備精確 Open Graph MIME 宣告 (og:image:type='{expected_mime}')", has_type)
+    test("全站 16 個公開內容頁面 100% 具備精準對應之 og:image:type 宣告 (零遺漏、零型別誤判)",
+         mismatched_og_types == 0)
+
+    # 2. 驗證 15 個 TechArticle 技術文章頁面 100% 具備 Google Rich Results mainEntityOfPage 實體綁定
+    tech_articles = [p for p in public_surfaces if p != "index.html"]
+    unbound_articles = 0
+    for p in tech_articles:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        can_match = re.search(r'<link\s+[^>]*rel=["\']canonical["\'][^>]*href=["\']([^"\']+)["\']', p_text)
+        if not can_match:
+            can_match = re.search(r'<link\s+[^>]*href=["\']([^"\']+)["\'][^>]*rel=["\']canonical["\']', p_text)
+        canonical_url = can_match.group(1) if can_match else ""
+
+        s_match = re.search(r'<script\s+type=["\']application/ld\+json["\']>(.*?)</script>', p_text, re.DOTALL)
+        if not s_match:
+            unbound_articles += 1
+            test(f"{p} 包含結構化資料 JSON-LD", False)
+            continue
+
+        try:
+            ld_data = json.loads(s_match.group(1))
+            me = ld_data.get("mainEntityOfPage", {})
+            is_bound = (me.get("@type") == "WebPage" and me.get("@id") == canonical_url)
+            if not is_bound:
+                unbound_articles += 1
+            test(f"{p} 具備 mainEntityOfPage WebPage 實體對齊 ({canonical_url})", is_bound)
+        except Exception:
+            unbound_articles += 1
+            test(f"{p} JSON-LD 解析有效且具備 mainEntityOfPage", False)
+
+    test("全站 15 個 TechArticle 頁面 100% 具備與 canonical 嚴格一致之 mainEntityOfPage 實體對齊",
+         unbound_articles == 0)
+
+    # 3. 驗證全站 16 個公開頁面之 publisher 100% 宣告組織網址 (publisher.url)
+    hub_url = "https://samhuang68.github.io/nvm-knowledge-hub/"
+    missing_pub_urls = 0
+    for p in public_surfaces:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        s_match = re.search(r'<script\s+type=["\']application/ld\+json["\']>(.*?)</script>', p_text, re.DOTALL)
+        if not s_match:
+            missing_pub_urls += 1
+            test(f"{p} 具備 publisher.url 組織官網連結", False)
+            continue
+        try:
+            ld_data = json.loads(s_match.group(1))
+            pub = ld_data.get("publisher", {})
+            has_pub_url = (pub.get("url") == hub_url)
+            if not has_pub_url:
+                missing_pub_urls += 1
+            test(f"{p} publisher 具備標準組織官方網址 ({hub_url})", has_pub_url)
+        except Exception:
+            missing_pub_urls += 1
+            test(f"{p} JSON-LD 解析有效且包含 publisher.url", False)
+
+    test("全站 16 個公開頁面之 JSON-LD publisher 100% 完整宣告官方首頁 URL",
+         missing_pub_urls == 0)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
@@ -719,4 +791,5 @@ def run_tests() -> None:
 
 if __name__ == "__main__":
     exit(0 if run_tests() else 1)
+
 
