@@ -473,6 +473,7 @@
       border-radius: 8px;
       padding: 1.5rem 1.75rem;
     }
+    .formula-card h3,
     .formula-card h4 {
       color: #fff;
       margin: 0 0 0.5rem;
@@ -591,6 +592,7 @@
     .foundry-card.umc { border-top-color: #f59e0b; }
     .foundry-card.gf { border-top-color: #c4a574; }
     .foundry-card.sec { border-top-color: #3b82f6; }
+    .foundry-card h3,
     .foundry-card h4 {
       font: 700 1.25rem/1.2 'IBM Plex Mono', monospace;
       color: #f8fafc;
@@ -1060,10 +1062,10 @@
         <!-- Formula 1: Fowler-Nordheim Tunneling -->
         <div class="formula-card">
           <div class="hub-sec-badge" style="color:#c4a574;">EQUATION 01 · ANTIFUSE BREAKDOWN</div>
-          <h4>
+          <h3>
             <span data-lang="zh">Fowler–Nordheim 穿隧與崩潰電流</span>
             <span data-lang="en">Fowler–Nordheim tunneling current</span>
-          </h4>
+          </h3>
           <p style="color:#94a3b8; font-size:0.88rem; line-height:1.55;">
             <span data-lang="zh">穿隧機制由氧化層厚度與電壓共同決定：超薄氧化層在 <em>t</em><sub>ox</sub> &lt; 3.0 nm 且 <em>V</em><sub>ox</sub> &lt; 3.15V (Φ<sub>B</sub>/<em>q</em>) 時由梯形能障直接穿隧 (Direct Tunneling) 主導；厚度較大或 <em>V</em><sub>ox</sub> &gt; 3.15V 時則誘發三角形能障 Fowler–Nordheim (FN) 穿隧。當強電場 <em>E</em><sub>ox</sub> &ge; 6~8 MV/cm 下缺陷累積達滲透閾值 (Percolation Threshold)，引發熱失控硬崩潰形成永久局域再結晶矽導電微絲：</span>
             <span data-lang="en">Tunneling regime is governed by oxide thickness and voltage: ultrathin oxide at <em>t</em><sub>ox</sub> &lt; 3.0 nm and <em>V</em><sub>ox</sub> &lt; 3.15V (Φ<sub>B</sub>/<em>q</em>) is dominated by trapezoidal direct tunneling; thicker oxides or <em>V</em><sub>ox</sub> &gt; 3.15V trigger triangular Fowler–Nordheim (FN) tunneling. Under high field <em>E</em><sub>ox</sub> &ge; 6~8 MV/cm, defect accumulation reaches the percolation threshold, initiating thermal runaway hard breakdown into a permanent localized recrystallized silicon filament:</span>
@@ -1090,10 +1092,10 @@
         <!-- Formula 2: Wafer Cost Economics -->
         <div class="formula-card">
           <div class="hub-sec-badge" style="color:#f59e0b;">EQUATION 02 · WAFER COST ADDER</div>
-          <h4>
+          <h3>
             <span data-lang="zh">額外光罩晶圓成本恆等式</span>
             <span data-lang="en">Mask-adder wafer cost identity</span>
-          </h4>
+          </h3>
           <p style="color:#94a3b8; font-size:0.88rem; line-height:1.55;">
             <span data-lang="zh">用額外光罩道數 N<sub>extra</sub> 與良率折損 ΔY<sub>nvm</sub>，把製程加價寫成可檢查的成本恆等式，而不是代工廠報價：</span>
             <span data-lang="en">Express process adder as an inspectable identity in extra masks N<sub>extra</sub> and yield hit ΔY<sub>nvm</sub> — not a foundry quote:</span>
@@ -1118,10 +1120,10 @@
         <!-- Formula 3: Subthreshold Leakage -->
         <div class="formula-card">
           <div class="hub-sec-badge" style="color:#c4a574;">EQUATION 03 · STATIC LEAKAGE</div>
-          <h4>
+          <h3>
             <span data-lang="zh">次閾值漏電與長效待機模型</span>
             <span data-lang="en">Subthreshold leakage, always-on domain</span>
-          </h4>
+          </h3>
           <p style="color:#94a3b8; font-size:0.88rem; line-height:1.55;">
             <span data-lang="zh">超低功耗邊緣節點 Always-On 域，靜態漏電由次閾值熱游離擴散主導：</span>
             <span data-lang="en">Static leakage in always-on edge MCU domains is dominated by subthreshold diffusion:</span>
@@ -1157,7 +1159,7 @@
         <!-- TSMC -->
         <div class="foundry-card tsmc">
           <div style="font: 700 11px 'IBM Plex Mono'; color: #c4a574; margin-bottom: 4px;">TAIWAN SEMICONDUCTOR</div>
-          <h4>TSMC</h4>
+          <h3>TSMC</h3>
           <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
             <li><b>22ULL</b>: <span data-lang="zh">0.6V–0.8V 超低漏電；邏輯 OTP 作為 28nm eFlash 的 0-mask 替代路徑。</span><span data-lang="en">0.6–0.8V ultra-low leakage; logic OTP as a 0-mask path versus 28nm eFlash.</span></li>
             <li><b>12FFC+ / N6e</b>: <span data-lang="zh">FinFET，可到 0.5V 近閾值；不再依賴厚氧化層幫浦。</span><span data-lang="en">FinFET, down to 0.5V near-threshold; thick-oxide pumps not required.</span></li>
@@ -1168,7 +1170,7 @@
         <!-- UMC -->
         <div class="foundry-card umc">
           <div style="font: 700 11px 'IBM Plex Mono'; color: #f59e0b; margin-bottom: 4px;">UNITED MICROELECTRONICS</div>
-          <h4>UMC</h4>
+          <h3>UMC</h3>
           <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
             <li><b>28eHV / 40eHV</b>: <span data-lang="zh">30V–40V 顯示驅動與 OLED Gamma / De-Mura 微調。</span><span data-lang="en">30–40V DDIC and OLED gamma / de-mura trim.</span></li>
             <li><b>22uLP / 22uLL</b>: <span data-lang="zh">IoT 主力節點；避免浮閘熱預算進入 BCD 飄移區。</span><span data-lang="en">IoT nodes; keep floating-gate thermal budget out of BCD drift regions.</span></li>
@@ -1178,7 +1180,7 @@
         <!-- GlobalFoundries -->
         <div class="foundry-card gf">
           <div style="font: 700 11px 'IBM Plex Mono'; color: #c4a574; margin-bottom: 4px;">GLOBALFOUNDRIES</div>
-          <h4>GlobalFoundries</h4>
+          <h3>GlobalFoundries</h3>
           <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
             <li><b>22FDX (FD-SOI)</b>: <span data-lang="zh">背閘極偏壓可用於編程電流調整；幅度以 PDK 為準。</span><span data-lang="en">Back-bias can assist program current; magnitude is PDK-specific.</span></li>
             <li><b>12LP+ FinFET</b>: <span data-lang="zh">邊緣 AI 推論晶片的硬體信任根候選路徑。</span><span data-lang="en">Candidate root-of-trust path for edge-AI inference dies.</span></li>
@@ -1188,7 +1190,7 @@
         <!-- Samsung -->
         <div class="foundry-card sec">
           <div style="font: 700 11px 'IBM Plex Mono'; color: #3b82f6; margin-bottom: 4px;">SAMSUNG FOUNDRY</div>
-          <h4>Samsung Foundry</h4>
+          <h3>Samsung Foundry</h3>
           <ul style="padding-left: 18px; margin: 0.75rem 0; font-size: 0.88rem; color: #cbd5e1; line-height: 1.6;">
             <li><b>28FDS (Commercial eMRAM)</b>: <span data-lang="zh">量產 BEOL MRAM；需面對 260°C 封裝迴焊熱退火。</span><span data-lang="en">Production BEOL MRAM; 260°C package-reflow anneal remains a limit.</span></li>
             <li><b>8LPU / 4LPP</b>: <span data-lang="zh">行動處理器金鑰儲存與 PUF 整合路徑。</span><span data-lang="en">Mobile key-storage and PUF integration path.</span></li>
@@ -1234,10 +1236,10 @@
             <span class="step-num">STEP 01</span>
             <span style="font:700 10px 'IBM Plex Mono'; color:#8a6a42; background:#0e2a38; padding:2px 8px; border-radius:4px; border:1px solid #f0e6d6;">GATE 1 · AUDIT</span>
           </div>
-          <h4 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
+          <h3 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
             <span data-lang="zh">狀態契約與生命週期審查</span>
             <span data-lang="en">State Contract Audit</span>
-          </h4>
+          </h3>
           <p style="color:#b5aa9c; font-size:0.9rem; line-height:1.65; margin:0 0 1rem;">
             <span data-lang="zh">區分不可變身分 (Immutable ID)、校準邊界 (Calibration) 與韌體代碼。若資料僅需工廠寫入或偶發修補，優先評估 AntiFuse + Patch CAM。</span>
             <span data-lang="en">Distinguish immutable identity from firmware. For write-once or bounded patch models, evaluate AntiFuse paired with Vector CAM.</span>
@@ -1252,10 +1254,10 @@
             <span class="step-num" style="color:#d97706;">STEP 02</span>
             <span style="font:700 10px 'IBM Plex Mono'; color:#d97706; background:#133445; padding:2px 8px; border-radius:4px; border:1px solid #1a3340;">GATE 2 · BUDGET</span>
           </div>
-          <h4 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
+          <h3 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
             <span data-lang="zh">製程微縮與熱預算可行性</span>
             <span data-lang="en">Process Node &amp; Thermal Budget</span>
-          </h4>
+          </h3>
           <p style="color:#b5aa9c; font-size:0.9rem; line-height:1.65; margin:0 0 1rem;">
             <span data-lang="zh">檢查晶圓代工廠 PDK。若節點小於 28nm，eFlash 直接否決；評估是否具備 3~5 道 BEOL 光罩預算導入 MRAM，或採用 0-Mask 純邏輯相容方案。</span>
             <span data-lang="en">Verify foundry PDK roadmap. If scaling beyond 28nm, rule out eFlash. Decide between BEOL mask adders (MRAM) and 0-mask logic NVM.</span>
@@ -1270,10 +1272,10 @@
             <span class="step-num" style="color:#6f5536;">STEP 03</span>
             <span style="font:700 10px 'IBM Plex Mono'; color:#6f5536; background:#133445; padding:2px 8px; border-radius:4px; border:1px solid #2a3f3a;">GATE 3 · QUALIFIED</span>
           </div>
-          <h4 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
+          <h3 style="color:#f3ebe0; margin:0 0 0.75rem; font-family:'IBM Plex Mono'; font-size:1.1rem;">
             <span data-lang="zh">實體驗證與防禦簽核</span>
             <span data-lang="en">Physical Verification Sign-Off</span>
-          </h4>
+          </h3>
           <p style="color:#b5aa9c; font-size:0.9rem; line-height:1.65; margin:0 0 1rem;">
             <span data-lang="zh">依據 AEC-Q100 Grade 0 規範驗證 175°C 結溫高溫工作壽命 (HTOL 1000h)、早期失效率 (ELFR 2400 顆 c=0) 與高溫數據保持烘烤 (Retention Bake)，並評估 TEM 逆向防護邊界，確保微絲歐姆接觸無熱漂移退化。</span>
             <span data-lang="en">Qualify per AEC-Q100 Grade 0 specifications at 175°C Tj HTOL 1000h, early life failure rate (ELFR 2,400 units c=0), and data retention bake, alongside TEM anti-tamper boundary analysis to ensure zero ohmic drift.</span>
@@ -1324,10 +1326,10 @@
       <div class="hub-footer-nav-grid">
         <!-- Col 1: Foundations -->
         <div class="hub-footer-col">
-          <h4 class="hub-footer-col-title">
+          <h3 class="hub-footer-col-title">
             <span data-lang="zh">基礎理論 · 物理原語</span>
             <span data-lang="en">Foundations &amp; Physics</span>
-          </h4>
+          </h3>
           <ul class="hub-footer-links">
             <li><a href="index.html"><span data-lang="zh">知識中樞首頁</span><span data-lang="en">Hub Portal</span></a></li>
             <li><a href="memory-physics.html"><span data-lang="zh">記憶體物理基底 (F1)</span><span data-lang="en">Bitcell Physics (F1)</span></a></li>
@@ -1338,10 +1340,10 @@
 
         <!-- Col 2: Architecture -->
         <div class="hub-footer-col">
-          <h4 class="hub-footer-col-title">
+          <h3 class="hub-footer-col-title">
             <span data-lang="zh">架構矩陣 · 決策分析</span>
             <span data-lang="en">Architecture &amp; Trade-Offs</span>
-          </h4>
+          </h3>
           <ul class="hub-footer-links">
             <li><a href="technology-comparison.html"><span data-lang="zh">NVM 技術權衡矩陣 (F2)</span><span data-lang="en">Technology Comparison (F2)</span></a></li>
             <li><a href="secure-storage.html"><span data-lang="zh">安全儲存架構 (A1)</span><span data-lang="en">Secure Storage (A1)</span></a></li>
@@ -1352,10 +1354,10 @@
 
         <!-- Col 3: Applications -->
         <div class="hub-footer-col">
-          <h4 class="hub-footer-col-title">
+          <h3 class="hub-footer-col-title">
             <span data-lang="zh">垂直領域 · 晶片應用</span>
             <span data-lang="en">Vertical Applications</span>
-          </h4>
+          </h3>
           <ul class="hub-footer-links">
             <li><a href="iot-mcu-envm.html"><span data-lang="zh">ULP IoT 與 MCU eNVM (M2)</span><span data-lang="en">IoT &amp; Edge MCU eNVM (M2)</span></a></li>
             <li><a href="automotive-nvm.html"><span data-lang="zh">車載車規 NVM (M3)</span><span data-lang="en">Automotive-Grade NVM (M3)</span></a></li>
@@ -1365,10 +1367,10 @@
 
         <!-- Col 4: Resources -->
         <div class="hub-footer-col">
-          <h4 class="hub-footer-col-title">
+          <h3 class="hub-footer-col-title">
             <span data-lang="zh">白皮書 · 決策工坊</span>
             <span data-lang="en">Reports &amp; Studios</span>
-          </h4>
+          </h3>
           <ul class="hub-footer-links">
             <li><a href="whitepaper/"><span data-lang="zh">技術白皮書工作坊 (R1)</span><span data-lang="en">Whitepaper Studio (R1)</span></a></li>
             <li><a href="briefing/index.html"><span data-lang="zh">高階主管戰略簡報 (R2)</span><span data-lang="en">Executive Briefing (R2)</span></a></li>

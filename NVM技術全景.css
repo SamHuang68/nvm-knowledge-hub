@@ -19,3 +19,6 @@
 [data-complete-cycle]>[data-operation-detail]{border-top:2px solid var(--nvm-line);margin-top:32px;padding-top:24px;scroll-margin-top:110px}
 [data-complete-cycle]>[data-operation-detail]:focus-visible{outline:3px solid var(--nvm-teal);outline-offset:4px}
 @media(max-width:500px){.nvm-cycle-summary{padding:16px}.nvm-cycle-summary h3{font-size:22px}.nvm-cycle-sequence{font-size:20px}}
+
+/* Standard Screen Reader / Assistive Technology Outline */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }

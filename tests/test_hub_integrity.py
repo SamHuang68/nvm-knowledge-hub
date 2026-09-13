@@ -983,6 +983,30 @@ def run_tests() -> None:
     test("全站所有 <details> 折疊元素 100% 具備一對一之 <summary> 交互標題 (符合 W3C HTML5 規範)",
          total_details_tags == total_summaries)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 35: WCAG 2.1 SC 1.3.1 全站標題層級大綱連續性 (Zero Heading Level Skips) 與無障礙導覽語意
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 35: WCAG 2.1 SC 1.3.1 全站標題層級大綱連續性 (Zero Heading Level Skips) 與無障礙導覽語意 ═══")
+
+    total_headings_audited = 0
+    total_skips_found = 0
+
+    for p in ALL_SURFACES:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        matches = list(re.finditer(r'<(h[1-6])\b([^>]*)>([\s\S]*?)<\/\1>', p_text, re.IGNORECASE))
+        total_headings_audited += len(matches)
+        page_skips = 0
+        for i in range(len(matches) - 1):
+            c_tag, c_lvl = matches[i].group(1).lower(), int(matches[i].group(1)[1])
+            n_tag, n_lvl = matches[i+1].group(1).lower(), int(matches[i+1].group(1)[1])
+            if n_lvl > c_lvl + 1:
+                page_skips += 1
+                total_skips_found += 1
+        test(f"{p} 標題大綱層級 100% 平滑連續無越級跳號 (符合 WCAG 2.1 SC 1.3.1/2.4.6)", page_skips == 0)
+
+    test(f"全站標題總數符合規模 (共計 {total_headings_audited} 個標題元素)", total_headings_audited >= 350)
+    test("全站 17 個公開頁面 100% 達成零標題越級跳號 (Zero Heading Skips, hX -> hX+2+ = 0)", total_skips_found == 0)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
