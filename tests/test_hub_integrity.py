@@ -660,6 +660,58 @@ def run_tests() -> None:
         has_tw_alt = 'name="twitter:image:alt"' in p_text
         test(f"{p} 具備社群預覽卡影像替代文字 (og:image:alt 與 twitter:image:alt)", has_og_alt and has_tw_alt)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 31: 互動按鈕標準型別 (Button Type)、導覽地標唯一名稱 (Nav Landmarks) 與無障礙大綱 (Heading Outline)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 31: 互動按鈕標準型別 (Button Type)、導覽地標唯一名稱 (Nav Landmarks) 與無障礙大綱 (Heading Outline) ═══")
+
+    # 1. 驗證全站 17 頁中所有 <button> 元素 100% 具備明確 type 屬性
+    total_buttons = 0
+    untyped_buttons = 0
+    for p in ALL_SURFACES:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        btn_tags = re.findall(r'<button\b([^>]*)>', p_text, re.IGNORECASE)
+        total_buttons += len(btn_tags)
+        for b_attrs in btn_tags:
+            if not re.search(r'\btype=["\'](?:button|submit|reset)["\']', b_attrs, re.IGNORECASE):
+                untyped_buttons += 1
+    test(f"全站互動按鈕總數符合規模 (共計 {total_buttons} 個 <button> 元素)", total_buttons >= 80)
+    test("全站所有 <button> 元素 100% 具備明確 type 宣告 (零無型別按鈕，符合 W3C HTML5 規範)", untyped_buttons == 0)
+
+    # 2. 驗證全站 17 頁中所有 <nav> 元素 100% 具備無障礙名稱
+    total_navs = 0
+    unlabelled_navs = 0
+    for p in ALL_SURFACES:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        nav_tags = re.findall(r'<nav\b([^>]*)>', p_text, re.IGNORECASE)
+        total_navs += len(nav_tags)
+        for n_attrs in nav_tags:
+            has_label = ('aria-label=' in n_attrs.lower() or 'aria-labelledby=' in n_attrs.lower())
+            if not has_label:
+                unlabelled_navs += 1
+    test(f"全站導覽地標總數符合規模 (共計 {total_navs} 個 <nav> 地標)", total_navs >= 150)
+    test("全站所有 <nav> 地標 100% 具備 aria-label 或 aria-labelledby 無障礙名稱 (零未命名地標)", unlabelled_navs == 0)
+
+    # 3. 驗證同頁存在多個 <nav> 時，所有 <nav> 地標名稱 100% 具備情境唯一性
+    pages_with_dup_navs = 0
+    for p in ALL_SURFACES:
+        p_text = (BASE / p).read_text(encoding="utf-8")
+        nav_labels = re.findall(r'<nav\b[^>]*aria-label=["\']([^"\']+)["\']', p_text, re.IGNORECASE)
+        if len(nav_labels) > 1:
+            if len(nav_labels) != len(set(nav_labels)):
+                pages_with_dup_navs += 1
+    test("全站各頁面多重 <nav> 地標 100% 具備唯一情境名稱 (零同頁重複地標標籤，符合 WCAG SC 1.3.1/2.4.1)",
+         pages_with_dup_navs == 0)
+
+    # 4. 驗證 site-shell.css 包含全站 .sr-only 輔助技術樣式
+    test("site-shell.css 包含標準 .sr-only 螢幕閱讀器與輔助技術專用無障礙類別",
+         ".sr-only" in shell_text and "clip: rect(0, 0, 0, 0)" in shell_text)
+
+    # 5. 驗證 briefing/index.html 具備無障礙二級標題維持標題大綱連續性
+    briefing_text = (BASE / "briefing/index.html").read_text(encoding="utf-8")
+    test("briefing/index.html 包含 <h2 class='sr-only'> 維持文件標題大綱連續性 (h1 -> h2 -> h3)",
+         '<h2 class="sr-only">' in briefing_text)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
