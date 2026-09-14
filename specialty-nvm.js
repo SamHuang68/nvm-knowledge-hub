@@ -615,7 +615,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateFuseboxMap('BURNED', spareRows, true);
 
         logTerminal('✓ [ATE_VERIFY] HARDWARE CAM REDIRECTION ACTIVE. 0-CYCLE READ DELAY VERIFIED.');
-        logTerminal('✓ [ATE_SIGN-OFF] ALL FUSE REGISTERS HARD-LOCKED. DIE YIELD RESCUED: 0% ➔ 100%!');
+        logTerminal('✓ [ATE_CHECKLIST_SIM] ALL FUSE REGISTERS HARD-LOCKED (demo sim — not a production sign-off). DIE YIELD RESCUED: 0% ➔ 100%!');
       }, 500);
     });
   }
