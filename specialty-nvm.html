@@ -558,8 +558,8 @@
           &part;<em>V</em><sub>REF</sub> / &part;<em>T</em> = 0 &nbsp;|&nbsp; <em>V</em><sub>REF</sub> &approx; 1.205 V
         </strong>
         <small>
-          <span data-lang="zh">CTAT (&minus;2.0 mV/°C) 與 PTAT (+0.086 mV/°C &times; M) 互補相消。AntiFuse OTP 修調電阻微調比值，消除 &plusmn;5% 製程偏差至 &plusmn;0.35%（VERIFY — 示例修調結果，非萬能規格）。</span>
-          <span data-lang="en">CTAT (&minus;2.0 mV/°C) cancels PTAT (+0.086 mV/°C &times; M). Pure-logic AntiFuse OTP tunes series R-ladder to compress &plusmn;5% raw drift down to &plusmn;0.35% (VERIFY — illustrative trim result, not a universal spec).</span>
+          <span data-lang="zh">CTAT (&minus;2.0 mV/°C) 與 PTAT (+0.086 mV/°C &times; M) 互補相消（示例促數；VERIFY）。AntiFuse OTP 修調電阻微調比值，消除 &plusmn;5% 製程偏差至 &plusmn;0.35%（VERIFY — 示例修調結果，非萬能規格）。</span>
+          <span data-lang="en">CTAT (&minus;2.0 mV/°C) cancels PTAT (+0.086 mV/°C &times; M) (illustrative coefficients; VERIFY). Pure-logic AntiFuse OTP tunes series R-ladder to compress &plusmn;5% raw drift down to &plusmn;0.35% (VERIFY — illustrative trim result, not a universal spec).</span>
         </small>
       </div>
       <div class="governing-physics-desc">
@@ -1019,10 +1019,10 @@
 <span class="deck-metric-val">175°C Tj Max</span>
 <span class="deck-metric-lbl">Grade 0 / ASIL-D (SEooC) vocabulary — not READY cert SAFETY LOG</span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">紀錄</span><span data-lang="en">SAFETY LOG</span></span><span class="chip-v cyan"><span data-lang="zh">電池阻抗黑盒子查表</span><span data-lang="en">CELL IMPEDANCE LUT</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">車規</span><span data-lang="en">QUALIFICATION</span></span><span class="chip-v green"><span data-lang="zh">AEC-Q100 Grade 0 車規驗證符合</span><span data-lang="en">AEC-Q100 Grade 0 vocabulary / VERIFY per target</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">紀錄</span><span data-lang="en">SAFETY LOG</span></span><span class="chip-v cyan"><span data-lang="zh">電池阻抗黑盒子查表</span><span data-lang="en">CELL IMPEDANCE LUT</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">車規</span><span data-lang="en">QUALIFICATION</span></span><span class="chip-v green"><span data-lang="zh">AEC-Q100 Grade 0 詞彙 / VERIFY（非認證）</span><span data-lang="en">AEC-Q100 Grade 0 vocabulary / VERIFY per target</span></span></div></div>
 <div style="padding: 6px 8px; font-size: 10px; color: #94a3b8; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 8px;">
-<span data-lang="zh"><strong>SEooC 假定使用 (AoU)：</strong> 支援 ASIL-D 系統化能力 (SC3)。BMS AFE 電池阻抗 LUT 查表需配合系統級週期巡檢 (<em>T</em><sub>scrub</sub> &le; <em>T</em><sub>latent_budget</sub>)，以落實潛伏故障度量 <code>LFM &ge; 90%</code> 要求。</span>
-<span data-lang="en"><strong>SEooC AoU:</strong> Supports ASIL-D SC3 systematic capability. BMS AFE impedance LUT requires system-level periodic scrubbing (<em>T</em><sub>scrub</sub> &le; <em>T</em><sub>latent_budget</sub>) to fulfill <code>LFM &ge; 90%</code> latent fault metric constraints.</span>
+<span data-lang="zh"><strong>SEooC 假定使用 (AoU)：</strong> 支援 ASIL-D 系統化能力 (SC3) 詞彙（VERIFY；非 READY 認證）。BMS AFE 電池阻抗 LUT 查表需配合系統級週期巡檢 (<em>T</em><sub>scrub</sub> &le; <em>T</em><sub>latent_budget</sub>)，以落實潛伏故障度量 <code>LFM &ge; 90%</code> 要求。</span>
+<span data-lang="en"><strong>SEooC AoU:</strong> Supports ASIL-D SC3 systematic-capability vocabulary (VERIFY — not a READY certification). BMS AFE impedance LUT requires system-level periodic scrubbing (<em>T</em><sub>scrub</sub> &le; <em>T</em><sub>latent_budget</sub>) to fulfill <code>LFM &ge; 90%</code> latent fault metric constraints.</span>
 </div>
 </div>
 </div>
@@ -1146,10 +1146,10 @@
 <text fill="#64748b" font-family="monospace" font-size="10" x="260" y="145">+175°C</text>
 <!-- CTAT 負溫斜線 -->
 <path d="M 40 35 L 290 115" stroke="#f43f5e" stroke-dasharray="4,3" stroke-width="2.5"></path>
-<text fill="#f43f5e" font-size="10" font-weight="bold" x="200" y="110">CTAT: -2.0 mV/°C</text>
+<text fill="#f43f5e" font-size="10" font-weight="bold" x="200" y="110">CTAT: -2.0 mV/°C (ex.)</text>
 <!-- PTAT 正溫斜線 -->
 <path d="M 40 115 L 290 35" stroke="#c4a574" stroke-dasharray="4,3" stroke-width="2.5"></path>
-<text fill="#c4a574" font-size="10" font-weight="bold" x="45" y="110">PTAT: +2.0 mV/°C</text>
+<text fill="#c4a574" font-size="10" font-weight="bold" x="45" y="110">PTAT: +2.0 mV/°C (ex.)</text>
 <!-- 相消綠色平直水平線 -->
 <line stroke="#c4a574" stroke-width="3.5" x1="40" x2="290" y1="75" y2="75"></line>
 <circle cx="165" cy="75" fill="#c4a574" r="4.5" stroke="#fff" stroke-width="1.5"></circle>
