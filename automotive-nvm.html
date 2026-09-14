@@ -738,7 +738,7 @@
         </h1>
         <p class="lead-desc">
           <span data-lang="zh">全面解析 AEC-Q100 Grade 0（環境溫度 -40°C 至 +150°C / 接面結溫 175°C Tj）車規可靠度驗證、ISO 26262 SEooC ASIL-D 系統化能力 (SC3) 架構防護、永久閘極介電質擊穿微絲 (Localized Silicon Percolation Path) 零電阻漂移熱物理特性、SECDED (72, 64) 漢明碼即時自愈機制，以及車載核心控制器出廠低缺陷任務載記（VERIFY） (Zero PPM) 簽核標準。</span>
-          <span data-lang="en">Comprehensive architectural treatise on AEC-Q100 Grade 0 (-40°C to +150°C ambient / 175°C Tj junction) qualification rigor, ISO 26262 SEooC ASIL-D systematic capability (SC3) safety architecture, permanent gate-dielectric breakdown filament zero-drift physics, SECDED (72, 64) Hamming code auto-correction, and wafer-level zero-defect sign-off.</span>
+          <span data-lang="en">Comprehensive architectural treatise on AEC-Q100 Grade 0 (-40°C to +150°C ambient / 175°C Tj junction) qualification rigor, ISO 26262 SEooC ASIL-D systematic capability (SC3) safety architecture, permanent gate-dielectric breakdown filament zero-drift physics, SECDED (72, 64) Hamming code auto-correction, and wafer-level defectivity checklist (VERIFY).</span>
         </p>
         <div class="m3-hero-proof" aria-label="Automotive NVM key metrics" data-aria-en="Automotive NVM key metrics" data-aria-zh="車規級 NVM 核心指標">
           <div>
@@ -746,12 +746,12 @@
             <span><span data-lang="zh">AEC-Q100 Grade 0</span><span data-lang="en">Grade 0 Passed</span></span>
           </div>
           <div>
-            <strong class="mono-text" style="color: #c4a574;">0.0% DRIFT</strong>
-            <span><span data-lang="zh">微絲歐姆接觸穩定</span><span data-lang="en">Zero Resistance Drift</span></span>
+            <strong class="mono-text" style="color: #c4a574;">DRIFT CLASS (VERIFY)</strong>
+            <span><span data-lang="zh">微絲歐姆接觸穩定</span><span data-lang="en">Named-condition filament ohmic stability (VERIFY)</span></span>
           </div>
           <div>
             <strong class="mono-text" style="color: #c4a574;">ASIL-D</strong>
-            <span><span data-lang="zh">ISO 26262 ASIL-D Ready (SEooC) · SC3 系統化能力</span><span data-lang="en">ISO 26262 ASIL-D Ready (SEooC) · SC3 Systematic Capability</span></span>
+            <span><span data-lang="zh">ISO 26262 ASIL 語境 · SEooC SC3 能力（非認證）</span><span data-lang="en">ISO 26262 ASIL context · SEooC SC3 capability (not a certification)</span></span>
           </div>
           <div>
             <strong class="mono-text" style="color: #c4a574;">&lt; 0.001 PPM</strong>
@@ -786,7 +786,7 @@
             <span class="meta-code">RULE #02 · SILICON DRIFT</span>
             <span class="pulse-chip-mini" style="background:#8a6a42;"></span>
           </div>
-          <div class="stat-val">0.0% DRIFT</div>
+          <div class="stat-val">DRIFT CLASS (VERIFY)</div>
           <div class="stat-label">
             <span data-lang="zh">金屬微絲零阻抗漂移</span>
             <span data-lang="en">NANOSCALE FILAMENT STABILITY</span>
@@ -803,7 +803,7 @@
             <span class="meta-code">RULE #03 · SAFETY INTEGRITY</span>
             <span class="pulse-chip-mini" style="background:#6f5536;"></span>
           </div>
-          <div class="stat-val">ISO 26262 ASIL-D Ready</div>
+          <div class="stat-val">ASIL CONTEXT (SEooC)</div>
           <div class="stat-label">
             <span data-lang="zh">車載最高安全等級 (SEooC SC3 能力支援)</span>
             <span data-lang="en">FUNCTIONAL SAFETY (SEooC SC3 CAPABILITY)</span>
@@ -817,18 +817,18 @@
         </div>
         <div class="stat-strip-card border-l-amber">
           <div class="stat-top-meta">
-            <span class="meta-code">RULE #04 · ZERO DEFECT</span>
+            <span class="meta-code">RULE #04 · DEFECTIVITY (VERIFY)</span>
             <span class="pulse-chip-mini amber"></span>
           </div>
           <div class="stat-val">&lt; 0.001 PPM</div>
           <div class="stat-label">
             <span data-lang="zh">晶圓廠出廠低缺陷任務載記（VERIFY）品質</span>
-            <span data-lang="en">WAFER-LEVEL ZERO-DEFECT RIGOR</span>
+            <span data-lang="en">WAFER-LEVEL DEFECTIVITY (VERIFY)</span>
           </div>
           <div class="stat-sub">
             <span style="color: #b45309; font-weight: 600;">
               <span data-lang="zh">啟發式 BIRA 冗餘替換 · 防範浴盆曲線早期失效</span>
-              <span data-lang="en">Heuristic BIRA Redundancy · Zero Infant Mortality</span>
+              <span data-lang="en">Heuristic BIRA Redundancy · infant-mortality screening (VERIFY)</span>
             </span>
           </div>
         </div>
@@ -888,7 +888,7 @@
 
           <!-- LENS 01: 3-GATE WAFER QUALIFICATION STEPPER -->
           <section id="sec-gates" class="lens-panel" aria-labelledby="gates-sec-title">
-            <div class="panel-kicker">LENS 01 · WAFER SIGN-OFF RIGOR</div>
+            <div class="panel-kicker">LENS 01 · WAFER CHECKLIST RIGOR</div>
             <h2 id="gates-sec-title">
               <span data-lang="zh">晶圓認證三道門禁：<em>邁向 AEC-Q100 Grade 0 低缺陷任務載記（VERIFY）</em></span>
               <span data-lang="en">Wafer Qualification 3-Gate Rigor: <em>Achieving AEC-Q100 Grade 0</em></span>
@@ -986,7 +986,7 @@
               <canvas id="thermalCanvas" style="width: 100%; height: 280px; display: block;"></canvas>
             </div>
             <div style="display: flex; justify-content: space-between; font: 500 10.5px 'IBM Plex Mono'; color: #8ea9b3; margin-top: 8px;">
-              <span><span data-lang="zh">＊金色曲線：反熔絲永久介電質擊穿微絲（175°C 下 15 年，零電阻漂移 &lt;0.08%）</span><span data-lang="en">* Gold Trace: AntiFuse Permanent Dielectric Breakdown Filament (15 Yrs @ 175°C, Zero Resistance Drift &lt;0.08%)</span></span>
+              <span><span data-lang="zh">＊金色曲線：反熔絲永久介電質擊穿微絲（175°C 下 15 年，零電阻漂移 &lt;0.08%）</span><span data-lang="en">* Gold Trace: AntiFuse Permanent Dielectric Breakdown Filament (15 Yrs @ 175°C, named-condition ohmic stability (VERIFY) &lt;0.08%)</span></span>
               <span><span data-lang="zh">＊紅色曲線：浮動閘極熱離子逸出（175°C 下超過 2 年後失去感測裕量）</span><span data-lang="en">* Red Trace: Floating-Gate Thermionic Escape (Loss of Sensing Margin beyond 2 Yrs @ 175°C)</span></span>
             </div>
           </section>
@@ -1265,7 +1265,7 @@
         <span class="hub-footer-badge">0.5V NTV Operation</span>
         <span class="hub-footer-badge">0-Mask Pure Logic</span>
         <span class="hub-footer-badge">AEC-Q100 Grade 0 (175°C Tj)</span>
-        <span class="hub-footer-badge">ISO 26262 ASIL-D Ready (SEooC SC3)</span>
+        <span class="hub-footer-badge">ISO 26262 ASIL context (SEooC SC3) · not certified Ready</span>
         <span class="hub-footer-badge">Vector Patch CAM</span>
         <span class="hub-footer-badge">TEM Invisibility</span>
         <span class="hub-footer-badge">Differential Current Read (DPA Attenuation)</span>
