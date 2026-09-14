@@ -1,1 +1,65 @@
-PLACEHOLDER
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="../site-language.js?v=20260910-bilingual"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Executive Briefing & Speaker Whitepaper · NVM Knowledge Hub</title>
+  <link rel="canonical" href="https://samhuang68.github.io/nvm-knowledge-hub/briefing/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../hub.css?v=20260906-navy-v3">
+  <link rel="stylesheet" href="../site-shell.css?v=20260906-navy-v3">
+  <link rel="stylesheet" href="../surface-radius.css?v=20260908">
+  <link rel="stylesheet" href="../全站閱讀系統.css?v=20260910">
+</head>
+<body class="theme-dark" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-artifact-mode="neutral-editorial">
+  <a class="skip-link" href="#main-content"><span data-lang="en">Skip to main content</span><span data-lang="zh">跳至主要內容</span></a>
+  <header class="site-header" role="banner">
+    <a class="brand" href="../index.html" aria-label="NVM Knowledge Hub home">
+      <span class="brand-mark"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4h24a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8H12a8 8 0 0 1-8-8V12a8 8 0 0 1 8-8z"/><path d="M17 11v26M31 11v26M11 17h26M11 31h26"/></svg></span>
+      <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
+      <span class="brand-section">EXECUTIVE BRIEFING</span>
+    </a>
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation">
+      <a href="../index.html#layer-foundations"><span data-lang="en">Technology Foundations</span><span data-lang="zh">技術基礎</span></a>
+      <a href="../index.html#layer-ip-process"><span data-lang="en">IP and Processes</span><span data-lang="zh">IP 與製程</span></a>
+      <a href="../index.html#layer-applications"><span data-lang="en">Applications and Systems</span><span data-lang="zh">應用與系統</span></a>
+      <a href="../index.html#layer-resources" aria-current="location"><span data-lang="en">Literature and Tools</span><span data-lang="zh">文獻與工具</span></a>
+    </nav>
+    <div class="header-actions">
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
+      <button class="menu-button" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
+    </div>
+  </header>
+  <nav class="site-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html"><span data-lang="en">NVM Knowledge Hub</span><span data-lang="zh">知識中心</span></a>
+    <i></i>
+    <span><span data-lang="en">Literature & Tools</span><span data-lang="zh">文獻與工具</span></span>
+    <i></i>
+    <strong><span data-lang="en">Executive Briefing & Speaker Notes</span><span data-lang="zh">高階技術簡報與講稿</span></strong>
+    <span class="topic-switch"><a href="../whitepaper/index.html"><span data-lang="en">Whitepaper Studio</span><span data-lang="zh">白皮書工作台</span></a><a href="../memory-evidence.html"><span data-lang="en">Evidence Ledger</span><span data-lang="zh">證據總帳</span></a></span>
+  </nav>
+  <main id="main-content">
+    <p style="padding:24px;color:#9cb5bc;">Loading briefing cards…</p>
+  </main>
+  <script>
+    const SRC = "https://raw.githubusercontent.com/SamHuang68/nvm-knowledge-hub/11b0143fe2455e791fe974c32dc7f9d33b739e95/briefing/index.html";
+    fetch(SRC).then(r => r.text()).then(html => {
+      const doc = new DOMParser().parseFromString(html, "text/html");
+      const incomingMain = doc.querySelector("main");
+      const incomingStyle = doc.querySelector("head style");
+      if (incomingStyle) document.head.appendChild(incomingStyle.cloneNode(true));
+      if (incomingMain) document.querySelector("main").replaceWith(incomingMain);
+      doc.querySelectorAll("script").forEach(s => {
+        if (s.src && s.src.includes("site-language")) return;
+        const n = document.createElement("script");
+        if (s.src) n.src = s.src.replace(SRC, "../");
+        else n.textContent = s.textContent;
+        document.body.appendChild(n);
+      });
+    }).catch(() => {
+      document.querySelector("main").innerHTML = "<p style='padding:24px'>Briefing source failed to load. Use the PPTX download from the repository briefing folder.</p>";
+    });
+  </script>
+</body>
+</html>
