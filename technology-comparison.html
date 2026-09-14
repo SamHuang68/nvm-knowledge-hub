@@ -1583,7 +1583,7 @@
 <div class="matrix-cell" data-category="foundry" data-row="8" data-tech="maskrom"><b><span data-lang="zh">金屬間距</span><span data-lang="en">Metal pitch</span></b><span class="cell-note"><span data-lang="zh">接觸密度受限</span><span data-lang="en">Contact density bound</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="8" data-tech="eeprom"><b><span data-lang="zh">平面 ~90/130 nm</span><span data-lang="en">Planar ~90/130 nm</span></b><span class="cell-note"><span data-lang="zh">雙層多晶矽熱預算限制</span><span data-lang="en">DP thermal budget bound</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="8" data-tech="fgotp"><b><span data-lang="zh">I/O 或 logic FG</span><span data-lang="en">I/O or logic FG</span></b><span class="cell-note"><span data-lang="zh">依整合路徑</span><span data-lang="en">Integration-path set</span></span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="8" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">微縮至 2nm GAA (VERIFY — vendor/gen dependent)</span><span data-lang="en">Down to 2nm GAA (VERIFY — vendor/gen dependent)</span></b><span class="cell-note"><span data-lang="zh">先進節點唯一 0-Mask OTP</span><span data-lang="en">Often positioned as 0-mask OTP in GAA class (VERIFY per PDK)</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="8" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">微縮至 2nm GAA (VERIFY — vendor/gen dependent)</span><span data-lang="en">Down to 2nm GAA (VERIFY — vendor/gen dependent)</span></b><span class="cell-note"><span data-lang="zh">GAA 類常被定位為 0-Mask OTP（VERIFY／PDK）</span><span data-lang="en">Often positioned as 0-mask OTP in GAA class (VERIFY per PDK)</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="8" data-tech="ldmtp"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">FinFET 無法實作單層浮閘</span><span data-lang="en">FinFET stops single-poly FG</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="8" data-tech="hdmtp"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">FinFET 無法實作單層浮閘</span><span data-lang="en">FinFET stops single-poly FG</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="8" data-tech="sst" style="color:#b91c1c;"><b><span data-lang="zh">平面 ~28 nm</span><span data-lang="en">Planar ~28 nm</span></b><span class="cell-note"><span data-lang="zh">HV 幫浦 vs FinFET</span><span data-lang="en">HV pump vs FinFET</span></span></div>
@@ -1670,8 +1670,8 @@
               </li>
               <li>
                 <b><span data-lang="zh">先進節點 0-Mask 延伸</span><span data-lang="en">Advanced Node Extension</span></b>：
-                <span data-lang="zh">AntiFuse 編程是 core 裝置閘氧崩潰：Vpgm 由該製程閘氧厚度與允許擊穿時間決定，隨 core 縮放並成功延伸至 2nm GAA 奈米片。</span>
-                <span data-lang="en">AntiFuse programming is core-device gate-oxide breakdown scaling cleanly to 2nm GAA nanosheets.</span>
+                <span data-lang="zh">AntiFuse 編程是 core 裝置閘氧崩潰：Vpgm 由該製程閘氧厚度與允許擊穿時間決定；常被定位為可隨 core 縮放進入含 2nm GAA 的先進節點類別（VERIFY — 依 vendor／PDK／世代，非萬能保證）。</span>
+                <span data-lang="en">AntiFuse programming is core-device gate-oxide breakdown, often positioned to scale into advanced GAA classes including 2nm (VERIFY per vendor/PDK/generation — not a universal guarantee).</span>
               </li>
             </ul>
           </div>
@@ -1691,8 +1691,8 @@
               </li>
               <li>
                 <b><span data-lang="zh">eMRAM TDDB 壽命極限</span><span data-lang="en">eMRAM TDDB Limit</span></b>：
-                <span data-lang="zh">代工量產 eMRAM 覆寫受限於約 1 nm MgO 穿隧絕緣層之 TDDB 介電崩潰，eFlash 替換模式量產規格為 10⁵–10⁶ 次，工作快取模式為 10⁸–10¹⁰ 次，不應與實驗室原型之 &gt;10¹² 次混淆。</span>
-                <span data-lang="en">Commercial eMRAM endurance is bounded by 1nm MgO TDDB (10⁵–10⁶ for eFlash replacement; 10⁸–10¹⁰ for cache), distinct from &gt;10¹² lab prototypes.</span>
+                <span data-lang="zh">代工量產 eMRAM 覆寫常以約 1 nm MgO 穿隧絕緣層 TDDB 為架構級邊界（VERIFY — 需對照 vendor 量產 endurance 表）：eFlash 替換模式常見量級 10⁵–10⁶ 次，工作快取模式 10⁸–10¹⁰ 次，不應與實驗室原型之 &gt;10¹² 次混淆。</span>
+                <span data-lang="en">Commercial eMRAM endurance is commonly framed by ~1nm MgO TDDB as an architecture-class bound (VERIFY — cite primary vendor endurance tables): often 10⁵–10⁶ for eFlash-replacement class and 10⁸–10¹⁰ for cache class, distinct from &gt;10¹² lab prototypes.</span>
               </li>
               <li>
                 <b><span data-lang="zh">STT-MRAM 陣列讀取延遲</span><span data-lang="en">STT-MRAM Read Latency</span></b>：

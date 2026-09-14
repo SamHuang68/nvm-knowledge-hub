@@ -737,8 +737,8 @@
           <span data-lang="en">Automotive NVM: <em>175°C Harsh Thermal &amp; Low-defectivity mission-profile rigor (VERIFY)</em></span>
         </h1>
         <p class="lead-desc">
-          <span data-lang="zh">全面解析 AEC-Q100 Grade 0（環境溫度 -40°C 至 +150°C / 接面結溫 175°C Tj）車規可靠度驗證、ISO 26262 SEooC ASIL-D 系統化能力 (SC3) 架構防護、永久閘極介電質擊穿微絲 (Localized Silicon Percolation Path) 零電阻漂移熱物理特性、SECDED (72, 64) 漢明碼即時自愈機制，以及車載核心控制器出廠低缺陷任務載記（VERIFY） (Zero PPM) 簽核標準。</span>
-          <span data-lang="en">Comprehensive architectural treatise on AEC-Q100 Grade 0 (-40°C to +150°C ambient / 175°C Tj junction) qualification rigor, ISO 26262 SEooC ASIL-D systematic capability (SC3) safety architecture, permanent gate-dielectric breakdown filament zero-drift physics, SECDED (72, 64) Hamming code auto-correction, and wafer-level defectivity checklist (VERIFY).</span>
+          <span data-lang="zh">全面解析 AEC-Q100 Grade 0（環境溫度 -40°C 至 +150°C / 接面結溫 175°C Tj）車規可靠度驗證、ISO 26262 SEooC ASIL-D 系統化能力 (SC3) 架構防護、永久閘極介電質擊穿微絲 (Localized Silicon Percolation Path) 零電阻漂移熱物理特性、SECDED (72, 64) 漢明碼即時自愈機制，以及車載核心控制器出廠低缺陷任務載記（VERIFY；非宣稱已達 Zero PPM 認證）簽核語彙。</span>
+          <span data-lang="en">Comprehensive architectural treatise on AEC-Q100 Grade 0 (-40°C to +150°C ambient / 175°C Tj junction) qualification rigor, ISO 26262 SEooC ASIL-D systematic capability (SC3) safety architecture, permanent gate-dielectric breakdown filament zero-drift physics, SECDED (72, 64) Hamming code auto-correction, and wafer-level defectivity checklist (VERIFY — not a Zero-PPM certification claim).</span>
         </p>
         <div class="m3-hero-proof" aria-label="Automotive NVM key metrics" data-aria-en="Automotive NVM key metrics" data-aria-zh="車規級 NVM 核心指標">
           <div>
@@ -754,7 +754,7 @@
             <span><span data-lang="zh">ISO 26262 ASIL 語境 · SEooC SC3 能力（非認證）</span><span data-lang="en">ISO 26262 ASIL context · SEooC SC3 capability (not a certification)</span></span>
           </div>
           <div>
-            <strong class="mono-text" style="color: #c4a574;">&lt; 0.001 PPM</strong>
+            <strong class="mono-text" style="color: #c4a574;">&lt; 0.001 PPM (VERIFY)</strong>
             <span><span data-lang="zh">出廠低缺陷任務載記（VERIFY）簽核</span><span data-lang="en">Wafer defectivity mission-profile (VERIFY)</span></span>
           </div>
         </div>
@@ -931,7 +931,7 @@
                 </h3>
                 <p>
                   <span data-lang="zh">通過 260°C 無鉛迴焊爐峰值衝擊，並依據 AEC-Q100-005 / JESD22-A103 執行高溫數據保持烘烤 (150°C 1,000 小時或 175°C 加速烘烤)。永久閘極介電質擊穿形成局域再結晶矽導電通道，高溫退火下幾無電荷漏失退化，確保在引擎周邊與逆變器長效運作 15 年以上。</span>
-                  <span data-lang="en">Survives 260°C Pb-free reflow peak, followed by AEC-Q100-005 / JESD22-A103 non-volatile data retention bake (150°C 1,000 hrs or equivalent 175°C accelerated bake). Permanent gate dielectric breakdown with localized recrystallized silicon percolation path exhibits zero charge-loss drift under thermal annealing, supporting 15+ years beside engine and inverter.</span>
+                  <span data-lang="en">Survives 260°C Pb-free reflow peak, followed by AEC-Q100-005 / JESD22-A103 non-volatile data retention bake (150°C 1,000 hrs or equivalent 175°C accelerated bake). Permanent gate dielectric breakdown with localized recrystallized silicon percolation path exhibits named-condition ohmic stability (VERIFY — not absolute zero-drift certification) under thermal annealing, supporting architecture-class 15+ year automotive mission profiles.</span>
                 </p>
               </div>
             </div>
@@ -946,7 +946,7 @@
             </h2>
             <p class="panel-desc">
               <span data-lang="zh">調控結溫 (Tj) 與服役壽命，即時運算 Arrhenius 熱加速因數 (AF)，直觀檢驗 AntiFuse 閘極介電質擊穿微絲歐姆接觸與傳統浮閘在高溫下的物理留存邊際對比。</span>
-              <span data-lang="en">Adjust junction temperature (Tj) and service life to compute real-time Arrhenius acceleration factors (AF), demonstrating AntiFuse zero-drift vs floating-gate decay.</span>
+              <span data-lang="en">Adjust junction temperature (Tj) and service life to compute real-time Arrhenius acceleration factors (AF), demonstrating AntiFuse drift-class (VERIFY) vs floating-gate charge-loss decay.</span>
             </p>
 
             <!-- Arrhenius Model Formula Box -->
@@ -986,7 +986,7 @@
               <canvas id="thermalCanvas" style="width: 100%; height: 280px; display: block;"></canvas>
             </div>
             <div style="display: flex; justify-content: space-between; font: 500 10.5px 'IBM Plex Mono'; color: #8ea9b3; margin-top: 8px;">
-              <span><span data-lang="zh">＊金色曲線：反熔絲永久介電質擊穿微絲（175°C 下 15 年，零電阻漂移 &lt;0.08%）</span><span data-lang="en">* Gold Trace: AntiFuse Permanent Dielectric Breakdown Filament (15 Yrs @ 175°C, named-condition ohmic stability (VERIFY) &lt;0.08%)</span></span>
+              <span><span data-lang="zh">＊金色曲線：反熔絲永久介電質擊穿微絲（175°C 下 15 年，具名條件歐姆穩定度 VERIFY &lt;0.08%）</span><span data-lang="en">* Gold Trace: AntiFuse Permanent Dielectric Breakdown Filament (15 Yrs @ 175°C, named-condition ohmic stability (VERIFY) &lt;0.08%)</span></span>
               <span><span data-lang="zh">＊紅色曲線：浮動閘極熱離子逸出（175°C 下超過 2 年後失去感測裕量）</span><span data-lang="en">* Red Trace: Floating-Gate Thermionic Escape (Loss of Sensing Margin beyond 2 Yrs @ 175°C)</span></span>
             </div>
           </section>
