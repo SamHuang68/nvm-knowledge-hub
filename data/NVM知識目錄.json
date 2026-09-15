@@ -50,6 +50,16 @@
           "descriptionEn": "Evaluate memory families and integration boundaries against data lifecycle and system requirements.",
           "metaEn": "Selection · Integration",
           "metaZh": "技術選擇 · 系統整合"
+        },
+        {
+          "id": "F5",
+          "url": "technology-comparison.html#sec-read-modes",
+          "titleZh": "四種架構級讀取模式",
+          "titleEn": "Four Architecture-Class Read Modes",
+          "descriptionZh": "單端、冗餘、差動與差動＋冗餘的架構級取捨（示意，非具名 IP datasheet）。",
+          "descriptionEn": "Single-ended, redundant, differential, and differential+redundant trade-offs (architecture-class sketch, not a named-IP datasheet).",
+          "metaEn": "Read modes · Sense topology",
+          "metaZh": "讀取模式 · 感測拓樸"
         }
       ]
     },
