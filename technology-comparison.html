@@ -1327,8 +1327,12 @@
           <span class="pill-number">04</span>
           <span class="pill-text"><span data-lang="zh">四大晶圓廠與實體防護</span><span data-lang="en">Foundries &amp; Security</span></span>
         </a>
-        <a class="nav-pill" href="#sec-pipeline">
+        <a class="nav-pill" href="#sec-read-modes">
           <span class="pill-number">05</span>
+          <span class="pill-text"><span data-lang="zh">讀取模式</span><span data-lang="en">Read Modes</span></span>
+        </a>
+          <a class="nav-pill" href="#sec-pipeline">
+          <span class="pill-number">06</span>
           <span class="pill-text"><span data-lang="zh">決策簽核管線</span><span data-lang="en">Decision Pipeline</span></span>
         </a>
       </nav>
@@ -2166,9 +2170,219 @@
     </section>
 
     <!-- SECTION 5: 3-STEP DECISION PIPELINE (REFACTORED) -->
-    <section id="sec-pipeline" class="lens-panel" aria-labelledby="pipeline-sec-title">
+        <!-- SECTION: FOUR READ MODES (architecture-class; not named-IP datasheet) -->
+    <section id="sec-read-modes" class="lens-panel" aria-labelledby="read-modes-sec-title">
       <div class="hub-sec-header">
-        <div class="hub-sec-badge">05 · ARCHITECT PIPELINE</div>
+        <div class="hub-sec-badge" style="color:#c4a574;">05 · READ MODES (ARCHITECTURE CLASS)</div>
+        <h2 id="read-modes-sec-title">
+          <span data-lang="zh">四種讀取模式：單端／冗餘／差動／差動＋冗餘</span>
+          <span data-lang="en">Four Read Modes: Single-Ended, Redundant, Differential, Differential+Redundant</span>
+        </h2>
+      </div>
+      <p style="color:#cbd5e1;font-size:0.95rem;line-height:1.65;max-width:920px;margin:0 0 1.25rem;">
+        <span data-lang="zh">以下為嵌入式 OTP／eNVM 常見的<strong>架構級讀取拓樸示意</strong>，銜接上文互補差動讀對（A=HRS／B=LRS）與 TEM／DPA 衰減敘事。非具名 IP datasheet；無 cite 數字僅作相對取捨，標 VERIFY 處須對照目標 PDK／宏。</span>
+        <span data-lang="en">Architecture-class read topologies common in embedded OTP/eNVM — bridging the complementary differential pair (A=HRS/B=LRS) and TEM/DPA attenuation narrative above. Not a named-IP datasheet; uncited figures are relative trade-offs only (VERIFY against the target PDK/macro).</span>
+      </p>
+      <p style="color:#8ea9b3;font-size:0.85rem;margin:0 0 1.5rem;">
+        <span data-lang="zh">交叉連結：<a href="memory-physics.html#read-path" style="color:#c4a574;">memory-physics · 讀取路徑</a></span>
+        <span data-lang="en">Cross-link: <a href="memory-physics.html#read-path" style="color:#c4a574;">memory-physics · read path</a></span>
+      </p>
+      <style>
+        .rm-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 1.75rem;}
+        @media(max-width:900px){.rm-grid{grid-template-columns:1fr;}}
+        .rm-card{background:rgba(8,36,51,.92);border:1px solid rgba(196,165,116,.28);border-radius:12px;padding:16px 16px 14px;display:flex;flex-direction:column;gap:10px;}
+        .rm-card h3{margin:0;font:700 1rem/1.35 Inter,"Noto Sans TC",sans-serif;color:#e8eef2;}
+        .rm-card .rm-svg{display:block;width:100%;max-width:340px;height:auto;margin:4px auto 2px;}
+        .rm-card .rm-one{margin:0;color:#cbd5e1;font-size:.9rem;line-height:1.55;}
+        .rm-card dl{margin:0;display:grid;gap:6px;font-size:.82rem;line-height:1.45;color:#a8bdc8;}
+        .rm-card dt{color:#c4a574;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.72rem;}
+        .rm-card dd{margin:0;}
+        .rm-table-wrap{overflow-x:auto;border:1px solid rgba(196,165,116,.25);border-radius:10px;}
+        .rm-table{width:100%;border-collapse:collapse;font-size:.82rem;color:#c4d7e0;}
+        .rm-table th,.rm-table td{padding:10px 12px;border-bottom:1px solid rgba(142,169,179,.2);text-align:left;vertical-align:top;}
+        .rm-table th{background:rgba(14,42,56,.95);color:#c4a574;font-weight:700;white-space:nowrap;}
+        .rm-table tr:last-child td{border-bottom:none;}
+        .rm-note{margin:1rem 0 0;color:#8ea9b3;font-size:.8rem;line-height:1.5;}
+      </style>
+
+      <div class="rm-grid">
+        <article class="rm-card" id="rm-single">
+          <h3><span data-lang="zh">1 · Single-ended（單端）</span><span data-lang="en">1 · Single-ended</span></h3>
+          <svg class="rm-svg" viewBox="0 0 340 120" role="img" aria-label="Single-ended read schematic">
+            <rect x="12" y="28" width="70" height="48" rx="6" fill="#0e2a38" stroke="#c4a574" stroke-width="1.5"/>
+            <text x="47" y="56" text-anchor="middle" fill="#e8eef2" font-size="11" font-family="IBM Plex Mono,monospace">CELL</text>
+            <line x1="82" y1="52" x2="150" y2="52" stroke="#8ea9b3" stroke-width="2"/>
+            <text x="116" y="44" text-anchor="middle" fill="#8ea9b3" font-size="9">BL</text>
+            <rect x="150" y="30" width="88" height="44" rx="6" fill="#082433" stroke="#c4a574" stroke-width="1.5"/>
+            <text x="194" y="48" text-anchor="middle" fill="#c4a574" font-size="10" font-family="IBM Plex Mono,monospace">SA</text>
+            <text x="194" y="62" text-anchor="middle" fill="#8ea9b3" font-size="9">vs Vref</text>
+            <line x1="238" y1="52" x2="290" y2="52" stroke="#c4a574" stroke-width="2"/>
+            <polygon points="290,52 280,47 280,57" fill="#c4a574"/>
+            <text x="310" y="56" text-anchor="middle" fill="#e8eef2" font-size="11">DOUT</text>
+            <text x="170" y="108" text-anchor="middle" fill="#8ea9b3" font-size="9">one cell · one BL · shared/ref compare</text>
+          </svg>
+          <p class="rm-one"><span data-lang="zh">原理：單一儲存單元電流／電壓與參考（Vref／Iref）比較，判讀 0／1。</span><span data-lang="en">Principle: one cell current/voltage is compared to a reference (Vref/Iref) to decide 0/1.</span></p>
+          <dl>
+            <dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
+            <dd><span data-lang="zh">面積最小、纜線單純、功耗與延遲通常較低。</span><span data-lang="en">Smallest area, simple routing, typically lower power/latency.</span></dd>
+            <dt><span data-lang="zh">缺點</span><span data-lang="en">Cons</span></dt>
+            <dd><span data-lang="zh">sense margin 受製程／溫度／ref 漂移綁定；一階資料相依電流易成 DPA／CPA 特徵；TEM 下單端特徵較直觀。</span><span data-lang="en">Sense margin tracks PVT and reference drift; first-order data-dependent current aids DPA/CPA; single-ended signature is more TEM-intuitive.</span></dd>
+            <dt><span data-lang="zh">典型用途</span><span data-lang="en">Typical use</span></dt>
+            <dd><span data-lang="zh">高密度 trim／ID、面積極敏感之 OTP／eNVM 區塊（架構選型；VERIFY）。</span><span data-lang="en">Dense trim/ID and area-critical OTP/eNVM blocks (architecture choice; VERIFY).</span></dd>
+          </dl>
+        </article>
+
+        <article class="rm-card" id="rm-redundant">
+          <h3><span data-lang="zh">2 · Redundant（單端＋冗餘）</span><span data-lang="en">2 · Redundant (single-ended + redundancy)</span></h3>
+          <svg class="rm-svg" viewBox="0 0 340 120" role="img" aria-label="Redundant single-ended read schematic">
+            <rect x="10" y="18" width="56" height="36" rx="5" fill="#0e2a38" stroke="#c4a574" stroke-width="1.4"/>
+            <text x="38" y="40" text-anchor="middle" fill="#e8eef2" font-size="10">C0</text>
+            <rect x="10" y="66" width="56" height="36" rx="5" fill="#0e2a38" stroke="#c4a574" stroke-width="1.4"/>
+            <text x="38" y="88" text-anchor="middle" fill="#e8eef2" font-size="10">C1</text>
+            <line x1="66" y1="36" x2="120" y2="36" stroke="#8ea9b3" stroke-width="1.6"/>
+            <line x1="66" y1="84" x2="120" y2="84" stroke="#8ea9b3" stroke-width="1.6"/>
+            <rect x="120" y="22" width="70" height="28" rx="5" fill="#082433" stroke="#c4a574"/>
+            <text x="155" y="40" text-anchor="middle" fill="#c4a574" font-size="9">SA+ref</text>
+            <rect x="120" y="70" width="70" height="28" rx="5" fill="#082433" stroke="#c4a574"/>
+            <text x="155" y="88" text-anchor="middle" fill="#c4a574" font-size="9">SA+ref</text>
+            <line x1="190" y1="36" x2="230" y2="52" stroke="#8ea9b3" stroke-width="1.5"/>
+            <line x1="190" y1="84" x2="230" y2="68" stroke="#8ea9b3" stroke-width="1.5"/>
+            <rect x="230" y="44" width="72" height="32" rx="5" fill="#0e2a38" stroke="#c4a574"/>
+            <text x="266" y="64" text-anchor="middle" fill="#e8eef2" font-size="10">VOTE</text>
+            <text x="170" y="114" text-anchor="middle" fill="#8ea9b3" font-size="9">same-polarity replicas · majority / match</text>
+          </svg>
+          <p class="rm-one"><span data-lang="zh">定義：仍為單端感測，但以<strong>同極性複本</strong>（多 bitcell／多讀路徑）做多數決、一致比對或 spare 替換，提高可讀與良率，而非改成互補差動。</span><span data-lang="en">Definition: still single-ended sensing, but <strong>same-polarity replicas</strong> (extra bitcells/read paths) vote, match, or spare-replace to harden readability/yield — not complementary differential encoding.</span></p>
+          <dl>
+            <dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
+            <dd><span data-lang="zh">改善隨機缺陷／讀失敗；可與 BIRA／fuse map 併用。</span><span data-lang="en">Mitigates random defects/read fails; pairs well with BIRA/fuse maps.</span></dd>
+            <dt><span data-lang="zh">缺點</span><span data-lang="en">Cons</span></dt>
+            <dd><span data-lang="zh">面積與能耗上升；同極性複本對一階 DPA 常仍同向；ref 依賴仍在。</span><span data-lang="en">Area/energy up; same-polarity replicas often keep first-order DPA polarity; reference dependence remains.</span></dd>
+            <dt><span data-lang="zh">典型用途</span><span data-lang="en">Typical use</span></dt>
+            <dd><span data-lang="zh">OTP／eNVM 關鍵位元、修復後讀穩定性（VERIFY 目標冗餘配置）。</span><span data-lang="en">Critical OTP/eNVM bits and post-repair read stability (VERIFY redundancy budget).</span></dd>
+          </dl>
+        </article>
+
+        <article class="rm-card" id="rm-differential">
+          <h3><span data-lang="zh">3 · Differential（互補差動）</span><span data-lang="en">3 · Differential (complementary pair)</span></h3>
+          <svg class="rm-svg" viewBox="0 0 340 120" role="img" aria-label="Complementary differential read schematic">
+            <rect x="10" y="18" width="64" height="36" rx="5" fill="#0e2a38" stroke="#c4a574"/>
+            <text x="42" y="34" text-anchor="middle" fill="#e8eef2" font-size="10">A</text>
+            <text x="42" y="48" text-anchor="middle" fill="#c4a574" font-size="9">HRS</text>
+            <rect x="10" y="66" width="64" height="36" rx="5" fill="#0e2a38" stroke="#c4a574"/>
+            <text x="42" y="82" text-anchor="middle" fill="#e8eef2" font-size="10">B</text>
+            <text x="42" y="96" text-anchor="middle" fill="#c4a574" font-size="9">LRS</text>
+            <line x1="74" y1="36" x2="140" y2="36" stroke="#8ea9b3" stroke-width="1.6"/>
+            <line x1="74" y1="84" x2="140" y2="84" stroke="#8ea9b3" stroke-width="1.6"/>
+            <text x="107" y="28" fill="#8ea9b3" font-size="8">BL</text>
+            <text x="107" y="76" fill="#8ea9b3" font-size="8">BLB</text>
+            <rect x="140" y="40" width="100" height="40" rx="6" fill="#082433" stroke="#c4a574" stroke-width="1.5"/>
+            <text x="190" y="58" text-anchor="middle" fill="#c4a574" font-size="10">Diff SA</text>
+            <text x="190" y="72" text-anchor="middle" fill="#8ea9b3" font-size="8">I_HRS + I_LRS</text>
+            <line x1="240" y1="60" x2="290" y2="60" stroke="#c4a574" stroke-width="2"/>
+            <polygon points="290,60 280,55 280,65" fill="#c4a574"/>
+            <text x="314" y="64" text-anchor="middle" fill="#e8eef2" font-size="11">DOUT</text>
+          </svg>
+          <p class="rm-one"><span data-lang="zh">原理：資料由互補對編碼（例 A=HRS、B=LRS），差動感測比較兩端；兩邊同時抽電流，總電流趨近常值，有助衰減一階 DPA／CPA（非絕對免疫）。</span><span data-lang="en">Principle: data is encoded as a complementary pair (e.g. A=HRS, B=LRS); a differential SA compares both sides. Simultaneous draw makes total current nearer constant, attenuating first-order DPA/CPA (not absolute immunity).</span></p>
+          <dl>
+            <dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
+            <dd><span data-lang="zh">sense margin 相對自洽、較少依賴全域 Vref；側信道一階特徵較弱。</span><span data-lang="en">More self-referenced sense margin; weaker first-order side-channel signature.</span></dd>
+            <dt><span data-lang="zh">缺點</span><span data-lang="en">Cons</span></dt>
+            <dd><span data-lang="zh">約 2× cell／纜線；編程與良率成本上升；高階 DPA／局部 EMA 與版圖不對稱仍可能洩漏。</span><span data-lang="en">~2× cell/routing; program/yield cost; higher-order DPA/localized EMA and layout asymmetry can still leak.</span></dd>
+            <dt><span data-lang="zh">典型用途</span><span data-lang="en">Typical use</span></dt>
+            <dd><span data-lang="zh">安全敏感 OTP／金鑰材料、須與 TEM／DPA 分層敘事對齊之設計（見上文）。</span><span data-lang="en">Security-sensitive OTP/key material aligned with the TEM/DPA layered narrative above.</span></dd>
+          </dl>
+        </article>
+
+        <article class="rm-card" id="rm-diff-red">
+          <h3><span data-lang="zh">4 · Differential redundant（差動＋冗餘）</span><span data-lang="en">4 · Differential + redundant</span></h3>
+          <svg class="rm-svg" viewBox="0 0 340 120" role="img" aria-label="Differential redundant read schematic">
+            <rect x="8" y="14" width="48" height="28" rx="4" fill="#0e2a38" stroke="#c4a574"/>
+            <text x="32" y="32" text-anchor="middle" fill="#e8eef2" font-size="9">A0/B0</text>
+            <rect x="8" y="46" width="48" height="28" rx="4" fill="#0e2a38" stroke="#c4a574"/>
+            <text x="32" y="64" text-anchor="middle" fill="#e8eef2" font-size="9">A1/B1</text>
+            <rect x="8" y="78" width="48" height="28" rx="4" fill="#0e2a38" stroke="#8ea9b3"/>
+            <text x="32" y="96" text-anchor="middle" fill="#8ea9b3" font-size="9">spare</text>
+            <line x1="56" y1="28" x2="110" y2="40" stroke="#8ea9b3" stroke-width="1.3"/>
+            <line x1="56" y1="60" x2="110" y2="60" stroke="#8ea9b3" stroke-width="1.3"/>
+            <line x1="56" y1="92" x2="110" y2="80" stroke="#8ea9b3" stroke-width="1.3" stroke-dasharray="3 2"/>
+            <rect x="110" y="34" width="90" height="52" rx="6" fill="#082433" stroke="#c4a574"/>
+            <text x="155" y="56" text-anchor="middle" fill="#c4a574" font-size="10">Diff SA</text>
+            <text x="155" y="72" text-anchor="middle" fill="#8ea9b3" font-size="8">+ vote / spare</text>
+            <line x1="200" y1="60" x2="250" y2="60" stroke="#c4a574" stroke-width="2"/>
+            <rect x="250" y="44" width="70" height="32" rx="5" fill="#0e2a38" stroke="#c4a574"/>
+            <text x="285" y="64" text-anchor="middle" fill="#e8eef2" font-size="10">DOUT</text>
+          </svg>
+          <p class="rm-one"><span data-lang="zh">原理：互補差動編碼之上，再加複本對／spare 對做投票或替換，同時追求側信道衰減與讀可靠度。</span><span data-lang="en">Principle: complementary differential encoding plus replica/spare pairs for vote or replace — chasing both side-channel attenuation and read reliability.</span></p>
+          <dl>
+            <dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
+            <dd><span data-lang="zh">可靠度與一階側信道邊界通常最完整（仍非絕對免疫）。</span><span data-lang="en">Often the fullest reliability + first-order side-channel boundary (still not absolute immunity).</span></dd>
+            <dt><span data-lang="zh">缺點</span><span data-lang="en">Cons</span></dt>
+            <dd><span data-lang="zh">面積／功耗／編程複雜度最高；設計與驗證成本顯著。</span><span data-lang="en">Highest area/power/program complexity; design and validation cost rise sharply.</span></dd>
+            <dt><span data-lang="zh">典型用途</span><span data-lang="en">Typical use</span></dt>
+            <dd><span data-lang="zh">高保證根信任、車用／安全金鑰材料（目標配置須 VERIFY）。</span><span data-lang="en">High-assurance roots and automotive/secure key material (VERIFY target configuration).</span></dd>
+          </dl>
+        </article>
+      </div>
+
+      <div class="rm-table-wrap">
+        <table class="rm-table">
+          <thead>
+            <tr>
+              <th>Axis</th>
+              <th>Single-ended</th>
+              <th>Redundant</th>
+              <th>Differential</th>
+              <th>Diff + redundant</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sense margin</td>
+              <td><span data-lang="zh">依賴 ref／PVT</span><span data-lang="en">Ref/PVT bound</span></td>
+              <td><span data-lang="zh">複本投票改善可讀</span><span data-lang="en">Replicas improve readability</span></td>
+              <td><span data-lang="zh">互補自洽，較少全域 ref</span><span data-lang="en">Self-referenced pair</span></td>
+              <td><span data-lang="zh">差動＋冗餘疊加</span><span data-lang="en">Diff + redundancy stack</span></td>
+            </tr>
+            <tr>
+              <td>Area</td>
+              <td><span data-lang="zh">最低</span><span data-lang="en">Lowest</span></td>
+              <td><span data-lang="zh">中（×複本）</span><span data-lang="en">Mid (×replicas)</span></td>
+              <td><span data-lang="zh">高（~2×）</span><span data-lang="en">High (~2×)</span></td>
+              <td><span data-lang="zh">最高</span><span data-lang="en">Highest</span></td>
+            </tr>
+            <tr>
+              <td>DPA/TEM</td>
+              <td><span data-lang="zh">一階特徵較強；TEM 較直觀</span><span data-lang="en">Stronger 1st-order; TEM-intuitive</span></td>
+              <td><span data-lang="zh">同極性，一階常仍同向</span><span data-lang="en">Same polarity; 1st-order often aligned</span></td>
+              <td><span data-lang="zh">一階衰減；高階/EMA 仍風險</span><span data-lang="en">1st-order atten.; HO/EMA remain</span></td>
+              <td><span data-lang="zh">邊界最完整，仍非免疫</span><span data-lang="en">Fullest boundary, not immunity</span></td>
+            </tr>
+            <tr>
+              <td>Ref dependence</td>
+              <td><span data-lang="zh">高</span><span data-lang="en">High</span></td>
+              <td><span data-lang="zh">高（每複本）</span><span data-lang="en">High (per replica)</span></td>
+              <td><span data-lang="zh">低（對內比較）</span><span data-lang="en">Low (pair-relative)</span></td>
+              <td><span data-lang="zh">低＋冗餘管理</span><span data-lang="en">Low + redundancy mgmt</span></td>
+            </tr>
+            <tr>
+              <td>Reliability</td>
+              <td><span data-lang="zh">基準</span><span data-lang="en">Baseline</span></td>
+              <td><span data-lang="zh">缺陷/讀失敗較佳</span><span data-lang="en">Better defect/read-fail</span></td>
+              <td><span data-lang="zh">margin 穩，面積代價</span><span data-lang="en">Stable margin, area cost</span></td>
+              <td><span data-lang="zh">通常最穩</span><span data-lang="en">Usually most robust</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="rm-note">
+        <span data-lang="zh">架構級示意 · 非具名 IP 規格 · TEM/DPA 為衰減邊界而非絕對免疫 · 數字與 spare 比須 VERIFY。</span>
+        <span data-lang="en">Architecture-class sketch · not a named-IP spec · TEM/DPA = attenuation boundary, not absolute immunity · numeric spare ratios require VERIFY.</span>
+      </p>
+    </section>
+
+<section id="sec-pipeline" class="lens-panel" aria-labelledby="pipeline-sec-title">
+      <div class="hub-sec-header">
+        <div class="hub-sec-badge">06 · ARCHITECT PIPELINE</div>
         <h2 id="pipeline-sec-title">
           <span data-lang="zh">三步收斂：架構師 NVM 決策簽核管線</span>
           <span data-lang="en">Three-Stage Architectural NVM Selection Pipeline</span>
