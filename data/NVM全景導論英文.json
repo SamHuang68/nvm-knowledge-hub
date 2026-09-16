@@ -7,7 +7,7 @@
   "pov": "Neutral educational content and public-source research from the NVM Knowledge Hub",
   "classification": "Public",
   "intro": "Choose a topic to explore IP cell principles, technology lineage, foundry processes or storage physics. Each study connects diagrams and operating conditions to public sources.",
-  "scope": "Named OTP, MTP, MRAM and ReRAM IP studies are one section of this reference library. Sixteen physical-family and standalone-component topics, comparisons, patents and foundry milestones provide related context. Product history and demonstrated cell mechanisms are tracked separately.",
+  "scope": "Named OTP, MTP, eFlash, MRAM and ReRAM IP studies are one section of this reference library. Sixteen physical-family and standalone-component topics, comparisons, patents and foundry milestones provide related context. Product history and demonstrated cell mechanisms are tracked separately.",
   "axes": [
     {
       "title": "Storage Physics",

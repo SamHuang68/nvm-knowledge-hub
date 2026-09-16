@@ -736,6 +736,432 @@ Sidense 1T-Fuse — 單元結構
 
 厚區控制存取、薄區儲存導通狀態；分裂通道不是兩個閘極或浮動閘極。
 
+### 創飛芯 OTP：閘極氧化層擊穿教學例
+
+珠海創飛芯 CFX
+
+創飛芯公開並列 Anti-fuse、eFuse 與浮動閘極三條 OTP。本單元只教 Semi IP Hub 具名 HV 巨集的閘極對基板氧化層擊穿，並在圖中標出不可還原的 OTP 限制。
+
+創飛芯 OTP（閘極氧化層擊穿教學例）
+
+創飛芯公開並列 Anti-fuse、eFuse、浮動閘極三條 OTP。本圖只教 Semi IP Hub 具名 HV 巨集的閘極氧化層擊穿，不代表全部 SKU。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- BD · 橘色折線表示介電層擊穿後的導通路徑。
+
+- [ip-cfx-otpip：創飛芯 OTP IP](https://www.chuangfeixin.com/otpip)
+- [ip-cfx-news-routes：創飛芯：三種 OTP 路線](https://www.chuangfeixin.com/newsinfo/8119214.html)
+- [ip-cfx-semiiphub：Semi IP Hub：創飛芯閘極氧化層擊穿](https://semiiphub.com/vendor/cfx-semiconductor/)
+
+#### 創飛芯 OTP（閘極氧化層擊穿教學例） — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+高電壓脈衝使閘極對基板氧化層永久導通。
+
+**1. 完整閘極氧化層**
+
+狀態: 絕緣
+
+刺激: 偏壓為零
+
+此教學例只對應 Semi IP Hub 的閘極氧化層擊穿敘述。
+
+**2. 高電壓脈衝施加於閘極對基板**
+
+狀態: 擊穿進行中
+
+刺激: HV 脈衝
+
+創飛芯另有 eFuse 與浮動閘極 OTP，不畫在此格。
+
+**3. 氧化層留下永久導通路徑**
+
+狀態: 已程式化
+
+刺激: 撤去脈衝
+
+OTP 沒有電性抹除回到絕緣態。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- BD · 橘色折線表示介電層擊穿後的導通路徑。
+
+若目標巨集是 eFuse 或浮動閘極 OTP，必須另開單元，不可沿用本圖。
+
+- [ip-cfx-otpip：創飛芯 OTP IP](https://www.chuangfeixin.com/otpip)
+- [ip-cfx-news-routes：創飛芯：三種 OTP 路線](https://www.chuangfeixin.com/newsinfo/8119214.html)
+- [ip-cfx-semiiphub：Semi IP Hub：創飛芯閘極氧化層擊穿](https://semiiphub.com/vendor/cfx-semiconductor/)
+
+#### 創飛芯 OTP（閘極氧化層擊穿教學例） — 抹除／還原限制
+
+OTP 沒有電性抹除回到初態；本段只標出還原限制。
+
+高電壓脈衝使閘極對基板氧化層永久導通。
+
+**1. 已擊穿的單元不可電性還原**
+
+狀態: 永久導通
+
+刺激: 無抹除命令
+
+OTP 單元沒有回到完整氧化層的電性循環。
+
+**2. 主機不可送出抹除脈衝**
+
+狀態: 仍為導通
+
+刺激: 操作拒絕
+
+若需要可重寫，應改看 MTP／eFlash 單元。
+
+**3. 狀態只能被讀取**
+
+狀態: OTP 終態
+
+刺激: 偏壓為零
+
+三條 OTP 路線仍須在選型時分開核對。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- BD · 橘色折線表示介電層擊穿後的導通路徑。
+
+若目標巨集是 eFuse 或浮動閘極 OTP，必須另開單元，不可沿用本圖。
+
+- [ip-cfx-otpip：創飛芯 OTP IP](https://www.chuangfeixin.com/otpip)
+- [ip-cfx-news-routes：創飛芯：三種 OTP 路線](https://www.chuangfeixin.com/newsinfo/8119214.html)
+- [ip-cfx-semiiphub：Semi IP Hub：創飛芯閘極氧化層擊穿](https://semiiphub.com/vendor/cfx-semiconductor/)
+
+#### 創飛芯 OTP（閘極氧化層擊穿教學例） — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+高電壓脈衝使閘極對基板氧化層永久導通。
+
+**1. 完整與擊穿是兩種替代初態**
+
+狀態: 既有導通或絕緣
+
+刺激: 讀取偏壓待產品定義
+
+讀取不用寫入級高壓。
+
+**2. 小偏壓感測導通與否**
+
+狀態: 讀取中
+
+刺激: 小偏壓
+
+導通單元電流較大。
+
+**3. 鎖存後隔離**
+
+狀態: 狀態保留
+
+刺激: 偏壓為零
+
+實際讀取時間與窗口由巨集定義。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- BD · 橘色折線表示介電層擊穿後的導通路徑。
+
+若目標巨集是 eFuse 或浮動閘極 OTP，必須另開單元，不可沿用本圖。
+
+- [ip-cfx-otpip：創飛芯 OTP IP](https://www.chuangfeixin.com/otpip)
+- [ip-cfx-news-routes：創飛芯：三種 OTP 路線](https://www.chuangfeixin.com/newsinfo/8119214.html)
+- [ip-cfx-semiiphub：Semi IP Hub：創飛芯閘極氧化層擊穿](https://semiiphub.com/vendor/cfx-semiconductor/)
+
+#### IP 單元取捨
+
+同一供應商可以同時授權多條 OTP 物理。選型時先核對目標巨集是氧化層擊穿、熔絲還是浮動閘極；本圖只覆蓋已公開的閘極氧化層擊穿敘述。
+
+### Attopsemi I-fuse：熱輔助電遷移 OTP
+
+上峰科技 Attopsemi
+
+I-fuse 是 poly／金屬閘／金屬熔絲。程式化以熱輔助電遷移提高電阻，並刻意低於熱失控與爆炸式熔斷。
+
+Attopsemi I-fuse OTP
+
+Poly／金屬閘／金屬熔絲。熱輔助電遷移改變電阻，故意低於熱失控與爆炸式熔斷。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- Fuse · 橘色路徑表示電遷移後的高阻熔絲，不是爆炸缺口。
+
+- [ip-attop-home：Attopsemi 首頁](https://www.attopsemi.com/)
+- [ip-attop-ifuse：Attopsemi I-fuse 技術](https://www.attopsemi.com/ifuse-technology/)
+
+#### Attopsemi I-fuse OTP — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+局部加熱加速金屬原子遷移，提高熔絲電阻。
+
+**1. 低阻熔絲初態**
+
+狀態: 連續熔絲
+
+刺激: 偏壓為零
+
+I-fuse 是熔絲，不是 MOS 氧化層。
+
+**2. 熱輔助電遷移，低於熱失控**
+
+狀態: 遷移中
+
+刺激: 程式電流加熱
+
+原廠明確排除爆炸式熔斷與 AntiFuse。
+
+**3. 熔絲電阻提高並保留**
+
+狀態: 高阻態
+
+刺激: 撤去電流
+
+poly／金屬閘／金屬熔絲都屬此家族，本圖不指定哪一種截面。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- Fuse · 橘色路徑表示電遷移後的高阻熔絲，不是爆炸缺口。
+
+I-fuse 不是 AntiFuse，也不是傳統爆炸式 eFuse。
+
+- [ip-attop-home：Attopsemi 首頁](https://www.attopsemi.com/)
+- [ip-attop-ifuse：Attopsemi I-fuse 技術](https://www.attopsemi.com/ifuse-technology/)
+
+#### Attopsemi I-fuse OTP — 抹除／還原限制
+
+OTP 沒有電性抹除回到初態；本段只標出還原限制。
+
+局部加熱加速金屬原子遷移，提高熔絲電阻。
+
+**1. 高阻熔絲不可電性還原**
+
+狀態: 高阻
+
+刺激: 無抹除電流
+
+OTP 熔絲沒有回到低阻的電性循環。
+
+**2. 不可施加反向熔斷**
+
+狀態: 仍為高阻
+
+刺激: 操作拒絕
+
+這不是可重寫 MTP。
+
+**3. 終態只能被讀取**
+
+狀態: OTP 終態
+
+刺激: 偏壓為零
+
+與傳統爆炸式 eFuse 的物理邊界必須保留。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- Fuse · 橘色路徑表示電遷移後的高阻熔絲，不是爆炸缺口。
+
+I-fuse 不是 AntiFuse，也不是傳統爆炸式 eFuse。
+
+- [ip-attop-home：Attopsemi 首頁](https://www.attopsemi.com/)
+- [ip-attop-ifuse：Attopsemi I-fuse 技術](https://www.attopsemi.com/ifuse-technology/)
+
+#### Attopsemi I-fuse OTP — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+局部加熱加速金屬原子遷移，提高熔絲電阻。
+
+**1. 低阻與高阻是替代初態**
+
+狀態: 既有電阻
+
+刺激: 小感測電流
+
+讀取電流遠小於程式電流。
+
+**2. 比較熔絲電阻**
+
+狀態: 讀取中
+
+刺激: 小偏壓
+
+高阻與低阻由感測電路分辨。
+
+**3. 鎖存後撤去電流**
+
+狀態: 電阻保留
+
+刺激: 偏壓為零
+
+讀取不應把熔絲推近熱失控。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- Fuse · 橘色路徑表示電遷移後的高阻熔絲，不是爆炸缺口。
+
+I-fuse 不是 AntiFuse，也不是傳統爆炸式 eFuse。
+
+- [ip-attop-home：Attopsemi 首頁](https://www.attopsemi.com/)
+- [ip-attop-ifuse：Attopsemi I-fuse 技術](https://www.attopsemi.com/ifuse-technology/)
+
+#### IP 單元取捨
+
+I-fuse 與 AntiFuse、傳統爆炸式 eFuse 要分開。儲存的是熔絲電阻，不是 MOS 閘極氧化層是否擊穿。
+
+### Floadia LEE Fuse ZA：Anti-fuse OTP
+
+富提亞科技 Floadia
+
+零額外光罩 Anti-fuse OTP。教學圖畫介電層由絕緣變為永久導通，不指定擊穿點在閘極或電容。
+
+Floadia LEE Fuse ZA OTP
+
+Anti-fuse OTP、零額外光罩。教學圖畫介電層擊穿前後的絕緣／導通，不指定擊穿點在閘極或電容。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- BD · 橘色折線表示介電層擊穿後的導通路徑。
+
+- [ip-floadia-za：Floadia LEE Fuse ZA](https://floadia.com/product/lee-fuse-za/)
+
+#### Floadia LEE Fuse ZA OTP — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+一次高電壓使介電層永久導通。
+
+**1. 完整 Anti-fuse 介電層**
+
+狀態: 絕緣
+
+刺激: 偏壓為零
+
+產品名是 LEE Fuse ZA。
+
+**2. 高電壓造成介電層擊穿**
+
+狀態: 擊穿中
+
+刺激: HV
+
+零額外光罩是整合賣點；擊穿點位置未公開。
+
+**3. 留下永久導通路徑**
+
+狀態: 已程式化
+
+刺激: 撤去高壓
+
+DRAM 1xnm 量產軌跡不能外推成每一邏輯節點的同一剖面。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- BD · 橘色折線表示介電層擊穿後的導通路徑。
+
+產品名是 LEE Fuse ZA；頁面誤寫 LEE Flash ZA 不改機制分類。
+
+- [ip-floadia-za：Floadia LEE Fuse ZA](https://floadia.com/product/lee-fuse-za/)
+
+#### Floadia LEE Fuse ZA OTP — 抹除／還原限制
+
+OTP 沒有電性抹除回到初態；本段只標出還原限制。
+
+一次高電壓使介電層永久導通。
+
+**1. 已擊穿單元沒有電性抹除**
+
+狀態: 永久導通
+
+刺激: 無抹除命令
+
+Anti-fuse OTP 與 LEE Flash ZT／G1／G2 分開。
+
+**2. 拒絕抹除操作**
+
+狀態: 仍為導通
+
+刺激: 操作拒絕
+
+頁面誤寫 LEE Flash ZA 不把本單元改成 eFlash。
+
+**3. 終態只能讀取**
+
+狀態: OTP 終態
+
+刺激: 偏壓為零
+
+180 nm 至 sub-10 nm 是原廠節點敘述。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- BD · 橘色折線表示介電層擊穿後的導通路徑。
+
+產品名是 LEE Fuse ZA；頁面誤寫 LEE Flash ZA 不改機制分類。
+
+- [ip-floadia-za：Floadia LEE Fuse ZA](https://floadia.com/product/lee-fuse-za/)
+
+#### Floadia LEE Fuse ZA OTP — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+一次高電壓使介電層永久導通。
+
+**1. 絕緣與導通是替代初態**
+
+狀態: 既有狀態
+
+刺激: 讀取偏壓待產品定義
+
+讀取不用寫入級高壓。
+
+**2. 小偏壓感測**
+
+狀態: 讀取中
+
+刺激: 小偏壓
+
+導通單元電流較大。
+
+**3. 鎖存後隔離**
+
+狀態: 狀態保留
+
+刺激: 偏壓為零
+
+實際規格以目標授權版本為準。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- BD · 橘色折線表示介電層擊穿後的導通路徑。
+
+產品名是 LEE Fuse ZA；頁面誤寫 LEE Flash ZA 不改機制分類。
+
+- [ip-floadia-za：Floadia LEE Fuse ZA](https://floadia.com/product/lee-fuse-za/)
+
+#### IP 單元取捨
+
+產品名是 LEE Fuse ZA。頁面若誤寫 LEE Flash ZA，仍屬 Anti-fuse OTP，不能與 LEE Flash ZT／G1／G2 的可重寫電荷單元混讀。
+
 ### NeoEE：FN／FN 單層多晶矽 MTP
 
 力旺 eMemory
@@ -1535,6 +1961,978 @@ MOS 電流感測
 #### IP 單元取捨
 
 AEON 是 Impinj 起源的具名邏輯製程 MTP 家族。2009 年 Virage Logic 原廠文章明確支持 FN 寫入與抹除；圖解保留這個物理範圍，使用 C、T_P、T_E 與讀取 MOS 的功能角色，不假定未公開的 p/n 極性、實體元件數或現行接線。
+
+### Actt LogicFlash MTP：CMT 譜系的邏輯製程 MTP
+
+Actt（CMT 譜系）
+
+2016 年 Actt 併購 CMT。現行公開 MTP 產品是 LogicFlash：邏輯相容、0–1 道光罩、Flash-like 位元組寫入與扇區／晶片抹除。儲存節點材料未公開。
+
+#### 公開介面級 MTP：PGM／ERS 循環
+
+同一儲存單元可寫入、電性抹除及再次寫入，才構成本章的可重複更新操作。ERS 使儲存狀態回到可再次程式化的窗口；主機是否另送抹除命令由巨集介面決定。
+
+PGM → ERS → PGM
+
+寫入態
+
+公開證據停在 Flash-class PGM／ERS 介面，未指定 FN、HCI 或捕捉層。 — CMT 譜系只說明來歷，不新增物理。
+
+CMT 譜系只說明來歷，不新增物理。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+公開頁列出 byte PGM 與 sector／chip ERS。實際粒度仍須核對目標巨集。
+
+最高 10k 次是產品頁敘述，不是本圖保證。儲存節點材料未公開，不能拼接其他 MTP 的偏壓或光罩假設。
+
+- [ip-actt-envm：Actt eNVM 產品頁](https://www.analogcircuit.cn/product/envm.html)
+- [ip-actt-andes-cmt：Andes：Actt 併購 CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/)
+
+Actt LogicFlash MTP（CMT 譜系）
+
+邏輯製程 MTP 巨集。公開頁只保證 Flash-like 位元組寫入與扇區／晶片抹除，不公開儲存節點材料。CMT 是 2016 年併購譜系。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+
+- [ip-actt-envm：Actt eNVM 產品頁](https://www.analogcircuit.cn/product/envm.html)
+- [ip-actt-andes-cmt：Andes：Actt 併購 CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/)
+
+#### Actt LogicFlash MTP（CMT 譜系） — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+公開證據停在 Flash-class PGM／ERS 介面，未指定 FN、HCI 或捕捉層。
+
+**1. 選取前：可再寫的 MTP 巨集**
+
+狀態: 空儲存節點
+
+刺激: 偏壓為零
+
+原廠只證明 Flash-like 位元組寫入，未公開單元剖面。
+
+**2. 主機送出程式化命令**
+
+狀態: 寫入進行中
+
+刺激: 內部高壓由巨集產生
+
+教學圖只標介面命令，不發明 FN 或 HCI 路徑。
+
+**3. 驗證後保留寫入態**
+
+狀態: 寫入態保留
+
+刺激: 撤去命令
+
+10k 次是產品頁上限敘述，不是本圖的保證。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+
+SuperMTP 在原廠頁標為開發中，不納入本單元操作圖。
+
+- [ip-actt-envm：Actt eNVM 產品頁](https://www.analogcircuit.cn/product/envm.html)
+- [ip-actt-andes-cmt：Andes：Actt 併購 CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/)
+
+#### Actt LogicFlash MTP（CMT 譜系） — 抹除／還原限制
+
+依公開機制做電性抹除，使單元回到可再寫窗口。
+
+公開證據停在 Flash-class PGM／ERS 介面，未指定 FN、HCI 或捕捉層。
+
+**1. 從已寫入態開始抹除**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+公開抹除粒度是扇區或晶片，不是已證實的逐位元抹除。
+
+**2. 主機送出抹除命令**
+
+狀態: 抹除進行中
+
+刺激: 扇區／晶片 ERS
+
+儲存節點材料仍未公開。
+
+**3. 驗證後回到可再寫窗口**
+
+狀態: 抹除態
+
+刺激: 撤去命令
+
+CMT 譜系只說明來歷，不新增物理。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+
+SuperMTP 在原廠頁標為開發中，不納入本單元操作圖。
+
+- [ip-actt-envm：Actt eNVM 產品頁](https://www.analogcircuit.cn/product/envm.html)
+- [ip-actt-andes-cmt：Andes：Actt 併購 CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/)
+
+#### Actt LogicFlash MTP（CMT 譜系） — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+公開證據停在 Flash-class PGM／ERS 介面，未指定 FN、HCI 或捕捉層。
+
+**1. 選取已保留的寫入或抹除態**
+
+狀態: 既有電荷未知材料
+
+刺激: 讀取偏壓待產品定義
+
+讀取不在本圖發明載子機制。
+
+**2. 感測通道電流**
+
+狀態: 讀取中
+
+刺激: 小偏壓感測
+
+電流差異由產品感測電路解碼。
+
+**3. 鎖存後隔離**
+
+狀態: 狀態保留
+
+刺激: 撤去選取
+
+讀取擾動限制須核對目標巨集。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+
+SuperMTP 在原廠頁標為開發中，不納入本單元操作圖。
+
+- [ip-actt-envm：Actt eNVM 產品頁](https://www.analogcircuit.cn/product/envm.html)
+- [ip-actt-andes-cmt：Andes：Actt 併購 CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/)
+
+#### IP 單元取捨
+
+CMT 是譜系名稱，不是現行 SKU。SuperMTP 在原廠頁標為開發中，不納入本單元。公開證據停在介面與更新粒度，不能發明 FN 或 HCI。
+
+### NSCore TwinBit：Pch Schottky MTP
+
+NSCore
+
+TwinBit Gen-2 以 Pch Schottky 為儲存元件，零額外光罩。寫入熱電洞、抹除熱電子。並列的 PermSRAM 是 OTP，不畫進本單元。
+
+#### TwinBit MTP：熱電洞寫入／熱電子抹除
+
+同一 Schottky 儲存單元可寫入、電性抹除及再次寫入。抹除以熱電子補償或移出熱電洞效應，使單元回到可再寫窗口。
+
+PGM → ERS → PGM
+
+寫入態
+
+寫入熱電洞、抹除熱電子。 — 40–22 nm 是原廠節點敘述，不是本圖量測。
+
+40–22 nm 是原廠節點敘述，不是本圖量測。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元操作。
+
+40–22 nm 與零額外光罩是原廠節點敘述。未公開偏壓表，也未把 Gen-1 CMOS NMOS 對與 Gen-2 Schottky 混成同一剖面。
+
+- [ip-nscore-products：NSCore 產品頁](https://www.nscore.com/products/)
+- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+
+NSCore TwinBit MTP
+
+Gen-2 以 Pch Schottky 電晶體為儲存元件；零額外光罩。PermSRAM 是並列的 OTP，熱載子進氮化側牆，不畫進本圖。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- h+ · 紅色圓點表示熱電洞，數量只作狀態示意。
+- e− · 藍色圓點表示熱電子，數量只作狀態示意。
+
+- [ip-nscore-products：NSCore 產品頁](https://www.nscore.com/products/)
+- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+
+#### NSCore TwinBit MTP — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+寫入熱電洞、抹除熱電子。
+
+**1. Pch Schottky 初態**
+
+狀態: 未寫入
+
+刺激: 偏壓為零
+
+Gen-2 公開為 Pch Schottky，零額外光罩。
+
+**2. 熱電洞寫入**
+
+狀態: 寫入中
+
+刺激: 通道熱電洞注入
+
+箭頭表示熱電洞方向，不是偏壓表。
+
+**3. 保留熱電洞造成的閾值偏移**
+
+狀態: 寫入態
+
+刺激: 撤去偏壓
+
+未畫 PermSRAM 氮化側牆。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- h+ · 紅色圓點表示熱電洞，數量只作狀態示意。
+- e− · 藍色圓點表示熱電子，數量只作狀態示意。
+
+未把 TwinBit 畫成 PermSRAM 側牆捕捉，也未指定偏壓數字。
+
+- [ip-nscore-products：NSCore 產品頁](https://www.nscore.com/products/)
+- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+
+#### NSCore TwinBit MTP — 抹除／還原限制
+
+依公開機制做電性抹除，使單元回到可再寫窗口。
+
+寫入熱電洞、抹除熱電子。
+
+**1. 從熱電洞寫入態開始**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+TwinBit 可電性抹除，與 OTP 的 PermSRAM 分開。
+
+**2. 熱電子抹除**
+
+狀態: 抹除中
+
+刺激: 熱電子補償或移出電洞效應
+
+公開語句是抹除走熱電子。
+
+**3. 回到可再寫狀態**
+
+狀態: 抹除態
+
+刺激: 撤去偏壓
+
+40–22 nm 是原廠節點敘述，不是本圖量測。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- h+ · 紅色圓點表示熱電洞，數量只作狀態示意。
+- e− · 藍色圓點表示熱電子，數量只作狀態示意。
+
+未把 TwinBit 畫成 PermSRAM 側牆捕捉，也未指定偏壓數字。
+
+- [ip-nscore-products：NSCore 產品頁](https://www.nscore.com/products/)
+- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+
+#### NSCore TwinBit MTP — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+寫入熱電洞、抹除熱電子。
+
+**1. 同一 Schottky 單元待讀**
+
+狀態: 既有閾值
+
+刺激: 讀取偏壓待產品定義
+
+讀取不重複熱載子寫入。
+
+**2. 感測通道電流**
+
+狀態: 讀取中
+
+刺激: 小偏壓
+
+閾值偏移改變電流。
+
+**3. 鎖存後關閉選取**
+
+狀態: 狀態保留
+
+刺激: 偏壓為零
+
+讀取窗口由供應商條件決定。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- h+ · 紅色圓點表示熱電洞，數量只作狀態示意。
+- e− · 藍色圓點表示熱電子，數量只作狀態示意。
+
+未把 TwinBit 畫成 PermSRAM 側牆捕捉，也未指定偏壓數字。
+
+- [ip-nscore-products：NSCore 產品頁](https://www.nscore.com/products/)
+- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+
+#### IP 單元取捨
+
+TwinBit 與 PermSRAM 雖同屬 NSCore，物理不同。不可把 OTP 的氮化側牆熱載子捕捉畫成 MTP 抹除路徑。
+
+### Floadia LEE Flash ZT：FN 浮動閘極 MTP
+
+富提亞科技 Floadia
+
+零額外光罩浮動閘極 MTP。原廠寫明寫入與抹除都走 FN；新聞把儲存節點寫成浮動閘極。
+
+#### LEE Flash ZT：FN／FN 循環
+
+同一浮動閘極單元可寫入、電性抹除及再次寫入。兩個方向都走 FN，不是熱載子寫入。
+
+PGM → ERS → PGM
+
+寫入態
+
+電子經 FN 進出浮動閘極。 — 零額外光罩是整合賣點，不是剖面證明。
+
+零額外光罩是整合賣點，不是剖面證明。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+循環次數頁面自相矛盾，不以 10K 或 >100k 當保證。多晶矽層數與井結構未公開。
+
+- [ip-floadia-zt：Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/)
+- [ip-floadia-zt-news：Floadia ZT 新聞：浮動閘極](https://floadia.com/news/422/)
+
+Floadia LEE Flash ZT MTP
+
+零額外光罩浮動閘極 MTP；寫抹走 FN。教學圖只畫等效 FG 與耦合端。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+
+- [ip-floadia-zt：Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/)
+- [ip-floadia-zt-news：Floadia ZT 新聞：浮動閘極](https://floadia.com/news/422/)
+
+#### Floadia LEE Flash ZT MTP — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+電子經 FN 進出浮動閘極。
+
+**1. 浮動閘極初態**
+
+狀態: 少電子
+
+刺激: 偏壓為零
+
+ZT 新聞把儲存節點寫成浮動閘極。
+
+**2. FN 寫入電子進入 FG**
+
+狀態: 寫入中
+
+刺激: FN 穿隧
+
+原廠寫明寫入與抹除都走 FN。
+
+**3. 撤壓後電子留在 FG**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+循環次數不以頁面自相矛盾的數字為準。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+
+循環次數頁面自相矛盾，不以任何次數當保證。
+
+- [ip-floadia-zt：Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/)
+- [ip-floadia-zt-news：Floadia ZT 新聞：浮動閘極](https://floadia.com/news/422/)
+
+#### Floadia LEE Flash ZT MTP — 抹除／還原限制
+
+依公開機制做電性抹除，使單元回到可再寫窗口。
+
+電子經 FN 進出浮動閘極。
+
+**1. 從 FG 電子較多的狀態開始**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+抹除仍是 FN，不是熱載子。
+
+**2. 反向 FN 使電子離開 FG**
+
+狀態: 抹除中
+
+刺激: 反向 FN
+
+教學圖不指定井電位數字。
+
+**3. FG 回到可再寫窗口**
+
+狀態: 抹除態
+
+刺激: 偏壓為零
+
+零額外光罩是整合賣點，不是剖面證明。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+
+循環次數頁面自相矛盾，不以任何次數當保證。
+
+- [ip-floadia-zt：Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/)
+- [ip-floadia-zt-news：Floadia ZT 新聞：浮動閘極](https://floadia.com/news/422/)
+
+#### Floadia LEE Flash ZT MTP — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+電子經 FN 進出浮動閘極。
+
+**1. 同一 FG 待讀**
+
+狀態: 既有 FG 電荷
+
+刺激: 讀取偏壓待產品定義
+
+讀取不走寫入級 FN。
+
+**2. 耦合端開啟，感測通道**
+
+狀態: 讀取中
+
+刺激: 小耦合電位
+
+通道電流反映 FG 電荷。
+
+**3. 鎖存後隔離**
+
+狀態: 電荷保留
+
+刺激: 偏壓為零
+
+車規敘述須核對目標產品條件。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+
+循環次數頁面自相矛盾，不以任何次數當保證。
+
+- [ip-floadia-zt：Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/)
+- [ip-floadia-zt-news：Floadia ZT 新聞：浮動閘極](https://floadia.com/news/422/)
+
+#### IP 單元取捨
+
+ZT 是可重寫 MTP，不是 LEE Fuse ZA 的 Anti-fuse。頁面循環次數本文與表格不一致，不以任何次數當共通保證。
+
+### Floadia LEE Flash G1：SONOS eFlash
+
+富提亞科技 Floadia
+
+SONOS 電荷捕捉 eFlash，2–3 道光罩，寫抹走 FN。O-N-O 是教學堆疊，不是量測厚度。
+
+#### LEE Flash G1：SONOS FN／FN 循環
+
+同一 SONOS 單元可寫入、電性抹除及再次寫入。電子經 FN 進出氮化捕捉層，回到可再寫窗口。
+
+PGM → ERS → PGM
+
+寫入態
+
+電子經 FN 進出氮化捕捉層。 — 光罩數是整合成本，不是耐久保證。
+
+光罩數是整合成本，不是耐久保證。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元操作。
+
+2–3 道光罩是整合成本，不是耐久保證。氮化層厚度與偏壓表未公開。
+
+- [ip-floadia-g1：Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)
+
+Floadia LEE Flash G1 eFlash
+
+SONOS 電荷捕捉 eFlash；2–3 道光罩；FN 寫抹。O-N-O 是教學堆疊，不是量測厚度。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- SiN · 紫色標示氮化捕捉層；厚度未公開。
+
+- [ip-floadia-g1：Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)
+
+#### Floadia LEE Flash G1 eFlash — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+電子經 FN 進出氮化捕捉層。
+
+**1. SONOS 捕捉層初態**
+
+狀態: 少捕捉電子
+
+刺激: 偏壓為零
+
+G1 公開為 SONOS、2–3 道光罩。
+
+**2. FN 使電子進入氮化層**
+
+狀態: 寫入中
+
+刺激: FN
+
+寫抹都走 FN。
+
+**3. 電子留在捕捉層**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+O-N-O 厚度未公開。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- SiN · 紫色標示氮化捕捉層；厚度未公開。
+
+BCD 敘述不能外推到所有邏輯節點。
+
+- [ip-floadia-g1：Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)
+
+#### Floadia LEE Flash G1 eFlash — 抹除／還原限制
+
+依公開機制做電性抹除，使單元回到可再寫窗口。
+
+電子經 FN 進出氮化捕捉層。
+
+**1. 從已捕捉電子開始**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+抹除不是熱電洞補償的 TwinBit 路徑。
+
+**2. 反向 FN 使電子離開氮化層**
+
+狀態: 抹除中
+
+刺激: 反向 FN
+
+BCD 敘述不能外推到全部邏輯平台。
+
+**3. 回到可再寫捕捉窗口**
+
+狀態: 抹除態
+
+刺激: 偏壓為零
+
+光罩數是整合成本，不是耐久保證。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- SiN · 紫色標示氮化捕捉層；厚度未公開。
+
+BCD 敘述不能外推到所有邏輯節點。
+
+- [ip-floadia-g1：Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)
+
+#### Floadia LEE Flash G1 eFlash — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+電子經 FN 進出氮化捕捉層。
+
+**1. 同一 SONOS 單元待讀**
+
+狀態: 既有捕捉電荷
+
+刺激: 讀取偏壓待產品定義
+
+讀取不走寫入級 FN。
+
+**2. 感測通道電流**
+
+狀態: 讀取中
+
+刺激: 小偏壓
+
+捕捉電荷改變閾值。
+
+**3. 鎖存後隔離**
+
+狀態: 電荷保留
+
+刺激: 偏壓為零
+
+讀取擾動須核對目標巨集。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- SiN · 紫色標示氮化捕捉層；厚度未公開。
+
+BCD 敘述不能外推到所有邏輯節點。
+
+- [ip-floadia-g1：Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)
+
+#### IP 單元取捨
+
+G1 是 eFlash／SONOS，不是零光罩 MTP 的 ZT，也不是 Anti-fuse 的 ZA。BCD 敘述不能外推到所有邏輯節點。
+
+### Floadia LEE Flash G2：夾層 SONOS eFlash
+
+富提亞科技 Floadia
+
+SONOS 儲存單元夾在兩側開關電晶體之間，4 道光罩。原廠強調 VDD 讀取、擴散端不需高壓；並標為持續開發。
+
+#### LEE Flash G2：夾層 SONOS 循環
+
+同一夾層 SONOS 單元可寫入、電性抹除及再次寫入。側開關負責選取；儲存仍在氮化捕捉層。
+
+PGM → ERS → PGM
+
+寫入態
+
+寫抹仍走電荷捕捉；讀取由側開關在 VDD 選取。 — 開發中敘述不是量產保證。
+
+開發中敘述不是量產保證。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元操作。
+
+原廠標為持續開發。VDD 讀取不表示抹除不需要內部高壓產生。4 道光罩不能外推到 G1 或 ZT。
+
+- [ip-floadia-g2：Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
+
+Floadia LEE Flash G2 eFlash
+
+SONOS 儲存單元夾在兩側開關電晶體之間；4 道光罩；讀取走 VDD，擴散端不需高壓。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- SiN · 紫色標示氮化捕捉層；厚度未公開。
+
+- [ip-floadia-g2：Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
+
+#### Floadia LEE Flash G2 eFlash — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+寫抹仍走電荷捕捉；讀取由側開關在 VDD 選取。
+
+**1. 側開關關閉的 SONOS 夾層單元**
+
+狀態: 少捕捉電子
+
+刺激: 開關關閉
+
+G2 把 SONOS 夾在開關電晶體之間。
+
+**2. 經側開關施加 FN 寫入**
+
+狀態: 寫入中
+
+刺激: 側開關開啟；FN
+
+4 道光罩是公開整合數字。
+
+**3. 關閉開關，電荷留在氮化層**
+
+狀態: 寫入態
+
+刺激: 開關關閉
+
+原廠標為持續開發。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- SiN · 紫色標示氮化捕捉層；厚度未公開。
+
+原廠標為持續開發，本圖只教公開結構原則。
+
+- [ip-floadia-g2：Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
+
+#### Floadia LEE Flash G2 eFlash — 抹除／還原限制
+
+依公開機制做電性抹除，使單元回到可再寫窗口。
+
+寫抹仍走電荷捕捉；讀取由側開關在 VDD 選取。
+
+**1. 夾層單元仍持有捕捉電荷**
+
+狀態: 寫入態
+
+刺激: 開關關閉
+
+抹除仍是電荷捕捉物理，不是熔絲。
+
+**2. 經側開關做反向 FN 抹除**
+
+狀態: 抹除中
+
+刺激: 側開關開啟；反向 FN
+
+擴散端不需高壓是原廠讀取／邏輯賣點，抹除仍可能需要內部高壓產生。
+
+**3. 關閉開關，回到可再寫**
+
+狀態: 抹除態
+
+刺激: 開關關閉
+
+開發中敘述不是量產保證。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- SiN · 紫色標示氮化捕捉層；厚度未公開。
+
+原廠標為持續開發，本圖只教公開結構原則。
+
+- [ip-floadia-g2：Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
+
+#### Floadia LEE Flash G2 eFlash — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+寫抹仍走電荷捕捉；讀取由側開關在 VDD 選取。
+
+**1. VDD 讀取前先選取側開關**
+
+狀態: 既有捕捉電荷
+
+刺激: 準備 VDD 讀取
+
+原廠強調讀取走 VDD。
+
+**2. 側開關在 VDD 開啟並感測**
+
+狀態: 讀取中
+
+刺激: VDD；開關開啟
+
+擴散端不施加寫入級高壓。
+
+**3. 鎖存後關閉開關**
+
+狀態: 電荷保留
+
+刺激: 開關關閉
+
+不揮發化邏輯是產品定位，不是通用標準單元庫證明。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- SiN · 紫色標示氮化捕捉層；厚度未公開。
+
+原廠標為持續開發，本圖只教公開結構原則。
+
+- [ip-floadia-g2：Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
+
+#### IP 單元取捨
+
+G2 的讀取賣點是 VDD 與側開關，不取消電荷捕捉物理。開發中敘述不是量產保證，也不能當成通用標準單元庫。
+
+### SST SuperFlash：分裂閘極 eFlash
+
+SST／Microchip
+
+分裂閘極快閃記憶體：選擇閘與浮動閘並列。寫入源側注入，抹除多晶矽間 FN。
+
+#### SuperFlash：SSI 寫入／interpoly FN 抹除
+
+同一分裂閘極單元可寫入、電性抹除及再次寫入。抹除使電子經多晶矽間氧化層離開 FG，回到可再寫窗口。
+
+PGM → ERS → PGM
+
+寫入態
+
+熱電子從源側注入 FG；抹除時電子經多晶矽間氧化層離開 FG。 — 教學圖不是特定代工廠量測剖面。
+
+教學圖不是特定代工廠量測剖面。
+
+指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。
+
+受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。
+
+結構及機制按具名 SuperFlash 世代閱讀。2018 年出貨量與節點表不是 2026 年全部產品保證。
+
+- [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)
+- [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+SST SuperFlash eFlash
+
+分裂閘極快閃記憶體：選擇閘與浮動閘並列。寫入源側注入，抹除多晶矽間 FN。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+
+- [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)
+- [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### SST SuperFlash eFlash — 寫入
+
+依公開機制建立寫入態，不拼接未公開偏壓表。
+
+熱電子從源側注入 FG；抹除時電子經多晶矽間氧化層離開 FG。
+
+**1. 分裂閘極：選擇閘與浮動閘並列**
+
+狀態: FG 電子較少
+
+刺激: 偏壓為零
+
+SuperFlash 公開為分裂閘極架構。
+
+**2. 源側注入把熱電子寫入 FG**
+
+狀態: 寫入中
+
+刺激: SSI
+
+寫入機制是源側注入，不是通道熱電子的通用標籤。
+
+**3. 電子留在 FG**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+授權製程範圍不能當成單一節點證明。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+
+製程範圍是授權敘述，不是單一量產節點證明。
+
+- [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)
+- [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### SST SuperFlash eFlash — 抹除／還原限制
+
+依公開機制做電性抹除，使單元回到可再寫窗口。
+
+熱電子從源側注入 FG；抹除時電子經多晶矽間氧化層離開 FG。
+
+**1. FG 已有注入電子**
+
+狀態: 寫入態
+
+刺激: 偏壓為零
+
+抹除走多晶矽間 FN，不是源側注入的逆過程電流。
+
+**2. 多晶矽間 FN 使電子離開 FG**
+
+狀態: 抹除中
+
+刺激: interpoly FN
+
+電子穿過選擇閘與浮動閘之間的氧化層。
+
+**3. FG 回到可再寫窗口**
+
+狀態: 抹除態
+
+刺激: 偏壓為零
+
+教學圖不是特定代工廠量測剖面。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+
+製程範圍是授權敘述，不是單一量產節點證明。
+
+- [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)
+- [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### SST SuperFlash eFlash — 讀取
+
+以產品讀取條件感測已保留狀態，再鎖存與隔離。
+
+熱電子從源側注入 FG；抹除時電子經多晶矽間氧化層離開 FG。
+
+**1. 同一分裂閘極單元待讀**
+
+狀態: 既有 FG 電荷
+
+刺激: 讀取偏壓待產品定義
+
+讀取不重複 SSI 寫入。
+
+**2. 選擇閘開啟並感測通道**
+
+狀態: 讀取中
+
+刺激: 小偏壓
+
+通道電流反映 FG 電荷。
+
+**3. 鎖存後關閉選擇閘**
+
+狀態: 電荷保留
+
+刺激: 偏壓為零
+
+讀取速度規格須核對目標授權版本。
+
+- Dielectric · 淡藍區是介電層；厚度與材料未指定。
+- Channel / Well · 米色是通道或井的功能區，不是量測剖面。
+- Bias / I · 綠色箭頭表示偏壓或傳統電流方向。
+- e− · 藍色圓點表示電子，數量只作電荷狀態示意。
+
+製程範圍是授權敘述，不是單一量產節點證明。
+
+- [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)
+- [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### IP 單元取捨
+
+SuperFlash 的寫入是 SSI，不是通用 CHE 標籤；抹除是閘極間 FN，不是通道抹除。授權製程範圍不能當成單一量產節點證明。
 
 ### Numem：嵌入式 STT-MRAM IP 單元
 
@@ -4885,6 +6283,12 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ip-sidense-irreversible-2017：Sidense 1T-Fuse 不可逆狀態與 eMTP 界線](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05)。原作者技術文章；2017-09-05；查閱 2026-09-10；定位：Where NVM Fits In；Sidense Antifuse-based Split-channel 1T-Fuse Bit Cell；圖 5；限制：支持薄閘氧永久導通及系統模擬更新；不採用文中的絕對安全或競品比較說法。
 - [ip-sidense-patent-2006：Sidense 分裂通道反熔絲歷史專利](https://patents.google.com/patent/US20060244099A1/en)。公開專利；2006-11-02；查閱 2026-09-10；定位：圖 4、5、11、12；段落 [0062]–[0067]、[0087]–[0091]；請求項 1–3、12–13；限制：厚／薄氧化層與可省略第二擴散的旁證；詳細 p 型偏壓不搬入 2007 年 n 型產品圖。
 - [ip-lineage-sidense-2017：Synopsys 收購 Sidense 官方公告](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation)。官方收購公告；2017-10-17；查閱 2026-09-10；定位：公告日期；single-transistor、split-channel 1T-Fuse 段落；限制：直接連結 Sidense 1T-Fuse 與收購；不證明收購後所有 OTP 使用同一剖面。
+- [ip-cfx-otpip：創飛芯 OTP IP](https://www.chuangfeixin.com/otpip)。vendor；2026-09-16；定位：CMOS 相容 OTP IP 產品線。；限制：該頁未固定單一物理機制。
+- [ip-cfx-news-routes：創飛芯：三種 OTP 路線](https://www.chuangfeixin.com/newsinfo/8119214.html)。vendor；2026-04-09；定位：公開敘述並列 Anti-fuse、eFuse、Floating Gate 三條 OTP 路線。；限制：不可把三條路線壓成同一個位元單元。
+- [ip-cfx-semiiphub：Semi IP Hub：創飛芯閘極氧化層擊穿](https://semiiphub.com/vendor/cfx-semiconductor/)。catalog；2026-09-16；定位：部分具名 HV 巨集以高電壓脈衝在閘極對基板造成氧化層擊穿。；限制：目錄敘述不能覆蓋全部 CFX OTP SKU。
+- [ip-attop-home：Attopsemi 首頁](https://www.attopsemi.com/)。vendor；2026-09-16；定位：I-fuse 定位為 OTP；明確不是 AntiFuse，也不是爆炸式 eFuse。；限制：首頁不把 I-fuse 畫成 MOS 閘極氧化層擊穿。
+- [ip-attop-ifuse：Attopsemi I-fuse 技術](https://www.attopsemi.com/ifuse-technology/)。vendor；2026-09-16；定位：熱輔助電遷移，低於熱失控；poly／金屬閘／金屬熔絲，不是 MOS。；限制：未公開熔絲截面尺寸或程式電流表。
+- [ip-floadia-za：Floadia LEE Fuse ZA](https://floadia.com/product/lee-fuse-za/)。vendor；2026-09-16；定位：Anti-fuse OTP、零額外光罩、180 nm 至 sub-10 nm；DRAM 1xnm 量產軌跡。；限制：頁面一度寫成 LEE Flash ZA；產品名以 LEE Fuse ZA 為準。未公開擊穿位置剖面。
 - [ip-neoee：NeoEE 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles; capacitive-coupling MOS devices and selectors；限制：現行 FN/FN；未公開確切元件數、p/n 配置及節點偏壓。
 - [ip-neoee-history：NeoEE 概念單元的歷史原圖](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19)。原始技術來源；2010-10-19；定位：NeoEE Technology; Figure 1(b), Tej tunneling junction；限制：歷史家族同時談 CHE/FN 與 FN/FN；不能覆蓋現行主線。
 - [ip-neomtp：NeoMTP 官方技術原理](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles; p-type FG-MOSFET; extra erase gate；限制：熱電洞誘發電子注入及 FG 到抹除閘極的 FN；未公開完整剖面。
@@ -4898,6 +6302,16 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [physics-fg-hole-erase：IEEE：浮動閘極熱電洞抹除觀察](https://ieeexplore.ieee.org/document/748914/)。原始研究；1999-03；2026-09-10 查核；定位：IEEE EDL 20(3)，頁 140–142；摘要；DOI 10.1109/55.748914；限制：觀察 FN 抹除中的 BBT／可能雪崩增強；只支持 FG 熱電洞物理，不當作純 BBHH 配方。
 - [aeon-impinj-2007：Impinj：AEON/MTP 浮動閘極產品公告](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)。原廠產品公告；2007-09-26；定位：開頭 AEON/MTP 及 floating-gate transistor 段落；限制：支持 AEON/MTP 浮動閘極家族；公告中的製程與電壓限定於該次產品，不提供完整單元剖面。
 - [aeon-virage-fn-2009：Virage Logic：AEON MTP 寫抹與製造監測](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)。原廠主管署名技術文章；2009-06-30；定位：Craig Zajac；Architectural decisions、Manufacturing 及作者簡介；限制：原廠署名文章明確說明寫入與抹除使用 FN；差動位元與錯誤修正限定於文中車用產品選項。未公開端點電壓、p/n 極性或實體區域配置。
+- [ip-actt-envm：Actt eNVM 產品頁](https://www.analogcircuit.cn/product/envm.html)。vendor；2026-09-16；定位：LogicFlash MTP：邏輯相容、0–1 道光罩、Flash-like byte PGM／sector 或 chip ERS、最高 10k 次；SuperMTP 標為開發中；未公開位元單元剖面。；限制：「類似 Flash」只證明介面與更新粒度，不證明 FN、HCI 或電荷捕捉層。
+- [ip-actt-andes-cmt：Andes：Actt 併購 CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/)。news；2016-08-30；定位：2016 年 Actt 併購 Chip Memory Technology (CMT)。；限制：CMT 是譜系名稱，不是現行公開 SKU。
+- [ip-nscore-products：NSCore 產品頁](https://www.nscore.com/products/)。vendor；2026-09-16；定位：TwinBit MTP 與 PermSRAM OTP 並列；TwinBit 以 CMOS 製程、零額外光罩為賣點。；限制：產品頁不把 TwinBit 寫成 PermSRAM 的熱載子氮化側牆。
+- [ip-nscore-twinbit-g2：NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)。vendor；2026-09-16；定位：Gen-2 Pch Schottky；寫入熱電洞、抹除熱電子；40–22 nm、零額外光罩。；限制：未公開偏壓表或接面尺寸。
+- [ip-floadia-zt：Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/)。vendor；2026-09-16；定位：零額外光罩 MTP；FN 寫入與抹除；180BCD 樣品；車規敘述。；限制：頁面本文 10K 與表格 >100k 不一致；不取循環次數當共通保證。
+- [ip-floadia-zt-news：Floadia ZT 新聞：浮動閘極](https://floadia.com/news/422/)。vendor；2024-12-09；定位：ZT 以浮動閘極為儲存節點。；限制：新聞未給多晶矽層數或井結構。
+- [ip-floadia-g1：Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)。vendor；2026-09-16；定位：SONOS eFlash、2–3 道光罩、FN 寫抹、BCD。；限制：未公開氮化層厚度或偏壓表。
+- [ip-floadia-g2：Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)。vendor；2026-09-16；定位：SONOS 單元夾在開關電晶體之間；4 道光罩；VDD 讀取／不揮發化邏輯；標為持續開發。；限制：開發中敘述不能當已量產保證。
+- [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)。vendor；2026-09-16；定位：SuperFlash 嵌入式快閃記憶體製程整合與授權入口。；限制：服務頁證明產品家族，不取代技術手冊的 SSI／interpoly FN 細節。
+- [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)。vendor；2018-03；定位：第 2–3 頁：分裂閘極、源側注入寫入、閘極間 FN 抹除。；限制：結構及機制按具名 SuperFlash 世代閱讀；2018 年出貨與節點表不是 2026 年全部產品保證。
 - [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)。原廠產品頁；未標示發布日期；查閱 2026-09-10；定位：What is Numem MRAM?；Numem MRAM IP；限制：支持嵌入式 IP 與晶圓代工廠標準 STT 單元；未公開現行材料配方。
 - [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)。原廠公開會議簡報；2019-08-05；查閱 2026-09-10；定位：第 2、4、5、7 頁：試驗晶片、WL／BL／SL、定電流感測、RMTJ；限制：這是第一代試驗晶片架構；未把其量測數值當成現行 NuRAM 規格。
 - [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)。原廠機制說明；未標示發布日期；查閱 2026-09-10；定位：Spin-transfer Torque MRAM Technology：電流方向、自由層、P／AP 電阻；限制：僅支持 STT 家族物理；不作為 Numem 的產品、材料或效能證據。

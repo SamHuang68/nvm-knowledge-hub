@@ -76,8 +76,8 @@
           "url": "NVM技術全景.html#ip-directory",
           "titleZh": "IP 單元與操作原理",
           "titleEn": "IP Cells and Operating Principles",
-          "descriptionZh": "依 OTP、MTP、MRAM、ReRAM 查閱具名 IP 的結構、載子路徑與操作狀態。",
-          "descriptionEn": "Explore named OTP, MTP, MRAM and ReRAM IP through cell structures, carrier paths and operating states.",
+          "descriptionZh": "依 OTP、MTP、eFlash、MRAM、ReRAM 查閱具名 IP 的結構、載子路徑與操作狀態。",
+          "descriptionEn": "Explore named OTP, MTP, eFlash, MRAM and ReRAM IP through cell structures, carrier paths and operating states.",
           "metaZh": "具名 IP · 操作圖解",
           "metaEn": "Named IP · State diagrams"
         },

@@ -13,6 +13,11 @@
       "description": "沿可再使用的儲存單元追蹤 PGM、ERS 與再次 PGM；各實作的載子機制分開辨識。"
     },
     {
+      "id": "eflash",
+      "label": "eFlash IP",
+      "description": "嵌入式快閃記憶體巨集仍走電荷儲存，但光罩、陣列組織與讀取路徑與 MTP 分開核對。"
+    },
+    {
       "id": "mram",
       "label": "MRAM IP",
       "description": "從磁性接面、選擇電晶體與讀寫電流理解嵌入式巨集。"
@@ -75,6 +80,45 @@
       "reverse": "正常 OTP 介面不提供電性抹除；重新配置或模擬更新不會修復原單元。",
       "readout": "以較低應力感測 WL 與 BL 間的低／高電流。",
       "lesson": "厚區控制存取、薄區儲存導通狀態；分裂通道不是兩個閘極或浮動閘極。"
+    },
+    {
+      "id": "cfx-otp",
+      "title": "創飛芯 OTP：閘極氧化層擊穿教學例",
+      "shortTitle": "創飛芯 · GOX OTP",
+      "vendor": "珠海創飛芯 CFX",
+      "group": "otp",
+      "hostTopic": "antifuse",
+      "summary": "創飛芯公開並列 Anti-fuse、eFuse 與浮動閘極三條 OTP。本單元只教 Semi IP Hub 具名 HV 巨集的閘極對基板氧化層擊穿，並在圖中標出不可還原的 OTP 限制。",
+      "program": "高電壓脈衝造成閘極氧化層擊穿",
+      "reverse": "正常 OTP 介面沒有電性抹除；其他 CFX 路線不可套用本圖",
+      "readout": "小偏壓感測導通與否",
+      "lesson": "同一供應商可以同時授權多條 OTP 物理。選型時先核對目標巨集是氧化層擊穿、熔絲還是浮動閘極；本圖只覆蓋已公開的閘極氧化層擊穿敘述。"
+    },
+    {
+      "id": "attopsemi-ifuse",
+      "title": "Attopsemi I-fuse：熱輔助電遷移 OTP",
+      "shortTitle": "Attopsemi · I-fuse",
+      "vendor": "上峰科技 Attopsemi",
+      "group": "otp",
+      "hostTopic": "efuse",
+      "summary": "I-fuse 是 poly／金屬閘／金屬熔絲。程式化以熱輔助電遷移提高電阻，並刻意低於熱失控與爆炸式熔斷。",
+      "program": "熱輔助電遷移提高熔絲電阻",
+      "reverse": "正常 OTP 介面沒有電性抹除；也不是 AntiFuse",
+      "readout": "小電流比較高阻與低阻",
+      "lesson": "I-fuse 與 AntiFuse、傳統爆炸式 eFuse 要分開。儲存的是熔絲電阻，不是 MOS 閘極氧化層是否擊穿。"
+    },
+    {
+      "id": "floadia-za",
+      "title": "Floadia LEE Fuse ZA：Anti-fuse OTP",
+      "shortTitle": "Floadia · LEE Fuse ZA",
+      "vendor": "富提亞科技 Floadia",
+      "group": "otp",
+      "hostTopic": "antifuse",
+      "summary": "零額外光罩 Anti-fuse OTP。教學圖畫介電層由絕緣變為永久導通，不指定擊穿點在閘極或電容。",
+      "program": "高電壓使介電層永久導通",
+      "reverse": "正常 OTP 介面沒有電性抹除",
+      "readout": "小偏壓感測導通與否",
+      "lesson": "產品名是 LEE Fuse ZA。頁面若誤寫 LEE Flash ZA，仍屬 Anti-fuse OTP，不能與 LEE Flash ZT／G1／G2 的可重寫電荷單元混讀。"
     },
     {
       "id": "neoee",
@@ -181,6 +225,160 @@
         "sourceIds": [
           "aeon-impinj-2007",
           "aeon-virage-fn-2009"
+        ]
+      }
+    },
+    {
+      "id": "actt-cmt",
+      "title": "Actt LogicFlash MTP：CMT 譜系的邏輯製程 MTP",
+      "shortTitle": "Actt · LogicFlash MTP",
+      "vendor": "Actt（CMT 譜系）",
+      "group": "mtp",
+      "hostTopic": "mtp",
+      "summary": "2016 年 Actt 併購 CMT。現行公開 MTP 產品是 LogicFlash：邏輯相容、0–1 道光罩、Flash-like 位元組寫入與扇區／晶片抹除。儲存節點材料未公開。",
+      "program": "Flash-class 位元組寫入；載子路徑未公開",
+      "reverse": "扇區或晶片電性抹除；載子路徑未公開",
+      "readout": "依產品感測電路讀取既有狀態",
+      "lesson": "CMT 是譜系名稱，不是現行 SKU。SuperMTP 在原廠頁標為開發中，不納入本單元。公開證據停在介面與更新粒度，不能發明 FN 或 HCI。",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "公開介面級 MTP：PGM／ERS 循環",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "同一儲存單元可寫入、電性抹除及再次寫入，才構成本章的可重複更新操作。ERS 使儲存狀態回到可再次程式化的窗口；主機是否另送抹除命令由巨集介面決定。",
+        "verification": "指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。",
+        "granularity": "公開頁列出 byte PGM 與 sector／chip ERS。實際粒度仍須核對目標巨集。",
+        "limits": "最高 10k 次是產品頁敘述，不是本圖保證。儲存節點材料未公開，不能拼接其他 MTP 的偏壓或光罩假設。",
+        "sourceIds": [
+          "ip-actt-envm",
+          "ip-actt-andes-cmt"
+        ]
+      }
+    },
+    {
+      "id": "nscore-twinbit",
+      "title": "NSCore TwinBit：Pch Schottky MTP",
+      "shortTitle": "NSCore · TwinBit MTP",
+      "vendor": "NSCore",
+      "group": "mtp",
+      "hostTopic": "mtp",
+      "summary": "TwinBit Gen-2 以 Pch Schottky 為儲存元件，零額外光罩。寫入熱電洞、抹除熱電子。並列的 PermSRAM 是 OTP，不畫進本單元。",
+      "program": "熱電洞寫入",
+      "reverse": "熱電子抹除",
+      "readout": "小偏壓感測 Schottky 通道電流",
+      "lesson": "TwinBit 與 PermSRAM 雖同屬 NSCore，物理不同。不可把 OTP 的氮化側牆熱載子捕捉畫成 MTP 抹除路徑。",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "TwinBit MTP：熱電洞寫入／熱電子抹除",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "同一 Schottky 儲存單元可寫入、電性抹除及再次寫入。抹除以熱電子補償或移出熱電洞效應，使單元回到可再寫窗口。",
+        "verification": "指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。",
+        "granularity": "受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元操作。",
+        "limits": "40–22 nm 與零額外光罩是原廠節點敘述。未公開偏壓表，也未把 Gen-1 CMOS NMOS 對與 Gen-2 Schottky 混成同一剖面。",
+        "sourceIds": [
+          "ip-nscore-products",
+          "ip-nscore-twinbit-g2"
+        ]
+      }
+    },
+    {
+      "id": "floadia-zt",
+      "title": "Floadia LEE Flash ZT：FN 浮動閘極 MTP",
+      "shortTitle": "Floadia · LEE Flash ZT",
+      "vendor": "富提亞科技 Floadia",
+      "group": "mtp",
+      "hostTopic": "mtp",
+      "summary": "零額外光罩浮動閘極 MTP。原廠寫明寫入與抹除都走 FN；新聞把儲存節點寫成浮動閘極。",
+      "program": "FN 使電子進入浮動閘極",
+      "reverse": "反向 FN 使電子離開浮動閘極",
+      "readout": "耦合端開啟後感測通道電流",
+      "lesson": "ZT 是可重寫 MTP，不是 LEE Fuse ZA 的 Anti-fuse。頁面循環次數本文與表格不一致，不以任何次數當共通保證。",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "LEE Flash ZT：FN／FN 循環",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "同一浮動閘極單元可寫入、電性抹除及再次寫入。兩個方向都走 FN，不是熱載子寫入。",
+        "verification": "指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。",
+        "granularity": "受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。",
+        "limits": "循環次數頁面自相矛盾，不以 10K 或 >100k 當保證。多晶矽層數與井結構未公開。",
+        "sourceIds": [
+          "ip-floadia-zt",
+          "ip-floadia-zt-news"
+        ]
+      }
+    },
+    {
+      "id": "floadia-g1",
+      "title": "Floadia LEE Flash G1：SONOS eFlash",
+      "shortTitle": "Floadia · LEE Flash G1",
+      "vendor": "富提亞科技 Floadia",
+      "group": "eflash",
+      "hostTopic": "sonos",
+      "summary": "SONOS 電荷捕捉 eFlash，2–3 道光罩，寫抹走 FN。O-N-O 是教學堆疊，不是量測厚度。",
+      "program": "FN 使電子進入氮化捕捉層",
+      "reverse": "反向 FN 使電子離開氮化捕捉層",
+      "readout": "小偏壓感測通道電流",
+      "lesson": "G1 是 eFlash／SONOS，不是零光罩 MTP 的 ZT，也不是 Anti-fuse 的 ZA。BCD 敘述不能外推到所有邏輯節點。",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "LEE Flash G1：SONOS FN／FN 循環",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "同一 SONOS 單元可寫入、電性抹除及再次寫入。電子經 FN 進出氮化捕捉層，回到可再寫窗口。",
+        "verification": "指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。",
+        "granularity": "受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元操作。",
+        "limits": "2–3 道光罩是整合成本，不是耐久保證。氮化層厚度與偏壓表未公開。",
+        "sourceIds": [
+          "ip-floadia-g1"
+        ]
+      }
+    },
+    {
+      "id": "floadia-g2",
+      "title": "Floadia LEE Flash G2：夾層 SONOS eFlash",
+      "shortTitle": "Floadia · LEE Flash G2",
+      "vendor": "富提亞科技 Floadia",
+      "group": "eflash",
+      "hostTopic": "sonos",
+      "summary": "SONOS 儲存單元夾在兩側開關電晶體之間，4 道光罩。原廠強調 VDD 讀取、擴散端不需高壓；並標為持續開發。",
+      "program": "經側開關做 FN 寫入",
+      "reverse": "經側開關做反向 FN 抹除",
+      "readout": "側開關在 VDD 開啟後感測",
+      "lesson": "G2 的讀取賣點是 VDD 與側開關，不取消電荷捕捉物理。開發中敘述不是量產保證，也不能當成通用標準單元庫。",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "LEE Flash G2：夾層 SONOS 循環",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "同一夾層 SONOS 單元可寫入、電性抹除及再次寫入。側開關負責選取；儲存仍在氮化捕捉層。",
+        "verification": "指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。",
+        "granularity": "受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元操作。",
+        "limits": "原廠標為持續開發。VDD 讀取不表示抹除不需要內部高壓產生。4 道光罩不能外推到 G1 或 ZT。",
+        "sourceIds": [
+          "ip-floadia-g2"
+        ]
+      }
+    },
+    {
+      "id": "sst-superflash",
+      "title": "SST SuperFlash：分裂閘極 eFlash",
+      "shortTitle": "SST · SuperFlash",
+      "vendor": "SST／Microchip",
+      "group": "eflash",
+      "hostTopic": "nor",
+      "summary": "分裂閘極快閃記憶體：選擇閘與浮動閘並列。寫入源側注入，抹除多晶矽間 FN。",
+      "program": "源側注入把熱電子寫入浮動閘極",
+      "reverse": "多晶矽間 FN 使電子離開浮動閘極",
+      "readout": "選擇閘開啟後感測通道電流",
+      "lesson": "SuperFlash 的寫入是 SSI，不是通用 CHE 標籤；抹除是閘極間 FN，不是通道抹除。授權製程範圍不能當成單一量產節點證明。",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "SuperFlash：SSI 寫入／interpoly FN 抹除",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "同一分裂閘極單元可寫入、電性抹除及再次寫入。抹除使電子經多晶矽間氧化層離開 FG，回到可再寫窗口。",
+        "verification": "指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。",
+        "granularity": "受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。",
+        "limits": "結構及機制按具名 SuperFlash 世代閱讀。2018 年出貨量與節點表不是 2026 年全部產品保證。",
+        "sourceIds": [
+          "ip-sst-home",
+          "ip-sst-superflash"
         ]
       }
     },

@@ -14,6 +14,7 @@ import {getIPStudy as emergingIPStudy} from './NVM新興IP圖解.mjs';
 import {getIPStudy as ymcIPStudy} from './NVMYMCIP圖解.mjs';
 import {getIPStudy as synopsysOTPStudy} from './NVMSynopsysOTP圖解.mjs';
 import {getIPStudy as impinjIPStudy} from './NVMImpinjIP圖解.mjs';
+import {getIPStudy as supplementIPStudy} from './NVM補充IP圖解.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const check = process.argv.includes('--check');
@@ -40,7 +41,8 @@ validateResearch(research);
 const topics = [...charge.topics, ...emerging.topics];
 const engineering = collectEngineeringStudies(topics,language);
 const ipIndex = read('NVMIP單元導論.json');
-const ipCurriculum = collectIPCurriculum(ipIndex, language, id => ['neobit','neofuse','neoee','neomtp'].includes(id) ? ememoryIPStudy : id === 'ymc-mtp' ? ymcIPStudy : ['kilopass-xpm','sidense-1t-fuse'].includes(id) ? synopsysOTPStudy : id === 'impinj-aeon' ? impinjIPStudy : emergingIPStudy);
+const supplementIds = ['actt-cmt','nscore-twinbit','floadia-zt','cfx-otp','attopsemi-ifuse','floadia-za','floadia-g1','floadia-g2','sst-superflash'];
+const ipCurriculum = collectIPCurriculum(ipIndex, language, id => ['neobit','neofuse','neoee','neomtp'].includes(id) ? ememoryIPStudy : id === 'ymc-mtp' ? ymcIPStudy : ['kilopass-xpm','sidense-1t-fuse'].includes(id) ? synopsysOTPStudy : id === 'impinj-aeon' ? impinjIPStudy : supplementIds.includes(id) ? supplementIPStudy : emergingIPStudy);
 const originalSources = [...intro.sources, ...charge.sources, ...emerging.sources, ...comparison.sources, ...foundry.sources, ...ipCurriculum.sources, ...research.sources];
 const operationSources = engineering.operations.flatMap(study=>[...study.sources,...study.variants.flatMap(variant=>variant.sources||[])]);
 const sources = [...new Map([...originalSources,...operationSources].map(source=>[source.id,source])).values()];
@@ -181,7 +183,7 @@ function systemPanel(system) {
 }
 
 const libraryEntries=[
-{id:'ip-directory',zh:'IP 單元與操作原理',en:'IP Cells and Operating Principles',descZh:'依 OTP、MTP、MRAM、ReRAM 查閱具名 IP 的結構與操作圖。',descEn:'Explore named OTP, MTP, MRAM and ReRAM cell structures and operating diagrams.'},
+{id:'ip-directory',zh:'IP 單元與操作原理',en:'IP Cells and Operating Principles',descZh:'依 OTP、MTP、eFlash、MRAM、ReRAM 查閱具名 IP 的結構與操作圖。',descEn:'Explore named OTP, MTP, eFlash, MRAM and ReRAM cell structures and operating diagrams.'},
 {id:'ip-lineage',zh:'IP 技術沿革與承接關係',en:'IP Technology Lineage',descZh:'追蹤 Kilopass、Sidense、Impinj／Virage 與 Synopsys 的技術及產品。',descEn:'Trace technologies and products across Kilopass, Sidense, Impinj/Virage and Synopsys.'},
 {id:'ecosystem',zh:'全球產業與研究地圖',en:'Global Industry and Research Map',descZh:'依技術家族查找主要廠商、研究機構與具名產品。',descEn:'Find leading suppliers, research organizations and named products by technology family.'},
 {id:'research',zh:'主要產研路線深度比較',en:'In-Depth Industry and Research Studies',descZh:'深入 Everspin、UMC、Panasonic、IBM 與工研院的實作與證據。',descEn:'Explore Everspin, UMC, Panasonic, IBM and ITRI implementations and evidence.'},
