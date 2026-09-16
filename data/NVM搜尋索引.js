@@ -48,6 +48,24 @@ window.NVMTopicIndex = [
     "tags": "Sidense; acquired by Synopsys in 2017 Sidense 1T-Fuse One gate spans thick and thin oxide; persistent conduction through the thin region creates the OTP state. High-field gate-oxide breakdown leaves a persistent conductance difference. The normal OTP interface has no electrical erase; remapping or emulated updates do not repair the original cell. Sense low/high current between WL and BL at lower stress. 單一閘極跨越厚／薄氧化層；薄區永久導通形成 OTP 狀態。"
   },
   {
+    "title_zh": "創飛芯 OTP：閘極氧化層擊穿教學例",
+    "title_en": "CFX OTP: Gate-Oxide Breakdown Teaching Case",
+    "url": "NVM技術全景.html#ip-cfx-otp",
+    "tags": "Chuangfeixin CFX CFX · GOX OTP CFX publicly lists Anti-fuse, eFuse and floating-gate OTP. This unit teaches only the Semi IP Hub named HV-macro gate-to-substrate oxide breakdown and marks the irreversible OTP limit. A high-voltage pulse breaks down the gate oxide The normal OTP interface has no electrical erase; other CFX routes must not reuse this drawing Sense conduction at small bias 創飛芯公開並列 Anti-fuse、eFuse 與浮動閘極三條 OTP。本單元只教 Semi IP Hub 具名 HV 巨集的閘極對基板氧化層擊穿，並在圖中標出不可還原的 OTP 限制。"
+  },
+  {
+    "title_zh": "Attopsemi I-fuse：熱輔助電遷移 OTP",
+    "title_en": "Attopsemi I-fuse: Heat-Assisted Electromigration OTP",
+    "url": "NVM技術全景.html#ip-attopsemi-ifuse",
+    "tags": "Attopsemi Attopsemi · I-fuse I-fuse is a poly / metal-gate / metal fuse. Programming uses heat-assisted electromigration to raise resistance while staying below thermal runaway and explosive rupture. Heat-assisted electromigration raises fuse resistance The normal OTP interface has no electrical erase; this is not AntiFuse Compare high R and low R at small current I-fuse 是 poly／金屬閘／金屬熔絲。程式化以熱輔助電遷移提高電阻，並刻意低於熱失控與爆炸式熔斷。"
+  },
+  {
+    "title_zh": "Floadia LEE Fuse ZA：Anti-fuse OTP",
+    "title_en": "Floadia LEE Fuse ZA: Anti-Fuse OTP",
+    "url": "NVM技術全景.html#ip-floadia-za",
+    "tags": "Floadia Floadia · LEE Fuse ZA Zero extra-mask Anti-fuse OTP. The teaching drawing shows a dielectric changing from insulation to permanent conduction and does not locate the breakdown site in a gate or capacitor. High voltage permanently conducts the dielectric The normal OTP interface has no electrical erase Sense conduction at small bias 零額外光罩 Anti-fuse OTP。教學圖畫介電層由絕緣變為永久導通，不指定擊穿點在閘極或電容。"
+  },
+  {
     "title_zh": "NeoEE：FN／FN 單層多晶矽 MTP",
     "title_en": "NeoEE: FN/FN Single-Poly MTP",
     "url": "NVM技術全景.html#ip-neoee",
@@ -70,6 +88,42 @@ window.NVMTopicIndex = [
     "title_en": "AEON: An Impinj-Origin FN/FN MTP Family",
     "url": "NVM技術全景.html#ip-impinj-aeon",
     "tags": "Impinj → Virage Logic → Synopsys AEON · FN/FN MTP Follow the named 2009 AEON company account: electrons enter and leave FG by FN, then a read MOS senses the state. Business and brand succession have a separate timeline. FN adds electrons to floating gate FN removes electrons from floating gate Low-stimulus read-MOS current sensing 依 2009 年具名 AEON 原廠資料，追蹤電子經 FN 存入與移出浮動閘極，再由讀取 MOS 感測；品牌與業務承接另列時間線。"
+  },
+  {
+    "title_zh": "Actt LogicFlash MTP：CMT 譜系的邏輯製程 MTP",
+    "title_en": "Actt LogicFlash MTP: Logic-Process MTP from the CMT Lineage",
+    "url": "NVM技術全景.html#ip-actt-cmt",
+    "tags": "Actt (CMT lineage) Actt · LogicFlash MTP Actt acquired CMT in 2016. The current public MTP product is LogicFlash: logic-compatible, 0–1 extra mask, Flash-like byte program and sector/chip erase. The storage-node material is unpublished. Flash-class byte program; carrier path unpublished Sector or chip electrical erase; carrier path unpublished Sense the existing state with the product circuit 2016 年 Actt 併購 CMT。現行公開 MTP 產品是 LogicFlash：邏輯相容、0–1 道光罩、Flash-like 位元組寫入與扇區／晶片抹除。儲存節點材料未公開。"
+  },
+  {
+    "title_zh": "NSCore TwinBit：Pch Schottky MTP",
+    "title_en": "NSCore TwinBit: Pch Schottky MTP",
+    "url": "NVM技術全景.html#ip-nscore-twinbit",
+    "tags": "NSCore NSCore · TwinBit MTP TwinBit Gen-2 uses a Pch Schottky storage device with zero extra mask. Program is hot hole; erase is hot electron. Sibling PermSRAM is OTP and is not drawn in this unit. Hot-hole program Hot-electron erase Sense Schottky channel current at small bias TwinBit Gen-2 以 Pch Schottky 為儲存元件，零額外光罩。寫入熱電洞、抹除熱電子。並列的 PermSRAM 是 OTP，不畫進本單元。"
+  },
+  {
+    "title_zh": "Floadia LEE Flash ZT：FN 浮動閘極 MTP",
+    "title_en": "Floadia LEE Flash ZT: FN Floating-Gate MTP",
+    "url": "NVM技術全景.html#ip-floadia-zt",
+    "tags": "Floadia Floadia · LEE Flash ZT Zero extra-mask floating-gate MTP. The vendor states both program and erase use FN; news names the storage node as a floating gate. FN moves electrons into the floating gate Reverse FN removes electrons from the floating gate Sense channel current after the coupling terminal turns on 零額外光罩浮動閘極 MTP。原廠寫明寫入與抹除都走 FN；新聞把儲存節點寫成浮動閘極。"
+  },
+  {
+    "title_zh": "Floadia LEE Flash G1：SONOS eFlash",
+    "title_en": "Floadia LEE Flash G1: SONOS eFlash",
+    "url": "NVM技術全景.html#ip-floadia-g1",
+    "tags": "Floadia Floadia · LEE Flash G1 SONOS charge-trap eFlash with 2–3 extra masks and FN program/erase. O-N-O is a teaching stack, not a measured thickness. FN moves electrons into the nitride trap layer Reverse FN removes electrons from the nitride trap layer Sense channel current at small bias SONOS 電荷捕捉 eFlash，2–3 道光罩，寫抹走 FN。O-N-O 是教學堆疊，不是量測厚度。"
+  },
+  {
+    "title_zh": "Floadia LEE Flash G2：夾層 SONOS eFlash",
+    "title_en": "Floadia LEE Flash G2: Sandwiched SONOS eFlash",
+    "url": "NVM技術全景.html#ip-floadia-g2",
+    "tags": "Floadia Floadia · LEE Flash G2 A SONOS storage cell sandwiched by switch transistors, with four extra masks. The vendor emphasizes VDD read without high voltage on diffusion terminals, and marks ongoing development. FN program through the side switches Reverse FN erase through the side switches Sense after the side switches turn on at VDD SONOS 儲存單元夾在兩側開關電晶體之間，4 道光罩。原廠強調 VDD 讀取、擴散端不需高壓；並標為持續開發。"
+  },
+  {
+    "title_zh": "SST SuperFlash：分裂閘極 eFlash",
+    "title_en": "SST SuperFlash: Split-Gate eFlash",
+    "url": "NVM技術全景.html#ip-sst-superflash",
+    "tags": "SST / Microchip SST · SuperFlash Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN. Source-side injection writes hot electrons into the floating gate Interpoly FN removes electrons from the floating gate Sense channel current after the select gate turns on 分裂閘極快閃記憶體：選擇閘與浮動閘並列。寫入源側注入，抹除多晶矽間 FN。"
   },
   {
     "title_zh": "Numem：嵌入式 STT-MRAM IP 單元",
@@ -705,6 +759,12 @@ window.NVMTopicIndex = [
     "title_zh": "歷史總表與有條件比較",
     "title_en": "Historical and Current Comparisons",
     "url": "NVM技術全景.html#comparison",
-    "tags": "2016 2021 2026 比較 能量 耐久 保持 延遲 endurance retention latency energy"
+    "tags": "2016 2021 2026 比較 能量 耐久 保持 延遲 endurance retention latency energy Actt TwinBit Floadia CFX Attopsemi SST I-fuse ZA ZT G1 G2 SuperFlash LogicFlash"
+  },
+  {
+    "title_zh": "九款具名 IP 對應選型矩陣葉，不進入 2016／2021 歷史表",
+    "title_en": "Nine Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table",
+    "url": "NVM技術全景.html#comparison-logic-ip",
+    "tags": "Actt TwinBit Floadia CFX Attopsemi SST I-fuse ZA ZT G1 G2 SuperFlash LogicFlash 選型矩陣 具名 IP"
   }
 ];

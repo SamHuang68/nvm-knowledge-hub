@@ -13,6 +13,11 @@
       "description": "Follow PGM, ERS and subsequent PGM on reusable storage cells. Identify each implementation’s carrier mechanism separately."
     },
     {
+      "id": "eflash",
+      "label": "eFlash IP",
+      "description": "Embedded Flash macros still store charge, but extra masks, array organization and read paths are checked separately from MTP."
+    },
+    {
       "id": "mram",
       "label": "MRAM IP",
       "description": "Read embedded macros through their junctions, access transistors and electrical paths."
@@ -75,6 +80,45 @@
       "reverse": "The normal OTP interface has no electrical erase; remapping or emulated updates do not repair the original cell.",
       "readout": "Sense low/high current between WL and BL at lower stress.",
       "lesson": "The thick region controls access and the thin region stores conductance; split channel means neither two gates nor a floating gate."
+    },
+    {
+      "id": "cfx-otp",
+      "title": "CFX OTP: Gate-Oxide Breakdown Teaching Case",
+      "shortTitle": "CFX · GOX OTP",
+      "vendor": "Chuangfeixin CFX",
+      "group": "otp",
+      "hostTopic": "antifuse",
+      "summary": "CFX publicly lists Anti-fuse, eFuse and floating-gate OTP. This unit teaches only the Semi IP Hub named HV-macro gate-to-substrate oxide breakdown and marks the irreversible OTP limit.",
+      "program": "A high-voltage pulse breaks down the gate oxide",
+      "reverse": "The normal OTP interface has no electrical erase; other CFX routes must not reuse this drawing",
+      "readout": "Sense conduction at small bias",
+      "lesson": "One vendor can license more than one OTP physics. Check whether the target macro is oxide breakdown, a fuse or a floating gate. This drawing covers only the published gate-oxide-breakdown account."
+    },
+    {
+      "id": "attopsemi-ifuse",
+      "title": "Attopsemi I-fuse: Heat-Assisted Electromigration OTP",
+      "shortTitle": "Attopsemi · I-fuse",
+      "vendor": "Attopsemi",
+      "group": "otp",
+      "hostTopic": "efuse",
+      "summary": "I-fuse is a poly / metal-gate / metal fuse. Programming uses heat-assisted electromigration to raise resistance while staying below thermal runaway and explosive rupture.",
+      "program": "Heat-assisted electromigration raises fuse resistance",
+      "reverse": "The normal OTP interface has no electrical erase; this is not AntiFuse",
+      "readout": "Compare high R and low R at small current",
+      "lesson": "Keep I-fuse separate from AntiFuse and from conventional explosive eFuse. The stored quantity is fuse resistance, not whether a MOS gate oxide has broken down."
+    },
+    {
+      "id": "floadia-za",
+      "title": "Floadia LEE Fuse ZA: Anti-Fuse OTP",
+      "shortTitle": "Floadia · LEE Fuse ZA",
+      "vendor": "Floadia",
+      "group": "otp",
+      "hostTopic": "antifuse",
+      "summary": "Zero extra-mask Anti-fuse OTP. The teaching drawing shows a dielectric changing from insulation to permanent conduction and does not locate the breakdown site in a gate or capacitor.",
+      "program": "High voltage permanently conducts the dielectric",
+      "reverse": "The normal OTP interface has no electrical erase",
+      "readout": "Sense conduction at small bias",
+      "lesson": "The product name is LEE Fuse ZA. If a page writes LEE Flash ZA, the cell remains Anti-fuse OTP and must not be read as the rewritable charge cells in LEE Flash ZT, G1 or G2."
     },
     {
       "id": "neoee",
@@ -181,6 +225,160 @@
         "sourceIds": [
           "aeon-impinj-2007",
           "aeon-virage-fn-2009"
+        ]
+      }
+    },
+    {
+      "id": "actt-cmt",
+      "title": "Actt LogicFlash MTP: Logic-Process MTP from the CMT Lineage",
+      "shortTitle": "Actt · LogicFlash MTP",
+      "vendor": "Actt (CMT lineage)",
+      "group": "mtp",
+      "hostTopic": "mtp",
+      "summary": "Actt acquired CMT in 2016. The current public MTP product is LogicFlash: logic-compatible, 0–1 extra mask, Flash-like byte program and sector/chip erase. The storage-node material is unpublished.",
+      "program": "Flash-class byte program; carrier path unpublished",
+      "reverse": "Sector or chip electrical erase; carrier path unpublished",
+      "readout": "Sense the existing state with the product circuit",
+      "lesson": "CMT is a lineage name, not a current SKU. SuperMTP is marked under development and is not used here. Public evidence stops at the interface and update granularity; do not invent FN or HCI.",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "Public Interface-Level MTP: PGM / ERS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation. Whether the host issues a separate erase command depends on the macro interface.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "The public page lists byte PGM and sector/chip ERS. Confirm actual granularity on the target macro.",
+        "limits": "Up to 10k cycles is product-page narrative, not a guarantee in this drawing. The storage-node material is unpublished; do not splice bias or mask assumptions from other MTP cells.",
+        "sourceIds": [
+          "ip-actt-envm",
+          "ip-actt-andes-cmt"
+        ]
+      }
+    },
+    {
+      "id": "nscore-twinbit",
+      "title": "NSCore TwinBit: Pch Schottky MTP",
+      "shortTitle": "NSCore · TwinBit MTP",
+      "vendor": "NSCore",
+      "group": "mtp",
+      "hostTopic": "mtp",
+      "summary": "TwinBit Gen-2 uses a Pch Schottky storage device with zero extra mask. Program is hot hole; erase is hot electron. Sibling PermSRAM is OTP and is not drawn in this unit.",
+      "program": "Hot-hole program",
+      "reverse": "Hot-electron erase",
+      "readout": "Sense Schottky channel current at small bias",
+      "lesson": "TwinBit and PermSRAM share a vendor, not a cell physics. Do not draw OTP SiN-spacer hot-carrier trapping as the MTP erase path.",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "TwinBit MTP: Hot-Hole Program / Hot-Electron Erase",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same Schottky storage cell supports programming, electrical erase and subsequent programming. Erase uses hot electrons to compensate or remove the hot-hole effect and restore a reprogrammable window.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish bit-level host commands.",
+        "limits": "40–22 nm and zero extra mask are vendor node narratives. No bias table is published. Gen-1 CMOS NMOS pairs are not mixed into the Gen-2 Schottky cross-section.",
+        "sourceIds": [
+          "ip-nscore-products",
+          "ip-nscore-twinbit-g2"
+        ]
+      }
+    },
+    {
+      "id": "floadia-zt",
+      "title": "Floadia LEE Flash ZT: FN Floating-Gate MTP",
+      "shortTitle": "Floadia · LEE Flash ZT",
+      "vendor": "Floadia",
+      "group": "mtp",
+      "hostTopic": "mtp",
+      "summary": "Zero extra-mask floating-gate MTP. The vendor states both program and erase use FN; news names the storage node as a floating gate.",
+      "program": "FN moves electrons into the floating gate",
+      "reverse": "Reverse FN removes electrons from the floating gate",
+      "readout": "Sense channel current after the coupling terminal turns on",
+      "lesson": "ZT is rewritable MTP, not LEE Fuse ZA Anti-fuse. Cycle-count copy on the page conflicts with itself; no count is treated as a common guarantee.",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "LEE Flash ZT: FN / FN Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same floating-gate cell supports programming, electrical erase and subsequent programming. Both directions use FN, not hot-carrier program.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "Cycle-count copy on the page conflicts with itself; neither 10K nor >100k is treated as a guarantee. Poly count and well structure remain unpublished.",
+        "sourceIds": [
+          "ip-floadia-zt",
+          "ip-floadia-zt-news"
+        ]
+      }
+    },
+    {
+      "id": "floadia-g1",
+      "title": "Floadia LEE Flash G1: SONOS eFlash",
+      "shortTitle": "Floadia · LEE Flash G1",
+      "vendor": "Floadia",
+      "group": "eflash",
+      "hostTopic": "sonos",
+      "summary": "SONOS charge-trap eFlash with 2–3 extra masks and FN program/erase. O-N-O is a teaching stack, not a measured thickness.",
+      "program": "FN moves electrons into the nitride trap layer",
+      "reverse": "Reverse FN removes electrons from the nitride trap layer",
+      "readout": "Sense channel current at small bias",
+      "lesson": "G1 is eFlash/SONOS, not zero-mask MTP ZT and not Anti-fuse ZA. A BCD narrative cannot be extrapolated to every logic node.",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "LEE Flash G1: SONOS FN / FN Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same SONOS cell supports programming, electrical erase and subsequent programming. Electrons enter and leave the nitride trap layer by FN and restore a reprogrammable window.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish bit-level host commands.",
+        "limits": "Two to three extra masks are integration cost, not an endurance guarantee. Nitride thickness and the bias table are unpublished.",
+        "sourceIds": [
+          "ip-floadia-g1"
+        ]
+      }
+    },
+    {
+      "id": "floadia-g2",
+      "title": "Floadia LEE Flash G2: Sandwiched SONOS eFlash",
+      "shortTitle": "Floadia · LEE Flash G2",
+      "vendor": "Floadia",
+      "group": "eflash",
+      "hostTopic": "sonos",
+      "summary": "A SONOS storage cell sandwiched by switch transistors, with four extra masks. The vendor emphasizes VDD read without high voltage on diffusion terminals, and marks ongoing development.",
+      "program": "FN program through the side switches",
+      "reverse": "Reverse FN erase through the side switches",
+      "readout": "Sense after the side switches turn on at VDD",
+      "lesson": "G2’s read claim is VDD plus side switches; it does not cancel charge-trap physics. An in-development note is not a production guarantee and is not a generic standard-cell library.",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "LEE Flash G2: Sandwiched SONOS Cycle",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same sandwiched SONOS cell supports programming, electrical erase and subsequent programming. Side switches select the cell; storage remains in the nitride trap layer.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish bit-level host commands.",
+        "limits": "The vendor marks ongoing development. VDD read does not mean erase needs no internal high-voltage generation. Four extra masks must not be extrapolated to G1 or ZT.",
+        "sourceIds": [
+          "ip-floadia-g2"
+        ]
+      }
+    },
+    {
+      "id": "sst-superflash",
+      "title": "SST SuperFlash: Split-Gate eFlash",
+      "shortTitle": "SST · SuperFlash",
+      "vendor": "SST / Microchip",
+      "group": "eflash",
+      "hostTopic": "nor",
+      "summary": "Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN.",
+      "program": "Source-side injection writes hot electrons into the floating gate",
+      "reverse": "Interpoly FN removes electrons from the floating gate",
+      "readout": "Sense channel current after the select gate turns on",
+      "lesson": "SuperFlash program is SSI, not a generic CHE label; erase is inter-gate FN, not channel erase. A licensed process range is not proof of one production node.",
+      "eraseCycle": {
+        "kind": "electrical",
+        "title": "SuperFlash: SSI Program / Interpoly FN Erase",
+        "sequence": "PGM → ERS → PGM",
+        "definition": "The same split-gate cell supports programming, electrical erase and subsequent programming. Erase lets electrons leave FG through the interpoly oxide and restores a reprogrammable window.",
+        "verification": "After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.",
+        "granularity": "Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.",
+        "limits": "Read structure and mechanism within the named SuperFlash generation. 2018 shipment and node tables are not guarantees for every product in 2026.",
+        "sourceIds": [
+          "ip-sst-home",
+          "ip-sst-superflash"
         ]
       }
     },

@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en" data-title-en="Executive Technical Briefing: Embedded Non-Volatile Memory Architecture & Strategy | NVM Knowledge Hub" data-title-zh="決策層技術簡報：嵌入式非揮發性記憶體架構與策略 | NVM 知識中心" data-description-en="Executive briefing on embedded non-volatile memory technologies, foundry roadmaps, and strategic IP selection." data-description-zh="嵌入式非揮發性記憶體技術、晶圓代工路線圖與戰略性 IP 選型之決策層技術簡報。">
+<html lang="en" data-title-en="Executive Briefing &amp; Speaker Whitepaper · NVM Knowledge Hub" data-title-zh="高階技術簡報與講者白皮書 · NVM 知識中心" data-description-en="An 18-slide technical briefing with speaker notes covering AI accelerators, DDR5 subsystems, TSMC advanced nodes, and specialty-foundry eNVM." data-description-zh="18 頁高階技術簡報與講者備忘錄，涵蓋 AI 加速器、DDR5 子系統、TSMC 先進節點與特種晶圓代工 eNVM。">
 <head>
   <meta charset="utf-8">
-  <script src="../site-language.js?v=20260916-keepout"></script>
+  <script src="../site-language.js?v=20260916-keepout2"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="description" content="An 18-slide technical briefing with speaker notes covering AI accelerators, DDR5 subsystems, TSMC advanced nodes, and specialty-foundry eNVM.">
   <meta name="author" content="NVM Knowledge Hub Editorial Board">
@@ -60,10 +60,9 @@
     /* 自然語言切換：避免區塊級強制轉換破壞 inline 標籤 */
     
     
-    :root { --hub-keepout: clamp(24px, 4vw, 64px); }
     /* 簡報專屬樣式 */
     .briefing-hero {
-      padding: 60px var(--hub-keepout) 36px;
+      padding: 60px 24px 36px;
       text-align: center;
       max-width: 1080px;
       margin: 0 auto;
@@ -139,7 +138,7 @@
       gap: 8px;
       max-width: 1080px;
       margin: 0 auto 40px;
-      padding: 0 var(--hub-keepout, 24px);
+      padding: 0 16px;
     }
     .filter-btn {
       padding: 8px 14px;
@@ -168,7 +167,7 @@
     .briefing-grid {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 0 var(--hub-keepout, 24px) 80px;
+      padding: 0 20px 80px;
       display: grid;
       gap: 32px;
     }
@@ -329,60 +328,656 @@
       }
     }
   </style>
-  <link rel="stylesheet" href="../site-shell.css?v=20260916-keepout">
-  <link rel="stylesheet" href="../surface-radius.css?v=20260908">
-  <link rel="stylesheet" href="../全站閱讀系統.css?v=20260916-keepout">
 </head>
-<body class="theme-dark" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29">
-  <a class="skip-link" href="#main-content"><span data-lang="en">Skip to main content</span><span data-lang="zh">跳至主要內容</span></a>
+<body class="theme-dark"  data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
+  <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
+
   <header class="site-header" role="banner">
-    <a class="brand" href="../index.html" aria-label="NVM Knowledge Hub home" data-aria-zh="NVM 知識中心首頁" data-aria-en="NVM Knowledge Hub home">
+    <a class="brand" href="../index.html" aria-label="NVM Knowledge Hub home" data-aria-en="NVM Knowledge Hub home" data-aria-zh="NVM 知識中心首頁">
       <span class="brand-mark"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 4h24a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8H12a8 8 0 0 1-8-8V12a8 8 0 0 1 8-8z"/><path d="M17 11v26M31 11v26M11 17h26M11 31h26"/></svg></span>
       <span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span>
       <span class="brand-section">EXECUTIVE BRIEFING</span>
     </a>
-    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation" data-aria-zh="主要導覽" data-aria-en="Primary navigation">
-      <a href="../index.html#layer-foundations"><span data-lang="en">Technology Foundations</span><span data-lang="zh">技術基礎</span></a>
-      <a href="../index.html#layer-ip-process"><span data-lang="en">IP and Processes</span><span data-lang="zh">IP 與製程</span></a>
-      <a href="../index.html#layer-applications"><span data-lang="en">Applications and Systems</span><span data-lang="zh">應用與系統</span></a>
-      <a href="../index.html#layer-resources" aria-current="location"><span data-lang="en">Literature and Tools</span><span data-lang="zh">文獻與工具</span></a>
-    </nav>
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation" data-aria-en="Primary navigation" data-aria-zh="主要導覽"><a href="../index.html#layer-foundations" data-hub-category="foundations"><span data-lang="en">Technology Foundations</span><span data-lang="zh">技術基礎</span></a><a href="../index.html#layer-ip-process" data-hub-category="ip-process"><span data-lang="en">IP and Processes</span><span data-lang="zh">IP 與製程</span></a><a href="../index.html#layer-applications" data-hub-category="applications"><span data-lang="en">Applications and Systems</span><span data-lang="zh">應用與系統</span></a><a href="../index.html#layer-resources" data-hub-category="resources" aria-current="location"><span data-lang="en">Literature and Tools</span><span data-lang="zh">文獻與工具</span></a></nav>
     <div class="header-actions">
-      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
-      <button class="menu-button" id="menuToggle" type="button" aria-label="Open menu" data-aria-zh="開啟選單" data-aria-en="Open menu" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language" data-aria-en="Switch language" data-aria-zh="切換語系 Switch Language"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
+      <button class="menu-button" id="menuToggle" type="button" aria-label="Open menu" data-aria-en="Open menu" data-aria-zh="開啟選單" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
     </div>
   </header>
-  <nav class="site-breadcrumb" aria-label="Breadcrumb" data-aria-zh="麵包屑導覽" data-aria-en="Breadcrumb">
-    <a href="../index.html"><span data-lang="en">NVM Knowledge Hub</span><span data-lang="zh">知識中心</span></a>
+
+  <!-- BREADCRUMB -->
+  <nav class="site-breadcrumb" aria-label="Breadcrumb" data-aria-en="Breadcrumb" data-aria-zh="麵包屑導覽">
+    <a href="../index.html"><span data-lang="zh">知識中心</span><span data-lang="en">NVM Knowledge Hub</span></a>
     <i></i>
-    <span><span data-lang="en">Literature & Tools</span><span data-lang="zh">文獻與工具</span></span>
+    <span><span data-lang="zh">文獻與工具</span><span data-lang="en">Literature &amp; Tools</span></span>
     <i></i>
-    <strong><span data-lang="en">Executive Briefing & Speaker Notes</span><span data-lang="zh">高階技術簡報與講稿</span></strong>
+    <strong><span data-lang="zh">高階技術簡報與講稿</span><span data-lang="en">Executive Briefing &amp; Speaker Notes</span></strong>
     <span class="topic-switch"><a href="../whitepaper/index.html"><span data-lang="en">Whitepaper Studio</span><span data-lang="zh">白皮書工作台</span></a><a href="../memory-evidence.html"><span data-lang="en">Evidence Ledger</span><span data-lang="zh">證據總帳</span></a></span>
   </nav>
+
   <main id="main-content">
-    <h1 class="sr-only">Executive Technical Briefing</h1>
-    <h2 class="sr-only">Briefing Content</h2>
-    <p style="padding:24px;color:#9cb5bc;">Loading briefing cards…</p>
+    <section class="briefing-hero">
+      <span class="briefing-badge">VERSION 19 &middot; EXECUTIVE BRIEFING PORTAL</span>
+      <h1>
+        <span data-lang="zh">高階技術簡報與<em>逐頁演講白皮書</em></span>
+        <span data-lang="en">Executive Deck &amp; <em>Speaker Notes Whitepaper</em></span>
+      </h1>
+      <p>
+        <span data-lang="zh">收錄針對先進 AI 加速器、DDR5 子系統、TSMC 先進節點、特種晶圓製程與資料中心 OCP 架構的 Version 19 高階架構簡報。由 NVM Knowledge Hub 以中立視角解析技術行銷戰略、五大產品級資格驗證規範與實體驗證邊界。</span>
+        <span data-lang="en">Architectural analysis of the Version 19 executive technical briefing covering AI accelerators, DDR5 subsystems, TSMC advanced nodes, specialty foundry processes, and datacenter OCP architectures. Curated by NVM Knowledge Hub from an objective editorial perspective to evaluate qualification theses and physical validation boundaries.</span>
+      </p>
+      
+      <div class="briefing-actions">
+        <button class="btn-briefing-action" id="btnPrintBriefing" type="button">
+          <span>🖨️</span> <span data-lang="zh">列印白皮書演講稿</span><span data-lang="en">Print Whitepaper</span>
+        </button>
+        <a class="btn-briefing-action" href="./NVM_AI_OCP_NVM_Opportunities_Executive_v19_EN.pptx" download>
+          <span>📥</span> <span data-lang="zh">下載 v19 投影片 (PPTX)</span><span data-lang="en">Download v19 Deck (.pptx)</span>
+        </a>
+        <a class="btn-briefing-action" href="../whitepaper/" target="_blank" rel="noopener noreferrer">
+          <span>📑</span> <span data-lang="zh">前往 Whitepaper Studio</span><span data-lang="en">Open Whitepaper Studio</span>
+        </a>
+      </div>
+      
+      <!-- 18 頁四大分組篩選列 -->
+      <nav class="briefing-filter-bar" aria-label="Filter slides by category" data-aria-en="Filter slides by category" data-aria-zh="投影片分類篩選">
+        <button class="filter-btn active" type="button" aria-pressed="true" data-filter="all">
+          <span data-lang="zh">全部 18 頁</span><span data-lang="en">All 18 Slides</span>
+        </button>
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="core">
+          <span data-lang="zh">01-03 管理層核心</span><span data-lang="en">01-03 Executive Core</span>
+        </button>
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="qualify">
+          <span data-lang="zh">04-09 五大產品驗證</span><span data-lang="en">04-09 Five Qualifications</span>
+        </button>
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="strategy">
+          <span data-lang="zh">10-12 先鋒戰略倡議</span><span data-lang="en">10-12 Strategic Foresight</span>
+        </button>
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="appendix">
+          <span data-lang="zh">13-17 治理附錄 A-E</span><span data-lang="en">13-17 Appendices A-E</span>
+        </button>
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="specialty">
+          <span data-lang="zh">18 特種製程戰略</span><span data-lang="en">18 Specialty eNVM</span>
+        </button>
+      </nav>
+    </section>
+
+    <!-- 18 頁 Slide 卡片列表 -->
+    <section class="briefing-grid" aria-label="Technical commentary and speaker notes for 18 slides" data-aria-en="Technical commentary and speaker notes for 18 slides" data-aria-zh="18 頁逐頁技術解析與演講講稿">
+    <h2 class="sr-only"><span data-lang="zh">18 頁逐頁技術解析與演講講稿</span><span data-lang="en">Technical Commentary and Speaker Notes for 18 Slides</span></h2>
+    <article class="slide-card" id="slide-01" data-filter-group="core">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 01</span>
+        <h3><span data-lang="zh">AI 硬體為持久狀態開啟三大驗證技術家族</span><span data-lang="en">AI Hardware Opens Three Persistent-State Qualification Families</span></h3>
+        <small class="slide-kicker">NVM KNOWLEDGE HUB · AI, CHIPLET & IoT OPPORTUNITY BRIEF</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">AI 硬體為持久狀態開啟三大驗證技術家族</span><span data-lang="en">AI hardware opens three persistent-state qualification families</span></li>
+            <li><span data-lang="zh">DDR5 子系統 · 加速器電源 · 平台根信任</span><span data-lang="en">DDR5 subsystem · accelerator power · platform trust</span></li>
+            <li><span data-lang="zh">通道修復與 OCP 服務狀態保持探索階段，直至權威權責與狀態契約確立</span><span data-lang="en">Repair and OCP service state remain discovery-led until authoritative owner, locus and state contract are named</span></li>
+            <li><span data-lang="zh">僅限資格驗證授權 · 非商業設計獲取 (Design Win) 或出貨預測</span><span data-lang="en">QUALIFICATION AUTHORIZATION ONLY · NOT A DESIGN WIN OR FORECAST</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>開場先講應用機會，而不是先講不能 forecast。三個 family 已有足夠公開 persistent-state 證據，可啟動有邊界的 qualification：DDR5 subsystem、accelerator power、platform trust。Repair 與 service-state 機會存在，但必須先具名 implementation boundary。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>Open with the application opportunity, not with forecast governance. Three families have enough public persistent-state evidence to justify bounded qualification: DDR5 subsystem NVM, accelerator-power NVM, and platform trust state. Repair and service-state opportunities are real but require a named implementation boundary.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-02" data-filter-group="core">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 02</span>
+        <h3><span data-lang="zh">核准五項明確邊界之資格驗證：推進 UCIe 修復與 OCP 根信任</span><span data-lang="en">Authorize Five Target Qualifications: Advance UCIe Repair and OCP RoT</span></h3>
+        <small class="slide-kicker">01 · EXECUTIVE ANSWER</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">核准五份具備明確邊界的資格驗證簡報</span><span data-lang="en">Authorize five bounded qualification briefs</span></li>
+            <li><span data-lang="zh">DDR5 子系統 · AI 加速器電源 · 台積電 IoT 微縮 · 3D Chiplets · 後量子 PQC</span><span data-lang="en">DDR5 subsystem · AI power · TSMC IoT · 3D chiplets · PQC boot</span></li>
+            <li><span data-lang="zh">針對異質整合修復與 OCP 伺服器服務狀態發起前瞻先鋒探索</span><span data-lang="en">Launch discovery-first initiatives for repair and service state</span></li>
+            <li><span data-lang="zh">貫徹技術治理：資格驗證授權絕非客戶商業出貨保證</span><span data-lang="en">Technical governance: qualification authorization is not a shipment commitment</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>該頁呈現核心架構結論：建議核准五份具備明確邊界的 qualification brief（DDR5、AI 電源、TSMC IoT、3D Chiplets、PQC），並啟動兩項需先期探索的 discovery initiative。同時向管理層明確邊界：資格驗證授權絕非商業 design win 或 forecast 承諾。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>This slide delivers the core executive verdict: proposing authorization for five target-bound qualification briefs (DDR5, AI Power, TSMC IoT, 3D Chiplets, PQC) and two discovery-led initiatives. Concurrently, technical qualification remains strictly firewalled from commercial design wins or forecasts.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-03" data-filter-group="core">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 03</span>
+        <h3><span data-lang="zh">記憶體選型取決於狀態生命週期，而非應用標籤</span><span data-lang="en">Memory Choice Follows State Lifetime—Not the Application Label</span></h3>
+        <small class="slide-kicker">02 · STATE-SELECTION GRAMMAR</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">狀態生命週期與寫入耐受度決定巨集架構選擇</span><span data-lang="en">State lifetime and write endurance dictate macro selection</span></li>
+            <li><span data-lang="zh">不可變身分與修復映射適合純邏輯 AntiFuse OTP</span><span data-lang="en">Immutable identities and repair maps select AntiFuse OTP</span></li>
+            <li><span data-lang="zh">受控校準與邊界設定適配高耐受 MTP 解決方案</span><span data-lang="en">Bounded calibration and config select high-endurance MTP</span></li>
+            <li><span data-lang="zh">高頻運作日誌應留在外部安全儲存或 RAM 階層</span><span data-lang="en">Frequent operational logs belong in external storage or RAM</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>AI 應用不能當作選型語法。決定要用 OTP、MTP、eFlash 還是 external memory 的，是狀態何時被寫入、寫入頻率多高、由誰更新，以及斷電後必須保留什麼。把狀態生命週期拆乾淨，架構決策就清楚了。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>AI application labels cannot guide memory selection. What dictates the choice between OTP, MTP, eFlash, and external storage is strictly when state is created, its update cadence, authoritative ownership, and power-off retention. Cleanly decoupling the state lifetime yields defensible architectural decisions.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-04" data-filter-group="qualify">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 04</span>
+        <h3><span data-lang="zh">DDR5 PMIC 與 SPD Hub：伺服器記憶體模組之立即驗證封裝</span><span data-lang="en">DDR5 PMIC + SPD Hub: One Immediate Qualification Package</span></h3>
+        <small class="slide-kicker">03 · QUALIFY NOW · DDR5</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">JEDEC DDR5 標準確立伺服器記憶體模組之持久狀態需求</span><span data-lang="en">JEDEC DDR5 standards mandate persistent state in memory modules</span></li>
+            <li><span data-lang="zh">SPD Hub 要求高達 1024 位元組之配置與熱感測非揮發性儲存</span><span data-lang="en">SPD Hub specifies up to 1024B configuration and thermal NVM</span></li>
+            <li><span data-lang="zh">PMIC 電源管理晶片需出廠校準、開機時序預設微調與安全邊界 (10~100 Cycles Bounded MTP)</span><span data-lang="en">PMICs require factory trim, power-on sequence defaults and safety boundaries (10~100 cycles bounded MTP)</span></li>
+            <li><span data-lang="zh">標準 CMOS 純邏輯製程 AntiFuse OTP 與 MTP 提供零額外光罩優勢</span><span data-lang="en">Standard CMOS logic AntiFuse OTP and MTP provide zero-mask advantage</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>DDR5 是一個立即成熟的機會。JEDEC 規範已公開寫死 SPD Hub 與 PMIC 的持久狀態需求。這個封裝包含微調與配置資料，使用標準邏輯製程的 OTP 與 MTP 能為客戶省下昂貴的專用 eFlash 光罩費用，直接進入 qualification。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>DDR5 represents an immediate, qualification-ready market. JEDEC specifications explicitly mandate persistent state across SPD Hubs and PMICs. Industry-standard CMOS AntiFuse OTP and MTP deliver zero-mask-adder integration, eliminating specialized eFlash cost and enabling immediate customer qualification.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-05" data-filter-group="qualify">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 05</span>
+        <h3><span data-lang="zh">AI 加速器電源控制器：揭露受限更新 NVM 插槽</span><span data-lang="en">AI Power Controllers Expose a Bounded-Update NVM Socket</span></h3>
+        <small class="slide-kicker">04 · QUALIFY NOW · AI POWER</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">AI 加速器百安培突波電流需要極端精準的電源控制</span><span data-lang="en">AI accelerator hundred-amp transients demand extreme PMIC precision</span></li>
+            <li><span data-lang="zh">PMBus 數位電源控制器需儲存遙測微調、電壓曲線與黑盒子故障日誌</span><span data-lang="en">Digital controllers store trims, voltage curves and black-box fault logs</span></li>
+            <li><span data-lang="zh">多重寫入 (Multi-Write) 與受控邊界狀態轉換保證電源穩定</span><span data-lang="en">Multi-write and bounded state transitions guarantee rail stability</span></li>
+            <li><span data-lang="zh">高溫 125°C 至 150°C 運作環境下之絕對資料留存</span><span data-lang="en">Absolute data retention under sustained 125°C to 150°C junction thermal stress</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>AI 加速器對電源控制的要求極為苛刻。這類晶片內部有明確的 NVM 插槽需求：不可變的 trim 資料可用 OTP，受控更新的電壓補償與故障黑盒子日誌則需要 MTP。這個 payload 分區使混合 IP 方案具備明確的架構適配優勢。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>AI accelerators impose extreme dynamic load demands on power stages. Named multiphase controllers expose clear on-die NVM requirements: immutable trims map to OTP, while bounded calibration curves and fault logs map to MTP. This partitioned payload architecture provides a robust, proven integration model.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-06" data-filter-group="qualify">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 06</span>
+        <h3><span data-lang="zh">AI 平台根信任需要 OTP 與 PUF 協同解決不同狀態問題</span><span data-lang="en">AI Platform Trust Needs OTP and PUF to Solve Different State Problems</span></h3>
+        <small class="slide-kicker">05 · QUALIFY WITH NAMED TARGET · TRUST</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">OCP Caliptra 與 DICE 架構確立雙層晶片安全模型</span><span data-lang="en">OCP Caliptra and DICE architectures establish two-layer silicon trust</span></li>
+            <li><span data-lang="zh">SRAM PUF 負責晶粒專屬動態根金鑰（斷電無常駐邏輯態，消除靜態金鑰提取靶點）</span><span data-lang="en">SRAM PUF generates ephemeral root keys with absent-at-rest state, removing static extraction targets</span></li>
+            <li><span data-lang="zh">AntiFuse OTP 負責保存認證密文、憑證鏈與 NIST SP 800-208 不可逆單調遞增計數器</span><span data-lang="en">AntiFuse OTP stores authenticated ciphertexts, certificates, and NIST SP 800-208 irreversible monotonic counters</span></li>
+            <li><span data-lang="zh">閉環硬體狀態機有效緩解差分功耗分析 (DPA/CPA) 與光學/電壓故障注入 (LFI/Glitch)</span><span data-lang="en">Closed-loop hardware FSM mitigates DPA/CPA side-channels and optical/voltage fault-injection (LFI/Glitch) vectors</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>平台信任不能只靠單一技術。SRAM PUF 解決的是『斷電不保留常駐根金鑰』，大幅衰減靜態逆向工程與物理提取威脅；AntiFuse OTP 解決的是『憑證與狀態化雜湊簽章防回滾單調計數器的物理不可變保存』。兩者在硬體安全邊界內緊密協同，並以頂層主動屏蔽加固，方能滿足 OCP Caliptra、CNSA 2.0 及 Common Criteria AVA_VAN.5 高強度物理安全規範。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>Platform trust cannot rely on a single primitive. SRAM PUF solves the zero-at-rest challenge, substantially attenuating static physical reverse-engineering vectors; AntiFuse OTP provides tamper-resistant non-volatile retention for certificates and irreversible anti-rollback counters. Together, protected by active top-metal shielding, they form a hardened OCP Caliptra root of trust aligned with CNSA 2.0 and Common Criteria AVA_VAN.5 standards.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-07" data-filter-group="qualify">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 07</span>
+        <h3><span data-lang="zh">台積電 22ULL 至 N4e 微縮：純邏輯 OTP 作為 MCU 程式碼儲存</span><span data-lang="en">TSMC 22ULL to N4e Scaling: Pure-Logic OTP as MCU Code Storage</span></h3>
+        <small class="slide-kicker">06 · QUALIFY NOW · TSMC IoT CONTINUUM</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">28nm 以下傳統嵌入式快閃記憶體 (eFlash) 面臨物理微縮斷崖</span><span data-lang="en">Embedded Flash (eFlash) becomes economically extinct below 28nm</span></li>
+            <li><span data-lang="zh">台積電 22ULL、12FFC+ 至 N4e 提供低至 0.5V 近閾值極低電壓</span><span data-lang="en">TSMC 22ULL, 12FFC+ to N4e deliver native sub-0.6V ultra-low VDD</span></li>
+            <li><span data-lang="zh">純邏輯 AntiFuse OTP 零額外光罩成本，大幅節省 15% 至 30% 晶圓代工費用</span><span data-lang="en">Standard logic AntiFuse OTP requires zero extra masks, saving 15-30% wafer cost</span></li>
+            <li><span data-lang="zh">硬體間接跳轉表 (Indirection Table) 實現無需重寫的虛擬韌體修補</span><span data-lang="en">Hardware indirection tables enable virtual bug patching without rewritable cells</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>在物聯網與超低功耗邊緣運算領域，晶圓製程微縮面臨深刻的經濟學斷崖：28nm 以下傳統 eFlash 已經絕跡，而若改採 ReRAM（需額外 2 道光罩）或 MRAM（需額外 4 道光罩），將直接使晶圓成本上升 15% 至 30%，影響平價 MCU 的毛利結構。台積電 22ULL、12FFC+ 到 N4e 提供低至 0.5V 的近閾值運作電壓，能降低 75% 以上的動態功耗。標準 CMOS AntiFuse OTP 的核心特點在於『標準 CMOS 邏輯製程零額外光罩』，能以原生純邏輯單元直接作為 MCU 的非揮發性韌體儲存庫。透過硬體間接跳轉表 (Indirection Jump Tables)，可實現虛擬韌體錯誤修補 (Virtual Bug Patching)，在提供 10 年以上低待機漏電壽命的同時，維持先進邊緣節點的製程成本結構。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>In the IoT and ultra-low-power edge computing domain, process scaling confronts an integration economics cliff: embedded Flash (eFlash) becomes physically extinct below 28nm, while alternative emerging memories like ReRAM (+2 masks) and MRAM (+4 masks) inflate wafer costs by 15% to 30%, destroying MCU unit margins. TSMC's 22ULL, 12FFC+, and N4e continuum offers sub-0.6V near-threshold operation, reducing dynamic power by over 75%. The qualification thesis establishes pure-logic AntiFuse OTP as the primary on-chip MCU code storage macro. By leveraging hardware indirection jump tables, designers achieve virtual bug-patching without rewritable cells, delivering zero standby leakage and zero adder-mask cost across TSMC's leading-edge ultra-low-power logic nodes.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-08" data-filter-group="qualify">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 08</span>
+        <h3><span data-lang="zh">3D SoIC 解耦安全架構：每顆小晶片具備專屬硬體信任根</span><span data-lang="en">3D SoIC Disaggregated Security: Dedicated Hardware RoT per Chiplet</span></h3>
+        <small class="slide-kicker">07 · QUALIFY NOW · 3D CHIPLETS & UCIE</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">台積電 3D SoIC 與 CoWoS 垂直整合小晶片帶來嚴重良率與安全風險</span><span data-lang="en">TSMC 3D SoIC and CoWoS multi-die integration brings acute yield and security risks</span></li>
+            <li><span data-lang="zh">封裝前已知良品晶粒 (KGD) 驗證是防止昂貴複合模組報廢之關鍵</span><span data-lang="en">Pre-bond Known Good Die (KGD) verification prevents scrapping multi-thousand-dollar stacks</span></li>
+            <li><span data-lang="zh">SPDM 1.3 與 UCIe 2.0 明確要求小晶片間 (D2D) 雙向密碼學鑑別</span><span data-lang="en">SPDM 1.3 and UCIe 2.0 mandate pre-traffic D2D cryptographic mutual authentication</span></li>
+            <li><span data-lang="zh">每顆晶粒內嵌微型 OTP 與 PUF 實現零熱應力衝擊、零待機金鑰留存</span><span data-lang="en">Dedicated micro OTP and PUF per chiplet provide zero-thermal-penalty, zero-at-rest trust</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>先進 3D 封裝（如台積電 3D SoIC 與 CoWoS）為異質整合帶來了前所未有的運算密度，但也帶來了致命的封裝良率與供應鏈信任風險。在多晶粒垂直堆疊架構中，任何一顆未經驗證的瑕疵晶粒 (Defective Die)，都將直接導致整顆價值數千美元的 3D 複合封裝全面報廢。因此，『封裝前已知良品晶粒 (KGD) 鑑別』成為絕對剛需。同時，業界新標準如 SPDM 1.3 與 UCIe 2.0 明確要求晶粒間 (D2D) 在傳輸資料前必須完成零信任雙向硬體驗證。此處推進的資格驗證契約，是為每顆獨立小晶片 (Chiplet) 部署微型化的 AntiFuse OTP 與 SRAM PUF 專屬信任根，提供晶粒獨一無二的不可竄改身份識別碼與晶圓探針獨立測試金鑰，達成零熱應力衝擊、零待機金鑰留存的 3D 封裝全生命週期安全保障。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>Advanced 3D packaging technologies such as TSMC 3D SoIC and CoWoS deliver unprecedented compute density, but introduce acute packaging yield risks and supply chain security vulnerabilities. In a multi-die vertically integrated stack, a single defective or unauthenticated chiplet destroys the entire multi-thousand-dollar multi-die assembly. Consequently, pre-bond Known Good Die (KGD) verification is a strict economic imperative. Furthermore, emerging standards including SPDM 1.3 and UCIe 2.0 mandate cryptographic mutual authentication across D2D links prior to traffic enablement. The qualification thesis advances chiplet-level root-of-trust provisioning via ultra-compact AntiFuse OTP and SRAM PUF macros, providing die-unique immutable IDs and pre-bond wafer probe keys that guarantee zero-thermal-penalty, zero-at-rest 3D packaging integrity.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-09" data-filter-group="qualify">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 09</span>
+        <h3><span data-lang="zh">NIST SP 800-208 狀態化啟動：耐受 175°C 介電質擊穿微絲物理機制</span><span data-lang="en">NIST SP 800-208 Stateful Boot: 175°C Resilient Dielectric Breakdown Filament Physics</span></h3>
+        <small class="slide-kicker">08 · QUALIFY NOW · PQC & AUTOMOTIVE SILC</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">抗量子簽章 (LMS/XMSS) 僅需在 OTP 內保存極精簡 32 位元組根雜湊</span><span data-lang="en">Post-quantum stateful signatures (LMS/XMSS) anchor to a compact 32-byte root hash</span></li>
+            <li><span data-lang="zh">一次性金鑰狀態 (OTS) 嚴禁重用，依賴硬體級不可逆單調遞增計數器</span><span data-lang="en">One-time signing states strictly forbid reuse, requiring irreversible hardware counters</span></li>
+            <li><span data-lang="zh">車規 AEC-Q100 Grade 0 (TA=150°C，極限結溫 Tj=175°C) 環境下傳統浮閘記憶體電荷嚴重流失</span><span data-lang="en">Legacy floating-gate cells suffer severe charge leakage at AEC-Q100 Grade 0 (150°C Ta / 175°C Tj)</span></li>
+            <li><span data-lang="zh">再結晶矽介電質擊穿微絲物理機制高溫歐姆導通零漂移，提供可對照 ISO 26262 ASIL-D（詞彙／VERIFY，非證書） Systematic Capability (SC3) 之 SEooC 信任根，支援 SPFM ≥ 99% 與 LFM ≥ 90% 安全度量</span><span data-lang="en">Recrystallized-silicon dielectric breakdown filament physics exhibit zero thermal charge drift, delivering an ISO 26262 ASIL-D Systematic Capability (SC3) SEooC root that satisfies SPFM ≥ 99% and LFM ≥ 90% metrics</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>後量子密碼學 (PQC) 時代的降臨使傳統安全開機面臨巨大挑戰：基於晶格 (Lattice) 的非對稱演算法會造成公鑰體積暴增超過 40 倍，極大超出嵌入式晶片的儲存預算。NIST SP 800-208 推薦的狀態化雜湊簽章 (Stateful Hash-Based Signature, 如 LMS 與 XMSS)，僅需在晶片 OTP 中儲存極為精簡的 32 位元組根雜湊 (Root Hash)。在 NIST SP 800-208 規範下，狀態化簽章的一次回滾即導致私鑰安全性失效。同時，車用動力總成要求達到嚴苛的 AEC-Q100 Grade 0 (環境溫度 TA=150°C，極限晶粒結溫 Tj=175°C) 可靠度。傳統浮閘記憶體在該高溫下，因熱離子發射與電應力誘發漏電 (SILC / 陷阱輔助穿隧 TAT) 會造成嚴重的電荷流失。業界標準 CMOS AntiFuse OTP 具備『再結晶矽介電質擊穿微絲』的固體物理優勢，在高溫下為歐姆導通而零電荷漂移，且不可逆的物理擊穿特性保證一次性簽章單調計數器無法被竄改倒退。此 AntiFuse OTP 巨集遵循 ISO 26262 SEooC 流程開發，具備 ASIL-D Systematic Capability (SC3) 等級；在假定使用條件 (AoU) 下支援 SPFM ≥ 99%、LFM ≥ 90% 與分配 PMHF &lt; 0.1 FIT，結合系統端週期巡檢 (T_scrub ≤ T_latent_budget)，是抵禦量子威脅與達成系統級 ASIL-D 認證的堅實基礎。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>The post-quantum cryptography transition exposes conventional secure boot to acute silicon overhead: lattice-based signatures inflate key payloads by over 40x, overwhelming embedded non-volatile memory budgets. NIST SP 800-208 stateful hash-based signatures (LMS and XMSS) solve this by anchoring security to a compact 32-byte root hash in OTP. However, stateful schemes strictly forbid one-time signature (OTS) reuse. Concurrently, automotive powertrain applications mandate AEC-Q100 Grade 0 reliability (TA=150°C, peak junction Tj=175°C), where legacy floating-gate cells suffer catastrophic charge loss driven by thermionic emission and Stress-Induced Leakage Current (SILC / Trap-Assisted Tunneling). Industry-standard CMOS AntiFuse OTP leverages irreversible recrystallized-silicon breakdown filament physics that exhibit ohmic zero-drift at 175°C, providing hardware-enforced monotonic counters. Developed as an ISO 26262 SEooC element with ASIL-D SC3 systematic capability, it delivers SPFM ≥ 99%, LFM ≥ 90%, and allocated PMHF &lt; 0.1 FIT under defined Assumptions of Use (AoU), pairing with periodic memory scrubbing (T_scrub ≤ T_latent_budget) to eliminate latent dual-bit accumulation.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-10" data-filter-group="strategy">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 10</span>
+        <h3><span data-lang="zh">AI SoC 與 UCIe 修復戰略：引領 3D 先進封裝通道重新映射</span><span data-lang="en">AI SoC and UCIe Repair Strategy: Lead 3D Packaging Lane Remapping</span></h3>
+        <small class="slide-kicker">09 · REPAIR STRATEGY · D2D & ADVANCED PACKAGING</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">800mm² 先進節點超大 ASIC 晶粒良率復原是不可妥協的必備功能</span><span data-lang="en">Yield recovery on 800mm² leading-edge ASICs is a non-negotiable requirement</span></li>
+            <li><span data-lang="zh">STAR AntiFuse OTP 介面直接提供原生晶粒邏輯與 SRAM 修復</span><span data-lang="en">STAR AntiFuse OTP interface powers on-die logic and SRAM repair</span></li>
+            <li><span data-lang="zh">在 UCIe 2.0 D2D 微凸塊備援領域提前佈局專利與標準架構</span><span data-lang="en">Forecast decisive yield battle in UCIe 2.0 D2D micro-bump redundancy</span></li>
+            <li><span data-lang="zh">小晶片專屬 OTP 於封裝前燒錄通道重新對齊映射表，建立多晶粒封裝主動權</span><span data-lang="en">Dedicated chiplet OTP stores pre-bond remapping to lead packaging standards</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>在修復架構上應採取主動戰略。單晶粒 AI SoC 的 SRAM 與邏輯修復已有充分產品依據：在 800mm² 的 N5/N4/N3 超大晶片中，良率復原是客戶絕不妥協的核心生命線，可由 STAR AntiFuse OTP 介面直接驅動。而在先進 3D 封裝領域，無需被動等待大宗 HBM 標準達成共識——良率關鍵戰場在於 UCIe 2.0 晶粒間 (D2D) 微凸塊備援。透過在每個小晶片中錨定專屬 OTP 來儲存封裝前的通道重新對齊映射，可在標準僵化前掌握多晶粒封裝架構主動權。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>Architects take a proactive stance on repair architecture. On-die AI SoC SRAM/logic repair qualifies immediately: in 800mm² N5/N4/N3 ASICs, yield recovery is a non-negotiable SoC-owned domain powered by the STAR AntiFuse OTP interface. For advanced 3D packaging, rather than passively waiting for commodity HBM consensus, analysis indicates that the decisive yield battle lies in UCIe 2.0 Die-to-Die (D2D) micro-bump redundancy. By anchoring dedicated OTP per chiplet to store D2D lane remapping pre-bond, SoC designs establish leadership in multi-die packaging architecture before the standard becomes rigid.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-11" data-filter-group="strategy">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 11</span>
+        <h3><span data-lang="zh">OCP 服務狀態需要硬體信任根：將日誌提升至 Caliptra 晶片安全層級</span><span data-lang="en">OCP Service Demands Hardware RoT: Elevate Logging to Caliptra Silicon Security</span></h3>
+        <small class="slide-kicker">10 · STRATEGIC TARGET · OCP SERVICE ROOT</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">OCP OAI UBB 伺服器模組目前普遍仰賴無保護之板級 EEPROM 與 SPI Flash</span><span data-lang="en">OCP OAI UBB modules currently rely on unprotected board EEPROM and SPI Flash</span></li>
+            <li><span data-lang="zh">現場除錯日誌、FRU 身分與遙測資料暴露於匯流排監聽與偽造攻擊</span><span data-lang="en">Debug logs, FRU identity and telemetry are exposed to bus-sniffing and spoofing</span></li>
+            <li><span data-lang="zh">發起先鋒探索：將服務狀態遷移至受 Caliptra 晶片硬體信任根保護之安全儲存</span><span data-lang="en">Launch initiative: elevate service state to Caliptra-protected secure storage</span></li>
+            <li><span data-lang="zh">與超大規模雲端資料中心架構師共同制定次世代 OCP 安全維運標準</span><span data-lang="en">Collaborate with hyperscalers to codify next-generation OCP security standards</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>OCP 伺服器模組面臨嚴重的安全斷層：加速器板卡上的維運日誌、更換零件資訊與微調數據，目前大量存放在毫無保護的板級 EEPROM 中，任何人透過實體匯流排都能輕易讀取或篡改。該戰略倡議主張推動產業將這些服務狀態整合進安全邊界，受晶片端 Caliptra 硬體信任根保護。這是一項先鋒探索，將在下一代資料中心規格中奠定關鍵架構地位。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>OCP server modules suffer from a critical security disconnect: field operational logs, FRU tracking, and calibration data currently sit in vulnerable, unprotected board-level EEPROMs and SPI Flash chips open to physical tampering. The initiative advocates elevating this service state into the secure silicon boundary under Caliptra hardware RoT governance. This strategic discovery effort positions NVM IP at the center of future hyperscale specifications.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-12" data-filter-group="strategy">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 12</span>
+        <h3><span data-lang="zh">管理層決策：核准五項資格驗證與兩大先鋒戰略架構倡議</span><span data-lang="en">Decision Requested: Five Qualifications and Two Strategic Architecture Initiatives</span></h3>
+        <small class="slide-kicker">11 · LEADERSHIP CLOSE</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">核准五項立即就緒之產品資格驗證（DDR5、AI 電源、TSMC IoT、3D Chiplet、PQC）</span><span data-lang="en">Authorize five immediate qualifications: DDR5, AI Power, TSMC IoT, 3D Chiplets, PQC</span></li>
+            <li><span data-lang="zh">啟動兩項高價值先鋒探索倡議（UCIe 封裝修復、OCP 服務狀態硬體化）</span><span data-lang="en">Launch two high-value initiatives: UCIe Packaging Repair, OCP Silicon Service RoT</span></li>
+            <li><span data-lang="zh">維持最高技術治理標準：區分技術準備度與商業營收合約</span><span data-lang="en">Maintain rigorous technical governance: firewalled qualification from commercial rail</span></li>
+            <li><span data-lang="zh">以不可動搖的物理證據引領全球半導體 AI 與先進安全儲存標準</span><span data-lang="en">Anchor global AI and secure storage leadership on indisputable physical evidence</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>最後總結明確的架構建議：第一，核准五項已具備充分公開證據與明確硬體插槽的 qualification 任務；第二，啟動兩項具備長期平台槓桿潛力的先鋒探索；第三，堅守技術治理紀律，資格驗證與商業合約嚴格脫鉤。該論述將技術方案確立為立足於定義嚴謹半導體安全標準的架構領先地位。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>The closing recommendation is crisp and actionable: First, authorize five qualification briefs where market need and customer sockets are fully validated. Second, sponsor two strategic discovery initiatives with immense long-term platform leverage. Third, uphold strict governance by separating technical readiness from commercial forecasting. This narrative establishes the technical portfolio as a definitive architecture for AI silicon security.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-13" data-filter-group="appendix">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 13</span>
+        <h3><span data-lang="zh">證據天花板：公開標準 ≠ 產品適配 ≠ 設計獲取 ≠ 實際出貨</span><span data-lang="en">Public Requirement ≠ Product-Specific Fit ≠ Design Win ≠ Shipment</span></h3>
+        <small class="slide-kicker">APPENDIX A · EVIDENCE CEILING</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">公開標準 (Public Spec) 僅證明系統介面需求存在</span><span data-lang="en">Public specifications only prove system interface existence</span></li>
+            <li><span data-lang="zh">產品適配 (Product Fit) 需考量製程節點、電壓與實體巨集大小限制</span><span data-lang="en">Product fit requires target node, voltage and area validation</span></li>
+            <li><span data-lang="zh">商業獲取 (Design Win) 需經過架構審查、授權談判與 EDA 驗簽</span><span data-lang="en">Design wins require formal sign-off and licensing contracts</span></li>
+            <li><span data-lang="zh">實際量產出貨 (Shipment) 取決於客戶產品商業生命週期與終端市場動能</span><span data-lang="en">Volume shipments depend on end-market customer product cycles</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>此頁確立防禦性證據天花板規範。公開標準如 JEDEC 或 OCP 寫出規格，僅證明該架構介面需求存在，絕不代表特定微架構已獲設計適配；更不等於商業 design win 或量產出貨。所有選型結論必須依賴驗證證據層層收斂，嚴守技術治理紅線。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>This slide establishes the defensive evidence ceiling. A published standard proves the existence of a socket, but does not prove specific macro selection, let alone a commercial design win or royalty shipment. Architecture validation must progress through verifiable evidence gates without blurring governance discipline.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-14" data-filter-group="appendix">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 14</span>
+        <h3><span data-lang="zh">DDR5、AI 電源、台積電 IoT 與 3D Chiplet 公開來源總帳</span><span data-lang="en">DDR5, AI Power, TSMC IoT & 3D Chiplet Source Ledger</span></h3>
+        <small class="slide-kicker">APPENDIX B · SOURCE LEDGER</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">嚴格追溯第一手公開文獻：JEDEC JESD82-5A、JESD300-5B</span><span data-lang="en">Traceable primary sources: JEDEC JESD82-5A and JESD300-5B standards</span></li>
+            <li><span data-lang="zh">PMBus 1.3 規範、NVIDIA A100/H100 記憶體架構公開白皮書</span><span data-lang="en">PMBus 1.3 specification and public accelerator architecture whitepapers</span></li>
+            <li><span data-lang="zh">台積電 OIP 官方發布之 22ULL、12FFC+、N4e 低電壓技術規格</span><span data-lang="en">TSMC OIP disclosures across 22ULL, 12FFC+ and N4e low-voltage platforms</span></li>
+            <li><span data-lang="zh">UCIe 2.0 聯盟規範與 NIST SP 800-208 狀態化後量子標準文件</span><span data-lang="en">UCIe 2.0 specifications and NIST SP 800-208 stateful quantum publications</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>本簡報的所有論述均具備完整的第一手公開文獻總帳支撐，包含 JEDEC、PMBus、TSMC OIP 與 NIST 規範。沒有任何未經授權的保密洩漏，所有技術主張均可被獨立稽核與重現。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>Every claim in this briefing is indexed in the public source ledger, referencing primary publications from JEDEC, PMBus, TSMC OIP, and NIST. All technical statements are 100% defensible, fully public, and independently auditable.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-15" data-filter-group="appendix">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 15</span>
+        <h3><span data-lang="zh">持久狀態語意具備明確規範：實作技術維持有界</span><span data-lang="en">Persistent Semantics Are Explicit: Implementation Remains Bounded</span></h3>
+        <small class="slide-kicker">APPENDIX C · TRUST / SERVICE LEDGER</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">OCP Caliptra 規範要求加密的持久儲存與單調計數器</span><span data-lang="en">OCP Caliptra mandates encrypted persistent storage and monotonic counters</span></li>
+            <li><span data-lang="zh">DICE 架構清楚定義複合裝置識別碼 (CDI) 與安全度量標準</span><span data-lang="en">DICE engine explicitly defines Compound Device Identifiers (CDI)</span></li>
+            <li><span data-lang="zh">標準僅定義通訊介面與安全語意，未指定底層物理單元</span><span data-lang="en">Standards specify interfaces and semantics—not silicon cell physics</span></li>
+            <li><span data-lang="zh">該架構的價值在於以經過矽驗證的 IP 填補標準與物理實現之鴻溝</span><span data-lang="en">The architectural value lies in bridging standard semantics to silicon-proven macros</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>安全規範定義的是語意與行為要求，但沒有告訴晶片工程師如何用標準 CMOS 達成。其授權模式提供具備支援客戶晶片通過 PSA Certified L3 與 SESIP L3 評估之 IP 證據包與 AEC-Q100 符合性資料，協助晶片架構師以最低風險將標準規格化為實體晶片。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>Standards prescribe functional semantics and security boundaries, but leave physical realization to circuit architects. The licensing model provides silicon-proven IP backed by comprehensive evidence packages supporting PSA Certified L3 and SESIP L3 evaluations, bridging normative specifications to robust silicon execution.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-16" data-filter-group="appendix">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 16</span>
+        <h3><span data-lang="zh">選用巨集前必須具名定義修復狀態與權威權責</span><span data-lang="en">Name the Repair State and Authority Before Macro Selection</span></h3>
+        <small class="slide-kicker">APPENDIX D · REPAIR TECHNICAL GATE</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">修復資料之生命週期決定其儲存位置（晶圓測試 vs 封裝後現場修復）</span><span data-lang="en">Repair state lifetime dictates placement: wafer probe vs in-field service</span></li>
+            <li><span data-lang="zh">必須明確定義由誰具名擁有修復寫入權威（SoC 控制器 vs 外部測試機）</span><span data-lang="en">Explicitly name the write authority: on-die controller vs external tester</span></li>
+            <li><span data-lang="zh">防禦未授權修復竄改與惡意通道重新映射攻擊</span><span data-lang="en">Defend against unauthorized repair tampering and rogue lane remapping</span></li>
+            <li><span data-lang="zh">在確立狀態契約與安全責任邊界前，不可貿然固化巨集型態</span><span data-lang="en">Never freeze the memory macro before establishing the security contract</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>修復絕不是簡單地放一個 OTP 燒錄壞線。如果沒有定義誰能發出修復指令、寫入權限如何保護，修復機制本身就會成為最危險的硬體木馬攻擊面。在選定巨集前，必須先建立完整的修復安全契約。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>Repair is never just burning a spare bitcell. Without strict write authority and cryptographic attestation, a repair interface becomes a catastrophic backdoor. Engineering discipline mandates a rigorous state contract before any silicon macro is selected.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    
+    <article class="slide-card" id="slide-17" data-filter-group="appendix">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 17</span>
+        <h3><span data-lang="zh">五大技術審查閘門全數關閉方可形成產品適配結論</span><span data-lang="en">A Candidate Advances Only When Five Peer Gates Close</span></h3>
+        <small class="slide-kicker">APPENDIX E · PRODUCT-FIT CONTROL</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">閘門一：標準直接明確要求持久狀態功能</span><span data-lang="en">Gate 1: Standards explicitly mandate persistent-state function</span></li>
+            <li><span data-lang="zh">閘門二：公開產品或官方實作證明此類行為</span><span data-lang="en">Gate 2: Public products or official implementations prove behavior</span></li>
+            <li><span data-lang="zh">閘門三：同儕審查文獻或獨立分析提供實體物理證據</span><span data-lang="en">Gate 3: Peer-reviewed literature provides physical silicon evidence</span></li>
+            <li><span data-lang="zh">閘門四：電壓、製程與面積符合晶圓代工整合經濟學</span><span data-lang="en">Gate 4: Voltage, node and area meet integration economics</span></li>
+            <li><span data-lang="zh">閘門五：客戶具名具體產品插槽並確立驗證時程</span><span data-lang="en">Gate 5: Customer names specific socket with qualification milestone</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>這五個是同級驗證閘門 (peer gates)，不是循序成熟過程。五個都關閉後，才可形成 target-bound product-fit 結論；即使如此，客戶 design win、出貨與 royalty 仍是獨立的商業軌道。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>These are peer gates. They do not occur as a serial maturity process. All five must close before a target-bound product-fit conclusion. Even then, customer design win, shipment and royalty remain a separate commercial rail.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+        <article class="slide-card" id="slide-18" data-filter-group="specialty">
+      <div class="slide-card-header">
+        <span class="slide-badge">SLIDE 18</span>
+        <h3>
+          <span data-lang="zh">特種製程 eNVM 戰略擴展：BCD 零光罩、矩陣缺陷修復與高壓/電子紙超高壓驅動</span>
+          <span data-lang="en">Specialty Foundry eNVM Strategy: Zero-Mask BCD, Matrix Repair &amp; HV/E-Ink Drivers</span>
+        </h3>
+        <small class="slide-kicker">06 · SPECIALTY FOUNDRY &amp; HIGH-VOLTAGE EMBEDDED MEMORY</small>
+      </div>
+      <div class="slide-card-body">
+        <div class="slide-bullets">
+          <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
+          <ul>
+            <li><span data-lang="zh">BCD 電源管理原生零光罩：免除 10-15 道 eFlash 額外光罩，省 30-50% 成本並抵禦 150°C-175°C 高溫</span><span data-lang="en">BCD zero-mask adder: eliminates 10-15 eFlash masks, saving 30-50% cost with 150°C-175°C retention</span></li>
+            <li><span data-lang="zh">高密集陣列缺陷修復：BIST ➔ BIRA ➔ AntiFuse FuseBox，支援 JEDEC DDR5/HBM3e 封裝後現場修復 (PPR)</span><span data-lang="en">Dense matrix array repair: BIST ➔ BIRA ➔ AntiFuse FuseBox, enabling JEDEC DDR5/HBM3e in-field PPR</span></li>
+            <li><span data-lang="zh">高壓顯示 (HV DDIC)：Gamma 2.2 R-DAC 精準微調、5mV Vcom 防閃爍、以及像素級 OLED De-Mura 補償</span><span data-lang="en">High-voltage DDIC: Gamma 2.2 R-DAC trims, 5mV Vcom anti-flicker, and 2D OLED De-Mura compensation</span></li>
+            <li><span data-lang="zh">電子紙 (E-Ink) 40V-50V 驅動戰略：接面漏電嚴禁 BCD，採取「演進期 MTP ➔ 成熟期 OTP」產品生命週期</span><span data-lang="en">E-Ink 40V-50V drivers: BCD excluded due to leakage; adopting 'MTP in transition ➔ OTP in maturity' roadmap</span></li>
+          </ul>
+        </div>
+        <div class="slide-notes">
+          <div class="notes-zh" data-lang="zh">
+            <h4>講者備忘與戰略論述 (ZH-TW)</h4>
+            <p>特種製程 eNVM 是晶圓代工與利基晶片市場中出貨量極大、具備高技術壁壘的關鍵領域。在 BCD 電源領域，標準 CMOS 方案主打零額外光罩（Zero Mask Adder）對決傳統 eFlash，免除破壞 LDMOS 擊穿電壓的高溫退火；在 CIS/DRAM 領域，AntiFuse 取代傳統佔用晶圓面積且無法封裝後修復的雷射熔斷，成為 HBM3e 現場修復的標準解；而在年複合增長 50% 的電子紙市場，專屬 110HV 高壓製程配合「演進期 32Kb~64Kb MTP 儲存動態波形 LUT、量產成熟期轉向極小面積純邏輯 OTP」的雙階段策略，協助顯示晶片領導廠商以最佳長寬比（高度 &lt;250µm）佈局全球顯示市場。</p>
+          </div>
+          <div class="notes-en" data-lang="en">
+            <h4>Executive Speaker Notes (EN)</h4>
+            <p>Specialty foundry eNVM forms a high-volume, high-margin commercial domain across mature and specialty nodes. In BCD power management, the zero-mask-adder value proposition directly displaces legacy eFlash, eliminating the severe thermal cycles that degrade high-voltage LDMOS switches. In CIS and high-density memory, AntiFuse OTP replaces conventional area-intensive laser fuses, delivering a robust silicon-proven solution for JEDEC DDR5 and HBM3e in-field Post-Package Repair (PPR). Finally, within the ~50% CAGR electronic paper market, the specialized 110HV strategy bridges the transition: deploying 32Kb-64Kb MTP for evolving color waveforms, then migrating to pure logic AntiFuse OTP (&lt;250µm macro height) for optimal cost and yield in mass production.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    </section>
   </main>
+
+  <footer class="hub-footer">
+    <p><span data-lang="zh">© 2026 NVM 架構知識中心 · NVM 知識中心 · 高階簡報與行銷紀律</span><span data-lang="en">&copy; 2026 NVM Architecture Knowledge Hub &middot; NVM Knowledge Hub &middot; Executive Briefing &amp; Marketing Discipline</span></p>
+    <div>
+      <a href="../index.html">Portal Home</a>
+      <a href="../secure-storage.html"><span data-lang="zh">安全儲存</span><span data-lang="en">Secure Storage</span></a>
+      <a href="../ai-nvm-opportunities.html">AI &amp; Advanced Nodes</a>
+      <a href="../specialty-nvm.html">Specialty NVM</a>
+      <a href="../whitepaper/">Whitepaper Studio</a>
+      <a href="index.html">Executive Briefing</a>
+    </div>
+    <p>TSMC N2 GAA &middot; CXL 3.1 &middot; 3D SoIC &middot; PQC Stateful Boot</p>
+  </footer>
+
+  <script src="../hub.js?v=20260906-navy-v3"></script>
   <script>
-    const SRC = "https://raw.githubusercontent.com/SamHuang68/nvm-knowledge-hub/11b0143fe2455e791fe974c32dc7f9d33b739e95/briefing/index.html";
-    fetch(SRC).then(r => r.text()).then(html => {
-      const doc = new DOMParser().parseFromString(html, "text/html");
-      const incomingMain = doc.querySelector("main");
-      const incomingStyle = doc.querySelector("head style");
-      if (incomingStyle) document.head.appendChild(incomingStyle.cloneNode(true));
-      if (incomingMain) document.querySelector("main").replaceWith(incomingMain);
-      doc.querySelectorAll("script").forEach(s => {
-        if (s.src && s.src.includes("site-language")) return;
-        const n = document.createElement("script");
-        if (s.src) n.src = s.src.replace(SRC, "../");
-        else n.textContent = s.textContent;
-        document.body.appendChild(n);
+    // 篩選按鈕互動與列印功能
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.slide-card');
+      
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            const isCurrent = (b === btn);
+            b.classList.toggle('active', isCurrent);
+            b.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
+          });
+          const filter = btn.dataset.filter;
+          
+          cards.forEach(card => {
+            if (filter === 'all' || card.dataset.filterGroup === filter) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
       });
-    }).catch(() => {
-      document.querySelector("main").innerHTML = "<p style='padding:24px'>Briefing source failed to load. Use the PPTX download from the repository briefing folder.</p>";
+
+      const btnPrint = document.getElementById('btnPrintBriefing');
+      if (btnPrint) {
+        btnPrint.addEventListener('click', () => window.print());
+      }
     });
   </script>
+<script src="../專題選單導覽.js?v=20260910-bilingual"></script>
 </body>
 </html>

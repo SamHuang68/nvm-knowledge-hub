@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub" data-title-zh="NVM 技術取捨矩陣 · AntiFuse、eFuse、eFlash 與 MRAM · NVM 知識中心" data-description-en="Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory." data-description-zh="嵌入式非揮發性記憶體的九維技術取捨矩陣（5 大技術族群／11 葉技術）、五軸互動雷達選型器、第一原理物理模型與晶圓代工生態路線圖（雷達為示範性 heuristic；非 production selector）。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260916-keepout2"></script>
+  <script src="site-language.js?v=20260917-r4"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub</title>
   <meta name="description" content="Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.">
@@ -707,6 +707,16 @@
       flex-direction: column;
       gap: 0.65rem;
     }
+    .matrix-note-card.named-ip-card {
+      grid-column: 1 / -1;
+      scroll-margin-top: 96px;
+      border-color: rgba(125, 211, 252, 0.28);
+    }
+    .note-card-list a {
+      color: #7dd3fc;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
     .note-card-badge {
       font: 700 10px 'IBM Plex Mono', monospace;
       letter-spacing: 0.06em;
@@ -764,6 +774,7 @@
       min-width: 0;
       max-width: 100%;
       transition: transform 0.2s, border-color 0.2s;
+      scroll-margin-top: 96px;
     }
     .foundry-card:hover {
       transform: translateY(-2px);
@@ -813,6 +824,7 @@
       font-size: 0.85rem;
       line-height: 1.55;
       color: #cbd5e1;
+      scroll-margin-top: 96px;
     }
     .foundry-node-tile:hover {
       background: rgba(8, 36, 51, 0.95);
@@ -824,6 +836,13 @@
       justify-content: space-between;
       align-items: center;
       gap: 6px;
+    }
+    .node-pill-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      min-width: 0;
     }
     .node-pill {
       font: 700 11px 'IBM Plex Mono', monospace;
@@ -854,6 +873,69 @@
       background: rgba(239, 68, 68, 0.12);
       color: #f87171;
       border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+    .foundry-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.65rem;
+      margin: 1.1rem 0 0;
+    }
+    .foundry-jump a {
+      font: 700 11px 'IBM Plex Mono', monospace;
+      color: #c4a574;
+      text-decoration: none;
+      border: 1px solid rgba(196, 165, 116, 0.28);
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      background: rgba(8, 36, 51, 0.65);
+    }
+    .foundry-jump a:hover,
+    .foundry-jump a:focus-visible {
+      border-color: rgba(196, 165, 116, 0.6);
+      color: #f8fafc;
+      outline: none;
+    }
+    .foundry-card:target,
+    .foundry-node-tile:target,
+    .matrix-note-card.named-ip-card:target {
+      border-color: rgba(196, 165, 116, 0.72);
+      box-shadow: 0 0 0 2px rgba(196, 165, 116, 0.38), 0 10px 28px -8px rgba(3, 19, 30, 0.55);
+      background: #0c3042;
+    }
+    .otp-split-flag {
+      font: 700 9px 'IBM Plex Mono', monospace;
+      letter-spacing: 0.04em;
+      color: #7dd3fc;
+      border: 1px solid rgba(125, 211, 252, 0.35);
+      background: rgba(125, 211, 252, 0.08);
+      border-radius: 3px;
+      padding: 2px 6px;
+      white-space: nowrap;
+    }
+    .named-ip-groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      gap: 1rem;
+    }
+    .named-ip-groups > li {
+      background: rgba(4, 18, 28, 0.55);
+      border: 1px solid rgba(125, 211, 252, 0.16);
+      border-radius: 6px;
+      padding: 0.85rem 0.95rem;
+      padding-left: 0.95rem;
+    }
+    .named-ip-groups > li::before {
+      content: none;
+    }
+    .named-ip-groups h4 {
+      margin: 0 0 0.45rem;
+      font: 700 0.92rem 'IBM Plex Mono', monospace;
+      color: #7dd3fc;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .foundry-card {
+        transition: none;
+      }
     }
 
     /* Decision Pipeline */
@@ -1219,7 +1301,7 @@
     <span><span data-lang="zh">基礎支柱</span><span data-lang="en">Foundations</span></span>
     <i>›</i>
     <strong><span data-lang="zh">NVM 技術全景對比天平</span><span data-lang="en">NVM Technology Trade-Off Matrix</span></strong>
-    <span class="topic-switch"><a href="NVM技術全景.html#physics-library"><span data-lang="en">Physics Library</span><span data-lang="zh">物理家族總表</span></a><a href="memory-physics.html"><span data-lang="en">Bitcell Physics</span><span data-lang="zh">位元單元物理</span></a></span>
+    <span class="topic-switch"><a href="NVM技術全景.html#physics-library"><span data-lang="en">Physics Library</span><span data-lang="zh">物理家族總表</span></a><a href="NVM技術全景.html#comparison"><span data-lang="en">Atlas Comparisons</span><span data-lang="zh">全景技術比較</span></a><a href="memory-physics.html"><span data-lang="en">Bitcell Physics</span><span data-lang="zh">位元單元物理</span></a></span>
   </nav>
 
   <main id="main-content">
@@ -1245,8 +1327,8 @@
           <span data-lang="en">NVM Technology Trade-Off: <em>Architectural Matrix</em></span>
         </h1>
         <p class="lead-desc">
-          <span data-lang="zh">依 5 族 NVM（晶圓代工製程方案；OTP：FG-OTP vs AntiFuse；MTP：LD vs HD；eFlash：SST vs SONOS；Emerging：ReRAM/MRAM）的 11 把技術葉，在 9 維比較維度上做系統架構橫向比對；並結合隧道物理、晶圓成本與代工 PDK 現況。公開來源表述多數原則，非無偏見天平。</span>
-          <span data-lang="en">Systematic architectural cross-examination across 5 NVM family buckets (Foundry process solutions; OTP with FG-OTP vs AntiFuse; MTP with LD vs HD; eFlash SST vs SONOS; Emerging ReRAM/MRAM) covering 11 technology leaves on 9 comparison dimensions, plus tunneling physics, wafer-cost economics, and foundry PDK realities. Grounded in public sources and majority-principle framing — not an unbiased oracle.</span>
+          <span data-lang="zh">依 5 族 NVM（晶圓代工製程方案；OTP：FG-OTP vs AntiFuse；MTP：LD vs HD；eFlash：SST vs SONOS；Emerging：ReRAM/MRAM）的 11 把技術葉，在 9 維比較維度上做系統架構橫向比對；並結合隧道物理、晶圓成本與代工 PDK 現況。具名 IP（Actt LogicFlash、NSCore TwinBit、Floadia ZT／ZA／G1／G2、CFX、Attopsemi I-fuse、SST SuperFlash）掛在既有族群葉下，機制不同者不合併。公開來源表述多數原則，非無偏見天平。</span>
+          <span data-lang="en">Systematic architectural cross-examination across 5 NVM family buckets (Foundry process solutions; OTP with FG-OTP vs AntiFuse; MTP with LD vs HD; eFlash SST vs SONOS; Emerging ReRAM/MRAM) covering 11 technology leaves on 9 comparison dimensions, plus tunneling physics, wafer-cost economics, and foundry PDK realities. Named IPs (Actt LogicFlash, NSCore TwinBit, Floadia ZT/ZA/G1/G2, CFX, Attopsemi I-fuse, SST SuperFlash) sit under existing family leaves and are not merged across distinct mechanisms. Grounded in public sources and majority-principle framing — not an unbiased oracle.</span>
         </p>
         <div class="f2-hero-proof" aria-label="NVM comparison key metrics" data-aria-en="NVM comparison key metrics" data-aria-zh="NVM 對比核心指標">
           <div>
@@ -1509,9 +1591,9 @@
 <div class="matrix-cell" data-category="otp" data-row="1" data-tech="fgotp"><b>+0</b><span class="cell-note"><span data-lang="zh">logic-IP 級</span><span data-lang="en">Logic-IP class</span></span></div>
 <div class="matrix-cell focus-tech" data-category="otp" data-row="1" data-tech="antifuse"><b style="color:#dfb77c;">+0</b><span class="cell-note"><span data-lang="zh">logic-IP 級</span><span data-lang="en">Logic-IP class</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="1" data-tech="ldmtp"><b><span data-lang="zh">通常 +0</span><span data-lang="en">Typically +0</span></b><span class="cell-note"><span data-lang="zh">通常 +0；供應商分流</span><span data-lang="en">Typically +0; vendor-split</span></span></div>
-<div class="matrix-cell" data-category="mtp" data-row="1" data-tech="hdmtp"><b>+0 ~ +2</b><span class="cell-note"><span data-lang="zh">供應商分流；見脚注</span><span data-lang="en">Vendor-split; see footnote</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="1" data-tech="hdmtp"><b>+0 ~ +2</b><span class="cell-note"><span data-lang="zh">供應商分流；見註腳</span><span data-lang="en">Vendor-split; see footnote</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="1" data-tech="sst"><b>+4 / VERIFY / +10</b><span class="cell-note"><span data-lang="zh">ESF1／ESF2／ESF3</span><span data-lang="en">ESF1 / ESF2 / ESF3</span></span></div>
-<div class="matrix-cell" data-category="eflash" data-row="1" data-tech="sonos"><b>+2 ~ +3</b><span class="cell-note"><span data-lang="zh">Floadia G1 級</span><span data-lang="en">Floadia G1 class</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="1" data-tech="sonos"><b>+2 ~ +4</b><span class="cell-note"><span data-lang="zh">G1 +2–3／G2 +4</span><span data-lang="en">G1 +2–3 / G2 +4</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="1" data-tech="reram"><b>+2 ~ +4</b><span class="cell-note"><span data-lang="zh">BEOL</span><span data-lang="en">BEOL</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="1" data-tech="mram"><b>+3 ~ +5</b><span class="cell-note"><span data-lang="zh">BEOL MTJ</span><span data-lang="en">BEOL MTJ</span></span></div>
 <!-- Row 2: Cell Area Class -->
@@ -1519,7 +1601,7 @@
 <span data-lang="zh">位元胞面積等級</span><span data-lang="en">Cell Area Class</span>
 <small><span data-lang="zh">矽面積量級</span><span data-lang="en">Silicon footprint class</span></small>
 </div>
-<div class="matrix-cell" data-category="foundry" data-row="2" data-tech="efuse"><b><span data-lang="zh">大</span><span data-lang="en">Large</span></b><span class="cell-note">60–120 F²</span></div>
+<div class="matrix-cell" data-category="foundry" data-row="2" data-tech="efuse"><b><span data-lang="zh">大</span><span data-lang="en">Large</span></b><span class="cell-note"><span data-lang="zh">吹斷級 60–120 F²；I-fuse 熔絲面積另核對</span><span data-lang="en">Blow-class 60–120 F²; I-fuse fuse area separately</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="2" data-tech="maskrom"><b><span data-lang="zh">最小</span><span data-lang="en">Smallest</span></b><span class="cell-note">&lt; 8 F²</span></div>
 <div class="matrix-cell" data-category="foundry" data-row="2" data-tech="eeprom"><b><span data-lang="zh">中</span><span data-lang="en">Medium</span></b><span class="cell-note">20–40 F²</span></div>
 <div class="matrix-cell" data-category="otp" data-row="2" data-tech="fgotp"><b><span data-lang="zh">緊湊</span><span data-lang="en">Compact</span></b><span class="cell-note">12–30 F²</span></div>
@@ -1535,15 +1617,15 @@
 <span data-lang="zh">PGM／ERS 機制</span><span data-lang="en">PGM / ERS Mechanism</span>
 <small><span data-lang="zh">寫入與抹除物理</span><span data-lang="en">Program &amp; erase physics</span></small>
 </div>
-<div class="matrix-cell" data-category="foundry" data-row="3" data-tech="efuse"><b><span data-lang="zh">電遷移熔斷</span><span data-lang="en">EM link blow</span></b><span class="cell-note"><span data-lang="zh">不可逆開路</span><span data-lang="en">Irreversible open</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="3" data-tech="efuse"><b><span data-lang="zh">電遷移熔斷</span><span data-lang="en">EM link blow</span></b><span class="cell-note"><span data-lang="zh">吹斷級；I-fuse 另列；CFX 另列 eFuse 商品線</span><span data-lang="en">Blow class; I-fuse separate; CFX also lists an eFuse SKU</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="3" data-tech="maskrom"><b><span data-lang="zh">光罩圖樣</span><span data-lang="en">Mask pattern</span></b><span class="cell-note"><span data-lang="zh">無電氣 PGM</span><span data-lang="en">No electrical PGM</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="3" data-tech="eeprom"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">雙層多晶矽浮閘</span><span data-lang="en">Double-poly floating gate</span></span></div>
-<div class="matrix-cell" data-category="otp" data-row="3" data-tech="fgotp"><b>CHEI / None</b><span class="cell-note"><span data-lang="zh">浮閘注入；無電氣抹除</span><span data-lang="en">FG inject; no electrical erase</span></span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="3" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">閘氧擊穿</span><span data-lang="en">Gate-oxide breakdown</span></b><span class="cell-note"><span data-lang="zh">不可逆導通微絲</span><span data-lang="en">Irreversible filament</span></span></div>
-<div class="matrix-cell" data-category="mtp" data-row="3" data-tech="ldmtp"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">低擾動單層多晶矽</span><span data-lang="en">Low-disturb SP cell</span></span></div>
-<div class="matrix-cell" data-category="mtp" data-row="3" data-tech="hdmtp"><b>CHI / FN</b><span class="cell-note"><span data-lang="zh">熱載子寫入／FN 抹除</span><span data-lang="en">Hot-carrier write / FN erase</span></span></div>
-<div class="matrix-cell" data-category="eflash" data-row="3" data-tech="sst"><b>SSI / FN</b><span class="cell-note"><span data-lang="zh">來源端注入／尖端 FN 抹除</span><span data-lang="en">Source-side inject / tip FN erase</span></span></div>
-<div class="matrix-cell" data-category="eflash" data-row="3" data-tech="sonos"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">氮化層捕捉電荷</span><span data-lang="en">Nitride charge trap</span></span></div>
+<div class="matrix-cell" data-category="otp" data-row="3" data-tech="fgotp"><b>CHEI / None</b><span class="cell-note"><span data-lang="zh">浮閘注入；CFX 亦列此路徑</span><span data-lang="en">FG inject; CFX also lists this path</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="3" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">閘氧擊穿</span><span data-lang="en">Gate-oxide breakdown</span></b><span class="cell-note"><span data-lang="zh">不可逆導通；CFX 教學為閘氧，ZA 位點未公開</span><span data-lang="en">Irreversible conduction; CFX teaching GOX, ZA site unpublished</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="3" data-tech="ldmtp"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">NeoEE／ZT 級；Actt 未公開</span><span data-lang="en">NeoEE / ZT class; Actt unpublished</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="3" data-tech="hdmtp"><b>CHI / FN</b><span class="cell-note"><span data-lang="zh">非 TwinBit Schottky</span><span data-lang="en">Not TwinBit Schottky</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="3" data-tech="sst"><b>SSI / FN</b><span class="cell-note"><span data-lang="zh">SuperFlash SSI／尖端 FN</span><span data-lang="en">SuperFlash SSI / tip FN</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="3" data-tech="sonos"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">G1 捕捉；G2 夾心開關</span><span data-lang="en">G1 trap; G2 sandwiched switches</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="3" data-tech="reram"><b>Forming + SET/RESET</b><span class="cell-note"><span data-lang="zh">細絲形成與切換</span><span data-lang="en">Filament form &amp; switch</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="3" data-tech="mram"><b>STT toggle</b><span class="cell-note"><span data-lang="zh">自旋轉矩切換</span><span data-lang="en">Spin-torque switching</span></span></div>
 <!-- Row 4: Program V/I -->
@@ -1551,15 +1633,15 @@
 <span data-lang="zh">編程電壓與電流</span><span data-lang="en">Program V / I</span>
 <small><span data-lang="zh">隨製程裝置，不是常數</span><span data-lang="en">Process-set, not a constant</span></small>
 </div>
-<div class="matrix-cell" data-category="foundry" data-row="4" data-tech="efuse"><b><span data-lang="zh">高電流</span><span data-lang="en">High I</span></b><span class="cell-note"><span data-lang="zh">~10–15 mA 量級</span><span data-lang="en">~10–15 mA class</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="4" data-tech="efuse"><b><span data-lang="zh">高電流</span><span data-lang="en">High I</span></b><span class="cell-note"><span data-lang="zh">吹斷 ~10–15 mA；I-fuse 另列</span><span data-lang="en">Blow ~10–15 mA; I-fuse separate</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="4" data-tech="maskrom"><b>N/A</b><span class="cell-note"><span data-lang="zh">光罩寫入</span><span data-lang="en">Mask write</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="4" data-tech="eeprom"><b>FN / HV pump</b><span class="cell-note"><span data-lang="zh">~8–14 V 量級</span><span data-lang="en">~8–14 V class</span></span></div>
-<div class="matrix-cell" data-category="otp" data-row="4" data-tech="fgotp"><b><span data-lang="zh">I/O 裝置視窗</span><span data-lang="en">I/O device window</span></b><span class="cell-note"><span data-lang="zh">見脚注 FG-OTP</span><span data-lang="en">See FG-OTP footnote</span></span></div>
+<div class="matrix-cell" data-category="otp" data-row="4" data-tech="fgotp"><b><span data-lang="zh">I/O 裝置視窗</span><span data-lang="en">I/O device window</span></b><span class="cell-note"><span data-lang="zh">見註腳 FG-OTP</span><span data-lang="en">See FG-OTP footnote</span></span></div>
 <div class="matrix-cell focus-tech" data-category="otp" data-row="4" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">隨 core 閘氧</span><span data-lang="en">Tracks core oxide</span></b><span class="cell-note"><span data-lang="zh">數倍 core Vdd</span><span data-lang="en">Several × core Vdd</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="4" data-tech="ldmtp"><b>FN window</b><span class="cell-note"><span data-lang="zh">低擾動幫浦</span><span data-lang="en">Low-disturb pump</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="4" data-tech="hdmtp"><b>CHI + FN</b><span class="cell-note"><span data-lang="zh">寫／抹不同偏壓</span><span data-lang="en">Split write/erase bias</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="4" data-tech="sst"><b>SSI + HV pump</b><span class="cell-note"><span data-lang="zh">寫 10V+5V／抹 12–15V</span><span data-lang="en">Prog 10V+5V / Ers 12–15V</span></span></div>
-<div class="matrix-cell" data-category="eflash" data-row="4" data-tech="sonos"><b>FN / HV pump</b><span class="cell-note"><span data-lang="zh">~8–16 V 量級</span><span data-lang="en">~8–16 V class</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="4" data-tech="sonos"><b>FN / HV pump</b><span class="cell-note"><span data-lang="zh">G1／G2 皆 FN／HV；VDD 是讀</span><span data-lang="en">G1/G2 both FN/HV; VDD is read</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="4" data-tech="reram"><b>Forming / SET</b><span class="cell-note"><span data-lang="zh">Forming 2.5V / SET 1.5V</span><span data-lang="en">Forming 2.5V / SET 1.5V</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="4" data-tech="mram"><b>Near VDD</b><span class="cell-note"><span data-lang="zh">~1.1V · Ic ~30–80 µA</span><span data-lang="en">~1.1V · Ic ~30–80 µA</span></span></div>
 <!-- Row 5: Retention Class -->
@@ -1567,7 +1649,7 @@
 <span data-lang="zh">高溫留存等級</span><span data-lang="en">Retention Class</span>
 <small><span data-lang="zh">架構等級，非認證</span><span data-lang="en">Architecture class, not cert</span></small>
 </div>
-<div class="matrix-cell" data-category="foundry" data-row="5" data-tech="efuse"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="5" data-tech="efuse"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">吹斷級 ~10 yr @ 125°C；I-fuse 另核對具名 IP</span><span data-lang="en">Blow-class ~10 yr @ 125°C; I-fuse check named IP</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="5" data-tech="maskrom"><b><span data-lang="zh">永久級</span><span data-lang="en">Permanent class</span></b><span class="cell-note"><span data-lang="zh">光罩固定</span><span data-lang="en">Mask-fixed</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="5" data-tech="eeprom"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="5" data-tech="fgotp"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
@@ -1575,7 +1657,7 @@
 <div class="matrix-cell" data-category="mtp" data-row="5" data-tech="ldmtp"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="5" data-tech="hdmtp"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="5" data-tech="sst"><b><span data-lang="zh">高溫車規級</span><span data-lang="en">Auto Grade 0</span></b><span class="cell-note"><span data-lang="zh">10 yr @ 150°C / 20 yr @ 125°C</span><span data-lang="en">10 yr @ 150°C / 20 yr @ 125°C</span></span></div>
-<div class="matrix-cell" data-category="eflash" data-row="5" data-tech="sonos"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="5" data-tech="sonos"><b><span data-lang="zh">具名分流</span><span data-lang="en">Named split</span></b><span class="cell-note"><span data-lang="zh">G1 中溫級；G2 表列 175°C</span><span data-lang="en">G1 mid-temp; G2 table 175°C</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="5" data-tech="reram"><b><span data-lang="zh">商業/工業級</span><span data-lang="en">Commercial/Ind</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 85–105°C</span><span data-lang="en">~10 yr @ 85–105°C</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="5" data-tech="mram"><b><span data-lang="zh">中溫級</span><span data-lang="en">Mid-temp class</span></b><span class="cell-note"><span data-lang="zh">~10 yr @ 125°C 量級</span><span data-lang="en">~10 yr @ 125°C class</span></span></div>
 <!-- Row 6: Read Latency -->
@@ -1591,7 +1673,7 @@
 <div class="matrix-cell" data-category="mtp" data-row="6" data-tech="ldmtp"><b>~20–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="6" data-tech="hdmtp"><b>~20–40 ns</b><span class="cell-note"><span data-lang="zh">SA 翻轉受限</span><span data-lang="en">SA trip limited</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="6" data-tech="sst"><b>~15–25 ns</b><span class="cell-note"><span data-lang="zh">分離閘極較快</span><span data-lang="en">Split-gate faster</span></span></div>
-<div class="matrix-cell" data-category="eflash" data-row="6" data-tech="sonos"><b>~20–35 ns</b><span class="cell-note"><span data-lang="zh">2T 捕捉型</span><span data-lang="en">2T charge-trap</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="6" data-tech="sonos"><b>~20–35 ns</b><span class="cell-note"><span data-lang="zh">G1 2T；G2 VDD 讀仍為陣列／SA</span><span data-lang="en">G1 2T; G2 VDD-read still array/SA</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="6" data-tech="reram"><b><span data-lang="zh">數十 ns</span><span data-lang="en">Tens of ns</span></b><span class="cell-note"><span data-lang="zh">陣列／SA 受限</span><span data-lang="en">Array / SA limited</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="6" data-tech="mram"><b>~10–25 ns</b><span class="cell-note"><span data-lang="zh">TMR 裕度與防擾動限制</span><span data-lang="en">TMR margin &amp; disturb bound</span></span></div>
 <!-- Row 7: Endurance -->
@@ -1604,10 +1686,10 @@
 <div class="matrix-cell" data-category="foundry" data-row="7" data-tech="eeprom"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">氧化層磨耗</span><span data-lang="en">Oxide wear</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="7" data-tech="fgotp"><b><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">OTP 單調</span><span data-lang="en">OTP monotonic</span></span></div>
 <div class="matrix-cell focus-tech" data-category="otp" data-row="7" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">不可逆</span><span data-lang="en">Irreversible</span></span></div>
-<div class="matrix-cell" data-category="mtp" data-row="7" data-tech="ldmtp"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">低擾動磨耗</span><span data-lang="en">Low-disturb wear</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="7" data-tech="ldmtp"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">家族量級；ZT 本文／表衝突，非保證</span><span data-lang="en">Family class; ZT body/table conflict, not a guarantee</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="7" data-tech="hdmtp"><b>10<sup>3</sup>–10<sup>4</sup></b><span class="cell-note"><span data-lang="zh">熱載子注入介面磨耗</span><span data-lang="en">Hot-carrier interface wear</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="7" data-tech="sst"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">氧化層磨耗</span><span data-lang="en">Oxide wear</span></span></div>
-<div class="matrix-cell" data-category="eflash" data-row="7" data-tech="sonos"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">捕捉層磨耗</span><span data-lang="en">Trap-layer wear</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="7" data-tech="sonos"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">捕捉層磨耗；G2 開發中，非量產保證</span><span data-lang="en">Trap-layer wear; G2 in development, not a production guarantee</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="7" data-tech="reram"><b>10<sup>5</sup>–10<sup>6</sup></b><span class="cell-note"><span data-lang="zh">細絲磨耗</span><span data-lang="en">Filament wear</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="7" data-tech="mram"><b>10<sup>6</sup>–10<sup>10</sup></b><span class="cell-note"><span data-lang="zh">受限於 ~1nm MgO TDDB（例：<a href="https://doi.org/10.1109/irps.2019.8720435" target="_blank" rel="noopener noreferrer">GF IRPS 2019</a>）</span><span data-lang="en">Bounded by MgO TDDB (e.g. e.g. <a href="https://doi.org/10.1109/irps.2019.8720435" target="_blank" rel="noopener noreferrer">GF IRPS 2019</a>)</span></span></div>
 <!-- Row 8: Scaling -->
@@ -1615,15 +1697,15 @@
 <span data-lang="zh">製程微縮</span><span data-lang="en">Scaling</span>
 <small><span data-lang="zh">成熟下限與先進上限</span><span data-lang="en">Mature floor &amp; advanced ceiling</span></small>
 </div>
-<div class="matrix-cell" data-category="foundry" data-row="8" data-tech="efuse"><b><span data-lang="zh">電流／IR 受限</span><span data-lang="en">Current / IR limited</span></b><span class="cell-note"><span data-lang="zh">非固定 16 nm 止點</span><span data-lang="en">Not a hard 16 nm stop</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="8" data-tech="efuse"><b><span data-lang="zh">電流／IR 受限</span><span data-lang="en">Current / IR limited</span></b><span class="cell-note"><span data-lang="zh">吹斷級；I-fuse 另列</span><span data-lang="en">Blow class; I-fuse separate</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="8" data-tech="maskrom"><b><span data-lang="zh">金屬間距</span><span data-lang="en">Metal pitch</span></b><span class="cell-note"><span data-lang="zh">接觸密度受限</span><span data-lang="en">Contact density bound</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="8" data-tech="eeprom"><b><span data-lang="zh">平面 ~90/130 nm</span><span data-lang="en">Planar ~90/130 nm</span></b><span class="cell-note"><span data-lang="zh">雙層多晶矽熱預算限制</span><span data-lang="en">DP thermal budget bound</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="8" data-tech="fgotp"><b><span data-lang="zh">I/O 或 logic FG</span><span data-lang="en">I/O or logic FG</span></b><span class="cell-note"><span data-lang="zh">依整合路徑</span><span data-lang="en">Integration-path set</span></span></div>
 <div class="matrix-cell focus-tech" data-category="otp" data-row="8" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">微縮至 2nm GAA（vendor/gen；例：<a href="https://doi.org/10.23919/vlsitechnologyandcir65189.2025.11075019" target="_blank" rel="noopener noreferrer">VLSI 2025 DOI</a>）</span><span data-lang="en">Down to 2nm GAA (vendor/gen; e.g. <a href="https://doi.org/10.23919/vlsitechnologyandcir65189.2025.11075019" target="_blank" rel="noopener noreferrer">VLSI 2025 DOI</a>)</span></b><span class="cell-note"><span data-lang="zh">GAA 類常被定位為 0-Mask OTP（依世代／供應商）</span><span data-lang="en">Often positioned as 0-mask OTP in GAA class (vendor/generation dependent)</span></span></div>
-<div class="matrix-cell" data-category="mtp" data-row="8" data-tech="ldmtp"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">FinFET 無法實作單層浮閘</span><span data-lang="en">FinFET stops single-poly FG</span></span></div>
-<div class="matrix-cell" data-category="mtp" data-row="8" data-tech="hdmtp"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">FinFET 無法實作單層浮閘</span><span data-lang="en">FinFET stops single-poly FG</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="8" data-tech="ldmtp"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">單層浮閘；TwinBit 不屬此葉</span><span data-lang="en">Single-poly FG; TwinBit not this leaf</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="8" data-tech="hdmtp"><b><span data-lang="zh">平面 ~28 nm 止點</span><span data-lang="en">Planar ~28 nm limit</span></b><span class="cell-note"><span data-lang="zh">單層浮閘；TwinBit 不屬此葉</span><span data-lang="en">Single-poly FG; TwinBit not this leaf</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="8" data-tech="sst" style="color:#b91c1c;"><b><span data-lang="zh">平面 ~28 nm</span><span data-lang="en">Planar ~28 nm</span></b><span class="cell-note"><span data-lang="zh">HV 幫浦 vs FinFET</span><span data-lang="en">HV pump vs FinFET</span></span></div>
-<div class="matrix-cell" data-category="eflash" data-row="8" data-tech="sonos" style="color:#b91c1c;"><b><span data-lang="zh">平面 ~28 nm</span><span data-lang="en">Planar ~28 nm</span></b><span class="cell-note"><span data-lang="zh">捕捉層熱預算</span><span data-lang="en">Trap thermal budget</span></span></div>
+<div class="matrix-cell" data-category="eflash" data-row="8" data-tech="sonos" style="color:#b91c1c;"><b><span data-lang="zh">平面 ~28 nm</span><span data-lang="en">Planar ~28 nm</span></b><span class="cell-note"><span data-lang="zh">G1 公開至 40 nm；G2 55BCD</span><span data-lang="en">G1 public to 40 nm; G2 55BCD</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="8" data-tech="reram"><b>BEOL</b><span class="cell-note"><span data-lang="zh">Forming 隨節點</span><span data-lang="en">Forming node-set</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="8" data-tech="mram"><b>BEOL MTJ</b><span class="cell-note"><span data-lang="zh">隨代工 BEOL</span><span data-lang="en">Foundry BEOL set</span></span></div>
 <!-- Row 9: Anti-Tamper Geometry -->
@@ -1631,7 +1713,7 @@
 <span data-lang="zh">防竄改幾何</span><span data-lang="en">Anti-Tamper Geometry</span>
 <small><span data-lang="zh">TEM／探針衰減，非免疫</span><span data-lang="en">TEM / probe attenuation, not immunity</span></small>
 </div>
-<div class="matrix-cell" data-category="foundry" data-row="9" data-tech="efuse"><b><span data-lang="zh">熔斷空洞可見</span><span data-lang="en">Melt void visible</span></b><span class="cell-note"><span data-lang="zh">SEM／光學可讀</span><span data-lang="en">SEM / optical read</span></span></div>
+<div class="matrix-cell" data-category="foundry" data-row="9" data-tech="efuse"><b><span data-lang="zh">熔斷空洞可見</span><span data-lang="en">Melt void visible</span></b><span class="cell-note"><span data-lang="zh">吹斷級 SEM；I-fuse 另列</span><span data-lang="en">Blow-class SEM; I-fuse separate</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="9" data-tech="maskrom"><b><span data-lang="zh">去層全暴露</span><span data-lang="en">De-layer exposed</span></b><span class="cell-note"><span data-lang="zh">光學可見</span><span data-lang="en">Optically visible</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="9" data-tech="eeprom"><b><span data-lang="zh">電荷探測</span><span data-lang="en">Charge probing</span></b><span class="cell-note"><span data-lang="zh">EM／雷射攻擊面</span><span data-lang="en">EM / laser attack surface</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="9" data-tech="fgotp"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷／雷射面</span><span data-lang="en">Charge / laser surface</span></span></div>
@@ -1675,13 +1757,13 @@
               </li>
               <li>
                 <b><span data-lang="zh">MTP 供應商分流</span><span data-lang="en">MTP Vendor Split</span></b>：
-                <span data-lang="zh">LD-MTP 通常為 +0（如 NeoEE 類）。HD-MTP 須分流：Impinj／AEON 級 +0；YMC +0–2；eMemory NeoMTP baseline +0、gen2 +2（well-implant 光罩，單元面積 25–50 F²，見 <a href="https://www.chipestimate.com/CMOS-Compatible-MTP-in-Advanced-BCD-Applications/eMemory/Technical-Article/2022/11/29" target="_blank" rel="noopener noreferrer">ChipEstimate 2022-11-29</a>）。</span>
-                <span data-lang="en">LD-MTP is typically +0 (e.g. NeoEE). HD-MTP requires vendor split: Impinj/AEON +0; YMC +0–2; eMemory NeoMTP baseline +0 / gen2 +2 (well-implant masks, cell 25–50 F² per <a href="https://www.chipestimate.com/CMOS-Compatible-MTP-in-Advanced-BCD-Applications/eMemory/Technical-Article/2022/11/29" target="_blank" rel="noopener noreferrer">ChipEstimate 2022-11-29</a>).</span>
+                <span data-lang="zh">LD-MTP 通常為 +0（如 NeoEE、Floadia LEE Flash ZT）。HD-MTP 須分流：Impinj／AEON 級 +0；YMC +0–2；eMemory NeoMTP baseline +0、gen2 +2（well-implant 光罩，單元面積 25–50 F²，見 <a href="https://www.chipestimate.com/CMOS-Compatible-MTP-in-Advanced-BCD-Applications/eMemory/Technical-Article/2022/11/29" target="_blank" rel="noopener noreferrer">ChipEstimate 2022-11-29</a>）。Actt LogicFlash® 公開為 180–55 nm、+0–1，機制未公開，不得回填 FN/FN 或 CHI/FN。NSCore TwinBit™ Gen-2 為 0 光罩 Pch Schottky，不得併入 LD／HD 浮閘葉。</span>
+                <span data-lang="en">LD-MTP is typically +0 (e.g. NeoEE, Floadia LEE Flash ZT). HD-MTP requires vendor split: Impinj/AEON +0; YMC +0–2; eMemory NeoMTP baseline +0 / gen2 +2 (well-implant masks, cell 25–50 F² per <a href="https://www.chipestimate.com/CMOS-Compatible-MTP-in-Advanced-BCD-Applications/eMemory/Technical-Article/2022/11/29" target="_blank" rel="noopener noreferrer">ChipEstimate 2022-11-29</a>). Actt LogicFlash® is public at 180–55 nm, +0–1, with unpublished cell physics — do not back-fill FN/FN or CHI/FN. NSCore TwinBit™ Gen-2 is 0-mask Pch Schottky and must not be merged into the LD/HD floating-gate leaves.</span>
               </li>
               <li>
                 <b><span data-lang="zh">eFlash 模組階梯</span><span data-lang="en">eFlash Hierarchy</span></b>：
-                <span data-lang="zh">SST 不得合併：ESF1 例 +4（GF 130BCDLite）；ESF2 VERIFY；ESF3 例 +10（GF 28SLPe 含 5V I/O）。SONOS 為 Floadia G1 級 +2–3，非 +6–10；原廠 PDK／SPICE 保留（Floadia 公開）。</span>
-                <span data-lang="en">SST must not be lumped: ESF1 ex. +4 (GF 130BCDLite); ESF2 VERIFY; ESF3 ex. +10 (GF 28SLPe incl. 5V I/O; <a href="https://www.microchip.com/en-us/about/news-releases/corporate/globalfoundries-microchip-announce-microchips-28nm-superflash" target="_blank" rel="noopener noreferrer">Microchip/GF public</a>). SONOS is Floadia G1-class +2–3, not +6–10; original PDK/SPICE preserved (Floadia public).</span>
+                <span data-lang="zh">SST 不得合併：ESF1 例 +4（GF 130BCDLite）；ESF2 VERIFY；ESF3 例 +10（GF 28SLPe 含 5V I/O）。SONOS 須分流：Floadia G1 級 +2–3（180 BCD 公開表列例為 +2），非 +6–10；G2 公開為 +4（55 BCD 表列，開發中），讀取為 VDD、SONOS 夾於開關電晶體之間。原廠 PDK／SPICE 保留（<a href="https://floadia.com/product/lee-flash-g1/" target="_blank" rel="noopener noreferrer">G1</a>／<a href="https://floadia.com/product/lee-flash-g2/" target="_blank" rel="noopener noreferrer">G2</a> 公開頁）。</span>
+                <span data-lang="en">SST must not be lumped: ESF1 ex. +4 (GF 130BCDLite); ESF2 VERIFY; ESF3 ex. +10 (GF 28SLPe incl. 5V I/O; <a href="https://www.microchip.com/en-us/about/news-releases/corporate/globalfoundries-microchip-announce-microchips-28nm-superflash" target="_blank" rel="noopener noreferrer">Microchip/GF public</a>). SONOS requires a named split: Floadia G1-class +2–3 (180 BCD public table lists +2), not +6–10; G2 is public at +4 (55 BCD table, in development) with VDD-read and a SONOS cell sandwiched by switch transistors. Original PDK/SPICE preserved (<a href="https://floadia.com/product/lee-flash-g1/" target="_blank" rel="noopener noreferrer">G1</a> / <a href="https://floadia.com/product/lee-flash-g2/" target="_blank" rel="noopener noreferrer">G2</a> public pages).</span>
               </li>
             </ul>
           </div>
@@ -1701,13 +1783,13 @@
               </li>
               <li>
                 <b><span data-lang="zh">FinFET 3D 閘極微縮斷崖</span><span data-lang="en">FinFET 3D Scaling Cliff</span></b>：
-                <span data-lang="zh">單層多晶矽 MTP 受限於平面擴散區耦合電容與 3D 鰭狀閘極幾何衝突，其製程微縮止於 28nm/22nm 平面節點，無法延伸至 FinFET。</span>
-                <span data-lang="en">Single-poly MTP scaling stops at 28nm/22nm planar nodes due to 3D FinFET coupling-capacitor topology barriers.</span>
+                <span data-lang="zh">單層多晶矽浮閘 MTP 受限於平面擴散區耦合電容與 3D 鰭狀閘極幾何衝突，其製程微縮止於 28nm/22nm 平面節點，無法延伸至 FinFET。此斷崖適用 LD-MTP／HD-MTP 浮閘葉，<strong>不適用</strong> NSCore TwinBit™ Gen-2：原廠公開為 Pch Schottky 單元、0 額外光罩、40–22 nm 及 beyond（<a href="https://www.nscore.com/products/twinbit-gen2/" target="_blank" rel="noopener noreferrer">TwinBit Gen-2</a>），不得把 Schottky 熱載子路徑回填成單層浮閘。</span>
+                <span data-lang="en">Single-poly floating-gate MTP scaling stops at 28nm/22nm planar nodes due to 3D FinFET coupling-capacitor topology barriers. That cliff applies to the LD-MTP / HD-MTP FG leaves, <strong>not</strong> to NSCore TwinBit™ Gen-2: the vendor page is a Pch Schottky cell, 0 extra masks, 40–22 nm and beyond (<a href="https://www.nscore.com/products/twinbit-gen2/" target="_blank" rel="noopener noreferrer">TwinBit Gen-2</a>). Do not back-fill Schottky hot-carrier physics onto single-poly FG.</span>
               </li>
               <li>
                 <b><span data-lang="zh">先進節點 0-Mask 延伸</span><span data-lang="en">Advanced Node Extension</span></b>：
-                <span data-lang="zh">AntiFuse 編程是 core 裝置閘氧崩潰：Vpgm 由該製程閘氧厚度與允許擊穿時間決定；常被定位為可隨 core 縮放進入含 2nm GAA 的先進節點類別（依 vendor／世代；公開硕例 <a href="https://doi.org/10.23919/vlsitechnologyandcir65189.2025.11075019" target="_blank" rel="noopener noreferrer">VLSI 2025 DOI</a>，非萬能保證）。</span>
-                <span data-lang="en">AntiFuse programming is core-device gate-oxide breakdown, often positioned to scale into advanced GAA classes including 2nm (vendor/generation dependent; public Si ex. <a href="https://doi.org/10.23919/vlsitechnologyandcir65189.2025.11075019" target="_blank" rel="noopener noreferrer">VLSI 2025 DOI</a> — not a universal guarantee).</span>
+                <span data-lang="zh">AntiFuse 編程在教學葉上常是 core 裝置閘氧崩潰：Vpgm 由該製程閘氧厚度與允許擊穿時間決定；常被定位為可隨 core 縮放進入含 2nm GAA 的先進節點類別（依 vendor／世代；公開矽例 <a href="https://doi.org/10.23919/vlsitechnologyandcir65189.2025.11075019" target="_blank" rel="noopener noreferrer">VLSI 2025 DOI</a>，非萬能保證）。CFX 教學預設才是閘氧路徑。Floadia LEE Fuse ZA 可掛同一葉，但公開只到介電層永久導通，不指定擊穿點在閘極或電容，不得把閘氧微絲模型套上去；涵蓋 180 nm 至 sub-10 nm，量產軌跡為 1x nm DRAM，28 nm 邏輯列為開發中（<a href="https://floadia.com/product/lee-fuse-za/" target="_blank" rel="noopener noreferrer">LEE Fuse ZA</a>）。</span>
+                <span data-lang="en">On the teaching leaf, AntiFuse programming is often core-device gate-oxide breakdown, with Vpgm set by that process oxide and allowed time-to-breakdown; it is often positioned to scale into advanced GAA classes including 2nm (vendor/generation dependent; public Si ex. <a href="https://doi.org/10.23919/vlsitechnologyandcir65189.2025.11075019" target="_blank" rel="noopener noreferrer">VLSI 2025 DOI</a> — not a universal guarantee). The CFX teaching default is the GOX path. Floadia LEE Fuse ZA may sit on the same leaf, but it is published only as a dielectric made permanently conductive and does not locate the breakdown in a gate or a capacitor — do not apply the GOX filament model. Public coverage is 180 nm to sub-10 nm, with a 1x nm DRAM mass-production track and 28 nm logic listed as under development (<a href="https://floadia.com/product/lee-fuse-za/" target="_blank" rel="noopener noreferrer">LEE Fuse ZA</a>).</span>
               </li>
             </ul>
           </div>
@@ -1722,8 +1804,8 @@
             <ul class="note-card-list">
               <li>
                 <b><span data-lang="zh">SST 來源端注入 (SSI)</span><span data-lang="en">SST Source-Side Injection</span></b>：
-                <span data-lang="zh">寫入採用專利來源端注入（SSI）高效率熱電子傳輸，抹除則為多晶矽尖端 FN 穿隧。</span>
-                <span data-lang="en">SST eFlash programming relies on patented Source-Side Injection (SSI) and poly-tip FN erase.</span>
+                <span data-lang="zh">SST 寫入採用專利來源端注入（SSI）高效率熱電子傳輸，抹除則為多晶矽尖端 FN 穿隧（SST SuperFlash 公開族）。NSCore TwinBit™ Gen-2 寫入為熱電洞、抹除為熱電子（Pch Schottky；<a href="https://www.nscore.com/products/twinbit-gen2/" target="_blank" rel="noopener noreferrer">原廠 TCAD 頁</a>），不得與 SSI、FN/FN 或 CHI/FN 互換。Attopsemi I-fuse® 為熱輔助電遷移、刻意低於熱失控吹斷（<a href="https://www.attopsemi.com/technology/i-fuse/" target="_blank" rel="noopener noreferrer">I-fuse</a>；IEEE JEDS 2019 22 nm FD-SOI 例約 1 V／1 mA），不得與代工標準 eFuse 熔斷、閘氧 AntiFuse 或浮閘 OTP 合併。</span>
+                <span data-lang="en">SST programming relies on patented Source-Side Injection (SSI) and poly-tip FN erase (SST SuperFlash family). NSCore TwinBit™ Gen-2 programs by hot holes and erases by hot electrons (Pch Schottky; <a href="https://www.nscore.com/products/twinbit-gen2/" target="_blank" rel="noopener noreferrer">vendor TCAD page</a>) and must not be swapped with SSI, FN/FN, or CHI/FN. Attopsemi I-fuse® is heat-assisted electromigration deliberately below thermal-runaway blow (<a href="https://www.attopsemi.com/technology/i-fuse/" target="_blank" rel="noopener noreferrer">I-fuse</a>; IEEE JEDS 2019 22 nm FD-SOI example ~1 V / ~1 mA) and must not be merged with foundry-standard eFuse blow, gate-oxide AntiFuse, or floating-gate OTP.</span>
               </li>
               <li>
                 <b><span data-lang="zh">eMRAM TDDB 壽命極限</span><span data-lang="en">eMRAM TDDB Limit</span></b>：
@@ -1753,13 +1835,39 @@
               </li>
               <li>
                 <b><span data-lang="zh">讀取延遲與開機快取</span><span data-lang="en">Read Path &amp; Boot Shadowing</span></b>：
-                <span data-lang="zh">讀取延遲指陣列／sense amplifier 路徑；eFuse 原生約 µs 量級，實務上開機 shadow 到 SRAM。OTP 陣列讀取普遍極限約 25 ns、多數約 40 ns。SST 分離閘極 eFlash 通常稍快，約 15–25 ns 量級。</span>
-                <span data-lang="en">Read latency is array/SA path. Native eFuse sensing is ~µs-class, shadowed to SRAM at boot. OTP array reads typically sit near 40 ns, practical floor ~25 ns. SST split-gate is ~15–25 ns class.</span>
+                <span data-lang="zh">讀取延遲指陣列／sense amplifier 路徑；吹斷級 eFuse 原生約 µs 量級，實務上開機 shadow 到 SRAM。OTP 陣列讀取普遍極限約 25 ns、多數約 40 ns。SST 分離閘極 eFlash 通常稍快，約 15–25 ns 量級。I-fuse 讀熔絲電阻；閘氧 AntiFuse 讀閘極電流；ZA 感測路徑未公開。延遲仍以該版巨集為準，不得把 µs 原生 eFuse 數字套到 I-fuse。</span>
+                <span data-lang="en">Read latency is array/SA path. Native blow-class eFuse sensing is ~µs-class, shadowed to SRAM at boot. OTP array reads typically sit near 40 ns, practical floor ~25 ns. SST split-gate is ~15–25 ns class. I-fuse reads fuse resistance; GOX AntiFuse reads gate current; ZA sense path is unpublished. Keep native µs eFuse figures off I-fuse macros.</span>
               </li>
               <li>
                 <b><span data-lang="zh">TEM / DPA 防護責任鏈</span><span data-lang="en">TEM / DPA Layered Defense</span></b>：
                 <span data-lang="zh">非揮發微絲為永久性物理歐姆結構，位元單元本身無法「單週期自我清除」；系統防護依賴主動頂層金屬網感測觸發揮發暫存器即時清零。TEM／DPA 描述為幾何與架構衰減，非絕對免疫。具名產品仍以該版 IP 為準。</span>
                 <span data-lang="en">Physical filament is an irreversible ohmic structure and cannot self-zeroize; system defense relies on active mesh detecting tampering to zeroize volatile shadow registers. TEM/DPA descriptions represent geometric/architectural attenuation, not absolute immunity. Check the specific IP revision.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 5: Named IP coverage under family leaves -->
+          <div class="matrix-note-card named-ip-card" id="named-ip-leaves">
+            <div class="note-card-badge" style="color: #7dd3fc;">05 · NAMED IP UNDER FAMILY LEAVES</div>
+            <h3 class="note-card-title">
+              <span data-lang="zh">具名 IP 對應既有 11 葉（機制不同者不併欄）</span>
+              <span data-lang="en">Named IPs Map onto the 11 Leaves (Do Not Merge Distinct Physics)</span>
+            </h3>
+            <ul class="note-card-list named-ip-groups">
+              <li>
+                <h4>OTP</h4>
+                <span data-lang="zh">CFX 公開三條路徑——閘氧 AntiFuse、eFuse、浮閘 OTP——教學預設為閘氧崩潰，不得把三條路徑併成同一格（<a href="NVM技術全景.html#ip-cfx-otp">單元導讀</a>；<a href="https://www.chuangfeixin.com/" target="_blank" rel="noopener noreferrer">chuangfeixin.com</a>）。Floadia LEE Fuse ZA 掛 AntiFuse 葉：0 額外光罩、180 nm 至 sub-10 nm；公開只到介電層永久導通，擊穿位點未指定，不得寫成閘氧路徑；頁面曾寫「LEE Flash ZA」，產品名仍為 LEE Fuse ZA（<a href="NVM技術全景.html#ip-floadia-za">單元導讀</a>）。Attopsemi I-fuse® 掛 eFuse 族群但<strong>不是</strong>吹斷級 eFuse、也<strong>不是</strong> AntiFuse：poly／metal-gate／metal fuse，熱輔助電遷移且低於熱失控（<a href="NVM技術全景.html#ip-attopsemi-ifuse">單元導讀</a>）。</span>
+                <span data-lang="en">CFX publishes three routes — GOX AntiFuse, eFuse, and floating-gate OTP — the teaching default is oxide breakdown and the three must not collapse into one cell (<a href="NVM技術全景.html#ip-cfx-otp">cell study</a>; <a href="https://www.chuangfeixin.com/" target="_blank" rel="noopener noreferrer">chuangfeixin.com</a>). Floadia LEE Fuse ZA sits on the AntiFuse leaf: 0 extra masks, 180 nm to sub-10 nm; published only as a dielectric made permanently conductive, breakdown site unpublished — not a GOX path; the page once says “LEE Flash ZA”, but the product name is LEE Fuse ZA (<a href="NVM技術全景.html#ip-floadia-za">cell study</a>). Attopsemi I-fuse® sits in the eFuse family but is <strong>not</strong> blow-class eFuse and <strong>not</strong> AntiFuse: poly / metal-gate / metal fuse programmed by heat-assisted EM below thermal runaway (<a href="NVM技術全景.html#ip-attopsemi-ifuse">cell study</a>).</span>
+              </li>
+              <li>
+                <h4>MTP</h4>
+                <span data-lang="zh">Floadia LEE Flash ZT 掛 LD-MTP 葉：0 光罩、FN 寫／抹、浮閘（新聞稿）；公開頁 P/E 次數本文與表不一致，不得當共通保證（<a href="NVM技術全景.html#ip-floadia-zt">單元導讀</a>）。Actt LogicFlash® MTP（CMT 為 2016 年收購沿革，不是現行 SKU）公開 180–55 nm、+0–1、類 Flash 的 byte PGM／sector 或 chip ERS；產品頁最高約 10k 次，非本表保證；單元物理未公開（<a href="NVM技術全景.html#ip-actt-cmt">單元導讀</a>）。NSCore TwinBit™ Gen-2 不掛 LD 也不掛 HD：Pch Schottky、熱電洞寫入／熱電子抹除、40–22 nm、0 光罩（<a href="NVM技術全景.html#ip-nscore-twinbit">單元導讀</a>）。PermSRAM 是 OTP 旁系（熱載子進 SiN 側壁），不得與 TwinBit 合併。</span>
+                <span data-lang="en">Floadia LEE Flash ZT sits on the LD-MTP leaf: 0 extra masks, FN program/erase, floating gate (press). Public P/E-cycle body vs table conflict — not a common guarantee (<a href="NVM技術全景.html#ip-floadia-zt">cell study</a>). Actt LogicFlash® MTP (CMT is 2016 acquisition lineage, not a current SKU) is public at 180–55 nm, +0–1, Flash-like byte PGM / sector or chip ERS; product-page up to ~10k cycles, not a table guarantee; cell physics unpublished (<a href="NVM技術全景.html#ip-actt-cmt">cell study</a>). NSCore TwinBit™ Gen-2 sits on neither LD nor HD: Pch Schottky, hot-hole program / hot-electron erase, 40–22 nm, 0 extra masks (<a href="NVM技術全景.html#ip-nscore-twinbit">cell study</a>). PermSRAM is an OTP sibling (hot-carrier into SiN sidewall) and must not merge with TwinBit.</span>
+              </li>
+              <li>
+                <h4>eFlash</h4>
+                <span data-lang="zh">SST 葉即 SST SuperFlash 分離閘極族（SSI／interpoly FN；公開節點約 180–28 nm，首頁亦見 500 nm–28 nm）（<a href="NVM技術全景.html#ip-sst-superflash">單元導讀</a>）。Floadia G1 掛 SONOS 葉：+2–3、FN P/E、BCD（<a href="NVM技術全景.html#ip-floadia-g1">單元導讀</a>）。G2 同為 SONOS 但 +4、VDD 讀、夾心開關、55 BCD 表列且標示開發中（<a href="NVM技術全景.html#ip-floadia-g2">單元導讀</a>）；<a href="https://doi.org/10.1109/vlsi-dat49148.2020.9196270" target="_blank" rel="noopener noreferrer">VLSI-DAT 2020</a> 以 TCAD 討論低於 28 nm 的可行性，不是 FinFET 量產聲明。</span>
+                <span data-lang="en">The SST leaf is the SST SuperFlash split-gate family (SSI / interpoly FN; public foundry nodes ~180–28 nm; home also states 500 nm–28 nm) (<a href="NVM技術全景.html#ip-sst-superflash">cell study</a>). Floadia G1 sits on the SONOS leaf: +2–3, FN P/E, BCD (<a href="NVM技術全景.html#ip-floadia-g1">cell study</a>). G2 is also SONOS but +4, VDD-read, sandwiched switches, 55 BCD table, marked in development (<a href="NVM技術全景.html#ip-floadia-g2">cell study</a>); <a href="https://doi.org/10.1109/vlsi-dat49148.2020.9196270" target="_blank" rel="noopener noreferrer">VLSI-DAT 2020</a> discusses sub-28 nm feasibility in TCAD — not a FinFET production claim.</span>
               </li>
             </ul>
           </div>
@@ -1777,8 +1885,8 @@
         </h2>
       </div>
       <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; max-width: 860px; margin-bottom: 1.5rem;">
-        <span data-lang="zh">調節五大設計約束滑桿，即時畫出各技術相對輪廓。分數為示範性 heuristic demo（相對適配），不是 production selector、不是預設贏家、也不是出貨證明。</span>
-        <span data-lang="en">Move the five constraint sliders to redraw relative hulls. Scores are a heuristic demo of relative fit under the current sliders — not a production selector, not a default winner, and not shipment proof.</span>
+        <span data-lang="zh">調節五大設計約束滑桿，即時畫出各技術相對輪廓。分數為示範性 heuristic demo（相對適配），不是 production selector、不是預設贏家、也不是出貨證明。輪廓為族群級：eFuse 為吹斷級；I-fuse 與 Logic MTP 另列候選。TwinBit／Actt／G2 等具名例外見矩陣註解 05，不另畫獨立輪廓。</span>
+        <span data-lang="en">Move the five constraint sliders to redraw relative hulls. Scores are a heuristic demo of relative fit under the current sliders — not a production selector, not a default winner, and not shipment proof. Hulls are family-class: eFuse is blow-class; I-fuse and Logic MTP are listed as separate candidates. Named exceptions (TwinBit / Actt / G2) stay in matrix note 05 and do not get extra hulls.</span>
       </p>
 
       <div class="selector-grid-layout">
@@ -1865,12 +1973,13 @@
         <!-- Right: 5-Axis Dynamic Radar Chart -->
         <div style="background: rgba(4, 18, 28, 0.95); border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 8px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
           <div style="position: absolute; top: 12px; left: 16px; font: 700 11px 'IBM Plex Mono', monospace; color: #c4a574; letter-spacing: 0.1em;">
-            5-AXIS ARCHITECTURAL TRADE-OFF RADAR
+            <span data-lang="zh">5 軸架構取捨雷達</span>
+            <span data-lang="en">5-AXIS ARCHITECTURAL TRADE-OFF RADAR</span>
           </div>
           <canvas id="selectorRadarCanvas" width="380" height="340" style="max-width: 100%; height: auto;"></canvas>
           <div style="display: flex; gap: 16px; font: 600 10.5px 'IBM Plex Mono', monospace; margin-top: 6px;">
-            <span style="color: #c4a574; display: flex; align-items: center; gap: 4px;">● <span id="radarTopLabel">AntiFuse OTP (relative fit)</span></span>
-            <span style="color: #f59e0b; display: flex; align-items: center; gap: 4px;">● <span id="radarRunnerLabel">STT-eMRAM (next)</span></span>
+            <span style="color: #c4a574; display: flex; align-items: center; gap: 4px;">● <span id="radarTopLabel"><span data-lang="zh">AntiFuse OTP（相對適配）</span><span data-lang="en">AntiFuse OTP (relative fit)</span></span></span>
+            <span style="color: #f59e0b; display: flex; align-items: center; gap: 4px;">● <span id="radarRunnerLabel"><span data-lang="zh">STT-eMRAM（次適配）</span><span data-lang="en">STT-eMRAM (next)</span></span></span>
           </div>
         </div>
       </div>
@@ -1880,7 +1989,7 @@
 
       <!-- Architect Verdict -->
       <div class="match-verdict-box" id="matchVerdictBox" style="background: #061925; border: 1px solid rgba(196, 165, 116, 0.35); border-radius: 6px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 12px;">
-        <span class="verdict-tag" style="background: rgba(196, 165, 116, 0.15); border: 1px solid #c4a574; color: #c4a574; font: 700 10px 'IBM Plex Mono', monospace; padding: 3px 6px; border-radius: 3px; white-space: nowrap; margin-top: 2px;">[RELATIVE FIT]</span>
+        <span class="verdict-tag" style="background: rgba(196, 165, 116, 0.15); border: 1px solid #c4a574; color: #c4a574; font: 700 10px 'IBM Plex Mono', monospace; padding: 3px 6px; border-radius: 3px; white-space: nowrap; margin-top: 2px;"><span data-lang="zh">［相對適配］</span><span data-lang="en">[RELATIVE FIT]</span></span>
         <div id="verdictText" style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;" aria-live="polite" aria-atomic="true">
           <span data-lang="zh">相對適配計算中…</span>
           <span data-lang="en">Computing relative fit…</span>
@@ -1922,13 +2031,15 @@
               • <strong>穿隧係數理論解</strong>：<em>A</em><sub>FN</sub> = <em>q</em><sup>2</sup>(<em>m</em><sub>0</sub>/<em>m</em>*) / (8&pi; <em>h</em> &Phi;<sub>B</sub>) &approx; 1.2&times;10<sup>&minus;6</sup> A/V<sup>2</sup>；<em>B</em><sub>FN</sub> = 4&radic;(2<em>m</em>*<em>q</em>) &Phi;<sub>B</sub><sup>3/2</sup> / (3&hbar;) = 8&pi;&radic;(2<em>m</em>*<em>q</em>) &Phi;<sub>B</sub><sup>3/2</sup> / (3<em>h</em>)。<br>
               • <strong>常數基準校正</strong>：Si–SiO<sub>2</sub> 能階差 &Phi;<sub>B</sub> &approx; 3.15 eV。若取自由電子有效質量 <em>m</em>* &approx; 0.50 <em>m</em><sub>0</sub>，理論值 <em>B</em><sub>FN</sub> &approx; 2.70&times;10<sup>8</sup> V/cm (270 MV/cm)；若採 Lenzlinger–Snow 實驗穿隧質量 <em>m</em>* &approx; 0.42 <em>m</em><sub>0</sub>（含影像力修正），則 <em>B</em><sub>FN</sub> &approx; 2.48&times;10<sup>8</sup> V/cm &approx; 2.5&times;10<sup>8</sup> V/cm。<br>
               • <strong>微觀崩潰四階段</strong>：高場應力誘發氧空位與 E' 中心缺陷生成 &rarr; 達滲透閾值 (<em>N</em><sub>bd</sub> &approx; 10<sup>19</sup>~10<sup>20</sup> cm<sup>&minus;3</sup>) 觸發軟崩潰 (SBD) &rarr; 焦耳熱集中引發熱失控硬崩潰 (HBD, 局部 <em>T</em> &gt; 1400&deg;C) &rarr; 矽原子遷移凝固為直徑 5~10 nm 的局域再結晶矽微絲，阻抗由 &gt;10<sup>11</sup> &Omega; 驟降至 10<sup>2</sup> &Omega; 歐姆態。此為不可逆之金屬/半導體相變，非 ReRAM 可逆微絲。<br>
-              • <strong>編程電壓縮放</strong>：<em>V</em><sub>prog</sub> 由 <em>E</em><sub>ox</sub> &times; <em>t</em><sub>ox</sub> 及擊穿時間 <em>t</em><sub>bd</sub> 約束，隨 Core 閘氧厚度按比例縮放（如 28nm ~ 1.8V-2.5V），不可將 5V/3.3V I/O 浮閘 HCI 的 6.5V~7.5V 數值回填混淆。
+              • <strong>編程電壓縮放</strong>：<em>V</em><sub>prog</sub> 由 <em>E</em><sub>ox</sub> &times; <em>t</em><sub>ox</sub> 及擊穿時間 <em>t</em><sub>bd</sub> 約束，隨 Core 閘氧厚度按比例縮放（如 28nm ~ 1.8V-2.5V），不可將 5V/3.3V I/O 浮閘 HCI 的 6.5V~7.5V 數值回填混淆。<br>
+              • <strong>適用範圍</strong>：此式描述 core 閘氧 AntiFuse（含 CFX 教學路徑）。Floadia LEE Fuse ZA 只公開介電層永久導通，擊穿位點未指定，不得套用本微絲模型。
             </span>
             <span data-lang="en">
               • <strong>Theoretical Coefficients</strong>: <em>A</em><sub>FN</sub> = <em>q</em><sup>2</sup>(<em>m</em><sub>0</sub>/<em>m</em>*) / (8&pi; <em>h</em> &Phi;<sub>B</sub>) &approx; 1.2&times;10<sup>&minus;6</sup> A/V<sup>2</sup>; <em>B</em><sub>FN</sub> = 4&radic;(2<em>m</em>*<em>q</em>) &Phi;<sub>B</sub><sup>3/2</sup> / (3&hbar;) = 8&pi;&radic;(2<em>m</em>*<em>q</em>) &Phi;<sub>B</sub><sup>3/2</sup> / (3<em>h</em>).<br>
               • <strong>Constant Calibration</strong>: Barrier &Phi;<sub>B</sub> &approx; 3.15 eV. Theoretical <em>B</em><sub>FN</sub> &approx; 2.70&times;10<sup>8</sup> V/cm (270 MV/cm) with <em>m</em>* &approx; 0.50 <em>m</em><sub>0</sub>; empirical Lenzlinger–Snow value gives <em>B</em><sub>FN</sub> &approx; 2.48&times;10<sup>8</sup> V/cm &approx; 2.5&times;10<sup>8</sup> V/cm with <em>m</em>* &approx; 0.42 <em>m</em><sub>0</sub>.<br>
               • <strong>4-Stage Breakdown Physics</strong>: Stress defect generation &rarr; Percolation threshold (<em>N</em><sub>bd</sub> &approx; 10<sup>19</sup>~10<sup>20</sup> cm<sup>&minus;3</sup>) soft breakdown (SBD) &rarr; Joule heating thermal runaway hard breakdown (HBD, <em>T</em> &gt; 1400&deg;C) &rarr; Molten silicon migration forming 5~10 nm recrystallized silicon filament shifting resistance from &gt;10<sup>11</sup> &Omega; to 10<sup>2</sup> &Omega; ohmic state. Permanent metallurgical phase change, unlike ReRAM.<br>
-              • <strong>Scaling Constraint</strong>: <em>V</em><sub>prog</sub> scales with Core <em>E</em><sub>ox</sub> &times; <em>t</em><sub>ox</sub> and allowed <em>t</em><sub>bd</sub>; never back-fill 6.5V~7.5V I/O floating-gate HCI voltages onto thin-oxide AntiFuse.
+              • <strong>Scaling Constraint</strong>: <em>V</em><sub>prog</sub> scales with Core <em>E</em><sub>ox</sub> &times; <em>t</em><sub>ox</sub> and allowed <em>t</em><sub>bd</sub>; never back-fill 6.5V~7.5V I/O floating-gate HCI voltages onto thin-oxide AntiFuse.<br>
+              • <strong>Scope</strong>: this identity describes core-GOX AntiFuse, including the CFX teaching route. Floadia LEE Fuse ZA is published only as a dielectric made permanently conductive; the breakdown site is unpublished — do not apply this filament model to ZA.
             </span>
           </div>
         </div>
@@ -1951,16 +2062,18 @@
             <span data-lang="zh">
               • <strong>光罩邊際成本差異 (&alpha;<sub>mask</sub>)</strong>：FEOL 關鍵層涉及高能植入與高溫退火，邊際加價率 &alpha;<sub>FEOL</sub> &approx; 2.5%~4.0%/mask；BEOL 金屬穿插層邊際加價率 &alpha;<sub>BEOL</sub> &approx; 1.5%~2.5%/mask。<br>
               • <strong>技術陣營量級</strong>：<br>
-              &nbsp;&nbsp;&ndash; <em>eFlash</em>：FEOL &Delta;<em>N</em><sub>mask</sub> = 8~12，晶圓加價 &Delta;<em>C</em><sub>wafer</sub> &approx; +30%~45%，高溫退火使 &Delta;<em>Y</em><sub>process</sub> 顯著。<br>
+              &nbsp;&nbsp;&ndash; <em>SST-class eFlash</em>：FEOL &Delta;<em>N</em><sub>mask</sub> 常為 +4（ESF1 例）至 +10（ESF3 例），不得把所有 eFlash 硬編 8~12。<br>
+              &nbsp;&nbsp;&ndash; <em>SONOS eFlash</em>：Floadia G1 公開 +2~3；G2 公開 +4（55 BCD，開發中）。<br>
               &nbsp;&nbsp;&ndash; <em>STT-MRAM</em>：BEOL &Delta;<em>N</em><sub>mask</sub> = 3~5，晶圓加價 &Delta;<em>C</em><sub>wafer</sub> &approx; +15%~22%，金屬回濺增加缺陷密度 &Delta;<em>D</em><sub>0</sub>。<br>
-              &nbsp;&nbsp;&ndash; <em>AntiFuse OTP</em>：&Delta;<em>N</em><sub>mask</sub> = 0，純邏輯相容零光罩加價；單元擊穿具 Weibull 分布，需預留 5%~12% 備援與 ECC 面積以確保 <em>Y</em> &rarr; 100%。零額外光罩 &ne; 晶圓免費。
+              &nbsp;&nbsp;&ndash; <em>0-mask 邏輯 NVM</em>：AntiFuse、吹斷級 eFuse、I-fuse、LD-MTP（NeoEE／ZT）、TwinBit 均為 &Delta;<em>N</em><sub>mask</sub> = 0；單元統計與感測面積仍佔矽。零額外光罩 &ne; 晶圓免費。
             </span>
             <span data-lang="en">
               • <strong>Marginal Mask Adders (&alpha;<sub>mask</sub>)</strong>: FEOL critical layers involve high-energy implants and thermal cycles (&alpha;<sub>FEOL</sub> &approx; 2.5%~4.0%/mask); BEOL interconnect modules add &alpha;<sub>BEOL</sub> &approx; 1.5%~2.5%/mask.<br>
               • <strong>Technology Spectrum</strong>:<br>
-              &nbsp;&nbsp;&ndash; <em>eFlash</em>: FEOL &Delta;<em>N</em><sub>mask</sub> = 8~12, wafer adder &Delta;<em>C</em><sub>wafer</sub> &approx; +30%~45%, thermal budget impacts &Delta;<em>Y</em><sub>process</sub>.<br>
+              &nbsp;&nbsp;&ndash; <em>SST-class eFlash</em>: FEOL &Delta;<em>N</em><sub>mask</sub> commonly +4 (ESF1 class) to +10 (ESF3 class); do not hard-code every eFlash at 8~12.<br>
+              &nbsp;&nbsp;&ndash; <em>SONOS eFlash</em>: Floadia G1 public +2~3; G2 public +4 (55 BCD, in development).<br>
               &nbsp;&nbsp;&ndash; <em>STT-MRAM</em>: BEOL &Delta;<em>N</em><sub>mask</sub> = 3~5, wafer adder &Delta;<em>C</em><sub>wafer</sub> &approx; +15%~22%, physical sputter redeposition alters defectivity &Delta;<em>D</em><sub>0</sub>.<br>
-              &nbsp;&nbsp;&ndash; <em>AntiFuse OTP</em>: &Delta;<em>N</em><sub>mask</sub> = 0, logic-compatible with 0% mask adder; Weibull breakdown statistics mitigated via 5%~12% redundancy &amp; ECC. Zero extra masks &ne; free wafers.
+              &nbsp;&nbsp;&ndash; <em>0-mask logic NVM</em>: AntiFuse, blow-class eFuse, I-fuse, LD-MTP (NeoEE / ZT), and TwinBit are &Delta;<em>N</em><sub>mask</sub> = 0; cell statistics and sense area still occupy silicon. Zero extra masks &ne; free wafers.
             </span>
           </div>
         </div>
@@ -2007,35 +2120,47 @@
           <span data-lang="zh">主流晶圓代工廠真實 PDK 量產狀態、車規等級驗證進展與奈米級實體防護責任鏈。</span>
           <span data-lang="en">Foundry PDK qualification envelopes, automotive grade readiness, and layered physical anti-tamper security chains.</span>
         </p>
+        <nav class="foundry-jump" aria-label="Foundry cards" data-aria-zh="四大晶圓廠卡片" data-aria-en="Foundry cards">
+          <a href="#foundry-tsmc">TSMC</a>
+          <a href="#foundry-umc">UMC</a>
+          <a href="#foundry-gf">GlobalFoundries</a>
+          <a href="#foundry-samsung">Samsung</a>
+        </nav>
       </div>
 
       <div class="foundry-grid">
         <!-- TSMC -->
-        <div class="foundry-card tsmc">
+        <div class="foundry-card tsmc" id="foundry-tsmc">
           <div class="foundry-card-top">
             <div class="foundry-brand-pill" style="color: #c4a574;">FOUNDRY 01 · TAIWAN SEMICONDUCTOR</div>
             <h3>TSMC</h3>
           </div>
           <div class="foundry-node-tiles">
-            <div class="foundry-node-tile">
+            <div class="foundry-node-tile" id="foundry-tsmc-28ehv">
               <div class="node-header-row">
-                <span class="node-pill">40nm / 28nm eFlash &amp; 28eHV</span>
+                <span class="node-pill-cluster">
+                  <span class="node-pill">40nm / 28nm eFlash &amp; 28eHV</span>
+                  <span class="otp-split-flag"><span data-lang="zh">0-mask OTP 須分流機制</span><span data-lang="en">0-mask OTP: split mechanisms</span></span>
+                </span>
                 <span class="status-pill status-cliff">Scaling Cliff</span>
               </div>
               <div>
-                <span data-lang="zh">40LP/ULP 與 28HPC+ 為車用 eFlash 長期主力，但 28nm 面臨 8~12 道額外光罩與 &gt;1000°C 熱預算破壞 HKMG 之微縮斷崖；28eHV 普遍以 0-mask AntiFuse OTP 進行 OLED Gamma/De-Mura 校準。</span>
-                <span data-lang="en">40LP/ULP &amp; 28HPC+ are mature eFlash bastions; scaling beyond 28nm hits an 8-12 mask adder cliff and HKMG thermal destruction. 28eHV adopts 0-mask AntiFuse OTP for OLED Gamma/De-Mura trimming.</span>
+                <span data-lang="zh">40LP/ULP 與 28HPC+ 為車用 eFlash 長期主力，但 28nm 面臨 SST 級 8~12 道額外光罩與 &gt;1000°C 熱預算破壞 HKMG 之微縮斷崖；SONOS G1／G2 光罩階梯較低，須逐家 PDK 核對。28eHV 普遍以 0-mask AntiFuse OTP 進行 OLED Gamma/De-Mura 校準；同節點仍須分流未公開擊穿位點的 ZA 類與 I-fuse，不得預設單一機制。</span>
+                <span data-lang="en">40LP/ULP &amp; 28HPC+ are mature eFlash bastions; scaling beyond 28nm hits an SST-class 8-12 mask adder cliff and HKMG thermal destruction. SONOS G1/G2 sit on a lower mask ladder and must be checked per PDK. 28eHV adopts 0-mask AntiFuse OTP for OLED Gamma/De-Mura trimming; still split unpublished-site ZA-class and I-fuse — do not assume one mechanism.</span>
               </div>
             </div>
 
-            <div class="foundry-node-tile">
+            <div class="foundry-node-tile" id="foundry-tsmc-22ull">
               <div class="node-header-row">
-                <span class="node-pill">22ULL / 22ULP</span>
+                <span class="node-pill-cluster">
+                  <span class="node-pill">22ULL / 22ULP</span>
+                  <span class="otp-split-flag"><span data-lang="zh">0-mask OTP 須分流機制</span><span data-lang="en">0-mask OTP: split mechanisms</span></span>
+                </span>
                 <span class="status-pill status-auto">Auto Grade 1</span>
               </div>
               <div>
-                <span data-lang="zh">eRRAM 於 2022 年量產並於 2025 年通過 AEC-Q100 Grade 1 (10萬次循環)；STT-eMRAM 商業量產；純邏輯 AntiFuse OTP 作為 0-mask 標配。</span>
-                <span data-lang="en">eRRAM entered production in 2022, qualifying for AEC-Q100 Grade 1 (100K cycles) in 2025; STT-eMRAM production-ready; logic OTP standard at 0-mask.</span>
+                <span data-lang="zh">eRRAM 於 2022 年量產並於 2025 年通過 AEC-Q100 Grade 1 (10萬次循環)；STT-eMRAM 商業量產；純邏輯 0-mask OTP 作為標配時須分流閘氧 AntiFuse、擊穿位點未公開的 ZA 類、以及 I-fuse，不得預設單一機制。</span>
+                <span data-lang="en">eRRAM entered production in 2022, qualifying for AEC-Q100 Grade 1 (100K cycles) in 2025; STT-eMRAM production-ready; logic 0-mask OTP as a standard option still requires a gate-oxide AntiFuse vs unpublished-site ZA-class vs I-fuse split rather than a single assumed mechanism.</span>
               </div>
             </div>
 
@@ -2050,34 +2175,40 @@
               </div>
             </div>
 
-            <div class="foundry-node-tile">
+            <div class="foundry-node-tile" id="foundry-tsmc-n2">
               <div class="node-header-row">
-                <span class="node-pill">N6e / N4e / N2 GAA</span>
+                <span class="node-pill-cluster">
+                  <span class="node-pill">N6e / N4e / N2 GAA</span>
+                  <span class="otp-split-flag"><span data-lang="zh">0-mask OTP 須分流機制</span><span data-lang="en">0-mask OTP: split mechanisms</span></span>
+                </span>
                 <span class="status-pill status-rd">Nanosheet RoT</span>
               </div>
               <div>
-                <span data-lang="zh">N6e (6nm) eRRAM 與 N4e/N5 5nm 高速 eMRAM 開發中；N2 奈米片架構因 BEOL 熱預算與微縮限制，以純邏輯 AntiFuse OTP 作為硬體信任根 (RoT) 核心。</span>
-                <span data-lang="en">N6e 6nm eRRAM and N4e/N5 5nm high-speed eMRAM in R&amp;D; N2 GAA nanosheet relies on 0-mask logic AntiFuse OTP as the primary Root of Trust due to BEOL thermal constraints.</span>
+                <span data-lang="zh">N6e (6nm) eRRAM 與 N4e/N5 5nm 高速 eMRAM 開發中；N2 奈米片因 BEOL 熱預算與微縮限制，公開敘事常以純邏輯 0-mask OTP 作為硬體信任根，但仍須分流閘氧 AntiFuse、擊穿位點未公開的 ZA 類、以及 I-fuse，不得預設單一機制。</span>
+                <span data-lang="en">N6e 6nm eRRAM and N4e/N5 5nm high-speed eMRAM in R&amp;D; N2 GAA nanosheet public narratives often use 0-mask logic OTP as the Root of Trust due to BEOL thermal constraints, but still require an AntiFuse vs unpublished-site ZA vs I-fuse split rather than one assumed mechanism.</span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- UMC -->
-        <div class="foundry-card umc">
+        <div class="foundry-card umc" id="foundry-umc">
           <div class="foundry-card-top">
             <div class="foundry-brand-pill" style="color: #f59e0b;">FOUNDRY 02 · UNITED MICROELECTRONICS</div>
             <h3>UMC</h3>
           </div>
           <div class="foundry-node-tiles">
-            <div class="foundry-node-tile">
+            <div class="foundry-node-tile" id="foundry-umc-ehv">
               <div class="node-header-row">
-                <span class="node-pill">55nm / 40nm eFlash &amp; 40eHV</span>
+                <span class="node-pill-cluster">
+                  <span class="node-pill">55nm / 40nm eFlash &amp; 40/28eHV</span>
+                  <span class="otp-split-flag"><span data-lang="zh">0-mask OTP 須分流機制</span><span data-lang="en">0-mask OTP: split mechanisms</span></span>
+                </span>
                 <span class="status-pill status-prod">Production SSI</span>
               </div>
               <div>
-                <span data-lang="zh">採用 SST SuperFlash 分離閘極技術量產車用 Grade 1 eFlash；40/28eHV 驅動 IC 整合高壓校準 OTP。</span>
-                <span data-lang="en">Production SST SuperFlash split-gate for Auto Grade 1 MCUs; 40/28eHV DDICs incorporate trim OTP.</span>
+                <span data-lang="zh">採用 SST SuperFlash 分離閘極技術量產車用 Grade 1 eFlash；40/28eHV 驅動 IC 整合高壓校準 OTP。同節點校準 OTP 仍須分流閘氧 AntiFuse、擊穿位點未公開的 ZA 類、以及 I-fuse，不得預設單一機制。</span>
+                <span data-lang="en">Production SST SuperFlash split-gate for Auto Grade 1 MCUs; 40/28eHV DDICs incorporate trim OTP. Same-node trim OTP still requires a gate-oxide AntiFuse vs unpublished-site ZA-class vs I-fuse split — do not assume one mechanism.</span>
               </div>
             </div>
 
@@ -2098,28 +2229,28 @@
                 <span class="status-pill status-prod">0-Mask Native</span>
               </div>
               <div>
-                <span data-lang="zh">全面支援力旺 (NeoBit / NeoFuse) 與晶豪科旗下 YMC (yMTP BBHH 帶帶熱電洞注入) 0-mask 解決方案。</span>
-                <span data-lang="en">Full PDK support for eMemory (NeoBit/NeoFuse) and YMC (yMTP BBHH) 0-mask logic NVM solutions across 55nm–22nm.</span>
+                <span data-lang="zh">公開 PDK 常見力旺 (NeoBit / NeoFuse) 與晶豪科旗下 YMC (yMTP BBHH) 0-mask 組合；NSCore TwinBit、Floadia ZA／ZT、Attopsemi I-fuse 等其他 0-mask IP 須逐家核對 PDK，不得由本句推論「已全面支援」。</span>
+                <span data-lang="en">Public PDK coverage commonly includes eMemory (NeoBit/NeoFuse) and YMC (yMTP BBHH) 0-mask logic NVM across 55nm–22nm. Other 0-mask IPs (NSCore TwinBit, Floadia ZA/ZT, Attopsemi I-fuse) must be checked per foundry PDK — this sentence does not imply blanket support.</span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- GlobalFoundries -->
-        <div class="foundry-card gf">
+        <div class="foundry-card gf" id="foundry-gf">
           <div class="foundry-card-top">
             <div class="foundry-brand-pill" style="color: #c4a574;">FOUNDRY 03 · GLOBALFOUNDRIES</div>
             <h3>GlobalFoundries</h3>
           </div>
           <div class="foundry-node-tiles">
-            <div class="foundry-node-tile">
+            <div class="foundry-node-tile" id="foundry-gf-22fdx">
               <div class="node-header-row">
                 <span class="node-pill">22FDX / FDX+ (FD-SOI)</span>
                 <span class="status-pill status-auto">AutoPro150 Ready</span>
               </div>
               <div>
-                <span data-lang="zh">2020 年業界首創生產就緒 eMRAM；2026 年 FDX+ AutoPro150 達成 Grade 1 ready (150°C、50萬次、&lt;10ns讀取)；22FDX+ OxRAM (ReRAM) 原型於 2025 釋出，目標 2026 量產。</span>
-                <span data-lang="en">Industry-first production-ready eMRAM in 2020; 2026 FDX+ AutoPro150 delivers Grade 1 (150°C, 500K cycles, &lt;10ns read); 22FDX+ OxRAM (ReRAM) prototyping available with 2026 volume target.</span>
+                <span data-lang="zh">2020 年業界首創生產就緒 eMRAM；2026 年 FDX+ AutoPro150 達成 Grade 1 ready (150°C、50萬次、&lt;10ns讀取)；22FDX+ OxRAM (ReRAM) 原型於 2025 釋出，目標 2026 量產。Attopsemi I-fuse™ OTP 於 2021 年公開通過 22FDX 資格（<a href="https://www.attopsemi.com/attopsemis-i-fuse-otp-passed-3-lots-of-hts-and-htol-qualification-for-1000hr-on-globalfoundries-22fdx-fd-soi-technology/" target="_blank" rel="noopener noreferrer">Attopsemi / GF 公開</a>），屬熱輔助電遷移 OTP，不是 22FDX eMRAM。</span>
+                <span data-lang="en">Industry-first production-ready eMRAM in 2020; 2026 FDX+ AutoPro150 delivers Grade 1 (150°C, 500K cycles, &lt;10ns read); 22FDX+ OxRAM (ReRAM) prototyping available with 2026 volume target. Attopsemi I-fuse™ OTP was publicly qualified on 22FDX in 2021 (<a href="https://www.attopsemi.com/attopsemis-i-fuse-otp-passed-3-lots-of-hts-and-htol-qualification-for-1000hr-on-globalfoundries-22fdx-fd-soi-technology/" target="_blank" rel="noopener noreferrer">Attopsemi / GF public</a>) as heat-assisted-EM OTP, not 22FDX eMRAM.</span>
               </div>
             </div>
 
@@ -2129,15 +2260,15 @@
                 <span class="status-pill status-rd">Edge AI Co-Dev</span>
               </div>
               <div>
-                <span data-lang="zh">28SLP 支援成熟 eFlash；12LP 與 Everspin 共同開發 MRAM；12LP+ AutoPro150 推進車用 MCU 與邊緣 AI 部署（注意：12LP/12LP+ 為 Bulk FinFET，與 22FDX FD-SOI 物理特性不同）。</span>
-                <span data-lang="en">28SLP supports mature eFlash; 12LP FinFET MRAM co-developed with Everspin; 12LP+ AutoPro150 targets automotive MCUs (Note: 12LP is FinFET, distinct from 22FDX FD-SOI).</span>
+                <span data-lang="zh">28SLP 支援成熟 eFlash（含 SST SuperFlash 公開節點）；12LP 與 Everspin 共同開發 MRAM；12LP+ AutoPro150 推進車用 MCU 與邊緣 AI 部署（注意：12LP/12LP+ 為 Bulk FinFET，與 22FDX FD-SOI 物理特性不同）。Actt LogicFlash® 在公開 IP 目錄列於 GF 180–110 nm，屬成熟平面 MTP，不是 12LP FinFET 聲明。</span>
+                <span data-lang="en">28SLP supports mature eFlash (including public SST SuperFlash nodes); 12LP FinFET MRAM co-developed with Everspin; 12LP+ AutoPro150 targets automotive MCUs (Note: 12LP is FinFET, distinct from 22FDX FD-SOI). Actt LogicFlash® is listed on public IP directories for GF 180–110 nm as mature planar MTP, not a 12LP FinFET claim.</span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Samsung -->
-        <div class="foundry-card sec">
+        <div class="foundry-card sec" id="foundry-samsung">
           <div class="foundry-card-top">
             <div class="foundry-brand-pill" style="color: #3b82f6;">FOUNDRY 04 · SAMSUNG FOUNDRY</div>
             <h3>Samsung Foundry</h3>
@@ -2165,14 +2296,16 @@
               </div>
             </div>
 
-            <div class="foundry-node-tile">
+            <div class="foundry-node-tile" id="foundry-samsung-sf4a">
               <div class="node-header-row">
-                <span class="node-pill"><span data-lang="zh">SF4A (4nm) 與 SF3 / SF2</span><span data-lang="en">SF4A (4nm) &amp; SF3 / SF2</span></span>
+                <span class="node-pill-cluster">
+                  <span class="otp-split-flag"><span data-lang="zh">若另採 OTP 須分流機制</span><span data-lang="en">If OTP used: split mechanisms</span></span>
+                </span>
                 <span class="status-pill status-rd">MBCFET GAA Next-Gen</span>
               </div>
               <div>
-                <span data-lang="zh">SFF 2024 公布次世代高密度 eMRAM 路線圖，整合於 4nm 車用與 3nm/2nm 環繞閘極奈米片，專注於邊緣 AI 與軟體定義汽車 (SDV)。</span>
-                <span data-lang="en">SFF 2024 roadmap integrates next-gen eMRAM on SF4A (4nm Auto) and SF3/SF2 MBCFET GAA for edge AI and software-defined vehicles.</span>
+                <span data-lang="zh">SFF 2024 公布次世代高密度 eMRAM 路線圖，整合於 4nm 車用與 3nm/2nm 環繞閘極奈米片，專注於邊緣 AI 與軟體定義汽車 (SDV)。若同節點另採 0-mask OTP 作信任根或校準，仍須分流閘氧 AntiFuse、擊穿位點未公開的 ZA 類、以及 I-fuse，不得預設單一機制。</span>
+                <span data-lang="en">SFF 2024 roadmap integrates next-gen eMRAM on SF4A (4nm Auto) and SF3/SF2 MBCFET GAA for edge AI and software-defined vehicles. If the same node also uses 0-mask OTP for RoT or trim, still split gate-oxide AntiFuse, unpublished-site ZA-class, and I-fuse — do not assume one mechanism.</span>
               </div>
             </div>
           </div>
@@ -2295,8 +2428,8 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.5rem; font-size: 0.9rem; line-height: 1.65; color: #cbd5e1;">
           <div style="background: rgba(4, 18, 28, 0.6); padding: 1.25rem; border-radius: 6px; border: 1px solid rgba(196, 165, 116, 0.15);">
             <b style="color: #c4a574;">① TEM / FIB Visibility &amp; Active Shielding Boundary</b><br>
-            <span data-lang="zh">AntiFuse 崩潰微絲約 3–8nm，局域包裹於標準閘極氧化層中，無表面形貌變化，較 eFuse 熔斷空洞具備極高的物理逆向成本。但需注意：<b>非揮發微絲為永久性物理歐姆結構，位元單元本身無法「單週期自我清除」</b>；系統級防禦依賴開機時將密鑰載入揮發性快取 (Volatile Shadow RAM)，當頂層主動金屬屏蔽 (Active Metal Mesh) 偵測到 FIB 微探針或開路時，由控制器觸發暫存器之單週期即時零化 (Zeroization)。此為物理衰減結合系統聯防，非位元單元絕對免疫。</span>
-            <span data-lang="en">AntiFuse filaments are ~3–8nm localized inside standard gate oxide without surface topological changes, imposing high reverse-engineering barriers compared to eFuse voids. Note: <b>the physical filament is an irreversible ohmic structure and cannot self-zeroize</b>. System security relies on shadowing keys into volatile RAM at boot; when the active top-metal mesh detects FIB probing, the controller triggers instantaneous register zeroization. Hardware attenuation + architectural co-defense, not bitcell-level absolute immunity.</span>
+            <span data-lang="zh">AntiFuse 崩潰微絲約 3–8nm，局域包裹於標準閘極氧化層中，無表面形貌變化，較吹斷級 eFuse 熔斷空洞具備極高的物理逆向成本。I-fuse 公開為非爆破熔絲，IEEE JEDS 2019 稱編程狀態較難以 SEM 目視判讀，仍非絕對免疫。但需注意：<b>非揮發微絲／熔絲狀態為永久性物理結構，位元單元本身無法「單週期自我清除」</b>；系統級防禦依賴開機時將密鑰載入揮發性快取 (Volatile Shadow RAM)，當頂層主動金屬屏蔽 (Active Metal Mesh) 偵測到 FIB 微探針或開路時，由控制器觸發暫存器之單週期即時零化 (Zeroization)。此為物理衰減結合系統聯防，非位元單元絕對免疫。</span>
+            <span data-lang="en">AntiFuse filaments are ~3–8nm localized inside standard gate oxide without surface topological changes, imposing high reverse-engineering barriers compared to blow-class eFuse voids. I-fuse is published as a non-explosive fuse; IEEE JEDS 2019 reports programmed state as hard to visually detect by SEM — still not absolute immunity. Note: <b>the physical filament or fuse state is irreversible and cannot self-zeroize</b>. System security relies on shadowing keys into volatile RAM at boot; when the active top-metal mesh detects FIB probing, the controller triggers instantaneous register zeroization. Hardware attenuation + architectural co-defense, not bitcell-level absolute immunity.</span>
           </div>
           <div style="background: rgba(4, 18, 28, 0.6); padding: 1.25rem; border-radius: 6px; border: 1px solid rgba(196, 165, 116, 0.15);">
             <b style="color: #c4a574;">② Complementary Differential Read (DPA/CPA Attenuation Boundary)</b><br>
@@ -2326,8 +2459,8 @@
         <span data-lang="en">Cross-link → <a href="memory-physics.html#read-path">memory-physics · read path</a> (power-off → sense)</span>
       </p>
       <p class="rm-cite">
-        <span data-lang="zh">公開一級出處（架構級，非具名 IP datasheet）：互補差動讀使 power signature 較難對應儲存值，見 <a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a>（站內 <a href="memory-evidence.html#evidence-V07">V07</a>）。AntiFuse OTP 之金鑰／ID／trim 應用與讀寫安全選項，見本頁已引 <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a>。一階 DPA／CPA 為定性衰減敘事，非 dB 量測；spare 比與 sense-margin 數字未引用者不作定量承諾。</span>
-        <span data-lang="en">Public primary cites (architecture-class, not a named-IP datasheet): complementary differential read is publicly described as making power-signature identification of stored values harder — <a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a> (hub <a href="memory-evidence.html#evidence-V07">V07</a>). AntiFuse OTP application classes (keys / IDs / trim) and security options for stored data and read/write: this page's existing <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a> article. First-order DPA/CPA is a qualitative attenuation claim, not a dB measurement; uncited spare ratios and sense-margin figures are not quantitative commitments.</span>
+        <span data-lang="zh">公開一級出處（架構級，非具名 IP datasheet）：互補差動讀使 power signature 較難對應儲存值，見 <a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a>（站內 <a href="memory-evidence.html#evidence-V07">V07</a>）。AntiFuse OTP 之金鑰／ID／trim 應用與讀寫安全選項，見本頁已引 <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a>。一階 DPA／CPA 為定性衰減敘事，非 dB 量測；spare 比與 sense-margin 數字未引用者不作定量承諾。具名 IP 的感測物理仍分流：閘氧 AntiFuse／CFX 教學路徑讀閘極電流；ZA 感測路徑未公開，不得回填閘極電流；FG-OTP 讀通道電流；LogicFlash 讀取路徑未公開；I-fuse 讀熔絲電阻；TwinBit 讀 Schottky 單元閾值；G2 公開為 VDD 讀。四種拓樸是架構級讀法，不是把上述機制併成同一 datasheet。</span>
+        <span data-lang="en">Public primary cites (architecture-class, not a named-IP datasheet): complementary differential read is publicly described as making power-signature identification of stored values harder — <a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a> (hub <a href="memory-evidence.html#evidence-V07">V07</a>). AntiFuse OTP application classes (keys / IDs / trim) and security options for stored data and read/write: this page's existing <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a> article. First-order DPA/CPA is a qualitative attenuation claim, not a dB measurement; uncited spare ratios and sense-margin figures are not quantitative commitments. Named-IP sense physics still splits: GOX AntiFuse / CFX teaching paths read gate current; ZA sense path unpublished — do not back-fill gate current; FG-OTP reads channel current; LogicFlash readout unpublished; I-fuse reads fuse resistance; TwinBit reads a Schottky-cell threshold; G2 is published as VDD-read. The four topologies are architecture-class read methods, not a merge of those mechanisms into one datasheet.</span>
       </p>
 
       <style>
@@ -2669,8 +2802,8 @@
             <span data-lang="en">State Contract Audit</span>
           </h3>
           <p style="color:#94a3b8; font-size:0.9rem; line-height:1.65; margin:0 0 1.25rem;">
-            <span data-lang="zh">區分不可變身分 (Immutable ID)、校準邊界 (Calibration) 與韌體代碼。若資料僅需工廠寫入或偶發修補，優先評估 AntiFuse + Patch CAM。</span>
-            <span data-lang="en">Distinguish immutable identity from firmware. For write-once or bounded patch models, evaluate AntiFuse paired with Vector CAM.</span>
+            <span data-lang="zh">區分不可變身分 (Immutable ID)、校準邊界 (Calibration) 與韌體代碼。若資料僅需工廠寫入或偶發修補，優先評估 0-mask OTP，並分流 AntiFuse（CFX 教學為閘氧崩潰；Floadia ZA 為介電層永久導通、擊穿位點未公開）、I-fuse 熱輔助電遷移、以及浮閘 OTP；不得預設「OTP = AntiFuse」。韌體 OTA 再評估 Logic MTP（FN/FN、CHI/FN、TwinBit Schottky 三分流）或 eFlash。</span>
+            <span data-lang="en">Distinguish immutable identity from firmware. For write-once or bounded patch models, evaluate 0-mask OTP and split AntiFuse (CFX teaching default is GOX; Floadia ZA is dielectric conduction with unpublished breakdown site), I-fuse heat-assisted EM, and floating-gate OTP — do not default “OTP = AntiFuse”. Firmware OTA then evaluates Logic MTP (FN/FN vs CHI/FN vs TwinBit Schottky) or eFlash.</span>
           </p>
           <div style="font:600 11px 'IBM Plex Mono', monospace; color:#7dd3fc; background:#03131e; padding:10px 14px; border-radius:6px; border:1px solid rgba(56, 189, 248, 0.25);">
             CRITERION: 0-Overhead Retention · Zero Bus Leak
@@ -2687,8 +2820,8 @@
             <span data-lang="en">Process Node &amp; Thermal Budget</span>
           </h3>
           <p style="color:#94a3b8; font-size:0.9rem; line-height:1.65; margin:0 0 1.25rem;">
-            <span data-lang="zh">檢查晶圓代工廠 PDK。若節點小於 28nm，平面 eFlash 通常不可行；評估是否具備 3~5 道 BEOL 光罩預算導入 MRAM，或採用 0-Mask 純邏輯相容方案。</span>
-            <span data-lang="en">Verify foundry PDK roadmap. If scaling beyond 28nm, rule out eFlash. Decide between BEOL mask adders (MRAM) and 0-mask logic NVM.</span>
+            <span data-lang="zh">檢查晶圓代工廠 PDK。若節點小於 28nm，平面 SST／單層浮閘 MTP 通常不可行；仍須核對 0-mask 例外：TwinBit Gen-2 公開至 22 nm、I-fuse 公開資格含 GF 22FDX、ZA 公開至 sub-10 nm。eFlash 不要一律 8–12 道光罩：G1 為 +2–3、G2 為 +4（開發中）。其餘再評估 3~5 道 BEOL 導入 MRAM。</span>
+            <span data-lang="en">Verify foundry PDK roadmap. Beyond 28nm, planar SST and single-poly FG MTP are usually out; still check 0-mask exceptions: TwinBit Gen-2 public to 22 nm, I-fuse public qualification includes GF 22FDX, ZA public to sub-10 nm. Do not treat every eFlash as 8–12 masks: G1 is +2–3 and G2 is +4 (in development). Then decide between 3–5 BEOL adders (MRAM) and remaining 0-mask logic NVM.</span>
           </p>
           <div style="font:600 11px 'IBM Plex Mono', monospace; color:#fcd34d; background:#03131e; padding:10px 14px; border-radius:6px; border:1px solid rgba(245, 158, 11, 0.25);">
             CRITERION: 0-Mask Logic Compatibility · &le;450&deg;C Safe
@@ -2846,6 +2979,7 @@
         {
           id: "antifuse",
           name: "AntiFuse OTP",
+          nameZh: "AntiFuse OTP（介電崩潰級）",
           // [Scaling, 0-Mask, Thermal Ret, ULP, Endurance]
           baseProfile: [96, 100, 98, 95, 10], // 修正：耐寫度為單次/微量修補(10)，高溫留存力極佳(98)
           evalScore: (nodeIdx, powerIdx, maskIdx, tempIdx, endIdx) => {
@@ -2862,7 +2996,8 @@
         },
         {
           id: "efuse",
-          name: "eFuse",
+          name: "eFuse (blow class)",
+          nameZh: "eFuse（吹斷級）",
           baseProfile: [60, 95, 65, 70, 10], // 修正：耐寫度為單次(10)
           evalScore: (nodeIdx, powerIdx, maskIdx, tempIdx, endIdx) => {
             if (endIdx >= 1) return 5; // 硬性否決：不可覆寫
@@ -2875,8 +3010,42 @@
           }
         },
         {
+          id: "ifuse",
+          name: "I-fuse (heat-EM OTP)",
+          nameZh: "I-fuse（熱輔助電遷移 OTP）",
+          baseProfile: [88, 100, 80, 92, 10],
+          evalScore: (nodeIdx, powerIdx, maskIdx, tempIdx, endIdx) => {
+            if (endIdx >= 1) return 5; // 硬性否決：不可覆寫
+            let score = 78;
+            if (nodeIdx >= 2) score += 8; // 公開資格含 22FDX；先進節點須逐家核對
+            if (maskIdx === 0) score += 8;
+            if (tempIdx === 2) score -= 8; // 具名 HTOL 例為 125°C，非 Grade 0 保證
+            if (powerIdx === 0) score += 4;
+            return Math.min(100, Math.max(5, score));
+          }
+        },
+        {
+          id: "logicmtp",
+          name: "Logic MTP (FN/FN class)",
+          nameZh: "Logic MTP（FN／FN 級）",
+          baseProfile: [42, 95, 55, 70, 72],
+          evalScore: (nodeIdx, powerIdx, maskIdx, tempIdx, endIdx) => {
+            if (endIdx === 2) return 8; // 無法當 working RAM
+            if (nodeIdx >= 3) return 12; // FinFET 單層浮閘斷崖；TwinBit 不在此輪廓
+            let score = 70;
+            if (maskIdx === 2) score -= 20;
+            if (maskIdx === 0) score += 10;
+            if (endIdx === 1) score += 16; // 10K~100K OTA
+            if (tempIdx === 2) score -= 18;
+            if (powerIdx === 0) score -= 8;
+            if (nodeIdx >= 2) score -= 12; // 22nm 平面已近 FG 止點
+            return Math.min(100, Math.max(5, score));
+          }
+        },
+        {
           id: "eflash",
           name: "eFlash (1T/2T)",
+          nameZh: "eFlash（1T／2T）",
           baseProfile: [25, 20, 50, 40, 85], // 修正：耐寫度85，高溫50
           evalScore: (nodeIdx, powerIdx, maskIdx, tempIdx, endIdx) => {
             // 硬性否決閘：<=22nm 先進節點無標準 eFlash；0-Mask 預算不可行
@@ -2893,6 +3062,7 @@
         {
           id: "emram",
           name: "STT-eMRAM",
+          nameZh: "STT-eMRAM（自旋轉移矩）",
           baseProfile: [88, 55, 60, 85, 98], // 修正：耐寫度98，高溫熱穩定性60
           evalScore: (nodeIdx, powerIdx, maskIdx, tempIdx, endIdx) => {
             let score = 75;
@@ -2908,6 +3078,7 @@
         {
           id: "erram",
           name: "eRRAM (OxRAM)",
+          nameZh: "eRRAM（OxRAM）",
           baseProfile: [82, 65, 75, 78, 80],
           evalScore: (nodeIdx, powerIdx, maskIdx, tempIdx, endIdx) => {
             let score = 70;
@@ -2922,6 +3093,7 @@
         {
           id: "maskrom",
           name: "Mask ROM",
+          nameZh: "Mask ROM（光罩唯讀）",
           baseProfile: [50, 75, 95, 90, 0], // 修正：耐寫度為0，高溫極佳(95)
           evalScore: (nodeIdx, powerIdx, maskIdx, tempIdx, endIdx) => {
             if (endIdx >= 1) return 0; // 硬性否決：不可覆寫
@@ -3102,6 +3274,7 @@
         const winner = ranked[0];
         const runner = ranked[1];
         const isZh = window.HubLanguage && window.HubLanguage.get() === "zh";
+        const displayName = (c) => (isZh && c.nameZh) ? c.nameZh : c.name;
 
         // 動態計算各候選技術在當前約束下的雷達輪廓（解決靜態假動態問題）
         const dynamicProfiles = {};
@@ -3112,12 +3285,12 @@
             base[1] * (maskIdx === 0 ? 1.0 : 0.85), // 0-Mask 軸
             base[2] * (tempIdx === 2 ? 0.85 : 1.0), // Thermal Ret 軸
             base[3] * (powerIdx <= 1 ? 1.05 : 0.9), // ULP 軸
-            (endIdx === 2 && (c.id === "antifuse" || c.id === "efuse" || c.id === "maskrom")) ? 5 : base[4] // Endurance 軸
+            (endIdx === 2 && (c.id === "antifuse" || c.id === "efuse" || c.id === "ifuse" || c.id === "maskrom")) ? 5 : base[4] // Endurance 軸
           ];
         });
 
-        document.getElementById("radarTopLabel").textContent = `${winner.name} (${winner.score}%)`;
-        document.getElementById("radarRunnerLabel").textContent = `${runner.name} (${runner.score}%)`;
+        document.getElementById("radarTopLabel").textContent = `${displayName(winner)} (${winner.score}%)`;
+        document.getElementById("radarRunnerLabel").textContent = `${displayName(runner)} (${runner.score}%)`;
         drawRadar(winner, runner, dynamicProfiles);
 
         // 更新卡片 Deck
@@ -3129,7 +3302,7 @@
           const card = document.createElement("div");
           card.className = `match-card ${isTopFit ? 'is-top-fit' : ''} ${isDimmed ? 'is-dimmed' : ''}`;
           card.innerHTML = `
-            <div class="match-tech-name">${res.name}</div>
+            <div class="match-tech-name">${displayName(res)}</div>
             <div class="match-score-num">${res.score}% <span style="font-size:0.55em;font-weight:600;opacity:.8">rel. fit·demo</span></div>
             <div class="match-score-bar-bg">
               <div class="match-score-bar-fill" style="width: ${res.score}%; background: ${isTopFit ? '#c4a574' : res.score > 50 ? '#c4a574' : '#f59e0b'};"></div>
@@ -3154,19 +3327,25 @@
 
         // 矛盾約束偵測：例如需要 >1M 次覆寫卻要求 0-Mask
         if (maskIdx === 0 && endIdx === 2) {
-          vMsgZh = `⚠️ <b>架構約束衝突警告</b>：系統要求 <b>0-Mask 純邏輯</b> 同時要求 <b>&gt;1M 次 Working RAM</b>。在物理實體上，0-mask 嵌入式記憶體（AntiFuse/eFuse）無法承受高頻擦寫，而能承受高頻覆寫的 eMRAM/SRAM 必須承擔 3~5 道 BEOL 光罩成本或靜態漏電代價。目前相對適配為 <b>${winner.name}</b>（${winner.score}%），但建議架構師重新評估鬆綁光罩預算或改採外部獨立式儲存。`;
-          vMsgEn = `⚠️ <b>Architectural Conflict Warning</b>: Constraint combines <b>0-Mask pure logic</b> with <b>&gt;1M write cycles</b>. Physically, 0-mask NVM (AntiFuse/eFuse) cannot handle RAM workloads, while high-endurance eMRAM requires 3–5 BEOL adders. Current relative fit is <b>${winner.name}</b> (${winner.score}%); consider relaxing mask constraints or adopting external discrete memory.`;
+          vMsgZh = `⚠️ <b>架構約束衝突警告</b>：系統要求 <b>0-Mask 純邏輯</b> 同時要求 <b>&gt;1M 次 Working RAM</b>。在物理實體上，0-mask 嵌入式記憶體（AntiFuse／I-fuse／eFuse／Logic MTP）無法承受高頻擦寫，而能承受高頻覆寫的 eMRAM/SRAM 必須承擔 3~5 道 BEOL 光罩成本或靜態漏電代價。目前相對適配為 <b>${displayName(winner)}</b>（${winner.score}%），但建議架構師重新評估鬆綁光罩預算或改採外部獨立式儲存。`;
+          vMsgEn = `⚠️ <b>Architectural Conflict Warning</b>: Constraint combines <b>0-Mask pure logic</b> with <b>&gt;1M write cycles</b>. Physically, 0-mask NVM (AntiFuse / I-fuse / eFuse / Logic MTP) cannot handle RAM workloads, while high-endurance eMRAM requires 3–5 BEOL adders. Current relative fit is <b>${winner.name}</b> (${winner.score}%); consider relaxing mask constraints or adopting external discrete memory.`;
         } else if (winner.id === "antifuse") {
-          vMsgZh = `目前滑桿下相對適配最高：<b>AntiFuse OTP</b>（${winner.score}%）。在 <b>${nodeLabels[nodeIdx]}</b> 與 <b>${tempLabels[tempIdx]}</b> 下，以 0-mask 邏輯相容特性提供極高的高溫數據留存力與實體安全屏障。適合晶片身分 ID、安全金鑰儲存與有限次數之微碼補丁（搭配 Vector Patch CAM）。`;
-          vMsgEn = `Highest relative fit under current sliders: <b>AntiFuse OTP</b> (${winner.score}%). At <b>${nodeLabels[nodeIdx]}</b> and <b>${tempLabels[tempIdx]}</b>, it leverages 0-mask logic compatibility for high thermal retention and tamper resistance. Ideal for Root-of-Trust keys and bounded microcode patching via Vector CAM.`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。在 <b>${nodeLabels[nodeIdx]}</b> 與 <b>${tempLabels[tempIdx]}</b> 下，以 0-mask 邏輯相容特性提供極高的高溫數據留存力與實體安全屏障。適合晶片身分 ID、安全金鑰儲存與有限次數之微碼補丁（搭配 Vector Patch CAM）。此輪廓是介電崩潰 OTP 族；ZA 擊穿位點未公開，不得把閘氧微絲模型套到 ZA。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). At <b>${nodeLabels[nodeIdx]}</b> and <b>${tempLabels[tempIdx]}</b>, it leverages 0-mask logic compatibility for high thermal retention and tamper resistance. Ideal for Root-of-Trust keys and bounded microcode patching via Vector CAM. This hull is dielectric-breakdown OTP; ZA's breakdown site is unpublished — do not apply the GOX filament model to ZA.`;
+        } else if (winner.id === "ifuse") {
+          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。此輪廓為熱輔助電遷移 OTP，不是吹斷級 eFuse、也不是閘氧 AntiFuse。公開資格例含 GF 22FDX；電流／電壓視窗以該版巨集為準，不得回填 ~10–15 mA 熔斷數字。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). This hull is heat-assisted-EM OTP, not blow-class eFuse and not gate-oxide AntiFuse. Public qualification includes GF 22FDX; keep the ~10–15 mA blow figures off this macro.`;
+        } else if (winner.id === "logicmtp") {
+          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。此輪廓涵蓋 NeoEE／Floadia ZT 類 0-mask FN MTP；Actt LogicFlash 機制未公開，NSCore TwinBit 為 Schottky 熱載子路徑，兩者都不在此輪廓內。FinFET 節點請改核對 TwinBit 或 0-mask OTP。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). This hull covers NeoEE / Floadia ZT-class 0-mask FN MTP. Actt LogicFlash remains unpublished physics, and NSCore TwinBit is a Schottky hot-carrier path — neither belongs on this hull. At FinFET nodes, re-check TwinBit or 0-mask OTP.`;
         } else if (winner.id === "emram") {
-          vMsgZh = `目前滑桿下相對適配最高：<b>STT-eMRAM</b>（${winner.score}%）。在先進節點（22nm/12nm）上完美承接 <b>${endLabels[endIdx]}</b> 的高覆寫次數與工作暫存需求，但晶片架構須預留 3–5 道 BEOL 額外光罩預算，並評估 260°C 回流焊磁熱裕度。`;
-          vMsgEn = `Highest relative fit under current sliders: <b>STT-eMRAM</b> (${winner.score}%). At advanced nodes (22nm/12nm), it satisfies <b>${endLabels[endIdx]}</b> high-endurance RAM/OTA workloads, requiring 3–5 BEOL mask adders and 260°C package-reflow thermal-magnetic design margins.`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。在先進節點（22nm/12nm）上完美承接 <b>${endLabels[endIdx]}</b> 的高覆寫次數與工作暫存需求，但晶片架構須預留 3–5 道 BEOL 額外光罩預算，並評估 260°C 回流焊磁熱裕度。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). At advanced nodes (22nm/12nm), it satisfies <b>${endLabels[endIdx]}</b> high-endurance RAM/OTA workloads, requiring 3–5 BEOL mask adders and 260°C package-reflow thermal-magnetic design margins.`;
         } else if (winner.id === "eflash") {
-          vMsgZh = `目前滑桿下相對適配最高：<b>eFlash</b>（${winner.score}%）。在成熟節點（≥40nm）為微控制器韌體代碼提供原生區塊抹除支援；在小於 28nm 節點請避免採用以防高額光罩加價與高壓穿隧氧化層微縮壁壘。`;
-          vMsgEn = `Highest relative fit under current sliders: <b>eFlash</b> (${winner.score}%). Well-suited for mature nodes (≥40nm) needing block-erase firmware execution; avoid scaling below 28nm due to high mask adders and high-voltage oxide scaling barriers.`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。在成熟節點（≥40nm）為微控制器韌體代碼提供原生區塊抹除支援。SST 與 SONOS 光罩階梯不同：SST 例 +4／+10，Floadia G1 +2–3、G2 +4（開發中）。小於 28nm 的平面 SST／浮閘 eFlash 通常不可行，不得把 SONOS G2 的 TCAD 討論當成 FinFET 量產。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). Well-suited for mature nodes (≥40nm) needing block-erase firmware. SST and SONOS mask ladders differ: SST examples +4/+10, Floadia G1 +2–3, G2 +4 (in development). Planar SST / FG eFlash is usually out below 28nm; do not treat G2 TCAD notes as FinFET production.`;
         } else {
-          vMsgZh = `目前滑桿下相對適配最高：<b>${winner.name}</b>（${winner.score}%）。這是目前多維約束下的最優折衷排序，非單一技術出貨保證。`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。這是目前多維約束下的最優折衷排序，非單一技術出貨保證。`;
           vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). An architectural trade-off ranking under constraints, not a standalone shipment guarantee.`;
         }
 
@@ -3241,7 +3420,7 @@
       panels.forEach(p => railObserver.observe(p));
     });
   </script>
-<script src="matrix-interactive.js?v=20260914-v1"></script>
+<script src="matrix-interactive.js?v=20260917-p2"></script>
 <script src="專題選單導覽.js?v=20260910-bilingual"></script>
 </body>
 </html>

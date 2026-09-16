@@ -65,12 +65,12 @@ try{
    await page.keyboard.press('Control+k');check(await page.locator('#searchOverlay').getAttribute('aria-hidden')==='false','手機版鍵盤搜尋可用',{language});await page.keyboard.press('Escape');
   }
   const atlas=language==='zh'?'NVM技術全景中文.html':'NVM技術全景.html';await page.goto(new URL(atlas+'?lang='+language+'#ecosystem',base).href,{waitUntil:'networkidle'});
-  for(const route of ['panorama','physics-library','comparison','benchmark-CMP-BENCH-FRAM','benchmark-CMP-BENCH-OPTANE','comparison-history','ecosystem','research','research-everspin','research-panasonic','research-itri','ip-neoee','topic-stt','topic-stt-storage','topic-stt-tradeoffs','topic-stt-ceilings','topic-vcm','topic-eeprom','ip-directory','ip-group-mtp','system-array','system-array-section-3','system-scm','system-scm-section-5','foundry','foundry-year-2026','sources']){
+  for(const route of ['panorama','physics-library','comparison','comparison-logic-ip','benchmark-CMP-BENCH-FRAM','benchmark-CMP-BENCH-OPTANE','comparison-history','ecosystem','research','research-everspin','research-panasonic','research-itri','ip-neoee','topic-stt','topic-stt-storage','topic-stt-tradeoffs','topic-stt-ceilings','topic-vcm','topic-eeprom','ip-directory','ip-group-mtp','system-array','system-array-section-3','system-scm','system-scm-section-5','foundry','foundry-year-2026','sources']){
    await page.evaluate(hash=>{location.hash=hash;},route);await page.waitForFunction(id=>document.getElementById(id)?.checkVisibility(),route);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
    await audit(page,language,width,route,'#'+route);
    if(route.startsWith('research-')){const bounds=await page.evaluate(id=>{const a=document.getElementById(id).getBoundingClientRect(),h=document.querySelector('.nvm-header').getBoundingClientRect();return{top:a.top,headerBottom:h.bottom};},route);check(bounds.top>=bounds.headerBottom&&bounds.top<=bounds.headerBottom+40,'專題錨點緊接固定頁首且不被遮擋',{language,width,route,...bounds});check(await page.evaluate(()=>document.activeElement.tagName==='H3'),'專題焦點落在標題而非整章外框',{language,width,route});}
    if([1440,390].includes(width)&&['ecosystem','research','research-everspin','research-panasonic','research-itri'].includes(route)){await page.screenshot({path:path.join(out,`${language}-${route}-${width}.png`)});if(width===1440&&['ecosystem','research'].includes(route))copy.push(await page.locator('#'+route).innerText());}
-   if([1440,390].includes(width)&&['panorama','physics-library','comparison','benchmark-CMP-BENCH-FRAM'].includes(route)){await page.screenshot({path:path.join(out,`${language}-${route}-${width}.png`)});if(width===1440)copy.push(await page.locator('#'+route).innerText());}
+   if([1440,390].includes(width)&&['panorama','physics-library','comparison','comparison-logic-ip','benchmark-CMP-BENCH-FRAM'].includes(route)){await page.screenshot({path:path.join(out,`${language}-${route}-${width}.png`)});if(width===1440)copy.push(await page.locator('#'+route).innerText());}
    if([1440,390].includes(width)&&['foundry','foundry-year-2026','sources'].includes(route)){await page.screenshot({path:path.join(out,`${language}-${route}-${width}.png`)});if(width===1440)copy.push(await page.locator('#'+route).innerText());}
   }
   if([1440,390].includes(width))for(const route of ['topic-stt','topic-stt-storage','topic-stt-tradeoffs','topic-stt-ceilings']){await page.evaluate(hash=>location.hash=hash,route);await page.waitForFunction(id=>document.activeElement===document.getElementById(id).querySelector(id==='topic-stt'?'h2':'h3'),route);await page.screenshot({path:path.join(out,language+'-'+route+'-'+width+'.png')});if(width===1440)copy.push(await page.locator('#'+route).innerText());}
@@ -79,10 +79,10 @@ try{
    if([1440,390].includes(width)){await page.screenshot({path:path.join(out,language+'-'+id+'-'+width+'.png')});if(width===1440)copy.push(await page.locator('#'+id).innerText());}
   }
   await page.evaluate(()=>location.hash='ip-directory');
-  check(await page.locator('.nvm-ip-family-index a').count()===4&&await page.locator('[data-ip-entry]:visible').count()===12,'IP家族入口及具名單元完整',{language,width});
   const ipData=JSON.parse(fs.readFileSync(path.join(root,'data/NVMIP單元導論'+(language==='en'?'英文':'')+'.json'),'utf8'));
+  check(await page.locator('.nvm-ip-family-index a').count()===ipData.groups.length&&await page.locator('[data-ip-entry]:visible').count()===ipData.units.length,'IP家族入口及具名單元完整',{language,width,groups:ipData.groups.length,units:ipData.units.length});
   if(width===1440)for(const unit of ipData.units){const text=await page.locator('[data-ip-entry="'+unit.id+'"]').innerText();check([unit.vendor,unit.shortTitle,unit.program,unit.reverse,unit.readout].every(value=>text.includes(value)),'IP操作名錄保留正式文字',{language,id:unit.id});}
-  await page.locator('.nvm-ip-family-index a[href="#ip-group-mtp"]').click();await page.waitForFunction(()=>document.activeElement===document.querySelector('#ip-group-mtp h3'));check(await page.locator('#ip-group-mtp [data-ip-entry]').count()===4,'家族定位聚焦標題並顯示完整單元',{language,width});
+  await page.locator('.nvm-ip-family-index a[href="#ip-group-mtp"]').click();await page.waitForFunction(()=>document.activeElement===document.querySelector('#ip-group-mtp h3'));check(await page.locator('#ip-group-mtp [data-ip-entry]').count()===ipData.units.filter(unit=>unit.group==='mtp').length,'家族定位聚焦標題並顯示完整單元',{language,width});
   await page.locator('[data-ip-entry="neoee"] .nvm-ip-entry-link').click();await page.waitForFunction(()=>location.hash==='#ip-neoee'&&document.activeElement===document.querySelector('#ip-neoee h2'));check(await page.locator('#ip-neoee').isVisible(),'操作圖入口可實際開啟具名單元',{language,width});
   const systems=JSON.parse(fs.readFileSync(path.join(root,'data/NVM比較與系統'+(language==='en'?'英文':'')+'.json'),'utf8')).systems;
   for(const system of systems){const prefix='system-'+system.id;await page.evaluate(hash=>location.hash=hash,prefix);check(await page.locator('#'+prefix+' .nvm-system-index a').count()===system.sections.length,'系統索引涵蓋全部正式章節',{language,width,id:system.id});if(width===1440)for(const [i,section] of system.sections.entries()){const text=await page.locator('#'+prefix+'-section-'+(i+1)).innerText();check([section.title,...section.body.split('\n\n')].every(value=>text.includes(value)),'系統段落保留原始正文及條件',{language,id:system.id,index:i+1});}
@@ -121,11 +121,16 @@ try{
   await page.evaluate(()=>location.hash='comparison');
   const comparison=JSON.parse(fs.readFileSync(path.join(root,`data/NVM比較與系統${language==='en'?'英文':''}.json`),'utf8'));
   check(await page.locator('.nvm-benchmark-index a').count()===comparison.benchmarks.length,'比較索引涵蓋全部具名實作',{language,width});
+  const mappedLogic=comparison.logicIpMap.groups.flatMap(group=>group.items);
+  check(await page.locator('#comparison-logic-ip a[href^="#ip-"]').count()===mappedLogic.length,'比較專題對照九款具名邏輯製程 IP',{language,width,count:mappedLogic.length});
+  if(width===1440){const mapText=await page.locator('#comparison-logic-ip').innerText();check(mappedLogic.every(item=>mapText.includes(item.name)&&mapText.includes(item.map)),'具名 IP 對照保留正式文字',{language});}
   for(const record of comparison.benchmarks){const study=page.locator('#benchmark-'+record.id);check(JSON.stringify(await study.locator('.nvm-benchmark-values li').allTextContents())===JSON.stringify(record.values)&&JSON.stringify(await study.locator('.nvm-benchmark-conditions li').allTextContents())===JSON.stringify(record.conditions),'數值與全部測量條件逐筆保留',{language,width,id:record.id});}
   await page.locator('.nvm-benchmark-index a').first().click();await page.waitForFunction(()=>location.hash==='#benchmark-CMP-BENCH-FRAM'&&document.activeElement.matches('#benchmark-CMP-BENCH-FRAM h3'));
   check(await page.evaluate(()=>document.activeElement.tagName==='H3'),'具名比較案例連結聚焦標題',{language,width});
   await page.locator('#benchmark-CMP-BENCH-FRAM .nvm-benchmark-return').click();await page.waitForFunction(()=>location.hash==='#comparison');
-  await page.locator('.nvm-comparison-history-link a').click();await page.locator('#comparison-history details>summary').click();
+  await page.locator('.nvm-comparison-history-link a[href="#comparison-logic-ip"]').click();
+  check(await page.locator('#comparison-logic-ip').isVisible(),'具名 IP 對照連結可定位',{language,width});
+  await page.locator('.nvm-comparison-history-link a[href="#comparison-history"]').click();await page.locator('#comparison-history details>summary').click();
   check(await page.locator('#comparison-history details').getAttribute('open')!==null&&await page.locator('.nvm-history-table tbody tr').count()===comparison.historicalTable.rows.length,'歷史表完整保留並可展開',{language,width});
   await audit(page,language,width,'歷史表展開','#comparison-history');
   await page.evaluate(()=>location.hash='ecosystem');await page.locator('[data-landscape-family-shortcut="MRAM"]').click();check(await page.locator('[data-landscape-row]:visible').count()===19&&await page.locator('#nvm-landscape-family').inputValue()==='MRAM','家族快捷按鈕與原生選單同步',{language,width});

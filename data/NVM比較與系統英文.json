@@ -532,6 +532,98 @@
       }
     ]
   },
+  "logicIpMap": {
+    "kicker": "NAMED LOGIC-PROCESS IPs",
+    "title": "Nine Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table",
+    "intro": "The Yu 2016 paper and the 2021 course table compare SRAM, DRAM, NOR, NAND, PCM, RRAM, STT-MRAM, SOT-MRAM, FeRAM and FeFET. The logic-process OTP / MTP / eFlash IPs below are not columns of that table, and they do not share a unified voltage or cycle number that could be pasted into it. This section only maps each named IP onto a selection-matrix family leaf and links to its cell study.",
+    "matrixUrl": "technology-comparison.html#sec-matrix",
+    "matrixLabel": "Open the 11-leaf selection matrix",
+    "historyLabel": "Historical Course Table and Corrections",
+    "atlasNote": "Historical-table numbers remain the course baseline. Biases, cycle counts and production nodes for named IPs stay bound to each cell study and its VERIFY limits; this page does not invent datasheet figures.",
+    "groups": [
+      {
+        "leaf": "AntiFuse OTP",
+        "leafNote": "A dielectric is permanently made conductive; one-time program. The teaching leaf is not floating-gate OTP and not a blown fuse.",
+        "items": [
+          {
+            "id": "cfx-otp",
+            "name": "CFX · GOX OTP",
+            "map": "Teaching default is gate-oxide breakdown. Public materials also list eFuse and floating-gate routes; the three must not collapse into one cell."
+          },
+          {
+            "id": "floadia-za",
+            "name": "Floadia · LEE Fuse ZA",
+            "map": "Zero extra-mask anti-fuse. The product name is LEE Fuse ZA; if a page writes LEE Flash ZA it still belongs here, not to ZT / G1 / G2. Published only as a dielectric made permanently conductive; breakdown site unpublished — not a GOX path."
+          }
+        ]
+      },
+      {
+        "leaf": "eFuse family: blow-class and I-fuse",
+        "leafNote": "Blow-class programs by electromigration rupture of a link; I-fuse is listed separately and is not the same physics.",
+        "items": [
+          {
+            "id": "attopsemi-ifuse",
+            "name": "Attopsemi · I-fuse",
+            "map": "Poly / metal-gate / metal fuse. Heat-assisted electromigration below thermal runaway; not AntiFuse and not explosive blow-class eFuse."
+          }
+        ]
+      },
+      {
+        "leaf": "LD-MTP (FN/FN single-poly class)",
+        "leafNote": "The family leaf uses NeoEE / LEE Flash ZT as the FN/FN reference. Actt and TwinBit do not inherit that cell physics.",
+        "items": [
+          {
+            "id": "floadia-zt",
+            "name": "Floadia · LEE Flash ZT",
+            "map": "Zero-mask floating-gate MTP; FN program and erase. Public page body and table disagree on cycle count; neither figure is a common guarantee."
+          },
+          {
+            "id": "actt-cmt",
+            "name": "Actt · LogicFlash MTP",
+            "map": "CMT is 2016 acquisition lineage, not a current SKU. Public at 180–55 nm, +0–1, Flash-like interface; product-page up to ~10k cycles, not a table guarantee. Cell physics unpublished — do not invent FN, HCI, or channel-current readout."
+          }
+        ]
+      },
+      {
+        "leaf": "MTP that sits on neither LD nor HD",
+        "leafNote": "The HD-MTP leaf is CHI/FN floating gate. Schottky TwinBit belongs to neither leaf.",
+        "items": [
+          {
+            "id": "nscore-twinbit",
+            "name": "NSCore · TwinBit MTP",
+            "map": "P-channel Schottky; hot-hole program and hot-electron erase; 40–22 nm, zero extra masks. PermSRAM is an OTP sibling and must not merge with TwinBit."
+          }
+        ]
+      },
+      {
+        "leaf": "SST SuperFlash",
+        "leafNote": "The split-gate eFlash leaf is this family, not SONOS.",
+        "items": [
+          {
+            "id": "sst-superflash",
+            "name": "SST · SuperFlash",
+            "map": "Source-side injection program and interpoly FN erase. Public foundry nodes about 180–28 nm; the home page also states 500 nm–28 nm."
+          }
+        ]
+      },
+      {
+        "leaf": "SONOS eFlash",
+        "leafNote": "Charge trapping. G1 and G2 are both SONOS but differ in mask count, read path and array organization; they are not one specification cell.",
+        "items": [
+          {
+            "id": "floadia-g1",
+            "name": "Floadia · LEE Flash G1",
+            "map": "SONOS, +2–3 extra masks, FN program/erase; public description includes BCD."
+          },
+          {
+            "id": "floadia-g2",
+            "name": "Floadia · LEE Flash G2",
+            "map": "SONOS sandwiched by switch transistors, +4, VDD-read; marked as ongoing development. Not a node extension of G1."
+          }
+        ]
+      }
+    ]
+  },
   "benchmarks": [
     {
       "id": "CMP-BENCH-FRAM",

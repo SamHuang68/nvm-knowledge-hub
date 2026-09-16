@@ -736,6 +736,432 @@ The section follows the product article’s n-type structure. Positive WL and lo
 
 The thick region controls access and the thin region stores conductance; split channel means neither two gates nor a floating gate.
 
+### CFX OTP: Gate-Oxide Breakdown Teaching Case
+
+Chuangfeixin CFX
+
+CFX publicly lists Anti-fuse, eFuse and floating-gate OTP. This unit teaches only the Semi IP Hub named HV-macro gate-to-substrate oxide breakdown and marks the irreversible OTP limit.
+
+CFX OTP (Gate-Oxide Breakdown Teaching Case)
+
+CFX publicly lists Anti-fuse, eFuse, and floating-gate OTP. This drawing teaches only the Semi IP Hub named HV-macro gate-oxide breakdown and does not represent every SKU.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- BD · The orange polyline marks a conduction path after dielectric breakdown.
+
+- [ip-cfx-otpip: Chuangfeixin OTP IP](https://www.chuangfeixin.com/otpip)
+- [ip-cfx-news-routes: CFX: Three OTP Routes](https://www.chuangfeixin.com/newsinfo/8119214.html)
+- [ip-cfx-semiiphub: Semi IP Hub: CFX Gate-Oxide Breakdown](https://semiiphub.com/vendor/cfx-semiconductor/)
+
+#### CFX OTP (Gate-Oxide Breakdown Teaching Case) — Write
+
+Establish the programmed state by the published mechanism without splicing unpublished bias tables.
+
+A high-voltage pulse permanently conducts the gate-to-substrate oxide.
+
+**1. Intact Gate Oxide**
+
+State: Insulating
+
+Stimulus: Bias zero
+
+This teaching case matches only the Semi IP Hub gate-oxide-breakdown narrative.
+
+**2. High-Voltage Pulse from Gate to Substrate**
+
+State: Breaking down
+
+Stimulus: HV pulse
+
+CFX also has eFuse and floating-gate OTP, which are not drawn in this frame.
+
+**3. The Oxide Leaves a Permanent Conduction Path**
+
+State: Programmed
+
+Stimulus: Pulse removed
+
+OTP has no electrical erase back to insulation.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- BD · The orange polyline marks a conduction path after dielectric breakdown.
+
+If the target macro is eFuse or floating-gate OTP, open a separate unit; do not reuse this drawing.
+
+- [ip-cfx-otpip: Chuangfeixin OTP IP](https://www.chuangfeixin.com/otpip)
+- [ip-cfx-news-routes: CFX: Three OTP Routes](https://www.chuangfeixin.com/newsinfo/8119214.html)
+- [ip-cfx-semiiphub: Semi IP Hub: CFX Gate-Oxide Breakdown](https://semiiphub.com/vendor/cfx-semiconductor/)
+
+#### CFX OTP (Gate-Oxide Breakdown Teaching Case) — Erase / Restore Limit
+
+OTP has no electrical erase back to the initial state; this section only marks the restore limit.
+
+A high-voltage pulse permanently conducts the gate-to-substrate oxide.
+
+**1. A Broken-Down Cell Cannot Be Electrically Restored**
+
+State: Permanently conducting
+
+Stimulus: No erase command
+
+An OTP cell has no electrical cycle back to an intact oxide.
+
+**2. The Host Must Not Send an Erase Pulse**
+
+State: Still conducting
+
+Stimulus: Operation refused
+
+If rewrite is required, use an MTP or eFlash unit instead.
+
+**3. The State Can Only Be Read**
+
+State: OTP final state
+
+Stimulus: Bias zero
+
+The three OTP routes still must be checked separately during selection.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- BD · The orange polyline marks a conduction path after dielectric breakdown.
+
+If the target macro is eFuse or floating-gate OTP, open a separate unit; do not reuse this drawing.
+
+- [ip-cfx-otpip: Chuangfeixin OTP IP](https://www.chuangfeixin.com/otpip)
+- [ip-cfx-news-routes: CFX: Three OTP Routes](https://www.chuangfeixin.com/newsinfo/8119214.html)
+- [ip-cfx-semiiphub: Semi IP Hub: CFX Gate-Oxide Breakdown](https://semiiphub.com/vendor/cfx-semiconductor/)
+
+#### CFX OTP (Gate-Oxide Breakdown Teaching Case) — Read
+
+Sense the retained state under product read conditions, then latch and isolate.
+
+A high-voltage pulse permanently conducts the gate-to-substrate oxide.
+
+**1. Intact and Broken-Down Are Alternative Initial States**
+
+State: Already conducting or insulating
+
+Stimulus: Read bias is product-defined
+
+Read does not use program-level high voltage.
+
+**2. Sense Conduction at Small Bias**
+
+State: Reading
+
+Stimulus: Small bias
+
+A conducting cell draws larger current.
+
+**3. Latch then Isolate**
+
+State: State retained
+
+Stimulus: Bias zero
+
+Actual read time and window are defined by the macro.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- BD · The orange polyline marks a conduction path after dielectric breakdown.
+
+If the target macro is eFuse or floating-gate OTP, open a separate unit; do not reuse this drawing.
+
+- [ip-cfx-otpip: Chuangfeixin OTP IP](https://www.chuangfeixin.com/otpip)
+- [ip-cfx-news-routes: CFX: Three OTP Routes](https://www.chuangfeixin.com/newsinfo/8119214.html)
+- [ip-cfx-semiiphub: Semi IP Hub: CFX Gate-Oxide Breakdown](https://semiiphub.com/vendor/cfx-semiconductor/)
+
+#### IP Cell Tradeoffs
+
+One vendor can license more than one OTP physics. Check whether the target macro is oxide breakdown, a fuse or a floating gate. This drawing covers only the published gate-oxide-breakdown account.
+
+### Attopsemi I-fuse: Heat-Assisted Electromigration OTP
+
+Attopsemi
+
+I-fuse is a poly / metal-gate / metal fuse. Programming uses heat-assisted electromigration to raise resistance while staying below thermal runaway and explosive rupture.
+
+Attopsemi I-fuse OTP
+
+A poly / metal-gate / metal fuse. Heat-assisted electromigration changes resistance while staying below thermal runaway and explosive rupture.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- Fuse · The orange path marks a high-R fuse after electromigration, not an explosive gap.
+
+- [ip-attop-home: Attopsemi Home](https://www.attopsemi.com/)
+- [ip-attop-ifuse: Attopsemi I-fuse Technology](https://www.attopsemi.com/ifuse-technology/)
+
+#### Attopsemi I-fuse OTP — Write
+
+Establish the programmed state by the published mechanism without splicing unpublished bias tables.
+
+Local heating accelerates metal-atom migration and raises fuse resistance.
+
+**1. Low-Resistance Fuse Initial State**
+
+State: Continuous fuse
+
+Stimulus: Bias zero
+
+I-fuse is a fuse, not a MOS oxide.
+
+**2. Heat-Assisted Electromigration below Thermal Runaway**
+
+State: Migrating
+
+Stimulus: Program current heating
+
+The vendor explicitly excludes explosive rupture and AntiFuse.
+
+**3. Fuse Resistance Rises and Is Retained**
+
+State: High-R state
+
+Stimulus: Current removed
+
+Poly, metal-gate, and metal fuses belong to this family; this drawing does not pick one cross-section.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- Fuse · The orange path marks a high-R fuse after electromigration, not an explosive gap.
+
+I-fuse is neither AntiFuse nor conventional explosive eFuse.
+
+- [ip-attop-home: Attopsemi Home](https://www.attopsemi.com/)
+- [ip-attop-ifuse: Attopsemi I-fuse Technology](https://www.attopsemi.com/ifuse-technology/)
+
+#### Attopsemi I-fuse OTP — Erase / Restore Limit
+
+OTP has no electrical erase back to the initial state; this section only marks the restore limit.
+
+Local heating accelerates metal-atom migration and raises fuse resistance.
+
+**1. A High-R Fuse Cannot Be Electrically Restored**
+
+State: High R
+
+Stimulus: No erase current
+
+An OTP fuse has no electrical cycle back to low R.
+
+**2. Do Not Apply Reverse Blow**
+
+State: Still high R
+
+Stimulus: Operation refused
+
+This is not a rewritable MTP.
+
+**3. The Final State Can Only Be Read**
+
+State: OTP final state
+
+Stimulus: Bias zero
+
+The physics boundary versus conventional explosive eFuse must be kept.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- Fuse · The orange path marks a high-R fuse after electromigration, not an explosive gap.
+
+I-fuse is neither AntiFuse nor conventional explosive eFuse.
+
+- [ip-attop-home: Attopsemi Home](https://www.attopsemi.com/)
+- [ip-attop-ifuse: Attopsemi I-fuse Technology](https://www.attopsemi.com/ifuse-technology/)
+
+#### Attopsemi I-fuse OTP — Read
+
+Sense the retained state under product read conditions, then latch and isolate.
+
+Local heating accelerates metal-atom migration and raises fuse resistance.
+
+**1. Low R and High R Are Alternative Initial States**
+
+State: Existing resistance
+
+Stimulus: Small sense current
+
+Sense current is far below program current.
+
+**2. Compare Fuse Resistance**
+
+State: Reading
+
+Stimulus: Small bias
+
+Sense circuits distinguish high R from low R.
+
+**3. Latch then Remove Current**
+
+State: Resistance retained
+
+Stimulus: Bias zero
+
+Read must not drive the fuse near thermal runaway.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- Fuse · The orange path marks a high-R fuse after electromigration, not an explosive gap.
+
+I-fuse is neither AntiFuse nor conventional explosive eFuse.
+
+- [ip-attop-home: Attopsemi Home](https://www.attopsemi.com/)
+- [ip-attop-ifuse: Attopsemi I-fuse Technology](https://www.attopsemi.com/ifuse-technology/)
+
+#### IP Cell Tradeoffs
+
+Keep I-fuse separate from AntiFuse and from conventional explosive eFuse. The stored quantity is fuse resistance, not whether a MOS gate oxide has broken down.
+
+### Floadia LEE Fuse ZA: Anti-Fuse OTP
+
+Floadia
+
+Zero extra-mask Anti-fuse OTP. The teaching drawing shows a dielectric changing from insulation to permanent conduction and does not locate the breakdown site in a gate or capacitor.
+
+Floadia LEE Fuse ZA OTP
+
+Anti-fuse OTP with zero extra mask. The teaching drawing shows dielectric isolation then conduction and does not locate the breakdown site in a gate or capacitor.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- BD · The orange polyline marks a conduction path after dielectric breakdown.
+
+- [ip-floadia-za: Floadia LEE Fuse ZA](https://floadia.com/product/lee-fuse-za/)
+
+#### Floadia LEE Fuse ZA OTP — Write
+
+Establish the programmed state by the published mechanism without splicing unpublished bias tables.
+
+A single high-voltage event permanently conducts the dielectric.
+
+**1. Intact Anti-Fuse Dielectric**
+
+State: Insulating
+
+Stimulus: Bias zero
+
+The product name is LEE Fuse ZA.
+
+**2. High Voltage Breaks Down the Dielectric**
+
+State: Breaking down
+
+Stimulus: HV
+
+Zero extra mask is the integration claim; the breakdown site is unpublished.
+
+**3. Leave a Permanent Conduction Path**
+
+State: Programmed
+
+Stimulus: High voltage removed
+
+A DRAM 1xnm production track cannot be extrapolated as the same cross-section on every logic node.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- BD · The orange polyline marks a conduction path after dielectric breakdown.
+
+The product name is LEE Fuse ZA; a page typo of LEE Flash ZA does not change the mechanism class.
+
+- [ip-floadia-za: Floadia LEE Fuse ZA](https://floadia.com/product/lee-fuse-za/)
+
+#### Floadia LEE Fuse ZA OTP — Erase / Restore Limit
+
+OTP has no electrical erase back to the initial state; this section only marks the restore limit.
+
+A single high-voltage event permanently conducts the dielectric.
+
+**1. A Broken-Down Cell Has No Electrical Erase**
+
+State: Permanently conducting
+
+Stimulus: No erase command
+
+Anti-fuse OTP is kept separate from LEE Flash ZT/G1/G2.
+
+**2. Refuse the Erase Operation**
+
+State: Still conducting
+
+Stimulus: Operation refused
+
+A page typo of LEE Flash ZA does not turn this unit into eFlash.
+
+**3. The Final State Can Only Be Read**
+
+State: OTP final state
+
+Stimulus: Bias zero
+
+180 nm to sub-10 nm is a vendor node narrative.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- BD · The orange polyline marks a conduction path after dielectric breakdown.
+
+The product name is LEE Fuse ZA; a page typo of LEE Flash ZA does not change the mechanism class.
+
+- [ip-floadia-za: Floadia LEE Fuse ZA](https://floadia.com/product/lee-fuse-za/)
+
+#### Floadia LEE Fuse ZA OTP — Read
+
+Sense the retained state under product read conditions, then latch and isolate.
+
+A single high-voltage event permanently conducts the dielectric.
+
+**1. Insulation and Conduction Are Alternative Initial States**
+
+State: Existing state
+
+Stimulus: Read bias is product-defined
+
+Read does not use program-level high voltage.
+
+**2. Sense at Small Bias**
+
+State: Reading
+
+Stimulus: Small bias
+
+A conducting cell draws larger current.
+
+**3. Latch then Isolate**
+
+State: State retained
+
+Stimulus: Bias zero
+
+Actual specifications follow the licensed target version.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- BD · The orange polyline marks a conduction path after dielectric breakdown.
+
+The product name is LEE Fuse ZA; a page typo of LEE Flash ZA does not change the mechanism class.
+
+- [ip-floadia-za: Floadia LEE Fuse ZA](https://floadia.com/product/lee-fuse-za/)
+
+#### IP Cell Tradeoffs
+
+The product name is LEE Fuse ZA. If a page writes LEE Flash ZA, the cell remains Anti-fuse OTP and must not be read as the rewritable charge cells in LEE Flash ZT, G1 or G2.
+
 ### NeoEE: FN/FN Single-Poly MTP
 
 eMemory
@@ -1535,6 +1961,978 @@ T_P/T_E are operating roles and must not be assumed to be one physical pin. MOS 
 #### IP Cell Tradeoffs
 
 AEON is a named logic-process MTP family originating at Impinj. A 2009 Virage Logic company article explicitly supports FN program and erase. The diagram retains that physical scope through C, T_P, T_E and read-MOS roles, without assuming undisclosed p/n polarity, device count or current wiring.
+
+### Actt LogicFlash MTP: Logic-Process MTP from the CMT Lineage
+
+Actt (CMT lineage)
+
+Actt acquired CMT in 2016. The current public MTP product is LogicFlash: logic-compatible, 0–1 extra mask, Flash-like byte program and sector/chip erase. The storage-node material is unpublished.
+
+#### Public Interface-Level MTP: PGM / ERS Cycle
+
+The same storage cell supports programming, electrical erase and subsequent programming. ERS restores a window suitable for another program operation. Whether the host issues a separate erase command depends on the macro interface.
+
+PGM → ERS → PGM
+
+Programmed
+
+Public evidence stops at a Flash-class PGM/ERS interface and does not specify FN, HCI, or a trap layer. — CMT lineage explains origin and adds no physics.
+
+CMT lineage explains origin and adds no physics.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+The public page lists byte PGM and sector/chip ERS. Confirm actual granularity on the target macro.
+
+Up to 10k cycles is product-page narrative, not a guarantee in this drawing. The storage-node material is unpublished; do not splice bias or mask assumptions from other MTP cells.
+
+- [ip-actt-envm: Actt eNVM Product Page](https://www.analogcircuit.cn/product/envm.html)
+- [ip-actt-andes-cmt: Andes: Actt Acquired CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/)
+
+Actt LogicFlash MTP (CMT Lineage)
+
+A logic-process MTP macro. The public page guarantees Flash-like byte program and sector/chip erase, not the storage-node material. CMT is the 2016 acquisition lineage.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- e− · Blue dots denote electrons; the count is qualitative.
+
+- [ip-actt-envm: Actt eNVM Product Page](https://www.analogcircuit.cn/product/envm.html)
+- [ip-actt-andes-cmt: Andes: Actt Acquired CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/)
+
+#### Actt LogicFlash MTP (CMT Lineage) — Write
+
+Establish the programmed state by the published mechanism without splicing unpublished bias tables.
+
+Public evidence stops at a Flash-class PGM/ERS interface and does not specify FN, HCI, or a trap layer.
+
+**1. Before Select: Reusable MTP Macro**
+
+State: Empty node
+
+Stimulus: Bias zero
+
+The vendor proves Flash-like byte program, not a cell cross-section.
+
+**2. Host Issues a Program Command**
+
+State: Programming
+
+Stimulus: Internal HV from the macro
+
+The drawing marks the interface command and does not invent an FN or HCI path.
+
+**3. Retain the Programmed State after Verify**
+
+State: Programmed state retained
+
+Stimulus: Command removed
+
+10k cycles is a product-page ceiling narrative, not a guarantee in this drawing.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- e− · Blue dots denote electrons; the count is qualitative.
+
+SuperMTP is marked under development on the vendor page and is not used in this unit’s operation drawings.
+
+- [ip-actt-envm: Actt eNVM Product Page](https://www.analogcircuit.cn/product/envm.html)
+- [ip-actt-andes-cmt: Andes: Actt Acquired CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/)
+
+#### Actt LogicFlash MTP (CMT Lineage) — Erase / Restore Limit
+
+Electrically erase by the published mechanism so the cell returns to a reprogrammable window.
+
+Public evidence stops at a Flash-class PGM/ERS interface and does not specify FN, HCI, or a trap layer.
+
+**1. Start Erase from a Programmed State**
+
+State: Programmed
+
+Stimulus: Bias zero
+
+Public erase granularity is sector or chip, not a proven bit-level erase.
+
+**2. Host Issues an Erase Command**
+
+State: Erasing
+
+Stimulus: Sector / chip ERS
+
+The storage-node material remains unpublished.
+
+**3. Return to a Reprogrammable Window after Verify**
+
+State: Erased
+
+Stimulus: Command removed
+
+CMT lineage explains origin and adds no physics.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- e− · Blue dots denote electrons; the count is qualitative.
+
+SuperMTP is marked under development on the vendor page and is not used in this unit’s operation drawings.
+
+- [ip-actt-envm: Actt eNVM Product Page](https://www.analogcircuit.cn/product/envm.html)
+- [ip-actt-andes-cmt: Andes: Actt Acquired CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/)
+
+#### Actt LogicFlash MTP (CMT Lineage) — Read
+
+Sense the retained state under product read conditions, then latch and isolate.
+
+Public evidence stops at a Flash-class PGM/ERS interface and does not specify FN, HCI, or a trap layer.
+
+**1. Select a Retained Programmed or Erased State**
+
+State: Existing charge; unknown material
+
+Stimulus: Read bias is product-defined
+
+Read does not invent a carrier mechanism in this drawing.
+
+**2. Sense Channel Current**
+
+State: Reading
+
+Stimulus: Small-bias sense
+
+Current difference is decoded by the product sense circuit.
+
+**3. Latch then Isolate**
+
+State: State retained
+
+Stimulus: Selection removed
+
+Read-disturb limits must be checked on the target macro.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- e− · Blue dots denote electrons; the count is qualitative.
+
+SuperMTP is marked under development on the vendor page and is not used in this unit’s operation drawings.
+
+- [ip-actt-envm: Actt eNVM Product Page](https://www.analogcircuit.cn/product/envm.html)
+- [ip-actt-andes-cmt: Andes: Actt Acquired CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/)
+
+#### IP Cell Tradeoffs
+
+CMT is a lineage name, not a current SKU. SuperMTP is marked under development and is not used here. Public evidence stops at the interface and update granularity; do not invent FN or HCI.
+
+### NSCore TwinBit: Pch Schottky MTP
+
+NSCore
+
+TwinBit Gen-2 uses a Pch Schottky storage device with zero extra mask. Program is hot hole; erase is hot electron. Sibling PermSRAM is OTP and is not drawn in this unit.
+
+#### TwinBit MTP: Hot-Hole Program / Hot-Electron Erase
+
+The same Schottky storage cell supports programming, electrical erase and subsequent programming. Erase uses hot electrons to compensate or remove the hot-hole effect and restore a reprogrammable window.
+
+PGM → ERS → PGM
+
+Programmed
+
+Program by hot hole; erase by hot electron. — 40–22 nm is a vendor node narrative, not a measurement in this drawing.
+
+40–22 nm is a vendor node narrative, not a measurement in this drawing.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish bit-level host commands.
+
+40–22 nm and zero extra mask are vendor node narratives. No bias table is published. Gen-1 CMOS NMOS pairs are not mixed into the Gen-2 Schottky cross-section.
+
+- [ip-nscore-products: NSCore Products](https://www.nscore.com/products/)
+- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+
+NSCore TwinBit MTP
+
+Gen-2 uses a Pch Schottky transistor as the storage device with zero extra mask. PermSRAM is a sibling OTP that traps hot carriers in a SiN spacer and is not drawn here.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- h+ · Red dots denote hot holes; the count is qualitative.
+- e− · Blue dots denote hot electrons; the count is qualitative.
+
+- [ip-nscore-products: NSCore Products](https://www.nscore.com/products/)
+- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+
+#### NSCore TwinBit MTP — Write
+
+Establish the programmed state by the published mechanism without splicing unpublished bias tables.
+
+Program by hot hole; erase by hot electron.
+
+**1. Pch Schottky Initial State**
+
+State: Unprogrammed
+
+Stimulus: Bias zero
+
+Gen-2 is published as Pch Schottky with zero extra mask.
+
+**2. Hot-Hole Program**
+
+State: Programming
+
+Stimulus: Channel hot-hole injection
+
+Arrows show hot-hole direction, not a bias table.
+
+**3. Retain the Threshold Shift from Hot Holes**
+
+State: Programmed
+
+Stimulus: Bias removed
+
+The PermSRAM SiN spacer is not drawn.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- h+ · Red dots denote hot holes; the count is qualitative.
+- e− · Blue dots denote hot electrons; the count is qualitative.
+
+TwinBit is not drawn as PermSRAM spacer trapping, and bias numbers are unspecified.
+
+- [ip-nscore-products: NSCore Products](https://www.nscore.com/products/)
+- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+
+#### NSCore TwinBit MTP — Erase / Restore Limit
+
+Electrically erase by the published mechanism so the cell returns to a reprogrammable window.
+
+Program by hot hole; erase by hot electron.
+
+**1. Start from the Hot-Hole Programmed State**
+
+State: Programmed
+
+Stimulus: Bias zero
+
+TwinBit is electrically erasable and is kept separate from OTP PermSRAM.
+
+**2. Hot-Electron Erase**
+
+State: Erasing
+
+Stimulus: Hot electrons compensate or remove the hole effect
+
+The published statement is erase by hot electron.
+
+**3. Return to a Reprogrammable State**
+
+State: Erased
+
+Stimulus: Bias removed
+
+40–22 nm is a vendor node narrative, not a measurement in this drawing.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- h+ · Red dots denote hot holes; the count is qualitative.
+- e− · Blue dots denote hot electrons; the count is qualitative.
+
+TwinBit is not drawn as PermSRAM spacer trapping, and bias numbers are unspecified.
+
+- [ip-nscore-products: NSCore Products](https://www.nscore.com/products/)
+- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+
+#### NSCore TwinBit MTP — Read
+
+Sense the retained state under product read conditions, then latch and isolate.
+
+Program by hot hole; erase by hot electron.
+
+**1. The Same Schottky Cell Awaits Read**
+
+State: Existing threshold
+
+Stimulus: Read bias is product-defined
+
+Read does not repeat hot-carrier program.
+
+**2. Sense Channel Current**
+
+State: Reading
+
+Stimulus: Small bias
+
+Threshold shift changes current.
+
+**3. Latch then Deselect**
+
+State: State retained
+
+Stimulus: Bias zero
+
+The read window is set by supplier conditions.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- h+ · Red dots denote hot holes; the count is qualitative.
+- e− · Blue dots denote hot electrons; the count is qualitative.
+
+TwinBit is not drawn as PermSRAM spacer trapping, and bias numbers are unspecified.
+
+- [ip-nscore-products: NSCore Products](https://www.nscore.com/products/)
+- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html)
+
+#### IP Cell Tradeoffs
+
+TwinBit and PermSRAM share a vendor, not a cell physics. Do not draw OTP SiN-spacer hot-carrier trapping as the MTP erase path.
+
+### Floadia LEE Flash ZT: FN Floating-Gate MTP
+
+Floadia
+
+Zero extra-mask floating-gate MTP. The vendor states both program and erase use FN; news names the storage node as a floating gate.
+
+#### LEE Flash ZT: FN / FN Cycle
+
+The same floating-gate cell supports programming, electrical erase and subsequent programming. Both directions use FN, not hot-carrier program.
+
+PGM → ERS → PGM
+
+Programmed
+
+Electrons enter and leave the floating gate by FN tunneling. — Zero extra mask is an integration claim, not a cross-section proof.
+
+Zero extra mask is an integration claim, not a cross-section proof.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+Cycle-count copy on the page conflicts with itself; neither 10K nor >100k is treated as a guarantee. Poly count and well structure remain unpublished.
+
+- [ip-floadia-zt: Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/)
+- [ip-floadia-zt-news: Floadia ZT News: Floating Gate](https://floadia.com/news/422/)
+
+Floadia LEE Flash ZT MTP
+
+Zero extra-mask floating-gate MTP; program and erase use FN. The teaching drawing shows only an equivalent FG and coupling terminal.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- e− · Blue dots denote electrons; the count is qualitative.
+
+- [ip-floadia-zt: Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/)
+- [ip-floadia-zt-news: Floadia ZT News: Floating Gate](https://floadia.com/news/422/)
+
+#### Floadia LEE Flash ZT MTP — Write
+
+Establish the programmed state by the published mechanism without splicing unpublished bias tables.
+
+Electrons enter and leave the floating gate by FN tunneling.
+
+**1. Floating-Gate Initial State**
+
+State: Few electrons
+
+Stimulus: Bias zero
+
+ZT news names the storage node as a floating gate.
+
+**2. FN Program: Electrons Enter FG**
+
+State: Programming
+
+Stimulus: FN tunneling
+
+The vendor states both program and erase use FN.
+
+**3. Electrons Remain on FG after Bias Removal**
+
+State: Programmed
+
+Stimulus: Bias zero
+
+Cycle counts do not follow the page’s conflicting numbers.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- e− · Blue dots denote electrons; the count is qualitative.
+
+Cycle-count copy on the page conflicts with itself; no count is treated as a guarantee.
+
+- [ip-floadia-zt: Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/)
+- [ip-floadia-zt-news: Floadia ZT News: Floating Gate](https://floadia.com/news/422/)
+
+#### Floadia LEE Flash ZT MTP — Erase / Restore Limit
+
+Electrically erase by the published mechanism so the cell returns to a reprogrammable window.
+
+Electrons enter and leave the floating gate by FN tunneling.
+
+**1. Start with More Electrons on FG**
+
+State: Programmed
+
+Stimulus: Bias zero
+
+Erase remains FN, not hot carrier.
+
+**2. Reverse FN Removes Electrons from FG**
+
+State: Erasing
+
+Stimulus: Reverse FN
+
+The teaching drawing does not specify well-potential numbers.
+
+**3. FG Returns to a Reprogrammable Window**
+
+State: Erased
+
+Stimulus: Bias zero
+
+Zero extra mask is an integration claim, not a cross-section proof.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- e− · Blue dots denote electrons; the count is qualitative.
+
+Cycle-count copy on the page conflicts with itself; no count is treated as a guarantee.
+
+- [ip-floadia-zt: Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/)
+- [ip-floadia-zt-news: Floadia ZT News: Floating Gate](https://floadia.com/news/422/)
+
+#### Floadia LEE Flash ZT MTP — Read
+
+Sense the retained state under product read conditions, then latch and isolate.
+
+Electrons enter and leave the floating gate by FN tunneling.
+
+**1. The Same FG Awaits Read**
+
+State: Existing FG charge
+
+Stimulus: Read bias is product-defined
+
+Read does not use program-level FN.
+
+**2. Turn on Coupling and Sense the Channel**
+
+State: Reading
+
+Stimulus: Small coupling potential
+
+Channel current reflects FG charge.
+
+**3. Latch then Isolate**
+
+State: Charge retained
+
+Stimulus: Bias zero
+
+Automotive narrative must be checked against target product conditions.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- e− · Blue dots denote electrons; the count is qualitative.
+
+Cycle-count copy on the page conflicts with itself; no count is treated as a guarantee.
+
+- [ip-floadia-zt: Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/)
+- [ip-floadia-zt-news: Floadia ZT News: Floating Gate](https://floadia.com/news/422/)
+
+#### IP Cell Tradeoffs
+
+ZT is rewritable MTP, not LEE Fuse ZA Anti-fuse. Cycle-count copy on the page conflicts with itself; no count is treated as a common guarantee.
+
+### Floadia LEE Flash G1: SONOS eFlash
+
+Floadia
+
+SONOS charge-trap eFlash with 2–3 extra masks and FN program/erase. O-N-O is a teaching stack, not a measured thickness.
+
+#### LEE Flash G1: SONOS FN / FN Cycle
+
+The same SONOS cell supports programming, electrical erase and subsequent programming. Electrons enter and leave the nitride trap layer by FN and restore a reprogrammable window.
+
+PGM → ERS → PGM
+
+Programmed
+
+Electrons enter and leave the nitride trap layer by FN tunneling. — Mask count is integration cost, not an endurance guarantee.
+
+Mask count is integration cost, not an endurance guarantee.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish bit-level host commands.
+
+Two to three extra masks are integration cost, not an endurance guarantee. Nitride thickness and the bias table are unpublished.
+
+- [ip-floadia-g1: Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)
+
+Floadia LEE Flash G1 eFlash
+
+SONOS charge-trap eFlash; 2–3 extra masks; FN program/erase. O-N-O is a teaching stack, not a measured thickness.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
+
+- [ip-floadia-g1: Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)
+
+#### Floadia LEE Flash G1 eFlash — Write
+
+Establish the programmed state by the published mechanism without splicing unpublished bias tables.
+
+Electrons enter and leave the nitride trap layer by FN tunneling.
+
+**1. SONOS Trap-Layer Initial State**
+
+State: Few trapped electrons
+
+Stimulus: Bias zero
+
+G1 is published as SONOS with 2–3 extra masks.
+
+**2. FN Moves Electrons into the Nitride**
+
+State: Programming
+
+Stimulus: FN
+
+Program and erase both use FN.
+
+**3. Electrons Remain in the Trap Layer**
+
+State: Programmed
+
+Stimulus: Bias zero
+
+O-N-O thickness is unpublished.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
+
+A BCD narrative cannot be extrapolated to every logic node.
+
+- [ip-floadia-g1: Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)
+
+#### Floadia LEE Flash G1 eFlash — Erase / Restore Limit
+
+Electrically erase by the published mechanism so the cell returns to a reprogrammable window.
+
+Electrons enter and leave the nitride trap layer by FN tunneling.
+
+**1. Start from Trapped Electrons**
+
+State: Programmed
+
+Stimulus: Bias zero
+
+Erase is not TwinBit hot-hole compensation.
+
+**2. Reverse FN Removes Electrons from Nitride**
+
+State: Erasing
+
+Stimulus: Reverse FN
+
+A BCD narrative cannot be extrapolated to every logic platform.
+
+**3. Return to a Reprogrammable Trap Window**
+
+State: Erased
+
+Stimulus: Bias zero
+
+Mask count is integration cost, not an endurance guarantee.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
+
+A BCD narrative cannot be extrapolated to every logic node.
+
+- [ip-floadia-g1: Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)
+
+#### Floadia LEE Flash G1 eFlash — Read
+
+Sense the retained state under product read conditions, then latch and isolate.
+
+Electrons enter and leave the nitride trap layer by FN tunneling.
+
+**1. The Same SONOS Cell Awaits Read**
+
+State: Existing trapped charge
+
+Stimulus: Read bias is product-defined
+
+Read does not use program-level FN.
+
+**2. Sense Channel Current**
+
+State: Reading
+
+Stimulus: Small bias
+
+Trapped charge shifts threshold.
+
+**3. Latch then Isolate**
+
+State: Charge retained
+
+Stimulus: Bias zero
+
+Read disturb must be checked on the target macro.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
+
+A BCD narrative cannot be extrapolated to every logic node.
+
+- [ip-floadia-g1: Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)
+
+#### IP Cell Tradeoffs
+
+G1 is eFlash/SONOS, not zero-mask MTP ZT and not Anti-fuse ZA. A BCD narrative cannot be extrapolated to every logic node.
+
+### Floadia LEE Flash G2: Sandwiched SONOS eFlash
+
+Floadia
+
+A SONOS storage cell sandwiched by switch transistors, with four extra masks. The vendor emphasizes VDD read without high voltage on diffusion terminals, and marks ongoing development.
+
+#### LEE Flash G2: Sandwiched SONOS Cycle
+
+The same sandwiched SONOS cell supports programming, electrical erase and subsequent programming. Side switches select the cell; storage remains in the nitride trap layer.
+
+PGM → ERS → PGM
+
+Programmed
+
+Program/erase still use charge trapping; read selects through side switches at VDD. — An in-development note is not a production guarantee.
+
+An in-development note is not a production guarantee.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish bit-level host commands.
+
+The vendor marks ongoing development. VDD read does not mean erase needs no internal high-voltage generation. Four extra masks must not be extrapolated to G1 or ZT.
+
+- [ip-floadia-g2: Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
+
+Floadia LEE Flash G2 eFlash
+
+A SONOS storage cell sandwiched by switch transistors; 4 extra masks; read at VDD without high voltage on diffusion terminals.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
+
+- [ip-floadia-g2: Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
+
+#### Floadia LEE Flash G2 eFlash — Write
+
+Establish the programmed state by the published mechanism without splicing unpublished bias tables.
+
+Program/erase still use charge trapping; read selects through side switches at VDD.
+
+**1. Sandwiched SONOS Cell with Side Switches Off**
+
+State: Few trapped electrons
+
+Stimulus: Switches off
+
+G2 sandwiches SONOS between switch transistors.
+
+**2. Apply FN Program through Side Switches**
+
+State: Programming
+
+Stimulus: Side switches on; FN
+
+Four extra masks is the published integration number.
+
+**3. Turn Switches Off; Charge Remains in Nitride**
+
+State: Programmed
+
+Stimulus: Switches off
+
+The vendor marks ongoing development.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
+
+The vendor marks ongoing development; this drawing teaches only the published structural principle.
+
+- [ip-floadia-g2: Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
+
+#### Floadia LEE Flash G2 eFlash — Erase / Restore Limit
+
+Electrically erase by the published mechanism so the cell returns to a reprogrammable window.
+
+Program/erase still use charge trapping; read selects through side switches at VDD.
+
+**1. The Sandwiched Cell Still Holds Trapped Charge**
+
+State: Programmed
+
+Stimulus: Switches off
+
+Erase remains charge-trap physics, not a fuse.
+
+**2. Reverse FN Erase through Side Switches**
+
+State: Erasing
+
+Stimulus: Side switches on; reverse FN
+
+No high voltage on diffusion is a vendor read/logic claim; erase may still need internal HV generation.
+
+**3. Turn Switches Off and Return to Reprogrammable**
+
+State: Erased
+
+Stimulus: Switches off
+
+An in-development note is not a production guarantee.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
+
+The vendor marks ongoing development; this drawing teaches only the published structural principle.
+
+- [ip-floadia-g2: Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
+
+#### Floadia LEE Flash G2 eFlash — Read
+
+Sense the retained state under product read conditions, then latch and isolate.
+
+Program/erase still use charge trapping; read selects through side switches at VDD.
+
+**1. Select Side Switches before VDD Read**
+
+State: Existing trapped charge
+
+Stimulus: Prepare VDD read
+
+The vendor emphasizes read at VDD.
+
+**2. Side Switches Turn On at VDD and Sense**
+
+State: Reading
+
+Stimulus: VDD; switches on
+
+Diffusion terminals do not take program-level high voltage.
+
+**3. Latch then Turn Switches Off**
+
+State: Charge retained
+
+Stimulus: Switches off
+
+Non-volatilized logic is product positioning, not proof of a generic standard-cell library.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
+
+The vendor marks ongoing development; this drawing teaches only the published structural principle.
+
+- [ip-floadia-g2: Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
+
+#### IP Cell Tradeoffs
+
+G2’s read claim is VDD plus side switches; it does not cancel charge-trap physics. An in-development note is not a production guarantee and is not a generic standard-cell library.
+
+### SST SuperFlash: Split-Gate eFlash
+
+SST / Microchip
+
+Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN.
+
+#### SuperFlash: SSI Program / Interpoly FN Erase
+
+The same split-gate cell supports programming, electrical erase and subsequent programming. Erase lets electrons leave FG through the interpoly oxide and restores a reprogrammable window.
+
+PGM → ERS → PGM
+
+Programmed
+
+Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide. — The teaching drawing is not a foundry metrology cross-section.
+
+The teaching drawing is not a foundry metrology cross-section.
+
+After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+
+Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+
+Read structure and mechanism within the named SuperFlash generation. 2018 shipment and node tables are not guarantees for every product in 2026.
+
+- [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
+- [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+SST SuperFlash eFlash
+
+Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- e− · Blue dots denote electrons; the count is qualitative.
+
+- [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
+- [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### SST SuperFlash eFlash — Write
+
+Establish the programmed state by the published mechanism without splicing unpublished bias tables.
+
+Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide.
+
+**1. Split Gate: Select Gate beside Floating Gate**
+
+State: Fewer FG electrons
+
+Stimulus: Bias zero
+
+SuperFlash is published as a split-gate architecture.
+
+**2. Source-Side Injection Writes Hot Electrons into FG**
+
+State: Programming
+
+Stimulus: SSI
+
+The program mechanism is source-side injection, not a generic CHE label.
+
+**3. Electrons Remain on FG**
+
+State: Programmed
+
+Stimulus: Bias zero
+
+The licensed process range is not proof of one node.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- e− · Blue dots denote electrons; the count is qualitative.
+
+The process range is a licensing narrative, not proof of one production node.
+
+- [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
+- [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### SST SuperFlash eFlash — Erase / Restore Limit
+
+Electrically erase by the published mechanism so the cell returns to a reprogrammable window.
+
+Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide.
+
+**1. FG Already Holds Injected Electrons**
+
+State: Programmed
+
+Stimulus: Bias zero
+
+Erase uses interpoly FN, not a reverse SSI current.
+
+**2. Interpoly FN Removes Electrons from FG**
+
+State: Erasing
+
+Stimulus: interpoly FN
+
+Electrons cross the oxide between select gate and floating gate.
+
+**3. FG Returns to a Reprogrammable Window**
+
+State: Erased
+
+Stimulus: Bias zero
+
+The teaching drawing is not a foundry metrology cross-section.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- e− · Blue dots denote electrons; the count is qualitative.
+
+The process range is a licensing narrative, not proof of one production node.
+
+- [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
+- [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### SST SuperFlash eFlash — Read
+
+Sense the retained state under product read conditions, then latch and isolate.
+
+Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide.
+
+**1. The Same Split-Gate Cell Awaits Read**
+
+State: Existing FG charge
+
+Stimulus: Read bias is product-defined
+
+Read does not repeat SSI program.
+
+**2. Turn on Select Gate and Sense the Channel**
+
+State: Reading
+
+Stimulus: Small bias
+
+Channel current reflects FG charge.
+
+**3. Latch then Turn off Select Gate**
+
+State: Charge retained
+
+Stimulus: Bias zero
+
+Read-speed ratings must be checked on the licensed target version.
+
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
+- Bias / I · Green arrows denote bias or conventional current direction.
+- e− · Blue dots denote electrons; the count is qualitative.
+
+The process range is a licensing narrative, not proof of one production node.
+
+- [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
+- [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+
+#### IP Cell Tradeoffs
+
+SuperFlash program is SSI, not a generic CHE label; erase is inter-gate FN, not channel erase. A licensed process range is not proof of one production node.
 
 ### Numem: Embedded STT-MRAM IP Cell
 
@@ -4849,6 +6247,12 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ip-sidense-irreversible-2017: Sidense 1T-Fuse Irreversibility and eMTP Boundary](https://www.chipestimate.com/Enabling-Secure-Semiconductor-Supply-Chain-Management/Sidense-a-part-of-Synopsys/Technical-Article/2017/09/05). Original-Author Technical Article; 2017-09-05; Accessed 2026-09-10; Location in the Source: Where NVM Fits In; Sidense Antifuse-based Split-channel 1T-Fuse Bit Cell; Figure 5; Limitations: Supports persistent thin-oxide conduction and emulated updates at system level; absolute security and competitor-comparison claims are excluded.
 - [ip-sidense-patent-2006: Historical Sidense Split-Channel Antifuse Patent](https://patents.google.com/patent/US20060244099A1/en). Public Patent; 2006-11-02; Accessed 2026-09-10; Location in the Source: Figures 4, 5, 11, 12; paragraphs [0062]–[0067], [0087]–[0091]; claims 1–3, 12–13; Limitations: Corroborates thick/thin oxide and optional omission of the second diffusion. Detailed p-type biases are not transferred into the 2007 n-type product diagram.
 - [ip-lineage-sidense-2017: Synopsys Acquisition of Sidense](https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation). Official Acquisition Announcement; 2017-10-17; Accessed 2026-09-10; Location in the Source: Announcement date; single-transistor and split-channel 1T-Fuse paragraphs; Limitations: Directly links Sidense 1T-Fuse to the acquisition; does not establish one unchanged cross-section for all later OTP.
+- [ip-cfx-otpip: Chuangfeixin OTP IP](https://www.chuangfeixin.com/otpip). vendor; 2026-09-16; Location in the Source: CMOS-compatible OTP IP product line.; Limitations: The page does not lock a single physics mechanism.
+- [ip-cfx-news-routes: CFX: Three OTP Routes](https://www.chuangfeixin.com/newsinfo/8119214.html). vendor; 2026-04-09; Location in the Source: Public narrative lists Anti-fuse, eFuse, and Floating Gate OTP routes.; Limitations: Do not collapse the three routes into one bit cell.
+- [ip-cfx-semiiphub: Semi IP Hub: CFX Gate-Oxide Breakdown](https://semiiphub.com/vendor/cfx-semiconductor/). catalog; 2026-09-16; Location in the Source: Some named HV macros use a high-voltage pulse for gate-to-substrate oxide breakdown.; Limitations: The catalog description does not cover every CFX OTP SKU.
+- [ip-attop-home: Attopsemi Home](https://www.attopsemi.com/). vendor; 2026-09-16; Location in the Source: I-fuse is positioned as OTP; explicitly not AntiFuse and not explosive eFuse.; Limitations: The home page does not draw I-fuse as MOS gate-oxide breakdown.
+- [ip-attop-ifuse: Attopsemi I-fuse Technology](https://www.attopsemi.com/ifuse-technology/). vendor; 2026-09-16; Location in the Source: Heat-assisted electromigration below thermal runaway; poly / metal-gate / metal fuse, not MOS.; Limitations: No public fuse cross-section dimensions or program current table.
+- [ip-floadia-za: Floadia LEE Fuse ZA](https://floadia.com/product/lee-fuse-za/). vendor; 2026-09-16; Location in the Source: Anti-fuse OTP, zero extra mask, 180 nm to sub-10 nm; DRAM 1xnm production track.; Limitations: The page once writes LEE Flash ZA; the product name is LEE Fuse ZA. No public breakdown-site cross-section.
 - [ip-neoee: NeoEE Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoEE). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; capacitive-coupling MOS devices and selectors; Limitations: Current FN/FN; exact device count, p/n arrangement and biases are undisclosed.
 - [ip-neoee-history: Historical NeoEE Conceptual Cell](https://www.chipestimate.com/Value-Propositions-that-NeoEETM-Technology-can-Delivery/eMemory/Technical-Article/2010/10/19). Primary Technical Source; 2010-10-19; Location in the Source: NeoEE Technology; Figure 1(b), Tej tunneling junction; Limitations: Historical family includes CHE/FN and FN/FN; it does not override the current route.
 - [ip-neomtp: NeoMTP Technical Principles](https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; p-type FG-MOSFET; extra erase gate; Limitations: Hot-hole-induced electron injection and FN from FG to erase gate; full cross-section is undisclosed.
@@ -4862,6 +6266,16 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [physics-fg-hole-erase: IEEE: Hot-Hole Injection into a Floating Gate](https://ieeexplore.ieee.org/document/748914/). Original Research; 1999-03; accessed 2026-09-10; Location in the Source: IEEE EDL 20(3), pages 140–142; abstract; DOI 10.1109/55.748914; Limitations: Observes BBT/possible avalanche enhancement during FN erase; used only for floating-gate hot-hole physics, not a pure-BBHH recipe.
 - [aeon-impinj-2007: Impinj AEON/MTP Floating-Gate Announcement](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin). Company product announcement; 2007-09-26; Location in the Source: Opening AEON/MTP and floating-gate transistor paragraphs; Limitations: Supports the floating-gate family. Process and voltage claims apply to that announcement; no complete cell section is disclosed.
 - [aeon-virage-fn-2009: Virage Logic AEON MTP Program/Erase and Monitoring](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30). Company-authored technical article; 2009-06-30; Location in the Source: Craig Zajac; Architectural decisions, Manufacturing and author biography; Limitations: Explicitly identifies FN for program and erase. Differential cells and ECC concern the described automotive options. No terminal voltages, p/n polarity or physical geometry are disclosed.
+- [ip-actt-envm: Actt eNVM Product Page](https://www.analogcircuit.cn/product/envm.html). vendor; 2026-09-16; Location in the Source: LogicFlash MTP: logic-compatible, 0–1 extra mask, Flash-like byte PGM / sector or chip ERS, up to 10k cycles; SuperMTP marked under development; no public bit-cell cross-section.; Limitations: "Flash-like" proves interface and update granularity, not FN, HCI, or a trap layer.
+- [ip-actt-andes-cmt: Andes: Actt Acquired CMT](https://www.andestech.com/en/2016/08/30/andes-technology-and-actt-announce-strategic-partnership/). news; 2016-08-30; Location in the Source: Actt acquired Chip Memory Technology (CMT) in 2016.; Limitations: CMT is a lineage name, not a current public SKU.
+- [ip-nscore-products: NSCore Products](https://www.nscore.com/products/). vendor; 2026-09-16; Location in the Source: TwinBit MTP is listed beside PermSRAM OTP; TwinBit is sold as CMOS, zero extra mask.; Limitations: The products page does not describe TwinBit as PermSRAM hotspot-into-SiN.
+- [ip-nscore-twinbit-g2: NSCore TwinBit Gen-2](https://www.nscore.com/twinbit_g2.html). vendor; 2026-09-16; Location in the Source: Gen-2 Pch Schottky; program by hot hole, erase by hot electron; 40–22 nm, zero extra mask.; Limitations: No public bias table or junction dimensions.
+- [ip-floadia-zt: Floadia LEE Flash ZT](https://floadia.com/product/lee-flash-zt/). vendor; 2026-09-16; Location in the Source: Zero extra-mask MTP; FN program and erase; 180BCD sample; automotive narrative.; Limitations: Body 10K vs table >100k is inconsistent; do not take cycle counts as a common guarantee.
+- [ip-floadia-zt-news: Floadia ZT News: Floating Gate](https://floadia.com/news/422/). vendor; 2024-12-09; Location in the Source: ZT uses a floating gate as the storage node.; Limitations: The news item does not give poly count or well structure.
+- [ip-floadia-g1: Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/). vendor; 2026-09-16; Location in the Source: SONOS eFlash, 2–3 extra masks, FN program/erase, BCD.; Limitations: No public nitride thickness or bias table.
+- [ip-floadia-g2: Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/). vendor; 2026-09-16; Location in the Source: SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.; Limitations: An in-development note is not a production guarantee.
+- [ip-sst-home: SST Home and Services](https://www.sst.com/services/). vendor; 2026-09-16; Location in the Source: SuperFlash embedded Flash process-integration and licensing entry.; Limitations: The services page proves the product family; it does not replace brochure SSI / interpoly FN detail.
+- [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf). vendor; 2018-03; Location in the Source: Pages 2–3: split-gate, source-side injection program, interpoly FN erase.; Limitations: Read structure and mechanism within the named SuperFlash generation; 2018 shipment and node tables are not 2026 product guarantees.
 - [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/). Manufacturer product page; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: What is Numem MRAM?; Numem MRAM IP; Limitations: Supports embedded IP and foundry-standard STT cells; current material recipes are not disclosed.
 - [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf). Manufacturer public conference presentation; 2019-08-05; Accessed 2026-09-10; Location in the Source: Pages 2, 4, 5, 7: test chip, WL/BL/SL, forced-current sensing, RMTJ; Limitations: This is a first-generation test-chip architecture; its measured values are not treated as current NuRAM specifications.
 - [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology). Manufacturer mechanism explanation; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Spin-transfer Torque MRAM Technology: current direction, free layer, P/AP resistance; Limitations: Supports STT family physics only, not Numem product, material, or performance evidence.
@@ -5106,6 +6520,51 @@ Development, manufacturing, inventory shipments, warranties, and support are dif
 - [CMP-MICRON2021: Micron 3D XPoint and Data-Center Portfolio Strategy Update](https://investors.micron.com/news/press-release/2021/Micron-Updates-Data-Center-Portfolio-Strategy-to-Address-Growing-Opportunity-for-Memory-and-Storage-Hierarchy-Innovation-03-16-2021/default.aspx)
 - [CMP-MICRON-CALL2021: Micron 3D XPoint Strategy-Update Prepared Remarks](https://investors.micron.com/static-files/c858cbb2-bfd2-4f84-ba10-f69b385cf4bf)
 - [CMP-INTEL2023: Intel Optane Customer Letter](https://cdrdv2-public.intel.com/774331/IOG-DCL-March%202023.pdf)
+
+## Nine Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table
+
+The Yu 2016 paper and the 2021 course table compare SRAM, DRAM, NOR, NAND, PCM, RRAM, STT-MRAM, SOT-MRAM, FeRAM and FeFET. The logic-process OTP / MTP / eFlash IPs below are not columns of that table, and they do not share a unified voltage or cycle number that could be pasted into it. This section only maps each named IP onto a selection-matrix family leaf and links to its cell study.
+
+### AntiFuse OTP
+
+A dielectric is permanently made conductive; one-time program. The teaching leaf is not floating-gate OTP and not a blown fuse.
+
+- CFX · GOX OTP(#ip-cfx-otp): Teaching default is gate-oxide breakdown. Public materials also list eFuse and floating-gate routes; the three must not collapse into one cell.
+- Floadia · LEE Fuse ZA(#ip-floadia-za): Zero extra-mask anti-fuse. The product name is LEE Fuse ZA; if a page writes LEE Flash ZA it still belongs here, not to ZT / G1 / G2. Published only as a dielectric made permanently conductive; breakdown site unpublished — not a GOX path.
+
+### eFuse family: blow-class and I-fuse
+
+Blow-class programs by electromigration rupture of a link; I-fuse is listed separately and is not the same physics.
+
+- Attopsemi · I-fuse(#ip-attopsemi-ifuse): Poly / metal-gate / metal fuse. Heat-assisted electromigration below thermal runaway; not AntiFuse and not explosive blow-class eFuse.
+
+### LD-MTP (FN/FN single-poly class)
+
+The family leaf uses NeoEE / LEE Flash ZT as the FN/FN reference. Actt and TwinBit do not inherit that cell physics.
+
+- Floadia · LEE Flash ZT(#ip-floadia-zt): Zero-mask floating-gate MTP; FN program and erase. Public page body and table disagree on cycle count; neither figure is a common guarantee.
+- Actt · LogicFlash MTP(#ip-actt-cmt): CMT is 2016 acquisition lineage, not a current SKU. Public at 180–55 nm, +0–1, Flash-like interface; product-page up to ~10k cycles, not a table guarantee. Cell physics unpublished — do not invent FN, HCI, or channel-current readout.
+
+### MTP that sits on neither LD nor HD
+
+The HD-MTP leaf is CHI/FN floating gate. Schottky TwinBit belongs to neither leaf.
+
+- NSCore · TwinBit MTP(#ip-nscore-twinbit): P-channel Schottky; hot-hole program and hot-electron erase; 40–22 nm, zero extra masks. PermSRAM is an OTP sibling and must not merge with TwinBit.
+
+### SST SuperFlash
+
+The split-gate eFlash leaf is this family, not SONOS.
+
+- SST · SuperFlash(#ip-sst-superflash): Source-side injection program and interpoly FN erase. Public foundry nodes about 180–28 nm; the home page also states 500 nm–28 nm.
+
+### SONOS eFlash
+
+Charge trapping. G1 and G2 are both SONOS but differ in mask count, read path and array organization; they are not one specification cell.
+
+- Floadia · LEE Flash G1(#ip-floadia-g1): SONOS, +2–3 extra masks, FN program/erase; public description includes BCD.
+- Floadia · LEE Flash G2(#ip-floadia-g2): SONOS sandwiched by switch transistors, +4, VDD-read; marked as ongoing development. Not a node extension of G1.
+
+Historical-table numbers remain the course baseline. Biases, cycle counts and production nodes for named IPs stay bound to each cell study and its VERIFY limits; this page does not invent datasheet figures.
 
 ## Patent Bibliography and Figures
 
