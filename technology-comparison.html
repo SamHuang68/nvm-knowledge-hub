@@ -2175,46 +2175,92 @@
       <div class="hub-sec-header">
         <div class="hub-sec-badge" style="color:#c4a574;">05 · READ MODES (ARCHITECTURE CLASS)</div>
         <h2 id="read-modes-sec-title">
-          <span data-lang="zh">四種讀取模式：單端／冗餘／差動／差動＋冗餘</span>
-          <span data-lang="en">Four Read Modes: Single-Ended, Redundant, Differential, Differential+Redundant</span>
+          <span data-lang="zh">四種讀取模式：從<em>單端 vs Ref</em>到<em>差動互比</em></span>
+          <span data-lang="en">Four read modes: from <em>single-ended vs Ref</em> to <em>mutual differential</em></span>
         </h2>
       </div>
-      <p style="color:#cbd5e1;font-size:0.95rem;line-height:1.65;max-width:920px;margin:0 0 1.25rem;">
-        <span data-lang="zh">以下為嵌入式 OTP／eNVM 常見的<strong>架構級讀取拓樸示意</strong>，銜接上文互補差動讀對（A=HRS／B=LRS）與 TEM／DPA 衰減敘事。非具名 IP datasheet；無 cite 數字僅作相對取捨，標 VERIFY 處須對照目標 PDK／宏。</span>
-        <span data-lang="en">Architecture-class read topologies common in embedded OTP/eNVM — bridging the complementary differential pair (A=HRS/B=LRS) and TEM/DPA attenuation narrative above. Not a named-IP datasheet; uncited figures are relative trade-offs only (VERIFY against the target PDK/macro).</span>
+      <p class="rm-lead">
+        <span data-lang="zh">嵌入式 OTP／eNVM 常見的<strong>架構級讀取拓樸</strong>——先看圖（cell 數、有無 Ref、是否差動／冗餘），再讀取捨。銜接上文互補差動對與 TEM／DPA 敘事；非具名 IP datasheet，無 cite 數字僅相對取捨（VERIFY）。</span>
+        <span data-lang="en">Architecture-class read topologies common in embedded OTP/eNVM — scan the diagrams first (cell count, Ref presence, differential vs redundant), then the trade-offs. Bridges the complementary pair and TEM/DPA narrative above. Not a named-IP datasheet; uncited figures are relative only (VERIFY).</span>
       </p>
-      <p style="color:#8ea9b3;font-size:0.85rem;margin:0 0 0.85rem;">
-        <span data-lang="zh">交叉連結：<a href="memory-physics.html#read-path" style="color:#c4a574;">memory-physics · 讀取路徑</a></span>
-        <span data-lang="en">Cross-link: <a href="memory-physics.html#read-path" style="color:#c4a574;">memory-physics · read path</a></span>
+      <p class="rm-xlink">
+        <span data-lang="zh">交叉連結 → <a href="memory-physics.html#read-path">memory-physics · 讀取路徑</a>（power-off → sense）</span>
+        <span data-lang="en">Cross-link → <a href="memory-physics.html#read-path">memory-physics · read path</a> (power-off → sense)</span>
       </p>
       <p class="rm-cite">
         <span data-lang="zh">公開一級出處（架構級，非具名 IP datasheet）：互補差動讀使 power signature 較難對應儲存值，見 <a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a>（站內 <a href="memory-evidence.html#evidence-V07">V07</a>）。AntiFuse OTP 之金鑰／ID／trim 應用與讀寫安全選項，見本頁已引 <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a>。一階 DPA／CPA 為定性衰減敘事，非 dB 量測；spare 比與 sense-margin 數字仍須 VERIFY。</span>
         <span data-lang="en">Public primary cites (architecture-class, not a named-IP datasheet): complementary differential read is publicly described as making power-signature identification of stored values harder — <a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a> (hub <a href="memory-evidence.html#evidence-V07">V07</a>). AntiFuse OTP application classes (keys / IDs / trim) and security options for stored data and read/write: this page's existing <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a> article. First-order DPA/CPA is a qualitative attenuation claim, not a dB measurement; spare ratios and sense-margin figures remain VERIFY.</span>
       </p>
+
       <style>
-        .rm-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 1.75rem;}
-        @media(max-width:900px){.rm-grid{grid-template-columns:1fr;}}
-        .rm-card{background:rgba(8,36,51,.92);border:1px solid rgba(196,165,116,.28);border-radius:12px;padding:16px 16px 14px;display:flex;flex-direction:column;gap:10px;}
-        .rm-card h3{margin:0;font:500 1rem/1.4 Inter,"Noto Sans TC",sans-serif;color:#e8eef2;letter-spacing:0.01em;}
-        .rm-card .rm-svg{display:block;width:100%;max-width:420px;height:auto;margin:4px auto 2px;}
-        .rm-card .rm-one{margin:0;color:#cbd5e1;font-size:.9rem;line-height:1.65;font-weight:400;}
-        .rm-card dl{margin:0;display:grid;gap:8px;font-size:.82rem;line-height:1.55;color:#a8bdc8;font-weight:400;}
-        .rm-card dt{color:#c4a574;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;}
-        .rm-card dd{margin:0;}
-        .rm-cite{margin:0 0 1.35rem;color:#8ea9b3;font-size:.8rem;line-height:1.55;max-width:920px;}
+        #sec-read-modes .hub-sec-badge{font-weight:500;letter-spacing:.12em;color:#c4a574;}
+        #sec-read-modes .hub-sec-header{margin:2.5rem 0 1.25rem;border-bottom:1px solid rgba(196,165,116,.22);padding-bottom:.85rem;}
+        #sec-read-modes h2{margin:0;font:500 clamp(1.25rem,2.2vw,1.55rem)/1.35 Inter,"Noto Sans TC",sans-serif;color:#e8eef2;letter-spacing:.01em;}
+        #sec-read-modes h2 em{font-style:normal;color:#c4a574;font-weight:500;}
+        .rm-lead{margin:0 0 .85rem;color:#cbd5e1;font-size:.95rem;line-height:1.65;font-weight:400;max-width:920px;}
+        .rm-xlink{display:inline-flex;align-items:center;gap:8px;margin:0 0 1rem;padding:8px 12px;border-radius:999px;border:1px solid rgba(196,165,116,.28);background:rgba(14,42,56,.65);font-size:.82rem;line-height:1.4;color:#a8bdc8;font-weight:400;text-decoration:none;max-width:100%;}
+        .rm-xlink a{color:#c4a574;font-weight:500;text-decoration:none;border-bottom:1px solid rgba(196,165,116,.35);}
+        .rm-xlink a:hover{border-bottom-color:#c4a574;}
+        .rm-cite{margin:0 0 1.15rem;padding:10px 12px;border-left:3px solid rgba(196,165,116,.45);border-radius:0 8px 8px 0;background:rgba(8,36,51,.45);color:#8ea9b3;font-size:.78rem;line-height:1.55;max-width:920px;font-weight:400;}
         .rm-cite a{color:#c4a574;}
-        .rm-table-wrap{overflow-x:auto;border:1px solid rgba(196,165,116,.25);border-radius:10px;}
-        .rm-table{width:100%;min-width:680px;border-collapse:collapse;font-size:.84rem;color:#c4d7e0;}
-        .rm-table th,.rm-table td{padding:12px 14px;border-bottom:1px solid rgba(142,169,179,.2);text-align:left;vertical-align:top;line-height:1.5;}
-        .rm-table th{background:rgba(14,42,56,.95);color:#c4a574;font-weight:500;white-space:nowrap;letter-spacing:.02em;}
-        .rm-table th:first-child,.rm-table td:first-child{white-space:nowrap;}
+        .rm-glance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 1.15rem;}
+        @media(max-width:900px){.rm-glance{grid-template-columns:repeat(2,minmax(0,1fr));}}
+        .rm-glance-item{padding:10px 12px;border-radius:10px;border:1px solid rgba(196,165,116,.22);background:rgba(8,36,51,.55);display:flex;flex-direction:column;gap:4px;min-height:64px;}
+        .rm-glance-item b{font:500 .78rem/1.3 IBM Plex Mono,ui-monospace,monospace;color:#c4a574;letter-spacing:.04em;}
+        .rm-glance-item span{font-size:.78rem;line-height:1.4;color:#a8bdc8;font-weight:400;}
+        .rm-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:0 0 1.85rem;}
+        @media(max-width:900px){.rm-grid{grid-template-columns:1fr;}}
+        .rm-card{background:rgba(8,36,51,.92);border:1px solid rgba(196,165,116,.28);border-radius:14px;padding:18px 16px 16px;display:flex;flex-direction:column;gap:12px;box-shadow:0 10px 28px rgba(0,0,0,.18);}
+        .rm-card-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 12px;}
+        .rm-card h3{margin:0;font:500 1.02rem/1.35 Inter,"Noto Sans TC",sans-serif;color:#e8eef2;letter-spacing:.01em;}
+        .rm-chips{display:flex;flex-wrap:wrap;gap:6px;}
+        .rm-chip{display:inline-flex;align-items:center;padding:3px 9px;border-radius:999px;font:500 .68rem/1.3 IBM Plex Mono,ui-monospace,monospace;letter-spacing:.03em;border:1px solid rgba(142,169,179,.35);color:#a8bdc8;background:rgba(14,42,56,.7);}
+        .rm-chip.on-ref{border-color:rgba(142,169,179,.55);color:#c5d4dc;}
+        .rm-chip.no-ref{border-color:rgba(90,115,128,.55);color:#8ea9b3;border-style:dashed;}
+        .rm-chip.diff{border-color:rgba(126,184,201,.45);color:#9fd0dd;}
+        .rm-chip.redun{border-color:rgba(196,165,116,.45);color:#d4c0a0;}
+        .rm-card .rm-svg{display:block;width:100%;max-width:420px;height:auto;margin:2px auto 0;}
+        .rm-card .rm-one{margin:0;color:#cbd5e1;font-size:.9rem;line-height:1.65;font-weight:400;}
+        .rm-lead strong,.rm-card .rm-one strong,.rm-card dd strong{font-weight:500;}
+        .rm-card dl{margin:0;display:grid;gap:0;font-size:.82rem;line-height:1.55;color:#a8bdc8;font-weight:400;border-top:1px solid rgba(142,169,179,.18);}
+        .rm-card .rm-row{display:grid;grid-template-columns:88px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid rgba(142,169,179,.12);}
+        .rm-card .rm-row:last-child{border-bottom:none;padding-bottom:0;}
+        .rm-card .rm-row dt{margin:0;color:#c4a574;font-weight:500;letter-spacing:.04em;text-transform:uppercase;font-size:.68rem;padding-top:2px;}
+        .rm-card .rm-row dd{margin:0;}
+        .rm-legend{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:0 0 1rem;padding:10px 12px;border:1px solid rgba(196,165,116,.22);border-radius:10px;background:rgba(8,36,51,.55);font-size:.78rem;line-height:1.4;color:#a8bdc8;font-weight:400;}
+        .rm-leg{display:inline-flex;align-items:center;gap:8px;}
+        .rm-leg i{display:inline-block;width:18px;height:18px;border-radius:5px;box-sizing:border-box;flex:0 0 auto;}
+        .rm-leg .rm-leg-phy{background:#0e2a38;border:1.5px solid #c4a574;border-radius:50%;box-shadow:inset 0 0 0 4px rgba(196,165,116,.35);}
+        .rm-leg .rm-leg-ref{border:1.5px solid #8ea9b3;background:rgba(142,169,179,.14);border-radius:4px;}
+        .rm-leg .rm-leg-noref{border:1.5px dashed #5a7380;background:transparent;position:relative;}
+        .rm-leg .rm-leg-noref::before,.rm-leg .rm-leg-noref::after{content:"";position:absolute;left:3px;right:3px;top:50%;height:1.5px;background:#5a7380;}
+        .rm-leg .rm-leg-noref::before{transform:rotate(45deg);}
+        .rm-leg .rm-leg-noref::after{transform:rotate(-45deg);}
+        .rm-leg .rm-leg-sa{width:0;height:0;border-style:solid;border-width:9px 0 9px 14px;border-color:transparent transparent transparent #c4a574;border-radius:0;background:transparent;}
+        .rm-leg .rm-leg-out{background:rgba(196,165,116,.35);border:1.5px solid #c4a574;border-radius:4px;}
+        .rm-leg-note{opacity:.9;flex:1 1 220px;}
+        .rm-table-caption{margin:0 0 .55rem;font:500 .78rem/1.4 Inter,"Noto Sans TC",sans-serif;color:#c4a574;letter-spacing:.04em;text-transform:uppercase;}
+        .rm-table-wrap{overflow-x:auto;border:1px solid rgba(196,165,116,.25);border-radius:12px;background:rgba(8,36,51,.35);}
+        .rm-table{width:100%;min-width:720px;border-collapse:collapse;font-size:.84rem;color:#c4d7e0;font-weight:400;}
+        .rm-table th,.rm-table td{padding:12px 14px;border-bottom:1px solid rgba(142,169,179,.18);text-align:left;vertical-align:top;line-height:1.5;}
+        .rm-table th{background:rgba(14,42,56,.95);color:#c4a574;font-weight:500;letter-spacing:.02em;}
+        .rm-table th:first-child,.rm-table td:first-child,.rm-table th[scope="row"]{position:sticky;left:0;background:rgba(10,32,44,.97);z-index:1;white-space:nowrap;font-weight:500;color:#d5dde5;}
+        .rm-table tbody tr:nth-child(even) td{background:rgba(14,42,56,.28);}
+        .rm-table tbody tr:nth-child(even) td:first-child{background:rgba(10,32,44,.97);}
         .rm-table tr:last-child td{border-bottom:none;}
-        .rm-note{margin:1rem 0 0;color:#8ea9b3;font-size:.8rem;line-height:1.5;}
+        .rm-note{margin:1rem 0 0;color:#8ea9b3;font-size:.8rem;line-height:1.5;font-weight:400;}
         .rm-note a{color:#c4a574;}
-.rm-card .rm-svg{display:block;width:100%;max-width:420px;height:auto;margin:4px auto 2px;}
       </style>
 
-<div class="rm-legend" aria-hidden="true">
+
+      <div class="rm-glance" aria-label="read modes glance">
+        <div class="rm-glance-item"><b>1 · SE</b><span data-lang="zh">1 phy · 有 Ref</span><span data-lang="en">1 phy · has Ref</span></div>
+        <div class="rm-glance-item"><b>2 · RED</b><span data-lang="zh">≥2 並聯 · 有 Ref</span><span data-lang="en">≥2 parallel · has Ref</span></div>
+        <div class="rm-glance-item"><b>3 · DIFF</b><span data-lang="zh">BL vs /BL · 無 Ref</span><span data-lang="en">BL vs /BL · no Ref</span></div>
+        <div class="rm-glance-item"><b>4 · DIFF+RED</b><span data-lang="zh">每軌 ≥2 · 無 Ref</span><span data-lang="en">≥2 / rail · no Ref</span></div>
+      </div>
+
+      <div class="rm-legend" aria-hidden="true">
         <span class="rm-leg"><i class="rm-leg-phy"></i><span data-lang="zh">實體 bit</span><span data-lang="en">Physical bit</span></span>
         <span class="rm-leg"><i class="rm-leg-ref"></i><span data-lang="zh">有外部 Ref（實線板）</span><span data-lang="en">External Ref (solid plate)</span></span>
         <span class="rm-leg"><i class="rm-leg-noref"></i><span data-lang="zh">無外部 Ref（虛線＋×）</span><span data-lang="en">No external Ref (dashed + ×)</span></span>
@@ -2225,7 +2271,7 @@
 
       <div class="rm-grid">
         <article class="rm-card" id="rm-single">
-          <h3><span data-lang="zh">1 · Single-ended（單端）</span><span data-lang="en">1 · Single-ended</span></h3>
+          <div class="rm-card-head"><h3><span data-lang="zh">1 · Single-ended（單端）</span><span data-lang="en">1 · Single-ended</span></h3><div class="rm-chips"><span class="rm-chip on-ref"><span data-lang="zh">有 Ref</span><span data-lang="en">Has Ref</span></span><span class="rm-chip"><span data-lang="zh">1 phy</span><span data-lang="en">1 phy</span></span></div></div>
           <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Single-ended: one physical bit versus reference into sense amp to one logical bit">
             <defs>
               <marker id="rm-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#c4a574"/></marker>
@@ -2254,18 +2300,14 @@
             <text x="200" y="158" text-anchor="middle" fill="#8ea9b3" font-size="10" font-weight="400" font-family="IBM Plex Mono,ui-monospace,monospace">1 phy · vs Ref · 1 logical</text>
           </svg>
           <p class="rm-one"><span data-lang="zh">原理：單一儲存單元電流／電壓與參考（Vref／Iref）比較，判讀 0／1。</span><span data-lang="en">Principle: one cell current/voltage is compared to a reference (Vref/Iref) to decide 0/1.</span></p>
-          <dl>
-            <dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
-            <dd><span data-lang="zh">面積最小、纜線單純、功耗與延遲通常較低。</span><span data-lang="en">Smallest area, simple routing, typically lower power/latency.</span></dd>
-            <dt><span data-lang="zh">缺點</span><span data-lang="en">Cons</span></dt>
-            <dd><span data-lang="zh">sense margin 受製程／溫度／ref 漂移綁定；一階資料相依電流易成 DPA／CPA 特徵；TEM 下單端特徵較直觀。</span><span data-lang="en">Sense margin tracks PVT and reference drift; first-order data-dependent current aids DPA/CPA; single-ended signature is more TEM-intuitive.</span></dd>
-            <dt><span data-lang="zh">典型用途</span><span data-lang="en">Typical use</span></dt>
-            <dd><span data-lang="zh">高密度 trim／ID、面積極敏感之 OTP／eNVM 區塊（公開應用類見 <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a>；目標宏仍 VERIFY）。</span><span data-lang="en">Dense trim/ID and area-critical OTP/eNVM blocks (public application class: <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a>; target macro still VERIFY).</span></dd>
-          </dl>
+          <dl><div class="rm-row"><dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
+            <dd><span data-lang="zh">面積最小、纜線單純、功耗與延遲通常較低。</span><span data-lang="en">Smallest area, simple routing, typically lower power/latency.</span></dd></div><div class="rm-row"><dt><span data-lang="zh">缺點</span><span data-lang="en">Cons</span></dt>
+            <dd><span data-lang="zh">sense margin 受製程／溫度／ref 漂移綁定；一階資料相依電流易成 DPA／CPA 特徵；TEM 下單端特徵較直觀。</span><span data-lang="en">Sense margin tracks PVT and reference drift; first-order data-dependent current aids DPA/CPA; single-ended signature is more TEM-intuitive.</span></dd></div><div class="rm-row"><dt><span data-lang="zh">典型用途</span><span data-lang="en">Typical use</span></dt>
+            <dd><span data-lang="zh">高密度 trim／ID、面積極敏感之 OTP／eNVM 區塊（公開應用類見 <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a>；目標宏仍 VERIFY）。</span><span data-lang="en">Dense trim/ID and area-critical OTP/eNVM blocks (public application class: <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a>; target macro still VERIFY).</span></dd></div></dl>
         </article>
 
         <article class="rm-card" id="rm-redundant">
-          <h3><span data-lang="zh">2 · Redundant（單端＋冗餘）</span><span data-lang="en">2 · Redundant (single-ended + redundancy)</span></h3>
+          <div class="rm-card-head"><h3><span data-lang="zh">2 · Redundant（單端＋冗餘）</span><span data-lang="en">2 · Redundant (single-ended + redundancy)</span></h3><div class="rm-chips"><span class="rm-chip on-ref"><span data-lang="zh">有 Ref</span><span data-lang="en">Has Ref</span></span><span class="rm-chip redun"><span data-lang="zh">≥2 並聯</span><span data-lang="en">≥2 parallel</span></span></div></div>
           <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Redundant same-polarity: two physical bits in parallel versus reference into one sense amp">
             <defs>
               <marker id="rm-arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#c4a574"/></marker>
@@ -2303,18 +2345,14 @@
             <text x="200" y="158" text-anchor="middle" fill="#8ea9b3" font-size="10" font-weight="400" font-family="IBM Plex Mono,ui-monospace,monospace">≥2 same-polarity parallel · vs Ref</text>
           </svg>
           <p class="rm-one"><span data-lang="zh">定義：仍為單端感測；以<strong>同極性複本並聯</strong>（≥2 physical bits 同側匯流）對同一個 Ref 比較。多數決／spare 為可選實作（VERIFY），圖示主語意是並聯 vs Ref。</span><span data-lang="en">Definition: still single-ended sensing; <strong>same-polarity replicas in parallel</strong> (≥2 physical bits, same-side bus) compare against one Ref. Vote/spare are optional implementations (VERIFY); the diagram’s primary meaning is parallel vs Ref.</span></p>
-          <dl>
-            <dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
-            <dd><span data-lang="zh">改善隨機缺陷／讀失敗；可與 BIRA／fuse map 併用。</span><span data-lang="en">Mitigates random defects/read fails; pairs well with BIRA/fuse maps.</span></dd>
-            <dt><span data-lang="zh">缺點</span><span data-lang="en">Cons</span></dt>
-            <dd><span data-lang="zh">面積與能耗上升；同極性複本對一階 DPA 常仍同向；ref 依賴仍在。</span><span data-lang="en">Area/energy up; same-polarity replicas often keep first-order DPA polarity; reference dependence remains.</span></dd>
-            <dt><span data-lang="zh">典型用途</span><span data-lang="en">Typical use</span></dt>
-            <dd><span data-lang="zh">OTP／eNVM 關鍵位元、修復後讀穩定性（公開有額外位元／修復資源敘事，見 <a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a>；spare 比仍 VERIFY）。</span><span data-lang="en">Critical OTP/eNVM bits and post-repair read stability (public additional-bit / repair-resource narrative: <a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a>; spare ratios still VERIFY).</span></dd>
-          </dl>
+          <dl><div class="rm-row"><dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
+            <dd><span data-lang="zh">改善隨機缺陷／讀失敗；可與 BIRA／fuse map 併用。</span><span data-lang="en">Mitigates random defects/read fails; pairs well with BIRA/fuse maps.</span></dd></div><div class="rm-row"><dt><span data-lang="zh">缺點</span><span data-lang="en">Cons</span></dt>
+            <dd><span data-lang="zh">面積與能耗上升；同極性複本對一階 DPA 常仍同向；ref 依賴仍在。</span><span data-lang="en">Area/energy up; same-polarity replicas often keep first-order DPA polarity; reference dependence remains.</span></dd></div><div class="rm-row"><dt><span data-lang="zh">典型用途</span><span data-lang="en">Typical use</span></dt>
+            <dd><span data-lang="zh">OTP／eNVM 關鍵位元、修復後讀穩定性（公開有額外位元／修復資源敘事，見 <a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a>；spare 比仍 VERIFY）。</span><span data-lang="en">Critical OTP/eNVM bits and post-repair read stability (public additional-bit / repair-resource narrative: <a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a>; spare ratios still VERIFY).</span></dd></div></dl>
         </article>
 
         <article class="rm-card" id="rm-differential">
-          <h3><span data-lang="zh">3 · Differential（互補差動）</span><span data-lang="en">3 · Differential (complementary pair)</span></h3>
+          <div class="rm-card-head"><h3><span data-lang="zh">3 · Differential（互補差動）</span><span data-lang="en">3 · Differential (complementary pair)</span></h3><div class="rm-chips"><span class="rm-chip no-ref"><span data-lang="zh">無 Ref</span><span data-lang="en">No Ref</span></span><span class="rm-chip diff"><span data-lang="zh">BL ↔ /BL</span><span data-lang="en">BL ↔ /BL</span></span></div></div>
           <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Differential: two complementary physical bits compared with no external reference">
             <defs>
               <marker id="rm-arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#c4a574"/></marker>
@@ -2350,18 +2388,14 @@
             <text x="200" y="158" text-anchor="middle" fill="#8ea9b3" font-size="10" font-weight="400" font-family="IBM Plex Mono,ui-monospace,monospace">BL vs /BL · mutual compare · no Ref</text>
           </svg>
           <p class="rm-one"><span data-lang="zh">原理：資料由互補對編碼（例 A=HRS、B=LRS），差動感測比較兩端；兩邊同時抽電流，總電流趨近常值，有助衰減一階 DPA／CPA（非絕對免疫；公開：差動讀模式使 power signature 較難對應儲存值，<a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a>／<a href="memory-evidence.html#evidence-V07">V07</a>）。</span><span data-lang="en">Principle: data is encoded as a complementary pair (e.g. A=HRS, B=LRS); a differential SA compares both sides. Simultaneous draw makes total current nearer constant, attenuating first-order DPA/CPA (not absolute immunity; public: differential read mode makes power-signature identification harder — <a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a> / <a href="memory-evidence.html#evidence-V07">V07</a>).</span></p>
-          <dl>
-            <dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
-            <dd><span data-lang="zh">sense margin 相對自洽、較少依賴全域 Vref；側信道一階特徵較弱。</span><span data-lang="en">More self-referenced sense margin; weaker first-order side-channel signature.</span></dd>
-            <dt><span data-lang="zh">缺點</span><span data-lang="en">Cons</span></dt>
-            <dd><span data-lang="zh">約 2× cell／纜線；編程與良率成本上升；高階 DPA／局部 EMA 與版圖不對稱仍可能洩漏。</span><span data-lang="en">~2× cell/routing; program/yield cost; higher-order DPA/localized EMA and layout asymmetry can still leak.</span></dd>
-            <dt><span data-lang="zh">典型用途</span><span data-lang="en">Typical use</span></dt>
-            <dd><span data-lang="zh">安全敏感 OTP／金鑰材料（公開應用類見 <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a>；須與 TEM／DPA 分層敘事對齊，目標配置 VERIFY）。</span><span data-lang="en">Security-sensitive OTP/key material (public application class: <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a>; align with the TEM/DPA layered narrative; target configuration VERIFY).</span></dd>
-          </dl>
+          <dl><div class="rm-row"><dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
+            <dd><span data-lang="zh">sense margin 相對自洽、較少依賴全域 Vref；側信道一階特徵較弱。</span><span data-lang="en">More self-referenced sense margin; weaker first-order side-channel signature.</span></dd></div><div class="rm-row"><dt><span data-lang="zh">缺點</span><span data-lang="en">Cons</span></dt>
+            <dd><span data-lang="zh">約 2× cell／纜線；編程與良率成本上升；高階 DPA／局部 EMA 與版圖不對稱仍可能洩漏。</span><span data-lang="en">~2× cell/routing; program/yield cost; higher-order DPA/localized EMA and layout asymmetry can still leak.</span></dd></div><div class="rm-row"><dt><span data-lang="zh">典型用途</span><span data-lang="en">Typical use</span></dt>
+            <dd><span data-lang="zh">安全敏感 OTP／金鑰材料（公開應用類見 <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a>；須與 TEM／DPA 分層敘事對齊，目標配置 VERIFY）。</span><span data-lang="en">Security-sensitive OTP/key material (public application class: <a href="https://www.synopsys.com/articles/non-volatile-memory.html" target="_blank" rel="noopener noreferrer">Synopsys public NVM</a>; align with the TEM/DPA layered narrative; target configuration VERIFY).</span></dd></div></dl>
         </article>
 
         <article class="rm-card" id="rm-diff-red">
-          <h3><span data-lang="zh">4 · Differential redundant（差動＋冗餘）</span><span data-lang="en">4 · Differential + redundant</span></h3>
+          <div class="rm-card-head"><h3><span data-lang="zh">4 · Differential redundant（差動＋冗餘）</span><span data-lang="en">4 · Differential + redundant</span></h3><div class="rm-chips"><span class="rm-chip no-ref"><span data-lang="zh">無 Ref</span><span data-lang="en">No Ref</span></span><span class="rm-chip diff"><span data-lang="zh">差動</span><span data-lang="en">Differential</span></span><span class="rm-chip redun"><span data-lang="zh">每軌 ≥2</span><span data-lang="en">≥2 / rail</span></span></div></div>
           <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Differential plus redundant: each rail has two parallel physical bits compared with no external reference">
             <defs>
               <marker id="rm-arr4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#c4a574"/></marker>
@@ -2408,14 +2442,10 @@
             <text x="200" y="158" text-anchor="middle" fill="#8ea9b3" font-size="10" font-weight="400" font-family="IBM Plex Mono,ui-monospace,monospace">≥2 parallel / rail · mutual compare</text>
           </svg>
           <p class="rm-one"><span data-lang="zh">原理：兩側各以<strong>≥2 physical bits 並聯</strong>形成互補軌，再互比（無外部 Ref）。Spare／投票為可選加層（VERIFY）。</span><span data-lang="en">Principle: each complementary rail uses <strong>≥2 physical bits in parallel</strong>, then mutual compare (no external Ref). Spare/vote are optional layers (VERIFY).</span></p>
-          <dl>
-            <dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
-            <dd><span data-lang="zh">可靠度與一階側信道邊界通常最完整（仍非絕對免疫）。</span><span data-lang="en">Often the fullest reliability + first-order side-channel boundary (still not absolute immunity).</span></dd>
-            <dt><span data-lang="zh">缺點</span><span data-lang="en">Cons</span></dt>
-            <dd><span data-lang="zh">面積／功耗／編程複雜度最高；設計與驗證成本顯著。</span><span data-lang="en">Highest area/power/program complexity; design and validation cost rise sharply.</span></dd>
-            <dt><span data-lang="zh">典型用途</span><span data-lang="en">Typical use</span></dt>
-            <dd><span data-lang="zh">高保證根信任、車用／安全金鑰材料（目標配置須 VERIFY）。</span><span data-lang="en">High-assurance roots and automotive/secure key material (VERIFY target configuration).</span></dd>
-          </dl>
+          <dl><div class="rm-row"><dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
+            <dd><span data-lang="zh">可靠度與一階側信道邊界通常最完整（仍非絕對免疫）。</span><span data-lang="en">Often the fullest reliability + first-order side-channel boundary (still not absolute immunity).</span></dd></div><div class="rm-row"><dt><span data-lang="zh">缺點</span><span data-lang="en">Cons</span></dt>
+            <dd><span data-lang="zh">面積／功耗／編程複雜度最高；設計與驗證成本顯著。</span><span data-lang="en">Highest area/power/program complexity; design and validation cost rise sharply.</span></dd></div><div class="rm-row"><dt><span data-lang="zh">典型用途</span><span data-lang="en">Typical use</span></dt>
+            <dd><span data-lang="zh">高保證根信任、車用／安全金鑰材料（目標配置須 VERIFY）。</span><span data-lang="en">High-assurance roots and automotive/secure key material (VERIFY target configuration).</span></dd></div></dl>
         </article>
       </div>
 
@@ -2423,48 +2453,48 @@
         <table class="rm-table">
           <thead>
             <tr>
-              <th>Axis</th>
-              <th>Single-ended</th>
-              <th>Redundant</th>
-              <th>Differential</th>
-              <th>Diff + redundant</th>
+              <th scope="col"><span data-lang="zh">軸向</span><span data-lang="en">Axis</span></th>
+              <th scope="col"><span data-lang="zh">單端</span><span data-lang="en">Single-ended</span></th>
+              <th scope="col"><span data-lang="zh">冗餘（並聯）</span><span data-lang="en">Redundant (parallel)</span></th>
+              <th scope="col"><span data-lang="zh">差動</span><span data-lang="en">Differential</span></th>
+              <th scope="col"><span data-lang="zh">差動＋冗餘</span><span data-lang="en">Diff + redundant</span></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Sense margin</td>
-              <td><span data-lang="zh">依賴 ref／PVT</span><span data-lang="en">Ref/PVT bound</span></td>
-              <td><span data-lang="zh">複本投票改善可讀</span><span data-lang="en">Replicas improve readability</span></td>
-              <td><span data-lang="zh">互補自洽，較少全域 ref</span><span data-lang="en">Self-referenced pair</span></td>
-              <td><span data-lang="zh">差動＋冗餘疊加</span><span data-lang="en">Diff + redundancy stack</span></td>
+              <th scope="row"><span data-lang="zh">感測邊界</span><span data-lang="en">Sense margin</span></th>
+              <td><span data-lang="zh">1 phy vs 外部 Ref／PVT</span><span data-lang="en">1 phy vs external Ref/PVT</span></td>
+              <td><span data-lang="zh">≥2 同側並聯 vs 同一 Ref</span><span data-lang="en">≥2 same-side parallel vs one Ref</span></td>
+              <td><span data-lang="zh">BL vs /BL 互比（無外部 Ref）</span><span data-lang="en">BL vs /BL mutual (no external Ref)</span></td>
+              <td><span data-lang="zh">每軌 ≥2 並聯後互比</span><span data-lang="en">≥2 parallel / rail, then mutual</span></td>
             </tr>
             <tr>
-              <td>Area</td>
+              <th scope="row"><span data-lang="zh">面積</span><span data-lang="en">Area</span></th>
               <td><span data-lang="zh">最低</span><span data-lang="en">Lowest</span></td>
-              <td><span data-lang="zh">中（×複本）</span><span data-lang="en">Mid (×replicas)</span></td>
+              <td><span data-lang="zh">中（×並聯複本）</span><span data-lang="en">Mid (×parallel replicas)</span></td>
               <td><span data-lang="zh">高（~2×）</span><span data-lang="en">High (~2×)</span></td>
               <td><span data-lang="zh">最高</span><span data-lang="en">Highest</span></td>
             </tr>
             <tr>
-              <td>DPA/TEM</td>
-              <td><span data-lang="zh">一階特徵較強；TEM 較直觀</span><span data-lang="en">Stronger 1st-order; TEM-intuitive</span></td>
-              <td><span data-lang="zh">同極性，一階常仍同向</span><span data-lang="en">Same polarity; 1st-order often aligned</span></td>
-              <td><span data-lang="zh">一階衰減（公開 power-signature 敘事）；高階/EMA 仍風險</span><span data-lang="en">1st-order atten. (public power-signature claim); HO/EMA remain</span></td>
-              <td><span data-lang="zh">邊界最完整，仍非免疫</span><span data-lang="en">Fullest boundary, not immunity</span></td>
+              <th scope="row"><span data-lang="zh">一階側信道／TEM</span><span data-lang="en">1st-order SC / TEM</span></th>
+              <td><span data-lang="zh">一階特徵通常較強；單端較易對照（VERIFY）</span><span data-lang="en">Stronger 1st-order often; SE easier to map (VERIFY)</span></td>
+              <td><span data-lang="zh">同極性並聯，一階常仍同向（VERIFY）</span><span data-lang="en">Same-polarity parallel; 1st-order often aligned (VERIFY)</span></td>
+              <td><span data-lang="zh">一階衰減（公開 power-signature 敘事）；高階／EMA 仍風險</span><span data-lang="en">1st-order atten. (public power-signature claim); HO/EMA remain</span></td>
+              <td><span data-lang="zh">邊界通常最完整，仍非免疫（VERIFY）</span><span data-lang="en">Often fullest boundary; not immunity (VERIFY)</span></td>
             </tr>
             <tr>
-              <td>Ref dependence</td>
+              <th scope="row"><span data-lang="zh">外部 Ref 依賴</span><span data-lang="en">External Ref dependence</span></th>
               <td><span data-lang="zh">高</span><span data-lang="en">High</span></td>
-              <td><span data-lang="zh">高（每複本）</span><span data-lang="en">High (per replica)</span></td>
-              <td><span data-lang="zh">低（對內比較）</span><span data-lang="en">Low (pair-relative)</span></td>
-              <td><span data-lang="zh">低＋冗餘管理</span><span data-lang="en">Low + redundancy mgmt</span></td>
+              <td><span data-lang="zh">高（共享同一 Ref）</span><span data-lang="en">High (shared Ref)</span></td>
+              <td><span data-lang="zh">無外部 Ref（對內比較）</span><span data-lang="en">None external (pair-relative)</span></td>
+              <td><span data-lang="zh">無外部 Ref＋冗餘管理</span><span data-lang="en">None external + redundancy mgmt</span></td>
             </tr>
             <tr>
-              <td>Reliability</td>
+              <th scope="row"><span data-lang="zh">讀可靠度</span><span data-lang="en">Read reliability</span></th>
               <td><span data-lang="zh">基準</span><span data-lang="en">Baseline</span></td>
-              <td><span data-lang="zh">缺陷/讀失敗較佳</span><span data-lang="en">Better defect/read-fail</span></td>
-              <td><span data-lang="zh">margin 穩，面積代價</span><span data-lang="en">Stable margin, area cost</span></td>
-              <td><span data-lang="zh">通常最穩</span><span data-lang="en">Usually most robust</span></td>
+              <td><span data-lang="zh">並聯複本改善缺陷／讀失敗（VERIFY）</span><span data-lang="en">Parallel replicas help defect/read-fail (VERIFY)</span></td>
+              <td><span data-lang="zh">margin 較自洽，面積代價</span><span data-lang="en">More self-consistent margin; area cost</span></td>
+              <td><span data-lang="zh">通常最穩（VERIFY）</span><span data-lang="en">Usually most robust (VERIFY)</span></td>
             </tr>
           </tbody>
         </table>
