@@ -6,13 +6,18 @@ window.__NVM_SEARCH_ENHANCED = true;
   const PAGE_CATALOG = [
     {title_zh:'知識中心首頁',title_en:'NVM Knowledge Hub home',url:'index.html',tags:'home knowledge hub 首頁'},
     {title_zh:'位元胞物理與可靠度',title_en:'Bitcell Physics & Reliability',url:'memory-physics.html',tags:'antifuse gate oxide filament physics fowler nordheim 175 drift evidence'},
-    {title_zh:'NVM 技術對比矩陣',title_en:'NVM Technology Comparison Matrix',url:'technology-comparison.html',tags:'comparison matrix eflash emram efuse selection guide foundry tsmc umc TwinBit I-fuse Floadia Actt CFX SST Samsung SF4A'},
-    {title_zh:'具名 IP 對應 11 葉',title_en:'Named IPs under the 11 leaves',url:'technology-comparison.html#named-ip-leaves',tags:'named IP TwinBit I-fuse Floadia ZA ZT G1 G2 Actt LogicFlash CFX SST SuperFlash PermSRAM'},
-    {title_zh:'TSMC 28eHV 0-mask OTP 分流',title_en:'TSMC 28eHV 0-mask OTP split',url:'technology-comparison.html#foundry-tsmc-28ehv',tags:'TSMC 28eHV OLED Gamma De-Mura AntiFuse ZA I-fuse trim OTP'},
-    {title_zh:'TSMC N2 信任根 OTP 分流',title_en:'TSMC N2 Root-of-Trust OTP split',url:'technology-comparison.html#foundry-tsmc-n2',tags:'TSMC N2 GAA nanosheet 0-mask OTP AntiFuse ZA I-fuse RoT'},
-    {title_zh:'Samsung SF4A／SF3／SF2 0-mask OTP 分流',title_en:'Samsung SF4A / SF3 / SF2 0-mask OTP split',url:'technology-comparison.html#foundry-samsung-sf4a',tags:'Samsung SF4A SF3 SF2 SFF 2024 eMRAM AntiFuse ZA I-fuse MBCFET GAA'},
-    {title_zh:'TSMC 22ULL 0-mask OTP 分流',title_en:'TSMC 22ULL 0-mask OTP split',url:'technology-comparison.html#foundry-tsmc-22ull',tags:'TSMC 22ULL 22ULP eRRAM eMRAM AntiFuse ZA I-fuse'},
-    {title_zh:'UMC 40eHV 校準 OTP 分流',title_en:'UMC 40eHV trim OTP split',url:'technology-comparison.html#foundry-umc-ehv',tags:'UMC 40eHV 28eHV SuperFlash trim OTP AntiFuse ZA I-fuse'},
+    {title_zh:'NVM 技術對比矩陣',title_en:'NVM Technology Comparison Matrix',url:'technology-comparison.html',tags:'comparison matrix eflash emram efuse selection guide foundry tsmc umc TwinBit I-fuse Floadia Actt CFX SST Samsung SF4A',summary_zh:'11 葉選型矩陣、雷達演示與四大晶圓廠。',summary_en:'11-leaf selection matrix, radar demo, and four foundries.'},
+    {title_zh:'具名 IP 對應 11 葉',title_en:'Named IPs under the 11 leaves',url:'technology-comparison.html#named-ip-leaves',tags:'named IP TwinBit I-fuse Floadia ZA ZT G1 G2 Actt LogicFlash CFX SST SuperFlash PermSRAM',summary_zh:'OTP／MTP／eFlash 具名 IP 對應既有葉，機制不同者不併欄。',summary_en:'Named OTP / MTP / eFlash IPs map onto existing leaves; distinct physics stay unmerged.'},
+    {title_zh:'TSMC 製程路線',title_en:'TSMC process roadmap',url:'technology-comparison.html#foundry-tsmc',tags:'TSMC foundry 28eHV 22ULL N2 eFlash eMRAM eRRAM',summary_zh:'40/28 eFlash、28eHV 校準 OTP、22ULL 與 N2 信任根。',summary_en:'40/28 eFlash, 28eHV trim OTP, 22ULL, and N2 Root of Trust.'},
+    {title_zh:'TSMC 28eHV 0-mask OTP 分流',title_en:'TSMC 28eHV 0-mask OTP split',url:'technology-comparison.html#foundry-tsmc-28ehv',tags:'TSMC 28eHV OLED Gamma De-Mura AntiFuse ZA I-fuse trim OTP',summary_zh:'OLED 校準常見閘氧 AntiFuse；同節點仍須分流 ZA 類與 I-fuse。',summary_en:'OLED trim often uses GOX AntiFuse; still split ZA-class and I-fuse.'},
+    {title_zh:'TSMC N2 信任根 OTP 分流',title_en:'TSMC N2 Root-of-Trust OTP split',url:'technology-comparison.html#foundry-tsmc-n2',tags:'TSMC N2 GAA nanosheet 0-mask OTP AntiFuse ZA I-fuse RoT',summary_zh:'N2 公開敘事常以 0-mask OTP 作信任根，不得預設單一機制。',summary_en:'N2 public narratives often use 0-mask OTP as RoT; do not assume one mechanism.'},
+    {title_zh:'Samsung Foundry',title_en:'Samsung Foundry',url:'technology-comparison.html#foundry-samsung',tags:'Samsung Foundry eMRAM 28FDS 14LPP SF4A SF3 SF2',summary_zh:'28FDS／FinFET eMRAM 與 SF4A／SF3／SF2 次世代路線。',summary_en:'28FDS / FinFET eMRAM and the SF4A / SF3 / SF2 next-gen path.'},
+    {title_zh:'Samsung SF4A／SF3／SF2 0-mask OTP 分流',title_en:'Samsung SF4A / SF3 / SF2 0-mask OTP split',url:'technology-comparison.html#foundry-samsung-sf4a',tags:'Samsung SF4A SF3 SF2 SFF 2024 eMRAM AntiFuse ZA I-fuse MBCFET GAA',summary_zh:'同節點若另採 0-mask OTP，須分流閘氧 AntiFuse、ZA 類與 I-fuse。',summary_en:'If the same node also uses 0-mask OTP, split GOX AntiFuse, ZA-class, and I-fuse.'},
+    {title_zh:'TSMC 22ULL 0-mask OTP 分流',title_en:'TSMC 22ULL 0-mask OTP split',url:'technology-comparison.html#foundry-tsmc-22ull',tags:'TSMC 22ULL 22ULP eRRAM eMRAM AntiFuse ZA I-fuse',summary_zh:'22ULL 標配 0-mask OTP 時仍須分流閘氧 AntiFuse、ZA 類與 I-fuse。',summary_en:'When 22ULL ships 0-mask OTP, still split GOX AntiFuse, ZA-class, and I-fuse.'},
+    {title_zh:'UMC 製程路線',title_en:'UMC process roadmap',url:'technology-comparison.html#foundry-umc',tags:'UMC SuperFlash 40eHV 28eHV TwinBit YMC NeoBit',summary_zh:'SST SuperFlash、40/28eHV 校準 OTP 與邏輯 0-mask 生態。',summary_en:'SST SuperFlash, 40/28eHV trim OTP, and logic 0-mask ecosystem.'},
+    {title_zh:'UMC 40/28eHV 校準 OTP 分流',title_en:'UMC 40/28eHV trim OTP split',url:'technology-comparison.html#foundry-umc-ehv',tags:'UMC 40eHV 28eHV SuperFlash trim OTP AntiFuse ZA I-fuse',summary_zh:'高壓校準 OTP 仍須分流閘氧 AntiFuse、ZA 類與 I-fuse。',summary_en:'HV trim OTP still requires a GOX AntiFuse vs ZA-class vs I-fuse split.'},
+    {title_zh:'GlobalFoundries 製程路線',title_en:'GlobalFoundries process roadmap',url:'technology-comparison.html#foundry-gf',tags:'GlobalFoundries 22FDX AutoPro150 I-fuse eMRAM 12LP',summary_zh:'22FDX eMRAM、I-fuse 資格與 12LP FinFET 路線。',summary_en:'22FDX eMRAM, I-fuse qualification, and the 12LP FinFET path.'},
+    {title_zh:'GF 22FDX I-fuse 資格',title_en:'GF 22FDX I-fuse qualification',url:'technology-comparison.html#foundry-gf-22fdx',tags:'GlobalFoundries 22FDX I-fuse Attopsemi AutoPro150 eMRAM OxRAM',summary_zh:'I-fuse 是熱輔助電遷移 OTP，不是 22FDX eMRAM。',summary_en:'I-fuse is heat-assisted-EM OTP, not 22FDX eMRAM.'},
     {title_zh:'安全儲存架構',title_en:'Secure Storage Architecture',url:'secure-storage.html',tags:'sram puf aes 256 gcm otp zero rest key security'},
     {title_zh:'安全保證與信任根',title_en:'Security Assurance & Root of Trust',url:'security-assurance.html',tags:'fips 140 caliptra dpa fault injection root trust nist'},
     {title_zh:'AI 系統與先進節點',title_en:'AI Systems & Advanced Nodes',url:'ai-nvm-opportunities.html',tags:'xpu ddr5 pmic spd soic chiplet ucie pqc boot accelerator'},
@@ -59,7 +64,7 @@ window.__NVM_SEARCH_ENHANCED = true;
     if (document.querySelector('link[href*="全站搜尋.css"]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = new URL('全站搜尋.css?v=20260917-r3', ROOT).href;
+    link.href = new URL('全站搜尋.css?v=20260917-r4', ROOT).href;
     document.head.append(link);
   }
   function ensureShell() {
@@ -160,7 +165,9 @@ window.__NVM_SEARCH_ENHANCED = true;
         title.textContent = language === 'zh' ? item.title_zh : item.title_en;
         const desc = document.createElement('div'); desc.className = 'sr-desc';
         const summary = item[`summary_${language}`] || '';
-        desc.textContent = item.id ? `${copy.ledger} · ${item.id}${summary ? ` · ${summary}` : ''}` : copy.topic;
+        desc.textContent = item.id
+          ? `${copy.ledger} · ${item.id}${summary ? ` · ${summary}` : ''}`
+          : (summary || copy.topic);
         link.append(title, desc); results.append(link);
       }
       status.textContent = items.length ? copy.count(items.length, loaded ? index.length-baseCount() : null) : copy.empty;
