@@ -74,12 +74,12 @@
     },
     {
       "id": "ch-author-pmos-io-pgm",
-      "label": "Site-author engineering attestation: I/O PMOS floating-gate OTP program voltages",
-      "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-      "kind": "Author engineering attestation",
+      "label": "Public literature / architecture-class: I/O PMOS floating-gate OTP program voltages",
+      "url": "https://patents.google.com/patent/US6920067B2/en",
+      "kind": "Architecture-class reference",
       "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V PGM for a 5 V I/O PMOS cell; an NMOS floating-gate cell at the same node needs a higher Vpgm",
-      "date": "Author-attested 2026-09-11",
-      "limit": "Engineering practice attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
+      "date": "reviewed 2026-09-11",
+      "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move these figures onto gate-oxide-breakdown AntiFuse, and do not treat them as the measurement table of every current NeoBit macro."
     },
     {
       "id": "ch-pat-pmos-vs-nmos-5761121",
@@ -484,7 +484,7 @@
           "before": "The storage dielectric is intact and the selected bit has low leakage. Other cells in the same row and column must remain unprogrammed.",
           "stimulus": "In the early embodiment of US6667902B2, Figures 1/8 use a 2.5 V row-select line, a 0 V source line, and a 7 V selected column line. These values apply only to that structure and period, not to current product operation.",
           "after": "The thin dielectric develops detectable conduction. Program verification checks whether current reaches the specified window, rather than mistaking a slight leakage increase for sufficient programming.",
-          "explanation": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is dielectric breakdown of the core-device gate oxide: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a node-independent 2.8–3.5 V. Public Kilopass teaching places program voltage near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å. A named foundry example separately shows that a 1.8 V core must survive program stress well above Vdd; that is evidence of the stress class, not a universal Vpgm. This path is not I/O floating-gate hot-carrier injection, whose program window follows the I/O device (about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS; an NMOS floating-gate cell at the same node needs a higher Vpgm). That I/O pairing is attested by this site’s author from datasheet authorship and testing reviews during tenure at eMemory, and must not be back-filled onto oxide-breakdown AntiFuse. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell."
+          "explanation": "The selected MOS provides a path that establishes a storage-layer field between the high-potential column line and a low-potential internal node. Programming is dielectric breakdown of the core-device gate oxide: Vpgm is set by that process oxide thickness and the allowed time-to-breakdown, typically several times core Vdd, not a node-independent 2.8–3.5 V. Public Kilopass teaching places program voltage near 8–9 V for a ~32 Å oxide and 5–6 V for ~20 Å. A named foundry example separately shows that a 1.8 V core must survive program stress well above Vdd; that is evidence of the stress class, not a universal Vpgm. This path is not I/O floating-gate hot-carrier injection, whose program window follows the I/O device (about 6.5 V PGM on 3.3 V PMOS and 7.5 V on 5 V PMOS; an NMOS floating-gate cell at the same node needs a higher Vpgm). That I/O FG HCI pairing is public literature / architecture-class and must not be back-filled onto oxide-breakdown AntiFuse. Current must be controlled to protect the selector. Evolution from soft breakdown to stronger conduction is a distributed process, not the formation of an ideal metal wire with identical dimensions and resistance in every cell."
         },
         {
           "id": "erase",

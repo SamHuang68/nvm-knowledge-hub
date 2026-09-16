@@ -974,7 +974,7 @@
     }
   </style>
 </head>
-<body class="research-page memory-physics-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
+<body class="research-page memory-physics-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial">
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
   <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
 
@@ -1283,6 +1283,7 @@
         <details class="provenance-note">
           <summary><span data-lang="zh">技術沿革與 TSMC 授權脈絡（研究註解）</span><span data-lang="en">Technology provenance and TSMC licensing context (research note)</span></summary>
           <div class="provenance-content">
+            <p class="research-note-label"><span data-lang="en">Research note (provenance — not product brand claim)</span><span data-lang="zh">研究註記（源流程，非產品品牌主張）</span></p>
             <p><b><span data-lang="zh">以 Synopsys 為主體：</span><span data-lang="en">Synopsys is the product subject:</span></b> <span data-lang="zh">現行 Synopsys OTP portfolio 已整合多條技術血統。歷史上，split-channel 1T-Fuse 於 2017 年隨 Sidense 收購納入；Kilopass 的 1T／2T portfolio 則於 2018 年納入。這些原公司名稱只用於追溯專利與公開紀錄，不作為現行產品品牌。</span><span data-lang="en">The current Synopsys OTP portfolio integrates multiple technology lineages. Historically, split-channel 1T-Fuse entered through the 2017 Sidense acquisition, while the Kilopass 1T/2T portfolio entered in 2018. Former company names are used only to trace patents and public records, not as current product brands.</span></p>
             <p><b><span data-lang="zh">TSMC 產業脈絡：</span><span data-lang="en">TSMC industry context:</span></b> <span data-lang="zh">產品團隊的實務脈絡是：TSMC 10 nm 以下 in-house OTP 技術來自向 Synopsys（原 Kilopass 技術血統）取得授權。公開資料可旁證 TSMC／Kilopass 的早期 qualification、Synopsys 後續收購與 TSMC 5 nm antifuse 實作，但未公開授權合約本身。適合留在網站研究註解，不作為 TSMC OIP 台上主線。</span><span data-lang="en">The product team's industry context is that TSMC's sub-10 nm in-house OTP technology was licensed from Synopsys (original Kilopass lineage). Public records corroborate early TSMC/Kilopass qualification, the later Synopsys acquisition and TSMC's 5 nm antifuse implementation, but not the license contract itself. This belongs in a website research note, not the main TSMC OIP stage narrative.</span></p>
             <div class="provenance-links"><a href="https://news.synopsys.com/2017-10-17-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Sidense-Corporation" target="_blank" rel="noopener noreferrer">2017 Synopsys record ↗</a><a href="https://news.synopsys.com/2018-01-10-Synopsys-Expands-DesignWare-IP-Portfolio-with-Acquisition-of-Kilopass-Technology" target="_blank" rel="noopener noreferrer">2018 Synopsys record ↗</a><a href="https://research.tsmc.com/page/memory/2.html" target="_blank" rel="noopener noreferrer">TSMC 5 nm research ↗</a></div>
@@ -1292,7 +1293,8 @@
 
       <section id="read-path" class="paper-section lens-panel reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">03 · INTERACTIVE READ PATH</p><h2><span data-lang="zh">從 power-off 到 sense output，<br><em>逐層看差異在哪裡</em></span><span data-lang="en">From power-off to sense output,<br><em>locate the real divide</em></span></h2></div>
+          <div><p class="paper-kicker">03 · INTERACTIVE READ PATH</p><h2><span data-lang="zh">從 power-off 到 sense output，<br><em>逐層看差異在哪裡</em></span><span data-lang="en">From power-off to sense output,<br><em>locate the real divide</em></span></h2>
+      <p style="color:#8ea9b3;font-size:0.85rem;margin:0.75rem 0 1rem;"><span data-lang="zh">架構級四種讀取模式（單端／冗餘／差動／差動＋冗餘）示意與取捨：<a href="technology-comparison.html#sec-read-modes" style="color:#c4a574;">technology-comparison · 讀取模式</a>。</span><span data-lang="en">Architecture-class four read modes (single-ended / redundant / differential / differential+redundant): <a href="technology-comparison.html#sec-read-modes" style="color:#c4a574;">technology-comparison · Read Modes</a>.</span></p></div>
           <p><span data-lang="zh">切換三個階段。左側代表 SRAM／SRAM PUF 的 volatile state expression；右側代表 programmed antifuse／NeoPUF 類 persistent conduction state。圖為 threat-model abstraction，不是特定 foundry macro schematic。</span><span data-lang="en">Switch among three phases. The left abstracts volatile SRAM/SRAM-PUF state expression; the right abstracts a programmed antifuse/NeoPUF persistent conduction state. This is a threat-model abstraction, not a foundry-macro schematic.</span></p>
         </div>
         <div class="f1-evidence-links"><b><span data-lang="zh">示意與限制</span><span data-lang="en">Model and Limits</span></b><a href="memory-evidence.html#evidence-P01">P01 · <span data-lang="zh">上電狀態機制</span><span data-lang="en">Startup-state mechanism</span></a><a href="memory-evidence.html#evidence-V01">V01 · <span data-lang="zh">NeoPUF 供應商模型</span><span data-lang="en">NeoPUF vendor model</span></a><a href="memory-evidence.html#evidence-P07">P07 · <span data-lang="zh">SRAM 殘留研究</span><span data-lang="en">SRAM remanence study</span></a><a href="memory-evidence.html#evidence-P08">P08 · <span data-lang="zh">低溫 PUF 攻擊範圍</span><span data-lang="en">Low-temperature PUF attack scope</span></a></div>
@@ -1310,7 +1312,7 @@
                 <span class="cross-node left" data-bit="0"></span><span class="crossbar"></span><span class="cross-node right" data-bit="1"></span>
                 <b class="sense-block">SENSE ΔV / ΔI</b>
               </div>
-              <div class="lane-reading"><small><span data-lang="zh">目前可觀察量</span><span data-lang="en">CURRENT OBSERVABLE</span></small><strong>無邏輯狀態</strong></div>
+              <div class="lane-reading"><small><span data-lang="zh">目前可觀察量</span><span data-lang="en">CURRENT OBSERVABLE</span></small><strong><span data-lang="zh">無邏輯狀態</span><span data-lang="en">No logical state</span></strong></div>
             </div>
             <div class="memory-lane">
               <div class="lane-title"><b>ANTIFUSE / NeoPUF</b><span><span data-lang="zh">持久路徑</span><span data-lang="en">PERSISTENT PATH</span></span></div>
@@ -1318,10 +1320,10 @@
                 <i class="bitline bl"></i><span class="otp-filament"></span><span class="otp-reference"></span>
                 <b class="sense-block">ICELL ↔ IREF</b>
               </div>
-              <div class="lane-reading"><small><span data-lang="zh">目前可觀察量</span><span data-lang="en">CURRENT OBSERVABLE</span></small><strong>永久導通路徑</strong></div>
+              <div class="lane-reading"><small><span data-lang="zh">目前可觀察量</span><span data-lang="en">CURRENT OBSERVABLE</span></small><strong><span data-lang="zh">永久導通路徑</span><span data-lang="en">Permanent conduction path</span></strong></div>
             </div>
           </div>
-          <div class="state-lab-copy"><span id="labNumber">01</span><div><h3 id="labTitle">斷電：差異先出現在「狀態是否仍可被表達」</h3><p id="labText">SRAM latch 沒有供電，不再維持 0/1 邏輯狀態；但製程 mismatch 仍存在。已 enrollment 的 antifuse／NeoPUF 導通路徑則是永久實體狀態。</p></div></div>
+          <div class="state-lab-copy"><span id="labNumber">01</span><div><h3 id="labTitle"><span data-lang="zh">斷電：差異先出現在「狀態是否仍可被表達」</span><span data-lang="en">Power-down: The divergence first appears in whether state can still be represented</span></h3><p id="labText"><span data-lang="zh">SRAM latch 沒有供電，不再維持 0/1 邏輯狀態；但製程 mismatch 仍存在。已 enrollment 的 antifuse／NeoPUF 導通路徑則是永久實體狀態。</span><span data-lang="en">Unpowered SRAM latches no longer maintain a 0/1 logic state, although physical mismatch remains. Enrolled AntiFuse / NeoPUF conduction paths constitute permanent physical states.</span></p></div></div>
         </div>
         <p class="paper-note"><b><span data-lang="zh">關鍵細節：</span><span data-lang="en">Key nuance:</span></b> <span data-lang="zh">在已驗證的 shutdown 條件下，設計不保留刻意儲存或仍由電源維持的 reconstructed root；這不代表晶片上沒有可量測的製程差異、helper material 或 remanence 風險。安全性仍依賴 response 不被輕易建模／成像、reconstruction 流程受保護、helper data 有 integrity，以及工作金鑰的 residency 與 zeroization 被控制。</span><span data-lang="en">Under a validated shutdown condition, the design retains no intentionally stored or powered reconstructed root; this does not mean measurable process variation, helper material or remanence risk disappears. Security still depends on resisting characterization, protecting reconstruction, authenticating helper data, and controlling working-key residency and zeroization.</span></p>
       </section>
@@ -1366,7 +1368,7 @@
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M3 12h18"/></svg>
             <span><span data-lang="zh">左右滑動檢視完整矩陣</span><span data-lang="en">Swipe horizontally to inspect full matrix</span></span>
           </div>
-          <div class="table-scroll-container" tabindex="0" role="region" aria-label="可橫向捲動的比較表格" data-aria-zh="可橫向捲動的比較表格" data-aria-en="Scrollable comparison table">
+          <div class="table-scroll-container" tabindex="0" role="region" aria-label="Scrollable comparison table" data-aria-zh="可橫向捲動的比較表格" data-aria-en="Scrollable comparison table">
             <table class="taxonomy-table">
               <caption><span data-lang="zh">依儲存變數比較記憶體；技術分類不等同安全資格</span><span data-lang="en">Memories by storage variable; a technology class is not a security qualification</span></caption>
               <thead><tr><th scope="col"><span data-lang="zh">技術</span><span data-lang="en">Technology</span></th><th scope="col"><span data-lang="zh">儲存／表達的變數</span><span data-lang="en">Stored / expressed variable</span></th><th scope="col"><span data-lang="zh">典型讀取觀測量</span><span data-lang="en">Typical read observable</span></th><th scope="col"><span data-lang="zh">斷電狀態</span><span data-lang="en">Power-off state</span></th><th scope="col"><span data-lang="zh">與安全相關的物理途徑</span><span data-lang="en">Security-relevant physical avenues</span></th></tr></thead>
@@ -1394,7 +1396,7 @@
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M3 12h18"/></svg>
             <span><span data-lang="zh">左右滑動檢視完整風險矩陣</span><span data-lang="en">Swipe horizontally to inspect risk matrix</span></span>
           </div>
-          <div class="table-scroll-container" tabindex="0" role="region" aria-label="可橫向捲動的比較表格" data-aria-zh="可橫向捲動的比較表格" data-aria-en="Scrollable comparison table">
+          <div class="table-scroll-container" tabindex="0" role="region" aria-label="Scrollable comparison table" data-aria-zh="可橫向捲動的比較表格" data-aria-en="Scrollable comparison table">
             <table class="attack-table">
               <caption><span data-lang="zh">攻擊前提與擷取後果；非絕對安全排名</span><span data-lang="en">Attack prerequisites and extraction consequences, without an absolute-security ranking</span></caption>
               <thead><tr><th scope="col">ATTACK / PROPERTY</th><th scope="col">SRAM / SRAM PUF</th><th scope="col">PERSISTENT OTP / OTP-PUF</th><th scope="col">SECURE STORAGE CONSEQUENCE</th></tr></thead>
@@ -1570,7 +1572,7 @@
           <div class="meta-pill-item">
             <span class="meta-pill-dot" style="background:#c4a574;"></span>
             <span class="meta-pill-key">RELIABILITY:</span>
-            <span class="meta-pill-val"><span data-lang="zh">AEC-Q100 Grade 0 驗證條件／ISO 26262 ASIL-D (SEooC SC3) 背景</span><span data-lang="en">AEC-Q100 GRADE 0 / ISO 26262 ASIL-D (SEooC SC3) CONTEXT</span></span>
+            <span class="meta-pill-val"><span data-lang="zh">詞彙：AEC-Q100 Grade 0 / ISO 26262 ASIL-D (SEooC SC3)（非本頁證書）</span><span data-lang="en">Vocabulary only: AEC-Q100 Grade 0 / ISO 26262 ASIL-D (SEooC SC3) — not a page-level certificate</span></span>
           </div>
         </div>
       </div>

@@ -112,7 +112,7 @@ function sourceList(ids,language){
   const source=DATA.sources.find(s=>s.id===id);
   if(!source)throw new Error('來源不存在：'+id);
   const fields=source[language];
-  return{id,label:fields.label,url:source.url,kind:local(language,source.kind,source.kind==='公開專利'?'Public Patent':source.kind==='官方轉載主管訪談'?'Officially Reposted Executive Interview':source.kind==='作者工程核可'?'Author Engineering Attestation':'Primary Technical Source'),date:fields.date,locator:fields.locator,limit:fields.limit};
+  return{id,label:fields.label,url:source.url,kind:local(language,source.kind,source.kind==='公開專利'?'Public Patent':source.kind==='官方轉載主管訪談'?'Officially Reposted Executive Interview':source.kind==='架構量級參考'?'Architecture-class Reference':'Primary Technical Source'),date:fields.date,locator:fields.locator,limit:fields.limit};
  });
 }
 function legend(id,language){
@@ -279,19 +279,19 @@ const DATA={
     },
     {
       "id": "ip-neobit-io-pgm-author",
-      "url": "https://samhuang68.github.io/nvm-knowledge-hub/",
-      "kind": "作者工程核可",
+      "url": "https://patents.google.com/patent/US6920067B2/en",
+      "kind": "架構量級參考",
       "zh": {
-        "label": "本站作者：I/O PMOS 浮閘 OTP 編程電壓",
-        "date": "2026-09-11 作者核可",
+        "label": "公開文獻／架構量級：I/O PMOS 浮閘 OTP 編程電壓",
+        "date": "2026-09-11 查核",
         "locator": "3.3 V I/O PMOS cell 約 6.5 V PGM；5 V I/O PMOS cell 約 7.5 V PGM；同節點 NMOS 需要更高 PGM",
-        "limit": "依作者於力旺任職期間撰寫 datasheet 與 testing review 的工程慣例。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
+        "limit": "依公開專利、產業報導與 I/O 浮閘單元教學文獻的架構量級對照。不引用未公開檔案頁次，不得移作閘氧擊穿 AntiFuse。"
       },
       "en": {
-        "label": "Site Author: I/O PMOS Floating-Gate OTP Program Voltages",
-        "date": "Author-attested 2026-09-11",
+        "label": "Public Literature / Architecture-Class: I/O PMOS Floating-Gate OTP Program Voltages",
+        "date": "reviewed 2026-09-11",
         "locator": "About 6.5 V PGM for a 3.3 V I/O PMOS cell; about 7.5 V for a 5 V cell; NMOS at the same node needs a higher Vpgm",
-        "limit": "Attested from datasheet authorship and testing reviews during tenure at eMemory. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
+        "limit": "Architecture-class pairing from public patents, industry reporting, and I/O floating-gate cell teaching literature. Unpublished file pages are not quoted. Do not move onto gate-oxide-breakdown AntiFuse."
       }
     },
     {

@@ -1089,7 +1089,7 @@
 
   </style>
 </head>
-<body data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
+<body data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial">
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
   <svg class="svg-defs" aria-hidden="true">
     <symbol id="i-fingerprint" viewBox="0 0 48 48"><path d="M10 23c0-8 6-14 14-14s14 6 14 14c0 9-3 15-7 20M15 25c0-5 4-9 9-9s9 4 9 9c0 7-2 12-5 17M20 27c0-3 2-5 4-5s4 2 4 5c0 5-1 9-3 13M9 31c1 5 3 9 6 13M15 34c1 3 2 6 4 8"/></symbol>
@@ -1144,14 +1144,14 @@
         </h1>
         <p class="hero-lede">
           <span data-lang="zh">以 SRAM PUF 在上電時重建 device-unique root key，再用 AES-256 保護 OTP 內容。已驗證 shutdown 下，不保留刻意儲存或仍由電源維持的 reconstructed root。</span>
-          <span data-lang="en">Reconstruct a device-unique root key from SRAM PUF at power-up, then protect OTP content with AES-256. Under verified shutdown, no intentionally stored or power-sustained reconstructed root remains.</span>
+          <span data-lang="en">Reconstruct a device-unique root key from SRAM PUF at power-up, then protect OTP content with AES-256 (cipher disclosed; mode/engine remain target-open until closed). Under verified shutdown, no intentionally stored or power-sustained reconstructed root remains.</span>
         </p>
         <div class="hero-actions">
           <a class="button primary" href="#power-lab"><span data-lang="zh">探索 Power-off State</span><span data-lang="en">Explore Power-off State</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
           <a class="button ghost" href="oip-secure-storage.html"><span data-lang="zh">開啟 OIP Brief</span><span data-lang="en">Open OIP Brief</span></a>
         </div>
         <div class="hero-proof" aria-label="Synopsys published portfolio figures" data-aria-en="Synopsys published portfolio figures" data-aria-zh="Synopsys 公開的產品組合資料">
-          <div data-record-id="OIP-PUF-SCALE-001"><strong>&gt;1.5B</strong><span>devices using SRAM PUF technology</span></div>
+          <div data-record-id="OIP-PUF-SCALE-001"><strong>&gt;1.5B</strong><span>devices using SRAM PUF technology <em>(vendor-reported CONTEXT — not this config)</em></span></div>
           <div data-record-id="OIP-PUF-HISTORY-001"><strong>&gt;15 years</strong><span>of proven SRAM PUF technology</span></div>
           <div data-record-id="OIP-ARCH-001"><strong>AES-256</strong><span>disclosed OTP data protection</span></div>
           <small class="hero-proof-source"><span data-lang="zh">供應商報告的技術組合背景 · 並非目標組態的安全保證。輔助資料、電晶體失配與生命週期狀態可能持續存在；殘留與清除仍是安全保證的驗證目標。</span><span data-lang="en">VENDOR-REPORTED PORTFOLIO CONTEXT · NOT TARGET-CONFIGURATION ASSURANCE. Helper material, transistor mismatch and lifecycle state may persist; remanence and zeroization remain assurance targets.</span></small>
@@ -1185,7 +1185,7 @@
             <span class="meta-code">CONTEXT #03 · PROVEN SCALE</span>
             <span class="pulse-chip-mini"></span>
           </div>
-          <div class="stat-val">&gt;1.5B UNITS</div>
+          <div class="stat-val">&gt;1.5B UNITS <small>CONTEXT</small></div>
           <p><span data-lang="zh">超過 15 年公開組合歷史；不自動等於本配置保證</span><span data-lang="en">&gt;15 years portfolio history; not automatic target-configuration assurance</span></p>
         </div>
         <div class="stat-strip-card is-context border-l-amber">
@@ -1423,12 +1423,12 @@
         <p><span data-lang="zh">從威脅方法、可觀察訊號與故障注入，到緩解措施、測試證據與第三方確證；讓每一項 Secure NVM 主張都能被追溯。</span><span data-lang="en">Trace every Secure NVM claim from threat method and observable signal to mitigation, test evidence and independent assurance.</span></p>
       </div>
       <div class="assurance-chain" aria-label="Security assurance lifecycle" data-aria-en="Security assurance lifecycle" data-aria-zh="安全保證生命週期">
-        <article><span>01</span><b>THREAT</b><small data-assurance-zh>定義攻擊者與資產</small><small data-assurance-en>Define actor and asset</small></article>
-        <i></i><article><span>02</span><b>METHOD</b><small data-assurance-zh>FI · SCA · 實體讀取</small><small data-assurance-en>FI · SCA · readout</small></article>
-        <i></i><article><span>03</span><b>OBSERVE</b><small data-assurance-zh>量測可利用結果</small><small data-assurance-en>Measure exploitable result</small></article>
-        <i></i><article><span>04</span><b>MITIGATE</b><small data-assurance-zh>限制攻擊後果</small><small data-assurance-en>Constrain consequences</small></article>
-        <i></i><article><span>05</span><b>EVIDENCE</b><small data-assurance-zh>建立可重現證據</small><small data-assurance-en>Build reproducible evidence</small></article>
-        <i></i><article><span>06</span><b>ASSURE</b><small data-assurance-zh>評估與認證範圍</small><small data-assurance-en>Evaluate and certify scope</small></article>
+        <article><span>01</span><b>THREAT</b><small><span data-lang="zh">定義攻擊者與資產</span><span data-lang="en">Define actor and asset</span></small></article>
+        <i></i><article><span>02</span><b>METHOD</b><small><span data-lang="zh">FI · SCA · 實體讀取</span><span data-lang="en">FI · SCA · readout</span></small></article>
+        <i></i><article><span>03</span><b>OBSERVE</b><small><span data-lang="zh">量測可利用結果</span><span data-lang="en">Measure exploitable result</span></small></article>
+        <i></i><article><span>04</span><b>MITIGATE</b><small><span data-lang="zh">限制攻擊後果</span><span data-lang="en">Constrain consequences</span></small></article>
+        <i></i><article><span>05</span><b>EVIDENCE</b><small><span data-lang="zh">建立可重現證據</span><span data-lang="en">Build reproducible evidence</span></small></article>
+        <i></i><article><span>06</span><b>ASSURE</b><small><span data-lang="zh">評估與認證範圍</span><span data-lang="en">Evaluate and certify scope</span></small></article>
       </div>
       <div class="assurance-preview-foot">
         <div><b>KEY QUESTION</b><p><span data-lang="zh">攻擊者會怎麼驗證？現有證據是什麼？還有什麼未知？</span><span data-lang="en">How would an attacker test it? What evidence exists? What remains unknown?</span></p></div>
@@ -1609,7 +1609,7 @@
           <div><span>PUF root</span><p><span data-lang="zh">SRAM PUF；重建的根機密不作為持續供電的金鑰儲存</span><span data-lang="en">SRAM PUF; reconstructed root not kept as a stored powered key</span></p><p>NeoPUF; 1024-bit physical PUF</p></div>
           <div><span>Data protection</span><p><span data-lang="zh">AES-256 加密／解密＋位址擾碼</span><span data-lang="en">AES-256 encryption/decryption + address scrambling</span></p><p><span data-lang="zh">即時硬體加密＋位址／I/O 擾碼；公開資料未指明演算法</span><span data-lang="en">Instant hardware encryption + address/IO scrambling; algorithm not named publicly</span></p></div>
           <div><span>Integration</span><p><span data-lang="zh">AMBA APB、簡易 API、自動佈建與初始化</span><span data-lang="en">AMBA APB, simple API, auto provisioning and initialization</span></p><p><span data-lang="zh">AMBA APB、韌體／API、自動載入、鎖定與清除</span><span data-lang="en">AMBA APB, firmware/API, autoload, locks and zeroization</span></p></div>
-          <div class="matrix-emphasis"><span>Portfolio context</span><p data-record-ids="OIP-PUF-SCALE-001 OIP-PUF-HISTORY-001 OIP-OTP-SCALE-001"><span data-lang="zh">Synopsys 報告其 SRAM PUF 技術已用於超過 15 億顆裝置、SRAM PUF 技術累積超過 15 年實證，以及反熔絲 OTP NVM 累計出貨超過 100 億顆；目標組態仍需完成驗證</span><span data-lang="en">Synopsys reports &gt;1.5B devices using its SRAM PUF technology, &gt;15 years of proven SRAM PUF technology, and &gt;10B antifuse OTP NVM units shipped; target configuration still requires closure</span></p><p><span data-lang="zh">PUFsecurity 報告廣泛商用採用（累積逾 1 億顆出貨橫跨 IoT/AI/車規，承襲力旺 eMemory IP 血統）；具體配置仍需確認</span><span data-lang="en">PUFsecurity reports broad commercial adoption (&gt;100M+ units across IoT/AI/automotive with eMemory IP lineage); target configuration requires verification</span></p></div>
+          <div class="matrix-emphasis"><span>Portfolio context</span><p data-record-ids="OIP-PUF-SCALE-001 OIP-PUF-HISTORY-001 OIP-OTP-SCALE-001"><span data-lang="zh">Synopsys 報告其 SRAM PUF 技術已用於超過 15 億顆裝置、SRAM PUF 技術累積超過 15 年實證，以及反熔絲 OTP NVM 累計出貨超過 100 億顆；目標組態仍需完成驗證</span><span data-lang="en">Synopsys reports &gt;1.5B devices using its SRAM PUF technology, &gt;15 years of proven SRAM PUF technology, and &gt;10B antifuse OTP NVM units shipped (vendor-reported portfolio CONTEXT). Target configuration still requires VERIFY closure — not a certificate for this page</span></p><p><span data-lang="zh">PUFsecurity 報告廣泛商用採用（累積逾 1 億顆出貨橫跨 IoT/AI/車規，承襲力旺 eMemory IP 血統）；具體配置仍需確認</span><span data-lang="en">PUFsecurity reports broad commercial adoption (&gt;100M+ units across IoT/AI/automotive) with vendor eMemory IP lineage (product/vendor lineage OK; not author tenure). Target configuration requires VERIFY</span></p></div>
         </div>
         <p class="comparison-conclusion"><b><span data-lang="zh">架構綜述</span><span data-lang="en">ENGINEERING SUMMARY</span></b><span data-lang="zh">兩者皆透過差異化實體熵源解決信任根佈建：靜態不留存的 SRAM PUF 結合整合式密碼子系統，對比專屬氧化層擊穿 PUF OTP。晶片架構師應依目標製程節點、輔助資料管理負擔與認證邊界進行客觀評估。</span><span data-lang="en">Both architectures address root-of-trust provisioning through differentiated physical entropy sources: absent-at-rest SRAM PUF with an integrated cryptographic subsystem versus dedicated oxide-breakdown PUF OTP, requiring architects to evaluate based on target process node, helper data handling, and certification boundaries.</span></p>
       </div>

@@ -402,7 +402,7 @@
   }
 </style>
 </head>
-<body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
+<body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial">
 <a class="skip-link" href="#main-content">
 <span data-lang="zh">跳至主要內容</span>
 <span data-lang="en">Skip to main content</span>
@@ -452,7 +452,7 @@
 <span data-lang="zh">深入解析 BCD 電源管理（PMIC 微調、LED 驅動、USB-PD 快充協議、BLDC 馬達與 BMIC AFE）、高密集陣列缺陷修復（CIS 與 DRAM/HBM 冗餘重映射）、高壓 (HV) 顯示驅動（Gamma 2.2、Vcom、De-Mura），以及電子紙 (E-Ink) 40V-50V 超高壓電泳驅動與「演進期 MTP ➔ 成熟期 OTP」產品生命週期演進。配備 4 大旗艦級互動實驗室。</span>
 <span data-lang="en">Deep treatise on BCD Power Management (PMIC trimming, LED drivers, USB-PD protocols, BLDC motor firmware, BMIC AFE), Dense Matrix Array Repair (CIS and DRAM/HBM redundancy remapping), High-Voltage Display Driver ICs, and E-Ink 40V-50V Ultra-HV driving with MTP-to-OTP lifecycle migration. Equipped with 4 flagship interactive laboratories.</span>
 </p>
-<!-- 4-METRIC STAT STRIP: SILICON IP RIGOR & WAFER SIGN-OFF -->
+<!-- 4-METRIC STAT STRIP: SILICON IP RIGOR & WAFER CHECKLIST -->
 <div class="stat-strip-grid compact-ate-strip">
 <div class="stat-strip-card border-l-cyan">
 <div class="stat-top-meta">
@@ -558,8 +558,8 @@
           &part;<em>V</em><sub>REF</sub> / &part;<em>T</em> = 0 &nbsp;|&nbsp; <em>V</em><sub>REF</sub> &approx; 1.205 V
         </strong>
         <small>
-          <span data-lang="zh">CTAT (&minus;2.0 mV/°C) 與 PTAT (+0.086 mV/°C &times; M) 互補相消。AntiFuse OTP 修調電阻微調比值，消除 &plusmn;5% 製程偏差至 &plusmn;0.35%。</span>
-          <span data-lang="en">CTAT (&minus;2.0 mV/°C) cancels PTAT (+0.086 mV/°C &times; M). Pure-logic AntiFuse OTP tunes series R-ladder to compress &plusmn;5% raw drift down to &plusmn;0.35%.</span>
+          <span data-lang="zh">CTAT (&minus;2.0 mV/°C) 與 PTAT (+0.086 mV/°C &times; M) 互補相消（示例促數；VERIFY）。AntiFuse OTP 修調電阻微調比值，消除 &plusmn;5% 製程偏差至 &plusmn;0.35%（VERIFY — 示例修調結果，非萬能規格）。</span>
+          <span data-lang="en">CTAT (&minus;2.0 mV/°C) cancels PTAT (+0.086 mV/°C &times; M) (illustrative coefficients; VERIFY). Pure-logic AntiFuse OTP tunes series R-ladder to compress &plusmn;5% raw drift down to &plusmn;0.35% (VERIFY — illustrative trim result, not a universal spec).</span>
         </small>
       </div>
       <div class="governing-physics-desc">
@@ -587,8 +587,8 @@
           &lambda; = <em>D</em><sub>0</sub> · <em>A</em><sub>die</sub> &nbsp;|&nbsp; <em>F</em>(<em>t</em>) = 1 &minus; exp[&minus;&eta; · (<em>t</em> / <em>t</em><sub>63</sub>)<sup>&beta;</sup>]
         </strong>
         <small>
-          <span data-lang="zh">在 CIS/DRAM 大面積晶粒中，缺陷服從泊松分佈。透過 BIRA 演算法與 AntiFuse OTP 硬體重映射備援行/列，以代表性大晶粒為例，修復後良率相較未修復基準 <em>e</em><sup>&minus;&lambda;</sup> 可提升達 +55.8%（數值依晶粒面積與備援資源配置而異）。</span>
-          <span data-lang="en">Defect clustering obeys Poisson statistics in large CIS/DRAM dies. Remapping failed rows/columns via BIRA and AntiFuse OTP can elevate repaired yield by up to +55.8% over the unrepaired baseline <em>e</em><sup>&minus;&lambda;</sup> in representative benchmark dies (subject to die area and redundancy allocation).</span>
+          <span data-lang="zh">在 CIS/DRAM 大面積晶粒中，缺陷服從泊松分佈。透過 BIRA 演算法與 AntiFuse OTP 硬體重映射備援行/列，以代表性大晶粒為例，修復後良率相較未修復基準 <em>e</em><sup>&minus;&lambda;</sup> 可提升達 +55.8%（VERIFY — 代表性基準晶粒示例；數值依晶粒面積與備援資源配置而異）。</span>
+          <span data-lang="en">Defect clustering obeys Poisson statistics in large CIS/DRAM dies. Remapping failed rows/columns via BIRA and AntiFuse OTP can elevate repaired yield by up to +55.8% over the unrepaired baseline <em>e</em><sup>&minus;&lambda;</sup> in representative benchmark dies (VERIFY — example; subject to die area and redundancy allocation).</span>
         </small>
       </div>
       <div class="governing-physics-desc">
@@ -651,8 +651,8 @@
       </div>
       <div class="governing-physics-desc">
         <span class="physics-desc-title"><span data-lang="zh">微觀物理與製程約束</span><span data-lang="en">PHYSICS &amp; FOUNDRY BOUNDARY</span></span>
-        <span data-lang="zh">超高壓 40V–50V 製程中，MTP 用於研發期波形反覆調教，成熟量產期無縫轉移至 AntiFuse OTP，單晶片成本降低 30% 以上且永不流失波形。</span>
-        <span data-lang="en">In 40V-50V ultra-HV nodes, MTP serves R&amp;D waveform tuning, migrating smoothly to AntiFuse OTP in mass production to cut die cost &gt;30% while locking waveforms permanently.</span>
+        <span data-lang="zh">超高壓 40V–50V 製程中，MTP 用於研發期波形反覆調教，成熟量產期無縫轉移至 AntiFuse OTP，單晶片成本常見可降 30% 以上（VERIFY — 視應用／面積）且波形永久鎖定。</span>
+        <span data-lang="en">In 40V-50V ultra-HV nodes, MTP serves R&amp;D waveform tuning, migrating smoothly to AntiFuse OTP in mass production to cut die cost &gt;30% in representative cases (VERIFY — application/area dependent) while locking waveforms permanently.</span>
       </div>
     </div>
 
@@ -744,9 +744,9 @@
 <!-- 4-METRIC SPEC GRID: TOPIC 01 -->
 <div class="spec-grid-four">
 <div class="spec-card">
-<div class="spec-card-val val-cyan">±0.5%</div>
+<div class="spec-card-val val-cyan">±0.5% <span style="font-size:0.55em;opacity:.85">VERIFY</span></div>
 <div class="spec-card-title"><span data-lang="zh">VREF 修調精度</span><span data-lang="en">VREF TRIM ACCURACY</span></div>
-<div class="spec-card-desc"><span data-lang="zh">壓縮矽晶片原始 ±5% 帶隙漂移</span><span data-lang="en">Tightens raw ±5% bandgap drift</span></div>
+<div class="spec-card-desc"><span data-lang="zh">壓縮矽晶片原始 ±5% 帶隙漂移</span><span data-lang="en">Tightens raw ±5% bandgap drift (VERIFY — example)</span></div>
 </div>
 <div class="spec-card">
 <div class="spec-card-val val-emerald">0 MASKS</div>
@@ -887,7 +887,7 @@
 <div class="deck-step-card border-green">
 <div class="deck-step-meta">
 <span class="deck-step-num">STEP 04</span>
-<span class="deck-step-status">LOCK &amp; SIGN-OFF</span>
+<span class="deck-step-status">LOCK &amp; CHECKLIST</span>
 </div>
 <h5 class="deck-step-title">
 <span data-lang="zh">電壓驗證與防篡改鎖定</span>
@@ -896,11 +896,11 @@
 <div class="deck-visual-stage">
 <div style="font-family: monospace; font-size: 11px; color: #c4a574; display: flex; align-items: center; gap: 6px;">
 <span>VREF: 1.200V</span>
-<span style="padding: 1px 5px; background: rgba(196, 165, 116, 0.2); border-radius: 2px;">±0.35% IN-SPEC</span>
+<span style="padding: 1px 5px; background: rgba(196, 165, 116, 0.2); border-radius: 2px;">±0.35% IN-SPEC (VERIFY)</span>
 </div>
 </div>
 <div class="deck-metric-callout">
-<span class="deck-metric-val">99.8% Yield</span>
+<span class="deck-metric-val">99.8% Yield (VERIFY)</span>
 <span class="deck-metric-lbl">AEC-Q100 GRADE 0 (175°C)</span>
 </div>
 <div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">鎖定</span><span data-lang="en">LOCK TIMING</span></span><span class="chip-v cyan"><span data-lang="zh">上電 &lt;50ns 硬體鎖死</span><span data-lang="en">&lt;50ns BOOT LOCK</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">留存</span><span data-lang="en">RETENTION</span></span><span class="chip-v green"><span data-lang="zh">15+ 年 @ 175°C 車規耐受</span><span data-lang="en">15+ YRS @ 175°C</span></span></div></div>
@@ -1003,7 +1003,7 @@
 <div class="deck-step-card border-green">
 <div class="deck-step-meta">
 <span class="deck-step-num">DOMAIN C</span>
-<span class="deck-step-status">GRADE 0 · ASIL-D READY (SEooC)</span>
+<span class="deck-step-status">Grade 0 / ASIL-D (SEooC) vocabulary — not READY cert</span>
 </div>
 <h5 class="deck-step-title">
 <span data-lang="zh">車規電池管理與功能安全</span>
@@ -1017,12 +1017,12 @@
 </div>
 <div class="deck-metric-callout">
 <span class="deck-metric-val">175°C Tj Max</span>
-<span class="deck-metric-lbl">GRADE 0 · ASIL-D READY (SEooC) SAFETY LOG</span>
+<span class="deck-metric-lbl">Grade 0 / ASIL-D (SEooC) vocabulary — not READY cert SAFETY LOG</span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">紀錄</span><span data-lang="en">SAFETY LOG</span></span><span class="chip-v cyan"><span data-lang="zh">電池阻抗黑盒子查表</span><span data-lang="en">CELL IMPEDANCE LUT</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">車規</span><span data-lang="en">QUALIFICATION</span></span><span class="chip-v green"><span data-lang="zh">AEC-Q100 Grade 0 車規驗證符合</span><span data-lang="en">AEC-Q100 GRADE 0 QUALIFIED</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">紀錄</span><span data-lang="en">SAFETY LOG</span></span><span class="chip-v cyan"><span data-lang="zh">電池阻抗黑盒子查表</span><span data-lang="en">CELL IMPEDANCE LUT</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">車規</span><span data-lang="en">QUALIFICATION</span></span><span class="chip-v green"><span data-lang="zh">AEC-Q100 Grade 0 詞彙 / VERIFY（非認證）</span><span data-lang="en">AEC-Q100 Grade 0 vocabulary / VERIFY per target</span></span></div></div>
 <div style="padding: 6px 8px; font-size: 10px; color: #94a3b8; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 8px;">
-<span data-lang="zh"><strong>SEooC 假定使用 (AoU)：</strong> 支援 ASIL-D 系統化能力 (SC3)。BMS AFE 電池阻抗 LUT 查表需配合系統級週期巡檢 (<em>T</em><sub>scrub</sub> &le; <em>T</em><sub>latent_budget</sub>)，以落實潛伏故障度量 <code>LFM &ge; 90%</code> 要求。</span>
-<span data-lang="en"><strong>SEooC AoU:</strong> Supports ASIL-D SC3 systematic capability. BMS AFE impedance LUT requires system-level periodic scrubbing (<em>T</em><sub>scrub</sub> &le; <em>T</em><sub>latent_budget</sub>) to fulfill <code>LFM &ge; 90%</code> latent fault metric constraints.</span>
+<span data-lang="zh"><strong>SEooC 假定使用 (AoU)：</strong> 支援 ASIL-D 系統化能力 (SC3) 詞彙（VERIFY；非 READY 認證）。BMS AFE 電池阻抗 LUT 查表需配合系統級週期巡檢 (<em>T</em><sub>scrub</sub> &le; <em>T</em><sub>latent_budget</sub>)，以落實潛伏故障度量 <code>LFM &ge; 90%</code> 要求。</span>
+<span data-lang="en"><strong>SEooC AoU:</strong> Supports ASIL-D SC3 systematic-capability vocabulary (VERIFY — not a READY certification). BMS AFE impedance LUT requires system-level periodic scrubbing (<em>T</em><sub>scrub</sub> &le; <em>T</em><sub>latent_budget</sub>) to fulfill <code>LFM &ge; 90%</code> latent fault metric constraints.</span>
 </div>
 </div>
 </div>
@@ -1091,7 +1091,7 @@
 <label for="sliderWafers">
 <span data-lang="zh">每月晶圓投片量 (Wafers / Month):</span>
 <span data-lang="en">Monthly Wafer Volume (Wafers / Mo):</span>
-<b id="lblWaferCount">5,000 片</b>
+<b id="lblWaferCount"><span data-lang="zh">5,000 片</span><span data-lang="en">5,000 wafers</span></b>
 </label>
 <input id="sliderWafers" aria-label="Monthly Wafer Volume (Wafers / Month)" data-aria-en="Monthly Wafer Volume (Wafers / Month)" data-aria-zh="月晶圓投片量 (片／月)" max="25000" min="1000" step="1000" type="range" value="5000"/>
 </div>
@@ -1146,10 +1146,10 @@
 <text fill="#64748b" font-family="monospace" font-size="10" x="260" y="145">+175°C</text>
 <!-- CTAT 負溫斜線 -->
 <path d="M 40 35 L 290 115" stroke="#f43f5e" stroke-dasharray="4,3" stroke-width="2.5"></path>
-<text fill="#f43f5e" font-size="10" font-weight="bold" x="200" y="110">CTAT: -2.0 mV/°C</text>
+<text fill="#f43f5e" font-size="10" font-weight="bold" x="200" y="110">CTAT: -2.0 mV/°C (ex.)</text>
 <!-- PTAT 正溫斜線 -->
 <path d="M 40 115 L 290 35" stroke="#c4a574" stroke-dasharray="4,3" stroke-width="2.5"></path>
-<text fill="#c4a574" font-size="10" font-weight="bold" x="45" y="110">PTAT: +2.0 mV/°C</text>
+<text fill="#c4a574" font-size="10" font-weight="bold" x="45" y="110">PTAT: +2.0 mV/°C (ex.)</text>
 <!-- 相消綠色平直水平線 -->
 <line stroke="#c4a574" stroke-width="3.5" x1="40" x2="290" y1="75" y2="75"></line>
 <circle cx="165" cy="75" fill="#c4a574" r="4.5" stroke="#fff" stroke-width="1.5"></circle>
@@ -2210,11 +2210,11 @@
 </div>
 <h3>
 <span data-lang="zh">高壓與特種製程 Hard IP：從測試晶片流片到車規可靠度封閉全流程</span>
-<span data-lang="en">High-Voltage Hard IP Rigor: From Test Chip Tapeout to Reliability Sign-off</span>
+<span data-lang="en">High-Voltage Hard IP Rigor: From Test Chip Tapeout to Reliability checklist</span>
 </h3>
 <p style="color: #94a3b8; font-size: 13.5px; line-height: 1.6; margin-bottom: 20px; text-wrap: pretty;">
 <span data-lang="zh">NVM 是極度敏感的實體 Hard IP，絕非可任意合成轉移的軟體 RTL。代工廠具備特定高壓或特種製程，絕不代表矽智財廠商已有現成 Macro 布局。每一個特定金屬層堆疊（Metal Stack）與 PDK 變體，均必須歷經獨立的專屬測試晶片（Test Chip）流片、全溫區 PVT Corner 特性化實測與車規級加速老化驗證。</span>
-<span data-lang="en">Embedded NVM is custom physical Hard IP, not portable generic RTL. A foundry offering a specialty process does NOT imply Silicon IP availability. Every specific metal stack and PDK variant mandates dedicated test chip tapeouts, multi-lot PVT corner characterization, and automotive reliability sign-off.</span>
+<span data-lang="en">Embedded NVM is custom physical Hard IP, not portable generic RTL. A foundry offering a specialty process does NOT imply Silicon IP availability. Every specific metal stack and PDK variant mandates dedicated test chip tapeouts, multi-lot PVT corner characterization, and automotive reliability checklist.</span>
 </p>
 <!-- =========================================================
      TOPIC 03: 晶圓廠硬體矽智財簽核管線流程圖 (Qualification Pipeline)
@@ -2223,15 +2223,15 @@
 <div class="qual-pipeline-header">
 <div class="qual-badge-row">
 <span class="qual-chip">FOUNDRY RIGOR</span>
-<span class="qual-chip-verified">3-STAGE SILICON SIGN-OFF GATES</span>
+<span class="qual-chip-verified">3-STAGE SILICON CHECKLIST GATES</span>
 </div>
 <h4 style="font-size: 15px; margin: 4px 0 8px; color: #f8fafc; font-weight: 600;">
-<span data-lang="zh">特種高壓製程 Hard IP 晶圓認證三道簽核管線 (Silicon Sign-Off Pipeline)</span>
-<span data-lang="en">Specialty HV Hard IP Silicon Sign-Off Pipeline</span>
+<span data-lang="zh">特種高壓製程 Hard IP 晶圓認證三道簽核管線 (Silicon verification checklist pipeline)</span>
+<span data-lang="en">Specialty HV Hard IP Silicon verification checklist pipeline</span>
 </h4>
 <p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin: 0;">
 <span data-lang="zh">NVM 為客製實體 Hard IP，非軟體 RTL。每一 PDK 變體必須嚴格通過三道實體晶圓門禁簽核：</span>
-<span data-lang="en">Embedded NVM is custom physical Hard IP. Every PDK variant mandates 3 rigorous silicon sign-off gates:</span>
+<span data-lang="en">Embedded NVM is custom physical Hard IP. Every PDK variant mandates 3 silicon verification checklist gates:</span>
 </p>
 </div>
 <div class="pipeline-stepper-grid">
@@ -2799,7 +2799,7 @@
           <div class="meta-pill-item">
             <span class="meta-pill-dot" style="background:#c4a574;"></span>
             <span class="meta-pill-key">RELIABILITY:</span>
-            <span class="meta-pill-val">AEC-Q100 GRADE 0 · ISO 26262 ASIL-D READY (SEooC SC3)</span>
+            <span class="meta-pill-val">AEC-Q100 Grade 0 · ISO 26262 ASIL-D vocabulary (SEooC SC3) — not READY cert</span>
           </div>
         </div>
       </div>

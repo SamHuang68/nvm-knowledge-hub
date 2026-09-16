@@ -97,7 +97,6 @@
     const link = document.createElement('link'); link.rel = 'stylesheet';
     link.href = new URL(href, rootURL).href; link.dataset.hubSharedStyle = href.split('?')[0]; document.head.append(link);
   }
-  // 增強程式僅用於記憶體物理頁；資源根目錄由控制器自身位置解析。
   if (/memory-physics\.html/i.test(location.pathname)) {
     const script = document.createElement('script'); script.src = new URL('f1-card-align.js?v=20260907-f1', rootURL).href;
     script.defer = true; document.head.append(script);
@@ -111,8 +110,6 @@
       button.addEventListener('click', event => { event.preventDefault(); window.HubLanguage.toggle(); });
     });
     window.HubLanguage.set(initial, false);
-
-    // 行動端漢堡選單全域監聽與 WCAG 2.1 AA 焦點管理
     const menuBtn = document.querySelector('#menuToggle');
     const nav = document.querySelector('#primaryNav, #globalNav, .primary-nav');
     if (menuBtn && nav && !menuBtn._hubNavBound) {
@@ -173,7 +170,6 @@
         menuBtn.setAttribute('aria-label', isChinese ? (isOpen ? '關閉選單' : '開啟選單') : (isOpen ? 'Close menu' : 'Open menu'));
       });
     }
-
     document.querySelectorAll('a[href]').forEach(link => {
       if (link.getAttribute('href')?.startsWith('#')) return;
       let target; try { target = new URL(link.href); } catch { return; }
@@ -183,8 +179,6 @@
         target.pathname = target.pathname.replace(/[^/]+$/, encodeURIComponent(name));
       });
     });
-
-    // WCAG 2.1 SC 3.2.5 / G201: Accessible notification for links opening in a new tab
     function syncExternalLinks(lang) {
       const isZh = (lang || window.HubLanguage?.get()) === 'zh';
       const extNotice = isZh ? '（另開新分頁）' : ' (opens in a new tab)';
@@ -199,13 +193,16 @@
         }
       });
     }
-
     syncExternalLinks(window.HubLanguage?.get());
     window.addEventListener('hub:language-change', (e) => {
       syncExternalLinks(e.detail?.language);
     });
-
-    // Register Service Worker for PWA Offline Resilience
+    if (/automotive-nvm\.html|iot-mcu-envm\.html/i.test(location.pathname)) {
+      const demote = document.createElement('script');
+      demote.src = new URL('claim-scope.js?v=20260915-p0', rootURL).href;
+      demote.defer = true;
+      document.head.append(demote);
+    }
     if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
       const swPath = location.pathname.includes('/tools/whitepaper-studio/')
         ? '../../sw.js'
