@@ -2221,7 +2221,7 @@
         .rm-chip.redun{border-color:rgba(196,165,116,.45);color:#d4c0a0;}
         .rm-card .rm-svg{display:block;width:100%;max-width:420px;height:auto;margin:2px auto 0;}
         .rm-card .rm-one{margin:0;color:#cbd5e1;font-size:.9rem;line-height:1.65;font-weight:400;}
-        .rm-card .rm-one strong,.rm-card dd strong{font-weight:500;}
+        .rm-lead strong,.rm-card .rm-one strong,.rm-card dd strong{font-weight:500;}
         .rm-card dl{margin:0;display:grid;gap:0;font-size:.82rem;line-height:1.55;color:#a8bdc8;font-weight:400;border-top:1px solid rgba(142,169,179,.18);}
         .rm-card .rm-row{display:grid;grid-template-columns:88px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid rgba(142,169,179,.12);}
         .rm-card .rm-row:last-child{border-bottom:none;padding-bottom:0;}
@@ -2244,7 +2244,7 @@
         .rm-table{width:100%;min-width:720px;border-collapse:collapse;font-size:.84rem;color:#c4d7e0;font-weight:400;}
         .rm-table th,.rm-table td{padding:12px 14px;border-bottom:1px solid rgba(142,169,179,.18);text-align:left;vertical-align:top;line-height:1.5;}
         .rm-table th{background:rgba(14,42,56,.95);color:#c4a574;font-weight:500;letter-spacing:.02em;}
-        .rm-table th:first-child,.rm-table td:first-child{position:sticky;left:0;background:rgba(10,32,44,.97);z-index:1;white-space:nowrap;font-weight:500;color:#d5dde5;}
+        .rm-table th:first-child,.rm-table td:first-child,.rm-table th[scope="row"]{position:sticky;left:0;background:rgba(10,32,44,.97);z-index:1;white-space:nowrap;font-weight:500;color:#d5dde5;}
         .rm-table tbody tr:nth-child(even) td{background:rgba(14,42,56,.28);}
         .rm-table tbody tr:nth-child(even) td:first-child{background:rgba(10,32,44,.97);}
         .rm-table tr:last-child td{border-bottom:none;}
@@ -2253,7 +2253,7 @@
       </style>
 
 
-      <div class="rm-glance" aria-label="Read-mode glance">
+      <div class="rm-glance" aria-label="read modes glance">
         <div class="rm-glance-item"><b>1 · SE</b><span data-lang="zh">1 phy · 有 Ref</span><span data-lang="en">1 phy · has Ref</span></div>
         <div class="rm-glance-item"><b>2 · RED</b><span data-lang="zh">≥2 並聯 · 有 Ref</span><span data-lang="en">≥2 parallel · has Ref</span></div>
         <div class="rm-glance-item"><b>3 · DIFF</b><span data-lang="zh">BL vs /BL · 無 Ref</span><span data-lang="en">BL vs /BL · no Ref</span></div>
@@ -2453,48 +2453,48 @@
         <table class="rm-table">
           <thead>
             <tr>
-              <th>Axis</th>
-              <th>Single-ended</th>
-              <th>Redundant</th>
-              <th>Differential</th>
-              <th>Diff + redundant</th>
+              <th scope="col"><span data-lang="zh">軸向</span><span data-lang="en">Axis</span></th>
+              <th scope="col"><span data-lang="zh">單端</span><span data-lang="en">Single-ended</span></th>
+              <th scope="col"><span data-lang="zh">冗餘（並聯）</span><span data-lang="en">Redundant (parallel)</span></th>
+              <th scope="col"><span data-lang="zh">差動</span><span data-lang="en">Differential</span></th>
+              <th scope="col"><span data-lang="zh">差動＋冗餘</span><span data-lang="en">Diff + redundant</span></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Sense margin</td>
-              <td><span data-lang="zh">依賴 ref／PVT</span><span data-lang="en">Ref/PVT bound</span></td>
-              <td><span data-lang="zh">複本投票改善可讀</span><span data-lang="en">Replicas improve readability</span></td>
-              <td><span data-lang="zh">互補自洽，較少全域 ref</span><span data-lang="en">Self-referenced pair</span></td>
-              <td><span data-lang="zh">差動＋冗餘疊加</span><span data-lang="en">Diff + redundancy stack</span></td>
+              <th scope="row"><span data-lang="zh">感測邊界</span><span data-lang="en">Sense margin</span></th>
+              <td><span data-lang="zh">1 phy vs 外部 Ref／PVT</span><span data-lang="en">1 phy vs external Ref/PVT</span></td>
+              <td><span data-lang="zh">≥2 同側並聯 vs 同一 Ref</span><span data-lang="en">≥2 same-side parallel vs one Ref</span></td>
+              <td><span data-lang="zh">BL vs /BL 互比（無外部 Ref）</span><span data-lang="en">BL vs /BL mutual (no external Ref)</span></td>
+              <td><span data-lang="zh">每軌 ≥2 並聯後互比</span><span data-lang="en">≥2 parallel / rail, then mutual</span></td>
             </tr>
             <tr>
-              <td>Area</td>
+              <th scope="row"><span data-lang="zh">面積</span><span data-lang="en">Area</span></th>
               <td><span data-lang="zh">最低</span><span data-lang="en">Lowest</span></td>
-              <td><span data-lang="zh">中（×複本）</span><span data-lang="en">Mid (×replicas)</span></td>
+              <td><span data-lang="zh">中（×並聯複本）</span><span data-lang="en">Mid (×parallel replicas)</span></td>
               <td><span data-lang="zh">高（~2×）</span><span data-lang="en">High (~2×)</span></td>
               <td><span data-lang="zh">最高</span><span data-lang="en">Highest</span></td>
             </tr>
             <tr>
-              <td>DPA/TEM</td>
-              <td><span data-lang="zh">一階特徵較強；TEM 較直觀</span><span data-lang="en">Stronger 1st-order; TEM-intuitive</span></td>
-              <td><span data-lang="zh">同極性，一階常仍同向</span><span data-lang="en">Same polarity; 1st-order often aligned</span></td>
-              <td><span data-lang="zh">一階衰減（公開 power-signature 敘事）；高階/EMA 仍風險</span><span data-lang="en">1st-order atten. (public power-signature claim); HO/EMA remain</span></td>
-              <td><span data-lang="zh">邊界最完整，仍非免疫</span><span data-lang="en">Fullest boundary, not immunity</span></td>
+              <th scope="row"><span data-lang="zh">一階側信道／TEM</span><span data-lang="en">1st-order SC / TEM</span></th>
+              <td><span data-lang="zh">一階特徵通常較強；單端較易對照（VERIFY）</span><span data-lang="en">Stronger 1st-order often; SE easier to map (VERIFY)</span></td>
+              <td><span data-lang="zh">同極性並聯，一階常仍同向（VERIFY）</span><span data-lang="en">Same-polarity parallel; 1st-order often aligned (VERIFY)</span></td>
+              <td><span data-lang="zh">一階衰減（公開 power-signature 敘事）；高階／EMA 仍風險</span><span data-lang="en">1st-order atten. (public power-signature claim); HO/EMA remain</span></td>
+              <td><span data-lang="zh">邊界通常最完整，仍非免疫（VERIFY）</span><span data-lang="en">Often fullest boundary; not immunity (VERIFY)</span></td>
             </tr>
             <tr>
-              <td>Ref dependence</td>
+              <th scope="row"><span data-lang="zh">外部 Ref 依賴</span><span data-lang="en">External Ref dependence</span></th>
               <td><span data-lang="zh">高</span><span data-lang="en">High</span></td>
-              <td><span data-lang="zh">高（每複本）</span><span data-lang="en">High (per replica)</span></td>
-              <td><span data-lang="zh">低（對內比較）</span><span data-lang="en">Low (pair-relative)</span></td>
-              <td><span data-lang="zh">低＋冗餘管理</span><span data-lang="en">Low + redundancy mgmt</span></td>
+              <td><span data-lang="zh">高（共享同一 Ref）</span><span data-lang="en">High (shared Ref)</span></td>
+              <td><span data-lang="zh">無外部 Ref（對內比較）</span><span data-lang="en">None external (pair-relative)</span></td>
+              <td><span data-lang="zh">無外部 Ref＋冗餘管理</span><span data-lang="en">None external + redundancy mgmt</span></td>
             </tr>
             <tr>
-              <td>Reliability</td>
+              <th scope="row"><span data-lang="zh">讀可靠度</span><span data-lang="en">Read reliability</span></th>
               <td><span data-lang="zh">基準</span><span data-lang="en">Baseline</span></td>
-              <td><span data-lang="zh">缺陷/讀失敗較佳</span><span data-lang="en">Better defect/read-fail</span></td>
-              <td><span data-lang="zh">margin 穩，面積代價</span><span data-lang="en">Stable margin, area cost</span></td>
-              <td><span data-lang="zh">通常最穩</span><span data-lang="en">Usually most robust</span></td>
+              <td><span data-lang="zh">並聯複本改善缺陷／讀失敗（VERIFY）</span><span data-lang="en">Parallel replicas help defect/read-fail (VERIFY)</span></td>
+              <td><span data-lang="zh">margin 較自洽，面積代價</span><span data-lang="en">More self-consistent margin; area cost</span></td>
+              <td><span data-lang="zh">通常最穩（VERIFY）</span><span data-lang="en">Usually most robust (VERIFY)</span></td>
             </tr>
           </tbody>
         </table>
