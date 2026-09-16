@@ -5,6 +5,7 @@ import {chromium} from 'playwright';
 
 const root = path.resolve(import.meta.dirname, '..');
 const MIN = Number(process.env.KEEPOUT || 24);
+const PANEL_MIN = Number(process.env.PANEL_KEEPOUT || 20);
 const widths = process.argv.includes('--desktop-only') ? [1440] : [1440, 390];
 const routes = [
   'index.html',
@@ -66,7 +67,7 @@ try {
     for (const route of routes) {
       await page.goto(base + route, { waitUntil: 'networkidle', timeout: 45000 });
       await page.waitForTimeout(120);
-      const report = await page.evaluate((minKeepout) => {
+      const report = await page.evaluate(({ minKeepout, panelMin }) => {
         const vw = innerWidth;
         const skip = (el) => el.closest('.skip-link, .nvm-skip, .sr-only, [hidden], dialog');
         const hidden = (el) => {
@@ -140,14 +141,52 @@ try {
           seen.add(key);
           uniq.push(hit);
         }
+        const panelHits = [];
+        for (const panel of document.querySelectorAll('.main-container > .lens-panel')) {
+          const box = panel.getBoundingClientRect();
+          if (box.width < 8 || box.height < 8) continue;
+          const walker2 = document.createTreeWalker(panel, NodeFilter.SHOW_TEXT);
+          while (walker2.nextNode()) {
+            const node = walker2.currentNode;
+            if (!node.nodeValue || !node.nodeValue.trim()) continue;
+            const el = node.parentElement;
+            if (!el || skip(el) || hidden(el)) continue;
+            const range = document.createRange();
+            range.selectNodeContents(node);
+            for (const r of range.getClientRects()) {
+              if (r.width < 1 || r.height < 1) continue;
+              if (obscured(el, r)) continue;
+              const insetLeft = r.left - box.left;
+              const insetRight = box.right - r.right;
+              if (insetLeft < panelMin - 0.6 || insetRight < panelMin - 0.6) {
+                panelHits.push({
+                  panel: panel.id || '',
+                  text: node.nodeValue.trim().slice(0, 72),
+                  tag: el.tagName.toLowerCase(),
+                  insetLeft: Number(insetLeft.toFixed(1)),
+                  insetRight: Number(insetRight.toFixed(1))
+                });
+              }
+            }
+          }
+        }
+        const panelUniq = [];
+        const panelSeen = new Set();
+        for (const hit of panelHits) {
+          const key = `${hit.panel}|${hit.tag}|${hit.insetLeft}|${hit.insetRight}|${hit.text}`;
+          if (panelSeen.has(key)) continue;
+          panelSeen.add(key);
+          panelUniq.push(hit);
+        }
         return {
           minLeft: Number(minLeft.toFixed(1)),
           minRight: Number(minRight.toFixed(1)),
           overflow: document.documentElement.scrollWidth - vw,
-          offenders: uniq.slice(0, 8)
+          offenders: uniq.slice(0, 8),
+          panelOffenders: panelUniq.slice(0, 8)
         };
-      }, MIN);
-      const pass = report.offenders.length === 0 && report.overflow <= 2;
+      }, { minKeepout: MIN, panelMin: PANEL_MIN });
+      const pass = report.offenders.length === 0 && report.overflow <= 2 && report.panelOffenders.length === 0;
       results.push({ width, route, pass, ...report });
       if (!pass) {
         console.log(JSON.stringify({
@@ -157,7 +196,8 @@ try {
           minLeft: report.minLeft,
           minRight: report.minRight,
           overflow: report.overflow,
-          offenders: report.offenders
+          offenders: report.offenders,
+          panelOffenders: report.panelOffenders
         }, null, 2));
       }
     }
@@ -173,9 +213,10 @@ fs.mkdirSync(outDir, { recursive: true });
 const summary = {
   date: '2026-09-16',
   minKeepout: MIN,
+  panelKeepout: PANEL_MIN,
   failed: results.filter((r) => !r.pass).length,
   results
 };
 fs.writeFileSync(path.join(outDir, 'keepout-audit.json'), JSON.stringify(summary, null, 2) + '\n');
-console.log(JSON.stringify({ checks: results.length, failed: summary.failed, minKeepout: MIN }, null, 2));
+console.log(JSON.stringify({ checks: results.length, failed: summary.failed, minKeepout: MIN, panelKeepout: PANEL_MIN }, null, 2));
 if (summary.failed) process.exitCode = 1;

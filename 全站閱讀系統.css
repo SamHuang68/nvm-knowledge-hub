@@ -94,6 +94,23 @@ html body.ai-nvm-page {
 html body .signal-strip {
   padding-inline: var(--hub-keepout) !important;
 }
+/* Comparison (and any .main-container) framed panels sit outside lens-stage-container. */
+html body .main-container > .lens-panel,
+html body #sec-matrix.lens-panel,
+html body #sec-selector.lens-panel,
+html body #sec-physics.lens-panel,
+html body #sec-foundry.lens-panel,
+html body #sec-read-modes.lens-panel,
+html body #sec-pipeline.lens-panel {
+  padding: clamp(24px, 3vw, 44px) clamp(24px, 3.4vw, 52px) clamp(28px, 3.4vw, 52px) !important;
+  box-sizing: border-box !important;
+}
+html body .main-container > .lens-panel > .hub-sec-header:first-child,
+html body #sec-physics.lens-panel > .hub-sec-header:first-child,
+html body #sec-foundry.lens-panel > .hub-sec-header:first-child,
+html body #sec-read-modes.lens-panel > .hub-sec-header:first-child {
+  margin-top: 0 !important;
+}
 @media print {
   html body .briefing-hero,
   html body .briefing-grid {

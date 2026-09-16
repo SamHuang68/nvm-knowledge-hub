@@ -90,7 +90,7 @@
     ['memory-physics-contrast.css?v=20260907-f1', /memory-physics\.html/i.test(location.pathname)],
     ['ai-nvm-node.css?v=20260908-n30', /ai-nvm-opportunities\.html/i.test(location.pathname)],
     ['ai-nvm-tune.css?v=20260908-n31', /ai-nvm-opportunities\.html/i.test(location.pathname)],
-    ['全站閱讀系統.css?v=20260916-keepout', true]
+    ['全站閱讀系統.css?v=20260916-keepout2', true]
   ];
   for (const [href, enabled] of sheets) {
     if (!enabled) continue;
