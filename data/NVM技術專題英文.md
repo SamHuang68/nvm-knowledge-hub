@@ -6519,6 +6519,51 @@ Development, manufacturing, inventory shipments, warranties, and support are dif
 - [CMP-MICRON-CALL2021: Micron 3D XPoint Strategy-Update Prepared Remarks](https://investors.micron.com/static-files/c858cbb2-bfd2-4f84-ba10-f69b385cf4bf)
 - [CMP-INTEL2023: Intel Optane Customer Letter](https://cdrdv2-public.intel.com/774331/IOG-DCL-March%202023.pdf)
 
+## Nine Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table
+
+The Yu 2016 paper and the 2021 course table compare SRAM, DRAM, NOR, NAND, PCM, RRAM, STT-MRAM, SOT-MRAM, FeRAM and FeFET. The logic-process OTP / MTP / eFlash IPs below are not columns of that table, and they do not share a unified voltage or cycle number that could be pasted into it. This section only maps each named IP onto a selection-matrix family leaf and links to its cell study.
+
+### AntiFuse OTP
+
+A dielectric is permanently made conductive; one-time program. The teaching leaf is not floating-gate OTP and not a blown fuse.
+
+- CFX · GOX OTP(#ip-cfx-otp): Teaching default is gate-oxide breakdown. Public materials also list eFuse and floating-gate routes; the three must not collapse into one cell.
+- Floadia · LEE Fuse ZA(#ip-floadia-za): Zero extra-mask anti-fuse. The product name is LEE Fuse ZA; if a page writes LEE Flash ZA it still belongs here, not to ZT / G1 / G2. Published only as a dielectric made permanently conductive; breakdown site unpublished — not a GOX path.
+
+### eFuse family: blow-class and I-fuse
+
+Blow-class programs by electromigration rupture of a link; I-fuse is listed separately and is not the same physics.
+
+- Attopsemi · I-fuse(#ip-attopsemi-ifuse): Poly / metal-gate / metal fuse. Heat-assisted electromigration below thermal runaway; not AntiFuse and not explosive blow-class eFuse.
+
+### LD-MTP (FN/FN single-poly class)
+
+The family leaf uses NeoEE / LEE Flash ZT as the FN/FN reference. Actt and TwinBit do not inherit that cell physics.
+
+- Floadia · LEE Flash ZT(#ip-floadia-zt): Zero-mask floating-gate MTP; FN program and erase. Public page body and table disagree on cycle count; neither figure is a common guarantee.
+- Actt · LogicFlash MTP(#ip-actt-cmt): CMT is 2016 acquisition lineage, not a current SKU. Public at 180–55 nm, +0–1, Flash-like interface; product-page up to ~10k cycles, not a table guarantee. Cell physics unpublished — do not invent FN, HCI, or channel-current readout.
+
+### MTP that sits on neither LD nor HD
+
+The HD-MTP leaf is CHI/FN floating gate. Schottky TwinBit belongs to neither leaf.
+
+- NSCore · TwinBit MTP(#ip-nscore-twinbit): P-channel Schottky; hot-hole program and hot-electron erase; 40–22 nm, zero extra masks. PermSRAM is an OTP sibling and must not merge with TwinBit.
+
+### SST SuperFlash
+
+The split-gate eFlash leaf is this family, not SONOS.
+
+- SST · SuperFlash(#ip-sst-superflash): Source-side injection program and interpoly FN erase. Public foundry nodes about 180–28 nm; the home page also states 500 nm–28 nm.
+
+### SONOS eFlash
+
+Charge trapping. G1 and G2 are both SONOS but differ in mask count, read path and array organization; they are not one specification cell.
+
+- Floadia · LEE Flash G1(#ip-floadia-g1): SONOS, +2–3 extra masks, FN program/erase; public description includes BCD.
+- Floadia · LEE Flash G2(#ip-floadia-g2): SONOS sandwiched by switch transistors, +4, VDD-read; marked as ongoing development. Not a node extension of G1.
+
+Historical-table numbers remain the course baseline. Biases, cycle counts and production nodes for named IPs stay bound to each cell study and its VERIFY limits; this page does not invent datasheet figures.
+
 ## Patent Bibliography and Figures
 
 ### US7417300B2

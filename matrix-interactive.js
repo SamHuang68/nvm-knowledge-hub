@@ -234,7 +234,7 @@
       if (viewKey === 'all') {
         msg = isZh ? '已展開全景 11 項技術對比' : 'Expanded all 11 technologies';
       } else if (viewKey === 'zeromask') {
-        msg = isZh ? '一頁精選：5 項 0-Mask 純邏輯相容方案' : 'Fit View: 5 0-Mask logic-compatible technologies';
+        msg = isZh ? '一頁精選：5 項 0-Mask 純邏輯相容方案（11 葉子集；TwinBit 與 I-fuse 見註解 05，不在這五欄）' : 'Fit View: 5 0-Mask logic-compatible technologies (11-leaf subset; TwinBit and I-fuse are in note 05, not these five columns)';
       } else if (viewKey === 'logic') {
         msg = isZh ? '一頁精選：4 項核心自主 OTP 與 MTP 方案' : 'Fit View: 4 core logic OTP & MTP technologies';
       } else if (viewKey === 'highdensity') {

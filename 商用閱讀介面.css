@@ -328,8 +328,20 @@ html:not(.nvm-keyboard-navigation) .nvm-atlas-page [data-route-heading]:focus-vi
 .nvm-benchmark-index small { grid-column: 2; font-size: 13px; line-height: 1.7; color: #526a72; }
 .nvm-benchmark-index a>span:last-child { grid-column: 3; grid-row: 1/3; align-self: center; }
 .nvm-benchmark-index a:hover { background: #eaf1ed; }
-.nvm-comparison-history-link { font-size: 14px; text-align: right; margin: 10px 0 32px; }
+.nvm-comparison-history-link { font-size: 14px; text-align: right; margin: 10px 0 32px; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 28px; }
 .nvm-comparison-history-link a { display: inline-flex; gap: 16px; align-items: center; min-height: 44px; }
+.nvm-logic-ip-map { border-top: 3px solid #367c70; padding: 27px 4px 8px; margin: 0 0 36px; }
+.nvm-logic-ip-map > h3 { font-size: 28px; font-weight: 500; line-height: 1.35; overflow-wrap: anywhere; }
+.nvm-logic-ip-map > .nvm-kicker { color: #265f56; }
+.nvm-logic-ip-actions { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 12px 0 24px; }
+.nvm-logic-ip-actions a { display: inline-flex; align-items: center; min-height: 44px; }
+.nvm-logic-ip-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 30px; }
+.nvm-logic-ip-group { border-top: 2px solid #719a8c; padding: 16px 0 8px; }
+.nvm-logic-ip-group h4 { font-size: 18px; font-weight: 600; margin: 0 0 8px; color: #173b49; }
+.nvm-logic-ip-group ul { list-style: none; padding: 0; margin: 12px 0 0; }
+.nvm-logic-ip-group li { padding: 10px 0; border-bottom: 1px solid #c1d3cf; }
+.nvm-logic-ip-group a { font-weight: 500; color: #173b49; }
+.nvm-logic-ip-group span { display: block; font-size: 14px; line-height: 1.7; color: #526a72; margin-top: 4px; }
 .nvm-benchmark-section-title { font-size: 23px; font-weight: 500; }
 .nvm-benchmark-study { margin: 30px 0 45px; padding: 26px 0 0; border-top: 2px solid #367c70; border-bottom: 0; scroll-margin-top: 0; }
 .nvm-benchmark-study>header { display: grid; grid-template-columns: 58px minmax(0,1fr); gap: 23px; margin-bottom: 25px; }
@@ -366,6 +378,8 @@ html:not(.nvm-keyboard-navigation) .nvm-atlas-page [data-route-heading]:focus-vi
  .nvm-library-entries h3 { font-size: 20px; }
  .nvm-benchmark-study .nvm-two { grid-template-columns: 1fr; gap: 18px; }
  .nvm-benchmark-study h3 { font-size: 25px; }
+ .nvm-logic-ip-groups { grid-template-columns: 1fr; }
+ .nvm-logic-ip-map > h3 { font-size: 25px; }
 }
 @media(max-width:800px) {
  .nvm-library-entries { grid-template-columns: 1fr; }

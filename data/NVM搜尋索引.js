@@ -747,6 +747,12 @@ window.NVMTopicIndex = [
     "title_zh": "歷史總表與有條件比較",
     "title_en": "Historical and Current Comparisons",
     "url": "NVM技術全景.html#comparison",
-    "tags": "2016 2021 2026 比較 能量 耐久 保持 延遲 endurance retention latency energy"
+    "tags": "2016 2021 2026 比較 能量 耐久 保持 延遲 endurance retention latency energy Actt TwinBit Floadia CFX Attopsemi SST I-fuse ZA ZT G1 G2 SuperFlash LogicFlash"
+  },
+  {
+    "title_zh": "九款具名 IP 對應選型矩陣葉，不進入 2016／2021 歷史表",
+    "title_en": "Nine Named IPs Map onto Selection-Matrix Leaves; They Do Not Enter the 2016/2021 Course Table",
+    "url": "NVM技術全景.html#comparison-logic-ip",
+    "tags": "Actt TwinBit Floadia CFX Attopsemi SST I-fuse ZA ZT G1 G2 SuperFlash LogicFlash 選型矩陣 具名 IP"
   }
 ];

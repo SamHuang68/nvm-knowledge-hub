@@ -46,8 +46,8 @@
           "url": "technology-comparison.html",
           "titleZh": "架構選型比較",
           "titleEn": "Technology Selection Matrix",
-          "descriptionZh": "以資料生命週期與系統需求，評估記憶體家族與整合邊界；具名 IP（TwinBit、I-fuse、Floadia ZT／ZA／G1／G2、Actt、CFX、SST）掛在既有族群葉下。",
-          "descriptionEn": "Evaluate memory families and integration boundaries against data lifecycle and system requirements. Named IPs (TwinBit, I-fuse, Floadia ZT/ZA/G1/G2, Actt, CFX, SST) sit under existing family leaves.",
+          "descriptionZh": "以資料生命週期與系統需求，評估記憶體家族與整合邊界；具名 IP（TwinBit、I-fuse、Floadia ZT／ZA／G1／G2、Actt LogicFlash、CFX、SST）掛在既有族群葉下。CMT 是 2016 年收購沿革，不是現行 SKU。全景比較節另有機制對照，不改寫 2016／2021 歷史表。",
+          "descriptionEn": "Evaluate memory families and integration boundaries against data lifecycle and system requirements. Named IPs (TwinBit, I-fuse, Floadia ZT/ZA/G1/G2, Actt LogicFlash, CFX, SST) sit under existing family leaves. CMT is 2016 acquisition lineage, not a current SKU. The atlas comparison section maps mechanisms only; it does not rewrite the 2016/2021 course table.",
           "metaEn": "Selection · Integration",
           "metaZh": "技術選擇 · 系統整合"
         },

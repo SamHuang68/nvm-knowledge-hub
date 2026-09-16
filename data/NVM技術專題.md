@@ -6555,6 +6555,51 @@ Micron 於 2021-03-16 停止 3D XPoint 開發；Intel 於 2022 年 7 月停止 O
 - [CMP-MICRON-CALL2021：Micron 3D XPoint 策略更新法說稿](https://investors.micron.com/static-files/c858cbb2-bfd2-4f84-ba10-f69b385cf4bf)
 - [CMP-INTEL2023：Intel Optane 客戶信](https://cdrdv2-public.intel.com/774331/IOG-DCL-March%202023.pdf)
 
+## 九款具名 IP 對應選型矩陣葉，不進入 2016／2021 歷史表
+
+Yu 2016 與 2021 課程表比較 SRAM、DRAM、NOR、NAND、PCM、RRAM、STT-MRAM、SOT-MRAM、FeRAM 與 FeFET。下列邏輯製程 OTP／MTP／eFlash IP 不是該表欄位，也沒有可併入歷史表的統一電壓或循環次數。此處只對照選型矩陣的家族葉，並連到單元導讀。
+
+### AntiFuse OTP
+
+介電層永久導通；一次寫入。教學葉不是浮閘 OTP，也不是熔絲吹斷。
+
+- 創飛芯 · GOX OTP（#ip-cfx-otp）：教學預設閘氧崩潰。公開另列 eFuse 與浮閘路徑，三條不得併成同一格。
+- Floadia · LEE Fuse ZA（#ip-floadia-za）：零額外光罩 Anti-fuse。產品名是 LEE Fuse ZA；頁面若寫 LEE Flash ZA 仍屬此葉，不是 ZT／G1／G2。公開只到介電層永久導通，擊穿位點未指定，不得寫成閘氧路徑。
+
+### eFuse 族群：吹斷級與 I-fuse
+
+吹斷級以電遷移熔斷連線；I-fuse 另列，不可畫成同一物理。
+
+- Attopsemi · I-fuse（#ip-attopsemi-ifuse）：poly／金屬閘／金屬熔絲。熱輔助電遷移且低於熱失控；不是 AntiFuse，也不是爆炸式吹斷 eFuse。
+
+### LD-MTP（FN／FN 單層多晶矽族）
+
+族群葉以 NeoEE／LEE Flash ZT 為 FN／FN 參照。Actt 與 TwinBit 不併入此葉的物理。
+
+- Floadia · LEE Flash ZT（#ip-floadia-zt）：零光罩浮動閘極 MTP；寫抹皆 FN。公開頁循環次數本文與表不一致，不以任一數字當共通保證。
+- Actt · LogicFlash MTP（#ip-actt-cmt）：CMT 是 2016 年收購沿革，不是現行 SKU。公開 180–55 nm、+0–1、類 Flash 介面；產品頁最高約 10k 次，非本表保證。單元物理未公開，不得發明 FN、HCI 或通道電流讀取。
+
+### 不掛 LD／HD 葉的 MTP
+
+HD-MTP 葉是 CHI／FN 浮閘。Schottky TwinBit 兩邊都不掛。
+
+- NSCore · TwinBit MTP（#ip-nscore-twinbit）：Pch Schottky；熱電洞寫入、熱電子抹除；40–22 nm、零額外光罩。PermSRAM 是 OTP 旁系，不得與 TwinBit 合併。
+
+### SST SuperFlash
+
+分裂閘極 eFlash 葉即此族，不是 SONOS。
+
+- SST · SuperFlash（#ip-sst-superflash）：源側注入寫入、多晶矽間 FN 抹除。公開代工節點約 180–28 nm；首頁亦見 500 nm–28 nm。
+
+### SONOS eFlash
+
+電荷捕捉。G1 與 G2 同為 SONOS，但光罩、讀取與陣列組織不同，不併成一格規格。
+
+- Floadia · LEE Flash G1（#ip-floadia-g1）：SONOS、+2–3 道光罩、FN 寫抹；公開敘述含 BCD。
+- Floadia · LEE Flash G2（#ip-floadia-g2）：SONOS 夾在開關電晶體之間、+4、VDD 讀；原廠標持續開發。不是 G1 的節點延伸。
+
+歷史表數字維持課程基線。具名 IP 的偏壓、循環次數與量產節點以各單元來源與 VERIFY 限制為準，不在此處補造規格。
+
 ## 專利書目與圖號
 
 ### US7417300B2
