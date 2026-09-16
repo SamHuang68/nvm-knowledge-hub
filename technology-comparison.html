@@ -2212,22 +2212,15 @@
         .rm-note{margin:1rem 0 0;color:#8ea9b3;font-size:.8rem;line-height:1.5;}
         .rm-note a{color:#c4a574;}
 .rm-card .rm-svg{display:block;width:100%;max-width:420px;height:auto;margin:4px auto 2px;}
-        .rm-legend{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin:0 0 1rem;padding:10px 12px;border:1px solid rgba(196,165,116,.22);border-radius:10px;background:rgba(8,36,51,.55);font-size:.78rem;line-height:1.4;color:#a8bdc8;font-weight:400;}
-        .rm-leg{display:inline-flex;align-items:center;gap:8px;}
-        .rm-leg i{display:inline-block;width:18px;height:18px;border-radius:5px;box-sizing:border-box;}
-        .rm-leg-phy{background:#0e2a38;border:1.5px solid #c4a574;border-radius:50%;box-shadow:inset 0 0 0 4px rgba(196,165,116,.35);}
-        .rm-leg-ref{border:1.5px dashed #8ea9b3;background:transparent;}
-        .rm-leg-sa{width:0;height:0;border-left:14px solid #c4a574;border-top:9px solid transparent;border-bottom:9px solid transparent;border-radius:0;background:transparent;}
-        .rm-leg-out{background:rgba(196,165,116,.35);border:1.5px solid #c4a574;border-radius:4px;}
-        .rm-leg-note{opacity:.9;flex:1 1 220px;}
       </style>
 
 <div class="rm-legend" aria-hidden="true">
         <span class="rm-leg"><i class="rm-leg-phy"></i><span data-lang="zh">實體 bit</span><span data-lang="en">Physical bit</span></span>
-        <span class="rm-leg"><i class="rm-leg-ref"></i><span data-lang="zh">外部 Ref</span><span data-lang="en">External Ref</span></span>
+        <span class="rm-leg"><i class="rm-leg-ref"></i><span data-lang="zh">有外部 Ref（實線板）</span><span data-lang="en">External Ref (solid plate)</span></span>
+        <span class="rm-leg"><i class="rm-leg-noref"></i><span data-lang="zh">無外部 Ref（虛線＋×）</span><span data-lang="en">No external Ref (dashed + ×)</span></span>
         <span class="rm-leg"><i class="rm-leg-sa"></i><span data-lang="zh">Sense Amp</span><span data-lang="en">Sense Amp</span></span>
         <span class="rm-leg"><i class="rm-leg-out"></i><span data-lang="zh">邏輯 bit</span><span data-lang="en">Logical bit</span></span>
-        <span class="rm-leg rm-leg-note"><span data-lang="zh">金色＝一側／青色＝互補側；虛線框＝無外部 Ref</span><span data-lang="en">Gold = one rail · cyan = complement · dashed = no external Ref</span></span>
+        <span class="rm-leg rm-leg-note"><span data-lang="zh">金＝一側／青＝互補側；冗餘＝同側並聯匯流</span><span data-lang="en">Gold = one rail · cyan = complement · redundancy = same-side parallel bus</span></span>
       </div>
 
       <div class="rm-grid">
@@ -2237,7 +2230,6 @@
             <defs>
               <marker id="rm-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#c4a574"/></marker>
             </defs>
-            <!-- lane bands -->
             <rect x="8" y="8" width="96" height="20" rx="4" fill="rgba(196,165,116,.12)" stroke="rgba(196,165,116,.28)"/>
             <rect x="112" y="8" width="72" height="20" rx="4" fill="rgba(142,169,179,.10)" stroke="rgba(142,169,179,.28)"/>
             <rect x="192" y="8" width="96" height="20" rx="4" fill="rgba(196,165,116,.12)" stroke="rgba(196,165,116,.28)"/>
@@ -2246,21 +2238,16 @@
             <text x="148" y="22" text-anchor="middle" fill="#a8bdc8" font-size="9" font-weight="400" font-family="Inter,Noto Sans TC,sans-serif">Ref</text>
             <text x="240" y="22" text-anchor="middle" fill="#a8bdc8" font-size="9" font-weight="400" font-family="Inter,Noto Sans TC,sans-serif">Sense Amp</text>
             <text x="344" y="22" text-anchor="middle" fill="#a8bdc8" font-size="9" font-weight="400" font-family="Inter,Noto Sans TC,sans-serif">Logical</text>
-            <!-- physical bit -->
             <rect x="28" y="56" width="56" height="56" rx="10" fill="#0e2a38" stroke="#c4a574" stroke-width="1.6"/>
             <circle cx="56" cy="84" r="12" fill="rgba(196,165,116,.25)" stroke="#c4a574" stroke-width="1.4"/>
             <circle cx="56" cy="84" r="5" fill="#c4a574"/>
-            <!-- wire to SA -->
             <line x1="84" y1="84" x2="210" y2="84" stroke="#8ea9b3" stroke-width="2" marker-end="url(#rm-arr)"/>
-            <!-- ref (external) -->
-            <rect x="120" y="112" width="56" height="36" rx="8" fill="none" stroke="#8ea9b3" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <circle cx="148" cy="130" r="7" fill="none" stroke="#8ea9b3" stroke-width="1.4"/>
-            <line x1="148" y1="112" x2="148" y2="96" stroke="#8ea9b3" stroke-width="1.5"/>
+            <rect x="124" y="108" width="48" height="32" rx="7" fill="rgba(142,169,179,.14)" stroke="#8ea9b3" stroke-width="1.5"/>
+            <circle cx="148" cy="124" r="7" fill="none" stroke="#8ea9b3" stroke-width="1.4"/>
+            <line x1="148" y1="108" x2="148" y2="96" stroke="#8ea9b3" stroke-width="1.5"/>
             <line x1="148" y1="96" x2="220" y2="96" stroke="#8ea9b3" stroke-width="1.5"/>
-            <!-- sense amp triangle -->
             <path d="M210 58 L270 84 L210 110 Z" fill="#082433" stroke="#c4a574" stroke-width="1.6"/>
             <line x1="220" y1="96" x2="220" y2="90" stroke="#8ea9b3" stroke-width="1.4"/>
-            <!-- logical -->
             <line x1="270" y1="84" x2="310" y2="84" stroke="#c4a574" stroke-width="2" marker-end="url(#rm-arr)"/>
             <rect x="312" y="64" width="64" height="40" rx="10" fill="#0e2a38" stroke="#c4a574" stroke-width="1.6"/>
             <rect x="330" y="76" width="28" height="16" rx="4" fill="rgba(196,165,116,.35)" stroke="#c4a574" stroke-width="1"/>
@@ -2279,7 +2266,7 @@
 
         <article class="rm-card" id="rm-redundant">
           <h3><span data-lang="zh">2 · Redundant（單端＋冗餘）</span><span data-lang="en">2 · Redundant (single-ended + redundancy)</span></h3>
-          <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Redundant same-polarity: two or more physical bits in parallel versus reference into sense amp">
+          <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Redundant same-polarity: two physical bits in parallel versus reference into one sense amp">
             <defs>
               <marker id="rm-arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#c4a574"/></marker>
             </defs>
@@ -2291,33 +2278,31 @@
             <text x="148" y="22" text-anchor="middle" fill="#a8bdc8" font-size="9" font-weight="400" font-family="Inter,Noto Sans TC,sans-serif">Ref</text>
             <text x="240" y="22" text-anchor="middle" fill="#a8bdc8" font-size="9" font-weight="400" font-family="Inter,Noto Sans TC,sans-serif">Sense Amp</text>
             <text x="344" y="22" text-anchor="middle" fill="#a8bdc8" font-size="9" font-weight="400" font-family="Inter,Noto Sans TC,sans-serif">Logical</text>
-            <!-- parallel same-polarity bits -->
+            <!-- two parallel bits, both feed shared bus -->
             <rect x="30" y="44" width="44" height="36" rx="8" fill="#0e2a38" stroke="#c4a574" stroke-width="1.5"/>
             <circle cx="52" cy="62" r="8" fill="rgba(196,165,116,.22)" stroke="#c4a574" stroke-width="1.2"/>
             <circle cx="52" cy="62" r="3.5" fill="#c4a574"/>
             <rect x="30" y="88" width="44" height="36" rx="8" fill="#0e2a38" stroke="#c4a574" stroke-width="1.5"/>
             <circle cx="52" cy="106" r="8" fill="rgba(196,165,116,.22)" stroke="#c4a574" stroke-width="1.2"/>
             <circle cx="52" cy="106" r="3.5" fill="#c4a574"/>
-            <!-- parallel merge -->
-            <line x1="74" y1="62" x2="100" y2="62" stroke="#8ea9b3" stroke-width="1.6"/>
-            <line x1="74" y1="106" x2="100" y2="106" stroke="#8ea9b3" stroke-width="1.6"/>
-            <line x1="100" y1="62" x2="100" y2="106" stroke="#8ea9b3" stroke-width="1.6"/>
+            <line x1="74" y1="62" x2="100" y2="62" stroke="#8ea9b3" stroke-width="1.7"/>
+            <line x1="74" y1="106" x2="100" y2="106" stroke="#8ea9b3" stroke-width="1.7"/>
+            <line x1="100" y1="62" x2="100" y2="106" stroke="#8ea9b3" stroke-width="1.7"/>
+            <circle cx="100" cy="84" r="3" fill="#8ea9b3"/>
             <line x1="100" y1="84" x2="210" y2="84" stroke="#8ea9b3" stroke-width="2" marker-end="url(#rm-arr2)"/>
-            <!-- brace hint: same side -->
             <path d="M22 48 C14 48 14 122 22 122" fill="none" stroke="rgba(196,165,116,.45)" stroke-width="1.4"/>
-            <!-- ref -->
-            <rect x="120" y="112" width="56" height="36" rx="8" fill="none" stroke="#8ea9b3" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <circle cx="148" cy="130" r="7" fill="none" stroke="#8ea9b3" stroke-width="1.4"/>
-            <line x1="148" y1="112" x2="148" y2="96" stroke="#8ea9b3" stroke-width="1.5"/>
+            <rect x="124" y="108" width="48" height="32" rx="7" fill="rgba(142,169,179,.14)" stroke="#8ea9b3" stroke-width="1.5"/>
+            <circle cx="148" cy="124" r="7" fill="none" stroke="#8ea9b3" stroke-width="1.4"/>
+            <line x1="148" y1="108" x2="148" y2="96" stroke="#8ea9b3" stroke-width="1.5"/>
             <line x1="148" y1="96" x2="220" y2="96" stroke="#8ea9b3" stroke-width="1.5"/>
             <path d="M210 58 L270 84 L210 110 Z" fill="#082433" stroke="#c4a574" stroke-width="1.6"/>
             <line x1="220" y1="96" x2="220" y2="90" stroke="#8ea9b3" stroke-width="1.4"/>
             <line x1="270" y1="84" x2="310" y2="84" stroke="#c4a574" stroke-width="2" marker-end="url(#rm-arr2)"/>
             <rect x="312" y="64" width="64" height="40" rx="10" fill="#0e2a38" stroke="#c4a574" stroke-width="1.6"/>
             <rect x="330" y="76" width="28" height="16" rx="4" fill="rgba(196,165,116,.35)" stroke="#c4a574" stroke-width="1"/>
-            <text x="200" y="158" text-anchor="middle" fill="#8ea9b3" font-size="10" font-weight="400" font-family="IBM Plex Mono,ui-monospace,monospace">≥2 same-polarity · still vs Ref</text>
+            <text x="200" y="158" text-anchor="middle" fill="#8ea9b3" font-size="10" font-weight="400" font-family="IBM Plex Mono,ui-monospace,monospace">≥2 same-polarity parallel · vs Ref</text>
           </svg>
-          <p class="rm-one"><span data-lang="zh">定義：仍為單端感測，但以<strong>同極性複本</strong>（多 bitcell／多讀路徑）做多數決、一致比對或 spare 替換，提高可讀與良率，而非改成互補差動。</span><span data-lang="en">Definition: still single-ended sensing, but <strong>same-polarity replicas</strong> (extra bitcells/read paths) vote, match, or spare-replace to harden readability/yield — not complementary differential encoding.</span></p>
+          <p class="rm-one"><span data-lang="zh">定義：仍為單端感測；以<strong>同極性複本並聯</strong>（≥2 physical bits 同側匯流）對同一個 Ref 比較。多數決／spare 為可選實作（VERIFY），圖示主語意是並聯 vs Ref。</span><span data-lang="en">Definition: still single-ended sensing; <strong>same-polarity replicas in parallel</strong> (≥2 physical bits, same-side bus) compare against one Ref. Vote/spare are optional implementations (VERIFY); the diagram’s primary meaning is parallel vs Ref.</span></p>
           <dl>
             <dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
             <dd><span data-lang="zh">改善隨機缺陷／讀失敗；可與 BIRA／fuse map 併用。</span><span data-lang="en">Mitigates random defects/read fails; pairs well with BIRA/fuse maps.</span></dd>
@@ -2342,30 +2327,27 @@
             <text x="172" y="22" text-anchor="middle" fill="#6b8490" font-size="9" font-weight="400" font-family="Inter,Noto Sans TC,sans-serif">No Ref</text>
             <text x="260" y="22" text-anchor="middle" fill="#a8bdc8" font-size="9" font-weight="400" font-family="Inter,Noto Sans TC,sans-serif">Diff Sense</text>
             <text x="352" y="22" text-anchor="middle" fill="#a8bdc8" font-size="9" font-weight="400" font-family="Inter,Noto Sans TC,sans-serif">Logical</text>
-            <!-- BL side -->
             <rect x="24" y="44" width="52" height="40" rx="9" fill="#0e2a38" stroke="#c4a574" stroke-width="1.5"/>
             <circle cx="50" cy="64" r="9" fill="rgba(196,165,116,.18)" stroke="#c4a574" stroke-width="1.2"/>
             <circle cx="50" cy="64" r="3.5" fill="#c4a574"/>
             <text x="90" y="60" fill="#8ea9b3" font-size="9" font-weight="400" font-family="IBM Plex Mono,ui-monospace,monospace">BL</text>
-            <!-- /BL complementary -->
             <rect x="24" y="100" width="52" height="40" rx="9" fill="#0e2a38" stroke="#7eb8c9" stroke-width="1.5"/>
             <circle cx="50" cy="120" r="9" fill="rgba(126,184,201,.18)" stroke="#7eb8c9" stroke-width="1.2"/>
             <circle cx="50" cy="120" r="3.5" fill="#7eb8c9"/>
             <text x="90" y="116" fill="#8ea9b3" font-size="9" font-weight="400" font-family="IBM Plex Mono,ui-monospace,monospace">/BL</text>
-            <!-- crossed hint complementary -->
-            <path d="M82 64 L120 64 L120 84 L210 84" fill="none" stroke="#c4a574" stroke-width="1.7"/>
-            <path d="M82 120 L120 120 L120 100 L210 100" fill="none" stroke="#7eb8c9" stroke-width="1.7"/>
-            <!-- ghosted absent ref -->
-            <rect x="144" y="56" width="48" height="56" rx="8" fill="none" stroke="#5a7380" stroke-width="1.2" stroke-dasharray="3 3" opacity=".55"/>
-            <line x1="152" y1="64" x2="184" y2="104" stroke="#5a7380" stroke-width="1.2" opacity=".7"/>
-            <!-- diff SA -->
+            <!-- wires flush from cell right edge x=76 -->
+            <path d="M76 64 H118 V78 H210" fill="none" stroke="#c4a574" stroke-width="1.8"/>
+            <path d="M76 120 H118 V98 H210" fill="none" stroke="#7eb8c9" stroke-width="1.8"/>
+            <g transform="translate(148,48)" opacity=".75">
+              <rect x="0" y="0" width="40" height="40" rx="7" fill="none" stroke="#5a7380" stroke-width="1.3" stroke-dasharray="3 3"/>
+              <line x1="10" y1="10" x2="30" y2="30" stroke="#5a7380" stroke-width="1.4"/>
+              <line x1="30" y1="10" x2="10" y2="30" stroke="#5a7380" stroke-width="1.4"/>
+            </g>
             <path d="M210 58 L278 84 L210 110 Z" fill="#082433" stroke="#c4a574" stroke-width="1.6"/>
-            <line x1="210" y1="84" x2="218" y2="84" stroke="#8ea9b3" stroke-width="1.2"/>
-            <line x1="210" y1="100" x2="218" y2="92" stroke="#8ea9b3" stroke-width="1.2"/>
             <line x1="278" y1="84" x2="318" y2="84" stroke="#c4a574" stroke-width="2" marker-end="url(#rm-arr3)"/>
             <rect x="320" y="64" width="60" height="40" rx="10" fill="#0e2a38" stroke="#c4a574" stroke-width="1.6"/>
             <rect x="336" y="76" width="28" height="16" rx="4" fill="rgba(196,165,116,.35)" stroke="#c4a574" stroke-width="1"/>
-            <text x="200" y="158" text-anchor="middle" fill="#8ea9b3" font-size="10" font-weight="400" font-family="IBM Plex Mono,ui-monospace,monospace">BL vs /BL · mutual compare</text>
+            <text x="200" y="158" text-anchor="middle" fill="#8ea9b3" font-size="10" font-weight="400" font-family="IBM Plex Mono,ui-monospace,monospace">BL vs /BL · mutual compare · no Ref</text>
           </svg>
           <p class="rm-one"><span data-lang="zh">原理：資料由互補對編碼（例 A=HRS、B=LRS），差動感測比較兩端；兩邊同時抽電流，總電流趨近常值，有助衰減一階 DPA／CPA（非絕對免疫；公開：差動讀模式使 power signature 較難對應儲存值，<a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a>／<a href="memory-evidence.html#evidence-V07">V07</a>）。</span><span data-lang="en">Principle: data is encoded as a complementary pair (e.g. A=HRS, B=LRS); a differential SA compares both sides. Simultaneous draw makes total current nearer constant, attenuating first-order DPA/CPA (not absolute immunity; public: differential read mode makes power-signature identification harder — <a href="https://www.synopsys.com/articles/reliable-secure-otp-ip.html" target="_blank" rel="noopener noreferrer">Synopsys OTP article</a> / <a href="memory-evidence.html#evidence-V07">V07</a>).</span></p>
           <dl>
@@ -2380,7 +2362,7 @@
 
         <article class="rm-card" id="rm-diff-red">
           <h3><span data-lang="zh">4 · Differential redundant（差動＋冗餘）</span><span data-lang="en">4 · Differential + redundant</span></h3>
-          <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Differential plus redundant: each rail has two or more parallel physical bits, compared with no external reference">
+          <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Differential plus redundant: each rail has two parallel physical bits compared with no external reference">
             <defs>
               <marker id="rm-arr4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#c4a574"/></marker>
             </defs>
@@ -2392,37 +2374,44 @@
             <text x="176" y="22" text-anchor="middle" fill="#6b8490" font-size="9" font-weight="400" font-family="Inter,Noto Sans TC,sans-serif">No Ref</text>
             <text x="260" y="22" text-anchor="middle" fill="#a8bdc8" font-size="9" font-weight="400" font-family="Inter,Noto Sans TC,sans-serif">Diff Sense</text>
             <text x="352" y="22" text-anchor="middle" fill="#a8bdc8" font-size="9" font-weight="400" font-family="Inter,Noto Sans TC,sans-serif">Logical</text>
-            <!-- BL bank parallel -->
+            <!-- BL rail: two cells BOTH to shared rail node -->
             <rect x="18" y="40" width="36" height="28" rx="7" fill="#0e2a38" stroke="#c4a574" stroke-width="1.4"/>
             <circle cx="36" cy="54" r="6" fill="#c4a574"/>
-            <rect x="58" y="40" width="36" height="28" rx="7" fill="#0e2a38" stroke="#c4a574" stroke-width="1.4"/>
-            <circle cx="76" cy="54" r="6" fill="#c4a574"/>
-            <line x1="54" y1="54" x2="58" y2="54" stroke="#8ea9b3" stroke-width="1.3"/>
-            <line x1="94" y1="54" x2="118" y2="54" stroke="#c4a574" stroke-width="1.5"/>
-            <line x1="118" y1="54" x2="118" y2="78" stroke="#c4a574" stroke-width="1.5"/>
-            <line x1="118" y1="78" x2="210" y2="78" stroke="#c4a574" stroke-width="1.6"/>
-            <!-- /BL bank parallel -->
+            <rect x="62" y="40" width="36" height="28" rx="7" fill="#0e2a38" stroke="#c4a574" stroke-width="1.4"/>
+            <circle cx="80" cy="54" r="6" fill="#c4a574"/>
+            <line x1="54" y1="54" x2="62" y2="54" stroke="#8ea9b3" stroke-width="1.2" stroke-dasharray="2 2"/>
+            <line x1="98" y1="54" x2="112" y2="54" stroke="#c4a574" stroke-width="1.6"/>
+            <line x1="36" y1="68" x2="36" y2="76" stroke="#c4a574" stroke-width="1.4"/>
+            <line x1="80" y1="68" x2="80" y2="76" stroke="#c4a574" stroke-width="1.4"/>
+            <line x1="36" y1="76" x2="112" y2="76" stroke="#c4a574" stroke-width="1.6"/>
+            <circle cx="112" cy="76" r="3" fill="#c4a574"/>
+            <line x1="112" y1="76" x2="210" y2="76" stroke="#c4a574" stroke-width="1.7"/>
+            <!-- /BL rail -->
             <rect x="18" y="108" width="36" height="28" rx="7" fill="#0e2a38" stroke="#7eb8c9" stroke-width="1.4"/>
             <circle cx="36" cy="122" r="6" fill="#7eb8c9"/>
-            <rect x="58" y="108" width="36" height="28" rx="7" fill="#0e2a38" stroke="#7eb8c9" stroke-width="1.4"/>
-            <circle cx="76" cy="122" r="6" fill="#7eb8c9"/>
-            <line x1="54" y1="122" x2="58" y2="122" stroke="#8ea9b3" stroke-width="1.3"/>
-            <line x1="94" y1="122" x2="118" y2="122" stroke="#7eb8c9" stroke-width="1.5"/>
-            <line x1="118" y1="122" x2="118" y2="98" stroke="#7eb8c9" stroke-width="1.5"/>
-            <line x1="118" y1="98" x2="210" y2="98" stroke="#7eb8c9" stroke-width="1.6"/>
-            <!-- side braces -->
+            <rect x="62" y="108" width="36" height="28" rx="7" fill="#0e2a38" stroke="#7eb8c9" stroke-width="1.4"/>
+            <circle cx="80" cy="122" r="6" fill="#7eb8c9"/>
+            <line x1="54" y1="122" x2="62" y2="122" stroke="#8ea9b3" stroke-width="1.2" stroke-dasharray="2 2"/>
+            <line x1="98" y1="122" x2="112" y2="122" stroke="#7eb8c9" stroke-width="1.6"/>
+            <line x1="36" y1="108" x2="36" y2="100" stroke="#7eb8c9" stroke-width="1.4"/>
+            <line x1="80" y1="108" x2="80" y2="100" stroke="#7eb8c9" stroke-width="1.4"/>
+            <line x1="36" y1="100" x2="112" y2="100" stroke="#7eb8c9" stroke-width="1.6"/>
+            <circle cx="112" cy="100" r="3" fill="#7eb8c9"/>
+            <line x1="112" y1="100" x2="210" y2="100" stroke="#7eb8c9" stroke-width="1.7"/>
             <path d="M12 42 C6 42 6 66 12 66" fill="none" stroke="rgba(196,165,116,.5)" stroke-width="1.3"/>
             <path d="M12 110 C6 110 6 134 12 134" fill="none" stroke="rgba(126,184,201,.5)" stroke-width="1.3"/>
-            <!-- no ref ghost -->
-            <rect x="148" y="56" width="48" height="56" rx="8" fill="none" stroke="#5a7380" stroke-width="1.2" stroke-dasharray="3 3" opacity=".55"/>
-            <line x1="156" y1="64" x2="188" y2="104" stroke="#5a7380" stroke-width="1.2" opacity=".7"/>
+            <g transform="translate(148,48)" opacity=".75">
+              <rect x="0" y="0" width="40" height="40" rx="7" fill="none" stroke="#5a7380" stroke-width="1.3" stroke-dasharray="3 3"/>
+              <line x1="10" y1="10" x2="30" y2="30" stroke="#5a7380" stroke-width="1.4"/>
+              <line x1="30" y1="10" x2="10" y2="30" stroke="#5a7380" stroke-width="1.4"/>
+            </g>
             <path d="M210 58 L278 84 L210 110 Z" fill="#082433" stroke="#c4a574" stroke-width="1.6"/>
             <line x1="278" y1="84" x2="318" y2="84" stroke="#c4a574" stroke-width="2" marker-end="url(#rm-arr4)"/>
             <rect x="320" y="64" width="60" height="40" rx="10" fill="#0e2a38" stroke="#c4a574" stroke-width="1.6"/>
             <rect x="336" y="76" width="28" height="16" rx="4" fill="rgba(196,165,116,.35)" stroke="#c4a574" stroke-width="1"/>
-            <text x="200" y="158" text-anchor="middle" fill="#8ea9b3" font-size="10" font-weight="400" font-family="IBM Plex Mono,ui-monospace,monospace">≥2 per rail · mutual compare</text>
+            <text x="200" y="158" text-anchor="middle" fill="#8ea9b3" font-size="10" font-weight="400" font-family="IBM Plex Mono,ui-monospace,monospace">≥2 parallel / rail · mutual compare</text>
           </svg>
-          <p class="rm-one"><span data-lang="zh">原理：互補差動編碼之上，再加複本對／spare 對做投票或替換，同時追求側信道衰減與讀可靠度。</span><span data-lang="en">Principle: complementary differential encoding plus replica/spare pairs for vote or replace — chasing both side-channel attenuation and read reliability.</span></p>
+          <p class="rm-one"><span data-lang="zh">原理：兩側各以<strong>≥2 physical bits 並聯</strong>形成互補軌，再互比（無外部 Ref）。Spare／投票為可選加層（VERIFY）。</span><span data-lang="en">Principle: each complementary rail uses <strong>≥2 physical bits in parallel</strong>, then mutual compare (no external Ref). Spare/vote are optional layers (VERIFY).</span></p>
           <dl>
             <dt><span data-lang="zh">優點</span><span data-lang="en">Pros</span></dt>
             <dd><span data-lang="zh">可靠度與一階側信道邊界通常最完整（仍非絕對免疫）。</span><span data-lang="en">Often the fullest reliability + first-order side-channel boundary (still not absolute immunity).</span></dd>
