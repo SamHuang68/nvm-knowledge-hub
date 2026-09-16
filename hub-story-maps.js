@@ -1,7 +1,6 @@
 (function () {
   'use strict';
   const path = location.pathname;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const T = (en, zht) => `<span data-lang="en">${en}</span><span data-lang="zh">${zht}</span>`;
   function langSync() {
     if (window.HubLanguage) window.HubLanguage.set(window.HubLanguage.get(), false);
@@ -10,10 +9,7 @@
     const box = document.createElement('section');
     box.id = id;
     box.className = 'hub-story';
-    box.innerHTML = `
-      <p class="hub-story-kicker">${T(kickerEn, kickerZh)}</p>
-      <h3>${T(titleEn, titleZh)}</h3>
-      <p class="hub-story-lead">${T(leadEn, leadZh)}</p>`;
+    box.innerHTML = `\n      <p class="hub-story-kicker">${T(kickerEn, kickerZh)}</p>\n      <h3>${T(titleEn, titleZh)}</h3>\n      <p class="hub-story-lead">${T(leadEn, leadZh)}</p>`;
     return box;
   }
   if (/technology-comparison\.html/i.test(path)) {
@@ -21,7 +17,7 @@
     if (matrix) {
       const box = storyShell(
         'hub-decision-flow',
-        'DECISION PATH \u00b7 TABLE STAYS',
+        'DECISION PATH · TABLE STAYS',
         '決策路徑 · 表格仍是證據',
         'Choose the constraint first, then read the matrix.',
         '先選約束，再讀矩陣。',
@@ -29,7 +25,7 @@
         '五道關卡。每一關只點亮對應維度列。數字仍是架構量級，不是 datasheet。'
       );
       const steps = [
-        { n: '01', en: 'Need class', zh: '需求類型', hintEn: 'OTP \u00b7 MTP \u00b7 density', hintZh: '一次性／可重寫／密度', rows: ['7'] },
+        { n: '01', en: 'Need class', zh: '需求類型', hintEn: 'OTP · MTP · density', hintZh: '一次性／可重寫／密度', rows: ['7'] },
         { n: '02', en: 'Physics family', zh: '物理家族', hintEn: 'How it writes and holds', hintZh: '寫入與保持機制', rows: ['3', '4'] },
         { n: '03', en: 'Mask & thermal', zh: '光罩與熱預算', hintEn: 'Adders and retention class', hintZh: '加價道數與留存等級', rows: ['1', '5'] },
         { n: '04', en: 'Node cliff', zh: '節點斷崖', hintEn: 'Planar stop vs BEOL', hintZh: '平面止點對 BEOL', rows: ['8'] },
@@ -61,6 +57,28 @@
       note.innerHTML = T('Start at need class. The 11\u00d79 table below does not move.', '從需求類型開始。下方 11\u00d79 表不改動。');
       box.appendChild(nav);
       box.appendChild(note);
+      const pack = document.createElement('button');
+      pack.type = 'button';
+      pack.className = 'hub-verify-copy';
+      pack.innerHTML = T('Copy VERIFY checklist', '複製 VERIFY 清單');
+      pack.addEventListener('click', () => {
+        const gate = nav.querySelector('.hub-story-step.is-on');
+        const text = [
+          'NVM Knowledge Hub — VERIFY checklist',
+          'Page: technology-comparison.html',
+          'Class: architecture-range, not datasheet',
+          'Active gate: ' + (gate ? gate.innerText.replace(/\s+/g, ' ').trim() : 'need class'),
+          'Still VERIFY: named node, document revision, PDK, qualification evidence'
+        ].join('\n');
+        const done = () => {
+          pack.textContent = 'Copied';
+          setTimeout(() => { pack.innerHTML = T('Copy VERIFY checklist', '複製 VERIFY 清單'); langSync(); }, 1200);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(done);
+        } else done();
+      });
+      box.appendChild(pack);
       matrix.parentNode.insertBefore(box, matrix);
       function highlightRows(ids) {
         document.querySelectorAll('.matrix-row-header, .matrix-cell').forEach(el => {
@@ -81,9 +99,9 @@
     if (lab) {
       const box = storyShell(
         'hub-secure-life',
-        'LIFECYCLE \u00b7 THREE VERBS',
+        'LIFECYCLE · THREE VERBS',
         '生命週期 · 三個動詞',
-        'Keep the Payload \u00b7 Reconstruct the Root \u00b7 Prove the Boundary',
+        'Keep the Payload · Reconstruct the Root · Prove the Boundary',
         '保存載荷 · 重建根鑰 · 證明邊界',
         'Walk the power window. OTP keeps ciphertext. The reconstructed root is present only while powered under the closed configuration.',
         '走一遍供電窗口。OTP 保存密文。重建根只在已關閉配置且上電時存在。'
@@ -170,8 +188,8 @@
   }
   if (/automotive-nvm\.html/i.test(path)) {
     failClosed('ASIL context does not become Ready.', 'ASIL 語境不會變成 Ready。', [
-      { n: '01', en: 'Named condition', zh: '具名條件', hintEn: 'SEooC \u00b7 SC3', hintZh: 'SEooC \u00b7 SC3', bodyEn: 'Start from the named safety-element context. That is the input, not a certificate.', bodyZh: '從具名安全元件語境開始。那是輸入，不是證書。' },
-      { n: '02', en: 'VERIFY the figure', zh: '核對數字', hintEn: 'Drift \u00b7 screening', hintZh: '漂移 \u00b7 篩選', bodyEn: 'Retention and screening numbers stay bound to the cited condition. They are VERIFY items.', bodyZh: '留存與篩選數字綁定被引用的條件。它們是 VERIFY 項目。' },
+      { n: '01', en: 'Named condition', zh: '具名條件', hintEn: 'SEooC · SC3', hintZh: 'SEooC · SC3', bodyEn: 'Start from the named safety-element context. That is the input, not a certificate.', bodyZh: '從具名安全元件語境開始。那是輸入，不是證書。' },
+      { n: '02', en: 'VERIFY the figure', zh: '核對數字', hintEn: 'Drift · screening', hintZh: '漂移 · 篩選', bodyEn: 'Retention and screening numbers stay bound to the cited condition. They are VERIFY items.', bodyZh: '留存與篩選數字綁定被引用的條件。它們是 VERIFY 項目。' },
       { n: '03', en: 'Fail closed', zh: '失敗即關閉', hintEn: 'No silent upgrade', hintZh: '不靜默升級', bodyEn: 'If the configuration is not closed, the page must not say ASIL-D Ready or zero-defect.', bodyZh: '組態未關閉時，頁面不得寫 ASIL-D Ready 或零缺陷。' }
     ]);
   }
