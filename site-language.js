@@ -5,11 +5,12 @@
   const html = document.documentElement;
   const requested = new URL(location.href).searchParams.get('lang');
   function savedLanguage() {
-    try { return localStorage.getItem(STORAGE_KEY) || localStorage.getItem('nvm-language') || localStorage.getItem('hub-lang'); }
-    catch { return null; }
+    try { return localStorage.getItem(STORAGE_KEY) || localStorage.getItem('nvm-language') || localStorage.getItem('hub-lang');
+    } catch { return null; }
   }
   const initial = requested === 'zh' || requested === 'en' ? requested : savedLanguage() === 'zh' ? 'zh' : 'en';
-  if (requested === 'zh' || requested === 'en') { try { localStorage.setItem(STORAGE_KEY, requested); } catch {} }
+  if (requested === 'zh' || requested === 'en') { try { localStorage.setItem(STORAGE_KEY, requested); } catch {}
+  }
   function routeToLanguage(language) {
     const file = html.dataset[language === 'zh' ? 'languageZh' : 'languageEn'];
     if (!html.dataset.contentLanguage || !file || html.dataset.contentLanguage === language) return false;
@@ -60,9 +61,7 @@
       announcer.style.cssText = 'position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;';
       document.body.appendChild(announcer);
     }
-    if (announcer) {
-      announcer.textContent = language === 'zh' ? '已切換為繁體中文' : 'Language switched to English';
-    }
+    if (announcer) announcer.textContent = language === 'zh' ? '已切換為繁體中文' : 'Language switched to English';
   }
   window.HubLanguage = {
     STORAGE_KEY,
@@ -90,7 +89,7 @@
     ['memory-physics-contrast.css?v=20260907-f1', /memory-physics\.html/i.test(location.pathname)],
     ['ai-nvm-node.css?v=20260908-n30', /ai-nvm-opportunities\.html/i.test(location.pathname)],
     ['ai-nvm-tune.css?v=20260908-n31', /ai-nvm-opportunities\.html/i.test(location.pathname)],
-    ['全站閱讀系統.css?v=20260916-keepout2', true]
+    ['全站閱讀系統.css?v=20260910-bilingual', true]
   ];
   for (const [href, enabled] of sheets) {
     if (!enabled) continue;
@@ -134,36 +133,22 @@
           if (firstLink) firstLink.focus();
         }
       });
-      nav.addEventListener('click', e => {
-        if (e.target.closest('a')) closeNav();
-      });
+      nav.addEventListener('click', e => { if (e.target.closest('a')) closeNav(); });
       document.addEventListener('keydown', e => {
         if (!nav.classList.contains('open')) return;
-        if (e.key === 'Escape') {
-          e.preventDefault();
-          closeNav(true);
-          return;
-        }
+        if (e.key === 'Escape') { e.preventDefault(); closeNav(true); return; }
         if (e.key === 'Tab') {
           const focusable = [menuBtn, ...nav.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]')].filter(Boolean);
           if (!focusable.length) return;
           const index = focusable.indexOf(document.activeElement);
           if (e.shiftKey) {
-            if (index <= 0) {
-              e.preventDefault();
-              focusable[focusable.length - 1].focus();
-            }
+            if (index <= 0) { e.preventDefault(); focusable[focusable.length - 1].focus(); }
           } else {
-            if (index === focusable.length - 1 || index === -1) {
-              e.preventDefault();
-              focusable[0].focus();
-            }
+            if (index === focusable.length - 1 || index === -1) { e.preventDefault(); focusable[0].focus(); }
           }
         }
       });
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 960) closeNav();
-      }, { passive: true });
+      window.addEventListener('resize', () => { if (window.innerWidth > 960) closeNav(); }, { passive: true });
       window.addEventListener('hub:language-change', () => {
         const isOpen = nav.classList.contains('open');
         const isChinese = window.HubLanguage?.get() === 'zh';
@@ -194,9 +179,18 @@
       });
     }
     syncExternalLinks(window.HubLanguage?.get());
-    window.addEventListener('hub:language-change', (e) => {
-      syncExternalLinks(e.detail?.language);
-    });
+    window.addEventListener('hub:language-change', (e) => { syncExternalLinks(e.detail?.language); });
+    const storyPages = /technology-comparison\.html|secure-storage\.html|memory-physics\.html|automotive-nvm\.html|iot-mcu-envm\.html/i.test(location.pathname);
+    if (storyPages) {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = new URL('hub-story-maps.css?v=20260916-s1', rootURL).href;
+      document.head.append(css);
+      const js = document.createElement('script');
+      js.src = new URL('hub-story-maps.js?v=20260916-s1', rootURL).href;
+      js.defer = true;
+      document.head.append(js);
+    }
     if (/automotive-nvm\.html|iot-mcu-envm\.html/i.test(location.pathname)) {
       const demote = document.createElement('script');
       demote.src = new URL('claim-scope.js?v=20260915-p0', rootURL).href;
