@@ -80,7 +80,7 @@ article[id] {
   }
 }
 
-:root{--shell-header:48px}
+:root{--shell-header:48px;--hub-keepout:clamp(24px,4vw,64px)}
 
 /* One shell contract: the header occupies layout space and maintains unified grid consistency across all pages. */
 .site-header {
@@ -92,13 +92,13 @@ article[id] {
   align-items: center !important;
   column-gap: clamp(16px, 2.5vw, 44px) !important;
   min-height: 48px !important;
-  padding: 0 clamp(16px, 3.5vw, 64px) !important;
+  padding: 0 var(--hub-keepout) !important;
 }
 
 @media (min-width: 1920px) {
   .site-header {
-    padding-left: calc((100vw - min(1780px, 97vw)) / 2 + clamp(16px, 3.5vw, 64px)) !important;
-    padding-right: calc((100vw - min(1780px, 97vw)) / 2 + clamp(16px, 3.5vw, 64px)) !important;
+    padding-left: calc((100vw - min(1780px, 97vw)) / 2 + var(--hub-keepout)) !important;
+    padding-right: calc((100vw - min(1780px, 97vw)) / 2 + var(--hub-keepout)) !important;
   }
 }
 
@@ -157,7 +157,7 @@ article[id] {
 }
 
 .site-breadcrumb{
-  display:flex;align-items:center;gap:10px;min-height:46px;padding:10px clamp(22px,4vw,72px);
+  display:flex;align-items:center;gap:10px;min-height:46px;padding:10px var(--hub-keepout);
   border-bottom:1px solid rgba(196,165,116,.16);background:#071d2a;color:#88a5b1;
   font:600 11px/1.4 "IBM Plex Mono","SFMono-Regular",Consolas,monospace;letter-spacing:.12em;text-transform:uppercase
 }
@@ -171,7 +171,7 @@ article[id] {
   .primary-nav.open{top:100%!important;inset-inline:0!important;bottom:auto!important;max-height:calc(100dvh - var(--shell-header));overflow-y:auto;overscroll-behavior:contain}
 }
 @media(max-width:760px){
-  .site-breadcrumb{align-items:flex-start;flex-wrap:wrap;padding:10px 16px;gap:8px}
+  .site-breadcrumb{align-items:flex-start;flex-wrap:wrap;padding:10px var(--hub-keepout);gap:8px}
   .site-breadcrumb>span,.site-breadcrumb>strong{padding-top:7px}.site-breadcrumb i{margin-top:14px}
   .topic-switch{order:5;width:100%;margin-left:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
   .topic-switch a{justify-content:center;min-height:44px;padding:7px 5px;text-align:center;letter-spacing:.07em;font-size:9px}
@@ -268,7 +268,7 @@ footer.hub-footer {
 .hub-footer-inner {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 3.5rem 24px 2.5rem;
+  padding: 3.5rem var(--hub-keepout) 2.5rem;
   box-sizing: border-box;
 }
 
@@ -507,7 +507,7 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
 .studio-main-workbench {
   max-width: min(1780px, 97vw);
   margin: 10px auto 30px;
-  padding: 0 clamp(8px, 1.2vw, 16px);
+  padding: 0 var(--hub-keepout);
   box-sizing: border-box;
 }
 .studio-layout {
@@ -815,7 +815,7 @@ html, body {
 /* 全站規格彩條同步對齊大寬度工作台 */
 .stat-strip-compact {
   max-width: min(1780px, 97vw) !important;
-  padding: 0 clamp(8px, 1.2vw, 16px) !important;
+  padding: 0 var(--hub-keepout) !important;
   margin-left: auto !important;
   margin-right: auto !important;
   width: 100% !important;

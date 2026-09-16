@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub" data-title-zh="NVM 技術取捨矩陣 · AntiFuse、eFuse、eFlash 與 MRAM · NVM 知識中心" data-description-en="Comprehensive 7-dimension trade-off matrix, 5-axis interactive radar selector, first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory." data-description-zh="嵌入式非揮發性記憶體的七維技術取捨矩陣、五軸互動雷達選型器、第一原理物理模型與晶圓代工生態路線圖。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260910-bilingual"></script>
+  <script src="site-language.js?v=20260916-keepout"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub</title>
   <meta name="description" content="Comprehensive 7-dimension trade-off matrix, 5-axis interactive radar selector, first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.">
@@ -38,8 +38,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site-shell.css?v=20260906-navy-v3">
-  <link rel="stylesheet" href="styles.css?v=20260906-navy-v3">
+  <link rel="stylesheet" href="site-shell.css?v=20260916-keepout">
+  <link rel="stylesheet" href="styles.css?v=20260916-keepout">
   <link rel="stylesheet" href="specialty-nvm.css?v=20260906-navy-v3">
 
   <style>
@@ -93,7 +93,7 @@
     .main-container {
       max-width: min(1780px, 97vw);
       margin: 0 auto;
-      padding: 2rem clamp(12px, 2vw, 32px) 4rem;
+      padding: 2rem var(--hub-keepout, clamp(24px, 4vw, 64px)) 4rem;
     }
 
     .selector-grid-layout {
@@ -115,7 +115,7 @@
       background: linear-gradient(180deg, rgba(6, 25, 37, 0.94) 0%, rgba(3, 19, 30, 0.98) 100%);
       border-bottom: 1px solid rgba(15, 23, 42, 0.12);
       overflow: hidden;
-      padding: clamp(40px, 5vw, 68px) clamp(16px, 3vw, 40px) clamp(52px, 6vw, 84px);
+      padding: clamp(40px, 5vw, 68px) var(--hub-keepout, clamp(24px, 4vw, 64px)) clamp(52px, 6vw, 84px);
       color: #f8fafc;
       text-align: center;
     }

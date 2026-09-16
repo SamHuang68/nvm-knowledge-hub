@@ -417,7 +417,7 @@ body[data-language="zh"] [data-lang="en"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 var(--hub-keepout, 24px);
   box-sizing: border-box;
 }
 
@@ -1060,7 +1060,7 @@ body[data-language="zh"] [data-lang="en"] {
 
 @media(max-width: 768px) {
   .hub-minimal-header {
-    padding: 0 12px;
+    padding: 0 var(--hub-keepout, 24px);
   }
   .hub-top-nav {
     display: none;

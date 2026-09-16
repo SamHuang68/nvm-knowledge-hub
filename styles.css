@@ -162,7 +162,7 @@ h1,h2,h3,p { text-wrap: pretty; }
   .chapter-copy > span { line-height: 1.7; }
   .thesis-principles,.evidence-numbers,.application-grid { gap: 12px; }
   .thesis-principles article,.app-card,.article-card { padding: 30px 26px; }
-  .architecture-canvas { margin-left: -10px; margin-right: -10px; padding: 14px; }
+  .architecture-canvas { margin-left: 0; margin-right: 0; padding: 14px; }
   .evidence-numbers strong { margin-top: 36px; }
 }
 
@@ -653,7 +653,7 @@ footer { display: grid; grid-template-columns: 1fr auto auto; align-items: cente
 }
 
 @media (max-width: 620px) {
-  :root { --section-pad: 72px; --side: 20px; }
+  :root { --section-pad: 72px; --side: var(--hub-keepout, 24px); }
   .site-header { min-height: 48px; }
   .brand-mark { width: 22px; height: 22px; }
   .brand-copy strong { font-size: 16px; }
@@ -958,10 +958,10 @@ h1,h2,h3,p { text-wrap: pretty; }
 .accountability-section { background: radial-gradient(circle at 50% 20%,rgba(176,138,91,.1),transparent 28%),linear-gradient(180deg,#082334,#03131e); }
 .ownership-flow div { min-height: 150px; padding: 22px 16px; border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius-md); background: rgba(255,255,255,.035); }
 .source-list a:hover { transform: translateX(6px); }
-@media(max-width:620px){body{line-height:1.72}.hero h1{font-size:clamp(44px,13.6vw,62px);line-height:1.08}.hero h1 em{display:block;margin-top:6px;font-size:.9em;line-height:1.16}.hero-lede{font-size:16px;line-height:1.88}.thesis-grid h2,.section-heading h2,.comparison-head h2,.evidence-title h2,.learning-head h2,.accountability-section h2,.research-launch h2,.closing-section h2{font-size:clamp(35px,10.5vw,47px);line-height:1.18;letter-spacing:-.045em}.immersive-wafer{background-position:31% center}.immersive-probe{background-position:62% center}.immersive-silicon{background-position:88% center}.chapter-copy h2{font-size:47px;line-height:1.05}.architecture-canvas{margin-left:-10px;margin-right:-10px;padding:14px}}
+@media(max-width:620px){body{line-height:1.72}.hero h1{font-size:clamp(44px,13.6vw,62px);line-height:1.08}.hero h1 em{display:block;margin-top:6px;font-size:.9em;line-height:1.16}.hero-lede{font-size:16px;line-height:1.88}.thesis-grid h2,.section-heading h2,.comparison-head h2,.evidence-title h2,.learning-head h2,.accountability-section h2,.research-launch h2,.closing-section h2{font-size:clamp(35px,10.5vw,47px);line-height:1.18;letter-spacing:-.045em}.immersive-wafer{background-position:31% center}.immersive-probe{background-position:62% center}.immersive-silicon{background-position:88% center}.chapter-copy h2{font-size:47px;line-height:1.05}.architecture-canvas{margin-left:0;margin-right:0;padding:14px}}
 
 /* ST-inspired beginner learning refinement: calm hierarchy, readable Chinese */
-:root { --section-pad: clamp(72px,8vw,118px); --side: clamp(24px,6vw,88px); }
+:root { --section-pad: clamp(72px,8vw,118px); --side: clamp(24px,6vw,88px); --hub-keepout: clamp(24px,4vw,64px); }
 body { background: #f7f9fa; color: #122b42; line-height: 1.75; }
 .site-header { min-height: 70px; background: rgba(4,28,45,.96); }
 .site-header.scrolled { min-height: 62px; }
@@ -1625,7 +1625,7 @@ h1 em,h2 em{font-family:var(--sans-zh);font-style:normal;font-weight:inherit}
 .article-card{text-decoration:none}
 
 @media(max-width:680px){
-  .signal-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;overflow:visible;padding:1px;background:#173343}
+  .signal-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;overflow:visible;padding:var(--hub-keepout,24px);background:#173343}
   .signal-strip i{display:none}
   .signal-strip span{min-width:0;min-height:54px;padding:12px 14px;background:var(--navy-950);white-space:normal;line-height:1.35}
   .signal-strip svg{flex:0 0 auto;width:21px;height:21px}

@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="Executive Briefing &amp; Speaker Whitepaper · NVM Knowledge Hub" data-title-zh="高階技術簡報與講者白皮書 · NVM 知識中心" data-description-en="An 18-slide technical briefing with speaker notes covering AI accelerators, DDR5 subsystems, TSMC advanced nodes, and specialty-foundry eNVM." data-description-zh="18 頁高階技術簡報與講者備忘錄，涵蓋 AI 加速器、DDR5 子系統、TSMC 先進節點與特種晶圓代工 eNVM。">
 <head>
   <meta charset="utf-8">
-  <script src="../site-language.js?v=20260910-bilingual"></script>
+  <script src="../site-language.js?v=20260916-keepout"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="description" content="An 18-slide technical briefing with speaker notes covering AI accelerators, DDR5 subsystems, TSMC advanced nodes, and specialty-foundry eNVM.">
   <meta name="author" content="NVM Knowledge Hub Editorial Board">
@@ -39,7 +39,7 @@
   <!-- PWA Manifest -->
   <link rel="manifest" href="../site.webmanifest">
 
-  <link rel="stylesheet" href="../hub.css?v=20260906-navy-v3">
+  <link rel="stylesheet" href="../hub.css?v=20260916-keepout">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -60,9 +60,10 @@
     /* 自然語言切換：避免區塊級強制轉換破壞 inline 標籤 */
     
     
+    :root { --hub-keepout: clamp(24px, 4vw, 64px); }
     /* 簡報專屬樣式 */
     .briefing-hero {
-      padding: 60px 24px 36px;
+      padding: 60px var(--hub-keepout) 36px;
       text-align: center;
       max-width: 1080px;
       margin: 0 auto;
@@ -138,7 +139,7 @@
       gap: 8px;
       max-width: 1080px;
       margin: 0 auto 40px;
-      padding: 0 16px;
+      padding: 0 var(--hub-keepout, 24px);
     }
     .filter-btn {
       padding: 8px 14px;
@@ -167,7 +168,7 @@
     .briefing-grid {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 0 20px 80px;
+      padding: 0 var(--hub-keepout, 24px) 80px;
       display: grid;
       gap: 32px;
     }

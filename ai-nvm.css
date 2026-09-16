@@ -5,6 +5,7 @@
  */
 
 .ai-nvm-page {
+  --hub-keepout: clamp(24px, 4vw, 64px);
   --ai-midnight: #061b29;
   --ai-midnight-2: #082536;
   --ai-navy: #0b3042;
@@ -22,7 +23,7 @@
   --ai-line: rgba(9, 34, 53, .15);
   --ai-line-dark: rgba(196, 165, 116, .18);
   --ai-shadow: 0 24px 64px rgba(6, 27, 41, .12);
-  --ai-side: clamp(22px, 5.5vw, 84px);
+  --ai-side: clamp(24px, 5.5vw, 84px);
   --ai-section: clamp(68px, 7.2vw, 104px);
   --ai-radius: 6px;
   width: 100%;
@@ -2296,13 +2297,13 @@
 /* Mobile, including the 390px acceptance viewport */
 @media (max-width: 620px) {
   .ai-nvm-page {
-    --ai-side: 20px;
+    --ai-side: var(--hub-keepout, 24px);
     --ai-section: 52px;
   }
 
   .ai-nvm-page .site-header {
     min-height: 64px;
-    padding-inline: 14px;
+    padding-inline: var(--hub-keepout, 24px);
   }
 
   .ai-nvm-page .brand {
@@ -2450,7 +2451,7 @@
   }
 
   .ai-nvm-page .ai-paper-shell {
-    padding-inline: 20px;
+    padding-inline: var(--hub-keepout, 24px);
     background: var(--ai-paper);
   }
 

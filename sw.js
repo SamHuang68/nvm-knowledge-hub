@@ -1,5 +1,5 @@
 /* NVM Knowledge Hub Service Worker - Progressive Web App Offline & Cache Management */
-const CACHE_NAME = 'nvm-hub-v1';
+const CACHE_NAME = 'nvm-hub-keepout-20260916';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -8,9 +8,9 @@ const PRECACHE_ASSETS = [
   './assets/apple-touch-icon.png',
   './assets/icon-192.png',
   './assets/icon-512.png',
-  './site-shell.css?v=20260906-navy-v3',
-  './site-language.js?v=20260910-bilingual',
-  './hub.css?v=20260910-bilingual',
+  './site-shell.css?v=20260916-keepout',
+  './site-language.js?v=20260916-keepout',
+  './hub.css?v=20260916-keepout',
   './404.html'
 ];
 

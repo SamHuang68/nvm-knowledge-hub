@@ -22,3 +22,11 @@
 
 /* Standard Screen Reader / Assistive Technology Outline */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+
+:root{--hub-keepout:clamp(24px,4vw,64px)}
+.nvm-header,.nvm-hero,.nvm-layout,.nvm-library-header,.nvm-breadcrumb,.nvm-bottom-nav,.nvm-footer{
+  padding-inline:max(var(--hub-keepout),18px);
+}
+@media print{
+  .nvm-layout{padding:0}
+}

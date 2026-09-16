@@ -18,3 +18,18 @@ html{scroll-padding-top:var(--home-anchor-top,145px)}.knowledge-section{scroll-m
 html:has(body.hub-reading-home){scroll-padding-top:var(--home-anchor-top,145px)}
 
 .hub-reading-home .knowledge-row:target{scroll-margin-top:0}
+
+:root{--hub-keepout:clamp(24px,4vw,64px)}
+.knowledge-header,.knowledge-footer{padding-inline:var(--hub-keepout)}
+.knowledge-hero,.knowledge-intro-header,.knowledge-map{
+  padding-inline:max(var(--hub-keepout),20px);
+}
+.knowledge-focus,.knowledge-method{
+  padding-inline:max(var(--hub-keepout),calc((100vw - 1324px)/2));
+}
+.search-overlay{padding-inline:var(--hub-keepout)}
+@media(max-width:1180px){
+  .knowledge-header,.knowledge-hero,.knowledge-intro-header,.knowledge-map,.knowledge-footer{
+    padding-inline:var(--hub-keepout);
+  }
+}

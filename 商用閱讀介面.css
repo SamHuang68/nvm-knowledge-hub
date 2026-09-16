@@ -138,14 +138,14 @@ html:not(.nvm-keyboard-navigation) .nvm-atlas-page [data-route-heading]:focus-vi
  .knowledge-section>header p { margin-top: 10px; }
 }
 @media(max-width:800px) {
- .nvm-layout { display: block; padding: 0 24px 50px; }
- .nvm-library-header { padding: 28px 24px 25px; }
+ .nvm-layout { display: block; padding: 0 var(--hub-keepout, 24px) 50px; }
+ .nvm-library-header { padding: 28px var(--hub-keepout, 24px) 25px; }
  .nvm-library-header h1 { font-size: 34px; }
  .nvm-breadcrumb { padding: 17px 24px; }
  .nvm-sidebar { position: relative; top: auto; padding: 0 0 20px; }
 }
 @media(max-width:600px) {
- .knowledge-editorial-inner { padding: 21px 22px 18px; gap: 30px; }
+ .knowledge-editorial-inner { padding: 21px var(--hub-keepout, 24px) 18px; gap: 30px; }
  .knowledge-editorial-hero h1 { font-size: 40px; line-height: 1.18; }
  .knowledge-editorial-hero .eyebrow { font-size: 11px; margin-bottom: 18px; }
  .knowledge-editorial-hero .knowledge-intro { font-size: 16px; line-height: 1.8; margin-top: 20px; }
@@ -158,7 +158,7 @@ html:not(.nvm-keyboard-navigation) .nvm-atlas-page [data-route-heading]:focus-vi
  .knowledge-physics-index strong { font-size: 18px; }
  .knowledge-physics-index a>div>span { font-size: 15px; line-height: 1.55; }
  .knowledge-physics .storage-glyph { width: 59px; height: 54px; }
- .knowledge-coverage { margin-inline: 22px; }
+ .knowledge-coverage { margin-inline: var(--hub-keepout, 24px); }
  .knowledge-coverage>div { padding: 18px 13px; }
  .knowledge-coverage dd { font-size: 30px; }
  .knowledge-coverage dt { font-size: 12px; }
@@ -293,7 +293,7 @@ html:not(.nvm-keyboard-navigation) .nvm-atlas-page [data-route-heading]:focus-vi
  .knowledge-product-tracks span { padding: 9px; border-left: 0; border-top: 1px solid #b1c7bf; }
 }
 @media(max-width:700px) {
- .knowledge-features { padding: 37px 22px 42px; }
+ .knowledge-features { padding: 37px var(--hub-keepout, 24px) 42px; }
  .knowledge-features h2 { font-size: 30px; }
  .knowledge-feature-grid { grid-template-columns: 1fr; gap: 26px; }
  .knowledge-feature-lead { padding: 25px 23px; }
