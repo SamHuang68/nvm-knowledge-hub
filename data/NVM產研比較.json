@@ -2606,7 +2606,7 @@
         "RES-PUFSEC-HROT-2025",
         "ip-neofuse"
       ],
-      "target": "sec-foundry"
+      "target": "ip-neofuse"
     },
     {
       "id": "tower-yflash",
@@ -2622,7 +2622,7 @@
       "sourceIds": [
         "RES-TOWER-YFLASH-2024"
       ],
-      "target": "sec-foundry"
+      "target": "foundry"
     }
   ]
 }
