@@ -5210,6 +5210,42 @@
         "evidence": "已核讀官方技術規格頁面",
         "limit": "單層多晶矽結構適合中低容量 (1Kb~512Kb) 之高壓 PMIC 與車用修調，非大容量儲存。",
         "accessedAt": "2026-09-17"
+      },
+      {
+        "id": "RES-WEEBIT-RERAM-2025",
+        "label": "Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書",
+        "url": "https://www.weebit-nano.com/reram-technology/",
+        "locator": "官方技術頁與 SkyWater / DB HiTek 商業代工認證公告",
+        "kind": "供應商技術規格與代工認證",
+        "date": "2025-06-01",
+        "limit": "證明 130nm CMOS 與 130nm BCD 上已取得矽驗證與車規溫度測試，22FDX 開發中；多位元類比神經形態矩陣處於早期商業評估。"
+      },
+      {
+        "id": "RES-EVERSPIN-PLP-2025",
+        "label": "Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南",
+        "url": "https://www.everspin.com/storage-accelerators-and-raid",
+        "locator": "官方企業級儲存加速器與 RAID/SSD 斷電保護架構方案",
+        "kind": "供應商應用技術手冊",
+        "date": "2025-04-15",
+        "limit": "確認 STT-MRAM 在 NVMe SSD 寫入日誌與超級電容替代架構中的商用出貨，提供奈秒級持久儲存；需外加控制器或介面橋接晶片。"
+      },
+      {
+        "id": "RES-INFINEON-TC4X-2024",
+        "label": "Infineon Technologies：AURIX™ TC4x 車用微控制器與 TSMC 28nm eRRAM 架構手冊",
+        "url": "https://www.infineon.com/aurix-tc4x",
+        "locator": "官方產品手冊與車規 ASIL-D 嵌入式記憶體演進章節",
+        "kind": "微控制器架構手冊",
+        "date": "2024-11-20",
+        "limit": "證明 TC4x 採用台積電 28nm eRRAM 突破 eFlash 微縮限制，支援 10 萬次抹寫與零等待隨機存取；屬於車用旗艦 MCU 特定實作。"
+      },
+      {
+        "id": "RES-ST-STELLAR-PCM-2024",
+        "label": "STMicroelectronics：Stellar 系列 32 位元車用 MCU 嵌入式相變記憶體 (28nm FD-SOI ePCM) 技術白皮書",
+        "url": "https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html",
+        "locator": "官方車用微控制器與 28nm FD-SOI 嵌入式 PCM 架構發布",
+        "kind": "車用晶片技術白皮書",
+        "date": "2024-09-18",
+        "limit": "證明 28nm FD-SOI 整合 ePCM 支援無停機 OTA (雙分區即時切換) 與 165°C 高溫保持；相變材料為 Ge2Sb2Te5 (GST)。"
       }
     ],
     "landscape": [
@@ -6450,6 +6486,39 @@
           "RES-TOWER-YFLASH-2024"
         ],
         "target": "foundry"
+      },
+      {
+        "id": "weebit-reram-cim",
+        "name": "Weebit Nano",
+        "technology": "Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM",
+        "family": "ReRAM / OxRAM",
+        "role": "獨立嵌入式 ReRAM 矽智財與神經形態 AI 推論提供商",
+        "maturity": "SkyWater 130nm 與 DB HiTek 130nm BCD 商用代工驗證；GF 22FDX 研發中",
+        "claim": "以金屬氧化物（HfO2/TiN）阻變微絲為核心，僅需 2 道 BEOL 後段光罩，支援車規 150°C 高溫保持；具備多階類比電導特性，可直接於記憶體陣列內部執行矩陣乘加運算（Analog In-Memory Computing, CIM）。",
+        "limit": "商業量產主要落地於 130nm 成熟與特種 BCD 節點，先進節點（22nm FD-SOI）處於流片與評估階段；類比 CIM 矩陣受製程變異與溫度漂移影響，需搭配數位補償演算法。",
+        "dateLabel": "2024–2026 製程認證與技術白皮書",
+        "search": "Weebit Nano Embedded ReRAM OxRAM CIM Neuromorphic SkyWater DB HiTek GF 22FDX 神經形態 類比運算",
+        "sourceIds": [
+          "RES-WEEBIT-RERAM-2025"
+        ],
+        "target": "topic-vcm"
+      },
+      {
+        "id": "everspin-plp-sttmram",
+        "name": "Everspin Technologies (Enterprise PLP)",
+        "technology": "Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)",
+        "family": "MRAM",
+        "role": "獨立式與嵌入式 MRAM 晶片與矽智財供應商",
+        "maturity": "商用量產出貨；GlobalFoundries 22FDX/12LP FinFET 與 TSMC 代工製造",
+        "claim": "採用垂直磁性穿隧接面（pMTJ），支援 DDR4、DDR3 與 xSPI 高速匯流排，提供奈秒級持久寫入與 10^10~10^12 次無限耐寫；在企業級 NVMe SSD 與資料中心加速器中取代笨重易損的超級電容，達成零延遲即時日誌寫入與無電容斷電保護（Capacitor-Free PLP）。",
+        "limit": "單位位元成本高於 DRAM 與 NAND Flash；主要作為系統持久快取與寫入日誌緩衝區（Write Buffer），非取代主容量儲存。",
+        "dateLabel": "2024–2026 商用量產手冊",
+        "search": "Everspin Technologies STT-MRAM Enterprise NVMe SSD PLP Power Loss Protection CXL Data Center 斷電保護 快取",
+        "sourceIds": [
+          "RES-EVERSPIN-PLP-2025",
+          "everspin-1gb-ddr"
+        ],
+        "target": "research-everspin"
       }
     ]
   },
@@ -9379,6 +9448,42 @@
       "evidence": "已核讀官方技術規格頁面",
       "limit": "單層多晶矽結構適合中低容量 (1Kb~512Kb) 之高壓 PMIC 與車用修調，非大容量儲存。",
       "accessedAt": "2026-09-17"
+    },
+    {
+      "id": "RES-WEEBIT-RERAM-2025",
+      "label": "Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書",
+      "url": "https://www.weebit-nano.com/reram-technology/",
+      "locator": "官方技術頁與 SkyWater / DB HiTek 商業代工認證公告",
+      "kind": "供應商技術規格與代工認證",
+      "date": "2025-06-01",
+      "limit": "證明 130nm CMOS 與 130nm BCD 上已取得矽驗證與車規溫度測試，22FDX 開發中；多位元類比神經形態矩陣處於早期商業評估。"
+    },
+    {
+      "id": "RES-EVERSPIN-PLP-2025",
+      "label": "Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南",
+      "url": "https://www.everspin.com/storage-accelerators-and-raid",
+      "locator": "官方企業級儲存加速器與 RAID/SSD 斷電保護架構方案",
+      "kind": "供應商應用技術手冊",
+      "date": "2025-04-15",
+      "limit": "確認 STT-MRAM 在 NVMe SSD 寫入日誌與超級電容替代架構中的商用出貨，提供奈秒級持久儲存；需外加控制器或介面橋接晶片。"
+    },
+    {
+      "id": "RES-INFINEON-TC4X-2024",
+      "label": "Infineon Technologies：AURIX™ TC4x 車用微控制器與 TSMC 28nm eRRAM 架構手冊",
+      "url": "https://www.infineon.com/aurix-tc4x",
+      "locator": "官方產品手冊與車規 ASIL-D 嵌入式記憶體演進章節",
+      "kind": "微控制器架構手冊",
+      "date": "2024-11-20",
+      "limit": "證明 TC4x 採用台積電 28nm eRRAM 突破 eFlash 微縮限制，支援 10 萬次抹寫與零等待隨機存取；屬於車用旗艦 MCU 特定實作。"
+    },
+    {
+      "id": "RES-ST-STELLAR-PCM-2024",
+      "label": "STMicroelectronics：Stellar 系列 32 位元車用 MCU 嵌入式相變記憶體 (28nm FD-SOI ePCM) 技術白皮書",
+      "url": "https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html",
+      "locator": "官方車用微控制器與 28nm FD-SOI 嵌入式 PCM 架構發布",
+      "kind": "車用晶片技術白皮書",
+      "date": "2024-09-18",
+      "limit": "證明 28nm FD-SOI 整合 ePCM 支援無停機 OTA (雙分區即時切換) 與 165°C 高溫保持；相變材料為 Ge2Sb2Te5 (GST)。"
     },
     {
       "id": "op-pat-nrom-hhi",

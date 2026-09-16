@@ -6419,6 +6419,10 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [NRAM-NANTERO-FUJITSU-2016：Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)。官方一手資料；2016-08-31；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：此為歷史開發證據，不能視為 2026 年量產、供貨或計畫終止的證明；NRAM 應與氧化物 RRAM 分開分類。
 - [RES-PUFSEC-HROT-2025：PUFsecurity：NeoPUF 與 PUFcc 硬體信任根技術白皮書](https://www.pufsecurity.com/pufcc)。供應商官方白皮書；2025-06；查閱 2026-09-17；定位：架構與認證章節；限制：屬具名 PUFcc/PUFiot 產品線架構；不同代工廠節點之陣列面積與讀取延遲需對應具名 IP 資料表。
 - [RES-TOWER-YFLASH-2024：Tower Semiconductor：Y-Flash 0-Mask 嵌入式 Flash 技術規格](https://towersemi.com/technology/power-management/)。晶圓代工官方製程文件；2024-11；查閱 2026-09-17；定位：Power Management & Embedded NVM 節；限制：單層多晶矽結構適合中低容量 (1Kb~512Kb) 之高壓 PMIC 與車用修調，非大容量儲存。
+- [RES-WEEBIT-RERAM-2025：Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書](https://www.weebit-nano.com/reram-technology/)。供應商技術規格與代工認證；2025-06-01；定位：官方技術頁與 SkyWater / DB HiTek 商業代工認證公告；限制：證明 130nm CMOS 與 130nm BCD 上已取得矽驗證與車規溫度測試，22FDX 開發中；多位元類比神經形態矩陣處於早期商業評估。
+- [RES-EVERSPIN-PLP-2025：Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南](https://www.everspin.com/storage-accelerators-and-raid)。供應商應用技術手冊；2025-04-15；定位：官方企業級儲存加速器與 RAID/SSD 斷電保護架構方案；限制：確認 STT-MRAM 在 NVMe SSD 寫入日誌與超級電容替代架構中的商用出貨，提供奈秒級持久儲存；需外加控制器或介面橋接晶片。
+- [RES-INFINEON-TC4X-2024：Infineon Technologies：AURIX™ TC4x 車用微控制器與 TSMC 28nm eRRAM 架構手冊](https://www.infineon.com/aurix-tc4x)。微控制器架構手冊；2024-11-20；定位：官方產品手冊與車規 ASIL-D 嵌入式記憶體演進章節；限制：證明 TC4x 採用台積電 28nm eRRAM 突破 eFlash 微縮限制，支援 10 萬次抹寫與零等待隨機存取；屬於車用旗艦 MCU 特定實作。
+- [RES-ST-STELLAR-PCM-2024：STMicroelectronics：Stellar 系列 32 位元車用 MCU 嵌入式相變記憶體 (28nm FD-SOI ePCM) 技術白皮書](https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html)。車用晶片技術白皮書；2024-09-18；定位：官方車用微控制器與 28nm FD-SOI 嵌入式 PCM 架構發布；限制：證明 28nm FD-SOI 整合 ePCM 支援無停機 OTA (雙分區即時切換) 與 165°C 高溫保持；相變材料為 Ge2Sb2Te5 (GST)。
 - [op-pat-nrom-hhi：Saifun：自對準 NROM 寫入與抹除區](https://patents.google.com/patent/US6664588B2/en)。公開專利；2003; 2026-09-10 查閱；定位：圖 4、8A、9、10–11；能帶間穿隧產生電洞及局部熱電洞注入；限制：本案的口袋植入與局部電洞路徑；不把 US5768192A 當成此抹除路徑的來源。
 - [op-pat-sonos-fn：賽普拉斯：SONOS ONO 堆疊縮放](https://patents.google.com/patent/WO2014008160A2/en)。公開專利；2014; 2026-09-10 查閱；定位：圖 1–3；全通道穿隧、電子寫入與電洞抹除段落；限制：用於具名 SONOS 穿隧原理；不推定與現行英飛凌巨集具有相同膜層或數值。
 - [op-nand-hole-erase：鎧俠：蕭特基源極接點與電洞供應研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html)。原廠研究；2025-09-18; 2026-09-10 查閱；定位：圖 1、4；N+ 矽源極的 GIDL 電洞供應及蕭特基接點替代研究；限制：只支持載子供應方向與具名研究；本圖採傳統 GIDL 分支，未把蕭特基源極併入同一結構。
@@ -9245,3 +9249,28 @@ Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 
 2024–2026 製程量產規格
 
 - [RES-TOWER-YFLASH-2024：Tower Semiconductor：Y-Flash 0-Mask 嵌入式 Flash 技術規格](https://towersemi.com/technology/power-management/)
+
+### Weebit Nano · Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM
+
+獨立嵌入式 ReRAM 矽智財與神經形態 AI 推論提供商 · SkyWater 130nm 與 DB HiTek 130nm BCD 商用代工驗證；GF 22FDX 研發中
+
+以金屬氧化物（HfO2/TiN）阻變微絲為核心，僅需 2 道 BEOL 後段光罩，支援車規 150°C 高溫保持；具備多階類比電導特性，可直接於記憶體陣列內部執行矩陣乘加運算（Analog In-Memory Computing, CIM）。
+
+商業量產主要落地於 130nm 成熟與特種 BCD 節點，先進節點（22nm FD-SOI）處於流片與評估階段；類比 CIM 矩陣受製程變異與溫度漂移影響，需搭配數位補償演算法。
+
+2024–2026 製程認證與技術白皮書
+
+- [RES-WEEBIT-RERAM-2025：Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書](https://www.weebit-nano.com/reram-technology/)
+
+### Everspin Technologies (Enterprise PLP) · Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)
+
+獨立式與嵌入式 MRAM 晶片與矽智財供應商 · 商用量產出貨；GlobalFoundries 22FDX/12LP FinFET 與 TSMC 代工製造
+
+採用垂直磁性穿隧接面（pMTJ），支援 DDR4、DDR3 與 xSPI 高速匯流排，提供奈秒級持久寫入與 10^10~10^12 次無限耐寫；在企業級 NVMe SSD 與資料中心加速器中取代笨重易損的超級電容，達成零延遲即時日誌寫入與無電容斷電保護（Capacitor-Free PLP）。
+
+單位位元成本高於 DRAM 與 NAND Flash；主要作為系統持久快取與寫入日誌緩衝區（Write Buffer），非取代主容量儲存。
+
+2024–2026 商用量產手冊
+
+- [RES-EVERSPIN-PLP-2025：Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南](https://www.everspin.com/storage-accelerators-and-raid)
+- [everspin-1gb-ddr：Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)

@@ -5074,6 +5074,42 @@
         "evidence": "Verified foundry technology briefs",
         "limit": "Single-poly architecture is optimized for low-to-medium densities (1Kb-512Kb) in high-voltage PMICs and automotive trims, not mass storage.",
         "accessedAt": "2026-09-17"
+      },
+      {
+        "id": "RES-WEEBIT-RERAM-2025",
+        "label": "Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper",
+        "url": "https://www.weebit-nano.com/reram-technology/",
+        "locator": "Official technology page and SkyWater / DB HiTek commercial foundry qualification notices",
+        "kind": "Supplier technical specification & foundry qualification",
+        "date": "2025-06-01",
+        "limit": "Confirms silicon qualification on 130nm CMOS and 130nm BCD with high-temperature automotive testing; 22FDX under development; analog neuromorphic CIM is in early commercial evaluation."
+      },
+      {
+        "id": "RES-EVERSPIN-PLP-2025",
+        "label": "Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note",
+        "url": "https://www.everspin.com/storage-accelerators-and-raid",
+        "locator": "Official enterprise storage accelerator and RAID/SSD power loss protection architecture brief",
+        "kind": "Supplier application note",
+        "date": "2025-04-15",
+        "limit": "Confirms commercial shipment of STT-MRAM for NVMe write journaling and supercap-free PLP architectures; requires dedicated controller or interface bridge."
+      },
+      {
+        "id": "RES-INFINEON-TC4X-2024",
+        "label": "Infineon Technologies: AURIX™ TC4x Automotive MCU & TSMC 28nm eRRAM Architecture Manual",
+        "url": "https://www.infineon.com/aurix-tc4x",
+        "locator": "Official product manual and automotive ASIL-D embedded memory roadmap chapter",
+        "kind": "Microcontroller architecture manual",
+        "date": "2024-11-20",
+        "limit": "Confirms TC4x adoption of TSMC 28nm eRRAM overcoming eFlash scaling limits with 100K cycles and zero-wait random access; specific to flagship automotive MCUs."
+      },
+      {
+        "id": "RES-ST-STELLAR-PCM-2024",
+        "label": "STMicroelectronics: Stellar 32-Bit Automotive MCU Embedded Phase-Change Memory (28nm FD-SOI ePCM) Whitepaper",
+        "url": "https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html",
+        "locator": "Official automotive MCU and 28nm FD-SOI embedded PCM architecture release",
+        "kind": "Automotive silicon technical whitepaper",
+        "date": "2024-09-18",
+        "limit": "Confirms 28nm FD-SOI integration of ePCM enabling zero-downtime OTA (dual-bank instant swap) and 165°C retention; phase-change material is Ge2Sb2Te5 (GST)."
       }
     ],
     "landscape": [
@@ -6314,6 +6350,39 @@
           "RES-TOWER-YFLASH-2024"
         ],
         "target": "foundry"
+      },
+      {
+        "id": "weebit-reram-cim",
+        "name": "Weebit Nano",
+        "technology": "Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM",
+        "family": "ReRAM / OxRAM",
+        "role": "Independent embedded ReRAM IP and neuromorphic AI inference provider",
+        "maturity": "Qualified on SkyWater 130nm & DB HiTek 130nm BCD; GlobalFoundries 22FDX in development",
+        "claim": "Features metal-oxide (HfO2/TiN) switching filaments with only 2 BEOL mask adders and automotive 150°C retention; supports multi-level analog conductance for analog Computing-in-Memory (CIM) matrix operations.",
+        "limit": "Commercial production focused on 130nm mature and specialty BCD nodes; advanced FD-SOI nodes (22nm) undergoing silicon tapeout; analog CIM subject to thermal drift requiring digital calibration.",
+        "dateLabel": "2024–2026 foundry qualification & whitepaper",
+        "search": "Weebit Nano Embedded ReRAM OxRAM CIM Neuromorphic SkyWater DB HiTek GF 22FDX Analog Computing-in-Memory",
+        "sourceIds": [
+          "RES-WEEBIT-RERAM-2025"
+        ],
+        "target": "topic-vcm"
+      },
+      {
+        "id": "everspin-plp-sttmram",
+        "name": "Everspin Technologies (Enterprise PLP)",
+        "technology": "Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)",
+        "family": "MRAM",
+        "role": "Discrete & embedded MRAM silicon and IP supplier",
+        "maturity": "Volume production; foundry manufacturing at GlobalFoundries (22FDX / 12LP) and TSMC",
+        "claim": "Utilizes perpendicular MTJ (pMTJ) with DDR4, DDR3, and xSPI interfaces for nanosecond persistent write and 10^10~10^12 endurance; replaces fragile supercapacitors in enterprise NVMe SSDs and AI accelerators for zero-latency journaling and capacitor-free PLP.",
+        "limit": "Higher per-bit cost than DRAM and NAND; optimized as persistent cache and write-buffer rather than primary mass storage.",
+        "dateLabel": "2024–2026 production specification",
+        "search": "Everspin Technologies STT-MRAM Enterprise NVMe SSD PLP Power Loss Protection CXL Data Center Write Buffer",
+        "sourceIds": [
+          "RES-EVERSPIN-PLP-2025",
+          "everspin-1gb-ddr"
+        ],
+        "target": "research-everspin"
       }
     ]
   },
@@ -9195,6 +9264,42 @@
       "evidence": "Verified foundry technology briefs",
       "limit": "Single-poly architecture is optimized for low-to-medium densities (1Kb-512Kb) in high-voltage PMICs and automotive trims, not mass storage.",
       "accessedAt": "2026-09-17"
+    },
+    {
+      "id": "RES-WEEBIT-RERAM-2025",
+      "label": "Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper",
+      "url": "https://www.weebit-nano.com/reram-technology/",
+      "locator": "Official technology page and SkyWater / DB HiTek commercial foundry qualification notices",
+      "kind": "Supplier technical specification & foundry qualification",
+      "date": "2025-06-01",
+      "limit": "Confirms silicon qualification on 130nm CMOS and 130nm BCD with high-temperature automotive testing; 22FDX under development; analog neuromorphic CIM is in early commercial evaluation."
+    },
+    {
+      "id": "RES-EVERSPIN-PLP-2025",
+      "label": "Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note",
+      "url": "https://www.everspin.com/storage-accelerators-and-raid",
+      "locator": "Official enterprise storage accelerator and RAID/SSD power loss protection architecture brief",
+      "kind": "Supplier application note",
+      "date": "2025-04-15",
+      "limit": "Confirms commercial shipment of STT-MRAM for NVMe write journaling and supercap-free PLP architectures; requires dedicated controller or interface bridge."
+    },
+    {
+      "id": "RES-INFINEON-TC4X-2024",
+      "label": "Infineon Technologies: AURIX™ TC4x Automotive MCU & TSMC 28nm eRRAM Architecture Manual",
+      "url": "https://www.infineon.com/aurix-tc4x",
+      "locator": "Official product manual and automotive ASIL-D embedded memory roadmap chapter",
+      "kind": "Microcontroller architecture manual",
+      "date": "2024-11-20",
+      "limit": "Confirms TC4x adoption of TSMC 28nm eRRAM overcoming eFlash scaling limits with 100K cycles and zero-wait random access; specific to flagship automotive MCUs."
+    },
+    {
+      "id": "RES-ST-STELLAR-PCM-2024",
+      "label": "STMicroelectronics: Stellar 32-Bit Automotive MCU Embedded Phase-Change Memory (28nm FD-SOI ePCM) Whitepaper",
+      "url": "https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html",
+      "locator": "Official automotive MCU and 28nm FD-SOI embedded PCM architecture release",
+      "kind": "Automotive silicon technical whitepaper",
+      "date": "2024-09-18",
+      "limit": "Confirms 28nm FD-SOI integration of ePCM enabling zero-downtime OTA (dual-bank instant swap) and 165°C retention; phase-change material is Ge2Sb2Te5 (GST)."
     },
     {
       "id": "op-pat-nrom-hhi",

@@ -714,6 +714,18 @@ window.NVMTopicIndex = [
     "tags": "Tower Semiconductor Y-Flash 0-Mask eFlash / MTP Utilizes single-poly floating-gate topology with FN/FN tunneling requiring 0 additional mask adders; natively integrates with high-voltage BCD and power management platforms, delivering 1K–10K endurance and high-temperature retention without degrading LDMOS breakdown voltage. Tower Semiconductor Y-Flash eFlash MTP BCD 0-Mask 175C Grade 0 PMIC 採用單層多晶矽浮閘 (Single-Poly Floating Gate) 與 FN/FN 穿隧機制，完全不需要額外光罩道數 (0 Mask Adders)，原生相容於 Tower 高壓 BCD 與電源管理製程平台，提供 1K~10K 次抹寫與極高溫資料留存，且不影響高壓 LDMOS 元件之擊穿電壓與導通電阻。"
   },
   {
+    "title_zh": "Weebit Nano · Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM",
+    "title_en": "Weebit Nano · Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM",
+    "url": "NVM技術全景.html#company-weebit-reram-cim",
+    "tags": "Weebit Nano Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM Features metal-oxide (HfO2/TiN) switching filaments with only 2 BEOL mask adders and automotive 150°C retention; supports multi-level analog conductance for analog Computing-in-Memory (CIM) matrix operations. Weebit Nano Embedded ReRAM OxRAM CIM Neuromorphic SkyWater DB HiTek GF 22FDX Analog Computing-in-Memory 以金屬氧化物（HfO2/TiN）阻變微絲為核心，僅需 2 道 BEOL 後段光罩，支援車規 150°C 高溫保持；具備多階類比電導特性，可直接於記憶體陣列內部執行矩陣乘加運算（Analog In-Memory Computing, CIM）。"
+  },
+  {
+    "title_zh": "Everspin Technologies (Enterprise PLP) · Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)",
+    "title_en": "Everspin Technologies (Enterprise PLP) · Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)",
+    "url": "NVM技術全景.html#company-everspin-plp-sttmram",
+    "tags": "Everspin Technologies (Enterprise PLP) Enterprise STT-MRAM & Data Center Power Loss Protection (PLP) Utilizes perpendicular MTJ (pMTJ) with DDR4, DDR3, and xSPI interfaces for nanosecond persistent write and 10^10~10^12 endurance; replaces fragile supercapacitors in enterprise NVMe SSDs and AI accelerators for zero-latency journaling and capacitor-free PLP. Everspin Technologies STT-MRAM Enterprise NVMe SSD PLP Power Loss Protection CXL Data Center Write Buffer 採用垂直磁性穿隧接面（pMTJ），支援 DDR4、DDR3 與 xSPI 高速匯流排，提供奈秒級持久寫入與 10^10~10^12 次無限耐寫；在企業級 NVMe SSD 與資料中心加速器中取代笨重易損的超級電容，達成零延遲即時日誌寫入與無電容斷電保護（Capacitor-Free PLP）。"
+  },
+  {
     "title_zh": "Toggle、DDR STT 與 xSPI 的三條產品線",
     "title_en": "Three Product Lines: Toggle, DDR STT and xSPI",
     "url": "NVM技術全景.html#research-everspin",

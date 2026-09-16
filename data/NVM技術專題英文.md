@@ -6383,6 +6383,10 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [NRAM-NANTERO-FUJITSU-2016: Nantero/Fujitsu Semiconductor/Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/). Primary official source; 2016-08-31; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: This historical development evidence establishes neither 2026 production and availability nor program termination; NRAM should be classified separately from oxide RRAM.
 - [RES-PUFSEC-HROT-2025: PUFsecurity: NeoPUF & PUFcc Hardware Root of Trust Technical Whitepaper](https://www.pufsecurity.com/pufcc). Vendor Official Whitepaper; 2025-06; Accessed 2026-09-17; Location in the Source: Architecture and Qualification Sections; Limitations: Applies to named PUFcc/PUFiot architectures; specific macro areas and latencies track process PDK datasheets.
 - [RES-TOWER-YFLASH-2024: Tower Semiconductor: Y-Flash 0-Mask Embedded Flash Technology Brief](https://towersemi.com/technology/power-management/). Foundry Process Platform Document; 2024-11; Accessed 2026-09-17; Location in the Source: Power Management & Embedded NVM Section; Limitations: Single-poly architecture is optimized for low-to-medium densities (1Kb-512Kb) in high-voltage PMICs and automotive trims, not mass storage.
+- [RES-WEEBIT-RERAM-2025: Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper](https://www.weebit-nano.com/reram-technology/). Supplier technical specification & foundry qualification; 2025-06-01; Location in the Source: Official technology page and SkyWater / DB HiTek commercial foundry qualification notices; Limitations: Confirms silicon qualification on 130nm CMOS and 130nm BCD with high-temperature automotive testing; 22FDX under development; analog neuromorphic CIM is in early commercial evaluation.
+- [RES-EVERSPIN-PLP-2025: Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note](https://www.everspin.com/storage-accelerators-and-raid). Supplier application note; 2025-04-15; Location in the Source: Official enterprise storage accelerator and RAID/SSD power loss protection architecture brief; Limitations: Confirms commercial shipment of STT-MRAM for NVMe write journaling and supercap-free PLP architectures; requires dedicated controller or interface bridge.
+- [RES-INFINEON-TC4X-2024: Infineon Technologies: AURIX™ TC4x Automotive MCU & TSMC 28nm eRRAM Architecture Manual](https://www.infineon.com/aurix-tc4x). Microcontroller architecture manual; 2024-11-20; Location in the Source: Official product manual and automotive ASIL-D embedded memory roadmap chapter; Limitations: Confirms TC4x adoption of TSMC 28nm eRRAM overcoming eFlash scaling limits with 100K cycles and zero-wait random access; specific to flagship automotive MCUs.
+- [RES-ST-STELLAR-PCM-2024: STMicroelectronics: Stellar 32-Bit Automotive MCU Embedded Phase-Change Memory (28nm FD-SOI ePCM) Whitepaper](https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html). Automotive silicon technical whitepaper; 2024-09-18; Location in the Source: Official automotive MCU and 28nm FD-SOI embedded PCM architecture release; Limitations: Confirms 28nm FD-SOI integration of ePCM enabling zero-downtime OTA (dual-bank instant swap) and 165°C retention; phase-change material is Ge2Sb2Te5 (GST).
 - [op-pat-nrom-hhi: Saifun: Self-Aligned NROM Programming and Erasure Areas](https://patents.google.com/patent/US6664588B2/en). Public Patent; 2003; 2026-09-10 accessed; Location in the Source: Figures 4, 8A, 9, and 10–11; band-to-band hole generation and localized hot-hole injection; Limitations: The pocket implant and local hole path belong to this example; US5768192A is not used as evidence for this erase path.
 - [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en). Public Patent; 2014; 2026-09-10 accessed; Location in the Source: Figures 1–3; uniform channel tunneling, electron programming, and hole erase; Limitations: A named SONOS tunneling example; no equivalence to the stack or biases of a current Infineon macro is asserted.
 - [op-nand-hole-erase: KIOXIA: Schottky Source Contact and Hole Supply](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html). Manufacturer Research; 2025-09-18; 2026-09-10 accessed; Location in the Source: Figures 1 and 4; GIDL hole supply from an N+ silicon source and the Schottky-contact alternative; Limitations: Supports carrier supply and a named study; this diagram uses the conventional GIDL branch without merging in a Schottky source.
@@ -9169,3 +9173,28 @@ Single-poly footprint yields larger cell size, targeting 1Kb–512Kb high-voltag
 2024–2026 Volume Production Specification
 
 - [RES-TOWER-YFLASH-2024: Tower Semiconductor: Y-Flash 0-Mask Embedded Flash Technology Brief](https://towersemi.com/technology/power-management/)
+
+### Weebit Nano · Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM
+
+Independent embedded ReRAM IP and neuromorphic AI inference provider · Qualified on SkyWater 130nm & DB HiTek 130nm BCD; GlobalFoundries 22FDX in development
+
+Features metal-oxide (HfO2/TiN) switching filaments with only 2 BEOL mask adders and automotive 150°C retention; supports multi-level analog conductance for analog Computing-in-Memory (CIM) matrix operations.
+
+Commercial production focused on 130nm mature and specialty BCD nodes; advanced FD-SOI nodes (22nm) undergoing silicon tapeout; analog CIM subject to thermal drift requiring digital calibration.
+
+2024–2026 foundry qualification & whitepaper
+
+- [RES-WEEBIT-RERAM-2025: Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper](https://www.weebit-nano.com/reram-technology/)
+
+### Everspin Technologies (Enterprise PLP) · Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)
+
+Discrete & embedded MRAM silicon and IP supplier · Volume production; foundry manufacturing at GlobalFoundries (22FDX / 12LP) and TSMC
+
+Utilizes perpendicular MTJ (pMTJ) with DDR4, DDR3, and xSPI interfaces for nanosecond persistent write and 10^10~10^12 endurance; replaces fragile supercapacitors in enterprise NVMe SSDs and AI accelerators for zero-latency journaling and capacitor-free PLP.
+
+Higher per-bit cost than DRAM and NAND; optimized as persistent cache and write-buffer rather than primary mass storage.
+
+2024–2026 production specification
+
+- [RES-EVERSPIN-PLP-2025: Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note](https://www.everspin.com/storage-accelerators-and-raid)
+- [everspin-1gb-ddr: Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
