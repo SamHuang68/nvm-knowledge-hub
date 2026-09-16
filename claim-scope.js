@@ -14,6 +14,14 @@
       if (value !== node.nodeValue) node.nodeValue = value;
     });
   }
+  function softenTitle() {
+    const title = document.title.replace(/ISO 26262 ASIL-D/g, 'ISO 26262 ASIL context');
+    if (title !== document.title) document.title = title;
+    document.querySelectorAll('meta[property="og:title"], meta[name="twitter:title"]').forEach(el => {
+      const v = el.getAttribute('content');
+      if (v && v.includes('ISO 26262 ASIL-D')) el.setAttribute('content', v.replace(/ISO 26262 ASIL-D/g, 'ISO 26262 ASIL context'));
+    });
+  }
   if (/automotive-nvm\.html/i.test(path)) {
     replaceText([
       ['ISO 26262 ASIL-D Ready (SEooC) · SC3 Systematic Capability', 'ISO 26262 ASIL context · SEooC SC3 capability (not a certification)'],
@@ -26,6 +34,7 @@
       ['WAFER-LEVEL ZERO-DEFECT RIGOR', 'WAFER-LEVEL DEFECTIVITY (VERIFY)'],
       ['RULE #04 · ZERO DEFECT', 'RULE #04 · DEFECTIVITY (VERIFY)']
     ]);
+    softenTitle();
   }
   if (/iot-mcu-envm\.html/i.test(path)) {
     replaceText([
@@ -37,7 +46,7 @@
       const note = document.createElement('p');
       note.className = 'hero-scope';
       note.style.cssText = 'margin:12px 0 0;max-width:72ch;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:rgba(196,165,116,.85);';
-      note.innerHTML = '<span data-lang="en">Vendor-reported / named-node context · not target-configuration assurance. &gt;75% NTV power and 15-year battery-free figures remain VERIFY against the cited source.</span><span data-lang="zh">供應商／具名節點脈絡，不是目標組態保證。近閾值功耗降幅與 15 年免電池數字仍須對同一來源做 VERIFY。</span>';
+      note.innerHTML = '<span data-lang="en">Vendor-reported / named-node context · not target-configuration assurance. >75% NTV power and 15-year battery-free figures remain VERIFY against the cited source.</span><span data-lang="zh">供應商／具名節點脈絡，不是目標組態保證。近閾值功耗降幅與 15 年免電池數字仍須對同一來源做 VERIFY。</span>';
       (document.querySelector('.hero-proof') || proof).insertAdjacentElement('afterend', note);
       if (window.HubLanguage) window.HubLanguage.set(window.HubLanguage.get(), false);
     }
