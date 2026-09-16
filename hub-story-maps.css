@@ -78,6 +78,19 @@
   letter-spacing: 0.04em;
   color: var(--hs-copper);
 }
+.hub-verify-copy {
+  margin-top: 14px;
+  appearance: none;
+  cursor: pointer;
+  border: 1px solid rgba(196,165,116,.4);
+  background: transparent;
+  color: #c4a574;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 12px;
+  letter-spacing: .06em;
+}
+.hub-verify-copy:hover { background: rgba(196,165,116,.12); }
 .matrix-row-header.is-dim-hot,
 .matrix-cell.is-dim-hot {
   outline: 1px solid rgba(196, 165, 116, 0.7);
