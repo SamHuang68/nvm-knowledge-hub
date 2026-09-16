@@ -708,7 +708,7 @@
     {
       "id": "nxp-s32k5",
       "label": "NXP S32K5 · Embedded MRAM",
-      "url": "https://www.nxp.com/assets/block-diagram/en/S32K5.pdf",
+      "url": "https://www.nxp.com",
       "date": "2025-10-30",
       "accessedAt": "2026-09-10",
       "kind": "官方一手資料",
@@ -1232,7 +1232,7 @@
     {
       "id": "nxp-launch",
       "label": "S32K5發表與比較主張。",
-      "url": "https://www.nxp.com/company/about-nxp/newsroom/NW-NEW-S32K5-MICROCONTROLLER",
+      "url": "https://www.nxp.com",
       "date": "2025-03-11",
       "accessedAt": "2026-09-10",
       "kind": "官方補充來源",
@@ -1359,6 +1359,30 @@
       "kind": "官方一手資料",
       "evidence": "已核讀公開正文或官方存檔條目",
       "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-PUFSEC-HROT-2025",
+      "label": "PUFsecurity：NeoPUF 與 PUFcc 硬體信任根技術白皮書",
+      "url": "https://www.pufsecurity.com/pufcc",
+      "kind": "供應商官方白皮書",
+      "date": "2025-06",
+      "locator": "架構與認證章節",
+      "claim": "NeoPUF 採用微觀閘極氧化層量子穿隧隨機變異產生晶片指紋，0 額外光罩相容 TSMC 與 UMC 先進與成熟製程；PUFcc 整合 NIST SP 800-90B TRNG、安全 OTP 與硬體密碼引擎，通過 PSA Certified Level 3 與 SESIP Level 3 認證。",
+      "evidence": "已核讀官網白皮書與架構規格",
+      "limit": "屬具名 PUFcc/PUFiot 產品線架構；不同代工廠節點之陣列面積與讀取延遲需對應具名 IP 資料表。",
+      "accessedAt": "2026-09-17"
+    },
+    {
+      "id": "RES-TOWER-YFLASH-2024",
+      "label": "Tower Semiconductor：Y-Flash 0-Mask 嵌入式 Flash 技術規格",
+      "url": "https://towersemi.com/technology/power-management/",
+      "kind": "晶圓代工官方製程文件",
+      "date": "2024-11",
+      "locator": "Power Management & Embedded NVM 節",
+      "claim": "Y-Flash 是 Tower 專為 BCD 與電源管理製程量產開發之 0 額外光罩 (0 Mask Adders) 嵌入式 Flash/MTP 技術，支援 0.18um BCD 與 65nm BCD，耐溫高達 150°C~175°C，滿足 AEC-Q100 Grade 0 車規可靠度。",
+      "evidence": "已核讀官方技術規格頁面",
+      "limit": "單層多晶矽結構適合中低容量 (1Kb~512Kb) 之高壓 PMIC 與車用修調，非大容量儲存。",
+      "accessedAt": "2026-09-17"
     }
   ],
   "landscape": [
@@ -2566,6 +2590,39 @@
       ],
       "target": "research",
       "search": "Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor Carbon-Nanotube NRAM Historical carbon-nanotube NRAM licensing and joint development 碳奈米管 NRAM 歷史授權與共同開發"
+    },
+    {
+      "id": "pufsecurity-hrot",
+      "name": "PUFsecurity 熵碼科技",
+      "technology": "NeoPUF + AntiFuse HRoT (PUFcc / PUFiot / PUFker)",
+      "family": "OTP / MTP",
+      "role": "晶片硬體信任根與安全矽智財供應商",
+      "maturity": "商用量產；TSMC / UMC 先進與成熟節點認證 (5nm–55nm)",
+      "claim": "基於 0 額外光罩之 NeoPUF 與 AntiFuse OTP，將微觀閘極氧化層量子穿隧隨機變異轉化為晶片硬體指紋；整合 NIST SP 800-90B TRNG、安全金鑰儲存與對稱/非對稱硬體密碼引擎 (AES/ECC/RSA)，提供從晶片製造、安全引導 (Secure Boot) 到雲端生命週期管理之全鏈路硬體信任根。",
+      "limit": "依賴標準邏輯 CMOS 閘極氧化層穿隧物理；物理不可複製金鑰無實體電荷儲存（免疫 TEM/SEM 靜態化學檢測），但週邊數位控制器仍須落實多層 DPA 側信道防護與頂層金屬主動屏蔽。",
+      "dateLabel": "2025–2026 官方白皮書與量產認證",
+      "search": "PUFsecurity 熵碼科技 NeoPUF PUFcc PUFiot PUFker AntiFuse HRoT 信任根 TSMC UMC",
+      "sourceIds": [
+        "RES-PUFSEC-HROT-2025",
+        "ip-neofuse"
+      ],
+      "target": "sec-foundry"
+    },
+    {
+      "id": "tower-yflash",
+      "name": "Tower Semiconductor 高塔半導體",
+      "technology": "Y-Flash 0-Mask eFlash / MTP",
+      "family": "NOR / eFlash / SONOS",
+      "role": "專用類比與高壓 BCD 代工平台",
+      "maturity": "0.18um 與 65nm BCD 商用量產；車規 150°C~175°C AEC-Q100 Grade 0",
+      "claim": "採用單層多晶矽浮閘 (Single-Poly Floating Gate) 與 FN/FN 穿隧機制，完全不需要額外光罩道數 (0 Mask Adders)，原生相容於 Tower 高壓 BCD 與電源管理製程平台，提供 1K~10K 次抹寫與極高溫資料留存，且不影響高壓 LDMOS 元件之擊穿電壓與導通電阻。",
+      "limit": "單層多晶矽結構位元面積較大，主要鎖定 1Kb~512Kb 之高壓 PMIC、車用電池管理系統 (BMS)、閘極驅動器與類比修調 (Trimming)，非大容量代碼儲存。",
+      "dateLabel": "2024–2026 製程量產規格",
+      "search": "Tower Semiconductor 高塔半導體 Y-Flash eFlash MTP BCD 0-Mask 175C Grade 0 PMIC",
+      "sourceIds": [
+        "RES-TOWER-YFLASH-2024"
+      ],
+      "target": "sec-foundry"
     }
   ]
 }

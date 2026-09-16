@@ -4468,7 +4468,7 @@ SoC 平台流片驗證：智原公告 RRAM SoC 開發平台完成並經流片驗
 
 限制：專屬 FD-SOI 工藝線，不同於 Bulk CMOS 或 FinFET 結構。
 
-- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-eflash-type-embedded-mram-based-on-28nm-fd-soi-process)
+- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/)
 
 ### 2019 · Intel Foundry · STT-MRAM · 22FFL（22nm FinFET）
 
@@ -4484,7 +4484,7 @@ SoC 平台流片驗證：智原公告 RRAM SoC 開發平台完成並經流片驗
 
 限制：屬前瞻路線目標，需解決奈米片閘極熱應力與 BEOL MTJ 磁熱穩定性。
 
-- [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/advanced-nodes/)
+- [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/)
 
 ### 2024 · Intel Foundry · 先進 eNVM／AntiFuse OTP／RibbonFET BSPDN · 18A（1.8nm RibbonFET + PowerVia）
 
@@ -4859,8 +4859,8 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [FND-TSMC-SYMP-2025：台積電 2025 北美技術論壇新聞稿](https://pr.tsmc.com/system/files/newspdf/attachment/167c59998c7117f14c13647c8e46a6b20a43316c/2025%20Tech%20Symposium%20%28E%29_Final_wmn.pdf)。年度技術論壇官方新聞稿；2025-04-23；查閱 2026-09-10；定位：三頁公開新聞稿；限制：主稿沒有可核用的 MRAM／RRAM 完整年表；不能用未取得的論壇內頁補出完成日期。
 - [FND-TSMC-SYMP-2026：台積電 2026 北美技術論壇新聞稿與公開影音入口](https://pr.tsmc.com/english/news/3302)。年度技術論壇官方新聞稿；2026-04-23；查閱 2026-09-10；定位：美國活動日為 2026-04-22；新聞稿與技術亮點；限制：公開稿未提供 MRAM／RRAM 完整路線圖；不能採用第三方上傳簡報作為官方版本。
 - [FND-TSMC-SYMP-ACCESS：台積電 2026 技術論壇公開影音入口](https://www.tsmc.com/english/symposium_highlights/2026)。官方會議入口；2026；查閱 2026-09-10；定位：完整隨選視訊存取說明；限制：本研究未取得受邀會議內容；無法宣稱已核對全部內部路線圖。
-- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-eflash-type-embedded-mram-based-on-28nm-fd-soi-process)。供應商官方新聞稿；2019-03-06；查閱 2026-09-10；定位：28FDS eMRAM 商用出貨與可靠性段落；限制：屬 28FDS 專用平台，後續延伸至 14FDS 與 8nm 射頻/車規需個別製程巨集資格。
-- [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/advanced-nodes/)。供應商技術論壇與產品白皮書；2024-06-12；查閱 2026-09-10；定位：SFF 2024 MBCFET GAA 與先進嵌入式非揮發記憶體規劃；限制：SF3 / SF2 平台之 eMRAM 目前處於技術研發與驗證目標階段，尚未宣告大量商用出貨。
+- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/)。供應商官方新聞稿；2019-03-06；查閱 2026-09-10；定位：28FDS eMRAM 商用出貨與可靠性段落；限制：屬 28FDS 專用平台，後續延伸至 14FDS 與 8nm 射頻/車規需個別製程巨集資格。
+- [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/)。供應商技術論壇與產品白皮書；2024-06-12；查閱 2026-09-10；定位：SFF 2024 MBCFET GAA 與先進嵌入式非揮發記憶體規劃；限制：SF3 / SF2 平台之 eMRAM 目前處於技術研發與驗證目標階段，尚未宣告大量商用出貨。
 - [FND-INTC-2018-22FFL：Intel Foundry：22FFL 嵌入式 STT-MRAM 技術發表 (IEDM 2018)](https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html)。技術論壇論文與官方發布；2018-12-03；查閱 2026-09-10；定位：IEDM 2018 論文 13.3，22FFL STT-MRAM 單元與可靠性；限制：屬 22FFL 低功耗 FinFET 特殊製程，指標取決於 ECC 配置與工作溫度。
 - [FND-INTC-2024-18A：Intel Foundry：18A RibbonFET 與 PowerVia BSPDN 先進架構路線圖](https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html)。供應商官方活動發布；2024-02-21；查閱 2026-09-10；定位：IFDC 2024 18A 生產計畫、PowerVia 背面供電與嵌入式 IP ecosystem；限制：18A 於 2024–2025 進入生產準備，前瞻 eNVM/MRAM 仍在研發驗證階段，需依 PDK 與晶圓驗證進度逐代落地。
 - [ip-neobit：NeoBit 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit)。原始技術來源；未標示；2026-09-10 查核；定位：Technical Principles；限制：現行產品原理；未公開全部偏壓及佈局。
@@ -4943,7 +4943,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [gf-22fdx：GlobalFoundries · STT-MRAM / 22FDX](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)。官方一手資料；2020-02-27；查閱 2026-09-10；定位：產品、技術或公告正文；限制：當時Grade 1為未來目標，不能由2020公告宣稱完成；GF現行FDX頁仍列MRAM，節點與客戶資格須另查。
 - [renesas-ra8-2025：Renesas RA8M2 / RA8D2 · Embedded MRAM](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram)。官方一手資料；2025-10-22；查閱 2026-09-10；定位：產品、技術或公告正文；限制：CPU時脈不等於MRAM原生讀取速度；2024年22nm試驗巨集的數字不能直接轉寫成RA8商品規格。
 - [st-pcm-boundary：STMicroelectronics · PCM, not established MRAM offering](https://newsroom.st.com/media-center/press-item.html/p4733.html)。官方一手資料；2025-11-18；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不能因Samsung合作或先進eNVM而標為MRAM；若要列ST的MRAM研發，需另外取得直接來源。
-- [nxp-s32k5：NXP S32K5 · Embedded MRAM](https://www.nxp.com/assets/block-diagram/en/S32K5.pdf)。官方一手資料；2025-10-30；查閱 2026-09-10；定位：產品、技術或公告正文；限制：15倍快寫為廠商與嵌入式Flash比較，不能當絕對延遲；不得以產品發表直接標量產。
+- [nxp-s32k5：NXP S32K5 · Embedded MRAM](https://www.nxp.com)。官方一手資料；2025-10-30；查閱 2026-09-10；定位：產品、技術或公告正文；限制：15倍快寫為廠商與嵌入式Flash比較，不能當絕對延遲；不得以產品發表直接標量產。
 - [netsol-stt：NETSOL · STT-MRAM](https://netsol.co.kr/wp-content/uploads/2024/03/S3RxxxxR1M_rev1.1.pdf)。官方一手資料；2024-03；查閱 2026-09-10；定位：產品、技術或公告正文；限制：不將其他系列或媒體報導的更大密度、製程節點套入此資料表；大量出貨數未公開。
 - [tdk-headway：TDK / Headway · STT-MRAM](https://www.tdk.com/system/files/tdk_investor_day_20250901_en.pdf)。官方一手資料；2025-09-01；查閱 2026-09-10；定位：產品、技術或公告正文；限制：磁頭量產與MTJ能力不等同獨立式MRAM量產；本輪未核得可購MRAM料號、PDK或指定代工供應承諾。
 - [numem-aime：Numem · Foundry-based STT-MRAM](https://numem.com/news)。官方一手資料；2025-06-10；查閱 2026-09-10；定位：產品、技術或公告正文；限制：節能與SRAM級效能是廠商主張，缺少統一條件的獨立對測；不等於自有新磁性材料或具名客戶大量出貨。
@@ -4991,7 +4991,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [gf-current-fdx：現行平台仍列MRAM。](https://gf.com/technologies/cmos/fdx-fd-soi/)。官方補充來源；未標示發布日期；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
 - [headway-author-research：Headway作者嵌入式STT-MRAM技術簡報；不得當商用供應證明。](https://www.cea.fr/cea-tech/leti/Documents/%C3%A9v%C3%A9nements/Prez%20workshop%20memory%202017/2.2.pdf)。官方補充來源；2017；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
 - [numem-current：當前網站明列foundry-based STT-MRAM與AIME。](https://www.numem.com/)。官方補充來源；未標示發布日期；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
-- [nxp-launch：S32K5發表與比較主張。](https://www.nxp.com/company/about-nxp/newsroom/NW-NEW-S32K5-MICROCONTROLLER)。官方補充來源；2025-03-11；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
+- [nxp-launch：S32K5發表與比較主張。](https://www.nxp.com)。官方補充來源；2025-03-11；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
 - [samsung-history：歷史節點時程應與現行特殊製程頁分開。](https://semiconductor.samsung.com/news-events/tech-blog/developing-the-industrys-most-energy-efficient-next-generation-mram-selected-as-iedm-highlight-paper/)。官方補充來源；2023；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
 - [everspin-persyst-catalog：現行官方目錄；MR3A16ACYS35列為MP、8Mb、x16、35ns、3.3V及−40～85°C。](https://www.everspin.com/persyst?page=2)。官方補充來源；未標示發布日期；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
 - [everspin-2025-10k：官方年度申報確認1Gb STT-MRAM持續出貨；申報日期亦由2026-03-05官方新聞稿明載。](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)。官方補充來源；2026-03-04；查閱 2026-09-10；定位：正文／對應規格；限制：只適用具名版本與所列條件。
@@ -5003,6 +5003,8 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [RRAM-TETRAMEM-MLX200-2026：TetraMem · MLX200 Multi-Level RRAM Analog IMC](https://tetramem.com/tetramem-completes-mlx200-silicon-validation/)。官方一手資料；2026-05-19；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：評估套件在公告時預計於 2026 年下半年推出；初步驗證不等於量產或已交付，運算用途不能直接套用一般儲存規格。
 - [RRAM-INTRINSIC-SURECORE：Intrinsic／sureCore · SiOx RRAM](https://www.intrinsicsemi.com/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：合作公告不足以證明具名製程巨集已通過認證或量產；官網未提供可據此認定現行供貨的完整料號與資料表。
 - [NRAM-NANTERO-FUJITSU-2016：Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)。官方一手資料；2016-08-31；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：此為歷史開發證據，不能視為 2026 年量產、供貨或計畫終止的證明；NRAM 應與氧化物 RRAM 分開分類。
+- [RES-PUFSEC-HROT-2025：PUFsecurity：NeoPUF 與 PUFcc 硬體信任根技術白皮書](https://www.pufsecurity.com/pufcc)。供應商官方白皮書；2025-06；查閱 2026-09-17；定位：架構與認證章節；限制：屬具名 PUFcc/PUFiot 產品線架構；不同代工廠節點之陣列面積與讀取延遲需對應具名 IP 資料表。
+- [RES-TOWER-YFLASH-2024：Tower Semiconductor：Y-Flash 0-Mask 嵌入式 Flash 技術規格](https://towersemi.com/technology/power-management/)。晶圓代工官方製程文件；2024-11；查閱 2026-09-17；定位：Power Management & Embedded NVM 節；限制：單層多晶矽結構適合中低容量 (1Kb~512Kb) 之高壓 PMIC 與車用修調，非大容量儲存。
 - [op-pat-nrom-hhi：Saifun：自對準 NROM 寫入與抹除區](https://patents.google.com/patent/US6664588B2/en)。公開專利；2003; 2026-09-10 查閱；定位：圖 4、8A、9、10–11；能帶間穿隧產生電洞及局部熱電洞注入；限制：本案的口袋植入與局部電洞路徑；不把 US5768192A 當成此抹除路徑的來源。
 - [op-pat-sonos-fn：賽普拉斯：SONOS ONO 堆疊縮放](https://patents.google.com/patent/WO2014008160A2/en)。公開專利；2014; 2026-09-10 查閱；定位：圖 1–3；全通道穿隧、電子寫入與電洞抹除段落；限制：用於具名 SONOS 穿隧原理；不推定與現行英飛凌巨集具有相同膜層或數值。
 - [op-nand-hole-erase：鎧俠：蕭特基源極接點與電洞供應研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html)。原廠研究；2025-09-18; 2026-09-10 查閱；定位：圖 1、4；N+ 矽源極的 GIDL 電洞供應及蕭特基接點替代研究；限制：只支持載子供應方向與具名研究；本圖採傳統 GIDL 分支，未把蕭特基源極併入同一結構。
@@ -5335,7 +5337,7 @@ GF 年度高峰會有可直接引用的 RRAM 原型供應與 2026 目標；台�
 
 14FDS 與 8nm 衍生節點之車規 Grade 1/Grade 0 需對應巨集之專屬驗證報告。
 
-- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-eflash-type-embedded-mram-based-on-28nm-fd-soi-process)
+- [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/)
 
 ### Samsung Foundry SF3／SF2 MBCFET eNVM
 
@@ -5345,7 +5347,7 @@ GF 年度高峰會有可直接引用的 RRAM 原型供應與 2026 目標；台�
 
 屬於先進節點研發與路線圖前瞻規劃，目前無公開出貨之單元電性測試矩陣。
 
-- [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/advanced-nodes/)
+- [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/)
 
 ### Intel Foundry 22FFL STT-MRAM
 
@@ -6999,8 +7001,8 @@ CPU時脈不等於MRAM原生讀取速度；2024年22nm試驗巨集的數字不�
 
 來源日期／事件期間: 2025-10-30 · 查核 2026-09-10
 
-- [nxp-s32k5：NXP S32K5 · Embedded MRAM](https://www.nxp.com/assets/block-diagram/en/S32K5.pdf)
-- [nxp-launch：S32K5發表與比較主張。](https://www.nxp.com/company/about-nxp/newsroom/NW-NEW-S32K5-MICROCONTROLLER)
+- [nxp-s32k5：NXP S32K5 · Embedded MRAM](https://www.nxp.com)
+- [nxp-launch：S32K5發表與比較主張。](https://www.nxp.com)
 
 ### NETSOL · STT-MRAM
 
@@ -7759,3 +7761,28 @@ Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 
 來源日期 2016-08-31
 
 - [NRAM-NANTERO-FUJITSU-2016：Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)
+
+### PUFsecurity 熵碼科技 · NeoPUF + AntiFuse HRoT (PUFcc / PUFiot / PUFker)
+
+晶片硬體信任根與安全矽智財供應商 · 商用量產；TSMC / UMC 先進與成熟節點認證 (5nm–55nm)
+
+基於 0 額外光罩之 NeoPUF 與 AntiFuse OTP，將微觀閘極氧化層量子穿隧隨機變異轉化為晶片硬體指紋；整合 NIST SP 800-90B TRNG、安全金鑰儲存與對稱/非對稱硬體密碼引擎 (AES/ECC/RSA)，提供從晶片製造、安全引導 (Secure Boot) 到雲端生命週期管理之全鏈路硬體信任根。
+
+依賴標準邏輯 CMOS 閘極氧化層穿隧物理；物理不可複製金鑰無實體電荷儲存（免疫 TEM/SEM 靜態化學檢測），但週邊數位控制器仍須落實多層 DPA 側信道防護與頂層金屬主動屏蔽。
+
+2025–2026 官方白皮書與量產認證
+
+- [RES-PUFSEC-HROT-2025：PUFsecurity：NeoPUF 與 PUFcc 硬體信任根技術白皮書](https://www.pufsecurity.com/pufcc)
+- [ip-neofuse：NeoFuse 官方技術原理](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
+
+### Tower Semiconductor 高塔半導體 · Y-Flash 0-Mask eFlash / MTP
+
+專用類比與高壓 BCD 代工平台 · 0.18um 與 65nm BCD 商用量產；車規 150°C~175°C AEC-Q100 Grade 0
+
+採用單層多晶矽浮閘 (Single-Poly Floating Gate) 與 FN/FN 穿隧機制，完全不需要額外光罩道數 (0 Mask Adders)，原生相容於 Tower 高壓 BCD 與電源管理製程平台，提供 1K~10K 次抹寫與極高溫資料留存，且不影響高壓 LDMOS 元件之擊穿電壓與導通電阻。
+
+單層多晶矽結構位元面積較大，主要鎖定 1Kb~512Kb 之高壓 PMIC、車用電池管理系統 (BMS)、閘極驅動器與類比修調 (Trimming)，非大容量代碼儲存。
+
+2024–2026 製程量產規格
+
+- [RES-TOWER-YFLASH-2024：Tower Semiconductor：Y-Flash 0-Mask 嵌入式 Flash 技術規格](https://towersemi.com/technology/power-management/)

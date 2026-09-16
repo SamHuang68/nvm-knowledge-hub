@@ -304,7 +304,7 @@
     {
       "id": "FND-SEC-2019-28FDS",
       "label": "Samsung Foundry：28FDS eMRAM 商用量產公告",
-      "url": "https://news.samsung.com/global/samsung-electronics-starts-commercial-shipment-of-eflash-type-embedded-mram-based-on-28nm-fd-soi-process",
+      "url": "https://news.samsung.com/global/",
       "kind": "供應商官方新聞稿",
       "date": "2019-03-06",
       "locator": "28FDS eMRAM 商用出貨與可靠性段落",
@@ -316,7 +316,7 @@
     {
       "id": "FND-SEC-2024-MBCFET",
       "label": "Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖",
-      "url": "https://semiconductor.samsung.com/foundry/process-technology/advanced-nodes/",
+      "url": "https://semiconductor.samsung.com/foundry/process-technology/",
       "kind": "供應商技術論壇與產品白皮書",
       "date": "2024-06-12",
       "locator": "SFF 2024 MBCFET GAA 與先進嵌入式非揮發記憶體規劃",

@@ -648,6 +648,18 @@ window.NVMTopicIndex = [
     "tags": "Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor Carbon-Nanotube NRAM Fujitsu's official archive confirms that its two semiconductor businesses licensed Nantero carbon-nanotube NRAM in 2016 and began joint development toward a 55nm product. Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor Carbon-Nanotube NRAM Historical carbon-nanotube NRAM licensing and joint development 碳奈米管 NRAM 歷史授權與共同開發 Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 碳奈米管 NRAM 授權，並共同開發 55nm 產品。"
   },
   {
+    "title_zh": "PUFsecurity 熵碼科技 · NeoPUF + AntiFuse HRoT (PUFcc / PUFiot / PUFker)",
+    "title_en": "PUFsecurity · NeoPUF + AntiFuse HRoT (PUFcc / PUFiot / PUFker)",
+    "url": "NVM技術全景.html#company-pufsecurity-hrot",
+    "tags": "PUFsecurity NeoPUF + AntiFuse HRoT (PUFcc / PUFiot / PUFker) Leverages zero-mask NeoPUF and AntiFuse OTP to convert microscopic gate-oxide quantum tunneling variations into chip-unique fingerprints; integrates NIST SP 800-90B TRNG, secure key storage, and crypto accelerators (AES/ECC/RSA) for end-to-end hardware root-of-trust and secure boot. PUFsecurity NeoPUF PUFcc PUFiot PUFker AntiFuse HRoT Root of Trust TSMC UMC 基於 0 額外光罩之 NeoPUF 與 AntiFuse OTP，將微觀閘極氧化層量子穿隧隨機變異轉化為晶片硬體指紋；整合 NIST SP 800-90B TRNG、安全金鑰儲存與對稱/非對稱硬體密碼引擎 (AES/ECC/RSA)，提供從晶片製造、安全引導 (Secure Boot) 到雲端生命週期管理之全鏈路硬體信任根。"
+  },
+  {
+    "title_zh": "Tower Semiconductor 高塔半導體 · Y-Flash 0-Mask eFlash / MTP",
+    "title_en": "Tower Semiconductor · Y-Flash 0-Mask eFlash / MTP",
+    "url": "NVM技術全景.html#company-tower-yflash",
+    "tags": "Tower Semiconductor Y-Flash 0-Mask eFlash / MTP Utilizes single-poly floating-gate topology with FN/FN tunneling requiring 0 additional mask adders; natively integrates with high-voltage BCD and power management platforms, delivering 1K–10K endurance and high-temperature retention without degrading LDMOS breakdown voltage. Tower Semiconductor Y-Flash eFlash MTP BCD 0-Mask 175C Grade 0 PMIC 採用單層多晶矽浮閘 (Single-Poly Floating Gate) 與 FN/FN 穿隧機制，完全不需要額外光罩道數 (0 Mask Adders)，原生相容於 Tower 高壓 BCD 與電源管理製程平台，提供 1K~10K 次抹寫與極高溫資料留存，且不影響高壓 LDMOS 元件之擊穿電壓與導通電阻。"
+  },
+  {
     "title_zh": "Toggle、DDR STT 與 xSPI 的三條產品線",
     "title_en": "Three Product Lines: Toggle, DDR STT and xSPI",
     "url": "NVM技術全景.html#research-everspin",

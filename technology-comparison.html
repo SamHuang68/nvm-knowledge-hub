@@ -773,6 +773,14 @@
     .foundry-card.umc { border-top-color: #f59e0b; }
     .foundry-card.gf { border-top-color: #c4a574; }
     .foundry-card.sec { border-top-color: #3b82f6; }
+    .foundry-card.specialty { border-top-color: #10b981; }
+    .status-pill.status-spec { background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
+    .value-chain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.25rem; margin-top: 1.25rem; }
+    .value-chain-card { background: rgba(4, 18, 28, 0.7); border: 1px solid rgba(196, 165, 116, 0.2); border-radius: 8px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .value-chain-badge { font: 800 10px/1 'IBM Plex Mono', monospace; letter-spacing: 0.1em; color: #10b981; text-transform: uppercase; }
+    .value-chain-card h4 { font: 700 1.05rem/1.3 'IBM Plex Mono', monospace; color: #f8fafc; margin: 0; }
+    .vc-layer { font-size: 0.84rem; line-height: 1.55; color: #cbd5e1; }
+    .vc-layer b { color: #c4a574; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; }
     .foundry-card-top {
       display: flex;
       flex-direction: column;
@@ -1184,7 +1192,7 @@
 
   </style>
 </head>
-<body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial">
+<body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content">
     <span data-lang="zh">跳至主要內容</span>
     <span data-lang="en">Skip to main content</span>
@@ -1992,8 +2000,8 @@
       <div class="hub-sec-header">
         <div class="hub-sec-badge">04 · FOUNDRY &amp; SECURITY</div>
         <h2 id="foundry-sec-title">
-          <span data-lang="zh">四大晶圓代工廠製程路線與奈米實體防護機制</span>
-          <span data-lang="en">Foundry Ecosystem Roadmap &amp; Physical Security Integrity</span>
+          <span data-lang="zh">主流晶圓代工與專用類比製程路線圖暨實體防護機制</span>
+          <span data-lang="en">Foundry &amp; Specialty Analog Ecosystem Roadmap &amp; Physical Security Integrity</span>
         </h2>
         <p style="color:#b5aa9c;font-size:0.92rem;line-height:1.65;max-width:46rem;margin:0.75rem 0 0;">
           <span data-lang="zh">主流晶圓代工廠真實 PDK 量產狀態、車規等級驗證進展與奈米級實體防護責任鏈。</span>
@@ -2169,6 +2177,112 @@
             </div>
           </div>
         </div>
+
+        <!-- Specialty Analog & Power Foundries -->
+        <div class="foundry-card specialty">
+          <div class="foundry-card-top">
+            <div class="foundry-brand-pill" style="color: #10b981;">FOUNDRY 05 · SPECIALTY ANALOG &amp; BCD</div>
+            <h3>Tower &amp; VIS / PSMC</h3>
+          </div>
+          <div class="foundry-node-tiles">
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill"><span data-lang="zh">Tower Y-Flash (0.18um / 65nm BCD)</span><span data-lang="en">Tower Y-Flash (0.18um / 65nm BCD)</span></span>
+                <span class="status-pill status-spec">0-Mask BCD Flash</span>
+              </div>
+              <div>
+                <span data-lang="zh">Tower 自研 0 額外光罩 (0 Mask Adders) 單層多晶矽 eFlash/MTP，原生相容 0.18um 與 65nm BCD 製程；支援 150°C~175°C 車規耐溫留存，對高壓 LDMOS 元件擊穿電壓 (BVdss) 零干擾。</span>
+                <span data-lang="en">Tower proprietary 0-mask single-poly eFlash/MTP natively integrated on 0.18um and 65nm BCD platforms; qualified for 150°C-175°C automotive retention without degrading LDMOS breakdown voltage (BVdss).</span>
+              </div>
+            </div>
+
+            <div class="foundry-node-tile">
+              <div class="node-header-row">
+                <span class="node-pill"><span data-lang="zh">世界先進 VIS / 力積電 PSMC (BCD/HV)</span><span data-lang="en">VIS &amp; PSMC (BCD / HV Ecosystem)</span></span>
+                <span class="status-pill status-prod">PMIC Trim MTP</span>
+              </div>
+              <div>
+                <span data-lang="zh">全面整合億而得 (YMC) 純邏輯多次抹寫 (0-Mask / 1-Mask MTP)，內建專利微型電荷泵，為高壓 PMIC 基準電壓、馬達驅動器偏置與感測器提供出廠即時修調 (Trimming)。</span>
+                <span data-lang="en">Full integration of YMC 0-mask/1-mask logic MTP with on-chip charge pump, enabling precision trimming for PMIC Vout reference, motor driver offsets, and sensor calibration.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Embedded NVM Value-Chain Ecosystem Block -->
+      <div style="background: #061e2b; border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 1.75rem; margin-top: 1.5rem;">
+        <div class="hub-sec-badge" style="color: #10b981;">UPSTREAM &amp; DOWNSTREAM INTEGRATION ECOSYSTEM</div>
+        <h3 style="color: #f8fafc; margin: 0.5rem 0 1rem; font: 700 1.25rem 'IBM Plex Mono', monospace;">
+          <span data-lang="zh">非揮發記憶體上下游縱深整合價值鏈：從晶圓製造到系統信任根與異質封裝</span>
+          <span data-lang="en">End-to-End NVM Value Chain: From Foundry Fabrication to Root-of-Trust &amp; Heterogeneous Packaging</span>
+        </h3>
+        <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1rem;">
+          <span data-lang="zh">NVM 選擇並非孤立的位元胞比較，而是涵蓋上游晶圓製程（光罩成本／熱預算）、中游 IP 拓撲（穿隧／電荷泵／物理不可複製性）與下游終端系統（車規 ASIL-D、AI 加速器硬體信任根、無源物聯網）的完整生態協同：</span>
+          <span data-lang="en">NVM selection is never an isolated bitcell decision, but a holistic co-optimization across upstream foundries (mask adders/thermal budget), midstream IP topologies (tunneling/charge pump/PUF), and downstream systems (automotive ASIL-D, AI accelerator HRoT, passive IoT):</span>
+        </p>
+
+        <div class="value-chain-grid">
+          <!-- PUFsecurity -->
+          <div class="value-chain-card">
+            <div class="value-chain-badge">01 · HARDWARE ROOT OF TRUST</div>
+            <h4>PUFsecurity 熵碼科技</h4>
+            <div class="vc-layer">
+              <b>[上游晶圓]</b> <span data-lang="zh">TSMC (5nm–55nm) 與 UMC 標準 CMOS 純邏輯製程，0 額外光罩 (0 Mask Adders)。</span><span data-lang="en">TSMC (5nm-55nm) &amp; UMC standard CMOS logic; 0 mask adders.</span>
+            </div>
+            <div class="vc-layer">
+              <b>[中游 IP]</b> <span data-lang="zh">利用閘極氧化層微觀隨機量子穿隧變異產生物理不可複製晶片指紋 (NeoPUF)；整合 AntiFuse OTP、NIST SP 800-90B TRNG 與 PUFcc 密碼處理器，天然具備 TEM/FIB 零實體電荷抗性。</span><span data-lang="en">Harnesses gate oxide quantum tunneling variations for hardware fingerprinting (NeoPUF); pairs with AntiFuse OTP, NIST SP 800-90B TRNG, and PUFcc crypto engine with static TEM immunity.</span>
+            </div>
+            <div class="vc-layer">
+              <b>[下游系統]</b> <span data-lang="zh">AI 邊緣推論加速器模型權重與金鑰保護、車用 ISO 26262 ASIL-D / ISO 21434 安全開機 (Secure Boot)、PSA Certified Level 3 物聯網認證。</span><span data-lang="en">Edge AI model/key protection, automotive ASIL-D / ISO 21434 secure boot, and PSA Level 3 IoT device credentials.</span>
+            </div>
+          </div>
+
+          <!-- YMC -->
+          <div class="value-chain-card">
+            <div class="value-chain-badge">02 · POWER &amp; SENSOR TRIMMING</div>
+            <h4>YMC 億而得微電子</h4>
+            <div class="vc-layer">
+              <b>[上游晶圓]</b> <span data-lang="zh">世界先進 (VIS 0.153um/0.18um/0.25um BCD)、力積電 (PSMC)、UMC 等標準邏輯與高壓製程，0-Mask 至 1-Mask。</span><span data-lang="en">Vanguard (VIS BCD), PSMC, UMC logic and BCD processes; 0-mask to 1-mask adders.</span>
+            </div>
+            <div class="vc-layer">
+              <b>[中游 IP]</b> <span data-lang="zh">純邏輯 EEPROM / MTP，FN/FN 穿隧機制，1K~100K 抹寫次數；內建專利微型電荷泵，晶片在普通作業電壓下即可完成出廠程式化，免外部高壓測試腳位。</span><span data-lang="en">Logic EEPROM/MTP with FN/FN tunneling (1K-100K cycles); integrated on-chip charge pump eliminating external high-voltage programming pins.</span>
+            </div>
+            <div class="vc-layer">
+              <b>[下游系統]</b> <span data-lang="zh">高壓電源管理 IC (PMIC) 基準電壓微調 (Vout Trim)、馬達驅動器偏置修正、Type-C PD 協議控制器、顯示器驅動 Gamma 校準。</span><span data-lang="en">PMIC Vout voltage trimming, motor driver offset calibration, Type-C PD controllers, and display driver Gamma calibration.</span>
+            </div>
+          </div>
+
+          <!-- Impinj -->
+          <div class="value-chain-card">
+            <div class="value-chain-badge">03 · PASSIVE IOT &amp; ULTRA-LOW POWER</div>
+            <h4>Impinj (AEON 邏輯 NVM)</h4>
+            <div class="vc-layer">
+              <b>[上游晶圓]</b> <span data-lang="zh">TSMC / UMC 純數位邏輯 CMOS 製程，完全不需要額外光罩或外加高壓退火 (0 Mask Adders)。</span><span data-lang="en">Standard digital CMOS foundry platforms (TSMC/UMC); zero additional mask adders.</span>
+            </div>
+            <div class="vc-layer">
+              <b>[中游 IP]</b> <span data-lang="zh">單層多晶矽 (Single-Poly) 浮閘架構，極致優化之次微安級 (Sub-µA) 超低功耗感測放大器，兼顧超高感度與可靠保持。</span><span data-lang="en">Single-poly floating gate topology featuring sub-microampere read sensing current for extreme energy-harvesting budgets.</span>
+            </div>
+            <div class="vc-layer">
+              <b>[下游系統]</b> <span data-lang="zh">被動式 UHF RFID Tag (Monza 系列)、無電池微弱 RF 能量採集 (Energy Harvesting) 無源物聯網節點與智慧物流防偽追蹤。</span><span data-lang="en">Passive UHF RFID tags (Monza family), battery-free RF energy-harvesting IoT nodes, and anti-counterfeiting supply chain trackers.</span>
+            </div>
+          </div>
+
+          <!-- Winbond & Macronix -->
+          <div class="value-chain-card">
+            <div class="value-chain-badge">04 · CHIPLET &amp; SIP HETEROGENEOUS</div>
+            <h4>Winbond 華邦 &amp; Macronix 旺宏</h4>
+            <div class="vc-layer">
+              <b>[上游晶圓]</b> <span data-lang="zh">專用車規與工規 NOR Flash 晶圓工藝 (45nm/28nm)，通過嚴苛之 AEC-Q100 Grade 0 (-40°C ~ +150°C) 認證。</span><span data-lang="en">Dedicated automotive/industrial NOR Flash processes (45nm/28nm) qualified to AEC-Q100 Grade 0 (-40°C to +150°C).</span>
+            </div>
+            <div class="vc-layer">
+              <b>[中游封裝]</b> <span data-lang="zh">KGD (Known Good Die) 裸晶堆疊、WLCSP/USON 超小型封裝，透過 Octal SPI / xSPI 介面提供高達 400MB/s 讀取頻寬與就地執行 (XiP)。</span><span data-lang="en">Known Good Die (KGD), WLCSP/USON packaging, and Octal SPI / xSPI yielding up to 400MB/s bandwidth with execute-in-place (XiP).</span>
+            </div>
+            <div class="vc-layer">
+              <b>[下游系統]</b> <span data-lang="zh">解決先進節點 (N7/N5/N3 FinFET/GAA) 無法整合嵌入式 Flash 的微縮斷崖，於 ADAS 域控制器、智慧座艙與自駕晶片實現近距極速冷開機 (Instant-On Boot)。</span><span data-lang="en">Bypasses the advanced FinFET/GAA eFlash scaling cliff, enabling near-die Instant-On boot for ADAS domain controllers and smart cockpits.</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Physical Security Deep-Dive Block -->
@@ -2283,7 +2397,7 @@
       </style>
 
 
-      <div class="rm-glance" aria-label="read modes glance">
+      <div class="rm-glance" aria-label="read modes glance" data-aria-zh="讀取架構速覽" data-aria-en="read modes glance">
         <div class="rm-glance-item"><b><span data-lang="zh">1 · 單端</span><span data-lang="en">1 · Single-ended</span></b><span data-lang="zh">1 實體 bit · 有外部 Ref</span><span data-lang="en">1 physical bit · external Ref</span></div>
         <div class="rm-glance-item"><b><span data-lang="zh">2 · 冗餘</span><span data-lang="en">2 · Redundant</span></b><span data-lang="zh">≥2 同側並聯 · 有外部 Ref</span><span data-lang="en">≥2 same-side parallel · external Ref</span></div>
         <div class="rm-glance-item"><b><span data-lang="zh">3 · 差動</span><span data-lang="en">3 · Differential</span></b><span data-lang="zh">BL 對 /BL · 無外部 Ref</span><span data-lang="en">BL vs /BL · no external Ref</span></div>
@@ -2302,7 +2416,7 @@
       <div class="rm-grid">
         <article class="rm-card" id="rm-single">
           <div class="rm-card-head"><h3><span data-lang="zh">1 · Single-ended（單端）</span><span data-lang="en">1 · Single-ended</span></h3><div class="rm-chips"><span class="rm-chip on-ref"><span data-lang="zh">有 Ref</span><span data-lang="en">Has Ref</span></span><span class="rm-chip"><span data-lang="zh">1 phy</span><span data-lang="en">1 phy</span></span></div></div>
-          <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Single-ended: one physical bit versus reference into sense amp to one logical bit">
+          <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Single-ended: one physical bit versus reference into sense amp to one logical bit" data-aria-zh="單端讀取：單一實體位元對比參考端輸入感測放大器以輸出單一邏輯位元" data-aria-en="Single-ended: one physical bit versus reference into sense amp to one logical bit">
             <defs>
               <marker id="rm-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#c4a574"/></marker>
             </defs>
@@ -2338,7 +2452,7 @@
 
         <article class="rm-card" id="rm-redundant">
           <div class="rm-card-head"><h3><span data-lang="zh">2 · Redundant（單端＋冗餘）</span><span data-lang="en">2 · Redundant (single-ended + redundancy)</span></h3><div class="rm-chips"><span class="rm-chip on-ref"><span data-lang="zh">有 Ref</span><span data-lang="en">Has Ref</span></span><span class="rm-chip redun"><span data-lang="zh">≥2 並聯</span><span data-lang="en">≥2 parallel</span></span></div></div>
-          <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Redundant same-polarity: two physical bits in parallel versus reference into one sense amp">
+          <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Redundant same-polarity: two physical bits in parallel versus reference into one sense amp" data-aria-zh="同極性備援：雙實體位元並聯對比參考端輸入單一感測放大器" data-aria-en="Redundant same-polarity: two physical bits in parallel versus reference into one sense amp">
             <defs>
               <marker id="rm-arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#c4a574"/></marker>
             </defs>
@@ -2383,7 +2497,7 @@
 
         <article class="rm-card" id="rm-differential">
           <div class="rm-card-head"><h3><span data-lang="zh">3 · Differential（互補差動）</span><span data-lang="en">3 · Differential (complementary pair)</span></h3><div class="rm-chips"><span class="rm-chip no-ref"><span data-lang="zh">無 Ref</span><span data-lang="en">No Ref</span></span><span class="rm-chip diff"><span data-lang="zh">BL ↔ /BL</span><span data-lang="en">BL ↔ /BL</span></span></div></div>
-          <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Differential: two complementary physical bits compared with no external reference">
+          <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Differential: two complementary physical bits compared with no external reference" data-aria-zh="差分讀取：雙互補實體位元直接比較無須外部參考" data-aria-en="Differential: two complementary physical bits compared with no external reference">
             <defs>
               <marker id="rm-arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#c4a574"/></marker>
             </defs>
@@ -2426,7 +2540,7 @@
 
         <article class="rm-card" id="rm-diff-red">
           <div class="rm-card-head"><h3><span data-lang="zh">4 · Differential redundant（差動＋冗餘）</span><span data-lang="en">4 · Differential + redundant</span></h3><div class="rm-chips"><span class="rm-chip no-ref"><span data-lang="zh">無 Ref</span><span data-lang="en">No Ref</span></span><span class="rm-chip diff"><span data-lang="zh">差動</span><span data-lang="en">Differential</span></span><span class="rm-chip redun"><span data-lang="zh">每軌 ≥2</span><span data-lang="en">≥2 / rail</span></span></div></div>
-          <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Differential plus redundant: each rail has two parallel physical bits compared with no external reference">
+          <svg class="rm-svg" viewBox="0 0 400 168" role="img" aria-label="Differential plus redundant: each rail has two parallel physical bits compared with no external reference" data-aria-zh="差分加備援：各軌具備雙並聯實體位元直接比對無須外部參考" data-aria-en="Differential plus redundant: each rail has two parallel physical bits compared with no external reference">
             <defs>
               <marker id="rm-arr4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1.5 L9 5 L0 8.5 Z" fill="#c4a574"/></marker>
             </defs>
@@ -2480,7 +2594,7 @@
       </div>
 
       <div class="rm-table-wrap">
-        <table class="rm-table">
+        <table class="rm-table" aria-label="NVM Read Mode Resilience Comparison" data-aria-zh="NVM 讀取模式強韌度對比表" data-aria-en="NVM Read Mode Resilience Comparison">
           <thead>
             <tr>
               <th scope="col"><span data-lang="zh">軸向</span><span data-lang="en">Axis</span></th>

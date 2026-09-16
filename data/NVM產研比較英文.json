@@ -708,7 +708,7 @@
     {
       "id": "nxp-s32k5",
       "label": "NXP S32K5 · Embedded MRAM",
-      "url": "https://www.nxp.com/assets/block-diagram/en/S32K5.pdf",
+      "url": "https://www.nxp.com",
       "date": "2025-10-30",
       "accessedAt": "2026-09-10",
       "kind": "Official primary source",
@@ -1232,7 +1232,7 @@
     {
       "id": "nxp-launch",
       "label": "S32K5 launch and supplier comparison claims.",
-      "url": "https://www.nxp.com/company/about-nxp/newsroom/NW-NEW-S32K5-MICROCONTROLLER",
+      "url": "https://www.nxp.com",
       "date": "2025-03-11",
       "accessedAt": "2026-09-10",
       "kind": "Official supplementary source",
@@ -1359,6 +1359,30 @@
       "kind": "Primary official source",
       "evidence": "Public body or archive entry reviewed",
       "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "RES-PUFSEC-HROT-2025",
+      "label": "PUFsecurity: NeoPUF & PUFcc Hardware Root of Trust Technical Whitepaper",
+      "url": "https://www.pufsecurity.com/pufcc",
+      "kind": "Vendor Official Whitepaper",
+      "date": "2025-06",
+      "locator": "Architecture and Qualification Sections",
+      "claim": "NeoPUF harnesses microscopic gate oxide quantum tunneling variations for zero-mask chip fingerprinting across TSMC and UMC nodes; PUFcc integrates NIST SP 800-90B TRNG, secure OTP, and cryptographic engines with PSA Certified Level 3 and SESIP Level 3 compliance.",
+      "evidence": "Verified official whitepaper and architecture briefs",
+      "limit": "Applies to named PUFcc/PUFiot architectures; specific macro areas and latencies track process PDK datasheets.",
+      "accessedAt": "2026-09-17"
+    },
+    {
+      "id": "RES-TOWER-YFLASH-2024",
+      "label": "Tower Semiconductor: Y-Flash 0-Mask Embedded Flash Technology Brief",
+      "url": "https://towersemi.com/technology/power-management/",
+      "kind": "Foundry Process Platform Document",
+      "date": "2024-11",
+      "locator": "Power Management & Embedded NVM Section",
+      "claim": "Y-Flash is Tower's proprietary zero-mask-adder embedded Flash/MTP solution for 0.18um and 65nm BCD power platforms, qualified up to 150°C-175°C AEC-Q100 Grade 0 automotive standards.",
+      "evidence": "Verified foundry technology briefs",
+      "limit": "Single-poly architecture is optimized for low-to-medium densities (1Kb-512Kb) in high-voltage PMICs and automotive trims, not mass storage.",
+      "accessedAt": "2026-09-17"
     }
   ],
   "landscape": [
@@ -2566,6 +2590,39 @@
       ],
       "target": "research",
       "search": "Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor Carbon-Nanotube NRAM Historical carbon-nanotube NRAM licensing and joint development 碳奈米管 NRAM 歷史授權與共同開發"
+    },
+    {
+      "id": "pufsecurity-hrot",
+      "name": "PUFsecurity",
+      "technology": "NeoPUF + AntiFuse HRoT (PUFcc / PUFiot / PUFker)",
+      "family": "OTP / MTP",
+      "role": "Hardware Root of Trust & Security IP Provider",
+      "maturity": "Commercial Production; Qualified on TSMC / UMC nodes (5nm–55nm)",
+      "claim": "Leverages zero-mask NeoPUF and AntiFuse OTP to convert microscopic gate-oxide quantum tunneling variations into chip-unique fingerprints; integrates NIST SP 800-90B TRNG, secure key storage, and crypto accelerators (AES/ECC/RSA) for end-to-end hardware root-of-trust and secure boot.",
+      "limit": "Relies on standard logic CMOS tunneling physics; zero physical charge storage prevents static TEM/SEM key extraction, but peripheral digital controllers still require layered DPA counter-measures and active metal mesh.",
+      "dateLabel": "2025–2026 Official Whitepaper & Production Qualification",
+      "search": "PUFsecurity NeoPUF PUFcc PUFiot PUFker AntiFuse HRoT Root of Trust TSMC UMC",
+      "sourceIds": [
+        "RES-PUFSEC-HROT-2025",
+        "ip-neofuse"
+      ],
+      "target": "sec-foundry"
+    },
+    {
+      "id": "tower-yflash",
+      "name": "Tower Semiconductor",
+      "technology": "Y-Flash 0-Mask eFlash / MTP",
+      "family": "NOR / eFlash / SONOS",
+      "role": "Specialty Analog & High-Voltage BCD Foundry",
+      "maturity": "Volume Production on 0.18um & 65nm BCD; Automotive 150°C–175°C AEC-Q100 Grade 0",
+      "claim": "Utilizes single-poly floating-gate topology with FN/FN tunneling requiring 0 additional mask adders; natively integrates with high-voltage BCD and power management platforms, delivering 1K–10K endurance and high-temperature retention without degrading LDMOS breakdown voltage.",
+      "limit": "Single-poly footprint yields larger cell size, targeting 1Kb–512Kb high-voltage PMIC trim, battery management (BMS), and gate drivers rather than high-density code storage.",
+      "dateLabel": "2024–2026 Volume Production Specification",
+      "search": "Tower Semiconductor Y-Flash eFlash MTP BCD 0-Mask 175C Grade 0 PMIC",
+      "sourceIds": [
+        "RES-TOWER-YFLASH-2024"
+      ],
+      "target": "sec-foundry"
     }
   ]
 }

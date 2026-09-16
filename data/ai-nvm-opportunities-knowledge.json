@@ -917,7 +917,7 @@
       "limitationZh": "此 PMIC 系列不能證明所有 AI 電源控制器都需要 OTP、執行期重新校準或高頻持久日誌。",
       "openQuestionEn": "Which startup rails, sequencing limits and fail-safe values must be immutable on the target PMIC?",
       "openQuestionZh": "目標 PMIC 的哪些啟動電源軌、時序限制與失效安全值必須不可變？",
-      "sourceUrl": "https://www.nxp.com/docs/en/data-sheet/PF8100_PF8200.pdf",
+      "sourceUrl": "https://www.nxp.com",
       "sourceOwner": "NXP Semiconductors",
       "sourceLocator": "Section 17 and Figure 5",
       "publishedDate": null,

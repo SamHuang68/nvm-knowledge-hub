@@ -684,7 +684,7 @@
     }
   </style>
 </head>
-<body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial">
+<body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content">
     <span data-lang="zh">跳至主要內容</span>
     <span data-lang="en">Skip to main content</span>
@@ -845,7 +845,7 @@
         <aside class="lens-vertical-rail" aria-label="Automotive chapter lens" data-aria-en="Automotive chapter lens" data-aria-zh="車用章節透鏡導覽">
           <div class="rail-header">
             <span class="rail-title">CHAPTER LENS</span>
-            <span class="rail-tag">01 ~ 04</span>
+            <span class="rail-tag">01 ~ 05</span>
           </div>
           <nav class="hub-nav-pills" role="navigation" aria-label="Automotive chapter anchors" data-aria-en="Automotive chapter anchors" data-aria-zh="車用章節錨點導覽">
             <a class="nav-pill lens-node-item active" href="#sec-gates" data-target="sec-gates">
@@ -874,6 +874,13 @@
               <div class="lens-info">
                 <span class="lens-name"><span data-lang="zh">狀態契約與 ASIL-D</span><span data-lang="en">State Contracts &amp; D</span></span>
                 <span class="lens-sub">SPFM / LFM / &lt;0.1 FIT</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#sec-value-chain" data-target="sec-value-chain">
+              <span class="lens-badge">05</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">上下游整合與異質封裝</span><span data-lang="en">Value Chain &amp; SiP</span></span>
+                <span class="lens-sub">Tower / PUF / Winbond</span>
               </div>
             </a>
           </nav>
@@ -1167,6 +1174,86 @@
               <div style="padding: 10px 14px; font-size: 11px; color: #94a3b8; line-height: 1.55; border-top: 1px solid rgba(255,255,255,0.06); background: #061925;">
                 <span data-lang="zh"><strong>SEooC 假定使用條件 (Assumptions of Use, AoU)：</strong> 記憶體巨集依據 ISO 26262-10/11 SEooC 流程開發，具備 ASIL-D Systematic Capability (SC3)。硬體分配隨機失效率目標 PMHF &lt; 0.1 FIT（遠低於車載系統級 &lt; 10 FIT 分配預算）。系統級 ASIL-D 達成須依賴 Tier-1 / OEM 整合商落實外部安全機制（包括看門狗、電源監控與 SECDED 雙位元致命中斷處理）。依據 ISO 26262-5 殘餘失效率因果數學模型：<code>&lambda;<sub>residual</sub> = &lambda;<sub>raw</sub> &middot; (1 - K<sub>DC</sub>) + &lambda;<sub>multi-bit</sub></code>，其中潛伏故障度量目標 <code>LFM &ge; 90%</code>（ASIL-D 門檻，由 <code>K<sub>DC,latent</sub></code> 支撐）嚴格依賴系統級定期巡檢週期 (Periodic Memory Scrubbing Interval, <code>T<sub>scrub</sub> &le; T<sub>latent_budget</sub></code>)，以確保潛伏單點故障在累積為不可校正的雙位元錯誤前被即時偵測修復。</span>
                 <span data-lang="en"><strong>SEooC Assumptions of Use (AoU):</strong> Memory macro developed under ISO 26262 SEooC methodology with ASIL-D SC3 systematic capability and allocated PMHF target &lt; 0.1 FIT (well below the system-level &lt; 10 FIT budget). Item-level ASIL-D compliance requires Tier-1/OEM integration of external safety mechanisms (watchdog, supply monitor, and fatal DED trap handling). Per ISO 26262-5 causal metrics, residual failure rate follows: <code>&lambda;<sub>residual</sub> = &lambda;<sub>raw</sub> &middot; (1 - K<sub>DC</sub>) + &lambda;<sub>multi-bit</sub></code>. Achieving latent fault metric target <code>LFM &ge; 90%</code> for ASIL-D (supported by <code>K<sub>DC,latent</sub></code>) strictly depends on system-level periodic Memory Scrubbing interval constraints (<code>T<sub>scrub</sub> &le; T<sub>latent_budget</sub></code>) to detect and correct latent single-bit faults before dual-bit accumulation.</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 5: UPSTREAM/DOWNSTREAM VALUE CHAIN & HETEROGENEOUS PACKAGING -->
+          <section id="sec-value-chain" class="lens-panel" aria-labelledby="auto-value-chain-title">
+            <div class="panel-hero-bar">
+              <div class="hero-bar-meta">
+                <span class="meta-tag" style="background:rgba(16,185,129,0.18); color:#34d399; border-color:rgba(16,185,129,0.4);">CHAPTER 05 · VALUE CHAIN &amp; SIP</span>
+                <span class="meta-desc">FOUNDRY PDK · HARBOR ROOT-OF-TRUST · CHIPLET HETEROGENEOUS PACKAGING</span>
+              </div>
+              <h3 id="auto-value-chain-title" style="margin: 0.5rem 0 0.25rem; font-size: 1.4rem; color: #fff;">
+                <span data-lang="zh">車用嵌入式非揮發記憶體：上下游縱深整合架構與異質封裝典範</span>
+                <span data-lang="en">Automotive eNVM: Value-Chain Integration &amp; Heterogeneous Packaging Paradigms</span>
+              </h3>
+              <p style="color: #cbd5e1; font-size: 0.88rem; line-height: 1.6; margin: 0;">
+                <span data-lang="zh">汽車電子對環境溫度、失效率 (0 ppm) 與功能安全的要求，推動 NVM 從單純晶圓製程走向上下游端到端協同：涵蓋高壓動力 BCD 原生 0-Mask Flash、車規硬體信任根 (HRoT)，以及突破先進節點微縮斷崖的微型封裝與 Chiplet 異質整合。</span>
+                <span data-lang="en">Stringent automotive thermal envelopes, zero-ppm quality, and functional safety demand holistic value-chain co-optimization: spanning high-voltage BCD zero-mask eFlash, automotive hardware root-of-trust, and near-die heterogeneous Chiplet integration bypassing advanced-node scaling cliffs.</span>
+              </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr)); gap: 16px; margin-top: 20px;">
+              <!-- Pillar 1: Tower Y-Flash -->
+              <div style="background: #082433; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font: 800 10px 'IBM Plex Mono'; color: #34d399; letter-spacing: 0.1em;">01 · BCD HIGH-VOLTAGE &amp; BMS</span>
+                  <span style="font-size: 10px; background: rgba(16, 185, 129, 0.15); color: #34d399; padding: 2px 6px; border-radius: 3px;">Grade 0 (175°C Tj)</span>
+                </div>
+                <h4 style="margin: 0; color: #fff; font-size: 1.1rem; font-family: 'IBM Plex Mono';">Tower Semiconductor Y-Flash</h4>
+                <div style="font-size: 0.84rem; line-height: 1.6; color: #cbd5e1;">
+                  <p style="margin: 0 0 8px;">
+                    <strong style="color: #c4a574;">[上游代工]</strong> 0.18µm 與 65nm BCD 平台原生支援，完全<strong>零額外光罩 (0 Mask Adders)</strong>，採用單層多晶矽浮閘與 FN/FN 穿隧抹寫。
+                  </p>
+                  <p style="margin: 0 0 8px;">
+                    <strong style="color: #c4a574;">[車規耐溫]</strong> 達成 AEC-Q100 Grade 0 (-40°C ~ +150°C/175°C Tj)，高溫資料留存 &gt;10 年，且製造流程無額外熱預算，對高壓 LDMOS 功率開關耐壓 (BVdss) 零衝擊。
+                  </p>
+                  <p style="margin: 0;">
+                    <strong style="color: #c4a574;">[下游系統]</strong> 車載電池管理系統 (BMS) 電池單元阻抗黑盒子查表、48V 伺服器/車載 VRM 數位電源控制、智慧高壓閘極驅動 IC。
+                  </p>
+                </div>
+              </div>
+
+              <!-- Pillar 2: PUFsecurity HRoT -->
+              <div style="background: #082433; border: 1px solid rgba(196, 165, 116, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font: 800 10px 'IBM Plex Mono'; color: #dfb77c; letter-spacing: 0.1em;">02 · VEHICLE ID &amp; SECURE BOOT</span>
+                  <span style="font-size: 10px; background: rgba(196, 165, 116, 0.15); color: #dfb77c; padding: 2px 6px; border-radius: 3px;">ISO 26262 ASIL-D</span>
+                </div>
+                <h4 style="margin: 0; color: #fff; font-size: 1.1rem; font-family: 'IBM Plex Mono';">PUFsecurity / 力旺 NeoPUF + AntiFuse</h4>
+                <div style="font-size: 0.84rem; line-height: 1.6; color: #cbd5e1;">
+                  <p style="margin: 0 0 8px;">
+                    <strong style="color: #c4a574;">[上游代工]</strong> TSMC / UMC 40nm 至 5nm 車規標準邏輯 CMOS 製程，0 額外光罩，相容嚴苛晶圓簽核門禁。
+                  </p>
+                  <p style="margin: 0 0 8px;">
+                    <strong style="color: #c4a574;">[安全架構]</strong> 微觀閘極氧化層量子穿隧隨機指紋 (NeoPUF) + AntiFuse 永久微絲；整合 NIST SP 800-90B TRNG、安全金鑰儲存與 DPA/CPA 側信道對稱/非對稱硬體加速處理器 (PUFcc)。
+                  </p>
+                  <p style="margin: 0;">
+                    <strong style="color: #c4a574;">[下游系統]</strong> 車載中央閘道器與 ADAS 晶片之不可變車輛身分 (Vehicle Unique ID)、V2X 憑證注入、ISO 21434 車載網路安全與 ASIL-D 系統安全開機 (Secure Boot)。
+                  </p>
+                </div>
+              </div>
+
+              <!-- Pillar 3: Winbond & Macronix Heterogeneous -->
+              <div style="background: #082433; border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font: 800 10px 'IBM Plex Mono'; color: #7dd3fc; letter-spacing: 0.1em;">03 · ADVANCED-NODE CHIPLET / SIP</span>
+                  <span style="font-size: 10px; background: rgba(56, 189, 248, 0.15); color: #7dd3fc; padding: 2px 6px; border-radius: 3px;">AEC-Q100 G0 · XiP</span>
+                </div>
+                <h4 style="margin: 0; color: #fff; font-size: 1.1rem; font-family: 'IBM Plex Mono';">Winbond 華邦 &amp; Macronix 旺宏異質整合</h4>
+                <div style="font-size: 0.84rem; line-height: 1.6; color: #cbd5e1;">
+                  <p style="margin: 0 0 8px;">
+                    <strong style="color: #c4a574;">[微縮斷崖挑戰]</strong> 7nm/5nm/3nm 先進 FinFET/GAA 邏輯節點由於額外光罩成本暴增 30%+ 與高溫退火破壞電晶體，無法內建傳統 eFlash。
+                  </p>
+                  <p style="margin: 0 0 8px;">
+                    <strong style="color: #c4a574;">[異質整合解法]</strong> 採用專用車規 Grade 0 (45nm/28nm) NOR Flash 之 <strong>KGD (Known Good Die)</strong> 晶圓裸晶、WLCSP / USON 超小型封裝，進行 2.5D/3D SiP (System-in-Package) 緊密堆疊。
+                  </p>
+                  <p style="margin: 0;">
+                    <strong style="color: #c4a574;">[下游系統]</strong> 透過 Octal SPI / xSPI 介面提供高達 <strong>400MB/s</strong> 頻寬與晶片外就地執行 (XiP)，於自動駕駛 ADAS 域控制器與智慧座艙達成 50ms 內極速冷啟動 (Instant-On Boot)。
+                  </p>
+                </div>
               </div>
             </div>
           </section>

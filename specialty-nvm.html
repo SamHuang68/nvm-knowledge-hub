@@ -402,7 +402,7 @@
   }
 </style>
 </head>
-<body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial">
+<body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
 <a class="skip-link" href="#main-content">
 <span data-lang="zh">跳至主要內容</span>
 <span data-lang="en">Skip to main content</span>
@@ -1028,6 +1028,77 @@
 </div>
 </div>
 </div>
+<!-- BCD Specialty Foundry eNVM Ecosystem Deep-Dive: Tower Y-Flash vs YMC MTP vs AntiFuse -->
+<div class="deck-flow-container" style="margin-top: 24px; border-left: 4px solid #10b981;">
+  <div class="deck-flow-header">
+    <div class="deck-header-left">
+      <span class="deck-slide-badge" style="color:#10b981; border-color:rgba(16,185,129,0.3); background:rgba(16,185,129,0.1);">FOUNDRY ECOSYSTEM BCD MATRIX</span>
+      <h4>
+        <span data-lang="zh">BCD 製程專用 eNVM 代工生態：Tower Y-Flash、VIS/PSMC 億而得 (YMC) 與純邏輯 AntiFuse 縱深比較</span>
+        <span data-lang="en">Specialty BCD eNVM Foundry Matrix: Tower Y-Flash, VIS/PSMC YMC MTP &amp; Logic AntiFuse Co-Optimization</span>
+      </h4>
+    </div>
+    <div class="deck-header-right">
+      <span>● SPECIALTY BCD &amp; POWER</span>
+      <span>0 MASK ADDERS</span>
+    </div>
+  </div>
+
+  <div style="padding: 18px 20px; font-size: 0.88rem; line-height: 1.65; color: #cbd5e1;">
+    <p style="margin: 0 0 16px;">
+      <span data-lang="zh">在高壓 BCD（Bipolar-CMOS-DMOS）製程中，整合傳統雙層浮閘 eFlash 需面臨 8~12 道額外光罩與破壞功率元件耐壓的熱預算難題。業界主要 Specialty 代工廠與 IP 供應商發展出三條高度互補的 0-Mask 縱深路徑：</span>
+      <span data-lang="en">Integrating conventional double-poly eFlash into high-voltage BCD (Bipolar-CMOS-DMOS) carries an 8-12 mask adder penalty and severe thermal budget impacts on power DMOS breakdown. Specialty foundries and IP providers have engineered three highly complementary zero-mask architectures:</span>
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px;">
+      <!-- Card 1: Tower Y-Flash -->
+      <div style="background: rgba(4, 18, 28, 0.7); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <b style="color: #34d399; font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem;">Tower Semiconductor Y-Flash</b>
+          <span style="font-size: 10px; background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 2px 6px; border-radius: 3px;">0-Mask BCD Flash</span>
+        </div>
+        <div style="font-size: 0.82rem; line-height: 1.55; color: #94a3b8; display: grid; gap: 6px;">
+          <div><strong style="color: #f8fafc;">製程節點：</strong> 0.18µm BCD 與 65nm BCD 原生平台</div>
+          <div><strong style="color: #f8fafc;">物理機制：</strong> 單層多晶矽 (Single-Poly) 浮閘，FN/FN 穿隧抹寫</div>
+          <div><strong style="color: #f8fafc;">耐久／留存：</strong> 1K～10K cycles；AEC-Q100 Grade 0 (150°C～175°C Tj)</div>
+          <div><strong style="color: #f8fafc;">高壓共存性：</strong> 零額外高溫退火，完全不影響大功率 LDMOS 擊穿電壓 (BVdss) 與導通電阻 (Ron)</div>
+          <div><strong style="color: #f8fafc;">典型應用：</strong> 車用電池管理 (BMS) 電池阻抗 LUT、48V 伺服器 VRM 數位電源控制、高壓馬達驅動器</div>
+        </div>
+      </div>
+
+      <!-- Card 2: YMC MTP on VIS / PSMC -->
+      <div style="background: rgba(4, 18, 28, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; padding: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <b style="color: #7dd3fc; font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem;">YMC 億而得微電子 (VIS/PSMC/UMC)</b>
+          <span style="font-size: 10px; background: rgba(56, 189, 248, 0.2); color: #7dd3fc; padding: 2px 6px; border-radius: 3px;">Logic MTP / EEPROM</span>
+        </div>
+        <div style="font-size: 0.82rem; line-height: 1.55; color: #94a3b8; display: grid; gap: 6px;">
+          <div><strong style="color: #f8fafc;">製程節點：</strong> 世界先進 VIS (0.153µm/0.18µm/0.25µm BCD)、力積電 PSMC、UMC</div>
+          <div><strong style="color: #f8fafc;">物理機制：</strong> 純邏輯 EEPROM，帶帶熱電洞注入 (BBHH) 或 FN 穿隧</div>
+          <div><strong style="color: #f8fafc;">耐久／留存：</strong> 1K～100K cycles；10+ 年留存 @ 125°C</div>
+          <div><strong style="color: #f8fafc;">電路特點：</strong> 內建專利微型電荷泵 (Charge Pump)，免除晶圓測試與系統端高壓 VPP 腳位負擔</div>
+          <div><strong style="color: #f8fafc;">典型應用：</strong> PMIC 基準電壓精準修調 (Vout Trim)、Type-C USB-PD 3.1 供電協議線上韌體更新、音訊 Codec 校準</div>
+        </div>
+      </div>
+
+      <!-- Card 3: AntiFuse OTP -->
+      <div style="background: rgba(4, 18, 28, 0.7); border: 1px solid rgba(196, 165, 116, 0.3); border-radius: 6px; padding: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <b style="color: #dfb77c; font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem;">純邏輯 AntiFuse OTP (力旺 / Synopsys)</b>
+          <span style="font-size: 10px; background: rgba(196, 165, 116, 0.2); color: #dfb77c; padding: 2px 6px; border-radius: 3px;">0-Mask Hard OTP</span>
+        </div>
+        <div style="font-size: 0.82rem; line-height: 1.55; color: #94a3b8; display: grid; gap: 6px;">
+          <div><strong style="color: #f8fafc;">製程節點：</strong> 全球所有主流晶圓代工廠 (TSMC, UMC, VIS, GF, Tower) 純邏輯製程</div>
+          <div><strong style="color: #f8fafc;">物理機制：</strong> 閘極氧化層永久性硬擊穿細絲，不可逆歐姆微絲</div>
+          <div><strong style="color: #f8fafc;">耐久／留存：</strong> 1 次寫入；&gt;100 年留存 @ 150°C，極限結溫 175°C 無電荷洩漏風險</div>
+          <div><strong style="color: #f8fafc;">安全防護：</strong> 無浮閘電荷，抗 X-Ray 與 UV 光照，高難度 FIB/TEM 逆向防護</div>
+          <div><strong style="color: #f8fafc;">典型應用：</strong> 帶隙基準電壓 (Bandgap Vref) 永久鎖定、晶圓識別碼 (Wafer ID)、車規黑盒子晶片序號</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- =========================================================
              FLAGSHIP LAB 01: BCD TRIMMING & ZERO-MASK CALCULATOR
              ========================================================= -->

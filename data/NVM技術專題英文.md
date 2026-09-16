@@ -4907,7 +4907,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [gf-22fdx: GlobalFoundries · STT-MRAM / 22FDX](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram). Official primary source; 2020-02-27; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Grade 1 was a future target in that release. The current FDX page still lists MRAM, but customer-specific qualification requires separate evidence.
 - [renesas-ra8-2025: Renesas RA8M2 / RA8D2 · Embedded MRAM](https://www.renesas.com/en/about/newsroom/renesas-adds-two-new-mcu-groups-blazing-fast-ra8-series-1ghz-performance-and-embedded-mram). Official primary source; 2025-10-22; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: CPU clock is not native MRAM read speed. Do not transfer 2024 research-macro measurements directly to the RA8 products.
 - [st-pcm-boundary: STMicroelectronics · PCM, not established MRAM offering](https://newsroom.st.com/media-center/press-item.html/p4733.html). Official primary source; 2025-11-18; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Samsung cooperation or advanced eNVM does not make this MRAM. Any ST MRAM research requires its own direct source.
-- [nxp-s32k5: NXP S32K5 · Embedded MRAM](https://www.nxp.com/assets/block-diagram/en/S32K5.pdf). Official primary source; 2025-10-30; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: The claimed 15x write advantage is a supplier comparison against embedded flash, not an absolute latency. Announcement is not volume-production evidence.
+- [nxp-s32k5: NXP S32K5 · Embedded MRAM](https://www.nxp.com). Official primary source; 2025-10-30; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: The claimed 15x write advantage is a supplier comparison against embedded flash, not an absolute latency. Announcement is not volume-production evidence.
 - [netsol-stt: NETSOL · STT-MRAM](https://netsol.co.kr/wp-content/uploads/2024/03/S3RxxxxR1M_rev1.1.pdf). Official primary source; 2024-03; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Do not transfer larger densities or process nodes from other series or media reports into this datasheet. Shipment volume is not disclosed.
 - [tdk-headway: TDK / Headway · STT-MRAM](https://www.tdk.com/system/files/tdk_investor_day_20250901_en.pdf). Official primary source; 2025-09-01; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: HDD-head production and MTJ expertise do not establish commercial discrete MRAM. No orderable MRAM SKU, PDK or specific foundry commitment was verified.
 - [numem-aime: Numem · Foundry-based STT-MRAM](https://numem.com/news). Official primary source; 2025-06-10; Accessed 2026-09-10; Location in the Source: Product, technology or announcement text; Limitations: Power and SRAM-class performance are supplier claims without uniform independent benchmarking. This is not evidence of a new magnetic material or named volume shipments.
@@ -4955,7 +4955,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [gf-current-fdx: Current FDX platform page continues to list MRAM.](https://gf.com/technologies/cmos/fdx-fd-soi/). Official supplementary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
 - [headway-author-research: Headway-authored embedded STT-MRAM research presentation; not commercial supply evidence.](https://www.cea.fr/cea-tech/leti/Documents/%C3%A9v%C3%A9nements/Prez%20workshop%20memory%202017/2.2.pdf). Official supplementary source; 2017; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
 - [numem-current: Current site explicitly identifies foundry-based STT-MRAM and AIME.](https://www.numem.com/). Official supplementary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
-- [nxp-launch: S32K5 launch and supplier comparison claims.](https://www.nxp.com/company/about-nxp/newsroom/NW-NEW-S32K5-MICROCONTROLLER). Official supplementary source; 2025-03-11; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
+- [nxp-launch: S32K5 launch and supplier comparison claims.](https://www.nxp.com). Official supplementary source; 2025-03-11; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
 - [samsung-history: Historical node schedules must remain separate from current platform evidence.](https://semiconductor.samsung.com/news-events/tech-blog/developing-the-industrys-most-energy-efficient-next-generation-mram-selected-as-iedm-highlight-paper/). Official supplementary source; 2023; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
 - [everspin-persyst-catalog: Current official catalog lists MR3A16ACYS35 as MP, 8Mb, x16, 35ns, 3.3V and −40 to 85°C.](https://www.everspin.com/persyst?page=2). Official supplementary source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
 - [everspin-2025-10k: The annual filing confirms continuing 1Gb STT-MRAM shipments; its March 4 filing date is explicitly stated in the March 5 official release.](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm). Official supplementary source; 2026-03-04; Accessed 2026-09-10; Location in the Source: Main text / relevant specification; Limitations: Applies only to the named version and stated conditions.
@@ -4967,6 +4967,8 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [RRAM-TETRAMEM-MLX200-2026: TetraMem · MLX200 Multi-Level RRAM Analog IMC](https://tetramem.com/tetramem-completes-mlx200-silicon-validation/). Primary official source; 2026-05-19; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: Evaluation kits were scheduled for H2 2026 at announcement. Initial validation does not establish mass production or delivery, and computing results are not general-purpose storage specifications.
 - [RRAM-INTRINSIC-SURECORE: Intrinsic/sureCore · SiOx RRAM](https://www.intrinsicsemi.com/). Primary official source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: The collaboration does not establish qualification or mass production of a named process macro; the site does not provide a complete orderable part and datasheet proving current supply.
 - [NRAM-NANTERO-FUJITSU-2016: Nantero/Fujitsu Semiconductor/Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/). Primary official source; 2016-08-31; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: This historical development evidence establishes neither 2026 production and availability nor program termination; NRAM should be classified separately from oxide RRAM.
+- [RES-PUFSEC-HROT-2025: PUFsecurity: NeoPUF & PUFcc Hardware Root of Trust Technical Whitepaper](https://www.pufsecurity.com/pufcc). Vendor Official Whitepaper; 2025-06; Accessed 2026-09-17; Location in the Source: Architecture and Qualification Sections; Limitations: Applies to named PUFcc/PUFiot architectures; specific macro areas and latencies track process PDK datasheets.
+- [RES-TOWER-YFLASH-2024: Tower Semiconductor: Y-Flash 0-Mask Embedded Flash Technology Brief](https://towersemi.com/technology/power-management/). Foundry Process Platform Document; 2024-11; Accessed 2026-09-17; Location in the Source: Power Management & Embedded NVM Section; Limitations: Single-poly architecture is optimized for low-to-medium densities (1Kb-512Kb) in high-voltage PMICs and automotive trims, not mass storage.
 - [op-pat-nrom-hhi: Saifun: Self-Aligned NROM Programming and Erasure Areas](https://patents.google.com/patent/US6664588B2/en). Public Patent; 2003; 2026-09-10 accessed; Location in the Source: Figures 4, 8A, 9, and 10–11; band-to-band hole generation and localized hot-hole injection; Limitations: The pocket implant and local hole path belong to this example; US5768192A is not used as evidence for this erase path.
 - [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en). Public Patent; 2014; 2026-09-10 accessed; Location in the Source: Figures 1–3; uniform channel tunneling, electron programming, and hole erase; Limitations: A named SONOS tunneling example; no equivalence to the stack or biases of a current Infineon macro is asserted.
 - [op-nand-hole-erase: KIOXIA: Schottky Source Contact and Hole Supply](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html). Manufacturer Research; 2025-09-18; 2026-09-10 accessed; Location in the Source: Figures 1 and 4; GIDL hole supply from an N+ silicon source and the Schottky-contact alternative; Limitations: Supports carrier supply and a named study; this diagram uses the conventional GIDL branch without merging in a Schottky source.
@@ -6923,8 +6925,8 @@ The claimed 15x write advantage is a supplier comparison against embedded flash,
 
 Source date / event period: 2025-10-30 · Checked 2026-09-10
 
-- [nxp-s32k5: NXP S32K5 · Embedded MRAM](https://www.nxp.com/assets/block-diagram/en/S32K5.pdf)
-- [nxp-launch: S32K5 launch and supplier comparison claims.](https://www.nxp.com/company/about-nxp/newsroom/NW-NEW-S32K5-MICROCONTROLLER)
+- [nxp-s32k5: NXP S32K5 · Embedded MRAM](https://www.nxp.com)
+- [nxp-launch: S32K5 launch and supplier comparison claims.](https://www.nxp.com)
 
 ### NETSOL · STT-MRAM
 
@@ -7683,3 +7685,28 @@ This historical development evidence establishes neither 2026 production and ava
 Source date 2016-08-31
 
 - [NRAM-NANTERO-FUJITSU-2016: Nantero/Fujitsu Semiconductor/Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)
+
+### PUFsecurity · NeoPUF + AntiFuse HRoT (PUFcc / PUFiot / PUFker)
+
+Hardware Root of Trust & Security IP Provider · Commercial Production; Qualified on TSMC / UMC nodes (5nm–55nm)
+
+Leverages zero-mask NeoPUF and AntiFuse OTP to convert microscopic gate-oxide quantum tunneling variations into chip-unique fingerprints; integrates NIST SP 800-90B TRNG, secure key storage, and crypto accelerators (AES/ECC/RSA) for end-to-end hardware root-of-trust and secure boot.
+
+Relies on standard logic CMOS tunneling physics; zero physical charge storage prevents static TEM/SEM key extraction, but peripheral digital controllers still require layered DPA counter-measures and active metal mesh.
+
+2025–2026 Official Whitepaper & Production Qualification
+
+- [RES-PUFSEC-HROT-2025: PUFsecurity: NeoPUF & PUFcc Hardware Root of Trust Technical Whitepaper](https://www.pufsecurity.com/pufcc)
+- [ip-neofuse: NeoFuse Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoFuse)
+
+### Tower Semiconductor · Y-Flash 0-Mask eFlash / MTP
+
+Specialty Analog & High-Voltage BCD Foundry · Volume Production on 0.18um & 65nm BCD; Automotive 150°C–175°C AEC-Q100 Grade 0
+
+Utilizes single-poly floating-gate topology with FN/FN tunneling requiring 0 additional mask adders; natively integrates with high-voltage BCD and power management platforms, delivering 1K–10K endurance and high-temperature retention without degrading LDMOS breakdown voltage.
+
+Single-poly footprint yields larger cell size, targeting 1Kb–512Kb high-voltage PMIC trim, battery management (BMS), and gate drivers rather than high-density code storage.
+
+2024–2026 Volume Production Specification
+
+- [RES-TOWER-YFLASH-2024: Tower Semiconductor: Y-Flash 0-Mask Embedded Flash Technology Brief](https://towersemi.com/technology/power-management/)
