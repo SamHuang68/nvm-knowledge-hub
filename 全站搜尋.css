@@ -1,0 +1,22 @@
+/* 全站搜尋對話框與頁首按鈕；與首頁知識中心搜尋外觀對齊。 */
+.search-overlay{position:fixed;inset:0;z-index:12000;background:#071b2dcc;backdrop-filter:blur(5px);display:none;align-items:flex-start;justify-content:center;padding:12vh var(--hub-keepout,clamp(24px,4vw,64px)) 25px}
+.search-overlay.is-open{display:flex}
+.search-modal{width:min(740px,100%);max-height:75vh;display:flex;flex-direction:column;border:1px solid #52738b;border-radius:8px;background:#fff;color:#18394f;box-shadow:0 25px 80px #0004;overflow:hidden}
+.search-input-row{display:flex;border-bottom:1px solid #d6e0e7;padding:18px 20px;gap:12px}
+.search-input-row input{width:100%;min-width:0;border:0;background:transparent;color:#18394f;font:400 17px/1.4 Inter,"Noto Sans TC",sans-serif;outline:none}
+.search-input-row button{min-width:34px;border:0;background:#edf2f6;color:#48647b;font-size:23px;border-radius:4px;cursor:pointer}
+.search-status{padding:12px 20px;font-size:12px;color:#567086;background:#f3f6f9;border-bottom:1px solid #d6e0e7}
+.search-results{padding:8px;overflow:auto}
+.search-result-item{display:block;text-decoration:none;padding:12px 15px;border-radius:4px;color:#18394f}
+.search-result-item:hover,.search-result-item:focus{background:#e7f0f6;outline:none}
+.sr-title{font-size:15px;font-weight:500;line-height:1.5}
+.sr-desc{font-size:12px;color:#567086;margin-top:4px;line-height:1.6}
+.search-trigger{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:0;background:transparent;color:inherit;font:400 13px/1 Inter,"Noto Sans TC",sans-serif;cursor:pointer;min-height:44px}
+.search-trigger svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;flex-shrink:0}
+.search-trigger kbd{font:10px Inter,sans-serif;background:rgba(255,255,255,.08);padding:3px 5px;border:1px solid rgba(255,255,255,.18);border-radius:3px;color:inherit}
+.knowledge-header .search-trigger{color:#d1dfe7}
+.knowledge-header .search-trigger kbd{background:#29465d;border-color:#4b6479;color:#c6d4de}
+.nvm-header .search-trigger{color:inherit}
+@media(max-width:1180px){.search-trigger kbd{display:none}}
+@media(max-width:500px){.search-trigger>span{display:none}.search-overlay{padding:9vh 12px 20px}.search-input-row{padding:16px 14px}.search-input-row input{font-size:15px}.search-status{font-size:11px;padding:11px 14px}.sr-title{font-size:14px}.sr-desc{font-size:11px}}
+@media print{.search-trigger,#searchTrigger,.search-overlay{display:none!important}}
