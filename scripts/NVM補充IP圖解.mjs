@@ -1,23 +1,30 @@
 /** 公開原廠頁可核對的補充 IP：Actt/NSCore/Floadia/CFX/Attopsemi/SST。未知 ID 回傳 null。 */
-const C = { ink: '#1b2430', muted: '#4b5563', line: '#7d8794', oxide: '#d9e4f2', metal: '#c9d4e2', well: '#e8edf4', channel: '#f4efe4', current: '#0f766e', electron: '#2563eb', hole: '#c2410c', trap: '#7c3aed', fuse: '#b45309', white: '#fff', accent: '#0f4c81' };
+const C = { ink: '#16334c', muted: '#5b6f82', silicon: '#bed1e2', doped: '#7299b9', oxide: '#f3e2af', trap: '#d98762', fg: '#c2a269', metal: '#899ba9', electron: '#075f9d', hole: '#b52f43', field: '#a34b10', current: '#087766', white: '#fff', panel: '#f7f9fc' };
 const pick = (pair, language) => language === 'zh' ? pair[0] : pair[1];
 const esc = value => String(value).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 const bi = (zh, en) => [zh, en];
+function markerKind(stroke) {
+  if (stroke === C.electron) return 'electron';
+  if (stroke === C.hole) return 'hole';
+  if (stroke === C.field) return 'field';
+  return 'current';
+}
 function canvas(id, operation, language, index) {
   const prefix = `ip-${id}-${operation}-${index}-${language}`;
   return {
     prefix, language,
-    t(x, y, text, anchor = 'start', fill = C.ink, size = 22) { return `<text x="${x}" y="${y}" text-anchor="${anchor}" fill="${fill}" font-size="${size}">${esc(text)}</text>`; },
+    t(x, y, text, anchor = 'start', fill = C.ink) { return `<text x="${x}" y="${y}" text-anchor="${anchor}" fill="${fill}" font-size="22" font-weight="600">${esc(text)}</text>`; },
     text(x, y, zh, en, anchor = 'start', fill = C.ink) { return this.t(x, y, pick([zh, en], language), anchor, fill); },
-    rect(x, y, w, h, fill, extra = '') { return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" ${extra}/>`; },
-    line(x1, y1, x2, y2, stroke = C.line, width = 2) { return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${width}"/>`; },
-    arrow(x1, y1, x2, y2, stroke = C.current, width = 3) { return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${width}" marker-end="url(#${this.prefix}-arrow)"/>`; },
-    dot(x, y, r, fill) { return `<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}"/>`; },
-    path(d, stroke, width = 2.4, extra = '') { return `<path d="${d}" fill="none" stroke="${stroke}" stroke-width="${width}" ${extra}/>`; },
+    rect(x, y, w, h, fill, extra = '') { return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}" stroke="${C.ink}" stroke-width="1.4" ${extra}/>`; },
+    line(x1, y1, x2, y2, stroke = C.ink, width = 2) { return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${width}" stroke-linecap="round"/>`; },
+    arrow(x1, y1, x2, y2, stroke = C.current, width = 3) { return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${width}" stroke-linecap="round" marker-end="url(#${this.prefix}-${markerKind(stroke)})"/>`; },
+    charge(x, y, hole = false) { return `<circle data-charge="stored" cx="${x}" cy="${y}" r="8" fill="${hole ? C.hole : C.electron}"/>`; },
+    path(d, stroke, width = 2.4, extra = '') { return `<path d="${d}" fill="none" stroke="${stroke}" stroke-width="${width}" stroke-linecap="round" stroke-linejoin="round" ${extra}/>`; },
   };
 }
 function svg(c, title, caption, body) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" id="${c.prefix}" viewBox="0 0 560 360" role="img" aria-labelledby="${c.prefix}-title ${c.prefix}-desc"><title id="${c.prefix}-title">${esc(title)}</title><desc id="${c.prefix}-desc">${esc(caption)}</desc><defs><marker id="${c.prefix}-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="${C.current}"/></marker></defs><style>#${c.prefix} text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px}#${c.prefix}{background:#fff;color:${C.ink}}</style>${c.rect(1, 1, 558, 358, C.white, 'rx="14"')}${body}</svg>`;
+  const markers = ['electron', 'hole', 'field', 'current'].map(kind => `<marker id="${c.prefix}-${kind}" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 1L8 5L1 9" fill="none" stroke="${C[kind]}" stroke-width="2"/></marker>`).join('');
+  return `<svg xmlns="http://www.w3.org/2000/svg" id="${c.prefix}" viewBox="0 0 560 360" role="img" aria-labelledby="${c.prefix}-title ${c.prefix}-desc"><title id="${c.prefix}-title">${esc(title)}</title><desc id="${c.prefix}-desc">${esc(caption)}</desc><defs>${markers}</defs><style>#${c.prefix} text{font-family:Arial,'Microsoft JhengHei',sans-serif;font-size:22px;font-weight:600}#${c.prefix}{background:${C.panel};color:${C.ink}}</style>${c.rect(1, 1, 558, 358, C.panel, 'rx="14" stroke="none"')}${body}</svg>`;
 }
 function record(c, title, caption, state, stimulus, body, language, sourceIds) {
   return { id: `${c.prefix}-frame`, title: pick(title, language), state: pick(state, language), stimulus: pick(stimulus, language), caption: pick(caption, language), svg: svg(c, pick(title, language), pick(caption, language), body), sourceIds: [...sourceIds] };
@@ -127,7 +134,7 @@ const META = {
 };
 
 function well(c) {
-  return c.rect(70, 210, 420, 90, C.well) + c.text(80, 292, 'P 井／基底', 'P-well / Substrate', 'start', C.muted);
+  return c.rect(70, 210, 420, 90, C.silicon) + c.text(80, 292, 'P 井／基底', 'P-well / Substrate', 'start', C.muted);
 }
 function terminals(c, bias) {
   return c.t(88, 54, bias || '0') + c.text(20, 54, '選取端', 'Select') + c.text(430, 54, '通道端', 'Channel');
@@ -137,11 +144,11 @@ function genericCell(c, { on, bias, charge = 0, labelZh, labelEn }) {
   let body = terminals(c, bias) + well(c);
   body += c.rect(170, 118, 220, 36, C.metal) + c.text(280, 142, labelZh, labelEn, 'middle');
   body += c.rect(170, 154, 220, 18, C.oxide);
-  body += c.rect(190, 172, 180, 38, C.channel) + c.text(280, 196, '通道', 'Channel', 'middle');
+  body += c.rect(190, 172, 180, 38, C.doped) + c.text(280, 196, '通道', 'Channel', 'middle');
   body += c.line(280, 80, 280, 118) + c.t(296, 98, on ? 'ON' : 'OFF', 'start', on ? C.current : C.muted);
   if (charge) {
-    const color = charge > 0 ? C.hole : C.electron;
-    body += c.dot(240, 136, 6, color) + c.dot(280, 136, 6, color) + c.dot(320, 136, 6, color);
+    const hole = charge > 0;
+    body += c.charge(240, 136, hole) + c.charge(280, 136, hole) + c.charge(320, 136, hole);
   }
   return body;
 }
@@ -149,56 +156,56 @@ function fgCell(c, { on, bias, electrons = 0, couple = 'CG' }) {
   let body = terminals(c, bias) + well(c);
   body += c.rect(190, 86, 180, 28, C.metal) + c.t(280, 105, couple, 'middle');
   body += c.rect(200, 118, 160, 16, C.oxide);
-  body += c.rect(210, 134, 140, 28, '#d7e7f7') + c.t(280, 153, 'FG', 'middle');
+  body += c.rect(210, 134, 140, 28, C.fg) + c.t(280, 153, 'FG', 'middle');
   body += c.rect(200, 162, 160, 14, C.oxide);
-  body += c.rect(190, 176, 180, 34, C.channel) + c.text(280, 198, '通道', 'Channel', 'middle');
+  body += c.rect(190, 176, 180, 34, C.doped) + c.text(280, 198, '通道', 'Channel', 'middle');
   body += c.line(280, 54, 280, 86) + c.t(296, 72, on ? 'ON' : 'OFF', 'start', on ? C.current : C.muted);
-  for (let i = 0; i < electrons; i++) body += c.dot(230 + i * 22, 148, 5, C.electron);
+  for (let i = 0; i < electrons; i++) body += c.charge(230 + i * 22, 148);
   return body;
 }
 function sonosCell(c, { on, bias, trapped = 0, switches = false }) {
   let body = terminals(c, bias) + well(c);
   if (switches) {
-    body += c.rect(96, 150, 54, 50, C.channel) + c.t(123, 180, 'SW', 'middle');
-    body += c.rect(410, 150, 54, 50, C.channel) + c.t(437, 180, 'SW', 'middle');
+    body += c.rect(96, 150, 54, 50, C.doped) + c.t(123, 180, 'SW', 'middle');
+    body += c.rect(410, 150, 54, 50, C.doped) + c.t(437, 180, 'SW', 'middle');
   }
   body += c.rect(190, 96, 180, 22, C.metal) + c.t(280, 112, 'CG', 'middle');
   body += c.rect(200, 118, 160, 12, C.oxide);
-  body += c.rect(200, 130, 160, 22, '#ece4fb') + c.t(280, 146, 'SiN', 'middle', C.trap);
+  body += c.rect(200, 130, 160, 22, C.trap) + c.t(280, 146, 'SiN', 'middle');
   body += c.rect(200, 152, 160, 12, C.oxide);
-  body += c.rect(190, 164, 180, 36, C.channel) + c.text(280, 186, '通道', 'Channel', 'middle');
+  body += c.rect(190, 164, 180, 36, C.doped) + c.text(280, 186, '通道', 'Channel', 'middle');
   body += c.line(280, 54, 280, 96) + c.t(296, 74, on ? 'ON' : 'OFF', 'start', on ? C.current : C.muted);
-  for (let i = 0; i < trapped; i++) body += c.dot(228 + i * 24, 141, 5, C.trap);
+  for (let i = 0; i < trapped; i++) body += c.charge(228 + i * 24, 141);
   return body;
 }
 function schottkyCell(c, { on, bias, holes = 0, electrons = 0 }) {
   let body = terminals(c, bias) + well(c);
-  body += c.rect(170, 100, 220, 40, '#f3e6d4') + c.text(280, 125, 'Pch Schottky', 'Pch Schottky', 'middle');
-  body += c.rect(190, 140, 180, 50, C.channel) + c.text(280, 170, '通道／接面', 'Channel / Junction', 'middle');
+  body += c.rect(170, 100, 220, 40, C.doped) + c.text(280, 125, 'Pch Schottky', 'Pch Schottky', 'middle');
+  body += c.rect(190, 140, 180, 50, C.silicon) + c.text(280, 170, '通道／接面', 'Channel / Junction', 'middle');
   body += c.line(280, 54, 280, 100) + c.t(296, 76, on ? 'ON' : 'OFF', 'start', on ? C.current : C.muted);
-  for (let i = 0; i < holes; i++) body += c.dot(220 + i * 28, 120, 6, C.hole);
-  for (let i = 0; i < electrons; i++) body += c.dot(232 + i * 28, 120, 6, C.electron);
+  for (let i = 0; i < holes; i++) body += c.charge(220 + i * 28, 120, true);
+  for (let i = 0; i < electrons; i++) body += c.charge(232 + i * 28, 120);
   return body;
 }
 function oxideBreak(c, { on, bias, broken = false }) {
   let body = terminals(c, bias) + well(c);
   body += c.rect(200, 96, 160, 28, C.metal) + c.t(280, 115, 'Gate', 'middle');
-  body += c.rect(210, 124, 140, broken ? 10 : 28, broken ? C.fuse : C.oxide);
-  if (broken) body += c.path('M250 124 L270 148 L290 128 L310 150 L330 124', C.fuse, 3);
+  body += c.rect(210, 124, 140, broken ? 10 : 28, broken ? C.field : C.oxide);
+  if (broken) body += c.path('M250 124 L270 148 L290 128 L310 150 L330 124', C.field, 3);
   else body += c.text(280, 144, 'GOX', 'GOX', 'middle', C.muted);
-  body += c.rect(190, 156, 180, 40, C.channel) + c.text(280, 180, '基板／通道', 'Substrate / Channel', 'middle');
+  body += c.rect(190, 156, 180, 40, C.doped) + c.text(280, 180, '基板／通道', 'Substrate / Channel', 'middle');
   body += c.line(280, 54, 280, 96) + c.t(296, 74, on ? 'ON' : 'OFF', 'start', on ? C.current : C.muted);
-  if (on && !broken) body += c.arrow(280, 118, 280, 168, C.current, 3);
-  if (broken) body += c.t(400, 140, 'LRS', 'start', C.fuse);
+  if (on && !broken) body += c.arrow(280, 118, 280, 168, C.field, 3);
+  if (broken) body += c.t(400, 140, 'LRS', 'start', C.field);
   return body;
 }
 function fuseCell(c, { on, bias, migrated = false, heat = false }) {
   let body = terminals(c, bias) + well(c);
   body += c.rect(150, 120, 80, 28, C.metal) + c.rect(330, 120, 80, 28, C.metal);
-  body += c.rect(230, 126, 100, 16, migrated ? '#edddd0' : C.metal);
+  body += c.rect(230, 126, 100, 16, migrated ? C.oxide : C.metal);
   body += c.text(280, 108, '熔絲', 'Fuse', 'middle');
-  if (heat) body += c.t(400, 132, 'ΔT', 'start', C.fuse);
-  if (migrated) body += c.path('M248 134 C268 118 292 150 312 134', C.fuse, 3);
+  if (heat) body += c.t(400, 132, 'ΔT', 'start', C.field);
+  if (migrated) body += c.path('M248 134 C268 118 292 150 312 134', C.field, 3);
   body += c.line(190, 148, 190, 210) + c.line(370, 148, 370, 210);
   body += c.t(296, 74, on ? 'I_PGM' : '0', 'start', on ? C.current : C.muted);
   if (on) body += c.arrow(170, 134, 390, 134, C.current, 3);
@@ -207,12 +214,12 @@ function fuseCell(c, { on, bias, migrated = false, heat = false }) {
 function splitGate(c, { on, bias, electrons = 0, inject = false, erase = false }) {
   let body = terminals(c, bias) + well(c);
   body += c.rect(150, 96, 90, 36, C.metal) + c.t(195, 119, 'SG', 'middle');
-  body += c.rect(250, 86, 120, 46, '#d7e7f7') + c.t(310, 113, 'FG', 'middle');
+  body += c.rect(250, 86, 120, 46, C.fg) + c.t(310, 113, 'FG', 'middle');
   body += c.rect(150, 132, 220, 16, C.oxide);
-  body += c.rect(150, 148, 80, 40, C.channel) + c.rect(250, 148, 120, 40, C.channel);
+  body += c.rect(150, 148, 80, 40, C.doped) + c.rect(250, 148, 120, 40, C.doped);
   body += c.text(195, 172, '源側', 'Source', 'middle') + c.text(310, 172, '通道', 'Channel', 'middle');
   body += c.line(195, 54, 195, 96) + c.t(211, 72, on ? 'ON' : 'OFF', 'start', on ? C.current : C.muted);
-  for (let i = 0; i < electrons; i++) body += c.dot(270 + i * 20, 109, 5, C.electron);
+  for (let i = 0; i < electrons; i++) body += c.charge(270 + i * 22, 109);
   if (inject) body += c.arrow(210, 168, 280, 118, C.electron, 3) + c.t(400, 128, 'SSI', 'start', C.electron);
   if (erase) body += c.arrow(310, 96, 310, 70, C.electron, 3) + c.text(20, 88, 'FN 出 FG', 'FN off FG', 'start', C.electron);
   return body;
@@ -233,14 +240,14 @@ function cellBody(id, c, props) {
 function legendFor(id, language) {
   const item = (symbol, zh, en) => ({ symbol, meaning: pick(bi(zh, en), language) });
   const common = [
-    item('Dielectric', '淡藍區是介電層；厚度與材料未指定。', 'Pale blue marks a dielectric; thickness and material are unspecified.'),
-    item('Channel / Well', '米色是通道或井的功能區，不是量測剖面。', 'Beige marks a channel or well function, not a metrology cross-section.'),
+    item('Dielectric', '淡黃區是介電層；厚度與材料未指定。', 'Pale yellow marks a dielectric; thickness and material are unspecified.'),
+    item('Channel / Well', '藍灰區是矽通道或井的功能區，不是量測剖面。', 'Blue-gray marks a silicon channel or well function, not a metrology cross-section.'),
     item('Bias / I', '綠色箭頭表示偏壓或傳統電流方向。', 'Green arrows denote bias or conventional current direction.'),
   ];
   if (id === 'nscore-twinbit') return [...common, item('h+', '紅色圓點表示熱電洞，數量只作狀態示意。', 'Red dots denote hot holes; the count is qualitative.'), item('e−', '藍色圓點表示熱電子，數量只作狀態示意。', 'Blue dots denote hot electrons; the count is qualitative.')];
   if (id === 'attopsemi-ifuse') return [...common, item('Fuse', '橘色路徑表示電遷移後的高阻熔絲，不是爆炸缺口。', 'The orange path marks a high-R fuse after electromigration, not an explosive gap.')];
   if (id === 'cfx-otp' || id === 'floadia-za') return [...common, item('BD', '橘色折線表示介電層擊穿後的導通路徑。', 'The orange polyline marks a conduction path after dielectric breakdown.')];
-  if (id === 'floadia-g1' || id === 'floadia-g2') return [...common, item('SiN', '紫色標示氮化捕捉層；厚度未公開。', 'Purple marks the nitride trap layer; thickness is unpublished.')];
+  if (id === 'floadia-g1' || id === 'floadia-g2') return [...common, item('SiN', '赭色標示氮化捕捉層；厚度未公開。', 'Terracotta marks the nitride trap layer; thickness is unpublished.')];
   return [...common, item('e−', '藍色圓點表示電子，數量只作電荷狀態示意。', 'Blue dots denote electrons; the count is qualitative.')];
 }
 

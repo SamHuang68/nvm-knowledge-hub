@@ -746,8 +746,8 @@ CFX OTP (Gate-Oxide Breakdown Teaching Case)
 
 CFX publicly lists Anti-fuse, eFuse, and floating-gate OTP. This drawing teaches only the Semi IP Hub named HV-macro gate-oxide breakdown and does not represent every SKU.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - BD · The orange polyline marks a conduction path after dielectric breakdown.
 
@@ -785,8 +785,8 @@ Stimulus: Pulse removed
 
 OTP has no electrical erase back to insulation.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - BD · The orange polyline marks a conduction path after dielectric breakdown.
 
@@ -826,8 +826,8 @@ Stimulus: Bias zero
 
 The three OTP routes still must be checked separately during selection.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - BD · The orange polyline marks a conduction path after dielectric breakdown.
 
@@ -867,8 +867,8 @@ Stimulus: Bias zero
 
 Actual read time and window are defined by the macro.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - BD · The orange polyline marks a conduction path after dielectric breakdown.
 
@@ -892,8 +892,8 @@ Attopsemi I-fuse OTP
 
 A poly / metal-gate / metal fuse. Heat-assisted electromigration changes resistance while staying below thermal runaway and explosive rupture.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - Fuse · The orange path marks a high-R fuse after electromigration, not an explosive gap.
 
@@ -930,8 +930,8 @@ Stimulus: Current removed
 
 Poly, metal-gate, and metal fuses belong to this family; this drawing does not pick one cross-section.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - Fuse · The orange path marks a high-R fuse after electromigration, not an explosive gap.
 
@@ -970,8 +970,8 @@ Stimulus: Bias zero
 
 The physics boundary versus conventional explosive eFuse must be kept.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - Fuse · The orange path marks a high-R fuse after electromigration, not an explosive gap.
 
@@ -1010,8 +1010,8 @@ Stimulus: Bias zero
 
 Read must not drive the fuse near thermal runaway.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - Fuse · The orange path marks a high-R fuse after electromigration, not an explosive gap.
 
@@ -1034,8 +1034,8 @@ Floadia LEE Fuse ZA OTP
 
 Anti-fuse OTP with zero extra mask. The teaching drawing shows dielectric isolation then conduction and does not locate the breakdown site in a gate or capacitor.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - BD · The orange polyline marks a conduction path after dielectric breakdown.
 
@@ -1071,8 +1071,8 @@ Stimulus: High voltage removed
 
 A DRAM 1xnm production track cannot be extrapolated as the same cross-section on every logic node.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - BD · The orange polyline marks a conduction path after dielectric breakdown.
 
@@ -1110,8 +1110,8 @@ Stimulus: Bias zero
 
 180 nm to sub-10 nm is a vendor node narrative.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - BD · The orange polyline marks a conduction path after dielectric breakdown.
 
@@ -1149,8 +1149,8 @@ Stimulus: Bias zero
 
 Actual specifications follow the licensed target version.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - BD · The orange polyline marks a conduction path after dielectric breakdown.
 
@@ -1993,8 +1993,8 @@ Actt LogicFlash MTP (CMT Lineage)
 
 A logic-process MTP macro. The public page guarantees Flash-like byte program and sector/chip erase, not the storage-node material. CMT is the 2016 acquisition lineage.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - e− · Blue dots denote electrons; the count is qualitative.
 
@@ -2031,8 +2031,8 @@ Stimulus: Command removed
 
 10k cycles is a product-page ceiling narrative, not a guarantee in this drawing.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - e− · Blue dots denote electrons; the count is qualitative.
 
@@ -2071,8 +2071,8 @@ Stimulus: Command removed
 
 CMT lineage explains origin and adds no physics.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - e− · Blue dots denote electrons; the count is qualitative.
 
@@ -2111,8 +2111,8 @@ Stimulus: Selection removed
 
 Read-disturb limits must be checked on the target macro.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - e− · Blue dots denote electrons; the count is qualitative.
 
@@ -2156,8 +2156,8 @@ NSCore TwinBit MTP
 
 Gen-2 uses a Pch Schottky transistor as the storage device with zero extra mask. PermSRAM is a sibling OTP that traps hot carriers in a SiN spacer and is not drawn here.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - h+ · Red dots denote hot holes; the count is qualitative.
 - e− · Blue dots denote hot electrons; the count is qualitative.
@@ -2195,8 +2195,8 @@ Stimulus: Bias removed
 
 The PermSRAM SiN spacer is not drawn.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - h+ · Red dots denote hot holes; the count is qualitative.
 - e− · Blue dots denote hot electrons; the count is qualitative.
@@ -2236,8 +2236,8 @@ Stimulus: Bias removed
 
 40–22 nm is a vendor node narrative, not a measurement in this drawing.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - h+ · Red dots denote hot holes; the count is qualitative.
 - e− · Blue dots denote hot electrons; the count is qualitative.
@@ -2277,8 +2277,8 @@ Stimulus: Bias zero
 
 The read window is set by supplier conditions.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - h+ · Red dots denote hot holes; the count is qualitative.
 - e− · Blue dots denote hot electrons; the count is qualitative.
@@ -2323,8 +2323,8 @@ Floadia LEE Flash ZT MTP
 
 Zero extra-mask floating-gate MTP; program and erase use FN. The teaching drawing shows only an equivalent FG and coupling terminal.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - e− · Blue dots denote electrons; the count is qualitative.
 
@@ -2361,8 +2361,8 @@ Stimulus: Bias zero
 
 Cycle counts do not follow the page’s conflicting numbers.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - e− · Blue dots denote electrons; the count is qualitative.
 
@@ -2401,8 +2401,8 @@ Stimulus: Bias zero
 
 Zero extra mask is an integration claim, not a cross-section proof.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - e− · Blue dots denote electrons; the count is qualitative.
 
@@ -2441,8 +2441,8 @@ Stimulus: Bias zero
 
 Automotive narrative must be checked against target product conditions.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - e− · Blue dots denote electrons; the count is qualitative.
 
@@ -2485,10 +2485,10 @@ Floadia LEE Flash G1 eFlash
 
 SONOS charge-trap eFlash; 2–3 extra masks; FN program/erase. O-N-O is a teaching stack, not a measured thickness.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- SiN · Purple marks the nitride trap layer; thickness is unpublished.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
 
 - [ip-floadia-g1: Floadia LEE Flash G1](https://floadia.com/product/lee-flash-g1/)
 
@@ -2522,10 +2522,10 @@ Stimulus: Bias zero
 
 O-N-O thickness is unpublished.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- SiN · Purple marks the nitride trap layer; thickness is unpublished.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
 
 A BCD narrative cannot be extrapolated to every logic node.
 
@@ -2561,10 +2561,10 @@ Stimulus: Bias zero
 
 Mask count is integration cost, not an endurance guarantee.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- SiN · Purple marks the nitride trap layer; thickness is unpublished.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
 
 A BCD narrative cannot be extrapolated to every logic node.
 
@@ -2600,10 +2600,10 @@ Stimulus: Bias zero
 
 Read disturb must be checked on the target macro.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- SiN · Purple marks the nitride trap layer; thickness is unpublished.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
 
 A BCD narrative cannot be extrapolated to every logic node.
 
@@ -2643,10 +2643,10 @@ Floadia LEE Flash G2 eFlash
 
 A SONOS storage cell sandwiched by switch transistors; 4 extra masks; read at VDD without high voltage on diffusion terminals.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- SiN · Purple marks the nitride trap layer; thickness is unpublished.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
 
 - [ip-floadia-g2: Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/)
 
@@ -2680,10 +2680,10 @@ Stimulus: Switches off
 
 The vendor marks ongoing development.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- SiN · Purple marks the nitride trap layer; thickness is unpublished.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
 
 The vendor marks ongoing development; this drawing teaches only the published structural principle.
 
@@ -2719,10 +2719,10 @@ Stimulus: Switches off
 
 An in-development note is not a production guarantee.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- SiN · Purple marks the nitride trap layer; thickness is unpublished.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
 
 The vendor marks ongoing development; this drawing teaches only the published structural principle.
 
@@ -2758,10 +2758,10 @@ Stimulus: Switches off
 
 Non-volatilized logic is product positioning, not proof of a generic standard-cell library.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- SiN · Purple marks the nitride trap layer; thickness is unpublished.
+- SiN · Terracotta marks the nitride trap layer; thickness is unpublished.
 
 The vendor marks ongoing development; this drawing teaches only the published structural principle.
 
@@ -2802,8 +2802,8 @@ SST SuperFlash eFlash
 
 Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - e− · Blue dots denote electrons; the count is qualitative.
 
@@ -2840,8 +2840,8 @@ Stimulus: Bias zero
 
 The licensed process range is not proof of one node.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - e− · Blue dots denote electrons; the count is qualitative.
 
@@ -2880,8 +2880,8 @@ Stimulus: Bias zero
 
 The teaching drawing is not a foundry metrology cross-section.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - e− · Blue dots denote electrons; the count is qualitative.
 
@@ -2920,8 +2920,8 @@ Stimulus: Bias zero
 
 Read-speed ratings must be checked on the licensed target version.
 
-- Dielectric · Pale blue marks a dielectric; thickness and material are unspecified.
-- Channel / Well · Beige marks a channel or well function, not a metrology cross-section.
+- Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
+- Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
 - e− · Blue dots denote electrons; the count is qualitative.
 
