@@ -772,6 +772,7 @@
       min-width: 0;
       max-width: 100%;
       transition: transform 0.2s, border-color 0.2s;
+      scroll-margin-top: 96px;
     }
     .foundry-card:hover {
       transform: translateY(-2px);
@@ -813,6 +814,7 @@
       font-size: 0.85rem;
       line-height: 1.55;
       color: #cbd5e1;
+      scroll-margin-top: 96px;
     }
     .foundry-node-tile:hover {
       background: rgba(8, 36, 51, 0.95);
@@ -2167,7 +2169,7 @@
         </div>
 
         <!-- Samsung -->
-        <div class="foundry-card sec">
+        <div class="foundry-card sec" id="foundry-samsung">
           <div class="foundry-card-top">
             <div class="foundry-brand-pill" style="color: #3b82f6;">FOUNDRY 04 · SAMSUNG FOUNDRY</div>
             <h3>Samsung Foundry</h3>
@@ -2195,9 +2197,7 @@
               </div>
             </div>
 
-            <div class="foundry-node-tile">
-              <div class="node-header-row">
-                <span class="node-pill"><span data-lang="zh">SF4A (4nm) 與 SF3 / SF2</span><span data-lang="en">SF4A (4nm) &amp; SF3 / SF2</span></span>
+            <div class="foundry-node-tile" id="foundry-samsung-sf4a">
                 <span class="status-pill status-rd">MBCFET GAA Next-Gen</span>
               </div>
               <div>
