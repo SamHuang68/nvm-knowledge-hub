@@ -185,17 +185,17 @@
       window.__NVM_SEARCH_BOOTSTRAP = true;
       const css = document.createElement('link');
       css.rel = 'stylesheet';
-      css.href = new URL('全站搜尋.css?v=20260917-search', rootURL).href;
+      css.href = new URL('全站搜尋.css?v=20260917-r3', rootURL).href;
       document.head.append(css);
       const startController = () => {
         if (window.__NVM_SEARCH_ENHANCED) return;
         const ctrl = document.createElement('script');
-        ctrl.src = new URL('搜尋控制器.js?v=20260917-search', rootURL).href;
+        ctrl.src = new URL('搜尋控制器.js?v=20260917-r3', rootURL).href;
         document.head.append(ctrl);
       };
       if (window.NVMTopicIndex) { startController(); return; }
       const index = document.createElement('script');
-      index.src = new URL('data/NVM搜尋索引.js?v=20260917-search', rootURL).href;
+      index.src = new URL('data/NVM搜尋索引.js?v=20260917-r3', rootURL).href;
       index.onload = startController;
       index.onerror = startController;
       document.head.append(index);

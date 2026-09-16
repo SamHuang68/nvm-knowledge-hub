@@ -6,7 +6,13 @@ window.__NVM_SEARCH_ENHANCED = true;
   const PAGE_CATALOG = [
     {title_zh:'知識中心首頁',title_en:'NVM Knowledge Hub home',url:'index.html',tags:'home knowledge hub 首頁'},
     {title_zh:'位元胞物理與可靠度',title_en:'Bitcell Physics & Reliability',url:'memory-physics.html',tags:'antifuse gate oxide filament physics fowler nordheim 175 drift evidence'},
-    {title_zh:'NVM 技術對比矩陣',title_en:'NVM Technology Comparison Matrix',url:'technology-comparison.html',tags:'comparison matrix eflash emram efuse selection guide foundry tsmc umc TwinBit I-fuse Floadia Actt CFX SST'},
+    {title_zh:'NVM 技術對比矩陣',title_en:'NVM Technology Comparison Matrix',url:'technology-comparison.html',tags:'comparison matrix eflash emram efuse selection guide foundry tsmc umc TwinBit I-fuse Floadia Actt CFX SST Samsung SF4A'},
+    {title_zh:'具名 IP 對應 11 葉',title_en:'Named IPs under the 11 leaves',url:'technology-comparison.html#named-ip-leaves',tags:'named IP TwinBit I-fuse Floadia ZA ZT G1 G2 Actt LogicFlash CFX SST SuperFlash PermSRAM'},
+    {title_zh:'TSMC 28eHV 0-mask OTP 分流',title_en:'TSMC 28eHV 0-mask OTP split',url:'technology-comparison.html#foundry-tsmc-28ehv',tags:'TSMC 28eHV OLED Gamma De-Mura AntiFuse ZA I-fuse trim OTP'},
+    {title_zh:'TSMC N2 信任根 OTP 分流',title_en:'TSMC N2 Root-of-Trust OTP split',url:'technology-comparison.html#foundry-tsmc-n2',tags:'TSMC N2 GAA nanosheet 0-mask OTP AntiFuse ZA I-fuse RoT'},
+    {title_zh:'Samsung SF4A／SF3／SF2 0-mask OTP 分流',title_en:'Samsung SF4A / SF3 / SF2 0-mask OTP split',url:'technology-comparison.html#foundry-samsung-sf4a',tags:'Samsung SF4A SF3 SF2 SFF 2024 eMRAM AntiFuse ZA I-fuse MBCFET GAA'},
+    {title_zh:'TSMC 22ULL 0-mask OTP 分流',title_en:'TSMC 22ULL 0-mask OTP split',url:'technology-comparison.html#foundry-tsmc-22ull',tags:'TSMC 22ULL 22ULP eRRAM eMRAM AntiFuse ZA I-fuse'},
+    {title_zh:'UMC 40eHV 校準 OTP 分流',title_en:'UMC 40eHV trim OTP split',url:'technology-comparison.html#foundry-umc-ehv',tags:'UMC 40eHV 28eHV SuperFlash trim OTP AntiFuse ZA I-fuse'},
     {title_zh:'安全儲存架構',title_en:'Secure Storage Architecture',url:'secure-storage.html',tags:'sram puf aes 256 gcm otp zero rest key security'},
     {title_zh:'安全保證與信任根',title_en:'Security Assurance & Root of Trust',url:'security-assurance.html',tags:'fips 140 caliptra dpa fault injection root trust nist'},
     {title_zh:'AI 系統與先進節點',title_en:'AI Systems & Advanced Nodes',url:'ai-nvm-opportunities.html',tags:'xpu ddr5 pmic spd soic chiplet ucie pqc boot accelerator'},
@@ -53,7 +59,7 @@ window.__NVM_SEARCH_ENHANCED = true;
     if (document.querySelector('link[href*="全站搜尋.css"]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = new URL('全站搜尋.css?v=20260917-search', ROOT).href;
+    link.href = new URL('全站搜尋.css?v=20260917-r3', ROOT).href;
     document.head.append(link);
   }
   function ensureShell() {

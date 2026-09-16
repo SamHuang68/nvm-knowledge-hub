@@ -1,5 +1,5 @@
 /* NVM Knowledge Hub Service Worker - Progressive Web App Offline & Cache Management */
-const CACHE_NAME = 'nvm-hub-search-20260917';
+const CACHE_NAME = 'nvm-hub-r3-20260917';
 const PRECACHE_ASSETS = [
   './',
   './index.html',
@@ -9,7 +9,7 @@ const PRECACHE_ASSETS = [
   './assets/icon-192.png',
   './assets/icon-512.png',
   './site-shell.css?v=20260916-keepout',
-  './site-language.js?v=20260917-search',
+  './site-language.js?v=20260917-r3',
   './hub.css?v=20260916-keepout',
   './404.html'
 ];

@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub" data-title-zh="NVM 技術取捨矩陣 · AntiFuse、eFuse、eFlash 與 MRAM · NVM 知識中心" data-description-en="Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory." data-description-zh="嵌入式非揮發性記憶體的九維技術取捨矩陣（5 大技術族群／11 葉技術）、五軸互動雷達選型器、第一原理物理模型與晶圓代工生態路線圖（雷達為示範性 heuristic；非 production selector）。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260917-search"></script>
+  <script src="site-language.js?v=20260917-r3"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub</title>
   <meta name="description" content="Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.">
@@ -709,6 +709,7 @@
     }
     .matrix-note-card.named-ip-card {
       grid-column: 1 / -1;
+      scroll-margin-top: 96px;
     }
     .note-card-list a {
       color: #7dd3fc;
@@ -1767,7 +1768,7 @@
           </div>
 
           <!-- Card 5: Named IP coverage under family leaves -->
-          <div class="matrix-note-card named-ip-card">
+          <div class="matrix-note-card named-ip-card" id="named-ip-leaves">
             <div class="note-card-badge" style="color: #7dd3fc;">05 · NAMED IP UNDER FAMILY LEAVES</div>
             <h3 class="note-card-title">
               <span data-lang="zh">具名 IP 對應既有 11 葉（機制不同者不併欄）</span>
@@ -2043,13 +2044,13 @@
 
       <div class="foundry-grid">
         <!-- TSMC -->
-        <div class="foundry-card tsmc">
+        <div class="foundry-card tsmc" id="foundry-tsmc">
           <div class="foundry-card-top">
             <div class="foundry-brand-pill" style="color: #c4a574;">FOUNDRY 01 · TAIWAN SEMICONDUCTOR</div>
             <h3>TSMC</h3>
           </div>
           <div class="foundry-node-tiles">
-            <div class="foundry-node-tile">
+            <div class="foundry-node-tile" id="foundry-tsmc-28ehv">
               <div class="node-header-row">
                 <span class="node-pill">40nm / 28nm eFlash &amp; 28eHV</span>
                 <span class="status-pill status-cliff">Scaling Cliff</span>
@@ -2060,14 +2061,14 @@
               </div>
             </div>
 
-            <div class="foundry-node-tile">
+            <div class="foundry-node-tile" id="foundry-tsmc-22ull">
               <div class="node-header-row">
                 <span class="node-pill">22ULL / 22ULP</span>
                 <span class="status-pill status-auto">Auto Grade 1</span>
               </div>
               <div>
-                <span data-lang="zh">eRRAM 於 2022 年量產並於 2025 年通過 AEC-Q100 Grade 1 (10萬次循環)；STT-eMRAM 商業量產；純邏輯 0-mask OTP 作為標配時須分流 AntiFuse 與 I-fuse，不得預設單一機制。</span>
-                <span data-lang="en">eRRAM entered production in 2022, qualifying for AEC-Q100 Grade 1 (100K cycles) in 2025; STT-eMRAM production-ready; logic 0-mask OTP as a standard option still requires an AntiFuse vs I-fuse split rather than a single assumed mechanism.</span>
+                <span data-lang="zh">eRRAM 於 2022 年量產並於 2025 年通過 AEC-Q100 Grade 1 (10萬次循環)；STT-eMRAM 商業量產；純邏輯 0-mask OTP 作為標配時須分流閘氧 AntiFuse、擊穿位點未公開的 ZA 類、以及 I-fuse，不得預設單一機制。</span>
+                <span data-lang="en">eRRAM entered production in 2022, qualifying for AEC-Q100 Grade 1 (100K cycles) in 2025; STT-eMRAM production-ready; logic 0-mask OTP as a standard option still requires a gate-oxide AntiFuse vs unpublished-site ZA-class vs I-fuse split rather than a single assumed mechanism.</span>
               </div>
             </div>
 
@@ -2082,7 +2083,7 @@
               </div>
             </div>
 
-            <div class="foundry-node-tile">
+            <div class="foundry-node-tile" id="foundry-tsmc-n2">
               <div class="node-header-row">
                 <span class="node-pill">N6e / N4e / N2 GAA</span>
                 <span class="status-pill status-rd">Nanosheet RoT</span>
@@ -2096,20 +2097,20 @@
         </div>
 
         <!-- UMC -->
-        <div class="foundry-card umc">
+        <div class="foundry-card umc" id="foundry-umc">
           <div class="foundry-card-top">
             <div class="foundry-brand-pill" style="color: #f59e0b;">FOUNDRY 02 · UNITED MICROELECTRONICS</div>
             <h3>UMC</h3>
           </div>
           <div class="foundry-node-tiles">
-            <div class="foundry-node-tile">
+            <div class="foundry-node-tile" id="foundry-umc-ehv">
               <div class="node-header-row">
                 <span class="node-pill">55nm / 40nm eFlash &amp; 40eHV</span>
                 <span class="status-pill status-prod">Production SSI</span>
               </div>
               <div>
-                <span data-lang="zh">採用 SST SuperFlash 分離閘極技術量產車用 Grade 1 eFlash；40/28eHV 驅動 IC 整合高壓校準 OTP。</span>
-                <span data-lang="en">Production SST SuperFlash split-gate for Auto Grade 1 MCUs; 40/28eHV DDICs incorporate trim OTP.</span>
+                <span data-lang="zh">採用 SST SuperFlash 分離閘極技術量產車用 Grade 1 eFlash；40/28eHV 驅動 IC 整合高壓校準 OTP。同節點校準 OTP 仍須分流閘氧 AntiFuse、擊穿位點未公開的 ZA 類、以及 I-fuse，不得預設單一機制。</span>
+                <span data-lang="en">Production SST SuperFlash split-gate for Auto Grade 1 MCUs; 40/28eHV DDICs incorporate trim OTP. Same-node trim OTP still requires a gate-oxide AntiFuse vs unpublished-site ZA-class vs I-fuse split — do not assume one mechanism.</span>
               </div>
             </div>
 
@@ -2138,7 +2139,7 @@
         </div>
 
         <!-- GlobalFoundries -->
-        <div class="foundry-card gf">
+        <div class="foundry-card gf" id="foundry-gf">
           <div class="foundry-card-top">
             <div class="foundry-brand-pill" style="color: #c4a574;">FOUNDRY 03 · GLOBALFOUNDRIES</div>
             <h3>GlobalFoundries</h3>
@@ -2198,6 +2199,8 @@
             </div>
 
             <div class="foundry-node-tile" id="foundry-samsung-sf4a">
+              <div class="node-header-row">
+                <span class="node-pill"><span data-lang="zh">SF4A (4nm) 與 SF3 / SF2</span><span data-lang="en">SF4A (4nm) &amp; SF3 / SF2</span></span>
                 <span class="status-pill status-rd">MBCFET GAA Next-Gen</span>
               </div>
               <div>
@@ -2770,7 +2773,7 @@
         {
           id: "antifuse",
           name: "AntiFuse OTP",
-          nameZh: "AntiFuse OTP",
+          nameZh: "AntiFuse OTP（介電崩潰級）",
           // [Scaling, 0-Mask, Thermal Ret, ULP, Endurance]
           baseProfile: [96, 100, 98, 95, 10], // 修正：耐寫度為單次/微量修補(10)，高溫留存力極佳(98)
           evalScore: (nodeIdx, powerIdx, maskIdx, tempIdx, endIdx) => {
@@ -2853,7 +2856,7 @@
         {
           id: "emram",
           name: "STT-eMRAM",
-          nameZh: "STT-eMRAM",
+          nameZh: "STT-eMRAM（自旋轉移矩）",
           baseProfile: [88, 55, 60, 85, 98], // 修正：耐寫度98，高溫熱穩定性60
           evalScore: (nodeIdx, powerIdx, maskIdx, tempIdx, endIdx) => {
             let score = 75;
@@ -2884,7 +2887,7 @@
         {
           id: "maskrom",
           name: "Mask ROM",
-          nameZh: "Mask ROM",
+          nameZh: "Mask ROM（光罩唯讀）",
           baseProfile: [50, 75, 95, 90, 0], // 修正：耐寫度為0，高溫極佳(95)
           evalScore: (nodeIdx, powerIdx, maskIdx, tempIdx, endIdx) => {
             if (endIdx >= 1) return 0; // 硬性否決：不可覆寫
@@ -3121,20 +3124,20 @@
           vMsgZh = `⚠️ <b>架構約束衝突警告</b>：系統要求 <b>0-Mask 純邏輯</b> 同時要求 <b>&gt;1M 次 Working RAM</b>。在物理實體上，0-mask 嵌入式記憶體（AntiFuse／I-fuse／eFuse／Logic MTP）無法承受高頻擦寫，而能承受高頻覆寫的 eMRAM/SRAM 必須承擔 3~5 道 BEOL 光罩成本或靜態漏電代價。目前相對適配為 <b>${displayName(winner)}</b>（${winner.score}%），但建議架構師重新評估鬆綁光罩預算或改採外部獨立式儲存。`;
           vMsgEn = `⚠️ <b>Architectural Conflict Warning</b>: Constraint combines <b>0-Mask pure logic</b> with <b>&gt;1M write cycles</b>. Physically, 0-mask NVM (AntiFuse / I-fuse / eFuse / Logic MTP) cannot handle RAM workloads, while high-endurance eMRAM requires 3–5 BEOL adders. Current relative fit is <b>${winner.name}</b> (${winner.score}%); consider relaxing mask constraints or adopting external discrete memory.`;
         } else if (winner.id === "antifuse") {
-          vMsgZh = `目前滑桿下相對適配最高：<b>AntiFuse OTP</b>（${winner.score}%）。在 <b>${nodeLabels[nodeIdx]}</b> 與 <b>${tempLabels[tempIdx]}</b> 下，以 0-mask 邏輯相容特性提供極高的高溫數據留存力與實體安全屏障。適合晶片身分 ID、安全金鑰儲存與有限次數之微碼補丁（搭配 Vector Patch CAM）。`;
-          vMsgEn = `Highest relative fit under current sliders: <b>AntiFuse OTP</b> (${winner.score}%). At <b>${nodeLabels[nodeIdx]}</b> and <b>${tempLabels[tempIdx]}</b>, it leverages 0-mask logic compatibility for high thermal retention and tamper resistance. Ideal for Root-of-Trust keys and bounded microcode patching via Vector CAM.`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。在 <b>${nodeLabels[nodeIdx]}</b> 與 <b>${tempLabels[tempIdx]}</b> 下，以 0-mask 邏輯相容特性提供極高的高溫數據留存力與實體安全屏障。適合晶片身分 ID、安全金鑰儲存與有限次數之微碼補丁（搭配 Vector Patch CAM）。此輪廓是介電崩潰 OTP 族；ZA 擊穿位點未公開，不得把閘氧微絲模型套到 ZA。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). At <b>${nodeLabels[nodeIdx]}</b> and <b>${tempLabels[tempIdx]}</b>, it leverages 0-mask logic compatibility for high thermal retention and tamper resistance. Ideal for Root-of-Trust keys and bounded microcode patching via Vector CAM. This hull is dielectric-breakdown OTP; ZA's breakdown site is unpublished — do not apply the GOX filament model to ZA.`;
         } else if (winner.id === "ifuse") {
-          vMsgZh = `目前滑桿下相對適配最高：<b>I-fuse</b>（${winner.score}%）。此輪廓為熱輔助電遷移 OTP，不是吹斷級 eFuse、也不是閘氧 AntiFuse。公開資格例含 GF 22FDX；電流／電壓視窗以該版巨集為準，不得回填 ~10–15 mA 熔斷數字。`;
-          vMsgEn = `Highest relative fit under current sliders: <b>I-fuse</b> (${winner.score}%). This hull is heat-assisted-EM OTP, not blow-class eFuse and not gate-oxide AntiFuse. Public qualification includes GF 22FDX; keep the ~10–15 mA blow figures off this macro.`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。此輪廓為熱輔助電遷移 OTP，不是吹斷級 eFuse、也不是閘氧 AntiFuse。公開資格例含 GF 22FDX；電流／電壓視窗以該版巨集為準，不得回填 ~10–15 mA 熔斷數字。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). This hull is heat-assisted-EM OTP, not blow-class eFuse and not gate-oxide AntiFuse. Public qualification includes GF 22FDX; keep the ~10–15 mA blow figures off this macro.`;
         } else if (winner.id === "logicmtp") {
           vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。此輪廓涵蓋 NeoEE／Floadia ZT 類 0-mask FN MTP；Actt LogicFlash 機制未公開，NSCore TwinBit 為 Schottky 熱載子路徑，兩者都不在此輪廓內。FinFET 節點請改核對 TwinBit 或 0-mask OTP。`;
-          vMsgEn = `Highest relative fit under current sliders: <b>Logic MTP (FN/FN class)</b> (${winner.score}%). This hull covers NeoEE / Floadia ZT-class 0-mask FN MTP. Actt LogicFlash remains unpublished physics, and NSCore TwinBit is a Schottky hot-carrier path — neither belongs on this hull. At FinFET nodes, re-check TwinBit or 0-mask OTP.`;
+          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). This hull covers NeoEE / Floadia ZT-class 0-mask FN MTP. Actt LogicFlash remains unpublished physics, and NSCore TwinBit is a Schottky hot-carrier path — neither belongs on this hull. At FinFET nodes, re-check TwinBit or 0-mask OTP.`;
         } else if (winner.id === "emram") {
-          vMsgZh = `目前滑桿下相對適配最高：<b>STT-eMRAM</b>（${winner.score}%）。在先進節點（22nm/12nm）上完美承接 <b>${endLabels[endIdx]}</b> 的高覆寫次數與工作暫存需求，但晶片架構須預留 3–5 道 BEOL 額外光罩預算，並評估 260°C 回流焊磁熱裕度。`;
-          vMsgEn = `Highest relative fit under current sliders: <b>STT-eMRAM</b> (${winner.score}%). At advanced nodes (22nm/12nm), it satisfies <b>${endLabels[endIdx]}</b> high-endurance RAM/OTA workloads, requiring 3–5 BEOL mask adders and 260°C package-reflow thermal-magnetic design margins.`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。在先進節點（22nm/12nm）上完美承接 <b>${endLabels[endIdx]}</b> 的高覆寫次數與工作暫存需求，但晶片架構須預留 3–5 道 BEOL 額外光罩預算，並評估 260°C 回流焊磁熱裕度。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). At advanced nodes (22nm/12nm), it satisfies <b>${endLabels[endIdx]}</b> high-endurance RAM/OTA workloads, requiring 3–5 BEOL mask adders and 260°C package-reflow thermal-magnetic design margins.`;
         } else if (winner.id === "eflash") {
-          vMsgZh = `目前滑桿下相對適配最高：<b>eFlash</b>（${winner.score}%）。在成熟節點（≥40nm）為微控制器韌體代碼提供原生區塊抹除支援。SST 與 SONOS 光罩階梯不同：SST 例 +4／+10，Floadia G1 +2–3、G2 +4（開發中）。小於 28nm 的平面 SST／浮閘 eFlash 通常不可行，不得把 SONOS G2 的 TCAD 討論當成 FinFET 量產。`;
-          vMsgEn = `Highest relative fit under current sliders: <b>eFlash</b> (${winner.score}%). Well-suited for mature nodes (≥40nm) needing block-erase firmware. SST and SONOS mask ladders differ: SST examples +4/+10, Floadia G1 +2–3, G2 +4 (in development). Planar SST / FG eFlash is usually out below 28nm; do not treat G2 TCAD notes as FinFET production.`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。在成熟節點（≥40nm）為微控制器韌體代碼提供原生區塊抹除支援。SST 與 SONOS 光罩階梯不同：SST 例 +4／+10，Floadia G1 +2–3、G2 +4（開發中）。小於 28nm 的平面 SST／浮閘 eFlash 通常不可行，不得把 SONOS G2 的 TCAD 討論當成 FinFET 量產。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). Well-suited for mature nodes (≥40nm) needing block-erase firmware. SST and SONOS mask ladders differ: SST examples +4/+10, Floadia G1 +2–3, G2 +4 (in development). Planar SST / FG eFlash is usually out below 28nm; do not treat G2 TCAD notes as FinFET production.`;
         } else {
           vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。這是目前多維約束下的最優折衷排序，非單一技術出貨保證。`;
           vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). An architectural trade-off ranking under constraints, not a standalone shipment guarantee.`;
