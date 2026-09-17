@@ -141,6 +141,13 @@ function auditHtmlFile(filePath) {
         failures.push(`${relative}:${lineNo} [Parity]: data-placeholder-zh 與 data-placeholder-en 未成對出現在 <${tag}>`);
       }
 
+      const hasDescriptionZh = /\bdata-description-zh=["']/iu.test(attrString);
+      const hasDescriptionEn = /\bdata-description-en=["']/iu.test(attrString);
+      if (hasDescriptionZh !== hasDescriptionEn) {
+        const lineNo = sanitized.slice(0, match.index).split('\n').length;
+        failures.push(`${relative}:${lineNo} [Parity]: data-description-zh 與 data-description-en 未成對出現在 <${tag}>`);
+      }
+
       if (!isSelfClosing) {
         tagStack.push({ tag, isZh });
         if (isZh) zhDepth++;
