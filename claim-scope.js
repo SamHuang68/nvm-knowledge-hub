@@ -61,4 +61,9 @@
       if (window.HubLanguage) window.HubLanguage.set(window.HubLanguage.get(), false);
     }
   }
+  if (/specialty-nvm\.html/i.test(path)) {
+    replaceText([
+      ['SYSTEM READY. WAITING FOR DEFECT INJECTION', 'SIMULATION IDLE. WAITING FOR DEFECT INJECTION']
+    ]);
+  }
 })();
