@@ -443,21 +443,75 @@
         
           <article id="chap-technology-boundaries" class="paper-chapter">
             <header><p>CHAPTER 02</p><h3>Map Technology Families to the Contract</h3><strong>Each NVM family expresses a different compromise among permanence, updates, density, voltage and process integration.</strong></header>
-            <div class="chapter-copy"><p>OTP is naturally aligned with immutable or monotonic state. Embedded MTP IP provides repeatedly programmable storage inside the host chip and may use an EEPROM structure. External standalone EEPROM is a separate memory device; a shared storage principle does not make these the same integration option. Endurance, programming energy and supply requirements must be checked for the selected implementation. Embedded Flash addresses code-rich systems where its process integration is economically justified. MRAM and ReRAM extend the advanced-node portfolio, but availability and qualification remain platform specific.</p><p>SRAM PUF is a companion security primitive rather than a peer non-volatile medium. It can derive a device-unique root secret at power-up so persistent memory stores ciphertext or helper data instead of a reusable root key. That architecture raises assurance requirements of its own; it does not erase them.</p></div>
+            <div class="chapter-copy">
+              <p>
+                <span data-lang="zh">OTP 天然對齊不可變或單向遞增狀態。嵌入式 MTP IP 在主晶片內部提供可重複抹寫的儲存空間，常採用 EEPROM 單元架構。外部獨立 EEPROM 則是分立記憶體元件；相同的儲存物理原理並不意味著相同的系統整合選項。抹寫耐受度、編程能耗與電壓軌需求必須依選定之 IP 實體確認。嵌入式快閃記憶體 (eFlash) 適用於程式碼密集的嵌入式系統，前提是其專屬光罩製程在經濟上具備正當性。MRAM 與 ReRAM 則拓展了先進製程的嵌入式 NVM 組合，但代工廠供應與車規/工規認證仍具高度平台特定性。</span>
+                <span data-lang="en">OTP is naturally aligned with immutable or monotonic state. Embedded MTP IP provides repeatedly programmable storage inside the host chip and may use an EEPROM structure. External standalone EEPROM is a separate memory device; a shared storage principle does not make these the same integration option. Endurance, programming energy and supply requirements must be checked for the selected implementation. Embedded Flash addresses code-rich systems where its process integration is economically justified. MRAM and ReRAM extend the advanced-node portfolio, but availability and qualification remain platform specific.</span>
+              </p>
+              <p>
+                <span data-lang="zh">在先進車用微控制器與邊緣 AI 領域，後段製程 (BEOL) 新興非揮發記憶體正打破傳統 eFlash 在 28nm/22nm 的微縮瓶頸。商業量產實例包含：<strong>英飛凌 (Infineon) 28nm eRRAM (AURIX™ TC4x)</strong>，以 OxRAM 阻變微絲機制獲得 AEC-Q100 Grade 1 認證，具備位元級隨機寫入能力，消除傳統快閃記憶體耗時的區塊抹除延遲；<strong>意法半導體 (STMicroelectronics) 28nm FD-SOI ePCM (Stellar MCU)</strong>，利用 GeSbTe 硫族化物雙分區 (Dual-Bank) 架構實現零停機即時空中升級 (Live OTA)，擺脫外部 QSPI 快閃記憶體之 PCB 匯流排暴露；在資料中心 AI 加速器與企業級 NVMe SSD 中，<strong>Everspin 垂直 pMTJ STT-MRAM</strong> 則提供無電容斷電保護 (Capacitor-Free PLP) 與數十億次抹寫壽命，徹底根除電解電容與超級電容的老化失效率。</span>
+                <span data-lang="en">In automotive MCUs and edge AI, emerging BEOL non-volatile memories are breaking the conventional eFlash scaling wall. Commercial implementations such as <strong>Infineon's 28nm eRRAM (AURIX™ TC4x)</strong> deliver AEC-Q100 Grade 1 qualification with bit-level write granularity, eliminating sector-erase latencies. <strong>STMicroelectronics' 28nm FD-SOI ePCM (Stellar)</strong> introduces dual-bank live over-the-air (OTA) update capabilities without external SPI flash bus exposure. In enterprise accelerators and NVMe storage, <strong>Everspin's perpendicular MTJ (pMTJ) STT-MRAM</strong> provides capacitor-free power loss protection (PLP) and multi-billion-cycle endurance, replacing failure-prone supercapacitors.</span>
+              </p>
+              <p>
+                <span data-lang="zh">SRAM PUF 是伴隨型安全原語，而非對等的儲存媒介。它在開機時利用深次微米元件失配瞬態重建唯一的晶片根密鑰（例如 <strong>Intrinsic ID Quiddikey</strong>），使持久性記憶體僅需存放密文與公開 Helper Data，無需永久存放明文根密鑰。當整合至晶片級硬體信任根子系統時（如 <strong>Synopsys tRoot™</strong> 或 <strong>Rambus CryptoManager™</strong>），純邏輯 1T AntiFuse OTP 在頂層主動金屬屏蔽網 (Active Top-Metal Mesh) 保護下，不可逆地儲存裝置身分憑證與防回滾計數器，抵禦 FIB-PVC 與探針側信道攻擊。</span>
+                <span data-lang="en">SRAM PUF is a companion security primitive rather than a peer non-volatile medium. It derives an ephemeral root secret from deep sub-micron mismatch at power-up (e.g., <strong>Intrinsic ID Quiddikey</strong>), enabling persistent memory to store ciphertext and public helper data rather than a plain key. When integrated into hardware root-of-trust subsystems such as <strong>Synopsys tRoot™</strong> or <strong>Rambus CryptoManager™</strong>, 1T AntiFuse OTP irreversibly holds root certificates and anti-rollback counters under active top-metal mesh protection, thwarting FIB-PVC and scanning probe side-channels.</span>
+              </p>
+              <p>
+                <span data-lang="zh">架構導覽連結：檢視已驗證的 <a href="../secure-storage.html#sec-subsystems">晶片硬體信任根安全子系統整合</a> 與 <a href="../technology-comparison.html#sec-matrix">十一技術九維度對比矩陣</a>。</span>
+                <span data-lang="en">Architecture references: Explore the verified <a href="../secure-storage.html#sec-subsystems">Hardware Root of Trust Subsystems</a> and technical metrics in the <a href="../technology-comparison.html#sec-matrix">11-Technology Comparison Matrix</a>.</span>
+              </p>
+            </div>
             <div class="chapter-takeaways"><p>ARCHITECTURE TAKEAWAYS</p><ul><li>Do not model PUF as stored NVM</li><li>Qualify program and read paths separately</li><li>Avoid technology labels without a state owner</li></ul></div>
             <dl class="evidence-contract"><div><dt>EVIDENCE CLASS</dt><dd>Supported architecture synthesis</dd></div><div><dt>LIMITATION</dt><dd>Technology availability, reliability and security claims vary by supplier and target process.</dd></div></dl>
           </article>
         
           <article id="chap-node-boundary" class="paper-chapter">
             <header><p>CHAPTER 03</p><h3>Treat Node Migration as an Integration Decision</h3><strong>NVM scaling is shaped by device options, mask economics, program voltage and qualification effort—not geometry alone.</strong></header>
-            <div class="chapter-copy"><p>Floating-gate MTP relies on an oxide and high-voltage environment capable of preserving programmed charge. A process portfolio that only exposes lower-voltage devices can therefore narrow implementation choices. Dedicated embedded-flash integration can introduce a purpose-built oxide, but additional process complexity changes the commercial equation.</p><p>The frequently cited 28 nm boundary for conventional embedded Flash is best read as a clear public commercialization high point, not a law of physics. Beyond it, development difficulty, mask-stack expansion and cost can outweigh the benefit. At more advanced nodes, foundry roadmaps increasingly turn to MRAM or ReRAM, while logic-compatible OTP continues to serve small persistent-state needs.</p><p>For advanced-node OTP, a single-VDD read mode can reduce always-on power-domain dependencies and simplify power sequencing. Programming can remain a separate event that uses an I/O supply as the foundation for an internal charge pump. Public architecture should state that separation without disclosing proprietary circuit detail.</p></div>
+            <div class="chapter-copy">
+              <p>
+                <span data-lang="zh">浮動閘與電荷捕捉型 MTP 仰賴能夠有效保存電荷的穿隧氧化層與高電壓環境。若代工廠製程組合僅提供低壓邏輯元件，實作選項將大幅受限。專屬嵌入式快閃記憶體雖可客製介電質堆疊，但極高的製程複雜度徹底改變了商業損益計算。</span>
+                <span data-lang="en">Floating-gate and charge-trap MTP rely on an oxide and high-voltage environment capable of preserving programmed charge. A process portfolio that only exposes lower-voltage devices can therefore narrow implementation choices. Dedicated embedded-flash integration can introduce a purpose-built oxide, but additional process complexity changes the commercial equation.</span>
+              </p>
+              <p>
+                <span data-lang="zh">傳統嵌入式 Flash 的 28nm 邊界，本質上是整合經濟學與材料物理的雙重絕壁。在 28nm 以下，穿隧氧化層厚度縮減至 3.0nm 以下，引發劇烈的直接穿隧漏電 (Direct Tunneling) 與應力感應漏電 (SILC)；且浮閘高達 &gt;900°C 的退火熱預算會徹底摧毀先進 FinFET 的高介電金屬閘極 (HKMG) 功函數與通道應變。此外，額外增加 8~12 道昂貴光罩使晶圓成本膨脹 30%~40%，導致平面 eFlash 在 FinFET 與 GAA 奈米片節點徹底失去商業競爭力。</span>
+                <span data-lang="en">The frequently cited 28nm boundary for conventional embedded Flash is an integration-economics and physical cliff. Below 28nm, tunnel oxide thinning (t_ox ≤ 3.0 nm) triggers severe direct-tunneling and stress-induced leakage current (SILC), while the &gt;900°C annealing thermal budget irreversibly ruins high-k metal gate (HKMG) work functions and FinFET channel strain. Furthermore, the 8 to 12 additional photolithography masks expand wafer fabrication costs by 30% to 40%, rendering planar eFlash unviable in FinFET and GAA nanosheet nodes.</span>
+              </p>
+              <p>
+                <span data-lang="zh">跨越 28nm 之後，技術路線出現分流：高密度可覆寫程式碼儲存轉向後段 (BEOL) 新興記憶體——STT-MRAM 僅需 3~4 道額外光罩、ReRAM 僅需 2~3 道額外光罩，且其熱預算小於 400°C，可無縫嵌入金屬互連層；而在不可變晶片身分、類比校準與密鑰儲存方面，純邏輯 AntiFuse OTP 具備 0 額外光罩優勢，自 28nm/22nm 一路原生延伸至 16nm/12nm FinFET、N6e、N4e 乃至 2nm GAA 奈米片。先進單一 VDD 讀取架構更將核心邏輯讀取平面與高壓電荷泵完全解耦，大幅簡化電源管理時序。</span>
+                <span data-lang="en">Beyond 28nm, the roadmap bifurcates: for high-density rewritable code storage, back-end-of-line (BEOL) emerging memories—STT-MRAM requiring only 3–4 extra masks and ReRAM requiring 2–3 extra masks with thermal budgets under 400°C—integrate seamlessly between intermediate metal layers. For immutable identity, analog trim, and cryptographic root storage, pure-logic AntiFuse OTP requires zero mask adders and scales natively from 28nm/22nm through FinFET (16nm, 12nm, N6e, N4e) to 2nm GAA nanosheets. Advanced single-VDD read designs isolate core-domain sensing from controlled high-voltage charge pumps during programming.</span>
+              </p>
+              <p>
+                <span data-lang="zh">物理與架構連結：探索 <a href="../memory-physics.html#physics-models">第一性原理量子穿隧與介電崩潰物理</a> 與 <a href="../iot-mcu-envm.html#scaling-cliff">物聯網 MCU 28nm 微縮絕壁分析</a>。</span>
+                <span data-lang="en">Physics and architecture references: Review first-principles quantum tunneling and dielectric breakdown in <a href="../memory-physics.html#physics-models">Memory Physics</a> and examine scaling dynamics in <a href="../iot-mcu-envm.html#scaling-cliff">IoT &amp; Edge MCU Scaling Cliff</a>.</span>
+              </p>
+            </div>
             <div class="chapter-takeaways"><p>ARCHITECTURE TAKEAWAYS</p><ul><li>Node names are not portability proof</li><li>Separate read simplification from program infrastructure</li><li>Model mask and qualification cost as system constraints</li></ul></div>
             <dl class="evidence-contract"><div><dt>EVIDENCE CLASS</dt><dd>Industry synthesis + expert calibration</dd></div><div><dt>LIMITATION</dt><dd>Vendor-specific voltage coverage, mask counts and product roadmaps require internal portfolio evidence before customer use.</dd></div></dl>
           </article>
         
           <article id="chap-decision-evidence" class="paper-chapter">
             <header><p>CHAPTER 04</p><h3>Make the Decision Evidence-Aware</h3><strong>A decision matrix is useful only when it makes uncertainty visible instead of converting assumptions into specifications.</strong></header>
-            <div class="chapter-copy"><p>Public evidence can establish mechanisms, disclosed product availability and demonstrated use cases. Supplier claims may describe performance or qualification. Architecture inference can connect those facts to a system proposal. Target-silicon evidence is still required to close PVT, retention, endurance, power and attack-resilience claims for a specific implementation.</p><p>Every comparison row should therefore carry a source class, scope, limitation, review status and next validation action. Unsupported precision should be removed; a categorical range with an explicit evidence gap is more trustworthy than an exact number without provenance.</p></div>
+            <div class="chapter-copy">
+              <p>
+                <span data-lang="zh">決策矩陣唯有在能夠如實揭示不確定性、而非將主觀假設包裝為保證規格時，才具備真實工程價值。公開技術文獻確立物理機制、公開產品可得性與已展示案例；代工廠與 IP 供應商宣稱界定基準效能；系統架構推論則串接上述事實以形成工程提案。但在特定矽晶片專案落實前，仍必須以晶圓驗證數據 (Target-Silicon Evidence) 閉環驗證 PVT 邊限、數據保存期 (Retention)、覆寫耐受度 (Endurance)、功耗與實體抗攻擊能力。</span>
+                <span data-lang="en">Public evidence can establish mechanisms, disclosed product availability and demonstrated use cases. Supplier claims may describe performance or qualification. Architecture inference can connect those facts to a system proposal. Target-silicon evidence is still required to close PVT, retention, endurance, power and attack-resilience claims for a specific implementation.</span>
+              </p>
+              <p>
+                <span data-lang="zh">為落實零幻覺架構決策，本白皮書全面錨定本站一手產業證據總帳 (Primary Evidence Ledger)：</span>
+                <span data-lang="en">To enforce zero-hallucination architectural decisions, this whitepaper anchors every claim to primary industrial evidence cards:</span>
+              </p>
+              <ul style="margin: 8px 0 14px 20px; font-size: 0.88rem; line-height: 1.6;">
+                <li><strong>OxRAM &amp; Neuromorphic CIM:</strong> <a href="../memory-evidence.html#evidence-V14">Weebit Nano Commercial ReRAM Architecture (V14) ↗</a></li>
+                <li><strong>Enterprise MRAM &amp; PLP:</strong> <a href="../memory-evidence.html#evidence-V15">Everspin Technologies pMTJ STT-MRAM &amp; Capacitor-Free PLP (V15) ↗</a></li>
+                <li><strong>Automotive 28nm eRRAM:</strong> <a href="../memory-evidence.html#evidence-V16">Infineon AURIX™ TC4x AEC-Q100 Grade 1 Datasheet (V16) ↗</a></li>
+                <li><strong>Automotive 28nm FD-SOI ePCM:</strong> <a href="../memory-evidence.html#evidence-V17">STMicroelectronics Stellar MCU Dual-Bank Live OTA (V17) ↗</a></li>
+                <li><strong>Hardware Root of Trust &amp; PUF:</strong> <a href="../memory-evidence.html#evidence-V18">Intrinsic ID Quiddikey SRAM PUF (V18) ↗</a> &amp; <a href="../memory-evidence.html#evidence-V19">Rambus CryptoManager™ SPDM 1.3 RoT (V19) ↗</a></li>
+              </ul>
+              <p>
+                <span data-lang="zh">每個技術比較條目都必須載明來源等級、適用範圍、局限性、審查狀態與下一步驗證行動。移除無根據的虛假精確度，以帶有明確邊界的分類區間取代未經證實的精確數值。</span>
+                <span data-lang="en">Every comparison row should therefore carry a source class, scope, limitation, review status and next validation action. Unsupported precision should be removed; a categorical range with an explicit evidence gap is more trustworthy than an exact number without provenance.</span>
+              </p>
+            </div>
             <div class="chapter-takeaways"><p>ARCHITECTURE TAKEAWAYS</p><ul><li>Never let UI polish promote an assumption to fact</li><li>Bind every claim to scope and limitation</li><li>Use open gaps to drive the next validation action</li></ul></div>
             <dl class="evidence-contract"><div><dt>EVIDENCE CLASS</dt><dd>Evidence governance method</dd></div><div><dt>LIMITATION</dt><dd>This public workbench intentionally excludes confidential qualification and customer data.</dd></div></dl>
           </article>
@@ -471,7 +525,12 @@
         
         <aside class="paper-sources">
           <div><p>CONTINUE THE EVIDENCE TRAIL</p><h3>Use the Hub to separate source facts from architecture inference</h3></div>
-          <nav aria-label="Evidence trail navigation" data-aria-en="Evidence trail navigation" data-aria-zh="證據鏈延伸導覽"><a href="https://samhuang68.github.io/nvm-knowledge-hub/memory-evidence.html">Open Evidence Ledger <span>↗</span></a><a href="https://samhuang68.github.io/nvm-knowledge-hub/memory-physics.html">Review Memory Physics <span>↗</span></a></nav>
+          <nav aria-label="Evidence trail navigation" data-aria-en="Evidence trail navigation" data-aria-zh="證據鏈延伸導覽">
+            <a href="../memory-evidence.html">Open Evidence Ledger <span>↗</span></a>
+            <a href="../memory-physics.html">Review Memory Physics <span>↗</span></a>
+            <a href="../secure-storage.html#sec-subsystems">Hardware RoT Subsystems <span>↗</span></a>
+            <a href="../technology-comparison.html#sec-matrix">11-Technology Matrix <span>↗</span></a>
+          </nav>
         </aside>
       </div>
     </div>

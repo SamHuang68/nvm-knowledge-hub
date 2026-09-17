@@ -574,6 +574,7 @@
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
             <p>Platform trust cannot rely on a single primitive. SRAM PUF solves the zero-at-rest challenge, substantially attenuating static physical reverse-engineering vectors; AntiFuse OTP provides tamper-resistant non-volatile retention for certificates and irreversible anti-rollback counters. Together, protected by active top-metal shielding, they form a hardened OCP Caliptra root of trust aligned with CNSA 2.0 and Common Criteria AVA_VAN.5 standards.</p>
+            <p style="margin-top:0.5rem;font-size:0.85rem;"><span style="color:#8ea9b3;">Architecture Reference: </span><a href="../secure-storage.html#sec-subsystems" style="color:#c4a574;text-decoration:underline;">Hardware Root of Trust Subsystems (Quiddikey / tRoot™ / CryptoManager™) ↗</a></p>
           </div>
         </div>
       </div>
@@ -661,6 +662,7 @@
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
             <p>The post-quantum cryptography transition exposes conventional secure boot to acute silicon overhead: lattice-based signatures inflate key payloads by over 40x, overwhelming embedded non-volatile memory budgets. NIST SP 800-208 stateful hash-based signatures (LMS and XMSS) solve this by anchoring security to a compact 32-byte root hash in OTP. However, stateful schemes strictly forbid one-time signature (OTS) reuse. Concurrently, automotive powertrain applications mandate AEC-Q100 Grade 0 reliability (TA=150°C, peak junction Tj=175°C), where legacy floating-gate cells suffer catastrophic charge loss driven by thermionic emission and Stress-Induced Leakage Current (SILC / Trap-Assisted Tunneling). Industry-standard CMOS AntiFuse OTP leverages irreversible recrystallized-silicon breakdown filament physics that exhibit ohmic zero-drift at 175°C, providing hardware-enforced monotonic counters. Developed as an ISO 26262 SEooC element with ASIL-D SC3 systematic capability, it delivers SPFM ≥ 99%, LFM ≥ 90%, and allocated PMHF &lt; 0.1 FIT under defined Assumptions of Use (AoU), pairing with periodic memory scrubbing (T_scrub ≤ T_latent_budget) to eliminate latent dual-bit accumulation.</p>
+            <p style="margin-top:0.5rem;font-size:0.85rem;"><span style="color:#8ea9b3;">Microphysics Reference: </span><a href="../memory-physics.html#physics-models" style="color:#c4a574;text-decoration:underline;">First-Principles Quantum Tunneling &amp; 4-Stage Breakdown ↗</a></p>
           </div>
         </div>
       </div>
@@ -802,10 +804,12 @@
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
             <p>本簡報的所有論述均具備完整的第一手公開文獻總帳支撐，包含 JEDEC、PMBus、TSMC OIP 與 NIST 規範。沒有任何未經授權的保密洩漏，所有技術主張均可被獨立稽核與重現。</p>
+            <p style="margin-top:0.5rem;font-size:0.85rem;"><span style="color:#8ea9b3;">一手證據總帳：</span><a href="../memory-evidence.html#evidence-V14" style="color:#c4a574;text-decoration:underline;">檢視 Weebit、Everspin、Infineon、ST 與安全子系統一手規格證據 ↗</a></p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
             <p>Every claim in this briefing is indexed in the public source ledger, referencing primary publications from JEDEC, PMBus, TSMC OIP, and NIST. All technical statements are 100% defensible, fully public, and independently auditable.</p>
+            <p style="margin-top:0.5rem;font-size:0.85rem;"><span style="color:#8ea9b3;">Source Ledger: </span><a href="../memory-evidence.html#evidence-V14" style="color:#c4a574;text-decoration:underline;">Review Primary Datasheets (Weebit, Everspin, Infineon, ST, Intrinsic ID) ↗</a></p>
           </div>
         </div>
       </div>
