@@ -220,7 +220,7 @@
       document.body.classList.add('hub-literature-paper');
       const paper = document.createElement('link');
       paper.rel = 'stylesheet';
-      paper.href = new URL('literature-editorial.css?v=20260917-paper1', rootURL).href;
+      paper.href = new URL('literature-editorial.css?v=20260917-paper2', rootURL).href;
       document.head.append(paper);
     }
     if (/automotive-nvm\.html|iot-mcu-envm\.html/i.test(location.pathname)) {
