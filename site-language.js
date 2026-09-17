@@ -204,7 +204,7 @@
       index.onerror = startController;
       document.head.append(index);
     })();
-    const storyPages = /technology-comparison\.html|secure-storage\.html|memory-physics\.html|automotive-nvm\.html|iot-mcu-envm\.html|security-assurance\.html/i.test(location.pathname);
+    const storyPages = /technology-comparison\.html|secure-storage\.html|memory-physics\.html|automotive-nvm\.html|iot-mcu-envm\.html|security-assurance\.html|specialty-nvm\.html|ai-nvm-opportunities\.html/i.test(location.pathname);
     if (storyPages) {
       const css = document.createElement('link');
       css.rel = 'stylesheet';
@@ -214,6 +214,12 @@
       js.src = new URL('hub-story-maps.js?v=20260918-s2', rootURL).href;
       js.defer = true;
       document.head.append(js);
+      if (/specialty-nvm\.html|ai-nvm-opportunities\.html/i.test(location.pathname)) {
+        const apps = document.createElement('script');
+        apps.src = new URL('hub-story-apps.js?v=20260918-s3', rootURL).href;
+        apps.defer = true;
+        document.head.append(apps);
+      }
     }
     const literaturePages = /memory-evidence\.html|oip-secure-storage\.html|\/briefing\/|\/whitepaper\//i.test(location.pathname);
     if (literaturePages) {
