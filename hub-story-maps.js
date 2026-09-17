@@ -182,7 +182,7 @@
     note.innerHTML = T(states[0].bodyEn, states[0].bodyZh);
     box.appendChild(nav);
     box.appendChild(note);
-    const hero = document.getElementById('hero-title');
+    const hero = document.getElementById('hero-title') || document.querySelector('h1');
     if (hero && hero.parentElement) hero.parentElement.insertAdjacentElement('afterend', box);
     else host.insertAdjacentElement('afterbegin', box);
   }
@@ -198,6 +198,13 @@
       { n: '01', en: 'Architecture option', zh: '架構選項', hintEn: '0 extra mask adders', hintZh: '0 道額外光罩', bodyEn: 'Pure-logic AntiFuse OTP can be a zero-adder route in standard CMOS.', bodyZh: '純邏輯 AntiFuse OTP 可以是標準 CMOS 的零加價路線。' },
       { n: '02', en: 'Bind the document', zh: '綁定文件', hintEn: 'Node + revision', hintZh: '節點 + 版本', bodyEn: 'NTV power and long-retention figures stay with the cited node and document version.', bodyZh: '近閾值功耗與長保持數字必須跟著被引用的節點與文件版本。' },
       { n: '03', en: 'Not target assurance', zh: '不是目標保證', hintEn: 'Vendor-reported', hintZh: '供應商報告', bodyEn: 'Portfolio numbers are context. They do not assure the shipped configuration.', bodyZh: '組合數字是脈絡，不能保證出貨組態。' }
+    ]);
+  }
+  if (/security-assurance\.html/i.test(path)) {
+    failClosed('Claims stay testable, or they stay unmarked.', '主張必須可測，否則維持未標。', [
+      { n: '01', en: 'Observe', zh: '觀察', hintEn: 'Power · EM · timing', hintZh: '功耗 · 電磁 · 時序', bodyEn: 'Side-channel evidence is a measurement problem. It does not name a product defect by itself.', bodyZh: '旁路證據是量測問題，本身不構成產品缺陷名稱。' },
+      { n: '02', en: 'Disturb', zh: '擾動', hintEn: 'Voltage · clock · laser', hintZh: '電壓 · 時脈 · 雷射', bodyEn: 'Disturbance tests ask whether the reconstructed root or payload leaks under a named stress.', bodyZh: '擾動測試問的是：具名應力下，重建根或載荷會不會外洩。' },
+      { n: '03', en: 'Fail secure', zh: '失敗即安全', hintEn: 'No key disclosure', hintZh: '不洩漏金鑰', bodyEn: 'Expected outcome is fail-secure with no key disclosure. Unclosed tests remain UNKNOWN.', bodyZh: '預期結果是失敗即安全、不洩漏金鑰。未關閉的測試維持 UNKNOWN。' }
     ]);
   }
   if (!document.getElementById('readingProgress') && !document.querySelector('.hub-progress')) {
