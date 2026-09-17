@@ -8,7 +8,7 @@
   <meta name="description" content="Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.">
   <meta name="author" content="NVM Knowledge Hub Editorial Board">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="theme-color" content="#061925">
+  <meta name="theme-color" content="#fafaf7">
   <link rel="canonical" href="https://samhuang68.github.io/nvm-knowledge-hub/technology-comparison.html">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta property="og:type" content="article">
@@ -43,15 +43,15 @@
   <link rel="stylesheet" href="specialty-nvm.css?v=20260906-navy-v3">
 
   <style>
-    body.specialty-page {
-      background-color: #061925 !important;
-      color: #c9c0b4 !important;
-      background-image: none !important;
-    }
+    /* =========================================================================
+       EDITORIAL LIGHT / COMMERCIAL EDITORIAL PAPER (白底商用閱讀介面規範)
+       對齊 NVM技術全景.html#nvm-physics-overview 與 商用閱讀介面.css
+       ========================================================================= */
 
-    /* Language: one locale at a time. Unwrapped copy is a bug. */
+    /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
     [data-lang="en"] { display: revert !important; }
+
     html[data-language="zh"] [data-lang="zh"],
     body[data-language="zh"] [data-lang="zh"] {
       display: revert !important;
@@ -61,201 +61,285 @@
       display: none !important;
     }
 
-    body {
-      background-color: #061925;
-      color: #c9c0b4;
-      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
-      overflow-x: hidden;
-      background-image: none;
-    }
+    /* Critical defensive inline styles: prevent SVG explosion & skip-link flash */
+    .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #092b3b; color: #74e4d7; padding: 10px 18px; border: 1px solid #006f70; border-radius: 4px; }
+    .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
 
     /* Editorial Light Theme Tokens */
     :root {
-      --paper-bg: #061925;
-      --paper-card: #0e2a38;
-      --paper-subtle: #ebe6dc;
-      --ink-heading: #0a1e2c;
-      --ink-body: #334155;
-      --ink-muted: #64748b;
-      --cyan-editorial: #8a6a42;
-      --cyan-light: #f7f1e8;
-      --amber-editorial: #8a6a42;
-      --amber-light: #f7f1e8;
-      --emerald-editorial: #6f5536;
-      --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
-      --card-shadow-hover: 0 12px 28px -4px rgba(15, 23, 42, 0.09), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
+      --paper-bg: #fafaf7;
+      --paper-card: #ffffff;
+      --paper-subtle: #f0f4ef;
+      --ink-heading: #173b49;
+      --ink-body: #284853;
+      --ink-muted: #526a72;
+      --cyan-editorial: #006f70;
+      --gold-editorial: #805828;
+      --copper-editorial: #805828;
+      --hairline-gold: rgba(128, 88, 40, 0.22);
+      --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+
+      --editorial-navy: #092b3b;
+      --editorial-ink: #173b49;
+      --editorial-body: #284853;
+      --editorial-muted: #526a72;
+      --editorial-teal: #006f70;
+      --editorial-cyan: #74e4d7;
+      --editorial-paper: #fafaf7;
+      --editorial-line: #cddbdc;
+      --editorial-copper: #805828;
+      --editorial-amber: #9a713e;
+      --editorial-amber-bg: #f0ece5;
+      --editorial-amber-text: #55452c;
+    }
+
+    html, body {
+      overflow-x: clip !important;
+      max-width: 100% !important;
+      width: 100% !important;
+      background-color: #f8fafc;
+      background-color: #fafaf7 !important;
+      color: #284853 !important;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif !important;
+      background-image: none !important;
+      -webkit-font-smoothing: antialiased !important;
+    }
+
+    body.specialty-page, body {
+      background-color: #f8fafc;
+      background-color: #fafaf7 !important;
+      color: #284853 !important;
+      background-image: none !important;
     }
 
     .mono-text, .meta-code, .stat-val, .pill-number {
       font-family: 'IBM Plex Mono', Consolas, monospace !important;
     }
 
-    .main-container {
-      max-width: min(1780px, 97vw);
-      margin: 0 auto;
-      padding: 2rem var(--hub-keepout, clamp(24px, 4vw, 64px)) 4rem;
+    /* 1. 導覽列與麵包屑：標準商用閱讀介面深藍頂欄 + 柔和紙張灰底麵包屑 */
+    html body .site-header {
+      background: #092b3b !important;
+      border-bottom: 1px solid #33525e !important;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18) !important;
+      min-height: 64px !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      transition: background 0.3s ease, min-height 0.3s ease !important;
+    }
+    html body .site-header.scrolled {
+      background: #072230 !important;
+      min-height: 56px !important;
+    }
+    html body .site-header .brand {
+      color: #ffffff !important;
+    }
+    html body .site-header .brand-section {
+      color: #74e4d7 !important;
+      font-weight: 700 !important;
+    }
+    html body .site-header .primary-nav a {
+      color: #cde2e7 !important;
+      font-weight: 500 !important;
+    }
+    html body .site-header .primary-nav a:hover,
+    html body .site-header .primary-nav a[aria-current="location"] {
+      color: #74e4d7 !important;
+    }
+    html body .site-header .language-toggle {
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-color: rgba(255, 255, 255, 0.25) !important;
+      color: #ffffff !important;
     }
 
-    /* Inner keep-out: framed comparison panels must inset copy from the card border. */
-    #sec-matrix.lens-panel,
-    #sec-selector.lens-panel,
-    #sec-physics.lens-panel,
-    #sec-foundry.lens-panel,
-    #sec-read-modes.lens-panel,
-    #sec-pipeline.lens-panel {
-      padding: clamp(24px, 3vw, 44px) clamp(24px, 3.4vw, 52px) clamp(28px, 3.4vw, 52px) !important;
-      box-sizing: border-box;
+    html body .site-breadcrumb {
+      background: #eaf0ed !important;
+      border-bottom: 1px solid #c4d4d2 !important;
+      min-height: 40px !important;
+      padding-block: 6px !important;
+      box-shadow: none !important;
+      color: #526a72 !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
     }
-    #sec-matrix.lens-panel > .hub-sec-header:first-child,
-    #sec-selector.lens-panel > .hub-sec-header:first-child,
-    #sec-physics.lens-panel > .hub-sec-header:first-child,
-    #sec-foundry.lens-panel > .hub-sec-header:first-child,
-    #sec-read-modes.lens-panel > .hub-sec-header:first-child,
-    #sec-pipeline.lens-panel > .hub-sec-header:first-child {
-      margin-top: 0;
+    html body .site-breadcrumb :is(a, strong, span) {
+      color: #526a72 !important;
+      letter-spacing: 0.01em !important;
+      text-shadow: none !important;
+    }
+    html body .site-breadcrumb a {
+      color: #006f70 !important;
+      text-decoration: none !important;
+    }
+    html body .site-breadcrumb a:hover {
+      color: #08594f !important;
+      text-decoration: underline !important;
+    }
+    html body .site-breadcrumb strong {
+      color: #173b49 !important;
+      font-weight: 700 !important;
+    }
+    html body .site-breadcrumb i {
+      background: #c4d4d2 !important;
+    }
+    html body .site-breadcrumb .topic-switch a {
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 4px !important;
+      min-height: 26px !important;
+      padding: 3px 8px !important;
+      font-size: 11px !important;
+      color: #173b49 !important;
+      transition: all 0.2s ease !important;
+    }
+    html body .site-breadcrumb .topic-switch a:hover {
+      background: #dfede8 !important;
+      border-color: #006f70 !important;
+      color: #08594f !important;
+    }
+    html body .site-breadcrumb .topic-switch a[aria-current] {
+      background: #dfede8 !important;
+      border-color: #006f70 !important;
+      color: #08594f !important;
+      font-weight: 700 !important;
     }
 
-    .selector-grid-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-    @media (max-width: 960px) {
-      .selector-grid-layout {
-        grid-template-columns: 1fr !important;
-        gap: 1.25rem !important;
-      }
-    }
-
-    /* Hero Section - Executive Obsidian Silicon Visual */
-    .f2-hero-container {
-      position: relative;
-      background: linear-gradient(180deg, rgba(6, 25, 37, 0.94) 0%, rgba(3, 19, 30, 0.98) 100%);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.12);
-      overflow: hidden;
-      padding: clamp(40px, 5vw, 68px) var(--hub-keepout, clamp(24px, 4vw, 64px)) clamp(52px, 6vw, 84px);
-      color: #f8fafc;
-      text-align: center;
+    /* 2. Hero Section - Editorial Light Paper (白底商用書刊英雄區) */
+    .f2-hero.f2-hero-container {
+      position: relative !important;
+      isolation: isolate !important;
+      background: #f0f4ef !important;
+      border-bottom: 1px solid #cddbdc !important;
+      padding: clamp(48px, 6vh, 72px) var(--hub-keepout, clamp(24px, 4vw, 64px)) clamp(44px, 5.5vh, 64px) !important;
+      color: #284853 !important;
+      text-align: center !important;
+      overflow: hidden !important;
     }
     .f2-hero-media {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: -3 !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
     }
     .f2-hero-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      opacity: 0.45;
-      filter: saturate(1.12) brightness(0.92);
-      animation: hero-push 22s ease-out forwards;
-    }
-    @keyframes hero-push {
-      from { transform: scale(1); }
-      to { transform: scale(1.05); }
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      opacity: 0.12 !important;
+      filter: grayscale(1) contrast(1.15) brightness(1.05) !important;
+      mix-blend-mode: multiply !important;
+      transform: scale(1.02) !important;
+      animation: none !important;
     }
     .f2-hero-shade {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      background: radial-gradient(circle at 50% 25%, rgba(176, 138, 91, 0.2) 0%, rgba(6, 25, 37, 0.88) 68%, rgba(3, 19, 30, 0.98) 100%),
-                  linear-gradient(180deg, rgba(6, 25, 37, 0.65) 0%, rgba(3, 19, 30, 0.96) 100%);
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: -2 !important;
+      pointer-events: none !important;
+      background:
+        linear-gradient(180deg, rgba(240, 244, 239, 0.92) 0%, rgba(240, 244, 239, 0.98) 100%),
+        radial-gradient(circle at 50% 25%, rgba(0, 111, 112, 0.06) 0%, rgba(240, 244, 239, 0.8) 70%) !important;
     }
-    .f2-hero-grid { display: none; }
     .f2-hero-content {
-      position: relative;
-      z-index: 3;
-      max-width: min(1200px, 94vw);
-      margin: 0 auto;
-      text-align: center;
+      position: relative !important;
+      z-index: 2 !important;
+      max-width: min(1200px, 94vw) !important;
+      margin: 0 auto !important;
+      text-align: center !important;
     }
     .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0;
-      background: none;
-      border: none;
-      border-radius: 0;
-      color: #c4a574;
-      font: 700 11px/1 'IBM Plex Mono', monospace;
-      letter-spacing: 0.14em;
-      margin-bottom: 12px;
-      text-transform: uppercase;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      padding: 5px 14px !important;
+      background: #dfede8 !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 9999px !important;
+      color: #006f70 !important;
+      font: 700 11px/1 'IBM Plex Mono', monospace !important;
+      letter-spacing: 0.12em !important;
+      margin-bottom: 14px !important;
+      text-transform: uppercase !important;
     }
     .f2-hero h1 {
-      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
-      font-weight: 800;
-      line-height: 1.18;
-      letter-spacing: -0.03em;
-      margin: 0.5rem 0 1rem;
-      color: #ffffff;
-      text-wrap: balance;
-      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem) !important;
+      font-weight: 700 !important;
+      line-height: 1.18 !important;
+      letter-spacing: -0.03em !important;
+      margin: 0.5rem 0 1rem !important;
+      color: #173b49 !important;
+      text-wrap: balance !important;
+      text-shadow: none !important;
     }
     .f2-hero h1 em {
-      color: #c4a574;
-      font-style: normal;
-      font-weight: 700;
+      color: #006f70 !important;
+      font-style: normal !important;
+      font-weight: 700 !important;
     }
     .f2-hero p.lead-desc {
-      color: #cbd5e1;
-      font-size: clamp(15.5px, 1.25vw, 17.5px);
-      line-height: 1.75;
-      max-width: 900px;
-      margin: 0 auto 24px;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+      color: #284853 !important;
+      font-size: clamp(15.5px, 1.25vw, 17px) !important;
+      line-height: 1.75 !important;
+      max-width: 920px !important;
+      margin: 0 auto 24px !important;
+      text-shadow: none !important;
+      font-weight: 500 !important;
     }
     .f2-hero-proof {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: clamp(16px, 2.8vw, 40px);
-      margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(196, 165, 116, 0.18);
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: clamp(16px, 2.8vw, 40px) !important;
+      margin-top: 24px !important;
+      padding-top: 20px !important;
+      border-top: 1px solid #cddbdc !important;
     }
     .f2-hero-proof > div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 4px !important;
     }
     .f2-hero-proof strong {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: clamp(1.25rem, 1.8vw, 1.6rem);
-      font-weight: 800;
-      line-height: 1;
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: clamp(1.25rem, 1.8vw, 1.6rem) !important;
+      font-weight: 800 !important;
+      line-height: 1 !important;
+      color: #173b49 !important;
     }
     .f2-hero-proof span {
-      font-size: 12px;
-      color: #cbd5e1 !important;
-      font-weight: 500;
+      font-size: 12px !important;
+      color: #526a72 !important;
+      font-weight: 600 !important;
     }
 
-    /* 4-Metric Stat Strip - White Editorial Paper Style */
+    /* 3. 4-Metric 規格彩條 (f2-stat-bridge) 白底商用風格 */
+    .main-container {
+      max-width: min(1780px, 97vw) !important;
+      margin: 0 auto !important;
+      padding: 2rem var(--hub-keepout, clamp(24px, 4vw, 64px)) 4rem !important;
+    }
     .f2-stat-bridge {
-      position: relative;
-      z-index: 10;
-      margin: -36px auto 24px;
-      padding: 0;
+      position: relative !important;
+      z-index: 10 !important;
+      margin: -36px auto 24px !important;
+      padding: 0 !important;
     }
     .f2-stat-bridge .stat-strip-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 14px;
-      margin: 0;
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+      gap: 14px !important;
+      margin: 0 !important;
     }
     .f2-stat-bridge .stat-strip-card,
     .stat-strip-card {
-      background: #0e2a38 !important;
-      border: 1px solid rgba(15, 23, 42, 0.09) !important;
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
       border-radius: 8px !important;
       padding: 16px 20px !important;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
       backdrop-filter: none !important;
       transition: transform 0.2s ease, box-shadow 0.2s ease !important;
       display: flex !important;
@@ -265,18 +349,18 @@
     .f2-stat-bridge .stat-strip-card:hover,
     .stat-strip-card:hover {
       transform: translateY(-2px) !important;
-      box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.1), 0 4px 10px -2px rgba(15, 23, 42, 0.03) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
     }
-    .stat-strip-card.border-l-cyan { border-left: 4px solid #8a6a42 !important; }
-    .stat-strip-card.border-l-teal { border-left: 4px solid #8a6a42 !important; }
-    .stat-strip-card.border-l-emerald { border-left: 4px solid #6f5536 !important; }
+    .stat-strip-card.border-l-cyan { border-left: 4px solid #008580 !important; }
+    .stat-strip-card.border-l-teal { border-left: 4px solid #006f70 !important; }
+    .stat-strip-card.border-l-emerald { border-left: 4px solid #16a34a !important; }
     .stat-strip-card.border-l-amber { border-left: 4px solid #d97706 !important; }
     .f2-stat-bridge .stat-val,
     .stat-strip-card .stat-val {
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 1.32rem !important;
       font-weight: 800 !important;
-      color: #f3ebe0 !important;
+      color: #173b49 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
     }
@@ -286,7 +370,7 @@
       font-size: 11px !important;
       text-transform: uppercase !important;
       letter-spacing: 0.08em !important;
-      color: #e8e0d4 !important;
+      color: #006f70 !important;
       font-weight: 700 !important;
       margin-top: 2px !important;
     }
@@ -295,325 +379,792 @@
       margin-top: 4px !important;
       font-weight: 500 !important;
       line-height: 1.4 !important;
+      color: #526a72 !important;
     }
     .stat-top-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
     }
     .stat-top-meta .meta-code {
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 10px !important;
       font-weight: 700 !important;
-      color: #b5aa9c !important;
+      color: #805828 !important;
       letter-spacing: 0.06em !important;
     }
     .pulse-chip-mini {
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #8a6a42;
-      box-shadow: 0 0 0 0 rgba(176, 138, 91, 0.7);
-      animation: pulse-ring 2s infinite;
+      display: inline-block !important;
+      width: 7px !important;
+      height: 7px !important;
+      border-radius: 50% !important;
+      background: #006f70 !important;
+      box-shadow: 0 0 6px rgba(0, 111, 112, 0.4) !important;
+      animation: dot-pulse 2s infinite !important;
     }
-    @keyframes pulse-ring {
-      0% { box-shadow: 0 0 0 0 rgba(176, 138, 91, 0.7); }
-      70% { box-shadow: 0 0 0 5px rgba(176, 138, 91, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(176, 138, 91, 0); }
+    @keyframes dot-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.85); }
     }
 
-    /* Nav Pills - Paper Capsule Style */
+    /* 4. 藥丸導覽列 (hub-nav-pills) 白底商用膠囊風格 */
     .hub-nav-pills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin: 24px 0 32px;
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 12px !important;
+      margin: 24px 0 32px !important;
     }
     .hub-nav-pills .nav-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 18px;
-      background: #0e2a38;
-      border: 1px solid rgba(15, 23, 42, 0.1);
-      border-radius: 999px;
-      text-decoration: none;
-      color: #c9c0b4;
-      font-size: 13px;
-      font-weight: 600;
-      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      padding: 9px 18px !important;
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 999px !important;
+      text-decoration: none !important;
+      color: #284853 !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .hub-nav-pills .nav-pill:hover {
-      background: #0e2a38;
-      color: #8a6a42;
-      border-color: #8a6a42;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(176, 138, 91, 0.15);
+      background: #dfede8 !important;
+      color: #08594f !important;
+      border-color: #006f70 !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 14px rgba(0, 111, 112, 0.15) !important;
     }
     .hub-nav-pills .pill-number {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 11px;
-      font-weight: 700;
-      color: #d97706;
-      background: #133445;
-      border: 1px solid rgba(217, 119, 6, 0.2);
-      padding: 2px 8px;
-      border-radius: 12px;
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      color: #006f70 !important;
+      background: #edf2ee !important;
+      border: 1px solid #cddbdc !important;
+      padding: 2px 8px !important;
+      border-radius: 12px !important;
     }
     .hub-nav-pills .nav-pill:hover .pill-number {
-      color: #8a6a42;
-      background: #0e2a38;
-      border-color: #8a6a42;
+      color: #ffffff !important;
+      background: #006f70 !important;
+      border-color: #006f70 !important;
     }
 
-    /* Section Headers - Clean Editorial */
+    /* 5. 章節容器 (lens-panel) 與標題 */
+    #sec-matrix.lens-panel,
+    #sec-selector.lens-panel,
+    #sec-physics.lens-panel,
+    #sec-foundry.lens-panel,
+    #sec-read-modes.lens-panel,
+    #sec-pipeline.lens-panel,
+    .lens-panel {
+      padding: clamp(24px, 3vw, 44px) clamp(24px, 3.4vw, 52px) clamp(28px, 3.4vw, 52px) !important;
+      box-sizing: border-box !important;
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+      margin-bottom: 28px !important;
+    }
+    #sec-matrix.lens-panel > .hub-sec-header:first-child,
+    #sec-selector.lens-panel > .hub-sec-header:first-child,
+    #sec-physics.lens-panel > .hub-sec-header:first-child,
+    #sec-foundry.lens-panel > .hub-sec-header:first-child,
+    #sec-read-modes.lens-panel > .hub-sec-header:first-child,
+    #sec-pipeline.lens-panel > .hub-sec-header:first-child {
+      margin-top: 0 !important;
+    }
     .hub-sec-header {
-      margin: 4rem 0 1.75rem;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.1);
-      padding-bottom: 1rem;
+      margin: 1rem 0 1.75rem !important;
+      border-bottom: 1px solid #cddbdc !important;
+      padding-bottom: 1rem !important;
     }
     .hub-sec-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font: 700 11px 'IBM Plex Mono', monospace;
-      letter-spacing: 0.15em;
-      color: #8a6a42;
-      text-transform: uppercase;
-      margin-bottom: 6px;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      font: 700 11px 'IBM Plex Mono', monospace !important;
+      letter-spacing: 0.14em !important;
+      color: #805828 !important;
+      text-transform: uppercase !important;
+      margin-bottom: 6px !important;
     }
     .hub-sec-header h2 {
-      font-size: 1.85rem;
-      font-weight: 800;
-      color: #f3ebe0;
-      margin: 0;
+      font-size: 1.85rem !important;
+      font-weight: 700 !important;
+      color: #173b49 !important;
+      margin: 0 !important;
+      line-height: 1.3 !important;
+    }
+    .hub-sec-header h2 em {
+      color: #006f70 !important;
+      font-style: normal !important;
     }
 
-    /* 9-Dimension High-Density Data Matrix (Executive Silicon Edition) */
+    /* 6. Section 1: 9 維高密度對比矩陣 (Executive Editorial Matrix) */
+    .matrix-interactive-toolbar {
+      background: #f0f4ef !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 8px !important;
+      padding: 0.85rem 1.15rem !important;
+      margin-bottom: 1.25rem !important;
+      box-shadow: none !important;
+    }
+    .matrix-toolbar-row {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 1rem !important;
+      flex-wrap: wrap !important;
+    }
+    .matrix-toolbar-left {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.75rem !important;
+      flex-wrap: wrap !important;
+    }
+    .matrix-toolbar-title {
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      font: 800 10.5px/1 'IBM Plex Mono', monospace !important;
+      letter-spacing: 0.1em !important;
+      color: #173b49 !important;
+      text-transform: uppercase !important;
+    }
+    .toolbar-dot {
+      width: 7px !important;
+      height: 7px !important;
+      border-radius: 50% !important;
+      background: #006f70 !important;
+      box-shadow: 0 0 6px rgba(0, 111, 112, 0.4) !important;
+      display: inline-block !important;
+    }
+    .matrix-cat-pills {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.45rem !important;
+      flex-wrap: wrap !important;
+    }
+    .cat-filter-pill {
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 6px !important;
+      color: #284853 !important;
+      font: 600 11px/1 'IBM Plex Mono', monospace !important;
+      padding: 6px 10px !important;
+      cursor: pointer !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      transition: all 0.18s ease !important;
+      user-select: none !important;
+    }
+    .cat-filter-pill:hover {
+      background: #eaf1ed !important;
+      border-color: #006f70 !important;
+      color: #173b49 !important;
+    }
+    .cat-filter-pill.is-expanded {
+      background: #dfede8 !important;
+      border-color: #006f70 !important;
+      color: #08594f !important;
+    }
+    .cat-filter-pill.is-collapsed {
+      background: #edf2ee !important;
+      border-color: #cddbdc !important;
+      color: #889fa6 !important;
+      opacity: 0.75 !important;
+    }
+    .pill-state-icon {
+      font-size: 9.5px !important;
+      color: #006f70 !important;
+      font-weight: 700 !important;
+    }
+    .cat-filter-pill.is-collapsed .pill-state-icon {
+      color: #889fa6 !important;
+    }
+    .pill-count-badge {
+      background: #dfede8 !important;
+      color: #006f70 !important;
+      border-radius: 10px !important;
+      padding: 1px 5px !important;
+      font-size: 9.5px !important;
+      font-weight: 700 !important;
+    }
+    .cat-filter-pill.is-collapsed .pill-count-badge {
+      background: #e2e8ea !important;
+      color: #889fa6 !important;
+    }
+    .matrix-toolbar-right {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.6rem !important;
+      flex-wrap: wrap !important;
+    }
+    .matrix-views-label {
+      font: 700 10.5px/1 'IBM Plex Mono', monospace !important;
+      color: #526a72 !important;
+      letter-spacing: 0.05em !important;
+    }
+    .matrix-view-presets {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.35rem !important;
+    }
+    .matrix-view-btn {
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 5px !important;
+      color: #284853 !important;
+      font: 700 10.5px/1 'IBM Plex Mono', monospace !important;
+      padding: 5px 9px !important;
+      cursor: pointer !important;
+      transition: all 0.18s ease !important;
+      white-space: nowrap !important;
+    }
+    .matrix-view-btn:hover {
+      background: #eaf1ed !important;
+      border-color: #006f70 !important;
+      color: #173b49 !important;
+    }
+    .matrix-view-btn.is-active {
+      background: #dfede8 !important;
+      border-color: #006f70 !important;
+      color: #08594f !important;
+      box-shadow: none !important;
+    }
+    .matrix-action-btn {
+      background: #ffffff !important;
+      border: 1px solid #006f70 !important;
+      border-radius: 6px !important;
+      color: #006f70 !important;
+      font: 700 10.5px/1 'IBM Plex Mono', monospace !important;
+      padding: 5px 10px !important;
+      cursor: pointer !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 5px !important;
+      transition: all 0.18s ease !important;
+      white-space: nowrap !important;
+    }
+    .matrix-action-btn:hover {
+      background: #dfede8 !important;
+      color: #08594f !important;
+    }
+    .matrix-action-btn.is-active {
+      background: #006f70 !important;
+      border-color: #006f70 !important;
+      color: #ffffff !important;
+      font-weight: 800 !important;
+      box-shadow: 0 2px 8px rgba(0, 111, 112, 0.25) !important;
+    }
+    .btn-icon { font-size: 11px !important; }
+
     .compare-matrix-wrapper {
-      width: 100%;
-      overflow-x: auto;
-      margin: 1.5rem 0 2.5rem;
-      border: 1px solid rgba(196, 165, 116, 0.22);
-      border-radius: 8px;
-      background: #082433;
-      box-shadow: 0 12px 32px -6px rgba(3, 19, 30, 0.5);
-      position: relative;
-      scrollbar-width: thin;
-      scrollbar-color: #c4a574 #061925;
+      width: 100% !important;
+      overflow-x: auto !important;
+      margin: 1.5rem 0 2rem !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 8px !important;
+      background: #ffffff !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      position: relative !important;
+      scrollbar-width: thin !important;
+      scrollbar-color: #006f70 #f0f4ef !important;
     }
-    .compare-matrix-wrapper::-webkit-scrollbar {
-      height: 8px;
-    }
-    .compare-matrix-wrapper::-webkit-scrollbar-track {
-      background: #061925;
-      border-radius: 4px;
-    }
-    .compare-matrix-wrapper::-webkit-scrollbar-thumb {
-      background: #c4a574;
-      border-radius: 4px;
-    }
-    .compare-matrix-wrapper::-webkit-scrollbar-thumb:hover {
-      background: #dfb77c;
-    }
+    .compare-matrix-wrapper::-webkit-scrollbar { height: 8px !important; }
+    .compare-matrix-wrapper::-webkit-scrollbar-track { background: #f0f4ef !important; border-radius: 4px !important; }
+    .compare-matrix-wrapper::-webkit-scrollbar-thumb { background: #006f70 !important; border-radius: 4px !important; }
+    .compare-matrix-wrapper::-webkit-scrollbar-thumb:hover { background: #08594f !important; }
+
     .compare-matrix {
-      display: grid;
-      grid-template-columns: var(--col-dim-width, 190px) repeat(11, minmax(105px, 1fr));
-      gap: 1px;
-      background: rgba(196, 165, 116, 0.12);
-      min-width: 1320px;
-      transition: min-width 0.2s ease;
+      display: grid !important;
+      grid-template-columns: var(--col-dim-width, 190px) repeat(11, minmax(105px, 1fr)) !important;
+      gap: 1px !important;
+      background: #cddbdc !important;
+      min-width: 1320px !important;
+      transition: min-width 0.2s ease !important;
     }
-    /* Sticky Row Header Column (Column 1) */
     .matrix-dim-header,
     .matrix-row-header {
-      position: sticky;
-      left: 0;
-      z-index: 5;
-      box-shadow: 4px 0 12px -2px rgba(0, 0, 0, 0.5);
+      position: sticky !important;
+      left: 0 !important;
+      z-index: 5 !important;
+      box-shadow: 4px 0 10px -2px rgba(0, 0, 0, 0.08) !important;
     }
     .matrix-dim-header {
-      background: #061925;
-      z-index: 6;
-      border-right: 1px solid rgba(196, 165, 116, 0.25);
+      background: #e3ece6 !important;
+      z-index: 6 !important;
+      border-right: 1px solid #cddbdc !important;
     }
     .matrix-row-header {
-      background: #061925;
-      font-family: 'IBM Plex Mono', monospace;
-      font-weight: 700;
-      color: #f8fafc;
-      align-items: flex-start;
-      text-align: left;
-      border-right: 1px solid rgba(196, 165, 116, 0.2);
+      background: #e3ece6 !important;
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-weight: 700 !important;
+      color: #173b49 !important;
+      align-items: flex-start !important;
+      text-align: left !important;
+      border-right: 1px solid #cddbdc !important;
     }
     .matrix-row-header small {
-      font-weight: 400;
-      color: #94a3b8;
-      font-size: 0.72rem;
-      margin-top: 4px;
+      font-weight: 400 !important;
+      color: #526a72 !important;
+      font-size: 0.72rem !important;
+      margin-top: 4px !important;
     }
-    /* Single-Tier Matrix Header & Row Layout */
     .matrix-cell, .matrix-header, .matrix-row-header {
-      padding: 1.1rem 1.15rem;
-      font-size: 0.88rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      padding: 1.1rem 1.15rem !important;
+      font-size: 0.88rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
     }
     .matrix-cell {
-      background: #082433;
-      color: #e2e8f0;
-      line-height: 1.45;
-      transition: background 0.18s ease;
+      background: #ffffff !important;
+      color: #284853 !important;
+      line-height: 1.45 !important;
+      transition: background 0.18s ease !important;
     }
     .matrix-cell:hover {
-      background: #0b3044;
+      background: #f0f4ef !important;
     }
     .matrix-cell b {
-      color: #f8fafc;
-      font-weight: 700;
-      letter-spacing: 0.01em;
+      color: #173b49 !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.01em !important;
     }
     .matrix-cell .cell-note {
-      color: #94a3b8;
-      font-size: 11px;
-      margin-top: 5px;
-      line-height: 1.45;
-      max-width: 14.5rem;
-      white-space: normal;
-      overflow-wrap: anywhere;
+      color: #526a72 !important;
+      font-size: 11px !important;
+      margin-top: 5px !important;
+      line-height: 1.45 !important;
+      max-width: 14.5rem !important;
+      white-space: normal !important;
+      overflow-wrap: anywhere !important;
     }
     .matrix-footnote {
-      margin: 0 1.1rem 1.4rem;
-      font-size: 12px;
-      line-height: 1.7;
-      color: #b5aa9c;
-      max-width: 72rem;
+      margin: 0 1.1rem 1.4rem !important;
+      font-size: 12px !important;
+      line-height: 1.7 !important;
+      color: #526a72 !important;
+      max-width: 72rem !important;
     }
     .matrix-cell.focus-tech {
-      background: rgba(196, 165, 116, 0.06);
-      border-left: 1px solid rgba(196, 165, 116, 0.15);
-      border-right: 1px solid rgba(196, 165, 116, 0.15);
+      background: #f7faf8 !important;
+      border-left: 1px solid #cddbdc !important;
+      border-right: 1px solid #cddbdc !important;
     }
     .matrix-cell.focus-tech:hover {
-      background: rgba(196, 165, 116, 0.12);
+      background: #edf6f2 !important;
     }
     .matrix-header {
-      background: #061e2b;
-      color: #f1f5f9;
-      font-weight: 700;
-      font-family: 'IBM Plex Mono', monospace;
-      border-bottom: 2px solid #c4a574;
-      padding: 1.25rem 1rem;
-      letter-spacing: 0.03em;
+      background: #e3ece6 !important;
+      color: #173b49 !important;
+      font-weight: 700 !important;
+      font-family: 'IBM Plex Mono', monospace !important;
+      border-bottom: 2px solid #006f70 !important;
+      padding: 1.15rem 0.85rem !important;
+      letter-spacing: 0.02em !important;
     }
     .matrix-header.focus-tech {
-      background: rgba(196, 165, 116, 0.12);
-      color: #f8fafc;
-      box-shadow: inset 0 3px 0 #c4a574;
-      border-bottom: 2px solid #dfb77c;
+      background: #dfede8 !important;
+      color: #08594f !important;
+      box-shadow: none !important;
+      border-bottom: 2px solid #006f70 !important;
+    }
+    .dim-badge {
+      font: 800 9px/1 'IBM Plex Mono', monospace !important;
+      letter-spacing: 0.12em !important;
+      color: #006f70 !important;
+      background: #dfede8 !important;
+      padding: 2px 5px !important;
+      border-radius: 3px !important;
+      margin-bottom: 4px !important;
+    }
+    .dim-title {
+      font: 700 12.5px/1.2 'IBM Plex Mono', monospace !important;
+      color: #173b49 !important;
+    }
+    .matrix-cat-tag {
+      font: 700 9px/1 'IBM Plex Mono', monospace !important;
+      letter-spacing: 0.06em !important;
+      padding: 2px 6px !important;
+      border-radius: 4px !important;
+      margin-bottom: 5px !important;
+      display: inline-block !important;
+      text-transform: uppercase !important;
+      cursor: pointer !important;
+      user-select: none !important;
+      transition: transform 0.12s ease, opacity 0.15s ease !important;
+    }
+    .matrix-cat-tag:hover {
+      transform: scale(1.05) !important;
+      opacity: 0.9 !important;
+    }
+    .matrix-cat-tag.cat-foundry {
+      background: #edf2ee !important;
+      color: #284853 !important;
+      border: 1px solid #cddbdc !important;
+    }
+    .matrix-cat-tag.cat-otp {
+      background: #dfede8 !important;
+      color: #08594f !important;
+      border: 1px solid #a7d9ce !important;
+    }
+    .matrix-cat-tag.cat-mtp {
+      background: #e0f2fe !important;
+      color: #0369a1 !important;
+      border: 1px solid #bae6fd !important;
+    }
+    .matrix-cat-tag.cat-eflash {
+      background: #fef2f2 !important;
+      color: #b91c1c !important;
+      border: 1px solid #fecaca !important;
+    }
+    .matrix-cat-tag.cat-emerging {
+      background: #f3e8ff !important;
+      color: #6b21a8 !important;
+      border: 1px solid #e9d5ff !important;
+    }
+    .matrix-tech-name {
+      font: 700 13px/1.2 'IBM Plex Mono', monospace !important;
+      color: #173b49 !important;
+      letter-spacing: 0.02em !important;
+    }
+    .matrix-tech-name.focus-gold {
+      color: #006f70 !important;
+      font-weight: 800 !important;
+      text-shadow: none !important;
     }
     .badge-win {
-      background: rgba(196, 165, 116, 0.14);
-      color: #dfb77c;
-      border: 1px solid rgba(196, 165, 116, 0.35);
-      border-radius: 4px;
-      padding: 2px 7px;
-      font: 700 10px 'IBM Plex Mono', monospace;
-      margin-top: 4px;
-      letter-spacing: 0.04em;
+      background: #dcfce7 !important;
+      color: #065f46 !important;
+      border: 1px solid #a7f3d0 !important;
+      border-radius: 4px !important;
+      padding: 2px 7px !important;
+      font: 700 10px 'IBM Plex Mono', monospace !important;
+      margin-top: 4px !important;
+      letter-spacing: 0.04em !important;
     }
     .badge-lose {
-      background: rgba(239, 68, 68, 0.12);
-      color: #f87171;
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      border-radius: 4px;
-      padding: 2px 7px;
-      font: 700 10px 'IBM Plex Mono', monospace;
-      margin-top: 4px;
+      background: #fee2e2 !important;
+      color: #991b1b !important;
+      border: 1px solid #fca5a5 !important;
+      border-radius: 4px !important;
+      padding: 2px 7px !important;
+      font: 700 10px 'IBM Plex Mono', monospace !important;
+      margin-top: 4px !important;
     }
 
-    /* Formula Box */
+    /* Notes Panel */
+    .matrix-notes-panel {
+      margin: 1.5rem 0 2rem !important;
+      background: #f0f4ef !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 8px !important;
+      padding: 1.5rem !important;
+      box-shadow: none !important;
+    }
+    .matrix-notes-header {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 1rem !important;
+      border-bottom: 1px solid #cddbdc !important;
+      padding-bottom: 1rem !important;
+      margin-bottom: 1.25rem !important;
+    }
+    .matrix-notes-title {
+      display: flex !important;
+      align-items: center !important;
+      gap: 0.75rem !important;
+      font: 700 1.05rem 'IBM Plex Mono', monospace !important;
+      color: #173b49 !important;
+    }
+    .notes-badge {
+      font: 700 10px 'IBM Plex Mono', monospace !important;
+      background: #dfede8 !important;
+      color: #006f70 !important;
+      border: 1px solid #cddbdc !important;
+      padding: 3px 8px !important;
+      border-radius: 4px !important;
+      letter-spacing: 0.05em !important;
+    }
+    .matrix-disclaimer-pill {
+      font: 500 11.5px/1.4 'IBM Plex Mono', monospace !important;
+      color: #805828 !important;
+      background: #f0ece5 !important;
+      border: 1px solid #d5b78a !important;
+      padding: 4px 10px !important;
+      border-radius: 4px !important;
+    }
+    .matrix-notes-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)) !important;
+      gap: 1.25rem !important;
+    }
+    .matrix-note-card {
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 6px !important;
+      padding: 1.15rem 1.25rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.65rem !important;
+    }
+    .matrix-note-card.named-ip-card {
+      grid-column: 1 / -1 !important;
+      scroll-margin-top: 96px !important;
+      border-color: #006f70 !important;
+    }
+    .matrix-note-card h3, .matrix-note-card .note-card-title {
+      margin: 0 !important;
+      font: 700 1.02rem 'IBM Plex Mono', monospace !important;
+      color: #173b49 !important;
+      border-bottom: 1px solid #cddbdc !important;
+      padding-bottom: 0.4rem !important;
+    }
+    .note-card-list {
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.65rem !important;
+      font-size: 0.85rem !important;
+      line-height: 1.6 !important;
+      color: #284853 !important;
+    }
+    .note-card-list li {
+      position: relative !important;
+      padding-left: 14px !important;
+    }
+    .note-card-list li::before {
+      content: "▪" !important;
+      position: absolute !important;
+      left: 0 !important;
+      color: #805828 !important;
+      font-size: 0.75rem !important;
+      top: 0 !important;
+    }
+    .note-card-list b {
+      color: #173b49 !important;
+    }
+    .note-card-list a {
+      color: #006f70 !important;
+      text-decoration: underline !important;
+      text-underline-offset: 2px !important;
+    }
+    .named-ip-groups {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)) !important;
+      gap: 1rem !important;
+    }
+    .named-ip-groups > li {
+      background: #f8fafc !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 6px !important;
+      padding: 0.85rem 0.95rem !important;
+      padding-left: 0.95rem !important;
+    }
+    .named-ip-groups > li::before { content: none !important; }
+    .named-ip-groups h4 {
+      margin: 0 0 0.45rem !important;
+      font: 700 0.92rem 'IBM Plex Mono', monospace !important;
+      color: #006f70 !important;
+    }
+    .otp-split-flag {
+      font: 700 9px 'IBM Plex Mono', monospace !important;
+      letter-spacing: 0.04em !important;
+      color: #006f70 !important;
+      border: 1px solid #cddbdc !important;
+      background: #dfede8 !important;
+      border-radius: 3px !important;
+      padding: 2px 6px !important;
+      white-space: nowrap !important;
+    }
+
+    /* 7. Section 2: 5 軸動態雷達選型決策器 (Decision Selector) */
+    .selector-grid-layout {
+      display: grid !important;
+      grid-template-columns: 1fr 1.1fr !important;
+      gap: 2rem !important;
+      align-items: center !important;
+    }
+    @media (max-width: 960px) {
+      .selector-grid-layout {
+        grid-template-columns: 1fr !important;
+        gap: 1.25rem !important;
+      }
+    }
+    .selector-workbench-frame {
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 8px !important;
+      padding: clamp(20px, 2.5vw, 32px) !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+      margin: 2rem 0 3rem !important;
+    }
+    .selector-dashboard {
+      background: #f8fafc !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 8px !important;
+      padding: 1.75rem !important;
+      margin: 1.5rem 0 !important;
+    }
+    .match-results-deck {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+      gap: 1rem !important;
+      margin: 1.75rem 0 !important;
+    }
+    .match-card {
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 6px !important;
+      padding: 1.25rem 1rem !important;
+      text-align: center !important;
+      transition: all 0.25s ease !important;
+    }
+    .match-card.is-top-fit {
+      border-color: #006f70 !important;
+      background: #dfede8 !important;
+      box-shadow: 0 4px 16px rgba(0, 111, 112, 0.15) !important;
+      transform: translateY(-3px) !important;
+    }
+    .match-card.is-dimmed {
+      opacity: 0.4 !important;
+      filter: grayscale(70%) !important;
+    }
+    .match-tech-name {
+      font: 700 13px/1.2 'IBM Plex Mono', monospace !important;
+      color: #173b49 !important;
+      margin-bottom: 6px !important;
+    }
+    .match-score-num {
+      font: 800 18px/1 'IBM Plex Mono', monospace !important;
+      color: #006f70 !important;
+    }
+    .match-score-bar-bg {
+      height: 6px !important;
+      background: #edf2ee !important;
+      border-radius: 3px !important;
+      overflow: hidden !important;
+      margin: 10px 0 !important;
+    }
+    .match-score-bar-fill {
+      height: 100% !important;
+      transition: width 0.35s ease !important;
+    }
+    .match-verdict-box {
+      background: #f0ece5 !important;
+      border: 1px solid #cddbdc !important;
+      border-left: 4px solid #006f70 !important;
+      border-radius: 6px !important;
+      padding: 1.25rem 1.5rem !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 12px !important;
+    }
+    .verdict-tag {
+      background: #dfede8 !important;
+      border: 1px solid #cddbdc !important;
+      color: #006f70 !important;
+      font: 700 10px 'IBM Plex Mono', monospace !important;
+      padding: 3px 6px !important;
+      border-radius: 3px !important;
+      white-space: nowrap !important;
+      margin-top: 2px !important;
+    }
+
+    /* 8. Section 3: 第一性原理物理公式 (Physics & Equations) */
     .formula-card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)) !important;
+      gap: 1.5rem !important;
+      margin: 2rem 0 !important;
     }
     .formula-card {
-      background: #082433;
-      border: 1px solid rgba(196, 165, 116, 0.22);
-      border-radius: 8px;
-      padding: 1.5rem 1.75rem;
-      min-width: 0;
-      max-width: 100%;
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      border-top: 3px solid #006f70 !important;
+      border-radius: 8px !important;
+      padding: 1.5rem 1.75rem !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
     }
     .formula-card h3,
     .formula-card h4 {
-      color: #fff;
-      margin: 0 0 0.5rem;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.02rem;
-      line-height: 1.35;
+      color: #173b49 !important;
+      margin: 0 0 0.5rem !important;
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 1.02rem !important;
+      line-height: 1.35 !important;
     }
     .formula-box-math {
-      background: #03131e;
-      border: 1px solid rgba(196, 165, 116, 0.18);
-      border-radius: 6px;
-      padding: 1.25rem 1.5rem;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 1.02rem;
-      color: #c4a574;
-      margin: 1rem 0;
-      overflow-x: auto;
-      text-align: center;
-      line-height: 1.7;
+      background: #f0f4ef !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 6px !important;
+      padding: 1.25rem 1.5rem !important;
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 1.02rem !important;
+      color: #006f70 !important;
+      margin: 1rem 0 !important;
+      overflow-x: auto !important;
+      text-align: center !important;
+      line-height: 1.7 !important;
     }
     .formula-box-math em {
-      font-style: italic;
-      color: #c4a574;
+      font-style: italic !important;
+      color: #006f70 !important;
     }
     .formula-box-math sub,
     .formula-box-math sup {
-      font-size: 0.72em;
-      font-style: normal;
+      font-size: 0.72em !important;
+      font-style: normal !important;
     }
     .formula-notes {
-      font: 500 11.5px/1.65 'IBM Plex Mono', monospace;
-      color: #8ea9b3;
-      overflow-wrap: anywhere;
+      font: 500 11.5px/1.65 'IBM Plex Mono', monospace !important;
+      color: #526a72 !important;
+      overflow-wrap: anywhere !important;
     }
-
-    /* First-Principles Physics & Architectural Pipeline Visuals */
     .physics-svg-wrap {
-      width: 100%;
-      margin: 0.85rem 0 1.15rem;
-      background: radial-gradient(circle at 50% 50%, rgba(9, 35, 53, 0.95) 0%, rgba(4, 18, 28, 0.98) 100%);
-      border: 1px solid rgba(196, 165, 116, 0.22);
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.4);
+      width: 100% !important;
+      margin: 0.85rem 0 1.15rem !important;
+      background: #f8fafc !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 6px !important;
+      overflow: hidden !important;
+      box-shadow: none !important;
     }
     .physics-svg {
-      display: block;
-      width: 100%;
-      height: auto;
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+    }
+    .physics-svg rect[fill="url(#eq1-bg-grad)"],
+    .physics-svg rect[fill="url(#eq2-bg-grad)"],
+    .physics-svg rect[fill="url(#eq3-bg-grad)"] {
+      fill: #f8fafc !important;
     }
     .physics-svg text,
     .pipeline-flow-svg text {
-      fill: currentColor;
+      fill: currentColor !important;
       stroke: none !important;
       stroke-width: 0 !important;
       paint-order: fill !important;
       font-family: 'IBM Plex Mono', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: geometricPrecision;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      text-rendering: geometricPrecision !important;
     }
     .physics-svg line,
     .physics-svg path,
@@ -625,706 +1176,283 @@
     .pipeline-flow-svg rect,
     .pipeline-flow-svg polygon,
     .pipeline-flow-svg circle {
-      vector-effect: non-scaling-stroke;
-    }
-    .pipeline-flow-wrap {
-      width: 100%;
-      margin: 1.25rem 0 2rem;
-      background: radial-gradient(circle at 50% 30%, rgba(9, 35, 53, 0.95) 0%, rgba(3, 16, 25, 0.98) 100%);
-      border: 1px solid rgba(196, 165, 116, 0.3);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.45), inset 0 0 20px rgba(0, 0, 0, 0.5);
-    }
-    .pipeline-flow-svg {
-      display: block;
-      width: 100%;
-      height: auto;
+      vector-effect: non-scaling-stroke !important;
     }
 
-    /* Decision Selector Styles - High-Tech Instrument Frame */
-    .selector-workbench-frame {
-      background: #061925;
-      border: 1px solid rgba(196, 165, 116, 0.25);
-      border-radius: 12px;
-      padding: clamp(20px, 2.5vw, 32px);
-      box-shadow: 0 16px 36px -6px rgba(6, 25, 37, 0.35);
-      margin: 2rem 0 3rem;
-    }
-    .selector-dashboard {
-      background: #04121c;
-      border: 1px solid rgba(196, 165, 116, 0.2);
-      border-radius: 8px;
-      padding: 1.75rem;
-      margin: 1.5rem 0;
-    }
-    .match-results-deck {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin: 1.75rem 0;
-    }
-    .match-card {
-      background: #061925;
-      border: 1px solid rgba(196, 165, 116, 0.18);
-      border-radius: 6px;
-      padding: 1.25rem 1rem;
-      text-align: center;
-      transition: all 0.25s ease;
-    }
-    .match-card.is-top-fit {
-      border-color: #c4a574;
-      background: rgba(196, 165, 116, 0.08);
-      box-shadow: 0 0 20px rgba(196, 165, 116, 0.25);
-      transform: translateY(-3px);
-    }
-    .match-card.is-dimmed {
-      opacity: 0.4;
-      filter: grayscale(70%);
-    }
-    .match-tech-name {
-      font: 700 13px/1.2 'IBM Plex Mono', monospace;
-      color: #e2e8f0;
-      margin-bottom: 6px;
-    }
-    .match-score-num {
-      font: 800 18px/1 'IBM Plex Mono', monospace;
-      color: #c4a574;
-    }
-    .match-score-bar-bg {
-      height: 6px;
-      background: #082433;
-      border-radius: 3px;
-      overflow: hidden;
-      margin: 10px 0;
-    }
-    .match-score-bar-fill {
-      height: 100%;
-      transition: width 0.35s ease;
-    }
-
-    /* Matrix Notes Panel - Re-architectured Structured Notes */
-    .matrix-notes-panel {
-      margin: 1.5rem 0 2rem;
-      background: #051a26;
-      border: 1px solid rgba(196, 165, 116, 0.25);
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 8px 24px -4px rgba(3, 19, 30, 0.4);
-    }
-    .matrix-notes-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      border-bottom: 1px solid rgba(196, 165, 116, 0.18);
-      padding-bottom: 1rem;
-      margin-bottom: 1.25rem;
-    }
-    .matrix-notes-title {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font: 700 1.05rem 'IBM Plex Mono', monospace;
-      color: #f8fafc;
-    }
-    .notes-badge {
-      font: 700 10px 'IBM Plex Mono', monospace;
-      background: rgba(196, 165, 116, 0.15);
-      color: #c4a574;
-      border: 1px solid rgba(196, 165, 116, 0.35);
-      padding: 3px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.05em;
-    }
-    .matrix-disclaimer-pill {
-      font: 500 11.5px/1.4 'IBM Plex Mono', monospace;
-      color: #f59e0b;
-      background: rgba(245, 158, 11, 0.08);
-      border: 1px solid rgba(245, 158, 11, 0.25);
-      padding: 4px 10px;
-      border-radius: 4px;
-    }
-    .matrix-notes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-      gap: 1.25rem;
-    }
-    .matrix-note-card {
-      background: #082433;
-      border: 1px solid rgba(196, 165, 116, 0.18);
-      border-radius: 6px;
-      padding: 1.15rem 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-    .matrix-note-card.named-ip-card {
-      grid-column: 1 / -1;
-      scroll-margin-top: 96px;
-      border-color: rgba(125, 211, 252, 0.28);
-    }
-    .note-card-list a {
-      color: #7dd3fc;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-    .note-card-badge {
-      font: 700 10px 'IBM Plex Mono', monospace;
-      letter-spacing: 0.06em;
-    }
-    .matrix-note-card h3, .matrix-note-card .note-card-title {
-      margin: 0;
-      font: 700 1.02rem 'IBM Plex Mono', monospace;
-      color: #f1f5f9;
-      border-bottom: 1px solid rgba(196, 165, 116, 0.12);
-      padding-bottom: 0.4rem;
-    }
-    .note-card-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      font-size: 0.85rem;
-      line-height: 1.6;
-      color: #cbd5e1;
-    }
-    .note-card-list li {
-      position: relative;
-      padding-left: 14px;
-    }
-    .note-card-list li::before {
-      content: "▪";
-      position: absolute;
-      left: 0;
-      color: #c4a574;
-      font-size: 0.75rem;
-      top: 0;
-    }
-    .note-card-list b {
-      color: #e2e8f0;
-    }
-
-    /* Enhanced Foundry Cards & Node Tiles */
+    /* 9. Section 4: 四大晶圓代工廠與實體防護 (Foundry Roadmaps) */
     .foundry-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)) !important;
+      gap: 1.5rem !important;
+      margin: 2rem 0 !important;
     }
     .foundry-card {
-      background: #061b27;
-      border: 1px solid rgba(196, 165, 116, 0.22);
-      border-radius: 8px;
-      padding: 1.5rem;
-      border-top: 4px solid #c4a574;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      min-width: 0;
-      max-width: 100%;
-      transition: transform 0.2s, border-color 0.2s;
-      scroll-margin-top: 96px;
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 8px !important;
+      padding: 1.5rem !important;
+      border-top: 4px solid #006f70 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 1rem !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      transition: transform 0.2s, border-color 0.2s !important;
+      scroll-margin-top: 96px !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
     }
     .foundry-card:hover {
-      transform: translateY(-2px);
-      border-color: rgba(196, 165, 116, 0.45);
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
     }
-    .foundry-card.tsmc { border-top-color: #c4a574; }
-    .foundry-card.umc { border-top-color: #f59e0b; }
-    .foundry-card.gf { border-top-color: #c4a574; }
-    .foundry-card.sec { border-top-color: #3b82f6; }
-    .foundry-card.specialty { border-top-color: #10b981; }
-    .status-pill.status-spec { background: rgba(16, 185, 129, 0.18); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.35); }
-    .value-chain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1.25rem; margin-top: 1.25rem; }
-    .value-chain-card { background: rgba(4, 18, 28, 0.7); border: 1px solid rgba(196, 165, 116, 0.2); border-radius: 8px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
-    .value-chain-badge { font: 800 10px/1 'IBM Plex Mono', monospace; letter-spacing: 0.1em; color: #10b981; text-transform: uppercase; }
-    .value-chain-card h4 { font: 700 1.05rem/1.3 'IBM Plex Mono', monospace; color: #f8fafc; margin: 0; }
-    .vc-layer { font-size: 0.84rem; line-height: 1.55; color: #cbd5e1; }
-    .vc-layer b { color: #c4a574; font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; }
+    .foundry-card.tsmc { border-top-color: #006f70 !important; }
+    .foundry-card.umc { border-top-color: #805828 !important; }
+    .foundry-card.gf { border-top-color: #006f70 !important; }
+    .foundry-card.sec { border-top-color: #0284c7 !important; }
+    .foundry-card.specialty { border-top-color: #16a34a !important; }
     .foundry-card-top {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      border-bottom: 1px solid rgba(196, 165, 116, 0.15);
-      padding-bottom: 0.75rem;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2px !important;
+      border-bottom: 1px solid #cddbdc !important;
+      padding-bottom: 0.75rem !important;
     }
     .foundry-brand-pill {
-      font: 700 10.5px 'IBM Plex Mono', monospace;
-      letter-spacing: 0.08em;
+      font: 700 10.5px 'IBM Plex Mono', monospace !important;
+      letter-spacing: 0.08em !important;
+      color: #805828 !important;
     }
     .foundry-card h3 {
-      font: 800 1.35rem 'IBM Plex Mono', monospace;
-      color: #f8fafc;
-      margin: 0;
+      font: 800 1.35rem 'IBM Plex Mono', monospace !important;
+      color: #173b49 !important;
+      margin: 0 !important;
     }
     .foundry-node-tiles {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.85rem !important;
     }
     .foundry-node-tile {
-      background: rgba(8, 36, 51, 0.75);
-      border: 1px solid rgba(196, 165, 116, 0.16);
-      border-radius: 6px;
-      padding: 0.75rem 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      font-size: 0.85rem;
-      line-height: 1.55;
-      color: #cbd5e1;
-      scroll-margin-top: 96px;
+      background: #f8fafc !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 6px !important;
+      padding: 0.75rem 0.9rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.4rem !important;
+      font-size: 0.85rem !important;
+      line-height: 1.55 !important;
+      color: #284853 !important;
+      scroll-margin-top: 96px !important;
     }
     .foundry-node-tile:hover {
-      background: rgba(8, 36, 51, 0.95);
-      border-color: rgba(196, 165, 116, 0.3);
+      background: #f0f4ef !important;
+      border-color: #006f70 !important;
     }
     .node-header-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 6px;
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 6px !important;
     }
     .node-pill-cluster {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 6px;
-      min-width: 0;
+      display: flex !important;
+      flex-wrap: wrap !important;
+      align-items: center !important;
+      gap: 6px !important;
+      min-width: 0 !important;
     }
     .node-pill {
-      font: 700 11px 'IBM Plex Mono', monospace;
-      color: #f1f5f9;
+      font: 700 11px 'IBM Plex Mono', monospace !important;
+      color: #173b49 !important;
     }
     .status-pill {
-      font: 700 9.5px 'IBM Plex Mono', monospace;
-      padding: 2px 6px;
-      border-radius: 3px;
-      letter-spacing: 0.04em;
+      font: 700 9.5px 'IBM Plex Mono', monospace !important;
+      padding: 2px 6px !important;
+      border-radius: 3px !important;
+      letter-spacing: 0.04em !important;
     }
     .status-prod {
-      background: rgba(34, 197, 94, 0.12);
-      color: #4ade80;
-      border: 1px solid rgba(34, 197, 94, 0.3);
+      background: #dcfce7 !important;
+      color: #065f46 !important;
+      border: 1px solid #a7f3d0 !important;
     }
     .status-auto {
-      background: rgba(245, 158, 11, 0.12);
-      color: #fbbf24;
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      background: #fef3c7 !important;
+      color: #92400e !important;
+      border: 1px solid #fde68a !important;
     }
     .status-rd {
-      background: rgba(59, 130, 246, 0.12);
-      color: #60a5fa;
-      border: 1px solid rgba(59, 130, 246, 0.3);
+      background: #e0f2fe !important;
+      color: #0369a1 !important;
+      border: 1px solid #bae6fd !important;
     }
     .status-cliff {
-      background: rgba(239, 68, 68, 0.12);
-      color: #f87171;
-      border: 1px solid rgba(239, 68, 68, 0.3);
+      background: #fee2e2 !important;
+      color: #991b1b !important;
+      border: 1px solid #fca5a5 !important;
+    }
+    .status-spec {
+      background: #dcfce7 !important;
+      color: #065f46 !important;
+      border: 1px solid #a7f3d0 !important;
     }
     .foundry-jump {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem 0.65rem;
-      margin: 1.1rem 0 0;
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 0.5rem 0.65rem !important;
+      margin: 1.1rem 0 0 !important;
     }
     .foundry-jump a {
-      font: 700 11px 'IBM Plex Mono', monospace;
-      color: #c4a574;
-      text-decoration: none;
-      border: 1px solid rgba(196, 165, 116, 0.28);
-      border-radius: 999px;
-      padding: 0.35rem 0.8rem;
-      background: rgba(8, 36, 51, 0.65);
+      font: 700 11px 'IBM Plex Mono', monospace !important;
+      color: #006f70 !important;
+      text-decoration: none !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 999px !important;
+      padding: 0.35rem 0.8rem !important;
+      background: #ffffff !important;
     }
     .foundry-jump a:hover,
     .foundry-jump a:focus-visible {
-      border-color: rgba(196, 165, 116, 0.6);
-      color: #f8fafc;
-      outline: none;
+      border-color: #006f70 !important;
+      background: #dfede8 !important;
+      color: #08594f !important;
+      outline: none !important;
     }
     .foundry-card:target,
     .foundry-node-tile:target,
     .matrix-note-card.named-ip-card:target {
-      border-color: rgba(196, 165, 116, 0.72);
-      box-shadow: 0 0 0 2px rgba(196, 165, 116, 0.38), 0 10px 28px -8px rgba(3, 19, 30, 0.55);
-      background: #0c3042;
+      border-color: #006f70 !important;
+      box-shadow: 0 0 0 2px rgba(0, 111, 112, 0.25) !important;
+      background: #f0f4ef !important;
     }
-    .otp-split-flag {
-      font: 700 9px 'IBM Plex Mono', monospace;
-      letter-spacing: 0.04em;
-      color: #7dd3fc;
-      border: 1px solid rgba(125, 211, 252, 0.35);
-      background: rgba(125, 211, 252, 0.08);
-      border-radius: 3px;
-      padding: 2px 6px;
-      white-space: nowrap;
+    .value-chain-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)) !important;
+      gap: 1.25rem !important;
+      margin-top: 1.25rem !important;
     }
-    .named-ip-groups {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-      gap: 1rem;
+    .value-chain-card {
+      background: #f8fafc !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 8px !important;
+      padding: 1.25rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0.75rem !important;
     }
-    .named-ip-groups > li {
-      background: rgba(4, 18, 28, 0.55);
-      border: 1px solid rgba(125, 211, 252, 0.16);
-      border-radius: 6px;
-      padding: 0.85rem 0.95rem;
-      padding-left: 0.95rem;
+    .value-chain-badge {
+      font: 800 10px/1 'IBM Plex Mono', monospace !important;
+      letter-spacing: 0.1em !important;
+      color: #006f70 !important;
+      text-transform: uppercase !important;
     }
-    .named-ip-groups > li::before {
-      content: none;
+    .value-chain-card h4 {
+      font: 700 1.05rem/1.3 'IBM Plex Mono', monospace !important;
+      color: #173b49 !important;
+      margin: 0 !important;
     }
-    .named-ip-groups h4 {
-      margin: 0 0 0.45rem;
-      font: 700 0.92rem 'IBM Plex Mono', monospace;
-      color: #7dd3fc;
+    .vc-layer {
+      font-size: 0.84rem !important;
+      line-height: 1.55 !important;
+      color: #284853 !important;
     }
-    @media (prefers-reduced-motion: reduce) {
-      .foundry-card {
-        transition: none;
-      }
+    .vc-layer b {
+      color: #805828 !important;
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 0.8rem !important;
     }
 
-    /* Decision Pipeline */
+    /* 10. Section 6: 決策簽核管線 (Decision Pipeline) */
+    .pipeline-flow-wrap {
+      width: 100% !important;
+      margin: 1.25rem 0 2rem !important;
+      background: #f8fafc !important;
+      border: 1px solid #cddbdc !important;
+      border-radius: 8px !important;
+      overflow: hidden !important;
+      box-shadow: none !important;
+    }
+    .pipeline-flow-svg {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+    }
+    .pipeline-flow-svg rect[fill="url(#pipe-grid-pat)"] {
+      fill: #f8fafc !important;
+    }
     .pipeline-step-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)) !important;
+      gap: 1.5rem !important;
+      margin: 2rem 0 !important;
     }
     .pipeline-step-card {
-      background: #061925;
-      border: 1px solid rgba(196, 165, 116, 0.2);
-      border-radius: 8px;
-      padding: 1.75rem;
-      position: relative;
-      box-shadow: 0 8px 24px -4px rgba(3, 19, 30, 0.4);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      border-top: 3px solid #006f70 !important;
+      border-radius: 8px !important;
+      padding: 1.75rem !important;
+      position: relative !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
     }
     .pipeline-step-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(196, 165, 116, 0.45);
-      box-shadow: 0 14px 32px -6px rgba(0, 0, 0, 0.45);
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
     }
     .step-num {
-      font: 800 11px/1 'IBM Plex Mono', monospace;
-      letter-spacing: 0.12em;
-      display: block;
+      font: 800 11px/1 'IBM Plex Mono', monospace !important;
+      letter-spacing: 0.12em !important;
+      color: #805828 !important;
+      display: block !important;
     }
-  
-    /* =========================================================================
-       INTERACTIVE MATRIX: SINGLE-TIER HEADER, CATEGORY COLLAPSE & FIT-PAGE VIEW
-       ========================================================================= */
-    .matrix-interactive-toolbar {
-      background: #061925;
-      border: 1px solid rgba(196, 165, 116, 0.28);
-      border-radius: 8px;
-      padding: 0.85rem 1.15rem;
-      margin-bottom: 1.25rem;
-      box-shadow: 0 6px 20px -3px rgba(3, 19, 30, 0.5);
+    .pipeline-step-card h3 {
+      color: #173b49 !important;
     }
-    .matrix-toolbar-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .matrix-toolbar-left {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .matrix-toolbar-title {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font: 800 10.5px/1 'IBM Plex Mono', monospace;
-      letter-spacing: 0.1em;
-      color: #c4a574;
-      text-transform: uppercase;
-    }
-    .toolbar-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #38bdf8;
-      box-shadow: 0 0 8px #38bdf8;
-      display: inline-block;
-    }
-    .matrix-cat-pills {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      flex-wrap: wrap;
-    }
-    .cat-filter-pill {
-      background: #03131e;
-      border: 1px solid rgba(196, 165, 116, 0.3);
-      border-radius: 6px;
-      color: #cbd5e1;
-      font: 600 11px/1 'IBM Plex Mono', monospace;
-      padding: 6px 10px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.18s ease;
-      user-select: none;
-    }
-    .cat-filter-pill:hover {
-      background: rgba(196, 165, 116, 0.12);
-      border-color: #c4a574;
-      color: #f8fafc;
-    }
-    .cat-filter-pill.is-expanded {
-      background: rgba(56, 189, 248, 0.09);
-      border-color: rgba(56, 189, 248, 0.5);
-      color: #f8fafc;
-    }
-    .cat-filter-pill.is-collapsed {
-      background: #020b12;
-      border-color: rgba(148, 163, 184, 0.2);
-      color: #64748b;
-      opacity: 0.65;
-    }
-    .pill-state-icon {
-      font-size: 9.5px;
-      color: #38bdf8;
-      font-weight: 700;
-    }
-    .cat-filter-pill.is-collapsed .pill-state-icon {
-      color: #64748b;
-    }
-    .pill-count-badge {
-      background: rgba(196, 165, 116, 0.18);
-      color: #c4a574;
-      border-radius: 10px;
-      padding: 1px 5px;
-      font-size: 9.5px;
-      font-weight: 700;
-    }
-    .cat-filter-pill.is-collapsed .pill-count-badge {
-      background: rgba(148, 163, 184, 0.1);
-      color: #64748b;
-    }
-    .matrix-toolbar-right {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      flex-wrap: wrap;
-    }
-    .matrix-views-label {
-      font: 700 10.5px/1 'IBM Plex Mono', monospace;
-      color: #94a3b8;
-      letter-spacing: 0.05em;
-    }
-    .matrix-view-presets {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-    .matrix-view-btn {
-      background: #03131e;
-      border: 1px solid rgba(196, 165, 116, 0.3);
-      border-radius: 5px;
-      color: #cbd5e1;
-      font: 700 10.5px/1 'IBM Plex Mono', monospace;
-      padding: 5px 9px;
-      cursor: pointer;
-      transition: all 0.18s ease;
-      white-space: nowrap;
-    }
-    .matrix-view-btn:hover {
-      background: rgba(196, 165, 116, 0.15);
-      border-color: #c4a574;
-      color: #f8fafc;
-    }
-    .matrix-view-btn.is-active {
-      background: rgba(196, 165, 116, 0.22);
-      border-color: #c4a574;
-      color: #dfb77c;
-      box-shadow: 0 0 10px rgba(196, 165, 116, 0.2);
-    }
-    .matrix-action-btn {
-      background: #03131e;
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      border-radius: 6px;
-      color: #38bdf8;
-      font: 700 10.5px/1 'IBM Plex Mono', monospace;
-      padding: 5px 10px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.18s ease;
-      white-space: nowrap;
-    }
-    .matrix-action-btn:hover {
-      background: rgba(56, 189, 248, 0.15);
-      border-color: #38bdf8;
-      color: #7dd3fc;
-    }
-    .matrix-action-btn.is-active {
-      background: #38bdf8;
-      border-color: #38bdf8;
-      color: #03131e;
-      font-weight: 800;
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
-    }
-    .btn-icon {
-      font-size: 11px;
+    .pipeline-step-card p {
+      color: #284853 !important;
     }
 
-    /* Single-Tier Header Styling */
-    .matrix-header {
-      padding: 0.85rem 0.6rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      transition: background 0.18s ease;
-    }
-    .dim-badge {
-      font: 800 9px/1 'IBM Plex Mono', monospace;
-      letter-spacing: 0.12em;
-      color: #c4a574;
-      background: rgba(196, 165, 116, 0.12);
-      padding: 2px 5px;
-      border-radius: 3px;
-      margin-bottom: 4px;
-    }
-    .dim-title {
-      font: 700 12.5px/1.2 'IBM Plex Mono', monospace;
-      color: #f8fafc;
-    }
-    .matrix-cat-tag {
-      font: 700 9px/1 'IBM Plex Mono', monospace;
-      letter-spacing: 0.06em;
-      padding: 2px 6px;
-      border-radius: 4px;
-      margin-bottom: 5px;
-      display: inline-block;
-      text-transform: uppercase;
-      cursor: pointer;
-      user-select: none;
-      transition: transform 0.12s ease, opacity 0.15s ease;
-    }
-    .matrix-cat-tag:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-    .matrix-cat-tag.cat-foundry {
-      background: rgba(148, 163, 184, 0.12);
-      color: #cbd5e1;
-      border: 1px solid rgba(148, 163, 184, 0.3);
-    }
-    .matrix-cat-tag.cat-otp {
-      background: rgba(196, 165, 116, 0.18);
-      color: #dfb77c;
-      border: 1px solid rgba(196, 165, 116, 0.45);
-    }
-    .matrix-cat-tag.cat-mtp {
-      background: rgba(56, 189, 248, 0.15);
-      color: #7dd3fc;
-      border: 1px solid rgba(56, 189, 248, 0.35);
-    }
-    .matrix-cat-tag.cat-eflash {
-      background: rgba(244, 63, 94, 0.15);
-      color: #fda4af;
-      border: 1px solid rgba(244, 63, 94, 0.35);
-    }
-    .matrix-cat-tag.cat-emerging {
-      background: rgba(168, 85, 247, 0.15);
-      color: #d8b4fe;
-      border: 1px solid rgba(168, 85, 247, 0.35);
-    }
-    .matrix-tech-name {
-      font: 700 13px/1.2 'IBM Plex Mono', monospace;
-      color: #f8fafc;
-      letter-spacing: 0.02em;
-    }
-    .matrix-tech-name.focus-gold {
-      color: #dfb77c;
-      text-shadow: 0 0 10px rgba(223, 183, 124, 0.35);
-    }
-
-    /* Column Hiding (Clean collapse) */
-    .is-col-hidden {
-      display: none !important;
-    }
-
-    /* Fit-to-Page Mode (一頁可視緊湊排版) */
-    .matrix-fit-screen .compare-matrix {
-      min-width: 0 !important;
-      width: 100% !important;
-    }
-    .matrix-fit-screen .matrix-dim-header,
-    .matrix-fit-screen .matrix-row-header {
-      width: 140px !important;
-      min-width: 140px !important;
-      max-width: 140px !important;
-      padding: 0.5rem 0.35rem !important;
-      font-size: 0.76rem !important;
-    }
-    .matrix-fit-screen .matrix-header,
-    .matrix-fit-screen .matrix-cell {
-      padding: 0.5rem 0.25rem !important;
-      font-size: 0.74rem !important;
-      line-height: 1.25 !important;
-    }
-    .matrix-fit-screen .matrix-cell b {
-      font-size: 0.78rem !important;
-    }
-    .matrix-fit-screen .matrix-cell .cell-note {
-      font-size: 9px !important;
-      line-height: 1.25 !important;
-      margin-top: 2px !important;
-    }
-    .matrix-fit-screen .matrix-cat-tag {
-      font-size: 7.5px !important;
-      padding: 1px 4px !important;
-      margin-bottom: 2px !important;
-    }
-    .matrix-fit-screen .matrix-tech-name {
-      font-size: 11px !important;
-    }
-
-    /* Toast Notification */
+    /* 11. 浮動通知與頁尾 */
     .matrix-feedback-toast {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 9999;
-      background: #061925;
-      border: 1px solid #c4a574;
-      border-radius: 6px;
-      color: #f8fafc;
-      font: 600 12px/1.4 'IBM Plex Mono', monospace;
-      padding: 10px 18px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.22s ease, transform 0.22s ease;
-      pointer-events: none;
+      position: fixed !important;
+      bottom: 24px !important;
+      right: 24px !important;
+      z-index: 9999 !important;
+      background: #092b3b !important;
+      border: 1px solid #006f70 !important;
+      border-radius: 6px !important;
+      color: #ffffff !important;
+      font: 600 12px/1.4 'IBM Plex Mono', monospace !important;
+      padding: 10px 18px !important;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+      opacity: 0 !important;
+      transform: translateY(12px) !important;
+      transition: opacity 0.22s ease, transform 0.22s ease !important;
+      pointer-events: none !important;
     }
     .matrix-feedback-toast.is-visible {
-      opacity: 1;
-      transform: translateY(0);
+      opacity: 1 !important;
+      transform: translateY(0) !important;
     }
 
+    html body .site-footer {
+      background: #fafaf7 !important;
+      border-top: 1px solid #cddbdc !important;
+      color: #526a72 !important;
+    }
+    html body .site-footer a {
+      color: #006f70 !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
   </style>
 </head>
 <body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
@@ -1385,19 +1513,19 @@
         </p>
         <div class="f2-hero-proof" aria-label="NVM comparison key metrics" data-aria-en="NVM comparison key metrics" data-aria-zh="NVM 對比核心指標">
           <div>
-            <strong class="mono-text" style="color: #c4a574;"><span data-lang="zh">5 大家族</span><span data-lang="en">5 BUCKETS</span></strong>
+            <strong class="mono-text" style="color: #805828;"><span data-lang="zh">5 大家族</span><span data-lang="en">5 BUCKETS</span></strong>
             <span><span data-lang="zh">Sam 家族分組</span><span data-lang="en">Sam Family Taxonomy</span></span>
           </div>
           <div>
-            <strong class="mono-text" style="color: #f59e0b;"><span data-lang="zh">11 類技術</span><span data-lang="en">11 LEAVES</span></strong>
+            <strong class="mono-text" style="color: #006f70;"><span data-lang="zh">11 類技術</span><span data-lang="en">11 LEAVES</span></strong>
             <span><span data-lang="zh">獨立技術欄位</span><span data-lang="en">Distinct Columns</span></span>
           </div>
           <div>
-            <strong class="mono-text" style="color: #c4a574;"><span data-lang="zh">0 道光罩</span><span data-lang="en">0 MASK</span></strong>
+            <strong class="mono-text" style="color: #805828;"><span data-lang="zh">0 道光罩</span><span data-lang="en">0 MASK</span></strong>
             <span><span data-lang="zh">邏輯相容極限</span><span data-lang="en">Logic Adders</span></span>
           </div>
           <div>
-            <strong class="mono-text" style="color: #c4a574;"><span data-lang="zh">4 大代工</span><span data-lang="en">4 FOUNDRIES</span></strong>
+            <strong class="mono-text" style="color: #006f70;"><span data-lang="zh">4 大代工</span><span data-lang="en">4 FOUNDRIES</span></strong>
             <span><span data-lang="zh">晶圓生態驗證</span><span data-lang="en">Foundry PDKs</span></span>
           </div>
         </div>
@@ -1770,7 +1898,7 @@
 <div class="matrix-cell" data-category="foundry" data-row="9" data-tech="maskrom"><b><span data-lang="zh">去層全暴露</span><span data-lang="en">De-layer exposed</span></b><span class="cell-note"><span data-lang="zh">光學可見</span><span data-lang="en">Optically visible</span></span></div>
 <div class="matrix-cell" data-category="foundry" data-row="9" data-tech="eeprom"><b><span data-lang="zh">電荷探測</span><span data-lang="en">Charge probing</span></b><span class="cell-note"><span data-lang="zh">EM／雷射攻擊面</span><span data-lang="en">EM / laser attack surface</span></span></div>
 <div class="matrix-cell" data-category="otp" data-row="9" data-tech="fgotp"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷／雷射面</span><span data-lang="en">Charge / laser surface</span></span></div>
-<div class="matrix-cell focus-tech" data-category="otp" data-row="9" data-tech="antifuse"><b style="color:#c4a574;"><span data-lang="zh">次閘氧微絲</span><span data-lang="en">Sub-gate filament</span></b><span class="cell-note"><span data-lang="zh">FIB 衰減，非免疫</span><span data-lang="en">FIB attenuation, not immunity</span></span></div>
+<div class="matrix-cell focus-tech" data-category="otp" data-row="9" data-tech="antifuse"><b style="color:#805828;"><span data-lang="zh">次閘氧微絲</span><span data-lang="en">Sub-gate filament</span></b><span class="cell-note"><span data-lang="zh">FIB 衰減，非免疫</span><span data-lang="en">FIB attenuation, not immunity</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="9" data-tech="ldmtp"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷探測面</span><span data-lang="en">Charge probe surface</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="9" data-tech="hdmtp"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷探測面</span><span data-lang="en">Charge probe surface</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="9" data-tech="sst"><b><span data-lang="zh">浮閘電荷</span><span data-lang="en">FG charge</span></b><span class="cell-note"><span data-lang="zh">電荷探測面</span><span data-lang="en">Charge probe surface</span></span></div>
@@ -1797,7 +1925,7 @@
         <div class="matrix-notes-grid">
           <!-- Card 1: 0-Mask 成本與加價階梯 -->
           <div class="matrix-note-card">
-            <div class="note-card-badge" style="color: #c4a574;"><span data-lang="zh">01 · 光罩加價與晶圓經濟學</span><span data-lang="en">01 · MASK ADDERS &amp; WAFER ECONOMICS</span></div>
+            <div class="note-card-badge" style="color: #805828;"><span data-lang="zh">01 · 光罩加價與晶圓經濟學</span><span data-lang="en">01 · MASK ADDERS &amp; WAFER ECONOMICS</span></div>
             <h3 class="note-card-title">
               <span data-lang="zh">光罩加價道數與供應商分流</span>
               <span data-lang="en">Mask Adders &amp; Vendor Split</span>
@@ -1849,7 +1977,7 @@
 
           <!-- Card 3: 寫入機制與可靠度邊界 -->
           <div class="matrix-note-card">
-            <div class="note-card-badge" style="color: #c4a574;"><span data-lang="zh">03 · 寫入機制與可靠度邊界</span><span data-lang="en">03 · PROGRAMMING &amp; RELIABILITY</span></div>
+            <div class="note-card-badge" style="color: #805828;"><span data-lang="zh">03 · 寫入機制與可靠度邊界</span><span data-lang="en">03 · PROGRAMMING &amp; RELIABILITY</span></div>
             <h3 class="note-card-title">
               <span data-lang="zh">載子傳輸機制與耐久度極限</span>
               <span data-lang="en">Carrier Transport &amp; Endurance Limits</span>
@@ -1930,33 +2058,33 @@
 
     <!-- SECTION 2: 5-AXIS ARCHITECTURAL RADAR SELECTOR LAB (HIGH-TECH INSTRUMENT WORKBENCH) -->
     <section id="sec-selector" class="lens-panel selector-workbench-frame selector-dashboard" aria-labelledby="selector-sec-title">
-      <div class="hub-sec-header" style="margin-top:0; border-bottom: 1px solid rgba(196, 165, 116, 0.2);">
-        <div class="hub-sec-badge" style="color: #c4a574;"><span data-lang="zh">02 · 示範性啟發實驗室（非生產選型器）</span><span data-lang="en">02 · DEMO HEURISTIC LAB (not a production selector)</span></div>
-        <h2 id="selector-sec-title" style="color: #ffffff;">
+      <div class="hub-sec-header" style="margin-top:0; border-bottom: 1px solid rgba(0, 111, 112, 0.15);">
+        <div class="hub-sec-badge" style="color: #805828;"><span data-lang="zh">02 · 示範性啟發實驗室（非生產選型器）</span><span data-lang="en">02 · DEMO HEURISTIC LAB (not a production selector)</span></div>
+        <h2 id="selector-sec-title" style="color: #173b49;">
           <span data-lang="zh">5 軸多維動態雷達選型演示（相對適配分；非 production selector）</span>
           <span data-lang="en">5-Axis Multidimensional Architecture Radar Selector (demo heuristic)</span>
         </h2>
       </div>
-      <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; max-width: 860px; margin-bottom: 1.5rem;">
+      <p style="color: #284853; font-size: 0.95rem; line-height: 1.6; max-width: 860px; margin-bottom: 1.5rem;">
         <span data-lang="zh">調節五大設計約束滑桿，即時畫出各技術相對輪廓。分數為示範性 heuristic demo（相對適配），不是 production selector、不是預設贏家、也不是出貨證明。輪廓為族群級：eFuse 為吹斷級；I-fuse 與 Logic MTP 另列候選。TwinBit／Actt／G2 等具名例外見矩陣註解 05，不另畫獨立輪廓。</span>
         <span data-lang="en">Move the five constraint sliders to redraw relative hulls. Scores are a heuristic demo of relative fit under the current sliders — not a production selector, not a default winner, and not shipment proof. Hulls are family-class: eFuse is blow-class; I-fuse and Logic MTP are listed as separate candidates. Named exceptions (TwinBit / Actt / G2) stay in matrix note 05 and do not get extra hulls.</span>
       </p>
 
       <div class="selector-grid-layout">
         <!-- Left: Sliders Panel -->
-        <div style="background: rgba(6, 25, 37, 0.85); border: 1px solid rgba(196, 165, 116, 0.22); border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem;">
+        <div style="background: #f8fafc; border: 1px solid #cddbdc; border-radius: 8px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
           
           <!-- Slider 1: Node (Preserves selNode ID) -->
           <div>
             <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; margin-bottom: 4px;">
-              <label for="selNode" style="color: #c4a574;">
+              <label for="selNode" style="color: #173b49; font-weight: 600;">
                 <span data-lang="zh">① 製程微縮節點 (PROCESS NODE)</span>
                 <span data-lang="en">① PROCESS NODE SCALING</span>
               </label>
-              <span id="valNode" style="color: #c4a574;">22nm (Planar HKMG)</span>
+              <span id="valNode" style="color: #006f70; font-weight: 600;">22nm (Planar HKMG)</span>
             </div>
-            <input type="range" id="selNode" aria-label="Process Technology Node Scaling" data-aria-en="Process Technology Node Scaling" data-aria-zh="製程技術節點演進" min="0" max="4" step="1" value="2" style="width: 100%; accent-color: #c4a574; cursor: pointer;">
-            <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
+            <input type="range" id="selNode" aria-label="Process Technology Node Scaling" data-aria-en="Process Technology Node Scaling" data-aria-zh="製程技術節點演進" min="0" max="4" step="1" value="2" style="width: 100%; accent-color: #006f70; cursor: pointer;">
+            <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #526a72; margin-top: 2px;">
               <span>180nm</span><span>40nm</span><span>22nm</span><span>12nm</span><span>2nm GAA</span>
             </div>
           </div>
@@ -1964,14 +2092,14 @@
           <!-- Slider 2: Power -->
           <div>
             <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; margin-bottom: 4px;">
-              <label for="sliderPower" style="color: #c4a574;">
+              <label for="sliderPower" style="color: #173b49; font-weight: 600;">
                 <span data-lang="zh">② 晶片功耗預算 (POWER BUDGET)</span>
                 <span data-lang="en">② ACTIVE POWER BUDGET</span>
               </label>
-              <span id="valPower" style="color: #c4a574;">1.0 mW (IoT / Edge)</span>
+              <span id="valPower" style="color: #006f70; font-weight: 600;">1.0 mW (IoT / Edge)</span>
             </div>
-            <input type="range" id="sliderPower" aria-label="Active Power Budget" data-aria-en="Active Power Budget" data-aria-zh="動態功耗預算" min="0" max="3" step="1" value="1" style="width: 100%; accent-color: #c4a574; cursor: pointer;">
-            <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
+            <input type="range" id="sliderPower" aria-label="Active Power Budget" data-aria-en="Active Power Budget" data-aria-zh="動態功耗預算" min="0" max="3" step="1" value="1" style="width: 100%; accent-color: #006f70; cursor: pointer;">
+            <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #526a72; margin-top: 2px;">
               <span>0.1mW (ULP)</span><span>1mW (Edge)</span><span>25mW (Auto)</span><span>250mW (HPC)</span>
             </div>
           </div>
@@ -1979,14 +2107,14 @@
           <!-- Slider 3: Mask Adder (Preserves selMask ID) -->
           <div>
             <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; margin-bottom: 4px;">
-              <label for="selMask" style="color: #c4a574;">
+              <label for="selMask" style="color: #173b49; font-weight: 600;">
                 <span data-lang="zh">③ 額外光罩預算 (MASK ADDER)</span>
                 <span data-lang="en">③ MASK ADDER OVERHEAD</span>
               </label>
-              <span id="valMask" style="color: #c4a574;">0-Mask (Pure Logic)</span>
+              <span id="valMask" style="color: #006f70; font-weight: 600;">0-Mask (Pure Logic)</span>
             </div>
-            <input type="range" id="selMask" aria-label="Mask Adder Overhead Budget" data-aria-en="Mask Adder Overhead Budget" data-aria-zh="光罩疊加層數預算" min="0" max="2" step="1" value="0" style="width: 100%; accent-color: #c4a574; cursor: pointer;">
-            <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
+            <input type="range" id="selMask" aria-label="Mask Adder Overhead Budget" data-aria-en="Mask Adder Overhead Budget" data-aria-zh="光罩疊加層數預算" min="0" max="2" step="1" value="0" style="width: 100%; accent-color: #006f70; cursor: pointer;">
+            <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #526a72; margin-top: 2px;">
               <span>0-Mask (logic)</span><span>3~5 Adders (BEOL)</span><span>8~12 Adders (eFlash)</span>
             </div>
           </div>
@@ -1994,14 +2122,14 @@
           <!-- Slider 4: Temp (Preserves selTemp ID) -->
           <div>
             <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; margin-bottom: 4px;">
-              <label for="selTemp" style="color: #c4a574;">
+              <label for="selTemp" style="color: #173b49; font-weight: 600;">
                 <span data-lang="zh">④ 耐溫與可靠度 (TEMP GRADE)</span>
                 <span data-lang="en">④ TEMPERATURE GRADE</span>
               </label>
-              <span id="valTemp" style="color: #c4a574;">175°C (Auto Grade 0)</span>
+              <span id="valTemp" style="color: #006f70; font-weight: 600;">175°C (Auto Grade 0)</span>
             </div>
-            <input type="range" id="selTemp" aria-label="Temperature Grade and Reliability" data-aria-en="Temperature Grade and Reliability" data-aria-zh="溫度等級與可靠度" min="0" max="2" step="1" value="2" style="width: 100%; accent-color: #c4a574; cursor: pointer;">
-            <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
+            <input type="range" id="selTemp" aria-label="Temperature Grade and Reliability" data-aria-en="Temperature Grade and Reliability" data-aria-zh="溫度等級與可靠度" min="0" max="2" step="1" value="2" style="width: 100%; accent-color: #006f70; cursor: pointer;">
+            <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #526a72; margin-top: 2px;">
               <span>85°C (Commercial)</span><span>125°C (Grade 1)</span><span>175°C (Grade 0)</span>
             </div>
           </div>
@@ -2009,14 +2137,14 @@
           <!-- Slider 5: Endurance (Preserves selEndurance ID) -->
           <div>
             <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; margin-bottom: 4px;">
-              <label for="selEndurance" style="color: #c4a574;">
+              <label for="selEndurance" style="color: #173b49; font-weight: 600;">
                 <span data-lang="zh">⑤ 寫入次數需求 (REWRITE CYCLES)</span>
                 <span data-lang="en">⑤ REWRITE ENDURANCE</span>
               </label>
-              <span id="valEndurance" style="color: #c4a574;">1~100 (RoT / Patching)</span>
+              <span id="valEndurance" style="color: #006f70; font-weight: 600;">1~100 (RoT / Patching)</span>
             </div>
-            <input type="range" id="selEndurance" aria-label="Rewrite Endurance Cycles" data-aria-en="Rewrite Endurance Cycles" data-aria-zh="抹寫次數壽命" min="0" max="2" step="1" value="0" style="width: 100%; accent-color: #c4a574; cursor: pointer;">
-            <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 2px;">
+            <input type="range" id="selEndurance" aria-label="Rewrite Endurance Cycles" data-aria-en="Rewrite Endurance Cycles" data-aria-zh="抹寫次數壽命" min="0" max="2" step="1" value="0" style="width: 100%; accent-color: #006f70; cursor: pointer;">
+            <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #526a72; margin-top: 2px;">
               <span>1~100 (OTP/Patch)</span><span>10K~100K (MTP/OTA)</span><span>&gt;1M (Working RAM)</span>
             </div>
           </div>
@@ -2024,15 +2152,15 @@
         </div>
 
         <!-- Right: 5-Axis Dynamic Radar Chart -->
-        <div style="background: rgba(4, 18, 28, 0.95); border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 8px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
-          <div style="position: absolute; top: 12px; left: 16px; font: 700 11px 'IBM Plex Mono', monospace; color: #c4a574; letter-spacing: 0.1em;">
+        <div style="background: #ffffff; border: 1px solid #cddbdc; border-radius: 8px; padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; box-shadow: 0 4px 16px -2px rgba(0,0,0,0.04);">
+          <div style="position: absolute; top: 12px; left: 16px; font: 700 11px 'IBM Plex Mono', monospace; color: #173b49; letter-spacing: 0.1em;">
             <span data-lang="zh">5 軸架構取捨雷達</span>
             <span data-lang="en">5-AXIS ARCHITECTURAL TRADE-OFF RADAR</span>
           </div>
           <canvas id="selectorRadarCanvas" width="380" height="340" style="max-width: 100%; height: auto;"></canvas>
           <div style="display: flex; gap: 16px; font: 600 10.5px 'IBM Plex Mono', monospace; margin-top: 6px;">
-            <span style="color: #c4a574; display: flex; align-items: center; gap: 4px;">● <span id="radarTopLabel"><span data-lang="zh">AntiFuse OTP（相對適配）</span><span data-lang="en">AntiFuse OTP (relative fit)</span></span></span>
-            <span style="color: #f59e0b; display: flex; align-items: center; gap: 4px;">● <span id="radarRunnerLabel"><span data-lang="zh">STT-eMRAM（次適配）</span><span data-lang="en">STT-eMRAM (next)</span></span></span>
+            <span style="color: #006f70; display: flex; align-items: center; gap: 4px;">● <span id="radarTopLabel"><span data-lang="zh">AntiFuse OTP（相對適配）</span><span data-lang="en">AntiFuse OTP (relative fit)</span></span></span>
+            <span style="color: #805828; display: flex; align-items: center; gap: 4px;">● <span id="radarRunnerLabel"><span data-lang="zh">STT-eMRAM（次適配）</span><span data-lang="en">STT-eMRAM (next)</span></span></span>
           </div>
         </div>
       </div>
@@ -2041,9 +2169,9 @@
       <div class="match-results-deck" id="matchResultsDeck"></div>
 
       <!-- Architect Verdict -->
-      <div class="match-verdict-box" id="matchVerdictBox" style="background: #061925; border: 1px solid rgba(196, 165, 116, 0.35); border-radius: 6px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 12px;">
-        <span class="verdict-tag" style="background: rgba(196, 165, 116, 0.15); border: 1px solid #c4a574; color: #c4a574; font: 700 10px 'IBM Plex Mono', monospace; padding: 3px 6px; border-radius: 3px; white-space: nowrap; margin-top: 2px;"><span data-lang="zh">［相對適配］</span><span data-lang="en">[RELATIVE FIT]</span></span>
-        <div id="verdictText" style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0;" aria-live="polite" aria-atomic="true">
+      <div class="match-verdict-box" id="matchVerdictBox" style="background: #f0ece5; border: 1px solid rgba(128, 88, 40, 0.35); border-radius: 6px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 12px;">
+        <span class="verdict-tag" style="background: rgba(128, 88, 40, 0.12); border: 1px solid #805828; color: #805828; font: 700 10px 'IBM Plex Mono', monospace; padding: 3px 6px; border-radius: 3px; white-space: nowrap; margin-top: 2px;"><span data-lang="zh">［相對適配］</span><span data-lang="en">[RELATIVE FIT]</span></span>
+        <div id="verdictText" style="font-size: 0.95rem; line-height: 1.6; color: #173b49;" aria-live="polite" aria-atomic="true">
           <span data-lang="zh">相對適配計算中…</span>
           <span data-lang="en">Computing relative fit…</span>
         </div>
@@ -2058,7 +2186,7 @@
           <span data-lang="zh">第一性原理物理模型與晶圓成本經濟學方程式</span>
           <span data-lang="en">First-Principles Physics &amp; Wafer Economics Equations</span>
         </h2>
-        <p style="color:#b5aa9c;font-size:0.92rem;line-height:1.65;max-width:46rem;margin:0.75rem 0 0;">
+        <p style="color:#284853;font-size:0.92rem;line-height:1.65;max-width:46rem;margin:0.75rem 0 0;">
           <span data-lang="zh">三條可推導檢驗的第一性原理恆等式：穿隧與微絲擊穿、光罩階梯加價與良率、次閾值擴散漏電。用來嚴格約束架構選型，而非代工廠報價或單次宣稱。</span>
           <span data-lang="en">Three inspectable first-principles identities — tunneling &amp; filament breakdown, mask-adder &amp; yield economics, subthreshold diffusion leakage — constrain architectural selection.</span>
         </p>
@@ -2067,12 +2195,12 @@
       <div class="formula-card-grid">
         <!-- Formula 1: Fowler-Nordheim Tunneling & Dielectric Breakdown -->
         <div class="formula-card">
-          <div class="hub-sec-badge" style="color:#c4a574;"><span data-lang="zh">公式 01 · 反熔絲穿隧與擊穿</span><span data-lang="en">EQUATION 01 · ANTIFUSE BREAKDOWN</span></div>
+          <div class="hub-sec-badge" style="color:#805828;"><span data-lang="zh">公式 01 · 反熔絲穿隧與擊穿</span><span data-lang="en">EQUATION 01 · ANTIFUSE BREAKDOWN</span></div>
           <h3>
             <span data-lang="zh">Fowler–Nordheim 穿隧與局域矽微絲擊穿</span>
             <span data-lang="en">Fowler–Nordheim Tunneling &amp; Localized Filament Breakdown</span>
           </h3>
-          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.55;">
+          <p style="color:#284853; font-size:0.88rem; line-height:1.55;">
             <span data-lang="zh">穿隧機制由能障形狀主導：超薄氧化層在 <em>t</em><sub>ox</sub> &le; 3.0 nm 且 <em>V</em><sub>ox</sub> &lt; &Phi;<sub>B</sub>/<em>q</em> (~3.15 V) 時為梯形能障直接穿隧 (Direct Tunneling)；當 <em>V</em><sub>ox</sub> &gt; &Phi;<sub>B</sub>/<em>q</em> 時轉為三角形能障 Fowler–Nordheim (FN) 穿隧，有效穿隧距離縮短為 <em>x</em><sub>t</sub> = &Phi;<sub>B</sub>/(<em>qE</em><sub>ox</sub>)。強電場 <em>E</em><sub>ox</sub> &ge; 6~10 MV/cm 下缺陷累積觸發滲透熱失控，形成不可逆的再結晶矽導電微絲：</span>
             <span data-lang="en">Regime governed by barrier shape: ultrathin oxide at <em>t</em><sub>ox</sub> &le; 3.0 nm and <em>V</em><sub>ox</sub> &lt; &Phi;<sub>B</sub>/<em>q</em> (~3.15 V) exhibits trapezoidal direct tunneling; <em>V</em><sub>ox</sub> &gt; &Phi;<sub>B</sub>/<em>q</em> triggers triangular FN tunneling with tunneling distance <em>x</em><sub>t</sub> = &Phi;<sub>B</sub>/(<em>qE</em><sub>ox</sub>). High field <em>E</em><sub>ox</sub> &ge; 6~10 MV/cm drives defect percolation and thermal runaway into a permanent recrystallized silicon filament:</span>
           </p>
@@ -2102,16 +2230,16 @@
               <rect x="0" y="0" width="480" height="150" fill="url(#eq1-bg-grad)"/>
 
               <!-- LEFT: ENERGY BAND & FN TUNNELING -->
-              <text x="14" y="16" fill="#c4a574" font-size="7.5" font-weight="700" letter-spacing="0.05em">A · FN TUNNELING (TRIANGULAR BARRIER)</text>
+              <text x="14" y="16" fill="#805828" font-size="7.5" font-weight="700" letter-spacing="0.05em">A · FN TUNNELING (TRIANGULAR BARRIER)</text>
 
               <rect x="14" y="24" width="52" height="98" fill="url(#eq1-poly-grad)" stroke="#475569" stroke-width="1"/>
-              <text x="40" y="75" text-anchor="middle" fill="#94a3b8" font-size="7.5" font-weight="600">Poly Gate</text>
+              <text x="40" y="75" text-anchor="middle" fill="#526a72" font-size="7.5" font-weight="600">Poly Gate</text>
 
               <rect x="68" y="24" width="76" height="98" fill="url(#eq1-ox-grad)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1" stroke-dasharray="3 2"/>
               <text x="106" y="34" text-anchor="middle" fill="#38bdf8" font-size="7" font-weight="700">SiO2 Oxide (tox)</text>
 
               <rect x="146" y="24" width="72" height="98" fill="url(#eq1-si-grad)" stroke="#475569" stroke-width="1"/>
-              <text x="182" y="75" text-anchor="middle" fill="#94a3b8" font-size="7.5" font-weight="600">Si Substrate</text>
+              <text x="182" y="75" text-anchor="middle" fill="#526a72" font-size="7.5" font-weight="600">Si Substrate</text>
 
               <!-- Poly side Ec flat at y=58 -->
               <line x1="20" y1="58" x2="68" y2="58" stroke="#fbbf24" stroke-width="1.5"/>
@@ -2138,10 +2266,10 @@
 
               <text x="14" y="136" fill="#8ea9b3" font-size="6.5" font-weight="500">Direct (tox &le; 3nm) vs FN (Vox &gt; &Phi;B/q) Triangular</text>
 
-              <line x1="228" y1="12" x2="228" y2="138" stroke="rgba(196, 165, 116, 0.25)" stroke-width="1"/>
+              <line x1="228" y1="12" x2="228" y2="138" stroke="rgba(128, 88, 40, 0.25)" stroke-width="1"/>
 
               <!-- RIGHT: 4-STAGE FILAMENT PERCOLATION -->
-              <text x="238" y="16" fill="#c4a574" font-size="7.5" font-weight="700" letter-spacing="0.05em">B · 4-STAGE RECRYSTALLIZED SILICON FILAMENT</text>
+              <text x="238" y="16" fill="#805828" font-size="7.5" font-weight="700" letter-spacing="0.05em">B · 4-STAGE RECRYSTALLIZED SILICON FILAMENT</text>
 
               <rect x="238" y="26" width="106" height="36" rx="4" fill="#081e2b" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1"/>
               <text x="244" y="39" fill="#7dd3fc" font-size="7.2" font-weight="700">1. Stress &amp; Traps</text>
@@ -2169,9 +2297,9 @@
               <text x="366" y="96" fill="#a7f3d0" font-size="6.5" font-weight="600">&empty; 5~10nm Si Filament</text>
               <text x="366" y="105" fill="#6ee7b7" font-size="6" font-weight="500">Permanent Phase Change</text>
 
-              <rect x="238" y="118" width="228" height="20" rx="3" fill="#03131e" stroke="rgba(196, 165, 116, 0.3)" stroke-width="1"/>
+              <rect x="238" y="118" width="228" height="20" rx="3" fill="#03131e" stroke="rgba(128, 88, 40, 0.3)" stroke-width="1"/>
               <text x="246" y="131.5" fill="#f87171" font-size="7" font-weight="700">HRS &gt;10^11 &Omega;</text>
-              <text x="316" y="131.5" fill="#c4a574" font-size="7" font-weight="600">&rarr; Irreversible &rarr;</text>
+              <text x="316" y="131.5" fill="#805828" font-size="7" font-weight="600">&rarr; Irreversible &rarr;</text>
               <text x="394" y="131.5" fill="#34d399" font-size="7" font-weight="700">LRS &approx; 10^2 &Omega; (Ohmic)</text>
             </svg>
           </div>
@@ -2200,7 +2328,7 @@
             <span data-lang="zh">額外光罩晶圓成本與良率恆等式</span>
             <span data-lang="en">Mask-Adder Wafer Cost &amp; Effective Yield Identity</span>
           </h3>
-          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.55;">
+          <p style="color:#284853; font-size:0.88rem; line-height:1.55;">
             <span data-lang="zh">將額外光罩道數 &Delta;<em>N</em><sub>mask</sub>、前段/後段邊際加價 &alpha;<sub>mask</sub> 與製程良率衝擊 &Delta;<em>Y</em> 結合成可物理檢查的成本閉環：</span>
             <span data-lang="en">Integrate extra masks &Delta;<em>N</em><sub>mask</sub>, FEOL/BEOL marginal adders &alpha;<sub>mask</sub>, and process yield hits &Delta;<em>Y</em> into an inspectable cost closure:</span>
           </p>
@@ -2218,7 +2346,7 @@
               <rect x="0" y="0" width="480" height="150" fill="url(#eq2-bg-grad)"/>
 
               <!-- LEFT: MASK ADDER ESCALATOR -->
-              <text x="14" y="16" fill="#c4a574" font-size="7.5" font-weight="700" letter-spacing="0.05em">A · MASK ADDER OVERHEAD ESCALATOR</text>
+              <text x="14" y="16" fill="#805828" font-size="7.5" font-weight="700" letter-spacing="0.05em">A · MASK ADDER OVERHEAD ESCALATOR</text>
 
               <!-- Bar 1: 0-Mask Logic NVM -->
               <rect x="14" y="28" width="206" height="26" rx="4" fill="#042218" stroke="#10b981" stroke-width="1.2"/>
@@ -2240,10 +2368,10 @@
 
               <text x="14" y="136" fill="#8ea9b3" font-size="6.5" font-weight="500">Zero Extra Masks &ne; Free Silicon (Array Area Penalty)</text>
 
-              <line x1="228" y1="12" x2="228" y2="138" stroke="rgba(196, 165, 116, 0.25)" stroke-width="1"/>
+              <line x1="228" y1="12" x2="228" y2="138" stroke="rgba(128, 88, 40, 0.25)" stroke-width="1"/>
 
               <!-- RIGHT: EFFECTIVE DIE COST CURVE -->
-              <text x="238" y="16" fill="#c4a574" font-size="7.5" font-weight="700" letter-spacing="0.05em">B · EFFECTIVE DIE COST &amp; YIELD IMPACT</text>
+              <text x="238" y="16" fill="#805828" font-size="7.5" font-weight="700" letter-spacing="0.05em">B · EFFECTIVE DIE COST &amp; YIELD IMPACT</text>
 
               <!-- Axes: X = Die Area Adie, Y = Effective Cost C_die,eff -->
               <line x1="254" y1="116" x2="464" y2="116" stroke="#64748b" stroke-width="1.2"/>
@@ -2288,12 +2416,12 @@
 
         <!-- Formula 3: Subthreshold Leakage -->
         <div class="formula-card">
-          <div class="hub-sec-badge" style="color:#c4a574;"><span data-lang="zh">公式 03 · 次閾值擴散漏電</span><span data-lang="en">EQUATION 03 · SUBTHRESHOLD DIFFUSION</span></div>
+          <div class="hub-sec-badge" style="color:#805828;"><span data-lang="zh">公式 03 · 次閾值擴散漏電</span><span data-lang="en">EQUATION 03 · SUBTHRESHOLD DIFFUSION</span></div>
           <h3>
             <span data-lang="zh">次閾值擴散漏電與玻爾茲曼極限</span>
             <span data-lang="en">Subthreshold Diffusion Leakage &amp; Boltzmann Tyranny</span>
           </h3>
-          <p style="color:#94a3b8; font-size:0.88rem; line-height:1.55;">
+          <p style="color:#284853; font-size:0.88rem; line-height:1.55;">
             <span data-lang="zh">超低功耗邊緣節點 Always-On 域，關態靜態漏電由次閾值擴散機制與源汲熱平衡因子共同決定：</span>
             <span data-lang="en">Static leakage in always-on edge MCU domains is dominated by subthreshold diffusion and the drain balance factor:</span>
           </p>
@@ -2311,20 +2439,20 @@
               <rect x="0" y="0" width="480" height="150" fill="url(#eq3-bg-grad)"/>
 
               <!-- LEFT: LOG(IDS) VS VGS SUBTHRESHOLD -->
-              <text x="14" y="16" fill="#c4a574" font-size="7.5" font-weight="700" letter-spacing="0.05em">A · SUBTHRESHOLD SWING (BOLTZMANN TYRANNY)</text>
+              <text x="14" y="16" fill="#805828" font-size="7.5" font-weight="700" letter-spacing="0.05em">A · SUBTHRESHOLD SWING (BOLTZMANN TYRANNY)</text>
 
               <!-- Axes: X = Vgs, Y = log(Ids) -->
               <line x1="28" y1="116" x2="218" y2="116" stroke="#64748b" stroke-width="1.2"/>
               <polygon points="216,114 220,116 216,118" fill="#64748b"/>
-              <text x="218" y="126" text-anchor="end" fill="#94a3b8" font-size="6.5" font-weight="600">Vgs (V)</text>
+              <text x="218" y="126" text-anchor="end" fill="#526a72" font-size="6.5" font-weight="600">Vgs (V)</text>
 
               <line x1="28" y1="116" x2="28" y2="28" stroke="#64748b" stroke-width="1.2"/>
               <polygon points="26,30 28,26 30,30" fill="#64748b"/>
-              <text x="32" y="33" fill="#94a3b8" font-size="6.5" font-weight="600">log(Ids)</text>
+              <text x="32" y="33" fill="#526a72" font-size="6.5" font-weight="600">log(Ids)</text>
 
               <!-- Vth vertical dashed line -->
               <line x1="140" y1="28" x2="140" y2="116" stroke="#475569" stroke-width="1" stroke-dasharray="2 2"/>
-              <text x="140" y="126" text-anchor="middle" fill="#cbd5e1" font-size="6.5" font-weight="600">Vth</text>
+              <text x="140" y="126" text-anchor="middle" fill="#526a72" font-size="6.5" font-weight="600">Vth</text>
 
               <!-- Boltzmann Thermal Limit Line: S = 60 mV/dec (Green Dash) -->
               <line x1="46" y1="112" x2="140" y2="48" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 2"/>
@@ -2334,14 +2462,14 @@
               <path d="M 50 112 L 140 58 Q 162 48 210 44" fill="none" stroke="#f59e0b" stroke-width="1.8"/>
               <text x="92" y="94" fill="#fbbf24" font-size="6.8" font-weight="700">CMOS S &approx; 75 mV/dec</text>
 
-              <text x="160" y="52" fill="#94a3b8" font-size="6" font-weight="500">Drift Inversion</text>
+              <text x="160" y="52" fill="#526a72" font-size="6" font-weight="500">Drift Inversion</text>
 
-              <text x="14" y="136" fill="#8ea9b3" font-size="6.5" font-weight="500">Subthreshold Diffusion Regime (Vgs &lt; Vth)</text>
+              <text x="14" y="136" fill="#526a72" font-size="6.5" font-weight="500">Subthreshold Diffusion Regime (Vgs &lt; Vth)</text>
 
-              <line x1="228" y1="12" x2="228" y2="138" stroke="rgba(196, 165, 116, 0.25)" stroke-width="1"/>
+              <line x1="228" y1="12" x2="228" y2="138" stroke="rgba(128, 88, 40, 0.25)" stroke-width="1"/>
 
               <!-- RIGHT: DRAIN SATURATION FACTOR -->
-              <text x="238" y="16" fill="#c4a574" font-size="7.5" font-weight="700" letter-spacing="0.05em">B · DRAIN EQUILIBRIUM SATURATION FACTOR</text>
+              <text x="238" y="16" fill="#805828" font-size="7.5" font-weight="700" letter-spacing="0.05em">B · DRAIN EQUILIBRIUM SATURATION FACTOR</text>
 
               <!-- Axes: X = Vds, Y = [1 - exp(-qVds/kT)] -->
               <line x1="254" y1="116" x2="464" y2="116" stroke="#64748b" stroke-width="1.2"/>
@@ -2411,7 +2539,7 @@
         <!-- TSMC -->
         <div class="foundry-card tsmc" id="foundry-tsmc">
           <div class="foundry-card-top">
-            <div class="foundry-brand-pill" style="color: #c4a574;"><span data-lang="zh">晶圓廠 01 · 台灣積體電路 (TSMC)</span><span data-lang="en">FOUNDRY 01 · TAIWAN SEMICONDUCTOR</span></div>
+            <div class="foundry-brand-pill" style="color: #805828;"><span data-lang="zh">晶圓廠 01 · 台灣積體電路 (TSMC)</span><span data-lang="en">FOUNDRY 01 · TAIWAN SEMICONDUCTOR</span></div>
             <h3>TSMC</h3>
           </div>
           <div class="foundry-node-tiles">
@@ -2518,7 +2646,7 @@
         <!-- GlobalFoundries -->
         <div class="foundry-card gf" id="foundry-gf">
           <div class="foundry-card-top">
-            <div class="foundry-brand-pill" style="color: #c4a574;"><span data-lang="zh">晶圓廠 03 · 格羅方德 (GLOBALFOUNDRIES)</span><span data-lang="en">FOUNDRY 03 · GLOBALFOUNDRIES</span></div>
+            <div class="foundry-brand-pill" style="color: #805828;"><span data-lang="zh">晶圓廠 03 · 格羅方德 (GLOBALFOUNDRIES)</span><span data-lang="en">FOUNDRY 03 · GLOBALFOUNDRIES</span></div>
             <h3>GlobalFoundries</h3>
           </div>
           <div class="foundry-node-tiles">
@@ -2747,20 +2875,20 @@
       </div>
 
       <!-- Physical Security Deep-Dive Block -->
-      <div style="background: #082433; border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 8px; padding: 1.75rem; margin-top: 1.5rem;">
-        <div class="hub-sec-badge" style="color: #c4a574;"><span data-lang="zh">晶片級實體防竄改安全</span><span data-lang="en">SILICON-LEVEL ANTI-TAMPER SECURITY</span></div>
-        <h3 style="color: #f8fafc; margin: 0.5rem 0 1rem; font: 700 1.25rem 'IBM Plex Mono', monospace;">
+      <div style="background: #f0f4ef; border: 1px solid #cddbdc; border-radius: 8px; padding: 1.75rem; margin-top: 1.5rem;">
+        <div class="hub-sec-badge" style="color: #805828;"><span data-lang="zh">晶片級實體防竄改安全</span><span data-lang="en">SILICON-LEVEL ANTI-TAMPER SECURITY</span></div>
+        <h3 style="color: #173b49; margin: 0.5rem 0 1rem; font: 700 1.25rem 'IBM Plex Mono', monospace;">
           <span data-lang="zh">TEM 衰減與差分功耗分析 (DPA) 實體防護責任鏈（非絕對免疫）</span>
           <span data-lang="en">TEM Attenuation &amp; DPA Side-Channel Layered Defense Chain (Not Absolute Immunity)</span>
         </h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.5rem; font-size: 0.9rem; line-height: 1.65; color: #cbd5e1;">
-          <div style="background: rgba(4, 18, 28, 0.6); padding: 1.25rem; border-radius: 6px; border: 1px solid rgba(196, 165, 116, 0.15);">
-            <b style="color: #c4a574;"><span data-lang="zh">① TEM / FIB 可見性與主動屏蔽邊界</span><span data-lang="en">① TEM / FIB Visibility &amp; Active Shielding Boundary</span></b><br>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.5rem; font-size: 0.9rem; line-height: 1.65; color: #284853;">
+          <div style="background: #ffffff; padding: 1.25rem; border-radius: 6px; border: 1px solid #cddbdc; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+            <b style="color: #173b49;"><span data-lang="zh">① TEM / FIB 可見性與主動屏蔽邊界</span><span data-lang="en">① TEM / FIB Visibility &amp; Active Shielding Boundary</span></b><br>
             <span data-lang="zh">AntiFuse 崩潰微絲約 3–8nm，局域包裹於標準閘極氧化層中，無表面形貌變化，較吹斷級 eFuse 熔斷空洞具備極高的物理逆向成本。I-fuse 公開為非爆破熔絲，IEEE JEDS 2019 稱編程狀態較難以 SEM 目視判讀，仍非絕對免疫。但需注意：<b>非揮發微絲／熔絲狀態為永久性物理結構，位元單元本身無法「單週期自我清除」</b>；系統級防禦依賴開機時將密鑰載入揮發性快取 (Volatile Shadow RAM)，當頂層主動金屬屏蔽 (Active Metal Mesh) 偵測到 FIB 微探針或開路時，由控制器觸發暫存器之單週期即時零化 (Zeroization)。此為物理衰減結合系統聯防，非位元單元絕對免疫。</span>
             <span data-lang="en">AntiFuse filaments are ~3–8nm localized inside standard gate oxide without surface topological changes, imposing high reverse-engineering barriers compared to blow-class eFuse voids. I-fuse is published as a non-explosive fuse; IEEE JEDS 2019 reports programmed state as hard to visually detect by SEM — still not absolute immunity. Note: <b>the physical filament or fuse state is irreversible and cannot self-zeroize</b>. System security relies on shadowing keys into volatile RAM at boot; when the active top-metal mesh detects FIB probing, the controller triggers instantaneous register zeroization. Hardware attenuation + architectural co-defense, not bitcell-level absolute immunity.</span>
           </div>
-          <div style="background: rgba(4, 18, 28, 0.6); padding: 1.25rem; border-radius: 6px; border: 1px solid rgba(196, 165, 116, 0.15);">
-            <b style="color: #c4a574;"><span data-lang="zh">② 互補差動讀取（DPA/CPA 衰減邊界）</span><span data-lang="en">② Complementary Differential Read (DPA/CPA Attenuation Boundary)</span></b><br>
+          <div style="background: #ffffff; padding: 1.25rem; border-radius: 6px; border: 1px solid #cddbdc; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+            <b style="color: #173b49;"><span data-lang="zh">② 互補差動讀取（DPA/CPA 衰減邊界）</span><span data-lang="en">② Complementary Differential Read (DPA/CPA Attenuation Boundary)</span></b><br>
             <span data-lang="zh">成對互補差動讀取（A=HRS, B=LRS）使兩條位元線同時抽取電流，瞬態總功耗近似常數 <em>I</em><sub>total</sub> = <em>I</em><sub>HRS</sub> + <em>I</em><sub>LRS</sub>，可大幅衰減一階差分功耗 (DPA) 與相關功耗 (CPA) 訊跡。但面對高階差分功耗 (Higher-order DPA) 與局域電磁輻射分析 (EMA)，晶圓佈線不對稱性仍可能洩漏側信道特徵。因此，完備防禦必須落實<b>多層責任鏈</b>：位元層差動對消 + 控制器層隨機遮罩 (Masking) 與時脈抖動 + 密碼引擎擾碼。</span>
             <span data-lang="en">Complementary differential read pairs (A=HRS, B=LRS) draw current simultaneously on both bitlines (<em>I</em><sub>total</sub> = <em>I</em><sub>HRS</sub> + <em>I</em><sub>LRS</sub>), significantly attenuating first-order DPA and CPA traces. However, against higher-order DPA and localized EMA probes, layout asymmetry can still leak side-channel signatures. Complete protection mandates a <b>layered defense chain</b>: bitcell-level current cancellation + controller-level algorithmic masking/jitter + cryptographic engine bus scrambling.</span>
           </div>
@@ -2771,7 +2899,7 @@
     <!-- SECTION 05: FOUR ARCHITECTURAL READ TOPOLOGIES (REBUILT CLEAN & ORTHOGONAL) -->
     <section id="sec-read-modes" class="lens-panel" aria-labelledby="read-modes-sec-title">
       <div class="hub-sec-header">
-        <div class="hub-sec-badge" style="color: #c4a574;"><span data-lang="zh">05 · 晶片級讀取拓樸</span><span data-lang="en">05 · ARCHITECTURAL READ TOPOLOGIES</span></div>
+        <div class="hub-sec-badge" style="color: #805828;"><span data-lang="zh">05 · 晶片級讀取拓樸</span><span data-lang="en">05 · ARCHITECTURAL READ TOPOLOGIES</span></div>
         <h2 id="read-modes-sec-title">
           <span data-lang="zh">四大晶片級讀取模式：<em>感測邊界、面積開銷與側信道衰減全景</em></span>
           <span data-lang="en">Four Architectural Read Modes: <em>Sense Margins, Area Overhead &amp; Side-Channel Attenuation</em></span>
@@ -2785,18 +2913,18 @@
         </p>
         <div class="rm-meta-strip">
           <span class="rm-meta-pill">
-            <strong style="color: #c4a574;"><span data-lang="zh">物理紀律：</span><span data-lang="en">PHYSICAL DISCIPLINE:</span></strong>
+            <strong style="color: #805828;"><span data-lang="zh">物理紀律：</span><span data-lang="en">PHYSICAL DISCIPLINE:</span></strong>
             <span data-lang="zh">嚴格正交直角電路拓樸 · 100% 杜絕對角線與視差錯位</span>
             <span data-lang="en">Strict 90° Orthogonal Schematics · Zero Diagonal Parallax</span>
           </span>
           <span class="rm-meta-pill">
-            <strong style="color: #38bdf8;"><span data-lang="zh">實證連結：</span><span data-lang="en">EVIDENCE LINK:</span></strong>
-            <a href="memory-physics.html#read-path" style="color: #c4a574; text-decoration: underline;">
+            <strong style="color: #006f70;"><span data-lang="zh">實證連結：</span><span data-lang="en">EVIDENCE LINK:</span></strong>
+            <a href="memory-physics.html#read-path" style="color: #006f70; text-decoration: underline;">
               <span data-lang="zh">記憶體微觀讀取物理 ↗</span>
               <span data-lang="en">Memory Read Physics ↗</span>
             </a>
             &amp;
-            <a href="memory-evidence.html#evidence-V07" style="color: #c4a574; text-decoration: underline;">
+            <a href="memory-evidence.html#evidence-V07" style="color: #006f70; text-decoration: underline;">
               <span data-lang="zh">一手差動衰減總帳 (V07) ↗</span>
               <span data-lang="en">Primary Ledger V07 ↗</span>
             </a>
@@ -2805,285 +2933,284 @@
       </div>
 
       <style>
-        /* Modernized, Orthogonal, High-Legibility Styles for Read Modes */
+        /* Editorial Light Paper Styles for Read Modes */
         #sec-read-modes {
-          margin-top: 2rem;
-          background: #061925;
-          border-radius: 12px;
-          border: 1px solid rgba(196, 165, 116, 0.22);
-          padding: 24px;
+          margin-top: 2rem !important;
+          background: #ffffff !important;
+          border-radius: 8px !important;
+          border: 1px solid #cddbdc !important;
+          padding: 24px !important;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
         }
         #sec-read-modes .hub-sec-header {
-          margin-bottom: 1.25rem;
-          border-bottom: 1px solid rgba(196, 165, 116, 0.2);
-          padding-bottom: 0.85rem;
+          margin-bottom: 1.25rem !important;
+          border-bottom: 1px solid #cddbdc !important;
+          padding-bottom: 0.85rem !important;
         }
         #sec-read-modes h2 {
-          font-size: clamp(1.25rem, 2.2vw, 1.55rem);
-          line-height: 1.35;
-          color: #e8eef2;
-          margin: 0.35rem 0 0;
-          font-weight: 600;
+          font-size: clamp(1.25rem, 2.2vw, 1.55rem) !important;
+          line-height: 1.35 !important;
+          color: #173b49 !important;
+          margin: 0.35rem 0 0 !important;
+          font-weight: 700 !important;
         }
         #sec-read-modes h2 em {
-          font-style: normal;
-          color: #c4a574;
+          font-style: normal !important;
+          color: #006f70 !important;
         }
         .rm-header-narrative {
-          margin-bottom: 1.5rem;
+          margin-bottom: 1.5rem !important;
         }
         .rm-lead {
-          color: #cbd5e1;
-          font-size: 0.92rem;
-          line-height: 1.65;
-          margin: 0 0 1rem;
-          max-width: 1080px;
+          color: #284853 !important;
+          font-size: 0.92rem !important;
+          line-height: 1.65 !important;
+          margin: 0 0 1rem !important;
+          max-width: 1080px !important;
         }
         .rm-meta-strip {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          align-items: center;
+          display: flex !important;
+          flex-wrap: wrap !important;
+          gap: 10px !important;
+          align-items: center !important;
         }
         .rm-meta-pill {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          background: #082433;
-          border: 1px solid rgba(196, 165, 116, 0.3);
-          border-radius: 6px;
-          padding: 6px 12px;
-          font-size: 0.8rem;
-          color: #cbd5e1;
-          font-family: 'IBM Plex Mono', monospace;
+          display: inline-flex !important;
+          align-items: center !important;
+          gap: 6px !important;
+          background: #edf2ee !important;
+          border: 1px solid #cddbdc !important;
+          border-radius: 6px !important;
+          padding: 6px 12px !important;
+          font-size: 0.8rem !important;
+          color: #284853 !important;
+          font-family: 'IBM Plex Mono', monospace !important;
         }
         .rm-grid {
-          display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 24px;
-          margin-bottom: 2.25rem;
+          display: grid !important;
+          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          gap: 24px !important;
+          margin-bottom: 2.25rem !important;
         }
         @media (max-width: 960px) {
           .rm-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr !important;
           }
         }
         .rm-card {
-          background: linear-gradient(180deg, #092335 0%, #051522 100%);
-          border: 1px solid rgba(196, 165, 116, 0.2);
-          border-radius: 12px;
-          padding: 22px;
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          position: relative;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-          transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+          background: #ffffff !important;
+          border: 1px solid #cddbdc !important;
+          border-radius: 8px !important;
+          padding: 22px !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 16px !important;
+          position: relative !important;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+          transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
         }
         .rm-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+          transform: translateY(-2px) !important;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
         }
-        #rm-single { border-top: 3px solid #f59e0b; }
-        #rm-redundant { border-top: 3px solid #10b981; }
-        #rm-differential { border-top: 3px solid #38bdf8; }
-        #rm-diff-red { border-top: 3px solid #c084fc; }
+        #rm-single { border-top: 3px solid #d97706 !important; }
+        #rm-redundant { border-top: 3px solid #16a34a !important; }
+        #rm-differential { border-top: 3px solid #006f70 !important; }
+        #rm-diff-red { border-top: 3px solid #7c3aed !important; }
 
         .rm-card-head {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          gap: 12px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-          padding-bottom: 12px;
+          display: flex !important;
+          justify-content: space-between !important;
+          align-items: flex-start !important;
+          gap: 12px !important;
+          border-bottom: 1px solid #cddbdc !important;
+          padding-bottom: 12px !important;
         }
         .rm-card-head h3 {
-          margin: 0;
-          font-size: 1.05rem;
-          color: #f8fafc;
-          font-family: 'IBM Plex Mono', monospace;
-          line-height: 1.35;
-          letter-spacing: -0.01em;
+          margin: 0 !important;
+          font-size: 1.05rem !important;
+          color: #173b49 !important;
+          font-family: 'IBM Plex Mono', monospace !important;
+          line-height: 1.35 !important;
+          letter-spacing: -0.01em !important;
+          font-weight: 700 !important;
         }
         .rm-tag {
-          font-size: 0.72rem;
-          font-family: 'IBM Plex Mono', monospace;
-          font-weight: 700;
-          padding: 4px 10px;
-          border-radius: 6px;
-          white-space: nowrap;
-          letter-spacing: 0.02em;
+          font-size: 0.72rem !important;
+          font-family: 'IBM Plex Mono', monospace !important;
+          font-weight: 700 !important;
+          padding: 4px 10px !important;
+          border-radius: 6px !important;
+          white-space: nowrap !important;
+          letter-spacing: 0.02em !important;
         }
-        .tag-amber { background: rgba(245, 158, 11, 0.12); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
-        .tag-emerald { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
-        .tag-blue { background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); }
-        .tag-purple { background: rgba(192, 132, 252, 0.12); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.4); }
+        .tag-amber { background: #fef3c7 !important; color: #92400e !important; border: 1px solid #fde68a !important; }
+        .tag-emerald { background: #dcfce7 !important; color: #065f46 !important; border: 1px solid #a7f3d0 !important; }
+        .tag-blue { background: #dfede8 !important; color: #08594f !important; border: 1px solid #a7d9ce !important; }
+        .tag-purple { background: #f3e8ff !important; color: #6b21a8 !important; border: 1px solid #e9d5ff !important; }
 
         .rm-svg-wrap {
-          background: radial-gradient(ellipse at 50% 25%, #0b2c40 0%, #030d14 100%);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 10px;
-          padding: 12px 14px;
-          position: relative;
-          overflow: hidden;
-          box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.5);
+          background: #f8fafc !important;
+          border: 1px solid #cddbdc !important;
+          border-radius: 8px !important;
+          padding: 12px 14px !important;
+          position: relative !important;
+          overflow: hidden !important;
+          box-shadow: none !important;
         }
         .rm-svg-wrap::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          background-image: 
-            linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-          background-size: 16px 16px;
+          display: none !important;
         }
         .rm-svg {
-          width: 100%;
-          height: auto;
-          display: block;
-          position: relative;
-          z-index: 1;
-          fill: none;
-          stroke: none;
-          stroke-width: 0;
-          overflow: visible;
+          width: 100% !important;
+          height: auto !important;
+          display: block !important;
+          position: relative !important;
+          z-index: 1 !important;
+          fill: none !important;
+          stroke: none !important;
+          stroke-width: 0 !important;
+          overflow: visible !important;
         }
         .rm-svg text {
-          fill: currentColor;
+          fill: currentColor !important;
           stroke: none !important;
           stroke-width: 0 !important;
           paint-order: fill !important;
           font-family: 'IBM Plex Mono', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-          -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;
-          text-rendering: geometricPrecision;
+          -webkit-font-smoothing: antialiased !important;
+          -moz-osx-font-smoothing: grayscale !important;
+          text-rendering: geometricPrecision !important;
         }
         .rm-svg line,
         .rm-svg path,
         .rm-svg rect,
         .rm-svg polygon,
         .rm-svg circle {
-          vector-effect: non-scaling-stroke;
+          vector-effect: non-scaling-stroke !important;
         }
         .rm-body {
-          display: flex;
-          flex-direction: column;
-          gap: 12px;
-          font-size: 0.85rem;
-          line-height: 1.6;
-          color: #cbd5e1;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 12px !important;
+          font-size: 0.85rem !important;
+          line-height: 1.6 !important;
+          color: #284853 !important;
         }
         .rm-principle {
-          margin: 0;
-          color: #e2e8f0;
-          font-size: 0.86rem;
+          margin: 0 !important;
+          color: #173b49 !important;
+          font-size: 0.86rem !important;
         }
         .rm-props-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 8px;
-          background: rgba(4, 18, 28, 0.6);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          border-radius: 8px;
-          padding: 10px 12px;
-          text-align: center;
+          display: grid !important;
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 8px !important;
+          background: #f0f4ef !important;
+          border: 1px solid #cddbdc !important;
+          border-radius: 6px !important;
+          padding: 10px 12px !important;
+          text-align: center !important;
         }
         .rm-props-item small {
-          display: block;
-          font-size: 0.68rem;
-          color: #94a3b8;
-          font-family: 'IBM Plex Mono', monospace;
-          margin-bottom: 3px;
-          letter-spacing: 0.05em;
+          display: block !important;
+          font-size: 0.68rem !important;
+          color: #526a72 !important;
+          font-family: 'IBM Plex Mono', monospace !important;
+          margin-bottom: 3px !important;
+          letter-spacing: 0.05em !important;
         }
         .rm-props-item strong {
-          font-size: 0.84rem;
-          color: #f1f5f9;
-          font-family: 'IBM Plex Mono', monospace;
+          font-size: 0.84rem !important;
+          color: #173b49 !important;
+          font-family: 'IBM Plex Mono', monospace !important;
+          font-weight: 700 !important;
         }
         .rm-details-list {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 7px;
+          margin: 0 !important;
+          padding: 0 !important;
+          list-style: none !important;
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 7px !important;
         }
         .rm-details-list li {
-          position: relative;
-          padding-left: 15px;
-          font-size: 0.82rem;
-          line-height: 1.55;
-          color: #cbd5e1;
+          position: relative !important;
+          padding-left: 15px !important;
+          font-size: 0.82rem !important;
+          line-height: 1.55 !important;
+          color: #284853 !important;
         }
         .rm-details-list li::before {
-          content: "◆";
-          position: absolute;
-          left: 0;
-          top: 1px;
-          font-size: 0.55rem;
-          color: #c4a574;
+          content: "◆" !important;
+          position: absolute !important;
+          left: 0 !important;
+          top: 1px !important;
+          font-size: 0.55rem !important;
+          color: #805828 !important;
         }
-        #rm-redundant .rm-details-list li::before { color: #34d399; }
-        #rm-differential .rm-details-list li::before { color: #38bdf8; }
-        #rm-diff-red .rm-details-list li::before { color: #c084fc; }
+        #rm-redundant .rm-details-list li::before { color: #16a34a !important; }
+        #rm-differential .rm-details-list li::before { color: #006f70 !important; }
+        #rm-diff-red .rm-details-list li::before { color: #7c3aed !important; }
 
         .rm-table-wrap {
-          overflow-x: auto;
-          background: #082433;
-          border: 1px solid rgba(196, 165, 116, 0.25);
-          border-radius: 10px;
-          margin-bottom: 1.5rem;
+          overflow-x: auto !important;
+          background: #ffffff !important;
+          border: 1px solid #cddbdc !important;
+          border-radius: 8px !important;
+          margin-bottom: 1.5rem !important;
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
         }
         .rm-modern-table {
-          width: 100%;
-          border-collapse: collapse;
-          font-size: 0.84rem;
-          line-height: 1.5;
-          color: #cbd5e1;
+          width: 100% !important;
+          border-collapse: collapse !important;
+          font-size: 0.84rem !important;
+          line-height: 1.5 !important;
+          color: #284853 !important;
         }
         .rm-modern-table caption {
-          text-align: left;
-          padding: 12px 16px;
-          font-family: 'IBM Plex Mono', monospace;
-          font-weight: 700;
-          color: #c4a574;
-          border-bottom: 1px solid rgba(196, 165, 116, 0.2);
-          background: #061e2b;
+          text-align: left !important;
+          padding: 12px 16px !important;
+          font-family: 'IBM Plex Mono', monospace !important;
+          font-weight: 700 !important;
+          color: #173b49 !important;
+          border-bottom: 1px solid #cddbdc !important;
+          background: #edf2ee !important;
         }
         .rm-modern-table th, .rm-modern-table td {
-          padding: 12px 14px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-          text-align: left;
-          vertical-align: middle;
+          padding: 12px 14px !important;
+          border-bottom: 1px solid #cddbdc !important;
+          text-align: left !important;
+          vertical-align: middle !important;
         }
         .rm-modern-table thead th {
-          background: #051b27;
-          color: #38bdf8;
-          font-family: 'IBM Plex Mono', monospace;
-          font-size: 0.8rem;
-          white-space: nowrap;
+          background: #e3ece6 !important;
+          color: #173b49 !important;
+          font-family: 'IBM Plex Mono', monospace !important;
+          font-size: 0.8rem !important;
+          white-space: nowrap !important;
+          border-bottom: 2px solid #006f70 !important;
+          font-weight: 700 !important;
         }
         .rm-modern-table tbody tr:hover td {
-          background: rgba(255, 255, 255, 0.02);
+          background: #f0f4ef !important;
         }
         .rm-modern-table tbody th {
-          font-family: 'IBM Plex Mono', monospace;
-          color: #f1f5f9;
-          font-weight: 600;
-          white-space: nowrap;
-          background: rgba(4, 18, 28, 0.3);
+          font-family: 'IBM Plex Mono', monospace !important;
+          color: #173b49 !important;
+          font-weight: 600 !important;
+          white-space: nowrap !important;
+          background: #f8fafc !important;
         }
         .rm-footnote {
-          font-size: 0.8rem;
-          line-height: 1.6;
-          color: #8ea9b3;
-          margin: 0;
-          padding: 12px 16px;
-          background: #051b27;
-          border-left: 3px solid #c4a574;
-          border-radius: 0 6px 6px 0;
+          font-size: 0.8rem !important;
+          line-height: 1.6 !important;
+          color: #55452c !important;
+          margin: 0 !important;
+          padding: 12px 16px !important;
+          background: #f0ece5 !important;
+          border-left: 3px solid #805828 !important;
+          border-radius: 0 6px 6px 0 !important;
         }
       </style>
 
@@ -3603,9 +3730,9 @@
       </div>
 
       <div class="rm-footnote">
-        <strong style="color:#c4a574;"><span data-lang="zh">架構工程註記與引證邊界：</span><span data-lang="en">Engineering Notes &amp; Claim Boundaries: </span></strong>
-        <span data-lang="zh">上述拓樸均為晶片系統架構級抽象模型，非特定單一具名商標 IP 之專屬資料手冊。差動讀取對 DPA/CPA 之衰減效能係基於雙軌對稱抽載的一階電流互補物理（參考 <a href="memory-evidence.html#evidence-V07" style="color:#c4a574;text-decoration:underline;">Synopsys 公開架構與本站一手證據總帳 V07 ↗</a>）。面對高階差分功耗（Higher-order DPA）與局域微探針電磁輻射（EMA），必須配合頂層主動金屬屏蔽網（Active Metal Mesh）與演算法遮罩（Algorithmic Masking）落實多層縱深防禦。</span>
-        <span data-lang="en">The four topologies represent system architecture-class abstract models rather than a proprietary datasheet from a specific IP vendor. Differential DPA/CPA attenuation stems from first-order complementary current draw physics (refer to <a href="memory-evidence.html#evidence-V07" style="color:#c4a574;text-decoration:underline;">Synopsys public disclosure &amp; Hub Primary Evidence Ledger V07 ↗</a>). Against higher-order DPA and localized EMA, silicon architects must deploy layered defenses incorporating active top metal shields and algorithmic masking.</span>
+        <strong style="color:#805828;"><span data-lang="zh">架構工程註記與引證邊界：</span><span data-lang="en">Engineering Notes &amp; Claim Boundaries: </span></strong>
+        <span data-lang="zh">上述拓樸均為晶片系統架構級抽象模型，非特定單一具名商標 IP 之專屬資料手冊。差動讀取對 DPA/CPA 之衰減效能係基於雙軌對稱抽載的一階電流互補物理（參考 <a href="memory-evidence.html#evidence-V07" style="color:#006f70;text-decoration:underline;">Synopsys 公開架構與本站一手證據總帳 V07 ↗</a>）。面對高階差分功耗（Higher-order DPA）與局域微探針電磁輻射（EMA），必須配合頂層主動金屬屏蔽網（Active Metal Mesh）與演算法遮罩（Algorithmic Masking）落實多層縱深防禦。</span>
+        <span data-lang="en">The four topologies represent system architecture-class abstract models rather than a proprietary datasheet from a specific IP vendor. Differential DPA/CPA attenuation stems from first-order complementary current draw physics (refer to <a href="memory-evidence.html#evidence-V07" style="color:#006f70;text-decoration:underline;">Synopsys public disclosure &amp; Hub Primary Evidence Ledger V07 ↗</a>). Against higher-order DPA and localized EMA, silicon architects must deploy layered defenses incorporating active top metal shields and algorithmic masking.</span>
       </div>
     </section>
 
@@ -3692,8 +3819,8 @@
           <text x="164" y="205" text-anchor="middle" fill="#7dd3fc" font-size="7" font-weight="600" letter-spacing="0.03em">CRITERION: 0-Overhead Retention · Zero Bus Leak</text>
 
           <!-- Inter-Stage Wire: Gate 1 -> Gate 2 -->
-          <path d="M 314 115 L 340 115" fill="none" stroke="#c4a574" stroke-width="1.8" stroke-dasharray="3 2"/>
-          <polygon points="337,111 343,115 337,119" fill="#c4a574"/>
+          <path d="M 314 115 L 340 115" fill="none" stroke="#006f70" stroke-width="1.8" stroke-dasharray="3 2"/>
+          <polygon points="337,111 343,115 337,119" fill="#006f70"/>
 
           <!-- ==================== GATE 2: BUDGET ==================== -->
           <rect x="340" y="14" width="300" height="202" rx="7" fill="url(#pipe-g2-grad)" stroke="rgba(245, 158, 11, 0.35)" stroke-width="1.2"/>
@@ -3739,8 +3866,8 @@
           <text x="490" y="205" text-anchor="middle" fill="#fcd34d" font-size="7" font-weight="600" letter-spacing="0.03em">CRITERION: 0-Mask Compatibility · &le;450&deg;C Thermal Safe</text>
 
           <!-- Inter-Stage Wire: Gate 2 -> Gate 3 -->
-          <path d="M 640 115 L 666 115" fill="none" stroke="#c4a574" stroke-width="1.8" stroke-dasharray="3 2"/>
-          <polygon points="663,111 669,115 663,119" fill="#c4a574"/>
+          <path d="M 640 115 L 666 115" fill="none" stroke="#006f70" stroke-width="1.8" stroke-dasharray="3 2"/>
+          <polygon points="663,111 669,115 663,119" fill="#006f70"/>
 
           <!-- ==================== GATE 3: SIGN-OFF ==================== -->
           <rect x="666" y="14" width="300" height="202" rx="7" fill="url(#pipe-g3-grad)" stroke="rgba(16, 185, 129, 0.35)" stroke-width="1.2"/>
@@ -3782,67 +3909,67 @@
       </div>
 
       <div class="pipeline-step-grid">
-        <div class="pipeline-step-card" style="border-top: 4px solid #38bdf8;">
+        <div class="pipeline-step-card" style="border-top: 4px solid #006f70;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-            <span class="step-num" style="color:#38bdf8;">STEP 01</span>
-            <span style="font:700 10.5px 'IBM Plex Mono', monospace; color:#38bdf8; background:rgba(56, 189, 248, 0.12); padding:3px 9px; border-radius:4px; border:1px solid rgba(56, 189, 248, 0.35);">
+            <span class="step-num" style="color:#006f70;">STEP 01</span>
+            <span style="font:700 10.5px 'IBM Plex Mono', monospace; color:#006f70; background:rgba(0, 111, 112, 0.1); padding:3px 9px; border-radius:4px; border:1px solid rgba(0, 111, 112, 0.25);">
               <span data-lang="zh">關卡 1 · 契約審查</span>
               <span data-lang="en">GATE 1 · AUDIT</span>
             </span>
           </div>
-          <h3 style="color:#f8fafc; margin:0 0 0.75rem; font-family:'IBM Plex Mono', monospace; font-size:1.1rem;">
+          <h3 style="color:#173b49; margin:0 0 0.75rem; font-family:'IBM Plex Mono', monospace; font-size:1.1rem;">
             <span data-lang="zh">狀態契約與生命週期審查</span>
             <span data-lang="en">State Contract Audit</span>
           </h3>
-          <p style="color:#94a3b8; font-size:0.9rem; line-height:1.65; margin:0 0 1.25rem;">
+          <p style="color:#284853; font-size:0.9rem; line-height:1.65; margin:0 0 1.25rem;">
             <span data-lang="zh">區分不可變身分 (Immutable ID)、校準邊界 (Calibration) 與韌體代碼。若資料僅需工廠寫入或偶發修補，優先評估 0-mask OTP，並分流 AntiFuse（CFX 教學為閘氧崩潰；Floadia ZA 為介電層永久導通、擊穿位點未公開）、I-fuse 熱輔助電遷移、以及浮閘 OTP；不得預設「OTP = AntiFuse」。韌體 OTA 再評估 Logic MTP（FN/FN、CHI/FN、TwinBit Schottky 三分流）或 eFlash。</span>
             <span data-lang="en">Distinguish immutable identity from firmware. For write-once or bounded patch models, evaluate 0-mask OTP and split AntiFuse (CFX teaching default is GOX; Floadia ZA is dielectric conduction with unpublished breakdown site), I-fuse heat-assisted EM, and floating-gate OTP — do not default “OTP = AntiFuse”. Firmware OTA then evaluates Logic MTP (FN/FN vs CHI/FN vs TwinBit Schottky) or eFlash.</span>
           </p>
-          <div style="font:600 11px 'IBM Plex Mono', monospace; color:#7dd3fc; background:#03131e; padding:10px 14px; border-radius:6px; border:1px solid rgba(56, 189, 248, 0.25);">
+          <div style="font:600 11px 'IBM Plex Mono', monospace; color:#006f70; background:#e6f4f1; padding:10px 14px; border-radius:6px; border:1px solid #b2ded7;">
             <span data-lang="zh">簽核準則：零開銷數據保持 · 匯流排零洩漏</span>
             <span data-lang="en">CRITERION: 0-Overhead Retention · Zero Bus Leak</span>
           </div>
         </div>
 
-        <div class="pipeline-step-card" style="border-top: 4px solid #f59e0b;">
+        <div class="pipeline-step-card" style="border-top: 4px solid #805828;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-            <span class="step-num" style="color:#f59e0b;">STEP 02</span>
-            <span style="font:700 10.5px 'IBM Plex Mono', monospace; color:#f59e0b; background:rgba(245, 158, 11, 0.12); padding:3px 9px; border-radius:4px; border:1px solid rgba(245, 158, 11, 0.35);">
+            <span class="step-num" style="color:#805828;">STEP 02</span>
+            <span style="font:700 10.5px 'IBM Plex Mono', monospace; color:#805828; background:rgba(128, 88, 40, 0.1); padding:3px 9px; border-radius:4px; border:1px solid rgba(128, 88, 40, 0.25);">
               <span data-lang="zh">關卡 2 · 預算評估</span>
               <span data-lang="en">GATE 2 · BUDGET</span>
             </span>
           </div>
-          <h3 style="color:#f8fafc; margin:0 0 0.75rem; font-family:'IBM Plex Mono', monospace; font-size:1.1rem;">
+          <h3 style="color:#173b49; margin:0 0 0.75rem; font-family:'IBM Plex Mono', monospace; font-size:1.1rem;">
             <span data-lang="zh">製程微縮與熱預算可行性</span>
             <span data-lang="en">Process Node &amp; Thermal Budget</span>
           </h3>
-          <p style="color:#94a3b8; font-size:0.9rem; line-height:1.65; margin:0 0 1.25rem;">
+          <p style="color:#284853; font-size:0.9rem; line-height:1.65; margin:0 0 1.25rem;">
             <span data-lang="zh">檢查晶圓代工廠 PDK。若節點小於 28nm，平面 SST／單層浮閘 MTP 通常不可行；仍須核對 0-mask 例外：TwinBit Gen-2 公開至 22 nm、I-fuse 公開資格含 GF 22FDX、ZA 公開至 sub-10 nm。eFlash 不要一律 8–12 道光罩：G1 為 +2–3、G2 為 +4（開發中）。其餘再評估 3~5 道 BEOL 導入 MRAM。</span>
             <span data-lang="en">Verify foundry PDK roadmap. Beyond 28nm, planar SST and single-poly FG MTP are usually out; still check 0-mask exceptions: TwinBit Gen-2 public to 22 nm, I-fuse public qualification includes GF 22FDX, ZA public to sub-10 nm. Do not treat every eFlash as 8–12 masks: G1 is +2–3 and G2 is +4 (in development). Then decide between 3–5 BEOL adders (MRAM) and remaining 0-mask logic NVM.</span>
           </p>
-          <div style="font:600 11px 'IBM Plex Mono', monospace; color:#fcd34d; background:#03131e; padding:10px 14px; border-radius:6px; border:1px solid rgba(245, 158, 11, 0.25);">
+          <div style="font:600 11px 'IBM Plex Mono', monospace; color:#805828; background:#f0ece5; padding:10px 14px; border-radius:6px; border:1px solid rgba(128, 88, 40, 0.25);">
             <span data-lang="zh">簽核準則：0 光罩邏輯相容性 · ≤450°C 熱預算安全</span>
             <span data-lang="en">CRITERION: 0-Mask Logic Compatibility · &le;450&deg;C Safe</span>
           </div>
         </div>
 
-        <div class="pipeline-step-card" style="border-top: 4px solid #10b981;">
+        <div class="pipeline-step-card" style="border-top: 4px solid #0e6245;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-            <span class="step-num" style="color:#10b981;">STEP 03</span>
-            <span style="font:700 10.5px 'IBM Plex Mono', monospace; color:#10b981; background:rgba(16, 185, 129, 0.12); padding:3px 9px; border-radius:4px; border:1px solid rgba(16, 185, 129, 0.35);">
+            <span class="step-num" style="color:#0e6245;">STEP 03</span>
+            <span style="font:700 10.5px 'IBM Plex Mono', monospace; color:#0e6245; background:rgba(14, 98, 69, 0.1); padding:3px 9px; border-radius:4px; border:1px solid rgba(14, 98, 69, 0.25);">
               <span data-lang="zh">關卡 3 · 實體驗證</span>
               <span data-lang="en">GATE 3 · CHECKLIST</span>
             </span>
           </div>
-          <h3 style="color:#f8fafc; margin:0 0 0.75rem; font-family:'IBM Plex Mono', monospace; font-size:1.1rem;">
+          <h3 style="color:#173b49; margin:0 0 0.75rem; font-family:'IBM Plex Mono', monospace; font-size:1.1rem;">
             <span data-lang="zh">實體驗證與防禦簽核</span>
             <span data-lang="en">Physical Verification Checklist</span>
           </h3>
-          <p style="color:#94a3b8; font-size:0.9rem; line-height:1.65; margin:0 0 1.25rem;">
+          <p style="color:#284853; font-size:0.9rem; line-height:1.65; margin:0 0 1.25rem;">
             <span data-lang="zh">依據 AEC-Q100 Grade 0 規範驗證 175°C 結溫高溫工作壽命 (HTOL 1000h)、早期失效率 (ELFR 2400 顆 c=0) 與高溫數據保持烘烤 (Retention Bake)，並評估 TEM 逆向防護邊界，確保微絲歐姆接觸無熱漂移退化。</span>
             <span data-lang="en">Qualify per AEC-Q100 Grade 0 specifications at 175°C Tj HTOL 1000h, early life failure rate (ELFR 2,400 units c=0), and data retention bake, alongside TEM anti-tamper boundary analysis to assess ohmic-drift risk (architecture-class; HTOL/ELFR depend on target qualification).</span>
           </p>
-          <div style="font:600 11px 'IBM Plex Mono', monospace; color:#6ee7b7; background:#03131e; padding:10px 14px; border-radius:6px; border:1px solid rgba(16, 185, 129, 0.25);">
+          <div style="font:600 11px 'IBM Plex Mono', monospace; color:#0e6245; background:#e8f5ed; padding:10px 14px; border-radius:6px; border:1px solid #a3d9b5;">
             <span data-lang="zh">簽核準則：TEM 物理衰減（非免疫）· 175°C 結溫車規 Grade 0 檢核</span>
             <span data-lang="en">CRITERION: TEM Attenuation (Not Immunity) · Grade 0 Class Checklist @ 175&deg;C Tj</span>
           </div>
@@ -3873,12 +4000,12 @@
 
         <div class="hub-footer-meta-pill">
           <div class="meta-pill-item">
-            <span class="meta-pill-dot" style="background:#c4a574;"></span>
+            <span class="meta-pill-dot" style="background:#006f70;"></span>
             <span class="meta-pill-key">FOUNDRY MATRIX:</span>
             <span class="meta-pill-val">TSMC · UMC · GF · SAMSUNG</span>
           </div>
           <div class="meta-pill-item">
-            <span class="meta-pill-dot" style="background:#c4a574;"></span>
+            <span class="meta-pill-dot" style="background:#006f70;"></span>
             <span class="meta-pill-key">RELIABILITY:</span>
             <span class="meta-pill-val">AEC-Q100 GRADE 0 / ISO 26262 ASIL CONTEXT</span>
           </div>
@@ -4164,7 +4291,7 @@
 
         // 背景同心蜘蛛網
         const levels = [0.25, 0.5, 0.75, 1.0];
-        radarCtx.strokeStyle = "rgba(196, 165, 116, 0.15)";
+        radarCtx.strokeStyle = "rgba(0, 111, 112, 0.16)";
         radarCtx.lineWidth = 1;
         levels.forEach(lvl => {
           radarCtx.beginPath();
@@ -4184,7 +4311,7 @@
         axes.forEach((axis) => {
           const px = cx + maxR * Math.cos(axis.angle);
           const py = cy + maxR * Math.sin(axis.angle);
-          radarCtx.strokeStyle = "rgba(196, 165, 116, 0.28)";
+          radarCtx.strokeStyle = "rgba(0, 111, 112, 0.25)";
           radarCtx.beginPath();
           radarCtx.moveTo(cx, cy);
           radarCtx.lineTo(px, py);
@@ -4197,7 +4324,7 @@
           const ly = cy + labelDist * sinVal;
 
           radarCtx.font = "600 9.5px 'IBM Plex Mono', monospace";
-          radarCtx.fillStyle = "#94a3b8";
+          radarCtx.fillStyle = "#173b49";
 
           // 依據左右角度動態切換 textAlign，避免畫布邊界截斷
           if (cosVal > 0.25) {
@@ -4240,13 +4367,13 @@
 
         // 繪製次適配多邊形 (Runner)
         if (runnerCand && dynamicProfiles && dynamicProfiles[runnerCand.id]) {
-          plotPolygon(dynamicProfiles[runnerCand.id], "#f59e0b", "rgba(245, 158, 11, 0.15)", 1.5);
+          plotPolygon(dynamicProfiles[runnerCand.id], "#805828", "rgba(128, 88, 40, 0.12)", 1.5);
         }
         // 繪製最高適配多邊形 (Winner)
         if (topCand && dynamicProfiles && dynamicProfiles[topCand.id]) {
-          radarCtx.shadowColor = "#c4a574";
-          radarCtx.shadowBlur = 8;
-          plotPolygon(dynamicProfiles[topCand.id], "#c4a574", "rgba(196, 165, 116, 0.35)", 2.5);
+          radarCtx.shadowColor = "rgba(0, 111, 112, 0.25)";
+          radarCtx.shadowBlur = 6;
+          plotPolygon(dynamicProfiles[topCand.id], "#006f70", "rgba(0, 111, 112, 0.22)", 2.5);
           radarCtx.shadowBlur = 0;
         }
       }
@@ -4322,9 +4449,9 @@
             <div class="match-tech-name">${displayName(res)}</div>
             <div class="match-score-num">${res.score}% <span style="font-size:0.55em;font-weight:600;opacity:.8">${isZh ? '相對適配·示範' : 'rel. fit·demo'}</span></div>
             <div class="match-score-bar-bg">
-              <div class="match-score-bar-fill" style="width: ${res.score}%; background: ${isTopFit ? '#c4a574' : res.score > 50 ? '#c4a574' : '#f59e0b'};"></div>
+              <div class="match-score-bar-fill" style="width: ${res.score}%; background: ${isTopFit ? '#006f70' : res.score > 50 ? '#006f70' : '#805828'};"></div>
             </div>
-            <div style="font: 700 10px 'IBM Plex Mono'; color: ${isTopFit ? '#c4a574' : '#94a3b8'};">
+            <div style="font: 700 10px 'IBM Plex Mono'; color: ${isTopFit ? '#006f70' : '#526a72'};">
               ${res.score <= 10 
                 ? (isZh ? '物理/架構不相容' : 'PHYSICALLY DISQUALIFIED')
                 : isTopFit
