@@ -195,13 +195,14 @@
       font-weight: 700 !important;
     }
 
-    /* 2. Hero 容器與多層光學遮罩 */
+    /* 2. Editorial Light Paper Hero 容器與書刊排版 (對齊 NVM技術全景.html 與 商用閱讀介面.css) */
     .research-hero.f1-hero-container {
       position: relative !important;
       isolation: isolate !important;
-      background: #092b3b !important;
-      min-height: clamp(540px, 72vh, 680px) !important;
-      padding: clamp(80px, 8.5vh, 110px) var(--hub-keepout, 24px) clamp(40px, 5vh, 60px) !important;
+      background: #f0f4ef !important;
+      border-bottom: 1px solid #cddbdc !important;
+      min-height: auto !important;
+      padding: clamp(48px, 6vh, 72px) var(--hub-keepout, 24px) clamp(40px, 5vh, 60px) !important;
       display: flex !important;
       align-items: center !important;
       overflow: hidden !important;
@@ -218,8 +219,9 @@
       height: 100% !important;
       object-fit: cover !important;
       object-position: 72% center !important;
-      opacity: 0.82 !important;
-      filter: saturate(0.95) contrast(1.04) brightness(0.96) !important;
+      opacity: 0.14 !important;
+      filter: grayscale(1) contrast(1.15) brightness(1.05) !important;
+      mix-blend-mode: multiply !important;
       transform: scale(1.02) !important;
     }
     .f1-hero-shade {
@@ -228,19 +230,18 @@
       z-index: -2 !important;
       pointer-events: none !important;
       background:
-        linear-gradient(90deg, #092b3b 0%, rgba(9, 43, 59, 0.94) 38%, rgba(9, 43, 59, 0.72) 58%, rgba(9, 43, 59, 0.20) 80%, transparent 100%),
-        linear-gradient(to top, #092b3b 0%, rgba(9, 43, 59, 0.85) 16%, transparent 45%),
-        linear-gradient(180deg, rgba(9, 43, 59, 0.90) 0%, rgba(9, 43, 59, 0.40) 14%, transparent 32%) !important;
+        linear-gradient(90deg, #f0f4ef 0%, rgba(240, 244, 239, 0.94) 42%, rgba(240, 244, 239, 0.7) 68%, rgba(240, 244, 239, 0.3) 100%),
+        linear-gradient(to top, #f0f4ef 0%, rgba(240, 244, 239, 0.85) 16%, transparent 45%) !important;
     }
     .f1-hero-ambient-glow {
       position: absolute !important;
-      top: 28% !important;
-      right: 18% !important;
+      top: 20% !important;
+      right: 15% !important;
       width: 440px !important;
       height: 440px !important;
       border-radius: 50% !important;
-      background: radial-gradient(circle, rgba(116, 228, 215, 0.18) 0%, rgba(0, 111, 112, 0.12) 45%, transparent 70%) !important;
-      filter: blur(90px) !important;
+      background: radial-gradient(circle, rgba(0, 111, 112, 0.08) 0%, rgba(116, 228, 215, 0.04) 45%, transparent 70%) !important;
+      filter: blur(80px) !important;
       pointer-events: none !important;
       z-index: -2 !important;
     }
@@ -257,23 +258,24 @@
       align-items: center !important;
       gap: 8px !important;
       padding: 5px 14px !important;
-      background: rgba(116, 228, 215, 0.12) !important;
-      border: 1px solid rgba(116, 228, 215, 0.3) !important;
+      background: #dfede8 !important;
+      border: 1px solid #cddbdc !important;
       border-radius: 9999px !important;
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 11px !important;
-      font-weight: 600 !important;
+      font-weight: 700 !important;
       letter-spacing: 0.12em !important;
-      color: #74e4d7 !important;
+      color: #006f70 !important;
       text-transform: uppercase !important;
       margin-bottom: 12px !important;
     }
+    .label-dot,
     .pulse-chip-mini {
       width: 6px !important;
       height: 6px !important;
       border-radius: 50% !important;
-      background: #74e4d7 !important;
-      box-shadow: 0 0 8px #74e4d7 !important;
+      background: #006f70 !important;
+      box-shadow: 0 0 6px rgba(0, 111, 112, 0.4) !important;
       display: inline-block !important;
       animation: dot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
     }
@@ -283,42 +285,47 @@
     }
     .research-hero h1#f1-hero-title,
     .research-hero h1 {
-      font-size: clamp(32px, 4.2vw, 54px) !important;
+      font-size: clamp(32px, 3.8vw, 50px) !important;
       font-weight: 700 !important;
-      letter-spacing: -0.02em !important;
-      line-height: 1.12 !important;
-      color: #f8fafc !important;
-      max-width: 840px !important;
+      letter-spacing: -0.025em !important;
+      line-height: 1.15 !important;
+      color: #173b49 !important;
+      max-width: 860px !important;
       margin: 8px 0 16px !important;
       text-wrap: balance !important;
     }
     .research-hero h1 em {
-      color: #74e4d7 !important;
+      color: #006f70 !important;
       font-weight: 700 !important;
       font-style: normal !important;
     }
     .f1-hero-thesis {
-      margin: 0 0 14px !important;
-      padding: 4px 0 4px 16px !important;
-      border-left: 2px solid #74e4d7 !important;
-      font-size: clamp(16px, 1.35vw, 19px) !important;
-      font-weight: 500 !important;
-      line-height: 1.5 !important;
-      color: #f1f5f9 !important;
-      max-width: 680px !important;
+      margin: 0 0 16px !important;
+      padding: 10px 16px !important;
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      border-left: 4px solid #006f70 !important;
+      border-radius: 6px !important;
+      font-size: clamp(15px, 1.25vw, 17.5px) !important;
+      font-weight: 600 !important;
+      line-height: 1.55 !important;
+      color: #173b49 !important;
+      max-width: 720px !important;
       letter-spacing: 0.01em !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
     }
     .f1-hero-thesis p { margin: 0 !important; }
     .research-hero-lede {
-      font-size: clamp(13.5px, 1.05vw, 15px) !important;
-      line-height: 1.62 !important;
+      font-size: clamp(14px, 1.05vw, 15.5px) !important;
+      line-height: 1.75 !important;
       margin-top: 0 !important;
-      margin-bottom: 20px !important;
-      max-width: 650px !important;
-      color: #c0d3da !important;
+      margin-bottom: 22px !important;
+      max-width: 700px !important;
+      color: #284853 !important;
+      font-weight: 500 !important;
     }
 
-    /* Bento Hero Metrics HUD */
+    /* Bento Hero Metrics HUD - Editorial Light Card Style */
     .bento-hero-metrics {
       display: grid !important;
       grid-template-columns: repeat(4, 1fr) !important;
@@ -333,53 +340,52 @@
       .bento-hero-metrics { grid-template-columns: repeat(2, 1fr) !important; }
     }
     .bento-metric-card {
-      background: rgba(9, 43, 59, 0.72) !important;
-      backdrop-filter: blur(12px) !important;
-      -webkit-backdrop-filter: blur(12px) !important;
-      border: 1px solid rgba(116, 228, 215, 0.22) !important;
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
       border-radius: 8px !important;
-      padding: 10px 14px !important;
+      padding: 12px 16px !important;
       display: flex !important;
       flex-direction: column !important;
       gap: 4px !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .bento-metric-card:hover {
-      background: rgba(9, 43, 59, 0.9) !important;
-      border-color: #74e4d7 !important;
-      box-shadow: 0 4px 20px rgba(116, 228, 215, 0.2) !important;
+      border-color: #006f70 !important;
+      box-shadow: 0 4px 16px rgba(0, 111, 112, 0.12) !important;
       transform: translateY(-2px) !important;
     }
     .bento-metric-card b {
       font-family: 'IBM Plex Mono', monospace !important;
       font-variant-numeric: tabular-nums !important;
       font-size: clamp(20px, 1.8vw, 24px) !important;
-      font-weight: 700 !important;
-      color: #f8fafc !important;
+      font-weight: 800 !important;
+      color: #173b49 !important;
       line-height: 1.1 !important;
     }
     .bento-metric-card span {
-      font-size: 10px !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.06em !important;
-      color: #a3c2ca !important;
+      font-family: 'IBM Plex Mono', monospace !important;
+      font-size: 10.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      color: #805828 !important;
       text-transform: uppercase !important;
       line-height: 1.25 !important;
     }
     .research-hero-links {
-      margin-top: 20px !important;
+      margin-top: 22px !important;
       display: flex !important;
       gap: 12px !important;
     }
     .research-hero-links .button.primary {
-      background: #74e4d7 !important;
-      border: 1px solid #74e4d7 !important;
-      color: #083a40 !important;
+      background: #006f70 !important;
+      border: 1px solid #006f70 !important;
+      color: #ffffff !important;
       border-radius: 4px !important;
-      box-shadow: 0 4px 16px rgba(116, 228, 215, 0.25) !important;
+      box-shadow: 0 4px 14px rgba(0, 111, 112, 0.2) !important;
       min-height: 38px !important;
-      padding: 6px 18px !important;
-      font-size: 13px !important;
+      padding: 6px 20px !important;
+      font-size: 13.5px !important;
       font-weight: 700 !important;
       display: inline-flex !important;
       align-items: center !important;
@@ -387,25 +393,28 @@
       text-decoration: none !important;
     }
     .research-hero-links .button.primary:hover {
-      background: #a4f4e9 !important;
+      background: #08594f !important;
+      border-color: #08594f !important;
       transform: translateY(-1px) !important;
     }
     .research-hero-links .button.ghost {
-      background: rgba(255, 255, 255, 0.08) !important;
-      border: 1px solid rgba(255, 255, 255, 0.22) !important;
-      color: #e2e8f0 !important;
+      background: #ffffff !important;
+      border: 1px solid #cddbdc !important;
+      color: #173b49 !important;
       border-radius: 4px !important;
       min-height: 38px !important;
       padding: 6px 18px !important;
-      font-size: 13px !important;
+      font-size: 13.5px !important;
+      font-weight: 600 !important;
       display: inline-flex !important;
       align-items: center !important;
       transition: all 0.2s ease !important;
       text-decoration: none !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
     }
     .research-hero-links .button.ghost:hover {
-      border-color: #ffffff !important;
-      color: #ffffff !important;
+      border-color: #006f70 !important;
+      color: #006f70 !important;
       transform: translateY(-1px) !important;
     }
 
