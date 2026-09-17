@@ -215,9 +215,17 @@
       js.defer = true;
       document.head.append(js);
     }
+    const literaturePages = /memory-evidence\.html|oip-secure-storage\.html|\/briefing\/|\/whitepaper\//i.test(location.pathname);
+    if (literaturePages) {
+      document.body.classList.add('hub-literature-paper');
+      const paper = document.createElement('link');
+      paper.rel = 'stylesheet';
+      paper.href = new URL('literature-editorial.css?v=20260917-paper1', rootURL).href;
+      document.head.append(paper);
+    }
     if (/automotive-nvm\.html|iot-mcu-envm\.html/i.test(location.pathname)) {
       const demote = document.createElement('script');
-      demote.src = new URL('claim-scope.js?v=20260915-p0', rootURL).href;
+      demote.src = new URL('claim-scope.js?v=20260917-p1', rootURL).href;
       demote.defer = true;
       document.head.append(demote);
     }
