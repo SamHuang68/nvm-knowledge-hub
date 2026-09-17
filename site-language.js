@@ -233,9 +233,9 @@
       lift.defer = true;
       document.head.append(lift);
     }
-    if (/automotive-nvm\.html|iot-mcu-envm\.html/i.test(location.pathname)) {
+    if (/automotive-nvm\.html|iot-mcu-envm\.html|specialty-nvm\.html/i.test(location.pathname)) {
       const demote = document.createElement('script');
-      demote.src = new URL('claim-scope.js?v=20260917-p2', rootURL).href;
+      demote.src = new URL('claim-scope.js?v=20260917-p3', rootURL).href;
       demote.defer = true;
       document.head.append(demote);
     }
