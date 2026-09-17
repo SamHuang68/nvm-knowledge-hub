@@ -204,14 +204,14 @@
       index.onerror = startController;
       document.head.append(index);
     })();
-    const storyPages = /technology-comparison\.html|secure-storage\.html|memory-physics\.html|automotive-nvm\.html|iot-mcu-envm\.html/i.test(location.pathname);
+    const storyPages = /technology-comparison\.html|secure-storage\.html|memory-physics\.html|automotive-nvm\.html|iot-mcu-envm\.html|security-assurance\.html/i.test(location.pathname);
     if (storyPages) {
       const css = document.createElement('link');
       css.rel = 'stylesheet';
       css.href = new URL('hub-story-maps.css?v=20260916-s1', rootURL).href;
       document.head.append(css);
       const js = document.createElement('script');
-      js.src = new URL('hub-story-maps.js?v=20260916-s1', rootURL).href;
+      js.src = new URL('hub-story-maps.js?v=20260918-s2', rootURL).href;
       js.defer = true;
       document.head.append(js);
     }
@@ -229,7 +229,7 @@
     }
     if (/automotive-nvm\.html|iot-mcu-envm\.html/i.test(location.pathname)) {
       const demote = document.createElement('script');
-      demote.src = new URL('claim-scope.js?v=20260917-p1', rootURL).href;
+      demote.src = new URL('claim-scope.js?v=20260917-p2', rootURL).href;
       demote.defer = true;
       document.head.append(demote);
     }
