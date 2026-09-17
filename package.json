@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "serve": "node scripts/serve-local.mjs",
-    "check": "node scripts/normalize-heading-punctuation.mjs --check && node scripts/check-site-ia.mjs && node scripts/build-oip-sharepoint.mjs --check && node scripts/build-ai-nvm-sharepoint.mjs --check && node scripts/check-ai-nvm-integrity.mjs && node scripts/check-release-gates.mjs && node scripts/build-release-lineage.mjs --check && npm run check:nvm",
+    "check": "node scripts/normalize-heading-punctuation.mjs --check && node scripts/check-site-ia.mjs && node scripts/check-bilingual-purity.mjs && node scripts/build-oip-sharepoint.mjs --check && node scripts/build-ai-nvm-sharepoint.mjs --check && node scripts/check-ai-nvm-integrity.mjs && node scripts/check-release-gates.mjs && node scripts/build-release-lineage.mjs --check && npm run check:nvm",
+    "check:bilingual": "node scripts/check-bilingual-purity.mjs",
     "release:lineage": "node scripts/build-release-lineage.mjs --write",
     "format:headings": "node scripts/normalize-heading-punctuation.mjs",
     "export:sharepoint": "node scripts/build-oip-sharepoint.mjs && node scripts/build-ai-nvm-sharepoint.mjs",

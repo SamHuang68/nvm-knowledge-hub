@@ -46,6 +46,10 @@
       const value = element.dataset[language === 'zh' ? 'placeholderZh' : 'placeholderEn'];
       if (value) element.setAttribute('placeholder', value);
     });
+    document.querySelectorAll('[data-title-en], [data-title-zh]').forEach(element => {
+      const title = element.dataset[language === 'zh' ? 'titleZh' : 'titleEn'];
+      if (title) element.setAttribute('title', title);
+    });
     document.querySelectorAll('.language-toggle, #languageToggle').forEach(button => {
       button.setAttribute('aria-label', language === 'en' ? 'Switch to Traditional Chinese' : '切換為英文');
       button.setAttribute('title', language === 'en' ? 'Switch to Traditional Chinese' : '切換為英文');

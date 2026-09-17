@@ -295,6 +295,13 @@ const searchEntries = [
 if (isEnglish) {
   html = html.replace(/(?:href|src|data-language-en|data-language-zh)="([^"]+)"/g, attribute => attribute.replace(/[\u3400-\u9fff]+/g, value => encodeURIComponent(value)));
   html = englishInterface(html).replaceAll('data/NVM%E7%9F%A5%E8%AD%98%E8%B3%87%E6%96%99.json','data/'+encodeURIComponent('NVM知識資料英文')+'.json').replaceAll('data/NVM%E6%8A%80%E8%A1%93%E5%B0%88%E9%A1%8C.md','data/'+encodeURIComponent('NVM技術專題英文')+'.md');
+  html = html.replaceAll('WO1981000790A1-頁14', 'WO1981000790A1-page-14')
+             .replaceAll('：', ': ')
+             .replaceAll(' ／ ', ' / ')
+             .replaceAll('／', ' / ')
+             .replaceAll('＋', '+')
+             .replaceAll('；', '; ')
+             .replace(/data-search="([^"]*)"/g, (m, p1) => `data-search="${p1.replace(/[\u4e00-\u9fff\u3000-\u303f\uff01-\uff0f\uff1a-\uff20\uff3b-\uff40\uff5b-\uff65]+/gu, ' ').replace(/\s+/g, ' ').trim()}"`);
   markdown = englishInterface(markdown).replace(/([.!?])。/g, '$1 ').replaceAll('。', '. ').replaceAll('；', '; ').replaceAll('：', ': ').replaceAll('／', '/').replaceAll('（', '(').replaceAll('）', ')').replace(/[ \t]+$/gm, '');
 }
 const outputs = [[pageFile,html],[`data/NVM知識資料${dataSuffix}.json`,JSON.stringify(packageData,null,2)+'\n'],[`data/NVM技術專題${dataSuffix}.md`,markdown]];

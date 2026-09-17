@@ -1037,6 +1037,31 @@ def run_tests() -> None:
     test("technology-comparison.html 雷達選型器軸向與 baseProfile 100% 對齊且包含 >1M 次工作 RAM 硬性排除閘",
          'nameZh: "微縮先進度"' in tc_text and 'nameZh: "高溫留存力"' in tc_text and 'nameZh: "覆寫耐受性"' in tc_text and "if (endIdx === 2) return 5;" in tc_text)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 37: 全站模擬英文模式 DOM 樹剪枝雙語純度與 CJK 零洩漏永久門禁
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 37: 全站模擬英文模式 DOM 樹剪枝雙語純度與 CJK 零洩漏永久門禁 ═══")
+    import subprocess
+    bilingual_proc = subprocess.run(
+        ["node", "scripts/check-bilingual-purity.mjs"],
+        cwd=str(BASE),
+        capture_output=True,
+        text=True,
+        encoding="utf-8"
+    )
+    test("scripts/check-bilingual-purity.mjs 全站 17 頁面模擬英文 DOM 剪枝純度 100% 通過 (Zero CJK Leaks)",
+         bilingual_proc.returncode == 0)
+
+    # 驗證 site-language.js 支援 data-title-en / data-title-zh 動態切換
+    site_lang_js = (BASE / "site-language.js").read_text(encoding="utf-8")
+    test("site-language.js 完整具備 data-title-en 與 data-title-zh 雙語 Tooltip 同步控制器",
+         "data-title-zh" in site_lang_js and "data-title-en" in site_lang_js and "element.setAttribute('title', title)" in site_lang_js)
+
+    # 驗證 package.json 門禁已整合雙語純度檢查
+    pkg_json = (BASE / "package.json").read_text(encoding="utf-8")
+    test("package.json check 命令已強制整合 check-bilingual-purity.mjs (Fail-Closed)",
+         "check-bilingual-purity.mjs" in pkg_json)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
