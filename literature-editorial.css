@@ -1,4 +1,4 @@
-/* Literature 01-04 — Editorial Light Paper, wins over research navy */
+/* Literature 01-04 — Editorial Light Paper v3 */
 html:has(body.hub-literature-paper),
 html body.hub-literature-paper {
   --editorial-navy: #092b3b;
@@ -20,10 +20,11 @@ html body.hub-literature-paper {
 }
 html body.hub-literature-paper .site-header {
   display: grid !important;
-  grid-template-columns: auto minmax(0,1fr) auto !important;
+  grid-template-columns: minmax(140px,auto) minmax(0,1fr) minmax(200px,auto) !important;
   align-items: center !important;
-  gap: 12px 20px !important;
+  gap: 8px 16px !important;
   min-height: 62px !important;
+  max-height: none !important;
   padding: 0 var(--hub-keepout, 24px) !important;
   background: #092b3b !important;
   color: #f4faf9 !important;
@@ -36,24 +37,33 @@ html body.hub-literature-paper .site-header .language-toggle {
 }
 html body.hub-literature-paper .primary-nav {
   display: flex !important;
-  flex-wrap: wrap !important;
+  flex-wrap: nowrap !important;
   justify-content: center !important;
-  gap: 8px 18px !important;
+  gap: 4px 14px !important;
+  overflow-x: auto !important;
+  min-width: 0 !important;
+}
+html body.hub-literature-paper .primary-nav a {
+  white-space: nowrap !important;
+  font-size: 13px !important;
 }
 html body.hub-literature-paper .header-actions {
   display: flex !important;
   align-items: center !important;
+  justify-self: end !important;
   gap: 8px !important;
+  min-width: 200px !important;
 }
 html body.hub-literature-paper .brand-section,
 html body.hub-literature-paper .research-label {
   color: #74e4d7 !important;
   letter-spacing: .08em !important;
 }
-html body.hub-literature-paper .site-breadcrumb {
+html body.hub-literature-paper .site-breadcrumb,
+html body.hub-literature-paper .topic-switch {
   background: #eaf1ed !important;
   color: #47647a !important;
-  letter-spacing: .04em !important;
+  letter-spacing: .03em !important;
 }
 html body.hub-literature-paper .site-breadcrumb a,
 html body.hub-literature-paper .site-breadcrumb strong {
@@ -65,6 +75,7 @@ html body.hub-literature-paper .briefing-hero,
 html body.hub-literature-paper .oip-hero,
 html body.hub-literature-paper .studio-hero {
   min-height: 0 !important;
+  height: auto !important;
   padding: 48px var(--hub-keepout, 24px) 32px !important;
   color: #173b49 !important;
   background: #fafaf7 !important;
@@ -110,8 +121,29 @@ html body.hub-literature-paper .studio-main {
 }
 html body.hub-literature-paper .paper-kicker { color: #805828 !important; }
 html body.hub-literature-paper :is(h2,h3,h4) { color: #173b49; font-weight: 500; }
+html body.hub-literature-paper .paper-conclusion {
+  margin-inline: 0 !important;
+  padding: 56px var(--hub-keepout, 24px) !important;
+  background: #eaf1ed !important;
+  background-image: none !important;
+  color: #173b49 !important;
+  text-align: left !important;
+  border-top: 3px solid #367c70 !important;
+}
+html body.hub-literature-paper .paper-conclusion h2 {
+  color: #173b49 !important;
+  font-size: clamp(28px, 4vw, 44px) !important;
+  line-height: 1.25 !important;
+  margin: 12px 0 18px !important;
+}
+html body.hub-literature-paper .paper-conclusion p,
+html body.hub-literature-paper .paper-conclusion small {
+  color: #526a72 !important;
+}
 html body.hub-literature-paper .evidence-toolbar,
 html body.hub-literature-paper .source-card,
+html body.hub-literature-paper .source-index,
+html body.hub-literature-paper .source-content,
 html body.hub-literature-paper .claim-rung,
 html body.hub-literature-paper .abstract-panel,
 html body.hub-literature-paper .abstract-verdict,
@@ -126,7 +158,8 @@ html body.hub-literature-paper .slide-bullets,
 html body.hub-literature-paper .slide-notes,
 html body.hub-literature-paper .studio-panel,
 html body.hub-literature-paper .contract-card,
-html body.hub-literature-paper .paper-chapter {
+html body.hub-literature-paper .paper-chapter,
+html body.hub-literature-paper .view-dock {
   background: #fff !important;
   color: #173b49 !important;
   border-color: #cddbdc !important;
@@ -138,16 +171,12 @@ html body.hub-literature-paper .correction-card {
   background: #eef3ef !important;
   border: 1px solid #b6cbc1 !important;
 }
-html body.hub-literature-paper .source-card *,
-html body.hub-literature-paper .claim-rung *,
-html body.hub-literature-paper .slide-card * {
-  color: inherit;
-}
 html body.hub-literature-paper .slide-card-header { background: #f2eee5 !important; }
-html body.hub-literature-paper .filter-btn {
+html body.hub-literature-paper .filter-btn,
+html body.hub-literature-paper .button.ghost {
   background: #fff !important;
   color: #173b49 !important;
-  border-color: #cddbdc !important;
+  border: 1px solid #cddbdc !important;
 }
 html body.hub-literature-paper .filter-btn.active {
   background: #006f70 !important;
@@ -166,6 +195,16 @@ html body.hub-literature-paper .button.primary {
 }
 html body.hub-literature-paper .oip-threat-flow,
 html body.hub-literature-paper .oip-decision-grid { background: #cddbdc !important; }
+html body.hub-literature-paper .oip-image-band {
+  background: #fff !important;
+  border: 1px solid #cddbdc !important;
+  box-shadow: none !important;
+}
+html body.hub-literature-paper .oip-image-band figcaption {
+  background: #f2eee5 !important;
+  color: #526a72 !important;
+  border-top-color: #cddbdc !important;
+}
 html body.hub-literature-paper .hub-footer,
 html body.hub-literature-paper .research-footer,
 html body.hub-literature-paper footer {
@@ -174,6 +213,12 @@ html body.hub-literature-paper footer {
   border-top: 1px solid #cddbdc !important;
 }
 html body.hub-literature-paper footer a { color: #006f70 !important; }
+@media (max-width: 960px) {
+  html body.hub-literature-paper .site-header {
+    grid-template-columns: auto 1fr auto !important;
+  }
+  html body.hub-literature-paper .primary-nav { display: none !important; }
+}
 @media (prefers-reduced-motion: reduce) {
   html body.hub-literature-paper * { animation: none !important; transition: none !important; }
 }
