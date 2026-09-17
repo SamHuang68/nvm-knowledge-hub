@@ -1050,7 +1050,8 @@ def run_tests() -> None:
         encoding="utf-8"
     )
     test("scripts/check-bilingual-purity.mjs 全站 17 頁面模擬英文 DOM 剪枝純度 100% 通過 (Zero CJK Leaks)",
-         bilingual_proc.returncode == 0)
+         bilingual_proc.returncode == 0,
+         detail=bilingual_proc.stderr or bilingual_proc.stdout)
 
     # 驗證 site-language.js 支援 data-title-en / data-title-zh 動態切換
     site_lang_js = (BASE / "site-language.js").read_text(encoding="utf-8")

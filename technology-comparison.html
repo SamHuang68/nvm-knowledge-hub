@@ -2437,7 +2437,7 @@
               <span data-lang="en">Weebit Nano (OxRAM &amp; CIM)</span>
             </h4>
             <div class="vc-layer">
-              <b><span data-lang="zh">[上游晶圓]</span><span data-lang="en">[Foundry]</span></b> <span data-lang="zh">SkyWater 130nm CMOS、DB HiTek 130nm BCD 與 GlobalFoundries 22FDX 代工平台，後段 (BEOL) 僅需 2 道額外光罩，熱預算相容標準 CMOS。</span><span data-lang="en">SkyWater 130nm CMOS, DB HiTek 130nm BCD, and GF 22FDX; requires only 2 BEOL mask adders with standard thermal budget.</span>
+              <b><span data-lang="zh">[上游晶圓]</span><span data-lang="en">[Foundry]</span></b> <span data-lang="zh">SkyWater 130nm CMOS、DB HiTek 130nm BCD 與先進節點拓展評估代工平台，後段 (BEOL) 僅需 2 道額外光罩，熱預算相容標準 CMOS。</span><span data-lang="en">SkyWater 130nm CMOS, DB HiTek 130nm BCD, and advanced node expansion; requires only 2 BEOL mask adders with standard thermal budget.</span>
             </div>
             <div class="vc-layer">
               <b><span data-lang="zh">[中游 IP]</span><span data-lang="en">[Midstream IP]</span></b> <span data-lang="zh">金屬氧化物（HfO2/TiN）阻變隨機微絲結構，支援多階電導 (MLC / Analog Conductance Tuning)，整合類比神經形態矩陣乘加運算 (Analog In-Memory Computing, CIM)。</span><span data-lang="en">Metal-oxide (HfO2/TiN) resistive filaments supporting multi-level analog conductance for analog Computing-in-Memory (CIM) matrix operations.</span>
@@ -3632,7 +3632,7 @@
             base[1] * (maskIdx === 0 ? 1.0 : 0.85), // 0-Mask 軸
             base[2] * (tempIdx === 2 ? 0.85 : 1.0), // Thermal Ret 軸
             base[3] * (powerIdx <= 1 ? 1.05 : 0.9), // ULP 軸
-            (endIdx === 2 && (c.id === "antifuse" || c.id === "efuse" || c.id === "ifuse" || c.id === "maskrom")) ? 5 : base[4] // Endurance 軸
+            (endIdx === 2 && (c.id === "antifuse" || c.id === "efuse" || c.id === "ifuse" || c.id === "logicmtp" || c.id === "maskrom")) ? 5 : base[4] // Endurance 軸
           ];
         });
 

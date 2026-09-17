@@ -134,6 +134,13 @@ function auditHtmlFile(filePath) {
         failures.push(`${relative}:${lineNo} [Parity]: data-title-zh 與 data-title-en 未成對出現在 <${tag}>`);
       }
 
+      const hasPlaceholderZh = /\bdata-placeholder-zh=["']/iu.test(attrString);
+      const hasPlaceholderEn = /\bdata-placeholder-en=["']/iu.test(attrString);
+      if (hasPlaceholderZh !== hasPlaceholderEn) {
+        const lineNo = sanitized.slice(0, match.index).split('\n').length;
+        failures.push(`${relative}:${lineNo} [Parity]: data-placeholder-zh 與 data-placeholder-en 未成對出現在 <${tag}>`);
+      }
+
       if (!isSelfClosing) {
         tagStack.push({ tag, isZh });
         if (isZh) zhDepth++;
@@ -143,31 +150,34 @@ function auditHtmlFile(filePath) {
 }
 
 /**
- * 靜態審查前端 JS 檔案之動態中文硬編碼
+ * 靜態審查前端 JS 檔案之動態中文硬編碼（遞迴子目錄深層掃描）
  */
 function auditJsFiles(dir) {
-  const jsFiles = fs.readdirSync(dir, { withFileTypes: true })
-    .filter(e => e.isFile() && (e.name.endsWith('.js') || e.name.endsWith('.mjs')))
-    .filter(e => !e.name.startsWith('check-') && !e.name.startsWith('build-') && !e.name.startsWith('render-') && !e.name.startsWith('normalize-') && !e.name.startsWith('test-'))
-    .map(e => e.name);
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    if (['.git', 'node_modules', '.loop-engineering', 'qa', 'dist', 'build', 'reports'].includes(entry.name)) continue;
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      auditJsFiles(fullPath);
+    } else if (entry.isFile() && (entry.name.endsWith('.js') || entry.name.endsWith('.mjs'))) {
+      if (entry.name.startsWith('check-') || entry.name.startsWith('build-') || entry.name.startsWith('render-') || entry.name.startsWith('normalize-') || entry.name.startsWith('test-') || entry.name.startsWith('驗證') || entry.name.startsWith('建立')) continue;
+      const content = fs.readFileSync(fullPath, 'utf8');
 
-  for (const file of jsFiles) {
-    const fullPath = path.join(dir, file);
-    const content = fs.readFileSync(fullPath, 'utf8');
+      const noComments = content
+        .replace(/\/\*[\s\S]*?\*\//gu, '')
+        .replace(/\/\/[^\n]*/gu, '');
 
-    const noComments = content
-      .replace(/\/\*[\s\S]*?\*\//gu, '')
-      .replace(/\/\/[^\n]*/gu, '');
-
-    const lines = noComments.split('\n');
-    lines.forEach((line, idx) => {
-      if (CJK_REGEX.test(line)) {
-        const isProtected = /currentLang|language|isZh|isEnglish|zhCopy|zhEl|zhNode|zhText|\bL\(|\bt\(|\bsay\(|\blocalized\(|data-lang=|zh:|data-aria-zh|data-alt-zh|data-title-zh/iu.test(line);
-        if (!isProtected && /(?:\.textContent|\.innerHTML|ctx\.fillText|\.placeholder)\s*=\s*['"`][^'"`]*[\u4e00-\u9fff]/u.test(line)) {
-          failures.push(`${file}:${idx + 1} [JS Dynamic]: 包含未經國際化條件保護之中文硬編碼賦值: "${line.trim().slice(0, 60)}"`);
+      const lines = noComments.split('\n');
+      lines.forEach((line, idx) => {
+        if (CJK_REGEX.test(line)) {
+          const isProtected = /currentLang|language|isZh|isEnglish|zhCopy|zhEl|zhNode|zhText|\bL\(|\bt\(|\bsay\(|\blocalized\(|data-lang=|zh:|data-aria-zh|data-alt-zh|data-title-zh/iu.test(line);
+          if (!isProtected && /(?:\.textContent|\.innerHTML|ctx\.fillText|\.placeholder)\s*=\s*['"`][^'"`]*[\u4e00-\u9fff]/u.test(line)) {
+            const rel = path.relative(root, fullPath).replaceAll('\\', '/');
+            failures.push(`${rel}:${idx + 1} [JS Dynamic]: 包含未經國際化條件保護之中文硬編碼賦值: "${line.trim().slice(0, 60)}"`);
+          }
         }
-      }
-    });
+      });
+    }
   }
 }
 
