@@ -556,7 +556,7 @@ def run_tests() -> None:
     mp_text = (BASE / "memory-physics.html").read_text(encoding="utf-8")
     for row_name in ["SRAM / SRAM PUF", "eFuse", "Antifuse / NeoPUF", "ReRAM / PCM", "MRAM"]:
         test(f"memory-physics.html 列標題 {row_name} 具備 scope='row'",
-             f'scope="row">{row_name}' in mp_text or f"scope='row'>{row_name}" in mp_text)
+             bool(re.search(rf'<th\b[^>]*scope=["\']row["\'][^>]*>(?:(?!</th>)[\s\S])*?{re.escape(row_name)}', mp_text)))
 
     # 4. 驗證全站 target='_blank' 連結 100% 包含 rel="noopener noreferrer" 安全防護
     total_blanks = 0
