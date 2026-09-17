@@ -222,6 +222,10 @@
       paper.rel = 'stylesheet';
       paper.href = new URL('literature-editorial.css?v=20260917-paper3', rootURL).href;
       document.head.append(paper);
+      const lift = document.createElement('script');
+      lift.src = new URL('literature-paper.js?v=20260917-paper4', rootURL).href;
+      lift.defer = true;
+      document.head.append(lift);
     }
     if (/automotive-nvm\.html|iot-mcu-envm\.html/i.test(location.pathname)) {
       const demote = document.createElement('script');
