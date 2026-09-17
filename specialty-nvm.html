@@ -1368,6 +1368,45 @@
 </tbody>
 </table>
 </div>
+
+<div class="decision-box-modern" style="margin-top: 2rem; background: #071e2c; border: 1px solid rgba(0, 229, 255, 0.25); border-radius: 8px; padding: 1.5rem;">
+<div class="topic-ghost-badge" style="color: #00e5ff; border-color: rgba(0, 229, 255, 0.35); margin-bottom: 0.75rem;">
+<span data-lang="zh">前沿架構實踐 · 第三代半導體</span>
+<span data-lang="en">FRONTIER PRACTICE · WIDE BANDGAP POWER</span>
+</div>
+<h3 style="color: #fff; font-size: 1.15rem; margin: 0 0 0.5rem;">
+<span data-lang="zh">第三代半導體 SiC／GaN 閘極驅動晶片：奈秒死區微調、去飽和保護與抗 CMTI 高溫實踐</span>
+<span data-lang="en">SiC/GaN Gate Drivers: Nanosecond Dead-Time Trimming, DESAT Protection &amp; High-CMTI Resilience</span>
+</h3>
+<p style="color: #cbd5e1; font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem;">
+<span data-lang="zh">在 800V 電動車主驅逆變器與 AI 伺服器高密度電源中，碳化矽 (SiC) 與氮化鎵 (GaN) 以 &gt;500kHz 高頻開關運行。封裝極小（SOIC-8/16）的高低側隔離閘極驅動晶片（如 TI UCC217xx、Infineon EiceDRIVER™、STGAP 系列）無法容納外掛 Flash，且須在 &gt;150 V/ns 的極端共模瞬態 (CMTI) 與 175°C 結溫下保證零失誤：</span>
+<span data-lang="en">In 800V EV traction inverters and AI server power units, SiC and GaN switch at &gt;500kHz. Highly constrained isolated gate driver ICs (TI UCC217xx, Infineon EiceDRIVER™, STGAP) cannot fit external Flash and must endure &gt;150 V/ns CMTI transients at 175°C Tj:</span>
+</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1rem;">
+<div style="background: rgba(4, 18, 28, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem;">
+<b style="color: #c4a574; font-size: 0.85rem; font-family: 'IBM Plex Mono', monospace; display: block; margin-bottom: 0.35rem;">01 · DEAD-TIME TRIMMING</b>
+<p style="color: #94a3b8; font-size: 0.82rem; line-height: 1.5; margin: 0;">
+<span data-lang="zh"><b>奈秒級死區微調：</b>在晶圓與成測時透過片上 AntiFuse OTP 燒錄 0.5ns 步進校準碼，壓縮傳遞延遲漂移，杜絕上下橋臂直通 (Short-Through)。</span>
+<span data-lang="en"><b>Sub-nanosecond Dead-Time Trim:</b> Calibrated via on-chip AntiFuse OTP in 0.5ns steps to eliminate propagation skew and prevent bridge cross-conduction.</span>
+</p>
+</div>
+<div style="background: rgba(4, 18, 28, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem;">
+<b style="color: #00e5ff; font-size: 0.85rem; font-family: 'IBM Plex Mono', monospace; display: block; margin-bottom: 0.35rem;">02 · DESAT THRESHOLD</b>
+<p style="color: #94a3b8; font-size: 0.82rem; line-height: 1.5; margin: 0;">
+<span data-lang="zh"><b>去飽和短路保護閾值：</b>精確微調 6V–9V 故障偵測門檻與軟關斷 (Soft Turn-Off) 電流斜率，在 2µs 內安全關斷以拯救昂貴的 SiC 功率模組。</span>
+<span data-lang="en"><b>DESAT Fault Threshold:</b> Trims 6V–9V trip voltages and soft turn-off slew rates, securing &lt;2µs shutdown to save expensive SiC modules.</span>
+</p>
+</div>
+<div style="background: rgba(4, 18, 28, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem;">
+<b style="color: #10b981; font-size: 0.85rem; font-family: 'IBM Plex Mono', monospace; display: block; margin-bottom: 0.35rem;">03 · CMTI IMMUNITY</b>
+<p style="color: #94a3b8; font-size: 0.82rem; line-height: 1.5; margin: 0;">
+<span data-lang="zh"><b>極端抗擾與高溫留存：</b>AntiFuse 歐姆矽微絲具備天然抗位移電流雜訊能力；高壓 BCD Cascode 隔離免除浮閘氧化層高場擊穿老化風險。</span>
+<span data-lang="en"><b>CMTI Immunity &amp; Retention:</b> Ohmic filaments inherently resist displacement noise; cascode isolation protects against high-field dielectric wear.</span>
+</p>
+</div>
+</div>
+</div>
+
 </div>
 </div>
 </section>

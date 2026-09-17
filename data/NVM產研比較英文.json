@@ -1432,7 +1432,7 @@
     {
       "id": "RES-SYNOPSYS-TROOT-2024",
       "label": "Synopsys: DesignWare tRoot™ Hardware Secure Module (HSM) & 1T AntiFuse Security Subsystem Manual",
-      "url": "https://www.synopsys.com/designware-ip/security-ip/security-subsystems/troot-hardware-secure-modules.html",
+      "url": "https://www.synopsys.com/designware-ip/security-ip.html",
       "locator": "Official Hardware Secure Module and Secure Boot Architecture Announcement",
       "kind": "Product Specification Manual",
       "date": "2024-11-20",

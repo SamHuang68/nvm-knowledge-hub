@@ -1432,7 +1432,7 @@
     {
       "id": "RES-SYNOPSYS-TROOT-2024",
       "label": "Synopsys：DesignWare tRoot™ 晶片硬體安全模組 (HSM) 與 1T AntiFuse 安全子系統架構手冊",
-      "url": "https://www.synopsys.com/designware-ip/security-ip/security-subsystems/troot-hardware-secure-modules.html",
+      "url": "https://www.synopsys.com/designware-ip/security-ip.html",
       "locator": "官方硬體安全模組與安全開機架構發布",
       "kind": "產品規格手冊",
       "date": "2024-11-20",
