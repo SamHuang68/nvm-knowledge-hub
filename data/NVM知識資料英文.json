@@ -5110,6 +5110,33 @@
         "kind": "Automotive silicon technical whitepaper",
         "date": "2024-09-18",
         "limit": "Confirms 28nm FD-SOI integration of ePCM enabling zero-downtime OTA (dual-bank instant swap) and 165°C retention; phase-change material is Ge2Sb2Te5 (GST)."
+      },
+      {
+        "id": "RES-INTRINSICID-QUIDDIKEY-2025",
+        "label": "Intrinsic ID: Quiddikey Silicon Hardware Root of Trust (SRAM PUF + Fuzzy Extractor) Technical Whitepaper",
+        "url": "https://www.intrinsic-id.com/products/quiddikey/",
+        "locator": "Official SRAM PUF Key Reconstruction & Zero-Factory-Provisioning Architecture Whitepaper",
+        "kind": "Security Technical Whitepaper",
+        "date": "2025-05-12",
+        "limit": "Extracts root keys dynamically from native 6T SRAM power-up mismatch; pairs with public Helper Data (Activation Code) and BCH ECC; zero key material at rest, zero factory provisioning."
+      },
+      {
+        "id": "RES-SYNOPSYS-TROOT-2024",
+        "label": "Synopsys: DesignWare tRoot™ Hardware Secure Module (HSM) & 1T AntiFuse Security Subsystem Manual",
+        "url": "https://www.synopsys.com/designware-ip/security-ip/security-subsystems/troot-hardware-secure-modules.html",
+        "locator": "Official Hardware Secure Module and Secure Boot Architecture Announcement",
+        "kind": "Product Specification Manual",
+        "date": "2024-11-20",
+        "limit": "Integrates isolated secure RISC-V/ARC processor core, hardware crypto accelerator, TRNG, and 1T Split-Channel AntiFuse OTP; compliant with PSA Certified Level 3."
+      },
+      {
+        "id": "RES-RAMBUS-CRYPTOMANAGER-2025",
+        "label": "Rambus: CryptoManager™ Root of Trust & PCIe/CXL SPDM 1.3 Device Attestation Whitepaper",
+        "url": "https://www.rambus.com/security/root-of-trust/",
+        "locator": "Official PCIe/CXL IDE & Silicon Root of Trust Lifecycle Architecture",
+        "kind": "Enterprise Security Whitepaper",
+        "date": "2025-02-18",
+        "limit": "Hardware acceleration of DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE (AES-GCM) encryption, bridging Foundry, OSAT, and cloud CSP certificate lifecycles."
       }
     ],
     "landscape": [
@@ -6383,6 +6410,54 @@
           "everspin-1gb-ddr"
         ],
         "target": "research-everspin"
+      },
+      {
+        "id": "intrinsicid-quiddikey-srampuf",
+        "name": "Intrinsic ID (Quiddikey)",
+        "technology": "SRAM PUF Root of Trust & Key Provisioning-Free Enclave",
+        "family": "PUF",
+        "role": "Physical Unclonable Function (PUF) & Security IP Provider",
+        "maturity": "Over 500 million devices deployed globally; supports TSMC, UMC, GF, Intel, and Samsung advanced & mature nodes",
+        "claim": "Leverages native 6T SRAM power-up mismatch as a hardware fingerprint; reconstructs 256-bit root keys dynamically via Fuzzy Extractor and public Activation Code; eliminates factory key provisioning costs and leak risks.",
+        "limit": "Requires volatile SRAM reconstruction at boot; working keys require runtime DPA masking and single-cycle zeroization.",
+        "dateLabel": "2024–2026 Commercial Manual",
+        "search": "Intrinsic ID Quiddikey SRAM PUF Activation Code Helper Data Fuzzy Extractor Zero Provisioning Hardware Root of Trust",
+        "sourceIds": [
+          "RES-INTRINSICID-QUIDDIKEY-2025"
+        ],
+        "target": "research"
+      },
+      {
+        "id": "synopsys-troot-hsm",
+        "name": "Synopsys (DesignWare tRoot™ HSM)",
+        "technology": "Hardware Secure Module & AntiFuse Integrated Enclave",
+        "family": "AntiFuse",
+        "role": "Silicon Security Subsystem & Physical IP Provider",
+        "maturity": "Broad global deployment; qualified for automotive ASIL-D, CC EAL4+, and PSA Certified Level 3",
+        "claim": "Isolates security operations from host CPU software vulnerabilities; tightly integrates 1T Split-Channel AntiFuse OTP for UID and Root-of-Trust Public Key (ROTPK) storage; delivers Secure Boot and key wrapping.",
+        "limit": "Subsystem-level IP requiring dedicated silicon area, memory protection units, and secure debug infrastructure.",
+        "dateLabel": "2024–2026 Product Manual",
+        "search": "Synopsys tRoot HSM Hardware Secure Module 1T AntiFuse Secure Boot PSA Certified Level 3 Security Subsystem",
+        "sourceIds": [
+          "RES-SYNOPSYS-TROOT-2024"
+        ],
+        "target": "ip-sidense-1t-fuse"
+      },
+      {
+        "id": "rambus-cryptomanager-spdm",
+        "name": "Rambus (CryptoManager™ Root of Trust)",
+        "technology": "PCIe/CXL SPDM Attestation & Silicon Lifecycle Root of Trust",
+        "family": "OTP",
+        "role": "High-Speed Interconnect Security & Silicon Lifecycle Key Provisioning Leader",
+        "maturity": "Standard adoption in data center AI accelerators (GPU/NPU), CXL expanders, and server SoCs",
+        "claim": "Implements DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE encryption; anchors silicon identity in foundry AntiFuse OTP across Foundry, OSAT, and CSP data centers.",
+        "limit": "Engineered for enterprise servers and data centers; rarely adopted in ultra-constrained consumer edge devices.",
+        "dateLabel": "2024–2026 Product Manual",
+        "search": "Rambus CryptoManager SPDM PCIe CXL IDE Root of Trust Hardware Attestation Silicon Lifecycle",
+        "sourceIds": [
+          "RES-RAMBUS-CRYPTOMANAGER-2025"
+        ],
+        "target": "research"
       }
     ]
   },
@@ -9300,6 +9375,33 @@
       "kind": "Automotive silicon technical whitepaper",
       "date": "2024-09-18",
       "limit": "Confirms 28nm FD-SOI integration of ePCM enabling zero-downtime OTA (dual-bank instant swap) and 165°C retention; phase-change material is Ge2Sb2Te5 (GST)."
+    },
+    {
+      "id": "RES-INTRINSICID-QUIDDIKEY-2025",
+      "label": "Intrinsic ID: Quiddikey Silicon Hardware Root of Trust (SRAM PUF + Fuzzy Extractor) Technical Whitepaper",
+      "url": "https://www.intrinsic-id.com/products/quiddikey/",
+      "locator": "Official SRAM PUF Key Reconstruction & Zero-Factory-Provisioning Architecture Whitepaper",
+      "kind": "Security Technical Whitepaper",
+      "date": "2025-05-12",
+      "limit": "Extracts root keys dynamically from native 6T SRAM power-up mismatch; pairs with public Helper Data (Activation Code) and BCH ECC; zero key material at rest, zero factory provisioning."
+    },
+    {
+      "id": "RES-SYNOPSYS-TROOT-2024",
+      "label": "Synopsys: DesignWare tRoot™ Hardware Secure Module (HSM) & 1T AntiFuse Security Subsystem Manual",
+      "url": "https://www.synopsys.com/designware-ip/security-ip/security-subsystems/troot-hardware-secure-modules.html",
+      "locator": "Official Hardware Secure Module and Secure Boot Architecture Announcement",
+      "kind": "Product Specification Manual",
+      "date": "2024-11-20",
+      "limit": "Integrates isolated secure RISC-V/ARC processor core, hardware crypto accelerator, TRNG, and 1T Split-Channel AntiFuse OTP; compliant with PSA Certified Level 3."
+    },
+    {
+      "id": "RES-RAMBUS-CRYPTOMANAGER-2025",
+      "label": "Rambus: CryptoManager™ Root of Trust & PCIe/CXL SPDM 1.3 Device Attestation Whitepaper",
+      "url": "https://www.rambus.com/security/root-of-trust/",
+      "locator": "Official PCIe/CXL IDE & Silicon Root of Trust Lifecycle Architecture",
+      "kind": "Enterprise Security Whitepaper",
+      "date": "2025-02-18",
+      "limit": "Hardware acceleration of DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE (AES-GCM) encryption, bridging Foundry, OSAT, and cloud CSP certificate lifecycles."
     },
     {
       "id": "op-pat-nrom-hhi",

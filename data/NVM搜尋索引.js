@@ -726,6 +726,24 @@ window.NVMTopicIndex = [
     "tags": "Everspin Technologies (Enterprise PLP) Enterprise STT-MRAM & Data Center Power Loss Protection (PLP) Utilizes perpendicular MTJ (pMTJ) with DDR4, DDR3, and xSPI interfaces for nanosecond persistent write and 10^10~10^12 endurance; replaces fragile supercapacitors in enterprise NVMe SSDs and AI accelerators for zero-latency journaling and capacitor-free PLP. Everspin Technologies STT-MRAM Enterprise NVMe SSD PLP Power Loss Protection CXL Data Center Write Buffer 採用垂直磁性穿隧接面（pMTJ），支援 DDR4、DDR3 與 xSPI 高速匯流排，提供奈秒級持久寫入與 10^10~10^12 次無限耐寫；在企業級 NVMe SSD 與資料中心加速器中取代笨重易損的超級電容，達成零延遲即時日誌寫入與無電容斷電保護（Capacitor-Free PLP）。"
   },
   {
+    "title_zh": "Intrinsic ID (Quiddikey) · SRAM PUF Root of Trust & Key Provisioning-Free Enclave",
+    "title_en": "Intrinsic ID (Quiddikey) · SRAM PUF Root of Trust & Key Provisioning-Free Enclave",
+    "url": "NVM技術全景.html#company-intrinsicid-quiddikey-srampuf",
+    "tags": "Intrinsic ID (Quiddikey) SRAM PUF Root of Trust & Key Provisioning-Free Enclave Leverages native 6T SRAM power-up mismatch as a hardware fingerprint; reconstructs 256-bit root keys dynamically via Fuzzy Extractor and public Activation Code; eliminates factory key provisioning costs and leak risks. Intrinsic ID Quiddikey SRAM PUF Activation Code Helper Data Fuzzy Extractor Zero Provisioning Hardware Root of Trust 利用晶片原生標準 6T SRAM 上電時隨機臨界電壓 mismatch 作為物理指紋，搭配公開儲存之 Activation Code（Helper Data），透過模糊提取器重構 256-bit 根金鑰；徹底免除封測廠安全金鑰注入成本與私鑰外洩風險。"
+  },
+  {
+    "title_zh": "Synopsys (DesignWare tRoot™ HSM) · Hardware Secure Module & AntiFuse Integrated Enclave",
+    "title_en": "Synopsys (DesignWare tRoot™ HSM) · Hardware Secure Module & AntiFuse Integrated Enclave",
+    "url": "NVM技術全景.html#company-synopsys-troot-hsm",
+    "tags": "Synopsys (DesignWare tRoot™ HSM) Hardware Secure Module & AntiFuse Integrated Enclave Isolates security operations from host CPU software vulnerabilities; tightly integrates 1T Split-Channel AntiFuse OTP for UID and Root-of-Trust Public Key (ROTPK) storage; delivers Secure Boot and key wrapping. Synopsys tRoot HSM Hardware Secure Module 1T AntiFuse Secure Boot PSA Certified Level 3 Security Subsystem 以獨立安全處理器隔離 Host CPU 軟體漏洞，底層緊密整合 1T Split-Channel AntiFuse OTP 儲存裝置獨一金鑰雜湊 (ROTPK) 與安全組態，向上提供 Secure Boot、防回滾與金鑰封裝服務。"
+  },
+  {
+    "title_zh": "Rambus (CryptoManager™ Root of Trust) · PCIe/CXL SPDM Attestation & Silicon Lifecycle Root of Trust",
+    "title_en": "Rambus (CryptoManager™ Root of Trust) · PCIe/CXL SPDM Attestation & Silicon Lifecycle Root of Trust",
+    "url": "NVM技術全景.html#company-rambus-cryptomanager-spdm",
+    "tags": "Rambus (CryptoManager™ Root of Trust) PCIe/CXL SPDM Attestation & Silicon Lifecycle Root of Trust Implements DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE encryption; anchors silicon identity in foundry AntiFuse OTP across Foundry, OSAT, and CSP data centers. Rambus CryptoManager SPDM PCIe CXL IDE Root of Trust Hardware Attestation Silicon Lifecycle 支援 DMTF SPDM 1.2/1.3 設備證明與線速 PCIe/CXL IDE 加密，搭配晶圓代工廠防熔絲 OTP 記錄晶粒認證金鑰，建立由晶圓廠、封測廠至 CSP 資料中心的端到端不可偽造憑證鏈。"
+  },
+  {
     "title_zh": "Toggle、DDR STT 與 xSPI 的三條產品線",
     "title_en": "Three Product Lines: Toggle, DDR STT and xSPI",
     "url": "NVM技術全景.html#research-everspin",

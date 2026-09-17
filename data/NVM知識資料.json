@@ -5246,6 +5246,33 @@
         "kind": "車用晶片技術白皮書",
         "date": "2024-09-18",
         "limit": "證明 28nm FD-SOI 整合 ePCM 支援無停機 OTA (雙分區即時切換) 與 165°C 高溫保持；相變材料為 Ge2Sb2Te5 (GST)。"
+      },
+      {
+        "id": "RES-INTRINSICID-QUIDDIKEY-2025",
+        "label": "Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書",
+        "url": "https://www.intrinsic-id.com/products/quiddikey/",
+        "locator": "官方 SRAM PUF 密鑰重建與零工廠燒錄架構白皮書",
+        "kind": "安全技術白皮書",
+        "date": "2025-05-12",
+        "limit": "利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。"
+      },
+      {
+        "id": "RES-SYNOPSYS-TROOT-2024",
+        "label": "Synopsys：DesignWare tRoot™ 晶片硬體安全模組 (HSM) 與 1T AntiFuse 安全子系統架構手冊",
+        "url": "https://www.synopsys.com/designware-ip/security-ip/security-subsystems/troot-hardware-secure-modules.html",
+        "locator": "官方硬體安全模組與安全開機架構發布",
+        "kind": "產品規格手冊",
+        "date": "2024-11-20",
+        "limit": "整合獨立安全 RISC-V/ARC 處理器核心、硬體密碼引擎、真隨機數產生器 (TRNG) 與 1T Split-Channel AntiFuse OTP，符合 PSA Certified Level 3。"
+      },
+      {
+        "id": "RES-RAMBUS-CRYPTOMANAGER-2025",
+        "label": "Rambus：CryptoManager™ 信任根與 PCIe/CXL SPDM 1.3 設備證明技術架構白皮書",
+        "url": "https://www.rambus.com/security/root-of-trust/",
+        "locator": "官方 PCIe/CXL IDE 與硬體信任根生命週期架構",
+        "kind": "企業級安全白皮書",
+        "date": "2025-02-18",
+        "limit": "硬體實現 DMTF SPDM 1.2/1.3 設備互聯認證與線速 PCIe/CXL IDE (AES-GCM) 加密，貫穿晶圓廠、封測廠至雲端伺服器生命週期憑證鏈。"
       }
     ],
     "landscape": [
@@ -6519,6 +6546,54 @@
           "everspin-1gb-ddr"
         ],
         "target": "research-everspin"
+      },
+      {
+        "id": "intrinsicid-quiddikey-srampuf",
+        "name": "Intrinsic ID (Quiddikey)",
+        "technology": "SRAM PUF Root of Trust & Key Provisioning-Free Enclave",
+        "family": "PUF",
+        "role": "實體不可複製功能 (PUF) 與晶片安全矽智財供應商",
+        "maturity": "全球商用出貨超過 5 億顆晶片；支援 TSMC, UMC, GF, Intel, Samsung 各先進與成熟製程",
+        "claim": "利用晶片原生標準 6T SRAM 上電時隨機臨界電壓 mismatch 作為物理指紋，搭配公開儲存之 Activation Code（Helper Data），透過模糊提取器重構 256-bit 根金鑰；徹底免除封測廠安全金鑰注入成本與私鑰外洩風險。",
+        "limit": "依賴上電瞬態提取，工作金鑰存於揮發性暫存器，需搭配軟硬體防側信道遮罩與單週期清零機制。",
+        "dateLabel": "2024–2026 商用架構手冊",
+        "search": "Intrinsic ID Quiddikey SRAM PUF Activation Code Helper Data Fuzzy Extractor Zero Provisioning 硬體信任根",
+        "sourceIds": [
+          "RES-INTRINSICID-QUIDDIKEY-2025"
+        ],
+        "target": "research"
+      },
+      {
+        "id": "synopsys-troot-hsm",
+        "name": "Synopsys (DesignWare tRoot™ HSM)",
+        "technology": "Hardware Secure Module & AntiFuse Integrated Enclave",
+        "family": "AntiFuse",
+        "role": "晶片安全子系統與實體 IP 供應商",
+        "maturity": "全球廣泛商用出貨；支援車規 ASIL-D、CC EAL4+ 與 PSA Certified Level 3",
+        "claim": "以獨立安全處理器隔離 Host CPU 軟體漏洞，底層緊密整合 1T Split-Channel AntiFuse OTP 儲存裝置獨一金鑰雜湊 (ROTPK) 與安全組態，向上提供 Secure Boot、防回滾與金鑰封裝服務。",
+        "limit": "為子系統級解決方案，需在 SoC 規劃專屬晶片面積、匯流排防火牆與安全除錯通道。",
+        "dateLabel": "2024–2026 商業手冊",
+        "search": "Synopsys tRoot HSM Hardware Secure Module 1T AntiFuse Secure Boot PSA Certified Level 3 安全子系統",
+        "sourceIds": [
+          "RES-SYNOPSYS-TROOT-2024"
+        ],
+        "target": "ip-sidense-1t-fuse"
+      },
+      {
+        "id": "rambus-cryptomanager-spdm",
+        "name": "Rambus (CryptoManager™ Root of Trust)",
+        "technology": "PCIe/CXL SPDM Attestation & Silicon Lifecycle Root of Trust",
+        "family": "OTP",
+        "role": "高速互連安全與晶片生命週期金鑰託管領導廠商",
+        "maturity": "資料中心 AI 加速卡、CXL 記憶體擴展器與伺服器晶片廣泛採用",
+        "claim": "支援 DMTF SPDM 1.2/1.3 設備證明與線速 PCIe/CXL IDE 加密，搭配晶圓代工廠防熔絲 OTP 記錄晶粒認證金鑰，建立由晶圓廠、封測廠至 CSP 資料中心的端到端不可偽造憑證鏈。",
+        "limit": "專注於資料中心、雲端運算與企業伺服器高速介面保護，消費級極小晶片通常簡化此架構。",
+        "dateLabel": "2024–2026 產品手冊",
+        "search": "Rambus CryptoManager SPDM PCIe CXL IDE Root of Trust Hardware Attestation 晶片生命週期",
+        "sourceIds": [
+          "RES-RAMBUS-CRYPTOMANAGER-2025"
+        ],
+        "target": "research"
       }
     ]
   },
@@ -9484,6 +9559,33 @@
       "kind": "車用晶片技術白皮書",
       "date": "2024-09-18",
       "limit": "證明 28nm FD-SOI 整合 ePCM 支援無停機 OTA (雙分區即時切換) 與 165°C 高溫保持；相變材料為 Ge2Sb2Te5 (GST)。"
+    },
+    {
+      "id": "RES-INTRINSICID-QUIDDIKEY-2025",
+      "label": "Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書",
+      "url": "https://www.intrinsic-id.com/products/quiddikey/",
+      "locator": "官方 SRAM PUF 密鑰重建與零工廠燒錄架構白皮書",
+      "kind": "安全技術白皮書",
+      "date": "2025-05-12",
+      "limit": "利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。"
+    },
+    {
+      "id": "RES-SYNOPSYS-TROOT-2024",
+      "label": "Synopsys：DesignWare tRoot™ 晶片硬體安全模組 (HSM) 與 1T AntiFuse 安全子系統架構手冊",
+      "url": "https://www.synopsys.com/designware-ip/security-ip/security-subsystems/troot-hardware-secure-modules.html",
+      "locator": "官方硬體安全模組與安全開機架構發布",
+      "kind": "產品規格手冊",
+      "date": "2024-11-20",
+      "limit": "整合獨立安全 RISC-V/ARC 處理器核心、硬體密碼引擎、真隨機數產生器 (TRNG) 與 1T Split-Channel AntiFuse OTP，符合 PSA Certified Level 3。"
+    },
+    {
+      "id": "RES-RAMBUS-CRYPTOMANAGER-2025",
+      "label": "Rambus：CryptoManager™ 信任根與 PCIe/CXL SPDM 1.3 設備證明技術架構白皮書",
+      "url": "https://www.rambus.com/security/root-of-trust/",
+      "locator": "官方 PCIe/CXL IDE 與硬體信任根生命週期架構",
+      "kind": "企業級安全白皮書",
+      "date": "2025-02-18",
+      "limit": "硬體實現 DMTF SPDM 1.2/1.3 設備互聯認證與線速 PCIe/CXL IDE (AES-GCM) 加密，貫穿晶圓廠、封測廠至雲端伺服器生命週期憑證鏈。"
     },
     {
       "id": "op-pat-nrom-hhi",

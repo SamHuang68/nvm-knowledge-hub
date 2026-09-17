@@ -972,6 +972,90 @@
       border-left: 3px solid #f43f5e !important;
       color: #fecdd3 !important;
     }
+    /* 第一性原理物理模型卡片樣式 */
+    .physics-formula-deck {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      gap: 1.5rem;
+      margin: 1.75rem 0;
+    }
+    .physics-formula-card {
+      background: rgba(6, 25, 37, 0.85);
+      border: 1px solid rgba(196, 165, 116, 0.25);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .physics-formula-card h3 {
+      color: #f8fafc;
+      margin: 0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1.05rem;
+      line-height: 1.35;
+    }
+    .physics-formula-math {
+      background: #03131e;
+      border: 1px solid rgba(196, 165, 116, 0.22);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.98rem;
+      color: #c4a574;
+      margin: 0.5rem 0;
+      overflow-x: auto;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .physics-notes-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #94a3b8;
+    }
+    .physics-notes-list li {
+      position: relative;
+      padding-left: 1.25rem;
+    }
+    .physics-notes-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: #c4a574;
+    }
+    .physics-breakdown-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .physics-step-card {
+      background: rgba(10, 20, 30, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 0.85rem;
+    }
+    .physics-step-card b {
+      display: block;
+      color: #00e5ff;
+      font-size: 0.82rem;
+      font-family: 'IBM Plex Mono', monospace;
+      margin-bottom: 0.35rem;
+    }
+    .physics-step-card p {
+      margin: 0;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: #cbd5e1;
+    }
   </style>
 </head>
 <body class="research-page memory-physics-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
@@ -1108,57 +1192,64 @@
                 <span class="lens-sub">Three Testable Claims</span>
               </div>
             </a>
-            <a class="nav-pill lens-node-item" href="#economics">
+            <a class="nav-pill lens-node-item" href="#physics-models">
               <span class="lens-badge">02</span>
+              <div class="lens-info">
+                <span class="lens-name"><span data-lang="zh">第一性原理微觀物理</span><span data-lang="en">First-Principles Physics</span></span>
+                <span class="lens-sub">Tunneling &amp; Breakdown</span>
+              </div>
+            </a>
+            <a class="nav-pill lens-node-item" href="#economics">
+              <span class="lens-badge">03</span>
               <div class="lens-info">
                 <span class="lens-name"><span data-lang="zh">位元胞經濟學</span><span data-lang="en">Bitcell Economics</span></span>
                 <span class="lens-sub">Complementary Storage</span>
               </div>
             </a>
             <a class="nav-pill lens-node-item" href="#read-path">
-              <span class="lens-badge">03</span>
+              <span class="lens-badge">04</span>
               <div class="lens-info">
                 <span class="lens-name"><span data-lang="zh">動態讀取路徑</span><span data-lang="en">Interactive Read Path</span></span>
                 <span class="lens-sub">SRAM vs Antifuse Lab</span>
               </div>
             </a>
             <a class="nav-pill lens-node-item" href="#emission">
-              <span class="lens-badge">04</span>
+              <span class="lens-badge">05</span>
               <div class="lens-info">
                 <span class="lens-name"><span data-lang="zh">熱、光與可觀察性</span><span data-lang="en">Heat, Light &amp; Emission</span></span>
                 <span class="lens-sub">PEM, TLS, Hotspot</span>
               </div>
             </a>
             <a class="nav-pill lens-node-item" href="#taxonomy">
-              <span class="lens-badge">05</span>
+              <span class="lens-badge">06</span>
               <div class="lens-info">
                 <span class="lens-name"><span data-lang="zh">非揮發記憶體分類學</span><span data-lang="en">Memory Taxonomy</span></span>
                 <span class="lens-sub">Physical Traces</span>
               </div>
             </a>
             <a class="nav-pill lens-node-item" href="#attack-surface">
-              <span class="lens-badge">06</span>
+              <span class="lens-badge">07</span>
               <div class="lens-info">
                 <span class="lens-name"><span data-lang="zh">安全層級差異</span><span data-lang="en">Security Differences</span></span>
                 <span class="lens-sub">Static vs Active Window</span>
               </div>
             </a>
             <a class="nav-pill lens-node-item" href="#system-consequence">
-              <span class="lens-badge">07</span>
+              <span class="lens-badge">08</span>
               <div class="lens-info">
                 <span class="lens-name"><span data-lang="zh">系統後果防禦</span><span data-lang="en">System Consequence</span></span>
                 <span class="lens-sub">OTP Reverse != Secret</span>
               </div>
             </a>
             <a class="nav-pill lens-node-item" href="#positioning">
-              <span class="lens-badge">08</span>
+              <span class="lens-badge">09</span>
               <div class="lens-info">
                 <span class="lens-name"><span data-lang="zh">可防守產品定位</span><span data-lang="en">Defensible Claims</span></span>
                 <span class="lens-sub">Precise Architecture</span>
               </div>
             </a>
             <a class="nav-pill lens-node-item" href="#method">
-              <span class="lens-badge">09</span>
+              <span class="lens-badge">10</span>
               <div class="lens-info">
                 <span class="lens-name"><span data-lang="zh">證據階梯與紀律</span><span data-lang="en">Evidence Discipline</span></span>
                 <span class="lens-sub">E1 to E4 Rungs</span>
@@ -1199,9 +1290,9 @@
       </section>
 
       <nav class="f1-reading-routes" aria-label="Choose a reading path by question" data-aria-en="Choose a reading path by question" data-aria-zh="依問題選擇閱讀路徑">
-        <a href="#economics"><small>02 → 03</small><strong><span data-lang="zh">先看電路與成本</span><span data-lang="en">Start with Circuits and Cost</span></strong><span data-lang="zh">互補表示、位元胞圖解與讀取示意</span><span data-lang="en">Complementary representation, bitcells and interactive readout</span></a>
-        <a href="#emission"><small>04 → 06</small><strong><span data-lang="zh">先看攻擊與實證</span><span data-lang="en">Start with Attacks and Evidence</span></strong><span data-lang="zh">可觀察量、儲存變數與攻擊前提</span><span data-lang="en">Observables, storage variables and attack prerequisites</span></a>
-        <a href="#system-consequence"><small>07 → 09</small><strong><span data-lang="zh">先看架構與主張</span><span data-lang="en">Start with Architecture and Claims</span></strong><span data-lang="zh">擷取後果、可防守說法與待驗證條件</span><span data-lang="en">Extraction consequences, defensible claims and open conditions</span></a>
+        <a href="#physics-models"><small>02 → 03</small><strong><span data-lang="zh">先看物理與成本</span><span data-lang="en">Start with Physics and Cost</span></strong><span data-lang="zh">第一性原理方程式、微絲崩潰與互補位元胞</span><span data-lang="en">First-principles equations, breakdown and bitcell economics</span></a>
+        <a href="#emission"><small>05 → 07</small><strong><span data-lang="zh">先看攻擊與實證</span><span data-lang="en">Start with Attacks and Evidence</span></strong><span data-lang="zh">可觀察量、儲存變數與攻擊前提</span><span data-lang="en">Observables, storage variables and attack prerequisites</span></a>
+        <a href="#system-consequence"><small>08 → 10</small><strong><span data-lang="zh">先看架構與主張</span><span data-lang="en">Start with Architecture and Claims</span></strong><span data-lang="zh">擷取後果、可防守說法與待驗證條件</span><span data-lang="en">Extraction consequences, defensible claims and open conditions</span></a>
       </nav>
 
       <section id="correction" class="paper-section lens-panel reveal">
@@ -1216,9 +1307,109 @@
         </div>
       </section>
 
+      <section id="physics-models" class="paper-section lens-panel reveal">
+        <div class="paper-heading">
+          <div>
+            <p class="paper-kicker">02 · FIRST-PRINCIPLES PHYSICS</p>
+            <h2>
+              <span data-lang="zh">量子穿隧、微絲滲透崩潰<br><em>與次閾值熱力學極限</em></span>
+              <span data-lang="en">Quantum Tunneling, Filament Percolation<br><em>and Subthreshold Thermal Limits</em></span>
+            </h2>
+          </div>
+          <p>
+            <span data-lang="zh">記憶體儲存機制與物理安全性，根植於微觀半導體物理。以下推導三組決定穿隧臨界、介電質永久破壞與靜態待機漏電的第一性原理方程式，作為跨製程選型與側信道分析的物理基底。</span>
+            <span data-lang="en">Memory storage mechanisms and physical security are rooted in device physics. Below are three sets of first-principles equations governing tunneling thresholds, permanent breakdown and subthreshold leakage.</span>
+          </p>
+        </div>
+
+        <div class="physics-formula-deck">
+          <!-- Formula Card 1: Tunneling & Breakdown -->
+          <article class="physics-formula-card">
+            <span class="evidence-tag">QUANTUM TRANSPORT</span>
+            <h3>
+              <span data-lang="zh">Fowler–Nordheim (FN) 穿隧與能障幾何</span>
+              <span data-lang="en">Fowler–Nordheim Tunneling &amp; Barrier Physics</span>
+            </h3>
+            <div class="physics-formula-math">
+              <em>J</em><sub>FN</sub> = <em>A</em><sub>FN</sub> <em>E</em><sub>ox</sub><sup>2</sup> exp(&minus;<em>B</em><sub>FN</sub> / <em>E</em><sub>ox</sub>)
+            </div>
+            <ul class="physics-notes-list">
+              <li>
+                <span data-lang="zh"><b>三角形能障 (FN 穿隧)：</b>當跨氧化層電壓 <em>V</em><sub>ox</sub> &gt; &Phi;<sub>B</sub>/<em>q</em> 時發生。理論係數 <em>B</em><sub>FN</sub> = [4&radic;(2<em>m</em>*)(<em>q</em>&Phi;<sub>B</sub>)<sup>3/2</sup>] / (3<em>q</em>&hbar;)。在 Si-SiO<sub>2</sub> 界面 (&Phi;<sub>B</sub> &approx; 3.15 eV, <em>m</em>* &approx; 0.5<em>m</em><sub>0</sub>) 下，理論值約 2.70 &times; 10<sup>8</sup> V/cm (270 MV/cm)；計入影像力降低與介面態經驗值常修訂為 2.48 &sim; 2.50 &times; 10<sup>8</sup> V/cm。</span>
+                <span data-lang="en"><b>Triangular Barrier (FN Tunneling):</b> Occurs when <em>V</em><sub>ox</sub> &gt; &Phi;<sub>B</sub>/<em>q</em>. Theoretical coefficient <em>B</em><sub>FN</sub> = [4&radic;(2<em>m</em>*)(<em>q</em>&Phi;<sub>B</sub>)<sup>3/2</sup>] / (3<em>q</em>&hbar;) &approx; 2.70 &times; 10<sup>8</sup> V/cm for Si-SiO<sub>2</sub> (&Phi;<sub>B</sub> &approx; 3.15 eV, <em>m</em>* &approx; 0.5<em>m</em><sub>0</sub>), with experimental values around 2.48–2.50 &times; 10<sup>8</sup> V/cm.</span>
+              </li>
+              <li>
+                <span data-lang="zh"><b>梯形能障 (Direct Tunneling)：</b>當 <em>t</em><sub>ox</sub> &le; 3.0 nm 且 <em>V</em><sub>ox</sub> &lt; &Phi;<sub>B</sub>/<em>q</em> 時，載子直接穿越完整梯形位障，穿隧電流對厚度呈現極端指數相依性 <em>J</em><sub>DT</sub> &prop; exp(&minus;&alpha; &middot; <em>t</em><sub>ox</sub>)。此為厚度極限微縮下的主要漏電來源。</span>
+                <span data-lang="en"><b>Trapezoidal Barrier (Direct Tunneling):</b> When <em>t</em><sub>ox</sub> &le; 3.0 nm and <em>V</em><sub>ox</sub> &lt; &Phi;<sub>B</sub>/<em>q</em>, carriers traverse a trapezoidal barrier with exponential thickness sensitivity <em>J</em><sub>DT</sub> &prop; exp(&minus;&alpha; &middot; <em>t</em><sub>ox</sub>).</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Formula Card 2: 4-Stage Percolation Breakdown -->
+          <article class="physics-formula-card">
+            <span class="evidence-tag">DIELECTRIC BREAKDOWN</span>
+            <h3>
+              <span data-lang="zh">介電質 4 階段滲透崩潰微觀物理</span>
+              <span data-lang="en">4-Stage Dielectric Percolation Breakdown</span>
+            </h3>
+            <p style="font-size:0.85rem; color:#cbd5e1; margin:0; line-height:1.55;">
+              <span data-lang="zh">AntiFuse 與 NeoPUF 的不可逆物理變化，本質為閘極氧化層滲透崩潰（Percolation Model）。從原生高阻到永久低阻經歷四個嚴謹物理階段：</span>
+              <span data-lang="en">The irreversible state change in AntiFuse and NeoPUF is driven by gate oxide percolation breakdown across four microscopic stages:</span>
+            </p>
+            <div class="physics-breakdown-steps">
+              <div class="physics-step-card">
+                <b>01 · TRAP ACCUMULATION</b>
+                <p><span data-lang="zh">高電場 (&gt;10 MV/cm) 注入電子激發陽極電洞，中性氧空缺 (<em>V</em><sub>O</sub>) 缺陷隨時間隨機累積。</span><span data-lang="en">High-field electron injection triggers anode hole generation; neutral oxygen vacancies (<em>V</em><sub>O</sub>) accumulate stochastically.</span></p>
+              </div>
+              <div class="physics-step-card">
+                <b>02 · SOFT BREAKDOWN (SBD)</b>
+                <p><span data-lang="zh">缺陷密度達到滲透臨界 <em>N</em><sub>bd</sub> &approx; 10<sup>19</sup>&sim;10<sup>20</sup> cm<sup>&minus;3</sup>，形成非彈性聲子輔助穿隧點狀路徑，顯著表現 RTN 噪聲。</span><span data-lang="en">Defect density reaches threshold <em>N</em><sub>bd</sub> &approx; 10<sup>19</sup>–10<sup>20</sup> cm<sup>&minus;3</sup>, initiating localized phonon-assisted tunneling with RTN noise.</span></p>
+              </div>
+              <div class="physics-step-card">
+                <b>03 · HARD BREAKDOWN (HBD)</b>
+                <p><span data-lang="zh">局部電流密度急遽攀升，焦耳熱功率失控引發熱失控，溫度瞬間突破矽熔點 (&gt;1414&deg;C)。</span><span data-lang="en">Current density spikes, causing thermal runaway with local temperatures exceeding the Si melting point (&gt;1414&deg;C).</span></p>
+              </div>
+              <div class="physics-step-card">
+                <b>04 · SILICON FILAMENT</b>
+                <p><span data-lang="zh">多晶矽與基板矽原子熱擴散融合成 3&sim;8 nm 局域再結晶純矽微絲，電阻由 &gt;10<sup>11</sup> &Omega; 驟降至 &lt;100 &Omega; 歐姆通道。</span><span data-lang="en">Polysilicon and substrate melt into a 3–8 nm recrystallized Si filament; resistance collapses from &gt;10<sup>11</sup> &Omega; to &lt;100 &Omega;.</span></p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Formula Card 3: Subthreshold Leakage -->
+          <article class="physics-formula-card">
+            <span class="evidence-tag">DIFFUSION &amp; LEAKAGE</span>
+            <h3>
+              <span data-lang="zh">次閾值擴散漏電與 60 mV/dec 熱力學極限</span>
+              <span data-lang="en">Subthreshold Diffusion &amp; 60 mV/dec Limit</span>
+            </h3>
+            <div class="physics-formula-math">
+              <em>I</em><sub>sub</sub> = &mu; <em>C</em><sub>ox</sub> (<em>W</em>/<em>L</em>) (<em>k</em><sub>B</sub><em>T</em>/<em>q</em>)<sup>2</sup> (<em>m</em>&minus;1) exp[(<em>V</em><sub>gs</sub> &minus; <em>V</em><sub>th</sub>)/(<em>m</em> <em>k</em><sub>B</sub><em>T</em>/<em>q</em>)] [1 &minus; exp(&minus;<em>q</em><em>V</em><sub>ds</sub> / <em>k</em><sub>B</sub><em>T</em>)]
+            </div>
+            <ul class="physics-notes-list">
+              <li>
+                <span data-lang="zh"><b>弱反轉擴散電流：</b>載子濃度受玻爾茲曼分佈支配，次閾值擺幅 <em>S</em> = ln(10) &middot; (<em>k</em><sub>B</sub><em>T</em>/<em>q</em>) &middot; <em>m</em>，其中體效應因數 <em>m</em> = 1 + <em>C</em><sub>dep</sub>/<em>C</em><sub>ox</sub> &gt; 1。在室溫 300 K 下熱電壓 <em>k</em><sub>B</sub><em>T</em>/<em>q</em> &approx; 25.85 mV，理論極限為 <b>59.5 mV/dec &approx; 60 mV/dec</b>。</span>
+                <span data-lang="en"><b>Weak Inversion Diffusion:</b> Governed by Boltzmann statistics; subthreshold swing <em>S</em> = ln(10) &middot; (<em>k</em><sub>B</sub><em>T</em>/<em>q</em>) &middot; <em>m</em> where <em>m</em> = 1 + <em>C</em><sub>dep</sub>/<em>C</em><sub>ox</sub> &gt; 1. At 300 K (thermal voltage &approx; 25.85 mV), the physical thermodynamic limit is <b>59.5 mV/dec &approx; 60 mV/dec</b>.</span>
+              </li>
+              <li>
+                <span data-lang="zh"><b>SRAM 待機功耗本質：</b>6T SRAM 關閉通道仍受次閾值漏電與閘極穿隧制約，隨結溫升高呈指數級惡化；而 AntiFuse 的已編程微絲為永久金屬態/歐姆通道，未編程單元待機漏電 &lt;0.01 pA/cell，具備極致低功耗靜態優勢。</span>
+                <span data-lang="en"><b>Standby Power Implications:</b> 6T SRAM remains bounded by subthreshold diffusion and gate tunneling, degrading exponentially at elevated junction temperatures. In contrast, unprogrammed AntiFuse cells exhibit sub-0.01 pA/cell leakage.</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="f1-evidence-links">
+          <b><span data-lang="zh">關聯技術與物理文獻</span><span data-lang="en">Related Physics &amp; Papers</span></b>
+          <a href="technology-comparison.html#sec-physics">TC · <span data-lang="zh">第一性原理方程式對比</span><span data-lang="en">First-principles equation benchmark</span></a>
+          <a href="memory-evidence.html#evidence-T01">T01 · <span data-lang="zh">穿隧感測專利分析</span><span data-lang="en">Tunneling sensing patent</span></a>
+          <a href="memory-evidence.html#evidence-P12">P12 · <span data-lang="zh">5 nm 介電質擊穿論文</span><span data-lang="en">5 nm breakdown paper</span></a>
+        </div>
+      </section>
+
       <section id="economics" class="paper-section lens-panel reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">02 · COMMERCIAL REALITY</p><h2><span data-lang="zh">差動讀取不難畫；<br><em>量產成本決定商業可行性</em></span><span data-lang="en">Differential read is easy to draw;<br><em>production cost determines viability</em></span></h2></div>
+          <div><p class="paper-kicker">03 · COMMERCIAL REALITY</p><h2><span data-lang="zh">差動讀取不難畫；<br><em>量產成本決定商業可行性</em></span><span data-lang="en">Differential read is easy to draw;<br><em>production cost determines viability</em></span></h2></div>
           <p><span data-lang="zh">真正該比較的不是 sense amplifier 的名稱，而是每個 logical bit 要付出多少 cell、金屬線、programming 操作與 array overhead，才能形成真正的 complementary representation。</span><span data-lang="en">The meaningful comparison is not the sense-amplifier label, but how many cells, wires, programming operations and array overheads each logical bit must pay to create a genuinely complementary representation.</span></p>
         </div>
 
@@ -1293,7 +1484,7 @@
 
       <section id="read-path" class="paper-section lens-panel reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">03 · INTERACTIVE READ PATH</p><h2><span data-lang="zh">從 power-off 到 sense output，<br><em>逐層看差異在哪裡</em></span><span data-lang="en">From power-off to sense output,<br><em>locate the real divide</em></span></h2>
+          <div><p class="paper-kicker">04 · INTERACTIVE READ PATH</p><h2><span data-lang="zh">從 power-off 到 sense output，<br><em>逐層看差異在哪裡</em></span><span data-lang="en">From power-off to sense output,<br><em>locate the real divide</em></span></h2>
       <p style="color:#8ea9b3;font-size:0.85rem;margin:0.75rem 0 1rem;"><span data-lang="zh">架構級四種讀取模式（單端／冗餘／差動／差動＋冗餘）示意與取捨：<a href="technology-comparison.html#sec-read-modes" style="color:#c4a574;">technology-comparison · 讀取模式</a>。</span><span data-lang="en">Architecture-class four read modes (single-ended / redundant / differential / differential+redundant): <a href="technology-comparison.html#sec-read-modes" style="color:#c4a574;">technology-comparison · Read Modes</a>.</span></p></div>
           <p><span data-lang="zh">切換三個階段。左側代表 SRAM／SRAM PUF 的 volatile state expression；右側代表 programmed antifuse／NeoPUF 類 persistent conduction state。圖為 threat-model abstraction，不是特定 foundry macro schematic。</span><span data-lang="en">Switch among three phases. The left abstracts volatile SRAM/SRAM-PUF state expression; the right abstracts a programmed antifuse/NeoPUF persistent conduction state. This is a threat-model abstraction, not a foundry-macro schematic.</span></p>
         </div>
@@ -1330,7 +1521,7 @@
 
       <section id="emission" class="paper-section lens-panel reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">04 · HEAT, LIGHT & OBSERVABILITY</p><h2><span data-lang="zh">讀 0、讀 1 會不會形成<br><em>物理熱點或亮點</em></span><span data-lang="en">Does reading 0 or 1 create<br><em>a thermal or optical hotspot</em></span></h2></div>
+          <div><p class="paper-kicker">05 · HEAT, LIGHT & OBSERVABILITY</p><h2><span data-lang="zh">讀 0、讀 1 會不會形成<br><em>物理熱點或亮點</em></span><span data-lang="en">Does reading 0 or 1 create<br><em>a thermal or optical hotspot</em></span></h2></div>
           <p><span data-lang="zh">答案是「可能形成 data-dependent contrast，但不是由 current-sense 這個名稱保證」。任何讀取都有能量；能不能被看見，取決於能量在空間與時間上是否集中到超過儀器、封裝與背景噪音的門檻。</span><span data-lang="en">The answer is “data-dependent contrast may exist, but the label current-sense does not guarantee it.” Every read consumes energy; visibility depends on whether that energy is spatially and temporally concentrated above instrumentation, packaging and noise limits.</span></p>
         </div>
         <div class="primitive-scope"><small>ANALYSIS BOUNDARY · RAW OTP PRIMITIVE</small><strong><span data-lang="zh">這一節只回答「OTP cell 能不能被看見」，還沒有回答「secret 能不能被還原」。</span><span data-lang="en">This section asks whether OTP cells can be observed—not whether the secret can be recovered.</span></strong><p><span data-lang="zh">若 raw OTP 直接保存 plaintext，物理 readout 就可能完成資料揭露；若 OTP 保存的是由 PUF root 保護的 encrypted、address-scrambled data，cell-level reverse engineering 只完成攻擊鏈的第一段。</span><span data-lang="en">If raw OTP directly stores plaintext, physical readout may complete disclosure. If OTP stores encrypted, address-scrambled data protected by a PUF root, cell-level reverse engineering completes only the first segment of the attack chain.</span></p></div>
@@ -1360,7 +1551,7 @@
 
       <section id="taxonomy" class="paper-section lens-panel reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">05 · MEMORY TAXONOMY</p><h2><span data-lang="zh">「非揮發性」不是一種物理；<br><em>每一類留下不同痕跡</em></span><span data-lang="en">Nonvolatile is not one physics;<br><em>each class leaves a different trace</em></span></h2></div>
+          <div><p class="paper-kicker">06 · MEMORY TAXONOMY</p><h2><span data-lang="zh">「非揮發性」不是一種物理；<br><em>每一類留下不同痕跡</em></span><span data-lang="en">Nonvolatile is not one physics;<br><em>each class leaves a different trace</em></span></h2></div>
           <p><span data-lang="zh">安全審查應先問 storage variable 是 latch state、charge、resistance、filament、phase、magnetization 還是永久結構，再選擇 imaging、stimulation、fault 與 side-channel 假設。</span><span data-lang="en">A security review should first identify whether the storage variable is latch state, charge, resistance, filament, phase, magnetization or permanent structure, then select imaging, stimulation, fault and side-channel assumptions.</span></p>
         </div>
         <div class="taxonomy-wrap">
@@ -1388,7 +1579,7 @@
 
       <section id="attack-surface" class="paper-section lens-panel reveal">
         <div class="paper-heading">
-          <div><p class="paper-kicker">06 · SECURITY-LEVEL DIFFERENCES</p><h2><span data-lang="zh">揮發性降低靜態目標，<br><em>但把風險移到上電窗口</em></span><span data-lang="en">Volatility reduces the static target,<br><em>but moves risk into the powered window</em></span></h2></div>
+          <div><p class="paper-kicker">07 · SECURITY-LEVEL DIFFERENCES</p><h2><span data-lang="zh">揮發性降低靜態目標，<br><em>但把風險移到上電窗口</em></span><span data-lang="en">Volatility reduces the static target,<br><em>but moves risk into the powered window</em></span></h2></div>
           <p><span data-lang="zh">下表不是「誰絕對安全」的排名，而是攻擊前提與後果的差異。Direct 代表已有公開實證；Conditional 代表依實作與攻擊配置；Reduced 代表經分層保護後後果下降，而非攻擊消失。</span><span data-lang="en">This is not an absolute-security ranking. It compares attack prerequisites and consequences. Direct means publicly demonstrated; Conditional depends on implementation; Reduced means layered protection lowers impact rather than eliminating attack.</span></p>
         </div>
         <div class="attack-matrix">

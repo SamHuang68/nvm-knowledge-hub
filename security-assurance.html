@@ -56,6 +56,60 @@
     .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
     
     
+    /* 侵入式微觀物理與主動防護專區樣式 */
+    .invasive-physics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .invasive-physics-card {
+      background: rgba(6, 25, 37, 0.75);
+      border: 1px solid rgba(196, 165, 116, 0.25);
+      border-radius: 8px;
+      padding: 1.5rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .invasive-physics-card span.card-badge {
+      display: inline-block;
+      font: 700 10px/1 'IBM Plex Mono', monospace;
+      color: #c4a574;
+      background: rgba(196, 165, 116, 0.12);
+      border: 1px solid rgba(196, 165, 116, 0.3);
+      padding: 3px 8px;
+      border-radius: 4px;
+      width: fit-content;
+      letter-spacing: 0.05em;
+    }
+    .invasive-physics-card h3 {
+      color: #f8fafc;
+      margin: 0;
+      font-size: 1.05rem;
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    .invasive-physics-card p {
+      margin: 0;
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+    .invasive-physics-card ul {
+      margin: 0;
+      padding-left: 1.25rem;
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: #94a3b8;
+    }
+    .invasive-physics-card ul li {
+      margin-bottom: 0.35rem;
+    }
+    .invasive-physics-card ul li b {
+      color: #00e5ff;
+    }
   </style>
 </head>
 <body id="top" class="assurance-page"  data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
@@ -102,6 +156,54 @@
         <article><span>OBSERVE</span><h3>Side-Channel Analysis (DPA/CPA)</h3><p data-zh="量測瞬態功耗 (DPA/CPA)、電磁輻射 (EM)、時序或非接觸式訊跡，驗證成對互補差動讀取與演算法遮罩是否能有效衰減 PUF 重建、金鑰衍生與 AES 存取期間之洩漏訊跡。" data-en="Measure transient power (DPA/CPA), electromagnetic emissions (EM), timing or contactless traces to verify that complementary differential read pairs and algorithmic masking attenuate leakage during PUF reconstruction, key derivation, and AES execution.">Measure transient power (DPA/CPA), electromagnetic emissions (EM), timing or contactless traces to verify that complementary differential read pairs and algorithmic masking attenuate leakage during PUF reconstruction, key derivation, and AES execution.</p><footer><b>ASSETS</b><small>PUF response · root/derived key · plaintext window · DPA/CPA attenuation</small></footer></article>
         <article class="danger"><span>DISTURB</span><h3>Fault Injection (LFI/Glitch)</h3><p data-zh="以背部雷射故障注入 (LFI)、電壓突波 (Voltage Glitch)、時鐘毛刺或電磁脈衝 (EMFI) 挑戰身分認證、生命週期狀態轉換、程式流 (防止 instruction skip)、密碼運算與單週期金鑰歸零機制。" data-en="Deploy backside laser fault injection (LFI), voltage glitch, clock disturbance, or EMFI to challenge authentication, lifecycle transitions, control flow (preventing instruction skip), crypto cores, and single-cycle zeroization.">Deploy backside laser fault injection (LFI), voltage glitch, clock disturbance, or EMFI to challenge authentication, lifecycle transitions, control flow (preventing instruction skip), crypto cores, and single-cycle zeroization.</p><footer><b>OUTCOMES</b><small>check bypass · DFA · instruction skip · state corruption</small></footer></article>
         <article class="copper"><span>READ</span><h3>Invasive Analysis &amp; Active Shielding</h3><p data-zh="應對 FIB 微探針接觸與背面減薄研磨。部署頂層主動金屬屏蔽 (Active Top-Metal Mesh)，一旦網格遭到切斷或短路即觸發單週期即時密鑰清除；配合位址/資料擾碼，使逆向物理讀取結果無法還原根機密。" data-en="Defend against FIB microprobing and backside silicon thinning. Deploy active top-metal shielding/mesh to trigger single-cycle key zeroization upon mesh breach, paired with address/data scrambling so physical readout cannot yield a usable root secret.">Defend against FIB microprobing and backside silicon thinning. Deploy active top-metal shielding/mesh to trigger single-cycle key zeroization upon mesh breach, paired with address/data scrambling so physical readout cannot yield a usable root secret.</p><footer><b>BOUNDARY</b><small>active mesh · FIB resistance · ciphertext · scrambling · layout</small></footer></article>
+      </div>
+    </section>
+
+    <section id="invasive-physics" class="section invasive-physics-section" style="margin-top: 1.5rem; border-top: 1px solid rgba(196, 165, 116, 0.18); padding-top: 2rem;">
+      <header class="section-head">
+        <div>
+          <p class="kicker">01b / INVASIVE ATTACK PHYSICS &amp; DEFENSE CHAIN</p>
+          <h2 data-zh="侵入式分析微觀物理：FIB-PVC、TEM 極限與主動屏蔽責任鏈" data-en="Invasive Attack Physics: FIB-PVC, TEM Limits &amp; Active Shielding Chain">Invasive Attack Physics: FIB-PVC, TEM Limits &amp; Active Shielding Chain</h2>
+        </div>
+        <p data-zh="物理不可見不等於數學上安全。解析去層化離子束微觀對比、斷面觀測盲區，以及多層責任鏈如何阻斷攻擊鏈。" data-en="Physical invisibility does not equate to cryptographic security. Analyze ion-beam contrast, cross-section blind spots, and multi-layer mitigation.">Physical invisibility does not equate to cryptographic security. Analyze ion-beam contrast, cross-section blind spots, and multi-layer mitigation.</p>
+      </header>
+
+      <div class="invasive-physics-grid">
+        <!-- Card 1: FIB-PVC Mechanism -->
+        <article class="invasive-physics-card">
+          <span class="card-badge">MICROSCOPIC CONTRAST</span>
+          <h3 data-zh="FIB-PVC 被動電壓對比微觀機制" data-en="FIB-PVC Passive Voltage Contrast Physics">FIB-PVC Passive Voltage Contrast Physics</h3>
+          <p data-zh="在去層化 (Delayering) 研磨至接觸孔/金屬層後，聚焦鎵離子束 (Ga⁺) 掃描斷電晶粒表面時引發電荷流動差異：" data-en="Following delayering to contacts/metal, a focused Ga⁺ ion beam scans the unpowered die surface, inducing state-dependent charge dissipation:">Following delayering to contacts/metal, a focused Ga⁺ ion beam scans the unpowered die surface, inducing state-dependent charge dissipation:</p>
+          <ul>
+            <li><span data-lang="zh"><b>未編程單元 (高阻 &gt;10¹¹ Ω)：</b>閘極介電質完整，離子束沉積正電荷無法洩放，表面電位升高壓制二次電子 (SE) 逸出，在探測器呈<b>暗態 (Dark)</b>。</span><span data-lang="en"><b>Unprogrammed Cell (&gt;10¹¹ Ω):</b> Intact gate oxide traps positive charge, creating a surface retarding field that suppresses secondary electrons (Dark Contrast).</span></li>
+            <li><span data-lang="zh"><b>已編程 AntiFuse (&lt;100 Ω)：</b>介電質滲透擊穿形成的矽微絲提供歐姆通路，正電荷瞬間排入基板接地，二次電子產額極高，呈<b>亮態 (Bright)</b>。</span><span data-lang="en"><b>Programmed AntiFuse (&lt;100 Ω):</b> Ohmic breakdown filament discharges positive charge to substrate ground; high secondary electron yield produces Bright Contrast.</span></li>
+            <li><span data-lang="zh"><b>防禦因果：</b>斷電狀態物理可讀；安全依賴陣列位址擾碼、密文存儲與 PUF 短暫根金鑰保護。</span><span data-lang="en"><b>Defense Implication:</b> Physical readout is viable at rest; security relies on address scrambling, ciphertext, and ephemeral PUF root keys.</span></li>
+          </ul>
+        </article>
+
+        <!-- Card 2: TEM Limit -->
+        <article class="invasive-physics-card">
+          <span class="card-badge">CROSS-SECTION LIMIT</span>
+          <h3 data-zh="TEM 斷面觀測的微觀幾何極限" data-en="Microscopic Limits of TEM Cross-Sectioning">Microscopic Limits of TEM Cross-Sectioning</h3>
+          <p data-zh="穿透式電子顯微鏡 (TEM) 常被誤認為萬能逆向工具，但微觀物理限制使其無法成為高吞吐量攻擊手法：" data-en="TEM is often misconstrued as an omnipotent extraction tool, but device physics and geometry create severe throughput bottlenecks:">TEM is often misconstrued as an omnipotent extraction tool, but device physics and geometry create severe throughput bottlenecks:</p>
+          <ul>
+            <li><span data-lang="zh"><b>微絲奈米尺度：</b>介電質擊穿微絲直徑僅約 <b>3～8 nm</b>，且在閘極三維空間中呈隨機滲透路徑 (Stochastic 3D Percolation Path)。</span><span data-lang="en"><b>Nanoscale Filament:</b> Breakdown filaments measure only 3–8 nm in diameter along a stochastic 3D percolation trajectory.</span></li>
+            <li><span data-lang="zh"><b>幾何命中率極限：</b>在先進 FinFET / GAA 結構下，FIB 盲切製作 30 nm 超薄樣品 (Lamella) 正好切中該微絲的機率低於 10⁻⁴。</span><span data-lang="en"><b>Geometric Blind Spot:</b> In FinFET/GAA nodes, blind FIB lamella preparation (30 nm thickness) hits the specific filament cross-section with probability &lt;10⁻⁴.</span></li>
+            <li><span data-lang="zh"><b>紀律界限：</b>不可宣稱「TEM 看不到代表安全」；專業攻擊者會轉向 FIB-PVC 或 sMIM，而非盲切 TEM。</span><span data-lang="en"><b>Discipline Boundary:</b> Never claim 'invisible under TEM equals secure'; attackers employ FIB-PVC or sMIM rather than blind TEM.</span></li>
+          </ul>
+        </article>
+
+        <!-- Card 3: Active Shielding & Multi-layer Chain -->
+        <article class="invasive-physics-card">
+          <span class="card-badge">ACTIVE MITIGATION</span>
+          <h3 data-zh="頂層主動屏蔽網與多層防禦責任鏈" data-en="Active Metal Shielding &amp; Multi-layer Defense Chain">Active Metal Shielding &amp; Multi-layer Defense Chain</h3>
+          <p data-zh="防禦侵入式攻擊不應依賴單一實體特性，必須建構縱深防禦因果鏈：" data-en="Defense against invasive tampering must not rely on a single physical property, but rather on an orchestrated defense-in-depth chain:">Defense against invasive tampering must not rely on a single physical property, but rather on an orchestrated defense-in-depth chain:</p>
+          <ul>
+            <li><span data-lang="zh"><b>主動金屬屏蔽 (Active Top-Metal Mesh)：</b>頂層部署差分蛇形感測線，動態注入偽隨機碼 (PRBS)，監控互容抗與阻抗漂移。</span><span data-lang="en"><b>Active Top-Metal Mesh:</b> Top metal layers deploy differential serpentine lines energized with dynamic PRBS to monitor capacitive/impedance drift.</span></li>
+            <li><span data-lang="zh"><b>單週期急毀迴路 (Zeroization Loop)：</b>偵測到探針侵入或網格切斷時，硬體比較器在單週期內觸發電容放電，清除揮發性工作金鑰。</span><span data-lang="en"><b>Single-Cycle Zeroization:</b> Breach detection triggers immediate capacitive discharge, zeroizing all ephemeral volatile working keys in a single clock cycle.</span></li>
+            <li><span data-lang="zh"><b>殘餘防線：</b>即使攻擊者完全逆向 OTP 陣列實體狀態，所獲數據僅為無主金鑰保護的高熵密文，無法還原任何明文資產。</span><span data-lang="en"><b>Residual Security:</b> Even full physical extraction of the OTP yields only high-entropy ciphertext unreadable without the erased PUF root.</span></li>
+          </ul>
+        </article>
       </div>
     </section>
 

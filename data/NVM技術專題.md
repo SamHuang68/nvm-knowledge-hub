@@ -6423,6 +6423,9 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [RES-EVERSPIN-PLP-2025：Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南](https://www.everspin.com/storage-accelerators-and-raid)。供應商應用技術手冊；2025-04-15；定位：官方企業級儲存加速器與 RAID/SSD 斷電保護架構方案；限制：確認 STT-MRAM 在 NVMe SSD 寫入日誌與超級電容替代架構中的商用出貨，提供奈秒級持久儲存；需外加控制器或介面橋接晶片。
 - [RES-INFINEON-TC4X-2024：Infineon Technologies：AURIX™ TC4x 車用微控制器與 TSMC 28nm eRRAM 架構手冊](https://www.infineon.com/aurix-tc4x)。微控制器架構手冊；2024-11-20；定位：官方產品手冊與車規 ASIL-D 嵌入式記憶體演進章節；限制：證明 TC4x 採用台積電 28nm eRRAM 突破 eFlash 微縮限制，支援 10 萬次抹寫與零等待隨機存取；屬於車用旗艦 MCU 特定實作。
 - [RES-ST-STELLAR-PCM-2024：STMicroelectronics：Stellar 系列 32 位元車用 MCU 嵌入式相變記憶體 (28nm FD-SOI ePCM) 技術白皮書](https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html)。車用晶片技術白皮書；2024-09-18；定位：官方車用微控制器與 28nm FD-SOI 嵌入式 PCM 架構發布；限制：證明 28nm FD-SOI 整合 ePCM 支援無停機 OTA (雙分區即時切換) 與 165°C 高溫保持；相變材料為 Ge2Sb2Te5 (GST)。
+- [RES-INTRINSICID-QUIDDIKEY-2025：Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書](https://www.intrinsic-id.com/products/quiddikey/)。安全技術白皮書；2025-05-12；定位：官方 SRAM PUF 密鑰重建與零工廠燒錄架構白皮書；限制：利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。
+- [RES-SYNOPSYS-TROOT-2024：Synopsys：DesignWare tRoot™ 晶片硬體安全模組 (HSM) 與 1T AntiFuse 安全子系統架構手冊](https://www.synopsys.com/designware-ip/security-ip/security-subsystems/troot-hardware-secure-modules.html)。產品規格手冊；2024-11-20；定位：官方硬體安全模組與安全開機架構發布；限制：整合獨立安全 RISC-V/ARC 處理器核心、硬體密碼引擎、真隨機數產生器 (TRNG) 與 1T Split-Channel AntiFuse OTP，符合 PSA Certified Level 3。
+- [RES-RAMBUS-CRYPTOMANAGER-2025：Rambus：CryptoManager™ 信任根與 PCIe/CXL SPDM 1.3 設備證明技術架構白皮書](https://www.rambus.com/security/root-of-trust/)。企業級安全白皮書；2025-02-18；定位：官方 PCIe/CXL IDE 與硬體信任根生命週期架構；限制：硬體實現 DMTF SPDM 1.2/1.3 設備互聯認證與線速 PCIe/CXL IDE (AES-GCM) 加密，貫穿晶圓廠、封測廠至雲端伺服器生命週期憑證鏈。
 - [op-pat-nrom-hhi：Saifun：自對準 NROM 寫入與抹除區](https://patents.google.com/patent/US6664588B2/en)。公開專利；2003; 2026-09-10 查閱；定位：圖 4、8A、9、10–11；能帶間穿隧產生電洞及局部熱電洞注入；限制：本案的口袋植入與局部電洞路徑；不把 US5768192A 當成此抹除路徑的來源。
 - [op-pat-sonos-fn：賽普拉斯：SONOS ONO 堆疊縮放](https://patents.google.com/patent/WO2014008160A2/en)。公開專利；2014; 2026-09-10 查閱；定位：圖 1–3；全通道穿隧、電子寫入與電洞抹除段落；限制：用於具名 SONOS 穿隧原理；不推定與現行英飛凌巨集具有相同膜層或數值。
 - [op-nand-hole-erase：鎧俠：蕭特基源極接點與電洞供應研究](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html)。原廠研究；2025-09-18; 2026-09-10 查閱；定位：圖 1、4；N+ 矽源極的 GIDL 電洞供應及蕭特基接點替代研究；限制：只支持載子供應方向與具名研究；本圖採傳統 GIDL 分支，未把蕭特基源極併入同一結構。
@@ -9274,3 +9277,39 @@ Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 
 
 - [RES-EVERSPIN-PLP-2025：Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南](https://www.everspin.com/storage-accelerators-and-raid)
 - [everspin-1gb-ddr：Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+
+### Intrinsic ID (Quiddikey) · SRAM PUF Root of Trust & Key Provisioning-Free Enclave
+
+實體不可複製功能 (PUF) 與晶片安全矽智財供應商 · 全球商用出貨超過 5 億顆晶片；支援 TSMC, UMC, GF, Intel, Samsung 各先進與成熟製程
+
+利用晶片原生標準 6T SRAM 上電時隨機臨界電壓 mismatch 作為物理指紋，搭配公開儲存之 Activation Code（Helper Data），透過模糊提取器重構 256-bit 根金鑰；徹底免除封測廠安全金鑰注入成本與私鑰外洩風險。
+
+依賴上電瞬態提取，工作金鑰存於揮發性暫存器，需搭配軟硬體防側信道遮罩與單週期清零機制。
+
+2024–2026 商用架構手冊
+
+- [RES-INTRINSICID-QUIDDIKEY-2025：Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書](https://www.intrinsic-id.com/products/quiddikey/)
+
+### Synopsys (DesignWare tRoot™ HSM) · Hardware Secure Module & AntiFuse Integrated Enclave
+
+晶片安全子系統與實體 IP 供應商 · 全球廣泛商用出貨；支援車規 ASIL-D、CC EAL4+ 與 PSA Certified Level 3
+
+以獨立安全處理器隔離 Host CPU 軟體漏洞，底層緊密整合 1T Split-Channel AntiFuse OTP 儲存裝置獨一金鑰雜湊 (ROTPK) 與安全組態，向上提供 Secure Boot、防回滾與金鑰封裝服務。
+
+為子系統級解決方案，需在 SoC 規劃專屬晶片面積、匯流排防火牆與安全除錯通道。
+
+2024–2026 商業手冊
+
+- [RES-SYNOPSYS-TROOT-2024：Synopsys：DesignWare tRoot™ 晶片硬體安全模組 (HSM) 與 1T AntiFuse 安全子系統架構手冊](https://www.synopsys.com/designware-ip/security-ip/security-subsystems/troot-hardware-secure-modules.html)
+
+### Rambus (CryptoManager™ Root of Trust) · PCIe/CXL SPDM Attestation & Silicon Lifecycle Root of Trust
+
+高速互連安全與晶片生命週期金鑰託管領導廠商 · 資料中心 AI 加速卡、CXL 記憶體擴展器與伺服器晶片廣泛採用
+
+支援 DMTF SPDM 1.2/1.3 設備證明與線速 PCIe/CXL IDE 加密，搭配晶圓代工廠防熔絲 OTP 記錄晶粒認證金鑰，建立由晶圓廠、封測廠至 CSP 資料中心的端到端不可偽造憑證鏈。
+
+專注於資料中心、雲端運算與企業伺服器高速介面保護，消費級極小晶片通常簡化此架構。
+
+2024–2026 產品手冊
+
+- [RES-RAMBUS-CRYPTOMANAGER-2025：Rambus：CryptoManager™ 信任根與 PCIe/CXL SPDM 1.3 設備證明技術架構白皮書](https://www.rambus.com/security/root-of-trust/)

@@ -6387,6 +6387,9 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [RES-EVERSPIN-PLP-2025: Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note](https://www.everspin.com/storage-accelerators-and-raid). Supplier application note; 2025-04-15; Location in the Source: Official enterprise storage accelerator and RAID/SSD power loss protection architecture brief; Limitations: Confirms commercial shipment of STT-MRAM for NVMe write journaling and supercap-free PLP architectures; requires dedicated controller or interface bridge.
 - [RES-INFINEON-TC4X-2024: Infineon Technologies: AURIX™ TC4x Automotive MCU & TSMC 28nm eRRAM Architecture Manual](https://www.infineon.com/aurix-tc4x). Microcontroller architecture manual; 2024-11-20; Location in the Source: Official product manual and automotive ASIL-D embedded memory roadmap chapter; Limitations: Confirms TC4x adoption of TSMC 28nm eRRAM overcoming eFlash scaling limits with 100K cycles and zero-wait random access; specific to flagship automotive MCUs.
 - [RES-ST-STELLAR-PCM-2024: STMicroelectronics: Stellar 32-Bit Automotive MCU Embedded Phase-Change Memory (28nm FD-SOI ePCM) Whitepaper](https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html). Automotive silicon technical whitepaper; 2024-09-18; Location in the Source: Official automotive MCU and 28nm FD-SOI embedded PCM architecture release; Limitations: Confirms 28nm FD-SOI integration of ePCM enabling zero-downtime OTA (dual-bank instant swap) and 165°C retention; phase-change material is Ge2Sb2Te5 (GST).
+- [RES-INTRINSICID-QUIDDIKEY-2025: Intrinsic ID: Quiddikey Silicon Hardware Root of Trust (SRAM PUF + Fuzzy Extractor) Technical Whitepaper](https://www.intrinsic-id.com/products/quiddikey/). Security Technical Whitepaper; 2025-05-12; Location in the Source: Official SRAM PUF Key Reconstruction & Zero-Factory-Provisioning Architecture Whitepaper; Limitations: Extracts root keys dynamically from native 6T SRAM power-up mismatch; pairs with public Helper Data (Activation Code) and BCH ECC; zero key material at rest, zero factory provisioning.
+- [RES-SYNOPSYS-TROOT-2024: Synopsys: DesignWare tRoot™ Hardware Secure Module (HSM) & 1T AntiFuse Security Subsystem Manual](https://www.synopsys.com/designware-ip/security-ip/security-subsystems/troot-hardware-secure-modules.html). Product Specification Manual; 2024-11-20; Location in the Source: Official Hardware Secure Module and Secure Boot Architecture Announcement; Limitations: Integrates isolated secure RISC-V/ARC processor core, hardware crypto accelerator, TRNG, and 1T Split-Channel AntiFuse OTP; compliant with PSA Certified Level 3.
+- [RES-RAMBUS-CRYPTOMANAGER-2025: Rambus: CryptoManager™ Root of Trust & PCIe/CXL SPDM 1.3 Device Attestation Whitepaper](https://www.rambus.com/security/root-of-trust/). Enterprise Security Whitepaper; 2025-02-18; Location in the Source: Official PCIe/CXL IDE & Silicon Root of Trust Lifecycle Architecture; Limitations: Hardware acceleration of DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE (AES-GCM) encryption, bridging Foundry, OSAT, and cloud CSP certificate lifecycles.
 - [op-pat-nrom-hhi: Saifun: Self-Aligned NROM Programming and Erasure Areas](https://patents.google.com/patent/US6664588B2/en). Public Patent; 2003; 2026-09-10 accessed; Location in the Source: Figures 4, 8A, 9, and 10–11; band-to-band hole generation and localized hot-hole injection; Limitations: The pocket implant and local hole path belong to this example; US5768192A is not used as evidence for this erase path.
 - [op-pat-sonos-fn: Cypress: SONOS ONO Stack Scaling](https://patents.google.com/patent/WO2014008160A2/en). Public Patent; 2014; 2026-09-10 accessed; Location in the Source: Figures 1–3; uniform channel tunneling, electron programming, and hole erase; Limitations: A named SONOS tunneling example; no equivalence to the stack or biases of a current Infineon macro is asserted.
 - [op-nand-hole-erase: KIOXIA: Schottky Source Contact and Hole Supply](https://www.kioxia.com/en-jp/rd/technology/topics/topics-88.html). Manufacturer Research; 2025-09-18; 2026-09-10 accessed; Location in the Source: Figures 1 and 4; GIDL hole supply from an N+ silicon source and the Schottky-contact alternative; Limitations: Supports carrier supply and a named study; this diagram uses the conventional GIDL branch without merging in a Schottky source.
@@ -9198,3 +9201,39 @@ Higher per-bit cost than DRAM and NAND; optimized as persistent cache and write-
 
 - [RES-EVERSPIN-PLP-2025: Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note](https://www.everspin.com/storage-accelerators-and-raid)
 - [everspin-1gb-ddr: Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
+
+### Intrinsic ID (Quiddikey) · SRAM PUF Root of Trust & Key Provisioning-Free Enclave
+
+Physical Unclonable Function (PUF) & Security IP Provider · Over 500 million devices deployed globally; supports TSMC, UMC, GF, Intel, and Samsung advanced & mature nodes
+
+Leverages native 6T SRAM power-up mismatch as a hardware fingerprint; reconstructs 256-bit root keys dynamically via Fuzzy Extractor and public Activation Code; eliminates factory key provisioning costs and leak risks.
+
+Requires volatile SRAM reconstruction at boot; working keys require runtime DPA masking and single-cycle zeroization.
+
+2024–2026 Commercial Manual
+
+- [RES-INTRINSICID-QUIDDIKEY-2025: Intrinsic ID: Quiddikey Silicon Hardware Root of Trust (SRAM PUF + Fuzzy Extractor) Technical Whitepaper](https://www.intrinsic-id.com/products/quiddikey/)
+
+### Synopsys (DesignWare tRoot™ HSM) · Hardware Secure Module & AntiFuse Integrated Enclave
+
+Silicon Security Subsystem & Physical IP Provider · Broad global deployment; qualified for automotive ASIL-D, CC EAL4+, and PSA Certified Level 3
+
+Isolates security operations from host CPU software vulnerabilities; tightly integrates 1T Split-Channel AntiFuse OTP for UID and Root-of-Trust Public Key (ROTPK) storage; delivers Secure Boot and key wrapping.
+
+Subsystem-level IP requiring dedicated silicon area, memory protection units, and secure debug infrastructure.
+
+2024–2026 Product Manual
+
+- [RES-SYNOPSYS-TROOT-2024: Synopsys: DesignWare tRoot™ Hardware Secure Module (HSM) & 1T AntiFuse Security Subsystem Manual](https://www.synopsys.com/designware-ip/security-ip/security-subsystems/troot-hardware-secure-modules.html)
+
+### Rambus (CryptoManager™ Root of Trust) · PCIe/CXL SPDM Attestation & Silicon Lifecycle Root of Trust
+
+High-Speed Interconnect Security & Silicon Lifecycle Key Provisioning Leader · Standard adoption in data center AI accelerators (GPU/NPU), CXL expanders, and server SoCs
+
+Implements DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE encryption; anchors silicon identity in foundry AntiFuse OTP across Foundry, OSAT, and CSP data centers.
+
+Engineered for enterprise servers and data centers; rarely adopted in ultra-constrained consumer edge devices.
+
+2024–2026 Product Manual
+
+- [RES-RAMBUS-CRYPTOMANAGER-2025: Rambus: CryptoManager™ Root of Trust & PCIe/CXL SPDM 1.3 Device Attestation Whitepaper](https://www.rambus.com/security/root-of-trust/)
