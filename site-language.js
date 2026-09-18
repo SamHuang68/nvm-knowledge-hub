@@ -239,6 +239,16 @@
       demote.defer = true;
       document.head.append(demote);
     }
+    if (/automotive-nvm\.html/i.test(location.pathname)) {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = new URL('hub-auto-tune.css?v=20260918-a1', rootURL).href;
+      document.head.append(css);
+      const tune = document.createElement('script');
+      tune.src = new URL('hub-auto-tune.js?v=20260918-a1', rootURL).href;
+      tune.defer = true;
+      document.head.append(tune);
+    }
     if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
       const swPath = location.pathname.includes('/tools/whitepaper-studio/')
         ? '../../sw.js'
