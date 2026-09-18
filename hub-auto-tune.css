@@ -65,6 +65,13 @@ body.specialty-page .hub-auto-verify {
   font-size: 10px;
   letter-spacing: .08em;
 }
+body.specialty-page .hub-auto-assume {
+  max-width: 72ch;
+  margin: 8px 0 14px;
+  color: #c4a574;
+  font-size: 13px;
+  line-height: 1.55;
+}
 @media (prefers-reduced-motion: reduce) {
   body.specialty-page .m3-hero-media img { animation: none !important; }
 }
