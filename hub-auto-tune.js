@@ -97,5 +97,57 @@
       '</tbody></table>';
     stepper.parentNode.insertBefore(wrap, stepper);
   }
+  function assume(afterId, id, en, zh) {
+    if (document.getElementById(id)) return;
+    const h = document.getElementById(afterId);
+    if (!h) return;
+    const p = document.createElement('p');
+    p.id = id;
+    p.className = 'hub-auto-assume';
+    p.innerHTML = T(en, zh);
+    h.insertAdjacentElement('afterend', p);
+  }
+  assume(
+    'lab-thermal-title',
+    'hub-auto-assume-thermal',
+    'Assumption: the Arrhenius canvas is a teaching model. Ea, Tuse and Tstress must be named before any acceleration factor is treated as evidence.',
+    '假設：Arrhenius 畫布是教學模型。Ea、Tuse、Tstress 未具名前，加速因子不得當作證據。'
+  );
+  assume(
+    'lab-ecc-title',
+    'hub-auto-assume-ecc',
+    'Assumption: SECDED (72,64) here is a code-distance demonstration. It is not an ISO 26262 metric and does not become ASIL-D Ready.',
+    '假設：此處 SECDED (72,64) 是碼距示範，不是 ISO 26262 度量，也不會變成 ASIL-D Ready。'
+  );
+  const chainTitle = document.getElementById('auto-value-chain-title');
+  if (chainTitle && !document.getElementById('hub-auto-domain-table')) {
+    chainTitle.innerHTML = T(
+      'Domain × physics: which persistent state belongs where.',
+      '域 × 物理：哪一種持久狀態落在哪裡。'
+    );
+    const wrap = document.createElement('div');
+    wrap.className = 'hub-auto-table-wrap';
+    wrap.id = 'hub-auto-domain-table';
+    wrap.innerHTML =
+      '<table class="hub-auto-table">' +
+      '<caption>' + T('Fit class only. Named public examples stay VERIFY. This is not a design-win matrix.', '只標適配等級。具名公開例仍須 VERIFY。不是 design-win 矩陣。') + '</caption>' +
+      '<thead><tr>' +
+      '<th>' + T('Domain', '域') + '</th>' +
+      '<th>OTP / AF</th><th>eFlash</th><th>RRAM</th><th>PCM</th>' +
+      '</tr></thead><tbody>' +
+      '<tr><td>BMS AFE LUT</td><td>few-write factory table</td><td>if endurance budget is named</td><td>candidate at a named node</td><td>only with a named Tj class</td></tr>' +
+      '<tr><td>' + T('Vehicle ID / keys', '車輛 ID／鍵') + '</td><td>one-time root</td><td>not the root</td><td>not a substitute for OTP root</td><td>not a substitute for OTP root</td></tr>' +
+      '<tr><td>' + T('Sensor calibration', '感測校準') + '</td><td>end-of-line trim</td><td>field update if cycles exist</td><td>candidate if retention is named</td><td>candidate if thermal class is named</td></tr>' +
+      '<tr><td>' + T('ADAS recovery vector', 'ADAS 復原') + '</td><td>immutable fallback</td><td>maps / firmware class</td><td>candidate, not Ready</td><td>candidate, not Ready</td></tr>' +
+      '<tr><td>Advanced-node XiP</td><td>config / lock bits</td><td>code store if the node has it</td><td>named 28 nm class only</td><td>named FD-SOI class only</td></tr>' +
+      '</tbody></table>';
+    const bar = chainTitle.closest('.panel-hero-bar') || chainTitle.parentElement;
+    const grid = bar && bar.nextElementSibling;
+    if (bar) bar.insertAdjacentElement('afterend', wrap);
+    if (grid && grid.querySelector) {
+      grid.classList.add('hub-auto-poster');
+      grid.setAttribute('hidden', '');
+    }
+  }
   langSync();
 })();
