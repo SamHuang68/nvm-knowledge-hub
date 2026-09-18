@@ -242,10 +242,10 @@
     if (/automotive-nvm\.html/i.test(location.pathname)) {
       const css = document.createElement('link');
       css.rel = 'stylesheet';
-      css.href = new URL('hub-auto-tune.css?v=20260918-a1', rootURL).href;
+      css.href = new URL('hub-auto-tune.css?v=20260918-a2', rootURL).href;
       document.head.append(css);
       const tune = document.createElement('script');
-      tune.src = new URL('hub-auto-tune.js?v=20260918-a1', rootURL).href;
+      tune.src = new URL('hub-auto-tune.js?v=20260918-a2', rootURL).href;
       tune.defer = true;
       document.head.append(tune);
     }
