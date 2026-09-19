@@ -3,6 +3,12 @@
 // Architecture Knowledge Map · Global Search Engine (Ctrl+K) · Language Sync
 // ==========================================================================
 
+function getHubSearchInput(overlay = document.getElementById("searchOverlay")) {
+  return overlay?.querySelector('#nvmHubSearchInput')
+    || overlay?.querySelector('#searchInput')
+    || overlay?.querySelector('input[type="search"]') || null;
+}
+
 /**
  * 語系單一真實來源同步 (Single Source of Truth)
  */
@@ -14,7 +20,7 @@ function syncHubLanguage() {
     document.body.dataset.language = lang;
   }
   // 更新搜尋框 placeholder
-  const searchInput = document.getElementById("searchInput");
+  const searchInput = getHubSearchInput();
   if (searchInput) {
     searchInput.placeholder =
       searchInput.dataset[lang === "zh" ? "placeholderZh" : "placeholderEn"] || "";
@@ -109,8 +115,8 @@ const SEARCH_INDEX = [
 function initSearchEngine() {
   if (window.__NVM_SEARCH_ENHANCED || document.querySelector("script[src*='搜尋控制器']")) return;
   const overlay = document.getElementById("searchOverlay");
-  const input = document.getElementById("searchInput");
-  const results = document.getElementById("searchResults");
+  const input = getHubSearchInput(overlay);
+  const results = overlay?.querySelector("#searchResults");
   const trigger = document.getElementById("searchTrigger");
 
   if (!overlay || !input || !results) return;

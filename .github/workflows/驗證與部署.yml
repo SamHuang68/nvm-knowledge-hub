@@ -1,0 +1,96 @@
+name: 知識中心完整驗證
+"on":
+  push:
+    branches: ['**']
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+permissions:
+  contents: read
+concurrency:
+  group: 驗證-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  validate:
+    name: 生成一致性與瀏覽器回歸
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NVM_QA_BROWSER: chromium
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            tools/whitepaper-studio/package-lock.json
+      - name: 安裝鎖定相依套件
+        run: |
+          npm ci
+          npm ci --prefix tools/whitepaper-studio
+          npx playwright install --with-deps chromium
+      - name: 驗證已提交來源與產物
+        run: npm run check
+      - name: 重新建置並確認沒有差異
+        run: |
+          npm run build
+          git diff --exit-code
+          test -z "$(git ls-files --others --exclude-standard)"
+      - name: 驗證修正與失敗情境
+        env:
+          NVM_QA_BROWSER: chromium
+        run: |
+          npm run qa:regression
+          npm test --prefix tools/whitepaper-studio
+          node --test scripts/發布產物回歸.test.mjs
+      - name: 封裝同一提交的公開內容
+        run: |
+          mkdir "$RUNNER_TEMP/網站"
+          git archive HEAD | tar -x --directory "$RUNNER_TEMP/網站"
+          node scripts/驗證發布產物.mjs "$RUNNER_TEMP/網站"
+          node "$RUNNER_TEMP/網站/scripts/check-release-gates.mjs"
+      - name: 保存通過驗證的發布產物
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ${{ runner.temp }}/網站
+      - name: 保存本次驗證證據
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: 瀏覽器驗證證據
+          path: qa/
+          if-no-files-found: ignore
+  deploy:
+    name: 部署已驗證的網站
+    needs: validate
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 確認發布提交仍是主分支最新版本
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_SHA: ${{ github.sha }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          ACTUAL_SHA=$(gh api "repos/$REPOSITORY/git/ref/heads/main" --jq .object.sha)
+          test "$ACTUAL_SHA" = "$EXPECTED_SHA"
+      - name: 發布本次完整驗證的產物
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

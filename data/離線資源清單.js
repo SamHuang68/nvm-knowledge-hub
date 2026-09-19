@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "9110dc4be16fd54c07ae",
+  "version": "1d5b7c4da78d48121b59",
   "assets": [
     "404.html",
     "IoT頁面導覽.js",
@@ -115,8 +115,8 @@ self.NVMOfflineManifest = {
     "hub-story-maps.css": "ab86ba56f0ff7a477067b9ab30c7ac2a87d70b9251b74a78eba55ed3aa7587da",
     "hub-story-maps.js": "693038fab75df0dcaf2d745360f6c977f453ca5cc48971a9afd367af56425e06",
     "hub.css": "81b44d35a039263b194683ded1b0a0101b4794184cedf8d82dac6b45cbee9c96",
-    "hub.js": "0504f27f55c404780c2cd096a5ade2735ce5cef57a3648595e6ca992120edf05",
-    "index.html": "2c18a242c708fc0ee046fbf9bdbd9fef2ef5a4ed0b3a46937356663e63431dcb",
+    "hub.js": "0023a8b97802ff747efc1ecbe5b8d434a66da3f910f8ed7879e4bf939fa41314",
+    "index.html": "7eede380b419d13867498203eec59e5e4ff78c14a6349aab4fafa1dd78376465",
     "iot-mcu-envm.html": "4461122c856e65f557bb080a22b6785372aeb46c405861f9b5fc5f488cc6f5cb",
     "literature-editorial.css": "bf491d200ea4a5f6f268ad13d87e4169a31546759bfdc1596737a34fb14f55dc",
     "literature-paper.js": "51fee6df84fb607aca45a7975ffe329311b4221f69c57b6822de6d06fa8417fa",
@@ -129,7 +129,7 @@ self.NVMOfflineManifest = {
     "research.js": "23c4cd497c66ca9430489cb0562dad77939360264b321308073b82791e2e020b",
     "secure-storage.html": "62281f66274e77da07269cbeb1fe3f2d9d88b773e7a55397d14f2b8989ff3de4",
     "security-assurance.html": "7b9a37c2ed7e1a95d73acbf3801994fe8e6b4d9da4ec0e6c2dc9b9b97ab8b395",
-    "site-language.js": "06c7200ada19ee4325ba0195977778ba135a87d1aaaca969a2ce864ac4db8721",
+    "site-language.js": "48d89336414b1d0ac06f5a1aeb4ec7d2d5d8a16915cd439c7830db5c44e05c71",
     "site-shell.css": "ffee90a4ce3aaa603d9e886d9a0f874e6b25b0f302cba9f77dd8cc96b89cecbc",
     "site.webmanifest": "6a8beee910c38c6845c40f3ac87ebba03827193e18b23cac1dc0d8d209268332",
     "specialty-nvm.css": "c97e245d43003454ee54b69fff801800b9fa9f23460656ef3bb7fd6e48dd46af",
@@ -137,7 +137,7 @@ self.NVMOfflineManifest = {
     "specialty-nvm.js": "f76aebd0e69866b5a04253ecc3f34b7e75069198a5669e360e2b28f39f4c7b3c",
     "styles.css": "e4bc177263b06f3aa1d1cb00b80155ed2de5b37394a3ac8083c8065adb5f8d91",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
-    "technology-comparison.html": "6fb6a3f08280772669907941b3f60c53bfe466d4083eb4ff5c64bc0b6557ee71",
+    "technology-comparison.html": "cffacf86b20f048fcdbd2a196208bd5c0c97b06732e9c173b64fe7f67bc3c5b8",
     "tools/whitepaper-studio/index.html": "70183e6c25e7831e5b682dcbce386385f75bb64463789cea028ffacd25302962",
     "whitepaper/assets/whitepaper_i18n.js": "6231973db7ec823e5fd6d954c3207c83cc491e32e7adab40d27b42d564da4e05",
     "whitepaper/assets/白皮書.css": "9bab2311e63e26532a7d873765a6bd0c6f5866223b0c3cb3aae2c500e7d8f45d",
@@ -154,5 +154,5 @@ self.NVMOfflineManifest = {
     "首頁互動.css": "6e4035b53fd9832805e3c67339d8af66dc3383f00a4dc93c68a0c5728705714c",
     "首頁導覽.js": "64501ccfac640ac42684a943ece3111a5a065b4f697f64fa47f4e92c3749c796"
   },
-  "totalBytes": 10689683
+  "totalBytes": 10689330
 };

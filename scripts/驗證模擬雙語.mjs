@@ -57,6 +57,9 @@ try {
     yield: document.querySelector('#statDieYield').textContent,
     canvas: window.__labCanvasText,
     mura: ['statUniformity', 'statDeltaE', 'statLutStatus'].map(id => document.getElementById(id).textContent),
+    muraState: document.querySelector('#canvasMura').dataset.state,
+    muraBoundary: document.querySelector('#lab-display-tuner .lab-header > p').innerText.trim(),
+    muraLabels: ['statUniformity', 'statDeltaE'].map(id => document.getElementById(id).closest('.stat-box').querySelector('.stat-label').innerText.trim()),
     trim: ['statTrimVar', 'statYield'].map(id => document.getElementById(id).textContent),
     tooltip: document.querySelector('#btnToggleTrimView').title,
     timing: document.querySelector('#waveformTimingTrack').textContent,
@@ -142,18 +145,30 @@ try {
       await roundTrip(language, 'insufficient');
       assert.equal((await read()).yield, language === 'zh' ? '未通過 (0%)' : 'FAIL (0%)');
     });
-    await check(`${language}：De-Mura 圖例與數值在補償前後保持語系`, async () => {
-      for (const corrected of [false, true]) {
-        if (corrected) await page.locator('#btnToggleMura').click();
+    await check(`${language}：De-Mura 補償前後與還原保留雙語固定假設、非量測界線`, async () => {
+      let wasCorrected = false;
+      for (const corrected of [false, true, false]) {
+        if (corrected !== wasCorrected) await page.locator('#btnToggleMura').click();
+        wasCorrected = corrected;
         for (const lang of [language, language === 'zh' ? 'en' : 'zh', language]) {
           if ((await read()).language !== lang) await switchLanguage();
           const state = await read();
           const expected = lang === 'zh'
-            ? (corrected ? ['99.4%（已補償）', '0.45（難以察覺）', '已啟用 (64Kb)'] : ['74.2%（原始 Mura）', '3.8（嚴重）', '未啟用補償'])
-            : (corrected ? ['99.4% (Compensated)', '0.45 (Imperceptible)', 'ACTIVE (64Kb)'] : ['74.2% (Raw Mura)', '3.8 (Severe)', 'BYPASS']);
+            ? (corrected ? ['99.4%（固定假設 · 非量測）', '0.45（固定假設 · 非量測）', '已啟用 (64Kb)'] : ['74.2%（固定假設 · 非量測）', '3.8（固定假設 · 非量測）', '未啟用補償'])
+            : (corrected ? ['99.4% (fixed assumption · not measured)', '0.45 (fixed assumption · not measured)', 'ACTIVE (64Kb)'] : ['74.2% (fixed assumption · not measured)', '3.8 (fixed assumption · not measured)', 'BYPASS']);
           assert.deepEqual(state.mura, expected);
+          assert.equal(state.muraState, corrected ? 'corrected' : 'raw');
+          assert.deepEqual(state.muraLabels, lang === 'zh'
+            ? ['光學均勻度（固定假設）', '色偏 ΔE（固定假設）']
+            : ['UNIFORMITY (FIXED ASSUMPTION)', 'ΔE (FIXED ASSUMPTION)']);
+          assert.equal(state.muraBoundary, lang === 'zh'
+            ? '左側滑動調節 Gamma 曲線與觀察色階輸出；右側 De-Mura 均勻度／ΔE 為固定假設示意（74.2%→99.4%、3.8→0.45），非光學量測。'
+            : 'Left: Gamma curve tuner. Right: De-Mura uniformity/ΔE uses fixed teaching assumptions (74.2%→99.4%, 3.8→0.45) — not optical measurement.');
           assert.equal(state.canvas.canvasMura.length, 1);
           assert.equal(cjk.test(state.canvas.canvasMura.join(' ')), lang === 'zh');
+          assert.deepEqual(state.canvas.canvasMura, [lang === 'zh'
+            ? (corrected ? '✓ 已套用 De-Mura LUT（亮度均勻）' : '⚠ 偵測到原始 Mura 亮度不均')
+            : (corrected ? '✓ DE-MURA LUT APPLIED (UNIFORM)' : '⚠ RAW MURA UNEVENNESS DETECTED')]);
           snapshots.push(state);
         }
       }
