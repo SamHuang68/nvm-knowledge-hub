@@ -5206,7 +5206,7 @@
         "kind": "晶圓代工官方製程文件",
         "date": "2024-11",
         "locator": "Power Management & Embedded NVM 節",
-        "claim": "採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為閘極間能帶熱電洞 (BBT)，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。",
+        "claim": "採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為能帶間穿隧 (BBT) 電洞，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。",
         "evidence": "已核讀官方技術規格頁面",
         "limit": "單層多晶矽適合中低容量 PMIC/BMS 修調；機制依 Tower 一次來源為 CHE/BBT，非 FN/FN。",
         "accessedAt": "2026-09-17"
@@ -6505,7 +6505,7 @@
         "family": "NOR / eFlash / SONOS",
         "role": "專用類比與高壓 BCD 代工平台",
         "maturity": "0.18µm 與 65nm BCD 平台已公開；官方文件提及 Grade 0 保持敘述，但環境溫度 Ta 與接面 Tj 試驗條件須分開，不得把 175°C 一律等同整體認證。",
-        "claim": "採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為閘極間能帶熱電洞 (BBT)，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。",
+        "claim": "採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為能帶間穿隧 (BBT) 電洞，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。",
         "limit": "單層多晶矽結構位元面積較大，主要鎖定 1Kb~512Kb 之高壓 PMIC、車用電池管理系統 (BMS)、閘極驅動器與類比修調 (Trimming)，非大容量代碼儲存。",
         "dateLabel": "2024–2026 製程量產規格",
         "search": "Tower Semiconductor 高塔半導體 Y-Flash eFlash MTP BCD 0-Mask 175C Grade 0 PMIC",
@@ -9519,7 +9519,7 @@
       "kind": "晶圓代工官方製程文件",
       "date": "2024-11",
       "locator": "Power Management & Embedded NVM 節",
-      "claim": "採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為閘極間能帶熱電洞 (BBT)，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。",
+      "claim": "採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為能帶間穿隧 (BBT) 電洞，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。",
       "evidence": "已核讀官方技術規格頁面",
       "limit": "單層多晶矽適合中低容量 PMIC/BMS 修調；機制依 Tower 一次來源為 CHE/BBT，非 FN/FN。",
       "accessedAt": "2026-09-17"

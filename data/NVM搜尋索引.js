@@ -711,7 +711,7 @@ window.NVMTopicIndex = [
     "title_zh": "Tower Semiconductor 高塔半導體 · Y-Flash 0-Mask eFlash / MTP",
     "title_en": "Tower Semiconductor · Y-Flash 0-Mask eFlash / MTP",
     "url": "NVM技術全景.html#company-tower-yflash",
-    "tags": "Tower Semiconductor Y-Flash 0-Mask eFlash / MTP Single-poly floating gate; per Tower's public NVM brief and arXiv:2202.10228, program uses channel hot-electron injection (CHE) and erase uses band-to-band-tunneling (BBT) holes — not FN/FN. Zero mask adders integrate with Tower HV BCD/power platforms; public briefs cite 1K–10K endurance and high-temperature retention; name Ta, Tj, and AEC-Q100 qualification per product. Tower Semiconductor Y-Flash eFlash MTP BCD 0-Mask 175C Grade 0 PMIC 採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為閘極間能帶熱電洞 (BBT)，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。"
+    "tags": "Tower Semiconductor Y-Flash 0-Mask eFlash / MTP Single-poly floating gate; per Tower's public NVM brief and arXiv:2202.10228, program uses channel hot-electron injection (CHE) and erase uses band-to-band-tunneling (BBT) holes — not FN/FN. Zero mask adders integrate with Tower HV BCD/power platforms; public briefs cite 1K–10K endurance and high-temperature retention; name Ta, Tj, and AEC-Q100 qualification per product. Tower Semiconductor Y-Flash eFlash MTP BCD 0-Mask 175C Grade 0 PMIC 採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為能帶間穿隧 (BBT) 電洞，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。"
   },
   {
     "title_zh": "Weebit Nano · Embedded ReRAM (OxRAM) & analog CIM research",

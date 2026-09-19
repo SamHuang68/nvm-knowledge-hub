@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 const yflashClaimZh =
-  '採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為閘極間能帶熱電洞 (BBT)，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。';
+  '採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為能帶間穿隧 (BBT) 電洞，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。';
 const yflashClaimEn =
   "Single-poly floating gate; per Tower's public NVM brief and arXiv:2202.10228, program uses channel hot-electron injection (CHE) and erase uses band-to-band-tunneling (BBT) holes — not FN/FN. Zero mask adders integrate with Tower HV BCD/power platforms; public briefs cite 1K–10K endurance and high-temperature retention; name Ta, Tj, and AEC-Q100 qualification per product.";
 const yflashMaturityZh =

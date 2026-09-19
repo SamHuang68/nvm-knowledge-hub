@@ -1021,8 +1021,8 @@
 </div>
 <div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">紀錄</span><span data-lang="en">SAFETY LOG</span></span><span class="chip-v cyan"><span data-lang="zh">電池阻抗黑盒子查表</span><span data-lang="en">CELL IMPEDANCE LUT</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">車規</span><span data-lang="en">QUALIFICATION</span></span><span class="chip-v green"><span data-lang="zh">AEC-Q100 Grade 0 詞彙（非認證）</span><span data-lang="en">AEC-Q100 Grade 0 vocabulary (not a certification claim)</span></span></div></div>
 <div style="padding: 6px 8px; font-size: 10px; color: #94a3b8; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 8px;">
-<span data-lang="zh"><strong>SEooC 假定使用 (AoU)：</strong> 支援 ASIL-D 系統化能力 (SC3) 詞彙（非 READY 認證）。BMS AFE 電池阻抗 LUT 查表需配合系統級週期巡檢 (<em>T</em><sub>scrub</sub> &le; <em>T</em><sub>latent_budget</sub>)，以落實潛伏故障度量 <code>LFM &ge; 90%</code> 要求。</span>
-<span data-lang="en"><strong>SEooC AoU:</strong> Supports ASIL-D SC3 systematic-capability vocabulary (not a READY certification). BMS AFE impedance LUT requires system-level periodic scrubbing (<em>T</em><sub>scrub</sub> &le; <em>T</em><sub>latent_budget</sub>) to fulfill <code>LFM &ge; 90%</code> latent fault metric constraints.</span>
+<span data-lang="zh"><strong>SEooC 假定使用 (AoU)：</strong> 可使用 ASIL-D／SC3 <strong>詞彙</strong>（非 READY 認證）；<code>LFM</code> 等度量須以具名 FMEDA 與 <em>T</em><sub>scrub</sub> 等 AoU 關閉，不得由本頁敘述直接推出。</span>
+<span data-lang="en"><strong>SEooC AoU:</strong> ASIL-D/SC3 <strong>vocabulary</strong> only (not READY certification); metrics such as <code>LFM</code> require named FMEDA and AoU bounds such as <em>T</em><sub>scrub</sub> — do not infer certification from this page.</span>
 </div>
 </div>
 </div>
@@ -2349,8 +2349,8 @@
 <span data-lang="en">High-Voltage Display Optical Tuner (Gamma 2.2, Vcom Anti-Flicker &amp; De-Mura)</span>
 </h3>
 <p>
-<span data-lang="zh">左側滑動調節 Gamma 曲線與觀察色階輸出；右側切換 De-Mura 補償開關，直觀檢驗載入 NVM Gain LUT 前後的 OLED 均勻度對比。</span>
-<span data-lang="en">Left: Real-time Gamma curve and color strip tuner. Right: Toggle De-Mura compensation to observe how NVM gain tables eliminate OLED brightness non-uniformities.</span>
+<span data-lang="zh">左側滑動調節 Gamma 曲線與觀察色階輸出；右側 De-Mura 均勻度／ΔE 為<strong>固定假設示意</strong>（74.2%→99.4%、3.8→0.45），非光學量測。</span>
+<span data-lang="en">Left: Gamma curve tuner. Right: De-Mura uniformity/ΔE uses <strong>fixed teaching assumptions</strong> (74.2%→99.4%, 3.8→0.45) — not optical measurement.</span>
 </p>
 </div>
 <div class="lab-body-grid">
@@ -2391,12 +2391,12 @@
 </div>
 <div class="lab-stat-row">
 <div class="stat-box">
-<span class="stat-label"><span data-lang="zh">光學均勻度</span><span data-lang="en">Uniformity</span></span>
-<span class="stat-val text-cyan" id="statUniformity"><span data-lang="zh">74.2%（原始 Mura）</span><span data-lang="en">74.2% (Raw Mura)</span></span>
+<span class="stat-label"><span data-lang="zh">光學均勻度（固定假設）</span><span data-lang="en">Uniformity (fixed assumption)</span></span>
+<span class="stat-val text-cyan" id="statUniformity"><span data-lang="zh">74.2%（示意 · 非量測）</span><span data-lang="en">74.2% (illustrative · not measured)</span></span>
 </div>
 <div class="stat-box">
-<span class="stat-label"><span data-lang="zh">色偏 (Delta E)</span><span data-lang="en">Color Error ΔE</span></span>
-<span class="stat-val text-warn" id="statDeltaE"><span data-lang="zh">3.8（嚴重）</span><span data-lang="en">3.8 (Severe)</span></span>
+<span class="stat-label"><span data-lang="zh">色偏 ΔE（固定假設）</span><span data-lang="en">ΔE (fixed assumption)</span></span>
+<span class="stat-val text-warn" id="statDeltaE"><span data-lang="zh">3.8（示意 · 非量測）</span><span data-lang="en">3.8 (illustrative · not measured)</span></span>
 </div>
 <div class="stat-box">
 <span class="stat-label"><span data-lang="zh">NVM 查表狀態</span><span data-lang="en">NVM Status</span></span>

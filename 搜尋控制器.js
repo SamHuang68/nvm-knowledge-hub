@@ -64,7 +64,7 @@ window.__NVM_SEARCH_ENHANCED = true;
     if (document.querySelector('link[href*="全站搜尋.css"]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = new URL('全站搜尋.css?v=20260917-r4', ROOT).href;
+    link.href = new URL('全站搜尋.css?v=20260920-spot', ROOT).href;
     document.head.append(link);
   }
   function ensureShell() {

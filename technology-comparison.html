@@ -265,7 +265,7 @@
     }
     .f2-hero h1 {
       font-size: clamp(2.2rem, 3.8vw, 3.4rem) !important;
-      font-weight: 700 !important;
+      font-weight: 600 !important;
       line-height: 1.18 !important;
       letter-spacing: -0.03em !important;
       margin: 0.5rem 0 1rem !important;
@@ -276,7 +276,7 @@
     .f2-hero h1 em {
       color: #006f70 !important;
       font-style: normal !important;
-      font-weight: 700 !important;
+      font-weight: 600 !important;
     }
     .f2-hero p.lead-desc {
       color: #284853 !important;
@@ -1820,7 +1820,7 @@
 <div class="matrix-cell" data-category="otp" data-row="4" data-tech="fgotp"><b><span data-lang="zh">I/O 裝置視窗</span><span data-lang="en">I/O device window</span></b><span class="cell-note"><span data-lang="zh">見註腳 FG-OTP</span><span data-lang="en">See FG-OTP footnote</span></span></div>
 <div class="matrix-cell focus-tech" data-category="otp" data-row="4" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">隨 core 閘氧</span><span data-lang="en">Tracks core oxide</span></b><span class="cell-note"><span data-lang="zh">數倍 core Vdd</span><span data-lang="en">Several × core Vdd</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="4" data-tech="ldmtp"><b><span data-lang="zh">FN 視窗</span><span data-lang="en">FN window</span></b><span class="cell-note"><span data-lang="zh">低擾動幫浦</span><span data-lang="en">Low-disturb pump</span></span></div>
-<div class="matrix-cell" data-category="mtp" data-row="4" data-tech="hdmtp"><b>CHI + FN</b><span class="cell-note"><span data-lang="zh">寫／抹不同偏壓</span><span data-lang="en">Split write/erase bias</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="4" data-tech="hdmtp"><b><span data-lang="zh">FN + FN（或 CHI/FN）</span><span data-lang="en">FN + FN (or CHI/FN)</span></b><span class="cell-note"><span data-lang="zh">AEON 級 FN 寫抹；NeoMTP 等 CHI/FN — 分流</span><span data-lang="en">AEON-class FN PGM/ERS; NeoMTP-class CHI/FN — split</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="4" data-tech="sst"><b>SSI + HV pump</b><span class="cell-note"><span data-lang="zh">寫 10V+5V／抹 12–15V</span><span data-lang="en">Prog 10V+5V / Ers 12–15V</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="4" data-tech="sonos"><b>FN / HV pump</b><span class="cell-note"><span data-lang="zh">G1／G2 皆 FN／HV；VDD 是讀</span><span data-lang="en">G1/G2 both FN/HV; VDD is read</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="4" data-tech="reram"><b>Forming / SET</b><span class="cell-note"><span data-lang="zh">Forming 2.5V / SET 1.5V</span><span data-lang="en">Forming 2.5V / SET 1.5V</span></span></div>
@@ -1868,7 +1868,7 @@
 <div class="matrix-cell" data-category="otp" data-row="7" data-tech="fgotp"><b><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">OTP 單調</span><span data-lang="en">OTP monotonic</span></span></div>
 <div class="matrix-cell focus-tech" data-category="otp" data-row="7" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">1 次</span><span data-lang="en">1 cycle</span></b><span class="cell-note"><span data-lang="zh">不可逆</span><span data-lang="en">Irreversible</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="7" data-tech="ldmtp"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">家族量級；ZT 本文／表衝突，非保證</span><span data-lang="en">Family class; ZT body/table conflict, not a guarantee</span></span></div>
-<div class="matrix-cell" data-category="mtp" data-row="7" data-tech="hdmtp"><b>10<sup>3</sup>–10<sup>4</sup></b><span class="cell-note"><span data-lang="zh">熱載子注入介面磨耗</span><span data-lang="en">Hot-carrier interface wear</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="7" data-tech="hdmtp"><b>10<sup>3</sup>–10<sup>4</sup></b><span class="cell-note"><span data-lang="zh">FN 穿隧／介面磨耗（AEON 級）；CHI 路線另計</span><span data-lang="en">FN tunneling / interface wear (AEON-class); CHI routes differ</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="7" data-tech="sst"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">氧化層磨耗</span><span data-lang="en">Oxide wear</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="7" data-tech="sonos"><b>10<sup>4</sup>–10<sup>5</sup></b><span class="cell-note"><span data-lang="zh">捕捉層磨耗；G2 開發中，非量產保證</span><span data-lang="en">Trap-layer wear; G2 in development, not a production guarantee</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="7" data-tech="reram"><b>10<sup>5</sup>–10<sup>6</sup></b><span class="cell-note"><span data-lang="zh">細絲磨耗</span><span data-lang="en">Filament wear</span></span></div>
@@ -2909,7 +2909,7 @@
       <div class="rm-header-narrative">
         <p class="rm-lead">
           <span data-lang="zh">非揮發性記憶體（OTP、MTP、eFlash、MRAM）在微架構層級的讀取拓樸，直接決定了晶片的<strong>感測餘裕（Sense Margin）</strong>、<strong>PVT 溫漂容忍度</strong>、<strong>位元胞面積開銷（Area Overhead）</strong>與<strong>一階差分功耗分析（DPA/CPA）側信道防護邊界</strong>。下圖展示業界主流的四種抽象讀取電路拓樸：從最精簡的單端外部參考，到具備雙軌電流對消與零缺陷容錯的互補差動冗餘架構。</span>
-          <span data-lang="en">At the microarchitectural level, the non-volatile memory read topology dictates the <strong>sense margin</strong>, <strong>PVT drift resilience</strong>, <strong>bitcell area overhead</strong>, and <strong>first-order DPA/CPA side-channel attenuation boundary</strong>. The architectural sketches below classify the four primary silicon read topologies: ranging from area-optimized single-ended reference sensing to complementary dual-rail redundant schemes with zero-defect fault tolerance.</span>
+          <span data-lang="en">At the microarchitectural level, the non-volatile memory read topology dictates the <strong>sense margin</strong>, <strong>PVT drift resilience</strong>, <strong>bitcell area overhead</strong>, and <strong>first-order DPA/CPA side-channel attenuation boundary</strong>. The architectural sketches below classify four read topologies — from single-ended reference sensing to differential+redundant schemes that may tolerate <em>modeled</em> single-point faults (not zero-defect certification).</span>
           <span data-lang="zh" style="display:block;margin-top:8px;"><strong>教學邊界：</strong>固定 dB、0-ppm、175°C 或 ASIL/CC 等級僅能在具名產品／FMEDA 出現，不得由架構圖直接推出。</span>
           <span data-lang="en" style="display:block;margin-top:8px;"><strong>Teaching boundary:</strong> Fixed dB, 0-ppm, 175°C, or ASIL/CC tiers require named products/FMEDA — not inference from cartoons alone.</span>
         </p>
@@ -3559,8 +3559,8 @@
               <span data-lang="en">04 · Differential + Redundant Read</span>
             </h3>
             <span class="rm-tag tag-purple">
-              <span data-lang="zh">4T 四元陣列 · 零缺陷 · 零外部參考</span>
-              <span data-lang="en">4T Cell · Zero-Defect · Zero-Ref</span>
+              <span data-lang="zh">4T 四元陣列 · 教學冗餘 · 零外部參考</span>
+              <span data-lang="en">4T Cell · Teaching redundancy · Zero-Ref</span>
             </span>
           </div>
           <div class="rm-svg-wrap">
@@ -3635,8 +3635,8 @@
           </div>
           <div class="rm-body">
             <p class="rm-principle">
-              <span data-lang="zh"><strong>運作原理：</strong>最高等級的強韌讀取拓樸。互補真值軌與補值軌各自配置 ≥2 個單元並聯，同時具備差動放大器對消自洽感測。單一單元接觸不良或微絲退化完全不影響整組讀取結果。</span>
-              <span data-lang="en"><strong>Operating Principle:</strong> Ultimate-reliability sensing topology. True and complementary rails each feature ≥2 parallel bitcells feeding into a differential sense amplifier. A failing filament or contact defect causes zero functional impact.</span>
+              <span data-lang="zh"><strong>運作原理：</strong>互補真值軌與補值軌各自配置 ≥2 個單元並聯，並以差動放大器對消自洽感測 — 針對<strong>已建模</strong>的單點失效可能提供容錯；未建模的共通路徑、短路或匹配失效仍可能影響讀取。</span>
+              <span data-lang="en"><strong>Operating Principle:</strong> True and complementary rails each use ≥2 parallel bitcells into a differential sense amplifier — may tolerate <em>modeled</em> single-cell faults; unmodeled common-path, short, or mismatch failures can still affect readout.</span>
             </p>
             <div class="rm-props-grid">
               <div class="rm-props-item">
@@ -3725,7 +3725,7 @@
               <td><span data-lang="zh">類比 Trim、晶圓 ID、配置位元</span><span data-lang="en">Analog trim, Wafer ID, config bits</span></td>
               <td><span data-lang="zh">BISR 修復、工規韌體指標</span><span data-lang="en">BISR repair, industrial boot flags</span></td>
               <td><span data-lang="zh">晶片硬體信任根、AES 金鑰</span><span data-lang="en">Hardware Root of Trust, AES keys</span></td>
-              <td><strong><span data-lang="zh">車規 ASIL-D、金融防篡改 RoT</span><span data-lang="en">Automotive ASIL-D, Anti-tamper RoT</span></strong></td>
+              <td><strong><span data-lang="zh">高可靠 RoT 候選（須具名 FMEDA／產品）</span><span data-lang="en">High-assurance RoT candidate (named FMEDA/product)</span></strong></td>
             </tr>
           </tbody>
         </table>

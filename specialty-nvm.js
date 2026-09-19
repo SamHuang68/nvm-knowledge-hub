@@ -850,17 +850,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!btnToggleMura) return;
     canvasMura.dataset.state = isMuraCorrected ? 'corrected' : 'raw';
     if (isMuraCorrected) {
-      statUniformity.textContent = labText('99.4%（已補償）', '99.4% (Compensated)');
+      statUniformity.textContent = labText('99.4%（固定假設 · 非量測）', '99.4% (fixed assumption · not measured)');
       statUniformity.className = 'stat-val text-green';
-      statDeltaE.textContent = labText('0.45（難以察覺）', '0.45 (Imperceptible)');
+      statDeltaE.textContent = labText('0.45（固定假設 · 非量測）', '0.45 (fixed assumption · not measured)');
       statDeltaE.className = 'stat-val text-cyan';
       statLutStatus.textContent = labText('已啟用 (64Kb)', 'ACTIVE (64Kb)');
       statLutStatus.className = 'stat-val text-green';
       btnToggleMura.textContent = currentLang === 'zh' ? '🔄 移除 De-Mura LUT 補償' : '🔄 Bypass De-Mura LUT';
     } else {
-      statUniformity.textContent = labText('74.2%（原始 Mura）', '74.2% (Raw Mura)');
+      statUniformity.textContent = labText('74.2%（固定假設 · 非量測）', '74.2% (fixed assumption · not measured)');
       statUniformity.className = 'stat-val text-warn';
-      statDeltaE.textContent = labText('3.8（嚴重）', '3.8 (Severe)');
+      statDeltaE.textContent = labText('3.8（固定假設 · 非量測）', '3.8 (fixed assumption · not measured)');
       statDeltaE.className = 'stat-val text-warn';
       statLutStatus.textContent = labText('未啟用補償', 'BYPASS');
       statLutStatus.className = 'stat-val text-cyan';
