@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadPublicRoutes, assertDeclaredHtml } from "./公開路由.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicBase = new URL("https://samhuang68.github.io/nvm-knowledge-hub/");
@@ -66,6 +67,7 @@ export function resolveReference(value, page, baseHref) {
 }
 
 export function collectPages(siteRoot) {
+  const routes = loadPublicRoutes(siteRoot);
   const pages = fs.readdirSync(siteRoot, { withFileTypes: true }).filter(entry => entry.isFile() && /\.html?$/iu.test(entry.name)).map(entry => entry.name);
   const walk = relative => {
     const directory = path.join(siteRoot, relative);
@@ -78,10 +80,12 @@ export function collectPages(siteRoot) {
     }
   };
   publicDirectories.forEach(walk);
-  return pages.sort();
+  pages.forEach(page => assertDeclaredHtml(routes, page));
+  return [...routes.pages].sort();
 }
 
 export async function inspectSite(siteRoot = root) {
+  const routes = loadPublicRoutes(siteRoot);
   const pages = collectPages(siteRoot);
   const documents = new Map(pages.map(page => [page, parseHtml(fs.readFileSync(path.join(siteRoot, page), "utf8"))]));
   const failures = new Set();
@@ -139,6 +143,10 @@ export async function inspectSite(siteRoot = root) {
   }
 
   for (const [page, document] of documents) inspectDocument(page, document);
+  // 片段仍驗證連結與錨點；只有完整文件才需要品牌首頁入口。
+  for (const [fragment, contract] of routes.fragments) {
+    inspectDocument(contract.ownerPage, parseHtml(fs.readFileSync(path.join(siteRoot, fragment), "utf8")), true);
+  }
   const home = documents.get("index.html");
   const catalog = JSON.parse(fs.readFileSync(path.join(root,"data/NVM知識目錄.json"),"utf8"));
   const layers = Object.fromEntries(catalog.sections.map(section=>[`layer-${section.id}`,section.items.map(item=>item.url)]));
@@ -194,7 +202,7 @@ export async function inspectSite(siteRoot = root) {
     try {
       await new Promise((resolve, reject) => { server.once("error", reject); server.listen(0, "127.0.0.1", resolve); });
       const origin = `http://127.0.0.1:${server.address().port}`;
-      browser = await chromium.launch({ headless: true });
+      browser = await chromium.launch({ headless: true, ...(process.env.NVM_QA_BROWSER && process.env.NVM_QA_BROWSER !== 'chromium' ? { channel: process.env.NVM_QA_BROWSER } : {}) });
       const context = await browser.newContext({ serviceWorkers: "block" });
       await context.route("**/*", route => new URL(route.request().url()).origin === origin ? route.continue() : route.abort());
       for (const reference of pending) {
@@ -223,7 +231,7 @@ export async function inspectSite(siteRoot = root) {
       await new Promise(resolve => server.close(resolve));
     }
   }
-  return { pages, references, renderedRoutes, failures: [...failures] };
+  return { pages, fragments: [...routes.fragments.keys()], references, renderedRoutes, failures: [...failures] };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
@@ -232,6 +240,6 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     console.error(result.failures.join("\n"));
     process.exitCode = 1;
   } else {
-    console.log(`通過：${result.pages.length} 個公開頁面、${result.references} 個參照及 ${result.renderedRoutes} 個動態錨點路由；本機路徑、錨點、中英頁面、品牌首頁連結與四類主題導覽均有效。`);
+    console.log(`通過：${result.pages.length} 個公開頁面、${result.fragments.length} 個明列片段、${result.references} 個參照及 ${result.renderedRoutes} 個動態錨點路由；本機路徑、錨點、中英頁面、品牌首頁連結與四類主題導覽均有效。`);
   }
 }

@@ -59,7 +59,7 @@ try{
    await page.locator('.language-toggle').click();await page.waitForFunction(()=>document.getElementById('ip-op-neoee-erase')?.checkVisibility());
    note(new URL(page.url()).hash==='#ip-op-neoee-erase','切換語言保留具名 IP 與操作',{language,width});
    await page.goto(new URL('index.html?lang='+language,base).href,{waitUntil:'networkidle'});
-   await page.locator('#searchTrigger').click();await page.locator('#searchInput').fill('NeoBit');
+   await page.locator('#searchTrigger').click();await page.locator('#searchOverlay input[type="search"]').fill('NeoBit');
    const searchResult=page.locator('#searchResults a[href*="#ip-neobit"]').first();
    await searchResult.waitFor({state:'visible'});await searchResult.click();
    await page.waitForFunction(()=>location.hash==='#ip-neobit'&&!document.getElementById('ip-neobit').hidden);

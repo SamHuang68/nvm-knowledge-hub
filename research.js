@@ -107,6 +107,33 @@ function renderEvidenceCards() {
   if (empty) empty.hidden = visible !== 0;
 }
 
+function revealEvidenceAnchor() {
+  let id;
+  try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+  const target = document.getElementById(id);
+  if (!target?.classList.contains("source-card")) return;
+  if (target.hidden) {
+    activeEvidenceType = "all";
+    const search = document.querySelector("#evidenceSearch");
+    if (search) search.value = "";
+    document.querySelectorAll("#evidenceFilters button[data-type]").forEach(button => {
+      const active = button.dataset.type === "all";
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    renderEvidenceCards();
+  }
+  for (let ancestor = target.parentElement; ancestor; ancestor = ancestor.parentElement) {
+    if (ancestor.tagName === "DETAILS") ancestor.open = true;
+  }
+  if (!target.hasAttribute("tabindex")) target.tabIndex = -1;
+  target.focus({ preventScroll: true });
+  target.scrollIntoView({ block: "start" });
+}
+
+window.addEventListener("hashchange", revealEvidenceAnchor);
+window.addEventListener("hub:reveal-anchor", revealEvidenceAnchor);
+
 window.addEventListener("hub:language-change", e => { if (typeof setResearchLanguage === "function") setResearchLanguage(e.detail.language); });
 document.querySelectorAll(".state-lab-controls button").forEach(button => button.addEventListener("click", () => updateResearchPhase(button.dataset.phase)));
 document.querySelector("#evidenceSearch")?.addEventListener("input", renderEvidenceCards);
@@ -177,5 +204,6 @@ window.addEventListener("scroll", updateResearchScroll, { passive: true });
 window.addEventListener("resize", updateResearchScroll);
 
 setResearchLanguage(researchLanguage, false);
+revealEvidenceAnchor();
 updateResearchPhase("off");
 updateResearchScroll();

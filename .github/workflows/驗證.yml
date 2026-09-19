@@ -1,0 +1,50 @@
+name: 知識中心完整驗證
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    name: 生成一致性與瀏覽器回歸
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NVM_QA_BROWSER: chromium
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            tools/whitepaper-studio/package-lock.json
+      - name: 安裝鎖定相依套件
+        run: |
+          npm ci
+          npm ci --prefix tools/whitepaper-studio
+          npx playwright install --with-deps chromium
+      - name: 驗證已提交來源與產物
+        run: npm run check
+      - name: 重新建置並確認沒有差異
+        run: |
+          npm run build
+          git diff --exit-code
+          test -z "$(git ls-files --others --exclude-standard)"
+      - name: 驗證修正與失敗情境
+        env:
+          NVM_QA_BROWSER: chromium
+        run: |
+          npm run qa:regression
+          npm test --prefix tools/whitepaper-studio
+      - name: 保存本次驗證證據
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: 瀏覽器驗證證據
+          path: qa/
+          if-no-files-found: ignore

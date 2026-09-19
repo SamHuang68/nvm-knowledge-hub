@@ -36,8 +36,8 @@
   <title>NVM Whitepaper &amp; Decision Studio · NVM Knowledge Hub</title>
 
   <link rel="stylesheet" href="../site-shell.css?v=20260916-keepout">
-  <script type="module" crossorigin src="./assets/index-_SFXHrp_.js?v=20260910-mtp"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-D9MQ5Guq.css?v=20260906-navy-v3">
+  <script type="module" crossorigin src="./assets/白皮書.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/白皮書.css">
   <script src="./assets/whitepaper_i18n.js?v=20260910-neomtp"></script>
 
   <style id="studio-typography-override">
@@ -300,7 +300,7 @@
     <section class="content-section" aria-labelledby="contracts-title">
       <div class="section-label"><span>01</span><div><p>STATE CONTRACTS</p><h3 id="contracts-title">Four persistent-state promises</h3></div></div>
       <div class="contract-grid">
-        
+
           <article class="contract-card">
             <div class="contract-index"><span>01</span><i aria-hidden="true"></i></div>
             <p class="micro-label">Program once; verify throughout life</p>
@@ -309,7 +309,7 @@
             <dl><div><dt>OWNER</dt><dd>Provisioning authority</dd></div><div><dt>DECISION QUESTION</dt><dd>Can the state ever be rotated, revoked or recovered?</dd></div></dl>
             <p class="evidence-note"><b>LIMIT</b>Threat model and provisioning flow must be explicit before selecting OTP.</p>
           </article>
-        
+
           <article class="contract-card">
             <div class="contract-index"><span>02</span><i aria-hidden="true"></i></div>
             <p class="micro-label">Rare, controlled updates</p>
@@ -318,7 +318,7 @@
             <dl><div><dt>OWNER</dt><dd>Manufacturing or hardware controller</dd></div><div><dt>DECISION QUESTION</dt><dd>How many updates are required after test, package and field aging?</dd></div></dl>
             <p class="evidence-note"><b>LIMIT</b>Endurance, write energy and high-voltage availability are use-case specific.</p>
           </article>
-        
+
           <article class="contract-card">
             <div class="contract-index"><span>03</span><i aria-hidden="true"></i></div>
             <p class="micro-label">Managed change with rollback or recovery</p>
@@ -327,7 +327,7 @@
             <dl><div><dt>OWNER</dt><dd>Secure update service</dd></div><div><dt>DECISION QUESTION</dt><dd>Does capacity and update frequency justify an embedded array?</dd></div></dl>
             <p class="evidence-note"><b>LIMIT</b>Separate code-storage needs from immutable security state.</p>
           </article>
-        
+
           <article class="contract-card">
             <div class="contract-index"><span>04</span><i aria-hidden="true"></i></div>
             <p class="micro-label">Repeated writes over system life</p>
@@ -336,14 +336,14 @@
             <dl><div><dt>OWNER</dt><dd>Platform controller</dd></div><div><dt>DECISION QUESTION</dt><dd>Which state must survive power loss, service events or module replacement?</dd></div></dl>
             <p class="evidence-note"><b>LIMIT</b>System retention and recovery may be more important than bit-cell density.</p>
           </article>
-        
+
       </div>
     </section>
 
     <section class="content-section technology-section" aria-labelledby="technology-title">
       <div class="section-label"><span>02</span><div><p>TECHNOLOGY FAMILIES</p><h3 id="technology-title">Compare by fit and boundary</h3></div></div>
       <div class="technology-list">
-        
+
           <article>
             <span class="technology-number">01</span>
             <div class="technology-name"><p>Architecture baseline</p><h4>OTP</h4><span>One-time physical state transition</span></div>
@@ -351,7 +351,7 @@
             <div><small>PROCESS LENS</small><p>Broad logic-node reach; implementation is provider specific</p></div>
             <div class="technology-limit"><small>BOUNDARY</small><p>A written bit cannot become an update policy by itself</p></div>
           </article>
-        
+
           <article>
             <span class="technology-number">02</span>
             <div class="technology-name"><p>Public evidence needed per process</p><h4>Embedded MTP IP</h4><span>Reprogrammable on-chip state; may use EEPROM storage</span></div>
@@ -359,7 +359,7 @@
             <div><small>PROCESS LENS</small><p>EEPROM-based IP depends on high-voltage and oxide options</p></div>
             <div class="technology-limit"><small>BOUNDARY</small><p>An embedded macro, distinct from external standalone EEPROM; endurance, programming supply and retention need joint qualification</p></div>
           </article>
-        
+
           <article>
             <span class="technology-number">03</span>
             <div class="technology-name"><p>Node-specific decision</p><h4>Embedded Flash</h4><span>Dedicated embedded charge-storage integration</span></div>
@@ -367,7 +367,7 @@
             <div><small>PROCESS LENS</small><p>Commercial fit is shaped by mask cost and process-development complexity</p></div>
             <div class="technology-limit"><small>BOUNDARY</small><p>Node migration is an economics and integration decision—not a simple shrink</p></div>
           </article>
-        
+
           <article>
             <span class="technology-number">04</span>
             <div class="technology-name"><p>Evidence varies by platform</p><h4>MRAM / ReRAM</h4><span>Magnetic or resistive state</span></div>
@@ -375,7 +375,7 @@
             <div><small>PROCESS LENS</small><p>Foundry module, density and qualification status dominate</p></div>
             <div class="technology-limit"><small>BOUNDARY</small><p>Availability does not automatically establish application readiness</p></div>
           </article>
-        
+
           <article>
             <span class="technology-number">05</span>
             <div class="technology-name"><p>Companion architecture</p><h4>SRAM PUF + crypto</h4><span>Power-up-derived secret plus cryptographic protection</span></div>
@@ -383,22 +383,22 @@
             <div><small>PROCESS LENS</small><p>System architecture rather than a peer storage medium</p></div>
             <div class="technology-limit"><small>BOUNDARY</small><p>Reliability, helper data and attack assurance still require validation</p></div>
           </article>
-        
+
       </div>
     </section>
 
     <section class="content-section" aria-labelledby="node-title">
       <div class="section-label"><span>03</span><div><p>PROCESS-NODE LENS</p><h3 id="node-title">What changes as the process changes</h3></div></div>
       <div class="node-lens-grid">
-        
+
           <article><p>MATURE & SPECIALTY</p><h4>Start with the available voltage and device stack</h4><span>For power, BCD, sensor and interface products, I/O devices and programming-voltage generation often define the feasible NVM set before density does.</span><strong>Validate I/O voltage, charge pump, test flow and retention together.</strong></article>
-        
+
           <article><p>eFLASH TRANSITION</p><h4>Treat scaling as an integration-economics boundary</h4><span>Conventional embedded-flash commercialization is widely associated with the 28 nm generation. Crossing that boundary is not a hard physics cliff; mask count, development effort and manufacturing economics shape adoption.</span><strong>Keep vendor-specific mask-stack detail in the internal evidence layer.</strong></article>
-        
+
           <article><p>ADVANCED NODE</p><h4>Decouple read supply from program infrastructure</h4><span>A single-VDD read path can simplify always-on and low-voltage domains, while programming may still require an I/O-derived foundation for an internal charge pump.</span><strong>Specify read and program power contracts separately.</strong></article>
-        
+
           <article><p>LEADING EDGE & CHIPLET</p><h4>Move from one macro to a distributed state architecture</h4><span>Identity, repair, calibration, firmware and operational logs may reside in different dies or controllers. The selection unit becomes the system state contract, not a single NVM array.</span><strong>Define ownership, trust boundary and recovery before technology.</strong></article>
-        
+
       </div>
       <aside class="calibration-boundary">
         <p>PUBLIC / INTERNAL BOUNDARY</p>
@@ -414,7 +414,7 @@
       </ol>
       <a class="inline-cta" href="?view=selector">Apply the sequence in the Decision Matrix <span aria-hidden="true">↗</span></a>
     </section>
-  
+
       </section>
       <section id="panel-whitepaper" class="studio-panel" role="tabpanel" aria-labelledby="tab-whitepaper" hidden>
 
@@ -427,114 +427,55 @@
     <div class="reader-layout">
       <aside class="reader-index">
         <p>CHAPTER INDEX</p>
-        <nav aria-label="Whitepaper chapters" data-aria-en="Whitepaper chapters" data-aria-zh="白皮書章節導覽">
+        <nav aria-label="Whitepaper chapters">
           <a href="#chap-state-contract"><b>01</b><span>Begin With the State Contract</span></a><a href="#chap-technology-boundaries"><b>02</b><span>Map Technology Families to the Contract</span></a><a href="#chap-node-boundary"><b>03</b><span>Treat Node Migration as an Integration Decision</span></a><a href="#chap-decision-evidence"><b>04</b><span>Make the Decision Evidence-Aware</span></a><a href="#chap-enterprise-transfer"><b>05</b><span>Transfer the Knowledge, Not Just the Page</span></a>
         </nav>
         <div class="reader-boundary"><b>PUBLIC EVIDENCE RULE</b><span>Exact specifications require a source, scope and limitation. Otherwise this paper uses architecture-level language.</span></div>
       </aside>
       <div class="paper-body">
-        
+
           <article id="chap-state-contract" class="paper-chapter">
             <header><p>CHAPTER 01</p><h3>Begin With the State Contract</h3><strong>The first decision is not OTP versus MTP. It is the promise the system must keep after power is removed.</strong></header>
             <div class="chapter-copy"><p>Persistent state carries an owner, update cadence, retention obligation, recovery rule and threat boundary. Two bit arrays of similar size can therefore require very different architectures: an immutable lifecycle transition is not governed like a field-updatable calibration table.</p><p>A useful state contract names who may create the state, when it may change, which failures must be recoverable and what evidence proves the contract across process, voltage, temperature and lifecycle conditions.</p></div>
             <div class="chapter-takeaways"><p>ARCHITECTURE TAKEAWAYS</p><ul><li>Define state before technology</li><li>Separate immutability from update policy</li><li>Treat recovery as part of retention</li></ul></div>
             <dl class="evidence-contract"><div><dt>EVIDENCE CLASS</dt><dd>Architecture principle</dd></div><div><dt>LIMITATION</dt><dd>Implementation targets still require product- and process-specific validation.</dd></div></dl>
           </article>
-        
+
           <article id="chap-technology-boundaries" class="paper-chapter">
             <header><p>CHAPTER 02</p><h3>Map Technology Families to the Contract</h3><strong>Each NVM family expresses a different compromise among permanence, updates, density, voltage and process integration.</strong></header>
-            <div class="chapter-copy">
-              <p>
-                <span data-lang="zh">OTP 天然對齊不可變或單向遞增狀態。嵌入式 MTP IP 在主晶片內部提供可重複抹寫的儲存空間，常採用 EEPROM 單元架構。外部獨立 EEPROM 則是分立記憶體元件；相同的儲存物理原理並不意味著相同的系統整合選項。抹寫耐受度、編程能耗與電壓軌需求必須依選定之 IP 實體確認。嵌入式快閃記憶體 (eFlash) 適用於程式碼密集的嵌入式系統，前提是其專屬光罩製程在經濟上具備正當性。MRAM 與 ReRAM 則拓展了先進製程的嵌入式 NVM 組合，但代工廠供應與車規/工規認證仍具高度平台特定性。</span>
-                <span data-lang="en">OTP is naturally aligned with immutable or monotonic state. Embedded MTP IP provides repeatedly programmable storage inside the host chip and may use an EEPROM structure. External standalone EEPROM is a separate memory device; a shared storage principle does not make these the same integration option. Endurance, programming energy and supply requirements must be checked for the selected implementation. Embedded Flash addresses code-rich systems where its process integration is economically justified. MRAM and ReRAM extend the advanced-node portfolio, but availability and qualification remain platform specific.</span>
-              </p>
-              <p>
-                <span data-lang="zh">在先進車用微控制器與邊緣 AI 領域，後段製程 (BEOL) 新興非揮發記憶體正打破傳統 eFlash 在 28nm/22nm 的微縮瓶頸。商業量產實例包含：<strong>英飛凌 (Infineon) 28nm eRRAM (AURIX™ TC4x)</strong>，以 OxRAM 阻變微絲機制獲得 AEC-Q100 Grade 1 認證，具備位元級隨機寫入能力，消除傳統快閃記憶體耗時的區塊抹除延遲；<strong>意法半導體 (STMicroelectronics) 28nm FD-SOI ePCM (Stellar MCU)</strong>，利用 GeSbTe 硫族化物雙分區 (Dual-Bank) 架構實現零停機即時空中升級 (Live OTA)，擺脫外部 QSPI 快閃記憶體之 PCB 匯流排暴露；在資料中心 AI 加速器與企業級 NVMe SSD 中，<strong>Everspin 垂直 pMTJ STT-MRAM</strong> 則提供無電容斷電保護 (Capacitor-Free PLP) 與數十億次抹寫壽命，徹底根除電解電容與超級電容的老化失效率。</span>
-                <span data-lang="en">In automotive MCUs and edge AI, emerging BEOL non-volatile memories are breaking the conventional eFlash scaling wall. Commercial implementations such as <strong>Infineon's 28nm eRRAM (AURIX™ TC4x)</strong> deliver AEC-Q100 Grade 1 qualification with bit-level write granularity, eliminating sector-erase latencies. <strong>STMicroelectronics' 28nm FD-SOI ePCM (Stellar)</strong> introduces dual-bank live over-the-air (OTA) update capabilities without external SPI flash bus exposure. In enterprise accelerators and NVMe storage, <strong>Everspin's perpendicular MTJ (pMTJ) STT-MRAM</strong> provides capacitor-free power loss protection (PLP) and multi-billion-cycle endurance, replacing failure-prone supercapacitors.</span>
-              </p>
-              <p>
-                <span data-lang="zh">SRAM PUF 是伴隨型安全原語，而非對等的儲存媒介。它在開機時利用深次微米元件失配瞬態重建唯一的晶片根密鑰（例如 <strong>Intrinsic ID Quiddikey</strong>），使持久性記憶體僅需存放密文與公開 Helper Data，無需永久存放明文根密鑰。當整合至晶片級硬體信任根子系統時（如 <strong>Synopsys tRoot™</strong> 或 <strong>Rambus CryptoManager™</strong>），純邏輯 1T AntiFuse OTP 在頂層主動金屬屏蔽網 (Active Top-Metal Mesh) 保護下，不可逆地儲存裝置身分憑證與防回滾計數器，抵禦 FIB-PVC 與探針側信道攻擊。</span>
-                <span data-lang="en">SRAM PUF is a companion security primitive rather than a peer non-volatile medium. It derives an ephemeral root secret from deep sub-micron mismatch at power-up (e.g., <strong>Intrinsic ID Quiddikey</strong>), enabling persistent memory to store ciphertext and public helper data rather than a plain key. When integrated into hardware root-of-trust subsystems such as <strong>Synopsys tRoot™</strong> or <strong>Rambus CryptoManager™</strong>, 1T AntiFuse OTP irreversibly holds root certificates and anti-rollback counters under active top-metal mesh protection, thwarting FIB-PVC and scanning probe side-channels.</span>
-              </p>
-              <p>
-                <span data-lang="zh">架構導覽連結：檢視已驗證的 <a href="../secure-storage.html#sec-subsystems">晶片硬體信任根安全子系統整合</a> 與 <a href="../technology-comparison.html#sec-matrix">十一技術九維度對比矩陣</a>。</span>
-                <span data-lang="en">Architecture references: Explore the verified <a href="../secure-storage.html#sec-subsystems">Hardware Root of Trust Subsystems</a> and technical metrics in the <a href="../technology-comparison.html#sec-matrix">11-Technology Comparison Matrix</a>.</span>
-              </p>
-            </div>
+            <div class="chapter-copy"><p>OTP is naturally aligned with immutable or monotonic state. Embedded MTP IP provides repeatedly programmable storage inside the host chip and may use an EEPROM structure. External standalone EEPROM is a separate memory device; a shared storage principle does not make these the same integration option. Endurance, programming energy and supply requirements must be checked for the selected implementation. Embedded Flash addresses code-rich systems where its process integration is economically justified. MRAM and ReRAM extend the advanced-node portfolio, but availability and qualification remain platform specific.</p><p>SRAM PUF is a companion security primitive rather than a peer non-volatile medium. It can derive a device-unique root secret at power-up so persistent memory stores ciphertext or helper data instead of a reusable root key. That architecture raises assurance requirements of its own; it does not erase them.</p></div>
             <div class="chapter-takeaways"><p>ARCHITECTURE TAKEAWAYS</p><ul><li>Do not model PUF as stored NVM</li><li>Qualify program and read paths separately</li><li>Avoid technology labels without a state owner</li></ul></div>
             <dl class="evidence-contract"><div><dt>EVIDENCE CLASS</dt><dd>Supported architecture synthesis</dd></div><div><dt>LIMITATION</dt><dd>Technology availability, reliability and security claims vary by supplier and target process.</dd></div></dl>
           </article>
-        
+
           <article id="chap-node-boundary" class="paper-chapter">
             <header><p>CHAPTER 03</p><h3>Treat Node Migration as an Integration Decision</h3><strong>NVM scaling is shaped by device options, mask economics, program voltage and qualification effort—not geometry alone.</strong></header>
-            <div class="chapter-copy">
-              <p>
-                <span data-lang="zh">浮動閘與電荷捕捉型 MTP 仰賴能夠有效保存電荷的穿隧氧化層與高電壓環境。若代工廠製程組合僅提供低壓邏輯元件，實作選項將大幅受限。專屬嵌入式快閃記憶體雖可客製介電質堆疊，但極高的製程複雜度徹底改變了商業損益計算。</span>
-                <span data-lang="en">Floating-gate and charge-trap MTP rely on an oxide and high-voltage environment capable of preserving programmed charge. A process portfolio that only exposes lower-voltage devices can therefore narrow implementation choices. Dedicated embedded-flash integration can introduce a purpose-built oxide, but additional process complexity changes the commercial equation.</span>
-              </p>
-              <p>
-                <span data-lang="zh">傳統嵌入式 Flash 的 28nm 邊界，本質上是整合經濟學與材料物理的雙重絕壁。在 28nm 以下，穿隧氧化層厚度縮減至 3.0nm 以下，引發劇烈的直接穿隧漏電 (Direct Tunneling) 與應力感應漏電 (SILC)；且浮閘高達 &gt;900°C 的退火熱預算會徹底摧毀先進 FinFET 的高介電金屬閘極 (HKMG) 功函數與通道應變。此外，額外增加 8~12 道昂貴光罩使晶圓成本膨脹 30%~40%，導致平面 eFlash 在 FinFET 與 GAA 奈米片節點徹底失去商業競爭力。</span>
-                <span data-lang="en">The frequently cited 28nm boundary for conventional embedded Flash is an integration-economics and physical cliff. Below 28nm, tunnel oxide thinning (t_ox ≤ 3.0 nm) triggers severe direct-tunneling and stress-induced leakage current (SILC), while the &gt;900°C annealing thermal budget irreversibly ruins high-k metal gate (HKMG) work functions and FinFET channel strain. Furthermore, the 8 to 12 additional photolithography masks expand wafer fabrication costs by 30% to 40%, rendering planar eFlash unviable in FinFET and GAA nanosheet nodes.</span>
-              </p>
-              <p>
-                <span data-lang="zh">跨越 28nm 之後，技術路線出現分流：高密度可覆寫程式碼儲存轉向後段 (BEOL) 新興記憶體——STT-MRAM 僅需 3~4 道額外光罩、ReRAM 僅需 2~3 道額外光罩，且其熱預算小於 400°C，可無縫嵌入金屬互連層；而在不可變晶片身分、類比校準與密鑰儲存方面，純邏輯 AntiFuse OTP 具備 0 額外光罩優勢，自 28nm/22nm 一路原生延伸至 16nm/12nm FinFET、N6e、N4e 乃至 2nm GAA 奈米片。先進單一 VDD 讀取架構更將核心邏輯讀取平面與高壓電荷泵完全解耦，大幅簡化電源管理時序。</span>
-                <span data-lang="en">Beyond 28nm, the roadmap bifurcates: for high-density rewritable code storage, back-end-of-line (BEOL) emerging memories—STT-MRAM requiring only 3–4 extra masks and ReRAM requiring 2–3 extra masks with thermal budgets under 400°C—integrate seamlessly between intermediate metal layers. For immutable identity, analog trim, and cryptographic root storage, pure-logic AntiFuse OTP requires zero mask adders and scales natively from 28nm/22nm through FinFET (16nm, 12nm, N6e, N4e) to 2nm GAA nanosheets. Advanced single-VDD read designs isolate core-domain sensing from controlled high-voltage charge pumps during programming.</span>
-              </p>
-              <p>
-                <span data-lang="zh">物理與架構連結：探索 <a href="../memory-physics.html#physics-models">第一性原理量子穿隧與介電崩潰物理</a> 與 <a href="../iot-mcu-envm.html#scaling-cliff">物聯網 MCU 28nm 微縮絕壁分析</a>。</span>
-                <span data-lang="en">Physics and architecture references: Review first-principles quantum tunneling and dielectric breakdown in <a href="../memory-physics.html#physics-models">Memory Physics</a> and examine scaling dynamics in <a href="../iot-mcu-envm.html#scaling-cliff">IoT &amp; Edge MCU Scaling Cliff</a>.</span>
-              </p>
-            </div>
+            <div class="chapter-copy"><p>Floating-gate MTP relies on an oxide and high-voltage environment capable of preserving programmed charge. A process portfolio that only exposes lower-voltage devices can therefore narrow implementation choices. Dedicated embedded-flash integration can introduce a purpose-built oxide, but additional process complexity changes the commercial equation.</p><p>The frequently cited 28 nm boundary for conventional embedded Flash is best read as a clear public commercialization high point, not a law of physics. Beyond it, development difficulty, mask-stack expansion and cost can outweigh the benefit. At more advanced nodes, foundry roadmaps increasingly turn to MRAM or ReRAM, while logic-compatible OTP continues to serve small persistent-state needs.</p><p>For advanced-node OTP, a single-VDD read mode can reduce always-on power-domain dependencies and simplify power sequencing. Programming can remain a separate event that uses an I/O supply as the foundation for an internal charge pump. Public architecture should state that separation without disclosing proprietary circuit detail.</p></div>
             <div class="chapter-takeaways"><p>ARCHITECTURE TAKEAWAYS</p><ul><li>Node names are not portability proof</li><li>Separate read simplification from program infrastructure</li><li>Model mask and qualification cost as system constraints</li></ul></div>
             <dl class="evidence-contract"><div><dt>EVIDENCE CLASS</dt><dd>Industry synthesis + expert calibration</dd></div><div><dt>LIMITATION</dt><dd>Vendor-specific voltage coverage, mask counts and product roadmaps require internal portfolio evidence before customer use.</dd></div></dl>
           </article>
-        
+
           <article id="chap-decision-evidence" class="paper-chapter">
             <header><p>CHAPTER 04</p><h3>Make the Decision Evidence-Aware</h3><strong>A decision matrix is useful only when it makes uncertainty visible instead of converting assumptions into specifications.</strong></header>
-            <div class="chapter-copy">
-              <p>
-                <span data-lang="zh">決策矩陣唯有在能夠如實揭示不確定性、而非將主觀假設包裝為保證規格時，才具備真實工程價值。公開技術文獻確立物理機制、公開產品可得性與已展示案例；代工廠與 IP 供應商宣稱界定基準效能；系統架構推論則串接上述事實以形成工程提案。但在特定矽晶片專案落實前，仍必須以晶圓驗證數據 (Target-Silicon Evidence) 閉環驗證 PVT 邊限、數據保存期 (Retention)、覆寫耐受度 (Endurance)、功耗與實體抗攻擊能力。</span>
-                <span data-lang="en">Public evidence can establish mechanisms, disclosed product availability and demonstrated use cases. Supplier claims may describe performance or qualification. Architecture inference can connect those facts to a system proposal. Target-silicon evidence is still required to close PVT, retention, endurance, power and attack-resilience claims for a specific implementation.</span>
-              </p>
-              <p>
-                <span data-lang="zh">為落實零幻覺架構決策，本白皮書全面錨定本站一手產業證據總帳 (Primary Evidence Ledger)：</span>
-                <span data-lang="en">To enforce zero-hallucination architectural decisions, this whitepaper anchors every claim to primary industrial evidence cards:</span>
-              </p>
-              <ul style="margin: 8px 0 14px 20px; font-size: 0.88rem; line-height: 1.6;">
-                <li><strong>OxRAM &amp; Neuromorphic CIM:</strong> <a href="../memory-evidence.html#evidence-V14">Weebit Nano Commercial ReRAM Architecture (V14) ↗</a></li>
-                <li><strong>Enterprise MRAM &amp; PLP:</strong> <a href="../memory-evidence.html#evidence-V15">Everspin Technologies pMTJ STT-MRAM &amp; Capacitor-Free PLP (V15) ↗</a></li>
-                <li><strong>Automotive 28nm eRRAM:</strong> <a href="../memory-evidence.html#evidence-V16">Infineon AURIX™ TC4x AEC-Q100 Grade 1 Datasheet (V16) ↗</a></li>
-                <li><strong>Automotive 28nm FD-SOI ePCM:</strong> <a href="../memory-evidence.html#evidence-V17">STMicroelectronics Stellar MCU Dual-Bank Live OTA (V17) ↗</a></li>
-                <li><strong>Hardware Root of Trust &amp; PUF:</strong> <a href="../memory-evidence.html#evidence-V18">Intrinsic ID Quiddikey SRAM PUF (V18) ↗</a> &amp; <a href="../memory-evidence.html#evidence-V19">Rambus CryptoManager™ SPDM 1.3 RoT (V19) ↗</a></li>
-              </ul>
-              <p>
-                <span data-lang="zh">每個技術比較條目都必須載明來源等級、適用範圍、局限性、審查狀態與下一步驗證行動。移除無根據的虛假精確度，以帶有明確邊界的分類區間取代未經證實的精確數值。</span>
-                <span data-lang="en">Every comparison row should therefore carry a source class, scope, limitation, review status and next validation action. Unsupported precision should be removed; a categorical range with an explicit evidence gap is more trustworthy than an exact number without provenance.</span>
-              </p>
-            </div>
+            <div class="chapter-copy"><p>Public evidence can establish mechanisms, disclosed product availability and demonstrated use cases. Supplier claims may describe performance or qualification. Architecture inference can connect those facts to a system proposal. Target-silicon evidence is still required to close PVT, retention, endurance, power and attack-resilience claims for a specific implementation.</p><p>Every comparison row should therefore carry a source class, scope, limitation, review status and next validation action. Unsupported precision should be removed; a categorical range with an explicit evidence gap is more trustworthy than an exact number without provenance.</p></div>
             <div class="chapter-takeaways"><p>ARCHITECTURE TAKEAWAYS</p><ul><li>Never let UI polish promote an assumption to fact</li><li>Bind every claim to scope and limitation</li><li>Use open gaps to drive the next validation action</li></ul></div>
             <dl class="evidence-contract"><div><dt>EVIDENCE CLASS</dt><dd>Evidence governance method</dd></div><div><dt>LIMITATION</dt><dd>This public workbench intentionally excludes confidential qualification and customer data.</dd></div></dl>
           </article>
-        
+
           <article id="chap-enterprise-transfer" class="paper-chapter">
             <header><p>CHAPTER 05</p><h3>Transfer the Knowledge, Not Just the Page</h3><strong>SharePoint migration succeeds when content has a stable contract before it enters the corporate system.</strong></header>
             <div class="chapter-copy"><p>The canonical record begins with Technology Family, State Contract, Application Domain and Process Node. Evidence Class, Source, Limitation and Review Status make the record governable. Operational fields such as owner, visibility, review date and migration ID make it maintainable.</p><p>The public site supplies a clean knowledge spine. The internal SharePoint version can add confidential product data, foundry qualification, customer context and validation artifacts without changing the information architecture. Copilot then operates over governed metadata rather than an unstructured document dump.</p></div>
             <div class="chapter-takeaways"><p>ARCHITECTURE TAKEAWAYS</p><ul><li>Preserve the eight-field content contract</li><li>Keep public and restricted evidence separate</li><li>Make review status machine-readable</li></ul></div>
             <dl class="evidence-contract"><div><dt>EVIDENCE CLASS</dt><dd>Enterprise content architecture</dd></div><div><dt>LIMITATION</dt><dd>Final column types, permissions and retention policies must align with the company tenant.</dd></div></dl>
           </article>
-        
+
         <aside class="paper-sources">
           <div><p>CONTINUE THE EVIDENCE TRAIL</p><h3>Use the Hub to separate source facts from architecture inference</h3></div>
-          <nav aria-label="Evidence trail navigation" data-aria-en="Evidence trail navigation" data-aria-zh="證據鏈延伸導覽">
-            <a href="../memory-evidence.html">Open Evidence Ledger <span>↗</span></a>
-            <a href="../memory-physics.html">Review Memory Physics <span>↗</span></a>
-            <a href="../secure-storage.html#sec-subsystems">Hardware RoT Subsystems <span>↗</span></a>
-            <a href="../technology-comparison.html#sec-matrix">11-Technology Matrix <span>↗</span></a>
-          </nav>
+          <nav><a href="https://samhuang68.github.io/nvm-knowledge-hub/memory-evidence.html">Open Evidence Ledger <span>↗</span></a><a href="https://samhuang68.github.io/nvm-knowledge-hub/memory-physics.html">Review Memory Physics <span>↗</span></a></nav>
         </aside>
       </div>
     </div>
-  
+
       </section>
       <section id="panel-selector" class="studio-panel" role="tabpanel" aria-labelledby="tab-selector" hidden>
 
@@ -546,7 +487,9 @@
       <p>Interactive multi-way security & NVM architecture comparison (12 canonical profiles). Filter by technology family, inspect latency and physical exposure, or export profiles for system engineering reviews.</p>
     </header>
 
-    <section class="selector-controls" aria-label="Decision matrix filters" data-aria-en="Decision matrix filters" data-aria-zh="決策矩陣篩選條件">
+    <p class="matrix-evidence-boundary"><span data-lang="zh">以下保留 12 筆工程原稿供審查。數值、製程、認證與量產字樣均屬待查證聲稱；只有明確標示的來源支援指定欄位，不能視為完整產品規格。</span><span data-lang="en">These 12 engineering drafts retain their original values for review. Numbers, nodes, certifications and production wording remain unverified claims; a linked source supports only its stated fields, not a complete product specification.</span></p>
+
+    <section class="selector-controls" aria-label="Decision matrix filters">
       <label for="filter-family">
         <span>FILTER BY TECHNOLOGY FAMILY</span>
         <select id="filter-family">
@@ -564,9 +507,9 @@
       </div>
     </section>
 
-    <div class="decision-table-wrap" tabindex="0" role="region" aria-label="Illustrative NVM selection profiles with explicit evidence boundaries" data-aria-zh="具備明確證據邊界的 NVM 技術選型矩陣 (12 組 Profile)" data-aria-en="Illustrative NVM selection profiles with explicit evidence boundaries (12 Profiles)">
+    <div class="decision-table-wrap">
       <table class="decision-table">
-        <caption><span data-lang="zh">具備明確證據邊界的 NVM 技術選型矩陣 (12 組 Profile)</span><span data-lang="en">Illustrative NVM selection profiles with explicit evidence boundaries (12 Profiles)</span></caption>
+        <caption>Illustrative NVM selection profiles with explicit evidence boundaries (12 Profiles)</caption>
         <thead>
           <tr>
             <th scope="col">State Profile</th>
@@ -579,7 +522,7 @@
           </tr>
         </thead>
         <tbody id="decision-body">
-    <tr>
+    <tr data-profile-id="sram_puf_secure_storage">
       <th scope="row" data-label="STATE PROFILE">
         <strong>SRAM PUF Secure Storage</strong>
         <small>Dynamic boot generation + line-speed AES-256-XTS execution + instant zeroization</small>
@@ -594,10 +537,15 @@
         <small><strong>BOM:</strong> Zero mask adder (Standard CMOS)</small>
       </td>
       <td data-label="STRONGEST FIT">AI Accelerators, LLM KV Cache cipher, Chiplet D2D Root-of-Trust, Automotive ADAS</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">1.5B+ Devices (Vendor-Aggregated Portfolio Claim) · PSA L3 · SESIP L3 · AEC-Q100 G1</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">1.5B+ Devices (Vendor-Aggregated Portfolio Claim) · PSA L3 · SESIP L3 · AEC-Q100 G1</span>
+        <p class="profile-boundary">The 1.5B+ figure is a vendor-aggregated portfolio claim, not shipments of this Secure Storage implementation. Node availability, certifications, latency and the combined architecture require separate product-specific evidence.</p>
+
+      </td>
     </tr>
-  
-    <tr>
+
+    <tr data-profile-id="conventional_otp">
       <th scope="row" data-label="STATE PROFILE">
         <strong>Conventional Plain Antifuse OTP</strong>
         <small>Program once (irreversible physical breakdown); no key rotation</small>
@@ -612,10 +560,15 @@
         <small><strong>BOM:</strong> Low (Standard macro)</small>
       </td>
       <td data-label="STRONGEST FIT">Wafer ID, analog trim, non-sensitive feature configuration, basic boot pointers</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">10B+ Units Shipped · Foundry Baseline</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">10B+ Units Shipped · Foundry Baseline</span>
+        <p class="profile-boundary">Shipment totals, node range and timing refer to an illustrative technology-family comparison. A named macro and its qualification report are required; one RP2350 attack does not prove every OTP implementation vulnerable.</p>
+
+      </td>
     </tr>
-  
-    <tr>
+
+    <tr data-profile-id="otp_puf_tunneling">
       <th scope="row" data-label="STATE PROFILE">
         <strong>Quantum Tunneling OTP-PUF</strong>
         <small>Enrolled once at wafer sort; static physical response without fuzzy extractor</small>
@@ -630,10 +583,15 @@
         <small><strong>BOM:</strong> Low to Medium (Foundry dependent)</small>
       </td>
       <td data-label="STRONGEST FIT">Die-unique identity where helper data storage is completely disallowed</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">100M+ Shipped · PSA L3 · SESIP L3 · AEC-Q100 G0/G1 Lineage</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">100M+ Shipped · PSA L3 · SESIP L3 · AEC-Q100 G0/G1 Lineage</span>
+        <p class="profile-boundary">Dielectric-breakdown tunneling is the mechanism described by this draft, not a verified identification of every OTP PUF. Shipment totals, helper-data requirements and certification lineage need named-product sources.</p>
+
+      </td>
     </tr>
-  
-    <tr>
+
+    <tr data-profile-id="discrete_secure_element">
       <th scope="row" data-label="STATE PROFILE">
         <strong>Discrete Secure Element (SE)</strong>
         <small>Secure command APDU transactions via serial bus</small>
@@ -648,10 +606,15 @@
         <small><strong>BOM:</strong> High (Dedicated chip + PCB area + assembly)</small>
       </td>
       <td data-label="STRONGEST FIT">IoT Gateways, payment POS terminals, smart meters, low-bandwidth crypto offload</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">Common Criteria EAL6+ · FIPS 140-3</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">Common Criteria EAL6+ · FIPS 140-3</span>
+        <p class="profile-boundary">SE050 is a named example, not evidence that every discrete secure element shares the same certification, memory technology or latency. Verify the exact device, certificate and secure-channel threat model.</p>
+
+      </td>
     </tr>
-  
-    <tr>
+
+    <tr data-profile-id="dedicated_hsm">
       <th scope="row" data-label="STATE PROFILE">
         <strong>Hardware Security Module (HSM)</strong>
         <small>Network/PCIe PKCS#11 / KMIP service requests with mTLS/SPDM authentication</small>
@@ -666,10 +629,15 @@
         <small><strong>BOM:</strong> Extreme ($1,000 - $20,000+ per unit)</small>
       </td>
       <td data-label="STRONGEST FIT">Datacenter Root CA, Cloud Key Management Service (KMS), Banking Core Attestation</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">FIPS 140-2 Level 4 · PCI-PTS</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">FIPS 140-2 Level 4 · PCI-PTS</span>
+        <p class="profile-boundary">Battery-backed storage, physical integration, certifications, RPC latency and price are scenario assumptions. They are not universal properties of all HSM products.</p>
+
+      </td>
     </tr>
-  
-    <tr>
+
+    <tr data-profile-id="embedded_flash">
       <th scope="row" data-label="STATE PROFILE">
         <strong>Embedded Flash (eFlash)</strong>
         <small>Signed in-system firmware updates with recovery dual-bank partition</small>
@@ -684,10 +652,15 @@
         <small><strong>BOM:</strong> High mask cost (10-15 additional masks)</small>
       </td>
       <td data-label="STRONGEST FIT">Automotive MCUs and IoT microcontrollers on mature nodes (40nm-180nm)</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">AEC-Q100 · Mature Node Mainstream</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">AEC-Q100 · Mature Node Mainstream</span>
+        <p class="profile-boundary">Node economics, added masks, timing and automotive qualification depend on the foundry process and macro. The 28nm comparison is not a universal technology limit.</p>
+
+      </td>
     </tr>
-  
-    <tr>
+
+    <tr data-profile-id="mram_reram">
       <th scope="row" data-label="STATE PROFILE">
         <strong>Emerging NVM (MRAM / ReRAM)</strong>
         <small>Direct memory-mapped write without block erase</small>
@@ -698,15 +671,19 @@
         <span class="security-chip sec-med">Internal bus</span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> MRAM: 10-30 ns read/write; ReRAM: 100 ns ~ 10 µs</small><br>
-        <small><strong>BOM:</strong> Medium (3-5 extra BEOL masks)</small><br>
-        <small><strong>Note:</strong> Analog CIM ReRAM constrained by Read Disturb &amp; conductance drift, ADC/DAC area &amp; IR-drop scaling.</small>
+        <small><strong>Latency:</strong> Very Low (10-30 ns read/write)</small><br>
+        <small><strong>BOM:</strong> Medium (3-5 extra BEOL masks)</small>
       </td>
       <td data-label="STRONGEST FIT">Low-latency persistent cache, AI edge inference weight storage, battery-less sensors</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">Foundry-qualified (vendor-reported CONTEXT) (22nm/16nm)</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">Foundry Qualified (22nm/16nm)</span>
+        <p class="profile-boundary">Node availability, foundry qualification, mask count and timing require separate MRAM/ReRAM and foundry evidence. A roadmap target or design-ready announcement is not production.</p>
+
+      </td>
     </tr>
-  
-    <tr>
+
+    <tr data-profile-id="cpo_chiplet_nvm">
       <th scope="row" data-label="STATE PROFILE">
         <strong>CPO & 3D Chiplet NVM Trim</strong>
         <small>Atomic calibration commit + instant cold-boot zeroization</small>
@@ -721,10 +698,15 @@
         <small><strong>BOM:</strong> Zero extra mask adder in standard CMOS</small>
       </td>
       <td data-label="STRONGEST FIT">51.2T/102.4T CPO Switches, UCIe 2.0 D2D Links, Optical Compute Interconnect (OCI)</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">800G/1.6T Foundry-Verified · OCP OIF · UCIe 2.0</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">800G/1.6T Foundry-Verified · OCP OIF · UCIe 2.0</span>
+        <p class="profile-boundary">Packaging names and interface standards provide application context. They do not establish that this NVM trim architecture, throughput, timing or zero-mask claim is foundry-qualified.</p>
+
+      </td>
     </tr>
-  
-    <tr>
+
+    <tr data-profile-id="bcd_power_pmic_trim">
       <th scope="row" data-label="STATE PROFILE">
         <strong>BCD Power PMIC & LED Trimming</strong>
         <small>Wafer sort (CP) & final test (FT) trimming; OTP fixed after programming; NeoMTP updates within the qualified IP budget</small>
@@ -739,10 +721,15 @@
         <small><strong>BOM:</strong> Zero extra mask adder (Eliminates 10-15 eFlash masks, saving 30-50%)</small>
       </td>
       <td data-label="STRONGEST FIT">PMIC, USB-PD 3.1 240W EPR Controllers, BLDC Motor Drivers, BMIC 16-24 Cell AFEs</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">AEC-Q100 Grade 0 · Multi-Foundry BCD Baseline</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">AEC-Q100 Grade 0 · Multi-Foundry BCD Baseline</span>
+        <p class="profile-boundary">The cited eMemory page supports the NeoMTP floating-gate, rewritable-memory mechanism. It does not prove every listed BCD platform, trim accuracy, Grade 0 qualification, timing or cost-saving percentage in this draft.</p>
+        <p><a href="https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP" target="_blank" rel="noopener noreferrer">NeoMTP<span data-lang="zh"> 官方來源</span><span data-lang="en"> official source</span></a><small>Floating-gate programming and erase support a rewritable NeoMTP mechanism; exact operating budgets require the selected IP. Does not substantiate the draft platform list, certification grade, accuracy, latency or savings.</small></p>
+      </td>
     </tr>
-  
-    <tr>
+
+    <tr data-profile-id="cis_dram_matrix_repair">
       <th scope="row" data-label="STATE PROFILE">
         <strong>CIS & DRAM Matrix Defect Repair</strong>
         <small>BIST autonomous scanning + BIRA minimum vertex cover + FuseBox OTP burn</small>
@@ -757,10 +744,15 @@
         <small><strong>BOM:</strong> Ultra-low silicon overhead (<0.5% total die area)</small>
       </td>
       <td data-label="STRONGEST FIT">JEDEC Hard Post-Package Repair (hPPR), 200MP Mobile CIS, Datacenter AI Server Memories</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">JEDEC JESD79-5 DDR5 · JESD238 HBM3e · Mass Production Proven</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">JEDEC JESD79-5 DDR5 · JESD238 HBM3e · Mass Production Proven</span>
+        <p class="profile-boundary">Standard names describe application context; capacity, dimensions, timing, area overhead and production status need the exact memory device, standard revision and implementation evidence.</p>
+
+      </td>
     </tr>
-  
-    <tr>
+
+    <tr data-profile-id="hv_display_ddic_demura">
       <th scope="row" data-label="STATE PROFILE">
         <strong>HV Display Driver (OLED / LCD DDIC)</strong>
         <small>Factory optical camera calibration write; dynamic refresh rate adaptive indexing</small>
@@ -775,10 +767,15 @@
         <small><strong>BOM:</strong> Zero mask adder in specialized eHV platforms</small>
       </td>
       <td data-label="STRONGEST FIT">AMOLED Smartphone DDIC, Automotive Cockpit Displays, Micro-OLED AR/VR Systems</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">Commercial AMOLED Standard · 120Hz-144Hz Production</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">Commercial AMOLED Standard · 120Hz-144Hz Production</span>
+        <p class="profile-boundary">Voltage rails, resolution, refresh rates, process availability and mask assumptions are design examples; no named DDIC qualification or production result is established by this profile.</p>
+
+      </td>
     </tr>
-  
-    <tr>
+
+    <tr data-profile-id="eink_ultra_hv_mtp_otp">
       <th scope="row" data-label="STATE PROFILE">
         <strong>E-Ink Ultra-HV Driver (40V-50V / 110HV)</strong>
         <small>MTP (32Kb-64Kb) during color formulation evolution; OTP (<250µm height) in volume maturity</small>
@@ -793,7 +790,12 @@
         <small><strong>BOM:</strong> Zero extra mask adder; reduces BOM cost by eliminating discrete external SPI Flash</small>
       </td>
       <td data-label="STRONGEST FIT">Electronic Shelf Labels (ESL), Full-Color E-Paper (Spectra 6, Kaleido 3), Outdoor Signage</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">E-Ink Panel Partner Standard · Fitipower / UltraChip / Solomon Baseline</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">E-Ink Panel Partner Standard · Fitipower / UltraChip / Solomon Baseline</span>
+        <p class="profile-boundary">Driver platforms, memory size, battery life, height limits and named suppliers are application assumptions requiring product-specific sources. These statements do not establish a universal panel-partner standard.</p>
+
+      </td>
     </tr>
   </tbody>
       </table>
@@ -810,7 +812,7 @@
         <li><b>03</b><span>Close PVT, fault injection and physical tamper evidence on target silicon</span></li>
       </ol>
     </aside>
-  
+
       </section>
       <section id="panel-taxonomy" class="studio-panel" role="tabpanel" aria-labelledby="tab-taxonomy" hidden>
 
@@ -831,35 +833,35 @@
     <section class="content-section" aria-labelledby="records-title">
       <div class="section-label"><span>03</span><div><p>PUBLIC RECORD PREVIEW</p><h3 id="records-title">Safe examples for the future SharePoint library</h3></div></div>
       <div class="record-grid">
-        
+
           <article>
             <header><span>PUB-NVM-001</span><b>Public review complete</b></header>
             <h4>Immutable Device Identity Architecture</h4>
             <dl><div><dt>TECHNOLOGY</dt><dd>OTP + companion key derivation</dd></div><div><dt>STATE CONTRACT</dt><dd>Immutable identity</dd></div><div><dt>APPLICATION</dt><dd>Secure boot</dd></div><div><dt>PROCESS NODE</dt><dd>Node-specific implementation</dd></div><div><dt>EVIDENCE CLASS</dt><dd>Architecture inference</dd></div></dl>
             <p><b>LIMITATION</b>Target-silicon security assurance remains implementation specific</p>
           </article>
-        
+
           <article>
             <header><span>PUB-NVM-002</span><b>Evidence required</b></header>
             <h4>Bounded Calibration Selection Note</h4>
             <dl><div><dt>TECHNOLOGY</dt><dd>OTP or MTP</dd></div><div><dt>STATE CONTRACT</dt><dd>Bounded calibration</dd></div><div><dt>APPLICATION</dt><dd>Power and mixed signal</dd></div><div><dt>PROCESS NODE</dt><dd>Specialty or mature logic</dd></div><div><dt>EVIDENCE CLASS</dt><dd>Supported synthesis</dd></div></dl>
             <p><b>LIMITATION</b>Programming voltage and endurance need platform confirmation</p>
           </article>
-        
+
           <article>
             <header><span>PUB-NVM-003</span><b>Public working draft</b></header>
             <h4>AI Package Persistent-State Map</h4>
             <dl><div><dt>TECHNOLOGY</dt><dd>Portfolio decision</dd></div><div><dt>STATE CONTRACT</dt><dd>Operational evidence</dd></div><div><dt>APPLICATION</dt><dd>AI systems</dd></div><div><dt>PROCESS NODE</dt><dd>Multi-die and advanced-node</dd></div><div><dt>EVIDENCE CLASS</dt><dd>Architecture inference</dd></div></dl>
             <p><b>LIMITATION</b>Component ownership varies by platform architecture</p>
           </article>
-        
+
       </div>
     </section>
     <aside class="sharepoint-transfer">
       <div><p>TRANSFER MODEL</p><h3>Public architecture now<br>Restricted evidence later</h3></div>
       <p>The company SharePoint edition can extend each record with foundry qualification, customer context, validation artifacts and confidential product data. Copilot then retrieves content through stable metadata and permissions.</p>
     </aside>
-  
+
       </section>
       <section id="panel-templates" class="studio-panel" role="tabpanel" aria-labelledby="tab-templates" hidden>
 
@@ -868,7 +870,7 @@
       <p>Each template begins with the decision or claim and ends with its evidence boundary. Copy an outline, then adapt it to the target audience.</p>
     </header>
     <div class="template-grid">
-      
+
           <article class="template-card">
             <header><span>01</span><p>Architecture Brief</p></header>
             <h3>NVM State-Contract Brief</h3>
@@ -877,7 +879,7 @@
             <ol><li><span>01</span><div><b>System state</b><p>Name the state, owner, update cadence and power-off obligation.</p></div></li><li><span>02</span><div><b>Architecture choice</b><p>Compare candidate NVM families and companion controls.</p></div></li><li><span>03</span><div><b>Evidence boundary</b><p>Separate source-backed facts, inference and target-silicon gaps.</p></div></li><li><span>04</span><div><b>Decision</b><p>Record the preferred architecture, rejected alternatives and validation owner.</p></div></li></ol>
             <button class="copy-button" type="button" data-copy-outline="NVM State-Contract Brief&#10;&#10;System state&#10;Name the state, owner, update cadence and power-off obligation.&#10;&#10;Architecture choice&#10;Compare candidate NVM families and companion controls.&#10;&#10;Evidence boundary&#10;Separate source-backed facts, inference and target-silicon gaps.&#10;&#10;Decision&#10;Record the preferred architecture, rejected alternatives and validation owner.">Copy template outline <span aria-hidden="true">↗</span></button>
           </article>
-        
+
           <article class="template-card">
             <header><span>02</span><p>Technical Note</p></header>
             <h3>Technology Boundary Review</h3>
@@ -886,7 +888,7 @@
             <ol><li><span>01</span><div><b>Mechanism</b><p>Describe the stored physical variable and read observable.</p></div></li><li><span>02</span><div><b>Process boundary</b><p>Identify required devices, voltages, modules and test assumptions.</p></div></li><li><span>03</span><div><b>Reliability contract</b><p>Define required retention, endurance and environmental scope.</p></div></li><li><span>04</span><div><b>Open evidence</b><p>List missing supplier, PDK, silicon or qualification evidence.</p></div></li></ol>
             <button class="copy-button" type="button" data-copy-outline="Technology Boundary Review&#10;&#10;Mechanism&#10;Describe the stored physical variable and read observable.&#10;&#10;Process boundary&#10;Identify required devices, voltages, modules and test assumptions.&#10;&#10;Reliability contract&#10;Define required retention, endurance and environmental scope.&#10;&#10;Open evidence&#10;List missing supplier, PDK, silicon or qualification evidence.">Copy template outline <span aria-hidden="true">↗</span></button>
           </article>
-        
+
           <article class="template-card">
             <header><span>03</span><p>Decision Record</p></header>
             <h3>NVM Selection Decision Record</h3>
@@ -895,7 +897,7 @@
             <ol><li><span>01</span><div><b>Decision context</b><p>Application, state contract, node and business constraint.</p></div></li><li><span>02</span><div><b>Options</b><p>Candidate families with strengths, limits and evidence class.</p></div></li><li><span>03</span><div><b>Decision rationale</b><p>Trade-off logic and assumptions that materially affect the choice.</p></div></li><li><span>04</span><div><b>Review trigger</b><p>Event or new evidence that requires the decision to be revisited.</p></div></li></ol>
             <button class="copy-button" type="button" data-copy-outline="NVM Selection Decision Record&#10;&#10;Decision context&#10;Application, state contract, node and business constraint.&#10;&#10;Options&#10;Candidate families with strengths, limits and evidence class.&#10;&#10;Decision rationale&#10;Trade-off logic and assumptions that materially affect the choice.&#10;&#10;Review trigger&#10;Event or new evidence that requires the decision to be revisited.">Copy template outline <span aria-hidden="true">↗</span></button>
           </article>
-        
+
           <article class="template-card">
             <header><span>04</span><p>Evidence Entry</p></header>
             <h3>Claim-to-Evidence Ledger Entry</h3>
@@ -904,10 +906,10 @@
             <ol><li><span>01</span><div><b>Claim</b><p>Use the narrowest wording supported by the evidence.</p></div></li><li><span>02</span><div><b>Source and class</b><p>Record origin, date and whether evidence is direct, supported or inferred.</p></div></li><li><span>03</span><div><b>Scope and limitation</b><p>State what the source does not prove.</p></div></li><li><span>04</span><div><b>Review status</b><p>Assign owner, next action and review date.</p></div></li></ol>
             <button class="copy-button" type="button" data-copy-outline="Claim-to-Evidence Ledger Entry&#10;&#10;Claim&#10;Use the narrowest wording supported by the evidence.&#10;&#10;Source and class&#10;Record origin, date and whether evidence is direct, supported or inferred.&#10;&#10;Scope and limitation&#10;State what the source does not prove.&#10;&#10;Review status&#10;Assign owner, next action and review date.">Copy template outline <span aria-hidden="true">↗</span></button>
           </article>
-        
+
     </div>
     <aside class="template-rule"><p>TEMPLATE RULE</p><h3>Do not start with a product name</h3><span>Start with the system state, evidence status and decision owner. Product mapping comes after the contract is understood.</span></aside>
-  
+
       </section>
     </div>
   </main>

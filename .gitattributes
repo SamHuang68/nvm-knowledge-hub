@@ -12,3 +12,10 @@ data/NVM知識資料英文.json text eol=lf
 data/NVM技術專題.md text eol=lf
 data/NVM技術專題英文.md text eol=lf
 data/NVM搜尋索引.js text eol=lf
+
+# 統一新生成的白皮書與離線內容，維持跨平台建置雜湊。
+whitepaper/index.html text eol=lf
+whitepaper/assets/白皮書.js text eol=lf
+whitepaper/assets/白皮書.css text eol=lf
+whitepaper/建置清單.json text eol=lf
+data/離線資源清單.js text eol=lf

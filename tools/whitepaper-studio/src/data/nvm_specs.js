@@ -1,4 +1,4 @@
-export const nvmIpSpecs = [
+const draftProfiles = [
   {
     id: 'sram_puf_secure_storage',
     profile: 'SRAM PUF Secure Storage',
@@ -168,3 +168,35 @@ export const nvmIpSpecs = [
     bomCost: 'Zero extra mask adder; reduces BOM cost by eliminating discrete external SPI Flash'
   }
 ];
+
+// 保留原稿數值供工程審查；它們不能自動成為已驗證的產品規格或認證。
+const reviewScopes = {
+  sram_puf_secure_storage: 'The 1.5B+ figure is a vendor-aggregated portfolio claim, not shipments of this Secure Storage implementation. Node availability, certifications, latency and the combined architecture require separate product-specific evidence.',
+  conventional_otp: 'Shipment totals, node range and timing refer to an illustrative technology-family comparison. A named macro and its qualification report are required; one RP2350 attack does not prove every OTP implementation vulnerable.',
+  otp_puf_tunneling: 'Dielectric-breakdown tunneling is the mechanism described by this draft, not a verified identification of every OTP PUF. Shipment totals, helper-data requirements and certification lineage need named-product sources.',
+  discrete_secure_element: 'SE050 is a named example, not evidence that every discrete secure element shares the same certification, memory technology or latency. Verify the exact device, certificate and secure-channel threat model.',
+  dedicated_hsm: 'Battery-backed storage, physical integration, certifications, RPC latency and price are scenario assumptions. They are not universal properties of all HSM products.',
+  embedded_flash: 'Node economics, added masks, timing and automotive qualification depend on the foundry process and macro. The 28nm comparison is not a universal technology limit.',
+  mram_reram: 'Node availability, foundry qualification, mask count and timing require separate MRAM/ReRAM and foundry evidence. A roadmap target or design-ready announcement is not production.',
+  cpo_chiplet_nvm: 'Packaging names and interface standards provide application context. They do not establish that this NVM trim architecture, throughput, timing or zero-mask claim is foundry-qualified.',
+  bcd_power_pmic_trim: 'The cited eMemory page supports the NeoMTP floating-gate, rewritable-memory mechanism. It does not prove every listed BCD platform, trim accuracy, Grade 0 qualification, timing or cost-saving percentage in this draft.',
+  cis_dram_matrix_repair: 'Standard names describe application context; capacity, dimensions, timing, area overhead and production status need the exact memory device, standard revision and implementation evidence.',
+  hv_display_ddic_demura: 'Voltage rails, resolution, refresh rates, process availability and mask assumptions are design examples; no named DDIC qualification or production result is established by this profile.',
+  eink_ultra_hv_mtp_otp: 'Driver platforms, memory size, battery life, height limits and named suppliers are application assumptions requiring product-specific sources. These statements do not establish a universal panel-partner standard.',
+};
+
+export const nvmIpSpecs = draftProfiles.map(profile => ({
+  ...profile,
+  evidenceReview: {
+    status: 'source-needed',
+    scope: reviewScopes[profile.id],
+    sources: profile.id === 'bcd_power_pmic_trim' ? [{
+      product: 'NeoMTP',
+      url: 'https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP',
+      fields: ['family', 'contract', 'updateModel'],
+      claim: 'Floating-gate programming and erase support a rewritable NeoMTP mechanism; exact operating budgets require the selected IP.',
+      limitation: 'Does not substantiate the draft platform list, certification grade, accuracy, latency or savings.',
+      checkedAt: '2026-09-19',
+    }] : [],
+  },
+}));

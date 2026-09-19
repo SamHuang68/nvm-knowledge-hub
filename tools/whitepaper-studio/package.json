@@ -4,14 +4,15 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview --port 4175",
-    "check": "node scripts/check-public.mjs",
+    "dev": "node ../../scripts/serve-local.mjs",
+    "build": "node scripts/建立白皮書.mjs",
+    "preview": "node ../../scripts/serve-local.mjs",
+    "check": "node scripts/check-public.mjs && node scripts/建立白皮書.mjs --check",
+    "test": "node --test scripts/白皮書回歸.test.mjs",
     "qa:render": "node scripts/render-qa.mjs"
   },
   "devDependencies": {
-    "playwright": "^1.55.0",
-    "vite": "^8.2.2"
+    "playwright": "1.62.1",
+    "vite": "8.2.2"
   }
 }

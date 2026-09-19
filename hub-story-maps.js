@@ -61,7 +61,23 @@
       pack.type = 'button';
       pack.className = 'hub-verify-copy';
       pack.innerHTML = T('Copy VERIFY checklist', '複製 VERIFY 清單');
-      pack.addEventListener('click', () => {
+      const copyStatus = document.createElement('p');
+      copyStatus.className = 'hub-story-note';
+      copyStatus.setAttribute('role', 'status');
+      const manualCopy = document.createElement('textarea');
+      manualCopy.readOnly = true;
+      manualCopy.rows = 6;
+      manualCopy.hidden = true;
+      manualCopy.style.width = '100%';
+      manualCopy.setAttribute('aria-label', 'VERIFY checklist for manual copying');
+      manualCopy.dataset.ariaEn = 'VERIFY checklist for manual copying';
+      manualCopy.dataset.ariaZh = '可手動複製的 VERIFY 清單';
+      let resetCopyLabel;
+      pack.addEventListener('click', async () => {
+        clearTimeout(resetCopyLabel);
+        pack.disabled = true;
+        copyStatus.textContent = '';
+        manualCopy.hidden = true;
         const gate = nav.querySelector('.hub-story-step.is-on');
         const text = [
           'NVM Knowledge Hub — VERIFY checklist',
@@ -70,15 +86,27 @@
           'Active gate: ' + (gate ? gate.innerText.replace(/\s+/g, ' ').trim() : 'need class'),
           'Still VERIFY: named node, document revision, PDK, qualification evidence'
         ].join('\n');
-        const done = () => {
-          pack.textContent = 'Copied';
-          setTimeout(() => { pack.innerHTML = T('Copy VERIFY checklist', '複製 VERIFY 清單'); langSync(); }, 1200);
-        };
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(done).catch(done);
-        } else done();
+        try {
+          if (!navigator.clipboard?.writeText) throw new Error('剪貼簿 API 無法使用');
+          await navigator.clipboard.writeText(text);
+          pack.innerHTML = T('Copied', '已複製');
+          copyStatus.innerHTML = T('The VERIFY checklist was copied.', '已複製 VERIFY 清單。');
+          resetCopyLabel = setTimeout(() => { pack.innerHTML = T('Copy VERIFY checklist', '複製 VERIFY 清單'); langSync(); }, 1200);
+        } catch {
+          pack.innerHTML = T('Retry copying', '重試複製');
+          copyStatus.innerHTML = T('Automatic copying is unavailable. Select the checklist below and use your device’s copy command.', '無法自動複製。請選取下方清單，使用裝置的複製功能。');
+          manualCopy.value = text;
+          manualCopy.hidden = false;
+          manualCopy.focus();
+          manualCopy.select();
+        } finally {
+          pack.disabled = false;
+          langSync();
+        }
       });
       box.appendChild(pack);
+      box.appendChild(copyStatus);
+      box.appendChild(manualCopy);
       matrix.parentNode.insertBefore(box, matrix);
       function highlightRows(ids) {
         document.querySelectorAll('.matrix-row-header, .matrix-cell').forEach(el => {

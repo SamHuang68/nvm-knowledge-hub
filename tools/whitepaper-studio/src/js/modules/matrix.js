@@ -1,5 +1,9 @@
 import { nvmIpSpecs } from '../../data/nvm_specs.js';
 
+export function selectProfiles(family = 'ALL') {
+  return family === 'ALL' ? nvmIpSpecs : nvmIpSpecs.filter((item) => item.family === family);
+}
+
 export function renderMatrix(container) {
   if (!container) return;
   container.innerHTML = `
@@ -10,6 +14,8 @@ export function renderMatrix(container) {
       </div>
       <p>Interactive multi-way security & NVM architecture comparison (${nvmIpSpecs.length} canonical profiles). Filter by technology family, inspect latency and physical exposure, or export profiles for system engineering reviews.</p>
     </header>
+
+    <p class="matrix-evidence-boundary"><span data-lang="zh">以下保留 12 筆工程原稿供審查。數值、製程、認證與量產字樣均屬待查證聲稱；只有明確標示的來源支援指定欄位，不能視為完整產品規格。</span><span data-lang="en">These 12 engineering drafts retain their original values for review. Numbers, nodes, certifications and production wording remain unverified claims; a linked source supports only its stated fields, not a complete product specification.</span></p>
 
     <section class="selector-controls" aria-label="Decision matrix filters">
       <label for="filter-family">
@@ -60,30 +66,31 @@ export function renderMatrix(container) {
     </aside>
   `;
 
-  // Bind Filter
+  // 畫面與匯出共用同一個篩選狀態。
   const filterSelect = container.querySelector('#filter-family');
   const tbody = container.querySelector('#decision-body');
+  let selectedFamily = 'ALL';
 
   filterSelect?.addEventListener('change', (event) => {
-    const value = event.target.value;
-    const items = value === 'ALL' ? nvmIpSpecs : nvmIpSpecs.filter((item) => item.family === value);
+    selectedFamily = event.target.value;
+    const items = selectProfiles(selectedFamily);
     tbody.innerHTML = renderRows(items);
   });
 
   // Bind CSV Export
   container.querySelector('#btn-export-csv')?.addEventListener('click', () => {
-    exportCSV(nvmIpSpecs);
+    exportCSV(selectProfiles(selectedFamily));
   });
 
   // Bind JSON Export
   container.querySelector('#btn-export-json')?.addEventListener('click', () => {
-    exportJSON(nvmIpSpecs);
+    exportJSON(selectProfiles(selectedFamily));
   });
 }
 
 function renderRows(items) {
   return items.map((item) => `
-    <tr>
+    <tr data-profile-id="${item.id}">
       <th scope="row" data-label="STATE PROFILE">
         <strong>${item.profile}</strong>
         <small>${item.updateModel || ''}</small>
@@ -98,7 +105,12 @@ function renderRows(items) {
         <small><strong>BOM:</strong> ${item.bomCost || 'N/A'}</small>
       </td>
       <td data-label="STRONGEST FIT">${item.strongestFit}</td>
-      <td data-label="EVIDENCE STATUS"><span class="status-chip">${item.evidenceStatus}</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip">${item.evidenceStatus}</span>
+        <p class="profile-boundary">${item.evidenceReview.scope}</p>
+        ${item.evidenceReview.sources.map(source => `<p><a href="${source.url}" target="_blank" rel="noopener noreferrer">${source.product}<span data-lang="zh"> 官方來源</span><span data-lang="en"> official source</span></a><small>${source.claim} ${source.limitation}</small></p>`).join('')}
+      </td>
     </tr>
   `).join('');
 }
@@ -110,36 +122,34 @@ function getSecurityClass(text) {
   return 'sec-med';
 }
 
-function exportCSV(items) {
-  const headers = ['Profile', 'Family', 'Contract', 'NodeLens', 'UpdateModel', 'BusExposure', 'Latency', 'BOMCost', 'StrongestFit', 'EvidenceStatus'];
-  const rows = items.map(i => [
-    `"${i.profile.replace(/"/g, '""')}"`,
-    `"${i.family.replace(/"/g, '""')}"`,
-    `"${i.contract.replace(/"/g, '""')}"`,
-    `"${(i.nodeLens || '').replace(/"/g, '""')}"`,
-    `"${(i.updateModel || '').replace(/"/g, '""')}"`,
-    `"${(i.busExposure || '').replace(/"/g, '""')}"`,
-    `"${(i.latency || '').replace(/"/g, '""')}"`,
-    `"${(i.bomCost || '').replace(/"/g, '""')}"`,
-    `"${i.strongestFit.replace(/"/g, '""')}"`,
-    `"${i.evidenceStatus.replace(/"/g, '""')}"`
-  ]);
-  const csvContent = "data:text/csv;charset=utf-8," + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
-  const encodedUri = encodeURI(csvContent);
-  const link = document.createElement("a");
-  link.setAttribute("href", encodedUri);
-  link.setAttribute("download", "nvm_decision_matrix_profiles.csv");
+export function serializeCSV(items) {
+  const headers = ['ID', 'Profile', 'Family', 'Contract', 'NodeLens', 'UpdateModel', 'BusExposure', 'Latency', 'BOMCost', 'StrongestFit', 'Boundary', 'EvidenceStatus', 'ReviewStatus', 'ReviewScope', 'Sources'];
+  const fields = ['id', 'profile', 'family', 'contract', 'nodeLens', 'updateModel', 'busExposure', 'latency', 'bomCost', 'strongestFit', 'boundary', 'evidenceStatus'];
+  const cell = (value) => {
+    const text = String(value ?? '');
+    // 試算表可能忽略前置空白或控制字元後執行公式；文字欄位明確加上單引號。
+    const safe = /^[\s\u0000-\u001f]*[=+@-]/u.test(text) || /^[\t\r\n]/u.test(text) ? `'${text}` : text;
+    return `"${safe.replace(/"/g, '""')}"`;
+  };
+  return '\uFEFF' + [headers.join(','), ...items.map(item => [...fields.map(field => item[field]), item.evidenceReview?.status, item.evidenceReview?.scope, JSON.stringify(item.evidenceReview?.sources || [])].map(cell).join(','))].join('\r\n');
+}
+
+function download(content, mimeType, filename) {
+  const url = URL.createObjectURL(new Blob([content], { type: mimeType }));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
   document.body.appendChild(link);
   link.click();
-  document.body.removeChild(link);
+  link.remove();
+  // 保留瀏覽器開始讀取下載的時間，之後釋放記憶體。
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function exportCSV(items) {
+  download(serializeCSV(items), 'text/csv;charset=utf-8', 'NVM_決策矩陣.csv');
 }
 
 function exportJSON(items) {
-  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(items, null, 2));
-  const link = document.createElement("a");
-  link.setAttribute("href", dataStr);
-  link.setAttribute("download", "nvm_decision_matrix_profiles.json");
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  download(JSON.stringify(items, null, 2), 'application/json;charset=utf-8', 'NVM_決策矩陣.json');
 }

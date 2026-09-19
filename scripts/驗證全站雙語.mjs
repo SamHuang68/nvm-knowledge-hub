@@ -49,10 +49,10 @@ try {
   note(await page.locator('html').getAttribute('lang')==='en','首次造訪首頁預設英文');
   note(!/[\u3400-\u9fff]/u.test(await page.locator('main').innerText()),'英文首頁無中文正文殘留');
   await page.locator('#searchTrigger').click();
-  await page.locator('#searchInput').fill('SOT');
+  await page.locator('#searchOverlay input[type="search"]').fill('SOT');
   await page.waitForFunction(()=>document.querySelectorAll('.search-result-item').length>=1);
   note((await page.locator('.search-result-item').first().innerText()).includes('SOT-MRAM'),'全站搜尋顯示英文專題標題');
-  await page.locator('#searchInput').press('Enter');
+  await page.locator('#searchOverlay input[type="search"]').press('Enter');
   await page.waitForURL(/#topic-sot$/);
   note(await page.locator('html').getAttribute('lang')==='en','英文搜尋保留專題語言');
   await page.locator('.language-toggle').click();
@@ -62,7 +62,7 @@ try {
   await page.waitForLoadState('networkidle');
   note(await page.locator('html').getAttribute('lang')==='zh-Hant','返回首頁保留中文偏好');
   await page.locator('#searchTrigger').click();
-  await page.locator('#searchInput').fill('GLOBALFOUNDRIES');
+  await page.locator('#searchOverlay input[type="search"]').fill('GLOBALFOUNDRIES');
   await page.locator('.search-result-item[href$="#foundry"]').click();
   await page.waitForFunction(()=>document.documentElement.lang==='zh-Hant' && location.hash==='#foundry');
   note(decodeURIComponent(page.url()).includes('NVM技術全景中文.html'),'中文搜尋保留路線圖語言');

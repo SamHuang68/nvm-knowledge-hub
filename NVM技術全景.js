@@ -1,3 +1,4 @@
+import {ensureDiagrams} from './全景圖解載入.js';
 document.documentElement.classList.add('nvm-enhanced');
 const panels = [...document.querySelectorAll('[data-nvm-panel]')];
 const contents = document.querySelector('.nvm-sidebar');
@@ -40,6 +41,7 @@ function showRoute({ focus = false } = {}) {
   const panel = anchor?.matches('[data-nvm-panel]') ? anchor : anchor?.closest('[data-nvm-panel]');
   const next = panel || document.getElementById('panorama');
   panels.forEach(item => { item.hidden = item !== next; });
+  void ensureDiagrams(next);
   const operation = anchor?.matches('[data-operation-detail]') ? anchor : anchor?.closest('[data-operation-detail]');
   if (operation) {
     const widget = operation.closest('[data-operation-widget]');
@@ -222,8 +224,10 @@ window.addEventListener('hub:language-change', () => {
 });
 
 document.querySelectorAll('[data-zoom-diagram]').forEach(button => {
-  button.addEventListener('click', () => {
+  button.addEventListener('click', async () => {
     const figure = button.closest('.nvm-cell');
+    if (!await ensureDiagrams(figure)) return;
+    if (!figure.querySelector('svg')) return;
     const svg = figure.querySelector('svg').cloneNode(true);
     const ids = new Map([...svg.querySelectorAll('[id]')].map(element => [element.id, `${element.id}--zoom`]));
     for (const element of [svg, ...svg.querySelectorAll('*')]) {

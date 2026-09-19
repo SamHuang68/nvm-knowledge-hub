@@ -46,7 +46,7 @@ try{
   await page.goto(base+file+`?lang=${language}#patent-US5844271A`,{waitUntil:'networkidle'});
   note(await page.locator('#patent-US5844271A').getAttribute('open')!==null&&await page.locator('#patent-US5844271A a[href="#topic-mtp"]').count()>0,'單層多晶矽專利原連結仍有效並歸屬 MTP',{language,width});
   await page.goto(base+'index.html?lang='+language,{waitUntil:'networkidle'});
-  await page.locator('#searchTrigger').click();await page.locator('#searchInput').fill('NeoEE');
+  await page.locator('#searchTrigger').click();await page.locator('#searchOverlay input[type="search"]').fill('NeoEE');
   const result=page.locator('#searchResults a[href*="#topic-mtp"]').first();
   await result.waitFor({state:'visible'});await result.click();
   await page.waitForFunction(()=>location.hash==='#topic-mtp'&&document.querySelector('#topic-mtp')&&!document.querySelector('#topic-mtp').hidden);

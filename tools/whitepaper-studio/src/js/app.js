@@ -77,7 +77,7 @@ function initTabs() {
 
 function initMobileNavigation() {
   const button = document.querySelector('#menuToggle');
-  const nav = document.querySelector('#globalNav');
+  const nav = document.querySelector('#primaryNav, #globalNav');
   if (!button || !nav || button._hubNavBound) return;
   button._hubNavBound = true;
   const close = (restoreFocus = false) => {
@@ -111,7 +111,7 @@ function initCopyActions() {
   document.addEventListener('click', async (event) => {
     const button = event.target.closest('[data-copy-outline]');
     if (!button) return;
-    const text = button.dataset.copyOutline || '';
+    const text = window.WhitepaperLanguage?.translateText(button.dataset.copyOutline || '') || button.dataset.copyOutline || '';
     try {
       await navigator.clipboard.writeText(text);
       showToast('Template outline copied');
@@ -122,9 +122,33 @@ function initCopyActions() {
       fallback.className = 'clipboard-fallback';
       document.body.appendChild(fallback);
       fallback.select();
-      document.execCommand('copy');
+      let copied = false;
+      try { copied = document.execCommand('copy'); } catch { /* 保留手動複製入口。 */ }
+      if (copied) {
+        fallback.remove();
+        showToast('Template outline copied');
+        return;
+      }
       fallback.remove();
-      showToast('Template outline copied');
+      document.querySelector('#manual-copy-outline')?.remove();
+      const panel = document.createElement('section');
+      panel.id = 'manual-copy-outline';
+      panel.className = 'manual-copy-outline';
+      const title = document.createElement('p');
+      title.textContent = 'Copy failed. Select the outline below and copy it manually.';
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.readOnly = true;
+      textarea.setAttribute('aria-label', 'Template outline for manual copy');
+      const close = document.createElement('button');
+      close.type = 'button';
+      close.textContent = 'Close';
+      close.addEventListener('click', () => { panel.remove(); button.focus(); });
+      panel.append(title, textarea, close);
+      button.after(panel);
+      textarea.focus();
+      textarea.select();
+      showToast('Copy failed. Select the outline below and copy it manually.');
     }
   });
 }

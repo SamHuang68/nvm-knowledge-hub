@@ -15,6 +15,11 @@
   let activeView = page.dataset.opportunityView === "source-grounded" ? "source-grounded" : "all";
   let activeFilter = "all";
   let knowledgeById = new Map();
+  page.dataset.knowledgeState = "loading";
+  const emptyCopy = {
+    zh: empty?.querySelector('[data-lang="zh"]')?.textContent || "",
+    en: empty?.querySelector('[data-lang="en"]')?.textContent || ""
+  };
 
   const initialCardLimits = new Map(records.map(record => {
     const limit = record.querySelector(".record-fit > em");
@@ -146,20 +151,16 @@
       const response = await fetch("data/ai-nvm-opportunities-knowledge.json", { cache: "no-store" });
       if (!response.ok) throw new Error(`knowledge HTTP ${response.status}`);
       const knowledge = await response.json();
+      if (!Array.isArray(knowledge.records) || !knowledge.records.length) throw new Error("正式知識資料缺少紀錄");
       knowledgeById = new Map(knowledge.records.map(record => [record.recordId, record]));
       renderOpportunityBoundaries();
       page.dataset.knowledgeState = "canonical";
     } catch (error) {
       page.dataset.knowledgeState = "error";
-      records.forEach(record => { record.hidden = true; });
-      if (empty) {
-        empty.hidden = false;
-        const zhCopy = empty.querySelector('[data-lang="zh"]');
-        const enCopy = empty.querySelector('[data-lang="en"]');
-        if (zhCopy) zhCopy.textContent = "Canonical knowledge package 無法載入；為避免混合證據與推論，本區塊已安全關閉。";
-        if (enCopy) enCopy.textContent = "The canonical knowledge package could not be loaded. This section is closed rather than mixing evidence with inference.";
-      }
+      knowledgeById.clear();
       console.error("Canonical opportunity view could not be loaded", error);
+    } finally {
+      render();
     }
   }
 
@@ -235,11 +236,14 @@
   initTabs("[data-assurance-tab]", "[data-assurance-panel]", "assuranceTab");
 
   function render() {
+    const state = page.dataset.knowledgeState;
+    const ready = state === "canonical";
+    list.setAttribute("aria-busy", String(state === "loading"));
     let visible = 0;
     records.forEach(record => {
       const evidenceMatch = activeView === "all" || record.dataset.evidence === "source-grounded";
       const writeMatch = activeFilter === "all" || record.dataset.write === activeFilter;
-      const show = evidenceMatch && writeMatch;
+      const show = ready && evidenceMatch && writeMatch;
       record.hidden = !show;
       if (show) visible += 1;
     });
@@ -256,7 +260,20 @@
       button.setAttribute("aria-pressed", String(active));
     });
     if (count) count.textContent = String(visible).padStart(2, "0");
-    if (empty) empty.hidden = visible !== 0;
+    if (empty) {
+      empty.hidden = visible !== 0;
+      const message = state === "error" ? {
+        zh: "正式知識資料無法載入；為避免混合證據與推論，本區塊已安全關閉。",
+        en: "The canonical knowledge package could not be loaded. This section is closed rather than mixing evidence with inference."
+      } : state === "loading" ? {
+        zh: "正在載入正式知識資料…",
+        en: "Loading the canonical knowledge package…"
+      } : emptyCopy;
+      for (const language of ["zh", "en"]) {
+        const copy = empty.querySelector(`[data-lang="${language}"]`);
+        if (copy) copy.textContent = message[language];
+      }
+    }
   }
 
   function localizeControls() {
@@ -316,6 +333,7 @@
     if (mutations.some(mutation => mutation.attributeName === "data-language")) {
       localizeControls();
       renderOpportunityBoundaries();
+      render();
     }
   }).observe(page, { attributes: true });
 

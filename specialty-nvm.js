@@ -334,10 +334,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const statDieYield = document.getElementById('statDieYield');
 
   const GRID_SIZE = 12;
+  const SPARE_ROW_CAPACITY = 4;
   let matrixCells = [];
   let defects = [];
   let spareRows = [];
   let scanProgressLine = -1;
+  let repairPhase = 'idle';
+  const repairIsBusy = () => ['scanning', 'solving', 'burning'].includes(repairPhase);
 
   
   // =========================================================
@@ -358,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < SPARE_ROW_CAPACITY; i++) {
       const regEl = document.getElementById(`fuseReg${i}`);
       if (!regEl) continue;
       const valEl = regEl.querySelector('.fuse-val');
@@ -398,6 +401,8 @@ document.addEventListener('DOMContentLoaded', () => {
     defects = [];
     spareRows = [];
     scanProgressLine = -1;
+    repairPhase = 'idle';
+    if (btnRunBIST) btnRunBIST.disabled = false;
     updateFuseboxMap(null, null, false);
   }
 
@@ -460,6 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 支援直接點擊或觸控晶圓矩陣注入/清除缺陷
     function handleMatrixCellClick(e) {
+      if (repairIsBusy()) return;
       const rect = canvasMatrix.getBoundingClientRect();
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const clientY = e.touches ? e.touches[0].clientY : e.clientY;
@@ -475,6 +481,12 @@ document.addEventListener('DOMContentLoaded', () => {
       
       if (r >= 0 && r < GRID_SIZE && c >= 0 && c < GRID_SIZE) {
         if (e.cancelable) e.preventDefault();
+        // 缺陷集合變動後，舊掃描、備援配置與燒錄結果皆不再適用。
+        spareRows = [];
+        repairPhase = 'idle';
+        defects.forEach(d => { matrixCells[d.r][d.c] = 1; });
+        statSparesUsed.textContent = `0 / ${SPARE_ROW_CAPACITY}`;
+        updateFuseboxMap(null, null, false);
         if (matrixCells[r][c] === 0) {
           // 注入缺陷
           matrixCells[r][c] = 1;
@@ -499,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
           lblScanStatus.className = 'badge-accent';
           statDieYield.textContent = '100%';
           statDieYield.className = 'stat-val text-green';
-          btnRunBIST.disabled = true;
+          btnRunBIST.disabled = false;
         }
         btnRunBIRA.disabled = true;
         btnBurnFuse.disabled = true;
@@ -521,6 +533,7 @@ document.addEventListener('DOMContentLoaded', () => {
     canvasMatrix.style.cursor = 'crosshair';
 
     btnGenDefect.addEventListener('click', () => {
+      if (repairIsBusy()) return;
       clearAllBistTimers();
       initMatrix();
       // 隨機產生 2 到 3 個缺陷
@@ -538,7 +551,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lblScanStatus.textContent = 'DEFECT DETECTED';
       lblScanStatus.className = 'badge-accent text-warn';
       statDefectCount.textContent = defects.length.toString();
-      statSparesUsed.textContent = '0 / 4';
+      statSparesUsed.textContent = `0 / ${SPARE_ROW_CAPACITY}`;
       statDieYield.textContent = 'FAIL (0%)';
       statDieYield.className = 'stat-val text-warn';
 
@@ -549,9 +562,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnRunBIST.addEventListener('click', () => {
+      if (repairPhase !== 'idle') return;
       clearAllBistTimers();
+      repairPhase = 'scanning';
       btnRunBIST.disabled = true;
       btnGenDefect.disabled = true;
+      btnRunBIRA.disabled = true;
+      btnBurnFuse.disabled = true;
       lblScanStatus.textContent = 'BIST SCANNING...';
       logTerminal('RUNNING MARCH C- ALGORITHM ACROSS 144 BITCELLS...');
 
@@ -565,24 +582,47 @@ document.addEventListener('DOMContentLoaded', () => {
           activeScanInterval = null;
           scanProgressLine = -1;
           drawMatrix();
+          repairPhase = defects.length ? 'scanned' : 'idle';
           lblScanStatus.textContent = 'BIST COMPLETED';
           logTerminal(`BIST COMPLETED: Fault addresses captured at [${defects.map(d => `R${d.r}C${d.c}`).join(', ')}].`);
-          btnRunBIRA.disabled = false;
+          btnRunBIRA.disabled = !defects.length;
+          btnRunBIST.disabled = !!defects.length;
           btnGenDefect.disabled = false;
         }
       }, 50);
     });
 
     btnRunBIRA.addEventListener('click', () => {
+      if (repairPhase !== 'scanned') return;
       clearAllBistTimers();
+      repairPhase = 'solving';
       btnRunBIRA.disabled = true;
+      btnGenDefect.disabled = true;
       lblScanStatus.textContent = 'BIRA SOLVING...';
-      logTerminal('BIRA HARDWARE SOLVER: Calculating minimum vertex cover...');
+      logTerminal(currentLang === 'zh' ? 'BIRA 列備援模型：計算含缺陷的相異列數。' : 'BIRA ROW-REPAIR MODEL: Counting distinct defective rows.');
 
       activeBiraTimeout = setTimeout(() => {
         activeBiraTimeout = null;
-        spareRows = [...new Set(defects.map(d => d.r))];
-        statSparesUsed.textContent = `${spareRows.length} / 4`;
+        const requiredRows = [...new Set(defects.map(d => d.r))];
+        btnGenDefect.disabled = false;
+        if (requiredRows.length > SPARE_ROW_CAPACITY) {
+          repairPhase = 'insufficient';
+          spareRows = [];
+          statSparesUsed.textContent = `0 / ${SPARE_ROW_CAPACITY}`;
+          lblScanStatus.innerHTML = '<span data-lang="zh">備援不足：無法修復</span><span data-lang="en">UNREPAIRABLE: INSUFFICIENT SPARES</span>';
+          lblScanStatus.className = 'badge-accent text-warn';
+          statDieYield.textContent = 'FAIL (0%)';
+          statDieYield.className = 'stat-val text-warn';
+          updateFuseboxMap(null, null, false);
+          logTerminal(currentLang === 'zh'
+            ? `無法修復：需要 ${requiredRows.length} 列備援，容量只有 ${SPARE_ROW_CAPACITY} 列；未配置或燒錄。`
+            : `UNREPAIRABLE: ${requiredRows.length} spare rows required; capacity is ${SPARE_ROW_CAPACITY}. No allocation or programming.`);
+          btnBurnFuse.disabled = true;
+          return;
+        }
+        spareRows = requiredRows;
+        repairPhase = 'allocated';
+        statSparesUsed.textContent = `${spareRows.length} / ${SPARE_ROW_CAPACITY}`;
         lblScanStatus.textContent = 'BIRA SOLUTION LOCKED';
         updateFuseboxMap('ALLOCATED', spareRows, false);
         logTerminal(`BIRA SOLUTION: Allocate ${spareRows.length} Spare Rows [${spareRows.map(r => `SpareRow_${r}`).join(', ')}].`);
@@ -591,13 +631,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnBurnFuse.addEventListener('click', () => {
+      if (repairPhase !== 'allocated' || !spareRows.length || spareRows.length > SPARE_ROW_CAPACITY || defects.some(d => !spareRows.includes(d.r))) return;
       clearAllBistTimers();
+      repairPhase = 'burning';
       btnBurnFuse.disabled = true;
+      btnGenDefect.disabled = true;
       lblScanStatus.textContent = 'BURNING ANTIFUSE...';
       logTerminal('⚡ [ATE_PROG] APPLYING 5.5V @ 10µs PULSE TO ANTIFUSE FUSEBOX MACRO...');
 
       activeBurnTimeout = setTimeout(() => {
         activeBurnTimeout = null;
+        repairPhase = 'repaired';
+        btnGenDefect.disabled = false;
         spareRows.forEach((r, idx) => {
           const rVal = [82, 78, 85, 76][idx % 4];
           logTerminal(`[ATE_BURN] ⚡ Row-CAM[${r}] Gate Oxide Hard Rupture... R_fil = ${rVal}Ω (<100Ω PASS).`);

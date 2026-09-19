@@ -1,11 +1,18 @@
 import { defineConfig } from 'vite';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS ? '/nvm-whitepaper-site/' : './',
+  base: './',
   build: {
-    outDir: 'dist',
-    assetsDir: 'assets',
+    rolldownOptions: { cwd: fileURLToPath(new URL('./', import.meta.url)) },
+    lib: {
+      entry: fileURLToPath(new URL('./src/js/建置入口.js', import.meta.url)),
+      formats: ['es'],
+      fileName: () => '白皮書.js',
+      cssFileName: '白皮書',
+    },
     sourcemap: false,
+    write: false,
   },
   server: {
     port: 4175,

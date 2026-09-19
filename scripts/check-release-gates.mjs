@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
+import { loadPublicRoutes, assertDeclaredHtml } from "./公開路由.mjs";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(scriptDir, "..");
@@ -79,14 +80,18 @@ if (pov.sharePointOwnerMapping?.ContentOwnerUPN?.type !== "Person" || pov.shareP
 }
 
 const htmlFiles = files.filter(file => file.endsWith(".html"));
+const routes = loadPublicRoutes(root);
 for (const file of htmlFiles) {
   const relative = path.relative(root, file).replaceAll("\\", "/");
+  assertDeclaredHtml(routes, relative);
   const html = fs.readFileSync(file, "utf8");
   const body = html.match(/<body\b[^>]*>/iu)?.[0] ?? "";
-  if (!body.includes(`data-pov-contract-id="${pov.povContractId}"`)) failures.push(`${relative}: body lacks POV contract binding`);
-  if (!body.includes(`data-pov-scope-id="${pov.defaultScopeId}"`)) failures.push(`${relative}: body lacks neutral POV scope binding`);
-  if (!body.includes('data-artifact-mode="neutral-editorial"')) failures.push(`${relative}: undeclared artifact mode`);
-  if (!body.includes('data-accountable-owner-key="sam-huang"')) failures.push(`${relative}: accountable owner key missing`);
+  if (routes.pages.has(relative)) {
+    if (!body.includes(`data-pov-contract-id="${pov.povContractId}"`)) failures.push(`${relative}: body lacks POV contract binding`);
+    if (!body.includes(`data-pov-scope-id="${pov.defaultScopeId}"`)) failures.push(`${relative}: body lacks neutral POV scope binding`);
+    if (!body.includes('data-artifact-mode="neutral-editorial"')) failures.push(`${relative}: undeclared artifact mode`);
+    if (!body.includes('data-accountable-owner-key="sam-huang"')) failures.push(`${relative}: accountable owner key missing`);
+  }
 
   for (const match of html.matchAll(/<h([1-6])\b([^>]*)>([\s\S]*?)<\/h\1>/giu)) {
     const headingAttributes = match[2];
@@ -167,7 +172,13 @@ if (spdCandidateBasis.get("EEPROM / Managed NVM") !== "SOURCE_DEFINED_FUNCTION")
 if (spdCandidateBasis.get("MTP / Managed NVM") !== "BOUNDED_IMPLEMENTATION_CANDIDATE") failures.push("SPD Hub MTP is not bounded as an implementation candidate");
 if (/direct MTP\/EEPROM-class socket|SOURCE-DISCLOSED FIT[^\n]*MTP \/ Managed NVM/iu.test(`${aiHtml}\n${aiJs}`)) failures.push("SPD Hub MTP is overstated as JEDEC-disclosed physical technology");
 if (!aiJs.includes('fetch("data/ai-nvm-opportunities-knowledge.json"')) failures.push("opportunity renderer is not bound to canonical JSON");
-if (!aiJs.includes('page.dataset.knowledgeState = "error"') || !aiJs.includes("record.hidden = true")) failures.push("opportunity renderer does not fail closed when canonical JSON is unavailable");
+// 此處確認共用狀態契約；錯誤後切換篩選的實際隱藏行為由瀏覽器回歸驗證。
+for (const state of ['loading', 'canonical', 'error']) {
+  if (!aiJs.includes(`page.dataset.knowledgeState = "${state}"`)) failures.push(`機會頁缺少正式資料狀態：${state}`);
+}
+if (!aiJs.includes('const ready = state === "canonical"') || !aiJs.includes('const show = ready && evidenceMatch && writeMatch') || !aiJs.includes('record.hidden = !show')) {
+  failures.push('機會頁顯示條件未受正式資料就緒狀態控管。');
+}
 for (const csvName of ["ai-nvm-sharepoint-import.csv", "oip-sharepoint-import.csv"]) {
   const header = fs.readFileSync(path.join(dataDir, csvName), "utf8").split(/\r?\n/u, 1)[0];
   for (const forbiddenColumn of ["CanonicalCommit", "GeneratedAt", "ContentOwnerUPN"]) {
@@ -198,4 +209,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`PASS: public release is fail-closed; ${htmlFiles.length} HTML surfaces bind ${pov.povContractId}; OCP contribution authority, owner notes, heading grammar and claim boundaries pass. Policy SHA-256 ${hash(JSON.stringify(policy)).slice(0, 16)}.`);
+console.log(`通過：${routes.pages.size} 個完整頁面綁定 ${pov.povContractId}；${routes.fragments.size} 個明列片段保留公開內容檢查。來源權限、擁有者註記、標題與主張邊界均通過。政策 SHA-256：${hash(JSON.stringify(policy)).slice(0, 16)}。`);

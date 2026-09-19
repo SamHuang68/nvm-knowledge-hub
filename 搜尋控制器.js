@@ -78,7 +78,7 @@ window.__NVM_SEARCH_ENHANCED = true;
       overlay.setAttribute('aria-label', 'Search the knowledge hub');
       overlay.dataset.ariaEn = 'Search the knowledge hub';
       overlay.dataset.ariaZh = '搜尋知識中心';
-      overlay.innerHTML = '<div class="search-modal"><div class="search-input-row"><input id="searchInput" type="search" autocomplete="off" aria-label="Search topics and evidence" data-aria-en="Search topics and evidence" data-aria-zh="搜尋主題與證據" aria-describedby="searchStatus" data-placeholder-en="Technology, mechanism, company, or source ID" data-placeholder-zh="技術、機制、公司或來源編號"><button type="button" id="searchClose" aria-label="Close search" data-aria-en="Close search" data-aria-zh="關閉搜尋">×</button></div><p id="searchStatus" class="search-status" role="status" aria-live="polite"></p><div id="searchResults" class="search-results"></div></div>';
+      overlay.innerHTML = '<div class="search-modal"><div class="search-input-row"><input id="nvmHubSearchInput" type="search" autocomplete="off" aria-label="Search topics and evidence" data-aria-en="Search topics and evidence" data-aria-zh="搜尋主題與證據" aria-describedby="searchStatus" data-placeholder-en="Technology, mechanism, company, or source ID" data-placeholder-zh="技術、機制、公司或來源編號"><button type="button" id="searchClose" aria-label="Close search" data-aria-en="Close search" data-aria-zh="關閉搜尋">×</button></div><p id="searchStatus" class="search-status" role="status" aria-live="polite"></p><div id="searchResults" class="search-results"></div></div>';
       document.body.append(overlay);
     }
     if (!document.getElementById('searchTrigger')) {
@@ -112,14 +112,17 @@ window.__NVM_SEARCH_ENHANCED = true;
   }
   function bind() {
     const overlay = document.getElementById('searchOverlay');
-    const input = document.getElementById('searchInput');
-    const results = document.getElementById('searchResults');
-    const status = document.getElementById('searchStatus');
+    const input = overlay?.querySelector('input[type="search"]');
+    const results = overlay?.querySelector('#searchResults');
+    const status = overlay?.querySelector('#searchStatus');
     const trigger = document.getElementById('searchTrigger');
-    const close = document.getElementById('searchClose');
+    const close = overlay?.querySelector('#searchClose');
     if (!overlay || !input || !results) return;
+    // 既有首頁範本與動態掛載入口共用元件 ID，避免頁內搜尋欄位衝突。
+    input.id = 'nvmHubSearchInput';
     function syncInterfaceLabels() {
       const language = window.HubLanguage?.get() === 'zh' ? 'zh' : 'en';
+      input.placeholder = input.dataset[language === 'zh' ? 'placeholderZh' : 'placeholderEn'] || '';
       document.querySelectorAll('[data-aria-zh][data-aria-en]').forEach(element => {
         element.setAttribute('aria-label', element.dataset[language === 'zh' ? 'ariaZh' : 'ariaEn']);
       });
@@ -203,6 +206,9 @@ window.__NVM_SEARCH_ENHANCED = true;
     }
     function openSearch() {
       if (isOpen()) { input.focus(); return; }
+      // 原生 modal 位於 top layer；先關閉並讓瀏覽器恢復觸發按鈕的焦點。
+      // 搜尋關閉時再回到該按鈕，不保留已關閉視窗內的無效焦點。
+      [...document.querySelectorAll('dialog:modal')].reverse().forEach(dialog => dialog.close());
       previousFocus = document.activeElement; previousOverflow = document.body.style.overflow;
       background = [...document.body.children].filter(element => element !== overlay && !['SCRIPT','STYLE'].includes(element.tagName)).map(element => [element,element.inert]);
       background.forEach(([element]) => {element.inert = true;});
@@ -217,12 +223,22 @@ window.__NVM_SEARCH_ENHANCED = true;
       trigger?.setAttribute('aria-expanded','false');
       document.body.style.overflow = previousOverflow;
       background.forEach(([element,inert]) => {element.inert = inert;});
-      if (previousFocus?.isConnected) previousFocus.focus({preventScroll:true});
+      const restoreFocus = previousFocus?.isConnected && !previousFocus.closest('dialog:not([open]), [inert]') ? previousFocus : trigger;
+      restoreFocus?.focus({preventScroll:true});
     }
     trigger?.addEventListener('click',openSearch); close?.addEventListener('click',closeSearch);
     overlay.addEventListener('click',event => {if (event.target === overlay) closeSearch();});
     input.addEventListener('input',render);
-    results.addEventListener('click',event => {if (event.target.closest('a')) closeSearch();});
+    results.addEventListener('click',event => {
+      const link = event.target.closest('a');
+      if (!link) return;
+      closeSearch();
+      const url = new URL(link.href);
+      if (url.origin === location.origin && url.pathname === location.pathname && url.search === location.search && url.hash === location.hash) {
+        // 相同 hash 不會再觸發 hashchange，仍須解除本頁篩選造成的遮蔽。
+        window.dispatchEvent(new CustomEvent('hub:reveal-anchor'));
+      }
+    });
     document.addEventListener('click', event => {
       const link = event.target.closest('a[href*="searchTrigger"]');
       if (!link) return;

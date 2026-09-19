@@ -1,3 +1,4 @@
+import {ensureDiagrams} from './全景圖解載入.js';
 const isEnglish = () => (window.HubLanguage?.get() || document.documentElement.lang) === 'en';
 const say = (zh, en) => isEnglish() ? en : zh;
 const dialog=document.createElement('dialog');
@@ -44,9 +45,11 @@ const updateScale=()=>{
  }
 };
 scaleSelect.addEventListener('change',updateScale);
-document.addEventListener('click',event=>{
+document.addEventListener('click',async event=>{
  const button=event.target.closest('[data-engineering-zoom], [data-engineering-download]');if(!button)return;
- const figure=button.closest('[data-engineering-figure]'),original=figure?.querySelector('svg');if(!original)return;
+ const figure=button.closest('[data-engineering-figure]');
+ if(!await ensureDiagrams(figure))return;
+ const original=figure?.querySelector('svg');if(!original)return;
  if(button.hasAttribute('data-engineering-download')){
   const clone=original.cloneNode(true);clone.setAttribute('xmlns','http://www.w3.org/2000/svg');
   const blob=new Blob(['<?xml version="1.0" encoding="UTF-8"?>\n'+new XMLSerializer().serializeToString(clone)],{type:'image/svg+xml;charset=utf-8'});

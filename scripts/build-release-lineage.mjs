@@ -44,9 +44,9 @@ if (write) {
     povContractId: 'POV-NVM-WEB-2026-08-29',
     artifactMode: 'neutral-editorial',
     authorOrganization: 'NVM Knowledge Hub',
-    releaseAuthorization: '使用者已明確授權提交、推送與部署',
-    status: 'RELEASED',
-    lineageRule: '內容提交後產生本紀錄，綁定確切 Git 提交、檔案樹與治理資料；來源集合雜湊排除本紀錄，避免自我參照。實際上線狀態另以 GitHub Pages 部署結果核對。',
+    releaseAuthorization: '僅記錄本機內容驗證；不代表推送或部署授權。',
+    status: 'LOCAL_VALIDATED',
+    lineageRule: '內容提交後產生本機紀錄，綁定確切 Git 提交、檔案樹與治理資料；來源集合雜湊排除本紀錄，避免自我參照。本紀錄不宣告上線；實際發布須另具使用者授權與 GitHub Pages 部署證據。',
     postCommitManifestRequired: false,
     sourceSnapshot: { ...snapshot, hashContract: 'path<NUL>git-blob-object-id<LF>；UTF-8 路徑依位元組排序；排除 release-lineage.json' },
     governance: {
@@ -57,7 +57,7 @@ if (write) {
     }
   };
   fs.writeFileSync(target, `${JSON.stringify(lineage, null, 2)}\n`, 'utf8');
-  console.log(`通過：已產生 ${commit.slice(0, 12)} 的發行來源紀錄，共 ${snapshot.trackedPathCount} 個已追蹤路徑。`);
+  console.log(`通過：已產生 ${commit.slice(0, 12)} 的本機來源紀錄，共 ${snapshot.trackedPathCount} 個已追蹤路徑；尚未宣告發布。`);
   process.exit(0);
 }
 
@@ -69,7 +69,7 @@ if (lineage.status === 'PREVIEW_UNCOMMITTED') {
   console.log('PASS: release lineage is explicitly PREVIEW_UNCOMMITTED and cannot masquerade as deployed evidence.');
   process.exit(0);
 }
-if (lineage.status !== 'RELEASED' || !/^[0-9a-f]{40}$/u.test(lineage.canonicalCommit ?? '')) throw new Error('Released lineage lacks a canonical 40-character commit.');
+if (!['RELEASED', 'LOCAL_VALIDATED'].includes(lineage.status) || !/^[0-9a-f]{40}$/u.test(lineage.canonicalCommit ?? '')) throw new Error('來源紀錄缺少有效狀態或完整的 40 字元提交識別碼。');
 git('cat-file', '-e', `${lineage.canonicalCommit}^{commit}`);
 const tree = git('show', '-s', '--format=%T', lineage.canonicalCommit);
 if (tree !== lineage.canonicalTree) throw new Error('Release lineage canonical tree does not match its commit.');
@@ -81,4 +81,4 @@ for (const [pathKey, hashKey] of [['povContractPath', 'povContractSHA256'], ['pu
   const sourcePath = lineage.governance?.[pathKey];
   if (!sourcePath || sha256(gitBytes('show', `${lineage.canonicalCommit}:${sourcePath}`)) !== lineage.governance?.[hashKey]) throw new Error(`Release lineage governance hash mismatch for ${sourcePath ?? pathKey}.`);
 }
-console.log(`通過：發行紀錄綁定 ${lineage.canonicalCommit.slice(0, 12)}、${snapshot.trackedPathCount} 個路徑與治理資料雜湊；目前提交的內容一致。`);
+console.log(`通過：${lineage.status === 'LOCAL_VALIDATED' ? '本機' : '歷史發行'}紀錄綁定 ${lineage.canonicalCommit.slice(0, 12)}、${snapshot.trackedPathCount} 個路徑與治理資料雜湊；目前提交的內容一致。`);

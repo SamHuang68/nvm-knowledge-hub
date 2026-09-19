@@ -56,7 +56,7 @@ for(const language of ['en','zh'])for(const width of [1440,1024,768,390,320]){
   note(await page.locator('.hub-rail-btn[data-target="layer-applications"]').getAttribute('aria-current')==='location'&&await page.locator('#layer-architecture').isVisible(),'舊安全入口冷開後仍標示應用與系統',{language,width});
   await page.goto(new URL('index.html?lang='+language,base).href,{waitUntil:'networkidle'});
   for(const [query,id] of [['Kilopass','kilopass-xpm'],['Sidense','sidense-1t-fuse'],['Impinj','impinj-aeon']]){
-   await page.locator('#searchTrigger').click();await page.locator('#searchInput').fill(query);
+   await page.locator('#searchTrigger').click();await page.locator('#searchOverlay input[type="search"]').fill(query);
    const hit=page.locator(`#searchResults a[href$="#ip-${id}"]`).first();await hit.waitFor({state:'visible'});await hit.click();
    await page.waitForFunction(id=>document.getElementById('ip-'+id)?.checkVisibility(),id);
    note(new URL(page.url()).hash==='#ip-'+id,'搜尋歷史品牌可進入正確單元',{language,query,id});

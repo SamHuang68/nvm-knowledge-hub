@@ -5,14 +5,14 @@
   "type": "module",
   "scripts": {
     "serve": "node scripts/serve-local.mjs",
-    "check": "node scripts/normalize-heading-punctuation.mjs --check && node scripts/check-site-ia.mjs && node scripts/check-bilingual-purity.mjs && node scripts/build-oip-sharepoint.mjs --check && node scripts/build-ai-nvm-sharepoint.mjs --check && node scripts/check-ai-nvm-integrity.mjs && node scripts/check-release-gates.mjs && node scripts/build-release-lineage.mjs --check && npm run check:nvm",
+    "check": "npm run check:content && node scripts/build-release-lineage.mjs --check",
     "check:bilingual": "node scripts/check-bilingual-purity.mjs",
     "release:lineage": "node scripts/build-release-lineage.mjs --write",
     "format:headings": "node scripts/normalize-heading-punctuation.mjs",
     "export:sharepoint": "node scripts/build-oip-sharepoint.mjs && node scripts/build-ai-nvm-sharepoint.mjs",
     "qa:render": "node scripts/render-site-ia.mjs",
     "build:nvm": "node scripts/建立NVM技術全景.mjs && node scripts/建立知識中心首頁.mjs",
-    "check:nvm": "node --check ai-nvm.js app.js assurance.js f1-card-align.js hub.js IoT頁面導覽.js NVM工程圖解.js NVM技術全景.js research.js site-language.js matrix-interactive.js specialty-nvm.js 專題選單導覽.js 搜尋控制器.js 記憶體物理導覽.js 首頁導覽.js && node scripts/建立NVM技術全景.mjs --check && node scripts/建立知識中心首頁.mjs --check",
+    "check:nvm": "node scripts/檢查程式語法.mjs && node scripts/建立NVM技術全景.mjs --check && node scripts/建立知識中心首頁.mjs --check",
     "qa:nvm": "node scripts/驗證NVM技術全景.mjs",
     "qa:bilingual": "node scripts/驗證全站雙語.mjs",
     "qa:engineering": "node scripts/驗證NVM工程圖解.mjs",
@@ -22,7 +22,19 @@
     "qa:rewrite": "node scripts/驗證可重寫操作.mjs",
     "qa:research": "node scripts/驗證產研地圖.mjs",
     "qa:editorial": "node scripts/驗證商用編排.mjs",
-    "qa:keepout": "node scripts/驗證頁面留邊.mjs"
+    "qa:keepout": "node scripts/驗證頁面留邊.mjs",
+    "build:whitepaper": "node scripts/建立白皮書.mjs",
+    "check:whitepaper": "node scripts/驗證白皮書一致性.mjs && node tools/whitepaper-studio/scripts/check-public.mjs",
+    "build:offline": "node scripts/建立離線資源.mjs",
+    "check:offline": "node scripts/建立離線資源.mjs --check",
+    "build": "npm run build:nvm && npm run build:whitepaper && npm run export:sharepoint && npm run build:offline",
+    "qa:gates": "node scripts/驗證檢查門禁.mjs",
+    "qa:repair": "node scripts/驗證模擬備援.mjs",
+    "qa:search": "node scripts/驗證搜尋與狀態修正.mjs",
+    "qa:offline": "node scripts/驗證離線快取.mjs",
+    "qa:atlas": "node scripts/驗證全景延後載入.mjs",
+    "qa:regression": "node scripts/驗證整站修正.mjs",
+    "check:content": "node scripts/normalize-heading-punctuation.mjs --check && node scripts/check-site-ia.mjs && node scripts/check-bilingual-purity.mjs && node scripts/build-oip-sharepoint.mjs --check && node scripts/build-ai-nvm-sharepoint.mjs --check && node scripts/check-ai-nvm-integrity.mjs && node scripts/check-release-gates.mjs && npm run check:nvm && npm run check:whitepaper && npm run check:offline"
   },
   "devDependencies": {
     "playwright": "^1.55.0"

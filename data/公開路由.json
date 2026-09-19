@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0",
+  "description": "完整頁面必須具備品牌首頁入口與 body 治理屬性；明列的 HTML 片段保留內容檢查，不能充當導覽目的地。",
+  "pages": [
+    "404.html",
+    "NVM技術全景.html",
+    "NVM技術全景中文.html",
+    "ai-nvm-opportunities.html",
+    "automotive-nvm.html",
+    "briefing/index.html",
+    "index.html",
+    "iot-mcu-envm.html",
+    "memory-evidence.html",
+    "memory-physics.html",
+    "oip-secure-storage.html",
+    "secure-storage.html",
+    "security-assurance.html",
+    "specialty-nvm.html",
+    "technology-comparison.html",
+    "tools/whitepaper-studio/index.html",
+    "whitepaper/index.html"
+  ],
+  "fragments": [
+    {
+      "path": "briefing/header.html",
+      "ownerPage": "briefing/index.html",
+      "description": "保留既有簡報入口的主內容片段，並由完整入口承擔文件外框與治理屬性。"
+    }
+  ]
+}

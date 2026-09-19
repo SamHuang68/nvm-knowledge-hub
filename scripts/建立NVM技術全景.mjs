@@ -1,4 +1,5 @@
 import {validateRewriteCycle, renderRewriteCycle, rewriteCycleMarkdown} from './NVM寫抹循環.mjs';
+import {splitAtlasDiagrams} from './分離全景圖解.mjs';
 import {validateResearch, renderResearch, researchMarkdown, renderLandscape, landscapeMarkdown} from './NVM產研介面.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -304,13 +305,14 @@ if (isEnglish) {
              .replace(/data-search="([^"]*)"/g, (m, p1) => `data-search="${p1.replace(/[\u4e00-\u9fff\u3000-\u303f\uff01-\uff0f\uff1a-\uff20\uff3b-\uff40\uff5b-\uff65]+/gu, ' ').replace(/\s+/g, ' ').trim()}"`);
   markdown = englishInterface(markdown).replace(/([.!?])。/g, '$1 ').replaceAll('。', '. ').replaceAll('；', '; ').replaceAll('：', ': ').replaceAll('／', '/').replaceAll('（', '(').replaceAll('）', ')').replace(/[ \t]+$/gm, '');
 }
-const outputs = [[pageFile,html],[`data/NVM知識資料${dataSuffix}.json`,JSON.stringify(packageData,null,2)+'\n'],[`data/NVM技術專題${dataSuffix}.md`,markdown]];
+const separated = splitAtlasDiagrams(html, language);
+const outputs = [[pageFile,separated.html],...separated.outputs,[`data/NVM知識資料${dataSuffix}.json`,JSON.stringify(packageData,null,2)+'\n'],[`data/NVM技術專題${dataSuffix}.md`,markdown]];
 if(isEnglish) outputs.push(['data/NVM搜尋索引.js','window.NVMTopicIndex = '+JSON.stringify(searchEntries,null,2)+';\n']);
 for (const [file,bytes] of outputs) {
   const target = path.join(root,file);
   if (check) {
     if (!fs.existsSync(target) || fs.readFileSync(target,'utf8') !== bytes) throw new Error(`衍生檔未同步：${file}`);
-  } else fs.writeFileSync(target,bytes,'utf8');
+  } else { fs.mkdirSync(path.dirname(target),{recursive:true}); fs.writeFileSync(target,bytes,'utf8'); }
 }
 const contentHash = crypto.createHash('sha256').update(serialized).digest('hex');
 console.log(`通過：${topics.length} 個技術、${comparison.systems.length} 個整合專題、${patents.length} 件專利、${sources.length} 筆來源、${foundry.milestones.length} 筆路線圖；${check?'衍生內容一致':'已完成靜態網頁與資料匯出'}；內容雜湊 ${contentHash}`);

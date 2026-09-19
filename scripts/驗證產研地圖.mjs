@@ -52,7 +52,7 @@ try{
   await context.close();
  }
  const context=await browser.newContext({viewport:{width:1440,height:1000}}),page=await context.newPage();
- await page.goto(base+'index.html?lang=zh',{waitUntil:'networkidle'});await page.keyboard.press('Control+k');await page.locator('#searchInput').fill('Everspin');await page.waitForTimeout(300);check((await page.locator('#searchResults').innerText()).includes('Everspin'),'首頁全站搜尋可以找到 Everspin');await page.screenshot({path:path.join(output,'首頁搜尋-Everspin.png')});await context.close();
+ await page.goto(base+'index.html?lang=zh',{waitUntil:'networkidle'});await page.keyboard.press('Control+k');await page.locator('#searchOverlay input[type="search"]').fill('Everspin');await page.waitForTimeout(300);check((await page.locator('#searchResults').innerText()).includes('Everspin'),'首頁全站搜尋可以找到 Everspin');await page.screenshot({path:path.join(output,'首頁搜尋-Everspin.png')});await context.close();
  check(errors.length===0,'瀏覽器無未處理腳本錯誤',{errors});
 }catch(e){check(false,'瀏覽器驗收執行成功',{error:e.stack});}finally{await browser?.close();await new Promise(resolve=>server.close(resolve));}
 fs.writeFileSync(path.join(output,'瀏覽器查核.json'),JSON.stringify({date:'2026-09-10',checks:results.length,failures,errors,results},null,2)+'\n');
