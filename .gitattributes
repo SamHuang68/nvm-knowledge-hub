@@ -2,6 +2,7 @@
 data/ai-nvm-opportunities-knowledge.json text eol=lf
 data/ai-nvm-sharepoint-import.csv text eol=crlf
 data/ai-nvm-research-intake.csv text eol=crlf
+data/oip-sharepoint-import.csv text eol=crlf
 
 # 靜態雙語網頁與共用資料須和產生程式的 LF 輸出逐位元組一致。
 /index.html text eol=lf
