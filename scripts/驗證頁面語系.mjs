@@ -33,8 +33,8 @@ async function check(name, test) {
 
 async function visit(page, route) {
   await page.goto(new URL(route, base).href, { waitUntil: 'domcontentloaded' });
-  await page.waitForFunction(() => window.HubLanguage && document.body.dataset.language);
-  await page.locator('#nvmHubSearchInput').waitFor({ state: 'attached' });
+  await page.waitForFunction(() => window.HubLanguage && document.body?.dataset.language === window.HubLanguage.get()
+    && document.documentElement.lang === (window.HubLanguage.get() === 'zh' ? 'zh-Hant' : 'en'));
 }
 
 async function selectLanguage(page, language) {
@@ -65,6 +65,7 @@ try {
   for (const [route, minimum] of [['ai-nvm-opportunities.html', 7], ['secure-storage.html', 4], ['briefing/index.html', 1]]) {
     await check(`外部連結可及性_${route.replaceAll('/', '_')}`, async page => {
       await visit(page, `${route}?lang=en`);
+      await page.locator('#hubExternalLinkNotice').waitFor({ state: 'attached' });
       const links = page.locator('a[target="_blank"]').filter({ has: page.locator('[data-lang]') });
       assert.ok(await links.count() >= minimum, '受審連結數量不得減少');
       const records = [];

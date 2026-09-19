@@ -8,10 +8,12 @@ const siteDir = path.resolve(scriptDir, "..");
 const jsonPath = path.join(siteDir, "data", "oip-secure-storage-knowledge.json");
 const csvPath = path.join(siteDir, "data", "oip-sharepoint-import.csv");
 const povPath = path.join(siteDir, "data", "institutional-pov-contract.json");
-const knowledge = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+// Git 的文字 blob 使用 LF；來源雜湊不應隨 checkout 平台的換行改變。
+const knowledgeSource = fs.readFileSync(jsonPath, "utf8").replaceAll("\r\n", "\n");
+const knowledge = JSON.parse(knowledgeSource);
 const pov = JSON.parse(fs.readFileSync(povPath, "utf8"));
 const sha256 = value => crypto.createHash("sha256").update(value, "utf8").digest("hex").toUpperCase();
-const canonicalContentSha256 = sha256(fs.readFileSync(jsonPath, "utf8"));
+const canonicalContentSha256 = sha256(knowledgeSource);
 
 const required = [
   "recordId", "title", "contentType", "topic", "asset", "attackClass", "lifecyclePhase",

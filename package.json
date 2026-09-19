@@ -29,12 +29,13 @@
     "check:offline": "node scripts/建立離線資源.mjs --check",
     "build": "npm run build:nvm && npm run build:whitepaper && npm run export:sharepoint && npm run build:offline",
     "qa:gates": "node scripts/驗證檢查門禁.mjs",
+    "qa:sharepoint": "node scripts/驗證SharePoint換行.mjs",
     "qa:repair": "node scripts/驗證模擬備援.mjs",
     "qa:search": "node scripts/驗證搜尋與狀態修正.mjs",
     "qa:offline": "node scripts/驗證離線快取.mjs",
     "qa:atlas": "node scripts/驗證全景延後載入.mjs",
     "qa:regression": "node scripts/驗證整站修正.mjs",
-    "check:content": "node scripts/normalize-heading-punctuation.mjs --check && node scripts/check-site-ia.mjs && node scripts/check-bilingual-purity.mjs && node scripts/build-oip-sharepoint.mjs --check && node scripts/build-ai-nvm-sharepoint.mjs --check && node scripts/check-ai-nvm-integrity.mjs && node scripts/check-release-gates.mjs && npm run check:nvm && npm run check:whitepaper && npm run check:offline"
+    "check:content": "node scripts/normalize-heading-punctuation.mjs --check && node scripts/check-site-ia.mjs && node scripts/check-bilingual-purity.mjs && node scripts/build-oip-sharepoint.mjs --check && node scripts/build-ai-nvm-sharepoint.mjs --check && npm run qa:sharepoint && node scripts/check-ai-nvm-integrity.mjs && node scripts/check-release-gates.mjs && npm run check:nvm && npm run check:whitepaper && npm run check:offline"
   },
   "devDependencies": {
     "playwright": "^1.55.0"
