@@ -3,14 +3,16 @@
   const rootURL = new URL('.', document.currentScript.src);
   const STORAGE_KEY = 'nvm-hub-language';
   const html = document.documentElement;
-  const requested = new URL(location.href).searchParams.get('lang');
   function savedLanguage() {
     try { return localStorage.getItem(STORAGE_KEY) || localStorage.getItem('nvm-language') || localStorage.getItem('hub-lang');
     } catch { return null; }
   }
-  const initial = requested === 'zh' || requested === 'en' ? requested : savedLanguage() === 'zh' ? 'zh' : 'en';
-  if (requested === 'zh' || requested === 'en') { try { localStorage.setItem(STORAGE_KEY, requested); } catch {}
+  function locationLanguage() {
+    const requested = new URL(location.href).searchParams.get('lang');
+    return requested === 'zh' || requested === 'en' ? requested : savedLanguage() === 'zh' ? 'zh' : 'en';
   }
+  const initial = locationLanguage();
+  try { localStorage.setItem(STORAGE_KEY, initial); } catch {}
   function routeToLanguage(language) {
     const file = html.dataset[language === 'zh' ? 'languageZh' : 'languageEn'];
     if (!html.dataset.contentLanguage || !file || html.dataset.contentLanguage === language) return false;
@@ -85,6 +87,12 @@
     },
     toggle() { const next = this.get() === 'en' ? 'zh' : 'en'; this.set(next); return next; }
   };
+  window.addEventListener('popstate', () => {
+    const language = locationLanguage();
+    // 歷史網址是本次導覽的語言來源；同步偏好但不覆寫歷史項目。
+    try { localStorage.setItem(STORAGE_KEY, language); } catch {}
+    window.HubLanguage.set(language, false);
+  });
   if (routeToLanguage(initial)) return;
   html.lang = initial === 'zh' ? 'zh-Hant' : 'en'; html.dataset.language = initial;
   const sheets = [
@@ -170,16 +178,19 @@
     });
     function syncExternalLinks(lang) {
       const isZh = (lang || window.HubLanguage?.get()) === 'zh';
-      const extNotice = isZh ? '（另開新分頁）' : ' (opens in a new tab)';
+      let notice = document.getElementById('hubExternalLinkNotice');
+      if (!notice) {
+        notice = document.createElement('span');
+        notice.id = 'hubExternalLinkNotice';
+        notice.hidden = true;
+        document.body.appendChild(notice);
+      }
+      notice.textContent = isZh ? '另開新分頁' : 'opens in a new tab';
       document.querySelectorAll('a[target="_blank"]').forEach(link => {
-        if (!link.hasAttribute('data-original-label')) {
-          const raw = link.getAttribute('aria-label') || link.textContent.trim();
-          link.setAttribute('data-original-label', raw);
-        }
-        const base = link.getAttribute('data-original-label');
-        if (base && !base.includes('opens in') && !base.includes('新分頁') && !base.includes('另開')) {
-          link.setAttribute('aria-label', `${base}${extNotice}`);
-        }
+        // 保留原生可及性名稱及既有說明，避免讀取 CSS 隱藏的另一語言。
+        const descriptions = new Set((link.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean));
+        descriptions.add(notice.id);
+        link.setAttribute('aria-describedby', [...descriptions].join(' '));
       });
     }
     syncExternalLinks(window.HubLanguage?.get());

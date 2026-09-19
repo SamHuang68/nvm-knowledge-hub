@@ -7,6 +7,52 @@ const LEGACY_CACHES = new Set(['nvm-hub-r4-20260917']);
 const assetURLs = new Set(self.NVMOfflineManifest.assets.map(file => new URL(file, ROOT).href));
 const digests = new Map(Object.entries(self.NVMOfflineManifest.digests).map(([file, digest]) => [new URL(file, ROOT).href, digest]));
 
+function offlineDocument(request) {
+  const requested = new URL(request.url).searchParams.get('lang');
+  const language = requested === 'zh' || requested === 'en' ? requested : null;
+  const messages = {
+    en: {
+      title: 'Page not downloaded',
+      heading: 'This page is unavailable offline or while resources are updating',
+      description: 'Reconnect, then close all tabs for this site and reopen it to download the complete version.',
+      home: 'Return to the Knowledge Hub',
+    },
+    zh: {
+      title: '此頁尚未下載',
+      heading: '目前離線或資源更新中，此頁尚未下載',
+      description: '重新連線後，關閉本站所有分頁再重新開啟，即可取得完整版本。',
+      home: '返回知識中心首頁',
+    },
+  };
+  const copy = messages[language || 'en'];
+  const home = new URL('index.html', ROOT);
+  home.searchParams.set('lang', language || 'en');
+  // SW 無法讀取 localStorage；無明確 query 時由同來源的備援文件同步偏好。
+  // 初始回應仍有完整內容，即使 JavaScript 不可用也能返回已快取首頁。
+  return `<!doctype html><html lang="${language === 'zh' ? 'zh-Hant' : 'en'}"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>${copy.title}</title><main><h1 id="offlineHeading">${copy.heading}</h1><p id="offlineDescription">${copy.description}</p><a id="offlineHome" href="${home.href}">${copy.home}</a></main><script>
+    (() => {
+      const messages = ${JSON.stringify(messages)};
+      let language = ${JSON.stringify(language)};
+      if (!language) {
+        try {
+          const saved = localStorage.getItem('nvm-hub-language') || localStorage.getItem('nvm-language') || localStorage.getItem('hub-lang');
+          language = saved === 'zh' ? 'zh' : 'en';
+        } catch { language = 'en'; }
+      }
+      const copy = messages[language];
+      document.documentElement.lang = language === 'zh' ? 'zh-Hant' : 'en';
+      document.title = copy.title;
+      document.getElementById('offlineHeading').textContent = copy.heading;
+      document.getElementById('offlineDescription').textContent = copy.description;
+      const home = document.getElementById('offlineHome');
+      home.textContent = copy.home;
+      const address = new URL(home.href);
+      address.searchParams.set('lang', language);
+      home.href = address.href;
+    })();
+  </script></html>`;
+}
+
 async function verifyResponse(key, response) {
   if (!response.ok || response.type === 'opaque') throw new Error('離線資源下載失敗');
   const expected = digests.get(key);
@@ -70,7 +116,7 @@ self.addEventListener('fetch', event => {
       const cached = await cache.match(key);
       if (cached) return cached;
       if (request.mode === 'navigate') {
-        return new Response('<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>此頁尚未下載</title><main><h1>目前離線或資源更新中，此頁尚未下載</h1><p>重新連線後，關閉本站所有分頁再重新開啟，即可取得完整版本。</p><a href="'+new URL('index.html',ROOT).href+'">返回知識中心首頁</a></main></html>', {status:503,headers:{'Content-Type':'text/html; charset=utf-8'}});
+        return new Response(offlineDocument(request), {status:503,headers:{'Content-Type':'text/html; charset=utf-8'}});
       }
       return new Response('離線資源尚未下載', {status:503,headers:{'Content-Type':'text/plain; charset=utf-8'}});
     }

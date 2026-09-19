@@ -1,10 +1,9 @@
 /**
  * scripts/check-bilingual-purity.mjs
  * 
- * 全站雙語純度與 CJK 零洩漏自動化門禁
- * 1. 模擬英文模式（排除所有 [data-lang="zh"] 及其子節點），全站靜態可見文字 100% 零 CJK 漢字殘留。
- * 2. 驗證所有互動與無障礙屬性（aria-label, alt, title, placeholder, data-*-en）的純度與成對完整性。
- * 3. 靜態審查前端 JS 檔案，攔截未經國際化條件保護的中文硬編碼。
+ * 英文靜態投影與雙語屬性成對檢查。
+ * 移除中文子樹後檢查 HTML 與部分直接字串賦值，不執行 CSS 或 JavaScript。
+ * 實際可見文字、動態狀態、無障礙名稱與繁中文案由 qa:bilingual 瀏覽器門禁驗收。
  */
 
 import fs from 'node:fs';
@@ -194,12 +193,12 @@ htmlPages.forEach(auditHtmlFile);
 auditJsFiles(root);
 
 if (failures.length > 0) {
-  console.error(`❌ 雙語純度檢查失敗，共發現 ${failures.length} 項違規：`);
+  console.error(`英文靜態投影檢查失敗，共發現 ${failures.length} 項違規：`);
   failures.slice(0, 30).forEach(f => console.error(`  - ${f}`));
   if (failures.length > 30) {
     console.error(`  ... 還有 ${failures.length - 30} 項未列出`);
   }
   process.exit(1);
 } else {
-  console.log(`通過：全站 ${checkedFiles.length} 個 HTML 頁面達成英文模式零 CJK 漢字殘留，屬性純度與雙語成對性符合規範。`);
+  console.log(`通過：${checkedFiles.length} 個 HTML 的英文靜態投影與雙語屬性成對檢查；實際雙語畫面須另執行 npm run qa:bilingual。`);
 }

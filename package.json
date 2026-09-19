@@ -14,7 +14,7 @@
     "build:nvm": "node scripts/建立NVM技術全景.mjs && node scripts/建立知識中心首頁.mjs",
     "check:nvm": "node scripts/檢查程式語法.mjs && node scripts/建立NVM技術全景.mjs --check && node scripts/建立知識中心首頁.mjs --check",
     "qa:nvm": "node scripts/驗證NVM技術全景.mjs",
-    "qa:bilingual": "node scripts/驗證全站雙語.mjs",
+    "qa:bilingual": "node scripts/驗證雙語發布.mjs",
     "qa:engineering": "node scripts/驗證NVM工程圖解.mjs",
     "qa:mtp": "node scripts/驗證MTP分類.mjs",
     "qa:ip": "node scripts/驗證IP單元.mjs",

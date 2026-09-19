@@ -1,4 +1,9 @@
 import { nvmIpSpecs } from '../../data/nvm_specs.js';
+import { localizeProfile } from '../../data/設定檔語系.js';
+
+const getLanguage = () => globalThis.window?.HubLanguage?.get() || globalThis.document?.documentElement?.dataset.language || 'en';
+const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+const bilingual = (en, zh) => `<span data-lang="en">${escapeHTML(en)}</span><span data-lang="zh">${escapeHTML(zh)}</span>`;
 
 export function selectProfiles(family = 'ALL') {
   return family === 'ALL' ? nvmIpSpecs : nvmIpSpecs.filter((item) => item.family === family);
@@ -22,7 +27,7 @@ export function renderMatrix(container) {
         <span>FILTER BY TECHNOLOGY FAMILY</span>
         <select id="filter-family">
           <option value="ALL">All public profiles (${nvmIpSpecs.length})</option>
-          ${[...new Set(nvmIpSpecs.map((item) => item.family))].map((family) => `<option value="${family}">${family}</option>`).join('')}
+          ${[...new Set(nvmIpSpecs.map((item) => item.family))].map((family) => `<option value="${escapeHTML(family)}">${escapeHTML(family)}</option>`).join('')}
         </select>
       </label>
       <div class="matrix-actions">
@@ -70,6 +75,17 @@ export function renderMatrix(container) {
   const filterSelect = container.querySelector('#filter-family');
   const tbody = container.querySelector('#decision-body');
   let selectedFamily = 'ALL';
+  const syncFamilyLabels = () => {
+    if (!filterSelect) return;
+    const language = getLanguage();
+    for (const option of filterSelect.options) {
+      const profile = nvmIpSpecs.find(item => item.family === option.value);
+      option.textContent = profile ? localizeProfile(profile, language).family : language === 'zh' ? `全部公開設定檔（${nvmIpSpecs.length}）` : `All public profiles (${nvmIpSpecs.length})`;
+    }
+  };
+  // option 不允許巢狀 span；使用與表格、匯出相同的語系資料。
+  syncFamilyLabels();
+  globalThis.window?.addEventListener('hub:language-change', syncFamilyLabels);
 
   filterSelect?.addEventListener('change', (event) => {
     selectedFamily = event.target.value;
@@ -89,30 +105,33 @@ export function renderMatrix(container) {
 }
 
 function renderRows(items) {
-  return items.map((item) => `
+  return items.map((item) => {
+    const zh = localizeProfile(item, 'zh');
+    const field = key => bilingual(item[key], zh[key]);
+    return `
     <tr data-profile-id="${item.id}">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>${item.profile}</strong>
-        <small>${item.updateModel || ''}</small>
+        <strong>${field('profile')}</strong>
+        <small>${field('updateModel')}</small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">${item.family}</span></td>
-      <td data-label="STATE CONTRACT">${item.contract}</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">${field('family')}</span></td>
+      <td data-label="STATE CONTRACT">${field('contract')}</td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip ${getSecurityClass(item.busExposure)}">${item.busExposure || 'On-chip'}</span>
+        <span class="security-chip ${getSecurityClass(item.busExposure)}">${field('busExposure')}</span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> ${item.latency || 'N/A'}</small><br>
-        <small><strong>BOM:</strong> ${item.bomCost || 'N/A'}</small>
+        <small><strong>Latency:</strong> ${field('latency')}</small><br>
+        <small><strong>BOM:</strong> ${field('bomCost')}</small>
       </td>
-      <td data-label="STRONGEST FIT">${item.strongestFit}</td>
+      <td data-label="STRONGEST FIT">${field('strongestFit')}</td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">${item.evidenceStatus}</span>
-        <p class="profile-boundary">${item.evidenceReview.scope}</p>
-        ${item.evidenceReview.sources.map(source => `<p><a href="${source.url}" target="_blank" rel="noopener noreferrer">${source.product}<span data-lang="zh"> 官方來源</span><span data-lang="en"> official source</span></a><small>${source.claim} ${source.limitation}</small></p>`).join('')}
+        <span class="status-chip">${field('evidenceStatus')}</span>
+        <p class="profile-boundary">${bilingual(item.evidenceReview.scope, zh.evidenceReview.scope)}</p>
+        ${item.evidenceReview.sources.map((source, index) => `<p><a href="${source.url}" target="_blank" rel="noopener noreferrer">${source.product}<span data-lang="zh"> 官方來源</span><span data-lang="en"> official source</span></a><small>${bilingual(`${source.claim} ${source.limitation}`, `${zh.evidenceReview.sources[index].claim} ${zh.evidenceReview.sources[index].limitation}`)}</small></p>`).join('')}
       </td>
     </tr>
-  `).join('');
+  `; }).join('');
 }
 
 function getSecurityClass(text) {
@@ -122,8 +141,10 @@ function getSecurityClass(text) {
   return 'sec-med';
 }
 
-export function serializeCSV(items) {
-  const headers = ['ID', 'Profile', 'Family', 'Contract', 'NodeLens', 'UpdateModel', 'BusExposure', 'Latency', 'BOMCost', 'StrongestFit', 'Boundary', 'EvidenceStatus', 'ReviewStatus', 'ReviewScope', 'Sources'];
+export function serializeCSV(items, language = 'en') {
+  const headers = language === 'zh'
+    ? ['識別碼', '設定檔', '技術家族', '狀態契約', '製程節點', '更新方式', '匯流排暴露度', '延遲', 'BOM成本', '最適應用', '技術限制', '原稿證據聲稱', '審查狀態', '證據範圍', '來源']
+    : ['ID', 'Profile', 'Family', 'Contract', 'NodeLens', 'UpdateModel', 'BusExposure', 'Latency', 'BOMCost', 'StrongestFit', 'Boundary', 'EvidenceStatus', 'ReviewStatus', 'ReviewScope', 'Sources'];
   const fields = ['id', 'profile', 'family', 'contract', 'nodeLens', 'updateModel', 'busExposure', 'latency', 'bomCost', 'strongestFit', 'boundary', 'evidenceStatus'];
   const cell = (value) => {
     const text = String(value ?? '');
@@ -131,8 +152,11 @@ export function serializeCSV(items) {
     const safe = /^[\s\u0000-\u001f]*[=+@-]/u.test(text) || /^[\t\r\n]/u.test(text) ? `'${text}` : text;
     return `"${safe.replace(/"/g, '""')}"`;
   };
-  return '\uFEFF' + [headers.join(','), ...items.map(item => [...fields.map(field => item[field]), item.evidenceReview?.status, item.evidenceReview?.scope, JSON.stringify(item.evidenceReview?.sources || [])].map(cell).join(','))].join('\r\n');
+  return '\uFEFF' + [headers.join(','), ...items.map(item => localizeProfile(item, language)).map(item => [...fields.map(field => item[field]), language === 'zh' && item.evidenceReview?.status === 'source-needed' ? '待補來源' : item.evidenceReview?.status, item.evidenceReview?.scope, JSON.stringify(item.evidenceReview?.sources || [])].map(cell).join(','))].join('\r\n');
 }
+
+// JSON 保留穩定欄位與狀態識別碼，僅翻譯供人閱讀的值。
+export const serializeJSON = (items, language = 'en') => JSON.stringify(items.map(item => localizeProfile(item, language)), null, 2);
 
 function download(content, mimeType, filename) {
   const url = URL.createObjectURL(new Blob([content], { type: mimeType }));
@@ -147,9 +171,11 @@ function download(content, mimeType, filename) {
 }
 
 function exportCSV(items) {
-  download(serializeCSV(items), 'text/csv;charset=utf-8', 'NVM_決策矩陣.csv');
+  const language = getLanguage();
+  download(serializeCSV(items, language), 'text/csv;charset=utf-8', language === 'zh' ? 'NVM_決策矩陣.csv' : 'NVM_Decision_Matrix.csv');
 }
 
 function exportJSON(items) {
-  download(JSON.stringify(items, null, 2), 'application/json;charset=utf-8', 'NVM_決策矩陣.json');
+  const language = getLanguage();
+  download(serializeJSON(items, language), 'application/json;charset=utf-8', language === 'zh' ? 'NVM_決策矩陣.json' : 'NVM_Decision_Matrix.json');
 }

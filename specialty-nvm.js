@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   let currentLang = (window.HubLanguage && window.HubLanguage.get()) || 'en';
+  const labText = (zh, en) => currentLang === 'zh' ? zh : en;
 
   // =========================================================
   // 1. 全域語言監聽與事件同步
@@ -83,12 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
     redrawAllLabs();
     updateCalculator();
     updateEinkMode();
-    if (btnRunTrim) btnRunTrim.textContent = currentLang === 'zh'
-      ? (isTrimmed ? '🔄 重置為未微調狀態' : '⚡ 執行 OTP 電性微調')
-      : (isTrimmed ? '🔄 Reset to Untrimmed' : '⚡ Execute OTP Electrical Trim');
-    if (btnToggleMura) btnToggleMura.textContent = currentLang === 'zh'
-      ? (isMuraCorrected ? '🔄 移除 De-Mura LUT 補償' : '💡 載入 NVM De-Mura LUT 補償')
-      : (isMuraCorrected ? '🔄 Bypass De-Mura LUT' : '💡 Apply NVM De-Mura LUT');
+    updateTrimUI(isTrimmed);
+    updateMuraUI();
+    renderRepairStatus();
+    renderDieYield();
+    renderTerminal();
+    updateFuseboxMap(fuseboxView.status, fuseboxView.spares, fuseboxView.burned);
   });
 
   function redrawAllLabs() {
@@ -97,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     drawGammaCurve();
     drawMuraCanvas();
     drawWaveform();
+    drawCapsule();
   }
   window.addEventListener('resize', redrawAllLabs, { passive: true });
 
@@ -182,8 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 標籤文字
     ctx.fillStyle = '#8faab0';
     ctx.font = '10px "IBM Plex Mono", monospace';
-    ctx.fillText('-1.0% Spec', specLeft - 30, h - 10);
-    ctx.fillText('+1.0% Spec', specRight - 10, h - 10);
+    ctx.fillText(labText('-1.0% 規格', '-1.0% Spec'), specLeft - 30, h - 10);
+    ctx.fillText(labText('+1.0% 規格', '+1.0% Spec'), specRight - 10, h - 10);
     ctx.fillText('Vref (1.200V)', center - 35, h - 10);
 
     // 計算當前高斯標準差 sigma
@@ -227,17 +229,17 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateTrimUI(trimmed) {
     isTrimmed = trimmed;
     if (lblTrimMode && lblTrimModeEn) {
-      lblTrimMode.textContent = trimmed ? '已微調 (±0.5%)' : '未微調 (Raw ±5%)';
+      lblTrimMode.textContent = trimmed ? '已微調 (±0.5%)' : '未微調 (±5%)';
       lblTrimModeEn.textContent = trimmed ? 'Trimmed (±0.5%)' : 'Raw Drift (±5%)';
     }
     if (trimmed) {
       statTrimVar.textContent = '±0.28% (σ=0.09)';
-      statYield.textContent = '99.8% PASS';
+      statYield.textContent = labText('99.8% 通過', '99.8% PASS');
       statYield.className = 'stat-val text-green';
       btnRunTrim.textContent = currentLang === 'zh' ? '🔄 重置為未微調狀態' : '🔄 Reset to Untrimmed';
     } else {
-      statTrimVar.textContent = '±4.2% (Raw)';
-      statYield.textContent = '83.5% (Reject)';
+      statTrimVar.textContent = labText('±4.2%（未微調）', '±4.2% (Raw)');
+      statYield.textContent = labText('83.5%（未達標）', '83.5% (Reject)');
       statYield.className = 'stat-val text-warn';
       btnRunTrim.textContent = currentLang === 'zh' ? '⚡ 執行 OTP 電性微調' : '⚡ Execute OTP Electrical Trim';
     }
@@ -341,6 +343,43 @@ document.addEventListener('DOMContentLoaded', () => {
   let scanProgressLine = -1;
   let repairPhase = 'idle';
   const repairIsBusy = () => ['scanning', 'solving', 'burning'].includes(repairPhase);
+  // 狀態識別碼供流程與驗證使用；畫面文案不參與工程邏輯判斷。
+  const repairMessages = {
+    standby: ['待命狀態', 'STANDBY'],
+    idle: ['系統待命', 'SYSTEM IDLE'],
+    defect: ['偵測到缺陷', 'DEFECT DETECTED'],
+    scanning: ['BIST 掃描中…', 'BIST SCANNING...'],
+    scanned: ['BIST 掃描完成', 'BIST COMPLETED'],
+    solving: ['BIRA 解算中…', 'BIRA SOLVING...'],
+    insufficient: ['備援不足：無法修復', 'UNREPAIRABLE: INSUFFICIENT SPARES'],
+    allocated: ['BIRA 備援配置已確認', 'BIRA SOLUTION LOCKED'],
+    burning: ['反熔絲燒錄中…', 'BURNING ANTIFUSE...'],
+    repaired: ['修復完成', 'REPAIR COMPLETE']
+  };
+  let repairStatus = 'standby';
+  let dieYieldState = 'normal';
+  const terminalEntries = [];
+  let fuseboxView = { status: null, spares: [], burned: false };
+
+  function renderRepairStatus() {
+    if (!lblScanStatus) return;
+    lblScanStatus.dataset.state = repairStatus;
+    lblScanStatus.textContent = labText(...repairMessages[repairStatus]);
+  }
+  function setRepairStatus(state) {
+    repairStatus = state;
+    renderRepairStatus();
+  }
+  function renderDieYield() {
+    if (!statDieYield) return;
+    statDieYield.dataset.state = dieYieldState;
+    statDieYield.textContent = dieYieldState === 'failed' ? labText('未通過 (0%)', 'FAIL (0%)')
+      : dieYieldState === 'repaired' ? labText('通過 (100%)', 'PASS (100%)') : '100%';
+  }
+  function setDieYield(state) {
+    dieYieldState = state;
+    renderDieYield();
+  }
 
   
   // =========================================================
@@ -348,15 +387,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   const lblFuseboxStatus = document.getElementById('lblFuseboxStatus');
   function updateFuseboxMap(status, allocatedSpares, burned) {
+    fuseboxView = { status, spares: [...(allocatedSpares || [])], burned };
     if (lblFuseboxStatus) {
       if (burned) {
-        lblFuseboxStatus.innerHTML = '<span data-lang="zh">永久燒錄鎖定 (LOCKED)</span><span data-lang="en">FROZEN (LOCKED)</span>';
+        lblFuseboxStatus.textContent = labText('永久燒錄鎖定', 'FROZEN (LOCKED)');
         lblFuseboxStatus.className = 'fusebox-status burned';
       } else if (allocatedSpares && allocatedSpares.length > 0) {
-        lblFuseboxStatus.innerHTML = '<span data-lang="zh">BIRA 解算就緒 (ALLOCATED)</span><span data-lang="en">BIRA ALLOCATED</span>';
+        lblFuseboxStatus.textContent = labText('BIRA 備援已配置', 'BIRA ALLOCATED');
         lblFuseboxStatus.className = 'fusebox-status';
       } else {
-        lblFuseboxStatus.innerHTML = '<span data-lang="zh">未燒錄 (BLANK)</span><span data-lang="en">UNBLOWN (BLANK)</span>';
+        lblFuseboxStatus.textContent = labText('未燒錄', 'UNBLOWN (BLANK)');
         lblFuseboxStatus.className = 'fusebox-status';
       }
     }
@@ -373,18 +413,21 @@ document.addEventListener('DOMContentLoaded', () => {
         if (burned) {
           regEl.classList.add('burned-glow');
           valEl.innerHTML = `ROW_0x0${spareRow.toString(16).toUpperCase()} ➔ SPARE_${i} <span class="fuse-res-tag">R=${resistances[i]}Ω</span>`;
-          stateEl.textContent = 'HARD LOCKED';
+          stateEl.textContent = labText('永久鎖定', 'HARD LOCKED');
+          stateEl.dataset.state = 'burned';
           stateEl.className = 'fuse-state state-burned';
         } else {
           regEl.classList.remove('burned-glow');
-          valEl.textContent = `MAP: ROW_${spareRow} ➔ SPARE_${i}`;
-          stateEl.textContent = 'ALLOCATED';
+          valEl.textContent = labText(`映射：ROW_${spareRow} ➔ SPARE_${i}`, `MAP: ROW_${spareRow} ➔ SPARE_${i}`);
+          stateEl.textContent = labText('已配置', 'ALLOCATED');
+          stateEl.dataset.state = 'allocated';
           stateEl.className = 'fuse-state state-mapped';
         }
       } else {
         regEl.classList.remove('burned-glow');
-        valEl.textContent = '--- (BLANK)';
-        stateEl.textContent = 'BLANK';
+        valEl.textContent = labText('---（空白）', '--- (BLANK)');
+        stateEl.textContent = labText('空白', 'BLANK');
+        stateEl.dataset.state = 'blank';
         stateEl.className = 'fuse-state state-blank';
       }
     }
@@ -406,13 +449,19 @@ document.addEventListener('DOMContentLoaded', () => {
     updateFuseboxMap(null, null, false);
   }
 
-  function logTerminal(msg) {
+  function renderTerminal() {
     if (!terminalLogs) return;
-    const div = document.createElement('div');
-    div.className = 'term-line';
-    div.textContent = '> ' + msg;
-    terminalLogs.appendChild(div);
+    terminalLogs.replaceChildren(...terminalEntries.map(entry => {
+      const div = document.createElement('div');
+      div.className = 'term-line';
+      div.textContent = '> ' + labText(entry.zh, entry.en);
+      return div;
+    }));
     terminalLogs.scrollTop = terminalLogs.scrollHeight;
+  }
+  function logTerminal(zh, en) {
+    terminalEntries.push({ zh, en });
+    renderTerminal();
   }
 
   function drawMatrix() {
@@ -491,25 +540,25 @@ document.addEventListener('DOMContentLoaded', () => {
           // 注入缺陷
           matrixCells[r][c] = 1;
           defects.push({ r, c });
-          logTerminal(`MANUAL INJECTION: Defect added at bitcell [R${r}C${c}].`);
+          logTerminal(`手動注入：已在位元單元 [R${r}C${c}] 新增缺陷。`, `MANUAL INJECTION: Defect added at bitcell [R${r}C${c}].`);
         } else {
           // 清除缺陷
           matrixCells[r][c] = 0;
           defects = defects.filter(d => !(d.r === r && d.c === c));
-          logTerminal(`MANUAL OVERRIDE: Defect cleared at bitcell [R${r}C${c}].`);
+          logTerminal(`手動清除：已移除位元單元 [R${r}C${c}] 的缺陷。`, `MANUAL OVERRIDE: Defect cleared at bitcell [R${r}C${c}].`);
         }
         
         statDefectCount.textContent = defects.length.toString();
         if (defects.length > 0) {
-          lblScanStatus.textContent = 'DEFECT DETECTED';
+          setRepairStatus('defect');
           lblScanStatus.className = 'badge-accent text-warn';
-          statDieYield.textContent = 'FAIL (0%)';
+          setDieYield('failed');
           statDieYield.className = 'stat-val text-warn';
           btnRunBIST.disabled = false;
         } else {
-          lblScanStatus.textContent = 'SYSTEM IDLE';
+          setRepairStatus('idle');
           lblScanStatus.className = 'badge-accent';
-          statDieYield.textContent = '100%';
+          setDieYield('normal');
           statDieYield.className = 'stat-val text-green';
           btnRunBIST.disabled = false;
         }
@@ -548,14 +597,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       drawMatrix();
-      lblScanStatus.textContent = 'DEFECT DETECTED';
+      setRepairStatus('defect');
       lblScanStatus.className = 'badge-accent text-warn';
       statDefectCount.textContent = defects.length.toString();
       statSparesUsed.textContent = `0 / ${SPARE_ROW_CAPACITY}`;
-      statDieYield.textContent = 'FAIL (0%)';
+      setDieYield('failed');
       statDieYield.className = 'stat-val text-warn';
 
-      logTerminal(`PHYSICAL DEFECT INJECTED: ${defects.length} bad bitcells. DIE YIELD CRUSHED TO 0%.`);
+      logTerminal(`已注入實體缺陷：${defects.length} 個不良位元單元，晶粒良率降為 0%。`, `PHYSICAL DEFECT INJECTED: ${defects.length} bad bitcells. DIE YIELD CRUSHED TO 0%.`);
       btnRunBIST.disabled = false;
       btnRunBIRA.disabled = true;
       btnBurnFuse.disabled = true;
@@ -569,8 +618,8 @@ document.addEventListener('DOMContentLoaded', () => {
       btnGenDefect.disabled = true;
       btnRunBIRA.disabled = true;
       btnBurnFuse.disabled = true;
-      lblScanStatus.textContent = 'BIST SCANNING...';
-      logTerminal('RUNNING MARCH C- ALGORITHM ACROSS 144 BITCELLS...');
+      setRepairStatus('scanning');
+      logTerminal('正在對 144 個位元單元執行 March C- 演算法…', 'RUNNING MARCH C- ALGORITHM ACROSS 144 BITCELLS...');
 
       let cur = 0;
       activeScanInterval = setInterval(() => {
@@ -583,8 +632,9 @@ document.addEventListener('DOMContentLoaded', () => {
           scanProgressLine = -1;
           drawMatrix();
           repairPhase = defects.length ? 'scanned' : 'idle';
-          lblScanStatus.textContent = 'BIST COMPLETED';
-          logTerminal(`BIST COMPLETED: Fault addresses captured at [${defects.map(d => `R${d.r}C${d.c}`).join(', ')}].`);
+          setRepairStatus('scanned');
+          const addresses = defects.map(d => `R${d.r}C${d.c}`).join(', ');
+          logTerminal(`BIST 掃描完成：已擷取缺陷位址 [${addresses}]。`, `BIST COMPLETED: Fault addresses captured at [${addresses}].`);
           btnRunBIRA.disabled = !defects.length;
           btnRunBIST.disabled = !!defects.length;
           btnGenDefect.disabled = false;
@@ -598,8 +648,8 @@ document.addEventListener('DOMContentLoaded', () => {
       repairPhase = 'solving';
       btnRunBIRA.disabled = true;
       btnGenDefect.disabled = true;
-      lblScanStatus.textContent = 'BIRA SOLVING...';
-      logTerminal(currentLang === 'zh' ? 'BIRA 列備援模型：計算含缺陷的相異列數。' : 'BIRA ROW-REPAIR MODEL: Counting distinct defective rows.');
+      setRepairStatus('solving');
+      logTerminal('BIRA 列備援模型：計算含缺陷的相異列數。', 'BIRA ROW-REPAIR MODEL: Counting distinct defective rows.');
 
       activeBiraTimeout = setTimeout(() => {
         activeBiraTimeout = null;
@@ -609,23 +659,23 @@ document.addEventListener('DOMContentLoaded', () => {
           repairPhase = 'insufficient';
           spareRows = [];
           statSparesUsed.textContent = `0 / ${SPARE_ROW_CAPACITY}`;
-          lblScanStatus.innerHTML = '<span data-lang="zh">備援不足：無法修復</span><span data-lang="en">UNREPAIRABLE: INSUFFICIENT SPARES</span>';
+          setRepairStatus('insufficient');
           lblScanStatus.className = 'badge-accent text-warn';
-          statDieYield.textContent = 'FAIL (0%)';
+          setDieYield('failed');
           statDieYield.className = 'stat-val text-warn';
           updateFuseboxMap(null, null, false);
-          logTerminal(currentLang === 'zh'
-            ? `無法修復：需要 ${requiredRows.length} 列備援，容量只有 ${SPARE_ROW_CAPACITY} 列；未配置或燒錄。`
-            : `UNREPAIRABLE: ${requiredRows.length} spare rows required; capacity is ${SPARE_ROW_CAPACITY}. No allocation or programming.`);
+          logTerminal(`無法修復：需要 ${requiredRows.length} 列備援，容量只有 ${SPARE_ROW_CAPACITY} 列；未配置或燒錄。`,
+            `UNREPAIRABLE: ${requiredRows.length} spare rows required; capacity is ${SPARE_ROW_CAPACITY}. No allocation or programming.`);
           btnBurnFuse.disabled = true;
           return;
         }
         spareRows = requiredRows;
         repairPhase = 'allocated';
         statSparesUsed.textContent = `${spareRows.length} / ${SPARE_ROW_CAPACITY}`;
-        lblScanStatus.textContent = 'BIRA SOLUTION LOCKED';
+        setRepairStatus('allocated');
         updateFuseboxMap('ALLOCATED', spareRows, false);
-        logTerminal(`BIRA SOLUTION: Allocate ${spareRows.length} Spare Rows [${spareRows.map(r => `SpareRow_${r}`).join(', ')}].`);
+        const rows = spareRows.map(r => `SpareRow_${r}`).join(', ');
+        logTerminal(`BIRA 解算：配置 ${spareRows.length} 列備援 [${rows}]。`, `BIRA SOLUTION: Allocate ${spareRows.length} Spare Rows [${rows}].`);
         btnBurnFuse.disabled = false;
       }, 400);
     });
@@ -636,8 +686,8 @@ document.addEventListener('DOMContentLoaded', () => {
       repairPhase = 'burning';
       btnBurnFuse.disabled = true;
       btnGenDefect.disabled = true;
-      lblScanStatus.textContent = 'BURNING ANTIFUSE...';
-      logTerminal('⚡ [ATE_PROG] APPLYING 5.5V @ 10µs PULSE TO ANTIFUSE FUSEBOX MACRO...');
+      setRepairStatus('burning');
+      logTerminal('⚡ [ATE_PROG] 對反熔絲巨集施加 5.5V、10µs 燒錄脈衝…', '⚡ [ATE_PROG] APPLYING 5.5V @ 10µs PULSE TO ANTIFUSE FUSEBOX MACRO...');
 
       activeBurnTimeout = setTimeout(() => {
         activeBurnTimeout = null;
@@ -645,7 +695,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnGenDefect.disabled = false;
         spareRows.forEach((r, idx) => {
           const rVal = [82, 78, 85, 76][idx % 4];
-          logTerminal(`[ATE_BURN] ⚡ Row-CAM[${r}] Gate Oxide Hard Rupture... R_fil = ${rVal}Ω (<100Ω PASS).`);
+          logTerminal(`[ATE_BURN] ⚡ Row-CAM[${r}] 閘極氧化層硬擊穿… R_fil = ${rVal}Ω（<100Ω 通過）。`, `[ATE_BURN] ⚡ Row-CAM[${r}] Gate Oxide Hard Rupture... R_fil = ${rVal}Ω (<100Ω PASS).`);
         });
 
         defects.forEach(d => {
@@ -653,14 +703,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         drawMatrix();
 
-        lblScanStatus.textContent = 'REPAIR COMPLETE';
+        setRepairStatus('repaired');
         lblScanStatus.className = 'badge-accent text-green';
-        statDieYield.textContent = 'PASS (100%)';
+        setDieYield('repaired');
         statDieYield.className = 'stat-val text-green';
         updateFuseboxMap('BURNED', spareRows, true);
 
-        logTerminal('✓ [ATE_VERIFY] HARDWARE CAM REDIRECTION ACTIVE. 0-CYCLE READ DELAY VERIFIED.');
-        logTerminal('✓ [ATE_CHECKLIST_SIM] ALL FUSE REGISTERS HARD-LOCKED (demo sim — not a production sign-off). DIE YIELD RESCUED: 0% ➔ 100%!');
+        logTerminal('✓ [ATE_VERIFY] 硬體 CAM 位址重導已啟用，已驗證 0 週期額外讀取延遲。', '✓ [ATE_VERIFY] HARDWARE CAM REDIRECTION ACTIVE. 0-CYCLE READ DELAY VERIFIED.');
+        logTerminal('✓ [ATE_CHECKLIST_SIM] 所有熔絲暫存器已永久鎖定（教學模擬，非量產簽核）。晶粒良率回復：0% ➔ 100%！', '✓ [ATE_CHECKLIST_SIM] ALL FUSE REGISTERS HARD-LOCKED (demo sim — not a production sign-off). DIE YIELD RESCUED: 0% ➔ 100%!');
       }, 500);
     });
   }
@@ -791,31 +841,37 @@ document.addEventListener('DOMContentLoaded', () => {
     // 水印提示
     ctx.font = '12px "IBM Plex Mono", monospace';
     ctx.fillStyle = isMuraCorrected ? '#4ade80' : '#f87171';
-    ctx.fillText(isMuraCorrected ? '✓ DE-MURA LUT APPLIED (UNIFORM)' : '⚠ RAW MURA UNEVENNESS DETECTED', 16, 24);
+    ctx.fillText(isMuraCorrected
+      ? labText('✓ 已套用 De-Mura LUT（亮度均勻）', '✓ DE-MURA LUT APPLIED (UNIFORM)')
+      : labText('⚠ 偵測到原始 Mura 亮度不均', '⚠ RAW MURA UNEVENNESS DETECTED'), 16, 24);
   }
 
+  function updateMuraUI() {
+    if (!btnToggleMura) return;
+    canvasMura.dataset.state = isMuraCorrected ? 'corrected' : 'raw';
+    if (isMuraCorrected) {
+      statUniformity.textContent = labText('99.4%（已補償）', '99.4% (Compensated)');
+      statUniformity.className = 'stat-val text-green';
+      statDeltaE.textContent = labText('0.45（難以察覺）', '0.45 (Imperceptible)');
+      statDeltaE.className = 'stat-val text-cyan';
+      statLutStatus.textContent = labText('已啟用 (64Kb)', 'ACTIVE (64Kb)');
+      statLutStatus.className = 'stat-val text-green';
+      btnToggleMura.textContent = currentLang === 'zh' ? '🔄 移除 De-Mura LUT 補償' : '🔄 Bypass De-Mura LUT';
+    } else {
+      statUniformity.textContent = labText('74.2%（原始 Mura）', '74.2% (Raw Mura)');
+      statUniformity.className = 'stat-val text-warn';
+      statDeltaE.textContent = labText('3.8（嚴重）', '3.8 (Severe)');
+      statDeltaE.className = 'stat-val text-warn';
+      statLutStatus.textContent = labText('未啟用補償', 'BYPASS');
+      statLutStatus.className = 'stat-val text-cyan';
+      btnToggleMura.textContent = currentLang === 'zh' ? '💡 載入 NVM De-Mura LUT 補償' : '💡 Apply NVM De-Mura LUT';
+    }
+  }
   if (btnToggleMura) {
     btnToggleMura.addEventListener('click', () => {
       isMuraCorrected = !isMuraCorrected;
       drawMuraCanvas();
-
-      if (isMuraCorrected) {
-        statUniformity.textContent = '99.4% (Compensated)';
-        statUniformity.className = 'stat-val text-green';
-        statDeltaE.textContent = '0.45 (Imperceptible)';
-        statDeltaE.className = 'stat-val text-cyan';
-        statLutStatus.textContent = 'ACTIVE (64Kb)';
-        statLutStatus.className = 'stat-val text-green';
-        btnToggleMura.textContent = currentLang === 'zh' ? '🔄 移除 De-Mura LUT 補償' : '🔄 Bypass De-Mura LUT';
-      } else {
-        statUniformity.textContent = '74.2% (Raw Mura)';
-        statUniformity.className = 'stat-val text-warn';
-        statDeltaE.textContent = '3.8 (Severe)';
-        statDeltaE.className = 'stat-val text-warn';
-        statLutStatus.textContent = 'BYPASS';
-        statLutStatus.className = 'stat-val text-cyan';
-        btnToggleMura.textContent = currentLang === 'zh' ? '💡 載入 NVM De-Mura LUT 補償' : '💡 Apply NVM De-Mura LUT';
-      }
+      updateMuraUI();
     });
   }
 
@@ -905,9 +961,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.fillStyle = '#c4a574';
-    ctx.fillText('TOP TRANSPARENT ELECTRODE (ITO)', w / 2 - 90, 20);
+    ctx.fillText(labText('頂部透明電極 (ITO)', 'TOP TRANSPARENT ELECTRODE (ITO)'), w / 2 - 90, 20);
     ctx.fillStyle = '#ff9d5c';
-    ctx.fillText('BOTTOM PIXEL ELECTRODE (+40V~50V PULSE)', w / 2 - 110, h - 18);
+    ctx.fillText(labText('底部像素電極（+40V~50V 脈衝）', 'BOTTOM PIXEL ELECTRODE (+40V~50V PULSE)'), w / 2 - 110, h - 18);
 
     updateEinkPhysics();
 
@@ -1074,6 +1130,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 初始化所有實驗室畫布
   redrawAllLabs();
+  updateTrimUI(isTrimmed);
+  updateMuraUI();
+  renderRepairStatus();
+  renderDieYield();
+  logTerminal('模擬待命，等待注入缺陷…', 'SIMULATION IDLE. WAITING FOR DEFECT INJECTION...');
   updateCalculator();
   updateEinkMode();
 });

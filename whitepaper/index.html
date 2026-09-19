@@ -494,7 +494,7 @@
         <span>FILTER BY TECHNOLOGY FAMILY</span>
         <select id="filter-family">
           <option value="ALL">All public profiles (12)</option>
-          <option value="SRAM PUF + 1T OTP + AES-256">SRAM PUF + 1T OTP + AES-256</option><option value="Antifuse OTP (Raw / Unencrypted)">Antifuse OTP (Raw / Unencrypted)</option><option value="Quantum Tunneling / High-Voltage OTP-PUF">Quantum Tunneling / High-Voltage OTP-PUF</option><option value="Dedicated Security Chip (e.g. NXP SE050)">Dedicated Security Chip (e.g. NXP SE050)</option><option value="Board-Level / PCIe HSM Module">Board-Level / PCIe HSM Module</option><option value="Floating Gate / Charge Trap eFlash">Floating Gate / Charge Trap eFlash</option><option value="Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)">Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)</option><option value="On-Die Managed MTP / AntiFuse OTP">On-Die Managed MTP / AntiFuse OTP</option><option value="Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)">Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)</option><option value="AntiFuse OTP Hard FuseBox & PPR">AntiFuse OTP Hard FuseBox & PPR</option><option value="High-Density Embedded MTP / Pure Logic OTP">High-Density Embedded MTP / Pure Logic OTP</option><option value="MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity">MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity</option>
+          <option value="SRAM PUF + 1T OTP + AES-256">SRAM PUF + 1T OTP + AES-256</option><option value="Antifuse OTP (Raw / Unencrypted)">Antifuse OTP (Raw / Unencrypted)</option><option value="Quantum Tunneling / High-Voltage OTP-PUF">Quantum Tunneling / High-Voltage OTP-PUF</option><option value="Dedicated Security Chip (e.g. NXP SE050)">Dedicated Security Chip (e.g. NXP SE050)</option><option value="Board-Level / PCIe HSM Module">Board-Level / PCIe HSM Module</option><option value="Floating Gate / Charge Trap eFlash">Floating Gate / Charge Trap eFlash</option><option value="Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)">Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)</option><option value="On-Die Managed MTP / AntiFuse OTP">On-Die Managed MTP / AntiFuse OTP</option><option value="Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)">Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)</option><option value="AntiFuse OTP Hard FuseBox &amp; PPR">AntiFuse OTP Hard FuseBox &amp; PPR</option><option value="High-Density Embedded MTP / Pure Logic OTP">High-Density Embedded MTP / Pure Logic OTP</option><option value="MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity">MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity</option>
         </select>
       </label>
       <div class="matrix-actions">
@@ -524,276 +524,276 @@
         <tbody id="decision-body">
     <tr data-profile-id="sram_puf_secure_storage">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>SRAM PUF Secure Storage</strong>
-        <small>Dynamic boot generation + line-speed AES-256-XTS execution + instant zeroization</small>
+        <strong><span data-lang="en">SRAM PUF Secure Storage</span><span data-lang="zh">SRAM PUF 安全儲存</span></strong>
+        <small><span data-lang="en">Dynamic boot generation + line-speed AES-256-XTS execution + instant zeroization</span><span data-lang="zh">開機時動態產生＋線速 AES-256-XTS 執行＋即時清除</span></small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">SRAM PUF + 1T OTP + AES-256</span></td>
-      <td data-label="STATE CONTRACT">Absent-at-rest; ephemeral root regenerated on-the-fly; encrypted ciphertext in OTP</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">SRAM PUF + 1T OTP + AES-256</span><span data-lang="zh">SRAM PUF + 1T OTP + AES-256</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Absent-at-rest; ephemeral root regenerated on-the-fly; encrypted ciphertext in OTP</span><span data-lang="zh">靜態時不保留根金鑰；運作時重新產生暫時性根金鑰；OTP 儲存加密密文</span></td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip sec-high">None (Monolithic on-die boundary)</span>
+        <span class="security-chip sec-high"><span data-lang="en">None (Monolithic on-die boundary)</span><span data-lang="zh">無（單晶粒內部邊界）</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> Sub-microsecond (<1 µs)</small><br>
-        <small><strong>BOM:</strong> Zero mask adder (Standard CMOS)</small>
+        <small><strong>Latency:</strong> <span data-lang="en">Sub-microsecond (&lt;1 µs)</span><span data-lang="zh">次微秒等級 (&lt;1 µs)</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">Zero mask adder (Standard CMOS)</span><span data-lang="zh">無額外光罩（標準 CMOS）</span></small>
       </td>
-      <td data-label="STRONGEST FIT">AI Accelerators, LLM KV Cache cipher, Chiplet D2D Root-of-Trust, Automotive ADAS</td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">AI Accelerators, LLM KV Cache cipher, Chiplet D2D Root-of-Trust, Automotive ADAS</span><span data-lang="zh">AI 加速器、LLM KV 快取加密、小晶片晶粒間信任根、車用 ADAS</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">1.5B+ Devices (Vendor-Aggregated Portfolio Claim) · PSA L3 · SESIP L3 · AEC-Q100 G1</span>
-        <p class="profile-boundary">The 1.5B+ figure is a vendor-aggregated portfolio claim, not shipments of this Secure Storage implementation. Node availability, certifications, latency and the combined architecture require separate product-specific evidence.</p>
+        <span class="status-chip"><span data-lang="en">1.5B+ Devices (Vendor-Aggregated Portfolio Claim) · PSA L3 · SESIP L3 · AEC-Q100 G1</span><span data-lang="zh">1.5B+ 台裝置（供應商彙總的產品組合聲稱）· PSA L3 · SESIP L3 · AEC-Q100 G1</span></span>
+        <p class="profile-boundary"><span data-lang="en">The 1.5B+ figure is a vendor-aggregated portfolio claim, not shipments of this Secure Storage implementation. Node availability, certifications, latency and the combined architecture require separate product-specific evidence.</span><span data-lang="zh">1.5B+ 為供應商彙總的產品組合聲稱，不代表此安全儲存實作的出貨量。節點可用性、認證、延遲與組合架構，均需另附特定產品證據。</span></p>
 
       </td>
     </tr>
 
     <tr data-profile-id="conventional_otp">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>Conventional Plain Antifuse OTP</strong>
-        <small>Program once (irreversible physical breakdown); no key rotation</small>
+        <strong><span data-lang="en">Conventional Plain Antifuse OTP</span><span data-lang="zh">傳統純 AntiFuse OTP</span></strong>
+        <small><span data-lang="en">Program once (irreversible physical breakdown); no key rotation</span><span data-lang="zh">單次寫入（不可逆物理崩潰）；無法輪替金鑰</span></small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">Antifuse OTP (Raw / Unencrypted)</span></td>
-      <td data-label="STATE CONTRACT">Permanent physical oxide breakdown; static bit values readable under bias</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">Antifuse OTP (Raw / Unencrypted)</span><span data-lang="zh">反熔絲 OTP（原始／未加密）</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Permanent physical oxide breakdown; static bit values readable under bias</span><span data-lang="zh">永久性氧化層物理崩潰；施加偏壓時可讀取靜態位元值</span></td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip sec-med">On-chip bus (Registers vulnerable to glitching)</span>
+        <span class="security-chip sec-med"><span data-lang="en">On-chip bus (Registers vulnerable to glitching)</span><span data-lang="zh">晶片內匯流排（暫存器可能受突波攻擊）</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> Low (10-50 ns)</small><br>
-        <small><strong>BOM:</strong> Low (Standard macro)</small>
+        <small><strong>Latency:</strong> <span data-lang="en">Low (10-50 ns)</span><span data-lang="zh">低 (10-50 ns)</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">Low (Standard macro)</span><span data-lang="zh">低（標準巨集）</span></small>
       </td>
-      <td data-label="STRONGEST FIT">Wafer ID, analog trim, non-sensitive feature configuration, basic boot pointers</td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">Wafer ID, analog trim, non-sensitive feature configuration, basic boot pointers</span><span data-lang="zh">晶圓識別碼、類比微調、非敏感功能組態、基本開機指標</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">10B+ Units Shipped · Foundry Baseline</span>
-        <p class="profile-boundary">Shipment totals, node range and timing refer to an illustrative technology-family comparison. A named macro and its qualification report are required; one RP2350 attack does not prove every OTP implementation vulnerable.</p>
+        <span class="status-chip"><span data-lang="en">10B+ Units Shipped · Foundry Baseline</span><span data-lang="zh">累計出貨超過 100 億顆 · 晶圓代工基準</span></span>
+        <p class="profile-boundary"><span data-lang="en">Shipment totals, node range and timing refer to an illustrative technology-family comparison. A named macro and its qualification report are required; one RP2350 attack does not prove every OTP implementation vulnerable.</span><span data-lang="zh">出貨總量、節點範圍與時序均屬技術家族的示意比較。必須指定巨集與驗證報告；單一 RP2350 攻擊不能證明所有 OTP 實作都存在相同弱點。</span></p>
 
       </td>
     </tr>
 
     <tr data-profile-id="otp_puf_tunneling">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>Quantum Tunneling OTP-PUF</strong>
-        <small>Enrolled once at wafer sort; static physical response without fuzzy extractor</small>
+        <strong><span data-lang="en">Quantum Tunneling OTP-PUF</span><span data-lang="zh">量子穿隧型 OTP-PUF</span></strong>
+        <small><span data-lang="en">Enrolled once at wafer sort; static physical response without fuzzy extractor</span><span data-lang="zh">於晶圓測試時單次註冊；無須模糊擷取器的靜態物理回應</span></small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">Quantum Tunneling / High-Voltage OTP-PUF</span></td>
-      <td data-label="STATE CONTRACT">Permanent dielectric breakdown tunneling paths; zero helper-data activation (No trapped charge)</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">Quantum Tunneling / High-Voltage OTP-PUF</span><span data-lang="zh">量子穿隧／高電壓 OTP-PUF</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Permanent dielectric breakdown tunneling paths; zero helper-data activation (No trapped charge)</span><span data-lang="zh">永久介電質擊穿穿隧路徑；啟動無須輔助資料（無電荷捕捉）</span></td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip sec-med">On-chip bus</span>
+        <span class="security-chip sec-med"><span data-lang="en">On-chip bus</span><span data-lang="zh">晶片內匯流排</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> Low (20-100 ns)</small><br>
-        <small><strong>BOM:</strong> Low to Medium (Foundry dependent)</small>
+        <small><strong>Latency:</strong> <span data-lang="en">Low (20-100 ns)</span><span data-lang="zh">低 (20-100 ns)</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">Low to Medium (Foundry dependent)</span><span data-lang="zh">低至中等（依晶圓代工平台而異）</span></small>
       </td>
-      <td data-label="STRONGEST FIT">Die-unique identity where helper data storage is completely disallowed</td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">Die-unique identity where helper data storage is completely disallowed</span><span data-lang="zh">完全不允許儲存輔助資料時的晶粒唯一身分</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">100M+ Shipped · PSA L3 · SESIP L3 · AEC-Q100 G0/G1 Lineage</span>
-        <p class="profile-boundary">Dielectric-breakdown tunneling is the mechanism described by this draft, not a verified identification of every OTP PUF. Shipment totals, helper-data requirements and certification lineage need named-product sources.</p>
+        <span class="status-chip"><span data-lang="en">100M+ Shipped · PSA L3 · SESIP L3 · AEC-Q100 G0/G1 Lineage</span><span data-lang="zh">100M+ 出貨 · PSA L3 · SESIP L3 · AEC-Q100 G0/G1 沿革</span></span>
+        <p class="profile-boundary"><span data-lang="en">Dielectric-breakdown tunneling is the mechanism described by this draft, not a verified identification of every OTP PUF. Shipment totals, helper-data requirements and certification lineage need named-product sources.</span><span data-lang="zh">介電層崩潰穿隧是本原稿描述的機制，並非對所有 OTP PUF 的已驗證判定。出貨總量、輔助資料需求與認證沿革，均需指定產品的來源。</span></p>
 
       </td>
     </tr>
 
     <tr data-profile-id="discrete_secure_element">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>Discrete Secure Element (SE)</strong>
-        <small>Secure command APDU transactions via serial bus</small>
+        <strong><span data-lang="en">Discrete Secure Element (SE)</span><span data-lang="zh">獨立安全元件 (SE)</span></strong>
+        <small><span data-lang="en">Secure command APDU transactions via serial bus</span><span data-lang="zh">透過序列匯流排執行安全命令 APDU 交易</span></small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">Dedicated Security Chip (e.g. NXP SE050)</span></td>
-      <td data-label="STATE CONTRACT">Secured smartcard micro-controller with internal tamper-shielded EEPROM/Flash</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">Dedicated Security Chip (e.g. NXP SE050)</span><span data-lang="zh">專用安全晶片（例如 NXP SE050）</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Secured smartcard micro-controller with internal tamper-shielded EEPROM/Flash</span><span data-lang="zh">內含防竄改屏蔽 EEPROM／Flash 的安全智慧卡微控制器</span></td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip sec-low">High (External PCB trace sniffing)</span>
+        <span class="security-chip sec-low"><span data-lang="en">High (External PCB trace sniffing)</span><span data-lang="zh">高（外部 PCB 走線側錄）</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> High (10-50 ms serial overhead)</small><br>
-        <small><strong>BOM:</strong> High (Dedicated chip + PCB area + assembly)</small>
+        <small><strong>Latency:</strong> <span data-lang="en">High (10-50 ms serial overhead)</span><span data-lang="zh">高（10-50 ms 序列傳輸額外延遲）</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">High (Dedicated chip + PCB area + assembly)</span><span data-lang="zh">高（專用晶片＋PCB 面積＋組裝）</span></small>
       </td>
-      <td data-label="STRONGEST FIT">IoT Gateways, payment POS terminals, smart meters, low-bandwidth crypto offload</td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">IoT Gateways, payment POS terminals, smart meters, low-bandwidth crypto offload</span><span data-lang="zh">IoT 閘道器、支付 POS 終端、智慧電表、低頻寬密碼運算卸載</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">Common Criteria EAL6+ · FIPS 140-3</span>
-        <p class="profile-boundary">SE050 is a named example, not evidence that every discrete secure element shares the same certification, memory technology or latency. Verify the exact device, certificate and secure-channel threat model.</p>
+        <span class="status-chip"><span data-lang="en">Common Criteria EAL6+ · FIPS 140-3</span><span data-lang="zh">共同準則 EAL6+ · FIPS 140-3</span></span>
+        <p class="profile-boundary"><span data-lang="en">SE050 is a named example, not evidence that every discrete secure element shares the same certification, memory technology or latency. Verify the exact device, certificate and secure-channel threat model.</span><span data-lang="zh">SE050 是具名範例，不能據此認定所有獨立安全元件均具有相同認證、記憶體技術或延遲。應核對確切元件、證書與安全通道威脅模型。</span></p>
 
       </td>
     </tr>
 
     <tr data-profile-id="dedicated_hsm">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>Hardware Security Module (HSM)</strong>
-        <small>Network/PCIe PKCS#11 / KMIP service requests with mTLS/SPDM authentication</small>
+        <strong><span data-lang="en">Hardware Security Module (HSM)</span><span data-lang="zh">硬體安全模組 (HSM)</span></strong>
+        <small><span data-lang="en">Network/PCIe PKCS#11 / KMIP service requests with mTLS/SPDM authentication</span><span data-lang="zh">經 mTLS/SPDM 驗證的網路／PCIe PKCS#11／KMIP 服務請求</span></small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">Board-Level / PCIe HSM Module</span></td>
-      <td data-label="STATE CONTRACT">Battery-backed SRAM key vault inside active physical tamper-sensing envelope</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">Board-Level / PCIe HSM Module</span><span data-lang="zh">板級／PCIe HSM 模組</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Battery-backed SRAM key vault inside active physical tamper-sensing envelope</span><span data-lang="zh">主動實體竄改偵測防護範圍內的電池備援 SRAM 金鑰儲存庫</span></td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip sec-med">PCIe / Network TLS boundary</span>
+        <span class="security-chip sec-med"><span data-lang="en">PCIe / Network TLS boundary</span><span data-lang="zh">PCIe／網路 TLS 邊界</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> Medium-High (1-10 ms per RPC)</small><br>
-        <small><strong>BOM:</strong> Extreme ($1,000 - $20,000+ per unit)</small>
+        <small><strong>Latency:</strong> <span data-lang="en">Medium-High (1-10 ms per RPC)</span><span data-lang="zh">中高（每次 RPC 為 1-10 ms）</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">Extreme ($1,000 - $20,000+ per unit)</span><span data-lang="zh">極高（每顆 $1,000 - $20,000 以上）</span></small>
       </td>
-      <td data-label="STRONGEST FIT">Datacenter Root CA, Cloud Key Management Service (KMS), Banking Core Attestation</td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">Datacenter Root CA, Cloud Key Management Service (KMS), Banking Core Attestation</span><span data-lang="zh">資料中心根憑證機構、雲端金鑰管理服務 (KMS)、銀行核心系統證明</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">FIPS 140-2 Level 4 · PCI-PTS</span>
-        <p class="profile-boundary">Battery-backed storage, physical integration, certifications, RPC latency and price are scenario assumptions. They are not universal properties of all HSM products.</p>
+        <span class="status-chip"><span data-lang="en">FIPS 140-2 Level 4 · PCI-PTS</span><span data-lang="zh">FIPS 140-2 第 4 級 · PCI-PTS</span></span>
+        <p class="profile-boundary"><span data-lang="en">Battery-backed storage, physical integration, certifications, RPC latency and price are scenario assumptions. They are not universal properties of all HSM products.</span><span data-lang="zh">電池備援儲存、實體整合、認證、RPC 延遲與價格均屬情境假設，不能視為所有 HSM 產品的共同特性。</span></p>
 
       </td>
     </tr>
 
     <tr data-profile-id="embedded_flash">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>Embedded Flash (eFlash)</strong>
-        <small>Signed in-system firmware updates with recovery dual-bank partition</small>
+        <strong><span data-lang="en">Embedded Flash (eFlash)</span><span data-lang="zh">嵌入式快閃記憶體 (eFlash)</span></strong>
+        <small><span data-lang="en">Signed in-system firmware updates with recovery dual-bank partition</span><span data-lang="zh">具簽章的系統內韌體更新，並搭配可復原的雙儲存區分割</span></small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">Floating Gate / Charge Trap eFlash</span></td>
-      <td data-label="STATE CONTRACT">Managed firmware updates; block erase and sector programming</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">Floating Gate / Charge Trap eFlash</span><span data-lang="zh">浮動閘極／電荷捕捉式 eFlash</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Managed firmware updates; block erase and sector programming</span><span data-lang="zh">受控韌體更新；區塊抹除與磁區寫入</span></td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip sec-med">Internal bus</span>
+        <span class="security-chip sec-med"><span data-lang="en">Internal bus</span><span data-lang="zh">內部匯流排</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> Medium (15-30 ns read, ms write)</small><br>
-        <small><strong>BOM:</strong> High mask cost (10-15 additional masks)</small>
+        <small><strong>Latency:</strong> <span data-lang="en">Medium (15-30 ns read, ms write)</span><span data-lang="zh">中等（讀取 15-30 ns、寫入為 ms 等級）</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">High mask cost (10-15 additional masks)</span><span data-lang="zh">高光罩成本（增加 10-15 層光罩）</span></small>
       </td>
-      <td data-label="STRONGEST FIT">Automotive MCUs and IoT microcontrollers on mature nodes (40nm-180nm)</td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">Automotive MCUs and IoT microcontrollers on mature nodes (40nm-180nm)</span><span data-lang="zh">成熟製程 (40nm-180nm) 的車用 MCU 與 IoT 微控制器</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">AEC-Q100 · Mature Node Mainstream</span>
-        <p class="profile-boundary">Node economics, added masks, timing and automotive qualification depend on the foundry process and macro. The 28nm comparison is not a universal technology limit.</p>
+        <span class="status-chip"><span data-lang="en">AEC-Q100 · Mature Node Mainstream</span><span data-lang="zh">AEC-Q100 · 成熟製程主流</span></span>
+        <p class="profile-boundary"><span data-lang="en">Node economics, added masks, timing and automotive qualification depend on the foundry process and macro. The 28nm comparison is not a universal technology limit.</span><span data-lang="zh">節點經濟性、額外光罩、時序與車規驗證取決於晶圓代工製程和巨集。28nm 的比較不能當作普遍的技術限制。</span></p>
 
       </td>
     </tr>
 
     <tr data-profile-id="mram_reram">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>Emerging NVM (MRAM / ReRAM)</strong>
-        <small>Direct memory-mapped write without block erase</small>
+        <strong><span data-lang="en">Emerging NVM (MRAM / ReRAM)</span><span data-lang="zh">新興非揮發性記憶體 (MRAM / ReRAM)</span></strong>
+        <small><span data-lang="en">Direct memory-mapped write without block erase</span><span data-lang="zh">無須區塊抹除的直接記憶體映射寫入</span></small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)</span></td>
-      <td data-label="STATE CONTRACT">Fast byte-addressable persistent state with high endurance</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)</span><span data-lang="zh">新興 BEOL NVM（STT-MRAM／OxRAM ReRAM）</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Fast byte-addressable persistent state with high endurance</span><span data-lang="zh">具高耐寫能力、可依位元組定址的快速持久狀態</span></td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip sec-med">Internal bus</span>
+        <span class="security-chip sec-med"><span data-lang="en">Internal bus</span><span data-lang="zh">內部匯流排</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> Very Low (10-30 ns read/write)</small><br>
-        <small><strong>BOM:</strong> Medium (3-5 extra BEOL masks)</small>
+        <small><strong>Latency:</strong> <span data-lang="en">Very Low (10-30 ns read/write)</span><span data-lang="zh">極低（讀取／寫入 10-30 ns）</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">Medium (3-5 extra BEOL masks)</span><span data-lang="zh">中等（增加 3-5 層 BEOL 光罩）</span></small>
       </td>
-      <td data-label="STRONGEST FIT">Low-latency persistent cache, AI edge inference weight storage, battery-less sensors</td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">Low-latency persistent cache, AI edge inference weight storage, battery-less sensors</span><span data-lang="zh">低延遲持久快取、AI 邊緣推論權重儲存、無電池感測器</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">Foundry Qualified (22nm/16nm)</span>
-        <p class="profile-boundary">Node availability, foundry qualification, mask count and timing require separate MRAM/ReRAM and foundry evidence. A roadmap target or design-ready announcement is not production.</p>
+        <span class="status-chip"><span data-lang="en">Foundry Qualified (22nm/16nm)</span><span data-lang="zh">晶圓代工資格驗證 (22nm/16nm)</span></span>
+        <p class="profile-boundary"><span data-lang="en">Node availability, foundry qualification, mask count and timing require separate MRAM/ReRAM and foundry evidence. A roadmap target or design-ready announcement is not production.</span><span data-lang="zh">節點可用性、晶圓代工驗證、光罩數與時序，需要分別核對 MRAM／ReRAM 及各代工廠的證據。路線圖目標或可供設計公告不等於量產。</span></p>
 
       </td>
     </tr>
 
     <tr data-profile-id="cpo_chiplet_nvm">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>CPO & 3D Chiplet NVM Trim</strong>
-        <small>Atomic calibration commit + instant cold-boot zeroization</small>
+        <strong><span data-lang="en">CPO &amp; 3D Chiplet NVM Trim</span><span data-lang="zh">CPO 與 3D 小晶片 NVM 微調</span></strong>
+        <small><span data-lang="en">Atomic calibration commit + instant cold-boot zeroization</span><span data-lang="zh">原子性校準提交＋冷啟動即時清除</span></small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">On-Die Managed MTP / AntiFuse OTP</span></td>
-      <td data-label="STATE CONTRACT">Bounded mutable optical phase/heater calibration and UCIe D2D session keys</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">On-Die Managed MTP / AntiFuse OTP</span><span data-lang="zh">晶粒內受控 MTP／反熔絲 OTP</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Bounded mutable optical phase/heater calibration and UCIe D2D session keys</span><span data-lang="zh">有限次可變的光學相位／加熱器校準與 UCIe 晶粒間工作階段金鑰</span></td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip sec-high">None (Die-internal analog/interconnect boundary)</span>
+        <span class="security-chip sec-high"><span data-lang="en">None (Die-internal analog/interconnect boundary)</span><span data-lang="zh">無（晶粒內類比／互連邊界）</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> Sub-10 ns read, atomic write</small><br>
-        <small><strong>BOM:</strong> Zero extra mask adder in standard CMOS</small>
+        <small><strong>Latency:</strong> <span data-lang="en">Sub-10 ns read, atomic write</span><span data-lang="zh">讀取低於 10 ns，原子性寫入</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">Zero extra mask adder in standard CMOS</span><span data-lang="zh">標準 CMOS 無須增加光罩</span></small>
       </td>
-      <td data-label="STRONGEST FIT">51.2T/102.4T CPO Switches, UCIe 2.0 D2D Links, Optical Compute Interconnect (OCI)</td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">51.2T/102.4T CPO Switches, UCIe 2.0 D2D Links, Optical Compute Interconnect (OCI)</span><span data-lang="zh">51.2T/102.4T CPO 交換器、UCIe 2.0 晶粒間連結、光學運算互連 (OCI)</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">800G/1.6T Foundry-Verified · OCP OIF · UCIe 2.0</span>
-        <p class="profile-boundary">Packaging names and interface standards provide application context. They do not establish that this NVM trim architecture, throughput, timing or zero-mask claim is foundry-qualified.</p>
+        <span class="status-chip"><span data-lang="en">800G/1.6T Foundry-Verified · OCP OIF · UCIe 2.0</span><span data-lang="zh">800G/1.6T 晶圓代工驗證 · OCP OIF · UCIe 2.0</span></span>
+        <p class="profile-boundary"><span data-lang="en">Packaging names and interface standards provide application context. They do not establish that this NVM trim architecture, throughput, timing or zero-mask claim is foundry-qualified.</span><span data-lang="zh">封裝名稱與介面標準僅提供應用背景，不能證明此 NVM 微調架構、吞吐量、時序或零額外光罩聲稱已通過晶圓代工驗證。</span></p>
 
       </td>
     </tr>
 
     <tr data-profile-id="bcd_power_pmic_trim">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>BCD Power PMIC & LED Trimming</strong>
-        <small>Wafer sort (CP) & final test (FT) trimming; OTP fixed after programming; NeoMTP updates within the qualified IP budget</small>
+        <strong><span data-lang="en">BCD Power PMIC &amp; LED Trimming</span><span data-lang="zh">BCD 電源 PMIC 與 LED 電性微調</span></strong>
+        <small><span data-lang="en">Wafer sort (CP) &amp; final test (FT) trimming; OTP fixed after programming; NeoMTP updates within the qualified IP budget</span><span data-lang="zh">晶圓測試（CP）與最終測試（FT）微調；OTP 寫入後固定；NeoMTP 依已驗證 IP 預算更新</span></small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)</span></td>
-      <td data-label="STATE CONTRACT">Fixed OTP or updateable NeoMTP analog Vref bandgap (±0.5%) & oscillator calibration; multi-channel LED balance</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)</span><span data-lang="zh">AntiFuse OTP（固定）／NeoMTP（浮動閘 MTP）</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Fixed OTP or updateable NeoMTP analog Vref bandgap (±0.5%) &amp; oscillator calibration; multi-channel LED balance</span><span data-lang="zh">OTP 固定或 NeoMTP 可更新的類比 Vref 能隙（±0.5%）與振盪器校準；多通道 LED 平衡</span></td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip sec-high">None (Internal analog resistor ladder trim boundary)</span>
+        <span class="security-chip sec-high"><span data-lang="en">None (Internal analog resistor ladder trim boundary)</span><span data-lang="zh">無（內部類比電阻梯微調邊界）</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> Low (15-30 ns read)</small><br>
-        <small><strong>BOM:</strong> Zero extra mask adder (Eliminates 10-15 eFlash masks, saving 30-50%)</small>
+        <small><strong>Latency:</strong> <span data-lang="en">Low (15-30 ns read)</span><span data-lang="zh">低（讀取 15-30 ns）</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">Zero extra mask adder (Eliminates 10-15 eFlash masks, saving 30-50%)</span><span data-lang="zh">零額外光罩（省去 10-15 層 eFlash 光罩，節省 30-50%）</span></small>
       </td>
-      <td data-label="STRONGEST FIT">PMIC, USB-PD 3.1 240W EPR Controllers, BLDC Motor Drivers, BMIC 16-24 Cell AFEs</td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">PMIC, USB-PD 3.1 240W EPR Controllers, BLDC Motor Drivers, BMIC 16-24 Cell AFEs</span><span data-lang="zh">PMIC、USB-PD 3.1 240W EPR 控制器、BLDC 馬達驅動器、BMIC 16-24 電芯 AFE</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">AEC-Q100 Grade 0 · Multi-Foundry BCD Baseline</span>
-        <p class="profile-boundary">The cited eMemory page supports the NeoMTP floating-gate, rewritable-memory mechanism. It does not prove every listed BCD platform, trim accuracy, Grade 0 qualification, timing or cost-saving percentage in this draft.</p>
-        <p><a href="https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP" target="_blank" rel="noopener noreferrer">NeoMTP<span data-lang="zh"> 官方來源</span><span data-lang="en"> official source</span></a><small>Floating-gate programming and erase support a rewritable NeoMTP mechanism; exact operating budgets require the selected IP. Does not substantiate the draft platform list, certification grade, accuracy, latency or savings.</small></p>
+        <span class="status-chip"><span data-lang="en">AEC-Q100 Grade 0 · Multi-Foundry BCD Baseline</span><span data-lang="zh">AEC-Q100 Grade 0 · 多家晶圓代工 BCD 基準</span></span>
+        <p class="profile-boundary"><span data-lang="en">The cited eMemory page supports the NeoMTP floating-gate, rewritable-memory mechanism. It does not prove every listed BCD platform, trim accuracy, Grade 0 qualification, timing or cost-saving percentage in this draft.</span><span data-lang="zh">所列力旺頁面支援 NeoMTP 的浮動閘與可改寫記憶體機制，並未證明本原稿列出的所有 BCD 平臺、微調精度、Grade 0 驗證、時序或節省成本百分比。</span></p>
+        <p><a href="https://www.ememory.com.tw/en-US/Products/MTP/NeoMTP" target="_blank" rel="noopener noreferrer">NeoMTP<span data-lang="zh"> 官方來源</span><span data-lang="en"> official source</span></a><small><span data-lang="en">Floating-gate programming and erase support a rewritable NeoMTP mechanism; exact operating budgets require the selected IP. Does not substantiate the draft platform list, certification grade, accuracy, latency or savings.</span><span data-lang="zh">浮動閘寫入與抹除支援可改寫的 NeoMTP 機制；確切操作預算取決於選定 IP。 此來源未證實原稿的平臺清單、認證等級、精度、延遲或節省成本。</span></small></p>
       </td>
     </tr>
 
     <tr data-profile-id="cis_dram_matrix_repair">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>CIS & DRAM Matrix Defect Repair</strong>
-        <small>BIST autonomous scanning + BIRA minimum vertex cover + FuseBox OTP burn</small>
+        <strong><span data-lang="en">CIS &amp; DRAM Matrix Defect Repair</span><span data-lang="zh">CIS 與 DRAM 矩陣缺陷修復</span></strong>
+        <small><span data-lang="en">BIST autonomous scanning + BIRA minimum vertex cover + FuseBox OTP burn</span><span data-lang="zh">BIST 自主掃描＋BIRA 最小頂點覆蓋＋FuseBox OTP 燒錄</span></small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">AntiFuse OTP Hard FuseBox & PPR</span></td>
-      <td data-label="STATE CONTRACT">Non-volatile bad bitcell / pixel address remapping to spare rows/columns</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">AntiFuse OTP Hard FuseBox &amp; PPR</span><span data-lang="zh">AntiFuse OTP 硬體 FuseBox 與 PPR</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Non-volatile bad bitcell / pixel address remapping to spare rows/columns</span><span data-lang="zh">將缺陷位元單元／像素位址非揮發性重新映射至備援列／行</span></td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip sec-med">Internal memory address decoder override</span>
+        <span class="security-chip sec-med"><span data-lang="en">Internal memory address decoder override</span><span data-lang="zh">內部記憶體位址解碼器覆寫</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> Zero-cycle address redirection on-die</small><br>
-        <small><strong>BOM:</strong> Ultra-low silicon overhead (<0.5% total die area)</small>
+        <small><strong>Latency:</strong> <span data-lang="en">Zero-cycle address redirection on-die</span><span data-lang="zh">晶粒內零週期位址重新導向</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">Ultra-low silicon overhead (&lt;0.5% total die area)</span><span data-lang="zh">極低矽面積額外成本（總晶粒面積 &lt;0.5%）</span></small>
       </td>
-      <td data-label="STRONGEST FIT">JEDEC Hard Post-Package Repair (hPPR), 200MP Mobile CIS, Datacenter AI Server Memories</td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">JEDEC Hard Post-Package Repair (hPPR), 200MP Mobile CIS, Datacenter AI Server Memories</span><span data-lang="zh">JEDEC 硬體封裝後修復（hPPR）、200MP 行動裝置 CIS、資料中心 AI 伺服器記憶體</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">JEDEC JESD79-5 DDR5 · JESD238 HBM3e · Mass Production Proven</span>
-        <p class="profile-boundary">Standard names describe application context; capacity, dimensions, timing, area overhead and production status need the exact memory device, standard revision and implementation evidence.</p>
+        <span class="status-chip"><span data-lang="en">JEDEC JESD79-5 DDR5 · JESD238 HBM3e · Mass Production Proven</span><span data-lang="zh">JEDEC JESD79-5 DDR5 · JESD238 HBM3e · 原稿聲稱已量產驗證</span></span>
+        <p class="profile-boundary"><span data-lang="en">Standard names describe application context; capacity, dimensions, timing, area overhead and production status need the exact memory device, standard revision and implementation evidence.</span><span data-lang="zh">標準名稱僅描述應用背景；容量、尺寸、時序、面積額外成本與量產狀態，需要確切記憶體元件、標準版本及實作證據。</span></p>
 
       </td>
     </tr>
 
     <tr data-profile-id="hv_display_ddic_demura">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>HV Display Driver (OLED / LCD DDIC)</strong>
-        <small>Factory optical camera calibration write; dynamic refresh rate adaptive indexing</small>
+        <strong><span data-lang="en">HV Display Driver (OLED / LCD DDIC)</span><span data-lang="zh">高壓顯示驅動晶片 (OLED / LCD DDIC)</span></strong>
+        <small><span data-lang="en">Factory optical camera calibration write; dynamic refresh rate adaptive indexing</span><span data-lang="zh">工廠光學相機校準寫入；動態更新率自適應索引</span></small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">High-Density Embedded MTP / Pure Logic OTP</span></td>
-      <td data-label="STATE CONTRACT">Multi-point Gamma 2.2 R-DAC calibration, Vcom 5mV anti-flicker, 2D De-Mura gain LUT</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">High-Density Embedded MTP / Pure Logic OTP</span><span data-lang="zh">高密度嵌入式 MTP／純邏輯 OTP</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Multi-point Gamma 2.2 R-DAC calibration, Vcom 5mV anti-flicker, 2D De-Mura gain LUT</span><span data-lang="zh">多點 Gamma 2.2 R-DAC 校準、Vcom 5mV 抗閃爍、2D De-Mura 增益 LUT</span></td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip sec-med">Internal display pipeline pixel stream</span>
+        <span class="security-chip sec-med"><span data-lang="en">Internal display pipeline pixel stream</span><span data-lang="zh">內部顯示管線像素串流</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> Sub-microsecond frame-level LUT retrieval</small><br>
-        <small><strong>BOM:</strong> Zero mask adder in specialized eHV platforms</small>
+        <small><strong>Latency:</strong> <span data-lang="en">Sub-microsecond frame-level LUT retrieval</span><span data-lang="zh">次微秒影格層級 LUT 讀取</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">Zero mask adder in specialized eHV platforms</span><span data-lang="zh">專用 eHV 平臺零額外光罩</span></small>
       </td>
-      <td data-label="STRONGEST FIT">AMOLED Smartphone DDIC, Automotive Cockpit Displays, Micro-OLED AR/VR Systems</td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">AMOLED Smartphone DDIC, Automotive Cockpit Displays, Micro-OLED AR/VR Systems</span><span data-lang="zh">AMOLED 智慧型手機 DDIC、車用座艙顯示器、Micro-OLED AR／VR 系統</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">Commercial AMOLED Standard · 120Hz-144Hz Production</span>
-        <p class="profile-boundary">Voltage rails, resolution, refresh rates, process availability and mask assumptions are design examples; no named DDIC qualification or production result is established by this profile.</p>
+        <span class="status-chip"><span data-lang="en">Commercial AMOLED Standard · 120Hz-144Hz Production</span><span data-lang="zh">商用 AMOLED 標準 · 原稿聲稱 120Hz-144Hz 量產</span></span>
+        <p class="profile-boundary"><span data-lang="en">Voltage rails, resolution, refresh rates, process availability and mask assumptions are design examples; no named DDIC qualification or production result is established by this profile.</span><span data-lang="zh">電壓軌、解析度、更新率、製程可用性與光罩假設均屬設計範例；此設定檔未確立具名 DDIC 的驗證或量產結果。</span></p>
 
       </td>
     </tr>
 
     <tr data-profile-id="eink_ultra_hv_mtp_otp">
       <th scope="row" data-label="STATE PROFILE">
-        <strong>E-Ink Ultra-HV Driver (40V-50V / 110HV)</strong>
-        <small>MTP (32Kb-64Kb) during color formulation evolution; OTP (<250µm height) in volume maturity</small>
+        <strong><span data-lang="en">E-Ink Ultra-HV Driver (40V-50V / 110HV)</span><span data-lang="zh">電子紙超高壓驅動晶片 (40V-50V / 110HV)</span></strong>
+        <small><span data-lang="en">MTP (32Kb-64Kb) during color formulation evolution; OTP (&lt;250µm height) in volume maturity</span><span data-lang="zh">色彩配方演進時採 MTP（32Kb-64Kb）；量產成熟時採 OTP（高度 &lt;250µm）</span></small>
       </th>
-      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip">MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity</span></td>
-      <td data-label="STATE CONTRACT">Multi-dimensional electrophoretic driving waveform LUT & temperature compensation</td>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity</span><span data-lang="zh">演進階段採 MTP ➔ 成熟階段採純邏輯 AntiFuse OTP</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Multi-dimensional electrophoretic driving waveform LUT &amp; temperature compensation</span><span data-lang="zh">多維電泳驅動波形 LUT 與溫度補償</span></td>
       <td data-label="BUS EXPOSURE">
-        <span class="security-chip sec-med">Internal driver waveform generator engine</span>
+        <span class="security-chip sec-med"><span data-lang="en">Internal driver waveform generator engine</span><span data-lang="zh">內部驅動波形產生引擎</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> Fast multi-frame waveform index (<50 ns)</small><br>
-        <small><strong>BOM:</strong> Zero extra mask adder; reduces BOM cost by eliminating discrete external SPI Flash</small>
+        <small><strong>Latency:</strong> <span data-lang="en">Fast multi-frame waveform index (&lt;50 ns)</span><span data-lang="zh">快速多影格波形索引（&lt;50 ns）</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">Zero extra mask adder; reduces BOM cost by eliminating discrete external SPI Flash</span><span data-lang="zh">零額外光罩；省去獨立外部 SPI Flash 以降低 BOM 成本</span></small>
       </td>
-      <td data-label="STRONGEST FIT">Electronic Shelf Labels (ESL), Full-Color E-Paper (Spectra 6, Kaleido 3), Outdoor Signage</td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">Electronic Shelf Labels (ESL), Full-Color E-Paper (Spectra 6, Kaleido 3), Outdoor Signage</span><span data-lang="zh">電子貨架標籤（ESL）、全彩電子紙（Spectra 6、Kaleido 3）、戶外看板</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip">E-Ink Panel Partner Standard · Fitipower / UltraChip / Solomon Baseline</span>
-        <p class="profile-boundary">Driver platforms, memory size, battery life, height limits and named suppliers are application assumptions requiring product-specific sources. These statements do not establish a universal panel-partner standard.</p>
+        <span class="status-chip"><span data-lang="en">E-Ink Panel Partner Standard · Fitipower / UltraChip / Solomon Baseline</span><span data-lang="zh">電子紙面板夥伴標準 · Fitipower／UltraChip／Solomon 基準</span></span>
+        <p class="profile-boundary"><span data-lang="en">Driver platforms, memory size, battery life, height limits and named suppliers are application assumptions requiring product-specific sources. These statements do not establish a universal panel-partner standard.</span><span data-lang="zh">驅動平臺、記憶體容量、電池壽命、高度限制與具名供應商均屬應用假設，需要特定產品來源。這些敘述不能確立通用的面板夥伴標準。</span></p>
 
       </td>
     </tr>

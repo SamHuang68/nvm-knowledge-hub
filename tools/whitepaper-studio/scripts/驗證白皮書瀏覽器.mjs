@@ -3,6 +3,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { nvmIpSpecs } from '../src/data/nvm_specs.js';
+import { localizeProfile } from '../src/data/設定檔語系.js';
 
 const base = (process.env.NVM_QA_BASE || process.env.WHITEPAPER_QA_URL || 'http://127.0.0.1:8765').replace(/\/+$/, '');
 const output = new URL('../../../qa/白皮書驗證/', import.meta.url);
@@ -25,7 +26,7 @@ try {
         page.on('pageerror', error => errors.push(error.message));
         await page.goto(`${base}/${entry}?view=selector&lang=${language}`, { waitUntil: 'networkidle' });
         await page.waitForFunction(lang => document.documentElement.dataset.language === lang, language);
-        assert.equal(new URL(page.url()).pathname, '/whitepaper/index.html');
+        assert.equal(new URL(page.url()).pathname, new URL(`${base}/whitepaper/index.html`).pathname);
         assert.deepEqual(await page.locator('#decision-body tr').evaluateAll(rows => rows.map(row => row.dataset.profileId)), nvmIpSpecs.map(item => item.id));
         const family = nvmIpSpecs.find(item => item.id === 'bcd_power_pmic_trim').family;
         await page.locator('#filter-family').selectOption(family);
@@ -33,13 +34,13 @@ try {
         const jsonEvent = page.waitForEvent('download');
         await page.locator('#btn-export-json').click();
         const json = JSON.parse(await readDownload(await jsonEvent));
-        assert.deepEqual(json, nvmIpSpecs.filter(item => item.family === family));
+        assert.deepEqual(json, nvmIpSpecs.filter(item => item.family === family).map(item => localizeProfile(item, language)));
         const csvEvent = page.waitForEvent('download');
         await page.locator('#btn-export-csv').click();
         const csv = await readDownload(await csvEvent);
         assert.ok(csv.includes('bcd_power_pmic_trim'));
         assert.ok(!csv.includes('sram_puf_secure_storage'));
-        assert.ok(csv.includes('source-needed'));
+        assert.ok(csv.includes(language === 'zh' ? '待補來源' : 'source-needed'));
         await page.locator('#filter-family').selectOption('ALL');
         for (const view of ['overview', 'whitepaper', 'selector', 'taxonomy', 'templates']) {
           await page.locator(`#tab-${view}`).click();

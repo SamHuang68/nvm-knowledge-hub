@@ -49,26 +49,26 @@ try {
   const snapshot = () => page.evaluate(() => ({
     defects: document.getElementById('statDefectCount').textContent,
     spares: document.getElementById('statSparesUsed').textContent,
-    status: document.getElementById('lblScanStatus').textContent,
-    yield: document.getElementById('statDieYield').textContent,
+    status: document.getElementById('lblScanStatus').dataset.state,
+    yield: document.getElementById('statDieYield').dataset.state,
     burnDisabled: document.getElementById('btnBurnFuse').disabled,
     biraDisabled: document.getElementById('btnRunBIRA').disabled,
-    blank: [...document.querySelectorAll('.fuse-state')].every(element => element.textContent === 'BLANK'),
-    locked: [...document.querySelectorAll('.fuse-state')].filter(element => element.textContent === 'HARD LOCKED').length,
+    blank: [...document.querySelectorAll('.fuse-state')].every(element => element.dataset.state === 'blank'),
+    locked: [...document.querySelectorAll('.fuse-state')].filter(element => element.dataset.state === 'burned').length,
     log: document.getElementById('terminalLogs').textContent
   }));
   const scan = async () => {
     await page.locator('#btnRunBIST').click();
-    await page.waitForFunction(() => document.getElementById('lblScanStatus').textContent === 'BIST COMPLETED');
+    await page.waitForFunction(() => document.getElementById('lblScanStatus').dataset.state === 'scanned');
   };
   const allocate = async () => {
     await scan();
     await page.locator('#btnRunBIRA').click();
-    await page.waitForFunction(() => document.getElementById('lblScanStatus').textContent !== 'BIRA SOLVING...');
+    await page.waitForFunction(() => ['allocated', 'insufficient'].includes(document.getElementById('lblScanStatus').dataset.state));
   };
   const burn = async () => {
     await page.locator('#btnBurnFuse').click();
-    await page.waitForFunction(() => document.getElementById('lblScanStatus').textContent === 'REPAIR COMPLETE');
+    await page.waitForFunction(() => document.getElementById('lblScanStatus').dataset.state === 'repaired');
   };
   for (const language of ['zh', 'en']) {
     for (const count of [0, 1, 4, 5]) {
@@ -81,7 +81,7 @@ try {
           assert.equal(state.spares, '0 / 4');
           assert.equal(state.biraDisabled, true);
           assert.equal(state.burnDisabled, true);
-          assert.match(state.yield, /100%/u);
+          assert.equal(state.yield, 'normal');
         } else {
           await allocate();
           if (count <= 4) {
@@ -90,12 +90,12 @@ try {
             assert.equal(allocated.burnDisabled, false);
             await burn();
             const state = await snapshot();
-            assert.equal(state.yield, 'PASS (100%)');
+            assert.equal(state.yield, 'repaired');
             assert.equal(state.locked, count);
           } else {
             const state = await snapshot();
-            assert.match(state.status, /無法修復|UNREPAIRABLE/u);
-            assert.equal(state.yield, 'FAIL (0%)');
+            assert.equal(state.status, 'insufficient');
+            assert.equal(state.yield, 'failed');
             assert.equal(state.spares, '0 / 4');
             assert.equal(state.blank, true);
             assert.equal(state.burnDisabled, true);
@@ -135,7 +135,7 @@ try {
   await check('已修復後再編輯會撤銷舊結果與燒錄顯示', async () => {
     await open(); await cell(0); await allocate(); await burn(); await cell(1);
     const state = await snapshot();
-    assert.equal(state.yield, 'FAIL (0%)');
+    assert.equal(state.yield, 'failed');
     assert.equal(state.blank, true);
     assert.equal(state.spares, '0 / 4');
     assert.equal(state.defects, '2');
@@ -157,8 +157,8 @@ try {
       assert.equal(during.defects, before.defects);
       assert.equal(during.spares, before.spares);
       assert.equal(await page.locator('#btnGenDefect').isDisabled(), true);
-      const expected = { btnRunBIST: 'BIST COMPLETED', btnRunBIRA: 'BIRA SOLUTION LOCKED', btnBurnFuse: 'REPAIR COMPLETE' }[stage];
-      await page.waitForFunction(expected => document.getElementById('lblScanStatus').textContent === expected, expected);
+      const expected = { btnRunBIST: 'scanned', btnRunBIRA: 'allocated', btnBurnFuse: 'repaired' }[stage];
+      await page.waitForFunction(expected => document.getElementById('lblScanStatus').dataset.state === expected, expected);
       assert.equal((await snapshot()).defects, '1');
       assert.equal(await page.locator('#btnGenDefect').isEnabled(), true);
     });

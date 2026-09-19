@@ -32,18 +32,36 @@
   const splitIds = value => (value || "").trim().split(/\s+/u).filter(Boolean);
   const unique = values => [...new Set(values.filter(Boolean))];
   const localizedField = (record, stem) => record?.[`${stem}${page.dataset.language === "en" ? "En" : "Zh"}`] || "";
+  const localized = (en, zh) => page.dataset.language === "en" ? en : zh;
 
   const evidenceDisplay = record => {
     const labels = {
-      DIRECT_REQUIREMENT: "DIRECT REQUIREMENT",
-      FIRST_PARTY_CASE: "OFFICIAL PRODUCT CASE",
-      TECHNICAL_EVIDENCE: "TECHNICAL EVIDENCE",
-      VENDOR_CAPABILITY: "VENDOR DISCLOSURE",
-      INFERRED_OPPORTUNITY: "BOUNDED INFERENCE",
-      VALIDATION_NEEDED: "VALIDATION GATE"
+      DIRECT_REQUIREMENT: localized("DIRECT REQUIREMENT", "直接需求"),
+      FIRST_PARTY_CASE: localized("OFFICIAL PRODUCT CASE", "官方產品案例"),
+      TECHNICAL_EVIDENCE: localized("TECHNICAL EVIDENCE", "技術證據"),
+      VENDOR_CAPABILITY: localized("VENDOR DISCLOSURE", "供應商揭露"),
+      INFERRED_OPPORTUNITY: localized("BOUNDED INFERENCE", "有界推論"),
+      VALIDATION_NEEDED: localized("VALIDATION GATE", "驗證條件")
     };
-    return labels[record?.evidenceClass] || record?.evidenceClass || "UNCLASSIFIED";
+    return labels[record?.evidenceClass] || record?.evidenceClass || localized("UNCLASSIFIED", "尚未分類");
   };
+  const maturityDisplay = value => ({
+    'Vendor-stated': localized('Vendor-stated', '供應商陳述'),
+    Specified: localized('Specified', '已有規格'),
+    Demonstrated: localized('Demonstrated', '已示範'),
+    Hypothesis: localized('Hypothesis', '假設'),
+    Open: localized('Open', '尚待確認'),
+  })[value] || value;
+  const candidateDisplay = value => ({
+    'OTP / Fuse': localized('OTP / Fuse', 'OTP／熔絲'),
+    'EEPROM / Managed NVM': localized('EEPROM / Managed NVM', 'EEPROM／受管理的 NVM'),
+    'MTP / Managed NVM': localized('MTP / Managed NVM', 'MTP／受管理的 NVM'),
+    'PUF-derived Root': localized('PUF-derived Root', '由 PUF 衍生的信任根'),
+    'External Flash / Host Storage': localized('External Flash / Host Storage', '外接 Flash／主機儲存'),
+    'Volatile State': localized('Volatile State', '揮發性狀態'),
+    'Embedded Flash': localized('Embedded Flash', '嵌入式 Flash'),
+    'Embedded MRAM / RRAM': localized('Embedded MRAM / RRAM', '嵌入式 MRAM／RRAM'),
+  })[value] || value;
 
   function createBoundaryField(label, value, { derived = false, field = "" } = {}) {
     const wrapper = document.createElement("section");
@@ -83,7 +101,7 @@
         sourceLabel.className = "record-source-label";
         sourceCopy?.before(sourceLabel);
       }
-      sourceLabel.textContent = "EXECUTIVE SUMMARY";
+      sourceLabel.textContent = localized("EXECUTIVE SUMMARY", "重點摘要");
 
       const candidateEvidence = [];
       for (const record of fitRecords) {
@@ -105,8 +123,8 @@
       const candidates = [...candidateEvidenceByKey.values()];
       const inferredFit = candidates.some(item => item.basis === "BOUNDED_IMPLEMENTATION_CANDIDATE");
       const candidateText = candidates.length
-        ? unique(candidates.map(item => item.candidate)).join(" · ")
-        : (zh ? "來源未揭露 NVM technology" : "NVM technology is not source-disclosed");
+        ? unique(candidates.map(item => candidateDisplay(item.candidate))).join(" · ")
+        : (zh ? "來源未揭露 NVM 技術" : "NVM technology is not source-disclosed");
       const consequence = unique(fitRecords.map(record => localizedField(record, "applicability"))).join(" ") || (zh ? "尚未建立有界推論" : "No bounded inference has been established");
       const question = unique(fitRecords.map(record => localizedField(record, "openQuestion")))[0]
         || unique(sourceRecords.map(record => localizedField(record, "openQuestion")))[0]
@@ -115,30 +133,30 @@
       const conciseLimit = initialCardLimits.get(recordElement)?.[zh ? "zh" : "en"] || sourceLimitations[0] || question;
       const evidenceClasses = unique(sourceRecords.map(evidenceDisplay));
       const sourceOwners = unique(sourceRecords.map(record => record.sourceOwner));
-      const maturities = unique(sourceRecords.map(record => record.assuranceMaturity));
+      const maturities = unique(sourceRecords.map(record => maturityDisplay(record.assuranceMaturity)));
       const evidenceText = sourceOwners.length <= 2
         ? [...evidenceClasses, ...sourceOwners, ...maturities].join(" · ")
-        : `${sourceRecords.length} GOVERNED SOURCES · ${evidenceClasses.join(" + ")} · ${maturities.join(" + ")}`;
+        : `${sourceRecords.length} ${localized('GOVERNED SOURCES', '筆受治理的來源')} · ${evidenceClasses.join(" + ")} · ${maturities.join(" + ")}`;
 
       const boundary = document.createElement("div");
       boundary.className = "record-fit record-decision-grid";
       boundary.dataset.copyRevision = recordElement.dataset.copyRevision;
       boundary.dataset.povContractId = page.dataset.povContractId;
       boundary.append(
-        createBoundaryField("EVIDENCE / MATURITY", evidenceText || (zh ? "來源分類待確認" : "Evidence classification pending"), { field: "evidenceClass assuranceMaturity sourceOwner" }),
-        createBoundaryField("CANDIDATE NVM FIT", candidateText, { derived: inferredFit, field: "storageCandidateProvenance" }),
-        createBoundaryField("VALIDATION GATE", question, { field: "openQuestion" }),
-        createBoundaryField("LIMIT / BOUNDARY", conciseLimit, { field: "limitation" })
+        createBoundaryField(localized("EVIDENCE / MATURITY", "證據／成熟度"), evidenceText || (zh ? "來源分類待確認" : "Evidence classification pending"), { field: "evidenceClass assuranceMaturity sourceOwner" }),
+        createBoundaryField(localized("CANDIDATE NVM FIT", "候選 NVM 適配"), candidateText, { derived: inferredFit, field: "storageCandidateProvenance" }),
+        createBoundaryField(localized("VALIDATION GATE", "驗證條件"), question, { field: "openQuestion" }),
+        createBoundaryField(localized("LIMIT / BOUNDARY", "限制／界線"), conciseLimit, { field: "limitation" })
       );
       const lineage = document.createElement("details");
       lineage.className = "record-lineage";
       const lineageSummary = document.createElement("summary");
-      lineageSummary.textContent = "RECORD LINEAGE / WHY IT MATTERS";
+      lineageSummary.textContent = localized("RECORD LINEAGE / WHY IT MATTERS", "紀錄來源與意義");
       const lineageDetail = document.createElement("div");
       lineageDetail.className = "record-lineage-detail";
-      const sourceDetail = createLineageRow("SOURCE ESTABLISHES", sourceClaims.join(" ") || (zh ? "沒有額外的 source-grounded claim" : "No additional source-grounded claim"));
-      const consequenceDetail = createLineageRow("BOUNDED CONSEQUENCE", consequence);
-      const idDetail = createLineageRow("RECORD IDS", `${sourceIds.join(" + ")} · ${fitIds.join(" + ")}`);
+      const sourceDetail = createLineageRow(localized("SOURCE ESTABLISHES", "來源已建立的事實"), sourceClaims.join(" ") || (zh ? "沒有額外的來源支持主張" : "No additional source-grounded claim"));
+      const consequenceDetail = createLineageRow(localized("BOUNDED CONSEQUENCE", "有界推論結果"), consequence);
+      const idDetail = createLineageRow(localized("RECORD IDS", "紀錄識別碼"), `${sourceIds.join(" + ")} · ${fitIds.join(" + ")}`);
       lineageDetail.append(sourceDetail, consequenceDetail, idDetail);
       lineage.append(lineageSummary, lineageDetail);
       boundary.append(lineage);
@@ -283,12 +301,12 @@
     document.querySelector(".map-planes")?.setAttribute("aria-label", zh ? "持久狀態契約平面" : "Persistent-state contract planes");
     document.querySelector(".photonics-state-model")?.setAttribute("aria-label", zh ? "光引擎持久基線與揮發控制狀態契約" : "Optical-engine persistent-baseline and volatile-control state contract");
     document.querySelector(".selection-matrix")?.setAttribute("aria-label", zh ? "依狀態更新頻率與斷電保存需求選擇儲存層" : "Storage-layer selection by state cadence and power-off retention");
-    document.querySelector(".node-transition")?.setAttribute("aria-label", zh ? "依公開產品與 foundry roadmap 整理的先進節點 embedded NVM 轉換路徑" : "Advanced-node embedded-NVM transition across public products and foundry roadmaps");
-    document.querySelector(".read-domain-diagram")?.setAttribute("aria-label", zh ? "TSMC N5 OTP 的 core-supply read plane 與受控 programming domain 分離" : "TSMC N5 OTP core-supply read plane separated from the controlled programming domain");
+    document.querySelector(".node-transition")?.setAttribute("aria-label", zh ? "依公開產品與晶圓代工路線圖整理的先進節點嵌入式 NVM 轉換路徑" : "Advanced-node embedded-NVM transition across public products and foundry roadmaps");
+    document.querySelector(".read-domain-diagram")?.setAttribute("aria-label", zh ? "TSMC N5 OTP 的核心供電讀取平面與受控寫入電源域分離" : "TSMC N5 OTP core-supply read plane separated from the controlled programming domain");
     document.querySelector(".sharepoint-extension")?.setAttribute("aria-label", zh ? "公司 SharePoint 內部產品契約補充區" : "Internal product-contract completion area for SharePoint");
-    document.querySelector(".abstraction-system")?.setAttribute("aria-label", zh ? "受保護狀態轉移與四個 Assurance Plane" : "Protected state transition with four assurance planes");
-    document.querySelector(".selection-tabs")?.setAttribute("aria-label", zh ? "NVM Selection Layer" : "NVM selection layers");
-    document.querySelector(".assurance-tabs")?.setAttribute("aria-label", zh ? "Secure Storage Assurance Plane" : "Secure Storage assurance planes");
+    document.querySelector(".abstraction-system")?.setAttribute("aria-label", zh ? "受保護狀態轉移與四個保證平面" : "Protected state transition with four assurance planes");
+    document.querySelector(".selection-tabs")?.setAttribute("aria-label", zh ? "NVM 選型層級" : "NVM selection layers");
+    document.querySelector(".assurance-tabs")?.setAttribute("aria-label", zh ? "Secure Storage 保證平面" : "Secure Storage assurance planes");
   }
 
   function setActiveNav(sectionId) {

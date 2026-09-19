@@ -151,11 +151,31 @@ try {
   await page.locator('.nvm-engineering-dialog[open] svg').waitFor();
   check(await page.locator('.nvm-engineering-dialog[open] svg').count() > 0, '離線全景可載入同版圖解並放大');
   await page.keyboard.press('Escape');
-  const missing = await page.goto(base+'未下載附件.html', { waitUntil:'domcontentloaded' });
-  check(missing.status() === 503 && (await page.locator('h1').innerText()).includes('尚未下載'), '未快取頁面明確回應 503 與離線說明');
-  await page.getByRole('link', { name:'返回知識中心首頁' }).click();
-  await page.locator('#searchTrigger').waitFor();
-  check(new URL(page.url()).pathname.endsWith('/index.html'), '離線錯誤頁可返回已快取首頁');
+  for (const scenario of [
+    { query:'en', saved:'zh', expected:'en' },
+    { query:'zh', saved:'en', expected:'zh' },
+    { query:null, saved:'en', expected:'en' },
+    { query:null, saved:'zh', expected:'zh' },
+    { query:'invalid', saved:'zh', expected:'zh' },
+  ]) {
+    await page.evaluate(saved => localStorage.setItem('nvm-hub-language',saved),scenario.saved);
+    const query = scenario.query === null ? '' : '?lang='+scenario.query;
+    const missing = await page.goto(base+'未下載附件.html'+query,{waitUntil:'domcontentloaded'});
+    const actual = await page.evaluate(() => ({
+      language:document.documentElement.lang,title:document.title,text:document.querySelector('main').innerText,
+      home:document.querySelector('main a').href,
+    }));
+    const expectedLanguage = scenario.expected === 'zh' ? 'zh-Hant' : 'en';
+    check(missing.status() === 503 && actual.language === expectedLanguage
+      && (scenario.expected === 'zh' ? actual.text.includes('尚未下載') : !/[\u3400-\u9fff]/u.test(actual.text)),
+    '離線例外依明確 query 或儲存偏好選擇語言',{scenario,...actual});
+    check(new URL(actual.home).searchParams.get('lang') === scenario.expected,'離線返回連結保留目前語言',{scenario});
+    if (scenario.query === scenario.expected) await page.screenshot({path:path.join(output,`離線錯誤-${scenario.expected}.png`)});
+    await page.locator('main a').click();
+    await page.locator('#searchTrigger').waitFor();
+    check(new URL(page.url()).pathname.endsWith('/index.html') && await page.locator('html').getAttribute('lang') === expectedLanguage,
+      '離線錯誤頁返回同語言的已快取首頁',{scenario});
+  }
   await context.setOffline(false);
 
   current = second;

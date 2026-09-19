@@ -178,6 +178,14 @@ body[data-language="zh"] [data-lang="en"] {
 .manual-copy-outline { margin-top: 18px; padding: 16px; border: 1px solid currentColor; }
 .manual-copy-outline textarea { width: 100%; min-height: 200px; padding: 12px; font: inherit; }
 .manual-copy-outline button { min-height: 44px; margin-top: 12px; }
+
+/* 淺色閱讀主題沿用相同表格結構，避免深色主題字色殘留在白底。 */
+body.hub-literature-paper .decision-table tbody th,
+body.hub-literature-paper .decision-table tbody td { color: #173b49 !important; }
+body.hub-literature-paper .decision-table tbody tr { background: #fafaf7 !important; }
+body.hub-literature-paper .decision-table tbody th small { color: #526a72 !important; }
+body.hub-literature-paper .decision-table .family-chip { color: #15545a; background: #e5f3ef; }
+body.hub-literature-paper .decision-table .status-chip { color: #795529; background: #f3ebde; }
 @media (max-width: 620px) {
   .selector-controls label, .matrix-actions { min-width: 0; }
   .selector-controls select { width: 100%; max-width: 100%; min-width: 0; }

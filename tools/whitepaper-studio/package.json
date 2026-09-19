@@ -8,7 +8,7 @@
     "build": "node scripts/建立白皮書.mjs",
     "preview": "node ../../scripts/serve-local.mjs",
     "check": "node scripts/check-public.mjs && node scripts/建立白皮書.mjs --check",
-    "test": "node --test scripts/白皮書回歸.test.mjs",
+    "test": "node --test scripts/*.test.mjs",
     "qa:render": "node scripts/render-qa.mjs"
   },
   "devDependencies": {

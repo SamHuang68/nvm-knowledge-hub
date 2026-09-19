@@ -23,8 +23,10 @@
     "src/data/phase2_paper.js": "9f63b98fc2f8f3f9d2803d970f9ed70e0cd63393587df7ec270e9d591609455c",
     "src/data/phase3_templates.js": "12941646b3bb8f8cf15830242fae03609b11f00149fbc35b236d893c72096862",
     "src/data/phase4_metadata.js": "46a048fd7252644c0a18d455e08c7a32b0d0ced12a3f63624ae037d344354056",
+    "src/data/設定檔繁中.js": "c036fdcd3315b88fe124528a843d76bae0965c7e277991593d388ba9d0179d87",
+    "src/data/設定檔語系.js": "dbc9f422a9c85f7fce1f81ec543c33bd5df5ec1206aef352cc1a616dfed4deca",
     "src/js/app.js": "af9ca477562f30fe13057fbc5a9f5c00a127dd281c15edba28ae7aed3a1df583",
-    "src/js/modules/matrix.js": "b210d6f164ccff137fd4ba5fc9fca1a4781a11d9b3edde7d2e367969fecef274",
+    "src/js/modules/matrix.js": "8d81987f30781f71bb4059c6168f988875eee77658e6a0bb2d58516fc8c4b41f",
     "src/js/modules/phase1_kb_view.js": "51047a1746e7871f54d97ca6293bd1afc859692580ee71ec9cceba880d07fc82",
     "src/js/modules/phase2_reader.js": "7b4a0497c041c9d8b8f231f6d2b3cec2446f31337c83962578035285349b57bf",
     "src/js/modules/phase3_template_view.js": "68d3578e31082907f0f8891a63eb04419280e13bc5cbd2dfde3e77a20b92ccb1",
@@ -34,18 +36,18 @@
     "src/styles/components.css": "b988d0c87e0d0d60228e2fc3915ae23df04183a959a04b16adaeb79f76fb0e2f",
     "src/styles/main.css": "e5eb496199d304d7b3ae5c45e7060645ee797cc8aead18ab47f92904524e00d1",
     "src/styles/portal.css": "a9903aeb202d2e9dd842db97831d93a2c68f28c7cb9244c4b9b164c038ba43fa",
-    "src/styles/正式樣式.css": "1a456c6eaffcc9c080ec7a343df203865145c1620a98bd97f028c6851ef76a5f",
+    "src/styles/正式樣式.css": "06e2605a8c08f52d2d01acf7707788485b450ba7b05e1adbeb2c6f4e6f9bab99",
     "公開入口樣板.html.tpl": "ecf2554404b46455e1eedc6232544d4c862cbf7b6a319a6195a673c67a539222",
     "index.html": "70183e6c25e7831e5b682dcbce386385f75bb64463789cea028ffacd25302962",
     "vite.config.js": "b633f565fdbcf033b5fb3d0f1889037a60de6b5c47dfd45dbf3e106e6de2a7d5",
-    "package.json": "a4ce9f352df0276fd02a684274c800da35a1da713258c67899af8b4a6567a19b",
+    "package.json": "bbdaa3b68328d8119c467551a3688337de5168e7314adffa3239bea5cb0ca26b",
     "package-lock.json": "62d1e9d4553a157ce103294c905af6cac59259ba977e7a050f8e3f58333dedaf",
     "scripts/建立白皮書.mjs": "1e6cd1aa76e96890ca94644273876e72e47090ef428b206d7b97f9dc7ab89e56"
   },
   "outputs": {
-    "index.html": "c014e260fe80acd5edbfabef7d9cd51b7af92d798d4e86e537e081e8f5a7ce9b",
+    "index.html": "053ac907633e647402b3c15375cf64f27b313b27f6753e1ac05ce7949b1f35fc",
     "assets/whitepaper_i18n.js": "6231973db7ec823e5fd6d954c3207c83cc491e32e7adab40d27b42d564da4e05",
-    "assets/白皮書.js": "9edd1da95a4e2c4c836df00b06daa46121e82810a519735ac8b4b3ee231886ea",
-    "assets/白皮書.css": "56841f5e4c877958da4f260e3f8cbb4bb75f415b435a021db754d891bcc01fb1"
+    "assets/白皮書.js": "d1f567218150fe005c911ebed3f3ab4b1a5705fd093cb01a19d3b9b3403143d9",
+    "assets/白皮書.css": "9bab2311e63e26532a7d873765a6bd0c6f5866223b0c3cb3aae2c500e7d8f45d"
   }
 }

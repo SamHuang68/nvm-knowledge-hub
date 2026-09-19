@@ -5,28 +5,36 @@ let activePhase = 0;
 
 const localized = (zh, en) => ({ zh, en });
 const pick = value => typeof value === "string" ? value : value[currentLanguage];
+const displayTerms = {
+  READY:'可閱讀', NEW:'新增', Foundation:'基礎', Practitioner:'實務', Expert:'進階', Executive:'決策',
+  'Threat model':'威脅模型', Architecture:'架構', 'Key lifecycle':'金鑰生命週期',
+  'Helper data':'輔助資料', Reliability:'可靠度', Comparison:'比較', Positioning:'定位',
+  Product:'產品', Fault:'故障', 'Physical attack':'物理攻擊', Qualification:'驗證',
+  'AI Systems':'AI 系統', 'Persistent state':'持久狀態',
+};
+const displayTerm = value => currentLanguage === 'zh' ? displayTerms[value] || value : value;
 
 const navigationLabels = {
-  hub: localized("All Topics", "All Topics"),
-  why: localized("Why", "Why"),
-  architecture: localized("Architecture", "Architecture"),
-  assurance: localized("Assurance", "Assurance"),
-  compare: localized("Compare", "Compare"),
-  evidence: localized("Evidence", "Evidence"),
-  learn: localized("Learn", "Learn"),
-  oip: localized("OIP Brief", "OIP Brief"),
-  research: localized("Research", "Research")
+  hub: localized("全部主題", "All Topics"),
+  why: localized("設計緣由", "Why"),
+  architecture: localized("架構", "Architecture"),
+  assurance: localized("安全保證", "Assurance"),
+  compare: localized("比較", "Compare"),
+  evidence: localized("證據", "Evidence"),
+  learn: localized("學習", "Learn"),
+  oip: localized("OIP 摘要", "OIP Brief"),
+  research: localized("研究", "Research")
 };
 
 const lessons = [
   { title: localized("NVM 與 OTP 的安全邊界", "The security boundary of NVM and OTP"), summary: localized("永久保存不等於機密保存", "Permanent storage is not confidential storage"), status: "READY", href: "memory-physics.html#abstract" },
   { title: localized("Secure Storage 四層架構", "The four-layer Secure Storage architecture"), summary: localized("PUF、AES、OTP、Controller", "PUF, AES, OTP and controller"), status: "READY", href: "#architecture", recordId: "OIP-ARCH-001" },
-  { title: localized("Power-off State", "The power-off state"), summary: localized("用斷電狀態判斷靜態攻擊面", "Evaluate the at-rest physical attack surface"), status: "READY", href: "#lifecycle", recordId: "OIP-PUF-001" },
-  { title: localized("Physical Security Assurance", "Physical Security Assurance"), summary: localized("FI、SCA、證據成熟度與認證範圍", "FI, SCA, evidence maturity and certification scope"), status: "READY", href: "security-assurance.html#evidence", recordId: "OIP-VAL-001" },
+  { title: localized("斷電狀態", "The power-off state"), summary: localized("用斷電狀態判斷靜態攻擊面", "Evaluate the at-rest physical attack surface"), status: "READY", href: "#lifecycle", recordId: "OIP-PUF-001" },
+  { title: localized("物理安全保證", "Physical Security Assurance"), summary: localized("FI、SCA、證據成熟度與認證範圍", "FI, SCA, evidence maturity and certification scope"), status: "READY", href: "security-assurance.html#evidence", recordId: "OIP-VAL-001" },
   { title: localized("SRAM PUF 與 NeoPUF", "SRAM PUF and NeoPUF"), summary: localized("比較物理 response 的承載位置", "Compare where the physical response resides"), status: "READY", href: "memory-physics.html#positioning" },
   { title: localized("量產證據與 Qualification", "Field evidence and qualification"), summary: localized("PVT、aging、認證與攻擊證據", "PVT, aging, certification and attack evidence"), status: "READY", href: "oip-secure-storage.html#evidence", recordId: "OIP-NODE-001" },
   { title: localized("TSMC OIP 整合對話", "The TSMC OIP integration conversation"), summary: localized("節點、APB、provisioning、責任", "Nodes, APB, provisioning and accountability"), status: "READY", href: "oip-secure-storage.html#oip", recordId: "OIP-VAL-001" },
-  { title: localized("AI Silicon 的 Persistent State", "Persistent state across AI silicon"), summary: localized("Identity、repair、calibration 與 RAS 的 NVM 邊界", "NVM boundaries for identity, repair, calibration and RAS"), status: "NEW", href: "ai-nvm-opportunities.html", recordId: "AI-NVM-INF-001" }
+  { title: localized("AI 晶片的持久狀態", "Persistent state across AI silicon"), summary: localized("身分、修復、校正與 RAS 的 NVM 界線", "NVM boundaries for identity, repair, calibration and RAS"), status: "NEW", href: "ai-nvm-opportunities.html", recordId: "AI-NVM-INF-001" }
 ];
 
 const typeLabels = {
@@ -41,21 +49,21 @@ const typeLabels = {
 };
 
 const articles = [
-  { type: "concept", level: "Foundation", title: localized("OTP durability ≠ confidentiality", "OTP durability ≠ confidentiality"), summary: localized("了解為什麼永久儲存的 bits 仍可能成為物理擷取目標。", "Why permanently stored bits can still become a physical extraction target."), tags: ["OTP", "Threat model"], icon: "i-memory", href: "memory-physics.html#abstract" },
-  { type: "architecture", level: "Foundation", title: localized("Secure Storage 四個安全 block", "The four security blocks of Secure Storage"), summary: localized("SRAM PUF、AES-256、antifuse OTP 與 controller 如何形成同一邊界。", "How SRAM PUF, AES-256, antifuse OTP and the controller form one security boundary."), tags: ["Architecture", "APB"], icon: "i-layers", href: "#architecture", recordId: "OIP-ARCH-001" },
-  { type: "technology", level: "Practitioner", title: localized("SRAM PUF root-key lifecycle", "SRAM PUF root-key lifecycle"), summary: localized("從 power-off、重建、authorized use 到 zeroization 的完整路徑。", "The complete path from power-off and reconstruction to authorized use and zeroization."), tags: ["SRAM PUF", "Key lifecycle"], icon: "i-fingerprint", href: "oip-secure-storage.html#lifecycle", recordId: "OIP-PUF-001" },
-  { type: "technology", level: "Expert", title: localized("Helper data 不是 root key 備份", "Helper data is not a root-key backup"), summary: localized("以 error correction、privacy amplification 與 leakage proof 正確理解公開輔助資料。", "Understand public helper data through error correction, privacy amplification and leakage proof."), tags: ["Helper data", "Reliability"], icon: "i-cipher", href: "oip-secure-storage.html#helper-data", recordId: "OIP-PUF-001" },
-  { type: "comparison", level: "Practitioner", title: localized("SRAM PUF vs. NeoPUF", "SRAM PUF vs. NeoPUF"), summary: localized("以 power-off physical state 比較 volatile startup response 與 persistent enrolled path。", "Compare a volatile startup response with a persistent enrolled path through the power-off physical state."), tags: ["NeoPUF", "Comparison"], icon: "i-power", href: "memory-physics.html#positioning" },
-  { type: "product", level: "Executive", title: localized("Secure Storage vs. Secure OTP", "Secure Storage vs. Secure OTP"), summary: localized("從 PUF root、資料保護、整合、擴充與量產證據進行 like-for-like 比較。", "A like-for-like comparison across the PUF root, data protection, integration, scale and field evidence."), tags: ["Positioning", "Product"], icon: "i-evidence", href: "#compare", recordId: "OIP-SYS-001" },
-  { type: "case", level: "Practitioner", title: localized("RP2350：物理存取後仍可觀察的狀態", "RP2350: observable state after physical access"), summary: localized("把 fault、wrapper、detector 與 bit-cell 攻擊轉成產品需求。", "Turn fault, wrapper, detector and bit-cell attacks into product requirements."), tags: ["Fault", "Physical attack"], icon: "i-probe", href: "oip-secure-storage.html#threat", recordId: "OIP-OTP-001" },
-  { type: "integration", level: "Executive", title: localized("TSMC OIP readiness", "TSMC OIP readiness"), summary: localized("節點驗證、PVT、provisioning、認證 collateral 與供應商責任。", "Node validation, PVT, provisioning, certification collateral and supplier accountability."), tags: ["TSMC", "Qualification"], icon: "i-wafer", href: "oip-secure-storage.html#oip", recordId: "OIP-NODE-001" },
-  { type: "integration", level: "Executive", title: localized("AI Systems × NVM Opportunity Map", "AI Systems × NVM Opportunity Map"), summary: localized("以 primary evidence 區分 immutable trust、bounded lifecycle、live adaptation 與 operational evidence。", "Use primary evidence to separate immutable trust, bounded lifecycle, live adaptation and operational evidence."), tags: ["AI Systems", "Persistent state"], icon: "i-chip", href: "ai-nvm-opportunities.html", recordId: "AI-NVM-INF-001" }
+  { type: "concept", level: "Foundation", title: localized("OTP 持久保存不等於機密保護", "OTP durability ≠ confidentiality"), summary: localized("了解為什麼永久儲存的 bits 仍可能成為物理擷取目標。", "Why permanently stored bits can still become a physical extraction target."), tags: ["OTP", "Threat model"], icon: "i-memory", href: "memory-physics.html#abstract" },
+  { type: "architecture", level: "Foundation", title: localized("Secure Storage 四個安全區塊", "The four security blocks of Secure Storage"), summary: localized("SRAM PUF、AES-256、antifuse OTP 與 controller 如何形成同一邊界。", "How SRAM PUF, AES-256, antifuse OTP and the controller form one security boundary."), tags: ["Architecture", "APB"], icon: "i-layers", href: "#architecture", recordId: "OIP-ARCH-001" },
+  { type: "technology", level: "Practitioner", title: localized("SRAM PUF 根金鑰生命週期", "SRAM PUF root-key lifecycle"), summary: localized("從斷電、重建、授權使用到歸零清除的完整路徑。", "The complete path from power-off and reconstruction to authorized use and zeroization."), tags: ["SRAM PUF", "Key lifecycle"], icon: "i-fingerprint", href: "oip-secure-storage.html#lifecycle", recordId: "OIP-PUF-001" },
+  { type: "technology", level: "Expert", title: localized("輔助資料不是根金鑰備份", "Helper data is not a root-key backup"), summary: localized("以錯誤更正、隱私放大與洩漏證據正確理解公開輔助資料。", "Understand public helper data through error correction, privacy amplification and leakage proof."), tags: ["Helper data", "Reliability"], icon: "i-cipher", href: "oip-secure-storage.html#helper-data", recordId: "OIP-PUF-001" },
+  { type: "comparison", level: "Practitioner", title: localized("SRAM PUF 與 NeoPUF 比較", "SRAM PUF vs. NeoPUF"), summary: localized("以斷電物理狀態比較揮發性啟動回應與持久註冊路徑。", "Compare a volatile startup response with a persistent enrolled path through the power-off physical state."), tags: ["NeoPUF", "Comparison"], icon: "i-power", href: "memory-physics.html#positioning" },
+  { type: "product", level: "Executive", title: localized("Secure Storage 與 Secure OTP 比較", "Secure Storage vs. Secure OTP"), summary: localized("從 PUF 信任根、資料保護、整合、擴充與量產證據進行相同條件的比較。", "A like-for-like comparison across the PUF root, data protection, integration, scale and field evidence."), tags: ["Positioning", "Product"], icon: "i-evidence", href: "#compare", recordId: "OIP-SYS-001" },
+  { type: "case", level: "Practitioner", title: localized("RP2350：物理存取後仍可觀察的狀態", "RP2350: observable state after physical access"), summary: localized("把故障、保護包裝層、偵測器與位元單元攻擊轉成產品需求。", "Turn fault, wrapper, detector and bit-cell attacks into product requirements."), tags: ["Fault", "Physical attack"], icon: "i-probe", href: "oip-secure-storage.html#threat", recordId: "OIP-OTP-001" },
+  { type: "integration", level: "Executive", title: localized("TSMC OIP 整合準備狀態", "TSMC OIP readiness"), summary: localized("節點驗證、PVT、佈建、認證佐證資料與供應商責任。", "Node validation, PVT, provisioning, certification collateral and supplier accountability."), tags: ["TSMC", "Qualification"], icon: "i-wafer", href: "oip-secure-storage.html#oip", recordId: "OIP-NODE-001" },
+  { type: "integration", level: "Executive", title: localized("AI 系統 × NVM 機會地圖", "AI Systems × NVM Opportunity Map"), summary: localized("以第一手證據區分不可變信任、有界生命週期、即時調適與運行證據。", "Use primary evidence to separate immutable trust, bounded lifecycle, live adaptation and operational evidence."), tags: ["AI Systems", "Persistent state"], icon: "i-chip", href: "ai-nvm-opportunities.html", recordId: "AI-NVM-INF-001" }
 ];
 
 const architectureDetails = {
   puf: {
-    number: "BLOCK 01", label: localized("DEVICE-UNIQUE", "DEVICE-UNIQUE"), icon: "i-fingerprint",
-    title: localized("沒有永久地址的根金鑰", "A root key with no permanent address"),
+    number: "BLOCK 01", label: localized("裝置唯一", "DEVICE-UNIQUE"), icon: "i-fingerprint",
+    title: localized("沒有永久儲存位址的根金鑰", "A root key with no permanent address"),
     text: localized("上電時量測 SRAM startup variation，經 PUF processing 重建穩定、裝置唯一的 root；根金鑰不作為 powered reconstructed key 永久存放。", "SRAM startup variation is measured at power-up and processed into a stable device-unique root. The reconstructed root is not kept as a permanently stored powered key."),
     list: localized(["上電重建", "公開 helper data", "縮短 key residency"], ["Power-up reconstruction", "Public helper data", "Short key residency"])
   },
@@ -67,35 +75,35 @@ const architectureDetails = {
   },
   otp: {
     number: "BLOCK 03", label: localized("永久密文", "PERMANENT CIPHERTEXT"), icon: "i-memory",
-    title: localized("永久保存資料，而不是 root secret", "Keep the data permanent, not the root secret"),
+    title: localized("永久保存資料，不永久保存根機密", "Keep the data permanent, not the root secret"),
     text: localized("Antifuse OTP 保存加密後的 code、device data、keys 與 security configuration，同時維持一次性可編程的 lifecycle 特性。", "Antifuse OTP holds encrypted code, device data, keys and security configuration while retaining its one-time-programmable lifecycle properties."),
     list: localized(["靜態加密資料", "可配置安全區域", "永久 lifecycle state"], ["Encrypted data at rest", "Configurable secure regions", "Permanent lifecycle state"])
   },
   controller: {
     number: "BLOCK 04", label: localized("單一安全邊界", "ONE SECURITY BOUNDARY"), icon: "i-control",
-    title: localized("協調跨 block 的安全假設", "Coordinate the cross-block assumptions"),
+    title: localized("協調跨區塊的安全假設", "Coordinate the cross-block assumptions"),
     text: localized("Secure Controller 統一協調 PUF initialization、crypto operations、provisioning、access policy 與 host SoC 的 AMBA APB 通訊。", "The Secure Controller coordinates PUF initialization, crypto operations, provisioning, access policy and AMBA APB communication with the host SoC."),
     list: localized(["AMBA APB 整合", "自動 provisioning", "Address scrambling 與 policy"], ["AMBA APB integration", "Automatic provisioning", "Address scrambling and policy"])
   }
 };
 
 const lifecycleDetails = [
-  { index: localized("01 / 靜態", "01 / AT REST"), title: localized("Power-off 的核心安全優勢：沒有永久保存的 reconstructed root", "Core power-off advantage: no intentionally stored or powered reconstructed root remains"), text: localized("在已驗證的 shutdown 條件下，OTP 保留 ciphertext、helper material 與 lifecycle state；transistor mismatch 仍可能存在，remanence 與 zeroization 仍須驗證。", "Under validated shutdown conditions, OTP retains ciphertext, helper material and lifecycle state. Transistor mismatch may persist; remanence and zeroization remain assurance targets.") },
-  { index: localized("02 / 重建", "02 / RECONSTRUCTION"), title: localized("同一顆裝置重建相同 root", "The same device rebuilds the same root"), text: localized("上電時，裝置量測 SRAM startup response，使用受保護的 PUF processing 與公開 helper data 重建穩定 root。", "At power-up, the device measures its SRAM startup response and uses protected PUF processing plus public helper data to reconstruct a stable root.") },
+  { index: localized("01 / 靜態", "01 / AT REST"), title: localized("斷電的核心安全優勢：沒有永久保存的重建根金鑰", "Core power-off advantage: no intentionally stored or powered reconstructed root remains"), text: localized("在已驗證的 shutdown 條件下，OTP 保留 ciphertext、helper material 與 lifecycle state；transistor mismatch 仍可能存在，remanence 與 zeroization 仍須驗證。", "Under validated shutdown conditions, OTP retains ciphertext, helper material and lifecycle state. Transistor mismatch may persist; remanence and zeroization remain assurance targets.") },
+  { index: localized("02 / 重建", "02 / RECONSTRUCTION"), title: localized("同一顆裝置重建相同根金鑰", "The same device rebuilds the same root"), text: localized("上電時，裝置量測 SRAM startup response，使用受保護的 PUF processing 與公開 helper data 重建穩定 root。", "At power-up, the device measures its SRAM startup response and uses protected PUF processing plus public helper data to reconstruct a stable root.") },
   { index: localized("03 / 授權窗口", "03 / AUTHORIZED WINDOW"), title: localized("衍生金鑰保護正在進行的工作", "Derived keys protect the work in progress"), text: localized("在 secure boundary 內，衍生金鑰授權 OTP 存取並保護系統資產；目標是短暫、受控的 key-residency window。", "Inside the secure boundary, derived keys authorize OTP reads and writes and protect system assets. The goal is a short, controlled key-residency window.") },
   { index: localized("04 / 移除", "04 / REMOVE"), title: localized("敏感金鑰材料被清除", "Sensitive key material is cleared"), text: localized("工作完成後，依 implementation lifecycle 移除 working key material；精確 zeroization 行為應由產品文件確認。", "When no longer needed, working key material is removed according to the implementation lifecycle. Exact zeroization behavior should be confirmed in product documentation.") }
 ];
 
 const powerStates = {
   off: {
-    tag: localized("靜態", "AT REST"), title: localized("Power-off 的核心安全優勢：沒有永久保存的 reconstructed root", "Core power-off advantage: no intentionally stored or powered reconstructed root remains"),
+    tag: localized("靜態", "AT REST"), title: localized("斷電的核心安全優勢：沒有永久保存的重建根金鑰", "Core power-off advantage: no intentionally stored or powered reconstructed root remains"),
     text: localized("在已驗證的 shutdown 條件下，OTP 保留 ciphertext、helper material 與 lifecycle state；transistor mismatch 仍可能存在，remanence 與 zeroization 仍須驗證。", "Under validated shutdown conditions, OTP retains ciphertext, helper material and lifecycle state. Transistor mismatch may persist; remanence and zeroization remain assurance targets."),
-    power: "POWER OFF", key: localized("沒有 powered reconstructed root", "NO POWERED RECONSTRUCTED ROOT"), result: localized("控制鏈成立時預期為密文", "EXPECTED CIPHERTEXT IF CONTROLS HOLD")
+    power: localized("斷電", "POWER OFF"), key: localized("沒有仍由電源維持的重建根金鑰", "NO POWERED RECONSTRUCTED ROOT"), result: localized("控制鏈成立時預期為密文", "EXPECTED CIPHERTEXT IF CONTROLS HOLD")
   },
   on: {
-    tag: localized("受控窗口", "CONTROLLED WINDOW"), title: localized("Root key 已重建", "Root key is reconstructed"),
+    tag: localized("受控窗口", "CONTROLLED WINDOW"), title: localized("根金鑰已重建", "Root key is reconstructed"),
     text: localized("上電後，同一顆晶片在 secure boundary 內重建相同 root，再衍生工作金鑰保護 OTP 存取。", "At power-up, the same device reconstructs the same root inside the secure boundary and derives working keys to protect OTP access."),
-    power: "POWER UP", key: localized("已重建", "RECONSTRUCTED"), result: localized("授權存取", "AUTHORIZED ACCESS")
+    power: localized("上電", "POWER UP"), key: localized("已重建", "RECONSTRUCTED"), result: localized("授權存取", "AUTHORIZED ACCESS")
   }
 };
 
@@ -211,7 +219,7 @@ function renderLearningPath() {
       <a href="${lesson.href}"${lesson.recordId ? ` data-record-id="${lesson.recordId}"` : ""}>
         <span class="lesson-number">${String(index + 1).padStart(2, "0")}</span>
         <span class="lesson-copy"><strong>${pick(lesson.title)}</strong><small>${pick(lesson.summary)}</small></span>
-        <span class="lesson-status">${lesson.status}</span>
+        <span class="lesson-status">${displayTerm(lesson.status)}</span>
       </a>
     </li>`).join("");
 }
@@ -225,16 +233,16 @@ function renderArticles() {
   const query = document.querySelector("#searchInput").value.trim().toLowerCase();
   const results = articles.filter(article => {
     const matchesType = activeType === "all" || article.type === activeType;
-    const haystack = [pick(article.title), pick(article.summary), article.level, ...article.tags].join(" ").toLowerCase();
+    const haystack = [pick(article.title), pick(article.summary), article.level, displayTerm(article.level), ...article.tags, ...article.tags.map(displayTerm)].join(" ").toLowerCase();
     return matchesType && haystack.includes(query);
   });
   document.querySelector("#articleGrid").innerHTML = results.map(article => `
     <a class="article-card" href="${article.href}"${article.recordId ? ` data-record-id="${article.recordId}"` : ""}>
       <svg aria-hidden="true"><use href="#${article.icon}"/></svg>
-      <div class="card-meta"><span>${pick(typeLabels[article.type])}</span><span>${article.level}</span></div>
+      <div class="card-meta"><span>${pick(typeLabels[article.type])}</span><span>${displayTerm(article.level)}</span></div>
       <h3>${pick(article.title)}</h3>
       <p>${pick(article.summary)}</p>
-      <div class="card-bottom">${article.tags.map(tag => `#${tag}`).join(" · ")}</div>
+      <div class="card-bottom">${article.tags.map(tag => `#${displayTerm(tag)}`).join(" · ")}</div>
     </a>`).join("");
   document.querySelector("#emptyState").hidden = results.length > 0;
 }
@@ -250,7 +258,7 @@ function updatePowerState(state = document.querySelector("#power-lab").dataset.s
   document.querySelector("#stateTag").textContent = pick(copy.tag);
   document.querySelector("#stateTitle").textContent = pick(copy.title);
   document.querySelector("#stateText").textContent = pick(copy.text);
-  document.querySelector("#stagePower").textContent = copy.power;
+  document.querySelector("#stagePower").textContent = pick(copy.power);
   document.querySelector("#keyPresence b").textContent = pick(copy.key);
   document.querySelector("#readoutResult").textContent = pick(copy.result);
 }
