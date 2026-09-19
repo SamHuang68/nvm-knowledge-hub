@@ -16,9 +16,9 @@
     "hv_display_ddic_demura",
     "eink_ultra_hv_mtp_otp"
   ],
-  "dataSha256": "008c5cde1bbb16768a05b0e46489706609793aeeb60cdb5296504159d529f4a5",
+  "dataSha256": "1a76cfbd3ea6f2a68f008fe0fee56cafe2eee084dba8cf0fdd92bb3849bc7936",
   "sourceHashes": {
-    "src/data/nvm_specs.js": "7d834ee164f9eac33c04aea2f988366893b6eaf24da1ace0f4bafc233f4ba36b",
+    "src/data/nvm_specs.js": "22572d0b765b9fb0985b8cf4f66036fde4aa6073f6429d530418b6ba574c71ce",
     "src/data/phase1_kb.js": "28a82786da4621a76012408f8e606ede1539c8ca86fdb126b0c4be1bb71be455",
     "src/data/phase2_paper.js": "9f63b98fc2f8f3f9d2803d970f9ed70e0cd63393587df7ec270e9d591609455c",
     "src/data/phase3_templates.js": "12941646b3bb8f8cf15830242fae03609b11f00149fbc35b236d893c72096862",
@@ -45,9 +45,9 @@
     "scripts/建立白皮書.mjs": "1e6cd1aa76e96890ca94644273876e72e47090ef428b206d7b97f9dc7ab89e56"
   },
   "outputs": {
-    "index.html": "053ac907633e647402b3c15375cf64f27b313b27f6753e1ac05ce7949b1f35fc",
+    "index.html": "15d31cc39bbcd2ad86ce7614565dc9e59b39ac090d7d490dc6f75ff0317368c5",
     "assets/whitepaper_i18n.js": "6231973db7ec823e5fd6d954c3207c83cc491e32e7adab40d27b42d564da4e05",
-    "assets/白皮書.js": "d1f567218150fe005c911ebed3f3ab4b1a5705fd093cb01a19d3b9b3403143d9",
+    "assets/白皮書.js": "37efa3b93130cf6476825b55e3dc5ce5ad2e46b2cb6648b2270e4c4c3ee09e44",
     "assets/白皮書.css": "9bab2311e63e26532a7d873765a6bd0c6f5866223b0c3cb3aae2c500e7d8f45d"
   }
 }

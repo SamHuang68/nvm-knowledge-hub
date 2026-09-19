@@ -300,6 +300,54 @@
       "evidence": "Official text reviewed",
       "limit": "This review did not obtain invitation-only conference content and cannot claim to have checked the complete internal roadmap.",
       "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-SEC-2019-28FDS",
+      "label": "Samsung Foundry: 28FDS eMRAM commercial production announcement",
+      "url": "https://news.samsung.com/global/",
+      "kind": "Vendor official press release",
+      "date": "2019-03-06",
+      "locator": "28FDS eMRAM commercial shipment and reliability section",
+      "claim": "Samsung announced commercial shipment of 28nm FD-SOI embedded MRAM with faster writes and lower power versus eFlash alternatives.",
+      "evidence": "Full official press release reviewed",
+      "limit": "28FDS-specific platform; extensions to 14FDS and 8nm automotive/radio require separate macro qualification.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-SEC-2024-MBCFET",
+      "label": "Samsung Foundry: SF3 / SF2 MBCFET advanced nodes and next-gen eMRAM roadmap",
+      "url": "https://semiconductor.samsung.com/foundry/process-technology/",
+      "kind": "Vendor technology forum and product brief",
+      "date": "2024-06-12",
+      "locator": "SFF 2024 MBCFET GAA and advanced embedded NVM planning",
+      "claim": "Samsung publicly discusses SF3/SF2 GAA platforms with advanced embedded eMRAM development goals for automotive HPC and edge AI.",
+      "evidence": "Official technology forum summary reviewed",
+      "limit": "SF3/SF2 eMRAM remains in R&D/validation targets — not declared volume production.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-INTC-2018-22FFL",
+      "label": "Intel Foundry: 22FFL embedded STT-MRAM (IEDM 2018)",
+      "url": "https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html",
+      "kind": "Conference paper and official release",
+      "date": "2018-12-03",
+      "locator": "IEDM 2018 paper 13.3, 22FFL STT-MRAM cell and reliability",
+      "claim": "Intel published 22FFL FinFET embedded STT-MRAM with 0.0446 µm² cell, 10^6 endurance, 200°C retention, and 1E-9 BER under named ECC conditions.",
+      "evidence": "IEDM paper and official release reviewed",
+      "limit": "22FFL low-power FinFET specialty process; metrics depend on ECC and temperature.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-INTC-2024-18A",
+      "label": "Intel Foundry: 18A RibbonFET and PowerVia BSPDN roadmap",
+      "url": "https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html",
+      "kind": "Vendor official event release",
+      "date": "2024-02-21",
+      "locator": "IFDC 2024 18A production plan, PowerVia back-side power, embedded IP ecosystem",
+      "claim": "Intel 18A integrates RibbonFET GAA with PowerVia BSPDN for next-gen dense embedded memory and logic AntiFuse OTP key cells.",
+      "evidence": "Official release and technical brief reviewed",
+      "limit": "18A enters production preparation in 2024–2025; forward eNVM/MRAM still in R&D validation.",
+      "accessedAt": "2026-09-10"
     }
   ],
   "annualForumCoverage": [
@@ -758,6 +806,58 @@
       "limit": "Controller and processor integration evidence does not establish named customer volume shipments.",
       "sourceIds": [
         "RES-FARADAY-RRAM-2025"
+      ]
+    },
+    {
+      "id": "SEC-2019",
+      "year": 2019,
+      "foundry": "Samsung Foundry",
+      "technology": "eMRAM",
+      "node": "28FDS (28nm FD-SOI)",
+      "stage": "Volume production",
+      "claim": "Samsung announced commercial shipment of 28nm FD-SOI embedded MRAM.",
+      "limit": "FD-SOI platform with BEOL adders; do not equate with logic-roadmap 0-mask claims or bulk FinFET NVM.",
+      "sourceIds": [
+        "FND-SEC-2019-28FDS"
+      ]
+    },
+    {
+      "id": "INTC-2019",
+      "year": 2019,
+      "foundry": "Intel Foundry",
+      "technology": "STT-MRAM",
+      "node": "22FFL (22nm FinFET)",
+      "stage": "Production-ready",
+      "claim": "IEDM 2018/2019 publications describe 22FFL embedded STT-MRAM approaching production readiness.",
+      "limit": "Evidence centers on 22FFL test vehicles; not an open PDK for every customer.",
+      "sourceIds": [
+        "FND-INTC-2018-22FFL"
+      ]
+    },
+    {
+      "id": "SEC-2024",
+      "year": 2024,
+      "foundry": "Samsung Foundry",
+      "technology": "Next-gen eMRAM / MBCFET GAA",
+      "node": "SF3 / SF2",
+      "stage": "Roadmap / R&D",
+      "claim": "Samsung Foundry Forum materials discuss advanced-node eMRAM direction alongside MBCFET logic roadmaps.",
+      "limit": "SF3/SF2 logic announcements do not by themselves prove shipped eMRAM macros; separate NVM milestones required.",
+      "sourceIds": [
+        "FND-SEC-2024-MBCFET"
+      ]
+    },
+    {
+      "id": "INTC-2024",
+      "year": 2024,
+      "foundry": "Intel Foundry",
+      "technology": "18A RibbonFET + embedded NVM ecosystem",
+      "node": "18A",
+      "stage": "Production preparation",
+      "claim": "Intel Foundry Direct Connect 2024 describes 18A production preparation, PowerVia BSPDN, and embedded IP ecosystem goals.",
+      "limit": "RibbonFET/PowerVia logic progress does not automatically prove native AntiFuse, eMRAM, or FeFET NVM at named nodes.",
+      "sourceIds": [
+        "FND-INTC-2024-18A"
       ]
     }
   ],

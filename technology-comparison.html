@@ -305,7 +305,7 @@
     .f2-hero-proof strong {
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: clamp(1.25rem, 1.8vw, 1.6rem) !important;
-      font-weight: 800 !important;
+      font-weight: 600 !important;
       line-height: 1 !important;
       color: #173b49 !important;
     }
@@ -359,7 +359,7 @@
     .stat-strip-card .stat-val {
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 1.32rem !important;
-      font-weight: 800 !important;
+      font-weight: 600 !important;
       color: #173b49 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
@@ -659,7 +659,7 @@
       background: #006f70 !important;
       border-color: #006f70 !important;
       color: #ffffff !important;
-      font-weight: 800 !important;
+      font-weight: 600 !important;
       box-shadow: 0 2px 8px rgba(0, 111, 112, 0.25) !important;
     }
     .btn-icon { font-size: 11px !important; }
@@ -839,7 +839,7 @@
     }
     .matrix-tech-name.focus-gold {
       color: #006f70 !important;
-      font-weight: 800 !important;
+      font-weight: 600 !important;
       text-shadow: none !important;
     }
     .badge-win {
@@ -1804,7 +1804,7 @@
 <div class="matrix-cell" data-category="otp" data-row="3" data-tech="fgotp"><b>CHEI / None</b><span class="cell-note"><span data-lang="zh">浮閘注入；CFX 亦列此路徑</span><span data-lang="en">FG inject; CFX also lists this path</span></span></div>
 <div class="matrix-cell focus-tech" data-category="otp" data-row="3" data-tech="antifuse"><b style="color:#dfb77c;"><span data-lang="zh">閘氧擊穿</span><span data-lang="en">Gate-oxide breakdown</span></b><span class="cell-note"><span data-lang="zh">不可逆導通；CFX 教學為閘氧，ZA 位點未公開</span><span data-lang="en">Irreversible conduction; CFX teaching GOX, ZA site unpublished</span></span></div>
 <div class="matrix-cell" data-category="mtp" data-row="3" data-tech="ldmtp"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">NeoEE／ZT 級；Actt 未公開</span><span data-lang="en">NeoEE / ZT class; Actt unpublished</span></span></div>
-<div class="matrix-cell" data-category="mtp" data-row="3" data-tech="hdmtp"><b>CHI / FN</b><span class="cell-note"><span data-lang="zh">非 TwinBit Schottky</span><span data-lang="en">Not TwinBit Schottky</span></span></div>
+<div class="matrix-cell" data-category="mtp" data-row="3" data-tech="hdmtp"><b><span data-lang="zh">CHI/FN 或 FN/FN</span><span data-lang="en">CHI/FN or FN/FN</span></b><span class="cell-note"><span data-lang="zh">NeoMTP 等 CHI/FN；AEON 級 FN/FN — 非 TwinBit Schottky</span><span data-lang="en">NeoMTP-class CHI/FN; AEON-class FN/FN — not TwinBit Schottky</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="3" data-tech="sst"><b>SSI / FN</b><span class="cell-note"><span data-lang="zh">SuperFlash SSI／尖端 FN</span><span data-lang="en">SuperFlash SSI / tip FN</span></span></div>
 <div class="matrix-cell" data-category="eflash" data-row="3" data-tech="sonos"><b>FN / FN</b><span class="cell-note"><span data-lang="zh">G1 捕捉；G2 夾心開關</span><span data-lang="en">G1 trap; G2 sandwiched switches</span></span></div>
 <div class="matrix-cell" data-category="emerging" data-row="3" data-tech="reram"><b>Forming + SET/RESET</b><span class="cell-note"><span data-lang="zh">細絲形成與切換</span><span data-lang="en">Filament form &amp; switch</span></span></div>
@@ -2126,11 +2126,11 @@
                 <span data-lang="zh">④ 耐溫與可靠度 (TEMP GRADE)</span>
                 <span data-lang="en">④ TEMPERATURE GRADE</span>
               </label>
-              <span id="valTemp" style="color: #006f70; font-weight: 600;">175°C (Auto Grade 0)</span>
+              <span id="valTemp" style="color: #006f70; font-weight: 600;">175°C Tj target (not blanket G0 cert)</span>
             </div>
             <input type="range" id="selTemp" aria-label="Temperature Grade and Reliability" data-aria-en="Temperature Grade and Reliability" data-aria-zh="溫度等級與可靠度" min="0" max="2" step="1" value="2" style="width: 100%; accent-color: #006f70; cursor: pointer;">
             <div style="display: flex; justify-content: space-between; font: 500 9px 'IBM Plex Mono', monospace; color: #526a72; margin-top: 2px;">
-              <span>85°C (Commercial)</span><span>125°C (Grade 1)</span><span>175°C (Grade 0)</span>
+              <span>85°C (Commercial)</span><span>125°C (Grade 1)</span><span>175°C Tj (design target)</span>
             </div>
           </div>
 
@@ -2910,6 +2910,8 @@
         <p class="rm-lead">
           <span data-lang="zh">非揮發性記憶體（OTP、MTP、eFlash、MRAM）在微架構層級的讀取拓樸，直接決定了晶片的<strong>感測餘裕（Sense Margin）</strong>、<strong>PVT 溫漂容忍度</strong>、<strong>位元胞面積開銷（Area Overhead）</strong>與<strong>一階差分功耗分析（DPA/CPA）側信道防護邊界</strong>。下圖展示業界主流的四種抽象讀取電路拓樸：從最精簡的單端外部參考，到具備雙軌電流對消與零缺陷容錯的互補差動冗餘架構。</span>
           <span data-lang="en">At the microarchitectural level, the non-volatile memory read topology dictates the <strong>sense margin</strong>, <strong>PVT drift resilience</strong>, <strong>bitcell area overhead</strong>, and <strong>first-order DPA/CPA side-channel attenuation boundary</strong>. The architectural sketches below classify the four primary silicon read topologies: ranging from area-optimized single-ended reference sensing to complementary dual-rail redundant schemes with zero-defect fault tolerance.</span>
+          <span data-lang="zh" style="display:block;margin-top:8px;"><strong>教學邊界：</strong>固定 dB、0-ppm、175°C 或 ASIL/CC 等級僅能在具名產品／FMEDA 出現，不得由架構圖直接推出。</span>
+          <span data-lang="en" style="display:block;margin-top:8px;"><strong>Teaching boundary:</strong> Fixed dB, 0-ppm, 175°C, or ASIL/CC tiers require named products/FMEDA — not inference from cartoons alone.</span>
         </p>
         <div class="rm-meta-strip">
           <span class="rm-meta-pill">
@@ -3298,8 +3300,8 @@
           </div>
           <div class="rm-body">
             <p class="rm-principle">
-              <span data-lang="zh"><strong>運作原理：</strong>單一實體位元胞（1-Cell）的讀取電流或電壓直接輸入感測放大器正端，與能隙基準電路產生的固定參考點（Vref/Iref）進行比較以判定 0 或 1。</span>
-              <span data-lang="en"><strong>Operating Principle:</strong> A single physical bitcell current or voltage feeds into the positive sense amplifier input, compared against a fixed reference level (Vref/Iref) generated by an on-chip bandgap to resolve 0 or 1.</span>
+              <span data-lang="zh"><strong>運作原理：</strong>單一實體位元胞（1-Cell）的讀取電流或電壓直接輸入感測放大器正端，與參考單元、能隙或其他片上產生器提供的固定參考（Vref/Iref）比較以判定 0 或 1。</span>
+              <span data-lang="en"><strong>Operating Principle:</strong> A single physical bitcell current or voltage feeds into the positive sense amplifier input, compared against a fixed reference (Vref/Iref) from a reference cell, bandgap, or other on-chip generator to resolve 0 or 1.</span>
             </p>
             <div class="rm-props-grid">
               <div class="rm-props-item">
@@ -3308,7 +3310,7 @@
               </div>
               <div class="rm-props-item">
                 <small><span data-lang="zh">參考基準</span><span data-lang="en">REF SOURCE</span></small>
-                <strong><span data-lang="zh">外部能隙基準 (Bandgap)</span><span data-lang="en">External Bandgap</span></strong>
+                <strong><span data-lang="zh">參考單元／Vref 產生器</span><span data-lang="en">Ref cell / Vref generator</span></strong>
               </div>
               <div class="rm-props-item">
                 <small><span data-lang="zh">一階 DPA 衰減</span><span data-lang="en">1ST DPA ATTEN</span></small>
@@ -3515,7 +3517,7 @@
               <line x1="306" y1="62" x2="398" y2="62" stroke="#10b981" stroke-width="2"/>
               <circle cx="352" cy="62" r="2.5" fill="#10b981"/>
               <text x="352" y="74" text-anchor="middle" fill="#a7f3d0" font-size="7" font-weight="600">I_tot ≈ Const</text>
-              <text x="352" y="84" text-anchor="middle" fill="#38bdf8" font-size="6.8">&gt;20dB Attenuation</text>
+              <text x="352" y="84" text-anchor="middle" fill="#38bdf8" font-size="6.8">CMRR (qualitative)</text>
 
               <!-- Secure Bit Latch Box -->
               <rect x="312" y="92" width="80" height="24" rx="4" fill="#092335" stroke="#38bdf8" stroke-width="1.2"/>
@@ -3538,11 +3540,11 @@
               </div>
               <div class="rm-props-item">
                 <small><span data-lang="zh">一階 DPA 衰減</span><span data-lang="en">1ST DPA ATTEN</span></small>
-                <strong style="color:#38bdf8;"><span data-lang="zh">高衰減（&gt;20dB 對消）</span><span data-lang="en">High (&gt;20dB Atten)</span></strong>
+                <strong style="color:#38bdf8;"><span data-lang="zh">定性共模抑制（具名案例）</span><span data-lang="en">Qualitative CMRR (named cases)</span></strong>
               </div>
             </div>
             <ul class="rm-details-list">
-              <li><span data-lang="zh"><strong>優勢：</strong>感測邊界不受全域溫度漂移影響；讀取時雙側同時抽取電流，瞬態總電流近乎恆定（<em>I</em><sub>total</sub> = <em>I</em><sub>BL</sub> + <em>I</em><sub>/BL</sub>），天然衰減一階 DPA/CPA 側信道。</span><span data-lang="en"><strong>Pros:</strong> Sense margin immune to global thermal drift; complementary current draw keeps total current near-constant, naturally attenuating first-order DPA/CPA.</span></li>
+              <li><span data-lang="zh"><strong>優勢（原理）：</strong>互補對可抑制部分共模漂移；雙側電流抽取有助於降低一階 DPA 訊跡 — 實際 dB 與溫漂免疫需具名巨集量測。</span><span data-lang="en"><strong>Pros (principle):</strong> Complementary pairs attenuate some common-mode drift; dual-rail current draw can reduce first-order DPA traces — actual dB and drift immunity need named macro data.</span></li>
               <li><span data-lang="zh"><strong>局限：</strong>位元胞與解碼路由佔用約 2 倍面積；面對高階 DPA 或局域電磁輻射（EMA），佈局微觀不對稱仍需搭配頂層屏蔽網與演算法遮罩。</span><span data-lang="en"><strong>Cons:</strong> Doubles cell and routing area; higher-order DPA or localized EMA can exploit physical layout asymmetry unless paired with top metal shields.</span></li>
               <li><span data-lang="zh"><strong>典型應用：</strong>AES-256 根金鑰儲存、PKI 設備身分憑證、安全開機第一階段向量（Stage 1 Boot Vector）。</span><span data-lang="en"><strong>Target Applications:</strong> AES-256 cryptographic root keys, PKI device certificates, Stage-1 secure boot trust anchors.</span></li>
             </ul>
@@ -3619,7 +3621,7 @@
 
               <!-- Right: ASIL-D / EAL6+ Sovereign Shield & 0-ppm Output Window -->
               <rect x="298" y="16" width="108" height="114" rx="7" fill="url(#dr-shield-grad)" stroke="rgba(192, 132, 252, 0.45)" stroke-width="1.3"/>
-              <text x="352" y="30" text-anchor="middle" fill="#c084fc" font-size="8" font-weight="700">ASIL-D / EAL6+</text>
+              <text x="352" y="30" text-anchor="middle" fill="#c084fc" font-size="8" font-weight="700">NAMED-CASE ONLY</text>
 
               <!-- Sovereign Star/Shield Emblem -->
               <polygon points="352,36 356,45 366,47 359,54 361,63 352,58 343,63 345,54 338,47 348,45" fill="rgba(192, 132, 252, 0.22)" stroke="#c084fc" stroke-width="1.2"/>
@@ -3628,7 +3630,7 @@
 
               <!-- 0-ppm Data Latch Box -->
               <rect x="310" y="92" width="84" height="24" rx="4" fill="#092335" stroke="#c084fc" stroke-width="1.2"/>
-              <text x="352" y="107" text-anchor="middle" fill="#c084fc" font-size="8.5" font-weight="700">0-PPM DATA OUT</text>
+              <text x="352" y="107" text-anchor="middle" fill="#c084fc" font-size="8.5" font-weight="700">TEACHING OUTPUT</text>
             </svg>
           </div>
           <div class="rm-body">
@@ -3647,13 +3649,13 @@
               </div>
               <div class="rm-props-item">
                 <small><span data-lang="zh">一階 DPA 衰減</span><span data-lang="en">1ST DPA ATTEN</span></small>
-                <strong style="color:#c084fc;"><span data-lang="zh">極致衰減（&gt;25dB 對消）</span><span data-lang="en">Maximum (&gt;25dB)</span></strong>
+                <strong style="color:#c084fc;"><span data-lang="zh">冗餘＋差動（具名案例）</span><span data-lang="en">Redundant + diff (named cases)</span></strong>
               </div>
             </div>
             <ul class="rm-details-list">
-              <li><span data-lang="zh"><strong>優勢：</strong>兼具差動對的抗一階側信道對消優勢與並聯冗餘的零失效率（0-ppm）容錯，感測邊界最寬，耐溫高達 175°C Tj。</span><span data-lang="en"><strong>Pros:</strong> Combines differential DPA attenuation with zero-ppm parallel fault tolerance; widest sense margin, certified up to 175°C Tj.</span></li>
+              <li><span data-lang="zh"><strong>優勢（原理）：</strong>差動對加上並聯冗餘可針對<strong>已建模</strong>的單點失效提供容錯；不等同 0-ppm、175°C 認證或 ASIL/EAL 資格 — 需具名 FMEDA／產品條件。</span><span data-lang="en"><strong>Pros (principle):</strong> Differential pairs plus parallel redundancy can tolerate modeled single-point faults — not equivalent to 0-ppm, 175°C certification, or ASIL/EAL qualification without named FMEDA/product bounds.</span></li>
               <li><span data-lang="zh"><strong>局限：</strong>面積開銷最高（≥4 倍單元面積），編程時間與燒錄電流預算增加。</span><span data-lang="en"><strong>Cons:</strong> Highest area penalty (≥4x single cell footprint); longest programming time and write energy budget.</span></li>
-              <li><span data-lang="zh"><strong>典型應用：</strong>車規 ISO 26262 ASIL-D 動力安全晶片信任根、Common Criteria EAL6+ 金融級安全單元。</span><span data-lang="en"><strong>Target Applications:</strong> ISO 26262 ASIL-D automotive powertrain security root, Common Criteria EAL6+ secure enclave.</span></li>
+              <li><span data-lang="zh"><strong>典型應用（需另證）：</strong>高可靠車規／金融 RoT 等<strong>可能</strong>採用類似拓樸；ASIL 等級與 CC 評估須對應具名產品與系統整合。</span><span data-lang="en"><strong>Example domains (evidence required):</strong> Automotive/financial RoT designs <em>may</em> use similar topologies; ASIL tier and CC evaluation require named products and system integration.</span></li>
             </ul>
           </div>
         </article>
@@ -4243,8 +4245,8 @@
       const maskLabelsEn = ["0-Mask (Pure Logic)", "3~5 Adders (BEOL eNVM)", "8~12 Adders (Front-end eFlash)"];
       const maskLabelsZh = ["0-Mask（純邏輯免額外光罩）", "3~5 道額外光罩（後段 BEOL eNVM）", "8~12 道額外光罩（前段 eFlash）"];
 
-      const tempLabelsEn = ["85°C (Commercial)", "125°C (Auto Grade 1)", "175°C (Auto Grade 0)"];
-      const tempLabelsZh = ["85°C（商用規格）", "125°C（車規 Grade 1）", "175°C（車規 Grade 0）"];
+      const tempLabelsEn = ["85°C (Commercial)", "125°C (Auto Grade 1)", "175°C Tj target (not blanket G0 cert)"];
+      const tempLabelsZh = ["85°C（商用規格）", "125°C（車規 Grade 1）", "175°C 接面目標（非整體 G0 認證）"];
 
       const endLabelsEn = ["1~100 (OTP / Trimming / Patch)", "10K~100K (MTP / Firmware OTA)", ">1M (High-Endurance Working RAM)"];
       const endLabelsZh = ["1~100 次（OTP / 校準 / 補丁）", "1萬~10萬次（MTP / 韌體 OTA）", ">100萬次（高耐久工作暫存 RAM）"];

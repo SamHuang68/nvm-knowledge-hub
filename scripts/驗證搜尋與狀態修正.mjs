@@ -2,9 +2,11 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { chromium } from 'playwright';
+import { startTestServer } from './驗證伺服器.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
-const base = new URL(process.env.NVM_QA_BASE || 'http://127.0.0.1:8765/');
+const server = process.env.NVM_QA_BASE ? null : await startTestServer(root);
+const base = new URL(process.env.NVM_QA_BASE || server.base);
 const output = path.resolve(process.env.NVM_QA_OUTPUT || path.join(root, 'qa', '搜尋與狀態修正'));
 fs.mkdirSync(output, { recursive: true });
 const channel = process.env.NVM_QA_CHANNEL || 'msedge';
@@ -190,6 +192,7 @@ for (const mode of ['成功', '拒絕', '缺少API']) {
 }
 
 await browser.close();
+if (server) await server.close();
 fs.writeFileSync(path.join(output, '驗證結果.json'), JSON.stringify({ base: base.href, results }, null, 2));
 const failures = results.filter(result => !result.passed);
 console.log(`搜尋與狀態驗證：${results.length - failures.length}/${results.length} 通過`);

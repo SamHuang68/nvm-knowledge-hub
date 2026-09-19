@@ -852,7 +852,7 @@
       "node": "28FDS（28nm FD-SOI）",
       "stage": "量產",
       "claim": "Samsung 正式宣布商用量產 28nm FD-SOI 嵌入式 MRAM，寫入速度比 eFlash 快 1000 倍。",
-      "limit": "專屬 FD-SOI 工藝線，不同於 Bulk CMOS 或 FinFET 結構。",
+      "limit": "28FDS 商用 eMRAM 有公開出貨紀錄，但 BEOL 需額外光罩層；不得寫成 0-Mask Adder，亦不能由 SF3/SF2 邏輯路線直接推出同名 eMRAM 量產。",
       "sourceIds": [
         "FND-SEC-2019-28FDS"
       ]
@@ -878,7 +878,7 @@
       "node": "SF3 / SF2（3nm / 2nm MBCFET）",
       "stage": "研發與技術路線規劃",
       "claim": "Samsung Foundry Forum 公布 3nm 與 2nm MBCFET 先進節點整合次世代高密度 eMRAM 之路線圖。",
-      "limit": "屬前瞻路線目標，需解決奈米片閘極熱應力與 BEOL MTJ 磁熱穩定性。",
+      "limit": "SF3/SF2 為邏輯與 GAA 路線公告；eMRAM 仍屬研發／驗證目標，不能等同已量產嵌入式巨集。",
       "sourceIds": [
         "FND-SEC-2024-MBCFET"
       ]
@@ -887,11 +887,11 @@
       "id": "INTC-2024",
       "year": 2024,
       "foundry": "Intel Foundry",
-      "technology": "先進 eNVM／AntiFuse OTP／RibbonFET BSPDN",
+      "technology": "18A RibbonFET 與嵌入式 IP 生態",
       "node": "18A（1.8nm RibbonFET + PowerVia）",
       "stage": "生產準備與生態系整合",
-      "claim": "Intel Foundry Direct Connect 發表 18A 進入生產準備，具備 PowerVia 背面供電，支援原生邏輯 AntiFuse OTP 與先進嵌入式記憶體。",
-      "limit": "18A 晶圓廠量產投片進行中；完整通用 eNVM 巨集商業供應仍受認證進度制約。",
+      "claim": "Intel Foundry Direct Connect 2024 描述 18A 進入生產準備、PowerVia 背面供電與嵌入式 IP 生態目標。",
+      "limit": "RibbonFET/PowerVia 邏輯進度不能自動推出具名節點的原生 AntiFuse、eMRAM 或 FeFET NVM 量產。",
       "sourceIds": [
         "FND-INTC-2024-18A"
       ]

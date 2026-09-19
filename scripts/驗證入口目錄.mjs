@@ -1,9 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {chromium} from 'playwright';
+import {startTestServer} from './驗證伺服器.mjs';
 const root=path.resolve(import.meta.dirname,'..'),output=path.join(root,'qa/入口與技術譜系_20260910');
 fs.mkdirSync(output,{recursive:true});
-const base=process.env.NVM_QA_BASE||'http://127.0.0.1:8765/';
+const server=process.env.NVM_QA_BASE?null:await startTestServer(root);
+const base=process.env.NVM_QA_BASE||server.base;
 const catalog=JSON.parse(fs.readFileSync(path.join(root,'data/NVM知識目錄.json'),'utf8'));
 const data=JSON.parse(fs.readFileSync(path.join(root,'data/NVM知識資料英文.json'),'utf8'));
 const results=[],failures=[],errors=[];
@@ -73,7 +75,7 @@ for(const file of pages){
  note(required.every(id=>links.includes('#layer-'+id))&&links.length===4,'周邊頁共用四類主導覽',{file,links});
 }
 await context.close();
-}catch(error){note(false,'入口目錄查核完成',{error:error.stack});}finally{await browser.close();}
+}catch(error){note(false,'入口目錄查核完成',{error:error.stack});}finally{await browser.close();if(server)await server.close();}
 note(errors.length===0,'入口與目錄互動無腳本錯誤',{errors});
 const report={passed:failures.length===0,base,checkedAt:new Date().toISOString(),checks:results.length,failures,results};
 fs.writeFileSync(path.join(output,'入口目錄查核.json'),JSON.stringify(report,null,2)+'\n','utf8');

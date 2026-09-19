@@ -121,7 +121,8 @@ function filterTopics() {
   const stage = document.querySelector('#nvm-stage').value;
   let count = 0;
   rows.forEach(row => {
-    const match = (!query || row.dataset.search.normalize('NFKC').toLocaleLowerCase().includes(query)) && (!family || row.dataset.family === family) && (!stage || row.dataset.stage === stage);
+    const families = (row.dataset.family || '').split(',').map(item => item.trim()).filter(Boolean);
+    const match = (!query || row.dataset.search.normalize('NFKC').toLocaleLowerCase().includes(query)) && (!family || families.includes(family)) && (!stage || row.dataset.stage === stage);
     row.hidden = !match;
     if (match) count++;
   });
@@ -151,7 +152,8 @@ function filterLandscape() {
   const query = landscapeSearch.value.normalize('NFKC').toLocaleLowerCase().trim();
   let count = 0;
   for (const row of landscapeRows) {
-    row.hidden = Boolean(query && !row.dataset.search.normalize('NFKC').toLocaleLowerCase().includes(query)) || Boolean(landscapeFamily.value && row.dataset.family !== landscapeFamily.value);
+    const families = (row.dataset.family || '').split(',').map(item => item.trim()).filter(Boolean);
+    row.hidden = Boolean(query && !row.dataset.search.normalize('NFKC').toLocaleLowerCase().includes(query)) || Boolean(landscapeFamily.value && !families.includes(landscapeFamily.value));
     if (!row.hidden) count++;
   }
   document.querySelector('#nvm-landscape-count').textContent = isEnglish() ? `Showing ${count} of ${landscapeRows.length} named routes` : `顯示 ${count}／${landscapeRows.length} 條具名路線`;

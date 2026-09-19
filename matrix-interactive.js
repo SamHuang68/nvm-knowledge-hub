@@ -62,7 +62,7 @@
    */
   const PRESET_VIEWS = {
     all: ALL_TECHS,
-    zeromask: ['efuse', 'maskrom', 'fgotp', 'antifuse', 'ldmtp'],
+    zeromask: ['efuse', 'maskrom', 'fgotp', 'antifuse', 'ldmtp', 'hdmtp'],
     logic: ['fgotp', 'antifuse', 'ldmtp', 'hdmtp'],
     highdensity: ['sst', 'sonos', 'reram', 'mram']
   };

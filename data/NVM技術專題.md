@@ -5864,7 +5864,7 @@ SoC 平台流片驗證：智原公告 RRAM SoC 開發平台完成並經流片驗
 
 量產：Samsung 正式宣布商用量產 28nm FD-SOI 嵌入式 MRAM，寫入速度比 eFlash 快 1000 倍。
 
-限制：專屬 FD-SOI 工藝線，不同於 Bulk CMOS 或 FinFET 結構。
+限制：28FDS 商用 eMRAM 有公開出貨紀錄，但 BEOL 需額外光罩層；不得寫成 0-Mask Adder，亦不能由 SF3/SF2 邏輯路線直接推出同名 eMRAM 量產。
 
 - [FND-SEC-2019-28FDS：Samsung Foundry：28FDS eMRAM 商用量產公告](https://news.samsung.com/global/)
 
@@ -5880,15 +5880,15 @@ SoC 平台流片驗證：智原公告 RRAM SoC 開發平台完成並經流片驗
 
 研發與技術路線規劃：Samsung Foundry Forum 公布 3nm 與 2nm MBCFET 先進節點整合次世代高密度 eMRAM 之路線圖。
 
-限制：屬前瞻路線目標，需解決奈米片閘極熱應力與 BEOL MTJ 磁熱穩定性。
+限制：SF3/SF2 為邏輯與 GAA 路線公告；eMRAM 仍屬研發／驗證目標，不能等同已量產嵌入式巨集。
 
 - [FND-SEC-2024-MBCFET：Samsung Foundry：SF3 / SF2 MBCFET 先進節點與次世代 eMRAM 路線圖](https://semiconductor.samsung.com/foundry/process-technology/)
 
-### 2024 · Intel Foundry · 先進 eNVM／AntiFuse OTP／RibbonFET BSPDN · 18A（1.8nm RibbonFET + PowerVia）
+### 2024 · Intel Foundry · 18A RibbonFET 與嵌入式 IP 生態 · 18A（1.8nm RibbonFET + PowerVia）
 
-生產準備與生態系整合：Intel Foundry Direct Connect 發表 18A 進入生產準備，具備 PowerVia 背面供電，支援原生邏輯 AntiFuse OTP 與先進嵌入式記憶體。
+生產準備與生態系整合：Intel Foundry Direct Connect 2024 描述 18A 進入生產準備、PowerVia 背面供電與嵌入式 IP 生態目標。
 
-限制：18A 晶圓廠量產投片進行中；完整通用 eNVM 巨集商業供應仍受認證進度制約。
+限制：RibbonFET/PowerVia 邏輯進度不能自動推出具名節點的原生 AntiFuse、eMRAM 或 FeFET NVM 量產。
 
 - [FND-INTC-2024-18A：Intel Foundry：18A RibbonFET 與 PowerVia BSPDN 先進架構路線圖](https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html)
 
@@ -6418,11 +6418,11 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [RRAM-INTRINSIC-SURECORE：Intrinsic／sureCore · SiOx RRAM](https://www.intrinsicsemi.com/)。官方一手資料；未標示發布日期；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：合作公告不足以證明具名製程巨集已通過認證或量產；官網未提供可據此認定現行供貨的完整料號與資料表。
 - [NRAM-NANTERO-FUJITSU-2016：Nantero／Fujitsu Semiconductor／Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/)。官方一手資料；2016-08-31；查閱 2026-09-10；定位：官方正文；NRAM 使用 2016 年 8 月官方存檔條目；限制：此為歷史開發證據，不能視為 2026 年量產、供貨或計畫終止的證明；NRAM 應與氧化物 RRAM 分開分類。
 - [RES-PUFSEC-HROT-2025：PUFsecurity：NeoPUF 與 PUFcc 硬體信任根技術白皮書](https://www.pufsecurity.com/pufcc)。供應商官方白皮書；2025-06；查閱 2026-09-17；定位：架構與認證章節；限制：屬具名 PUFcc/PUFiot 產品線架構；不同代工廠節點之陣列面積與讀取延遲需對應具名 IP 資料表。
-- [RES-TOWER-YFLASH-2024：Tower Semiconductor：Y-Flash 0-Mask 嵌入式 Flash 技術規格](https://towersemi.com/technology/power-management/)。晶圓代工官方製程文件；2024-11；查閱 2026-09-17；定位：Power Management & Embedded NVM 節；限制：單層多晶矽結構適合中低容量 (1Kb~512Kb) 之高壓 PMIC 與車用修調，非大容量儲存。
-- [RES-WEEBIT-RERAM-2025：Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書](https://www.weebit-nano.com/reram-technology/)。供應商技術規格與代工認證；2025-06-01；定位：官方技術頁與 SkyWater / DB HiTek 商業代工認證公告；限制：證明 130nm CMOS 與 130nm BCD 上已取得矽驗證與車規溫度測試，22FDX 開發中；多位元類比神經形態矩陣處於早期商業評估。
-- [RES-EVERSPIN-PLP-2025：Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南](https://www.everspin.com/storage-accelerators-and-raid)。供應商應用技術手冊；2025-04-15；定位：官方企業級儲存加速器與 RAID/SSD 斷電保護架構方案；限制：確認 STT-MRAM 在 NVMe SSD 寫入日誌與超級電容替代架構中的商用出貨，提供奈秒級持久儲存；需外加控制器或介面橋接晶片。
+- [RES-TOWER-YFLASH-2024：Tower Semiconductor：Y-Flash 0-Mask 嵌入式 Flash 技術規格](https://towersemi.com/technology/non-volatile-memory-nvm/)。晶圓代工官方製程文件；2024-11；查閱 2026-09-17；定位：Power Management & Embedded NVM 節；限制：單層多晶矽適合中低容量 PMIC/BMS 修調；機制依 Tower 一次來源為 CHE/BBT，非 FN/FN。
+- [RES-WEEBIT-RERAM-2025：Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)。供應商技術規格與代工認證；2025-06-01；定位：官方技術頁與 SkyWater / DB HiTek 商業代工認證公告；限制：DB HiTek 130nm qualified IP；SkyWater 130nm 與 GF 22FDX 為平台／評估階段，客戶產品量產需具名佐證。
+- [RES-EVERSPIN-PLP-2025：Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南](https://www.everspin.com/products)。供應商應用技術手冊；2025-04-15；定位：官方企業級儲存加速器與 RAID/SSD 斷電保護架構方案；限制：確認 STT-MRAM 在 NVMe SSD 寫入日誌與超級電容替代架構中的商用出貨，提供奈秒級持久儲存；需外加控制器或介面橋接晶片。
 - [RES-INFINEON-TC4X-2024：Infineon Technologies：AURIX™ TC4x 車用微控制器與 TSMC 28nm eRRAM 架構手冊](https://www.infineon.com/aurix-tc4x)。微控制器架構手冊；2024-11-20；定位：官方產品手冊與車規 ASIL-D 嵌入式記憶體演進章節；限制：證明 TC4x 採用台積電 28nm eRRAM 突破 eFlash 微縮限制，支援 10 萬次抹寫與零等待隨機存取；屬於車用旗艦 MCU 特定實作。
-- [RES-ST-STELLAR-PCM-2024：STMicroelectronics：Stellar 系列 32 位元車用 MCU 嵌入式相變記憶體 (28nm FD-SOI ePCM) 技術白皮書](https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html)。車用晶片技術白皮書；2024-09-18；定位：官方車用微控制器與 28nm FD-SOI 嵌入式 PCM 架構發布；限制：證明 28nm FD-SOI 整合 ePCM 支援無停機 OTA (雙分區即時切換) 與 165°C 高溫保持；相變材料為 Ge2Sb2Te5 (GST)。
+- [RES-ST-STELLAR-PCM-2024：STMicroelectronics：Stellar 系列 32 位元車用 MCU 嵌入式相變記憶體 (28nm FD-SOI ePCM) 技術白皮書](https://www.st.com/content/st_com/en/about/innovation-and-technology/pcm.html)。車用晶片技術白皮書；2024-09-18；定位：官方車用微控制器與 28nm FD-SOI 嵌入式 PCM 架構發布；限制：證明 28nm FD-SOI 整合 ePCM 支援無停機 OTA (雙分區即時切換) 與 165°C 高溫保持；相變材料為 Ge2Sb2Te5 (GST)。
 - [RES-INTRINSICID-QUIDDIKEY-2025：Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書](https://www.intrinsic-id.com/products/quiddikey/)。安全技術白皮書；2025-05-12；定位：官方 SRAM PUF 密鑰重建與零工廠燒錄架構白皮書；限制：利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。
 - [RES-SYNOPSYS-TROOT-2024：Synopsys：DesignWare tRoot™ 晶片硬體安全模組 (HSM) 與 1T AntiFuse 安全子系統架構手冊](https://www.synopsys.com/designware-ip/security-ip.html)。產品規格手冊；2024-11-20；定位：官方硬體安全模組與安全開機架構發布；限制：整合獨立安全 RISC-V/ARC 處理器核心、硬體密碼引擎、真隨機數產生器 (TRNG) 與 1T Split-Channel AntiFuse OTP，符合 PSA Certified Level 3。
 - [RES-RAMBUS-CRYPTOMANAGER-2025：Rambus：CryptoManager™ 信任根與 PCIe/CXL SPDM 1.3 設備證明技術架構白皮書](https://www.rambus.com/security/root-of-trust/)。企業級安全白皮書；2025-02-18；定位：官方 PCIe/CXL IDE 與硬體信任根生命週期架構；限制：硬體實現 DMTF SPDM 1.2/1.3 設備互聯認證與線速 PCIe/CXL IDE (AES-GCM) 加密，貫穿晶圓廠、封測廠至雲端伺服器生命週期憑證鏈。
@@ -9243,27 +9243,27 @@ Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 
 
 ### Tower Semiconductor 高塔半導體 · Y-Flash 0-Mask eFlash / MTP
 
-專用類比與高壓 BCD 代工平台 · 0.18um 與 65nm BCD 商用量產；車規 150°C~175°C AEC-Q100 Grade 0
+專用類比與高壓 BCD 代工平台 · 0.18µm 與 65nm BCD 平台已公開；官方文件提及 Grade 0 保持敘述，但環境溫度 Ta 與接面 Tj 試驗條件須分開，不得把 175°C 一律等同整體認證。
 
-採用單層多晶矽浮閘 (Single-Poly Floating Gate) 與 FN/FN 穿隧機制，完全不需要額外光罩道數 (0 Mask Adders)，原生相容於 Tower 高壓 BCD 與電源管理製程平台，提供 1K~10K 次抹寫與極高溫資料留存，且不影響高壓 LDMOS 元件之擊穿電壓與導通電阻。
+採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為閘極間能帶熱電洞 (BBT)，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。
 
 單層多晶矽結構位元面積較大，主要鎖定 1Kb~512Kb 之高壓 PMIC、車用電池管理系統 (BMS)、閘極驅動器與類比修調 (Trimming)，非大容量代碼儲存。
 
 2024–2026 製程量產規格
 
-- [RES-TOWER-YFLASH-2024：Tower Semiconductor：Y-Flash 0-Mask 嵌入式 Flash 技術規格](https://towersemi.com/technology/power-management/)
+- [RES-TOWER-YFLASH-2024：Tower Semiconductor：Y-Flash 0-Mask 嵌入式 Flash 技術規格](https://towersemi.com/technology/non-volatile-memory-nvm/)
 
-### Weebit Nano · Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM
+### Weebit Nano · 嵌入式 ReRAM (OxRAM) 與類比 CIM 研究
 
-獨立嵌入式 ReRAM 矽智財與神經形態 AI 推論提供商 · SkyWater 130nm 與 DB HiTek 130nm BCD 商用代工驗證；GF 22FDX 研發中
+獨立嵌入式 ReRAM 矽智財與神經形態 AI 推論提供商 · DB HiTek 130nm qualified IP；SkyWater 130nm 與 GF 22FDX 為平台／評估階段，客戶產品量產需具名佐證。
 
-以金屬氧化物（HfO2/TiN）阻變微絲為核心，僅需 2 道 BEOL 後段光罩，支援車規 150°C 高溫保持；具備多階類比電導特性，可直接於記憶體陣列內部執行矩陣乘加運算（Analog In-Memory Computing, CIM）。
+公開 OxRAM 路線以 SiOx 活性層為主（例如 TiN 底電極／Ti 頂電極的 IMW 2019 樣本）；DB HiTek 130nm 提供 qualified IP（2 masks、10K cycles、125°C 保持等具名條件）。SkyWater 130nm 與 GF 22FDX 為不同平台階段；類比 CIM 研究與客戶量產須分開，不得合成單一規格。
 
 商業量產主要落地於 130nm 成熟與特種 BCD 節點，先進節點（22nm FD-SOI）處於流片與評估階段；類比 CIM 矩陣受製程變異與溫度漂移影響，需搭配數位補償演算法。
 
 2024–2026 製程認證與技術白皮書
 
-- [RES-WEEBIT-RERAM-2025：Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書](https://www.weebit-nano.com/reram-technology/)
+- [RES-WEEBIT-RERAM-2025：Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)
 
 ### Everspin Technologies (Enterprise PLP) · Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)
 
@@ -9275,7 +9275,7 @@ Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 
 
 2024–2026 商用量產手冊
 
-- [RES-EVERSPIN-PLP-2025：Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南](https://www.everspin.com/storage-accelerators-and-raid)
+- [RES-EVERSPIN-PLP-2025：Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南](https://www.everspin.com/products)
 - [everspin-1gb-ddr：Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
 
 ### Intrinsic ID (Quiddikey) · SRAM PUF Root of Trust & Key Provisioning-Free Enclave
@@ -9292,9 +9292,9 @@ Fujitsu 官方歷史新聞確認兩家半導體事業於 2016 年取得 Nantero 
 
 ### Synopsys (DesignWare tRoot™ HSM) · Hardware Secure Module & AntiFuse Integrated Enclave
 
-晶片安全子系統與實體 IP 供應商 · 全球廣泛商用出貨；支援車規 ASIL-D、CC EAL4+ 與 PSA Certified Level 3
+晶片安全子系統與實體 IP 供應商 · 廣泛部署敘述；官方公開將 Automotive HSM 列為 ASIL-B，OTP NVM 另列 ASIL-D — 不得合併為單一「tRoot ASIL-D」或 CC/PSA 組合認證。
 
-以獨立安全處理器隔離 Host CPU 軟體漏洞，底層緊密整合 1T Split-Channel AntiFuse OTP 儲存裝置獨一金鑰雜湊 (ROTPK) 與安全組態，向上提供 Secure Boot、防回滾與金鑰封裝服務。
+獨立安全處理器與 AntiFuse OTP 整合的 HSM 子系統；公開功能含 Secure Boot、金鑰封裝與防回滾介面 — 具名 crypto mode、時序與 PSA/CC 組合須對應產品文件，不得由 portfolio 最高等級移植。
 
 為子系統級解決方案，需在 SoC 規劃專屬晶片面積、匯流排防火牆與安全除錯通道。
 

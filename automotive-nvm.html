@@ -157,7 +157,7 @@
     }
     .m3-hero h1 {
       font-size: clamp(24px, 3.2vw, 42px);
-      font-weight: 800;
+      font-weight: 600;
       line-height: 1.16;
       letter-spacing: -0.025em;
       margin: 6px 0 10px;
@@ -197,7 +197,7 @@
     .m3-hero-proof strong {
       font-family: 'IBM Plex Mono', monospace;
       font-size: clamp(1.15rem, 1.6vw, 1.45rem);
-      font-weight: 800;
+      font-weight: 600;
       line-height: 1;
     }
     .m3-hero-proof span {
@@ -288,7 +288,7 @@
     .stat-val {
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 1.25rem !important;
-      font-weight: 800 !important;
+      font-weight: 600 !important;
       color: #f3ebe0 !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
@@ -422,7 +422,7 @@
       background: #d97706;
       color: #ffffff;
       border-color: #b45309;
-      font-weight: 800;
+      font-weight: 600;
     }
     .lens-info {
       display: flex;
@@ -501,7 +501,7 @@
     .lens-panel h2 {
       margin: 0 0 10px;
       font-size: clamp(20px, 2.2vw, 30px);
-      font-weight: 800;
+      font-weight: 600;
       line-height: 1.22;
       color: #f3ebe0;
       text-wrap: balance !important;
@@ -955,13 +955,17 @@
               <span data-lang="zh">調控結溫 (Tj) 與服役壽命，即時運算 Arrhenius 熱加速因數 (AF)，直觀檢驗 AntiFuse 閘極介電質擊穿微絲歐姆接觸與傳統浮閘在高溫下的物理留存邊際對比。</span>
               <span data-lang="en">Adjust junction temperature (Tj) and service life to compute real-time Arrhenius acceleration factors (AF), demonstrating AntiFuse drift-class  vs floating-gate charge-loss decay.</span>
             </p>
+            <p class="panel-desc" style="margin-top:8px; font-size:0.85rem; color:#94a3b8;">
+              <span data-lang="zh"><strong>非量測輸出：</strong>曲線使用固定 <em>E</em><sub>a</sub> 與簡化衰減式；AntiFuse「零漂移」為教學假設，不代表矽測試資料或 AEC-Q100 認證。</span>
+              <span data-lang="en"><strong>Not measured data:</strong> Curves use fixed <em>E</em><sub>a</sub> and simplified decay — AntiFuse “zero drift” is a teaching assumption, not silicon test data or AEC-Q100 certification.</span>
+            </p>
 
             <!-- Arrhenius Model Formula Box -->
             <div class="formula-box-math">
               <strong>[ARRHENIUS THERMAL ACCELERATION MODEL]</strong><br>
               <em>AF</em> = exp[(<em>E</em><sub>a</sub> / <em>k</em><sub>B</sub>) · (1/<em>T</em><sub>use</sub> − 1/<em>T</em><sub>stress</sub>)]<br>
               <small style="color: #94a3b8;">
-                (<em>T</em><sub>use</sub> = 55°C (328.15&nbsp;K) <span data-lang="zh">基準溫度</span><span data-lang="en">baseline</span>, <em>E</em><sub>a</sub> = 0.84&nbsp;eV <span data-lang="zh">介電質擊穿活化能</span><span data-lang="en">oxide breakdown activation energy</span> / AEC-Q100 Grade 0 Qualification)
+                (<em>T</em><sub>use</sub> = 55°C (328.15&nbsp;K) <span data-lang="zh">教學基準</span><span data-lang="en">teaching baseline</span>, <em>E</em><sub>a</sub> = 0.84&nbsp;eV <span data-lang="zh">假設活化能 — 非量測常數</span><span data-lang="en">assumed Ea — not a measured constant</span>)
               </small>
             </div>
 
@@ -1190,7 +1194,7 @@
                 <span data-lang="en">Automotive eNVM: Value-Chain Integration &amp; Heterogeneous Packaging Paradigms</span>
               </h3>
               <p style="color: #cbd5e1; font-size: 0.88rem; line-height: 1.6; margin: 0;">
-                <span data-lang="zh">汽車電子對環境溫度、失效率 (0 ppm) 與功能安全的要求，推動 NVM 從單純晶圓製程走向上下游端到端協同：涵蓋高壓動力 BCD 原生 0-Mask Flash、車規硬體信任根 (HRoT)，以及突破先進節點微縮斷崖的微型封裝與 Chiplet 異質整合。</span>
+                <span data-lang="zh">汽車電子對環境溫度、低缺陷率目標（非 Zero-PPM 認證）與功能安全的要求，推動 NVM 從單純晶圓製程走向上下游端到端協同：涵蓋高壓動力 BCD 原生 0-Mask Flash、車規硬體信任根 (HRoT)，以及突破先進節點微縮斷崖的微型封裝與 Chiplet 異質整合。</span>
                 <span data-lang="en">Stringent automotive thermal envelopes, zero-ppm quality, and functional safety demand holistic value-chain co-optimization: spanning high-voltage BCD zero-mask eFlash, automotive hardware root-of-trust, and near-die heterogeneous Chiplet integration bypassing advanced-node scaling cliffs.</span>
               </p>
             </div>
@@ -1206,13 +1210,13 @@
                 <div style="font-size: 0.84rem; line-height: 1.6; color: #cbd5e1;">
                   <p style="margin: 0 0 8px;">
                     <strong style="color: #c4a574;"><span data-lang="zh">[上游代工]</span><span data-lang="en">[Foundry]</span></strong>
-                    <span data-lang="zh">0.18µm 與 65nm BCD 平台原生支援，完全<strong>零額外光罩 (0 Mask Adders)</strong>，採用單層多晶矽浮閘與 FN/FN 穿隧抹寫。</span>
-                    <span data-lang="en">Native support in 0.18µm and 65nm BCD platforms with <strong>0 mask adders</strong>; single-poly floating gate with FN/FN tunneling program and erase.</span>
+                    <span data-lang="zh">0.18µm 與 65nm BCD 平台原生支援，<strong>零額外光罩 (0 Mask Adders)</strong>；依 Tower 一次來源為 CHE 寫入／BBT 抹除（非 FN/FN）。</span>
+                    <span data-lang="en">Native 0.18µm and 65nm BCD platforms with <strong>0 mask adders</strong>; per Tower primary sources, CHE program / BBT erase (not FN/FN).</span>
                   </p>
                   <p style="margin: 0 0 8px;">
                     <strong style="color: #c4a574;"><span data-lang="zh">[車規耐溫]</span><span data-lang="en">[Automotive Grade]</span></strong>
-                    <span data-lang="zh">達成 AEC-Q100 Grade 0 (-40°C ~ +150°C/175°C Tj)，高溫資料留存 &gt;10 年，且製造流程無額外熱預算，對高壓 LDMOS 功率開關耐壓 (BVdss) 零衝擊。</span>
-                    <span data-lang="en">Qualified to AEC-Q100 Grade 0 (-40°C to +150°C/175°C Tj) with &gt;10-year retention; zero extra thermal budget eliminates impact on high-voltage LDMOS breakdown voltage (BVdss).</span>
+                    <span data-lang="zh">官方文件提及 Grade 0 保持敘事；環境溫度 Ta（-40~+150°C）與接面 Tj 試驗條件須分開。製造流程無額外熱預算敘述需對應具名平台，不得等同全系統認證。</span>
+                    <span data-lang="en">Vendor briefs cite Grade 0 retention narratives; separate ambient Ta (-40 to +150°C) from junction Tj test conditions. Zero extra thermal-budget claims apply to named platforms, not blanket system certification.</span>
                   </p>
                   <p style="margin: 0;">
                     <strong style="color: #c4a574;"><span data-lang="zh">[下游系統]</span><span data-lang="en">[Downstream Systems]</span></strong>

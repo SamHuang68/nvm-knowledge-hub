@@ -711,13 +711,13 @@ window.NVMTopicIndex = [
     "title_zh": "Tower Semiconductor 高塔半導體 · Y-Flash 0-Mask eFlash / MTP",
     "title_en": "Tower Semiconductor · Y-Flash 0-Mask eFlash / MTP",
     "url": "NVM技術全景.html#company-tower-yflash",
-    "tags": "Tower Semiconductor Y-Flash 0-Mask eFlash / MTP Utilizes single-poly floating-gate topology with FN/FN tunneling requiring 0 additional mask adders; natively integrates with high-voltage BCD and power management platforms, delivering 1K–10K endurance and high-temperature retention without degrading LDMOS breakdown voltage. Tower Semiconductor Y-Flash eFlash MTP BCD 0-Mask 175C Grade 0 PMIC 採用單層多晶矽浮閘 (Single-Poly Floating Gate) 與 FN/FN 穿隧機制，完全不需要額外光罩道數 (0 Mask Adders)，原生相容於 Tower 高壓 BCD 與電源管理製程平台，提供 1K~10K 次抹寫與極高溫資料留存，且不影響高壓 LDMOS 元件之擊穿電壓與導通電阻。"
+    "tags": "Tower Semiconductor Y-Flash 0-Mask eFlash / MTP Single-poly floating gate; per Tower's public NVM brief and arXiv:2202.10228, program uses channel hot-electron injection (CHE) and erase uses band-to-band-tunneling (BBT) holes — not FN/FN. Zero mask adders integrate with Tower HV BCD/power platforms; public briefs cite 1K–10K endurance and high-temperature retention; name Ta, Tj, and AEC-Q100 qualification per product. Tower Semiconductor Y-Flash eFlash MTP BCD 0-Mask 175C Grade 0 PMIC 採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為閘極間能帶熱電洞 (BBT)，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。"
   },
   {
-    "title_zh": "Weebit Nano · Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM",
-    "title_en": "Weebit Nano · Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM",
+    "title_zh": "Weebit Nano · Embedded ReRAM (OxRAM) & analog CIM research",
+    "title_en": "Weebit Nano · Embedded ReRAM (OxRAM) & analog CIM research",
     "url": "NVM技術全景.html#company-weebit-reram-cim",
-    "tags": "Weebit Nano Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM Features metal-oxide (HfO2/TiN) switching filaments with only 2 BEOL mask adders and automotive 150°C retention; supports multi-level analog conductance for analog Computing-in-Memory (CIM) matrix operations. Weebit Nano Embedded ReRAM OxRAM CIM Neuromorphic SkyWater DB HiTek GF 22FDX Analog Computing-in-Memory 以金屬氧化物（HfO2/TiN）阻變微絲為核心，僅需 2 道 BEOL 後段光罩，支援車規 150°C 高溫保持；具備多階類比電導特性，可直接於記憶體陣列內部執行矩陣乘加運算（Analog In-Memory Computing, CIM）。"
+    "tags": "Weebit Nano Embedded ReRAM (OxRAM) & analog CIM research Public OxRAM route centers on SiOx active layers (e.g., IMW 2019 samples with TiN bottom / Ti top electrodes). DB HiTek 130nm offers a qualified IP macro (2 masks, 10K cycles, 125°C retention under named conditions). SkyWater 130nm and GF 22FDX are distinct platform stages; analog CIM studies and customer production must not be merged into one spec sheet. Weebit Nano Embedded ReRAM OxRAM CIM Neuromorphic SkyWater DB HiTek GF 22FDX Analog Computing-in-Memory 公開 OxRAM 路線以 SiOx 活性層為主（例如 TiN 底電極／Ti 頂電極的 IMW 2019 樣本）；DB HiTek 130nm 提供 qualified IP（2 masks、10K cycles、125°C 保持等具名條件）。SkyWater 130nm 與 GF 22FDX 為不同平台階段；類比 CIM 研究與客戶量產須分開，不得合成單一規格。"
   },
   {
     "title_zh": "Everspin Technologies (Enterprise PLP) · Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)",
@@ -735,7 +735,7 @@ window.NVMTopicIndex = [
     "title_zh": "Synopsys (DesignWare tRoot™ HSM) · Hardware Secure Module & AntiFuse Integrated Enclave",
     "title_en": "Synopsys (DesignWare tRoot™ HSM) · Hardware Secure Module & AntiFuse Integrated Enclave",
     "url": "NVM技術全景.html#company-synopsys-troot-hsm",
-    "tags": "Synopsys (DesignWare tRoot™ HSM) Hardware Secure Module & AntiFuse Integrated Enclave Isolates security operations from host CPU software vulnerabilities; tightly integrates 1T Split-Channel AntiFuse OTP for UID and Root-of-Trust Public Key (ROTPK) storage; delivers Secure Boot and key wrapping. Synopsys tRoot HSM Hardware Secure Module 1T AntiFuse Secure Boot PSA Certified Level 3 Security Subsystem 以獨立安全處理器隔離 Host CPU 軟體漏洞，底層緊密整合 1T Split-Channel AntiFuse OTP 儲存裝置獨一金鑰雜湊 (ROTPK) 與安全組態，向上提供 Secure Boot、防回滾與金鑰封裝服務。"
+    "tags": "Synopsys (DesignWare tRoot™ HSM) Hardware Secure Module & AntiFuse Integrated Enclave HSM subsystem integrating a security processor with AntiFuse OTP; public features include secure boot, key wrapping, and rollback interfaces — named crypto modes, timing, and PSA/CC bundles require product documentation; do not port portfolio peak tiers. Synopsys tRoot HSM Hardware Secure Module 1T AntiFuse Secure Boot PSA Certified Level 3 Security Subsystem 獨立安全處理器與 AntiFuse OTP 整合的 HSM 子系統；公開功能含 Secure Boot、金鑰封裝與防回滾介面 — 具名 crypto mode、時序與 PSA/CC 組合須對應產品文件，不得由 portfolio 最高等級移植。"
   },
   {
     "title_zh": "Rambus (CryptoManager™ Root of Trust) · PCIe/CXL SPDM Attestation & Silicon Lifecycle Root of Trust",

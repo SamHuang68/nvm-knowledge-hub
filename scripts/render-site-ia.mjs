@@ -1,10 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright";
+import { startTestServer } from "./驗證伺服器.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
 const output = path.join(root, ".loop-engineering", "rendered-r18");
 fs.mkdirSync(output, { recursive: true });
+const server = process.env.NVM_QA_BASE ? null : await startTestServer(root);
+const base = process.env.NVM_QA_BASE || server.base;
 
 const allPages = ["index.html", "secure-storage.html", "ai-nvm-opportunities.html", "memory-physics.html", "memory-evidence.html", "oip-secure-storage.html", "security-assurance.html"];
 const pages = process.argv[2] ? [process.argv[2]] : allPages;
@@ -20,7 +23,7 @@ for (const pageName of pages) {
     page.on("console", message => { if (message.type() === "error") errors.push(`console: ${message.text()}`); });
     page.on("pageerror", error => errors.push(`pageerror: ${error.message}`));
     page.on("requestfailed", request => errors.push(`request: ${request.url()} ${request.failure()?.errorText || "failed"}`));
-    await page.goto(`http://127.0.0.1:8765/${pageName}`, { waitUntil: "networkidle" });
+    await page.goto(new URL(pageName, base).href, { waitUntil: "networkidle" });
     await page.evaluate(() => document.querySelectorAll(".reveal").forEach(node => node.classList.add("visible")));
 
     const audit = await page.evaluate(() => {
@@ -323,6 +326,7 @@ for (const pageName of pages) {
   }
 }
 await browser.close();
+if (server) await server.close();
 
 if (failures.length) {
   console.error(failures.join("\n"));

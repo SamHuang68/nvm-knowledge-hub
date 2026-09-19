@@ -1064,11 +1064,11 @@
           </div>
           <div>
             <strong style="color: #f8fafc;"><span data-lang="zh">物理機制：</span><span data-lang="en">Physics Mechanism: </span></strong>
-            <span data-lang="zh">單層多晶矽 (Single-Poly) 浮閘，FN/FN 穿隧抹寫</span><span data-lang="en">Single-poly floating gate with FN/FN tunneling program &amp; erase</span>
+            <span data-lang="zh">單層多晶矽浮閘；Tower 公開為 CHE 寫入／BBT 抹除（非 FN/FN）</span><span data-lang="en">Single-poly floating gate; Tower public brief: CHE program / BBT erase (not FN/FN)</span>
           </div>
           <div>
             <strong style="color: #f8fafc;"><span data-lang="zh">耐久／留存：</span><span data-lang="en">Endurance &amp; Retention: </span></strong>
-            <span data-lang="zh">1K～10K cycles；AEC-Q100 Grade 0 (150°C～175°C Tj)</span><span data-lang="en">1K-10K cycles; qualified to AEC-Q100 Grade 0 (150°C-175°C Tj)</span>
+            <span data-lang="zh">公開敘事 1K～10K cycles；Ta／Tj 與 Grade 0 資格須依具名平台分開引用</span><span data-lang="en">Public brief cites 1K–10K cycles; cite Ta/Tj and Grade 0 qualification per named platform</span>
           </div>
           <div>
             <strong style="color: #f8fafc;"><span data-lang="zh">高壓共存性：</span><span data-lang="en">HV Compatibility: </span></strong>
@@ -1164,8 +1164,8 @@
 <span data-lang="en">BCD Bandgap Trimming Simulator &amp; Zero-Mask Adder ROI Calculator</span>
 </h3>
 <p>
-<span data-lang="zh">左側互動體驗 OTP 微調如何消除晶圓高斯常態分佈偏差；右側輸入投片量即時試算純邏輯 AntiFuse 相對傳統 eFlash 節省的百萬美元光罩費用。</span>
-<span data-lang="en">Left: Interactive Vref Gaussian trimming simulator. Right: Real-time ROI calculator quantifying multi-million dollar savings of pure-logic AntiFuse over eFlash.</span>
+<span data-lang="zh">左側互動體驗 OTP 微調如何消除晶圓高斯常態分佈偏差；右側 ROI 使用<strong>固定假設</strong>光罩與晶圓差價（180nm：$650K／片 $80；55nm：$1.45M／片 $180）— 非報價或量測。</span>
+<span data-lang="en">Left: interactive Vref trim demo. Right: ROI uses <strong>fixed assumed</strong> mask/wafer deltas (180nm: $650K / $80 per wafer; 55nm: $1.45M / $180) — not quotes or measured savings.</span>
 </p>
 </div>
 <div class="lab-body-grid">
@@ -2043,8 +2043,8 @@
         <span style="font-size: 9.5px; background: rgba(56, 189, 248, 0.15); color: #7dd3fc; padding: 2px 6px; border-radius: 3px;"><span data-lang="zh">Cu-Cu DBI 鍵合</span><span data-lang="en">Cu-Cu DBI Bonded</span></span>
       </div>
       <p style="font-size: 0.83rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
-        <span data-lang="zh">感光像素晶粒與邏輯晶粒透過 Cu-Cu 混合鍵合 (DBI) 堆疊。晶圓測試 (CP) 時檢測出成千上萬個暗電流亮點 (Hot Pixels)。<strong>嚴禁採用傳統 eFlash</strong>：因 &gt;900°C 退火會熔毀已塗佈之彩色濾光片與微透鏡；<strong>嚴禁雷射熔斷</strong>：因封裝後雷射無法穿透矽層。採用 <strong>0-Mask 純邏輯 AntiFuse OTP</strong>，在室溫探針測試下以電氣脈衝精準硬鎖定數十 Kb 壞點座標，為億級像素 CIS 良率唯一解。</span>
-        <span data-lang="en">Pixel dies bond to logic dies via Cu-Cu DBI. Testing flags thousands of hot pixels. <strong>eFlash is forbidden</strong> as &gt;900°C anneal destroys color filters and microlenses; <strong>laser fuses are inaccessible</strong> inside stacked 3D dies. <strong>Zero-mask logic AntiFuse OTP</strong> electrically hard-locks defect coordinates at room temperature, securing ultra-high megapixel yields.</span>
+        <span data-lang="zh">感光像素晶粒與邏輯晶粒透過 Cu-Cu 混合鍵合 (DBI) 堆疊。晶圓測試 (CP) 時檢測出成千上萬個暗電流亮點 (Hot Pixels)。<strong>嚴禁採用傳統 eFlash</strong>：因 &gt;900°C 退火會熔毀已塗佈之彩色濾光片與微透鏡；<strong>嚴禁雷射熔斷</strong>：因封裝後雷射無法穿透矽層。常見架構為 <strong>0-Mask 純邏輯 AntiFuse OTP</strong>，在室溫探針測試下以電氣脈衝硬鎖定數十 Kb 壞點座標 — 具名產品仍須對照 PDK 與修復流程，非全族唯一解。</span>
+        <span data-lang="en">Pixel dies bond to logic dies via Cu-Cu DBI. Testing flags thousands of hot pixels. <strong>eFlash is forbidden</strong> as &gt;900°C anneal destroys color filters and microlenses; <strong>laser fuses are inaccessible</strong> inside stacked 3D dies. A common architecture is <strong>zero-mask logic AntiFuse OTP</strong> that electrically locks defect coordinates at room temperature — named products still need PDK/repair-flow evidence; not a universal-only solution.</span>
       </p>
     </div>
 
@@ -3111,7 +3111,7 @@
         <span class="hub-footer-badge"><span data-lang="zh">CIS 與 DRAM 缺陷備援</span><span data-lang="en">CIS &amp; DRAM Defect Redundancy</span></span>
         <span class="hub-footer-badge"><span data-lang="zh">零光罩純邏輯</span><span data-lang="en">0-Mask Pure Logic</span></span>
         <span class="hub-footer-badge"><span data-lang="zh">高壓 DDIC 與超高壓電子紙</span><span data-lang="en">HV DDIC &amp; Ultra-HV E-Ink</span></span>
-        <span class="hub-footer-badge"><span data-lang="zh">AEC-Q100 Grade 0 驗證合格（接面溫度 175°C）</span><span data-lang="en">AEC-Q100 Grade 0 Qualified (175°C Tj)</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">AEC-Q100 Grade 0 詞彙（Ta/Tj 分開；非 READY 認證）</span><span data-lang="en">AEC-Q100 Grade 0 vocabulary (split Ta/Tj — not READY cert)</span></span>
         <span class="hub-footer-badge"><span data-lang="zh">MTP 轉 OTP 成本遷移</span><span data-lang="en">MTP-to-OTP Cost Migration</span></span>
       </div>
 

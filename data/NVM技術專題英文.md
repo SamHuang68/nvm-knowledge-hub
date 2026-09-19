@@ -5860,6 +5860,38 @@ Limitations: Controller and processor integration evidence does not establish na
 
 - [RES-FARADAY-RRAM-2025: Faraday: FlashKit-22RRAM Silicon Validation](https://www.faraday-tech.com/html/News/pressRelease/CHI_01_0441.jsp)
 
+### 2019 · Samsung Foundry · eMRAM · 28FDS (28nm FD-SOI)
+
+Volume production: Samsung announced commercial shipment of 28nm FD-SOI embedded MRAM.
+
+Limitations: FD-SOI platform with BEOL adders; do not equate with logic-roadmap 0-mask claims or bulk FinFET NVM.
+
+- [FND-SEC-2019-28FDS: Samsung Foundry: 28FDS eMRAM commercial production announcement](https://news.samsung.com/global/)
+
+### 2019 · Intel Foundry · STT-MRAM · 22FFL (22nm FinFET)
+
+Production-ready: IEDM 2018/2019 publications describe 22FFL embedded STT-MRAM approaching production readiness.
+
+Limitations: Evidence centers on 22FFL test vehicles; not an open PDK for every customer.
+
+- [FND-INTC-2018-22FFL: Intel Foundry: 22FFL embedded STT-MRAM (IEDM 2018)](https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html)
+
+### 2024 · Samsung Foundry · Next-gen eMRAM / MBCFET GAA · SF3 / SF2
+
+Roadmap / R&D: Samsung Foundry Forum materials discuss advanced-node eMRAM direction alongside MBCFET logic roadmaps.
+
+Limitations: SF3/SF2 logic announcements do not by themselves prove shipped eMRAM macros; separate NVM milestones required.
+
+- [FND-SEC-2024-MBCFET: Samsung Foundry: SF3 / SF2 MBCFET advanced nodes and next-gen eMRAM roadmap](https://semiconductor.samsung.com/foundry/process-technology/)
+
+### 2024 · Intel Foundry · 18A RibbonFET + embedded NVM ecosystem · 18A
+
+Production preparation: Intel Foundry Direct Connect 2024 describes 18A production preparation, PowerVia BSPDN, and embedded IP ecosystem goals.
+
+Limitations: RibbonFET/PowerVia logic progress does not automatically prove native AntiFuse, eMRAM, or FeFET NVM at named nodes.
+
+- [FND-INTC-2024-18A: Intel Foundry: 18A RibbonFET and PowerVia BSPDN roadmap](https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html)
+
 ## Comparison Examples
 
 ### Infineon CY15B104QSN, 4 Mb EXCELON Ultra F-RAM
@@ -6225,6 +6257,10 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [FND-TSMC-SYMP-2025: TSMC 2025 North America Technology Symposium Press Release](https://pr.tsmc.com/system/files/newspdf/attachment/167c59998c7117f14c13647c8e46a6b20a43316c/2025%20Tech%20Symposium%20%28E%29_Final_wmn.pdf). Official Annual Technology Symposium Press Release; 2025-04-23; Accessed 2026-09-10; Location in the Source: Three-page public press release; Limitations: The main release contains no complete MRAM/RRAM timeline suitable for verification. Unobtained internal symposium pages are not used to invent completion dates.
 - [FND-TSMC-SYMP-2026: TSMC 2026 North America Technology Symposium Press Release and Public Video Portal](https://pr.tsmc.com/english/news/3302). Official Annual Technology Symposium Press Release; 2026-04-23; Accessed 2026-09-10; Location in the Source: The US event took place on 2026-04-22; press release and technology highlights; Limitations: The public release does not provide a complete MRAM/RRAM roadmap. A presentation uploaded by a third party is not treated as an official version.
 - [FND-TSMC-SYMP-ACCESS: TSMC 2026 Technology Symposium Public Video Portal](https://www.tsmc.com/english/symposium_highlights/2026). Official Conference Portal; 2026; Accessed 2026-09-10; Location in the Source: Access instructions for the full on-demand videos; Limitations: This review did not obtain invitation-only conference content and cannot claim to have checked the complete internal roadmap.
+- [FND-SEC-2019-28FDS: Samsung Foundry: 28FDS eMRAM commercial production announcement](https://news.samsung.com/global/). Vendor official press release; 2019-03-06; Accessed 2026-09-10; Location in the Source: 28FDS eMRAM commercial shipment and reliability section; Limitations: 28FDS-specific platform; extensions to 14FDS and 8nm automotive/radio require separate macro qualification.
+- [FND-SEC-2024-MBCFET: Samsung Foundry: SF3 / SF2 MBCFET advanced nodes and next-gen eMRAM roadmap](https://semiconductor.samsung.com/foundry/process-technology/). Vendor technology forum and product brief; 2024-06-12; Accessed 2026-09-10; Location in the Source: SFF 2024 MBCFET GAA and advanced embedded NVM planning; Limitations: SF3/SF2 eMRAM remains in R&D/validation targets — not declared volume production.
+- [FND-INTC-2018-22FFL: Intel Foundry: 22FFL embedded STT-MRAM (IEDM 2018)](https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html). Conference paper and official release; 2018-12-03; Accessed 2026-09-10; Location in the Source: IEDM 2018 paper 13.3, 22FFL STT-MRAM cell and reliability; Limitations: 22FFL low-power FinFET specialty process; metrics depend on ECC and temperature.
+- [FND-INTC-2024-18A: Intel Foundry: 18A RibbonFET and PowerVia BSPDN roadmap](https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html). Vendor official event release; 2024-02-21; Accessed 2026-09-10; Location in the Source: IFDC 2024 18A production plan, PowerVia back-side power, embedded IP ecosystem; Limitations: 18A enters production preparation in 2024–2025; forward eNVM/MRAM still in R&D validation.
 - [ip-neobit: NeoBit Technical Principles](https://www.ememory.com.tw/en-US/Products/OTP/NeoBit). Primary Technical Source; Undated; checked 2026-09-10; Location in the Source: Technical Principles; Limitations: Current product principle; full biases and layout are not disclosed.
 - [ip-neobit-pat: Historical NeoBit Charge-Retention Patent](https://patents.google.com/patent/US6914825B2/en). Public Patent; 2005-07-05; Location in the Source: Figures 2(a), 2(b), 6; claims 1, 4; Limitations: Historical p+ floating-gate model linked by 2005 company news; not every current process.
 - [ip-neobit-link: Official NeoBit-to-Patent Link](https://www.ememory.com.tw/en-US/News/News?guid=19081915004414). Primary Technical Source; 2005-10-04; Location in the Source: Second body paragraph: patent title and inventors; Limitations: Direct historical association between NeoBit and the named patent.
@@ -6382,11 +6418,11 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [RRAM-INTRINSIC-SURECORE: Intrinsic/sureCore · SiOx RRAM](https://www.intrinsicsemi.com/). Primary official source; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: The collaboration does not establish qualification or mass production of a named process macro; the site does not provide a complete orderable part and datasheet proving current supply.
 - [NRAM-NANTERO-FUJITSU-2016: Nantero/Fujitsu Semiconductor/Mie Fujitsu Semiconductor · Carbon-Nanotube NRAM](https://info.archives.global.fujitsu/global/about/resources/news/press-releases/2016/). Primary official source; 2016-08-31; Accessed 2026-09-10; Location in the Source: Official body; NRAM uses the August 2016 archive entry; Limitations: This historical development evidence establishes neither 2026 production and availability nor program termination; NRAM should be classified separately from oxide RRAM.
 - [RES-PUFSEC-HROT-2025: PUFsecurity: NeoPUF & PUFcc Hardware Root of Trust Technical Whitepaper](https://www.pufsecurity.com/pufcc). Vendor Official Whitepaper; 2025-06; Accessed 2026-09-17; Location in the Source: Architecture and Qualification Sections; Limitations: Applies to named PUFcc/PUFiot architectures; specific macro areas and latencies track process PDK datasheets.
-- [RES-TOWER-YFLASH-2024: Tower Semiconductor: Y-Flash 0-Mask Embedded Flash Technology Brief](https://towersemi.com/technology/power-management/). Foundry Process Platform Document; 2024-11; Accessed 2026-09-17; Location in the Source: Power Management & Embedded NVM Section; Limitations: Single-poly architecture is optimized for low-to-medium densities (1Kb-512Kb) in high-voltage PMICs and automotive trims, not mass storage.
-- [RES-WEEBIT-RERAM-2025: Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper](https://www.weebit-nano.com/reram-technology/). Supplier technical specification & foundry qualification; 2025-06-01; Location in the Source: Official technology page and SkyWater / DB HiTek commercial foundry qualification notices; Limitations: Confirms silicon qualification on 130nm CMOS and 130nm BCD with high-temperature automotive testing; 22FDX under development; analog neuromorphic CIM is in early commercial evaluation.
-- [RES-EVERSPIN-PLP-2025: Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note](https://www.everspin.com/storage-accelerators-and-raid). Supplier application note; 2025-04-15; Location in the Source: Official enterprise storage accelerator and RAID/SSD power loss protection architecture brief; Limitations: Confirms commercial shipment of STT-MRAM for NVMe write journaling and supercap-free PLP architectures; requires dedicated controller or interface bridge.
+- [RES-TOWER-YFLASH-2024: Tower Semiconductor: Y-Flash 0-Mask Embedded Flash Technology Brief](https://towersemi.com/technology/non-volatile-memory-nvm/). Foundry Process Platform Document; 2024-11; Accessed 2026-09-17; Location in the Source: Power Management & Embedded NVM Section; Limitations: Single-poly cells suit low-to-mid density PMIC/BMS trim; cite CHE/BBT per Tower primary sources, not FN/FN.
+- [RES-WEEBIT-RERAM-2025: Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/). Supplier technical specification & foundry qualification; 2025-06-01; Location in the Source: Official technology page and SkyWater / DB HiTek commercial foundry qualification notices; Limitations: DB HiTek 130nm qualified IP; SkyWater 130nm and GF 22FDX are platform/evaluation stages — customer production needs named evidence.
+- [RES-EVERSPIN-PLP-2025: Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note](https://www.everspin.com/products). Supplier application note; 2025-04-15; Location in the Source: Official enterprise storage accelerator and RAID/SSD power loss protection architecture brief; Limitations: Confirms commercial shipment of STT-MRAM for NVMe write journaling and supercap-free PLP architectures; requires dedicated controller or interface bridge.
 - [RES-INFINEON-TC4X-2024: Infineon Technologies: AURIX™ TC4x Automotive MCU & TSMC 28nm eRRAM Architecture Manual](https://www.infineon.com/aurix-tc4x). Microcontroller architecture manual; 2024-11-20; Location in the Source: Official product manual and automotive ASIL-D embedded memory roadmap chapter; Limitations: Confirms TC4x adoption of TSMC 28nm eRRAM overcoming eFlash scaling limits with 100K cycles and zero-wait random access; specific to flagship automotive MCUs.
-- [RES-ST-STELLAR-PCM-2024: STMicroelectronics: Stellar 32-Bit Automotive MCU Embedded Phase-Change Memory (28nm FD-SOI ePCM) Whitepaper](https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html). Automotive silicon technical whitepaper; 2024-09-18; Location in the Source: Official automotive MCU and 28nm FD-SOI embedded PCM architecture release; Limitations: Confirms 28nm FD-SOI integration of ePCM enabling zero-downtime OTA (dual-bank instant swap) and 165°C retention; phase-change material is Ge2Sb2Te5 (GST).
+- [RES-ST-STELLAR-PCM-2024: STMicroelectronics: Stellar 32-Bit Automotive MCU Embedded Phase-Change Memory (28nm FD-SOI ePCM) Whitepaper](https://www.st.com/content/st_com/en/about/innovation-and-technology/pcm.html). Automotive silicon technical whitepaper; 2024-09-18; Location in the Source: Official automotive MCU and 28nm FD-SOI embedded PCM architecture release; Limitations: Confirms 28nm FD-SOI integration of ePCM enabling zero-downtime OTA (dual-bank instant swap) and 165°C retention; phase-change material is Ge2Sb2Te5 (GST).
 - [RES-INTRINSICID-QUIDDIKEY-2025: Intrinsic ID: Quiddikey Silicon Hardware Root of Trust (SRAM PUF + Fuzzy Extractor) Technical Whitepaper](https://www.intrinsic-id.com/products/quiddikey/). Security Technical Whitepaper; 2025-05-12; Location in the Source: Official SRAM PUF Key Reconstruction & Zero-Factory-Provisioning Architecture Whitepaper; Limitations: Extracts root keys dynamically from native 6T SRAM power-up mismatch; pairs with public Helper Data (Activation Code) and BCH ECC; zero key material at rest, zero factory provisioning.
 - [RES-SYNOPSYS-TROOT-2024: Synopsys: DesignWare tRoot™ Hardware Secure Module (HSM) & 1T AntiFuse Security Subsystem Manual](https://www.synopsys.com/designware-ip/security-ip.html). Product Specification Manual; 2024-11-20; Location in the Source: Official Hardware Secure Module and Secure Boot Architecture Announcement; Limitations: Integrates isolated secure RISC-V/ARC processor core, hardware crypto accelerator, TRNG, and 1T Split-Channel AntiFuse OTP; compliant with PSA Certified Level 3.
 - [RES-RAMBUS-CRYPTOMANAGER-2025: Rambus: CryptoManager™ Root of Trust & PCIe/CXL SPDM 1.3 Device Attestation Whitepaper](https://www.rambus.com/security/root-of-trust/). Enterprise Security Whitepaper; 2025-02-18; Location in the Source: Official PCIe/CXL IDE & Silicon Root of Trust Lifecycle Architecture; Limitations: Hardware acceleration of DMTF SPDM 1.2/1.3 device attestation and line-rate PCIe/CXL IDE (AES-GCM) encryption, bridging Foundry, OSAT, and cloud CSP certificate lifecycles.
@@ -9167,27 +9203,27 @@ Relies on standard logic CMOS tunneling physics; zero physical charge storage pr
 
 ### Tower Semiconductor · Y-Flash 0-Mask eFlash / MTP
 
-Specialty Analog & High-Voltage BCD Foundry · Volume Production on 0.18um & 65nm BCD; Automotive 150°C–175°C AEC-Q100 Grade 0
+Specialty Analog & High-Voltage BCD Foundry · 0.18µm and 65nm BCD platforms are public; vendor briefs mention Grade 0 retention narratives, but ambient Ta and junction Tj test conditions must be cited separately — do not equate 175°C with blanket certification.
 
-Utilizes single-poly floating-gate topology with FN/FN tunneling requiring 0 additional mask adders; natively integrates with high-voltage BCD and power management platforms, delivering 1K–10K endurance and high-temperature retention without degrading LDMOS breakdown voltage.
+Single-poly floating gate; per Tower's public NVM brief and arXiv:2202.10228, program uses channel hot-electron injection (CHE) and erase uses band-to-band-tunneling (BBT) holes — not FN/FN. Zero mask adders integrate with Tower HV BCD/power platforms; public briefs cite 1K–10K endurance and high-temperature retention; name Ta, Tj, and AEC-Q100 qualification per product.
 
 Single-poly footprint yields larger cell size, targeting 1Kb–512Kb high-voltage PMIC trim, battery management (BMS), and gate drivers rather than high-density code storage.
 
 2024–2026 Volume Production Specification
 
-- [RES-TOWER-YFLASH-2024: Tower Semiconductor: Y-Flash 0-Mask Embedded Flash Technology Brief](https://towersemi.com/technology/power-management/)
+- [RES-TOWER-YFLASH-2024: Tower Semiconductor: Y-Flash 0-Mask Embedded Flash Technology Brief](https://towersemi.com/technology/non-volatile-memory-nvm/)
 
-### Weebit Nano · Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM
+### Weebit Nano · Embedded ReRAM (OxRAM) & analog CIM research
 
-Independent embedded ReRAM IP and neuromorphic AI inference provider · Qualified on SkyWater 130nm & DB HiTek 130nm BCD; GlobalFoundries 22FDX in development
+Independent embedded ReRAM IP and neuromorphic AI inference provider · DB HiTek 130nm qualified IP; SkyWater 130nm and GF 22FDX are platform/evaluation stages — customer production needs named evidence.
 
-Features metal-oxide (HfO2/TiN) switching filaments with only 2 BEOL mask adders and automotive 150°C retention; supports multi-level analog conductance for analog Computing-in-Memory (CIM) matrix operations.
+Public OxRAM route centers on SiOx active layers (e.g., IMW 2019 samples with TiN bottom / Ti top electrodes). DB HiTek 130nm offers a qualified IP macro (2 masks, 10K cycles, 125°C retention under named conditions). SkyWater 130nm and GF 22FDX are distinct platform stages; analog CIM studies and customer production must not be merged into one spec sheet.
 
 Commercial production focused on 130nm mature and specialty BCD nodes; advanced FD-SOI nodes (22nm) undergoing silicon tapeout; analog CIM subject to thermal drift requiring digital calibration.
 
 2024–2026 foundry qualification & whitepaper
 
-- [RES-WEEBIT-RERAM-2025: Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper](https://www.weebit-nano.com/reram-technology/)
+- [RES-WEEBIT-RERAM-2025: Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper](https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/)
 
 ### Everspin Technologies (Enterprise PLP) · Enterprise STT-MRAM & Data Center Power Loss Protection (PLP)
 
@@ -9199,7 +9235,7 @@ Higher per-bit cost than DRAM and NAND; optimized as persistent cache and write-
 
 2024–2026 production specification
 
-- [RES-EVERSPIN-PLP-2025: Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note](https://www.everspin.com/storage-accelerators-and-raid)
+- [RES-EVERSPIN-PLP-2025: Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note](https://www.everspin.com/products)
 - [everspin-1gb-ddr: Everspin 1Gb STT-MRAM · STT-MRAM / DDR4-derived](https://www.sec.gov/Archives/edgar/data/1438423/000162828026014733/mram-20251231.htm)
 
 ### Intrinsic ID (Quiddikey) · SRAM PUF Root of Trust & Key Provisioning-Free Enclave
@@ -9216,9 +9252,9 @@ Requires volatile SRAM reconstruction at boot; working keys require runtime DPA 
 
 ### Synopsys (DesignWare tRoot™ HSM) · Hardware Secure Module & AntiFuse Integrated Enclave
 
-Silicon Security Subsystem & Physical IP Provider · Broad global deployment; qualified for automotive ASIL-D, CC EAL4+, and PSA Certified Level 3
+Silicon Security Subsystem & Physical IP Provider · Widely deployed narrative; Synopsys public pages list the Automotive HSM as ASIL-B and OTP NVM separately as ASIL-D — do not merge into one “tRoot ASIL-D” or CC/PSA bundle certification.
 
-Isolates security operations from host CPU software vulnerabilities; tightly integrates 1T Split-Channel AntiFuse OTP for UID and Root-of-Trust Public Key (ROTPK) storage; delivers Secure Boot and key wrapping.
+HSM subsystem integrating a security processor with AntiFuse OTP; public features include secure boot, key wrapping, and rollback interfaces — named crypto modes, timing, and PSA/CC bundles require product documentation; do not port portfolio peak tiers.
 
 Subsystem-level IP requiring dedicated silicon area, memory protection units, and secure debug infrastructure.
 

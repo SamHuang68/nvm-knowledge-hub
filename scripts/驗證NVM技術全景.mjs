@@ -2,11 +2,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
+import { startTestServer } from './驗證伺服器.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const output = path.join(root, 'qa', 'NVM技術全景_20260910');
 fs.mkdirSync(output, { recursive: true });
-const base = 'http://127.0.0.1:8765/NVM技術全景中文.html?lang=zh';
+const server = await startTestServer(root);
+const base = `${server.base}NVM技術全景中文.html?lang=zh`;
 const data = JSON.parse(fs.readFileSync(path.join(root, 'data', 'NVM知識資料.json'), 'utf8'));
 const failures = [];
 const audits = [];
@@ -131,4 +133,7 @@ try {
     console.error(`NVM 網站檢查未通過：${failures.length} 項\n${JSON.stringify(failures.slice(0,30),null,2)}`);
     process.exitCode=1;
   } else console.log(`通過：${audits.length} 組路由／寬度檢查、十六個技術與 IP 專題、來源與專利深層連結、搜尋篩選、操作切換、手機目錄、重新載入、返回、無 JavaScript 與列印可讀性。`);
-} finally { await browser.close(); }
+} finally {
+  await browser.close();
+  await server.close();
+}

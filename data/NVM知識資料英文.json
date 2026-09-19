@@ -3219,6 +3219,54 @@
         "evidence": "Official text reviewed",
         "limit": "This review did not obtain invitation-only conference content and cannot claim to have checked the complete internal roadmap.",
         "accessedAt": "2026-09-10"
+      },
+      {
+        "id": "FND-SEC-2019-28FDS",
+        "label": "Samsung Foundry: 28FDS eMRAM commercial production announcement",
+        "url": "https://news.samsung.com/global/",
+        "kind": "Vendor official press release",
+        "date": "2019-03-06",
+        "locator": "28FDS eMRAM commercial shipment and reliability section",
+        "claim": "Samsung announced commercial shipment of 28nm FD-SOI embedded MRAM with faster writes and lower power versus eFlash alternatives.",
+        "evidence": "Full official press release reviewed",
+        "limit": "28FDS-specific platform; extensions to 14FDS and 8nm automotive/radio require separate macro qualification.",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "id": "FND-SEC-2024-MBCFET",
+        "label": "Samsung Foundry: SF3 / SF2 MBCFET advanced nodes and next-gen eMRAM roadmap",
+        "url": "https://semiconductor.samsung.com/foundry/process-technology/",
+        "kind": "Vendor technology forum and product brief",
+        "date": "2024-06-12",
+        "locator": "SFF 2024 MBCFET GAA and advanced embedded NVM planning",
+        "claim": "Samsung publicly discusses SF3/SF2 GAA platforms with advanced embedded eMRAM development goals for automotive HPC and edge AI.",
+        "evidence": "Official technology forum summary reviewed",
+        "limit": "SF3/SF2 eMRAM remains in R&D/validation targets — not declared volume production.",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "id": "FND-INTC-2018-22FFL",
+        "label": "Intel Foundry: 22FFL embedded STT-MRAM (IEDM 2018)",
+        "url": "https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html",
+        "kind": "Conference paper and official release",
+        "date": "2018-12-03",
+        "locator": "IEDM 2018 paper 13.3, 22FFL STT-MRAM cell and reliability",
+        "claim": "Intel published 22FFL FinFET embedded STT-MRAM with 0.0446 µm² cell, 10^6 endurance, 200°C retention, and 1E-9 BER under named ECC conditions.",
+        "evidence": "IEDM paper and official release reviewed",
+        "limit": "22FFL low-power FinFET specialty process; metrics depend on ECC and temperature.",
+        "accessedAt": "2026-09-10"
+      },
+      {
+        "id": "FND-INTC-2024-18A",
+        "label": "Intel Foundry: 18A RibbonFET and PowerVia BSPDN roadmap",
+        "url": "https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html",
+        "kind": "Vendor official event release",
+        "date": "2024-02-21",
+        "locator": "IFDC 2024 18A production plan, PowerVia back-side power, embedded IP ecosystem",
+        "claim": "Intel 18A integrates RibbonFET GAA with PowerVia BSPDN for next-gen dense embedded memory and logic AntiFuse OTP key cells.",
+        "evidence": "Official release and technical brief reviewed",
+        "limit": "18A enters production preparation in 2024–2025; forward eNVM/MRAM still in R&D validation.",
+        "accessedAt": "2026-09-10"
       }
     ],
     "annualForumCoverage": [
@@ -3677,6 +3725,58 @@
         "limit": "Controller and processor integration evidence does not establish named customer volume shipments.",
         "sourceIds": [
           "RES-FARADAY-RRAM-2025"
+        ]
+      },
+      {
+        "id": "SEC-2019",
+        "year": 2019,
+        "foundry": "Samsung Foundry",
+        "technology": "eMRAM",
+        "node": "28FDS (28nm FD-SOI)",
+        "stage": "Volume production",
+        "claim": "Samsung announced commercial shipment of 28nm FD-SOI embedded MRAM.",
+        "limit": "FD-SOI platform with BEOL adders; do not equate with logic-roadmap 0-mask claims or bulk FinFET NVM.",
+        "sourceIds": [
+          "FND-SEC-2019-28FDS"
+        ]
+      },
+      {
+        "id": "INTC-2019",
+        "year": 2019,
+        "foundry": "Intel Foundry",
+        "technology": "STT-MRAM",
+        "node": "22FFL (22nm FinFET)",
+        "stage": "Production-ready",
+        "claim": "IEDM 2018/2019 publications describe 22FFL embedded STT-MRAM approaching production readiness.",
+        "limit": "Evidence centers on 22FFL test vehicles; not an open PDK for every customer.",
+        "sourceIds": [
+          "FND-INTC-2018-22FFL"
+        ]
+      },
+      {
+        "id": "SEC-2024",
+        "year": 2024,
+        "foundry": "Samsung Foundry",
+        "technology": "Next-gen eMRAM / MBCFET GAA",
+        "node": "SF3 / SF2",
+        "stage": "Roadmap / R&D",
+        "claim": "Samsung Foundry Forum materials discuss advanced-node eMRAM direction alongside MBCFET logic roadmaps.",
+        "limit": "SF3/SF2 logic announcements do not by themselves prove shipped eMRAM macros; separate NVM milestones required.",
+        "sourceIds": [
+          "FND-SEC-2024-MBCFET"
+        ]
+      },
+      {
+        "id": "INTC-2024",
+        "year": 2024,
+        "foundry": "Intel Foundry",
+        "technology": "18A RibbonFET + embedded NVM ecosystem",
+        "node": "18A",
+        "stage": "Production preparation",
+        "claim": "Intel Foundry Direct Connect 2024 describes 18A production preparation, PowerVia BSPDN, and embedded IP ecosystem goals.",
+        "limit": "RibbonFET/PowerVia logic progress does not automatically prove native AntiFuse, eMRAM, or FeFET NVM at named nodes.",
+        "sourceIds": [
+          "FND-INTC-2024-18A"
         ]
       }
     ],
@@ -5066,28 +5166,28 @@
       {
         "id": "RES-TOWER-YFLASH-2024",
         "label": "Tower Semiconductor: Y-Flash 0-Mask Embedded Flash Technology Brief",
-        "url": "https://towersemi.com/technology/power-management/",
+        "url": "https://towersemi.com/technology/non-volatile-memory-nvm/",
         "kind": "Foundry Process Platform Document",
         "date": "2024-11",
         "locator": "Power Management & Embedded NVM Section",
-        "claim": "Y-Flash is Tower's proprietary zero-mask-adder embedded Flash/MTP solution for 0.18um and 65nm BCD power platforms, qualified up to 150°C-175°C AEC-Q100 Grade 0 automotive standards.",
+        "claim": "Single-poly floating gate; per Tower's public NVM brief and arXiv:2202.10228, program uses channel hot-electron injection (CHE) and erase uses band-to-band-tunneling (BBT) holes — not FN/FN. Zero mask adders integrate with Tower HV BCD/power platforms; public briefs cite 1K–10K endurance and high-temperature retention; name Ta, Tj, and AEC-Q100 qualification per product.",
         "evidence": "Verified foundry technology briefs",
-        "limit": "Single-poly architecture is optimized for low-to-medium densities (1Kb-512Kb) in high-voltage PMICs and automotive trims, not mass storage.",
+        "limit": "Single-poly cells suit low-to-mid density PMIC/BMS trim; cite CHE/BBT per Tower primary sources, not FN/FN.",
         "accessedAt": "2026-09-17"
       },
       {
         "id": "RES-WEEBIT-RERAM-2025",
         "label": "Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper",
-        "url": "https://www.weebit-nano.com/reram-technology/",
+        "url": "https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/",
         "locator": "Official technology page and SkyWater / DB HiTek commercial foundry qualification notices",
         "kind": "Supplier technical specification & foundry qualification",
         "date": "2025-06-01",
-        "limit": "Confirms silicon qualification on 130nm CMOS and 130nm BCD with high-temperature automotive testing; 22FDX under development; analog neuromorphic CIM is in early commercial evaluation."
+        "limit": "DB HiTek 130nm qualified IP; SkyWater 130nm and GF 22FDX are platform/evaluation stages — customer production needs named evidence."
       },
       {
         "id": "RES-EVERSPIN-PLP-2025",
         "label": "Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note",
-        "url": "https://www.everspin.com/storage-accelerators-and-raid",
+        "url": "https://www.everspin.com/products",
         "locator": "Official enterprise storage accelerator and RAID/SSD power loss protection architecture brief",
         "kind": "Supplier application note",
         "date": "2025-04-15",
@@ -5105,7 +5205,7 @@
       {
         "id": "RES-ST-STELLAR-PCM-2024",
         "label": "STMicroelectronics: Stellar 32-Bit Automotive MCU Embedded Phase-Change Memory (28nm FD-SOI ePCM) Whitepaper",
-        "url": "https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html",
+        "url": "https://www.st.com/content/st_com/en/about/innovation-and-technology/pcm.html",
         "locator": "Official automotive MCU and 28nm FD-SOI embedded PCM architecture release",
         "kind": "Automotive silicon technical whitepaper",
         "date": "2024-09-18",
@@ -6368,8 +6468,8 @@
         "technology": "Y-Flash 0-Mask eFlash / MTP",
         "family": "NOR / eFlash / SONOS",
         "role": "Specialty Analog & High-Voltage BCD Foundry",
-        "maturity": "Volume Production on 0.18um & 65nm BCD; Automotive 150°C–175°C AEC-Q100 Grade 0",
-        "claim": "Utilizes single-poly floating-gate topology with FN/FN tunneling requiring 0 additional mask adders; natively integrates with high-voltage BCD and power management platforms, delivering 1K–10K endurance and high-temperature retention without degrading LDMOS breakdown voltage.",
+        "maturity": "0.18µm and 65nm BCD platforms are public; vendor briefs mention Grade 0 retention narratives, but ambient Ta and junction Tj test conditions must be cited separately — do not equate 175°C with blanket certification.",
+        "claim": "Single-poly floating gate; per Tower's public NVM brief and arXiv:2202.10228, program uses channel hot-electron injection (CHE) and erase uses band-to-band-tunneling (BBT) holes — not FN/FN. Zero mask adders integrate with Tower HV BCD/power platforms; public briefs cite 1K–10K endurance and high-temperature retention; name Ta, Tj, and AEC-Q100 qualification per product.",
         "limit": "Single-poly footprint yields larger cell size, targeting 1Kb–512Kb high-voltage PMIC trim, battery management (BMS), and gate drivers rather than high-density code storage.",
         "dateLabel": "2024–2026 Volume Production Specification",
         "search": "Tower Semiconductor Y-Flash eFlash MTP BCD 0-Mask 175C Grade 0 PMIC",
@@ -6381,11 +6481,11 @@
       {
         "id": "weebit-reram-cim",
         "name": "Weebit Nano",
-        "technology": "Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM",
+        "technology": "Embedded ReRAM (OxRAM) & analog CIM research",
         "family": "ReRAM / OxRAM",
         "role": "Independent embedded ReRAM IP and neuromorphic AI inference provider",
-        "maturity": "Qualified on SkyWater 130nm & DB HiTek 130nm BCD; GlobalFoundries 22FDX in development",
-        "claim": "Features metal-oxide (HfO2/TiN) switching filaments with only 2 BEOL mask adders and automotive 150°C retention; supports multi-level analog conductance for analog Computing-in-Memory (CIM) matrix operations.",
+        "maturity": "DB HiTek 130nm qualified IP; SkyWater 130nm and GF 22FDX are platform/evaluation stages — customer production needs named evidence.",
+        "claim": "Public OxRAM route centers on SiOx active layers (e.g., IMW 2019 samples with TiN bottom / Ti top electrodes). DB HiTek 130nm offers a qualified IP macro (2 masks, 10K cycles, 125°C retention under named conditions). SkyWater 130nm and GF 22FDX are distinct platform stages; analog CIM studies and customer production must not be merged into one spec sheet.",
         "limit": "Commercial production focused on 130nm mature and specialty BCD nodes; advanced FD-SOI nodes (22nm) undergoing silicon tapeout; analog CIM subject to thermal drift requiring digital calibration.",
         "dateLabel": "2024–2026 foundry qualification & whitepaper",
         "search": "Weebit Nano Embedded ReRAM OxRAM CIM Neuromorphic SkyWater DB HiTek GF 22FDX Analog Computing-in-Memory",
@@ -6433,8 +6533,8 @@
         "technology": "Hardware Secure Module & AntiFuse Integrated Enclave",
         "family": "AntiFuse",
         "role": "Silicon Security Subsystem & Physical IP Provider",
-        "maturity": "Broad global deployment; qualified for automotive ASIL-D, CC EAL4+, and PSA Certified Level 3",
-        "claim": "Isolates security operations from host CPU software vulnerabilities; tightly integrates 1T Split-Channel AntiFuse OTP for UID and Root-of-Trust Public Key (ROTPK) storage; delivers Secure Boot and key wrapping.",
+        "maturity": "Widely deployed narrative; Synopsys public pages list the Automotive HSM as ASIL-B and OTP NVM separately as ASIL-D — do not merge into one “tRoot ASIL-D” or CC/PSA bundle certification.",
+        "claim": "HSM subsystem integrating a security processor with AntiFuse OTP; public features include secure boot, key wrapping, and rollback interfaces — named crypto modes, timing, and PSA/CC bundles require product documentation; do not port portfolio peak tiers.",
         "limit": "Subsystem-level IP requiring dedicated silicon area, memory protection units, and secure debug infrastructure.",
         "dateLabel": "2024–2026 Product Manual",
         "search": "Synopsys tRoot HSM Hardware Secure Module 1T AntiFuse Secure Boot PSA Certified Level 3 Security Subsystem",
@@ -7696,6 +7796,54 @@
       "claim": "Public highlights and full conference videos are separate; full on-demand access requires an invitation.",
       "evidence": "Official text reviewed",
       "limit": "This review did not obtain invitation-only conference content and cannot claim to have checked the complete internal roadmap.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-SEC-2019-28FDS",
+      "label": "Samsung Foundry: 28FDS eMRAM commercial production announcement",
+      "url": "https://news.samsung.com/global/",
+      "kind": "Vendor official press release",
+      "date": "2019-03-06",
+      "locator": "28FDS eMRAM commercial shipment and reliability section",
+      "claim": "Samsung announced commercial shipment of 28nm FD-SOI embedded MRAM with faster writes and lower power versus eFlash alternatives.",
+      "evidence": "Full official press release reviewed",
+      "limit": "28FDS-specific platform; extensions to 14FDS and 8nm automotive/radio require separate macro qualification.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-SEC-2024-MBCFET",
+      "label": "Samsung Foundry: SF3 / SF2 MBCFET advanced nodes and next-gen eMRAM roadmap",
+      "url": "https://semiconductor.samsung.com/foundry/process-technology/",
+      "kind": "Vendor technology forum and product brief",
+      "date": "2024-06-12",
+      "locator": "SFF 2024 MBCFET GAA and advanced embedded NVM planning",
+      "claim": "Samsung publicly discusses SF3/SF2 GAA platforms with advanced embedded eMRAM development goals for automotive HPC and edge AI.",
+      "evidence": "Official technology forum summary reviewed",
+      "limit": "SF3/SF2 eMRAM remains in R&D/validation targets — not declared volume production.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-INTC-2018-22FFL",
+      "label": "Intel Foundry: 22FFL embedded STT-MRAM (IEDM 2018)",
+      "url": "https://www.intel.com/content/www/us/en/newsroom/news/intel-showcases-technologies-iedm-2018.html",
+      "kind": "Conference paper and official release",
+      "date": "2018-12-03",
+      "locator": "IEDM 2018 paper 13.3, 22FFL STT-MRAM cell and reliability",
+      "claim": "Intel published 22FFL FinFET embedded STT-MRAM with 0.0446 µm² cell, 10^6 endurance, 200°C retention, and 1E-9 BER under named ECC conditions.",
+      "evidence": "IEDM paper and official release reviewed",
+      "limit": "22FFL low-power FinFET specialty process; metrics depend on ECC and temperature.",
+      "accessedAt": "2026-09-10"
+    },
+    {
+      "id": "FND-INTC-2024-18A",
+      "label": "Intel Foundry: 18A RibbonFET and PowerVia BSPDN roadmap",
+      "url": "https://www.intel.com/content/www/us/en/newsroom/news/intel-foundry-direct-connect-2024.html",
+      "kind": "Vendor official event release",
+      "date": "2024-02-21",
+      "locator": "IFDC 2024 18A production plan, PowerVia back-side power, embedded IP ecosystem",
+      "claim": "Intel 18A integrates RibbonFET GAA with PowerVia BSPDN for next-gen dense embedded memory and logic AntiFuse OTP key cells.",
+      "evidence": "Official release and technical brief reviewed",
+      "limit": "18A enters production preparation in 2024–2025; forward eNVM/MRAM still in R&D validation.",
       "accessedAt": "2026-09-10"
     },
     {
@@ -9331,28 +9479,28 @@
     {
       "id": "RES-TOWER-YFLASH-2024",
       "label": "Tower Semiconductor: Y-Flash 0-Mask Embedded Flash Technology Brief",
-      "url": "https://towersemi.com/technology/power-management/",
+      "url": "https://towersemi.com/technology/non-volatile-memory-nvm/",
       "kind": "Foundry Process Platform Document",
       "date": "2024-11",
       "locator": "Power Management & Embedded NVM Section",
-      "claim": "Y-Flash is Tower's proprietary zero-mask-adder embedded Flash/MTP solution for 0.18um and 65nm BCD power platforms, qualified up to 150°C-175°C AEC-Q100 Grade 0 automotive standards.",
+      "claim": "Single-poly floating gate; per Tower's public NVM brief and arXiv:2202.10228, program uses channel hot-electron injection (CHE) and erase uses band-to-band-tunneling (BBT) holes — not FN/FN. Zero mask adders integrate with Tower HV BCD/power platforms; public briefs cite 1K–10K endurance and high-temperature retention; name Ta, Tj, and AEC-Q100 qualification per product.",
       "evidence": "Verified foundry technology briefs",
-      "limit": "Single-poly architecture is optimized for low-to-medium densities (1Kb-512Kb) in high-voltage PMICs and automotive trims, not mass storage.",
+      "limit": "Single-poly cells suit low-to-mid density PMIC/BMS trim; cite CHE/BBT per Tower primary sources, not FN/FN.",
       "accessedAt": "2026-09-17"
     },
     {
       "id": "RES-WEEBIT-RERAM-2025",
       "label": "Weebit Nano: Embedded ReRAM IP and Neuromorphic Computing Whitepaper",
-      "url": "https://www.weebit-nano.com/reram-technology/",
+      "url": "https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/",
       "locator": "Official technology page and SkyWater / DB HiTek commercial foundry qualification notices",
       "kind": "Supplier technical specification & foundry qualification",
       "date": "2025-06-01",
-      "limit": "Confirms silicon qualification on 130nm CMOS and 130nm BCD with high-temperature automotive testing; 22FDX under development; analog neuromorphic CIM is in early commercial evaluation."
+      "limit": "DB HiTek 130nm qualified IP; SkyWater 130nm and GF 22FDX are platform/evaluation stages — customer production needs named evidence."
     },
     {
       "id": "RES-EVERSPIN-PLP-2025",
       "label": "Everspin Technologies: Enterprise STT-MRAM Write Buffer & Power Loss Protection (PLP) Application Note",
-      "url": "https://www.everspin.com/storage-accelerators-and-raid",
+      "url": "https://www.everspin.com/products",
       "locator": "Official enterprise storage accelerator and RAID/SSD power loss protection architecture brief",
       "kind": "Supplier application note",
       "date": "2025-04-15",
@@ -9370,7 +9518,7 @@
     {
       "id": "RES-ST-STELLAR-PCM-2024",
       "label": "STMicroelectronics: Stellar 32-Bit Automotive MCU Embedded Phase-Change Memory (28nm FD-SOI ePCM) Whitepaper",
-      "url": "https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html",
+      "url": "https://www.st.com/content/st_com/en/about/innovation-and-technology/pcm.html",
       "locator": "Official automotive MCU and 28nm FD-SOI embedded PCM architecture release",
       "kind": "Automotive silicon technical whitepaper",
       "date": "2024-09-18",

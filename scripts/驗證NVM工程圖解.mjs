@@ -2,9 +2,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { chromium } from 'playwright';
+import {startTestServer} from './驗證伺服器.mjs';
 const root=path.resolve(import.meta.dirname,'..');
 const output=path.join(root,'qa/操作與專利圖解_20260910');fs.mkdirSync(output,{recursive:true});
-const base=process.env.NVM_QA_BASE||'http://127.0.0.1:8765/';
+const server=process.env.NVM_QA_BASE?null:await startTestServer(root);
+const base=process.env.NVM_QA_BASE||server.base;
 const data=JSON.parse(fs.readFileSync(path.join(root,'data/NVM知識資料英文.json'),'utf8'));
 const checks=[],errors=[],failures=[];
 const note=(passed,label,detail={})=>{const result={passed:Boolean(passed),label,...detail};checks.push(result);if(!passed)failures.push(result);};
@@ -93,7 +95,7 @@ try{
   await context.close();
  }
 }catch(error){failures.push({label:'工程圖解驗證流程中斷',message:error.message});}
-finally{await browser.close();}
+finally{await browser.close();if(server)await server.close();}
 function locationSafe(url){return new URL(url);}
 if(errors.length)failures.push({label:'網頁或資源錯誤',errors});
 const report={passed:failures.length===0,base,checkedAt:new Date().toISOString(),operations:data.engineering.operations.length,variants:variantCount,framesPerLanguage:frameCount,patents:19,checks:checks.length,failures,results:checks};

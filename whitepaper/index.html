@@ -525,7 +525,7 @@
     <tr data-profile-id="sram_puf_secure_storage">
       <th scope="row" data-label="STATE PROFILE">
         <strong><span data-lang="en">SRAM PUF Secure Storage</span><span data-lang="zh">SRAM PUF 安全儲存</span></strong>
-        <small><span data-lang="en">Dynamic boot generation + line-speed AES-256-XTS execution + instant zeroization</span><span data-lang="zh">開機時動態產生＋線速 AES-256-XTS 執行＋即時清除</span></small>
+        <small><span data-lang="en">Dynamic boot generation + AES-256 (mode per product docs) + ephemeral key zeroization</span><span data-lang="zh">開機時動態產生＋線速 AES-256-XTS 執行＋即時清除</span></small>
       </th>
       <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">SRAM PUF + 1T OTP + AES-256</span><span data-lang="zh">SRAM PUF + 1T OTP + AES-256</span></span></td>
       <td data-label="STATE CONTRACT"><span data-lang="en">Absent-at-rest; ephemeral root regenerated on-the-fly; encrypted ciphertext in OTP</span><span data-lang="zh">靜態時不保留根金鑰；運作時重新產生暫時性根金鑰；OTP 儲存加密密文</span></td>
@@ -533,13 +533,13 @@
         <span class="security-chip sec-high"><span data-lang="en">None (Monolithic on-die boundary)</span><span data-lang="zh">無（單晶粒內部邊界）</span></span>
       </td>
       <td data-label="LATENCY & BOM">
-        <small><strong>Latency:</strong> <span data-lang="en">Sub-microsecond (&lt;1 µs)</span><span data-lang="zh">次微秒等級 (&lt;1 µs)</span></small><br>
+        <small><strong>Latency:</strong> <span data-lang="en">Architecture-dependent (verify per macro/integration)</span><span data-lang="zh">次微秒等級 (&lt;1 µs)</span></small><br>
         <small><strong>BOM:</strong> <span data-lang="en">Zero mask adder (Standard CMOS)</span><span data-lang="zh">無額外光罩（標準 CMOS）</span></small>
       </td>
       <td data-label="STRONGEST FIT"><span data-lang="en">AI Accelerators, LLM KV Cache cipher, Chiplet D2D Root-of-Trust, Automotive ADAS</span><span data-lang="zh">AI 加速器、LLM KV 快取加密、小晶片晶粒間信任根、車用 ADAS</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip"><span data-lang="en">1.5B+ Devices (Vendor-Aggregated Portfolio Claim) · PSA L3 · SESIP L3 · AEC-Q100 G1</span><span data-lang="zh">1.5B+ 台裝置（供應商彙總的產品組合聲稱）· PSA L3 · SESIP L3 · AEC-Q100 G1</span></span>
+        <span class="status-chip"><span data-lang="en">Portfolio-scale deployment narrative · PSA/SESIP/AEC tiers require named product evidence</span><span data-lang="zh">1.5B+ 台裝置（供應商彙總的產品組合聲稱）· PSA L3 · SESIP L3 · AEC-Q100 G1</span></span>
         <p class="profile-boundary"><span data-lang="en">The 1.5B+ figure is a vendor-aggregated portfolio claim, not shipments of this Secure Storage implementation. Node availability, certifications, latency and the combined architecture require separate product-specific evidence.</span><span data-lang="zh">1.5B+ 為供應商彙總的產品組合聲稱，不代表此安全儲存實作的出貨量。節點可用性、認證、延遲與組合架構，均需另附特定產品證據。</span></p>
 
       </td>

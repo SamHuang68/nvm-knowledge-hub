@@ -3771,7 +3771,7 @@
         "node": "28FDS（28nm FD-SOI）",
         "stage": "量產",
         "claim": "Samsung 正式宣布商用量產 28nm FD-SOI 嵌入式 MRAM，寫入速度比 eFlash 快 1000 倍。",
-        "limit": "專屬 FD-SOI 工藝線，不同於 Bulk CMOS 或 FinFET 結構。",
+        "limit": "28FDS 商用 eMRAM 有公開出貨紀錄，但 BEOL 需額外光罩層；不得寫成 0-Mask Adder，亦不能由 SF3/SF2 邏輯路線直接推出同名 eMRAM 量產。",
         "sourceIds": [
           "FND-SEC-2019-28FDS"
         ]
@@ -3797,7 +3797,7 @@
         "node": "SF3 / SF2（3nm / 2nm MBCFET）",
         "stage": "研發與技術路線規劃",
         "claim": "Samsung Foundry Forum 公布 3nm 與 2nm MBCFET 先進節點整合次世代高密度 eMRAM 之路線圖。",
-        "limit": "屬前瞻路線目標，需解決奈米片閘極熱應力與 BEOL MTJ 磁熱穩定性。",
+        "limit": "SF3/SF2 為邏輯與 GAA 路線公告；eMRAM 仍屬研發／驗證目標，不能等同已量產嵌入式巨集。",
         "sourceIds": [
           "FND-SEC-2024-MBCFET"
         ]
@@ -3806,11 +3806,11 @@
         "id": "INTC-2024",
         "year": 2024,
         "foundry": "Intel Foundry",
-        "technology": "先進 eNVM／AntiFuse OTP／RibbonFET BSPDN",
+        "technology": "18A RibbonFET 與嵌入式 IP 生態",
         "node": "18A（1.8nm RibbonFET + PowerVia）",
         "stage": "生產準備與生態系整合",
-        "claim": "Intel Foundry Direct Connect 發表 18A 進入生產準備，具備 PowerVia 背面供電，支援原生邏輯 AntiFuse OTP 與先進嵌入式記憶體。",
-        "limit": "18A 晶圓廠量產投片進行中；完整通用 eNVM 巨集商業供應仍受認證進度制約。",
+        "claim": "Intel Foundry Direct Connect 2024 描述 18A 進入生產準備、PowerVia 背面供電與嵌入式 IP 生態目標。",
+        "limit": "RibbonFET/PowerVia 邏輯進度不能自動推出具名節點的原生 AntiFuse、eMRAM 或 FeFET NVM 量產。",
         "sourceIds": [
           "FND-INTC-2024-18A"
         ]
@@ -5202,28 +5202,28 @@
       {
         "id": "RES-TOWER-YFLASH-2024",
         "label": "Tower Semiconductor：Y-Flash 0-Mask 嵌入式 Flash 技術規格",
-        "url": "https://towersemi.com/technology/power-management/",
+        "url": "https://towersemi.com/technology/non-volatile-memory-nvm/",
         "kind": "晶圓代工官方製程文件",
         "date": "2024-11",
         "locator": "Power Management & Embedded NVM 節",
-        "claim": "Y-Flash 是 Tower 專為 BCD 與電源管理製程量產開發之 0 額外光罩 (0 Mask Adders) 嵌入式 Flash/MTP 技術，支援 0.18um BCD 與 65nm BCD，耐溫高達 150°C~175°C，滿足 AEC-Q100 Grade 0 車規可靠度。",
+        "claim": "採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為閘極間能帶熱電洞 (BBT)，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。",
         "evidence": "已核讀官方技術規格頁面",
-        "limit": "單層多晶矽結構適合中低容量 (1Kb~512Kb) 之高壓 PMIC 與車用修調，非大容量儲存。",
+        "limit": "單層多晶矽適合中低容量 PMIC/BMS 修調；機制依 Tower 一次來源為 CHE/BBT，非 FN/FN。",
         "accessedAt": "2026-09-17"
       },
       {
         "id": "RES-WEEBIT-RERAM-2025",
         "label": "Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書",
-        "url": "https://www.weebit-nano.com/reram-technology/",
+        "url": "https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/",
         "locator": "官方技術頁與 SkyWater / DB HiTek 商業代工認證公告",
         "kind": "供應商技術規格與代工認證",
         "date": "2025-06-01",
-        "limit": "證明 130nm CMOS 與 130nm BCD 上已取得矽驗證與車規溫度測試，22FDX 開發中；多位元類比神經形態矩陣處於早期商業評估。"
+        "limit": "DB HiTek 130nm qualified IP；SkyWater 130nm 與 GF 22FDX 為平台／評估階段，客戶產品量產需具名佐證。"
       },
       {
         "id": "RES-EVERSPIN-PLP-2025",
         "label": "Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南",
-        "url": "https://www.everspin.com/storage-accelerators-and-raid",
+        "url": "https://www.everspin.com/products",
         "locator": "官方企業級儲存加速器與 RAID/SSD 斷電保護架構方案",
         "kind": "供應商應用技術手冊",
         "date": "2025-04-15",
@@ -5241,7 +5241,7 @@
       {
         "id": "RES-ST-STELLAR-PCM-2024",
         "label": "STMicroelectronics：Stellar 系列 32 位元車用 MCU 嵌入式相變記憶體 (28nm FD-SOI ePCM) 技術白皮書",
-        "url": "https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html",
+        "url": "https://www.st.com/content/st_com/en/about/innovation-and-technology/pcm.html",
         "locator": "官方車用微控制器與 28nm FD-SOI 嵌入式 PCM 架構發布",
         "kind": "車用晶片技術白皮書",
         "date": "2024-09-18",
@@ -6504,8 +6504,8 @@
         "technology": "Y-Flash 0-Mask eFlash / MTP",
         "family": "NOR / eFlash / SONOS",
         "role": "專用類比與高壓 BCD 代工平台",
-        "maturity": "0.18um 與 65nm BCD 商用量產；車規 150°C~175°C AEC-Q100 Grade 0",
-        "claim": "採用單層多晶矽浮閘 (Single-Poly Floating Gate) 與 FN/FN 穿隧機制，完全不需要額外光罩道數 (0 Mask Adders)，原生相容於 Tower 高壓 BCD 與電源管理製程平台，提供 1K~10K 次抹寫與極高溫資料留存，且不影響高壓 LDMOS 元件之擊穿電壓與導通電阻。",
+        "maturity": "0.18µm 與 65nm BCD 平台已公開；官方文件提及 Grade 0 保持敘述，但環境溫度 Ta 與接面 Tj 試驗條件須分開，不得把 175°C 一律等同整體認證。",
+        "claim": "採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為閘極間能帶熱電洞 (BBT)，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。",
         "limit": "單層多晶矽結構位元面積較大，主要鎖定 1Kb~512Kb 之高壓 PMIC、車用電池管理系統 (BMS)、閘極驅動器與類比修調 (Trimming)，非大容量代碼儲存。",
         "dateLabel": "2024–2026 製程量產規格",
         "search": "Tower Semiconductor 高塔半導體 Y-Flash eFlash MTP BCD 0-Mask 175C Grade 0 PMIC",
@@ -6517,11 +6517,11 @@
       {
         "id": "weebit-reram-cim",
         "name": "Weebit Nano",
-        "technology": "Embedded ReRAM (OxRAM) & Neuromorphic Analog CIM",
+        "technology": "嵌入式 ReRAM (OxRAM) 與類比 CIM 研究",
         "family": "ReRAM / OxRAM",
         "role": "獨立嵌入式 ReRAM 矽智財與神經形態 AI 推論提供商",
-        "maturity": "SkyWater 130nm 與 DB HiTek 130nm BCD 商用代工驗證；GF 22FDX 研發中",
-        "claim": "以金屬氧化物（HfO2/TiN）阻變微絲為核心，僅需 2 道 BEOL 後段光罩，支援車規 150°C 高溫保持；具備多階類比電導特性，可直接於記憶體陣列內部執行矩陣乘加運算（Analog In-Memory Computing, CIM）。",
+        "maturity": "DB HiTek 130nm qualified IP；SkyWater 130nm 與 GF 22FDX 為平台／評估階段，客戶產品量產需具名佐證。",
+        "claim": "公開 OxRAM 路線以 SiOx 活性層為主（例如 TiN 底電極／Ti 頂電極的 IMW 2019 樣本）；DB HiTek 130nm 提供 qualified IP（2 masks、10K cycles、125°C 保持等具名條件）。SkyWater 130nm 與 GF 22FDX 為不同平台階段；類比 CIM 研究與客戶量產須分開，不得合成單一規格。",
         "limit": "商業量產主要落地於 130nm 成熟與特種 BCD 節點，先進節點（22nm FD-SOI）處於流片與評估階段；類比 CIM 矩陣受製程變異與溫度漂移影響，需搭配數位補償演算法。",
         "dateLabel": "2024–2026 製程認證與技術白皮書",
         "search": "Weebit Nano Embedded ReRAM OxRAM CIM Neuromorphic SkyWater DB HiTek GF 22FDX 神經形態 類比運算",
@@ -6569,8 +6569,8 @@
         "technology": "Hardware Secure Module & AntiFuse Integrated Enclave",
         "family": "AntiFuse",
         "role": "晶片安全子系統與實體 IP 供應商",
-        "maturity": "全球廣泛商用出貨；支援車規 ASIL-D、CC EAL4+ 與 PSA Certified Level 3",
-        "claim": "以獨立安全處理器隔離 Host CPU 軟體漏洞，底層緊密整合 1T Split-Channel AntiFuse OTP 儲存裝置獨一金鑰雜湊 (ROTPK) 與安全組態，向上提供 Secure Boot、防回滾與金鑰封裝服務。",
+        "maturity": "廣泛部署敘述；官方公開將 Automotive HSM 列為 ASIL-B，OTP NVM 另列 ASIL-D — 不得合併為單一「tRoot ASIL-D」或 CC/PSA 組合認證。",
+        "claim": "獨立安全處理器與 AntiFuse OTP 整合的 HSM 子系統；公開功能含 Secure Boot、金鑰封裝與防回滾介面 — 具名 crypto mode、時序與 PSA/CC 組合須對應產品文件，不得由 portfolio 最高等級移植。",
         "limit": "為子系統級解決方案，需在 SoC 規劃專屬晶片面積、匯流排防火牆與安全除錯通道。",
         "dateLabel": "2024–2026 商業手冊",
         "search": "Synopsys tRoot HSM Hardware Secure Module 1T AntiFuse Secure Boot PSA Certified Level 3 安全子系統",
@@ -9515,28 +9515,28 @@
     {
       "id": "RES-TOWER-YFLASH-2024",
       "label": "Tower Semiconductor：Y-Flash 0-Mask 嵌入式 Flash 技術規格",
-      "url": "https://towersemi.com/technology/power-management/",
+      "url": "https://towersemi.com/technology/non-volatile-memory-nvm/",
       "kind": "晶圓代工官方製程文件",
       "date": "2024-11",
       "locator": "Power Management & Embedded NVM 節",
-      "claim": "Y-Flash 是 Tower 專為 BCD 與電源管理製程量產開發之 0 額外光罩 (0 Mask Adders) 嵌入式 Flash/MTP 技術，支援 0.18um BCD 與 65nm BCD，耐溫高達 150°C~175°C，滿足 AEC-Q100 Grade 0 車規可靠度。",
+      "claim": "採用單層多晶矽浮閘；依 Tower 公開 NVM 原理與 arXiv:2202.10228，寫入為通道熱電子注入 (CHE)、抹除為閘極間能帶熱電洞 (BBT)，非 FN/FN。0 額外光罩，原生相容 Tower 高壓 BCD 與電源管理平台，公開敘事支援 1K~10K 次抹寫與高溫保持；具名產品 Ta、Tj 與 AEC-Q100 資格須分開引用。",
       "evidence": "已核讀官方技術規格頁面",
-      "limit": "單層多晶矽結構適合中低容量 (1Kb~512Kb) 之高壓 PMIC 與車用修調，非大容量儲存。",
+      "limit": "單層多晶矽適合中低容量 PMIC/BMS 修調；機制依 Tower 一次來源為 CHE/BBT，非 FN/FN。",
       "accessedAt": "2026-09-17"
     },
     {
       "id": "RES-WEEBIT-RERAM-2025",
       "label": "Weebit Nano：嵌入式 ReRAM (OxRAM) IP 與神經形態運算白皮書",
-      "url": "https://www.weebit-nano.com/reram-technology/",
+      "url": "https://www.weebit-nano.com/products/embedded-reram-ip/wbt-dbh-db130lva-reram-rram/",
       "locator": "官方技術頁與 SkyWater / DB HiTek 商業代工認證公告",
       "kind": "供應商技術規格與代工認證",
       "date": "2025-06-01",
-      "limit": "證明 130nm CMOS 與 130nm BCD 上已取得矽驗證與車規溫度測試，22FDX 開發中；多位元類比神經形態矩陣處於早期商業評估。"
+      "limit": "DB HiTek 130nm qualified IP；SkyWater 130nm 與 GF 22FDX 為平台／評估階段，客戶產品量產需具名佐證。"
     },
     {
       "id": "RES-EVERSPIN-PLP-2025",
       "label": "Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南",
-      "url": "https://www.everspin.com/storage-accelerators-and-raid",
+      "url": "https://www.everspin.com/products",
       "locator": "官方企業級儲存加速器與 RAID/SSD 斷電保護架構方案",
       "kind": "供應商應用技術手冊",
       "date": "2025-04-15",
@@ -9554,7 +9554,7 @@
     {
       "id": "RES-ST-STELLAR-PCM-2024",
       "label": "STMicroelectronics：Stellar 系列 32 位元車用 MCU 嵌入式相變記憶體 (28nm FD-SOI ePCM) 技術白皮書",
-      "url": "https://www.st.com/en/automotive-microcontrollers/stellar-32-bit-arm-cortex-mcus.html",
+      "url": "https://www.st.com/content/st_com/en/about/innovation-and-technology/pcm.html",
       "locator": "官方車用微控制器與 28nm FD-SOI 嵌入式 PCM 架構發布",
       "kind": "車用晶片技術白皮書",
       "date": "2024-09-18",

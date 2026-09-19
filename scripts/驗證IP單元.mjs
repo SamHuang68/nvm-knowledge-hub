@@ -1,9 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {chromium} from 'playwright';
+import {startTestServer} from './驗證伺服器.mjs';
 const root=path.resolve(import.meta.dirname,'..'),output=path.join(root,'qa/入口與技術譜系_20260910');
 fs.mkdirSync(output,{recursive:true});
-const base=process.env.NVM_QA_BASE||'http://127.0.0.1:8765/';
+const server=process.env.NVM_QA_BASE?null:await startTestServer(root);
+const base=process.env.NVM_QA_BASE||server.base;
 const data=JSON.parse(fs.readFileSync(path.join(root,'data/NVM知識資料英文.json'),'utf8'));
 const units=data.ipCurriculum.units,results=[],failures=[],errors=[];
 const note=(passed,label,details={})=>{const row={passed:Boolean(passed),label,...details};results.push(row);if(!passed)failures.push(row);};
@@ -71,7 +73,7 @@ try{
   }
   await context.close();
  }
-}catch(error){note(false,'IP 瀏覽器查核完成',{error:error.stack});}finally{await browser.close();}
+}catch(error){note(false,'IP 瀏覽器查核完成',{error:error.stack});}finally{await browser.close();if(server)await server.close();}
 note(errors.length===0,'IP 頁面 JavaScript 無錯誤',{errors});
 const report={passed:failures.length===0,checkedAt:new Date().toISOString(),base,units:units.length,operations:units.reduce((n,unit)=>n+unit.operations.length,0),framesPerLanguage:units.reduce((n,unit)=>n+unit.operations.reduce((sum,op)=>sum+op.variants.reduce((v,variant)=>v+variant.frames.length,0),0),0),checks:results.length,failures,results};
 fs.writeFileSync(path.join(output,'IP單元查核.json'),JSON.stringify(report,null,2)+'\n');

@@ -1,11 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {chromium} from 'playwright';
+import {startTestServer} from './驗證伺服器.mjs';
 
 const root=path.resolve(import.meta.dirname,'..');
 const output=path.join(root,'qa/MTP分類拆分_20260910');
 fs.mkdirSync(output,{recursive:true});
-const base=process.env.NVM_QA_BASE||'http://127.0.0.1:8765/';
+const server=process.env.NVM_QA_BASE?null:await startTestServer(root);
+const base=process.env.NVM_QA_BASE||server.base;
 const data=JSON.parse(fs.readFileSync(path.join(root,'data/NVM知識資料英文.json'),'utf8'));
 const results=[],failures=[],errors=[];
 const note=(passed,label,details={})=>{const item={passed:Boolean(passed),label,...details};results.push(item);if(!passed)failures.push(item);};
@@ -54,7 +56,7 @@ try{
   await context.close();
  }
 }catch(error){note(false,'分類互動查核執行完成',{error:error.message});}
-finally{await browser.close();}
+finally{await browser.close();if(server)await server.close();}
 note(errors.length===0,'分類頁 JavaScript 錯誤為零',{errors});
 const report={passed:failures.length===0,base,checkedAt:new Date().toISOString(),checks:results.length,failures,results};
 fs.writeFileSync(path.join(output,'MTP分類查核.json'),JSON.stringify(report,null,2)+'\n');

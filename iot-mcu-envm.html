@@ -993,6 +993,10 @@
               <span data-lang="zh">評估 28nm 以下邊緣節點時，光罩成本、近閾值讀取電壓與待機漏電是決定商業生死的關鍵維度。</span>
               <span data-lang="en">Mask cost, near-threshold operating voltage, and standby leakage are decisive metrics below 28nm.</span>
             </p>
+            <p class="panel-desc" style="margin-top:8px; font-size:0.88rem; color:#94a3b8;">
+              <span data-lang="zh"><strong>教學邊界：</strong>下表為架構級示意，非量測真值；AntiFuse 欄不得外推為全族 0.5V／&lt;10µs／免換電池保證，須對照具名 MCU、容量、PVT 與工作負載。</span>
+              <span data-lang="en"><strong>Teaching boundary:</strong> The matrix is architectural illustration, not measured truth; do not extrapolate the AntiFuse column to universal 0.5V/&lt;10µs/battery-life guarantees — cite named MCUs, density, PVT, and workload.</span>
+            </p>
 
             <div class="product-matrix" style="margin-top: 12px;">
               <div class="matrix-head">
@@ -1045,8 +1049,8 @@
                 SYSTEM VALUE-CHAIN ARCHITECTURE · EDGE IOT CONTINUUM
               </div>
               <h3 style="margin: 0 0 10px; color: #fff; font-size: 1.15rem; font-family: 'IBM Plex Mono', monospace;">
-                <span data-lang="zh">邊緣 IoT MCU 先進存儲分層與神經形態架構：Weebit ReRAM、車規 eNVM 與 Nordic/Silicon Labs 實踐</span>
-                <span data-lang="en">Edge IoT Storage Tiering &amp; Neuromorphic CIM: Weebit ReRAM, Automotive eNVM &amp; Nordic/Silicon Labs</span>
+                <span data-lang="zh">邊緣 IoT MCU 存儲分層與神經形態研究：具名產品範例（須逐 SKU 核對）</span>
+                <span data-lang="en">Edge IoT Storage Tiering &amp; Neuromorphic Research: Named Product Examples (Verify per SKU)</span>
               </h3>
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; margin-top: 14px;">
                 <div style="background: #061925; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 14px;">
@@ -1153,7 +1157,7 @@
         <p class="eyebrow">PRIMARY SOURCES · FOUNDRY &amp; INDUSTRY EVIDENCE</p>
         <p class="evidence-principle">
           <strong><span data-lang="zh">技術證據原則：</span><span data-lang="en">Evidence Principles:</span></strong>
-          <span><span data-lang="zh">數據均來自台積電官方發表會、IEEE ISSCC/IEDM 頂級會議論文與 JEDEC 標準。</span><span data-lang="en">All metrics cited from TSMC symposia, IEEE ISSCC/IEDM papers, and JEDEC specifications.</span></span>
+          <span><span data-lang="zh">下列連結為各段主張的具名一次來源；未列出的數字屬教學假設或需另附產品／量測邊界。</span><span data-lang="en">Links below are named primary sources per section; unlisted figures are teaching assumptions or require separate product/measurement boundaries.</span></span>
         </p>
       </div>
 
@@ -1163,20 +1167,20 @@
           <b>TSMC Ultra-Low Power (ULP) &amp; IoT Platform Technology Overview</b>
           <small>22ULL, 12FFC+, N6e near-threshold voltage &amp; leakage roadmap</small>
         </a>
-        <a href="https://ieeexplore.ieee.org/document/8662483" target="_blank" rel="noopener noreferrer">
+        <a href="https://ieeexplore.ieee.org/document/8662393" target="_blank" rel="noopener noreferrer">
           <span>02</span>
-          <b>IEEE ISSCC: Near-Threshold Voltage Computing and Embedded NVM Strategies</b>
-          <small>Dynamic voltage scaling models, subthreshold leakage &amp; fast wake-up circuits</small>
+          <b>ISSCC 2019: 22nm FinFET Embedded ReRAM Macro (0.5V / 5ns sensing)</b>
+          <small>Intel ISSCC 13.2 — low-voltage embedded NVM for IoT-class SoCs</small>
         </a>
-        <a href="https://ieeexplore.ieee.org/document/9063148" target="_blank" rel="noopener noreferrer">
+        <a href="https://ieeexplore.ieee.org/document/9062955" target="_blank" rel="noopener noreferrer">
           <span>03</span>
-          <b>IEEE IEDM: Physical Limitations of Embedded Flash Below 28nm FinFET</b>
-          <small>High-voltage breakdown, oxide thickness &amp; thermal budget constraints</small>
+          <b>ISSCC 2020: 22nm Embedded STT-MRAM Macro</b>
+          <small>Byte-alterable embedded NVM; BEOL thermal budget vs legacy eFlash</small>
         </a>
-        <a href="https://www.jedec.org/standards-documents/docs/jesd21-c" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.jedec.org/standards-documents/docs/jesd22-a103" target="_blank" rel="noopener noreferrer">
           <span>04</span>
-          <b>JEDEC Standard Non-Volatile Memory Retention &amp; Qualification Guidelines</b>
-          <small>JESD22-A103/A108 high-temperature operating life (HTOL) models</small>
+          <b>JEDEC JESD22-A103 / A108 (HTOL / THB stress methods)</b>
+          <small>High-temperature operating life test procedures — cite standard ID, not JESD21-C</small>
         </a>
         <a href="https://www.synopsys.com/designware-ip/memories-logic-libraries.html" target="_blank" rel="noopener noreferrer">
           <span>05</span>

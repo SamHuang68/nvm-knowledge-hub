@@ -110,16 +110,23 @@ window.__NVM_SEARCH_ENHANCED = true;
     ensureShell();
     bind();
   }
+  function resolveSearchInput(root) {
+    if (!root) return null;
+    return root.querySelector('#nvmHubSearchInput')
+      || root.querySelector('#searchInput')
+      || root.querySelector('input[type="search"]');
+  }
+
   function bind() {
     const overlay = document.getElementById('searchOverlay');
-    const input = overlay?.querySelector('input[type="search"]');
+    const input = resolveSearchInput(overlay);
     const results = overlay?.querySelector('#searchResults');
     const status = overlay?.querySelector('#searchStatus');
     const trigger = document.getElementById('searchTrigger');
     const close = overlay?.querySelector('#searchClose');
     if (!overlay || !input || !results) return;
-    // 既有首頁範本與動態掛載入口共用元件 ID，避免頁內搜尋欄位衝突。
-    input.id = 'nvmHubSearchInput';
+    // 新舊搜尋欄位 ID 相容：升級後仍接受舊版快取的 searchInput 綁定。
+    if (input.id !== 'nvmHubSearchInput') input.id = 'nvmHubSearchInput';
     function syncInterfaceLabels() {
       const language = window.HubLanguage?.get() === 'zh' ? 'zh' : 'en';
       input.placeholder = input.dataset[language === 'zh' ? 'placeholderZh' : 'placeholderEn'] || '';
