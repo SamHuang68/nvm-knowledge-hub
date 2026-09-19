@@ -2,6 +2,7 @@ name: 知識中心完整驗證
 on:
   push:
   pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
