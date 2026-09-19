@@ -17,13 +17,17 @@ test('發布產物保留下載附件，拒絕遺漏、修改及未追蹤內容',
     git('config', 'user.name', '發布驗證');
     git('config', 'user.email', 'release-check@example.invalid');
     git('config', 'core.autocrlf', 'false');
-    for (const [file, content] of [['index.html', '<p>網站</p>\n'], ['附件.pptx', Buffer.from([0, 255, 12])], ['.gitignore', '測試用隱藏檔']]) {
+    for (const [file, content] of [['index.html', '<p>網站</p>\n'], ['附件.pptx', Buffer.from([0, 255, 12])], ['.gitignore', '測試用隱藏檔'], ['.gitattributes', '*.csv text eol=crlf\n'], ['資料.csv', 'a,b\n1,2\n']]) {
       fs.writeFileSync(path.join(repository, file), content);
       fs.writeFileSync(path.join(artifact, file), content);
     }
-    git('add', '--', 'index.html', '附件.pptx', '.gitignore');
+    fs.writeFileSync(path.join(artifact, '資料.csv'), 'a,b\r\n1,2\r\n');
+    git('add', '--', 'index.html', '附件.pptx', '.gitignore', '.gitattributes', '資料.csv');
     git('commit', '--quiet', '-m', '建立發布驗證案例');
-    assert.equal(verifyArtifact(repository, artifact), 2);
+    assert.equal(verifyArtifact(repository, artifact), 3);
+    fs.writeFileSync(path.join(artifact, '資料.csv'), 'a,b\n1,2\n');
+    assert.throws(() => verifyArtifact(repository, artifact), /位元組/u);
+    fs.writeFileSync(path.join(artifact, '資料.csv'), 'a,b\r\n1,2\r\n');
     fs.writeFileSync(path.join(artifact, '額外.txt'), '執行期資料');
     assert.throws(() => verifyArtifact(repository, artifact), /未追蹤/u);
     fs.unlinkSync(path.join(artifact, '額外.txt'));

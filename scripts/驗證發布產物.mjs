@@ -45,8 +45,13 @@ export function verifyArtifact(repository, directory) {
   assert.deepEqual(actual.sort(), [...expected.keys()].sort(), '發布產物不得遺漏、增加或包含未追蹤檔案');
   for (const [file, expectedHash] of expected) {
     const bytes = fs.readFileSync(path.join(directory, file));
-    const hash = crypto.createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
-    assert.equal(hash, expectedHash, `發布產物必須與提交的位元組完全相同：${file}`);
+    // archive 會套用 Git 換行屬性；例如 SharePoint CSV 明定 CRLF。
+    // 從相同 blob 套用相同屬性取得預期位元組，不自行放寬或移除換行。
+    const exported = execFileSync('git', ['cat-file', '--filters', `--path=${file}`, expectedHash], {
+      cwd: repository, maxBuffer: 128 * 1024 * 1024,
+    });
+    const digest = content => crypto.createHash('sha256').update(content).digest('hex');
+    assert.equal(digest(bytes), digest(exported), `發布產物必須與提交依 Git 屬性匯出的位元組完全相同：${file}`);
   }
   return expected.size;
 }
@@ -54,5 +59,5 @@ export function verifyArtifact(repository, directory) {
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
   assert.ok(process.argv[2], '請指定待驗證的發布產物目錄');
   const count = verifyArtifact(path.resolve(import.meta.dirname, '..'), path.resolve(process.argv[2]));
-  console.log(`通過：${count} 個公開檔案與本次提交逐位元組一致，隱藏維護檔由上傳流程排除。`);
+  console.log(`通過：${count} 個公開檔案與本次提交依 Git 屬性匯出的位元組一致，隱藏維護檔由上傳流程排除。`);
 }
