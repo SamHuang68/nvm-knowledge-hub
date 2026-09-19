@@ -198,14 +198,6 @@
     (function bootHubSearch() {
       if (window.__NVM_SEARCH_BOOTSTRAP) return;
       window.__NVM_SEARCH_BOOTSTRAP = true;
-      if (!window.__NVM_SEARCH_ID_SHIM) {
-        window.__NVM_SEARCH_ID_SHIM = true;
-        const nativeGet = document.getElementById.bind(document);
-        document.getElementById = function (id) {
-          if (id === 'searchInput') return nativeGet('nvmHubSearchInput') || nativeGet('searchInput');
-          return nativeGet(id);
-        };
-      }
       const css = document.createElement('link');
       css.rel = 'stylesheet';
       css.href = new URL('全站搜尋.css?v=20260920-spot', rootURL).href;

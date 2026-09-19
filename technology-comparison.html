@@ -2908,7 +2908,7 @@
 
       <div class="rm-header-narrative">
         <p class="rm-lead">
-          <span data-lang="zh">非揮發性記憶體（OTP、MTP、eFlash、MRAM）在微架構層級的讀取拓樸，直接決定了晶片的<strong>感測餘裕（Sense Margin）</strong>、<strong>PVT 溫漂容忍度</strong>、<strong>位元胞面積開銷（Area Overhead）</strong>與<strong>一階差分功耗分析（DPA/CPA）側信道防護邊界</strong>。下圖展示業界主流的四種抽象讀取電路拓樸：從最精簡的單端外部參考，到具備雙軌電流對消與零缺陷容錯的互補差動冗餘架構。</span>
+          <span data-lang="zh">非揮發性記憶體（OTP、MTP、eFlash、MRAM）在微架構層級的讀取拓樸，直接決定了晶片的<strong>感測餘裕（Sense Margin）</strong>、<strong>PVT 溫漂容忍度</strong>、<strong>位元胞面積開銷（Area Overhead）</strong>與<strong>一階差分功耗分析（DPA/CPA）側信道防護邊界</strong>。下圖展示四種抽象讀取電路拓樸：從單端參考感測，到僅可能針對<strong>明確模型涵蓋的單點失效</strong>提供有限容錯的互補差動冗餘架構（不可視為零缺陷認證）。</span>
           <span data-lang="en">At the microarchitectural level, the non-volatile memory read topology dictates the <strong>sense margin</strong>, <strong>PVT drift resilience</strong>, <strong>bitcell area overhead</strong>, and <strong>first-order DPA/CPA side-channel attenuation boundary</strong>. The architectural sketches below classify four read topologies — from single-ended reference sensing to differential+redundant schemes that may tolerate <em>modeled</em> single-point faults (not zero-defect certification).</span>
           <span data-lang="zh" style="display:block;margin-top:8px;"><strong>教學邊界：</strong>固定 dB、0-ppm、175°C 或 ASIL/CC 等級僅能在具名產品／FMEDA 出現，不得由架構圖直接推出。</span>
           <span data-lang="en" style="display:block;margin-top:8px;"><strong>Teaching boundary:</strong> Fixed dB, 0-ppm, 175°C, or ASIL/CC tiers require named products/FMEDA — not inference from cartoons alone.</span>

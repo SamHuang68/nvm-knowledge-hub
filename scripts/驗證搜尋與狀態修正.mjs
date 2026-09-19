@@ -13,6 +13,21 @@ const channel = process.env.NVM_QA_CHANNEL || 'msedge';
 const browser = await chromium.launch({ headless: true, ...(channel === 'chromium' ? {} : { channel }) });
 const results = [];
 
+async function captureNativeIdLookup(page) {
+  await page.addInitScript(() => {
+    window.__qaNativeIdLookup = document.getElementById;
+    window.__qaIdLookupOwnProperty = Object.hasOwn(document, 'getElementById');
+  });
+}
+
+async function assertNativeIdLookup(page) {
+  assert.deepEqual(await page.evaluate(() => ({
+    sameFunction: document.getElementById === window.__qaNativeIdLookup,
+    sameOwnership: Object.hasOwn(document, 'getElementById') === window.__qaIdLookupOwnProperty,
+    missingIsNull: document.getElementById('不存在的搜尋驗證元素') === null,
+  })), { sameFunction: true, sameOwnership: true, missingIsNull: true }, '保留原生 ID 查詢函式及語意');
+}
+
 async function check(name, test) {
   if (process.env.NVM_QA_FILTER && !name.includes(process.env.NVM_QA_FILTER)) return;
   const context = await browser.newContext({ serviceWorkers: 'block', viewport: { width: 1440, height: 1000 } });
@@ -56,7 +71,9 @@ async function closedKnowledge(page) {
 for (const language of ['zh', 'en']) {
   for (const file of ['index.html', 'secure-storage.html']) {
     await check(`搜尋鍵盤與欄位隔離_${file}_${language}`, async page => {
+      await captureNativeIdLookup(page);
       await visit(page, `${file}?lang=${language}`);
+      await assertNativeIdLookup(page);
       const pageSearch = page.locator('#searchInput');
       if (file === 'secure-storage.html') await pageSearch.fill('PUF');
       const input = await openSearch(page, 'zzzz987654321完全無匹配');
@@ -94,6 +111,66 @@ for (const language of ['zh', 'en']) {
     await page.locator('#languageToggle').click();
     await closedKnowledge(page);
   });
+}
+
+for (const inputId of ['nvmHubSearchInput', 'searchInput']) {
+  for (const order of ['hub先載入', '控制器先載入']) {
+    await check(`搜尋相容與原生API_${inputId}_${order}`, async (page, context) => {
+      await captureNativeIdLookup(page);
+      await context.route('**/*', route => new URL(route.request().url()).origin === base.origin ? route.continue() : route.abort());
+      await page.route('**/index.html?lang=zh', async route => {
+        const response = await route.fetch();
+        let html = await response.text();
+        const hubTag = html.match(/<script src="hub\.js[^\"]*"><\/script>/)?.[0];
+        const controllerTag = html.match(/<script src="搜尋控制器\.js[^\"]*"><\/script>/)?.[0];
+        assert.ok(hubTag && controllerTag, '首頁保留兩個真正的搜尋程式來源');
+        const scripts = order === 'hub先載入' ? [hubTag, controllerTag] : [controllerTag, hubTag];
+        const replacement = scripts.map((tag, index) => `${tag}<script>window.__qaSearchScriptOrder=(window.__qaSearchScriptOrder||[]);window.__qaSearchScriptOrder.push(${JSON.stringify(index === 0 ? order : '第二個程式已執行')});</script>`).join('');
+        html = html.replace(hubTag, '').replace(controllerTag, replacement);
+        html = html.replace('<input id="nvmHubSearchInput"', `<input id="${inputId}"`);
+        html = html.replace('<main ', '<section data-qa-page-search><label>頁內查詢<input id="searchInput" type="search" placeholder="頁內固定提示" value="頁內保留值"></label></section><main ');
+        await route.fulfill({ response, body: html });
+      });
+      await visit(page, 'index.html?lang=zh');
+      const pageInput = page.locator('[data-qa-page-search] input');
+      const overlayInput = page.locator('#searchOverlay input[type="search"]');
+      await assertNativeIdLookup(page);
+      assert.deepEqual(await page.evaluate(() => window.__qaSearchScriptOrder), [order, '第二個程式已執行'], '確實執行指定的程式載入順序');
+      assert.equal(await overlayInput.getAttribute('id'), 'nvmHubSearchInput', '舊 overlay ID 正規化為專用 ID');
+      assert.equal(await page.locator('#searchInput').count(), 1, '頁內欄位保留原 ID，沒有重複 ID');
+      assert.equal(await page.locator('#nvmHubSearchInput').count(), 1, '全站搜尋只有一個專用欄位');
+      assert.equal(await page.evaluate(() => document.getElementById('searchInput') === document.querySelector('[data-qa-page-search] input')), true, '原生 ID 查詢取得真正的頁內欄位');
+      assert.equal(await pageInput.inputValue(), '頁內保留值');
+      assert.equal(await pageInput.getAttribute('placeholder'), '頁內固定提示');
+      await page.evaluate(() => {
+        window.__qaInputEvents = { page: 0, overlay: 0 };
+        document.querySelector('[data-qa-page-search] input').addEventListener('input', () => window.__qaInputEvents.page++);
+        document.querySelector('#searchOverlay input').addEventListener('input', () => window.__qaInputEvents.overlay++);
+      });
+      await pageInput.fill('頁內更新值');
+      assert.deepEqual(await page.evaluate(() => window.__qaInputEvents), { page: 1, overlay: 0 });
+      await page.keyboard.press('Control+k');
+      assert.equal(await overlayInput.evaluate(element => element === document.activeElement), true, '快捷鍵把焦點交給 overlay');
+      await overlayInput.fill('zzzz987654321');
+      assert.equal(await page.locator('#searchResults a').count(), 0, 'overlay 事件只更新全站搜尋結果');
+      assert.equal(await pageInput.inputValue(), '頁內更新值', '開啟與輸入全站搜尋不清空頁內值');
+      assert.deepEqual(await page.evaluate(() => window.__qaInputEvents), { page: 1, overlay: 1 }, '事件不互相觸發');
+      await page.keyboard.press('Escape');
+      assert.equal(await pageInput.evaluate(element => element === document.activeElement), true, '關閉後還原頁內欄位焦點');
+      assert.equal(await page.locator('[inert]').count(), 0, '清除搜尋使用的背景隔離');
+      await page.locator('#languageToggle').click();
+      assert.equal(await pageInput.getAttribute('placeholder'), '頁內固定提示', '語系同步不改寫頁內欄位提示');
+      assert.equal(await pageInput.inputValue(), '頁內更新值');
+      assert.equal(await overlayInput.getAttribute('placeholder'), 'Technology, mechanism, company, or source ID');
+      const input = await openSearch(page, '安全儲存架構');
+      await page.locator('#searchResults a[href$="secure-storage.html"]').waitFor();
+      assert.equal(await input.evaluate(element => element === document.activeElement), true);
+      await page.keyboard.press('Escape');
+      assert.equal(await page.locator('#searchTrigger').evaluate(element => element === document.activeElement), true, '按鈕開啟後還原至按鈕');
+      assert.equal(await pageInput.inputValue(), '頁內更新值');
+      await assertNativeIdLookup(page);
+    });
+  }
 }
 
 await check('資料載入中不顯示待核對卡片', async page => {
