@@ -13,6 +13,9 @@
   --hub-line: rgba(196, 165, 116, 0.22);
   --hub-line-strong: rgba(196, 165, 116, 0.35);
   --hub-muted: #b5aa9c;
+  --hub-muted-dark-surface: #b5aa9c;
+  --hub-ink-readable: #092235;
+  --hub-body-readable: #284853;
   --hub-heading: #f3ebe0;
   --hub-body: #e8e0d4;
   --hub-kicker: #c4a574;
@@ -77,7 +80,7 @@
   color: var(--hub-body) !important;
 }
 
-.hub-apps-page:not(.hub-literature-paper) :where(
+.hub-apps-page:not(.hub-literature-paper):not(.ai-nvm-page) :where(
   .lens-stage-container,
   .lens-panel,
   .paper-section,
@@ -133,50 +136,85 @@
   background: rgba(196, 165, 116, 0.35) !important;
 }
 
-/* --- Studio layout rhythm (side rail + main) --- */
+/* --- Studio layout rhythm: Foundations light rail + dark labels --- */
 .hub-apps-page:not(.hub-literature-paper) .studio-layout {
   grid-template-columns: 214px minmax(0, 1fr) !important;
   gap: 30px !important;
 }
 
-.hub-apps-page:not(.hub-literature-paper) aside.lens-vertical-rail,
-.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail {
-  background: rgba(6, 25, 37, 0.88) !important;
-  border: 1px solid var(--hub-line) !important;
+html body.hub-apps-page:not(.hub-literature-paper):not(.hub-reading-home):not(.nvm-atlas-page) aside.lens-vertical-rail,
+html body.hub-apps-page:not(.hub-literature-paper):not(.hub-reading-home):not(.nvm-atlas-page) .studio-layout > .lens-vertical-rail,
+html body.hub-apps-page.ai-nvm-page aside.lens-vertical-rail,
+html body.hub-apps-page.ai-nvm-page .lens-vertical-rail {
+  position: sticky !important;
+  top: 88px !important;
+  width: 214px !important;
+  max-width: 214px !important;
+  background: #f3f6f9 !important;
+  background-color: #f3f6f9 !important;
+  border: 1px solid #d5e0e7 !important;
   border-radius: var(--hub-card-r) !important;
-  color: var(--hub-muted) !important;
+  color: var(--hub-ink-readable) !important;
   box-shadow: none !important;
-}
-
-.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail .rail-header {
-  border-bottom-color: var(--hub-line) !important;
-}
-
-.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail .rail-title,
-.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail .rail-tag {
-  color: var(--hub-muted) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   opacity: 1 !important;
 }
 
-.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill) {
-  color: #8ea9b3 !important;
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail .rail-header {
+  border-bottom: 1px solid #d0dce5 !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail .rail-title {
+  color: #587084 !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail .rail-tag {
+  color: #587084 !important;
+  opacity: 1 !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill) {
+  color: #50687b !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
   border-left: 3px solid transparent !important;
+  opacity: 1 !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill) .lens-name {
+  color: inherit !important;
   font-weight: 500 !important;
 }
 
-.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill) .lens-name {
-  font-weight: 500 !important;
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail .lens-node-item .lens-badge {
+  background: #e5edf3 !important;
+  color: #5b7486 !important;
+  border: 0 !important;
 }
 
-.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill):is(.active, .active-chapter, [aria-current="page"]) {
-  background: rgba(196, 165, 116, 0.1) !important;
-  border-left-color: var(--hub-kicker) !important;
-  color: var(--hub-heading) !important;
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill):is(.active, .active-chapter, [aria-current="page"]) {
+  background: #e0ebf2 !important;
+  background-color: #e0ebf2 !important;
+  border-left-color: #34627f !important;
+  color: #1a4968 !important;
 }
 
-.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill):hover {
-  background: rgba(196, 165, 116, 0.06) !important;
-  color: var(--hub-heading) !important;
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill):is(.active, .active-chapter, [aria-current="page"]) .lens-name,
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill):is(.active, .active-chapter, [aria-current="page"]) .lens-badge {
+  color: #1a4968 !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill):hover {
+  background: #e8f0f5 !important;
+  background-color: #e8f0f5 !important;
+  color: #153f5b !important;
 }
 
 .hub-apps-page:not(.hub-literature-paper) .hub-nav-pills-bar {
@@ -274,9 +312,10 @@
   --ai-aqua: var(--hub-aqua);
   --ai-teal: #8a6a42;
   --ai-copper: var(--hub-copper);
-  --ai-paper: var(--hub-ink);
-  --ai-warm-paper: var(--hub-ink);
-  --ai-ink: var(--hub-body);
+  --ai-paper: #f3f7f8;
+  --ai-warm-paper: #061925;
+  --ai-ink: #092235;
+  --ai-muted: #536c78;
   --ai-line-dark: var(--hub-line);
 }
 
@@ -327,16 +366,37 @@
   margin-bottom: clamp(22px, 3vw, 36px) !important;
 }
 
-.hub-apps-page :where(.hub-sec-header h2, .section-header h2) {
+.hub-apps-page:not(.ai-nvm-page) :where(.hub-sec-header h2, .section-header h2) {
   font-size: clamp(28px, 2.7vw, 39px) !important;
   line-height: 1.22 !important;
   letter-spacing: -0.025em !important;
   color: var(--hub-heading) !important;
 }
 
-.hub-apps-page:not(.hub-literature-paper) :where(p, li, dd, .section-lead, .lead-desc) {
+/* Body copy: dark-surface containers only (preserve light-card contrast on AI etc.) */
+.hub-apps-page:not(.hub-literature-paper) :where(
+  section.hero,
+  .m3-hero-container,
+  .m3-hero-content,
+  .specialty-hero,
+  .hub-story,
+  .vendor-ask,
+  .site-breadcrumb,
+  .assurance-page .hero,
+  .assurance-page .windows,
+  .assurance-page .navigator,
+  .assurance-page .evidence-detail,
+  .assurance-page .learning,
+  .assurance-page .governance,
+  .assurance-page .sources,
+  .immersive-chapter
+) :where(p, li, dd, .section-lead, .lead-desc) {
   line-height: 1.75 !important;
-  color: var(--hub-muted) !important;
+  color: var(--hub-muted-dark-surface) !important;
+}
+
+.hub-apps-page.specialty-page:not(.ai-nvm-page) .lens-panel :where(p, li, dd) {
+  color: var(--hub-muted-dark-surface) !important;
 }
 
 .hub-apps-page .immersive-chapter .chapter-rail span {
@@ -347,7 +407,7 @@
   font-weight: 600 !important;
 }
 
-/* --- OIP brief: literature light paper + hub kickers --- */
+/* --- OIP brief: literature light paper; copper kickers aligned to hub gold --- */
 .hub-apps-page.hub-literature-paper .research-label,
 .hub-apps-page.hub-literature-paper .paper-kicker {
   color: #805828 !important;
@@ -360,7 +420,38 @@
 }
 
 .hub-apps-page.hub-literature-paper .site-header .brand-section {
-  color: #74e4d7 !important;
+  color: #c4a574 !important;
+}
+
+.hub-apps-page.hub-literature-paper .site-breadcrumb a {
+  color: #805828 !important;
+}
+
+/* --- AI hero: beat inline Codex gradient/700 with hub accent --- */
+html body.hub-apps-page.ai-nvm-page .ai-research-hero h1 {
+  font-weight: 600 !important;
+  color: #f3ebe0 !important;
+}
+
+html body.hub-apps-page.ai-nvm-page .ai-research-hero h1 em {
+  color: var(--hub-kicker) !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important;
+  font-weight: 500 !important;
+}
+
+html body.hub-apps-page.ai-nvm-page .research-label {
+  color: var(--hub-kicker) !important;
+  border-color: rgba(196, 165, 116, 0.35) !important;
+  background: rgba(196, 165, 116, 0.08) !important;
+}
+
+html body.hub-apps-page.ai-nvm-page .record-boundary-field p,
+html body.hub-apps-page.ai-nvm-page .record-boundary-field[data-derived="true"] p,
+html body.hub-apps-page.ai-nvm-page .ai-paper-shell :where(p, li) {
+  color: var(--hub-ink-readable) !important;
 }
 
 /* --- Mobile ~390 --- */
@@ -393,7 +484,20 @@
   box-shadow: 0 0 10px rgba(196, 165, 116, 0.35) !important;
 }
 
-.hub-apps-page:not(.hub-literature-paper) .primary,
+/* Filled CTA buttons: dark ink on gold/mint fill (never gold-on-gold) */
+.hub-apps-page:not(.hub-literature-paper) :where(
+  .hero-actions a.primary,
+  .hero-actions .primary,
+  a.primary,
+  button.primary
+):not(.button.ghost):not(.secondary) {
+  color: #071d2a !important;
+}
+
+.hub-apps-page.ai-nvm-page .research-hero-links .button.primary {
+  color: #f8fafc !important;
+}
+
 .hub-apps-page:not(.hub-literature-paper) .signal-readout.safe b {
   color: var(--hub-kicker) !important;
 }
@@ -421,6 +525,18 @@
 
   .hub-apps-page :where(.hub-sec-header h2, .section-header h2) {
     font-size: 26px !important;
+  }
+
+  html body.hub-apps-page.ai-nvm-page .ai-research-hero h1 {
+    font-size: clamp(26px, 8.2vw, 34px) !important;
+    max-width: 100% !important;
+    text-wrap: balance !important;
+  }
+
+  html body.hub-apps-page:not(.hub-literature-paper) aside.lens-vertical-rail,
+  html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 

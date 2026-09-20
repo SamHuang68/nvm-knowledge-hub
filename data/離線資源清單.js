@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "5268ab3b379e261b8278",
+  "version": "2d3b6a26fc596fef059c",
   "assets": [
     "404.html",
     "IoT頁面導覽.js",
@@ -110,7 +110,7 @@ self.NVMOfflineManifest = {
     "data/NVM搜尋索引.js": "6acf949fdcbe06b4d669990af88600aefeb1396164812b63606f56d080676490",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "f1-card-align.js": "206fe82993c3aa1c48ab6af72569cfdacab2497e0a971c567e9b8852912be636",
-    "hub-apps-chrome.css": "a9f46fcd8a97676bc6712d67bf603fcb645ed480bfd1be9e15c9e0d089c76054",
+    "hub-apps-chrome.css": "c38ccb97ce910030935fc28b82b6d6ded25a7bad11fa3c26f9c309b3b572efa9",
     "hub-auto-tune.css": "03ba79f55cf60e226a1da729b3ef7fcd23263834910cb7b72acc64fd2f7dfabd",
     "hub-auto-tune.js": "53c936de8bf49714bf15eebe53028a7861b2fbe47ef8b7ec35b7d7199c99e9c8",
     "hub-story-apps.js": "ee85fb5c0a320353eb971e6635d16fc0bccecb0b7531ffd250e8c4a49baecaaf",
@@ -131,7 +131,7 @@ self.NVMOfflineManifest = {
     "research.js": "23c4cd497c66ca9430489cb0562dad77939360264b321308073b82791e2e020b",
     "secure-storage.html": "058a3889d31c801cda9a97e218d16f7c626c93e7d69d73549467f240badea3e6",
     "security-assurance.html": "508c106df3143ca3cdff889c0ac2e2be020d1c909ad8f0bfdaf20bac496f519d",
-    "site-language.js": "02e231246f729c9e3df4d59b25f19731801fde56ece6c86036491979262fe109",
+    "site-language.js": "191e3fdb4e0ff1e709573c8d5d696d77f64d4a1671e3219793724d08a2bd5632",
     "site-shell.css": "ffee90a4ce3aaa603d9e886d9a0f874e6b25b0f302cba9f77dd8cc96b89cecbc",
     "site.webmanifest": "6a8beee910c38c6845c40f3ac87ebba03827193e18b23cac1dc0d8d209268332",
     "specialty-nvm.css": "08c115952605457717c29e840f55cfd8ce89e41e4f6e1ba7c37aade4b5f0c36c",
@@ -156,5 +156,5 @@ self.NVMOfflineManifest = {
     "首頁互動.css": "6e4035b53fd9832805e3c67339d8af66dc3383f00a4dc93c68a0c5728705714c",
     "首頁導覽.js": "64501ccfac640ac42684a943ece3111a5a065b4f697f64fa47f4e92c3749c796"
   },
-  "totalBytes": 10704722
+  "totalBytes": 10708698
 };
