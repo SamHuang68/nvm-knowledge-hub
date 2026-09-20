@@ -1,0 +1,560 @@
+/* ==========================================================================
+   Applications & Systems — shared Antigravity / hub token chrome
+   Scoped to .hub-apps-page (injected by site-language.js). Presentation only.
+   ========================================================================== */
+
+.hub-apps-page {
+  --hub-cyan: #c4a574;
+  --hub-aqua: #c4a574;
+  --hub-copper: #b08a5b;
+  --hub-ink: #061925;
+  --hub-panel: #092331;
+  --hub-paper: #0e2a38;
+  --hub-line: rgba(196, 165, 116, 0.22);
+  --hub-line-strong: rgba(196, 165, 116, 0.35);
+  --hub-muted: #b5aa9c;
+  --hub-muted-dark-surface: #b5aa9c;
+  --hub-ink-readable: #092235;
+  --hub-body-readable: #284853;
+  --hub-heading: #f3ebe0;
+  --hub-body: #e8e0d4;
+  --hub-kicker: #c4a574;
+  --hub-side: var(--hub-keepout, clamp(24px, 4vw, 64px));
+  --hub-section-y: clamp(52px, 6.5vw, 88px);
+  --hub-card-r: 6px;
+}
+
+/* --- Typography: majority weight ≤600 on titles --- */
+.hub-apps-page :where(
+  h1, h2, h3, h4,
+  .m3-hero h1,
+  .specialty-hero h1,
+  section.hero h1,
+  .research-hero h1,
+  .hero h1,
+  .hub-sec-header h2,
+  .section-header h2,
+  .paper-heading h2,
+  .section-head h2,
+  .principle h2,
+  .lens-panel > h2,
+  .chapter-copy h2
+) {
+  font-weight: 600 !important;
+}
+
+.hub-apps-page :where(h1 em, h2 em, h3 em, .m3-hero h1 em, .research-hero h1 em) {
+  font-weight: 500 !important;
+}
+
+.hub-apps-page :where(
+  .hero-kicker,
+  .hub-kicker,
+  .paper-kicker,
+  .section-kicker,
+  .eyebrow,
+  .research-label,
+  .kicker,
+  .hub-story-kicker,
+  .hub-sec-header .section-number,
+  .section-number,
+  .meta-code,
+  .chapter-rail span
+) {
+  color: var(--hub-kicker) !important;
+  font-family: "IBM Plex Mono", Consolas, ui-monospace, monospace !important;
+  font-weight: 650 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase;
+}
+
+.hub-apps-page :where(.stat-val, .m3-hero-proof strong, section.hero .hero-proof strong) {
+  font-weight: 600 !important;
+  color: var(--hub-kicker) !important;
+}
+
+/* --- Deep base surfaces (non-literature apps) --- */
+.hub-apps-page:not(.hub-literature-paper),
+.hub-apps-page:not(.hub-literature-paper) html {
+  background: var(--hub-ink) !important;
+  color: var(--hub-body) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper):not(.ai-nvm-page) :where(
+  .lens-stage-container,
+  .lens-panel,
+  .paper-section,
+  .stat-strip-card,
+  .vendor-ask article,
+  .specialty-section,
+  .specialty-card,
+  .hub-story
+) {
+  background: var(--hub-paper) !important;
+  border-color: var(--hub-line) !important;
+  color: var(--hub-body) !important;
+}
+
+/* --- Header + breadcrumb: hub deep navy + gold accent --- */
+.hub-apps-page:not(.hub-literature-paper) .site-header {
+  background: rgba(4, 24, 35, 0.96) !important;
+  border-bottom: 1px solid rgba(196, 165, 116, 0.14) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+
+.hub-apps-page .site-header .brand-section,
+.hub-apps-page .site-header .brand-mark {
+  color: var(--hub-aqua) !important;
+}
+
+.hub-apps-page .site-header .primary-nav a:hover,
+.hub-apps-page .site-header .primary-nav a[aria-current="location"] {
+  color: var(--hub-aqua) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .site-breadcrumb {
+  background: rgba(6, 25, 37, 0.92) !important;
+  border-bottom: 1px solid var(--hub-line) !important;
+  color: var(--hub-muted) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .site-breadcrumb :is(a, strong, span) {
+  color: var(--hub-muted) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .site-breadcrumb a {
+  color: var(--hub-kicker) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .site-breadcrumb strong {
+  color: var(--hub-heading) !important;
+  font-weight: 600 !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .site-breadcrumb i {
+  background: rgba(196, 165, 116, 0.35) !important;
+}
+
+/* --- Studio layout rhythm: Foundations light rail + dark labels --- */
+.hub-apps-page:not(.hub-literature-paper) .studio-layout {
+  grid-template-columns: 214px minmax(0, 1fr) !important;
+  gap: 30px !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper):not(.hub-reading-home):not(.nvm-atlas-page) aside.lens-vertical-rail,
+html body.hub-apps-page:not(.hub-literature-paper):not(.hub-reading-home):not(.nvm-atlas-page) .studio-layout > .lens-vertical-rail,
+html body.hub-apps-page.ai-nvm-page aside.lens-vertical-rail,
+html body.hub-apps-page.ai-nvm-page .lens-vertical-rail {
+  position: sticky !important;
+  top: 88px !important;
+  width: 214px !important;
+  max-width: 214px !important;
+  background: #f3f6f9 !important;
+  background-color: #f3f6f9 !important;
+  border: 1px solid #d5e0e7 !important;
+  border-radius: var(--hub-card-r) !important;
+  color: var(--hub-ink-readable) !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  opacity: 1 !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail .rail-header {
+  border-bottom: 1px solid #d0dce5 !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail .rail-title {
+  color: #587084 !important;
+  opacity: 1 !important;
+  font-weight: 600 !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail .rail-tag {
+  color: #587084 !important;
+  opacity: 1 !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill) {
+  color: #50687b !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  border-left: 3px solid transparent !important;
+  opacity: 1 !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill) .lens-name {
+  color: inherit !important;
+  font-weight: 500 !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail .lens-node-item .lens-badge {
+  background: #e5edf3 !important;
+  color: #5b7486 !important;
+  border: 0 !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill):is(.active, .active-chapter, [aria-current="page"]) {
+  background: #e0ebf2 !important;
+  background-color: #e0ebf2 !important;
+  border-left-color: #34627f !important;
+  color: #1a4968 !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill):is(.active, .active-chapter, [aria-current="page"]) .lens-name,
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill):is(.active, .active-chapter, [aria-current="page"]) .lens-badge {
+  color: #1a4968 !important;
+}
+
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill):hover {
+  background: #e8f0f5 !important;
+  background-color: #e8f0f5 !important;
+  color: #153f5b !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .hub-nav-pills-bar {
+  background: rgba(4, 20, 32, 0.95) !important;
+  border-bottom-color: var(--hub-line) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .hub-nav-pills .nav-pill.active,
+.hub-apps-page:not(.hub-literature-paper) .hub-nav-pills .nav-pill[aria-current="true"] {
+  border-color: var(--hub-kicker) !important;
+  color: var(--hub-heading) !important;
+  background: rgba(196, 165, 116, 0.12) !important;
+}
+
+/* --- Hero bands --- */
+.hub-apps-page:not(.hub-literature-paper) :where(
+  .m3-hero-container,
+  .specialty-hero,
+  section.hero
+) {
+  background: linear-gradient(180deg, rgba(6, 27, 41, 0.96) 0%, rgba(3, 19, 30, 1) 100%) !important;
+  border-bottom: 1px solid var(--hub-line) !important;
+  color: var(--hub-heading) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .hero-kicker {
+  background: rgba(196, 165, 116, 0.1) !important;
+  border-color: var(--hub-line-strong) !important;
+  color: var(--hub-kicker) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .m3-hero h1 em,
+.hub-apps-page:not(.hub-literature-paper) section.hero h1 em {
+  color: var(--hub-kicker) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .m3-hero-shade {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(196, 165, 116, 0.12) 0%, rgba(6, 25, 37, 0.88) 68%, rgba(3, 19, 30, 0.98) 100%),
+    linear-gradient(180deg, rgba(6, 25, 37, 0.65) 0%, rgba(3, 19, 30, 0.96) 100%) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .m3-hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(196, 165, 116, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(196, 165, 116, 0.05) 1px, transparent 1px) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .m3-hero-proof,
+.hub-apps-page:not(.hub-literature-paper) section.hero .hero-proof {
+  border-top-color: var(--hub-line) !important;
+}
+
+/* --- Codex accent purge → hub gold-cyan --- */
+.hub-apps-page :where(
+  .border-l-cyan,
+  .border-l-teal,
+  .border-l-indigo
+) {
+  border-left-color: var(--hub-kicker) !important;
+}
+
+.hub-apps-page :where(
+  .pulse-chip-mini,
+  .spec-cyan,
+  [style*="color:#5eead4"],
+  [style*="color: #5eead4"],
+  [style*="color:#38bdf8"],
+  [style*="color: #38bdf8"],
+  [style*="color:#74e4d7"],
+  [style*="color: #74e4d7"],
+  [style*="color:#2dd4bf"],
+  [style*="color: #2dd4bf"],
+  [style*="color:#67e3dd"],
+  [style*="color: #67e3dd"]
+) {
+  /* inline accent hooks handled below via attribute selectors where possible */
+}
+
+.hub-apps-page.specialty-page .hero-kicker::before,
+.hub-apps-page .pulse-chip-mini {
+  background: var(--hub-kicker) !important;
+  box-shadow: 0 0 0 0 rgba(196, 165, 116, 0.55) !important;
+}
+
+.hub-apps-page.specialty-page {
+  --spec-cyan: var(--hub-kicker);
+  --spec-aqua: var(--hub-aqua);
+  --spec-teal: var(--hub-copper);
+  --spec-amber: var(--hub-kicker);
+}
+
+.hub-apps-page.ai-nvm-page {
+  --ai-cyan: var(--hub-copper);
+  --ai-aqua: var(--hub-aqua);
+  --ai-teal: #8a6a42;
+  --ai-copper: var(--hub-copper);
+  --ai-paper: #f3f7f8;
+  --ai-warm-paper: #061925;
+  --ai-ink: #092235;
+  --ai-muted: #536c78;
+  --ai-line-dark: var(--hub-line);
+}
+
+.hub-apps-page.ai-nvm-page .site-header {
+  background: rgba(6, 27, 41, 0.86) !important;
+  border-bottom-color: rgba(196, 165, 116, 0.14) !important;
+}
+
+.hub-apps-page.ai-nvm-page .brand-mark,
+.hub-apps-page.ai-nvm-page .brand-section,
+.hub-apps-page.ai-nvm-page .primary-nav a:hover,
+.hub-apps-page.ai-nvm-page .primary-nav a[aria-current="location"] {
+  color: var(--hub-aqua) !important;
+}
+
+.hub-apps-page.ai-nvm-page .primary-nav a {
+  font-weight: 600 !important;
+}
+
+.hub-apps-page.ai-nvm-page :where(.paper-kicker, .research-label, .hub-kicker) {
+  color: var(--hub-kicker) !important;
+}
+
+.hub-apps-page.assurance-page {
+  --mint: var(--hub-kicker);
+  --teal: var(--hub-copper);
+  --copper: var(--hub-copper);
+  --research-cyan: var(--hub-kicker);
+}
+
+.hub-apps-page.assurance-page .kicker,
+.hub-apps-page.assurance-page .hero-chain,
+.hub-apps-page.assurance-page .threat-grid footer b {
+  color: var(--hub-kicker) !important;
+}
+
+.hub-apps-page.assurance-page .topbar {
+  background: rgba(4, 24, 35, 0.96) !important;
+  border-bottom-color: rgba(196, 165, 116, 0.14) !important;
+}
+
+.hub-apps-page.assurance-page .brand-chip {
+  border-color: var(--hub-kicker) !important;
+}
+
+/* --- Section headers / numbered rhythm --- */
+.hub-apps-page :where(.hub-sec-header, .section-header, .section-head) {
+  margin-bottom: clamp(22px, 3vw, 36px) !important;
+}
+
+.hub-apps-page:not(.ai-nvm-page) :where(.hub-sec-header h2, .section-header h2) {
+  font-size: clamp(28px, 2.7vw, 39px) !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.025em !important;
+  color: var(--hub-heading) !important;
+}
+
+/* Body copy: dark-surface containers only (preserve light-card contrast on AI etc.) */
+.hub-apps-page:not(.hub-literature-paper) :where(
+  section.hero,
+  .m3-hero-container,
+  .m3-hero-content,
+  .specialty-hero,
+  .hub-story,
+  .vendor-ask,
+  .site-breadcrumb,
+  .assurance-page .hero,
+  .assurance-page .windows,
+  .assurance-page .navigator,
+  .assurance-page .evidence-detail,
+  .assurance-page .learning,
+  .assurance-page .governance,
+  .immersive-chapter
+) :where(p:not(.source-policy), li, dd, .section-lead, .lead-desc) {
+  line-height: 1.75 !important;
+  color: var(--hub-muted-dark-surface) !important;
+}
+
+/* Light source boundary cards (peach panel) — dark ink, not dark-surface muted */
+.hub-apps-page.assurance-page .sources p.source-policy,
+.hub-apps-page .sources p.source-policy,
+.hub-apps-page p.source-policy {
+  color: var(--hub-ink-readable) !important;
+  background: #ffead1 !important;
+  border-left: 3px solid var(--hub-copper) !important;
+}
+
+.hub-apps-page.assurance-page .sources .source-list small {
+  color: #69787a !important;
+}
+
+.hub-apps-page.specialty-page:not(.ai-nvm-page) .lens-panel :where(p, li, dd) {
+  color: var(--hub-muted-dark-surface) !important;
+}
+
+.hub-apps-page .immersive-chapter .chapter-rail span {
+  font-weight: 650 !important;
+}
+
+.hub-apps-page .immersive-chapter .chapter-rail b {
+  font-weight: 600 !important;
+}
+
+/* --- OIP brief: literature light paper; copper kickers aligned to hub gold --- */
+.hub-apps-page.hub-literature-paper .research-label,
+.hub-apps-page.hub-literature-paper .paper-kicker {
+  color: #805828 !important;
+  font-weight: 650 !important;
+}
+
+.hub-apps-page.hub-literature-paper .research-hero h1 em {
+  color: #006f70 !important;
+  font-weight: 500 !important;
+}
+
+.hub-apps-page.hub-literature-paper .site-header .brand-section {
+  color: #c4a574 !important;
+}
+
+.hub-apps-page.hub-literature-paper .site-breadcrumb a {
+  color: #805828 !important;
+}
+
+/* --- AI hero: beat inline Codex gradient/700 with hub accent --- */
+html body.hub-apps-page.ai-nvm-page .ai-research-hero h1 {
+  font-weight: 600 !important;
+  color: #f3ebe0 !important;
+}
+
+html body.hub-apps-page.ai-nvm-page .ai-research-hero h1 em {
+  color: var(--hub-kicker) !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: currentColor !important;
+  font-weight: 500 !important;
+}
+
+html body.hub-apps-page.ai-nvm-page .research-label {
+  color: var(--hub-kicker) !important;
+  border-color: rgba(196, 165, 116, 0.35) !important;
+  background: rgba(196, 165, 116, 0.08) !important;
+}
+
+html body.hub-apps-page.ai-nvm-page .record-boundary-field p,
+html body.hub-apps-page.ai-nvm-page .record-boundary-field[data-derived="true"] p,
+html body.hub-apps-page.ai-nvm-page .ai-paper-shell :where(p, li) {
+  color: var(--hub-ink-readable) !important;
+}
+
+/* --- Mobile ~390 --- */
+.hub-apps-page:not(.hub-literature-paper) .specialty-hero {
+  background:
+    radial-gradient(circle at 50% 15%, rgba(196, 165, 116, 0.1) 0%, rgba(3, 19, 30, 0) 65%),
+    linear-gradient(180deg, rgba(6, 27, 41, 0.95) 0%, rgba(3, 19, 30, 1) 100%) !important;
+  border-bottom-color: var(--hub-line) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .specialty-hero .hero-lede {
+  color: #a7c2c9 !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .nav-pill.active,
+.hub-apps-page:not(.hub-literature-paper) .nav-pill[aria-current="page"] {
+  border-color: var(--hub-kicker) !important;
+  color: var(--hub-heading) !important;
+  background: rgba(196, 165, 116, 0.1) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .section-label,
+.hub-apps-page:not(.hub-literature-paper) .panel-kicker {
+  color: var(--hub-kicker) !important;
+  font-weight: 650 !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .topbar nav a::after {
+  background: var(--hub-kicker) !important;
+  box-shadow: 0 0 10px rgba(196, 165, 116, 0.35) !important;
+}
+
+/* Filled CTA buttons: dark ink on gold/mint fill (never gold-on-gold) */
+.hub-apps-page:not(.hub-literature-paper) :where(
+  .hero-actions a.primary,
+  .hero-actions .primary,
+  a.primary,
+  button.primary
+):not(.button.ghost):not(.secondary) {
+  color: #071d2a !important;
+}
+
+.hub-apps-page.ai-nvm-page .research-hero-links .button.primary {
+  color: #f8fafc !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .signal-readout.safe b {
+  color: var(--hub-kicker) !important;
+}
+
+.hub-apps-page:not(.hub-literature-paper) .trace span {
+  background: var(--hub-kicker) !important;
+  box-shadow: 0 0 10px rgba(196, 165, 116, 0.35) !important;
+}
+
+@media (max-width: 600px) {
+  .hub-apps-page:not(.hub-literature-paper) .studio-layout {
+    display: block !important;
+  }
+
+  .hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 18px !important;
+  }
+
+  .hub-apps-page :where(.m3-hero h1, section.hero h1, .specialty-hero h1) {
+    font-size: clamp(26px, 8.5vw, 34px) !important;
+    line-height: 1.18 !important;
+  }
+
+  .hub-apps-page :where(.hub-sec-header h2, .section-header h2) {
+    font-size: 26px !important;
+  }
+
+  html body.hub-apps-page.ai-nvm-page .ai-research-hero h1 {
+    font-size: clamp(26px, 8.2vw, 34px) !important;
+    max-width: 100% !important;
+    text-wrap: balance !important;
+  }
+
+  html body.hub-apps-page:not(.hub-literature-paper) aside.lens-vertical-rail,
+  html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hub-apps-page * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

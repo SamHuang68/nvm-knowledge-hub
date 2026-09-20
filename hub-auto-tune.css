@@ -1,35 +1,36 @@
-/* Automotive page — first-screen + gate table. Does not restyle the whole hub. */
-body.specialty-page .m3-hero-container {
+/* Applications specialty pages — first-screen + gate table. Does not restyle the whole hub. */
+body.hub-apps-page.specialty-page .m3-hero-container,
+body.hub-apps-page .m3-hero-container {
   min-height: 0 !important;
   padding: 28px var(--hub-keepout, 24px) 24px !important;
 }
-body.specialty-page .m3-hero-container #hub-fail-closed {
+body.hub-apps-page.specialty-page .m3-hero-container #hub-fail-closed {
   display: none;
 }
-body.specialty-page .m3-hero h1 {
+body.hub-apps-page.specialty-page .m3-hero h1 {
   font-size: clamp(22px, 2.8vw, 34px) !important;
   line-height: 1.22 !important;
   margin: 8px 0 10px !important;
 }
-body.specialty-page .m3-hero p.lead-desc {
+body.hub-apps-page.specialty-page .m3-hero p.lead-desc {
   max-width: 62em;
   margin-left: auto;
   margin-right: auto;
   font-size: 16px !important;
   line-height: 1.65 !important;
 }
-body.specialty-page .hub-auto-path {
+body.hub-apps-page.specialty-page .hub-auto-path {
   margin: 0 var(--hub-keepout, 24px) 28px;
 }
-body.specialty-page #hub-fail-closed.hub-auto-moved {
+body.hub-apps-page.specialty-page #hub-fail-closed.hub-auto-moved {
   max-width: min(1140px, 92vw);
   margin: 20px auto 8px;
 }
-body.specialty-page .hub-auto-table-wrap {
+body.hub-apps-page.specialty-page .hub-auto-table-wrap {
   margin: 18px 0 8px;
   overflow-x: auto;
 }
-body.specialty-page .hub-auto-table {
+body.hub-apps-page.specialty-page .hub-auto-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 13px;
@@ -37,14 +38,14 @@ body.specialty-page .hub-auto-table {
   color: #e8eef2;
   background: rgba(6, 25, 37, 0.55);
 }
-body.specialty-page .hub-auto-table th,
-body.specialty-page .hub-auto-table td {
+body.hub-apps-page.specialty-page .hub-auto-table th,
+body.hub-apps-page.specialty-page .hub-auto-table td {
   border: 1px solid rgba(196, 165, 116, 0.28);
   padding: 8px 10px;
   text-align: left;
   vertical-align: top;
 }
-body.specialty-page .hub-auto-table th {
+body.hub-apps-page.specialty-page .hub-auto-table th {
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
   font-size: 11px;
   letter-spacing: .06em;
@@ -52,20 +53,20 @@ body.specialty-page .hub-auto-table th {
   color: #c4a574;
   background: rgba(9, 43, 59, 0.88);
 }
-body.specialty-page .hub-auto-table caption {
+body.hub-apps-page.specialty-page .hub-auto-table caption {
   caption-side: top;
   text-align: left;
   padding: 0 0 8px;
   color: #9eb5bf;
   font-size: 12px;
 }
-body.specialty-page .hub-auto-verify {
+body.hub-apps-page.specialty-page .hub-auto-verify {
   color: #c4a574;
   font-family: 'IBM Plex Mono', ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: .08em;
 }
-body.specialty-page .hub-auto-assume {
+body.hub-apps-page.specialty-page .hub-auto-assume {
   max-width: 72ch;
   margin: 8px 0 14px;
   color: #c4a574;
@@ -73,5 +74,5 @@ body.specialty-page .hub-auto-assume {
   line-height: 1.55;
 }
 @media (prefers-reduced-motion: reduce) {
-  body.specialty-page .m3-hero-media img { animation: none !important; }
+  body.hub-apps-page.specialty-page .m3-hero-media img { animation: none !important; }
 }

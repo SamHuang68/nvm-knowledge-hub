@@ -95,13 +95,15 @@
   });
   if (routeToLanguage(initial)) return;
   html.lang = initial === 'zh' ? 'zh-Hant' : 'en'; html.dataset.language = initial;
+  const appsPages = /secure-storage\.html|security-assurance\.html|ai-nvm-opportunities\.html|iot-mcu-envm\.html|automotive-nvm\.html|specialty-nvm\.html|oip-secure-storage\.html/i.test(location.pathname);
   const sheets = [
     ['surface-radius.css?v=20260908-r3', true],
     ['chapter-lens.css?v=20260908-l5', true],
     ['memory-physics-contrast.css?v=20260907-f1', /memory-physics\.html/i.test(location.pathname)],
     ['ai-nvm-node.css?v=20260908-n30', /ai-nvm-opportunities\.html/i.test(location.pathname)],
     ['ai-nvm-tune.css?v=20260908-n31', /ai-nvm-opportunities\.html/i.test(location.pathname)],
-    ['全站閱讀系統.css?v=20260910-bilingual', true]
+    ['全站閱讀系統.css?v=20260910-bilingual', true],
+    ['hub-apps-chrome.css?v=20260920-apps3', appsPages]
   ];
   for (const [href, enabled] of sheets) {
     if (!enabled) continue;
@@ -113,8 +115,11 @@
     script.defer = true; document.head.append(script);
   }
   function ready() {
+    if (appsPages && document.body) document.body.classList.add('hub-apps-page');
     const readingStyle = document.querySelector('link[data-hub-shared-style="全站閱讀系統.css"]');
+    const appsChrome = document.querySelector('link[data-hub-shared-style="hub-apps-chrome.css"]');
     if (readingStyle) document.head.append(readingStyle);
+    if (appsChrome) document.head.append(appsChrome);
     document.querySelectorAll('.language-toggle, #languageToggle').forEach(button => {
       if (button._hubLangBound) return;
       button._hubLangBound = true;
