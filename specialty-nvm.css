@@ -10,10 +10,10 @@
   --spec-surface: #0e2a38;
   --spec-surface-card: #0e2a38;
   --spec-surface-elevated: #0e2a38;
-  --spec-cyan: #5eead4;
-  --spec-aqua: #d5b78a;
-  --spec-teal: #38bdf8;
-  --spec-amber: #fcd34d;
+  --spec-cyan: #c4a574;
+  --spec-aqua: #c4a574;
+  --spec-teal: #b08a5b;
+  --spec-amber: #c4a574;
   --spec-green: #34d399;
   --spec-danger: #dc2626;
   --spec-line: rgba(28, 25, 23, 0.10);
@@ -60,11 +60,11 @@
   gap: 8px;
   font-family: var(--spec-mono);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 650;
   letter-spacing: 0.18em;
   color: var(--spec-amber);
-  background: rgba(255, 157, 92, 0.1);
-  border: 1px solid rgba(255, 157, 92, 0.35);
+  background: rgba(196, 165, 116, 0.1);
+  border: 1px solid rgba(196, 165, 116, 0.35);
   padding: 6px 16px;
   border-radius: 999px;
   margin-bottom: 24px;
@@ -78,7 +78,7 @@
   height: 6px;
   border-radius: 50%;
   background: var(--spec-amber);
-  box-shadow: 0 0 8px var(--spec-amber);
+  box-shadow: 0 0 8px rgba(196, 165, 116, 0.45);
 }
 
 .specialty-hero h1 {
