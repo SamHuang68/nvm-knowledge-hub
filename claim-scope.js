@@ -25,18 +25,27 @@
       el.setAttribute('content', v.replace(/ISO 26262 ASIL-D/g, 'ISO 26262 ASIL context').replace(/Zero Erase Penalty/g, 'No extra erase-voltage path'));
     });
   }
-  if (/automotive-nvm\.html/i.test(path)) {
-    replaceText([
+  const sc3OverloadDemote = [
       ['ISO 26262 ASIL-D Ready (SEooC) · SC3 Systematic Capability', 'ISO 26262 ASIL context (SEooC) · not a certification'],
       ['ISO 26262 ASIL-D Ready (SEooC) · SC3 系統化能力', 'ISO 26262 ASIL 語境（SEooC）· 非認證'],
       ['ISO 26262 ASIL-D Ready (SEooC SC3)', 'ISO 26262 ASIL context (SEooC) · not certified Ready'],
       ['ISO 26262 ASIL context · SEooC SC3 capability (not a certification)', 'ISO 26262 ASIL context (SEooC) · not a certification'],
       ['ISO 26262 ASIL 語境 · SEooC SC3 能力（非認證）', 'ISO 26262 ASIL 語境（SEooC）· 非認證'],
       ['ISO 26262 ASIL context (SEooC SC3) · not certified Ready', 'ISO 26262 ASIL context (SEooC) · not certified Ready'],
+      ['ASIL context (SEooC SC3)', 'ASIL context (SEooC)'],
+      ['ASIL 脈絡（SEooC SC3）', 'ASIL 脈絡（SEooC）'],
+      ['ASIL-D (SEooC SC3)', 'ASIL (SEooC)'],
       ['ASIL-D vocabulary / SEooC SC3 (not READY cert)', 'ISO 26262 ASIL-D vocab (SEooC · not cert)'],
       ['ASIL-D vocabulary / SC3 (not READY cert)', 'ISO 26262 ASIL-D vocab (SEooC)'],
       ['FUNCTIONAL SAFETY (SEooC SC3 CAPABILITY)', 'ISO 26262 SEooC vocabulary (not cert)'],
       ['車載最高安全等級 (SEooC SC3 能力支援)', 'ISO 26262 SEooC 語境（非認證）'],
+      ['ASIL-D／SC3', 'ISO 26262 ASIL'],
+      ['ASIL-D/SC3', 'ISO 26262 ASIL'],
+      ['SEooC SC3', 'SEooC']
+  ];
+  replaceText(sc3OverloadDemote);
+  if (/automotive-nvm\.html/i.test(path)) {
+    replaceText([
       ['ISO 26262 ASIL-D Ready', 'ASIL CONTEXT (SEooC)'],
       ['Low-defectivity mission-profile rigor', 'mission-profile defectivity (VERIFY)'],
       ['低缺陷任務載記可靠度', '任務載記缺陷密度（VERIFY）'],

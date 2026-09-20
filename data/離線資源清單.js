@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "6574fc2819d0846ea949",
+  "version": "068e6370e7985a517efb",
   "assets": [
     "404.html",
     "IoT頁面導覽.js",
@@ -104,9 +104,9 @@ self.NVMOfflineManifest = {
     "assurance.css": "8298651b0462595095c42067a510cdafdb86cb99f1860afa8675c1da7074f7c8",
     "assurance.js": "42c0d9d9101dc6c65dc08226454edb9ab7ac627e13fedfb4f0ddb54c4ba4eb2d",
     "automotive-nvm.html": "f5bef5718a0c2b20c90cc347ff8c1ddd11d2b9ad87c87b34fd1aead5794ead7c",
-    "briefing/index.html": "06c9b7210923b6a964a02f1c6e29b96eadc73dc6e3fcfbea8e9b3e0ec2392825",
+    "briefing/index.html": "ec1e9ef416053b57262dee06dba8273aa57518a6da21c2de3f6b03b1559f3d79",
     "chapter-lens.css": "5faced8cb22fac9128997274ec0c0e6c73db35796dc417f108f8f122cc960171",
-    "claim-scope.js": "3739a865e0f2b3ecb7e816758a535cef538db2ad141b673bc79fb695f7946c2e",
+    "claim-scope.js": "d15350e2b7d41f90a19a67228c36f14f8c1f59c43b14deb3675a95e1dc01ff79",
     "data/NVM搜尋索引.js": "6acf949fdcbe06b4d669990af88600aefeb1396164812b63606f56d080676490",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "f1-card-align.js": "206fe82993c3aa1c48ab6af72569cfdacab2497e0a971c567e9b8852912be636",
@@ -125,13 +125,13 @@ self.NVMOfflineManifest = {
     "matrix-interactive.js": "96eef44abf28701f8447814372521e2a7de0be731b47779b278ffab20d75973d",
     "memory-evidence.html": "e588fc7e79b9c91420650e04c3283696951994d3dc47257b6554840e49e5beea",
     "memory-physics-contrast.css": "eecd7bed1ca684dfe1ecdc208f89c6e9b836d4cd2545a253235303926a989049",
-    "memory-physics.html": "b99d51463282243ba9f810437e54f9b65089556d76db3d5466e1b274599a2acc",
+    "memory-physics.html": "8a966ff93f00757cd8d9455f72a4bc67dfb13c27d86bb3ba7b9f1f16518359bb",
     "oip-secure-storage.html": "738815c5984300884701327606e94fee31630f932b8e614ec9037b44151c7663",
     "research.css": "fa12a90d9b86a7d0f4fbc34aeb7c4c99f24f6684171588de30bf7e7da8fed691",
     "research.js": "23c4cd497c66ca9430489cb0562dad77939360264b321308073b82791e2e020b",
     "secure-storage.html": "058a3889d31c801cda9a97e218d16f7c626c93e7d69d73549467f240badea3e6",
     "security-assurance.html": "508c106df3143ca3cdff889c0ac2e2be020d1c909ad8f0bfdaf20bac496f519d",
-    "site-language.js": "48eb2bace9629f019edd79f382af20ccfa2b99f3aceda616bcb44d14d3f54fba",
+    "site-language.js": "21eb7e78889773a2f9b22f21d35bd847b5b503f49108ae5a6629ce046105a041",
     "site-shell.css": "ffee90a4ce3aaa603d9e886d9a0f874e6b25b0f302cba9f77dd8cc96b89cecbc",
     "site.webmanifest": "6a8beee910c38c6845c40f3ac87ebba03827193e18b23cac1dc0d8d209268332",
     "specialty-nvm.css": "08c115952605457717c29e840f55cfd8ce89e41e4f6e1ba7c37aade4b5f0c36c",
@@ -139,7 +139,7 @@ self.NVMOfflineManifest = {
     "specialty-nvm.js": "f76aebd0e69866b5a04253ecc3f34b7e75069198a5669e360e2b28f39f4c7b3c",
     "styles.css": "e4bc177263b06f3aa1d1cb00b80155ed2de5b37394a3ac8083c8065adb5f8d91",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
-    "technology-comparison.html": "5926b1d095b024248bcaa1d21b74785957af1491ae6212c07ba44a4a75a74274",
+    "technology-comparison.html": "6c187e308d1a515aa52689d4e57313ed14a900aaead2843e048c6ca59bc9025b",
     "tools/whitepaper-studio/index.html": "70183e6c25e7831e5b682dcbce386385f75bb64463789cea028ffacd25302962",
     "whitepaper/assets/whitepaper_i18n.js": "6231973db7ec823e5fd6d954c3207c83cc491e32e7adab40d27b42d564da4e05",
     "whitepaper/assets/白皮書.css": "9bab2311e63e26532a7d873765a6bd0c6f5866223b0c3cb3aae2c500e7d8f45d",
@@ -156,5 +156,5 @@ self.NVMOfflineManifest = {
     "首頁互動.css": "6e4035b53fd9832805e3c67339d8af66dc3383f00a4dc93c68a0c5728705714c",
     "首頁導覽.js": "64501ccfac640ac42684a943ece3111a5a065b4f697f64fa47f4e92c3749c796"
   },
-  "totalBytes": 10709134
+  "totalBytes": 10709658
 };
