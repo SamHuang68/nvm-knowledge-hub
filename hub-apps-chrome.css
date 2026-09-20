@@ -388,11 +388,23 @@ html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens
   .assurance-page .evidence-detail,
   .assurance-page .learning,
   .assurance-page .governance,
-  .assurance-page .sources,
   .immersive-chapter
-) :where(p, li, dd, .section-lead, .lead-desc) {
+) :where(p:not(.source-policy), li, dd, .section-lead, .lead-desc) {
   line-height: 1.75 !important;
   color: var(--hub-muted-dark-surface) !important;
+}
+
+/* Light source boundary cards (peach panel) — dark ink, not dark-surface muted */
+.hub-apps-page.assurance-page .sources p.source-policy,
+.hub-apps-page .sources p.source-policy,
+.hub-apps-page p.source-policy {
+  color: var(--hub-ink-readable) !important;
+  background: #ffead1 !important;
+  border-left: 3px solid var(--hub-copper) !important;
+}
+
+.hub-apps-page.assurance-page .sources .source-list small {
+  color: #69787a !important;
 }
 
 .hub-apps-page.specialty-page:not(.ai-nvm-page) .lens-panel :where(p, li, dd) {
