@@ -216,7 +216,7 @@
   }
   if (/automotive-nvm\.html/i.test(path)) {
     failClosed('ASIL context does not become Ready.', 'ASIL 語境不會變成 Ready。', [
-      { n: '01', en: 'Named condition', zh: '具名條件', hintEn: 'SEooC · SC3', hintZh: 'SEooC · SC3', bodyEn: 'Start from the named safety-element context. That is the input, not a certificate.', bodyZh: '從具名安全元件語境開始。那是輸入，不是證書。' },
+      { n: '01', en: 'Named condition', zh: '具名條件', hintEn: 'SEooC · ISO 26262', hintZh: 'SEooC · ISO 26262', bodyEn: 'Start from the named safety-element context. That is the input, not a certificate.', bodyZh: '從具名安全元件語境開始。那是輸入，不是證書。' },
       { n: '02', en: 'VERIFY the figure', zh: '核對數字', hintEn: 'Drift · screening', hintZh: '漂移 · 篩選', bodyEn: 'Retention and screening numbers stay bound to the cited condition. They are VERIFY items.', bodyZh: '留存與篩選數字綁定被引用的條件。它們是 VERIFY 項目。' },
       { n: '03', en: 'Fail closed', zh: '失敗即關閉', hintEn: 'No silent upgrade', hintZh: '不靜默升級', bodyEn: 'If the configuration is not closed, the page must not say ASIL-D Ready or zero-defect.', bodyZh: '組態未關閉時，頁面不得寫 ASIL-D Ready 或零缺陷。' }
     ]);
