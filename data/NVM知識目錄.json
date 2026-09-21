@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "revision": "2026-09-10",
+  "revision": "2026-09-21",
   "titleZh": "NVM 知識中心",
   "titleEn": "NVM Knowledge Hub",
   "introZh": "非揮發性記憶體的技術基礎、IP 與製程、應用架構及公開文獻。依主題查閱原理、具名實作與設計條件。",
@@ -160,6 +160,16 @@
           "descriptionEn": "Persistent-state requirements in accelerators, chiplets, and memory systems.",
           "metaEn": "AI · Chiplets · State",
           "metaZh": "AI · Chiplet · 狀態"
+        },
+        {
+          "id": "D5",
+          "url": "sram-repair.html",
+          "titleZh": "SRAM 修復容量估算器",
+          "titleEn": "SRAM Repair Capacity Estimator",
+          "descriptionZh": "輸入 SRAM 容量、修復資料比例與壓縮率，即時比較 OTP／eFuse 的有效資料與配置容量。",
+          "descriptionEn": "Enter SRAM capacity, repair-data fraction and compression to compare OTP and eFuse payload and allocation.",
+          "metaZh": "16 Gb 範例 · 互動試算",
+          "metaEn": "16 Gb example · Live calculator"
         },
         {
           "id": "D2",

@@ -4,6 +4,7 @@ window.__NVM_SEARCH_ENHANCED = true;
 (() => {
   const ROOT = new URL('.', document.currentScript.src);
   const PAGE_CATALOG = [
+    {title_zh:'SRAM 修復容量估算器',title_en:'SRAM Repair Capacity Estimator',url:'sram-repair.html',tags:'sram repair compression capacity otp efuse 16gb calculator 修復 壓縮 容量 估算'},
     {title_zh:'知識中心首頁',title_en:'NVM Knowledge Hub home',url:'index.html',tags:'home knowledge hub 首頁'},
     {title_zh:'位元胞物理與可靠度',title_en:'Bitcell Physics & Reliability',url:'memory-physics.html',tags:'antifuse gate oxide filament physics fowler nordheim 175 drift evidence'},
     {title_zh:'NVM 技術對比矩陣',title_en:'NVM Technology Comparison Matrix',url:'technology-comparison.html',tags:'comparison matrix eflash emram efuse selection guide foundry tsmc umc TwinBit I-fuse Floadia Actt CFX SST Samsung SF4A',summary_zh:'11 葉選型矩陣、雷達演示與四大晶圓廠。',summary_en:'11-leaf selection matrix, radar demo, and four foundries.'},
