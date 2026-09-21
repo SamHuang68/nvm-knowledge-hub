@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "068e6370e7985a517efb",
+  "version": "1389587125049bb7c444",
   "assets": [
     "404.html",
     "IoT頁面導覽.js",
@@ -59,6 +59,10 @@ self.NVMOfflineManifest = {
     "specialty-nvm.css",
     "specialty-nvm.html",
     "specialty-nvm.js",
+    "sram-repair-model.js",
+    "sram-repair.css",
+    "sram-repair.html",
+    "sram-repair.js",
     "styles.css",
     "surface-radius.css",
     "technology-comparison.html",
@@ -117,8 +121,8 @@ self.NVMOfflineManifest = {
     "hub-story-maps.css": "ab86ba56f0ff7a477067b9ab30c7ac2a87d70b9251b74a78eba55ed3aa7587da",
     "hub-story-maps.js": "36f0bd23548d7d9934d30b7d73cb249a03a23a9cb9609dd3ddadc856e77d336a",
     "hub.css": "81b44d35a039263b194683ded1b0a0101b4794184cedf8d82dac6b45cbee9c96",
-    "hub.js": "0023a8b97802ff747efc1ecbe5b8d434a66da3f910f8ed7879e4bf939fa41314",
-    "index.html": "7eede380b419d13867498203eec59e5e4ff78c14a6349aab4fafa1dd78376465",
+    "hub.js": "6e4bf7aba61dea54dd93af34df7478f72973148bfdbed96a45f6ef0d3575a5df",
+    "index.html": "ee31ea7e20d76c1ca60382f021c32255c24db830b4d16b0aeaf17419e68b3b39",
     "iot-mcu-envm.html": "36e0b7215b1b5a3360ef670945cae26c8861f820a4e3580deb3171d12b8c8db3",
     "literature-editorial.css": "bf491d200ea4a5f6f268ad13d87e4169a31546759bfdc1596737a34fb14f55dc",
     "literature-paper.js": "51fee6df84fb607aca45a7975ffe329311b4221f69c57b6822de6d06fa8417fa",
@@ -137,6 +141,10 @@ self.NVMOfflineManifest = {
     "specialty-nvm.css": "08c115952605457717c29e840f55cfd8ce89e41e4f6e1ba7c37aade4b5f0c36c",
     "specialty-nvm.html": "ce7c4ac552e7e61d0cb24e850a8b24e87d5f6acbea67925e2e95b04e87ef1f82",
     "specialty-nvm.js": "f76aebd0e69866b5a04253ecc3f34b7e75069198a5669e360e2b28f39f4c7b3c",
+    "sram-repair-model.js": "8cbf54bfe444b9fab26a96b0cf966ea8f1dfa3796c676455e4c6257f09cea99a",
+    "sram-repair.css": "a6141ed304517cac383c31789df584c9a507ecd36ed0ae38cfa94e73cac30738",
+    "sram-repair.html": "240773444aa37542b2193644c175e3c4afccee476801f20718e4994405bd59ef",
+    "sram-repair.js": "a284f0cdd81e36dabd211c2df695d97dc1471a9c141e2bce914e1e10f72fb897",
     "styles.css": "e4bc177263b06f3aa1d1cb00b80155ed2de5b37394a3ac8083c8065adb5f8d91",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "technology-comparison.html": "6c187e308d1a515aa52689d4e57313ed14a900aaead2843e048c6ca59bc9025b",
@@ -150,11 +158,11 @@ self.NVMOfflineManifest = {
     "全站閱讀系統.css": "306de27a7ee31772b9aff79235c0d402201cd5c7160b68be26dc2f863e4a2d54",
     "商用閱讀介面.css": "2f1beb94f80ae51b06d2a59163e5d73c06c34fe9a786bf4014eda05b2152eddc",
     "專題選單導覽.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
-    "搜尋控制器.js": "e93d9d6ce4b1d6363e9a47db78c4670f0cb55eb04892ce66ead4266c217b2cf2",
+    "搜尋控制器.js": "33722485f8ad7983eea799a11f0f65d408515f5080c088fef5ea125640f24488",
     "知識中心首頁.css": "34acff93a1b8fa5bc594fc34adf27f80cdaa954c67b5f7ed54a41748a38466d9",
     "記憶體物理導覽.js": "3b5b74af4f6438fca0289a06c1efe87e1a20d58d48f687337307d9553ec745e9",
     "首頁互動.css": "6e4035b53fd9832805e3c67339d8af66dc3383f00a4dc93c68a0c5728705714c",
     "首頁導覽.js": "64501ccfac640ac42684a943ece3111a5a065b4f697f64fa47f4e92c3749c796"
   },
-  "totalBytes": 10709658
+  "totalBytes": 10773351
 };

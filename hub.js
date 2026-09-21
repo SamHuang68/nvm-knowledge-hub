@@ -36,6 +36,12 @@ document.addEventListener("DOMContentLoaded", syncHubLanguage);
 const SEARCH_INDEX = [
   ...(window.NVMTopicIndex || []),
   {
+    title_zh: "SRAM 修復容量估算器",
+    title_en: "SRAM Repair Capacity Estimator",
+    url: "sram-repair.html",
+    tags: "sram repair compression capacity otp efuse 16gb calculator 修復 壓縮 容量 估算"
+  },
+  {
     title_zh: "位元胞物理與可靠度",
     title_en: "Bitcell Physics & Reliability",
     url: "memory-physics.html",

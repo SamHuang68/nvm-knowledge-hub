@@ -4,7 +4,7 @@ import {startTestServer} from './驗證伺服器.mjs';
 
 const root=path.resolve(import.meta.dirname,'..');
 const server=await startTestServer(root);
-const scripts=['驗證檢查門禁.mjs','驗證模擬備援.mjs','驗證搜尋與狀態修正.mjs','驗證全景延後載入.mjs','驗證離線快取.mjs','../tools/whitepaper-studio/scripts/驗證白皮書瀏覽器.mjs','驗證雙語發布.mjs'];
+const scripts=['../tests/sram-model.test.mjs','驗證SRAM估算器.mjs','驗證檢查門禁.mjs','驗證模擬備援.mjs','驗證搜尋與狀態修正.mjs','驗證全景延後載入.mjs','驗證離線快取.mjs','../tools/whitepaper-studio/scripts/驗證白皮書瀏覽器.mjs','驗證雙語發布.mjs'];
 try {
   for(const file of scripts) {
     console.log(`開始驗證：${file}`);
