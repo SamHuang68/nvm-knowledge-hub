@@ -27,7 +27,7 @@ for (const file of [...assets,'sw.js']) {
   }
 }
 const content = 'self.NVMOfflineManifest = '+JSON.stringify({version:hash.digest('hex').slice(0,20),assets,digests,totalBytes},null,2)+';\n';
-const output=path.join(root,'data/離線資源清單.js');
+const output=path.join(root,'data/offline-manifest.js');
 if(process.argv.includes('--check')) {
   if(!fs.existsSync(output)||fs.readFileSync(output,'utf8').replaceAll('\r\n','\n')!==content)throw new Error('離線資源清單與目前原始碼不同步');
 } else fs.writeFileSync(output,content,'utf8');

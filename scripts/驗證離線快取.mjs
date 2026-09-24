@@ -10,7 +10,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const output = path.resolve(process.env.NVM_QA_OUTPUT || path.join(root, 'qa', '離線快取'));
 fs.mkdirSync(output, { recursive: true });
 const manifestScope = { self: {} };
-vm.runInNewContext(fs.readFileSync(path.join(root, 'data/離線資源清單.js'), 'utf8'), manifestScope);
+vm.runInNewContext(fs.readFileSync(path.join(root, 'data/offline-manifest.js'), 'utf8'), manifestScope);
 const sourceManifest = JSON.parse(JSON.stringify(manifestScope.self.NVMOfflineManifest));
 const canonical = (file, bytes) => /\.(?:html|css|js|json|svg|webmanifest)$/.test(file)
   ? Buffer.from(bytes.toString('utf8').replace(/^\uFEFF/,'').replaceAll('\r\n', '\n')) : bytes;
@@ -27,7 +27,7 @@ function fixture(label) {
   const manifest = structuredClone(sourceManifest);
   for (const file of ['index.html', 'site-language.js']) manifest.digests[file] = digest(canonical(file, files.get(file)));
   manifest.version = digest(Buffer.from(JSON.stringify(manifest.digests))).slice(0,20);
-  files.set('data/離線資源清單.js', Buffer.from('self.NVMOfflineManifest = '+JSON.stringify(manifest)+';\n'));
+  files.set('data/offline-manifest.js', Buffer.from('self.NVMOfflineManifest = '+JSON.stringify(manifest)+';\n'));
   files.set('sw.js', Buffer.from(worker+`\n/* ${label}：測試伺服器模擬版本更新。 */\n`));
   return { label, files, manifest };
 }

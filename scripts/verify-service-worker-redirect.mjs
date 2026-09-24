@@ -9,25 +9,29 @@ const root = path.resolve(import.meta.dirname, '..');
 const workerSource = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
 const digest = body => crypto.createHash('sha256').update(body).digest('hex');
 const pages = {
-  'index.html': '<!doctype html><meta charset="utf-8"><title>Home</title><p id="marker">home-ok</p><script>navigator.serviceWorker.register("./sw.js")</script>',
-  'memory-physics.html': '<!doctype html><meta charset="utf-8"><title>MP</title><h1 id="marker">memory-physics-ok</h1>',
-  'briefing/index.html': '<!doctype html><meta charset="utf-8"><title>Briefing</title><h1 id="marker">briefing-ok</h1><script src="probe.js"></script>',
+  'index.html': '<!doctype html><meta charset="utf-8"><title>Home</title><p id="marker">home-ok</p><script>navigator.serviceWorker.register("./sw.js")</script></body>',
+  'memory-physics.html': '<!doctype html><meta charset="utf-8"><title>MP</title><h1 id="marker">memory-physics-ok</h1><a id="returnHome" href="index.html">Return to Knowledge Hub</a><a id="returnSibling" href="secure-storage.html">Return to Secure Storage</a></body>',
+  'secure-storage.html': '<!doctype html><meta charset="utf-8"><title>SS</title><h1 id="marker">secure-storage-ok</h1><a id="returnHome" href="index.html">知識中心</a></body>',
+  'iot-mcu-envm.html': '<!doctype html><meta charset="utf-8"><title>IoT</title><h1 id="marker">iot-ok</h1><a id="returnHome" href="index.html">返回知識中心</a></body>',
+  'briefing/index.html': '<!doctype html><meta charset="utf-8"><title>Briefing</title><h1 id="marker">briefing-ok</h1><script src="probe.js"></script></body>',
   'briefing/probe.js': 'document.documentElement.dataset.probe = "ready";\n',
-  'notes.html': '<!doctype html><meta charset="utf-8"><title>Notes</title><h1 id="marker">notes-ok</h1>',
-  'boot.html': '<!doctype html><meta charset="utf-8"><title>Boot</title><p id="marker">boot-ok</p>',
+  'notes.html': '<!doctype html><meta charset="utf-8"><title>Notes</title><h1 id="marker">notes-ok</h1></body>',
+  'boot.html': '<!doctype html><meta charset="utf-8"><title>Boot</title><p id="marker">boot-ok</p></body>',
 };
 const version = 'sw-redirect-fixture';
-const assets = ['index.html', 'memory-physics.html', 'briefing/index.html', 'briefing/probe.js'];
+const assets = ['index.html', 'memory-physics.html', 'secure-storage.html', 'iot-mcu-envm.html', 'briefing/index.html', 'briefing/probe.js'];
 const manifest = `self.NVMOfflineManifest = ${JSON.stringify({
   version,
   assets,
   digests: Object.fromEntries(assets.map(file => [file, digest(pages[file])])),
   totalBytes: assets.reduce((sum, file) => sum + Buffer.byteLength(pages[file]), 0),
 })};\n`;
-const files = new Map(Object.entries({ ...pages, 'sw.js': workerSource, 'data/離線資源清單.js': manifest }));
+const files = new Map(Object.entries({ ...pages, 'sw.js': workerSource, 'data/offline-manifest.js': manifest }));
 const tamperMark = '<!--TAMPER-->';
+const beaconTag = '<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vfixture" integrity="sha512-fixture" data-cf-beacon=\'{"version":"2024.11.0","token":"fixture","r":1}\' crossorigin="anonymous"></script>\n';
 let pretty = false;
 let tamper = false;
+let beacon = false;
 let foreignOrigin = '';
 
 function redirectTarget(pathname, search) {
@@ -58,7 +62,8 @@ const server = http.createServer((request, response) => {
     response.end('missing');
     return;
   }
-  const payload = tamper && relative === 'memory-physics.html' ? body + tamperMark : body;
+  let payload = tamper && relative === 'memory-physics.html' ? body + tamperMark : body;
+  if (beacon && relative.endsWith('.html') && payload.includes('</body>')) payload = payload.replace('</body>', beaconTag + '</body>');
   const type = relative.endsWith('.js') ? 'text/javascript' : 'text/html';
   response.writeHead(200, { 'Content-Type': `${type}; charset=utf-8`, 'Cache-Control': 'no-store' });
   response.end(payload);
@@ -207,6 +212,69 @@ try {
       return { state, caches: await caches.keys(), hasCache: (await caches.keys()).includes(name) };
     }, cacheName);
     check((install.state === 'redundant' || install.state === 'rejected') && !install.hasCache, '安裝時轉址後的雜湊不符會整組拒絕', install);
+    await context.close();
+  }
+
+  pretty = true;
+  tamper = false;
+  beacon = true;
+  {
+    const context = await browser.newContext({ serviceWorkers: 'allow' });
+    await context.route('https://static.cloudflareinsights.com/**', route => route.fulfill({ status: 200, contentType: 'text/javascript', body: '/* fixture */' }));
+    const page = await openControlled(context);
+    const home = await page.goto(origin + '/', { waitUntil: 'domcontentloaded' });
+    check(home.status() === 200 && await page.locator('#marker').textContent() === 'home-ok', 'Cloudflare beacon 注入後首頁仍是知識中心', { status: home.status(), url: page.url() });
+    const article = await page.goto(origin + '/memory-physics', { waitUntil: 'domcontentloaded' });
+    const articleText = await page.locator('body').innerText();
+    check(article.status() === 200 && await page.locator('#marker').textContent() === 'memory-physics-ok' && !articleText.includes('Page not downloaded') && !articleText.includes('尚未下載'), 'beacon 注入後 /memory-physics 是文章而不是離線頁', { status: article.status(), url: page.url() });
+    await page.locator('#returnHome').click();
+    await page.locator('#marker').waitFor();
+    const homeText = await page.locator('body').innerText();
+    check(await page.locator('#marker').textContent() === 'home-ok' && !homeText.includes('Page not downloaded') && !homeText.includes('尚未下載'), '文章品牌與麵包屑 index.html 回到真正首頁', { url: page.url(), text: homeText });
+    await page.goto(origin + '/memory-physics', { waitUntil: 'domcontentloaded' });
+    await page.locator('#returnSibling').click();
+    await page.locator('#marker').waitFor();
+    const siblingText = await page.locator('body').innerText();
+    check(await page.locator('#marker').textContent() === 'secure-storage-ok' && !siblingText.includes('Page not downloaded') && !siblingText.includes('尚未下載'), 'Return to Secure Storage 開啟同站 HTML 而不是離線頁', { url: page.url(), text: siblingText });
+    const apps = await page.goto(origin + '/iot-mcu-envm', { waitUntil: 'domcontentloaded' });
+    check(apps.status() === 200 && await page.locator('#marker').textContent() === 'iot-ok', '無副檔名應用頁在 beacon 下可開啟', { status: apps.status(), url: page.url() });
+    await page.locator('#returnHome').click();
+    await page.locator('#marker').waitFor();
+    check(await page.locator('#marker').textContent() === 'home-ok', '應用頁返回知識中心到達首頁', { url: page.url() });
+    const cached = await page.evaluate(async name => {
+      const cache = await caches.open(name);
+      const bodies = await Promise.all((await cache.keys()).map(async request => (await (await cache.match(request)).text())));
+      return bodies.join('\n');
+    }, cacheName);
+    check(!cached.includes('cloudflareinsights') && cached.includes('home-ok') && cached.includes('memory-physics-ok'), '快取保存去掉 beacon 的作者內文', { hasBeacon: cached.includes('cloudflareinsights') });
+    await context.close();
+  }
+
+  pretty = true;
+  tamper = true;
+  beacon = true;
+  {
+    const context = await browser.newContext({ serviceWorkers: 'allow' });
+    const page = await context.newPage();
+    page.setDefaultTimeout(15000);
+    await page.goto(origin + '/boot.html', { waitUntil: 'domcontentloaded' });
+    const install = await page.evaluate(async name => {
+      try { await navigator.serviceWorker.register('./sw.js'); }
+      catch (error) { return { state: 'rejected', message: error.message, hasCache: false }; }
+      const registration = await navigator.serviceWorker.getRegistration();
+      const worker = registration?.installing || registration?.waiting || registration?.active;
+      const state = await new Promise(resolve => {
+        const finish = () => {
+          if (!worker) return resolve('missing');
+          if (worker.state === 'activated' || worker.state === 'redundant') resolve(worker.state);
+        };
+        finish();
+        worker?.addEventListener('statechange', finish);
+        setTimeout(() => resolve('timeout'), 8000);
+      });
+      return { state, hasCache: (await caches.keys()).includes(name) };
+    }, cacheName);
+    check((install.state === 'redundant' || install.state === 'rejected') && !install.hasCache, 'beacon 以外的內容被改仍拒絕安裝', install);
     await context.close();
   }
 

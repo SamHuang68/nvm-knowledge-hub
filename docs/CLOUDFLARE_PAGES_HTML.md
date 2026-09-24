@@ -28,6 +28,20 @@
 
 安裝與執行時改為跟隨**同來源**最終網址，把內文複製成新的 `Response`（`redirected` 為 false）之後，才做原本的 SHA-256 比對與 `cache.put`。雜湊不符仍整次拒絕安裝，執行中也不把不符的內文交回頁面。跨來源轉址不會被當成站內文件。尚未進快取的導覽若最終路徑不同（例如 `/briefing` → `/briefing/`），改回 308，讓網址列與相對路徑跟平台一致。
 
+## Service worker 與 Web Analytics beacon
+
+Cloudflare Web Analytics／Insights 會在**看起來像瀏覽器文件**的 HTML 回應裡、`</body>` 之前注入：
+
+```html
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/…" data-cf-beacon='…'></script>
+```
+
+實測（2026-09-24，`https://hub.samhuang68.org/`）：`Accept` 含 `text/html` 就會注入，約多 367 bytes；`Accept: */*`（一般 `curl`）則與倉庫雜湊一致。Service worker 的導覽 `fetch(request)` 會帶上文件的 `Accept`，因此內文不再等於 `data/offline-manifest.js`。`verifyResponse` 若直接比對，安裝失敗，或導覽落到離線 503（「此頁尚未下載」／「Page not downloaded」）。返回 `index.html` 的連結會再走同一條失敗路徑。
+
+`sw.js` 在計算 SHA-256 與 `cache.put` 之前，只移除 `static.cloudflareinsights.com/beacon.min.js` 這支已知指令碼（含它緊接的一個換行）。其餘位元組仍須符合清單。快取保存的是作者內文，不是帶 beacon 的複本。GitHub Pages 沒有這段注入，移除結果與原文相同，雜湊行為不變。這不是關掉 Analytics 的替代說明；主機可以繼續開著，完整性檢查也不整段關閉。
+
+`hubPagePath('/')` 對結尾是 `/` 的路徑維持原樣（根目錄與 `/briefing/` 同一規則），不會改成 `index.html`。首頁判斷不靠這個函式把 `/` 收成檔名。Service worker 的 `keyFor` 才把目錄補上 `index.html`，因此 `/`、`/index.html` 與 Cloudflare 對 `index.html` 的 308 都對到同一份首頁快取。站內「返回知識中心」仍使用 `index.html`，GitHub Pages 網址維持附檔名。
+
 ## 合併後如何查
 
 1. 確認 Cloudflare Pages 專案 `hub-samhuang68` 已從 `main` 重新部署（儀表板沒有額外開關）。Pages 可能有短暫快取。
