@@ -11,15 +11,15 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#061b29">
   <meta name="color-scheme" content="dark light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="canonical" href="https://samhuang68.github.io/nvm-knowledge-hub/whitepaper/">
+  <link rel="canonical" href="https://hub.samhuang68.org/whitepaper/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="NVM Knowledge Hub">
-  <meta property="og:url" content="https://samhuang68.github.io/nvm-knowledge-hub/whitepaper/">
+  <meta property="og:url" content="https://hub.samhuang68.org/whitepaper/">
   <meta property="og:title" content="NVM Whitepaper &amp; Decision Studio · NVM Knowledge Hub">
   <meta property="og:description" content="NVM Knowledge Hub Whitepaper Decision Studio: Industrial state contracts, technology trade-offs, and evidence-backed selection models.">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="zh_TW">
-  <meta property="og:image" content="https://samhuang68.github.io/nvm-knowledge-hub/assets/nvm-state-atlas-hero-r17.webp">
+  <meta property="og:image" content="https://hub.samhuang68.org/assets/nvm-state-atlas-hero-r17.webp">
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="675">
@@ -30,9 +30,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="NVM Whitepaper &amp; Decision Studio · NVM Knowledge Hub">
   <meta name="twitter:description" content="NVM Knowledge Hub Whitepaper Decision Studio: Industrial state contracts, technology trade-offs, and evidence-backed selection models.">
-  <meta name="twitter:image" content="https://samhuang68.github.io/nvm-knowledge-hub/assets/nvm-state-atlas-hero-r17.webp">
+  <meta name="twitter:image" content="https://hub.samhuang68.org/assets/nvm-state-atlas-hero-r17.webp">
   <meta name="twitter:image:alt" content="NVM Whitepaper Decision Studio Architecture and Selection Model">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"NVM Whitepaper & Decision Studio · NVM Knowledge Hub","description":"NVM Knowledge Hub Whitepaper Decision Studio: Industrial state contracts, technology trade-offs, and evidence-backed selection models.","url":"https://samhuang68.github.io/nvm-knowledge-hub/whitepaper/","image":"https://samhuang68.github.io/nvm-knowledge-hub/assets/nvm-state-atlas-hero-r17.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://samhuang68.github.io/nvm-knowledge-hub/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://samhuang68.github.io/nvm-knowledge-hub/whitepaper/"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://samhuang68.github.io/nvm-knowledge-hub/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"NVM Whitepaper & Decision Studio · NVM Knowledge Hub","description":"NVM Knowledge Hub Whitepaper Decision Studio: Industrial state contracts, technology trade-offs, and evidence-backed selection models.","url":"https://hub.samhuang68.org/whitepaper/","image":"https://hub.samhuang68.org/assets/nvm-state-atlas-hero-r17.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/whitepaper/"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
   <title>NVM Whitepaper &amp; Decision Studio · NVM Knowledge Hub</title>
 
   <link rel="stylesheet" href="../site-shell.css?v=20260916-keepout">

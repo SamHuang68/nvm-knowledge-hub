@@ -1,6 +1,13 @@
 (function () {
   'use strict';
-  const path = location.pathname;
+  function hubPagePath(pathname) {
+    let value = pathname || '/';
+    try { value = decodeURIComponent(value); } catch {}
+    if (value.endsWith('/')) return value;
+    if (/\.[a-z0-9]+$/i.test(value)) return value;
+    return value + '.html';
+  }
+  const path = hubPagePath(location.pathname);
   function replaceText(map) {
     const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     const nodes = [];

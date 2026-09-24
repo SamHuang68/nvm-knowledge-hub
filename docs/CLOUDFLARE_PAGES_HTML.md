@@ -1,0 +1,30 @@
+# Cloudflare Pages 與 `.html` 路徑
+
+專案 `hub-samhuang68`（自訂網域 `https://hub.samhuang68.org/`）是靜態 Cloudflare Pages：沒有 build command，輸出目錄是倉庫根目錄。
+
+## 平台行為
+
+[Serving Pages](https://developers.cloudflare.com/pages/configuration/serving-pages/)（2026-04-21）寫明：Pages 會把 HTML 導向無副檔名路徑。例如 `/memory-physics.html` 回 **308** 到 `/memory-physics`，`/NVM技術全景.html` 回 **308** 到 `/NVM技術全景`。`/about/index.html` 則導向 `/about/`。
+
+這不是檔案遺失。GitHub Pages 仍把 `.html` 留在網址裡。
+
+## 為什麼沒有放 `wrangler.toml`
+
+`html_handling = "none"` 只屬於 [Workers static assets](https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/)。Pages 的 Wrangler 設定（`name`、`pages_build_output_dir`、綁定）**不會**讀取 `html_handling`，也沒有儀表板開關可關掉這段 308。
+
+若在這個倉庫加上帶 `pages_build_output_dir` 的 `wrangler.toml`，Pages 會把該檔當成正式設定來源，卻仍然做 pretty URL。因此這個修正不新增該檔。
+
+`_redirects` 也無法取消這段平台 308；把無副檔名再指回 `.html` 會和內建導向互相循環。
+
+要讓網址保留 `.html`，必須把這個專案從 Pages 遷到 Workers static assets，並設定 `html_handling = "none"`。那是另一次部署變更，不在本次修正範圍。
+
+## 這次怎麼讓子頁恢復
+
+客戶端用 `hubPagePath()` 判斷目前頁面：路徑沒有副檔名時補上 `.html` 再比對；結尾是 `/` 的目錄（`/briefing/`、`/whitepaper/`、`/tools/whitepaper-studio/`）保持不變。GitHub Pages 的 `/nvm-knowledge-hub/memory-physics.html` 與 Cloudflare 的 `/memory-physics` 都會命中同一組頁面 CSS／JS。
+
+## 合併後如何查
+
+1. 確認 Cloudflare Pages 專案 `hub-samhuang68` 已從 `main` 重新部署（儀表板沒有額外開關）。
+2. 開啟 `https://hub.samhuang68.org/memory-physics.html`。最終網址可以是 308 之後的 `/memory-physics`。頁面應載入 `memory-physics-contrast.css`（DevTools → Network，或 `document.querySelector('link[href*="memory-physics-contrast"]')`）。
+3. 開啟 `https://hub.samhuang68.org/NVM技術全景.html`。最終網址可以是 `/NVM技術全景`。語言切換仍指向 `NVM技術全景.html`／`NVM技術全景中文.html`。
+4. `https://samhuang68.github.io/nvm-knowledge-hub/memory-physics.html` 應維持 200，且網址仍含 `.html`。

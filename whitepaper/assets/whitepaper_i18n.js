@@ -567,7 +567,7 @@
       }
     }
     for (const anchor of root.querySelectorAll('a[href]')) {
-      const prefix = 'https://samhuang68.github.io/nvm-knowledge-hub/';
+      const prefix = 'https://hub.samhuang68.org/';
       if (!anchor.href.startsWith(prefix)) continue;
       let relative = anchor.href.slice(prefix.length);
       if (relative === '#research') relative = 'index.html#layer-resources';
