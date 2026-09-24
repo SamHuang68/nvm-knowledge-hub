@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { loadPublicRoutes, assertDeclaredHtml } from "./公開路由.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const publicBase = new URL("https://samhuang68.github.io/nvm-knowledge-hub/");
+const publicBase = new URL("https://blog.samhuang68.org/");
 const excludedDirectories = new Set([".git", ".loop-engineering", "qa", "node_modules", "attachments", "附件"]);
 const publicDirectories = ["briefing", "whitepaper", "tools/whitepaper-studio"];
 const brandClasses = new Set(["brand", "hub-micro-logo", "studio-brand"]);

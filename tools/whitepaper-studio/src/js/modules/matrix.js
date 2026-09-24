@@ -22,7 +22,7 @@ export function renderMatrix(container) {
 
     <p class="matrix-evidence-boundary"><span data-lang="zh">以下保留 12 筆工程原稿供審查。數值、製程、認證與量產字樣均屬待查證聲稱；只有明確標示的來源支援指定欄位，不能視為完整產品規格。</span><span data-lang="en">These 12 engineering drafts retain their original values for review. Numbers, nodes, certifications and production wording remain unverified claims; a linked source supports only its stated fields, not a complete product specification.</span></p>
 
-    <section class="selector-controls" aria-label="Decision matrix filters">
+    <section class="selector-controls" aria-label="Decision matrix filters" data-aria-en="Decision matrix filters" data-aria-zh="決策矩陣篩選條件">
       <label for="filter-family">
         <span>FILTER BY TECHNOLOGY FAMILY</span>
         <select id="filter-family">
@@ -40,7 +40,7 @@ export function renderMatrix(container) {
       </div>
     </section>
 
-    <div class="decision-table-wrap">
+    <div class="decision-table-wrap" tabindex="0" role="region" aria-label="Decision matrix table" data-aria-en="Decision matrix table" data-aria-zh="決策矩陣表格">
       <table class="decision-table">
         <caption>Illustrative NVM selection profiles with explicit evidence boundaries (${nvmIpSpecs.length} Profiles)</caption>
         <thead>

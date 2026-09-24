@@ -11,7 +11,7 @@ alwaysApply: true
 
 1. 提交相關檔案（含 `npm run release:lineage` 的發行來源，若此輪有內容 commit）。
 2. `git push origin HEAD:main`（fast-forward，禁止 force）。
-3. 回報 live URL，例如 https://samhuang68.github.io/nvm-knowledge-hub/ 及受影響頁面。
+3. 回報 live URL，例如 https://blog.samhuang68.org/ 及受影響頁面。
 4. 註明 Pages 可能有數十秒快取延遲。
 
 不要停在 `codex/...` 之類功能分支就宣告完成。Antigravity 已在 `main` 的內容不可 revert、不可 force-push。

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://hub.samhuang68.org/data/ai-nvm-opportunities-schema.json",
+  "$id": "https://blog.samhuang68.org/data/ai-nvm-opportunities-schema.json",
   "title": "AI NVM Opportunities Knowledge Package",
   "description": "Bilingual, SharePoint/Copilot-ready records that separate source requirements, official product cases, technical evidence, vendor capability, architecture inference and validation gates.",
   "type": "object",

@@ -262,7 +262,7 @@ def run_tests() -> None:
         "security-assurance.html", "ai-nvm-opportunities.html", "iot-mcu-envm.html",
         "automotive-nvm.html", "specialty-nvm.html", "memory-physics.html",
         "memory-evidence.html", "technology-comparison.html", "oip-secure-storage.html",
-        "404.html", "briefing/index.html", "whitepaper/index.html", "tools/whitepaper-studio/index.html"
+        "404.html", "briefing/index.html", "whitepaper/index.html", "sram-repair.html"
     ]
     test("全站 17 個公開頁面實體存在", all((BASE / p).exists() for p in ALL_SURFACES))
     for p in ALL_SURFACES:
@@ -289,7 +289,7 @@ def run_tests() -> None:
         "index.html", "secure-storage.html", "security-assurance.html", "ai-nvm-opportunities.html",
         "iot-mcu-envm.html", "automotive-nvm.html", "specialty-nvm.html", "memory-physics.html",
         "memory-evidence.html", "technology-comparison.html", "oip-secure-storage.html",
-        "404.html", "briefing/index.html", "whitepaper/index.html", "tools/whitepaper-studio/index.html"
+        "404.html", "briefing/index.html", "whitepaper/index.html", "sram-repair.html"
     ]
     for p in BILINGUAL_DYNAMIC_PAGES:
         p_path = BASE / p
@@ -316,7 +316,7 @@ def run_tests() -> None:
             total_sliders += 1
             test(f"{p} 滑桿具備雙語無障礙 data-aria-zh/en 屬性",
                  'data-aria-zh=' in s and 'data-aria-en=' in s)
-    test("全站共計驗證 10 組互動滑桿無障礙雙語屬性", total_sliders == 10)
+    test("全站共計驗證 11 組互動滑桿無障礙雙語屬性", total_sliders == 11)
 
     # 2. 驗證所有具備麵包屑的頁面其 nav 標籤具備雙語 ARIA
     total_bcs = 0
@@ -348,7 +348,7 @@ def run_tests() -> None:
         "security-assurance.html", "ai-nvm-opportunities.html", "iot-mcu-envm.html",
         "automotive-nvm.html", "specialty-nvm.html", "memory-physics.html",
         "memory-evidence.html", "technology-comparison.html", "oip-secure-storage.html",
-        "briefing/index.html", "whitepaper/index.html", "tools/whitepaper-studio/index.html"
+        "briefing/index.html", "whitepaper/index.html", "sram-repair.html"
     ]
     # 1. 驗證 16 個公開頁面具備 canonical 與社群分享元資料
     for p in ALL_INDEXABLE_PAGES:
@@ -613,8 +613,8 @@ def run_tests() -> None:
     # 4. 驗證 NVM技術全景 (中英雙語) 具備雙向 Reciprocal Hreflang 連結與 x-default
     en_atlas = (BASE / "NVM技術全景.html").read_text(encoding="utf-8")
     zh_atlas = (BASE / "NVM技術全景中文.html").read_text(encoding="utf-8")
-    en_href = "https://samhuang68.github.io/nvm-knowledge-hub/NVM%E6%8A%80%E8%A1%93%E5%85%A8%E6%99%AF.html"
-    zh_href = "https://samhuang68.github.io/nvm-knowledge-hub/NVM%E6%8A%80%E8%A1%93%E5%85%A8%E6%99%AF%E4%B8%AD%E6%96%87.html"
+    en_href = "https://blog.samhuang68.org/NVM%E6%8A%80%E8%A1%93%E5%85%A8%E6%99%AF.html"
+    zh_href = "https://blog.samhuang68.org/NVM%E6%8A%80%E8%A1%93%E5%85%A8%E6%99%AF%E4%B8%AD%E6%96%87.html"
 
     test("NVM技術全景.html 包含 hreflang='en' 參照", f'hreflang="en" href="{en_href}"' in en_atlas)
     test("NVM技術全景.html 包含 hreflang='zh-TW' 雙向參照", f'hreflang="zh-TW" href="{zh_href}"' in en_atlas)
@@ -762,7 +762,7 @@ def run_tests() -> None:
          unbound_articles == 0)
 
     # 3. 驗證全站 16 個公開頁面之 publisher 100% 宣告組織網址 (publisher.url)
-    hub_url = "https://samhuang68.github.io/nvm-knowledge-hub/"
+    hub_url = "https://blog.samhuang68.org/"
     missing_pub_urls = 0
     for p in public_surfaces:
         p_text = (BASE / p).read_text(encoding="utf-8")
@@ -795,7 +795,7 @@ def run_tests() -> None:
     test("robots.txt 實體存在", robots_path.exists())
     robots_txt = robots_path.read_text(encoding="utf-8")
     test("robots.txt 宣告 Allow: / 全站抓取權限與 sitemap.xml 索引指引",
-         "Allow: /" in robots_txt and "Sitemap: https://samhuang68.github.io/nvm-knowledge-hub/sitemap.xml" in robots_txt)
+         "Allow: /" in robots_txt and "Sitemap: https://blog.samhuang68.org/sitemap.xml" in robots_txt)
 
     # 2. 驗證 sitemap.xml 與全站 16 個公開頁面 canonical URL 雙向對齊 (Bijection)
     sitemap_path = BASE / "sitemap.xml"

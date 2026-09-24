@@ -103,7 +103,7 @@
   });
   if (routeToLanguage(initial)) return;
   html.lang = initial === 'zh' ? 'zh-Hant' : 'en'; html.dataset.language = initial;
-  const appsPages = /secure-storage\.html|security-assurance\.html|ai-nvm-opportunities\.html|iot-mcu-envm\.html|automotive-nvm\.html|specialty-nvm\.html|oip-secure-storage\.html/i.test(hubPagePath(location.pathname));
+  const appsPages = /secure-storage\.html|security-assurance\.html|ai-nvm-opportunities\.html|iot-mcu-envm\.html|automotive-nvm\.html|specialty-nvm\.html|oip-secure-storage\.html|sram-repair\.html/i.test(hubPagePath(location.pathname));
   const sheets = [
     ['surface-radius.css?v=20260908-r3', true],
     ['chapter-lens.css?v=20260908-l5', true],

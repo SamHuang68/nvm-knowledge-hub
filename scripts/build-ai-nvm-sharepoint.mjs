@@ -236,7 +236,7 @@ const chineseFields = [
 ];
 const cjkPattern = /[\u3400-\u9FFF]/u;
 const isoDatePattern = /^\d{4}-\d{2}-\d{2}$/;
-const selfCitationHosts = new Set(["samhuang68.github.io", "hub.samhuang68.org", "localhost", "127.0.0.1"]);
+const selfCitationHosts = new Set(["blog.samhuang68.org", "samhuang68.github.io", "localhost", "127.0.0.1"]);
 
 const validateEnum = (record, field, spec) => {
   if (spec?.enum && !spec.enum.includes(record[field])) {
