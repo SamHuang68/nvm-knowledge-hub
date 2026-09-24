@@ -1,7 +1,14 @@
 (function () {
   'use strict';
   if (document.getElementById('hub-fail-closed')) return;
-  const path = location.pathname;
+  function hubPagePath(pathname) {
+    let value = pathname || '/';
+    try { value = decodeURIComponent(value); } catch {}
+    if (value.endsWith('/')) return value;
+    if (/\.[a-z0-9]+$/i.test(value)) return value;
+    return value + '.html';
+  }
+  const path = hubPagePath(location.pathname);
   if (!/specialty-nvm\.html|ai-nvm-opportunities\.html/i.test(path)) return;
   const T = (en, zh) => '<span data-lang="en">' + en + '</span><span data-lang="zh">' + zh + '</span>';
   function langSync() { if (window.HubLanguage) window.HubLanguage.set(window.HubLanguage.get(), false); }

@@ -1,6 +1,13 @@
 (function () {
   'use strict';
-  if (!/automotive-nvm\.html/i.test(location.pathname)) return;
+  function hubPagePath(pathname) {
+    let value = pathname || '/';
+    try { value = decodeURIComponent(value); } catch {}
+    if (value.endsWith('/')) return value;
+    if (/\.[a-z0-9]+$/i.test(value)) return value;
+    return value + '.html';
+  }
+  if (!/automotive-nvm\.html/i.test(hubPagePath(location.pathname))) return;
   const T = (en, zh) => '<span data-lang="en">' + en + '</span><span data-lang="zh">' + zh + '</span>';
   function langSync() {
     if (window.HubLanguage) window.HubLanguage.set(window.HubLanguage.get(), false);

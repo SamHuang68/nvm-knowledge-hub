@@ -1,6 +1,13 @@
 (function () {
   'use strict';
-  const path = location.pathname;
+  function hubPagePath(pathname) {
+    let path = pathname || '/';
+    try { path = decodeURIComponent(path); } catch {}
+    if (path.endsWith('/')) return path;
+    if (/\.[a-z0-9]+$/i.test(path)) return path;
+    return path + '.html';
+  }
+  const path = hubPagePath(location.pathname);
   const T = (en, zht) => `<span data-lang="en">${en}</span><span data-lang="zh">${zht}</span>`;
   function langSync() {
     if (window.HubLanguage) window.HubLanguage.set(window.HubLanguage.get(), false);

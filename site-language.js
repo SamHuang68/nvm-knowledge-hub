@@ -2,6 +2,14 @@
   'use strict';
   const rootURL = new URL('.', document.currentScript.src);
   const STORAGE_KEY = 'nvm-hub-language';
+  // GitHub Pages 保留 .html；Cloudflare Pages 會 308 到無副檔名。判斷頁面時補回 .html，目錄路徑（/briefing/、/whitepaper/）維持原樣。
+  function hubPagePath(pathname) {
+    let path = pathname || '/';
+    try { path = decodeURIComponent(path); } catch {}
+    if (path.endsWith('/')) return path;
+    if (/\.[a-z0-9]+$/i.test(path)) return path;
+    return path + '.html';
+  }
   const html = document.documentElement;
   function savedLanguage() {
     try { return localStorage.getItem(STORAGE_KEY) || localStorage.getItem('nvm-language') || localStorage.getItem('hub-lang');
@@ -95,13 +103,13 @@
   });
   if (routeToLanguage(initial)) return;
   html.lang = initial === 'zh' ? 'zh-Hant' : 'en'; html.dataset.language = initial;
-  const appsPages = /secure-storage\.html|security-assurance\.html|ai-nvm-opportunities\.html|iot-mcu-envm\.html|automotive-nvm\.html|specialty-nvm\.html|oip-secure-storage\.html/i.test(location.pathname);
+  const appsPages = /secure-storage\.html|security-assurance\.html|ai-nvm-opportunities\.html|iot-mcu-envm\.html|automotive-nvm\.html|specialty-nvm\.html|oip-secure-storage\.html/i.test(hubPagePath(location.pathname));
   const sheets = [
     ['surface-radius.css?v=20260908-r3', true],
     ['chapter-lens.css?v=20260908-l5', true],
-    ['memory-physics-contrast.css?v=20260907-f1', /memory-physics\.html/i.test(location.pathname)],
-    ['ai-nvm-node.css?v=20260908-n30', /ai-nvm-opportunities\.html/i.test(location.pathname)],
-    ['ai-nvm-tune.css?v=20260908-n31', /ai-nvm-opportunities\.html/i.test(location.pathname)],
+    ['memory-physics-contrast.css?v=20260907-f1', /memory-physics\.html/i.test(hubPagePath(location.pathname))],
+    ['ai-nvm-node.css?v=20260908-n30', /ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname))],
+    ['ai-nvm-tune.css?v=20260908-n31', /ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname))],
     ['全站閱讀系統.css?v=20260910-bilingual', true],
     ['hub-apps-chrome.css?v=20260920-apps3', appsPages]
   ];
@@ -110,7 +118,7 @@
     const link = document.createElement('link'); link.rel = 'stylesheet';
     link.href = new URL(href, rootURL).href; link.dataset.hubSharedStyle = href.split('?')[0]; document.head.append(link);
   }
-  if (/memory-physics\.html/i.test(location.pathname)) {
+  if (/memory-physics\.html/i.test(hubPagePath(location.pathname))) {
     const script = document.createElement('script'); script.src = new URL('f1-card-align.js?v=20260907-f1', rootURL).href;
     script.defer = true; document.head.append(script);
   }
@@ -175,7 +183,7 @@
     document.querySelectorAll('a[href]').forEach(link => {
       if (link.getAttribute('href')?.startsWith('#')) return;
       let target; try { target = new URL(link.href); } catch { return; }
-      if (target.origin !== location.origin || !decodeURIComponent(target.pathname).endsWith('/NVM技術全景.html')) return;
+      if (target.origin !== location.origin || !hubPagePath(target.pathname).endsWith('/NVM技術全景.html')) return;
       link.addEventListener('click', () => {
         const name = window.HubLanguage.get() === 'zh' ? 'NVM技術全景中文.html' : 'NVM技術全景.html';
         target.pathname = target.pathname.replace(/[^/]+$/, encodeURIComponent(name));
@@ -220,7 +228,7 @@
       index.onerror = startController;
       document.head.append(index);
     })();
-    const storyPages = /technology-comparison\.html|secure-storage\.html|memory-physics\.html|automotive-nvm\.html|iot-mcu-envm\.html|security-assurance\.html|specialty-nvm\.html|ai-nvm-opportunities\.html/i.test(location.pathname);
+    const storyPages = /technology-comparison\.html|secure-storage\.html|memory-physics\.html|automotive-nvm\.html|iot-mcu-envm\.html|security-assurance\.html|specialty-nvm\.html|ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname));
     if (storyPages) {
       const css = document.createElement('link');
       css.rel = 'stylesheet';
@@ -230,14 +238,14 @@
       js.src = new URL('hub-story-maps.js?v=20260918-s2', rootURL).href;
       js.defer = true;
       document.head.append(js);
-      if (/specialty-nvm\.html|ai-nvm-opportunities\.html/i.test(location.pathname)) {
+      if (/specialty-nvm\.html|ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname))) {
         const apps = document.createElement('script');
         apps.src = new URL('hub-story-apps.js?v=20260918-s3', rootURL).href;
         apps.defer = true;
         document.head.append(apps);
       }
     }
-    const literaturePages = /memory-evidence\.html|oip-secure-storage\.html|\/briefing\/|\/whitepaper\//i.test(location.pathname);
+    const literaturePages = /memory-evidence\.html|oip-secure-storage\.html|\/briefing\/|\/whitepaper\//i.test(hubPagePath(location.pathname));
     if (literaturePages) {
       document.body.classList.add('hub-literature-paper');
       const paper = document.createElement('link');
@@ -249,13 +257,13 @@
       lift.defer = true;
       document.head.append(lift);
     }
-    if (/automotive-nvm\.html|iot-mcu-envm\.html|specialty-nvm\.html/i.test(location.pathname)) {
+    if (/automotive-nvm\.html|iot-mcu-envm\.html|specialty-nvm\.html/i.test(hubPagePath(location.pathname))) {
       const demote = document.createElement('script');
       demote.src = new URL('claim-scope.js?v=20260920-p2', rootURL).href;
       demote.defer = true;
       document.head.append(demote);
     }
-    if (/automotive-nvm\.html/i.test(location.pathname)) {
+    if (/automotive-nvm\.html/i.test(hubPagePath(location.pathname))) {
       const css = document.createElement('link');
       css.rel = 'stylesheet';
       css.href = new URL('hub-auto-tune.css?v=20260918-a2', rootURL).href;
@@ -266,9 +274,9 @@
       document.head.append(tune);
     }
     if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-      const swPath = location.pathname.includes('/tools/whitepaper-studio/')
+      const swPath = hubPagePath(location.pathname).includes('/tools/whitepaper-studio/')
         ? '../../sw.js'
-        : (location.pathname.includes('/briefing/') || location.pathname.includes('/whitepaper/'))
+        : (hubPagePath(location.pathname).includes('/briefing/') || hubPagePath(location.pathname).includes('/whitepaper/'))
           ? '../sw.js'
           : './sw.js';
       navigator.serviceWorker.register(swPath).catch(() => {});
