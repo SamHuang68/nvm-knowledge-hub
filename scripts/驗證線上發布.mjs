@@ -6,7 +6,7 @@ import vm from 'node:vm';
 import {chromium} from 'playwright';
 
 const root = path.resolve(import.meta.dirname,'..');
-const base = process.env.NVM_QA_BASE || 'https://samhuang68.github.io/nvm-knowledge-hub/';
+const base = process.env.NVM_QA_BASE || 'https://blog.samhuang68.org/';
 const output = path.resolve(process.env.NVM_QA_OUTPUT || path.join(root,'qa','雙語修正部署','線上發布'));
 fs.mkdirSync(output,{recursive:true});
 const scope = {self:{}};

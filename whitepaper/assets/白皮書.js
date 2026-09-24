@@ -298,7 +298,7 @@ function r(e) {
     <div class="reader-layout">
       <aside class="reader-index">
         <p>CHAPTER INDEX</p>
-        <nav aria-label="Whitepaper chapters">
+        <nav aria-label="Whitepaper chapters" data-aria-en="Whitepaper chapters" data-aria-zh="白皮書章節">
           ${s.map((e) => `<a href="#chap-${e.id}"><b>${e.number}</b><span>${e.title}</span></a>`).join("")}
         </nav>
         <div class="reader-boundary"><b>PUBLIC EVIDENCE RULE</b><span>Exact specifications require a source, scope and limitation. Otherwise this paper uses architecture-level language.</span></div>
@@ -314,7 +314,7 @@ function r(e) {
         `).join("")}
         <aside class="paper-sources">
           <div><p>CONTINUE THE EVIDENCE TRAIL</p><h3>Use the Hub to separate source facts from architecture inference</h3></div>
-          <nav><a href="https://hub.samhuang68.org/memory-evidence.html">Open Evidence Ledger <span>↗</span></a><a href="https://hub.samhuang68.org/memory-physics.html">Review Memory Physics <span>↗</span></a></nav>
+          <nav aria-label="Evidence trail navigation" data-aria-en="Evidence trail navigation" data-aria-zh="證據追蹤導覽"><a href="https://blog.samhuang68.org/memory-evidence.html">Open Evidence Ledger <span>↗</span></a><a href="https://blog.samhuang68.org/memory-physics.html">Review Memory Physics <span>↗</span></a></nav>
         </aside>
       </div>
     </div>
@@ -1071,7 +1071,7 @@ function x(e) {
 
     <p class="matrix-evidence-boundary"><span data-lang="zh">以下保留 12 筆工程原稿供審查。數值、製程、認證與量產字樣均屬待查證聲稱；只有明確標示的來源支援指定欄位，不能視為完整產品規格。</span><span data-lang="en">These 12 engineering drafts retain their original values for review. Numbers, nodes, certifications and production wording remain unverified claims; a linked source supports only its stated fields, not a complete product specification.</span></p>
 
-    <section class="selector-controls" aria-label="Decision matrix filters">
+    <section class="selector-controls" aria-label="Decision matrix filters" data-aria-en="Decision matrix filters" data-aria-zh="決策矩陣篩選條件">
       <label for="filter-family">
         <span>FILTER BY TECHNOLOGY FAMILY</span>
         <select id="filter-family">
@@ -1089,7 +1089,7 @@ function x(e) {
       </div>
     </section>
 
-    <div class="decision-table-wrap">
+    <div class="decision-table-wrap" tabindex="0" role="region" aria-label="Decision matrix table" data-aria-en="Decision matrix table" data-aria-zh="決策矩陣表格">
       <table class="decision-table">
         <caption>Illustrative NVM selection profiles with explicit evidence boundaries (${d.length} Profiles)</caption>
         <thead>

@@ -1,44 +1,554 @@
 <!doctype html>
-<html lang="en" data-language="en" data-title-en="SRAM Repair Capacity Estimator · NVM Knowledge Hub" data-title-zh="SRAM 修復容量估算 · NVM 知識中心" data-description-en="Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation." data-description-zh="即時計算 SRAM 修復資料的壓縮前後需求，並列比較 OTP 與 eFuse 配置容量。">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation."><meta name="theme-color" content="#061b29"><title>SRAM Repair Capacity Estimator · NVM Knowledge Hub</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="canonical" href="https://hub.samhuang68.org/sram-repair.html"><script src="site-language.js"></script><link rel="stylesheet" href="sram-repair.css"><script type="module" src="sram-repair.js"></script></head>
+<html lang="en" data-language="en" data-title-en="SRAM Repair Capacity Estimator · NVM Knowledge Hub" data-title-zh="SRAM 修復容量估算器 · NVM 知識中心" data-description-en="Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation across advanced semiconductor nodes." data-description-zh="即時計算先進節點 SRAM 修復資料的壓縮前後需求，並列比較 OTP 與 eFuse 配置容量。">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation across advanced semiconductor nodes.">
+  <meta name="author" content="NVM Knowledge Hub Editorial Board">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#061b29">
+  <meta name="color-scheme" content="dark light">
+  <meta name="apple-mobile-web-app-title" content="NVM Hub">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>SRAM Repair Capacity Estimator · NVM Knowledge Hub</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="canonical" href="https://blog.samhuang68.org/sram-repair.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="NVM Knowledge Hub">
+  <meta property="og:url" content="https://blog.samhuang68.org/sram-repair.html">
+  <meta property="og:title" content="SRAM Repair Capacity Estimator · NVM Knowledge Hub">
+  <meta property="og:description" content="Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation across advanced semiconductor nodes.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <meta property="og:image" content="https://blog.samhuang68.org/assets/silicon-ip-panorama-v2.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:alt" content="SRAM Repair Capacity Estimator and Allocation Overview">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+  <meta property="article:published_time" content="2026-08-29T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-09-10T00:00:00+08:00">
+  <meta property="article:author" content="NVM Knowledge Hub Editorial Board">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SRAM Repair Capacity Estimator · NVM Knowledge Hub">
+  <meta name="twitter:description" content="Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation across advanced semiconductor nodes.">
+  <meta name="twitter:image" content="https://blog.samhuang68.org/assets/silicon-ip-panorama-v2.webp">
+  <meta name="twitter:image:alt" content="SRAM Repair Capacity Estimator and Allocation Overview">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"SRAM Repair Capacity Estimator · NVM Knowledge Hub","description":"Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation across advanced semiconductor nodes.","url":"https://blog.samhuang68.org/sram-repair.html","image":"https://blog.samhuang68.org/assets/silicon-ip-panorama-v2.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://blog.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.samhuang68.org/sram-repair.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://blog.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
+
+  <script src="site-language.js?v=20260920-apps1"></script>
+  <link rel="stylesheet" href="site-shell.css?v=20260916-keepout">
+  <link rel="stylesheet" href="sram-repair.css">
+  <script type="module" src="sram-repair.js"></script>
+</head>
 <body class="sram-repair-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
-<a class="skip" href="#parameters"><span data-lang="en">Skip to parameters</span><span data-lang="zh">跳至估算參數</span></a><header class="topbar"><div class="topbar-inner"><a class="brand" href="index.html">NVM <b>KNOWLEDGE HUB</b></a><nav aria-label="Primary navigation" data-aria-en="Primary navigation" data-aria-zh="主要導覽"><a href="index.html#layer-foundations"><span data-lang="en">Foundations</span><span data-lang="zh">技術基礎</span></a><a href="index.html#layer-ip-process"><span data-lang="en">IP &amp; Processes</span><span data-lang="zh">IP 與製程</span></a><a href="index.html#layer-applications"><span data-lang="en">Applications</span><span data-lang="zh">應用與系統</span></a><a href="index.html#layer-resources"><span data-lang="en">Resources</span><span data-lang="zh">文獻與工具</span></a></nav><button class="language-toggle" type="button" aria-label="Switch to Traditional Chinese"><span>EN</span> / <span>繁中</span></button></div></header>  <main><div class="sram-breadcrumb"><a href="index.html">NVM Knowledge Hub</a><span> / </span><a href="index.html#layer-applications"><span data-lang="en">Applications and Systems</span><span data-lang="zh">應用與系統</span></a><span> / SRAM</span></div>
-    <div class="hero">
-      <div><div class="eyebrow"><span></span><span data-lang="en">APPLICATIONS / SRAM REPAIR · CAPACITY PLANNING</span><span data-lang="zh">應用 / SRAM 修復 · 先進節點容量規劃</span></div><h1><span data-lang="en">Size your SRAM repair data</span><span data-lang="zh">把修復需求，算清楚</span></h1><p><span data-lang="en">Explore compression and allocated OTP / eFuse capacity for large SRAM repair datasets.</span><span data-lang="zh">從大型 SRAM 到修復資料，掌握壓縮效益與 OTP / eFuse 配置容量。</span></p></div>
-      <button class="primary" id="load-example"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v14M3 10h14"/></svg><span data-lang="en">Load 16 Gb example</span><span data-lang="zh">載入 16 Gb 範例</span></button>
+  <a class="skip-link skip" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub home" data-aria-en="NVM Knowledge Hub home" data-aria-zh="NVM 知識中心首頁">
+      <span class="brand-mark"><svg viewBox="0 0 48 48" width="32" height="32" aria-hidden="true"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/><path d="M17 5v6M24 5v6M31 5v6M17 37v6M24 37v6M31 37v6M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></svg></span>
+      <span class="brand-copy"><strong>NVM</strong><small><span data-lang="zh">知識中心</span><span data-lang="en">KNOWLEDGE HUB</span></small></span>
+      <span class="brand-section"><span data-lang="zh">SRAM 修復</span><span data-lang="en">SRAM REPAIR</span></span>
+    </a>
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation" data-aria-en="Primary navigation" data-aria-zh="主要導覽">
+      <a href="index.html#layer-foundations" data-hub-category="foundations"><span data-lang="en">Technology Foundations</span><span data-lang="zh">技術基礎</span></a>
+      <a href="index.html#layer-ip-process" data-hub-category="ip-process"><span data-lang="en">IP and Processes</span><span data-lang="zh">IP 與製程</span></a>
+      <a href="index.html#layer-applications" data-hub-category="applications" aria-current="location"><span data-lang="en">Applications and Systems</span><span data-lang="zh">應用與系統</span></a>
+      <a href="index.html#layer-resources" data-hub-category="resources"><span data-lang="en">Literature and Tools</span><span data-lang="zh">文獻與工具</span></a>
+    </nav>
+    <div class="header-actions">
+      <a class="home-pill" href="index.html#topics"><span data-lang="zh">全部主題</span><span data-lang="en">ALL TOPICS</span></a>
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to Traditional Chinese" data-aria-en="Switch to Traditional Chinese" data-aria-zh="切換為英文"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
+      <button class="menu-button" id="menuToggle" type="button" aria-label="Open menu" data-aria-en="Open menu" data-aria-zh="開啟選單" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
     </div>
+  </header>
+
+  <nav class="site-breadcrumb" aria-label="Breadcrumb" data-aria-en="Breadcrumb" data-aria-zh="麵包屑導覽">
+    <i></i><a href="index.html"><span data-lang="zh">知識中心</span><span data-lang="en">Knowledge Hub</span></a>
+    <i></i><a href="index.html#layer-applications"><span data-lang="zh">應用與系統</span><span data-lang="en">Applications and Systems</span></a>
+    <i></i><strong><span data-lang="zh">SRAM 修復容量估算器</span><span data-lang="en">SRAM Repair Capacity Estimator</span></strong>
+    <span class="topic-switch">
+      <a href="ai-nvm-opportunities.html"><span data-lang="en">AI Systems</span><span data-lang="zh">AI 系統</span></a>
+      <a href="secure-storage.html"><span data-lang="en">Secure Storage</span><span data-lang="zh">安全儲存</span></a>
+    </span>
+  </nav>
+
+  <main id="main-content">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">
+          <span></span>
+          <span data-lang="en">APPLICATIONS / SRAM REPAIR · CAPACITY PLANNING</span>
+          <span data-lang="zh">應用 / SRAM 修復 · 先進節點容量規劃</span>
+        </div>
+        <h1>
+          <span data-lang="en">Size your SRAM repair data</span>
+          <span data-lang="zh">把修復需求，算清楚</span>
+        </h1>
+        <p>
+          <span data-lang="en">Explore compression and allocated OTP / eFuse capacity for large SRAM repair datasets.</span>
+          <span data-lang="zh">從大型 SRAM 到修復資料，掌握壓縮效益與 OTP / eFuse 配置容量。</span>
+        </p>
+      </div>
+      <button class="primary" id="load-example" type="button">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v14M3 10h14"/></svg>
+        <span data-lang="en">Load 16 Gb example</span>
+        <span data-lang="zh">載入 16 Gb 範例</span>
+      </button>
+    </div>
+
     <section id="workspace" aria-label="SRAM repair capacity estimator" data-aria-en="SRAM repair capacity estimator" data-aria-zh="SRAM 修復容量估算" class="workspace">
       <aside class="panel parameters" id="parameters">
-        <div class="panel-heading"><h2><span class="step">01</span><span data-lang="en">Parameters</span><span data-lang="zh">估算參數</span></h2><span class="mini-tag"><span data-lang="en">Live estimate</span><span data-lang="zh">即時計算</span></span></div>
-        <div class="input-group"><label for="capacity"><span data-lang="en">SRAM capacity</span><span data-lang="zh">SRAM 容量</span></label><div class="joined"><input id="capacity" type="number" min="0" step="any" value="16" inputmode="decimal" aria-describedby="capacity-hint capacity-error"><select id="unit" aria-label="SRAM capacity unit" data-aria-en="SRAM capacity unit" data-aria-zh="SRAM 容量單位"><option>Gb</option><option>Gib</option><option>Mb</option><option>Mib</option><option>Tb</option><option>Tib</option></select></div><p class="hint" id="capacity-hint"><span data-lang="en">1 Gb = 1,000,000,000 bits (decimal)</span><span data-lang="zh">1 Gb = 1,000,000,000 bits（十進位）</span></p><p class="field-error" id="capacity-error"></p>
-          <div class="presets" aria-label="SRAM capacity presets" data-aria-en="SRAM capacity presets" data-aria-zh="SRAM 容量快捷選擇"><button aria-label="Use 4 Gb SRAM" data-aria-en="Use 4 Gb SRAM" data-aria-zh="使用 4 Gb SRAM" data-capacity="4">4 Gb</button><button aria-label="Use 8 Gb SRAM" data-aria-en="Use 8 Gb SRAM" data-aria-zh="使用 8 Gb SRAM" data-capacity="8">8 Gb</button><button aria-label="Use 16 Gb SRAM" data-aria-en="Use 16 Gb SRAM" data-aria-zh="使用 16 Gb SRAM" data-capacity="16" class="selected">16 Gb</button><button aria-label="Use 32 Gb SRAM" data-aria-en="Use 32 Gb SRAM" data-aria-zh="使用 32 Gb SRAM" data-capacity="32">32 Gb</button><button aria-label="Use 64 Gb SRAM" data-aria-en="Use 64 Gb SRAM" data-aria-zh="使用 64 Gb SRAM" data-capacity="64">64 Gb</button></div>
+        <div class="panel-heading">
+          <h2>
+            <span class="step">01</span>
+            <span data-lang="en">Parameters</span>
+            <span data-lang="zh">估算參數</span>
+          </h2>
+          <span class="mini-tag">
+            <span data-lang="en">Live estimate</span>
+            <span data-lang="zh">即時計算</span>
+          </span>
         </div>
-        <div class="input-group"><label for="repair"><span data-lang="en">Raw repair-data fraction</span><span data-lang="zh">原始修復資料比例</span><span class="label-note"><span data-lang="en">Repair bits / SRAM bits</span><span data-lang="zh">修復 bits / SRAM bits</span></span></label><input id="repair" type="text" value="1/1000" spellcheck="false" aria-describedby="repair-hint repair-error"><p class="hint" id="repair-hint"><span data-lang="en">= 0.1% · Fraction, decimal or percentage</span><span data-lang="zh">= 0.1% · 支援分數、小數或百分比</span></p><p class="field-error" id="repair-error"></p></div>
-        <div class="input-group compression-group"><label for="compression"><span data-lang="en">Compression</span><span data-lang="zh">壓縮率</span></label><select id="mode" aria-label="Compression definition" data-aria-en="Compression definition" data-aria-zh="壓縮率定義"><option value="ratio" data-copy-zh="壓縮倍率（原始 / 壓縮後）" data-copy-en="Ratio (raw / compressed)">Ratio (raw / compressed)</option><option value="retained" data-copy-zh="保留比例（壓縮後 / 原始）" data-copy-en="Retained (compressed / raw)">Retained (compressed / raw)</option><option value="reduction" data-copy-zh="減少比例（節省 / 原始）" data-copy-en="Reduction (saved / raw)">Reduction (saved / raw)</option></select><div class="joined compression-value"><input id="compression" type="number" min="1" step="any" value="100" aria-describedby="compression-hint compression-error"><span id="compression-suffix">: 1</span></div><input id="compression-slider" type="range" min="0" max="100" step="0.1" value="50" aria-label="Compression slider, logarithmic scale from 1 to 10000" data-aria-en="Compression slider, logarithmic scale from 1 to 10000" data-aria-zh="調整壓縮倍率，對數刻度 1 至 10000 倍"><div class="range-labels"><span>1:1</span><span>10:1</span><span>100:1</span><span>1k:1</span><span>10k:1</span></div><p class="hint" id="compression-hint"><span data-lang="en">Retained 1% · Reduced 99%</span><span data-lang="zh">保留 1% · 減少 99%</span></p><p class="field-error" id="compression-error"></p></div>
-        <div class="assumption"><span class="info-icon">i</span><p><span data-lang="en">Compression is a scenario assumption. Adjust it using your repair algorithm and test data.</span><span data-lang="zh">壓縮倍率為情境假設，可依實際修復演算法與測試資料調整。</span></p></div>
-        <button class="reset" id="reset"><span data-lang="en">↺ Reset all parameters</span><span data-lang="zh">↺ 重設全部參數</span></button>
+
+        <div class="input-group">
+          <label for="capacity">
+            <span data-lang="en">SRAM capacity</span>
+            <span data-lang="zh">SRAM 容量</span>
+          </label>
+          <div class="joined">
+            <input id="capacity" type="number" min="0" step="any" value="16" inputmode="decimal" aria-describedby="capacity-hint capacity-error">
+            <select id="unit" aria-label="SRAM capacity unit" data-aria-en="SRAM capacity unit" data-aria-zh="SRAM 容量單位">
+              <option>Gb</option>
+              <option>Gib</option>
+              <option>Mb</option>
+              <option>Mib</option>
+              <option>Tb</option>
+              <option>Tib</option>
+            </select>
+          </div>
+          <p class="hint" id="capacity-hint">
+            <span data-lang="en">1 Gb = 1,000,000,000 bits (decimal)</span>
+            <span data-lang="zh">1 Gb = 1,000,000,000 bits（十進位）</span>
+          </p>
+          <p class="field-error" id="capacity-error"></p>
+          <div class="presets" aria-label="SRAM capacity presets" data-aria-en="SRAM capacity presets" data-aria-zh="SRAM 容量快捷選擇">
+            <button type="button" aria-label="Use 4 Gb SRAM" data-aria-en="Use 4 Gb SRAM" data-aria-zh="使用 4 Gb SRAM" data-capacity="4">4 Gb</button>
+            <button type="button" aria-label="Use 8 Gb SRAM" data-aria-en="Use 8 Gb SRAM" data-aria-zh="使用 8 Gb SRAM" data-capacity="8">8 Gb</button>
+            <button type="button" aria-label="Use 16 Gb SRAM" data-aria-en="Use 16 Gb SRAM" data-aria-zh="使用 16 Gb SRAM" data-capacity="16" class="selected">16 Gb</button>
+            <button type="button" aria-label="Use 32 Gb SRAM" data-aria-en="Use 32 Gb SRAM" data-aria-zh="使用 32 Gb SRAM" data-capacity="32">32 Gb</button>
+            <button type="button" aria-label="Use 64 Gb SRAM" data-aria-en="Use 64 Gb SRAM" data-aria-zh="使用 64 Gb SRAM" data-capacity="64">64 Gb</button>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="repair">
+            <span data-lang="en">Raw repair-data fraction</span>
+            <span data-lang="zh">原始修復資料比例</span>
+            <span class="label-note">
+              <span data-lang="en">Repair bits / SRAM bits</span>
+              <span data-lang="zh">修復 bits / SRAM bits</span>
+            </span>
+          </label>
+          <input id="repair" type="text" value="1/1000" spellcheck="false" aria-describedby="repair-hint repair-error">
+          <p class="hint" id="repair-hint">
+            <span data-lang="en">= 0.1% · Fraction, decimal or percentage</span>
+            <span data-lang="zh">= 0.1% · 支援分數、小數或百分比</span>
+          </p>
+          <p class="field-error" id="repair-error"></p>
+        </div>
+
+        <div class="input-group compression-group">
+          <label for="compression">
+            <span data-lang="en">Compression</span>
+            <span data-lang="zh">壓縮率</span>
+          </label>
+          <select id="mode" aria-label="Compression definition" data-aria-en="Compression definition" data-aria-zh="壓縮率定義">
+            <option value="ratio" data-copy-zh="壓縮倍率（原始 / 壓縮後）" data-copy-en="Ratio (raw / compressed)">Ratio (raw / compressed)</option>
+            <option value="retained" data-copy-zh="保留比例（壓縮後 / 原始）" data-copy-en="Retained (compressed / raw)">Retained (compressed / raw)</option>
+            <option value="reduction" data-copy-zh="減少比例（節省 / 原始）" data-copy-en="Reduction (saved / raw)">Reduction (saved / raw)</option>
+          </select>
+          <div class="joined compression-value">
+            <input id="compression" type="number" min="1" step="any" value="100" aria-describedby="compression-hint compression-error">
+            <span id="compression-suffix">: 1</span>
+          </div>
+          <input id="compression-slider" type="range" min="0" max="100" step="0.1" value="50" aria-label="Compression slider, logarithmic scale from 1 to 10000" data-aria-en="Compression slider, logarithmic scale from 1 to 10000" data-aria-zh="調整壓縮倍率，對數刻度 1 至 10000 倍">
+          <div class="range-labels">
+            <span>1:1</span>
+            <span>10:1</span>
+            <span>100:1</span>
+            <span>1k:1</span>
+            <span>10k:1</span>
+          </div>
+          <p class="hint" id="compression-hint">
+            <span data-lang="en">Retained 1% · Reduced 99%</span>
+            <span data-lang="zh">保留 1% · 減少 99%</span>
+          </p>
+          <p class="field-error" id="compression-error"></p>
+        </div>
+
+        <div class="assumption">
+          <span class="info-icon">i</span>
+          <p>
+            <span data-lang="en">Compression is a scenario assumption. Adjust it using your repair algorithm and test data.</span>
+            <span data-lang="zh">壓縮倍率為情境假設，可依實際修復演算法與測試資料調整。</span>
+          </p>
+        </div>
+        <button class="reset" id="reset" type="button">
+          <span data-lang="en">↺ Reset all parameters</span>
+          <span data-lang="zh">↺ 重設全部參數</span>
+        </button>
       </aside>
+
       <div class="results" id="results">
-        <div class="results-heading"><h2><span data-lang="en">Capacity overview</span><span data-lang="zh">容量總覽</span></h2><span class="live-status" id="live-status" role="status"><i></i><span data-lang="en">Updated</span><span data-lang="zh">已更新</span></span></div>
+        <div class="results-heading">
+          <h2>
+            <span data-lang="en">Capacity overview</span>
+            <span data-lang="zh">容量總覽</span>
+          </h2>
+          <span class="live-status" id="live-status" role="status">
+            <i></i>
+            <span data-lang="en">Updated</span>
+            <span data-lang="zh">已更新</span>
+          </span>
+        </div>
         <div class="error-banner" id="error-banner" role="alert" hidden></div>
         <div class="metric-grid">
-          <article class="metric"><div class="metric-label"><span data-lang="en">Raw repair data</span><span data-lang="zh">壓縮前修復資料</span><span class="metric-icon">↗</span></div><div class="metric-value" id="raw-display">16 <small>Mb</small></div><div class="exact" id="raw-exact">16,000,000 bits</div><div class="metric-bottom" id="raw-bytes">2,000,000 B · 1,953.125 KiB</div></article>
-          <article class="metric highlighted"><div class="metric-label"><span data-lang="en">Compressed payload</span><span data-lang="zh">壓縮後有效資料</span><span class="metric-icon">↘</span></div><div class="metric-value" id="payload-display">160 <small>kb</small></div><div class="exact" id="payload-exact">160,000 bits</div><div class="metric-bottom" id="payload-bytes">20,000 B · 19.531 KiB</div></article>
-          <article class="metric saving"><div class="metric-label"><span data-lang="en">Capacity reduction</span><span data-lang="zh">資料容量減少</span><span class="metric-icon">↓</span></div><div class="metric-value" id="saved-display">99 <small>%</small></div><div class="exact" id="saved-exact"><span data-lang="en">15,840,000 bits saved</span><span data-lang="zh">節省 15,840,000 bits</span></div><div class="metric-bottom" id="ratio-display"><span data-lang="en">Compression 100 : 1</span><span data-lang="zh">壓縮倍率 100 : 1</span></div></article>
+          <article class="metric">
+            <div class="metric-label">
+              <span data-lang="en">Raw repair data</span>
+              <span data-lang="zh">壓縮前修復資料</span>
+              <span class="metric-icon">↗</span>
+            </div>
+            <div class="metric-value" id="raw-display">16 <small>Mb</small></div>
+            <div class="exact" id="raw-exact">16,000,000 bits</div>
+            <div class="metric-bottom" id="raw-bytes">2,000,000 B · 1,953.125 KiB</div>
+          </article>
+          <article class="metric highlighted">
+            <div class="metric-label">
+              <span data-lang="en">Compressed payload</span>
+              <span data-lang="zh">壓縮後有效資料</span>
+              <span class="metric-icon">↘</span>
+            </div>
+            <div class="metric-value" id="payload-display">160 <small>kb</small></div>
+            <div class="exact" id="payload-exact">160,000 bits</div>
+            <div class="metric-bottom" id="payload-bytes">20,000 B · 19.531 KiB</div>
+          </article>
+          <article class="metric saving">
+            <div class="metric-label">
+              <span data-lang="en">Capacity reduction</span>
+              <span data-lang="zh">資料容量減少</span>
+              <span class="metric-icon">↓</span>
+            </div>
+            <div class="metric-value" id="saved-display">99 <small>%</small></div>
+            <div class="exact" id="saved-exact">
+              <span data-lang="en">15,840,000 bits saved</span>
+              <span data-lang="zh">節省 15,840,000 bits</span>
+            </div>
+            <div class="metric-bottom" id="ratio-display">
+              <span data-lang="en">Compression 100 : 1</span>
+              <span data-lang="zh">壓縮倍率 100 : 1</span>
+            </div>
+          </article>
         </div>
+
         <article class="panel chart-panel">
-          <div class="chart-heading"><div><h3><span data-lang="en">How compression changes capacity</span><span data-lang="zh">壓縮倍率如何改變需求</span></h3><p><span data-lang="en">Compare allocated capacity across compression ratios</span><span data-lang="zh">比較不同倍率下，兩種技術所需的配置容量</span></p></div><div class="segmented" role="group" aria-label="Chart vertical scale" data-aria-en="Chart vertical scale" data-aria-zh="圖表縱軸刻度"><button id="scale-log" aria-pressed="true"><span data-lang="en">Log</span><span data-lang="zh">對數</span></button><button id="scale-linear" aria-pressed="false"><span data-lang="en">Linear</span><span data-lang="zh">線性</span></button></div></div>
-          <div class="legend"><span><i class="otp-dot"></i>OTP</span><span><i class="efuse-dot"></i>eFuse</span><span class="current-legend"><span data-lang="en">● Current ratio</span><span data-lang="zh">● 目前倍率</span></span></div>
+          <div class="chart-heading">
+            <div>
+              <h3>
+                <span data-lang="en">How compression changes capacity</span>
+                <span data-lang="zh">壓縮倍率如何改變需求</span>
+              </h3>
+              <p>
+                <span data-lang="en">Compare allocated capacity across compression ratios</span>
+                <span data-lang="zh">比較不同倍率下，兩種技術所需的配置容量</span>
+              </p>
+            </div>
+            <div class="segmented" role="group" aria-label="Chart vertical scale" data-aria-en="Chart vertical scale" data-aria-zh="圖表縱軸刻度">
+              <button id="scale-log" type="button" aria-pressed="true">
+                <span data-lang="en">Log</span>
+                <span data-lang="zh">對數</span>
+              </button>
+              <button id="scale-linear" type="button" aria-pressed="false">
+                <span data-lang="en">Linear</span>
+                <span data-lang="zh">線性</span>
+              </button>
+            </div>
+          </div>
+          <div class="legend">
+            <span><i class="otp-dot"></i>OTP</span>
+            <span><i class="efuse-dot"></i>eFuse</span>
+            <span class="current-legend">
+              <span data-lang="en">● Current ratio</span>
+              <span data-lang="zh">● 目前倍率</span>
+            </span>
+          </div>
           <div id="chart" class="chart" aria-label="Compression and allocation trend" data-aria-en="Compression and allocation trend" data-aria-zh="壓縮倍率與配置容量趨勢"></div>
-          <div class="chart-footer"><span id="chart-note"><span data-lang="en">The curves overlap with identical allocation settings.</span><span data-lang="zh">相同配置參數下，兩條曲線重疊。</span></span><span><span data-lang="en">X-axis: compression ratio (log)</span><span data-lang="zh">橫軸：壓縮倍率（對數）</span></span></div>
+          <div class="chart-footer">
+            <span id="chart-note">
+              <span data-lang="en">The curves overlap with identical allocation settings.</span>
+              <span data-lang="zh">相同配置參數下，兩條曲線重疊。</span>
+            </span>
+            <span>
+              <span data-lang="en">X-axis: compression ratio (log)</span>
+              <span data-lang="zh">橫軸：壓縮倍率（對數）</span>
+            </span>
+          </div>
         </article>
-        <div class="insight"><span class="insight-mark">↳</span><p id="insight"><span data-lang="en">16 Gb SRAM at 1/1000 raw repair data and 100:1 compression requires a 160 kb payload.</span><span data-lang="zh">16 Gb SRAM 在 1/1000 修復資料比例、100:1 壓縮假設下，需 160 kb 有效修復資料。</span></p></div>
+
+        <div class="insight">
+          <span class="insight-mark">↳</span>
+          <p id="insight">
+            <span data-lang="en">16 Gb SRAM at 1/1000 raw repair data and 100:1 compression requires a 160 kb payload.</span>
+            <span data-lang="zh">16 Gb SRAM 在 1/1000 修復資料比例、100:1 壓縮假設下，需 160 kb 有效修復資料。</span>
+          </p>
+        </div>
       </div>
     </section>
+
     <section id="comparison" class="comparison" aria-labelledby="comparison-title">
-      <div class="section-heading"><div><div class="eyebrow muted"><span data-lang="en">ALLOCATION COMPARISON</span><span data-lang="zh">配置容量比較</span></div><h2 id="comparison-title"><span data-lang="en">One payload, two allocations</span><span data-lang="zh">相同資料，兩種配置方式</span></h2><p><span data-lang="en">Adjust overhead, reserve and allocation blocks independently to calculate the required bits.</span><span data-lang="zh">分別調整額外開銷、預留空間與配置粒度，查看實際需要配置多少 bits。</span></p></div><button class="secondary" id="export"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2v10m-4-4l4 4 4-4M3 12v5h14v-5"/></svg><span data-lang="en">Export CSV</span><span data-lang="zh">匯出試算 CSV</span></button></div>
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow muted">
+            <span data-lang="en">ALLOCATION COMPARISON</span>
+            <span data-lang="zh">配置容量比較</span>
+          </div>
+          <h2 id="comparison-title">
+            <span data-lang="en">One payload, two allocations</span>
+            <span data-lang="zh">相同資料，兩種配置方式</span>
+          </h2>
+          <p>
+            <span data-lang="en">Adjust overhead, reserve and allocation blocks independently to calculate the required bits.</span>
+            <span data-lang="zh">分別調整額外開銷、預留空間與配置粒度，查看實際需要配置多少 bits。</span>
+          </p>
+        </div>
+        <button class="secondary" id="export" type="button">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2v10m-4-4l4 4 4-4M3 12v5h14v-5"/></svg>
+          <span data-lang="en">Export CSV</span>
+          <span data-lang="zh">匯出試算 CSV</span>
+        </button>
+      </div>
       <div class="tech-grid" id="tech-grid"></div>
-      <div class="panel comparison-table-wrap"><table id="comparison-table"><caption class="sr-only"><span data-lang="en">OTP and eFuse capacity breakdown</span><span data-lang="zh">OTP 與 eFuse 位元數比較明細</span></caption><thead><tr><th scope="col"><span data-lang="en">Capacity breakdown</span><span data-lang="zh">容量明細</span></th><th scope="col"><i class="otp-dot"></i> OTP</th><th scope="col"><i class="efuse-dot"></i> eFuse</th></tr></thead><tbody id="comparison-rows"></tbody></table><div class="table-note" id="difference"><span data-lang="en">Both technologies currently have the same allocated capacity.</span><span data-lang="zh">目前兩種技術的配置容量相同。</span></div></div>
+      <div class="panel comparison-table-wrap">
+        <table id="comparison-table">
+          <caption class="sr-only">
+            <span data-lang="en">OTP and eFuse capacity breakdown</span>
+            <span data-lang="zh">OTP 與 eFuse 位元數比較明細</span>
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">
+                <span data-lang="en">Capacity breakdown</span>
+                <span data-lang="zh">容量明細</span>
+              </th>
+              <th scope="col"><i class="otp-dot"></i> OTP</th>
+              <th scope="col"><i class="efuse-dot"></i> eFuse</th>
+            </tr>
+          </thead>
+          <tbody id="comparison-rows"></tbody>
+        </table>
+        <div class="table-note" id="difference">
+          <span data-lang="en">Both technologies currently have the same allocated capacity.</span>
+          <span data-lang="zh">目前兩種技術的配置容量相同。</span>
+        </div>
+      </div>
     </section>
-    <section id="method" class="method" aria-label="Method and assumptions" data-aria-en="Method and assumptions" data-aria-zh="計算方法與假設"><details><summary><span><span class="formula-icon">ƒ</span><span data-lang="en">Method and assumptions</span><span data-lang="zh">計算方法與假設</span></span><span class="expand">+</span></summary><div class="method-body"><div><h3><span data-lang="en">Data requirement</span><span data-lang="zh">資料需求</span></h3><p><span data-lang="en">SRAM bits = ceil(input capacity × bits per unit)</span><span data-lang="zh">SRAM bits = ⌈輸入容量 × 單位位元數⌉</span></p><p><span data-lang="en">Raw repair bits = ceil(SRAM bits × repair fraction)</span><span data-lang="zh">原始修復 bits = ⌈SRAM bits × 原始修復資料比例⌉</span></p><p><span data-lang="en">Payload bits = ceil(raw repair bits / compression ratio)</span><span data-lang="zh">有效資料 bits = ⌈原始修復 bits / 壓縮倍率⌉</span></p><p><span data-lang="en">Capacity reduction = 1 − payload bits / raw repair bits</span><span data-lang="zh">資料容量減少比例 = 1 − 有效資料 bits / 原始修復 bits</span></p></div><div><h3><span data-lang="en">Allocated storage</span><span data-lang="zh">實際配置</span></h3><p><span data-lang="en">Overhead bits = ceil(payload bits × overhead %)</span><span data-lang="zh">開銷 bits = ⌈有效資料 bits × 開銷 %⌉</span></p><p><span data-lang="en">Reserve bits = ceil((payload bits + overhead bits) × reserve %)</span><span data-lang="zh">預留 bits = ⌈（有效資料 bits + 開銷 bits）× 預留 %⌉</span></p><p><span data-lang="en">Required bits = payload bits + overhead bits + reserve bits</span><span data-lang="zh">需求 bits = 有效資料 bits + 開銷 bits + 預留 bits</span></p><p><span data-lang="en">Allocated bits = ceil(required bits / block bits) × block bits</span><span data-lang="zh">配置 bits = ⌈需求 bits / 粒度 bits⌉ × 粒度 bits</span></p></div><div class="method-wide"><h3><span data-lang="en">Reading this estimate</span><span data-lang="zh">如何閱讀這份試算</span></h3><p><span data-lang="en">Each stage rounds up to whole bits. Bytes round up as ceil(bits / 8). kb / Mb / Gb are decimal; Kib / Mib / Gib are binary, with 1 Gib = 2³⁰ bits. Lowercase b means bits; uppercase B means bytes.</span><span data-lang="zh">⌈ ⌉ 表示向上取整。各階段取整至完整位元；B 顯示容納位元所需的完整位元組（⌈bits / 8⌉）。kb / Mb / Gb 採十進位；Kib / Mib / Gib 採二進位，1 Gib = 2³⁰ bits。小寫 b 是位元、大寫 B 是位元組。</span></p><p><span data-lang="en">The defaults of 16 Gb, 1/1000 and 100:1 are adjustable planning assumptions, not IP specifications. Both technologies start with 0% overhead, 0% reserve and 1-bit blocks to show payload demand. Overhead can approximate ECC, indexes and control data; use actual encoding and macro capacities for implementation.</span><span data-lang="zh">預設 16 Gb、1/1000 與 100:1 為可調的規劃情境；OTP / eFuse 的開銷、預留均為 0%，粒度為 1 bit，用來呈現純資料需求，並非特定 IP 規格。開銷可概估 ECC、索引與控制資訊；正式配置請依實際編碼及巨集容量設定。</span></p><p><span data-lang="en">This model compares storage capacity. It excludes bitcell area, peripheral circuits, reliability, power and cost, so results do not establish area advantage, repair success rate or technology superiority. The 16 Gb example is not a validated area crossover.</span><span data-lang="zh">本模型比較儲存容量，未納入每位元面積、周邊電路、可靠度、功耗或成本，因此容量結果不代表面積優勢、修復成功率或特定技術的優劣。16 Gb 是範例容量，並非已驗證的面積交叉點。</span></p><p><span data-lang="en">Calculations run in your browser. Refreshing restores the defaults; export CSV to save your inputs and results.</span><span data-lang="zh">參數僅於目前瀏覽器頁面中運算；重新整理會回到預設值。匯出 CSV 可保留本次輸入與結果。</span></p></div></div></details></section>
-<footer><a href="index.html#layer-applications"><span data-lang="en">Back to Applications and Systems</span><span data-lang="zh">返回應用與系統</span></a><span><span data-lang="en">Explicit assumptions · Live comparison · Browser calculations</span><span data-lang="zh">明確假設 · 即時比較 · 瀏覽器內計算</span></span></footer></main><div class="toast" id="toast" role="status" hidden></div><noscript><p><span data-lang="en">Enable JavaScript to use the live calculator.</span><span data-lang="zh">請啟用 JavaScript 以使用即時計算與互動功能。</span></p></noscript></body></html>
+
+    <section id="method" class="method" aria-label="Method and assumptions" data-aria-en="Method and assumptions" data-aria-zh="計算方法與假設">
+      <details>
+        <summary>
+          <span>
+            <span class="formula-icon">ƒ</span>
+            <span data-lang="en">Method and assumptions</span>
+            <span data-lang="zh">計算方法與假設</span>
+          </span>
+          <span class="expand">+</span>
+        </summary>
+        <div class="method-body">
+          <div>
+            <h3>
+              <span data-lang="en">Data requirement</span>
+              <span data-lang="zh">資料需求</span>
+            </h3>
+            <p>
+              <span data-lang="en">SRAM bits = ceil(input capacity × bits per unit)</span>
+              <span data-lang="zh">SRAM bits = ⌈輸入容量 × 單位位元數⌉</span>
+            </p>
+            <p>
+              <span data-lang="en">Raw repair bits = ceil(SRAM bits × repair fraction)</span>
+              <span data-lang="zh">原始修復 bits = ⌈SRAM bits × 原始修復資料比例⌉</span>
+            </p>
+            <p>
+              <span data-lang="en">Payload bits = ceil(raw repair bits / compression ratio)</span>
+              <span data-lang="zh">有效資料 bits = ⌈原始修復 bits / 壓縮倍率⌉</span>
+            </p>
+            <p>
+              <span data-lang="en">Capacity reduction = 1 − payload bits / raw repair bits</span>
+              <span data-lang="zh">資料容量減少比例 = 1 − 有效資料 bits / 原始修復 bits</span>
+            </p>
+          </div>
+          <div>
+            <h3>
+              <span data-lang="en">Allocated storage</span>
+              <span data-lang="zh">實際配置</span>
+            </h3>
+            <p>
+              <span data-lang="en">Overhead bits = ceil(payload bits × overhead %)</span>
+              <span data-lang="zh">開銷 bits = ⌈有效資料 bits × 開銷 %⌉</span>
+            </p>
+            <p>
+              <span data-lang="en">Reserve bits = ceil((payload bits + overhead bits) × reserve %)</span>
+              <span data-lang="zh">預留 bits = ⌈（有效資料 bits + 開銷 bits）× 預留 %⌉</span>
+            </p>
+            <p>
+              <span data-lang="en">Required bits = payload bits + overhead bits + reserve bits</span>
+              <span data-lang="zh">需求 bits = 有效資料 bits + 開銷 bits + 預留 bits</span>
+            </p>
+            <p>
+              <span data-lang="en">Allocated bits = ceil(required bits / block bits) × block bits</span>
+              <span data-lang="zh">配置 bits = ⌈需求 bits / 粒度 bits⌉ × 粒度 bits</span>
+            </p>
+          </div>
+          <div class="method-wide">
+            <h3>
+              <span data-lang="en">Reading this estimate</span>
+              <span data-lang="zh">如何閱讀這份試算</span>
+            </h3>
+            <p>
+              <span data-lang="en">Each stage rounds up to whole bits. Bytes round up as ceil(bits / 8). kb / Mb / Gb are decimal; Kib / Mib / Gib are binary, with 1 Gib = 2³⁰ bits. Lowercase b means bits; uppercase B means bytes.</span>
+              <span data-lang="zh">⌈ ⌉ 表示向上取整。各階段取整至完整位元；B 顯示容納位元所需的完整位元組（⌈bits / 8⌉）。kb / Mb / Gb 採十進位；Kib / Mib / Gib 採二進位，1 Gib = 2³⁰ bits。小寫 b 是位元、大寫 B 是位元組。</span>
+            </p>
+            <p>
+              <span data-lang="en">The defaults of 16 Gb, 1/1000 and 100:1 are adjustable planning assumptions, not IP specifications. Both technologies start with 0% overhead, 0% reserve and 1-bit blocks to show payload demand. Overhead can approximate ECC, indexes and control data; use actual encoding and macro capacities for implementation.</span>
+              <span data-lang="zh">預設 16 Gb、1/1000 與 100:1 為可調的規劃情境；OTP / eFuse 的開銷、預留均為 0%，粒度為 1 bit，用來呈現純資料需求，並非特定 IP 規格。開銷可概估 ECC、索引與控制資訊；正式配置請依實際編碼及巨集容量設定。</span>
+            </p>
+            <p>
+              <span data-lang="en">This model compares storage capacity. It excludes bitcell area, peripheral circuits, reliability, power and cost, so results do not establish area advantage, repair success rate or technology superiority. The 16 Gb example is not a validated area crossover.</span>
+              <span data-lang="zh">本模型比較儲存容量，未納入每位元面積、周邊電路、可靠度、功耗或成本，因此容量結果不代表面積優勢、修復成功率或特定技術的優劣。16 Gb 是範例容量，並非已驗證的面積交叉點。</span>
+            </p>
+            <p>
+              <span data-lang="en">Calculations run in your browser. Refreshing restores the defaults; export CSV to save your inputs and results.</span>
+              <span data-lang="zh">參數僅於目前瀏覽器頁面中運算；重新整理會回到預設值。匯出 CSV 可保留本次輸入與結果。</span>
+            </p>
+          </div>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer class="hub-footer">
+    <div class="hub-footer-inner">
+      <div class="hub-footer-brand-row">
+        <div class="hub-footer-brand">
+          <a href="index.html" class="hub-footer-logo" aria-label="NVM Knowledge Hub home" data-aria-en="NVM Knowledge Hub home" data-aria-zh="NVM 知識中心首頁">
+            <span class="hub-footer-logo-mark">NVM</span>
+            <span class="hub-footer-logo-text">
+              <strong>KNOWLEDGE HUB</strong>
+              <small><span data-lang="zh">晶片架構與證據紀律</span><span data-lang="en">SILICON ARCHITECTURE &amp; EVIDENCE DISCIPLINE</span></small>
+            </span>
+          </a>
+          <p class="hub-footer-desc">
+            <span data-lang="zh">面向先進半導體邏輯節點、車載功能安全與超低功耗邊緣運算的高可靠度嵌入式非揮發性記憶體 (eNVM) 架構決策與物理實證知識庫。</span>
+            <span data-lang="en">Industrial-grade non-volatile memory (eNVM) architecture, bitcell physics, and automotive functional safety knowledge repository for advanced silicon design.</span>
+          </p>
+        </div>
+
+        <div class="hub-footer-meta-pill">
+          <div class="meta-pill-item">
+            <span class="meta-pill-dot" style="background:#006f70;"></span>
+            <span class="meta-pill-key">FOUNDRY MATRIX:</span>
+            <span class="meta-pill-val">TSMC · UMC · GF · SAMSUNG</span>
+          </div>
+          <div class="meta-pill-item">
+            <span class="meta-pill-dot" style="background:#006f70;"></span>
+            <span class="meta-pill-key">RELIABILITY:</span>
+            <span class="meta-pill-val">AEC-Q100 GRADE 0 / ISO 26262 ASIL CONTEXT</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hub-footer-nav-grid">
+        <div class="hub-footer-col">
+          <h3 class="hub-footer-col-title">
+            <span data-lang="zh">基礎理論 · 物理原語</span>
+            <span data-lang="en">Foundations &amp; Physics</span>
+          </h3>
+          <ul class="hub-footer-links">
+            <li><a href="index.html"><span data-lang="zh">知識中樞首頁</span><span data-lang="en">Hub Portal</span></a></li>
+            <li><a href="memory-physics.html"><span data-lang="zh">記憶體物理基底 (F1)</span><span data-lang="en">Bitcell Physics (F1)</span></a></li>
+            <li><a href="memory-evidence.html"><span data-lang="zh">文獻與實證語料 (R3)</span><span data-lang="en">Evidence Corpus (R3)</span></a></li>
+            <li><a href="security-assurance.html"><span data-lang="zh">物理安全保證 (A2)</span><span data-lang="en">Security Assurance (A2)</span></a></li>
+          </ul>
+        </div>
+
+        <div class="hub-footer-col">
+          <h3 class="hub-footer-col-title">
+            <span data-lang="zh">架構矩陣 · 決策分析</span>
+            <span data-lang="en">Architecture &amp; Trade-Offs</span>
+          </h3>
+          <ul class="hub-footer-links">
+            <li><a href="technology-comparison.html"><span data-lang="zh">NVM 技術權衡矩陣 (F2)</span><span data-lang="en">Technology Comparison (F2)</span></a></li>
+            <li><a href="secure-storage.html"><span data-lang="zh">安全儲存架構 (A1)</span><span data-lang="en">Secure Storage (A1)</span></a></li>
+            <li><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點機遇 (M1)</span><span data-lang="en">AI &amp; Advanced Nodes (M1)</span></a></li>
+            <li><a href="specialty-nvm.html"><span data-lang="zh">特殊製程 eNVM (M4)</span><span data-lang="en">Specialty Foundry NVM (M4)</span></a></li>
+          </ul>
+        </div>
+
+        <div class="hub-footer-col">
+          <h3 class="hub-footer-col-title">
+            <span data-lang="zh">垂直領域 · 晶片應用</span>
+            <span data-lang="en">Vertical Applications</span>
+          </h3>
+          <ul class="hub-footer-links">
+            <li><a href="sram-repair.html" aria-current="page"><span data-lang="zh">SRAM 修復容量估算器</span><span data-lang="en">SRAM Repair Estimator</span></a></li>
+            <li><a href="iot-mcu-envm.html"><span data-lang="zh">ULP IoT 與 MCU eNVM (M2)</span><span data-lang="en">IoT &amp; Edge MCU eNVM (M2)</span></a></li>
+            <li><a href="automotive-nvm.html"><span data-lang="zh">車載車規 NVM (M3)</span><span data-lang="en">Automotive-Grade NVM (M3)</span></a></li>
+            <li><a href="oip-secure-storage.html"><span data-lang="zh">OIP 合作夥伴簡報</span><span data-lang="en">OIP Partner Briefing</span></a></li>
+          </ul>
+        </div>
+
+        <div class="hub-footer-col">
+          <h3 class="hub-footer-col-title">
+            <span data-lang="zh">白皮書 · 決策工坊</span>
+            <span data-lang="en">Reports &amp; Studios</span>
+          </h3>
+          <ul class="hub-footer-links">
+            <li><a href="whitepaper/"><span data-lang="zh">技術白皮書工作坊 (R1)</span><span data-lang="en">Whitepaper Studio (R1)</span></a></li>
+            <li><a href="briefing/index.html"><span data-lang="zh">高階主管戰略簡報 (R2)</span><span data-lang="en">Executive Briefing (R2)</span></a></li>
+            <li><a href="index.html#searchTrigger"><span data-lang="zh">全局架構檢索 (Ctrl+K)</span><span data-lang="en">Global Search (Ctrl+K)</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hub-footer-badge-strip">
+        <span class="hub-footer-badge">TSMC N2 / N3 GAA</span>
+        <span class="hub-footer-badge"><span data-lang="zh">0.5V NTV 近閾運作</span><span data-lang="en">0.5V NTV Operation</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">0-Mask 純邏輯相容</span><span data-lang="en">0-Mask Pure Logic</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">AEC-Q100 Grade 0 目標 (-40°C~150°C 環 / 175°C 晶) · 查核清單非認證</span><span data-lang="en">AEC-Q100 Grade 0 Class Target (-40°C~150°C Ambient / 175°C Tj) · Checklist, Not Cert</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">ISO 26262 ASIL 脈絡 (SEooC) · 非認證就緒</span><span data-lang="en">ISO 26262 ASIL context (SEooC) · not certified Ready</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">補丁修復 CAM</span><span data-lang="en">Vector Patch CAM</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">TEM 物理衰減 (非免疫) · 幾何邊界</span><span data-lang="en">TEM Attenuation (Not Immunity) · Geometry Edge</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">差動讀取 (DPA 衰減 · 非絕對免疫)</span><span data-lang="en">Differential Current Read (DPA Attenuation · Not Absolute Immunity)</span></span>
+      </div>
+
+      <div class="hub-footer-bottom-bar">
+        <div class="hub-footer-copy">
+          <p><strong>NVM KNOWLEDGE HUB</strong> · <span data-lang="zh">非揮發性記憶體架構實證中樞</span><span data-lang="en">Non-Volatile Memory Architecture Reference</span></p>
+          <small><span data-lang="zh">版權所有 © 2026 · 採中立技術事實與公開文獻邊界治理</span><span data-lang="en">Copyright © 2026 · Governed by neutral technical evidence &amp; public records</span></small>
+        </div>
+        <div class="hub-footer-controls">
+          <span class="hub-footer-tag"><span data-lang="zh">發行版本 V2026.09 · 架構實驗室</span><span data-lang="en">RELEASE V2026.09 · ARCHITECTURE LAB</span></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+  <noscript><p><span data-lang="en">Enable JavaScript to use the live calculator.</span><span data-lang="zh">請啟用 JavaScript 以使用即時計算與互動功能。</span></p></noscript>
+</body>
+</html>

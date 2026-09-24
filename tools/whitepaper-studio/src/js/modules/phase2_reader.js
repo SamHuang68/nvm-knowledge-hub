@@ -14,7 +14,7 @@ export function renderPhase2Reader(container) {
     <div class="reader-layout">
       <aside class="reader-index">
         <p>CHAPTER INDEX</p>
-        <nav aria-label="Whitepaper chapters">
+        <nav aria-label="Whitepaper chapters" data-aria-en="Whitepaper chapters" data-aria-zh="白皮書章節">
           ${chapters.map((chapter) => `<a href="#chap-${chapter.id}"><b>${chapter.number}</b><span>${chapter.title}</span></a>`).join('')}
         </nav>
         <div class="reader-boundary"><b>PUBLIC EVIDENCE RULE</b><span>Exact specifications require a source, scope and limitation. Otherwise this paper uses architecture-level language.</span></div>
@@ -30,7 +30,7 @@ export function renderPhase2Reader(container) {
         `).join('')}
         <aside class="paper-sources">
           <div><p>CONTINUE THE EVIDENCE TRAIL</p><h3>Use the Hub to separate source facts from architecture inference</h3></div>
-          <nav><a href="https://hub.samhuang68.org/memory-evidence.html">Open Evidence Ledger <span>↗</span></a><a href="https://hub.samhuang68.org/memory-physics.html">Review Memory Physics <span>↗</span></a></nav>
+          <nav aria-label="Evidence trail navigation" data-aria-en="Evidence trail navigation" data-aria-zh="證據追蹤導覽"><a href="https://blog.samhuang68.org/memory-evidence.html">Open Evidence Ledger <span>↗</span></a><a href="https://blog.samhuang68.org/memory-physics.html">Review Memory Physics <span>↗</span></a></nav>
         </aside>
       </div>
     </div>

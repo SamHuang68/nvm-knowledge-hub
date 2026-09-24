@@ -1,4 +1,4 @@
-// 白皮書兩個入口共用單一內容翻譯器；全站語言狀態由 HubLanguage 管理。
+﻿// 白皮書兩個入口共用單一內容翻譯器；全站語言狀態由 HubLanguage 管理。
 (function () {
   const DICT = {
   "Interactive multi-way security & NVM architecture comparison (12 canonical profiles). Filter by technology family, inspect latency and physical exposure, or export profiles for system engineering reviews.": "互動式安全與 NVM 架構多方比較（12 個標準設定檔）。可依技術家族篩選、檢視延遲與實體暴露範圍，或匯出設定檔供系統工程審查。",
@@ -567,7 +567,7 @@
       }
     }
     for (const anchor of root.querySelectorAll('a[href]')) {
-      const prefix = 'https://hub.samhuang68.org/';
+      const prefix = 'https://blog.samhuang68.org/';
       if (!anchor.href.startsWith(prefix)) continue;
       let relative = anchor.href.slice(prefix.length);
       if (relative === '#research') relative = 'index.html#layer-resources';

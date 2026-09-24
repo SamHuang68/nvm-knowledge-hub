@@ -39,7 +39,7 @@ IP 單元圖由 `scripts/NVM力旺IP圖解.mjs`、`scripts/NVMYMCIP圖解.mjs`�
 
 路由使用穩定錨點，例如 `#topic-stt`、`#topic-vcm`、`#foundry`、`#comparison`、`#system-scm`。全站 `site-language.js` 管理語言偏好；首次造訪預設英文，明確的 `?lang=en`／`?lang=zh` 可指定語言。兩種靜態專題頁切換時保留錨點，返回首頁及搜尋結果亦延續偏好。JavaScript 關閉時，兩個專題頁仍各自保有完整正文。
 
-公開入口為 `https://hub.samhuang68.org/NVM技術全景.html`。GitHub Pages（`https://hub.samhuang68.org/`）仍同步提供同一內容。發布採主站既有的 GitHub Pages 流程：先提交內容，再產生並提交發行來源紀錄，推送至 `main` 後核對部署結果與公開檔案。`data/release-lineage.json` 提供內容提交與檔案樹的版本對應；實際上線需另以 GitHub Pages 成功部署及公開頁面驗證。自訂網域由 Cloudflare Pages 專案 `hub-samhuang68` 發布，合併到 `main` 後需等該專案重新部署。
+公開入口為 `https://blog.samhuang68.org/NVM技術全景.html`。發布採主站既有的 GitHub Pages 流程：先提交內容，再產生並提交發行來源紀錄，推送至 `main` 後核對部署結果與公開檔案。`data/release-lineage.json` 提供內容提交與檔案樹的版本對應；實際上線需另以 GitHub Pages 成功部署及公開頁面驗證。
 
 完整主站檢查使用 `npm.cmd run check`。導覽檢查涵蓋十七個公開 HTML 入口、巢狀目錄、真正存在的錨點與語言路由；動態章節使用 Chromium DOM 查證。新增專題另有雙語、手機與大圖操作檢查。無頭 Chromium 啟動需要依平台規則取得沙箱外執行核准；一般資料產生與字形查核仍在工作區執行。
 
