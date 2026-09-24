@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "4558c0ed001cdd059801",
+  "version": "bc15bbf9263a725e5aae",
   "assets": [
     "404.html",
     "IoT頁面導覽.js",

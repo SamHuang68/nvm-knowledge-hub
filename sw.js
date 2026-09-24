@@ -53,16 +53,42 @@ function offlineDocument(request) {
   </script></html>`;
 }
 
+// Cloudflare Web Analytics 在 Accept 含 text/html 的 HTML 回應、</body> 前注入 beacon。
+// 版本路徑與 token 會變；只移除這支已知指令碼，其餘位元組仍須符合清單雜湊。
+const CLOUDFLARE_INSIGHTS_BEACON = /<script\b[^>]*\bsrc\s*=\s*(["'])https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js[^"']*\1[^>]*>\s*<\/script>\n?/gi;
+
+function authorHtml(text) {
+  return text.replaceAll('\r\n', '\n').replace(CLOUDFLARE_INSIGHTS_BEACON, '');
+}
+
+function responseWithBody(response, body) {
+  const headers = new Headers(response.headers);
+  headers.delete('content-encoding');
+  headers.delete('content-length');
+  return new Response(body, { status: response.status, statusText: response.statusText, headers });
+}
+
 async function verifyResponse(key, response) {
   if (!response.ok || response.type === 'opaque') throw new Error('離線資源下載失敗');
   const expected = digests.get(key);
-  if (!expected) return response;
-  const bytes = /\.(?:html|css|js|json|svg|webmanifest)$/.test(new URL(key).pathname)
-    ? new TextEncoder().encode((await response.clone().text()).replaceAll('\r\n','\n'))
-    : await response.clone().arrayBuffer();
-  const actual = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(byte => byte.toString(16).padStart(2,'0')).join('');
+  const pathname = new URL(key).pathname;
+  const textual = /\.(?:html|css|js|json|svg|webmanifest)$/.test(pathname);
+  let bodyResponse = response;
+  let bytes;
+  if (textual && pathname.endsWith('.html')) {
+    const cleaned = authorHtml(await response.clone().text());
+    bytes = new TextEncoder().encode(cleaned);
+    const original = (await response.clone().text()).replaceAll('\r\n', '\n');
+    if (cleaned !== original) bodyResponse = responseWithBody(response, cleaned);
+  } else if (textual) {
+    bytes = new TextEncoder().encode((await response.clone().text()).replaceAll('\r\n', '\n'));
+  } else {
+    bytes = await response.clone().arrayBuffer();
+  }
+  if (!expected) return bodyResponse;
+  const actual = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(byte => byte.toString(16).padStart(2, '0')).join('');
   if (actual !== expected) throw new Error('離線資源版本不一致，保留既有版本');
-  return response;
+  return bodyResponse;
 }
 
 function keyFor(request) {
@@ -119,8 +145,8 @@ self.addEventListener('install', event => {
     const outcomes = await Promise.allSettled([...assetURLs].map(async key => {
       const fetched = await followForBody(new Request(key, {cache:'reload', redirect:'follow'}));
       const response = await responseWithoutRedirectFlag(fetched);
-      await verifyResponse(key,response);
-      await cache.put(key,response);
+      const verified = await verifyResponse(key, response);
+      await cache.put(key, verified);
     }));
     if (outcomes.some(outcome => outcome.status === 'rejected')) {
       await caches.delete(CACHE_NAME);
@@ -139,10 +165,10 @@ self.addEventListener('fetch', event => {
   const key = keyFor(request);
   const network = async cache => {
     const fetched = await followForBody(request);
-    const response = await responseWithoutRedirectFlag(fetched);
-    if (assetURLs.has(key)) await verifyResponse(key,response);
+    let response = await responseWithoutRedirectFlag(fetched);
+    if (assetURLs.has(key)) response = await verifyResponse(key, response);
     // 執行期間若儲存空間不足，仍交付已成功取得的回應；安裝階段則維持完整性要求。
-    // 寫入前已去掉 redirected，避免快取再把 308 的旗標交回導覽。
+    // 寫入前已去掉 redirected 與 Cloudflare Insights beacon，快取只留作者內文。
     if (response.ok && response.type !== 'opaque') await cache.put(key, response.clone()).catch(() => {});
     return navigationRedirect(request, fetched) || response;
   };
