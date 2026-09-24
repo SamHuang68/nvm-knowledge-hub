@@ -22,9 +22,17 @@
 
 客戶端用 `hubPagePath()` 判斷目前頁面：路徑沒有副檔名時補上 `.html` 再比對；結尾是 `/` 的目錄（`/briefing/`、`/whitepaper/`、`/tools/whitepaper-studio/`）保持不變。GitHub Pages 的 `/nvm-knowledge-hub/memory-physics.html` 與 Cloudflare 的 `/memory-physics` 都會命中同一組頁面 CSS／JS。
 
+## Service worker 與 308
+
+`site-language.js` 會註冊 `sw.js`。導覽請求的 redirect 模式是 `manual`。若把 Cloudflare 跟隨 308 之後、`redirected === true` 的回應放進 Cache，或直接交給 `FetchEvent`，Chrome 會讓該次導覽變成 `ERR_FAILED`（主控台：redirected response was used for a request whose redirect mode is not `follow`）。`curl` 仍看得到 200，因為它不經過 service worker。GitHub Pages 不對 `.html` 做這段 308，所以同一支 worker 在那邊原本就能開啟。
+
+安裝與執行時改為跟隨**同來源**最終網址，把內文複製成新的 `Response`（`redirected` 為 false）之後，才做原本的 SHA-256 比對與 `cache.put`。雜湊不符仍整次拒絕安裝，執行中也不把不符的內文交回頁面。跨來源轉址不會被當成站內文件。尚未進快取的導覽若最終路徑不同（例如 `/briefing` → `/briefing/`），改回 308，讓網址列與相對路徑跟平台一致。
+
 ## 合併後如何查
 
-1. 確認 Cloudflare Pages 專案 `hub-samhuang68` 已從 `main` 重新部署（儀表板沒有額外開關）。
-2. 開啟 `https://hub.samhuang68.org/memory-physics.html`。最終網址可以是 308 之後的 `/memory-physics`。頁面應載入 `memory-physics-contrast.css`（DevTools → Network，或 `document.querySelector('link[href*="memory-physics-contrast"]')`）。
-3. 開啟 `https://hub.samhuang68.org/NVM技術全景.html`。最終網址可以是 `/NVM技術全景`。語言切換仍指向 `NVM技術全景.html`／`NVM技術全景中文.html`。
-4. `https://samhuang68.github.io/nvm-knowledge-hub/memory-physics.html` 應維持 200，且網址仍含 `.html`。
+1. 確認 Cloudflare Pages 專案 `hub-samhuang68` 已從 `main` 重新部署（儀表板沒有額外開關）。Pages 可能有短暫快取。
+2. 若這個瀏覽器已經註冊過舊的 `sw.js`，新的 worker 會先進入等待，不會強制換掉使用中的分頁。請硬重新載入，或到 DevTools → Application → Service Workers 按 Unregister，關掉本站分頁再打開。
+3. 開啟 `https://hub.samhuang68.org/memory-physics.html`。頁面應出現內容，而不是空白或 `ERR_FAILED`。網址可以留在 `.html`，也可以是 `/memory-physics`。DevTools 應看到 `memory-physics-contrast.css`，或 `document.querySelector('link[href*="memory-physics-contrast"]')`。
+4. 開啟 `https://hub.samhuang68.org/memory-physics`。同樣應顯示該頁。
+5. 開啟 `https://hub.samhuang68.org/NVM技術全景.html`。頁面應正常顯示。語言切換仍指向 `NVM技術全景.html`／`NVM技術全景中文.html`。
+6. `https://samhuang68.github.io/nvm-knowledge-hub/memory-physics.html` 應維持 200，且網址仍含 `.html`。

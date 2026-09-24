@@ -72,13 +72,53 @@ function keyFor(request) {
   if (!assetURLs.has(url.href) && assetURLs.has(url.href+'.html')) url.pathname += '.html';
   return url.href;
 }
+
+// Cloudflare Pages 對 /file.html 回 308，最終文件在無副檔名路徑。
+// 導覽請求的 redirect 模式是 manual。Cache 或 FetchEvent 若交出帶 redirected
+// 旗標的回應，Chrome 會把導覽變成 ERR_FAILED（redirect mode is not follow）。
+// 跟到同來源最終網址後，複製成新的 Response（redirected 為 false）再驗證雜湊。
+async function followForBody(request, cacheMode) {
+  let response = await fetch(request);
+  if (response.type !== 'opaqueredirect') return response;
+  const init = { redirect: 'follow', credentials: 'same-origin' };
+  if (cacheMode) init.cache = cacheMode;
+  return fetch(request.url, init);
+}
+
+async function responseWithoutRedirectFlag(response) {
+  if (!response.redirected) return response;
+  if (response.type === 'opaque' || response.type === 'opaqueredirect') throw new Error('無法讀取轉址後的回應');
+  const finalURL = new URL(response.url);
+  if (finalURL.origin !== ROOT.origin) throw new Error('離線資源轉址離開本站');
+  const headers = new Headers(response.headers);
+  // 內文已由 fetch 解壓；保留 content-encoding 會讓瀏覽器再解一次。
+  headers.delete('content-encoding');
+  headers.delete('content-length');
+  return new Response(await response.arrayBuffer(), {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
+function navigationRedirect(request, fetched) {
+  if (request.mode !== 'navigate' || !fetched?.redirected || !fetched.url) return null;
+  let finalURL;
+  try { finalURL = new URL(fetched.url); } catch { return null; }
+  if (finalURL.origin !== ROOT.origin) return null;
+  const requested = new URL(request.url);
+  if (finalURL.pathname === requested.pathname && finalURL.search === requested.search) return null;
+  if (requested.hash) finalURL.hash = requested.hash;
+  return Response.redirect(finalURL.href, 308);
+}
 self.addEventListener('install', event => {
   // 每個 HTML、程式與資料都須符合本版本雜湊；部署中途混版則整次安裝失敗。
   // 新版本等待舊分頁關閉，不強制切換仍在使用舊文件的控制器。
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
     const outcomes = await Promise.allSettled([...assetURLs].map(async key => {
-      const response = await fetch(new Request(key, {cache:'reload'}));
+      const fetched = await followForBody(new Request(key, {cache:'reload', redirect:'follow'}));
+      const response = await responseWithoutRedirectFlag(fetched);
       await verifyResponse(key,response);
       await cache.put(key,response);
     }));
@@ -98,11 +138,13 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET' || url.origin !== ROOT.origin || !url.pathname.startsWith(ROOT.pathname)) return;
   const key = keyFor(request);
   const network = async cache => {
-    const response = await fetch(request);
+    const fetched = await followForBody(request);
+    const response = await responseWithoutRedirectFlag(fetched);
     if (assetURLs.has(key)) await verifyResponse(key,response);
     // 執行期間若儲存空間不足，仍交付已成功取得的回應；安裝階段則維持完整性要求。
+    // 寫入前已去掉 redirected，避免快取再把 308 的旗標交回導覽。
     if (response.ok && response.type !== 'opaque') await cache.put(key, response.clone()).catch(() => {});
-    return response;
+    return navigationRedirect(request, fetched) || response;
   };
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);
