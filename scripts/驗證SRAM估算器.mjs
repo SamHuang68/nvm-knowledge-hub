@@ -102,7 +102,7 @@ try {
   await search.fill('SRAM repair');
   await page.locator('#searchResults a[href*="sram-repair.html"]').waitFor();
   assert.deepEqual(errors, []);
-  const manifest = await fs.readFile(path.join(root, 'data/離線資源清單.js'), 'utf8');
+  const manifest = await fs.readFile(path.join(root, 'data/offline-manifest.js'), 'utf8');
   for (const asset of ['sram-repair.html', 'sram-repair.js', 'sram-repair-model.js', 'sram-repair.css']) assert.ok(manifest.includes('"' + asset + '"'), asset + ' in offline manifest');
   console.log('SRAM browser checks passed: application entry, search, defaults, exact allocations, unit conversion, compression modes, slider, chart, invalid inputs, bilingual state preservation, CSV and responsive layout.');
 } finally {

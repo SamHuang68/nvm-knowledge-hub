@@ -36,7 +36,7 @@ Cloudflare Web Analytics／Insights 會在**看起來像瀏覽器文件**的 HTM
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/…" data-cf-beacon='…'></script>
 ```
 
-實測（2026-09-24，`https://hub.samhuang68.org/`）：`Accept` 含 `text/html` 就會注入，約多 367 bytes；`Accept: */*`（一般 `curl`）則與倉庫雜湊一致。Service worker 的導覽 `fetch(request)` 會帶上文件的 `Accept`，因此內文不再等於 `data/離線資源清單.js`。`verifyResponse` 若直接比對，安裝失敗，或導覽落到離線 503（「此頁尚未下載」／「Page not downloaded」）。返回 `index.html` 的連結會再走同一條失敗路徑。
+實測（2026-09-24，`https://hub.samhuang68.org/`）：`Accept` 含 `text/html` 就會注入，約多 367 bytes；`Accept: */*`（一般 `curl`）則與倉庫雜湊一致。Service worker 的導覽 `fetch(request)` 會帶上文件的 `Accept`，因此內文不再等於 `data/offline-manifest.js`。`verifyResponse` 若直接比對，安裝失敗，或導覽落到離線 503（「此頁尚未下載」／「Page not downloaded」）。返回 `index.html` 的連結會再走同一條失敗路徑。
 
 `sw.js` 在計算 SHA-256 與 `cache.put` 之前，只移除 `static.cloudflareinsights.com/beacon.min.js` 這支已知指令碼（含它緊接的一個換行）。其餘位元組仍須符合清單。快取保存的是作者內文，不是帶 beacon 的複本。GitHub Pages 沒有這段注入，移除結果與原文相同，雜湊行為不變。這不是關掉 Analytics 的替代說明；主機可以繼續開著，完整性檢查也不整段關閉。
 

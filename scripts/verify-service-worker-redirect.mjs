@@ -26,7 +26,7 @@ const manifest = `self.NVMOfflineManifest = ${JSON.stringify({
   digests: Object.fromEntries(assets.map(file => [file, digest(pages[file])])),
   totalBytes: assets.reduce((sum, file) => sum + Buffer.byteLength(pages[file]), 0),
 })};\n`;
-const files = new Map(Object.entries({ ...pages, 'sw.js': workerSource, 'data/離線資源清單.js': manifest }));
+const files = new Map(Object.entries({ ...pages, 'sw.js': workerSource, 'data/offline-manifest.js': manifest }));
 const tamperMark = '<!--TAMPER-->';
 const beaconTag = '<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vfixture" integrity="sha512-fixture" data-cf-beacon=\'{"version":"2024.11.0","token":"fixture","r":1}\' crossorigin="anonymous"></script>\n';
 let pretty = false;

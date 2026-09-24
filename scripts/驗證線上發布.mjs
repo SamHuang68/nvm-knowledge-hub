@@ -10,9 +10,9 @@ const base = process.env.NVM_QA_BASE || 'https://samhuang68.github.io/nvm-knowle
 const output = path.resolve(process.env.NVM_QA_OUTPUT || path.join(root,'qa','雙語修正部署','線上發布'));
 fs.mkdirSync(output,{recursive:true});
 const scope = {self:{}};
-vm.runInNewContext(fs.readFileSync(path.join(root,'data/離線資源清單.js'),'utf8'),scope);
+vm.runInNewContext(fs.readFileSync(path.join(root,'data/offline-manifest.js'),'utf8'),scope);
 const manifest = scope.self.NVMOfflineManifest;
-const files = [...new Set([...manifest.assets,'sw.js','data/離線資源清單.js','data/release-lineage.json'])];
+const files = [...new Set([...manifest.assets,'sw.js','data/offline-manifest.js','data/release-lineage.json'])];
 const hash = (file,bytes) => crypto.createHash('sha256').update(/\.(?:html|css|js|json|svg|webmanifest)$/.test(file)
   ? bytes.toString('utf8').replace(/^\uFEFF/,'').replaceAll('\r\n','\n') : bytes).digest('hex');
 const result = {base,checkedAt:new Date().toISOString(),version:manifest.version,assets:[],offline:[]};

@@ -1,5 +1,5 @@
 /* 本站快取由建置清單綁定；不清除同來源其他專案的資料。 */
-importScripts('./data/離線資源清單.js');
+importScripts('./data/offline-manifest.js');
 const CACHE_PREFIX = 'nvm-knowledge-hub-';
 const CACHE_NAME = CACHE_PREFIX + self.NVMOfflineManifest.version;
 const ROOT = new URL('./', self.location.href);
