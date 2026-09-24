@@ -10,7 +10,8 @@ const workerSource = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
 const digest = body => crypto.createHash('sha256').update(body).digest('hex');
 const pages = {
   'index.html': '<!doctype html><meta charset="utf-8"><title>Home</title><p id="marker">home-ok</p><script>navigator.serviceWorker.register("./sw.js")</script></body>',
-  'memory-physics.html': '<!doctype html><meta charset="utf-8"><title>MP</title><h1 id="marker">memory-physics-ok</h1><a id="returnHome" href="index.html">Return to Knowledge Hub</a></body>',
+  'memory-physics.html': '<!doctype html><meta charset="utf-8"><title>MP</title><h1 id="marker">memory-physics-ok</h1><a id="returnHome" href="index.html">Return to Knowledge Hub</a><a id="returnSibling" href="secure-storage.html">Return to Secure Storage</a></body>',
+  'secure-storage.html': '<!doctype html><meta charset="utf-8"><title>SS</title><h1 id="marker">secure-storage-ok</h1><a id="returnHome" href="index.html">知識中心</a></body>',
   'iot-mcu-envm.html': '<!doctype html><meta charset="utf-8"><title>IoT</title><h1 id="marker">iot-ok</h1><a id="returnHome" href="index.html">返回知識中心</a></body>',
   'briefing/index.html': '<!doctype html><meta charset="utf-8"><title>Briefing</title><h1 id="marker">briefing-ok</h1><script src="probe.js"></script></body>',
   'briefing/probe.js': 'document.documentElement.dataset.probe = "ready";\n',
@@ -18,7 +19,7 @@ const pages = {
   'boot.html': '<!doctype html><meta charset="utf-8"><title>Boot</title><p id="marker">boot-ok</p></body>',
 };
 const version = 'sw-redirect-fixture';
-const assets = ['index.html', 'memory-physics.html', 'iot-mcu-envm.html', 'briefing/index.html', 'briefing/probe.js'];
+const assets = ['index.html', 'memory-physics.html', 'secure-storage.html', 'iot-mcu-envm.html', 'briefing/index.html', 'briefing/probe.js'];
 const manifest = `self.NVMOfflineManifest = ${JSON.stringify({
   version,
   assets,
@@ -223,11 +224,18 @@ try {
     const page = await openControlled(context);
     const home = await page.goto(origin + '/', { waitUntil: 'domcontentloaded' });
     check(home.status() === 200 && await page.locator('#marker').textContent() === 'home-ok', 'Cloudflare beacon 注入後首頁仍是知識中心', { status: home.status(), url: page.url() });
-    const article = await page.goto(origin + '/memory-physics.html', { waitUntil: 'domcontentloaded' });
-    check(article.status() === 200 && await page.locator('#marker').textContent() === 'memory-physics-ok', 'beacon 注入後 .html 文章仍可開啟', { status: article.status(), url: page.url() });
+    const article = await page.goto(origin + '/memory-physics', { waitUntil: 'domcontentloaded' });
+    const articleText = await page.locator('body').innerText();
+    check(article.status() === 200 && await page.locator('#marker').textContent() === 'memory-physics-ok' && !articleText.includes('Page not downloaded') && !articleText.includes('尚未下載'), 'beacon 注入後 /memory-physics 是文章而不是離線頁', { status: article.status(), url: page.url() });
     await page.locator('#returnHome').click();
     await page.locator('#marker').waitFor();
-    check(await page.locator('#marker').textContent() === 'home-ok', '文章返回 index.html 到達首頁', { url: page.url() });
+    const homeText = await page.locator('body').innerText();
+    check(await page.locator('#marker').textContent() === 'home-ok' && !homeText.includes('Page not downloaded') && !homeText.includes('尚未下載'), '文章品牌與麵包屑 index.html 回到真正首頁', { url: page.url(), text: homeText });
+    await page.goto(origin + '/memory-physics', { waitUntil: 'domcontentloaded' });
+    await page.locator('#returnSibling').click();
+    await page.locator('#marker').waitFor();
+    const siblingText = await page.locator('body').innerText();
+    check(await page.locator('#marker').textContent() === 'secure-storage-ok' && !siblingText.includes('Page not downloaded') && !siblingText.includes('尚未下載'), 'Return to Secure Storage 開啟同站 HTML 而不是離線頁', { url: page.url(), text: siblingText });
     const apps = await page.goto(origin + '/iot-mcu-envm', { waitUntil: 'domcontentloaded' });
     check(apps.status() === 200 && await page.locator('#marker').textContent() === 'iot-ok', '無副檔名應用頁在 beacon 下可開啟', { status: apps.status(), url: page.url() });
     await page.locator('#returnHome').click();
