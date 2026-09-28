@@ -108,6 +108,9 @@ body[data-language="zh"] .studio-hero h1,
   overflow-x: auto !important;
   background: #f8fafc !important;
 }
+.decision-table tbody tr {
+  background: #ffffff !important;
+}
 .decision-table tbody th {
   color: #0f172a !important;
 }
@@ -115,7 +118,21 @@ body[data-language="zh"] .studio-hero h1,
   color: #334155 !important;
 }
 .decision-table tr:hover {
-  background: rgba(196, 165, 116, 0.08) !important;
+  background: #f1f5f9 !important;
+}
+.studio-brand,
+.breadcrumb strong,
+.view-tab[aria-selected="true"],
+.selector-controls select,
+.selector-controls > p b {
+  color: #0f172a !important;
+}
+.selector-controls > p span {
+  color: #475569 !important;
+}
+.hero-system .state-node .node-main,
+.hero-system .core .core-main {
+  fill: #0f172a !important;
 }
 
 /* 手機版 attr(data-label) 偽元素繁中化 */

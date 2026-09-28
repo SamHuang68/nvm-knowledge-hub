@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "39e7d87cff42265b78e0",
+  "version": "48e0838253a124966fb9",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -159,10 +159,10 @@ self.NVMOfflineManifest = {
     "technology-comparison.html": "62aa3dc6cb7b84c2bec177bfb320fe2544afc484ce7075d1decb787efa1da506",
     "tools/whitepaper-studio/index.html": "f138960d0121e45baf09608e07ecf6ae2679926b395c2493a3171d1584440b0d",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
-    "whitepaper/assets/whitepaper.css": "fa01b12575824e456a26a6a94fc1823b408c85daa63e43a3b17d748a0351bcd7",
+    "whitepaper/assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8",
     "whitepaper/assets/whitepaper.js": "78a1620bfe0cdcf92774be8ea7495b90065b616a32082722267af33bc7e19e89",
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "966332517192b04950018bcf1ffb1565359c5d4210dc9c0f1043fed60489e301"
   },
-  "totalBytes": 10780574
+  "totalBytes": 10780898
 };

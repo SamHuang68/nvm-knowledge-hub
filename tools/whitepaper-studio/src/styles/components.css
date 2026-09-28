@@ -191,10 +191,14 @@
   overflow: hidden;
 }
 
+.decision-table tbody tr {
+  background: #ffffff !important;
+}
+
 .decision-table th, .decision-table td {
   padding: 14px 18px !important;
 }
 
 .decision-table tr:hover {
-  background: rgba(0, 240, 255, 0.04) !important;
+  background: #f1f5f9 !important;
 }
