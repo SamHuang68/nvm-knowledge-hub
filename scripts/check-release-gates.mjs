@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
-import { loadPublicRoutes, assertDeclaredHtml } from "./公開路由.mjs";
+import { loadPublicRoutes, assertDeclaredHtml } from "./public-routes.mjs";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(scriptDir, "..");
@@ -25,6 +25,12 @@ const walk = directory => fs.readdirSync(directory, { withFileTypes: true }).fla
 });
 
 const files = walk(root);
+for (const file of files) {
+  const relative = path.relative(root, file).replaceAll("\\", "/");
+  if (/[^\x00-\x7F]/u.test(relative)) {
+    failures.push(`non-ASCII path prohibited by naming policy: ${relative}`);
+  }
+}
 const attachmentEvidence = new Map((policy.attachmentExceptionEvidence ?? []).map(record => [record.path, record]));
 for (const exception of policy.allowedAttachmentExceptions) {
   const record = attachmentEvidence.get(exception);
@@ -91,6 +97,13 @@ for (const file of htmlFiles) {
     if (!body.includes(`data-pov-scope-id="${pov.defaultScopeId}"`)) failures.push(`${relative}: body lacks neutral POV scope binding`);
     if (!body.includes('data-artifact-mode="neutral-editorial"')) failures.push(`${relative}: undeclared artifact mode`);
     if (!body.includes('data-accountable-owner-key="sam-huang"')) failures.push(`${relative}: accountable owner key missing`);
+    if (!/<meta\s+name=["']color-scheme["']\s+content=["']light["']/iu.test(html)) failures.push(`${relative}: lacks light color-scheme meta`);
+    for (const canonical of html.matchAll(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/giu)) {
+      if (!canonical[1].startsWith("https://hub.samhuang68.org/")) failures.push(`${relative}: canonical URL must use https://hub.samhuang68.org/ (${canonical[1]})`);
+    }
+    for (const ogUrl of html.matchAll(/<meta\b[^>]*property=["']og:url["'][^>]*content=["']([^"']+)["']/giu)) {
+      if (!ogUrl[1].startsWith("https://hub.samhuang68.org/")) failures.push(`${relative}: og:url must use https://hub.samhuang68.org/ (${ogUrl[1]})`);
+    }
   }
 
   for (const match of html.matchAll(/<h([1-6])\b([^>]*)>([\s\S]*?)<\/h\1>/giu)) {

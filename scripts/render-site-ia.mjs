@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright";
-import { startTestServer } from "./驗證伺服器.mjs";
+import { startTestServer } from "./test-server.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
 const output = path.join(root, ".loop-engineering", "rendered-r18");

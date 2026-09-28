@@ -1,0 +1,318 @@
+import {validateRewriteCycle, renderRewriteCycle, rewriteCycleMarkdown} from './nvm-rewrite-cycle.mjs';
+import {splitAtlasDiagrams} from './split-atlas-diagrams.mjs';
+import {validateResearch, renderResearch, researchMarkdown, renderLandscape, landscapeMarkdown} from './nvm-industry-research-ui.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { spawnSync } from 'node:child_process';
+import { bitcellFigure } from './nvm-bitcell-figures.mjs';
+import { englishInterface } from './nvm-interface-locale.mjs';
+import { collectEngineeringStudies, renderOperationStudy, renderPatentGuide, renderPatentTeaser } from './nvm-engineering-diagrams-ui.mjs';
+import {collectIPCurriculum, renderIPDirectory, renderIPNavigation, renderIPPanels, renderIPLineage, ipCurriculumMarkdown, ipLineageMarkdown} from './nvm-ip-curriculum-ui.mjs';
+import {getIPStudy as ememoryIPStudy} from './nvm-ememory-ip-diagrams.mjs';
+import {getIPStudy as emergingIPStudy} from './nvm-emerging-ip-diagrams.mjs';
+import {getIPStudy as ymcIPStudy} from './nvm-ymc-ip-diagrams.mjs';
+import {getIPStudy as synopsysOTPStudy} from './nvm-synopsys-otp-diagrams.mjs';
+import {getIPStudy as impinjIPStudy} from './nvm-impinj-ip-diagrams.mjs';
+import {getIPStudy as supplementIPStudy} from './nvm-supplement-ip-diagrams.mjs';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const check = process.argv.includes('--check');
+const language = process.argv.find(value => value.startsWith('--locale='))?.split('=')[1];
+if (!language) {
+  for (const locale of ['zh', 'en']) {
+    const result = spawnSync(process.execPath, [fileURLToPath(import.meta.url), `--locale=${locale}`, ...(check ? ['--check'] : [])], { stdio: 'inherit' });
+    if (result.status !== 0) process.exit(result.status || 1);
+  }
+  process.exit(0);
+}
+if (!['en', 'zh'].includes(language)) throw new Error('不支援的語系');
+const isEnglish = language === 'en';
+const dataSuffix = isEnglish ? '-en' : '';
+const pageFile = isEnglish ? 'nvm-technology-atlas.html' : 'nvm-technology-atlas-zh.html';
+const read = name => JSON.parse(fs.readFileSync(path.join(root, 'data', name.replace('.json', `${dataSuffix}.json`)), 'utf8'));
+const intro = read('nvm-atlas-intro.json');
+const charge = read('nvm-charge-topics.json');
+const emerging = read('nvm-emerging-topics.json');
+const comparison = read('nvm-comparison-systems.json');
+const foundry = read('nvm-foundry-roadmap.json');
+const research = read('nvm-industry-research.json');
+validateResearch(research);
+const topics = [...charge.topics, ...emerging.topics];
+const engineering = collectEngineeringStudies(topics,language);
+const ipIndex = read('nvm-ip-cells-intro.json');
+const supplementIds = ['actt-cmt','nscore-twinbit','floadia-zt','cfx-otp','attopsemi-ifuse','floadia-za','floadia-g1','floadia-g2','sst-superflash'];
+const ipCurriculum = collectIPCurriculum(ipIndex, language, id => ['neobit','neofuse','neoee','neomtp'].includes(id) ? ememoryIPStudy : id === 'ymc-mtp' ? ymcIPStudy : ['kilopass-xpm','sidense-1t-fuse'].includes(id) ? synopsysOTPStudy : id === 'impinj-aeon' ? impinjIPStudy : supplementIds.includes(id) ? supplementIPStudy : emergingIPStudy);
+const originalSources = [...intro.sources, ...charge.sources, ...emerging.sources, ...comparison.sources, ...foundry.sources, ...ipCurriculum.sources, ...research.sources];
+const operationSources = engineering.operations.flatMap(study=>[...study.sources,...study.variants.flatMap(variant=>variant.sources||[])]);
+const sources = [...new Map([...originalSources,...operationSources].map(source=>[source.id,source])).values()];
+const engineeringOperations = new Map(engineering.operations.map(study=>[study.topicId+'-'+study.operationId,study]));
+const engineeringPatents = new Map(engineering.patents.map(study=>[study.id,study]));
+const sourceMap = new Map(sources.map(item => [item.id, item]));
+const sourceDate = source => `${source.date ?? '未標示發布日期'}${source.accessedAt ? '；查閱 '+source.accessedAt : ''}`;
+const familyFor = id => intro.families.find(family => family.topics.includes(id));
+const patents = topics.flatMap(topic => topic.patents.map(patent => ({ ...patent, topicId: topic.id, topicTitle: topic.title })));
+const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+const list = value => Array.isArray(value) ? value : [value];
+const paras = value => list(value).filter(Boolean).flatMap(text => String(text).split(/\n\s*\n/u)).map(text => `<p>${esc(text)}</p>`).join('');
+const bullets = value => `<ul>${list(value).filter(Boolean).map(text => `<li>${esc(text)}</li>`).join('')}</ul>`;
+const cite = ids => `<div class="nvm-source-links">${(ids || []).map(id => `<a href="#source-${esc(id)}">${esc(id)} · ${esc(sourceMap.get(id)?.label ?? id)}</a>`).join('')}</div>`;
+const citeResearch = ids => `<div class="nvm-source-links research-citations"><span class="nvm-citation-label">${isEnglish?'Sources':'來源'}</span>${(ids||[]).map(id=>`<a href="#source-${esc(id)}" title="${esc(id)}">${esc(sourceMap.get(id)?.label??id)}</a>`).join('')}</div>`;
+const tag = stage => `<span class="nvm-tag" data-stage="${esc(stage)}">${esc(stage)}</span>`;
+const panelHeader = (kicker, title, body) => `<header><p class="nvm-kicker">${esc(kicker)}</p><h2 tabindex="-1">${esc(title)}</h2><div class="nvm-lede">${paras(body)}</div></header>`;
+const failures = [];
+
+if (sourceMap.size !== sources.length) failures.push('來源識別碼重複');
+const expectedTopicIds = intro.families.flatMap(family => family.topics);
+if (new Set(topics.map(topic => topic.id)).size !== expectedTopicIds.length || expectedTopicIds.some(id => !topics.some(topic => topic.id === id))) failures.push('技術主題識別碼與物理家族目錄不一致');
+for (const source of sources) {
+  if (!source.id || !source.label || !/^https:\/\//u.test(source.url || '') || !source.kind || !source.locator || (!source.date && !source.accessedAt) || !source.limit) failures.push(`來源欄位不完整：${source.id}`);
+}
+const validateRefs = (value, location) => {
+  if (Array.isArray(value)) return value.forEach((item, index) => validateRefs(item, `${location}[${index}]`));
+  if (!value || typeof value !== 'object') return;
+  for (const [key, child] of Object.entries(value)) {
+    if (key === 'sourceIds') for (const id of child) if (!sourceMap.has(id)) failures.push(`${location} 的來源不存在：${id}`);
+    validateRefs(child, `${location}.${key}`);
+  }
+};
+validateRefs({ topics, comparison, foundry, ipCurriculum, research }, '內容');
+const namedLogicIds = ['cfx-otp','attopsemi-ifuse','floadia-za','actt-cmt','nscore-twinbit','floadia-zt','floadia-g1','floadia-g2','sst-superflash'];
+const mappedLogicIds = (comparison.logicIpMap?.groups || []).flatMap(group => (group.items || []).map(item => item.id));
+if (!comparison.logicIpMap?.title || namedLogicIds.some(id => !mappedLogicIds.includes(id)) || mappedLogicIds.length !== namedLogicIds.length) failures.push('比較專題缺少九款具名邏輯製程 IP 對照');
+for (const unit of ipCurriculum.units) if (!topics.some(topic => topic.id === unit.hostTopic)) failures.push(`${unit.id} 的物理背景不存在`);
+for (const topic of topics) {
+  if (!['efuse','antifuse'].includes(topic.id)) validateRewriteCycle(topic);
+  for (const field of ['title', 'storage', 'structure', 'summary', 'selection', 'variability', 'fit', 'avoid']) if (!String(topic[field] || '').trim()) failures.push(`${topic.id} 缺少 ${field}`);
+  for (const field of ['device', 'array', 'process', 'system']) if (!topic.ceilings?.[field]) failures.push(`${topic.id} 缺少 ${field} 限制`);
+  if (!familyFor(topic.id) || !topic.sourceIds?.length || !topic.patents?.length || !topic.quiz?.answer || !topic.maturity?.sourceIds?.length) failures.push(`${topic.id} 的專題契約不完整`);
+  if (!topic.operations?.some(item => item.id === 'read') || !topic.operations?.some(item => item.id === 'write')) failures.push(`${topic.id} 缺少讀寫操作`);
+  if (new Set(topic.operations.map(item => item.id)).size !== topic.operations.length) failures.push(`${topic.id} 操作識別碼重複`);
+}
+const serialized = JSON.stringify({ intro, topics, sources, comparison, foundry, engineering, ipCurriculum, research });
+if (/[A-Z]:[\\/]Users[\\/]|INTERNAL\s+CONFIDENTIAL|Customer\s+Restricted\s+NDA/iu.test(serialized)) failures.push('內容帶有不應公開的路徑或標記');
+if (failures.length) throw new Error(`NVM 內容驗證失敗：\n${failures.join('\n')}`);
+
+function patentDetail(patent, topic) {
+  return `<details class="nvm-disclosure" id="patent-${esc(patent.id)}"><summary>${esc(patent.id)} · ${esc(patent.problem)}</summary><div>${renderPatentGuide(engineeringPatents.get(patent.id),language)}<dl><dt>專題</dt><dd><a href="#topic-${esc(topic.id)}">${esc(topic.title)}</a></dd><dt>優先權日</dt><dd>${esc(patent.priority)}</dd><dt>受讓紀錄</dt><dd>${esc(patent.assignee)}</dd><dt>代表圖／段落</dt><dd>${esc(patent.figures)}</dd><dt>解法與物理</dt><dd>${esc(patent.mechanism)}</dd><dt>權利項導讀</dt><dd>${esc(patent.claimReading)}</dd><dt>可支持的範圍</dt><dd>${esc(patent.limit)}</dd><dt>原始文件</dt><dd><a href="${esc(patent.url)}" target="_blank" rel="noopener noreferrer">開啟 ${esc(patent.id)} 專利全文</a></dd></dl></div></details>`;
+}
+
+function integrationRoutes(topic) {
+  if (!topic.integrationRoutes?.length) return '';
+  const labels = isEnglish ? ['IP and Provider', 'Poly Layers and Control', 'Process and Operation Contract'] : ['IP 與提供者', '多晶矽層數與控制方式', '製程與操作條件'];
+  return `<section id="${esc(topic.id)}-integration-routes"><h3>${isEnglish ? 'Two Process Routes for Embedded MTP IP' : '嵌入式 MTP IP 的兩條製程路徑'}</h3><p>${isEnglish ? 'Separate the embedded macro from a packaged EEPROM component, then identify the NVM stack and its integration contract.' : '先區分晶片內的記憶體巨集與獨立封裝 EEPROM，再核對 NVM 堆疊與製程整合條件。'}</p><table class="nvm-table nvm-tech-table"><caption class="nvm-small">${isEnglish ? 'Two process routes for embedded MTP IP' : '嵌入式 MTP IP 的兩條製程路徑'}</caption><thead><tr>${labels.map(label=>`<th scope="col">${label}</th>`).join('')}</tr></thead><tbody>${topic.integrationRoutes.map(route=>`<tr id="${esc(topic.id)}-${esc(route.id)}"><td data-label="${labels[0]}"><strong>${esc(route.title)}</strong>${paras(route.provider)}</td><td data-label="${labels[1]}"><strong>${esc(route.polyLayers)}</strong>${paras(route.controlTopology)}</td><td data-label="${labels[2]}">${paras(route.processContract)}${paras(route.operationContract)}${cite(route.sourceIds)}</td></tr>`).join('')}</tbody></table><p><a href="#topic-eeprom">${isEnglish ? 'Compare with Conventional Standalone EEPROM' : '對照傳統獨立式 EEPROM'}</a></p></section>`;
+}
+
+function integrationRoutesMarkdown(topic) {
+  if (!topic.integrationRoutes?.length) return '';
+  const routes = '\n\n### ' + (isEnglish ? 'Embedded MTP IP Integration Routes' : '嵌入式 MTP IP 整合路徑') + '\n\n' + topic.integrationRoutes.map(route=>`#### ${route.title}\n\n${route.provider}\n\n${route.polyLayers}\n\n${route.controlTopology}\n\n${route.processContract}\n\n${route.operationContract}\n\n${sourceMarkdown(route.sourceIds)}`).join('\n\n');
+  const implementations = (topic.implementations||[]).map(item=>`#### ${item.vendor} · ${item.title}\n\n${item.polyLayers}\n\n${item.storage}\n\n${isEnglish?'Program':'寫入'}: ${item.program}\n\n${isEnglish?'Erase':'抹除'}: ${item.erase}\n\n${item.integration}\n\n${item.limit}\n\n${sourceMarkdown(item.sourceIds)}`).join('\n\n');
+  return routes + (implementations ? '\n\n'+implementations : '');
+}
+
+function implementationTable(topic) {
+  if (!topic.implementations?.length) return '';
+  const labels = isEnglish ? ['Named MTP IP', 'Poly and Storage', 'Program / Erase and Integration'] : ['具名 MTP IP', '多晶矽與儲存結構', '寫入／抹除與整合'];
+  return `<section id="${esc(topic.id)}-implementations"><h3>${isEnglish ? 'Single-Poly IP: Compare the Actual Mechanisms' : '單層多晶矽 IP：比較各自的操作機制'}</h3><table class="nvm-table nvm-tech-table"><caption class="nvm-small">${isEnglish ? 'Single-poly IP operating mechanisms comparison' : '單層多晶矽 IP 操作機制比較'}</caption><thead><tr>${labels.map(label=>`<th scope="col">${label}</th>`).join('')}</tr></thead><tbody>${topic.implementations.map(item=>`<tr><td data-label="${labels[0]}"><strong>${esc(item.vendor)} · ${esc(item.title)}</strong></td><td data-label="${labels[1]}">${paras(item.polyLayers)}${paras(item.storage)}</td><td data-label="${labels[2]}"><p><b>${isEnglish?'Program':'寫入'}：</b>${esc(item.program)}</p><p><b>${isEnglish?'Erase':'抹除'}：</b>${esc(item.erase)}</p>${paras(item.integration)}<p class="nvm-maturity-limit">${esc(item.limit)}</p>${cite(item.sourceIds)}</td></tr>`).join('')}</tbody></table></section>`;
+}
+
+function topicPanel(topic, index) {
+  const family = familyFor(topic.id);
+  const readingSections = [["storage","狀態存在哪裡","Stored State"],["operations","寫入、反向操作與讀取","Write, Reverse and Read"],["selection","選中、半選與變異","Selection and Variation"],["tradeoffs","優勢所交換的代價","Advantages and Tradeoffs"],["ceilings","四層天花板","Four Layers of Limits"],["fit","適合承擔的資料","Application Fit"],["patents","從專利讀回設計問題","Patent Reading"],["sources","來源與解讀範圍","Sources and Scope"],["quiz","檢查理解","Check Your Understanding"]];
+  const referenceOnly = topic.id === 'eeprom';
+  return `<article id="topic-${esc(topic.id)}" class="nvm-panel nvm-topic-editorial" data-nvm-panel>
+  ${panelHeader(`${isEnglish?'Physics Background':'物理背景'} ${String(index+1).padStart(2,'0')} · ${family.title}`, topic.title, topic.summary)}
+
+  <nav class="nvm-topic-index" aria-label="${isEnglish?'On This Page: '+esc(topic.title):esc(topic.title)+' 閱讀索引'}">${readingSections.map(([id,zh,en],i)=>`<a href="#topic-${esc(topic.id)}-${id}"><span>${String(i+1).padStart(2,'0')}</span><strong>${isEnglish?en:zh}</strong></a>`).join('')}</nav>
+${referenceOnly ? `<aside class="nvm-reference-intro"><p>${isEnglish ? 'A standalone EEPROM is a packaged component with a controller and external interface. Use it here to understand the component boundary; the main learning path follows embedded IP cells and their operating mechanisms.' : '獨立式 EEPROM 是帶控制器與外部介面的封裝元件。此處只用它理解元件邊界；主要閱讀路徑放在嵌入式 IP 單元與各自操作機制。'}</p><a href="#ip-neoee">${isEnglish ? 'Continue with NeoEE FN/FN MTP' : '接著看 NeoEE FN／FN MTP'}</a> · <a href="#ip-neomtp">${isEnglish ? 'Compare NeoMTP CHI/FN' : '比較 NeoMTP CHI／FN'}</a></aside><details class="nvm-reference-body" id="eeprom-reference"><summary>${isEnglish ? 'Optional Reference: Standalone EEPROM Details' : '背景補充：獨立式 EEPROM 詳細資料'}</summary>` : ''}
+  <aside class="nvm-topic-evidence"><div>${tag(topic.maturity.stage)}<span class="nvm-meta">${esc(topic.maturity.claim)}</span></div>${cite(topic.maturity.sourceIds)}
+  <p class="nvm-maturity-limit">${esc(topic.maturity.limit)}</p></aside>
+${renderRewriteCycle(topic,language,cite)}
+${integrationRoutes(topic)}
+${implementationTable(topic)}
+  <section class="nvm-topic-section" id="topic-${esc(topic.id)}-storage"><h3>狀態存在哪裡</h3><div class="nvm-prose">${paras(topic.storage)}</div><figure class="nvm-cell">${bitcellFigure(topic.id,topic.title,language)}<figcaption>原理重畫，非比例剖面或特定產品版圖。${esc(topic.structure)}</figcaption></figure></section>
+  <section class="nvm-topic-section" id="topic-${esc(topic.id)}-operations"><h3>寫入、反向操作與讀取</h3><div class="nvm-operation" data-operation-widget${topic.eraseCycle ? ' data-complete-cycle' : ''}><div class="nvm-operation-buttons" role="group" aria-label="${esc(topic.title)} 操作選擇">${topic.operations.map((operation,i) => `<button type="button" data-operation-select="${esc(operation.id)}" aria-controls="op-${esc(topic.id)}-${esc(operation.id)}" aria-pressed="${i===0}">${esc(operation.title)}</button>`).join('')}</div>
+  ${topic.operations.map((operation,i) => `<div id="op-${esc(topic.id)}-${esc(operation.id)}" data-operation-detail="${esc(operation.id)}"><h4>${esc(operation.title)}</h4>${renderOperationStudy(engineeringOperations.get(topic.id+'-'+operation.id),language)}<details class="nvm-operation-text"${topic.eraseCycle ? ' open' : ''}><summary>${isEnglish?'Read the Full Operation Explanation':'閱讀完整操作解釋'}</summary><dl class="nvm-state-sequence"><div><dt>操作前</dt><dd>${esc(operation.before)}</dd></div><div><dt>施加的刺激</dt><dd>${esc(operation.stimulus)}</dd></div><div><dt>操作後</dt><dd>${esc(operation.after)}</dd></div></dl>${paras(operation.explanation)}</details></div>`).join('')}</div></section>
+  <section class="nvm-topic-section" id="topic-${esc(topic.id)}-selection"><h3>選中、半選與變異</h3><div class="nvm-prose"><h4>陣列如何選擇</h4>${paras(topic.selection)}<h4>哪些分布會拉近讀取邊界</h4>${paras(topic.variability)}</div></section>
+  <section class="nvm-topic-section" id="topic-${esc(topic.id)}-tradeoffs"><h3>優勢所交換的代價</h3><div class="nvm-two"><article><h4>主要優勢</h4>${bullets(topic.advantages)}</article><article><h4>代價與弱點</h4>${bullets(topic.tradeoffs)}</article></div></section>
+  <section class="nvm-topic-section" id="topic-${esc(topic.id)}-ceilings"><h3>四層天花板</h3><p class="nvm-subheading">從單一元件可切換，走到完整系統可靠運作，中間還有四層限制。</p><div class="nvm-four">${[['device','單元：物理與材料'],['array','陣列：選擇與感測'],['process','製程：整合與成本'],['system','系統：可用性與生命週期']].map(([key,title])=>`<article><h4>${title}</h4>${paras(topic.ceilings[key])}</article>`).join('')}</div></section>
+  <section class="nvm-topic-section" id="topic-${esc(topic.id)}-fit"><h3>適合承擔的資料</h3><div class="nvm-prose"><h4>適用情境</h4>${paras(topic.fit)}<h4>先排除的誤用</h4>${paras(topic.avoid)}</div></section>
+  <section class="nvm-topic-section" id="topic-${esc(topic.id)}-patents"><h3>從專利讀回設計問題</h3><p>以下提供代表性研究入口。優先權日與受讓紀錄依文件書目；實施例與權利項的範圍分開閱讀。</p>${topic.patents.map(patent=>renderPatentTeaser(engineeringPatents.get(patent.id),language)).join('')}</section>
+  <section class="nvm-topic-section" id="topic-${esc(topic.id)}-sources"><h3>來源與解讀範圍</h3>${cite(topic.sourceIds)}<p class="nvm-small">原理示意由所列來源綜合整理；性能、量產與專利主張分別綁定其原始文件。未公開的偏壓、材料配方與製程條件，保留為實作缺口。</p></section>
+  <section class="nvm-topic-section nvm-quiz" id="topic-${esc(topic.id)}-quiz"><h3>檢查理解</h3><p>${esc(topic.quiz.question)}</p><details><summary>展開推理</summary>${paras(topic.quiz.answer)}</details></section>
+${referenceOnly ? '</details>' : ''}
+  <nav class="nvm-bottom-nav" aria-label="${isEnglish?'Continue Reading: '+esc(topic.title):esc(topic.title)+' 專題接續'}"><a href="#panorama">${isEnglish?'Return to the IP Cell Overview':'回到 IP 單元主線'}</a><a href="#${index<topics.length-1?'topic-'+topics[index+1].id:'system-array'}">${index<topics.length-1?(isEnglish?'Next: '+esc(topics[index+1].title):'下一題：'+esc(topics[index+1].title)):(isEnglish?'Continue: Arrays and Systems':'接著讀：陣列與系統')}</a></nav>
+  </article>`;
+}
+
+function comparisonPanel() {
+  const historical = comparison.historicalTable;
+  const map = comparison.logicIpMap;
+  const logicSection = `<section id="comparison-logic-ip" class="nvm-logic-ip-map"><p class="nvm-kicker">${esc(map.kicker)}</p><h3>${esc(map.title)}</h3>${paras(map.intro)}<p class="nvm-logic-ip-actions"><a href="${esc(map.matrixUrl)}">${esc(map.matrixLabel)}</a><a href="#comparison-history">${esc(map.historyLabel)} <span aria-hidden="true">↓</span></a></p><div class="nvm-logic-ip-groups">${map.groups.map(group=>`<article class="nvm-logic-ip-group"><h4>${esc(group.leaf)}</h4><p class="nvm-small">${esc(group.leafNote)}</p><ul>${group.items.map(item=>`<li><a href="#ip-${esc(item.id)}">${esc(item.name)}</a><span>${esc(item.map)}</span></li>`).join('')}</ul></article>`).join('')}</div><p class="nvm-small">${esc(map.atlasNote)}</p></section>`;
+  return `<article id="comparison" class="nvm-panel nvm-comparison-editorial" data-nvm-panel>${panelHeader(isEnglish?'ENGINEERING COMPARISONS':'工程比較與條件',isEnglish?'Compare Implementations, Keep the Conditions':'用相同問題，閱讀不同實作',isEnglish?'Start with a named device, macro or system. Read each value alongside its measurement conditions; these examples do not form a ranking across implementation levels.':'從具名器件、研究巨集或系統開始，將每個數值與測量條件一起閱讀；不同層級的案例不構成效能排名。')}
+  <nav class="nvm-benchmark-index" aria-label="${isEnglish?'Implementation examples':'實作案例'}">${comparison.benchmarks.map((item,i)=>`<a href="#benchmark-${esc(item.id)}"><span>${String(i+1).padStart(2,'0')}</span><strong>${esc(item.technology)}</strong><small>${esc(item.level)}</small><span aria-hidden="true">↗</span></a>`).join('')}</nav>
+  <p class="nvm-comparison-history-link"><a href="#comparison-logic-ip">${esc(map.kicker)} <span aria-hidden="true">↓</span></a><a href="#comparison-history">${esc(map.historyLabel)} <span aria-hidden="true">↓</span></a></p>
+  ${logicSection}
+  <section class="nvm-benchmark-studies"><h3 class="nvm-benchmark-section-title">六個保留條件的實作案例</h3><p>下列案例分屬成品、研究巨集、晶粒與系統裝置層級。數值用於理解測量邊界，不做跨層級排名。</p>${comparison.benchmarks.map((item,i)=>`<article class="nvm-benchmark nvm-benchmark-study" id="benchmark-${esc(item.id)}"><header><span class="nvm-benchmark-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div><p class="nvm-kicker">${esc(item.technology)} · ${esc(item.level)}</p><h3>${esc(item.implementation)}</h3></div></header><div class="nvm-two"><div class="nvm-benchmark-values"><h4>原文數值</h4>${bullets(item.values)}</div><div class="nvm-benchmark-conditions"><h4>必須一起保留的條件</h4>${bullets(item.conditions)}</div></div><div class="nvm-lesson"><strong>${isEnglish?'Engineering Interpretation':'工程判讀'}</strong>${esc(item.lesson)}</div>${cite(item.sourceIds)}<a class="nvm-benchmark-return" href="#comparison">${isEnglish?'Back to the Comparison Index':'回到比較索引'} <span aria-hidden="true">↑</span></a></article>`).join('')}</section>
+  <section id="comparison-history" class="nvm-comparison-history"><p class="nvm-kicker">${isEnglish?'HISTORICAL REFERENCE':'歷史資料對照'}</p><h3>從 2016 文獻到 2021 課程表</h3>${paras(historical.intro)}<details class="nvm-disclosure"><summary>展開歷史表：只供課程對照</summary><div><table class="nvm-table nvm-history-table"><caption>課程截圖的歷史比較，非現行產品規格</caption><thead><tr><th scope="col">比較項目</th>${historical.columns.map(column=>`<th scope="col">${esc(column)}</th>`).join('')}</tr></thead><tbody>${historical.rows.map(row=>`<tr><th scope="row">${esc(row.metric)}</th>${row.values.map(value=>`<td>${esc(value)}</td>`).join('')}</tr>`).join('')}</tbody></table><div class="nvm-history-cards">${historical.columns.map((column,i)=>`<article><h4>${esc(column)}</h4><dl>${historical.rows.map(row=>`<dt>${esc(row.metric)}</dt><dd>${esc(row.values[i])}</dd>`).join('')}</dl></article>`).join('')}</div>${historical.rows.filter(row=>row.note).map(row=>`<p class="nvm-small">${esc(row.metric)}：${esc(row.note)}</p>`).join('')}</div></details>
+  ${historical.corrections.map(item=>`<div class="nvm-benchmark"><h4>${esc(item.old)}</h4>${paras(item.current)}<p class="nvm-small">${esc(item.reason)}</p>${cite(item.sourceIds)}</div>`).join('')}</section></article>`;
+}
+
+function foundryStage(item) {
+  const labels={
+    'FND-M18':isEnglish?'22/16nm in Production; 12/5nm in Development':'22／16nm 量產；12／5nm 開發中',
+    'FND-M19':isEnglish?'40/28/22/12nm in Volume Production; 6nm in Development':'40／28／22／12nm 量產；6nm 開發中'
+  };
+  return labels[item.id]||item.stage;
+}
+function foundryPanel() {
+  const companies = [...new Set(foundry.milestones.map(item => item.foundry))];
+  const years=[...new Set(foundry.milestones.map(item=>item.year))].sort((a,b)=>b-a);
+  return `<article id="foundry" class="nvm-panel nvm-foundry-editorial" data-nvm-panel>${panelHeader('晶圓代工公開證據 · '+intro.revision,'MRAM 與 ReRAM 的年度路線圖','同一節點可以有消費、車用、高保持、高耐久或高速版本。年度論壇的宣布與目標，透過後續年報、技術頁或產品文件核對後，才更新為已完成狀態。')}
+  <dl class="nvm-foundry-coverage"><div><dt>${isEnglish?'Named Milestones':'具名里程碑'}</dt><dd>${foundry.milestones.length}</dd></div><div><dt>${isEnglish?'Foundry Platforms':'晶圓代工平台'}</dt><dd>${companies.length}</dd></div><div><dt>${isEnglish?'Event-Year Groups':'事件年度分組'}</dt><dd>${years.length}</dd></div></dl>
+  <aside class="nvm-note">${bullets(foundry.takeaways)}</aside><div class="nvm-filters"><label>選擇晶圓代工公司<select id="nvm-foundry-filter"><option value="">全部公司</option>${companies.map(company=>`<option>${esc(company)}</option>`).join('')}</select></label></div>
+  <nav class="nvm-year-index" aria-label="${isEnglish?'Browse Event Years':'依事件年度查閱'}">${years.map(year=>`<a href="#foundry-year-${year}" data-foundry-year-link="${year}">${year}<span>${foundry.milestones.filter(item=>item.year===year).length}</span></a>`).join('')}</nav><p class="nvm-foundry-order">${isEnglish?'Newest event years first. The count shows entries, not shipments or qualification results.':'依事件年度由近至遠排列；數字代表紀錄筆數，不代表出貨量或驗證成果。'}</p>
+  <div class="nvm-roadmap nvm-year-roadmap">${years.map(year=>`<section class="nvm-roadmap-year" id="foundry-year-${year}" data-foundry-year="${year}"><h3>${year}</h3><div>${foundry.milestones.filter(item=>item.year===year).map(item=>`<article class="nvm-milestone" id="milestone-${esc(item.id)}" data-foundry="${esc(item.foundry)}"><header><span class="nvm-year">${esc(item.foundry)}</span>${tag(foundryStage(item))}</header><h4>${esc(item.technology)} · ${esc(item.node)}</h4>${paras(item.claim)}<p class="nvm-maturity-limit"><strong>${isEnglish?'Evidence Boundary':'證據邊界'}</strong>${esc(item.limit)}</p>${citeResearch(item.sourceIds)}</article>`).join('')}</div></section>`).join('')}</div>
+  <section><h3>各年度論壇資料取得範圍</h3><p>論壇公開主稿未必附上每個 eNVM 巨集的完整圖表。以下逐年交代已取得的資料，完成事件另以年報與產品文件交叉核對。</p>${foundry.annualForumCoverage.map(item=>`<details class="nvm-disclosure"><summary>${esc(item.year)} 年公開論壇與平台資料</summary><div>${paras(item.finding)}${cite([item.tsmcSourceId,item.gfSourceId])}</div></details>`).join('')}</section>
+  <section><h3>性能與可靠度條件</h3>${foundry.performanceBoundaries.map(item=>`<article class="nvm-benchmark"><h4>${esc(item.platform)}</h4>${paras(item.values)}${paras(item.conditions)}<p class="nvm-maturity-limit">${esc(item.limit)}</p>${cite(item.sourceIds)}</article>`).join('')}</section>
+  <section><h3>閱讀路線圖容易混淆的地方</h3>${foundry.corrections.map(item=>`<details class="nvm-disclosure"><summary>${esc(item.issue)}</summary><div>${paras(item.replacement)}${cite(item.sourceIds)}</div></details>`).join('')}</section></article>`;
+}
+
+function systemPanel(system) {
+  const prefix='system-'+esc(system.id);
+  return `<article id="${prefix}" class="nvm-panel nvm-system-editorial" data-nvm-panel>${panelHeader('整合專題',system.title,system.summary)}
+  <nav class="nvm-system-index" id="${prefix}-contents" aria-label="${isEnglish?'Study Sections: '+esc(system.title):esc(system.title)+' 專題章節'}">${system.sections.map((section,i)=>`<a href="#${prefix}-section-${i+1}"><span>${String(i+1).padStart(2,'0')}</span><strong>${esc(section.title)}</strong></a>`).join('')}</nav>
+  <div class="nvm-system-evidence-links"><span>${system.sections.length} ${isEnglish?'Reading Sections':'個閱讀章節'}</span><a href="#${prefix}-sources">${isEnglish?'Sources and References':'來源與參考資料'} · ${system.sourceIds.length}</a><a href="#${prefix}-quiz">${isEnglish?'Check Your Understanding':'檢查理解'}</a></div>
+  ${system.sections.map((section,i)=>`<section class="nvm-system-section" id="${prefix}-section-${i+1}"><span class="nvm-system-section-number" aria-hidden="true">${String(i+1).padStart(2,'0')}</span><div class="nvm-system-prose"><h3>${esc(section.title)}</h3>${paras(section.body)}<a class="nvm-system-return" href="#${prefix}-contents">${isEnglish?'Back to the Section Index':'回到章節索引'} ↑</a></div></section>`).join('')}
+  <section class="nvm-system-end" id="${prefix}-sources"><h3>來源</h3>${cite(system.sourceIds)}</section><section class="nvm-system-end nvm-quiz" id="${prefix}-quiz"><h3>檢查理解</h3><p>${esc(system.quiz.question)}</p><details><summary>展開推理</summary>${paras(system.quiz.answer)}</details></section>
+  <nav class="nvm-bottom-nav" aria-label="${isEnglish?'System study navigation: '+esc(system.title):esc(system.title)+' 整合專題導覽'}"><a href="#panorama">${isEnglish?'Back to the Atlas':'回到全景'}</a><a href="#comparison">${isEnglish?'Compare Implementations':'查看有條件的比較'}</a></nav></article>`;
+}
+
+const libraryEntries=[
+{id:'ip-directory',zh:'IP 單元與操作原理',en:'IP Cells and Operating Principles',descZh:'依 OTP、MTP、eFlash、MRAM、ReRAM 查閱具名 IP 的結構與操作圖。',descEn:'Explore named OTP, MTP, eFlash, MRAM and ReRAM cell structures and operating diagrams.'},
+{id:'ip-lineage',zh:'IP 技術沿革與承接關係',en:'IP Technology Lineage',descZh:'追蹤 Kilopass、Sidense、Impinj／Virage 與 Synopsys 的技術及產品。',descEn:'Trace technologies and products across Kilopass, Sidense, Impinj/Virage and Synopsys.'},
+{id:'ecosystem',zh:'全球產業與研究地圖',en:'Global Industry and Research Map',descZh:'依技術家族查找主要廠商、研究機構與具名產品。',descEn:'Find leading suppliers, research organizations and named products by technology family.'},
+{id:'research',zh:'主要產研路線深度比較',en:'In-Depth Industry and Research Studies',descZh:'深入 Everspin、UMC、Panasonic、IBM 與工研院的實作與證據。',descEn:'Explore Everspin, UMC, Panasonic, IBM and ITRI implementations and evidence.'},
+{id:'foundry',zh:'晶圓代工製程與路線圖',en:'Foundry Processes and Roadmaps',descZh:'查看 GF／TSMC／UMC 的嵌入式記憶體整合與公開進度。',descEn:'Follow GF/TSMC/UMC embedded-memory integration and public milestones.'},
+{id:'physics-library',zh:'儲存機制與技術家族',en:'Storage Mechanisms and Technology Families',descZh:'查閱十六類物理背景、獨立式元件與進一步閱讀。',descEn:'Browse sixteen device-physics and standalone-component reference topics.'},
+{id:'comparison',zh:'技術比較與整合條件',en:'Technology Comparisons and Integration Conditions',descZh:'在相同條件下閱讀數值、歷史表與具名實作案例；九款邏輯製程 IP 對照選型矩陣葉，不改寫 2016／2021 歷史表。',descEn:'Read figures, historical comparisons and named implementations within their stated conditions. Nine logic-process IPs map onto selection-matrix leaves; they do not rewrite the 2016/2021 course table.'},
+{id:'system-array',zh:'陣列、感測與系統整合',en:'Arrays, Sensing and System Integration',descZh:'從單一位元進一步理解選擇、感測、驗證與持久狀態。',descEn:'Connect one bit to selection, sensing, verification and persistent state.'},
+{id:'patents',zh:'專利原圖與來源',en:'Patent Drawings and Sources',descZh:'查閱原始附圖、權利項導讀及文獻來源。',descEn:'Inspect original drawings, claim-reading guides and literature sources.'}
+];
+const panorama=`<article id="panorama" class="nvm-panel nvm-library-index" data-nvm-panel><header class="nvm-atlas-cover"><div><p class="nvm-kicker">${isEnglish?'NVM · REFERENCE LIBRARY':'NVM · 技術資料庫'}</p><h2 tabindex="-1">${isEnglish?'Browse the Technology Atlas':'瀏覽技術全景'}</h2><div class="nvm-lede">${paras(intro.intro)}</div></div><aside><strong>${String(libraryEntries.length).padStart(2,'0')}</strong><span>${isEnglish?'Reading Sections':'主題閱讀章節'}</span><small>${topics.length} ${isEnglish?'technology studies':'個技術專題'} · ${patents.length} ${isEnglish?'patents':'件專利'}</small></aside></header><nav class="nvm-library-entries" aria-label="${isEnglish?'Atlas Topics':'全景主題'}">${libraryEntries.map((entry,index)=>`<a href="#${entry.id}"><span>${String(index+1).padStart(2,'0')}</span><div><h3>${esc(isEnglish?entry.en:entry.zh)}</h3><p>${esc(isEnglish?entry.descEn:entry.descZh)}</p></div><span aria-hidden="true">→</span></a>`).join('')}</nav></article>`;
+const physicsPanel=`<article id="physics-library" class="nvm-panel nvm-physics-editorial" data-nvm-panel>${panelHeader(isEnglish?'TECHNOLOGY FOUNDATIONS':'技術基礎',isEnglish?'Storage Mechanisms and Technology Families':'儲存機制與技術家族',isEnglish?'Use the reference table to compare stored states, operating paths and implementation conditions. Standalone devices remain background references.':'由背景總表比較儲存狀態、操作路徑與實作條件；獨立式元件保留為背景參考。')}
+<details class="nvm-physical-background" id="nvm-physics-overview" open><summary>${isEnglish?'Device-Physics Background, Standalone Components and Further Reading':'物理背景、獨立式元件與延伸閱讀'}</summary>
+<aside class="nvm-note">${esc(intro.terminology)}</aside><div class="nvm-axes">${intro.axes.map(axis=>`<article><h3>${esc(axis.title)}</h3>${paras(axis.body)}</article>`).join('')}</div>
+<section><h3>十六個技術，同一套問題</h3><p>表內成熟度對應已查核的具名實作；進入專題可查看完整限制。搜尋也涵蓋操作、用途與來源關鍵字。</p><div class="nvm-filters"><label>搜尋技術或機制<input type="search" id="nvm-search" data-topic-filter placeholder="例如：磁化、穿隧、鐵電、校準"></label><label>儲存物理<select id="nvm-family" data-topic-filter><option value="">全部家族</option>${intro.families.map(family=>`<option value="${family.id}">${esc(family.title)}</option>`).join('')}</select></label><label>具名實作成熟度<select id="nvm-stage" data-topic-filter><option value="">全部狀態</option>${[...new Set(topics.map(topic=>topic.maturity.stage))].map(stage=>`<option>${esc(stage)}</option>`).join('')}</select></label></div><p id="nvm-count" class="nvm-results" role="status">十六個技術專題</p>
+<table class="nvm-table nvm-tech-table"><caption class="nvm-small">儲存物理、具名商用狀態與主要代價</caption><thead><tr><th scope="col">技術與物理家族</th><th scope="col">儲存狀態</th><th scope="col">現況與主要取捨</th></tr></thead><tbody>${topics.map(topic=>`<tr data-topic-row data-family="${familyFor(topic.id).id}" data-stage="${esc(topic.maturity.stage)}" data-search="${esc(JSON.stringify(topic))}"><td data-label="技術"><a href="#topic-${topic.id}">${esc(topic.title)}</a><p class="nvm-small">${esc(familyFor(topic.id).title)}</p></td><td data-label="儲存狀態">${esc(topic.storage)}</td><td data-label="現況與主要取捨">${tag(topic.maturity.stage)}<p>${esc(topic.maturity.claim)}</p><p class="nvm-maturity-limit">${esc(topic.tradeoffs[0])}</p></td></tr>`).join('')}</tbody></table><div class="nvm-empty" id="nvm-empty" hidden><p>沒有符合條件的專題。可縮短關鍵字，或清除家族與成熟度篩選。</p><button type="button" id="nvm-reset">清除篩選</button></div></section>
+<section><h3>建議閱讀順序</h3><ol class="nvm-reading-list">${intro.reading.map(item=>`<li><div><b>${esc(item.title)}</b>${paras(item.body)}</div></li>`).join('')}</ol></section>
+<section><h3>把技術看完，再看系統</h3><div class="nvm-two">${comparison.systems.map(system=>`<article><h4><a href="#system-${esc(system.id)}">${esc(system.title)}</a></h4>${paras(system.summary)}</article>`).join('')}</div></section>
+<aside class="nvm-note"><b>本輪範圍</b>${paras(intro.scope)}</aside>${cite(['INTRO-COURSE','INTRO-2016','INTRO-IRDS'])}</details></article>`;
+
+const sourcePanel = `<article id="sources" class="nvm-panel nvm-sources-editorial" data-nvm-panel>${panelHeader('可追溯來源與共用資料','每一個結論，都能回到它的證據','這個網站以結構化專題資料為共同來源，包含位元單元、操作、天花板、專利、比較條件與年度紀錄。後續簡報可由同一批資料取材，保留來源與限制。')}<div class="nvm-note">${bullets(intro.evidenceRules)}</div><div class="nvm-actions"><a href="data/nvm-knowledge-data.json" download>下載完整結構化資料</a><a href="data/nvm-technology-topics.md" download>下載完整專題文字</a></div><p class="nvm-small">研究版本：${intro.revision}。資料檔的分類、來源、成熟度與限制保留獨立欄位；正式簡報的版面與取材可另外編排。</p><div class="nvm-filters nvm-source-filters"><label>搜尋來源<input id="nvm-source-search" type="search" placeholder="公司、技術、專利、年份或來源編號"></label><button type="button" id="nvm-source-reset">${isEnglish?'Clear Search':'清除搜尋'}</button></div><p id="nvm-source-count" role="status" class="nvm-results">${sources.length} 筆來源紀錄</p><p id="nvm-source-empty" class="nvm-source-empty" role="status" hidden>${isEnglish?'No sources match. Clear the search or use a company, title or source ID.':'沒有符合的來源。請清除搜尋，或改用公司、文獻標題與來源編號。'}</p>${sources.map(source=>`<details class="nvm-disclosure" id="source-${esc(source.id)}" data-source-record><summary><span class="nvm-source-id">${esc(source.id)}</span><span class="nvm-source-title">${esc(source.label)}</span><span class="nvm-source-meta">${esc(source.kind)} · ${esc(sourceDate(source))}</span></summary><div><dl><dt>來源類別</dt><dd>${esc(source.kind)}</dd><dt>日期／查閱基準</dt><dd>${esc(sourceDate(source))}</dd><dt>定位</dt><dd>${esc(source.locator)}</dd><dt>支持範圍與限制</dt><dd>${esc(source.limit)}</dd><dt>原始連結</dt><dd><a href="${esc(source.url)}" target="_blank" rel="noopener noreferrer">開啟原始來源</a></dd></dl></div></details>`).join('')}</article>`;
+const patentPanel = `<article id="patents" class="nvm-panel" data-nvm-panel>${panelHeader('代表專利導讀',`${patents.length} 件專利，回到具體設計問題`,'每件先看它要解決的問題，再讀結構、操作與權利項。這裡是種子專利研究索引，未完成全家族法律狀態與自由實施分析。')}<aside class="nvm-note">優先權日、公開日與核准日不同。專利中的偏壓、材料、圖例與尺寸只屬於該實施例；專利受讓公司與其量產產品採用的實作，須另有證據連結。</aside>${topics.map(topic=>`<section><h3>${esc(topic.title)}</h3>${topic.patents.map(patent=>patentDetail(patent,topic)).join('')}</section>`).join('')}</article>`;
+const glossaryPanel = `<article id="glossary" class="nvm-panel" data-nvm-panel>${panelHeader('共同語言','讀懂跨技術比較需要的詞彙','先辨別數字的物理意義與測量層級，才能比較其成本與適用範圍。')}<dl class="nvm-glossary">${comparison.glossary.map(item=>`<div><dt>${esc(item.term)}</dt><dd>${esc(item.definition)}</dd></div>`).join('')}</dl></article>`;
+
+let html = `<!doctype html>
+<html lang="${isEnglish ? 'en' : 'zh-Hant'}" data-language="${language}" data-content-language="${language}" data-language-en="nvm-technology-atlas.html" data-language-zh="nvm-technology-atlas-zh.html" data-title-en="NVM Technology Atlas · NVM Knowledge Hub" data-title-zh="NVM 技術全景 · NVM 知識中心" data-description-en="An NVM reference library covering named IP cells, technology lineage, foundry integration, device physics, patents and operating diagrams." data-description-zh="NVM 專題資料庫：具名 IP 單元、技術沿革、晶圓代工整合、儲存物理、專利與操作圖解。"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="${esc(isEnglish ? 'An NVM reference library covering named IP cells, technology lineage, foundry integration, device physics, patents and operating diagrams.' : 'NVM 專題資料庫：具名 IP 單元、技術沿革、晶圓代工整合、儲存物理、專利與操作圖解。')}"><meta name="author" content="NVM Knowledge Hub Editorial Board"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="theme-color" content="#f8fafc"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><title>${esc(intro.title)} · NVM Knowledge Hub</title><link rel="canonical" href="${isEnglish ? 'https://hub.samhuang68.org/nvm-technology-atlas.html' : 'https://hub.samhuang68.org/nvm-technology-atlas-zh.html'}"><link rel="alternate" hreflang="en" href="https://hub.samhuang68.org/nvm-technology-atlas.html"><link rel="alternate" hreflang="zh-TW" href="https://hub.samhuang68.org/nvm-technology-atlas-zh.html"><link rel="alternate" hreflang="x-default" href="https://hub.samhuang68.org/nvm-technology-atlas.html"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta property="og:type" content="article"><meta property="og:site_name" content="NVM Knowledge Hub"><meta property="og:url" content="${isEnglish ? 'https://hub.samhuang68.org/nvm-technology-atlas.html' : 'https://hub.samhuang68.org/nvm-technology-atlas-zh.html'}"><meta property="og:title" content="${esc(intro.title)} · NVM Knowledge Hub"><meta property="og:description" content="${esc(isEnglish ? 'An NVM reference library covering named IP cells, technology lineage, foundry integration, device physics, patents and operating diagrams.' : 'NVM 專題資料庫：具名 IP 單元、技術沿革、晶圓代工整合、儲存物理、專利與操作圖解。')}"><meta property="og:locale" content="${isEnglish ? 'en_US' : 'zh_TW'}"><meta property="og:locale:alternate" content="${isEnglish ? 'zh_TW' : 'en_US'}"><meta property="og:image" content="https://hub.samhuang68.org/assets/nvm-state-atlas-hero-r17.webp"><meta property="og:image:type" content="image/webp"><meta property="og:image:alt" content="${isEnglish ? 'NVM Technology Atlas Architecture and Cell Hierarchy Diagram' : 'NVM 技術全景架構與記憶體單元層次圖'}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="675"><meta property="article:published_time" content="2026-08-29T00:00:00+08:00"><meta property="article:modified_time" content="2026-09-10T00:00:00+08:00"><meta property="article:author" content="NVM Knowledge Hub Editorial Board"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(intro.title)} · NVM Knowledge Hub"><meta name="twitter:description" content="${esc(isEnglish ? 'An NVM reference library covering named IP cells, technology lineage, foundry integration, device physics, patents and operating diagrams.' : 'NVM 專題資料庫：具名 IP 單元、技術沿革、晶圓代工整合、儲存物理、專利與操作圖解。')}"><meta name="twitter:image" content="https://hub.samhuang68.org/assets/nvm-state-atlas-hero-r17.webp"><meta name="twitter:image:alt" content="${isEnglish ? 'NVM Technology Atlas Architecture and Cell Hierarchy Diagram' : 'NVM 技術全景架構與記憶體單元層次圖'}"><script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"${esc(intro.title)} · NVM Knowledge Hub","description":"${esc(isEnglish ? 'An NVM reference library covering named IP cells, technology lineage, foundry integration, device physics, patents and operating diagrams.' : 'NVM 專題資料庫：具名 IP 單元、技術沿革、晶圓代工整合、儲存物理、專利與操作圖解。')}","url":"${isEnglish ? 'https://hub.samhuang68.org/nvm-technology-atlas.html' : 'https://hub.samhuang68.org/nvm-technology-atlas-zh.html'}","image":"https://hub.samhuang68.org/assets/nvm-state-atlas-hero-r17.webp","inLanguage":"${isEnglish ? 'en' : 'zh-TW'}","mainEntityOfPage":{"@type":"WebPage","@id":"${isEnglish ? 'https://hub.samhuang68.org/nvm-technology-atlas.html' : 'https://hub.samhuang68.org/nvm-technology-atlas-zh.html'}"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script><link rel="stylesheet" href="nvm-technology-atlas.css?v=20260916-keepout"><link rel="stylesheet" href="nvm-bitcell-figures.css?v=20260910"><link rel="stylesheet" href="nvm-engineering-diagrams.css?v=20260910"><link rel="stylesheet" href="nvm-ip-cells.css?v=20260910-lineage"><link rel="stylesheet" href="nvm-industry-research.css?v=20260910-editorial6"><link rel="stylesheet" href="editorial-reading-ui.css?v=20260916-logic-ip"><script src="site-language.js?v=20260917-r4"></script></head>
+<body class="nvm-atlas-page" data-language="${language}" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang"><a class="nvm-skip" href="#main-content">跳至主要內容</a>
+<header class="nvm-header"><a class="brand" href="index.html" aria-label="NVM 知識中心首頁"><strong>NVM</strong><span>知識中心<br>物理與技術全景</span></a><nav aria-label="知識中心導覽"><a href="index.html#layer-foundations">${isEnglish?'Technology Foundations':'技術基礎'}</a><a href="index.html#layer-ip-process">${isEnglish?'IP and Processes':'IP 與製程'}</a><a href="index.html#layer-applications">${isEnglish?'Applications and Systems':'應用與系統'}</a><a href="index.html#layer-resources">${isEnglish?'Literature and Tools':'文獻與工具'}</a><button type="button" id="languageToggle" class="language-toggle" aria-label="${isEnglish ? 'Switch to Traditional Chinese' : '切換為英文'}"><span data-lang-option="en" lang="en">EN</span><i aria-hidden="true">/</i><span data-lang-option="zh" lang="zh-Hant">中文</span></button></nav></header>
+<header class="nvm-library-header"><p class="nvm-kicker">${isEnglish?'NVM KNOWLEDGE HUB · REFERENCE LIBRARY':'NVM 知識中心 · 專題資料庫'}</p><h1>${isEnglish?'NVM Technology Atlas':'NVM 技術全景'}</h1><p>${isEnglish?'IP cell studies, technology lineage, process integration and device-physics references.':'IP 單元原理、技術沿革、製程整合與儲存物理參考。'}</p></header>
+<nav class="nvm-breadcrumb" aria-label="麵包屑導覽"><a href="index.html">NVM 知識中心</a> ／ <a href="index.html#layer-ip-process">${isEnglish?'IP and Processes':'IP 與製程'}</a> ／ <span>NVM 技術全景</span></nav>
+<div class="nvm-layout"><aside class="nvm-sidebar"><button type="button" class="nvm-contents-button" id="nvm-contents-toggle" aria-expanded="false" aria-controls="nvm-contents">選擇閱讀主題 <span aria-hidden="true">＋</span></button><nav id="nvm-contents" aria-label="專題目錄"><h2 class="sr-only">${isEnglish?'Atlas Contents':'專題目錄'}</h2><a href="#panorama">${isEnglish?'Technology Atlas Contents':'技術全景目錄'}</a>${renderIPNavigation(ipCurriculum,language)}<a href="#ip-lineage">${isEnglish?'IP Technology Lineage':'IP 技術沿革'}</a><a href="#ecosystem">${isEnglish?'Global Industry and Research Map':'全球產業與研究地圖'}</a><a href="#research">${isEnglish?'In-Depth Research Studies':'產研深度專題'}</a><a href="#foundry">${isEnglish?'Foundry Processes and Roadmaps':'晶圓代工製程與路線圖'}</a><details class="nvm-background-nav"><summary>${isEnglish?'Storage Mechanisms and Technology Families':'儲存機制與技術家族'}</summary><a href="#physics-library">${isEnglish?'Browse the Physics Reference':'查看物理背景總表'}</a>${intro.families.map(family=>`<h3>${esc(family.title)}</h3>${family.topics.map(id=>`<a class="nvm-topic-link" href="#topic-${id}">${esc(topics.find(topic=>topic.id===id).title)}</a>`).join('')}`).join('')}</details><a href="#comparison">${isEnglish?'Technology Comparisons':'技術比較'}</a><a href="#comparison-logic-ip">${esc(comparison.logicIpMap.kicker)}</a><h3>${isEnglish?'Arrays, Systems, and Evidence':'陣列、系統與證據'}</h3>${comparison.systems.map(system=>`<a href="#system-${esc(system.id)}">${esc(system.title)}</a>`).join('')}<a href="#patents">${patents.length} 件代表專利</a><a href="#glossary">共同詞彙</a><a href="#sources">來源與資料下載</a></nav></aside>
+<main class="nvm-main" id="main-content"><noscript><p class="nvm-nojs">此頁已包含全部專題文字。啟用 JavaScript 可使用分頁閱讀、篩選與操作切換。</p></noscript>${panorama}${renderIPDirectory(ipCurriculum,language)}${renderIPLineage(ipCurriculum,language,cite)}${physicsPanel}${renderIPPanels(ipCurriculum,language,cite)}${comparisonPanel()}${foundryPanel()}${renderLandscape(research,language,citeResearch)}${renderResearch(research,language,citeResearch)}${topics.map(topicPanel).join('')}${comparison.systems.map(systemPanel).join('')}${patentPanel}${glossaryPanel}${sourcePanel}</main></div>
+<footer class="nvm-footer"><p>NVM 知識中心 · 公開來源研究 · ${intro.revision}</p><a href="index.html">返回知識中心</a> · <a href="#sources">查看來源與共用資料</a></footer><script type="module" src="nvm-technology-atlas.js?v=20260910-editorial6"></script><script type="module" src="nvm-engineering-diagrams.js?v=20260910"></script></body></html>\n`;
+// 全頁標題使用標籤語法，不保留句尾標點。
+html = html.replace(/<h([1-6])\b[^>]*>[\s\S]*?<\/h\1>/giu, heading => heading.replace(/[。.!?！？](?=(?:[”’"'）)}\]】》]+)?\s*(?:<br\b[^>]*>|<\/(?:span|em|h[1-6])>))/giu,''));
+const packageData = { schemaVersion: '1.4', revision: intro.revision, language: isEnglish ? 'en' : 'zh-Hant', classification: 'Public', title: intro.title, intro, topics, comparison, foundry, research, sources, engineering, ipCurriculum, provenance: { sourceFiles: ['nvm-atlas-intro.json','nvm-charge-topics.json','nvm-emerging-topics.json','nvm-comparison-systems.json','nvm-foundry-roadmap.json','nvm-ip-cells-intro.json','nvm-industry-research.json'].map(name => name.replace('.json', `${dataSuffix}.json`)), engineeringSources: ['nvm-patent-figures.json', '../scripts/nvm-charge-operation-diagrams.mjs', '../scripts/nvm-emerging-operation-diagrams.mjs', '../scripts/nvm-patent-diagrams.mjs','../scripts/nvm-ememory-ip-diagrams.mjs','../scripts/nvm-emerging-ip-diagrams.mjs','../scripts/nvm-ymc-ip-diagrams.mjs','../scripts/nvm-synopsys-otp-diagrams.mjs','../scripts/nvm-impinj-ip-diagrams.mjs','../scripts/nvm-supplement-ip-diagrams.mjs'], reviewScope: isEnglish ? 'Public-source research and instructional review; shared source for future presentations' : '公開來源與教學內容查核；網頁為後續簡報的取材來源' } };
+const sourceMarkdown = ids => (ids || []).map(id => `- [${id}：${sourceMap.get(id).label}](${sourceMap.get(id).url})`).join('\n');
+let markdown = `# ${intro.title}\n\n研究版本：${intro.revision}\n\n${intro.intro}\n\n${intro.axes.map(axis=>`## ${axis.title}\n\n${axis.body}`).join('\n\n')}\n\n${ipCurriculumMarkdown(ipCurriculum,language,sourceMarkdown)}\n\n${ipLineageMarkdown(ipCurriculum,language,sourceMarkdown)}\n\n${topics.map(topic=>`## ${topic.title}\n\n${topic.summary}${rewriteCycleMarkdown(topic,language,sourceMarkdown)}\n\n成熟度：${topic.maturity.stage}。${topic.maturity.claim}\n\n${topic.maturity.limit}${integrationRoutesMarkdown(topic)}\n\n### 儲存與結構\n\n${topic.storage}\n\n${topic.structure}\n\n### 操作\n\n${topic.operations.map(operation=>`#### ${operation.title}\n\n操作前：${operation.before}\n\n刺激：${operation.stimulus}\n\n操作後：${operation.after}\n\n${operation.explanation}`).join('\n\n')}\n\n### 選擇與變異\n\n${topic.selection}\n\n${topic.variability}\n\n### 優勢與代價\n\n${[...topic.advantages,...topic.tradeoffs].map(item=>'- '+item).join('\n')}\n\n### 四層天花板\n\n${[['device','單元'],['array','陣列'],['process','製程'],['system','系統']].map(([key,label])=>`- ${label}：${topic.ceilings[key]}`).join('\n')}\n\n### 適用與誤用\n\n${topic.fit}\n\n${topic.avoid}\n\n### 專利導讀\n\n${topic.patents.map(patent=>`- [${patent.id}](${patent.url})：${patent.problem}。${patent.mechanism}。權利項導讀：${patent.claimReading}。限制：${patent.limit}`).join('\n')}\n\n### 檢查理解\n\n${topic.quiz.question}\n\n${topic.quiz.answer}\n\n### 來源\n\n${sourceMarkdown([...new Set([...topic.sourceIds,...topic.maturity.sourceIds])])}`).join('\n\n')}\n\n## 晶圓代工年度路線圖\n\n${foundry.milestones.map(item=>`### ${item.year} · ${item.foundry} · ${item.technology} · ${item.node}\n\n${item.stage}：${item.claim}\n\n限制：${item.limit}\n\n${sourceMarkdown(item.sourceIds)}`).join('\n\n')}\n\n## 比較案例\n\n${comparison.benchmarks.map(item=>`### ${item.implementation}\n\n${item.level}\n\n${list(item.values).join('；')}\n\n條件：${list(item.conditions).join('；')}\n\n${item.lesson}\n\n${sourceMarkdown(item.sourceIds)}`).join('\n\n')}\n\n${comparison.systems.map(system=>`## ${system.title}\n\n${system.summary}\n\n${system.sections.map(section=>`### ${section.title}\n\n${section.body}`).join('\n\n')}\n\n${sourceMarkdown(system.sourceIds)}`).join('\n\n')}\n\n## 共同詞彙\n\n${comparison.glossary.map(item=>`- ${item.term}：${item.definition}`).join('\n')}\n\n## 來源紀錄\n\n${sources.map(source=>`- [${source.id}：${source.label}](${source.url})。${source.kind}；${sourceDate(source)}；定位：${source.locator}；限制：${source.limit}`).join('\n')}\n`;
+markdown += `
+
+## 歷史課程表與現況修正
+
+${comparison.historicalTable.intro}
+
+| 比較項目 | ${comparison.historicalTable.columns.join(' | ')} |
+|---|${comparison.historicalTable.columns.map(()=> '---').join('|')}|
+${comparison.historicalTable.rows.map(row=>`| ${row.metric} | ${row.values.join(' | ')} |`).join('\n')}
+
+${comparison.historicalTable.rows.filter(row=>row.note).map(row=>`- ${row.metric}：${row.note}`).join('\n')}
+
+${comparison.historicalTable.corrections.map(item=>`### ${item.old}\n\n${item.current}\n\n${item.reason}\n\n${sourceMarkdown(item.sourceIds)}`).join('\n\n')}
+
+## ${comparison.logicIpMap.title}
+
+${comparison.logicIpMap.intro}
+
+${comparison.logicIpMap.groups.map(group=>`### ${group.leaf}\n\n${group.leafNote}\n\n${group.items.map(item=>`- ${item.name}（#ip-${item.id}）：${item.map}`).join('\n')}`).join('\n\n')}
+
+${comparison.logicIpMap.atlasNote}
+
+## 專利書目與圖號
+
+${patents.map(item=>`### ${item.id}\n\n優先權日：${item.priority}；受讓紀錄：${item.assignee}；代表圖／段落：${item.figures}。`).join('\n\n')}
+
+## 系統理解題
+
+${comparison.systems.map(item=>`### ${item.title}\n\n${item.quiz.question}\n\n${item.quiz.answer}`).join('\n\n')}
+
+## 年度論壇資料取得範圍
+
+${foundry.annualForumCoverage.map(item=>`### ${item.year}\n\n${item.finding}\n\n${sourceMarkdown([item.tsmcSourceId,item.gfSourceId])}`).join('\n\n')}
+
+## 晶圓代工性能條件
+
+${foundry.performanceBoundaries.map(item=>`### ${item.platform}\n\n${item.values}\n\n${item.conditions}\n\n${item.limit}\n\n${sourceMarkdown(item.sourceIds)}`).join('\n\n')}
+
+## 路線圖閱讀修正
+
+${foundry.corrections.map(item=>`### ${item.issue}\n\n${item.replacement}\n\n${sourceMarkdown(item.sourceIds)}`).join('\n\n')}
+`;
+markdown += `\n\n## ${isEnglish?'Operation State Diagrams':'操作狀態圖'}\n\n${engineering.operations.map(study=>`### ${study.topicId} · ${study.title}\n\n${study.variants.map(variant=>`#### ${variant.title}\n\n${variant.summary||''}\n\n${variant.frames.map((frame,index)=>`${index+1}. **${frame.title}** — ${frame.caption}${frame.state?' '+frame.state:''}${frame.stimulus?' '+frame.stimulus:''}`).join('\n')}\n\n${sourceMarkdown((variant.sources||study.sources).map(source=>source.id))}`).join('\n\n')}`).join('\n\n')}\n\n## ${isEnglish?'Original Patent Drawings and Claim Reading':'專利原始附圖與權利項導讀'}\n\n${engineering.patents.map(study=>`### ${study.id} · ${study.focus}\n\n${study.trace}\n\n${study.figures.map(figure=>`![${study.id} ${figure.label}](../${figure.asset})\n\n[${figure.label} · PDF ${figure.page}](${figure.pdfUrl}#page=${figure.page})`).join('\n\n')}\n\n${study.callouts.map(item=>'- '+item.number+' · '+item.meaning).join('\n')}\n\n${study.claim}\n\n${study.bridge}`).join('\n\n')}\n`;
+markdown += researchMarkdown(research,sourceMarkdown)+landscapeMarkdown(research,sourceMarkdown,isEnglish);
+const chineseResearch = isEnglish ? JSON.parse(fs.readFileSync(path.join(root,'data/nvm-industry-research.json'),'utf8')) : research;
+const chineseIntro = isEnglish ? JSON.parse(fs.readFileSync(path.join(root,'data/nvm-atlas-intro.json'),'utf8')) : intro;
+const chineseTopics = isEnglish ? ['nvm-charge-topics.json','nvm-emerging-topics.json'].flatMap(name=>JSON.parse(fs.readFileSync(path.join(root,'data',name),'utf8')).topics) : topics;
+const chineseComparison = isEnglish ? JSON.parse(fs.readFileSync(path.join(root,'data/nvm-comparison-systems.json'),'utf8')) : comparison;
+const chineseSystems = chineseComparison.systems;
+const chineseIPIndex = isEnglish ? JSON.parse(fs.readFileSync(path.join(root,'data/nvm-ip-cells-intro.json'),'utf8')) : ipIndex;
+const searchEntries = [
+ {title_zh:chineseIntro.title,title_en:intro.title,url:'nvm-technology-atlas.html',tags:'NVM 全景 物理 比較 bitcell MRAM ReRAM GLOBALFOUNDRIES TSMC'},
+ {title_zh:'IP 單元與操作原理',title_en:'IP Cells and Operating Principles',url:'nvm-technology-atlas.html#ip-directory',tags:'IP 單元 目錄 operating principles directory'},
+ {title_zh:'IP 技術沿革與產品承接',title_en:'IP Technology Lineage and Product Succession',url:'nvm-technology-atlas.html#ip-lineage',tags:'Synopsys 收購 承接 技術沿革 acquisition lineage Kilopass Sidense Impinj Virage Logic AEON'},
+ {title_zh:'儲存物理專題',title_en:'Device Physics Topics',url:'nvm-technology-atlas.html#nvm-physics-overview',tags:'物理 基礎 儲存 standalone physics background'},
+ ...ipCurriculum.units.map(unit=>({title_zh:chineseIPIndex.units.find(item=>item.id===unit.id).title,title_en:unit.title,url:`nvm-technology-atlas.html#ip-${unit.id}`,tags:[unit.vendor,unit.shortTitle,unit.summary,unit.program,unit.reverse,unit.readout,chineseIPIndex.units.find(item=>item.id===unit.id).summary].join(' ')})),
+ ...topics.map(topic=>({title_zh:chineseTopics.find(t=>t.id===topic.id).title,title_en:topic.title,url:`nvm-technology-atlas.html#topic-${topic.id}`,tags:[topic.storage,topic.summary,topic.maturity.claim,chineseTopics.find(t=>t.id===topic.id).storage,chineseTopics.find(t=>t.id===topic.id).summary,...(topic.integrationRoutes||[]).flatMap(route=>[route.title,route.provider,route.polyLayers,route.controlTopology]),...topic.sourceIds.map(id=>sourceMap.get(id)?.label||''),...topic.patents.map(p=>p.id)].join(' ')})),
+ ...comparison.systems.map(system=>({title_zh:chineseSystems.find(s=>s.id===system.id).title,title_en:system.title,url:`nvm-technology-atlas.html#system-${system.id}`,tags:system.summary})),
+ ...research.landscape.map(r=>({title_zh:chineseResearch.landscape.find(c=>c.id===r.id).name+' · '+r.technology,title_en:r.name+' · '+r.technology,url:'nvm-technology-atlas.html#company-'+r.id,tags:[r.name,r.technology,r.claim,r.search,chineseResearch.landscape.find(c=>c.id===r.id).claim].join(' ')})),
+ ...research.profiles.map(p=>({title_zh:chineseResearch.profiles.find(c=>c.id===p.id).title,title_en:p.title,url:'nvm-technology-atlas.html#research-'+p.id,tags:p.name+' '+p.summary})),
+ {title_zh:'全球 NVM 產業與研究地圖',title_en:'Global NVM Industry and Research Map',url:'nvm-technology-atlas.html#ecosystem',tags:'Everspin Samsung Intel MRAM ReRAM PCM FeRAM FeFET 產業 研究 工研院'},
+ {title_zh:'GF／TSMC／UMC 年度路線圖',title_en:'GF / TSMC / UMC Roadmap',url:'nvm-technology-atlas.html#foundry',tags:'GLOBALFOUNDRIES TSMC eMRAM ReRAM RRAM eNVM roadmap 22FDX 12LP AutoPro150'},
+ {title_zh:'歷史總表與有條件比較',title_en:'Historical and Current Comparisons',url:'nvm-technology-atlas.html#comparison',tags:'2016 2021 2026 比較 能量 耐久 保持 延遲 endurance retention latency energy Actt TwinBit Floadia CFX Attopsemi SST I-fuse ZA ZT G1 G2 SuperFlash LogicFlash'},
+ {title_zh:chineseComparison.logicIpMap.title,title_en:isEnglish?comparison.logicIpMap.title:chineseComparison.logicIpMap.title,url:'nvm-technology-atlas.html#comparison-logic-ip',tags:'Actt TwinBit Floadia CFX Attopsemi SST I-fuse ZA ZT G1 G2 SuperFlash LogicFlash 選型矩陣 具名 IP'}
+];
+if (isEnglish) {
+  html = html.replace(/(?:href|src|data-language-en|data-language-zh)="([^"]+)"/g, attribute => attribute.replace(/[\u3400-\u9fff]+/g, value => encodeURIComponent(value)));
+  html = englishInterface(html).replaceAll('data/nvm-knowledge-data.json','data/'+'nvm-knowledge-data-en'+'.json').replaceAll('data/nvm-technology-topics.md','data/'+'nvm-technology-topics-en'+'.md');
+  html = html.replaceAll('WO1981000790A1-page-14', 'WO1981000790A1-page-14')
+             .replaceAll('：', ': ')
+             .replaceAll(' ／ ', ' / ')
+             .replaceAll('／', ' / ')
+             .replaceAll('＋', '+')
+             .replaceAll('；', '; ')
+             .replace(/data-search="([^"]*)"/g, (m, p1) => `data-search="${p1.replace(/[\u4e00-\u9fff\u3000-\u303f\uff01-\uff0f\uff1a-\uff20\uff3b-\uff40\uff5b-\uff65]+/gu, ' ').replace(/\s+/g, ' ').trim()}"`);
+  markdown = englishInterface(markdown).replace(/([.!?])。/g, '$1 ').replaceAll('。', '. ').replaceAll('；', '; ').replaceAll('：', ': ').replaceAll('／', '/').replaceAll('（', '(').replaceAll('）', ')').replace(/[ \t]+$/gm, '');
+}
+const separated = splitAtlasDiagrams(html, language);
+const outputs = [[pageFile,separated.html],...separated.outputs,[`data/nvm-knowledge-data${dataSuffix}.json`,JSON.stringify(packageData,null,2)+'\n'],[`data/nvm-technology-topics${dataSuffix}.md`,markdown]];
+if(isEnglish) outputs.push(['data/nvm-search-index.js','window.NVMTopicIndex = '+JSON.stringify(searchEntries,null,2)+';\n']);
+for (const [file,bytes] of outputs) {
+  const target = path.join(root,file);
+  if (check) {
+    if (!fs.existsSync(target) || fs.readFileSync(target,'utf8') !== bytes) throw new Error(`衍生檔未同步：${file}`);
+  } else { fs.mkdirSync(path.dirname(target),{recursive:true}); fs.writeFileSync(target,bytes,'utf8'); }
+}
+const contentHash = crypto.createHash('sha256').update(serialized).digest('hex');
+console.log(`通過：${topics.length} 個技術、${comparison.systems.length} 個整合專題、${patents.length} 件專利、${sources.length} 筆來源、${foundry.milestones.length} 筆路線圖；${check?'衍生內容一致':'已完成靜態網頁與資料匯出'}；內容雜湊 ${contentHash}`);

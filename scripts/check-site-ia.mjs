@@ -1,11 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { loadPublicRoutes, assertDeclaredHtml } from "./公開路由.mjs";
+import { loadPublicRoutes, assertDeclaredHtml } from "./public-routes.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const publicBase = new URL("https://samhuang68.github.io/nvm-knowledge-hub/");
-const excludedDirectories = new Set([".git", ".loop-engineering", "qa", "node_modules", "attachments", "附件"]);
+const publicBase = new URL("https://hub.samhuang68.org/");
+const legacyPublicBase = new URL("https://samhuang68.github.io/nvm-knowledge-hub/");
+const excludedDirectories = new Set([".git", ".loop-engineering", "qa", "node_modules", "attachments"]);
 const publicDirectories = ["briefing", "whitepaper", "tools/whitepaper-studio"];
 const brandClasses = new Set(["brand", "hub-micro-logo", "studio-brand"]);
 
@@ -134,6 +135,11 @@ export async function inspectSite(siteRoot = root) {
       }
     }
     if (runtime) return;
+    if (/[^\x00-\x7F]/u.test(page)) fail(`${page}：公開頁面路徑必須為純英文 ASCII`);
+    const colorScheme = document.nodes.find(node => node.tag === "meta" && (node.attributes.name ?? "").toLowerCase() === "color-scheme")?.attributes.content;
+    if (colorScheme !== "light") fail(`${page}：meta[name="color-scheme"] 必須為 light`);
+    const canonical = document.nodes.find(node => node.tag === "link" && (node.attributes.rel ?? "").toLowerCase() === "canonical")?.attributes.href;
+    if (canonical && !canonical.startsWith(publicBase.href)) fail(`${page}：canonical URL 必須使用 ${publicBase.href}`);
     const brands = document.nodes.filter(node => node.tag === "a" && (node.attributes.class ?? "").split(/\s+/u).some(token => brandClasses.has(token)));
     if (!brands.length) fail(`${page}：缺少可返回知識中心的主要品牌連結`);
     for (const brand of brands) {
@@ -148,7 +154,7 @@ export async function inspectSite(siteRoot = root) {
     inspectDocument(contract.ownerPage, parseHtml(fs.readFileSync(path.join(siteRoot, fragment), "utf8")), true);
   }
   const home = documents.get("index.html");
-  const catalog = JSON.parse(fs.readFileSync(path.join(root,"data/NVM知識目錄.json"),"utf8"));
+  const catalog = JSON.parse(fs.readFileSync(path.join(root,"data/nvm-knowledge-catalog.json"),"utf8"));
   const layers = Object.fromEntries(catalog.sections.map(section=>[`layer-${section.id}`,section.items.map(item=>item.url)]));
   if (!home) fail("index.html：缺少知識中心首頁");
   else {
@@ -173,7 +179,7 @@ export async function inspectSite(siteRoot = root) {
       if(!item||anchor?.attributes.href!==item.url)fail(`index.html：舊入口 #${alias.id} 未保留正確內容`);
     }
   }
-  for (const page of ["NVM技術全景.html", "NVM技術全景中文.html", ...publicDirectories.map(directory => `${directory}/index.html`)]) {
+  for (const page of ["nvm-technology-atlas.html", "nvm-technology-atlas-zh.html", ...publicDirectories.map(directory => `${directory}/index.html`)]) {
     if (!documents.has(page)) fail(`缺少必要公開頁面：${page}`);
   }
 

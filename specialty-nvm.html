@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
   <script src="site-language.js?v=20260920-apps1"></script>
-<meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="color-scheme" content="dark light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Specialty NVM · BCD Power, Matrix Repair, HV Display &amp; E-Ink · NVM Knowledge Hub</title>
 <meta name="description" content="Flagship treatise on Specialty eNVM: BCD process for Power Management (PMIC, LED drivers, USB-PD, BLDC, BMIC), CIS &amp; DRAM array defect redundancy repair (BIST/BIRA/AntiFuse), High-Voltage Display Driver ICs, and E-Ink Ultra-HV Driving with MTP-to-OTP migration.">
 <meta name="author" content="NVM Knowledge Hub Editorial Board"/>
@@ -64,60 +64,60 @@
        EDITORIAL LIGHT THEME: 全站統一白底輕盈工控風格 (M4 SPECIALTY NVM)
        ========================================================================= */
     :root, body.specialty-page {
-      --paper-bg: #061925;
-      --paper-card: #0e2a38;
-      --ink-heading: #0a1e2c;
+      --paper-bg: #f1f5f9;
+      --paper-card: #f1f5f9;
+      --ink-heading: #f1f5f9;
       --ink-body: #334155;
       --ink-muted: #64748b;
       --cyan-editorial: #8a6a42;
       --amber-editorial: #d97706;
 
       /* 覆寫 specialty-nvm.css 暗黑根變數 */
-      --spec-midnight: #061925;
-      --spec-midnight-2: #0a2230;
+      --spec-midnight: #f1f5f9;
+      --spec-midnight-2: #f1f5f9;
       --spec-navy: #ffffff;
       --spec-surface: #ffffff;
       --spec-surface-card: #ffffff;
-      --spec-surface-elevated: #0e2a38;
+      --spec-surface-elevated: #f1f5f9;
       --spec-cyan: #8a6a42;
       --spec-aqua: #6f5536;
       --spec-teal: #8a6a42;
       --spec-amber: #d97706;
       --spec-green: #6f5536;
       --spec-danger: #dc2626;
-      --spec-line: rgba(15, 23, 42, 0.08);
-      --spec-line-subtle: rgba(15, 23, 42, 0.06);
-      --spec-text-main: #0a1e2c;
+      --spec-line: rgba(248, 250, 252, 0.96);
+      --spec-line-subtle: rgba(248, 250, 252, 0.96);
+      --spec-text-main: #f1f5f9;
       --spec-text-muted: #334155;
       --spec-text-dim: #64748b;
-      --spec-glow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --spec-glow: 0 4px 20px -2px rgba(248, 250, 252, 0.96);
     }
 
     body.specialty-page {
-      background-color: #061925 !important;
-      color: #c9c0b4 !important;
+      background-color: #0f172a !important;
+      color: #334155 !important;
       background-image: none !important;
     }
 
     /* 1. Hero 進版主視覺圖 (Obsidian Navy 半導體晶片展示窗，保持高科技震撼視覺) */
     body.specialty-page .specialty-hero {
       background: 
-        radial-gradient(circle at 50% 15%, rgba(176, 138, 91, 0.14) 0%, rgba(3, 19, 30, 0) 65%),
-        linear-gradient(180deg, rgba(6, 27, 41, 0.96) 0%, rgba(3, 19, 30, 1) 100%) !important;
+        radial-gradient(circle at 50% 15%, rgba(176, 138, 91, 0.14) 0%, rgba(248, 250, 252, 0.96) 65%),
+        linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 100%) !important;
       border-bottom: 1px solid rgba(176, 138, 91, 0.2) !important;
-      color: #f8fafc !important;
+      color: #0f172a !important;
       padding: clamp(38px, 4.5vw, 56px) var(--hub-keepout, 24px) 28px !important;
     }
     body.specialty-page .specialty-hero h1 {
-      color: #ffffff !important;
-      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6) !important;
+      color: #0f172a !important;
+      text-shadow: 0 2px 14px rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .specialty-hero .hero-lede {
       color: #c4d7e0 !important;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+      text-shadow: 0 1px 4px rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .hero-eyebrow-flex {
-      color: #c4a574 !important;
+      color: #785021 !important;
     }
     body.specialty-page .hero-eyebrow-flex .pulse-dot {
       background: #c4a574 !important;
@@ -131,61 +131,61 @@
 
     /* 2. 4-Metric Stat Strip 白底卡片 */
     body.specialty-page .compact-ate-strip .stat-strip-card {
-      background: #0e2a38 !important;
-      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      background: #f8fafc !important;
+      border: 1px solid rgba(248, 250, 252, 0.96) !important;
       border-left-width: 3px !important;
       border-radius: 6px !important;
-      box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
+      box-shadow: 0 4px 16px -2px rgba(248, 250, 252, 0.96), 0 2px 6px -1px rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .compact-ate-strip .stat-val {
-      color: #f3ebe0 !important;
+      color: #0f172a !important;
     }
     body.specialty-page .compact-ate-strip .stat-label {
-      color: #b5aa9c !important;
+      color: #334155 !important;
     }
     body.specialty-page .compact-ate-strip .stat-sub {
       color: #64748b !important;
     }
     body.specialty-page .meta-code {
-      color: #b5aa9c !important;
+      color: #334155 !important;
     }
 
     /* 3. 左側直立測條白底高對比 */
     body.specialty-page .lens-vertical-rail {
-      background: #0e2a38 !important;
-      border: 1px solid rgba(15, 23, 42, 0.08) !important;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
+      background: #f8fafc !important;
+      border: 1px solid rgba(248, 250, 252, 0.96) !important;
+      box-shadow: 0 4px 20px -2px rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .lens-vertical-rail .nav-pill {
-      background: #061925 !important;
-      color: #c9c0b4 !important;
-      border: 1px solid rgba(15, 23, 42, 0.06) !important;
+      background: #f8fafc !important;
+      color: #334155 !important;
+      border: 1px solid rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .lens-vertical-rail .nav-pill:hover,
     body.specialty-page .lens-vertical-rail .nav-pill.active {
-      background: #0e2a38 !important;
+      background: #f8fafc !important;
       border-color: #8a6a42 !important;
       color: #6f5536 !important;
       box-shadow: 0 2px 8px rgba(176, 138, 91, 0.12) !important;
     }
     body.specialty-page .lens-vertical-rail .lens-badge {
-      background: #0a2230 !important;
+      background: #f8fafc !important;
       color: #8a6a42 !important;
       border: 1px solid rgba(176, 138, 91, 0.2) !important;
     }
     body.specialty-page .lens-vertical-rail .nav-pill.active .lens-badge {
       background: #8a6a42 !important;
-      color: #ffffff !important;
+      color: #0f172a !important;
     }
     body.specialty-page .lens-vertical-rail .lens-info .lens-name {
-      color: #f3ebe0 !important;
+      color: #0f172a !important;
       font-weight: 700 !important;
     }
     body.specialty-page .lens-vertical-rail .lens-info .lens-sub {
       color: #64748b !important;
     }
     body.specialty-page .lens-vertical-rail .rail-footer {
-      border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+      border-top: 1px solid rgba(248, 250, 252, 0.96) !important;
       color: #64748b !important;
     }
 
@@ -193,27 +193,27 @@
     body.specialty-page .topic-section,
     body.specialty-page .topic-dark {
       background: transparent !important;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.96) !important;
       padding: 24px 16px !important;
     }
     body.specialty-page .topic-header h2 {
-      color: #f3ebe0 !important;
+      color: #0f172a !important;
       text-shadow: none !important;
     }
     body.specialty-page .topic-header p {
-      color: #b5aa9c !important;
+      color: #334155 !important;
     }
     body.specialty-page .topic-lede {
-      color: #b5aa9c !important;
+      color: #334155 !important;
       border-left-color: #8a6a42 !important;
     }
     body.specialty-page .topic-ghost-badge {
-      background: #0a2230 !important;
-      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      background: #f8fafc !important;
+      border: 1px solid rgba(248, 250, 252, 0.96) !important;
       color: #8a6a42 !important;
     }
     body.specialty-page .status-verified {
-      background: #133445 !important;
+      background: #f1f5f9 !important;
       border: 1px solid rgba(5, 150, 105, 0.2) !important;
       color: #6f5536 !important;
     }
@@ -224,82 +224,82 @@
     body.specialty-page .metric-tile,
     body.specialty-page .deck-step-card,
     body.specialty-page .sub-topic-block {
-      background: #0e2a38 !important;
-      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      background: #f8fafc !important;
+      border: 1px solid rgba(248, 250, 252, 0.96) !important;
       border-radius: 8px !important;
-      box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
-      color: #c9c0b4 !important;
+      box-shadow: 0 4px 16px -2px rgba(248, 250, 252, 0.96), 0 2px 6px -1px rgba(248, 250, 252, 0.96) !important;
+      color: #334155 !important;
     }
     body.specialty-page .spec-card h3,
     body.specialty-page .spec-card h4,
     body.specialty-page .tech-card h3,
     body.specialty-page .tech-card h4,
     body.specialty-page .sub-topic-header h3 {
-      color: #f3ebe0 !important;
+      color: #0f172a !important;
     }
     body.specialty-page .spec-card-title {
-      color: #f3ebe0 !important;
+      color: #0f172a !important;
       font-weight: 700 !important;
     }
     body.specialty-page .spec-card-desc {
-      color: #b5aa9c !important;
+      color: #334155 !important;
     }
     body.specialty-page .tag-accent {
-      background: #133445 !important;
+      background: #f1f5f9 !important;
       border: 1px solid rgba(217, 119, 6, 0.25) !important;
       color: #b45309 !important;
     }
 
     /* 6. 晶圓顯微外框 (保持半導體微影/顯微鏡高科技深色觀測窗) */
     body.specialty-page .specialty-hero-image-wrap {
-      background: #01080e !important;
+      background: #f8fafc !important;
       border: 1px solid rgba(6, 182, 212, 0.35) !important;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 25px rgba(6, 182, 212, 0.15) !important;
+      box-shadow: 0 20px 50px rgba(248, 250, 252, 0.96), 0 0 25px rgba(6, 182, 212, 0.15) !important;
     }
     body.specialty-page .specialty-hero-image-wrap[data-reticle]::before {
-      color: #c4a574 !important;
-      background: rgba(2, 10, 16, 0.85) !important;
+      color: #785021 !important;
+      background: rgba(248, 250, 252, 0.96) !important;
       border: 1px solid rgba(0, 240, 255, 0.3) !important;
     }
     body.specialty-page .specialty-hero-image-wrap img {
-      background: #01080e !important;
+      background: #f8fafc !important;
       filter: contrast(1.05) saturate(1.06) !important;
     }
     body.specialty-page .hero-image-caption {
-      background: rgba(4, 18, 28, 0.96) !important;
+      background: rgba(248, 250, 252, 0.96) !important;
       border-top: 1px solid rgba(6, 182, 212, 0.25) !important;
-      color: #b08a5b !important;
+      color: #785021 !important;
     }
 
     /* 7. 流程圖與步驟卡片 */
     body.specialty-page .deck-flow-container {
-      background: #0e2a38 !important;
-      border: 1px solid rgba(15, 23, 42, 0.08) !important;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04) !important;
+      background: #f8fafc !important;
+      border: 1px solid rgba(248, 250, 252, 0.96) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .deck-flow-header {
-      background: #061925 !important;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+      background: #f8fafc !important;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .deck-flow-header h4 {
-      color: #f3ebe0 !important;
+      color: #0f172a !important;
     }
     body.specialty-page .deck-timing-rail {
-      background: #061925 !important;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+      background: #f8fafc !important;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .deck-step-title {
-      color: #f3ebe0 !important;
+      color: #0f172a !important;
     }
     body.specialty-page .deck-step-num {
       color: #8a6a42 !important;
     }
     body.specialty-page .deck-step-status {
-      background: #0a2230 !important;
-      color: #b5aa9c !important;
+      background: #f8fafc !important;
+      color: #334155 !important;
     }
     body.specialty-page .deck-chip-row {
-      border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .deck-chip-row .chip-k {
       color: #64748b !important;
@@ -307,50 +307,50 @@
 
     /* 8. 互動實驗室外層白卡微投影 (內部維持深色儀表視窗) */
     body.specialty-page .interactive-lab-card {
-      background: #0e2a38 !important;
-      border: 1px solid rgba(15, 23, 42, 0.08) !important;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06) !important;
+      background: #f8fafc !important;
+      border: 1px solid rgba(248, 250, 252, 0.96) !important;
+      box-shadow: 0 4px 20px -2px rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .interactive-lab-card .lab-header {
-      background: #061925 !important;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+      background: #f8fafc !important;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .interactive-lab-card .lab-header h4 {
-      color: #f3ebe0 !important;
+      color: #0f172a !important;
     }
     body.specialty-page .interactive-lab-card .lab-desc {
-      color: #b5aa9c !important;
+      color: #334155 !important;
     }
 
     /* 9. 表格與矩陣白底化 */
     body.specialty-page .table-wrap,
     body.specialty-page .tech-matrix-table,
     body.specialty-page .compare-table {
-      background: #0e2a38 !important;
-      border: 1px solid rgba(15, 23, 42, 0.08) !important;
-      color: #c9c0b4 !important;
+      background: #f8fafc !important;
+      border: 1px solid rgba(248, 250, 252, 0.96) !important;
+      color: #334155 !important;
     }
     body.specialty-page table th {
-      background: #0a2230 !important;
-      color: #f3ebe0 !important;
-      border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
+      background: #f8fafc !important;
+      color: #0f172a !important;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page table td {
-      border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
-      color: #c9c0b4 !important;
+      border-bottom: 1px solid rgba(248, 250, 252, 0.96) !important;
+      color: #334155 !important;
     }
 
     /* 10. 經濟效益試算盒 */
     body.specialty-page .economics-box,
     body.specialty-page .economics-calculator {
-      background: #0e2a38 !important;
-      border: 1px solid rgba(15, 23, 42, 0.08) !important;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05) !important;
-      color: #c9c0b4 !important;
+      background: #f8fafc !important;
+      border: 1px solid rgba(248, 250, 252, 0.96) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
+      color: #334155 !important;
     }
     body.specialty-page .economics-box h3,
     body.specialty-page .economics-calculator h3 {
-      color: #f3ebe0 !important;
+      color: #0f172a !important;
     }
   </style>
 <style>
@@ -382,8 +382,8 @@
       white-space: normal !important;
       overflow-wrap: anywhere;
       box-sizing: border-box;
-      background: #123247 !important;
-      color: #eef4f8 !important;
+      background: #f1f5f9 !important;
+      color: #0f172a !important;
       border: 1px solid #527287 !important;
     }
     .interactive-lab-card :is(.node-btn, .mode-btn).active {
@@ -465,7 +465,7 @@
 <span data-lang="en">PURE-LOGIC ZERO-MASK ADDER</span>
 </div>
 <div class="stat-sub">
-<span style="color: #b08a5b;">
+<span style="color: #785021;">
 <span data-lang="zh">原生 CMOS · 零高溫熱預算</span>
 <span data-lang="en">Native CMOS · Zero Thermal Adder</span>
 </span>
@@ -481,7 +481,7 @@
 <span data-lang="en">SILICON QUALIFICATION RIGOR</span>
 </div>
 <div class="stat-sub">
-<span style="color: #b08a5b;">
+<span style="color: #785021;">
 <span data-lang="zh">15+ 年高溫留存 @ 175°C Tj</span>
 <span data-lang="en">15+ Yrs Retention @ 175°C Tj</span>
 </span>
@@ -497,7 +497,7 @@
 <span data-lang="en">FIRST-PRINCIPLES PHYSICS</span>
 </div>
 <div class="stat-sub">
-<span style="color: #c4a574;">
+<span style="color: #785021;">
 <span data-lang="zh">帶隙 · 泊松 · 伽瑪 · 斯托克斯</span>
 <span data-lang="en">Bandgap · Poisson · Gamma · Stokes</span>
 </span>
@@ -532,7 +532,7 @@
       <span data-lang="zh">第一性原理支配物理公式</span>
       <span data-lang="en">FIRST-PRINCIPLES GOVERNING PHYSICS FORMULAS</span>
     </div>
-    <h2 style="font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 4px 0 0; font-family: var(--spec-sans);">
+    <h2 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin: 4px 0 0; font-family: var(--spec-sans);">
       <span data-lang="zh">特種半導體 4 大底層物理與邊界約束</span>
       <span data-lang="en">Four Governing Microphysical Models &amp; Foundry Boundaries</span>
     </h2>
@@ -703,7 +703,7 @@
       </nav>
       <div class="rail-footer" style="padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 10px; display: flex; justify-content: space-between; font-size: 0.65rem; color: #64748b; font-family: 'IBM Plex Mono', monospace;">
         <span><span data-lang="zh">目前章節</span><span data-lang="en">ACTIVE LENS</span></span>
-        <span style="color:#c4a574;"><span data-lang="zh">2026 年驗證</span><span data-lang="en">VERIFIED 2026</span></span>
+        <span style="color:#785021;"><span data-lang="zh">2026 年驗證</span><span data-lang="en">VERIFIED 2026</span></span>
       </div>
     </aside>
 
@@ -839,10 +839,10 @@
 <span data-lang="en">SAR Trim Code Synthesis</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 10.5px; color: #c4a574; display: flex; align-items: center; gap: 4px;">
-<span style="padding: 2px 5px; background: #0c4a6e; border-radius: 2px;">TRIM[4:0]</span>
+<div style="font-family: monospace; font-size: 10.5px; color: #785021; display: flex; align-items: center; gap: 4px;">
+<span style="padding: 2px 5px; background: #f8fafc; border-radius: 2px;">TRIM[4:0]</span>
 <span>=</span>
-<span style="padding: 2px 5px; background: #c4a574; color: #fff; font-weight: 700; border-radius: 2px;">10110b</span>
+<span style="padding: 2px 5px; background: #c4a574; color: #0f172a; font-weight: 700; border-radius: 2px;">10110b</span>
 </div>
 </div>
 <div class="deck-metric-callout">
@@ -894,7 +894,7 @@
 <span data-lang="en">Post-Trim Lock &amp; Pass</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 11px; color: #c4a574; display: flex; align-items: center; gap: 6px;">
+<div style="font-family: monospace; font-size: 11px; color: #785021; display: flex; align-items: center; gap: 6px;">
 <span>VREF: 1.200V</span>
 <span style="padding: 1px 5px; background: rgba(196, 165, 116, 0.2); border-radius: 2px;"><span data-lang="zh">±0.35% 符合規格</span><span data-lang="en">±0.35% IN-SPEC</span> </span>
 </div>
@@ -956,9 +956,9 @@
 <span data-lang="en">USB-PD 3.1 &amp; EPR Controller</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 10.5px; color: #c4a574; display: flex; align-items: center; gap: 4px;">
+<div style="font-family: monospace; font-size: 10.5px; color: #785021; display: flex; align-items: center; gap: 4px;">
 <span>240W (48V/5A)</span>
-<span style="padding: 1px 4px; background: #0c4a6e; border-radius: 2px;">E-MARKER</span>
+<span style="padding: 1px 4px; background: #f8fafc; border-radius: 2px;">E-MARKER</span>
 </div>
 </div>
 <div class="deck-metric-callout">
@@ -1010,9 +1010,9 @@
 <span data-lang="en">Automotive Battery Safety</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 10px; color: #c4a574; display: flex; align-items: center; gap: 4px;">
+<div style="font-family: monospace; font-size: 10px; color: #785021; display: flex; align-items: center; gap: 4px;">
 <span><span data-lang="zh">16–24 顆電池</span><span data-lang="en">16-24 CELLS</span></span>
-<span style="padding: 1px 4px; background: #064e3b; border-radius: 2px;"><span data-lang="zh">黑盒子</span><span data-lang="en">BLACK-BOX</span></span>
+<span style="padding: 1px 4px; background: #f8fafc; border-radius: 2px;"><span data-lang="zh">黑盒子</span><span data-lang="en">BLACK-BOX</span></span>
 </div>
 </div>
 <div class="deck-metric-callout">
@@ -1020,7 +1020,7 @@
 <span class="deck-metric-lbl"><span data-lang="zh">Grade 0／ASIL-D（SEooC）術語之安全日誌，非 READY 認證</span><span data-lang="en">Grade 0 / ASIL-D (SEooC) vocabulary — not READY cert SAFETY LOG</span></span>
 </div>
 <div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">紀錄</span><span data-lang="en">SAFETY LOG</span></span><span class="chip-v cyan"><span data-lang="zh">電池阻抗黑盒子查表</span><span data-lang="en">CELL IMPEDANCE LUT</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">車規</span><span data-lang="en">QUALIFICATION</span></span><span class="chip-v green"><span data-lang="zh">AEC-Q100 Grade 0 詞彙（非認證）</span><span data-lang="en">AEC-Q100 Grade 0 vocabulary (not a certification claim)</span></span></div></div>
-<div style="padding: 6px 8px; font-size: 10px; color: #94a3b8; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 8px;">
+<div style="padding: 6px 8px; font-size: 10px; color: #334155; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 8px;">
 <span data-lang="zh"><strong>SEooC 假定使用 (AoU)：</strong> 可使用 ISO 26262 ASIL <strong>詞彙</strong>（非 READY 認證）；<strong>IEC 61508 SC3</strong> 為跨標準教學對照，本頁架構不宣稱具備。<code>LFM</code> 等度量須以具名 FMEDA 與 <em>T</em><sub>scrub</sub> 等 AoU 關閉，不得由本頁敘述直接推出。</span>
 <span data-lang="en"><strong>SEooC AoU:</strong> ISO 26262 ASIL <strong>vocabulary</strong> only (not READY certification). <strong>IEC 61508 SC3</strong> is a cross-standard teaching reference — this page does not claim that capability by architecture alone. Metrics such as <code>LFM</code> require named FMEDA and AoU bounds such as <em>T</em><sub>scrub</sub> — do not infer certification from this page.</span>
 </div>
@@ -1029,10 +1029,10 @@
 </div>
 </div>
 <!-- BCD Specialty Foundry eNVM Ecosystem Deep-Dive: Tower Y-Flash vs YMC MTP vs AntiFuse -->
-<div class="deck-flow-container" style="margin-top: 24px; border-left: 4px solid #10b981;">
+<div class="deck-flow-container" style="margin-top: 24px; border-left: 4px solid #f1f5f9;">
   <div class="deck-flow-header">
     <div class="deck-header-left">
-      <span class="deck-slide-badge" style="color:#10b981; border-color:rgba(16,185,129,0.3); background:rgba(16,185,129,0.1);"><span data-lang="zh">晶圓代工生態系 BCD 矩陣</span><span data-lang="en">FOUNDRY ECOSYSTEM BCD MATRIX</span></span>
+      <span class="deck-slide-badge" style="color:#0f172a; border-color:rgba(16,185,129,0.3); background:rgba(16,185,129,0.1);"><span data-lang="zh">晶圓代工生態系 BCD 矩陣</span><span data-lang="en">FOUNDRY ECOSYSTEM BCD MATRIX</span></span>
       <h4>
         <span data-lang="zh">BCD 製程專用 eNVM 代工生態：Tower Y-Flash、VIS/PSMC 億而得 (YMC) 與純邏輯 AntiFuse 縱深比較</span>
         <span data-lang="en">Specialty BCD eNVM Foundry Matrix: Tower Y-Flash, VIS/PSMC YMC MTP &amp; Logic AntiFuse Co-Optimization</span>
@@ -1044,7 +1044,7 @@
     </div>
   </div>
 
-  <div style="padding: 18px 20px; font-size: 0.88rem; line-height: 1.65; color: #cbd5e1;">
+  <div style="padding: 18px 20px; font-size: 0.88rem; line-height: 1.65; color: #334155;">
     <p style="margin: 0 0 16px;">
       <span data-lang="zh">在高壓 BCD（Bipolar-CMOS-DMOS）製程中，整合傳統雙層浮閘 eFlash 需面臨 8~12 道額外光罩與破壞功率元件耐壓的熱預算難題。業界主要 Specialty 代工廠與 IP 供應商發展出三條高度互補的 0-Mask 縱深路徑：</span>
       <span data-lang="en">Integrating conventional double-poly eFlash into high-voltage BCD (Bipolar-CMOS-DMOS) carries an 8-12 mask adder penalty and severe thermal budget impacts on power DMOS breakdown. Specialty foundries and IP providers have engineered three highly complementary zero-mask architectures:</span>
@@ -1052,37 +1052,37 @@
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px;">
       <!-- Card 1: Tower Y-Flash -->
-      <div style="background: rgba(4, 18, 28, 0.7); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 16px;">
+      <div style="background: rgba(248, 250, 252, 0.96); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 16px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
           <b style="color: #34d399; font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem;">Tower Semiconductor Y-Flash</b>
           <span style="font-size: 10px; background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 2px 6px; border-radius: 3px;"><span data-lang="zh">零光罩 BCD 快閃記憶體</span><span data-lang="en">0-Mask BCD Flash</span></span>
         </div>
-        <div style="font-size: 0.82rem; line-height: 1.55; color: #94a3b8; display: grid; gap: 6px;">
+        <div style="font-size: 0.82rem; line-height: 1.55; color: #334155; display: grid; gap: 6px;">
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">製程節點：</span><span data-lang="en">Process Node: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">製程節點：</span><span data-lang="en">Process Node: </span></strong>
             <span data-lang="zh">0.18µm BCD 與 65nm BCD 原生平台</span><span data-lang="en">Native 0.18µm &amp; 65nm BCD platforms</span>
           </div>
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">物理機制：</span><span data-lang="en">Physics Mechanism: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">物理機制：</span><span data-lang="en">Physics Mechanism: </span></strong>
             <span data-lang="zh">單層多晶矽浮閘；Tower 公開為 CHE 寫入／BBT 抹除（非 FN/FN）</span><span data-lang="en">Single-poly floating gate; Tower public brief: CHE program / BBT erase (not FN/FN)</span>
           </div>
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">耐久／留存：</span><span data-lang="en">Endurance &amp; Retention: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">耐久／留存：</span><span data-lang="en">Endurance &amp; Retention: </span></strong>
             <span data-lang="zh">公開敘事 1K～10K cycles；Ta／Tj 與 Grade 0 資格須依具名平台分開引用</span><span data-lang="en">Public brief cites 1K–10K cycles; cite Ta/Tj and Grade 0 qualification per named platform</span>
           </div>
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">高壓共存性：</span><span data-lang="en">HV Compatibility: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">高壓共存性：</span><span data-lang="en">HV Compatibility: </span></strong>
             <span data-lang="zh">零額外高溫退火，完全不影響大功率 LDMOS 擊穿電壓 (BVdss) 與導通電阻 (Ron)</span><span data-lang="en">Zero additional thermal budget; preserves high-voltage LDMOS breakdown (BVdss) and on-resistance (Ron)</span>
           </div>
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">典型應用：</span><span data-lang="en">Applications: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">典型應用：</span><span data-lang="en">Applications: </span></strong>
             <span data-lang="zh">車用電池管理 (BMS) 電池阻抗 LUT、48V 伺服器 VRM 數位電源控制、高壓馬達驅動器</span><span data-lang="en">Automotive BMS impedance lookup table (LUT), 48V server VRM digital power control, high-voltage motor drivers</span>
           </div>
         </div>
       </div>
 
       <!-- Card 2: YMC MTP on VIS / PSMC -->
-      <div style="background: rgba(4, 18, 28, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; padding: 16px;">
+      <div style="background: rgba(248, 250, 252, 0.96); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 6px; padding: 16px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
           <b style="color: #7dd3fc; font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem;">
             <span data-lang="zh">YMC 億而得微電子 (VIS/PSMC/UMC)</span>
@@ -1090,32 +1090,32 @@
           </b>
           <span style="font-size: 10px; background: rgba(56, 189, 248, 0.2); color: #7dd3fc; padding: 2px 6px; border-radius: 3px;"><span data-lang="zh">邏輯 MTP／EEPROM</span><span data-lang="en">Logic MTP / EEPROM</span></span>
         </div>
-        <div style="font-size: 0.82rem; line-height: 1.55; color: #94a3b8; display: grid; gap: 6px;">
+        <div style="font-size: 0.82rem; line-height: 1.55; color: #334155; display: grid; gap: 6px;">
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">製程節點：</span><span data-lang="en">Process Node: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">製程節點：</span><span data-lang="en">Process Node: </span></strong>
             <span data-lang="zh">世界先進 VIS (0.153µm/0.18µm/0.25µm BCD)、力積電 PSMC、UMC</span><span data-lang="en">VIS (0.153µm/0.18µm/0.25µm BCD), PSMC, UMC</span>
           </div>
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">物理機制：</span><span data-lang="en">Physics Mechanism: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">物理機制：</span><span data-lang="en">Physics Mechanism: </span></strong>
             <span data-lang="zh">純邏輯 EEPROM，帶帶熱電洞注入 (BBHH) 或 FN 穿隧</span><span data-lang="en">Standard logic EEPROM with BBHH or FN tunneling</span>
           </div>
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">耐久／留存：</span><span data-lang="en">Endurance &amp; Retention: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">耐久／留存：</span><span data-lang="en">Endurance &amp; Retention: </span></strong>
             <span data-lang="zh">1K～100K cycles；10+ 年留存 @ 125°C</span><span data-lang="en">1K-100K cycles; 10+ years retention @ 125°C</span>
           </div>
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">電路特點：</span><span data-lang="en">Circuit Highlights: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">電路特點：</span><span data-lang="en">Circuit Highlights: </span></strong>
             <span data-lang="zh">內建專利微型電荷泵 (Charge Pump)，免除晶圓測試與系統端高壓 VPP 腳位負擔</span><span data-lang="en">Integrated on-chip charge pump, eliminating external high-voltage VPP pin requirements during wafer test and in-system programming</span>
           </div>
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">典型應用：</span><span data-lang="en">Applications: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">典型應用：</span><span data-lang="en">Applications: </span></strong>
             <span data-lang="zh">PMIC 基準電壓精準修調 (Vout Trim)、Type-C USB-PD 3.1 供電協議線上韌體更新、音訊 Codec 校準</span><span data-lang="en">PMIC Vout precision trimming, Type-C USB-PD 3.1 in-field firmware updates, audio codec calibration</span>
           </div>
         </div>
       </div>
 
       <!-- Card 3: AntiFuse OTP -->
-      <div style="background: rgba(4, 18, 28, 0.7); border: 1px solid rgba(196, 165, 116, 0.3); border-radius: 6px; padding: 16px;">
+      <div style="background: rgba(248, 250, 252, 0.96); border: 1px solid rgba(196, 165, 116, 0.3); border-radius: 6px; padding: 16px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
           <b style="color: #dfb77c; font-family: 'IBM Plex Mono', monospace; font-size: 0.95rem;">
             <span data-lang="zh">純邏輯 AntiFuse OTP (力旺 / Synopsys)</span>
@@ -1123,25 +1123,25 @@
           </b>
           <span style="font-size: 10px; background: rgba(196, 165, 116, 0.2); color: #dfb77c; padding: 2px 6px; border-radius: 3px;"><span data-lang="zh">零光罩永久型 OTP</span><span data-lang="en">0-Mask Hard OTP</span></span>
         </div>
-        <div style="font-size: 0.82rem; line-height: 1.55; color: #94a3b8; display: grid; gap: 6px;">
+        <div style="font-size: 0.82rem; line-height: 1.55; color: #334155; display: grid; gap: 6px;">
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">製程節點：</span><span data-lang="en">Process Node: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">製程節點：</span><span data-lang="en">Process Node: </span></strong>
             <span data-lang="zh">全球所有主流晶圓代工廠 (TSMC, UMC, VIS, GF, Tower) 純邏輯製程</span><span data-lang="en">Standard logic CMOS across major foundries (TSMC, UMC, VIS, GF, Tower)</span>
           </div>
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">物理機制：</span><span data-lang="en">Physics Mechanism: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">物理機制：</span><span data-lang="en">Physics Mechanism: </span></strong>
             <span data-lang="zh">閘極氧化層永久性硬擊穿細絲，不可逆歐姆微絲</span><span data-lang="en">Permanent gate oxide breakdown forming irreversible conductive ohmic filaments</span>
           </div>
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">耐久／留存：</span><span data-lang="en">Endurance &amp; Retention: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">耐久／留存：</span><span data-lang="en">Endurance &amp; Retention: </span></strong>
             <span data-lang="zh">1 次寫入；&gt;100 年留存 @ 150°C，極限結溫 175°C 無電荷洩漏風險</span><span data-lang="en">1-time write; &gt;100 years retention @ 150°C, zero charge-leakage risk up to 175°C Tj</span>
           </div>
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">安全防護：</span><span data-lang="en">Physical Security: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">安全防護：</span><span data-lang="en">Physical Security: </span></strong>
             <span data-lang="zh">無浮閘電荷，抗 X-Ray 與 UV 光照，高難度 FIB/TEM 逆向防護</span><span data-lang="en">Zero trapped charge; immune to X-ray/UV; high resistance against FIB/TEM passive voltage contrast reverse engineering</span>
           </div>
           <div>
-            <strong style="color: #f8fafc;"><span data-lang="zh">典型應用：</span><span data-lang="en">Applications: </span></strong>
+            <strong style="color: #0f172a;"><span data-lang="zh">典型應用：</span><span data-lang="en">Applications: </span></strong>
             <span data-lang="zh">帶隙基準電壓 (Bandgap Vref) 永久鎖定、晶圓識別碼 (Wafer ID)、車規黑盒子晶片序號</span><span data-lang="en">Bandgap Vref permanent locking, Wafer ID, automotive black-box chip serials</span>
           </div>
         </div>
@@ -1248,7 +1248,7 @@
 <!-- GOVERNING PRINCIPLE FIGURE 01 -->
 <div class="governing-physics-box figure-container-abstract">
 <div class="governing-physics-header">
-<span class="deck-slide-badge" style="background: rgba(0, 240, 255, 0.15); border-color: #c4a574; color: #c4a574;"><span data-lang="zh">圖解 01</span><span data-lang="en">FIGURE 01</span></span>
+<span class="deck-slide-badge" style="background: rgba(0, 240, 255, 0.15); border-color: #785021; color: #785021;"><span data-lang="zh">圖解 01</span><span data-lang="en">FIGURE 01</span></span>
 <span data-lang="zh">核心定理 01 · 帶隙一階溫補相消與微調幾何模型</span>
 <span data-lang="en">GOVERNING PRINCIPLE 01 · BANDGAP 1ST-ORDER TEMP-COMP CANCELLATION &amp; OTP TRIM</span>
 </div>
@@ -1420,48 +1420,48 @@
 </table>
 </div>
 
-<div class="decision-box-modern" style="margin-top: 2rem; background: #071e2c; border: 1px solid rgba(0, 229, 255, 0.25); border-radius: 8px; padding: 1.5rem;">
-<div class="topic-ghost-badge" style="color: #00e5ff; border-color: rgba(0, 229, 255, 0.35); margin-bottom: 0.75rem;">
+<div class="decision-box-modern" style="margin-top: 2rem; background: #f8fafc; border: 1px solid rgba(0, 229, 255, 0.25); border-radius: 8px; padding: 1.5rem;">
+<div class="topic-ghost-badge" style="color: #0f172a; border-color: rgba(0, 229, 255, 0.35); margin-bottom: 0.75rem;">
 <span data-lang="zh">前沿架構實踐 · 第三代半導體</span>
 <span data-lang="en">FRONTIER PRACTICE · WIDE BANDGAP POWER</span>
 </div>
-<h3 style="color: #fff; font-size: 1.15rem; margin: 0 0 0.5rem;">
+<h3 style="color: #0f172a; font-size: 1.15rem; margin: 0 0 0.5rem;">
 <span data-lang="zh">第三代半導體 SiC／GaN 閘極驅動晶片：奈秒死區微調、去飽和保護與抗 CMTI 高溫實踐</span>
 <span data-lang="en">SiC/GaN Gate Drivers: Nanosecond Dead-Time Trimming, DESAT Protection &amp; High-CMTI Resilience</span>
 </h3>
-<p style="color: #cbd5e1; font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem;">
+<p style="color: #334155; font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem;">
 <span data-lang="zh">在 800V 電動車主驅逆變器與 AI 伺服器高密度電源中，碳化矽 (SiC) 與氮化鎵 (GaN) 以 &gt;500kHz 高頻開關運行。封裝極小（SOIC-8/16）的高低側隔離閘極驅動晶片（如 TI UCC217xx、Infineon EiceDRIVER™、STGAP 系列）無法容納外掛 Flash，且須在 &gt;150 V/ns 的極端共模瞬態 (CMTI) 與 175°C 結溫下保證零失誤：</span>
 <span data-lang="en">In 800V EV traction inverters and AI server power units, SiC and GaN switch at &gt;500kHz. Highly constrained isolated gate driver ICs (TI UCC217xx, Infineon EiceDRIVER™, STGAP) cannot fit external Flash and must endure &gt;150 V/ns CMTI transients at 175°C Tj:</span>
 </p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1rem;">
-<div style="background: rgba(4, 18, 28, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem;">
-<b style="color: #c4a574; font-size: 0.85rem; font-family: 'IBM Plex Mono', monospace; display: block; margin-bottom: 0.35rem;"><span data-lang="zh">01 · 死區時間微調</span><span data-lang="en">01 · DEAD-TIME TRIMMING</span></b>
-<p style="color: #94a3b8; font-size: 0.82rem; line-height: 1.5; margin: 0;">
+<div style="background: rgba(248, 250, 252, 0.96); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem;">
+<b style="color: #785021; font-size: 0.85rem; font-family: 'IBM Plex Mono', monospace; display: block; margin-bottom: 0.35rem;"><span data-lang="zh">01 · 死區時間微調</span><span data-lang="en">01 · DEAD-TIME TRIMMING</span></b>
+<p style="color: #334155; font-size: 0.82rem; line-height: 1.5; margin: 0;">
 <span data-lang="zh"><b>奈秒級死區微調：</b>在晶圓與成測時透過片上 AntiFuse OTP 燒錄 0.5ns 步進校準碼，壓縮傳遞延遲漂移，杜絕上下橋臂直通 (Short-Through)。</span>
 <span data-lang="en"><b>Sub-nanosecond Dead-Time Trim:</b> Calibrated via on-chip AntiFuse OTP in 0.5ns steps to eliminate propagation skew and prevent bridge cross-conduction.</span>
 </p>
 </div>
-<div style="background: rgba(4, 18, 28, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem;">
-<b style="color: #00e5ff; font-size: 0.85rem; font-family: 'IBM Plex Mono', monospace; display: block; margin-bottom: 0.35rem;"><span data-lang="zh">02 · DESAT 閾值</span><span data-lang="en">02 · DESAT THRESHOLD</span></b>
-<p style="color: #94a3b8; font-size: 0.82rem; line-height: 1.5; margin: 0;">
+<div style="background: rgba(248, 250, 252, 0.96); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem;">
+<b style="color: #0f172a; font-size: 0.85rem; font-family: 'IBM Plex Mono', monospace; display: block; margin-bottom: 0.35rem;"><span data-lang="zh">02 · DESAT 閾值</span><span data-lang="en">02 · DESAT THRESHOLD</span></b>
+<p style="color: #334155; font-size: 0.82rem; line-height: 1.5; margin: 0;">
 <span data-lang="zh"><b>去飽和短路保護閾值：</b>精確微調 6V–9V 故障偵測門檻與軟關斷 (Soft Turn-Off) 電流斜率，在 2µs 內安全關斷以拯救昂貴的 SiC 功率模組。</span>
 <span data-lang="en"><b>DESAT Fault Threshold:</b> Trims 6V–9V trip voltages and soft turn-off slew rates, securing &lt;2µs shutdown to save expensive SiC modules.</span>
 </p>
 </div>
-<div style="background: rgba(4, 18, 28, 0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem;">
-<b style="color: #10b981; font-size: 0.85rem; font-family: 'IBM Plex Mono', monospace; display: block; margin-bottom: 0.35rem;"><span data-lang="zh">03 · CMTI 抗擾能力</span><span data-lang="en">03 · CMTI IMMUNITY</span></b>
-<p style="color: #94a3b8; font-size: 0.82rem; line-height: 1.5; margin: 0;">
+<div style="background: rgba(248, 250, 252, 0.96); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem;">
+<b style="color: #0f172a; font-size: 0.85rem; font-family: 'IBM Plex Mono', monospace; display: block; margin-bottom: 0.35rem;"><span data-lang="zh">03 · CMTI 抗擾能力</span><span data-lang="en">03 · CMTI IMMUNITY</span></b>
+<p style="color: #334155; font-size: 0.82rem; line-height: 1.5; margin: 0;">
 <span data-lang="zh"><b>極端抗擾與高溫留存：</b>AntiFuse 歐姆矽微絲具備天然抗位移電流雜訊能力；高壓 BCD Cascode 隔離免除浮閘氧化層高場擊穿老化風險。</span>
 <span data-lang="en"><b>CMTI Immunity &amp; Retention:</b> Ohmic filaments inherently resist displacement noise; cascode isolation protects against high-field dielectric wear.</span>
 </p>
 </div>
-<div style="margin-top: 1rem; padding: 10px 14px; background: rgba(0, 229, 255, 0.06); border-left: 3px solid #00e5ff; border-radius: 4px; font-size: 0.82rem; line-height: 1.5; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center;">
-  <strong style="color: #00e5ff;"><span data-lang="zh">架構與物理鏈接：</span><span data-lang="en">Architecture &amp; Physics: </span></strong>
-  <a href="memory-physics.html#physics-models" style="color: #c4a574; text-decoration: underline;">
+<div style="margin-top: 1rem; padding: 10px 14px; background: rgba(0, 229, 255, 0.06); border-left: 3px solid #f1f5f9; border-radius: 4px; font-size: 0.82rem; line-height: 1.5; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center;">
+  <strong style="color: #0f172a;"><span data-lang="zh">架構與物理鏈接：</span><span data-lang="en">Architecture &amp; Physics: </span></strong>
+  <a href="memory-physics.html#physics-models" style="color: #785021; text-decoration: underline;">
     <span data-lang="zh">第一性原理穿隧與 4 階段介電質崩潰微觀物理 ↗</span>
     <span data-lang="en">First-Principles Tunneling &amp; 4-Stage Breakdown Physics ↗</span>
   </a>
-  <a href="automotive-nvm.html#sec-value-chain" style="color: #c4a574; text-decoration: underline;">
+  <a href="automotive-nvm.html#sec-value-chain" style="color: #785021; text-decoration: underline;">
     <span data-lang="zh">車載動力 BCD 與異質封裝價值鏈 ↗</span>
     <span data-lang="en">Automotive Powertrain BCD &amp; Packaging Value Chain ↗</span>
   </a>
@@ -1562,19 +1562,19 @@
 </h5>
 <!-- 純 HTML/CSS 4x4 記憶體網格與壞點 (100% 向量級銳利，零模糊) -->
 <div class="deck-visual-stage">
-<div style="display: grid; grid-template-columns: repeat(4, 15px); gap: 3px; padding: 4px; background: #04101b; border: 1px solid #1e3a5f; border-radius: 3px;">
-<div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
-<div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
-<div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
-<div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
-<div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
-<div style="width: 15px; height: 15px; background: #ef4444; border-radius: 2px; box-shadow: 0 0 8px #ef4444; display: grid; place-items: center; color: #fff; font-size: 10px; font-weight: 900;">✕</div>
-<div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
-<div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
-<div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
-<div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
-<div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
-<div style="width: 15px; height: 15px; background: #064e3b; border-radius: 2px;"></div>
+<div style="display: grid; grid-template-columns: repeat(4, 15px); gap: 3px; padding: 4px; background: #f8fafc; border: 1px solid #1e3a5f; border-radius: 3px;">
+<div style="width: 15px; height: 15px; background: #f8fafc; border-radius: 2px;"></div>
+<div style="width: 15px; height: 15px; background: #f8fafc; border-radius: 2px;"></div>
+<div style="width: 15px; height: 15px; background: #f8fafc; border-radius: 2px;"></div>
+<div style="width: 15px; height: 15px; background: #f8fafc; border-radius: 2px;"></div>
+<div style="width: 15px; height: 15px; background: #f8fafc; border-radius: 2px;"></div>
+<div style="width: 15px; height: 15px; background: #ef4444; border-radius: 2px; box-shadow: 0 0 8px #ef4444; display: grid; place-items: center; color: #0f172a; font-size: 10px; font-weight: 900;">✕</div>
+<div style="width: 15px; height: 15px; background: #f8fafc; border-radius: 2px;"></div>
+<div style="width: 15px; height: 15px; background: #f8fafc; border-radius: 2px;"></div>
+<div style="width: 15px; height: 15px; background: #f8fafc; border-radius: 2px;"></div>
+<div style="width: 15px; height: 15px; background: #f8fafc; border-radius: 2px;"></div>
+<div style="width: 15px; height: 15px; background: #f8fafc; border-radius: 2px;"></div>
+<div style="width: 15px; height: 15px; background: #f8fafc; border-radius: 2px;"></div>
 </div>
 </div>
 <div class="deck-metric-callout">
@@ -1630,9 +1630,9 @@
 </h5>
 <div class="deck-visual-stage">
 <div style="display: flex; align-items: center; gap: 6px;">
-<div style="padding: 3px 6px; background: #064e3b; border: 1px solid #c4a574; border-radius: 2px; font-family: monospace; font-size: 9px; color: #a7f3d0;">5.5V VPP</div>
-<span style="color: #c4a574; font-size: 10px;">⚡</span>
-<div style="padding: 3px 6px; background: #042f2e; border: 1px solid #8a6a42; border-radius: 2px; font-family: monospace; font-size: 9px; color: #c4a574; font-weight: 700;"><span data-lang="zh">CAM 重導</span><span data-lang="en">CAM REDIR</span></div>
+<div style="padding: 3px 6px; background: #f8fafc; border: 1px solid #c4a574; border-radius: 2px; font-family: monospace; font-size: 9px; color: #a7f3d0;">5.5V VPP</div>
+<span style="color: #785021; font-size: 10px;">⚡</span>
+<div style="padding: 3px 6px; background: #f8fafc; border: 1px solid #8a6a42; border-radius: 2px; font-family: monospace; font-size: 9px; color: #785021; font-weight: 700;"><span data-lang="zh">CAM 重導</span><span data-lang="en">CAM REDIR</span></div>
 </div>
 </div>
 <div class="deck-metric-callout">
@@ -1651,7 +1651,7 @@
 <!-- GOVERNING PRINCIPLE FIGURE 02 -->
 <div class="governing-physics-box figure-container-abstract">
 <div class="governing-physics-header">
-<span class="deck-slide-badge" style="background: rgba(0, 240, 255, 0.15); border-color: #c4a574; color: #c4a574;"><span data-lang="zh">圖解 02</span><span data-lang="en">FIGURE 02</span></span>
+<span class="deck-slide-badge" style="background: rgba(0, 240, 255, 0.15); border-color: #785021; color: #785021;"><span data-lang="zh">圖解 02</span><span data-lang="en">FIGURE 02</span></span>
 <span data-lang="zh">核心定理 02 · 晶圓隨機缺陷容忍與二維備援良率救贖模型</span>
 <span data-lang="en">GOVERNING PRINCIPLE 02 · WAFER DEFECT TOLERANCE &amp; 2D SPARE YIELD RESCUE</span>
 </div>
@@ -1889,9 +1889,9 @@
 <span data-lang="en">CMOS Image Sensor (CIS) Pixel Repair</span>
 </h5>
 <div class="deck-visual-stage" style="flex-direction: column; gap: 4px; align-items: stretch;">
-<div style="background: #0c4a6e; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #e0f2fe; text-align: center;"><span data-lang="zh">第 1 層：2 億畫素感測器</span><span data-lang="en">TIER 1: 200MP PIXEL SENSOR</span></div>
+<div style="background: #f8fafc; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #e0f2fe; text-align: center;"><span data-lang="zh">第 1 層：2 億畫素感測器</span><span data-lang="en">TIER 1: 200MP PIXEL SENSOR</span></div>
 <div style="border-top: 1px dashed #facc15; font-family: monospace; font-size: 7.5px; color: #fde047; text-align: center; line-height: 1;"><span data-lang="zh">TSMC Cu-Cu 混合鍵合</span><span data-lang="en">TSMC Cu-Cu HYBRID BONDING</span></div>
-<div style="background: #032f2f; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;"><span data-lang="zh">第 2 層：ISP＋128Kb 多磁區 OTP／MTP</span><span data-lang="en">TIER 2: ISP + 128Kb Multi-Sector OTP / MTP</span></div>
+<div style="background: #f8fafc; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;"><span data-lang="zh">第 2 層：ISP＋128Kb 多磁區 OTP／MTP</span><span data-lang="en">TIER 2: ISP + 128Kb Multi-Sector OTP / MTP</span></div>
 </div>
 <div class="deck-metric-callout">
 <span class="deck-metric-val">128 K-bit (16 KB) LUT</span>
@@ -1917,7 +1917,7 @@
 <div class="deck-visual-stage" style="flex-direction: column; gap: 4px; align-items: stretch;">
 <div style="background: #1c1917; border: 1px solid #eab308; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #fde047; text-align: center;"><span data-lang="zh">AI XPU + HBM3e 基板堆疊</span><span data-lang="en">AI XPU + HBM3e SUBSTRATE STACK</span></div>
 <div style="color: #ef4444; font-family: monospace; font-size: 8px; text-align: center;"><span data-lang="zh">偵測缺陷 ➔ JEDEC hPPR 指令</span><span data-lang="en">FAULT DETECTED ➔ JEDEC hPPR CMD</span></div>
-<div style="background: #042f2e; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;"><span data-lang="zh">反熔絲暫存器永久重新映射</span><span data-lang="en">ANTIFUSE FUSEBOX PERMANENT REMAP</span></div>
+<div style="background: #f8fafc; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;"><span data-lang="zh">反熔絲暫存器永久重新映射</span><span data-lang="en">ANTIFUSE FUSEBOX PERMANENT REMAP</span></div>
 </div>
 <div class="deck-metric-callout">
 <span class="deck-metric-val"><span data-lang="zh">挽救 $30,000+ 價值</span><span data-lang="en">Salvages $30,000+</span></span>
@@ -2011,7 +2011,7 @@
 <span data-lang="en">AntiFuse Dielectric Rupture Filament</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 10px; color: #c4a574; text-align: center;">
+<div style="font-family: monospace; font-size: 10px; color: #785021; text-align: center;">
 <span>R_FIL &lt; 100 Ω</span><br/>
 <span style="color: #d4b896; font-size: 8px;"><span data-lang="zh">永久擊穿導電通路</span><span data-lang="en">PERMANENT BREAKDOWN PLUG</span></span>
 </div>
@@ -2025,30 +2025,30 @@
 </div>
 
 <!-- 3D CIS & JEDEC PPR Hard Remap Ecosystem Card -->
-<div style="margin-top: 28px; padding: 22px; background: #082433; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px;">
+<div style="margin-top: 28px; padding: 22px; background: #f8fafc; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px;">
   <div style="font: 800 10.5px 'IBM Plex Mono'; color: #34d399; letter-spacing: 0.12em; margin-bottom: 6px;">
     <span data-lang="zh">特殊製程價值鏈生態系 · 3D CIS 與先進記憶體修復</span><span data-lang="en">SPECIALTY VALUE-CHAIN ECOSYSTEM · 3D CIS &amp; ADVANCED MEMORY REPAIR</span>
   </div>
-  <h3 style="margin: 0 0 12px; color: #fff; font-size: 1.2rem; font-family: 'IBM Plex Mono', monospace;">
+  <h3 style="margin: 0 0 12px; color: #0f172a; font-size: 1.2rem; font-family: 'IBM Plex Mono', monospace;">
     <span data-lang="zh">3D 堆疊 CIS 像素修補與 HBM3/DDR5 JEDEC PPR 硬體重映射實踐</span>
     <span data-lang="en">3D-Stacked CIS Defect Repair &amp; HBM3/DDR5 JEDEC PPR Silicon Implementation</span>
   </h3>
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr)); gap: 16px; margin-top: 14px;">
-    <div style="background: #061925; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 16px;">
+    <div style="background: #f8fafc; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 16px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-        <h4 style="margin: 0; color: #38bdf8; font-size: 0.98rem; font-family: 'IBM Plex Mono';">
+        <h4 style="margin: 0; color: #785021; font-size: 0.98rem; font-family: 'IBM Plex Mono';">
           <span data-lang="zh">Sony / OmniVision 3D 背照式 CIS 像素修補</span>
           <span data-lang="en">Sony / OmniVision 3D BSI CIS Pixel Repair</span>
         </h4>
         <span style="font-size: 9.5px; background: rgba(56, 189, 248, 0.15); color: #7dd3fc; padding: 2px 6px; border-radius: 3px;"><span data-lang="zh">Cu-Cu DBI 鍵合</span><span data-lang="en">Cu-Cu DBI Bonded</span></span>
       </div>
-      <p style="font-size: 0.83rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+      <p style="font-size: 0.83rem; line-height: 1.6; color: #334155; margin: 0;">
         <span data-lang="zh">感光像素晶粒與邏輯晶粒透過 Cu-Cu 混合鍵合 (DBI) 堆疊。晶圓測試 (CP) 時檢測出成千上萬個暗電流亮點 (Hot Pixels)。<strong>嚴禁採用傳統 eFlash</strong>：因 &gt;900°C 退火會熔毀已塗佈之彩色濾光片與微透鏡；<strong>嚴禁雷射熔斷</strong>：因封裝後雷射無法穿透矽層。常見架構為 <strong>0-Mask 純邏輯 AntiFuse OTP</strong>，在室溫探針測試下以電氣脈衝硬鎖定數十 Kb 壞點座標 — 具名產品仍須對照 PDK 與修復流程，非全族唯一解。</span>
         <span data-lang="en">Pixel dies bond to logic dies via Cu-Cu DBI. Testing flags thousands of hot pixels. <strong>eFlash is forbidden</strong> as &gt;900°C anneal destroys color filters and microlenses; <strong>laser fuses are inaccessible</strong> inside stacked 3D dies. A common architecture is <strong>zero-mask logic AntiFuse OTP</strong> that electrically locks defect coordinates at room temperature — named products still need PDK/repair-flow evidence; not a universal-only solution.</span>
       </p>
     </div>
 
-    <div style="background: #061925; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 16px;">
+    <div style="background: #f8fafc; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 16px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
         <h4 style="margin: 0; color: #f59e0b; font-size: 0.98rem; font-family: 'IBM Plex Mono';">
           <span data-lang="zh">JEDEC DDR5 / HBM3 Hard-PPR 封裝後修復</span>
@@ -2056,7 +2056,7 @@
         </h4>
         <span style="font-size: 9.5px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 2px 6px; border-radius: 3px;">JESD79-5 / JESD238</span>
       </div>
-      <p style="font-size: 0.83rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+      <p style="font-size: 0.83rem; line-height: 1.6; color: #334155; margin: 0;">
         <span data-lang="zh">JEDEC 標準定義了封裝後硬體重映射 (Hard Post-Package Repair, hPPR)。傳統 Poly eFuse 因電致遷移空隙具備熱鬆弛回跳 (Grow-Back) 致命缺陷，在伺服器高溫環境下易使已修復壞位元死灰復燃；而 AntiFuse 的局域再結晶矽微絲為永久性歐姆通道 (R &lt; 100Ω)，在 150°C~175°C 高溫下具備零回跳與永久性物理鎖定，成為高頻寬記憶體 (HBM3/HBM3e) 與 DDR5 模組良率的產業黃金基準。</span>
         <span data-lang="en">JEDEC defines Hard Post-Package Repair (hPPR). Conventional poly eFuses suffer thermal grow-back, risking defect reappearance under server heat. AntiFuse forms permanent recrystallized ohmic silicon filaments (R &lt; 100Ω) with zero grow-back across 150°C~175°C, serving as the gold standard for DDR5 and HBM3 stack yields.</span>
       </p>
@@ -2153,9 +2153,9 @@
 <span data-lang="en">Vcom Center Calibration</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 10.5px; color: #c4a574; display: flex; align-items: center; gap: 4px;">
+<div style="font-family: monospace; font-size: 10.5px; color: #785021; display: flex; align-items: center; gap: 4px;">
 <span><span data-lang="zh">±5mV 步階</span><span data-lang="en">±5mV STEP</span></span>
-<span style="padding: 1px 4px; background: #0c4a6e; border-radius: 2px;"><span data-lang="zh">0Hz 黏滯</span><span data-lang="en">0Hz STICKING</span></span>
+<span style="padding: 1px 4px; background: #f8fafc; border-radius: 2px;"><span data-lang="zh">0Hz 黏滯</span><span data-lang="en">0Hz STICKING</span></span>
 </div>
 </div>
 <div class="deck-metric-callout">
@@ -2207,9 +2207,9 @@
 <span data-lang="en">2D OLED De-Mura Compensation</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 10px; color: #c4a574; display: flex; align-items: center; gap: 4px;">
+<div style="font-family: monospace; font-size: 10px; color: #785021; display: flex; align-items: center; gap: 4px;">
 <span><span data-lang="zh">均勻度：98.6%</span><span data-lang="en">UNIFORMITY: 98.6%</span></span>
-<span style="padding: 1px 4px; background: #064e3b; border-radius: 2px;">MTP LUT</span>
+<span style="padding: 1px 4px; background: #f8fafc; border-radius: 2px;">MTP LUT</span>
 </div>
 </div>
 <div class="deck-metric-callout">
@@ -2228,7 +2228,7 @@
 <!-- GOVERNING PRINCIPLE FIGURE 03 -->
 <div class="governing-physics-box figure-container-abstract">
 <div class="governing-physics-header">
-<span class="deck-slide-badge" style="background: rgba(0, 240, 255, 0.15); border-color: #c4a574; color: #c4a574;"><span data-lang="zh">圖解 03</span><span data-lang="en">FIGURE 03</span></span>
+<span class="deck-slide-badge" style="background: rgba(0, 240, 255, 0.15); border-color: #785021; color: #785021;"><span data-lang="zh">圖解 03</span><span data-lang="en">FIGURE 03</span></span>
 <span data-lang="zh">核心定理 03 · 人眼光學非線性感知曲線與 2D DE-MURA 補償</span>
 <span data-lang="en">GOVERNING PRINCIPLE 03 · OPTICAL GAMMA 2.2 TRANSFER &amp; 2D DE-MURA FLATTENING</span>
 </div>
@@ -2422,7 +2422,7 @@
 <span data-lang="zh">高壓與特種製程 Hard IP：從測試晶片流片到車規可靠度封閉全流程</span>
 <span data-lang="en">High-Voltage Hard IP Rigor: From Test Chip Tapeout to Reliability checklist</span>
 </h3>
-<p style="color: #94a3b8; font-size: 13.5px; line-height: 1.6; margin-bottom: 20px; text-wrap: pretty;">
+<p style="color: #334155; font-size: 13.5px; line-height: 1.6; margin-bottom: 20px; text-wrap: pretty;">
 <span data-lang="zh">NVM 是極度敏感的實體 Hard IP，絕非可任意合成轉移的軟體 RTL。代工廠具備特定高壓或特種製程，絕不代表矽智財廠商已有現成 Macro 布局。每一個特定金屬層堆疊（Metal Stack）與 PDK 變體，均必須歷經獨立的專屬測試晶片（Test Chip）流片、全溫區 PVT Corner 特性化實測與車規級加速老化驗證。</span>
 <span data-lang="en">Embedded NVM is custom physical Hard IP, not portable generic RTL. A foundry offering a specialty process does NOT imply Silicon IP availability. Every specific metal stack and PDK variant mandates dedicated test chip tapeouts, multi-lot PVT corner characterization, and automotive reliability checklist.</span>
 </p>
@@ -2435,11 +2435,11 @@
 <span class="qual-chip"><span data-lang="zh">晶圓製程驗證</span><span data-lang="en">FOUNDRY RIGOR</span></span>
 <span class="qual-chip-verified"><span data-lang="zh">三階段晶片檢查關卡</span><span data-lang="en">3-STAGE SILICON CHECKLIST GATES</span></span>
 </div>
-<h4 style="font-size: 15px; margin: 4px 0 8px; color: #f8fafc; font-weight: 600;">
+<h4 style="font-size: 15px; margin: 4px 0 8px; color: #0f172a; font-weight: 600;">
 <span data-lang="zh">特種高壓製程實體 IP 晶圓驗證三道簽核流程</span>
 <span data-lang="en">Specialty HV Hard IP Silicon verification checklist pipeline</span>
 </h4>
-<p style="color: #94a3b8; font-size: 13px; line-height: 1.5; margin: 0;">
+<p style="color: #334155; font-size: 13px; line-height: 1.5; margin: 0;">
 <span data-lang="zh">NVM 為客製實體 Hard IP，非軟體 RTL。每一 PDK 變體必須嚴格通過三道實體晶圓門禁簽核：</span>
 <span data-lang="en">Embedded NVM is custom physical Hard IP. Every PDK variant mandates 3 silicon verification checklist gates:</span>
 </p>
@@ -2549,16 +2549,16 @@
 </div>
 
 <!-- OLED DDIC De-Mura & Serial NOR Packaging Card -->
-<div style="margin-top: 28px; padding: 22px; background: #082433; border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px;">
+<div style="margin-top: 28px; padding: 22px; background: #f8fafc; border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px;">
   <div style="font: 800 10.5px 'IBM Plex Mono'; color: #f59e0b; letter-spacing: 0.12em; margin-bottom: 6px;">
     <span data-lang="zh">顯示驅動生態系 · AMOLED De-Mura 與先進封裝</span><span data-lang="en">DISPLAY DRIVER ECOSYSTEM · AMOLED DE-MURA &amp; ADVANCED PACKAGING</span>
   </div>
-  <h3 style="margin: 0 0 12px; color: #fff; font-size: 1.2rem; font-family: 'IBM Plex Mono', monospace;">
+  <h3 style="margin: 0 0 12px; color: #0f172a; font-size: 1.2rem; font-family: 'IBM Plex Mono', monospace;">
     <span data-lang="zh">OLED 顯示驅動 (DDIC) 逐點 De-Mura 光學補償與超低引腳數外掛 NOR 封裝革新</span>
     <span data-lang="en">AMOLED DDIC Point-by-Point De-Mura &amp; Ultra-Low Pin Count Serial NOR Innovation</span>
   </h3>
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr)); gap: 16px; margin-top: 14px;">
-    <div style="background: #061925; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 16px;">
+    <div style="background: #f8fafc; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 16px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
         <h4 style="margin: 0; color: #fbbf24; font-size: 0.98rem; font-family: 'IBM Plex Mono';">
           <span data-lang="zh">Novatek / Himax AMOLED De-Mura 數據暴增挑戰</span>
@@ -2566,13 +2566,13 @@
         </h4>
         <span style="font-size: 9.5px; background: rgba(251, 191, 36, 0.15); color: #fbbf24; padding: 2px 6px; border-radius: 3px;"><span data-lang="zh">FHD+／WQHD+ 二維網格</span><span data-lang="en">FHD+ / WQHD+ 2D Grid</span></span>
       </div>
-      <p style="font-size: 0.83rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+      <p style="font-size: 0.83rem; line-height: 1.6; color: #334155; margin: 0;">
         <span data-lang="zh">高階 AMOLED 面板由於有機發光材料沉積的不均勻性，需外置相機高精掃描並生成 2D 亮度/色度差分補償矩陣 (De-Mura)。隨面板解析度自 FHD+ 提升至 WQHD+，De-Mura 數據量自數十 KB 暴增至 4MB~16MB。若將其全部內嵌於高壓製程 (28nm/40nm HV) 晶粒內，高壓 eFlash 面積開銷過巨，將嚴重損害 DDIC 長條形晶粒 (Aspect Ratio &gt; 20:1) 的良率與晶圓產出。</span>
         <span data-lang="en">AMOLED panels exhibit pixel luminance variations requiring factory optical scanning to generate 2D De-Mura matrices. As resolutions reach WQHD+, De-Mura data explodes from tens of KB to 4MB~16MB. Monolithically embedding this into 28nm/40nm HV DDIC dies inflates silicon area, devastating yields for ultra-narrow aspect ratio (&gt;20:1) dies.</span>
       </p>
     </div>
 
-    <div style="background: #061925; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 16px;">
+    <div style="background: #f8fafc; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 16px;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
         <h4 style="margin: 0; color: #34d399; font-size: 0.98rem; font-family: 'IBM Plex Mono';">
           <span data-lang="zh">內部 0-Mask OTP + 外部/合封 Ultra-Low-Pin NOR 雙軌解法</span>
@@ -2580,7 +2580,7 @@
         </h4>
         <span style="font-size: 9.5px; background: rgba(16, 185, 129, 0.15); color: #34d399; padding: 2px 6px; border-radius: 3px;">WLCSP / USON / Octal SPI</span>
       </div>
-      <p style="font-size: 0.83rem; line-height: 1.6; color: #cbd5e1; margin: 0;">
+      <p style="font-size: 0.83rem; line-height: 1.6; color: #334155; margin: 0;">
         <span data-lang="zh">產業主流轉向分層儲存：<strong>核心電氣參數</strong> (Vcom、Gamma 曲線、晶片安全 ID) 採用晶片內 <strong>0-Mask 純邏輯 AntiFuse OTP / MTP</strong> 永久硬鎖定，抵抗高壓電氣雜訊；<strong>龐大之 De-Mura 點矩陣</strong> 則透過高速 Octal SPI / xSPI 介面串接外掛或 COF (Chip-on-Film) 上合封之 <strong>Winbond / Macronix 1.2V 超低引腳數 Serial NOR Flash</strong> (WLCSP 或超薄 USON 封裝)，於開機時極速 DMA 載入內部 SRAM，兼顧極致窄邊框與最低系統 BOM 成本。</span>
         <span data-lang="en">Industry adopts a tiered hybrid: <strong>Critical electrical parameters</strong> (Vcom, Gamma, security ID) are locked on-chip via <strong>0-mask logic AntiFuse OTP/MTP</strong> against HV noise; <strong>massive 2D De-Mura matrices</strong> stream via high-speed Octal SPI from co-packaged <strong>Winbond/Macronix 1.2V ultra-low-pin Serial NOR Flash</strong> (WLCSP/USON on COF), balancing razor-thin display borders with optimal BOM.</span>
       </p>
@@ -2688,7 +2688,7 @@
 <span data-lang="en">Agitation &amp; Erase Pulse</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 10px; color: #c4a574; text-align: center;">
+<div style="font-family: monospace; font-size: 10px; color: #785021; text-align: center;">
 <span><span data-lang="zh">±15V 震盪 ➔ -40V 重置</span><span data-lang="en">±15V SHAKE ➔ -40V RESET</span></span><br/>
 <span style="color: #64748b; font-size: 8px;"><span data-lang="zh">克服黏滯阻力</span><span data-lang="en">OVERCOMES VISCOUS DRAG</span></span>
 </div>
@@ -2717,7 +2717,7 @@
 <div class="deck-visual-stage">
 <div style="font-family: monospace; font-size: 10px; color: #fbbf24; text-align: center;">
 <span><span data-lang="zh">+40V~+50V 驅動 ➔ 0V 靜止</span><span data-lang="en">+40V~+50V DRIVE ➔ 0V REST</span></span><br/>
-<span style="color: #c4a574; font-size: 8px;"><span data-lang="zh">零靜態功耗</span><span data-lang="en">ZERO STATIC POWER DRAIN</span></span>
+<span style="color: #785021; font-size: 8px;"><span data-lang="zh">零靜態功耗</span><span data-lang="en">ZERO STATIC POWER DRAIN</span></span>
 </div>
 </div>
 <div class="deck-metric-callout">
@@ -2742,7 +2742,7 @@
 <span data-lang="en">MTP to OTP Migration</span>
 </h5>
 <div class="deck-visual-stage">
-<div style="font-family: monospace; font-size: 10px; color: #c4a574; text-align: center;">
+<div style="font-family: monospace; font-size: 10px; color: #785021; text-align: center;">
 <span><span data-lang="zh">MTP（研發）➔ OTP（量產）</span><span data-lang="en">MTP (R&amp;D) ➔ OTP (VOLUME)</span></span><br/>
 <span style="color: #a7f3d0; font-size: 8px;"><span data-lang="zh">晶圓成本降低 35%</span><span data-lang="en">35% WAFER COST REDUCTION</span></span>
 </div>
@@ -2767,7 +2767,7 @@
 <!-- GOVERNING PRINCIPLE FIGURE 04 -->
 <div class="governing-physics-box figure-container-abstract">
 <div class="governing-physics-header">
-<span class="deck-slide-badge" style="background: rgba(0, 240, 255, 0.15); border-color: #c4a574; color: #c4a574;"><span data-lang="zh">圖解 04</span><span data-lang="en">FIGURE 04</span></span>
+<span class="deck-slide-badge" style="background: rgba(0, 240, 255, 0.15); border-color: #785021; color: #785021;"><span data-lang="zh">圖解 04</span><span data-lang="en">FIGURE 04</span></span>
 <span data-lang="zh">核心定理 04 · 微膠囊雙穩態電泳動力學與零功耗靜態保持</span>
 <span data-lang="en">GOVERNING PRINCIPLE 04 · BISTABLE ELECTROPHORETIC KINETICS &amp; ZERO-POWER RETENTION</span>
 </div>
@@ -3176,6 +3176,6 @@
       panels.forEach(p => railObserver.observe(p));
     });
   </script>
-<script src="專題選單導覽.js?v=20260910-bilingual"></script>
+<script src="topic-menu-navigation.js?v=20260910-bilingual"></script>
 </body>
 </html>

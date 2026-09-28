@@ -63,7 +63,12 @@
     document.querySelectorAll('.language-toggle, #languageToggle').forEach(button => {
       button.setAttribute('aria-label', language === 'en' ? 'Switch to Traditional Chinese' : '切換為英文');
       button.setAttribute('title', language === 'en' ? 'Switch to Traditional Chinese' : '切換為英文');
-      button.querySelectorAll('[data-lang-option]').forEach(option => option.classList.toggle('is-active', option.dataset.langOption === language));
+      button.querySelectorAll('[data-lang-option]').forEach(option => {
+        const active = option.dataset.langOption === language;
+        option.classList.toggle('is-active', active);
+        if (active) option.setAttribute('aria-current', 'true');
+        else option.removeAttribute('aria-current');
+      });
     });
     let announcer = document.getElementById('hubLanguageAnnouncer');
     if (!announcer && document.body) {
@@ -110,7 +115,7 @@
     ['memory-physics-contrast.css?v=20260907-f1', /memory-physics\.html/i.test(hubPagePath(location.pathname))],
     ['ai-nvm-node.css?v=20260908-n30', /ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname))],
     ['ai-nvm-tune.css?v=20260908-n31', /ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname))],
-    ['全站閱讀系統.css?v=20260910-bilingual', true],
+    ['global-reading-system.css?v=20260910-bilingual', true],
     ['hub-apps-chrome.css?v=20260920-apps3', appsPages]
   ];
   for (const [href, enabled] of sheets) {
@@ -124,7 +129,7 @@
   }
   function ready() {
     if (appsPages && document.body) document.body.classList.add('hub-apps-page');
-    const readingStyle = document.querySelector('link[data-hub-shared-style="全站閱讀系統.css"]');
+    const readingStyle = document.querySelector('link[data-hub-shared-style="global-reading-system.css"]');
     const appsChrome = document.querySelector('link[data-hub-shared-style="hub-apps-chrome.css"]');
     if (readingStyle) document.head.append(readingStyle);
     if (appsChrome) document.head.append(appsChrome);
@@ -183,9 +188,9 @@
     document.querySelectorAll('a[href]').forEach(link => {
       if (link.getAttribute('href')?.startsWith('#')) return;
       let target; try { target = new URL(link.href); } catch { return; }
-      if (target.origin !== location.origin || !hubPagePath(target.pathname).endsWith('/NVM技術全景.html')) return;
+      if (target.origin !== location.origin || !hubPagePath(target.pathname).endsWith('/nvm-technology-atlas.html')) return;
       link.addEventListener('click', () => {
-        const name = window.HubLanguage.get() === 'zh' ? 'NVM技術全景中文.html' : 'NVM技術全景.html';
+        const name = window.HubLanguage.get() === 'zh' ? 'nvm-technology-atlas-zh.html' : 'nvm-technology-atlas.html';
         target.pathname = target.pathname.replace(/[^/]+$/, encodeURIComponent(name));
       });
     });
@@ -213,17 +218,17 @@
       window.__NVM_SEARCH_BOOTSTRAP = true;
       const css = document.createElement('link');
       css.rel = 'stylesheet';
-      css.href = new URL('全站搜尋.css?v=20260920-spot', rootURL).href;
+      css.href = new URL('global-search.css?v=20260920-spot', rootURL).href;
       document.head.append(css);
       const startController = () => {
         if (window.__NVM_SEARCH_ENHANCED) return;
         const ctrl = document.createElement('script');
-        ctrl.src = new URL('搜尋控制器.js?v=20260920-spot', rootURL).href;
+        ctrl.src = new URL('search-controller.js?v=20260920-spot', rootURL).href;
         document.head.append(ctrl);
       };
       if (window.NVMTopicIndex) { startController(); return; }
       const index = document.createElement('script');
-      index.src = new URL('data/NVM搜尋索引.js?v=20260920-spot', rootURL).href;
+      index.src = new URL('data/nvm-search-index.js?v=20260920-spot', rootURL).href;
       index.onload = startController;
       index.onerror = startController;
       document.head.append(index);
@@ -245,7 +250,7 @@
         document.head.append(apps);
       }
     }
-    const literaturePages = /memory-evidence\.html|oip-secure-storage\.html|\/briefing\/|\/whitepaper\//i.test(hubPagePath(location.pathname));
+    const literaturePages = !/index\.html|nvm-technology-atlas(?:-zh)?\.html|sram-repair\.html/i.test(hubPagePath(location.pathname));
     if (literaturePages) {
       document.body.classList.add('hub-literature-paper');
       const paper = document.createElement('link');

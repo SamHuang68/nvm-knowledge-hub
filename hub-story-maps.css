@@ -1,11 +1,11 @@
 /* Incremental story maps — scoped, navy/copper, reduced-motion safe */
 .hub-story {
-  --hs-navy: #061b29;
-  --hs-ink: #e7dcc8;
+  --hs-navy: #f8fafc;
+  --hs-ink: #0f172a;
   --hs-mute: rgba(231, 220, 200, 0.62);
   --hs-line: rgba(196, 165, 116, 0.45);
-  --hs-copper: #c4a574;
-  --hs-fill: rgba(6, 27, 41, 0.72);
+  --hs-copper: #9a5b25;
+  --hs-fill: rgba(248, 250, 252, 0.96);
   margin: 20px 0 28px;
   padding: clamp(18px, 3vw, 28px);
   border: 1px solid var(--hs-line);
@@ -84,7 +84,7 @@
   cursor: pointer;
   border: 1px solid rgba(196,165,116,.4);
   background: transparent;
-  color: #c4a574;
+  color: #785021;
   border-radius: 999px;
   padding: 8px 14px;
   font-size: 12px;

@@ -1,5 +1,5 @@
 import { nvmIpSpecs } from '../../data/nvm_specs.js';
-import { localizeProfile } from '../../data/設定檔語系.js';
+import { localizeProfile } from '../../data/profile-locale.js';
 
 const getLanguage = () => globalThis.window?.HubLanguage?.get() || globalThis.document?.documentElement?.dataset.language || 'en';
 const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));

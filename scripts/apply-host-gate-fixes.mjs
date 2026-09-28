@@ -90,10 +90,10 @@ function patchResearch(file, isEn) {
   });
 }
 
-patchResearch('data/NVM產研比較.json', false);
-patchResearch('data/NVM產研比較英文.json', true);
+patchResearch('data/nvm-industry-research.json', false);
+patchResearch('data/nvm-industry-research-en.json', true);
 
-for (const file of ['data/NVM知識資料.json', 'data/NVM知識資料英文.json']) {
+for (const file of ['data/nvm-knowledge-data.json', 'data/nvm-knowledge-data-en.json']) {
   if (!fs.existsSync(path.join(root, file))) continue;
   patchJson(file, data => {
     replaceUrlsDeep(data);
@@ -218,14 +218,14 @@ const englishFoundrySources = [
   },
 ];
 
-patchJson('data/NVM晶圓代工路線圖英文.json', data => {
+patchJson('data/nvm-foundry-roadmap-en.json', data => {
   const ids = new Set(data.milestones.map(m => m.id));
   for (const m of milestoneEn) if (!ids.has(m.id)) data.milestones.push(m);
   const sourceIds = new Set(data.sources.map(s => s.id));
   for (const src of englishFoundrySources) if (!sourceIds.has(src.id)) data.sources.push(src);
 });
 
-patchJson('data/NVM晶圓代工路線圖.json', data => {
+patchJson('data/nvm-foundry-roadmap.json', data => {
   const fix = id => data.milestones.find(m => m.id === id);
   const sec19 = fix('SEC-2019');
   if (sec19) sec19.limit = '28FDS 商用 eMRAM 有公開出貨紀錄，但 BEOL 需額外光罩層；不得寫成 0-Mask Adder，亦不能由 SF3/SF2 邏輯路線直接推出同名 eMRAM 量產。';
@@ -240,12 +240,12 @@ patchJson('data/NVM晶圓代工路線圖.json', data => {
 });
 
 // Search index tag line
-const searchIndex = path.join(root, 'data/NVM搜尋索引.js');
+const searchIndex = path.join(root, 'data/nvm-search-index.js');
 let searchText = fs.readFileSync(searchIndex, 'utf8');
 searchText = searchText.replace(/FN\/FN tunneling/g, 'CHE/BBT program-erase');
 searchText = searchText.replace(/FN\/FN 穿隧/g, 'CHE/BBT 寫抹');
 fs.writeFileSync(searchIndex, searchText, 'utf8');
-console.log('patched data/NVM搜尋索引.js');
+console.log('patched data/nvm-search-index.js');
 
 const trootMaturityZh =
   '廣泛部署敘述；官方公開將 Automotive HSM 列為 ASIL-B，OTP NVM 另列 ASIL-D — 不得合併為單一「tRoot ASIL-D」或 CC/PSA 組合認證。';
@@ -256,7 +256,7 @@ const trootClaimZh =
 const trootClaimEn =
   'HSM subsystem integrating a security processor with AntiFuse OTP; public features include secure boot, key wrapping, and rollback interfaces — named crypto modes, timing, and PSA/CC bundles require product documentation; do not port portfolio peak tiers.';
 
-for (const file of ['data/NVM產研比較.json', 'data/NVM產研比較英文.json', 'data/NVM知識資料.json', 'data/NVM知識資料英文.json']) {
+for (const file of ['data/nvm-industry-research.json', 'data/nvm-industry-research-en.json', 'data/nvm-knowledge-data.json', 'data/nvm-knowledge-data-en.json']) {
   patchJson(file, data => {
     const touch = obj => {
       if (!obj || typeof obj !== 'object') return;

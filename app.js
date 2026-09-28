@@ -301,25 +301,32 @@ function setLanguage(nextLanguage, persist = true) {
   document.querySelectorAll(".primary-nav [data-nav-key]").forEach(link => {
     link.textContent = navigationLabels[link.dataset.navKey][nextLanguage];
   });
-  document.querySelector(".primary-nav").setAttribute("aria-label", nextLanguage === "zh" ? "主要導覽" : "Primary navigation");
-  document.querySelector(".brand").setAttribute("aria-label", nextLanguage === "zh" ? "NVM Knowledge Hub 首頁" : "NVM Knowledge Hub home");
-  document.querySelector(".hero-proof").setAttribute("aria-label", nextLanguage === "zh" ? "供應商公開的產品組合數據" : "Vendor-reported portfolio figures");
-  document.querySelector(".signal-strip").setAttribute("aria-label", nextLanguage === "zh" ? "核心產品構成" : "Core product composition");
-  document.querySelector(".state-switch").setAttribute("aria-label", nextLanguage === "zh" ? "切換電源狀態" : "Switch power state");
-  document.querySelector(".silicon-stage").setAttribute("aria-label", nextLanguage === "zh" ? "Secure Storage 電源狀態示意" : "Secure Storage power-state model");
-  document.querySelector(".architecture-flow").setAttribute("aria-label", nextLanguage === "zh" ? "Secure Storage 架構" : "Secure Storage architecture");
-  document.querySelector(".compare-switch").setAttribute("aria-label", nextLanguage === "zh" ? "比較層級" : "Comparison level");
-  document.querySelector("#filters").setAttribute("aria-label", nextLanguage === "zh" ? "內容類型篩選" : "Content-type filters");
-  document.querySelector(".case-flow").setAttribute("aria-label", nextLanguage === "zh" ? "分層企業簽署參考架構" : "Layered enterprise-signing reference architecture");
-  document.querySelector(".stack-sources").setAttribute("aria-label", nextLanguage === "zh" ? "分層安全案例的主要來源" : "Primary sources for the layered security case study");
-  document.querySelector("#languageToggle").setAttribute("aria-label", nextLanguage === "zh" ? "Switch to English" : "Switch to Traditional Chinese");
-  document.querySelector("#searchInput").setAttribute("aria-label", nextLanguage === "zh" ? "搜尋學習內容" : "Search learning content");
-  document.querySelector("#themeToggle").setAttribute("aria-label", nextLanguage === "zh" ? "切換顯示主題" : "Toggle display theme");
-  syncMenuState(document.querySelector(".primary-nav").classList.contains("open"));
-  document.querySelector("#searchInput").placeholder = nextLanguage === "zh" ? "搜尋 OTP、PUF、retention、fault…" : "Search OTP, PUF, retention, fault…";
-  document.querySelector("#emptyState").textContent = nextLanguage === "zh" ? "找不到符合條件的內容。" : "No matching learning content.";
-  document.querySelector('meta[name="description"]').content = nextLanguage === "zh" ? "NVM Knowledge Hub：以 SRAM PUF、AES-256 與 OTP 為核心的 Secure Storage executive learning experience。" : "NVM Knowledge Hub: an executive Secure Storage learning experience built around SRAM PUF, AES-256 and OTP.";
-  document.querySelector("#searchInput").value = "";
+  document.querySelector(".primary-nav")?.setAttribute("aria-label", nextLanguage === "zh" ? "主要導覽" : "Primary navigation");
+  document.querySelector(".brand")?.setAttribute("aria-label", nextLanguage === "zh" ? "NVM Knowledge Hub 首頁" : "NVM Knowledge Hub home");
+  document.querySelector(".hero-proof")?.setAttribute("aria-label", nextLanguage === "zh" ? "供應商公開的產品組合數據" : "Vendor-reported portfolio figures");
+  document.querySelector(".signal-strip")?.setAttribute("aria-label", nextLanguage === "zh" ? "核心產品構成" : "Core product composition");
+  document.querySelector(".state-switch")?.setAttribute("aria-label", nextLanguage === "zh" ? "切換電源狀態" : "Switch power state");
+  document.querySelector(".silicon-stage")?.setAttribute("aria-label", nextLanguage === "zh" ? "Secure Storage 電源狀態示意" : "Secure Storage power-state model");
+  document.querySelector(".architecture-flow")?.setAttribute("aria-label", nextLanguage === "zh" ? "Secure Storage 架構" : "Secure Storage architecture");
+  document.querySelector(".compare-switch")?.setAttribute("aria-label", nextLanguage === "zh" ? "比較層級" : "Comparison level");
+  document.querySelector("#filters")?.setAttribute("aria-label", nextLanguage === "zh" ? "內容類型篩選" : "Content-type filters");
+  document.querySelector(".case-flow")?.setAttribute("aria-label", nextLanguage === "zh" ? "分層企業簽署參考架構" : "Layered enterprise-signing reference architecture");
+  document.querySelector(".stack-sources")?.setAttribute("aria-label", nextLanguage === "zh" ? "分層安全案例的主要來源" : "Primary sources for the layered security case study");
+  document.querySelector("#languageToggle")?.setAttribute("aria-label", nextLanguage === "zh" ? "Switch to English" : "Switch to Traditional Chinese");
+  document.querySelector("#searchInput")?.setAttribute("aria-label", nextLanguage === "zh" ? "搜尋學習內容" : "Search learning content");
+  document.querySelector("#themeToggle")?.setAttribute("aria-label", nextLanguage === "zh" ? "切換顯示主題" : "Toggle display theme");
+  if (typeof syncMenuState === "function" && document.querySelector(".primary-nav")) {
+    syncMenuState(document.querySelector(".primary-nav").classList.contains("open"));
+  }
+  const searchInputEl = document.querySelector("#searchInput");
+  if (searchInputEl) {
+    searchInputEl.placeholder = nextLanguage === "zh" ? "搜尋 OTP、PUF、retention、fault…" : "Search OTP, PUF, retention, fault…";
+    searchInputEl.value = "";
+  }
+  const emptyStateEl = document.querySelector("#emptyState");
+  if (emptyStateEl) emptyStateEl.textContent = nextLanguage === "zh" ? "找不到符合條件的內容。" : "No matching learning content.";
+  const metaDescEl = document.querySelector('meta[name="description"]');
+  if (metaDescEl) metaDescEl.content = nextLanguage === "zh" ? "NVM Knowledge Hub：以 SRAM PUF、AES-256 與 OTP 為核心的 Secure Storage executive learning experience。" : "NVM Knowledge Hub: an executive Secure Storage learning experience built around SRAM PUF, AES-256 and OTP.";
   activeType = "all";
   renderLearningPath();
   renderFilters();

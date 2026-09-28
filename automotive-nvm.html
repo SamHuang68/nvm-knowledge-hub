@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <script src="site-language.js?v=20260920-apps1"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>Automotive-Grade NVM · AEC-Q100 Grade 0, ISO 26262 ASIL-D &amp; SECDED · NVM Knowledge Hub</title>
   <meta name="description" content="Automotive eNVM learning page: AEC-Q100 Grade 0 context, ISO 26262 / ASIL scope, ECC/SECDED, and foundry qualification evidence — not a product certification.">
   <meta name="author" content="NVM Knowledge Hub Editorial Board">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="theme-color" content="#061925">
+  <meta name="theme-color" content="#f8fafc">
   <link rel="canonical" href="https://hub.samhuang68.org/automotive-nvm.html">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta property="og:type" content="article">
@@ -57,8 +57,8 @@
     }
 
     body {
-      background-color: #061925;
-      color: #c9c0b4;
+      background-color: #0f172a;
+      color: #334155;
       font-family: 'Plus Jakarta Sans', 'Noto Sans TC', sans-serif;
       overflow-x: hidden;
       background-image: none;
@@ -67,15 +67,15 @@
     }
 
     :root {
-      --paper-bg: #061925;
-      --paper-card: #0e2a38;
-      --ink-heading: #0a1e2c;
+      --paper-bg: #f1f5f9;
+      --paper-card: #f1f5f9;
+      --ink-heading: #f1f5f9;
       --ink-body: #334155;
       --ink-muted: #64748b;
       --cyan-editorial: #8a6a42;
       --amber-editorial: #d97706;
-      --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
-      --card-shadow-hover: 0 12px 28px -4px rgba(15, 23, 42, 0.09), 0 4px 10px -2px rgba(15, 23, 42, 0.03);
+      --card-shadow: 0 4px 20px -2px rgba(248, 250, 252, 0.96), 0 2px 6px -1px rgba(248, 250, 252, 0.96);
+      --card-shadow-hover: 0 12px 28px -4px rgba(248, 250, 252, 0.96), 0 4px 10px -2px rgba(248, 250, 252, 0.96);
     }
 
     .mono-text, .meta-code, .stat-val, .pill-number {
@@ -84,7 +84,7 @@
 
     /* 頂部跳轉連結 (A11y) */
     .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #f59e0b; padding: 10px 18px; border: 1px solid #f59e0b; border-radius: 4px; }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #f8fafc; color: #f59e0b; padding: 10px 18px; border: 1px solid #f59e0b; border-radius: 4px; }
     .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
 
     /* =========================================================================
@@ -92,11 +92,11 @@
        ========================================================================= */
     .m3-hero-container {
       position: relative;
-      background: linear-gradient(180deg, rgba(6, 25, 37, 0.96) 0%, rgba(3, 19, 30, 0.99) 100%);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+      background: linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 100%);
+      border-bottom: 1px solid rgba(248, 250, 252, 0.96);
       overflow: hidden;
       padding: clamp(32px, 3.8vw, 48px) var(--hub-keepout, 24px) clamp(38px, 4.5vw, 56px);
-      color: #f8fafc;
+      color: #0f172a;
       text-align: center;
     }
     .m3-hero-media {
@@ -122,8 +122,8 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.18) 0%, rgba(6, 25, 37, 0.88) 68%, rgba(3, 19, 30, 0.98) 100%),
-                  linear-gradient(180deg, rgba(6, 25, 37, 0.65) 0%, rgba(3, 19, 30, 0.96) 100%);
+      background: radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.18) 0%, rgba(248, 250, 252, 0.96) 68%, rgba(248, 250, 252, 0.96) 100%),
+                  linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 100%);
     }
     .m3-hero-grid {
       position: absolute;
@@ -161,9 +161,9 @@
       line-height: 1.16;
       letter-spacing: -0.025em;
       margin: 6px 0 10px;
-      color: #ffffff;
+      color: #0f172a;
       text-wrap: balance !important;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+      text-shadow: 0 2px 12px rgba(248, 250, 252, 0.96);
     }
     .m3-hero h1 em {
       color: #f59e0b;
@@ -171,13 +171,13 @@
       font-weight: 700;
     }
     .m3-hero p.lead-desc {
-      color: #cbd5e1;
+      color: #334155;
       font-size: clamp(14px, 1.1vw, 16px);
       line-height: 1.6;
       max-width: 860px;
       margin: 0 auto 16px;
       text-wrap: balance !important;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+      text-shadow: 0 1px 4px rgba(248, 250, 252, 0.96);
     }
     .m3-hero-proof {
       display: flex;
@@ -202,7 +202,7 @@
     }
     .m3-hero-proof span {
       font-size: 11px;
-      color: #94a3b8;
+      color: #334155;
       font-weight: 500;
     }
 
@@ -231,11 +231,11 @@
       .stat-strip-grid { grid-template-columns: 1fr; }
     }
     .stat-strip-card {
-      background: #0e2a38 !important;
-      border: 1px solid rgba(15, 23, 42, 0.08) !important;
+      background: #f8fafc !important;
+      border: 1px solid rgba(248, 250, 252, 0.96) !important;
       border-radius: 6px !important;
       padding: 12px 16px !important;
-      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
       display: flex !important;
       flex-direction: column !important;
       gap: 4px !important;
@@ -243,7 +243,7 @@
     }
     .stat-strip-card:hover {
       transform: translateY(-2px) !important;
-      box-shadow: 0 10px 24px -2px rgba(15, 23, 42, 0.09) !important;
+      box-shadow: 0 10px 24px -2px rgba(248, 250, 252, 0.96) !important;
     }
     .stat-strip-card.border-l-cyan { border-left: 4px solid #8a6a42 !important; }
     .stat-strip-card.border-l-teal { border-left: 4px solid #8a6a42 !important; }
@@ -259,7 +259,7 @@
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 0.66rem !important;
       font-weight: 700 !important;
-      color: #b5aa9c !important;
+      color: #334155 !important;
     }
     .pulse-chip-mini {
       display: inline-block;
@@ -289,7 +289,7 @@
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 1.25rem !important;
       font-weight: 600 !important;
-      color: #f3ebe0 !important;
+      color: #0f172a !important;
       line-height: 1.15 !important;
       letter-spacing: -0.01em !important;
     }
@@ -298,7 +298,7 @@
       font-size: 10.5px !important;
       text-transform: uppercase !important;
       letter-spacing: 0.08em !important;
-      color: #e8e0d4 !important;
+      color: #0f172a !important;
       font-weight: 700 !important;
       margin-top: 1px !important;
     }
@@ -335,15 +335,15 @@
     .lens-vertical-rail {
       position: sticky;
       top: 76px;
-      background: #0e2a38;
-      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: #f8fafc;
+      border: 1px solid rgba(248, 250, 252, 0.96);
       border-radius: 8px;
       padding: 10px 8px;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+      box-shadow: 0 4px 20px -2px rgba(248, 250, 252, 0.96), 0 2px 6px -1px rgba(248, 250, 252, 0.96);
       z-index: 40;
     }
     .rail-header {
-      border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+      border-bottom: 1px solid rgba(248, 250, 252, 0.96);
       padding-bottom: 6px;
       margin-bottom: 8px;
       display: flex;
@@ -360,9 +360,9 @@
     .rail-tag {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.62rem;
-      color: #b5aa9c;
-      background: #0a2230;
-      border: 1px solid rgba(15, 23, 42, 0.06);
+      color: #334155;
+      background: #f8fafc;
+      border: 1px solid rgba(248, 250, 252, 0.96);
       padding: 1px 5px;
       border-radius: 3px;
     }
@@ -385,23 +385,23 @@
       padding: 7px 8px;
       border-radius: 6px;
       text-decoration: none;
-      color: #f3ebe0;
-      background: #061925;
-      border: 1px solid rgba(15, 23, 42, 0.06);
+      color: #0f172a;
+      background: #f8fafc;
+      border: 1px solid rgba(248, 250, 252, 0.96);
       transition: all 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
       position: relative;
     }
     .lens-node-item:hover {
-      background: #133445;
+      background: #f1f5f9;
       border-color: rgba(217, 119, 6, 0.35);
-      color: #f3ebe0;
+      color: #0f172a;
       transform: translateX(2px);
       box-shadow: 0 2px 8px rgba(217, 119, 6, 0.08);
     }
     .lens-node-item.active {
-      background: #133445;
+      background: #f1f5f9;
       border-color: #d97706;
-      color: #f3ebe0;
+      color: #0f172a;
       box-shadow: inset 3px 0 0 #d97706, 0 3px 12px rgba(217, 119, 6, 0.12);
     }
     .lens-badge {
@@ -420,7 +420,7 @@
     }
     .lens-node-item.active .lens-badge {
       background: #d97706;
-      color: #ffffff;
+      color: #0f172a;
       border-color: #b45309;
       font-weight: 600;
     }
@@ -433,7 +433,7 @@
     .lens-name {
       font-size: 0.75rem;
       font-weight: 600;
-      color: #f3ebe0;
+      color: #0f172a;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -457,7 +457,7 @@
     .rail-footer {
       margin-top: 14px;
       padding-top: 10px;
-      border-top: 1px solid rgba(15, 23, 42, 0.08);
+      border-top: 1px solid rgba(248, 250, 252, 0.96);
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.64rem;
       color: #64748b;
@@ -468,15 +468,15 @@
 
     /* 右側高密度內容工作台 (Main Stage) */
     .lens-stage-container {
-      background: #0e2a38;
-      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: #f8fafc;
+      border: 1px solid rgba(248, 250, 252, 0.96);
       border-radius: 10px;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+      box-shadow: 0 4px 20px -2px rgba(248, 250, 252, 0.96);
       overflow: hidden;
     }
     .lens-panel {
       padding: clamp(16px, 2.2vw, 28px);
-      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      border-bottom: 1px solid rgba(248, 250, 252, 0.96);
     }
     .lens-panel:last-child {
       border-bottom: none;
@@ -503,7 +503,7 @@
       font-size: clamp(20px, 2.2vw, 30px);
       font-weight: 600;
       line-height: 1.22;
-      color: #f3ebe0;
+      color: #0f172a;
       text-wrap: balance !important;
     }
     .lens-panel h2 em {
@@ -513,7 +513,7 @@
     .panel-desc {
       font-size: 0.92rem;
       line-height: 1.6;
-      color: #b5aa9c;
+      color: #334155;
       margin: 0 0 16px;
       text-wrap: balance !important;
     }
@@ -529,9 +529,9 @@
       .gate-stepper { grid-template-columns: 1fr; }
     }
     .gate-card {
-      background: #0e2a38;
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+      background: #f8fafc;
+      border: 1px solid rgba(248, 250, 252, 0.96);
+      box-shadow: 0 2px 10px rgba(248, 250, 252, 0.96);
       border-radius: 6px;
       padding: 16px;
       position: relative;
@@ -557,20 +557,20 @@
     .gate-card h3,
     .gate-card h4 {
       font: 700 1.05rem/1.25 'IBM Plex Mono', monospace;
-      color: #f3ebe0;
+      color: #0f172a;
       margin: 0 0 8px;
     }
     .gate-card p {
       font-size: 0.84rem;
       line-height: 1.55;
-      color: #b5aa9c;
+      color: #334155;
       margin: 0;
     }
 
     /* 第一性原理物理公式卡片 */
     .formula-box-math {
-      background: #0e2a38;
-      color: #f3ebe0;
+      background: #f8fafc;
+      color: #0f172a;
       border: 1px solid rgba(217, 119, 6, 0.28);
       border-left: 4px solid #d97706;
       border-radius: 6px;
@@ -579,7 +579,7 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.82rem;
       line-height: 1.55;
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 2px 8px rgba(248, 250, 252, 0.96);
     }
     .formula-box-math strong {
       color: #b45309;
@@ -592,21 +592,21 @@
 
     /* Lab Box 儀器視窗 (外白卡片微投影，內部維持深色示波器視窗) */
     .lab-box-panel {
-      background: #0e2a38 !important;
-      color: #c9c0b4 !important;
+      background: #f8fafc !important;
+      color: #334155 !important;
       border-radius: 8px;
       margin: 4px 0;
-      border: 1px solid rgba(15, 23, 42, 0.08) !important;
-      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05) !important;
+      border: 1px solid rgba(248, 250, 252, 0.96) !important;
+      box-shadow: 0 4px 20px -2px rgba(248, 250, 252, 0.96) !important;
     }
     .lab-box-panel .panel-kicker {
       color: #b45309;
     }
     .lab-box-panel h2 {
-      color: #f3ebe0 !important;
+      color: #0f172a !important;
     }
     .lab-box-panel .panel-desc {
-      color: #b5aa9c !important;
+      color: #334155 !important;
     }
 
     /* SECDED 72-bit Grid */
@@ -629,12 +629,12 @@
       cursor: pointer;
       user-select: none;
       transition: all 0.2s;
-      background: #03131e;
+      background: #f8fafc;
       border: 1px solid rgba(196, 165, 116, 0.2);
-      color: #c4a574;
+      color: #785021;
     }
     .ecc-bit-node:hover {
-      border-color: #c4a574;
+      border-color: #785021;
       background: rgba(196, 165, 116, 0.1);
     }
     .ecc-bit-node.parity {
@@ -648,7 +648,7 @@
     }
     .ecc-bit-node.flipped {
       background: #ef4444 !important;
-      color: #fff !important;
+      color: #0f172a !important;
       border-color: #f87171 !important;
       box-shadow: 0 0 12px rgba(239, 68, 68, 0.7);
       transform: scale(1.06);
@@ -664,7 +664,7 @@
     }
     .ecc-status-pill.clean {
       background: rgba(196, 165, 116, 0.15);
-      color: #c4a574;
+      color: #785021;
       border: 1px solid #c4a574;
     }
     .ecc-status-pill.sec {
@@ -746,15 +746,15 @@
             <span><span data-lang="zh">AEC-Q100 Grade 0 詞彙</span><span data-lang="en">Grade 0 vocabulary</span></span>
           </div>
           <div>
-            <strong class="mono-text" style="color: #c4a574;">DRIFT CLASS </strong>
+            <strong class="mono-text" style="color: #785021;">DRIFT CLASS </strong>
             <span><span data-lang="zh">微絲歐姆接觸穩定</span><span data-lang="en">Named-condition filament ohmic stability </span></span>
           </div>
           <div>
-            <strong class="mono-text" style="color: #c4a574;">ASIL</strong>
+            <strong class="mono-text" style="color: #785021;">ASIL</strong>
             <span><span data-lang="zh">ISO 26262 ASIL 語境（SEooC）· 非認證</span><span data-lang="en">ISO 26262 ASIL context (SEooC) · not a certification</span></span>
           </div>
           <div>
-            <strong class="mono-text" style="color: #c4a574;">DEFECTIVITY</strong>
+            <strong class="mono-text" style="color: #785021;">DEFECTIVITY</strong>
             <span><span data-lang="zh">任務載記詞彙（非 Zero-PPM 認證）</span><span data-lang="en">Mission-profile vocabulary (not Zero-PPM cert)</span></span>
           </div>
         </div>
@@ -955,7 +955,7 @@
               <span data-lang="zh">調控結溫 (Tj) 與服役壽命，即時運算 Arrhenius 熱加速因數 (AF)，直觀檢驗 AntiFuse 閘極介電質擊穿微絲歐姆接觸與傳統浮閘在高溫下的物理留存邊際對比。</span>
               <span data-lang="en">Adjust junction temperature (Tj) and service life to compute real-time Arrhenius acceleration factors (AF), demonstrating AntiFuse drift-class  vs floating-gate charge-loss decay.</span>
             </p>
-            <p class="panel-desc" style="margin-top:8px; font-size:0.85rem; color:#94a3b8;">
+            <p class="panel-desc" style="margin-top:8px; font-size:0.85rem; color:#334155;">
               <span data-lang="zh"><strong>非量測輸出：</strong>曲線使用固定 <em>E</em><sub>a</sub> 與簡化衰減式；AntiFuse「零漂移」為教學假設，不代表矽測試資料或 AEC-Q100 認證。</span>
               <span data-lang="en"><strong>Not measured data:</strong> Curves use fixed <em>E</em><sub>a</sub> and simplified decay — AntiFuse “zero drift” is a teaching assumption, not silicon test data or AEC-Q100 certification.</span>
             </p>
@@ -964,13 +964,13 @@
             <div class="formula-box-math">
               <strong>[ARRHENIUS THERMAL ACCELERATION MODEL]</strong><br>
               <em>AF</em> = exp[(<em>E</em><sub>a</sub> / <em>k</em><sub>B</sub>) · (1/<em>T</em><sub>use</sub> − 1/<em>T</em><sub>stress</sub>)]<br>
-              <small style="color: #94a3b8;">
+              <small style="color: #334155;">
                 (<em>T</em><sub>use</sub> = 55°C (328.15&nbsp;K) <span data-lang="zh">教學基準</span><span data-lang="en">teaching baseline</span>, <em>E</em><sub>a</sub> = 0.84&nbsp;eV <span data-lang="zh">假設活化能 — 非量測常數</span><span data-lang="en">assumed Ea — not a measured constant</span>)
               </small>
             </div>
 
             <!-- Instrument Sliders & HUD -->
-            <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; background: #03131e; padding: 10px 14px; border-radius: 6px; border: 1px solid rgba(245, 158, 11, 0.2); margin-bottom: 12px;">
+            <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; background: #f8fafc; padding: 10px 14px; border-radius: 6px; border: 1px solid rgba(245, 158, 11, 0.2); margin-bottom: 12px;">
               <div style="display: flex; align-items: center; gap: 10px;">
                 <label for="tempSlider" style="font: 700 11px 'IBM Plex Mono'; color: #f59e0b;">
                   <span data-lang="zh">結溫 TJ (°C):</span><span data-lang="en">JUNCTION TJ:</span>
@@ -979,24 +979,24 @@
                 <span class="mono-text" id="tempVal" style="color: #f59e0b; font-weight: 700; font-size: 1rem;">175 °C</span>
               </div>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <label for="yearSlider" style="font: 700 11px 'IBM Plex Mono'; color: #c4a574;">
+                <label for="yearSlider" style="font: 700 11px 'IBM Plex Mono'; color: #785021;">
                   <span data-lang="zh">服役壽命 (Years):</span><span data-lang="en">SERVICE YEARS:</span>
                 </label>
-                <input type="range" id="yearSlider" aria-label="Service Lifetime (Years)" data-aria-en="Service Lifetime (Years)" data-aria-zh="運作壽命 (年)" min="1" max="25" step="1" value="15" aria-valuetext="15 Yrs" style="accent-color: #c4a574; cursor: pointer; width: 110px;">
-                <span class="mono-text" id="yearVal" style="color: #c4a574; font-weight: 700; font-size: 1rem;">15 Yrs</span>
+                <input type="range" id="yearSlider" aria-label="Service Lifetime (Years)" data-aria-en="Service Lifetime (Years)" data-aria-zh="運作壽命 (年)" min="1" max="25" step="1" value="15" aria-valuetext="15 Yrs" style="accent-color: #785021; cursor: pointer; width: 110px;">
+                <span class="mono-text" id="yearVal" style="color: #785021; font-weight: 700; font-size: 1rem;">15 Yrs</span>
               </div>
               <div>
-                <span style="font: 600 11px 'IBM Plex Mono'; color: #8ea9b3;">
+                <span style="font: 600 11px 'IBM Plex Mono'; color: #334155;">
                   <span data-lang="zh">熱加速因數 (AF):</span><span data-lang="en">ACCEL FACTOR (AF):</span>
                 </span>
                 <b class="mono-text" id="afVal" aria-live="polite" style="color: #f59e0b; font-size: 1.1rem;">2,840×</b>
               </div>
             </div>
 
-            <div style="background: #020c13; border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 6px; padding: 8px;">
+            <div style="background: #f8fafc; border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 6px; padding: 8px;">
               <canvas id="thermalCanvas" style="width: 100%; height: 280px; display: block;"></canvas>
             </div>
-            <div style="display: flex; justify-content: space-between; font: 500 10.5px 'IBM Plex Mono'; color: #8ea9b3; margin-top: 8px;">
+            <div style="display: flex; justify-content: space-between; font: 500 10.5px 'IBM Plex Mono'; color: #334155; margin-top: 8px;">
               <span><span data-lang="zh">＊金色曲線：反熔絲永久介電質擊穿微絲（175°C 下 15 年，具名條件歐姆穩定度 &lt;0.08%）</span><span data-lang="en">* Gold Trace: AntiFuse Permanent Dielectric Breakdown Filament (15 Yrs @ 175°C, named-condition ohmic stability  &lt;0.08%)</span></span>
               <span><span data-lang="zh">＊紅色曲線：浮動閘極熱離子逸出（175°C 下超過 2 年後失去感測裕量）</span><span data-lang="en">* Red Trace: Floating-Gate Thermionic Escape (Loss of Sensing Margin beyond 2 Yrs @ 175°C)</span></span>
             </div>
@@ -1025,7 +1025,7 @@
                   <span data-lang="zh">注入雙位元 (DED)</span>
                   <span data-lang="en">Inject 2-Bit Error</span>
                 </button>
-                <button type="button" id="btnResetEcc" style="padding: 5px 10px; background: rgba(255, 255, 255, 0.08); color: #94a3b8; border: 1px solid #64748b; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
+                <button type="button" id="btnResetEcc" style="padding: 5px 10px; background: rgba(255, 255, 255, 0.08); color: #334155; border: 1px solid #64748b; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
                   <span data-lang="zh">重設矩陣</span>
                   <span data-lang="en">Reset Array</span>
                 </button>
@@ -1036,18 +1036,18 @@
             <div class="ecc-bits-deck" id="eccBitsDeck"></div>
 
             <!-- Hardware Syndrome Telemetry Box -->
-            <div style="background: #03131e; border: 1px solid rgba(196, 165, 116, 0.2); border-radius: 6px; padding: 10px 14px; margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; font: 600 11px 'IBM Plex Mono';">
+            <div style="background: #f8fafc; border: 1px solid rgba(196, 165, 116, 0.2); border-radius: 6px; padding: 10px 14px; margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; font: 600 11px 'IBM Plex Mono';">
               <div>
                 <div style="color: #64748b; margin-bottom: 2px;">SYNDROME VECTOR S[7:0]</div>
-                <div id="eccSyndromeVal" style="color: #c4a574; font-size: 12.5px;">0x00 (NO SYNDROME)</div>
+                <div id="eccSyndromeVal" style="color: #785021; font-size: 12.5px;">0x00 (NO SYNDROME)</div>
               </div>
               <div>
                 <div style="color: #64748b; margin-bottom: 2px;">HARDWARE RESPONSE ACTION</div>
-                <div id="eccActionVal" style="color: #c4a574; font-size: 12.5px;">NORMAL 0-CYCLE PASS</div>
+                <div id="eccActionVal" style="color: #785021; font-size: 12.5px;">NORMAL 0-CYCLE PASS</div>
               </div>
               <div>
                 <div style="color: #64748b; margin-bottom: 2px;">ISO 26262 SAFETY STATUS</div>
-                <div id="eccSafetyVal" style="color: #c4a574; font-size: 12.5px;">SAFETY STATE: NOMINAL (TARGET: ASIL-D ARCHITECTURE)</div>
+                <div id="eccSafetyVal" style="color: #785021; font-size: 12.5px;">SAFETY STATE: NOMINAL (TARGET: ASIL-D ARCHITECTURE)</div>
               </div>
             </div>
           </section>
@@ -1065,72 +1065,72 @@
             </p>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin: 12px 0 18px;">
-              <div style="background:#0e2a38; border:1px solid rgba(15,23,42,0.08); border-radius:6px; padding:14px; border-top: 4px solid #8a6a42; box-shadow:0 2px 10px rgba(15,23,42,0.04);">
+              <div style="background:#f8fafc; border:1px solid rgba(248, 250, 252, 0.96); border-radius:6px; padding:14px; border-top: 4px solid #8a6a42; box-shadow:0 2px 10px rgba(248, 250, 252, 0.96);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#8a6a42;">CONTRACT 01 · IMMUTABLE ID</span>
-                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#8a6a42; background:#0e2a38; padding:1px 6px; border-radius:3px; border:1px solid #f0e6d6;">ISO 26262 ASIL-D vocab (SEooC · not cert)</span>
+                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#8a6a42; background:#f8fafc; padding:1px 6px; border-radius:3px; border:1px solid #f0e6d6;">ISO 26262 ASIL-D vocab (SEooC · not cert)</span>
                 </div>
-                <h3 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
+                <h3 style="color:#0f172a; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">不可變車輛身分與金鑰憑證</span>
                   <span data-lang="en">Immutable Vehicle ID &amp; Root Keys</span>
                 </h3>
-                <p style="color:#b5aa9c; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
+                <p style="color:#334155; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
                   <span data-lang="zh">車輛 VIN 碼、ECU 唯一序號、NIST LMS 後量子啟動根憑證。寫入後不可抹除、不可降級，全生命週期嚴禁任何未授權篡改。</span>
                   <span data-lang="en">Vehicle VIN, ECU UID, and NIST LMS post-quantum boot root keys. Physical write-path severed after programming, prohibiting tampering.</span>
                 </p>
-                <div style="font:600 10px 'IBM Plex Mono'; color:#8a6a42; background:#061925; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
+                <div style="font:600 10px 'IBM Plex Mono'; color:#8a6a42; background:#f8fafc; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
                   <span data-lang="zh">目標：FIT &lt; 0.1 · 資料保存：175°C 下 20 年</span><span data-lang="en">TARGET: FIT &lt; 0.1 · RETENTION: 20 Yrs @ 175&deg;C</span>
                 </div>
               </div>
 
-              <div style="background:#0e2a38; border:1px solid rgba(15,23,42,0.08); border-radius:6px; padding:14px; border-top: 4px solid #d97706; box-shadow:0 2px 10px rgba(15,23,42,0.04);">
+              <div style="background:#f8fafc; border:1px solid rgba(248, 250, 252, 0.96); border-radius:6px; padding:14px; border-top: 4px solid #d97706; box-shadow:0 2px 10px rgba(248, 250, 252, 0.96);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#d97706;">CONTRACT 02 · CALIBRATION</span>
-                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#d97706; background:#133445; padding:1px 6px; border-radius:3px; border:1px solid #1a3340;">GRADE 0 BOUNDED</span>
+                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#d97706; background:#f1f5f9; padding:1px 6px; border-radius:3px; border:1px solid #1a3340;">GRADE 0 BOUNDED</span>
                 </div>
-                <h3 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
+                <h3 style="color:#0f172a; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">引擎與雷達感測器工廠標定參數</span>
                   <span data-lang="en">Sensor Factory Calibration</span>
                 </h3>
-                <p style="color:#b5aa9c; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
+                <p style="color:#334155; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
                   <span data-lang="zh">ADC 增益偏差、帶隙基準電壓、LiDAR 光學陣列校準。僅限出廠封裝與受控車廠 OTA 維護時進行有限次數單向補丁。</span>
                   <span data-lang="en">ADC gain offsets, bandgap voltages, and LiDAR calibration arrays. Bounded to factory testing and authorized OEM maintenance.</span>
                 </p>
-                <div style="font:600 10px 'IBM Plex Mono'; color:#d97706; background:#061925; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
+                <div style="font:600 10px 'IBM Plex Mono'; color:#d97706; background:#f8fafc; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
                   <span data-lang="zh">漂移：175°C 下 &lt; 1.5% · 寫入：限定 16 次</span><span data-lang="en">DRIFT: &lt; 1.5% @ 175&deg;C · WRITE: Bounded 16x</span>
                 </div>
               </div>
 
-              <div style="background:#0e2a38; border:1px solid rgba(15,23,42,0.08); border-radius:6px; padding:14px; border-top: 4px solid #6f5536; box-shadow:0 2px 10px rgba(15,23,42,0.04);">
+              <div style="background:#f8fafc; border:1px solid rgba(248, 250, 252, 0.96); border-radius:6px; padding:14px; border-top: 4px solid #6f5536; box-shadow:0 2px 10px rgba(248, 250, 252, 0.96);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
                   <span style="font:700 10.5px 'IBM Plex Mono'; color:#6f5536;">CONTRACT 03 · RESILIENT RECOVERY</span>
-                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#6f5536; background:#133445; padding:1px 6px; border-radius:3px; border:1px solid #2a3f3a;">FAIL-SAFE READY</span>
+                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#6f5536; background:#f1f5f9; padding:1px 6px; border-radius:3px; border:1px solid #2a3f3a;">FAIL-SAFE READY</span>
                 </div>
-                <h3 style="color:#f3ebe0; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
+                <h3 style="color:#0f172a; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">ADAS 安全備援與緊急開機向量</span>
                   <span data-lang="en">ADAS Safe Recovery Vectors</span>
                 </h3>
-                <p style="color:#b5aa9c; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
+                <p style="color:#334155; font-size:0.84rem; line-height:1.55; margin:0 0 8px;">
                   <span data-lang="zh">當主控晶片遭遇雙位元故障或匯流排雪崩，硬體中斷即刻切入 AntiFuse 備援安全引導程式，保證車輛煞車與轉向安全降級停靠。</span>
                   <span data-lang="en">When primary processors encounter uncorrectable dual-bit ECC faults, hardware interrupts redirect to fallback boot vectors within 10ms.</span>
                 </p>
-                <div style="font:600 10px 'IBM Plex Mono'; color:#6f5536; background:#061925; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
+                <div style="font:600 10px 'IBM Plex Mono'; color:#6f5536; background:#f8fafc; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
                   <span data-lang="zh">容錯切換：&lt; 10 ms · SECDED ECC 自主運作</span><span data-lang="en">FAILOVER: &lt; 10 ms · SECDED ECC Autonomous</span>
                 </div>
               </div>
             </div>
 
             <!-- ASIL-D Matrix Table -->
-            <div style="margin: 14px 0 6px; background: #0e2a38; border: 1px solid rgba(15,23,42,0.1); border-radius: 6px; overflow: hidden; box-shadow: 0 4px 16px rgba(15,23,42,0.04);">
-              <div style="padding: 10px 16px; background: #0a2230; border-bottom: 2px solid #8a6a42; font: 700 11px 'IBM Plex Mono'; color: #f3ebe0; display:flex; justify-content:space-between; align-items:center;">
+            <div style="margin: 14px 0 6px; background: #f8fafc; border: 1px solid rgba(248, 250, 252, 0.96); border-radius: 6px; overflow: hidden; box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96);">
+              <div style="padding: 10px 16px; background: #f8fafc; border-bottom: 2px solid #8a6a42; font: 700 11px 'IBM Plex Mono'; color: #0f172a; display:flex; justify-content:space-between; align-items:center;">
                 <span><span data-lang="zh">ISO 26262 ASIL-D SEooC 硬體架構可靠度指標</span><span data-lang="en">ISO 26262 ASIL-D SEooC HARDWARE ARCHITECTURAL RELIABILITY METRICS</span></span>
                 <span style="color:#8a6a42; font-size:9.5px;">AEC-Q100 Grade 0 vocabulary (not a certification claim)</span>
               </div>
               <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="ISO 26262 ASIL-D SEooC Hardware Architectural Reliability Metrics" data-aria-zh="ISO 26262 ASIL-D SEooC 硬體架構可靠度指標矩陣" data-aria-en="ISO 26262 ASIL-D SEooC Hardware Architectural Reliability Metrics">
                 <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left;">
-                  <caption style="text-align: left; padding: 8px 14px; font: 700 11px 'IBM Plex Mono', monospace; color: #c4a574; background: #061925; border-bottom: 1px solid rgba(196,165,116,0.2);"><span data-lang="zh">ISO 26262 ASIL-D SEooC 硬體架構可靠度指標矩陣</span><span data-lang="en">ISO 26262 ASIL-D SEooC Hardware Architectural Reliability Metrics Matrix</span></caption>
+                  <caption style="text-align: left; padding: 8px 14px; font: 700 11px 'IBM Plex Mono', monospace; color: #785021; background: #f8fafc; border-bottom: 1px solid rgba(196,165,116,0.2);"><span data-lang="zh">ISO 26262 ASIL-D SEooC 硬體架構可靠度指標矩陣</span><span data-lang="en">ISO 26262 ASIL-D SEooC Hardware Architectural Reliability Metrics Matrix</span></caption>
                   <thead>
-                    <tr style="background: #061925; border-bottom: 1px solid #e2e8f0; font-family:'IBM Plex Mono'; font-size:10.5px; color:#b5aa9c;">
+                    <tr style="background: #f8fafc; border-bottom: 1px solid #e2e8f0; font-family:'IBM Plex Mono'; font-size:10.5px; color:#334155;">
                       <th scope="col" style="padding: 10px 14px;">STATE CONTRACT</th>
                       <th scope="col" style="padding: 10px 14px;">SILICON PRIMITIVE</th>
                       <th scope="col" style="padding: 10px 14px;"><span data-lang="zh">SPFM（AoU 示意）</span><span data-lang="en">SPFM (AoU example)</span></th>
@@ -1141,28 +1141,28 @@
                   </thead>
                   <tbody>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
-                      <td style="padding: 10px 14px; font-weight:600; color:#f3ebe0;">CONTRACT 01 · Root ID</td>
+                      <td style="padding: 10px 14px; font-weight:600; color:#0f172a;">CONTRACT 01 · Root ID</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono';">AntiFuse OTP</td>
                       <td style="padding: 10px 14px; font-weight:600; color:#6f5536;"><span data-lang="zh">示意值 · 需 FMEDA</span><span data-lang="en">Illustrative · FMEDA req.</span></td>
                       <td style="padding: 10px 14px; font-weight:600; color:#6f5536;"><span data-lang="zh">示意值 · 需 FMEDA</span><span data-lang="en">Illustrative · FMEDA req.</span></td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:600; color:#8a6a42;"><span data-lang="zh">示意 · 非量測</span><span data-lang="en">Example · not measured</span></td>
-                      <td style="padding: 10px 14px;"><span style="background:#133445; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ISO 26262 ASIL-D vocab (SEooC)</span></td>
+                      <td style="padding: 10px 14px;"><span style="background:#f1f5f9; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ISO 26262 ASIL-D vocab (SEooC)</span></td>
                     </tr>
-                    <tr style="border-bottom: 1px solid #f1f5f9; background:#0a2230;">
-                      <td style="padding: 10px 14px; font-weight:600; color:#f3ebe0;">CONTRACT 02 · Trim</td>
+                    <tr style="border-bottom: 1px solid #f1f5f9; background:#f8fafc;">
+                      <td style="padding: 10px 14px; font-weight:600; color:#0f172a;">CONTRACT 02 · Trim</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono';">AntiFuse Counter</td>
                       <td style="padding: 10px 14px; font-weight:600; color:#6f5536;"><span data-lang="zh">示意值 · 需 FMEDA</span><span data-lang="en">Illustrative · FMEDA req.</span></td>
                       <td style="padding: 10px 14px; font-weight:600; color:#6f5536;"><span data-lang="zh">示意值 · 需 FMEDA</span><span data-lang="en">Illustrative · FMEDA req.</span></td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:600; color:#8a6a42;"><span data-lang="zh">示意 · 非量測</span><span data-lang="en">Example · not measured</span></td>
-                      <td style="padding: 10px 14px;"><span style="background:#133445; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ISO 26262 ASIL-D vocab (SEooC)</span></td>
+                      <td style="padding: 10px 14px;"><span style="background:#f1f5f9; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ISO 26262 ASIL-D vocab (SEooC)</span></td>
                     </tr>
                     <tr style="border-bottom: 1px solid #f1f5f9;">
-                      <td style="padding: 10px 14px; font-weight:600; color:#f3ebe0;">CONTRACT 03 · Recovery</td>
+                      <td style="padding: 10px 14px; font-weight:600; color:#0f172a;">CONTRACT 03 · Recovery</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono';">SECDED OTP Macro</td>
                       <td style="padding: 10px 14px; font-weight:600; color:#6f5536;"><span data-lang="zh">示意值 · 需 FMEDA</span><span data-lang="en">Illustrative · FMEDA req.</span></td>
                       <td style="padding: 10px 14px; font-weight:600; color:#6f5536;"><span data-lang="zh">示意值 · 需 FMEDA</span><span data-lang="en">Illustrative · FMEDA req.</span></td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:600; color:#8a6a42;"><span data-lang="zh">示意 · 非量測</span><span data-lang="en">Example · not measured</span></td>
-                      <td style="padding: 10px 14px;"><span style="background:#133445; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ISO 26262 ASIL-D vocab (SEooC)</span></td>
+                      <td style="padding: 10px 14px;"><span style="background:#f1f5f9; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ISO 26262 ASIL-D vocab (SEooC)</span></td>
                     </tr>
                     <tr style="background:#2a1e22;">
                       <td style="padding: 10px 14px; font-style:italic; color:#be123c;">Industry Baseline · eFlash</td>
@@ -1175,7 +1175,7 @@
                   </tbody>
                 </table>
               </div>
-              <div style="padding: 10px 14px; font-size: 11px; color: #94a3b8; line-height: 1.55; border-top: 1px solid rgba(255,255,255,0.06); background: #061925;">
+              <div style="padding: 10px 14px; font-size: 11px; color: #334155; line-height: 1.55; border-top: 1px solid rgba(255,255,255,0.06); background: #f8fafc;">
                 <span data-lang="zh"><strong>SEooC 假定使用條件 (AoU)：</strong> 上表 SPFM／LFM／PMHF 僅為<strong>教學示意</strong>，須以具名 FMEDA 與產品整合關閉。SEooC 流程可使用 ISO 26262 ASIL <strong>詞彙</strong>（非 READY 認證）；<strong>IEC 61508 SC3</strong> 為跨標準教學對照，本頁架構不宣稱具備。系統級 ASIL 達成須 Tier-1／OEM 整合外部安全機制（看門狗、電源監控、SECDED 雙位元陷阱）。潛伏故障度量 <code>LFM</code> 依 <code>T<sub>scrub</sub> &le; T<sub>latent_budget</sub></code> 等 AoU 而定 — 不得由本頁表格直接推出認證。</span>
                 <span data-lang="en"><strong>SEooC Assumptions of Use (AoU):</strong> SPFM/LFM/PMHF in the table are <strong>teaching illustrations</strong> only — close with named FMEDA and product integration. SEooC may use ISO 26262 ASIL <strong>vocabulary</strong> (not READY certification). <strong>IEC 61508 SC3</strong> is a cross-standard teaching reference — this page does not claim that capability by architecture alone. Item-level ASIL requires Tier-1/OEM external safety mechanisms. Latent-fault metrics depend on AoU such as <code>T<sub>scrub</sub> &le; T<sub>latent_budget</sub></code> — do not infer certification from this page alone.</span>
               </div>
@@ -1189,11 +1189,11 @@
                 <span class="meta-tag" style="background:rgba(16,185,129,0.18); color:#34d399; border-color:rgba(16,185,129,0.4);">CHAPTER 05 · VALUE CHAIN &amp; SIP</span>
                 <span class="meta-desc">FOUNDRY PDK · HARBOR ROOT-OF-TRUST · CHIPLET HETEROGENEOUS PACKAGING</span>
               </div>
-              <h3 id="auto-value-chain-title" style="margin: 0.5rem 0 0.25rem; font-size: 1.4rem; color: #fff;">
+              <h3 id="auto-value-chain-title" style="margin: 0.5rem 0 0.25rem; font-size: 1.4rem; color: #0f172a;">
                 <span data-lang="zh">車用嵌入式非揮發記憶體：上下游縱深整合架構與異質封裝典範</span>
                 <span data-lang="en">Automotive eNVM: Value-Chain Integration &amp; Heterogeneous Packaging Paradigms</span>
               </h3>
-              <p style="color: #cbd5e1; font-size: 0.88rem; line-height: 1.6; margin: 0;">
+              <p style="color: #334155; font-size: 0.88rem; line-height: 1.6; margin: 0;">
                 <span data-lang="zh">汽車電子對環境溫度、低缺陷率目標（非 Zero-PPM 認證）與功能安全的要求，推動 NVM 從單純晶圓製程走向上下游端到端協同：涵蓋高壓動力 BCD 原生 0-Mask Flash、車規硬體信任根 (HRoT)，以及突破先進節點微縮斷崖的微型封裝與 Chiplet 異質整合。</span>
                 <span data-lang="en">Stringent automotive thermal envelopes, low-defectivity mission-profile targets (not Zero-PPM certification), and functional safety demand holistic value-chain co-optimization: spanning high-voltage BCD zero-mask eFlash, automotive hardware root-of-trust, and near-die heterogeneous Chiplet integration bypassing advanced-node scaling cliffs.</span>
               </p>
@@ -1201,25 +1201,25 @@
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr)); gap: 16px; margin-top: 20px;">
               <!-- Pillar 1: Tower Y-Flash -->
-              <div style="background: #082433; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+              <div style="background: #f8fafc; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                   <span style="font: 800 10px 'IBM Plex Mono'; color: #34d399; letter-spacing: 0.1em;">01 · BCD HIGH-VOLTAGE &amp; BMS</span>
                   <span style="font-size: 10px; background: rgba(16, 185, 129, 0.15); color: #34d399; padding: 2px 6px; border-radius: 3px;"><span data-lang="zh">Grade 0（Ta −40~+150°C）· Tj 175°C 具名</span><span data-lang="en">Grade 0 (Ta −40~+150°C) · Tj 175°C named</span></span>
                 </div>
-                <h4 style="margin: 0; color: #fff; font-size: 1.1rem; font-family: 'IBM Plex Mono';">Tower Semiconductor Y-Flash</h4>
-                <div style="font-size: 0.84rem; line-height: 1.6; color: #cbd5e1;">
+                <h4 style="margin: 0; color: #0f172a; font-size: 1.1rem; font-family: 'IBM Plex Mono';">Tower Semiconductor Y-Flash</h4>
+                <div style="font-size: 0.84rem; line-height: 1.6; color: #334155;">
                   <p style="margin: 0 0 8px;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[上游代工]</span><span data-lang="en">[Foundry]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[上游代工]</span><span data-lang="en">[Foundry]</span></strong>
                     <span data-lang="zh">0.18µm 與 65nm BCD 平台原生支援，<strong>零額外光罩 (0 Mask Adders)</strong>；依 Tower 一次來源為 CHE 寫入／BBT 抹除（非 FN/FN）。</span>
                     <span data-lang="en">Native 0.18µm and 65nm BCD platforms with <strong>0 mask adders</strong>; per Tower primary sources, CHE program / BBT erase (not FN/FN).</span>
                   </p>
                   <p style="margin: 0 0 8px;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[車規耐溫]</span><span data-lang="en">[Automotive Grade]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[車規耐溫]</span><span data-lang="en">[Automotive Grade]</span></strong>
                     <span data-lang="zh">官方文件提及 Grade 0 保持敘事；環境溫度 Ta（-40~+150°C）與接面 Tj 試驗條件須分開。製造流程無額外熱預算敘述需對應具名平台，不得等同全系統認證。</span>
                     <span data-lang="en">Vendor briefs cite Grade 0 retention narratives; separate ambient Ta (-40 to +150°C) from junction Tj test conditions. Zero extra thermal-budget claims apply to named platforms, not blanket system certification.</span>
                   </p>
                   <p style="margin: 0;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[下游系統]</span><span data-lang="en">[Downstream Systems]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[下游系統]</span><span data-lang="en">[Downstream Systems]</span></strong>
                     <span data-lang="zh">車載電池管理系統 (BMS) 電池單元阻抗黑盒子查表、48V 伺服器/車載 VRM 數位電源控制、智慧高壓閘極驅動 IC。</span>
                     <span data-lang="en">Automotive BMS cell impedance lookup tables (LUT), 48V server/automotive VRM digital power control, and intelligent high-voltage gate drivers.</span>
                   </p>
@@ -1227,33 +1227,33 @@
               </div>
 
               <!-- Pillar 2: PUFsecurity HRoT -->
-              <div style="background: #082433; border: 1px solid rgba(196, 165, 116, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+              <div style="background: #f8fafc; border: 1px solid rgba(196, 165, 116, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                   <span style="font: 800 10px 'IBM Plex Mono'; color: #dfb77c; letter-spacing: 0.1em;">02 · VEHICLE ID &amp; SECURE BOOT</span>
                   <span style="font-size: 10px; background: rgba(196, 165, 116, 0.15); color: #dfb77c; padding: 2px 6px; border-radius: 3px;">ISO 26262 ASIL-D</span>
                 </div>
-                <h4 style="margin: 0; color: #fff; font-size: 1.1rem; font-family: 'IBM Plex Mono';">
+                <h4 style="margin: 0; color: #0f172a; font-size: 1.1rem; font-family: 'IBM Plex Mono';">
                   <span data-lang="zh">PUFsecurity / 力旺 NeoPUF + AntiFuse</span>
                   <span data-lang="en">PUFsecurity / eMemory NeoPUF + AntiFuse</span>
                 </h4>
-                <div style="font-size: 0.84rem; line-height: 1.6; color: #cbd5e1;">
+                <div style="font-size: 0.84rem; line-height: 1.6; color: #334155;">
                   <p style="margin: 0 0 8px;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[上游代工]</span><span data-lang="en">[Foundry]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[上游代工]</span><span data-lang="en">[Foundry]</span></strong>
                     <span data-lang="zh">TSMC / UMC 40nm 至 5nm 車規標準邏輯 CMOS 製程，0 額外光罩，相容嚴苛晶圓簽核門禁。</span>
                     <span data-lang="en">Standard automotive logic CMOS (40nm down to 5nm) at TSMC and UMC; 0 mask adders with standard signoff compatibility.</span>
                   </p>
                   <p style="margin: 0 0 8px;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[安全架構]</span><span data-lang="en">[Security Architecture]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[安全架構]</span><span data-lang="en">[Security Architecture]</span></strong>
                     <span data-lang="zh">微觀閘極氧化層量子穿隧隨機指紋 (NeoPUF) + AntiFuse 永久微絲；整合 NIST SP 800-90B TRNG、安全金鑰儲存與 DPA/CPA 側信道對稱/非對稱硬體加速處理器 (PUFcc)。</span>
                     <span data-lang="en">Microscopic gate oxide quantum tunneling random fingerprint (NeoPUF) + AntiFuse permanent filaments; integrates NIST SP 800-90B TRNG, secure key storage, and DPA/CPA side-channel resistant crypto coprocessor (PUFcc).</span>
                   </p>
                   <p style="margin: 0;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[下游系統]</span><span data-lang="en">[Downstream Systems]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[下游系統]</span><span data-lang="en">[Downstream Systems]</span></strong>
                     <span data-lang="zh">車載中央閘道器與 ADAS 晶片之不可變車輛身分 (Vehicle Unique ID)、V2X 憑證注入、ISO 21434 車載網路安全與 ASIL-D 系統安全開機 (Secure Boot)。</span>
                     <span data-lang="en">Immutable Vehicle Unique ID in automotive central gateways and ADAS processors, V2X certificate injection, ISO 21434 automotive cybersecurity, and ASIL-D Secure Boot.</span>
                   </p>
                   <p style="margin: 8px 0 0; font-size: 0.78rem;">
-                    <a href="secure-storage.html#sec-subsystems" style="color: #c4a574; text-decoration: underline;">
+                    <a href="secure-storage.html#sec-subsystems" style="color: #785021; text-decoration: underline;">
                       <span data-lang="zh">檢視 Quiddikey / tRoot / CryptoManager 車規硬體信任根整合 ↗</span>
                       <span data-lang="en">Review Quiddikey / tRoot / CryptoManager HRoT Subsystems ↗</span>
                     </a>
@@ -1262,28 +1262,28 @@
               </div>
 
               <!-- Pillar 3: Winbond & Macronix Heterogeneous -->
-              <div style="background: #082433; border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+              <div style="background: #f8fafc; border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                   <span style="font: 800 10px 'IBM Plex Mono'; color: #7dd3fc; letter-spacing: 0.1em;">03 · ADVANCED-NODE CHIPLET / SIP</span>
                   <span style="font-size: 10px; background: rgba(56, 189, 248, 0.15); color: #7dd3fc; padding: 2px 6px; border-radius: 3px;">AEC-Q100 G0 · XiP</span>
                 </div>
-                <h4 style="margin: 0; color: #fff; font-size: 1.1rem; font-family: 'IBM Plex Mono';">
+                <h4 style="margin: 0; color: #0f172a; font-size: 1.1rem; font-family: 'IBM Plex Mono';">
                   <span data-lang="zh">Winbond 華邦 &amp; Macronix 旺宏異質整合</span>
                   <span data-lang="en">Winbond &amp; Macronix Heterogeneous Integration</span>
                 </h4>
-                <div style="font-size: 0.84rem; line-height: 1.6; color: #cbd5e1;">
+                <div style="font-size: 0.84rem; line-height: 1.6; color: #334155;">
                   <p style="margin: 0 0 8px;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[微縮斷崖挑戰]</span><span data-lang="en">[Scaling Cliff Challenge]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[微縮斷崖挑戰]</span><span data-lang="en">[Scaling Cliff Challenge]</span></strong>
                     <span data-lang="zh">7nm/5nm/3nm 先進 FinFET/GAA 邏輯節點由於額外光罩成本暴增 30%+ 與高溫退火破壞電晶體，無法內建傳統 eFlash。</span>
                     <span data-lang="en">Advanced FinFET/GAA nodes (7nm/5nm/3nm) cannot integrate legacy eFlash due to 30%+ mask adder cost escalation and thermal degradation of logic transistors.</span>
                   </p>
                   <p style="margin: 0 0 8px;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[異質整合解法]</span><span data-lang="en">[Heterogeneous Solution]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[異質整合解法]</span><span data-lang="en">[Heterogeneous Solution]</span></strong>
                     <span data-lang="zh">採用專用車規 Grade 0 (45nm/28nm) NOR Flash 之 <strong>KGD (Known Good Die)</strong> 晶圓裸晶、WLCSP / USON 超小型封裝，進行 2.5D/3D SiP (System-in-Package) 緊密堆疊。</span>
                     <span data-lang="en">Leverages automotive Grade 0 (45nm/28nm) NOR Flash <strong>Known Good Die (KGD)</strong> and ultra-compact WLCSP/USON packages for 2.5D/3D System-in-Package (SiP) stacking.</span>
                   </p>
                   <p style="margin: 0;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[下游系統]</span><span data-lang="en">[Downstream Systems]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[下游系統]</span><span data-lang="en">[Downstream Systems]</span></strong>
                     <span data-lang="zh">透過 Octal SPI / xSPI 介面提供高達 <strong>400MB/s</strong> 頻寬與晶片外就地執行 (XiP)，於自動駕駛 ADAS 域控制器與智慧座艙達成 50ms 內極速冷啟動 (Instant-On Boot)。</span>
                     <span data-lang="en">Delivers up to <strong>400MB/s</strong> bandwidth via Octal SPI / xSPI with Execute-in-Place (XiP), achieving sub-50ms instant-on boot in ADAS domain controllers and smart cockpits.</span>
                   </p>
@@ -1291,30 +1291,30 @@
               </div>
 
               <!-- Pillar 4: Infineon TC4x & TSMC eRRAM -->
-              <div style="background: #082433; border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+              <div style="background: #f8fafc; border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                   <span style="font: 800 10px 'IBM Plex Mono'; color: #f59e0b; letter-spacing: 0.1em;">04 · TSMC 28NM ERRAM BREAKTHROUGH</span>
                   <span style="font-size: 10px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 2px 6px; border-radius: 3px;">AEC-Q100 G1 · TC4x</span>
                 </div>
-                <h4 style="margin: 0; color: #fff; font-size: 1.1rem; font-family: 'IBM Plex Mono';">Infineon AURIX™ TC4x (TSMC 28nm eRRAM)</h4>
-                <div style="font-size: 0.84rem; line-height: 1.6; color: #cbd5e1;">
+                <h4 style="margin: 0; color: #0f172a; font-size: 1.1rem; font-family: 'IBM Plex Mono';">Infineon AURIX™ TC4x (TSMC 28nm eRRAM)</h4>
+                <div style="font-size: 0.84rem; line-height: 1.6; color: #334155;">
                   <p style="margin: 0 0 8px;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[上游代工]</span><span data-lang="en">[Foundry]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[上游代工]</span><span data-lang="en">[Foundry]</span></strong>
                     <span data-lang="zh">台積電 (TSMC) 28nm eRRAM (OxRAM) 商業量產製程，後段僅需 2~3 道低溫金屬光罩，完全免除高溫退火對 28nm HKMG 邏輯電晶體之衝擊。</span>
                     <span data-lang="en">Commercial volume production on TSMC 28nm eRRAM (OxRAM); requires only 2-3 low-temperature BEOL masks, completely eliminating high-temperature annealing impact on 28nm HKMG logic.</span>
                   </p>
                   <p style="margin: 0 0 8px;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[性能與保持]</span><span data-lang="en">[Performance &amp; Retention]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[性能與保持]</span><span data-lang="en">[Performance &amp; Retention]</span></strong>
                     <span data-lang="zh">支援 10 萬次擦寫循環、-40°C ~ 150°C Tj 車規 Grade 1 認證；具備位元/字組級覆寫能力 (Bit-alterable)，擺脫傳統 Flash 大區塊抹除 (Block Erase) 的超長延遲。</span>
                     <span data-lang="en">Supports 100K endurance cycles, AEC-Q100 Grade 1 (-40°C to +150°C Tj); offers bit/word-alterable writes, eliminating massive block-erase latency in legacy Flash.</span>
                   </p>
                   <p style="margin: 0;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[下游系統]</span><span data-lang="en">[Downstream Systems]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[下游系統]</span><span data-lang="en">[Downstream Systems]</span></strong>
                     <span data-lang="zh">次世代電動車 xEV 主驅逆變器、動力域控制器與 ASIL-D 底盤安全網關，支援即時、低延遲的 A/B 韌體空中線上升級 (OTA)。</span>
                     <span data-lang="en">Next-gen xEV traction inverters, powertrain domain controllers, and ASIL-D chassis safety gateways, powering real-time, low-latency A/B firmware OTA updates.</span>
                   </p>
                   <p style="margin: 8px 0 0; font-size: 0.78rem;">
-                    <a href="memory-evidence.html#evidence-V16" style="color: #c4a574; text-decoration: underline;">
+                    <a href="memory-evidence.html#evidence-V16" style="color: #785021; text-decoration: underline;">
                       <span data-lang="zh">檢視 Infineon TC4x 28nm eRRAM 一手官方規格證據 (V16) ↗</span>
                       <span data-lang="en">Review Infineon TC4x 28nm eRRAM Primary Datasheet (V16) ↗</span>
                     </a>
@@ -1323,30 +1323,30 @@
               </div>
 
               <!-- Pillar 5: STMicroelectronics 28nm FD-SOI ePCM -->
-              <div style="background: #082433; border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+              <div style="background: #f8fafc; border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                   <span style="font: 800 10px 'IBM Plex Mono'; color: #c084fc; letter-spacing: 0.1em;">05 · 28NM FD-SOI PHASE-CHANGE MEMORY</span>
                   <span style="font-size: 10px; background: rgba(168, 85, 247, 0.15); color: #c084fc; padding: 2px 6px; border-radius: 3px;">165°C Tj · Zero-Downtime</span>
                 </div>
-                <h4 style="margin: 0; color: #fff; font-size: 1.1rem; font-family: 'IBM Plex Mono';">STMicroelectronics Stellar (28nm ePCM)</h4>
-                <div style="font-size: 0.84rem; line-height: 1.6; color: #cbd5e1;">
+                <h4 style="margin: 0; color: #0f172a; font-size: 1.1rem; font-family: 'IBM Plex Mono';">STMicroelectronics Stellar (28nm ePCM)</h4>
+                <div style="font-size: 0.84rem; line-height: 1.6; color: #334155;">
                   <p style="margin: 0 0 8px;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[上游代工]</span><span data-lang="en">[Foundry]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[上游代工]</span><span data-lang="en">[Foundry]</span></strong>
                     <span data-lang="zh">整合於 28nm FD-SOI (全空乏絕緣上覆矽) 平台，以鍺銻碲 (GST) 硫族化合物為相變材料，BEOL 僅增 4 道低溫光罩，具備天然優異之抗軟錯誤 (Soft-Error) 免疫力。</span>
                     <span data-lang="en">Integrated into 28nm FD-SOI platform with GST chalcogenide phase-change material; requires only 4 BEOL masks and delivers intrinsic immunity against soft errors.</span>
                   </p>
                   <p style="margin: 0 0 8px;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[相變物理特徵]</span><span data-lang="en">[PCM Physics]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[相變物理特徵]</span><span data-lang="en">[PCM Physics]</span></strong>
                     <span data-lang="zh">透過電脈衝瞬態焦耳熱實現非晶態（高阻）與多晶態（低阻）切換，寫入速度較傳統 eFlash 快數十倍，並在 165°C 高溫接面下確保 10 年以上資料留存。</span>
                     <span data-lang="en">Switches between amorphous (high-R) and crystalline (low-R) states via fast electrical Joule heating; writes up to 10x faster than eFlash with &gt;10 years data retention at 165°C junction.</span>
                   </p>
                   <p style="margin: 0;">
-                    <strong style="color: #c4a574;"><span data-lang="zh">[下游系統]</span><span data-lang="en">[Downstream Systems]</span></strong>
+                    <strong style="color: #785021;"><span data-lang="zh">[下游系統]</span><span data-lang="en">[Downstream Systems]</span></strong>
                     <span data-lang="zh">ST Stellar 系列車用 32 位元 Arm 多核 MCU，於高階軟體定義汽車 (SDV) 實現「雙分區零停機即時 OTA (Zero-Downtime Live Update)」，確保車輛行駛中升級不停機。</span>
                     <span data-lang="en">ST Stellar automotive 32-bit multicore MCU family, powering zero-downtime live OTA updates in software-defined vehicles (SDV) while driving.</span>
                   </p>
                   <p style="margin: 8px 0 0; font-size: 0.78rem;">
-                    <a href="memory-evidence.html#evidence-V17" style="color: #c4a574; text-decoration: underline;">
+                    <a href="memory-evidence.html#evidence-V17" style="color: #785021; text-decoration: underline;">
                       <span data-lang="zh">檢視 ST Stellar 28nm ePCM 雙分區 Live OTA 官方證據 (V17) ↗</span>
                       <span data-lang="en">Review ST Stellar 28nm ePCM Dual-Bank Live OTA Spec (V17) ↗</span>
                     </a>
@@ -1771,6 +1771,6 @@
       panels.forEach(p => railObserver.observe(p));
     });
   </script>
-<script src="專題選單導覽.js?v=20260910-bilingual"></script>
+<script src="topic-menu-navigation.js?v=20260910-bilingual"></script>
 </body>
 </html>

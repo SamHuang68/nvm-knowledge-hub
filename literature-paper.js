@@ -1,8 +1,9 @@
 (function () {
   'use strict';
-  var PAPER = '#fafaf7';
+  var PAPER = '#f8fafc';
   var CARD = '#ffffff';
-  var INK = '#173b49';
+  var INK = '#0f172a';
+  var SKIP_BTN = 'a.primary, button.primary, .button.primary, .knowledge-primary, .filter-btn.active, [aria-pressed="true"], .view-tab[aria-selected="true"], .ladder button.active, .role-tabs button.active, .skip-link';
   function lum(rgb) {
     var m = String(rgb || '').match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
     if (!m) return 255;
@@ -21,33 +22,50 @@
   function lift() {
     var root = document.body;
     if (!root || !root.classList.contains('hub-literature-paper')) return;
+    document.documentElement.style.setProperty('background-color', PAPER, 'important');
+    root.style.setProperty('background-color', PAPER, 'important');
+    root.style.setProperty('color', INK, 'important');
     root.querySelectorAll('*').forEach(function (el) {
-      if (el.closest('.site-header')) return;
+      if (el.matches && (el.matches(SKIP_BTN) || el.closest(SKIP_BTN))) return;
       var tag = el.tagName;
       if (tag === 'IMG' || tag === 'VIDEO' || tag === 'CANVAS' || tag === 'SOURCE') return;
-      if (tag === 'PATH' || tag === 'RECT' || tag === 'CIRCLE' || tag === 'POLYGON' || tag === 'LINE' || tag === 'POLYLINE' || tag === 'ELLIPSE' || tag === 'G' || tag === 'TEXT' || tag === 'TSPAN') return;
+      if (tag === 'SVG' || tag === 'G' || tag === 'PATH' || tag === 'CIRCLE' || tag === 'POLYGON' || tag === 'LINE' || tag === 'POLYLINE' || tag === 'ELLIPSE') return;
       var s = getComputedStyle(el);
-      if (lum(s.backgroundColor) < 120) {
-        var useCard = /card|panel|note|toolbar|search|input|button|tab|dock|grid|article/i.test(el.className || '');
+      if (tag === 'RECT') {
+        if (lum(s.fill) < 120 || hexLum(el.getAttribute('fill')) < 120) {
+          el.style.setProperty('fill', '#f1f5f9', 'important');
+        }
+        return;
+      }
+      if (tag === 'TEXT' || tag === 'TSPAN') {
+        if (lum(s.fill) > 180 || hexLum(el.getAttribute('fill')) > 180) {
+          el.style.setProperty('fill', INK, 'important');
+        }
+        return;
+      }
+      if (lum(s.backgroundColor) < 140) {
+        var useCard = /header|topbar|card|panel|note|toolbar|search|input|button|tab|dock|grid|article|modal/i.test((el.className || '') + ' ' + tag);
         el.style.setProperty('background-color', useCard ? CARD : PAPER, 'important');
         el.style.setProperty('background-image', 'none', 'important');
+      } else if (s.backgroundImage && s.backgroundImage !== 'none' && /#(0[0-9a-f]{5}|1[0-6][0-9a-f]{4})|rgb\(\s*(?:[0-9]|1[0-9]|2[0-5])\s*,/i.test(s.backgroundImage)) {
+        el.style.setProperty('background-image', 'none', 'important');
       }
-      if (lum(s.color) > 186) {
+      if (lum(s.color) > 165) {
         el.style.setProperty('color', INK, 'important');
       }
     });
-    root.querySelectorAll('svg [fill], svg [stroke]').forEach(function (el) {
-      if (el.closest('.site-header')) return;
-      ['fill', 'stroke'].forEach(function (attr) {
+    root.querySelectorAll('svg [fill], svg [stroke], svg stop[stop-color]').forEach(function (el) {
+      ['fill', 'stroke', 'stop-color'].forEach(function (attr) {
         var v = el.getAttribute(attr);
         if (hexLum(v) < 120) {
-          el.setAttribute(attr, attr === 'fill' ? '#eaf1ed' : '#173b49');
+          el.setAttribute(attr, attr === 'stroke' ? INK : '#e2e8f0');
         }
       });
     });
   }
-  function run() { lift(); setTimeout(lift, 200); }
+  function run() { lift(); setTimeout(lift, 150); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run);
   else run();
   window.addEventListener('load', run);
+  document.addEventListener('click', function () { setTimeout(lift, 30); }, true);
 })();

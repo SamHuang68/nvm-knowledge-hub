@@ -16,7 +16,7 @@ npm run serve
 
 ## 目錄與閱讀路徑
 
-正式目錄來源為 `data/NVM知識目錄.json`。首頁由 `scripts/建立知識中心首頁.mjs` 產生，使用緊湊站名、範圍說明與分類條目；不要直接修改生成的首頁。
+正式目錄來源為 `data/nvm-knowledge-catalog.json`。首頁由 `scripts/build-knowledge-hub-home.mjs` 產生，使用緊湊站名、範圍說明與分類條目；不要直接修改生成的首頁。
 
 | 類別 | 首頁入口 | 內容範圍 |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ npm run serve
 
 ## 技術全景與深層連結
 
-技術全景有英文 `NVM技術全景.html` 與繁體中文 `NVM技術全景中文.html`，兩者共用相同章節識別碼：
+技術全景有英文 `nvm-technology-atlas.html` 與繁體中文 `nvm-technology-atlas-zh.html`，兩者共用相同章節識別碼：
 
 | 路由 | 角色 |
 | --- | --- |
@@ -50,11 +50,11 @@ npm run serve
 
 ## 來源、生成物與工作台
 
-- `data/NVM知識目錄.json`：首頁分類、資源標題、簡介與目的地。
+- `data/nvm-knowledge-catalog.json`：首頁分類、資源標題、簡介與目的地。
 - `data/NVM全景導論*.json`、`data/NVM電荷專題*.json`、`data/NVM新興專題*.json`、`data/NVM比較與系統*.json`、`data/NVM晶圓代工路線圖*.json`：技術、操作、比較、年度證據及雙語內容的來源資料。
 - `data/NVMIP單元導論*.json` 與對應的 IP 圖解模組：具名單元、操作及來源界線；公司沿革資料依正式全景生成器所引用的來源維護。
-- `scripts/建立NVM技術全景.mjs`：生成兩語全景、整合知識資料、專題文字及搜尋索引。
-- `data/NVM知識資料*.json`、`data/NVM技術專題*.md`、`data/NVM搜尋索引.js`：共同生成輸出，供網站搜尋、資料下載及後續簡報取材。
+- `scripts/build-nvm-atlas.mjs`：生成兩語全景、整合知識資料、專題文字及搜尋索引。
+- `data/NVM知識資料*.json`、`data/NVM技術專題*.md`、`data/nvm-search-index.js`：共同生成輸出，供網站搜尋、資料下載及後續簡報取材。
 - `whitepaper/index.html`：公開白皮書與決策工作台；`tools/whitepaper-studio/index.html` 是同一網站內的另一個工作台入口。次入口保留 query/hash 並轉向正式入口，避免形成另一套資料與介面。
 - `briefing/index.html`：既有簡報與講稿入口；`memory-evidence.html` 提供逐筆公開來源及支持範圍。
 
@@ -114,7 +114,7 @@ AI 資料位於 `data/ai-nvm-opportunities-knowledge.json`，結構由 `data/ai-
 
 `npm run build` 依序產生技術全景與首頁、白皮書、SharePoint 匯出及離線清單。`npm run check:content` 只驗證不覆寫產物，逐檔檢查所有 JavaScript；白皮書會重新建置到記憶體，確認與提交產物一致。請先完成內容建置與回歸，再提交內容。
 
-`data/公開路由.json` 明列 17 個完整頁面及 1 個 HTML 片段；新增頁面必須更新契約。片段保留內容與參照檢查，不能成為完整頁面的豁免方式。
+`data/public-routes.json` 明列 17 個完整頁面及 1 個 HTML 片段；新增頁面必須更新契約。片段保留內容與參照檢查，不能成為完整頁面的豁免方式。
 
 白皮書的唯一資料來源是 `tools/whitepaper-studio/src/data/nvm_specs.js`。12 筆資料、靜態畫面、互動篩選及 CSV／JSON 匯出共用同一來源。公開資料中的原稿數值與聲稱保留並逐筆標示待查證範圍；建置一致不代表數值或認證已取得獨立證明。
 
@@ -135,7 +135,7 @@ npm run check
 
 來源紀錄狀態為 `LOCAL_VALIDATED`，綁定內容提交、Git 檔案樹與治理資料雜湊。後續變更內容會使紀錄失效，須再次生成；本機紀錄不代表推送、部署或線上驗收。
 
-`.github/workflows/驗證與部署.yml` 在分支推送、針對 `main` 的拉取請求及手動觸發時，安裝鎖定套件、驗證已提交產物、重建並確認無差異，接著跑門禁反例、備援容量、搜尋／焦點、全景圖解、真實離線升版、雙語與白皮書瀏覽器回歸，保存本次 QA 證據。
+`.github/workflows/validate-and-deploy.yml` 在分支推送、針對 `main` 的拉取請求及手動觸發時，安裝鎖定套件、驗證已提交產物、重建並確認無差異，接著跑門禁反例、備援容量、搜尋／焦點、全景圖解、真實離線升版、雙語與白皮書瀏覽器回歸，保存本次 QA 證據。
 
 發布產物從同一提交以 `git archive` 封裝，逐檔比對相同 Git blob 依儲存庫屬性匯出的實際位元組與完整檔案集合，再執行公開內容與附件政策。這保留 SharePoint CSV 的 CRLF 契約，不把合法換行轉換當成內容變動。既有非隱藏公開檔案及大型下載均保留；執行期、環境設定、本機檔案與未核准目錄會使發布失敗。上傳流程排除隱藏維護檔案。
 

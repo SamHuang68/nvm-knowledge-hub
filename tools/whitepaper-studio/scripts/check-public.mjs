@@ -52,7 +52,7 @@ export function inspectProfile(profile) {
 
 export async function checkPublic() {
   const failures = [];
-  const template = await readFile(new URL('../公開入口樣板.html.tpl', import.meta.url), 'utf8');
+  const template = await readFile(new URL('../public-entry-template.html.tpl', import.meta.url), 'utf8');
   failures.push(...inspectVisibleContent(template));
   for (const render of [renderPhase1KB, renderPhase2Reader, renderPhase3Templates, renderPhase4Metadata]) {
     const container = { innerHTML: '' };

@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "node ../../scripts/serve-local.mjs",
-    "build": "node scripts/建立白皮書.mjs",
+    "build": "node scripts/build-whitepaper.mjs",
     "preview": "node ../../scripts/serve-local.mjs",
-    "check": "node scripts/check-public.mjs && node scripts/建立白皮書.mjs --check",
+    "check": "node scripts/check-public.mjs && node scripts/build-whitepaper.mjs --check",
     "test": "node --test scripts/*.test.mjs",
     "qa:render": "node scripts/render-qa.mjs"
   },

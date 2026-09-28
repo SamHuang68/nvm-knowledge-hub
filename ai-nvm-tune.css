@@ -16,8 +16,8 @@
 .ai-nvm-page .paper-note {
   margin-top: 14px !important;
   padding: 14px 20px !important;
-  color: #e8eef2 !important;
-  background: #082536 !important;
+  color: #0f172a !important;
+  background: #f8fafc !important;
   border: 1px solid rgba(196, 165, 116, .22) !important;
   border-left: 3px solid #c48a4b !important;
   border-radius: 0 8px 8px 0 !important;
@@ -27,21 +27,21 @@
 
 .ai-nvm-page .paper-note b,
 .ai-nvm-page .paper-note b span {
-  color: #e0b36a !important;
+  color: #785021 !important;
   font-weight: 650 !important;
 }
 
 .ai-nvm-page .paper-note span {
-  color: #d7e4e8 !important;
+  color: #334155 !important;
 }
 
 .ai-nvm-page .map-planes article b {
-  color: #f6f1e8 !important;
+  color: #0f172a !important;
 }
 
 .ai-nvm-page .map-planes article p,
 .ai-nvm-page .map-planes article p span {
-  color: #c2d0d6 !important;
+  color: #334155 !important;
 }
 
 /* Seven Questions: one shell. Title then 01-07 left, no cards. */
@@ -50,8 +50,8 @@
   margin-top: 16px !important;
   padding: 18px 22px 16px !important;
   text-align: left !important;
-  color: #f3ebe0 !important;
-  background: #0b2432 !important;
+  color: #0f172a !important;
+  background: #f8fafc !important;
   border: 1px solid rgba(196, 165, 116, .18) !important;
   border-radius: 12px !important;
   box-shadow: none !important;
@@ -61,7 +61,7 @@
   display: block !important;
   margin: 0 0 12px !important;
   padding: 0 !important;
-  color: #c4a574 !important;
+  color: #785021 !important;
   text-align: left !important;
 }
 
@@ -110,7 +110,7 @@
 }
 
 .ai-nvm-page .decision-questions li > span:first-child {
-  color: #c4a574 !important;
+  color: #785021 !important;
   font-family: "IBM Plex Mono", Consolas, monospace !important;
   font-size: 12px !important;
   font-weight: 650 !important;
@@ -120,7 +120,7 @@
 .ai-nvm-page .decision-questions li b,
 .ai-nvm-page .decision-questions li b span {
   display: inline !important;
-  color: #f3ebe0 !important;
+  color: #0f172a !important;
   background: none !important;
   border: 0 !important;
   font-size: 15px !important;

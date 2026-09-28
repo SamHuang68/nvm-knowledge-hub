@@ -93,8 +93,8 @@ html body .lens-vertical-rail .nav-pill.active,
 html body.specialty-page .lens-vertical-rail .nav-pill.active,
 html body .ai-nvm-page .lens-node-item.active {
   opacity: 1 !important;
-  background: rgba(6, 25, 37, 0.18) !important;
-  background-color: rgba(6, 25, 37, 0.18) !important;
+  background: rgba(224, 242, 254, 0.85) !important;
+  background-color: rgba(224, 242, 254, 0.85) !important;
   border-color: rgba(196, 165, 116, 0.45) !important;
   box-shadow: none !important;
 }
