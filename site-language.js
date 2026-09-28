@@ -131,8 +131,10 @@
     if (appsPages && document.body) document.body.classList.add('hub-apps-page');
     const readingStyle = document.querySelector('link[data-hub-shared-style="global-reading-system.css"]');
     const appsChrome = document.querySelector('link[data-hub-shared-style="hub-apps-chrome.css"]');
+    const chapterLens = document.querySelector('link[data-hub-shared-style="chapter-lens.css"]');
     if (readingStyle) document.head.append(readingStyle);
     if (appsChrome) document.head.append(appsChrome);
+    if (chapterLens) document.head.append(chapterLens);
     document.querySelectorAll('.language-toggle, #languageToggle').forEach(button => {
       if (button._hubLangBound) return;
       button._hubLangBound = true;

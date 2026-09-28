@@ -90,7 +90,7 @@
       line-height: 1.55 !important;
       max-width: 760px !important;
       margin-bottom: 14px !important;
-      color: #c4d7e0 !important;
+      color: #334155 !important;
     }
     section.hero .hero-actions {
       margin-top: 10px !important;
@@ -136,11 +136,11 @@
       .stat-strip-grid { grid-template-columns: 1fr; }
     }
     .stat-strip-card {
-      background: #f8fafc;
-      border: 1px solid rgba(248, 250, 252, 0.96);
-      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(203, 213, 225, 0.78);
+      border-radius: 8px;
       padding: 10px 14px;
-      box-shadow: 0 4px 12px rgba(248, 250, 252, 0.96);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
       display: flex;
       flex-direction: column;
       gap: 3px;
@@ -192,7 +192,7 @@
       opacity: 0.96;
     }
     .stat-strip-card.is-context .stat-val {
-      color: #e6d4bc;
+      color: #0f172a;
     }
 
     .vendor-ask {
@@ -214,7 +214,7 @@
     .vendor-ask-head p {
       margin: 0;
       max-width: 62ch;
-      color: #9fb4bd;
+      color: #475569;
       font-size: 13px;
       line-height: 1.5;
     }
@@ -226,9 +226,9 @@
     .vendor-ask article {
       margin: 0;
       padding: 10px 12px;
-      border: 1px solid rgba(196, 165, 116, 0.18);
-      background: rgba(248, 250, 252, 0.96);
-      border-radius: 6px;
+      border: 1px solid rgba(203, 213, 225, 0.78);
+      background: rgba(255, 255, 255, 0.84);
+      border-radius: 8px;
     }
     .vendor-ask article b {
       display: block;
@@ -240,7 +240,7 @@
     }
     .vendor-ask article p {
       margin: 0;
-      color: #d5e4ea;
+      color: #334155;
       font-size: 13px;
       line-height: 1.45;
     }
@@ -253,21 +253,9 @@
     }
 
 
-    .lens-vertical-rail[data-rail="deferred"] {
-      visibility: hidden;
-      height: 0 !important;
-      max-height: 0 !important;
-      overflow: hidden;
-      margin: 0 !important;
-      padding: 0 !important;
-      border: 0 !important;
-      pointer-events: none;
-    }
+    .lens-vertical-rail[data-rail="deferred"],
     .studio-layout.is-past-hero .lens-vertical-rail[data-rail="deferred"] {
       visibility: visible;
-      height: auto !important;
-      max-height: none !important;
-      overflow: visible;
       pointer-events: auto;
     }
     /* 3. 吸頂章節導覽藥丸列 */

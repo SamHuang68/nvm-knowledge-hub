@@ -64,16 +64,16 @@
        EDITORIAL LIGHT THEME: 全站統一白底輕盈工控風格 (M4 SPECIALTY NVM)
        ========================================================================= */
     :root, body.specialty-page {
-      --paper-bg: #f1f5f9;
-      --paper-card: #f1f5f9;
-      --ink-heading: #f1f5f9;
+      --paper-bg: #f8fafc;
+      --paper-card: #ffffff;
+      --ink-heading: #0f172a;
       --ink-body: #334155;
       --ink-muted: #64748b;
       --cyan-editorial: #8a6a42;
       --amber-editorial: #d97706;
 
       /* 覆寫 specialty-nvm.css 暗黑根變數 */
-      --spec-midnight: #f1f5f9;
+      --spec-midnight: #f8fafc;
       --spec-midnight-2: #f1f5f9;
       --spec-navy: #ffffff;
       --spec-surface: #ffffff;
@@ -85,21 +85,21 @@
       --spec-amber: #d97706;
       --spec-green: #6f5536;
       --spec-danger: #dc2626;
-      --spec-line: rgba(248, 250, 252, 0.96);
-      --spec-line-subtle: rgba(248, 250, 252, 0.96);
-      --spec-text-main: #f1f5f9;
+      --spec-line: rgba(203, 213, 225, 0.78);
+      --spec-line-subtle: rgba(226, 232, 240, 0.85);
+      --spec-text-main: #0f172a;
       --spec-text-muted: #334155;
       --spec-text-dim: #64748b;
-      --spec-glow: 0 4px 20px -2px rgba(248, 250, 252, 0.96);
+      --spec-glow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
     }
 
     body.specialty-page {
-      background-color: #0f172a !important;
+      background-color: #f8fafc !important;
       color: #334155 !important;
       background-image: none !important;
     }
 
-    /* 1. Hero 進版主視覺圖 (Obsidian Navy 半導體晶片展示窗，保持高科技震撼視覺) */
+    /* 1. Hero 進版主視覺圖 (Surgical Light Mode) */
     body.specialty-page .specialty-hero {
       background: 
         radial-gradient(circle at 50% 15%, rgba(176, 138, 91, 0.14) 0%, rgba(248, 250, 252, 0.96) 65%),
@@ -113,7 +113,7 @@
       text-shadow: 0 2px 14px rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .specialty-hero .hero-lede {
-      color: #c4d7e0 !important;
+      color: #334155 !important;
       text-shadow: 0 1px 4px rgba(248, 250, 252, 0.96) !important;
     }
     body.specialty-page .hero-eyebrow-flex {
@@ -126,16 +126,16 @@
     body.specialty-page .hero-kicker {
       background: rgba(255, 157, 92, 0.12) !important;
       border: 1px solid rgba(255, 157, 92, 0.4) !important;
-      color: #ff9d5c !important;
+      color: #b45309 !important;
     }
 
     /* 2. 4-Metric Stat Strip 白底卡片 */
     body.specialty-page .compact-ate-strip .stat-strip-card {
-      background: #f8fafc !important;
-      border: 1px solid rgba(248, 250, 252, 0.96) !important;
+      background: rgba(255, 255, 255, 0.86) !important;
+      border: 1px solid rgba(203, 213, 225, 0.78) !important;
       border-left-width: 3px !important;
-      border-radius: 6px !important;
-      box-shadow: 0 4px 16px -2px rgba(248, 250, 252, 0.96), 0 2px 6px -1px rgba(248, 250, 252, 0.96) !important;
+      border-radius: 8px !important;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03), 0 4px 12px -2px rgba(15, 23, 42, 0.04) !important;
     }
     body.specialty-page .compact-ate-strip .stat-val {
       color: #0f172a !important;
@@ -150,50 +150,51 @@
       color: #334155 !important;
     }
 
-    /* 3. 左側直立測條白底高對比 */
+    /* 3. 右上浮動章節導覽膠囊微透霧面石板灰風格 */
     body.specialty-page .lens-vertical-rail {
-      background: #f8fafc !important;
-      border: 1px solid rgba(248, 250, 252, 0.96) !important;
-      box-shadow: 0 4px 20px -2px rgba(248, 250, 252, 0.96) !important;
+      background: rgba(241, 245, 249, 0.82) !important;
+      border: 1px solid rgba(203, 213, 225, 0.78) !important;
+      box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.03) !important;
     }
     body.specialty-page .lens-vertical-rail .nav-pill {
-      background: #f8fafc !important;
-      color: #334155 !important;
-      border: 1px solid rgba(248, 250, 252, 0.96) !important;
+      background: transparent !important;
+      color: #475569 !important;
+      border: 0 !important;
+      border-left: 2.5px solid transparent !important;
     }
     body.specialty-page .lens-vertical-rail .nav-pill:hover,
     body.specialty-page .lens-vertical-rail .nav-pill.active {
-      background: #f8fafc !important;
-      border-color: #8a6a42 !important;
-      color: #6f5536 !important;
-      box-shadow: 0 2px 8px rgba(176, 138, 91, 0.12) !important;
+      background: rgba(13, 148, 136, 0.10) !important;
+      border-left-color: #0d9488 !important;
+      color: #0f172a !important;
+      box-shadow: none !important;
     }
     body.specialty-page .lens-vertical-rail .lens-badge {
-      background: #f8fafc !important;
-      color: #8a6a42 !important;
-      border: 1px solid rgba(176, 138, 91, 0.2) !important;
+      background: rgba(226, 232, 240, 0.68) !important;
+      color: #475569 !important;
+      border: 1px solid rgba(148, 163, 184, 0.24) !important;
     }
     body.specialty-page .lens-vertical-rail .nav-pill.active .lens-badge {
-      background: #8a6a42 !important;
-      color: #0f172a !important;
+      background: rgba(13, 148, 136, 0.16) !important;
+      color: #0f5866 !important;
     }
     body.specialty-page .lens-vertical-rail .lens-info .lens-name {
       color: #0f172a !important;
-      font-weight: 700 !important;
+      font-weight: 600 !important;
     }
     body.specialty-page .lens-vertical-rail .lens-info .lens-sub {
       color: #64748b !important;
     }
     body.specialty-page .lens-vertical-rail .rail-footer {
-      border-top: 1px solid rgba(248, 250, 252, 0.96) !important;
+      border-top: 1px solid rgba(148, 163, 184, 0.24) !important;
       color: #64748b !important;
     }
 
-    /* 4. 工作台與區塊白底化 */
+    /* 4. 工作台與區塊淡色分層 */
     body.specialty-page .topic-section,
     body.specialty-page .topic-dark {
       background: transparent !important;
-      border-bottom: 1px solid rgba(248, 250, 252, 0.96) !important;
+      border-bottom: 1px solid rgba(203, 213, 225, 0.65) !important;
       padding: 24px 16px !important;
     }
     body.specialty-page .topic-header h2 {
@@ -208,8 +209,8 @@
       border-left-color: #8a6a42 !important;
     }
     body.specialty-page .topic-ghost-badge {
-      background: #f8fafc !important;
-      border: 1px solid rgba(248, 250, 252, 0.96) !important;
+      background: #f1f5f9 !important;
+      border: 1px solid rgba(203, 213, 225, 0.78) !important;
       color: #8a6a42 !important;
     }
     body.specialty-page .status-verified {
@@ -218,16 +219,16 @@
       color: #6f5536 !important;
     }
 
-    /* 5. 卡片元件白底化 */
+    /* 5. 卡片元件淡色分層 */
     body.specialty-page .spec-card,
     body.specialty-page .tech-card,
     body.specialty-page .metric-tile,
     body.specialty-page .deck-step-card,
     body.specialty-page .sub-topic-block {
-      background: #f8fafc !important;
-      border: 1px solid rgba(248, 250, 252, 0.96) !important;
+      background: rgba(255, 255, 255, 0.86) !important;
+      border: 1px solid rgba(203, 213, 225, 0.78) !important;
       border-radius: 8px !important;
-      box-shadow: 0 4px 16px -2px rgba(248, 250, 252, 0.96), 0 2px 6px -1px rgba(248, 250, 252, 0.96) !important;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03), 0 4px 12px -2px rgba(15, 23, 42, 0.04) !important;
       color: #334155 !important;
     }
     body.specialty-page .spec-card h3,
