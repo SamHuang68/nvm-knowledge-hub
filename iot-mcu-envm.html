@@ -160,11 +160,11 @@
       .stat-strip-grid { grid-template-columns: 1fr; }
     }
     .stat-strip-card {
-      background: #f8fafc;
-      border: 1px solid rgba(248, 250, 252, 0.96);
-      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(203, 213, 225, 0.78);
+      border-radius: 8px;
       padding: 12px 16px;
-      box-shadow: 0 4px 12px rgba(248, 250, 252, 0.96);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
       display: flex;
       flex-direction: column;
       gap: 4px;
@@ -214,42 +214,52 @@
     }
 
     /* =======================================================
-       核心版面：EXECUTIVE LENS STUDIO (直立測條 + 高密度工作台)
+       核心版面：EXECUTIVE LENS STUDIO (浮動測條 + 滿版高密度工作台)
        ======================================================= */
     .studio-workbench-wrapper {
-      max-width: min(1780px, 97vw);
+      max-width: min(1540px, 100%);
       margin: 10px auto 30px;
       padding: 0 var(--hub-keepout, clamp(24px, 4vw, 64px));
       box-sizing: border-box;
     }
     .studio-layout {
-      display: grid;
-      grid-template-columns: 210px minmax(0, 1fr);
-      gap: 14px;
-      align-items: start;
+      display: block;
+      grid-template-columns: none;
+      gap: 0;
+      position: relative;
     }
     @media (max-width: 1024px) {
       .studio-layout {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        display: block;
       }
     }
 
-    /* 左側直立測條 (Vertical Lens Rail) - 純白輕盈工控風格 (Light Theme) */
+    /* 右上浮動章節導覽膠囊 (Floating Lens Pill/Popover) - 微透霧面石板灰風格 (Surgical Light Mode) */
     .lens-vertical-rail {
-      position: sticky;
-      top: 76px;
-      background: #f8fafc;
-      border: 1px solid rgba(248, 250, 252, 0.96);
-      border-radius: 8px;
-      padding: 10px 8px;
-      box-shadow: 0 4px 20px -2px rgba(248, 250, 252, 0.96), 0 2px 6px -1px rgba(248, 250, 252, 0.96);
-      z-index: 40;
+      position: fixed;
+      top: 72px;
+      right: var(--hub-keepout, 24px);
+      left: auto;
+      width: auto;
+      min-width: 154px;
+      max-width: 224px;
+      background: rgba(241, 245, 249, 0.82);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      border: 1px solid rgba(203, 213, 225, 0.78);
+      border-radius: 999px;
+      padding: 6px 12px;
+      box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.03);
+      z-index: 65;
+      opacity: 0.9;
     }
     .rail-header {
-      border-bottom: 1px solid rgba(248, 250, 252, 0.96);
+      border-bottom: 0;
+      padding: 0;
+      margin: 0;
+      gap: 8px;
       padding-bottom: 6px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -730,7 +740,7 @@
         <!-- 左側直立測條 (Vertical Lens Rail) - 兼具 hub-nav-pills 類別 -->
         <aside class="lens-vertical-rail" aria-label="Chapter lens rail" data-aria-en="Chapter lens rail" data-aria-zh="章節透鏡導覽">
           <div class="rail-header">
-            <span class="rail-title">CHAPTER LENS</span>
+            <span class="rail-title"><span data-lang="zh">章節導覽</span><span data-lang="en">CHAPTER LENS</span></span>
             <span class="rail-tag">01 ~ 07</span>
           </div>
           <nav class="hub-nav-pills" role="navigation" aria-label="Chapter jump" data-aria-en="Chapter jump" data-aria-zh="章節快速跳轉">

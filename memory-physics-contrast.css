@@ -1,4 +1,4 @@
-﻿/* Physics page only: Editorial Light Paper Contrast Enhancements */
+/* Physics page only: Editorial Light Paper Contrast Enhancements */
 body.research-page .abstract-copy h2,
 body.research-page .abstract-panel h2,
 body.research-page .paper-heading h2 {
@@ -26,53 +26,70 @@ body.research-page .research-label {
 
 /* 本頁閱讀版面：章節與正文分欄，白底紙張導覽。 */
 html body.memory-physics-page .studio-main-workbench {
-  max-width: 1680px !important;
-  margin: 24px auto 40px !important;
-  padding: 0 clamp(12px, 2vw, 28px) !important;
+  max-width: 1540px !important;
+  margin: 0 auto !important;
+  padding: 24px var(--hub-keepout, 24px) 48px !important;
 }
 html body.memory-physics-page .studio-layout {
-  display: grid !important;
-  grid-template-columns: 208px minmax(0, 1fr) !important;
-  gap: 24px !important;
-  align-items: start !important;
+  display: block !important;
+  grid-template-columns: none !important;
+  gap: 0 !important;
+  position: relative !important;
 }
 html body.memory-physics-page aside.lens-vertical-rail {
-  position: sticky !important;
-  top: 84px !important;
+  position: fixed !important;
+  top: 72px !important;
+  right: var(--hub-keepout, 24px) !important;
   left: auto !important;
-  width: 100% !important;
-  max-width: none !important;
-  max-height: calc(100dvh - 104px) !important;
+  width: auto !important;
+  min-width: 154px !important;
+  max-width: 224px !important;
+  max-height: calc(100dvh - 96px) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
   margin: 0 !important;
-  padding: 12px !important;
-  background: #ffffff !important;
-  border: 1px solid #cddbdc !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
-  z-index: 50 !important;
+  padding: 6px 12px !important;
+  background: rgba(241, 245, 249, 0.82) !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+  border: 1px solid rgba(203, 213, 225, 0.78) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.03) !important;
+  z-index: 65 !important;
+  opacity: 0.9 !important;
+}
+html body.memory-physics-page aside.lens-vertical-rail:is(:hover, :focus-within) {
+  width: 224px !important;
+  min-width: 224px !important;
+  max-width: 224px !important;
+  padding: 10px !important;
+  border-radius: 12px !important;
+  opacity: 0.98 !important;
+  background: rgba(248, 250, 252, 0.96) !important;
 }
 html body.memory-physics-page .lens-vertical-rail .rail-title,
-html body.memory-physics-page .lens-vertical-rail .rail-tag,
-html body.memory-physics-page .lens-vertical-rail .lens-node-item {
-  opacity: 1 !important;
+html body.memory-physics-page .lens-vertical-rail .rail-tag {
+  opacity: 0.9 !important;
 }
 html body.memory-physics-page .lens-vertical-rail .lens-node-item {
-  min-height: 44px !important;
-  padding: 8px !important;
+  opacity: 0.85 !important;
+  min-height: 30px !important;
+  padding: 5px 7px !important;
   margin: 0 !important;
 }
 html body.memory-physics-page .lens-vertical-rail .lens-node-item.active {
-  background: #dfede8 !important;
-  border-color: #006f70 !important;
-  color: #08594f !important;
+  opacity: 1 !important;
+  background: rgba(13, 148, 136, 0.10) !important;
+  border-left-color: #0d9488 !important;
+  color: #0f172a !important;
 }
-html body.memory-physics-page .lens-stage-container { min-width: 0 !important; }
+html body.memory-physics-page .lens-stage-container { min-width: 0 !important; width: 100% !important; }
 html body.memory-physics-page .lens-stage-container .paper-section {
-  padding: clamp(22px, 2.2vw, 32px) !important;
+  padding: clamp(22px, 2.6vw, 38px) clamp(24px, 3vw, 44px) !important;
   margin-bottom: 20px !important;
-  background: #ffffff !important;
-  border: 1px solid #cddbdc !important;
-  border-radius: 8px !important;
+  background: rgba(255, 255, 255, 0.78) !important;
+  border: 1px solid rgba(203, 213, 225, 0.72) !important;
+  border-radius: 12px !important;
 }
 html body.memory-physics-page .paper-section { scroll-margin-top: var(--f1-anchor-offset, 96px); }
 html body.memory-physics-page .f1-chapter-toggle { display: none; }

@@ -231,11 +231,11 @@
       .stat-strip-grid { grid-template-columns: 1fr; }
     }
     .stat-strip-card {
-      background: #f8fafc !important;
-      border: 1px solid rgba(248, 250, 252, 0.96) !important;
-      border-radius: 6px !important;
+      background: rgba(255, 255, 255, 0.86) !important;
+      border: 1px solid rgba(203, 213, 225, 0.78) !important;
+      border-radius: 8px !important;
       padding: 12px 16px !important;
-      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03), 0 4px 12px -2px rgba(15, 23, 42, 0.04) !important;
       display: flex !important;
       flex-direction: column !important;
       gap: 4px !important;
@@ -243,7 +243,7 @@
     }
     .stat-strip-card:hover {
       transform: translateY(-2px) !important;
-      box-shadow: 0 10px 24px -2px rgba(248, 250, 252, 0.96) !important;
+      box-shadow: 0 8px 20px -4px rgba(15, 23, 42, 0.07) !important;
     }
     .stat-strip-card.border-l-cyan { border-left: 4px solid #8a6a42 !important; }
     .stat-strip-card.border-l-teal { border-left: 4px solid #8a6a42 !important; }
@@ -310,42 +310,50 @@
     }
 
     /* =========================================================================
-       EXECUTIVE STUDIO WORKBENCH (直立測條 + 高密度舞台)
+       EXECUTIVE STUDIO WORKBENCH (浮動測條 + 滿版高密度舞台)
        ========================================================================= */
     .studio-workbench-wrapper {
-      max-width: min(1780px, 97vw);
+      max-width: min(1540px, 100%);
       margin: 10px auto 30px;
       padding: 0 var(--hub-keepout, 24px);
       box-sizing: border-box;
     }
     .studio-layout {
-      display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: 14px;
-      align-items: start;
+      display: block;
+      grid-template-columns: none;
+      gap: 0;
+      position: relative;
     }
     @media (max-width: 1024px) {
       .studio-layout {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        display: block;
       }
     }
 
-    /* 左側直立測條 (Vertical Lens Rail) - 純白輕盈工控風格 (Light Theme) */
+    /* 右上浮動章節導覽膠囊 (Floating Lens Pill/Popover) - 微透霧面石板灰風格 (Surgical Light Mode) */
     .lens-vertical-rail {
-      position: sticky;
-      top: 76px;
-      background: #f8fafc;
-      border: 1px solid rgba(248, 250, 252, 0.96);
-      border-radius: 8px;
-      padding: 10px 8px;
-      box-shadow: 0 4px 20px -2px rgba(248, 250, 252, 0.96), 0 2px 6px -1px rgba(248, 250, 252, 0.96);
-      z-index: 40;
+      position: fixed;
+      top: 72px;
+      right: var(--hub-keepout, 24px);
+      left: auto;
+      width: auto;
+      min-width: 154px;
+      max-width: 224px;
+      background: rgba(241, 245, 249, 0.82);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      border: 1px solid rgba(203, 213, 225, 0.78);
+      border-radius: 999px;
+      padding: 6px 12px;
+      box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.03);
+      z-index: 65;
+      opacity: 0.9;
     }
     .rail-header {
-      border-bottom: 1px solid rgba(248, 250, 252, 0.96);
-      padding-bottom: 6px;
-      margin-bottom: 8px;
+      border-bottom: 0;
+      padding: 0;
+      margin: 0;
+      gap: 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -844,7 +852,7 @@
         <!-- 左側直立測條 (Vertical Lens Rail) -->
         <aside class="lens-vertical-rail" aria-label="Automotive chapter lens" data-aria-en="Automotive chapter lens" data-aria-zh="車用章節透鏡導覽">
           <div class="rail-header">
-            <span class="rail-title">CHAPTER LENS</span>
+            <span class="rail-title"><span data-lang="zh">章節導覽</span><span data-lang="en">CHAPTER LENS</span></span>
             <span class="rail-tag">01 ~ 05</span>
           </div>
           <nav class="hub-nav-pills" role="navigation" aria-label="Automotive chapter anchors" data-aria-en="Automotive chapter anchors" data-aria-zh="車用章節錨點導覽">

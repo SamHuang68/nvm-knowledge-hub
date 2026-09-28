@@ -26,14 +26,14 @@ html body.hub-literature-paper .site-header {
   min-height: 62px !important;
   max-height: none !important;
   padding: 0 var(--hub-keepout, 24px) !important;
-  background: #092b3b !important;
-  color: #f4faf9 !important;
-  border-bottom: 1px solid #33525e !important;
+  background: rgba(248, 250, 252, 0.94) !important;
+  color: #0f172a !important;
+  border-bottom: 1px solid #cbd5e1 !important;
 }
 html body.hub-literature-paper .site-header .brand,
 html body.hub-literature-paper .site-header .primary-nav a,
 html body.hub-literature-paper .site-header .language-toggle {
-  color: #f4faf9 !important;
+  color: #0f172a !important;
 }
 html body.hub-literature-paper .primary-nav {
   display: flex !important;

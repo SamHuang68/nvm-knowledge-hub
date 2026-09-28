@@ -1,12 +1,13 @@
 (function () {
   'use strict';
   var PAPER = '#f8fafc';
-  var CARD = '#ffffff';
+  var CARD = '#fcfcfd';
   var INK = '#0f172a';
-  var SKIP_BTN = 'a.primary, button.primary, .button.primary, .knowledge-primary, .filter-btn.active, [aria-pressed="true"], .view-tab[aria-selected="true"], .ladder button.active, .role-tabs button.active, .skip-link';
+  var SKIP_BTN = 'a.primary, button.primary, .button.primary, .knowledge-primary, .filter-btn.active, [aria-pressed="true"], .view-tab[aria-selected="true"], .ladder button.active, .role-tabs button.active, .skip-link, .lens-vertical-rail';
   function lum(rgb) {
-    var m = String(rgb || '').match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+    var m = String(rgb || '').match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
     if (!m) return 255;
+    if (m[4] !== undefined && parseFloat(m[4]) < 0.08) return 255;
     return 0.2126 * +m[1] + 0.7152 * +m[2] + 0.0722 * +m[3];
   }
   function hexLum(v) {
