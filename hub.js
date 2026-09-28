@@ -119,7 +119,7 @@ const SEARCH_INDEX = [
  * 搜尋互動控制器 (WCAG 2.1 AA Compliant Search Engine)
  */
 function initSearchEngine() {
-  if (window.__NVM_SEARCH_ENHANCED || document.querySelector("script[src*='搜尋控制器']")) return;
+  if (window.__NVM_SEARCH_ENHANCED || document.querySelector("script[src*='search-controller']")) return;
   const overlay = document.getElementById("searchOverlay");
   const input = getHubSearchInput(overlay);
   const results = overlay?.querySelector("#searchResults");

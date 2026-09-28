@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <script src="site-language.js?v=20260917-r4"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="description" content="Complementary storage and verifiable differences: examine the evidence boundaries of SRAM PUF, encrypted OTP, and Secure Storage through bitcell cost, read paths, and physical observability.">
   <meta name="author" content="NVM Knowledge Hub Editorial Board">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="theme-color" content="#fafaf7">
+  <meta name="theme-color" content="#f8fafc">
   <title>Complementary Storage and Verifiable Differences · NVM Knowledge Hub</title>
   <link rel="canonical" href="https://hub.samhuang68.org/memory-physics.html">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -57,12 +57,12 @@
 
     /* Critical defensive inline styles: prevent SVG explosion & skip-link flash */
     .skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
-    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #061925; color: #c4a574; padding: 10px 18px; border: 1px solid #c4a574; border-radius: 4px; }
+    .skip-link:focus { position: fixed; left: 16px; top: 16px; width: auto; height: auto; z-index: 9999; background: #f8fafc; color: #785021; padding: 10px 18px; border: 1px solid #c4a574; border-radius: 4px; }
     .brand-mark svg { width: 32px; height: 32px; max-width: 32px; max-height: 32px; display: block; }
 
     /* =========================================================================
        EDITORIAL LIGHT / COMMERCIAL EDITORIAL PAPER (白底商用閱讀介面規範)
-       對齊 NVM技術全景.html#nvm-physics-overview 與 商用閱讀介面.css
+       對齊 nvm-technology-atlas.html#nvm-physics-overview 與 editorial-reading-ui.css
        ========================================================================= */
     :root {
       --paper-bg: #fafaf7;
@@ -71,17 +71,17 @@
       --ink-heading: #173b49;
       --ink-body: #284853;
       --ink-muted: #526a72;
-      --cyan-editorial: #006f70;
+      --cyan-editorial: #f1f5f9;
       --gold-editorial: #805828;
       --copper-editorial: #805828;
       --hairline-gold: rgba(128, 88, 40, 0.22);
-      --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+      --card-shadow: 0 4px 20px -2px rgba(248, 250, 252, 0.96);
 
-      --editorial-navy: #092b3b;
+      --editorial-navy: #f1f5f9;
       --editorial-ink: #173b49;
       --editorial-body: #284853;
       --editorial-muted: #526a72;
-      --editorial-teal: #006f70;
+      --editorial-teal: #f1f5f9;
       --editorial-cyan: #74e4d7;
       --editorial-paper: #fafaf7;
       --editorial-line: #cddbdc;
@@ -105,23 +105,23 @@
     /* 1. 導覽列與麵包屑：標準商用閱讀介面深藍頂欄 + 柔和紙張灰底麵包屑 */
     html body.memory-physics-page .site-header,
     html body .site-header {
-      background: #092b3b !important;
+      background: #f8fafc !important;
       border-bottom: 1px solid #33525e !important;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18) !important;
+      box-shadow: 0 2px 12px rgba(248, 250, 252, 0.96) !important;
       min-height: 64px !important;
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
       transition: background 0.3s ease, min-height 0.3s ease !important;
     }
     html body.memory-physics-page .site-header.scrolled {
-      background: #072230 !important;
+      background: #f8fafc !important;
       min-height: 56px !important;
     }
     html body.memory-physics-page .site-header .brand {
-      color: #ffffff !important;
+      color: #0f172a !important;
     }
     html body.memory-physics-page .site-header .brand-section {
-      color: #74e4d7 !important;
+      color: #785021 !important;
       font-weight: 700 !important;
     }
     html body.memory-physics-page .site-header .primary-nav a {
@@ -130,7 +130,7 @@
     }
     html body.memory-physics-page .site-header .primary-nav a:hover,
     html body.memory-physics-page .site-header .primary-nav a[aria-current="location"] {
-      color: #74e4d7 !important;
+      color: #785021 !important;
     }
     html body.memory-physics-page .site-header .home-pill {
       color: #e0eeed !important;
@@ -139,7 +139,7 @@
     html body.memory-physics-page .site-header .language-toggle {
       background: rgba(255, 255, 255, 0.1) !important;
       border-color: rgba(255, 255, 255, 0.25) !important;
-      color: #ffffff !important;
+      color: #0f172a !important;
     }
 
     html body.memory-physics-page .site-breadcrumb,
@@ -159,11 +159,11 @@
       text-shadow: none !important;
     }
     html body.memory-physics-page .site-breadcrumb a {
-      color: #006f70 !important;
+      color: #0f172a !important;
       text-decoration: none !important;
     }
     html body.memory-physics-page .site-breadcrumb a:hover {
-      color: #08594f !important;
+      color: #0f172a !important;
       text-decoration: underline !important;
     }
     html body.memory-physics-page .site-breadcrumb strong {
@@ -185,17 +185,17 @@
     }
     html body.memory-physics-page .site-breadcrumb .topic-switch a:hover {
       background: #dfede8 !important;
-      border-color: #006f70 !important;
-      color: #08594f !important;
+      border-color: #0f172a !important;
+      color: #0f172a !important;
     }
     html body.memory-physics-page .site-breadcrumb .topic-switch a[aria-current] {
       background: #dfede8 !important;
-      border-color: #006f70 !important;
-      color: #08594f !important;
+      border-color: #0f172a !important;
+      color: #0f172a !important;
       font-weight: 700 !important;
     }
 
-    /* 2. Editorial Light Paper Hero 容器與書刊排版 (對齊 NVM技術全景.html 與 商用閱讀介面.css) */
+    /* 2. Editorial Light Paper Hero 容器與書刊排版 (對齊 nvm-technology-atlas.html 與 editorial-reading-ui.css) */
     .research-hero.f1-hero-container {
       position: relative !important;
       isolation: isolate !important;
@@ -265,7 +265,7 @@
       font-size: 11px !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
-      color: #006f70 !important;
+      color: #0f172a !important;
       text-transform: uppercase !important;
       margin-bottom: 12px !important;
     }
@@ -274,7 +274,7 @@
       width: 6px !important;
       height: 6px !important;
       border-radius: 50% !important;
-      background: #006f70 !important;
+      background: #f8fafc !important;
       box-shadow: 0 0 6px rgba(0, 111, 112, 0.4) !important;
       display: inline-block !important;
       animation: dot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
@@ -295,7 +295,7 @@
       text-wrap: balance !important;
     }
     .research-hero h1 em {
-      color: #006f70 !important;
+      color: #0f172a !important;
       font-weight: 600 !important;
       font-style: normal !important;
     }
@@ -304,7 +304,7 @@
       padding: 10px 16px !important;
       background: #ffffff !important;
       border: 1px solid #cddbdc !important;
-      border-left: 4px solid #006f70 !important;
+      border-left: 4px solid #f1f5f9 !important;
       border-radius: 6px !important;
       font-size: clamp(15px, 1.25vw, 17.5px) !important;
       font-weight: 600 !important;
@@ -312,7 +312,7 @@
       color: #173b49 !important;
       max-width: 720px !important;
       letter-spacing: 0.01em !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+      box-shadow: 0 2px 8px rgba(248, 250, 252, 0.96) !important;
     }
     .f1-hero-thesis p { margin: 0 !important; }
     .research-hero-lede {
@@ -347,11 +347,11 @@
       display: flex !important;
       flex-direction: column !important;
       gap: 4px !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+      box-shadow: 0 2px 8px rgba(248, 250, 252, 0.96) !important;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
     .bento-metric-card:hover {
-      border-color: #006f70 !important;
+      border-color: #0f172a !important;
       box-shadow: 0 4px 16px rgba(0, 111, 112, 0.12) !important;
       transform: translateY(-2px) !important;
     }
@@ -378,9 +378,9 @@
       gap: 12px !important;
     }
     .research-hero-links .button.primary {
-      background: #006f70 !important;
-      border: 1px solid #006f70 !important;
-      color: #ffffff !important;
+      background: #f8fafc !important;
+      border: 1px solid #f1f5f9 !important;
+      color: #0f172a !important;
       border-radius: 4px !important;
       box-shadow: 0 4px 14px rgba(0, 111, 112, 0.2) !important;
       min-height: 38px !important;
@@ -393,8 +393,8 @@
       text-decoration: none !important;
     }
     .research-hero-links .button.primary:hover {
-      background: #08594f !important;
-      border-color: #08594f !important;
+      background: #f8fafc !important;
+      border-color: #0f172a !important;
       transform: translateY(-1px) !important;
     }
     .research-hero-links .button.ghost {
@@ -410,11 +410,11 @@
       align-items: center !important;
       transition: all 0.2s ease !important;
       text-decoration: none !important;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
+      box-shadow: 0 2px 6px rgba(248, 250, 252, 0.96) !important;
     }
     .research-hero-links .button.ghost:hover {
-      border-color: #006f70 !important;
-      color: #006f70 !important;
+      border-color: #0f172a !important;
+      color: #0f172a !important;
       transform: translateY(-1px) !important;
     }
 
@@ -442,7 +442,7 @@
       border: 1px solid #cddbdc !important;
       border-radius: 6px !important;
       padding: 12px 16px !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
       display: flex !important;
       flex-direction: column !important;
       gap: 4px !important;
@@ -450,11 +450,11 @@
     }
     .f1-stat-bridge .stat-strip-card:hover {
       transform: translateY(-2px) !important;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+      box-shadow: 0 8px 24px rgba(248, 250, 252, 0.96) !important;
     }
-    .f1-stat-bridge .stat-strip-card.border-l-cyan { border-left: 4px solid #008580 !important; }
-    .f1-stat-bridge .stat-strip-card.border-l-teal { border-left: 4px solid #006f70 !important; }
-    .f1-stat-bridge .stat-strip-card.border-l-emerald { border-left: 4px solid #16a34a !important; }
+    .f1-stat-bridge .stat-strip-card.border-l-cyan { border-left: 4px solid #f1f5f9 !important; }
+    .f1-stat-bridge .stat-strip-card.border-l-teal { border-left: 4px solid #f1f5f9 !important; }
+    .f1-stat-bridge .stat-strip-card.border-l-emerald { border-left: 4px solid #f1f5f9 !important; }
     .f1-stat-bridge .stat-strip-card.border-l-amber { border-left: 4px solid #d97706 !important; }
     .f1-stat-bridge .stat-card-head {
       display: flex !important;
@@ -476,7 +476,7 @@
       line-height: 1.1 !important;
     }
     .f1-stat-bridge .stat-label {
-      color: #006f70 !important;
+      color: #0f172a !important;
       font-size: 0.85rem !important;
       font-weight: 600 !important;
     }
@@ -492,7 +492,7 @@
       line-height: 1.4 !important;
     }
     .f1-stat-bridge .f1-stat-source {
-      color: #006f70 !important;
+      color: #0f172a !important;
       font-size: 0.75rem !important;
       font-weight: 600 !important;
       text-decoration: none !important;
@@ -515,7 +515,7 @@
       background: #ffffff !important;
       border: 1px solid #cddbdc !important;
       border-radius: 8px !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+      box-shadow: 0 4px 20px rgba(248, 250, 252, 0.96) !important;
       backdrop-filter: none !important;
       -webkit-backdrop-filter: none !important;
       max-height: calc(100dvh - 104px) !important;
@@ -538,7 +538,7 @@
       text-transform: uppercase !important;
     }
     html body.memory-physics-page .lens-vertical-rail .rail-tag {
-      color: #006f70 !important;
+      color: #0f172a !important;
       background: #dfede8 !important;
       border: 1px solid #cddbdc !important;
       font: 600 10px/1.5 'IBM Plex Mono', monospace !important;
@@ -577,9 +577,9 @@
     html body.memory-physics-page .studio-layout aside.lens-vertical-rail .hub-nav-pills .lens-node-item.active {
       background: #dfede8 !important;
       border-color: transparent !important;
-      border-left: 3px solid #006f70 !important;
+      border-left: 3px solid #f1f5f9 !important;
       box-shadow: none !important;
-      color: #08594f !important;
+      color: #0f172a !important;
     }
     html body.memory-physics-page .lens-vertical-rail .lens-node-item .lens-badge {
       background: #e2eaf2 !important;
@@ -593,9 +593,9 @@
     }
     html body.memory-physics-page .lens-vertical-rail :is(.lens-node-item, .nav-pill):is(.active, .active-chapter, [aria-current=page]) .lens-badge,
     html body.memory-physics-page .studio-layout aside.lens-vertical-rail .hub-nav-pills .lens-node-item.active .lens-badge {
-      background: #006f70 !important;
-      color: #ffffff !important;
-      border-color: #006f70 !important;
+      background: #f8fafc !important;
+      color: #0f172a !important;
+      border-color: #0f172a !important;
       font-weight: 700 !important;
     }
     html body.memory-physics-page .lens-vertical-rail :is(.lens-node-item, .nav-pill) .lens-name {
@@ -606,7 +606,7 @@
       display: block !important;
     }
     html body.memory-physics-page .lens-vertical-rail :is(.lens-node-item, .nav-pill):is(.active, .active-chapter, [aria-current=page]) .lens-name {
-      color: #08594f !important;
+      color: #0f172a !important;
       font-weight: 700 !important;
     }
     html body.memory-physics-page .lens-vertical-rail .lens-node-item .lens-sub {
@@ -630,7 +630,7 @@
       background: #ffffff !important;
       border: 1px solid #cddbdc !important;
       border-radius: 8px !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 20px rgba(248, 250, 252, 0.96) !important;
       padding: clamp(24px, 3vw, 44px) clamp(24px, 3.4vw, 52px) !important;
       margin-bottom: 28px !important;
       box-sizing: border-box !important;
@@ -658,7 +658,7 @@
       margin: 6px 0 12px !important;
     }
     html body.memory-physics-page :is(.paper-section, .lens-panel) h2 em {
-      color: #006f70 !important;
+      color: #0f172a !important;
       font-style: normal !important;
     }
     html body.memory-physics-page :is(p, li, dd) {
@@ -747,7 +747,7 @@
       width: 8px !important;
       height: 8px !important;
       border-radius: 50% !important;
-      background: #006f70 !important;
+      background: #f8fafc !important;
       box-shadow: 0 0 8px rgba(0, 111, 112, 0.4) !important;
       display: inline-block !important;
       animation: dot-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
@@ -756,7 +756,7 @@
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 11px !important;
       letter-spacing: 0.12em !important;
-      color: #006f70 !important;
+      color: #0f172a !important;
       font-weight: 700 !important;
       text-transform: uppercase !important;
     }
@@ -789,13 +789,13 @@
       border-top: 2px solid #719a8c !important;
       border-radius: 6px !important;
       padding: 22px !important;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03) !important;
+      box-shadow: 0 2px 10px rgba(248, 250, 252, 0.96) !important;
       transition: transform 0.2s ease, border-color 0.2s ease !important;
     }
     html body.memory-physics-page :is(.correction-card, .topology-card, .public-claim-strip article, .causal-node, .claim-rung, .unknowns article, .evidence-result, .energy-card):hover {
-      border-top-color: #006f70 !important;
+      border-top-color: #0f172a !important;
       transform: translateY(-2px) !important;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06) !important;
+      box-shadow: 0 6px 20px rgba(248, 250, 252, 0.96) !important;
     }
     html body.memory-physics-page .correction-card > span:first-child,
     html body.memory-physics-page .public-claim-strip small,
@@ -826,11 +826,11 @@
     }
     html body.memory-physics-page .causal-node.highlight {
       background: #edf6f4 !important;
-      border-color: #006f70 !important;
+      border-color: #0f172a !important;
       box-shadow: 0 4px 16px rgba(0, 111, 112, 0.12) !important;
     }
     html body.memory-physics-page .evidence-result a {
-      color: #006f70 !important;
+      color: #0f172a !important;
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 12px !important;
       font-weight: 600 !important;
@@ -840,7 +840,7 @@
       gap: 4px !important;
     }
     html body.memory-physics-page .evidence-result a:hover {
-      color: #08594f !important;
+      color: #0f172a !important;
       text-decoration: underline !important;
     }
 
@@ -854,11 +854,11 @@
     .physics-formula-card {
       background: #ffffff !important;
       border: 1px solid #cddbdc !important;
-      border-top: 3px solid #006f70 !important;
+      border-top: 3px solid #f1f5f9 !important;
       border-radius: 8px !important;
       padding: 1.5rem 1.75rem !important;
       backdrop-filter: none !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
       display: flex !important;
       flex-direction: column !important;
       gap: 0.75rem !important;
@@ -878,7 +878,7 @@
       padding: 1rem 1.25rem !important;
       font-family: 'IBM Plex Mono', monospace !important;
       font-size: 0.98rem !important;
-      color: #006f70 !important;
+      color: #0f172a !important;
       font-weight: 600 !important;
       margin: 0.5rem 0 !important;
       overflow-x: auto !important;
@@ -920,7 +920,7 @@
     }
     .physics-step-card b {
       display: block !important;
-      color: #006f70 !important;
+      color: #0f172a !important;
       font-size: 0.85rem !important;
       font-family: 'IBM Plex Mono', monospace !important;
       margin-bottom: 0.35rem !important;
@@ -985,7 +985,7 @@
       border: 1px solid #cddbdc !important;
       border-radius: 8px !important;
       background: #ffffff !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
       margin-top: 18px !important;
       margin-bottom: 22px !important;
       width: 100% !important;
@@ -1060,7 +1060,7 @@
     }
     .risk.reduced, .risk.inherent, .state-chip.persistent {
       background: #dcfce7 !important;
-      color: #065f46 !important;
+      color: #0f172a !important;
       border: 1px solid #a7f3d0 !important;
       box-shadow: none !important;
     }
@@ -1079,7 +1079,7 @@
     }
     .arch-badge.arch-volatile {
       background: #e0f2fe !important;
-      color: #0369a1 !important;
+      color: #0f172a !important;
       border: 1px solid #bae6fd !important;
     }
     .arch-badge.arch-single {
@@ -1089,7 +1089,7 @@
     }
     .arch-badge.arch-differential {
       background: #dfede8 !important;
-      color: #08594f !important;
+      color: #0f172a !important;
       border: 1px solid #a7d9ce !important;
       box-shadow: none !important;
     }
@@ -1099,7 +1099,7 @@
       background: #ffffff !important;
       border: 1px solid #cddbdc !important;
       border-radius: 8px !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
     }
     html body.memory-physics-page .memory-lane {
       padding: 30px 20px !important;
@@ -1131,12 +1131,12 @@
     .state-lab-controls button:hover {
       background: #eaf1ed !important;
       color: #173b49 !important;
-      border-color: #006f70 !important;
+      border-color: #0f172a !important;
     }
     .state-lab-controls button.active {
-      background: #006f70 !important;
-      border: 1px solid #006f70 !important;
-      color: #ffffff !important;
+      background: #f8fafc !important;
+      border: 1px solid #f1f5f9 !important;
+      color: #0f172a !important;
       box-shadow: 0 2px 8px rgba(0, 111, 112, 0.25) !important;
       font-weight: 700 !important;
     }
@@ -1154,7 +1154,7 @@
       background: #ffffff !important;
       border-radius: 8px !important;
       padding: 24px !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
       display: flex !important;
       flex-direction: column !important;
       justify-content: space-between !important;
@@ -1163,7 +1163,7 @@
     }
     .position-card.claims-card.defensible {
       border: 1px solid #cddbdc !important;
-      border-top: 3px solid #16a34a !important;
+      border-top: 3px solid #f1f5f9 !important;
     }
     .position-card.claims-card.defensible::before {
       content: none !important;
@@ -1186,7 +1186,7 @@
       font-size: 20px !important;
       font-weight: 700 !important;
     }
-    .position-card.claims-card.defensible .claims-header h3 { color: #15803d !important; }
+    .position-card.claims-card.defensible .claims-header h3 { color: #0f172a !important; }
     .position-card.claims-card.avoid .claims-header h3 { color: #b91c1c !important; }
     .claims-list {
       list-style: none !important;
@@ -1222,7 +1222,7 @@
     }
     .icon-box-check {
       background: #dcfce7 !important;
-      color: #15803d !important;
+      color: #0f172a !important;
       border: 1px solid #86efac !important;
     }
     .icon-box-cross {
@@ -1252,8 +1252,8 @@
     }
     .position-card.claims-card.defensible blockquote {
       background: #dcfce7 !important;
-      border-left: 3px solid #16a34a !important;
-      color: #14532d !important;
+      border-left: 3px solid #f1f5f9 !important;
+      color: #0f172a !important;
     }
     .position-card.claims-card.avoid blockquote {
       background: #fee2e2 !important;
@@ -1278,7 +1278,7 @@
       border-radius: 8px !important;
       background: #ffffff !important;
       border: 1px solid #cddbdc !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
     }
     .paper-conclusion h2 {
       font-size: clamp(26px, 3.2vw, 42px) !important;
@@ -1293,7 +1293,7 @@
 
     /* TEST 13 Compliance & Base Paper styling */
     html, body {
-      background-color: #f8fafc;
+      background-color: #0f172a;
       background-color: #fafaf7 !important;
     }
 
@@ -1312,10 +1312,10 @@
     html body.memory-physics-page .commercial-verdict {
       background: #f0f4ef !important;
       border: 1px solid #cddbdc !important;
-      border-top: 3px solid #006f70 !important;
+      border-top: 3px solid #f1f5f9 !important;
       border-radius: 8px !important;
       color: #173b49 !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
     }
     html body.memory-physics-page .commercial-verdict small {
       color: #805828 !important;
@@ -1330,8 +1330,8 @@
 
     /* Topology Drawings & Cards (#economics) */
     html body.memory-physics-page .topology-head > span {
-      background: #006f70 !important;
-      color: #ffffff !important;
+      background: #f8fafc !important;
+      color: #0f172a !important;
       border-radius: 4px !important;
       font-weight: 700 !important;
     }
@@ -1349,7 +1349,7 @@
     }
     html body.memory-physics-page .topology-drawing b {
       background: #ffffff !important;
-      color: #006f70 !important;
+      color: #0f172a !important;
       border: 1px solid #cddbdc !important;
     }
     html body.memory-physics-page .topology-drawing em {
@@ -1363,9 +1363,9 @@
     html body.memory-physics-page .symmetry-grid article {
       background: #ffffff !important;
       border: 1px solid #cddbdc !important;
-      border-top: 3px solid #006f70 !important;
+      border-top: 3px solid #f1f5f9 !important;
       border-radius: 6px !important;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03) !important;
+      box-shadow: 0 2px 10px rgba(248, 250, 252, 0.96) !important;
       color: #284853 !important;
     }
     html body.memory-physics-page .symmetry-grid article h3 {
@@ -1381,7 +1381,7 @@
       background: #ffffff !important;
       border: 1px solid #cddbdc !important;
       border-radius: 8px !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
       color: #173b49 !important;
     }
     html body.memory-physics-page .state-lab-controls {
@@ -1397,12 +1397,12 @@
     html body.memory-physics-page .state-lab-controls button:hover {
       background: #eaf1ed !important;
       color: #173b49 !important;
-      border-color: #006f70 !important;
+      border-color: #0f172a !important;
     }
     html body.memory-physics-page .state-lab-controls button.active {
-      background: #006f70 !important;
-      border: 1px solid #006f70 !important;
-      color: #ffffff !important;
+      background: #f8fafc !important;
+      border: 1px solid #f1f5f9 !important;
+      color: #0f172a !important;
     }
     html body.memory-physics-page .state-lab-stage {
       background: #fafaf7 !important;
@@ -1436,12 +1436,12 @@
     }
     html body.memory-physics-page .cross-node {
       background: #ffffff !important;
-      border: 1px solid #006f70 !important;
-      color: #006f70 !important;
+      border: 1px solid #f1f5f9 !important;
+      color: #0f172a !important;
     }
     html body.memory-physics-page .bitline {
       background: rgba(0, 111, 112, 0.12) !important;
-      border: 1px dashed #006f70 !important;
+      border: 1px dashed #f1f5f9 !important;
     }
     html body.memory-physics-page .otp-reference {
       background: #edf2ee !important;
@@ -1478,7 +1478,7 @@
       border-top: 3px solid #dc2626 !important;
       border-radius: 8px !important;
       color: #991b1b !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
     }
     html body.memory-physics-page .primitive-scope small {
       color: #b91c1c !important;
@@ -1496,7 +1496,7 @@
       border: 1px solid #cddbdc !important;
       border-radius: 8px !important;
       overflow: hidden !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
     }
 
     /* Root Cause & Outcomes (#system-consequence) */
@@ -1504,7 +1504,7 @@
       background: #ffffff !important;
       border: 1px solid #cddbdc !important;
       border-radius: 8px !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
       color: #173b49 !important;
       overflow: hidden !important;
       margin-bottom: 38px !important;
@@ -1523,7 +1523,7 @@
     }
     html body.memory-physics-page .security-stack i {
       background: #dfede8 !important;
-      color: #08594f !important;
+      color: #0f172a !important;
       border: 1px solid #cddbdc !important;
       border-radius: 4px !important;
       font-family: 'IBM Plex Mono', monospace !important;
@@ -1536,7 +1536,7 @@
       border: 1px solid #cddbdc !important;
       border-radius: 8px !important;
       overflow: hidden !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
     }
     html body.memory-physics-page .raw-outcome {
       background: #fef2f2 !important;
@@ -1574,7 +1574,7 @@
       background: #f8fafc !important;
       border-left: 1px solid #cddbdc !important;
       border-right: 1px solid #cddbdc !important;
-      color: #006f70 !important;
+      color: #0f172a !important;
     }
     html body.memory-physics-page .outcome-pivot span {
       color: #805828 !important;
@@ -1583,41 +1583,41 @@
       letter-spacing: 0.12em !important;
     }
     html body.memory-physics-page .outcome-pivot b {
-      color: #006f70 !important;
+      color: #0f172a !important;
     }
     html body.memory-physics-page .secure-outcome {
       background: #f0fdf4 !important;
-      color: #166534 !important;
+      color: #0f172a !important;
       padding: 36px 32px !important;
     }
     html body.memory-physics-page .secure-outcome > span {
-      color: #15803d !important;
+      color: #0f172a !important;
       font-family: 'IBM Plex Mono', monospace !important;
       font-weight: 700 !important;
       letter-spacing: 0.12em !important;
       font-size: 11px !important;
     }
     html body.memory-physics-page .secure-outcome h4 {
-      color: #166534 !important;
+      color: #0f172a !important;
       font-weight: 700 !important;
       margin: 24px 0 14px !important;
     }
     html body.memory-physics-page .secure-outcome p {
-      color: #14532d !important;
+      color: #0f172a !important;
       line-height: 1.7 !important;
     }
     html body.memory-physics-page .outcome-equation {
       background: #dfede8 !important;
       border-top: 1px solid #cddbdc !important;
-      color: #08594f !important;
+      color: #0f172a !important;
     }
     html body.memory-physics-page .outcome-equation small {
-      color: #006f70 !important;
+      color: #0f172a !important;
       font-family: 'IBM Plex Mono', monospace !important;
       font-weight: 700 !important;
     }
     html body.memory-physics-page .outcome-equation strong {
-      color: #08594f !important;
+      color: #0f172a !important;
     }
     html body.memory-physics-page .outcome-equation p {
       color: #173b49 !important;
@@ -1642,7 +1642,7 @@
       border: 1px solid #cddbdc !important;
       border-radius: 8px !important;
       color: #284853 !important;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04) !important;
+      box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
       margin-top: 36px !important;
     }
     html body.memory-physics-page .provenance-note summary {
@@ -1659,16 +1659,16 @@
     }
     html body.memory-physics-page .provenance-links a {
       background: #dfede8 !important;
-      color: #08594f !important;
+      color: #0f172a !important;
       border: 1px solid #cddbdc !important;
       border-radius: 4px !important;
       font-family: 'IBM Plex Mono', monospace !important;
       font-weight: 600 !important;
     }
     html body.memory-physics-page .provenance-links a:hover {
-      background: #006f70 !important;
-      color: #ffffff !important;
-      border-color: #006f70 !important;
+      background: #f8fafc !important;
+      color: #0f172a !important;
+      border-color: #0f172a !important;
     }
   </style>
 </head>
@@ -1692,7 +1692,7 @@
 
   <nav class="site-breadcrumb" aria-label="Breadcrumb" data-aria-en="Breadcrumb" data-aria-zh="麵包屑導覽">
     <i></i><a href="index.html"><span data-lang="zh">知識中心</span><span data-lang="en">Knowledge Hub</span></a><i></i><a href="index.html#layer-foundations"><span data-lang="en">Technology Foundations</span><span data-lang="zh">技術基礎</span></a><i></i><strong><span data-lang="zh">記憶體物理</span><span data-lang="en">Memory Physics</span></strong>
-    <span class="topic-switch"><a href="NVM技術全景.html#physics-library"><span data-lang="en">Physics Library</span><span data-lang="zh">物理家族總表</span></a><a href="technology-comparison.html"><span data-lang="en">Technology Comparison</span><span data-lang="zh">技術比較</span></a></span>
+    <span class="topic-switch"><a href="nvm-technology-atlas.html#physics-library"><span data-lang="en">Physics Library</span><span data-lang="zh">物理家族總表</span></a><a href="technology-comparison.html"><span data-lang="en">Technology Comparison</span><span data-lang="zh">技術比較</span></a></span>
   </nav>
 
   <main id="main-content">
@@ -1872,7 +1872,7 @@
           </nav>
           <div class="rail-footer" style="padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 10px; display: flex; justify-content: space-between; font-size: 0.65rem; color: #64748b; font-family: 'IBM Plex Mono', monospace;">
             <span><span data-lang="zh">當前選取章節</span><span data-lang="en">ACTIVE LENS</span></span>
-            <span style="color:#c4a574;"><span data-lang="zh">2026 實測查核</span><span data-lang="en">VERIFIED 2026</span></span>
+            <span style="color:#785021;"><span data-lang="zh">2026 實測查核</span><span data-lang="en">VERIFIED 2026</span></span>
           </div>
         </aside>
 
@@ -2099,7 +2099,7 @@
       <section id="read-path" class="paper-section lens-panel reveal">
         <div class="paper-heading">
           <div><p class="paper-kicker"><span data-lang="zh">04 · 互動式讀取路徑</span><span data-lang="en">04 · INTERACTIVE READ PATH</span></p><h2><span data-lang="zh">從 power-off 到 sense output，<br><em>逐層看差異在哪裡</em></span><span data-lang="en">From power-off to sense output,<br><em>locate the real divide</em></span></h2>
-      <p style="color:#526a72;font-size:0.85rem;margin:0.75rem 0 1rem;"><span data-lang="zh">架構級四種讀取模式（單端／冗餘／差動／差動＋冗餘）示意與取捨：<a href="technology-comparison.html#sec-read-modes" style="color:#006f70;">technology-comparison · 讀取模式</a>。</span><span data-lang="en">Architecture-class four read modes (single-ended / redundant / differential / differential+redundant): <a href="technology-comparison.html#sec-read-modes" style="color:#006f70;">technology-comparison · Read Modes</a>.</span></p></div>
+      <p style="color:#526a72;font-size:0.85rem;margin:0.75rem 0 1rem;"><span data-lang="zh">架構級四種讀取模式（單端／冗餘／差動／差動＋冗餘）示意與取捨：<a href="technology-comparison.html#sec-read-modes" style="color:#0f172a;">technology-comparison · 讀取模式</a>。</span><span data-lang="en">Architecture-class four read modes (single-ended / redundant / differential / differential+redundant): <a href="technology-comparison.html#sec-read-modes" style="color:#0f172a;">technology-comparison · Read Modes</a>.</span></p></div>
           <p><span data-lang="zh">切換三個階段。左側代表 SRAM／SRAM PUF 的 volatile state expression；右側代表 programmed antifuse／NeoPUF 類 persistent conduction state。圖為 threat-model abstraction，不是特定 foundry macro schematic。</span><span data-lang="en">Switch among three phases. The left abstracts volatile SRAM/SRAM-PUF state expression; the right abstracts a programmed antifuse/NeoPUF persistent conduction state. This is a threat-model abstraction, not a foundry-macro schematic.</span></p>
         </div>
         <div class="f1-evidence-links"><b><span data-lang="zh">示意與限制</span><span data-lang="en">Model and Limits</span></b><a href="memory-evidence.html#evidence-P01">P01 · <span data-lang="zh">上電狀態機制</span><span data-lang="en">Startup-state mechanism</span></a><a href="memory-evidence.html#evidence-V01">V01 · <span data-lang="zh">NeoPUF 供應商模型</span><span data-lang="en">NeoPUF vendor model</span></a><a href="memory-evidence.html#evidence-P07">P07 · <span data-lang="zh">SRAM 殘留研究</span><span data-lang="en">SRAM remanence study</span></a><a href="memory-evidence.html#evidence-P08">P08 · <span data-lang="zh">低溫 PUF 攻擊範圍</span><span data-lang="en">Low-temperature PUF attack scope</span></a></div>
@@ -2465,6 +2465,6 @@
     </div>
   </footer>
   <script src="research.js?v=20260906-navy-v3"></script>
-  <script src="記憶體物理導覽.js?v=20260908-n01"></script>
+  <script src="memory-physics-navigation.js?v=20260908-n01"></script>
 </body>
 </html>

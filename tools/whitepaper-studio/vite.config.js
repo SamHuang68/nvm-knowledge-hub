@@ -6,10 +6,10 @@ export default defineConfig({
   build: {
     rolldownOptions: { cwd: fileURLToPath(new URL('./', import.meta.url)) },
     lib: {
-      entry: fileURLToPath(new URL('./src/js/建置入口.js', import.meta.url)),
+      entry: fileURLToPath(new URL('./src/js/build-entry.js', import.meta.url)),
       formats: ['es'],
-      fileName: () => '白皮書.js',
-      cssFileName: '白皮書',
+      fileName: () => 'whitepaper.js',
+      cssFileName: 'whitepaper',
     },
     sourcemap: false,
     write: false,

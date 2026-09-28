@@ -4,12 +4,12 @@
    ========================================================= */
 
 :root {
-  --spec-midnight: #061925;
-  --spec-midnight-2: #0a2230;
-  --spec-navy: #133445;
-  --spec-surface: #0e2a38;
-  --spec-surface-card: #0e2a38;
-  --spec-surface-elevated: #0e2a38;
+  --spec-midnight: #f8fafc;
+  --spec-midnight-2: #f1f5f9;
+  --spec-navy: #f1f5f9;
+  --spec-surface: #f1f5f9;
+  --spec-surface-card: #f1f5f9;
+  --spec-surface-elevated: #f1f5f9;
   --spec-cyan: #c4a574;
   --spec-aqua: #c4a574;
   --spec-teal: #b08a5b;
@@ -23,7 +23,7 @@
   --spec-text-dim: #94a3b8;
   --spec-mono: 'IBM Plex Mono', Consolas, monospace;
   --spec-sans: 'Plus Jakarta Sans', 'Noto Sans TC', 'Microsoft JhengHei', -apple-system, BlinkMacSystemFont, sans-serif;
-  --spec-glow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  --spec-glow: 0 4px 16px rgba(248, 250, 252, 0.96);
 }
 
 .specialty-page {
@@ -43,8 +43,8 @@
   position: relative;
   padding: 42px 20px 28px;
   background: 
-    radial-gradient(circle at 50% 15%, rgba(176, 138, 91, 0.12) 0%, rgba(3, 19, 30, 0) 65%),
-    linear-gradient(180deg, rgba(6, 27, 41, 0.95) 0%, rgba(3, 19, 30, 1) 100%);
+    radial-gradient(circle at 50% 15%, rgba(176, 138, 91, 0.12) 0%, rgba(248, 250, 252, 0.96) 65%),
+    linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 100%);
   border-bottom: 1px solid rgba(176, 138, 91, 0.18);
 }
 
@@ -92,7 +92,7 @@
 }
 
 .hero-lede {
-  color: #a7c2c9;
+  color: #334155;
   font-size: clamp(15.5px, 1.3vw, 18.5px);
   line-height: 1.78;
   max-width: 960px;
@@ -138,14 +138,14 @@
   font-size: 11px;
   font-weight: 700;
   color: var(--spec-amber);
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(248, 250, 252, 0.96);
   padding: 2px 7px;
   border-radius: 3px;
 }
 
 .nav-pill:hover .pill-number {
   color: var(--spec-midnight);
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(248, 250, 252, 0.96);
 }
 
 /* =========================================================
@@ -158,8 +158,8 @@
   border: 1px solid rgba(6, 182, 212, 0.35);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 25px rgba(6, 182, 212, 0.15);
-  background: #01080e;
+  box-shadow: 0 20px 50px rgba(248, 250, 252, 0.96), 0 0 25px rgba(6, 182, 212, 0.15);
+  background: #f8fafc;
   position: relative;
 }
 
@@ -173,8 +173,8 @@
   font-family: var(--spec-mono);
   font-size: 9.5px;
   letter-spacing: 0.12em;
-  color: #c4a574;
-  background: rgba(2, 10, 16, 0.85);
+  color: #785021;
+  background: rgba(248, 250, 252, 0.96);
   padding: 3px 8px;
   border-radius: 3px;
   border: 1px solid rgba(0, 240, 255, 0.3);
@@ -187,7 +187,7 @@
   aspect-ratio: 16 / 9;
   object-fit: contain; /* 絕對不截斷上下左右任何像素，完整露出比例尺與金凸塊 */
   display: block;
-  background: #01080e;
+  background: #f8fafc;
   filter: contrast(1.05) saturate(1.06);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -198,7 +198,7 @@
 
 .hero-image-caption {
   padding: 8px 16px;
-  background: rgba(4, 18, 28, 0.96);
+  background: rgba(248, 250, 252, 0.96);
   border-top: 1px solid var(--spec-line);
   font-family: var(--spec-mono);
   font-size: 11.5px;
@@ -219,7 +219,7 @@
 .topic-dark {
   background: 
     radial-gradient(circle at 80% 20%, rgba(176, 138, 91, 0.05) 0%, transparent 50%),
-    linear-gradient(180deg, #020c14 0%, #04141e 100%);
+    linear-gradient(180deg, #f1f5f9 0%, #f1f5f9 100%);
 }
 
 .topic-container {
@@ -391,12 +391,12 @@
 .tech-card:hover {
   transform: translateY(-4px);
   border-color: var(--spec-aqua);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), var(--spec-glow);
+  box-shadow: 0 16px 40px rgba(248, 250, 252, 0.96), var(--spec-glow);
 }
 
 .tech-card-featured {
   border-color: rgba(196, 165, 116, 0.4);
-  background: linear-gradient(180deg, rgba(14, 52, 72, 0.75) 0%, rgba(8, 37, 54, 0.75) 100%);
+  background: linear-gradient(180deg, rgba(14, 52, 72, 0.75) 0%, rgba(248, 250, 252, 0.96) 100%);
 }
 
 .card-header-icon {
@@ -415,7 +415,7 @@
 }
 
 .tech-card p {
-  color: #a7c2c9;
+  color: #334155;
   font-size: 14px;
   line-height: 1.7;
   margin: 0 0 20px;
@@ -438,7 +438,7 @@
   align-items: baseline;
   gap: 12px;
   font-size: 12.5px;
-  background: rgba(3, 16, 26, 0.5);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 7px 12px;
   border-radius: 4px;
@@ -478,10 +478,10 @@
   padding: 28px 32px;
   background: 
     linear-gradient(115deg, rgba(176, 138, 91, 0.08) 0%, transparent 40%),
-    rgba(6, 30, 44, 0.85);
+    rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(196, 165, 116, 0.35);
   border-radius: 8px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 36px rgba(248, 250, 252, 0.96);
 }
 
 .callout-header {
@@ -523,7 +523,7 @@
 .fuse-evolution-block {
   margin-top: 52px;
   padding: 36px 32px;
-  background: rgba(4, 20, 32, 0.7);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid var(--spec-line);
   border-radius: 8px;
 }
@@ -538,7 +538,7 @@
 }
 
 .evo-card {
-  background: rgba(8, 33, 49, 0.6);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   padding: 24px;
@@ -553,7 +553,7 @@
 
 .evo-active {
   border-color: var(--spec-aqua);
-  background: linear-gradient(180deg, rgba(176, 138, 91, 0.12) 0%, rgba(8, 37, 54, 0.8) 100%);
+  background: linear-gradient(180deg, rgba(176, 138, 91, 0.12) 0%, rgba(248, 250, 252, 0.96) 100%);
   box-shadow: 0 10px 30px rgba(176, 138, 91, 0.15);
 }
 
@@ -566,7 +566,7 @@
   padding: 3px 8px;
   border-radius: 3px;
   margin-bottom: 12px;
-  color: #9cb5bc;
+  color: #334155;
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -595,11 +595,11 @@
    ========================================================= */
 .interactive-lab-card {
   margin: 20px 0;
-  background: #04141e;
+  background: #f8fafc;
   border: 1px solid var(--spec-line);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), var(--spec-glow);
+  box-shadow: 0 20px 60px rgba(248, 250, 252, 0.96), var(--spec-glow);
 }
 
 .lab-header {
@@ -607,7 +607,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 16px;
-  background: rgba(6, 25, 37, 0.96);
+  background: rgba(248, 250, 252, 0.96);
   border-bottom: 1px solid var(--spec-line);
   flex-wrap: wrap;
   gap: 12px;
@@ -642,7 +642,7 @@
 }
 
 .lab-subpanel {
-  background: rgba(7, 30, 44, 0.6);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 6px;
   padding: 20px;
@@ -650,7 +650,7 @@
 
 /* Stat Grid */
 .stat-box {
-  background: rgba(3, 14, 22, 0.7);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 4px;
   padding: 12px 14px;
@@ -718,7 +718,7 @@
 
 .btn-lab-action.btn-accent-amber {
   background: var(--spec-amber);
-  color: #03131e;
+  color: #0f172a;
 }
 
 .btn-lab-action.btn-accent-amber:hover:not(:disabled) {
@@ -732,7 +732,7 @@
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background: #030d14;
+  background: #f8fafc;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -747,7 +747,7 @@
 .term-dot-green { background: #38c99e; }
 
 .repair-terminal {
-  background: #01060a;
+  background: #f8fafc;
   border: 1px solid rgba(196, 165, 116, 0.2);
   border-radius: 0 0 4px 4px;
   font-family: var(--spec-mono);
@@ -820,10 +820,10 @@
   padding: 28px 30px;
   background: 
     linear-gradient(135deg, rgba(176, 138, 91, 0.05) 0%, transparent 45%),
-    rgba(5, 23, 34, 0.88);
+    rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(196, 165, 116, 0.28);
   border-radius: 8px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 24px rgba(176, 138, 91, 0.06);
+  box-shadow: 0 16px 48px rgba(248, 250, 252, 0.96), 0 0 24px rgba(176, 138, 91, 0.06);
   position: relative;
   overflow: hidden;
 }
@@ -892,10 +892,10 @@
   border: 1px solid rgba(196, 165, 116, 0.2);
   margin-top: 16px;
   background: 
-    linear-gradient(to right, #051a26 30%, rgba(5, 26, 38, 0)),
-    linear-gradient(to right, rgba(5, 26, 38, 0), #051a26 70%) 100% 0,
-    radial-gradient(farthest-side at 0 50%, rgba(196, 165, 116, 0.25), rgba(0, 0, 0, 0)),
-    radial-gradient(farthest-side at 100% 50%, rgba(196, 165, 116, 0.25), rgba(0, 0, 0, 0)) 100% 0;
+    linear-gradient(to right, #f1f5f9 30%, rgba(248, 250, 252, 0.96)),
+    linear-gradient(to right, rgba(248, 250, 252, 0.96), #f1f5f9 70%) 100% 0,
+    radial-gradient(farthest-side at 0 50%, rgba(196, 165, 116, 0.25), rgba(248, 250, 252, 0.96)),
+    radial-gradient(farthest-side at 100% 50%, rgba(196, 165, 116, 0.25), rgba(248, 250, 252, 0.96)) 100% 0;
   background-repeat: no-repeat;
   background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
   background-attachment: local, local, scroll, scroll;
@@ -914,7 +914,7 @@
 
 /* thead th: 高反差半導體儀表風格 */
 .data-table thead th {
-  background: #041a27;
+  background: #f8fafc;
   color: var(--spec-aqua);
   font-family: var(--spec-mono);
   font-size: 10px;
@@ -962,7 +962,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .data-table tbody tr:nth-child(even) td {
-  background-color: rgba(6, 30, 44, 0.35);
+  background-color: rgba(248, 250, 252, 0.96);
 }
 
 .data-table tbody tr:hover td {
@@ -1236,11 +1236,11 @@ html[data-language="zh"] .data-table thead th {
   margin: 28px auto 34px;
   max-width: 1060px;
   padding: 10px 16px;
-  background: rgba(3, 16, 26, 0.75);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid var(--spec-line);
   border-radius: 8px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 10px 30px rgba(248, 250, 252, 0.96);
 }
 
 .specialty-research-meta .meta-item b {
@@ -1269,11 +1269,11 @@ html[data-language="zh"] .data-table thead th {
 .physics-formula-card {
   margin: 36px 0 32px;
   padding: 24px 28px;
-  background: linear-gradient(135deg, rgba(6, 26, 38, 0.92) 0%, rgba(3, 14, 22, 0.98) 100%);
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 100%);
   border: 1px solid rgba(196, 165, 116, 0.25);
   border-left: 4px solid var(--spec-aqua);
   border-radius: 6px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 12px 36px rgba(248, 250, 252, 0.96);
 }
 
 .formula-header {
@@ -1307,7 +1307,7 @@ html[data-language="zh"] .data-table thead th {
 .formula-equation {
   margin: 14px 0 16px;
   padding: 14px 20px;
-  background: rgba(1, 8, 14, 0.65);
+  background: rgba(248, 250, 252, 0.96);
   border-radius: 4px;
   border: 1px dashed rgba(196, 165, 116, 0.2);
 }
@@ -1369,10 +1369,10 @@ html[data-language="zh"] .data-table thead th {
 .foundry-roadmap-section {
   margin: 54px 0 32px;
   padding: 32px 36px;
-  background: linear-gradient(135deg, rgba(6, 26, 38, 0.85) 0%, rgba(2, 12, 20, 0.95) 100%);
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 100%);
   border: 1px solid var(--spec-line);
   border-radius: 8px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65), var(--spec-glow);
+  box-shadow: 0 16px 48px rgba(248, 250, 252, 0.96), var(--spec-glow);
 }
 
 .roadmap-header {
@@ -1394,7 +1394,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .stepper-col {
-  background: rgba(3, 14, 22, 0.7);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 6px;
   padding: 16px;
@@ -1432,7 +1432,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .stepper-node-card {
-  background: rgba(1, 8, 14, 0.5);
+  background: rgba(248, 250, 252, 0.96);
   padding: 10px 12px;
   border-radius: 4px;
   border-left: 2.5px solid var(--spec-amber);
@@ -1505,7 +1505,7 @@ html[data-language="zh"] .data-table thead th {
   border-radius: 6px;
   font-size: 20px;
   margin-bottom: 18px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96);
   transition: all 0.25s var(--ease-premium);
 }
 
@@ -1519,7 +1519,7 @@ html[data-language="zh"] .data-table thead th {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(3, 16, 26, 0.5);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 4px 10px;
   border-radius: 4px;
@@ -1554,7 +1554,7 @@ html[data-language="zh"] .data-table thead th {
   align-items: center;
   gap: 6px;
   padding: 8px 12px;
-  background: #020b12;
+  background: #f8fafc;
   border-bottom: 1px solid rgba(196, 165, 116, 0.15);
 }
 
@@ -1562,13 +1562,13 @@ html[data-language="zh"] .data-table thead th {
   margin-left: 8px;
   font-family: var(--spec-mono);
   font-size: 9px;
-  color: #c4a574;
+  color: #785021;
   letter-spacing: 0.1em;
 }
 
 .fusebox-register-map {
   margin-top: 12px;
-  background: #020e17;
+  background: #f8fafc;
   border: 1px solid rgba(196, 165, 116, 0.22);
   border-radius: 4px;
   padding: 10px 12px;
@@ -1622,7 +1622,7 @@ html[data-language="zh"] .data-table thead th {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(6, 30, 44, 0.6);
+  background: rgba(248, 250, 252, 0.96);
   padding: 6px 10px;
   border-radius: 3px;
   border: 1px solid rgba(196, 165, 116, 0.08);
@@ -1664,7 +1664,7 @@ html[data-language="zh"] .data-table thead th {
 
 /* =========================================================
    DESIGN SYSTEM PORTING (From AI Systems & NVM Opportunities)
-   Slate/Navy #0a1118 theme, Cyber Cyan, Monospace Eyebrows,
+   Slate/Navy #f1f5f9 theme, Cyber Cyan, Monospace Eyebrows,
    4-Metric Stat Strip, 4-Metric Spec Grids, State Contract Boxes,
    Governing Physics Blocks, Modern Decision Tables
    ========================================================= */
@@ -1728,7 +1728,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .stat-strip-card {
-  background: rgba(13, 21, 32, 0.75);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   padding: 16px 18px;
@@ -1799,7 +1799,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: var(--spec-mono);
   font-size: 11px;
   font-weight: 700;
-  color: #c4a574;
+  color: #785021;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1812,7 +1812,7 @@ html[data-language="zh"] .data-table thead th {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background-color: #c4a574;
+  background-color: #785021;
   box-shadow: 0 0 8px #c4a574;
 }
 
@@ -1833,7 +1833,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .spec-card {
-  background: rgba(13, 21, 32, 0.7);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 8px;
   padding: 16px 18px;
@@ -1842,9 +1842,9 @@ html[data-language="zh"] .data-table thead th {
 
 .spec-card:hover {
   border-color: rgba(6, 182, 212, 0.5);
-  background: rgba(13, 21, 32, 0.95);
+  background: rgba(248, 250, 252, 0.96);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(248, 250, 252, 0.96);
 }
 
 .spec-card-val {
@@ -1855,10 +1855,10 @@ html[data-language="zh"] .data-table thead th {
   letter-spacing: -0.02em;
 }
 
-.val-cyan { color: #b08a5b; }
-.val-emerald { color: #c4a574; }
+.val-cyan { color: #785021; }
+.val-emerald { color: #785021; }
 .val-amber { color: #fbbf24; }
-.val-purple { color: #c4a574; }
+.val-purple { color: #785021; }
 
 .spec-card-title {
   font-family: var(--spec-mono);
@@ -1882,7 +1882,7 @@ html[data-language="zh"] .data-table thead th {
   margin: 14px 0;
   padding: 12px 16px;
   border-radius: 0 8px 8px 0;
-  background: #0b131e;
+  background: #f8fafc;
   border-left: 4px solid #8a6a42;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-right: 1px solid rgba(255, 255, 255, 0.08);
@@ -1948,9 +1948,9 @@ html[data-language="zh"] .data-table thead th {
   margin: 14px 0;
   padding: 12px 16px;
   border-radius: 8px;
-  background: rgba(10, 15, 22, 0.85);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(6, 182, 212, 0.35);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 20px rgba(248, 250, 252, 0.96);
 }
 
 .governing-physics-header {
@@ -1959,7 +1959,7 @@ html[data-language="zh"] .data-table thead th {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #b08a5b;
+  color: #785021;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1974,7 +1974,7 @@ html[data-language="zh"] .data-table thead th {
 
 .governing-physics-formula {
   padding: 16px 20px;
-  background: #050b10;
+  background: #f8fafc;
   border: 1px solid rgba(6, 182, 212, 0.2);
   border-radius: 6px;
   overflow-x: auto;
@@ -2005,15 +2005,15 @@ html[data-language="zh"] .data-table thead th {
   margin: 18px 0;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: #0e1724;
+  background: #f8fafc;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 32px rgba(248, 250, 252, 0.96);
 }
 
 .decision-matrix-card-header {
   padding: 14px 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(13, 21, 32, 0.85);
+  background: rgba(248, 250, 252, 0.96);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2045,7 +2045,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .decision-table-modern thead tr {
-  background: #09131f;
+  background: #f8fafc;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -2060,7 +2060,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .decision-table-modern th.th-cyan {
-  color: #b08a5b;
+  color: #785021;
 }
 
 .decision-table-modern tbody tr {
@@ -2213,10 +2213,10 @@ html[data-language="zh"] .data-table thead th {
 .semiconductor-flowchart-card {
   margin: 24px 0 28px;
   padding: 20px 22px;
-  background: linear-gradient(180deg, rgba(2, 14, 24, 0.95) 0%, rgba(4, 22, 36, 0.95) 100%);
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 100%);
   border: 1px solid rgba(6, 182, 212, 0.3);
   border-radius: 10px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(6, 182, 212, 0.2);
+  box-shadow: 0 16px 40px rgba(248, 250, 252, 0.96), inset 0 1px 0 rgba(6, 182, 212, 0.2);
 }
 
 .flowchart-header {
@@ -2232,7 +2232,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: var(--spec-mono);
   font-size: 10.5px;
   letter-spacing: 0.14em;
-  color: #c4a574;
+  color: #785021;
   background: rgba(0, 240, 255, 0.12);
   border: 1px solid rgba(0, 240, 255, 0.35);
   padding: 3px 10px;
@@ -2245,7 +2245,7 @@ html[data-language="zh"] .data-table thead th {
 .flowchart-header h4 {
   font-size: 14.5px;
   margin: 0;
-  color: #f1f5f9;
+  color: #0f172a;
   font-weight: 600;
 }
 
@@ -2253,7 +2253,7 @@ html[data-language="zh"] .data-table thead th {
   width: 100%;
   overflow-x: auto;
   border-radius: 6px;
-  background: #010a12;
+  background: #f8fafc;
   border: 1px solid rgba(30, 58, 95, 0.5);
   padding: 6px;
 }
@@ -2276,7 +2276,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .flow-legend-col {
-  background: rgba(3, 16, 26, 0.6);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 6px;
   padding: 10px 12px;
@@ -2309,10 +2309,10 @@ html[data-language="zh"] .data-table thead th {
 .qual-pipeline-container {
   margin: 24px 0 28px;
   padding: 22px 24px;
-  background: linear-gradient(180deg, #020d16 0%, #041624 100%);
+  background: linear-gradient(180deg, #f1f5f9 0%, #f1f5f9 100%);
   border: 1px solid rgba(6, 182, 212, 0.3);
   border-radius: 10px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 16px 40px rgba(248, 250, 252, 0.96);
 }
 
 .qual-pipeline-header {
@@ -2329,7 +2329,7 @@ html[data-language="zh"] .data-table thead th {
 .qual-chip {
   background: rgba(6, 182, 212, 0.15);
   border: 1px solid #c4a574;
-  color: #c4a574;
+  color: #785021;
   font-family: var(--spec-mono);
   font-size: 10px;
   font-weight: 700;
@@ -2359,7 +2359,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .stepper-step {
-  background: #031420;
+  background: #f8fafc;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 16px 14px;
@@ -2376,14 +2376,14 @@ html[data-language="zh"] .data-table thead th {
 
 .stepper-step:hover {
   transform: translateY(-2px);
-  border-color: #c4a574;
+  border-color: #785021;
 }
 
 .step-gate-badge {
   position: absolute;
   top: -10px;
   right: 12px;
-  background: #042f2e;
+  background: #f8fafc;
   border: 1px solid #c4a574;
   color: #a7f3d0;
   font-family: var(--spec-mono);
@@ -2396,7 +2396,7 @@ html[data-language="zh"] .data-table thead th {
 
 .step-visual-box {
   height: 64px;
-  background: #010a10;
+  background: #f8fafc;
   border: 1px solid #1e293b;
   border-radius: 6px;
   margin: 6px 0 12px;
@@ -2446,7 +2446,7 @@ html[data-language="zh"] .data-table thead th {
 /* 脈衝與老煉視覺 */
 .pulse-noise-mini { display: flex; flex-direction: column; align-items: center; }
 .mini-svg { width: 55px; height: 26px; }
-.pulse-lbl { font-size: 8px; font-family: var(--spec-mono); color: #c4a574; }
+.pulse-lbl { font-size: 8px; font-family: var(--spec-mono); color: #785021; }
 .chamber-box-mini {
   display: flex; flex-direction: column; align-items: center;
   background: rgba(239, 68, 68, 0.15); border: 1px solid #ef4444;
@@ -2475,14 +2475,14 @@ html[data-language="zh"] .data-table thead th {
 .step-phase-tag {
   font-family: var(--spec-mono);
   font-size: 9.5px;
-  color: #c4a574;
+  color: #785021;
   letter-spacing: 0.08em;
 }
 
 .step-content h4 {
   font-size: 13.5px;
   margin: 4px 0 8px;
-  color: #f8fafc;
+  color: #0f172a;
   line-height: 1.35;
 }
 
@@ -2511,7 +2511,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .connector-arrow {
-  color: #c4a574;
+  color: #785021;
   font-size: 11px;
   margin-left: -3px;
 }
@@ -2534,15 +2534,15 @@ html[data-language="zh"] .data-table thead th {
    ROUND 2: EDA TIMING & E-INK BIPOLAR WAVEFORM STYLING
    ========================================================= */
 .timing-waveform-track {
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 2px 8px rgba(248, 250, 252, 0.96));
 }
 
 .waveform-timing-canvas {
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 4px 12px rgba(248, 250, 252, 0.96));
 }
 
 .migration-state-machine {
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 4px 12px rgba(248, 250, 252, 0.96));
 }
 
 /* 緊湊型高密度協議卡片 */
@@ -2554,7 +2554,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .compact-proto-card {
-  background: rgba(3, 16, 26, 0.7);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(6, 182, 212, 0.2);
   border-radius: 6px;
   padding: 12px 14px;
@@ -2566,7 +2566,7 @@ html[data-language="zh"] .data-table thead th {
 
 .compact-proto-card:hover {
   transform: translateY(-2px);
-  border-color: #c4a574;
+  border-color: #785021;
 }
 
 .compact-proto-header {
@@ -2580,7 +2580,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: var(--spec-mono);
   font-size: 9px;
   font-weight: 700;
-  color: #c4a574;
+  color: #785021;
   background: rgba(0, 240, 255, 0.1);
   padding: 2px 6px;
   border-radius: 3px;
@@ -2589,7 +2589,7 @@ html[data-language="zh"] .data-table thead th {
 .compact-proto-card h4 {
   font-size: 13px;
   font-weight: 600;
-  color: #f1f5f9;
+  color: #0f172a;
   margin: 0 0 6px;
 }
 
@@ -2629,7 +2629,7 @@ html[data-language="zh"] .data-table thead th {
 
 .compact-ate-strip .stat-strip-card:not(.f2-stat-bridge *):not(.m3-stat-bridge *) {
   padding: 12px 14px !important;
-  background: #020a12 !important;
+  background: #f8fafc !important;
   border: 1px solid rgba(30, 58, 95, 0.6) !important;
   border-left-width: 3px !important;
   border-radius: 4px !important;
@@ -2688,11 +2688,11 @@ html[data-language="zh"] .data-table thead th {
 /* --- 2. Interactive Labs: ATE Instrument Rack Shell --- */
 .interactive-lab-card {
   margin: 20px 0 24px !important;
-  background: #020b13 !important;
+  background: #f8fafc !important;
   border: 1px solid rgba(0, 240, 255, 0.35) !important;
   border-radius: 6px !important;
   overflow: hidden !important;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 240, 255, 0.08) !important;
+  box-shadow: 0 16px 45px rgba(248, 250, 252, 0.96), 0 0 20px rgba(0, 240, 255, 0.08) !important;
   position: relative !important;
 }
 
@@ -2703,7 +2703,7 @@ html[data-language="zh"] .data-table thead th {
   position: absolute !important;
   font-family: var(--spec-mono) !important;
   font-size: 14px !important;
-  color: #b5aa9c !important;
+  color: #334155 !important;
   line-height: 1 !important;
   pointer-events: none !important;
   z-index: 5 !important;
@@ -2713,7 +2713,7 @@ html[data-language="zh"] .data-table thead th {
 
 .lab-header {
   padding: 10px 18px !important;
-  background: linear-gradient(180deg, #061e30 0%, #031320 100%) !important;
+  background: linear-gradient(180deg, #f1f5f9 0%, #f1f5f9 100%) !important;
   border-bottom: 1px solid rgba(0, 240, 255, 0.25) !important;
 }
 
@@ -2737,7 +2737,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .lab-subpanel {
-  background: rgba(3, 16, 26, 0.8) !important;
+  background: rgba(248, 250, 252, 0.96) !important;
   border: 1px solid rgba(30, 58, 95, 0.6) !important;
   border-radius: 4px !important;
   padding: 10px 12px !important; /* Tightened by 40% */
@@ -2751,7 +2751,7 @@ html[data-language="zh"] .data-table thead th {
 
 /* ATE Reticle / Graticule Background for Oscilloscope Canvas */
 .canvas-wrapper {
-  background: #01060a !important;
+  background: #f8fafc !important;
   border: 1px solid #1e293b !important;
   border-radius: 4px !important;
   position: relative !important;
@@ -2776,7 +2776,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .stat-box {
-  background: #010810 !important;
+  background: #f8fafc !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   border-radius: 3px !important;
   padding: 5px 8px !important;
@@ -2808,7 +2808,7 @@ html[data-language="zh"] .data-table thead th {
   gap: 8px !important;
   margin-top: 6px !important;
   padding: 6px 10px !important;
-  background: #020e18 !important;
+  background: #f8fafc !important;
   border: 1px solid rgba(255, 255, 255, 0.06) !important;
   border-radius: 4px !important;
 }
@@ -2835,7 +2835,7 @@ html[data-language="zh"] .data-table thead th {
 
 .result-card {
   padding: 8px 10px !important;
-  background: #010810 !important;
+  background: #f8fafc !important;
   border: 1px solid rgba(255, 255, 255, 0.07) !important;
   border-radius: 3px !important;
 }
@@ -2865,7 +2865,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .contract-truth-card {
-  background: #010912 !important;
+  background: #f8fafc !important;
   border: 1px solid rgba(0, 240, 255, 0.15) !important;
   border-radius: 4px !important;
   padding: 8px 10px !important;
@@ -2885,7 +2885,7 @@ html[data-language="zh"] .data-table thead th {
   font-size: 8.5px !important;
   font-weight: 700 !important;
   letter-spacing: 0.1em !important;
-  color: #c4a574 !important;
+  color: #785021 !important;
   margin-bottom: 3px !important;
 }
 
@@ -2934,11 +2934,11 @@ html[data-language="zh"] .data-table thead th {
 
 .deck-flow-container {
   margin: 22px 0 26px;
-  background: linear-gradient(180deg, #020b14 0%, #031422 100%);
+  background: linear-gradient(180deg, #f1f5f9 0%, #f1f5f9 100%);
   border: 1px solid rgba(0, 240, 255, 0.3);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 45px rgba(248, 250, 252, 0.96), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .deck-flow-header {
@@ -2946,7 +2946,7 @@ html[data-language="zh"] .data-table thead th {
   justify-content: space-between;
   align-items: center;
   padding: 10px 18px;
-  background: rgba(3, 20, 32, 0.95);
+  background: rgba(248, 250, 252, 0.96);
   border-bottom: 1px solid rgba(0, 240, 255, 0.2);
   flex-wrap: wrap;
   gap: 8px;
@@ -2967,7 +2967,7 @@ html[data-language="zh"] .data-table thead th {
   border-radius: 3px;
   background: rgba(0, 240, 255, 0.12);
   border: 1px solid rgba(0, 240, 255, 0.4);
-  color: #c4a574;
+  color: #785021;
   text-transform: uppercase;
 }
 
@@ -2975,7 +2975,7 @@ html[data-language="zh"] .data-table thead th {
 .deck-flow-header h4 {
   font-size: 14.5px;
   font-weight: 700;
-  color: #f8fafc;
+  color: #0f172a;
   margin: 0;
   letter-spacing: 0.02em;
 }
@@ -2993,7 +2993,7 @@ html[data-language="zh"] .data-table thead th {
 .deck-timing-rail {
   margin: 12px 16px 0;
   padding: 8px 12px;
-  background: #010810;
+  background: #f8fafc;
   border: 1px solid rgba(30, 58, 95, 0.6);
   border-radius: 4px;
   display: flex;
@@ -3007,7 +3007,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: var(--spec-mono);
   font-size: 9.5px;
   font-weight: 700;
-  color: #c4a574;
+  color: #785021;
   letter-spacing: 0.1em;
 }
 
@@ -3029,10 +3029,10 @@ html[data-language="zh"] .data-table thead th {
   border-radius: 3px;
   background: rgba(255, 255, 255, 0.05);
 }
-.signal-chip.cyan  { color: #c4a574; background: rgba(0, 240, 255, 0.12); border: 1px solid rgba(0, 240, 255, 0.3); }
+.signal-chip.cyan  { color: #785021; background: rgba(0, 240, 255, 0.12); border: 1px solid rgba(0, 240, 255, 0.3); }
 .signal-chip.amber { color: #f59e0b; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); }
-.signal-chip.green { color: #c4a574; background: rgba(196, 165, 116, 0.12); border: 1px solid rgba(196, 165, 116, 0.3); }
-.signal-chip.purple{ color: #c4a574; background: rgba(196, 165, 116, 0.12); border: 1px solid rgba(196, 165, 116, 0.3); }
+.signal-chip.green { color: #785021; background: rgba(196, 165, 116, 0.12); border: 1px solid rgba(196, 165, 116, 0.3); }
+.signal-chip.purple{ color: #785021; background: rgba(196, 165, 116, 0.12); border: 1px solid rgba(196, 165, 116, 0.3); }
 
 /* 水平階梯導軌 (Pipeline Rail) */
 .deck-pipeline-rail {
@@ -3048,7 +3048,7 @@ html[data-language="zh"] .data-table thead th {
 .deck-step-card {
   flex: 1;
   min-width: 200px;
-  background: #03111d;
+  background: #f8fafc;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 6px;
   padding: 12px 14px;
@@ -3060,7 +3060,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .deck-step-card:hover {
-  border-color: #c4a574;
+  border-color: #785021;
   box-shadow: 0 8px 24px rgba(0, 240, 255, 0.12);
   transform: translateY(-2px);
 }
@@ -3083,11 +3083,11 @@ html[data-language="zh"] .data-table thead th {
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #c4a574;
+  color: #785021;
 }
 .deck-step-card.border-amber .deck-step-num { color: #f59e0b; }
-.deck-step-card.border-green .deck-step-num { color: #c4a574; }
-.deck-step-card.border-purple .deck-step-num { color: #c4a574; }
+.deck-step-card.border-green .deck-step-num { color: #785021; }
+.deck-step-card.border-purple .deck-step-num { color: #785021; }
 
 .deck-step-status {
   font-family: var(--spec-mono);
@@ -3103,14 +3103,14 @@ html[data-language="zh"] .data-table thead th {
 .deck-step-title {
   font-size: 13px;
   font-weight: 700;
-  color: #f1f5f9;
+  color: #0f172a;
   margin: 0 0 8px;
   line-height: 1.35;
 }
 
 /* 純 HTML/CSS 幾何示意舞台 (Crisp Stage) */
 .deck-visual-stage {
-  background: #01060c;
+  background: #f8fafc;
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 4px;
   padding: 8px;
@@ -3133,19 +3133,19 @@ html[data-language="zh"] .data-table thead th {
   border-radius: 2px;
 }
 .deck-step-card.border-amber .deck-metric-callout { border-left-color: #f59e0b; background: rgba(245, 158, 11, 0.05); }
-.deck-step-card.border-green .deck-metric-callout { border-left-color: #c4a574; background: rgba(196, 165, 116, 0.05); }
-.deck-step-card.border-purple .deck-metric-callout { border-left-color: #c4a574; background: rgba(196, 165, 116, 0.05); }
+.deck-step-card.border-green .deck-metric-callout { border-left-color: #785021; background: rgba(196, 165, 116, 0.05); }
+.deck-step-card.border-purple .deck-metric-callout { border-left-color: #785021; background: rgba(196, 165, 116, 0.05); }
 
 .deck-metric-val {
   font-family: var(--spec-mono);
   font-size: 14px;
   font-weight: 800;
-  color: #c4a574;
+  color: #785021;
   letter-spacing: 0.02em;
 }
 .deck-step-card.border-amber .deck-metric-val { color: #fbbf24; }
-.deck-step-card.border-green .deck-metric-val { color: #c4a574; }
-.deck-step-card.border-purple .deck-metric-val { color: #c4a574; }
+.deck-step-card.border-green .deck-metric-val { color: #785021; }
+.deck-step-card.border-purple .deck-metric-val { color: #785021; }
 
 .deck-metric-lbl {
   font-size: 8.5px;
@@ -3185,7 +3185,7 @@ html[data-language="zh"] .data-table thead th {
   background: linear-gradient(90deg, #1e3a5f, #c4a574);
 }
 .deck-connector-arrow {
-  color: #c4a574;
+  color: #785021;
   font-size: 11px;
   margin-top: -5px;
   text-shadow: 0 0 6px rgba(0, 240, 255, 0.6);
@@ -3194,8 +3194,8 @@ html[data-language="zh"] .data-table thead th {
   font-family: var(--spec-mono);
   font-size: 7.5px;
   font-weight: 700;
-  color: #c4a574;
-  background: #031420;
+  color: #785021;
+  background: #f8fafc;
   padding: 1px 4px;
   border: 1px solid rgba(0, 240, 255, 0.3);
   border-radius: 2px;
@@ -3225,7 +3225,7 @@ html[data-language="zh"] .data-table thead th {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  background: #020810;
+  background: #f8fafc;
   border: 1px solid rgba(0, 240, 255, 0.25);
   border-radius: 6px;
   padding: 16px 20px;
@@ -3242,7 +3242,7 @@ html[data-language="zh"] .data-table thead th {
 
 .yield-stage-panel {
   flex: 1;
-  background: rgba(3, 16, 26, 0.8);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 6px;
   padding: 12px;
@@ -3276,15 +3276,15 @@ html[data-language="zh"] .data-table thead th {
   justify-content: center;
   margin-bottom: 10px;
   position: relative;
-  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 16px rgba(248, 250, 252, 0.96);
 }
 .fail-disk {
-  background: radial-gradient(circle, #1a0808 0%, #080303 100%);
+  background: radial-gradient(circle, #1a0808 0%, #f1f5f9 100%);
   border: 2px solid rgba(239, 68, 68, 0.5);
   box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
 }
 .pass-disk {
-  background: radial-gradient(circle, #06241a 0%, #020e0a 100%);
+  background: radial-gradient(circle, #f1f5f9 0%, #f1f5f9 100%);
   border: 2px solid rgba(196, 165, 116, 0.6);
   box-shadow: 0 0 15px rgba(196, 165, 116, 0.25);
 }
@@ -3307,7 +3307,7 @@ html[data-language="zh"] .data-table thead th {
   font-size: 9px;
   font-weight: 900;
 }
-.chip-dot.pass { background: #064e3b; color: #a7f3d0; }
+.chip-dot.pass { background: #f8fafc; color: #a7f3d0; }
 .chip-dot.fail { background: #ef4444; color: #ffffff; box-shadow: 0 0 6px #ef4444; }
 .chip-dot.rescued { background: #c4a574; color: #ffffff; border: 1px solid #d4b896; box-shadow: 0 0 8px #c4a574; }
 
@@ -3323,7 +3323,7 @@ html[data-language="zh"] .data-table thead th {
   line-height: 1;
 }
 .fail-color .yield-number { color: #f87171; text-shadow: 0 0 10px rgba(239, 68, 68, 0.3); }
-.pass-color .yield-number { color: #c4a574; text-shadow: 0 0 12px rgba(196, 165, 116, 0.4); }
+.pass-color .yield-number { color: #785021; text-shadow: 0 0 12px rgba(196, 165, 116, 0.4); }
 
 .yield-label {
   font-family: var(--spec-mono);
@@ -3349,7 +3349,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: var(--spec-mono);
   font-size: 9px;
   font-weight: 700;
-  color: #c4a574;
+  color: #785021;
   background: rgba(0, 240, 255, 0.12);
   border: 1px solid rgba(0, 240, 255, 0.35);
   padding: 2px 6px;
@@ -3360,7 +3360,7 @@ html[data-language="zh"] .data-table thead th {
 .arrow-motion-track {
   display: flex;
   align-items: center;
-  color: #c4a574;
+  color: #785021;
   font-size: 16px;
   text-shadow: 0 0 8px #c4a574;
 }
@@ -3407,9 +3407,9 @@ html[data-language="zh"] .data-table thead th {
 .figure-container-abstract {
   background: radial-gradient(circle at top left, rgba(0, 240, 255, 0.05), transparent 70%),
               radial-gradient(circle at bottom right, rgba(196, 165, 116, 0.05), transparent 70%),
-              rgba(10, 15, 29, 0.95) !important;
+              rgba(248, 250, 252, 0.96) !important;
   border: 1px solid rgba(0, 240, 255, 0.3) !important;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.1) !important;
+  box-shadow: 0 12px 36px rgba(248, 250, 252, 0.96), 0 0 20px rgba(0, 240, 255, 0.1) !important;
   padding: 20px !important;
 }
 
@@ -3419,7 +3419,7 @@ html[data-language="zh"] .data-table thead th {
   grid-template-columns: 1fr 140px 1fr;
   align-items: center;
   gap: 16px;
-  background: rgba(4, 7, 18, 0.7);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   padding: 16px;
@@ -3460,7 +3460,7 @@ html[data-language="zh"] .data-table thead th {
 /* 向量 SVG 圖表畫布 */
 .plot-graph-canvas {
   width: 100%;
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 8px;
   padding: 8px;
@@ -3485,7 +3485,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-weight: 800;
-  color: #c4a574;
+  color: #785021;
   background: rgba(0, 240, 255, 0.12);
   border: 1px solid #c4a574;
   padding: 3px 8px;
@@ -3502,7 +3502,7 @@ html[data-language="zh"] .data-table thead th {
 
 /* 右側高斯收斂條狀圖 (Topic 01) */
 .abstract-gauge-panel {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 8px;
   padding: 12px;
@@ -3559,7 +3559,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .spread-val.fail-val { color: #f43f5e; }
-.spread-val.pass-val { color: #c4a574; }
+.spread-val.pass-val { color: #785021; }
 
 .spread-row.action-row {
   grid-template-columns: 1fr;
@@ -3569,7 +3569,7 @@ html[data-language="zh"] .data-table thead th {
 .spread-chip-action {
   font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
-  color: #c4a574;
+  color: #785021;
   background: rgba(56, 189, 248, 0.1);
   padding: 2px 6px;
   border-radius: 3px;
@@ -3590,7 +3590,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: 'JetBrains Mono', monospace;
   font-size: 20px;
   font-weight: 900;
-  color: #c4a574;
+  color: #785021;
 }
 
 .rate-text {
@@ -3622,7 +3622,7 @@ html[data-language="zh"] .data-table thead th {
 .chip-die.pass {
   background: rgba(196, 165, 116, 0.25);
   border: 1px solid #c4a574;
-  color: #c4a574;
+  color: #785021;
 }
 
 .chip-die.fail {
@@ -3635,7 +3635,7 @@ html[data-language="zh"] .data-table thead th {
 .chip-die.rescued {
   background: rgba(0, 240, 255, 0.35);
   border: 1px solid #c4a574;
-  color: #c4a574;
+  color: #785021;
   box-shadow: 0 0 8px #c4a574;
 }
 
@@ -3648,7 +3648,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .demura-screen {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(248, 250, 252, 0.96);
   border-radius: 6px;
   padding: 8px;
   text-align: center;
@@ -3663,7 +3663,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .fail-label { color: #f43f5e; }
-.pass-label { color: #c4a574; }
+.pass-label { color: #785021; }
 
 .screen-matrix {
   display: grid;
@@ -3692,8 +3692,8 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .fail-sub { color: #f43f5e; }
-.pass-sub { color: #c4a574; }
-.demura-arrow { font-size: 16px; color: #c4a574; }
+.pass-sub { color: #785021; }
+.demura-arrow { font-size: 16px; color: #785021; }
 
 /* Topic 04: E-Ink 速度階躍與雙粒子微膠囊 */
 .stokes-speedup-grid {
@@ -3744,7 +3744,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .fail-text { color: #f43f5e; }
-.pass-text { color: #c4a574; }
+.pass-text { color: #785021; }
 
 .abstract-microcapsule-box {
   display: flex;
@@ -3758,7 +3758,7 @@ html[data-language="zh"] .data-table thead th {
   height: 100px;
   border-radius: 50%;
   border: 2px solid #c4a574;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.15), rgba(15, 23, 42, 0.9));
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.15), rgba(248, 250, 252, 0.96));
   box-shadow: 0 0 16px rgba(0, 240, 255, 0.3);
   display: flex;
   flex-direction: column;
@@ -3782,7 +3782,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .bottom-electrode {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(248, 250, 252, 0.96);
   color: #94a3b8;
   border-top: 1px solid #64748b;
 }
@@ -3811,13 +3811,13 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .p-dot.w-dot {
-  background: #0e2a38;
-  color: #f3ebe0;
+  background: #f8fafc;
+  color: #0f172a;
   box-shadow: 0 0 6px #fff;
 }
 
 .p-dot.b-dot {
-  background: #000000;
+  background: #f8fafc;
   color: #94a3b8;
   border: 1px solid #475569;
 }
@@ -3825,7 +3825,7 @@ html[data-language="zh"] .data-table thead th {
 .viscous-fluid-arrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: 8px;
-  color: #c4a574;
+  color: #785021;
 }
 
 .capsule-label {
@@ -3843,7 +3843,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .bistable-meter-box {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(248, 250, 252, 0.96);
   border-radius: 6px;
   padding: 8px;
 }
@@ -3852,7 +3852,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: 'JetBrains Mono', monospace;
   font-size: 24px;
   font-weight: 900;
-  color: #c4a574;
+  color: #785021;
   display: block;
 }
 
@@ -3871,7 +3871,7 @@ html[data-language="zh"] .data-table thead th {
   gap: 4px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  color: #c4a574;
+  color: #785021;
   background: rgba(56, 189, 248, 0.1);
   border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: 4px;
@@ -3883,7 +3883,7 @@ html[data-language="zh"] .data-table thead th {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 6px;
   padding: 8px 12px;
@@ -3913,7 +3913,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   font-weight: 800;
-  color: #c4a574;
+  color: #785021;
 }
 
 /* ==========================================================================
@@ -3923,7 +3923,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: 'JetBrains Mono', monospace;
   font-size: 13px;
   font-weight: 800;
-  color: #c4a574;
+  color: #785021;
   margin: 4px 0 6px;
 }
 
@@ -3975,17 +3975,17 @@ html[data-language="zh"] .data-table thead th {
   font-family: 'JetBrains Mono', monospace;
 }
 
-.chip-v.cyan { color: #c4a574; }
-.chip-v.green { color: #c4a574; }
+.chip-v.cyan { color: #785021; }
+.chip-v.green { color: #785021; }
 .chip-v.amber { color: #f59e0b; }
 .chip-v.rose { color: #f43f5e; }
-.chip-v.purple { color: #c4a574; }
+.chip-v.purple { color: #785021; }
 
 
 /* Circuit Topology Annotation Note */
 .figure-topology-note {
   margin-top: 10px;
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px dashed rgba(0, 240, 255, 0.25);
   border-radius: 6px;
   padding: 6px 12px;
@@ -4000,7 +4000,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
   font-weight: 800;
-  color: #c4a574;
+  color: #785021;
   background: rgba(0, 240, 255, 0.12);
   padding: 1px 6px;
   border-radius: 3px;
@@ -4029,7 +4029,7 @@ html[data-language="zh"] .data-table thead th {
   background: rgba(0, 240, 255, 0.15);
   border: 1px solid #c4a574;
   border-radius: 3px;
-  color: #c4a574;
+  color: #785021;
   font-size: 9.5px;
   font-weight: 800;
   font-family: 'JetBrains Mono', monospace;
@@ -4042,7 +4042,7 @@ html[data-language="zh"] .data-table thead th {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(248, 250, 252, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 6px;
   padding: 6px 10px;
@@ -4063,7 +4063,7 @@ html[data-language="zh"] .data-table thead th {
 .waveform-timing-track .step-shake {
   background: rgba(0, 240, 255, 0.12);
   border: 1px solid #c4a574;
-  color: #c4a574;
+  color: #785021;
 }
 
 .waveform-timing-track .step-clear {
@@ -4075,7 +4075,7 @@ html[data-language="zh"] .data-table thead th {
 .waveform-timing-track .step-drive {
   background: rgba(196, 165, 116, 0.15);
   border: 1px solid #c4a574;
-  color: #c4a574;
+  color: #785021;
   box-shadow: 0 0 8px rgba(196, 165, 116, 0.3);
 }
 

@@ -4,21 +4,21 @@
    ========================================================================== */
 
 .hub-apps-page {
-  --hub-cyan: #c4a574;
-  --hub-aqua: #c4a574;
-  --hub-copper: #b08a5b;
-  --hub-ink: #061925;
-  --hub-panel: #092331;
-  --hub-paper: #0e2a38;
+  --hub-cyan: #087f8c;
+  --hub-aqua: #0f172a;
+  --hub-copper: #9a5b25;
+  --hub-ink: #f8fafc;
+  --hub-panel: #f8fafc;
+  --hub-paper: #f8fafc;
   --hub-line: rgba(196, 165, 116, 0.22);
   --hub-line-strong: rgba(196, 165, 116, 0.35);
-  --hub-muted: #b5aa9c;
-  --hub-muted-dark-surface: #b5aa9c;
-  --hub-ink-readable: #092235;
+  --hub-muted: #475569;
+  --hub-muted-dark-surface: #475569;
+  --hub-ink-readable: #0f172a;
   --hub-body-readable: #284853;
-  --hub-heading: #f3ebe0;
-  --hub-body: #e8e0d4;
-  --hub-kicker: #c4a574;
+  --hub-heading: #0f172a;
+  --hub-body: #0f172a;
+  --hub-kicker: #0f172a;
   --hub-side: var(--hub-keepout, clamp(24px, 4vw, 64px));
   --hub-section-y: clamp(52px, 6.5vw, 88px);
   --hub-card-r: 6px;
@@ -97,7 +97,7 @@
 
 /* --- Header + breadcrumb: hub deep navy + gold accent --- */
 .hub-apps-page:not(.hub-literature-paper) .site-header {
-  background: rgba(4, 24, 35, 0.96) !important;
+  background: rgba(248, 250, 252, 0.96) !important;
   border-bottom: 1px solid rgba(196, 165, 116, 0.14) !important;
   backdrop-filter: blur(18px) !important;
   -webkit-backdrop-filter: blur(18px) !important;
@@ -114,7 +114,7 @@
 }
 
 .hub-apps-page:not(.hub-literature-paper) .site-breadcrumb {
-  background: rgba(6, 25, 37, 0.92) !important;
+  background: rgba(248, 250, 252, 0.96) !important;
   border-bottom: 1px solid var(--hub-line) !important;
   color: var(--hub-muted) !important;
 }
@@ -214,11 +214,11 @@ html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens
 html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens-node-item, .nav-pill):hover {
   background: #e8f0f5 !important;
   background-color: #e8f0f5 !important;
-  color: #153f5b !important;
+  color: #0f172a !important;
 }
 
 .hub-apps-page:not(.hub-literature-paper) .hub-nav-pills-bar {
-  background: rgba(4, 20, 32, 0.95) !important;
+  background: rgba(248, 250, 252, 0.96) !important;
   border-bottom-color: var(--hub-line) !important;
 }
 
@@ -235,7 +235,7 @@ html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens
   .specialty-hero,
   section.hero
 ) {
-  background: linear-gradient(180deg, rgba(6, 27, 41, 0.96) 0%, rgba(3, 19, 30, 1) 100%) !important;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 100%) !important;
   border-bottom: 1px solid var(--hub-line) !important;
   color: var(--hub-heading) !important;
 }
@@ -253,8 +253,8 @@ html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens
 
 .hub-apps-page:not(.hub-literature-paper) .m3-hero-shade {
   background:
-    radial-gradient(circle at 50% 20%, rgba(196, 165, 116, 0.12) 0%, rgba(6, 25, 37, 0.88) 68%, rgba(3, 19, 30, 0.98) 100%),
-    linear-gradient(180deg, rgba(6, 25, 37, 0.65) 0%, rgba(3, 19, 30, 0.96) 100%) !important;
+    radial-gradient(circle at 50% 20%, rgba(196, 165, 116, 0.12) 0%, rgba(248, 250, 252, 0.96) 68%, rgba(248, 250, 252, 0.96) 100%),
+    linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 100%) !important;
 }
 
 .hub-apps-page:not(.hub-literature-paper) .m3-hero-grid {
@@ -280,16 +280,16 @@ html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens
 .hub-apps-page :where(
   .pulse-chip-mini,
   .spec-cyan,
-  [style*="color:#5eead4"],
-  [style*="color: #5eead4"],
-  [style*="color:#38bdf8"],
-  [style*="color: #38bdf8"],
-  [style*="color:#74e4d7"],
-  [style*="color: #74e4d7"],
-  [style*="color:#2dd4bf"],
-  [style*="color: #2dd4bf"],
-  [style*="color:#67e3dd"],
-  [style*="color: #67e3dd"]
+  [style*="color:#785021"],
+  [style*="color: #785021"],
+  [style*="color:#785021"],
+  [style*="color: #785021"],
+  [style*="color:#785021"],
+  [style*="color: #785021"],
+  [style*="color:#785021"],
+  [style*="color: #785021"],
+  [style*="color:#785021"],
+  [style*="color: #785021"]
 ) {
   /* inline accent hooks handled below via attribute selectors where possible */
 }
@@ -313,14 +313,14 @@ html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens
   --ai-teal: #8a6a42;
   --ai-copper: var(--hub-copper);
   --ai-paper: #f3f7f8;
-  --ai-warm-paper: #061925;
-  --ai-ink: #092235;
+  --ai-warm-paper: #f8fafc;
+  --ai-ink: #0f172a;
   --ai-muted: #536c78;
   --ai-line-dark: var(--hub-line);
 }
 
 .hub-apps-page.ai-nvm-page .site-header {
-  background: rgba(6, 27, 41, 0.86) !important;
+  background: rgba(248, 250, 252, 0.96) !important;
   border-bottom-color: rgba(196, 165, 116, 0.14) !important;
 }
 
@@ -353,7 +353,7 @@ html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens
 }
 
 .hub-apps-page.assurance-page .topbar {
-  background: rgba(4, 24, 35, 0.96) !important;
+  background: rgba(248, 250, 252, 0.96) !important;
   border-bottom-color: rgba(196, 165, 116, 0.14) !important;
 }
 
@@ -427,12 +427,12 @@ html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens
 }
 
 .hub-apps-page.hub-literature-paper .research-hero h1 em {
-  color: #006f70 !important;
+  color: #0f172a !important;
   font-weight: 500 !important;
 }
 
 .hub-apps-page.hub-literature-paper .site-header .brand-section {
-  color: #c4a574 !important;
+  color: #785021 !important;
 }
 
 .hub-apps-page.hub-literature-paper .site-breadcrumb a {
@@ -442,7 +442,7 @@ html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens
 /* --- AI hero: beat inline Codex gradient/700 with hub accent --- */
 html body.hub-apps-page.ai-nvm-page .ai-research-hero h1 {
   font-weight: 600 !important;
-  color: #f3ebe0 !important;
+  color: #0f172a !important;
 }
 
 html body.hub-apps-page.ai-nvm-page .ai-research-hero h1 em {
@@ -469,13 +469,13 @@ html body.hub-apps-page.ai-nvm-page .ai-paper-shell :where(p, li) {
 /* --- Mobile ~390 --- */
 .hub-apps-page:not(.hub-literature-paper) .specialty-hero {
   background:
-    radial-gradient(circle at 50% 15%, rgba(196, 165, 116, 0.1) 0%, rgba(3, 19, 30, 0) 65%),
-    linear-gradient(180deg, rgba(6, 27, 41, 0.95) 0%, rgba(3, 19, 30, 1) 100%) !important;
+    radial-gradient(circle at 50% 15%, rgba(196, 165, 116, 0.1) 0%, rgba(248, 250, 252, 0.96) 65%),
+    linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(248, 250, 252, 0.96) 100%) !important;
   border-bottom-color: var(--hub-line) !important;
 }
 
 .hub-apps-page:not(.hub-literature-paper) .specialty-hero .hero-lede {
-  color: #a7c2c9 !important;
+  color: #334155 !important;
 }
 
 .hub-apps-page:not(.hub-literature-paper) .nav-pill.active,
@@ -503,11 +503,11 @@ html body.hub-apps-page.ai-nvm-page .ai-paper-shell :where(p, li) {
   a.primary,
   button.primary
 ):not(.button.ghost):not(.secondary) {
-  color: #071d2a !important;
+  color: #0f172a !important;
 }
 
 .hub-apps-page.ai-nvm-page .research-hero-links .button.primary {
-  color: #f8fafc !important;
+  color: #0f172a !important;
 }
 
 .hub-apps-page:not(.hub-literature-paper) .signal-readout.safe b {

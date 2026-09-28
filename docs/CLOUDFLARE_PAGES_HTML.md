@@ -4,7 +4,7 @@
 
 ## 平台行為
 
-[Serving Pages](https://developers.cloudflare.com/pages/configuration/serving-pages/)（2026-04-21）寫明：Pages 會把 HTML 導向無副檔名路徑。例如 `/memory-physics.html` 回 **308** 到 `/memory-physics`，`/NVM技術全景.html` 回 **308** 到 `/NVM技術全景`。`/about/index.html` 則導向 `/about/`。
+[Serving Pages](https://developers.cloudflare.com/pages/configuration/serving-pages/)（2026-04-21）寫明：Pages 會把 HTML 導向無副檔名路徑。例如 `/memory-physics.html` 回 **308** 到 `/memory-physics`，`/nvm-technology-atlas.html` 回 **308** 到 `/NVM技術全景`。`/about/index.html` 則導向 `/about/`。
 
 這不是檔案遺失。GitHub Pages 仍把 `.html` 留在網址裡。
 
@@ -48,5 +48,5 @@ Cloudflare Web Analytics／Insights 會在**看起來像瀏覽器文件**的 HTM
 2. 若這個瀏覽器已經註冊過舊的 `sw.js`，新的 worker 會先進入等待，不會強制換掉使用中的分頁。請硬重新載入，或到 DevTools → Application → Service Workers 按 Unregister，關掉本站分頁再打開。
 3. 開啟 `https://hub.samhuang68.org/memory-physics.html`。頁面應出現內容，而不是空白或 `ERR_FAILED`。網址可以留在 `.html`，也可以是 `/memory-physics`。DevTools 應看到 `memory-physics-contrast.css`，或 `document.querySelector('link[href*="memory-physics-contrast"]')`。
 4. 開啟 `https://hub.samhuang68.org/memory-physics`。同樣應顯示該頁。
-5. 開啟 `https://hub.samhuang68.org/NVM技術全景.html`。頁面應正常顯示。語言切換仍指向 `NVM技術全景.html`／`NVM技術全景中文.html`。
+5. 開啟 `https://hub.samhuang68.org/nvm-technology-atlas.html`。頁面應正常顯示。語言切換仍指向 `nvm-technology-atlas.html`／`nvm-technology-atlas-zh.html`。
 6. `https://samhuang68.github.io/nvm-knowledge-hub/memory-physics.html` 應維持 200，且網址仍含 `.html`。

@@ -48,8 +48,8 @@ function auditHtmlFile(filePath) {
   checkedFiles.push(relative);
   const html = fs.readFileSync(filePath, 'utf8');
 
-  // 純中文專用頁面（如 NVM技術全景中文.html）豁免英文模式投影檢測
-  if (relative === 'NVM技術全景中文.html') {
+  // 純中文專用頁面（如 nvm-technology-atlas-zh.html）豁免英文模式投影檢測
+  if (relative === 'nvm-technology-atlas-zh.html') {
     return;
   }
 

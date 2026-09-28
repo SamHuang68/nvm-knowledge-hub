@@ -4,8 +4,8 @@
   "description": "Semiconductor Persistent State Architecture, Specialty Foundry & Evidence Workbench",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#061925",
-  "theme_color": "#061925",
+  "background_color": "#f8fafc",
+  "theme_color": "#f8fafc",
   "icons": [
     {
       "src": "assets/favicon.svg",

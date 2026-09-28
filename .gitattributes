@@ -6,17 +6,17 @@ data/oip-sharepoint-import.csv text eol=crlf
 
 # 靜態雙語網頁與共用資料須和產生程式的 LF 輸出逐位元組一致。
 /index.html text eol=lf
-NVM技術全景.html text eol=lf
-NVM技術全景中文.html text eol=lf
-data/NVM知識資料.json text eol=lf
-data/NVM知識資料英文.json text eol=lf
-data/NVM技術專題.md text eol=lf
-data/NVM技術專題英文.md text eol=lf
-data/NVM搜尋索引.js text eol=lf
+nvm-technology-atlas.html text eol=lf
+nvm-technology-atlas-zh.html text eol=lf
+data/nvm-knowledge-data.json text eol=lf
+data/nvm-knowledge-data-en.json text eol=lf
+data/nvm-technology-topics.md text eol=lf
+data/nvm-technology-topics-en.md text eol=lf
+data/nvm-search-index.js text eol=lf
 
 # 統一新生成的白皮書與離線內容，維持跨平台建置雜湊。
 whitepaper/index.html text eol=lf
-whitepaper/assets/白皮書.js text eol=lf
-whitepaper/assets/白皮書.css text eol=lf
-whitepaper/建置清單.json text eol=lf
+whitepaper/assets/whitepaper.js text eol=lf
+whitepaper/assets/whitepaper.css text eol=lf
+whitepaper/build-manifest.json text eol=lf
 data/offline-manifest.js text eol=lf
