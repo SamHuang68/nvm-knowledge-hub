@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub" data-title-zh="NVM 技術取捨矩陣 · AntiFuse、eFuse、eFlash 與 MRAM · NVM 知識中心" data-description-en="Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory." data-description-zh="嵌入式非揮發性記憶體的九維技術取捨矩陣（5 大技術族群／11 葉技術）、五軸互動雷達選型器、第一原理物理模型與晶圓代工生態路線圖（雷達為示範性 heuristic；非 production selector）。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260917-r4"></script>
+  <script src="site-language.js?v=20260929-v4"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>NVM Technology Trade-Off Matrix · AntiFuse vs eFuse vs eFlash vs MRAM · NVM Knowledge Hub</title>
   <meta name="description" content="Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.">
@@ -38,9 +38,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site-shell.css?v=20260916-keepout">
-  <link rel="stylesheet" href="styles.css?v=20260916-keepout">
-  <link rel="stylesheet" href="specialty-nvm.css?v=20260906-navy-v3">
+  <link rel="stylesheet" href="site-shell.css?v=20260929-v4">
+  <link rel="stylesheet" href="styles.css?v=20260929-v4">
+  <link rel="stylesheet" href="specialty-nvm.css?v=20260929-v4">
 
   <style>
     /* =========================================================================
@@ -2243,7 +2243,7 @@
 
               <!-- Poly side Ec flat at y=58 -->
               <line x1="20" y1="58" x2="68" y2="58" stroke="#fbbf24" stroke-width="1.5"/>
-              <text x="24" y="52" fill="#fbbf24" font-size="6.8" font-weight="700">Ec (Poly)</text>
+              <text x="18" y="68" fill="#fbbf24" font-size="6.6" font-weight="700">Ec (Poly)</text>
 
               <!-- Oxide Barrier Top: tilts steeply to y=106 at x=146 -->
               <polygon points="68,36 146,106 146,118 68,118" fill="rgba(245, 158, 11, 0.12)"/>
@@ -2251,7 +2251,7 @@
 
               <!-- Barrier height ΦB label -->
               <line x1="64" y1="58" x2="64" y2="36" stroke="#38bdf8" stroke-width="1"/>
-              <text x="62" y="48" text-anchor="end" fill="#38bdf8" font-size="6.5" font-weight="700">&Phi;B=3.15eV</text>
+              <text x="61" y="46" text-anchor="end" fill="#38bdf8" font-size="6.4" font-weight="700">&Phi;B=3.15eV</text>
 
               <!-- Effective tunneling distance xt -->
               <line x1="68" y1="58" x2="92" y2="58" stroke="#34d399" stroke-width="1.3" stroke-dasharray="2 1"/>
@@ -3008,6 +3008,9 @@
           flex-direction: column !important;
           gap: 16px !important;
           position: relative !important;
+          min-width: 0 !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
           box-shadow: 0 4px 16px rgba(248, 250, 252, 0.96) !important;
           transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
         }
@@ -3022,9 +3025,10 @@
 
         .rm-card-head {
           display: flex !important;
+          flex-wrap: wrap !important;
           justify-content: space-between !important;
           align-items: flex-start !important;
-          gap: 12px !important;
+          gap: 8px 12px !important;
           border-bottom: 1px solid #cddbdc !important;
           padding-bottom: 12px !important;
         }
@@ -3036,6 +3040,8 @@
           line-height: 1.35 !important;
           letter-spacing: -0.01em !important;
           font-weight: 700 !important;
+          min-width: 0 !important;
+          overflow-wrap: anywhere !important;
         }
         .rm-tag {
           font-size: 0.72rem !important;
@@ -3044,6 +3050,7 @@
           padding: 4px 10px !important;
           border-radius: 6px !important;
           white-space: nowrap !important;
+          max-width: 100% !important;
           letter-spacing: 0.02em !important;
         }
         .tag-amber { background: #fef3c7 !important; color: #92400e !important; border: 1px solid #fde68a !important; }
@@ -3098,21 +3105,28 @@
           font-size: 0.85rem !important;
           line-height: 1.6 !important;
           color: #284853 !important;
+          min-width: 0 !important;
         }
         .rm-principle {
           margin: 0 !important;
           color: #173b49 !important;
           font-size: 0.86rem !important;
+          overflow-wrap: anywhere !important;
         }
         .rm-props-grid {
           display: grid !important;
-          grid-template-columns: repeat(3, 1fr) !important;
+          grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
           gap: 8px !important;
           background: #f0f4ef !important;
           border: 1px solid #cddbdc !important;
           border-radius: 6px !important;
           padding: 10px 12px !important;
           text-align: center !important;
+          min-width: 0 !important;
+        }
+        .rm-props-item {
+          min-width: 0 !important;
+          overflow-wrap: anywhere !important;
         }
         .rm-props-item small {
           display: block !important;
@@ -3127,6 +3141,19 @@
           color: #173b49 !important;
           font-family: 'IBM Plex Mono', monospace !important;
           font-weight: 700 !important;
+          overflow-wrap: anywhere !important;
+        }
+        @media (max-width: 640px) {
+          .rm-card {
+            padding: 16px !important;
+          }
+          .rm-tag {
+            white-space: normal !important;
+          }
+          .rm-props-grid {
+            grid-template-columns: 1fr !important;
+            text-align: left !important;
+          }
         }
         .rm-details-list {
           margin: 0 !important;
@@ -3254,8 +3281,8 @@
               <!-- 1T Physical Bitcell Node -->
               <rect x="24" y="36" width="106" height="26" rx="5" fill="url(#se-cell-grad)" stroke="#fbbf24" stroke-width="1.3"/>
               <circle cx="35" cy="49" r="2.5" fill="#fbbf24"/>
-              <text x="43" y="52.5" fill="#fbbf24" font-size="8.5" font-weight="700">Physical Bit 1</text>
-              <text x="120" y="52.5" text-anchor="end" fill="#fde68a" font-size="7.5" font-weight="600">1T</text>
+              <text x="41" y="52.5" fill="#fbbf24" font-size="7.5" font-weight="700">Physical Bit 1</text>
+              <text x="125" y="52.5" text-anchor="end" fill="#fde68a" font-size="7" font-weight="600">1T</text>
 
               <!-- External Bandgap Voltage Ref Node -->
               <rect x="24" y="86" width="106" height="34" rx="6" fill="rgba(15, 23, 42, 0.7)" stroke="#64748b" stroke-width="1.3"/>
@@ -4566,7 +4593,7 @@
       panels.forEach(p => railObserver.observe(p));
     });
   </script>
-<script src="matrix-interactive.js?v=20260917-p2"></script>
-<script src="topic-menu-navigation.js?v=20260910-bilingual"></script>
+<script src="matrix-interactive.js?v=20260929-v4"></script>
+<script src="topic-menu-navigation.js?v=20260929-v4"></script>
 </body>
 </html>

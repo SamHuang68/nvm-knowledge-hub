@@ -531,3 +531,11 @@ html[data-language='en'] :is(.nvm-ip-editorial,.nvm-system-editorial) { line-bre
 .knowledge-footer, .nvm-footer { background: #eef3f0 !important; color: var(--editorial-ink) !important; border-top: 1px solid var(--editorial-line) !important; }
 .knowledge-footer p, .nvm-footer p { color: #35525c !important; }
 .knowledge-footer a, .nvm-footer a { color: var(--editorial-teal) !important; }
+@media(max-width:380px) {
+  .knowledge-header { gap: 6px !important; padding-inline: 16px !important; }
+  .knowledge-header .brand { gap: 6px !important; min-width: 0 !important; }
+  .knowledge-wordmark { font-size: 10px !important; padding-left: 6px !important; }
+  .knowledge-controls { gap: 5px !important; }
+  .knowledge-header .search-trigger { min-width: 38px !important; padding: 6px !important; }
+  .knowledge-header .language-toggle { min-width: 58px !important; padding: 6px !important; gap: 4px !important; }
+}

@@ -58,9 +58,9 @@
 .nvm-atlas-page .nvm-editorial-header h2{font-size:clamp(30px,3vw,44px);line-height:1.26;letter-spacing:-.025em;margin:0 0 20px;color:#173b49;text-wrap:balance}
 .nvm-atlas-page .nvm-editorial-header .nvm-lede{font-size:16px;line-height:1.85;max-width:46em;color:#284853}
 .nvm-editorial-header p:last-child{margin-bottom:0}
-.nvm-editorial-stat{display:flex;flex-direction:column;justify-content:center;gap:7px;border-left:1px solid #b7cac4;padding-left:26px}
-.nvm-editorial-stat strong{font-size:65px;font-weight:400;line-height:1;letter-spacing:-.06em;color:#006667;font-variant-numeric:tabular-nums}
-.nvm-editorial-stat span{font-size:14px;color:#173b49}.nvm-editorial-stat small{font-size:12px;line-height:1.6;color:#455e66;margin-top:7px}
+.nvm-editorial-stat{display:flex;flex-direction:column;justify-content:center;gap:10px;border-left:1px solid #b7cac4;padding-left:26px}
+.nvm-editorial-stat strong{font-size:58px;font-weight:400;line-height:1.16;letter-spacing:-.04em;color:#006667;font-variant-numeric:tabular-nums}
+.nvm-editorial-stat span{font-size:14px;line-height:1.45;color:#173b49}.nvm-editorial-stat small{font-size:12px;line-height:1.6;color:#455e66;margin-top:7px}
 .nvm-editorial-header h2:focus-visible{outline-color:#006667}
 
 .nvm-landscape-coverage{color:var(--nvm-muted);font-size:13px;margin:0 0 19px;border:0;padding:0}

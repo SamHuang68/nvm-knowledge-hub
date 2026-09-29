@@ -3372,6 +3372,7 @@ html[data-language="zh"] .data-table thead th {
 @media (max-width: 768px) {
   .arrow-motion-track {
     transform: rotate(90deg);
+    margin: 18px 0;
   }
 }
 
