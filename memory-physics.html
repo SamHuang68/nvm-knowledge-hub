@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="Complementary Storage and Verifiable Differences · NVM Knowledge Hub" data-title-zh="互補儲存與可驗證差異 · NVM 知識中心" data-description-en="Complementary storage and verifiable differences: examine the evidence boundaries of SRAM PUF, encrypted OTP, and Secure Storage through bitcell cost, read paths, and physical observability." data-description-zh="互補儲存與可驗證差異：從位元胞成本、讀取路徑與物理可觀察性，檢視 SRAM PUF、加密 OTP 與安全儲存的證據邊界。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260917-r4"></script>
+  <script src="site-language.js?v=20260929-v4"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="description" content="Complementary storage and verifiable differences: examine the evidence boundaries of SRAM PUF, encrypted OTP, and Secure Storage through bitcell cost, read paths, and physical observability.">
   <meta name="author" content="NVM Knowledge Hub Editorial Board">
@@ -38,9 +38,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="site-shell.css?v=20260916-keepout">
-  <link rel="stylesheet" href="styles.css?v=20260916-keepout">
-  <link rel="stylesheet" href="research.css?v=20260906-navy-v3">
+  <link rel="stylesheet" href="site-shell.css?v=20260929-v4">
+  <link rel="stylesheet" href="styles.css?v=20260929-v4">
+  <link rel="stylesheet" href="research.css?v=20260929-v4">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -527,8 +527,8 @@
       color: #173b49 !important;
       opacity: 0.9 !important;
     }
-    html body.memory-physics-page aside.lens-vertical-rail:is(:hover, :focus-within),
-    html body.memory-physics-page .studio-layout > .lens-vertical-rail:is(:hover, :focus-within) {
+    html body.memory-physics-page aside.lens-vertical-rail:is(:hover, :focus-within, .is-open),
+    html body.memory-physics-page .studio-layout > .lens-vertical-rail:is(:hover, :focus-within, .is-open) {
       width: 224px !important;
       min-width: 224px !important;
       max-width: 224px !important;
@@ -548,8 +548,7 @@
       justify-content: space-between !important;
       align-items: center !important;
     }
-    html body.memory-physics-page .lens-vertical-rail:hover .rail-header,
-    html body.memory-physics-page .lens-vertical-rail:focus-within .rail-header {
+    html body.memory-physics-page .lens-vertical-rail:is(:hover, :focus-within, .is-open) .rail-header {
       border-bottom: 1px solid rgba(148, 163, 184, 0.28) !important;
       padding: 0 6px 6px !important;
       margin-bottom: 6px !important;
@@ -573,8 +572,7 @@
       flex-direction: column !important;
       gap: 2px !important;
     }
-    html body.memory-physics-page .lens-vertical-rail:hover .hub-nav-pills,
-    html body.memory-physics-page .lens-vertical-rail:focus-within .hub-nav-pills {
+    html body.memory-physics-page .lens-vertical-rail:is(:hover, :focus-within, .is-open) .hub-nav-pills {
       display: flex !important;
     }
     html body.memory-physics-page .lens-vertical-rail :is(.lens-node-item, .nav-pill) {
@@ -2486,7 +2484,7 @@
       </div>
     </div>
   </footer>
-  <script src="research.js?v=20260906-navy-v3"></script>
-  <script src="memory-physics-navigation.js?v=20260908-n01"></script>
+  <script src="research.js?v=20260929-v4"></script>
+  <script src="memory-physics-navigation.js?v=20260929-v4"></script>
 </body>
 </html>

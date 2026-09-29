@@ -166,10 +166,10 @@ html body.hub-apps-page.ai-nvm-page .lens-vertical-rail {
   opacity: 0.9 !important;
 }
 
-html body.hub-apps-page:not(.hub-literature-paper):not(.hub-reading-home):not(.nvm-atlas-page) aside.lens-vertical-rail:is(:hover, :focus-within),
-html body.hub-apps-page:not(.hub-literature-paper):not(.hub-reading-home):not(.nvm-atlas-page) .studio-layout > .lens-vertical-rail:is(:hover, :focus-within),
-html body.hub-apps-page.ai-nvm-page aside.lens-vertical-rail:is(:hover, :focus-within),
-html body.hub-apps-page.ai-nvm-page .lens-vertical-rail:is(:hover, :focus-within) {
+html body.hub-apps-page:not(.hub-literature-paper):not(.hub-reading-home):not(.nvm-atlas-page) aside.lens-vertical-rail:is(:hover, :focus-within, .is-open),
+html body.hub-apps-page:not(.hub-literature-paper):not(.hub-reading-home):not(.nvm-atlas-page) .studio-layout > .lens-vertical-rail:is(:hover, :focus-within, .is-open),
+html body.hub-apps-page.ai-nvm-page aside.lens-vertical-rail:is(:hover, :focus-within, .is-open),
+html body.hub-apps-page.ai-nvm-page .lens-vertical-rail:is(:hover, :focus-within, .is-open) {
   width: 224px !important;
   min-width: 224px !important;
   max-width: 224px !important;
@@ -184,7 +184,7 @@ html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail .rail-hea
   border-bottom: 0 !important;
   background: transparent !important;
 }
-html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail:is(:hover, :focus-within) .rail-header {
+html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail:is(:hover, :focus-within, .is-open) .rail-header {
   border-bottom: 1px solid rgba(148, 163, 184, 0.28) !important;
 }
 
@@ -553,12 +553,6 @@ html body.hub-apps-page.ai-nvm-page .ai-paper-shell :where(p, li) {
     display: block !important;
   }
 
-  .hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-bottom: 18px !important;
-  }
-
   .hub-apps-page :where(.m3-hero h1, section.hero h1, .specialty-hero h1) {
     font-size: clamp(26px, 8.5vw, 34px) !important;
     line-height: 1.18 !important;
@@ -572,12 +566,6 @@ html body.hub-apps-page.ai-nvm-page .ai-paper-shell :where(p, li) {
     font-size: clamp(26px, 8.2vw, 34px) !important;
     max-width: 100% !important;
     text-wrap: balance !important;
-  }
-
-  html body.hub-apps-page:not(.hub-literature-paper) aside.lens-vertical-rail,
-  html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail {
-    width: 100% !important;
-    max-width: 100% !important;
   }
 }
 

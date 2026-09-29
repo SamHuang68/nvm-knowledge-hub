@@ -73,15 +73,15 @@ html body .ai-nvm-page .lens-vertical-rail {
   cursor: pointer !important;
   transition: opacity 0.18s ease, width 0.18s ease, max-width 0.18s ease, padding 0.18s ease, border-radius 0.18s ease, background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease !important;
 }
-html body aside.lens-vertical-rail:is(:hover, :focus-within),
-html body .lens-vertical-rail:is(:hover, :focus-within),
-html body:not(.hub-reading-home):not(.nvm-atlas-page) aside.lens-vertical-rail:is(:hover, :focus-within),
-html body:not(.hub-reading-home):not(.nvm-atlas-page) .studio-layout > .lens-vertical-rail:is(:hover, :focus-within),
-html body.specialty-page aside.lens-vertical-rail:is(:hover, :focus-within),
-html body.specialty-page .lens-vertical-rail:is(:hover, :focus-within),
-html body.memory-physics-page aside.lens-vertical-rail:is(:hover, :focus-within),
-html body.hub-apps-page aside.lens-vertical-rail:is(:hover, :focus-within),
-html body .ai-nvm-page .lens-vertical-rail:is(:hover, :focus-within) {
+html body aside.lens-vertical-rail:is(:hover, :focus-within, .is-open),
+html body .lens-vertical-rail:is(:hover, :focus-within, .is-open),
+html body:not(.hub-reading-home):not(.nvm-atlas-page) aside.lens-vertical-rail:is(:hover, :focus-within, .is-open),
+html body:not(.hub-reading-home):not(.nvm-atlas-page) .studio-layout > .lens-vertical-rail:is(:hover, :focus-within, .is-open),
+html body.specialty-page aside.lens-vertical-rail:is(:hover, :focus-within, .is-open),
+html body.specialty-page .lens-vertical-rail:is(:hover, :focus-within, .is-open),
+html body.memory-physics-page aside.lens-vertical-rail:is(:hover, :focus-within, .is-open),
+html body.hub-apps-page aside.lens-vertical-rail:is(:hover, :focus-within, .is-open),
+html body .ai-nvm-page .lens-vertical-rail:is(:hover, :focus-within, .is-open) {
   width: 224px !important;
   min-width: 224px !important;
   max-width: 224px !important;
@@ -104,8 +104,7 @@ html body .lens-vertical-rail .rail-header {
   justify-content: space-between !important;
   align-items: center !important;
 }
-html body .lens-vertical-rail:hover .rail-header,
-html body .lens-vertical-rail:focus-within .rail-header {
+html body .lens-vertical-rail:is(:hover, :focus-within, .is-open) .rail-header {
   margin-bottom: 6px !important;
   padding: 0 6px 6px !important;
   border-bottom: 1px solid rgba(148, 163, 184, 0.28) !important;
@@ -133,8 +132,7 @@ html body .lens-vertical-rail .rail-tag::after {
   font-size: 9px;
   opacity: 0.75;
 }
-html body .lens-vertical-rail:hover .rail-tag::after,
-html body .lens-vertical-rail:focus-within .rail-tag::after {
+html body .lens-vertical-rail:is(:hover, :focus-within, .is-open) .rail-tag::after {
   content: " ▴";
 }
 html body .lens-vertical-rail .hub-nav-pills {
@@ -147,8 +145,7 @@ html body .lens-vertical-rail .hub-nav-pills {
   margin: 0 !important;
   overflow: visible !important;
 }
-html body .lens-vertical-rail:hover .hub-nav-pills,
-html body .lens-vertical-rail:focus-within .hub-nav-pills {
+html body .lens-vertical-rail:is(:hover, :focus-within, .is-open) .hub-nav-pills {
   display: flex !important;
 }
 html body .lens-vertical-rail .lens-node-item,
@@ -233,41 +230,44 @@ html body .studio-layout aside.lens-vertical-rail .hub-nav-pills .lens-node-item
   html body.specialty-page aside.lens-vertical-rail,
   html body.memory-physics-page aside.lens-vertical-rail,
   html body.hub-apps-page aside.lens-vertical-rail {
-    position: relative !important;
+    position: fixed !important;
     top: auto !important;
-    right: auto !important;
+    bottom: 16px !important;
+    right: 14px !important;
     left: auto !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    max-height: none !important;
-    margin: 0 0 18px !important;
-    padding: 10px 12px !important;
-    border-radius: 12px !important;
-    overflow: visible !important;
-    opacity: 1 !important;
-    cursor: default !important;
-  }
-  html body .lens-vertical-rail .rail-header {
-    margin-bottom: 8px !important;
-    padding: 0 4px 6px !important;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.26) !important;
-  }
-  html body .lens-vertical-rail .rail-tag::after {
-    content: none !important;
-  }
-  html body .lens-vertical-rail .hub-nav-pills {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 5px !important;
-  }
-  html body .lens-vertical-rail :is(.lens-node-item, .nav-pill) {
+    z-index: 65 !important;
+    width: auto !important;
     min-width: 0 !important;
-    min-height: 36px !important;
-    padding: 6px 8px !important;
+    max-width: 196px !important;
+    max-height: calc(100dvh - 96px) !important;
+    margin: 0 !important;
+    padding: 5px 10px !important;
+    border-radius: 999px !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    opacity: 0.92 !important;
+    cursor: pointer !important;
   }
-}
-@media (max-width: 600px) {
+  html body aside.lens-vertical-rail:is(:hover, :focus-within, .is-open),
+  html body .lens-vertical-rail:is(:hover, :focus-within, .is-open),
+  html body:not(.hub-reading-home):not(.nvm-atlas-page) aside.lens-vertical-rail:is(:hover, :focus-within, .is-open),
+  html body:not(.hub-reading-home):not(.nvm-atlas-page) .studio-layout > .lens-vertical-rail:is(:hover, :focus-within, .is-open),
+  html body.specialty-page aside.lens-vertical-rail:is(:hover, :focus-within, .is-open),
+  html body.memory-physics-page aside.lens-vertical-rail:is(:hover, :focus-within, .is-open),
+  html body.hub-apps-page aside.lens-vertical-rail:is(:hover, :focus-within, .is-open) {
+    width: min(232px, calc(100vw - 24px)) !important;
+    min-width: min(232px, calc(100vw - 24px)) !important;
+    max-width: calc(100vw - 24px) !important;
+    padding: 10px !important;
+    border-radius: 12px !important;
+    opacity: 0.98 !important;
+  }
   html body .lens-vertical-rail .hub-nav-pills {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    display: none !important;
+    flex-direction: column !important;
+    gap: 3px !important;
+  }
+  html body .lens-vertical-rail:is(:hover, :focus-within, .is-open) .hub-nav-pills {
+    display: flex !important;
   }
 }
