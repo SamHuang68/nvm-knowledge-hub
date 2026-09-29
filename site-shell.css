@@ -522,99 +522,118 @@ h1, h2, h3, .section-heading h2, .evidence-title h2, .closing-section h2, .assur
   }
 }
 
-/* 右上浮動章節導覽膠囊 (Floating Lens Pill/Popover) - 全站統一微透霧面石板灰風格 (Surgical Light Mode) */
+/* 底部水平章節進度條 (Horizontal Bottom Progress-Bar Chapter Lens) */
 .lens-vertical-rail {
   position: fixed;
-  top: 72px;
-  right: var(--hub-keepout, 24px);
-  left: auto;
-  width: auto;
-  min-width: 154px;
-  max-width: 224px;
-  background: rgba(241, 245, 249, 0.82);
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  height: 42px;
+  max-height: 42px;
+  background: rgba(241, 245, 249, 0.92);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
-  border: 1px solid rgba(203, 213, 225, 0.78);
-  border-radius: 999px;
-  padding: 6px 12px;
-  box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.03);
-  z-index: 65;
-  opacity: 0.9;
+  border: 0;
+  border-top: 1px solid rgba(203, 213, 225, 0.85);
+  border-radius: 0;
+  padding: 3px var(--hub-keepout, 24px) 0;
+  box-sizing: border-box;
+  box-shadow: 0 -2px 12px -2px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  z-index: 88;
+  opacity: 1;
 }
 .rail-header {
-  border-bottom: 0;
-  padding: 0;
+  border: 0;
+  border-right: 1px solid rgba(148, 163, 184, 0.38);
+  padding: 0 10px 0 0;
   margin: 0;
-  gap: 8px;
+  gap: 6px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  flex: 0 0 auto;
 }
 .rail-title {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.68rem;
-  color: #6f5536;
-  letter-spacing: 0.12em;
+  font-size: 0.64rem;
+  color: #334155;
+  letter-spacing: 0.06em;
   font-weight: 700;
 }
 .rail-tag {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.62rem;
-  color: #334155;
-  background: #f8fafc;
-  border: 1px solid rgba(248, 250, 252, 0.96);
-  padding: 1px 5px;
-  border-radius: 3px;
+  font-size: 0.60rem;
+  color: #0f5866;
+  background: rgba(13, 148, 136, 0.12);
+  border: 1px solid rgba(13, 148, 136, 0.28);
+  padding: 1px 6px;
+  border-radius: 999px;
 }
 
-/* 直立節點列表 */
+/* 水平由左到右進度節點列表 */
 .lens-vertical-rail .hub-nav-pills {
-  display: none;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1 1 0%;
+  min-width: 0;
   gap: 3px;
   padding: 0;
   margin: 0;
   background: transparent;
   border: none;
   box-shadow: none;
-}
-.lens-vertical-rail:is(:hover, :focus-within, .is-open) .hub-nav-pills {
-  display: flex;
+  overflow: hidden;
 }
 @media (max-width: 1024px) {
   .lens-vertical-rail {
     position: fixed;
-    top: 72px;
-    right: 12px;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
     margin: 0;
-    padding: 5px 10px;
+    padding: 3px var(--hub-keepout, 24px) 0;
   }
 }
 .lens-node-item {
+  flex: 1 1 0%;
+  min-width: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 7px 8px;
-  border-radius: 0;
+  justify-content: center;
+  gap: 4px;
+  padding: 2px 5px;
+  border-radius: 4px;
   text-decoration: none;
-  color: #0f172a;
+  color: #475569;
   background: transparent;
-  border: 1px solid transparent;
+  border: 0;
+  border-bottom: 2px solid rgba(148, 163, 184, 0.28);
   transition: all 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
   position: relative;
 }
 .lens-node-item:hover {
-  background: #f8fafc;
-  border-color: rgba(176, 138, 91, 0.35);
+  background: rgba(226, 232, 240, 0.62);
   color: #0f172a;
   transform: none;
   box-shadow: none;
 }
 .lens-node-item.active {
-  background: #f8fafc;
-  border-color: transparent;
+  background: rgba(13, 148, 136, 0.13);
+  border-bottom-color: #0d9488;
   color: #0f172a;
-  box-shadow: inset 2px 0 0 #b08a5b;
+  box-shadow: none;
 }
 .lens-badge {
   font-family: 'IBM Plex Mono', monospace;

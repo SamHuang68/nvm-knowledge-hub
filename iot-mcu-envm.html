@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="ULP IoT &amp; Edge MCU eNVM · 0.5V NTV, 28nm Cliff &amp; Vector Patch CAM · NVM Knowledge Hub" data-title-zh="超低功耗 IoT 與邊緣 MCU eNVM · 0.5V NTV、28nm 邊界與向量修補 CAM · NVM 知識中心" data-description-en="NVM Knowledge Hub: ULP IoT and Edge MCU eNVM — 0.5V near-threshold operation, the 28nm eFlash physics cliff, and Vector Patch CAM." data-description-zh="NVM 知識中心：超低功耗 IoT 與邊緣 MCU eNVM，涵蓋 0.5V 近閾值操作、28nm eFlash 物理與整合邊界，以及向量修補 CAM。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260929-v4"></script>
+  <script src="site-language.js?v=20260929-v5"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>ULP IoT &amp; Edge MCU eNVM · 0.5V NTV, 28nm Cliff &amp; Vector Patch CAM · NVM Knowledge Hub</title>
   <meta name="description" content="NVM Knowledge Hub: ULP IoT and Edge MCU eNVM — 0.5V near-threshold operation, the 28nm eFlash physics cliff, and Vector Patch CAM.">
@@ -38,8 +38,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260929-v4">
-  <link rel="stylesheet" href="site-shell.css?v=20260929-v4">
+  <link rel="stylesheet" href="styles.css?v=20260929-v5">
+  <link rel="stylesheet" href="site-shell.css?v=20260929-v5">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -234,89 +234,107 @@
       }
     }
 
-    /* 右上浮動章節導覽膠囊 (Floating Lens Pill/Popover) - 微透霧面石板灰風格 (Surgical Light Mode) */
+    /* 底部水平章節進度條 (Horizontal Bottom Progress-Bar Chapter Lens) */
     .lens-vertical-rail {
       position: fixed;
-      top: 72px;
-      right: var(--hub-keepout, 24px);
-      left: auto;
-      width: auto;
-      min-width: 154px;
-      max-width: 224px;
-      background: rgba(241, 245, 249, 0.82);
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+      height: 42px;
+      max-height: 42px;
+      background: rgba(241, 245, 249, 0.92);
       backdrop-filter: blur(14px) saturate(140%);
       -webkit-backdrop-filter: blur(14px) saturate(140%);
-      border: 1px solid rgba(203, 213, 225, 0.78);
-      border-radius: 999px;
-      padding: 6px 12px;
-      box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.03);
-      z-index: 65;
-      opacity: 0.9;
+      border: 0;
+      border-top: 1px solid rgba(203, 213, 225, 0.85);
+      border-radius: 0;
+      padding: 3px var(--hub-keepout, 24px) 0;
+      box-sizing: border-box;
+      box-shadow: 0 -2px 12px -2px rgba(15, 23, 42, 0.06);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      z-index: 88;
+      opacity: 1;
     }
     .rail-header {
-      border-bottom: 0;
-      padding: 0;
+      border: 0;
+      border-right: 1px solid rgba(148, 163, 184, 0.38);
+      padding: 0 10px 0 0;
       margin: 0;
-      gap: 8px;
-      padding-bottom: 6px;
-      margin-bottom: 6px;
+      gap: 6px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
+      flex: 0 0 auto;
     }
     .rail-title {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.68rem;
-      color: #8a6a42;
-      letter-spacing: 0.12em;
+      font-size: 0.64rem;
+      color: #334155;
+      letter-spacing: 0.06em;
       font-weight: 700;
     }
     .rail-tag {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.62rem;
-      color: #334155;
-      background: #f8fafc;
-      border: 1px solid rgba(248, 250, 252, 0.96);
-      padding: 1px 5px;
-      border-radius: 3px;
+      font-size: 0.60rem;
+      color: #0f5866;
+      background: rgba(13, 148, 136, 0.12);
+      border: 1px solid rgba(13, 148, 136, 0.28);
+      padding: 1px 6px;
+      border-radius: 999px;
     }
 
-    /* 01~07 直立節點列表 (兼具 hub-nav-pills 測試相容) */
+    /* 01~07 水平由左到右進度節點列表 (兼具 hub-nav-pills 測試相容) */
     .lens-vertical-rail .hub-nav-pills {
       display: flex;
-      flex-direction: column;
-      gap: 5px;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1 1 0%;
+      min-width: 0;
+      gap: 3px;
       padding: 0;
       margin: 0;
       background: transparent;
       border: none;
       box-shadow: none;
+      overflow: hidden;
     }
     .lens-node-item {
+      flex: 1 1 0%;
+      min-width: 0;
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 7px 8px;
-      border-radius: 6px;
+      justify-content: center;
+      gap: 4px;
+      padding: 2px 5px;
+      border-radius: 4px;
       text-decoration: none;
-      color: #0f172a;
-      background: #f8fafc;
-      border: 1px solid rgba(248, 250, 252, 0.96);
+      color: #475569;
+      background: transparent;
+      border: 0;
+      border-bottom: 2px solid rgba(148, 163, 184, 0.28);
       transition: all 0.2s cubic-bezier(0.2, 0.7, 0.2, 1);
       position: relative;
     }
     .lens-node-item:hover {
-      background: #f8fafc;
-      border-color: rgba(176, 138, 91, 0.35);
+      background: rgba(226, 232, 240, 0.62);
       color: #0f172a;
-      transform: translateX(2px);
-      box-shadow: 0 2px 8px rgba(176, 138, 91, 0.08);
+      transform: none;
+      box-shadow: none;
     }
     .lens-node-item.active {
-      background: #f8fafc;
-      border-color: #8a6a42;
+      background: rgba(13, 148, 136, 0.13);
+      border-bottom-color: #0d9488;
       color: #0f172a;
-      box-shadow: inset 3px 0 0 #8a6a42, 0 3px 12px rgba(176, 138, 91, 0.12);
+      box-shadow: none;
     }
     .lens-badge {
       font-family: 'IBM Plex Mono', monospace;
@@ -1283,7 +1301,7 @@
   </footer>
 
   <!-- 核心全站 JS 與 M2 專屬動態 Canvas 互動引擎 -->
-  <script src="iot-page-navigation.js?v=20260929-v4"></script>
+  <script src="iot-page-navigation.js?v=20260929-v5"></script>
   <script>
     // ==========================================
     // M2 專屬互動引擎：直立測條雙向聯動 + 0.5V 示波器 + CAM 模擬

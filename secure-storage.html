@@ -2,7 +2,7 @@
 <html lang="en" data-title-en="Secure Storage · NVM Knowledge Hub" data-title-zh="安全儲存 · NVM 知識中心" data-description-en="NVM Knowledge Hub: an executive Secure Storage learning experience built around SRAM PUF, AES-256 and OTP." data-description-zh="NVM 知識中心：以 SRAM PUF、AES-256 與 OTP 為核心的安全儲存高階學習專題。">
 <head>
   <meta charset="utf-8">
-  <script src="site-language.js?v=20260929-v4"></script>
+  <script src="site-language.js?v=20260929-v5"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="description" content="NVM Knowledge Hub: an executive Secure Storage learning experience built around SRAM PUF, AES-256 and OTP.">
   <meta name="author" content="NVM Knowledge Hub Editorial Board">
@@ -34,8 +34,8 @@
   <meta name="twitter:image:alt" content="Secure Storage Architecture with SRAM PUF and Encrypted OTP">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Secure Storage · NVM Knowledge Hub","description":"NVM Knowledge Hub: an executive Secure Storage learning experience built around SRAM PUF, AES-256 and OTP.","url":"https://hub.samhuang68.org/secure-storage.html","image":"https://hub.samhuang68.org/assets/secure-storage-hero-v2.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/secure-storage.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
   <link rel="preload" href="assets/secure-storage-hero-key.webp" as="image" type="image/webp">
-  <link rel="stylesheet" href="styles.css?v=20260929-v4">
-  <link rel="stylesheet" href="site-shell.css?v=20260929-v4">
+  <link rel="stylesheet" href="styles.css?v=20260929-v5">
+  <link rel="stylesheet" href="site-shell.css?v=20260929-v5">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -1851,7 +1851,7 @@
     <p><span data-lang="zh">僅限公開技術證據 · 2026</span><span data-lang="en">Public evidence only · 2026</span></p>
   </footer>
 
-  <script src="app.js?v=20260929-v4"></script>
+  <script src="app.js?v=20260929-v5"></script>
   <script>
     // Studio Layout Vertical Rail Scroll Spy
     document.addEventListener('DOMContentLoaded', () => {
@@ -1887,8 +1887,12 @@
               behavior: 'smooth'
             });
 
-            railLinks.forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
+            const linkArr = Array.from(railLinks);
+            const activeIdx = linkArr.indexOf(link);
+            linkArr.forEach((l, idx) => {
+              l.classList.toggle('active', idx === activeIdx);
+              l.classList.toggle('is-passed', idx < activeIdx);
+            });
           }
         });
       });
@@ -1897,13 +1901,14 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
-            railLinks.forEach(link => {
-              if (link.getAttribute('href') === `#${id}`) {
-                link.classList.add('active');
-              } else {
-                link.classList.remove('active');
-              }
-            });
+            const linkArr = Array.from(railLinks);
+            const activeIdx = linkArr.findIndex(l => l.getAttribute('href') === `#${id}`);
+            if (activeIdx !== -1) {
+              linkArr.forEach((link, idx) => {
+                link.classList.toggle('active', idx === activeIdx);
+                link.classList.toggle('is-passed', idx < activeIdx);
+              });
+            }
           }
         });
       }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });

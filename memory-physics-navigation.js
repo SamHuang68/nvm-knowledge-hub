@@ -16,7 +16,7 @@
   }
 
   function anchorOffset() {
-    return (header?.getBoundingClientRect().height || 64) + (compact.matches ? toggle.getBoundingClientRect().height + 24 : 20);
+    return (header?.getBoundingClientRect().height || 64) + 20;
   }
 
   function updatePosition() {
@@ -25,16 +25,24 @@
     document.documentElement.style.setProperty('--f1-anchor-offset', `${offset}px`);
     let current = 0;
     panels.forEach((panel, index) => {
-      if (panel && panel.getBoundingClientRect().top <= offset + 32) current = index;
+      if (panel && panel.getBoundingClientRect().top <= offset + 48) current = index;
     });
+    const vh = window.innerHeight || document.documentElement.clientHeight || 800;
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - vh);
+    const scrollTop = Math.max(0, window.scrollY || document.documentElement.scrollTop || 0);
+    if (scrollTop >= maxScroll - 8) current = links.length - 1;
     links.forEach((link, index) => {
       const active = index === current;
       link.classList.toggle('active', active);
       link.classList.toggle('active-chapter', active);
+      link.classList.toggle('is-passed', index < current);
       if (active) link.setAttribute('aria-current', 'location');
       else link.removeAttribute('aria-current');
     });
-    rail.querySelector('.f1-current-chapter').textContent = links[current].querySelector('.lens-badge').textContent;
+    const currentBadge = rail.querySelector('.f1-current-chapter');
+    if (currentBadge && links[current]) {
+      currentBadge.textContent = links[current].querySelector('.lens-badge').textContent;
+    }
   }
 
   function schedulePosition() {
