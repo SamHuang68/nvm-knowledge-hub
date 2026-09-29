@@ -3,7 +3,7 @@
 <html lang="en" data-title-en="Specialty NVM · BCD Power, Matrix Repair, HV Display &amp; E-Ink · NVM Knowledge Hub" data-title-zh="特種 NVM · BCD 電源、陣列修復、高壓顯示與電子紙 · NVM 知識中心" data-description-en="Flagship treatise on Specialty eNVM: BCD process for Power Management (PMIC, LED drivers, USB-PD, BLDC, BMIC), CIS &amp; DRAM array defect redundancy repair (BIST/BIRA/AntiFuse), High-Voltage Display Driver ICs, and E-Ink Ultra-HV Driving with MTP-to-OTP migration." data-description-zh="特種 eNVM 技術專題：電源管理 BCD 製程（PMIC、LED 驅動、USB-PD、BLDC、BMIC）、CIS 與 DRAM 陣列備援修復（BIST／BIRA／AntiFuse）、高壓顯示驅動，以及電子紙超高壓驅動的 MTP 至 OTP 轉換。">
 <head>
 <meta charset="utf-8"/>
-  <script src="site-language.js?v=20260929-v4"></script>
+  <script src="site-language.js?v=20260929-v5"></script>
 <meta content="width=device-width, initial-scale=1" name="viewport"/><meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Specialty NVM · BCD Power, Matrix Repair, HV Display &amp; E-Ink · NVM Knowledge Hub</title>
 <meta name="description" content="Flagship treatise on Specialty eNVM: BCD process for Power Management (PMIC, LED drivers, USB-PD, BLDC, BMIC), CIS &amp; DRAM array defect redundancy repair (BIST/BIRA/AntiFuse), High-Voltage Display Driver ICs, and E-Ink Ultra-HV Driving with MTP-to-OTP migration.">
@@ -43,9 +43,9 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Sans+TC:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css?v=20260929-v4" rel="stylesheet"/>
-<link href="site-shell.css?v=20260929-v4" rel="stylesheet"/>
-<link href="specialty-nvm.css?v=20260929-v4" rel="stylesheet"/>
+<link href="styles.css?v=20260929-v5" rel="stylesheet"/>
+<link href="site-shell.css?v=20260929-v5" rel="stylesheet"/>
+<link href="specialty-nvm.css?v=20260929-v5" rel="stylesheet"/>
 <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -150,32 +150,35 @@
       color: #334155 !important;
     }
 
-    /* 3. 右上浮動章節導覽膠囊微透霧面石板灰風格 */
+    /* 3. 底部水平章節進度條 (Horizontal Bottom Progress-Bar Chapter Lens) */
     body.specialty-page .lens-vertical-rail {
-      background: rgba(241, 245, 249, 0.82) !important;
-      border: 1px solid rgba(203, 213, 225, 0.78) !important;
-      box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.03) !important;
+      background: rgba(241, 245, 249, 0.92) !important;
+      border: 0 !important;
+      border-top: 1px solid rgba(203, 213, 225, 0.85) !important;
+      box-shadow: 0 -2px 12px -2px rgba(15, 23, 42, 0.06) !important;
     }
     body.specialty-page .lens-vertical-rail .nav-pill {
       background: transparent !important;
       color: #475569 !important;
       border: 0 !important;
-      border-left: 2.5px solid transparent !important;
+      border-left: 0 !important;
+      border-bottom: 2px solid rgba(148, 163, 184, 0.28) !important;
     }
     body.specialty-page .lens-vertical-rail .nav-pill:hover,
     body.specialty-page .lens-vertical-rail .nav-pill.active {
-      background: rgba(13, 148, 136, 0.10) !important;
-      border-left-color: #0d9488 !important;
+      background: rgba(13, 148, 136, 0.13) !important;
+      border-left: 0 !important;
+      border-bottom: 2px solid #0d9488 !important;
       color: #0f172a !important;
       box-shadow: none !important;
     }
     body.specialty-page .lens-vertical-rail .lens-badge {
-      background: rgba(226, 232, 240, 0.68) !important;
+      background: rgba(226, 232, 240, 0.72) !important;
       color: #475569 !important;
-      border: 1px solid rgba(148, 163, 184, 0.24) !important;
+      border: 1px solid rgba(148, 163, 184, 0.28) !important;
     }
     body.specialty-page .lens-vertical-rail .nav-pill.active .lens-badge {
-      background: rgba(13, 148, 136, 0.16) !important;
+      background: rgba(13, 148, 136, 0.18) !important;
       color: #0f5866 !important;
     }
     body.specialty-page .lens-vertical-rail .lens-info .lens-name {
@@ -183,11 +186,10 @@
       font-weight: 600 !important;
     }
     body.specialty-page .lens-vertical-rail .lens-info .lens-sub {
-      color: #64748b !important;
+      display: none !important;
     }
     body.specialty-page .lens-vertical-rail .rail-footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.24) !important;
-      color: #64748b !important;
+      display: none !important;
     }
 
     /* 4. 工作台與區塊淡色分層 */
@@ -3128,8 +3130,8 @@
       </div>
     </div>
   </footer>
-<script src="hub.js?v=20260929-v4"></script>
-<script src="specialty-nvm.js?v=20260929-v4"></script>
+<script src="hub.js?v=20260929-v5"></script>
+<script src="specialty-nvm.js?v=20260929-v5"></script>
   <script>
     // Studio Layout Vertical Rail Scroll Spy
     document.addEventListener('DOMContentLoaded', () => {
@@ -3177,6 +3179,6 @@
       panels.forEach(p => railObserver.observe(p));
     });
   </script>
-<script src="topic-menu-navigation.js?v=20260929-v4"></script>
+<script src="topic-menu-navigation.js?v=20260929-v5"></script>
 </body>
 </html>

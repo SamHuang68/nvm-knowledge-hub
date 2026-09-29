@@ -110,13 +110,13 @@
   html.lang = initial === 'zh' ? 'zh-Hant' : 'en'; html.dataset.language = initial;
   const appsPages = /secure-storage\.html|security-assurance\.html|ai-nvm-opportunities\.html|iot-mcu-envm\.html|automotive-nvm\.html|specialty-nvm\.html|oip-secure-storage\.html/i.test(hubPagePath(location.pathname));
   const sheets = [
-    ['surface-radius.css?v=20260929-v4', true],
-    ['chapter-lens.css?v=20260929-v4', true],
-    ['memory-physics-contrast.css?v=20260929-v4', /memory-physics\.html/i.test(hubPagePath(location.pathname))],
-    ['ai-nvm-node.css?v=20260929-v4', /ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname))],
-    ['ai-nvm-tune.css?v=20260929-v4', /ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname))],
-    ['global-reading-system.css?v=20260929-v4', true],
-    ['hub-apps-chrome.css?v=20260929-v4', appsPages]
+    ['surface-radius.css?v=20260929-v5', true],
+    ['chapter-lens.css?v=20260929-v5', true],
+    ['memory-physics-contrast.css?v=20260929-v5', /memory-physics\.html/i.test(hubPagePath(location.pathname))],
+    ['ai-nvm-node.css?v=20260929-v5', /ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname))],
+    ['ai-nvm-tune.css?v=20260929-v5', /ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname))],
+    ['global-reading-system.css?v=20260929-v5', true],
+    ['hub-apps-chrome.css?v=20260929-v5', appsPages]
   ];
   for (const [href, enabled] of sheets) {
     if (!enabled) continue;
@@ -124,7 +124,7 @@
     link.href = new URL(href, rootURL).href; link.dataset.hubSharedStyle = href.split('?')[0]; document.head.append(link);
   }
   if (/memory-physics\.html/i.test(hubPagePath(location.pathname))) {
-    const script = document.createElement('script'); script.src = new URL('f1-card-align.js?v=20260929-v4', rootURL).href;
+    const script = document.createElement('script'); script.src = new URL('f1-card-align.js?v=20260929-v5', rootURL).href;
     script.defer = true; document.head.append(script);
   }
   function ready() {
@@ -214,17 +214,17 @@
       window.__NVM_SEARCH_BOOTSTRAP = true;
       const css = document.createElement('link');
       css.rel = 'stylesheet';
-      css.href = new URL('global-search.css?v=20260929-v4', rootURL).href;
+      css.href = new URL('global-search.css?v=20260929-v5', rootURL).href;
       document.head.append(css);
       const startController = () => {
         if (window.__NVM_SEARCH_ENHANCED) return;
         const ctrl = document.createElement('script');
-        ctrl.src = new URL('search-controller.js?v=20260929-v4', rootURL).href;
+        ctrl.src = new URL('search-controller.js?v=20260929-v5', rootURL).href;
         document.head.append(ctrl);
       };
       if (window.NVMTopicIndex) { startController(); return; }
       const index = document.createElement('script');
-      index.src = new URL('data/nvm-search-index.js?v=20260929-v4', rootURL).href;
+      index.src = new URL('data/nvm-search-index.js?v=20260929-v5', rootURL).href;
       index.onload = startController;
       index.onerror = startController;
       document.head.append(index);
@@ -233,15 +233,15 @@
     if (storyPages) {
       const css = document.createElement('link');
       css.rel = 'stylesheet';
-      css.href = new URL('hub-story-maps.css?v=20260929-v4', rootURL).href;
+      css.href = new URL('hub-story-maps.css?v=20260929-v5', rootURL).href;
       document.head.append(css);
       const js = document.createElement('script');
-      js.src = new URL('hub-story-maps.js?v=20260929-v4', rootURL).href;
+      js.src = new URL('hub-story-maps.js?v=20260929-v5', rootURL).href;
       js.defer = true;
       document.head.append(js);
       if (/specialty-nvm\.html|ai-nvm-opportunities\.html/i.test(hubPagePath(location.pathname))) {
         const apps = document.createElement('script');
-        apps.src = new URL('hub-story-apps.js?v=20260929-v4', rootURL).href;
+        apps.src = new URL('hub-story-apps.js?v=20260929-v5', rootURL).href;
         apps.defer = true;
         document.head.append(apps);
       }
@@ -251,26 +251,26 @@
       document.body.classList.add('hub-literature-paper');
       const paper = document.createElement('link');
       paper.rel = 'stylesheet';
-      paper.href = new URL('literature-editorial.css?v=20260929-v4', rootURL).href;
+      paper.href = new URL('literature-editorial.css?v=20260929-v5', rootURL).href;
       document.head.append(paper);
       const lift = document.createElement('script');
-      lift.src = new URL('literature-paper.js?v=20260929-v4', rootURL).href;
+      lift.src = new URL('literature-paper.js?v=20260929-v5', rootURL).href;
       lift.defer = true;
       document.head.append(lift);
     }
     if (/automotive-nvm\.html|iot-mcu-envm\.html|specialty-nvm\.html/i.test(hubPagePath(location.pathname))) {
       const demote = document.createElement('script');
-      demote.src = new URL('claim-scope.js?v=20260929-v4', rootURL).href;
+      demote.src = new URL('claim-scope.js?v=20260929-v5', rootURL).href;
       demote.defer = true;
       document.head.append(demote);
     }
     if (/automotive-nvm\.html/i.test(hubPagePath(location.pathname))) {
       const css = document.createElement('link');
       css.rel = 'stylesheet';
-      css.href = new URL('hub-auto-tune.css?v=20260929-v4', rootURL).href;
+      css.href = new URL('hub-auto-tune.css?v=20260929-v5', rootURL).href;
       document.head.append(css);
       const tune = document.createElement('script');
-      tune.src = new URL('hub-auto-tune.js?v=20260929-v4', rootURL).href;
+      tune.src = new URL('hub-auto-tune.js?v=20260929-v5', rootURL).href;
       tune.defer = true;
       document.head.append(tune);
     }
@@ -283,40 +283,75 @@
     document.querySelectorAll('aside.lens-vertical-rail').forEach(rail => {
       if (rail._hubLensBound) return;
       rail._hubLensBound = true;
-      const header = rail.querySelector('.rail-header');
-      if (header) {
-        header.setAttribute('role', 'button');
-        header.setAttribute('tabindex', '0');
-        header.setAttribute('aria-expanded', 'false');
-        const toggleRail = (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const open = rail.classList.toggle('is-open');
-          header.setAttribute('aria-expanded', String(open));
-        };
-        header.addEventListener('click', toggleRail);
-        header.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') toggleRail(e);
+      rail.classList.remove('is-open');
+      const links = Array.from(rail.querySelectorAll('a.lens-node-item[href^="#"], a.nav-pill[href^="#"]'));
+      if (!links.length) return;
+      const tagEl = rail.querySelector('.rail-tag');
+      const resolveTargets = () => links.map(link => {
+        const id = (link.getAttribute('href') || '').slice(1);
+        return id ? document.getElementById(id) : null;
+      });
+      const syncProgress = () => {
+        const targets = resolveTargets();
+        const vh = window.innerHeight || document.documentElement.clientHeight || 800;
+        const triggerY = vh * 0.34;
+        let activeIdx = 0;
+        targets.forEach((sec, idx) => {
+          if (!sec) return;
+          const rect = sec.getBoundingClientRect();
+          if (rect.top <= triggerY) activeIdx = idx;
         });
-      }
-      rail.addEventListener('click', (e) => {
-        if (e.target.closest('a')) {
-          rail.classList.remove('is-open');
-          header?.setAttribute('aria-expanded', 'false');
+        const maxScroll = Math.max(1, document.documentElement.scrollHeight - vh);
+        const scrollTop = Math.max(0, window.scrollY || document.documentElement.scrollTop || 0);
+        if (scrollTop >= maxScroll - 8) activeIdx = links.length - 1;
+        let intraRatio = 0;
+        const activeSec = targets[activeIdx];
+        const nextSec = targets[activeIdx + 1];
+        if (activeSec) {
+          const startTop = activeSec.getBoundingClientRect().top;
+          const endTop = nextSec
+            ? nextSec.getBoundingClientRect().top
+            : activeSec.getBoundingClientRect().bottom;
+          const span = Math.max(1, endTop - startTop);
+          intraRatio = Math.max(0, Math.min(1, (triggerY - startTop) / span));
         }
-      });
-      document.addEventListener('click', (e) => {
-        if (!rail.contains(e.target) && rail.classList.contains('is-open')) {
-          rail.classList.remove('is-open');
-          header?.setAttribute('aria-expanded', 'false');
+        const stepPct = ((activeIdx + intraRatio) / Math.max(1, links.length)) * 100;
+        const docPct = (scrollTop / maxScroll) * 100;
+        const progressPct = scrollTop <= 4 ? 0 : (scrollTop >= maxScroll - 4 ? 100 : Math.max(stepPct, docPct * 0.25));
+        rail.style.setProperty('--lens-progress', `${Math.min(100, Math.max(0, progressPct)).toFixed(1)}%`);
+        links.forEach((link, idx) => {
+          const isActive = idx === activeIdx;
+          const isPassed = idx < activeIdx;
+          link.classList.toggle('active', isActive);
+          link.classList.toggle('is-passed', isPassed);
+          if (isActive) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+        if (tagEl) {
+          tagEl.textContent = `${String(activeIdx + 1).padStart(2, '0')} / ${String(links.length).padStart(2, '0')}`;
         }
+      };
+      let ticking = false;
+      const onScrollOrResize = () => {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(() => {
+          ticking = false;
+          syncProgress();
+        });
+      };
+      window.addEventListener('scroll', onScrollOrResize, { passive: true });
+      window.addEventListener('resize', onScrollOrResize, { passive: true });
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          window.setTimeout(syncProgress, 60);
+          window.setTimeout(syncProgress, 320);
+        });
       });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && rail.classList.contains('is-open')) {
-          rail.classList.remove('is-open');
-          header?.setAttribute('aria-expanded', 'false');
-        }
-      });
+      syncProgress();
     });
     if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
       const swPath = hubPagePath(location.pathname).includes('/tools/whitepaper-studio/')
