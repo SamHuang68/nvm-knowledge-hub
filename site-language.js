@@ -246,7 +246,7 @@
         document.head.append(apps);
       }
     }
-    const literaturePages = !/index\.html|nvm-technology-atlas(?:-zh)?\.html|sram-repair\.html/i.test(hubPagePath(location.pathname));
+    const literaturePages = !/^(?:index\.html|nvm-technology-atlas(?:-zh)?\.html|sram-repair\.html)$/i.test(hubPagePath(location.pathname));
     if (literaturePages) {
       document.body.classList.add('hub-literature-paper');
       const paper = document.createElement('link');

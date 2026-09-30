@@ -173,25 +173,64 @@ html body.hub-literature-paper .correction-card {
 }
 html body.hub-literature-paper .slide-card-header { background: #f2eee5 !important; }
 html body.hub-literature-paper .filter-btn,
+html body.hub-literature-paper .evidence-filters button,
 html body.hub-literature-paper .button.ghost {
   background: #fff !important;
   color: #173b49 !important;
   border: 1px solid #cddbdc !important;
 }
-html body.hub-literature-paper .filter-btn.active {
+html body.hub-literature-paper .filter-btn.active,
+html body.hub-literature-paper .evidence-filters button.active,
+html body.hub-literature-paper .ladder button.active,
+html body.hub-literature-paper .role-tabs button.active {
+  background: #006f70 !important;
+  color: #fafaf7 !important;
+  border-color: #006f70 !important;
+}
+html body.hub-literature-paper .filter-btn.active *,
+html body.hub-literature-paper .evidence-filters button.active *,
+html body.hub-literature-paper .ladder button.active *,
+html body.hub-literature-paper .role-tabs button.active * {
+  color: #fafaf7 !important;
+}
+html body.hub-literature-paper .phase-tabs button.active {
+  background: #eaf1ed !important;
+  color: #0f172a !important;
+}
+html body.hub-literature-paper .phase-tabs button.active b {
+  color: #805828 !important;
+}
+html body.hub-literature-paper .phase-tabs button.active span {
+  color: #0f172a !important;
+}
+html body.hub-literature-paper .correction-card > span,
+html body.hub-literature-paper .topology-head > span {
   background: #006f70 !important;
   color: #fafaf7 !important;
 }
+html body.hub-literature-paper .formula-block {
+  background: #eaf1ed !important;
+  color: #173b49 !important;
+  border: 1px solid #b6cbc1 !important;
+}
+html body.hub-literature-paper .formula-block small {
+  color: #475569 !important;
+}
 html body.hub-literature-paper .btn-briefing-action,
-html body.hub-literature-paper .button.secondary {
+html body.hub-literature-paper .button.secondary,
+html body.hub-literature-paper a.secondary,
+html body.hub-literature-paper button.secondary {
   background: #fff !important;
   color: #805828 !important;
   border: 1px solid #c4b08a !important;
 }
-html body.hub-literature-paper .button.primary {
+html body.hub-literature-paper :is(.button.primary, a.primary, button.primary, .hero-actions .primary) {
   background: #805828 !important;
   color: #fafaf7 !important;
   border-color: #805828 !important;
+}
+html body.hub-literature-paper :is(.button.primary, a.primary, button.primary, .hero-actions .primary) * {
+  color: #fafaf7 !important;
 }
 html body.hub-literature-paper .oip-threat-flow,
 html body.hub-literature-paper .oip-decision-grid { background: #cddbdc !important; }

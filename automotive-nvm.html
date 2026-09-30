@@ -517,7 +517,7 @@
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.1em;
-      color: #d97706;
+      color: #b45309;
       margin-bottom: 6px;
     }
     .panel-kicker::before {
@@ -535,7 +535,7 @@
       text-wrap: balance !important;
     }
     .lens-panel h2 em {
-      color: #d97706;
+      color: #b45309;
       font-style: normal;
     }
     .panel-desc {
@@ -667,17 +667,17 @@
     }
     .ecc-bit-node.parity {
       border-color: rgba(245, 158, 11, 0.4);
-      color: #f59e0b;
+      color: #b45309;
       background: rgba(245, 158, 11, 0.08);
     }
     .ecc-bit-node.parity:hover {
-      border-color: #f59e0b;
+      border-color: #b45309;
       background: rgba(245, 158, 11, 0.2);
     }
     .ecc-bit-node.flipped {
       background: #ef4444 !important;
       color: #0f172a !important;
-      border-color: #f87171 !important;
+      border-color: #b91c1c !important;
       box-shadow: 0 0 12px rgba(239, 68, 68, 0.7);
       transform: scale(1.06);
     }
@@ -697,12 +697,12 @@
     }
     .ecc-status-pill.sec {
       background: rgba(59, 130, 246, 0.15);
-      color: #60a5fa;
+      color: #1d4ed8;
       border: 1px solid #3b82f6;
     }
     .ecc-status-pill.ded {
       background: rgba(239, 68, 68, 0.15);
-      color: #f87171;
+      color: #b91c1c;
       border: 1px solid #ef4444;
       animation: alertPulse 1.5s infinite;
     }
@@ -1045,11 +1045,11 @@
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
               <span id="eccStatusPill" class="ecc-status-pill clean">● 0 ERRORS · SECDED PARITY CLEAN</span>
               <div style="display: flex; gap: 8px;">
-                <button type="button" id="btnInjectSingle" style="padding: 5px 10px; background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid #3b82f6; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
+                <button type="button" id="btnInjectSingle" style="padding: 5px 10px; background: rgba(59, 130, 246, 0.12); color: #1d4ed8; border: 1px solid #3b82f6; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
                   <span data-lang="zh">注入單一位元 (SEC)</span>
                   <span data-lang="en">Inject 1-Bit Error</span>
                 </button>
-                <button type="button" id="btnInjectDouble" style="padding: 5px 10px; background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid #ef4444; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
+                <button type="button" id="btnInjectDouble" style="padding: 5px 10px; background: rgba(239, 68, 68, 0.12); color: #b91c1c; border: 1px solid #ef4444; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
                   <span data-lang="zh">注入雙位元 (DED)</span>
                   <span data-lang="en">Inject 2-Bit Error</span>
                 </button>
@@ -1111,10 +1111,10 @@
                 </div>
               </div>
 
-              <div style="background:#f8fafc; border:1px solid rgba(248, 250, 252, 0.96); border-radius:6px; padding:14px; border-top: 4px solid #d97706; box-shadow:0 2px 10px rgba(248, 250, 252, 0.96);">
+              <div style="background:#f8fafc; border:1px solid rgba(248, 250, 252, 0.96); border-radius:6px; padding:14px; border-top: 4px solid #b45309; box-shadow:0 2px 10px rgba(248, 250, 252, 0.96);">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-                  <span style="font:700 10.5px 'IBM Plex Mono'; color:#d97706;">CONTRACT 02 · CALIBRATION</span>
-                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#d97706; background:#f1f5f9; padding:1px 6px; border-radius:3px; border:1px solid #1a3340;">GRADE 0 BOUNDED</span>
+                  <span style="font:700 10.5px 'IBM Plex Mono'; color:#b45309;">CONTRACT 02 · CALIBRATION</span>
+                  <span style="font:700 9.5px 'IBM Plex Mono'; color:#b45309; background:#f1f5f9; padding:1px 6px; border-radius:3px; border:1px solid #1a3340;">GRADE 0 BOUNDED</span>
                 </div>
                 <h3 style="color:#0f172a; margin:0 0 6px; font-family:'IBM Plex Mono'; font-size:1.05rem;">
                   <span data-lang="zh">引擎與雷達感測器工廠標定參數</span>
@@ -1124,7 +1124,7 @@
                   <span data-lang="zh">ADC 增益偏差、帶隙基準電壓、LiDAR 光學陣列校準。僅限出廠封裝與受控車廠 OTA 維護時進行有限次數單向補丁。</span>
                   <span data-lang="en">ADC gain offsets, bandgap voltages, and LiDAR calibration arrays. Bounded to factory testing and authorized OEM maintenance.</span>
                 </p>
-                <div style="font:600 10px 'IBM Plex Mono'; color:#d97706; background:#f8fafc; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
+                <div style="font:600 10px 'IBM Plex Mono'; color:#b45309; background:#f8fafc; padding:6px 10px; border-radius:4px; border:1px solid #e2e8f0;">
                   <span data-lang="zh">漂移：175°C 下 &lt; 1.5% · 寫入：限定 16 次</span><span data-lang="en">DRIFT: &lt; 1.5% @ 175&deg;C · WRITE: Bounded 16x</span>
                 </div>
               </div>
@@ -1192,13 +1192,13 @@
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:600; color:#8a6a42;"><span data-lang="zh">示意 · 非量測</span><span data-lang="en">Example · not measured</span></td>
                       <td style="padding: 10px 14px;"><span style="background:#f1f5f9; color:#8a6a42; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid #a7f3d0;">ISO 26262 ASIL-D vocab (SEooC)</span></td>
                     </tr>
-                    <tr style="background:#2a1e22;">
+                    <tr style="background:#fff1f2;">
                       <td style="padding: 10px 14px; font-style:italic; color:#be123c;">Industry Baseline · eFlash</td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; color:#be123c;">Floating-Gate</td>
-                      <td style="padding: 10px 14px; font-weight:600; color:#e11d48;"><span data-lang="zh">教學對照 · 非 FMEDA</span><span data-lang="en">Teaching contrast · not FMEDA</span></td>
-                      <td style="padding: 10px 14px; font-weight:600; color:#e11d48;"><span data-lang="zh">教學對照 · 非 FMEDA</span><span data-lang="en">Teaching contrast · not FMEDA</span></td>
+                      <td style="padding: 10px 14px; font-weight:600; color:#be123c;"><span data-lang="zh">教學對照 · 非 FMEDA</span><span data-lang="en">Teaching contrast · not FMEDA</span></td>
+                      <td style="padding: 10px 14px; font-weight:600; color:#be123c;"><span data-lang="zh">教學對照 · 非 FMEDA</span><span data-lang="en">Teaching contrast · not FMEDA</span></td>
                       <td style="padding: 10px 14px; font-family:'IBM Plex Mono'; font-weight:600; color:#be123c;"><span data-lang="zh">教學對照</span><span data-lang="en">Teaching contrast</span></td>
-                      <td style="padding: 10px 14px;"><span style="background:#2a1e22; color:#d97706; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid rgba(217, 119, 6, 0.4);"><span data-lang="zh">需依賴雙單元或外部進階 ECC 機制以支援系統級 ASIL-D 目標</span><span data-lang="en">Requires dual-cell or external advanced ECC to support item-level ASIL-D target</span></span></td>
+                      <td style="padding: 10px 14px;"><span style="background:#fff1f2; color:#b45309; padding:2px 6px; border-radius:3px; font:700 9.5px 'IBM Plex Mono'; border:1px solid rgba(180, 83, 9, 0.4);"><span data-lang="zh">需依賴雙單元或外部進階 ECC 機制以支援系統級 ASIL-D 目標</span><span data-lang="en">Requires dual-cell or external advanced ECC to support item-level ASIL-D target</span></span></td>
                     </tr>
                   </tbody>
                 </table>
@@ -1353,8 +1353,8 @@
               <!-- Pillar 5: STMicroelectronics 28nm FD-SOI ePCM -->
               <div style="background: #f8fafc; border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <span style="font: 800 10px 'IBM Plex Mono'; color: #c084fc; letter-spacing: 0.1em;">05 · 28NM FD-SOI PHASE-CHANGE MEMORY</span>
-                  <span style="font-size: 10px; background: rgba(168, 85, 247, 0.15); color: #c084fc; padding: 2px 6px; border-radius: 3px;">165°C Tj · Zero-Downtime</span>
+                  <span style="font: 800 10px 'IBM Plex Mono'; color: #6b21a8; letter-spacing: 0.1em;">05 · 28NM FD-SOI PHASE-CHANGE MEMORY</span>
+                  <span style="font-size: 10px; background: rgba(168, 85, 247, 0.15); color: #6b21a8; padding: 2px 6px; border-radius: 3px;">165°C Tj · Zero-Downtime</span>
                 </div>
                 <h4 style="margin: 0; color: #0f172a; font-size: 1.1rem; font-family: 'IBM Plex Mono';">STMicroelectronics Stellar (28nm ePCM)</h4>
                 <div style="font-size: 0.84rem; line-height: 1.6; color: #334155;">
@@ -1697,30 +1697,30 @@
           pill.className = "ecc-status-pill clean";
           pill.textContent = "● 0 ERRORS · SECDED PARITY CLEAN";
           syndromeVal.textContent = "0x00 (NO SYNDROME)";
-          syndromeVal.style.color = "#c4a574";
+          syndromeVal.style.color = "#785021";
           actionVal.textContent = "NORMAL 0-CYCLE PASS";
-          actionVal.style.color = "#c4a574";
+          actionVal.style.color = "#785021";
           safetyVal.textContent = "SAFETY STATE: NOMINAL (TARGET: ASIL-D ARCHITECTURE)";
-          safetyVal.style.color = "#c4a574";
+          safetyVal.style.color = "#785021";
         } else if (errCount === 1) {
           const flippedIdx = Array.from(flippedIndices)[0];
           pill.className = "ecc-status-pill sec";
           pill.textContent = `● 1-BIT ERROR CORRECTED · BIT #${flippedIdx}`;
           syndromeVal.textContent = `0x${(flippedIdx + 1).toString(16).toUpperCase().padStart(2, '0')} (LOCATED #${flippedIdx})`;
-          syndromeVal.style.color = "#60a5fa";
+          syndromeVal.style.color = "#1d4ed8";
           actionVal.textContent = "HARDWARE ON-THE-FLY XOR AUTO-REPAIR";
-          actionVal.style.color = "#60a5fa";
+          actionVal.style.color = "#1d4ed8";
           safetyVal.textContent = "SAFETY STATUS: SEC CORRECTED (SECDED ENVELOPE)";
-          safetyVal.style.color = "#60a5fa";
+          safetyVal.style.color = "#1d4ed8";
         } else {
           pill.className = "ecc-status-pill ded";
           pill.textContent = `✖ ${errCount}-BIT ERROR DETECTED · SAFETY TRAP ASSERTED (DED)`;
           syndromeVal.textContent = "0xEE (DOUBLE-BIT PARITY MISMATCH)";
-          syndromeVal.style.color = "#f87171";
+          syndromeVal.style.color = "#b91c1c";
           actionVal.textContent = "SAFETY ACTION: HARDWARE DED TRAP ASSERTED (FTTI COMPLIANT)";
-          actionVal.style.color = "#f87171";
+          actionVal.style.color = "#b91c1c";
           safetyVal.textContent = "SAFETY ACTION: HARDWARE DED TRAP ASSERTED (FTTI COMPLIANT)";
-          safetyVal.style.color = "#f87171";
+          safetyVal.style.color = "#b91c1c";
         }
       }
 

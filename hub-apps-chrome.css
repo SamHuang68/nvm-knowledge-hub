@@ -370,16 +370,16 @@ html body.hub-apps-page:not(.hub-literature-paper) .lens-vertical-rail :is(.lens
 }
 
 .hub-apps-page.assurance-page {
-  --mint: var(--hub-kicker);
-  --teal: var(--hub-copper);
-  --copper: var(--hub-copper);
-  --research-cyan: var(--hub-kicker);
+  --mint: #006f70;
+  --teal: #006f70;
+  --copper: #805828;
+  --research-cyan: #006f70;
 }
 
 .hub-apps-page.assurance-page .kicker,
 .hub-apps-page.assurance-page .hero-chain,
 .hub-apps-page.assurance-page .threat-grid footer b {
-  color: var(--hub-kicker) !important;
+  color: #805828 !important;
 }
 
 .hub-apps-page.assurance-page .topbar {
@@ -526,18 +526,22 @@ html body.hub-apps-page.ai-nvm-page .ai-paper-shell :where(p, li) {
   box-shadow: 0 0 10px rgba(196, 165, 116, 0.35) !important;
 }
 
-/* Filled CTA buttons: dark ink on gold/mint fill (never gold-on-gold) */
+/* Filled CTA buttons: high-contrast white ink on warm copper fill */
 .hub-apps-page:not(.hub-literature-paper) :where(
   .hero-actions a.primary,
   .hero-actions .primary,
   a.primary,
   button.primary
 ):not(.button.ghost):not(.secondary) {
-  color: #0f172a !important;
+  background: #805828 !important;
+  border-color: #785021 !important;
+  color: #ffffff !important;
 }
 
 .hub-apps-page.ai-nvm-page .research-hero-links .button.primary {
-  color: #0f172a !important;
+  background: #805828 !important;
+  border-color: #785021 !important;
+  color: #ffffff !important;
 }
 
 .hub-apps-page:not(.hub-literature-paper) .signal-readout.safe b {
