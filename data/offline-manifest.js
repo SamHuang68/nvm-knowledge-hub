@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "2b2f7e3b70e871b1a200",
+  "version": "8cca4c64de5644e26d16",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -126,8 +126,8 @@ self.NVMOfflineManifest = {
     "matrix-interactive.js": "96eef44abf28701f8447814372521e2a7de0be731b47779b278ffab20d75973d",
     "memory-evidence.html": "8957ecfae861ee2f7351be39b3da9472c2ec3ffa1d3c8bdc2c6296968b8486b4",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
-    "memory-physics-navigation.js": "09af08e8372e8b66a6321c59c9eb1df74c4eac4d6d90fcaf4af05d7e17061b8d",
-    "memory-physics.html": "5883a3d78b4b329b58491a7d2c6fdc1e42b56ee5d4df68c4ab61b05c9c9890c5",
+    "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
+    "memory-physics.html": "898324ba45714a4301e1cdde87cc2c3664ebce762e34bfacc620ea5594d778f2",
     "nvm-bitcell-figures.css": "3dbc9f99aa9101b346d33c728e875b87beb99ba8bbeaed806f572b371ee31a88",
     "nvm-engineering-diagrams.css": "6a3e1d4d5e18f70eedb9db83a8c91c843bb87a137c33d79a6ef31b34943cee07",
     "nvm-engineering-diagrams.js": "9107be8d0005dd59e9838a25ed1be509cd555f3a40dcdb58ed580d0b491cf3ee",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 10830403
+  "totalBytes": 10830454
 };

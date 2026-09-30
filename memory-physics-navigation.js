@@ -89,7 +89,7 @@
 
   function localize() {
     const zh = document.documentElement.dataset.language === 'zh';
-    document.title = zh ? '互補儲存與可驗證差異 · NVM Knowledge Hub' : 'Complementary Storage & Verifiable Difference · NVM Knowledge Hub';
+    document.title = zh ? (document.documentElement.dataset.titleZh || '互補儲存與可驗證差異 · NVM 知識中心') : 'Complementary Storage & Verifiable Difference · NVM Knowledge Hub';
     rail.setAttribute('aria-label', zh ? '章節導覽' : 'Chapter navigation');
     rail.querySelector('nav').setAttribute('aria-label', zh ? '章節跳轉' : 'Jump to a chapter');
     document.querySelector('.f1-reading-routes').setAttribute('aria-label', zh ? '依問題選擇閱讀路徑' : 'Choose a reading path');
