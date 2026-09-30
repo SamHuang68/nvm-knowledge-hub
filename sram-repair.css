@@ -35,3 +35,4 @@ html[data-language="zh"] [data-lang="en"] { display:none !important; }
 /* Language spans are text; only the unlabelled span is the decorative dot. */
 .sram-repair-page .eyebrow > span[data-lang] { width:auto; height:auto; background:none; border-radius:0; flex:initial; }
 .sram-repair-page .hero h1 { font-size:clamp(28px,3vw,42px) !important; line-height:1.25; }
+.metric-icon, .muted, .tech-note, footer, footer a { color:#475569; }
