@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "df15f48523dd4e1e1e1d",
+  "version": "3f2f72dd63c55139b028",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -118,7 +118,7 @@ self.NVMOfflineManifest = {
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
     "index.html": "3e5bde08f1471c2bdc2f5ed1acfc50de3e969cd9039028d04977972e2384714a",
-    "iot-mcu-envm.html": "fe80da475696ae157b4d4e9c52889632add4f129e6a8a2e7bfe6d0b39c1a17ab",
+    "iot-mcu-envm.html": "2d73075b7765668bd45da2430a53088b03282c6a5c5241f360d756709adf2e77",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "175acf378a7ba9bcfbdfc7d01262583bdbafac9174e30fbfa70e7d2bdf99d749",
     "literature-editorial.css": "1204ad9ba0f89e3a18d8bd60c7c9a4c7aa412a7bcf396aac3cf1d3dfb14545f8",
@@ -154,7 +154,7 @@ self.NVMOfflineManifest = {
     "sram-repair.css": "cf1b723964116cc8ca9f6b5cfca1d4bba8fb4607ac9050bd1c41eb5e565e05f0",
     "sram-repair.html": "74f6f353944c74c95f34f48389cdd8a9bb0043cdd8ea074b9e997b2afd17966a",
     "sram-repair.js": "a284f0cdd81e36dabd211c2df695d97dc1471a9c141e2bce914e1e10f72fb897",
-    "styles.css": "66f23c8be3a4ea6420bc73f16307d97d3d5934e18f9c4df7dd69e5da6ae66bd3",
+    "styles.css": "e59240e333f11190db1c2b4227949d86d99170e023c2f071c27c64ec70ac4215",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "technology-comparison.html": "2e84cba683fad9e94b8c228beb7fa1740b89d76f4f639a1ac74fa1a8c842cfb7",
     "tools/whitepaper-studio/index.html": "f138960d0121e45baf09608e07ecf6ae2679926b395c2493a3171d1584440b0d",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 10830470
+  "totalBytes": 10831656
 };
