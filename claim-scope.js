@@ -22,7 +22,8 @@
     });
   }
   function softenTitle() {
-    const title = document.title
+    const title = (document.documentElement.lang.startsWith('zh')
+      ? (document.documentElement.dataset.titleZh || document.title) : document.title)
       .replace(/ISO 26262 ASIL-D/g, 'ISO 26262 ASIL context')
       .replace(/Zero Erase Penalty/g, 'No extra erase-voltage path');
     if (title !== document.title) document.title = title;

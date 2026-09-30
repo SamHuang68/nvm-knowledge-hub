@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "4dbd97e3366e1bb08742",
+  "version": "b140f96d298291b92402",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -100,7 +100,7 @@ self.NVMOfflineManifest = {
     "automotive-nvm.html": "d15f44c9de3189477650061dcf2cb9ab12843f88b3b61d3cfe87489a89670ed4",
     "briefing/index.html": "1ccf6911fbebd03368fb66c6c1aa2baabba8f092df4e094f69790df2f9114396",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
-    "claim-scope.js": "7568dacfaa817c000c3c1bce5b9f0079f681f972fd75e79381d63da3d9706091",
+    "claim-scope.js": "a75beddded6140ab09f3e01d52731c3a00ad37fd72a29b49feada4aa9d20dfde",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "data/nvm-search-index.js": "1ce8a43c88b802a5cdce8ac183f47938c1352d11af68792f1a5902fa17d80306",
     "editorial-reading-ui.css": "eb89e104876d4618a0061601ff988d7bbd52edabf60efa18679b20ca2a27c7e1",
@@ -137,10 +137,10 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas-zh.html": "bd9039da0f6d02f8135e36f3893e91da7251568419e540633d85a5a663a6d177",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
     "nvm-technology-atlas.html": "04b1f0c208953554feb979d9976ce5ab1c66864e10c2452ace27fa9a0b5d4953",
-    "nvm-technology-atlas.js": "6acd2009fda8b5008d1973ad204c1857ff8ce4d20723bbe64999bce248604a2a",
+    "nvm-technology-atlas.js": "4d9bc963535cfad3159174722476fac1c36f3ec36d76cdec9ca009e0c2697deb",
     "oip-secure-storage.html": "a8a39c5341a517192c123103843299992695642affc705efc0f1cac95768bab5",
     "research.css": "fb992a4f51654340ff28b5c0d4d70bd7bcfd73ad1b6b048df5c47b7573678e49",
-    "research.js": "23c4cd497c66ca9430489cb0562dad77939360264b321308073b82791e2e020b",
+    "research.js": "9a6dc6f07f7f69e712db722d70066e80b13779389a768b7f4ca99384adf62bdd",
     "search-controller.js": "9f6305af19e4d477325d18453dc09f2260842132e1d95bb1447cbc439b367085",
     "secure-storage.html": "1a071432917cf1f5ef4e19233fd380b30c3cd1cea9406bf915a29cb5f3d6502d",
     "security-assurance.html": "8fe5d5581882e6e08817e0f15f3e15527dc68ff9c83521c060965eb3a186b0eb",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 10834999
+  "totalBytes": 10835385
 };

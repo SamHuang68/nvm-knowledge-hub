@@ -59,7 +59,7 @@ function showRoute({ focus = false } = {}) {
     }
     else link.removeAttribute('aria-current');
   });
-  document.title = next.id === 'panorama' ? baseTitle : `${next.querySelector('h2')?.textContent || (isEnglish() ? 'NVM Study' : 'NVM 專題')} · NVM Knowledge Hub`;
+  document.title = next.id === 'panorama' ? (isEnglish() ? baseTitle : (document.documentElement.dataset.titleZh || baseTitle.replace('NVM Knowledge Hub', 'NVM 知識中心'))) : `${next.querySelector('h2')?.textContent || (isEnglish() ? 'NVM Study' : 'NVM 專題')} · ${isEnglish() ? 'NVM Knowledge Hub' : 'NVM 知識中心'}`;
   contents.classList.remove('open');
   contentsButton.setAttribute('aria-expanded', 'false');
   for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;
