@@ -1164,7 +1164,7 @@
             <span class="pulse-chip-mini"></span>
           </div>
           <div class="stat-val"><span data-lang="zh">靜止時不留存根金鑰</span><span data-lang="en">ABSENT AT REST</span></div>
-          <p><span data-lang="zh">上電重建；下電不保留上電重建的根金鑰</span><span data-lang="en">Reconstructed at power-up; no powered reconstructed root at rest</span></p>
+          <p><span data-lang="zh">上電重建；斷電後不保留已重建的根金鑰</span><span data-lang="en">Reconstructed at power-up; no powered reconstructed root at rest</span></p>
         </div>
         <div class="stat-strip-card border-l-teal">
           <div class="stat-card-head">
@@ -1198,7 +1198,7 @@
         <div>
           <p class="eyebrow light"><span data-lang="zh">決策重點</span><span data-lang="en">DECISION STRIP</span></p>
           <h2 id="vendor-ask-title" style="margin:6px 0 0;font-size:18px;line-height:1.3;color:#0f172a;font-weight:650">
-            <span data-lang="zh">關閉目標組態前先問這五件事</span>
+            <span data-lang="zh">完成目標組態驗證前先問這五件事</span>
             <span data-lang="en">Five questions before closing a target configuration</span>
           </h2>
         </div>
@@ -1208,11 +1208,11 @@
         </p>
       </div>
       <div class="vendor-ask-grid">
-        <article><b><span data-lang="zh">01 目標組態</span><span data-lang="en">01 Target</span></b><p><span data-lang="zh">本配置的 node、macro 與整合邊界是什麼？</span><span data-lang="en">What node, macro and integration boundary is the licensed target?</span></p></article>
+        <article><b><span data-lang="zh">01 目標組態</span><span data-lang="en">01 Target</span></b><p><span data-lang="zh">本配置的 製程節點、IP 巨集與整合邊界是什麼？</span><span data-lang="en">What node, macro and integration boundary is the licensed target?</span></p></article>
         <article><b><span data-lang="zh">02 密碼保護</span><span data-lang="en">02 Cipher</span></b><p><span data-lang="zh">該配置公開的是 AES-256，還是已鎖定的 mode／engine？</span><span data-lang="en">Is AES-256 disclosed only, or is the mode and engine locked for this configuration?</span></p></article>
-        <article><b><span data-lang="zh">03 輔助資料</span><span data-lang="en">03 Helper</span></b><p><span data-lang="zh">helper／activation data 的暴露模型與完整性假設為何？</span><span data-lang="en">What is the helper or activation-data exposure model and integrity assumption?</span></p></article>
-        <article><b><span data-lang="zh">04 清除</span><span data-lang="en">04 Zeroize</span></b><p><span data-lang="zh">remanence 與 zeroization 的驗證範圍到哪裡？</span><span data-lang="en">What remanence and zeroization evidence covers the powered-down window?</span></p></article>
-        <article><b><span data-lang="zh">05 攻擊驗證</span><span data-lang="en">05 Attack</span></b><p><span data-lang="zh">FI、SCA 與 invasive readout 的證據 scope 是什麼？</span><span data-lang="en">What FI, SCA and invasive-readout evidence exists, and for which scope?</span></p></article>
+        <article><b><span data-lang="zh">03 輔助資料</span><span data-lang="en">03 Helper</span></b><p><span data-lang="zh">輔助／啟用資料 的暴露模型與完整性假設為何？</span><span data-lang="en">What is the helper or activation-data exposure model and integrity assumption?</span></p></article>
+        <article><b><span data-lang="zh">04 清除</span><span data-lang="en">04 Zeroize</span></b><p><span data-lang="zh">資料殘留 與 資料清除 的驗證範圍到哪裡？</span><span data-lang="en">What remanence and zeroization evidence covers the powered-down window?</span></p></article>
+        <article><b><span data-lang="zh">05 攻擊驗證</span><span data-lang="en">05 Attack</span></b><p><span data-lang="zh">FI、SCA 與 侵入式讀取 的證據 範圍 是什麼？</span><span data-lang="en">What FI, SCA and invasive-readout evidence exists, and for which scope?</span></p></article>
       </div>
     </section>
 
@@ -1326,12 +1326,12 @@
           <span data-lang="en">Security is not just how long data lasts,<br><em>but what remains in silicon under attack</em></span>
         </h2>
         <div class="thesis-copy">
-          <p><span data-lang="zh">OTP 解決永久性；Secure Storage 解決機密性。即使攻擊者成功觀察記憶體狀態，他取得的也應該是受保護資料，而不是可直接使用的 root secret。</span><span data-lang="en">OTP solves permanence; Secure Storage solves confidentiality. Even if an attacker observes the memory state, the recoverable result should be protected data, not a usable root secret.</span></p>
-          <a class="text-link" href="#power-lab"><span data-lang="zh">用 Power-off State 檢驗設計</span><span data-lang="en">Evaluate the design through its power-off state</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <p><span data-lang="zh">OTP 解決永久性；Secure Storage 解決機密性。即使攻擊者成功觀察記憶體狀態，他取得的也應該是受保護資料，而不是可直接使用的 根機密。</span><span data-lang="en">OTP solves permanence; Secure Storage solves confidentiality. Even if an attacker observes the memory state, the recoverable result should be protected data, not a usable root secret.</span></p>
+          <a class="text-link" href="#power-lab"><span data-lang="zh">用 斷電狀態 檢驗設計</span><span data-lang="en">Evaluate the design through its power-off state</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
       <div class="thesis-principles">
-        <article><span>01</span><svg aria-hidden="true"><use href="#i-power"/></svg><h3><span data-lang="zh">靜止時不留存</span><span data-lang="en">Absent at rest</span></h3><p><span data-lang="zh">在已驗證的 shutdown 條件下，不保留刻意儲存或已重建、仍由電源維持的 root；transistor mismatch 與 helper material 仍可能存在。</span><span data-lang="en">Under verified shutdown, no intentionally stored or powered reconstructed root remains; transistor mismatch and helper material may still exist.</span></p></article>
+        <article><span>01</span><svg aria-hidden="true"><use href="#i-power"/></svg><h3><span data-lang="zh">靜止時不留存</span><span data-lang="en">Absent at rest</span></h3><p><span data-lang="zh">在已驗證的 關機 條件下，不保留刻意儲存或已重建、仍由電源維持的根金鑰；電晶體失配 與 輔助資料 仍可能存在。</span><span data-lang="en">Under verified shutdown, no intentionally stored or powered reconstructed root remains; transistor mismatch and helper material may still exist.</span></p></article>
         <article><span>02</span><svg aria-hidden="true"><use href="#i-memory"/></svg><h3><span data-lang="zh">密文持續保留</span><span data-lang="en">Ciphertext remains</span></h3><p><span data-lang="zh">OTP 永久保存的是 AES-256 密文與安全狀態。</span><span data-lang="en">What OTP keeps permanently is AES-256 ciphertext and security state.</span></p></article>
         <article><span>03</span><svg aria-hidden="true"><use href="#i-control"/></svg><h3><span data-lang="zh">單一安全邊界</span><span data-lang="en">One boundary</span></h3><p><span data-lang="zh">PUF、crypto、OTP 與 controller 共同構成安全子系統。</span><span data-lang="en">PUF, crypto, OTP and the controller compose one security subsystem.</span></p></article>
       </div>
@@ -1357,7 +1357,7 @@
           <span data-lang="zh"><span class="statement-premise">先關掉電源</span><span class="statement-resolution">再看攻擊者能取得什麼</span></span>
           <span data-lang="en"><span class="statement-premise">Power off first,</span><span class="statement-resolution">then see what an attacker recovers</span></span>
         </h2>
-        <p class="section-lede"><span data-lang="zh">切換狀態，觀察 root key 的存在窗口。主張不是物理攻擊會消失，而是成功讀取後能揭露的內容被限制。</span><span data-lang="en">Switch state and watch the root-key residency window. The claim is not that physical attack disappears; it is that a successful readout should stop at protected content.</span></p>
+        <p class="section-lede"><span data-lang="zh">切換狀態，觀察 根金鑰 的存在窗口。主張不是物理攻擊會消失，而是成功讀取後能揭露的內容被限制。</span><span data-lang="en">Switch state and watch the root-key residency window. The claim is not that physical attack disappears; it is that a successful readout should stop at protected content.</span></p>
         <div class="state-switch" role="group" aria-label="Switch power state" data-aria-en="Switch power state" data-aria-zh="切換電源狀態">
           <button class="active" type="button" data-power="off"><svg aria-hidden="true"><use href="#i-power"/></svg><span data-lang="zh">斷電</span><span data-lang="en">POWER OFF</span></button>
           <button type="button" data-power="on"><svg aria-hidden="true"><use href="#i-glitch"/></svg><span data-lang="zh">上電</span><span data-lang="en">POWER UP</span></button>
@@ -1400,7 +1400,7 @@
         <article><div class="journey-icon danger"><svg aria-hidden="true"><use href="#i-glitch"/></svg></div><span><span data-lang="zh">01A · 控制路徑</span><span data-lang="en">01A · CONTROL PATH</span></span><h3><span data-lang="zh">故障可能破壞原有假設</span><span data-lang="en">Fault can collapse assumptions</span></h3><p><span data-lang="zh">背部雷射故障注入 (LFI)、電壓突波 (Voltage Glitch)、電磁脈衝 (EMFI) 或時鐘干擾可能引發指令跳躍 (instruction skip)，破壞安全啟動、權限狀態或鎖定暫存器。</span><span data-lang="en">Backside laser fault injection (LFI), voltage glitch, electromagnetic fault injection (EMFI), or clock disturbance can cause instruction skip, corrupting secure boot, privilege states, or lock registers.</span></p></article>
         <article data-record-id="OIP-OTP-002"><div class="journey-icon danger"><svg aria-hidden="true"><use href="#i-probe"/></svg></div><span><span data-lang="zh">01B · 侵入式路徑</span><span data-lang="en">01B · INVASIVE PATH</span></span><h3><span data-lang="zh">FIB／PVC 可能揭露實體狀態</span><span data-lang="en">FIB/PVC can expose physical state</span></h3><p><span data-lang="zh">公開案例已讀出相鄰 bit pair 的 OR；完整逐 bit recovery 仍未被示範。</span><span data-lang="en">A public case recovered the OR of adjacent bit pairs; full bit-by-bit recovery has not been demonstrated.</span></p></article>
         <article data-record-id="OIP-SYS-001"><div class="journey-icon copper"><svg aria-hidden="true"><use href="#i-cipher"/></svg></div><span><span data-lang="zh">02 · 組合防禦</span><span data-lang="en">02 · COMPOSED RESPONSE</span></span><h3><span data-lang="zh">加密、擾亂與治理</span><span data-lang="en">Encrypt, scramble and govern</span></h3><p><span data-lang="zh">只有在所有 composed controls 成立時，readout 才應停在 scrambled ciphertext。</span><span data-lang="en">Only when all composed controls hold should readout stop at scrambled ciphertext.</span></p></article>
-        <article data-record-id="OIP-VAL-001"><div class="journey-icon teal"><svg aria-hidden="true"><use href="#i-evidence"/></svg></div><span><span data-lang="zh">03 · 證據驗證關卡</span><span data-lang="en">03 · EVIDENCE GATE</span></span><h3><span data-lang="zh">完成目標組態驗證</span><span data-lang="en">Close the target configuration</span></h3><p><span data-lang="zh">以 target node、macro、integration 與 FI／SCA／invasive evidence 驗證結果。</span><span data-lang="en">Close the result against the target node, macro, integration and FI/SCA/invasive evidence.</span></p></article>
+        <article data-record-id="OIP-VAL-001"><div class="journey-icon teal"><svg aria-hidden="true"><use href="#i-evidence"/></svg></div><span><span data-lang="zh">03 · 證據驗證關卡</span><span data-lang="en">03 · EVIDENCE GATE</span></span><h3><span data-lang="zh">完成目標組態驗證</span><span data-lang="en">Close the target configuration</span></h3><p><span data-lang="zh">以 目標製程節點、IP 巨集、整合 與 FI／SCA／侵入式攻擊證據 驗證結果。</span><span data-lang="en">Close the result against the target node, macro, integration and FI/SCA/invasive evidence.</span></p></article>
       </div>
       <aside class="case-note"><b><span data-lang="zh">威脅模型輸入</span><span data-lang="en">THREAT-MODEL INPUT</span></b><span><span data-lang="zh">RP2350 挑戰賽</span><span data-lang="en">RP2350 challenge</span></span><p><span data-lang="zh">這個案例用來界定 threat model；它不構成任何 target Secure Storage configuration 的 resistance evidence。</span><span data-lang="en">This case bounds the threat model; it is not resistance evidence for any target Secure Storage configuration.</span></p><a href="https://www.raspberrypi.com/news/security-through-transparency-rp2350-hacking-challenge-results-are-in/" target="_blank" rel="noopener noreferrer"><span data-lang="zh">一級來源 ↗</span><span data-lang="en">Primary source ↗</span></a></aside>
     </section>
@@ -1436,7 +1436,7 @@
           <p class="eyebrow light"><span data-lang="zh">分層信任 · 實務案例</span><span data-lang="en">LAYERED TRUST · PRACTICAL CASE STUDY</span></p>
           <h2 id="identity-stack-title"><span data-lang="zh"><span class="stack-title-premise">不是三選一</span><span class="stack-title-resolution">讓每一層各自解決正確的問題</span></span><span data-lang="en"><span class="stack-title-premise">Not three alternatives</span><span class="stack-title-resolution">Give each layer the right security job</span></span></h2>
         </div>
-        <p><span data-lang="zh">這段是 trust-layer 職能拆分，不是產品 BOM 或現成 Okta 整合。OpenPGP 保護資料與簽章；Okta FastPass 管理使用者、裝置狀態與存取政策；PUF 強化兩者下方的 silicon root，降低對永久儲存 root secret 的依賴。</span><span data-lang="en">This is a trust-layer job split, not a product BOM or a turnkey Okta integration. OpenPGP protects data and signatures. Okta FastPass governs users, device posture and access policy. A PUF strengthens the silicon root beneath them by reducing dependence on a persistently stored root secret.</span></p>
+        <p><span data-lang="zh">這段是 信任層 職能拆分，不是產品 BOM 或現成 Okta 整合。OpenPGP 保護資料與簽章；Okta FastPass 管理使用者、裝置狀態與存取政策；PUF 強化兩者下方的 晶片信任根，降低對永久儲存 根機密 的依賴。</span><span data-lang="en">This is a trust-layer job split, not a product BOM or a turnkey Okta integration. OpenPGP protects data and signatures. Okta FastPass governs users, device posture and access policy. A PUF strengthens the silicon root beneath them by reducing dependence on a persistently stored root secret.</span></p>
       </div>
 
       <div class="trust-layer-grid">
@@ -1454,8 +1454,8 @@
         </article>
         <article class="puf-layer">
           <span><span data-lang="zh">03 · 晶片根金鑰</span><span data-lang="en">03 · SILICON ROOT</span></span><h3>SRAM PUF</h3>
-          <p><b><span data-lang="zh">主要任務</span><span data-lang="en">Primary job</span></b><span data-lang="zh">需要時重建 device-unique root，用來 derive 或 unwrap operational keys。</span><span data-lang="en">Reconstruct a device-unique root on demand to derive or unwrap operational keys.</span></p>
-          <p><b><span data-lang="zh">斷電後仍存在</span><span data-lang="en">Persists at rest</span></b><span data-lang="zh">helper／activation data 與 wrapped keys 可以存在；root secret 本身不必永久儲存。</span><span data-lang="en">Helper or activation data and wrapped keys may persist; the root secret itself need not.</span></p>
+          <p><b><span data-lang="zh">主要任務</span><span data-lang="en">Primary job</span></b><span data-lang="zh">需要時重建 裝置專屬根金鑰，用來 衍生 或 解封裝工作金鑰。</span><span data-lang="en">Reconstruct a device-unique root on demand to derive or unwrap operational keys.</span></p>
+          <p><b><span data-lang="zh">斷電後仍存在</span><span data-lang="en">Persists at rest</span></b><span data-lang="zh">輔助／啟用資料 與 封裝金鑰 可以存在；根機密 本身不必永久儲存。</span><span data-lang="en">Helper or activation data and wrapped keys may persist; the root secret itself need not.</span></p>
           <small><span data-lang="zh">不取代 user identity、MFA、authorization、revocation 或 recovery。</span><span data-lang="en">Does not replace user identity, MFA, authorization, revocation or recovery.</span></small>
         </article>
       </div>
@@ -1477,14 +1477,14 @@
 
       <div class="threat-coverage">
         <div><span><span data-lang="zh">網路釣魚</span><span data-lang="en">PHISHING</span></span><b>Okta FastPass</b><small><span data-lang="zh">challenge／origin 與 policy</span><span data-lang="en">Challenge, origin and policy</span></small></div>
-        <div><span><span data-lang="zh">複製的儲存資料</span><span data-lang="en">COPIED STORAGE</span></span><b><span data-lang="zh">PUF 與封裝金鑰</span><span data-lang="en">PUF + wrapped key</span></b><small><span data-lang="zh">複製 blob 不等於複製 device root</span><span data-lang="en">A copied blob is not the device root</span></small></div>
+        <div><span><span data-lang="zh">複製的儲存資料</span><span data-lang="en">COPIED STORAGE</span></span><b><span data-lang="zh">PUF 與封裝金鑰</span><span data-lang="en">PUF + wrapped key</span></b><small><span data-lang="zh">複製 資料區塊 不等於複製 裝置根金鑰</span><span data-lang="en">A copied blob is not the device root</span></small></div>
         <div><span><span data-lang="zh">資料可攜性</span><span data-lang="en">DATA PORTABILITY</span></span><b>OpenPGP</b><small><span data-lang="zh">跨系統的加密與簽章格式</span><span data-lang="en">Portable encryption and signature format</span></small></div>
-        <div class="coverage-limit"><span><span data-lang="zh">共同限制</span><span data-lang="en">SHARED LIMIT</span></span><b><span data-lang="zh">已入侵的 runtime</span><span data-lang="en">Compromised runtime</span></b><small><span data-lang="zh">重建或解鎖後仍需 isolation、user presence、rate limit 與 zeroization。</span><span data-lang="en">After reconstruction or unlock, isolation, user presence, rate limits and zeroization still matter.</span></small></div>
+        <div class="coverage-limit"><span><span data-lang="zh">共同限制</span><span data-lang="en">SHARED LIMIT</span></span><b><span data-lang="zh">已入侵的 runtime</span><span data-lang="en">Compromised runtime</span></b><small><span data-lang="zh">重建或解鎖後仍需 隔離、使用者在場確認、速率限制 與 資料清除。</span><span data-lang="en">After reconstruction or unlock, isolation, user presence, rate limits and zeroization still matter.</span></small></div>
       </div>
 
       <aside class="stack-evidence-note">
         <b><span data-lang="zh">主張邊界</span><span data-lang="en">CLAIM BOUNDARY</span></b>
-        <p><span data-lang="zh">PUF 的精確優勢不是「比 Okta 或 OpenPGP 更安全」，而是針對 powered-off physical extraction 與 device cloning，移除永久儲存 root-key target。最終結果仍取決於 reliability、helper-data integrity、FI／SCA、key residency、enrollment 與 recovery evidence。</span><span data-lang="en">The precise PUF advantage is not “more secure than Okta or OpenPGP.” It removes a persistently stored root-key target for powered-off physical extraction and device cloning. The result still depends on reliability, helper-data integrity, FI/SCA, key residency, enrollment and recovery evidence.</span></p>
+        <p><span data-lang="zh">PUF 的精確優勢不是「比 Okta 或 OpenPGP 更安全」，而是針對 斷電後實體擷取 與 裝置複製，移除永久儲存 根金鑰目標。最終結果仍取決於 可靠度、輔助資料完整性、FI／SCA、金鑰駐留、註冊 與 復原證據。</span><span data-lang="en">The precise PUF advantage is not “more secure than Okta or OpenPGP.” It removes a persistently stored root-key target for powered-off physical extraction and device cloning. The result still depends on reliability, helper-data integrity, FI/SCA, key residency, enrollment and recovery evidence.</span></p>
       </aside>
 
       <div class="stack-sources" aria-label="Primary sources for the layered security case study" data-aria-en="Primary sources for the layered security case study" data-aria-zh="分層安全案例研究之第一手來源">
@@ -1518,7 +1518,7 @@
           <h3>Intrinsic ID Quiddikey</h3>
           <p>
             <b><span data-lang="zh">核心定位與機制</span><span data-lang="en">Core Role &amp; Mechanism</span></b>
-            <span data-lang="zh"><b>SRAM PUF + 模糊提取器 (Fuzzy Extractor)：</b>利用晶粒原生標準 6T SRAM 上電時的隨機臨界電壓 mismatch 作為物理指紋。搭配公開儲存之 Activation Code（Helper Data），透過 BCH 糾錯重構 256-bit 根金鑰，用畢即銷毀。</span>
+            <span data-lang="zh"><b>SRAM PUF + 模糊提取器 (Fuzzy Extractor)：</b>利用晶粒原生標準 6T SRAM 上電時的隨機臨界電壓 失配 作為物理指紋。搭配公開儲存之 Activation Code（Helper Data），透過 BCH 糾錯重構 256-bit 根金鑰，用畢即銷毀。</span>
             <span data-lang="en"><b>SRAM PUF + Fuzzy Extractor:</b> Leverages native 6T SRAM power-up mismatch as a physical fingerprint. Combines with a public Activation Code (Helper Data) to reconstruct a 256-bit root key via BCH error correction; cleared immediately after use.</span>
           </p>
           <p>
@@ -1579,7 +1579,7 @@
           <span data-lang="zh"><span class="statement-premise">四個功能區塊協同運作</span><span class="statement-resolution">共同交付一個安全結果</span></span>
           <span data-lang="en"><span class="statement-premise">Four functional blocks compose</span><span class="statement-resolution">to deliver a unified security outcome</span></span>
         </h2>
-        <p><span data-lang="zh">公開揭露的是四塊功能如何組成一個 subsystem；契約歸屬、qualification 與 product-response scope 仍須另行關閉。</span><span data-lang="en">Public disclosure shows how four blocks compose a subsystem; contractual ownership, qualification and product-response scope still require closure.</span></p>
+        <p><span data-lang="zh">公開揭露的是四塊功能如何組成一個 子系統；契約歸屬、資格驗證 與 產品回應 範圍 仍須另行確認。</span><span data-lang="en">Public disclosure shows how four blocks compose a subsystem; contractual ownership, qualification and product-response scope still require closure.</span></p>
       </div>
       <div class="architecture-canvas">
         <div class="architecture-flow" role="group" aria-label="Secure Storage architecture" data-aria-en="Secure Storage architecture" data-aria-zh="Secure Storage 架構">
@@ -1738,7 +1738,7 @@
             <span data-lang="en">Technical value must protect target assets</span>
           </h2>
         </div>
-        <p><span data-lang="zh">相同的 root-key lifecycle，因應不同市場中最昂貴、最敏感、最難替換的資料。</span><span data-lang="en">The same root-key lifecycle is applied to the most expensive, sensitive and hardest-to-replace assets in each market.</span></p>
+        <p><span data-lang="zh">相同的 根金鑰生命週期，因應不同市場中最昂貴、最敏感、最難替換的資料。</span><span data-lang="en">The same root-key lifecycle is applied to the most expensive, sensitive and hardest-to-replace assets in each market.</span></p>
       </div>
       <div class="application-grid">
         <article class="app-card app-ai"><svg aria-hidden="true"><use href="#i-code"/></svg><span>AI / HPC</span><h3><span data-lang="zh">保護模型價值與平台完整性</span><span data-lang="en">Protect model value and platform integrity</span></h3><p><span data-lang="zh">韌體防回復 · 模型／權重金鑰 · 平台身分</span><span data-lang="en">Firmware anti-rollback · model/weight keys · platform identity</span></p><b>01</b></article>
