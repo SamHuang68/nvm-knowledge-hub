@@ -15,7 +15,7 @@
   "sections": [
     {
       "id": "foundations",
-      "number": "01",
+      "number": "I",
       "titleZh": "技術基礎",
       "titleEn": "Technology Foundations",
       "descriptionZh": "理解儲存狀態、讀寫物理與可靠度，再比較不同技術的取捨。",
@@ -65,7 +65,7 @@
     },
     {
       "id": "ip-process",
-      "number": "02",
+      "number": "II",
       "titleZh": "IP 與製程",
       "titleEn": "IP and Processes",
       "descriptionZh": "從具名 IP 的單元原理，連到技術沿革與晶圓代工整合。",
@@ -125,7 +125,7 @@
     },
     {
       "id": "applications",
-      "number": "03",
+      "number": "III",
       "titleZh": "應用與系統",
       "titleEn": "Applications and Systems",
       "descriptionZh": "依要保存的資料與系統責任，查閱安全架構及各類應用。",
@@ -205,7 +205,7 @@
     },
     {
       "id": "resources",
-      "number": "04",
+      "number": "IV",
       "titleZh": "文獻與工具",
       "titleEn": "Literature and Tools",
       "descriptionZh": "查核公開來源，使用決策工作台，並取得簡報與專題材料。",
