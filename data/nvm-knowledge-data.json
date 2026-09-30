@@ -1940,7 +1940,7 @@
       {
         "id": "CMP-YU2016",
         "label": "Yu 與 Chen：新興記憶體技術的近期趨勢與展望",
-        "url": "https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf",
+        "url": "https://doi.org/10.1109/MSSC.2016.2546199",
         "kind": "原始技術綜論",
         "locator": "IEEE Solid-State Circuits Magazine 8(2)，43–56；p44 表 1；DOI 10.1109/MSSC.2016.2546199",
         "date": "2016",
@@ -7270,7 +7270,7 @@
     {
       "id": "CMP-YU2016",
       "label": "Yu 與 Chen：新興記憶體技術的近期趨勢與展望",
-      "url": "https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf",
+      "url": "https://doi.org/10.1109/MSSC.2016.2546199",
       "kind": "原始技術綜論",
       "locator": "IEEE Solid-State Circuits Magazine 8(2)，43–56；p44 表 1；DOI 10.1109/MSSC.2016.2546199",
       "date": "2016",
@@ -8227,7 +8227,7 @@
     {
       "id": "physics-btbt-carriers",
       "label": "Chu、Wu：BTBT 熱載子路徑",
-      "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+      "url": "https://doi.org/10.1109/55.823576",
       "kind": "原始研究",
       "date": "2000-03；2026-09-10 查核",
       "locator": "IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576",
@@ -8363,7 +8363,7 @@
     {
       "id": "ip-numem-2019",
       "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-      "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+      "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
       "kind": "原廠公開會議簡報",
       "date": "2019-08-05",
       "accessedAt": "2026-09-10",
@@ -8433,7 +8433,7 @@
     {
       "id": "ip-crossbar-macro",
       "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-      "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+      "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
       "kind": "原廠公開產品簡介",
       "date": null,
       "accessedAt": "2026-09-10",
@@ -8443,7 +8443,7 @@
     {
       "id": "ip-crossbar-2015",
       "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-      "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+      "url": "https://www.crossbar-inc.com/",
       "kind": "原廠公開會議簡報",
       "date": "2015",
       "accessedAt": "2026-09-10",
@@ -22903,7 +22903,7 @@
               {
                 "id": "physics-btbt-carriers",
                 "label": "Chu、Wu：BTBT 熱載子路徑",
-                "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+                "url": "https://doi.org/10.1109/55.823576",
                 "kind": "原始研究",
                 "date": "2000-03；2026-09-10 查核",
                 "locator": "IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576",
@@ -23048,7 +23048,7 @@
                   {
                     "id": "physics-btbt-carriers",
                     "label": "Chu、Wu：BTBT 熱載子路徑",
-                    "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+                    "url": "https://doi.org/10.1109/55.823576",
                     "kind": "原始研究",
                     "date": "2000-03；2026-09-10 查核",
                     "locator": "IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576",
@@ -26021,7 +26021,7 @@
               {
                 "id": "ip-numem-2019",
                 "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-                "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                 "kind": "原廠公開會議簡報",
                 "date": "2019-08-05",
                 "accessedAt": "2026-09-10",
@@ -26135,7 +26135,7 @@
                   {
                     "id": "ip-numem-2019",
                     "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-                    "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                    "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                     "kind": "原廠公開會議簡報",
                     "date": "2019-08-05",
                     "accessedAt": "2026-09-10",
@@ -26176,7 +26176,7 @@
               {
                 "id": "ip-numem-2019",
                 "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-                "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                 "kind": "原廠公開會議簡報",
                 "date": "2019-08-05",
                 "accessedAt": "2026-09-10",
@@ -26290,7 +26290,7 @@
                   {
                     "id": "ip-numem-2019",
                     "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-                    "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                    "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                     "kind": "原廠公開會議簡報",
                     "date": "2019-08-05",
                     "accessedAt": "2026-09-10",
@@ -26331,7 +26331,7 @@
               {
                 "id": "ip-numem-2019",
                 "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-                "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                 "kind": "原廠公開會議簡報",
                 "date": "2019-08-05",
                 "accessedAt": "2026-09-10",
@@ -26432,7 +26432,7 @@
                   {
                     "id": "ip-numem-2019",
                     "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-                    "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                    "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                     "kind": "原廠公開會議簡報",
                     "date": "2019-08-05",
                     "accessedAt": "2026-09-10",
@@ -27466,7 +27466,7 @@
               {
                 "id": "ip-crossbar-macro",
                 "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-                "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                 "kind": "原廠公開產品簡介",
                 "date": null,
                 "accessedAt": "2026-09-10",
@@ -27476,7 +27476,7 @@
               {
                 "id": "ip-crossbar-2015",
                 "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-                "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                "url": "https://www.crossbar-inc.com/",
                 "kind": "原廠公開會議簡報",
                 "date": "2015",
                 "accessedAt": "2026-09-10",
@@ -27576,7 +27576,7 @@
                   {
                     "id": "ip-crossbar-macro",
                     "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-                    "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                    "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                     "kind": "原廠公開產品簡介",
                     "date": null,
                     "accessedAt": "2026-09-10",
@@ -27586,7 +27586,7 @@
                   {
                     "id": "ip-crossbar-2015",
                     "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-                    "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                    "url": "https://www.crossbar-inc.com/",
                     "kind": "原廠公開會議簡報",
                     "date": "2015",
                     "accessedAt": "2026-09-10",
@@ -27617,7 +27617,7 @@
               {
                 "id": "ip-crossbar-macro",
                 "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-                "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                 "kind": "原廠公開產品簡介",
                 "date": null,
                 "accessedAt": "2026-09-10",
@@ -27627,7 +27627,7 @@
               {
                 "id": "ip-crossbar-2015",
                 "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-                "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                "url": "https://www.crossbar-inc.com/",
                 "kind": "原廠公開會議簡報",
                 "date": "2015",
                 "accessedAt": "2026-09-10",
@@ -27727,7 +27727,7 @@
                   {
                     "id": "ip-crossbar-macro",
                     "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-                    "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                    "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                     "kind": "原廠公開產品簡介",
                     "date": null,
                     "accessedAt": "2026-09-10",
@@ -27737,7 +27737,7 @@
                   {
                     "id": "ip-crossbar-2015",
                     "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-                    "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                    "url": "https://www.crossbar-inc.com/",
                     "kind": "原廠公開會議簡報",
                     "date": "2015",
                     "accessedAt": "2026-09-10",
@@ -27768,7 +27768,7 @@
               {
                 "id": "ip-crossbar-macro",
                 "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-                "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                 "kind": "原廠公開產品簡介",
                 "date": null,
                 "accessedAt": "2026-09-10",
@@ -27778,7 +27778,7 @@
               {
                 "id": "ip-crossbar-2015",
                 "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-                "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                "url": "https://www.crossbar-inc.com/",
                 "kind": "原廠公開會議簡報",
                 "date": "2015",
                 "accessedAt": "2026-09-10",
@@ -27865,7 +27865,7 @@
                   {
                     "id": "ip-crossbar-macro",
                     "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-                    "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                    "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                     "kind": "原廠公開產品簡介",
                     "date": null,
                     "accessedAt": "2026-09-10",
@@ -27875,7 +27875,7 @@
                   {
                     "id": "ip-crossbar-2015",
                     "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-                    "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                    "url": "https://www.crossbar-inc.com/",
                     "kind": "原廠公開會議簡報",
                     "date": "2015",
                     "accessedAt": "2026-09-10",
@@ -28246,7 +28246,7 @@
       {
         "id": "physics-btbt-carriers",
         "label": "Chu、Wu：BTBT 熱載子路徑",
-        "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+        "url": "https://doi.org/10.1109/55.823576",
         "kind": "原始研究",
         "date": "2000-03；2026-09-10 查核",
         "locator": "IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576",
@@ -28382,7 +28382,7 @@
       {
         "id": "ip-numem-2019",
         "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-        "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+        "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
         "kind": "原廠公開會議簡報",
         "date": "2019-08-05",
         "accessedAt": "2026-09-10",
@@ -28452,7 +28452,7 @@
       {
         "id": "ip-crossbar-macro",
         "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-        "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+        "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
         "kind": "原廠公開產品簡介",
         "date": null,
         "accessedAt": "2026-09-10",
@@ -28462,7 +28462,7 @@
       {
         "id": "ip-crossbar-2015",
         "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-        "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+        "url": "https://www.crossbar-inc.com/",
         "kind": "原廠公開會議簡報",
         "date": "2015",
         "accessedAt": "2026-09-10",

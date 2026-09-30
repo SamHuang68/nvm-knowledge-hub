@@ -1584,7 +1584,7 @@ The cited public product sources do not establish BBHH for a current ymtp versio
 - [ymc-product: YMC: Logic-Process ymtp MTP IP](https://www.ymc.com.tw/index_en.php)
 - [ymc-1t1c: YMC: 1T1C Core Technology](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
 - [physics-bbhh-fg: Wu et al.: BBHH and Floating-Gate Demonstration](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)
-- [physics-btbt-carriers: Chu and Wu: BTBT Hot-Carrier Paths](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf)
+- [physics-btbt-carriers: Chu and Wu: BTBT Hot-Carrier Paths](https://doi.org/10.1109/55.823576)
 - [physics-fg-hole-erase: IEEE: Hot-Hole Injection into a Floating Gate](https://ieeexplore.ieee.org/document/748914/)
 
 Independent Mechanism Study: CHI / BBHH Equivalent 1T1C
@@ -1707,7 +1707,7 @@ An independent CHI / BBHH teaching model; cited sources do not establish BBHH in
 - [ymc-product: YMC: Logic-Process ymtp MTP IP](https://www.ymc.com.tw/index_en.php)
 - [ymc-1t1c: YMC: 1T1C Core Technology](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
 - [physics-bbhh-fg: Wu et al.: BBHH and Floating-Gate Demonstration](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)
-- [physics-btbt-carriers: Chu and Wu: BTBT Hot-Carrier Paths](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf)
+- [physics-btbt-carriers: Chu and Wu: BTBT Hot-Carrier Paths](https://doi.org/10.1109/55.823576)
 - [physics-fg-hole-erase: IEEE: Hot-Hole Injection into a Floating Gate](https://ieeexplore.ieee.org/document/748914/)
 
 #### Read: Translate FG Charge into a Current Difference
@@ -2959,7 +2959,7 @@ Selection and update granularity follow the named array and interface. Cell-leve
 This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
 
 - [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/)
-- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
 - [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
 
 Numem MRAM IP: STT Teaching Reconstruction
@@ -2973,7 +2973,7 @@ FL/tunnel barrier/RL represent STT functions; A/B are teaching terminals. WL/BL/
 - τSTT · Spin-transfer torque; the intermediate arrow only illustrates reversal
 
 - [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/)
-- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
 - [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
 
 #### Numem MRAM IP: STT Teaching Reconstruction — Write
@@ -3023,7 +3023,7 @@ Turn WL off and remove bias to retain the moment; the other drive overwrites the
 This reconstructs the public Numem IP architecture for teaching. Current sources do not disclose materials, thicknesses, vertical order, write-terminal polarity, or logic encoding. Directions A/B mean two calibrated opposite drives. The 2019 forced-current read is not a specification for every product.
 
 - [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/)
-- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
 - [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
 
 #### Numem MRAM IP: STT Teaching Reconstruction — Reverse Overwrite
@@ -3073,7 +3073,7 @@ Turn WL off and remove bias to retain the moment; the other drive overwrites the
 This reconstructs the public Numem IP architecture for teaching. Current sources do not disclose materials, thicknesses, vertical order, write-terminal polarity, or logic encoding. Directions A/B mean two calibrated opposite drives. The 2019 forced-current read is not a specification for every product.
 
 - [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/)
-- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
 - [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
 
 #### Numem MRAM IP: STT Teaching Reconstruction — Read
@@ -3115,7 +3115,7 @@ After the sensor latches, WL turns off; free/reference layers remain P without a
 This reconstructs the public Numem IP architecture for teaching. Current sources do not disclose materials, thicknesses, vertical order, write-terminal polarity, or logic encoding. Directions A/B mean two calibrated opposite drives. The 2019 forced-current read is not a specification for every product.
 
 - [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/)
-- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
 - [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology)
 
 #### IP Cell Tradeoffs
@@ -3513,8 +3513,8 @@ Selection and update granularity follow the named array and interface. Cell-leve
 
 This sequence explains state reuse, not unlimited endurance. Qualify cycling, retention, disturb and interrupted-update behavior for the target product; do not merge maxima or bias recipes from different implementations.
 
-- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
-- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/)
 - [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
 
 Crossbar ReRAM IP: Historical Patent Cell
@@ -3526,8 +3526,8 @@ Selects the Ag/amorphous-Si/p+ poly-Si embodiment of US20120007035A1; an access 
 - TE / BE; WL · Top/bottom electrodes and select gate; 1T1R integration has a separate manufacturer source
 - Ic / e− · Conventional current opposes electron motion; electrons may tunnel between neighboring particles
 
-- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
-- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/)
 - [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
 
 #### Crossbar ReRAM IP: Historical Patent Cell — SET Write
@@ -3575,8 +3575,8 @@ Turn selection off and remove bias to retain the low-R path.
 
 This is a published patent embodiment associated with historical embedded IP, not proof of current macro recipes or newly licensable nodes in 2026. The patent describes metal particles and interparticle tunneling; the path is not equated to a solid silver bridge or generic cathode-nucleated ECM.
 
-- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
-- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/)
 - [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
 
 #### Crossbar ReRAM IP: Historical Patent Cell — Reverse RESET
@@ -3624,8 +3624,8 @@ HRS remains after bias removal. This is reverse RESET, without a preceding block
 
 This is a published patent embodiment associated with historical embedded IP, not proof of current macro recipes or newly licensable nodes in 2026. The patent describes metal particles and interparticle tunneling; the path is not equated to a solid silver bridge or generic cathode-nucleated ECM.
 
-- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
-- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/)
 - [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
 
 #### Crossbar ReRAM IP: Historical Patent Cell — Read
@@ -3665,8 +3665,8 @@ After latching, remove bias and retain the original path; actual read-disturb li
 
 This is a published patent embodiment associated with historical embedded IP, not proof of current macro recipes or newly licensable nodes in 2026. The patent describes metal particles and interparticle tunneling; the path is not equated to a solid silver bridge or generic cathode-nucleated ECM.
 
-- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
-- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/)
 - [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
 
 #### IP Cell Tradeoffs
@@ -6022,7 +6022,7 @@ The signal account asks how much read and write margin remains at the worst loca
 
 A larger array is therefore not necessarily more efficient. Partitioning it into smaller subarrays can add some peripheral overhead while improving voltage drop, speed, and reliability. A research result should identify the bottleneck under the stated material, array, and operating conditions, rather than declare that an entire technology family has reached an immutable physical endpoint. A persuasive improvement reports performance, reliability, and cost under the same conditions.
 
-- [CMP-YU2016: Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects](https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf)
+- [CMP-YU2016: Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects](https://doi.org/10.1109/MSSC.2016.2546199)
 - [CMP-LECTURE2021: Shimeng Yu: Comparison Table from Lecture 6, 2021](https://www.youtube.com/watch?v=_Ov2KUZTIv8&t=2165s)
 - [CMP-IBM-SELECTOR2017: IBM: Memory Selector Devices and Crossbar Array Design](https://research.ibm.com/publications/memory-selector-devices-and-crossbar-array-design-a-modeling-based-assessment)
 - [CMP-IBM-ARRAY2014: IBM: Design Space for Resistive-Memory Arrays with MIEC Selectors](https://research.ibm.com/publications/exploring-the-design-space-for-resistive-nonvolatile-memory-crossbar-arrays-with-mixed-ionic-electronic-conduction-miec-based-access-devices)
@@ -6202,7 +6202,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [EMG-P-FEFET: FeFET Gate Stack and Device Integration Patent](https://patents.google.com/patent/US11502083B2/en). Published Patent; 2022-11-15; Accessed 2026-09-10; Location in the Source: Figures 2 and 3A–3F; claim 1; Limitations: Improvements in a specific stack do not establish production qualification or universally applicable endurance values.
 - [EMG-P-FTJ: TSMC FTJ Structure and Low-Temperature Formation Application](https://patents.google.com/patent/US20240057343A1/en). Published Patent Application; 2024-02-15; Accessed 2026-09-10; Location in the Source: Figure 17; claims 1 and 17; Limitations: The reviewed document is the A1 publication. The granted scope of a B2 family member requires a separate comparison.
 - [EMG-TSMC-SOT: TSMC 2025 Annual Report: Type-C SOT-MRAM Research](https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf). Supplier Annual Report: R&D Results; 2026; Accessed 2026-09-10; Location in the Source: Printed pages 104–105; page 4 of the chapter PDF; IEDM 2025 Type-C section; Limitations: A research demonstration. Qualification of other TSMC MRAM platforms does not establish SOT volume production; area and current improvements must retain their comparison baseline.
-- [CMP-YU2016: Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects](https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf). Original Technical Review; 2016; Location in the Source: IEEE Solid-State Circuits Magazine 8(2), 43–56; p44, Table 1; DOI 10.1109/MSSC.2016.2546199; Limitations: The original table includes only STT-MRAM, PCRAM, and RRAM in its emerging-technology columns. Representative values and cell-level energy estimates are not guarantees for modern products.
+- [CMP-YU2016: Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects](https://doi.org/10.1109/MSSC.2016.2546199). Original Technical Review; 2016; Location in the Source: IEEE Solid-State Circuits Magazine 8(2), 43–56; p44, Table 1; DOI 10.1109/MSSC.2016.2546199; Limitations: The original table includes only STT-MRAM, PCRAM, and RRAM in its emerging-technology columns. Representative values and cell-level energy estimates are not guarantees for modern products.
 - [CMP-LECTURE2021: Shimeng Yu: Comparison Table from Lecture 6, 2021](https://www.youtube.com/watch?v=_Ov2KUZTIv8&t=2165s). Lecture and Supplied Screenshot; 2021-11-01; Location in the Source: Slide p14, dated 2021/11/1; comparison segment at 36:05–43:49; every table cell was checked against the screenshot at its original size; Limitations: The course cites and extends the 2016 paper, adding SOT-MRAM, FeRAM, and FeFET. This website retains the historical values without presenting them as universal specifications for 2026.
 - [CMP-FRAM-PRODUCT: Infineon CY15B104QSN-108SXI Product Status](https://www.infineon.com/part/CY15B104QSN-108SXI). Supplier Product Page; Verified 2026-09-10; Location in the Source: Product status, 4 Mb capacity, and interface specifications; Limitations: Active supply status applies to the specified part number; it cannot be generalized to every ferroelectric-memory implementation.
 - [CMP-FRAM-DS: Infineon CY15B104QSN/CY15V104QSN Datasheet](https://www.infineon.com/dgdl/Infineon-CY15B104QSN_CY15V104QSN_4Mb_EXCELON_Ultra_Ferroelectric_RAM_F-RAM_Serial_quad_SPI_512K_8_108_MHz_industrial-DataSheet-v15_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ee59c446d71). Product Datasheet; 2024-07-25; Location in the Source: 002-18293 Rev. *N; p1 and p105, Table 63; Limitations: The 151-year retention rating applies at 65°C; retention at 85°C is 10 years. Interface frequency is not cell read or write latency.
@@ -6298,7 +6298,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ymc-pat-7423903: YMC: Historical Single-Floating-Gate Example](https://patents.google.com/patent/US7423903B2/en). Public Patent; 2008-09-09; accessed 2026-09-10; Location in the Source: Figures 1, 2A and 2B; first embodiment; FN erase in Summary; Limitations: Four-terminal nMOS/N-type capacitor example; its stated FN erase is not evidence for BBHH.
 - [ymc-pat-dahhi: YMC: DAHCI Program and DAHHI Erase Variant](https://patents.google.com/patent/US20070158733A1/en). Public Patent; 2007-07-12; accessed 2026-09-10; Location in the Source: Figures 3B, 5A, 6B and 8A with adjacent description; Limitations: Supports hot-carrier and threshold directions; avalanche-based DAHHI is distinct from BBHH.
 - [physics-bbhh-fg: Wu et al.: BBHH and Floating-Gate Demonstration](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/). Original Research; 2007; accessed 2026-09-10; Location in the Source: IEDM 2007, pages 87–90; author-institution abstract; DOI 10.1109/IEDM.2007.4418870; Limitations: Uses BBHH and reports a floating-gate demonstration; its NAND structure, IIHE programming and values are not transferred to the YMC model.
-- [physics-btbt-carriers: Chu and Wu: BTBT Hot-Carrier Paths](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf). Original Research; 2000-03; accessed 2026-09-10; Location in the Source: IEEE EDL 21(3), page 123 Introduction; page 125 Figure 4; DOI 10.1109/55.823576; Limitations: Supports silicon BBT carrier generation and field-assisted injection; Figure 3 is pMOS and is not copied into the nMOS model.
+- [physics-btbt-carriers: Chu and Wu: BTBT Hot-Carrier Paths](https://doi.org/10.1109/55.823576). Original Research; 2000-03; accessed 2026-09-10; Location in the Source: IEEE EDL 21(3), page 123 Introduction; page 125 Figure 4; DOI 10.1109/55.823576; Limitations: Supports silicon BBT carrier generation and field-assisted injection; Figure 3 is pMOS and is not copied into the nMOS model.
 - [physics-fg-hole-erase: IEEE: Hot-Hole Injection into a Floating Gate](https://ieeexplore.ieee.org/document/748914/). Original Research; 1999-03; accessed 2026-09-10; Location in the Source: IEEE EDL 20(3), pages 140–142; abstract; DOI 10.1109/55.748914; Limitations: Observes BBT/possible avalanche enhancement during FN erase; used only for floating-gate hot-hole physics, not a pure-BBHH recipe.
 - [aeon-impinj-2007: Impinj AEON/MTP Floating-Gate Announcement](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin). Company product announcement; 2007-09-26; Location in the Source: Opening AEON/MTP and floating-gate transistor paragraphs; Limitations: Supports the floating-gate family. Process and voltage claims apply to that announcement; no complete cell section is disclosed.
 - [aeon-virage-fn-2009: Virage Logic AEON MTP Program/Erase and Monitoring](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30). Company-authored technical article; 2009-06-30; Location in the Source: Craig Zajac; Architectural decisions, Manufacturing and author biography; Limitations: Explicitly identifies FN for program and erase. Differential cells and ECC concern the described automotive options. No terminal voltages, p/n polarity or physical geometry are disclosed.
@@ -6313,15 +6313,15 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/). vendor; 2026-09-16; Location in the Source: SuperFlash embedded Flash process-integration and licensing entry.; Limitations: The services page proves the product family; it does not replace brochure SSI / interpoly FN detail.
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf). vendor; 2018-03; Location in the Source: Pages 2–3: split-gate, source-side injection program, interpoly FN erase.; Limitations: Read structure and mechanism within the named SuperFlash generation; 2018 shipment and node tables are not 2026 product guarantees.
 - [ip-numem-current: Numem: Public MRAM IP Positioning](https://www.numem.com/). Manufacturer product page; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: What is Numem MRAM?; Numem MRAM IP; Limitations: Supports embedded IP and foundry-standard STT cells; current material recipes are not disclosed.
-- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf). Manufacturer public conference presentation; 2019-08-05; Accessed 2026-09-10; Location in the Source: Pages 2, 4, 5, 7: test chip, WL/BL/SL, forced-current sensing, RMTJ; Limitations: This is a first-generation test-chip architecture; its measured values are not treated as current NuRAM specifications.
+- [ip-numem-2019: Numem: First-Generation 22nm Embedded MRAM Presentation](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf). Manufacturer public conference presentation; 2019-08-05; Accessed 2026-09-10; Location in the Source: Pages 2, 4, 5, 7: test chip, WL/BL/SL, forced-current sensing, RMTJ; Limitations: This is a first-generation test-chip architecture; its measured values are not treated as current NuRAM specifications.
 - [ip-stt-physics: Everspin: STT Family Physics](https://www.everspin.com/stt-mram-technology). Manufacturer mechanism explanation; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Spin-transfer Torque MRAM Technology: current direction, free layer, P/AP resistance; Limitations: Supports STT family physics only, not Numem product, material, or performance evidence.
 - [ip-gf-platform: GF: 22FDX Embedded MRAM Platform](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram). Original foundry announcement; 2020-02-27; Accessed 2026-09-10; Location in the Source: Opening and Custom design kits: production entry and drop-in silicon-validated MRAM macros; Limitations: Platform identity is separate from the research-cell recipe; confirm macro availability, nodes, and conditions with the supplier.
 - [ip-gf-cell-2024: GF Coauthored Research: 22FDX STT-MRAM Cells](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/). Original research paper; 2024-09-18; Accessed 2026-09-10; Location in the Source: Materials and Methods: MRAM array structure and fabrication; Figure 2; Limitations: Limited to the reported CoFeB/SAF and 1T1MTJ example; positive Ic is RL-to-FL and writes P. Barrier material is not specified here.
 - [ip-weebit-product: Weebit: Embedded ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/). Manufacturer IP product page; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: IP module, design deliverables, control, and analog periphery; Limitations: Product identity does not imply every foundry node uses the same published research recipe.
 - [ip-weebit-bitcell: Weebit: ReRAM Bitcell](https://www.weebit-nano.com/technology/reram-bitcell/). Manufacturer mechanism explanation; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Two electrodes/thin oxide, forming, positive SET, and reverse RESET; Limitations: Forming is distinct from recurring SET; the page does not specify all materials or terminal voltages.
 - [ip-weebit-cell-2021: Weebit/CEA-Leti/Silvaco: Original Oxide ReRAM Model](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf). Author-posted original research paper; 2021-05; Accessed 2026-09-10; Location in the Source: PDF pages 2–5; Sections II–IV and Figures 1, 3, 5, 11: Ti/SiOx/TiN and oxygen exchange; Limitations: Model/electrical comparison for a CEA 130nm research cell; neither direct operando ion tracking nor a recipe disclosure for every SkyWater macro.
-- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf). Manufacturer public product brief; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Pages 1–2: hard macro/architectural license, embedded macro, and overwrite; Limitations: Supports historical IP licensing forms; this review does not confirm a 2026 list of newly licensable nodes or macros.
-- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf). Manufacturer public conference presentation; 2015; Accessed 2026-09-10; Location in the Source: Pages 3, 4, 7, 8, 15: metallic path, cell versus selector, BEOL 1T1R; Limitations: Embedded 1T1R and high-density 1S1R/1TnR have separate scopes and are not merged into one circuit.
+- [ip-crossbar-macro: Crossbar: High-Performance ReRAM IP Brief](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf). Manufacturer public product brief; Publication Date Not Stated; Accessed 2026-09-10; Location in the Source: Pages 1–2: hard macro/architectural license, embedded macro, and overwrite; Limitations: Supports historical IP licensing forms; this review does not confirm a 2026 list of newly licensable nodes or macros.
+- [ip-crossbar-2015: Crossbar: Original Embedded 1T1R and Metallic-Path Presentation](https://www.crossbar-inc.com/). Manufacturer public conference presentation; 2015; Accessed 2026-09-10; Location in the Source: Pages 3, 4, 7, 8, 15: metallic path, cell versus selector, BEOL 1T1R; Limitations: Embedded 1T1R and high-density 1S1R/1TnR have separate scopes and are not merged into one circuit.
 - [ip-crossbar-cell-2012: Crossbar: Published Patent Application US20120007035A1](https://patents.google.com/patent/US20120007035A1/en). Original published patent application; 2012-01-12; Accessed 2026-09-10; Location in the Source: Figures 1–3; [0023]–[0025], [0037]: Ag/a-Si/p+ poly-Si, positive extension, negative retraction; Limitations: Selects a named embodiment with metal particles and tunneling paths; does not establish this recipe for all current macros or generic cathode-grown silver bridges.
 - [aeon-transfer-2008: Virage Logic Filing on the Impinj NVM IP Business](https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/d8k.htm). Original SEC filing; 2008-06-26; Location in the Source: Item 2.01; signed 2008-07-02; transaction 2008-06-26; Limitations: Supports acquisition of the logic NVM IP business assets by Virage Logic, not a direct Synopsys acquisition of Impinj.
 - [aeon-transfer-2010: Synopsys Completes the Virage Logic Acquisition](https://news.synopsys.com/home?item=123195). Company completion announcement; 2010-09-02; Location in the Source: Opening completion paragraph and added NVM portfolio; Limitations: Supports corporate acquisition and portfolio succession, not identical AEON internal cells across generations.
@@ -6465,7 +6465,7 @@ The emerging-technology columns in the 2016 paper contain only STT-MRAM, PCRAM, 
 
 Distinguish the original paper from the lecturer's later additions so that the provenance remains traceable.
 
-- [CMP-YU2016: Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects](https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf)
+- [CMP-YU2016: Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects](https://doi.org/10.1109/MSSC.2016.2546199)
 - [CMP-LECTURE2021: Shimeng Yu: Comparison Table from Lecture 6, 2021](https://www.youtube.com/watch?v=_Ov2KUZTIv8&t=2165s)
 
 ### Assuming the 2016 and 2021 Tables Have Identical Values
@@ -6474,7 +6474,7 @@ Three differences have been verified: SRAM area changes from >100 F² to >150 F�
 
 These differences show that the course table was updated, but a representative value from any particular year is not a guarantee for an entire technology family.
 
-- [CMP-YU2016: Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects](https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf)
+- [CMP-YU2016: Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects](https://doi.org/10.1109/MSSC.2016.2546199)
 - [CMP-LECTURE2021: Shimeng Yu: Comparison Table from Lecture 6, 2021](https://www.youtube.com/watch?v=_Ov2KUZTIv8&t=2165s)
 
 ### Assuming FeRAM, MRAM, ReRAM, and PCM Are All Preproduction Because They Are Called Emerging Memories
@@ -6540,7 +6540,7 @@ Volume production is a maturity state; emerging describes a development stage or
 
 The same storage physics can support different maturity levels and applications. The classification dimensions must remain separate.
 
-- [CMP-YU2016: Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects](https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf)
+- [CMP-YU2016: Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects](https://doi.org/10.1109/MSSC.2016.2546199)
 - [CMP-SNIA-PM: SNIA Definition of Persistent Memory](https://www.snia.org/education/what-is-persistent-memory)
 - [CMP-CXL-FAQ2021: CXL Consortium Persistent-Memory Webinar Questions and Answers](https://computeexpresslink.org/blog/questions-from-the-compute-express-link-cxl-supporting-persistent-memory-webinar-2407/)
 
