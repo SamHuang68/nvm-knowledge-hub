@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "605f71804575d22f5605",
+  "version": "5020530588c442e48df2",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -148,7 +148,7 @@ self.NVMOfflineManifest = {
     "site-shell.css": "66c847fcc1dbc26a32ecd71df181c1363f9ceed6874f1512414ddfc49a437bc2",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
     "specialty-nvm.css": "54edc81d1d15e1d9d5c3f2604328e11269e48ac9fda51d059912d4dd0f8d7862",
-    "specialty-nvm.html": "d8a17cbb6e10e6b67024b6116b6f8ee9c2b7e14ef19610413f6b25d322aee49d",
+    "specialty-nvm.html": "57540f54af436d889a08f2e26793c60c89a8a998f2dde6f382a56818c729a5af",
     "specialty-nvm.js": "f76aebd0e69866b5a04253ecc3f34b7e75069198a5669e360e2b28f39f4c7b3c",
     "sram-repair-model.js": "8cbf54bfe444b9fab26a96b0cf966ea8f1dfa3796c676455e4c6257f09cea99a",
     "sram-repair.css": "cf1b723964116cc8ca9f6b5cfca1d4bba8fb4607ac9050bd1c41eb5e565e05f0",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 10809890
+  "totalBytes": 10810883
 };
