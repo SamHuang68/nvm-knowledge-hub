@@ -23,7 +23,7 @@
   if (lead) {
     lead.innerHTML = T(
       'This page uses the mission profile to pick the test gate. It does not issue a certification. AEC-Q100 Grade 0 is an ambient range (−40°C to +150°C Ta). Junction limits stay on the named datasheet.',
-      '這頁用任務載記選測試門，不簽認證。AEC-Q100 Grade 0 是環境溫度（−40°C 至 +150°C Ta）。結溫以具名 datasheet 為準。'
+      '這頁用任務載記選測試門，不簽認證。AEC-Q100 Grade 0 是環境溫度（−40°C 至 +150°C Ta）。結溫以特定 datasheet 為準。'
     );
   }
   const hero = document.querySelector('.m3-hero-container') || document.querySelector('.m3-hero');
@@ -40,7 +40,7 @@
     const leadP = fail.querySelector('.hub-story-lead');
     if (leadP) leadP.innerHTML = T(
       'Domain and mission profile first. Then Ta versus Tj. Then Q100-005 into HTOL / HTDR / ELFR. Stop at SEooC vocabulary and VERIFY.',
-      '先定域與任務載記，再分 Ta 與 Tj，再走 Q100-005 到 HTOL／HTDR／ELFR。停在 SEooC 語彙與 VERIFY。'
+      '先定域與任務載記，再分 Ta 與 Tj，再走 Q100-005 到 HTOL／HTDR／ELFR。停在 SEooC 語彙與 待驗證。'
     );
     const steps = [
       { n: '01', en: 'Domain', zh: '域', hintEn: 'Cabin · under-hood · safety', hintZh: '船內 · 引擎艙 · 安全',
@@ -51,8 +51,8 @@
         bodyZh: 'Grade 0 是 −40°C 至 +150°C 環境溫。175°C 是結溫數字。不得寫成同一項主張。' },
       { n: '03', en: 'Q100-005 first', zh: '先 Q100-005', hintEn: 'NVM precondition', hintZh: 'NVM 預處理',
         bodyEn: 'Devices with NVM take endurance preconditioning per Q100-005 before HTOL, HTDR or LTDR. Sample counts stay VERIFY.',
-        bodyZh: '含 NVM 的棵心要先依 Q100-005 做耐久預處理，再進 HTOL、HTDR 或 LTDR。樣品數仍是 VERIFY。' },
-      { n: '04', en: 'Stop at VERIFY', zh: '停在 VERIFY', hintEn: 'SEooC vocabulary', hintZh: 'SEooC 語彙',
+        bodyZh: '含 NVM 的晶片要先依 Q100-005 做耐久預處理，再進 HTOL、HTDR 或 LTDR。樣品數仍是 待驗證。' },
+      { n: '04', en: 'Stop at VERIFY', zh: '停在 待驗證', hintEn: 'SEooC vocabulary', hintZh: 'SEooC 語彙',
         bodyEn: 'SPFM, LFM and FIT on this page are architectural vocabulary. They do not become ASIL-D Ready.',
         bodyZh: '本頁的 SPFM、LFM、FIT 是架構語彙，不會變成 ASIL-D Ready。' }
     ];
@@ -89,7 +89,7 @@
     wrap.id = 'hub-auto-gate-table';
     wrap.innerHTML =
       '<table class="hub-auto-table">' +
-      '<caption>' + T('Named-condition checklist. Figures stay VERIFY against AEC-Q100 / Q100-005 / Q100-008 and the cited revision.', '具名條件清單。數字須對 AEC-Q100／Q100-005／Q100-008 及被引版本做 VERIFY。') + '</caption>' +
+      '<caption>' + T('Named-condition checklist. Figures stay VERIFY against AEC-Q100 / Q100-005 / Q100-008 and the cited revision.', '特定條件清單。數字須對 AEC-Q100／Q100-005／Q100-008 及被引版本做 待驗證。') + '</caption>' +
       '<thead><tr>' +
       '<th>' + T('Gate', '門') + '</th>' +
       '<th>' + T('Test', '測試') + '</th>' +
@@ -98,9 +98,9 @@
       '<th>' + T('NVM note', 'NVM 註') + '</th>' +
       '<th>' + T('Source', '來源') + '</th>' +
       '</tr></thead><tbody>' +
-      '<tr><td>01</td><td>HTOL</td><td>3 lots × 77 <span class="hub-auto-verify">VERIFY</span></td><td>Grade Ta 1000 h; Tj if stated on the datasheet</td><td>Endurance precondition first</td><td>Q100 B1 + Q100-005</td></tr>' +
-      '<tr><td>02</td><td>ELFR + thermal cycle</td><td>ELFR 3-lot class <span class="hub-auto-verify">VERIFY</span></td><td>Grade ambient extremes; cycle count per cited flow</td><td>Does not replace EDR</td><td>Q100-008 + Q100 A/B</td></tr>' +
-      '<tr><td>03</td><td>HTDR / bake / reflow class</td><td>Per cited EDR cell <span class="hub-auto-verify">VERIFY</span></td><td>Retention bake ≠ operating life</td><td>OTP and Flash do not share one EDR cell</td><td>Q100-005 EDR</td></tr>' +
+      '<tr><td>01</td><td>HTOL</td><td><span data-lang="en">3 lots × 77</span><span data-lang="zh">3 批次 × 77</span> <span class="hub-auto-verify"><span data-lang="en">VERIFY</span><span data-lang="zh">待驗證</span></span></td><td><span data-lang="en">Grade Ta 1000 h; Tj if stated on the datasheet</span><span data-lang="zh">依等級環境溫度 Ta 測試 1000 小時；Tj 須由規格書明列</span></td><td><span data-lang="en">Endurance precondition first</span><span data-lang="zh">先進行耐久性預處理</span></td><td>Q100 B1 + Q100-005</td></tr>' +
+      '<tr><td>02</td><td><span data-lang="en">ELFR + thermal cycle</span><span data-lang="zh">ELFR 與溫度循環</span></td><td><span data-lang="en">ELFR 3-lot class</span><span data-lang="zh">ELFR 三批次類別</span> <span class="hub-auto-verify"><span data-lang="en">VERIFY</span><span data-lang="zh">待驗證</span></span></td><td><span data-lang="en">Grade ambient extremes; cycle count per cited flow</span><span data-lang="zh">各等級的環境溫度極值；循環次數依引用流程</span></td><td><span data-lang="en">Does not replace EDR</span><span data-lang="zh">不能取代 EDR</span></td><td>Q100-008 + Q100 A/B</td></tr>' +
+      '<tr><td>03</td><td><span data-lang="en">HTDR / bake / reflow class</span><span data-lang="zh">HTDR／烘烤／迴焊類別</span></td><td><span data-lang="en">Per cited EDR cell</span><span data-lang="zh">依引用的 EDR 測試條件</span> <span class="hub-auto-verify"><span data-lang="en">VERIFY</span><span data-lang="zh">待驗證</span></span></td><td><span data-lang="en">Retention bake ≠ operating life</span><span data-lang="zh">資料保存烘烤 ≠ 操作壽命</span></td><td><span data-lang="en">OTP and Flash do not share one EDR cell</span><span data-lang="zh">OTP 與 Flash 不適用同一 EDR 測試條件</span></td><td>Q100-005 EDR</td></tr>' +
       '</tbody></table>';
     stepper.parentNode.insertBefore(wrap, stepper);
   }
@@ -118,7 +118,7 @@
     'lab-thermal-title',
     'hub-auto-assume-thermal',
     'Assumption: the Arrhenius canvas is a teaching model. Ea, Tuse and Tstress must be named before any acceleration factor is treated as evidence.',
-    '假設：Arrhenius 畫布是教學模型。Ea、Tuse、Tstress 未具名前，加速因子不得當作證據。'
+    '假設：Arrhenius 畫布是教學模型。Ea、Tuse、Tstress 未特定前，加速因子不得當作證據。'
   );
   assume(
     'lab-ecc-title',
@@ -137,7 +137,7 @@
     wrap.id = 'hub-auto-domain-table';
     wrap.innerHTML =
       '<table class="hub-auto-table">' +
-      '<caption>' + T('Fit class only. Named public examples stay VERIFY. This is not a design-win matrix.', '只標適配等級。具名公開例仍須 VERIFY。不是 design-win 矩陣。') + '</caption>' +
+      '<caption>' + T('Fit class only. Named public examples stay VERIFY. This is not a design-win matrix.', '只標適配等級。特定公開例仍須 待驗證。不是 設計採用 矩陣。') + '</caption>' +
       '<thead><tr>' +
       '<th>' + T('Domain', '域') + '</th>' +
       '<th>OTP / AF</th><th>eFlash</th><th>RRAM</th><th>PCM</th>' +
