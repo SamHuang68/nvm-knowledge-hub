@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "3c069622064a834a8456",
+  "version": "a4289f18046aa64d463e",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -103,7 +103,7 @@ self.NVMOfflineManifest = {
     "claim-scope.js": "aa9fbfe7249b9140bc93aa6e806a3bdd7e9995d8caaf15974552a02104d97a56",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "data/nvm-search-index.js": "1ce8a43c88b802a5cdce8ac183f47938c1352d11af68792f1a5902fa17d80306",
-    "editorial-reading-ui.css": "4ee1fe839866d97208611143e8dd82542db8e2e8034d1213e1c4ab12c12b7dbd",
+    "editorial-reading-ui.css": "eb89e104876d4618a0061601ff988d7bbd52edabf60efa18679b20ca2a27c7e1",
     "f1-card-align.js": "206fe82993c3aa1c48ab6af72569cfdacab2497e0a971c567e9b8852912be636",
     "global-reading-system.css": "6ac88c94085d65dc54a2b5ec3a686db829c581ff9442bc8889f1425e9e6ac873",
     "global-search.css": "ebf30b87aac35c226058059fe6602f6db2687e201924bd2647b905a7bacd4c6e",
@@ -117,7 +117,7 @@ self.NVMOfflineManifest = {
     "hub-story-maps.js": "476d2dcf6381447afa7af13bc0b6e3945f43d4b9b3e491ccbab1be34a582e5ff",
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
-    "index.html": "d50e787788f49f113257e123ca78327be5cb0c11d48826eb9959b35874c2a3df",
+    "index.html": "3e5bde08f1471c2bdc2f5ed1acfc50de3e969cd9039028d04977972e2384714a",
     "iot-mcu-envm.html": "937cac1ab55afcb6d973aa28f806e8cbbcea82797d3ba4f0ea8141565a3d6ff8",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "175acf378a7ba9bcfbdfc7d01262583bdbafac9174e30fbfa70e7d2bdf99d749",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "966332517192b04950018bcf1ffb1565359c5d4210dc9c0f1043fed60489e301"
   },
-  "totalBytes": 10807077
+  "totalBytes": 10808009
 };
