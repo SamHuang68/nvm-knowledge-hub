@@ -1197,7 +1197,7 @@
           "before": "MTJ 自由層處於一個穩定磁態。",
           "stimulus": "向 SOT 導線送入寫入脈衝，並使用設計要求的對稱破缺條件。",
           "after": "自旋轉矩使自由層切換至目標磁態。",
-          "explanation": "垂直磁化系統要可靠選定最終方向，通常需額外結構或機制；示意不能默認單靠一條理想導線就能在零外加磁場下確定性寫入。"
+          "explanation": "垂直磁化系統要可靠選定最終方向，通常需額外結構或機制；示意不能預設單靠一條理想導線就能在零外加磁場下確定性寫入。"
         },
         {
           "id": "erase",
@@ -3263,7 +3263,7 @@
         "kind": "供應商官方活動發布",
         "date": "2024-02-21",
         "locator": "IFDC 2024 18A 生產計畫、PowerVia 背面供電與嵌入式 IP ecosystem",
-        "claim": "Intel 18A 整合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路 (BSPDN)，為次世代高密度嵌入式記憶體及純邏輯 AntiFuse OTP 安全密鑰單元提供極低壓與極致抗雜訊供電。",
+        "claim": "Intel 18A 整合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路 (BSPDN)，為次世代高密度嵌入式記憶體及純邏輯 AntiFuse OTP 安全金鑰單元提供極低壓與極致抗雜訊供電。",
         "evidence": "已核讀官方發布與技術白皮書",
         "limit": "18A 於 2024–2025 進入生產準備，前瞻 eNVM/MRAM 仍在研發驗證階段，需依 PDK 與晶圓驗證進度逐代落地。",
         "accessedAt": "2026-09-10"
@@ -3363,7 +3363,7 @@
       },
       {
         "platform": "Samsung Foundry SF3／SF2 MBCFET eNVM",
-        "values": "規劃支援高密度 BEOL STT-MRAM 與微型化 OTP 密鑰單元；瞄準低於 1.0V 工作電壓與高溫車規 retention。",
+        "values": "規劃支援高密度 BEOL STT-MRAM 與微型化 OTP 金鑰單元；瞄準低於 1.0V 工作電壓與高溫車規 retention。",
         "conditions": "3nm GAA / 2nm MBCFET 先進邏輯平台相容；須嚴格控管 BEOL 沉積熱預算 (<400°C) 以防磁性穿隧結損壞。",
         "sourceIds": [
           "FND-SEC-2024-MBCFET"
@@ -3382,7 +3382,7 @@
       {
         "platform": "Intel Foundry 18A RibbonFET BSPDN eNVM",
         "values": "結合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路；原生純邏輯 AntiFuse OTP 與後段先進 eNVM 整合；消除前段 IR drop。",
-        "conditions": "1.8nm 級先進晶圓代工平台；背面供電網有效降低動態開關雜訊，提供高精度微調與高密度密鑰空間。",
+        "conditions": "1.8nm 級先進晶圓代工平台；背面供電網有效降低動態開關雜訊，提供高精度微調與高密度金鑰空間。",
         "sourceIds": [
           "FND-INTC-2024-18A"
         ],
@@ -5251,7 +5251,7 @@
         "id": "RES-INTRINSICID-QUIDDIKEY-2025",
         "label": "Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書",
         "url": "https://www.intrinsic-id.com/products/quiddikey/",
-        "locator": "官方 SRAM PUF 密鑰重建與零工廠燒錄架構白皮書",
+        "locator": "官方 SRAM PUF 金鑰重建與零工廠燒錄架構白皮書",
         "kind": "安全技術白皮書",
         "date": "2025-05-12",
         "limit": "利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。"
@@ -7877,7 +7877,7 @@
       "kind": "供應商官方活動發布",
       "date": "2024-02-21",
       "locator": "IFDC 2024 18A 生產計畫、PowerVia 背面供電與嵌入式 IP ecosystem",
-      "claim": "Intel 18A 整合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路 (BSPDN)，為次世代高密度嵌入式記憶體及純邏輯 AntiFuse OTP 安全密鑰單元提供極低壓與極致抗雜訊供電。",
+      "claim": "Intel 18A 整合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路 (BSPDN)，為次世代高密度嵌入式記憶體及純邏輯 AntiFuse OTP 安全金鑰單元提供極低壓與極致抗雜訊供電。",
       "evidence": "已核讀官方發布與技術白皮書",
       "limit": "18A 於 2024–2025 進入生產準備，前瞻 eNVM/MRAM 仍在研發驗證階段，需依 PDK 與晶圓驗證進度逐代落地。",
       "accessedAt": "2026-09-10"
@@ -9564,7 +9564,7 @@
       "id": "RES-INTRINSICID-QUIDDIKEY-2025",
       "label": "Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書",
       "url": "https://www.intrinsic-id.com/products/quiddikey/",
-      "locator": "官方 SRAM PUF 密鑰重建與零工廠燒錄架構白皮書",
+      "locator": "官方 SRAM PUF 金鑰重建與零工廠燒錄架構白皮書",
       "kind": "安全技術白皮書",
       "date": "2025-05-12",
       "limit": "利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。"

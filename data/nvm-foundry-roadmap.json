@@ -344,7 +344,7 @@
       "kind": "供應商官方活動發布",
       "date": "2024-02-21",
       "locator": "IFDC 2024 18A 生產計畫、PowerVia 背面供電與嵌入式 IP ecosystem",
-      "claim": "Intel 18A 整合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路 (BSPDN)，為次世代高密度嵌入式記憶體及純邏輯 AntiFuse OTP 安全密鑰單元提供極低壓與極致抗雜訊供電。",
+      "claim": "Intel 18A 整合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路 (BSPDN)，為次世代高密度嵌入式記憶體及純邏輯 AntiFuse OTP 安全金鑰單元提供極低壓與極致抗雜訊供電。",
       "evidence": "已核讀官方發布與技術白皮書",
       "limit": "18A 於 2024–2025 進入生產準備，前瞻 eNVM/MRAM 仍在研發驗證階段，需依 PDK 與晶圓驗證進度逐代落地。",
       "accessedAt": "2026-09-10"
@@ -444,7 +444,7 @@
     },
     {
       "platform": "Samsung Foundry SF3／SF2 MBCFET eNVM",
-      "values": "規劃支援高密度 BEOL STT-MRAM 與微型化 OTP 密鑰單元；瞄準低於 1.0V 工作電壓與高溫車規 retention。",
+      "values": "規劃支援高密度 BEOL STT-MRAM 與微型化 OTP 金鑰單元；瞄準低於 1.0V 工作電壓與高溫車規 retention。",
       "conditions": "3nm GAA / 2nm MBCFET 先進邏輯平台相容；須嚴格控管 BEOL 沉積熱預算 (<400°C) 以防磁性穿隧結損壞。",
       "sourceIds": [
         "FND-SEC-2024-MBCFET"
@@ -463,7 +463,7 @@
     {
       "platform": "Intel Foundry 18A RibbonFET BSPDN eNVM",
       "values": "結合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路；原生純邏輯 AntiFuse OTP 與後段先進 eNVM 整合；消除前段 IR drop。",
-      "conditions": "1.8nm 級先進晶圓代工平台；背面供電網有效降低動態開關雜訊，提供高精度微調與高密度密鑰空間。",
+      "conditions": "1.8nm 級先進晶圓代工平台；背面供電網有效降低動態開關雜訊，提供高精度微調與高密度金鑰空間。",
       "sourceIds": [
         "FND-INTC-2024-18A"
       ],

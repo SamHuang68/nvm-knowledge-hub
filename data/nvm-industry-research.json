@@ -1424,7 +1424,7 @@
       "id": "RES-INTRINSICID-QUIDDIKEY-2025",
       "label": "Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書",
       "url": "https://www.intrinsic-id.com/products/quiddikey/",
-      "locator": "官方 SRAM PUF 密鑰重建與零工廠燒錄架構白皮書",
+      "locator": "官方 SRAM PUF 金鑰重建與零工廠燒錄架構白皮書",
       "kind": "安全技術白皮書",
       "date": "2025-05-12",
       "limit": "利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。"
