@@ -27,7 +27,7 @@
     const soften = value => {
       const result = value
         .replace(/ISO 26262 ASIL-D/g, zh ? 'ISO 26262 ASIL 範圍' : 'ISO 26262 ASIL context')
-        .replace(/Zero Erase Penalty/g, zh ? '無額外擦除電壓路徑' : 'No extra erase-voltage path');
+        .replace(/Zero Erase Penalty/g, zh ? '無額外抹除電壓路徑' : 'No extra erase-voltage path');
       return zh ? result.replace(/(?<=[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef]) +(?=[\u4e00-\u9fff\u3000-\u303f\uff00-\uffef])/g, '') : result;
     };
     const title = soften(zh
@@ -78,7 +78,7 @@
     replaceText([
       ['Zero Erase Penalty', 'No extra erase-voltage path (VERIFY)'],
       ['Pure Near-Threshold Agility', 'Near-threshold option at a named node'],
-      ['28nm 以下沒有擦除負擔', '28nm 以下：無額外擦除電壓路徑（待驗證）'],
+      ['28nm 以下沒有抹除負擔', '28nm 以下：無額外抹除電壓路徑（待驗證）'],
       ['只有極致輕盈的近臨界電壓運算', '特定節點的近臨界電壓選項'],
       ['cutting dynamic power by >75% at TSMC 0.5V near-threshold voltage for 15-year battery-free edge intelligence.', 'Named pure-logic AntiFuse OTP is an architecture option with zero extra mask adders in standard CMOS. Near-threshold and long-retention figures stay bound to the cited node and document version — not target-configuration assurance.'],
       ['在 TSMC 0.5V 近臨界電壓 (NTV) 下大幅降低 75% 動態功耗，實現長達 15 年免換電池的超低功耗邊緣運算。', '特定 Pure-Logic AntiFuse OTP 路線以標準邏輯製程、0 道額外光罩為架構選項；公開資料中的近臨界電壓與長期資料保存數據須綁定同一節點與文件版本，不能直接當成目標組態保證。']

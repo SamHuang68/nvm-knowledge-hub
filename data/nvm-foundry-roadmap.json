@@ -20,7 +20,7 @@
       "kind": "供應商新聞稿",
       "date": "2020-02-27",
       "locator": "生產、可靠性與巨集段落",
-      "claim": "22FDX eMRAM 已進入生產；十萬次循環、指定溫區十年保持、五次回流焊；Grade 2 設計支援，Grade 1 為次年開發目標。",
+      "claim": "22FDX eMRAM 已進入生產；十萬次循環、指定溫區十年保持、五次迴焊；Grade 2 設計支援，Grade 1 為次年開發目標。",
       "evidence": "已核讀全文",
       "limit": "屬當時平台及巨集條件；不能套用至所有 MRAM。",
       "accessedAt": "2026-09-10"
@@ -385,7 +385,7 @@
   "performanceBoundaries": [
     {
       "platform": "GF 22FDX eMRAM（2020 公告版本）",
-      "values": "十萬次循環；−40°C 至 125°C 範圍的十年保持；五次回流焊；4–48 Mbit 矽驗證巨集。",
+      "values": "十萬次循環；−40°C 至 125°C 範圍的十年保持；五次迴焊；4–48 Mbit 矽驗證巨集。",
       "conditions": "公告表示支援 Grade 2 設計；Grade 1 當時是開發目標。",
       "sourceIds": [
         "FND-GF-2020-MRAM"
@@ -415,7 +415,7 @@
     },
     {
       "platform": "台積電 16FFC／第二代 16MRAM",
-      "values": "早期 16FFC：一百萬循環與回流焊；第二代 16MRAM：一百萬循環後晶片失效率低於 1 ppm。",
+      "values": "早期 16FFC：一百萬循環與迴焊；第二代 16MRAM：一百萬循環後晶片失效率低於 1 ppm。",
       "conditions": "不同年報及代際陳述分開；第二代車規完成年為 2025。",
       "sourceIds": [
         "FND-TSMC-2023-AR",
@@ -435,7 +435,7 @@
     },
     {
       "platform": "Samsung Foundry 28FDS eMRAM",
-      "values": "寫入速度比 eFlash 快 1000 倍；10^6 次寫入循環；-40°C 至 125°C 下 10 年資料保持；支援五次回流焊 (JEDEC 260°C)。",
+      "values": "寫入速度比 eFlash 快 1000 倍；10^6 次寫入循環；-40°C 至 125°C 下 10 年資料保持；支援五次迴焊 (JEDEC 260°C)。",
       "conditions": "商用量產發布；商業 MCU／IoT 應用（如 NXP 晶片採用）；具 0-Mask Adder 邏輯相容性特質。",
       "sourceIds": [
         "FND-SEC-2019-28FDS"
@@ -557,7 +557,7 @@
       "technology": "MRAM",
       "node": "16FFC",
       "stage": "具生產準備",
-      "claim": "完成可靠性驗證；一百萬次循環與回流焊能力；具生產準備，Grade 1 當時目標為 2023。",
+      "claim": "完成可靠性驗證；一百萬次循環與迴焊能力；具生產準備，Grade 1 當時目標為 2023。",
       "sourceIds": [
         "FND-TSMC-2022-AR"
       ],

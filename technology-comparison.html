@@ -1596,7 +1596,7 @@
             </div>
             <div class="stat-sub">
               <span style="color: #fbbf24; font-weight: 600;">
-                <span data-lang="zh">&gt;10V 擦除電壓崩潰 · 無法導入立體鰭片</span>
+                <span data-lang="zh">&gt;10V 抹除電壓崩潰 · 無法導入立體鰭片</span>
                 <span data-lang="en">&gt;10V Erase Collapse · Incompatible with Fins</span>
               </span>
             </div>
@@ -2687,7 +2687,7 @@
                 <span class="status-pill status-prod"><span data-lang="zh">2019 年起出貨</span><span data-lang="en">Shipped Since 2019</span></span>
               </div>
               <div>
-                <span data-lang="zh">自 2019 年 3 月宣布商用出貨 eFlash 替代型 eMRAM，寫入快 1000 倍，具備 100 萬次循環與 125°C 10 年保存，支援 5 次 260°C 回流焊。</span>
+                <span data-lang="zh">自 2019 年 3 月宣布商用出貨 eFlash 替代型 eMRAM，寫入快 1000 倍，具備 100 萬次循環與 125°C 10 年保存，支援 5 次 260°C 迴焊。</span>
                 <span data-lang="en">Commercial shipment of 28FDS eFlash-type eMRAM since March 2019: 1000x faster write, 1M cycles, 10-yr retention at 125°C, surviving 5x 260°C reflows.</span>
               </div>
             </div>
@@ -4209,7 +4209,7 @@
             // 硬性否決閘：<=22nm 先進節點無標準 eFlash；0-Mask 預算不可行
             if (nodeIdx >= 2) return 5;
             if (maskIdx === 0) return 10;
-            if (endIdx === 2) return 20; // eFlash 無法承受 >1M 次高頻擦寫
+            if (endIdx === 2) return 20; // eFlash 無法承受 >1M 次高頻抹寫
             let score = 85;
             if (tempIdx === 2) score -= 25; // 175C 浮閘漏電嚴重
             if (powerIdx === 0) score -= 20;
@@ -4500,7 +4500,7 @@
 
         // 矛盾約束偵測：例如需要 >1M 次覆寫卻要求 0-Mask
         if (maskIdx === 0 && endIdx === 2) {
-          vMsgZh = `⚠️ <b>架構約束衝突警告</b>：系統要求 <b>0-Mask 純邏輯</b> 同時要求 <b>&gt;1M 次 Working RAM</b>。在物理實體上，0-mask 嵌入式記憶體（AntiFuse／I-fuse／eFuse／Logic MTP）無法承受高頻擦寫，而能承受高頻覆寫的 eMRAM/SRAM 必須承擔 3~5 道 BEOL 光罩成本或靜態漏電代價。目前相對適配為 <b>${displayName(winner)}</b>（${winner.score}%），但建議架構師重新評估鬆綁光罩預算或改採外部獨立式儲存。`;
+          vMsgZh = `⚠️ <b>架構約束衝突警告</b>：系統要求 <b>0-Mask 純邏輯</b> 同時要求 <b>&gt;1M 次 Working RAM</b>。在物理實體上，0-mask 嵌入式記憶體（AntiFuse／I-fuse／eFuse／Logic MTP）無法承受高頻抹寫，而能承受高頻覆寫的 eMRAM/SRAM 必須承擔 3~5 道 BEOL 光罩成本或靜態漏電代價。目前相對適配為 <b>${displayName(winner)}</b>（${winner.score}%），但建議架構師重新評估鬆綁光罩預算或改採外部獨立式儲存。`;
           vMsgEn = `⚠️ <b>Architectural Conflict Warning</b>: Constraint combines <b>0-Mask pure logic</b> with <b>&gt;1M write cycles</b>. Physically, 0-mask NVM (AntiFuse / I-fuse / eFuse / Logic MTP) cannot handle RAM workloads, while high-endurance eMRAM requires 3–5 BEOL adders. Current relative fit is <b>${winner.name}</b> (${winner.score}%); consider relaxing mask constraints or adopting external discrete memory.`;
         } else if (winner.id === "antifuse") {
           vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。在 <b>${nodeLabelsZh[nodeIdx]}</b> 與 <b>${tempLabelsZh[tempIdx]}</b> 下，以 0-mask 邏輯相容特性提供極高的高溫數據留存力與實體安全屏障。適合晶片身分 ID、安全金鑰儲存與有限次數之微碼補丁（搭配 Vector Patch CAM）。此輪廓是介電崩潰 OTP 族；ZA 擊穿位點未公開，不得把閘氧微絲模型套到 ZA。`;
@@ -4512,7 +4512,7 @@
           vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。此輪廓涵蓋 NeoEE／Floadia ZT 類 0-mask FN MTP；Actt LogicFlash 機制未公開，NSCore TwinBit 為 Schottky 熱載子路徑，兩者都不在此輪廓內。FinFET 節點請改核對 TwinBit 或 0-mask OTP。`;
           vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). This hull covers NeoEE / Floadia ZT-class 0-mask FN MTP. Actt LogicFlash remains unpublished physics, and NSCore TwinBit is a Schottky hot-carrier path — neither belongs on this hull. At FinFET nodes, re-check TwinBit or 0-mask OTP.`;
         } else if (winner.id === "emram") {
-          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。在先進節點（22nm/12nm）上完美承接 <b>${endLabelsZh[endIdx]}</b> 的高覆寫次數與工作暫存需求，但晶片架構須預留 3–5 道 BEOL 額外光罩預算，並評估 260°C 回流焊磁熱裕度。`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。在先進節點（22nm/12nm）上完美承接 <b>${endLabelsZh[endIdx]}</b> 的高覆寫次數與工作暫存需求，但晶片架構須預留 3–5 道 BEOL 額外光罩預算，並評估 260°C 迴焊磁熱裕度。`;
           vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). At advanced nodes (22nm/12nm), it satisfies <b>${endLabelsEn[endIdx]}</b> high-endurance RAM/OTA workloads, requiring 3–5 BEOL mask adders and 260°C package-reflow thermal-magnetic design margins.`;
         } else if (winner.id === "eflash") {
           vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。在成熟節點（≥40nm）為微控制器韌體代碼提供原生區塊抹除支援。SST 與 SONOS 光罩階梯不同：SST 例 +4／+10，Floadia G1 +2–3、G2 +4（開發中）。小於 28nm 的平面 SST／浮閘 eFlash 通常不可行，不得把 SONOS G2 的 TCAD 討論當成 FinFET 量產。`;
