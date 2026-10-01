@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "335b85fcd5df9ae35bee",
+  "version": "48f91055e4ae5c993528",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -142,7 +142,7 @@ self.NVMOfflineManifest = {
     "research.css": "fb992a4f51654340ff28b5c0d4d70bd7bcfd73ad1b6b048df5c47b7573678e49",
     "research.js": "9a6dc6f07f7f69e712db722d70066e80b13779389a768b7f4ca99384adf62bdd",
     "search-controller.js": "9f6305af19e4d477325d18453dc09f2260842132e1d95bb1447cbc439b367085",
-    "secure-storage.html": "1a071432917cf1f5ef4e19233fd380b30c3cd1cea9406bf915a29cb5f3d6502d",
+    "secure-storage.html": "7099b5d294420acdb539ce33f11cee706433624c35fcdd2445ab943e5492621d",
     "security-assurance.html": "8fe5d5581882e6e08817e0f15f3e15527dc68ff9c83521c060965eb3a186b0eb",
     "site-language.js": "76af0f172e506a94126b8db747d7a1891dea4b349958a17c11e7ec8daef8d8c9",
     "site-shell.css": "66c847fcc1dbc26a32ecd71df181c1363f9ceed6874f1512414ddfc49a437bc2",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 10835432
+  "totalBytes": 10835360
 };
