@@ -1506,6 +1506,7 @@
       const canvas = document.getElementById("thermalCanvas");
       if (!canvas) return;
       let ctx = null;
+      const T = (en, zh) => (window.HubLanguage?.get() || document.documentElement.lang).startsWith("zh") ? zh : en;
 
       const tempSlider = document.getElementById("tempSlider");
       const tempValElem = document.getElementById("tempVal");
@@ -1535,9 +1536,9 @@
         const years = parseFloat(yearSlider.value);
 
         tempValElem.textContent = `${tempC} °C`;
-        yearValElem.textContent = `${years} Yrs`;
+        yearValElem.textContent = T(`${years} Yrs`, `${years} 年`);
         tempSlider.setAttribute("aria-valuetext", `${tempC} °C`);
-        yearSlider.setAttribute("aria-valuetext", `${years} Yrs`);
+        yearSlider.setAttribute("aria-valuetext", T(`${years} Yrs`, `${years} 年`));
 
         const kB = 8.61733e-5;
         const Tuse = 55 + 273.15; // 55°C baseline
@@ -1572,7 +1573,7 @@
         ctx.font = "700 11px 'IBM Plex Mono'";
         ctx.fillStyle = "#fff";
         ctx.fillText(
-          isNarrow ? `RETENTION VS TIME (${tempC}°C)` : `SILICON RETENTION MARGIN VS TIME (Tj = ${tempC}°C)`,
+          isNarrow ? T(`RETENTION VS TIME (${tempC}°C)`, `資料保存與時間（${tempC}°C）`) : T(`SILICON RETENTION MARGIN VS TIME (Tj = ${tempC}°C)`, `晶片資料保存裕量與時間（Tj = ${tempC}°C）`),
           plotX + (isNarrow ? 4 : 10),
           22
         );
@@ -1588,7 +1589,7 @@
 
         ctx.fillStyle = "#c4a574";
         ctx.fillText(
-          isNarrow ? "● AntiFuse: Zero-Drift (>99.9%)" : "● AntiFuse Breakdown Filament: Zero-Drift (>99.9% Retention)",
+          isNarrow ? T("● AntiFuse: Zero-Drift (>99.9%)", "● 反熔絲：零漂移（>99.9%）") : T("● AntiFuse Breakdown Filament: Zero-Drift (>99.9% Retention)", "● 反熔絲擊穿細絲：零漂移（資料保存 >99.9%）"),
           plotX + (isNarrow ? 8 : 16),
           plotY + 42
         );
@@ -1609,7 +1610,7 @@
 
         ctx.fillStyle = "#f87171";
         ctx.fillText(
-          isNarrow ? "● FG Decay (Thermal Leak)" : "● Floating-Gate Charge Decay (Thermal Leakage)",
+          isNarrow ? T("● FG Decay (Thermal Leak)", "● 浮動閘衰減（熱漏電）") : T("● Floating-Gate Charge Decay (Thermal Leakage)", "● 浮動閘電荷衰減（熱漏電）"),
           plotX + (isNarrow ? 8 : 16),
           plotY + 64
         );
@@ -1624,7 +1625,7 @@
         ctx.setLineDash([]);
         ctx.fillStyle = "#f87171";
         ctx.fillText(
-          isNarrow ? "CRITICAL THRESHOLD" : "CRITICAL SENSE MARGIN THRESHOLD",
+          isNarrow ? T("CRITICAL THRESHOLD", "臨界門檻") : T("CRITICAL SENSE MARGIN THRESHOLD", "感測裕量臨界門檻"),
           isNarrow ? plotX + 10 : plotX + plotW - 210,
           plotY + plotH * 0.65 - 6
         );
@@ -1639,11 +1640,12 @@
         ctx.stroke();
 
         ctx.fillStyle = "#f59e0b";
-        ctx.fillText(`▲ Target: ${years} Yrs`, curPx - 26, plotY + plotH + 16);
+        ctx.fillText(T(`▲ Target: ${years} Yrs`, `▲ 目標：${years} 年`), curPx - 26, plotY + plotH + 16);
       }
 
       tempSlider.addEventListener("input", renderThermal);
       yearSlider.addEventListener("input", renderThermal);
+      window.addEventListener("hub:language-change", renderThermal);
       window.addEventListener("resize", () => { setupHiDPI(); renderThermal(); });
       document.addEventListener("DOMContentLoaded", () => { setupHiDPI(); renderThermal(); });
     })();
@@ -1665,6 +1667,7 @@
       if (!deck) return;
 
       let bits = Array(72).fill(0);
+      const T = (en, zh) => (window.HubLanguage?.get() || document.documentElement.lang).startsWith("zh") ? zh : en;
       let flippedIndices = new Set();
 
       function renderGrid() {
@@ -1675,7 +1678,7 @@
           const node = document.createElement("div");
           node.className = `ecc-bit-node ${isParity ? 'parity' : ''} ${isFlipped ? 'flipped' : ''}`;
           node.textContent = isParity ? `P${i - 64}` : `D${i}`;
-          node.title = isParity ? `Parity Bit #${i - 64}` : `Data Bit #${i}`;
+          node.title = isParity ? T(`Parity Bit #${i - 64}`, `同位元檢查位元 #${i - 64}`) : T(`Data Bit #${i}`, `資料位元 #${i}`);
           node.addEventListener("click", () => toggleBit(i));
           deck.appendChild(node);
         }
@@ -1695,31 +1698,31 @@
         const errCount = flippedIndices.size;
         if (errCount === 0) {
           pill.className = "ecc-status-pill clean";
-          pill.textContent = "● 0 ERRORS · SECDED PARITY CLEAN";
-          syndromeVal.textContent = "0x00 (NO SYNDROME)";
+          pill.textContent = T("● 0 ERRORS · SECDED PARITY CLEAN", "● 0 個錯誤 · SECDED 同位元檢查正常");
+          syndromeVal.textContent = T("0x00 (NO SYNDROME)", "0x00（無錯誤症候）");
           syndromeVal.style.color = "#785021";
-          actionVal.textContent = "NORMAL 0-CYCLE PASS";
+          actionVal.textContent = T("NORMAL 0-CYCLE PASS", "正常零週期通過");
           actionVal.style.color = "#785021";
-          safetyVal.textContent = "SAFETY STATE: NOMINAL (TARGET: ASIL-D ARCHITECTURE)";
+          safetyVal.textContent = T("SAFETY STATE: NOMINAL (TARGET: ASIL-D ARCHITECTURE)", "安全狀態：正常（目標：ASIL-D 架構）");
           safetyVal.style.color = "#785021";
         } else if (errCount === 1) {
           const flippedIdx = Array.from(flippedIndices)[0];
           pill.className = "ecc-status-pill sec";
-          pill.textContent = `● 1-BIT ERROR CORRECTED · BIT #${flippedIdx}`;
-          syndromeVal.textContent = `0x${(flippedIdx + 1).toString(16).toUpperCase().padStart(2, '0')} (LOCATED #${flippedIdx})`;
+          pill.textContent = T(`● 1-BIT ERROR CORRECTED · BIT #${flippedIdx}`, `● 已修正單位元錯誤 · 位元 #${flippedIdx}`);
+          syndromeVal.textContent = T(`0x${(flippedIdx + 1).toString(16).toUpperCase().padStart(2, '0')} (LOCATED #${flippedIdx})`, `0x${(flippedIdx + 1).toString(16).toUpperCase().padStart(2, '0')}（已定位 #${flippedIdx}）`);
           syndromeVal.style.color = "#1d4ed8";
-          actionVal.textContent = "HARDWARE ON-THE-FLY XOR AUTO-REPAIR";
+          actionVal.textContent = T("HARDWARE ON-THE-FLY XOR AUTO-REPAIR", "硬體即時 XOR 自動修復");
           actionVal.style.color = "#1d4ed8";
-          safetyVal.textContent = "SAFETY STATUS: SEC CORRECTED (SECDED ENVELOPE)";
+          safetyVal.textContent = T("SAFETY STATUS: SEC CORRECTED (SECDED ENVELOPE)", "安全狀態：SEC 已修正（SECDED 適用範圍）");
           safetyVal.style.color = "#1d4ed8";
         } else {
           pill.className = "ecc-status-pill ded";
-          pill.textContent = `✖ ${errCount}-BIT ERROR DETECTED · SAFETY TRAP ASSERTED (DED)`;
-          syndromeVal.textContent = "0xEE (DOUBLE-BIT PARITY MISMATCH)";
+          pill.textContent = T(`✖ ${errCount}-BIT ERROR DETECTED · SAFETY TRAP ASSERTED (DED)`, `✖ 偵測到 ${errCount} 位元錯誤 · 已觸發安全陷阱（DED）`);
+          syndromeVal.textContent = T("0xEE (DOUBLE-BIT PARITY MISMATCH)", "0xEE（雙位元同位元檢查不符）");
           syndromeVal.style.color = "#b91c1c";
-          actionVal.textContent = "SAFETY ACTION: HARDWARE DED TRAP ASSERTED (FTTI COMPLIANT)";
+          actionVal.textContent = T("SAFETY ACTION: HARDWARE DED TRAP ASSERTED (FTTI COMPLIANT)", "安全動作：已觸發硬體 DED 陷阱（符合 FTTI）");
           actionVal.style.color = "#b91c1c";
-          safetyVal.textContent = "SAFETY ACTION: HARDWARE DED TRAP ASSERTED (FTTI COMPLIANT)";
+          safetyVal.textContent = T("SAFETY ACTION: HARDWARE DED TRAP ASSERTED (FTTI COMPLIANT)", "安全動作：已觸發硬體 DED 陷阱（符合 FTTI）");
           safetyVal.style.color = "#b91c1c";
         }
       }
@@ -1748,6 +1751,7 @@
         });
       }
 
+      window.addEventListener("hub:language-change", renderGrid);
       renderGrid();
     })();
   </script>

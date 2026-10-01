@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "a8acaa8456e451c5ec11",
+  "version": "f610500ac9472aff3153",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -97,7 +97,7 @@ self.NVMOfflineManifest = {
     "assurance.css": "475280191857e18dd0aacbd095e32374f480d09d9b279727e5ae723b629e5e16",
     "assurance.js": "42c0d9d9101dc6c65dc08226454edb9ab7ac627e13fedfb4f0ddb54c4ba4eb2d",
     "atlas-diagram-loader.js": "6c7bcc1a49afd8731768a16b0dfb6365f8e0c4a9eb73bf7aa02d8a308a3fdf9e",
-    "automotive-nvm.html": "d15f44c9de3189477650061dcf2cb9ab12843f88b3b61d3cfe87489a89670ed4",
+    "automotive-nvm.html": "88a5bfe792db8e69f63652d61e75b4c842a61dfac7764eed180b591ff7ed044d",
     "briefing/index.html": "1ccf6911fbebd03368fb66c6c1aa2baabba8f092df4e094f69790df2f9114396",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
     "claim-scope.js": "7f8456f1e8f5388c2bddb8db8fc65c9f5f2e7a4c673003a626d19e57623cfa44",
@@ -111,7 +111,7 @@ self.NVMOfflineManifest = {
     "home-navigation.js": "64501ccfac640ac42684a943ece3111a5a065b4f697f64fa47f4e92c3749c796",
     "hub-apps-chrome.css": "f1ee95b82e3aa3acf879493a4514b7081430d649700a5d269655ae01efcd73d6",
     "hub-auto-tune.css": "0a6918cf6a381f9d4269d359799ce733b3c9e893ab1414ad50c61d5b2a67ecc7",
-    "hub-auto-tune.js": "cbee8269102447acc4f17fb05edccf8dfe268354432972cb820a4509f7f5d3fb",
+    "hub-auto-tune.js": "ddb26368519c0fd6df200e17cc730f5b6698d7989dd373892a2d7f2f0045db7d",
     "hub-story-apps.js": "c6bf5a3704130a3e871dd217d1d060e9611b7a3b95afc70f2b19e6961bdf13d3",
     "hub-story-maps.css": "f85ac4264e2afd3430395f4cf3a7067f075a0b1660d26212b8fb42f2680ad3d9",
     "hub-story-maps.js": "476d2dcf6381447afa7af13bc0b6e3945f43d4b9b3e491ccbab1be34a582e5ff",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 10843543
+  "totalBytes": 10846819
 };
