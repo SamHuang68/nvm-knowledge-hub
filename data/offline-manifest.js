@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "b140f96d298291b92402",
+  "version": "e6dc651973eeba31abb0",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -134,7 +134,7 @@ self.NVMOfflineManifest = {
     "nvm-industry-research.css": "94169f1d221d75104a7319834d7775159e2b956862f2cba4acfff40c0380051a",
     "nvm-ip-cells.css": "f997727b6dee99cf1b388a4f7e053b009565074b4993b14cb14311e1d683a507",
     "nvm-portal-entry.css": "6cab384d44dbd1c06f6f5a5cfffeca170196a38b0ed29811115edb2c6fc1b384",
-    "nvm-technology-atlas-zh.html": "bd9039da0f6d02f8135e36f3893e91da7251568419e540633d85a5a663a6d177",
+    "nvm-technology-atlas-zh.html": "9b2a0eacbe8a8889972a505696925153582641e352231d85c2594e9ae4a2c8a1",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
     "nvm-technology-atlas.html": "04b1f0c208953554feb979d9976ce5ab1c66864e10c2452ace27fa9a0b5d4953",
     "nvm-technology-atlas.js": "4d9bc963535cfad3159174722476fac1c36f3ec36d76cdec9ca009e0c2697deb",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 10835385
+  "totalBytes": 10835384
 };
