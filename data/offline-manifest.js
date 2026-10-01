@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "e6dc651973eeba31abb0",
+  "version": "335b85fcd5df9ae35bee",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -100,7 +100,7 @@ self.NVMOfflineManifest = {
     "automotive-nvm.html": "d15f44c9de3189477650061dcf2cb9ab12843f88b3b61d3cfe87489a89670ed4",
     "briefing/index.html": "1ccf6911fbebd03368fb66c6c1aa2baabba8f092df4e094f69790df2f9114396",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
-    "claim-scope.js": "a75beddded6140ab09f3e01d52731c3a00ad37fd72a29b49feada4aa9d20dfde",
+    "claim-scope.js": "b91d0a8f6853fb1b9306aaf8d72f884712e6ac79b863a2cfd2bc904987201944",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "data/nvm-search-index.js": "1ce8a43c88b802a5cdce8ac183f47938c1352d11af68792f1a5902fa17d80306",
     "editorial-reading-ui.css": "eb89e104876d4618a0061601ff988d7bbd52edabf60efa18679b20ca2a27c7e1",
@@ -111,14 +111,14 @@ self.NVMOfflineManifest = {
     "home-navigation.js": "64501ccfac640ac42684a943ece3111a5a065b4f697f64fa47f4e92c3749c796",
     "hub-apps-chrome.css": "f1ee95b82e3aa3acf879493a4514b7081430d649700a5d269655ae01efcd73d6",
     "hub-auto-tune.css": "0a6918cf6a381f9d4269d359799ce733b3c9e893ab1414ad50c61d5b2a67ecc7",
-    "hub-auto-tune.js": "9b71ee96b17060960b9db3415154f6fc8ba98032cd7d50d4a6e87a2e46bf1cec",
+    "hub-auto-tune.js": "2f26e06a13599e46630ea23d262593777420a55582b4486d282b4063c62cf06f",
     "hub-story-apps.js": "c6bf5a3704130a3e871dd217d1d060e9611b7a3b95afc70f2b19e6961bdf13d3",
     "hub-story-maps.css": "f85ac4264e2afd3430395f4cf3a7067f075a0b1660d26212b8fb42f2680ad3d9",
     "hub-story-maps.js": "476d2dcf6381447afa7af13bc0b6e3945f43d4b9b3e491ccbab1be34a582e5ff",
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
     "index.html": "3e5bde08f1471c2bdc2f5ed1acfc50de3e969cd9039028d04977972e2384714a",
-    "iot-mcu-envm.html": "2d73075b7765668bd45da2430a53088b03282c6a5c5241f360d756709adf2e77",
+    "iot-mcu-envm.html": "ee7bbc0d6dcf0ac706ef764c34060f5890cf582b451977957fb2a85c5c4c964a",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "175acf378a7ba9bcfbdfc7d01262583bdbafac9174e30fbfa70e7d2bdf99d749",
     "literature-editorial.css": "1204ad9ba0f89e3a18d8bd60c7c9a4c7aa412a7bcf396aac3cf1d3dfb14545f8",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 10835384
+  "totalBytes": 10835432
 };

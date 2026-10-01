@@ -16,14 +16,14 @@
   if (h1) {
     h1.innerHTML = T(
       'Automotive NVM: Grade 0 ambient and 175°C junction are not the same claim.',
-      '車規 NVM：Grade 0 環境溫度與 175°C 結溫不是同一項主張。'
+      '車規 NVM：Grade 0 環境溫度與 175°C 接面溫度不是同一項主張。'
     );
   }
   const lead = document.querySelector('.lead-desc');
   if (lead) {
     lead.innerHTML = T(
       'This page uses the mission profile to pick the test gate. It does not issue a certification. AEC-Q100 Grade 0 is an ambient range (−40°C to +150°C Ta). Junction limits stay on the named datasheet.',
-      '這頁用任務載記選測試門，不簽認證。AEC-Q100 Grade 0 是環境溫度（−40°C 至 +150°C Ta）。結溫以特定 datasheet 為準。'
+      '本頁依任務條件選擇測試關卡，不構成認證。AEC-Q100 Grade 0 是環境溫度（−40°C 至 +150°C Ta）。接面溫度以特定規格書 為準。'
     );
   }
   const hero = document.querySelector('.m3-hero-container') || document.querySelector('.m3-hero');
@@ -40,7 +40,7 @@
     const leadP = fail.querySelector('.hub-story-lead');
     if (leadP) leadP.innerHTML = T(
       'Domain and mission profile first. Then Ta versus Tj. Then Q100-005 into HTOL / HTDR / ELFR. Stop at SEooC vocabulary and VERIFY.',
-      '先定域與任務載記，再分 Ta 與 Tj，再走 Q100-005 到 HTOL／HTDR／ELFR。停在 SEooC 語彙與 待驗證。'
+      '先定義領域與任務條件，再分 Ta 與 Tj，再走 Q100-005 到 HTOL／HTDR／ELFR。停在 SEooC 語彙與 待驗證。'
     );
     const steps = [
       { n: '01', en: 'Domain', zh: '域', hintEn: 'Cabin · under-hood · safety', hintZh: '船內 · 引擎艙 · 安全',
@@ -48,11 +48,11 @@
         bodyZh: '先點 ECU 域與溫度時間預算。那才決定要談哪一等 Grade。' },
       { n: '02', en: 'Ta vs Tj', zh: 'Ta 對 Tj', hintEn: 'Grade is ambient', hintZh: 'Grade 是環境溫',
         bodyEn: 'Grade 0 is −40°C to +150°C ambient. 175°C is a junction figure. Do not write them as one claim.',
-        bodyZh: 'Grade 0 是 −40°C 至 +150°C 環境溫。175°C 是結溫數字。不得寫成同一項主張。' },
+        bodyZh: 'Grade 0 是 −40°C 至 +150°C 環境溫。175°C 是接面溫度數字。不得寫成同一項主張。' },
       { n: '03', en: 'Q100-005 first', zh: '先 Q100-005', hintEn: 'NVM precondition', hintZh: 'NVM 預處理',
         bodyEn: 'Devices with NVM take endurance preconditioning per Q100-005 before HTOL, HTDR or LTDR. Sample counts stay VERIFY.',
-        bodyZh: '含 NVM 的晶片要先依 Q100-005 做耐久預處理，再進 HTOL、HTDR 或 LTDR。樣品數仍是 待驗證。' },
-      { n: '04', en: 'Stop at VERIFY', zh: '停在 待驗證', hintEn: 'SEooC vocabulary', hintZh: 'SEooC 語彙',
+        bodyZh: '含 NVM 的晶片要先依 Q100-005 做耐久預處理，再進 HTOL、HTDR 或 LTDR。樣品數仍待驗證。' },
+      { n: '04', en: 'Stop at VERIFY', zh: '停在待驗證狀態', hintEn: 'SEooC vocabulary', hintZh: 'SEooC 語彙',
         bodyEn: 'SPFM, LFM and FIT on this page are architectural vocabulary. They do not become ASIL-D Ready.',
         bodyZh: '本頁的 SPFM、LFM、FIT 是架構語彙，不會變成 ASIL-D Ready。' }
     ];
