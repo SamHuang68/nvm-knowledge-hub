@@ -5,6 +5,13 @@ const contents = document.querySelector('.nvm-sidebar');
 const contentsButton = document.querySelector('#nvm-contents-toggle');
 const baseTitle = document.title;
 const isEnglish = () => (window.HubLanguage?.get() || document.documentElement.lang) === 'en';
+function updatePanelTitle(next) {
+  document.title = next.id === 'panorama' ? (isEnglish() ? baseTitle : (document.documentElement.dataset.titleZh || baseTitle.replace('NVM Knowledge Hub', 'NVM 知識中心'))) : `${next.querySelector('h2')?.textContent || (isEnglish() ? 'NVM Study' : 'NVM 專題')} · ${isEnglish() ? 'NVM Knowledge Hub' : 'NVM 知識中心'}`;
+}
+window.addEventListener('hub:language-change', () => {
+  const active = panels.find(panel => !panel.hidden);
+  if (!isEnglish() && active) updatePanelTitle(active);
+});
 document.addEventListener('keydown', event => {
   if (['Tab','Enter',' ','ArrowUp','ArrowDown','Home','End'].includes(event.key)) document.documentElement.classList.add('nvm-keyboard-navigation');
 });
@@ -59,7 +66,7 @@ function showRoute({ focus = false } = {}) {
     }
     else link.removeAttribute('aria-current');
   });
-  document.title = next.id === 'panorama' ? (isEnglish() ? baseTitle : (document.documentElement.dataset.titleZh || baseTitle.replace('NVM Knowledge Hub', 'NVM 知識中心'))) : `${next.querySelector('h2')?.textContent || (isEnglish() ? 'NVM Study' : 'NVM 專題')} · ${isEnglish() ? 'NVM Knowledge Hub' : 'NVM 知識中心'}`;
+  updatePanelTitle(next);
   contents.classList.remove('open');
   contentsButton.setAttribute('aria-expanded', 'false');
   for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;
