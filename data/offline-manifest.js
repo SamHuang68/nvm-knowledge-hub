@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "61d91ba64f66ea9484c5",
+  "version": "d6b086c208a2a5acffb3",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -85,7 +85,7 @@ self.NVMOfflineManifest = {
   "digests": {
     "404.html": "c40306abf32e727cb9f8b029699bc668bdd411a2b958f8822ccdf0c456eb1abe",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
-    "ai-nvm-opportunities.html": "b5d7a11eaaa845becf5832a6b8cefc1b849e9f5ab76f366b161fae7dc3346dc0",
+    "ai-nvm-opportunities.html": "0e1c7f5bb764fedab5a66f0f4b677d1f2e24704496bc5cb972cf5c42f752d24d",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
     "ai-nvm.css": "5ac0085348b2af246f464a4dbeccfe9579ed6a860ac990593cbdeedec8351afe",
     "ai-nvm.js": "890dc70dd5202e2c2894ab601e720b35e9617a0f92afa2323048c57771015b7e",
@@ -97,7 +97,7 @@ self.NVMOfflineManifest = {
     "assurance.css": "475280191857e18dd0aacbd095e32374f480d09d9b279727e5ae723b629e5e16",
     "assurance.js": "42c0d9d9101dc6c65dc08226454edb9ab7ac627e13fedfb4f0ddb54c4ba4eb2d",
     "atlas-diagram-loader.js": "6c7bcc1a49afd8731768a16b0dfb6365f8e0c4a9eb73bf7aa02d8a308a3fdf9e",
-    "automotive-nvm.html": "4d0c07277f1a9ea3ec4105e324047a7ac19fee149f8d8dd5ef3ff6793dc4912f",
+    "automotive-nvm.html": "8dc4c6eb699f5219991ea9f08417f60b715ca85fc7ef00a371ed9d6bf53f7c1b",
     "briefing/index.html": "31a66b2bd4847e7f6d127360b67925f8458c93df55eda867ceb69ff39d345a98",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
     "claim-scope.js": "e113f235616598afe7b5a56552369d8c649931e958f095205a6db6a6cf3969e7",
@@ -124,10 +124,10 @@ self.NVMOfflineManifest = {
     "literature-editorial.css": "1204ad9ba0f89e3a18d8bd60c7c9a4c7aa412a7bcf396aac3cf1d3dfb14545f8",
     "literature-paper.js": "7dcf218213435d65e3d6b3aa811a3ae155d35d148c951c3cdf3a40cabafce28d",
     "matrix-interactive.js": "96eef44abf28701f8447814372521e2a7de0be731b47779b278ffab20d75973d",
-    "memory-evidence.html": "12d21f6954dcebb831b053ad6bae82be086b1ae1ed4b4afb5e36919540dc95d7",
+    "memory-evidence.html": "c7a3562e4cf9bae341d63efa5759a73f10353afdb5571f980cf6b9d866e9c42f",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "898324ba45714a4301e1cdde87cc2c3664ebce762e34bfacc620ea5594d778f2",
+    "memory-physics.html": "f27621d1cd39a4c9b9a60f443d1e0a826a4426ee1c3c6f3233fecaf6ad3156ad",
     "nvm-bitcell-figures.css": "3dbc9f99aa9101b346d33c728e875b87beb99ba8bbeaed806f572b371ee31a88",
     "nvm-engineering-diagrams.css": "6a3e1d4d5e18f70eedb9db83a8c91c843bb87a137c33d79a6ef31b34943cee07",
     "nvm-engineering-diagrams.js": "9107be8d0005dd59e9838a25ed1be509cd555f3a40dcdb58ed580d0b491cf3ee",
@@ -156,7 +156,7 @@ self.NVMOfflineManifest = {
     "sram-repair.js": "a284f0cdd81e36dabd211c2df695d97dc1471a9c141e2bce914e1e10f72fb897",
     "styles.css": "e59240e333f11190db1c2b4227949d86d99170e023c2f071c27c64ec70ac4215",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
-    "technology-comparison.html": "62d87d61245300261d2975a61e5112dc206d1d20194d97cd8a79d3fe47f9e7bb",
+    "technology-comparison.html": "d05371da15c1ba98b852dbedbc17ecf68abd37c37385f0f8887fa36e0ca79aad",
     "tools/whitepaper-studio/index.html": "f138960d0121e45baf09608e07ecf6ae2679926b395c2493a3171d1584440b0d",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "whitepaper/assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 10848090
+  "totalBytes": 10848146
 };
