@@ -21,18 +21,22 @@
       if (value !== node.nodeValue) node.nodeValue = value;
     });
   }
+  const originalMetaTitles = new Map([...document.querySelectorAll('meta[property="og:title"], meta[name="twitter:title"]')].map(el => [el, el.getAttribute('content')]));
   function softenTitle() {
-    const title = (document.documentElement.lang.startsWith('zh')
-      ? (document.documentElement.dataset.titleZh || document.title) : document.title)
-      .replace(/ISO 26262 ASIL-D/g, 'ISO 26262 ASIL context')
-      .replace(/Zero Erase Penalty/g, 'No extra erase-voltage path');
+    const zh = document.documentElement.lang.startsWith('zh');
+    const soften = value => value
+      .replace(/ISO 26262 ASIL-D/g, zh ? 'ISO 26262 ASIL 範圍' : 'ISO 26262 ASIL context')
+      .replace(/Zero Erase Penalty/g, zh ? '無額外擦除電壓路徑' : 'No extra erase-voltage path');
+    const title = soften(zh
+      ? (document.documentElement.dataset.titleZh || document.title) : document.title);
     if (title !== document.title) document.title = title;
-    document.querySelectorAll('meta[property="og:title"], meta[name="twitter:title"]').forEach(el => {
-      const v = el.getAttribute('content');
+    originalMetaTitles.forEach((original, el) => {
+      const v = zh ? (document.documentElement.dataset.titleZh || original) : original;
       if (!v) return;
-      el.setAttribute('content', v.replace(/ISO 26262 ASIL-D/g, 'ISO 26262 ASIL context').replace(/Zero Erase Penalty/g, 'No extra erase-voltage path'));
+      el.setAttribute('content', soften(v));
     });
   }
+  if (/automotive-nvm\.html|iot-mcu-envm\.html/i.test(path)) window.addEventListener('hub:language-change', softenTitle);
   const sc3OverloadDemote = [
       ['ISO 26262 ASIL-D Ready (SEooC) · SC3 Systematic Capability', 'ISO 26262 ASIL context (SEooC) · not a certification'],
       ['ISO 26262 ASIL-D Ready (SEooC) · SC3 系統化能力', 'ISO 26262 ASIL 語境（SEooC）· 非認證'],

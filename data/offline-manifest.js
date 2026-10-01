@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "00c322e03be62e0154e4",
+  "version": "3363cadbd1590918ab2b",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -100,7 +100,7 @@ self.NVMOfflineManifest = {
     "automotive-nvm.html": "d15f44c9de3189477650061dcf2cb9ab12843f88b3b61d3cfe87489a89670ed4",
     "briefing/index.html": "1ccf6911fbebd03368fb66c6c1aa2baabba8f092df4e094f69790df2f9114396",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
-    "claim-scope.js": "b91d0a8f6853fb1b9306aaf8d72f884712e6ac79b863a2cfd2bc904987201944",
+    "claim-scope.js": "7f8456f1e8f5388c2bddb8db8fc65c9f5f2e7a4c673003a626d19e57623cfa44",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "data/nvm-search-index.js": "1ce8a43c88b802a5cdce8ac183f47938c1352d11af68792f1a5902fa17d80306",
     "editorial-reading-ui.css": "eb89e104876d4618a0061601ff988d7bbd52edabf60efa18679b20ca2a27c7e1",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 10843276
+  "totalBytes": 10843580
 };
