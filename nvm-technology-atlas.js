@@ -10,7 +10,7 @@ function updatePanelTitle(next) {
 }
 window.addEventListener('hub:language-change', () => {
   const active = panels.find(panel => !panel.hidden);
-  if (!isEnglish() && active) updatePanelTitle(active);
+  if (active) updatePanelTitle(active);
 });
 document.addEventListener('keydown', event => {
   if (['Tab','Enter',' ','ArrowUp','ArrowDown','Home','End'].includes(event.key)) document.documentElement.classList.add('nvm-keyboard-navigation');

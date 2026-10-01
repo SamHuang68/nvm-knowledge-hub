@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "98ee3c385d05541a5348",
+  "version": "054b24dda8798408c5e2",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -118,7 +118,7 @@ self.NVMOfflineManifest = {
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
     "index.html": "3e5bde08f1471c2bdc2f5ed1acfc50de3e969cd9039028d04977972e2384714a",
-    "iot-mcu-envm.html": "698c2c1f905602c56f21f1fed83a247ad5d37ddd3f6951065aed58839c83dc17",
+    "iot-mcu-envm.html": "b0e0a3d31ec8b019d1c0563961d2d938f545011543e962e9c2ddf8f27236413d",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "175acf378a7ba9bcfbdfc7d01262583bdbafac9174e30fbfa70e7d2bdf99d749",
     "literature-editorial.css": "1204ad9ba0f89e3a18d8bd60c7c9a4c7aa412a7bcf396aac3cf1d3dfb14545f8",
@@ -137,7 +137,7 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas-zh.html": "792d1e4b6de83432ab0380063abc7b87b593c32036e530513176eaa1103eaba8",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
     "nvm-technology-atlas.html": "04b1f0c208953554feb979d9976ce5ab1c66864e10c2452ace27fa9a0b5d4953",
-    "nvm-technology-atlas.js": "be219f343da39df0f25f396fd6cbc827cf77eb7bf1ca7aa8d236133af336d2d3",
+    "nvm-technology-atlas.js": "1739454447aa2e529bc073d76a11f0996b499b26721e51e4b3cf233785a92c81",
     "oip-secure-storage.html": "b4ae7a4477e7009664c795b59ced3faf980f178bf615a51005b8011bf0ef81c1",
     "research.css": "fb992a4f51654340ff28b5c0d4d70bd7bcfd73ad1b6b048df5c47b7573678e49",
     "research.js": "9a6dc6f07f7f69e712db722d70066e80b13779389a768b7f4ca99384adf62bdd",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 10846822
+  "totalBytes": 10846968
 };
