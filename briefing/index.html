@@ -650,18 +650,18 @@
           <ul>
             <li><span data-lang="zh">抗量子簽章 (LMS/XMSS) 僅需在 OTP 內保存極精簡 32 位元組根雜湊</span><span data-lang="en">Post-quantum stateful signatures (LMS/XMSS) anchor to a compact 32-byte root hash</span></li>
             <li><span data-lang="zh">一次性金鑰狀態 (OTS) 嚴禁重用，依賴硬體級不可逆單調遞增計數器</span><span data-lang="en">One-time signing states strictly forbid reuse, requiring irreversible hardware counters</span></li>
-            <li><span data-lang="zh">車規 AEC-Q100 Grade 0 (TA=150°C，極限結溫 Tj=175°C) 環境下傳統浮閘記憶體電荷嚴重流失</span><span data-lang="en">Legacy floating-gate cells suffer severe charge leakage at AEC-Q100 Grade 0 (150°C Ta / 175°C Tj)</span></li>
+            <li><span data-lang="zh">AEC-Q100 Grade 0（Ta 最高 150°C）及特定規格書的更高接面溫度（例如 Tj 175°C）環境下傳統浮閘記憶體電荷嚴重流失</span><span data-lang="en">Legacy floating-gate cells suffer severe charge leakage at AEC-Q100 Grade 0 ambient (up to 150°C Ta) and higher junction temperatures per a named datasheet (e.g. 175°C Tj)</span></li>
             <li><span data-lang="zh">再結晶矽介電質擊穿微絲在具名條件下可呈現較低漂移；SEooC 可採 ISO 26262 ASIL 詞彙與 SPFM／LFM 目標，但須分開 AoU、FMEDA 與 READY 認證；IEC 61508 SC3 僅為可選跨標準教學，本簡報不宣稱具備</span><span data-lang="en">Recrystallized-silicon breakdown filaments can show lower drift under named bounds; SEooC may use ISO 26262 ASIL vocabulary and SPFM/LFM targets — separate AoU, FMEDA, and READY certification. IEC 61508 SC3 is optional cross-standard teaching — this briefing does not claim that capability</span></li>
           </ul>
         </div>
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>後量子密碼學 (PQC) 時代使傳統安全開機面臨儲存壓力：晶格非對稱演算法可讓公鑰體積暴增超過 40 倍。NIST SP 800-208 狀態化雜湊簽章 (LMS/XMSS) 可將根雜湊縮至 32 位元組 OTP 空間，但 OTS 重用與回滾仍須硬體單調計數器。車用動力總成常引用 AEC-Q100 Grade 0（環境 TA=150°C、極限 Tj=175°C）與高溫保持；傳統浮閘在高溫下因 SILC/TAT 等機制可能嚴重漏電。AntiFuse OTP 的介質擊穿路徑在具名條件下可支撐單調狀態與較低漂移敘述，但 SPFM、LFM、PMHF 與系統級 ASIL-D 達成仍屬 SEooC AoU + FMEDA + 整合責任，本簡報不宣稱 READY 認證。</p>
+            <p>後量子密碼學 (PQC) 時代使傳統安全開機面臨儲存壓力：晶格非對稱演算法可讓公鑰體積暴增超過 40 倍。NIST SP 800-208 狀態化雜湊簽章 (LMS/XMSS) 可將根雜湊縮至 32 位元組 OTP 空間，但 OTS 重用與回滾仍須硬體單調計數器。車用動力總成常引用 AEC-Q100 Grade 0（Ta −40°C 至 +150°C）及特定計畫的 Tj 175°C 應力與高溫保持；傳統浮閘在高溫下因 SILC/TAT 等機制可能嚴重漏電。AntiFuse OTP 的介質擊穿路徑在具名條件下可支撐單調狀態與較低漂移敘述，但 SPFM、LFM、PMHF 與系統級 ASIL-D 達成仍屬 SEooC AoU + FMEDA + 整合責任，本簡報不宣稱 READY 認證。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>The post-quantum transition inflates signature storage (lattice keys can exceed 40×). NIST SP 800-208 stateful hash-based schemes (LMS/XMSS) can anchor to a compact 32-byte OTP root, but OTS reuse and rollback still require hardware monotonic state. Automotive powertrain narratives often cite AEC-Q100 Grade 0 (TA=150°C, peak Tj=175°C) alongside retention stress; legacy floating-gate cells can lose charge via SILC/TAT mechanisms. AntiFuse breakdown paths can support monotonic-state stories under named bounds, yet SPFM, LFM, PMHF, and item-level ASIL-D remain SEooC AoU + FMEDA + integration obligations — this briefing does not claim READY certification.</p>
+            <p>The post-quantum transition inflates signature storage (lattice keys can exceed 40×). NIST SP 800-208 stateful hash-based schemes (LMS/XMSS) can anchor to a compact 32-byte OTP root, but OTS reuse and rollback still require hardware monotonic state. Automotive powertrain narratives often cite AEC-Q100 Grade 0 ambient (Ta −40°C to +150°C) and a named-plan Tj=175°C stress alongside retention stress; legacy floating-gate cells can lose charge via SILC/TAT mechanisms. AntiFuse breakdown paths can support monotonic-state stories under named bounds, yet SPFM, LFM, PMHF, and item-level ASIL-D remain SEooC AoU + FMEDA + integration obligations — this briefing does not claim READY certification.</p>
             <p style="margin-top:0.5rem;font-size:0.85rem;"><span style="color:#334155;">Microphysics Reference: </span><a href="../memory-physics.html#physics-models" style="color:#785021;text-decoration:underline;">First-Principles Quantum Tunneling &amp; 4-Stage Breakdown ↗</a></p>
           </div>
         </div>

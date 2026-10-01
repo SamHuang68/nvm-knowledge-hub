@@ -221,7 +221,7 @@ def main():
         t1_kicker="TARGET 1 · NIST SP 800-208 LMS BOOT",
         t1_title="Stateful hash tree 32-byte root hash",
         t1_body="Public proof: LMS overcomes 40x PQC lattice key bloat; OTS reuse destroys security",
-        t2_kicker="TARGET 2 · AEC-Q100 GRADE 0 (175°C)",
+        t2_kicker="TARGET 2 · AEC-Q100 GRADE 0 (Ta −40°C to +150°C)",
         t2_title="SILC physics in automotive powertrain",
         t2_body="Public proof: 175°C stress causes trap-assisted tunneling and charge loss in floating gates",
         eval_kicker="CANDIDATE NVM QUALIFICATION CRITERIA",
@@ -230,7 +230,7 @@ def main():
             "• gate dielectric breakdown filament has 0 drift at 175°C Tj",
             "• irreversible OTP burn blocks OTS key reuse",
             "• 1T current-balanced sensing attenuates 1st-order DPA correlation",
-            "• 1000h HTOL + Retention Bake @ 175°C AEC-Q100 Grade 0 qualified",
+            "• Grade 0 (Ta −40°C to +150°C) test flow; 1000h HTOL + Retention Bake at a named-plan 175°C Tj target",
             "• ISO 26262 ASIL-D Ready (SEooC SC3) automotive delivery",
             "• candidate unit: high-reliability secure RoT (SPFM ≥99%, PMHF <0.1 FIT)"
         ],
