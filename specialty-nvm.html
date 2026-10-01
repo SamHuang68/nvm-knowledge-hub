@@ -427,7 +427,7 @@
 <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation" data-aria-en="Primary navigation" data-aria-zh="主要導覽"><a href="index.html#layer-foundations" data-hub-category="foundations"><span data-lang="en">Technology Foundations</span><span data-lang="zh">技術基礎</span></a><a href="index.html#layer-ip-process" data-hub-category="ip-process"><span data-lang="en">IP and Processes</span><span data-lang="zh">IP 與製程</span></a><a href="index.html#layer-applications" data-hub-category="applications" aria-current="location"><span data-lang="en">Applications and Systems</span><span data-lang="zh">應用與系統</span></a><a href="index.html#layer-resources" data-hub-category="resources"><span data-lang="en">Literature and Tools</span><span data-lang="zh">文獻與工具</span></a></nav>
 <div class="header-actions">
 <button aria-label="Switch to Traditional Chinese" data-aria-en="Switch to Traditional Chinese" data-aria-zh="切換為英文" class="language-toggle" id="languageToggle" type="button">
-<b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
+<b data-lang-option="en" lang="en">EN</b><i>/</i><b data-lang-option="zh" lang="zh-Hant">中文</b>
 </button>
 <button aria-controls="primaryNav" aria-expanded="false" aria-label="Open menu" data-aria-en="Open menu" data-aria-zh="開啟選單" class="menu-button" id="menuToggle" type="button">
 <i></i><i></i>
@@ -478,15 +478,15 @@
 <div class="stat-top-meta">
 <span class="meta-code"><span data-lang="zh">原則 #02 · 車用</span><span data-lang="en">RULE #02 · AUTOMOTIVE</span></span>
 </div>
-<div class="stat-val"><span data-lang="zh">等級 0（175°C）</span><span data-lang="en">GRADE 0 (175°C)</span></div>
+<div class="stat-val"><span data-lang="zh">Grade 0 環境溫度</span><span data-lang="en">Grade 0 ambient</span></div>
 <div class="stat-label">
 <span data-lang="zh">車規晶圓認證閉環</span>
 <span data-lang="en">SILICON QUALIFICATION RIGOR</span>
 </div>
 <div class="stat-sub">
 <span style="color: #785021;">
-<span data-lang="zh">15+ 年高溫留存 @ 175°C Tj</span>
-<span data-lang="en">15+ Yrs Retention @ 175°C Tj</span>
+<span data-lang="zh">AEC-Q100 Grade 0 為 Ta −40 至 +150°C；175°C 接面溫度（Tj）資料保存目標須依特定 IP 規格書驗證</span>
+<span data-lang="en">AEC-Q100 Grade 0 is Ta −40 to +150°C; 175°C Tj retention targets require a named IP datasheet</span>
 </span>
 </div>
 </div>
@@ -567,8 +567,8 @@
       </div>
       <div class="governing-physics-desc">
         <span class="physics-desc-title"><span data-lang="zh">微觀物理與製程約束</span><span data-lang="en">PHYSICS &amp; FOUNDRY BOUNDARY</span></span>
-        <span data-lang="zh">BCD 高壓 DMOS 易受寄生發熱影響，零熱預算 AntiFuse 避免 eFlash 浮閘退火高溫，確保 AEC-Q100 Grade 0 (TA=150°C，極限結溫 Tj=175°C) 基準電壓長效穩定。</span>
-        <span data-lang="en">BCD high-voltage DMOS is sensitive to thermal budgets. Pure-logic AntiFuse eliminates eFlash anneal penalty, ensuring AEC-Q100 Grade 0 (TA=150°C, peak junction 175°C Tj) long-term stability.</span>
+        <span data-lang="zh">BCD 高壓 DMOS 易受寄生發熱影響，零熱預算 AntiFuse 避免 eFlash 浮閘退火高溫，基準電壓長效穩定須依特定 IP 驗證；AEC-Q100 Grade 0 為環境溫度 Ta −40 至 +150°C。</span>
+        <span data-lang="en">BCD high-voltage DMOS is sensitive to thermal budgets. Pure-logic AntiFuse eliminates eFlash anneal penalty, long-term stability requires named-IP validation; AEC-Q100 Grade 0 specifies ambient Ta −40 to +150°C.</span>
       </div>
     </div>
 
@@ -757,7 +757,7 @@
 <div class="spec-card-desc"><span data-lang="zh">較傳統 eFlash 省下 10~15 道光罩</span><span data-lang="en">Saves 10-15 masks vs eFlash</span></div>
 </div>
 <div class="spec-card">
-<div class="spec-card-val val-amber">175°C Tj</div>
+<div class="spec-card-val val-amber">Ta −40 ~ +150°C</div>
 <div class="spec-card-title"><span data-lang="zh">AEC-Q100 GRADE 0</span><span data-lang="en">AEC-Q100 GRADE 0</span></div>
 <div class="spec-card-desc"><span data-lang="zh">永久閘極介電質擊穿微絲，耐受開關高溫</span><span data-lang="en">Permanent gate-dielectric breakdown filament resists heat</span></div>
 </div>
@@ -904,9 +904,9 @@
 </div>
 <div class="deck-metric-callout">
 <span class="deck-metric-val"><span data-lang="zh">99.8% 良率</span><span data-lang="en">99.8% Yield</span> </span>
-<span class="deck-metric-lbl">AEC-Q100 GRADE 0 (175°C)</span>
+<span class="deck-metric-lbl">AEC-Q100 GRADE 0 (Ta −40 to +150°C)</span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">鎖定</span><span data-lang="en">LOCK TIMING</span></span><span class="chip-v cyan"><span data-lang="zh">上電 &lt;50ns 硬體鎖死</span><span data-lang="en">&lt;50ns BOOT LOCK</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">留存</span><span data-lang="en">RETENTION</span></span><span class="chip-v green"><span data-lang="zh">15+ 年 @ 175°C 車規耐受</span><span data-lang="en">15+ YRS @ 175°C</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">鎖定</span><span data-lang="en">LOCK TIMING</span></span><span class="chip-v cyan"><span data-lang="zh">上電 &lt;50ns 硬體鎖死</span><span data-lang="en">&lt;50ns BOOT LOCK</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">留存</span><span data-lang="en">RETENTION</span></span><span class="chip-v green"><span data-lang="zh">AntiFuse 資料保存選型目標：15 年以上 @ 175°C Tj，依特定 IP 規格書驗證</span><span data-lang="en">AntiFuse retention target: 15+ yrs @ 175°C Tj; verify named IP datasheet</span></span></div></div>
 </div>
 </div>
 </div>
@@ -968,7 +968,7 @@
 <span class="deck-metric-val"><span data-lang="zh">240W 協定</span><span data-lang="en">240W Protocol</span></span>
 <span class="deck-metric-lbl"><span data-lang="zh">現場線上 ISP 更新</span><span data-lang="en">IN-FIELD ONLINE ISP PATCH</span></span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">角色</span><span data-lang="en">ROLE</span></span><span class="chip-v cyan"><span data-lang="zh">儲存 PDO 供電協議金鑰</span><span data-lang="en">PDO PROFILES &amp; KEYS</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">擦寫</span><span data-lang="en">ENDURANCE</span></span><span class="chip-v green"><span data-lang="zh">10,000 次重複韌體升級</span><span data-lang="en">10,000 CYCLES</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">角色</span><span data-lang="en">ROLE</span></span><span class="chip-v cyan"><span data-lang="zh">儲存 PDO 供電協議金鑰</span><span data-lang="en">PDO PROFILES &amp; KEYS</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">抹寫</span><span data-lang="en">ENDURANCE</span></span><span class="chip-v green"><span data-lang="zh">10,000 次重複韌體升級</span><span data-lang="en">10,000 CYCLES</span></span></div></div>
 </div>
 <div class="deck-rail-connector">
 <div class="deck-connector-line"></div>
@@ -995,7 +995,7 @@
 <span class="deck-metric-val"><span data-lang="zh">三相閘極驅動器</span><span data-lang="en">3-Phase Gate Driver</span></span>
 <span class="deck-metric-lbl"><span data-lang="zh">換相角度 LUT</span><span data-lang="en">COMMUTATION ANGLE LUT</span></span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">架構</span><span data-lang="en">INTEGRATION</span></span><span class="chip-v cyan"><span data-lang="zh">單晶片整合三相驅動</span><span data-lang="en">MCU + 3-PHASE DRIVER</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">效能</span><span data-lang="en">LATENCY</span></span><span class="chip-v green"><span data-lang="zh">零等待匯流排調用換相</span><span data-lang="en">ZERO-WAIT AHB LUT</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">架構</span><span data-lang="en">INTEGRATION</span></span><span class="chip-v cyan"><span data-lang="zh">單晶片整合三相驅動</span><span data-lang="en">MCU + 3-PHASE DRIVER</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">效能</span><span data-lang="en">LATENCY</span></span><span class="chip-v green"><span data-lang="zh">零等待匯流排呼叫換相</span><span data-lang="en">ZERO-WAIT AHB LUT</span></span></div></div>
 </div>
 <div class="deck-rail-connector">
 <div class="deck-connector-line"></div>
@@ -1019,12 +1019,12 @@
 </div>
 </div>
 <div class="deck-metric-callout">
-<span class="deck-metric-val"><span data-lang="zh">最高接面溫度 175°C</span><span data-lang="en">175°C Tj Max</span></span>
+<span class="deck-metric-val"><span data-lang="zh">接面溫度上限依特定規格書</span><span data-lang="en">Tj maximum per named datasheet</span></span>
 <span class="deck-metric-lbl"><span data-lang="zh">Grade 0／ASIL-D（SEooC）術語之安全日誌，非 READY 認證</span><span data-lang="en">Grade 0 / ASIL-D (SEooC) vocabulary — not READY cert SAFETY LOG</span></span>
 </div>
 <div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">紀錄</span><span data-lang="en">SAFETY LOG</span></span><span class="chip-v cyan"><span data-lang="zh">電池阻抗黑盒子查表</span><span data-lang="en">CELL IMPEDANCE LUT</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">車規</span><span data-lang="en">QUALIFICATION</span></span><span class="chip-v green"><span data-lang="zh">AEC-Q100 Grade 0 詞彙（非認證）</span><span data-lang="en">AEC-Q100 Grade 0 vocabulary (not a certification claim)</span></span></div></div>
 <div style="padding: 6px 8px; font-size: 10px; color: #334155; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 8px;">
-<span data-lang="zh"><strong>SEooC 假定使用 (AoU)：</strong> 可使用 ISO 26262 ASIL <strong>詞彙</strong>（非 READY 認證）；<strong>IEC 61508 SC3</strong> 為跨標準教學對照，本頁架構不宣稱具備。<code>LFM</code> 等度量須以具名 FMEDA 與 <em>T</em><sub>scrub</sub> 等 AoU 關閉，不得由本頁敘述直接推出。</span>
+<span data-lang="zh"><strong>SEooC 假定使用 (AoU)：</strong> 可使用 ISO 26262 ASIL <strong>詞彙</strong>（非 READY 認證）；<strong>IEC 61508 SC3</strong> 為跨標準教學對照，本頁架構不宣稱具備。<code>LFM</code> 等度量須以特定 FMEDA 與 <em>T</em><sub>scrub</sub> 等 AoU 關閉，不得由本頁敘述直接推出。</span>
 <span data-lang="en"><strong>SEooC AoU:</strong> ISO 26262 ASIL <strong>vocabulary</strong> only (not READY certification). <strong>IEC 61508 SC3</strong> is a cross-standard teaching reference — this page does not claim that capability by architecture alone. Metrics such as <code>LFM</code> require named FMEDA and AoU bounds such as <em>T</em><sub>scrub</sub> — do not infer certification from this page.</span>
 </div>
 </div>
@@ -1071,7 +1071,7 @@
           </div>
           <div>
             <strong style="color: #0f172a;"><span data-lang="zh">耐久／留存：</span><span data-lang="en">Endurance &amp; Retention: </span></strong>
-            <span data-lang="zh">公開敘事 1K～10K cycles；Ta／Tj 與 Grade 0 資格須依具名平台分開引用</span><span data-lang="en">Public brief cites 1K–10K cycles; cite Ta/Tj and Grade 0 qualification per named platform</span>
+            <span data-lang="zh">公開敘事 1K～10K cycles；Ta／Tj 與 Grade 0 資格須依特定平台分開引用</span><span data-lang="en">Public brief cites 1K–10K cycles; cite Ta/Tj and Grade 0 qualification per named platform</span>
           </div>
           <div>
             <strong style="color: #0f172a;"><span data-lang="zh">高壓共存性：</span><span data-lang="en">HV Compatibility: </span></strong>
@@ -1137,7 +1137,7 @@
           </div>
           <div>
             <strong style="color: #0f172a;"><span data-lang="zh">耐久／留存：</span><span data-lang="en">Endurance &amp; Retention: </span></strong>
-            <span data-lang="zh">1 次寫入；&gt;100 年留存 @ 150°C，極限結溫 175°C 無電荷洩漏風險</span><span data-lang="en">1-time write; &gt;100 years retention @ 150°C, zero charge-leakage risk up to 175°C Tj</span>
+            <span data-lang="zh">1 次寫入；&gt;100 年資料保存 @ 150°C 為選型目標，須依特定 IP 規格書驗證</span><span data-lang="en">1-time write; &gt;100 years retention @ 150°C is a selection target requiring a named IP datasheet</span>
           </div>
           <div>
             <strong style="color: #0f172a;"><span data-lang="zh">安全防護：</span><span data-lang="en">Physical Security: </span></strong>
@@ -1268,7 +1268,7 @@
 <line stroke="rgba(255,255,255,0.2)" stroke-width="1.5" x1="30" x2="30" y1="20" y2="130"></line>
 <text fill="#64748b" font-family="monospace" font-size="10" x="35" y="145">-40°C</text>
 <text fill="#64748b" font-family="monospace" font-size="10" x="150" y="145">+25°C</text>
-<text fill="#64748b" font-family="monospace" font-size="10" x="260" y="145">+175°C</text>
+<text fill="#64748b" font-family="monospace" font-size="10" x="260" y="145">+150°C</text>
 <!-- CTAT 負溫斜線 -->
 <path d="M 40 35 L 290 115" stroke="#f43f5e" stroke-dasharray="4,3" stroke-width="2.5"></path>
 <text fill="#f43f5e" font-size="10" font-weight="bold" x="200" y="110"><tspan data-lang="zh">CTAT：-2.0 mV/°C（例）</tspan><tspan data-lang="en">CTAT: -2.0 mV/°C (ex.)</tspan></text>
@@ -1328,7 +1328,7 @@
 <!-- 底部微標籤狀態條 -->
 <div class="abstract-truth-strip">
 <div class="truth-pill"><span class="pill-k"><span data-lang="zh">溫度係數</span><span data-lang="en">TEMPCO</span></span><span class="pill-v">&lt; 5 ppm/°C</span></div>
-<div class="truth-pill"><span class="pill-k"><span data-lang="zh">範圍</span><span data-lang="en">RANGE</span></span><span class="pill-v">-40°C ~ 150°C Ta / 175°C Tj (AEC-Q100 Grade 0)</span></div>
+<div class="truth-pill"><span class="pill-k"><span data-lang="zh">範圍</span><span data-lang="en">RANGE</span></span><span class="pill-v">AEC-Q100 Grade 0: Ta −40 to +150°C</span></div>
 <div class="truth-pill"><span class="pill-k"><span data-lang="zh">校準</span><span data-lang="en">CALIBRATION</span></span><span class="pill-v"><span data-lang="zh">零光罩 OTP 電阻梯形網路</span><span data-lang="en">ZERO-MASK OTP R-LADDER</span></span></div>
 <div class="truth-pill"><span class="pill-k"><span data-lang="zh">備援</span><span data-lang="en">REDUNDANCY</span></span><span class="pill-v"><span data-lang="zh">永久硬體鎖定</span><span data-lang="en">PERMANENT HARD LOCK</span></span></div>
 </div>
@@ -1357,7 +1357,7 @@
 <div class="contract-card-code"><span data-lang="zh">設計約定 #02 · 保存能力</span><span data-lang="en">CONTRACT #02 · RETENTION</span></div>
 
 
-<div class="contract-kpi"><span data-lang="zh">15+ 年 @ 175°C Tj</span><span data-lang="en">15+ YRS @ 175°C Tj</span></div><div class="contract-spec-tags"><span><span data-lang="zh">AEC-Q100 車規結溫</span><span data-lang="en">AEC-Q100 GRADE 0</span></span><span><span data-lang="zh">抗切換噪訊</span><span data-lang="en">NOISE IMMUNITY</span></span></div></div>
+<div class="contract-kpi"><span data-lang="zh">AntiFuse 資料保存選型目標：15 年以上 @ 175°C Tj，依特定 IP 規格書驗證</span><span data-lang="en">AntiFuse retention target: 15+ yrs @ 175°C Tj; verify named IP datasheet</span></div><div class="contract-spec-tags"><span><span data-lang="zh">AEC-Q100 Grade 0：Ta −40 至 +150°C</span><span data-lang="en">AEC-Q100 GRADE 0</span></span><span><span data-lang="zh">抗切換噪訊</span><span data-lang="en">NOISE IMMUNITY</span></span></div></div>
 <div class="contract-truth-card">
 <div class="contract-card-code"><span data-lang="zh">設計約定 #03 · 預算</span><span data-lang="en">CONTRACT #03 · BUDGET</span></div>
 
@@ -1409,9 +1409,9 @@
 </tr>
 <tr>
 <td class="metric-col"><span data-lang="zh">車規高溫資料保存 (Retention)</span><span data-lang="en">High-Temp Retention</span></td>
-<td><span data-lang="zh">15+ 年 @ 175°C Tj（原列選型目標，依 IP 分別驗證）；AntiFuse：擊穿路徑；NeoMTP：浮動閘電荷</span><span data-lang="en">15+ yrs @ 175°C Tj (listed selection target; validate each IP); Antifuse: breakdown path; NeoMTP: floating-gate charge</span></td>
+<td><span data-lang="zh">15+ 年 @ 175°C Tj（AntiFuse／NeoMTP 原列資料保存目標，依特定 IP 規格書分別驗證）；AntiFuse：擊穿路徑；NeoMTP：浮動閘電荷</span><span data-lang="en">15+ yrs @ 175°C Tj (listed AntiFuse/NeoMTP retention target; validate against each named IP datasheet); Antifuse: breakdown path; NeoMTP: floating-gate charge</span></td>
 <td><span data-lang="zh">&gt;125°C 漏電加劇 (SILC 氧化層洩漏)</span><span data-lang="en">Degrades &gt;125°C due to SILC oxide leakage</span></td>
-<td><span data-lang="zh">滿足車用動力系統與底盤 AEC-Q100 Grade 0 要求</span><span data-lang="en">Crucial for AEC-Q100 Grade 0 automotive powertrain and chassis</span></td>
+<td><span data-lang="zh">AEC-Q100 Grade 0（Ta −40 至 +150°C）車用資格須另行驗證</span><span data-lang="en">AEC-Q100 Grade 0 (Ta −40 to +150°C) automotive qualification requires separate validation</span></td>
 </tr>
 <tr>
 <td class="metric-col"><span data-lang="zh">超低功耗待機（待機漏電）</span><span data-lang="en">Standby Power &amp; Leakage</span></td>
@@ -1433,8 +1433,8 @@
 <span data-lang="en">SiC/GaN Gate Drivers: Nanosecond Dead-Time Trimming, DESAT Protection &amp; High-CMTI Resilience</span>
 </h3>
 <p style="color: #334155; font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem;">
-<span data-lang="zh">在 800V 電動車主驅逆變器與 AI 伺服器高密度電源中，碳化矽 (SiC) 與氮化鎵 (GaN) 以 &gt;500kHz 高頻開關運行。封裝極小（SOIC-8/16）的高低側隔離閘極驅動晶片（如 TI UCC217xx、Infineon EiceDRIVER™、STGAP 系列）無法容納外掛 Flash，且須在 &gt;150 V/ns 的極端共模瞬態 (CMTI) 與 175°C 結溫下保證零失誤：</span>
-<span data-lang="en">In 800V EV traction inverters and AI server power units, SiC and GaN switch at &gt;500kHz. Highly constrained isolated gate driver ICs (TI UCC217xx, Infineon EiceDRIVER™, STGAP) cannot fit external Flash and must endure &gt;150 V/ns CMTI transients at 175°C Tj:</span>
+<span data-lang="zh">在 800V 電動車主驅逆變器與 AI 伺服器高密度電源中，碳化矽 (SiC) 與氮化鎵 (GaN) 以 &gt;500kHz 高頻開關運行。封裝極小（SOIC-8/16）的高低側隔離閘極驅動晶片（如 TI UCC217xx、Infineon EiceDRIVER™、STGAP 系列）無法容納外掛 Flash，且須在 &gt;150 V/ns 的極端共模瞬態 (CMTI) 下驗證可靠度；接面溫度上限須依特定規格書確認：</span>
+<span data-lang="en">In 800V EV traction inverters and AI server power units, SiC and GaN switch at &gt;500kHz. Highly constrained isolated gate driver ICs (TI UCC217xx, Infineon EiceDRIVER™, STGAP) cannot fit external Flash and must endure &gt;150 V/ns CMTI transients within the junction-temperature limits of a named datasheet:</span>
 </p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1rem;">
 <div style="background: rgba(248, 250, 252, 0.96); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 1rem;">
@@ -1459,7 +1459,7 @@
 </p>
 </div>
 <div style="margin-top: 1rem; padding: 10px 14px; background: rgba(0, 229, 255, 0.06); border-left: 3px solid #f1f5f9; border-radius: 4px; font-size: 0.82rem; line-height: 1.5; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center;">
-  <strong style="color: #0f172a;"><span data-lang="zh">架構與物理鏈接：</span><span data-lang="en">Architecture &amp; Physics: </span></strong>
+  <strong style="color: #0f172a;"><span data-lang="zh">架構與物理連結：</span><span data-lang="en">Architecture &amp; Physics: </span></strong>
   <a href="memory-physics.html#physics-models" style="color: #785021; text-decoration: underline;">
     <span data-lang="zh">第一性原理穿隧與 4 階段介電質崩潰微觀物理 ↗</span>
     <span data-lang="en">First-Principles Tunneling &amp; 4-Stage Breakdown Physics ↗</span>
@@ -1642,7 +1642,7 @@
 <span class="deck-metric-val">R_FIL &lt; 100 Ω</span>
 <span class="deck-metric-lbl"><span data-lang="zh">無再生長漏電</span><span data-lang="en">ZERO GROW-BACK LEAKAGE</span></span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">延遲</span><span data-lang="en">LATENCY</span></span><span class="chip-v cyan"><span data-lang="zh">0-Cycle 硬體 CAM 攔截</span><span data-lang="en">0-CYCLE CAM MATCH</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">留存</span><span data-lang="en">RETENTION</span></span><span class="chip-v green"><span data-lang="zh">15+ 年 @ 175°C Tj 車規耐受</span><span data-lang="en">15+ YRS @ 175°C Tj (AEC-Q100)</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">延遲</span><span data-lang="en">LATENCY</span></span><span class="chip-v cyan"><span data-lang="zh">0-Cycle 硬體 CAM 攔截</span><span data-lang="en">0-CYCLE CAM MATCH</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">留存</span><span data-lang="en">RETENTION</span></span><span class="chip-v green"><span data-lang="zh">AntiFuse 資料保存選型目標：15 年以上 @ 175°C Tj，依特定 IP 規格書驗證</span><span data-lang="en">AntiFuse retention target: 15+ yrs @ 175°C Tj; verify named IP datasheet</span></span></div></div>
 </div>
 </div>
 </div>
@@ -2023,7 +2023,7 @@
 <span class="deck-metric-val">0.5 µm² @ 0.18µm BCD</span>
 <span class="deck-metric-lbl"><span data-lang="zh">先進節點可縮小至 &lt;0.02 µm²</span><span data-lang="en">SCALABLE TO &lt;0.02 µm² IN ADVANCED NODES</span></span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">優勢</span><span data-lang="en">ADVANTAGE</span></span><span class="chip-v green"><span data-lang="zh">超薄閘極硬擊穿永久熔融細絲，零回跳</span><span data-lang="en">DIELECTRIC RUPTURE, ZERO GROW-BACK</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">認證</span><span data-lang="en">FOUNDRY QUAL</span></span><span class="chip-v cyan"><span data-lang="zh">15+ 年 @ 175°C Tj 車規認證</span><span data-lang="en">15+ YRS @ 175°C Tj (GRADE 0)</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">優勢</span><span data-lang="en">ADVANTAGE</span></span><span class="chip-v green"><span data-lang="zh">超薄閘極硬擊穿永久熔融細絲，零回跳</span><span data-lang="en">DIELECTRIC RUPTURE, ZERO GROW-BACK</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">選型目標</span><span data-lang="en">SELECTION TARGET</span></span><span class="chip-v cyan"><span data-lang="zh">AntiFuse 資料保存選型目標：15 年以上 @ 175°C Tj，依特定 IP 規格書驗證</span><span data-lang="en">AntiFuse retention target: 15+ yrs @ 175°C Tj; verify named IP datasheet</span></span></div></div>
 </div>
 </div>
 
@@ -2046,7 +2046,7 @@
         <span style="font-size: 9.5px; background: rgba(56, 189, 248, 0.15); color: #7dd3fc; padding: 2px 6px; border-radius: 3px;"><span data-lang="zh">Cu-Cu DBI 鍵合</span><span data-lang="en">Cu-Cu DBI Bonded</span></span>
       </div>
       <p style="font-size: 0.83rem; line-height: 1.6; color: #334155; margin: 0;">
-        <span data-lang="zh">感光像素晶粒與邏輯晶粒透過 Cu-Cu 混合鍵合 (DBI) 堆疊。晶圓測試 (CP) 時檢測出成千上萬個暗電流亮點 (Hot Pixels)。<strong>嚴禁採用傳統 eFlash</strong>：因 &gt;900°C 退火會熔毀已塗佈之彩色濾光片與微透鏡；<strong>嚴禁雷射熔斷</strong>：因封裝後雷射無法穿透矽層。常見架構為 <strong>0-Mask 純邏輯 AntiFuse OTP</strong>，在室溫探針測試下以電氣脈衝硬鎖定數十 Kb 壞點座標 — 具名產品仍須對照 PDK 與修復流程，非全族唯一解。</span>
+        <span data-lang="zh">感光像素晶粒與邏輯晶粒透過 Cu-Cu 混合鍵合 (DBI) 堆疊。晶圓測試 (CP) 時檢測出成千上萬個暗電流亮點 (Hot Pixels)。<strong>嚴禁採用傳統 eFlash</strong>：因 &gt;900°C 退火會熔毀已塗佈之彩色濾光片與微透鏡；<strong>嚴禁雷射熔斷</strong>：因封裝後雷射無法穿透矽層。常見架構為 <strong>0-Mask 純邏輯 AntiFuse OTP</strong>，在室溫探針測試下以電氣脈衝硬鎖定數十 Kb 壞點座標 — 特定產品仍須對照 PDK 與修復流程，非全族唯一解。</span>
         <span data-lang="en">Pixel dies bond to logic dies via Cu-Cu DBI. Testing flags thousands of hot pixels. <strong>eFlash is forbidden</strong> as &gt;900°C anneal destroys color filters and microlenses; <strong>laser fuses are inaccessible</strong> inside stacked 3D dies. A common architecture is <strong>zero-mask logic AntiFuse OTP</strong> that electrically locks defect coordinates at room temperature — named products still need PDK/repair-flow evidence; not a universal-only solution.</span>
       </p>
     </div>
@@ -2060,8 +2060,8 @@
         <span style="font-size: 9.5px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 2px 6px; border-radius: 3px;">JESD79-5 / JESD238</span>
       </div>
       <p style="font-size: 0.83rem; line-height: 1.6; color: #334155; margin: 0;">
-        <span data-lang="zh">JEDEC 標準定義了封裝後硬體重映射 (Hard Post-Package Repair, hPPR)。傳統 Poly eFuse 因電致遷移空隙具備熱鬆弛回跳 (Grow-Back) 致命缺陷，在伺服器高溫環境下易使已修復壞位元死灰復燃；而 AntiFuse 的局域再結晶矽微絲為永久性歐姆通道 (R &lt; 100Ω)，在 150°C~175°C 高溫下具備零回跳與永久性物理鎖定，成為高頻寬記憶體 (HBM3/HBM3e) 與 DDR5 模組良率的產業黃金基準。</span>
-        <span data-lang="en">JEDEC defines Hard Post-Package Repair (hPPR). Conventional poly eFuses suffer thermal grow-back, risking defect reappearance under server heat. AntiFuse forms permanent recrystallized ohmic silicon filaments (R &lt; 100Ω) with zero grow-back across 150°C~175°C, serving as the gold standard for DDR5 and HBM3 stack yields.</span>
+        <span data-lang="zh">JEDEC 標準定義了封裝後硬體重映射 (Hard Post-Package Repair, hPPR)。傳統 Poly eFuse 因電致遷移空隙具備熱鬆弛回跳 (Grow-Back) 致命缺陷，在伺服器高溫環境下易使已修復壞位元死灰復燃；而 AntiFuse 的局域再結晶矽微絲為永久性歐姆通道 (R &lt; 100Ω)，高溫資料保存與回跳風險須依特定 IP 規格書驗證，成為高頻寬記憶體 (HBM3/HBM3e) 與 DDR5 模組良率的產業黃金基準。</span>
+        <span data-lang="en">JEDEC defines Hard Post-Package Repair (hPPR). Conventional poly eFuses suffer thermal grow-back, risking defect reappearance under server heat. AntiFuse forms permanent recrystallized ohmic silicon filaments (R &lt; 100Ω) with high-temperature retention and grow-back risk requiring named-IP datasheet validation, serving as the gold standard for DDR5 and HBM3 stack yields.</span>
       </p>
     </div>
   </div>
@@ -2473,7 +2473,7 @@
 <h4><span data-lang="zh">3-Lot 晶圓流片與 Shmoo 裕度</span><span data-lang="en">3-Lot Tapeout &amp; Shmoo Matrix</span></h4>
 <ul class="step-metrics">
 <li><strong><span data-lang="zh">晶圓批次：</span><span data-lang="en">Wafer Lots:</span></strong> <span data-lang="zh">專屬測試晶片跨 3 批次 (3-Lot)</span><span data-lang="en">Dedicated 3-Lot test vehicles</span></li>
-<li><strong><span data-lang="zh">溫度跨度：</span><span data-lang="en">Temp Range:</span></strong> -40°C ~ 150°C / 175°C</li>
+<li><strong><span data-lang="zh">溫度跨度：</span><span data-lang="en">Temp Range:</span></strong> Ta −40°C ~ +150°C</li>
 <li><strong><span data-lang="zh">電壓裕度：</span><span data-lang="en">Voltage:</span></strong> ±10% VDD Core / IO Shmoo</li>
 <li><strong><span data-lang="zh">物理指標：</span><span data-lang="en">Physical:</span></strong> <span data-lang="zh">細絲電阻 &lt;100Ω 4σ 分佈</span><span data-lang="en">Filament R &lt; 100Ω 4σ fit</span></li>
 </ul>
@@ -2508,7 +2508,7 @@
 <li><strong><span data-lang="zh">隔離架構：</span><span data-lang="en">Isolation:</span></strong> <span data-lang="zh">Deep N-Well 三重基板保護環</span><span data-lang="en">Deep N-Well guard-rings</span></li>
 <li><strong><span data-lang="zh">耐受指標：</span><span data-lang="en">dV/dt:</span></strong> <span data-lang="zh">50V/ns 高速瞬態脈衝抑制</span><span data-lang="en">50V/ns pulse suppression</span></li>
 <li><strong><span data-lang="zh">加速老化：</span><span data-lang="en">Stress:</span></strong> <span data-lang="zh">1000 小時 HTOL + HTSL 烘烤</span><span data-lang="en">1000h HTOL + HTSL bake</span></li>
-<li><strong><span data-lang="zh">電荷保存：</span><span data-lang="en">Retention:</span></strong> <span data-lang="zh">消除浮閘 SILC 電荷流失路徑；關斷漏電 &lt;0.1 pA/cell，15+ 年 @ 175°C Tj</span><span data-lang="en">Eliminates floating-gate SILC loss path; standby leakage &lt;0.1 pA/cell, 15+ yrs @ 175°C Tj</span></li>
+<li><strong><span data-lang="zh">電荷保存：</span><span data-lang="en">Retention:</span></strong> <span data-lang="zh">消除浮閘 SILC 電荷流失路徑；關斷漏電 &lt;0.1 pA/cell，AntiFuse 資料保存選型目標：15 年以上 @ 175°C Tj，依特定 IP 規格書驗證</span><span data-lang="en">Eliminates floating-gate SILC loss path; standby leakage &lt;0.1 pA/cell, AntiFuse retention target: 15+ yrs @ 175°C Tj; verify named IP datasheet</span></li>
 </ul>
 </div>
 </div>
@@ -2687,7 +2687,7 @@
 <span class="deck-step-status"><span data-lang="zh">粒子流體力學</span><span data-lang="en">PARTICLE FLUIDICS</span></span>
 </div>
 <h5 class="deck-step-title">
-<span data-lang="zh">微粒活化與殘影擦除 (Shake &amp; Reset)</span>
+<span data-lang="zh">微粒活化與殘影抹除 (Shake &amp; Reset)</span>
 <span data-lang="en">Agitation &amp; Erase Pulse</span>
 </h5>
 <div class="deck-visual-stage">
@@ -2983,7 +2983,7 @@
 <td class="metric-col"><span data-lang="zh">畫面動態更新</span><span data-lang="en">Motion Display</span></td>
 <td><span data-lang="zh">偏慢 (數百毫秒粒子電泳)</span><span data-lang="en">Slow (Hundreds of ms particle migration)</span></td>
 <td><span data-lang="zh">即時 (60Hz - 144Hz 更新率)</span><span data-lang="en">Real-time (60Hz - 144Hz refresh rate)</span></td>
-<td><span data-lang="zh">電子紙需要依據溫度調用多幀波形序列 (Waveform Frames)</span><span data-lang="en">E-Ink requires temperature-dependent multi-frame waveform lookups</span></td>
+<td><span data-lang="zh">電子紙需要依據溫度選用多影格波形序列 (Waveform Frames)</span><span data-lang="en">E-Ink requires temperature-dependent multi-frame waveform lookups</span></td>
 </tr>
 <tr>
 <td class="metric-col"><span data-lang="zh">能源消耗特性</span><span data-lang="en">Energy Consumption</span></td>

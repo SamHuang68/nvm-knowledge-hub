@@ -192,7 +192,7 @@
 
     <div class="header-actions">
       <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to Traditional Chinese" data-aria-en="Switch to Traditional Chinese" data-aria-zh="切換為英文">
-        <b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b>
+        <b data-lang-option="en" lang="en">EN</b><i>/</i><b data-lang-option="zh" lang="zh-Hant">中文</b>
       </button>
       <button class="menu-button" id="menuToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu" data-aria-en="Open menu" data-aria-zh="開啟選單">
         <span></span><span></span>

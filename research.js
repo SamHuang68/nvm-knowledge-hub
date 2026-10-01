@@ -41,7 +41,9 @@ function setResearchLanguage(nextLanguage, persist = true) {
     search.placeholder = researchLanguage === "zh" ? "搜尋作者、技術、攻擊或 DOI…" : "Search author, technology, attack or DOI…";
     search.setAttribute("aria-label", researchLanguage === "zh" ? "搜尋證據" : "Search evidence");
   }
-  document.title = document.body.classList.contains("ai-nvm-page")
+  document.title = researchLanguage === "zh"
+    ? (document.documentElement.dataset.titleZh || "NVM 知識中心")
+    : document.body.classList.contains("ai-nvm-page")
     ? (researchLanguage === "zh" ? "AI Systems 與 NVM 機會 · NVM Knowledge Hub" : "AI Systems & NVM Opportunities · NVM Knowledge Hub")
     : document.body.classList.contains("oip-page")
     ? "OIP Secure Storage Brief · NVM Knowledge Hub"

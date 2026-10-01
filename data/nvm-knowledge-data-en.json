@@ -1940,7 +1940,7 @@
       {
         "id": "CMP-YU2016",
         "label": "Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects",
-        "url": "https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf",
+        "url": "https://doi.org/10.1109/MSSC.2016.2546199",
         "kind": "Original Technical Review",
         "locator": "IEEE Solid-State Circuits Magazine 8(2), 43–56; p44, Table 1; DOI 10.1109/MSSC.2016.2546199",
         "date": "2016",
@@ -7234,7 +7234,7 @@
     {
       "id": "CMP-YU2016",
       "label": "Yu and Chen: Emerging Memory Technologies—Recent Trends and Prospects",
-      "url": "https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf",
+      "url": "https://doi.org/10.1109/MSSC.2016.2546199",
       "kind": "Original Technical Review",
       "locator": "IEEE Solid-State Circuits Magazine 8(2), 43–56; p44, Table 1; DOI 10.1109/MSSC.2016.2546199",
       "date": "2016",
@@ -8191,7 +8191,7 @@
     {
       "id": "physics-btbt-carriers",
       "label": "Chu and Wu: BTBT Hot-Carrier Paths",
-      "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+      "url": "https://doi.org/10.1109/55.823576",
       "kind": "Original Research",
       "date": "2000-03; accessed 2026-09-10",
       "locator": "IEEE EDL 21(3), page 123 Introduction; page 125 Figure 4; DOI 10.1109/55.823576",
@@ -8327,7 +8327,7 @@
     {
       "id": "ip-numem-2019",
       "label": "Numem: First-Generation 22nm Embedded MRAM Presentation",
-      "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+      "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
       "kind": "Manufacturer public conference presentation",
       "date": "2019-08-05",
       "accessedAt": "2026-09-10",
@@ -8397,7 +8397,7 @@
     {
       "id": "ip-crossbar-macro",
       "label": "Crossbar: High-Performance ReRAM IP Brief",
-      "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+      "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
       "kind": "Manufacturer public product brief",
       "date": null,
       "accessedAt": "2026-09-10",
@@ -8407,7 +8407,7 @@
     {
       "id": "ip-crossbar-2015",
       "label": "Crossbar: Original Embedded 1T1R and Metallic-Path Presentation",
-      "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+      "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
       "kind": "Manufacturer public conference presentation",
       "date": "2015",
       "accessedAt": "2026-09-10",
@@ -22867,7 +22867,7 @@
               {
                 "id": "physics-btbt-carriers",
                 "label": "Chu and Wu: BTBT Hot-Carrier Paths",
-                "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+                "url": "https://doi.org/10.1109/55.823576",
                 "kind": "Original Research",
                 "date": "2000-03; accessed 2026-09-10",
                 "locator": "IEEE EDL 21(3), page 123 Introduction; page 125 Figure 4; DOI 10.1109/55.823576",
@@ -23012,7 +23012,7 @@
                   {
                     "id": "physics-btbt-carriers",
                     "label": "Chu and Wu: BTBT Hot-Carrier Paths",
-                    "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+                    "url": "https://doi.org/10.1109/55.823576",
                     "kind": "Original Research",
                     "date": "2000-03; accessed 2026-09-10",
                     "locator": "IEEE EDL 21(3), page 123 Introduction; page 125 Figure 4; DOI 10.1109/55.823576",
@@ -25985,7 +25985,7 @@
               {
                 "id": "ip-numem-2019",
                 "label": "Numem: First-Generation 22nm Embedded MRAM Presentation",
-                "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                 "kind": "Manufacturer public conference presentation",
                 "date": "2019-08-05",
                 "accessedAt": "2026-09-10",
@@ -26099,7 +26099,7 @@
                   {
                     "id": "ip-numem-2019",
                     "label": "Numem: First-Generation 22nm Embedded MRAM Presentation",
-                    "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                    "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                     "kind": "Manufacturer public conference presentation",
                     "date": "2019-08-05",
                     "accessedAt": "2026-09-10",
@@ -26140,7 +26140,7 @@
               {
                 "id": "ip-numem-2019",
                 "label": "Numem: First-Generation 22nm Embedded MRAM Presentation",
-                "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                 "kind": "Manufacturer public conference presentation",
                 "date": "2019-08-05",
                 "accessedAt": "2026-09-10",
@@ -26254,7 +26254,7 @@
                   {
                     "id": "ip-numem-2019",
                     "label": "Numem: First-Generation 22nm Embedded MRAM Presentation",
-                    "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                    "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                     "kind": "Manufacturer public conference presentation",
                     "date": "2019-08-05",
                     "accessedAt": "2026-09-10",
@@ -26295,7 +26295,7 @@
               {
                 "id": "ip-numem-2019",
                 "label": "Numem: First-Generation 22nm Embedded MRAM Presentation",
-                "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                 "kind": "Manufacturer public conference presentation",
                 "date": "2019-08-05",
                 "accessedAt": "2026-09-10",
@@ -26396,7 +26396,7 @@
                   {
                     "id": "ip-numem-2019",
                     "label": "Numem: First-Generation 22nm Embedded MRAM Presentation",
-                    "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                    "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                     "kind": "Manufacturer public conference presentation",
                     "date": "2019-08-05",
                     "accessedAt": "2026-09-10",
@@ -27430,7 +27430,7 @@
               {
                 "id": "ip-crossbar-macro",
                 "label": "Crossbar: High-Performance ReRAM IP Brief",
-                "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                 "kind": "Manufacturer public product brief",
                 "date": null,
                 "accessedAt": "2026-09-10",
@@ -27440,7 +27440,7 @@
               {
                 "id": "ip-crossbar-2015",
                 "label": "Crossbar: Original Embedded 1T1R and Metallic-Path Presentation",
-                "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
                 "kind": "Manufacturer public conference presentation",
                 "date": "2015",
                 "accessedAt": "2026-09-10",
@@ -27540,7 +27540,7 @@
                   {
                     "id": "ip-crossbar-macro",
                     "label": "Crossbar: High-Performance ReRAM IP Brief",
-                    "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                    "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                     "kind": "Manufacturer public product brief",
                     "date": null,
                     "accessedAt": "2026-09-10",
@@ -27550,7 +27550,7 @@
                   {
                     "id": "ip-crossbar-2015",
                     "label": "Crossbar: Original Embedded 1T1R and Metallic-Path Presentation",
-                    "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                    "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
                     "kind": "Manufacturer public conference presentation",
                     "date": "2015",
                     "accessedAt": "2026-09-10",
@@ -27581,7 +27581,7 @@
               {
                 "id": "ip-crossbar-macro",
                 "label": "Crossbar: High-Performance ReRAM IP Brief",
-                "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                 "kind": "Manufacturer public product brief",
                 "date": null,
                 "accessedAt": "2026-09-10",
@@ -27591,7 +27591,7 @@
               {
                 "id": "ip-crossbar-2015",
                 "label": "Crossbar: Original Embedded 1T1R and Metallic-Path Presentation",
-                "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
                 "kind": "Manufacturer public conference presentation",
                 "date": "2015",
                 "accessedAt": "2026-09-10",
@@ -27691,7 +27691,7 @@
                   {
                     "id": "ip-crossbar-macro",
                     "label": "Crossbar: High-Performance ReRAM IP Brief",
-                    "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                    "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                     "kind": "Manufacturer public product brief",
                     "date": null,
                     "accessedAt": "2026-09-10",
@@ -27701,7 +27701,7 @@
                   {
                     "id": "ip-crossbar-2015",
                     "label": "Crossbar: Original Embedded 1T1R and Metallic-Path Presentation",
-                    "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                    "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
                     "kind": "Manufacturer public conference presentation",
                     "date": "2015",
                     "accessedAt": "2026-09-10",
@@ -27732,7 +27732,7 @@
               {
                 "id": "ip-crossbar-macro",
                 "label": "Crossbar: High-Performance ReRAM IP Brief",
-                "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                 "kind": "Manufacturer public product brief",
                 "date": null,
                 "accessedAt": "2026-09-10",
@@ -27742,7 +27742,7 @@
               {
                 "id": "ip-crossbar-2015",
                 "label": "Crossbar: Original Embedded 1T1R and Metallic-Path Presentation",
-                "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
                 "kind": "Manufacturer public conference presentation",
                 "date": "2015",
                 "accessedAt": "2026-09-10",
@@ -27829,7 +27829,7 @@
                   {
                     "id": "ip-crossbar-macro",
                     "label": "Crossbar: High-Performance ReRAM IP Brief",
-                    "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                    "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                     "kind": "Manufacturer public product brief",
                     "date": null,
                     "accessedAt": "2026-09-10",
@@ -27839,7 +27839,7 @@
                   {
                     "id": "ip-crossbar-2015",
                     "label": "Crossbar: Original Embedded 1T1R and Metallic-Path Presentation",
-                    "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                    "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
                     "kind": "Manufacturer public conference presentation",
                     "date": "2015",
                     "accessedAt": "2026-09-10",
@@ -28210,7 +28210,7 @@
       {
         "id": "physics-btbt-carriers",
         "label": "Chu and Wu: BTBT Hot-Carrier Paths",
-        "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+        "url": "https://doi.org/10.1109/55.823576",
         "kind": "Original Research",
         "date": "2000-03; accessed 2026-09-10",
         "locator": "IEEE EDL 21(3), page 123 Introduction; page 125 Figure 4; DOI 10.1109/55.823576",
@@ -28346,7 +28346,7 @@
       {
         "id": "ip-numem-2019",
         "label": "Numem: First-Generation 22nm Embedded MRAM Presentation",
-        "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+        "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
         "kind": "Manufacturer public conference presentation",
         "date": "2019-08-05",
         "accessedAt": "2026-09-10",
@@ -28416,7 +28416,7 @@
       {
         "id": "ip-crossbar-macro",
         "label": "Crossbar: High-Performance ReRAM IP Brief",
-        "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+        "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
         "kind": "Manufacturer public product brief",
         "date": null,
         "accessedAt": "2026-09-10",
@@ -28426,7 +28426,7 @@
       {
         "id": "ip-crossbar-2015",
         "label": "Crossbar: Original Embedded 1T1R and Metallic-Path Presentation",
-        "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+        "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
         "kind": "Manufacturer public conference presentation",
         "date": "2015",
         "accessedAt": "2026-09-10",

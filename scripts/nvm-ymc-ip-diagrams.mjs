@@ -55,7 +55,7 @@ const sourceRegistry = {
     {
       "id": "physics-btbt-carriers",
       "label": "Chu、Wu：BTBT 熱載子路徑",
-      "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+      "url": "https://doi.org/10.1109/55.823576",
       "kind": "原始研究",
       "date": "2000-03；2026-09-10 查核",
       "locator": "IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576",
@@ -138,7 +138,7 @@ const sourceRegistry = {
     {
       "id": "physics-btbt-carriers",
       "label": "Chu and Wu: BTBT Hot-Carrier Paths",
-      "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+      "url": "https://doi.org/10.1109/55.823576",
       "kind": "Original Research",
       "date": "2000-03; accessed 2026-09-10",
       "locator": "IEEE EDL 21(3), page 123 Introduction; page 125 Figure 4; DOI 10.1109/55.823576",

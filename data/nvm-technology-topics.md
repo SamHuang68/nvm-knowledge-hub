@@ -1584,7 +1584,7 @@ FG 保有寫入後的淨負電荷。
 - [ymc-product：YMC：ymtp 邏輯製程 MTP IP](https://www.ymc.com.tw/index_en.php)
 - [ymc-1t1c：YMC：1T1C 核心技術](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
 - [physics-bbhh-fg：Wu 等：BBHH 與浮動閘極展示](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)
-- [physics-btbt-carriers：Chu、Wu：BTBT 熱載子路徑](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf)
+- [physics-btbt-carriers：Chu、Wu：BTBT 熱載子路徑](https://doi.org/10.1109/55.823576)
 - [physics-fg-hole-erase：IEEE：浮動閘極熱電洞抹除觀察](https://ieeexplore.ieee.org/document/748914/)
 
 獨立機制示意：CHI／BBHH 等效 1T1C
@@ -1707,7 +1707,7 @@ CG 與 FG 隔著電容介電層；模型的源／汲極間形成電子通道。
 - [ymc-product：YMC：ymtp 邏輯製程 MTP IP](https://www.ymc.com.tw/index_en.php)
 - [ymc-1t1c：YMC：1T1C 核心技術](https://www.ymc.com.tw/upload/files/6423%E5%84%84%E8%80%8C%E5%BE%97%E4%B8%8A%E5%B8%82%E5%89%8D%E6%A5%AD%E7%B8%BE%E7%99%BC%E8%A1%A8%E6%9C%83_%E7%B0%A1%E5%A0%B10416(%E4%B8%8A).pdf#page=25)
 - [physics-bbhh-fg：Wu 等：BBHH 與浮動閘極展示](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)
-- [physics-btbt-carriers：Chu、Wu：BTBT 熱載子路徑](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf)
+- [physics-btbt-carriers：Chu、Wu：BTBT 熱載子路徑](https://doi.org/10.1109/55.823576)
 - [physics-fg-hole-erase：IEEE：浮動閘極熱電洞抹除觀察](https://ieeexplore.ieee.org/document/748914/)
 
 #### 讀取：將 FG 電荷轉成電流差
@@ -2959,7 +2959,7 @@ MTJ 自由層磁化保存資訊 — 磁化切換至 AP；中間角度不表示�
 這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
 
 - [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)
-- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
 - [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)
 
 Numem MRAM IP：STT 教材重建
@@ -2973,7 +2973,7 @@ Numem MRAM IP：STT 教材重建
 - τSTT · 自旋轉移力矩；中間箭頭只是翻轉過程示意
 
 - [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)
-- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
 - [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)
 
 #### Numem MRAM IP：STT 教材重建 — 寫入
@@ -3023,7 +3023,7 @@ WL 開啟，教材方向 A/B 的驅動穿過 MTJ；電子流與傳統電流相�
 這是 Numem 公開 IP 架構的教學重建。材料、厚度、上下層序、寫入端點極性及邏輯編碼未由現行來源公開；方向 A/B 僅表示校準後的兩種反向驅動。2019 年定電流感測不是全系列規格。
 
 - [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)
-- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
 - [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)
 
 #### Numem MRAM IP：STT 教材重建 — 反向覆寫
@@ -3073,7 +3073,7 @@ WL 開啟，教材方向 A/B 的驅動穿過 MTJ；電子流與傳統電流相�
 這是 Numem 公開 IP 架構的教學重建。材料、厚度、上下層序、寫入端點極性及邏輯編碼未由現行來源公開；方向 A/B 僅表示校準後的兩種反向驅動。2019 年定電流感測不是全系列規格。
 
 - [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)
-- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
 - [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)
 
 #### Numem MRAM IP：STT 教材重建 — 讀取
@@ -3115,7 +3115,7 @@ MTJ 自由層磁化保存資訊
 這是 Numem 公開 IP 架構的教學重建。材料、厚度、上下層序、寫入端點極性及邏輯編碼未由現行來源公開；方向 A/B 僅表示校準後的兩種反向驅動。2019 年定電流感測不是全系列規格。
 
 - [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)
-- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
+- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)
 - [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)
 
 #### IP 單元取捨
@@ -3513,8 +3513,8 @@ LRS
 
 這個循環說明狀態可再利用，不代表無限耐久。循環壽命、保持性、擾動與更新中斷行為都須核對目標產品，不能拼接不同實作的最高數字或偏壓配方。
 
-- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
-- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf)
 - [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
 
 Crossbar ReRAM IP：歷史專利單元
@@ -3526,8 +3526,8 @@ Crossbar ReRAM IP：歷史專利單元
 - TE / BE; WL · 上／下電極與選擇閘極；1T1R 整合是原廠另一公開來源
 - Ic / e− · 傳統電流與電子方向相反；電子可在相鄰粒子間穿隧
 
-- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
-- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf)
 - [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
 
 #### Crossbar ReRAM IP：歷史專利單元 — SET 寫入
@@ -3575,8 +3575,8 @@ Crossbar ReRAM IP：歷史專利單元
 
 這是歷史嵌入式 IP 的公開專利實施例，不證明現售宏配方或 2026 年可新授權節點。專利以金屬粒子與粒子間穿隧描述路徑；未把路徑等同完整實心銀橋，也未指定一般 ECM 的陰極起始成核。
 
-- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
-- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf)
 - [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
 
 #### Crossbar ReRAM IP：歷史專利單元 — 反向 RESET
@@ -3624,8 +3624,8 @@ TE 負偏壓使細粒子路徑向上端金屬區回縮或變得不連續；未�
 
 這是歷史嵌入式 IP 的公開專利實施例，不證明現售宏配方或 2026 年可新授權節點。專利以金屬粒子與粒子間穿隧描述路徑；未把路徑等同完整實心銀橋，也未指定一般 ECM 的陰極起始成核。
 
-- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
-- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf)
 - [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
 
 #### Crossbar ReRAM IP：歷史專利單元 — 讀取
@@ -3665,8 +3665,8 @@ TE 負偏壓使細粒子路徑向上端金屬區回縮或變得不連續；未�
 
 這是歷史嵌入式 IP 的公開專利實施例，不證明現售宏配方或 2026 年可新授權節點。專利以金屬粒子與粒子間穿隧描述路徑；未把路徑等同完整實心銀橋，也未指定一般 ECM 的陰極起始成核。
 
-- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
-- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)
+- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)
+- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf)
 - [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)
 
 #### IP 單元取捨
@@ -4913,7 +4913,7 @@ SOT-MRAM 同樣以 MTJ 的自由層磁化方向保存資料，並以磁阻感測
 
 操作後：自旋轉矩使自由層切換至目標磁態。
 
-垂直磁化系統要可靠選定最終方向，通常需額外結構或機制；示意不能默認單靠一條理想導線就能在零外加磁場下確定性寫入。
+垂直磁化系統要可靠選定最終方向，通常需額外結構或機制；示意不能預設單靠一條理想導線就能在零外加磁場下確定性寫入。
 
 #### 反向覆寫：不需要獨立物理抹除
 
@@ -5678,7 +5678,7 @@ FTJ 的高低阻比很大，為什麼仍可能讀得慢？
 
 ### 2022 · 台積電 · MRAM · 16FFC
 
-具生產準備：完成可靠性驗證；一百萬次循環與回流焊能力；具生產準備，Grade 1 當時目標為 2023。
+具生產準備：完成可靠性驗證；一百萬次循環與迴焊能力；具生產準備，Grade 1 當時目標為 2023。
 
 限制：尚不等同當年完成車規或客戶大量出貨。
 
@@ -6022,7 +6022,7 @@ ISSCC 2026 晶粒展示
 
 因此，陣列越大不一定越有效率，切成較小子陣列雖增加部分周邊，卻可能改善壓降、速度與可靠性。研究中的限制應寫成「在這組材料、陣列與操作條件下，瓶頸是什麼」，而不是直接宣布某家族已到不可突破的物理終點。真正有說服力的改進，是在同一組條件下同時交代性能、可靠性與代價。
 
-- [CMP-YU2016：Yu 與 Chen：新興記憶體技術的近期趨勢與展望](https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf)
+- [CMP-YU2016：Yu 與 Chen：新興記憶體技術的近期趨勢與展望](https://doi.org/10.1109/MSSC.2016.2546199)
 - [CMP-LECTURE2021：Shimeng Yu：2021 年第 6 講比較表](https://www.youtube.com/watch?v=_Ov2KUZTIv8&t=2165s)
 - [CMP-IBM-SELECTOR2017：IBM：記憶體選擇元件與交叉陣列設計](https://research.ibm.com/publications/memory-selector-devices-and-crossbar-array-design-a-modeling-based-assessment)
 - [CMP-IBM-ARRAY2014：IBM：含 MIEC 選擇器的電阻記憶體陣列設計空間](https://research.ibm.com/publications/exploring-the-design-space-for-resistive-nonvolatile-memory-crossbar-arrays-with-mixed-ionic-electronic-conduction-miec-based-access-devices)
@@ -6113,10 +6113,10 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - 寄生電流路徑（sneak path）：電流經由非目標單元繞行的路徑，可能污染讀取訊號、改變寫入偏壓並增加能耗。
 - 感測裕度（sense margin）：在雜訊、變異與操作條件下，儲存狀態與判斷界線之間仍可用的訊號差；必須看分布與最差條件。
 - 寫入驗證（program-verify）：編程後讀回檢查是否達標，未達標時再調整或追加脈衝的回授流程；可改善狀態控制，但增加時間與能量。
-- 耐久性（endurance）：在規定的操作、錯誤門檻與保持要求下，可承受的讀寫或編程／擦除循環；需標明每位元、位元組、頁或區塊。
+- 耐久性（endurance）：在規定的操作、錯誤門檻與保持要求下，可承受的讀寫或編程／抹除循環；需標明每位元、位元組、頁或區塊。
 - 資料保持力（retention）：資料在指定溫度、已使用循環、供電及錯誤要求下能維持多久；年數不可脫離條件單獨比較。
 - F² 與有效位元密度：F² 是以特徵尺寸平方正規化的面積表達；有效位元密度還取決於堆疊層數、多位元、周邊、備援與 ECC，兩者須分清楚。
-- 存取粒度：一次讀、寫、擦除或保證原子操作涉及的資料大小；位元組、快取列、頁與區塊粒度會改變性能與軟體行為。
+- 存取粒度：一次讀、寫、抹除或保證原子操作涉及的資料大小；位元組、快取列、頁與區塊粒度會改變性能與軟體行為。
 - 錯誤更正碼（ECC）：增加校驗資訊，依編碼能力偵測或修正一定範圍錯誤的方法；會帶來容量及處理開銷，也有無法修正的錯誤界線。
 - 持久性範圍（persistence domain）：平台在指定故障條件下，保證其中資料可保存或完成保存的範圍；可能涉及媒體、控制器、緩衝與備援能源。
 - 故障原子性：故障復原後，一項更新呈現為完整完成或未完成，而非難以辨識的部分更新；原子粒度及保證須由平台或交易機制界定。
@@ -6202,7 +6202,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [EMG-P-FEFET：FeFET 閘極堆疊與元件整合專利](https://patents.google.com/patent/US11502083B2/en)。公開專利；2022-11-15；查閱 2026-09-10；定位：圖 2、3A–3F；權利項 1；限制：特定堆疊改善不等於量產認證或普遍適用的耐久數值。
 - [EMG-P-FTJ：台積電 FTJ 結構與低溫形成公開案](https://patents.google.com/patent/US20240057343A1/en)。公開專利申請；2024-02-15；查閱 2026-09-10；定位：圖 17；權利項 1、17；限制：閱讀的是 A1 公開案；同族 B2 核准範圍必須另行比對。
 - [EMG-TSMC-SOT：台積電 2025 年報：Type-C SOT-MRAM 研究](https://investor.tsmc.com/static/annualReports/2025/english/pdf/2025_tsmc_ar_e_ch5.pdf)。供應商年報研發成果；2026；查閱 2026-09-10；定位：紙本第 104–105 頁；分章 PDF 第 4 頁；IEDM 2025 Type-C 段落；限制：研究展示；不由台積電其他 MRAM 平台資格推定 SOT 已量產，面積與電流改善需保留比較基準。
-- [CMP-YU2016：Yu 與 Chen：新興記憶體技術的近期趨勢與展望](https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf)。原始技術綜論；2016；定位：IEEE Solid-State Circuits Magazine 8(2)，43–56；p44 表 1；DOI 10.1109/MSSC.2016.2546199；限制：原表的新興技術欄只有 STT-MRAM、PCRAM 與 RRAM；代表值與單元層級能量不可直接視為現代產品保證。
+- [CMP-YU2016：Yu 與 Chen：新興記憶體技術的近期趨勢與展望](https://doi.org/10.1109/MSSC.2016.2546199)。原始技術綜論；2016；定位：IEEE Solid-State Circuits Magazine 8(2)，43–56；p44 表 1；DOI 10.1109/MSSC.2016.2546199；限制：原表的新興技術欄只有 STT-MRAM、PCRAM 與 RRAM；代表值與單元層級能量不可直接視為現代產品保證。
 - [CMP-LECTURE2021：Shimeng Yu：2021 年第 6 講比較表](https://www.youtube.com/watch?v=_Ov2KUZTIv8&t=2165s)。講者課程與提供之截圖；2021-11-01；定位：投影片 p14，日期 2021/11/1；影片比較段落 36:05–43:49；本表依原尺寸截圖逐格核對；限制：課程引用並延伸 2016 年論文，新增 SOT-MRAM、FeRAM 與 FeFET；本網站保留其歷史值，不把它們標成 2026 年通用規格。
 - [CMP-FRAM-PRODUCT：Infineon CY15B104QSN-108SXI 產品狀態](https://www.infineon.com/part/CY15B104QSN-108SXI)。供應商產品頁；2026-09-10 查核；定位：產品狀態、4 Mb 容量與介面規格；限制：有效供應狀態屬指定料號；不能擴張到所有鐵電記憶體實作。
 - [CMP-FRAM-DS：Infineon CY15B104QSN／CY15V104QSN 規格書](https://www.infineon.com/dgdl/Infineon-CY15B104QSN_CY15V104QSN_4Mb_EXCELON_Ultra_Ferroelectric_RAM_F-RAM_Serial_quad_SPI_512K_8_108_MHz_industrial-DataSheet-v15_00-EN.pdf?fileId=8ac78c8c7d0d8da4017d0ee59c446d71)。產品規格書；2024-07-25；定位：002-18293 Rev. *N；p1 與 p105 表 63；限制：151 年資料保持力限定 65°C；85°C 為 10 年。介面時脈不等於單元讀寫延遲。
@@ -6298,7 +6298,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ymc-pat-7423903：YMC：單一浮動閘極歷史實施例](https://patents.google.com/patent/US7423903B2/en)。公開專利；2008-09-09；2026-09-10 查核；定位：圖 1、2A、2B；第一實施例；Summary 的 FN 抹除段；限制：四端 nMOS／N 型電容結構；正文使用 FN 抹除，不作 BBHH 來源。
 - [ymc-pat-dahhi：YMC：DAHCI 寫入與 DAHHI 抹除變體](https://patents.google.com/patent/US20070158733A1/en)。公開專利；2007-07-12；2026-09-10 查核；定位：圖 3B、5A、6B、8A 及相鄰說明；限制：支持熱載子與閾值方向；雪崩熱電洞 DAHHI 不等於 BBHH。
 - [physics-bbhh-fg：Wu 等：BBHH 與浮動閘極展示](https://pure.lib.cgu.edu.tw/en/publications/a-nand-type-flash-memory-using-impact-ionization-generated-substr/)。原始研究；2007；2026-09-10 查核；定位：IEDM 2007，頁 87–90；作者機構摘要；DOI 10.1109/IEDM.2007.4418870；限制：原文使用 BBHH 並提及浮動閘極展示；其 NAND、IIHE 寫入與數值不移入 YMC 模型。
-- [physics-btbt-carriers：Chu、Wu：BTBT 熱載子路徑](https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf)。原始研究；2000-03；2026-09-10 查核；定位：IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576；限制：支撐矽內 BBT 載子產生與場輔助注入物理；圖 3 是 pMOS，不照搬至 nMOS。
+- [physics-btbt-carriers：Chu、Wu：BTBT 熱載子路徑](https://doi.org/10.1109/55.823576)。原始研究；2000-03；2026-09-10 查核；定位：IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576；限制：支撐矽內 BBT 載子產生與場輔助注入物理；圖 3 是 pMOS，不照搬至 nMOS。
 - [physics-fg-hole-erase：IEEE：浮動閘極熱電洞抹除觀察](https://ieeexplore.ieee.org/document/748914/)。原始研究；1999-03；2026-09-10 查核；定位：IEEE EDL 20(3)，頁 140–142；摘要；DOI 10.1109/55.748914；限制：觀察 FN 抹除中的 BBT／可能雪崩增強；只支持 FG 熱電洞物理，不當作純 BBHH 配方。
 - [aeon-impinj-2007：Impinj：AEON/MTP 浮動閘極產品公告](https://www.impinj.com/about-us/news-room/2007/impinj-delivers-reprogrammable-nonvolatile-memory-ip-breakthrough---aeonmtp-worlds-first-25v-floatin)。原廠產品公告；2007-09-26；定位：開頭 AEON/MTP 及 floating-gate transistor 段落；限制：支持 AEON/MTP 浮動閘極家族；公告中的製程與電壓限定於該次產品，不提供完整單元剖面。
 - [aeon-virage-fn-2009：Virage Logic：AEON MTP 寫抹與製造監測](https://www.chipestimate.com/Auto-Industry-Replaces-Fuse-Technology-with-Standard-CMOS-Based-MTP---Adds-Functionality-Testability-and-Reliability/Synopsys-formerly-Virage-Logic-products/Technical-Article/2009/06/30)。原廠主管署名技術文章；2009-06-30；定位：Craig Zajac；Architectural decisions、Manufacturing 及作者簡介；限制：原廠署名文章明確說明寫入與抹除使用 FN；差動位元與錯誤修正限定於文中車用產品選項。未公開端點電壓、p/n 極性或實體區域配置。
@@ -6313,15 +6313,15 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [ip-sst-home：SST 首頁與服務](https://www.sst.com/services/)。vendor；2026-09-16；定位：SuperFlash 嵌入式快閃記憶體製程整合與授權入口。；限制：服務頁證明產品家族，不取代技術手冊的 SSI／interpoly FN 細節。
 - [ip-sst-superflash：SST／微芯科技 SuperFlash 技術手冊 DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)。vendor；2018-03；定位：第 2–3 頁：分裂閘極、源側注入寫入、閘極間 FN 抹除。；限制：結構及機制按具名 SuperFlash 世代閱讀；2018 年出貨與節點表不是 2026 年全部產品保證。
 - [ip-numem-current：Numem：MRAM IP 公開定位](https://www.numem.com/)。原廠產品頁；未標示發布日期；查閱 2026-09-10；定位：What is Numem MRAM?；Numem MRAM IP；限制：支持嵌入式 IP 與晶圓代工廠標準 STT 單元；未公開現行材料配方。
-- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)。原廠公開會議簡報；2019-08-05；查閱 2026-09-10；定位：第 2、4、5、7 頁：試驗晶片、WL／BL／SL、定電流感測、RMTJ；限制：這是第一代試驗晶片架構；未把其量測數值當成現行 NuRAM 規格。
+- [ip-numem-2019：Numem：第一代 22nm 嵌入式 MRAM 原始發表](https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf)。原廠公開會議簡報；2019-08-05；查閱 2026-09-10；定位：第 2、4、5、7 頁：試驗晶片、WL／BL／SL、定電流感測、RMTJ；限制：這是第一代試驗晶片架構；未把其量測數值當成現行 NuRAM 規格。
 - [ip-stt-physics：Everspin：STT 家族物理說明](https://www.everspin.com/stt-mram-technology)。原廠機制說明；未標示發布日期；查閱 2026-09-10；定位：Spin-transfer Torque MRAM Technology：電流方向、自由層、P／AP 電阻；限制：僅支持 STT 家族物理；不作為 Numem 的產品、材料或效能證據。
 - [ip-gf-platform：GF：22FDX 嵌入式 MRAM 平台](https://investors.gf.com/news-releases/news-release-details/globalfoundries-delivers-industrys-first-production-ready-emram)。晶圓代工廠原始公告；2020-02-27；查閱 2026-09-10；定位：首段與 Custom design kits：進入生產、可嵌入的矽驗證 MRAM 巨集；限制：平台身分與單元研究配方分開；可用宏、節點與條件須以供應商交付確認。
 - [ip-gf-cell-2024：GF 共同作者研究：22FDX STT-MRAM 單元](https://pmc.ncbi.nlm.nih.gov/articles/PMC11409953/)。原始研究論文；2024-09-18；查閱 2026-09-10；定位：Materials and Methods：MRAM array structure and fabrication；圖 2；限制：僅限文中 CoFeB／SAF 與 1T1MTJ 範例；文中正向 Ic：RL→FL，寫入 P。未指定障壁材料。
 - [ip-weebit-product：Weebit：嵌入式 ReRAM IP](https://www.weebit-nano.com/products/embedded-reram-ip/)。原廠 IP 產品頁；未標示發布日期；查閱 2026-09-10；定位：IP 模組、設計交付、控制與類比周邊；限制：產品身分不代表每個代工節點採用同一公開研究配方。
 - [ip-weebit-bitcell：Weebit：ReRAM 位元單元](https://www.weebit-nano.com/technology/reram-bitcell/)。原廠機制說明；未標示發布日期；查閱 2026-09-10；定位：雙電極／薄氧化物、成形、正向 SET 與反向 RESET；限制：成形與日常 SET 分開；頁面未給所有材料與逐端點電壓。
 - [ip-weebit-cell-2021：Weebit／CEA-Leti／Silvaco：氧化物 ReRAM 原始模型](https://www.weebit-nano.com/wp-content/uploads/2021/05/Weebit-nano_Silvaco_ReRAM-TCAD_Oxide-Based-Model_IMW_OxRAM_2021_published-on-IEEE_V3-1.pdf)。原始研究論文的作者公開版本；2021-05；查閱 2026-09-10；定位：PDF 第 2–5 頁；II–IV 節、圖 1、3、5、11：Ti／SiOx／TiN 與氧交換；限制：CEA 130nm 研究單元的模型與電性比對；不是現場直接追蹤離子，也不是所有 SkyWater 宏的配方揭露。
-- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)。原廠公開產品簡介；未標示發布日期；查閱 2026-09-10；定位：第 1–2 頁：hard macro／architectural license、嵌入式宏與改寫；限制：支持歷史 IP 授權形態；本次未確認 2026 年可新授權的節點與宏清單。
-- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf)。原廠公開會議簡報；2015；查閱 2026-09-10；定位：第 3、4、7、8、15 頁：金屬路徑、單元與選擇器、BEOL 1T1R；限制：嵌入式 1T1R 與高密度 1S1R／1TnR 各有範圍，不合併為同一電路。
+- [ip-crossbar-macro：Crossbar：高效能 ReRAM IP 產品簡介](https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf)。原廠公開產品簡介；未標示發布日期；查閱 2026-09-10；定位：第 1–2 頁：hard macro／architectural license、嵌入式宏與改寫；限制：支持歷史 IP 授權形態；本次未確認 2026 年可新授權的節點與宏清單。
+- [ip-crossbar-2015：Crossbar：嵌入式 1T1R 與金屬路徑原始發表](https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf)。原廠公開會議簡報；2015；查閱 2026-09-10；定位：第 3、4、7、8、15 頁：金屬路徑、單元與選擇器、BEOL 1T1R；限制：嵌入式 1T1R 與高密度 1S1R／1TnR 各有範圍，不合併為同一電路。
 - [ip-crossbar-cell-2012：Crossbar：公開專利申請 US20120007035A1](https://patents.google.com/patent/US20120007035A1/en)。原始公開專利申請；2012-01-12；查閱 2026-09-10；定位：圖 1–3；[0023]–[0025]、[0037]：Ag／a-Si／p+ poly-Si、正向延伸、負向回縮；限制：選取其中的具名實施例；以金屬粒子與穿隧路徑描述，未宣稱已證明現售宏皆為此配方或一般陰極成核銀橋。
 - [aeon-transfer-2008：Virage Logic：Impinj NVM IP 業務收購申報](https://www.sec.gov/Archives/edgar/data/1050776/000119312508145768/d8k.htm)。SEC 原始申報；2008-06-26；定位：Item 2.01；2008-07-02 簽署；交易日 2008-06-26；限制：支持邏輯 NVM IP 業務資產收購；交易對方為 Virage Logic，並非 Synopsys 直接收購 Impinj。
 - [aeon-transfer-2010：Synopsys：完成收購 Virage Logic](https://news.synopsys.com/home?item=123195)。原廠交易完成公告；2010-09-02；定位：開頭完成收購段；NVM 加入產品組合；限制：支持公司收購與 NVM 產品組合承接；不證明 AEON 各代內部單元相同。
@@ -6423,7 +6423,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - [RES-EVERSPIN-PLP-2025：Everspin Technologies：企業級 STT-MRAM 寫入快取與 PLP 斷電保護應用指南](https://www.everspin.com/products)。供應商應用技術手冊；2025-04-15；定位：官方企業級儲存加速器與 RAID/SSD 斷電保護架構方案；限制：確認 STT-MRAM 在 NVMe SSD 寫入日誌與超級電容替代架構中的商用出貨，提供奈秒級持久儲存；需外加控制器或介面橋接晶片。
 - [RES-INFINEON-TC4X-2024：Infineon Technologies：AURIX™ TC4x 車用微控制器與 TSMC 28nm eRRAM 架構手冊](https://www.infineon.com/aurix-tc4x)。微控制器架構手冊；2024-11-20；定位：官方產品手冊與車規 ASIL-D 嵌入式記憶體演進章節；限制：證明 TC4x 採用台積電 28nm eRRAM 突破 eFlash 微縮限制，支援 10 萬次抹寫與零等待隨機存取；屬於車用旗艦 MCU 特定實作。
 - [RES-ST-STELLAR-PCM-2024：STMicroelectronics：Stellar 系列 32 位元車用 MCU 嵌入式相變記憶體 (28nm FD-SOI ePCM) 技術白皮書](https://www.st.com/content/st_com/en/about/innovation-and-technology/pcm.html)。車用晶片技術白皮書；2024-09-18；定位：官方車用微控制器與 28nm FD-SOI 嵌入式 PCM 架構發布；限制：證明 28nm FD-SOI 整合 ePCM 支援無停機 OTA (雙分區即時切換) 與 165°C 高溫保持；相變材料為 Ge2Sb2Te5 (GST)。
-- [RES-INTRINSICID-QUIDDIKEY-2025：Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書](https://www.intrinsic-id.com/products/quiddikey/)。安全技術白皮書；2025-05-12；定位：官方 SRAM PUF 密鑰重建與零工廠燒錄架構白皮書；限制：利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。
+- [RES-INTRINSICID-QUIDDIKEY-2025：Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書](https://www.intrinsic-id.com/products/quiddikey/)。安全技術白皮書；2025-05-12；定位：官方 SRAM PUF 金鑰重建與零工廠燒錄架構白皮書；限制：利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。
 - [RES-SYNOPSYS-TROOT-2024：Synopsys：DesignWare tRoot™ 晶片硬體安全模組 (HSM) 與 1T AntiFuse 安全子系統架構手冊](https://www.synopsys.com/designware-ip/security-ip.html)。產品規格手冊；2024-11-20；定位：官方硬體安全模組與安全開機架構發布；限制：整合獨立安全 RISC-V/ARC 處理器核心、硬體密碼引擎、真隨機數產生器 (TRNG) 與 1T Split-Channel AntiFuse OTP，符合 PSA Certified Level 3。
 - [RES-RAMBUS-CRYPTOMANAGER-2025：Rambus：CryptoManager™ 信任根與 PCIe/CXL SPDM 1.3 設備證明技術架構白皮書](https://www.rambus.com/security/root-of-trust/)。企業級安全白皮書；2025-02-18；定位：官方 PCIe/CXL IDE 與硬體信任根生命週期架構；限制：硬體實現 DMTF SPDM 1.2/1.3 設備互聯認證與線速 PCIe/CXL IDE (AES-GCM) 加密，貫穿晶圓廠、封測廠至雲端伺服器生命週期憑證鏈。
 - [op-pat-nrom-hhi：Saifun：自對準 NROM 寫入與抹除區](https://patents.google.com/patent/US6664588B2/en)。公開專利；2003; 2026-09-10 查閱；定位：圖 4、8A、9、10–11；能帶間穿隧產生電洞及局部熱電洞注入；限制：本案的口袋植入與局部電洞路徑；不把 US5768192A 當成此抹除路徑的來源。
@@ -6454,7 +6454,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 - 每單元位元數：保留課程代表值。多位元研究展示不等於指定產品在溫度、耐久與保持條件下的可用位元數。
 - 操作電壓：課程未逐格區分供電、讀取、寫入、成形或內部升壓；新版產品比較必須拆欄，不能直接與料號的 VDD 比較。
 - 讀取時間：此為課程的代表尺度；未綁定相同容量、周邊電路、感測方法與介面完成點。
-- 寫入時間：新版比較須另列擦除、SET／RESET、脈衝、驗證與重試，以及資料進入緩衝器後直到非揮發性寫入完成的總時間。
+- 寫入時間：新版比較須另列抹除、SET／RESET、脈衝、驗證與重試，以及資料進入緩衝器後直到非揮發性寫入完成的總時間。
 - 資料保持力：原表未列逐項溫度、已經歷循環與外推條件。SRAM 需要供電；DRAM 的動態儲存／重新整理尺度與 NVM 的斷電保持不是同一保證。
 - 耐久性：逐格保留歷史範圍。來源未統一位元／頁／區塊粒度、讀寫循環定義、錯誤門檻、ECC、溫度與保持測試。
 - 寫入能量：原頁明確限定為單元層級，未包含完整陣列周邊。fJ 為 10⁻¹⁵ J，pJ 為 10⁻¹² J；未寫數字的項目保留為能量量級，不補造精確值。
@@ -6465,7 +6465,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 
 應區分原論文與講者後續增補，讓來源沿革可追溯。
 
-- [CMP-YU2016：Yu 與 Chen：新興記憶體技術的近期趨勢與展望](https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf)
+- [CMP-YU2016：Yu 與 Chen：新興記憶體技術的近期趨勢與展望](https://doi.org/10.1109/MSSC.2016.2546199)
 - [CMP-LECTURE2021：Shimeng Yu：2021 年第 6 講比較表](https://www.youtube.com/watch?v=_Ov2KUZTIv8&t=2165s)
 
 ### 認為 2016 年與 2021 年表格數字完全一致。
@@ -6474,7 +6474,7 @@ Intel 2023 年 3 月 21 日客戶信表示，當時預估媒體庫存能依客�
 
 差異證明課程表已有更新，但不表示某一年代表值可當成全家族的保證。
 
-- [CMP-YU2016：Yu 與 Chen：新興記憶體技術的近期趨勢與展望](https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf)
+- [CMP-YU2016：Yu 與 Chen：新興記憶體技術的近期趨勢與展望](https://doi.org/10.1109/MSSC.2016.2546199)
 - [CMP-LECTURE2021：Shimeng Yu：2021 年第 6 講比較表](https://www.youtube.com/watch?v=_Ov2KUZTIv8&t=2165s)
 
 ### 以「新興記憶體」統稱 FeRAM、MRAM、ReRAM、PCM，因而推定它們都尚未量產。
@@ -6540,7 +6540,7 @@ CY15B104QSN 的 151 年限定 65°C；75°C 為 38 年，85°C 為 10 年。保�
 
 同一種儲存物理可以有不同成熟度與用途；分類軸需要分開。
 
-- [CMP-YU2016：Yu 與 Chen：新興記憶體技術的近期趨勢與展望](https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf)
+- [CMP-YU2016：Yu 與 Chen：新興記憶體技術的近期趨勢與展望](https://doi.org/10.1109/MSSC.2016.2546199)
 - [CMP-SNIA-PM：SNIA 持久性記憶體定義](https://www.snia.org/education/what-is-persistent-memory)
 - [CMP-CXL-FAQ2021：CXL 聯盟持久性記憶體研討會問答](https://computeexpresslink.org/blog/questions-from-the-compute-express-link-cxl-supporting-persistent-memory-webinar-2407/)
 
@@ -6742,7 +6742,7 @@ GF 年度高峰會有可直接引用的 RRAM 原型供應與 2026 目標；台�
 
 ### GF 22FDX eMRAM（2020 公告版本）
 
-十萬次循環；−40°C 至 125°C 範圍的十年保持；五次回流焊；4–48 Mbit 矽驗證巨集。
+十萬次循環；−40°C 至 125°C 範圍的十年保持；五次迴焊；4–48 Mbit 矽驗證巨集。
 
 公告表示支援 Grade 2 設計；Grade 1 當時是開發目標。
 
@@ -6775,7 +6775,7 @@ GF 年度高峰會有可直接引用的 RRAM 原型供應與 2026 目標；台�
 
 ### 台積電 16FFC／第二代 16MRAM
 
-早期 16FFC：一百萬循環與回流焊；第二代 16MRAM：一百萬循環後晶片失效率低於 1 ppm。
+早期 16FFC：一百萬循環與迴焊；第二代 16MRAM：一百萬循環後晶片失效率低於 1 ppm。
 
 不同年報及代際陳述分開；第二代車規完成年為 2025。
 
@@ -6797,7 +6797,7 @@ GF 年度高峰會有可直接引用的 RRAM 原型供應與 2026 目標；台�
 
 ### Samsung Foundry 28FDS eMRAM
 
-寫入速度比 eFlash 快 1000 倍；10^6 次寫入循環；-40°C 至 125°C 下 10 年資料保持；支援五次回流焊 (JEDEC 260°C)。
+寫入速度比 eFlash 快 1000 倍；10^6 次寫入循環；-40°C 至 125°C 下 10 年資料保持；支援五次迴焊 (JEDEC 260°C)。
 
 商用量產發布；商業 MCU／IoT 應用（如 NXP 晶片採用）；具 0-Mask Adder 邏輯相容性特質。
 
@@ -6807,7 +6807,7 @@ GF 年度高峰會有可直接引用的 RRAM 原型供應與 2026 目標；台�
 
 ### Samsung Foundry SF3／SF2 MBCFET eNVM
 
-規劃支援高密度 BEOL STT-MRAM 與微型化 OTP 密鑰單元；瞄準低於 1.0V 工作電壓與高溫車規 retention。
+規劃支援高密度 BEOL STT-MRAM 與微型化 OTP 金鑰單元；瞄準低於 1.0V 工作電壓與高溫車規 retention。
 
 3nm GAA / 2nm MBCFET 先進邏輯平台相容；須嚴格控管 BEOL 沉積熱預算 (<400°C) 以防磁性穿隧結損壞。
 
@@ -6829,7 +6829,7 @@ IEDM 2018 論文揭露並進入生產就緒；採用 22nm 低漏電 FinFET 基�
 
 結合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路；原生純邏輯 AntiFuse OTP 與後段先進 eNVM 整合；消除前段 IR drop。
 
-1.8nm 級先進晶圓代工平台；背面供電網有效降低動態開關雜訊，提供高精度微調與高密度密鑰空間。
+1.8nm 級先進晶圓代工平台；背面供電網有效降低動態開關雜訊，提供高精度微調與高密度金鑰空間。
 
 目前處於生產準備與客戶投片測試階段，前瞻 eMRAM / FeFET 巨集完成量產仍需後續里程碑確認。
 

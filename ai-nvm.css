@@ -390,9 +390,9 @@
 /* Source correction and thesis */
 .ai-nvm-page .evidence-correction {
   display: grid;
-  grid-template-columns: 180px minmax(0, 1fr) auto;
-  gap: clamp(22px, 4vw, 52px);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+  align-items: start;
   margin-bottom: clamp(56px, 7vw, 92px);
   padding: clamp(26px, 4vw, 48px);
   color: var(--ai-white);

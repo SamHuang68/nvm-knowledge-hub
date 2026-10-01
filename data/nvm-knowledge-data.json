@@ -1197,7 +1197,7 @@
           "before": "MTJ 自由層處於一個穩定磁態。",
           "stimulus": "向 SOT 導線送入寫入脈衝，並使用設計要求的對稱破缺條件。",
           "after": "自旋轉矩使自由層切換至目標磁態。",
-          "explanation": "垂直磁化系統要可靠選定最終方向，通常需額外結構或機制；示意不能默認單靠一條理想導線就能在零外加磁場下確定性寫入。"
+          "explanation": "垂直磁化系統要可靠選定最終方向，通常需額外結構或機制；示意不能預設單靠一條理想導線就能在零外加磁場下確定性寫入。"
         },
         {
           "id": "erase",
@@ -1940,7 +1940,7 @@
       {
         "id": "CMP-YU2016",
         "label": "Yu 與 Chen：新興記憶體技術的近期趨勢與展望",
-        "url": "https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf",
+        "url": "https://doi.org/10.1109/MSSC.2016.2546199",
         "kind": "原始技術綜論",
         "locator": "IEEE Solid-State Circuits Magazine 8(2)，43–56；p44 表 1；DOI 10.1109/MSSC.2016.2546199",
         "date": "2016",
@@ -2310,7 +2310,7 @@
             "<100 ns",
             "<100 ns"
           ],
-          "note": "新版比較須另列擦除、SET／RESET、脈衝、驗證與重試，以及資料進入緩衝器後直到非揮發性寫入完成的總時間。"
+          "note": "新版比較須另列抹除、SET／RESET、脈衝、驗證與重試，以及資料進入緩衝器後直到非揮發性寫入完成的總時間。"
         },
         {
           "metric": "資料保持力",
@@ -2861,7 +2861,7 @@
       },
       {
         "term": "耐久性（endurance）",
-        "definition": "在規定的操作、錯誤門檻與保持要求下，可承受的讀寫或編程／擦除循環；需標明每位元、位元組、頁或區塊。"
+        "definition": "在規定的操作、錯誤門檻與保持要求下，可承受的讀寫或編程／抹除循環；需標明每位元、位元組、頁或區塊。"
       },
       {
         "term": "資料保持力（retention）",
@@ -2873,7 +2873,7 @@
       },
       {
         "term": "存取粒度",
-        "definition": "一次讀、寫、擦除或保證原子操作涉及的資料大小；位元組、快取列、頁與區塊粒度會改變性能與軟體行為。"
+        "definition": "一次讀、寫、抹除或保證原子操作涉及的資料大小；位元組、快取列、頁與區塊粒度會改變性能與軟體行為。"
       },
       {
         "term": "錯誤更正碼（ECC）",
@@ -2939,7 +2939,7 @@
         "kind": "供應商新聞稿",
         "date": "2020-02-27",
         "locator": "生產、可靠性與巨集段落",
-        "claim": "22FDX eMRAM 已進入生產；十萬次循環、指定溫區十年保持、五次回流焊；Grade 2 設計支援，Grade 1 為次年開發目標。",
+        "claim": "22FDX eMRAM 已進入生產；十萬次循環、指定溫區十年保持、五次迴焊；Grade 2 設計支援，Grade 1 為次年開發目標。",
         "evidence": "已核讀全文",
         "limit": "屬當時平台及巨集條件；不能套用至所有 MRAM。",
         "accessedAt": "2026-09-10"
@@ -3263,7 +3263,7 @@
         "kind": "供應商官方活動發布",
         "date": "2024-02-21",
         "locator": "IFDC 2024 18A 生產計畫、PowerVia 背面供電與嵌入式 IP ecosystem",
-        "claim": "Intel 18A 整合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路 (BSPDN)，為次世代高密度嵌入式記憶體及純邏輯 AntiFuse OTP 安全密鑰單元提供極低壓與極致抗雜訊供電。",
+        "claim": "Intel 18A 整合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路 (BSPDN)，為次世代高密度嵌入式記憶體及純邏輯 AntiFuse OTP 安全金鑰單元提供極低壓與極致抗雜訊供電。",
         "evidence": "已核讀官方發布與技術白皮書",
         "limit": "18A 於 2024–2025 進入生產準備，前瞻 eNVM/MRAM 仍在研發驗證階段，需依 PDK 與晶圓驗證進度逐代落地。",
         "accessedAt": "2026-09-10"
@@ -3304,7 +3304,7 @@
     "performanceBoundaries": [
       {
         "platform": "GF 22FDX eMRAM（2020 公告版本）",
-        "values": "十萬次循環；−40°C 至 125°C 範圍的十年保持；五次回流焊；4–48 Mbit 矽驗證巨集。",
+        "values": "十萬次循環；−40°C 至 125°C 範圍的十年保持；五次迴焊；4–48 Mbit 矽驗證巨集。",
         "conditions": "公告表示支援 Grade 2 設計；Grade 1 當時是開發目標。",
         "sourceIds": [
           "FND-GF-2020-MRAM"
@@ -3334,7 +3334,7 @@
       },
       {
         "platform": "台積電 16FFC／第二代 16MRAM",
-        "values": "早期 16FFC：一百萬循環與回流焊；第二代 16MRAM：一百萬循環後晶片失效率低於 1 ppm。",
+        "values": "早期 16FFC：一百萬循環與迴焊；第二代 16MRAM：一百萬循環後晶片失效率低於 1 ppm。",
         "conditions": "不同年報及代際陳述分開；第二代車規完成年為 2025。",
         "sourceIds": [
           "FND-TSMC-2023-AR",
@@ -3354,7 +3354,7 @@
       },
       {
         "platform": "Samsung Foundry 28FDS eMRAM",
-        "values": "寫入速度比 eFlash 快 1000 倍；10^6 次寫入循環；-40°C 至 125°C 下 10 年資料保持；支援五次回流焊 (JEDEC 260°C)。",
+        "values": "寫入速度比 eFlash 快 1000 倍；10^6 次寫入循環；-40°C 至 125°C 下 10 年資料保持；支援五次迴焊 (JEDEC 260°C)。",
         "conditions": "商用量產發布；商業 MCU／IoT 應用（如 NXP 晶片採用）；具 0-Mask Adder 邏輯相容性特質。",
         "sourceIds": [
           "FND-SEC-2019-28FDS"
@@ -3363,7 +3363,7 @@
       },
       {
         "platform": "Samsung Foundry SF3／SF2 MBCFET eNVM",
-        "values": "規劃支援高密度 BEOL STT-MRAM 與微型化 OTP 密鑰單元；瞄準低於 1.0V 工作電壓與高溫車規 retention。",
+        "values": "規劃支援高密度 BEOL STT-MRAM 與微型化 OTP 金鑰單元；瞄準低於 1.0V 工作電壓與高溫車規 retention。",
         "conditions": "3nm GAA / 2nm MBCFET 先進邏輯平台相容；須嚴格控管 BEOL 沉積熱預算 (<400°C) 以防磁性穿隧結損壞。",
         "sourceIds": [
           "FND-SEC-2024-MBCFET"
@@ -3382,7 +3382,7 @@
       {
         "platform": "Intel Foundry 18A RibbonFET BSPDN eNVM",
         "values": "結合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路；原生純邏輯 AntiFuse OTP 與後段先進 eNVM 整合；消除前段 IR drop。",
-        "conditions": "1.8nm 級先進晶圓代工平台；背面供電網有效降低動態開關雜訊，提供高精度微調與高密度密鑰空間。",
+        "conditions": "1.8nm 級先進晶圓代工平台；背面供電網有效降低動態開關雜訊，提供高精度微調與高密度金鑰空間。",
         "sourceIds": [
           "FND-INTC-2024-18A"
         ],
@@ -3476,7 +3476,7 @@
         "technology": "MRAM",
         "node": "16FFC",
         "stage": "具生產準備",
-        "claim": "完成可靠性驗證；一百萬次循環與回流焊能力；具生產準備，Grade 1 當時目標為 2023。",
+        "claim": "完成可靠性驗證；一百萬次循環與迴焊能力；具生產準備，Grade 1 當時目標為 2023。",
         "sourceIds": [
           "FND-TSMC-2022-AR"
         ],
@@ -5251,7 +5251,7 @@
         "id": "RES-INTRINSICID-QUIDDIKEY-2025",
         "label": "Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書",
         "url": "https://www.intrinsic-id.com/products/quiddikey/",
-        "locator": "官方 SRAM PUF 密鑰重建與零工廠燒錄架構白皮書",
+        "locator": "官方 SRAM PUF 金鑰重建與零工廠燒錄架構白皮書",
         "kind": "安全技術白皮書",
         "date": "2025-05-12",
         "limit": "利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。"
@@ -7270,7 +7270,7 @@
     {
       "id": "CMP-YU2016",
       "label": "Yu 與 Chen：新興記憶體技術的近期趨勢與展望",
-      "url": "https://knowen-production.s3.amazonaws.com/uploads/attachment/file/5249/yu2016.pdf",
+      "url": "https://doi.org/10.1109/MSSC.2016.2546199",
       "kind": "原始技術綜論",
       "locator": "IEEE Solid-State Circuits Magazine 8(2)，43–56；p44 表 1；DOI 10.1109/MSSC.2016.2546199",
       "date": "2016",
@@ -7553,7 +7553,7 @@
       "kind": "供應商新聞稿",
       "date": "2020-02-27",
       "locator": "生產、可靠性與巨集段落",
-      "claim": "22FDX eMRAM 已進入生產；十萬次循環、指定溫區十年保持、五次回流焊；Grade 2 設計支援，Grade 1 為次年開發目標。",
+      "claim": "22FDX eMRAM 已進入生產；十萬次循環、指定溫區十年保持、五次迴焊；Grade 2 設計支援，Grade 1 為次年開發目標。",
       "evidence": "已核讀全文",
       "limit": "屬當時平台及巨集條件；不能套用至所有 MRAM。",
       "accessedAt": "2026-09-10"
@@ -7877,7 +7877,7 @@
       "kind": "供應商官方活動發布",
       "date": "2024-02-21",
       "locator": "IFDC 2024 18A 生產計畫、PowerVia 背面供電與嵌入式 IP ecosystem",
-      "claim": "Intel 18A 整合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路 (BSPDN)，為次世代高密度嵌入式記憶體及純邏輯 AntiFuse OTP 安全密鑰單元提供極低壓與極致抗雜訊供電。",
+      "claim": "Intel 18A 整合 RibbonFET 全環繞閘極與 PowerVia 背面供電網路 (BSPDN)，為次世代高密度嵌入式記憶體及純邏輯 AntiFuse OTP 安全金鑰單元提供極低壓與極致抗雜訊供電。",
       "evidence": "已核讀官方發布與技術白皮書",
       "limit": "18A 於 2024–2025 進入生產準備，前瞻 eNVM/MRAM 仍在研發驗證階段，需依 PDK 與晶圓驗證進度逐代落地。",
       "accessedAt": "2026-09-10"
@@ -8227,7 +8227,7 @@
     {
       "id": "physics-btbt-carriers",
       "label": "Chu、Wu：BTBT 熱載子路徑",
-      "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+      "url": "https://doi.org/10.1109/55.823576",
       "kind": "原始研究",
       "date": "2000-03；2026-09-10 查核",
       "locator": "IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576",
@@ -8363,7 +8363,7 @@
     {
       "id": "ip-numem-2019",
       "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-      "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+      "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
       "kind": "原廠公開會議簡報",
       "date": "2019-08-05",
       "accessedAt": "2026-09-10",
@@ -8433,7 +8433,7 @@
     {
       "id": "ip-crossbar-macro",
       "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-      "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+      "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
       "kind": "原廠公開產品簡介",
       "date": null,
       "accessedAt": "2026-09-10",
@@ -8443,7 +8443,7 @@
     {
       "id": "ip-crossbar-2015",
       "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-      "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+      "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
       "kind": "原廠公開會議簡報",
       "date": "2015",
       "accessedAt": "2026-09-10",
@@ -9564,7 +9564,7 @@
       "id": "RES-INTRINSICID-QUIDDIKEY-2025",
       "label": "Intrinsic ID：Quiddikey 晶片硬體信任根 (SRAM PUF + Fuzzy Extractor) 技術白皮書",
       "url": "https://www.intrinsic-id.com/products/quiddikey/",
-      "locator": "官方 SRAM PUF 密鑰重建與零工廠燒錄架構白皮書",
+      "locator": "官方 SRAM PUF 金鑰重建與零工廠燒錄架構白皮書",
       "kind": "安全技術白皮書",
       "date": "2025-05-12",
       "limit": "利用天然 6T SRAM 開機微觀製程漂移重構根金鑰；搭配公開 Helper Data (Activation Code) 與 BCH 糾錯，斷電不留根，零工廠金鑰注入。"
@@ -22903,7 +22903,7 @@
               {
                 "id": "physics-btbt-carriers",
                 "label": "Chu、Wu：BTBT 熱載子路徑",
-                "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+                "url": "https://doi.org/10.1109/55.823576",
                 "kind": "原始研究",
                 "date": "2000-03；2026-09-10 查核",
                 "locator": "IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576",
@@ -23048,7 +23048,7 @@
                   {
                     "id": "physics-btbt-carriers",
                     "label": "Chu、Wu：BTBT 熱載子路徑",
-                    "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+                    "url": "https://doi.org/10.1109/55.823576",
                     "kind": "原始研究",
                     "date": "2000-03；2026-09-10 查核",
                     "locator": "IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576",
@@ -26021,7 +26021,7 @@
               {
                 "id": "ip-numem-2019",
                 "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-                "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                 "kind": "原廠公開會議簡報",
                 "date": "2019-08-05",
                 "accessedAt": "2026-09-10",
@@ -26135,7 +26135,7 @@
                   {
                     "id": "ip-numem-2019",
                     "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-                    "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                    "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                     "kind": "原廠公開會議簡報",
                     "date": "2019-08-05",
                     "accessedAt": "2026-09-10",
@@ -26176,7 +26176,7 @@
               {
                 "id": "ip-numem-2019",
                 "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-                "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                 "kind": "原廠公開會議簡報",
                 "date": "2019-08-05",
                 "accessedAt": "2026-09-10",
@@ -26290,7 +26290,7 @@
                   {
                     "id": "ip-numem-2019",
                     "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-                    "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                    "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                     "kind": "原廠公開會議簡報",
                     "date": "2019-08-05",
                     "accessedAt": "2026-09-10",
@@ -26331,7 +26331,7 @@
               {
                 "id": "ip-numem-2019",
                 "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-                "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                 "kind": "原廠公開會議簡報",
                 "date": "2019-08-05",
                 "accessedAt": "2026-09-10",
@@ -26432,7 +26432,7 @@
                   {
                     "id": "ip-numem-2019",
                     "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-                    "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+                    "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
                     "kind": "原廠公開會議簡報",
                     "date": "2019-08-05",
                     "accessedAt": "2026-09-10",
@@ -27466,7 +27466,7 @@
               {
                 "id": "ip-crossbar-macro",
                 "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-                "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                 "kind": "原廠公開產品簡介",
                 "date": null,
                 "accessedAt": "2026-09-10",
@@ -27476,7 +27476,7 @@
               {
                 "id": "ip-crossbar-2015",
                 "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-                "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
                 "kind": "原廠公開會議簡報",
                 "date": "2015",
                 "accessedAt": "2026-09-10",
@@ -27576,7 +27576,7 @@
                   {
                     "id": "ip-crossbar-macro",
                     "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-                    "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                    "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                     "kind": "原廠公開產品簡介",
                     "date": null,
                     "accessedAt": "2026-09-10",
@@ -27586,7 +27586,7 @@
                   {
                     "id": "ip-crossbar-2015",
                     "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-                    "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                    "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
                     "kind": "原廠公開會議簡報",
                     "date": "2015",
                     "accessedAt": "2026-09-10",
@@ -27617,7 +27617,7 @@
               {
                 "id": "ip-crossbar-macro",
                 "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-                "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                 "kind": "原廠公開產品簡介",
                 "date": null,
                 "accessedAt": "2026-09-10",
@@ -27627,7 +27627,7 @@
               {
                 "id": "ip-crossbar-2015",
                 "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-                "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
                 "kind": "原廠公開會議簡報",
                 "date": "2015",
                 "accessedAt": "2026-09-10",
@@ -27727,7 +27727,7 @@
                   {
                     "id": "ip-crossbar-macro",
                     "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-                    "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                    "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                     "kind": "原廠公開產品簡介",
                     "date": null,
                     "accessedAt": "2026-09-10",
@@ -27737,7 +27737,7 @@
                   {
                     "id": "ip-crossbar-2015",
                     "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-                    "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                    "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
                     "kind": "原廠公開會議簡報",
                     "date": "2015",
                     "accessedAt": "2026-09-10",
@@ -27768,7 +27768,7 @@
               {
                 "id": "ip-crossbar-macro",
                 "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-                "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                 "kind": "原廠公開產品簡介",
                 "date": null,
                 "accessedAt": "2026-09-10",
@@ -27778,7 +27778,7 @@
               {
                 "id": "ip-crossbar-2015",
                 "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-                "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
                 "kind": "原廠公開會議簡報",
                 "date": "2015",
                 "accessedAt": "2026-09-10",
@@ -27865,7 +27865,7 @@
                   {
                     "id": "ip-crossbar-macro",
                     "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-                    "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+                    "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
                     "kind": "原廠公開產品簡介",
                     "date": null,
                     "accessedAt": "2026-09-10",
@@ -27875,7 +27875,7 @@
                   {
                     "id": "ip-crossbar-2015",
                     "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-                    "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+                    "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
                     "kind": "原廠公開會議簡報",
                     "date": "2015",
                     "accessedAt": "2026-09-10",
@@ -28246,7 +28246,7 @@
       {
         "id": "physics-btbt-carriers",
         "label": "Chu、Wu：BTBT 熱載子路徑",
-        "url": "https://ir.lib.nycu.edu.tw/bitstream/11536/30685/1/000085620800010.pdf",
+        "url": "https://doi.org/10.1109/55.823576",
         "kind": "原始研究",
         "date": "2000-03；2026-09-10 查核",
         "locator": "IEEE EDL 21(3)，頁 123 Introduction；頁 125 圖 4；DOI 10.1109/55.823576",
@@ -28382,7 +28382,7 @@
       {
         "id": "ip-numem-2019",
         "label": "Numem：第一代 22nm 嵌入式 MRAM 原始發表",
-        "url": "https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
+        "url": "https://web.archive.org/web/20240627014017/https://files.futurememorystorage.com/proceedings/2019/08-05-Monday/20190805_MRAMDD_EmbeddedMRAM_Hendrickson.pdf",
         "kind": "原廠公開會議簡報",
         "date": "2019-08-05",
         "accessedAt": "2026-09-10",
@@ -28452,7 +28452,7 @@
       {
         "id": "ip-crossbar-macro",
         "label": "Crossbar：高效能 ReRAM IP 產品簡介",
-        "url": "https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
+        "url": "https://web.archive.org/web/20251111045329/https://www.crossbar-inc.com/assets/white-papers/High-Performance-Memory-Product-Brief.pdf",
         "kind": "原廠公開產品簡介",
         "date": null,
         "accessedAt": "2026-09-10",
@@ -28462,7 +28462,7 @@
       {
         "id": "ip-crossbar-2015",
         "label": "Crossbar：嵌入式 1T1R 與金屬路徑原始發表",
-        "url": "https://www.crossbar-inc.com/assets/resources/presentations/FMS2015-Slides-Versatile-ReRAM-Technology-and-Applications.pdf",
+        "url": "https://web.archive.org/web/20240712152921/https://files.futurememorystorage.com/proceedings/2015/20150812_S203A_Nazarian.pdf",
         "kind": "原廠公開會議簡報",
         "date": "2015",
         "accessedAt": "2026-09-10",
