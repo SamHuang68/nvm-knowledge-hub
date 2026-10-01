@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "3363cadbd1590918ab2b",
+  "version": "a8acaa8456e451c5ec11",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -111,7 +111,7 @@ self.NVMOfflineManifest = {
     "home-navigation.js": "64501ccfac640ac42684a943ece3111a5a065b4f697f64fa47f4e92c3749c796",
     "hub-apps-chrome.css": "f1ee95b82e3aa3acf879493a4514b7081430d649700a5d269655ae01efcd73d6",
     "hub-auto-tune.css": "0a6918cf6a381f9d4269d359799ce733b3c9e893ab1414ad50c61d5b2a67ecc7",
-    "hub-auto-tune.js": "2f26e06a13599e46630ea23d262593777420a55582b4486d282b4063c62cf06f",
+    "hub-auto-tune.js": "cbee8269102447acc4f17fb05edccf8dfe268354432972cb820a4509f7f5d3fb",
     "hub-story-apps.js": "c6bf5a3704130a3e871dd217d1d060e9611b7a3b95afc70f2b19e6961bdf13d3",
     "hub-story-maps.css": "f85ac4264e2afd3430395f4cf3a7067f075a0b1660d26212b8fb42f2680ad3d9",
     "hub-story-maps.js": "476d2dcf6381447afa7af13bc0b6e3945f43d4b9b3e491ccbab1be34a582e5ff",
@@ -124,7 +124,7 @@ self.NVMOfflineManifest = {
     "literature-editorial.css": "1204ad9ba0f89e3a18d8bd60c7c9a4c7aa412a7bcf396aac3cf1d3dfb14545f8",
     "literature-paper.js": "7dcf218213435d65e3d6b3aa811a3ae155d35d148c951c3cdf3a40cabafce28d",
     "matrix-interactive.js": "96eef44abf28701f8447814372521e2a7de0be731b47779b278ffab20d75973d",
-    "memory-evidence.html": "8957ecfae861ee2f7351be39b3da9472c2ec3ffa1d3c8bdc2c6296968b8486b4",
+    "memory-evidence.html": "15f12762739cbee8fafb43de72ff5219da2a6fb71f99ff25d685a934ddff85e4",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
     "memory-physics.html": "898324ba45714a4301e1cdde87cc2c3664ebce762e34bfacc620ea5594d778f2",
@@ -142,7 +142,7 @@ self.NVMOfflineManifest = {
     "research.css": "fb992a4f51654340ff28b5c0d4d70bd7bcfd73ad1b6b048df5c47b7573678e49",
     "research.js": "9a6dc6f07f7f69e712db722d70066e80b13779389a768b7f4ca99384adf62bdd",
     "search-controller.js": "9f6305af19e4d477325d18453dc09f2260842132e1d95bb1447cbc439b367085",
-    "secure-storage.html": "7099b5d294420acdb539ce33f11cee706433624c35fcdd2445ab943e5492621d",
+    "secure-storage.html": "ee6d19cf707faf6b467d12539b696357e276cebff00ec7fe490e888e5f0c8bbd",
     "security-assurance.html": "8fe5d5581882e6e08817e0f15f3e15527dc68ff9c83521c060965eb3a186b0eb",
     "site-language.js": "76af0f172e506a94126b8db747d7a1891dea4b349958a17c11e7ec8daef8d8c9",
     "site-shell.css": "66c847fcc1dbc26a32ecd71df181c1363f9ceed6874f1512414ddfc49a437bc2",
@@ -164,5 +164,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 10843580
+  "totalBytes": 10843543
 };

@@ -23,7 +23,7 @@
   if (lead) {
     lead.innerHTML = T(
       'This page uses the mission profile to pick the test gate. It does not issue a certification. AEC-Q100 Grade 0 is an ambient range (−40°C to +150°C Ta). Junction limits stay on the named datasheet.',
-      '本頁依任務條件選擇測試關卡，不構成認證。AEC-Q100 Grade 0 是環境溫度（−40°C 至 +150°C Ta）。接面溫度以特定規格書 為準。'
+      '本頁依任務條件選擇測試關卡，不構成認證。AEC-Q100 Grade 0 是環境溫度（−40°C 至 +150°C Ta）。接面溫度以特定規格書為準。'
     );
   }
   const hero = document.querySelector('.m3-hero-container') || document.querySelector('.m3-hero');
@@ -40,7 +40,7 @@
     const leadP = fail.querySelector('.hub-story-lead');
     if (leadP) leadP.innerHTML = T(
       'Domain and mission profile first. Then Ta versus Tj. Then Q100-005 into HTOL / HTDR / ELFR. Stop at SEooC vocabulary and VERIFY.',
-      '先定義領域與任務條件，再分 Ta 與 Tj，再走 Q100-005 到 HTOL／HTDR／ELFR。停在 SEooC 語彙與 待驗證。'
+      '先定義領域與任務條件，再分 Ta 與 Tj，再走 Q100-005 到 HTOL／HTDR／ELFR。最後以 SEooC 術語收斂，數字維持待驗證。'
     );
     const steps = [
       { n: '01', en: 'Domain', zh: '域', hintEn: 'Cabin · under-hood · safety', hintZh: '船內 · 引擎艙 · 安全',
@@ -89,7 +89,7 @@
     wrap.id = 'hub-auto-gate-table';
     wrap.innerHTML =
       '<table class="hub-auto-table">' +
-      '<caption>' + T('Named-condition checklist. Figures stay VERIFY against AEC-Q100 / Q100-005 / Q100-008 and the cited revision.', '特定條件清單。數字須對 AEC-Q100／Q100-005／Q100-008 及被引版本做 待驗證。') + '</caption>' +
+      '<caption>' + T('Named-condition checklist. Figures stay VERIFY against AEC-Q100 / Q100-005 / Q100-008 and the cited revision.', '特定條件清單。數字須依 AEC-Q100／Q100-005／Q100-008 及所引版本驗證。') + '</caption>' +
       '<thead><tr>' +
       '<th>' + T('Gate', '門') + '</th>' +
       '<th>' + T('Test', '測試') + '</th>' +
@@ -118,7 +118,7 @@
     'lab-thermal-title',
     'hub-auto-assume-thermal',
     'Assumption: the Arrhenius canvas is a teaching model. Ea, Tuse and Tstress must be named before any acceleration factor is treated as evidence.',
-    '假設：Arrhenius 畫布是教學模型。Ea、Tuse、Tstress 未特定前，加速因子不得當作證據。'
+    '假設：Arrhenius 畫布是教學模型。Ea、Tuse、Tstress 未明確指定前，加速因子不得當作證據。'
   );
   assume(
     'lab-ecc-title',
@@ -137,7 +137,7 @@
     wrap.id = 'hub-auto-domain-table';
     wrap.innerHTML =
       '<table class="hub-auto-table">' +
-      '<caption>' + T('Fit class only. Named public examples stay VERIFY. This is not a design-win matrix.', '只標適配等級。特定公開例仍須 待驗證。不是 設計採用 矩陣。') + '</caption>' +
+      '<caption>' + T('Fit class only. Named public examples stay VERIFY. This is not a design-win matrix.', '只標適配等級。特定公開案例仍待驗證；本表不是設計採用（design-win）矩陣。') + '</caption>' +
       '<thead><tr>' +
       '<th>' + T('Domain', '域') + '</th>' +
       '<th>OTP / AF</th><th>eFlash</th><th>RRAM</th><th>PCM</th>' +
