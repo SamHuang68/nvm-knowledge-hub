@@ -328,6 +328,7 @@
       }
     }
   </style>
+<link rel="stylesheet" href="../reading-controls.css">
 </head>
 <body class="theme-light"  data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
@@ -951,37 +952,8 @@
   </footer>
 
   <script src="../hub.js?v=20260906-navy-v3"></script>
-  <script>
-    // 篩選按鈕互動與列印功能
-    document.addEventListener('DOMContentLoaded', () => {
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const cards = document.querySelectorAll('.slide-card');
-      
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterBtns.forEach(b => {
-            const isCurrent = (b === btn);
-            b.classList.toggle('active', isCurrent);
-            b.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
-          });
-          const filter = btn.dataset.filter;
-          
-          cards.forEach(card => {
-            if (filter === 'all' || card.dataset.filterGroup === filter) {
-              card.classList.remove('hidden');
-            } else {
-              card.classList.add('hidden');
-            }
-          });
-        });
-      });
 
-      const btnPrint = document.getElementById('btnPrintBriefing');
-      if (btnPrint) {
-        btnPrint.addEventListener('click', () => window.print());
-      }
-    });
-  </script>
 <script src="../topic-menu-navigation.js?v=20260910-bilingual"></script>
+<script src="../reading-controls.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@ import {startTestServer} from './test-server.mjs';
 
 const root=path.resolve(import.meta.dirname,'..');
 const server=await startTestServer(root);
-const scripts=['../tests/sram-model.test.mjs','verify-sram-estimator.mjs','verify-check-gates.mjs','verify-repair-simulator.mjs','verify-search-and-state.mjs','verify-atlas-lazy-diagrams.mjs','verify-service-worker-redirect.mjs','verify-offline-cache.mjs','../tools/whitepaper-studio/scripts/verify-whitepaper-browser.mjs','verify-bilingual-release.mjs'];
+const scripts=['../tests/sram-model.test.mjs','verify-sram-estimator.mjs','verify-restored-reading-ui.mjs','verify-check-gates.mjs','verify-repair-simulator.mjs','verify-search-and-state.mjs','verify-atlas-lazy-diagrams.mjs','verify-service-worker-redirect.mjs','verify-offline-cache.mjs','../tools/whitepaper-studio/scripts/verify-whitepaper-browser.mjs','verify-bilingual-release.mjs'];
 try {
   for(const file of scripts) {
     console.log(`開始驗證：${file}`);
