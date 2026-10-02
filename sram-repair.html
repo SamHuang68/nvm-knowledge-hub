@@ -1,8 +1,81 @@
 <!doctype html>
 <html lang="en" data-language="en" data-title-en="SRAM Repair Capacity Estimator · NVM Knowledge Hub" data-title-zh="SRAM 修復容量估算 · NVM 知識中心" data-description-en="Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation." data-description-zh="即時計算 SRAM 修復資料的壓縮前後需求，並列比較 OTP 與 eFuse 配置容量。">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation."><meta name="theme-color" content="#f8fafc"><meta name="color-scheme" content="light"><title>SRAM Repair Capacity Estimator · NVM Knowledge Hub</title><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="canonical" href="https://hub.samhuang68.org/sram-repair.html"><script src="site-language.js"></script><link rel="stylesheet" href="sram-repair.css"><script type="module" src="sram-repair.js"></script></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation.">
+  <meta name="author" content="NVM Knowledge Hub Editorial Board">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#f8fafc">
+  <meta name="color-scheme" content="light">
+  <meta name="apple-mobile-web-app-title" content="NVM Hub">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>SRAM Repair Capacity Estimator · NVM Knowledge Hub</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="canonical" href="https://hub.samhuang68.org/sram-repair.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="NVM Knowledge Hub">
+  <meta property="og:url" content="https://hub.samhuang68.org/sram-repair.html">
+  <meta property="og:title" content="SRAM Repair Capacity Estimator · NVM Knowledge Hub">
+  <meta property="og:description" content="Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <meta property="og:image" content="https://hub.samhuang68.org/assets/silicon-ip-panorama-v2.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:alt" content="NVM Knowledge Hub Silicon IP Panorama Overview">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SRAM Repair Capacity Estimator · NVM Knowledge Hub">
+  <meta name="twitter:description" content="Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation.">
+  <meta name="twitter:image" content="https://hub.samhuang68.org/assets/silicon-ip-panorama-v2.webp">
+  <meta name="twitter:image:alt" content="NVM Knowledge Hub Silicon IP Panorama Overview">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"SRAM Repair Capacity Estimator · NVM Knowledge Hub","description":"Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation.","url":"https://hub.samhuang68.org/sram-repair.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Web browser","inLanguage":["en","zh-TW"],"isAccessibleForFree":true}</script>
+
+  <script src="site-language.js?v=20260920-apps1"></script>
+  <link rel="stylesheet" href="site-shell.css?v=20260916-keepout">
+  <link rel="stylesheet" href="sram-repair.css">
+  <script type="module" src="sram-repair.js"></script>
+</head>
 <body class="sram-repair-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
-<a class="skip" href="#parameters"><span data-lang="en">Skip to parameters</span><span data-lang="zh">跳至估算參數</span></a><header class="topbar"><div class="topbar-inner"><a class="brand" href="index.html">NVM <b>KNOWLEDGE HUB</b></a><nav aria-label="Primary navigation" data-aria-en="Primary navigation" data-aria-zh="主要導覽"><a href="index.html#layer-foundations"><span data-lang="en">Foundations</span><span data-lang="zh">技術基礎</span></a><a href="index.html#layer-ip-process"><span data-lang="en">IP &amp; Processes</span><span data-lang="zh">IP 與製程</span></a><a href="index.html#layer-applications"><span data-lang="en">Applications</span><span data-lang="zh">應用與系統</span></a><a href="index.html#layer-resources"><span data-lang="en">Resources</span><span data-lang="zh">文獻與工具</span></a></nav><button id="languageToggle" class="language-toggle" type="button" aria-label="Switch to Traditional Chinese"><span data-lang-option="en" lang="en">EN</span><i>/</i><span data-lang-option="zh" lang="zh-Hant">中文</span></button></div></header>  <main><div class="sram-breadcrumb"><a href="index.html">NVM Knowledge Hub</a><span> / </span><a href="index.html#layer-applications"><span data-lang="en">Applications and Systems</span><span data-lang="zh">應用與系統</span></a><span> / SRAM</span></div>
+  <a class="skip-link skip" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="NVM Knowledge Hub home" data-aria-en="NVM Knowledge Hub home" data-aria-zh="NVM 知識中心首頁">
+      <span class="brand-mark"><svg viewBox="0 0 48 48" width="32" height="32" aria-hidden="true"><rect x="11" y="11" width="26" height="26" rx="3"/><rect x="18" y="18" width="12" height="12" rx="2"/><path d="M17 5v6M24 5v6M31 5v6M17 37v6M24 37v6M31 37v6M5 17h6M5 24h6M5 31h6M37 17h6M37 24h6M37 31h6"/></svg></span>
+      <span class="brand-copy"><strong>NVM</strong><small><span data-lang="zh">知識中心</span><span data-lang="en">KNOWLEDGE HUB</span></small></span>
+      <span class="brand-section"><span data-lang="zh">SRAM 修復</span><span data-lang="en">SRAM REPAIR</span></span>
+    </a>
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation" data-aria-en="Primary navigation" data-aria-zh="主要導覽">
+      <a href="index.html#layer-foundations" data-hub-category="foundations"><span data-lang="en">Technology Foundations</span><span data-lang="zh">技術基礎</span></a>
+      <a href="index.html#layer-ip-process" data-hub-category="ip-process"><span data-lang="en">IP and Processes</span><span data-lang="zh">IP 與製程</span></a>
+      <a href="index.html#layer-applications" data-hub-category="applications" aria-current="location"><span data-lang="en">Applications and Systems</span><span data-lang="zh">應用與系統</span></a>
+      <a href="index.html#layer-resources" data-hub-category="resources"><span data-lang="en">Literature and Tools</span><span data-lang="zh">文獻與工具</span></a>
+    </nav>
+    <div class="header-actions">
+      <a class="home-pill" href="index.html#topics"><span data-lang="zh">全部主題</span><span data-lang="en">ALL TOPICS</span></a>
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to Traditional Chinese" data-aria-en="Switch to Traditional Chinese" data-aria-zh="切換為英文"><b data-lang-option="zh">中</b><i>/</i><b data-lang-option="en">EN</b></button>
+      <button class="menu-button" id="menuToggle" type="button" aria-label="Open menu" data-aria-en="Open menu" data-aria-zh="開啟選單" aria-expanded="false" aria-controls="primaryNav"><i></i><i></i></button>
+    </div>
+  </header>
+
+  <nav class="site-breadcrumb" aria-label="Breadcrumb" data-aria-en="Breadcrumb" data-aria-zh="麵包屑導覽">
+    <i></i><a href="index.html"><span data-lang="zh">知識中心</span><span data-lang="en">Knowledge Hub</span></a>
+    <i></i><a href="index.html#layer-applications"><span data-lang="zh">應用與系統</span><span data-lang="en">Applications and Systems</span></a>
+    <i></i><strong><span data-lang="zh">SRAM 修復容量估算器</span><span data-lang="en">SRAM Repair Capacity Estimator</span></strong>
+    <span class="topic-switch">
+      <a href="ai-nvm-opportunities.html"><span data-lang="en">AI Systems</span><span data-lang="zh">AI 系統</span></a>
+      <a href="secure-storage.html"><span data-lang="en">Secure Storage</span><span data-lang="zh">安全儲存</span></a>
+    </span>
+  </nav>
+
+  <main id="main-content">
     <div class="hero">
       <div><div class="eyebrow"><span></span><span data-lang="en">APPLICATIONS / SRAM REPAIR · CAPACITY PLANNING</span><span data-lang="zh">應用 / SRAM 修復 · 先進節點容量規劃</span></div><h1><span data-lang="en">Size your SRAM repair data</span><span data-lang="zh">把修復需求，算清楚</span></h1><p><span data-lang="en">Explore compression and allocated OTP / eFuse capacity for large SRAM repair datasets.</span><span data-lang="zh">從大型 SRAM 到修復資料，掌握壓縮效益與 OTP / eFuse 配置容量。</span></p></div>
       <button class="primary" id="load-example"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 3v14M3 10h14"/></svg><span data-lang="en">Load 16 Gb example</span><span data-lang="zh">載入 16 Gb 範例</span></button>
@@ -41,4 +114,119 @@
       <div class="panel comparison-table-wrap"><table id="comparison-table"><caption class="sr-only"><span data-lang="en">OTP and eFuse capacity breakdown</span><span data-lang="zh">OTP 與 eFuse 位元數比較明細</span></caption><thead><tr><th scope="col"><span data-lang="en">Capacity breakdown</span><span data-lang="zh">容量明細</span></th><th scope="col"><i class="otp-dot"></i> OTP</th><th scope="col"><i class="efuse-dot"></i> eFuse</th></tr></thead><tbody id="comparison-rows"></tbody></table><div class="table-note" id="difference"><span data-lang="en">Both technologies currently have the same allocated capacity.</span><span data-lang="zh">目前兩種技術的配置容量相同。</span></div></div>
     </section>
     <section id="method" class="method" aria-label="Method and assumptions" data-aria-en="Method and assumptions" data-aria-zh="計算方法與假設"><details><summary><span><span class="formula-icon">ƒ</span><span data-lang="en">Method and assumptions</span><span data-lang="zh">計算方法與假設</span></span><span class="expand">+</span></summary><div class="method-body"><div><h3><span data-lang="en">Data requirement</span><span data-lang="zh">資料需求</span></h3><p><span data-lang="en">SRAM bits = ceil(input capacity × bits per unit)</span><span data-lang="zh">SRAM bits = ⌈輸入容量 × 單位位元數⌉</span></p><p><span data-lang="en">Raw repair bits = ceil(SRAM bits × repair fraction)</span><span data-lang="zh">原始修復 bits = ⌈SRAM bits × 原始修復資料比例⌉</span></p><p><span data-lang="en">Payload bits = ceil(raw repair bits / compression ratio)</span><span data-lang="zh">有效資料 bits = ⌈原始修復 bits / 壓縮倍率⌉</span></p><p><span data-lang="en">Capacity reduction = 1 − payload bits / raw repair bits</span><span data-lang="zh">資料容量減少比例 = 1 − 有效資料 bits / 原始修復 bits</span></p></div><div><h3><span data-lang="en">Allocated storage</span><span data-lang="zh">實際配置</span></h3><p><span data-lang="en">Overhead bits = ceil(payload bits × overhead %)</span><span data-lang="zh">開銷 bits = ⌈有效資料 bits × 開銷 %⌉</span></p><p><span data-lang="en">Reserve bits = ceil((payload bits + overhead bits) × reserve %)</span><span data-lang="zh">預留 bits = ⌈（有效資料 bits + 開銷 bits）× 預留 %⌉</span></p><p><span data-lang="en">Required bits = payload bits + overhead bits + reserve bits</span><span data-lang="zh">需求 bits = 有效資料 bits + 開銷 bits + 預留 bits</span></p><p><span data-lang="en">Allocated bits = ceil(required bits / block bits) × block bits</span><span data-lang="zh">配置 bits = ⌈需求 bits / 粒度 bits⌉ × 粒度 bits</span></p></div><div class="method-wide"><h3><span data-lang="en">Reading this estimate</span><span data-lang="zh">如何閱讀這份試算</span></h3><p><span data-lang="en">Each stage rounds up to whole bits. Bytes round up as ceil(bits / 8). kb / Mb / Gb are decimal; Kib / Mib / Gib are binary, with 1 Gib = 2³⁰ bits. Lowercase b means bits; uppercase B means bytes.</span><span data-lang="zh">⌈ ⌉ 表示向上取整。各階段取整至完整位元；B 顯示容納位元所需的完整位元組（⌈bits / 8⌉）。kb / Mb / Gb 採十進位；Kib / Mib / Gib 採二進位，1 Gib = 2³⁰ bits。小寫 b 是位元、大寫 B 是位元組。</span></p><p><span data-lang="en">The defaults of 16 Gb, 1/1000 and 100:1 are adjustable planning assumptions, not IP specifications. Both technologies start with 0% overhead, 0% reserve and 1-bit blocks to show payload demand. Overhead can approximate ECC, indexes and control data; use actual encoding and macro capacities for implementation.</span><span data-lang="zh">預設 16 Gb、1/1000 與 100:1 為可調的規劃情境；OTP / eFuse 的開銷、預留均為 0%，粒度為 1 bit，用來呈現純資料需求，並非特定 IP 規格。開銷可概估 ECC、索引與控制資訊；正式配置請依實際編碼及巨集容量設定。</span></p><p><span data-lang="en">This model compares storage capacity. It excludes bitcell area, peripheral circuits, reliability, power and cost, so results do not establish area advantage, repair success rate or technology superiority. The 16 Gb example is not a validated area crossover.</span><span data-lang="zh">本模型比較儲存容量，未納入每位元面積、周邊電路、可靠度、功耗或成本，因此容量結果不代表面積優勢、修復成功率或特定技術的優劣。16 Gb 是範例容量，並非已驗證的面積交叉點。</span></p><p><span data-lang="en">Calculations run in your browser. Refreshing restores the defaults; export CSV to save your inputs and results.</span><span data-lang="zh">參數僅於目前瀏覽器頁面中運算；重新整理會回到預設值。匯出 CSV 可保留本次輸入與結果。</span></p></div></div></details></section>
-<footer><a href="index.html#layer-applications"><span data-lang="en">Back to Applications and Systems</span><span data-lang="zh">返回應用與系統</span></a><span><span data-lang="en">Explicit assumptions · Live comparison · Browser calculations</span><span data-lang="zh">明確假設 · 即時比較 · 瀏覽器內計算</span></span></footer></main><div class="toast" id="toast" role="status" hidden></div><noscript><p><span data-lang="en">Enable JavaScript to use the live calculator.</span><span data-lang="zh">請啟用 JavaScript 以使用即時計算與互動功能。</span></p></noscript></body></html>
+</main>
+<footer class="hub-footer">
+    <div class="hub-footer-inner">
+      <!-- Top Branding & Ecosystem Status -->
+      <div class="hub-footer-brand-row">
+        <div class="hub-footer-brand">
+          <a href="index.html" class="hub-footer-logo" aria-label="NVM Knowledge Hub home" data-aria-en="NVM Knowledge Hub home" data-aria-zh="NVM 知識中心首頁">
+            <span class="hub-footer-logo-mark">NVM</span>
+            <span class="hub-footer-logo-text">
+              <strong>KNOWLEDGE HUB</strong>
+              <small><span data-lang="zh">晶片架構與證據紀律</span><span data-lang="en">SILICON ARCHITECTURE &amp; EVIDENCE DISCIPLINE</span></small>
+            </span>
+          </a>
+          <p class="hub-footer-desc">
+            <span data-lang="zh">面向先進半導體邏輯節點、車載功能安全與超低功耗邊緣運算的高可靠度嵌入式非揮發性記憶體 (eNVM) 架構決策與物理實證知識庫。</span>
+            <span data-lang="en">Industrial-grade non-volatile memory (eNVM) architecture, bitcell physics, and automotive functional safety knowledge repository for advanced silicon design.</span>
+          </p>
+        </div>
+
+        <div class="hub-footer-meta-pill">
+          <div class="meta-pill-item">
+            <span class="meta-pill-dot" style="background:#c4a574;"></span>
+            <span class="meta-pill-key"><span data-lang="zh">代工矩陣：</span><span data-lang="en">FOUNDRY MATRIX:</span></span>
+            <span class="meta-pill-val">TSMC · UMC · GF · SAMSUNG</span>
+          </div>
+          <div class="meta-pill-item">
+            <span class="meta-pill-dot" style="background:#c4a574;"></span>
+            <span class="meta-pill-key"><span data-lang="zh">可靠度：</span><span data-lang="en">RELIABILITY:</span></span>
+            <span class="meta-pill-val"><span data-lang="zh">詞彙：AEC-Q100 Grade 0 / ISO 26262 ASIL 詞彙（SEooC）· 非本頁證書</span><span data-lang="en">Vocabulary only: AEC-Q100 Grade 0 / ISO 26262 ASIL vocabulary (SEooC) · not a page-level certificate</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hierarchical Nav Columns (Desktop 4 Columns / Mobile Stack) -->
+      <div class="hub-footer-nav-grid">
+        <!-- Col 1: Foundations -->
+        <div class="hub-footer-col">
+          <h3 class="hub-footer-col-title">
+            <span data-lang="zh">基礎理論 · 物理原語</span>
+            <span data-lang="en">Foundations &amp; Physics</span>
+          </h3>
+          <ul class="hub-footer-links">
+            <li><a href="index.html"><span data-lang="zh">知識中樞首頁</span><span data-lang="en">Hub Portal</span></a></li>
+            <li><a href="memory-physics.html"><span data-lang="zh">記憶體物理基底 (F1)</span><span data-lang="en">Bitcell Physics (F1)</span></a></li>
+            <li><a href="memory-evidence.html"><span data-lang="zh">文獻與實證語料 (R3)</span><span data-lang="en">Evidence Corpus (R3)</span></a></li>
+            <li><a href="security-assurance.html"><span data-lang="zh">物理安全保證 (A2)</span><span data-lang="en">Security Assurance (A2)</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Col 2: Architecture -->
+        <div class="hub-footer-col">
+          <h3 class="hub-footer-col-title">
+            <span data-lang="zh">架構矩陣 · 決策分析</span>
+            <span data-lang="en">Architecture &amp; Trade-Offs</span>
+          </h3>
+          <ul class="hub-footer-links">
+            <li><a href="technology-comparison.html"><span data-lang="zh">NVM 技術權衡矩陣 (F2)</span><span data-lang="en">Technology Comparison (F2)</span></a></li>
+            <li><a href="secure-storage.html"><span data-lang="zh">安全儲存架構 (A1)</span><span data-lang="en">Secure Storage (A1)</span></a></li>
+            <li><a href="ai-nvm-opportunities.html"><span data-lang="zh">AI 與先進節點機遇 (M1)</span><span data-lang="en">AI &amp; Advanced Nodes (M1)</span></a></li>
+            <li><a href="specialty-nvm.html"><span data-lang="zh">特殊製程 eNVM (M4)</span><span data-lang="en">Specialty Foundry NVM (M4)</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Applications -->
+        <div class="hub-footer-col">
+          <h3 class="hub-footer-col-title">
+            <span data-lang="zh">垂直領域 · 晶片應用</span>
+            <span data-lang="en">Vertical Applications</span>
+          </h3>
+          <ul class="hub-footer-links">
+            <li><a href="sram-repair.html"><span data-lang="zh">SRAM 修復容量估算器</span><span data-lang="en">SRAM Repair Estimator</span></a></li>
+            <li><a href="iot-mcu-envm.html"><span data-lang="zh">ULP IoT 與 MCU eNVM (M2)</span><span data-lang="en">IoT &amp; Edge MCU eNVM (M2)</span></a></li>
+            <li><a href="automotive-nvm.html"><span data-lang="zh">車載車規 NVM (M3)</span><span data-lang="en">Automotive-Grade NVM (M3)</span></a></li>
+            <li><a href="oip-secure-storage.html"><span data-lang="zh">OIP 合作夥伴簡報</span><span data-lang="en">OIP Partner Briefing</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Resources -->
+        <div class="hub-footer-col">
+          <h3 class="hub-footer-col-title">
+            <span data-lang="zh">白皮書 · 決策工坊</span>
+            <span data-lang="en">Reports &amp; Studios</span>
+          </h3>
+          <ul class="hub-footer-links">
+            <li><a href="whitepaper/"><span data-lang="zh">技術白皮書工作坊 (R1)</span><span data-lang="en">Whitepaper Studio (R1)</span></a></li>
+            <li><a href="briefing/index.html"><span data-lang="zh">高階主管戰略簡報 (R2)</span><span data-lang="en">Executive Briefing (R2)</span></a></li>
+            <li><a href="index.html#searchTrigger"><span data-lang="zh">全局架構檢索 (Ctrl+K)</span><span data-lang="en">Global Search (Ctrl+K)</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Tech Badges Strip -->
+      <div class="hub-footer-badge-strip">
+        <span class="hub-footer-badge">TSMC N2 / N3 GAA</span>
+        <span class="hub-footer-badge"><span data-lang="zh">0.5V NTV 近閾值運作</span><span data-lang="en">0.5V NTV Operation</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">0-Mask 純邏輯相容</span><span data-lang="en">0-Mask Pure Logic</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">AEC-Q100 車規溫度分級</span><span data-lang="en">AEC-Q100 Temperature Grades</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">ISO 26262 功能安全評估範圍</span><span data-lang="en">ISO 26262 Assessment Scope</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">向量修補 CAM</span><span data-lang="en">Vector Patch CAM</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">實體分析與證據邊界</span><span data-lang="en">Physical Analysis and Evidence Limits</span></span>
+        <span class="hub-footer-badge"><span data-lang="zh">側通道須依配置驗證</span><span data-lang="en">Configuration-Specific Side-Channel Tests</span></span>
+      </div>
+
+      <!-- Bottom Copyright & Status Bar -->
+      <div class="hub-footer-bottom-bar">
+        <div class="hub-footer-copy">
+          &copy; 2026 <strong>NVM Architecture Knowledge Hub</strong>.
+          <span data-lang="zh">保留所有權利 · 基於一級半導體物理實證與工業級架構規範構建。</span>
+          <span data-lang="en">All Rights Reserved. Grounded in first-principles semiconductor physics &amp; foundry standards.</span>
+        </div>
+        <div class="hub-footer-controls">
+          <span class="hub-footer-tag">RELEASE V2026.09 · FLAGSHIP ENTERPRISE</span>
+        </div>
+      </div>
+    </div>
+  </footer><div class="toast" id="toast" role="status" hidden></div><noscript><p><span data-lang="en">Enable JavaScript to use the live calculator.</span><span data-lang="zh">請啟用 JavaScript 以使用即時計算與互動功能。</span></p></noscript></body></html>

@@ -1,0 +1,9 @@
+.reading-controls { display:flex; flex-wrap:wrap; align-items:end; gap:16px; margin:20px 0; color:#0f172a; }
+.reading-controls label { display:grid; gap:6px; flex:1 1 240px; min-width:0; max-width:100%; font-size:14px; font-weight:600; }
+.reading-controls select, .reading-controls button { min-height:44px; max-width:100%; padding:10px 14px; border:1px solid #64748b; border-radius:6px; background:#fff; color:#0f172a; font:inherit; }
+.reading-controls select { width:100%; min-width:0; }
+.reading-controls button { cursor:pointer; }
+.reading-controls p { flex-basis:100%; margin:0; color:#475569; }
+.reading-controls :is(button,select):focus-visible { outline:3px solid #087f8c; outline-offset:3px; }
+.slide-notes[hidden] { display:none !important; }
+@media print { .reading-controls { display:none; } }
