@@ -46,7 +46,9 @@ try {
     await locale();
     await page.evaluate(()=>{location.hash='ip-lineage';});
     const eventLink=page.locator('.nvm-lineage-date').first();
+    const eventHash=await eventLink.getAttribute('href');
     await eventLink.click();
+    await page.waitForFunction(hash=>location.hash===hash && document.activeElement === document.querySelector(hash+' h5'),eventHash);
     assert.equal(await page.evaluate(()=>document.activeElement.tagName),'H5');
     await locale();
     await page.screenshot({path:path.join(output,`lineage-${language}.png`)});
