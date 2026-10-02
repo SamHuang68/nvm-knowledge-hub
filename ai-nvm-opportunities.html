@@ -1113,7 +1113,8 @@
             <div class="record-fit"><small><span data-lang="zh">狀態／適用性</span><span data-lang="en">STATE / FIT</span></small><b><span data-lang="zh">根金鑰＋政策＋撤銷</span><span data-lang="en">ROOT + POLICY + REVOCATION</span></b><span><span data-lang="zh">OTP 與選用的 PUF 衍生根金鑰</span><span data-lang="en">OTP + optional PUF-derived root</span></span><em><span data-lang="zh">placement 與 physical assurance 仍依產品而定</span><span data-lang="en">Placement and physical assurance remain product-specific</span></em></div>
           </article>
         </div>
-        <p class="opportunity-empty" id="opportunityEmpty" hidden><span data-lang="zh">目前篩選條件沒有相符紀錄。</span><span data-lang="en">No records match the current filters.</span></p>
+        <p class="opportunity-empty" id="opportunityEmpty" role="status" aria-live="polite" aria-atomic="true" hidden><span data-lang="zh">目前篩選條件沒有相符紀錄。</span><span data-lang="en">No records match the current filters.</span></p>
+        <div id="opportunityRecovery" hidden><button id="opportunityRetry" type="button" class="button ghost" aria-controls="opportunityList" aria-describedby="opportunityEmpty"><span data-lang="zh">重試載入機會資料</span><span data-lang="en">Retry loading opportunities</span></button></div>
 
         <aside id="repair-programming" class="repair-programming-module" aria-labelledby="repair-programming-title" data-record-ids="AI-NVM-EFUSE-001 AI-NVM-DRAM-001 AI-NVM-DRAM-002 AI-NVM-HBM-001 AI-NVM-INF-004">
           <header class="repair-programming-head">

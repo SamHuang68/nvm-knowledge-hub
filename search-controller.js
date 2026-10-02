@@ -164,6 +164,7 @@ window.__NVM_SEARCH_ENHANCED = true;
     function render() {
       const q = normalize(input.value);
       const items = index.map(item => ({item, score:score(item,q)})).filter(hit => hit.score).sort((a,b)=>b.score-a.score);
+      const focusedUrl = results.contains(document.activeElement) ? document.activeElement.closest('a')?.href : null;
       results.replaceChildren();
       const language = window.HubLanguage?.get() === 'zh' ? 'zh' : 'en';
       const copy = labels[language];
@@ -180,6 +181,10 @@ window.__NVM_SEARCH_ENHANCED = true;
           ? `${copy.ledger} · ${item.id}${summary ? ` · ${summary}` : ''}`
           : (summary || copy.topic);
         link.append(title, desc); results.append(link);
+      }
+      if (focusedUrl) {
+        const replacement = [...results.querySelectorAll('a')].find(link => link.href === focusedUrl);
+        (replacement || input).focus({preventScroll:true});
       }
       status.textContent = items.length ? copy.count(items.length, loaded ? index.length-baseCount() : null) : copy.empty;
       if (loading && !loaded) status.textContent += copy.loading;
@@ -218,6 +223,13 @@ window.__NVM_SEARCH_ENHANCED = true;
       // 搜尋關閉時再回到該按鈕，不保留已關閉視窗內的無效焦點。
       [...document.querySelectorAll('dialog:modal')].reverse().forEach(dialog => dialog.close());
       previousFocus = document.activeElement; previousOverflow = document.body.style.overflow;
+      const menu = document.getElementById('menuToggle');
+      const nav = document.getElementById(menu?.getAttribute('aria-controls'));
+      if (menu && nav?.classList.contains('open')) {
+        // 沿用本頁選單的關閉行為，避免兩個鍵盤焦點範圍同時攔截事件。
+        if (nav.contains(previousFocus)) previousFocus = menu;
+        menu.click();
+      }
       background = [...document.body.children].filter(element => element !== overlay && !['SCRIPT','STYLE'].includes(element.tagName)).map(element => [element,element.inert]);
       background.forEach(([element]) => {element.inert = true;});
       document.body.style.overflow = 'hidden';
@@ -231,7 +243,9 @@ window.__NVM_SEARCH_ENHANCED = true;
       trigger?.setAttribute('aria-expanded','false');
       document.body.style.overflow = previousOverflow;
       background.forEach(([element,inert]) => {element.inert = inert;});
-      const restoreFocus = previousFocus?.isConnected && !previousFocus.closest('dialog:not([open]), [inert]') ? previousFocus : trigger;
+      const restoreFocus = previousFocus?.isConnected && previousFocus.getClientRects().length
+        && getComputedStyle(previousFocus).visibility !== 'hidden'
+        && !previousFocus.closest('dialog:not([open]), [inert]') ? previousFocus : trigger;
       restoreFocus?.focus({preventScroll:true});
     }
     trigger?.addEventListener('click',openSearch); close?.addEventListener('click',closeSearch);

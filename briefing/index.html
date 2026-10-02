@@ -41,6 +41,32 @@
 
   <link rel="stylesheet" href="../hub.css?v=20260916-keepout">
   <style>
+    body.briefing-page { margin: 0; }
+    .briefing-page .site-header .brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+    .briefing-page .brand-copy { display: grid; gap: 2px; }
+    .briefing-page .brand-copy strong { font-size: 18px; font-weight: 800; }
+    .briefing-page .brand-copy small { font-size: 10px; }
+    .briefing-page .language-toggle { flex-shrink: 0; white-space: nowrap; }
+    .briefing-page .language-toggle b { white-space: nowrap; }
+    .briefing-page .menu-button {
+      min-width: 32px;
+      min-height: 40px;
+      flex-direction: column;
+      gap: 4px;
+      color: #18354a;
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+    }
+    .briefing-page .menu-button i { display: block; flex-shrink: 0; width: 18px; height: 2px; background: currentColor; }
+    @media (max-width: 600px) {
+      html body.briefing-page .site-header {
+        grid-template-columns: minmax(0, 1fr) auto !important;
+        column-gap: 8px !important;
+      }
+      html body.briefing-page .site-header .header-actions { min-width: 0 !important; gap: 8px !important; }
+      .briefing-page .site-header :is(.brand-mark, .brand-copy small, .brand-section) { display: none; }
+    }
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
     [data-lang="en"] { display: revert; }
@@ -330,7 +356,7 @@
   </style>
 <link rel="stylesheet" href="../reading-controls.css">
 </head>
-<body class="theme-light"  data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
+<body class="theme-light briefing-page"  data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
 
   <header class="site-header" role="banner">

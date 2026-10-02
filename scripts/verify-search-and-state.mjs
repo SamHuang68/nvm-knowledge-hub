@@ -69,6 +69,61 @@ async function closedKnowledge(page) {
 }
 
 for (const language of ['zh', 'en']) {
+  for (const file of ['automotive-nvm.html', 'secure-storage.html']) {
+    await check(`手機選單與搜尋交接_${file}_${language}`, async page => {
+      await page.setViewportSize({ width: 390, height: 844 });
+      await visit(page, `${file}?lang=${language}`);
+      const menu = page.locator('#menuToggle');
+      const nav = page.locator('#primaryNav');
+      const input = page.locator('#nvmHubSearchInput');
+      await menu.click();
+      assert.equal(await menu.getAttribute('aria-expanded'), 'true');
+      await page.keyboard.press('Control+k');
+      assert.equal(await menu.getAttribute('aria-expanded'), 'false', '搜尋開啟前關閉既有選單');
+      assert.equal(await nav.evaluate(element => element.classList.contains('open')), false);
+      assert.equal(await input.evaluate(element => element === document.activeElement), true);
+      await page.keyboard.press('Tab');
+      assert.equal(await page.locator('#searchClose').evaluate(element => element === document.activeElement), true, '選單不攔截搜尋的 Tab');
+      await page.keyboard.press('Shift+Tab');
+      assert.equal(await input.evaluate(element => element === document.activeElement), true);
+      await page.keyboard.press('Escape');
+      assert.equal(await menu.evaluate(element => element === document.activeElement), true, '不返回已隱藏的選單連結');
+      assert.equal(await menu.isVisible(), true);
+      assert.equal(await page.locator('#searchOverlay').getAttribute('aria-hidden'), 'true');
+      assert.equal(await page.locator('[inert]').count(), 0);
+      await menu.click();
+      await page.locator('#searchTrigger').click();
+      await page.keyboard.press('Escape');
+      assert.equal(await page.locator('#searchTrigger').evaluate(element => element === document.activeElement), true, '按鈕開啟仍返回搜尋按鈕');
+      await menu.click();
+      await page.keyboard.press('Control+k');
+      await page.setViewportSize({ width: 1440, height: 1000 });
+      await page.keyboard.press('Escape');
+      assert.equal(await page.locator('#searchTrigger').evaluate(element => element === document.activeElement), true, '視窗變寬後不返回隱藏的手機選單按鈕');
+    });
+  }
+  for (const focus of ['result', 'close-button', 'closed']) {
+    await check(`總帳更新保留搜尋焦點_${focus}_${language}`, async page => {
+      let release;
+      const gate = new Promise(resolve => { release = resolve; });
+      await page.route('**/memory-evidence.html', async route => { await gate; await route.continue(); });
+      try {
+        await visit(page, `index.html?lang=${language}`);
+        await openSearch(page, 'SRAM Repair Capacity');
+        await page.keyboard.press(focus === 'result' ? 'ArrowDown' : focus === 'close-button' ? 'Tab' : 'Escape');
+        const focusedElement = page.locator(focus === 'result' ? '#searchResults a[href$="sram-repair.html"]' : focus === 'close-button' ? '#searchClose' : '#searchTrigger');
+        assert.equal(await focusedElement.evaluate(element => element === document.activeElement), true);
+        release();
+        await page.waitForFunction(() => window.NVMHub?.searchIndex.some(item => item.id));
+        assert.equal(await focusedElement.evaluate(element => element === document.activeElement), true, '非同步結果更新保留目前焦點');
+        assert.equal(await page.locator('#searchOverlay').getAttribute('aria-hidden'), focus === 'closed' ? 'true' : 'false');
+        if (focus === 'result') {
+          await page.keyboard.press('Enter');
+          await page.waitForURL(url => url.pathname.endsWith('sram-repair.html'));
+        }
+      } finally { release(); }
+    });
+  }
   for (const file of ['index.html', 'secure-storage.html']) {
     await check(`搜尋鍵盤與欄位隔離_${file}_${language}`, async page => {
       await captureNativeIdLookup(page);

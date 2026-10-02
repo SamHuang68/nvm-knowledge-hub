@@ -23,6 +23,9 @@
   text-transform: uppercase;
   color: var(--hs-copper);
 }
+main > #hub-fail-closed {
+  margin-inline: var(--hub-keepout, 24px);
+}
 .hub-story h3 {
   margin: 0 0 10px;
   font-size: clamp(16px, 2vw, 20px);
