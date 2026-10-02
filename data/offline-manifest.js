@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "7ebcbe336d09218ae722",
+  "version": "670d833c705fe1200558",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -172,7 +172,7 @@ self.NVMOfflineManifest = {
     "sram-repair.js": "a284f0cdd81e36dabd211c2df695d97dc1471a9c141e2bce914e1e10f72fb897",
     "styles.css": "e59240e333f11190db1c2b4227949d86d99170e023c2f071c27c64ec70ac4215",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
-    "technology-comparison.html": "a653970de1aa2d984907a02cdb5004b77fee1af7aec8bcfe23798cc08e9e0a7d",
+    "technology-comparison.html": "96ca2900dfe13bd74cb75cb60f26581ceb106f8bb84dffd157a76bbb733525a8",
     "tools/whitepaper-studio/index.html": "f138960d0121e45baf09608e07ecf6ae2679926b395c2493a3171d1584440b0d",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "whitepaper/assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8",
@@ -180,5 +180,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "a3e6d125d32ae9cffd1469343a7014f6db7b4fe96b45cf4c5a526f0c2fed7af9",
     "whitepaper/index.html": "d69b7f3c486916717b07b4f877e1a7757cab0ed04e36b16f576bdfd410506931"
   },
-  "totalBytes": 11023708
+  "totalBytes": 11024229
 };

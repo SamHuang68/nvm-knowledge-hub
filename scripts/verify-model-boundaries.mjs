@@ -23,6 +23,25 @@ try {
     const open = file => page.goto(new URL(`${file}?lang=${language}`,base).href,{waitUntil:'load'});
     const overflow = async () => assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth + 1), 'horizontal overflow');
 
+    await open('technology-comparison.html');
+    const constraints = ['selNode','sliderPower','selMask','selTemp','selEndurance'];
+    const initial = await page.evaluate(ids => ids.map(id => {
+      const input = document.getElementById(id);
+      return { value: input.value, label: input.getAttribute('aria-valuetext') };
+    }), constraints);
+    await page.evaluate(ids => ids.forEach(id => {
+      const input = document.getElementById(id);
+      input.value = input.value === input.min ? input.max : input.min;
+      input.dispatchEvent(new Event('input'));
+    }), constraints);
+    await page.locator('#resetSelector').focus(); await page.locator('#resetSelector').press('Space');
+    await page.waitForFunction(({ ids, initial }) => ids.every((id,index) => {
+      const input = document.getElementById(id);
+      return input.value === initial[index].value && input.getAttribute('aria-valuetext') === initial[index].label;
+    }), { ids: constraints, initial });
+    await overflow();
+    results.push({width,language,scenario:'Five selector constraints and accessible readouts reset to current defaults',passed:true});
+
     await open('automotive-nvm.html');
     await page.waitForFunction(()=>document.querySelectorAll('#eccBitsDeck button').length === 72);
     const bits=page.locator('#eccBitsDeck button');
