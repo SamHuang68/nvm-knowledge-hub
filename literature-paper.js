@@ -70,6 +70,8 @@
     root.style.setProperty('color', INK, 'important');
     root.querySelectorAll('*').forEach(function (el) {
       if (el.matches && (el.matches(SKIP_STRICT) || el.closest(SKIP_STRICT))) return;
+      // Hamburger bars are foreground marks, not dark content panels to recolor.
+      if (el.matches?.('.menu-button i')) return;
       if (el.matches && (el.matches(SKIP_BTN) || el.closest(SKIP_BTN))) {
         var btnStyle = getComputedStyle(el);
         var bgC = effBg(el);

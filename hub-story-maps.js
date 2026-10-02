@@ -202,13 +202,18 @@
     nav.className = 'hub-story-steps';
     const note = document.createElement('p');
     note.className = 'hub-story-note';
+    note.setAttribute('role', 'status');
     states.forEach((s, i) => {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'hub-story-step' + (i === 0 ? ' is-on' : '');
+      b.setAttribute('aria-pressed', String(i === 0));
       b.innerHTML = `<span class="n">${s.n}</span><strong>${T(s.en, s.zh)}</strong><small>${T(s.hintEn, s.hintZh)}</small>`;
       b.addEventListener('click', () => {
-        nav.querySelectorAll('.hub-story-step').forEach(el => el.classList.toggle('is-on', el === b));
+        nav.querySelectorAll('.hub-story-step').forEach(el => {
+          el.classList.toggle('is-on', el === b);
+          el.setAttribute('aria-pressed', String(el === b));
+        });
         note.innerHTML = T(s.bodyEn, s.bodyZh);
         langSync();
       });
@@ -218,7 +223,10 @@
     box.appendChild(nav);
     box.appendChild(note);
     const hero = document.getElementById('hero-title') || document.querySelector('h1');
-    if (hero && hero.parentElement) hero.parentElement.insertAdjacentElement('afterend', box);
+    const heroSection = hero?.closest('section.hero');
+    // A boundary reader belongs after the IoT hero, outside its flex row and decorative layers.
+    if (heroSection && /iot-mcu-envm\.html/i.test(path)) heroSection.insertAdjacentElement('afterend', box);
+    else if (hero && hero.parentElement) hero.parentElement.insertAdjacentElement('afterend', box);
     else host.insertAdjacentElement('afterbegin', box);
   }
   if (/automotive-nvm\.html/i.test(path)) {

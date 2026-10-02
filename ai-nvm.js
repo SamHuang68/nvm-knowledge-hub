@@ -8,6 +8,8 @@
   const filterButtons = [...document.querySelectorAll("button[data-write-filter]")];
   const count = document.querySelector("#opportunityCount");
   const empty = document.querySelector("#opportunityEmpty");
+  const retry = document.querySelector("#opportunityRetry");
+  const recovery = document.querySelector("#opportunityRecovery");
   const navLinks = [...document.querySelectorAll("#primaryNav a[href^='#']")];
   const navSections = navLinks
     .map(link => document.querySelector(link.getAttribute("href")))
@@ -15,6 +17,7 @@
   let activeView = page.dataset.opportunityView === "source-grounded" ? "source-grounded" : "all";
   let activeFilter = "all";
   let knowledgeById = new Map();
+  let knowledgeLoading = false;
   page.dataset.knowledgeState = "loading";
   const emptyCopy = {
     zh: empty?.querySelector('[data-lang="zh"]')?.textContent || "",
@@ -165,8 +168,16 @@
   }
 
   async function loadKnowledge() {
+    if (knowledgeLoading) return;
+    knowledgeLoading = true;
+    const restoreFocus = document.activeElement === retry;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
+    page.dataset.knowledgeState = "loading";
+    knowledgeById.clear();
+    render();
     try {
-      const response = await fetch("data/ai-nvm-opportunities-knowledge.json", { cache: "no-store" });
+      const response = await fetch("data/ai-nvm-opportunities-knowledge.json", { cache: "no-store", signal: controller.signal });
       if (!response.ok) throw new Error(`knowledge HTTP ${response.status}`);
       const knowledge = await response.json();
       if (!Array.isArray(knowledge.records) || !knowledge.records.length) throw new Error("正式知識資料缺少紀錄");
@@ -178,9 +189,17 @@
       knowledgeById.clear();
       console.error("Canonical opportunity view could not be loaded", error);
     } finally {
+      clearTimeout(timeout);
+      knowledgeLoading = false;
       render();
+      if (restoreFocus && (document.activeElement === retry || document.activeElement === document.body)) {
+        const destination = page.dataset.knowledgeState === "canonical"
+          ? viewButtons.find(button => button.dataset.opportunityView === activeView) : retry;
+        destination?.focus({ preventScroll: true });
+      }
     }
   }
+  retry?.addEventListener("click", loadKnowledge);
 
   function initTabs(buttonSelector, panelSelector, keyName) {
     const buttons = [...document.querySelectorAll(buttonSelector)];
@@ -232,6 +251,17 @@
       }
       activate(activeValue);
     };
+    const revealAnchor = () => {
+      let id;
+      try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+      const target = id && document.getElementById(id);
+      const panel = target && panels.find(panel => panel === target || panel.contains(target));
+      if (!panel) return;
+      activate(panel.dataset[`${keyName.replace("Tab", "")}Panel`]);
+      if (!target.matches('a[href], button, input, select, textarea, [tabindex]')) target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ block: "start" });
+    };
     buttons.forEach((button, index) => {
       button.addEventListener("click", () => activate(button.dataset[keyName]));
       button.addEventListener("keydown", event => {
@@ -247,7 +277,9 @@
       });
     });
     mobileTabs.addEventListener?.("change", syncSemantics);
+    window.addEventListener("hashchange", revealAnchor);
     syncSemantics();
+    revealAnchor();
   }
 
   initTabs("[data-selection-tab]", "[data-selection-panel]", "selectionTab");
@@ -257,6 +289,8 @@
     const state = page.dataset.knowledgeState;
     const ready = state === "canonical";
     list.setAttribute("aria-busy", String(state === "loading"));
+    if (recovery) recovery.hidden = state !== "error";
+    if (retry) retry.disabled = state === "loading";
     let visible = 0;
     records.forEach(record => {
       const evidenceMatch = activeView === "all" || record.dataset.evidence === "source-grounded";
@@ -281,8 +315,8 @@
     if (empty) {
       empty.hidden = visible !== 0;
       const message = state === "error" ? {
-        zh: "正式知識資料無法載入；為避免混合證據與推論，本區塊已安全關閉。",
-        en: "The canonical knowledge package could not be loaded. This section is closed rather than mixing evidence with inference."
+        zh: "正式知識資料無法載入。機會卡暫不顯示，避免混合證據與推論。請重試載入。",
+        en: "The canonical knowledge package could not be loaded. Opportunity cards remain hidden to keep evidence and inference separate. Retry loading to continue."
       } : state === "loading" ? {
         zh: "正在載入正式知識資料…",
         en: "Loading the canonical knowledge package…"
