@@ -57,6 +57,7 @@
     
     
   </style>
+  <link rel="stylesheet" href="model-boundaries.css">
 </head>
 <body class="research-page oip-page"  data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
@@ -134,6 +135,21 @@
           <article><b>04</b><small><span data-lang="zh">安全控制器</span><span data-lang="en">SECURE CONTROLLER</span></small><h3><span data-lang="zh">約束可用明文的時間窗</span><span data-lang="en">Bound the usable-plaintext window</span></h3><p><span data-lang="zh">管理 provisioning、APB access、error response、lifecycle 與 software contract。</span><span data-lang="en">Governs provisioning, APB access, error response, lifecycle and the software contract.</span></p></article>
         </div>
         <div class="outcome-equation oip-equation" data-record-id="OIP-SYS-001"><small><span data-lang="zh">組合系統推論</span><span data-lang="en">COMPOSED SYSTEM INFERENCE</span></small><strong><span data-lang="zh">OTP 讀出 → 混淆密文 ≠ 可用機密</span><span data-lang="en">OTP readout → scrambled ciphertext ≠ usable secret</span></strong></div>
+        <section class="lifecycle-reader" aria-labelledby="lifecycle-reader-title">
+          <h3 id="lifecycle-reader-title"><span data-lang="zh">探索生命週期中的資料與驗證需求</span><span data-lang="en">Explore Lifecycle Data and Evidence Needs</span></h3>
+          <p><span data-lang="zh">架構閱讀示例：不產生金鑰、不執行加密或寫入，也不代表已完成驗證。</span><span data-lang="en">Architecture reading example: no key generation, encryption or writes, and no claim of completed validation.</span></p>
+          <div class="lifecycle-controls" role="group" aria-label="Lifecycle phases" data-aria-en="Lifecycle phases" data-aria-zh="生命週期階段">
+            <button type="button" data-phase="off" aria-controls="lifecycleOutput" aria-pressed="true"><span data-lang="zh">斷電</span><span data-lang="en">Power-off</span></button>
+            <button type="button" data-phase="reconstruct" aria-controls="lifecycleOutput" aria-pressed="false"><span data-lang="zh">重建</span><span data-lang="en">Reconstruct</span></button>
+            <button type="button" data-phase="access" aria-controls="lifecycleOutput" aria-pressed="false"><span data-lang="zh">授權存取</span><span data-lang="en">Access</span></button>
+            <button type="button" data-phase="zeroize" aria-controls="lifecycleOutput" aria-pressed="false"><span data-lang="zh">零化</span><span data-lang="en">Zeroize</span></button>
+          </div>
+          <div id="lifecycleOutput" aria-live="polite"><h4 id="phaseTitle"></h4><dl>
+            <dt><span data-lang="zh">持久資料</span><span data-lang="en">Persistent data</span></dt><dd id="phasePersistent"></dd>
+            <dt><span data-lang="zh">執行中狀態</span><span data-lang="en">Runtime state</span></dt><dd id="phaseRuntime"></dd>
+            <dt><span data-lang="zh">所需證據</span><span data-lang="en">Evidence needed</span></dt><dd id="phaseEvidence"></dd>
+          </dl></div>
+        </section>
         <div class="oip-closure-strip" aria-label="Lifecycle, helper-data and accountability closure points" data-aria-en="Lifecycle, helper-data and accountability closure points" data-aria-zh="生命週期、輔助資料與課責閉環點">
           <article id="lifecycle" data-record-id="OIP-PUF-001"><span><span data-lang="zh">01 · 生命週期</span><span data-lang="en">01 · LIFECYCLE</span></span><h3><span data-lang="zh">斷電靜態 → 上電重建 → 授權存取 → 零化銷毀</span><span data-lang="en">Power-off → reconstruct → authorize → zeroize</span></h3><p><span data-lang="zh">Absent-at-rest 只處理永久 root target；runtime residency、reset interruption 與 zeroization 必須另行驗證。</span><span data-lang="en">Absent-at-rest removes a persistent root target; runtime residency, reset interruption and zeroization still require separate evidence.</span></p></article>
           <article id="helper-data" data-record-id="OIP-PUF-001"><span><span data-lang="zh">02 · 輔助資料</span><span data-lang="en">02 · HELPER DATA</span></span><h3><span data-lang="zh">重建材料不是 root-key 備份</span><span data-lang="en">Reconstruction material is not a root-key backup</span></h3><p><span data-lang="zh">公開 helper data 仍需要 leakage、integrity、replay、rollback 與 fault evidence。</span><span data-lang="en">Public helper data still requires leakage, integrity, replay, rollback and fault evidence.</span></p></article>
@@ -174,5 +190,6 @@
 
   <footer><a class="brand footer-brand" href="index.html" aria-label="NVM Knowledge Hub home" data-aria-en="NVM Knowledge Hub home" data-aria-zh="NVM 知識中心首頁"><span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span></a><p><span data-lang="zh">OIP 知識簡報 · 公開來源 · 非產品認證</span><span data-lang="en">OIP knowledge brief · public sources · not a product certification</span></p><p>OIP Brief 01 · 2026</p></footer>
   <script src="research.js?v=20260929-v5"></script>
+  <script src="oip-lifecycle.js"></script>
 </body>
 </html>

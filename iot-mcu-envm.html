@@ -610,6 +610,7 @@
       line-height: 1.35;
     }
   </style>
+  <link rel="stylesheet" href="model-boundaries.css">
 </head>
 <body data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
@@ -889,7 +890,7 @@
                 <span class="meta-code" style="color:#785021;"><span data-lang="en">REALTIME SAMPLING</span><span data-lang="zh">即時取樣</span></span>
               </div>
               <div class="scope-canvas-frame">
-                <canvas id="ntvCanvas" width="560" height="260"></canvas>
+                <p id="iotPowerResult" class="model-boundary" aria-live="polite"></p><canvas id="ntvCanvas" aria-describedby="iotPowerResult" width="560" height="260"></canvas>
               </div>
               <div class="scope-controls">
                 <div class="slider-group">
@@ -1006,7 +1007,7 @@
                   <span class="meta-code" style="color: #334155;"><span data-lang="en">STATE:</span><span data-lang="zh">狀態：</span> <b id="camOtpState" style="color:#785021;"><span data-lang="en">IDLE / MONITORING</span><span data-lang="zh">閒置／監控中</span></b></span>
                 </div>
               </div>
-              <canvas id="camCanvas" width="560" height="170" style="width: 100%; height: auto; background: #f8fafc; border-radius: 4px; border: 1px solid #f1f5f9; display: block;"></canvas>
+              <p id="iotCamResult" class="model-boundary" aria-live="polite"></p><canvas id="camCanvas" aria-describedby="iotCamResult" width="560" height="170" style="width: 100%; height: auto; background: #f8fafc; border-radius: 4px; border: 1px solid #f1f5f9; display: block;"></canvas>
               <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 10px;">
                 <button id="camTriggerBtn" class="button primary" type="button" style="padding: 6px 14px; font-size: 0.8125rem;">
                   <span data-lang="zh">注入缺陷指令 (Trigger Bug)</span><span data-lang="en">Inject Bug Vector</span>
@@ -1297,7 +1298,7 @@
       <span><span data-lang="en">0-MASK LOGIC COMPATIBLE</span><span data-lang="zh">零額外光罩邏輯相容</span></span>
       <span><span data-lang="en">0.5V NEAR-THRESHOLD CONTINUUM</span><span data-lang="zh">0.5V 近臨界電壓技術演進</span></span>
       <span><span data-lang="en">TSMC 22ULL ➔ N4e ROADMAP</span><span data-lang="zh">TSMC 22ULL ➔ N4e 技術藍圖</span></span>
-      <span><span data-lang="en">VECTOR PATCH CAM ZERO-CYCLE</span><span data-lang="zh">向量修補 CAM 零週期</span></span>
+      <span><span data-lang="en">VECTOR PATCH CAM · TIMING TO VERIFY</span><span data-lang="zh">向量修補 CAM · 時序待驗證</span></span>
     </div>
 
     <div class="hub-footer-bottom">
@@ -1565,7 +1566,7 @@
             if (isPatching) {
               camStatusPc.textContent = '0x0800_FF00 (PATCHED)';
               camStatusPc.style.color = '#c4a574';
-              camOtpState.textContent = 'MUX ACTIVE · ZERO-CYCLE REDIRECT';
+              camOtpState.textContent = 'MUX ACTIVE · TIMING TO VERIFY';
               camOtpState.style.color = '#fbbf24';
               camTriggerBtn.innerHTML = '<span data-lang="zh">重設匯流排</span><span data-lang="en">Reset Bus</span>';
               drawCamBus(true);
@@ -1582,5 +1583,6 @@
       }
     });
   </script>
+<script src="iot-model-boundaries.js"></script>
 </body>
 </html>

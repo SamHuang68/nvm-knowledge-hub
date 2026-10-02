@@ -1,0 +1,14 @@
+.model-boundary { padding: 14px 18px; border-left: 3px solid #967348; background: #f1f5f9; color: #334155; font-size: .93rem; line-height: 1.75; }
+.model-boundary a { color: #174b76; text-decoration: underline; text-underline-offset: 3px; }
+.model-boundary:empty { display: none; }
+.lifecycle-reader { margin: 24px 0; padding: clamp(18px, 3vw, 30px); background: #f1f5f9; color: #243b50; border: 1px solid #cbd5e1; border-radius: 8px; }
+.lifecycle-reader h3, .lifecycle-reader h4 { color: #173349; }
+.lifecycle-reader h3 { margin: 0 0 12px; }
+.lifecycle-controls { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+.lifecycle-controls button { min-height: 44px; padding: 10px 16px; border: 1px solid #64748b; border-radius: 4px; background: #fff; color: #23445f; font: inherit; cursor: pointer; }
+.lifecycle-controls button[aria-pressed="true"] { color: #fff; background: #23445f; }
+.lifecycle-controls button:focus-visible { outline: 3px solid #99621e; outline-offset: 3px; }
+.lifecycle-reader dl { display: grid; grid-template-columns: minmax(100px, .25fr) 1fr; gap: 12px 20px; margin: 0; line-height: 1.8; }
+.lifecycle-reader dt { font-weight: 700; }
+.lifecycle-reader dd { margin: 0; }
+@media(max-width:600px) { .lifecycle-reader dl { grid-template-columns: 1fr; gap: 5px; } .lifecycle-reader dd { margin-bottom: 12px; } }

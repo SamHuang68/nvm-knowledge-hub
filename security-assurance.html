@@ -111,6 +111,7 @@
       color: #0f172a;
     }
   </style>
+  <link rel="stylesheet" href="model-boundaries.css">
 </head>
 <body id="top" class="assurance-page"  data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
@@ -210,7 +211,7 @@
     <section id="windows" class="section windows">
       <header class="section-head"><div><p class="kicker" data-zh="02 / 攻擊時窗生命週期" data-en="02 / ATTACK-WINDOW LIFECYCLE">02 / ATTACK-WINDOW LIFECYCLE</p><h2 data-zh="根金鑰沒有永久位址；風險仍有明確時窗" data-en="The root has no permanent address; risk still has windows">The root has no permanent address; risk still has windows</h2></div><p data-zh="選擇生命週期階段，查看資產、攻擊面、測試問題與預期安全結果。" data-en="Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.">Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.</p></header>
       <div class="window-layout">
-        <div class="phase-tabs" role="group" aria-label="Lifecycle phase" data-aria-en="Lifecycle phase" data-aria-zh="生命週期階段">
+        <p class="model-boundary"><span data-lang="zh">以下互動呈現假設架構的敏感時窗與預期控制目標，不是實際執行安全控制或產品測試結果。</span><span data-lang="en">This interaction describes sensitive windows and intended controls in an assumed architecture; it does not execute security controls or report product test results.</span></p><div class="phase-tabs" role="group" aria-label="Lifecycle phase" data-aria-en="Lifecycle phase" data-aria-zh="生命週期階段">
           <button class="active" type="button" data-phase="off" aria-pressed="true"><b>01</b><span data-zh="斷電" data-en="POWER-OFF">POWER-OFF</span></button><button type="button" data-phase="boot" aria-pressed="false"><b>02</b><span data-zh="啟動" data-en="BOOT">BOOT</span></button><button type="button" data-phase="derive" aria-pressed="false"><b>03</b><span data-zh="衍生" data-en="DERIVE">DERIVE</span></button><button type="button" data-phase="access" aria-pressed="false"><b>04</b><span data-zh="存取" data-en="ACCESS">ACCESS</span></button><button type="button" data-phase="zeroize" aria-pressed="false"><b>05</b><span data-zh="金鑰清除" data-en="ZEROIZE">ZEROIZE</span></button>
         </div>
         <article class="window-detail" id="windowDetail" aria-live="polite"></article>
