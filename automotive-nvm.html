@@ -640,14 +640,16 @@
     /* SECDED 72-bit Grid */
     .ecc-bits-deck {
       display: grid;
-      grid-template-columns: repeat(18, 1fr);
+      grid-template-columns: repeat(18, minmax(0, 1fr));
       gap: 5px;
       margin: 14px 0;
     }
     @media (max-width: 768px) {
-      .ecc-bits-deck { grid-template-columns: repeat(9, 1fr); }
+      .ecc-bits-deck { grid-template-columns: repeat(9, minmax(0, 1fr)); }
     }
     .ecc-bit-node {
+      min-width: 0;
+      padding: 0;
       height: 32px;
       display: flex;
       align-items: center;
@@ -710,7 +712,9 @@
       0%, 100% { box-shadow: 0 0 14px rgba(239, 68, 68, 0.4); }
       50% { box-shadow: 0 0 4px rgba(239, 68, 68, 0.1); }
     }
+    .ecc-bit-node:focus-visible { outline: 3px solid #1d4ed8; outline-offset: 3px; }
   </style>
+  <link rel="stylesheet" href="model-boundaries.css">
 </head>
 <body class="specialty-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link" href="#main-content">
@@ -886,14 +890,14 @@
             <a class="nav-pill lens-node-item" href="#sec-thermal" data-target="sec-thermal">
               <span class="lens-badge">02</span>
               <div class="lens-info">
-                <span class="lens-name"><span data-lang="zh">175°C 微絲熱老化畫布</span><span data-lang="en">Thermal Aging Lab</span></span>
+                <span class="lens-name"><span data-lang="zh">熱加速教學模型</span><span data-lang="en">Thermal Acceleration Model</span></span>
                 <span class="lens-sub"><span data-lang="en">Arrhenius &amp; AF Model</span><span data-lang="zh">Arrhenius 與 AF 模型</span></span>
               </div>
             </a>
             <a class="nav-pill lens-node-item" href="#sec-ecc" data-target="sec-ecc">
               <span class="lens-badge">03</span>
               <div class="lens-info">
-                <span class="lens-name"><span data-lang="zh">SECDED ECC 測試台</span><span data-lang="en">ECC Self-Healing Lab</span></span>
+                <span class="lens-name"><span data-lang="zh">SECDED ECC 測試台</span><span data-lang="en">ECC Coding Lab</span></span>
                 <span class="lens-sub"><span data-lang="en">72-bit Fault Injection</span><span data-lang="zh">72 位元故障注入</span></span>
               </div>
             </a>
@@ -975,18 +979,9 @@
           <!-- LENS 02: 175°C THERMAL AGING & ARRHENIUS CANVAS LAB -->
           <section id="sec-thermal" class="lens-panel lab-box-panel" aria-labelledby="lab-thermal-title">
             <div class="panel-kicker"><span data-lang="en">LENS 02 · FLAGSHIP LAB 01</span><span data-lang="zh">觀點 02 · 主要實驗室 01</span></div>
-            <h2 id="lab-thermal-title">
-              <span data-lang="zh">175°C 微絲熱老化與 Arrhenius 預測畫布</span>
-              <span data-lang="en">175°C Filament Thermal Aging &amp; Arrhenius Predictor</span>
-            </h2>
-            <p class="panel-desc">
-              <span data-lang="zh">調控接面溫度 (Tj) 與服役壽命，即時運算 Arrhenius 熱加速因數 (AF)，直觀檢驗 AntiFuse 閘極介電質擊穿微絲歐姆接觸與傳統浮閘在高溫下的物理留存邊際對比。</span>
-              <span data-lang="en">Adjust junction temperature (Tj) and service life to compute real-time Arrhenius acceleration factors (AF), demonstrating AntiFuse drift-class  vs floating-gate charge-loss decay.</span>
-            </p>
-            <p class="panel-desc" style="margin-top:8px; font-size:0.85rem; color:#334155;">
-              <span data-lang="zh"><strong>非量測輸出：</strong>曲線使用固定 <em>E</em><sub>a</sub> 與簡化衰減式；AntiFuse「零漂移」為教學假設，不代表矽測試資料或 AEC-Q100 認證。</span>
-              <span data-lang="en"><strong>Not measured data:</strong> Curves use fixed <em>E</em><sub>a</sub> and simplified decay — AntiFuse “zero drift” is a teaching assumption, not silicon test data or AEC-Q100 certification.</span>
-            </p>
+            <h2 id="lab-thermal-title"><span data-lang="zh">Arrhenius 熱加速教學模型</span><span data-lang="en">Arrhenius Thermal Acceleration Teaching Model</span></h2>
+            <p class="panel-desc"><span data-lang="zh">調整溫度以計算相對 55°C 的熱加速因數。時間滑桿只移動標記，不計算保存年限。</span><span data-lang="en">Adjust temperature to calculate acceleration relative to 55°C. The time slider moves a marker; it does not calculate retention life.</span></p>
+            <p class="panel-desc model-boundary"><span data-lang="zh">Ea = 0.84 eV 是未校準假設，非特定失效機制的量測常數。A／B 曲線未由 AF 推導，不對應產品家族、不證明性能優劣或認證。</span><span data-lang="en">Ea = 0.84 eV is an uncalibrated assumption, not a measured failure-mechanism constant. Curves A/B are not derived from AF, represent no product family, and establish no performance ranking or qualification.</span> <a href="https://www.itl.nist.gov/div898/handbook/apr/section1/apr151.htm">NIST · Arrhenius</a></p>
 
             <!-- Arrhenius Model Formula Box -->
             <div class="formula-box-math">
@@ -1008,42 +1003,36 @@
               </div>
               <div style="display: flex; align-items: center; gap: 10px;">
                 <label for="yearSlider" style="font: 700 11px 'IBM Plex Mono'; color: #785021;">
-                  <span data-lang="zh">服役壽命 (Years):</span><span data-lang="en">SERVICE YEARS:</span>
+                  <span data-lang="zh">時間標記 (Years):</span><span data-lang="en">TIME MARKER:</span>
                 </label>
-                <input type="range" id="yearSlider" aria-label="Service Lifetime (Years)" data-aria-en="Service Lifetime (Years)" data-aria-zh="運作壽命 (年)" min="1" max="25" step="1" value="15" aria-valuetext="15 Yrs" style="accent-color: #785021; cursor: pointer; width: 110px;">
+                <input type="range" id="yearSlider" aria-label="Time Marker (Years)" data-aria-en="Time Marker (Years)" data-aria-zh="時間標記 (年)" min="1" max="25" step="1" value="15" aria-valuetext="15 Yrs" style="accent-color: #785021; cursor: pointer; width: 110px;">
                 <span class="mono-text" id="yearVal" style="color: #785021; font-weight: 700; font-size: 1rem;"><span data-lang="en">15 Yrs</span><span data-lang="zh">15 年</span></span>
               </div>
               <div>
                 <span style="font: 600 11px 'IBM Plex Mono'; color: #334155;">
                   <span data-lang="zh">熱加速因數 (AF):</span><span data-lang="en">ACCEL FACTOR (AF):</span>
                 </span>
-                <b class="mono-text" id="afVal" aria-live="polite" style="color: #f59e0b; font-size: 1.1rem;">2,840×</b>
+                <b class="mono-text" id="afVal" aria-live="polite">—</b>
               </div>
             </div>
 
             <div style="background: #f8fafc; border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 6px; padding: 8px;">
-              <canvas id="thermalCanvas" style="width: 100%; height: 280px; display: block;"></canvas>
+              <canvas id="thermalCanvas" role="img" aria-labelledby="lab-thermal-title" aria-describedby="thermalSummary" style="width: 100%; height: 280px; display: block;"></canvas>
             </div>
-            <div style="display: flex; justify-content: space-between; font: 500 10.5px 'IBM Plex Mono'; color: #334155; margin-top: 8px;">
-              <span><span data-lang="zh">＊金色曲線：反熔絲永久介電質擊穿微絲（175°C 下 15 年，具名條件歐姆穩定度 &lt;0.08%）</span><span data-lang="en">* Gold Trace: AntiFuse Permanent Dielectric Breakdown Filament (15 Yrs @ 175°C, named-condition ohmic stability  &lt;0.08%)</span></span>
-              <span><span data-lang="zh">＊紅色曲線：浮動閘極熱離子逸出（175°C 下超過 2 年後失去感測裕量）</span><span data-lang="en">* Red Trace: Floating-Gate Thermionic Escape (Loss of Sensing Margin beyond 2 Yrs @ 175°C)</span></span>
-            </div>
+            <p id="thermalSummary" class="model-boundary" aria-live="polite"></p>
           </section>
 
           <!-- LENS 03: SECDED (72, 64) FAULT INJECTION LAB -->
           <section id="sec-ecc" class="lens-panel lab-box-panel" aria-labelledby="lab-ecc-title">
             <div class="panel-kicker"><span data-lang="en">LENS 03 · FLAGSHIP LAB 02</span><span data-lang="zh">觀點 03 · 主要實驗室 02</span></div>
             <h2 id="lab-ecc-title">
-              <span data-lang="zh">SECDED (72, 64) 漢明碼即時錯誤注入與自愈測試台</span>
+              <span data-lang="zh">SECDED (72, 64) 延伸漢明碼錯誤注入教學</span>
               <span data-lang="en">SECDED (72, 64) Hamming Code Real-Time Fault Injection Lab</span>
             </h2>
-            <p class="panel-desc">
-              <span data-lang="zh">支援單擊下方 64 位元資料矩陣或 8 位元 ECC 同位向量注入軟性錯誤。觀察 SECDED 引擎如何以硬體在線自動校正單一位元 (SEC)，或在雙位元錯誤 (DED) 時觸發硬體致命中斷陷阱 (Fatal Trap)，通知主控系統安全管理器依 AoU 規範執行安全降級轉移。</span>
-              <span data-lang="en">Click on any of the 64 data bits or 8 parity bits below to inject soft errors. Observe real-time single-bit auto-repair (SEC) or double-bit detection (DED) asserting a hardware fatal trap to notify the host safety manager for safe degradation per AoU.</span>
-            </p>
+            <p class="panel-desc model-boundary"><span data-lang="zh">點擊或以鍵盤翻轉 64 資料位與 8 同位位元，觀察偶同位延伸漢明碼的症候 S 與整體同位 P。單錯可定位、雙錯可偵測；超過兩位可能誤校正或漏檢。本例不執行校正寫回、不模擬硬體陷阱，亦不證明 ASIL 或 FTTI。</span><span data-lang="en">Toggle 64 data bits and 8 parity bits by pointer or keyboard to inspect syndrome S and overall parity P in an even-parity extended Hamming code. Single errors are located and double errors detected; more than two can miscorrect or go undetected. This example performs no correction write-back or hardware trap, and proves no ASIL or FTTI result.</span> <a href="https://www.ti.com/lit/ds/symlink/bq75614-q1.pdf#page=62">TI · (72, 64) ECC</a></p>
 
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
-              <span id="eccStatusPill" class="ecc-status-pill clean"><span data-lang="en">● 0 ERRORS · SECDED PARITY CLEAN</span><span data-lang="zh">● 0 個錯誤 · SECDED 同位元檢查正常</span></span>
+              <span id="eccStatusPill" class="ecc-status-pill clean"><span data-lang="zh">等待模型載入</span><span data-lang="en">Waiting for model</span></span>
               <div style="display: flex; gap: 8px;">
                 <button type="button" id="btnInjectSingle" style="padding: 5px 10px; background: rgba(59, 130, 246, 0.12); color: #1d4ed8; border: 1px solid #3b82f6; border-radius: 4px; font: 700 11px 'IBM Plex Mono'; cursor: pointer;">
                   <span data-lang="zh">注入單一位元 (SEC)</span>
@@ -1064,18 +1053,18 @@
             <div class="ecc-bits-deck" id="eccBitsDeck"></div>
 
             <!-- Hardware Syndrome Telemetry Box -->
-            <div style="background: #f8fafc; border: 1px solid rgba(196, 165, 116, 0.2); border-radius: 6px; padding: 10px 14px; margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; font: 600 11px 'IBM Plex Mono';">
+            <div style="background: #f8fafc; border: 1px solid rgba(196, 165, 116, 0.2); border-radius: 6px; padding: 10px 14px; margin-top: 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; font: 600 11px 'IBM Plex Mono';">
               <div>
-                <div style="color: #64748b; margin-bottom: 2px;"><span data-lang="en">SYNDROME VECTOR S[7:0]</span><span data-lang="zh">校驗症候向量 S[7:0]</span></div>
-                <div id="eccSyndromeVal" style="color: #785021; font-size: 12.5px;"><span data-lang="en">0x00 (NO SYNDROME)</span><span data-lang="zh">0x00（無錯誤症候）</span></div>
+                <div style="color: #64748b; margin-bottom: 2px;"><span data-lang="en">SYNDROME S · OVERALL PARITY P</span><span data-lang="zh">症候 S · 整體同位 P</span></div>
+                <div id="eccSyndromeVal" style="color: #785021; font-size: 12.5px;">—</div>
               </div>
               <div>
-                <div style="color: #64748b; margin-bottom: 2px;"><span data-lang="en">HARDWARE RESPONSE ACTION</span><span data-lang="zh">硬體回應動作</span></div>
-                <div id="eccActionVal" style="color: #785021; font-size: 12.5px;"><span data-lang="en">NORMAL 0-CYCLE PASS</span><span data-lang="zh">正常零週期通過</span></div>
+                <div style="color: #64748b; margin-bottom: 2px;"><span data-lang="en">DECODER INDICATION</span><span data-lang="zh">解碼器指示</span></div>
+                <div id="eccActionVal" style="color: #785021; font-size: 12.5px;">—</div>
               </div>
               <div>
-                <div style="color: #64748b; margin-bottom: 2px;"><span data-lang="en">ISO 26262 SAFETY STATUS</span><span data-lang="zh">ISO 26262 安全狀態</span></div>
-                <div id="eccSafetyVal" style="color: #785021; font-size: 12.5px;"><span data-lang="en">SAFETY STATE: NOMINAL (TARGET: ASIL-D ARCHITECTURE)</span><span data-lang="zh">安全狀態：正常（目標：ASIL-D 架構）</span></div>
+                <div style="color: #64748b; margin-bottom: 2px;"><span data-lang="en">MODEL BOUNDARY</span><span data-lang="zh">模型邊界</span></div>
+                <div id="eccSafetyVal" style="color: #785021; font-size: 12.5px;"><span data-lang="zh">教學模型 · 非產品驗證</span><span data-lang="en">Teaching model · not product validation</span></div>
               </div>
             </div>
           </section>
@@ -1498,264 +1487,8 @@
     </div>
   </footer>
 
-  <!-- Interactive Lab Simulator Engines -->
-  <script>
-    /**
-     * Flagship Lab 01: 175°C Arrhenius Thermal Aging Canvas
-     */
-    (function () {
-      const canvas = document.getElementById("thermalCanvas");
-      if (!canvas) return;
-      let ctx = null;
-      const T = (en, zh) => (window.HubLanguage?.get() || document.documentElement.lang).startsWith("zh") ? zh : en;
-
-      const tempSlider = document.getElementById("tempSlider");
-      const tempValElem = document.getElementById("tempVal");
-      const yearSlider = document.getElementById("yearSlider");
-      const yearValElem = document.getElementById("yearVal");
-      const afValElem = document.getElementById("afVal");
-
-      function setupHiDPI() {
-        const dpr = Math.min(window.devicePixelRatio || 1, 3);
-        const cssW = canvas.parentElement.clientWidth;
-        const cssH = 280;
-        canvas.width = Math.round(cssW * dpr);
-        canvas.height = Math.round(cssH * dpr);
-        canvas.style.width = cssW + "px";
-        canvas.style.height = cssH + "px";
-        ctx = canvas.getContext("2d");
-        ctx.setTransform(1, 0, 0, 1, 0, 0);
-        ctx.scale(dpr, dpr);
-      }
-
-      function renderThermal() {
-        if (!ctx) return;
-        const w = canvas.parentElement.clientWidth;
-        const h = 280;
-
-        const tempC = parseFloat(tempSlider.value);
-        const years = parseFloat(yearSlider.value);
-
-        tempValElem.textContent = `${tempC} °C`;
-        yearValElem.textContent = T(`${years} Yrs`, `${years} 年`);
-        tempSlider.setAttribute("aria-valuetext", `${tempC} °C`);
-        yearSlider.setAttribute("aria-valuetext", T(`${years} Yrs`, `${years} 年`));
-
-        const kB = 8.61733e-5;
-        const Tuse = 55 + 273.15; // 55°C baseline
-        const Tstress = tempC + 273.15;
-        const Ea = 0.84; // eV (Dielectric TDDB / AEC-Q100 high-temp life acceleration)
-        const af = Math.exp((Ea / kB) * (1 / Tuse - 1 / Tstress));
-        afValElem.textContent = af > 100000 ? `${(af / 1000).toFixed(0)}k×` : `${af < 1 ? af.toFixed(2) : af.toFixed(0)}×`;
-
-        ctx.clearRect(0, 0, w, h);
-
-        // Grid
-        ctx.strokeStyle = "rgba(196, 165, 116, 0.08)";
-        ctx.lineWidth = 1;
-        for (let x = 0; x < w; x += 40) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
-        for (let y = 0; y < h; y += 40) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
-
-        const plotX = 45;
-        const plotY = 35;
-        const plotW = w - 75;
-        const plotH = h - 70;
-
-        // Axes
-        ctx.strokeStyle = "rgba(196, 165, 116, 0.25)";
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.moveTo(plotX, plotY);
-        ctx.lineTo(plotX, plotY + plotH);
-        ctx.lineTo(plotX + plotW, plotY + plotH);
-        ctx.stroke();
-
-        const isNarrow = w < 360;
-        ctx.font = "700 11px 'IBM Plex Mono'";
-        ctx.fillStyle = "#fff";
-        ctx.fillText(
-          isNarrow ? T(`RETENTION VS TIME (${tempC}°C)`, `資料保存與時間（${tempC}°C）`) : T(`SILICON RETENTION MARGIN VS TIME (Tj = ${tempC}°C)`, `晶片資料保存裕量與時間（Tj = ${tempC}°C）`),
-          plotX + (isNarrow ? 4 : 10),
-          22
-        );
-
-        // 1. AntiFuse Dielectric Breakdown Filament (Gold line: Flat / Zero Drift)
-        ctx.strokeStyle = "#c4a574";
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(plotX, plotY + 20);
-        const afDrop = (tempC / 175) * 8;
-        ctx.lineTo(plotX + plotW, plotY + 20 + afDrop);
-        ctx.stroke();
-
-        ctx.fillStyle = "#c4a574";
-        ctx.fillText(
-          isNarrow ? T("● AntiFuse: Zero-Drift (>99.9%)", "● 反熔絲：零漂移（>99.9%）") : T("● AntiFuse Breakdown Filament: Zero-Drift (>99.9% Retention)", "● 反熔絲擊穿細絲：零漂移（資料保存 >99.9%）"),
-          plotX + (isNarrow ? 8 : 16),
-          plotY + 42
-        );
-
-        // 2. Floating-Gate eFlash (Red curve: Steep drop)
-        ctx.strokeStyle = "#ef4444";
-        ctx.lineWidth = 2.5;
-        ctx.beginPath();
-        const fgTFactor = Math.pow(tempC / 100, 2.5);
-        for (let t = 0; t <= 25; t += 0.5) {
-          const px = plotX + (t / 25) * plotW;
-          const decay = Math.exp(-0.06 * fgTFactor * t);
-          const py = plotY + 20 + (1 - decay) * (plotH - 28);
-          if (t === 0) ctx.moveTo(px, py);
-          else ctx.lineTo(px, py);
-        }
-        ctx.stroke();
-
-        ctx.fillStyle = "#f87171";
-        ctx.fillText(
-          isNarrow ? T("● FG Decay (Thermal Leak)", "● 浮動閘衰減（熱漏電）") : T("● Floating-Gate Charge Decay (Thermal Leakage)", "● 浮動閘電荷衰減（熱漏電）"),
-          plotX + (isNarrow ? 8 : 16),
-          plotY + 64
-        );
-
-        // Failure threshold line
-        ctx.strokeStyle = "rgba(239, 68, 68, 0.4)";
-        ctx.setLineDash([4, 4]);
-        ctx.beginPath();
-        ctx.moveTo(plotX, plotY + plotH * 0.65);
-        ctx.lineTo(plotX + plotW, plotY + plotH * 0.65);
-        ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.fillStyle = "#f87171";
-        ctx.fillText(
-          isNarrow ? T("CRITICAL THRESHOLD", "臨界門檻") : T("CRITICAL SENSE MARGIN THRESHOLD", "感測裕量臨界門檻"),
-          isNarrow ? plotX + 10 : plotX + plotW - 210,
-          plotY + plotH * 0.65 - 6
-        );
-
-        // Current Operating Year Marker
-        const curPx = plotX + (years / 25) * plotW;
-        ctx.strokeStyle = "#f59e0b";
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(curPx, plotY);
-        ctx.lineTo(curPx, plotY + plotH);
-        ctx.stroke();
-
-        ctx.fillStyle = "#f59e0b";
-        ctx.fillText(T(`▲ Target: ${years} Yrs`, `▲ 目標：${years} 年`), curPx - 26, plotY + plotH + 16);
-      }
-
-      tempSlider.addEventListener("input", renderThermal);
-      yearSlider.addEventListener("input", renderThermal);
-      window.addEventListener("hub:language-change", renderThermal);
-      window.addEventListener("resize", () => { setupHiDPI(); renderThermal(); });
-      document.addEventListener("DOMContentLoaded", () => { setupHiDPI(); renderThermal(); });
-    })();
-
-    /**
-     * Flagship Lab 02: SECDED (72, 64) Fault Injection Testbench
-     */
-    (function () {
-      const deck = document.getElementById("eccBitsDeck");
-      const pill = document.getElementById("eccStatusPill");
-      const syndromeVal = document.getElementById("eccSyndromeVal");
-      const actionVal = document.getElementById("eccActionVal");
-      const safetyVal = document.getElementById("eccSafetyVal");
-
-      const btnSingle = document.getElementById("btnInjectSingle");
-      const btnDouble = document.getElementById("btnInjectDouble");
-      const btnReset = document.getElementById("btnResetEcc");
-
-      if (!deck) return;
-
-      let bits = Array(72).fill(0);
-      const T = (en, zh) => (window.HubLanguage?.get() || document.documentElement.lang).startsWith("zh") ? zh : en;
-      let flippedIndices = new Set();
-
-      function renderGrid() {
-        deck.innerHTML = "";
-        for (let i = 0; i < 72; i++) {
-          const isParity = i >= 64;
-          const isFlipped = flippedIndices.has(i);
-          const node = document.createElement("div");
-          node.className = `ecc-bit-node ${isParity ? 'parity' : ''} ${isFlipped ? 'flipped' : ''}`;
-          node.textContent = isParity ? `P${i - 64}` : `D${i}`;
-          node.title = isParity ? T(`Parity Bit #${i - 64}`, `同位元檢查位元 #${i - 64}`) : T(`Data Bit #${i}`, `資料位元 #${i}`);
-          node.addEventListener("click", () => toggleBit(i));
-          deck.appendChild(node);
-        }
-        updateStatus();
-      }
-
-      function toggleBit(idx) {
-        if (flippedIndices.has(idx)) {
-          flippedIndices.delete(idx);
-        } else {
-          flippedIndices.add(idx);
-        }
-        renderGrid();
-      }
-
-      function updateStatus() {
-        const errCount = flippedIndices.size;
-        if (errCount === 0) {
-          pill.className = "ecc-status-pill clean";
-          pill.textContent = T("● 0 ERRORS · SECDED PARITY CLEAN", "● 0 個錯誤 · SECDED 同位元檢查正常");
-          syndromeVal.textContent = T("0x00 (NO SYNDROME)", "0x00（無錯誤症候）");
-          syndromeVal.style.color = "#785021";
-          actionVal.textContent = T("NORMAL 0-CYCLE PASS", "正常零週期通過");
-          actionVal.style.color = "#785021";
-          safetyVal.textContent = T("SAFETY STATE: NOMINAL (TARGET: ASIL-D ARCHITECTURE)", "安全狀態：正常（目標：ASIL-D 架構）");
-          safetyVal.style.color = "#785021";
-        } else if (errCount === 1) {
-          const flippedIdx = Array.from(flippedIndices)[0];
-          pill.className = "ecc-status-pill sec";
-          pill.textContent = T(`● 1-BIT ERROR CORRECTED · BIT #${flippedIdx}`, `● 已修正單位元錯誤 · 位元 #${flippedIdx}`);
-          syndromeVal.textContent = T(`0x${(flippedIdx + 1).toString(16).toUpperCase().padStart(2, '0')} (LOCATED #${flippedIdx})`, `0x${(flippedIdx + 1).toString(16).toUpperCase().padStart(2, '0')}（已定位 #${flippedIdx}）`);
-          syndromeVal.style.color = "#1d4ed8";
-          actionVal.textContent = T("HARDWARE ON-THE-FLY XOR AUTO-REPAIR", "硬體即時 XOR 自動修復");
-          actionVal.style.color = "#1d4ed8";
-          safetyVal.textContent = T("SAFETY STATUS: SEC CORRECTED (SECDED ENVELOPE)", "安全狀態：SEC 已修正（SECDED 適用範圍）");
-          safetyVal.style.color = "#1d4ed8";
-        } else {
-          pill.className = "ecc-status-pill ded";
-          pill.textContent = T(`✖ ${errCount}-BIT ERROR DETECTED · SAFETY TRAP ASSERTED (DED)`, `✖ 偵測到 ${errCount} 位元錯誤 · 已觸發安全陷阱（DED）`);
-          syndromeVal.textContent = T("0xEE (DOUBLE-BIT PARITY MISMATCH)", "0xEE（雙位元同位元檢查不符）");
-          syndromeVal.style.color = "#b91c1c";
-          actionVal.textContent = T("SAFETY ACTION: HARDWARE DED TRAP ASSERTED (FTTI COMPLIANT)", "安全動作：已觸發硬體 DED 陷阱（符合 FTTI）");
-          actionVal.style.color = "#b91c1c";
-          safetyVal.textContent = T("SAFETY ACTION: HARDWARE DED TRAP ASSERTED (FTTI COMPLIANT)", "安全動作：已觸發硬體 DED 陷阱（符合 FTTI）");
-          safetyVal.style.color = "#b91c1c";
-        }
-      }
-
-      if (btnSingle) {
-        btnSingle.addEventListener("click", () => {
-          flippedIndices.clear();
-          flippedIndices.add(14);
-          renderGrid();
-        });
-      }
-
-      if (btnDouble) {
-        btnDouble.addEventListener("click", () => {
-          flippedIndices.clear();
-          flippedIndices.add(14);
-          flippedIndices.add(15);
-          renderGrid();
-        });
-      }
-
-      if (btnReset) {
-        btnReset.addEventListener("click", () => {
-          flippedIndices.clear();
-          renderGrid();
-        });
-      }
-
-      window.addEventListener("hub:language-change", renderGrid);
-      renderGrid();
-    })();
-  </script>
+  <script type="module" src="automotive-thermal.js"></script>
+  <script type="module" src="automotive-ecc.js"></script>
 
   <!-- Studio Layout Vertical Rail Scroll Spy & Interactive Navigator -->
   <script>

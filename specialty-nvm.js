@@ -1078,7 +1078,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lblEinkMode.textContent = currentLang === 'zh' ? 'Spectra 6 全彩' : 'SPECTRA 6 FULL COLOR';
     lblPulseVolt.textContent = currentLang === 'zh' ? '±50V 超高壓脈衝 (64 K-bit · 8 KB)' : '±50V ULTRA-HV PULSE (64 K-bit · 8 KB)';
     valLutFootprint.textContent = currentLang === 'zh' ? '64 K-bit（8 KB 高密度）' : '64 K-bit (8 KB High-Density)';
-    lblPhaseTag.textContent = currentLang === 'zh' ? '必須採用 MTP（持續演進）' : 'MTP MANDATORY (ACTIVE EVOLUTION)';
+    lblPhaseTag.textContent = currentLang === 'zh' ? '可更新情境：MTP 候選' : 'UPDATABLE SCENARIO: MTP CANDIDATE';
     lblPhaseTag.className = 'phase-tag phase-mtp';
     if (timingTrackEl) {
       timingTrackEl.innerHTML = '<span class="timing-step step-shake">Phase A: &plusmn;15V Shake (40ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-clear">Phase B: -50V Clear (80ms)</span> <span class="timing-sep">&rarr;</span> <span class="timing-step step-drive">Phase C: +50V Target Drive (120ms)</span>';
