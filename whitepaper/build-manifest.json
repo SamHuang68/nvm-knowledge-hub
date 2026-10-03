@@ -27,9 +27,9 @@
     "src/data/profiles-zh.js": "d5d3667bee1d2abbe811233239b2fb1e339c90a6dc485b45c6084028f4a04552",
     "src/js/app.js": "af9ca477562f30fe13057fbc5a9f5c00a127dd281c15edba28ae7aed3a1df583",
     "src/js/build-entry.js": "a74afcb676680c134db067fe8a9d7d4405f2f24d2e76647b5ac1dad32589541c",
-    "src/js/modules/matrix.js": "2c7762c0047b6a5950de703b969261c51c7606f07cb85256adc0734331e26527",
+    "src/js/modules/matrix.js": "f9576bef9f6037eeba58c88c73c619c92604952de6903adc08e4560ea2941481",
     "src/js/modules/phase1_kb_view.js": "51047a1746e7871f54d97ca6293bd1afc859692580ee71ec9cceba880d07fc82",
-    "src/js/modules/phase2_reader.js": "8050b0076e819f4ce1ae13e78396185246f8ba0732e552a02fed791a824d5e85",
+    "src/js/modules/phase2_reader.js": "5fe3531f4f9ed48986e01cb5940c4be3c60857bf32285e203ca9328a7ea008e9",
     "src/js/modules/phase3_template_view.js": "68d3578e31082907f0f8891a63eb04419280e13bc5cbd2dfde3e77a20b92ccb1",
     "src/js/modules/phase4_meta_view.js": "e4310e0176f906db9635418631e8c0a8bf44364c4f4cdb790177e1da9c6255ea",
     "src/js/whitepaper-locale.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
@@ -38,16 +38,16 @@
     "src/styles/portal.css": "2e9b9b529d72b4b9e9629e7bf91546e549ff1dee4ed9795a3350959c517a6eb4",
     "src/styles/production.css": "31035aa3c3fadb8efc3411cabeb99500970ab8226950fb22085582978026ed7c",
     "public-entry-template.html.tpl": "5d25e748f3540c07c1a1d1193652daafa10f142e75cdd3177413caf0815fbc2b",
-    "index.html": "f138960d0121e45baf09608e07ecf6ae2679926b395c2493a3171d1584440b0d",
+    "index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "vite.config.js": "dbcdb5d9fb1256d563aaa4e6b639a7eea9b718faf1d864adbbbe26bb20a3b0a8",
     "package.json": "d407a5e7dfaab948cbc44ae2d013d7d3ff955b36431d9fbbe4def9748ea5b64c",
     "package-lock.json": "62d1e9d4553a157ce103294c905af6cac59259ba977e7a050f8e3f58333dedaf",
     "scripts/build-whitepaper.mjs": "fb93b79ccb12926c99abd1c9484b5a694f9b97a9c7ff3bd2a30f13c9098d639e"
   },
   "outputs": {
-    "index.html": "847070b83192fcab95cbe5e401686e9c79fceb03e913db0fb16a19ef4c6abae2",
+    "index.html": "931f986263bbd45119b43f1c2f0a87b890b607831b5ec0490dac8f4d4f11c4ec",
     "assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
-    "assets/whitepaper.js": "2da58315c2cdac3561477d680fbf493f5ca7d5718ff9a4d052aac7fffb0a155d",
+    "assets/whitepaper.js": "dd319f9c68705442700bc090352b677e73fc58eb268baae7eb6956000d46ade4",
     "assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8"
   }
 }
