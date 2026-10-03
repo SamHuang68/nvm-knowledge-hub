@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "715073a894d6c2ba701e",
+  "version": "4a4af40b3a3ccb5145b9",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -148,7 +148,7 @@ self.NVMOfflineManifest = {
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
     "index.html": "acf23774ecda150cbb9fc6e10adc6f71a6e14c02b70e60ef47e421378b64b8b5",
-    "iot-mcu-envm.html": "fec70aaa4ec985e8b89fb00e477558a09f88349476baddfb44e55784fccc273d",
+    "iot-mcu-envm.html": "3f02911968a728e759a647954993e12eaa9b1d9b378ee5e8cd01c6017609e585",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "ced747eb93c7261c334359d763eeafa2ef495705991e314b46b389e9dcd720f2",
@@ -180,16 +180,16 @@ self.NVMOfflineManifest = {
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "15bf50e7b268e4f3c7b87dc7e624e8ccfc065cfc97217623db354aedf61d1e0b",
     "secure-storage.html": "d740816c8596559157eaaf9e1d08ee65e25731b967bf4151cdaf1237ab29584b",
-    "security-assurance.html": "529b9ea1552e053cee5f90089ddf0409049b36197757274d38b8fe7c00592efe",
+    "security-assurance.html": "f759f41b8a7c07d641f1b28fe70dd4009f47001d05dea16b2b3b86fd464b08a3",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "66c847fcc1dbc26a32ecd71df181c1363f9ceed6874f1512414ddfc49a437bc2",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
     "specialty-nvm.css": "54edc81d1d15e1d9d5c3f2604328e11269e48ac9fda51d059912d4dd0f8d7862",
-    "specialty-nvm.html": "d9d1410d7d600d04c10120ae9cde7a4bc73ee52bab070c38b3a1e050c4e3a35d",
+    "specialty-nvm.html": "dee3c22b3a48dfd5e0888856bb0d7508bb6243c658e9249276d8261fe569c088",
     "specialty-nvm.js": "987a05dd3f6aa8cf0b69c7c543deebc445587e9f930186241a47a7a1e01fec4b",
     "sram-repair-model.js": "366c04a84d228d736a372308d8adbaf07660683fb6f6d5b453adc5dde8c204a6",
     "sram-repair.css": "344a186f66695d3f92ad1552743c08cb2696f33a821add216ed24b302a9ecae9",
-    "sram-repair.html": "8d43070e3f784f93c16f70083c49136864d6b3a80f478b2fd3a28001933edcc0",
+    "sram-repair.html": "5e0ebffa845f22e94028d171f65e1d3298857701227876042b9e99e42c07ec80",
     "sram-repair.js": "4ba513aff845e95fd5e759fea84c32c2b03770263e72d2359a2e8fd4e1778bf2",
     "sram-scenario-report.js": "5ea519b1dbf2ab4d308a44811e5b4d704352636a347be43d6445adbbdd38c02c",
     "sram-scenario-ui.js": "b7277b3fe584818b38b675514ba4f56d998fa792033c31b7a92c45b9e2e57b34",
@@ -206,5 +206,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "931f986263bbd45119b43f1c2f0a87b890b607831b5ec0490dac8f4d4f11c4ec"
   },
-  "totalBytes": 11227592
+  "totalBytes": 11233355
 };

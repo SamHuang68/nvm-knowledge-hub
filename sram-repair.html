@@ -16,6 +16,7 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <link rel="canonical" href="https://hub.samhuang68.org/sram-repair.html">
+  <link rel="alternate" type="text/plain" href="llms.txt" title="LLM-friendly text version">
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="NVM Knowledge Hub">
@@ -37,6 +38,7 @@
   <meta name="twitter:image:alt" content="NVM Knowledge Hub Silicon IP Panorama Overview">
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"SRAM Repair Capacity Estimator · NVM Knowledge Hub","description":"Estimate raw and compressed SRAM repair data and compare OTP and eFuse storage allocation.","url":"https://hub.samhuang68.org/sram-repair.html","applicationCategory":"UtilitiesApplication","operatingSystem":"Web browser","inLanguage":["en","zh-TW"],"isAccessibleForFree":true,"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does on-chip SRAM redundancy repair work using OTP or eFuse non-volatile memories?","acceptedAnswer":{"@type":"Answer","text":"Multi-megabit SRAM macros incorporate spare rows and columns. During wafer sort, Built-In Self-Test (BIST) detects failing bitcells. Built-In Self-Repair (BISR) logic compresses defective address signatures and permanently burns them into non-volatile OTP or eFuse registers. Upon boot, addresses are remapped to spare elements."}},{"@type":"Question","name":"Why is repair data compression essential in advanced node SoC SRAM arrays?","acceptedAnswer":{"@type":"Answer","text":"As SRAM bitcell dimensions shrink below 0.021 µm² in 3nm/2nm, variability and random telegraph noise increase defect counts, requiring thousands of repair records per die. Compressing repair records by 10:1 to 100:1 reduces non-volatile fuse bitcell area from megabits down to a few kilobytes."}}]}</script>
 
   <script src="site-language.js?v=20260920-apps1"></script>
   <link rel="stylesheet" href="site-shell.css?v=20260916-keepout">
