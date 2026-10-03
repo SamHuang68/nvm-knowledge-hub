@@ -83,5 +83,7 @@ document.addEventListener('click',async event=>{
  const legend=figure.hasAttribute('data-patent-figure')?document.getElementById('patent-'+figure.dataset.patentFigure)?.querySelector('.nvm-patent-callouts'):figure.closest('.nvm-op-variant')?.querySelector('.nvm-op-legend');
  dialog.querySelector('.nvm-engineering-zoom-notes').replaceChildren(...[notes,legend].filter(Boolean).map(node=>node.cloneNode(true)));
  scaleSelect.value='1';updateScale();
+ // Pointer activation does not focus buttons in every engine; let the native dialog remember its opener.
+ button.focus({preventScroll:true});
  dialog.showModal();dialog.querySelector('.nvm-engineering-dialog-body').scrollTop=0;scroller.scrollLeft=0;scroller.scrollTop=0;
 });

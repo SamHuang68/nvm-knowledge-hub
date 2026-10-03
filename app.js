@@ -226,7 +226,15 @@ function renderLearningPath() {
 
 function renderFilters() {
   const filters = document.querySelector("#filters");
-  filters.innerHTML = Object.entries(typeLabels).map(([key, label]) => `<button class="filter${key === activeType ? " active" : ""}" data-type="${key}" type="button" aria-pressed="${key === activeType}">${pick(label)}</button>`).join("");
+  if (!filters.children.length) {
+    filters.innerHTML = Object.keys(typeLabels).map(key => `<button class="filter" data-type="${key}" type="button"></button>`).join("");
+  }
+  filters.querySelectorAll('button[data-type]').forEach(button => {
+    const active = button.dataset.type === activeType;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+    button.textContent = pick(typeLabels[button.dataset.type]);
+  });
 }
 
 function renderArticles() {
@@ -245,6 +253,10 @@ function renderArticles() {
       <div class="card-bottom">${article.tags.map(tag => `#${displayTerm(tag)}`).join(" · ")}</div>
     </a>`).join("");
   document.querySelector("#emptyState").hidden = results.length > 0;
+  const status = document.querySelector("#learningResultStatus");
+  const summary = currentLanguage === "zh"
+    ? `${results.length} 筆符合條件的學習內容。` : `${results.length} matching learning resources.`;
+  if (status.textContent !== summary) status.textContent = summary;
 }
 
 function updatePowerState(state = document.querySelector("#power-lab").dataset.state) {

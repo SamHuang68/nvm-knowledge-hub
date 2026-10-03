@@ -311,6 +311,8 @@ document.querySelectorAll('[data-zoom-diagram]').forEach(button => {
     if (legend) notesChildren.push(legend.cloneNode(true));
     if (mechanism) notesChildren.push(mechanism.cloneNode(true));
     diagramCanvas.querySelector('.bc-zoom-notes').replaceChildren(...notesChildren);
+    // Preserve the actual opener for native focus restoration, including pointer activation in WebKit.
+    button.focus({preventScroll:true});
     diagramDialog.showModal();
     diagramCanvas.scrollTop = 0;
     scroller.scrollLeft = Math.max(0, (scroller.scrollWidth-scroller.clientWidth)/2);

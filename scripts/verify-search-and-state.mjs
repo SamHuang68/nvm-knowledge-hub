@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import { chromium } from 'playwright';
+import { chromium, firefox, webkit } from 'playwright';
 import { startTestServer } from './test-server.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
@@ -10,7 +10,10 @@ const base = new URL(process.env.NVM_QA_BASE || server.base);
 const output = path.resolve(process.env.NVM_QA_OUTPUT || path.join(root, 'qa', 'search-and-state'));
 fs.mkdirSync(output, { recursive: true });
 const channel = process.env.NVM_QA_CHANNEL || 'msedge';
-const browser = await chromium.launch({ headless: true, ...(channel === 'chromium' ? {} : { channel }) });
+const engine = process.env.NVM_QA_ENGINE || 'chromium';
+const browserType = { chromium, firefox, webkit }[engine];
+assert.ok(browserType, `Unsupported test engine: ${engine}`);
+const browser = await browserType.launch({ headless: true, ...(engine !== 'chromium' || channel === 'chromium' ? {} : { channel }) });
 const results = [];
 
 async function captureNativeIdLookup(page) {

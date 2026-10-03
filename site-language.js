@@ -128,6 +128,9 @@
     script.defer = true; document.head.append(script);
   }
   function ready() {
+    // A head redirect can stop parsing before body exists (notably in WebKit).
+    // The destination document initializes its own controls and announcements.
+    if (!document.body) return;
     if (appsPages && document.body) document.body.classList.add('hub-apps-page');
     document.querySelectorAll('.language-toggle, #languageToggle').forEach(button => {
       if (button._hubLangBound) return;
