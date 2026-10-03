@@ -1578,12 +1578,90 @@
           </p>
           <small><span data-lang="zh">大型資料中心 AI 加速卡 (GPU/NPU)、CXL 記憶體擴展模組與伺服器平台標配。</span><span data-lang="en">Standard for data center AI accelerators (GPU/NPU), CXL memory expanders, and enterprise servers.</span></small>
         </article>
+
+        <!-- Subsystem 4: Post-Quantum Cryptography (PQC) Hardware Root of Trust -->
+        <article>
+          <span><span data-lang="zh">04 · 2026 後量子信任根</span><span data-lang="en">04 · 2026 PQC ROOT OF TRUST</span></span>
+          <h3>NIST FIPS 203/204 PQC Migration</h3>
+          <p>
+            <b><span data-lang="zh">核心定位與機制</span><span data-lang="en">Core Role &amp; Mechanism</span></b>
+            <span data-lang="zh"><b>格密碼學硬體加速與金鑰膨脹：</b>NIST 正式發布 FIPS 203 (ML-KEM / Kyber) 與 FIPS 204 (ML-DSA / Dilithium)。公鑰與簽章尺寸相較傳統 ECC P-256 暴增 18~40 倍（ML-KEM-768 公鑰達 1,184 Bytes，ML-DSA-65 達 1,952 Bytes）。</span>
+            <span data-lang="en"><b>Lattice-based Acceleration &amp; Key Expansion:</b> NIST finalized FIPS 203 (ML-KEM) and FIPS 204 (ML-DSA). Public keys and signatures expand 18&ndash;40&times; compared to ECC P-256 (ML-KEM-768 public key is 1,184 Bytes; ML-DSA-65 is 1,952 Bytes).</span>
+          </p>
+          <p>
+            <b><span data-lang="zh">上下游分工與 NVM 需求</span><span data-lang="en">Supply Chain Split &amp; NVM Impact</span></b>
+            <span data-lang="zh">傳統 1~2 Kb eFuse 僅能容納單一 SHA-256 雜湊，已無法存放完整 PQC 根憑證鏈與韌體防回滾計數器陣列。推動硬體信任根向 32 Kb ~ 128 Kb Logic-Compatible AntiFuse OTP 或嵌入式 MRAM 演進。</span>
+            <span data-lang="en">Traditional 1&ndash;2 Kb eFuses hold only isolated SHA-256 hashes, failing to accommodate full PQC root certificate chains and monotonic rollback counters. This accelerates adoption of 32&ndash;128 Kb logic AntiFuse OTP or eMRAM.</span>
+          </p>
+          <small><span data-lang="zh">支援 CNSA 2.0 國家級安全規範、量子抗性 Secure Boot 與雲端 AI 晶片身份證明。</span><span data-lang="en">Mandated for CNSA 2.0 quantum-resistant Secure Boot, AI accelerator identity, and high-assurance HSMs.</span></small>
+        </article>
+      </div>
+
+      <!-- PQC Key Budget Comparison Table -->
+      <div class="panel comparison-table-wrap" style="margin-top: 2rem; background: rgba(248, 250, 252, 0.98); border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 8px; padding: 1.25rem;">
+        <h4 style="margin: 0 0 0.75rem 0; font-size: 1rem; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
+          <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #0284c7;"></span>
+          <span data-lang="en">Silicon Root-of-Trust Storage Budget: Classical vs. Post-Quantum (PQC)</span>
+          <span data-lang="zh">晶片硬體信任根儲存預算：古典密碼學 vs. 後量子密碼學 (PQC)</span>
+        </h4>
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.8125rem; text-align: left;" aria-label="Silicon Root-of-Trust Storage Budget: Classical vs. Post-Quantum" data-aria-en="Silicon Root-of-Trust Storage Budget: Classical vs. Post-Quantum" data-aria-zh="晶片硬體信任根儲存預算：古典密碼學 vs. 後量子密碼學">
+            <caption class="sr-only"><span data-lang="en">Silicon Root-of-Trust Storage Budget: Classical vs. Post-Quantum</span><span data-lang="zh">晶片硬體信任根儲存預算：古典密碼學 vs. 後量子密碼學</span></caption>
+            <thead>
+              <tr style="border-bottom: 2px solid #cbd5e1; background: #f1f5f9;">
+                <th scope="col" style="padding: 0.6rem 0.75rem;"><span data-lang="en">Algorithm &amp; Standard</span><span data-lang="zh">演算法與標準</span></th>
+                <th scope="col" style="padding: 0.6rem 0.75rem;"><span data-lang="en">Security Level</span><span data-lang="zh">安全等級</span></th>
+                <th scope="col" style="padding: 0.6rem 0.75rem;"><span data-lang="en">Public Key Size</span><span data-lang="zh">公鑰尺寸</span></th>
+                <th scope="col" style="padding: 0.6rem 0.75rem;"><span data-lang="en">Signature / Ciphertext</span><span data-lang="zh">簽章／密文尺寸</span></th>
+                <th scope="col" style="padding: 0.6rem 0.75rem;"><span data-lang="en">Silicon NVM Requirement</span><span data-lang="zh">晶片內 NVM 需求</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600;">ECDSA P-256 (Classical)</td>
+                <td style="padding: 0.6rem 0.75rem;"><span data-lang="en">128-bit Classical</span><span data-lang="zh">128 位元古典安全</span></td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace;">64 Bytes (512 b)</td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace;">64 Bytes (512 b)</td>
+                <td style="padding: 0.6rem 0.75rem;"><span data-lang="en">1–2 Kb Standard eFuse / OTP</span><span data-lang="zh">1–2 Kb 標準 eFuse / OTP 即可</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0;">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 600;">RSA-3072 (Classical)</td>
+                <td style="padding: 0.6rem 0.75rem;"><span data-lang="en">128-bit Classical</span><span data-lang="zh">128 位元古典安全</span></td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace;">384 Bytes (3,072 b)</td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace;">384 Bytes (3,072 b)</td>
+                <td style="padding: 0.6rem 0.75rem;"><span data-lang="en">4–8 Kb OTP (Typically stores hash only)</span><span data-lang="zh">4–8 Kb OTP（通常僅存雜湊）</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0; background: rgba(2, 132, 199, 0.04);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 700; color: #0284c7;">ML-KEM-768 (NIST FIPS 203)</td>
+                <td style="padding: 0.6rem 0.75rem;"><span data-lang="en">NIST Level 3 (AES-192 equiv.)</span><span data-lang="zh">NIST Level 3 (同等 AES-192)</span></td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace; font-weight: 700;">1,184 Bytes (9,472 b)</td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace;">1,088 Bytes (8,704 b)</td>
+                <td style="padding: 0.6rem 0.75rem;"><span data-lang="en">16–32 Kb AntiFuse OTP / eMRAM</span><span data-lang="zh">16–32 Kb AntiFuse OTP / eMRAM</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #e2e8f0; background: rgba(2, 132, 199, 0.04);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 700; color: #0284c7;">ML-DSA-65 (NIST FIPS 204)</td>
+                <td style="padding: 0.6rem 0.75rem;"><span data-lang="en">NIST Level 3 (AES-192 equiv.)</span><span data-lang="zh">NIST Level 3 (同等 AES-192)</span></td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace; font-weight: 700;">1,952 Bytes (15,616 b)</td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace;">3,293 Bytes (26,344 b)</td>
+                <td style="padding: 0.6rem 0.75rem;"><span data-lang="en">32–64 Kb High-Density AntiFuse / eNVM</span><span data-lang="zh">32–64 Kb 高密度 AntiFuse / eNVM</span></td>
+              </tr>
+              <tr style="background: rgba(15, 23, 42, 0.03);">
+                <td style="padding: 0.6rem 0.75rem; font-weight: 700; color: #0f172a;">ML-DSA-87 (CNSA 2.0 Top Secret)</td>
+                <td style="padding: 0.6rem 0.75rem;"><span data-lang="en">NIST Level 5 (AES-256 equiv.)</span><span data-lang="zh">NIST Level 5 (同等 AES-256)</span></td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace; font-weight: 700;">2,592 Bytes (20,736 b)</td>
+                <td style="padding: 0.6rem 0.75rem; font-family: monospace;">4,595 Bytes (36,760 b)</td>
+                <td style="padding: 0.6rem 0.75rem;"><span data-lang="en">64–128 Kb Logic AntiFuse / Array</span><span data-lang="zh">64–128 Kb 邏輯 AntiFuse 陣列</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="identity-links" style="margin-top: 1.5rem;">
         <a href="https://www.intrinsic-id.com/products/quiddikey/" target="_blank" rel="noopener noreferrer"><span>INTRINSIC ID</span><b>Quiddikey SRAM PUF Architecture ↗</b></a>
         <a href="https://www.synopsys.com/designware-ip/security-ip.html" target="_blank" rel="noopener noreferrer"><span>SYNOPSYS</span><b>tRoot™ Hardware Secure Module ↗</b></a>
         <a href="https://www.rambus.com/security/root-of-trust/" target="_blank" rel="noopener noreferrer"><span>RAMBUS</span><b>CryptoManager™ Root of Trust &amp; SPDM ↗</b></a>
+        <a href="https://csrc.nist.gov/pubs/fips/203/final" target="_blank" rel="noopener noreferrer"><span>NIST</span><b>FIPS 203 (ML-KEM) Standard ↗</b></a>
       </div>
     </section>
 

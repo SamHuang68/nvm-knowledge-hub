@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "55bdc0705e5e776d3e7b",
+  "version": "561ab3a64d6f8e712ef5",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -96,6 +96,8 @@ self.NVMOfflineManifest = {
     "technology-comparison.html",
     "tools/whitepaper-studio/index.html",
     "topic-menu-navigation.js",
+    "tunneling-breakdown-simulator.css",
+    "tunneling-breakdown-simulator.js",
     "whitepaper/assets/whitepaper.css",
     "whitepaper/assets/whitepaper.js",
     "whitepaper/assets/whitepaper_i18n.js",
@@ -156,7 +158,7 @@ self.NVMOfflineManifest = {
     "memory-evidence.html": "806c8aeb2bea63fff87d8fc9140e7cfbb6b0c324d28c50c1df71a5f41b900813",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "d079856cb219dc4e242aa31b3e2199a201fa44c655b637c3e94ba4ba714c106d",
+    "memory-physics.html": "d66ed5fa0731935a76675024e602369708c143307bc56e231a840e6311f6aadc",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
     "nvm-bitcell-figures.css": "3dbc9f99aa9101b346d33c728e875b87beb99ba8bbeaed806f572b371ee31a88",
@@ -165,9 +167,9 @@ self.NVMOfflineManifest = {
     "nvm-industry-research.css": "94169f1d221d75104a7319834d7775159e2b956862f2cba4acfff40c0380051a",
     "nvm-ip-cells.css": "f997727b6dee99cf1b388a4f7e053b009565074b4993b14cb14311e1d683a507",
     "nvm-portal-entry.css": "6cab384d44dbd1c06f6f5a5cfffeca170196a38b0ed29811115edb2c6fc1b384",
-    "nvm-technology-atlas-zh.html": "7f12a28d49654f54d3eff8f2f2623f1e20a25273118b1c6200369001810c0965",
+    "nvm-technology-atlas-zh.html": "650175489802334d35999cbe7afbe6be4b50775b6e7acd369f591e54629f29a7",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
-    "nvm-technology-atlas.html": "90ae5f09cf692bbff43873d3be99010bdb404378aa521515414de9cc75a0b52e",
+    "nvm-technology-atlas.html": "5e99e8123ae92198b25e853b8689c9c1edfed688d36454422532cdb24d374dad",
     "nvm-technology-atlas.js": "ff8031f3b5b2518e5d3757b2e0e51422b54ad3a150611943a472d0ed4ac5e80a",
     "oip-lifecycle.js": "32485842eab3b8704e829b25b3ca16978d993106eb5a322e3d7bf4d4ec7eabef",
     "oip-secure-storage.html": "dccb83d66fce9ea8cd05155853d93a6bcfea9c03abe2c86f50113e23897e48fb",
@@ -177,7 +179,7 @@ self.NVMOfflineManifest = {
     "research.css": "fb992a4f51654340ff28b5c0d4d70bd7bcfd73ad1b6b048df5c47b7573678e49",
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "15bf50e7b268e4f3c7b87dc7e624e8ccfc065cfc97217623db354aedf61d1e0b",
-    "secure-storage.html": "cd136e02e1e7c16cd269ebfc6bd33d93ae9d044dc9ccdfe59c3faa1eea6f6d6f",
+    "secure-storage.html": "a180bddb465fda4869d998c062af4e8cee1dafe128f65a516b3a0a12a475addf",
     "security-assurance.html": "529b9ea1552e053cee5f90089ddf0409049b36197757274d38b8fe7c00592efe",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "66c847fcc1dbc26a32ecd71df181c1363f9ceed6874f1512414ddfc49a437bc2",
@@ -187,7 +189,7 @@ self.NVMOfflineManifest = {
     "specialty-nvm.js": "987a05dd3f6aa8cf0b69c7c543deebc445587e9f930186241a47a7a1e01fec4b",
     "sram-repair-model.js": "366c04a84d228d736a372308d8adbaf07660683fb6f6d5b453adc5dde8c204a6",
     "sram-repair.css": "344a186f66695d3f92ad1552743c08cb2696f33a821add216ed24b302a9ecae9",
-    "sram-repair.html": "527470d2e59ff2e12ded24edbea5ab51d260c7e513446c0d972074e61b5dce04",
+    "sram-repair.html": "8d43070e3f784f93c16f70083c49136864d6b3a80f478b2fd3a28001933edcc0",
     "sram-repair.js": "4ba513aff845e95fd5e759fea84c32c2b03770263e72d2359a2e8fd4e1778bf2",
     "sram-scenario-report.js": "5ea519b1dbf2ab4d308a44811e5b4d704352636a347be43d6445adbbdd38c02c",
     "sram-scenario-ui.js": "b7277b3fe584818b38b675514ba4f56d998fa792033c31b7a92c45b9e2e57b34",
@@ -197,10 +199,12 @@ self.NVMOfflineManifest = {
     "technology-comparison.html": "c6654f1ef04cf577473751e2edd69eefae4ca85d47cdb070027d036ca2fc40d3",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
+    "tunneling-breakdown-simulator.css": "80433c36dca9ba4fb9940765a7264801e347af32d22940f2ae79d0a98a49735a",
+    "tunneling-breakdown-simulator.js": "e04160af5e2d4a7dab05c22bd8e1fc6283c43eb76ce6573eba150800685b1a9c",
     "whitepaper/assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8",
-    "whitepaper/assets/whitepaper.js": "2da58315c2cdac3561477d680fbf493f5ca7d5718ff9a4d052aac7fffb0a155d",
+    "whitepaper/assets/whitepaper.js": "dd319f9c68705442700bc090352b677e73fc58eb268baae7eb6956000d46ade4",
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
-    "whitepaper/index.html": "847070b83192fcab95cbe5e401686e9c79fceb03e913db0fb16a19ef4c6abae2"
+    "whitepaper/index.html": "931f986263bbd45119b43f1c2f0a87b890b607831b5ec0490dac8f4d4f11c4ec"
   },
-  "totalBytes": 11175755
+  "totalBytes": 11212445
 };

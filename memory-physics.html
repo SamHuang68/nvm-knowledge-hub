@@ -41,6 +41,7 @@
   <link rel="stylesheet" href="site-shell.css?v=20260929-v5">
   <link rel="stylesheet" href="styles.css?v=20260929-v5">
   <link rel="stylesheet" href="research.css?v=20260929-v5">
+  <link rel="stylesheet" href="tunneling-breakdown-simulator.css?v=20261004">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -2047,6 +2048,105 @@
           </article>
         </div>
 
+        <!-- Interactive Simulator: Quantum Tunneling & Dielectric Breakdown -->
+        <article class="tunneling-sim-container" id="tunneling-simulator-root" aria-labelledby="sim-title">
+          <div class="tunneling-sim-header">
+            <div class="tunneling-sim-title-group">
+              <h3 id="sim-title">
+                <span data-lang="en">Quantum Tunneling &amp; Dielectric Breakdown Dynamic Simulator</span>
+                <span data-lang="zh">量子穿隧與介電質擊穿動態模擬器</span>
+              </h3>
+              <p>
+                <span data-lang="en">First-principles numerical solver for Direct Tunneling, Fowler–Nordheim emission, and Percolation Breakdown.</span>
+                <span data-lang="zh">第一性原理數值求解器：動態計算直接穿隧、FN 電場發射與微絲滲透崩潰。</span>
+              </p>
+            </div>
+            <div class="tunneling-preset-group" role="group" aria-label="Preset Scenarios" data-aria-en="Preset Scenarios" data-aria-zh="預設情境">
+              <span class="tunneling-preset-label"><span data-lang="en">Presets:</span><span data-lang="zh">快速情境：</span></span>
+              <button type="button" class="tunneling-preset-btn" data-preset="retention">
+                <span data-lang="en">Safe Retention</span><span data-lang="zh">安全留存</span>
+              </button>
+              <button type="button" class="tunneling-preset-btn active" data-preset="injection">
+                <span data-lang="en">FN Write / Erase</span><span data-lang="zh">FN 寫入／抹除</span>
+              </button>
+              <button type="button" class="tunneling-preset-btn" data-preset="breakdown">
+                <span data-lang="en">AntiFuse Breakdown</span><span data-lang="zh">AntiFuse 擊穿</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="tunneling-sim-grid">
+            <!-- Controls -->
+            <div class="tunneling-controls">
+              <div class="control-item">
+                <div class="control-label-row">
+                  <label for="sim-tox-slider" class="control-label">
+                    <span data-lang="en">Oxide Thickness (t<sub>ox</sub>)</span>
+                    <span data-lang="zh">氧化層物理厚度 (t<sub>ox</sub>)</span>
+                  </label>
+                  <span class="control-value-badge" id="sim-tox-val">2.2 nm</span>
+                </div>
+                <input type="range" id="sim-tox-slider" class="control-slider" min="1.0" max="6.0" step="0.1" value="2.2" aria-label="Oxide physical thickness tox in nanometers" data-aria-en="Oxide physical thickness tox in nanometers" data-aria-zh="氧化層物理厚度 tox (奈米)">
+                <div class="control-range-ticks">
+                  <span>1.0 nm</span>
+                  <span>3.5 nm</span>
+                  <span>6.0 nm</span>
+                </div>
+              </div>
+
+              <div class="control-item">
+                <div class="control-label-row">
+                  <label for="sim-vox-slider" class="control-label">
+                    <span data-lang="en">Oxide Voltage (V<sub>ox</sub>)</span>
+                    <span data-lang="zh">跨氧化層電壓 (V<sub>ox</sub>)</span>
+                  </label>
+                  <span class="control-value-badge" id="sim-vox-val">3.5 V</span>
+                </div>
+                <input type="range" id="sim-vox-slider" class="control-slider" min="0.1" max="10.0" step="0.1" value="3.5" aria-label="Applied oxide voltage Vox in volts" data-aria-en="Applied oxide voltage Vox in volts" data-aria-zh="跨氧化層施加偏壓 Vox (伏特)">
+                <div class="control-range-ticks">
+                  <span>0.1 V</span>
+                  <span>5.0 V</span>
+                  <span>10.0 V</span>
+                </div>
+              </div>
+
+              <div class="tunneling-status-deck">
+                <div class="status-metric-card alert-tunneling">
+                  <span class="metric-header"><span data-lang="en">Oxide Field (E<sub>ox</sub>)</span><span data-lang="zh">氧化層電場 (E<sub>ox</sub>)</span></span>
+                  <div class="metric-val" id="sim-eox-val">15.91 MV/cm</div>
+                  <div class="metric-desc"><span data-lang="en">E<sub>ox</sub> = V<sub>ox</sub> / t<sub>ox</sub></span><span data-lang="zh">場強與絕緣介電應力</span></div>
+                </div>
+
+                <div class="status-metric-card alert-tunneling">
+                  <span class="metric-header"><span data-lang="en">Current Density (J)</span><span data-lang="zh">穿隧電流密度 (J)</span></span>
+                  <div class="metric-val" id="sim-current-val">10^(1.2) A/cm²</div>
+                  <div class="metric-desc"><span data-lang="en">Carrier injection rate</span><span data-lang="zh">載子穿隧注入通量</span></div>
+                </div>
+
+                <div class="status-metric-card alert-tunneling">
+                  <span class="metric-header"><span data-lang="en">Transport Regime</span><span data-lang="zh">穿隧傳輸機制</span></span>
+                  <div class="metric-val" id="sim-mech-val" style="font-size: 1rem;"><span data-lang="en">FN Tunneling</span><span data-lang="zh">FN 穿隧</span></div>
+                  <div class="metric-desc"><span data-lang="en">Triangular vs Trapezoidal barrier</span><span data-lang="zh">三角形 vs 梯形能障動態裁定</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Canvas Display Card -->
+            <div class="tunneling-display-card">
+              <div class="canvas-container">
+                <canvas id="tunneling-canvas" aria-label="Interactive plot of current density vs oxide voltage" data-aria-en="Interactive plot of current density vs oxide voltage" data-aria-zh="穿隧電流密度對跨氧化層電壓之動態曲線圖"></canvas>
+              </div>
+              <div id="sim-verdict-banner" class="verdict-banner verdict-tunneling">
+                <span class="verdict-icon">⚡</span>
+                <span>
+                  <span data-lang="en">[Controlled Tunneling] Moderate FN field induces carrier injection suitable for EEPROM, MTP and eFlash program/erase.</span>
+                  <span data-lang="zh">【受控穿隧寫入區】高電場誘發足量 FN 穿隧電子流，適用於 EEPROM、MTP 與 eFlash 之編程／抹除電荷傳輸。</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+
         <div class="f1-evidence-links">
           <b><span data-lang="zh">關聯技術與物理文獻</span><span data-lang="en">Related Physics &amp; Papers</span></b>
           <a href="technology-comparison.html#sec-physics">TC · <span data-lang="zh">第一性原理方程式對比</span><span data-lang="en">First-principles equation benchmark</span></a>
@@ -2501,5 +2601,6 @@
   </footer>
   <script src="research.js?v=20260929-v5"></script>
   <script src="memory-physics-navigation.js?v=20260929-v5"></script>
+  <script src="tunneling-breakdown-simulator.js?v=20261004" defer></script>
 </body>
 </html>
