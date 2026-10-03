@@ -10,6 +10,7 @@
   <meta name="theme-color" content="#f8fafc">
   <title>Complementary Storage and Verifiable Differences · NVM Knowledge Hub</title>
   <link rel="canonical" href="https://hub.samhuang68.org/memory-physics.html">
+  <link rel="alternate" type="text/plain" href="llms.txt" title="LLM-friendly text version">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta property="og:type" content="article">
@@ -33,6 +34,7 @@
   <meta name="twitter:image" content="https://hub.samhuang68.org/assets/memory-physics-hero-1600.webp">
   <meta name="twitter:image:alt" content="Memory Physics and Complementary Storage Evidence Comparison">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Complementary Storage and Verifiable Differences · NVM Knowledge Hub","description":"Complementary storage and verifiable differences: examine the evidence boundaries of SRAM PUF, encrypted OTP, and Secure Storage through bitcell cost, read paths, and physical observability.","url":"https://hub.samhuang68.org/memory-physics.html","image":"https://hub.samhuang68.org/assets/memory-physics-hero-1600.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/memory-physics.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What voltage transitions Si-SiO2 tunneling from Direct to Fowler-Nordheim?","acceptedAnswer":{"@type":"Answer","text":"The conduction band barrier height of the Si-SiO2 interface is Phi_B = 3.15 eV. When oxide voltage Vox < 3.15 V, direct trapezoidal tunneling dominates. When Vox >= 3.15 V, triangular Fowler-Nordheim (FN) field emission takes over."}},{"@type":"Question","name":"What is the critical electric field for AntiFuse dielectric breakdown?","acceptedAnswer":{"@type":"Answer","text":"Dielectric hard breakdown and silicon filamentation occur when the oxide electric field E_ox exceeds 10 to 13 MV/cm, triggering oxygen vacancy percolation and localized silicon recrystallization."}},{"@type":"Question","name":"What is the thermodynamic subthreshold swing limit at room temperature?","acceptedAnswer":{"@type":"Answer","text":"At 300 K, the subthreshold swing S = ln(10) * (k_B*T/q) * m yields a physical thermodynamic limit of approximately 59.5 to 60 mV/decade."}}]}</script>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1979,7 +1981,7 @@
               <span data-lang="zh">Fowler–Nordheim (FN) 穿隧與能障幾何</span>
               <span data-lang="en">Fowler–Nordheim Tunneling &amp; Barrier Physics</span>
             </h3>
-            <div class="physics-formula-math">
+            <div class="physics-formula-math" data-math-latex="J_{\text{FN}} = A_{\text{FN}} E_{\text{ox}}^2 \exp\left(-\frac{B_{\text{FN}}}{E_{\text{ox}}}\right)" aria-label="Fowler-Nordheim Tunneling Equation: J_FN = A_FN * E_ox^2 * exp(-B_FN / E_ox)" data-aria-en="Fowler-Nordheim Tunneling Equation: J_FN = A_FN * E_ox^2 * exp(-B_FN / E_ox)" data-aria-zh="福勒-諾德漢穿隧方程式：J_FN = A_FN * E_ox^2 * exp(-B_FN / E_ox)">
               <em>J</em><sub>FN</sub> = <em>A</em><sub>FN</sub> <em>E</em><sub>ox</sub><sup>2</sup> exp(&minus;<em>B</em><sub>FN</sub> / <em>E</em><sub>ox</sub>)
             </div>
             <ul class="physics-notes-list">
@@ -2032,7 +2034,7 @@
               <span data-lang="zh">次閾值擴散漏電與 60 mV/dec 熱力學極限</span>
               <span data-lang="en">Subthreshold Diffusion &amp; 60 mV/dec Limit</span>
             </h3>
-            <div class="physics-formula-math">
+            <div class="physics-formula-math" data-math-latex="I_{\text{sub}} = \mu C_{\text{ox}} \frac{W}{L} \left(\frac{k_B T}{q}\right)^2 (m-1) \exp\left(\frac{V_{\text{gs}} - V_{\text{th}}}{m k_B T / q}\right) \left[1 - \exp\left(-\frac{q V_{\text{ds}}}{k_B T}\right)\right]" aria-label="Subthreshold Diffusion Leakage Equation: I_sub = mu * C_ox * (W/L) * (k_B*T/q)^2 * (m-1) * exp((V_gs - V_th)/(m*k_B*T/q)) * [1 - exp(-q*V_ds / (k_B*T))]" data-aria-en="Subthreshold Diffusion Leakage Equation: I_sub = mu * C_ox * (W/L) * (k_B*T/q)^2 * (m-1) * exp((V_gs - V_th)/(m*k_B*T/q)) * [1 - exp(-q*V_ds / (k_B*T))]" data-aria-zh="次臨界擴散漏電方程式：I_sub = mu * C_ox * (W/L) * (k_B*T/q)^2 * (m-1) * exp((V_gs - V_th)/(m*k_B*T/q)) * [1 - exp(-q*V_ds / (k_B*T))]">
               <em>I</em><sub>sub</sub> = &mu; <em>C</em><sub>ox</sub> (<em>W</em>/<em>L</em>) (<em>k</em><sub>B</sub><em>T</em>/<em>q</em>)<sup>2</sup> (<em>m</em>&minus;1) exp[(<em>V</em><sub>gs</sub> &minus; <em>V</em><sub>th</sub>)/(<em>m</em> <em>k</em><sub>B</sub><em>T</em>/<em>q</em>)] [1 &minus; exp(&minus;<em>q</em><em>V</em><sub>ds</sub> / <em>k</em><sub>B</sub><em>T</em>)]
             </div>
             <ul class="physics-notes-list">

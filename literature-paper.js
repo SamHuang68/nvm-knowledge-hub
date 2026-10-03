@@ -96,8 +96,18 @@
         return;
       }
       if (tag === 'TEXT' || tag === 'TSPAN') {
-        if (lum(s.fill) > 180 || hexLum(el.getAttribute('fill')) > 180) {
-          el.style.setProperty('fill', INK, 'important');
+        var fillAttr = el.getAttribute('fill') || '';
+        var isParticleIon = el.classList.contains('bc-ion') || (el.textContent && /^[+−\-\+]$/.test(el.textContent.trim()) && el.previousElementSibling && el.previousElementSibling.tagName?.toLowerCase() === 'circle');
+        if (isParticleIon) {
+          el.setAttribute('fill', '#ffffff');
+          el.style.setProperty('fill', '#ffffff', 'important');
+        } else {
+          if (lum(s.fill) > 150 || hexLum(fillAttr) > 150 || fillAttr === '#e2e8f0' || fillAttr === '#ffffff' || fillAttr === '#fff') {
+            el.style.setProperty('fill', INK, 'important');
+            el.setAttribute('fill', INK);
+          } else {
+            el.style.setProperty('fill', fillAttr || INK, 'important');
+          }
         }
         return;
       }
@@ -129,6 +139,21 @@
       }
     });
     root.querySelectorAll('svg [fill], svg [stroke], svg stop[stop-color]').forEach(function (el) {
+      var isText = el.tagName === 'text' || el.tagName === 'TEXT' || el.tagName === 'tspan' || el.tagName === 'TSPAN';
+      if (isText) {
+        var curFill = el.getAttribute('fill') || '';
+        var isParticle = el.classList.contains('bc-ion') || (el.textContent && /^[+−\-\+]$/.test(el.textContent.trim()) && el.previousElementSibling && el.previousElementSibling.tagName?.toLowerCase() === 'circle');
+        if (isParticle) {
+          el.setAttribute('fill', '#ffffff');
+          el.style.setProperty('fill', '#ffffff', 'important');
+        } else if (hexLum(curFill) > 150 || curFill === '#e2e8f0') {
+          el.setAttribute('fill', INK);
+          el.style.setProperty('fill', INK, 'important');
+        } else {
+          el.style.setProperty('fill', curFill || INK, 'important');
+        }
+        return;
+      }
       ['fill', 'stroke', 'stop-color'].forEach(function (attr) {
         var v = el.getAttribute(attr);
         if (hexLum(v) < 120) {

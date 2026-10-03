@@ -11,6 +11,7 @@
   <meta name="theme-color" content="#f8fafc">
   <title>Secure Storage · NVM Knowledge Hub</title>
   <link rel="canonical" href="https://hub.samhuang68.org/secure-storage.html">
+  <link rel="alternate" type="text/plain" href="llms.txt" title="LLM-friendly text version">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta property="og:type" content="article">
@@ -34,6 +35,7 @@
   <meta name="twitter:image" content="https://hub.samhuang68.org/assets/secure-storage-hero-v2.webp">
   <meta name="twitter:image:alt" content="Secure Storage Architecture with SRAM PUF and Encrypted OTP">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Secure Storage · NVM Knowledge Hub","description":"NVM Knowledge Hub: an executive Secure Storage learning experience built around SRAM PUF, AES-256 and OTP.","url":"https://hub.samhuang68.org/secure-storage.html","image":"https://hub.samhuang68.org/assets/secure-storage-hero-v2.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/secure-storage.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does NIST FIPS 203/204 PQC affect chip hardware root of trust storage?","acceptedAnswer":{"@type":"Answer","text":"Post-quantum algorithms like ML-KEM-768 (1,184 Bytes public key) and ML-DSA-65 (1,952 Bytes public key, 3,293 Bytes signature) expand key sizes 18 to 40x compared to ECC P-256, surpassing 1-2 Kb eFuse capacities and necessitating 32 to 128 Kb logic AntiFuse OTP or eMRAM."}},{"@type":"Question","name":"How does SRAM PUF differ from AntiFuse OTP in root key persistence?","acceptedAnswer":{"@type":"Answer","text":"SRAM PUF reconstructs ephemeral root keys only upon power-up using native transistor threshold mismatch and helper data, leaving zero physical key remnant at power-off. AntiFuse OTP permanently alters physical silicon gate dielectric into conductive filaments."}}]}</script>
   <link rel="preload" href="assets/secure-storage-hero-key.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="styles.css?v=20261003-backgrounds">
   <link rel="stylesheet" href="site-shell.css?v=20260929-v5">

@@ -10,6 +10,7 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#f8fafc">
   <link rel="canonical" href="https://hub.samhuang68.org/technology-comparison.html">
+  <link rel="alternate" type="text/plain" href="llms.txt" title="LLM-friendly text version">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="NVM Knowledge Hub">
@@ -32,6 +33,7 @@
   <meta name="twitter:image" content="https://hub.samhuang68.org/assets/technology-comparison-hero-1600.webp">
   <meta name="twitter:image:alt" content="NVM 9-Dimension Technology Trade-Off Matrix and Radar Selector">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"NVM Technology Trade-Off Matrix · NVM Knowledge Hub","description":"Comprehensive 9-dimension trade-off matrix across 5 NVM family buckets (11 technology leaves), 5-axis interactive radar selector (demo heuristic; not a production selector), first-principles physics models, and foundry ecosystem roadmap for embedded non-volatile memory.","url":"https://hub.samhuang68.org/technology-comparison.html","image":"https://hub.samhuang68.org/assets/technology-comparison-hero-1600.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/technology-comparison.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is embedded Flash (eFlash) rarely integrated at process nodes below 28nm?","acceptedAnswer":{"@type":"Answer","text":"eFlash requires 10 to 15 V programming charge pumps, which demand thick high-voltage oxide gates that cannot scale into FinFET or GAA nanosheet geometries without adding 8 to 12 additional lithography masks, escalating wafer cost by 25% to 40% and degrading logic transistor performance."}},{"@type":"Question","name":"How does AntiFuse OTP compare to poly/metal eFuse in physical security and cell footprint?","acceptedAnswer":{"@type":"Answer","text":"eFuse operates by electromigration to blow a metal or polysilicon fuse requiring high current (10–15 mA) and large cell size (100–300 F²), and is vulnerable to optical/FIB-PVC reverse engineering. AntiFuse uses gate-oxide breakdown to form a microscopic conductive filament (~2 nm) within standard logic transistors (15–40 F²), exhibiting 0 extra masks, sub-microamp programming, and physical invisibility under TEM/SEM."}},{"@type":"Question","name":"What are the primary trade-offs between STT-MRAM and ReRAM in commercial foundry processes?","acceptedAnswer":{"@type":"Answer","text":"STT-MRAM achieves SRAM-like write speeds (<10 ns) and exceptional endurance (10^10 to 10^12 cycles), making it suitable for unified working memory and code execution, but requires a complex magnetic tunnel junction (MTJ) stack. ReRAM offers high cell density and multi-level cell capability with lower mask complexity, but has limited endurance (~10^5 cycles) and requires controlled forming/SET currents."}}]}</script>
   <link rel="manifest" href="site.webmanifest">
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -2266,7 +2268,7 @@
             <span data-lang="zh">穿隧機制由能障形狀主導：超薄氧化層在 <em>t</em><sub>ox</sub> &le; 3.0 nm 且 <em>V</em><sub>ox</sub> &lt; &Phi;<sub>B</sub>/<em>q</em> (~3.15 V) 時為梯形能障直接穿隧 (Direct Tunneling)；當 <em>V</em><sub>ox</sub> &gt; &Phi;<sub>B</sub>/<em>q</em> 時轉為三角形能障 Fowler–Nordheim (FN) 穿隧，有效穿隧距離縮短為 <em>x</em><sub>t</sub> = &Phi;<sub>B</sub>/(<em>qE</em><sub>ox</sub>)。強電場 <em>E</em><sub>ox</sub> &ge; 6~10 MV/cm 下缺陷累積觸發滲透熱失控，形成不可逆的再結晶矽導電微絲：</span>
             <span data-lang="en">Regime governed by barrier shape: ultrathin oxide at <em>t</em><sub>ox</sub> &le; 3.0 nm and <em>V</em><sub>ox</sub> &lt; &Phi;<sub>B</sub>/<em>q</em> (~3.15 V) exhibits trapezoidal direct tunneling; <em>V</em><sub>ox</sub> &gt; &Phi;<sub>B</sub>/<em>q</em> triggers triangular FN tunneling with tunneling distance <em>x</em><sub>t</sub> = &Phi;<sub>B</sub>/(<em>qE</em><sub>ox</sub>). High field <em>E</em><sub>ox</sub> &ge; 6~10 MV/cm drives defect percolation and thermal runaway into a permanent recrystallized silicon filament:</span>
           </p>
-          <div class="formula-box-math">
+          <div class="formula-box-math" data-math-latex="J_{\text{FN}} = A_{\text{FN}} \cdot E_{\text{ox}}^2 \cdot \exp\left(-\frac{B_{\text{FN}}}{E_{\text{ox}}}\right)" aria-label="Equation: J_FN = A_FN * E_ox^2 * exp(-B_FN / E_ox)" data-aria-en="Equation: J_FN = A_FN * E_ox^2 * exp(-B_FN / E_ox)" data-aria-zh="方程式：J_FN = A_FN * E_ox^2 * exp(-B_FN / E_ox)">
             <em>J</em><sub>FN</sub> = <em>A</em><sub>FN</sub> · <em>E</em><sub>ox</sub><sup>2</sup> · exp(−<em>B</em><sub>FN</sub> / <em>E</em><sub>ox</sub>)
           </div>
           <div class="physics-svg-wrap">
@@ -2394,7 +2396,7 @@
             <span data-lang="zh">將額外光罩道數 &Delta;<em>N</em><sub>mask</sub>、前段/後段邊際加價 &alpha;<sub>mask</sub> 與製程良率衝擊 &Delta;<em>Y</em> 結合成可物理檢查的成本閉環：</span>
             <span data-lang="en">Integrate extra masks &Delta;<em>N</em><sub>mask</sub>, FEOL/BEOL marginal adders &alpha;<sub>mask</sub>, and process yield hits &Delta;<em>Y</em> into an inspectable cost closure:</span>
           </p>
-          <div class="formula-box-math">
+          <div class="formula-box-math" data-math-latex="C_{\text{die,eff}} = \frac{C_{\text{base}} \cdot (1 + \sum \alpha_i)}{\text{GDPW}(A_{\text{die}}) \cdot (Y_{\text{base}} - \Delta Y_{\text{nvm}})}" aria-label="Equation: C_die,eff = [C_base * (1 + sum(alpha_i))] / [GDPW(A_die) * (Y_base - Delta_Y_nvm)]" data-aria-en="Equation: C_die,eff = [C_base * (1 + sum(alpha_i))] / [GDPW(A_die) * (Y_base - Delta_Y_nvm)]" data-aria-zh="方程式：C_die,eff = [C_base * (1 + sum(alpha_i))] / [GDPW(A_die) * (Y_base - Delta_Y_nvm)]">
             <em>C</em><sub>die,eff</sub> = [<em>C</em><sub>base</sub> · (1 + &Sigma; &alpha;<sub>i</sub>)] / [GDPW(<em>A</em><sub>die</sub>) · (<em>Y</em><sub>base</sub> &minus; &Delta;<em>Y</em><sub>nvm</sub>)]
           </div>
           <div class="physics-svg-wrap">
@@ -2487,7 +2489,7 @@
             <span data-lang="zh">超低功耗邊緣節點 Always-On 域，關態靜態漏電由次閾值擴散機制與源汲熱平衡因子共同決定：</span>
             <span data-lang="en">Static leakage in always-on edge MCU domains is dominated by subthreshold diffusion and the drain balance factor:</span>
           </p>
-          <div class="formula-box-math">
+          <div class="formula-box-math" data-math-latex="I_{\text{sub}} = \mu_{\text{eff}} C_{\text{ox}} \frac{W}{L} \left(\frac{k_B T}{q}\right)^2 (m-1) \cdot \exp\left[\frac{q(V_{\text{gs}} - V_{\text{th}})}{m k_B T}\right] \cdot \left[1 - \exp\left(-\frac{q V_{\text{ds}}}{k_B T}\right)\right]" aria-label="Equation: I_sub = mu_eff * C_ox * (W/L) * (k_B*T/q)^2 * (m-1) * exp((q*(V_gs - V_th))/(m*k_B*T)) * [1 - exp(-q*V_ds / (k_B*T))]" data-aria-en="Equation: I_sub = mu_eff * C_ox * (W/L) * (k_B*T/q)^2 * (m-1) * exp((q*(V_gs - V_th))/(m*k_B*T)) * [1 - exp(-q*V_ds / (k_B*T))]" data-aria-zh="方程式：I_sub = mu_eff * C_ox * (W/L) * (k_B*T/q)^2 * (m-1) * exp((q*(V_gs - V_th))/(m*k_B*T)) * [1 - exp(-q*V_ds / (k_B*T))]">
             <em>I</em><sub>sub</sub> = &mu;<sub>eff</sub> <em>C</em><sub>ox</sub> (<em>W</em>/<em>L</em>) (<em>k</em><sub>B</sub><em>T</em>/<em>q</em>)<sup>2</sup> (<em>m</em>&minus;1) · exp[(<em>q</em>(<em>V</em><sub>gs</sub>&minus;<em>V</em><sub>th</sub>))/(<em>m k</em><sub>B</sub><em>T</em>)] · [1 &minus; exp(&minus;<em>q V</em><sub>ds</sub> / <em>k</em><sub>B</sub><em>T</em>)]
           </div>
           <div class="physics-svg-wrap">

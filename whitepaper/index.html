@@ -12,6 +12,7 @@
   <meta name="theme-color" content="#f8fafc">
   <meta name="color-scheme" content="light"><meta name="apple-mobile-web-app-title" content="NVM Hub"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default">
   <link rel="canonical" href="https://hub.samhuang68.org/whitepaper/">
+  <link rel="alternate" type="text/plain" href="../llms.txt" title="LLM-friendly text version">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="NVM Knowledge Hub">
   <meta property="og:url" content="https://hub.samhuang68.org/whitepaper/">
@@ -33,6 +34,30 @@
   <meta name="twitter:image" content="https://hub.samhuang68.org/assets/nvm-state-atlas-hero-r17.webp">
   <meta name="twitter:image:alt" content="NVM Whitepaper Decision Studio Architecture and Selection Model">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"NVM Whitepaper & Decision Studio · NVM Knowledge Hub","description":"NVM Knowledge Hub Whitepaper Decision Studio: Industrial state contracts, technology trade-offs, and evidence-backed selection models.","url":"https://hub.samhuang68.org/whitepaper/","image":"https://hub.samhuang68.org/assets/nvm-state-atlas-hero-r17.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/whitepaper/"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the NVM Whitepaper Decision Studio?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The NVM Whitepaper Decision Studio provides an evidence-backed selection framework and unified state contract model for embedded non-volatile memory architectures across automotive, IoT, security, and industrial workloads."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the selection framework balance mask adders against endurance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The framework models trade-offs between zero-mask-adder solutions (like single-poly AntiFuse OTP or MTP) and high-endurance multi-mask technologies (such as embedded Flash or STT-MRAM), aligning wafer cost against lifecycle reprogramming requirements."
+        }
+      }
+    ]
+  }
+  </script>
   <title>NVM Whitepaper &amp; Decision Studio · NVM Knowledge Hub</title>
 
   <link rel="stylesheet" href="../site-shell.css?v=20260916-keepout">

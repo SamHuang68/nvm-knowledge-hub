@@ -104,27 +104,83 @@ class TunnelingSimulator {
    * Clears preset button active highlights on manual user interaction.
    */
   clearActivePreset() {
+    if (this.animFrameId) {
+      cancelAnimationFrame(this.animFrameId);
+      this.animFrameId = null;
+    }
     this.presetButtons.forEach((b) => b.classList.remove('active'));
   }
 
   /**
-   * Sets preset parameter scenarios.
+   * Smoothly interpolates simulator parameters to target values.
+   * Complies with Arc in-place motion and reduced-motion preferences.
+   * @param {number} targetTox Target oxide thickness in nm.
+   * @param {number} targetVox Target oxide voltage in V.
+   * @param {number} duration Animation duration in ms.
+   */
+  animateTo(targetTox, targetVox, duration = 280) {
+    if (this.animFrameId) {
+      cancelAnimationFrame(this.animFrameId);
+      this.animFrameId = null;
+    }
+
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    if (prefersReducedMotion) {
+      this.tox = targetTox;
+      this.vox = targetVox;
+      if (this.toxSlider) this.toxSlider.value = this.tox;
+      if (this.voxSlider) this.voxSlider.value = this.vox;
+      this.update();
+      return;
+    }
+
+    const startTox = this.tox;
+    const startVox = this.vox;
+    const startTime = performance.now();
+
+    const step = (now) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(1, elapsed / duration);
+      // Ease-out cubic: 1 - (1 - t)^3
+      const ease = 1 - Math.pow(1 - progress, 3);
+
+      this.tox = startTox + (targetTox - startTox) * ease;
+      this.vox = startVox + (targetVox - startVox) * ease;
+
+      if (this.toxSlider) this.toxSlider.value = this.tox;
+      if (this.voxSlider) this.voxSlider.value = this.vox;
+      this.update();
+
+      if (progress < 1) {
+        this.animFrameId = requestAnimationFrame(step);
+      } else {
+        this.animFrameId = null;
+      }
+    };
+
+    this.animFrameId = requestAnimationFrame(step);
+  }
+
+  /**
+   * Sets preset parameter scenarios with smooth in-place transition.
    * @param {string} preset Identifier.
    */
   applyPreset(preset) {
+    let targetTox = 2.0;
+    let targetVox = 4.2;
+
     if (preset === 'retention') {
-      this.tox = 3.5;
-      this.vox = 1.2;
+      targetTox = 3.5;
+      targetVox = 1.2;
     } else if (preset === 'injection') {
-      this.tox = 2.0;
-      this.vox = 4.2;
+      targetTox = 2.0;
+      targetVox = 4.2;
     } else if (preset === 'breakdown') {
-      this.tox = 1.8;
-      this.vox = 7.5;
+      targetTox = 1.8;
+      targetVox = 7.5;
     }
-    if (this.toxSlider) this.toxSlider.value = this.tox;
-    if (this.voxSlider) this.voxSlider.value = this.vox;
-    this.update();
+
+    this.animateTo(targetTox, targetVox);
   }
 
   /**

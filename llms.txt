@@ -1,0 +1,26 @@
+# NVM Knowledge Hub
+
+> Comprehensive, first-principles semiconductor non-volatile memory (eNVM) architecture reference library, covering device physics, foundry PDK roadmaps, cell topologies, post-quantum cryptography (PQC) hardware trust roots, and advanced packaging.
+> Website: https://hub.samhuang68.org/
+
+## Core Documentation & Reference Files
+
+- [Full Technology Reference (English)](data/nvm-technology-topics-en.md): Complete technical reference covering 16 physical families, 11 comparison dimensions, foundry roadmaps, and quantum breakdown physics.
+- [Full Technology Reference (Traditional Chinese)](data/nvm-technology-topics.md): 全球半導體非揮發性記憶體全景技術文檔，涵蓋第一性原理、代工廠 PDK 路線與硬體信任根。
+- [Full Knowledge Text](llms-full.txt): Complete consolidated plain text knowledge base for direct AI agent consumption.
+
+## Key Architecture Sections
+
+- [Technology Comparison](technology-comparison.html): 11-technology, 9-dimension selection matrix, first-principles equations, and dynamic 5-axis radar selector.
+- [Memory Physics & Quantum Tunneling](memory-physics.html): First-principles tunneling equations, thermodynamic leakage limits, and interactive quantum breakdown simulator.
+- [Secure Storage & PQC](secure-storage.html): Hardware Root of Trust, NIST FIPS 203/204 PQC migration budgets, and anti-tamper physical limits.
+- [AI & Advanced Packaging Opportunities](ai-nvm-opportunities.html): 2nm/3nm GAA SRAM scaling wall, HBM4 base die eNVM, and UCIe/CXL persistent state.
+- [Automotive eNVM](automotive-nvm.html): AEC-Q100 Grade 0/1, ISO 26262 ASIL-D, and high-temperature mission profiles.
+- [Specialty NVM](specialty-nvm.html): High-voltage BCD PMIC, OLED/E-Ink display drivers, and ultra-low leakage requirements.
+- [IoT & Ultra-Low-Power MCU eNVM](iot-mcu-envm.html): 0.5V Near-Threshold Voltage (NTV) operation, always-on sleep current, and instant wake-up energy.
+- [SRAM Redundancy Repair Simulator](sram-repair.html): Interactive calculator for OTP vs. eFuse allocation in multi-gigabit SRAM repair.
+
+## Data & Provenance
+
+- [Offline Manifest](data/offline-manifest.js): Service worker offline asset registry and cryptographic integrity digests.
+- [Release Lineage](data/release-lineage.json): Content provenance and governed Git release SHA-256 hashes.
