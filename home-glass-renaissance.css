@@ -1,0 +1,447 @@
+/* ==========================================================================
+   home-glass-renaissance.css — NVM Knowledge Hub Silicon Glassmorphism & HUD
+   模組化半導體晶圓極光微結構、水晶磨砂玻璃質感、架構探針與 Command Palette
+   ========================================================================== */
+
+/* 1. 晶圓極光微結構基底 (Luminous Wafer Substrate) */
+body.hub-reading-home {
+  background-color: #f6f9fb !important;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.95) 0%, rgba(240, 246, 248, 0.8) 60%, rgba(228, 237, 240, 0.95) 100%),
+    url('assets/luminous-wafer-bg.jpg') !important;
+  background-repeat: no-repeat !important;
+  background-position: center top !important;
+  background-size: 100% auto, cover !important;
+  background-attachment: fixed !important;
+  color: #173b49 !important;
+}
+
+/* 2. 頂部導覽列水晶磨砂 (Frosted Header) */
+.knowledge-header {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(205, 219, 220, 0.65) !important;
+  box-shadow: 0 4px 24px rgba(23, 59, 73, 0.04) !important;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.knowledge-header nav a {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.knowledge-header nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--editorial-teal, #006667);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), left 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+.knowledge-header nav a:hover::after,
+.knowledge-header nav a:focus-visible::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-portal-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(0, 102, 103, 0.08);
+  border: 1px solid rgba(0, 102, 103, 0.2);
+  color: #006667 !important;
+  font-size: 12px !important;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-portal-link:hover {
+  background: rgba(0, 102, 103, 0.15);
+  border-color: rgba(0, 102, 103, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 102, 103, 0.1);
+}
+
+/* 3. Hero 區域與磨砂層 (Luminous Hero) */
+.knowledge-editorial-hero {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(205, 219, 220, 0.75) !important;
+  position: relative;
+}
+
+.knowledge-editorial-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(245, 250, 248, 0.8) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.knowledge-editorial-inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* 4. 物理索引水晶卡片 (Glass Physics Card) */
+.knowledge-physics {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 16px 40px rgba(23, 59, 73, 0.07), 0 2px 6px rgba(0, 102, 103, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  border-radius: 12px !important;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.knowledge-physics:hover {
+  border-color: rgba(0, 102, 103, 0.35) !important;
+  box-shadow: 0 20px 48px rgba(23, 59, 73, 0.1), 0 0 20px rgba(0, 102, 103, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+}
+
+.knowledge-physics-index a {
+  border-radius: 8px !important;
+  padding: 10px 12px !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.knowledge-physics-index a:hover {
+  background: rgba(0, 102, 103, 0.07) !important;
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(0, 102, 103, 0.08);
+}
+
+/* 5. 任務路徑卡片玻璃化與 Hover Highlight */
+.knowledge-tasks {
+  border-top: 1px solid rgba(205, 219, 220, 0.7) !important;
+}
+
+.knowledge-task-path {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(205, 219, 220, 0.75) !important;
+  border-radius: 10px !important;
+  padding: 14px 18px !important;
+  margin-bottom: 12px !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 2px 8px rgba(18, 48, 68, 0.02) !important;
+}
+
+.knowledge-task-path:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 102, 103, 0.45) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 102, 103, 0.12), 0 0 12px rgba(0, 102, 103, 0.05) !important;
+}
+
+/* 6. 即時微型架構決策探針 (Quick Architecture Decision Probe) */
+.quick-probe-container {
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(205, 219, 220, 0.75);
+}
+
+.quick-probe-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 45px rgba(23, 59, 73, 0.08), 0 2px 8px rgba(0, 102, 103, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1);
+  border-radius: 14px;
+  padding: 24px 26px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quick-probe-card:hover {
+  border-color: rgba(0, 102, 103, 0.4);
+  box-shadow: 0 20px 52px rgba(23, 59, 73, 0.11), 0 0 24px rgba(0, 102, 103, 0.08);
+}
+
+.probe-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.probe-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #785021;
+}
+
+.probe-live-pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #008779;
+  box-shadow: 0 0 0 0 rgba(0, 135, 121, 0.7);
+  animation: probe-pulse 2s infinite;
+}
+
+@keyframes probe-pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 135, 121, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(0, 135, 121, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 135, 121, 0); }
+}
+
+.quick-probe-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #173b49;
+  letter-spacing: -0.02em;
+}
+
+.probe-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #455e66;
+}
+
+.probe-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.probe-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(205, 219, 220, 0.85);
+  background: rgba(248, 250, 252, 0.85);
+  color: #173b49;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.probe-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(0, 102, 103, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 102, 103, 0.1);
+}
+
+.probe-btn.active {
+  background: #006667;
+  color: #ffffff;
+  border-color: #006667;
+  box-shadow: 0 4px 14px rgba(0, 102, 103, 0.25);
+}
+
+.probe-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(120, 80, 33, 0.12);
+  color: #785021;
+  letter-spacing: 0.04em;
+}
+
+.probe-btn.active .probe-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.probe-display {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
+  background: rgba(245, 248, 250, 0.85);
+  border: 1px solid rgba(205, 219, 220, 0.7);
+  border-radius: 10px;
+  padding: 20px 22px;
+  transition: opacity 0.25s ease;
+}
+
+.probe-detail-primary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.probe-tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #006667;
+  text-transform: uppercase;
+}
+
+.probe-solution-title {
+  font-size: 19px;
+  font-weight: 600;
+  color: #173b49;
+  line-height: 1.35;
+}
+
+.probe-physics-text {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #35525c;
+}
+
+.probe-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.probe-stat-item {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(205, 219, 220, 0.65);
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.probe-stat-label {
+  font-size: 11px;
+  color: #5c747d;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.probe-stat-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #173b49;
+  font-variant-numeric: tabular-nums;
+}
+
+.probe-cta-row {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(205, 219, 220, 0.8);
+}
+
+.probe-deep-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #006667;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  background: rgba(0, 102, 103, 0.08);
+  transition: all 0.2s ease;
+}
+
+.probe-deep-link:hover {
+  background: rgba(0, 102, 103, 0.16);
+  transform: translateX(3px);
+}
+
+/* 7. 全域 HUD Command Palette 樣式升級 */
+.search-overlay {
+  background: rgba(15, 23, 42, 0.45) !important;
+  backdrop-filter: blur(12px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+}
+
+.search-modal {
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.25), 0 0 30px rgba(0, 102, 103, 0.1) !important;
+  border-radius: 14px !important;
+}
+
+.search-input-row {
+  border-bottom: 1px solid rgba(205, 219, 220, 0.75) !important;
+  padding: 20px 24px !important;
+}
+
+.search-input-row input {
+  font-size: 18px !important;
+}
+
+.search-hud-pills {
+  display: flex;
+  gap: 8px;
+  padding: 10px 24px;
+  border-bottom: 1px solid rgba(205, 219, 220, 0.6);
+  background: rgba(245, 248, 250, 0.85);
+  overflow-x: auto;
+}
+
+.search-hud-pill {
+  border: 1px solid rgba(205, 219, 220, 0.7);
+  background: rgba(255, 255, 255, 0.9);
+  color: #35525c;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.search-hud-pill:hover {
+  background: #ffffff;
+  border-color: #006667;
+  color: #006667;
+}
+
+.search-hud-pill.active {
+  background: #006667;
+  color: #ffffff;
+  border-color: #006667;
+}
+
+.search-result-item {
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.search-result-item:hover, .search-result-item:focus {
+  background: rgba(0, 102, 103, 0.08) !important;
+  transform: translateX(4px);
+}
+
+/* 8. 響應式優化 */
+@media (max-width: 900px) {
+  .probe-display {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .quick-probe-card {
+    padding: 18px 16px;
+  }
+  .probe-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

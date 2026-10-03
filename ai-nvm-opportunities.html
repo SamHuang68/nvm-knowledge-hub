@@ -1404,6 +1404,53 @@
           </div>
         </div>
 
+        <!-- 2026 先進節點 SRAM Scaling Wall 與 3D 堆疊快取修復邊界 -->
+        <div class="sram-wall-boundary" style="margin-top: 24px; background: rgba(245, 248, 250, 0.85); border: 1px solid rgba(0, 102, 103, 0.25); border-radius: 8px; padding: 22px 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div style="display: inline-flex; align-items: center; gap: 8px;">
+              <span class="pulse-dot" style="background: #006667;" aria-hidden="true"></span>
+              <span style="font: 700 11px/1 'IBM Plex Mono', monospace; letter-spacing: 0.12em; color: #006667; text-transform: uppercase;"><span data-lang="zh">2026 前沿分析 · 先進節點記憶體牆</span><span data-lang="en">2026 FRONTIER · ADVANCED NODE MEMORY WALL</span></span>
+            </div>
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #5c747d; background: rgba(0,102,103,0.06); padding: 3px 8px; border-radius: 4px;"><span data-lang="zh">SRAM 微縮停滯與 3D 修復</span><span data-lang="en">SRAM SCALING WALL &amp; 3D REPAIR</span></span>
+          </div>
+
+          <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin: 0 0 10px; line-height: 1.3;">
+            <span data-lang="zh">3nm／2nm GAA 時代的 <em>SRAM 微縮停滯與 3D 異質堆疊修復</em></span>
+            <span data-lang="en">SRAM Scaling Wall in 3nm / 2nm GAA: <em>3D Heterogeneous Cache Stacking &amp; Dense Repair</em></span>
+          </h3>
+
+          <p style="font-size: 13.5px; line-height: 1.68; color: #334155; margin-bottom: 18px;">
+            <span data-lang="zh">從 FinFET 跨入 2nm GAA (Nanosheet) 與 A16 背面供電世代，運算邏輯持續微縮，但標準 6T SRAM 單元面積微縮幾乎停滯（~0.021 µm²，改善幅度小於 5%）。大型 AI 加速晶片中 SRAM 面積佔比突破 60%，引發兩大架構轉型：</span>
+            <span data-lang="en">Entering 2nm GAA nanosheets and A16 BSPDN, compute logic continues scaling, but standard 6T SRAM cell scaling has halted (~0.021 µm², with &lt;5% area reduction). With SRAM consuming over 60% of modern AI accelerator silicon, two major architectural shifts have emerged:</span>
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 16px;">
+            <article style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(205, 219, 220, 0.7); border-left: 3px solid #006667; border-radius: 4px; padding: 14px 16px;">
+              <div style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #006667; margin-bottom: 4px;"><span data-lang="zh">解耦 01 · 3D 混合鍵合堆疊</span><span data-lang="en">DECOUPLING 01 · 3D HYBRID BONDING</span></div>
+              <h4 style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin: 0 0 6px;"><span data-lang="zh">SoIC 快取晶粒分離運算與儲存</span><span data-lang="en">SoIC Cache Dies Separate Compute from Memory</span></h4>
+              <p style="font-size: 12.5px; line-height: 1.6; color: #455e66; margin: 0;">
+                <span data-lang="zh">透過 TSMC SoIC 或 Intel Foveros Direct 銅對銅（Cu-Cu）垂直鍵合，將巨量 LLC 快取移至成本較低的成熟製程快取晶粒（Cache Die），使先進節點邏輯晶粒全速微縮運算核心。</span>
+                <span data-lang="en">Using TSMC SoIC or Intel Foveros Direct Cu-Cu hybrid bonding, massive LLC caches are offloaded to cost-effective mature-node cache dies, freeing advanced-node dies to focus on compute density.</span>
+              </p>
+            </article>
+
+            <article style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(205, 219, 220, 0.7); border-left: 3px solid #785021; border-radius: 4px; padding: 14px 16px;">
+              <div style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #785021; margin-bottom: 4px;"><span data-lang="zh">解耦 02 · 密集 AntiFuse 良率修復</span><span data-lang="en">DECOUPLING 02 · DENSE ANTIFUSE REPAIR</span></div>
+              <h4 style="font-size: 14.5px; font-weight: 700; color: #0f172a; margin: 0 0 6px;"><span data-lang="zh">行程壓縮與多輪 BIRA 向量置換</span><span data-lang="en">Run-Length Compression &amp; Multi-Phase BIRA</span></h4>
+              <p style="font-size: 12.5px; line-height: 1.6; color: #455e66; margin: 0;">
+                <span data-lang="zh">大容量 SRAM 的隨機硬缺陷隨面積急遽增加。利用高密度 AntiFuse OTP 搭配行程長度壓縮（RLE），以數 Mb 容量緊湊記錄多輪晶圓級與封裝級修復向量，比傳統 eFuse 節省 80% 矽面積。</span>
+                <span data-lang="en">Random hard defects in large SRAM rise exponentially. High-density AntiFuse OTP with run-length compression (RLE) packs megabits of wafer- and package-level repair vectors, saving &gt;80% silicon area versus legacy eFuse.</span>
+              </p>
+            </article>
+          </div>
+
+          <div style="font-size: 12px; color: #334155; border-top: 1px solid rgba(205, 219, 220, 0.6); padding-top: 10px; line-height: 1.55;">
+            <strong style="color: #785021;"><span data-lang="zh">修復工具鏈：</span><span data-lang="en">Repair Toolchain:</span></strong>
+            <span data-lang="zh">可直接在 <a href="sram-repair.html" style="color: #006667; font-weight: 600;">SRAM 修復容量估算器</a> 輸入您的快取容量（如 16 Gb）與壓縮率，即時試算 OTP 與 eFuse 的晶圓面積代價。</span>
+            <span data-lang="en">Use the <a href="sram-repair.html" style="color: #006667; font-weight: 600;">SRAM Repair Capacity Estimator</a> to input your cache capacity (e.g. 16 Gb) and compression ratios to model OTP vs eFuse silicon overhead live.</span>
+          </div>
+        </div>
+
         <aside class="sharepoint-extension" aria-label="SharePoint internal completion placeholder" data-aria-en="SharePoint internal completion placeholder" data-aria-zh="SharePoint 內部補齊預留區">
           <div class="sharepoint-lock" aria-hidden="true"><i></i><span>SP</span></div>
           <div><p class="paper-kicker"><span data-lang="zh">SharePoint 交接 · 內部補齊</span><span data-lang="en">SHAREPOINT HANDOFF · INTERNAL COMPLETION</span></p><h3><span data-lang="zh">公開層先定義 Architecture Boundary<br><em>內部層再補 Exact Product Contract</em></span><span data-lang="en">Define the Architecture Boundary Publicly<br><em>Complete the Exact Product Contract Internally</em></span></h3><p><span data-lang="zh">公司內部版保留給 exact macro release、PGM supply window、允許的 power sequence、wrapper-domain requirement 與 qualification evidence。公開網站不推測未發布的電壓數值、pin、waveform、controller state 或 circuit topology。</span><span data-lang="en">Reserve the internal version for exact macro release, PGM supply window, permitted power sequence, wrapper-domain requirements and qualification evidence. The public site does not speculate about unpublished voltage values, pins, waveforms, controller states or circuit topology.</span></p></div>
