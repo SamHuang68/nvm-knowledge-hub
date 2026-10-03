@@ -27,7 +27,7 @@
     "check:whitepaper": "node scripts/verify-whitepaper-consistency.mjs && node tools/whitepaper-studio/scripts/check-public.mjs",
     "build:offline": "node scripts/build-offline-manifest.mjs",
     "check:offline": "node scripts/build-offline-manifest.mjs --check",
-    "build": "npm run build:nvm && npm run build:whitepaper && npm run export:sharepoint && npm run build:offline",
+    "build": "npm run build:evidence && npm run build:nvm && npm run build:whitepaper && npm run export:sharepoint && npm run build:offline",
     "qa:gates": "node scripts/verify-check-gates.mjs",
     "qa:sharepoint": "node scripts/verify-sharepoint-line-endings.mjs",
     "qa:repair": "node scripts/verify-repair-simulator.mjs",
@@ -35,8 +35,10 @@
     "qa:offline": "node scripts/verify-offline-cache.mjs",
     "qa:atlas": "node scripts/verify-atlas-lazy-diagrams.mjs",
     "qa:regression": "node scripts/verify-site-regression.mjs",
-    "check:content": "node scripts/normalize-heading-punctuation.mjs --check && node scripts/check-site-ia.mjs && node scripts/check-bilingual-purity.mjs && node scripts/build-oip-sharepoint.mjs --check && node scripts/build-ai-nvm-sharepoint.mjs --check && npm run qa:sharepoint && node scripts/check-ai-nvm-integrity.mjs && node scripts/check-release-gates.mjs && npm run check:nvm && npm run check:whitepaper && npm run check:offline",
-    "qa:sram": "node --test tests/sram-model.test.mjs && node scripts/verify-sram-estimator.mjs"
+    "check:content": "node scripts/normalize-heading-punctuation.mjs --check && node scripts/check-site-ia.mjs && node scripts/check-bilingual-purity.mjs && node scripts/build-oip-sharepoint.mjs --check && node scripts/build-ai-nvm-sharepoint.mjs --check && npm run qa:sharepoint && node scripts/check-ai-nvm-integrity.mjs && node scripts/check-release-gates.mjs && npm run check:evidence && npm run check:nvm && npm run check:whitepaper && npm run check:offline",
+    "qa:sram": "node --test tests/sram-model.test.mjs tests/sram-scenarios.test.mjs && node scripts/verify-sram-estimator.mjs && node scripts/verify-sram-scenarios.mjs",
+    "build:evidence": "node scripts/sync-evidence-summary.mjs --write && node scripts/build-named-comparison.mjs",
+    "check:evidence": "node scripts/sync-evidence-summary.mjs --check && node scripts/build-named-comparison.mjs --check"
   },
   "devDependencies": {
     "playwright": "^1.55.0"

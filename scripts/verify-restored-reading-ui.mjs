@@ -71,7 +71,12 @@ try {
     await page.locator('#evidenceJump').selectOption('evidence-P01');
     await page.waitForFunction(()=>document.activeElement.id==='evidence-P01');
     assert.equal(await page.locator('#evidenceSearch').inputValue(),'');
+    assert.equal(await page.locator('#clearEvidence').isVisible(),false,'the jump already cleared the filter');
+    await page.locator('#evidenceSearch').fill('no-such-source-000');
+    assert.equal(await page.locator('.source-card:not([hidden])').count(),0);
     await page.locator('#clearEvidence').click();
+    assert.equal(await page.locator('#evidenceSearch').inputValue(),'');
+    assert.equal(await page.locator('.source-card:not([hidden])').count(),37);
     assert.equal(await page.locator('#evidenceSearch').evaluate(el=>el===document.activeElement),true);
     await locale(); await fits();
     await open('briefing/index.html');

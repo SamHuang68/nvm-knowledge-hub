@@ -617,20 +617,20 @@
         <div class="slide-bullets">
           <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
           <ul>
-            <li><span data-lang="zh">28nm 以下傳統嵌入式快閃記憶體 (eFlash) 面臨物理微縮斷崖</span><span data-lang="en">Embedded Flash (eFlash) becomes economically extinct below 28nm</span></li>
-            <li><span data-lang="zh">台積電 22ULL、12FFC+ 至 N4e 提供低至 0.5V 近閾值極低電壓</span><span data-lang="en">TSMC 22ULL, 12FFC+ to N4e deliver native sub-0.6V ultra-low VDD</span></li>
-            <li><span data-lang="zh">純邏輯 AntiFuse OTP 零額外光罩成本，大幅節省 15% 至 30% 晶圓代工費用</span><span data-lang="en">Standard logic AntiFuse OTP requires zero extra masks, saving 15-30% wafer cost</span></li>
+            <li><span data-lang="zh">28 nm 是製程產品組合查核點，不是 eFlash 的普遍物理截止線</span><span data-lang="en">28 nm is a process-portfolio checkpoint, not a universal physical cutoff for eFlash</span></li>
+            <li><span data-lang="zh">近臨界電壓、讀取與寫入供電分開核對具名製程和記憶體巨集</span><span data-lang="en">Check near-threshold operation and separate read/program supplies for the named process and memory macro</span></li>
+            <li><span data-lang="zh">零額外光罩聲稱需具名來源；成本取決於報價、面積、測試與良率</span><span data-lang="en">A zero-added-mask claim needs a named source; cost depends on quotations, area, testing and yield</span></li>
             <li><span data-lang="zh">硬體間接跳轉表 (Indirection Table) 實現無需重寫的虛擬韌體修補</span><span data-lang="en">Hardware indirection tables enable virtual bug patching without rewritable cells</span></li>
           </ul>
         </div>
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>在物聯網與超低功耗邊緣運算領域，晶圓製程微縮面臨深刻的經濟學斷崖：28nm 以下傳統 eFlash 已經絕跡，而若改採 ReRAM（需額外 2 道光罩）或 MRAM（需額外 4 道光罩），將直接使晶圓成本上升 15% 至 30%，影響平價 MCU 的毛利結構。台積電 22ULL、12FFC+ 到 N4e 提供低至 0.5V 的近閾值運作電壓，能降低 75% 以上的動態功耗。標準 CMOS AntiFuse OTP 的核心特點在於『標準 CMOS 邏輯製程零額外光罩』，能以原生純邏輯單元直接作為 MCU 的非揮發性韌體儲存庫。透過硬體間接跳轉表 (Indirection Jump Tables)，可實現虛擬韌體錯誤修補 (Virtual Bug Patching)，在提供 10 年以上低待機漏電壽命的同時，維持先進邊緣節點的製程成本結構。</p>
+            <p>先確認要保存的狀態、更新次數與斷電後的復原責任，再核對具名製程和記憶體巨集。28 nm 不代表 eFlash 的普遍物理截止線；讀取與寫入供電、額外光罩、保持與耐久皆需個別來源。近臨界電壓示範中的電壓平方關係只適用於固定活動率、電容與頻率的動態切換功耗，不推導產品功耗或電池壽命。OTP 間接跳轉修補仍受保留容量、控制器、更新授權及復原流程限制。以比較頁與證據總帳列出已知條件、未知資料及供應商待答問題，不承諾未驗證的成本、節點可用性或認證。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>In the IoT and ultra-low-power edge computing domain, process scaling confronts an integration economics cliff: embedded Flash (eFlash) becomes physically extinct below 28nm, while alternative emerging memories like ReRAM (+2 masks) and MRAM (+4 masks) inflate wafer costs by 15% to 30%, destroying MCU unit margins. TSMC's 22ULL, 12FFC+, and N4e continuum offers sub-0.6V near-threshold operation, reducing dynamic power by over 75%. The qualification thesis establishes pure-logic AntiFuse OTP as the primary on-chip MCU code storage macro. By leveraging hardware indirection jump tables, designers achieve virtual bug-patching without rewritable cells, delivering zero standby leakage and zero adder-mask cost across TSMC's leading-edge ultra-low-power logic nodes.</p>
+            <p>Define persistent state, update counts and recovery responsibility before checking the named process and memory macro. The 28 nm node is not a universal physical cutoff for eFlash; read/program supplies, added masks, retention and endurance each need their own evidence. The near-threshold voltage-squared demonstration covers dynamic switching power only at fixed activity, capacitance and frequency; it does not predict product power or battery life. OTP indirection-based patches remain limited by reserved capacity, controller support, update authorization and recovery policy. Use the comparison page and evidence ledger to identify known conditions, unknown data and supplier questions without promising unverified cost, node availability or certification.</p>
           </div>
         </div>
       </div>
@@ -942,7 +942,7 @@
         <div class="slide-bullets">
           <h4><span data-lang="zh">關鍵架構要點</span><span data-lang="en">Architecture Highlights</span></h4>
           <ul>
-            <li><span data-lang="zh">BCD 電源管理原生零光罩：免除 10-15 道 eFlash 額外光罩，省 30-50% 成本並抵禦 150°C-175°C 高溫</span><span data-lang="en">BCD zero-mask adder: eliminates 10-15 eFlash masks, saving 30-50% cost with 150°C-175°C retention</span></li>
+            <li><span data-lang="zh">BCD 電源管理：逐一核對具名製程／巨集的額外光罩、熱預算、成本及保持條件</span><span data-lang="en">BCD power management: verify added masks, thermal budget, cost and retention for the named process / macro</span></li>
             <li><span data-lang="zh">高密集陣列缺陷修復：BIST ➔ BIRA ➔ AntiFuse FuseBox，支援 JEDEC DDR5/HBM3e 封裝後現場修復 (PPR)</span><span data-lang="en">Dense matrix array repair: BIST ➔ BIRA ➔ AntiFuse FuseBox, enabling JEDEC DDR5/HBM3e in-field PPR</span></li>
             <li><span data-lang="zh">高壓顯示 (HV DDIC)：Gamma 2.2 R-DAC 精準微調、5mV Vcom 防閃爍、以及像素級 OLED De-Mura 補償</span><span data-lang="en">High-voltage DDIC: Gamma 2.2 R-DAC trims, 5mV Vcom anti-flicker, and 2D OLED De-Mura compensation</span></li>
             <li><span data-lang="zh">電子紙 (E-Ink) 40V-50V 驅動戰略：接面漏電嚴禁 BCD，採取「演進期 MTP ➔ 成熟期 OTP」產品生命週期</span><span data-lang="en">E-Ink 40V-50V drivers: BCD excluded due to leakage; adopting 'MTP in transition ➔ OTP in maturity' roadmap</span></li>
@@ -951,11 +951,11 @@
         <div class="slide-notes">
           <div class="notes-zh" data-lang="zh">
             <h4>講者備忘與戰略論述 (ZH-TW)</h4>
-            <p>特種製程 eNVM 是晶圓代工與利基晶片市場中出貨量極大、具備高技術壁壘的關鍵領域。在 BCD 電源領域，標準 CMOS 方案主打零額外光罩（Zero Mask Adder）對決傳統 eFlash，免除破壞 LDMOS 擊穿電壓的高溫退火；在 CIS/DRAM 領域，AntiFuse 取代傳統佔用晶圓面積且無法封裝後修復的雷射熔斷，成為 HBM3e 現場修復的標準解；而在年複合增長 50% 的電子紙市場，專屬 110HV 高壓製程配合「演進期 32Kb~64Kb MTP 儲存動態波形 LUT、量產成熟期轉向極小面積純邏輯 OTP」的雙階段策略，協助顯示晶片領導廠商以最佳長寬比（高度 &lt;250µm）佈局全球顯示市場。</p>
+            <p>特種製程 eNVM 是晶圓代工與利基晶片市場中出貨量極大、具備高技術壁壘的關鍵領域。在 BCD 電源領域，零額外光罩必須是具名製程與巨集的供應商揭露；熱預算、LDMOS 相容性、保持與成本均須個別資料，不以記憶體家族推論；在 CIS/DRAM 領域，AntiFuse 取代傳統佔用晶圓面積且無法封裝後修復的雷射熔斷，成為 HBM3e 現場修復的標準解；而在年複合增長 50% 的電子紙市場，專屬 110HV 高壓製程配合「演進期 32Kb~64Kb MTP 儲存動態波形 LUT、量產成熟期轉向極小面積純邏輯 OTP」的雙階段策略，協助顯示晶片領導廠商以最佳長寬比（高度 &lt;250µm）佈局全球顯示市場。</p>
           </div>
           <div class="notes-en" data-lang="en">
             <h4>Executive Speaker Notes (EN)</h4>
-            <p>Specialty foundry eNVM forms a high-volume, high-margin commercial domain across mature and specialty nodes. In BCD power management, the zero-mask-adder value proposition directly displaces legacy eFlash, eliminating the severe thermal cycles that degrade high-voltage LDMOS switches. In CIS and high-density memory, AntiFuse OTP replaces conventional area-intensive laser fuses, delivering a robust silicon-proven solution for JEDEC DDR5 and HBM3e in-field Post-Package Repair (PPR). Finally, within the ~50% CAGR electronic paper market, the specialized 110HV strategy bridges the transition: deploying 32Kb-64Kb MTP for evolving color waveforms, then migrating to pure logic AntiFuse OTP (&lt;250µm macro height) for optimal cost and yield in mass production.</p>
+            <p>Specialty foundry eNVM forms a high-volume, high-margin commercial domain across mature and specialty nodes. In BCD power management, zero added masks must be a vendor disclosure for a named process and macro; thermal budget, LDMOS compatibility, retention and cost each need separate evidence rather than a memory-family inference. In CIS and high-density memory, AntiFuse OTP replaces conventional area-intensive laser fuses, delivering a robust silicon-proven solution for JEDEC DDR5 and HBM3e in-field Post-Package Repair (PPR). Finally, within the ~50% CAGR electronic paper market, the specialized 110HV strategy bridges the transition: deploying 32Kb-64Kb MTP for evolving color waveforms, then migrating to pure logic AntiFuse OTP (&lt;250µm macro height) for optimal cost and yield in mass production.</p>
           </div>
         </div>
       </div>

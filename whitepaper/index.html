@@ -393,7 +393,7 @@
 
           <article><p>MATURE & SPECIALTY</p><h4>Start with the available voltage and device stack</h4><span>For power, BCD, sensor and interface products, I/O devices and programming-voltage generation often define the feasible NVM set before density does.</span><strong>Validate I/O voltage, charge pump, test flow and retention together.</strong></article>
 
-          <article><p>eFLASH TRANSITION</p><h4>Treat scaling as an integration-economics boundary</h4><span>Conventional embedded-flash commercialization is widely associated with the 28 nm generation. Crossing that boundary is not a hard physics cliff; mask count, development effort and manufacturing economics shape adoption.</span><strong>Keep vendor-specific mask-stack detail in the internal evidence layer.</strong></article>
+          <article><p>eFLASH TRANSITION</p><h4>Treat scaling as an integration-economics boundary</h4><span>28 nm is a process-portfolio checkpoint, not a universal physical cutoff for embedded Flash. Availability, added masks, program/erase voltage, endurance and qualification must be checked for the named foundry process and memory macro.</span><strong>Keep vendor-specific mask-stack detail in the internal evidence layer.</strong></article>
 
           <article><p>ADVANCED NODE</p><h4>Decouple read supply from program infrastructure</h4><span>A single-VDD read path can simplify always-on and low-voltage domains, while programming may still require an I/O-derived foundation for an internal charge pump.</span><strong>Specify read and program power contracts separately.</strong></article>
 
@@ -450,7 +450,7 @@
 
           <article id="chap-node-boundary" class="paper-chapter">
             <header><p>CHAPTER 03</p><h3>Treat Node Migration as an Integration Decision</h3><strong>NVM scaling is shaped by device options, mask economics, program voltage and qualification effort—not geometry alone.</strong></header>
-            <div class="chapter-copy"><p>Floating-gate MTP relies on an oxide and high-voltage environment capable of preserving programmed charge. A process portfolio that only exposes lower-voltage devices can therefore narrow implementation choices. Dedicated embedded-flash integration can introduce a purpose-built oxide, but additional process complexity changes the commercial equation.</p><p>The frequently cited 28 nm boundary for conventional embedded Flash is best read as a clear public commercialization high point, not a law of physics. Beyond it, development difficulty, mask-stack expansion and cost can outweigh the benefit. At more advanced nodes, foundry roadmaps increasingly turn to MRAM or ReRAM, while logic-compatible OTP continues to serve small persistent-state needs.</p><p>For advanced-node OTP, a single-VDD read mode can reduce always-on power-domain dependencies and simplify power sequencing. Programming can remain a separate event that uses an I/O supply as the foundation for an internal charge pump. Public architecture should state that separation without disclosing proprietary circuit detail.</p></div>
+            <div class="chapter-copy"><p>Floating-gate MTP relies on an oxide and high-voltage environment capable of preserving programmed charge. A process portfolio that only exposes lower-voltage devices can therefore narrow implementation choices. Dedicated embedded-flash integration can introduce a purpose-built oxide, but additional process complexity changes the commercial equation.</p><p>28 nm is a process-portfolio checkpoint, not a universal physical cutoff for embedded Flash. Availability, added masks, program/erase voltage, endurance and qualification must be checked for the named foundry process and memory macro.</p><p>For advanced-node OTP, a single-VDD read mode can reduce always-on power-domain dependencies and simplify power sequencing. Programming can remain a separate event that uses an I/O supply as the foundation for an internal charge pump. Public architecture should state that separation without disclosing proprietary circuit detail.</p></div>
             <div class="chapter-takeaways"><p>ARCHITECTURE TAKEAWAYS</p><ul><li>Node names are not portability proof</li><li>Separate read simplification from program infrastructure</li><li>Model mask and qualification cost as system constraints</li></ul></div>
             <dl class="evidence-contract"><div><dt>EVIDENCE CLASS</dt><dd>Industry synthesis + expert calibration</dd></div><div><dt>LIMITATION</dt><dd>Vendor-specific voltage coverage, mask counts and product roadmaps require internal portfolio evidence before customer use.</dd></div></dl>
           </article>
@@ -649,12 +649,12 @@
       </td>
       <td data-label="LATENCY & BOM">
         <small><strong>Latency:</strong> <span data-lang="en">Medium (15-30 ns read, ms write)</span><span data-lang="zh">中等（讀取 15-30 ns、寫入為 ms 等級）</span></small><br>
-        <small><strong>BOM:</strong> <span data-lang="en">High mask cost (10-15 additional masks)</span><span data-lang="zh">高光罩成本（增加 10-15 層光罩）</span></small>
+        <small><strong>BOM:</strong> <span data-lang="en">Process-dependent integration cost; obtain the selected macro added-mask and qualification requirements</span><span data-lang="zh">整合成本依製程而異；須取得選定巨集的額外光罩與資格驗證需求</span></small>
       </td>
-      <td data-label="STRONGEST FIT"><span data-lang="en">Automotive MCUs and IoT microcontrollers on mature nodes (40nm-180nm)</span><span data-lang="zh">成熟製程 (40nm-180nm) 的車用 MCU 與 IoT 微控制器</span></td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">MCU firmware storage where a qualified eFlash macro is available in the chosen process</span><span data-lang="zh">選定製程已有合格 eFlash 巨集時的 MCU 韌體儲存</span></td>
       <td data-label="EVIDENCE STATUS">
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
-        <span class="status-chip"><span data-lang="en">AEC-Q100 · Mature Node Mainstream</span><span data-lang="zh">AEC-Q100 · 成熟製程主流</span></span>
+        <span class="status-chip"><span data-lang="en">Product-specific AEC-Q100 qualification must be checked</span><span data-lang="zh">須核對具名產品的 AEC-Q100 資格驗證</span></span>
         <p class="profile-boundary"><span data-lang="en">Node economics, added masks, timing and automotive qualification depend on the foundry process and macro. The 28nm comparison is not a universal technology limit.</span><span data-lang="zh">節點經濟性、額外光罩、時序與車規驗證取決於晶圓代工製程和巨集。28nm 的比較不能當作普遍的技術限制。</span></p>
 
       </td>

@@ -95,7 +95,7 @@ export const phase1KnowledgeBase = {
     {
       range: 'eFLASH TRANSITION',
       title: 'Treat scaling as an integration-economics boundary',
-      body: 'Conventional embedded-flash commercialization is widely associated with the 28 nm generation. Crossing that boundary is not a hard physics cliff; mask count, development effort and manufacturing economics shape adoption.',
+      body: '28 nm is a process-portfolio checkpoint, not a universal physical cutoff for embedded Flash. Availability, added masks, program/erase voltage, endurance and qualification must be checked for the named foundry process and memory macro.',
       decision: 'Keep vendor-specific mask-stack detail in the internal evidence layer.'
     },
     {

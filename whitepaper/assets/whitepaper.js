@@ -94,7 +94,7 @@ var e = {
 		{
 			range: "eFLASH TRANSITION",
 			title: "Treat scaling as an integration-economics boundary",
-			body: "Conventional embedded-flash commercialization is widely associated with the 28 nm generation. Crossing that boundary is not a hard physics cliff; mask count, development effort and manufacturing economics shape adoption.",
+			body: "28 nm is a process-portfolio checkpoint, not a universal physical cutoff for embedded Flash. Availability, added masks, program/erase voltage, endurance and qualification must be checked for the named foundry process and memory macro.",
 			decision: "Keep vendor-specific mask-stack detail in the internal evidence layer."
 		},
 		{
@@ -242,7 +242,7 @@ var n = {
 			lede: "NVM scaling is shaped by device options, mask economics, program voltage and qualification effort—not geometry alone.",
 			paragraphs: [
 				"Floating-gate MTP relies on an oxide and high-voltage environment capable of preserving programmed charge. A process portfolio that only exposes lower-voltage devices can therefore narrow implementation choices. Dedicated embedded-flash integration can introduce a purpose-built oxide, but additional process complexity changes the commercial equation.",
-				"The frequently cited 28 nm boundary for conventional embedded Flash is best read as a clear public commercialization high point, not a law of physics. Beyond it, development difficulty, mask-stack expansion and cost can outweigh the benefit. At more advanced nodes, foundry roadmaps increasingly turn to MRAM or ReRAM, while logic-compatible OTP continues to serve small persistent-state needs.",
+				"28 nm is a process-portfolio checkpoint, not a universal physical cutoff for embedded Flash. Availability, added masks, program/erase voltage, endurance and qualification must be checked for the named foundry process and memory macro.",
 				"For advanced-node OTP, a single-VDD read mode can reduce always-on power-domain dependencies and simplify power sequencing. Programming can remain a separate event that uses an I/O supply as the foundation for an internal charge pump. Public architecture should state that separation without disclosing proprietary circuit detail."
 			],
 			takeaways: [
@@ -659,14 +659,14 @@ var l = [
 		profile: "Embedded Flash (eFlash)",
 		family: "Floating Gate / Charge Trap eFlash",
 		contract: "Managed firmware updates; block erase and sector programming",
-		nodeLens: "Economically & physically constrained at <=28nm due to high mask count (10-15 masks)",
+		nodeLens: "Process- and macro-dependent; 28 nm is a portfolio checkpoint, not a universal cutoff",
 		updateModel: "Signed in-system firmware updates with recovery dual-bank partition",
-		strongestFit: "Automotive MCUs and IoT microcontrollers on mature nodes (40nm-180nm)",
-		boundary: "Do not treat 28nm commercialization boundary as a physics law, but mask cost dominates",
-		evidenceStatus: "AEC-Q100 · Mature Node Mainstream",
+		strongestFit: "MCU firmware storage where a qualified eFlash macro is available in the chosen process",
+		boundary: "Qualify the selected process and macro; node name alone establishes neither availability nor a physical limit",
+		evidenceStatus: "Product-specific AEC-Q100 qualification must be checked",
 		latency: "Medium (15-30 ns read, ms write)",
 		busExposure: "Internal bus",
-		bomCost: "High mask cost (10-15 additional masks)"
+		bomCost: "Process-dependent integration cost; obtain the selected macro added-mask and qualification requirements"
 	},
 	{
 		id: "mram_reram",
@@ -873,14 +873,14 @@ var l = [
 		profile: "嵌入式快閃記憶體 (eFlash)",
 		family: "浮動閘極／電荷捕捉式 eFlash",
 		contract: "受控韌體更新；區塊抹除與磁區寫入",
-		nodeLens: "在 ≤28nm 時因高光罩數（10-15 層）受到經濟與物理限制",
+		nodeLens: "取決於製程與巨集；28 nm 是產品組合核對節點，不是普遍的技術截止線",
 		updateModel: "具簽章的系統內韌體更新，並搭配可復原的雙儲存區分割",
-		strongestFit: "成熟製程 (40nm-180nm) 的車用 MCU 與 IoT 微控制器",
-		boundary: "不可將 28nm 商業化邊界視為物理定律，但光罩成本占主導因素",
-		evidenceStatus: "AEC-Q100 · 成熟製程主流",
+		strongestFit: "選定製程已有合格 eFlash 巨集時的 MCU 韌體儲存",
+		boundary: "須驗證選定製程與巨集；節點名稱本身不證明可用性或物理極限",
+		evidenceStatus: "須核對具名產品的 AEC-Q100 資格驗證",
 		latency: "中等（讀取 15-30 ns、寫入為 ms 等級）",
 		busExposure: "內部匯流排",
-		bomCost: "高光罩成本（增加 10-15 層光罩）",
+		bomCost: "整合成本依製程而異；須取得選定巨集的額外光罩與資格驗證需求",
 		evidenceReview: {
 			scope: "節點經濟性、額外光罩、時序與車規驗證取決於晶圓代工製程和巨集。28nm 的比較不能當作普遍的技術限制。",
 			sources: []

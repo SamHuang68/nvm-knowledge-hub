@@ -27,7 +27,7 @@ npm run serve
 
 品牌連結回到根目錄 `index.html`；`index.html#topics` 指向完整目錄。原 `#layer-architecture` 錨點保留在應用與系統中的安全架構入口附近。
 
-先由四類目錄找到問題，再直接開啟專題。不需要先讀某個產品或特定物理家族，才能使用其他內容。
+首頁另提供三條任務路徑：選 NVM 先確認五個設計條件、估算 SRAM 修復容量，以及準備技術說明。四類目錄仍保留全部專題。搜尋正規化 PVT／製程電壓溫度、retention／資料保持，以及 `28nm`／`28 nm` 的字詞與格式，不換算數值單位或推論規格。
 
 ## 技術全景與深層連結
 
@@ -112,11 +112,17 @@ AI 資料位於 `data/ai-nvm-opportunities-knowledge.json`，結構由 `data/ai-
 
 ## 審查修正後的建置契約
 
-`npm run build` 依序產生技術全景與首頁、白皮書、SharePoint 匯出及離線清單。`npm run check:content` 只驗證不覆寫產物，逐檔檢查所有 JavaScript；白皮書會重新建置到記憶體，確認與提交產物一致。請先完成內容建置與回歸，再提交內容。
+`npm run build` 依序同步證據總帳數量、具名比較表、技術全景與首頁、白皮書、SharePoint 匯出及離線清單。`npm run check:content` 只驗證不覆寫產物，逐檔檢查所有 JavaScript；白皮書會重新建置到記憶體，確認與提交產物一致。請先完成內容建置與回歸，再提交內容。
 
-`data/public-routes.json` 明列 17 個完整頁面及 1 個 HTML 片段；新增頁面必須更新契約。片段保留內容與參照檢查，不能成為完整頁面的豁免方式。
+`data/public-routes.json` 明列 18 個完整頁面及 1 個 HTML 片段；新增頁面必須更新契約。片段保留內容與參照檢查，不能成為完整頁面的豁免方式。
 
-白皮書的唯一資料來源是 `tools/whitepaper-studio/src/data/nvm_specs.js`。12 筆資料、靜態畫面、互動篩選及 CSV／JSON 匯出共用同一來源。公開資料中的原稿數值與聲稱保留並逐筆標示待查證範圍；建置一致不代表數值或認證已取得獨立證明。
+白皮書的唯一資料來源是 `tools/whitepaper-studio/src/data/nvm_specs.js`。12 筆資料、靜態畫面、互動篩選及 CSV／JSON 匯出共用同一來源。資料逐筆標示待查證範圍；發現超出來源的主張應修正來源及生成物，不能以保留原稿為由延續無條件規格。建置一致不代表數值或認證已取得獨立證明。
+
+證據總帳以 `memory-evidence.html` 的實際 `source-card` 為唯一計數來源，`sync-evidence-summary.mjs` 同步首屏及無 JavaScript 備援；搜尋與篩選使用相同逐筆紀錄。V16／V17 等產品揭露按供應商主張分類，來源類型與證據等級分開判斷。
+
+`data/named-nvm-comparison.json` 保存兩個具名 MCU 的三項指標、條件、規格書版次／頁碼及未知欄位。`build-named-comparison.mjs` 生成比較頁中的靜態區塊，`--check` 只驗證不寫入。TA／TJ、P/E／read-write、128-bit programming／word access 定義不同，不合併排名。28 nm 是製程產品組合查核點，額外光罩、供電、保持、耐久及資格仍須具名製程與巨集資料。
+
+安全儲存頁保留原首屏圖片及全部原圖，十個頁下節點共用九個背景 URL；`deferred-backgrounds.js` 只在支援 IntersectionObserver 時延後尚未接近的背景下載，停用 JavaScript 或載入失敗時回到原有 CSS。直接錨點及列印保持可用。本機量測中，正常 JavaScript 首載避免 1,042,464 bytes 的頁下 WebP：660,384 bytes 延後至閱讀時請求，另外 382,080 bytes 原本載入後被既有章節樣式遮蔽，現在不再產生這些浪費請求。停用 JavaScript 時保留原圖與版面。此改動有資源位元組驗證，不以單次速度樣本承諾延遲改善。
 
 全景頁保留所有章節及原始 SVG，以 `noscript` 存放尚未閱讀章節的向量內容。JavaScript 啟用時按章節建立 SVG DOM；停用時仍直接顯示圖形。列印前同步展開全部圖解，列印後還原先前尚未閱讀的章節。這項改善降低初始活躍 DOM，不宣稱 HTML 下載位元組減少。
 
@@ -150,3 +156,13 @@ npm run check
 從首頁「應用與系統」或 `sram-repair.html` 開啟。支援繁中／英文、十進位／二進位容量、三種壓縮定義、OTP／eFuse 獨立配置參數、趨勢圖與 CSV 匯出。預設 16 Gb × 1/1000 ÷ 100 = 160,000 bits（20,000 B）有效資料；配置參數與壓縮率均為規劃假設，不代表 IP 規格或面積、可靠度與修復率結論。
 
 計算模型：`sram-repair-model.js` 使用整數分數與逐階段向上取整。執行 `npm run qa:sram` 驗證計算、雙語切換、輸入驗證、圖表、匯出與手機版；此檢查納入整站回歸。
+
+SRAM 工具可將完整輸入保存為 A／B 兩組情境，每組獨立計算 OTP 與 eFuse。儲存限於此瀏覽器；跨瀏覽器請下載 JSON。匯入上限 64 KiB，嚴格檢查 schema、modelVersion、欄位與輸入範圍，先預覽後套用，重新計算結果；拒絕無效檔案時不改動目前輸入。載入情境前保留未儲存輸入，可逐份返回；儲存不可用時明示分頁暫存及 JSON 備份。
+
+摘要提供 A／B 完整輸入與結果、假設、單位、逐階段取整、模型版本及待答問題，可下載獨立 HTML 或以 A4 列印。來源識別是保存時讀取或匯入的內容提交，不代表部署 SHA，也不證明匯入檔的真實性；讀不到紀錄時明示未知。模型輸入皆為規劃假設，不推論面積、成本、可靠度或技術排名。
+
+## 證據總帳互動
+
+總帳使用原生 JavaScript 與瀏覽器 details 元素，提供可移除的篩選條件、清除與結果播報，同來源類型的紀錄索引，以及次要來源揭露。排序只涉及紀錄識別碼／來源年份；未知或範圍年份不補值，不排序異質記憶體的性能。重要支持範圍、限制、證據級別與摘要保留直接可見，完整來源仍在靜態 HTML，搜尋與無 JavaScript 閱讀可取用。列印與匯出保留完整文字。
+
+互動理念參考 Arc 的公開免費 [Filter toolbar](https://uiarc.dev/components/filter-toolbar)、[Sortable data table](https://uiarc.dev/components/sortable-data-table) 與 [Accordion](https://uiarc.dev/components/accordion) 說明；程式由本站獨立實作，未複製其元件原始碼、引入 React／動畫套件、讀取 Arc 技能或使用 Pro 內容。

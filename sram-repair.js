@@ -1,9 +1,10 @@
 import { DEFAULT, UNITS, estimate, ceil, compact, compactText, integer, byteText } from './sram-repair-model.js';
+import { initScenarios } from './sram-scenario-ui.js';
 const L = (zh, en) => window.HubLanguage?.get() === 'zh' ? zh : en;
 const $ = id => document.getElementById(id);
 const nf = new Intl.NumberFormat('en-US', { maximumFractionDigits: 6 });
 const errorEnglish = {"請輸入有效的非負數字。": "Enter a valid nonnegative number.", "數值超出可計算範圍。": "The value exceeds the supported range.", "計算結果超出 9,007,199,254,740,991 bits，請縮小參數。": "The result exceeds 9,007,199,254,740,991 bits. Reduce the inputs.", "比例格式為 1/1000、0.001 或 0.1%。": "Use a fraction, decimal or percentage: 1/1000, 0.001 or 0.1%.", "比例的分母必須大於 0。": "The denominator must be greater than zero.", "原始修復資料比例須大於 0，且不超過 1（100%）。": "The repair fraction must be greater than 0 and at most 1 (100%).", "壓縮倍率須大於或等於 1。": "Compression ratio must be at least 1.", "保留比例須大於 0%，且不超過 100%。": "Retained percentage must be greater than 0% and at most 100%.", "減少比例須介於 0%（含）與 100%（不含）。": "Reduction must be at least 0% and less than 100%.", "請選擇有效的壓縮率定義。": "Choose a valid compression definition.", "請輸入 0% 至 1000%。": "Enter a percentage from 0% to 1000%.", "配置粒度須為 1 至 9,007,199,254,740,991 的整數 bits。": "Block size must be an integer from 1 to 9,007,199,254,740,991 bits.", "SRAM 容量必須大於 0。": "SRAM capacity must be greater than zero.", "請選擇有效的容量單位。": "Choose a valid capacity unit."};
-let current = null, currentState = null, scale = 'log', toastTimer;
+let current = null, currentState = null, scale = 'log', toastTimer, scenarioUI = null;
 const techNames = { otp: 'OTP', efuse: 'eFuse' };
 const chip = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="3"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v3m6-3v3M9 19v3m6-3v3M2 9h3m-3 6h3m14-6h3m-3 6h3"/></svg>';
 function renderTechCards() {
@@ -58,6 +59,7 @@ function render() {
     $('chart').replaceChildren();$('chart-note').textContent=L("請修正輸入以顯示趨勢圖。","Correct the inputs to display the chart.");$('difference').textContent=L("等待有效輸入。","Awaiting valid input.");$('insight').textContent=L("輸入修正後，結果會立即更新。","Results update as soon as the inputs are valid.");
     $('compression-hint').textContent=L("倍率 100:1 = 保留 1% = 減少 99%。","100:1 compression = 1% retained = 99% reduction.");
   }
+  scenarioUI?.refresh();
 }
 function renderChart(r,state){
   const W=Math.max(300,Math.round($('chart').clientWidth)),H=Math.round($('chart').clientHeight)||240,left=58,R=24,T=24,B=34,pw=W-left-R,ph=H-T-B;
@@ -80,7 +82,7 @@ function renderChart(r,state){
   $('chart-note').textContent=`${overlap?L("相同配置結果，兩條曲線重疊。","Identical allocations: the two curves overlap."):L("含各自開銷、預留及配置粒度。","Includes each technology's overhead, reserve and block size.")}${data.length<samples.length?L(" 部分倍率超出計算範圍。"," Some ratios exceed the calculation range."):''}`;
 }
 function loadDefault(message){for(const f of ['capacity','unit','repair','compression','mode'])$(f).value=DEFAULT[f];for(const key of ['otp','efuse'])for(const f of ['overhead','reserve','block'])$(`${key}-${f}`).value=DEFAULT[key][f];render();toast(message);}
-document.addEventListener('input',event=>{if(event.target.matches('input:not([type=range]), #unit'))render();});
+document.addEventListener('input',event=>{if(event.target.closest('#parameters, #tech-grid') && event.target.matches('input:not([type=range]), #unit'))render();});
 $('mode').addEventListener('change',()=>{if(current){const ratio=current.ratio;const mode=$('mode').value;const value=mode==='ratio'?ratio:mode==='retained'?100/ratio:100-100/ratio;$('compression').value=String(Number(value.toPrecision(12)));}render();});
 $('compression-slider').addEventListener('input',()=>{const ratio=10**(Number($('compression-slider').value)/25);const mode=$('mode').value;const value=mode==='ratio'?ratio:mode==='retained'?100/ratio:100-100/ratio;$('compression').value=String(Number(value.toPrecision(10)));render();});
 document.querySelectorAll('[data-capacity]').forEach(b=>b.addEventListener('click',()=>{$('capacity').value=b.dataset.capacity;$('unit').value='Gb';render();}));
@@ -100,9 +102,14 @@ $('export').addEventListener('click',()=>{
 function syncLanguage() {
  $('toast').hidden=true; clearTimeout(toastTimer);
  document.querySelectorAll('[data-copy-en]').forEach(el=>el.textContent=L(el.dataset.copyZh,el.dataset.copyEn));
- renderTechCards(); render();
+ renderTechCards(); render(); scenarioUI?.syncLanguage();
 }
 window.addEventListener('hub:language-change',syncLanguage);
 syncLanguage();
+scenarioUI = initScenarios({ getState, isValid: () => Boolean(current), applyState: state => {
+  for (const field of ['capacity', 'unit', 'repair', 'compression', 'mode']) $(field).value = state[field];
+  for (const tech of ['otp', 'efuse']) for (const field of ['overhead', 'reserve', 'block']) $(`${tech}-${field}`).value = state[tech][field];
+  render();
+} });
 
 new ResizeObserver(()=>{if(current)renderChart(current,currentState);}).observe($('chart'));

@@ -1,3 +1,5 @@
+// Bump when the arithmetic or interpretation of an input changes.
+export const MODEL_VERSION = 'sram-repair-capacity-v1';
 export const UNITS = { Mb: 1000000n, Gb: 1000000000n, Tb: 1000000000000n, Mib: 1048576n, Gib: 1073741824n, Tib: 1099511627776n };
 export const DEFAULT = { capacity: '16', unit: 'Gb', repair: '1/1000', compression: '100', mode: 'ratio', otp: { overhead: '0', reserve: '0', block: '1' }, efuse: { overhead: '0', reserve: '0', block: '1' } };
 const MAX = 9007199254740991n;

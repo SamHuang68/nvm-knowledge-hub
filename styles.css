@@ -1205,22 +1205,30 @@ body { background: #f7f9fa; color: #0f172a; line-height: 1.75; }
 }
 
 /* ImageGen narrative set: one original visual job per chapter. */
+/* Keep the original gradients and eager fallbacks. Only a working loader opts
+   below-fold decorative backgrounds into screen deferral; print keeps its rules. */
+@media screen {
+  html[data-deferred-backgrounds] [data-deferred-background]:not([data-background-ready]) {
+    --deferred-background-image: none;
+  }
+}
+
 .immersive-wafer {
   background-image:
     linear-gradient(90deg,rgba(248, 250, 252, 0.96) 0%,rgba(248, 250, 252, 0.96) 38%,rgba(248, 250, 252, 0.96) 76%,rgba(248, 250, 252, 0.96) 100%),
-    url("assets/silicon-ip-panorama-v2.webp");
+    var(--deferred-background-image, url("assets/silicon-ip-panorama-v2.webp"));
   background-position:center;
 }
 .immersive-probe {
   background-image:
     linear-gradient(270deg,rgba(248, 250, 252, 0.96) 0%,rgba(248, 250, 252, 0.96) 38%,rgba(248, 250, 252, 0.96) 76%,rgba(248, 250, 252, 0.96) 100%),
-    url("assets/assurance-evidence-v1.webp");
+    var(--deferred-background-image, url("assets/assurance-evidence-v1.webp"));
   background-position:center;
 }
 .immersive-silicon {
   background-image:
     linear-gradient(90deg,rgba(248, 250, 252, 0.96) 0%,rgba(248, 250, 252, 0.96) 40%,rgba(248, 250, 252, 0.96) 78%,rgba(248, 250, 252, 0.96) 100%),
-    url("assets/power-off-state-v1.webp");
+    var(--deferred-background-image, url("assets/power-off-state-v1.webp"));
   background-position:center;
 }
 
@@ -1234,22 +1242,22 @@ body { background: #f7f9fa; color: #0f172a; line-height: 1.75; }
 .architecture-section {
   background:
     linear-gradient(90deg,rgba(248, 250, 252, 0.96) 0%,rgba(248, 250, 252, 0.96) 35%,rgba(248, 250, 252, 0.96) 72%,rgba(248, 250, 252, 0.96) 100%),
-    url("assets/architecture-subsystem-v1.webp") center/cover no-repeat;
+    var(--deferred-background-image, url("assets/architecture-subsystem-v1.webp")) center/cover no-repeat;
 }
 .comparison-section {
   background:
     linear-gradient(rgba(248, 250, 252, 0.96),rgba(248, 250, 252, 0.96)),
-    url("assets/comparison-cell-states-v1.webp") center/cover no-repeat;
+    var(--deferred-background-image, url("assets/comparison-cell-states-v1.webp")) center/cover no-repeat;
 }
 .evidence-section {
   background:
     linear-gradient(90deg,rgba(248, 250, 252, 0.96) 0%,#f1f5f9 48%,#f1f5f9 100%),
-    url("assets/evidence-field-v1.webp") center/cover no-repeat;
+    var(--deferred-background-image, url("assets/evidence-field-v1.webp")) center/cover no-repeat;
 }
 .learning-section {
   background:
     linear-gradient(90deg,rgba(248, 250, 252, 0.96) 0%,rgba(248, 250, 252, 0.96) 52%,rgba(248, 250, 252, 0.96) 100%),
-    url("assets/learning-path-v1.webp") center/cover no-repeat;
+    var(--deferred-background-image, url("assets/learning-path-v1.webp")) center/cover no-repeat;
 }
 .research-launch {
   background:
@@ -1271,7 +1279,7 @@ body { background: #f7f9fa; color: #0f172a; line-height: 1.75; }
 .applications-section {
   background:
     linear-gradient(90deg,rgba(243,247,248,.98) 0%,rgba(243,247,248,.94) 50%,rgba(243,247,248,.72) 100%),
-    url("assets/applications-ecosystem-v1.webp") center/cover no-repeat;
+    var(--deferred-background-image, url("assets/applications-ecosystem-v1.webp")) center/cover no-repeat;
 }
 .applications-section .app-card {
   background:#f8fafc;
@@ -1290,7 +1298,7 @@ body { background: #f7f9fa; color: #0f172a; line-height: 1.75; }
 .closing-section {
   background:
     linear-gradient(90deg,rgba(248, 250, 252, 0.96) 0%,rgba(248, 250, 252, 0.96) 46%,rgba(248, 250, 252, 0.96) 100%),
-    url("assets/closing-secure-boundary-v1.webp") center/cover no-repeat;
+    var(--deferred-background-image, url("assets/closing-secure-boundary-v1.webp")) center/cover no-repeat;
 }
 .closing-section::before {
   border-color:rgba(196,165,116,.14);
@@ -1337,7 +1345,7 @@ body { background: #f7f9fa; color: #0f172a; line-height: 1.75; }
   color:var(--ink);
   background:
     linear-gradient(105deg,rgba(248, 250, 252, 0.96),rgba(248, 250, 252, 0.96) 58%,rgba(248, 250, 252, 0.96)),
-    url("assets/comparison-cell-states-v1.webp") center/cover no-repeat;
+    var(--deferred-background-image, url("assets/comparison-cell-states-v1.webp")) center/cover no-repeat;
   box-shadow:inset 0 1px rgba(255,255,255,.08),inset 0 -1px rgba(255,255,255,.05);
 }
 .identity-stack-head { display:grid; grid-template-columns:1.08fr .72fr; gap:clamp(42px,7vw,105px); align-items:end; }

@@ -36,6 +36,7 @@
   <link rel="stylesheet" href="styles.css?v=20260929-v5">
   <link rel="stylesheet" href="research.css?v=20260929-v5">
   <link rel="stylesheet" href="site-shell.css?v=20260929-v5">
+  <link rel="stylesheet" href="evidence-workbench.css">
   <style>
     /* 全站語系切換最上層治理規範：英文為第一預設 (English as Default) */
     [data-lang="zh"] { display: none !important; }
@@ -83,10 +84,10 @@
   <main id="main-content">
     <section class="research-hero evidence-hero">
       <div class="research-hero-inner">
-        <p class="research-label"><span data-lang="en">EVIDENCE LEDGER · PAPERS · PATENTS · PRODUCT DISCLOSURES</span><span data-lang="zh">證據總帳 · 論文 · 專利 · 產品揭露</span></p>
+        <p class="research-label"><b data-evidence-count="total">37</b> <span data-lang="en">CURATED RECORDS · EVIDENCE LEDGER</span><span data-lang="zh">筆收錄紀錄 · 證據總帳</span></p>
         <h1><span data-lang="zh">不是來源清單<br><em>是證據邊界</em></span><span data-lang="en">Not a reading list<br><em>An evidence boundary</em></span></h1>
         <p class="research-hero-lede"><span data-lang="zh">每一筆資料都回答三件事：它直接證明什麼、不能證明什麼，以及它在 Secure Storage 論述中應該站在哪一層。</span><span data-lang="en">Every record states what it directly supports, what it does not establish, and where it belongs in the Secure Storage argument.</span></p>
-        <div class="research-hero-meta"><div><b>31</b><span><span data-lang="en">CURATED RECORDS</span><span data-lang="zh">收錄紀錄</span></span></div><div><b>12</b><span><span data-lang="en">ATTACK / CIRCUIT PAPERS</span><span data-lang="zh">攻擊／電路論文</span></span></div><div><b>5</b><span><span data-lang="en">PATENT MECHANISMS</span><span data-lang="zh">專利機制</span></span></div><div><b>14</b><span><span data-lang="en">VENDOR / OFFICIAL</span><span data-lang="zh">供應商／官方</span></span></div></div>
+        <div class="research-hero-meta"><div><b data-evidence-count="paper">12</b><span><span data-lang="en">ATTACK / CIRCUIT PAPERS</span><span data-lang="zh">攻擊／電路論文</span></span></div><div><b data-evidence-count="patent">5</b><span><span data-lang="en">PATENT MECHANISMS</span><span data-lang="zh">專利機制</span></span></div><div><b data-evidence-count="vendor">19</b><span><span data-lang="en">VENDOR / OFFICIAL SOURCES</span><span data-lang="zh">供應商／官方來源</span></span></div><div><b data-evidence-count="case">1</b><span><span data-lang="en">OFFICIAL CASE</span><span data-lang="zh">官方案例</span></span></div></div>
       </div>
     </section>
 
@@ -110,9 +111,13 @@
           <p><span data-lang="zh">使用搜尋或類型篩選。關鍵詞同時涵蓋技術、攻擊、作者、DOI、PUF、感測放大器、光子放射、FIB 與產品架構。</span><span data-lang="en">Search or filter by source type. Keywords cover technology, attack, author, DOI, PUF, sense amplifiers, photon emission, FIB and product architecture.</span></p>
         </div>
 
+        <noscript>
+          <style>.evidence-page .reveal { opacity: 1 !important; transform: none !important; } .evidence-toolbar { display: none !important; } .source-card [data-lang], .evidence-noscript-message [data-lang] { display: block !important; }</style>
+          <p class="evidence-noscript-message"><span data-lang="en">JavaScript is unavailable; the complete bilingual ledger and source links remain below.</span><span data-lang="zh">目前未啟用 JavaScript；下方仍提供完整雙語總帳與來源連結。</span></p>
+        </noscript>
         <div class="evidence-toolbar">
           <label class="evidence-search"><span aria-hidden="true">⌕</span><input id="evidenceSearch" type="search" placeholder="Search author, technology, attack or DOI…" data-placeholder-en="Search author, technology, attack or DOI…" data-placeholder-zh="搜尋作者、技術、攻擊或 DOI…" autocomplete="off"></label>
-          <div class="evidence-filters" id="evidenceFilters">
+          <div class="evidence-filters" id="evidenceFilters" role="group">
             <button class="active" type="button" data-type="all" aria-pressed="true"><span data-lang="zh">全部</span><span data-lang="en">ALL</span></button>
             <button type="button" data-type="paper" aria-pressed="false"><span data-lang="zh">論文</span><span data-lang="en">PAPERS</span></button>
             <button type="button" data-type="patent" aria-pressed="false"><span data-lang="zh">專利</span><span data-lang="en">PATENTS</span></button>
@@ -120,7 +125,32 @@
             <button type="button" data-type="case" aria-pressed="false"><span data-lang="zh">官方案例</span><span data-lang="en">OFFICIAL CASE</span></button>
           </div>
         </div>
-        <div class="evidence-summary" role="status" aria-live="polite"><span><b id="evidenceCount">31</b> <span data-lang="zh">筆符合目前條件</span><span data-lang="en">records match the current view</span></span><span><span data-lang="en">PUBLIC SOURCES · ACCESSED 2026-08-12</span><span data-lang="zh">公開來源 · 查閱日期 2026-08-12</span></span></div>
+        <div id="evidenceWorkbench" class="evidence-workbench" hidden>
+          <div id="evidenceChips" class="evidence-chips" role="group">
+            <button type="button" data-remove-filter="type" hidden></button>
+            <button type="button" data-remove-filter="query" hidden></button>
+          </div>
+          <div class="evidence-actions">
+            <button id="evidenceExport" type="button"></button>
+          </div>
+          <p id="evidenceWorkbenchStatus" class="evidence-workbench-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        </div>
+        <div class="evidence-summary" role="status" aria-live="polite"><span><b id="evidenceCount">37</b> <span data-lang="zh">筆符合目前條件</span><span data-lang="en">records match the current view</span></span><span><span data-lang="en">PUBLIC SOURCES · ACCESSED 2026-08-12</span><span data-lang="zh">公開來源 · 查閱日期 2026-08-12</span></span></div>
+
+        <section id="evidenceIndexSection" class="evidence-index-section" hidden>
+          <p id="evidenceSortHint"></p>
+          <div id="evidenceIndexWrap" class="evidence-index-wrap" tabindex="0" role="region" hidden>
+            <table id="evidenceIndex">
+              <caption></caption>
+              <thead><tr>
+                <th scope="col" data-sort="id" aria-sort="ascending"><button type="button" data-evidence-sort="id"></button></th>
+                <th scope="col" data-sort="year" aria-sort="none"><button type="button" data-evidence-sort="year"></button></th>
+                <th scope="col" data-column="title"></th>
+              </tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
 
         <div class="source-grid" id="sourceGrid">
           <article class="source-card" id="evidence-P01" data-type="paper" data-keywords="SRAM PUF power-up mismatch FERNS 10.1109/TC.2008.212 Holcomb Burleson Fu">
@@ -319,95 +349,59 @@
             </div>
           </article>
 
-          <article class="source-card" id="evidence-V14" data-type="vendor" data-keywords="Weebit Nano ReRAM OxRAM 130nm 28nm 22nm Neuromorphic CIM AI Edge IoT">
-            <div class="source-index"><b>V14</b><span><span data-lang="en">VENDOR SPECIFICATION</span><span data-lang="zh">供應商規格</span></span></div>
+          <article class="source-card" id="evidence-V14" data-type="vendor" data-keywords="Weebit Nano SkyWater S130 ReRAM 130nm 125C qualification PDK">
+            <div class="source-index"><b>V14</b><span><span data-lang="zh">供應商揭露</span><span data-lang="en">VENDOR DISCLOSURE</span></span></div>
             <div class="source-content">
-              <p class="source-meta">2024–2025 · VENDOR DISCLOSURE &amp; FOUNDRY QUALIFICATION · E2</p>
-              <h3>Weebit Nano: Embedded ReRAM Qualified for Commercial IoT &amp; Neuromorphic Analog CIM</h3>
-              <p>
-                <span data-lang="zh">Weebit Nano 公開技術手冊與代工廠資格（SkyWater 130nm、DB HiTek、GlobalFoundries 合作）確認：以金屬氧化物為基礎之嵌入式 ReRAM (OxRAM) 具備 100K~1M 次抹寫耐受度與 175°C 高溫保持力。不僅提供超低功耗嵌入式非揮發儲存，亦利用多階阻態 (MLC) 實現類比存算一體 (Analog Compute-in-Memory, CIM)，直接於交叉陣列中執行矩陣乘加運算，消除邊緣 AI 推論之馮諾依曼記憶體牆。</span>
-                <span data-lang="en">Weebit Nano technical whitepapers and commercial qualification confirm that embedded ReRAM (OxRAM) achieves 100K–1M endurance cycles and 175°C retention. Beyond non-volatile MCU storage, its multi-level conductance enables analog Compute-in-Memory (CIM), executing deep neural network matrix-vector multiplication directly within crossbar arrays to overcome the von Neumann memory wall.</span>
-              </p>
+              <p class="source-meta">2023-11-20 · SKYWATER / WEEBIT QUALIFICATION DISCLOSURE · E3 · CHECKED 2026-10-03</p>
+              <h3>Weebit Nano / SkyWater: ReRAM Qualification for the S130 Process</h3>
+              <p><span data-lang="zh">SkyWater 與 Weebit 在 2023-11-20 的聯合公告指出：Weebit 的 1T1R ReRAM 巨集已在 SkyWater S130（130 nm）製程完成最高 125°C 的資格驗證，並納入該製程 PDK。此處記錄的是供應商對具名巨集與製程的揭露。</span><span data-lang="en">The 20 November 2023 SkyWater / Weebit announcement reports qualification of the Weebit 1T1R ReRAM module in the SkyWater S130 (130 nm) process up to 125°C and its inclusion in that process PDK. This is a supplier disclosure for a named module and process.</span></p>
               <div class="source-proof">
-                <div>
-                  <b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b>
-                  <p><span data-lang="zh">阻變記憶體已跨出實驗室進入商用 PDK，並具備邊緣 AI 類比神經形態加速潛力。</span><span data-lang="en">ReRAM has transitioned from laboratories into commercial foundry PDKs with edge AI CIM potential.</span></p>
-                </div>
-                <div>
-                  <b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b>
-                  <p><span data-lang="zh">全球代工廠均已標準化通用 ReRAM PDK；大容量陣列之阻態漂移與良率仍需持續校準。</span><span data-lang="en">Universal ReRAM PDK standardization across all foundries; resistance drift in large arrays requires calibration.</span></p>
-                </div>
+                <div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">具名 S130 ReRAM 巨集的資格驗證與 PDK 可用性聲稱。</span><span data-lang="en">A supplier-reported qualification and PDK availability milestone for the named S130 ReRAM module.</span></p></div>
+                <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">不能把此結果套用到其他代工廠、175°C、所有耐寫次數，或已量產的類比 CIM。這些條件在所引公告中未獲確立。</span><span data-lang="en">It does not establish other foundry processes, 175°C operation, universal endurance figures or production analog CIM. Those conditions remain unestablished by this announcement.</span></p></div>
               </div>
-              <a href="https://www.weebit-nano.com/" target="_blank" rel="noopener noreferrer">Weebit Nano Official Technology ↗</a>
+              <a href="https://www.skywatertechnology.com/weebit-nano-reram-ip-achieves-high-temperature-qualification-in-skywater-s130-process/" target="_blank" rel="noopener noreferrer">SkyWater / Weebit, qualification announcement (20 Nov 2023) ↗</a>
             </div>
           </article>
 
-          <article class="source-card" id="evidence-V15" data-type="vendor" data-keywords="Everspin Technologies STT-MRAM pMTJ Enterprise SSD NVMe PLP DDR4 xSPI CXL">
-            <div class="source-index"><b>V15</b><span><span data-lang="en">VENDOR DATASHEET</span><span data-lang="zh">供應商規格書</span></span></div>
+          <article class="source-card" id="evidence-V15" data-type="vendor" data-keywords="Everspin STT-MRAM Enterprise SSD PLP DDR3 DDR4 persistent buffer power fail energy">
+            <div class="source-index"><b>V15</b><span><span data-lang="zh">供應商揭露</span><span data-lang="en">VENDOR DISCLOSURE</span></span></div>
             <div class="source-content">
-              <p class="source-meta">2024–2025 · COMMERCIAL PRODUCT DATASHEET &amp; ARCHITECTURE · E1</p>
-              <h3>Everspin Technologies: Enterprise STT-MRAM &amp; Data Center Capacitor-Free Power Loss Protection (PLP)</h3>
-              <p>
-                <span data-lang="zh">Everspin 企業級產品手冊與技術白皮書證實：採用垂直自旋轉矩磁性穿隧接面 (pMTJ) 之 STT-MRAM 支援 DDR4、DDR3 與 xSPI 高速匯流排，提供奈秒級 (&lt;20ns) 持久隨機寫入與 10¹⁰~10¹² 次無限抹寫耐受性。在企業級 NVMe SSD、CXL 快取擴展器與伺服器控制器中，STT-MRAM 徹底取代笨重易老化的超級電容 (Supercapacitors)，達成零延遲即時日誌寫入與無電容斷電保護 (Capacitor-Free PLP)。</span>
-                <span data-lang="en">Everspin commercial datasheets confirm that perpendicular MTJ (pMTJ) STT-MRAM delivers nanosecond-class (&lt;20ns) non-volatile write latency and practically infinite endurance (10¹⁰–10¹² cycles). In enterprise NVMe SSDs and CXL memory expanders, STT-MRAM eliminates bulky supercapacitors, enabling zero-latency journal commits and maintenance-free Power Loss Protection (PLP).</span>
-              </p>
+              <p class="source-meta">2018-02 · APPLICATION NOTE V1.3, PP. 1–2 · E3 · CHECKED 2026-10-03</p>
+              <h3>Everspin: STT-MRAM Write Buffers and SSD Power-Fail Protection</h3>
+              <p><span data-lang="zh">Everspin 的企業 SSD 應用筆記（v1.3，第 1–2 頁）描述在控制器 DDR 匯流排配置 STT-MRAM 持久緩衝區，以減少斷電保護所需儲能。文件仍要求斷電偵測、主機隔離，以及將控制器管線中的資料提交至非揮發儲存的能量與控制流程。</span><span data-lang="en">Everspin’s enterprise SSD application note (v1.3, pp. 1–2) describes an STT-MRAM write buffer on the controller DDR bus to reduce power-fail energy storage. It still requires failure detection, host isolation and sufficient energy and control logic to commit in-flight controller data.</span></p>
               <div class="source-proof">
-                <div>
-                  <b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b>
-                  <p><span data-lang="zh">STT-MRAM 在持久快取與高頻日誌寫入中相較超級電容方案具備絕對物理與可靠度優勢。</span><span data-lang="en">STT-MRAM exhibits decisive physical and reliability advantages over supercapacitor arrays for persistent write caching.</span></p>
-                </div>
-                <div>
-                  <b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b>
-                  <p><span data-lang="zh">STT-MRAM 單位位元成本已能完全取代大容量 DRAM 或 3D NAND Flash。</span><span data-lang="en">STT-MRAM cost-per-bit is currently viable to displace high-density main memory DRAM or NAND.</span></p>
-                </div>
+                <div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">持久緩衝區可降低特定 SSD 架構的斷電儲能需求。</span><span data-lang="en">Persistent buffering can reduce the power-fail energy requirement in the described SSD architecture.</span></p></div>
+                <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">不能推導所有 SSD／CXL 裝置均無須電容、提交延遲為零或耐寫無限；時序、耐寫與斷電窗口仍需具名料號及系統驗證。</span><span data-lang="en">It does not establish capacitor-free operation for every SSD or CXL device, zero commit latency or unlimited endurance. Timing, endurance and power-fail windows require device and system evidence.</span></p></div>
               </div>
-              <a href="https://www.everspin.com/" target="_blank" rel="noopener noreferrer">Everspin Technologies Official Products ↗</a>
+              <a href="https://legacy.everspin.com/file/156345/download#page=1" target="_blank" rel="noopener noreferrer">Everspin, STT-MRAM in Enterprise SSDs, v1.3, pp. 1–2 ↗</a>
             </div>
           </article>
 
-          <article class="source-card" id="evidence-V16" data-type="vendor" data-keywords="Infineon AURIX TC4x TSMC 28nm eRRAM OxRAM AEC-Q100 Grade 1 ISO 26262 ASIL-D">
-            <div class="source-index"><b>V16</b><span><span data-lang="en">AUTOMOTIVE DISCLOSURE</span><span data-lang="zh">車用產品揭露</span></span></div>
+          <article class="source-card" id="evidence-V16" data-type="vendor" data-keywords="Infineon AURIX TC4x TSMC 28nm RRAM NVM software interface product overview">
+            <div class="source-index"><b>V16</b><span><span data-lang="zh">供應商揭露</span><span data-lang="en">VENDOR DISCLOSURE</span></span></div>
             <div class="source-content">
-              <p class="source-meta"><span data-lang="en">2024–2025 · AUTOMOTIVE PRODUCT DISCLOSURE · E1</span><span data-lang="zh">2024–2025 · 車用產品揭露 · E1</span></p>
-              <h3>Infineon Technologies: AURIX™ TC4x Microcontrollers Powered by 28nm Embedded RRAM</h3>
-              <p>
-                <span data-lang="zh">Infineon 官方架構手冊與 TSMC 代工合作揭露：次世代車用微控制器 AURIX™ TC4x 旗艦系列全面採用台積電 28nm eRRAM (OxRAM) 作為主控嵌入式非揮發記憶體。相較傳統 eFlash，28nm eRRAM 支援位元級單點覆寫 (Bit-level Alterability)、零區塊抹除等待時間、20 年車規高溫資料留存與 AEC-Q100 Grade 1 (150°C) 車規認證，成功突破 28nm 以下 eFlash 高光罩數與高熱預算之微縮斷崖。</span>
-                <span data-lang="en">Infineon's official architecture disclosures and TSMC foundry alliance demonstrate that the AURIX™ TC4x flagship automotive MCU family integrates 28nm embedded RRAM (OxRAM). Compared to legacy eFlash, 28nm eRRAM delivers bit-level overwrite capability, zero block-erase latency, 20-year retention, and AEC-Q100 Grade 1 qualification, circumventing the scaling bottlenecks of floating-gate eFlash.</span>
-              </p>
+              <p class="source-meta">PRODUCT OVERVIEW, P. 8 · E3 · CHECKED 2026-10-03</p>
+              <h3>Infineon AURIX™ TC4x: 28 nm RRAM Integration Disclosure</h3>
+              <p><span data-lang="zh">Infineon 的《AURIX TC4x Overview》第 8 頁揭露與 TSMC 的 28 nm 合作及 TC4x 家族導入 RRAM NVM；並表示對軟體保留與 eFlash 相同的介面及功能行為。這是家族架構揭露，不能直接視為每個 TC4x 料號的記憶體規格。</span><span data-lang="en">Page 8 of Infineon’s AURIX TC4x Overview describes its 28 nm collaboration with TSMC and RRAM NVM integration in the TC4x family, retaining the eFlash software interface and functional behavior. This is a family architecture disclosure, not a memory specification for every TC4x part.</span></p>
               <div class="source-proof">
-                <div>
-                  <b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b>
-                  <p><span data-lang="zh">新興阻變記憶體 (ReRAM) 已成功獲得車規 ASIL-D 與 AEC-Q100 Grade 1 一級車載主控認證。</span><span data-lang="en">Emerging ReRAM has achieved ISO 26262 ASIL-D and AEC-Q100 Grade 1 qualification in tier-1 automotive MCUs.</span></p>
-                </div>
-                <div>
-                  <b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b>
-                  <p><span data-lang="zh">eRRAM 可無條件替換所有高溫極限工況（Grade 0 為 Ta −40°C 至 +150°C；175°C Tj 僅適用於特定規格書），極限高溫仍需依封裝測試定義。</span><span data-lang="en">eRRAM universally satisfies high-temperature corners (Grade 0 ambient −40°C to +150°C Ta; 175°C Tj only on a named datasheet) across all profiles without specific qualification.</span></p>
-                </div>
+                <div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">TC4x 家族的 RRAM 整合方向及軟體介面相容性聲稱。</span><span data-lang="en">The disclosed TC4x RRAM integration direction and software-interface compatibility claim.</span></p></div>
+                <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">本頁未確立各料號的位元級覆寫、抹除等待時間、20 年保持條件或 AEC-Q100 等級。未公開條件應記為未知，另查具名料號的規格書與資格驗證文件。</span><span data-lang="en">This page does not establish part-specific bit-level overwrite, erase latency, 20-year retention conditions or AEC-Q100 grade. Unpublished conditions remain unknown pending named-part datasheets and qualification documents.</span></p></div>
               </div>
-              <a href="https://www.infineon.com/aurix-tc4x" target="_blank" rel="noopener noreferrer">Infineon AURIX™ TC4x Official Product Page ↗</a>
+              <a href="https://www.infineon.com/assets/row/public/documents/10/156/infineon-tc4x-overview-productpresentation-en.pdf#page=8" target="_blank" rel="noopener noreferrer">Infineon, AURIX™ TC4x Overview, p. 8 ↗</a>
             </div>
           </article>
 
-          <article class="source-card" id="evidence-V17" data-type="vendor" data-keywords="STMicroelectronics Stellar 32-bit MCU 28nm FD-SOI ePCM Phase Change Memory OTA 165C">
-            <div class="source-index"><b>V17</b><span><span data-lang="en">AUTOMOTIVE DISCLOSURE</span><span data-lang="zh">車用產品揭露</span></span></div>
+          <article class="source-card" id="evidence-V17" data-type="vendor" data-keywords="STMicroelectronics Stellar P3E 28nm FD-SOI PCM Phase Change Memory xMemory OTA">
+            <div class="source-index"><b>V17</b><span><span data-lang="zh">供應商揭露</span><span data-lang="en">VENDOR DISCLOSURE</span></span></div>
             <div class="source-content">
-              <p class="source-meta"><span data-lang="en">2024–2025 · AUTOMOTIVE MCU ARCHITECTURE MANUAL · E1</span><span data-lang="zh">2024–2025 · 車用 MCU 架構手冊 · E1</span></p>
-              <h3>STMicroelectronics: Stellar 32-bit Automotive MCU Architecture Powered by 28nm FD-SOI ePCM</h3>
-              <p>
-                <span data-lang="zh">STMicroelectronics 官方發布手冊確認：Stellar 車用微控制器系列整合 28nm FD-SOI 製程與嵌入式相變記憶體 (ePCM，Ge₂Sb₂Te₅ GST 合金)，具備 165°C 接面溫度耐受度、100K 次抹寫與 20 年資料保持力。其內建雙分區架構 (Dual-bank A/B Partitioning) 支援真正的零停機即時空中升級 (Zero-Downtime Live OTA)，為軟體定義汽車 (SDV) 車身網關與動力網域控制器標配。</span>
-                <span data-lang="en">STMicroelectronics official documentation verifies that Stellar 32-bit automotive MCUs integrate 28nm FD-SOI embedded Phase Change Memory (ePCM, Ge₂Sb₂Te₅ alloy). Operating at junction temperatures up to 165°C with 100K write cycles and 20-year retention, its dual-bank partitioning supports true zero-downtime over-the-air (Live OTA) updates for Software-Defined Vehicle (SDV) architectures.</span>
-              </p>
+              <p class="source-meta">STELLAR P3E PRODUCT PRESENTATION, P. 8 · E3 · CHECKED 2026-10-03</p>
+              <h3>STMicroelectronics Stellar P3E: 28 nm FD-SOI PCM Disclosure</h3>
+              <p><span data-lang="zh">ST 的《Stellar P3E: the future of automotive edge intelligence》第 8 頁列出 P3E 採用 28 nm FD-SOI 與 PCM，並介紹 xMemory 與 OTA 功能。這是針對 P3E 的供應商簡報，不能把相變記憶體的一般機制或家族宣傳回填成所有 Stellar 料號的產品保證。</span><span data-lang="en">Page 8 of ST’s Stellar P3E presentation lists 28 nm FD-SOI with PCM and describes xMemory and OTA features for P3E. This is a supplier presentation for P3E; a general PCM mechanism or family narrative cannot establish guarantees for every Stellar part.</span></p>
               <div class="source-proof">
-                <div>
-                  <b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b>
-                  <p><span data-lang="zh">ePCM 在 28nm FD-SOI 下具備優異的車規高溫與無停機雙分區 OTA 即時寫入能力。</span><span data-lang="en">ePCM on 28nm FD-SOI exhibits exceptional automotive thermal endurance and zero-downtime dual-bank OTA.</span></p>
-                </div>
-                <div>
-                  <b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b>
-                  <p><span data-lang="zh">PCM 可微縮至 FinFET 先進邏輯節點（相變材料熱干擾與重置電流限制）。</span><span data-lang="en">PCM can scale into advanced FinFET/GAA logic nodes due to thermal cross-talk and reset current boundaries.</span></p>
-                </div>
+                <div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">具名 P3E 的製程、記憶體整合與 OTA 設計方向揭露。</span><span data-lang="en">The named P3E process, memory integration and OTA design disclosure.</span></p></div>
+                <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">本頁未確立精確 GST 合金比例、100K 次耐寫、20 年保持條件或系統零停機保證；接面／環境溫度、更新流程與資格驗證須另核具名料號。</span><span data-lang="en">This page does not establish an exact GST composition, 100K-cycle endurance, 20-year retention conditions or a system zero-downtime guarantee. Junction/ambient limits, update flow and qualification require named-part documentation.</span></p></div>
               </div>
-              <a href="https://www.st.com/content/st_com/en/about/innovation-and-technology/pcm.html" target="_blank" rel="noopener noreferrer">STMicroelectronics PCM / Automotive MCU Technology ↗</a>
+              <a href="https://www.st.com/resource/en/product_presentation/presentation-stellarp3e-automotive-microcontrollers-edge-ai.pdf#page=8" target="_blank" rel="noopener noreferrer">ST, Stellar P3E product presentation, p. 8 ↗</a>
             </div>
           </article>
 
@@ -434,26 +428,17 @@
             </div>
           </article>
 
-          <article class="source-card" id="evidence-V19" data-type="vendor" data-keywords="Rambus CryptoManager Root of Trust SPDM 1.3 IDE PCIe CXL Line-Rate AES-GCM">
-            <div class="source-index"><b>V19</b><span><span data-lang="en">ENTERPRISE SECURITY</span><span data-lang="zh">企業安全</span></span></div>
+          <article class="source-card" id="evidence-V19" data-type="vendor" data-keywords="Rambus CryptoManager Root of Trust RT-6xx RT-16xx security lifecycle key management">
+            <div class="source-index"><b>V19</b><span><span data-lang="zh">供應商揭露</span><span data-lang="en">VENDOR DISCLOSURE</span></span></div>
             <div class="source-content">
-              <p class="source-meta"><span data-lang="en">2024–2025 · ENTERPRISE SECURITY ARCHITECTURE · E1</span><span data-lang="zh">2024–2025 · 企業安全架構 · E1</span></p>
-              <h3>Rambus: CryptoManager™ Silicon Root of Trust &amp; PCIe/CXL SPDM 1.3 Device Attestation</h3>
-              <p>
-                <span data-lang="zh">Rambus 產品規格與 DMTF 聯盟標準文獻揭露：CryptoManager™ 信任根硬體加速 DMTF SPDM 1.2/1.3 設備證明協定，並於高速 PCIe Gen5/Gen6 與 CXL 2.0/3.0 介面提供線速 IDE (Integrity and Data Encryption，AES-GCM 512/1024-bit) 硬體加解密。搭配晶圓代工廠防熔絲 OTP 記錄晶粒認證金鑰，建立由晶圓廠、封測廠到 CSP 資料中心的端到端不可偽造憑證鏈。</span>
-                <span data-lang="en">Rambus technical disclosures and DMTF SPDM standards verify that the CryptoManager™ Root of Trust accelerates SPDM 1.2/1.3 mutual device attestation and line-rate PCIe/CXL IDE encryption (AES-GCM). Anchored in foundry AntiFuse OTP for device unique identifiers (UID), it secures the hardware supply chain across Foundry, OSAT, and hyperscale CSP deployments.</span>
-              </p>
+              <p class="source-meta">ROOT OF TRUST PRODUCT PORTFOLIO · E3 · CHECKED 2026-10-03</p>
+              <h3>Rambus CryptoManager™: Root of Trust Product Boundaries</h3>
+              <p><span data-lang="zh">Rambus 的 Root of Trust 產品頁將 CryptoManager RT-6xx/16xx 列為可程式化安全核心，提供安全開機、金鑰與生命週期管理；不同型號的密碼功能與實體攻擊防護各有差異。此來源描述信任根產品組合，並非同一核心同時實作所有 PCIe／CXL 安全功能的規格。</span><span data-lang="en">Rambus’s Root of Trust product page describes CryptoManager RT-6xx/16xx programmable security cores with secure boot, key and lifecycle management. Cryptographic features and physical-attack protections vary by model. This portfolio page is not a specification combining every PCIe/CXL security function in one core.</span></p>
               <div class="source-proof">
-                <div>
-                  <b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b>
-                  <p><span data-lang="zh">高速互連 (PCIe/CXL) 必須仰賴硬體級 SPDM 與 IDE 防禦匯流排實體中間人竊聽。</span><span data-lang="en">High-speed interconnects (PCIe/CXL) mandate hardware SPDM and line-rate IDE to defeat physical interposer tapping.</span></p>
-                </div>
-                <div>
-                  <b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b>
-                  <p><span data-lang="zh">所有伺服器周邊晶片均能承擔線速 IDE 加解密與硬體 HSM 的矽面積與功耗負擔。</span><span data-lang="en">All server peripheral ICs can absorb the silicon area and power overhead of line-rate IDE and hardware HSMs.</span></p>
-                </div>
+                <div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">供應商揭露的信任根功能與型號差異。</span><span data-lang="en">The vendor-disclosed root-of-trust functions and model-dependent feature boundaries.</span></p></div>
+                <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">不能由本頁推導指定 SPDM 版本、線速 IDE、AES 金鑰長度或防熔絲 OTP 實作；這些相依項須查各別 IP、協定與整合文件，也不構成供應鏈絕對安全保證。</span><span data-lang="en">It does not establish a particular SPDM version, line-rate IDE, AES key size or antifuse OTP implementation. Those dependencies need separate IP, protocol and integration documents; no absolute supply-chain security guarantee follows.</span></p></div>
               </div>
-              <a href="https://www.rambus.com/security/root-of-trust/" target="_blank" rel="noopener noreferrer">Rambus Security Root of Trust ↗</a>
+              <a href="https://www.rambus.com/security/root-of-trust/" target="_blank" rel="noopener noreferrer">Rambus, CryptoManager Root of Trust RT-6xx/16xx section ↗</a>
             </div>
           </article>
 
@@ -479,5 +464,6 @@
   <footer><a class="brand footer-brand" href="index.html" aria-label="NVM Knowledge Hub home" data-aria-en="NVM Knowledge Hub home" data-aria-zh="NVM 知識中心首頁"><span class="brand-copy"><strong>NVM</strong><small><span data-lang="en">KNOWLEDGE HUB</span><span data-lang="zh">知識中心</span></small></span></a><p><span data-lang="zh">註釋公開來源文集 · 2026-08-12</span><span data-lang="en">Annotated public-source corpus · 2026-08-12</span></p><p><span data-lang="en">Research Note 02</span><span data-lang="zh">研究筆記 02</span></p></footer>
   <script src="research.js?v=20260929-v5"></script>
 <script src="reading-controls.js"></script>
+  <script src="evidence-workbench.js"></script>
 </body>
 </html>

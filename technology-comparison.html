@@ -41,6 +41,7 @@
   <link rel="stylesheet" href="site-shell.css?v=20260929-v5">
   <link rel="stylesheet" href="styles.css?v=20260929-v5">
   <link rel="stylesheet" href="specialty-nvm.css?v=20260929-v5">
+  <link rel="stylesheet" href="named-comparison.css?v=20261003-v1">
 
   <style>
     /* =========================================================================
@@ -1592,28 +1593,36 @@
           </div>
           <div class="stat-strip-card border-l-amber">
             <div class="stat-top-meta">
-              <span class="meta-code"><span data-lang="zh">法則 #04 · 微縮斷崖</span><span data-lang="en">RULE #04 · SCALING CLIFF</span></span>
+              <span class="meta-code"><span data-lang="zh">檢核 #04 · 製程整合</span><span data-lang="en">CHECK #04 · PROCESS INTEGRATION</span></span>
             </div>
-            <div class="stat-val"><span data-lang="zh">28nm 停止點</span><span data-lang="en">28nm STOP GAP</span></div>
+            <div class="stat-val"><span data-lang="zh">28 nm 整合檢核</span><span data-lang="en">28 nm CHECKPOINT</span></div>
             <div class="stat-label">
-              <span data-lang="zh">eFlash 浮閘物理斷崖</span>
-              <span data-lang="en">eFLASH PUMP CHARGE CLIFF</span>
+              <span data-lang="zh">依具名 PDK 與記憶體巨集</span>
+              <span data-lang="en">NAMED PDK AND MEMORY MACRO</span>
             </div>
             <div class="stat-sub">
-              <span style="color: #fbbf24; font-weight: 600;">
-                <span data-lang="zh">&gt;10V 抹除電壓崩潰 · 無法導入立體鰭片</span>
-                <span data-lang="en">&gt;10V Erase Collapse · Incompatible with Fins</span>
+              <span style="color: #785021; font-weight: 600;">
+                <span data-lang="zh">元件堆疊與供電條件 · 非普遍物理截止線</span>
+                <span data-lang="en">Device stack and supply conditions · no universal cutoff</span>
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Quick Navigation Bar (01~04 藥丸列) -->
+      <p id="node-integration-scope" class="node-integration-scope">
+        <span data-lang="zh">28 nm 是檢查製程產品組合的節點，不是嵌入式 Flash 的普遍物理截止線。可用性、額外光罩、寫入／抹除電壓、耐寫次數及資格驗證，須依具名晶圓代工製程與記憶體巨集核對。例如 <a href="https://www.microchip.com/en-us/about/news-releases/corporate/globalfoundries-microchip-announce-microchips-28nm-superflash" target="_blank" rel="noopener noreferrer">Microchip／GF 於 2023-09-27 公告 ESF3 在 GF 28SLPe 量產</a>；這不能推廣成其他節點或元件堆疊的保證。</span>
+        <span data-lang="en">28 nm is a process-portfolio checkpoint, not a universal physical cutoff for embedded Flash. Availability, added masks, program/erase voltage, endurance and qualification must be checked for the named foundry process and memory macro. For example, <a href="https://www.microchip.com/en-us/about/news-releases/corporate/globalfoundries-microchip-announce-microchips-28nm-superflash" target="_blank" rel="noopener noreferrer">Microchip / GF announced ESF3 production on GF 28SLPe on 2023-09-27</a>; that does not guarantee availability on another node or device stack.</span>
+      </p>
+      <!-- Comparison topic anchors -->
       <nav aria-label="Comparison Topic Anchors" data-aria-en="Comparison Topic Anchors" data-aria-zh="比較專題錨點導覽" class="hub-nav-pills">
         <a class="nav-pill" href="#sec-matrix">
           <span class="pill-number">01</span>
           <span class="pill-text"><span data-lang="zh">家族分組對比矩陣</span><span data-lang="en">Family Taxonomy Matrix</span></span>
+        </a>
+        <a class="nav-pill" href="#named-implementations">
+          <span class="pill-number">01B</span>
+          <span class="pill-text"><span data-lang="zh">具名案例與測試條件</span><span data-lang="en">Named Cases and Conditions</span></span>
         </a>
         <a class="nav-pill" href="#sec-selector">
           <span class="pill-number">02</span>
@@ -1956,7 +1965,7 @@
 
           <!-- Card 2: 單元拓撲與微縮斷崖 -->
           <div class="matrix-note-card">
-            <div class="note-card-badge" style="color: #f59e0b;"><span data-lang="zh">02 · 單元拓撲與微縮斷崖</span><span data-lang="en">02 · CELL TOPOLOGY &amp; SCALING CLIFF</span></div>
+            <div class="note-card-badge" style="color: #f59e0b;"><span data-lang="zh">02 · 單元拓撲與製程整合</span><span data-lang="en">02 · CELL TOPOLOGY &amp; PROCESS INTEGRATION</span></div>
             <h3 class="note-card-title">
               <span data-lang="zh">位元胞幾何與 3D 微縮邊界</span>
               <span data-lang="en">Cell Geometry &amp; 3D Scaling Limits</span>
@@ -1968,9 +1977,9 @@
                 <span data-lang="en">LD-MTP requires &gt;80% coupling ratio, requiring 60–120+ F² cells; named CHI-route HD-MTP leverages hot-carrier injection to compress cell area to 25–50 F² (excludes AEON FN/FN program).</span>
               </li>
               <li>
-                <b><span data-lang="zh">FinFET 3D 閘極微縮斷崖：</span><span data-lang="en">FinFET 3D Scaling Cliff: </span></b>
-                <span data-lang="zh">單層多晶矽浮閘 MTP 受限於平面擴散區耦合電容與 3D 鰭狀閘極幾何衝突，其製程微縮止於 28nm/22nm 平面節點，無法延伸至 FinFET。此斷崖適用 LD-MTP／HD-MTP 浮閘葉，<strong>不適用</strong> NSCore TwinBit™ Gen-2：原廠公開為 Pch Schottky 單元、0 額外光罩、40–22 nm 及 beyond（<a href="https://www.nscore.com/products/twinbit-gen2/" target="_blank" rel="noopener noreferrer">TwinBit Gen-2</a>），不得把 Schottky 熱載子路徑回填成單層浮閘。</span>
-                <span data-lang="en">Single-poly floating-gate MTP scaling stops at 28nm/22nm planar nodes due to 3D FinFET coupling-capacitor topology barriers. That cliff applies to the LD-MTP / HD-MTP FG leaves, <strong>not</strong> to NSCore TwinBit™ Gen-2: the vendor page is a Pch Schottky cell, 0 extra masks, 40–22 nm and beyond (<a href="https://www.nscore.com/products/twinbit-gen2/" target="_blank" rel="noopener noreferrer">TwinBit Gen-2</a>). Do not back-fill Schottky hot-carrier physics onto single-poly FG.</span>
+                <b><span data-lang="zh">FinFET 整合需個別查證：</span><span data-lang="en">Verify FinFET integration individually: </span></b>
+                <span data-lang="zh">平面單層浮閘的單元與高壓周邊，不能只靠節點名稱就假定可移植至 FinFET；須核對具名 PDK、耦合結構、供電及熱預算，不以 28／22 nm 作通用截止線。此類浮閘討論<strong>不適用</strong> NSCore TwinBit™ Gen-2：原廠公開為 Pch Schottky 單元、0 額外光罩、40–22 nm 及 beyond（<a href="https://www.nscore.com/products/twinbit-gen2/" target="_blank" rel="noopener noreferrer">TwinBit Gen-2</a>），不得把 Schottky 熱載子路徑回填成單層浮閘。</span>
+                <span data-lang="en">Do not assume a planar single-poly floating-gate cell and its high-voltage peripherals port to FinFET from a node name alone. Verify the named PDK, coupling structure, supply and thermal budget; 28/22 nm is not a universal cutoff. Floating-gate reasoning does <strong>not</strong> apply to NSCore TwinBit™ Gen-2: the vendor identifies a Pch Schottky cell, 0 extra masks, 40–22 nm and beyond (<a href="https://www.nscore.com/products/twinbit-gen2/" target="_blank" rel="noopener noreferrer">TwinBit Gen-2</a>). Do not back-fill Schottky hot-carrier physics onto single-poly FG.</span>
               </li>
               <li>
                 <b><span data-lang="zh">先進節點 0-Mask 延伸：</span><span data-lang="en">Advanced Node Extension: </span></b>
@@ -2060,6 +2069,53 @@
         </div>
       </div>
     </section>
+
+<!-- NAMED-COMPARISON:START -->
+    <section id="named-implementations" class="lens-panel named-comparison" aria-labelledby="named-comparison-title">
+      <div class="hub-sec-header">
+        <div class="hub-sec-badge"><span data-lang="en">01B · SOURCE-BOUND CASES</span><span data-lang="zh">01B · 可追溯具名案例</span></div>
+        <h2 id="named-comparison-title"><span data-lang="en">Named cases · conditions differ, no ranking</span><span data-lang="zh">具名案例・條件不同，不作排名</span></h2>
+      </div>
+      <p class="named-lead"><span data-lang="en">Two embedded MCU implementations, three documented metrics. Different capacities, interfaces, temperature definitions and test conditions: no ranking or cross-device speed ratio.</span><span data-lang="zh">兩個嵌入式 MCU 實作、三項有來源的指標。容量、介面、溫度定義與測試條件不同，不作排名或跨元件速度倍數換算。</span></p>
+      <p class="named-evidence-kind"><span data-lang="en">Manufacturer datasheets · not independent measurements. Each metric inherits its device conditions below; row-specific conditions take precedence.</span><span data-lang="zh">原廠規格書・非獨立實測。各指標連同下方元件條件解讀，以該列特定條件為準。</span></p>
+      <div class="named-case-grid"><details id="named-case-stm32u575" class="named-case" data-named-case="stm32u575"><summary><span class="named-case-name">ST STM32U575xx</span><span class="named-case-kind">Embedded Flash</span><span class="named-case-action"><span data-lang="en">Conditions and unknowns</span><span data-lang="zh">條件與未知項</span></span></summary><div class="named-case-body"><p><span data-lang="en">2 MB configuration; ordering suffix not selected.</span><span data-lang="zh">2 MB 組態；未選定訂購後綴。</span></p><dl><div><dt><span data-lang="en">Process node</span><span data-lang="zh">製程節點</span></dt><dd><strong class="named-unknown"><span data-lang="en">Unknown</span><span data-lang="zh">未知</span></strong> · <span data-lang="en">Not stated in this datasheet.</span><span data-lang="zh">此規格書未載明。</span></dd></div>
+<div><dt><span data-lang="en">Macro / silicon revision</span><span data-lang="zh">巨集／晶片修訂版</span></dt><dd><strong class="named-unknown"><span data-lang="en">Unknown</span><span data-lang="zh">未知</span></strong> · <span data-lang="en">Macro / silicon revision not identified by these tables.</span><span data-lang="zh">表格未指定巨集／晶片修訂版。</span></dd></div>
+<div><dt><span data-lang="en">Capacity</span><span data-lang="zh">容量</span></dt><dd><span data-lang="en">2 MB; two 1 MB banks.</span><span data-lang="zh">2 MB；兩個 1 MB 記憶庫。</span> <a class="named-source-link" href="https://www.st.com/resource/en/datasheet/stm32u575ai.pdf#page=24" target="_blank" rel="noopener noreferrer">DS13737 Rev 10 · §3.4 · p. 24</a></dd></div>
+<div><dt><span data-lang="en">Interface / granularity</span><span data-lang="zh">介面／粒度</span></dt><dd><span data-lang="en">Internal Flash controller; 128-bit program, 8 KB erase page.</span><span data-lang="zh">內部 Flash 控制器；128-bit 編程、8 KB 抹除頁。</span> <a class="named-source-link" href="https://www.st.com/resource/en/datasheet/stm32u575ai.pdf#page=223" target="_blank" rel="noopener noreferrer">DS13737 Rev 10 · Table 86, pp. 223–224 · p. 223</a></dd></div>
+<div><dt><span data-lang="en">Device supply</span><span data-lang="zh">元件供電</span></dt><dd><span data-lang="en">VDD 1.71–3.6 V with IO_VDD_HSLV = 0; not cell programming voltage.</span><span data-lang="zh">IO_VDD_HSLV = 0 時 VDD 1.71–3.6 V；不是單元編程電壓。</span> <a class="named-source-link" href="https://www.st.com/resource/en/datasheet/stm32u575ai.pdf#page=156" target="_blank" rel="noopener noreferrer">DS13737 Rev 10 · Table 32 · p. 156</a></dd></div>
+<div><dt><span data-lang="en">Temperature</span><span data-lang="zh">溫度</span></dt><dd><span data-lang="en">TA conditions in each row; select the matching device temperature grade.</span><span data-lang="zh">各列使用 TA 條件；須另選符合條件的元件溫度等級。</span> <a class="named-source-link" href="https://www.st.com/resource/en/datasheet/stm32u575ai.pdf#page=224" target="_blank" rel="noopener noreferrer">DS13737 Rev 10 · Table 87 · p. 224</a></dd></div>
+<div><dt><span data-lang="en">Test population</span><span data-lang="zh">測試樣本</span></dt><dd><strong class="named-unknown"><span data-lang="en">Unknown</span><span data-lang="zh">未知</span></strong> · <span data-lang="en">Sample count / lot distribution not stated in these tables.</span><span data-lang="zh">表格未載明樣本數／批次分布。</span></dd></div></dl></div></details>
+<details id="named-case-msp430fr5994" class="named-case" data-named-case="msp430fr5994"><summary><span class="named-case-name">TI MSP430FR5994</span><span class="named-case-kind">Embedded FRAM</span><span class="named-case-action"><span data-lang="en">Conditions and unknowns</span><span data-lang="zh">條件與未知項</span></span></summary><div class="named-case-body"><p><span data-lang="en">256 KB main memory; unprotected FRAM accesses.</span><span data-lang="zh">256 KB 主記憶體；未受保護的 FRAM 存取。</span></p><dl><div><dt><span data-lang="en">Process node</span><span data-lang="zh">製程節點</span></dt><dd><strong class="named-unknown"><span data-lang="en">Unknown</span><span data-lang="zh">未知</span></strong> · <span data-lang="en">Not stated in this datasheet.</span><span data-lang="zh">此規格書未載明。</span></dd></div>
+<div><dt><span data-lang="en">Macro / silicon revision</span><span data-lang="zh">巨集／晶片修訂版</span></dt><dd><strong class="named-unknown"><span data-lang="en">Unknown</span><span data-lang="zh">未知</span></strong> · <span data-lang="en">Macro / silicon revision not identified by this table.</span><span data-lang="zh">表格未指定巨集／晶片修訂版。</span></dd></div>
+<div><dt><span data-lang="en">Capacity</span><span data-lang="zh">容量</span></dt><dd><span data-lang="en">256 KB main + 0.5 KB information FRAM.</span><span data-lang="zh">256 KB 主區＋0.5 KB 資訊區 FRAM。</span> <a class="named-source-link" href="https://www.ti.com/lit/ds/symlink/msp430fr5994.pdf#page=7" target="_blank" rel="noopener noreferrer">SLASE54D, Revision D · Table 6-1 · p. 7</a></dd></div>
+<div><dt><span data-lang="en">Interface / granularity</span><span data-lang="zh">介面／粒度</span></dt><dd><span data-lang="en">Memory-mapped SRAM-style accesses; no erase sequence.</span><span data-lang="zh">記憶體映射、類 SRAM 存取；不需抹除序列。</span> <a class="named-source-link" href="https://www.ti.com/lit/ds/symlink/msp430fr5994.pdf#page=64" target="_blank" rel="noopener noreferrer">SLASE54D, Revision D · §8.12.12, note 2 · p. 64</a></dd></div>
+<div><dt><span data-lang="en">Device supply</span><span data-lang="zh">元件供電</span></dt><dd><span data-lang="en">VCC 1.8–3.6 V; SVS limits the minimum. Not cell programming voltage.</span><span data-lang="zh">VCC 1.8–3.6 V；最低值受 SVS 限制。不是單元編程電壓。</span> <a class="named-source-link" href="https://www.ti.com/lit/ds/symlink/msp430fr5994.pdf#page=30" target="_blank" rel="noopener noreferrer">SLASE54D, Revision D · §8.3, note 6 · p. 30</a></dd></div>
+<div><dt><span data-lang="en">Temperature</span><span data-lang="zh">溫度</span></dt><dd><span data-lang="en">TA and TJ −40 to 85 °C; retention specifically uses TJ.</span><span data-lang="zh">TA 與 TJ −40 至 85 °C；保持時間明確採 TJ。</span> <a class="named-source-link" href="https://www.ti.com/lit/ds/symlink/msp430fr5994.pdf#page=30" target="_blank" rel="noopener noreferrer">SLASE54D, Revision D · §8.3 · p. 30</a> <a class="named-source-link" href="https://www.ti.com/lit/ds/symlink/msp430fr5994.pdf#page=64" target="_blank" rel="noopener noreferrer">SLASE54D, Revision D · §8.12.12.1 · p. 64</a></dd></div>
+<div><dt><span data-lang="en">Test population</span><span data-lang="zh">測試樣本</span></dt><dd><strong class="named-unknown"><span data-lang="en">Unknown</span><span data-lang="zh">未知</span></strong> · <span data-lang="en">Sample count / production test coverage not stated in this table.</span><span data-lang="zh">表格未載明樣本數／量產測試涵蓋率。</span></dd></div></dl></div></details></div>
+      <p id="named-table-help" class="named-table-help"><span data-lang="en">On narrow screens, scroll the table horizontally. Keyboard: focus the table region and use the arrow keys.</span><span data-lang="zh">窄螢幕可橫向捲動表格。鍵盤操作：將焦點移至表格區域後使用方向鍵。</span></p>
+      <div class="named-table-scroll" role="region" tabindex="0" aria-labelledby="named-comparison-title" aria-describedby="named-table-help">
+        <table class="named-metric-table">
+          <caption><span data-lang="en">Three metrics with their original scope and source locators</span><span data-lang="zh">三項指標、原始條件與來源定位</span></caption>
+          <thead><tr><th scope="col"><span data-lang="en">Metric</span><span data-lang="zh">指標</span></th><th scope="col">ST STM32U575xx<small>Embedded Flash</small></th><th scope="col">TI MSP430FR5994<small>Embedded FRAM</small></th></tr></thead>
+          <tbody><tr><th scope="row"><span data-lang="en">Endurance</span><span data-lang="zh">耐久次數</span></th><td data-case="stm32u575" data-metric="endurance"><strong class="named-metric-value"><span data-lang="en">10,000 cycles · minimum</span><span data-lang="zh">10,000 次循環 · 最小值</span></strong><p><span data-lang="en">Whole bank; TA −40 to 125 °C.</span><span data-lang="zh">整個記憶庫；TA −40 至 125 °C。</span></p><p class="named-metric-basis"><span data-lang="en">Characterization; not production-tested. The separate 100k specification is limited to 256 KB per bank.</span><span data-lang="zh">特性評估值，非量產逐顆測試。另列的 100k 規格限每個記憶庫 256 KB。</span></p><a class="named-source-link" href="https://www.st.com/resource/en/datasheet/stm32u575ai.pdf#page=224" target="_blank" rel="noopener noreferrer">DS13737 Rev 10 · Table 87, note 1 · p. 224</a></td><td data-case="msp430fr5994" data-metric="endurance"><strong class="named-metric-value"><span data-lang="en">10¹⁵ read/write cycles · minimum</span><span data-lang="zh">10¹⁵ 次讀寫循環 · 最小值</span></strong><p><span data-lang="en">Recommended supply and operating temperature ranges.</span><span data-lang="zh">建議供電與工作溫度範圍。</span></p><p class="named-metric-basis"><span data-lang="en">Datasheet minimum; read/write cycles are not Flash program/erase cycles.</span><span data-lang="zh">規格書最小值；讀寫循環不等於 Flash 編程／抹除循環。</span></p><a class="named-source-link" href="https://www.ti.com/lit/ds/symlink/msp430fr5994.pdf#page=64" target="_blank" rel="noopener noreferrer">SLASE54D, Revision D · §8.12.12.1 · p. 64</a></td></tr>
+<tr><th scope="row"><span data-lang="en">Data retention</span><span data-lang="zh">資料保持</span></th><td data-case="stm32u575" data-metric="retention"><strong class="named-metric-value"><span data-lang="en">15 years · minimum</span><span data-lang="zh">15 年 · 最小值</span></strong><p><span data-lang="en">TA = 85 °C after 10,000 cycles, whole bank; cycling across the temperature range.</span><span data-lang="zh">整個記憶庫於 10,000 次循環後、TA = 85 °C；循環涵蓋整個溫度範圍。</span></p><p class="named-metric-basis"><span data-lang="en">Characterization; not production-tested.</span><span data-lang="zh">特性評估值，非量產逐顆測試。</span></p><a class="named-source-link" href="https://www.st.com/resource/en/datasheet/stm32u575ai.pdf#page=224" target="_blank" rel="noopener noreferrer">DS13737 Rev 10 · Table 87, notes 1–2 · p. 224</a></td><td data-case="msp430fr5994" data-metric="retention"><strong class="named-metric-value"><span data-lang="en">10 years · minimum</span><span data-lang="zh">10 年 · 最小值</span></strong><p><span data-lang="en">TJ = 85 °C; prior cycle history not stated in the retention row.</span><span data-lang="zh">TJ = 85 °C；保持時間列未載明先前循環次數。</span></p><p class="named-metric-basis"><span data-lang="en">Datasheet minimum; do not equate TJ with ST&#39;s TA condition.</span><span data-lang="zh">規格書最小值；不可把 TJ 等同 ST 的 TA 條件。</span></p><a class="named-source-link" href="https://www.ti.com/lit/ds/symlink/msp430fr5994.pdf#page=64" target="_blank" rel="noopener noreferrer">SLASE54D, Revision D · §8.12.12.1 · p. 64</a></td></tr>
+<tr><th scope="row"><span data-lang="en">Write / program time</span><span data-lang="zh">寫入／編程時間</span></th><td data-case="stm32u575" data-metric="program-time"><strong class="named-metric-value"><span data-lang="en">118 µs / 128 bits · typ and max</span><span data-lang="zh">118 µs／128 bits · 典型與最大值</span></strong><p><span data-lang="en">Normal mode; typ at TA = 25 °C, VDD = VDDA = 3 V. Excludes erase.</span><span data-lang="zh">正常模式；典型條件 TA = 25 °C、VDD = VDDA = 3 V。不含抹除。</span></p><p class="named-metric-basis"><span data-lang="en">Design-specified; max characterized after cycling. Not production-tested.</span><span data-lang="zh">由設計訂定；最大值經循環後特性評估。非量產逐顆測試。</span></p><a class="named-source-link" href="https://www.st.com/resource/en/datasheet/stm32u575ai.pdf#page=223" target="_blank" rel="noopener noreferrer">DS13737 Rev 10 · Table 86, pp. 223–224, notes 1–2 · p. 223</a> <a class="named-source-link" href="https://www.st.com/resource/en/datasheet/stm32u575ai.pdf#page=150" target="_blank" rel="noopener noreferrer">DS13737 Rev 10 · §5.1.2 · p. 150</a></td><td data-case="msp430fr5994" data-metric="program-time"><strong class="named-metric-value"><span data-lang="en">tWRITE = tREAD = 1 / fSYSTEM</span><span data-lang="zh">tWRITE = tREAD = 1／fSYSTEM</span></strong><p><span data-lang="en">NWAITSx = 0, fSYSTEM ≤ 8 MHz; word-access relation, not an application throughput measurement.</span><span data-lang="zh">NWAITSx = 0、fSYSTEM ≤ 8 MHz；字組存取關係式，非應用吞吐量量測。</span></p><p class="named-metric-basis"><span data-lang="en">Vendor timing relation, not a typ/max benchmark. Recommended supply and temperature ranges.</span><span data-lang="zh">原廠時間關係式，非典型／最大效能基準。採建議供電與溫度範圍。</span></p><a class="named-source-link" href="https://www.ti.com/lit/ds/symlink/msp430fr5994.pdf#page=64" target="_blank" rel="noopener noreferrer">SLASE54D, Revision D · §8.12.12.1, notes 3–4 · p. 64</a> <a class="named-source-link" href="https://www.ti.com/lit/ds/symlink/msp430fr5994.pdf#page=30" target="_blank" rel="noopener noreferrer">SLASE54D, Revision D · §8.3 · p. 30</a> <a class="named-source-link" href="https://www.ti.com/lit/ds/symlink/msp430fr5994.pdf#page=1" target="_blank" rel="noopener noreferrer">SLASE54D, Revision D · Features: word-write timing · p. 1</a></td></tr></tbody>
+        </table>
+      </div>
+      <div class="named-reading-note">
+        <h3><span data-lang="en">Before a design decision</span><span data-lang="zh">設計決策前仍需確認</span></h3>
+        <p><span data-lang="en">Ask for the exact ordering code / macro revision, mission temperature and cycle history, supply margins, ECC and power-loss behavior. TA is ambient temperature; TJ is junction temperature. These cases do not establish area, cost, security, qualification or superiority of a memory family.</span><span data-lang="zh">確認完整訂購代碼／巨集版本、任務溫度與循環歷史、供電裕量、ECC 及掉電行為。TA 為環境溫度，TJ 為接面溫度。這些案例不證明記憶體家族的面積、成本、安全、資格驗證或優勢。</span></p>
+        <a href="whitepaper/index.html"><span data-lang="en">Continue to the decision whitepaper</span><span data-lang="zh">繼續閱讀決策白皮書</span></a>
+      </div>
+      <div class="named-sources" id="named-comparison-sources">
+        <h3><span data-lang="en">Sources and reuse</span><span data-lang="zh">來源與引用</span></h3>
+        <ul><li><a href="https://www.st.com/resource/en/datasheet/stm32u575ai.pdf" target="_blank" rel="noopener noreferrer">STMicroelectronics · STM32U575xx datasheet</a><span>DS13737 Rev 10 · <span data-lang="en">Published / revised</span><span data-lang="zh">發布／修訂</span> 2024-07</span></li>
+<li><a href="https://www.ti.com/lit/ds/symlink/msp430fr5994.pdf" target="_blank" rel="noopener noreferrer">Texas Instruments · MSP430FR599x, MSP430FR596x datasheet</a><span>SLASE54D, Revision D · <span data-lang="en">Published / revised</span><span data-lang="zh">發布／修訂</span> 2021-01</span></li></ul>
+        <p><span data-lang="en">Reviewed</span><span data-lang="zh">查核日期</span> <time datetime="2026-10-03">2026-10-03</time>. <span data-lang="en">Factual summaries with source links; no source PDF, figure or table is republished. Source documents and marks remain with their owners; public access is not a redistribution license. Verify the cited revision and current errata before use.</span><span data-lang="zh">本區僅整理事實並連結來源，未重製原始 PDF、圖片或表格。原文件與商標權利屬各權利人；公開可讀不等於授權散布。使用前請核對引用版本及最新勘誤。</span></p>
+        <a class="named-download" href="data/named-nvm-comparison.json" download><span data-lang="en">Download this comparison with conditions and sources (JSON)</span><span data-lang="zh">下載含條件與來源的本區對照資料（JSON）</span></a>
+      </div>
+    </section>
+<!-- NAMED-COMPARISON:END -->
 
     <!-- SECTION 2: 5-AXIS ARCHITECTURAL RADAR SELECTOR LAB (HIGH-TECH INSTRUMENT WORKBENCH) -->
     <section id="sec-selector" class="lens-panel selector-workbench-frame selector-dashboard" aria-labelledby="selector-sec-title">
@@ -2555,11 +2611,11 @@
                   <span class="node-pill">40nm / 28nm eFlash &amp; 28eHV</span>
                   <span class="otp-split-flag"><span data-lang="zh">0-mask OTP 須分流機制</span><span data-lang="en">0-mask OTP: split mechanisms</span></span>
                 </span>
-                <span class="status-pill status-cliff"><span data-lang="zh">微縮斷崖</span><span data-lang="en">Scaling Cliff</span></span>
+                <span class="status-pill status-cliff"><span data-lang="zh">依製程核對</span><span data-lang="en">Process-specific check</span></span>
               </div>
               <div>
-                <span data-lang="zh">40LP/ULP 與 28HPC+ 為車用 eFlash 長期主力，但 28nm 面臨 SST 級 8~12 道額外光罩與 &gt;1000°C 熱預算破壞 HKMG 之微縮斷崖；SONOS G1／G2 光罩階梯較低，須逐家 PDK 核對。28eHV 普遍以 0-mask AntiFuse OTP 進行 OLED Gamma/De-Mura 校準；同節點仍須分流未公開擊穿位點的 ZA 類與 I-fuse，不得預設單一機制。</span>
-                <span data-lang="en">40LP/ULP &amp; 28HPC+ are mature eFlash bastions; scaling beyond 28nm hits an SST-class 8-12 mask adder cliff and HKMG thermal destruction. SONOS G1/G2 sit on a lower mask ladder and must be checked per PDK. 28eHV adopts 0-mask AntiFuse OTP for OLED Gamma/De-Mura trimming; still split unpublished-site ZA-class and I-fuse — do not assume one mechanism.</span>
+                <span data-lang="zh">此處為製程平台導覽，不是巨集資格證明。eFlash 的光罩數、寫入／抹除電壓及熱預算需查該版 PDK；不得把另一家晶圓廠的 SST 光罩數或通用高溫假設套入 TSMC 平台。顯示驅動 OTP 也須分流閘氧 AntiFuse、擊穿位點未公開的 ZA 類與 I-fuse。<a href="#node-integration-scope">28 nm 範圍說明</a>。</span>
+                <span data-lang="en">This is a process-platform guide, not macro qualification evidence. Check eFlash masks, program/erase voltage and thermal budget against the specific PDK revision; do not transfer another foundry's SST mask count or a generic thermal assumption onto TSMC. Display-driver OTP also requires separate gate-oxide AntiFuse, unpublished-site ZA-class and I-fuse routes. <a href="#node-integration-scope">28 nm scope</a>.</span>
               </div>
             </div>
 
@@ -2659,11 +2715,11 @@
             <div class="foundry-node-tile" id="foundry-gf-22fdx">
               <div class="node-header-row">
                 <span class="node-pill">22FDX / FDX+ (FD-SOI)</span>
-                <span class="status-pill status-auto"><span data-lang="zh">車規 150°C 就緒</span><span data-lang="en">AutoPro150 Ready</span></span>
+                <span class="status-pill status-auto"><span data-lang="zh">巨集資格待核對</span><span data-lang="en">Check macro qualification</span></span>
               </div>
               <div>
-                <span data-lang="zh">2020 年業界首創生產就緒 eMRAM；2026 年 FDX+ AutoPro150 達成 Grade 1 ready (150°C、50萬次、&lt;10ns讀取)；22FDX+ OxRAM (ReRAM) 原型於 2025 釋出，目標 2026 量產。Attopsemi I-fuse™ OTP 於 2021 年公開通過 22FDX 資格（<a href="https://www.attopsemi.com/attopsemis-i-fuse-otp-passed-3-lots-of-hts-and-htol-qualification-for-1000hr-on-globalfoundries-22fdx-fd-soi-technology/" target="_blank" rel="noopener noreferrer">Attopsemi / GF 公開</a>），屬熱輔助電遷移 OTP，不是 22FDX eMRAM。</span>
-                <span data-lang="en">Industry-first production-ready eMRAM in 2020; 2026 FDX+ AutoPro150 delivers Grade 1 (150°C, 500K cycles, &lt;10ns read); 22FDX+ OxRAM (ReRAM) prototyping available with 2026 volume target. Attopsemi I-fuse™ OTP was publicly qualified on 22FDX in 2021 (<a href="https://www.attopsemi.com/attopsemis-i-fuse-otp-passed-3-lots-of-hts-and-htol-qualification-for-1000hr-on-globalfoundries-22fdx-fd-soi-technology/" target="_blank" rel="noopener noreferrer">Attopsemi / GF public</a>) as heat-assisted-EM OTP, not 22FDX eMRAM.</span>
+                <span data-lang="zh">22FDX／FDX+ 的記憶體選項，須以具名巨集與資格報告核對。平台名稱或路線圖不足以證明特定 AEC-Q100 等級、150°C 的 TA／TJ 定義、耐寫次數或讀取延遲；此處不把原型目標列為量產資格。Attopsemi 於 2019 年公告 I-fuse™ OTP 在 22FDX 的 HTS／HTOL 資格結果（<a href="https://www.attopsemi.com/attopsemis-i-fuse-otp-passed-3-lots-of-hts-and-htol-qualification-for-1000hr-on-globalfoundries-22fdx-fd-soi-technology/" target="_blank" rel="noopener noreferrer">原廠公告</a>）；不能轉作 22FDX eMRAM 的資格證據。</span>
+                <span data-lang="en">Check 22FDX / FDX+ memory options against a named macro and qualification report. A platform name or roadmap does not establish an AEC-Q100 grade, whether 150°C means TA or TJ, endurance, or read latency; prototype targets are not production qualification. Attopsemi reported I-fuse™ OTP HTS / HTOL qualification on 22FDX in 2019 (<a href="https://www.attopsemi.com/attopsemis-i-fuse-otp-passed-3-lots-of-hts-and-htol-qualification-for-1000hr-on-globalfoundries-22fdx-fd-soi-technology/" target="_blank" rel="noopener noreferrer">vendor announcement</a>); that is not qualification evidence for 22FDX eMRAM.</span>
               </div>
             </div>
 
@@ -2838,7 +2894,7 @@
               <b><span data-lang="zh">[中游封裝]</span><span data-lang="en">[Packaging]</span></b> <span data-lang="zh">KGD (Known Good Die) 裸晶堆疊、WLCSP/USON 超小型封裝，透過 Octal SPI / xSPI 介面提供高達 400MB/s 讀取頻寬與就地執行 (XiP)。</span><span data-lang="en">Known Good Die (KGD), WLCSP/USON packaging, and Octal SPI / xSPI yielding up to 400MB/s bandwidth with execute-in-place (XiP).</span>
             </div>
             <div class="vc-layer">
-              <b><span data-lang="zh">[下游系統]</span><span data-lang="en">[Systems]</span></b> <span data-lang="zh">解決先進節點 (N7/N5/N3 FinFET/GAA) 無法整合嵌入式 Flash 的微縮斷崖，於 ADAS 域控制器、智慧座艙與自駕晶片實現近距極速冷開機 (Instant-On Boot)。</span><span data-lang="en">Bypasses the advanced FinFET/GAA eFlash scaling cliff, enabling near-die Instant-On boot for ADAS domain controllers and smart cockpits.</span>
+              <b><span data-lang="zh">[下游系統]</span><span data-lang="en">[Systems]</span></b> <span data-lang="zh">當具名先進邏輯製程沒有符合條件的嵌入式 Flash 選項時，可評估外部或近晶粒 NVM。ADAS、座艙及其他系統的冷開機延遲仍取決於容量、介面、控制器與驗證流程，不能只由節點名稱保證。</span><span data-lang="en">When a named advanced logic process lacks a suitable embedded Flash option, evaluate external or near-die NVM. Cold-boot latency for ADAS, cockpit and other systems still depends on capacity, interface, controller and validation flow; the node name alone is not a guarantee.</span>
             </div>
           </div>
 
@@ -3866,16 +3922,16 @@
           <!-- Node Decision Core -->
           <rect x="350" y="52" width="108" height="42" rx="4" fill="#1e1608" stroke="#f59e0b" stroke-width="1.2"/>
           <text x="404" y="66" text-anchor="middle" fill="#fbbf24" font-size="7.8" font-weight="700"><tspan data-lang="en">FOUNDRY PDK</tspan><tspan data-lang="zh">晶圓代工 PDK</tspan></text>
-          <text x="404" y="77" text-anchor="middle" fill="#e2e8f0" font-size="7" font-weight="500">Node &gt; 28nm: Planar</text>
+          <text x="404" y="77" text-anchor="middle" fill="#e2e8f0" font-size="7" font-weight="500"><tspan data-lang="en">Named node / device stack</tspan><tspan data-lang="zh">具名節點／元件堆疊</tspan></text>
           <text x="404" y="87" text-anchor="middle" fill="#fde68a" font-size="6.5" font-weight="500">SST eFlash / Single-Poly</text>
 
           <path d="M 404 94 L 404 112" fill="none" stroke="#ef4444" stroke-width="1.3"/>
           <polygon points="401,110 404,115 407,110" fill="#ef4444"/>
 
-          <!-- Scaling Cliff Node -->
+          <!-- Process integration checkpoint -->
           <rect x="350" y="115" width="108" height="34" rx="4" fill="rgba(38, 11, 14, 0.7)" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3 2"/>
-          <text x="404" y="128" text-anchor="middle" fill="#fca5a5" font-size="7.5" font-weight="700">NODE &le; 28nm CLIFF</text>
-          <text x="404" y="139" text-anchor="middle" fill="#f87171" font-size="6.5" font-weight="600"><tspan data-lang="en">Planar eFlash Blocked</tspan><tspan data-lang="zh">平面 eFlash 受限</tspan></text>
+          <text x="404" y="128" text-anchor="middle" fill="#fca5a5" font-size="7.5" font-weight="700"><tspan data-lang="en">28 nm: CHECK PDK</tspan><tspan data-lang="zh">28 nm：核對 PDK</tspan></text>
+          <text x="404" y="139" text-anchor="middle" fill="#f87171" font-size="6.5" font-weight="600"><tspan data-lang="en">No universal cutoff</tspan><tspan data-lang="zh">非普遍截止線</tspan></text>
 
           <!-- Scaling Breakthrough Options -->
           <path d="M 458 126 L 478 126 L 478 72 L 488 72" fill="none" stroke="#10b981" stroke-width="1.3"/>
@@ -3898,7 +3954,7 @@
 
           <!-- Gate 2 Bottom Footer -->
           <rect x="350" y="194" width="280" height="16" rx="3" fill="#03131e" stroke="rgba(245, 158, 11, 0.25)" stroke-width="1"/>
-          <text x="490" y="205" text-anchor="middle" fill="#fcd34d" font-size="7" font-weight="600" letter-spacing="0.03em">CRITERION: 0-Mask Compatibility · &le;450&deg;C Thermal Safe</text>
+          <text x="490" y="205" text-anchor="middle" fill="#fcd34d" font-size="7" font-weight="600" letter-spacing="0.03em"><tspan data-lang="en">CRITERION: Named stack · supply · thermal budget</tspan><tspan data-lang="zh">準則：具名堆疊 · 供電 · 熱預算</tspan></text>
 
           <!-- Inter-Stage Wire: Gate 2 -> Gate 3 -->
           <path d="M 640 115 L 666 115" fill="none" stroke="#006f70" stroke-width="1.8" stroke-dasharray="3 2"/>
@@ -3979,12 +4035,12 @@
             <span data-lang="en">Process Node &amp; Thermal Budget</span>
           </h3>
           <p style="color:#284853; font-size:0.9rem; line-height:1.65; margin:0 0 1.25rem;">
-            <span data-lang="zh">檢查晶圓代工廠 PDK。若節點小於 28nm，平面 SST／單層浮閘 MTP 通常不可行；仍須核對 0-mask 例外：TwinBit Gen-2 公開至 22 nm、I-fuse 公開資格含 GF 22FDX、ZA 公開至 sub-10 nm。eFlash 不要一律 8–12 道光罩：G1 為 +2–3、G2 為 +4（開發中）。其餘再評估 3~5 道 BEOL 導入 MRAM。</span>
-            <span data-lang="en">Verify foundry PDK roadmap. Beyond 28nm, planar SST and single-poly FG MTP are usually out; still check 0-mask exceptions: TwinBit Gen-2 public to 22 nm, I-fuse public qualification includes GF 22FDX, ZA public to sub-10 nm. Do not treat every eFlash as 8–12 masks: G1 is +2–3 and G2 is +4 (in development). Then decide between 3–5 BEOL adders (MRAM) and remaining 0-mask logic NVM.</span>
+            <span data-lang="zh">從晶圓代工廠目前的 PDK 與授權巨集清單開始，逐項核對單元堆疊、光罩、供電、熱預算及資格報告。28 nm 不是通用排除線；平面浮閘、SONOS、Schottky、OTP 與 BEOL 記憶體也不能互套條件。<a href="#node-integration-scope">具名製程範例</a>；<a href="#named-implementations">具名元件的指標條件</a>。</span>
+            <span data-lang="en">Start with the foundry's current PDK and licensed macro list. Check device stack, masks, supply, thermal budget and qualification reports individually. 28 nm is not a universal exclusion line; do not transfer conditions across planar floating gate, SONOS, Schottky, OTP and BEOL memory. <a href="#node-integration-scope">Named process example</a>; <a href="#named-implementations">conditions for named devices</a>.</span>
           </p>
           <div style="font:600 11px 'IBM Plex Mono', monospace; color:#805828; background:#f0ece5; padding:10px 14px; border-radius:6px; border:1px solid rgba(128, 88, 40, 0.25);">
-            <span data-lang="zh">簽核準則：0 光罩邏輯相容性 · ≤450°C 熱預算安全</span>
-            <span data-lang="en">CRITERION: 0-Mask Logic Compatibility · &le;450&deg;C Safe</span>
+            <span data-lang="zh">簽核準則：具名巨集的元件堆疊 · 供電 · 熱預算</span>
+            <span data-lang="en">CRITERION: Named macro device stack · supply · thermal budget</span>
           </div>
         </div>
 
@@ -4522,8 +4578,8 @@
           vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。在先進節點（22nm/12nm）上完美承接 <b>${endLabelsZh[endIdx]}</b> 的高覆寫次數與工作暫存需求，但晶片架構須預留 3–5 道 BEOL 額外光罩預算，並評估 260°C 迴焊磁熱裕度。`;
           vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). At advanced nodes (22nm/12nm), it satisfies <b>${endLabelsEn[endIdx]}</b> high-endurance RAM/OTA workloads, requiring 3–5 BEOL mask adders and 260°C package-reflow thermal-magnetic design margins.`;
         } else if (winner.id === "eflash") {
-          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。在成熟節點（≥40nm）為微控制器韌體代碼提供原生區塊抹除支援。SST 與 SONOS 光罩階梯不同：SST 例 +4／+10，Floadia G1 +2–3、G2 +4（開發中）。小於 28nm 的平面 SST／浮閘 eFlash 通常不可行，不得把 SONOS G2 的 TCAD 討論當成 FinFET 量產。`;
-          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). Well-suited for mature nodes (≥40nm) needing block-erase firmware. SST and SONOS mask ladders differ: SST examples +4/+10, Floadia G1 +2–3, G2 +4 (in development). Planar SST / FG eFlash is usually out below 28nm; do not treat G2 TCAD notes as FinFET production.`;
+          vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。此為區塊抹除韌體需求的家族示範分數，非具名產品能力。SST 與 SONOS 光罩階梯不同；28 nm 不是普遍物理截止線。實際可用性、電壓、耐寫及資格須查具名製程／巨集，也不得把 SONOS G2 的 TCAD 討論當成 FinFET 量產。`;
+          vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). This is a family demo score for block-erase firmware needs, not a named product capability. SST and SONOS mask ladders differ; 28 nm is not a universal physical cutoff. Verify availability, voltage, endurance and qualification for the named process / macro; do not treat G2 TCAD notes as FinFET production.`;
         } else {
           vMsgZh = `目前滑桿下相對適配最高：<b>${displayName(winner)}</b>（${winner.score}%）。這是目前多維約束下的最優折衷排序，非單一技術出貨保證。`;
           vMsgEn = `Highest relative fit under current sliders: <b>${winner.name}</b> (${winner.score}%). An architectural trade-off ranking under constraints, not a standalone shipment guarantee.`;
