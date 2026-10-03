@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "561ab3a64d6f8e712ef5",
+  "version": "8e09eac22e55536a9ba2",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -147,7 +147,7 @@ self.NVMOfflineManifest = {
     "hub-story-maps.js": "eda78f2422489820243648d43f382c7ebd8dce6878eeb628b350c09529aa349c",
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
-    "index.html": "48d06362d0a78d3fbc74e7f917b5e2e0105e4fcce77107fd83485418d4f4ed30",
+    "index.html": "acf23774ecda150cbb9fc6e10adc6f71a6e14c02b70e60ef47e421378b64b8b5",
     "iot-mcu-envm.html": "fec70aaa4ec985e8b89fb00e477558a09f88349476baddfb44e55784fccc273d",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
@@ -158,7 +158,7 @@ self.NVMOfflineManifest = {
     "memory-evidence.html": "806c8aeb2bea63fff87d8fc9140e7cfbb6b0c324d28c50c1df71a5f41b900813",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "d66ed5fa0731935a76675024e602369708c143307bc56e231a840e6311f6aadc",
+    "memory-physics.html": "65dd5ca4fd343d330bde6cc5847b1cd1292a2bf90d5a4a9cf1db29718f699b59",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
     "nvm-bitcell-figures.css": "3dbc9f99aa9101b346d33c728e875b87beb99ba8bbeaed806f572b371ee31a88",
@@ -179,7 +179,7 @@ self.NVMOfflineManifest = {
     "research.css": "fb992a4f51654340ff28b5c0d4d70bd7bcfd73ad1b6b048df5c47b7573678e49",
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "15bf50e7b268e4f3c7b87dc7e624e8ccfc065cfc97217623db354aedf61d1e0b",
-    "secure-storage.html": "a180bddb465fda4869d998c062af4e8cee1dafe128f65a516b3a0a12a475addf",
+    "secure-storage.html": "1d53f148269737046c76d9fc4c448edc3a45c3b20226ede87d91df37cc48f257",
     "security-assurance.html": "529b9ea1552e053cee5f90089ddf0409049b36197757274d38b8fe7c00592efe",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "66c847fcc1dbc26a32ecd71df181c1363f9ceed6874f1512414ddfc49a437bc2",
@@ -196,15 +196,15 @@ self.NVMOfflineManifest = {
     "sram-scenarios.js": "53dc69b856682397628c196117a20fb7e75ccbbcc414b2398b78a8eae4bb212c",
     "styles.css": "4021ef9a95a74de7bebd4ed5ba6b6c1046cf1f011ef51d83c584e4b10a3c2cd5",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
-    "technology-comparison.html": "c6654f1ef04cf577473751e2edd69eefae4ca85d47cdb070027d036ca2fc40d3",
+    "technology-comparison.html": "fd3c26e5f20eb2beae30e6a68071463b5ccb87e00738acbd7a8d148de8fd1a2c",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "80433c36dca9ba4fb9940765a7264801e347af32d22940f2ae79d0a98a49735a",
-    "tunneling-breakdown-simulator.js": "e04160af5e2d4a7dab05c22bd8e1fc6283c43eb76ce6573eba150800685b1a9c",
+    "tunneling-breakdown-simulator.js": "65dec810dbf153e78e6e0ec417c1a9079165d46e6a7ffac7a9a37a637d6089b3",
     "whitepaper/assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8",
     "whitepaper/assets/whitepaper.js": "dd319f9c68705442700bc090352b677e73fc58eb268baae7eb6956000d46ade4",
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "931f986263bbd45119b43f1c2f0a87b890b607831b5ec0490dac8f4d4f11c4ec"
   },
-  "totalBytes": 11212445
+  "totalBytes": 11221926
 };
