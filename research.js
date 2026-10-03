@@ -1,5 +1,6 @@
 let researchLanguage = window.HubLanguage ? window.HubLanguage.get() : "en";
 let activeEvidenceType = "all";
+const evidenceSearchCorpus = new WeakMap();
 
 const researchPhaseCopy = {
   off: {
@@ -93,12 +94,17 @@ function updateResearchPhase(phase) {
 function renderEvidenceCards() {
   const cards = [...document.querySelectorAll(".source-card")];
   if (!cards.length) return;
+  document.querySelectorAll("[data-evidence-count]").forEach(summary => {
+    const type = summary.dataset.evidenceCount;
+    summary.textContent = String(type === "total" ? cards.length : cards.filter(card => card.dataset.type === type).length);
+  });
   const search = document.querySelector("#evidenceSearch");
   const query = (search?.value || "").trim().toLowerCase();
   let visible = 0;
   cards.forEach(card => {
+    if (!evidenceSearchCorpus.has(card)) evidenceSearchCorpus.set(card, card.textContent.toLowerCase());
     const typeMatch = activeEvidenceType === "all" || card.dataset.type === activeEvidenceType;
-    const textMatch = card.textContent.toLowerCase().includes(query) || (card.dataset.keywords || "").toLowerCase().includes(query);
+    const textMatch = evidenceSearchCorpus.get(card).includes(query) || (card.dataset.keywords || "").toLowerCase().includes(query);
     const show = typeMatch && textMatch;
     card.hidden = !show;
     if (show) visible += 1;
@@ -107,6 +113,19 @@ function renderEvidenceCards() {
   if (count) count.textContent = String(visible).padStart(2, "0");
   const empty = document.querySelector("#evidenceEmpty");
   if (empty) empty.hidden = visible !== 0;
+  window.dispatchEvent(new CustomEvent("hub:evidence-render", { detail: { type: activeEvidenceType, query: search?.value || "", visible, total: cards.length, language: researchLanguage } }));
+}
+
+function setEvidenceFilters(next) {
+  if (next.type !== undefined) activeEvidenceType = ["all", "paper", "patent", "vendor", "case"].includes(next.type) ? next.type : "all";
+  const search = document.querySelector("#evidenceSearch");
+  if (search && next.query !== undefined) search.value = String(next.query);
+  document.querySelectorAll("#evidenceFilters button[data-type]").forEach(button => {
+    const active = button.dataset.type === activeEvidenceType;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  renderEvidenceCards();
 }
 
 function revealEvidenceAnchor() {
@@ -115,16 +134,9 @@ function revealEvidenceAnchor() {
   const target = document.getElementById(id);
   if (!target?.classList.contains("source-card")) return;
   if (target.hidden) {
-    activeEvidenceType = "all";
-    const search = document.querySelector("#evidenceSearch");
-    if (search) search.value = "";
-    document.querySelectorAll("#evidenceFilters button[data-type]").forEach(button => {
-      const active = button.dataset.type === "all";
-      button.classList.toggle("active", active);
-      button.setAttribute("aria-pressed", String(active));
-    });
-    renderEvidenceCards();
+    setEvidenceFilters({ type: "all", query: "" });
   }
+  window.dispatchEvent(new CustomEvent("hub:evidence-anchor", { detail: { id } }));
   for (let ancestor = target.parentElement; ancestor; ancestor = ancestor.parentElement) {
     if (ancestor.tagName === "DETAILS") ancestor.open = true;
   }
@@ -142,14 +154,13 @@ document.querySelector("#evidenceSearch")?.addEventListener("input", renderEvide
 document.querySelector("#evidenceFilters")?.addEventListener("click", event => {
   const button = event.target.closest("button[data-type]");
   if (!button) return;
-  activeEvidenceType = button.dataset.type;
-  document.querySelectorAll("#evidenceFilters button").forEach(item => {
-    const active = item === button;
-    item.classList.toggle("active", active);
-    item.setAttribute("aria-pressed", active ? "true" : "false");
-  });
-  renderEvidenceCards();
+  setEvidenceFilters({ type: button.dataset.type });
 });
+if (document.querySelector("#sourceGrid")) window.HubEvidence = {
+  getState: () => ({ type: activeEvidenceType, query: document.querySelector("#evidenceSearch")?.value || "", language: researchLanguage }),
+  setState: setEvidenceFilters,
+  revealAnchor: revealEvidenceAnchor
+};
 
 const researchMenuButton = document.querySelector("#menuToggle");
 const researchNav = document.querySelector(".primary-nav");

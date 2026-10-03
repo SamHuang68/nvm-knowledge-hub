@@ -35,12 +35,15 @@
         { n: '01', en: 'Need class', zh: '需求類型', hintEn: 'OTP · MTP · density', hintZh: '一次性／可重寫／密度', rows: ['7'] },
         { n: '02', en: 'Physics family', zh: '物理家族', hintEn: 'How it writes and holds', hintZh: '寫入與保持機制', rows: ['3', '4'] },
         { n: '03', en: 'Mask & thermal', zh: '光罩與熱預算', hintEn: 'Adders and retention class', hintZh: '加價道數與留存等級', rows: ['1', '5'] },
-        { n: '04', en: 'Node cliff', zh: '節點斷崖', hintEn: 'Planar stop vs BEOL', hintZh: '平面止點對 BEOL', rows: ['8'] },
+        { n: '04', en: 'Process options', zh: '製程選項', hintEn: 'Named process and PDK', hintZh: '具名製程與 PDK', rows: ['8'] },
         { n: '05', en: 'VERIFY source', zh: '核對來源', hintEn: 'Named node and document', hintZh: '具名節點與文件版本', rows: ['9'] }
       ];
       const nav = document.createElement('div');
       nav.className = 'hub-story-steps';
-      nav.setAttribute('role', 'tablist');
+      nav.setAttribute('role', 'group');
+      nav.setAttribute('aria-label', 'Architecture decision gates');
+      nav.dataset.ariaEn = 'Architecture decision gates';
+      nav.dataset.ariaZh = '架構決策關卡';
       steps.forEach((s, i) => {
         const b = document.createElement('button');
         b.type = 'button';
@@ -115,6 +118,17 @@
       box.appendChild(copyStatus);
       box.appendChild(manualCopy);
       matrix.parentNode.insertBefore(box, matrix);
+      // This section is inserted after native fragment resolution on some loads.
+      // Restore only the requested dynamic destination, after fonts/layout settle.
+      if (location.hash === '#hub-decision-flow') {
+        Promise.resolve(document.fonts?.ready).then(() => {
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            if (location.hash === '#hub-decision-flow' && box.isConnected) {
+              box.scrollIntoView({ behavior: 'instant', block: 'start' });
+            }
+          }));
+        });
+      }
       function highlightRows(ids) {
         document.querySelectorAll('.matrix-row-header, .matrix-cell').forEach(el => {
           el.classList.toggle('is-dim-hot', ids.includes(el.getAttribute('data-row')));

@@ -1,0 +1,52 @@
+.named-comparison { scroll-margin-top: 100px; }
+.named-comparison .named-lead { max-width: 80ch; font-size: 1.02rem; line-height: 1.8; }
+.named-evidence-kind { border-left: 3px solid #805828; padding: .75rem 1rem; background: #f0ece5; color: #55452c; line-height: 1.7; }
+.named-case-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0; align-items: start; }
+.named-case { min-width: 0; border: 1px solid #cddbdc; border-radius: 8px; background: #fff; scroll-margin-top: 100px; }
+.named-case summary { padding: 1rem 1.2rem; min-height: 48px; cursor: pointer; color: #173b49; }
+.named-case-name { font-weight: 800; font-size: 1.05rem; }
+.named-case-kind, .named-case-action { display: block; margin: .45rem 0 0 1rem; font-size: .88rem; color: #526a72; }
+.named-case-action { color: #805828; text-decoration: underline; text-underline-offset: .2em; }
+.named-case-body { padding: 0 1.2rem 1.2rem; }
+.named-case-body > p { margin-top: 0; line-height: 1.65; }
+.named-case dl { margin: 0; }
+.named-case dl > div { border-top: 1px solid #e1e8e9; padding: .75rem 0; }
+.named-case dt { font-weight: 700; color: #173b49; font-size: .88rem; }
+.named-case dd { margin: .35rem 0 0; line-height: 1.7; font-size: .92rem; overflow-wrap: anywhere; }
+.named-unknown { color: #805828; }
+.named-table-help { font-size: .87rem; line-height: 1.65; color: #526a72; }
+.named-table-scroll { width: 100%; overflow-x: auto; overscroll-behavior-x: contain; border: 1px solid #cddbdc; border-radius: 8px; margin-bottom: 1.5rem; }
+#named-implementations .named-metric-table { width: 100%; min-width: 720px; border-collapse: collapse; table-layout: fixed; margin: 0; background: #fff; color: #284853; }
+.named-metric-table caption { text-align: left; padding: 1rem 1.2rem; font-weight: 600; color: #173b49; background: #f0f4ef; }
+.named-metric-table th, .named-metric-table td { padding: 1rem 1.2rem; text-align: left; vertical-align: top; border: 1px solid #dce5e6; overflow-wrap: anywhere; }
+.named-metric-table th { color: #173b49; background: #f0f4ef; font-weight: 700; }
+.named-metric-table thead th:first-child { width: 19%; }
+.named-metric-table small { display: block; font-size: .82rem; margin-top: .4rem; font-weight: 500; }
+.named-metric-value { display: block; color: #173b49; font-size: 1rem; line-height: 1.6; }
+.named-metric-table td p { margin: .6rem 0; line-height: 1.7; font-size: .93rem; }
+.named-metric-basis { color: #526a72; }
+.named-source-link { display: block; font-size: .8rem; line-height: 1.65; margin-top: .5rem; color: #285f64; text-decoration: underline; text-underline-offset: .18em; }
+.named-reading-note { border-top: 2px solid #805828; padding: 1rem 0; }
+.named-reading-note h3, .named-sources h3 { color: #173b49; font-size: 1.1rem; margin: 0 0 .75rem; }
+.named-reading-note p, .named-sources p { line-height: 1.8; max-width: 90ch; }
+.named-reading-note a, .named-sources a { color: #285f64; text-decoration: underline; text-underline-offset: .2em; }
+.named-sources { border-top: 1px solid #cddbdc; padding-top: 1.25rem; }
+.named-sources ul { padding-left: 1.3rem; }
+.named-sources li { margin: .8rem 0; line-height: 1.65; }
+.named-sources li > span { display: block; color: #526a72; font-size: .88rem; }
+.named-sources p { font-size: .86rem; color: #526a72; }
+.named-download { display: inline-block; padding: .65rem 0; }
+.named-comparison :focus-visible { outline: 3px solid #006f70; outline-offset: 3px; }
+.node-integration-scope { margin: 1.25rem 0; padding: 1rem 1.25rem; border-left: 3px solid #805828; background: #f0ece5; line-height: 1.8; color: #55452c; }
+.node-integration-scope a { color: #285f64; text-decoration: underline; }
+@media (max-width: 760px) {
+  .named-case-grid { grid-template-columns: 1fr; }
+  .named-metric-table th, .named-metric-table td { padding: .8rem; }
+  .named-case summary { padding: 1rem; }
+  .named-case-body { padding: 0 1rem 1rem; }
+}
+@media print {
+  .named-table-scroll { overflow: visible; }
+  #named-implementations .named-metric-table { min-width: 0; font-size: 9pt; }
+  .named-table-help { display: none; }
+}

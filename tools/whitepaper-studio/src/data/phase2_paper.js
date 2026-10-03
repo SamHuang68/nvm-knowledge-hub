@@ -38,7 +38,7 @@ export const phase2Whitepaper = {
       lede: 'NVM scaling is shaped by device options, mask economics, program voltage and qualification effort—not geometry alone.',
       paragraphs: [
         'Floating-gate MTP relies on an oxide and high-voltage environment capable of preserving programmed charge. A process portfolio that only exposes lower-voltage devices can therefore narrow implementation choices. Dedicated embedded-flash integration can introduce a purpose-built oxide, but additional process complexity changes the commercial equation.',
-        'The frequently cited 28 nm boundary for conventional embedded Flash is best read as a clear public commercialization high point, not a law of physics. Beyond it, development difficulty, mask-stack expansion and cost can outweigh the benefit. At more advanced nodes, foundry roadmaps increasingly turn to MRAM or ReRAM, while logic-compatible OTP continues to serve small persistent-state needs.',
+        '28 nm is a process-portfolio checkpoint, not a universal physical cutoff for embedded Flash. Availability, added masks, program/erase voltage, endurance and qualification must be checked for the named foundry process and memory macro.',
         'For advanced-node OTP, a single-VDD read mode can reduce always-on power-domain dependencies and simplify power sequencing. Programming can remain a separate event that uses an I/O supply as the foundation for an internal charge pump. Public architecture should state that separation without disclosing proprietary circuit detail.'
       ],
       takeaways: ['Node names are not portability proof', 'Separate read simplification from program infrastructure', 'Model mask and qualification cost as system constraints'],

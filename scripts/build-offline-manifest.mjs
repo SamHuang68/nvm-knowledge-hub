@@ -6,7 +6,7 @@ const whitepaperBuild = JSON.parse(fs.readFileSync(path.join(root,'whitepaper/bu
 const assets = [...new Set([
   'site.webmanifest',
   'assets/favicon.svg','assets/apple-touch-icon.png','assets/icon-192.png','assets/icon-512.png',
-  'data/nvm-search-index.js','data/ai-nvm-opportunities-knowledge.json',
+  'data/nvm-search-index.js','data/ai-nvm-opportunities-knowledge.json','data/named-nvm-comparison.json',
   'whitepaper/index.html','tools/whitepaper-studio/index.html','briefing/index.html',
   ...Object.keys(whitepaperBuild.outputs).filter(file => /\.(?:css|js)$/.test(file)).map(file => 'whitepaper/'+file),
   ...fs.readdirSync(root).filter(file => /\.(?:html|css|js)$/.test(file) && file !== 'sw.js')

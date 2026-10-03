@@ -1,10 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "revision": "2026-09-21",
+  "revision": "2026-10-03",
   "titleZh": "NVM 知識中心",
   "titleEn": "NVM Knowledge Hub",
   "introZh": "非揮發性記憶體的技術基礎、IP 與製程、應用架構及公開文獻。依主題查閱原理、具名實作與設計條件。",
   "introEn": "Nonvolatile memory foundations, IP and processes, application architectures, and public literature. Browse by topic to connect principles, named implementations and design conditions.",
+  "taskPaths": [
+    {
+      "id": "choose-nvm",
+      "url": "technology-comparison.html#hub-decision-flow",
+      "titleZh": "選 NVM",
+      "titleEn": "Choose an NVM",
+      "descriptionZh": "先看需求、物理與製程約束，再核對矩陣和來源。",
+      "descriptionEn": "Start with needs, physics and process constraints, then check the matrix and sources."
+    },
+    {
+      "id": "estimate-sram",
+      "url": "sram-repair.html",
+      "titleZh": "估 SRAM 修復容量",
+      "titleEn": "Estimate SRAM Repair Capacity",
+      "descriptionZh": "輸入容量、修復比例與壓縮假設，估算 OTP／eFuse 配置。",
+      "descriptionEn": "Use capacity, repair fraction and compression assumptions to estimate OTP/eFuse allocation."
+    },
+    {
+      "id": "prepare-briefing",
+      "url": "briefing/index.html",
+      "titleZh": "準備技術說明",
+      "titleEn": "Prepare a Technical Briefing",
+      "descriptionZh": "以既有投影片與講稿整理說明，保留來源與適用界線。",
+      "descriptionEn": "Build your explanation from existing slides and talk tracks, keeping sources and scope limits."
+    }
+  ],
   "legacyAnchors": [
     {
       "id": "layer-architecture",

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-10-03",
+  "evidenceKind": "manufacturer-datasheet",
+  "scope": {
+    "en": "Two embedded MCU implementations, three documented metrics. Different capacities, interfaces, temperature definitions and test conditions: no ranking or cross-device speed ratio.",
+    "zh": "兩個嵌入式 MCU 實作、三項有來源的指標。容量、介面、溫度定義與測試條件不同，不作排名或跨元件速度倍數換算。"
+  },
+  "sources": [
+    {
+      "id": "st-ds13737-r10",
+      "publisher": "STMicroelectronics",
+      "title": "STM32U575xx datasheet",
+      "version": "DS13737 Rev 10",
+      "published": "2024-07",
+      "url": "https://www.st.com/resource/en/datasheet/stm32u575ai.pdf",
+      "rights": "Copyright STMicroelectronics. Linked factual summary; no PDF, figures or tables reproduced."
+    },
+    {
+      "id": "ti-slase54d",
+      "publisher": "Texas Instruments",
+      "title": "MSP430FR599x, MSP430FR596x datasheet",
+      "version": "SLASE54D, Revision D",
+      "published": "2021-01",
+      "url": "https://www.ti.com/lit/ds/symlink/msp430fr5994.pdf",
+      "rights": "Copyright Texas Instruments. Linked factual summary; no PDF, figures or tables reproduced."
+    }
+  ],
+  "cases": [
+    {
+      "id": "stm32u575",
+      "name": "ST STM32U575xx",
+      "technology": "Embedded Flash",
+      "selection": {"en": "2 MB configuration; ordering suffix not selected.", "zh": "2 MB 組態；未選定訂購後綴。"},
+      "sourceId": "st-ds13737-r10",
+      "context": {
+        "processNode": {"status": "unknown", "reason": {"en": "Not stated in this datasheet.", "zh": "此規格書未載明。"}},
+        "macroRevision": {"status": "unknown", "reason": {"en": "Macro / silicon revision not identified by these tables.", "zh": "表格未指定巨集／晶片修訂版。"}},
+        "capacity": {"status": "reported", "text": {"en": "2 MB; two 1 MB banks.", "zh": "2 MB；兩個 1 MB 記憶庫。"}, "refs": [{"page": 24, "locator": "§3.4"}]},
+        "interface": {"status": "reported", "text": {"en": "Internal Flash controller; 128-bit program, 8 KB erase page.", "zh": "內部 Flash 控制器；128-bit 編程、8 KB 抹除頁。"}, "refs": [{"page": 223, "locator": "Table 86, pp. 223–224"}]},
+        "supply": {"status": "reported", "text": {"en": "VDD 1.71–3.6 V with IO_VDD_HSLV = 0; not cell programming voltage.", "zh": "IO_VDD_HSLV = 0 時 VDD 1.71–3.6 V；不是單元編程電壓。"}, "refs": [{"page": 156, "locator": "Table 32"}]},
+        "temperature": {"status": "reported", "text": {"en": "TA conditions in each row; select the matching device temperature grade.", "zh": "各列使用 TA 條件；須另選符合條件的元件溫度等級。"}, "refs": [{"page": 224, "locator": "Table 87"}]},
+        "testPopulation": {"status": "unknown", "reason": {"en": "Sample count / lot distribution not stated in these tables.", "zh": "表格未載明樣本數／批次分布。"}}
+      },
+      "metrics": [
+        {
+          "id": "endurance",
+          "value": {"en": "10,000 cycles · minimum", "zh": "10,000 次循環 · 最小值"},
+          "conditions": {"en": "Whole bank; TA −40 to 125 °C.", "zh": "整個記憶庫；TA −40 至 125 °C。"},
+          "basis": {"en": "Characterization; not production-tested. The separate 100k specification is limited to 256 KB per bank.", "zh": "特性評估值，非量產逐顆測試。另列的 100k 規格限每個記憶庫 256 KB。"},
+          "refs": [{"page": 224, "locator": "Table 87, note 1"}]
+        },
+        {
+          "id": "retention",
+          "value": {"en": "15 years · minimum", "zh": "15 年 · 最小值"},
+          "conditions": {"en": "TA = 85 °C after 10,000 cycles, whole bank; cycling across the temperature range.", "zh": "整個記憶庫於 10,000 次循環後、TA = 85 °C；循環涵蓋整個溫度範圍。"},
+          "basis": {"en": "Characterization; not production-tested.", "zh": "特性評估值，非量產逐顆測試。"},
+          "refs": [{"page": 224, "locator": "Table 87, notes 1–2"}]
+        },
+        {
+          "id": "program-time",
+          "value": {"en": "118 µs / 128 bits · typ and max", "zh": "118 µs／128 bits · 典型與最大值"},
+          "conditions": {"en": "Normal mode; typ at TA = 25 °C, VDD = VDDA = 3 V. Excludes erase.", "zh": "正常模式；典型條件 TA = 25 °C、VDD = VDDA = 3 V。不含抹除。"},
+          "basis": {"en": "Design-specified; max characterized after cycling. Not production-tested.", "zh": "由設計訂定；最大值經循環後特性評估。非量產逐顆測試。"},
+          "refs": [{"page": 223, "locator": "Table 86, pp. 223–224, notes 1–2"}, {"page": 150, "locator": "§5.1.2"}]
+        }
+      ]
+    },
+    {
+      "id": "msp430fr5994",
+      "name": "TI MSP430FR5994",
+      "technology": "Embedded FRAM",
+      "selection": {"en": "256 KB main memory; unprotected FRAM accesses.", "zh": "256 KB 主記憶體；未受保護的 FRAM 存取。"},
+      "sourceId": "ti-slase54d",
+      "context": {
+        "processNode": {"status": "unknown", "reason": {"en": "Not stated in this datasheet.", "zh": "此規格書未載明。"}},
+        "macroRevision": {"status": "unknown", "reason": {"en": "Macro / silicon revision not identified by this table.", "zh": "表格未指定巨集／晶片修訂版。"}},
+        "capacity": {"status": "reported", "text": {"en": "256 KB main + 0.5 KB information FRAM.", "zh": "256 KB 主區＋0.5 KB 資訊區 FRAM。"}, "refs": [{"page": 7, "locator": "Table 6-1"}]},
+        "interface": {"status": "reported", "text": {"en": "Memory-mapped SRAM-style accesses; no erase sequence.", "zh": "記憶體映射、類 SRAM 存取；不需抹除序列。"}, "refs": [{"page": 64, "locator": "§8.12.12, note 2"}]},
+        "supply": {"status": "reported", "text": {"en": "VCC 1.8–3.6 V; SVS limits the minimum. Not cell programming voltage.", "zh": "VCC 1.8–3.6 V；最低值受 SVS 限制。不是單元編程電壓。"}, "refs": [{"page": 30, "locator": "§8.3, note 6"}]},
+        "temperature": {"status": "reported", "text": {"en": "TA and TJ −40 to 85 °C; retention specifically uses TJ.", "zh": "TA 與 TJ −40 至 85 °C；保持時間明確採 TJ。"}, "refs": [{"page": 30, "locator": "§8.3"}, {"page": 64, "locator": "§8.12.12.1"}]},
+        "testPopulation": {"status": "unknown", "reason": {"en": "Sample count / production test coverage not stated in this table.", "zh": "表格未載明樣本數／量產測試涵蓋率。"}}
+      },
+      "metrics": [
+        {
+          "id": "endurance",
+          "value": {"en": "10¹⁵ read/write cycles · minimum", "zh": "10¹⁵ 次讀寫循環 · 最小值"},
+          "conditions": {"en": "Recommended supply and operating temperature ranges.", "zh": "建議供電與工作溫度範圍。"},
+          "basis": {"en": "Datasheet minimum; read/write cycles are not Flash program/erase cycles.", "zh": "規格書最小值；讀寫循環不等於 Flash 編程／抹除循環。"},
+          "refs": [{"page": 64, "locator": "§8.12.12.1"}]
+        },
+        {
+          "id": "retention",
+          "value": {"en": "10 years · minimum", "zh": "10 年 · 最小值"},
+          "conditions": {"en": "TJ = 85 °C; prior cycle history not stated in the retention row.", "zh": "TJ = 85 °C；保持時間列未載明先前循環次數。"},
+          "basis": {"en": "Datasheet minimum; do not equate TJ with ST's TA condition.", "zh": "規格書最小值；不可把 TJ 等同 ST 的 TA 條件。"},
+          "refs": [{"page": 64, "locator": "§8.12.12.1"}]
+        },
+        {
+          "id": "program-time",
+          "value": {"en": "tWRITE = tREAD = 1 / fSYSTEM", "zh": "tWRITE = tREAD = 1／fSYSTEM"},
+          "conditions": {"en": "NWAITSx = 0, fSYSTEM ≤ 8 MHz; word-access relation, not an application throughput measurement.", "zh": "NWAITSx = 0、fSYSTEM ≤ 8 MHz；字組存取關係式，非應用吞吐量量測。"},
+          "basis": {"en": "Vendor timing relation, not a typ/max benchmark. Recommended supply and temperature ranges.", "zh": "原廠時間關係式，非典型／最大效能基準。採建議供電與溫度範圍。"},
+          "refs": [{"page": 64, "locator": "§8.12.12.1, notes 3–4"}, {"page": 30, "locator": "§8.3"}, {"page": 1, "locator": "Features: word-write timing"}]
+        }
+      ]
+    }
+  ]
+}

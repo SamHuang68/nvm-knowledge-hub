@@ -21,6 +21,8 @@ window.__NVM_SEARCH_ENHANCED = true;
     {title_zh:'GF 22FDX I-fuse 資格',title_en:'GF 22FDX I-fuse qualification',url:'technology-comparison.html#foundry-gf-22fdx',tags:'GlobalFoundries 22FDX I-fuse Attopsemi AutoPro150 eMRAM OxRAM',summary_zh:'I-fuse 是熱輔助電遷移 OTP，不是 22FDX eMRAM。',summary_en:'I-fuse is heat-assisted-EM OTP, not 22FDX eMRAM.'},
     {title_zh:'安全儲存架構',title_en:'Secure Storage Architecture',url:'secure-storage.html',tags:'sram puf aes 256 gcm otp zero rest key security'},
     {title_zh:'安全保證與信任根',title_en:'Security Assurance & Root of Trust',url:'security-assurance.html',tags:'fips 140 caliptra dpa fault injection root trust nist'},
+    {title_zh:'STM32U575 與 MSP430FR5994 具名指標',title_en:'STM32U575 and MSP430FR5994 Named Metrics',url:'technology-comparison.html#named-implementations',tags:'ST TI STM32U575xx MSP430FR5994 endurance retention program time eFlash FRAM',summary_zh:'兩個具名 MCU 的耐久、保持與寫入條件，附原廠規格書版本與頁碼；條件不同，不作排名。',summary_en:'Endurance, retention and programming conditions for two named MCUs, with datasheet revisions and pages; differing conditions, no ranking.'},
+    {title_zh:'PVT 與金鑰重建驗證',title_en:'PVT and Key-Reconstruction Validation',url:'security-assurance.html#windows',tags:'pvt process voltage temperature 製程 電壓 溫度 老化 重建',summary_zh:'核對製程、電壓、溫度與老化條件下的重建證據及測試窗口。',summary_en:'Review reconstruction evidence and test windows across process, voltage, temperature and aging conditions.'},
     {title_zh:'AI 系統與先進節點',title_en:'AI Systems & Advanced Nodes',url:'ai-nvm-opportunities.html',tags:'xpu ddr5 pmic spd soic chiplet ucie pqc boot accelerator'},
     {title_zh:'超低功耗 IoT 與 MCU eNVM',title_en:'ULP IoT & Edge MCU eNVM',url:'iot-mcu-envm.html',tags:'iot mcu 22ull n4e eflash cliff 0.5v ntv vector patch'},
     {title_zh:'車規級 NVM',title_en:'Automotive-Grade NVM',url:'automotive-nvm.html',tags:'automotive aec q100 iso 26262 grade 0 175 secded ecc ppm adas ev'},
@@ -32,14 +34,14 @@ window.__NVM_SEARCH_ENHANCED = true;
   ];
   const labels = {
     zh: {
-      topic: '深入主題', ledger: '證據總帳',
+      topic: '主題', tool: '工具', ledger: '證據總帳',
       count: (hits, records) => `${hits} 筆結果 · ${baseCount()} 個主題${records === null ? '' : `、${records} 筆總帳`}。↑ ↓ 選擇，Enter 開啟，Esc 關閉。`,
       empty: '找不到符合的結果，請試試技術名稱、紀錄編號或較短的關鍵字。',
       loading: ' 正在載入總帳…',
       failed: ' 總帳載入失敗；目前僅搜尋主題。重新開啟搜尋可重試。'
     },
     en: {
-      topic: 'Explore topic', ledger: 'Evidence Ledger',
+      topic: 'Topic', tool: 'Tool', ledger: 'Evidence Ledger',
       count: (hits, records) => `${hits} results · ${baseCount()} topics${records === null ? '' : `, ${records} ledger records`}. ↑ ↓ select, Enter open, Esc close.`,
       empty: 'No matching results. Try a technology name, record ID, or shorter keyword.',
       loading: ' Loading the evidence ledger…',
@@ -140,9 +142,26 @@ window.__NVM_SEARCH_ENHANCED = true;
     let loading = null, loaded = false, failed = false, previousFocus, previousOverflow;
     let background = [];
     const isOpen = () => overlay.classList.contains('is-open');
-    const normalize = value => value.normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+    // 僅整理檢索詞，不轉換數值或改寫技術內容；保留小數與不同量級。
+    const termAliases = [
+      [/資料\s*(?:保持|留存|保存)|數據\s*(?:保持|留存)/gu, 'retention'],
+      [/耐寫次數|抹寫次數|寫入耐久|耐久度/gu, 'endurance'],
+      [/讀取延遲|讀取時延/gu, 'latency'],
+      [/寫入電壓|編程電壓/gu, 'program voltage'],
+      [/製程\s*電壓\s*溫度|\bprocess\s+voltage(?:\s+and)?\s+temperature\b/gu, 'pvt'],
+      [/錯誤更正碼|錯誤校正碼/gu, 'ecc'],
+      [/非揮發性?記憶體/gu, 'nvm']
+    ];
+    const normalize = value => {
+      let text = value.normalize('NFKC').toLowerCase()
+        .replace(/(\d+(?:\.\d+)?)\s*(nm|[μu]m|mv|v|ns|[μu]s|ms|ghz|mhz|khz|hz)(?![a-z])/gu, (_, amount, unit) => ` ${amount}${unit.replace('μ', 'u')} `)
+        .replace(/[^\p{L}\p{N}.]+/gu, ' ').replace(/(?<!\d)\.|\.(?!\d)/gu, ' ');
+      for (const [pattern, term] of termAliases) text = text.replace(pattern, ` ${term} `);
+      return text.replace(/\s+/gu, ' ').trim();
+    };
+    const isQuantity = token => /^\d+(?:\.\d+)?(?:nm|um|mv|v|ns|us|ms|ghz|mhz|khz|hz)$/u.test(token);
     function near(a, b) {
-      if (a.length < 4 || Math.abs(a.length-b.length) > 1) return false;
+      if (a.length < 4 || /\d/u.test(a + b) || Math.abs(a.length-b.length) > 1) return false;
       let i=0, j=0, edits=0;
       while (i<a.length && j<b.length) {
         if (a[i]===b[j]) { i++; j++; continue; }
@@ -156,9 +175,10 @@ window.__NVM_SEARCH_ENHANCED = true;
       const title = normalize(`${item.title_zh} ${item.title_en} ${item.id || ''}`);
       const text = normalize(`${title} ${item.tags}`);
       if (!query) return 1;
-      if (title.includes(query)) return 100;
+      const tokens = query.split(' ');
+      if (title.includes(query) && tokens.filter(isQuantity).every(token => title.split(' ').includes(token))) return 100;
       const words = text.split(' ');
-      return query.split(' ').every(token => text.includes(token) || words.some(word => near(token, word))) ? 10 : 0;
+      return tokens.every(token => isQuantity(token) ? words.includes(token) : text.includes(token) || words.some(word => near(token, word))) ? 10 : 0;
     }
     function resolveUrl(url) {
       return new URL(url, ROOT).href;
@@ -170,6 +190,7 @@ window.__NVM_SEARCH_ENHANCED = true;
       results.replaceChildren();
       const language = window.HubLanguage?.get() === 'zh' ? 'zh' : 'en';
       const copy = labels[language];
+      const toolPages = new Set(['sram-repair.html', 'technology-comparison.html', 'whitepaper/', 'whitepaper/index.html']);
       for (const {item} of items) {
         const link = document.createElement('a');
         link.className = 'search-result-item';
@@ -179,9 +200,9 @@ window.__NVM_SEARCH_ENHANCED = true;
         title.textContent = language === 'zh' ? item.title_zh : item.title_en;
         const desc = document.createElement('div'); desc.className = 'sr-desc';
         const summary = item[`summary_${language}`] || '';
-        desc.textContent = item.id
-          ? `${copy.ledger} · ${item.id}${summary ? ` · ${summary}` : ''}`
-          : (summary || copy.topic);
+        const kind = item.id ? 'ledger' : toolPages.has(item.url) ? 'tool' : 'topic';
+        link.dataset.resultKind = kind === 'ledger' ? 'evidence' : kind;
+        desc.textContent = `${copy[kind]}${item.id ? ` · ${item.id}` : ''}${summary ? ` · ${summary}` : ''}`;
         link.append(title, desc); results.append(link);
       }
       if (focusedUrl) {

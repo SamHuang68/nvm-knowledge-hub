@@ -26,6 +26,9 @@
 main > #hub-fail-closed {
   margin-inline: var(--hub-keepout, 24px);
 }
+#hub-decision-flow {
+  scroll-margin-top: 100px;
+}
 .hub-story h3 {
   margin: 0 0 10px;
   font-size: clamp(16px, 2vw, 20px);

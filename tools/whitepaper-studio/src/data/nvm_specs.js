@@ -74,14 +74,14 @@ const draftProfiles = [
     profile: 'Embedded Flash (eFlash)',
     family: 'Floating Gate / Charge Trap eFlash',
     contract: 'Managed firmware updates; block erase and sector programming',
-    nodeLens: 'Economically & physically constrained at <=28nm due to high mask count (10-15 masks)',
+    nodeLens: 'Process- and macro-dependent; 28 nm is a portfolio checkpoint, not a universal cutoff',
     updateModel: 'Signed in-system firmware updates with recovery dual-bank partition',
-    strongestFit: 'Automotive MCUs and IoT microcontrollers on mature nodes (40nm-180nm)',
-    boundary: 'Do not treat 28nm commercialization boundary as a physics law, but mask cost dominates',
-    evidenceStatus: 'AEC-Q100 · Mature Node Mainstream',
+    strongestFit: 'MCU firmware storage where a qualified eFlash macro is available in the chosen process',
+    boundary: 'Qualify the selected process and macro; node name alone establishes neither availability nor a physical limit',
+    evidenceStatus: 'Product-specific AEC-Q100 qualification must be checked',
     latency: 'Medium (15-30 ns read, ms write)',
     busExposure: 'Internal bus',
-    bomCost: 'High mask cost (10-15 additional masks)'
+    bomCost: 'Process-dependent integration cost; obtain the selected macro added-mask and qualification requirements'
   },
   {
     id: 'mram_reram',
