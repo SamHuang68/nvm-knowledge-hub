@@ -685,10 +685,10 @@
 
     .compare-matrix {
       display: grid !important;
-      grid-template-columns: var(--col-dim-width, 190px) repeat(11, minmax(105px, 1fr)) !important;
+      grid-template-columns: var(--col-dim-width, 190px) repeat(11, minmax(105px, 1fr));
       gap: 1px !important;
       background: #cddbdc !important;
-      min-width: 1320px !important;
+      min-width: 1320px;
       transition: min-width 0.2s ease !important;
     }
     .matrix-dim-header,
@@ -804,6 +804,9 @@
       cursor: pointer !important;
       user-select: none !important;
       transition: transform 0.12s ease, opacity 0.15s ease !important;
+    }
+    .compare-matrix .is-col-hidden {
+      display: none !important;
     }
     .matrix-cat-tag:hover {
       transform: scale(1.05) !important;
@@ -1719,47 +1722,47 @@
             <span class="dim-title"><span data-lang="zh">評估維度</span><span data-lang="en">Dimension</span></span>
           </div>
           <div class="matrix-header" data-tech="efuse" data-category="foundry">
-            <span class="matrix-cat-tag cat-foundry" title="Click to collapse / expand Foundry Process" data-title-en="Click to collapse / expand Foundry Process" data-title-zh="點擊收合／展開晶圓廠製程類"><span data-lang="zh">晶圓製程</span><span data-lang="en">Foundry</span></span>
+            <button type="button" class="matrix-cat-tag cat-foundry" title="Click to collapse / expand Foundry Process" data-title-en="Click to collapse / expand Foundry Process" data-title-zh="點擊收合／展開晶圓廠製程類"><span data-lang="zh">晶圓製程</span><span data-lang="en">Foundry</span></button>
             <span class="matrix-tech-name">eFuse</span>
           </div>
           <div class="matrix-header" data-tech="maskrom" data-category="foundry">
-            <span class="matrix-cat-tag cat-foundry" title="Click to collapse / expand Foundry Process" data-title-en="Click to collapse / expand Foundry Process" data-title-zh="點擊收合／展開晶圓廠製程類"><span data-lang="zh">晶圓製程</span><span data-lang="en">Foundry</span></span>
+            <button type="button" class="matrix-cat-tag cat-foundry" title="Click to collapse / expand Foundry Process" data-title-en="Click to collapse / expand Foundry Process" data-title-zh="點擊收合／展開晶圓廠製程類"><span data-lang="zh">晶圓製程</span><span data-lang="en">Foundry</span></button>
             <span class="matrix-tech-name">Mask ROM</span>
           </div>
           <div class="matrix-header" data-tech="eeprom" data-category="foundry">
-            <span class="matrix-cat-tag cat-foundry" title="Click to collapse / expand Foundry Process" data-title-en="Click to collapse / expand Foundry Process" data-title-zh="點擊收合／展開晶圓廠製程類"><span data-lang="zh">晶圓製程</span><span data-lang="en">Foundry</span></span>
+            <button type="button" class="matrix-cat-tag cat-foundry" title="Click to collapse / expand Foundry Process" data-title-en="Click to collapse / expand Foundry Process" data-title-zh="點擊收合／展開晶圓廠製程類"><span data-lang="zh">晶圓製程</span><span data-lang="en">Foundry</span></button>
             <span class="matrix-tech-name">EEPROM</span>
           </div>
           <div class="matrix-header" data-tech="fgotp" data-category="otp">
-            <span class="matrix-cat-tag cat-otp" title="Click to collapse / expand Logic OTP" data-title-en="Click to collapse / expand Logic OTP" data-title-zh="點擊收合／展開一次性寫入 (OTP)"><span data-lang="zh">邏輯 OTP</span><span data-lang="en">Logic OTP</span></span>
+            <button type="button" class="matrix-cat-tag cat-otp" title="Click to collapse / expand Logic OTP" data-title-en="Click to collapse / expand Logic OTP" data-title-zh="點擊收合／展開一次性寫入 (OTP)"><span data-lang="zh">邏輯 OTP</span><span data-lang="en">Logic OTP</span></button>
             <span class="matrix-tech-name">FG-OTP</span>
           </div>
           <div class="matrix-header focus-tech" data-tech="antifuse" data-category="otp">
-            <span class="matrix-cat-tag cat-otp" title="Click to collapse / expand Logic OTP" data-title-en="Click to collapse / expand Logic OTP" data-title-zh="點擊收合／展開一次性寫入 (OTP)"><span data-lang="zh">邏輯 OTP</span><span data-lang="en">Logic OTP</span></span>
+            <button type="button" class="matrix-cat-tag cat-otp" title="Click to collapse / expand Logic OTP" data-title-en="Click to collapse / expand Logic OTP" data-title-zh="點擊收合／展開一次性寫入 (OTP)"><span data-lang="zh">邏輯 OTP</span><span data-lang="en">Logic OTP</span></button>
             <span class="matrix-tech-name focus-gold">AntiFuse</span>
           </div>
           <div class="matrix-header" data-tech="ldmtp" data-category="mtp">
-            <span class="matrix-cat-tag cat-mtp" title="Click to collapse / expand Logic MTP" data-title-en="Click to collapse / expand Logic MTP" data-title-zh="點擊收合／展開多次抹寫 (MTP)"><span data-lang="zh">邏輯 MTP</span><span data-lang="en">Logic MTP</span></span>
+            <button type="button" class="matrix-cat-tag cat-mtp" title="Click to collapse / expand Logic MTP" data-title-en="Click to collapse / expand Logic MTP" data-title-zh="點擊收合／展開多次抹寫 (MTP)"><span data-lang="zh">邏輯 MTP</span><span data-lang="en">Logic MTP</span></button>
             <span class="matrix-tech-name">LD-MTP</span>
           </div>
           <div class="matrix-header" data-tech="hdmtp" data-category="mtp">
-            <span class="matrix-cat-tag cat-mtp" title="Click to collapse / expand Logic MTP" data-title-en="Click to collapse / expand Logic MTP" data-title-zh="點擊收合／展開多次抹寫 (MTP)"><span data-lang="zh">邏輯 MTP</span><span data-lang="en">Logic MTP</span></span>
+            <button type="button" class="matrix-cat-tag cat-mtp" title="Click to collapse / expand Logic MTP" data-title-en="Click to collapse / expand Logic MTP" data-title-zh="點擊收合／展開多次抹寫 (MTP)"><span data-lang="zh">邏輯 MTP</span><span data-lang="en">Logic MTP</span></button>
             <span class="matrix-tech-name">HD-MTP</span>
           </div>
           <div class="matrix-header" data-tech="sst" data-category="eflash">
-            <span class="matrix-cat-tag cat-eflash" title="Click to collapse / expand Embedded Flash" data-title-en="Click to collapse / expand Embedded Flash" data-title-zh="點擊收合／展開嵌入式 Flash"><span data-lang="zh">嵌入式 Flash</span><span data-lang="en">eFlash</span></span>
+            <button type="button" class="matrix-cat-tag cat-eflash" title="Click to collapse / expand Embedded Flash" data-title-en="Click to collapse / expand Embedded Flash" data-title-zh="點擊收合／展開嵌入式 Flash"><span data-lang="zh">嵌入式 Flash</span><span data-lang="en">eFlash</span></button>
             <span class="matrix-tech-name">SST</span>
           </div>
           <div class="matrix-header" data-tech="sonos" data-category="eflash">
-            <span class="matrix-cat-tag cat-eflash" title="Click to collapse / expand Embedded Flash" data-title-en="Click to collapse / expand Embedded Flash" data-title-zh="點擊收合／展開嵌入式 Flash"><span data-lang="zh">嵌入式 Flash</span><span data-lang="en">eFlash</span></span>
+            <button type="button" class="matrix-cat-tag cat-eflash" title="Click to collapse / expand Embedded Flash" data-title-en="Click to collapse / expand Embedded Flash" data-title-zh="點擊收合／展開嵌入式 Flash"><span data-lang="zh">嵌入式 Flash</span><span data-lang="en">eFlash</span></button>
             <span class="matrix-tech-name">SONOS</span>
           </div>
           <div class="matrix-header" data-tech="reram" data-category="emerging">
-            <span class="matrix-cat-tag cat-emerging" title="Click to collapse / expand Emerging NVM" data-title-en="Click to collapse / expand Emerging NVM" data-title-zh="點擊收合／展開新興記憶體"><span data-lang="zh">新興記憶體</span><span data-lang="en">Emerging</span></span>
+            <button type="button" class="matrix-cat-tag cat-emerging" title="Click to collapse / expand Emerging NVM" data-title-en="Click to collapse / expand Emerging NVM" data-title-zh="點擊收合／展開新興記憶體"><span data-lang="zh">新興記憶體</span><span data-lang="en">Emerging</span></button>
             <span class="matrix-tech-name">ReRAM</span>
           </div>
           <div class="matrix-header" data-tech="mram" data-category="emerging">
-            <span class="matrix-cat-tag cat-emerging" title="Click to collapse / expand Emerging NVM" data-title-en="Click to collapse / expand Emerging NVM" data-title-zh="點擊收合／展開新興記憶體"><span data-lang="zh">新興記憶體</span><span data-lang="en">Emerging</span></span>
+            <button type="button" class="matrix-cat-tag cat-emerging" title="Click to collapse / expand Emerging NVM" data-title-en="Click to collapse / expand Emerging NVM" data-title-zh="點擊收合／展開新興記憶體"><span data-lang="zh">新興記憶體</span><span data-lang="en">Emerging</span></button>
             <span class="matrix-tech-name">MRAM</span>
           </div>
 

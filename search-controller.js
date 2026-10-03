@@ -131,8 +131,10 @@ window.__NVM_SEARCH_ENHANCED = true;
     function syncInterfaceLabels() {
       const language = window.HubLanguage?.get() === 'zh' ? 'zh' : 'en';
       input.placeholder = input.dataset[language === 'zh' ? 'placeholderZh' : 'placeholderEn'] || '';
-      document.querySelectorAll('[data-aria-zh][data-aria-en]').forEach(element => {
-        element.setAttribute('aria-label', element.dataset[language === 'zh' ? 'ariaZh' : 'ariaEn']);
+      // 搜尋只同步自身名稱，其他元件的動態狀態由各自控制器維護。
+      [overlay, trigger, ...overlay.querySelectorAll('[data-aria-zh][data-aria-en]')].forEach(element => {
+        const label = element?.dataset[language === 'zh' ? 'ariaZh' : 'ariaEn'];
+        if (label) element.setAttribute('aria-label', label);
       });
     }
     let loading = null, loaded = false, failed = false, previousFocus, previousOverflow;
@@ -217,12 +219,15 @@ window.__NVM_SEARCH_ENHANCED = true;
       })();
       return loading;
     }
-    function openSearch() {
+    function openSearch(event) {
       if (isOpen()) { input.focus(); return; }
       // 原生 modal 位於 top layer；先關閉並讓瀏覽器恢復觸發按鈕的焦點。
       // 搜尋關閉時再回到該按鈕，不保留已關閉視窗內的無效焦點。
       [...document.querySelectorAll('dialog:modal')].reverse().forEach(dialog => dialog.close());
-      previousFocus = document.activeElement; previousOverflow = document.body.style.overflow;
+      // WebKit 的指標點擊不一定聚焦按鈕；明確保留實際觸發控制項。
+      previousFocus = event?.currentTarget === trigger || [document.body, document.documentElement].includes(document.activeElement)
+        ? trigger : document.activeElement;
+      previousOverflow = document.body.style.overflow;
       const menu = document.getElementById('menuToggle');
       const nav = document.getElementById(menu?.getAttribute('aria-controls'));
       if (menu && nav?.classList.contains('open')) {

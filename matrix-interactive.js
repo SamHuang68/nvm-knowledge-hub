@@ -193,6 +193,7 @@
     toggleCategory_(catId) {
       const cat = CAT_MAP[catId];
       if (!cat) return;
+      const focusedHeader = document.activeElement?.closest('.matrix-header[data-category]');
 
       // Check if all techs of this category are currently active
       const allActive = cat.techs.every(tid => this.activeTechs_.has(tid));
@@ -215,6 +216,9 @@
       // Check if matches any preset view
       this.syncPresetState_();
       this.updateView_();
+      if (focusedHeader?.dataset.category === catId && focusedHeader.classList.contains('is-col-hidden')) {
+        this.toolbarEl_?.querySelector(`.cat-filter-pill[data-cat-id="${catId}"]`)?.focus();
+      }
     }
 
     /**
@@ -282,6 +286,11 @@
       this.currentView_ = matchedKey || 'custom';
     }
 
+    categoryPressedState_(cat) {
+      const selected = cat.techs.filter(id => this.activeTechs_.has(id)).length;
+      return selected === 0 ? 'false' : selected === cat.techs.length ? 'true' : 'mixed';
+    }
+
     /**
      * Updates the DOM, CSS Grid, and column visibilities.
      * @private
@@ -303,10 +312,15 @@
           }
         }
       });
+      this.matrixEl_.querySelectorAll('.matrix-cat-tag').forEach(button => {
+        const cat = CAT_MAP[button.closest('.matrix-header')?.dataset.category];
+        if (!cat) return;
+        button.setAttribute('aria-pressed', this.categoryPressedState_(cat));
+      });
 
       // 2. Adjust CSS Grid template columns and minimum width
       const dimWidth = this.fitScreen_ ? '140px' : '190px';
-      this.matrixEl_.style.gridTemplateColumns = `${dimWidth} repeat(${visibleCount}, minmax(0, 1fr))`;
+      this.matrixEl_.style.gridTemplateColumns = `${dimWidth} repeat(${visibleCount}, minmax(105px, 1fr))`;
 
       if (this.fitScreen_ || visibleCount <= 6) {
         this.matrixEl_.style.minWidth = '100%';
@@ -326,7 +340,7 @@
           const anyActive = cat.techs.some(tid => this.activeTechs_.has(tid));
           pill.classList.toggle('is-expanded', anyActive);
           pill.classList.toggle('is-collapsed', !anyActive);
-          pill.setAttribute('aria-pressed', String(anyActive));
+          pill.setAttribute('aria-pressed', this.categoryPressedState_(cat));
 
           const icon = pill.querySelector('.pill-state-icon');
           if (icon) {
