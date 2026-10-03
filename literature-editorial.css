@@ -241,8 +241,54 @@ html body.hub-literature-paper .oip-image-band {
 }
 html body.hub-literature-paper .oip-image-band figcaption {
   background: #f2eee5 !important;
-  color: #526a72 !important;
+  color: #1e293b !important;
   border-top-color: #cddbdc !important;
+}
+
+/* ============================================================
+   All Diagram Text, Labels, and Captions High-Contrast Protection
+   ============================================================ */
+html body.hub-literature-paper svg text,
+html body.hub-literature-paper svg tspan {
+  fill: #0f172a !important;
+}
+html body.hub-literature-paper svg text.bc-ion,
+html body.hub-literature-paper svg [data-charge] + text,
+html body.hub-literature-paper svg circle[fill="#bd354a"] + text,
+html body.hub-literature-paper svg circle[fill="#075f9d"] + text {
+  fill: #ffffff !important;
+}
+html body.hub-literature-paper svg text[fill="#075f9d"] { fill: #0369a1 !important; }
+html body.hub-literature-paper svg text[fill="#bd354a"] { fill: #b91c1c !important; }
+html body.hub-literature-paper svg text[fill="#087968"] { fill: #047857 !important; }
+html body.hub-literature-paper svg text[fill="#a45410"] { fill: #b45309 !important; }
+
+html body.hub-literature-paper figcaption,
+html body.hub-literature-paper figure figcaption,
+html body.hub-literature-paper .nvm-figure-caption,
+html body.hub-literature-paper .nvm-figure-label,
+html body.hub-literature-paper .nvm-op-caption,
+html body.hub-literature-paper .nvm-op-legend,
+html body.hub-literature-paper .nvm-op-caveat,
+html body.hub-literature-paper .bc-legend,
+html body.hub-literature-paper .bc-figure-head,
+html body.hub-literature-paper .nvm-ip-structure-notes,
+html body.hub-literature-paper .nvm-patent-figure > figcaption,
+html body.hub-literature-paper [data-figure-notes] {
+  color: #1e293b !important;
+}
+html body.hub-literature-paper .nvm-op-caption dt,
+html body.hub-literature-paper .nvm-op-legend dt,
+html body.hub-literature-paper .bc-legend b,
+html body.hub-literature-paper .nvm-figure-label strong {
+  color: #0f172a !important;
+}
+html body.hub-literature-paper .nvm-op-caption dd,
+html body.hub-literature-paper .nvm-op-legend dd,
+html body.hub-literature-paper .nvm-op-caveat,
+html body.hub-literature-paper .bc-legend li,
+html body.hub-literature-paper .nvm-figure-caption {
+  color: #334155 !important;
 }
 html body.hub-literature-paper .hub-footer,
 html body.hub-literature-paper .research-footer,

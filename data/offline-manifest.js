@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "e7b6431448312af14c85",
+  "version": "223aac7e9ef70abf9a17",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -106,7 +106,7 @@ self.NVMOfflineManifest = {
   "digests": {
     "404.html": "c40306abf32e727cb9f8b029699bc668bdd411a2b958f8822ccdf0c456eb1abe",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
-    "ai-nvm-opportunities.html": "2a4f90b88ecd4f0c5255d6e77b4ce3c81fab0a4bd8af62e4b800a7f4344ef631",
+    "ai-nvm-opportunities.html": "1ef08e13979b1972076f127cf91a47e5092e4c58f194256af2f3f851931a92ad",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
     "ai-nvm.css": "5ac0085348b2af246f464a4dbeccfe9579ed6a860ac990593cbdeedec8351afe",
     "ai-nvm.js": "a51a6ab74b0e708b54b5d3af200575f275efe0d14e435b02332a300d99cc4654",
@@ -130,7 +130,7 @@ self.NVMOfflineManifest = {
     "data/named-nvm-comparison.json": "69f18cd39e195164c8139e9079d4c8df2647a8c74b3ff826c667304f12330de1",
     "data/nvm-search-index.js": "1ce8a43c88b802a5cdce8ac183f47938c1352d11af68792f1a5902fa17d80306",
     "deferred-backgrounds.js": "a74dc489a74403e27ade20c4d0d16306d4d2f00c0f697cbff9662908ce0371a4",
-    "editorial-reading-ui.css": "d274ca845f5f6a9749c81fead38404dc3b8c75f6a375d12445206966e9b43f8f",
+    "editorial-reading-ui.css": "eedc01843bbaf8169b0ce90c5434ce91f41b13ab491f1fbecbb30267b79f0399",
     "evidence-workbench.css": "b077fd188e73256fa0e9b2b8497feb698603e89cb8ad73648180c7c471011ba9",
     "evidence-workbench.js": "86984da8da59d17546b8cf8b6a9595ac8d3c08a02efad25de24dc590e92aee17",
     "f1-card-align.js": "206fe82993c3aa1c48ab6af72569cfdacab2497e0a971c567e9b8852912be636",
@@ -152,8 +152,8 @@ self.NVMOfflineManifest = {
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "ced747eb93c7261c334359d763eeafa2ef495705991e314b46b389e9dcd720f2",
-    "literature-editorial.css": "1204ad9ba0f89e3a18d8bd60c7c9a4c7aa412a7bcf396aac3cf1d3dfb14545f8",
-    "literature-paper.js": "55a5c9c4259952d3829ac1bcc33df611d5ad9bf3d1c2702a232eea71847cbf19",
+    "literature-editorial.css": "1b167523c31e49f924df763ebfe7688bf793a41cda7eb5003577d1d53b257120",
+    "literature-paper.js": "a1538790b2cd1d40c727f15562caaf8935da210543c70c197675bdacae26c40a",
     "matrix-interactive.js": "00bb70e047b0aa9b5c7eedb195af4a8e8f1dba16d830ac55699db6187222b41e",
     "memory-evidence.html": "baee372ce363918b6dbb34f0ec82a76d6bfbd5d5ee9836ad721dee88cbb8bf41",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
@@ -161,11 +161,11 @@ self.NVMOfflineManifest = {
     "memory-physics.html": "654b3e29d9808b5d7e88fdaebabcd2d729071f5910a0687a6cc3356639e2c539",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
-    "nvm-bitcell-figures.css": "3dbc9f99aa9101b346d33c728e875b87beb99ba8bbeaed806f572b371ee31a88",
-    "nvm-engineering-diagrams.css": "3a9331a072ed58991898617a69cdcb351084b81716d5b2219310800f47e77fdd",
+    "nvm-bitcell-figures.css": "da04d7984bd9f62137dab5c2f5657a38b620b32b6c16c628a94f2f9406d5aed6",
+    "nvm-engineering-diagrams.css": "4cb87448990c85fd91042f817b4812fb647df1fd0fb99949c26f138434194220",
     "nvm-engineering-diagrams.js": "8ef724a3b225bb5ea50bfd7c12254340f0e8d1692785d1ccf2186fc6480e715b",
     "nvm-industry-research.css": "94169f1d221d75104a7319834d7775159e2b956862f2cba4acfff40c0380051a",
-    "nvm-ip-cells.css": "f997727b6dee99cf1b388a4f7e053b009565074b4993b14cb14311e1d683a507",
+    "nvm-ip-cells.css": "30752fed351f32bd9b7a685050b503dc9ecaa799a259c248ccfd1c131a89074a",
     "nvm-portal-entry.css": "6cab384d44dbd1c06f6f5a5cfffeca170196a38b0ed29811115edb2c6fc1b384",
     "nvm-technology-atlas-zh.html": "a16630b7206a741525e869e0c194e595a89d0f999874d0c19b4f56c2dc3c78ef",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
@@ -176,13 +176,13 @@ self.NVMOfflineManifest = {
     "quick-probe.js": "e53a5099163ba611987ab6262c3fce1ba55fab62606116c5e95740a519fad028",
     "reading-controls.css": "5fdaf2f82d852d80b0535431d291edadec60b146f8076ba88c209b6966f6dd6a",
     "reading-controls.js": "31ed45e76223dad06c261b6cb792eae26dcb54a5843f4076a5ba41156ae263db",
-    "research.css": "fb992a4f51654340ff28b5c0d4d70bd7bcfd73ad1b6b048df5c47b7573678e49",
+    "research.css": "76291bad9ecde2fcd860e66599c3a399694a29065db00a16cd12d974bfe2de94",
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "15bf50e7b268e4f3c7b87dc7e624e8ccfc065cfc97217623db354aedf61d1e0b",
     "secure-storage.html": "d740816c8596559157eaaf9e1d08ee65e25731b967bf4151cdaf1237ab29584b",
     "security-assurance.html": "f759f41b8a7c07d641f1b28fe70dd4009f47001d05dea16b2b3b86fd464b08a3",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
-    "site-shell.css": "66c847fcc1dbc26a32ecd71df181c1363f9ceed6874f1512414ddfc49a437bc2",
+    "site-shell.css": "95c7b574d75f1d06c7e121cb14489b2bea210649e5d15ad7d97aae7a5d86d1a7",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
     "specialty-nvm.css": "54edc81d1d15e1d9d5c3f2604328e11269e48ac9fda51d059912d4dd0f8d7862",
     "specialty-nvm.html": "dee3c22b3a48dfd5e0888856bb0d7508bb6243c658e9249276d8261fe569c088",
@@ -206,5 +206,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "bf313755dec94b55a6decc56a9ed0f7f1c3491d68d8376c3e4db23176da12c3a"
   },
-  "totalBytes": 11245623
+  "totalBytes": 11249950
 };

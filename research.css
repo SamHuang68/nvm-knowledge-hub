@@ -43,7 +43,7 @@
 .oip-image-band img{display:block;width:100%;height:clamp(210px,31vw,390px);object-fit:cover;object-position:center}
 .oip-image-band--power img{object-position:center 54%}
 .oip-image-band--helper img{object-position:center 48%}
-.oip-image-band figcaption{padding:11px 16px;border-top:1px solid rgba(196,165,116,.22);background:#f8fafc;color:#b9d1d5;font-family:var(--mono);font-size:11px;line-height:1.55;letter-spacing:.035em}
+.oip-image-band figcaption{padding:11px 16px;border-top:1px solid rgba(196,165,116,.22);background:#f8fafc;color:#334155;font-family:var(--mono);font-size:11px;line-height:1.55;letter-spacing:.035em}
 @media(max-width:920px){.oip-threat-flow,.oip-decision-grid{grid-template-columns:1fr}.oip-architecture{grid-template-columns:1fr 1fr}.oip-architecture article:nth-child(2){border-right:0}.oip-architecture article:nth-child(-n+2){border-bottom:1px solid var(--hairline)}}
 @media(max-width:620px){.oip-architecture{grid-template-columns:1fr}.oip-architecture article{border-right:0;border-bottom:1px solid var(--hairline)}.oip-architecture article:last-child{border-bottom:0}.oip-threat-flow h3,.oip-decision-grid h3{margin-top:18px}.oip-equation strong{font-size:24px;overflow-wrap:anywhere}.oip-image-band{margin:20px 0 26px}.oip-image-band img{height:190px}.oip-image-band figcaption{font-size:10px}}
 
@@ -320,7 +320,7 @@ body.research-page { color: var(--ink); background: var(--paper); }
 .paper-conclusion { margin: 0 calc(var(--side) * -1); padding: clamp(90px, 12vw, 170px) var(--side); color: var(--white); background: #f8fafc; text-align: center; }
 .paper-conclusion small { color: var(--research-cyan); font-size: 10px; font-weight: 900; letter-spacing: .18em; }
 .paper-conclusion h2 { max-width: 1000px; margin: 26px auto; font-family: var(--display); font-size: clamp(48px, 7vw, 92px); line-height: .93; }
-.paper-conclusion p { max-width: 800px; margin: 0 auto 34px; color: #9eb5bf; font-size: 17px; line-height: 1.8; }
+.paper-conclusion p { max-width: 800px; margin: 0 auto 34px; color: #334155; font-size: 17px; line-height: 1.8; }
 .paper-conclusion .button { margin: 8px; }
 
 .evidence-hero { min-height: 610px; }
@@ -369,7 +369,7 @@ body.research-page { color: var(--ink); background: var(--paper); }
 .claim-rung:last-child { grid-column: 1 / -1; margin-top: 34px; padding: 30px clamp(28px, 5vw, 64px); background: #f8fafc; color: #0f172a; border: 0; border-top: 2px solid var(--research-copper); }
 .claim-rung:last-child::before { content: ""; position: absolute; left: 50%; bottom: 100%; width: 1px; height: 34px; background: var(--research-copper); }
 .claim-rung:last-child h3 { margin-top: 14px; }
-.claim-rung:last-child p { max-width: 76ch; color: #b9c9cd; }
+.claim-rung:last-child p { max-width: 76ch; color: #334155; }
 
 @media (max-width: 1180px) {
   .research-page .primary-nav { margin: 0; }

@@ -59,6 +59,22 @@ html {
   scroll-behavior: smooth;
 }
 
+/* 全站圖示說明 (Captions) 與圖表標籤 (Diagram Text) 高對比度規範 (WCAG 2.1 AAA 7:1+) */
+figcaption,
+.figure-caption,
+.diagram-caption,
+.hero-image-caption,
+.image-caption {
+  color: #1e293b !important;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.hub-literature-paper svg text:not(.bc-ion),
+.nvm-atlas-page svg text:not(.bc-ion) {
+  fill: #0f172a;
+}
+
 :target,
 main section[id],
 article[id] {
