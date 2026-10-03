@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "8e09eac22e55536a9ba2",
+  "version": "715073a894d6c2ba701e",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -106,7 +106,7 @@ self.NVMOfflineManifest = {
   "digests": {
     "404.html": "c40306abf32e727cb9f8b029699bc668bdd411a2b958f8822ccdf0c456eb1abe",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
-    "ai-nvm-opportunities.html": "a705d52f6cf4c717c6253affdfb3d7ae8f26f838d0ef1f9e78ddc5bd6af4caf7",
+    "ai-nvm-opportunities.html": "e6adc1ebf603c0ac69855c800e6fd3420eda188d763da48f28b8673886638a1c",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
     "ai-nvm.css": "5ac0085348b2af246f464a4dbeccfe9579ed6a860ac990593cbdeedec8351afe",
     "ai-nvm.js": "a51a6ab74b0e708b54b5d3af200575f275efe0d14e435b02332a300d99cc4654",
@@ -120,7 +120,7 @@ self.NVMOfflineManifest = {
     "atlas-diagram-loader.js": "6c7bcc1a49afd8731768a16b0dfb6365f8e0c4a9eb73bf7aa02d8a308a3fdf9e",
     "automotive-ecc.js": "c72a03db0474ae872b90d6f243ac611b9c80dcfe9432cabc871fa1e4b41b1c02",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
-    "automotive-nvm.html": "12ebc88752c04a766fadd8082e7597b8316f4501fb8cdf7bbbaac04fd5fafdfa",
+    "automotive-nvm.html": "beab61023cf51fd29a2715fd84be14212a69b4f9b2a850451a4c18c20b3a070d",
     "automotive-thermal.js": "92308ea5ec2cc657cf91dfc91cbc35d44296bf52b03ccbd5f9d4c29e3783878b",
     "briefing/index.html": "b4e6237c243107cf79a02fa0d695e8cbc368a7ca776e23def2eb31b6b244d3f9",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
@@ -158,7 +158,7 @@ self.NVMOfflineManifest = {
     "memory-evidence.html": "806c8aeb2bea63fff87d8fc9140e7cfbb6b0c324d28c50c1df71a5f41b900813",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "65dd5ca4fd343d330bde6cc5847b1cd1292a2bf90d5a4a9cf1db29718f699b59",
+    "memory-physics.html": "654b3e29d9808b5d7e88fdaebabcd2d729071f5910a0687a6cc3356639e2c539",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
     "nvm-bitcell-figures.css": "3dbc9f99aa9101b346d33c728e875b87beb99ba8bbeaed806f572b371ee31a88",
@@ -179,7 +179,7 @@ self.NVMOfflineManifest = {
     "research.css": "fb992a4f51654340ff28b5c0d4d70bd7bcfd73ad1b6b048df5c47b7573678e49",
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "15bf50e7b268e4f3c7b87dc7e624e8ccfc065cfc97217623db354aedf61d1e0b",
-    "secure-storage.html": "1d53f148269737046c76d9fc4c448edc3a45c3b20226ede87d91df37cc48f257",
+    "secure-storage.html": "d740816c8596559157eaaf9e1d08ee65e25731b967bf4151cdaf1237ab29584b",
     "security-assurance.html": "529b9ea1552e053cee5f90089ddf0409049b36197757274d38b8fe7c00592efe",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "66c847fcc1dbc26a32ecd71df181c1363f9ceed6874f1512414ddfc49a437bc2",
@@ -196,7 +196,7 @@ self.NVMOfflineManifest = {
     "sram-scenarios.js": "53dc69b856682397628c196117a20fb7e75ccbbcc414b2398b78a8eae4bb212c",
     "styles.css": "4021ef9a95a74de7bebd4ed5ba6b6c1046cf1f011ef51d83c584e4b10a3c2cd5",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
-    "technology-comparison.html": "fd3c26e5f20eb2beae30e6a68071463b5ccb87e00738acbd7a8d148de8fd1a2c",
+    "technology-comparison.html": "747f4037b7121a07627d5ca8e7ad45e8ad1c04e381ac8da166e20949d9d45734",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "80433c36dca9ba4fb9940765a7264801e347af32d22940f2ae79d0a98a49735a",
@@ -206,5 +206,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "931f986263bbd45119b43f1c2f0a87b890b607831b5ec0490dac8f4d4f11c4ec"
   },
-  "totalBytes": 11221926
+  "totalBytes": 11227592
 };

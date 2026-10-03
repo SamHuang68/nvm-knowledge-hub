@@ -10,6 +10,7 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#f8fafc">
   <link rel="canonical" href="https://hub.samhuang68.org/automotive-nvm.html">
+  <link rel="alternate" type="text/plain" href="llms.txt" title="LLM-friendly text version">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="NVM Knowledge Hub">
@@ -32,6 +33,7 @@
   <meta name="twitter:image" content="https://hub.samhuang68.org/assets/automotive-nvm-hero-1600.webp">
   <meta name="twitter:image:alt" content="Automotive Grade NVM AEC-Q100 Grade 0 and ISO 26262 ASIL-D Architecture">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Automotive NVM · AEC-Q100 Grade 0, ISO 26262 ASIL-D · NVM Knowledge Hub","description":"Automotive eNVM learning page: AEC-Q100 Grade 0 context, ISO 26262 / ASIL scope, ECC/SECDED, and foundry qualification evidence — not a product certification.","url":"https://hub.samhuang68.org/automotive-nvm.html","image":"https://hub.samhuang68.org/assets/automotive-nvm-hero-1600.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/automotive-nvm.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the temperature and data retention criteria for AEC-Q100 Grade 0 qualified eNVM?","acceptedAnswer":{"@type":"Answer","text":"AEC-Q100 Grade 0 certifies operation across ambient temperatures from -40°C to +150°C, translating to peak junction temperatures up to 175°C. Embedded non-volatile memory must sustain 10 to 15-year data retention without bit corruption under these thermal stress conditions."}},{"@type":"Question","name":"Why does logic AntiFuse OTP outperform Floating-Gate eFlash under Grade 0 175°C junction conditions?","acceptedAnswer":{"@type":"Answer","text":"Floating-gate cells store charges on an isolated conductive poly island subject to thermionic emission and trap-assisted leakage at 175°C (activation energy Ea ≈ 1.1–1.3 eV). AntiFuse creates a permanent recrystallized silicon conductive filament with Ea ≈ 1.8–2.1 eV, eliminating thermal charge decay."}},{"@type":"Question","name":"What safety mechanisms are mandated for eNVM in automotive ISO 26262 ASIL-D systems?","acceptedAnswer":{"@type":"Answer","text":"ISO 26262 ASIL-D mandates Single-Point Fault Metric (SPFM) > 99% and Latent Fault Metric (LFM) > 90%. eNVM arrays satisfy this via SECDED or Hsiao ECC, periodic built-in self-test (BIST), parity bit address decoders, and CRC data integrity checks."}}]}</script>
   <link rel="manifest" href="site.webmanifest">
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -984,7 +986,7 @@
             <p class="panel-desc model-boundary"><span data-lang="zh">Ea = 0.84 eV 是未校準假設，非特定失效機制的量測常數。A／B 曲線未由 AF 推導，不對應產品家族、不證明性能優劣或認證。</span><span data-lang="en">Ea = 0.84 eV is an uncalibrated assumption, not a measured failure-mechanism constant. Curves A/B are not derived from AF, represent no product family, and establish no performance ranking or qualification.</span> <a href="https://www.itl.nist.gov/div898/handbook/apr/section1/apr151.htm">NIST · Arrhenius</a></p>
 
             <!-- Arrhenius Model Formula Box -->
-            <div class="formula-box-math">
+            <div class="formula-box-math" data-math-latex="\text{AF} = \exp\left[\frac{E_a}{k_B} \cdot \left(\frac{1}{T_{\text{use}}} - \frac{1}{T_{\text{stress}}}\right)\right]" role="math" aria-label="Arrhenius Thermal Acceleration Model: AF = exp[(Ea / kB) * (1/Tuse - 1/Tstress)]" data-aria-en="Arrhenius Thermal Acceleration Model: AF = exp[(Ea / kB) * (1/Tuse - 1/Tstress)]" data-aria-zh="Arrhenius 熱加速模型：AF = exp[(Ea / kB) * (1/Tuse - 1/Tstress)]">
               <strong><span data-lang="en">[ARRHENIUS THERMAL ACCELERATION MODEL]</span><span data-lang="zh">[Arrhenius 熱加速模型]</span></strong><br>
               <em>AF</em> = exp[(<em>E</em><sub>a</sub> / <em>k</em><sub>B</sub>) · (1/<em>T</em><sub>use</sub> − 1/<em>T</em><sub>stress</sub>)]<br>
               <small style="color: #334155;">
