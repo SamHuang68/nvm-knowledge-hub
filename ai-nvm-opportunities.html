@@ -1370,6 +1370,20 @@
             <span data-lang="en">Performing analog Vector-Matrix Multiplication (VMM) directly within non-volatile memory arrays (ReRAM, MRAM, Flash) is conceptually attractive, but deploying CIM/IMC in production advanced-node AI accelerators faces insurmountable solid-state physics and mixed-signal boundaries:</span>
           </p>
 
+          <div class="math-block" role="math" aria-label="Analog Vector-Matrix Multiplication (VMM) by Ohm's Law and Kirchhoff's Current Law: I_j equals sum over i of V_i times G_ij" data-aria-en="Analog Vector-Matrix Multiplication (VMM) by Ohm's Law and Kirchhoff's Current Law: I_j equals sum over i of V_i times G_ij" data-aria-zh="基於歐姆定律與克希荷夫電流定律之類比向量矩陣乘法公式：I_j 等於 i 從 1 到 M 的 V_i 乘 G_ij 累加和" data-math-latex="I_j = \sum_{i=1}^{M} V_i \cdot G_{ij}" style="background: rgba(248, 250, 252, 0.98); border: 1px solid rgba(0, 102, 103, 0.2); border-radius: 6px; padding: 14px 18px; margin-bottom: 18px; font-family: 'IBM Plex Mono', monospace;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 11px; font-weight: 700; color: #006667; text-transform: uppercase; letter-spacing: 0.08em;"><span data-lang="zh">類比 VMM 歐姆與克希荷夫定律</span><span data-lang="en">ANALOG VMM OHM'S &amp; KIRCHHOFF'S LAW</span></span>
+              <span style="font-size: 11px; color: #64748b;">Ohm's Law + KCL</span>
+            </div>
+            <div style="font-size: 16px; font-weight: 600; color: #0f172a; text-align: center; padding: 8px 0;">
+              <code>I<sub>j</sub> = &sum;<sub>i=1</sub><sup>M</sup> (V<sub>i</sub> &times; G<sub>ij</sub>)</code>
+            </div>
+            <p style="font-size: 12px; color: #475569; margin: 6px 0 0; line-height: 1.5;">
+              <span data-lang="zh">輸入電壓向量 <code>V<sub>i</sub></code> 施加於字元線，通過電導權重單元 <code>G<sub>ij</sub></code>（如 ReRAM/MRAM/Flash），位元線依據 KCL 自動求和輸出類比累加電流 <code>I<sub>j</sub></code>。</span>
+              <span data-lang="en">Input voltage vector <code>V<sub>i</sub></code> is applied to wordlines; bitlines sum analog currents <code>I<sub>j</sub></code> via Kirchhoff's Current Law across conductance matrix <code>G<sub>ij</sub></code>.</span>
+            </p>
+          </div>
+
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 16px;">
             <article style="background: rgba(248, 250, 252, 0.96); border: 1px solid rgba(255,255,255,0.08); border-left: 3px solid #ef4444; border-radius: 4px; padding: 14px 16px;">
               <div style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #ef4444; margin-bottom: 4px;"><span data-lang="zh">限制 01 · 混合訊號額外成本</span><span data-lang="en">LIMIT 01 · MIXED-SIGNAL OVERHEAD</span></div>

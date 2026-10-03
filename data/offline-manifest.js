@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "4a4af40b3a3ccb5145b9",
+  "version": "e7b6431448312af14c85",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -106,7 +106,7 @@ self.NVMOfflineManifest = {
   "digests": {
     "404.html": "c40306abf32e727cb9f8b029699bc668bdd411a2b958f8822ccdf0c456eb1abe",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
-    "ai-nvm-opportunities.html": "e6adc1ebf603c0ac69855c800e6fd3420eda188d763da48f28b8673886638a1c",
+    "ai-nvm-opportunities.html": "2a4f90b88ecd4f0c5255d6e77b4ce3c81fab0a4bd8af62e4b800a7f4344ef631",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
     "ai-nvm.css": "5ac0085348b2af246f464a4dbeccfe9579ed6a860ac990593cbdeedec8351afe",
     "ai-nvm.js": "a51a6ab74b0e708b54b5d3af200575f275efe0d14e435b02332a300d99cc4654",
@@ -122,7 +122,7 @@ self.NVMOfflineManifest = {
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
     "automotive-nvm.html": "beab61023cf51fd29a2715fd84be14212a69b4f9b2a850451a4c18c20b3a070d",
     "automotive-thermal.js": "92308ea5ec2cc657cf91dfc91cbc35d44296bf52b03ccbd5f9d4c29e3783878b",
-    "briefing/index.html": "b4e6237c243107cf79a02fa0d695e8cbc368a7ca776e23def2eb31b6b244d3f9",
+    "briefing/index.html": "702b3b72ee8166a906841891ce16f177bc655cb85433e1c3793b49ba786e69aa",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
     "claim-scope.js": "afb8bc4df1c94c77e07707f184f1efd188970c384ccf70a598b45a503bd5f91e",
     "command-palette-hud.js": "69756564651eb6f41cd58cae19225cdb30df4853c9df0d69f0392bd1edf94557",
@@ -147,7 +147,7 @@ self.NVMOfflineManifest = {
     "hub-story-maps.js": "eda78f2422489820243648d43f382c7ebd8dce6878eeb628b350c09529aa349c",
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
-    "index.html": "acf23774ecda150cbb9fc6e10adc6f71a6e14c02b70e60ef47e421378b64b8b5",
+    "index.html": "c37dc9e227dc4bffc0b78941f6cf56aa52f0bea539fdbeebacda2b7596b8765f",
     "iot-mcu-envm.html": "3f02911968a728e759a647954993e12eaa9b1d9b378ee5e8cd01c6017609e585",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
@@ -155,7 +155,7 @@ self.NVMOfflineManifest = {
     "literature-editorial.css": "1204ad9ba0f89e3a18d8bd60c7c9a4c7aa412a7bcf396aac3cf1d3dfb14545f8",
     "literature-paper.js": "55a5c9c4259952d3829ac1bcc33df611d5ad9bf3d1c2702a232eea71847cbf19",
     "matrix-interactive.js": "00bb70e047b0aa9b5c7eedb195af4a8e8f1dba16d830ac55699db6187222b41e",
-    "memory-evidence.html": "806c8aeb2bea63fff87d8fc9140e7cfbb6b0c324d28c50c1df71a5f41b900813",
+    "memory-evidence.html": "baee372ce363918b6dbb34f0ec82a76d6bfbd5d5ee9836ad721dee88cbb8bf41",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
     "memory-physics.html": "654b3e29d9808b5d7e88fdaebabcd2d729071f5910a0687a6cc3356639e2c539",
@@ -167,12 +167,12 @@ self.NVMOfflineManifest = {
     "nvm-industry-research.css": "94169f1d221d75104a7319834d7775159e2b956862f2cba4acfff40c0380051a",
     "nvm-ip-cells.css": "f997727b6dee99cf1b388a4f7e053b009565074b4993b14cb14311e1d683a507",
     "nvm-portal-entry.css": "6cab384d44dbd1c06f6f5a5cfffeca170196a38b0ed29811115edb2c6fc1b384",
-    "nvm-technology-atlas-zh.html": "650175489802334d35999cbe7afbe6be4b50775b6e7acd369f591e54629f29a7",
+    "nvm-technology-atlas-zh.html": "a16630b7206a741525e869e0c194e595a89d0f999874d0c19b4f56c2dc3c78ef",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
-    "nvm-technology-atlas.html": "5e99e8123ae92198b25e853b8689c9c1edfed688d36454422532cdb24d374dad",
+    "nvm-technology-atlas.html": "76d613faa9879f005dab4946bc9f304ac9c74967fbbdf2978859bea0b056a8f7",
     "nvm-technology-atlas.js": "ff8031f3b5b2518e5d3757b2e0e51422b54ad3a150611943a472d0ed4ac5e80a",
     "oip-lifecycle.js": "32485842eab3b8704e829b25b3ca16978d993106eb5a322e3d7bf4d4ec7eabef",
-    "oip-secure-storage.html": "dccb83d66fce9ea8cd05155853d93a6bcfea9c03abe2c86f50113e23897e48fb",
+    "oip-secure-storage.html": "e87acf07651f2f5b28c5e423134121e94b679323b0862ac4e638d4670662ed90",
     "quick-probe.js": "e53a5099163ba611987ab6262c3fce1ba55fab62606116c5e95740a519fad028",
     "reading-controls.css": "5fdaf2f82d852d80b0535431d291edadec60b146f8076ba88c209b6966f6dd6a",
     "reading-controls.js": "31ed45e76223dad06c261b6cb792eae26dcb54a5843f4076a5ba41156ae263db",
@@ -189,7 +189,7 @@ self.NVMOfflineManifest = {
     "specialty-nvm.js": "987a05dd3f6aa8cf0b69c7c543deebc445587e9f930186241a47a7a1e01fec4b",
     "sram-repair-model.js": "366c04a84d228d736a372308d8adbaf07660683fb6f6d5b453adc5dde8c204a6",
     "sram-repair.css": "344a186f66695d3f92ad1552743c08cb2696f33a821add216ed24b302a9ecae9",
-    "sram-repair.html": "5e0ebffa845f22e94028d171f65e1d3298857701227876042b9e99e42c07ec80",
+    "sram-repair.html": "201ee0d78f7498ce5ba42401823eea6421234af23f1167fc64baa445c2f6ea01",
     "sram-repair.js": "4ba513aff845e95fd5e759fea84c32c2b03770263e72d2359a2e8fd4e1778bf2",
     "sram-scenario-report.js": "5ea519b1dbf2ab4d308a44811e5b4d704352636a347be43d6445adbbdd38c02c",
     "sram-scenario-ui.js": "b7277b3fe584818b38b675514ba4f56d998fa792033c31b7a92c45b9e2e57b34",
@@ -204,7 +204,7 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8",
     "whitepaper/assets/whitepaper.js": "dd319f9c68705442700bc090352b677e73fc58eb268baae7eb6956000d46ade4",
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
-    "whitepaper/index.html": "931f986263bbd45119b43f1c2f0a87b890b607831b5ec0490dac8f4d4f11c4ec"
+    "whitepaper/index.html": "bf313755dec94b55a6decc56a9ed0f7f1c3491d68d8376c3e4db23176da12c3a"
   },
-  "totalBytes": 11233355
+  "totalBytes": 11245623
 };
