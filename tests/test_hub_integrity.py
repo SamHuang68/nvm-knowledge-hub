@@ -1177,6 +1177,42 @@ def run_tests() -> None:
     test("iot-mcu-envm.html 包含架構選擇器、電池選擇器、週期滑桿與堆疊能耗進度條",
          'id="iot-profile-select"' in iot_html and 'id="iot-battery-select"' in iot_html and 'id="iot-interval-slider"' in iot_html and 'id="iot-bar-active"' in iot_html and 'id="iot-life-display"' in iot_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 44: 車規任務剖面 (Mission Profile) 累計熱老化與 15 年安全留存試算器
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 44: 車規任務剖面 (Mission Profile) 累計熱老化與 15 年安全留存試算器 ═══")
+    auto_mp_js = (BASE / "automotive-mission-profile.js").read_text(encoding="utf-8")
+    test("automotive-mission-profile.js 存在且導出 calculateMissionProfileAging 與 initAutomotiveMissionProfile",
+         "export function calculateMissionProfileAging" in auto_mp_js and "export function initAutomotiveMissionProfile" in auto_mp_js)
+    test("automotive-mission-profile.js 包含四大車規情境預設與三大 NVM 物理活化能參數",
+         "AUTOMOTIVE_MISSION_PRESETS" in auto_mp_js and "powertrain_grade0" in auto_mp_js and "braking_chassis_grade1" in auto_mp_js and "AUTOMOTIVE_NVM_PHYSICS" in auto_mp_js and "antifuse_otp" in auto_mp_js and "floating_gate_eflash" in auto_mp_js)
+    test("automotive-mission-profile.js 第一性原理 Arrhenius 累計熱等效時長與認證烘烤餘裕演算法",
+         "tEquivRefHours" in auto_mp_js and "requiredBakeHours" in auto_mp_js and "retentionMargin" in auto_mp_js and "KB_EV" in auto_mp_js)
+
+    auto_html = (BASE / "automotive-nvm.html").read_text(encoding="utf-8")
+    test("automotive-nvm.html 整合 automotive-mission-profile-root 工作台與模組腳本引用",
+         'id="automotive-mission-profile-root"' in auto_html and 'src="automotive-mission-profile.js' in auto_html)
+    test("automotive-nvm.html 包含任務預設選擇器、烘烤溫度選擇器、溫度光譜滑桿與三卡比較指示器",
+         'id="auto-preset-select"' in auto_html and 'id="auto-baketemp-select"' in auto_html and 'id="bin-hours-175"' in auto_html and 'id="card-antifuse-margin"' in auto_html and 'id="card-eflash-margin"' in auto_html and 'id="card-mram-margin"' in auto_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 45: 先進 SoC SRAM 備援良率挽救與 BIRA 晶圓經濟效益試算器
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 45: 先進 SoC SRAM 備援良率挽救與 BIRA 晶圓經濟效益試算器 ═══")
+    bira_js = (BASE / "sram-yield-bira-simulator.js").read_text(encoding="utf-8")
+    test("sram-yield-bira-simulator.js 存在且導出 calculateSramYieldRecovery 與 initSramYieldBiraSimulator",
+         "export function calculateSramYieldRecovery" in bira_js and "export function initSramYieldBiraSimulator" in bira_js and "export function calculateGdpw300mm" in bira_js)
+    test("sram-yield-bira-simulator.js 包含先進節點 SoC 預設與 Poisson/Murphy 瑕疵良率模型",
+         "SRAM_YIELD_PRESETS" in bira_js and "n3_ai_accelerator" in bira_js and "n5_flagship_soc" in bira_js and "yBasePoisson" in bira_js and "poissonCdf" in bira_js)
+    test("sram-yield-bira-simulator.js 包含 300mm 晶圓 GDPW 與單片/萬片經濟效益精算演算法",
+         "calculateGdpw300mm" in bira_js and "extraGoodDies" in bira_js and "valueRecoveredPerWafer" in bira_js and "annualRun10kWafersUsd" in bira_js)
+
+    sram_html = (BASE / "sram-repair.html").read_text(encoding="utf-8")
+    test("sram-repair.html 整合 sram-yield-bira-root 工作台與模組腳本引用",
+         'id="sram-yield-bira-root"' in sram_html and 'src="sram-yield-bira-simulator.js' in sram_html)
+    test("sram-repair.html 包含 BIRA 參數輸入組、五項 KPI 指標卡與良率對照進度條",
+         'id="bira-preset-select"' in sram_html and 'id="bira-diearea-input"' in sram_html and 'id="bira-base-yield"' in sram_html and 'id="bira-repaired-yield"' in sram_html and 'id="bira-extra-dies"' in sram_html and 'id="bira-bar-repair"' in sram_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

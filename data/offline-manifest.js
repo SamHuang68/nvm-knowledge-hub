@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "e338d105ae1639d180af",
+  "version": "14dabea2a06ae8acb5eb",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -17,6 +17,7 @@ self.NVMOfflineManifest = {
     "atlas-diagram-loader.js",
     "attack-resistance-evaluator.js",
     "automotive-ecc.js",
+    "automotive-mission-profile.js",
     "automotive-model.js",
     "automotive-nvm.html",
     "automotive-thermal.js",
@@ -96,6 +97,7 @@ self.NVMOfflineManifest = {
     "sram-scenario-report.js",
     "sram-scenario-ui.js",
     "sram-scenarios.js",
+    "sram-yield-bira-simulator.js",
     "styles.css",
     "surface-radius.css",
     "technology-comparison.html",
@@ -125,8 +127,9 @@ self.NVMOfflineManifest = {
     "atlas-diagram-loader.js": "6c7bcc1a49afd8731768a16b0dfb6365f8e0c4a9eb73bf7aa02d8a308a3fdf9e",
     "attack-resistance-evaluator.js": "c910a98dfe33af77474ca747fe72dae7cac37a79b968d2142d09078e7166737f",
     "automotive-ecc.js": "c72a03db0474ae872b90d6f243ac611b9c80dcfe9432cabc871fa1e4b41b1c02",
+    "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
-    "automotive-nvm.html": "93d1f4474d2a6ddf824816bb126bff578b69ec644fad5788a6c33e7864e18902",
+    "automotive-nvm.html": "be87121274e30f3f7682dd66ae5a5497db550c6be46c0a3fe08b2be7d19e4f10",
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
@@ -199,11 +202,12 @@ self.NVMOfflineManifest = {
     "specialty-nvm.js": "987a05dd3f6aa8cf0b69c7c543deebc445587e9f930186241a47a7a1e01fec4b",
     "sram-repair-model.js": "366c04a84d228d736a372308d8adbaf07660683fb6f6d5b453adc5dde8c204a6",
     "sram-repair.css": "344a186f66695d3f92ad1552743c08cb2696f33a821add216ed24b302a9ecae9",
-    "sram-repair.html": "ccec8b66a1256a1d2a447aff5f6dc0d375c9ddf80dad102b952db33dd2f6dc52",
+    "sram-repair.html": "d363c1b188e2bef043c4166b17f55467294e85f5d0eb54b52d70e3a5ec1d1386",
     "sram-repair.js": "4ba513aff845e95fd5e759fea84c32c2b03770263e72d2359a2e8fd4e1778bf2",
     "sram-scenario-report.js": "5ea519b1dbf2ab4d308a44811e5b4d704352636a347be43d6445adbbdd38c02c",
     "sram-scenario-ui.js": "b7277b3fe584818b38b675514ba4f56d998fa792033c31b7a92c45b9e2e57b34",
     "sram-scenarios.js": "53dc69b856682397628c196117a20fb7e75ccbbcc414b2398b78a8eae4bb212c",
+    "sram-yield-bira-simulator.js": "13a6edc561ba946d8e701f24090599d54e3e5bc661f8503012ea28006cbd1de8",
     "styles.css": "4021ef9a95a74de7bebd4ed5ba6b6c1046cf1f011ef51d83c584e4b10a3c2cd5",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "technology-comparison.html": "f28d0460e0bd5b411f5f08c164cf41d4dbee574e5790468d565c5972793ecbd9",
@@ -216,5 +220,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 11391784
+  "totalBytes": 11447246
 };
