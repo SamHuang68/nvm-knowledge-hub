@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "14dabea2a06ae8acb5eb",
+  "version": "ca9bc6f36a6e1f99096f",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -21,6 +21,7 @@ self.NVMOfflineManifest = {
     "automotive-model.js",
     "automotive-nvm.html",
     "automotive-thermal.js",
+    "bcd-trimming-simulator.js",
     "briefing/index.html",
     "chapter-lens.css",
     "cim-efficiency-calculator.js",
@@ -30,6 +31,7 @@ self.NVMOfflineManifest = {
     "data/named-nvm-comparison.json",
     "data/nvm-search-index.js",
     "deferred-backgrounds.js",
+    "demura-lut-calculator.js",
     "editorial-reading-ui.css",
     "evidence-workbench.css",
     "evidence-workbench.js",
@@ -131,6 +133,7 @@ self.NVMOfflineManifest = {
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
     "automotive-nvm.html": "be87121274e30f3f7682dd66ae5a5497db550c6be46c0a3fe08b2be7d19e4f10",
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
+    "bcd-trimming-simulator.js": "5fc84893230bc741aa87824195cc5029dd56345318fb67fc676ca227288fd96f",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
     "cim-efficiency-calculator.js": "3348832fe0dfd6cd555a04c8b555813d74a5c5423e92a44b871075635612d561",
@@ -140,6 +143,7 @@ self.NVMOfflineManifest = {
     "data/named-nvm-comparison.json": "69f18cd39e195164c8139e9079d4c8df2647a8c74b3ff826c667304f12330de1",
     "data/nvm-search-index.js": "1ce8a43c88b802a5cdce8ac183f47938c1352d11af68792f1a5902fa17d80306",
     "deferred-backgrounds.js": "a74dc489a74403e27ade20c4d0d16306d4d2f00c0f697cbff9662908ce0371a4",
+    "demura-lut-calculator.js": "a7e0b8f2fbfe4ddba25f4d65236be022a198013c88e34e23e2616d29f4baaa60",
     "editorial-reading-ui.css": "eedc01843bbaf8169b0ce90c5434ce91f41b13ab491f1fbecbb30267b79f0399",
     "evidence-workbench.css": "b077fd188e73256fa0e9b2b8497feb698603e89cb8ad73648180c7c471011ba9",
     "evidence-workbench.js": "86984da8da59d17546b8cf8b6a9595ac8d3c08a02efad25de24dc590e92aee17",
@@ -198,7 +202,7 @@ self.NVMOfflineManifest = {
     "site-shell.css": "95c7b574d75f1d06c7e121cb14489b2bea210649e5d15ad7d97aae7a5d86d1a7",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
     "specialty-nvm.css": "54edc81d1d15e1d9d5c3f2604328e11269e48ac9fda51d059912d4dd0f8d7862",
-    "specialty-nvm.html": "ddc349564f9e46f98f1e29a47c5a57d9e31f1ebfc08213ae6fef954f187174cc",
+    "specialty-nvm.html": "3b4f1c01796cbcfc07ecef862a0cc89edd02d5b17dbd49bcf70ed129a7f9c489",
     "specialty-nvm.js": "987a05dd3f6aa8cf0b69c7c543deebc445587e9f930186241a47a7a1e01fec4b",
     "sram-repair-model.js": "366c04a84d228d736a372308d8adbaf07660683fb6f6d5b453adc5dde8c204a6",
     "sram-repair.css": "344a186f66695d3f92ad1552743c08cb2696f33a821add216ed24b302a9ecae9",
@@ -220,5 +224,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 11447246
+  "totalBytes": 11493649
 };
