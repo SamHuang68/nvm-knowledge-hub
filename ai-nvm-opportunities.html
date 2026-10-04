@@ -35,6 +35,7 @@
   <meta name="twitter:image:alt" content="AI Infrastructure System Boundaries and NVM Opportunities Overview">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"AI Systems & NVM Opportunities · NVM Knowledge Hub","description":"A persistent-state and NVM opportunity map for AI infrastructure: identity, repair, calibration, firmware, and RAS evidence, distinguishing standards, implementation evidence, and architecture inference.","url":"https://hub.samhuang68.org/ai-nvm-opportunities.html","image":"https://hub.samhuang68.org/assets/ai-nvm-system-boundaries-hero-1600.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/ai-nvm-opportunities.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What persistent state requirements exist across multi-die AI accelerators and Chiplets?","acceptedAnswer":{"@type":"Answer","text":"Advanced AI multi-die architectures (compute dies, HBM base dies, I/O bridges) require embedded NVM for per-die cryptographic ID (PUF/OTP), UCIe / BoW D2D lane redundancy repair, analog SerDes transceiver calibration, and thermal sensor trim, typically requiring 32 Kb to 256 Kb logic-compatible OTP."}},{"@type":"Question","name":"How do ReRAM and STT-MRAM compare in analog In-Memory Computing (CiM) for deep learning?","acceptedAnswer":{"@type":"Answer","text":"ReRAM provides multi-level cell (MLC) analog conductance states via oxygen vacancy filament modulation, offering high density for matrix-vector multiplication (MVM) but lower endurance (~10^5 cycles). STT-MRAM delivers virtually infinite endurance (>10^10 cycles) and sub-10ns write speeds, making it ideal for persistent working registers and dynamic weight caching, though with a smaller resistance window (TMR ≈ 150-200%)."}},{"@type":"Question","name":"What role does non-volatile memory play in co-packaged optics (CPO) and optical AI switches?","acceptedAnswer":{"@type":"Answer","text":"Silicon photonics optical matrix switches rely on phase-change materials (PCM, such as GST/GSST) or persistent non-volatile trim DACs to lock waveguide refractive indices without continuous electrical hold power, saving massive static power in AI optical fabrics."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NVM Knowledge Hub","item":"https://hub.samhuang68.org/"},{"@type":"ListItem","position":2,"name":"Applications & Systems","item":"https://hub.samhuang68.org/#layer-applications"},{"@type":"ListItem","position":3,"name":"AI Compute-In-Memory & Edge Acceleration","item":"https://hub.samhuang68.org/ai-nvm-opportunities.html"}]}</script>
   <link rel="stylesheet" href="styles.css?v=20260929-v5">
   <link rel="stylesheet" href="research.css?v=20260929-v5">
   <link rel="stylesheet" href="ai-nvm.css?v=20260929-v5">
@@ -1418,6 +1419,148 @@
             <span data-lang="zh">在先進節點 AI 加速器中，NVM 的關鍵價值在於「確定性狀態儲存、開機信任錨定、與晶圓級修復重映射」，而非強行替代數位算力單元。</span>
             <span data-lang="en">In advanced AI accelerators, embedded NVM provides maximum architectural value in deterministic state persistence, secure boot anchoring, and wafer repair remapping—rather than forcing analog replacements of digital tensor compute.</span>
           </div>
+
+          <!-- INTERACTIVE CIM MACRO EFFICIENCY & MIXED-SIGNAL EXPLORER -->
+          <div id="cim-calculator-widget" class="cim-calculator-container" style="margin-top: 18px; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; padding: 18px 20px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 10px;">
+              <div>
+                <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #785021; letter-spacing: 0.08em; text-transform: uppercase;">
+                  <span data-lang="zh">互動工程實驗室 · CIM 混訊能效試算</span>
+                  <span data-lang="en">ENGINEERING LAB · CIM MIXED-SIGNAL EXPLORER</span>
+                </span>
+                <h4 style="font-size: 16px; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+                  <span data-lang="zh">CIM 巨集能效與 ADC 瓶頸互動試算器</span>
+                  <span data-lang="en">CIM Macro Efficiency &amp; ADC Bottleneck Explorer</span>
+                </h4>
+              </div>
+              <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(120, 80, 33, 0.1); color: #785021; padding: 4px 8px; border-radius: 4px;">
+                <span data-lang="zh">第一性原理混訊模擬</span>
+                <span data-lang="en">First-Principles Mixed-Signal</span>
+              </span>
+            </div>
+
+            <!-- Controls Row -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 16px;">
+              <div>
+                <label for="cim-array-size" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                  <span data-lang="zh">陣列尺寸 (Array Size):</span><span data-lang="en">ARRAY SIZE:</span>
+                </label>
+                <select id="cim-array-size" aria-label="CIM Array Dimensions" data-aria-en="CIM Array Dimensions" data-aria-zh="CIM 陣列尺寸" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 12px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                  <option value="64">64 × 64 (8 kMACs / cycle)</option>
+                  <option value="128">128 × 128 (32 kMACs / cycle)</option>
+                  <option value="256" selected>256 × 256 (131 kMACs / cycle)</option>
+                  <option value="512">512 × 512 (524 kMACs / cycle)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="cim-device-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                  <span data-lang="zh">記憶體單元技術 (Device Tech):</span><span data-lang="en">DEVICE TECHNOLOGY:</span>
+                </label>
+                <select id="cim-device-select" aria-label="CIM Memory Device Technology" data-aria-en="CIM Memory Device Technology" data-aria-zh="CIM 記憶體單元技術" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 12px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                  <option value="reram" selected>ReRAM / OxRAM (25 µS, MLC 4b)</option>
+                  <option value="mram">STT-MRAM (100 µS, Binary 1b)</option>
+                  <option value="nor_flash">Embedded NOR Flash (15 µS, MLC 4b)</option>
+                  <option value="sram_cim">SRAM CIM (40 µS, Charge 1b)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="cim-adc-bits" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                  <span data-lang="zh">ADC 量化精度 (ADC Resolution):</span><span data-lang="en">ADC RESOLUTION:</span>
+                </label>
+                <select id="cim-adc-bits" aria-label="CIM ADC Resolution" data-aria-en="CIM ADC Resolution" data-aria-zh="CIM ADC 量化精度" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 12px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                  <option value="4">4-bit SAR (0.06 pJ / conv - Low)</option>
+                  <option value="6" selected>6-bit SAR (0.28 pJ / conv - Med)</option>
+                  <option value="8">8-bit Flash/SAR (1.35 pJ / conv - High)</option>
+                </select>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                  <span><span data-lang="zh">時脈頻率 (Clock Freq):</span><span data-lang="en">CLOCK FREQ:</span></span>
+                  <span id="cim-freq-val" style="color: #785021; font-weight: 700;">100 MHz</span>
+                </div>
+                <input type="range" id="cim-freq-slider" min="50" max="400" step="25" value="100" aria-label="Clock Frequency" data-aria-en="Clock Frequency" data-aria-zh="時脈頻率" aria-valuetext="100 MHz" style="width: 100%; accent-color: #785021; cursor: pointer;">
+              </div>
+            </div>
+
+            <!-- Telemetry Metrics Strip -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 14px;">
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                  <span data-lang="zh">巨集真實能效</span><span data-lang="en">MACRO EFFICIENCY</span>
+                </div>
+                <div id="cim-macro-eff-val" style="font: 700 17px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">含 ADC 與周邊開銷</span><span data-lang="en">Includes ADC &amp; periphery</span>
+                </div>
+              </div>
+
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                  <span data-lang="zh">純陣列核心能效</span><span data-lang="en">CORE ARRAY EFF</span>
+                </div>
+                <div id="cim-core-eff-val" style="font: 700 17px 'IBM Plex Mono', monospace; color: #047857;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">未含混訊周邊理論值</span><span data-lang="en">Raw array without ADC</span>
+                </div>
+              </div>
+
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                  <span data-lang="zh">ADC 功耗吞噬佔比</span><span data-lang="en">ADC POWER OVERHEAD</span>
+                </div>
+                <div id="cim-adc-overhead-val" style="font: 700 17px 'IBM Plex Mono', monospace; color: #d97706;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">指數級能耗代價</span><span data-lang="en">Exponential FOM scaling</span>
+                </div>
+              </div>
+
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                  <span data-lang="zh">最遠端 IR-Drop 壓降</span><span data-lang="en">WORST IR-DROP</span>
+                </div>
+                <div id="cim-ir-drop-val" style="font: 700 17px 'IBM Plex Mono', monospace; color: #d97706;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">導線串聯電阻衰減</span><span data-lang="en">Interconnect line loss</span>
+                </div>
+              </div>
+
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                  <span data-lang="zh">運算吞吐量</span><span data-lang="en">THROUGHPUT</span>
+                </div>
+                <div id="cim-throughput-val" style="font: 700 17px 'IBM Plex Mono', monospace; color: #1e40af;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">每秒乘加次數 (TOPS)</span><span data-lang="en">Tera-operations / sec</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visual Power Breakdown Bar -->
+            <div style="margin-bottom: 12px;">
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 6px;">
+                <span><span data-lang="zh">功耗分佈對比 (Power Dissipation Breakdown):</span><span data-lang="en">POWER BREAKDOWN:</span></span>
+                <span style="font-size: 10.5px;">
+                  <span style="color: #047857; margin-right: 8px;">● <span data-lang="zh">純陣列</span><span data-lang="en">Core Array</span></span>
+                  <span style="color: #dc2626; margin-right: 8px;">● <span data-lang="zh">ADC 轉換器</span><span data-lang="en">ADC Converters</span></span>
+                  <span style="color: #2563eb;">● <span data-lang="zh">數位後處理</span><span data-lang="en">Digital Logic</span></span>
+                </span>
+              </div>
+              <div style="display: flex; height: 16px; border-radius: 4px; overflow: hidden; background: #e2e8f0;">
+                <div id="cim-bar-array" style="width: 30%; background: #047857; transition: width 0.3s ease;"></div>
+                <div id="cim-bar-adc" style="width: 55%; background: #dc2626; transition: width 0.3s ease;"></div>
+                <div id="cim-bar-digital" style="width: 15%; background: #2563eb; transition: width 0.3s ease;"></div>
+              </div>
+            </div>
+
+            <!-- Architectural Insight Callout -->
+            <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #d97706; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #334155;">
+              <strong style="color: #b45309;"><span data-lang="zh">架構洞察：</span><span data-lang="en">Architectural Insight:</span></strong>
+              <span id="cim-verdict-insight">Loading calculation...</span>
+            </div>
+          </div>
         </div>
 
         <!-- 2026 先進節點 SRAM Scaling Wall 與 3D 堆疊快取修復邊界 -->
@@ -1722,5 +1865,6 @@
       panels.forEach(p => railObserver.observe(p));
     });
   </script>
+  <script type="module" src="cim-efficiency-calculator.js"></script>
 </body>
 </html>

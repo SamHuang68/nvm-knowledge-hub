@@ -34,6 +34,7 @@
   <meta name="twitter:image:alt" content="Automotive Grade NVM AEC-Q100 Grade 0 and ISO 26262 ASIL-D Architecture">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Automotive NVM · AEC-Q100 Grade 0, ISO 26262 ASIL-D · NVM Knowledge Hub","description":"Automotive eNVM learning page: AEC-Q100 Grade 0 context, ISO 26262 / ASIL scope, ECC/SECDED, and foundry qualification evidence — not a product certification.","url":"https://hub.samhuang68.org/automotive-nvm.html","image":"https://hub.samhuang68.org/assets/automotive-nvm-hero-1600.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/automotive-nvm.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the temperature and data retention criteria for AEC-Q100 Grade 0 qualified eNVM?","acceptedAnswer":{"@type":"Answer","text":"AEC-Q100 Grade 0 certifies operation across ambient temperatures from -40°C to +150°C, translating to peak junction temperatures up to 175°C. Embedded non-volatile memory must sustain 10 to 15-year data retention without bit corruption under these thermal stress conditions."}},{"@type":"Question","name":"Why does logic AntiFuse OTP outperform Floating-Gate eFlash under Grade 0 175°C junction conditions?","acceptedAnswer":{"@type":"Answer","text":"Floating-gate cells store charges on an isolated conductive poly island subject to thermionic emission and trap-assisted leakage at 175°C (activation energy Ea ≈ 1.1–1.3 eV). AntiFuse creates a permanent recrystallized silicon conductive filament with Ea ≈ 1.8–2.1 eV, eliminating thermal charge decay."}},{"@type":"Question","name":"What safety mechanisms are mandated for eNVM in automotive ISO 26262 ASIL-D systems?","acceptedAnswer":{"@type":"Answer","text":"ISO 26262 ASIL-D mandates Single-Point Fault Metric (SPFM) > 99% and Latent Fault Metric (LFM) > 90%. eNVM arrays satisfy this via SECDED or Hsiao ECC, periodic built-in self-test (BIST), parity bit address decoders, and CRC data integrity checks."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NVM Knowledge Hub","item":"https://hub.samhuang68.org/"},{"@type":"ListItem","position":2,"name":"Applications & Systems","item":"https://hub.samhuang68.org/#layer-applications"},{"@type":"ListItem","position":3,"name":"Automotive AEC-Q100 Grade 0 & ISO 26262 ASIL-D","item":"https://hub.samhuang68.org/automotive-nvm.html"}]}</script>
   <link rel="manifest" href="site.webmanifest">
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -995,20 +996,31 @@
             </div>
 
             <!-- Instrument Sliders & HUD -->
-            <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; background: #f8fafc; padding: 10px 14px; border-radius: 6px; border: 1px solid rgba(245, 158, 11, 0.2); margin-bottom: 12px;">
-              <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; background: #f8fafc; padding: 10px 14px; border-radius: 6px; border: 1px solid rgba(245, 158, 11, 0.2); margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <label for="eaSelect" style="font: 700 11px 'IBM Plex Mono'; color: #b45309;">
+                  <span data-lang="zh">活化能 Ea：</span><span data-lang="en">ACTIVATION EA:</span>
+                </label>
+                <select id="eaSelect" aria-label="Activation Energy (Ea)" data-aria-en="Activation Energy (Ea)" data-aria-zh="活化能 (Ea)" style="font: 600 11px 'IBM Plex Mono', monospace; padding: 3px 6px; border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 4px; background: #ffffff; color: #0f172a; cursor: pointer;">
+                  <option value="0.84" selected>0.84 eV (JEDEC JESD22 Baseline)</option>
+                  <option value="1.10">1.10 eV (Floating-Gate eFlash)</option>
+                  <option value="1.25">1.25 eV (SONOS Charge Trap)</option>
+                  <option value="1.80">1.80 eV (Logic AntiFuse Filament)</option>
+                </select>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
                 <label for="tempSlider" style="font: 700 11px 'IBM Plex Mono'; color: #f59e0b;">
                   <span data-lang="zh">接面溫度 Tj (°C)：</span><span data-lang="en">JUNCTION TJ:</span>
                 </label>
-                <input type="range" id="tempSlider" aria-label="Junction Temperature (Tj)" data-aria-en="Junction Temperature (Tj)" data-aria-zh="接面溫度 (Tj)" min="25" max="175" step="5" value="175" aria-valuetext="175 °C" style="accent-color: #f59e0b; cursor: pointer; width: 120px;">
-                <span class="mono-text" id="tempVal" style="color: #f59e0b; font-weight: 700; font-size: 1rem;">175 °C</span>
+                <input type="range" id="tempSlider" aria-label="Junction Temperature (Tj)" data-aria-en="Junction Temperature (Tj)" data-aria-zh="接面溫度 (Tj)" min="25" max="175" step="5" value="175" aria-valuetext="175 °C" style="accent-color: #f59e0b; cursor: pointer; width: 100px;">
+                <span class="mono-text" id="tempVal" style="color: #f59e0b; font-weight: 700; font-size: 0.95rem;">175 °C</span>
               </div>
-              <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
                 <label for="yearSlider" style="font: 700 11px 'IBM Plex Mono'; color: #785021;">
                   <span data-lang="zh">時間標記 (Years):</span><span data-lang="en">TIME MARKER:</span>
                 </label>
-                <input type="range" id="yearSlider" aria-label="Time Marker (Years)" data-aria-en="Time Marker (Years)" data-aria-zh="時間標記 (年)" min="1" max="25" step="1" value="15" aria-valuetext="15 Yrs" style="accent-color: #785021; cursor: pointer; width: 110px;">
-                <span class="mono-text" id="yearVal" style="color: #785021; font-weight: 700; font-size: 1rem;"><span data-lang="en">15 Yrs</span><span data-lang="zh">15 年</span></span>
+                <input type="range" id="yearSlider" aria-label="Time Marker (Years)" data-aria-en="Time Marker (Years)" data-aria-zh="時間標記 (年)" min="1" max="25" step="1" value="15" aria-valuetext="15 Yrs" style="accent-color: #785021; cursor: pointer; width: 95px;">
+                <span class="mono-text" id="yearVal" style="color: #785021; font-weight: 700; font-size: 0.95rem;"><span data-lang="en">15 Yrs</span><span data-lang="zh">15 年</span></span>
               </div>
               <div>
                 <span style="font: 600 11px 'IBM Plex Mono'; color: #334155;">

@@ -58,6 +58,7 @@
     ]
   }
   </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NVM Knowledge Hub","item":"https://hub.samhuang68.org/"},{"@type":"ListItem","position":2,"name":"Resources & Briefings","item":"https://hub.samhuang68.org/#layer-resources"},{"@type":"ListItem","position":3,"name":"Comprehensive NVM Whitepaper","item":"https://hub.samhuang68.org/whitepaper/"}]}</script>
   <title>NVM Whitepaper &amp; Decision Studio · NVM Knowledge Hub</title>
 
   <link rel="stylesheet" href="../site-shell.css?v=20260916-keepout">

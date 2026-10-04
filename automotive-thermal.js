@@ -14,6 +14,7 @@ import { accelerationFactor } from "./automotive-model.js";
       const yearSlider = document.getElementById("yearSlider");
       const yearValElem = document.getElementById("yearVal");
       const afValElem = document.getElementById("afVal");
+      const eaSelect = document.getElementById("eaSelect");
 
       function setupHiDPI() {
         const dpr = Math.min(window.devicePixelRatio || 1, 3);
@@ -35,16 +36,17 @@ import { accelerationFactor } from "./automotive-model.js";
 
         const tempC = parseFloat(tempSlider.value);
         const years = parseFloat(yearSlider.value);
+        const eaVal = eaSelect ? parseFloat(eaSelect.value) || 0.84 : 0.84;
 
         tempValElem.textContent = `${tempC} °C`;
         yearValElem.textContent = T(`${years} Yrs`, `${years} 年`);
         tempSlider.setAttribute("aria-valuetext", `${tempC} °C`);
         yearSlider.setAttribute("aria-valuetext", T(`${years} Yrs`, `${years} 年`));
 
-        const af = accelerationFactor(tempC);
+        const af = accelerationFactor(tempC, { activationEV: eaVal, referenceC: 55 });
         afValElem.textContent = af.toLocaleString(T("en-US", "zh-TW"), { maximumFractionDigits: 2 }) + "×";
         afValElem.dataset.value = String(af);
-        document.getElementById("thermalSummary").textContent = T(`Assumed Ea = 0.84 eV; reference = 55°C. AF = ${afValElem.textContent} at ${tempC}°C. The ${years}-year marker does not change AF. Curves A/B are arbitrary illustrations, not an AF-derived retention forecast.`, `假設 Ea = 0.84 eV；基準 55°C。在 ${tempC}°C 下，AF = ${afValElem.textContent}。${years} 年標記不改變 AF。A／B 曲線是任意示意，並非由 AF 推導的保存壽命預測。`);
+        document.getElementById("thermalSummary").textContent = T(`Selected Ea = ${eaVal.toFixed(2)} eV; reference = 55°C. AF = ${afValElem.textContent} at ${tempC}°C. The ${years}-year marker does not change AF. Curves A/B are arbitrary illustrations, not an AF-derived retention forecast.`, `選擇活化能 Ea = ${eaVal.toFixed(2)} eV；基準 55°C。在 ${tempC}°C 下，AF = ${afValElem.textContent}。${years} 年標記不改變 AF。A／B 曲線是任意示意，並非由 AF 推導的保存壽命預測。`);
 
         ctx.clearRect(0, 0, w, h);
 
@@ -144,6 +146,7 @@ import { accelerationFactor } from "./automotive-model.js";
 
       tempSlider.addEventListener("input", renderThermal);
       yearSlider.addEventListener("input", renderThermal);
+      if (eaSelect) eaSelect.addEventListener("change", renderThermal);
       window.addEventListener("hub:language-change", renderThermal);
       window.addEventListener("resize", () => { setupHiDPI(); renderThermal(); });
       setupHiDPI(); renderThermal();
