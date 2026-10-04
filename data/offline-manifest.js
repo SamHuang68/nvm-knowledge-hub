@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "977675ef254ed60d7dea",
+  "version": "508c3d3b94517c203fa8",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -71,6 +71,8 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas.js",
     "oip-lifecycle.js",
     "oip-secure-storage.html",
+    "pqc-rot-budget-calculator.js",
+    "puf-reconstruction-simulator.js",
     "quick-probe.js",
     "reading-controls.css",
     "reading-controls.js",
@@ -174,14 +176,16 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas.html": "49d1f0abef96174326a08079b1e8f5997a50e6e5c524cd3cf059a9fd4f35d5e3",
     "nvm-technology-atlas.js": "ff8031f3b5b2518e5d3757b2e0e51422b54ad3a150611943a472d0ed4ac5e80a",
     "oip-lifecycle.js": "32485842eab3b8704e829b25b3ca16978d993106eb5a322e3d7bf4d4ec7eabef",
-    "oip-secure-storage.html": "7452d8044cd46d106c0d5be54fc877dc3eba67be931e59aed8b4f35ba028b62d",
+    "oip-secure-storage.html": "024982bbd1b1dbaf60247e3f65bd25e10b52265577de0549e7a81d41d36051de",
+    "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
+    "puf-reconstruction-simulator.js": "1a6c99a0f918092edeec1305c3aaa7f926a19567c98cfffcc094b2a36a1661e0",
     "quick-probe.js": "e53a5099163ba611987ab6262c3fce1ba55fab62606116c5e95740a519fad028",
     "reading-controls.css": "5fdaf2f82d852d80b0535431d291edadec60b146f8076ba88c209b6966f6dd6a",
     "reading-controls.js": "31ed45e76223dad06c261b6cb792eae26dcb54a5843f4076a5ba41156ae263db",
     "research.css": "76291bad9ecde2fcd860e66599c3a399694a29065db00a16cd12d974bfe2de94",
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "15bf50e7b268e4f3c7b87dc7e624e8ccfc065cfc97217623db354aedf61d1e0b",
-    "secure-storage.html": "ded67f86147fac6c82642e740c42be837f347ad055f97afb2bb4660adb7151eb",
+    "secure-storage.html": "05868cea97acd5456037d6eed9b0303c78a1c701f26a5c2c8fa020899f003984",
     "security-assurance.html": "2f365c0d594c0cdc5f21c5f2e6fa9e0a51b9b6753b2aeb9d8bf69d26c497dfbe",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "95c7b574d75f1d06c7e121cb14489b2bea210649e5d15ad7d97aae7a5d86d1a7",
@@ -208,5 +212,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 11282632
+  "totalBytes": 11340773
 };

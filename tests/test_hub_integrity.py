@@ -1105,6 +1105,42 @@ def run_tests() -> None:
     test("automotive-thermal.js 支援讀取 eaSelect 動態計算不同活化能下的加速因子 AF",
          'document.getElementById("eaSelect")' in auto_thermal_js and 'activationEV: eaVal' in auto_thermal_js)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 40: NIST FIPS 203/204 後量子密碼學 (PQC) 晶片信任根儲存預算試算器
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 40: NIST FIPS 203/204 後量子密碼學 (PQC) 晶片信任根儲存預算試算器 ═══")
+    pqc_js = (BASE / "pqc-rot-budget-calculator.js").read_text(encoding="utf-8")
+    test("pqc-rot-budget-calculator.js 存在且導出 calculatePqcRotBudget 與 initPqcRotCalculator",
+         "export function calculatePqcRotBudget" in pqc_js and "export function initPqcRotCalculator" in pqc_js)
+    test("pqc-rot-budget-calculator.js 包含 FIPS 203/204 (ML-KEM, ML-DSA) 與 LMS 演算法規格",
+         "ml_kem_768" in pqc_js and "ml_kem_1024" in pqc_js and "ml_dsa_65" in pqc_js and "ml_dsa_87" in pqc_js and "lms_sha256" in pqc_js)
+    test("pqc-rot-budget-calculator.js 包含 eFuse (4Kb 上限溢位)、AntiFuse 與 eMRAM 物理可行性評估",
+         "efuseLimitBits" in pqc_js and "antifuseLimitBits" in pqc_js and "mramLimitBits" in pqc_js and "OVERFLOW" in pqc_js)
+
+    sec_html = (BASE / "secure-storage.html").read_text(encoding="utf-8")
+    test("secure-storage.html 整合 pqc-budget-simulator-root 互動面板與模組引用",
+         'id="pqc-budget-simulator-root"' in sec_html and 'src="pqc-rot-budget-calculator.js' in sec_html)
+    test("secure-storage.html PQC 試算器包含預設情境與三種技術可行性卡片",
+         'id="pqc-preset-select"' in sec_html and 'id="pqc-efuse-pill"' in sec_html and 'id="pqc-antifuse-pill"' in sec_html and 'id="pqc-mram-pill"' in sec_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 41: SRAM PUF 金鑰重建與 Fuzzy Extractor 物理邊界模擬器
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 41: SRAM PUF 金鑰重建與 Fuzzy Extractor 物理邊界模擬器 ═══")
+    puf_js = (BASE / "puf-reconstruction-simulator.js").read_text(encoding="utf-8")
+    test("puf-reconstruction-simulator.js 存在且導出 calculatePufReconstruction 與 initPufReconstructionSimulator",
+         "export function calculatePufReconstruction" in puf_js and "export function initPufReconstructionSimulator" in puf_js)
+    test("puf-reconstruction-simulator.js 包含溫度係數、NBTI/PBTI 老化與二項式 CDF 區塊失敗率模型",
+         "alphaTemp" in puf_js and "betaAge" in puf_js and "binomialCoeff" in puf_js and "pBlockFail" in puf_js)
+    test("puf-reconstruction-simulator.js 包含殘餘最小熵與 Helper Data 尺寸估算",
+         "residualMinEntropy" in puf_js and "helperDataBytes" in puf_js and "minEntropyPerCell" in puf_js)
+
+    oip_html = (BASE / "oip-secure-storage.html").read_text(encoding="utf-8")
+    test("oip-secure-storage.html 整合 puf-reconstruction-root 實驗室與模組引用",
+         'id="puf-reconstruction-root"' in oip_html and 'src="puf-reconstruction-simulator.js' in oip_html)
+    test("oip-secure-storage.html 包含 PUF 漢明距離分佈畫布與溫度/老化控制項",
+         'id="puf-dist-canvas"' in oip_html and 'id="puf-temp-slider"' in oip_html and 'id="puf-age-slider"' in oip_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
