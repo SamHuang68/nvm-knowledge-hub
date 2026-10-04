@@ -209,6 +209,176 @@
           </ul>
         </article>
       </div>
+
+      <!-- INTERACTIVE COMMON CRITERIA AVA_VAN.5 ATTACK RESISTANCE EVALUATOR -->
+      <div id="attack-resistance-evaluator-root" class="panel cc-evaluator-container" style="margin-top: 1.5rem; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; padding: 1.25rem 1.5rem; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+          <div>
+            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #785021; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span data-lang="zh">互動認證實驗室 · 實體攻擊潛力評估</span>
+              <span data-lang="en">SECURITY LAB · PHYSICAL ATTACK POTENTIAL EVALUATOR</span>
+            </span>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+              <span data-lang="zh">Common Criteria (ISO/IEC 15408 / AVA_VAN.5) 實體攻擊防護力與計分試算器</span>
+              <span data-lang="en">Common Criteria (ISO/IEC 15408 / AVA_VAN.5) Attack Potential Evaluator</span>
+            </h3>
+          </div>
+          <span id="cc-level-badge" class="cc-badge ava-van-5" style="font: 700 11px 'IBM Plex Mono', monospace; padding: 4px 10px; border-radius: 4px; background: rgba(16, 185, 129, 0.15); color: #065f46; border: 1px solid rgba(16, 185, 129, 0.3);">
+            Beyond High (AVA_VAN.5)
+          </span>
+        </div>
+
+        <!-- Presets Row -->
+        <div style="margin-bottom: 1.25rem; display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <label for="cc-preset-select" style="font: 700 11px 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
+            <span data-lang="zh">認證目標評估情境 (Target Preset):</span><span data-lang="en">EVALUATION TARGET PRESET:</span>
+          </label>
+          <select id="cc-preset-select" aria-label="Common Criteria Evaluation Target Preset" data-aria-en="Common Criteria Evaluation Target Preset" data-aria-zh="共同準則評估目標情境預設" style="flex: 1; min-width: 260px; padding: 6px 12px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 12px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+            <option value="banking_secure_element" selected>Smartcard / Banking Secure Element (AVA_VAN.5 Target)</option>
+            <option value="automotive_hsm">Automotive Domain Gateway / Secure HSM (AVA_VAN.4 Target)</option>
+            <option value="iot_platform_sesip">Connected IoT MCU / SESIP Level 3 (AVA_VAN.3 Target)</option>
+            <option value="unprotected_baseline">Unprotected Microcontroller Baseline (AVA_VAN.1)</option>
+          </select>
+        </div>
+
+        <!-- CEM Factors Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 1.25rem;">
+          <div>
+            <label for="cc-time-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">耗費時間 (Elapsed Time):</span><span data-lang="en">ELAPSED TIME:</span>
+            </label>
+            <select id="cc-time-select" aria-label="Elapsed Time" data-aria-en="Elapsed Time" data-aria-zh="耗費時間" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="d1">≤ 1 day (0 pts)</option>
+              <option value="w1">≤ 1 week (1 pt)</option>
+              <option value="w2">≤ 2 weeks (2 pts)</option>
+              <option value="m1">≤ 1 month (4 pts)</option>
+              <option value="m6">≤ 6 months (7 pts)</option>
+              <option value="ext" selected>> 6 months (10 pts)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="cc-exp-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">專業知識 (Expertise):</span><span data-lang="en">EXPERTISE:</span>
+            </label>
+            <select id="cc-exp-select" aria-label="Attacker Expertise" data-aria-en="Attacker Expertise" data-aria-zh="攻擊者專業知識" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="layman">Layman (0 pts)</option>
+              <option value="proficient">Proficient (2 pts)</option>
+              <option value="expert">Expert (4 pts)</option>
+              <option value="multiple" selected>Multiple Experts (6 pts)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="cc-know-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">受測品資訊 (Knowledge):</span><span data-lang="en">KNOWLEDGE OF TOE:</span>
+            </label>
+            <select id="cc-know-select" aria-label="Knowledge of TOE" data-aria-en="Knowledge of TOE" data-aria-zh="受測品內部資訊" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="public">Public (0 pts)</option>
+              <option value="restricted">Restricted (2 pts)</option>
+              <option value="sensitive">Sensitive (4 pts)</option>
+              <option value="critical" selected>Critical Layout/Netlist (7 pts)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="cc-acc-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">晶片存取樣本 (Access):</span><span data-lang="en">ACCESS TO TOE:</span>
+            </label>
+            <select id="cc-acc-select" aria-label="Access to TOE" data-aria-en="Access to TOE" data-aria-zh="晶片存取樣本數" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="under10">&lt; 10 samples (0 pts)</option>
+              <option value="under30">≤ 30 samples (2 pts)</option>
+              <option value="under100">≤ 100 samples (4 pts)</option>
+              <option value="unlimited" selected>Unlimited Foundry (6 pts)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="cc-eq-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">實驗室儀器 (Equipment):</span><span data-lang="en">EQUIPMENT REQUIRED:</span>
+            </label>
+            <select id="cc-eq-select" aria-label="Laboratory Equipment" data-aria-en="Laboratory Equipment" data-aria-zh="實驗室分析儀器" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="standard">Standard (0 pts)</option>
+              <option value="specialized">Specialized (3 pts)</option>
+              <option value="bespoke">Bespoke FIB/Laser (5 pts)</option>
+              <option value="multibespoke" selected>Cryo + FIB + Synchrotron (7 pts)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Countermeasures Checkboxes -->
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 14px; margin-bottom: 1.25rem;">
+          <div style="font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 8px; text-transform: uppercase;">
+            <span data-lang="zh">硬體縱深防禦措施 (Hardware Countermeasures):</span><span data-lang="en">HARDWARE COUNTERMEASURES:</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px;">
+            <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
+              <input type="checkbox" id="cc-chk-mesh" checked style="accent-color: #785021;">
+              <span><span data-lang="zh">頂層主動 PRBS 網格 (+4 pts)</span><span data-lang="en">Active Top Mesh (+4 pts)</span></span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
+              <input type="checkbox" id="cc-chk-zero" checked style="accent-color: #785021;">
+              <span><span data-lang="zh">單週期電容急毀迴路 (+3 pts)</span><span data-lang="en">Single-Cycle Zeroize (+3 pts)</span></span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
+              <input type="checkbox" id="cc-chk-scramble" checked style="accent-color: #785021;">
+              <span><span data-lang="zh">位址／資料密碼學擾碼 (+2 pts)</span><span data-lang="en">Address/Data Scrambling (+2 pts)</span></span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
+              <input type="checkbox" id="cc-chk-antifuse" checked style="accent-color: #785021;">
+              <span><span data-lang="zh">AntiFuse 3–8nm 隨機微絲 (+3 pts)</span><span data-lang="en">AntiFuse 3–8nm Filament (+3 pts)</span></span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
+              <input type="checkbox" id="cc-chk-puf" checked style="accent-color: #785021;">
+              <span><span data-lang="zh">SRAM PUF 斷電無電荷 (+4 pts)</span><span data-lang="en">SRAM PUF Absent-at-Rest (+4 pts)</span></span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
+              <input type="checkbox" id="cc-chk-diff" checked style="accent-color: #785021;">
+              <span><span data-lang="zh">互補差分讀取衰減 DPA (+2 pts)</span><span data-lang="en">Differential Read DPA Filter (+2 pts)</span></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Score Strip & Progress Bar -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 1rem;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">攻擊者基準潛力分</span><span data-lang="en">RAW ATTACK POTENTIAL</span>
+            </div>
+            <div id="cc-raw-score" style="font: 700 18px 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">—</div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">硬體防禦增益加分</span><span data-lang="en">DEFENSE BONUS</span>
+            </div>
+            <div id="cc-bonus-score" style="font: 700 18px 'IBM Plex Mono', monospace; color: #0284c7; margin-top: 4px;">—</div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">有效抗攻擊總潛力</span><span data-lang="en">EFFECTIVE POTENTIAL</span>
+            </div>
+            <div id="cc-eff-score" style="font: 700 18px 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">—</div>
+          </div>
+        </div>
+
+        <!-- Score Progress Bar -->
+        <div style="margin-bottom: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+            <span><span data-lang="zh">Common Criteria 評估門檻進度條 (AVA_VAN.1 至 AVA_VAN.5):</span><span data-lang="en">COMMON CRITERIA RATING BAR:</span></span>
+            <span style="font-size: 10px; color: #64748b;">VAN.1 (0) | VAN.2 (16) | VAN.3 (21) | VAN.4 (26) | <strong>VAN.5 (31+)</strong></span>
+          </div>
+          <div style="height: 14px; border-radius: 4px; overflow: hidden; background: #e2e8f0;" role="img" aria-label="Common Criteria Attack Potential Score Progress" data-aria-en="Common Criteria Attack Potential Score Progress" data-aria-zh="共同準則攻擊潛力得分進度條">
+            <div id="cc-score-bar" style="height: 100%; width: 50%; background: #059669; transition: width 0.3s ease, background 0.3s ease;"></div>
+          </div>
+        </div>
+
+        <!-- Audit Verdict Callout -->
+        <div id="cc-audit-verdict" style="background: rgba(16, 185, 129, 0.06); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 10px 14px; font-size: 11.5px; line-height: 1.5; color: #0f172a;">
+          —
+        </div>
+      </div>
     </section>
 
     <section id="windows" class="section windows">
@@ -277,5 +447,6 @@
   </main>
   <footer><a href="index.html">NVM KNOWLEDGE HUB</a><span data-zh="安全儲存 · 實體安全保證" data-en="SECURE STORAGE · PHYSICAL SECURITY ASSURANCE">SECURE STORAGE · PHYSICAL SECURITY ASSURANCE</span><a href="#top" data-zh="回到頂端" data-en="Back to top">Back to top</a></footer>
   <script src="assurance.js?v=20260929-v5"></script>
+  <script type="module" src="attack-resistance-evaluator.js?v=20261005"></script>
 </body>
 </html>

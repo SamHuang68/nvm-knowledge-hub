@@ -1141,6 +1141,42 @@ def run_tests() -> None:
     test("oip-secure-storage.html 包含 PUF 漢明距離分佈畫布與溫度/老化控制項",
          'id="puf-dist-canvas"' in oip_html and 'id="puf-temp-slider"' in oip_html and 'id="puf-age-slider"' in oip_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 42: Common Criteria (ISO/IEC 15408 / CEM v3.1) AVA_VAN.5 實體防護力與攻擊潛能評估器
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 42: Common Criteria AVA_VAN.5 實體防護力與攻擊潛能評估器 ═══")
+    eval_js = (BASE / "attack-resistance-evaluator.js").read_text(encoding="utf-8")
+    test("attack-resistance-evaluator.js 存在且導出 calculateAttackPotential 與 initAttackResistanceEvaluator",
+         "export function calculateAttackPotential" in eval_js and "export function initAttackResistanceEvaluator" in eval_js)
+    test("attack-resistance-evaluator.js 包含 CEM 標準五大因子權重與 AVA_VAN.1~5 映射模型",
+         "CEM_SCORING_WEIGHTS" in eval_js and "CC_PRESETS" in eval_js and "AVA_VAN.5" in eval_js and "RESISTANT_MAX" in eval_js)
+    test("attack-resistance-evaluator.js 包含 6 大硬體縱深防禦措施加分 (activeMesh, zeroization, scrambling, antifuse, puf, diffRead)",
+         "inputs.activeMesh" in eval_js and "inputs.zeroization" in eval_js and "inputs.scrambling" in eval_js and "inputs.antifuse" in eval_js and "inputs.puf" in eval_js and "inputs.diffRead" in eval_js)
+
+    sec_assure_html = (BASE / "security-assurance.html").read_text(encoding="utf-8")
+    test("security-assurance.html 整合 attack-resistance-evaluator-root 互動面板與模組腳本引用",
+         'id="attack-resistance-evaluator-root"' in sec_assure_html and 'src="attack-resistance-evaluator.js' in sec_assure_html)
+    test("security-assurance.html 包含 CEM 五大因子選擇器、防禦多選框與結果評估指示器",
+         'id="cc-preset-select"' in sec_assure_html and 'id="cc-time-select"' in sec_assure_html and 'id="cc-chk-mesh"' in sec_assure_html and 'id="cc-eff-score"' in sec_assure_html and 'id="cc-level-badge"' in sec_assure_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 43: 極低功耗 IoT MCU 休眠/喚醒能耗預算與電池壽命試算器 (EEMBC ULPMark)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 43: 極低功耗 IoT MCU 休眠/喚醒能耗預算與電池壽命試算器 ═══")
+    iot_js = (BASE / "iot-energy-tradeoff-calculator.js").read_text(encoding="utf-8")
+    test("iot-energy-tradeoff-calculator.js 存在且導出 calculateIotEnergyBudget 與 initIotEnergyCalculator",
+         "export function calculateIotEnergyBudget" in iot_js and "export function initIotEnergyCalculator" in iot_js)
+    test("iot-energy-tradeoff-calculator.js 包含四大 MCU 記憶體架構與電池預設模型",
+         "IOT_MCU_PROFILES" in iot_js and "sram_retention" in iot_js and "tiered_antifuse" in iot_js and "embedded_mram" in iot_js and "BATTERY_PRESETS" in iot_js and "cr2032" in iot_js)
+    test("iot-energy-tradeoff-calculator.js 第一性原理週期能耗、平均電流與電池壽命演算法",
+         "eActiveUJ" in iot_js and "eSleepUJ" in iot_js and "eWakeUJ" in iot_js and "batteryLifeYears" in iot_js)
+
+    iot_html = (BASE / "iot-mcu-envm.html").read_text(encoding="utf-8")
+    test("iot-mcu-envm.html 整合 iot-energy-calculator-root 工作台與模組腳本引用",
+         'id="iot-energy-calculator-root"' in iot_html and 'src="iot-energy-tradeoff-calculator.js' in iot_html)
+    test("iot-mcu-envm.html 包含架構選擇器、電池選擇器、週期滑桿與堆疊能耗進度條",
+         'id="iot-profile-select"' in iot_html and 'id="iot-battery-select"' in iot_html and 'id="iot-interval-slider"' in iot_html and 'id="iot-bar-active"' in iot_html and 'id="iot-life-display"' in iot_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
