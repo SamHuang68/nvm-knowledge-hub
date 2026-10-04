@@ -1248,6 +1248,21 @@ def run_tests() -> None:
     test("specialty-nvm.html 包含 De-Mura 預設選擇器、區塊壓縮、灰階平面、DMA 介面與容量指標卡",
          'id="demura-preset-select"' in specialty_html and 'id="demura-bin-select"' in specialty_html and 'id="demura-planes-select"' in specialty_html and 'id="demura-dma-select"' in specialty_html and 'id="demura-size-mb"' in specialty_html and 'id="demura-dma-time"' in specialty_html and 'id="demura-embedded-area"' in specialty_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 48: 全站 HTML 行內腳本 (Inline Scripts) 標籤閉合與語法完備性 (防再發門禁)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 48: 全站 HTML 行內腳本標籤閉合與語法完備性 ═══")
+    script_mismatch = []
+    for html_file in BASE.glob("**/*.html"):
+        if "node_modules" in html_file.parts or ".git" in html_file.parts:
+            continue
+        content = html_file.read_text(encoding="utf-8")
+        open_tags = len(re.findall(r'<script\b', content, re.IGNORECASE))
+        close_tags = len(re.findall(r'</script>', content, re.IGNORECASE))
+        if open_tags != close_tags:
+            script_mismatch.append(f"{html_file.name}: <script> ({open_tags}) != </script> ({close_tags})")
+    test("全站所有 HTML 檔案之 <script> 開啟與 </script> 閉合標籤數量嚴格對等 (防再發)", len(script_mismatch) == 0, ", ".join(script_mismatch))
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
