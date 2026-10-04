@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "146e0c051d51e3a8441f",
+  "version": "d8a7a0ed250908554ad1",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -103,6 +103,7 @@ self.NVMOfflineManifest = {
     "sram-yield-bira-simulator.js",
     "styles.css",
     "surface-radius.css",
+    "tddb-weibull-simulator.js",
     "technology-comparison.html",
     "tools/whitepaper-studio/index.html",
     "topic-menu-navigation.js",
@@ -175,7 +176,7 @@ self.NVMOfflineManifest = {
     "memory-evidence.html": "2438c00168f48b5eb66fbf78df3dffe57e2cd2af0a07a5e43605e520c0c900ab",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "441299f8b4fd0cf12f8eda1cb118a602bdb981869f39e11a666bf32c73035ae6",
+    "memory-physics.html": "5e28c70c918ff50e5112da76a3bc799507a0c5761e2ac794d863908e321c1f03",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
     "nvm-bitcell-figures.css": "da04d7984bd9f62137dab5c2f5657a38b620b32b6c16c628a94f2f9406d5aed6",
@@ -216,6 +217,7 @@ self.NVMOfflineManifest = {
     "sram-yield-bira-simulator.js": "13a6edc561ba946d8e701f24090599d54e3e5bc661f8503012ea28006cbd1de8",
     "styles.css": "4021ef9a95a74de7bebd4ed5ba6b6c1046cf1f011ef51d83c584e4b10a3c2cd5",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
+    "tddb-weibull-simulator.js": "274fd88c6926196adb869f6f0ee17cc721f4bebb6e41b2ec2ca064a168b7490a",
     "technology-comparison.html": "f28d0460e0bd5b411f5f08c164cf41d4dbee574e5790468d565c5972793ecbd9",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
@@ -226,5 +228,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 11523347
+  "totalBytes": 11570971
 };
