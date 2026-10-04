@@ -1660,6 +1660,212 @@
         </div>
       </div>
 
+      <!-- INTERACTIVE PQC HARDWARE ROOT OF TRUST KEY BUDGET SIMULATOR -->
+      <div id="pqc-budget-simulator-root" class="panel pqc-calculator-container" style="margin-top: 1.5rem; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; padding: 1.25rem 1.5rem; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+          <div>
+            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span data-lang="zh">互動資安實驗室 · 後量子信任根預算</span>
+              <span data-lang="en">SECURITY LAB · PQC ROOT-OF-TRUST BUDGET</span>
+            </span>
+            <h4 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+              <span data-lang="zh">NIST FIPS 203/204 後量子晶片信任根儲存與 NVM 矽智財選型試算器</span>
+              <span data-lang="en">NIST FIPS 203/204 PQC Silicon RoT Budget &amp; NVM Selector</span>
+            </h4>
+          </div>
+          <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.08); color: #0284c7; padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">
+            <span data-lang="zh">CNSA 2.0 / FIPS 140-3 規格</span>
+            <span data-lang="en">CNSA 2.0 / FIPS 140-3 Spec</span>
+          </span>
+        </div>
+
+        <!-- Presets Row -->
+        <div style="margin-bottom: 1.25rem; display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <label for="pqc-preset-select" style="font: 700 11px 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
+            <span data-lang="zh">標準架構預設情境 (Presets):</span><span data-lang="en">STANDARD PRESETS:</span>
+          </label>
+          <select id="pqc-preset-select" aria-label="Standard PQC RoT Preset" data-aria-en="Standard PQC RoT Preset" data-aria-zh="標準後量子信任根情境預設" style="flex: 1; min-width: 260px; padding: 6px 12px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 12px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+            <option value="cnsa2_top_secret" selected>CNSA 2.0 Top Secret (ML-KEM-1024 + ML-DSA-87, 4 Slots, LMS)</option>
+            <option value="fips_commercial_l3">NIST Level 3 Commercial (ML-KEM-768 + ML-DSA-65, 2 Slots)</option>
+            <option value="hybrid_transition">Hybrid Classical + PQC Transition (P-256 + ML-DSA-65 Dual-Sign)</option>
+            <option value="classical_baseline">Legacy Classical Baseline (ECDSA P-256 Only)</option>
+          </select>
+        </div>
+
+        <!-- Inputs Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
+          <div>
+            <label for="pqc-dsa-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">數位簽章演算法 (DSA):</span><span data-lang="en">DIGITAL SIGNATURE (DSA):</span>
+            </label>
+            <select id="pqc-dsa-select" aria-label="Digital Signature Algorithm" data-aria-en="Digital Signature Algorithm" data-aria-zh="數位簽章演算法" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="ml_dsa_65">ML-DSA-65 (FIPS 204 Level 3)</option>
+              <option value="ml_dsa_87" selected>ML-DSA-87 (FIPS 204 Level 5 / CNSA 2.0)</option>
+              <option value="ecdsa_p256">ECDSA P-256 (Classical Baseline)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="pqc-kem-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">金鑰封裝機制 (KEM):</span><span data-lang="en">KEY ENCAPSULATION (KEM):</span>
+            </label>
+            <select id="pqc-kem-select" aria-label="Key Encapsulation Mechanism" data-aria-en="Key Encapsulation Mechanism" data-aria-zh="金鑰封裝機制" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="none">None (Signature Verification Only)</option>
+              <option value="ml_kem_768">ML-KEM-768 (FIPS 203 Level 3)</option>
+              <option value="ml_kem_1024" selected>ML-KEM-1024 (FIPS 203 Level 5 / CNSA 2.0)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="pqc-pubkey-mode" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">公鑰儲存形式 (Root Key Mode):</span><span data-lang="en">ROOT KEY STORAGE MODE:</span>
+            </label>
+            <select id="pqc-pubkey-mode" aria-label="Root Key Storage Mode" data-aria-en="Root Key Storage Mode" data-aria-zh="公鑰儲存形式" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="raw" selected>Raw Full Public Key (Direct Hardware Boot)</option>
+              <option value="hash">SHA3-384 Digest (Hash-only Boot)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="pqc-puf-helper" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">SRAM PUF 輔助資料開銷:</span><span data-lang="en">SRAM PUF HELPER DATA:</span>
+            </label>
+            <select id="pqc-puf-helper" aria-label="SRAM PUF Helper Data Overhead" data-aria-en="SRAM PUF Helper Data Overhead" data-aria-zh="SRAM PUF 輔助資料開銷" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="0">0 Bytes (External / Disabled)</option>
+              <option value="512">512 Bytes (128-bit Key BCH Syndrome)</option>
+              <option value="1024" selected>1,024 Bytes (256-bit Key BCH Syndrome)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Sliders & Checkboxes Row -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 1.25rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 14px;">
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span><span data-lang="zh">憑證鏈深度 (Cert Chain Depth):</span><span data-lang="en">CERT CHAIN DEPTH:</span></span>
+              <span id="pqc-cert-depth-val" style="color: #0284c7; font-weight: 700;">2</span>
+            </div>
+            <input type="range" id="pqc-cert-depth-slider" min="0" max="3" step="1" value="2" aria-label="Certificate Chain Depth" data-aria-en="Certificate Chain Depth" data-aria-zh="憑證鏈深度" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span><span data-lang="zh">OEM 金鑰配置槽數 (Key Slots):</span><span data-lang="en">KEY PROVISIONING SLOTS:</span></span>
+              <span id="pqc-keyslots-val" style="color: #0284c7; font-weight: 700;">4×</span>
+            </div>
+            <input type="range" id="pqc-keyslots-slider" min="1" max="4" step="1" value="4" aria-label="Key Provisioning Slots" data-aria-en="Key Provisioning Slots" data-aria-zh="OEM 金鑰配置槽數" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span><span data-lang="zh">防降版單調熔絲 (Rollback Fuses):</span><span data-lang="en">ANTI-ROLLBACK FUSES:</span></span>
+              <span id="pqc-rollback-val" style="color: #0284c7; font-weight: 700;">256 b</span>
+            </div>
+            <input type="range" id="pqc-rollback-slider" min="32" max="256" step="32" value="256" aria-label="Anti-Rollback Fuses" data-aria-en="Anti-Rollback Fuses" data-aria-zh="防降版單調熔絲" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+          </div>
+
+          <div style="display: flex; flex-direction: column; justify-content: center; gap: 6px;">
+            <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
+              <input type="checkbox" id="pqc-include-classical" style="accent-color: #0284c7;">
+              <span><span data-lang="zh">納入古典 P-256 雙重驗證</span><span data-lang="en">Include Classical P-256 Dual-Sign</span></span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 6px; font: 600 11px 'IBM Plex Mono', monospace; color: #334155; cursor: pointer;">
+              <input type="checkbox" id="pqc-include-stateful" checked style="accent-color: #0284c7;">
+              <span><span data-lang="zh">納入 LMS 狀態雜湊 (CNSA 2.0)</span><span data-lang="en">Include LMS Stateful Hash (CNSA 2.0)</span></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Telemetry Output Metrics -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 1.25rem;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">總儲存需求 (Kilobits)</span><span data-lang="en">TOTAL STORAGE (Kb)</span>
+            </div>
+            <div id="pqc-total-kb" style="font: 700 18px 'IBM Plex Mono', monospace; color: #0284c7; margin-top: 4px;">—</div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">總位元組數 (Bytes)</span><span data-lang="en">TOTAL BYTES</span>
+            </div>
+            <div id="pqc-total-bytes" style="font: 700 18px 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">—</div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">總位元數 (Bits)</span><span data-lang="en">TOTAL BITS</span>
+            </div>
+            <div id="pqc-total-bits" style="font: 700 18px 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">—</div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">28nm 估算面積</span><span data-lang="en">28nm AREA EST.</span>
+            </div>
+            <div id="pqc-area-28nm" style="font: 700 16px 'IBM Plex Mono', monospace; color: #334155; margin-top: 4px;">—</div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">5nm 估算面積</span><span data-lang="en">5nm AREA EST.</span>
+            </div>
+            <div id="pqc-area-5nm" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">—</div>
+          </div>
+        </div>
+
+        <!-- Proportional Stacked Bar -->
+        <div style="margin-bottom: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 6px;">
+            <span><span data-lang="zh">非揮發性儲存資產組成分解:</span><span data-lang="en">NVM RO-T STORAGE ASSET BREAKDOWN:</span></span>
+            <span style="font-size: 10px; color: #64748b;">
+              <span style="color: #0284c7;">■</span> <span data-lang="zh">根公鑰</span><span data-lang="en">Root Keys</span> &nbsp;|&nbsp; 
+              <span style="color: #6366f1;">■</span> <span data-lang="zh">憑證鏈</span><span data-lang="en">Cert Chain</span> &nbsp;|&nbsp; 
+              <span style="color: #d97706;">■</span> <span data-lang="zh">單調熔絲</span><span data-lang="en">Rollback</span> &nbsp;|&nbsp; 
+              <span style="color: #10b981;">■</span> <span data-lang="zh">PUF 輔助</span><span data-lang="en">PUF Helper</span>
+            </span>
+          </div>
+          <div style="height: 18px; border-radius: 4px; overflow: hidden; background: #e2e8f0; display: flex;" role="img" aria-label="Storage Asset Breakdown Bar" data-aria-en="Storage Asset Breakdown Bar" data-aria-zh="儲存資產組成比例長條圖">
+            <div id="pqc-bar-rootkey" style="background: #0284c7; width: 25%; transition: width 0.3s ease;"></div>
+            <div id="pqc-bar-certchain" style="background: #6366f1; width: 45%; transition: width 0.3s ease;"></div>
+            <div id="pqc-bar-rollback" style="background: #d97706; width: 10%; transition: width 0.3s ease;"></div>
+            <div id="pqc-bar-puf" style="background: #10b981; width: 20%; transition: width 0.3s ease;"></div>
+          </div>
+        </div>
+
+        <!-- Silicon Technology Feasibility Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <h5 style="margin: 0; font-size: 13px; font-weight: 700; color: #0f172a;">eFuse (1–4 Kb Limit)</h5>
+              <span id="pqc-efuse-pill" class="tech-status overflow" style="font: 700 10px 'IBM Plex Mono', monospace; padding: 2px 6px; border-radius: 4px; background: #fee2e2; color: #991b1b;">OVERFLOW</span>
+            </div>
+            <p id="pqc-efuse-desc" style="margin: 0; font-size: 11px; line-height: 1.4; color: #64748b;">—</p>
+          </div>
+
+          <div style="background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 6px; padding: 12px; position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <h5 style="margin: 0; font-size: 13px; font-weight: 700; color: #065f46;">Logic AntiFuse OTP (32–128 Kb)</h5>
+              <span id="pqc-antifuse-pill" class="tech-status optimal" style="font: 700 10px 'IBM Plex Mono', monospace; padding: 2px 6px; border-radius: 4px; background: rgba(16, 185, 129, 0.12); color: #065f46;">OPTIMAL</span>
+            </div>
+            <p id="pqc-antifuse-desc" style="margin: 0; font-size: 11px; line-height: 1.4; color: #047857;">—</p>
+          </div>
+
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <h5 style="margin: 0; font-size: 13px; font-weight: 700; color: #0f172a;">Embedded MRAM (256 Kb–4 Mb)</h5>
+              <span id="pqc-mram-pill" class="tech-status ok" style="font: 700 10px 'IBM Plex Mono', monospace; padding: 2px 6px; border-radius: 4px; background: rgba(2, 132, 199, 0.1); color: #0284c7;">VIABLE</span>
+            </div>
+            <p id="pqc-mram-desc" style="margin: 0; font-size: 11px; line-height: 1.4; color: #64748b;">—</p>
+          </div>
+        </div>
+
+        <!-- Architect Verdict Banner -->
+        <div id="pqc-architect-verdict" style="background: rgba(2, 132, 199, 0.05); border: 1px solid rgba(2, 132, 199, 0.25); border-radius: 6px; padding: 10px 14px; font-size: 11.5px; line-height: 1.5; color: #0f172a;">
+          —
+        </div>
+      </div>
+
       <div class="identity-links" style="margin-top: 1.5rem;">
         <a href="https://www.intrinsic-id.com/products/quiddikey/" target="_blank" rel="noopener noreferrer"><span>INTRINSIC ID</span><b>Quiddikey SRAM PUF Architecture ↗</b></a>
         <a href="https://www.synopsys.com/designware-ip/security-ip.html" target="_blank" rel="noopener noreferrer"><span>SYNOPSYS</span><b>tRoot™ Hardware Secure Module ↗</b></a>
@@ -2014,5 +2220,6 @@
       panels.forEach(p => railObserver.observe(p));
     });
   </script>
+  <script type="module" src="pqc-rot-budget-calculator.js?v=20261005"></script>
 </body>
 </html>

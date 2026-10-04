@@ -164,6 +164,104 @@
       <section id="evidence" class="paper-section reveal" data-record-id="OIP-VAL-001">
         <div class="paper-heading"><div><p class="paper-kicker"><span data-lang="zh">03 · 實證檢驗門檻</span><span data-lang="en">03 · EVIDENCE GATES</span></p><h2><span data-lang="zh">Architecture 是起點；<br><em>silicon evidence 才能形成 Results</em></span><span data-lang="en">Architecture is the start;<br><em>silicon evidence creates Results</em></span></h2></div><p><span data-lang="zh">OIP 報告應把結果分為 public evidence、vendor disclosure、system inference 與 validation gap；不要把設計意圖寫成完成驗證。</span><span data-lang="en">The OIP report should separate public evidence, vendor disclosure, system inference and validation gaps; design intent must not masquerade as completed validation.</span></p></div>
         <figure class="oip-image-band oip-image-band--helper"><img src="assets/oip-helper-reconstruction-v1-1440.webp" srcset="assets/oip-helper-reconstruction-v1-768.webp 768w, assets/oip-helper-reconstruction-v1-1440.webp 1440w" sizes="(max-width: 620px) calc(100vw - 48px), calc(100vw - 12vw)" width="1440" height="811" alt="Conceptual reconstruction of a device-unique root from SRAM PUF response and helper data" data-alt-zh="由 SRAM PUF response 與 helper data 重建 device-unique root 的概念視覺" data-alt-en="Conceptual reconstruction of a device-unique root from SRAM PUF response and helper data" loading="lazy" decoding="async"><figcaption><span data-lang="zh">概念視覺 · Helper data 支援重建，但不應等同 root secret；其 leakage、integrity 與 lifecycle 仍須驗證。</span><span data-lang="en">Concept visual · Helper data supports reconstruction but is not the root secret; leakage, integrity and lifecycle still require verification.</span></figcaption></figure>
+
+        <!-- INTERACTIVE SRAM PUF RECONSTRUCTION & FUZZY EXTRACTOR SIMULATOR -->
+        <div id="puf-reconstruction-root" class="panel puf-simulator-container" style="margin: 1.5rem 0; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; padding: 1.25rem 1.5rem; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+            <div>
+              <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #785021; letter-spacing: 0.08em; text-transform: uppercase;">
+                <span data-lang="zh">互動晶片實驗室 · PUF 金鑰重建與誤碼極限</span>
+                <span data-lang="en">INTERACTIVE LAB · SRAM PUF RECONSTRUCTION BOUNDS</span>
+              </span>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+                <span data-lang="zh">SRAM PUF 原生誤碼率 (BER) 與 BCH 輔助資料校驗邊界模擬器</span>
+                <span data-lang="en">SRAM PUF Native BER &amp; BCH Helper Data Syndrome Simulator</span>
+              </h3>
+            </div>
+            <span id="puf-grade-badge" class="puf-badge secure" style="font: 700 11px 'IBM Plex Mono', monospace; padding: 4px 10px; border-radius: 4px; background: rgba(21, 128, 61, 0.1); color: #15803d; border: 1px solid rgba(21, 128, 61, 0.2);">
+              ROBUST (AEC-Q100 OK)
+            </span>
+          </div>
+
+          <!-- Controls Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 1.25rem;">
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span><span data-lang="zh">操作接面結溫 (Junction Temp):</span><span data-lang="en">JUNCTION TEMP (Tj):</span></span>
+                <span id="puf-temp-val" style="color: #785021; font-weight: 700;">25 °C</span>
+              </div>
+              <input type="range" id="puf-temp-slider" min="-40" max="125" step="5" value="25" aria-label="Junction Temperature" data-aria-en="Junction Temperature" data-aria-zh="操作接面結溫" aria-valuetext="25 °C" style="width: 100%; accent-color: #785021; cursor: pointer;">
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span><span data-lang="zh">NBTI/PBTI 老化時間 (Aging):</span><span data-lang="en">NBTI/PBTI AGING:</span></span>
+                <span id="puf-age-val" style="color: #785021; font-weight: 700;">0 Yrs</span>
+              </div>
+              <input type="range" id="puf-age-slider" min="0" max="15" step="1" value="0" aria-label="Silicon Aging Years" data-aria-en="Silicon Aging Years" data-aria-zh="矽晶圓老化時間" aria-valuetext="0 Yrs" style="width: 100%; accent-color: #785021; cursor: pointer;">
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span><span data-lang="zh">BCH 容錯更正力 (Capability t):</span><span data-lang="en">BCH CAPACITY (t / 128b):</span></span>
+                <span id="puf-ecc-val" style="color: #785021; font-weight: 700;">12 bits / 128b</span>
+              </div>
+              <input type="range" id="puf-ecc-slider" min="6" max="22" step="1" value="12" aria-label="BCH Error Correction Capability" data-aria-en="BCH Error Correction Capability" data-aria-zh="BCH 容錯更正力" aria-valuetext="12 bits / 128b" style="width: 100%; accent-color: #785021; cursor: pointer;">
+            </div>
+
+            <div>
+              <label for="puf-keybits-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span data-lang="zh">根金鑰長度 (Root Key Bits):</span><span data-lang="en">ROOT KEY LENGTH:</span>
+              </label>
+              <select id="puf-keybits-select" aria-label="Root Key Length" data-aria-en="Root Key Length" data-aria-zh="根金鑰長度" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                <option value="128">128-bit AES Root Key</option>
+                <option value="256" selected>256-bit AES / ECC Root Key</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Telemetry KPI Strip -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 1.25rem;">
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+              <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">原生誤碼率 (BER)</span><span data-lang="en">NATIVE BER</span>
+              </div>
+              <div id="puf-ber-display" style="font: 700 18px 'IBM Plex Mono', monospace; color: #d97706; margin-top: 4px;">—</div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+              <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">金鑰重建失敗率 (FER)</span><span data-lang="en">KEY FAILURE (FER)</span>
+              </div>
+              <div id="puf-fer-display" style="font: 700 18px 'IBM Plex Mono', monospace; color: #15803d; margin-top: 4px;">—</div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+              <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">輔助資料儲存需求</span><span data-lang="en">HELPER DATA SIZE</span>
+              </div>
+              <div id="puf-helper-display" style="font: 700 18px 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">—</div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px;">
+              <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">殘餘最小熵 (Min-Entropy)</span><span data-lang="en">RESIDUAL ENTROPY</span>
+              </div>
+              <div id="puf-entropy-display" style="font: 700 18px 'IBM Plex Mono', monospace; color: #2563eb; margin-top: 4px;">—</div>
+            </div>
+          </div>
+
+          <!-- Canvas Visualizer for Hamming Distance Distributions -->
+          <div style="margin-bottom: 1rem; background: #f8fafc; border: 1px solid rgba(196, 165, 116, 0.25); border-radius: 6px; padding: 8px;">
+            <canvas id="puf-dist-canvas" width="760" height="240" role="img" aria-label="Hamming Distance Intra-die vs Inter-die distribution" data-aria-en="Hamming Distance Intra-die vs Inter-die distribution" data-aria-zh="漢明距離晶片內噪訊 vs 跨晶片獨立性分佈圖" style="width: 100%; height: 240px; display: block;"></canvas>
+          </div>
+
+          <!-- Verdict Callout -->
+          <div id="puf-verdict-summary" class="model-boundary" style="font-size: 11.5px; line-height: 1.5; color: #334155; margin: 0;" aria-live="polite">
+            —
+          </div>
+        </div>
+
         <div class="claim-ladder">
           <article class="claim-rung" data-record-id="OIP-OTP-001"><span><span data-lang="zh">直接觀測實證</span><span data-lang="en">DIRECT OBSERVATION</span></span><h3><span data-lang="zh">RP2350 實體攻擊實證 (FIB/PVC)</span><span data-lang="en">RP2350 attack evidence</span></h3><p><span data-lang="zh">公開案例支持威脅模型與問題重要性。</span><span data-lang="en">Public cases support the threat model and urgency.</span></p></article>
           <article class="claim-rung" data-record-id="OIP-ARCH-001 OIP-NODE-001"><span><span data-lang="zh">供應商揭露</span><span data-lang="en">VENDOR DISCLOSURE</span></span><h3><span data-lang="zh">架構與先進製程節點規格主張</span><span data-lang="en">Architecture & node claims</span></h3><p><span data-lang="zh">產品頁支持功能、AES-256、PUF root、APB 與 OTP node availability。</span><span data-lang="en">Product pages support functions, AES-256, PUF root, APB and OTP node availability.</span></p></article>
@@ -194,5 +292,6 @@
   <footer><a class="brand footer-brand" href="index.html" aria-label="NVM Knowledge Hub home" data-aria-en="NVM Knowledge Hub home" data-aria-zh="NVM 知識中心首頁"><span class="brand-copy"><strong>NVM</strong><small>KNOWLEDGE HUB</small></span></a><p><span data-lang="zh">OIP 知識簡報 · 公開來源 · 非產品認證</span><span data-lang="en">OIP knowledge brief · public sources · not a product certification</span></p><p>OIP Brief 01 · 2026</p></footer>
   <script src="research.js?v=20260929-v5"></script>
   <script src="oip-lifecycle.js"></script>
+  <script type="module" src="puf-reconstruction-simulator.js?v=20261005"></script>
 </body>
 </html>
