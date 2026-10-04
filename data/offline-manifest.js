@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "bc734da3b50b41eeb184",
+  "version": "146e0c051d51e3a8441f",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -32,6 +32,7 @@ self.NVMOfflineManifest = {
     "data/nvm-search-index.js",
     "deferred-backgrounds.js",
     "demura-lut-calculator.js",
+    "differential-sensing-simulator.js",
     "editorial-reading-ui.css",
     "evidence-workbench.css",
     "evidence-workbench.js",
@@ -144,6 +145,7 @@ self.NVMOfflineManifest = {
     "data/nvm-search-index.js": "1ce8a43c88b802a5cdce8ac183f47938c1352d11af68792f1a5902fa17d80306",
     "deferred-backgrounds.js": "a74dc489a74403e27ade20c4d0d16306d4d2f00c0f697cbff9662908ce0371a4",
     "demura-lut-calculator.js": "a7e0b8f2fbfe4ddba25f4d65236be022a198013c88e34e23e2616d29f4baaa60",
+    "differential-sensing-simulator.js": "7af618dda0e45106ff8fe7424d17434b7cae8be47575e619fdbd12707852b6a4",
     "editorial-reading-ui.css": "eedc01843bbaf8169b0ce90c5434ce91f41b13ab491f1fbecbb30267b79f0399",
     "evidence-workbench.css": "b077fd188e73256fa0e9b2b8497feb698603e89cb8ad73648180c7c471011ba9",
     "evidence-workbench.js": "86984da8da59d17546b8cf8b6a9595ac8d3c08a02efad25de24dc590e92aee17",
@@ -173,7 +175,7 @@ self.NVMOfflineManifest = {
     "memory-evidence.html": "2438c00168f48b5eb66fbf78df3dffe57e2cd2af0a07a5e43605e520c0c900ab",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "64f3f65ae35429533c40ac83c3b77d7125409758ff4f6241d63c2fb7257e6f7b",
+    "memory-physics.html": "441299f8b4fd0cf12f8eda1cb118a602bdb981869f39e11a666bf32c73035ae6",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
     "nvm-bitcell-figures.css": "da04d7984bd9f62137dab5c2f5657a38b620b32b6c16c628a94f2f9406d5aed6",
@@ -224,5 +226,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 11493661
+  "totalBytes": 11523347
 };

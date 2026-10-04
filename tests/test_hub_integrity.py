@@ -1263,6 +1263,24 @@ def run_tests() -> None:
             script_mismatch.append(f"{html_file.name}: <script> ({open_tags}) != </script> ({close_tags})")
     test("全站所有 HTML 檔案之 <script> 開啟與 </script> 閉合標籤數量嚴格對等 (防再發)", len(script_mismatch) == 0, ", ".join(script_mismatch))
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 49: 互補成對差動單元 (Twin-Cell) 感測裕度與 DPA 側信道物理衰減試算器 (memory-physics.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 49: 互補成對差動單元感測裕度與 DPA 側信道物理衰減試算器 ═══")
+    diff_js = (BASE / "differential-sensing-simulator.js").read_text(encoding="utf-8")
+    test("differential-sensing-simulator.js 存在且導出 calculateDifferentialSensing 與 initDifferentialSensingSimulator",
+         "export function calculateDifferentialSensing" in diff_js and "export function initDifferentialSensingSimulator" in diff_js)
+    test("differential-sensing-simulator.js 包含四大應用場景預設與三大感測拓撲",
+         "DIFF_SENSING_PRESETS" in diff_js and "automotive_grade0_28nm" in diff_js and "banking_smartcard_40nm" in diff_js and "SENSING_ARCHITECTURES" in diff_js and "single_ended" in diff_js and "true_twin_cell" in diff_js)
+    test("differential-sensing-simulator.js 第一性原理差分信號窗、CMRR 與 DPA 側信道衰減演算法",
+         "deltaVsenseMv" in diff_js and "cmrrDb" in diff_js and "firstOrderDeltaI" in diff_js and "dpaAttenDb" in diff_js and "mtdTraces" in diff_js)
+
+    f1_phys_html = (BASE / "memory-physics.html").read_text(encoding="utf-8")
+    test("memory-physics.html 整合 differential-sensing-root 工作台與模組腳本引用",
+         'id="differential-sensing-root"' in f1_phys_html and 'src="differential-sensing-simulator.js' in f1_phys_html)
+    test("memory-physics.html 包含預設選擇器、架構選擇器、溫度/雜訊滑桿、五項指標卡與對稱性條狀圖",
+         'id="diff-preset-select"' in f1_phys_html and 'id="diff-arch-select"' in f1_phys_html and 'id="diff-temp-slider"' in f1_phys_html and 'id="diff-margin-mv"' in f1_phys_html and 'id="diff-cmrr-db"' in f1_phys_html and 'id="diff-mtd-traces"' in f1_phys_html and 'id="diff-bar-bit0"' in f1_phys_html and 'id="diff-bar-bit1"' in f1_phys_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
