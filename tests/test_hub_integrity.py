@@ -1281,6 +1281,24 @@ def run_tests() -> None:
     test("memory-physics.html 包含預設選擇器、架構選擇器、溫度/雜訊滑桿、五項指標卡與對稱性條狀圖",
          'id="diff-preset-select"' in f1_phys_html and 'id="diff-arch-select"' in f1_phys_html and 'id="diff-temp-slider"' in f1_phys_html and 'id="diff-margin-mv"' in f1_phys_html and 'id="diff-cmrr-db"' in f1_phys_html and 'id="diff-mtd-traces"' in f1_phys_html and 'id="diff-bar-bit0"' in f1_phys_html and 'id="diff-bar-bit1"' in f1_phys_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 50: 時變介電質崩潰 (TDDB) 與 Weibull 統計壽命推論模擬器 (memory-physics.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 50: 時變介電質崩潰與 Weibull 統計壽命推論模擬器 ═══")
+    tddb_js = (BASE / "tddb-weibull-simulator.js").read_text(encoding="utf-8")
+    test("tddb-weibull-simulator.js 存在且導出 calculateTddbWeibull 與 initTddbWeibullSimulator",
+         "export function calculateTddbWeibull" in tddb_js and "export function initTddbWeibullSimulator" in tddb_js)
+    test("tddb-weibull-simulator.js 包含四大情境預設、三大加速模型與三大應力多工模式",
+         "TDDB_PRESETS" in tddb_js and "automotive_read_disturb_28nm" in tddb_js and "antifuse_hard_breakdown_write" in tddb_js and "ACCELERATION_MODELS" in tddb_js and "e_model" in tddb_js and "inv_e_model" in tddb_js and "STRESS_DUTY_CYCLES" in tddb_js and "array_multiplexed" in tddb_js)
+    test("tddb-weibull-simulator.js 第一性原理介電電場、Weibull 斜率、特性壽命、面積縮放與 FIT 演算法",
+         "eoxMvCm" in tddb_js and "beta" in tddb_js and "etaCellSec" in tddb_js and "etaArraySec" in tddb_js and "fitRate15Y" in tddb_js and "f15YArray" in tddb_js)
+
+    f1_phys_html = (BASE / "memory-physics.html").read_text(encoding="utf-8")
+    test("memory-physics.html 整合 tddb-weibull-root 工作台與模組腳本引用",
+         'id="tddb-weibull-root"' in f1_phys_html and 'src="tddb-weibull-simulator.js' in f1_phys_html)
+    test("memory-physics.html 包含預設/模型/容量/多工選擇器、三軸滑桿、六大指標卡與 Weibull 機率圖 Canvas",
+         'id="tddb-preset-select"' in f1_phys_html and 'id="tddb-model-select"' in f1_phys_html and 'id="tddb-array-select"' in f1_phys_html and 'id="tddb-duty-select"' in f1_phys_html and 'id="tddb-tox-slider"' in f1_phys_html and 'id="tddb-vox-slider"' in f1_phys_html and 'id="tddb-temp-slider"' in f1_phys_html and 'id="tddb-eox-val"' in f1_phys_html and 'id="tddb-beta-val"' in f1_phys_html and 'id="tddb-eta-cell-val"' in f1_phys_html and 'id="tddb-eta-array-val"' in f1_phys_html and 'id="tddb-f15y-val"' in f1_phys_html and 'id="tddb-fit-val"' in f1_phys_html and 'id="tddb-canvas"' in f1_phys_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

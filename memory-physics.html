@@ -2150,6 +2150,204 @@
           </div>
         </article>
 
+        <!-- INTERACTIVE TDDB & WEIBULL RELIABILITY INFERENCE WORKBENCH -->
+        <article class="interactive-workbench" id="tddb-weibull-root" style="margin-top: 24px; padding: 20px; background: #ffffff; border: 1px solid rgba(14, 116, 144, 0.4); border-radius: 8px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);" aria-labelledby="tddb-sim-title">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+            <div>
+              <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0891b2; letter-spacing: 0.08em; text-transform: uppercase;">
+                <span data-lang="zh">第一性原理元件可靠度 · 滲透崩潰與壽命外推</span>
+                <span data-lang="en">FIRST-PRINCIPLES DEVICE RELIABILITY · PERCOLATION &amp; LIFETIME INFERENCE</span>
+              </span>
+              <h4 id="tddb-sim-title" style="margin: 0.25rem 0 0; font-size: 1.15rem; font-weight: 700; color: #0f172a; font-family: 'IBM Plex Mono', monospace;">
+                <span data-lang="zh">時變介電質崩潰 (TDDB) 與 Weibull 統計壽命推論模擬器</span>
+                <span data-lang="en">Time-Dependent Dielectric Breakdown &amp; Weibull Reliability Simulator</span>
+              </h4>
+            </div>
+            <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(8, 145, 178, 0.12); color: #0891b2; font-weight: 600;">
+              <span data-lang="zh">JESD85 / AEC-Q100 可靠度認證</span>
+              <span data-lang="en">JESD85 / AEC-Q100 Qualification</span>
+            </span>
+          </div>
+
+          <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem;">
+            <span data-lang="zh">以微觀缺陷陷阱滲透理論（Percolation Theory）與極端值 Weibull 雙參數統計為核心，動態計算單顆元件至 32 Mbit 巨量陣列之特性壽命（&eta;）、形狀斜率（&beta;）、FIT 失效率與 15 年累積破壞機率。定量解析 AntiFuse 瞬態高壓硬擊穿（&mu;s 級微絲成型）與車規 150&deg;C 長效讀取無擾動（&lt;0.01 ppm 失效率）之物理雙極狀態，並揭露字元線分時多工如何保障極限可靠度。</span>
+            <span data-lang="en">Applies microscopic defect percolation and extreme-value Weibull statistics to calculate characteristic lifetime (&eta;), Weibull slope (&beta;), FIT rate, and 15-year cumulative failure probability from 1 cell to 32 Mbit arrays. Quantifies both AntiFuse transient high-voltage programming (&mu;s filament formation) and automotive 150&deg;C read disturb immunity (&lt;0.01 ppm failure rate), revealing how wordline row multiplexing guarantees extreme reliability.</span>
+          </p>
+
+          <!-- CONTROL PANEL -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+            <!-- Preset Scenario -->
+            <div>
+              <label for="tddb-preset-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155; margin-bottom: 4px;">
+                <span data-lang="zh">快速情境預設</span><span data-lang="en">Preset Scenario</span>
+              </label>
+              <select id="tddb-preset-select" style="width: 100%; padding: 6px 10px; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 12px; background: #ffffff; color: #0f172a;" aria-label="Preset scenario selection" data-aria-en="Preset scenario selection" data-aria-zh="快速情境預設選擇">
+                <option value="automotive_read_disturb_28nm" selected>Automotive Grade 0 Read Disturb (28nm, 150°C, 0.75V)</option>
+                <option value="antifuse_hard_breakdown_write">AntiFuse Transient Hard Breakdown Write (28nm, 125°C, 7.2V)</option>
+                <option value="iot_lowpower_retention_55nm">IoT Low-Power Standby Retention (55nm, 85°C, 1.2V)</option>
+                <option value="advanced_gaa_thin_dielectric_3nm">Advanced 3nm GAA Ultrathin Dielectric (1.5nm, 105°C, 0.75V)</option>
+              </select>
+            </div>
+
+            <!-- Acceleration Model -->
+            <div>
+              <label for="tddb-model-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155; margin-bottom: 4px;">
+                <span data-lang="zh">外推加速模型</span><span data-lang="en">Acceleration Model</span>
+              </label>
+              <select id="tddb-model-select" style="width: 100%; padding: 6px 10px; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 12px; background: #ffffff; color: #0f172a;" aria-label="Acceleration model selection" data-aria-en="Acceleration model selection" data-aria-zh="外推加速模型選擇">
+                <option value="e_model" selected>E-Model (Thermochemical Bond Breakage)</option>
+                <option value="inv_e_model">1/E-Model (Anode Hole Injection)</option>
+                <option value="power_law">Power-Law (Ultrathin Dielectric)</option>
+              </select>
+            </div>
+
+            <!-- Array Capacity -->
+            <div>
+              <label for="tddb-array-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155; margin-bottom: 4px;">
+                <span data-lang="zh">陣列容量 (面積縮放)</span><span data-lang="en">Array Size (Area Scaling)</span>
+              </label>
+              <select id="tddb-array-select" style="width: 100%; padding: 6px 10px; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 12px; background: #ffffff; color: #0f172a;" aria-label="Array capacity selection" data-aria-en="Array capacity selection" data-aria-zh="陣列容量選擇">
+                <option value="1_bit">Single Test Device (1 Cell)</option>
+                <option value="1_kb">1 Kbit (Security Key / Trimming)</option>
+                <option value="64_kb" selected>64 Kbit (Secure Boot / HSM Code)</option>
+                <option value="1_mb">1 Mbit (Standard eNVM Macro)</option>
+                <option value="32_mb">32 Mbit (High-Density Storage)</option>
+              </select>
+            </div>
+
+            <!-- Duty Cycle Mode -->
+            <div>
+              <label for="tddb-duty-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155; margin-bottom: 4px;">
+                <span data-lang="zh">應力模式 (多工佔空比)</span><span data-lang="en">Stress Duty Cycle</span>
+              </label>
+              <select id="tddb-duty-select" style="width: 100%; padding: 6px 10px; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 12px; background: #ffffff; color: #0f172a;" aria-label="Stress duty cycle selection" data-aria-en="Stress duty cycle selection" data-aria-zh="應力多工模式選擇">
+                <option value="array_multiplexed" selected>0.5% Array Multiplexed Read (200:1 Mux)</option>
+                <option value="dc_continuous">100% Continuous DC Stress (Accelerated Test)</option>
+                <option value="standby_retention">0.01% Low-Power Standby (IoT Duty Cycle)</option>
+              </select>
+            </div>
+
+            <!-- Slider 1: tox (nm) -->
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <label for="tddb-tox-slider" style="font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155;">
+                  <span data-lang="zh">介電質厚度 (t<sub>ox</sub>)</span><span data-lang="en">Oxide Thickness (t<sub>ox</sub>)</span>
+                </label>
+                <span id="tddb-tox-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0891b2;">2.8 nm</span>
+              </div>
+              <input type="range" id="tddb-tox-slider" min="1.0" max="5.0" step="0.1" value="2.8" style="width: 100%; cursor: pointer;" aria-label="Oxide physical thickness tox in nanometers" data-aria-en="Oxide physical thickness tox in nanometers" data-aria-zh="介電質厚度 tox (奈米)">
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-family: 'IBM Plex Mono', monospace;">
+                <span>1.0 nm</span><span>3.0 nm</span><span>5.0 nm</span>
+              </div>
+            </div>
+
+            <!-- Slider 2: vox (V) -->
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <label for="tddb-vox-slider" style="font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155;">
+                  <span data-lang="zh">操作偏壓 (V<sub>ox</sub>)</span><span data-lang="en">Applied Voltage (V<sub>ox</sub>)</span>
+                </label>
+                <span id="tddb-vox-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0891b2;">0.75 V</span>
+              </div>
+              <input type="range" id="tddb-vox-slider" min="0.4" max="8.5" step="0.05" value="0.75" style="width: 100%; cursor: pointer;" aria-label="Applied voltage Vox in Volts" data-aria-en="Applied voltage Vox in Volts" data-aria-zh="操作偏壓 Vox (伏特)">
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-family: 'IBM Plex Mono', monospace;">
+                <span>0.4 V</span><span>4.5 V</span><span>8.5 V</span>
+              </div>
+            </div>
+
+            <!-- Slider 3: temp (C) -->
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <label for="tddb-temp-slider" style="font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155;">
+                  <span data-lang="zh">接面溫度 (T<sub>j</sub>)</span><span data-lang="en">Junction Temp (T<sub>j</sub>)</span>
+                </label>
+                <span id="tddb-temp-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0891b2;">150 °C</span>
+              </div>
+              <input type="range" id="tddb-temp-slider" min="25" max="175" step="5" value="150" style="width: 100%; cursor: pointer;" aria-label="Junction temperature Tj in Celsius" data-aria-en="Junction temperature Tj in Celsius" data-aria-zh="接面溫度 Tj (攝氏度)">
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-family: 'IBM Plex Mono', monospace;">
+                <span>25 °C</span><span>105 °C</span><span>175 °C</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI METRIC CARDS -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
+            <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #0891b2;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">介電層電場 E<sub>ox</sub></span><span data-lang="en">Oxide Field E<sub>ox</sub></span>
+              </small>
+              <div id="tddb-eox-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">2.68 MV/cm</div>
+              <span style="font-size: 10px; color: #64748b;">V<sub>ox</sub> / t<sub>ox</sub></span>
+            </div>
+
+            <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #0284c7;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">Weibull 斜率 &beta;</span><span data-lang="en">Weibull Slope &beta;</span>
+              </small>
+              <div id="tddb-beta-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">1.74</div>
+              <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">微觀滲透形狀因數</span><span data-lang="en">Percolation shape factor</span></span>
+            </div>
+
+            <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #2563eb;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">單元特性壽命 &eta;<sub>cell</sub></span><span data-lang="en">Cell Lifetime &eta;<sub>cell</sub></span>
+              </small>
+              <div id="tddb-eta-cell-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #2563eb; margin-top: 4px;">2.97e+5 <span data-lang="zh">年</span><span data-lang="en">yrs</span></div>
+              <span style="font-size: 10px; color: #64748b;">t<sub>63.2%</sub> @ 1 Cell</span>
+            </div>
+
+            <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #9333ea;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">陣列縮放壽命 &eta;<sub>array</sub></span><span data-lang="en">Array Lifetime &eta;<sub>array</sub></span>
+              </small>
+              <div id="tddb-eta-array-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #9333ea; margin-top: 4px;">498.5 <span data-lang="zh">年</span><span data-lang="en">yrs</span></div>
+              <span style="font-size: 10px; color: #64748b;">N<sup>&minus;1/&beta;</sup> <span data-lang="zh">面積縮放</span><span data-lang="en">Area scaled</span></span>
+            </div>
+
+            <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #059669;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">15 年累積失效率 F</span><span data-lang="en">15-Yr Failure Rate F</span>
+              </small>
+              <div id="tddb-f15y-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">0.2172 ppm</div>
+              <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">目標門檻 &lt;10 ppm</span><span data-lang="en">AEC target &lt;10 ppm</span></span>
+            </div>
+
+            <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #0d9488;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">失效率 FIT (10<sup>9</sup>h)</span><span data-lang="en">Hazard Rate (FIT)</span>
+              </small>
+              <div id="tddb-fit-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">0.57 FIT</div>
+              <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">車規目標 &lt;1.0 FIT</span><span data-lang="en">Automotive &lt;1.0 FIT</span></span>
+            </div>
+          </div>
+
+          <!-- CANVAS WEIBULL PROBABILITY PLOT -->
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; margin-bottom: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font: 700 12px 'IBM Plex Mono', monospace; color: #334155;">
+                <span data-lang="zh">Weibull 極端值統計機率圖紙 (Weibull Probability Paper: ln(&minus;ln(1&minus;F)) vs ln(t))</span>
+                <span data-lang="en">Weibull Extreme-Value Probability Paper (ln(&minus;ln(1&minus;F)) vs ln(t))</span>
+              </span>
+              <span style="font-size: 11px; color: #64748b;">
+                <span data-lang="zh">雙軸對數線性化尺度</span>
+                <span data-lang="en">Dual-Axis Log Linearized Scale</span>
+              </span>
+            </div>
+            <div style="width: 100%; height: 320px; position: relative;">
+              <canvas id="tddb-canvas" style="width: 100%; height: 100%; display: block;" aria-label="Interactive Weibull probability plot for dielectric breakdown lifetime" data-aria-en="Interactive Weibull probability plot for dielectric breakdown lifetime" data-aria-zh="介電質崩潰壽命之 Weibull 統計機率動態曲線圖"></canvas>
+            </div>
+          </div>
+
+          <!-- VERDICT BANNER -->
+          <div id="tddb-verdict-banner" class="tddb-verdict-banner safe_automotive" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46;">
+            <span class="tddb-verdict-icon" style="font-size: 1.25rem; line-height: 1;">🛡️</span>
+            <span class="tddb-verdict-text">
+              <span data-lang="zh">【車規 AEC-Q100 Grade 0 頂級可靠度】陣列在 150°C 接面溫度下連續運作 15 年，累積破壞機率小於 1 ppm（0.2172 ppm），失效率 FIT = 0.57。未編程單元具備極致抗讀取擾動與熱應力屏障。</span>
+              <span data-lang="en">[AEC-Q100 Grade 0 Certified] Array 15-year cumulative failure probability is &lt; 1 ppm (0.2172 ppm), with FIT rate = 0.57. Dielectric integrity remains strictly immune to read disturb and thermal stress up to 150°C Tj.</span>
+            </span>
+          </div>
+        </article>
+
         <div class="f1-evidence-links">
           <b><span data-lang="zh">關聯技術與物理文獻</span><span data-lang="en">Related Physics &amp; Papers</span></b>
           <a href="technology-comparison.html#sec-physics">TC · <span data-lang="zh">第一性原理方程式對比</span><span data-lang="en">First-principles equation benchmark</span></a>
@@ -2762,5 +2960,6 @@
   <script src="memory-physics-navigation.js?v=20260929-v5"></script>
   <script src="tunneling-breakdown-simulator.js?v=20261004" defer></script>
   <script type="module" src="differential-sensing-simulator.js?v=20261005"></script>
+  <script type="module" src="tddb-weibull-simulator.js?v=20261005"></script>
 </body>
 </html>
