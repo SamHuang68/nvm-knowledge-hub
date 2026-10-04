@@ -2222,6 +2222,162 @@
           <article><span><span data-lang="zh">非絕對力場</span><span data-lang="en">NOT A FORCE FIELD</span></span><h3><span data-lang="zh">平衡不等於不可觀察</span><span data-lang="en">Balance is not invisibility</span></h3><p><span data-lang="zh">空間解析的光學／FIB 攻擊仍可能分辨哪顆 cell 被 programming；layout balance、controller、ciphertext 與 ephemeral root 仍是必要防線。</span><span data-lang="en">Spatially resolved optical or FIB attacks may still distinguish the programmed cell; balanced layout, controller policy, ciphertext and an ephemeral root remain necessary.</span></p></article>
         </div>
 
+        <!-- INTERACTIVE COMPLEMENTARY TWIN-CELL DIFFERENTIAL SENSING & DPA ATTENUATION WORKBENCH -->
+        <div id="differential-sensing-root" class="interactive-workbench" style="margin-top: 24px; padding: 20px; background: #ffffff; border: 1px solid rgba(0, 111, 112, 0.4); border-radius: 8px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+            <div>
+              <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #006f70; letter-spacing: 0.08em; text-transform: uppercase;">
+                <span data-lang="zh">第一性原理微觀感測物理 · 差動位元胞與側信道防護</span>
+                <span data-lang="en">FIRST-PRINCIPLES SENSING PHYSICS · TWIN-CELL &amp; DPA DEFENSE</span>
+              </span>
+              <h4 style="margin: 0.25rem 0 0; font-size: 1.15rem; font-weight: 700; color: #0f172a; font-family: 'IBM Plex Mono', monospace;">
+                <span data-lang="zh">互補成對差動單元 (Twin-Cell) 感測裕度與 DPA 側信道物理衰減試算器</span>
+                <span data-lang="en">Complementary Twin-Cell Sensing Margin &amp; DPA Attenuation Simulator</span>
+              </h4>
+            </div>
+            <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(0, 111, 112, 0.12); color: #006f70; font-weight: 600;">
+              <span data-lang="zh">ISO/IEC 17825 側信道防禦驗證</span>
+              <span data-lang="en">ISO/IEC 17825 Side-Channel Rigor</span>
+            </span>
+          </div>
+
+          <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem;">
+            <span data-lang="zh">透過微觀位元胞充放電與歐姆導通方程式，精確模擬單端（Single-Ended 1T）、虛擬差動（Pseudo-Diff）與真互補成對（True Twin-Cell 1T+1T）架構在高溫熱應力與電源漣波下的差分信號窗（&Delta;V<sub>sense</sub>）、共模抑制比（CMRR），以及讀 0 與讀 1 總電流的一階實體平衡度。數值量化揭露微觀位元胞幾何對稱性如何將差分功耗分析（DPA）信噪比衰減逾 30 dB，使金鑰破解採樣跡線（MTD）呈指數級爆炸。</span>
+            <span data-lang="en">Simulates bitline differential sensing margins (&Delta;V<sub>sense</sub>), Common-Mode Rejection Ratio (CMRR), and first-order current symmetry between Single-Ended, Pseudo-Differential, and True Twin-Cell architectures across junction temperatures and supply ripples. Quantifies how physical microarchitectural symmetry attenuates DPA side-channel signatures by &gt;30 dB, exponentially multiplying the minimum traces to disclose (MTD).</span>
+          </p>
+
+          <!-- CONTROL PANEL -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+            <div>
+              <label for="diff-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span data-lang="zh">晶片應用場景預設：</span>
+                <span data-lang="en">Application Preset:</span>
+              </label>
+              <select id="diff-preset-select" aria-label="Application Preset" data-aria-zh="晶片應用場景預設" data-aria-en="Application Preset" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+                <option value="automotive_grade0_28nm" selected>Automotive Grade 0 Secure MCU (28nm, 150°C Tj)</option>
+                <option value="banking_smartcard_40nm">Banking Smartcard Secure Element (40nm, CC EAL6+)</option>
+                <option value="iot_ultralow_55nm">IoT Ultra-Low Power eNVM (55nm, 85°C)</option>
+                <option value="industrial_extreme_175c">Extreme Industrial / Geothermal (0.18µm, 175°C)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="diff-arch-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span data-lang="zh">位元胞感測拓撲 (Topology)：</span>
+                <span data-lang="en">Bitcell Sensing Topology:</span>
+              </label>
+              <select id="diff-arch-select" aria-label="Bitcell Sensing Topology" data-aria-zh="位元胞感測拓撲" data-aria-en="Bitcell Sensing Topology" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+                <option value="single_ended">Single-Ended 1T (Fixed Reference Iref)</option>
+                <option value="pseudo_diff">Pseudo-Differential (Reference Array)</option>
+                <option value="true_twin_cell" selected>True Twin-Cell Complementary (1T True + 1T Comp)</option>
+              </select>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <label for="diff-temp-slider" style="font: 600 11px 'IBM Plex Mono', monospace; color: #475569;">
+                  <span data-lang="zh">接面溫度 (Junction Temp)：</span>
+                  <span data-lang="en">Junction Temp (Tj):</span>
+                </label>
+                <span id="diff-temp-val" style="font: 700 11px 'IBM Plex Mono', monospace; color: #006f70;">150°C</span>
+              </div>
+              <input type="range" id="diff-temp-slider" min="25" max="175" step="5" value="150" aria-label="Junction Temperature" data-aria-zh="接面溫度" data-aria-en="Junction Temperature" style="width: 100%;">
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <label for="diff-noise-slider" style="font: 600 11px 'IBM Plex Mono', monospace; color: #475569;">
+                  <span data-lang="zh">共模電源雜訊 (CM Ripple)：</span>
+                  <span data-lang="en">Common-Mode Noise Ripple:</span>
+                </label>
+                <span id="diff-noise-val" style="font: 700 11px 'IBM Plex Mono', monospace; color: #006f70;">45 mV</span>
+              </div>
+              <input type="range" id="diff-noise-slider" min="5" max="100" step="5" value="45" aria-label="Common-Mode Noise Ripple" data-aria-zh="共模電源雜訊" data-aria-en="Common-Mode Noise Ripple" style="width: 100%;">
+            </div>
+          </div>
+
+          <!-- KPI CARDS -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 1.5rem;">
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 12px; text-align: center;">
+              <span style="display: block; font: 600 10.5px 'IBM Plex Mono', monospace; color: #166534; text-transform: uppercase;">
+                <span data-lang="zh">差分感測信號裕度</span>
+                <span data-lang="en">Differential Voltage Margin</span>
+              </span>
+              <div id="diff-margin-mv" style="font: 700 1.6rem 'IBM Plex Mono', monospace; color: #15803d; margin: 4px 0;">-- mV</div>
+              <span style="font-size: 10.5px; color: #166534;"><span data-lang="zh">&gt;50mV 安全感測門檻</span><span data-lang="en">&gt;50mV Reliable Sensing</span></span>
+            </div>
+
+            <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 12px; text-align: center;">
+              <span style="display: block; font: 600 10.5px 'IBM Plex Mono', monospace; color: #0369a1; text-transform: uppercase;">
+                <span data-lang="zh">共模抑制比 (CMRR)</span>
+                <span data-lang="en">Common-Mode Rejection (CMRR)</span>
+              </span>
+              <div id="diff-cmrr-db" style="font: 700 1.6rem 'IBM Plex Mono', monospace; color: #0284c7; margin: 4px 0;">-- dB</div>
+              <span style="font-size: 10.5px; color: #0369a1;"><span data-lang="zh">抵抗電源漣波能力</span><span data-lang="en">Supply Noise Immunity</span></span>
+            </div>
+
+            <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 12px; text-align: center;">
+              <span style="display: block; font: 600 10.5px 'IBM Plex Mono', monospace; color: #b45309; text-transform: uppercase;">
+                <span data-lang="zh">一階數據相依電流差</span>
+                <span data-lang="en">1st-Order Data Discrepancy</span>
+              </span>
+              <div id="diff-dpa-delta" style="font: 700 1.6rem 'IBM Plex Mono', monospace; color: #b45309; margin: 4px 0;">-- µA</div>
+              <span id="diff-atten-badge" style="font-size: 10.5px; padding: 2px 6px; border-radius: 3px; background: #dcfce7; color: #166534; font-weight: 600;"><span data-lang="zh">-- dB 側信道衰減</span><span data-lang="en">-- dB DPA Attenuation</span></span>
+            </div>
+
+            <div style="background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 6px; padding: 12px; text-align: center;">
+              <span style="display: block; font: 600 10.5px 'IBM Plex Mono', monospace; color: #7e22ce; text-transform: uppercase;">
+                <span data-lang="zh">DPA 破解採樣門檻 (MTD)</span>
+                <span data-lang="en">Min Traces to Disclose (MTD)</span>
+              </span>
+              <div id="diff-mtd-traces" style="font: 700 1.45rem 'IBM Plex Mono', monospace; color: #6b21a8; margin: 6px 0;">-- Traces</div>
+              <span style="font-size: 10.5px; color: #7e22ce;"><span data-lang="zh">採樣跡線數量級阻絕</span><span data-lang="en">Exponential Trace Barrier</span></span>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; text-align: center;">
+              <span style="display: block; font: 600 10.5px 'IBM Plex Mono', monospace; color: #475569; text-transform: uppercase;">
+                <span data-lang="zh">微觀位元胞面積成本</span>
+                <span data-lang="en">Bitcell Area Footprint</span>
+              </span>
+              <div id="diff-area-penalty" style="font: 700 1.35rem 'IBM Plex Mono', monospace; color: #0f172a; margin: 6px 0;">--× Silicon Area</div>
+              <span style="font-size: 10.5px; color: #475569;"><span data-lang="zh">1T 實體佈局共享最佳化</span><span data-lang="en">Layout-Sharing Optimized</span></span>
+            </div>
+          </div>
+
+          <!-- VISUAL CURRENT SYMMETRY ENVELOPE -->
+          <div style="margin-bottom: 1.25rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px;">
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 8px;">
+              <span><span data-lang="zh">讀取邏輯 '0' vs 邏輯 '1' 瞬態供電電流包絡對稱性 (Power Profile Symmetry)</span><span data-lang="en">Logical '0' vs '1' Transient Current Envelope Symmetry (Power Profile)</span></span>
+              <span>DPA Signature Leakage</span>
+            </div>
+            
+            <div style="margin-bottom: 6px;">
+              <div style="display: flex; justify-content: space-between; font-size: 10.5px; color: #64748b; margin-bottom: 2px;">
+                <span><span data-lang="zh">讀取邏輯 '0' (Read Bit 0)</span><span data-lang="en">Read Bit 0</span></span>
+                <span>PDN Current</span>
+              </div>
+              <div style="height: 10px; background: #e2e8f0; border-radius: 5px; overflow: hidden;">
+                <div id="diff-bar-bit0" style="height: 100%; width: 88%; background: linear-gradient(90deg, #0ea5e9, #0284c7); border-radius: 5px; transition: width 0.3s ease;"></div>
+              </div>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 10.5px; color: #64748b; margin-bottom: 2px;">
+                <span><span data-lang="zh">讀取邏輯 '1' (Read Bit 1)</span><span data-lang="en">Read Bit 1</span></span>
+                <span>PDN Current</span>
+              </div>
+              <div style="height: 10px; background: #e2e8f0; border-radius: 5px; overflow: hidden;">
+                <div id="diff-bar-bit1" style="height: 100%; width: 90%; background: linear-gradient(90deg, #10b981, #059669); border-radius: 5px; transition: width 0.3s ease;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ARCHITECT VERDICT -->
+          <div id="diff-verdict" style="padding: 14px; background: #f0fdfa; border-left: 4px solid #006f70; border-radius: 0 6px 6px 0; font-size: 12.5px; line-height: 1.6; color: #1e293b;">
+            <!-- Filled dynamically by differential-sensing-simulator.js -->
+          </div>
+        </div>
+
         <details class="provenance-note">
           <summary><span data-lang="zh">技術沿革與 TSMC 授權脈絡（研究註解）</span><span data-lang="en">Technology provenance and TSMC licensing context (research note)</span></summary>
           <div class="provenance-content">
@@ -2605,5 +2761,6 @@
   <script src="research.js?v=20260929-v5"></script>
   <script src="memory-physics-navigation.js?v=20260929-v5"></script>
   <script src="tunneling-breakdown-simulator.js?v=20261004" defer></script>
+  <script type="module" src="differential-sensing-simulator.js?v=20261005"></script>
 </body>
 </html>
