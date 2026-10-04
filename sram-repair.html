@@ -45,6 +45,7 @@
   <link rel="stylesheet" href="site-shell.css?v=20260916-keepout">
   <link rel="stylesheet" href="sram-repair.css">
   <script type="module" src="sram-repair.js"></script>
+  <script type="module" src="sram-yield-bira-simulator.js?v=20261005"></script>
 </head>
 <body class="sram-repair-page" data-pov-contract-id="POV-NVM-WEB-2026-08-29" data-pov-scope-id="POV-NVM-HUB-NEUTRAL-2026-08-29" data-artifact-mode="neutral-editorial" data-accountable-owner-key="sam-huang">
   <a class="skip-link skip" href="#main-content"><span data-lang="zh">跳至主要內容</span><span data-lang="en">Skip to main content</span></a>
@@ -135,6 +136,162 @@
       <p id="scenario-storage-note" class="scenario-help" role="status"></p>
       <p id="scenario-status" role="status" class="scenario-feedback"></p>
       <p id="scenario-error" role="alert" class="scenario-feedback scenario-error" hidden></p>
+    </section>
+
+    <!-- SECTION 04: SRAM YIELD RECOVERY & BIRA WAFER ECONOMICS SIMULATOR -->
+    <section id="yield-recovery" class="section yield-recovery-section" aria-labelledby="yield-sec-title" style="margin: 2rem 0; padding: 24px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+      <div class="section-heading" style="margin-bottom: 1.25rem;">
+        <div>
+          <div class="eyebrow muted"><span data-lang="en">FIRST-PRINCIPLES YIELD MODEL · BIRA ECONOMICS</span><span data-lang="zh">第一性原理良率模型 · BIRA 經濟學</span></div>
+          <h2 id="yield-sec-title" style="margin-top: 4px;">
+            <span data-lang="en">SRAM Yield Recovery &amp; BIRA Wafer Economics Simulator</span>
+            <span data-lang="zh">SRAM 備援良率挽救與 BIRA 晶圓經濟效益試算器</span>
+          </h2>
+          <p style="margin-top: 4px; color: #475569; font-size: 0.9rem;">
+            <span data-lang="en">Model Poisson/Murphy random defect statistics, bank redundancy repair, and dollar value recovery per 300mm wafer.</span>
+            <span data-lang="zh">基於 Poisson 與 Murphy 隨機瑕疵統計模型，估算記憶體區塊備援修復良率增益與 300mm 晶圓產值挽救金額。</span>
+          </p>
+        </div>
+      </div>
+
+      <div id="sram-yield-bira-root">
+        <!-- Controls Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
+          <div>
+            <label for="bira-preset-select" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+              <span data-lang="zh">製程與晶片架構 (SoC Architecture):</span>
+              <span data-lang="en">SOC ARCHITECTURE PRESET:</span>
+            </label>
+            <select id="bira-preset-select" aria-label="SoC Architecture Preset" data-aria-en="SoC Architecture Preset" data-aria-zh="製程與晶片架構" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="n3_ai_accelerator" selected>3nm AI Training Accelerator (360 mm², 65% SRAM)</option>
+              <option value="n5_flagship_soc">5nm Mobile Flagship AP (115 mm², 52% SRAM)</option>
+              <option value="n16_automotive_mcu">16nm Automotive Domain MCU (55 mm², 40% SRAM)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="bira-diearea-input" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+              <span data-lang="zh">晶片總面積 (Die Area mm²):</span>
+              <span data-lang="en">DIE AREA (MM²):</span>
+            </label>
+            <input type="number" id="bira-diearea-input" value="360" min="10" max="1000" step="5" aria-label="Die Area in mm squared" data-aria-en="Die Area in mm squared" data-aria-zh="晶片總面積（平方毫米）" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <label for="bira-srampict-slider">
+                <span data-lang="zh">SRAM 面積佔比 (%):</span>
+                <span data-lang="en">SRAM FOOTPRINT (%):</span>
+              </label>
+              <span id="bira-srampct-val" style="color: #785021;">65%</span>
+            </div>
+            <input type="range" id="bira-srampict-slider" min="10" max="85" step="1" value="65" aria-label="SRAM Silicon Footprint Percentage" data-aria-en="SRAM Silicon Footprint Percentage" data-aria-zh="SRAM 面積佔比" style="width: 100%; accent-color: #785021;">
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <label for="bira-d0-slider">
+                <span data-lang="zh">缺陷密度 D0 (/cm²):</span>
+                <span data-lang="en">DEFECT DENSITY D0 (/CM²):</span>
+              </label>
+              <span id="bira-d0-val" style="color: #dc2626;">0.08 /cm²</span>
+            </div>
+            <input type="range" id="bira-d0-slider" min="0.01" max="0.25" step="0.01" value="0.08" aria-label="Defect Density D0 per cm squared" data-aria-en="Defect Density D0 per cm squared" data-aria-zh="缺陷密度 D0" style="width: 100%; accent-color: #dc2626;">
+          </div>
+
+          <div>
+            <label for="bira-spare-select" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+              <span data-lang="zh">區塊備援組數 (Spares/Bank):</span>
+              <span data-lang="en">SPARES PER BANK:</span>
+            </label>
+            <select id="bira-spare-select" aria-label="Spare Elements Per Bank" data-aria-en="Spare Elements Per Bank" data-aria-zh="區塊備援組數" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="0">0 (No Repair / Unrepaired Baseline)</option>
+              <option value="1">1 Spare Row/Column</option>
+              <option value="2">2 Spare Rows/Columns</option>
+              <option value="3" selected>3 Spare Rows/Columns</option>
+              <option value="4">4 Spare Rows/Columns</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="bira-asp-input" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+              <span data-lang="zh">晶片平均售價 (ASP USD $):</span>
+              <span data-lang="en">DIE ASP (USD $):</span>
+            </label>
+            <input type="number" id="bira-asp-input" value="380" min="5" max="5000" step="10" aria-label="Die Average Selling Price in USD" data-aria-en="Die Average Selling Price in USD" data-aria-zh="晶片平均售價" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+          </div>
+        </div>
+
+        <!-- KPI Metric Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-bottom: 1.25rem;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 14px;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">未修復原始良率</span><span data-lang="en">UNREPAIRED BASE YIELD</span>
+            </div>
+            <div id="bira-base-yield" style="font: 700 22px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 4px;">—</div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 6px; padding: 10px 14px; position: relative;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #065f46; text-transform: uppercase;">
+                <span data-lang="zh">BIRA 修復後良率</span><span data-lang="en">BIRA REPAIRED YIELD</span>
+              </span>
+              <span id="bira-delta-yield" style="font: 700 10px 'IBM Plex Mono', monospace; background: rgba(16, 185, 129, 0.15); color: #059669; padding: 2px 6px; border-radius: 3px;">+0%</span>
+            </div>
+            <div id="bira-repaired-yield" style="font: 800 22px 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">—</div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 14px;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">單片晶圓多得好晶片</span><span data-lang="en">EXTRA DIES / 300MM WAFER</span>
+            </div>
+            <div id="bira-extra-dies" style="font: 700 22px 'IBM Plex Mono', monospace; color: #0284c7; margin-top: 4px;">—</div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 14px;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">每片晶圓挽救產值</span><span data-lang="en">VALUE RECOVERED / WAFER</span>
+            </div>
+            <div id="bira-wafer-value" style="font: 800 22px 'IBM Plex Mono', monospace; color: #785021; margin-top: 4px;">—</div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 14px;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">萬片量產累計產值</span><span data-lang="en">ANNUAL 10K RUN VALUE</span>
+            </div>
+            <div id="bira-annual-value" style="font: 800 22px 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">—</div>
+          </div>
+        </div>
+
+        <!-- Yield Recovery Visual Progress Comparison -->
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 14px; margin-bottom: 1.25rem;">
+          <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+            <span><span data-lang="zh">良率提升對照 (Unrepaired Base vs BIRA Repaired):</span><span data-lang="en">YIELD ENHANCEMENT BENCHMARK:</span></span>
+            <span style="font-size: 10px; color: #64748b;">0% ──── 50% ──── 100%</span>
+          </div>
+          <div style="margin-bottom: 6px;">
+            <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span><span data-lang="zh">未修復原始良率</span><span data-lang="en">Baseline Yield</span></span>
+            </div>
+            <div style="height: 10px; border-radius: 3px; background: #e2e8f0; overflow: hidden;" role="img" aria-label="Baseline Yield Progress Bar" data-aria-en="Baseline Yield Progress Bar" data-aria-zh="未修復原始良率進度條">
+              <div id="bira-bar-base" style="height: 100%; width: 45%; background: #94a3b8; transition: width 0.3s ease;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #059669; margin-bottom: 2px;">
+              <span><span data-lang="zh">BIRA 備援修復良率</span><span data-lang="en">BIRA Repaired Yield</span></span>
+            </div>
+            <div style="height: 12px; border-radius: 3px; background: #e2e8f0; overflow: hidden;" role="img" aria-label="BIRA Repaired Yield Progress Bar" data-aria-en="BIRA Repaired Yield Progress Bar" data-aria-zh="BIRA 備援修復良率進度條">
+              <div id="bira-bar-repair" style="height: 100%; width: 85%; background: #059669; transition: width 0.3s ease;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Architect Verdict Callout -->
+        <div id="bira-yield-verdict" style="background: rgba(176, 138, 91, 0.08); border: 1px solid rgba(176, 138, 91, 0.3); border-radius: 6px; padding: 10px 14px; font-size: 11.5px; line-height: 1.5; color: #0f172a;">
+          —
+        </div>
+      </div>
     </section>
 </main>
 <dialog id="scenario-import-dialog" class="scenario-dialog" aria-labelledby="scenario-import-title" aria-describedby="scenario-import-description">

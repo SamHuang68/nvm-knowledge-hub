@@ -1034,6 +1034,158 @@
               <canvas id="thermalCanvas" role="img" aria-labelledby="lab-thermal-title" aria-describedby="thermalSummary" style="width: 100%; height: 280px; display: block;"></canvas>
             </div>
             <p id="thermalSummary" class="model-boundary" aria-live="polite"></p>
+
+            <!-- INTERACTIVE AUTOMOTIVE MISSION PROFILE CUMULATIVE AGING & RELIABILITY CALCULATOR -->
+            <div id="automotive-mission-profile-root" class="interactive-workbench" style="margin-top: 24px; padding: 20px; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+                <div>
+                  <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #785021; letter-spacing: 0.08em; text-transform: uppercase;">
+                    <span data-lang="zh">第一性原理熱老化累積模型 · AEC-Q100 GRADE 0/1/2</span>
+                    <span data-lang="en">FIRST-PRINCIPLES CUMULATIVE AGING MODEL · AEC-Q100 GRADE 0/1/2</span>
+                  </span>
+                  <h3 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+                    <span data-lang="zh">車規任務剖面 (Mission Profile) 累計熱老化與 15 年安全留存試算器</span>
+                    <span data-lang="en">Automotive Mission Profile Cumulative Thermal Aging &amp; Lifetime Calculator</span>
+                  </h3>
+                </div>
+                <span id="auto-total-hours" class="badge-compact" style="background: rgba(176, 138, 91, 0.12); color: #785021; border: 1px solid rgba(176, 138, 91, 0.25); font: 700 11px 'IBM Plex Mono', monospace; padding: 4px 10px; border-radius: 4px;">
+                  15,000 hrs (~1.7 yrs operating)
+                </span>
+              </div>
+
+              <!-- Preset and Bake Inputs -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
+                <div>
+                  <label for="auto-preset-select" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+                    <span data-lang="zh">車規應用任務情境 (Mission Preset):</span>
+                    <span data-lang="en">MISSION PROFILE PRESET:</span>
+                  </label>
+                  <select id="auto-preset-select" aria-label="Automotive Mission Profile Preset" data-aria-en="Automotive Mission Profile Preset" data-aria-zh="車規應用任務情境" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                    <option value="powertrain_grade0" selected>Powertrain / Engine ECU (AEC-Q100 Grade 0, 175°C peak)</option>
+                    <option value="braking_chassis_grade1">Braking / Chassis ESC (ISO 26262 ASIL-D, Grade 1)</option>
+                    <option value="adas_domain_grade1">ADAS Central Compute / Domain Controller (Grade 1 / High TDP)</option>
+                    <option value="ev_bms_grade2">EV Battery Management System (BMS / Grade 2)</option>
+                  </select>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                  <div>
+                    <label for="auto-baketemp-select" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+                      <span data-lang="zh">認證烘烤溫度 (Bake Tj):</span>
+                      <span data-lang="en">QUAL BAKE TEMP:</span>
+                    </label>
+                    <select id="auto-baketemp-select" aria-label="Qualification Bake Temperature" data-aria-en="Qualification Bake Temperature" data-aria-zh="認證烘烤溫度" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                      <option value="175" selected>175°C (AEC-Q100-005)</option>
+                      <option value="150">150°C (JESD22-A103)</option>
+                      <option value="125">125°C (Grade 1)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="auto-bakehours-input" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+                      <span data-lang="zh">烘烤時長 (HTSL Hours):</span>
+                      <span data-lang="en">HTSL HOURS:</span>
+                    </label>
+                    <input type="number" id="auto-bakehours-input" value="1008" step="100" min="100" max="10000" aria-label="Qualification Bake Hours" data-aria-en="Qualification Bake Hours" data-aria-zh="烘烤時長（小時）" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Temperature Bins Spectrum -->
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 14px; margin-bottom: 1.25rem;">
+                <div style="font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 8px; text-transform: uppercase;">
+                  <span data-lang="zh">車載運作溫度分佈區間 (Operating Temperature Bins):</span>
+                  <span data-lang="en">OPERATING TEMPERATURE SPECTRUM (HOURS):</span>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                  <div>
+                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #dc2626;">
+                      <span>175°C Tj</span><span id="bin-val-175">400 hrs</span>
+                    </div>
+                    <input type="range" id="bin-hours-175" min="0" max="2000" step="50" value="400" aria-label="Hours at 175 degrees C" data-aria-en="Hours at 175 degrees C" data-aria-zh="175度運作時長" style="width: 100%; accent-color: #dc2626;">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #ea580c;">
+                      <span>150°C Tj</span><span id="bin-val-150">2600 hrs</span>
+                    </div>
+                    <input type="range" id="bin-hours-150" min="0" max="8000" step="100" value="2600" aria-label="Hours at 150 degrees C" data-aria-en="Hours at 150 degrees C" data-aria-zh="150度運作時長" style="width: 100%; accent-color: #ea580c;">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #d97706;">
+                      <span>125°C Tj</span><span id="bin-val-125">5000 hrs</span>
+                    </div>
+                    <input type="range" id="bin-hours-125" min="0" max="10000" step="200" value="5000" aria-label="Hours at 125 degrees C" data-aria-en="Hours at 125 degrees C" data-aria-zh="125度運作時長" style="width: 100%; accent-color: #d97706;">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #ca8a04;">
+                      <span>105°C Tj</span><span id="bin-val-105">4000 hrs</span>
+                    </div>
+                    <input type="range" id="bin-hours-105" min="0" max="12000" step="200" value="4000" aria-label="Hours at 105 degrees C" data-aria-en="Hours at 105 degrees C" data-aria-zh="105度運作時長" style="width: 100%; accent-color: #ca8a04;">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #2563eb;">
+                      <span>85°C Tj</span><span id="bin-val-85">2000 hrs</span>
+                    </div>
+                    <input type="range" id="bin-hours-85" min="0" max="15000" step="500" value="2000" aria-label="Hours at 85 degrees C" data-aria-en="Hours at 85 degrees C" data-aria-zh="85度運作時長" style="width: 100%; accent-color: #2563eb;">
+                  </div>
+                  <div>
+                    <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #059669;">
+                      <span>40°C Tj</span><span id="bin-val-40">1000 hrs</span>
+                    </div>
+                    <input type="range" id="bin-hours-40" min="0" max="20000" step="500" value="1000" aria-label="Hours at 40 degrees C" data-aria-en="Hours at 40 degrees C" data-aria-zh="40度運作時長" style="width: 100%; accent-color: #059669;">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Technology Comparison Cards -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
+                <!-- AntiFuse OTP -->
+                <article id="card-antifuse-margin" style="background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 6px; padding: 12px; box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <b style="font-size: 0.85rem; color: #0f172a;"><span data-lang="zh">邏輯 AntiFuse OTP</span><span data-lang="en">Logic AntiFuse OTP</span></b>
+                    <span class="status-badge" style="font: 700 9px 'IBM Plex Mono', monospace; padding: 2px 6px; border-radius: 3px; border: 1px solid;">—</span>
+                  </div>
+                  <div style="font: 700 24px 'IBM Plex Mono', monospace; margin: 4px 0;" class="margin-val">—</div>
+                  <div style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #64748b; line-height: 1.4;">
+                    <div><span data-lang="zh">活化能: 1.85 eV (物理微絲)</span><span data-lang="en">Ea: 1.85 eV (Physical Filament)</span></div>
+                    <div><span data-lang="zh">等效 150°C: </span><span data-lang="en">Equiv @ 150°C: </span><strong class="equiv-hours">—</strong></div>
+                    <div><span data-lang="zh">需烘烤時長: </span><span data-lang="en">Bake Req: </span><span class="bake-req">—</span></div>
+                  </div>
+                </article>
+
+                <!-- Floating-Gate eFlash -->
+                <article id="card-eflash-margin" style="background: #ffffff; border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 6px; padding: 12px; box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <b style="font-size: 0.85rem; color: #0f172a;"><span data-lang="zh">浮閘 eFlash (40/28nm)</span><span data-lang="en">Floating-Gate eFlash</span></b>
+                    <span class="status-badge" style="font: 700 9px 'IBM Plex Mono', monospace; padding: 2px 6px; border-radius: 3px; border: 1px solid;">—</span>
+                  </div>
+                  <div style="font: 700 24px 'IBM Plex Mono', monospace; margin: 4px 0;" class="margin-val">—</div>
+                  <div style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #64748b; line-height: 1.4;">
+                    <div><span data-lang="zh">活化能: 1.15 eV (多晶矽電荷)</span><span data-lang="en">Ea: 1.15 eV (Charge Storage)</span></div>
+                    <div><span data-lang="zh">等效 150°C: </span><span data-lang="en">Equiv @ 150°C: </span><strong class="equiv-hours">—</strong></div>
+                    <div><span data-lang="zh">需烘烤時長: </span><span data-lang="en">Bake Req: </span><span class="bake-req">—</span></div>
+                  </div>
+                </article>
+
+                <!-- STT-MRAM -->
+                <article id="card-mram-margin" style="background: #ffffff; border: 1px solid rgba(2, 132, 199, 0.4); border-radius: 6px; padding: 12px; box-shadow: 0 2px 4px rgba(15, 23, 42, 0.03);">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <b style="font-size: 0.85rem; color: #0f172a;"><span data-lang="zh">嵌入式 STT-MRAM (22ULL)</span><span data-lang="en">Embedded STT-MRAM</span></b>
+                    <span class="status-badge" style="font: 700 9px 'IBM Plex Mono', monospace; padding: 2px 6px; border-radius: 3px; border: 1px solid;">—</span>
+                  </div>
+                  <div style="font: 700 24px 'IBM Plex Mono', monospace; margin: 4px 0;" class="margin-val">—</div>
+                  <div style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #64748b; line-height: 1.4;">
+                    <div><span data-lang="zh">活化能: 1.35 eV (MTJ 磁矩)</span><span data-lang="en">Ea: 1.35 eV (MTJ Stability)</span></div>
+                    <div><span data-lang="zh">等效 150°C: </span><span data-lang="en">Equiv @ 150°C: </span><strong class="equiv-hours">—</strong></div>
+                    <div><span data-lang="zh">需烘烤時長: </span><span data-lang="en">Bake Req: </span><span class="bake-req">—</span></div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Verdict Callout -->
+              <div id="auto-mission-verdict" style="background: rgba(176, 138, 91, 0.08); border: 1px solid rgba(176, 138, 91, 0.3); border-radius: 6px; padding: 10px 14px; font-size: 11.5px; line-height: 1.5; color: #0f172a;">
+                —
+              </div>
+            </div>
           </section>
 
           <!-- LENS 03: SECDED (72, 64) FAULT INJECTION LAB -->
@@ -1503,6 +1655,7 @@
 
   <script type="module" src="automotive-thermal.js"></script>
   <script type="module" src="automotive-ecc.js"></script>
+  <script type="module" src="automotive-mission-profile.js?v=20261005"></script>
 
   <!-- Studio Layout Vertical Rail Scroll Spy & Interactive Navigator -->
   <script>
