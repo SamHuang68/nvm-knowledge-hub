@@ -1213,6 +1213,56 @@ def run_tests() -> None:
     test("sram-repair.html 包含 BIRA 參數輸入組、五項 KPI 指標卡與良率對照進度條",
          'id="bira-preset-select"' in sram_html and 'id="bira-diearea-input"' in sram_html and 'id="bira-base-yield"' in sram_html and 'id="bira-repaired-yield"' in sram_html and 'id="bira-extra-dies"' in sram_html and 'id="bira-bar-repair"' in sram_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 46: BCD 類比精度修調與晶圓良率最佳化試算器 (specialty-nvm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 46: BCD 類比精度修調與晶圓良率最佳化試算器 ═══")
+    bcd_js = (BASE / "bcd-trimming-simulator.js").read_text(encoding="utf-8")
+    test("bcd-trimming-simulator.js 存在且導出 calculateBcdTrimming 與 initBcdTrimmingSimulator",
+         "export function calculateBcdTrimming" in bcd_js and "export function initBcdTrimmingSimulator" in bcd_js and "export function normalCdf" in bcd_js)
+    test("bcd-trimming-simulator.js 包含四大 BCD 電源管理預設與四大修調技術評估",
+         "BCD_TRIM_PRESETS" in bcd_js and "pmic_bandgap" in bcd_js and "buck_oscillator" in bcd_js and "gate_driver_ocp" in bcd_js and "BCD_TRIM_TECHNOLOGIES" in bcd_js and "antifuse_otp" in bcd_js and "laser_trim" in bcd_js)
+    test("bcd-trimming-simulator.js 第一性原理高斯分佈、DAC 步進與修調後良率演算法",
+         "normalCdf" in bcd_js and "postTrimYield" in bcd_js and "deltaYieldPct" in bcd_js and "deltaV" in bcd_js)
+
+    specialty_html = (BASE / "specialty-nvm.html").read_text(encoding="utf-8")
+    test("specialty-nvm.html 整合 bcd-trimming-root 工作台與模組腳本引用",
+         'id="bcd-trimming-root"' in specialty_html and 'src="bcd-trimming-simulator.js' in specialty_html)
+    test("specialty-nvm.html 包含 BCD 預設選擇器、修調位元、容差滑桿與良率提升卡片",
+         'id="trim-preset-select"' in specialty_html and 'id="trim-bits-select"' in specialty_html and 'id="trim-spec-slider"' in specialty_html and 'id="trim-raw-yield"' in specialty_html and 'id="trim-post-yield"' in specialty_html and 'id="trim-delta-yield"' in specialty_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 47: AMOLED / MicroLED De-Mura 補償儲存容量與開機 DMA 延遲試算器 (specialty-nvm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 47: AMOLED / MicroLED De-Mura 補償儲存容量與開機 DMA 延遲試算器 ═══")
+    demura_js = (BASE / "demura-lut-calculator.js").read_text(encoding="utf-8")
+    test("demura-lut-calculator.js 存在且導出 calculateDemuraLutStorage 與 initDemuraLutCalculator",
+         "export function calculateDemuraLutStorage" in demura_js and "export function initDemuraLutCalculator" in demura_js)
+    test("demura-lut-calculator.js 包含四大顯示面板預設與三大 DMA 匯流排介面",
+         "DEMURA_PRESETS" in demura_js and "smartphone_wqhd" in demura_js and "wearable_microled" in demura_js and "DMA_INTERFACES" in demura_js and "quad_80" in demura_js and "octal_133" in demura_js and "octal_dtr_200" in demura_js)
+    test("demura-lut-calculator.js 第一性原理光學點陣空間壓縮、容量試算與 DMA 載入延遲演算法",
+         "calculateDemuraLutStorage" in demura_js and "compMb" in demura_js and "compMB" in demura_js and "dmaTimeMs" in demura_js and "embeddedDieAreaMm2" in demura_js)
+
+    test("specialty-nvm.html 整合 demura-lut-calculator-root 工作台與模組腳本引用",
+         'id="demura-lut-calculator-root"' in specialty_html and 'src="demura-lut-calculator.js' in specialty_html)
+    test("specialty-nvm.html 包含 De-Mura 預設選擇器、區塊壓縮、灰階平面、DMA 介面與容量指標卡",
+         'id="demura-preset-select"' in specialty_html and 'id="demura-bin-select"' in specialty_html and 'id="demura-planes-select"' in specialty_html and 'id="demura-dma-select"' in specialty_html and 'id="demura-size-mb"' in specialty_html and 'id="demura-dma-time"' in specialty_html and 'id="demura-embedded-area"' in specialty_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 48: 全站 HTML 行內腳本 (Inline Scripts) 標籤閉合與語法完備性 (防再發門禁)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 48: 全站 HTML 行內腳本標籤閉合與語法完備性 ═══")
+    script_mismatch = []
+    for html_file in BASE.glob("**/*.html"):
+        if "node_modules" in html_file.parts or ".git" in html_file.parts:
+            continue
+        content = html_file.read_text(encoding="utf-8")
+        open_tags = len(re.findall(r'<script\b', content, re.IGNORECASE))
+        close_tags = len(re.findall(r'</script>', content, re.IGNORECASE))
+        if open_tags != close_tags:
+            script_mismatch.append(f"{html_file.name}: <script> ({open_tags}) != </script> ({close_tags})")
+    test("全站所有 HTML 檔案之 <script> 開啟與 </script> 閉合標籤數量嚴格對等 (防再發)", len(script_mismatch) == 0, ", ".join(script_mismatch))
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

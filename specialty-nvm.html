@@ -1474,6 +1474,141 @@
     <span data-lang="en">Automotive Powertrain BCD &amp; Packaging Value Chain ↗</span>
   </a>
 </div>
+
+<!-- INTERACTIVE BCD POWER MANAGEMENT ANALOG TRIMMING WORKBENCH -->
+<div id="bcd-trimming-root" class="interactive-workbench" style="margin-top: 24px; padding: 20px; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+    <div>
+      <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #785021; letter-spacing: 0.08em; text-transform: uppercase;">
+        <span data-lang="zh">第一性原理類比修調模型 · BCD 功率半導體</span>
+        <span data-lang="en">FIRST-PRINCIPLES ANALOG TRIMMING MODEL · BCD POWER MANAGEMENT</span>
+      </span>
+      <h3 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+        <span data-lang="zh">BCD 類比精度修調與晶圓良率最佳化試算器</span>
+        <span data-lang="en">BCD Analog Precision Trimming &amp; Yield Optimizer</span>
+      </h3>
+    </div>
+    <span class="badge-compact" style="background: rgba(16, 185, 129, 0.12); color: #065f46; border: 1px solid rgba(16, 185, 129, 0.25); font: 700 11px 'IBM Plex Mono', monospace; padding: 4px 10px; border-radius: 4px;">
+      <span data-lang="zh">0 光罩 · 支援封裝後修調</span>
+      <span data-lang="en">0-MASK · POST-PACKAGE TRIM</span>
+    </span>
+  </div>
+
+  <!-- Controls Grid -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
+    <div>
+      <label for="trim-preset-select" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+        <span data-lang="zh">修調目標應用 (Target Trim Preset):</span>
+        <span data-lang="en">TARGET TRIM PRESET:</span>
+      </label>
+      <select id="trim-preset-select" aria-label="Target Trim Preset" data-aria-en="Target Trim Preset" data-aria-zh="修調目標應用" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+        <option value="pmic_bandgap" selected>Precision 1.200V Bandgap Reference (±0.5% Spec)</option>
+        <option value="buck_oscillator">DC-DC 2.0 MHz Switching Oscillator (±1.5% Spec)</option>
+        <option value="gate_driver_ocp">SiC Gate Driver DESAT / OCP Threshold (8.0V ±2.0%)</option>
+        <option value="ldo_quiescent">Automotive LDO 3.300V Rail (±0.8% Spec)</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="trim-bits-select" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+        <span data-lang="zh">修調 DAC 解析度 (Trim DAC Bits):</span>
+        <span data-lang="en">TRIM DAC RESOLUTION:</span>
+      </label>
+      <select id="trim-bits-select" aria-label="Trim DAC Resolution" data-aria-en="Trim DAC Resolution" data-aria-zh="修調 DAC 解析度" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+        <option value="4">4-bit DAC (16 Steps)</option>
+        <option value="5">5-bit DAC (32 Steps)</option>
+        <option value="6" selected>6-bit DAC (64 Steps)</option>
+        <option value="7">7-bit DAC (128 Steps)</option>
+        <option value="8">8-bit DAC (256 Steps)</option>
+      </select>
+    </div>
+
+    <div>
+      <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+        <label for="trim-spec-slider">
+          <span data-lang="zh">目標精度規格 (Spec Tolerance):</span>
+          <span data-lang="en">SPEC TOLERANCE:</span>
+        </label>
+        <span id="trim-spec-val" style="color: #059669;">±0.5%</span>
+      </div>
+      <input type="range" id="trim-spec-slider" min="0.2" max="3.0" step="0.1" value="0.5" aria-label="Specification Tolerance Percentage" data-aria-en="Specification Tolerance Percentage" data-aria-zh="目標精度規格百分比" style="width: 100%; accent-color: #059669;">
+    </div>
+
+    <div>
+      <div style="display: flex; justify-content: space-between; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+        <label for="trim-spread-slider">
+          <span data-lang="zh">晶圓未修調原始漂移 (Raw Spread):</span>
+          <span data-lang="en">RAW WAFER SPREAD:</span>
+        </label>
+        <span id="trim-spread-val" style="color: #dc2626;">±4%</span>
+      </div>
+      <input type="range" id="trim-spread-slider" min="2.0" max="10.0" step="0.5" value="4.0" aria-label="Raw Wafer Process Spread Percentage" data-aria-en="Raw Wafer Process Spread Percentage" data-aria-zh="晶圓未修調原始漂移百分比" style="width: 100%; accent-color: #dc2626;">
+    </div>
+  </div>
+
+  <!-- KPI Cards -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 1.25rem;">
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 14px;">
+      <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+        <span data-lang="zh">未修調原始晶圓良率</span><span data-lang="en">PRE-TRIM RAW YIELD</span>
+      </div>
+      <div id="trim-raw-yield" style="font: 700 22px 'IBM Plex Mono', monospace; color: #64748b; margin-top: 4px;">—</div>
+    </div>
+
+    <div style="background: #f8fafc; border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 6px; padding: 10px 14px; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #065f46; text-transform: uppercase;">
+          <span data-lang="zh">修調後最佳化良率</span><span data-lang="en">POST-TRIM YIELD</span>
+        </span>
+        <span id="trim-delta-yield" style="font: 700 10px 'IBM Plex Mono', monospace; background: rgba(16, 185, 129, 0.15); color: #059669; padding: 2px 6px; border-radius: 3px;">+0%</span>
+      </div>
+      <div id="trim-post-yield" style="font: 800 22px 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">—</div>
+    </div>
+
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 14px;">
+      <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+        <span data-lang="zh">DAC 步進解析度 (LSB)</span><span data-lang="en">DAC STEP RESOLUTION</span>
+      </div>
+      <div id="trim-lsb-step" style="font: 700 18px 'IBM Plex Mono', monospace; color: #0284c7; margin-top: 4px;">—</div>
+    </div>
+
+    <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 14px;">
+      <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+        <span data-lang="zh">修調階數配置</span><span data-lang="en">TRIM LEVELS CONFIG</span>
+      </div>
+      <div id="trim-dac-levels" style="font: 700 18px 'IBM Plex Mono', monospace; color: #785021; margin-top: 4px;">—</div>
+    </div>
+  </div>
+
+  <!-- Progress Bar Comparison -->
+  <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 14px; margin-bottom: 1.25rem;">
+    <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+      <span><span data-lang="zh">晶圓良率收斂對照 (Pre-trim Raw vs Post-trim OTP):</span><span data-lang="en">YIELD RECOVERY COMPARISON:</span></span>
+      <span style="font-size: 10px; color: #64748b;">0% ──── 50% ──── 100%</span>
+    </div>
+    <div style="margin-bottom: 6px;">
+      <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+        <span><span data-lang="zh">未修調原始良率</span><span data-lang="en">Pre-trim Raw Yield</span></span>
+      </div>
+      <div style="height: 10px; border-radius: 3px; background: #e2e8f0; overflow: hidden;" role="img" aria-label="Pre-trim Raw Yield Progress Bar" data-aria-en="Pre-trim Raw Yield Progress Bar" data-aria-zh="未修調原始良率進度條">
+        <div id="trim-bar-raw" style="height: 100%; width: 68%; background: #94a3b8; transition: width 0.3s ease;"></div>
+      </div>
+    </div>
+    <div>
+      <div style="display: flex; justify-content: space-between; font: 600 10px 'IBM Plex Mono', monospace; color: #059669; margin-bottom: 2px;">
+        <span><span data-lang="zh">AntiFuse 修調最佳化良率</span><span data-lang="en">Post-trim AntiFuse Yield</span></span>
+      </div>
+      <div style="height: 12px; border-radius: 3px; background: #e2e8f0; overflow: hidden;" role="img" aria-label="Post-trim AntiFuse Yield Progress Bar" data-aria-en="Post-trim AntiFuse Yield Progress Bar" data-aria-zh="修調最佳化良率進度條">
+        <div id="trim-bar-post" style="height: 100%; width: 99%; background: #059669; transition: width 0.3s ease;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Verdict Callout -->
+  <div id="trim-verdict" style="background: rgba(176, 138, 91, 0.08); border: 1px solid rgba(176, 138, 91, 0.3); border-radius: 6px; padding: 10px 14px; font-size: 11.5px; line-height: 1.5; color: #0f172a;">
+    —
+  </div>
+</div>
 </div>
 
 </div>
@@ -2596,6 +2731,160 @@
     </div>
   </div>
 </div>
+
+<!-- INTERACTIVE AMOLED / MICROLED DE-MURA LUT STORAGE & DMA CALCULATOR -->
+<div id="demura-lut-calculator-root" class="interactive-workbench" style="margin-top: 24px; padding: 20px; background: #ffffff; border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 8px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+    <div>
+      <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #b45309; letter-spacing: 0.08em; text-transform: uppercase;">
+        <span data-lang="zh">第一性原理光學點陣模型 · AMOLED / MicroLED 顯示驅動</span>
+        <span data-lang="en">FIRST-PRINCIPLES OPTICAL MATRIX MODEL · AMOLED / MICROLED DDIC</span>
+      </span>
+      <h4 style="margin: 0.25rem 0 0; font-size: 1.15rem; font-weight: 700; color: #0f172a; font-family: 'IBM Plex Mono', monospace;">
+        <span data-lang="zh">AMOLED / MicroLED De-Mura 補償儲存容量與開機 DMA 延遲試算器</span>
+        <span data-lang="en">AMOLED / MicroLED De-Mura LUT Storage &amp; Boot DMA Latency Calculator</span>
+      </h4>
+    </div>
+    <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(245, 158, 11, 0.12); color: #b45309; font-weight: 600;">
+      <span data-lang="zh">MIPI DSI-2 / Octal SPI 雙軌架構驗證</span>
+      <span data-lang="en">MIPI DSI-2 / Octal SPI Dual-Tier Verified</span>
+    </span>
+  </div>
+
+  <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem;">
+    <span data-lang="zh">透過第一性原理光學空間點陣公式，模擬不同解析度（WQHD+ / FHD+ / MicroLED / 車載屏）、空間子像素壓縮塊（1×1 / 2×2 / 4×4）、灰階插值平面數（2~5 planes）與 DAC 色彩深度（8~12 bit）下，De-Mura 補償矩陣所需的非揮發儲存容量（Mb / MB）、Octal SPI 開機 DMA 載入時間，以及若強行單晶片內嵌時所承受的極限晶粒面積懲罰。</span>
+    <span data-lang="en">Simulates De-Mura compensation matrix storage sizing (Mb / MB), boot DMA loading latency via Octal SPI, and monolithic die area penalty across panel resolutions, subpixel binning blocks, grayscale interpolation planes, and DAC color depths using first-principles optical models.</span>
+  </p>
+
+  <!-- CONTROL PANEL -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+    <div>
+      <label for="demura-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+        <span data-lang="zh">顯示應用場景預設：</span>
+        <span data-lang="en">Display Application Preset:</span>
+      </label>
+      <select id="demura-preset-select" aria-label="Display Application Preset" data-aria-zh="顯示應用場景預設" data-aria-en="Display Application Preset" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+        <option value="smartphone_wqhd" selected>Flagship Smartphone AMOLED (WQHD+ 3200 × 1440)</option>
+        <option value="smartphone_fhd">Mainstream Smartphone AMOLED (FHD+ 2400 × 1080)</option>
+        <option value="wearable_microled">Smartwatch Ultra-Bright MicroLED (480 × 480)</option>
+        <option value="automotive_curved">Automotive Curved Cockpit (3840 × 1080)</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="demura-bin-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+        <span data-lang="zh">空間區塊壓縮 (Binning)：</span>
+        <span data-lang="en">Spatial Binning Block:</span>
+      </label>
+      <select id="demura-bin-select" aria-label="Spatial Binning Block" data-aria-zh="空間區塊壓縮" data-aria-en="Spatial Binning Block" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+        <option value="1">1×1 Full Pixel (No Binning)</option>
+        <option value="2" selected>2×2 Subpixel Block (4:1 Binning)</option>
+        <option value="4">4×4 Subpixel Block (16:1 Binning)</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="demura-planes-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+        <span data-lang="zh">灰階插值平面數 (Planes)：</span>
+        <span data-lang="en">Grayscale Interpolation Planes:</span>
+      </label>
+      <select id="demura-planes-select" aria-label="Grayscale Interpolation Planes" data-aria-zh="灰階插值平面數" data-aria-en="Grayscale Interpolation Planes" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+        <option value="2">2 Planes (Low / High)</option>
+        <option value="3">3 Planes (Low / Mid / High)</option>
+        <option value="4" selected>4 Planes (Standard 4-Grayscale 3D Mapping)</option>
+        <option value="5">5 Planes (Ultra-Fine HDR Calibration)</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="demura-bits-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+        <span data-lang="zh">色彩通道精度 (Bits/Channel)：</span>
+        <span data-lang="en">Color Channel Depth:</span>
+      </label>
+      <select id="demura-bits-select" aria-label="Color Channel Depth" data-aria-zh="色彩通道精度" data-aria-en="Color Channel Depth" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+        <option value="8">8-bit DAC Precision (Standard)</option>
+        <option value="10" selected>10-bit DAC Precision (Flagship HDR)</option>
+        <option value="12">12-bit DAC Precision (Ultra-HDR)</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="demura-dma-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+        <span data-lang="zh">開機 DMA 介面 (Boot DMA)：</span>
+        <span data-lang="en">Boot DMA Interface:</span>
+      </label>
+      <select id="demura-dma-select" aria-label="Boot DMA Interface" data-aria-zh="開機 DMA 介面" data-aria-en="Boot DMA Interface" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+        <option value="quad_80">Quad SPI @ 80 MHz (40 MB/s)</option>
+        <option value="octal_133" selected>Octal SPI @ 133 MHz (133 MB/s)</option>
+        <option value="octal_dtr_200">Octal DTR SPI @ 200 MHz (400 MB/s)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- KPI CARDS -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 1.5rem;">
+    <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 12px; text-align: center;">
+      <span style="display: block; font: 600 10.5px 'IBM Plex Mono', monospace; color: #b45309; text-transform: uppercase;">
+        <span data-lang="zh">壓縮補償容量 (Mb)</span>
+        <span data-lang="en">Compressed Capacity (Mb)</span>
+      </span>
+      <div id="demura-size-mb" style="font: 700 1.6rem 'IBM Plex Mono', monospace; color: #92400e; margin: 4px 0;">-- Mb</div>
+      <span id="demura-ratio-badge" style="font-size: 10.5px; padding: 2px 6px; border-radius: 3px; background: #fef3c7; color: #b45309; font-weight: 600;"><span data-lang="zh">-- 空間壓縮</span><span data-lang="en">-- Spatial Comp</span></span>
+    </div>
+
+    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 12px; text-align: center;">
+      <span style="display: block; font: 600 10.5px 'IBM Plex Mono', monospace; color: #166534; text-transform: uppercase;">
+        <span data-lang="zh">非揮發位元組 (MB)</span>
+        <span data-lang="en">Non-Volatile Bytes (MB)</span>
+      </span>
+      <div id="demura-size-mbyte" style="font: 700 1.6rem 'IBM Plex Mono', monospace; color: #15803d; margin: 4px 0;">-- MB</div>
+      <span style="font-size: 10.5px; color: #166534;"><span data-lang="zh">開機 DMA 需載入位元組</span><span data-lang="en">DMA Boot Stream Bytes</span></span>
+    </div>
+
+    <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 12px; text-align: center;">
+      <span style="display: block; font: 600 10.5px 'IBM Plex Mono', monospace; color: #0369a1; text-transform: uppercase;">
+        <span data-lang="zh">開機 DMA 載入延遲</span>
+        <span data-lang="en">Boot DMA Latency</span>
+      </span>
+      <div id="demura-dma-time" style="font: 700 1.6rem 'IBM Plex Mono', monospace; color: #0284c7; margin: 4px 0;">-- ms</div>
+      <span style="font-size: 10.5px; color: #0369a1;"><span data-lang="zh">&lt;100ms 旗艦無感開機門檻</span><span data-lang="en">&lt;100ms Instant Boot Target</span></span>
+    </div>
+
+    <div style="background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 6px; padding: 12px; text-align: center;">
+      <span style="display: block; font: 600 10.5px 'IBM Plex Mono', monospace; color: #7e22ce; text-transform: uppercase;">
+        <span data-lang="zh">外掛 Serial NOR 建議規格</span>
+        <span data-lang="en">External Serial NOR Spec</span>
+      </span>
+      <div id="demura-flash-pkg" style="font: 700 1.25rem 'IBM Plex Mono', monospace; color: #6b21a8; margin: 6px 0;">-- MB Serial NOR</div>
+      <span style="font-size: 10.5px; color: #7e22ce;">WLCSP / USON 1.2V</span>
+    </div>
+
+    <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 12px; text-align: center;">
+      <span style="display: block; font: 600 10.5px 'IBM Plex Mono', monospace; color: #991b1b; text-transform: uppercase;">
+        <span data-lang="zh">單晶片內嵌面積懲罰</span>
+        <span data-lang="en">Embedded Die Area Penalty</span>
+      </span>
+      <div id="demura-embedded-area" style="font: 700 1.25rem 'IBM Plex Mono', monospace; color: #b91c1c; margin: 6px 0;">+-- mm²</div>
+      <span style="font-size: 10.5px; color: #991b1b;"><span data-lang="zh">極窄長條晶粒良率致命傷</span><span data-lang="en">Devastating to narrow dies</span></span>
+    </div>
+  </div>
+
+  <!-- VISUAL CAPACITY SCALE -->
+  <div style="margin-bottom: 1.25rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px;">
+    <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 6px;">
+      <span><span data-lang="zh">De-Mura 補償儲存容量級距指標 (基準標尺 0 ~ 16 MB)</span><span data-lang="en">De-Mura LUT Storage Capacity Scale (0 to 16 MB Reference)</span></span>
+      <span>Octal SPI Stream</span>
+    </div>
+    <div style="height: 12px; background: #e2e8f0; border-radius: 6px; overflow: hidden; position: relative;">
+      <div id="demura-bar-comp" style="height: 100%; width: 40%; background: linear-gradient(90deg, #f59e0b, #ef4444); border-radius: 6px; transition: width 0.3s ease;"></div>
+    </div>
+  </div>
+
+  <!-- ARCHITECT VERDICT -->
+  <div id="demura-verdict" style="padding: 14px; background: #f8fafc; border-left: 4px solid #f59e0b; border-radius: 0 6px 6px 0; font-size: 12.5px; line-height: 1.6; color: #1e293b;">
+    <!-- Filled dynamically by demura-lut-calculator.js -->
+  </div>
+</div>
 </div>
 </section>
 <!-- =========================================================
@@ -3187,6 +3476,8 @@
       panels.forEach(p => railObserver.observe(p));
     });
   </script>
+<script type="module" src="bcd-trimming-simulator.js?v=20261005"></script>
+<script type="module" src="demura-lut-calculator.js?v=20261005"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 </body>
 </html>
