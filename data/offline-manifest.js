@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "508c3d3b94517c203fa8",
+  "version": "e338d105ae1639d180af",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -15,6 +15,7 @@ self.NVMOfflineManifest = {
     "assurance.css",
     "assurance.js",
     "atlas-diagram-loader.js",
+    "attack-resistance-evaluator.js",
     "automotive-ecc.js",
     "automotive-model.js",
     "automotive-nvm.html",
@@ -46,6 +47,7 @@ self.NVMOfflineManifest = {
     "hub.css",
     "hub.js",
     "index.html",
+    "iot-energy-tradeoff-calculator.js",
     "iot-mcu-envm.html",
     "iot-model-boundaries.js",
     "iot-page-navigation.js",
@@ -121,6 +123,7 @@ self.NVMOfflineManifest = {
     "assurance.css": "475280191857e18dd0aacbd095e32374f480d09d9b279727e5ae723b629e5e16",
     "assurance.js": "9ea632d49050526dc931c17fdd66b2e4d2ff64482385e9e8a27c253d518dbfa0",
     "atlas-diagram-loader.js": "6c7bcc1a49afd8731768a16b0dfb6365f8e0c4a9eb73bf7aa02d8a308a3fdf9e",
+    "attack-resistance-evaluator.js": "c910a98dfe33af77474ca747fe72dae7cac37a79b968d2142d09078e7166737f",
     "automotive-ecc.js": "c72a03db0474ae872b90d6f243ac611b9c80dcfe9432cabc871fa1e4b41b1c02",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
     "automotive-nvm.html": "93d1f4474d2a6ddf824816bb126bff578b69ec644fad5788a6c33e7864e18902",
@@ -152,7 +155,8 @@ self.NVMOfflineManifest = {
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
     "index.html": "279a5aba481814eca860651bfba64b3949f36f5e585fcb67f66dbaa52c2c42f7",
-    "iot-mcu-envm.html": "1eaf4b8b3f38e09e618eb74703abc9fd06b4b6c36721a9980ae3019b79410353",
+    "iot-energy-tradeoff-calculator.js": "e7c97cf0a93a557980a9e3b7037bd3916a3c2b0cec8ba7788e8cc705b899efeb",
+    "iot-mcu-envm.html": "74facb6e4f253d4a243f2e7a9e1bf567b2e24730b18d96ef7d2f067f6fab4439",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "ced747eb93c7261c334359d763eeafa2ef495705991e314b46b389e9dcd720f2",
@@ -186,7 +190,7 @@ self.NVMOfflineManifest = {
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "15bf50e7b268e4f3c7b87dc7e624e8ccfc065cfc97217623db354aedf61d1e0b",
     "secure-storage.html": "05868cea97acd5456037d6eed9b0303c78a1c701f26a5c2c8fa020899f003984",
-    "security-assurance.html": "2f365c0d594c0cdc5f21c5f2e6fa9e0a51b9b6753b2aeb9d8bf69d26c497dfbe",
+    "security-assurance.html": "f2334d5d1c1269e7f20555548e2640e14b14b10fcd100c542ab8da7f2c589b71",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "95c7b574d75f1d06c7e121cb14489b2bea210649e5d15ad7d97aae7a5d86d1a7",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
@@ -212,5 +216,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 11340773
+  "totalBytes": 11391784
 };

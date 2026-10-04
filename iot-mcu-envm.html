@@ -910,6 +910,132 @@
                 </button>
               </div>
             </div>
+
+            <!-- INTERACTIVE IOT MCU ENERGY BUDGET & BATTERY LIFETIME EXPLORER -->
+            <div id="iot-energy-calculator-root" class="interactive-workbench" style="margin-top: 24px; padding: 20px; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+                <div>
+                  <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #785021; letter-spacing: 0.08em; text-transform: uppercase;">
+                    <span data-lang="zh">第一性原理電氣建模 · EEMBC ULPMARK 基準</span>
+                    <span data-lang="en">FIRST-PRINCIPLES ELECTRICAL MODEL · EEMBC ULPMARK BENCHMARKS</span>
+                  </span>
+                  <h3 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+                    <span data-lang="zh">極低功耗 IoT MCU 休眠/喚醒能耗預算與電池壽命試算器</span>
+                    <span data-lang="en">Ultra-Low-Power IoT MCU Energy Budget &amp; Battery Lifetime Explorer</span>
+                  </h3>
+                </div>
+                <span class="badge-compact" style="background: rgba(176, 138, 91, 0.12); color: #785021; border: 1px solid rgba(176, 138, 91, 0.25); font: 700 11px 'IBM Plex Mono', monospace; padding: 4px 10px; border-radius: 4px;">
+                  <span data-lang="zh">奈安級待機與瞬間啟動</span>
+                  <span data-lang="en">SUB-10nA SLEEP &amp; INSTANT-ON</span>
+                </span>
+              </div>
+
+              <!-- Controls Row: Architecture Profile & Battery Model -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
+                <div>
+                  <label for="iot-profile-select" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+                    <span data-lang="zh">MCU 記憶體架構模型 (Architecture):</span>
+                    <span data-lang="en">MCU MEMORY ARCHITECTURE:</span>
+                  </label>
+                  <select id="iot-profile-select" aria-label="MCU Memory Architecture" data-aria-en="MCU Memory Architecture" data-aria-zh="MCU 記憶體架構模型" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                    <option value="tiered_antifuse" selected>Tiered 0-Mask AntiFuse + 0.5V NTV SRAM (&lt;10nA sleep)</option>
+                    <option value="embedded_mram">Embedded STT-MRAM (22ULL / 16FFC, &lt;10nA sleep, instant-on)</option>
+                    <option value="monolithic_eflash">Monolithic Floating-Gate eFlash (40/28nm, 120nA sleep, 15µs pump)</option>
+                    <option value="sram_retention">Continuous SRAM Retention (Baseline CMOS, 480nA leakage)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="iot-battery-select" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+                    <span data-lang="zh">供電來源與電池型號 (Power Source):</span>
+                    <span data-lang="en">POWER SOURCE / BATTERY PRESET:</span>
+                  </label>
+                  <select id="iot-battery-select" aria-label="Battery Model Preset" data-aria-en="Battery Model Preset" data-aria-zh="供電來源與電池型號" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                    <option value="cr2032" selected>CR2032 Coin Cell (220 mAh, 3.0V, 1%/yr self-discharge)</option>
+                    <option value="cr2450">CR2450 Coin Cell (600 mAh, 3.0V, 1%/yr self-discharge)</option>
+                    <option value="lipo45">Rechargeable LiPo (45 mAh, 3.7V, 5%/yr self-discharge)</option>
+                    <option value="supercap">Solar Supercapacitor (1.5 mAh, 3.3V, 15%/yr self-discharge)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Sliders Row: Wake Interval & Active Duration -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 1.25rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px 14px;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <label for="iot-interval-slider">
+                      <span data-lang="zh">休眠喚醒週期 (Wake Interval):</span>
+                      <span data-lang="en">WAKE INTERVAL:</span>
+                    </label>
+                    <span id="iot-interval-val" style="font-weight: 700; color: #785021;">10 s</span>
+                  </div>
+                  <input type="range" id="iot-interval-slider" min="0.5" max="60.0" step="0.5" value="10.0" aria-label="Wake Interval in Seconds" data-aria-en="Wake Interval in Seconds" data-aria-zh="休眠喚醒週期（秒）" style="width: 100%; accent-color: #785021;">
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <label for="iot-duration-slider">
+                      <span data-lang="zh">運算工作時長 (Active Duration):</span>
+                      <span data-lang="en">ACTIVE DURATION:</span>
+                    </label>
+                    <span id="iot-duration-val" style="font-weight: 700; color: #785021;">5 ms</span>
+                  </div>
+                  <input type="range" id="iot-duration-slider" min="0.5" max="50.0" step="0.5" value="5.0" aria-label="Active Duration in Milliseconds" data-aria-en="Active Duration in Milliseconds" data-aria-zh="運算工作時長（毫秒）" style="width: 100%; accent-color: #785021;">
+                </div>
+              </div>
+
+              <!-- Output KPI Cards -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 1.25rem;">
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);">
+                  <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                    <span data-lang="zh">預估電池使用壽命</span>
+                    <span data-lang="en">EXPECTED BATTERY LIFE</span>
+                  </div>
+                  <div id="iot-life-display" style="font: 800 20px 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">—</div>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);">
+                  <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                    <span data-lang="zh">平均放電電流</span>
+                    <span data-lang="en">AVERAGE CURRENT DRAW</span>
+                  </div>
+                  <div id="iot-current-display" style="font: 800 20px 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">—</div>
+                </div>
+
+                <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);">
+                  <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                    <span data-lang="zh">有效工作週期</span>
+                    <span data-lang="en">ACTIVE DUTY CYCLE</span>
+                  </div>
+                  <div id="iot-duty-display" style="font: 800 20px 'IBM Plex Mono', monospace; color: #0284c7; margin-top: 4px;">—</div>
+                </div>
+              </div>
+
+              <!-- Energy Dissipation Stacked Bar -->
+              <div style="margin-bottom: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                  <span>
+                    <span data-lang="zh">週期能耗分佈佔比 (Active vs Standby Leakage vs Wake-up):</span>
+                    <span data-lang="en">CYCLE ENERGY DISSIPATION BREAKDOWN:</span>
+                  </span>
+                  <span style="font-size: 10px; color: #64748b;">
+                    <span style="display: inline-block; width: 8px; height: 8px; background: #d97706; border-radius: 2px; margin-right: 2px;"></span><span data-lang="zh">運算</span><span data-lang="en">Active</span>
+                    <span style="display: inline-block; width: 8px; height: 8px; background: #64748b; border-radius: 2px; margin-left: 6px; margin-right: 2px;"></span><span data-lang="zh">休眠漏電</span><span data-lang="en">Sleep Leakage</span>
+                    <span style="display: inline-block; width: 8px; height: 8px; background: #ef4444; border-radius: 2px; margin-left: 6px; margin-right: 2px;"></span><span data-lang="zh">喚醒開銷</span><span data-lang="en">Wake Overhead</span>
+                  </span>
+                </div>
+                <div style="height: 14px; border-radius: 4px; overflow: hidden; background: #e2e8f0; display: flex;" role="img" aria-label="Energy Dissipation Breakdown Bar" data-aria-en="Energy Dissipation Breakdown Bar" data-aria-zh="週期能耗分佈堆疊進度條">
+                  <div id="iot-bar-active" style="height: 100%; width: 40%; background: #d97706; transition: width 0.3s ease;"></div>
+                  <div id="iot-bar-sleep" style="height: 100%; width: 55%; background: #64748b; transition: width 0.3s ease;"></div>
+                  <div id="iot-bar-wake" style="height: 100%; width: 5%; background: #ef4444; transition: width 0.3s ease;"></div>
+                </div>
+              </div>
+
+              <!-- Architect Finding Callout -->
+              <div id="iot-energy-verdict" style="background: rgba(176, 138, 91, 0.08); border: 1px solid rgba(176, 138, 91, 0.3); border-radius: 6px; padding: 10px 14px; font-size: 11.5px; line-height: 1.5; color: #0f172a;">
+                —
+              </div>
+            </div>
           </section>
 
           <!-- LENS 03: 四項製程整合查核 (id="scaling-cliff" 滿足測試) -->
@@ -1587,5 +1713,6 @@
     });
   </script>
 <script src="iot-model-boundaries.js"></script>
+<script type="module" src="iot-energy-tradeoff-calculator.js?v=20261005"></script>
 </body>
 </html>
