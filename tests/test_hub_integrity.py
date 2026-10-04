@@ -1064,6 +1064,47 @@ def run_tests() -> None:
     test("package.json check 命令已強制整合 check-bilingual-purity.mjs (Fail-Closed)",
          "check-bilingual-purity.mjs" in pkg_json)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 38: 全站 Schema.org BreadcrumbList 微資料 100% 覆蓋
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 38: 全站 Schema.org BreadcrumbList 微資料 100% 覆蓋 ═══")
+    PUBLIC_17_PAGES = [
+        "index.html", "technology-comparison.html", "specialty-nvm.html",
+        "automotive-nvm.html", "iot-mcu-envm.html", "security-assurance.html",
+        "secure-storage.html", "ai-nvm-opportunities.html", "memory-physics.html",
+        "memory-evidence.html", "oip-secure-storage.html", "sram-repair.html",
+        "404.html", "briefing/index.html", "whitepaper/index.html",
+        "nvm-technology-atlas.html", "nvm-technology-atlas-zh.html"
+    ]
+    for p in PUBLIC_17_PAGES:
+        content = (BASE / p).read_text(encoding="utf-8")
+        has_bc = '"@type":"BreadcrumbList"' in content or '"@type": "BreadcrumbList"' in content
+        test(f"{p} 具備標準 Schema.org BreadcrumbList 結構化微資料", has_bc, f"{p} 缺少 BreadcrumbList")
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 39: AI 存算一體 (CIM) 混訊能效試算器與汽車 Arrhenius 活化能擴展
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 39: AI 存算一體 (CIM) 混訊能效試算器與汽車 Arrhenius 活化能擴展 ═══")
+    cim_js = (BASE / "cim-efficiency-calculator.js").read_text(encoding="utf-8")
+    test("cim-efficiency-calculator.js 存在且導出 calculateCimMetrics 與 initCimEfficiencyCalculator",
+         "export function calculateCimMetrics" in cim_js and "export function initCimEfficiencyCalculator" in cim_js)
+    test("cim-efficiency-calculator.js 包含四大記憶體元件模型 (ReRAM, MRAM, Flash, SRAM)",
+         "reram:" in cim_js and "mram:" in cim_js and "nor_flash:" in cim_js and "sram_cim:" in cim_js)
+    test("cim-efficiency-calculator.js 包含 ADC 2^B 指數能耗模型與 IR-drop 壓降計算",
+         "ADC_ENERGY_TABLE" in cim_js and "irDropPercentage" in cim_js and "worstCaseDropV" in cim_js)
+
+    ai_html = (BASE / "ai-nvm-opportunities.html").read_text(encoding="utf-8")
+    test("ai-nvm-opportunities.html 整合 cim-calculator-widget 互動儀表板與模組引用",
+         'id="cim-calculator-widget"' in ai_html and 'src="cim-efficiency-calculator.js"' in ai_html)
+
+    auto_html = (BASE / "automotive-nvm.html").read_text(encoding="utf-8")
+    test("automotive-nvm.html 包含 eaSelect 活化能選擇器 (0.84eV, 1.10eV, 1.25eV, 1.80eV)",
+         'id="eaSelect"' in auto_html and '0.84 eV' in auto_html and '1.80 eV' in auto_html)
+
+    auto_thermal_js = (BASE / "automotive-thermal.js").read_text(encoding="utf-8")
+    test("automotive-thermal.js 支援讀取 eaSelect 動態計算不同活化能下的加速因子 AF",
+         'document.getElementById("eaSelect")' in auto_thermal_js and 'activationEV: eaVal' in auto_thermal_js)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
