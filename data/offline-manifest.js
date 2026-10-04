@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "f5aad7bb02f6cd150f33",
+  "version": "977675ef254ed60d7dea",
   "assets": [
     "404.html",
     "ai-nvm-node.css",
@@ -122,7 +122,7 @@ self.NVMOfflineManifest = {
     "automotive-ecc.js": "c72a03db0474ae872b90d6f243ac611b9c80dcfe9432cabc871fa1e4b41b1c02",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
     "automotive-nvm.html": "93d1f4474d2a6ddf824816bb126bff578b69ec644fad5788a6c33e7864e18902",
-    "automotive-thermal.js": "5692dd5efca1168cc468f140112b91a473047af6e11d3920101449542aa6e170",
+    "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
     "cim-efficiency-calculator.js": "3348832fe0dfd6cd555a04c8b555813d74a5c5423e92a44b871075635612d561",
@@ -208,5 +208,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 11282624
+  "totalBytes": 11282632
 };

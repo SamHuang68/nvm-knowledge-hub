@@ -46,7 +46,7 @@ import { accelerationFactor } from "./automotive-model.js";
         const af = accelerationFactor(tempC, { activationEV: eaVal, referenceC: 55 });
         afValElem.textContent = af.toLocaleString(T("en-US", "zh-TW"), { maximumFractionDigits: 2 }) + "×";
         afValElem.dataset.value = String(af);
-        document.getElementById("thermalSummary").textContent = T(`Selected Ea = ${eaVal.toFixed(2)} eV; reference = 55°C. AF = ${afValElem.textContent} at ${tempC}°C. The ${years}-year marker illustrates operating life. Curves A/B illustrate thermal retention decay for educational modeling.`, `選擇活化能 Ea = ${eaVal.toFixed(2)} eV；基準 55°C。在 ${tempC}°C 下，AF = ${afValElem.textContent}。${years} 年標記對應運作壽命。A／B 曲線為教學模型示意之高溫留存衰減。`);
+        document.getElementById("thermalSummary").textContent = T(`Selected Ea = ${eaVal.toFixed(2)} eV; reference = 55°C. AF = ${afValElem.textContent} at ${tempC}°C. The ${years}-year marker does not change AF. Curves A/B are arbitrary illustrations, not an AF-derived retention forecast.`, `選擇活化能 Ea = ${eaVal.toFixed(2)} eV；基準 55°C。在 ${tempC}°C 下，AF = ${afValElem.textContent}。${years} 年標記不改變 AF。A／B 曲線是任意示意，並非由 AF 推導的保存壽命預測。`);
 
         ctx.clearRect(0, 0, w, h);
 
