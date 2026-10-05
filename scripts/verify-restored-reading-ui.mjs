@@ -67,6 +67,7 @@ try {
     assert.equal(await page.evaluate(()=>document.activeElement.hasAttribute('data-engineering-zoom')),true);
     await fits();
     await open('memory-evidence.html');
+    const totalEvidence = await page.locator('.source-card').count();
     await page.locator('#evidenceSearch').fill('no-such-source-000');
     await page.locator('#evidenceJump').selectOption('evidence-P01');
     await page.waitForFunction(()=>document.activeElement.id==='evidence-P01');
@@ -76,7 +77,7 @@ try {
     assert.equal(await page.locator('.source-card:not([hidden])').count(),0);
     await page.locator('#clearEvidence').click();
     assert.equal(await page.locator('#evidenceSearch').inputValue(),'');
-    assert.equal(await page.locator('.source-card:not([hidden])').count(),37);
+    assert.equal(await page.locator('.source-card:not([hidden])').count(),totalEvidence);
     assert.equal(await page.locator('#evidenceSearch').evaluate(el=>el===document.activeElement),true);
     await locale(); await fits();
     await open('briefing/index.html');
