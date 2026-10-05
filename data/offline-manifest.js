@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "d9bd26365d2ca35dc29e",
+  "version": "1f97a93bdd4f2178c845",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -21,6 +21,7 @@ self.NVMOfflineManifest = {
     "automotive-asild-ecc-simulator.js",
     "automotive-blackbox-journal-calculator.js",
     "automotive-ecc.js",
+    "automotive-hbm4-scrubbing-simulator.js",
     "automotive-load-dump-clamp-simulator.js",
     "automotive-mission-profile.js",
     "automotive-model.js",
@@ -162,10 +163,11 @@ self.NVMOfflineManifest = {
     "automotive-asild-ecc-simulator.js": "ac7e6853705a8ce2a13d243b94f12340b60c7e02d75443433af7025b5283f63d",
     "automotive-blackbox-journal-calculator.js": "17781b1be12b8a77423ccd868b67d87f578cfa65197080a853951823390f63fa",
     "automotive-ecc.js": "c72a03db0474ae872b90d6f243ac611b9c80dcfe9432cabc871fa1e4b41b1c02",
+    "automotive-hbm4-scrubbing-simulator.js": "89d17a422f233d64d7a2a3bcfdd4a791488da167c3ba99f4aa2f36c0ebdf3268",
     "automotive-load-dump-clamp-simulator.js": "560d23b45ab031f77ba663671250b12b1e16fd7e741dbbf56569c01fdad0dcb2",
     "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
-    "automotive-nvm.html": "600d8798abf6b6c91dd3a2b8aa6821ad2f89a0c5dee2e7d69bfe7c47feaa7a89",
+    "automotive-nvm.html": "3dbb2dde906c1aaac8b0ec2f785acb59381c7b9957a71c0f0701e33a56a00ae6",
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "bcd-trimming-simulator.js": "5fc84893230bc741aa87824195cc5029dd56345318fb67fc676ca227288fd96f",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
@@ -282,5 +284,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 12616796
+  "totalBytes": 12652685
 };

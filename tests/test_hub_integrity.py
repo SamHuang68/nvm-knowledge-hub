@@ -1865,6 +1865,28 @@ def run_tests() -> None:
     test("technology-comparison.html 包含四大 KPI 輸出欄位 (Latency, Bandwidth, Junction Temp, eNVM Budget) 與判定橫幅",
          'id="pkg-out-latency"' in tech_html and 'id="pkg-out-bw"' in tech_html and 'id="pkg-out-temp"' in tech_html and 'id="pkg-out-envm"' in tech_html and 'id="pkg-out-rating"' in tech_html and 'id="pkg-out-verdict"' in tech_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 79: 車規自駕 HPC / AI Accelerator HBM4 極限任務剖面、動態 sPPR / hPPR 巡檢清洗與 FIT 率退化模擬器
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 79: 車規自駕 HPC / AI Accelerator HBM4 極限任務剖面、動態 sPPR / hPPR 巡檢清洗與 FIT 率退化模擬器 ═══")
+    scrub_js = (BASE / "automotive-hbm4-scrubbing-simulator.js").read_text(encoding="utf-8")
+    test("automotive-hbm4-scrubbing-simulator.js 存在且導出 calculateAutomotiveHbm4Metrics、drawAutomotiveHbm4Canvas 與 initAutomotiveHbm4Simulator",
+         "export function calculateAutomotiveHbm4Metrics" in scrub_js and "export function drawAutomotiveHbm4Canvas" in scrub_js and "export function initAutomotiveHbm4Simulator" in scrub_js)
+    test("automotive-hbm4-scrubbing-simulator.js 包含四大任務剖面預設與四大修復架構",
+         "AUTOMOTIVE_MISSION_PRESETS" in scrub_js and "l4_robotaxi_extreme" in scrub_js and "highway_adas_pilot" in scrub_js and "in_cabin_ai_cockpit" in scrub_js and "heavy_truck_powertrain" in scrub_js and "REPAIR_ARCHITECTURES" in scrub_js and "hybrid_tier_scrubbing" in scrub_js and "dynamic_sppr_only" in scrub_js and "hard_anti_fuse_only" in scrub_js and "legacy_ecc_unmanaged" in scrub_js)
+    test("automotive-hbm4-scrubbing-simulator.js 第一性原理中子通量海拔擴增、Arrhenius 軟錯誤熱加速、焊點熱疲勞與週期巡檢雙錯抑制模型",
+         "rawSerFit" in scrub_js and "baseHardFailureFit" in scrub_js and "totalResidualFit" in scrub_js and "spfmPercent" in scrub_js and "lfmPercent" in scrub_js and "hpprUsagePercent" in scrub_js)
+    test("automotive-hbm4-scrubbing-simulator.js 包含雙模態視覺化 (scrubbing_period_vs_residual_fit 與 junction_temp_mission_lifetime)",
+         "scrubbing_period_vs_residual_fit" in scrub_js and "junction_temp_mission_lifetime" in scrub_js)
+
+    auto_hbm_html = (BASE / "automotive-nvm.html").read_text(encoding="utf-8")
+    test("automotive-nvm.html 整合 auto-hbm4-scrubbing-simulator-root 工作台與模組腳本引用",
+         'id="auto-hbm4-scrubbing-simulator-root"' in auto_hbm_html and 'src="automotive-hbm4-scrubbing-simulator.js' in auto_hbm_html)
+    test("automotive-nvm.html 包含任務選擇器、修復選擇器、溫度/週期/容量三軸滑桿與雙模態 Canvas",
+         'id="hbm4-scrub-mission-select"' in auto_hbm_html and 'id="hbm4-scrub-repair-select"' in auto_hbm_html and 'id="hbm4-scrub-temp-slider"' in auto_hbm_html and 'id="hbm4-scrub-period-slider"' in auto_hbm_html and 'id="hbm4-scrub-density-slider"' in auto_hbm_html and 'id="hbm4-scrub-canvas"' in auto_hbm_html)
+    test("automotive-nvm.html 包含四大 KPI 輸出欄位 (Raw FIT, Residual FIT, SPFM, hPPR Usage) 與判定橫幅",
+         'id="hbm4-scrub-out-raw-fit"' in auto_hbm_html and 'id="hbm4-scrub-out-res-fit"' in auto_hbm_html and 'id="hbm4-scrub-out-spfm"' in auto_hbm_html and 'id="hbm4-scrub-out-hppr"' in auto_hbm_html and 'id="hbm4-scrub-out-rating"' in auto_hbm_html and 'id="hbm4-scrub-out-verdict"' in auto_hbm_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
