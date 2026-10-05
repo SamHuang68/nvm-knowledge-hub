@@ -14,6 +14,8 @@ const output = path.resolve(process.env.NVM_QA_OUTPUT || path.join(root, 'qa/evi
 await fs.mkdir(output, { recursive: true });
 const server = process.env.NVM_QA_BASE ? null : await startTestServer(root);
 const base = process.env.NVM_QA_BASE || server.base;
+const sourceHtml = await fs.readFile(path.join(root, 'memory-evidence.html'), 'utf8');
+const TOTAL_EVIDENCE_RECORDS = [...sourceHtml.matchAll(/<article\b(?=[^>]*\bclass="source-card")(?=[^>]*\bid="([^"]+)")[^>]*>/g)].length;
 const browser = await type.launch({ headless: true, ...(channel && channel !== 'chromium' ? { channel } : {}) });
 const results = [];
 const baseline = [];
@@ -66,9 +68,9 @@ try {
     const expected = JSON.parse(await fs.readFile(process.env.NVM_QA_CANONICAL_BEFORE, 'utf8'));
     const source = await fs.readFile(path.join(root, 'memory-evidence.html'), 'utf8');
     const actual = [...source.matchAll(/<article\b(?=[^>]*\bclass="source-card")(?=[^>]*\bid="([^"]+)")[^>]*>[\s\S]*?<\/article>/g)].map(match => ({ id: match[1], sha256: createHash('sha256').update(match[0].replace(/\r\n/g, '\n')).digest('hex') }));
-    assert.equal(actual.length, 37);
-    assert.deepEqual(actual, expected, 'the pilot preserves all 37 canonical source-card IDs, metadata, claims, limits and links verbatim');
-    canonicalIntegrity = { records: 37, passed: true, fixture: process.env.NVM_QA_CANONICAL_BEFORE };
+    assert.equal(actual.length, TOTAL_EVIDENCE_RECORDS);
+    assert.deepEqual(actual, expected, `the pilot preserves all ${TOTAL_EVIDENCE_RECORDS} canonical source-card IDs, metadata, claims, limits and links verbatim`);
+    canonicalIntegrity = { records: TOTAL_EVIDENCE_RECORDS, passed: true, fixture: process.env.NVM_QA_CANONICAL_BEFORE };
   }
   // Optional read-only comparison fixture. Old count text is recorded separately;
   // the before/after screenshots compare chips, metadata sorting and disclosure.
@@ -98,15 +100,15 @@ try {
       catch (error) { scenario.checks.push({ name, passed: false, error: error.stack }); await page.screenshot({ path: path.join(output, `failure-${width}-${language}-${scenario.checks.length}.png`) }).catch(() => {}); }
     };
     try {
-      await check('37 records, visible claim boundaries and localized native controls', async () => {
-        await count(page, 37);
-        assert.equal(await page.locator('.source-card').count(), 37);
-        assert.equal(Number(await page.locator('[data-evidence-count="total"]').textContent()), 37);
+      await check(`${TOTAL_EVIDENCE_RECORDS} records, visible claim boundaries and localized native controls`, async () => {
+        await count(page, TOTAL_EVIDENCE_RECORDS);
+        assert.equal(await page.locator('.source-card').count(), TOTAL_EVIDENCE_RECORDS);
+        assert.equal(Number(await page.locator('[data-evidence-count="total"]').textContent()), TOTAL_EVIDENCE_RECORDS);
         assert.equal(await page.locator('#evidenceWorkbenchStatus').getAttribute('role'), 'status');
         assert.equal(await page.locator('#evidenceIndexWrap').isVisible(), false, 'cross-category metadata sorting is not offered');
         assert.equal(await page.locator('#evidenceSortHint').isVisible(), true);
         assert.equal(await page.locator('.source-proof details, details .source-proof, details .source-meta').count(), 0, 'limitations and metadata remain outside disclosure');
-        assert.equal(await page.locator('.source-card details.evidence-source-details').count(), 37);
+        assert.equal(await page.locator('.source-card details.evidence-source-details').count(), TOTAL_EVIDENCE_RECORDS);
         const first = page.locator('.source-card').first();
         assert.equal(await first.locator('details').getAttribute('open'), null);
         assert.equal(await first.locator('.source-proof').isVisible(), true);
@@ -137,18 +139,18 @@ try {
         await keyboardActivate(page, '[data-remove-filter="query"]');
         assert.equal(await focused(page, '[data-remove-filter="type"]'), true);
         await keyboardActivate(page, '[data-remove-filter="type"]');
-        assert.equal(await focused(page, '#evidenceSearch'), true); await count(page, 37);
+        assert.equal(await focused(page, '#evidenceSearch'), true); await count(page, TOTAL_EVIDENCE_RECORDS);
         await filter(page, 'vendor'); await input(page).fill('TC4x');
         await keyboardActivate(page, '[data-remove-filter="type"]');
         assert.equal(await focused(page, '[data-remove-filter="query"]'), true); await count(page, 1);
         await keyboardActivate(page, '[data-remove-filter="query"]');
-        assert.equal(await focused(page, '#evidenceSearch'), true); await count(page, 37);
+        assert.equal(await focused(page, '#evidenceSearch'), true); await count(page, TOTAL_EVIDENCE_RECORDS);
         await filter(page, 'paper'); await input(page).fill('no_such_evidence_778811'); await count(page, 0);
         assert.equal(await page.locator('#evidenceEmpty').isVisible(), true);
         const emptyStatus = (await page.locator('#evidenceWorkbenchStatus').textContent()).trim();
         assert.ok(!emptyStatus || /\b0\b/.test(emptyStatus), 'an earlier action announcement must not retain a stale result count');
         await keyboardActivate(page, '#clearEvidence');
-        assert.equal(await focused(page, '#evidenceSearch'), true); await count(page, 37);
+        assert.equal(await focused(page, '#evidenceSearch'), true); await count(page, TOTAL_EVIDENCE_RECORDS);
         assert.equal(await input(page).inputValue(), '');
         assert.equal(await page.locator('#evidenceChips [data-remove-filter]:visible').count(), 0);
         assert.equal(await page.locator('#evidenceEmpty').isVisible(), false);
@@ -221,12 +223,12 @@ try {
       await check('Print expands all records and restores screen state; HTML export is complete', async () => {
         await filter(page, 'vendor'); await input(page).fill('OTP');
         const ids = await visibleIds(page);
-        assert.ok(ids.length > 0 && ids.length < 37);
+        assert.ok(ids.length > 0 && ids.length < TOTAL_EVIDENCE_RECORDS);
         await page.locator('.source-card:not([hidden]) summary').first().click();
         const before = await printState(page);
         await page.emulateMedia({ media: 'print' });
         await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
-        assert.equal(await page.locator('.source-card').count(), 37);
+        assert.equal(await page.locator('.source-card').count(), TOTAL_EVIDENCE_RECORDS);
         assert.equal(await page.locator('.source-card').evaluateAll(cards => cards.every(card => getComputedStyle(card).display !== 'none' && card.getBoundingClientRect().height > 0)), true);
         assert.equal(await page.locator('details').evaluateAll(items => items.every(item => item.open)), true);
         await page.evaluate(() => window.dispatchEvent(new Event('afterprint')));
@@ -249,7 +251,7 @@ try {
         await keyboardActivate(page, '[data-evidence-sort="year"]');
         assert.equal(await page.locator('th[data-sort="year"]').getAttribute('aria-sort'), 'descending');
         await keyboardActivate(page, '#clearEvidence');
-        await count(page, 37);
+        await count(page, TOTAL_EVIDENCE_RECORDS);
         const allDownloadPromise = page.waitForEvent('download');
         await page.locator('#evidenceExport').click();
         const allDownload = await allDownloadPromise;
@@ -257,15 +259,15 @@ try {
         await allDownload.saveAs(allPath);
         const allHtml = await fs.readFile(allPath, 'utf8');
         const allExported = await page.evaluate(source => [...new DOMParser().parseFromString(source, 'text/html').querySelectorAll('.source-card')].map(card => card.id), allHtml);
-        assert.deepEqual(allExported, await page.locator('.source-card').evaluateAll(cards => cards.map(card => card.id)), 'clearing the category restores canonical order in the complete 37-record export');
-        scenario.printEvidence = { records: 37, restored: true, exportedIds: ids, method: 'print media plus beforeprint/afterprint lifecycle events; no OS print dialog' };
+        assert.deepEqual(allExported, await page.locator('.source-card').evaluateAll(cards => cards.map(card => card.id)), `clearing the category restores canonical order in the complete ${TOTAL_EVIDENCE_RECORDS}-record export`);
+        scenario.printEvidence = { records: TOTAL_EVIDENCE_RECORDS, restored: true, exportedIds: ids, method: 'print media plus beforeprint/afterprint lifecycle events; no OS print dialog' };
       });
 
       await check('Deep links reveal filtered evidence and source disclosure; global search stays complete', async () => {
         await filter(page, 'paper'); await input(page).fill('no_such_evidence_778811'); await count(page, 0);
         await page.evaluate(() => { location.hash = 'evidence-V16'; });
         await page.waitForFunction(() => document.activeElement?.id === 'evidence-V16');
-        await count(page, 37);
+        await count(page, TOTAL_EVIDENCE_RECORDS);
         assert.equal(await input(page).inputValue(), '');
         assert.equal(await page.locator('#evidence-V16 details').evaluate(element => element.open), true);
         assert.equal(await page.locator('#evidenceChips [data-remove-filter]:visible').count(), 0);
@@ -274,13 +276,13 @@ try {
         assert.ok(box.y < 900 && box.y + box.height > 0, 'fragment is actually in the viewport');
         await open('&type=vendor&q=TC4x#evidence-P01');
         await page.waitForFunction(() => document.activeElement?.id === 'evidence-P01');
-        await count(page, 37);
+        await count(page, TOTAL_EVIDENCE_RECORDS);
         assert.equal(await page.locator('#evidence-P01 details').evaluate(element => element.open), true);
         await page.evaluate(() => document.querySelectorAll('.evidence-source-details').forEach(detail => { detail.open = false; }));
         await filter(page, 'paper');
         const original = await page.locator('.source-card').evaluateAll(cards => cards.map(card => ({ id: card.id.replace('evidence-', ''), summary_en: card.querySelector('.source-content > p:not(.source-meta) [data-lang="en"]')?.textContent.trim() || '', summary_zh: card.querySelector('.source-content > p:not(.source-meta) [data-lang="zh"]')?.textContent.trim() || '' })));
         await page.locator('#searchTrigger').click();
-        await page.waitForFunction(() => window.NVMHub?.searchIndex.filter(item => item.id).length === 37);
+        await page.waitForFunction((expected) => window.NVMHub?.searchIndex.filter(item => item.id).length === expected, TOTAL_EVIDENCE_RECORDS);
         const indexed = await page.evaluate(() => window.NVMHub.searchIndex.filter(item => item.id).map(item => ({ id: item.id, summary_en: item.summary_en, summary_zh: item.summary_zh })));
         assert.deepEqual(indexed, original, 'collapsed source links and active screen filters do not change the canonical index');
         await page.locator('#nvmHubSearchInput').fill('TC4x');
@@ -300,16 +302,16 @@ try {
         }));
         try {
           await readonly.open();
-          assert.equal(await readonly.page.locator('.source-card').count(), 37);
+          assert.equal(await readonly.page.locator('.source-card').count(), TOTAL_EVIDENCE_RECORDS);
           assert.equal(await readable(readonly.page), true, 'no-JS normal-motion ancestors do not hide the ledger');
           assert.equal(await readonly.page.locator('.evidence-toolbar').isVisible(), false, 'nonfunctional filter controls are hidden without JavaScript');
           assert.equal(await readonly.page.locator('#evidenceWorkbench').isVisible(), false);
           assert.equal(await readonly.page.locator('.source-card details').count(), 0);
-          assert.ok(await readonly.page.locator('.source-content > a').count() >= 37);
+          assert.ok(await readonly.page.locator('.source-content > a').count() >= TOTAL_EVIDENCE_RECORDS);
           for (const lang of ['en', 'zh']) assert.equal(await readonly.page.locator(`.source-card .source-proof [data-lang="${lang}"]`).first().isVisible(), true, 'static fallback retains both languages');
           await screenshot(readonly.page, '.source-card', `nojs-source-${width}-${language}`);
           await readonly.page.emulateMedia({ media: 'print' });
-          assert.equal(await readable(readonly.page), true, 'no-JS print retains all 37 cards');
+          assert.equal(await readable(readonly.page), true, `no-JS print retains all ${TOTAL_EVIDENCE_RECORDS} cards`);
         } finally { await readonly.context.close(); }
         const initialPrint = await isolatedPage(width, language, base, true, 'no-preference');
         try {
@@ -318,7 +320,7 @@ try {
           await initialPrint.page.emulateMedia({ media: 'print' });
           await initialPrint.page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
           assert.equal(await readable(initialPrint.page), true, 'initial-viewport printing reveals offscreen animation sections');
-          assert.equal(await initialPrint.page.locator('.source-card details').evaluateAll(items => items.length === 37 && items.every(item => item.open)), true);
+          assert.equal(await initialPrint.page.locator('.source-card details').evaluateAll((items, expected) => items.length === expected && items.every(item => item.open), TOTAL_EVIDENCE_RECORDS), true);
           await initialPrint.page.evaluate(() => window.dispatchEvent(new Event('afterprint')));
           await initialPrint.page.emulateMedia({ media: 'screen' });
         } finally { await initialPrint.context.close(); }

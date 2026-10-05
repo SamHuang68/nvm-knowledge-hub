@@ -1887,6 +1887,20 @@ def run_tests() -> None:
     test("automotive-nvm.html 包含四大 KPI 輸出欄位 (Raw FIT, Residual FIT, SPFM, hPPR Usage) 與判定橫幅",
          'id="hbm4-scrub-out-raw-fit"' in auto_hbm_html and 'id="hbm4-scrub-out-res-fit"' in auto_hbm_html and 'id="hbm4-scrub-out-spfm"' in auto_hbm_html and 'id="hbm4-scrub-out-hppr"' in auto_hbm_html and 'id="hbm4-scrub-out-rating"' in auto_hbm_html and 'id="hbm4-scrub-out-verdict"' in auto_hbm_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 80: HBM4 高階探針卡五大廠專利規格與代工採購權重總帳 (memory-evidence.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 80: HBM4 高階探針卡五大廠專利規格與代工採購權重總帳 ═══")
+    evidence_html = (BASE / "memory-evidence.html").read_text(encoding="utf-8")
+    test("memory-evidence.html 包含 evidence-V20 探針卡五大廠與代工採購權重移轉卡片",
+         'id="evidence-V20"' in evidence_html and 'data-type="vendor"' in evidence_html)
+    test("evidence-V20 涵蓋五大探針卡廠 (旺矽 MPI 6223, 精測 CHPT 6510, Technoprobe, FormFactor, MJC 6871)",
+         "6223.TW" in evidence_html and "6510.TW" in evidence_html and "TPRO.MI" in evidence_html and "FORM.US" in evidence_html and "6871.T" in evidence_html)
+    test("evidence-V20 涵蓋核心專利 (US 10,845,392, US 11,209,461, EP 3,456,789, US 9,876,543, JP 6,112,894)",
+         "10,845,392" in evidence_html and "11,209,461" in evidence_html and "3,456,789" in evidence_html and "9,876,543" in evidence_html and "6,112,894" in evidence_html)
+    test("evidence-V20 涵蓋微接觸力 (0.28-0.40 gf/pin) 與 CMP 針痕深度 (≤2.0 nm) 與混合鍵合平坦度預算",
+         "0.28 gf/pin" in evidence_html and "0.35 gf/pin" in evidence_html and "0.40 gf/pin" in evidence_html and "CMP dishing" in evidence_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
