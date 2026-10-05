@@ -1639,6 +1639,50 @@ def run_tests() -> None:
     test("security-assurance.html 包含四大 KPI 輸出欄位 (MTD, ρmax, BER, Security Score) 與判定橫幅",
          'id="pqc-metric-mtd"' in sec_pqc_html and 'id="pqc-metric-rho"' in sec_pqc_html and 'id="pqc-metric-ber"' in sec_pqc_html and 'id="pqc-metric-score"' in sec_pqc_html and 'id="pqc-verdict-banner"' in sec_pqc_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 69: 3D Chiplet / 2.5D CoWoS 異質整合 eNVM 微凸塊 RC 延遲與熱機械應力模擬器 (oip-secure-storage.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 69: 3D Chiplet / 2.5D CoWoS 異質整合 eNVM 微凸塊 RC 延遲與熱機械應力模擬器 ═══")
+    chiplet_js = (BASE / "chiplet-3d-hetero-nvm-simulator.js").read_text(encoding="utf-8")
+    test("chiplet-3d-hetero-nvm-simulator.js 存在且導出 calculateChipletHeteroMetrics、drawChipletHeteroCanvas 與 initChipletHeteroSimulator",
+         "export function calculateChipletHeteroMetrics" in chiplet_js and "export function drawChipletHeteroCanvas" in chiplet_js and "export function initChipletHeteroSimulator" in chiplet_js)
+    test("chiplet-3d-hetero-nvm-simulator.js 包含四大先進封裝預設與四大 Chiplet eNVM 拓撲設定檔",
+         "CHIPLET_PACKAGING_PRESETS" in chiplet_js and "tsmc_soic_hybrid" in chiplet_js and "tsmc_cowos_s" in chiplet_js and "intel_foveros_3d" in chiplet_js and "organic_substrate_mcm" in chiplet_js and "CHIPLET_NVM_TOPOLOGIES" in chiplet_js and "antifuse_base_die" in chiplet_js and "beol_mram_top_cache" in chiplet_js and "embedded_flash_sidecar" in chiplet_js and "sram_cache_stack" in chiplet_js)
+    test("chiplet-3d-hetero-nvm-simulator.js 第一性原理熱機械切應力、CTE 失配、D2D 垂直與橫向寄生 RC、端到端讀取延遲、Arrhenius 高溫留存退化與可靠度評分演算法",
+         "totalJunctionTempC" in chiplet_js and "interfaceShearStressMpa" in chiplet_js and "effectiveReadLatencyNs" in chiplet_js and "actualRetentionYears" in chiplet_js and "packagingScore" in chiplet_js and "verdictStatus" in chiplet_js)
+    test("chiplet-3d-hetero-nvm-simulator.js 包含雙模態視覺化 (thermal_stress_profile 與 d2d_rc_latency)",
+         "thermal_stress_profile" in chiplet_js and "d2d_rc_latency" in chiplet_js)
+
+    oip_chiplet_html = (BASE / "oip-secure-storage.html").read_text(encoding="utf-8")
+    test("oip-secure-storage.html 整合 chiplet-simulator-root 工作台與模組腳本引用",
+         'id="chiplet-simulator-root"' in oip_chiplet_html and 'chiplet-3d-hetero-nvm-simulator.js' in oip_chiplet_html)
+    test("oip-secure-storage.html 包含封裝預設選擇器、拓撲選擇器、功耗/長度/溫差三軸滑桿與雙模態 Canvas",
+         'id="chiplet-preset-select"' in oip_chiplet_html and 'id="chiplet-topology-select"' in oip_chiplet_html and 'id="chiplet-power-slider"' in oip_chiplet_html and 'id="chiplet-length-slider"' in oip_chiplet_html and 'id="chiplet-deltat-slider"' in oip_chiplet_html and 'id="chiplet-hetero-canvas"' in oip_chiplet_html)
+    test("oip-secure-storage.html 包含四大 KPI 輸出欄位 (Tj, τ, Latency, Packaging Score) 與判定橫幅",
+         'id="chiplet-metric-temp"' in oip_chiplet_html and 'id="chiplet-metric-stress"' in oip_chiplet_html and 'id="chiplet-metric-latency"' in oip_chiplet_html and 'id="chiplet-metric-score"' in oip_chiplet_html and 'id="chiplet-verdict-banner"' in oip_chiplet_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 70: 次閾值與近閾值超低壓 eNVM 讀取能耗與位元漏電比模擬器 (iot-mcu-envm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 70: 次閾值與近閾值超低壓 eNVM 讀取能耗與位元漏電比模擬器 ═══")
+    subvt_js = (BASE / "subthreshold-lowvoltage-nvm-simulator.js").read_text(encoding="utf-8")
+    test("subthreshold-lowvoltage-nvm-simulator.js 存在且導出 calculateSubthresholdMetrics、drawSubthresholdCanvas 與 initSubthresholdSimulator",
+         "export function calculateSubthresholdMetrics" in subvt_js and "export function drawSubthresholdCanvas" in subvt_js and "export function initSubthresholdSimulator" in subvt_js)
+    test("subthreshold-lowvoltage-nvm-simulator.js 包含四大超低壓供電預設與四大超低壓 eNVM 拓撲設定檔",
+         "LOW_VOLTAGE_SUPPLY_PRESETS" in subvt_js and "subthreshold_0_35v" in subvt_js and "nearthreshold_0_50v" in subvt_js and "ultralow_0_70v" in subvt_js and "nominal_1_00v" in subvt_js and "LOW_VOLTAGE_NVM_TOPOLOGIES" in subvt_js and "antifuse_lowvoltage" in subvt_js and "reram_lowcurrent" in subvt_js and "eflash_charge_sensing" in subvt_js and "sram_subvt_10t" in subvt_js)
+    test("subthreshold-lowvoltage-nvm-simulator.js 第一性原理次閾值載子擴散電流、感測延遲、動態 CV² 能耗、陣列靜態漏電佔比、最小能耗點 MEP 與 Pelgrom 失效機率演算法",
+         "driveCurrentNa" in subvt_js and "senseLatencyNs" in subvt_js and "activeEnergyFj" in subvt_js and "leakageEnergyFj" in subvt_js and "totalEnergyFj" in subvt_js and "leakageEnergyRatioPercent" in subvt_js and "failureRatePpm" in subvt_js and "efficiencyScore" in subvt_js)
+    test("subthreshold-lowvoltage-nvm-simulator.js 包含雙模態視覺化 (voltage_energy_curve 與 read_latency_failure)",
+         "voltage_energy_curve" in subvt_js and "read_latency_failure" in subvt_js)
+
+    iot_subvt_html = (BASE / "iot-mcu-envm.html").read_text(encoding="utf-8")
+    test("iot-mcu-envm.html 整合 subvt-simulator-root 工作台與模組腳本引用",
+         'id="subvt-simulator-root"' in iot_subvt_html and 'subthreshold-lowvoltage-nvm-simulator.js' in iot_subvt_html)
+    test("iot-mcu-envm.html 包含低壓預設選擇器、拓撲選擇器、電壓/溫度/容量三軸滑桿與雙模態 Canvas",
+         'id="subvt-preset-select"' in iot_subvt_html and 'id="subvt-topology-select"' in iot_subvt_html and 'id="subvt-vdd-slider"' in iot_subvt_html and 'id="subvt-temp-slider"' in iot_subvt_html and 'id="subvt-capacity-slider"' in iot_subvt_html and 'id="subvt-lowvoltage-canvas"' in iot_subvt_html)
+    test("iot-mcu-envm.html 包含四大 KPI 輸出欄位 (Energy, Latency, Leakage Ratio, Score) 與判定橫幅",
+         'id="subvt-metric-energy"' in iot_subvt_html and 'id="subvt-metric-latency"' in iot_subvt_html and 'id="subvt-metric-leakage"' in iot_subvt_html and 'id="subvt-metric-score"' in iot_subvt_html and 'id="subvt-verdict-banner"' in iot_subvt_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

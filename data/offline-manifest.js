@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "f08707399d86f9187f77",
+  "version": "547ac0075460455fd70c",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -27,6 +27,7 @@ self.NVMOfflineManifest = {
     "bcd-trimming-simulator.js",
     "briefing/index.html",
     "chapter-lens.css",
+    "chiplet-3d-hetero-nvm-simulator.js",
     "chiplet-ucie-nvm-simulator.js",
     "cim-analog-mac-simulator.js",
     "cim-efficiency-calculator.js",
@@ -119,6 +120,7 @@ self.NVMOfflineManifest = {
     "sram-scenarios.js",
     "sram-yield-bira-simulator.js",
     "styles.css",
+    "subthreshold-lowvoltage-nvm-simulator.js",
     "surface-radius.css",
     "tddb-weibull-simulator.js",
     "technology-comparison.html",
@@ -159,6 +161,7 @@ self.NVMOfflineManifest = {
     "bcd-trimming-simulator.js": "5fc84893230bc741aa87824195cc5029dd56345318fb67fc676ca227288fd96f",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
+    "chiplet-3d-hetero-nvm-simulator.js": "622bb16f6e9d9ac973357bfcd10ca139d6031af857be134ab89d455762d37628",
     "chiplet-ucie-nvm-simulator.js": "c06f165c434e5212331f7a805fdaeadef120957720e812f258a40c41c556ad3a",
     "cim-analog-mac-simulator.js": "a5afbfb771a0a33d05c94410f074ec24deb1df65c965e16bc03569d52d909601",
     "cim-efficiency-calculator.js": "3348832fe0dfd6cd555a04c8b555813d74a5c5423e92a44b871075635612d561",
@@ -194,7 +197,7 @@ self.NVMOfflineManifest = {
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
     "index.html": "279a5aba481814eca860651bfba64b3949f36f5e585fcb67f66dbaa52c2c42f7",
     "iot-energy-tradeoff-calculator.js": "e7c97cf0a93a557980a9e3b7037bd3916a3c2b0cec8ba7788e8cc705b899efeb",
-    "iot-mcu-envm.html": "4e78026b5ac764211e593abd1590a6e74e1008015eb4f45a60db9a2e2995aa5a",
+    "iot-mcu-envm.html": "2e659761099e23701254ea72c52ad96419f1f5b386d71a16293b5ca248ce715b",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "ced747eb93c7261c334359d763eeafa2ef495705991e314b46b389e9dcd720f2",
@@ -221,7 +224,7 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas.html": "49d1f0abef96174326a08079b1e8f5997a50e6e5c524cd3cf059a9fd4f35d5e3",
     "nvm-technology-atlas.js": "ff8031f3b5b2518e5d3757b2e0e51422b54ad3a150611943a472d0ed4ac5e80a",
     "oip-lifecycle.js": "32485842eab3b8704e829b25b3ca16978d993106eb5a322e3d7bf4d4ec7eabef",
-    "oip-secure-storage.html": "024982bbd1b1dbaf60247e3f65bd25e10b52265577de0549e7a81d41d36051de",
+    "oip-secure-storage.html": "0c0968fa1a19ef03a2084959edb1f01b75a5298a3c5ca815b5756204ad7fda4c",
     "pqc-key-storage-simulator.js": "c760b1300960a5f62047851f606cf993387142a34ab424f1a8d22a79286dc7a3",
     "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
     "pqc-rot-dpa-simulator.js": "a0034d3f4310de3d7491657f990ccadd797409e08769ee714f0bb37e0a06175c",
@@ -251,6 +254,7 @@ self.NVMOfflineManifest = {
     "sram-scenarios.js": "53dc69b856682397628c196117a20fb7e75ccbbcc414b2398b78a8eae4bb212c",
     "sram-yield-bira-simulator.js": "13a6edc561ba946d8e701f24090599d54e3e5bc661f8503012ea28006cbd1de8",
     "styles.css": "4021ef9a95a74de7bebd4ed5ba6b6c1046cf1f011ef51d83c584e4b10a3c2cd5",
+    "subthreshold-lowvoltage-nvm-simulator.js": "edaeb1c2aa47d0ef560d8e55b1439822855c710f405adc35c74bf670e36caf2c",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "tddb-weibull-simulator.js": "274fd88c6926196adb869f6f0ee17cc721f4bebb6e41b2ec2ca064a168b7490a",
     "technology-comparison.html": "9897196175c18ba77fd9568a545a3ad9f490932a9733da5cd5a456d93427d3b9",
@@ -264,5 +268,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 12244713
+  "totalBytes": 12319816
 };
