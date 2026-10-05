@@ -1925,6 +1925,160 @@
       <div class="phase-detail" id="phaseDetail">
         <span id="phaseIndex"><span data-lang="zh">01 / 靜止狀態</span><span data-lang="en">01 / AT REST</span></span><h3 id="phaseTitle"><span data-lang="zh">不留下刻意儲存或由電源維持的重建根金鑰</span><span data-lang="en">No intentionally stored or powered reconstructed root remains</span></h3><p id="phaseText"><span data-lang="zh">在經驗證的關機條件下，OTP 保留密文、輔助資料及生命週期狀態。電晶體失配可能持續存在；資料殘留與清除仍須納入安全保證驗證。</span><span data-lang="en">Under validated shutdown conditions, OTP retains ciphertext, helper material and lifecycle state. Transistor mismatch may persist; remanence and zeroization remain assurance targets.</span></p>
       </div>
+
+      <!-- PQC Large Key Storage, Wearout & Zeroization Simulator -->
+      <div id="pqc-key-simulator-root" class="panel pqc-calculator-container" style="margin-top: 1.75rem; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; padding: 1.25rem 1.5rem; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+          <div>
+            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #785021; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span data-lang="zh">後量子密碼學 · NIST FIPS 203 / 204 標準</span>
+              <span data-lang="en">POST-QUANTUM CRYPTOGRAPHY · NIST FIPS 203/204</span>
+            </span>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+              <span data-lang="zh">後量子密碼學 (PQC) 超大金鑰儲存、擦寫磨損與緊急零化試算器</span>
+              <span data-lang="en">PQC Large Key Storage, Wearout &amp; Emergency Zeroization Simulator</span>
+            </h3>
+          </div>
+          <span class="badge-compact" style="background: rgba(176, 138, 91, 0.12); color: #785021; border: 1px solid rgba(176, 138, 91, 0.25); font: 700 11px 'IBM Plex Mono', monospace; padding: 4px 10px; border-radius: 4px;">
+            <span data-lang="zh">FIPS 140-3 物理安全</span>
+            <span data-lang="en">FIPS 140-3 LEVEL 4</span>
+          </span>
+        </div>
+
+        <p style="font-size: 0.875rem; line-height: 1.6; color: #334155; margin: 0 0 1.25rem;">
+          <span data-lang="zh">相較於傳統 ECC（32B），後量子格密碼（ML-KEM / ML-DSA）密鑰尺寸暴增至數千位元組。高頻密鑰輪替引發 eFlash / MTP 嚴重的寫入磨損（Endurance Wearout）與長達數毫秒的抹除延遲。本試算器評估超大 PQC 密鑰在不同安全介質上的壽命損耗、抗凍結殘留與主動防竄改緊急零化（Zeroization &lt; 50ns）物理極限。</span>
+          <span data-lang="en">Compared to classical ECC (32B), lattice-based PQC keys (ML-KEM / ML-DSA) expand to several kilobytes. High-frequency key rotations induce severe eFlash wearout and millisecond-level erase delays. This simulator models PQC key wearout, anti-freeze remanence, and sub-50ns emergency zeroization across secure media architectures.</span>
+        </p>
+
+        <!-- Controls Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
+          <div>
+            <label for="pqc-algo-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">後量子演算法:</span><span data-lang="en">PQC ALGORITHM:</span>
+            </label>
+            <select id="pqc-algo-select" aria-label="PQC Algorithm Preset" data-aria-en="PQC Algorithm Preset" data-aria-zh="後量子演算法預設" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="ml_kem_512">ML-KEM-512 (Kyber-512 / 3.2KB Total)</option>
+              <option value="ml_kem_768" selected>ML-KEM-768 (Kyber-768 / 4.67KB Total)</option>
+              <option value="ml_kem_1024">ML-KEM-1024 (Kyber-1024 / 6.3KB Total)</option>
+              <option value="ml_dsa_65">ML-DSA-65 (Dilithium3 / 9.29KB Total)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="pqc-media-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">安全儲存介質:</span><span data-lang="en">STORAGE MEDIUM:</span>
+            </label>
+            <select id="pqc-media-select" aria-label="Secure Storage Medium" data-aria-en="Secure Storage Medium" data-aria-zh="安全儲存介質" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+              <option value="antifuse_append_log" selected>AntiFuse Virtual Append Log (12ns Zeroize)</option>
+              <option value="embedded_flash_sector">Conventional eFlash Sector (8.5ms Erase)</option>
+              <option value="spintronic_mram">Spintronic STT-MRAM Array (350ns Overwrite)</option>
+              <option value="battery_backed_sram">Battery-Backed BBRAM (Volatile 25ns)</option>
+            </select>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span><span data-lang="zh">金鑰更新/旋轉次數:</span><span data-lang="en">KEY UPDATE CYCLES:</span></span>
+              <span id="pqc-cycles-val" style="color: #785021; font-weight: 700;">1,000 updates</span>
+            </div>
+            <input type="range" id="pqc-cycles-slider" min="100" max="100000" step="500" value="1000" aria-label="Key Rotation Cycles" data-aria-en="Key Rotation Cycles" data-aria-zh="金鑰更新旋轉次數" aria-valuetext="1000 updates" style="width: 100%; accent-color: #785021; cursor: pointer;">
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span><span data-lang="zh">安全陣列容量:</span><span data-lang="en">ARRAY CAPACITY:</span></span>
+              <span id="pqc-capacity-val" style="color: #785021; font-weight: 700;">64 KB</span>
+            </div>
+            <input type="range" id="pqc-capacity-slider" min="16" max="256" step="16" value="64" aria-label="Secure Array Capacity in KB" data-aria-en="Secure Array Capacity in KB" data-aria-zh="安全陣列容量 KB" aria-valuetext="64 KB" style="width: 100%; accent-color: #785021; cursor: pointer;">
+          </div>
+        </div>
+
+        <!-- KPI Cards Strip -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">金鑰封包尺寸</span><span data-lang="en">PQC FOOTPRINT</span>
+            </div>
+            <div id="pqc-out-keysize" style="font: 700 15px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">公私鑰密文總合</span><span data-lang="en">Pub + Priv + Cipher</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">陣列容納槽位</span><span data-lang="en">KEY SLOTS</span>
+            </div>
+            <div id="pqc-out-slots" style="font: 700 15px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">實體分配總數</span><span data-lang="en">Array partitions</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">陣列磨損損耗率</span><span data-lang="en">WEAROUT RATE</span>
+            </div>
+            <div id="pqc-out-wear" style="font: 700 15px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">累積耗損百分比</span><span data-lang="en">Endurance consumed</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">預估安全剩餘壽命</span><span data-lang="en">REMAINING LIFE</span>
+            </div>
+            <div id="pqc-out-life" style="font: 700 15px 'IBM Plex Mono', monospace; color: #785021;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">每日 4 次輪替基準</span><span data-lang="en">4 rotations / day</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">防竄改零化延遲</span><span data-lang="en">ZEROIZE TIME</span>
+            </div>
+            <div id="pqc-out-zeroize" style="font: 700 15px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">硬體物理銷毀時長</span><span data-lang="en">Hardware destruction</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">FIPS 140-3 評級</span><span data-lang="en">FIPS SECURITY</span>
+            </div>
+            <div id="pqc-out-rating" style="font: 700 11px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">物理安全驗證級</span><span data-lang="en">Security compliance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Canvas Visualization -->
+        <div style="background: #090d16; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+            <div style="display: inline-flex; gap: 6px;" role="group" aria-label="PQC Key Storage Mode" data-aria-en="PQC Key Storage Mode" data-aria-zh="PQC 金鑰儲存模式">
+              <button id="pqc-mode-wear" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                <span data-lang="zh">金鑰更新磨損曲線 (Wearout vs Cycles)</span><span data-lang="en">Endurance Wearout</span>
+              </button>
+              <button id="pqc-mode-timing" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                <span data-lang="zh">防竄改零化銷毀示波器 (Zeroization Timing)</span><span data-lang="en">Zeroization Scope</span>
+              </button>
+            </div>
+            <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">Post-Quantum Storage Lifecycle Monitor</span>
+          </div>
+          <div style="width: 100%; height: 180px; position: relative;">
+            <canvas id="pqc-key-canvas" width="480" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="PQC Key Storage and Zeroization Simulation Canvas" data-aria-en="PQC Key Storage and Zeroization Simulation Canvas" data-aria-zh="PQC 金鑰儲存與零化模擬畫布"></canvas>
+          </div>
+        </div>
+
+        <!-- Architectural Insight Callout -->
+        <div style="background: rgba(120, 80, 33, 0.08); border-left: 3px solid #785021; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
+          <span id="pqc-out-verdict">Loading PQC Key Storage calculations...</span>
+        </div>
+      </div>
     </section>
 
     <section class="immersive-chapter immersive-probe reveal" data-deferred-background aria-label="Evidence validation visual transition" data-aria-en="Evidence validation visual transition" data-aria-zh="證據驗證視覺轉場">
@@ -2329,5 +2483,6 @@
   </script>
   <script type="module" src="pqc-rot-budget-calculator.js?v=20261005"></script>
   <script type="module" src="dpa-cpa-leakage-simulator.js?v=20261005"></script>
+  <script type="module" src="pqc-key-storage-simulator.js?v=20261005"></script>
 </body>
 </html>
