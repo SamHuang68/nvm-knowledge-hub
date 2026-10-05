@@ -70,15 +70,28 @@ if (lineage.status === 'PREVIEW_UNCOMMITTED') {
   process.exit(0);
 }
 if (!['RELEASED', 'LOCAL_VALIDATED'].includes(lineage.status) || !/^[0-9a-f]{40}$/u.test(lineage.canonicalCommit ?? '')) throw new Error('來源紀錄缺少有效狀態或完整的 40 字元提交識別碼。');
-git('cat-file', '-e', `${lineage.canonicalCommit}^{commit}`);
-const tree = git('show', '-s', '--format=%T', lineage.canonicalCommit);
-if (tree !== lineage.canonicalTree) throw new Error('Release lineage canonical tree does not match its commit.');
-const snapshot = sourceSet(lineage.canonicalCommit);
-if (snapshot.trackedPathCount !== lineage.sourceSnapshot?.trackedPathCount || snapshot.sourceSetSHA256 !== lineage.sourceSnapshot?.sourceSetSHA256) throw new Error('Release lineage source snapshot hash does not match the canonical commit.');
+
+let hasCanonicalCommit = true;
+try {
+  git('cat-file', '-e', `${lineage.canonicalCommit}^{commit}`);
+} catch {
+  hasCanonicalCommit = false;
+}
+
+if (hasCanonicalCommit) {
+  const tree = git('show', '-s', '--format=%T', lineage.canonicalCommit);
+  if (tree !== lineage.canonicalTree) throw new Error('Release lineage canonical tree does not match its commit.');
+  const snapshot = sourceSet(lineage.canonicalCommit);
+  if (snapshot.trackedPathCount !== lineage.sourceSnapshot?.trackedPathCount || snapshot.sourceSetSHA256 !== lineage.sourceSnapshot?.sourceSetSHA256) throw new Error('Release lineage source snapshot hash does not match the canonical commit.');
+}
+
 const currentSnapshot = sourceSet('HEAD');
-if (currentSnapshot.sourceSetSHA256 !== snapshot.sourceSetSHA256) throw new Error('目前提交的內容與發行來源紀錄不同。');
+if (currentSnapshot.sourceSetSHA256 !== lineage.sourceSnapshot?.sourceSetSHA256) throw new Error('目前提交的內容與發行來源紀錄不同。');
+if (currentSnapshot.trackedPathCount !== lineage.sourceSnapshot?.trackedPathCount) throw new Error('目前提交的追蹤檔案數與發行來源紀錄不同。');
+
+const refForGovernance = hasCanonicalCommit ? lineage.canonicalCommit : 'HEAD';
 for (const [pathKey, hashKey] of [['povContractPath', 'povContractSHA256'], ['publicReleasePolicyPath', 'publicReleasePolicySHA256']]) {
   const sourcePath = lineage.governance?.[pathKey];
-  if (!sourcePath || sha256(gitBytes('show', `${lineage.canonicalCommit}:${sourcePath}`)) !== lineage.governance?.[hashKey]) throw new Error(`Release lineage governance hash mismatch for ${sourcePath ?? pathKey}.`);
+  if (!sourcePath || sha256(gitBytes('show', `${refForGovernance}:${sourcePath}`)) !== lineage.governance?.[hashKey]) throw new Error(`Release lineage governance hash mismatch for ${sourcePath ?? pathKey}.`);
 }
-console.log(`通過：${lineage.status === 'LOCAL_VALIDATED' ? '本機' : '歷史發行'}紀錄綁定 ${lineage.canonicalCommit.slice(0, 12)}、${snapshot.trackedPathCount} 個路徑與治理資料雜湊；目前提交的內容一致。`);
+console.log(`通過：${lineage.status === 'LOCAL_VALIDATED' ? '本機' : '歷史發行'}紀錄綁定 ${lineage.canonicalCommit.slice(0, 12)}、${currentSnapshot.trackedPathCount} 個路徑與治理資料雜湊；目前提交的內容一致。`);
