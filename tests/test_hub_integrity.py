@@ -1727,6 +1727,50 @@ def run_tests() -> None:
     test("specialty-nvm.html 包含四大 KPI 輸出欄位 (SEL Status, Retention, Survival, Ea) 與判定橫幅",
          'id="deep-space-out-sel"' in spec_deep_html and 'id="deep-space-out-retention"' in spec_deep_html and 'id="deep-space-out-survival"' in spec_deep_html and 'id="deep-space-out-ea"' in spec_deep_html and 'id="deep-space-out-rating"' in spec_deep_html and 'id="deep-space-out-verdict"' in spec_deep_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 73: 車用 ISO 26262 ASIL-D 瞬態軟錯誤 FIT 率、中子通量與 ECC 診斷覆蓋率試算器 (automotive-nvm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 73: 車用 ISO 26262 ASIL-D 瞬態軟錯誤 FIT 率、中子通量與 ECC 診斷覆蓋率試算器 ═══")
+    auto_js = (BASE / "automotive-asild-ecc-simulator.js").read_text(encoding="utf-8")
+    test("automotive-asild-ecc-simulator.js 存在且導出 calculateAutomotiveAsilMetrics、drawAutomotiveAsilCanvas 與 initAutomotiveAsilSimulator",
+         "export function calculateAutomotiveAsilMetrics" in auto_js and "export function drawAutomotiveAsilCanvas" in auto_js and "export function initAutomotiveAsilSimulator" in auto_js)
+    test("automotive-asild-ecc-simulator.js 包含四大任務情境預設、四大記憶體拓撲與四大 ECC 診斷架構",
+         "AUTO_MISSION_PROFILES" in auto_js and "powertrain_inverter_asild" in auto_js and "adas_domain_controller" in auto_js and "battery_management_asild" in auto_js and "gateway_telematics_asilb" in auto_js and "AUTO_NVM_PROFILES" in auto_js and "antifuse_charge_free" in auto_js and "radhard_stt_mram" in auto_js and "embedded_flash_sg" in auto_js and "embedded_sram_sub20nm" in auto_js and "ECC_ARCHITECTURES" in auto_js and "secded_72_64" in auto_js and "chipkill_reed_solomon" in auto_js)
+    test("automotive-asild-ecc-simulator.js 第一性原理大氣中子通量海拔擴增因子、Raw SER、SEC-DED 糾錯、週期巡檢清洗雙錯累積抑制、SPFM、LFM 與 ASIL-D 評級演算法",
+         "neutronFluxFactor" in auto_js and "rawNeutronFit" in auto_js and "rawTotalFit" in auto_js and "accumulationDoubleFit" in auto_js and "residualFit" in auto_js and "spfmMetric" in auto_js and "lfmMetric" in auto_js and "achievedAsil" in auto_js)
+    test("automotive-asild-ecc-simulator.js 包含雙模態視覺化 (scrub_period_vs_residual_fit 與 altitude_neutron_fit_curve)",
+         "scrub_period_vs_residual_fit" in auto_js and "altitude_neutron_fit_curve" in auto_js)
+
+    auto_html = (BASE / "automotive-nvm.html").read_text(encoding="utf-8")
+    test("automotive-nvm.html 整合 auto-asild-simulator-root 工作台與模組腳本引用",
+         'id="auto-asild-simulator-root"' in auto_html and 'automotive-asild-ecc-simulator.js' in auto_html)
+    test("automotive-nvm.html 包含任務選擇器、NVM 選擇器、ECC 選擇器、海拔/容量/巡檢三軸滑桿與雙模態 Canvas",
+         'id="asild-mission-select"' in auto_html and 'id="asild-nvm-select"' in auto_html and 'id="asild-ecc-select"' in auto_html and 'id="asild-altitude-slider"' in auto_html and 'id="asild-capacity-slider"' in auto_html and 'id="asild-scrub-slider"' in auto_html and 'id="asild-canvas"' in auto_html)
+    test("automotive-nvm.html 包含四大 KPI 輸出欄位 (Raw FIT, Residual FIT, SPFM, LFM) 與判定橫幅",
+         'id="asild-out-rawfit"' in auto_html and 'id="asild-out-residualfit"' in auto_html and 'id="asild-out-spfm"' in auto_html and 'id="asild-out-lfm"' in auto_html and 'id="asild-out-rating"' in auto_html and 'id="asild-out-verdict"' in auto_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 74: 3D 立體垂直堆疊 eNVM 字元線階梯 RC 延遲與薄膜金屬電阻率尺寸效應模擬器 (technology-comparison.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 74: 3D 立體垂直堆疊 eNVM 字元線階梯 RC 延遲與薄膜金屬電阻率尺寸效應模擬器 ═══")
+    vert_js = (BASE / "vertical-3d-nvm-simulator.js").read_text(encoding="utf-8")
+    test("vertical-3d-nvm-simulator.js 存在且導出 calculateVertical3dMetrics、drawVertical3dCanvas 與 initVertical3dSimulator",
+         "export function calculateVertical3dMetrics" in vert_js and "export function drawVertical3dCanvas" in vert_js and "export function initVertical3dSimulator" in vert_js)
+    test("vertical-3d-nvm-simulator.js 包含四大 3D 垂直堆疊架構預設與四大字元線導體材料",
+         "VERTICAL_3D_PRESETS" in vert_js and "vert_3d_antifuse_64l" in vert_js and "vert_3d_nor_48l" in vert_js and "vert_3d_nand_128l" in vert_js and "vert_3d_reram_64l" in vert_js and "WORDLINE_CONDUCTORS" in vert_js and "molybdenum_mo_pvd" in vert_js and "tungsten_w_ald" in vert_js and "ruthenium_ru_subnm" in vert_js and "doped_poly_silicon" in vert_js)
+    test("vertical-3d-nvm-simulator.js 第一性原理薄膜金屬電阻率尺寸效應、HAR 階梯走線幾何、最差層字元線 RC 延遲、頂底層延遲梯差與存取時間演算法",
+         "sizeEffectFactor" in vert_js and "effectiveResistivityUohmCm" in vert_js and "worstLengthUm" in vert_js and "worstWlDelayNs" in vert_js and "tierDelaySkewNs" in vert_js and "totalAccessTimeNs" in vert_js and "tierGrade" in vert_js)
+    test("vertical-3d-nvm-simulator.js 包含雙模態視覺化 (tier_count_vs_rc_delay 與 tier_delay_gradient_profile)",
+         "tier_count_vs_rc_delay" in vert_js and "tier_delay_gradient_profile" in vert_js)
+
+    tech_vert_html = (BASE / "technology-comparison.html").read_text(encoding="utf-8")
+    test("technology-comparison.html 整合 vertical-3d-simulator-root 工作台與模組腳本引用",
+         'id="vertical-3d-simulator-root"' in tech_vert_html and 'vertical-3d-nvm-simulator.js' in tech_vert_html)
+    test("technology-comparison.html 包含架構選擇器、導體選擇器、層數/厚度/長度三軸滑桿與雙模態 Canvas",
+         'id="vert3d-preset-select"' in tech_vert_html and 'id="vert3d-conductor-select"' in tech_vert_html and 'id="vert3d-tier-slider"' in tech_vert_html and 'id="vert3d-thickness-slider"' in tech_vert_html and 'id="vert3d-length-slider"' in tech_vert_html and 'id="vert3d-canvas"' in tech_vert_html)
+    test("technology-comparison.html 包含四大 KPI 輸出欄位 (Resistivity, Worst Delay, Delay Skew, Access Time) 與判定橫幅",
+         'id="vert3d-out-resistivity"' in tech_vert_html and 'id="vert3d-out-worstdelay"' in tech_vert_html and 'id="vert3d-out-delayskew"' in tech_vert_html and 'id="vert3d-out-accesstime"' in tech_vert_html and 'id="vert3d-out-grade"' in tech_vert_html and 'id="vert3d-out-verdict"' in tech_vert_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
@@ -1734,6 +1778,7 @@ def run_tests() -> None:
 
 if __name__ == "__main__":
     exit(0 if run_tests() else 1)
+
 
 
 
