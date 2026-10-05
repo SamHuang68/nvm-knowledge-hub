@@ -1381,6 +1381,125 @@
             </div>
           </section>
 
+          <!-- LENS 03B: CRYOGENIC (4K) & SPACE RAD-HARD eNVM PHYSICAL SIMULATOR -->
+          <section id="sec-cryo-radhard" class="lens-panel lab-box-panel" aria-labelledby="lab-cryo-title">
+            <div class="panel-kicker"><span data-lang="en">LENS 03B · FLAGSHIP LAB 03</span><span data-lang="zh">視角 03B · 旗艦實驗室 03</span></div>
+            <h2 id="lab-cryo-title">
+              <span data-lang="zh">4K 極低溫量子與太空輻射耐受 (Cryo &amp; Rad-Hard) 物理模擬器</span>
+              <span data-lang="en">Cryogenic Quantum (4K) &amp; Space Rad-Hard eNVM Physical Simulator</span>
+            </h2>
+            <p class="panel-desc">
+              <span data-lang="zh">基於第一性原理載子凍結模型、不完全游離、總游離劑量 (TID) 氧化層電洞陷阱漂移與重離子 SEU 韋伯 (Weibull) 截面積，評估從 4.2K 液氦超導量子控制到 500 krad 深空木星強輻射下 eNVM 物理可行性。</span>
+              <span data-lang="en">First-principles modeling of carrier freeze-out, incomplete ionization, Total Ionizing Dose (TID) hole trap accumulation, and heavy-ion SEU Weibull cross-section across 4.2K cryo-CMOS and 500 krad Jovian radiation belts.</span>
+            </p>
+
+            <div id="cryo-simulator-root" style="background: #0f172a; border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 20px; color: #f8fafc; margin-top: 16px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px;">
+                <!-- Preset Selection -->
+                <div>
+                  <label for="cryo-preset-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #38bdf8; margin-bottom: 6px;">
+                    <span data-lang="zh">極限環境任務預設 (Extreme Environment Preset):</span>
+                    <span data-lang="en">Extreme Environment Preset:</span>
+                  </label>
+                  <select id="cryo-preset-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                    <option value="quantum_cryo_4k">4.2K Liquid-Helium Quantum Cryo-CMOS</option>
+                    <option value="leo_satellite">LEO Commercial Satellite (50 krad TID)</option>
+                    <option value="deep_space_jupiter">Jupiter Deep Space Probe (500 krad TID)</option>
+                    <option value="geothermal_underhood">Automotive &amp; Geothermal (175°C Grade 0+)</option>
+                  </select>
+                </div>
+
+                <!-- Topology Selection -->
+                <div>
+                  <label for="cryo-topology-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #38bdf8; margin-bottom: 6px;">
+                    <span data-lang="zh">候選記憶體拓撲架構 (eNVM Topology Architecture):</span>
+                    <span data-lang="en">Candidate eNVM Topology:</span>
+                  </label>
+                  <select id="cryo-topology-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                    <option value="antifuse_radhard">Logic AntiFuse OTP (0-Mask Hardened Filament)</option>
+                    <option value="stt_mram_hardened">BEOL STT-MRAM (Spin-Torque Hardened MTJ)</option>
+                    <option value="feram_radhard">FeRAM (Ferroelectric Polarization Dipole)</option>
+                    <option value="eflash_split_gate">Floating-Gate eFlash (Legacy Charge Trap)</option>
+                    <option value="radhard_sram_ecc">12T DICE SRAM + ECC (Control Baseline)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Interactive Physical Sliders -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; background: #1e293b; padding: 14px; border-radius: 6px; margin-bottom: 16px;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span><span data-lang="zh">環境溫度 (T)</span><span data-lang="en">Temperature (T)</span></span>
+                    <span id="cryo-temp-val" style="color: #38bdf8;">4.2 K (-268.9°C)</span>
+                  </div>
+                  <input type="range" id="cryo-temp-slider" min="4" max="450" step="1" value="4" style="width: 100%; accent-color: #38bdf8;" aria-label="Operating Temperature" data-aria-zh="工作環境溫度" data-aria-en="Operating Temperature">
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span><span data-lang="zh">總游離劑量 (TID)</span><span data-lang="en">Total Ionizing Dose</span></span>
+                    <span id="cryo-tid-val" style="color: #f59e0b;">1 krad</span>
+                  </div>
+                  <input type="range" id="cryo-tid-slider" min="0" max="1000" step="10" value="1" style="width: 100%; accent-color: #f59e0b;" aria-label="Total Ionizing Dose" data-aria-zh="總游離輻射劑量" data-aria-en="Total Ionizing Dose">
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span><span data-lang="zh">重離子 LET 能量</span><span data-lang="en">Heavy-Ion Peak LET</span></span>
+                    <span id="cryo-let-val" style="color: #f43f5e;">0 MeV·cm²/mg</span>
+                  </div>
+                  <input type="range" id="cryo-let-slider" min="0" max="100" step="1" value="0" style="width: 100%; accent-color: #f43f5e;" aria-label="Heavy-Ion Linear Energy Transfer" data-aria-zh="重離子線性能量傳遞" data-aria-en="Heavy-Ion Linear Energy Transfer">
+                </div>
+              </div>
+
+              <!-- Real-time Metric Badges -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">低溫有效 Vth</span><span data-lang="en">Effective Vth</span></div>
+                  <div id="cryo-metric-vth" style="font: 700 14px 'IBM Plex Mono', monospace; color: #38bdf8;">0.745 V</div>
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">感測工作裕度</span><span data-lang="en">Sense Margin</span></div>
+                  <div id="cryo-metric-margin" style="font: 700 14px 'IBM Plex Mono', monospace; color: #10b981;">0.005 V</div>
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">SEU 軟錯誤率</span><span data-lang="en">Annual SER</span></div>
+                  <div id="cryo-metric-ser" style="font: 700 14px 'IBM Plex Mono', monospace; color: #f59e0b;">0 (Immune)</div>
+                </div>
+                <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">極限環境耐受分</span><span data-lang="en">Resilience Score</span></div>
+                  <div id="cryo-metric-score" style="font: 700 14px 'IBM Plex Mono', monospace; color: #10b981;">98 / 100</div>
+                </div>
+              </div>
+
+              <!-- Canvas Visualizer with Dual Mode Switcher -->
+              <div style="background: #090d16; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+                  <h3 style="font: 600 12px 'IBM Plex Mono', monospace; color: #38bdf8; margin: 0;">
+                    <span data-lang="zh">第一性原理物理曲線可視化 (Physics Profile)</span>
+                    <span data-lang="en">First-Principles Physics Profiles</span>
+                  </h3>
+                  <div style="display: flex; gap: 6px;">
+                    <button type="button" id="cryo-mode-temp-btn" class="active" style="padding: 4px 8px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                      <span data-lang="zh">溫度 vs 電壓裕度</span>
+                      <span data-lang="en">Temp vs Margin</span>
+                    </button>
+                    <button type="button" id="cryo-mode-seu-btn" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                      <span data-lang="zh">Weibull SEU 截面積</span>
+                      <span data-lang="en">Weibull SEU Cross-Section</span>
+                    </button>
+                  </div>
+                </div>
+                <canvas id="cryo-radhard-canvas" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
+              </div>
+
+              <!-- Verdict Banner -->
+              <div id="cryo-verdict-banner" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 12px 16px;">
+                Loading physical telemetry...
+              </div>
+            </div>
+          </section>
+
           <!-- LENS 04: 3 AUTOMOTIVE STATE CONTRACTS & ASIL-D METRICS -->
           <section id="sec-contracts" class="lens-panel" aria-labelledby="contracts-sec-title">
             <div class="panel-kicker"><span data-lang="zh">視角 04 · 系統架構契約與 ASIL-D 指標</span><span data-lang="en">LENS 04 · SYSTEM ARCHITECTURE CONTRACTS &amp; ASIL-D METRICS</span></div>
@@ -2011,6 +2130,16 @@
 
       panels.forEach(p => railObserver.observe(p));
     });
+  </script>
+  <script type="module">
+    import { initCryoRadhardSimulator } from './cryo-radhard-nvm-simulator.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      initCryoRadhardSimulator('cryo-simulator-root');
+    });
+    // In case DOM is already loaded
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      initCryoRadhardSimulator('cryo-simulator-root');
+    }
   </script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 </body>
