@@ -479,6 +479,127 @@
       </article>
     </section>
 
+    <!-- SECTION 01B: HARDWARE ROOT OF TRUST (RoT) & PQC PUF ENTROPY & DPA DEFENSE SIMULATOR -->
+    <section id="sec-pqc-dpa" class="section pqc-dpa-section" style="margin-top: 1.5rem; border-top: 1px solid rgba(196, 165, 116, 0.18); padding-top: 2rem;">
+      <header class="section-head">
+        <div>
+          <p class="kicker"><span data-lang="zh">01B / 後量子密碼與抗側信道防禦</span><span data-lang="en">01B / PQC &amp; SIDE-CHANNEL DEFENSE</span></p>
+          <h2>
+            <span data-lang="zh">硬體根信任 (RoT) 與後量子密碼 PUF 熵品質與差分功率分析 (DPA) 模擬器</span>
+            <span data-lang="en">Hardware Root of Trust (RoT) &amp; PQC PUF Entropy Quality &amp; DPA Defense Simulator</span>
+          </h2>
+        </div>
+        <p>
+          <span data-lang="zh">在後量子密碼 (NIST FIPS 203/204) 時代，透過差分感測、內部電流隨機偽裝與時脈抖動，第一性原理評估 Pearson 相關係數 ρmax、密鑰揭示採樣次數 (MTD) 與 AntiFuse PUF 零輔助數據 (Zero Helper Data) 物理抗侵入優勢。</span>
+          <span data-lang="en">First-principles simulation of Pearson correlation ρmax, Measurements to Disclosure (MTD), and AntiFuse PUF zero-helper-data physical resilience against Differential Power Analysis (DPA) under NIST FIPS 203/204 Post-Quantum standards.</span>
+        </p>
+      </header>
+
+      <div id="pqc-dpa-simulator-root" style="background: #090d16; border: 1px solid rgba(196, 165, 116, 0.3); border-radius: 8px; padding: 20px; color: #f8fafc; margin-top: 16px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px;">
+          <!-- Security Preset Selection -->
+          <div>
+            <label for="pqc-preset-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #c4a574; margin-bottom: 6px;">
+              <span data-lang="zh">安全防禦認證等級 (Security Assurance Preset):</span>
+              <span data-lang="en">Security Assurance Preset:</span>
+            </label>
+            <select id="pqc-preset-select" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+              <option value="fips140_3_lvl4">FIPS 140-3 L4 / SESIP L5 (Aerospace / MTD > 10M)</option>
+              <option value="automotive_evita_high">ISO 21434 / EVITA High (Gateway / MTD > 500k)</option>
+              <option value="iot_commercial_secure">PSA Certified Level 2 / SESIP L2 (Commercial IoT)</option>
+              <option value="legacy_unprotected">Legacy Unprotected Baseline (Direct Read / MTD &lt; 1.5k)</option>
+            </select>
+          </div>
+
+          <!-- Key Storage & PUF Topology -->
+          <div>
+            <label for="pqc-topology-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #c4a574; margin-bottom: 6px;">
+              <span data-lang="zh">底層金鑰儲存 / PUF 拓撲 (Key Storage &amp; PUF Topology):</span>
+              <span data-lang="en">Key Storage &amp; PUF Topology:</span>
+            </label>
+            <select id="pqc-topology-select" style="width: 100%; padding: 8px 10px; background: #131b2e; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+              <option value="antifuse_rot_puf">Logic AntiFuse Nano-Filament PUF / RoT (0-Mask)</option>
+              <option value="sram_puf_helper">SRAM Startup PUF (Requires External BCH Helper Data)</option>
+              <option value="efuse_metal_poly">Poly-Si / Metal eFuse (Melt Link / SEM Visible)</option>
+              <option value="eflash_tunnel_trap">Floating-Gate / CT eFlash (PVC Probing Measurable)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Countermeasure Checkboxes and Noise Slider -->
+        <div style="background: #131b2e; padding: 14px; border-radius: 6px; margin-bottom: 16px;">
+          <div style="display: flex; flex-wrap: wrap; gap: 18px; margin-bottom: 12px;">
+            <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer;">
+              <input type="checkbox" id="pqc-diff-check" checked style="accent-color: #c4a574;">
+              <span><span data-lang="zh">差分互補對稱感測 (Differential Sensing)</span><span data-lang="en">Differential Complementary Sensing</span></span>
+            </label>
+            <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer;">
+              <input type="checkbox" id="pqc-blinding-check" checked style="accent-color: #c4a574;">
+              <span><span data-lang="zh">內部隨機電流偽裝 (Current Blinding)</span><span data-lang="en">Random Current Blinding &amp; Masking</span></span>
+            </label>
+            <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer;">
+              <input type="checkbox" id="pqc-jitter-check" checked style="accent-color: #c4a574;">
+              <span><span data-lang="zh">動態隨機時脈抖動 (Dynamic Clock Jitter)</span><span data-lang="en">Dynamic Clock Jitter</span></span>
+            </label>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <span><span data-lang="zh">電路雜訊擾動標準差 (Circuit Noise Sigma)</span><span data-lang="en">Circuit Noise Sigma (σ)</span></span>
+              <span id="pqc-noise-val" style="color: #c4a574;">σ = 4.8</span>
+            </div>
+            <input type="range" id="pqc-noise-slider" min="0.1" max="8.0" step="0.1" value="4.8" style="width: 100%; accent-color: #c4a574;" aria-label="Circuit Noise Sigma" data-aria-zh="電路雜訊擾動標準差" data-aria-en="Circuit Noise Sigma">
+          </div>
+        </div>
+
+        <!-- Real-time Metric Badges -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+          <div style="background: rgba(9, 13, 22, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">揭示量測次數 MTD</span><span data-lang="en">Trace MTD</span></div>
+            <div id="pqc-metric-mtd" style="font: 700 14px 'IBM Plex Mono', monospace; color: #10b981;">> 10,000,000</div>
+          </div>
+          <div style="background: rgba(9, 13, 22, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">峰值相關係數 ρmax</span><span data-lang="en">Peak Correlation</span></div>
+            <div id="pqc-metric-rho" style="font: 700 14px 'IBM Plex Mono', monospace; color: #38bdf8;">0.003</div>
+          </div>
+          <div style="background: rgba(9, 13, 22, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">晶片內原生錯誤率</span><span data-lang="en">Native Intra-BER</span></div>
+            <div id="pqc-metric-ber" style="font: 700 14px 'IBM Plex Mono', monospace; color: #f59e0b;">0.0000%</div>
+          </div>
+          <div style="background: rgba(9, 13, 22, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">安全韌性總評分</span><span data-lang="en">Security Score</span></div>
+            <div id="pqc-metric-score" style="font: 700 14px 'IBM Plex Mono', monospace; color: #10b981;">95 / 100</div>
+          </div>
+        </div>
+
+        <!-- Canvas Visualizer with Dual Mode Switcher -->
+        <div style="background: #05080f; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+            <h3 style="font: 600 12px 'IBM Plex Mono', monospace; color: #c4a574; margin: 0;">
+              <span data-lang="zh">側信道相關性與 PUF 熵分佈視覺化</span>
+              <span data-lang="en">Side-Channel Correlation &amp; PUF Entropy Visualization</span>
+            </h3>
+            <div style="display: flex; gap: 6px;">
+              <button type="button" id="pqc-mode-cpa-btn" class="active" style="padding: 4px 8px; background: rgba(196, 165, 116, 0.2); color: #c4a574; border: 1px solid #c4a574; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                <span data-lang="zh">CPA 相關係數軌跡</span>
+                <span data-lang="en">CPA Correlation Traces</span>
+              </button>
+              <button type="button" id="pqc-mode-puf-btn" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                <span data-lang="zh">PUF 晶片間漢明距離</span>
+                <span data-lang="en">PUF Inter-Chip Hamming</span>
+              </button>
+            </div>
+          </div>
+          <canvas id="pqc-rot-dpa-canvas" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
+        </div>
+
+        <!-- Verdict Banner -->
+        <div id="pqc-verdict-banner" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 12px 16px;">
+          Loading security metrics...
+        </div>
+      </div>
+    </section>
+
     <section id="windows" class="section windows">
       <header class="section-head"><div><p class="kicker" data-zh="02 / 攻擊時窗生命週期" data-en="02 / ATTACK-WINDOW LIFECYCLE">02 / ATTACK-WINDOW LIFECYCLE</p><h2 data-zh="根金鑰沒有永久位址；風險仍有明確時窗" data-en="The root has no permanent address; risk still has windows">The root has no permanent address; risk still has windows</h2></div><p data-zh="選擇生命週期階段，查看資產、攻擊面、測試問題與預期安全結果。" data-en="Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.">Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.</p></header>
       <div class="window-layout">
@@ -547,5 +668,14 @@
   <script src="assurance.js?v=20260929-v5"></script>
   <script type="module" src="attack-resistance-evaluator.js?v=20261005"></script>
   <script type="module" src="puf-nist-randomness-evaluator.js?v=20261005"></script>
+  <script type="module">
+    import { initPqcDpaSimulator } from './pqc-rot-dpa-simulator.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      initPqcDpaSimulator('pqc-dpa-simulator-root');
+    });
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      initPqcDpaSimulator('pqc-dpa-simulator-root');
+    }
+  </script>
 </body>
 </html>

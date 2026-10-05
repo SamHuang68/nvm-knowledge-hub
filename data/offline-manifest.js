@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "0ce23bf7980a16fd7580",
+  "version": "f08707399d86f9187f77",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -34,6 +34,7 @@ self.NVMOfflineManifest = {
     "claim-scope.js",
     "command-palette-hud.js",
     "cryo-qubit-readout-simulator.js",
+    "cryo-radhard-nvm-simulator.js",
     "cryogenic-nvm-physics-simulator.js",
     "data/ai-nvm-opportunities-knowledge.json",
     "data/named-nvm-comparison.json",
@@ -91,6 +92,7 @@ self.NVMOfflineManifest = {
     "oip-secure-storage.html",
     "pqc-key-storage-simulator.js",
     "pqc-rot-budget-calculator.js",
+    "pqc-rot-dpa-simulator.js",
     "puf-nist-randomness-evaluator.js",
     "puf-reconstruction-simulator.js",
     "quick-probe.js",
@@ -152,7 +154,7 @@ self.NVMOfflineManifest = {
     "automotive-load-dump-clamp-simulator.js": "560d23b45ab031f77ba663671250b12b1e16fd7e741dbbf56569c01fdad0dcb2",
     "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
-    "automotive-nvm.html": "25f0e77383e5ce750a213125fb4e244437ab20c61d69206f49fe9c1b28787b66",
+    "automotive-nvm.html": "a4f6d1bbc4d8adee75015d6bf4d4c6250929036b96afb2edf488f7d4bb9c8801",
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "bcd-trimming-simulator.js": "5fc84893230bc741aa87824195cc5029dd56345318fb67fc676ca227288fd96f",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
@@ -164,6 +166,7 @@ self.NVMOfflineManifest = {
     "claim-scope.js": "afb8bc4df1c94c77e07707f184f1efd188970c384ccf70a598b45a503bd5f91e",
     "command-palette-hud.js": "69756564651eb6f41cd58cae19225cdb30df4853c9df0d69f0392bd1edf94557",
     "cryo-qubit-readout-simulator.js": "f5422d53c014a9c1a4b01d936326cc3a2a35099b0226a8cd447564e7f50922f2",
+    "cryo-radhard-nvm-simulator.js": "761c2606c6c13236beb28e9c0d9b8da6333d1fa0a68c622c749ccb099ede729d",
     "cryogenic-nvm-physics-simulator.js": "00cc5d14547921cfbe1f498cb3dffe7401007b8c9215851003953c2936d7667e",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "data/named-nvm-comparison.json": "69f18cd39e195164c8139e9079d4c8df2647a8c74b3ff826c667304f12330de1",
@@ -221,6 +224,7 @@ self.NVMOfflineManifest = {
     "oip-secure-storage.html": "024982bbd1b1dbaf60247e3f65bd25e10b52265577de0549e7a81d41d36051de",
     "pqc-key-storage-simulator.js": "c760b1300960a5f62047851f606cf993387142a34ab424f1a8d22a79286dc7a3",
     "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
+    "pqc-rot-dpa-simulator.js": "a0034d3f4310de3d7491657f990ccadd797409e08769ee714f0bb37e0a06175c",
     "puf-nist-randomness-evaluator.js": "4845ed80be95c57d32d7c417c896c7f506518c897bc78de1b6f6443c640d2781",
     "puf-reconstruction-simulator.js": "1a6c99a0f918092edeec1305c3aaa7f926a19567c98cfffcc094b2a36a1661e0",
     "quick-probe.js": "e53a5099163ba611987ab6262c3fce1ba55fab62606116c5e95740a519fad028",
@@ -230,7 +234,7 @@ self.NVMOfflineManifest = {
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "15bf50e7b268e4f3c7b87dc7e624e8ccfc065cfc97217623db354aedf61d1e0b",
     "secure-storage.html": "69af6e727d1499d2a3116656e094da2d04f3a2a096141624a76be08680df414a",
-    "security-assurance.html": "d3ce413e3bb8350699b795984936c77bebfbc2e7249a08b7d4f0b487c8d3c8d3",
+    "security-assurance.html": "7838bd48d03f25a02860ef2cbdee234de44f19b4e99cf4a7b393209b401cbf0c",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "95c7b574d75f1d06c7e121cb14489b2bea210649e5d15ad7d97aae7a5d86d1a7",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
@@ -260,5 +264,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 12170556
+  "totalBytes": 12244713
 };

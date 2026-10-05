@@ -1595,6 +1595,50 @@ def run_tests() -> None:
     test("wafer-cost-tco-calculator.js 包含代工製程選擇器、技術選擇器、面積/產量雙軸滑桿與產量 TCO/晶粒良率成本雙模態 Canvas",
          'id="tco-process-select"' in tco_js and 'id="tco-envm-select"' in tco_js and 'id="tco-area-slider"' in tco_js and 'id="tco-volume-slider"' in tco_js and 'id="tco-canvas"' in tco_js)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 67: 4K 極低溫量子與太空輻射耐受 (Cryo-CMOS & Rad-Hard) 物理模擬器 (automotive-nvm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 67: 4K 極低溫量子與太空輻射耐受 (Cryo-CMOS & Rad-Hard) 物理模擬器 ═══")
+    cryo_js = (BASE / "cryo-radhard-nvm-simulator.js").read_text(encoding="utf-8")
+    test("cryo-radhard-nvm-simulator.js 存在且導出 calculateCryoRadhardMetrics、drawCryoRadhardCanvas 與 initCryoRadhardSimulator",
+         "export function calculateCryoRadhardMetrics" in cryo_js and "export function drawCryoRadhardCanvas" in cryo_js and "export function initCryoRadhardSimulator" in cryo_js)
+    test("cryo-radhard-nvm-simulator.js 包含四大極限環境預設與五大 eNVM 拓撲設定檔",
+         "CRYO_ENVIRONMENT_PRESETS" in cryo_js and "quantum_cryo_4k" in cryo_js and "leo_satellite" in cryo_js and "deep_space_jupiter" in cryo_js and "geothermal_underhood" in cryo_js and "CRYO_NVM_TOPOLOGIES" in cryo_js and "antifuse_radhard" in cryo_js and "stt_mram_hardened" in cryo_js and "feram_radhard" in cryo_js and "eflash_split_gate" in cryo_js and "radhard_sram_ecc" in cryo_js)
+    test("cryo-radhard-nvm-simulator.js 第一性原理極低溫載子凍結、Vth 溫度偏移、TID 氧化層電洞陷阱漂移、Weibull 重離子 SEU 截面積與綜合可靠度評分演算法",
+         "freezeOutFactor" in cryo_js and "deltaVthTemp" in cryo_js and "deltaVthTid" in cryo_js and "effectiveMargin" in cryo_js and "seuCrossSection" in cryo_js and "annualSerFitPerMbit" in cryo_js and "resilienceScore" in cryo_js)
+    test("cryo-radhard-nvm-simulator.js 包含雙模態視覺化 (temp_voltage_window 與 weibull_seu_cross_section)",
+         "temp_voltage_window" in cryo_js and "weibull_seu_cross_section" in cryo_js)
+
+    auto_cryo_html = (BASE / "automotive-nvm.html").read_text(encoding="utf-8")
+    test("automotive-nvm.html 整合 cryo-simulator-root 工作台與模組腳本引用",
+         'id="cryo-simulator-root"' in auto_cryo_html and 'cryo-radhard-nvm-simulator.js' in auto_cryo_html)
+    test("automotive-nvm.html 包含極限環境選擇器、拓撲選擇器、溫度/TID/LET 三軸滑桿與雙模態 Canvas",
+         'id="cryo-preset-select"' in auto_cryo_html and 'id="cryo-topology-select"' in auto_cryo_html and 'id="cryo-temp-slider"' in auto_cryo_html and 'id="cryo-tid-slider"' in auto_cryo_html and 'id="cryo-let-slider"' in auto_cryo_html and 'id="cryo-radhard-canvas"' in auto_cryo_html)
+    test("automotive-nvm.html 包含四大 KPI 輸出欄位與判定橫幅",
+         'id="cryo-metric-vth"' in auto_cryo_html and 'id="cryo-metric-margin"' in auto_cryo_html and 'id="cryo-metric-ser"' in auto_cryo_html and 'id="cryo-metric-score"' in auto_cryo_html and 'id="cryo-verdict-banner"' in auto_cryo_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 68: 硬體根信任 (RoT) 與後量子密碼 PUF 熵品質與差分功率分析 (DPA) 模擬器 (security-assurance.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 68: 硬體根信任 (RoT) 與後量子密碼 PUF 熵品質與差分功率分析 (DPA) 模擬器 ═══")
+    pqc_js = (BASE / "pqc-rot-dpa-simulator.js").read_text(encoding="utf-8")
+    test("pqc-rot-dpa-simulator.js 存在且導出 calculatePqcDpaMetrics、drawPqcDpaCanvas 與 initPqcDpaSimulator",
+         "export function calculatePqcDpaMetrics" in pqc_js and "export function drawPqcDpaCanvas" in pqc_js and "export function initPqcDpaSimulator" in pqc_js)
+    test("pqc-rot-dpa-simulator.js 包含四大安全等級預設與四大金鑰/PUF 儲存拓撲設定檔",
+         "PQC_SECURITY_PRESETS" in pqc_js and "fips140_3_lvl4" in pqc_js and "automotive_evita_high" in pqc_js and "iot_commercial_secure" in pqc_js and "legacy_unprotected" in pqc_js and "PQC_STORAGE_TOPOLOGIES" in pqc_js and "antifuse_rot_puf" in pqc_js and "sram_puf_helper" in pqc_js and "efuse_metal_poly" in pqc_js and "eflash_tunnel_trap" in pqc_js)
+    test("pqc-rot-dpa-simulator.js 第一性原理差分信號差消、電流偽裝、時鐘抖動、Pearson 相關係數 ρmax、MTD 揭示次數與 PUF 高斯漢明距演算法",
+         "effectiveDelta" in pqc_js and "totalNoiseSigma" in pqc_js and "rhoMax" in pqc_js and "mtd" in pqc_js and "pufInterHdMean" in pqc_js and "pufIntraBerPpm" in pqc_js and "securityScore" in pqc_js and "verdictStatus" in pqc_js)
+    test("pqc-rot-dpa-simulator.js 包含雙模態視覺化 (cpa_correlation_traces 與 puf_gaussian_hamming)",
+         "cpa_correlation_traces" in pqc_js and "puf_gaussian_hamming" in pqc_js)
+
+    sec_pqc_html = (BASE / "security-assurance.html").read_text(encoding="utf-8")
+    test("security-assurance.html 整合 pqc-dpa-simulator-root 工作台與模組腳本引用",
+         'id="pqc-dpa-simulator-root"' in sec_pqc_html and 'pqc-rot-dpa-simulator.js' in sec_pqc_html)
+    test("security-assurance.html 包含安全認證等級選擇器、拓撲選擇器、差分/偽裝/抖動複選框與雙模態 Canvas",
+         'id="pqc-preset-select"' in sec_pqc_html and 'id="pqc-topology-select"' in sec_pqc_html and 'id="pqc-diff-check"' in sec_pqc_html and 'id="pqc-blinding-check"' in sec_pqc_html and 'id="pqc-jitter-check"' in sec_pqc_html and 'id="pqc-rot-dpa-canvas"' in sec_pqc_html)
+    test("security-assurance.html 包含四大 KPI 輸出欄位 (MTD, ρmax, BER, Security Score) 與判定橫幅",
+         'id="pqc-metric-mtd"' in sec_pqc_html and 'id="pqc-metric-rho"' in sec_pqc_html and 'id="pqc-metric-ber"' in sec_pqc_html and 'id="pqc-metric-score"' in sec_pqc_html and 'id="pqc-verdict-banner"' in sec_pqc_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
