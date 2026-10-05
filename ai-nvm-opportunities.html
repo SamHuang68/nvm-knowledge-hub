@@ -1925,6 +1925,160 @@
           </div>
         </div>
 
+        <!-- 2nm / A16 GAA 奈米片與背面供電 (BSPDN) eNVM 寄生 RC 延遲與熱阻聚集試算器 -->
+        <div class="decision-matrix-card bspdn-nvm-container" id="bspdn-nvm-simulator-root" style="margin-top: 32px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+          <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+            <div>
+              <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #38bdf8; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+                <span data-lang="zh">2nm / A16 前沿物理 · 背面供電網路 (BSPDN) 與熱聚集分析</span>
+                <span data-lang="en">2nm / A16 FRONTIER PHYSICS · BSPDN &amp; THERMAL BOTTLENECK ANALYSIS</span>
+              </div>
+              <h3 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
+                <span data-lang="zh">GAA 奈米片背面供電 eNVM 寄生 RC 延遲、基板薄化熱阻與 Nano-TSV 互連試算器</span>
+                <span data-lang="en">GAA Nanosheet BSPDN eNVM Parasitic RC Delay, Thermal Hotspot &amp; Nano-TSV Interconnect Simulator</span>
+              </h3>
+            </div>
+            <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(56, 189, 248, 0.12); color: #38bdf8; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.3);">
+              <span data-lang="zh">TSMC A16 / Intel 18A 物理模型</span>
+              <span data-lang="en">TSMC A16 / Intel 18A Physics Model</span>
+            </span>
+          </div>
+
+          <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 18px;">
+            <span data-lang="zh">在 2nm GAA 奈米片與背面供電網路（BSPDN / PowerVia / SPR）中，背面供電將正面金屬層 100% 釋放給訊號線，大幅降低 IR-Drop 壓降與位元線 RC 延遲；然而晶圓研磨薄化至 5~10 µm 會大幅惡化橫向散熱熱阻，使 eMRAM / ReRAM 高寫入電流引發嚴峻的熱聚集（Thermal Throttle）危機。純邏輯 AntiFuse 讀取功耗僅奈瓦級，無額外光罩與熱阻負擔，在 BSPDN 世代展現天生物理優勢。</span>
+            <span data-lang="en">In 2nm GAA nanosheets with Backside Power Delivery Networks (BSPDN / PowerVia / SPR), moving power grids to the backside liberates 100% of frontside metal tracks, eliminating IR-drop and reducing bitline RC delays. However, thinning wafers to 5-10 µm restricts lateral heat spreading, causing high-write-current eMRAM/ReRAM to trigger severe thermal throttle risks. Zero-mask AntiFuse generates negligible read heat, demonstrating unique physical compatibility in BSPDN architectures.</span>
+          </p>
+
+          <!-- Controls Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px;">
+            <div>
+              <label for="bspdn-node-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                <span data-lang="zh">先進代工節點架構:</span><span data-lang="en">ADVANCED FOUNDRY NODE:</span>
+              </label>
+              <select id="bspdn-node-select" aria-label="Advanced Foundry Process Node" data-aria-en="Advanced Foundry Process Node" data-aria-zh="先進代工節點架構" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                <option value="tsmc_a16_spr" selected>TSMC A16 SPR (GAA + BSPDN Nano-TSV)</option>
+                <option value="tsmc_n2_nanosheet">TSMC N2 Nanosheet (Conventional FSPDN Baseline)</option>
+                <option value="intel_18a_powervia">Intel 18A RibbonFET (PowerVia BSPDN)</option>
+                <option value="foundry_14a_advanced">Next-Gen 1.4nm (Dual-Side Micro-Cooling)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="bspdn-tech-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                <span data-lang="zh">奈米片 eNVM 技術拓撲:</span><span data-lang="en">NANOSHEET eNVM TOPOLOGY:</span>
+              </label>
+              <select id="bspdn-tech-select" aria-label="Nanosheet eNVM Topology" data-aria-en="Nanosheet eNVM Topology" data-aria-zh="奈米片 eNVM 技術拓撲" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                <option value="antifuse_nanosheet_logic" selected>Nanosheet AntiFuse (0-Mask / Zero Thermal Load)</option>
+                <option value="embedded_stt_mram_beol">BEOL STT-MRAM (4-6 Masks / Write Hotspot)</option>
+                <option value="embedded_reram_oxram">BEOL ReRAM OxRAM (2-3 Masks / Filament Stress)</option>
+                <option value="nanosheet_sram_macro">6T/8T SRAM Cache (Zero-Mask / Area Bottleneck)</option>
+              </select>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                <span><span data-lang="zh">記憶體容量 (Array Capacity):</span><span data-lang="en">ARRAY CAPACITY:</span></span>
+                <span id="bspdn-array-val" style="color: #38bdf8; font-weight: 700;">1.0 Mb</span>
+              </div>
+              <input type="range" id="bspdn-array-slider" min="0.25" max="16" step="0.25" value="1.0" aria-label="Memory Array Capacity in Megabits" data-aria-en="Memory Array Capacity in Megabits" data-aria-zh="記憶體容量 Mb" aria-valuetext="1.0 Mb" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                <span><span data-lang="zh">寫入/切換活動率 (Activity Rate):</span><span data-lang="en">ACTIVITY RATE:</span></span>
+                <span id="bspdn-act-val" style="color: #38bdf8; font-weight: 700;">15%</span>
+              </div>
+              <input type="range" id="bspdn-act-slider" min="1" max="100" step="1" value="15" aria-label="Write Switching Activity Rate Percentage" data-aria-en="Write Switching Activity Rate Percentage" data-aria-zh="寫入切換活動率百分比" aria-valuetext="15%" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+            </div>
+          </div>
+
+          <!-- KPI Cards Strip -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 18px;">
+            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <span data-lang="zh">標稱核心電壓</span><span data-lang="en">NOMINAL VDD</span>
+              </div>
+              <div id="bspdn-out-vdd" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">0.65 V</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">節點基準電壓</span><span data-lang="en">Node Vdd rail</span>
+              </div>
+            </div>
+
+            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <span data-lang="zh">BSPDN 實測壓降</span><span data-lang="en">REALIZED IR-DROP</span>
+              </div>
+              <div id="bspdn-out-irdrop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">24.0 mV</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">比正面供電降低 ~50%</span><span data-lang="en">~50% vs FSPDN</span>
+              </div>
+            </div>
+
+            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <span data-lang="zh">晶粒接面溫度 (Tj)</span><span data-lang="en">JUNCTION TEMP (Tj)</span>
+              </div>
+              <div id="bspdn-out-temp" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">65.0 °C</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">薄化基板熱阻聚集</span><span data-lang="en">Thinned sub Rth</span>
+              </div>
+            </div>
+
+            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <span data-lang="zh">讀取存取延遲</span><span data-lang="en">READ LATENCY</span>
+              </div>
+              <div id="bspdn-out-latency" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">0.52 ns</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">正面走線擁塞釋放</span><span data-lang="en">M0-M2 tracks freed</span>
+              </div>
+            </div>
+
+            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <span data-lang="zh">光罩增加道數</span><span data-lang="en">MASK ADDERS</span>
+              </div>
+              <div id="bspdn-out-mask" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">0 Masks</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">純邏輯相容性</span><span data-lang="en">Pure logic compatible</span>
+              </div>
+            </div>
+
+            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                <span data-lang="zh">BSPDN 適配評級</span><span data-lang="en">BSPDN RATING</span>
+              </div>
+              <div id="bspdn-out-rating" style="font: 700 12px 'IBM Plex Mono', monospace; color: #10b981;">Optimal Tier-1</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">物理可靠度綜合判定</span><span data-lang="en">Reliability verdict</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Canvas Section -->
+          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+              <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Visual Display Mode" data-aria-en="Visual Display Mode" data-aria-zh="圖表顯示模式">
+                <button id="bspdn-mode-thermal" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                  <span data-lang="zh">縱深熱阻與壓降分佈 (Depth Rth &amp; IR-Drop)</span><span data-lang="en">Depth Rth &amp; IR-Drop Profile</span>
+                </button>
+                <button id="bspdn-mode-delay" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                  <span data-lang="zh">金屬互連 RC 讀取延遲曲線 (RC Latency)</span><span data-lang="en">Interconnect RC Latency</span>
+                </button>
+              </div>
+              <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">High-DPI BSPDN Physics Engine</span>
+            </div>
+            <div style="width: 100%; height: 200px; position: relative;">
+              <canvas id="bspdn-canvas" width="560" height="200" style="width: 100%; height: 100%; display: block;" role="img" aria-label="2nm A16 BSPDN Simulation Canvas" data-aria-en="2nm A16 BSPDN Simulation Canvas" data-aria-zh="2nm A16 背面供電模擬畫布"></canvas>
+            </div>
+          </div>
+
+          <!-- Architectural Insight Callout -->
+          <div style="background: rgba(15, 23, 42, 0.8); border-left: 3px solid #38bdf8; border-radius: 0 4px 4px 0; padding: 12px 14px; font-size: 12.5px; line-height: 1.6; color: #cbd5e1;">
+            <span id="bspdn-out-verdict">Loading 2nm / A16 GAA Nanosheet BSPDN simulation calculations...</span>
+          </div>
+        </div>
+
         <aside class="sharepoint-extension" aria-label="SharePoint internal completion placeholder" data-aria-en="SharePoint internal completion placeholder" data-aria-zh="SharePoint 內部補齊預留區">
           <div class="sharepoint-lock" aria-hidden="true"><i></i><span>SP</span></div>
           <div><p class="paper-kicker"><span data-lang="zh">SharePoint 交接 · 內部補齊</span><span data-lang="en">SHAREPOINT HANDOFF · INTERNAL COMPLETION</span></p><h3><span data-lang="zh">公開層先定義 Architecture Boundary<br><em>內部層再補 Exact Product Contract</em></span><span data-lang="en">Define the Architecture Boundary Publicly<br><em>Complete the Exact Product Contract Internally</em></span></h3><p><span data-lang="zh">公司內部版保留給 exact macro release、PGM supply window、允許的 power sequence、wrapper-domain requirement 與 qualification evidence。公開網站不推測未發布的電壓數值、pin、waveform、controller state 或 circuit topology。</span><span data-lang="en">Reserve the internal version for exact macro release, PGM supply window, permitted power sequence, wrapper-domain requirements and qualification evidence. The public site does not speculate about unpublished voltage values, pins, waveforms, controller states or circuit topology.</span></p></div>
@@ -2183,5 +2337,6 @@
   <script type="module" src="cim-efficiency-calculator.js"></script>
   <script type="module" src="cim-analog-mac-simulator.js"></script>
   <script type="module" src="cim-nn-accuracy-degradation-simulator.js?v=20261005"></script>
+  <script type="module" src="nanosheet-bspdn-nvm-simulator.js?v=20261005"></script>
 </body>
 </html>
