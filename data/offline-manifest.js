@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "aec6558a5cbf69e89d80",
+  "version": "99e56771313f5250205f",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -53,6 +53,7 @@ self.NVMOfflineManifest = {
     "f1-card-align.js",
     "global-reading-system.css",
     "global-search.css",
+    "hbm4-base-die-repair-probe-simulator.js",
     "home-glass-renaissance.css",
     "home-interactions.css",
     "home-navigation.js",
@@ -142,7 +143,7 @@ self.NVMOfflineManifest = {
     "404.html": "93549617ad5429a366d52ca2e897028b967478937c8296de25fde02fc7257f2c",
     "advanced-finfet-gaa-simulator.js": "4433c4ee4af301252d849beb617cd85201a8fd4529027c2ef55cf71e8a5e20b4",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
-    "ai-nvm-opportunities.html": "41a804f2d2169ad7cdf61e14f41e3c87438176ee0a36c4b51f8ee51da6bf329a",
+    "ai-nvm-opportunities.html": "cd2b122be0bead16db7b58b6e9c8977cd6231c648364a26705a7dc38f316f4d8",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
     "ai-nvm.css": "4d70d25cb9449368b42c5b460c60c77ddcbe1103f5bd5383771cd376763458e8",
     "ai-nvm.js": "a51a6ab74b0e708b54b5d3af200575f275efe0d14e435b02332a300d99cc4654",
@@ -191,6 +192,7 @@ self.NVMOfflineManifest = {
     "f1-card-align.js": "206fe82993c3aa1c48ab6af72569cfdacab2497e0a971c567e9b8852912be636",
     "global-reading-system.css": "ae3882c28f129de001969e6f16f0e07a27528026abb45d765f74f0a6186cc56d",
     "global-search.css": "ebf30b87aac35c226058059fe6602f6db2687e201924bd2647b905a7bacd4c6e",
+    "hbm4-base-die-repair-probe-simulator.js": "0f20da871d3380a68523aff8be5c4a2dbfc2cb3b74ba6338e8dbe80d46430bfc",
     "home-glass-renaissance.css": "9957647c2b64b40dca8462fa94c14e2a1ca335bbd7c02a596f2c7544562c72b2",
     "home-interactions.css": "d6a3917880559babb53308f6fb2e9a3ecfbf5eef17aa7867c82a2f744b4b8b5b",
     "home-navigation.js": "ea4c5799f698ab553d099bc0abaa35d6761259b1a99040537cfd3a3a66808635",
@@ -276,5 +278,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 12499033
+  "totalBytes": 12542473
 };
