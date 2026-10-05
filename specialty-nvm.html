@@ -3469,6 +3469,154 @@
 </table>
 </div>
 </div>
+
+<!-- Deep Space & Rad-Hard Extreme Environment Simulator -->
+<div class="decision-matrix-card" id="space-radiation-simulator-root" style="margin-top: 32px;">
+<div class="decision-matrix-card-header">
+<h3 class="decision-matrix-title" style="margin: 0; font-size: 16px;">
+<span data-lang="zh">深空軌道與極限環境輻射硬化試算器 · TID / SEU / SEL Weibull 存活率</span>
+<span data-lang="en">DEEP SPACE &amp; RAD-HARD SIMULATOR · TID / SEU / SEL WEIBULL SURVIVAL</span>
+</h3>
+<span class="decision-matrix-subtitle">
+<span data-lang="zh">總游離劑量電荷洩漏 vs 物理微絲天然抗輻射硬化評級</span>
+<span data-lang="en">TID Oxide Leakage vs. Filament Radiation Hardening</span>
+</span>
+</div>
+
+<p style="font-size: 13.5px; line-height: 1.6; color: #cbd5e1; margin: 0 0 18px;">
+<span data-lang="zh">在近地軌道（LEO）、地球同步軌道（GEO）、阿提米絲月球深空與木星強輻射帶中，宇宙射線重離子與高能質子會引發單粒子翻轉（SEU）、單粒子閂鎖（SEL）與氧化層總游離劑量（TID 100krad~1Mrad）電荷流失。本工作台依據第一性原理 Weibull 截面積模型與氧化層電洞累積定律，計算不同記憶體技術在 10 年任務週期中的存活率與航太等級。</span>
+<span data-lang="en">In LEO, GEO, Artemis lunar deep space, and Jovian extreme radiation environments, cosmic ray heavy ions and solar protons trigger Single Event Upsets (SEU), Single Event Latchup (SEL), and Total Ionizing Dose (TID 100krad~1Mrad) charge loss. This simulator calculates mission survival probability and aerospace qualification grades based on first-principles Weibull cross-section and oxide hole accumulation models.</span>
+</p>
+
+<!-- Controls Grid -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-bottom: 16px;">
+<div>
+<label for="space-rad-mission-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+<span data-lang="zh">航太任務軌道環境:</span><span data-lang="en">MISSION ORBIT PROFILE:</span>
+</label>
+<select id="space-rad-mission-select" aria-label="Space Mission Orbit Profile" data-aria-en="Space Mission Orbit Profile" data-aria-zh="航太任務軌道環境" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+<option value="leo_polar_orbit">LEO Polar Orbit (800 km / 98° / Sun-Sync)</option>
+<option value="geo_telecom_sat" selected>GEO Telecom Sat (35,786 km / 15-Year)</option>
+<option value="lunar_deep_space_artemis">Artemis Lunar Deep Space (Unshielded 10-Yr)</option>
+<option value="jupiter_europa_clipper">Jupiter Europa Radiation Belt (1 Mrad Jovian)</option>
+</select>
+</div>
+
+<div>
+<label for="space-rad-tech-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+<span data-lang="zh">記憶體輻射硬化技術:</span><span data-lang="en">RAD-HARD MEMORY TECH:</span>
+</label>
+<select id="space-rad-tech-select" aria-label="Radiation-Hardened Memory Technology" data-aria-en="Radiation-Hardened Memory Technology" data-aria-zh="記憶體輻射硬化技術" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+<option value="antifuse_rad_hard" selected>AntiFuse Rad-Hard Filament (Charge-Free)</option>
+<option value="rad_hard_stt_mram">Aerospace Rad-Hard STT-MRAM (MTJ)</option>
+<option value="sonos_charge_trap">Silicon-Oxide-Nitride SONOS (Charge Trap)</option>
+<option value="legacy_fg_eflash">Legacy Floating-Gate eFlash (High Risk)</option>
+</select>
+</div>
+
+<div>
+<div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+<span><span data-lang="zh">累積游離總劑量 (TID):</span><span data-lang="en">TOTAL IONIZING DOSE:</span></span>
+<span id="space-rad-tid-val" style="color: #10b981; font-weight: 700;">100 krad(Si)</span>
+</div>
+<input type="range" id="space-rad-tid-slider" min="10" max="1000" step="10" value="100" aria-label="Total Ionizing Dose in krad" data-aria-en="Total Ionizing Dose in krad" data-aria-zh="累積游離總劑量 krad" aria-valuetext="100 krad(Si)" style="width: 100%; accent-color: #10b981; cursor: pointer;">
+</div>
+
+<div>
+<div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+<span><span data-lang="zh">重離子線性能量轉移:</span><span data-lang="en">PEAK HEAVY-ION LET:</span></span>
+<span id="space-rad-let-val" style="color: #10b981; font-weight: 700;">45 MeV·cm²/mg</span>
+</div>
+<input type="range" id="space-rad-let-slider" min="5" max="85" step="2" value="45" aria-label="Peak Heavy Ion LET in MeV*cm2/mg" data-aria-en="Peak Heavy Ion LET in MeV*cm2/mg" data-aria-zh="重離子線性能量轉移" aria-valuetext="45 MeV·cm²/mg" style="width: 100%; accent-color: #10b981; cursor: pointer;">
+</div>
+</div>
+
+<!-- KPI Cards Strip -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+<div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+<div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+<span data-lang="zh">氧化層閾值電壓漂移</span><span data-lang="en">TID VTH DRIFT</span>
+</div>
+<div id="space-rad-out-vth" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">—</div>
+<div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+<span data-lang="zh">電洞捕獲引發偏置</span><span data-lang="en">Hole trapping shift</span>
+</div>
+</div>
+
+<div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+<div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+<span data-lang="zh">重離子 SEU 翻轉截面</span><span data-lang="en">WEIBULL SEU CROSS</span>
+</div>
+<div id="space-rad-out-cross" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+<div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+<span data-lang="zh">位元翻轉有效面積</span><span data-lang="en">Effective upset area</span>
+</div>
+</div>
+
+<div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+<div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+<span data-lang="zh">軟錯誤率 (SER)</span><span data-lang="en">SOFT ERROR RATE</span>
+</div>
+<div id="space-rad-out-ser" style="font: 700 16px 'IBM Plex Mono', monospace; color: #f59e0b;">—</div>
+<div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+<span data-lang="zh">軌道通量引發翻轉</span><span data-lang="en">Flux-induced flips</span>
+</div>
+</div>
+
+<div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+<div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+<span data-lang="zh">10 年任務綜合存活率</span><span data-lang="en">MISSION SURVIVAL</span>
+</div>
+<div id="space-rad-out-surv" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">—</div>
+<div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+<span data-lang="zh">Weibull 累積可靠度</span><span data-lang="en">Weibull reliability</span>
+</div>
+</div>
+
+<div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+<div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+<span data-lang="zh">單粒子閂鎖 (SEL)</span><span data-lang="en">SEL LATCHUP RISK</span>
+</div>
+<div id="space-rad-out-sel" style="font: 700 13px 'IBM Plex Mono', monospace; color: #10b981;">—</div>
+<div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+<span data-lang="zh">重離子可控性審查</span><span data-lang="en">Thyristor trigger risk</span>
+</div>
+</div>
+
+<div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+<div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+<span data-lang="zh">航太輻射硬化等級</span><span data-lang="en">AEROSPACE GRADE</span>
+</div>
+<div id="space-rad-out-rating" style="font: 700 12px 'IBM Plex Mono', monospace; color: #10b981;">—</div>
+<div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+<span data-lang="zh">深空驗證分級</span><span data-lang="en">Qualification level</span>
+</div>
+</div>
+</div>
+
+<!-- Canvas Visualization -->
+<div style="background: #060d17; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+<div style="display: inline-flex; gap: 6px;" role="group" aria-label="Space Radiation Mode" data-aria-en="Space Radiation Mode" data-aria-zh="太空輻射視覺化模式">
+<button id="space-rad-mode-tid" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+<span data-lang="zh">累積劑量存活率曲線 (Survival vs TID 0-1000 krad)</span><span data-lang="en">TID Survival Curve (0-1000 krad)</span>
+</button>
+<button id="space-rad-mode-weibull" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+<span data-lang="zh">重離子 Weibull 翻轉截面 (Cross-Section vs LET)</span><span data-lang="en">Weibull Cross-Section vs LET</span>
+</button>
+</div>
+<span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">Aerospace Radiation Effects Analyzer</span>
+</div>
+<div style="width: 100%; height: 180px; position: relative;">
+<canvas id="space-rad-canvas" width="480" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Space Radiation Hardening Simulation Canvas" data-aria-en="Space Radiation Hardening Simulation Canvas" data-aria-zh="航太太空輻射硬化模擬畫布"></canvas>
+</div>
+</div>
+
+<!-- Architectural Insight Callout -->
+<div style="background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
+<span id="space-rad-out-verdict">Loading Space Radiation Hardening calculations...</span>
+</div>
+</div>
 </div>
 </section>
     </div>
@@ -3633,6 +3781,7 @@
 <script type="module" src="bcd-trimming-simulator.js?v=20261005"></script>
 <script type="module" src="demura-lut-calculator.js?v=20261005"></script>
 <script type="module" src="chiplet-ucie-nvm-simulator.js?v=20261005"></script>
+<script type="module" src="space-radiation-hardening-simulator.js?v=20261005"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 </body>
 </html>

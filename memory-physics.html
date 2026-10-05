@@ -2489,6 +2489,154 @@
           </div>
         </article>
 
+        <!-- Physical Model 08: Cryogenic Qubit Readout Interface Spin Decoherence & Microwave RF Simulator -->
+        <article class="paper-card physics-model-card" id="cryo-qubit-simulator-root" style="margin-top: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <p class="paper-kicker" style="margin: 0 0 4px;"><span data-lang="zh">物理模型 08</span><span data-lang="en">PHYSICAL MODEL 08</span></p>
+              <h3 style="margin: 0; font-size: 18px; color: #0f172a;"><span data-lang="zh">超導量子位元讀出介面磁場自旋去相干與微波射頻干擾試算器</span><span data-lang="en">Superconducting Qubit Readout Spin Decoherence &amp; Microwave RF Simulator</span></h3>
+            </div>
+            <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(0, 240, 255, 0.1); color: #0284c7; padding: 4px 8px; border-radius: 4px;">
+              <span data-lang="zh">量子介面與極限磁阻物理</span>
+              <span data-lang="en">Quantum Interface &amp; Magnetoresistance</span>
+            </span>
+          </div>
+
+          <p style="font-size: 13px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
+            <span data-lang="zh">在量子位元低溫控制級（4.2K / 1.2K）中，控制線微波脈衝（4-8 GHz）與超導線圈強偏置磁場（1T-5T）對近端記憶體產生嚴苛的物理干擾。本試算器評估強磁場下的 TMR 磁阻塌陷、自旋去相干時間（T2*）、微波高頻串擾誘發之差分感測窗衰減與位元誤碼率（BER）。</span>
+            <span data-lang="en">At qubit cryogenic control stages (4.2K / 1.2K), microwave readout pulses (4-8 GHz) and superconducting solenoid bias fields (1T-5T) impose extreme physical disturbances. This simulator calculates magnetic TMR collapse, spin decoherence (T2*), microwave crosstalk induced margin degradation, and bit error rate (BER).</span>
+          </p>
+
+          <!-- Controls Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
+            <div>
+              <label for="cryo-qubit-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span data-lang="zh">量子控制場景:</span><span data-lang="en">QUANTUM CONTROL STAGE:</span>
+              </label>
+              <select id="cryo-qubit-preset-select" aria-label="Quantum Control Stage Preset" data-aria-en="Quantum Control Stage Preset" data-aria-zh="量子控制場景預設" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                <option value="superconducting_transmon_4k" selected>Superconducting Transmon 4.2K Stage</option>
+                <option value="silicon_spin_qubit_1k">Silicon Spin Qubit 1.2K</option>
+                <option value="nv_center_diamond_77k">Diamond NV Center 77K</option>
+                <option value="trapped_ion_magnetic_4k">Trapped Ion Cryo Solenoid 4.2K</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="cryo-qubit-tech-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span data-lang="zh">記憶體單元架構:</span><span data-lang="en">MEMORY TOPOLOGY:</span>
+              </label>
+              <select id="cryo-qubit-tech-select" aria-label="Memory Cell Topology" data-aria-en="Memory Cell Topology" data-aria-zh="記憶體單元架構" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                <option value="antifuse_cryo_filament" selected>AntiFuse Ohmic Filament (Zero MR)</option>
+                <option value="perpendicular_stt_mram">Perpendicular p-STT-MRAM (Bcrit 1.2T)</option>
+                <option value="inplane_stt_mram">In-Plane STT-MRAM (Bcrit 0.35T)</option>
+                <option value="cryo_cmos_8t_sram">Cryo-CMOS 8T SRAM (Volatile)</option>
+              </select>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span><span data-lang="zh">外加磁場強度:</span><span data-lang="en">EXTERNAL B-FIELD:</span></span>
+                <span id="cryo-qubit-bfield-val" style="color: #0284c7; font-weight: 700;">0.10 Tesla</span>
+              </div>
+              <input type="range" id="cryo-qubit-bfield-slider" min="0" max="5" step="0.05" value="0.1" aria-label="External Magnetic Field in Tesla" data-aria-en="External Magnetic Field in Tesla" data-aria-zh="外加磁場強度 Tesla" aria-valuetext="0.10 Tesla" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span><span data-lang="zh">微波射頻功率:</span><span data-lang="en">MICROWAVE RF POWER:</span></span>
+                <span id="cryo-qubit-rf-val" style="color: #0284c7; font-weight: 700;">-30.0 dBm</span>
+              </div>
+              <input type="range" id="cryo-qubit-rf-slider" min="-40" max="0" step="1" value="-30" aria-label="Microwave RF Power in dBm" data-aria-en="Microwave RF Power in dBm" data-aria-zh="微波射頻功率 dBm" aria-valuetext="-30.0 dBm" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+            </div>
+          </div>
+
+          <!-- KPI Cards Strip -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                <span data-lang="zh">實現 TMR 穿隧磁阻</span><span data-lang="en">REALIZED TMR</span>
+              </div>
+              <div id="cryo-qubit-out-tmr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">強磁場自旋傾側衰退</span><span data-lang="en">B-field canting drop</span>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                <span data-lang="zh">感測差分電壓窗</span><span data-lang="en">SENSE MARGIN ΔV</span>
+              </div>
+              <div id="cryo-qubit-out-deltav" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">讀取訊號動態範圍</span><span data-lang="en">Read dynamic window</span>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                <span data-lang="zh">自旋去相干壽命 T2*</span><span data-lang="en">SPIN DECOHERENCE T2*</span>
+              </div>
+              <div id="cryo-qubit-out-t2" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a855f7;">—</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">橫向弛豫時間</span><span data-lang="en">Transverse relaxation</span>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                <span data-lang="zh">感測信噪比 (SINR)</span><span data-lang="en">READ SINR</span>
+              </div>
+              <div id="cryo-qubit-out-sinr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">含微波射頻串擾</span><span data-lang="en">Incl. RF crosstalk</span>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                <span data-lang="zh">推導誤碼率 (BER)</span><span data-lang="en">DERIVED BER</span>
+              </div>
+              <div id="cryo-qubit-out-ber" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">位元讀取可靠度</span><span data-lang="en">Read error probability</span>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                <span data-lang="zh">QPU 介面相容等級</span><span data-lang="en">QPU COMPATIBILITY</span>
+              </div>
+              <div id="cryo-qubit-out-rating" style="font: 700 12px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">貼裝可行性評級</span><span data-lang="en">Proximity rating</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Canvas Visualization -->
+          <div style="background: #08131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+              <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Cryo Qubit Visualization Mode" data-aria-en="Cryo Qubit Visualization Mode" data-aria-zh="量子低溫視覺化模式">
+                <button id="cryo-qubit-mode-bfield" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                  <span data-lang="zh">磁場掃描衰減曲線 (ΔV vs B-Field 0-5T)</span><span data-lang="en">B-Field Sweep (0-5T)</span>
+                </button>
+                <button id="cryo-qubit-mode-waveform" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                  <span data-lang="zh">微波射頻脈衝示波器 (RF Pulse Scope)</span><span data-lang="en">RF Pulse Scope</span>
+                </button>
+              </div>
+              <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">Quantum Interface Decoherence Analyzer</span>
+            </div>
+            <div style="width: 100%; height: 180px; position: relative;">
+              <canvas id="cryo-qubit-canvas" width="420" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Cryogenic Qubit Readout Simulation Canvas" data-aria-en="Cryogenic Qubit Readout Simulation Canvas" data-aria-zh="低溫量子位元讀出模擬畫布"></canvas>
+            </div>
+          </div>
+
+          <!-- Architectural Insight Callout -->
+          <div style="background: rgba(2, 132, 199, 0.06); border-left: 3px solid #0284c7; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
+            <span id="cryo-qubit-out-verdict">Loading Cryogenic Qubit Readout calculations...</span>
+          </div>
+        </article>
+
         <div class="f1-evidence-links">
           <b><span data-lang="zh">關聯技術與物理文獻</span><span data-lang="en">Related Physics &amp; Papers</span></b>
           <a href="technology-comparison.html#sec-physics">TC · <span data-lang="zh">第一性原理方程式對比</span><span data-lang="en">First-principles equation benchmark</span></a>
@@ -3103,5 +3251,6 @@
   <script type="module" src="differential-sensing-simulator.js?v=20261005"></script>
   <script type="module" src="tddb-weibull-simulator.js?v=20261005"></script>
   <script type="module" src="cryogenic-nvm-physics-simulator.js?v=20261005"></script>
+  <script type="module" src="cryo-qubit-readout-simulator.js?v=20261005"></script>
 </body>
 </html>
