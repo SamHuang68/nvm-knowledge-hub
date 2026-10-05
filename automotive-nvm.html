@@ -1518,6 +1518,136 @@
             </div>
           </section>
 
+          <!-- LENS 03D: AUTOMOTIVE ASIL-D HBM4 EXTREME MISSION PROFILE & REPAIR SCRUBBING SIMULATOR -->
+          <section id="sec-auto-hbm4-scrubbing" class="lens-panel lab-box-panel" aria-labelledby="lab-hbm4-scrub-title">
+            <div class="panel-kicker"><span data-lang="en">LENS 03D · FLAGSHIP LAB 05</span><span data-lang="zh">視角 03D · 旗艦實驗室 05</span></div>
+            <h2 id="lab-hbm4-scrub-title">
+              <span data-lang="zh">車規自駕 HPC / AI 加速器 HBM4 極限任務剖面、動態 sPPR / hPPR 巡檢清洗與 FIT 率退化模擬器</span>
+              <span data-lang="en">Automotive ASIL-D HBM4 Extreme Mission Profile, Dynamic sPPR / hPPR Scrubbing &amp; FIT Degradation Simulator</span>
+            </h2>
+            <p class="panel-desc">
+              <span data-lang="zh">在 L4/L5 無人自駕計程車與重型自駕商用車中，HBM4 晶粒堆疊面臨 115°C~125°C 高溫、高原高海拔大氣快中子通量與強烈熱循環應力。本模擬器結合 Coffin-Manson 焊點熱疲勞模型與 Arrhenius 軟錯誤熱加速，模擬週期性記憶體巡檢清洗（Scrubbing）與 Base Die 內建之動態 sPPR 暫存器熱修復、永久 0-Mask AntiFuse OTP hPPR 壞列硬體重映射，驗證 ISO 26262 ASIL-D（SPFM ≥ 99%, 單晶粒殘留 FIT &lt; 10）達成極限。</span>
+              <span data-lang="en">In L4/L5 Robo-Taxis and heavy commercial autonomous trucks, HBM4 3D stacks face 115°C–125°C junction temperatures, high-altitude neutron flux, and severe thermal fatigue. Combining Coffin-Manson solder fatigue with Arrhenius soft-error acceleration, this simulator models periodic scrubbing, Base Die dynamic sPPR cache, and permanent 0-Mask AntiFuse OTP hPPR row remapping, qualifying ISO 26262 ASIL-D targets (SPFM ≥ 99%, residual FIT &lt; 10).</span>
+            </p>
+
+            <div class="decision-matrix-card" id="auto-hbm4-scrubbing-simulator-root" style="margin-top: 16px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 20px 22px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+              <!-- Controls Grid -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 16px;">
+                <!-- Mission Profile Select -->
+                <div>
+                  <label for="hbm4-scrub-mission-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span data-lang="zh">車規任務剖面情境</span><span data-lang="en">MISSION PROFILE PRESET</span>
+                  </label>
+                  <select id="hbm4-scrub-mission-select" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; cursor: pointer;">
+                    <option value="l4_robotaxi_extreme">L4/L5 Robo-Taxi Autonomous HPC (24/7 Continuous · 115°C Tj)</option>
+                    <option value="highway_adas_pilot">Highway Pilot Autonomous ADAS (High Altitude · 95°C Tj)</option>
+                    <option value="in_cabin_ai_cockpit">Intelligent AI Cockpit (Infotainment &amp; DMS · 85°C Tj)</option>
+                    <option value="heavy_truck_powertrain">Heavy Commercial Truck Brain (Severe Shock &amp; Thermal · 125°C Tj)</option>
+                  </select>
+                </div>
+
+                <!-- Repair Architecture Select -->
+                <div>
+                  <label for="hbm4-scrub-repair-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span data-lang="zh">巡檢清洗與 PPR 修復架構</span><span data-lang="en">REPAIR &amp; SCRUBBING ARCH</span>
+                  </label>
+                  <select id="hbm4-scrub-repair-select" style="width: 100%; padding: 6px 10px; font: 500 11.5px 'IBM Plex Mono', monospace; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; cursor: pointer;">
+                    <option value="hybrid_tier_scrubbing">Tiered Hybrid (Dynamic sPPR Cache + 0-Mask AntiFuse hPPR)</option>
+                    <option value="dynamic_sppr_only">Dynamic Soft PPR Only (Register-Based)</option>
+                    <option value="hard_anti_fuse_only">Permanent AntiFuse Hard PPR Only (hPPR)</option>
+                    <option value="legacy_ecc_unmanaged">Baseline SEC-DED ECC Only (No PPR Remapping)</option>
+                  </select>
+                </div>
+
+                <!-- Junction Temperature Slider -->
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span><span data-lang="zh">Base Die 接面溫度 (T<sub>j</sub>):</span><span data-lang="en">JUNCTION TEMP (Tj):</span></span>
+                    <span id="hbm4-scrub-temp-val" style="color: #ef4444; font-weight: 700;">115 °C</span>
+                  </div>
+                  <input type="range" id="hbm4-scrub-temp-slider" min="80" max="135" step="1" value="115" aria-label="Base Die Junction Temperature in Celsius" data-aria-en="Base Die Junction Temperature in Celsius" data-aria-zh="Base Die 接面溫度攝氏" aria-valuetext="115 °C" style="width: 100%; accent-color: #ef4444; cursor: pointer;">
+                </div>
+
+                <!-- Scrubbing Interval Slider -->
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span><span data-lang="zh">巡檢清洗週期:</span><span data-lang="en">SCRUB PERIOD:</span></span>
+                    <span id="hbm4-scrub-period-val" style="color: #06b6d4; font-weight: 700;">1.00 s</span>
+                  </div>
+                  <input type="range" id="hbm4-scrub-period-slider" min="0.05" max="10.0" step="0.05" value="1.0" aria-label="Scrubbing Interval in Seconds" data-aria-en="Scrubbing Interval in Seconds" data-aria-zh="巡檢清洗週期秒" aria-valuetext="1.00 s" style="width: 100%; accent-color: #06b6d4; cursor: pointer;">
+                </div>
+
+                <!-- HBM4 Stack Density Slider -->
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span><span data-lang="zh">HBM4 堆疊容量:</span><span data-lang="en">STACK DENSITY:</span></span>
+                    <span id="hbm4-scrub-density-val" style="color: #a78bfa; font-weight: 700;">64 GB</span>
+                  </div>
+                  <input type="range" id="hbm4-scrub-density-slider" min="32" max="96" step="32" value="64" aria-label="HBM4 Stack Density in GB" data-aria-en="HBM4 Stack Density in GB" data-aria-zh="HBM4 堆疊容量 GB" aria-valuetext="64 GB" style="width: 100%; accent-color: #a78bfa; cursor: pointer;">
+                </div>
+              </div>
+
+              <!-- 4 KPI Cards Strip -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                    <span data-lang="zh">原始累積失效率</span><span data-lang="en">RAW ACCUM FIT</span>
+                  </div>
+                  <div id="hbm4-scrub-out-raw-fit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #f87171;">--</div>
+                </div>
+
+                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                    <span data-lang="zh">清洗後殘餘失效率</span><span data-lang="en">RESIDUAL FIT</span>
+                  </div>
+                  <div id="hbm4-scrub-out-res-fit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+                </div>
+
+                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                    <span data-lang="zh">單點度量 SPFM</span><span data-lang="en">SPFM METRIC</span>
+                  </div>
+                  <div id="hbm4-scrub-out-spfm" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+                </div>
+
+                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                    <span data-lang="zh">AntiFuse hPPR 消耗</span><span data-lang="en">hPPR USAGE</span>
+                  </div>
+                  <div id="hbm4-scrub-out-hppr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a78bfa;">--</div>
+                </div>
+              </div>
+
+              <!-- Canvas Visualization -->
+              <div style="background: #060d17; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                  <div style="display: inline-flex; gap: 6px;" role="group" aria-label="HBM4 Scrubbing Visualization Mode" data-aria-en="HBM4 Scrubbing Visualization Mode" data-aria-zh="HBM4 巡檢視覺化模式">
+                    <button id="hbm4-scrub-mode-interval" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                      <span data-lang="zh">巡檢週期 vs 殘餘 FIT (Interval vs FIT)</span><span data-lang="en">Scrub Interval vs FIT</span>
+                    </button>
+                    <button id="hbm4-scrub-mode-temp" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                      <span data-lang="zh">接面溫度熱加速曲線 (Temp Acceleration)</span><span data-lang="en">Junction Temp vs FIT</span>
+                    </button>
+                  </div>
+                  <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">ISO 26262 ASIL-D &amp; AEC-Q100 Grade 2 Analyzer</span>
+                </div>
+                <div style="width: 100%; height: 180px; position: relative;">
+                  <canvas id="hbm4-scrub-canvas" width="480" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Automotive ASIL-D HBM4 Scrubbing Simulation Canvas" data-aria-en="Automotive ASIL-D HBM4 Scrubbing Simulation Canvas" data-aria-zh="車規 ASIL-D HBM4 巡檢模擬畫布"></canvas>
+                </div>
+              </div>
+
+              <!-- Verdict & Rating Banner -->
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; border-radius: 0 4px 4px 0; padding: 10px 14px;">
+                <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
+                  <span id="hbm4-scrub-out-verdict">Loading Automotive ASIL-D HBM4 Scrubbing calculations...</span>
+                </div>
+                <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #0f172a; padding: 4px 10px; border-radius: 4px; border: 1px solid #334155; white-space: nowrap;">
+                  <span id="hbm4-scrub-out-rating" style="color: #10b981;">ASIL-D QUALIFIED</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <!-- LENS 03B: CRYOGENIC (4K) & SPACE RAD-HARD eNVM PHYSICAL SIMULATOR -->
           <section id="sec-cryo-radhard" class="lens-panel lab-box-panel" aria-labelledby="lab-cryo-title">
             <div class="panel-kicker"><span data-lang="en">LENS 03B · FLAGSHIP LAB 03</span><span data-lang="zh">視角 03B · 旗艦實驗室 03</span></div>
@@ -2279,6 +2409,7 @@
     }
   </script>
   <script type="module" src="automotive-asild-ecc-simulator.js?v=20261006"></script>
+  <script type="module" src="automotive-hbm4-scrubbing-simulator.js?v=20261006"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 </body>
 </html>
