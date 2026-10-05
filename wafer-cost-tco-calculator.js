@@ -530,7 +530,6 @@ export function initWaferCostTcoCalculator(containerId = "wafer-tco-calculator-r
   }
 
   function renderSkeleton() {
-    const isZh = getLang();
     container.innerHTML = `
       <div class="cost-tco-workbench bg-slate-900/60 border border-slate-700/60 rounded-xl p-5 md:p-6 shadow-2xl backdrop-blur-md">
         <div class="flex flex-col md:flex-row md:items-center justify-between pb-4 mb-5 border-b border-slate-700/60 gap-4">
@@ -538,16 +537,19 @@ export function initWaferCostTcoCalculator(containerId = "wafer-tco-calculator-r
             <div class="flex items-center gap-2 mb-1">
               <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
               <span class="text-xs font-mono uppercase tracking-wider text-amber-400">
-                ${isZh ? "第一性原理晶圓光罩附加與 TCO 經濟學模型" : "First-Principles Wafer Mask-Adder & TCO Economics Model"}
+                <span data-lang="zh">第一性原理晶圓光罩附加與 TCO 經濟學模型</span>
+                <span data-lang="en">First-Principles Wafer Mask-Adder &amp; TCO Economics Model</span>
               </span>
             </div>
             <h3 class="text-lg md:text-xl font-bold text-white tracking-tight">
-              ${isZh ? "晶圓光罩附加成本、Murphy 矽良率損失與百萬晶圓量產 TCO 經濟學試算器" : "eNVM Wafer Mask Adder, Murphy Yield Loss & Mass-Production TCO Economics Calculator"}
+              <span data-lang="zh">晶圓光罩附加成本、Murphy 矽良率損失與百萬晶圓量產 TCO 經濟學試算器</span>
+              <span data-lang="en">eNVM Wafer Mask Adder, Murphy Yield Loss &amp; Mass-Production TCO Economics Calculator</span>
             </h3>
           </div>
           <div class="flex items-center gap-2">
             <span class="px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-              ${isZh ? "300mm 晶圓量產標準" : "300mm Wafer Fab Standard"}
+              <span data-lang="zh">300mm 晶圓量產標準</span>
+              <span data-lang="en">300mm Wafer Fab Standard</span>
             </span>
           </div>
         </div>
@@ -557,34 +559,36 @@ export function initWaferCostTcoCalculator(containerId = "wafer-tco-calculator-r
           <div class="lg:col-span-4 space-y-4">
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1" for="tco-process-select">
-                ${isZh ? "晶圓代工製程節點基準" : "Foundry Process Node Baseline"}
+                <span data-lang="zh">晶圓代工製程節點基準</span>
+                <span data-lang="en">Foundry Process Node Baseline</span>
               </label>
-              <select id="tco-process-select" class="w-full bg-slate-800 text-slate-100 text-sm rounded-lg border border-slate-700 px-3 py-2 focus:ring-2 focus:ring-amber-500 outline-none">
-                <option value="55nm_mature">${isZh ? "55nm/40nm 成熟製程 ($1,850/wafer, 32 masks)" : "55nm/40nm Mature Node ($1,850/wafer, 32 masks)"}</option>
-                <option value="28nm_hpc" selected>${isZh ? "28nm HPC+ 平面邏輯 ($3,200/wafer, 42 masks)" : "28nm HPC+ Planar Logic ($3,200/wafer, 42 masks)"}</option>
-                <option value="16nm_finfet">${isZh ? "16nm/12nm FinFET 邏輯 ($4,800/wafer, 55 masks)" : "16nm/12nm FinFET Logic ($4,800/wafer, 55 masks)"}</option>
-                <option value="5nm_advanced">${isZh ? "5nm/4nm EUV 先進 FinFET ($16,500/wafer, 78 masks)" : "5nm/4nm EUV Advanced FinFET ($16,500/wafer, 78 masks)"}</option>
+              <select id="tco-process-select" aria-label="Foundry Process Node Baseline" data-aria-en="Foundry Process Node Baseline" data-aria-zh="晶圓代工製程節點基準" class="w-full bg-slate-800 text-slate-100 text-sm rounded-lg border border-slate-700 px-3 py-2 focus:ring-2 focus:ring-amber-500 outline-none">
+                <option value="55nm_mature">55nm/40nm Mature Node ($1,850/wafer, 32 masks)</option>
+                <option value="28nm_hpc" selected>28nm HPC+ Planar Logic ($3,200/wafer, 42 masks)</option>
+                <option value="16nm_finfet">16nm/12nm FinFET Logic ($4,800/wafer, 55 masks)</option>
+                <option value="5nm_advanced">5nm/4nm EUV Advanced FinFET ($16,500/wafer, 78 masks)</option>
               </select>
             </div>
 
             <div>
               <label class="block text-xs font-semibold text-slate-300 mb-1" for="tco-envm-select">
-                ${isZh ? "eNVM 記憶體技術架構" : "eNVM Memory Architecture"}
+                <span data-lang="zh">eNVM 記憶體技術架構</span>
+                <span data-lang="en">eNVM Memory Architecture</span>
               </label>
-              <select id="tco-envm-select" class="w-full bg-slate-800 text-slate-100 text-sm rounded-lg border border-slate-700 px-3 py-2 focus:ring-2 focus:ring-amber-500 outline-none">
-                <option value="antifuse_logic" selected>${isZh ? "純邏輯 AntiFuse (0 光罩 / 零良率懲罰)" : "Pure Logic AntiFuse (0-Mask / 0-Penalty)"}</option>
-                <option value="beol_reram">${isZh ? "BEOL 阻變式 ReRAM (2 光罩 / 微絲 Forming 良率)" : "BEOL ReRAM (2-Mask / Oxide Filament)"}</option>
-                <option value="beol_emram">${isZh ? "BEOL 嵌入式 STT-MRAM (4 光罩 / MTJ 堆疊)" : "BEOL STT-MRAM (4-Mask / MTJ Stack)"}</option>
-                <option value="eflash_split_gate">${isZh ? "Split-Gate eFlash (10 光罩 / 高溫退火良率折損)" : "Split-Gate eFlash (10-Mask / Thermal Anneal)"}</option>
+              <select id="tco-envm-select" aria-label="eNVM Memory Architecture" data-aria-en="eNVM Memory Architecture" data-aria-zh="eNVM 記憶體技術架構" class="w-full bg-slate-800 text-slate-100 text-sm rounded-lg border border-slate-700 px-3 py-2 focus:ring-2 focus:ring-amber-500 outline-none">
+                <option value="antifuse_logic" selected>Pure Logic AntiFuse (0-Mask / 0-Penalty)</option>
+                <option value="beol_reram">BEOL ReRAM (2-Mask / Oxide Filament)</option>
+                <option value="beol_emram">BEOL STT-MRAM (4-Mask / MTJ Stack)</option>
+                <option value="eflash_split_gate">Split-Gate eFlash (10-Mask / Thermal Anneal)</option>
               </select>
             </div>
 
             <div class="p-3.5 bg-slate-800/70 border border-slate-700/50 rounded-lg">
               <div class="flex justify-between text-xs mb-1.5">
-                <span class="text-slate-300 font-semibold">${isZh ? "單晶片總面積 (Die Area)" : "Die Area (mm²)"}</span>
+                <span class="text-slate-300 font-semibold"><span data-lang="zh">單晶片總面積 (Die Area)</span><span data-lang="en">Die Area (mm²)</span></span>
                 <span id="tco-area-val" class="font-mono text-amber-400 font-bold">25.0 mm²</span>
               </div>
-              <input id="tco-area-slider" type="range" min="2" max="60" step="0.5" value="25.0" class="w-full accent-amber-500 cursor-pointer">
+              <input id="tco-area-slider" type="range" min="2" max="60" step="0.5" value="25.0" aria-label="Die Area in Square Millimeters" data-aria-en="Die Area in Square Millimeters" data-aria-zh="單晶片總面積 平方公釐" class="w-full accent-amber-500 cursor-pointer">
               <div class="flex justify-between text-[10px] text-slate-500 mt-1">
                 <span>2 mm² (IoT MCU)</span>
                 <span>25 mm² (SoC)</span>
@@ -594,10 +598,10 @@ export function initWaferCostTcoCalculator(containerId = "wafer-tco-calculator-r
 
             <div class="p-3.5 bg-slate-800/70 border border-slate-700/50 rounded-lg">
               <div class="flex justify-between text-xs mb-1.5">
-                <span class="text-slate-300 font-semibold">${isZh ? "年度晶圓投片總量 (Wafer Volume)" : "Annual Wafer Volume"}</span>
+                <span class="text-slate-300 font-semibold"><span data-lang="zh">年度晶圓投片總量</span><span data-lang="en">Annual Wafer Volume</span></span>
                 <span id="tco-volume-val" class="font-mono text-emerald-400 font-bold">30,000 Wafers</span>
               </div>
-              <input id="tco-volume-slider" type="range" min="1000" max="80000" step="1000" value="30000" class="w-full accent-emerald-500 cursor-pointer">
+              <input id="tco-volume-slider" type="range" min="1000" max="80000" step="1000" value="30000" aria-label="Annual Wafer Volume" data-aria-en="Annual Wafer Volume" data-aria-zh="年度晶圓投片總量" class="w-full accent-emerald-500 cursor-pointer">
               <div class="flex justify-between text-[10px] text-slate-500 mt-1">
                 <span>1,000 (Niche)</span>
                 <span>30,000 (High Volume)</span>
@@ -610,15 +614,18 @@ export function initWaferCostTcoCalculator(containerId = "wafer-tco-calculator-r
           <div class="lg:col-span-8 flex flex-col justify-between">
             <div class="flex items-center justify-between mb-2">
               <div class="flex items-center gap-2">
-                <button id="tco-chart-mode-vol" class="px-3 py-1 rounded text-xs font-semibold bg-amber-500 text-slate-900 border border-amber-400">
-                  ${isZh ? "年產量 vs 累計 TCO 曲線" : "Volume vs TCO Curve"}
+                <button id="tco-chart-mode-vol" type="button" class="px-3 py-1 rounded text-xs font-semibold bg-amber-500 text-slate-900 border border-amber-400">
+                  <span data-lang="zh">年產量 vs 累計 TCO 曲線</span>
+                  <span data-lang="en">Volume vs TCO Curve</span>
                 </button>
-                <button id="tco-chart-mode-yield" class="px-3 py-1 rounded text-xs font-semibold bg-slate-800 text-slate-400 border border-slate-700 hover:text-slate-200">
-                  ${isZh ? "晶粒面積 vs 良品成本曲線" : "Die Area vs Good Die Cost"}
+                <button id="tco-chart-mode-yield" type="button" class="px-3 py-1 rounded text-xs font-semibold bg-slate-800 text-slate-400 border border-slate-700 hover:text-slate-200">
+                  <span data-lang="zh">晶粒面積 vs 良品成本曲線</span>
+                  <span data-lang="en">Die Area vs Good Die Cost</span>
                 </button>
               </div>
               <span id="tco-badge-savings" class="text-xs font-mono px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                0-Mask Reference
+                <span data-lang="zh">0 光罩純邏輯基準</span>
+                <span data-lang="en">0-Mask Reference</span>
               </span>
             </div>
 
@@ -773,7 +780,9 @@ export function initWaferCostTcoCalculator(containerId = "wafer-tco-calculator-r
     }
   }
 
-  renderSkeleton();
+  if (container.children.length === 0) {
+    renderSkeleton();
+  }
   update();
 
   // Event Listeners

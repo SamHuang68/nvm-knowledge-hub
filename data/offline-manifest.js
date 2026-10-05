@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "5e3975648425fe43c59f",
+  "version": "0ce23bf7980a16fd7580",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -249,16 +249,16 @@ self.NVMOfflineManifest = {
     "styles.css": "4021ef9a95a74de7bebd4ed5ba6b6c1046cf1f011ef51d83c584e4b10a3c2cd5",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "tddb-weibull-simulator.js": "274fd88c6926196adb869f6f0ee17cc721f4bebb6e41b2ec2ca064a168b7490a",
-    "technology-comparison.html": "1d9106cfb3e3091647e14527db6495f61f82ad58e58f1b6cf6cf6a82423f3429",
+    "technology-comparison.html": "9897196175c18ba77fd9568a545a3ad9f490932a9733da5cd5a456d93427d3b9",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "80433c36dca9ba4fb9940765a7264801e347af32d22940f2ae79d0a98a49735a",
     "tunneling-breakdown-simulator.js": "65dec810dbf153e78e6e0ec417c1a9079165d46e6a7ffac7a9a37a637d6089b3",
-    "wafer-cost-tco-calculator.js": "d13974ab7befde606eb78757407833f18b32eadf8dfe560497ac415f777d67db",
+    "wafer-cost-tco-calculator.js": "9fced509799ecde01e819a1042a0db7115061da16c6a244c06fb981b6b8bef49",
     "whitepaper/assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8",
     "whitepaper/assets/whitepaper.js": "dd319f9c68705442700bc090352b677e73fc58eb268baae7eb6956000d46ade4",
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 12157134
+  "totalBytes": 12170556
 };
