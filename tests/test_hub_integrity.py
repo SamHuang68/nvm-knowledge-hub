@@ -1843,6 +1843,28 @@ def run_tests() -> None:
     test("specialty-nvm.html 包含四大 KPI 輸出欄位 (Density, Capacitance, Scrub Depth, Eye Opening) 與判定橫幅",
          'id="hb-out-density"' in spec_hb_html and 'id="hb-out-cap"' in spec_hb_html and 'id="hb-out-depth"' in spec_hb_html and 'id="hb-out-eye"' in spec_hb_html and 'id="hb-out-status"' in spec_hb_html and 'id="hb-out-verdict"' in spec_hb_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 78: 先進封裝 (TSMC CoWoS, SoIC, Samsung I-Cube, Intel Foveros) 邏輯 Base Die PDK 互連矩陣、微凸塊熱阻與多晶粒晶圓測試模擬器
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 78: 先進封裝 (TSMC CoWoS, SoIC, Samsung I-Cube, Intel Foveros) 邏輯 Base Die PDK 互連矩陣、微凸塊熱阻與多晶粒晶圓測試模擬器 ═══")
+    pkg_js = (BASE / "advanced-packaging-pdks-simulator.js").read_text(encoding="utf-8")
+    test("advanced-packaging-pdks-simulator.js 存在且導出 calculatePackagingPdkMetrics、drawPackagingCanvas 與 initPackagingPdkSimulator",
+         "export function calculatePackagingPdkMetrics" in pkg_js and "export function drawPackagingCanvas" in pkg_js and "export function initPackagingPdkSimulator" in pkg_js)
+    test("advanced-packaging-pdks-simulator.js 包含五大封裝預設 (CoWoS-S, CoWoS-L, SoIC-X, I-Cube, Foveros)",
+         "PACKAGING_PRESETS" in pkg_js and "tsmc_cowos_s_hbm" in pkg_js and "tsmc_cowos_l_chiplet" in pkg_js and "tsmc_soic_x_3d" in pkg_js and "samsung_icube_x_2_5d" in pkg_js and "intel_foveros_direct_3d" in pkg_js)
+    test("advanced-packaging-pdks-simulator.js 第一性原理 D2D 傳輸延遲、單線頻寬容量、垂直熱阻接面溫升與 Base Die 0-Mask eNVM 預算模型",
+         "tauPicoSec" in pkg_js and "maxChannelBwGbps" in pkg_js and "junctionTempRiseC" in pkg_js and "effectiveThetaKW" in pkg_js and "totalEnvmBudgetKb" in pkg_js)
+    test("advanced-packaging-pdks-simulator.js 包含雙模態視覺化 (interconnect_latency_bandwidth 與 thermal_resistance_gradient)",
+         "interconnect_latency_bandwidth" in pkg_js and "thermal_resistance_gradient" in pkg_js)
+
+    tech_html = (BASE / "technology-comparison.html").read_text(encoding="utf-8")
+    test("technology-comparison.html 整合 advanced-packaging-simulator-root 工作台與模組腳本引用",
+         'id="advanced-packaging-simulator-root"' in tech_html and 'src="advanced-packaging-pdks-simulator.js' in tech_html)
+    test("technology-comparison.html 包含預設選擇器、走線長度/功耗/速率三軸滑桿與雙模態 Canvas",
+         'id="pkg-preset-select"' in tech_html and 'id="pkg-trace-slider"' in tech_html and 'id="pkg-power-slider"' in tech_html and 'id="pkg-rate-slider"' in tech_html and 'id="pkg-canvas"' in tech_html)
+    test("technology-comparison.html 包含四大 KPI 輸出欄位 (Latency, Bandwidth, Junction Temp, eNVM Budget) 與判定橫幅",
+         'id="pkg-out-latency"' in tech_html and 'id="pkg-out-bw"' in tech_html and 'id="pkg-out-temp"' in tech_html and 'id="pkg-out-envm"' in tech_html and 'id="pkg-out-rating"' in tech_html and 'id="pkg-out-verdict"' in tech_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
