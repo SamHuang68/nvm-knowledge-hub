@@ -1143,6 +1143,124 @@
                 </button>
               </div>
             </div>
+
+            <!-- INTERACTIVE VECTOR PATCH CAM ROM REPLACEMENT WORKBENCH -->
+            <div id="mcu-vector-patch-simulator-root" class="interactive-workbench" style="margin-top: 20px; padding: 20px; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+                <div>
+                  <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #059669; letter-spacing: 0.08em; text-transform: uppercase;">
+                    <span data-lang="zh">微架構工作台 · 向量補丁 CAM</span>
+                    <span data-lang="en">MICROARCHITECTURE WORKBENCH · VECTOR PATCH CAM</span>
+                  </span>
+                  <h3 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+                    <span data-lang="zh">向量補丁 CAM 查找與微控制器 ROM 熱修復延遲能耗試算器</span>
+                    <span data-lang="en">Vector Patch CAM ROM Replacement &amp; Hot-Patching Latency / Energy Workbench</span>
+                  </h3>
+                </div>
+                <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(5, 150, 105, 0.08); color: #059669; padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(5, 150, 105, 0.2);">
+                  <span data-lang="zh">Arm FPB / RISC-V Zicbo 規範</span>
+                  <span data-lang="en">Arm FPB / RISC-V Zicbo Spec</span>
+                </span>
+              </div>
+
+              <!-- Controls Grid -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px; margin-bottom: 1rem;">
+                <div>
+                  <label for="patch-workload-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span data-lang="zh">邊緣工作負載與情境：</span><span data-lang="en">EDGE WORKLOAD &amp; PRESET:</span>
+                  </label>
+                  <select id="patch-workload-select" aria-label="Edge Workload and Preset" data-aria-en="Edge Workload and Preset" data-aria-zh="邊緣工作負載與情境" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;"></select>
+                </div>
+                <div>
+                  <label for="patch-backend-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span data-lang="zh">補丁儲存後端技術：</span><span data-lang="en">PATCH STORAGE BACKEND:</span>
+                  </label>
+                  <select id="patch-backend-select" aria-label="Patch Storage Backend" data-aria-en="Patch Storage Backend" data-aria-zh="補丁儲存後端技術" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;"></select>
+                </div>
+                <div>
+                  <label for="patch-cam-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span data-lang="zh">CAM 硬體比對槽位數：</span><span data-lang="en">CAM ENTRY SLOTS:</span>
+                  </label>
+                  <select id="patch-cam-select" aria-label="CAM Entry Slots" data-aria-en="CAM Entry Slots" data-aria-zh="CAM 硬體比對槽位數" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                    <option value="8">8 Entries (Ultra-Low Area)</option>
+                    <option value="16" selected>16 Entries (Standard MCU)</option>
+                    <option value="32">32 Entries (Extended Gateway)</option>
+                    <option value="64">64 Entries (Automotive Grade)</option>
+                  </select>
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span><span data-lang="zh">CPU 時脈頻率：</span><span data-lang="en">CLOCK FREQ:</span></span>
+                    <span id="patch-clock-val" style="color: #059669; font-weight: 700;">48 MHz</span>
+                  </div>
+                  <input type="range" id="patch-clock-slider" min="4" max="160" step="4" value="48" aria-label="CPU Clock Frequency" data-aria-en="CPU Clock Frequency" data-aria-zh="CPU 時脈頻率" aria-valuetext="48 MHz" style="width: 100%; accent-color: #059669; cursor: pointer;">
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span><span data-lang="zh">核心供電電壓 VDD：</span><span data-lang="en">CORE VDD:</span></span>
+                    <span id="patch-volt-val" style="color: #059669; font-weight: 700;">1.2 V</span>
+                  </div>
+                  <input type="range" id="patch-volt-slider" min="0.5" max="3.3" step="0.1" value="1.2" aria-label="Core Supply Voltage Vdd" data-aria-en="Core Supply Voltage Vdd" data-aria-zh="核心供電電壓 VDD" aria-valuetext="1.2 V" style="width: 100%; accent-color: #059669; cursor: pointer;">
+                </div>
+              </div>
+
+              <!-- 5 KPI Cards -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 10px; margin-bottom: 1rem;">
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                    <span data-lang="zh">CAM 平行比對動態功率</span><span data-lang="en">CAM SNOOP POWER</span>
+                  </div>
+                  <div id="patch-out-campower" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                </div>
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                    <span data-lang="zh">重定向攔截延遲</span><span data-lang="en">INTERCEPT LATENCY</span>
+                  </div>
+                  <div id="patch-out-latency" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+                </div>
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                    <span data-lang="zh">修補指令動態能耗</span><span data-lang="en">PATCH INSTR ENERGY</span>
+                  </div>
+                  <div id="patch-out-energy" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
+                </div>
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                    <span data-lang="zh">晶圓成本節省 (vs eFlash)</span><span data-lang="en">WAFER COST SAVING</span>
+                  </div>
+                  <div id="patch-out-savings" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                </div>
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                    <span data-lang="zh">剩餘安全修補年限裕度</span><span data-lang="en">SECURITY LIFESPAN</span>
+                  </div>
+                  <div id="patch-out-lifespan" style="font: 700 16px 'IBM Plex Mono', monospace; color: #785021;">—</div>
+                </div>
+              </div>
+
+              <!-- Canvas and View Mode Toggle -->
+              <div style="background: #040810; border: 1px solid #1e293b; border-radius: 6px; padding: 10px; margin-bottom: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <div style="display: flex; gap: 6px;">
+                    <button id="patch-mode-map" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #10b981; background: #059669; color: #ffffff; cursor: pointer;">
+                      <span data-lang="zh">位址重定向地圖 (Address Map)</span><span data-lang="en">Address Map Flow</span>
+                    </button>
+                    <button id="patch-mode-pipe" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                      <span data-lang="zh">CPU 管線週期延遲 (Pipeline Cycles)</span><span data-lang="en">Pipeline Clock Cycles</span>
+                    </button>
+                  </div>
+                  <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">
+                    <span data-lang="zh">硬體嗅探與重定向分析儀</span><span data-lang="en">Hardware Snoop &amp; Redirect Analyzer</span>
+                  </span>
+                </div>
+                <canvas id="patch-canvas" width="420" height="180" style="width: 100%; height: 180px; display: block;" role="img" aria-label="Vector Patch CAM Simulation Canvas" data-aria-en="Vector Patch CAM Simulation Canvas" data-aria-zh="向量修補 CAM 模擬畫布"></canvas>
+              </div>
+
+              <!-- Verdict Banner -->
+              <div id="patch-out-verdict" style="background: rgba(5, 150, 105, 0.05); border: 1px solid rgba(5, 150, 105, 0.25); border-radius: 6px; padding: 10px 14px; font-size: 11.5px; line-height: 1.5; color: #0f172a;">
+                Loading Vector Patch CAM calculations...
+              </div>
+            </div>
           </section>
 
           <!-- LENS 06: 四方技術全景對比 (id="compare" 滿足測試) -->
@@ -1714,5 +1832,6 @@
   </script>
 <script src="iot-model-boundaries.js"></script>
 <script type="module" src="iot-energy-tradeoff-calculator.js?v=20261005"></script>
+<script type="module" src="mcu-vector-patch-simulator.js?v=20261005"></script>
 </body>
 </html>
