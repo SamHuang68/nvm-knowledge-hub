@@ -1344,6 +1344,160 @@
               <p><span data-lang="zh">在台積電或三星代工廠端，邏輯探針卡於 Wafer Sort 階段全面測試 Base Die 邏輯與 2048-bit PHY 完整性；完成多層 Core DRAM 堆疊與封裝後，內嵌於邏輯 Base Die 的 AntiFuse OTP 則透過 JEDEC hPPR 標準指令永久燒錄壞位元與 TSV 重映射地址，構成由晶圓測試至封裝後現場運行的全生命週期良率閉環。</span><span data-lang="en">At TSMC or Samsung foundries, logic probe cards verify base die logic and 2048-bit PHY integrity during wafer sort. Following multi-tier DRAM stacking and packaging, logic-compatible AntiFuse OTP permanently burns defective row and TSV remap addresses via JEDEC hPPR instructions, delivering a complete wafer-to-field yield lifecycle.</span></p>
             </div>
           </div>
+
+          <!-- HBM4 邏輯 Base Die 複合堆疊良率、eNVM 封裝後修復 (hPPR) 與高針數探針卡模擬器 -->
+          <div class="decision-matrix-card hbm4-probe-container" id="hbm4-repair-probe-simulator-root" style="margin-top: 24px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(6, 182, 212, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+            <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+              <div>
+                <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #06b6d4; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+                  <span data-lang="zh">HBM4 先進封裝 · 複合良率挽回與邏輯探針卡經濟學分析</span>
+                  <span data-lang="en">HBM4 ADVANCED PACKAGING · COMPOUND YIELD RECOVERY &amp; LOGIC PROBE CARD ECONOMICS</span>
+                </div>
+                <h4 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
+                  <span data-lang="zh">HBM4 邏輯 Base Die 複合堆疊良率、eNVM 封裝後修復 (hPPR) 與高針數探針卡模擬器</span>
+                  <span data-lang="en">HBM4 Logic Base Die Stacked Yield, eNVM Post-Package Repair (hPPR) &amp; High-Pin Probe Card Simulator</span>
+                </h4>
+              </div>
+              <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(6, 182, 212, 0.12); color: #06b6d4; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(6, 182, 212, 0.3);">
+                <span data-lang="zh">TSMC N12/N3 · 三星 4nm · 旺矽/精測/Technoprobe/FORM 模型</span>
+                <span data-lang="en">TSMC N12/N3 · Samsung 4nm · MPI/CHPT/Technoprobe/FORM Models</span>
+              </span>
+            </div>
+
+            <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 18px;">
+              <span data-lang="zh">HBM4 轉向邏輯 Base Die（三星 4nm、SK 海力士委託台積電 12nm/3nm）徹底改變了 3D DRAM 堆疊的良率修復方程式與測試介面供應鏈。透過邏輯相容 0-mask AntiFuse OTP 進行 2048-bit 超寬 PHY 偏斜微調、TSV 冗餘切換與 Core DRAM 壞列重映射，可抵禦 260°C 封裝熱預算零回彈，挽回 12-Hi / 16-Hi 嚴峻的幾何複合良率懸崖。同時，晶圓測試採購權移向晶圓代工與先進封裝生態，推動探針卡需求從傳統記憶體廠（Micronics Japan）大步轉向高針數、微間距垂直與 MEMS 邏輯探針卡廠（旺矽 6223、精測 6510、Technoprobe、FormFactor）。</span>
+              <span data-lang="en">HBM4's transition to logic base dies (Samsung 4nm, SK Hynix via TSMC 12nm/3nm) revolutionizes both 3D stacked DRAM yield repair physics and the wafer-sort test supply chain. Leveraging logic-compatible 0-mask AntiFuse OTP for 2048-bit PHY skew trimming, TSV redundancy, and core row remapping withstands 260°C packaging reflow without metal relaxation, rescuing severe compound yield drop-offs in 12-Hi/16-Hi stacks. Concurrently, wafer-sort procurement shifts toward foundries, migrating probe card demand from legacy memory vendors (Micronics Japan) to ultra-high-pin MEMS logic probe card leaders (MPI 6223, CHPT 6510, Technoprobe, FormFactor).</span>
+            </p>
+
+            <!-- Interactive Controls Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 18px; background: rgba(30, 41, 59, 0.6); padding: 14px; border-radius: 6px; border: 1px solid rgba(51, 65, 85, 0.5);">
+              <div>
+                <label for="hbm4-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 5px;">
+                  <span data-lang="zh">系統架構預設 (System Preset):</span><span data-lang="en">SYSTEM PRESET:</span>
+                </label>
+                <select id="hbm4-preset-select" aria-label="HBM4 System Preset" data-aria-en="HBM4 System Preset" data-aria-zh="HBM4 系統預設" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                  <option value="sk_hynix_tsmc_12nm_16hi" selected>SK Hynix 16-Hi (TSMC 12nm, 2048-bit PHY)</option>
+                  <option value="samsung_foundry_4nm_12hi">Samsung 12-Hi (In-house SF4A 4nm, 2048-bit)</option>
+                  <option value="sk_hynix_tsmc_3nm_nextgen">Next-Gen HBM4E 16-Hi (TSMC 3nm N3P, 2048-bit)</option>
+                  <option value="micron_advanced_eval_8hi">Micron 8-Hi Logic Evaluation (12nm Advanced Logic)</option>
+                  <option value="hbm3e_legacy_dram_base">Legacy HBM3E 8-Hi (DRAM Process Base Die Baseline)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="hbm4-probe-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 5px;">
+                  <span data-lang="zh">探針卡架構與廠商 (Probe Vendor):</span><span data-lang="en">PROBE VENDOR &amp; ARCH:</span>
+                </label>
+                <select id="hbm4-probe-select" aria-label="Probe Card Vendor" data-aria-en="Probe Card Vendor" data-aria-zh="探針卡供應商" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                  <option value="mpi_taiwan" selected>MPI Corporation (6223.TW) · Advanced VPC / MEMS</option>
+                  <option value="chpt_taiwan">CHPT (6510.TW) · TSMC Ecosystem MEMS Cards</option>
+                  <option value="technoprobe">Technoprobe (Italy) · Global Tier-1 MEMS Cards</option>
+                  <option value="formfactor">FormFactor (FORM.US) · Advanced Mixed-Signal MEMS</option>
+                  <option value="micronics_japan">Micronics Japan (6871.T) · Traditional Memory Cards</option>
+                </select>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                  <span><span data-lang="zh">DRAM Core 良率 (Y_core):</span><span data-lang="en">CORE DIE YIELD:</span></span>
+                  <span id="hbm4-core-yield-val" style="color: #06b6d4; font-weight: 700;">95.5%</span>
+                </div>
+                <input type="range" id="hbm4-core-yield-slider" min="88.0" max="99.0" step="0.5" value="95.5" aria-label="DRAM Core Die Yield" data-aria-en="DRAM Core Die Yield" data-aria-zh="DRAM Core 晶粒良率" aria-valuetext="95.5%" style="width: 100%; accent-color: #06b6d4; cursor: pointer;">
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                  <span><span data-lang="zh">堆疊層數 (Die Stack):</span><span data-lang="en">STACK LAYERS:</span></span>
+                  <span id="hbm4-layer-val" style="color: #38bdf8; font-weight: 700;">16-Hi</span>
+                </div>
+                <input type="range" id="hbm4-layer-slider" min="4" max="16" step="4" value="16" aria-label="Stack Layer Count" data-aria-en="Stack Layer Count" data-aria-zh="堆疊層數" aria-valuetext="16 layers" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                  <span><span data-lang="zh">探針卡測試針數 (Pin Count):</span><span data-lang="en">PIN COUNT:</span></span>
+                  <span id="hbm4-pin-val" style="color: #818cf8; font-weight: 700;">8,192 pins</span>
+                </div>
+                <input type="range" id="hbm4-pin-slider" min="2048" max="12800" step="512" value="8192" aria-label="Probe Card Pin Count" data-aria-en="Probe Card Pin Count" data-aria-zh="探針卡測試針數" aria-valuetext="8192 pins" style="width: 100%; accent-color: #818cf8; cursor: pointer;">
+              </div>
+            </div>
+
+            <!-- Telemetry Metrics Strip -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 14px;">
+              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #ef4444; margin-bottom: 2px;">
+                  <span data-lang="zh">未修復原始良率</span><span data-lang="en">RAW STACK YIELD</span>
+                </div>
+                <div id="hbm4-out-raw-yield" style="font: 700 16px 'IBM Plex Mono', monospace; color: #f87171;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">多層指數相乘良率懸崖</span><span data-lang="en">Compound drop-off</span>
+                </div>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(6, 182, 212, 0.4); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #06b6d4; margin-bottom: 2px;">
+                  <span data-lang="zh">AntiFuse 修復後良率</span><span data-lang="en">REPAIRED YIELD</span>
+                </div>
+                <div id="hbm4-out-rep-yield" style="font: 700 16px 'IBM Plex Mono', monospace; color: #22d3ee;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">0-Mask 260°C 零回彈</span><span data-lang="en">Zero grow-back hPPR</span>
+                </div>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #10b981; margin-bottom: 2px;">
+                  <span data-lang="zh">單顆模組挽回價值</span><span data-lang="en">VALUE RECOVERED</span>
+                </div>
+                <div id="hbm4-out-value-recovery" style="font: 700 16px 'IBM Plex Mono', monospace; color: #34d399;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">每顆 HBM 挽回毛利</span><span data-lang="en">Margin saved per unit</span>
+                </div>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #f59e0b; margin-bottom: 2px;">
+                  <span data-lang="zh">代工探針卡 HBM 曝險</span><span data-lang="en">FOUNDRY PROBE EXPOSURE</span>
+                </div>
+                <div id="hbm4-out-exposure" style="font: 700 16px 'IBM Plex Mono', monospace; color: #fbbf24;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">法說會資本支出敏感度</span><span data-lang="en">Capex sensitivity</span>
+                </div>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #818cf8; margin-bottom: 2px;">
+                  <span data-lang="zh">架構評級</span><span data-lang="en">RATING</span>
+                </div>
+                <div id="hbm4-out-rating" style="font: 700 14px 'IBM Plex Mono', monospace; color: #a5b4fc;">OPTIMAL</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">第一性原理綜合評估</span><span data-lang="en">First-principles audit</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visualization Canvas & Mode Buttons -->
+            <div style="background: #020617; border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Visual Display Mode" data-aria-en="Visual Display Mode" data-aria-zh="圖表顯示模式">
+                  <button id="hbm4-mode-yield" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                    <span data-lang="zh">3D 堆疊良率懸崖與 AntiFuse 挽回曲線</span><span data-lang="en">Stacked Yield Cliff &amp; Recovery Curve</span>
+                  </button>
+                  <button id="hbm4-mode-probe" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                    <span data-lang="zh">晶圓代工邏輯探針卡採購份額與營收曝險</span><span data-lang="en">Foundry Probe Card Shift &amp; Exposure</span>
+                  </button>
+                </div>
+                <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">High-DPI HBM4 Yield &amp; Probe Engine</span>
+              </div>
+              <div style="width: 100%; height: 200px; position: relative;">
+                <canvas id="hbm4-probe-canvas" width="420" height="200" style="width: 100%; height: 100%; display: block;" role="img" aria-label="HBM4 Base Die Repair and Probe Card Simulation Canvas" data-aria-en="HBM4 Base Die Repair and Probe Card Simulation Canvas" data-aria-zh="HBM4 Base Die 修復與探針卡模擬畫布"></canvas>
+              </div>
+            </div>
+
+            <!-- Architectural Insight Callout -->
+            <div style="background: rgba(6, 182, 212, 0.08); border-left: 3px solid #06b6d4; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #e2e8f0;">
+              <span id="hbm4-out-verdict">Loading HBM4 base die repair calculations...</span>
+            </div>
+          </div>
         </article>
       </section>
 
@@ -2657,5 +2811,6 @@
   <script type="module" src="cim-nn-accuracy-degradation-simulator.js?v=20261005"></script>
   <script type="module" src="nanosheet-bspdn-nvm-simulator.js?v=20261005"></script>
   <script type="module" src="cpo-siph-nvm-simulator.js?v=20261006"></script>
+  <script type="module" src="hbm4-base-die-repair-probe-simulator.js?v=20261006"></script>
 </body>
 </html>

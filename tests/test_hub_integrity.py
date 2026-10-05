@@ -1799,6 +1799,28 @@ def run_tests() -> None:
     test("memory-evidence.html Evidence V11 納入 HBM4 邏輯 Base Die、0-mask AntiFuse 修復與邏輯探針卡採購轉移",
          "HBM4 Logic Base Die" in ev_html and "旺矽 6223" in ev_html and "Technoprobe" in ev_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 76: HBM4 邏輯 Base Die 複合堆疊良率、eNVM 封裝後修復 (hPPR) 與高針數探針卡測試經濟學模擬器
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 76: HBM4 邏輯 Base Die 複合堆疊良率、eNVM 封裝後修復 (hPPR) 與高針數探針卡測試經濟學模擬器 ═══")
+    hbm4_probe_js = (BASE / "hbm4-base-die-repair-probe-simulator.js").read_text(encoding="utf-8")
+    test("hbm4-base-die-repair-probe-simulator.js 存在且導出 calculateHbm4ProbeMetrics、drawHbm4ProbeCanvas 與 initHbm4ProbeSimulator",
+         "export function calculateHbm4ProbeMetrics" in hbm4_probe_js and "export function drawHbm4ProbeCanvas" in hbm4_probe_js and "export function initHbm4ProbeSimulator" in hbm4_probe_js)
+    test("hbm4-base-die-repair-probe-simulator.js 包含五大系統架構預設與五大探針卡架構",
+         "HBM4_SYSTEM_PRESETS" in hbm4_probe_js and "sk_hynix_tsmc_12nm_16hi" in hbm4_probe_js and "samsung_foundry_4nm_12hi" in hbm4_probe_js and "sk_hynix_tsmc_3nm_nextgen" in hbm4_probe_js and "PROBE_CARD_ARCHITECTURES" in hbm4_probe_js and "mpi_taiwan" in hbm4_probe_js and "chpt_taiwan" in hbm4_probe_js and "technoprobe" in hbm4_probe_js and "formfactor" in hbm4_probe_js and "micronics_japan" in hbm4_probe_js)
+    test("hbm4-base-die-repair-probe-simulator.js 第一性原理 3D 複合堆疊良率、AntiFuse 0-mask 260°C 零回彈修復挽回與探針卡針數成本模型",
+         "rawStackYield" in hbm4_probe_js and "repairedStackYield" in hbm4_probe_js and "yieldDeltaPercent" in hbm4_probe_js and "valueRecoveryPerHbm" in hbm4_probe_js and "probeCardAsp" in hbm4_probe_js and "hbmExposureIndex" in hbm4_probe_js)
+    test("hbm4-base-die-repair-probe-simulator.js 包含雙模態視覺化 (compound_yield_curve 與 probe_card_capex_economics)",
+         "compound_yield_curve" in hbm4_probe_js and "probe_card_capex_economics" in hbm4_probe_js)
+
+    ai_html = (BASE / "ai-nvm-opportunities.html").read_text(encoding="utf-8")
+    test("ai-nvm-opportunities.html 整合 hbm4-repair-probe-simulator-root 工作台與模組腳本引用",
+         'id="hbm4-repair-probe-simulator-root"' in ai_html and 'src="hbm4-base-die-repair-probe-simulator.js' in ai_html)
+    test("ai-nvm-opportunities.html 包含預設選擇器、探針卡選擇器、良率/層數/針數三軸滑桿與雙模態 Canvas",
+         'id="hbm4-preset-select"' in ai_html and 'id="hbm4-probe-select"' in ai_html and 'id="hbm4-core-yield-slider"' in ai_html and 'id="hbm4-layer-slider"' in ai_html and 'id="hbm4-pin-slider"' in ai_html and 'id="hbm4-probe-canvas"' in ai_html)
+    test("ai-nvm-opportunities.html 包含四大 KPI 輸出欄位 (Raw Yield, Repaired Yield, Value Recovery, Probe Exposure) 與判定橫幅",
+         'id="hbm4-out-raw-yield"' in ai_html and 'id="hbm4-out-rep-yield"' in ai_html and 'id="hbm4-out-value-recovery"' in ai_html and 'id="hbm4-out-exposure"' in ai_html and 'id="hbm4-out-rating"' in ai_html and 'id="hbm4-out-verdict"' in ai_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
