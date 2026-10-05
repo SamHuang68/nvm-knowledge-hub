@@ -1821,6 +1821,28 @@ def run_tests() -> None:
     test("ai-nvm-opportunities.html 包含四大 KPI 輸出欄位 (Raw Yield, Repaired Yield, Value Recovery, Probe Exposure) 與判定橫幅",
          'id="hbm4-out-raw-yield"' in ai_html and 'id="hbm4-out-rep-yield"' in ai_html and 'id="hbm4-out-value-recovery"' in ai_html and 'id="hbm4-out-exposure"' in ai_html and 'id="hbm4-out-rating"' in ai_html and 'id="hbm4-out-verdict"' in ai_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 77: HBM4 / 3D Chiplet Cu-Cu 晶圓級混合鍵合、TSV 寄生 RC 與 KGD 探針表面物理模擬器
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 77: HBM4 / 3D Chiplet Cu-Cu 晶圓級混合鍵合、TSV 寄生 RC 與 KGD 探針表面物理模擬器 ═══")
+    hb_js = (BASE / "hybrid-bonding-tsv-kgd-simulator.js").read_text(encoding="utf-8")
+    test("hybrid-bonding-tsv-kgd-simulator.js 存在且導出 calculateHybridBondingMetrics、drawHybridBondingCanvas 與 initHybridBondingSimulator",
+         "export function calculateHybridBondingMetrics" in hb_js and "export function drawHybridBondingCanvas" in hb_js and "export function initHybridBondingSimulator" in hb_js)
+    test("hybrid-bonding-tsv-kgd-simulator.js 包含四大 3D 互連鍵合預設與五大 KGD 探針卡架構",
+         "HYBRID_BONDING_PRESETS" in hb_js and "hbm4_hybrid_bonding_1um" in hb_js and "hbm4_microbump_20um" in hb_js and "chiplet_soic_0_8um" in hb_js and "KGD_PROBE_ARCHITECTURES" in hb_js and "mpi_zero_mark_mems" in hb_js and "chpt_submicron_mems" in hb_js and "technoprobe_tplus" in hb_js and "legacy_cantilever" in hb_js)
+    test("hybrid-bonding-tsv-kgd-simulator.js 第一性原理互連密度、TSV 寄生電容 RC、2048-bit PHY 眼高與探針針痕 CMP 容許邊界模型",
+         "interconnectDensityPerMm2" in hb_js and "rAcOhm" in hb_js and "cTsvFemtofarads" in hb_js and "tauRcPicoSec" in hb_js and "eyeOpeningPercent" in hb_js and "actualMarkDepthNm" in hb_js and "dishingThresholdNm" in hb_js and "bondingVoidPpm" in hb_js)
+    test("hybrid-bonding-tsv-kgd-simulator.js 包含雙模態視覺化 (tsv_rc_frequency_response 與 probe_force_surface_damage)",
+         "tsv_rc_frequency_response" in hb_js and "probe_force_surface_damage" in hb_js)
+
+    spec_hb_html = (BASE / "specialty-nvm.html").read_text(encoding="utf-8")
+    test("specialty-nvm.html 整合 hybrid-bonding-tsv-simulator-root 工作台與模組腳本引用",
+         'id="hybrid-bonding-tsv-simulator-root"' in spec_hb_html and 'src="hybrid-bonding-tsv-kgd-simulator.js' in spec_hb_html)
+    test("specialty-nvm.html 包含預設選擇器、探針選擇器、間距/頻率/壓力三軸滑桿與雙模態 Canvas",
+         'id="hb-preset-select"' in spec_hb_html and 'id="hb-probe-select"' in spec_hb_html and 'id="hb-pitch-slider"' in spec_hb_html and 'id="hb-freq-slider"' in spec_hb_html and 'id="hb-force-slider"' in spec_hb_html and 'id="hb-canvas"' in spec_hb_html)
+    test("specialty-nvm.html 包含四大 KPI 輸出欄位 (Density, Capacitance, Scrub Depth, Eye Opening) 與判定橫幅",
+         'id="hb-out-density"' in spec_hb_html and 'id="hb-out-cap"' in spec_hb_html and 'id="hb-out-depth"' in spec_hb_html and 'id="hb-out-eye"' in spec_hb_html and 'id="hb-out-status"' in spec_hb_html and 'id="hb-out-verdict"' in spec_hb_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

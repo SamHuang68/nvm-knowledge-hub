@@ -2213,6 +2213,159 @@
         <span data-lang="en">Up to HBM3E, Base Dies were produced on DRAM processes by memory IDMs; HBM4 shifts entirely to advanced logic foundries (Samsung Foundry 4nm, SK Hynix with TSMC 12nm/3nm, Micron evaluating logic), transforming into a 2048-bit mini-logic SoC. Embedded 0-mask AntiFuse OTP on this logic die handles TSV and DRAM core redundancy repair. Crucially, wafer sort moves to foundries, shifting test procurement authority and transferring probe card demand from legacy memory vendors (e.g. Micronics Japan 6871.T) to advanced logic probe card leaders (Technoprobe, MPI 6223.TW, CHPT 6510.TW, FormFactor)—unlocking explosive new HBM exposure for logic test makers.</span>
       </div>
     </div>
+
+    <!-- HBM4 / 3D CHIPLET CU-CU DIRECT HYBRID BONDING & TSV KGD PROBE CARD SIMULATOR -->
+    <div id="hybrid-bonding-tsv-simulator-root" style="margin-top: 24px; background: #ffffff; border: 1px solid rgba(6, 182, 212, 0.4); border-radius: 8px; padding: 22px 24px; box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.06);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
+        <div>
+          <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0891b2; letter-spacing: 0.08em; text-transform: uppercase;">
+            <span data-lang="zh">前沿封裝實驗室 · HBM4 / 3D CHIPLET 晶圓級直接鍵合物理</span>
+            <span data-lang="en">ADVANCED PACKAGING LAB · HBM4 / 3D CHIPLET DIRECT BONDING PHYSICS</span>
+          </span>
+          <h4 style="font-size: 16.5px; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+            <span data-lang="zh">HBM4 / 3D Chiplet Cu-Cu 晶圓級混合鍵合與 TSV 寄生高頻測試模擬器</span>
+            <span data-lang="en">HBM4 &amp; 3D Chiplet Cu-Cu Hybrid Bonding &amp; TSV Parasitic High-Freq Test Simulator</span>
+          </h4>
+        </div>
+        <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(6, 182, 212, 0.1); color: #0891b2; padding: 4px 8px; border-radius: 4px;">
+          <span data-lang="zh">TSMC SoIC / DBI · 旺矽/精測/Technoprobe 無痕探針卡模型</span>
+          <span data-lang="en">TSMC SoIC / DBI · MPI/CHPT/Technoprobe Zero-Mark Probe Models</span>
+        </span>
+      </div>
+
+      <p style="font-size: 12.5px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
+        <span data-lang="zh">當 HBM4 與先進 3D 異質小晶片微間距縮小至 1µm 以下（Cu-Cu 直接混合鍵合，Direct Bond Interconnect），互連密度突破百萬/mm²，TSV 寄生電容劇降至 &lt;5 fF，消除微凸塊橋接短路風險。然而，化學機械研磨 (CMP) 表面容許凹陷僅 3.0 nm，傳統探針卡的高破壞性針痕 (&gt;15 nm) 會造成致命鍵合空洞 (Void)！本模擬器試算 TSV 寄生 RC、2048-bit PHY 高頻眼高開展率，並評估旺矽 (6223)、精測 (6510) 等無痕微接觸 MEMS 探針卡在 KGD 晶圓測試的防刮傷邊界。</span>
+        <span data-lang="en">When HBM4 and advanced 3D chiplets scale interconnect pitch sub-1µm (Cu-Cu Direct Bond Interconnect / DBI), density exceeds 1M/mm² and TSV parasitic capacitance drops below 5 fF, eliminating bump bridging. However, CMP surface dishing tolerance is strictly 3.0 nm; traditional probe scrub marks (&gt;15 nm) cause catastrophic bonding voids! This simulator models TSV parasitics, 2048-bit PHY eye openings, and evaluates MPI (6223) and CHPT (6510) zero-mark MEMS probe card qualifications for KGD wafer sort.</span>
+      </p>
+
+      <!-- Controls Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0;">
+        <div>
+          <label for="hb-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+            <span data-lang="zh">3D 互連鍵合預設:</span><span data-lang="en">3D BONDING PRESET:</span>
+          </label>
+          <select id="hb-preset-select" aria-label="3D Bonding Preset" data-aria-en="3D Bonding Preset" data-aria-zh="3D 互連鍵合預設" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
+            <option value="hbm4_hybrid_bonding_1um" selected>HBM4 Cu-Cu Direct Hybrid Bonding (1.0µm Pitch, SoIC)</option>
+            <option value="hbm4_microbump_20um">HBM4 Advanced Micro-Bump (20.0µm Pitch, TCB-NCF)</option>
+            <option value="hbm3e_microbump_35um">Legacy HBM3E Micro-Bump (35.0µm Pitch, MR-MUF Baseline)</option>
+            <option value="chiplet_soic_0_8um">3D Ultra-Dense SoC Chiplet (0.8µm Pitch, Sub-micron DBI)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="hb-probe-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+            <span data-lang="zh">KGD 晶圓測試探針卡:</span><span data-lang="en">KGD PROBE CARD ARCH:</span>
+          </label>
+          <select id="hb-probe-select" aria-label="KGD Probe Card Architecture" data-aria-en="KGD Probe Card Architecture" data-aria-zh="KGD 晶圓測試探針卡" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
+            <option value="mpi_zero_mark_mems" selected>MPI Corporation (6223) · Ultra-Low Force Zero-Mark MEMS</option>
+            <option value="chpt_submicron_mems">CHPT (6510) · Micro-Pitch High-Freq Thin-Film MEMS</option>
+            <option value="technoprobe_tplus">Technoprobe · T-Plus Nano-Contact Low-Force MEMS</option>
+            <option value="formfactor_touch">FormFactor · MicroForce Advanced SoC Probe Card</option>
+            <option value="legacy_cantilever">Legacy Cantilever / Standard VPC (Baseline · High Damage)</option>
+          </select>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+            <span><span data-lang="zh">鍵合間距 (Pitch):</span><span data-lang="en">BOND PITCH:</span></span>
+            <span id="hb-pitch-val" style="color: #0891b2; font-weight: 700;">1.0 µm</span>
+          </div>
+          <input type="range" id="hb-pitch-slider" min="0.8" max="40.0" step="0.2" value="1.0" aria-label="Interconnect Bond Pitch" data-aria-en="Interconnect Bond Pitch" data-aria-zh="鍵合間距" aria-valuetext="1.0 µm" style="width: 100%; accent-color: #0891b2; cursor: pointer;">
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+            <span><span data-lang="zh">信號時脈 (Clock Freq):</span><span data-lang="en">CLOCK FREQ:</span></span>
+            <span id="hb-freq-val" style="color: #2563eb; font-weight: 700;">3.2 GHz</span>
+          </div>
+          <input type="range" id="hb-freq-slider" min="0.5" max="8.0" step="0.1" value="3.2" aria-label="Signal Clock Frequency" data-aria-en="Signal Clock Frequency" data-aria-zh="信號時脈頻率" aria-valuetext="3.2 GHz" style="width: 100%; accent-color: #2563eb; cursor: pointer;">
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+            <span><span data-lang="zh">探針接觸壓力 (Force):</span><span data-lang="en">CONTACT FORCE:</span></span>
+            <span id="hb-force-val" style="color: #d97706; font-weight: 700;">0.35 g</span>
+          </div>
+          <input type="range" id="hb-force-slider" min="0.15" max="3.0" step="0.05" value="0.35" aria-label="Probe Contact Force" data-aria-en="Probe Contact Force" data-aria-zh="探針接觸壓力" aria-valuetext="0.35 grams" style="width: 100%; accent-color: #d97706; cursor: pointer;">
+        </div>
+      </div>
+
+      <!-- Telemetry Metrics Strip -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 14px;">
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+            <span data-lang="zh">互連密度</span><span data-lang="en">DENSITY</span>
+          </div>
+          <div id="hb-out-density" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0891b2;">—</div>
+          <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+            <span data-lang="zh">每平方毫米接點數</span><span data-lang="en">Connections/mm²</span>
+          </div>
+        </div>
+
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+            <span data-lang="zh">TSV 寄生電容</span><span data-lang="en">TSV CAPACITANCE</span>
+          </div>
+          <div id="hb-out-cap" style="font: 700 16px 'IBM Plex Mono', monospace; color: #2563eb;">—</div>
+          <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+            <span data-lang="zh">氧化層寄生 RC 延遲</span><span data-lang="en">Oxide liner RC delay</span>
+          </div>
+        </div>
+
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+            <span data-lang="zh">探針針痕深度</span><span data-lang="en">SCRUB MARK DEPTH</span>
+          </div>
+          <div id="hb-out-depth" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+          <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+            <span data-lang="zh">3.0nm CMP 容許上限</span><span data-lang="en">3.0nm CMP window</span>
+          </div>
+        </div>
+
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+            <span data-lang="zh">2048-bit PHY 眼高</span><span data-lang="en">PHY EYE OPENING</span>
+          </div>
+          <div id="hb-out-eye" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+          <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+            <span data-lang="zh">高頻抖動完整度裕度</span><span data-lang="en">Jitter &amp; margin</span>
+          </div>
+        </div>
+
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+            <span data-lang="zh">KGD 探針評級</span><span data-lang="en">KGD PROBE STATUS</span>
+          </div>
+          <div id="hb-out-status" style="font: 700 14px 'IBM Plex Mono', monospace; color: #0891b2;">QUALIFIED</div>
+          <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+            <span data-lang="zh">銅面防刮痕相容度</span><span data-lang="en">Zero-void compatibility</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visualization Canvas & Mode Buttons -->
+      <div style="background: #09131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+          <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Visual Display Mode" data-aria-en="Visual Display Mode" data-aria-zh="圖表顯示模式">
+            <button id="hb-mode-tsv" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+              <span data-lang="zh">TSV 頻率響應與眼高衰減曲線</span><span data-lang="en">TSV Frequency Response &amp; Eye</span>
+            </button>
+            <button id="hb-mode-scrub" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+              <span data-lang="zh">探針接觸力 vs 銅表面刮痕與鍵合空隙</span><span data-lang="en">Contact Force vs Scrub &amp; Void</span>
+            </button>
+          </div>
+          <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">High-DPI Hybrid Bonding Monitor</span>
+        </div>
+        <div style="width: 100%; height: 180px; position: relative;">
+          <canvas id="hb-canvas" width="420" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Hybrid Bonding and TSV Probe Simulation Canvas" data-aria-en="Hybrid Bonding and TSV Probe Simulation Canvas" data-aria-zh="混合鍵合與 TSV 探針模擬畫布"></canvas>
+        </div>
+      </div>
+
+      <!-- Architectural Insight Callout -->
+      <div style="background: rgba(8, 145, 178, 0.06); border-left: 3px solid #0891b2; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #1e293b;">
+        <span id="hb-out-verdict">Loading Hybrid Bonding physics calculations...</span>
+      </div>
+    </div>
   <!-- TOPIC 02 INTERACTIVE ENGINEERING LAB: CHIPLET UCIE INTERCONNECT & NVM TOPOLOGY SIMULATOR -->
   <div id="chiplet-ucie-simulator-root" style="margin-top: 28px; background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05);">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
@@ -3926,6 +4079,7 @@
 <script type="module" src="chiplet-ucie-nvm-simulator.js?v=20261005"></script>
 <script type="module" src="space-radiation-hardening-simulator.js?v=20261005"></script>
 <script type="module" src="deep-space-sel-retention-simulator.js?v=20261006"></script>
+<script type="module" src="hybrid-bonding-tsv-kgd-simulator.js?v=20261006"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 </body>
 </html>
