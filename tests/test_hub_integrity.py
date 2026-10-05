@@ -1551,6 +1551,50 @@ def run_tests() -> None:
     test("iot-mcu-envm.html 包含採集源選擇器、狀態技術選擇器、雙軸滑桿、六大 KPI 指標卡與電壓鋸齒/占空比功耗雙模態 Canvas",
          'id="norm-source-select"' in iot_norm_html and 'id="norm-memory-select"' in iot_norm_html and 'id="norm-cap-slider"' in iot_norm_html and 'id="norm-duty-slider"' in iot_norm_html and 'id="norm-out-powerin"' in iot_norm_html and 'id="norm-out-energystored"' in iot_norm_html and 'id="norm-out-chargetime"' in iot_norm_html and 'id="norm-out-avgpower"' in iot_norm_html and 'id="norm-out-ratio"' in iot_norm_html and 'id="norm-out-status"' in iot_norm_html and 'id="norm-canvas"' in iot_norm_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 65: 2nm / A16 GAA 奈米片與背面供電 (BSPDN) eNVM 寄生 RC 延遲與熱阻聚集試算器 (ai-nvm-opportunities.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 65: 2nm / A16 GAA 奈米片與背面供電 (BSPDN) eNVM 寄生 RC 延遲與熱阻聚集試算器 ═══")
+    bspdn_js = (BASE / "nanosheet-bspdn-nvm-simulator.js").read_text(encoding="utf-8")
+    test("nanosheet-bspdn-nvm-simulator.js 存在且導出 calculateNanosheetBspdnNvm、drawNanosheetBspdnCanvas 與 initNanosheetBspdnSimulator",
+         "export function calculateNanosheetBspdnNvm" in bspdn_js and "export function drawNanosheetBspdnCanvas" in bspdn_js and "export function initNanosheetBspdnSimulator" in bspdn_js)
+    test("nanosheet-bspdn-nvm-simulator.js 包含四大先進節點預設與四大奈米片 eNVM 拓撲設定檔",
+         "ADVANCED_NODE_PRESETS" in bspdn_js and "tsmc_n2_nanosheet" in bspdn_js and "tsmc_a16_spr" in bspdn_js and "intel_18a_powervia" in bspdn_js and "foundry_14a_advanced" in bspdn_js and "NANOSHEET_NVM_TOPOLOGIES" in bspdn_js and "antifuse_nanosheet_logic" in bspdn_js and "embedded_stt_mram_beol" in bspdn_js and "embedded_reram_oxram" in bspdn_js and "nanosheet_sram_macro" in bspdn_js)
+    test("nanosheet-bspdn-nvm-simulator.js 第一性原理背面供電壓降抑制、基板薄化熱阻聚集、接面溫升、正面金屬互連釋放、RC 讀取延遲與熱油門邊界演算法",
+         "realizedIrDropMv" in bspdn_js and "junctionTempRiseC" in bspdn_js and "junctionTempC" in bspdn_js and "realizedReadLatencyNs" in bspdn_js and "isOptimal" in bspdn_js and "bspdnCompatibilityZh" in bspdn_js and "bspdnCompatibilityEn" in bspdn_js)
+    test("nanosheet-bspdn-nvm-simulator.js 包含 TSMC A16 SPR Nano-TSV 互連電阻與 Intel 18A PowerVia 實體參數校準",
+         "irDropMvBaseline" in bspdn_js and "thermalResistanceCPerW" in bspdn_js and "beolTrackDensityFactor" in bspdn_js and "substrateThicknessUm" in bspdn_js)
+
+    ai_bspdn_html = (BASE / "ai-nvm-opportunities.html").read_text(encoding="utf-8")
+    test("ai-nvm-opportunities.html 整合 bspdn-nvm-simulator-root 工作台與模組腳本引用",
+         'id="bspdn-nvm-simulator-root"' in ai_bspdn_html and 'src="nanosheet-bspdn-nvm-simulator.js' in ai_bspdn_html)
+    test("ai-nvm-opportunities.html 包含先進節點選擇器、拓撲選擇器、滑桿控制項與熱阻/RC 延遲雙模態 Canvas",
+         'id="bspdn-node-select"' in ai_bspdn_html and 'id="bspdn-tech-select"' in ai_bspdn_html and 'id="bspdn-array-slider"' in ai_bspdn_html and 'id="bspdn-act-slider"' in ai_bspdn_html and 'id="bspdn-canvas"' in ai_bspdn_html)
+    test("ai-nvm-opportunities.html 包含六大 KPI 輸出欄位 (out-vdd, out-irdrop, out-temp, out-latency, out-mask, out-rating)",
+         'id="bspdn-out-vdd"' in ai_bspdn_html and 'id="bspdn-out-irdrop"' in ai_bspdn_html and 'id="bspdn-out-temp"' in ai_bspdn_html and 'id="bspdn-out-latency"' in ai_bspdn_html and 'id="bspdn-out-mask"' in ai_bspdn_html and 'id="bspdn-out-rating"' in ai_bspdn_html and 'id="bspdn-out-verdict"' in ai_bspdn_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 66: 晶圓光罩附加成本、Murphy 矽良率損失與百萬晶圓量產 TCO 經濟學試算器 (technology-comparison.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 66: 晶圓光罩附加成本、Murphy 矽良率損失與百萬晶圓量產 TCO 經濟學試算器 ═══")
+    tco_js = (BASE / "wafer-cost-tco-calculator.js").read_text(encoding="utf-8")
+    test("wafer-cost-tco-calculator.js 存在且導出 calculateWaferCostTco、drawWaferCostTcoCanvas 與 initWaferCostTcoCalculator",
+         "export function calculateWaferCostTco" in tco_js and "export function drawWaferCostTcoCanvas" in tco_js and "export function initWaferCostTcoCalculator" in tco_js)
+    test("wafer-cost-tco-calculator.js 包含四大晶圓代工製程預設與四大 eNVM 光罩附加設定檔",
+         "FOUNDRY_PROCESS_PRESETS" in tco_js and "55nm_mature" in tco_js and "28nm_hpc" in tco_js and "16nm_finfet" in tco_js and "5nm_advanced" in tco_js and "ENVM_COST_PROFILES" in tco_js and "antifuse_logic" in tco_js and "eflash_split_gate" in tco_js and "beol_emram" in tco_js and "beol_reram" in tco_js)
+    test("wafer-cost-tco-calculator.js 第一性原理光罩加價晶圓成本、Murphy 矽良率、GDPW 毛晶粒數、良品晶片淨成本、年度總擁有成本與損益平衡演算法",
+         "waferFabCostUsd" in tco_js and "totalWaferCostUsd" in tco_js and "gdpw" in tco_js and "murphyYield" in tco_js and "netGoodDies" in tco_js and "totalDieCostUsd" in tco_js and "annualTotalTcoUsd" in tco_js and "tcoDeltaUsd" in tco_js and "tcoPremiumPercent" in tco_js)
+    test("wafer-cost-tco-calculator.js 包含 300mm 晶圓幾何、邊緣晶粒剔除效應與 Poisson 基準良率對比",
+         "edgeExclusionPenalty" in tco_js and "poissonYield" in tco_js and "dieAreaCm2" in tco_js and "waferAreaMm2" in tco_js)
+    test("wafer-cost-tco-calculator.js 包含純邏輯 AntiFuse 基準對比與年化 TCO 節省額溢價計算",
+         "afTotalDieCost" in tco_js and "afAnnualTcoUsd" in tco_js and "dieCostPremiumPercent" in tco_js)
+
+    tech_tco_html = (BASE / "technology-comparison.html").read_text(encoding="utf-8")
+    test("technology-comparison.html 整合 wafer-tco-calculator-root 工作台與模組腳本引用",
+         'id="wafer-tco-calculator-root"' in tech_tco_html and 'src="wafer-cost-tco-calculator.js' in tech_tco_html)
+    test("wafer-cost-tco-calculator.js 包含代工製程選擇器、技術選擇器、面積/產量雙軸滑桿與產量 TCO/晶粒良率成本雙模態 Canvas",
+         'id="tco-process-select"' in tco_js and 'id="tco-envm-select"' in tco_js and 'id="tco-area-slider"' in tco_js and 'id="tco-volume-slider"' in tco_js and 'id="tco-canvas"' in tco_js)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

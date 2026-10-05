@@ -2578,6 +2578,152 @@
           </div>
         </div>
       </div>
+
+      <!-- 晶圓光罩附加、Poisson/Murphy 矽良率損失與百萬晶圓量產 TCO 經濟學試算器 -->
+      <div class="decision-matrix-card wafer-tco-container" id="wafer-tco-calculator-root" style="margin-top: 32px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+        <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+          <div>
+            <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #fbbf24; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+              <span data-lang="zh">第一性原理晶圓光罩附加與 TCO 經濟學模型</span>
+              <span data-lang="en">FIRST-PRINCIPLES WAFER MASK-ADDER &amp; TCO ECONOMICS MODEL</span>
+            </div>
+            <h3 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
+              <span data-lang="zh">晶圓光罩附加成本、Murphy 矽良率損失與百萬晶圓量產 TCO 經濟學試算器</span>
+              <span data-lang="en">eNVM Wafer Mask Adder, Murphy Yield Loss &amp; Mass-Production TCO Economics Calculator</span>
+            </h3>
+          </div>
+          <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(245, 158, 11, 0.12); color: #fbbf24; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.3);">
+            <span data-lang="zh">300mm 晶圓量產標準</span>
+            <span data-lang="en">300mm Wafer Fab Standard</span>
+          </span>
+        </div>
+
+        <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 18px;">
+          <span data-lang="zh">在半導體決策中，評估 eNVM 不能僅看裸單元面積（F²），必須閉環計入額外光罩道數（ΔN）、高溫熱退火對 CMOS 閘極氧化層的缺陷密度增加（ΔD₀）、Murphy 矽良率損失與光罩組 NRE 攤提。本工作台透過第一性原理晶圓成本恆等式與 Murphy 缺陷模型，即時量化純邏輯 AntiFuse（0 光罩）對比 eFlash（+10 光罩）與 eMRAM（+4 光罩）的全生命週期 TCO 經濟學價值。</span>
+          <span data-lang="en">In semiconductor architecture decisions, evaluating eNVM requires looking beyond bitcell area (F²). Architectural cost closure demands factoring in mask-adder layers (ΔN), defectivity density penalties (ΔD₀) from high-temperature thermal budgets, Murphy silicon yield degradation, and mask-set NRE amortization. This calculator applies first-principles wafer cost identities and Murphy yield models to quantify the lifecycle TCO advantages of zero-mask AntiFuse over eFlash (+10 masks) and eMRAM (+4 masks).</span>
+        </p>
+
+        <!-- Controls Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px;">
+          <div>
+            <label for="tco-process-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <span data-lang="zh">晶圓代工製程節點基準:</span><span data-lang="en">FOUNDRY PROCESS NODE:</span>
+            </label>
+            <select id="tco-process-select" aria-label="Foundry Process Node Baseline" data-aria-en="Foundry Process Node Baseline" data-aria-zh="晶圓代工製程節點基準" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+              <option value="28nm_hpc" selected>28nm HPC+ Planar Logic ($3,200/wafer, 42 masks)</option>
+              <option value="55nm_mature">55nm/40nm Mature Node ($1,850/wafer, 32 masks)</option>
+              <option value="16nm_finfet">16nm/12nm FinFET Logic ($4,800/wafer, 55 masks)</option>
+              <option value="5nm_advanced">5nm/4nm EUV Advanced FinFET ($16,500/wafer, 78 masks)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="tco-envm-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <span data-lang="zh">eNVM 記憶體技術架構:</span><span data-lang="en">eNVM ARCHITECTURE:</span>
+            </label>
+            <select id="tco-envm-select" aria-label="eNVM Memory Architecture" data-aria-en="eNVM Memory Architecture" data-aria-zh="eNVM 記憶體技術架構" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+              <option value="antifuse_logic" selected>Pure Logic AntiFuse (0-Mask / 0-Penalty)</option>
+              <option value="beol_reram">BEOL ReRAM (2-Mask / Oxide Filament)</option>
+              <option value="beol_emram">BEOL STT-MRAM (4-Mask / MTJ Stack)</option>
+              <option value="eflash_split_gate">Split-Gate eFlash (10-Mask / Thermal Anneal)</option>
+            </select>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <span><span data-lang="zh">單晶片總面積 (Die Area):</span><span data-lang="en">DIE AREA:</span></span>
+              <span id="tco-area-val" style="color: #fbbf24; font-weight: 700;">25.0 mm²</span>
+            </div>
+            <input type="range" id="tco-area-slider" min="2" max="60" step="0.5" value="25.0" aria-label="Die Area in Square Millimeters" data-aria-en="Die Area in Square Millimeters" data-aria-zh="單晶片總面積 平方公釐" aria-valuetext="25.0 mm²" style="width: 100%; accent-color: #fbbf24; cursor: pointer;">
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <span><span data-lang="zh">年度晶圓投片總量:</span><span data-lang="en">ANNUAL WAFER VOLUME:</span></span>
+              <span id="tco-volume-val" style="color: #fbbf24; font-weight: 700;">30,000 Wafers</span>
+            </div>
+            <input type="range" id="tco-volume-slider" min="1000" max="80000" step="1000" value="30000" aria-label="Annual Wafer Volume" data-aria-en="Annual Wafer Volume" data-aria-zh="年度晶圓投片總量" aria-valuetext="30,000 Wafers" style="width: 100%; accent-color: #fbbf24; cursor: pointer;">
+          </div>
+        </div>
+
+        <!-- KPI Cards Strip -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 18px;">
+          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <span data-lang="zh">光罩附加數</span><span data-lang="en">MASK ADDERS</span>
+            </div>
+            <div id="m-mask-layers" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">+0 Masks</div>
+            <div id="m-total-masks" style="font-size: 10px; color: #64748b; margin-top: 2px;">42 Total</div>
+          </div>
+
+          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <span data-lang="zh">單片總晶圓成本</span><span data-lang="en">TOTAL WAFER COST</span>
+            </div>
+            <div id="m-wafer-cost" style="font: 700 16px 'IBM Plex Mono', monospace; color: #fbbf24;">$3,240</div>
+            <div id="m-nre-amort" style="font-size: 10px; color: #64748b; margin-top: 2px;">+$40 NRE/Wafer</div>
+          </div>
+
+          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <span data-lang="zh">毛晶粒數 GDPW</span><span data-lang="en">GROSS DIES (GDPW)</span>
+            </div>
+            <div id="m-gdpw" style="font: 700 16px 'IBM Plex Mono', monospace; color: #f8fafc;">2,580</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">300mm 晶圓幾何</span><span data-lang="en">300mm Geometry</span>
+            </div>
+          </div>
+
+          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <span data-lang="zh">Murphy 矽良率</span><span data-lang="en">MURPHY YIELD</span>
+            </div>
+            <div id="m-yield" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">92.4%</div>
+            <div id="m-good-dies" style="font-size: 10px; color: #64748b; margin-top: 2px;">2,383 Good Dies</div>
+          </div>
+
+          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <span data-lang="zh">良品晶片成本</span><span data-lang="en">COST / GOOD DIE</span>
+            </div>
+            <div id="m-die-cost" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">$1.37 / Die</div>
+            <div id="m-die-cost-sub" style="font-size: 10px; color: #64748b; margin-top: 2px;">Silicon + Test</div>
+          </div>
+
+          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+              <span data-lang="zh">年度總擁有成本</span><span data-lang="en">ANNUAL TCO</span>
+            </div>
+            <div id="m-annual-tco" style="font: 700 16px 'IBM Plex Mono', monospace; color: #f43f5e;">$97.2M</div>
+            <div id="m-tco-delta" style="font-size: 10px; color: #10b981; margin-top: 2px;">Baseline (0-Mask)</div>
+          </div>
+        </div>
+
+        <!-- Interactive Canvas Section -->
+        <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+            <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Visual Display Mode" data-aria-en="Visual Display Mode" data-aria-zh="圖表顯示模式">
+              <button id="tco-chart-mode-vol" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #f59e0b; background: #d97706; color: #ffffff; cursor: pointer;">
+                <span data-lang="zh">年產量 vs 累計 TCO 曲線</span><span data-lang="en">Volume vs TCO Curve</span>
+              </button>
+              <button id="tco-chart-mode-yield" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                <span data-lang="zh">晶粒面積 vs 良品成本曲線</span><span data-lang="en">Die Area vs Good Die Cost</span>
+              </button>
+            </div>
+            <span id="tco-badge-savings" style="font: 600 10px 'IBM Plex Mono', monospace; color: #10b981; background: rgba(16, 185, 129, 0.1); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.2);">
+              <span data-lang="zh">0 光罩純邏輯基準</span><span data-lang="en">0-Mask Reference</span>
+            </span>
+          </div>
+          <div style="width: 100%; height: 220px; position: relative;">
+            <canvas id="tco-canvas" width="560" height="220" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Wafer Cost and TCO Simulation Canvas" data-aria-en="Wafer Cost and TCO Simulation Canvas" data-aria-zh="晶圓成本與 TCO 模擬畫布"></canvas>
+          </div>
+        </div>
+
+        <!-- Architectural Insight Callout -->
+        <div style="background: rgba(15, 23, 42, 0.8); border-left: 3px solid #fbbf24; border-radius: 0 4px 4px 0; padding: 12px 14px; font-size: 12.5px; line-height: 1.6; color: #cbd5e1;">
+          <span id="tco-analytical-summary">Loading first-principles wafer cost and TCO economics calculations...</span>
+        </div>
+      </div>
     </section>
 
     <!-- SECTION 4: FOUNDRY ECOSYSTEM & PHYSICAL SECURITY -->
@@ -4815,5 +4961,6 @@
 <script src="matrix-interactive.js?v=20260929-v5"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 <script type="module" src="advanced-finfet-gaa-simulator.js?v=20261005"></script>
+<script type="module" src="wafer-cost-tco-calculator.js?v=20261005"></script>
 </body>
 </html>

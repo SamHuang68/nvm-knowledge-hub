@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "96be460b00c3a2574415",
+  "version": "0ce23bf7980a16fd7580",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -75,6 +75,7 @@ self.NVMOfflineManifest = {
     "memory-physics.html",
     "model-boundaries.css",
     "named-comparison.css",
+    "nanosheet-bspdn-nvm-simulator.js",
     "normally-off-energy-harvesting-simulator.js",
     "nvm-bitcell-figures.css",
     "nvm-engineering-diagrams.css",
@@ -123,6 +124,7 @@ self.NVMOfflineManifest = {
     "topic-menu-navigation.js",
     "tunneling-breakdown-simulator.css",
     "tunneling-breakdown-simulator.js",
+    "wafer-cost-tco-calculator.js",
     "whitepaper/assets/whitepaper.css",
     "whitepaper/assets/whitepaper.js",
     "whitepaper/assets/whitepaper_i18n.js",
@@ -132,7 +134,7 @@ self.NVMOfflineManifest = {
     "404.html": "93549617ad5429a366d52ca2e897028b967478937c8296de25fde02fc7257f2c",
     "advanced-finfet-gaa-simulator.js": "4433c4ee4af301252d849beb617cd85201a8fd4529027c2ef55cf71e8a5e20b4",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
-    "ai-nvm-opportunities.html": "277639235bd4188a521f6ef0e6feb5f1fd3323f7ad90e9eb400bca8f71ef5729",
+    "ai-nvm-opportunities.html": "1a8e0f71f5a6a9e4829d03deed001b619e2823679f87165d30658e8caf76ad36",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
     "ai-nvm.css": "5ac0085348b2af246f464a4dbeccfe9579ed6a860ac990593cbdeedec8351afe",
     "ai-nvm.js": "a51a6ab74b0e708b54b5d3af200575f275efe0d14e435b02332a300d99cc4654",
@@ -203,6 +205,7 @@ self.NVMOfflineManifest = {
     "memory-physics.html": "43dcc66be733940cc4d80c4dceb3733ff5e1713b6a716702e1e86dd566fc67ef",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
+    "nanosheet-bspdn-nvm-simulator.js": "63b8b6abceced2a3229f20471a8d05534d53b1862372bad4ace29f1f5ab70e7c",
     "normally-off-energy-harvesting-simulator.js": "929db781c504cef94b15d9c35c50833c3843fdc49489066de879e899f6ea0514",
     "nvm-bitcell-figures.css": "da04d7984bd9f62137dab5c2f5657a38b620b32b6c16c628a94f2f9406d5aed6",
     "nvm-engineering-diagrams.css": "4cb87448990c85fd91042f817b4812fb647df1fd0fb99949c26f138434194220",
@@ -246,15 +249,16 @@ self.NVMOfflineManifest = {
     "styles.css": "4021ef9a95a74de7bebd4ed5ba6b6c1046cf1f011ef51d83c584e4b10a3c2cd5",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "tddb-weibull-simulator.js": "274fd88c6926196adb869f6f0ee17cc721f4bebb6e41b2ec2ca064a168b7490a",
-    "technology-comparison.html": "3204ca59dec60a0c64ef88c089c10198e7a1b509947af37b33495e2f26bf8172",
+    "technology-comparison.html": "9897196175c18ba77fd9568a545a3ad9f490932a9733da5cd5a456d93427d3b9",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "80433c36dca9ba4fb9940765a7264801e347af32d22940f2ae79d0a98a49735a",
     "tunneling-breakdown-simulator.js": "65dec810dbf153e78e6e0ec417c1a9079165d46e6a7ffac7a9a37a637d6089b3",
+    "wafer-cost-tco-calculator.js": "9fced509799ecde01e819a1042a0db7115061da16c6a244c06fb981b6b8bef49",
     "whitepaper/assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8",
     "whitepaper/assets/whitepaper.js": "dd319f9c68705442700bc090352b677e73fc58eb268baae7eb6956000d46ade4",
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 12079085
+  "totalBytes": 12170556
 };
