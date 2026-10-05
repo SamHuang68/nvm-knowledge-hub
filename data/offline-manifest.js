@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "568fdfaf6b80184a7509",
+  "version": "c8179e0d056fe5620eb6",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -17,6 +17,7 @@ self.NVMOfflineManifest = {
     "assurance.js",
     "atlas-diagram-loader.js",
     "attack-resistance-evaluator.js",
+    "automotive-asild-ecc-simulator.js",
     "automotive-blackbox-journal-calculator.js",
     "automotive-ecc.js",
     "automotive-load-dump-clamp-simulator.js",
@@ -130,6 +131,7 @@ self.NVMOfflineManifest = {
     "topic-menu-navigation.js",
     "tunneling-breakdown-simulator.css",
     "tunneling-breakdown-simulator.js",
+    "vertical-3d-nvm-simulator.js",
     "wafer-cost-tco-calculator.js",
     "whitepaper/assets/whitepaper.css",
     "whitepaper/assets/whitepaper.js",
@@ -153,12 +155,13 @@ self.NVMOfflineManifest = {
     "assurance.js": "9ea632d49050526dc931c17fdd66b2e4d2ff64482385e9e8a27c253d518dbfa0",
     "atlas-diagram-loader.js": "6c7bcc1a49afd8731768a16b0dfb6365f8e0c4a9eb73bf7aa02d8a308a3fdf9e",
     "attack-resistance-evaluator.js": "c910a98dfe33af77474ca747fe72dae7cac37a79b968d2142d09078e7166737f",
+    "automotive-asild-ecc-simulator.js": "ac7e6853705a8ce2a13d243b94f12340b60c7e02d75443433af7025b5283f63d",
     "automotive-blackbox-journal-calculator.js": "17781b1be12b8a77423ccd868b67d87f578cfa65197080a853951823390f63fa",
     "automotive-ecc.js": "c72a03db0474ae872b90d6f243ac611b9c80dcfe9432cabc871fa1e4b41b1c02",
     "automotive-load-dump-clamp-simulator.js": "560d23b45ab031f77ba663671250b12b1e16fd7e741dbbf56569c01fdad0dcb2",
     "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
-    "automotive-nvm.html": "a4f6d1bbc4d8adee75015d6bf4d4c6250929036b96afb2edf488f7d4bb9c8801",
+    "automotive-nvm.html": "600d8798abf6b6c91dd3a2b8aa6821ad2f89a0c5dee2e7d69bfe7c47feaa7a89",
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "bcd-trimming-simulator.js": "5fc84893230bc741aa87824195cc5029dd56345318fb67fc676ca227288fd96f",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
@@ -261,16 +264,17 @@ self.NVMOfflineManifest = {
     "subthreshold-lowvoltage-nvm-simulator.js": "edaeb1c2aa47d0ef560d8e55b1439822855c710f405adc35c74bf670e36caf2c",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "tddb-weibull-simulator.js": "274fd88c6926196adb869f6f0ee17cc721f4bebb6e41b2ec2ca064a168b7490a",
-    "technology-comparison.html": "9897196175c18ba77fd9568a545a3ad9f490932a9733da5cd5a456d93427d3b9",
+    "technology-comparison.html": "4d6de6d6926d60b5d1edbdf5bbd286e2f6eabab616b47ed8a52987910732cad9",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "80433c36dca9ba4fb9940765a7264801e347af32d22940f2ae79d0a98a49735a",
     "tunneling-breakdown-simulator.js": "65dec810dbf153e78e6e0ec417c1a9079165d46e6a7ffac7a9a37a637d6089b3",
+    "vertical-3d-nvm-simulator.js": "963387ac2fa6b0162f35eddd685bf5ea9a10ca128e601337125f25c116826514",
     "wafer-cost-tco-calculator.js": "9fced509799ecde01e819a1042a0db7115061da16c6a244c06fb981b6b8bef49",
     "whitepaper/assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8",
     "whitepaper/assets/whitepaper.js": "dd319f9c68705442700bc090352b677e73fc58eb268baae7eb6956000d46ade4",
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 12392786
+  "totalBytes": 12470010
 };

@@ -2724,6 +2724,141 @@
           <span id="tco-analytical-summary">Loading first-principles wafer cost and TCO economics calculations...</span>
         </div>
       </div>
+
+      <!-- 3D 立體垂直堆疊 eNVM 與字元線階梯刻蝕 Word-line Tier RC 延遲模擬器 -->
+      <div class="decision-matrix-card vertical-3d-container" id="vertical-3d-simulator-root" style="margin-top: 32px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+        <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+          <div>
+            <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #a78bfa; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+              <span data-lang="zh">3D 垂直堆疊物理 · 高深寬比階梯刻蝕與薄膜尺寸效應</span>
+              <span data-lang="en">3D VERTICAL STACKING PHYSICS · HAR STAIRCASE ETCH &amp; SIZE EFFECTS</span>
+            </div>
+            <h3 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
+              <span data-lang="zh">3D 立體垂直堆疊 eNVM 字元線階梯 RC 延遲與薄膜金屬電阻率尺寸效應模擬器</span>
+              <span data-lang="en">3D Vertical Stacked eNVM Word-Line Tier RC Delay &amp; Conductor Size-Effect Simulator</span>
+            </h3>
+          </div>
+          <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(139, 92, 246, 0.12); color: #a78bfa; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(139, 92, 246, 0.3);">
+            <span data-lang="zh">HAR 階梯深孔 / 鉬 (Mo) 薄膜物理模型</span>
+            <span data-lang="en">HAR Staircase / Molybdenum Thin-Film Model</span>
+          </span>
+        </div>
+
+        <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 18px;">
+          <span data-lang="zh">在 3D 垂直堆疊記憶體（如 3D AntiFuse OTP、3D NOR 與 3D NAND）中，層數（Tier Count，32 至 128+ 層）的增加大幅提高了單元密度；然而高深寬比（HAR）階梯刻蝕走線使最底層字元線（Word-Line）物理長度急劇延伸。同時，金屬薄膜厚度微縮（&lt;25 nm）觸發 Fuchs-Sondheimer 表面散射與 Mayadas-Shatzkes 晶界散射，使鎢（W）電阻率暴增數倍，引發嚴峻的字元線 RC 延遲梯差（Delay Skew）。改採先進低電阻率金屬鉬（Mo）或超短平均自由程釕（Ru）可有效壓低 RC 延遲，維持端到端高速讀取存取頻寬。</span>
+          <span data-lang="en">In 3D vertical stacked memories (such as 3D AntiFuse OTP, 3D NOR, and 3D NAND), increasing tier counts (32 to 128+ layers) dramatically multiplies bit density. However, high-aspect-ratio (HAR) staircase contact routing drastically extends the physical length of lower word-lines. Concurrently, scaling conductor film thickness below 25 nm triggers severe Fuchs-Sondheimer surface and Mayadas-Shatzkes grain-boundary scattering, surging tungsten (W) resistivity and causing severe RC delay skew across tiers. Transitioning to advanced molybdenum (Mo) or ultra-short mean-free-path ruthenium (Ru) suppresses RC delay, sustaining high random-read bandwidth.</span>
+        </p>
+
+        <!-- Controls Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px;">
+          <div>
+            <label for="vert3d-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <span data-lang="zh">3D 垂直堆疊架構預設:</span><span data-lang="en">3D STACKED ARCHITECTURE:</span>
+            </label>
+            <select id="vert3d-preset-select" aria-label="3D Stacked Architecture Preset" data-aria-en="3D Stacked Architecture Preset" data-aria-zh="3D 垂直堆疊架構預設" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+              <option value="vert_3d_antifuse_64l" selected>64-Tier 3D AntiFuse OTP (RoT / Zero Leakage)</option>
+              <option value="vert_3d_nor_48l">48-Tier 3D NOR (Automotive Boot Code)</option>
+              <option value="vert_3d_nand_128l">128-Tier 3D CTF NAND (High-Density)</option>
+              <option value="vert_3d_reram_64l">64-Tier 3D Crossbar ReRAM (BEOL Synapse)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="vert3d-conductor-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <span data-lang="zh">字元線導體金屬材料:</span><span data-lang="en">WORD-LINE CONDUCTOR:</span>
+            </label>
+            <select id="vert3d-conductor-select" aria-label="Word-Line Conductor Material" data-aria-en="Word-Line Conductor Material" data-aria-zh="字元線導體金屬材料" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+              <option value="molybdenum_mo_pvd" selected>Advanced Molybdenum (Mo / Low Size Effect)</option>
+              <option value="tungsten_w_ald">Conventional ALD Tungsten (W / Mainstream)</option>
+              <option value="ruthenium_ru_subnm">Ultra-Scaled Ruthenium (Ru / Short MFP)</option>
+              <option value="doped_poly_silicon">Doped Polysilicon (Poly-Si Baseline)</option>
+            </select>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <span><span data-lang="zh">垂直堆疊層數:</span><span data-lang="en">TIER COUNT:</span></span>
+              <span id="vert3d-tier-val" style="color: #a78bfa; font-weight: 700;">64 L</span>
+            </div>
+            <input type="range" id="vert3d-tier-slider" min="16" max="192" step="16" value="64" aria-label="Vertical Stack Tier Count" data-aria-en="Vertical Stack Tier Count" data-aria-zh="垂直堆疊層數" aria-valuetext="64 Tiers" style="width: 100%; accent-color: #8b5cf6; cursor: pointer;">
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <span><span data-lang="zh">金屬薄膜厚度:</span><span data-lang="en">FILM THICKNESS:</span></span>
+              <span id="vert3d-thickness-val" style="color: #a78bfa; font-weight: 700;">25 nm</span>
+            </div>
+            <input type="range" id="vert3d-thickness-slider" min="10" max="50" step="1" value="25" aria-label="Wordline Conductor Thickness in nm" data-aria-en="Wordline Conductor Thickness in nm" data-aria-zh="金屬薄膜厚度奈米" aria-valuetext="25 nm" style="width: 100%; accent-color: #8b5cf6; cursor: pointer;">
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+              <span><span data-lang="zh">陣列水平長度:</span><span data-lang="en">ARRAY LENGTH:</span></span>
+              <span id="vert3d-length-val" style="color: #a78bfa; font-weight: 700;">120 µm</span>
+            </div>
+            <input type="range" id="vert3d-length-slider" min="30" max="300" step="10" value="120" aria-label="Array Horizontal Length in um" data-aria-en="Array Horizontal Length in um" data-aria-zh="陣列水平長度微米" aria-valuetext="120 µm" style="width: 100%; accent-color: #8b5cf6; cursor: pointer;">
+          </div>
+        </div>
+
+        <!-- KPI Cards Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 18px;">
+          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+              <span data-lang="zh">薄膜有效電阻率</span><span data-lang="en">EFFECTIVE RESISTIVITY</span>
+            </span>
+            <div id="vert3d-out-resistivity" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a78bfa;">--</div>
+          </div>
+
+          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+              <span data-lang="zh">最差層 RC 延遲</span><span data-lang="en">WORST WL DELAY</span>
+            </span>
+            <div id="vert3d-out-worstdelay" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+          </div>
+
+          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+              <span data-lang="zh">頂底層延遲梯差</span><span data-lang="en">TIER DELAY SKEW</span>
+            </span>
+            <div id="vert3d-out-delayskew" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+          </div>
+
+          <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+              <span data-lang="zh">端到端讀取存取時間</span><span data-lang="en">TOTAL ACCESS TIME</span>
+            </span>
+            <div id="vert3d-out-accesstime" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+          </div>
+        </div>
+
+        <!-- Dual Mode Canvas Container -->
+        <div style="background: #060d17; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+            <div style="display: inline-flex; gap: 6px;" role="group" aria-label="3D Stacking Visualization Mode" data-aria-en="3D Stacking Visualization Mode" data-aria-zh="3D 堆疊視覺化模式">
+              <button id="vert3d-mode-tiers" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #a78bfa; background: #8b5cf6; color: #ffffff; cursor: pointer;">
+                <span data-lang="zh">堆疊層數 vs 最差 RC 延遲 (Tiers vs RC Delay)</span><span data-lang="en">Tiers vs RC Delay</span>
+              </button>
+              <button id="vert3d-mode-gradient" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                <span data-lang="zh">垂直層級延遲梯度剖面 (Tier Delay Gradient)</span><span data-lang="en">Tier Delay Gradient</span>
+              </button>
+            </div>
+            <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">3D Stacked Physical Analyzer</span>
+          </div>
+          <div style="width: 100%; height: 200px; position: relative;">
+            <canvas id="vert3d-canvas" width="480" height="200" style="width: 100%; height: 100%; display: block;" role="img" aria-label="3D Vertical Stacked NVM Simulation Canvas" data-aria-en="3D Vertical Stacked NVM Simulation Canvas" data-aria-zh="3D 垂直堆疊 NVM 模擬畫布"></canvas>
+          </div>
+        </div>
+
+        <!-- Verdict and Rating Banner -->
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(139, 92, 246, 0.08); border-left: 3px solid #8b5cf6; border-radius: 0 4px 4px 0; padding: 10px 14px;">
+          <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
+            <span id="vert3d-out-verdict">Loading 3D vertical stacked eNVM calculations...</span>
+          </div>
+          <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #0f172a; padding: 4px 10px; border-radius: 4px; border: 1px solid #334155; white-space: nowrap;">
+            <span id="vert3d-out-grade" style="color: #10b981;">High-Speed 3D Fabric</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- SECTION 4: FOUNDRY ECOSYSTEM & PHYSICAL SECURITY -->
@@ -4962,5 +5097,6 @@
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 <script type="module" src="advanced-finfet-gaa-simulator.js?v=20261005"></script>
 <script type="module" src="wafer-cost-tco-calculator.js?v=20261005"></script>
+<script type="module" src="vertical-3d-nvm-simulator.js?v=20261006"></script>
 </body>
 </html>

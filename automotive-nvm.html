@@ -1381,6 +1381,143 @@
             </div>
           </section>
 
+          <!-- LENS 03C: ISO 26262 ASIL-D TRANSIENT SOFT-ERROR & ECC DIAGNOSTIC COVERAGE SIMULATOR -->
+          <section id="sec-auto-asild" class="lens-panel lab-box-panel" aria-labelledby="lab-asild-title">
+            <div class="panel-kicker"><span data-lang="en">LENS 03C · FLAGSHIP LAB 04</span><span data-lang="zh">視角 03C · 旗艦實驗室 04</span></div>
+            <h2 id="lab-asild-title">
+              <span data-lang="zh">車用 ISO 26262 ASIL-D 瞬態軟錯誤 FIT 率、中子通量與 ECC 診斷覆蓋率試算器</span>
+              <span data-lang="en">Automotive ISO 26262 ASIL-D Soft-Error FIT, Cosmic Neutron Flux &amp; ECC Diagnostic Coverage Simulator</span>
+            </h2>
+            <p class="panel-desc">
+              <span data-lang="zh">在電動車動力總成、BMS 電池管理與 L3/L4 自駕 ADAS 領域，宇宙射線大氣快中子（隨海拔高度指數增長）與封裝材料 Alpha 粒子是誘發隨機單粒子翻轉（SEU）的主要根源。本試算器依據第一性原理中子通量海拔衰減模型、單元臨界電荷與 SEC-DED / Chipkill 矩陣，計算硬體單點故障度量（SPFM ≥ 99%）、潛伏故障度量（LFM ≥ 90%）與週期性記憶體巡檢清洗（Scrubbing）對殘餘 FIT 率的抑制作業，嚴格驗證 ASIL-D 達成度。</span>
+              <span data-lang="en">In EV traction inverters, BMS, and autonomous ADAS controllers, atmospheric fast neutrons (scaling exponentially with altitude) and packaging alpha emitters dominate transient soft-error rates (SER). Based on first-principles neutron altitude scaling, critical charge models, and SEC-DED/Chipkill syndrome matrices, this simulator evaluates Single Point Fault Metric (SPFM ≥ 99%), Latent Fault Metric (LFM ≥ 90%), and periodic scrubbing suppression on residual FIT, rigorously qualifying ISO 26262 ASIL-D targets.</span>
+            </p>
+
+            <div class="decision-matrix-card" id="auto-asild-simulator-root" style="margin-top: 16px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 20px 22px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+              <!-- Controls Grid -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-bottom: 16px;">
+                <div>
+                  <label for="asild-mission-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span data-lang="zh">車載安全任務情境:</span><span data-lang="en">SAFETY MISSION PROFILE:</span>
+                  </label>
+                  <select id="asild-mission-select" aria-label="Automotive Safety Mission Profile" data-aria-en="Automotive Safety Mission Profile" data-aria-zh="車載安全任務情境" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                    <option value="powertrain_inverter_asild" selected>EV Inverter (ASIL-D / 125°C / 1500m)</option>
+                    <option value="adas_domain_controller">ADAS Controller (ASIL-D / 3000m Pass)</option>
+                    <option value="battery_management_asild">BMS Controller (ASIL-D / 500m)</option>
+                    <option value="gateway_telematics_asilb">Gateway V2X (ASIL-B Baseline)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="asild-nvm-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span data-lang="zh">記憶體單元抗翻轉架構:</span><span data-lang="en">MEMORY SER HARDENING:</span>
+                  </label>
+                  <select id="asild-nvm-select" aria-label="Memory SER Hardening Architecture" data-aria-en="Memory SER Hardening Architecture" data-aria-zh="記憶體單元抗翻轉架構" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                    <option value="antifuse_charge_free" selected>AntiFuse OTP (Zero-Charge / Immune)</option>
+                    <option value="radhard_stt_mram">Automotive STT-MRAM (MTJ / Low SER)</option>
+                    <option value="embedded_flash_sg">Split-Gate eFlash (Moderate SER)</option>
+                    <option value="embedded_sram_sub20nm">Advanced eSRAM (Sub-20nm / High SER)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="asild-ecc-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span data-lang="zh">硬體 ECC 診斷架構:</span><span data-lang="en">ECC DIAGNOSTIC ARCHITECTURE:</span>
+                  </label>
+                  <select id="asild-ecc-select" aria-label="ECC Diagnostic Architecture" data-aria-en="ECC Diagnostic Architecture" data-aria-zh="硬體 ECC 診斷架構" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                    <option value="secded_72_64" selected>SEC-DED (72, 64) Hamming (1-Correct / 2-Trap)</option>
+                    <option value="chipkill_reed_solomon">Chipkill Reed-Solomon (Burst Multi-Symbol)</option>
+                    <option value="parity_only">Parity Only (Detection Only / No Correction)</option>
+                    <option value="none">No Hardware ECC (Unprotected)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span><span data-lang="zh">行車海拔高度:</span><span data-lang="en">DRIVING ALTITUDE:</span></span>
+                    <span id="asild-altitude-val" style="color: #10b981; font-weight: 700;">1500 m</span>
+                  </div>
+                  <input type="range" id="asild-altitude-slider" min="0" max="8000" step="100" value="1500" aria-label="Driving Altitude in Meters" data-aria-en="Driving Altitude in Meters" data-aria-zh="行車海拔高度公尺" aria-valuetext="1500 m" style="width: 100%; accent-color: #10b981; cursor: pointer;">
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span><span data-lang="zh">記憶體容量:</span><span data-lang="en">ARRAY CAPACITY:</span></span>
+                    <span id="asild-capacity-val" style="color: #10b981; font-weight: 700;">16 Mb</span>
+                  </div>
+                  <input type="range" id="asild-capacity-slider" min="1" max="64" step="1" value="16" aria-label="Memory Array Capacity in Mb" data-aria-en="Memory Array Capacity in Mb" data-aria-zh="記憶體容量兆位元" aria-valuetext="16 Mb" style="width: 100%; accent-color: #10b981; cursor: pointer;">
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span><span data-lang="zh">巡檢清洗週期:</span><span data-lang="en">SCRUB INTERVAL:</span></span>
+                    <span id="asild-scrub-val" style="color: #10b981; font-weight: 700;">60 s</span>
+                  </div>
+                  <input type="range" id="asild-scrub-slider" min="1" max="1800" step="1" value="60" aria-label="Periodic Scrubbing Interval in Seconds" data-aria-en="Periodic Scrubbing Interval in Seconds" data-aria-zh="巡檢清洗週期秒" aria-valuetext="60 s" style="width: 100%; accent-color: #10b981; cursor: pointer;">
+                </div>
+              </div>
+
+              <!-- KPI Cards Strip -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                    <span data-lang="zh">原始中子軟錯誤率</span><span data-lang="en">RAW SER FIT</span>
+                  </div>
+                  <div id="asild-out-rawfit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+                </div>
+
+                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                    <span data-lang="zh">殘餘單點故障率 (SPF)</span><span data-lang="en">RESIDUAL FIT</span>
+                  </div>
+                  <div id="asild-out-residualfit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+                </div>
+
+                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                    <span data-lang="zh">單點故障度量 (SPFM)</span><span data-lang="en">SPFM METRIC</span>
+                  </div>
+                  <div id="asild-out-spfm" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+                </div>
+
+                <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                    <span data-lang="zh">潛伏故障度量 (LFM)</span><span data-lang="en">LFM METRIC</span>
+                  </div>
+                  <div id="asild-out-lfm" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+                </div>
+              </div>
+
+              <!-- Canvas Visualization -->
+              <div style="background: #060d17; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                  <div style="display: inline-flex; gap: 6px;" role="group" aria-label="ASIL Visualization Mode" data-aria-en="ASIL Visualization Mode" data-aria-zh="ASIL 視覺化模式">
+                    <button id="asild-mode-scrub" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                      <span data-lang="zh">巡檢週期 vs 殘餘 FIT (Scrubbing vs Residual)</span><span data-lang="en">Scrubbing vs Residual FIT</span>
+                    </button>
+                    <button id="asild-mode-altitude" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                      <span data-lang="zh">行車海拔 vs 中子通量 (Altitude vs Neutron Flux)</span><span data-lang="en">Altitude vs Neutron SER</span>
+                    </button>
+                  </div>
+                  <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">ISO 26262 ASIL Functional Safety Analyzer</span>
+                </div>
+                <div style="width: 100%; height: 180px; position: relative;">
+                  <canvas id="asild-canvas" width="480" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Automotive ASIL-D Soft Error Simulation Canvas" data-aria-en="Automotive ASIL-D Soft Error Simulation Canvas" data-aria-zh="車用 ASIL-D 軟錯誤模擬畫布"></canvas>
+                </div>
+              </div>
+
+              <!-- Verdict & Rating Banner -->
+              <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; border-radius: 0 4px 4px 0; padding: 10px 14px;">
+                <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
+                  <span id="asild-out-verdict">Loading ISO 26262 ASIL-D safety calculations...</span>
+                </div>
+                <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #0f172a; padding: 4px 10px; border-radius: 4px; border: 1px solid #334155; white-space: nowrap;">
+                  <span id="asild-out-rating" style="color: #10b981;">ISO 26262 ASIL-D Verified</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <!-- LENS 03B: CRYOGENIC (4K) & SPACE RAD-HARD eNVM PHYSICAL SIMULATOR -->
           <section id="sec-cryo-radhard" class="lens-panel lab-box-panel" aria-labelledby="lab-cryo-title">
             <div class="panel-kicker"><span data-lang="en">LENS 03B · FLAGSHIP LAB 03</span><span data-lang="zh">視角 03B · 旗艦實驗室 03</span></div>
@@ -2141,6 +2278,7 @@
       initCryoRadhardSimulator('cryo-simulator-root');
     }
   </script>
+  <script type="module" src="automotive-asild-ecc-simulator.js?v=20261006"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 </body>
 </html>
