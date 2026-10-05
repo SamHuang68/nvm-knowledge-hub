@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "dbb5c311f049664c07a6",
+  "version": "1e19a16b54c73b0607f7",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -19,6 +19,7 @@ self.NVMOfflineManifest = {
     "attack-resistance-evaluator.js",
     "automotive-blackbox-journal-calculator.js",
     "automotive-ecc.js",
+    "automotive-load-dump-clamp-simulator.js",
     "automotive-mission-profile.js",
     "automotive-model.js",
     "automotive-nvm.html",
@@ -29,6 +30,7 @@ self.NVMOfflineManifest = {
     "chiplet-ucie-nvm-simulator.js",
     "cim-analog-mac-simulator.js",
     "cim-efficiency-calculator.js",
+    "cim-nn-accuracy-degradation-simulator.js",
     "claim-scope.js",
     "command-palette-hud.js",
     "cryogenic-nvm-physics-simulator.js",
@@ -126,7 +128,7 @@ self.NVMOfflineManifest = {
     "404.html": "93549617ad5429a366d52ca2e897028b967478937c8296de25fde02fc7257f2c",
     "advanced-finfet-gaa-simulator.js": "4433c4ee4af301252d849beb617cd85201a8fd4529027c2ef55cf71e8a5e20b4",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
-    "ai-nvm-opportunities.html": "f8828234ab5f8956b27aa8ae9cffba81a26a6ba8c2245e2fa2c60c6426fcf26b",
+    "ai-nvm-opportunities.html": "277639235bd4188a521f6ef0e6feb5f1fd3323f7ad90e9eb400bca8f71ef5729",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
     "ai-nvm.css": "5ac0085348b2af246f464a4dbeccfe9579ed6a860ac990593cbdeedec8351afe",
     "ai-nvm.js": "a51a6ab74b0e708b54b5d3af200575f275efe0d14e435b02332a300d99cc4654",
@@ -141,9 +143,10 @@ self.NVMOfflineManifest = {
     "attack-resistance-evaluator.js": "c910a98dfe33af77474ca747fe72dae7cac37a79b968d2142d09078e7166737f",
     "automotive-blackbox-journal-calculator.js": "17781b1be12b8a77423ccd868b67d87f578cfa65197080a853951823390f63fa",
     "automotive-ecc.js": "c72a03db0474ae872b90d6f243ac611b9c80dcfe9432cabc871fa1e4b41b1c02",
+    "automotive-load-dump-clamp-simulator.js": "560d23b45ab031f77ba663671250b12b1e16fd7e741dbbf56569c01fdad0dcb2",
     "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
-    "automotive-nvm.html": "8144ac3c7f3068aa09080304078e5b43e4c074d826e893337eb24c6b3e7bf4e3",
+    "automotive-nvm.html": "25f0e77383e5ce750a213125fb4e244437ab20c61d69206f49fe9c1b28787b66",
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "bcd-trimming-simulator.js": "5fc84893230bc741aa87824195cc5029dd56345318fb67fc676ca227288fd96f",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
@@ -151,6 +154,7 @@ self.NVMOfflineManifest = {
     "chiplet-ucie-nvm-simulator.js": "c06f165c434e5212331f7a805fdaeadef120957720e812f258a40c41c556ad3a",
     "cim-analog-mac-simulator.js": "a5afbfb771a0a33d05c94410f074ec24deb1df65c965e16bc03569d52d909601",
     "cim-efficiency-calculator.js": "3348832fe0dfd6cd555a04c8b555813d74a5c5423e92a44b871075635612d561",
+    "cim-nn-accuracy-degradation-simulator.js": "c16f41ad08bd4e72bbd4ee8f1aa9735f7a2351d4e9a31e68b8944f63368ef0fc",
     "claim-scope.js": "afb8bc4df1c94c77e07707f184f1efd188970c384ccf70a598b45a503bd5f91e",
     "command-palette-hud.js": "69756564651eb6f41cd58cae19225cdb30df4853c9df0d69f0392bd1edf94557",
     "cryogenic-nvm-physics-simulator.js": "00cc5d14547921cfbe1f498cb3dffe7401007b8c9215851003953c2936d7667e",
@@ -244,5 +248,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 11856192
+  "totalBytes": 11930141
 };

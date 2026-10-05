@@ -1718,6 +1718,164 @@
               <span id="cim-mac-out-verdict">Loading CiM analog MAC calculations...</span>
             </div>
           </div>
+
+          <!-- COMPUTE-IN-MEMORY (CiM) NEURAL NETWORK ACCURACY DEGRADATION WORKBENCH -->
+          <div id="cim-nn-degradation-simulator-root" class="cim-nn-degradation-container" style="margin-top: 22px; background: #ffffff; border: 1px solid rgba(0, 102, 103, 0.35); border-radius: 8px; padding: 20px 22px; box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
+              <div>
+                <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #006667; letter-spacing: 0.08em; text-transform: uppercase;">
+                  <span data-lang="zh">前沿神經網路評估 · CiM 精度退化分析</span>
+                  <span data-lang="en">FRONTIER NN BENCHMARK · CiM ACCURACY DEGRADATION</span>
+                </span>
+                <h4 style="font-size: 16.5px; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+                  <span data-lang="zh">CiM 類比矩陣乘加單元非理想物理效應與深度神經網路分類精度衰退試算器</span>
+                  <span data-lang="en">CiM Analog MAC Non-Ideal Physical Effects &amp; Neural Network Accuracy Degradation Simulator</span>
+                </h4>
+              </div>
+              <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(0, 102, 103, 0.1); color: #006667; padding: 4px 8px; border-radius: 4px;">
+                <span data-lang="zh">IEEE TED / IEDM 物理模型</span>
+                <span data-lang="en">IEEE TED / IEDM Physics Model</span>
+              </span>
+            </div>
+
+            <p style="font-size: 12.5px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
+              <span data-lang="zh">評估 ReRAM / PCM / Flash / SRAM 類比存算陣列在長期電導漂移 (Conductance Drift)、走線 IR-Drop、微影失配與有限 ADC 量化雜訊疊加下，對 ResNet-50 / MobileNetV2 / ViT-Base / TinyML 權重有效信噪比 (SNR) 與 Top-1 精度衰退曲率的影響，計算建議片上再校準 (Recalibration) 週期。</span>
+              <span data-lang="en">Models compound impact of long-term conductance drift, bitline IR-drop, litho mismatch, and finite ADC quantization noise on weight SNR and Top-1 inference degradation across ResNet-50, MobileNetV2, ViT-Base, and TinyML workloads, deriving recommended on-chip recalibration intervals.</span>
+            </p>
+
+            <!-- Controls Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
+              <div>
+                <label for="cim-nn-workload-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                  <span data-lang="zh">神經網路架構工作負載：</span><span data-lang="en">NEURAL NETWORK WORKLOAD:</span>
+                </label>
+                <select id="cim-nn-workload-select" aria-label="Neural Network Workload" data-aria-en="Neural Network Workload" data-aria-zh="神經網路架構工作負載" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                  <option value="resnet50_imagenet" selected>ResNet-50 CNN (ImageNet-1K, 50 Layers)</option>
+                  <option value="mobilenet_v2">MobileNetV2 Edge Vision (Depthwise Separable)</option>
+                  <option value="vit_base_patch16">Vision Transformer ViT-Base (Self-Attention)</option>
+                  <option value="kws_tinyml_bnn">TinyML Keyword Spotting (1-bit XNOR BNN)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="cim-nn-device-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                  <span data-lang="zh">存算單元元件拓撲：</span><span data-lang="en">DEVICE TECHNOLOGY:</span>
+                </label>
+                <select id="cim-nn-device-select" aria-label="CiM Device Technology" data-aria-en="CiM Device Technology" data-aria-zh="存算單元元件拓撲" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                  <option value="reram_oxram_mlc" selected>Oxide ReRAM (4-bit MLC, Drift ν=0.075)</option>
+                  <option value="pcm_analog_synapse">Analog PCM Synapse (Phase Change, High Drift ν=0.12)</option>
+                  <option value="nor_flash_embedded">Embedded NOR Flash (4-bit MLC, Low Drift ν=0.018)</option>
+                  <option value="sram_charge_domain">8T SRAM Charge-Domain (Zero Drift, Volatile)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="cim-nn-adc-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                  <span data-lang="zh">ADC 量化解析度：</span><span data-lang="en">ADC RESOLUTION:</span>
+                </label>
+                <select id="cim-nn-adc-select" aria-label="ADC Resolution Bits" data-aria-en="ADC Resolution Bits" data-aria-zh="ADC 量化解析度" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                  <option value="4">4-bit SAR (Ultra-Low Power)</option>
+                  <option value="6" selected>6-bit SAR (Balanced Performance)</option>
+                  <option value="7">7-bit SAR (High Fidelity)</option>
+                  <option value="8">8-bit Flash/SAR (Near-Lossless)</option>
+                </select>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                  <span><span data-lang="zh">資料留存時長：</span><span data-lang="en">RETENTION TIME:</span></span>
+                  <span id="cim-nn-ret-val" style="color: #006667; font-weight: 700;">720 hrs</span>
+                </div>
+                <input type="range" id="cim-nn-ret-slider" min="1" max="87600" step="100" value="720" aria-label="Retention Time in Hours" data-aria-en="Retention Time in Hours" data-aria-zh="資料留存時長" aria-valuetext="720 hrs" style="width: 100%; accent-color: #006667; cursor: pointer;">
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                  <span><span data-lang="zh">運算接面溫度：</span><span data-lang="en">JUNCTION TEMP:</span></span>
+                  <span id="cim-nn-temp-val" style="color: #006667; font-weight: 700;">85 °C</span>
+                </div>
+                <input type="range" id="cim-nn-temp-slider" min="-40" max="150" step="5" value="85" aria-label="Operating Junction Temperature" data-aria-en="Operating Junction Temperature" data-aria-zh="運算接面溫度" aria-valuetext="85 °C" style="width: 100%; accent-color: #006667; cursor: pointer;">
+              </div>
+            </div>
+
+            <!-- KPI Cards Strip -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                  <span data-lang="zh">有效權重信噪比</span><span data-lang="en">WEIGHT SNR</span>
+                </div>
+                <div id="cim-nn-out-snr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">含漂移與量化噪聲</span><span data-lang="en">Drift + quant noise</span>
+                </div>
+              </div>
+
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                  <span data-lang="zh">實現乘加等效精度</span><span data-lang="en">REALIZED MAC BITS</span>
+                </div>
+                <div id="cim-nn-out-macbits" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">等效無損計算位元</span><span data-lang="en">Effective precision</span>
+                </div>
+              </div>
+
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                  <span data-lang="zh">推論 Top-1 精準度</span><span data-lang="en">TOP-1 ACCURACY</span>
+                </div>
+                <div id="cim-nn-out-top1" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">神經網路實際輸出</span><span data-lang="en">End-to-end output</span>
+                </div>
+              </div>
+
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                  <span data-lang="zh">精度相對降幅</span><span data-lang="en">PRECISION DROP</span>
+                </div>
+                <div id="cim-nn-out-drop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">相對於數位浮點基準</span><span data-lang="en">vs FP32 baseline</span>
+                </div>
+              </div>
+
+              <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                  <span data-lang="zh">建議再校準週期</span><span data-lang="en">CALIB INTERVAL</span>
+                </div>
+                <div id="cim-nn-out-refresh" style="font: 700 16px 'IBM Plex Mono', monospace; color: #b45309;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">維持 Δ&lt;1.5% 門檻</span><span data-lang="en">Keep Δ&lt;1.5% bound</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visualization Canvas & Mode Buttons -->
+            <div style="background: #09131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                <div style="display: inline-flex; gap: 6px;" role="group" aria-label="CiM Visualization View" data-aria-en="CiM Visualization View" data-aria-zh="CiM 視覺化視圖">
+                  <button id="cim-nn-mode-curve" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                    <span data-lang="zh">Top-1 精度衰退曲線 (Accuracy vs Time)</span><span data-lang="en">Accuracy vs. Retention Time</span>
+                  </button>
+                  <button id="cim-nn-mode-dist" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                    <span data-lang="zh">權重分佈與量化誤差 (Weight Error Dist)</span><span data-lang="en">Weight Error Histogram</span>
+                  </button>
+                </div>
+                <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">
+                  <span data-lang="zh">高解析度動態推論分析儀</span><span data-lang="en">High-DPI Dynamic Inference Analyzer</span>
+                </span>
+              </div>
+              <div style="width: 100%; height: 180px; position: relative;">
+                <canvas id="cim-nn-canvas" width="420" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="CiM Neural Network Accuracy Degradation Simulation Canvas" data-aria-en="CiM Neural Network Accuracy Degradation Simulation Canvas" data-aria-zh="CiM 神經網路精度衰退模擬畫布"></canvas>
+              </div>
+            </div>
+
+            <!-- Architectural Insight Callout -->
+            <div style="background: rgba(0, 102, 103, 0.06); border-left: 3px solid #006667; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #1e293b;">
+              <span id="cim-nn-out-verdict">Loading CiM neural network accuracy degradation calculations...</span>
+            </div>
+          </div>
         </div>
 
         <!-- 2026 先進節點 SRAM Scaling Wall 與 3D 堆疊快取修復邊界 -->
@@ -2024,5 +2182,6 @@
   </script>
   <script type="module" src="cim-efficiency-calculator.js"></script>
   <script type="module" src="cim-analog-mac-simulator.js"></script>
+  <script type="module" src="cim-nn-accuracy-degradation-simulator.js?v=20261005"></script>
 </body>
 </html>

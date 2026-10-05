@@ -1443,6 +1443,42 @@ def run_tests() -> None:
     test("iot-mcu-envm.html 包含負載選擇器、後端技術選擇器、CAM 槽位選擇器、雙軸滑桿、五大 KPI 指標卡與位址地圖/管線週期雙模態 Canvas",
          'id="patch-workload-select"' in iot_mcu_html and 'id="patch-backend-select"' in iot_mcu_html and 'id="patch-cam-select"' in iot_mcu_html and 'id="patch-clock-slider"' in iot_mcu_html and 'id="patch-volt-slider"' in iot_mcu_html and 'id="patch-out-campower"' in iot_mcu_html and 'id="patch-out-latency"' in iot_mcu_html and 'id="patch-out-energy"' in iot_mcu_html and 'id="patch-out-savings"' in iot_mcu_html and 'id="patch-out-lifespan"' in iot_mcu_html and 'id="patch-canvas"' in iot_mcu_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 59: CiM 類比矩陣乘加單元非理想物理效應與深度神經網路分類精度衰退試算器 (ai-nvm-opportunities.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 59: CiM 類比矩陣乘加單元非理想物理效應與深度神經網路分類精度衰退試算器 ═══")
+    cim_nn_js = (BASE / "cim-nn-accuracy-degradation-simulator.js").read_text(encoding="utf-8")
+    test("cim-nn-accuracy-degradation-simulator.js 存在且導出 calculateCimNnDegradation 與 initCimNnDegradationSimulator",
+         "export function calculateCimNnDegradation" in cim_nn_js and "export function initCimNnDegradationSimulator" in cim_nn_js)
+    test("cim-nn-accuracy-degradation-simulator.js 包含四大神經網路架構預設與四大存算元件拓撲設定檔",
+         "CIM_NN_WORKLOAD_PRESETS" in cim_nn_js and "resnet50_imagenet" in cim_nn_js and "mobilenet_v2" in cim_nn_js and "vit_base_patch16" in cim_nn_js and "kws_tinyml_bnn" in cim_nn_js and "CIM_DEVICE_TECHNOLOGIES" in cim_nn_js and "reram_oxram_mlc" in cim_nn_js and "pcm_analog_synapse" in cim_nn_js and "nor_flash_embedded" in cim_nn_js and "sram_charge_domain" in cim_nn_js)
+    test("cim-nn-accuracy-degradation-simulator.js 第一性原理電導漂移冪律、IR-Drop、ADC 量化噪聲、權重信噪比、Top-1 分類精度衰退與片上再校準週期演算法",
+         "weightSnrDb" in cim_nn_js and "realizedMacBits" in cim_nn_js and "realizedTop1Pct" in cim_nn_js and "top1DropPct" in cim_nn_js and "recommendedRefreshHours" in cim_nn_js and "energyEfficiencyTopsPerWatt" in cim_nn_js and "sigmaDrift" in cim_nn_js and "sigmaQuant" in cim_nn_js and "sigmaTotal" in cim_nn_js)
+
+    ai_nvm_html = (BASE / "ai-nvm-opportunities.html").read_text(encoding="utf-8")
+    test("ai-nvm-opportunities.html 整合 cim-nn-degradation-simulator-root 工作台與模組腳本引用",
+         'id="cim-nn-degradation-simulator-root"' in ai_nvm_html and 'src="cim-nn-accuracy-degradation-simulator.js' in ai_nvm_html)
+    test("ai-nvm-opportunities.html 包含負載選擇器、元件選擇器、ADC 選擇器、雙軸滑桿、五大 KPI 指標卡與精度衰退/誤差分佈雙模態 Canvas",
+         'id="cim-nn-workload-select"' in ai_nvm_html and 'id="cim-nn-device-select"' in ai_nvm_html and 'id="cim-nn-adc-select"' in ai_nvm_html and 'id="cim-nn-ret-slider"' in ai_nvm_html and 'id="cim-nn-temp-slider"' in ai_nvm_html and 'id="cim-nn-out-snr"' in ai_nvm_html and 'id="cim-nn-out-macbits"' in ai_nvm_html and 'id="cim-nn-out-top1"' in ai_nvm_html and 'id="cim-nn-out-drop"' in ai_nvm_html and 'id="cim-nn-out-refresh"' in ai_nvm_html and 'id="cim-nn-canvas"' in ai_nvm_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 60: AEC-Q100 Grade 0 / ISO 16750-2 負載突降 (Load Dump) 瞬態脈衝與高溫電荷泵升壓箝位安全試算器 (automotive-nvm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 60: AEC-Q100 Grade 0 / ISO 16750-2 負載突降 (Load Dump) 瞬態脈衝與高溫電荷泵升壓箝位安全試算器 ═══")
+    ld_js = (BASE / "automotive-load-dump-clamp-simulator.js").read_text(encoding="utf-8")
+    test("automotive-load-dump-clamp-simulator.js 存在且導出 calculateAutomotiveLoadDumpClamp 與 initAutomotiveLoadDumpSimulator",
+         "export function calculateAutomotiveLoadDumpClamp" in ld_js and "export function initAutomotiveLoadDumpSimulator" in ld_js)
+    test("automotive-load-dump-clamp-simulator.js 包含四大車規瞬態突波預設與四大高壓箝位與電荷泵防護拓撲設定檔",
+         "LOAD_DUMP_PRESETS" in ld_js and "iso16750_pulse5a_unsuppressed" in ld_js and "iso16750_pulse5b_suppressed" in ld_js and "mhev_48v_pulse" in ld_js and "inductive_kick_pulse2a" in ld_js and "CLAMP_PROTECTION_TOPOLOGIES" in ld_js and "active_fet_surge_stopper" in ld_js and "external_tvs_sm8s" in ld_js and "internal_zener_cap" in ld_js and "hybrid_multistage" in ld_js)
+    test("automotive-load-dump-clamp-simulator.js 第一性原理 ISO 16750-2 指數衰減、動態箝位吸收功耗、175°C Arrhenius 漏電、電荷泵穿透擊穿裕度與升壓漣波演算法",
+         "peakClampedV" in ld_js and "peakClampCurrentA" in ld_js and "peakDissipatedWatts" in ld_js and "highTempLeakageMa" in ld_js and "vPumpStressPeak" in ld_js and "dielectricMarginPct" in ld_js and "pumpRippleMv" in ld_js and "complianceRating" in ld_js)
+
+    auto_html = (BASE / "automotive-nvm.html").read_text(encoding="utf-8")
+    test("automotive-nvm.html 整合 auto-load-dump-simulator-root 工作台與模組腳本引用",
+         'id="auto-load-dump-simulator-root"' in auto_html and 'src="automotive-load-dump-clamp-simulator.js' in auto_html)
+    test("automotive-nvm.html 包含脈衝選擇器、拓撲選擇器、雙軸滑桿、五大 KPI 指標卡與時域瞬態/電荷泵階梯雙模態 Canvas",
+         'id="auto-ld-pulse-select"' in auto_html and 'id="auto-ld-topology-select"' in auto_html and 'id="auto-ld-temp-slider"' in auto_html and 'id="auto-ld-clamp-slider"' in auto_html and 'id="auto-ld-out-clampedv"' in auto_html and 'id="auto-ld-out-power"' in auto_html and 'id="auto-ld-out-ripple"' in auto_html and 'id="auto-ld-out-margin"' in auto_html and 'id="auto-ld-out-rating"' in auto_html and 'id="auto-ld-canvas"' in auto_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
