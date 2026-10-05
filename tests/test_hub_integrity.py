@@ -1683,6 +1683,50 @@ def run_tests() -> None:
     test("iot-mcu-envm.html 包含四大 KPI 輸出欄位 (Energy, Latency, Leakage Ratio, Score) 與判定橫幅",
          'id="subvt-metric-energy"' in iot_subvt_html and 'id="subvt-metric-latency"' in iot_subvt_html and 'id="subvt-metric-leakage"' in iot_subvt_html and 'id="subvt-metric-score"' in iot_subvt_html and 'id="subvt-verdict-banner"' in iot_subvt_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 71: CPO / 矽光子光電共封裝微環微調與雷射自發熱 eNVM 留存性模擬器 (ai-nvm-opportunities.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 71: CPO / 矽光子光電共封裝微環微調與雷射自發熱 eNVM 留存性模擬器 ═══")
+    cpo_js = (BASE / "cpo-siph-nvm-simulator.js").read_text(encoding="utf-8")
+    test("cpo-siph-nvm-simulator.js 存在且導出 calculateCpoSiphMetrics、drawCpoSiphCanvas 與 initCpoSiphSimulator",
+         "export function calculateCpoSiphMetrics" in cpo_js and "export function drawCpoSiphCanvas" in cpo_js and "export function initCpoSiphSimulator" in cpo_js)
+    test("cpo-siph-nvm-simulator.js 包含四大 CPO 系統預設與四大光學微調 eNVM 拓撲設定檔",
+         "CPO_SYSTEM_PRESETS" in cpo_js and "hyperscale_cpo_51t" in cpo_js and "ai_accelerator_oio" in cpo_js and "external_laser_els" in cpo_js and "neuromorphic_photonic_gemm" in cpo_js and "OPTICAL_NVM_TECHS" in cpo_js and "antifuse_zero_static" in cpo_js and "optical_pcm_gst" in cpo_js and "active_thermal_heater" in cpo_js and "reram_analog_trim" in cpo_js)
+    test("cpo-siph-nvm-simulator.js 第一性原理雷射發熱、熱耦合接面溫升、微環諧振波長漂移、零待機熱調諧節能與 Arrhenius 留存壽命演算法",
+         "totalHeatLoadW" in cpo_js and "junctionTempC" in cpo_js and "wavelengthDriftNm" in cpo_js and "savedTuningPowerW" in cpo_js and "powerSavingsPercent" in cpo_js and "estimatedRetentionYears" in cpo_js and "systemRating" in cpo_js)
+    test("cpo-siph-nvm-simulator.js 包含雙模態視覺化 (mrr_resonance_shift 與 laser_thermal_retention)",
+         "mrr_resonance_shift" in cpo_js and "laser_thermal_retention" in cpo_js)
+
+    ai_cpo_html = (BASE / "ai-nvm-opportunities.html").read_text(encoding="utf-8")
+    test("ai-nvm-opportunities.html 整合 cpo-siph-simulator-root 工作台與模組腳本引用",
+         'id="cpo-siph-simulator-root"' in ai_cpo_html and 'cpo-siph-nvm-simulator.js' in ai_cpo_html)
+    test("ai-nvm-opportunities.html 包含 CPO 預設選擇器、拓撲選擇器、環境/雷射/通道三軸滑桿與雙模態 Canvas",
+         'id="cpo-preset-select"' in ai_cpo_html and 'id="cpo-tech-select"' in ai_cpo_html and 'id="cpo-ambient-slider"' in ai_cpo_html and 'id="cpo-laser-slider"' in ai_cpo_html and 'id="cpo-channel-slider"' in ai_cpo_html and 'id="cpo-siph-canvas"' in ai_cpo_html)
+    test("ai-nvm-opportunities.html 包含四大 KPI 輸出欄位 (Tj, Δλ, Savings, Retention) 與判定橫幅",
+         'id="cpo-out-junction"' in ai_cpo_html and 'id="cpo-out-drift"' in ai_cpo_html and 'id="cpo-out-powersave"' in ai_cpo_html and 'id="cpo-out-retention"' in ai_cpo_html and 'id="cpo-out-rating"' in ai_cpo_html and 'id="cpo-out-verdict"' in ai_cpo_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 72: 深空重離子單粒子閂鎖 (SEL) 閾值與 20 年超高溫 Arrhenius 數據留存衰減試算器 (specialty-nvm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 72: 深空重離子單粒子閂鎖 (SEL) 閾值與 20 年超高溫 Arrhenius 數據留存衰減試算器 ═══")
+    deep_js = (BASE / "deep-space-sel-retention-simulator.js").read_text(encoding="utf-8")
+    test("deep-space-sel-retention-simulator.js 存在且導出 calculateDeepSpaceMetrics、drawDeepSpaceCanvas 與 initDeepSpaceSimulator",
+         "export function calculateDeepSpaceMetrics" in deep_js and "export function drawDeepSpaceCanvas" in deep_js and "export function initDeepSpaceSimulator" in deep_js)
+    test("deep-space-sel-retention-simulator.js 包含四大深空任務預設與四大耐受技術拓撲",
+         "DEEP_SPACE_MISSION_PRESETS" in deep_js and "venus_lander_460c" in deep_js and "jupiter_europa_belt" in deep_js and "artemis_lunar_20yr" in deep_js and "downhole_geothermal_300c" in deep_js and "DEEP_SPACE_TECH_PROFILES" in deep_js and "antifuse_soi_radhard" in deep_js and "sic_widebandgap_envm" in deep_js and "radhard_stt_mram" in deep_js and "bulk_cmos_eflash" in deep_js)
+    test("deep-space-sel-retention-simulator.js 第一性原理重離子 SEL Weibull 截面積、免疫閾值、Arrhenius 460°C 極限高溫留存、20 年任務存活率與 NASA Class-S 評級演算法",
+         "selCrossSection" in deep_js and "selMarginMev" in deep_js and "isSelLatching" in deep_js and "estimatedRetentionYears" in deep_js and "retentionSurvPct" in deep_js and "rating" in deep_js and "verdictZh" in deep_js)
+    test("deep-space-sel-retention-simulator.js 包含雙模態視覺化 (sel_cross_section_let 與 arrhenius_high_temp_retention)",
+         "sel_cross_section_let" in deep_js and "arrhenius_high_temp_retention" in deep_js)
+
+    spec_deep_html = (BASE / "specialty-nvm.html").read_text(encoding="utf-8")
+    test("specialty-nvm.html 整合 deep-space-simulator-root 工作台與模組腳本引用",
+         'id="deep-space-simulator-root"' in spec_deep_html and 'deep-space-sel-retention-simulator.js' in spec_deep_html)
+    test("specialty-nvm.html 包含深空任務選擇器、技術選擇器、溫度/LET/年限三軸滑桿與雙模態 Canvas",
+         'id="deep-space-preset-select"' in spec_deep_html and 'id="deep-space-tech-select"' in spec_deep_html and 'id="deep-space-temp-slider"' in spec_deep_html and 'id="deep-space-let-slider"' in spec_deep_html and 'id="deep-space-mission-slider"' in spec_deep_html and 'id="deep-space-canvas"' in spec_deep_html)
+    test("specialty-nvm.html 包含四大 KPI 輸出欄位 (SEL Status, Retention, Survival, Ea) 與判定橫幅",
+         'id="deep-space-out-sel"' in spec_deep_html and 'id="deep-space-out-retention"' in spec_deep_html and 'id="deep-space-out-survival"' in spec_deep_html and 'id="deep-space-out-ea"' in spec_deep_html and 'id="deep-space-out-rating"' in spec_deep_html and 'id="deep-space-out-verdict"' in spec_deep_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
@@ -1690,5 +1734,6 @@ def run_tests() -> None:
 
 if __name__ == "__main__":
     exit(0 if run_tests() else 1)
+
 
 

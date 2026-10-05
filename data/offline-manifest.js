@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "547ac0075460455fd70c",
+  "version": "568fdfaf6b80184a7509",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -34,12 +34,14 @@ self.NVMOfflineManifest = {
     "cim-nn-accuracy-degradation-simulator.js",
     "claim-scope.js",
     "command-palette-hud.js",
+    "cpo-siph-nvm-simulator.js",
     "cryo-qubit-readout-simulator.js",
     "cryo-radhard-nvm-simulator.js",
     "cryogenic-nvm-physics-simulator.js",
     "data/ai-nvm-opportunities-knowledge.json",
     "data/named-nvm-comparison.json",
     "data/nvm-search-index.js",
+    "deep-space-sel-retention-simulator.js",
     "deferred-backgrounds.js",
     "demura-lut-calculator.js",
     "differential-sensing-simulator.js",
@@ -138,7 +140,7 @@ self.NVMOfflineManifest = {
     "404.html": "93549617ad5429a366d52ca2e897028b967478937c8296de25fde02fc7257f2c",
     "advanced-finfet-gaa-simulator.js": "4433c4ee4af301252d849beb617cd85201a8fd4529027c2ef55cf71e8a5e20b4",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
-    "ai-nvm-opportunities.html": "1a8e0f71f5a6a9e4829d03deed001b619e2823679f87165d30658e8caf76ad36",
+    "ai-nvm-opportunities.html": "061a1dda34eb25cf49e7e0287ff606efb10b6e62d9c181940a662329d85b3404",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
     "ai-nvm.css": "5ac0085348b2af246f464a4dbeccfe9579ed6a860ac990593cbdeedec8351afe",
     "ai-nvm.js": "a51a6ab74b0e708b54b5d3af200575f275efe0d14e435b02332a300d99cc4654",
@@ -168,12 +170,14 @@ self.NVMOfflineManifest = {
     "cim-nn-accuracy-degradation-simulator.js": "c16f41ad08bd4e72bbd4ee8f1aa9735f7a2351d4e9a31e68b8944f63368ef0fc",
     "claim-scope.js": "afb8bc4df1c94c77e07707f184f1efd188970c384ccf70a598b45a503bd5f91e",
     "command-palette-hud.js": "69756564651eb6f41cd58cae19225cdb30df4853c9df0d69f0392bd1edf94557",
+    "cpo-siph-nvm-simulator.js": "a1cf9a509b171b6411730dd13b8b98db8c880f3e9d2ca585ea35bc6418beb104",
     "cryo-qubit-readout-simulator.js": "f5422d53c014a9c1a4b01d936326cc3a2a35099b0226a8cd447564e7f50922f2",
     "cryo-radhard-nvm-simulator.js": "761c2606c6c13236beb28e9c0d9b8da6333d1fa0a68c622c749ccb099ede729d",
     "cryogenic-nvm-physics-simulator.js": "00cc5d14547921cfbe1f498cb3dffe7401007b8c9215851003953c2936d7667e",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "data/named-nvm-comparison.json": "69f18cd39e195164c8139e9079d4c8df2647a8c74b3ff826c667304f12330de1",
     "data/nvm-search-index.js": "1ce8a43c88b802a5cdce8ac183f47938c1352d11af68792f1a5902fa17d80306",
+    "deep-space-sel-retention-simulator.js": "f23ad0a6a7da15b84f7d936ca669f7eb169f63dd2adbd769a8ef2c94b6f4d4d9",
     "deferred-backgrounds.js": "a74dc489a74403e27ade20c4d0d16306d4d2f00c0f697cbff9662908ce0371a4",
     "demura-lut-calculator.js": "a7e0b8f2fbfe4ddba25f4d65236be022a198013c88e34e23e2616d29f4baaa60",
     "differential-sensing-simulator.js": "7af618dda0e45106ff8fe7424d17434b7cae8be47575e619fdbd12707852b6a4",
@@ -243,7 +247,7 @@ self.NVMOfflineManifest = {
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
     "space-radiation-hardening-simulator.js": "ac4baaf3e4976f584c52d92dd2e8c5771c3e1634777c386fa822f45526e7ad7b",
     "specialty-nvm.css": "54edc81d1d15e1d9d5c3f2604328e11269e48ac9fda51d059912d4dd0f8d7862",
-    "specialty-nvm.html": "961b1c89426c0a7958b4433f9e6de69eb3d4cc0c8cf77dfe117a232ef8bf7cc1",
+    "specialty-nvm.html": "9e8a8a4ad1f596d406518dd604f222cb12aef23e8ee34b94d2efbea7288d9196",
     "specialty-nvm.js": "987a05dd3f6aa8cf0b69c7c543deebc445587e9f930186241a47a7a1e01fec4b",
     "sram-repair-model.js": "366c04a84d228d736a372308d8adbaf07660683fb6f6d5b453adc5dde8c204a6",
     "sram-repair.css": "344a186f66695d3f92ad1552743c08cb2696f33a821add216ed24b302a9ecae9",
@@ -268,5 +272,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 12319816
+  "totalBytes": 12392786
 };
