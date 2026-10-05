@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "8b9fc1b33b5b1faa47b5",
+  "version": "87873230ab230cc46e0b",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -17,6 +17,7 @@ self.NVMOfflineManifest = {
     "assurance.js",
     "atlas-diagram-loader.js",
     "attack-resistance-evaluator.js",
+    "automotive-blackbox-journal-calculator.js",
     "automotive-ecc.js",
     "automotive-mission-profile.js",
     "automotive-model.js",
@@ -30,6 +31,7 @@ self.NVMOfflineManifest = {
     "cim-efficiency-calculator.js",
     "claim-scope.js",
     "command-palette-hud.js",
+    "cryogenic-nvm-physics-simulator.js",
     "data/ai-nvm-opportunities-knowledge.json",
     "data/named-nvm-comparison.json",
     "data/nvm-search-index.js",
@@ -135,10 +137,11 @@ self.NVMOfflineManifest = {
     "assurance.js": "9ea632d49050526dc931c17fdd66b2e4d2ff64482385e9e8a27c253d518dbfa0",
     "atlas-diagram-loader.js": "6c7bcc1a49afd8731768a16b0dfb6365f8e0c4a9eb73bf7aa02d8a308a3fdf9e",
     "attack-resistance-evaluator.js": "c910a98dfe33af77474ca747fe72dae7cac37a79b968d2142d09078e7166737f",
+    "automotive-blackbox-journal-calculator.js": "17781b1be12b8a77423ccd868b67d87f578cfa65197080a853951823390f63fa",
     "automotive-ecc.js": "c72a03db0474ae872b90d6f243ac611b9c80dcfe9432cabc871fa1e4b41b1c02",
     "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
     "automotive-model.js": "91b0a8ef2a623a526d4445caaf8b663c26f8eb15e962c879969cb7975c0c1454",
-    "automotive-nvm.html": "be87121274e30f3f7682dd66ae5a5497db550c6be46c0a3fe08b2be7d19e4f10",
+    "automotive-nvm.html": "8144ac3c7f3068aa09080304078e5b43e4c074d826e893337eb24c6b3e7bf4e3",
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "bcd-trimming-simulator.js": "5fc84893230bc741aa87824195cc5029dd56345318fb67fc676ca227288fd96f",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
@@ -148,6 +151,7 @@ self.NVMOfflineManifest = {
     "cim-efficiency-calculator.js": "3348832fe0dfd6cd555a04c8b555813d74a5c5423e92a44b871075635612d561",
     "claim-scope.js": "afb8bc4df1c94c77e07707f184f1efd188970c384ccf70a598b45a503bd5f91e",
     "command-palette-hud.js": "69756564651eb6f41cd58cae19225cdb30df4853c9df0d69f0392bd1edf94557",
+    "cryogenic-nvm-physics-simulator.js": "00cc5d14547921cfbe1f498cb3dffe7401007b8c9215851003953c2936d7667e",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "data/named-nvm-comparison.json": "69f18cd39e195164c8139e9079d4c8df2647a8c74b3ff826c667304f12330de1",
     "data/nvm-search-index.js": "1ce8a43c88b802a5cdce8ac183f47938c1352d11af68792f1a5902fa17d80306",
@@ -183,7 +187,7 @@ self.NVMOfflineManifest = {
     "memory-evidence.html": "2438c00168f48b5eb66fbf78df3dffe57e2cd2af0a07a5e43605e520c0c900ab",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "5e28c70c918ff50e5112da76a3bc799507a0c5761e2ac794d863908e321c1f03",
+    "memory-physics.html": "8a774413b1744bdbc54134e82c8a8280c47be4ab3bf6dd759e30b6b08a87bfc4",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
     "nvm-bitcell-figures.css": "da04d7984bd9f62137dab5c2f5657a38b620b32b6c16c628a94f2f9406d5aed6",
@@ -236,5 +240,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 11710795
+  "totalBytes": 11782954
 };

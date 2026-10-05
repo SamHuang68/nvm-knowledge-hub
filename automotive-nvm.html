@@ -1363,6 +1363,161 @@
                 <span data-lang="en"><strong>SEooC Assumptions of Use (AoU):</strong> SPFM/LFM/PMHF in the table are <strong>teaching illustrations</strong> only — close with named FMEDA and product integration. SEooC may use ISO 26262 ASIL <strong>vocabulary</strong> (not READY certification). <strong>IEC 61508 SC3</strong> is a cross-standard teaching reference — this page does not claim that capability by architecture alone. Item-level ASIL requires Tier-1/OEM external safety mechanisms. Latent-fault metrics depend on AoU such as <code>T<sub>scrub</sub> &le; T<sub>latent_budget</sub></code> — do not infer certification from this page alone.</span>
               </div>
             </div>
+            <!-- INTERACTIVE LAB: ISO 26262 ASIL-D FAULT BLACK-BOX & HOLD-UP CAPACITOR CALCULATOR -->
+            <div id="auto-blackbox-simulator-root" style="margin-top: 22px; background: #ffffff; border: 1px solid rgba(180, 83, 9, 0.35); border-radius: 8px; padding: 20px 22px; box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05);">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
+                <div>
+                  <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #b45309; letter-spacing: 0.08em; text-transform: uppercase;">
+                    <span data-lang="zh">車規故障安全實驗室 · ASIL-D 黑盒子日誌快取</span>
+                    <span data-lang="en">AUTO FAIL-SAFE LAB · ASIL-D BLACK-BOX JOURNAL</span>
+                  </span>
+                  <h3 style="font-size: 16.5px; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+                    <span data-lang="zh">車規 ISO 26262 故障黑盒子環形日誌與斷電持電電容 (Hold-Up Cap) 試算器</span>
+                    <span data-lang="en">Automotive ISO 26262 Black-Box Circular Journal &amp; Hold-Up Cap Sizing Calculator</span>
+                  </h3>
+                </div>
+                <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(180, 83, 9, 0.1); color: #b45309; padding: 4px 8px; border-radius: 4px;">
+                  <span data-lang="zh">第一性原理斷電儲能模型</span>
+                  <span data-lang="en">First-Principles Hold-Up Energy Model</span>
+                </span>
+              </div>
+
+              <p style="font-size: 12.5px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
+                <span data-lang="zh">模擬車輛遭遇主電源暴跌（電池線路截斷/車禍衝擊）時，PMIC/BCD 晶片在欠壓鎖定 (UVLO) 門檻前，利用板載陶瓷持電電容儲能完成非揮發性故障快照 (Crash Dump) 寫入所需的電容量、寫入時長、突波電流與環形磨損壽命。</span>
+                <span data-lang="en">Models the required board hold-up capacitance, burst write latency, peak surge current, and circular buffer endurance to complete emergency nonvolatile crash-dump logging before UVLO shutdown under catastrophic power loss.</span>
+              </p>
+
+              <!-- Controls Row -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
+                <div>
+                  <label for="auto-bb-fault-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span data-lang="zh">車載關鍵故障場景:</span><span data-lang="en">CRITICAL FAULT SCENARIO:</span>
+                  </label>
+                  <select id="auto-bb-fault-select" aria-label="Critical Automotive Fault Scenario" data-aria-en="Critical Automotive Fault Scenario" data-aria-zh="車載關鍵故障場景" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                    <option value="powertrain_inverter" selected>EV Inverter Short (64B × 4, &lt;5ms)</option>
+                    <option value="adas_radar_fail">ADAS Radar Desync (128B × 2, &lt;8ms)</option>
+                    <option value="bms_thermal_runaway">BMS Thermal Runaway (256B × 3, &lt;15ms)</option>
+                    <option value="chassis_steer_by_wire">Steer-by-Wire Fail (32B × 6, &lt;3.5ms)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="auto-bb-tech-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span data-lang="zh">日誌非揮發記憶體技術:</span><span data-lang="en">LOGGING NVM TECH:</span>
+                  </label>
+                  <select id="auto-bb-tech-select" aria-label="Logging NVM Technology" data-aria-en="Logging NVM Technology" data-aria-zh="日誌非揮發記憶體技術" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                    <option value="logic_mtp_ee" selected>0-Mask Logic MTP (100k Cycles, 1.8ms/pg)</option>
+                    <option value="antifuse_dense">AntiFuse OTP (Append-Only, 0.35ms/pg)</option>
+                    <option value="emram_stt">Embedded STT-MRAM (10^9 Cycles, 5µs/pg)</option>
+                    <option value="legacy_eflash">Legacy eFlash (Erase-before-write, 18.5ms)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="auto-bb-buffer-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span data-lang="zh">日誌環形緩衝區容量:</span><span data-lang="en">JOURNAL BUFFER SIZE:</span>
+                  </label>
+                  <select id="auto-bb-buffer-select" aria-label="Journal Circular Buffer Size" data-aria-en="Journal Circular Buffer Size" data-aria-zh="日誌環形緩衝區容量" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                    <option value="64">64 Kb (8 KB - Compact)</option>
+                    <option value="128">128 Kb (16 KB - Standard)</option>
+                    <option value="256" selected>256 Kb (32 KB - Extended)</option>
+                    <option value="512">512 Kb (64 KB - High Depth)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span><span data-lang="zh">接面溫度:</span><span data-lang="en">JUNCTION TEMP:</span></span>
+                    <span id="auto-bb-temp-val" style="color: #b45309; font-weight: 700;">125 °C</span>
+                  </div>
+                  <input type="range" id="auto-bb-temp-slider" min="-40" max="175" step="5" value="125" aria-label="Operating Junction Temperature" data-aria-en="Operating Junction Temperature" data-aria-zh="運算接面溫度" aria-valuetext="125 °C" style="width: 100%; accent-color: #b45309; cursor: pointer;">
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span><span data-lang="zh">安全裕度係數:</span><span data-lang="en">SAFETY MARGIN:</span></span>
+                    <span id="auto-bb-margin-val" style="color: #b45309; font-weight: 700;">1.35x</span>
+                  </div>
+                  <input type="range" id="auto-bb-margin-slider" min="1.1" max="2.0" step="0.05" value="1.35" aria-label="Energy Safety Margin" data-aria-en="Energy Safety Margin" data-aria-zh="安全裕度係數" aria-valuetext="1.35x" style="width: 100%; accent-color: #b45309; cursor: pointer;">
+                </div>
+              </div>
+
+              <!-- KPI Metrics Strip -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">最低持電電容</span><span data-lang="en">HOLD-UP CAPACITANCE</span>
+                  </div>
+                  <div id="auto-bb-out-capuf" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">MLCC 板載佔地指標</span><span data-lang="en">PCB MLCC budget</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">斷電緊急寫入時間</span><span data-lang="en">BURST WRITE TIME</span>
+                  </div>
+                  <div id="auto-bb-out-writetime" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">掉電關閉窗口對比</span><span data-lang="en">vs power collapse</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">峰值寫入突波電流</span><span data-lang="en">PEAK SURGE CURRENT</span>
+                  </div>
+                  <div id="auto-bb-out-surgema" style="font: 700 16px 'IBM Plex Mono', monospace; color: #b45309;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">電荷泵瞬態汲取</span><span data-lang="en">Charge pump surge</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">環形覆寫壽命事件</span><span data-lang="en">MAX LIFETIME EVENTS</span>
+                  </div>
+                  <div id="auto-bb-out-events" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">均衡磨損循環總次數</span><span data-lang="en">Wear leveled events</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">高溫資料留存壽命</span><span data-lang="en">DATA RETENTION</span>
+                  </div>
+                  <div id="auto-bb-out-retention" style="font: 700 16px 'IBM Plex Mono', monospace; color: #475569;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">Arrhenius 加速折算</span><span data-lang="en">Arrhenius derated</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Canvas Visualization -->
+              <div style="background: #101923; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                  <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Blackbox Visualization Mode" data-aria-en="Blackbox Visualization Mode" data-aria-zh="黑盒子視覺化模式">
+                    <button id="auto-bb-mode-curve" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #10b981; background: #059669; color: #ffffff; cursor: pointer;">
+                      <span data-lang="zh">斷電放電時序曲線 (Discharge)</span><span data-lang="en">Discharge Timing</span>
+                    </button>
+                    <button id="auto-bb-mode-dial" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                      <span data-lang="zh">環形日誌緩衝區磨損 (Buffer Dial)</span><span data-lang="en">Buffer Dial</span>
+                    </button>
+                  </div>
+                  <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">ASIL-D Fail-Safe Energy Scope</span>
+                </div>
+                <div style="width: 100%; height: 180px; position: relative;">
+                  <canvas id="auto-bb-canvas" width="420" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Automotive Blackbox Discharge and Journaling Simulation Canvas" data-aria-en="Automotive Blackbox Discharge and Journaling Simulation Canvas" data-aria-zh="車規黑盒子放電與日誌模擬畫布"></canvas>
+                </div>
+              </div>
+
+              <!-- Architectural Insight Callout -->
+              <div style="background: rgba(180, 83, 9, 0.06); border-left: 3px solid #b45309; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #1e293b;">
+                <span id="auto-bb-out-verdict">Loading Automotive Black-Box Journal calculations...</span>
+              </div>
+            </div>
           </section>
 
           <!-- SECTION 5: UPSTREAM/DOWNSTREAM VALUE CHAIN & HETEROGENEOUS PACKAGING -->
@@ -1656,6 +1811,7 @@
   <script type="module" src="automotive-thermal.js"></script>
   <script type="module" src="automotive-ecc.js"></script>
   <script type="module" src="automotive-mission-profile.js?v=20261005"></script>
+  <script type="module" src="automotive-blackbox-journal-calculator.js?v=20261005"></script>
 
   <!-- Studio Layout Vertical Rail Scroll Spy & Interactive Navigator -->
   <script>

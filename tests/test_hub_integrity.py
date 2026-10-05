@@ -1371,6 +1371,42 @@ def run_tests() -> None:
     test("specialty-nvm.html 包含拓撲選擇器、工作負載選擇器、雙軸滑桿、五大 KPI 指標卡與封裝拓撲 Canvas",
          'id="chiplet-top-select"' in spec_nvm_html and 'id="chiplet-role-select"' in spec_nvm_html and 'id="chiplet-lanes-select"' in spec_nvm_html and 'id="chiplet-power-slider"' in spec_nvm_html and 'id="chiplet-temp-slider"' in spec_nvm_html and 'id="chiplet-out-latency"' in spec_nvm_html and 'id="chiplet-out-energy"' in spec_nvm_html and 'id="chiplet-out-bandwidth"' in spec_nvm_html and 'id="chiplet-out-temprise"' in spec_nvm_html and 'id="chiplet-out-yield"' in spec_nvm_html and 'id="chiplet-canvas"' in spec_nvm_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 55: 車規高壓 BCD / PMIC 故障安全黑盒子日誌快取試算器 (automotive-nvm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 55: 車規高壓 BCD / PMIC 故障安全黑盒子日誌快取試算器 ═══")
+    auto_bb_js = (BASE / "automotive-blackbox-journal-calculator.js").read_text(encoding="utf-8")
+    test("automotive-blackbox-journal-calculator.js 存在且導出 calculateBlackboxJournal 與 initAutomotiveBlackboxCalculator",
+         "export function calculateBlackboxJournal" in auto_bb_js and "export function initAutomotiveBlackboxCalculator" in auto_bb_js)
+    test("automotive-blackbox-journal-calculator.js 包含四大車載故障場景與四大 NVM 技術設定檔",
+         "AUTOMOTIVE_FAULT_PRESETS" in auto_bb_js and "powertrain_inverter" in auto_bb_js and "adas_radar_fail" in auto_bb_js and "bms_thermal_runaway" in auto_bb_js and "chassis_steer_by_wire" in auto_bb_js and "AUTO_NVM_TECH_PROFILES" in auto_bb_js and "logic_mtp_ee" in auto_bb_js and "antifuse_dense" in auto_bb_js and "emram_stt" in auto_bb_js and "legacy_eflash" in auto_bb_js)
+    test("automotive-blackbox-journal-calculator.js 第一性原理斷電儲能守恆、緊急寫入時長、峰值突波電流、環形緩衝磨損與 Arrhenius 留存折損演算法",
+         "burstWriteTimeMs" in auto_bb_js and "requiredEnergyJoules" in auto_bb_js and "holdupCapacitanceUf" in auto_bb_js and "peakSurgeCurrentMa" in auto_bb_js and "maxLifetimeEvents" in auto_bb_js and "deratedRetentionYears" in auto_bb_js)
+
+    auto_nvm_html = (BASE / "automotive-nvm.html").read_text(encoding="utf-8")
+    test("automotive-nvm.html 整合 auto-blackbox-simulator-root 工作台與模組腳本引用",
+         'id="auto-blackbox-simulator-root"' in auto_nvm_html and 'src="automotive-blackbox-journal-calculator.js' in auto_nvm_html)
+    test("automotive-nvm.html 包含故障選擇器、NVM 選擇器、雙軸滑桿、五大 KPI 指標卡與放電/環形雙模態 Canvas",
+         'id="auto-bb-fault-select"' in auto_nvm_html and 'id="auto-bb-tech-select"' in auto_nvm_html and 'id="auto-bb-buffer-select"' in auto_nvm_html and 'id="auto-bb-temp-slider"' in auto_nvm_html and 'id="auto-bb-margin-slider"' in auto_nvm_html and 'id="auto-bb-out-capuf"' in auto_nvm_html and 'id="auto-bb-out-writetime"' in auto_nvm_html and 'id="auto-bb-out-surgema"' in auto_nvm_html and 'id="auto-bb-out-events"' in auto_nvm_html and 'id="auto-bb-out-retention"' in auto_nvm_html and 'id="auto-bb-canvas"' in auto_nvm_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 56: 量子運算與低溫超導 (Cryogenic 4K/77K) NVM 物理特性與感測裕度試算器 (memory-physics.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 56: 量子運算與低溫超導 (Cryogenic 4K/77K) NVM 物理特性與感測裕度試算器 ═══")
+    cryo_js = (BASE / "cryogenic-nvm-physics-simulator.js").read_text(encoding="utf-8")
+    test("cryogenic-nvm-physics-simulator.js 存在且導出 calculateCryogenicPhysics 與 initCryogenicNvmSimulator",
+         "export function calculateCryogenicPhysics" in cryo_js and "export function initCryogenicNvmSimulator" in cryo_js)
+    test("cryogenic-nvm-physics-simulator.js 包含四大低溫運作環境與四大 NVM 架構設定檔",
+         "CRYO_ENV_PRESETS" in cryo_js and "cryo_4k" in cryo_js and "cryo_77k" in cryo_js and "cryo_200k" in cryo_js and "ambient_300k" in cryo_js and "CRYO_TECH_PROFILES" in cryo_js and "antifuse_cryo" in cryo_js and "mram_stt_cryo" in cryo_js and "eflash_cryo" in cryo_js and "reram_cryo" in cryo_js)
+    test("cryogenic-nvm-physics-simulator.js 第一性原理載子凍結率、Bloch T^1.5 自旋波展寬、金屬微絲電導、Johnson 熱噪聲劇降與 SNR 感測窗演算法",
+         "ionizationFractionPercent" in cryo_js and "tmrActualPercent" in cryo_js and "criticalCurrentActualUa" in cryo_js and "vbdActualV" in cryo_js and "noisePowerDropDb" in cryo_js and "deltaIreadUa" in cryo_js and "snrDb" in cryo_js)
+
+    phys_cryo_html = (BASE / "memory-physics.html").read_text(encoding="utf-8")
+    test("memory-physics.html 整合 cryogenic-nvm-simulator-root 工作台與模組腳本引用",
+         'id="cryogenic-nvm-simulator-root"' in phys_cryo_html and 'src="cryogenic-nvm-physics-simulator.js' in phys_cryo_html)
+    test("memory-physics.html 包含環境選擇器、NVM 架構選擇器、雙軸滑桿、五大 KPI 指標卡與感測窗/噪聲譜雙模態 Canvas",
+         'id="cryo-env-select"' in phys_cryo_html and 'id="cryo-tech-select"' in phys_cryo_html and 'id="cryo-bias-slider"' in phys_cryo_html and 'id="cryo-time-slider"' in phys_cryo_html and 'id="cryo-out-window"' in phys_cryo_html and 'id="cryo-out-noise"' in phys_cryo_html and 'id="cryo-out-vbd"' in phys_cryo_html and 'id="cryo-out-freeze"' in phys_cryo_html and 'id="cryo-out-snr"' in phys_cryo_html and 'id="cryo-canvas"' in phys_cryo_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
