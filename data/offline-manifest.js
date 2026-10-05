@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "fda0a3b05124f9ba0c80",
+  "version": "96be460b00c3a2574415",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -75,6 +75,7 @@ self.NVMOfflineManifest = {
     "memory-physics.html",
     "model-boundaries.css",
     "named-comparison.css",
+    "normally-off-energy-harvesting-simulator.js",
     "nvm-bitcell-figures.css",
     "nvm-engineering-diagrams.css",
     "nvm-engineering-diagrams.js",
@@ -87,6 +88,7 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas.js",
     "oip-lifecycle.js",
     "oip-secure-storage.html",
+    "pqc-key-storage-simulator.js",
     "pqc-rot-budget-calculator.js",
     "puf-nist-randomness-evaluator.js",
     "puf-reconstruction-simulator.js",
@@ -187,7 +189,7 @@ self.NVMOfflineManifest = {
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
     "index.html": "279a5aba481814eca860651bfba64b3949f36f5e585fcb67f66dbaa52c2c42f7",
     "iot-energy-tradeoff-calculator.js": "e7c97cf0a93a557980a9e3b7037bd3916a3c2b0cec8ba7788e8cc705b899efeb",
-    "iot-mcu-envm.html": "8141779e5479cfd5e6f418d6ca7896f77f76c2c2ac0f3e575bd1e747bdb06779",
+    "iot-mcu-envm.html": "4e78026b5ac764211e593abd1590a6e74e1008015eb4f45a60db9a2e2995aa5a",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "ced747eb93c7261c334359d763eeafa2ef495705991e314b46b389e9dcd720f2",
@@ -201,6 +203,7 @@ self.NVMOfflineManifest = {
     "memory-physics.html": "43dcc66be733940cc4d80c4dceb3733ff5e1713b6a716702e1e86dd566fc67ef",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
+    "normally-off-energy-harvesting-simulator.js": "929db781c504cef94b15d9c35c50833c3843fdc49489066de879e899f6ea0514",
     "nvm-bitcell-figures.css": "da04d7984bd9f62137dab5c2f5657a38b620b32b6c16c628a94f2f9406d5aed6",
     "nvm-engineering-diagrams.css": "4cb87448990c85fd91042f817b4812fb647df1fd0fb99949c26f138434194220",
     "nvm-engineering-diagrams.js": "8ef724a3b225bb5ea50bfd7c12254340f0e8d1692785d1ccf2186fc6480e715b",
@@ -213,6 +216,7 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas.js": "ff8031f3b5b2518e5d3757b2e0e51422b54ad3a150611943a472d0ed4ac5e80a",
     "oip-lifecycle.js": "32485842eab3b8704e829b25b3ca16978d993106eb5a322e3d7bf4d4ec7eabef",
     "oip-secure-storage.html": "024982bbd1b1dbaf60247e3f65bd25e10b52265577de0549e7a81d41d36051de",
+    "pqc-key-storage-simulator.js": "c760b1300960a5f62047851f606cf993387142a34ab424f1a8d22a79286dc7a3",
     "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
     "puf-nist-randomness-evaluator.js": "4845ed80be95c57d32d7c417c896c7f506518c897bc78de1b6f6443c640d2781",
     "puf-reconstruction-simulator.js": "1a6c99a0f918092edeec1305c3aaa7f926a19567c98cfffcc094b2a36a1661e0",
@@ -222,7 +226,7 @@ self.NVMOfflineManifest = {
     "research.css": "76291bad9ecde2fcd860e66599c3a399694a29065db00a16cd12d974bfe2de94",
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "15bf50e7b268e4f3c7b87dc7e624e8ccfc065cfc97217623db354aedf61d1e0b",
-    "secure-storage.html": "b621697a3b5891de4d1b6a9680d5e8b7c02a9c2bca8a80e34e9c3a76a52aacf7",
+    "secure-storage.html": "69af6e727d1499d2a3116656e094da2d04f3a2a096141624a76be08680df414a",
     "security-assurance.html": "d3ce413e3bb8350699b795984936c77bebfbc2e7249a08b7d4f0b487c8d3c8d3",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "95c7b574d75f1d06c7e121cb14489b2bea210649e5d15ad7d97aae7a5d86d1a7",
@@ -252,5 +256,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 12005849
+  "totalBytes": 12079085
 };

@@ -1426,6 +1426,160 @@
                 <p><span data-lang="zh">門禁與車燈模組在 28nm/22nm 替代額外光罩 eFlash，可對照 AEC-Q100 Grade 1至 Grade 0 任務載記 車規環境；配合硬體 SECDED ECC 與安全降級架構，可映射 ASIL-B至 ASIL-D 任務載記詞彙 (SEooC) 功能安全需求。</span><span data-lang="en">Architecture-class option to replace costly mask-adder eFlash in door and lighting modules across 28nm/22nm under AEC-Q100 Grade 1 to Grade 0 mission-profile vocabulary (target-dependent); hardware SECDED ECC can support ASIL-B through ASIL-D (SEooC) systematic-capability language (not a certification claim).</span></p>
               </div>
             </div>
+
+            <!-- Normally-Off Computing & Energy Harvesting ULP MCU Simulator -->
+            <div id="normally-off-simulator-root" class="interactive-workbench" style="margin-top: 24px; padding: 20px; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+                <div>
+                  <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #785021; letter-spacing: 0.08em; text-transform: uppercase;">
+                    <span data-lang="zh">第一性原理微能耗建模 · 斷續計算架構</span>
+                    <span data-lang="en">FIRST-PRINCIPLES MICRO-ENERGY MODEL · INTERMITTENT COMPUTING</span>
+                  </span>
+                  <h3 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+                    <span data-lang="zh">常時關閉 (Normally-Off) 能量採集與非揮發狀態保留電源自給試算器</span>
+                    <span data-lang="en">Normally-Off Energy Harvesting &amp; Non-Volatile State Retention Simulator</span>
+                  </h3>
+                </div>
+                <span class="badge-compact" style="background: rgba(176, 138, 91, 0.12); color: #785021; border: 1px solid rgba(176, 138, 91, 0.25); font: 700 11px 'IBM Plex Mono', monospace; padding: 4px 10px; border-radius: 4px;">
+                  <span data-lang="zh">微瓦級無電池自給運作</span>
+                  <span data-lang="en">ZERO-BATTERY AUTONOMOUS</span>
+                </span>
+              </div>
+
+              <p style="font-size: 0.875rem; line-height: 1.6; color: #334155; margin: 0 0 1.25rem;">
+                <span data-lang="zh">在微瓦級環境能量採集（弱光、壓電、微弱 RF、人體溫差）應用中，傳統 eFlash 高昂的冷啟動電壓（&ge;1.6V）與電荷泵暖機突波電流（&gt;5mA）常導致儲能電容塌陷與死鎖循環。本工作台計算微型儲能電容充放電、冷啟動邊界、Normally-Off 狀態保存/恢復能耗，以及完全斷電零漏電下的自給自足平衡點。</span>
+                <span data-lang="en">Under micro-watt ambient energy harvesting (solar, piezo, RF, TEG), conventional eFlash cold-boot thresholds (&ge;1.6V) and charge-pump inrush surges (&gt;5mA) collapse tiny reservoir capacitors into reboot brownout loops. This workbench calculates capacitor charge cycles, cold-boot safety, Normally-Off state save/restore overhead, and zero-leakage autonomous energy balance.</span>
+              </p>
+
+              <!-- Controls Grid -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
+                <div>
+                  <label for="norm-source-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span data-lang="zh">環境能量採集源:</span><span data-lang="en">HARVESTING SOURCE:</span>
+                  </label>
+                  <select id="norm-source-select" aria-label="Energy Harvesting Source Preset" data-aria-en="Energy Harvesting Source Preset" data-aria-zh="能量採集來源預設" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                    <option value="indoor_solar_100lux" selected>Indoor Solar PV (100 lux / 25 µW)</option>
+                    <option value="piezo_vibration_industrial">Industrial Piezo Vibration (65 µW)</option>
+                    <option value="rf_ambient_sub1g">Ambient Sub-GHz RF (10 µW)</option>
+                    <option value="thermoelectric_teg_human">Human Skin TEG (ΔT=3°C / 40 µW)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="norm-memory-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span data-lang="zh">MCU 狀態保留架構:</span><span data-lang="en">STATE RETENTION TECH:</span>
+                  </label>
+                  <select id="norm-memory-select" aria-label="MCU State Retention Architecture" data-aria-en="MCU State Retention Architecture" data-aria-zh="MCU 狀態保留架構" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                    <option value="antifuse_normally_off" selected>AntiFuse Zero-Standby Retention (0.75V Boot)</option>
+                    <option value="eflash_charge_pump">Conventional eFlash Macro (1.6V Boot)</option>
+                    <option value="sram_dvs_sleep">SRAM DVS Retention Mode (0.6V Keep-Alive)</option>
+                    <option value="fram_ferroelectric">FeRAM Ferroelectric (1.2V Boot)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span><span data-lang="zh">儲能電容容量:</span><span data-lang="en">RESERVOIR CAPACITOR:</span></span>
+                    <span id="norm-cap-val" style="color: #785021; font-weight: 700;">47 µF</span>
+                  </div>
+                  <input type="range" id="norm-cap-slider" min="10" max="220" step="5" value="47" aria-label="Reservoir Capacitor Value in uF" data-aria-en="Reservoir Capacitor Value in uF" data-aria-zh="儲能電容容量 uF" aria-valuetext="47 µF" style="width: 100%; accent-color: #785021; cursor: pointer;">
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span><span data-lang="zh">運算工作占空比:</span><span data-lang="en">ACTIVE DUTY CYCLE:</span></span>
+                    <span id="norm-duty-val" style="color: #785021; font-weight: 700;">0.50%</span>
+                  </div>
+                  <input type="range" id="norm-duty-slider" min="0.05" max="5.0" step="0.05" value="0.5" aria-label="Active Duty Cycle Percentage" data-aria-en="Active Duty Cycle Percentage" data-aria-zh="運算工作占空比百分比" aria-valuetext="0.50%" style="width: 100%; accent-color: #785021; cursor: pointer;">
+                </div>
+              </div>
+
+              <!-- KPI Cards Strip -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">採集輸入功率</span><span data-lang="en">HARVESTED POWER</span>
+                  </div>
+                  <div id="norm-out-powerin" style="font: 700 15px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">環境能量產生率</span><span data-lang="en">Ambient intake</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">可用儲能電量</span><span data-lang="en">USABLE STORED ENERGY</span>
+                  </div>
+                  <div id="norm-out-energystored" style="font: 700 15px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">電容有效儲能</span><span data-lang="en">Cap buffer energy</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">冷啟動回充時長</span><span data-lang="en">COLD BOOT CHARGE</span>
+                  </div>
+                  <div id="norm-out-chargetime" style="font: 700 15px 'IBM Plex Mono', monospace; color: #785021;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">開機最低充能時間</span><span data-lang="en">Initial charge time</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">系統平均總功耗</span><span data-lang="en">AVERAGE POWER</span>
+                  </div>
+                  <div id="norm-out-avgpower" style="font: 700 15px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">含待機與狀態保存</span><span data-lang="en">Active + sleep + state</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">能量平衡係數</span><span data-lang="en">ENERGY RATIO</span>
+                  </div>
+                  <div id="norm-out-ratio" style="font: 700 15px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">採集功率 / 平均功耗</span><span data-lang="en">Generation / load</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">電源自給狀態</span><span data-lang="en">OPERATION STATUS</span>
+                  </div>
+                  <div id="norm-out-status" style="font: 700 11px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">自律運行判定</span><span data-lang="en">Autonomy verdict</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Canvas Visualization -->
+              <div style="background: #0c121e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                  <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Normally-Off Mode" data-aria-en="Normally-Off Mode" data-aria-zh="常時關閉模式">
+                    <button id="norm-mode-voltage" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                      <span data-lang="zh">電容電壓波形 (Capacitor Voltage Trace)</span><span data-lang="en">Voltage Trace</span>
+                    </button>
+                    <button id="norm-mode-power" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                      <span data-lang="zh">占空比功耗曲線 (Power vs Duty Cycle)</span><span data-lang="en">Power vs Duty</span>
+                    </button>
+                  </div>
+                  <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">Intermittent Energy Harvester Monitor</span>
+                </div>
+                <div style="width: 100%; height: 180px; position: relative;">
+                  <canvas id="norm-canvas" width="480" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Normally-Off Energy Harvesting Simulation Canvas" data-aria-en="Normally-Off Energy Harvesting Simulation Canvas" data-aria-zh="常時關閉能量採集模擬畫布"></canvas>
+                </div>
+              </div>
+
+              <!-- Architectural Insight Callout -->
+              <div style="background: rgba(120, 80, 33, 0.08); border-left: 3px solid #785021; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
+                <span id="norm-out-verdict">Loading Normally-Off Energy Harvesting calculations...</span>
+              </div>
+            </div>
           </section>
 
         </div>
@@ -1833,5 +1987,6 @@
 <script src="iot-model-boundaries.js"></script>
 <script type="module" src="iot-energy-tradeoff-calculator.js?v=20261005"></script>
 <script type="module" src="mcu-vector-patch-simulator.js?v=20261005"></script>
+<script type="module" src="normally-off-energy-harvesting-simulator.js?v=20261005"></script>
 </body>
 </html>

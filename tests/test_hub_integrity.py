@@ -1515,6 +1515,42 @@ def run_tests() -> None:
     test("specialty-nvm.html 包含任務選擇器、技術選擇器、雙軸滑桿、六大 KPI 指標卡與累積劑量存活率/Weibull 翻轉截面雙模態 Canvas",
          'id="space-rad-mission-select"' in spec_rad_html and 'id="space-rad-tech-select"' in spec_rad_html and 'id="space-rad-tid-slider"' in spec_rad_html and 'id="space-rad-let-slider"' in spec_rad_html and 'id="space-rad-out-vth"' in spec_rad_html and 'id="space-rad-out-cross"' in spec_rad_html and 'id="space-rad-out-ser"' in spec_rad_html and 'id="space-rad-out-surv"' in spec_rad_html and 'id="space-rad-out-sel"' in spec_rad_html and 'id="space-rad-out-rating"' in spec_rad_html and 'id="space-rad-canvas"' in spec_rad_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 63: 後量子密碼學 (PQC) 超大金鑰儲存、擦寫磨損與緊急零化試算器 (secure-storage.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 63: 後量子密碼學 (PQC) 超大金鑰儲存、擦寫磨損與緊急零化試算器 ═══")
+    pqc_js = (BASE / "pqc-key-storage-simulator.js").read_text(encoding="utf-8")
+    test("pqc-key-storage-simulator.js 存在且導出 calculatePqcKeyStorage、drawPqcKeyStorageCanvas 與 initPqcKeyStorageSimulator",
+         "export function calculatePqcKeyStorage" in pqc_js and "export function drawPqcKeyStorageCanvas" in pqc_js and "export function initPqcKeyStorageSimulator" in pqc_js)
+    test("pqc-key-storage-simulator.js 包含四大 PQC 演算法預設與四大安全儲存介質設定檔",
+         "PQC_ALGORITHM_PROFILES" in pqc_js and "ml_kem_512" in pqc_js and "ml_kem_768" in pqc_js and "ml_kem_1024" in pqc_js and "ml_dsa_65" in pqc_js and "STORAGE_MEDIA_PROFILES" in pqc_js and "antifuse_append_log" in pqc_js and "embedded_flash_sector" in pqc_js and "spintronic_mram" in pqc_js and "battery_backed_sram" in pqc_js)
+    test("pqc-key-storage-simulator.js 第一性原理金鑰尺寸、陣列槽位、擦寫磨損率、安全剩餘壽命、防竄改緊急零化延遲與 FIPS 140-3 評級演算法",
+         "keySizeBytes" in pqc_js and "totalSlots" in pqc_js and "wearoutPct" in pqc_js and "remainingLifetimeYears" in pqc_js and "zeroizeNs" in pqc_js and "isFipsLevel4Compliant" in pqc_js and "complianceGradeZh" in pqc_js and "complianceGradeEn" in pqc_js)
+
+    sec_pqc_html = (BASE / "secure-storage.html").read_text(encoding="utf-8")
+    test("secure-storage.html 整合 pqc-key-simulator-root 工作台與模組腳本引用",
+         'id="pqc-key-simulator-root"' in sec_pqc_html and 'src="pqc-key-storage-simulator.js' in sec_pqc_html)
+    test("secure-storage.html 包含演算法選擇器、介質選擇器、雙軸滑桿、六大 KPI 指標卡與磨損曲線/零化銷毀雙模態 Canvas",
+         'id="pqc-algo-select"' in sec_pqc_html and 'id="pqc-media-select"' in sec_pqc_html and 'id="pqc-cycles-slider"' in sec_pqc_html and 'id="pqc-capacity-slider"' in sec_pqc_html and 'id="pqc-out-keysize"' in sec_pqc_html and 'id="pqc-out-slots"' in sec_pqc_html and 'id="pqc-out-wear"' in sec_pqc_html and 'id="pqc-out-life"' in sec_pqc_html and 'id="pqc-out-zeroize"' in sec_pqc_html and 'id="pqc-out-rating"' in sec_pqc_html and 'id="pqc-key-canvas"' in sec_pqc_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 64: 常時關閉 (Normally-Off) 能量採集與非揮發狀態保留電源自給試算器 (iot-mcu-envm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 64: 常時關閉 (Normally-Off) 能量採集與非揮發狀態保留電源自給試算器 ═══")
+    norm_js = (BASE / "normally-off-energy-harvesting-simulator.js").read_text(encoding="utf-8")
+    test("normally-off-energy-harvesting-simulator.js 存在且導出 calculateNormallyOffEnergy、drawNormallyOffCanvas 與 initNormallyOffSimulator",
+         "export function calculateNormallyOffEnergy" in norm_js and "export function drawNormallyOffCanvas" in norm_js and "export function initNormallyOffSimulator" in norm_js)
+    test("normally-off-energy-harvesting-simulator.js 包含四大能量採集源預設與四大 MCU 狀態保留技術設定檔",
+         "HARVESTING_SOURCE_PRESETS" in norm_js and "indoor_solar_100lux" in norm_js and "piezo_vibration_industrial" in norm_js and "rf_ambient_sub1g" in norm_js and "thermoelectric_teg_human" in norm_js and "MCU_MEMORY_POWER_PROFILES" in norm_js and "antifuse_normally_off" in norm_js and "eflash_charge_pump" in norm_js and "sram_dvs_sleep" in norm_js and "fram_ferroelectric" in norm_js)
+    test("normally-off-energy-harvesting-simulator.js 第一性原理微能量採集輸入、電容有效儲能、冷啟動充電時長、系統平均總功耗、能量平衡比與自律自給自足演算法",
+         "pSourceUw" in norm_js and "usableEnergyUj" in norm_js and "chargeTimeSec" in norm_js and "averagePowerUw" in norm_js and "energyBalanceRatio" in norm_js and "isSelfSustaining" in norm_js and "isInrushSafe" in norm_js and "statusZh" in norm_js and "statusEn" in norm_js)
+
+    iot_norm_html = (BASE / "iot-mcu-envm.html").read_text(encoding="utf-8")
+    test("iot-mcu-envm.html 整合 normally-off-simulator-root 工作台與模組腳本引用",
+         'id="normally-off-simulator-root"' in iot_norm_html and 'src="normally-off-energy-harvesting-simulator.js' in iot_norm_html)
+    test("iot-mcu-envm.html 包含採集源選擇器、狀態技術選擇器、雙軸滑桿、六大 KPI 指標卡與電壓鋸齒/占空比功耗雙模態 Canvas",
+         'id="norm-source-select"' in iot_norm_html and 'id="norm-memory-select"' in iot_norm_html and 'id="norm-cap-slider"' in iot_norm_html and 'id="norm-duty-slider"' in iot_norm_html and 'id="norm-out-powerin"' in iot_norm_html and 'id="norm-out-energystored"' in iot_norm_html and 'id="norm-out-chargetime"' in iot_norm_html and 'id="norm-out-avgpower"' in iot_norm_html and 'id="norm-out-ratio"' in iot_norm_html and 'id="norm-out-status"' in iot_norm_html and 'id="norm-canvas"' in iot_norm_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
