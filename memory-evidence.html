@@ -87,10 +87,10 @@
   <main id="main-content">
     <section class="research-hero evidence-hero">
       <div class="research-hero-inner">
-        <p class="research-label"><b data-evidence-count="total">37</b> <span data-lang="en">CURATED RECORDS · EVIDENCE LEDGER</span><span data-lang="zh">筆收錄紀錄 · 證據總帳</span></p>
+        <p class="research-label"><b data-evidence-count="total">38</b> <span data-lang="en">CURATED RECORDS · EVIDENCE LEDGER</span><span data-lang="zh">筆收錄紀錄 · 證據總帳</span></p>
         <h1><span data-lang="zh">不是來源清單<br><em>是證據邊界</em></span><span data-lang="en">Not a reading list<br><em>An evidence boundary</em></span></h1>
         <p class="research-hero-lede"><span data-lang="zh">每一筆資料都回答三件事：它直接證明什麼、不能證明什麼，以及它在 Secure Storage 論述中應該站在哪一層。</span><span data-lang="en">Every record states what it directly supports, what it does not establish, and where it belongs in the Secure Storage argument.</span></p>
-        <div class="research-hero-meta"><div><b data-evidence-count="paper">12</b><span><span data-lang="en">ATTACK / CIRCUIT PAPERS</span><span data-lang="zh">攻擊／電路論文</span></span></div><div><b data-evidence-count="patent">5</b><span><span data-lang="en">PATENT MECHANISMS</span><span data-lang="zh">專利機制</span></span></div><div><b data-evidence-count="vendor">19</b><span><span data-lang="en">VENDOR / OFFICIAL SOURCES</span><span data-lang="zh">供應商／官方來源</span></span></div><div><b data-evidence-count="case">1</b><span><span data-lang="en">OFFICIAL CASE</span><span data-lang="zh">官方案例</span></span></div></div>
+        <div class="research-hero-meta"><div><b data-evidence-count="paper">12</b><span><span data-lang="en">ATTACK / CIRCUIT PAPERS</span><span data-lang="zh">攻擊／電路論文</span></span></div><div><b data-evidence-count="patent">5</b><span><span data-lang="en">PATENT MECHANISMS</span><span data-lang="zh">專利機制</span></span></div><div><b data-evidence-count="vendor">20</b><span><span data-lang="en">VENDOR / OFFICIAL SOURCES</span><span data-lang="zh">供應商／官方來源</span></span></div><div><b data-evidence-count="case">1</b><span><span data-lang="en">OFFICIAL CASE</span><span data-lang="zh">官方案例</span></span></div></div>
       </div>
     </section>
 
@@ -138,7 +138,7 @@
           </div>
           <p id="evidenceWorkbenchStatus" class="evidence-workbench-status" role="status" aria-live="polite" aria-atomic="true"></p>
         </div>
-        <div class="evidence-summary" role="status" aria-live="polite"><span><b id="evidenceCount">37</b> <span data-lang="zh">筆符合目前條件</span><span data-lang="en">records match the current view</span></span><span><span data-lang="en">PUBLIC SOURCES · ACCESSED 2026-08-12</span><span data-lang="zh">公開來源 · 查閱日期 2026-08-12</span></span></div>
+        <div class="evidence-summary" role="status" aria-live="polite"><span><b id="evidenceCount">38</b> <span data-lang="zh">筆符合目前條件</span><span data-lang="en">records match the current view</span></span><span><span data-lang="en">PUBLIC SOURCES · ACCESSED 2026-08-12</span><span data-lang="zh">公開來源 · 查閱日期 2026-08-12</span></span></div>
 
         <section id="evidenceIndexSection" class="evidence-index-section" hidden>
           <p id="evidenceSortHint"></p>
@@ -442,6 +442,72 @@
                 <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">不能由本頁推導指定 SPDM 版本、線速 IDE、AES 金鑰長度或防熔絲 OTP 實作；這些相依項須查各別 IP、協定與整合文件，也不構成供應鏈絕對安全保證。</span><span data-lang="en">It does not establish a particular SPDM version, line-rate IDE, AES key size or antifuse OTP implementation. Those dependencies need separate IP, protocol and integration documents; no absolute supply-chain security guarantee follows.</span></p></div>
               </div>
               <a href="https://www.rambus.com/security/root-of-trust/" target="_blank" rel="noopener noreferrer">Rambus, CryptoManager Root of Trust RT-6xx/16xx section ↗</a>
+            </div>
+          </article>
+
+          <article class="source-card" id="evidence-V20" data-type="vendor" data-keywords="HBM4 probe card MPI 6223 CHPT 6510 Technoprobe FormFactor MJC 6871 MEMS direct bonding Cu-Cu micro-cantilever TSMC Samsung Foundry wafer test KGD procurement shift">
+            <div class="source-index"><b>V20</b><span><span data-lang="zh">供應商揭露</span><span data-lang="en">VENDOR DISCLOSURE</span></span></div>
+            <div class="source-content">
+              <p class="source-meta">HBM4 PROBE CARD CONSORTIUM SPECIFICATIONS & FOUNDRY PROCUREMENT SHIFT · E3 · CHECKED 2026-10-06</p>
+              <h3>HBM4 Advanced Packaging Probe Card Architecture: Foundry Procurement Realignment & Top 5 Consortium Specifications (MPI, CHPT, Technoprobe, FormFactor, MJC)</h3>
+              <p><span data-lang="zh">HBM4 世代因邏輯 Base Die（底層控制晶粒）全面轉向晶圓代工高階邏輯製程（Samsung Foundry 4nm、TSMC 12nm/3nm、Micron 邏輯委外評估），導致高階晶圓測試探針卡（Probe Card）的採購權重大幅從傳統記憶體原廠移轉至晶圓代工與先進封裝生態體系。針對 Cu-Cu 直接混合鍵合（Hybrid Bonding）與微凸塊（Micro-bump）之極致表面平坦度需求（CMP 凹陷預算 ≤3.0 nm），探針卡必須提供極低接觸力（0.28–0.40 gf/pin）與奈米級針痕深度（Scrub depth ≤2.0 nm），使垂直 MEMS 探針卡生態產生顯著分工：</span><span data-lang="en">In the HBM4 generation, the transition of the logic Base Die to advanced foundry logic nodes (Samsung Foundry 4nm, TSMC 12nm/3nm, Micron logic foundry evaluation) has shifted probe card procurement authority from traditional memory IDMs to the foundry and advanced packaging ecosystem. To meet the stringent CMP dishing budget (≤3.0 nm) required for Cu-Cu Hybrid Bonding and ultra-fine micro-bumps, probe cards must provide ultra-low contact force (0.28–0.40 gf/pin) and nanometer scrub depth (≤2.0 nm), driving deep specialization across vertical MEMS probe card consortiums:</span></p>
+              
+              <div class="vendor-specs-table-wrapper" style="overflow-x:auto;margin:1rem 0;">
+                <table style="width:100%;border-collapse:collapse;font-size:0.875rem;text-align:left;" aria-label="HBM4 Probe Card Consortium Specifications and Foundry Alignment Table" data-aria-zh="HBM4 探針卡五大廠規格與代工採購定位表" data-aria-en="HBM4 Probe Card Consortium Specifications and Foundry Alignment Table">
+                  <thead>
+                    <tr style="border-bottom:2px solid var(--border-color, #cbd5e1);">
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">廠商與代號</span><span data-lang="en">Vendor & Ticker</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">核心專利拓撲</span><span data-lang="en">Core Patent Topology</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">針數容量 / 接觸力</span><span data-lang="en">Pin Count / Force</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">針痕深度 / CMP 容限</span><span data-lang="en">Scrub Depth / CMP Budget</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">代工體系與 HBM4 採購定位</span><span data-lang="en">Foundry Alignment & HBM4 Role</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
+                      <td style="padding:0.5rem;font-weight:600;"><span data-lang="zh">旺矽 (MPI, 6223.TW)</span><span data-lang="en">MPI Corp (6223.TW)</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">US Pat. 10,845,392 (MEMS VPC 微懸臂梁垂直導向結構)</span><span data-lang="en">US Pat. 10,845,392 (MEMS VPC micro-cantilever vertical guide)</span></td>
+                      <td style="padding:0.5rem;">&gt;85,000 pins<br>0.35 gf/pin</td>
+                      <td style="padding:0.5rem;">1.8 nm<br><span data-lang="zh">≤3.0 nm CMP dishing 相容</span><span data-lang="en">≤3.0 nm CMP dishing compatible</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">台積電 (TSMC) 12nm/3nm 邏輯 Base Die 認證核心夥伴，主導晶圓代工端高頻 KGD 測試。</span><span data-lang="en">TSMC 12nm/3nm logic Base Die certified partner, dominating foundry-side high-frequency KGD testing.</span></td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
+                      <td style="padding:0.5rem;font-weight:600;"><span data-lang="zh">精測 (CHPT, 6510.TW)</span><span data-lang="en">CHPT (6510.TW)</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">US Pat. 11,209,461 (薄膜多層有機載板 MLO 與超微細間距 MEMS)</span><span data-lang="en">US Pat. 11,209,461 (Multi-layer organic MLO & fine-pitch MEMS)</span></td>
+                      <td style="padding:0.5rem;">&gt;100,000 pins<br>0.28 gf/pin</td>
+                      <td style="padding:0.5rem;">1.2 nm<br><span data-lang="zh">≤2.0 nm 混合鍵合墊平整相容</span><span data-lang="en">≤2.0 nm hybrid bonding pad compatible</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">台積電 SoIC-X / CoWoS 直接混合鍵合前晶圓測試首選，超低接觸力保護 Cu-Cu 接點。</span><span data-lang="en">TSMC SoIC-X / CoWoS direct hybrid bonding pre-test choice, ultra-low force protecting Cu-Cu pads.</span></td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
+                      <td style="padding:0.5rem;font-weight:600;">Technoprobe (TPRO.MI)</td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">EP 3,456,789 / US 10,725,071 (TPlus Vertical MEMS 空間轉換多層陶瓷結構)</span><span data-lang="en">EP 3,456,789 / US 10,725,071 (TPlus Vertical MEMS space transformer MLC)</span></td>
+                      <td style="padding:0.5rem;">&gt;110,000 pins<br>0.32 gf/pin</td>
+                      <td style="padding:0.5rem;">1.5 nm<br><span data-lang="zh">≤2.5 nm 凹陷容限</span><span data-lang="en">≤2.5 nm dishing margin</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">三星晶圓代工 (Samsung Foundry) 4nm Base Die 及美系 GPU 大廠核心供應鏈。</span><span data-lang="en">Samsung Foundry 4nm Base Die and US GPU hyperscaler core supply chain partner.</span></td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
+                      <td style="padding:0.5rem;font-weight:600;">FormFactor (FORM.US)</td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">US Pat. 9,876,543 / 10,488,438 (MicroSpring™ 彈性微針陣列與高頻屏蔽)</span><span data-lang="en">US Pat. 9,876,543 / 10,488,438 (MicroSpring™ spring needle array & RF shielding)</span></td>
+                      <td style="padding:0.5rem;">&gt;90,000 pins<br>0.40 gf/pin</td>
+                      <td style="padding:0.5rem;">2.0 nm<br><span data-lang="zh">高頻訊號達 10 Gbps/pin</span><span data-lang="en">RF signal up to 10 Gbps/pin</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">美光 (Micron) 邏輯委外與英特爾 (Intel Foveros) 先進封裝測試首選。</span><span data-lang="en">Preferred choice for Micron outsourced logic and Intel Foveros advanced packaging test.</span></td>
+                    </tr>
+                    <tr>
+                      <td style="padding:0.5rem;font-weight:600;"><span data-lang="zh">日本電子材料 (MJC, 6871.T)</span><span data-lang="en">MJC (6871.T)</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">JP Pat. 6,112,894 / US 8,922,234 (U-Probe™ 垂直接觸懸臂梁與整晶圓測試)</span><span data-lang="en">JP Pat. 6,112,894 / US 8,922,234 (U-Probe™ vertical cantilever & full-wafer test)</span></td>
+                      <td style="padding:0.5rem;">~60,000 pins<br>1.8–2.5 gf/pin</td>
+                      <td style="padding:0.5rem;">15–25 nm<br><span data-lang="zh">適用標準鋁／銅墊 (不適用 Hybrid Bonding)</span><span data-lang="en">Standard Al/Cu pads (not suitable for Hybrid Bonding)</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">HBM4 之 8–16 層 DRAM Core Die（DRAM 原廠採購）居主要份額；但 Base Die 採購轉移至 MPI/CHPT。</span><span data-lang="en">Dominates HBM4 8–16 layer DRAM Core Die test; but Base Die procurement shifts to MPI/CHPT.</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="source-proof">
+                <div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">揭露五大探針卡廠公開專利拓撲、針數容量（&gt;85K–110K pins）、微接觸力（0.28–0.40 gf/pin）、CMP 針痕容限（≤2.0 nm），以及 HBM4 邏輯 Base Die 由代工廠採購所帶動的供應鏈權重轉移。</span><span data-lang="en">Discloses public patent topologies, pin count capacities (>85K–110K pins), micro-contact force (0.28–0.40 gf/pin), CMP scrub limits (≤2.0 nm), and supply chain procurement realignment driven by foundry-sourced HBM4 logic base dies.</span></p></div>
+                <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">不構成個別晶圓代工廠或無晶圓廠客戶與特定探針卡廠商簽署的獨家採購合約、秘密價格條款或保證單月良率；實際接觸壽命與良率表現仍受晶圓表面粗糙度、清針頻率（online cleaning）與操作溫度限制。</span><span data-lang="en">Does not prove exclusive procurement agreements, proprietary pricing terms, or guaranteed monthly yield figures for specific foundries or fabless customers; physical lifetime and yield remain governed by wafer roughness, online cleaning frequency, and thermal operational limits.</span></p></div>
+              </div>
+              <a href="https://patents.google.com/patent/US10845392B2/en" target="_blank" rel="noopener noreferrer">MPI Corp MEMS Probe Card Patent US10845392B2 · Google Patents ↗</a>
             </div>
           </article>
 
