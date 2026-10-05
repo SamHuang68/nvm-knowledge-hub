@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "87873230ab230cc46e0b",
+  "version": "dbb5c311f049664c07a6",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -38,6 +38,7 @@ self.NVMOfflineManifest = {
     "deferred-backgrounds.js",
     "demura-lut-calculator.js",
     "differential-sensing-simulator.js",
+    "dpa-cpa-leakage-simulator.js",
     "editorial-reading-ui.css",
     "evidence-workbench.css",
     "evidence-workbench.js",
@@ -64,6 +65,7 @@ self.NVMOfflineManifest = {
     "literature-editorial.css",
     "literature-paper.js",
     "matrix-interactive.js",
+    "mcu-vector-patch-simulator.js",
     "memory-evidence.html",
     "memory-physics-contrast.css",
     "memory-physics-navigation.js",
@@ -158,6 +160,7 @@ self.NVMOfflineManifest = {
     "deferred-backgrounds.js": "a74dc489a74403e27ade20c4d0d16306d4d2f00c0f697cbff9662908ce0371a4",
     "demura-lut-calculator.js": "a7e0b8f2fbfe4ddba25f4d65236be022a198013c88e34e23e2616d29f4baaa60",
     "differential-sensing-simulator.js": "7af618dda0e45106ff8fe7424d17434b7cae8be47575e619fdbd12707852b6a4",
+    "dpa-cpa-leakage-simulator.js": "6a7ec684c21dd0d7ca12cb19d57dbc6eeb334ae0a6dcfc8a567674d6221e2fbc",
     "editorial-reading-ui.css": "eedc01843bbaf8169b0ce90c5434ce91f41b13ab491f1fbecbb30267b79f0399",
     "evidence-workbench.css": "b077fd188e73256fa0e9b2b8497feb698603e89cb8ad73648180c7c471011ba9",
     "evidence-workbench.js": "86984da8da59d17546b8cf8b6a9595ac8d3c08a02efad25de24dc590e92aee17",
@@ -177,13 +180,14 @@ self.NVMOfflineManifest = {
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
     "index.html": "279a5aba481814eca860651bfba64b3949f36f5e585fcb67f66dbaa52c2c42f7",
     "iot-energy-tradeoff-calculator.js": "e7c97cf0a93a557980a9e3b7037bd3916a3c2b0cec8ba7788e8cc705b899efeb",
-    "iot-mcu-envm.html": "74facb6e4f253d4a243f2e7a9e1bf567b2e24730b18d96ef7d2f067f6fab4439",
+    "iot-mcu-envm.html": "8141779e5479cfd5e6f418d6ca7896f77f76c2c2ac0f3e575bd1e747bdb06779",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "ced747eb93c7261c334359d763eeafa2ef495705991e314b46b389e9dcd720f2",
     "literature-editorial.css": "1b167523c31e49f924df763ebfe7688bf793a41cda7eb5003577d1d53b257120",
     "literature-paper.js": "a1538790b2cd1d40c727f15562caaf8935da210543c70c197675bdacae26c40a",
     "matrix-interactive.js": "00bb70e047b0aa9b5c7eedb195af4a8e8f1dba16d830ac55699db6187222b41e",
+    "mcu-vector-patch-simulator.js": "12eec310c779f6fc1894da56a116892f4e9d63c84f838af5faae76d36504c819",
     "memory-evidence.html": "2438c00168f48b5eb66fbf78df3dffe57e2cd2af0a07a5e43605e520c0c900ab",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
@@ -211,7 +215,7 @@ self.NVMOfflineManifest = {
     "research.css": "76291bad9ecde2fcd860e66599c3a399694a29065db00a16cd12d974bfe2de94",
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "15bf50e7b268e4f3c7b87dc7e624e8ccfc065cfc97217623db354aedf61d1e0b",
-    "secure-storage.html": "05868cea97acd5456037d6eed9b0303c78a1c701f26a5c2c8fa020899f003984",
+    "secure-storage.html": "b621697a3b5891de4d1b6a9680d5e8b7c02a9c2bca8a80e34e9c3a76a52aacf7",
     "security-assurance.html": "d3ce413e3bb8350699b795984936c77bebfbc2e7249a08b7d4f0b487c8d3c8d3",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "95c7b574d75f1d06c7e121cb14489b2bea210649e5d15ad7d97aae7a5d86d1a7",
@@ -240,5 +244,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 11782954
+  "totalBytes": 11856192
 };

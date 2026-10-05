@@ -1987,6 +1987,113 @@
         </div>
         <p class="comparison-conclusion"><b><span data-lang="zh">架構綜述</span><span data-lang="en">ENGINEERING SUMMARY</span></b><span data-lang="zh">兩者皆透過差異化實體熵源解決信任根佈建：靜態不留存的 SRAM PUF 結合整合式密碼子系統，對比專屬氧化層擊穿 PUF OTP。晶片架構師應依目標製程節點、輔助資料管理負擔與認證邊界進行客觀評估。</span><span data-lang="en">Both architectures address root-of-trust provisioning through differentiated physical entropy sources: absent-at-rest SRAM PUF with an integrated cryptographic subsystem versus dedicated oxide-breakdown PUF OTP, requiring architects to evaluate based on target process node, helper data handling, and certification boundaries.</span></p>
       </div>
+
+      <!-- INTERACTIVE DPA/CPA SIDE-CHANNEL POWER ANALYSIS TRACE COMPLEXITY & MASKING SIMULATOR -->
+      <div id="dpa-cpa-simulator-root" class="panel dpa-calculator-container" style="margin-top: 1.75rem; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; padding: 1.25rem 1.5rem; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+          <div>
+            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span data-lang="zh">互動資安實驗室 · 側信道實體防禦</span>
+              <span data-lang="en">SECURITY LAB · PHYSICAL SIDE-CHANNEL DEFENSE</span>
+            </span>
+            <h4 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+              <span data-lang="zh">DPA / CPA 側信道功耗痕跡外洩與高階遮罩評估試算器</span>
+              <span data-lang="en">Side-Channel DPA/CPA Trace Complexity &amp; High-Order Masking Simulator</span>
+            </h4>
+          </div>
+          <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.08); color: #0284c7; padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">
+            <span data-lang="zh">ISO/IEC 17825 / Common Criteria AVA_VAN.5</span>
+            <span data-lang="en">ISO/IEC 17825 / Common Criteria AVA_VAN.5</span>
+          </span>
+        </div>
+
+        <!-- Controls Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin-bottom: 1rem;">
+          <div>
+            <label for="dpa-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">攻擊目標與基準硬體：</span><span data-lang="en">ATTACK TARGET &amp; PRESET:</span>
+            </label>
+            <select id="dpa-preset-select" aria-label="Attack Target and Baseline Hardware" data-aria-en="Attack Target and Baseline Hardware" data-aria-zh="攻擊目標與基準硬體" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;"></select>
+          </div>
+          <div>
+            <label for="dpa-defense-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">物理與演算法防禦對策：</span><span data-lang="en">COUNTERMEASURE TOPOLOGY:</span>
+            </label>
+            <select id="dpa-defense-select" aria-label="Countermeasure Topology" data-aria-en="Countermeasure Topology" data-aria-zh="物理與演算法防禦對策" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;"></select>
+          </div>
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span><span data-lang="zh">類比物理噪聲倍率：</span><span data-lang="en">NOISE FACTOR (σ):</span></span>
+              <span id="dpa-noise-val" style="color: #0284c7; font-weight: 700;">1.0x</span>
+            </div>
+            <input type="range" id="dpa-noise-slider" min="0.2" max="5.0" step="0.2" value="1.0" aria-label="Additive Physical Noise Factor" data-aria-en="Additive Physical Noise Factor" data-aria-zh="類比物理噪聲倍率" aria-valuetext="1.0x" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+          </div>
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span><span data-lang="zh">示波器取樣率：</span><span data-lang="en">SAMPLE RATE:</span></span>
+              <span id="dpa-rate-val" style="color: #0284c7; font-weight: 700;">2.5 GSa/s</span>
+            </div>
+            <input type="range" id="dpa-rate-slider" min="0.5" max="10.0" step="0.5" value="2.5" aria-label="Oscilloscope Sample Rate" data-aria-en="Oscilloscope Sample Rate" data-aria-zh="示波器取樣率" aria-valuetext="2.5 GSa/s" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+          </div>
+        </div>
+
+        <!-- 5 KPI Cards -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 10px; margin-bottom: 1rem;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">有效洩漏信噪比</span><span data-lang="en">EFFECTIVE SNR</span>
+            </div>
+            <div id="dpa-out-snr" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">預估攻破痕跡量 (MTD)</span><span data-lang="en">ESTIMATED MTD</span>
+            </div>
+            <div id="dpa-out-mtd" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">皮爾森相關係數 (ρ)</span><span data-lang="en">PEARSON RHO (ρ)</span>
+            </div>
+            <div id="dpa-out-rho" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">SCA 等效安全邊界</span><span data-lang="en">SCA SECURITY BITS</span>
+            </div>
+            <div id="dpa-out-bits" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">認證抵抗等級</span><span data-lang="en">ASSURANCE RATING</span>
+            </div>
+            <div id="dpa-out-level" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+          </div>
+        </div>
+
+        <!-- Canvas and View Mode Toggle -->
+        <div style="background: #040810; border: 1px solid #1e293b; border-radius: 6px; padding: 10px; margin-bottom: 0.75rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <div style="display: flex; gap: 6px;">
+              <button id="dpa-mode-traces" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                <span data-lang="zh">相關收斂曲線 (ρ vs. Traces)</span><span data-lang="en">CPA Convergence (ρ vs. Traces)</span>
+              </button>
+              <button id="dpa-mode-wave" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                <span data-lang="zh">時域功耗波形 (Power Trace)</span><span data-lang="en">Time-Domain Trace (Power Wave)</span>
+              </button>
+            </div>
+            <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">
+              <span data-lang="zh">高解析度雙模態動態分析儀</span><span data-lang="en">Dual-Mode High-DPI Trace Analyzer</span>
+            </span>
+          </div>
+          <canvas id="dpa-canvas" width="420" height="180" style="width: 100%; height: 180px; display: block;" role="img" aria-label="Side-Channel DPA/CPA Trace Simulation Canvas" data-aria-en="Side-Channel DPA/CPA Trace Simulation Canvas" data-aria-zh="側信道 DPA/CPA 痕跡模擬畫布"></canvas>
+        </div>
+
+        <!-- Verdict Banner -->
+        <div id="dpa-out-verdict" style="background: rgba(2, 132, 199, 0.05); border: 1px solid rgba(2, 132, 199, 0.25); border-radius: 6px; padding: 10px 14px; font-size: 11.5px; line-height: 1.5; color: #0f172a;">
+          Loading DPA/CPA simulation data...
+        </div>
+      </div>
     </section>
 
     <section class="immersive-chapter immersive-silicon reveal" data-deferred-background aria-label="Secure silicon visual transition" data-aria-en="Secure silicon visual transition" data-aria-zh="安全矽智財視覺轉場">
@@ -2221,5 +2328,6 @@
     });
   </script>
   <script type="module" src="pqc-rot-budget-calculator.js?v=20261005"></script>
+  <script type="module" src="dpa-cpa-leakage-simulator.js?v=20261005"></script>
 </body>
 </html>

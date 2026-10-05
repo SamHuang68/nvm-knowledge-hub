@@ -1407,6 +1407,42 @@ def run_tests() -> None:
     test("memory-physics.html 包含環境選擇器、NVM 架構選擇器、雙軸滑桿、五大 KPI 指標卡與感測窗/噪聲譜雙模態 Canvas",
          'id="cryo-env-select"' in phys_cryo_html and 'id="cryo-tech-select"' in phys_cryo_html and 'id="cryo-bias-slider"' in phys_cryo_html and 'id="cryo-time-slider"' in phys_cryo_html and 'id="cryo-out-window"' in phys_cryo_html and 'id="cryo-out-noise"' in phys_cryo_html and 'id="cryo-out-vbd"' in phys_cryo_html and 'id="cryo-out-freeze"' in phys_cryo_html and 'id="cryo-out-snr"' in phys_cryo_html and 'id="cryo-canvas"' in phys_cryo_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 57: 側信道 DPA / CPA 功耗痕跡外洩與高階遮罩評估試算器 (secure-storage.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 57: 側信道 DPA / CPA 功耗痕跡外洩與高階遮罩評估試算器 ═══")
+    dpa_js = (BASE / "dpa-cpa-leakage-simulator.js").read_text(encoding="utf-8")
+    test("dpa-cpa-leakage-simulator.js 存在且導出 calculateDpaCpaLeakage 與 initDpaCpaSimulator",
+         "export function calculateDpaCpaLeakage" in dpa_js and "export function initDpaCpaSimulator" in dpa_js)
+    test("dpa-cpa-leakage-simulator.js 包含四大攻擊目標預設與四大物理防禦對策設定檔",
+         "DPA_ATTACK_PRESETS" in dpa_js and "fpga_unprotected_aes" in dpa_js and "smartcard_jitter_masked" in dpa_js and "boolean_masked_core" in dpa_js and "dual_rail_neopuf_diff" in dpa_js and "DPA_COUNTERMEASURE_PROFILES" in dpa_js and "none_single_ended" in dpa_js and "dummy_precharge" in dpa_js and "boolean_mask_1st" in dpa_js and "complementary_dual_rail" in dpa_js)
+    test("dpa-cpa-leakage-simulator.js 第一性原理漢明重量洩漏模型、SNR、皮爾森相關係數、Mangard MTD 與高階遮罩二次方縮放演算法",
+         "effectiveSnrDb" in dpa_js and "pearsonCorrelation" in dpa_js and "estimatedMtdTraces" in dpa_js and "effectiveOrder" in dpa_js and "scaEquivalentSecurityBits" in dpa_js and "isAvaVan5Compliant" in dpa_js and "isFips140Level3Compliant" in dpa_js)
+
+    sec_store_html = (BASE / "secure-storage.html").read_text(encoding="utf-8")
+    test("secure-storage.html 整合 dpa-cpa-simulator-root 工作台與模組腳本引用",
+         'id="dpa-cpa-simulator-root"' in sec_store_html and 'src="dpa-cpa-leakage-simulator.js' in sec_store_html)
+    test("secure-storage.html 包含攻擊選擇器、防禦選擇器、雙軸滑桿、五大 KPI 指標卡與相關曲線/時域波形雙模態 Canvas",
+         'id="dpa-preset-select"' in sec_store_html and 'id="dpa-defense-select"' in sec_store_html and 'id="dpa-noise-slider"' in sec_store_html and 'id="dpa-rate-slider"' in sec_store_html and 'id="dpa-out-snr"' in sec_store_html and 'id="dpa-out-mtd"' in sec_store_html and 'id="dpa-out-rho"' in sec_store_html and 'id="dpa-out-bits"' in sec_store_html and 'id="dpa-out-level"' in sec_store_html and 'id="dpa-canvas"' in sec_store_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 58: 向量補丁 CAM 查找與微控制器 ROM 熱修復延遲能耗試算器 (iot-mcu-envm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 58: 向量補丁 CAM 查找與微控制器 ROM 熱修復延遲能耗試算器 ═══")
+    patch_js = (BASE / "mcu-vector-patch-simulator.js").read_text(encoding="utf-8")
+    test("mcu-vector-patch-simulator.js 存在且導出 calculateMcuVectorPatch 與 initMcuVectorPatchSimulator",
+         "export function calculateMcuVectorPatch" in patch_js and "export function initMcuVectorPatchSimulator" in patch_js)
+    test("mcu-vector-patch-simulator.js 包含四大邊緣工作負載預設與四大補丁儲存後端技術設定檔",
+         "MCU_PATCH_WORKLOAD_PRESETS" in patch_js and "ble_beacon_ulp" in patch_js and "smart_meter_zigbee" in patch_js and "matter_gateway_iot" in patch_js and "automotive_body_mcu" in patch_js and "PATCH_STORAGE_BACKENDS" in patch_js and "antifuse_direct" in patch_js and "shadow_sram" in patch_js and "logic_mtp" in patch_js and "ext_spi_nor" in patch_js)
+    test("mcu-vector-patch-simulator.js 第一性原理 CAM 平行比對功率、攔截延遲週期、常規 vs 修補指令能耗與全 eFlash 晶圓成本節省演算法",
+         "pCamDynamicUw" in patch_js and "patchLatencyCycles" in patch_js and "patchLatencyNs" in patch_js and "normalRomInstrPj" in patch_js and "patchedInstrPj" in patch_js and "waferCostSavingsPercent" in patch_js and "remainingYearsCapacity" in patch_js)
+
+    iot_mcu_html = (BASE / "iot-mcu-envm.html").read_text(encoding="utf-8")
+    test("iot-mcu-envm.html 整合 mcu-vector-patch-simulator-root 工作台與模組腳本引用",
+         'id="mcu-vector-patch-simulator-root"' in iot_mcu_html and 'src="mcu-vector-patch-simulator.js' in iot_mcu_html)
+    test("iot-mcu-envm.html 包含負載選擇器、後端技術選擇器、CAM 槽位選擇器、雙軸滑桿、五大 KPI 指標卡與位址地圖/管線週期雙模態 Canvas",
+         'id="patch-workload-select"' in iot_mcu_html and 'id="patch-backend-select"' in iot_mcu_html and 'id="patch-cam-select"' in iot_mcu_html and 'id="patch-clock-slider"' in iot_mcu_html and 'id="patch-volt-slider"' in iot_mcu_html and 'id="patch-out-campower"' in iot_mcu_html and 'id="patch-out-latency"' in iot_mcu_html and 'id="patch-out-energy"' in iot_mcu_html and 'id="patch-out-savings"' in iot_mcu_html and 'id="patch-out-lifespan"' in iot_mcu_html and 'id="patch-canvas"' in iot_mcu_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
