@@ -1205,6 +1205,141 @@
           </div>
         </div>
         <div class="continuous-warning"><small><span data-lang="zh">狀態邊界</span><span data-lang="en">STATE BOUNDARY</span></small><b><span data-lang="zh">持續調整</span><span data-lang="en">CONTINUOUS TUNING</span></b><i>≠</i><strong><span data-lang="zh">持續 NVM 寫入</span><span data-lang="en">CONTINUOUS NVM WRITES</span></strong><p><span data-lang="zh">Runtime adaptation 保持 volatile；只有 qualified state 才能穿越 persistence gate。</span><span data-lang="en">Runtime adaptation stays volatile; only qualified state crosses the persistence gate.</span></p></div>
+
+        <!-- CPO / 矽光子光電共封裝微環微調與雷射發熱 eNVM 留存性模擬器 -->
+        <div class="decision-matrix-card cpo-siph-container" id="cpo-siph-simulator-root" style="margin-top: 32px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+          <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+            <div>
+              <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #38bdf8; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+                <span data-lang="zh">共封裝光學 (CPO) 與矽光子 (SiPh) · 微環熱光漂移與雷射發熱留存分析</span>
+                <span data-lang="en">CO-PACKAGED OPTICS (CPO) &amp; SILICON PHOTONICS · MRR DRIFT &amp; LASER RETENTION ANALYSIS</span>
+              </div>
+              <h3 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
+                <span data-lang="zh">微環諧振腔波長漂移、零待機熱調諧與雷射自發熱 eNVM 壽命模擬器</span>
+                <span data-lang="en">Micro-Ring Resonator Wavelength Drift, Zero-Static Optical Trim &amp; Laser Self-Heating Retention Simulator</span>
+              </h3>
+            </div>
+            <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(56, 189, 248, 0.12); color: #38bdf8; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.3);">
+              <span data-lang="zh">TSMC COUPE / ELS 3D 物理模型</span>
+              <span data-lang="en">TSMC COUPE / ELS 3D Physics Model</span>
+            </span>
+          </div>
+
+          <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 18px;">
+            <span data-lang="zh">在 51.2T+ 高速交換機與光互連 AI 加速器中，共封裝光學（CPO）將光引擎（OE / PIC）與 ASIC 緊密整合。矽的熱光係數高達 1.86×10⁻⁴ K⁻¹，ASIC 與雷射二極體集中散熱將引發微環諧振腔波長劇烈漂移（約 0.08 nm/K）。傳統微加熱器需耗費數瓦持續電力調諧，而採用非揮發性 AntiFuse / Optical PCM 儲存出廠校準與光權重，可實現零待機熱能耗（Zero-Static Power）。同時，高溫對緊鄰雷射的 eNVM 形成 Arrhenius 留存加速衰減考驗。</span>
+            <span data-lang="en">In 51.2T+ switch CPO and photonic AI accelerators, optical engines (OE/PIC) are tightly integrated with host ASICs. Silicon's high thermo-optic coefficient (1.86×10⁻⁴ K⁻¹) triggers severe micro-ring resonator (MRR) resonance drift (~0.08 nm/K) under laser and ASIC thermal dissipation. Conventional resistive micro-heaters burn continuous watts of static power; non-volatile AntiFuse or Optical PCM locks factory calibration and optical weights with zero static standby power, while laser self-heating imposes critical Arrhenius retention constraints.</span>
+          </p>
+
+          <!-- Controls Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px;">
+            <div>
+              <label for="cpo-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                <span data-lang="zh">CPO 系統架構預設:</span><span data-lang="en">CPO SYSTEM ARCHITECTURE:</span>
+              </label>
+              <select id="cpo-preset-select" aria-label="CPO System Architecture Preset" data-aria-en="CPO System Architecture Preset" data-aria-zh="CPO 系統架構預設" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                <option value="hyperscale_cpo_51t" selected>51.2T Switch CPO (TSMC COUPE 3D)</option>
+                <option value="ai_accelerator_oio">AI Optical I/O Chiplet (2.5D CPO)</option>
+                <option value="external_laser_els">External Laser Source (ELS-FP Fiber)</option>
+                <option value="neuromorphic_photonic_gemm">Neuromorphic Photonic GEMM</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="cpo-tech-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                <span data-lang="zh">光學微調 / NVM 技術拓撲:</span><span data-lang="en">OPTICAL TRIM &amp; NVM TOPOLOGY:</span>
+              </label>
+              <select id="cpo-tech-select" aria-label="Optical Trim and NVM Topology" data-aria-en="Optical Trim and NVM Topology" data-aria-zh="光學微調與 NVM 技術拓撲" style="width: 100%; padding: 7px 10px; border: 1px solid #334155; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                <option value="antifuse_zero_static" selected>AntiFuse OTP (Zero-Static Laser Trim)</option>
+                <option value="optical_pcm_gst">Optical PCM (GSST Waveguide Weight)</option>
+                <option value="active_thermal_heater">Active Micro-Heater (Resistive Tuning)</option>
+                <option value="reram_analog_trim">BEOL ReRAM OxRAM (Analog Conductance)</option>
+              </select>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                <span><span data-lang="zh">環境冷卻溫度:</span><span data-lang="en">AMBIENT TEMP:</span></span>
+                <span id="cpo-ambient-val" style="color: #38bdf8; font-weight: 700;">45°C</span>
+              </div>
+              <input type="range" id="cpo-ambient-slider" min="25" max="85" step="1" value="45" aria-label="Ambient Cooling Temperature in Celsius" data-aria-en="Ambient Cooling Temperature in Celsius" data-aria-zh="環境冷卻溫度攝氏度" aria-valuetext="45°C" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                <span><span data-lang="zh">每通道雷射光功率:</span><span data-lang="en">LASER POWER / CH:</span></span>
+                <span id="cpo-laser-val" style="color: #38bdf8; font-weight: 700;">100 mW</span>
+              </div>
+              <input type="range" id="cpo-laser-slider" min="20" max="200" step="5" value="100" aria-label="Optical Laser Power Per Channel in mW" data-aria-en="Optical Laser Power Per Channel in mW" data-aria-zh="每通道雷射光功率毫瓦" aria-valuetext="100 mW" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                <span><span data-lang="zh">光通道總數 (WDM Channels):</span><span data-lang="en">WDM CHANNELS:</span></span>
+                <span id="cpo-channel-val" style="color: #38bdf8; font-weight: 700;">64 ch</span>
+              </div>
+              <input type="range" id="cpo-channel-slider" min="8" max="128" step="8" value="64" aria-label="WDM Optical Channels Count" data-aria-en="WDM Optical Channels Count" data-aria-zh="光通道總數" aria-valuetext="64 ch" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+            </div>
+          </div>
+
+          <!-- KPI Cards Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 18px;">
+            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+              <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+                <span data-lang="zh">光電接面溫升 (Tj)</span><span data-lang="en">JUNCTION TEMP (Tj)</span>
+              </span>
+              <div id="cpo-out-junction" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+            </div>
+
+            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+              <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+                <span data-lang="zh">諧振波長漂移 (Δλ)</span><span data-lang="en">MRR DRIFT (Δλ)</span>
+              </span>
+              <div id="cpo-out-drift" style="font: 700 16px 'IBM Plex Mono', monospace; color: #f43f5e;">--</div>
+            </div>
+
+            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+              <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+                <span data-lang="zh">微調節能比 (Savings)</span><span data-lang="en">TRIM POWER SAVED</span>
+              </span>
+              <div id="cpo-out-powersave" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+            </div>
+
+            <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+              <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
+                <span data-lang="zh">eNVM 留存壽命</span><span data-lang="en">NVM RETENTION</span>
+              </span>
+              <div id="cpo-out-retention" style="font: 700 16px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+            </div>
+          </div>
+
+          <!-- Dual Mode Canvas Container -->
+          <div style="background: #060d17; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+              <div style="display: inline-flex; gap: 6px;" role="group" aria-label="CPO Visualization Mode" data-aria-en="CPO Visualization Mode" data-aria-zh="CPO 視覺化模式">
+                <button id="cpo-mode-mrr" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                  <span data-lang="zh">微環諧振頻譜漂移 (MRR Transmission Shift)</span><span data-lang="en">MRR Resonance Shift</span>
+                </button>
+                <button id="cpo-mode-laser" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                  <span data-lang="zh">雷射發熱 vs 接面溫升 (Laser Power vs Tj)</span><span data-lang="en">Laser Power vs Tj</span>
+                </button>
+              </div>
+              <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">Silicon Photonics Physical Analyzer</span>
+            </div>
+            <div style="width: 100%; height: 200px; position: relative;">
+              <canvas id="cpo-siph-canvas" width="480" height="200" style="width: 100%; height: 100%; display: block;" role="img" aria-label="CPO and Silicon Photonics Simulation Canvas" data-aria-en="CPO and Silicon Photonics Simulation Canvas" data-aria-zh="CPO 與矽光子模擬畫布"></canvas>
+            </div>
+          </div>
+
+          <!-- Verdict and Rating Banner -->
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(56, 189, 248, 0.08); border-left: 3px solid #38bdf8; border-radius: 0 4px 4px 0; padding: 10px 14px;">
+            <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
+              <span id="cpo-out-verdict">Loading CPO &amp; Silicon Photonics calculations...</span>
+            </div>
+            <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #0f172a; padding: 4px 10px; border-radius: 4px; border: 1px solid #334155; white-space: nowrap;">
+              <span id="cpo-out-rating" style="color: #10b981;">Tier-1 Hyperscale Co-Design</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="selection" class="paper-section lens-panel reveal">
@@ -2338,5 +2473,6 @@
   <script type="module" src="cim-analog-mac-simulator.js"></script>
   <script type="module" src="cim-nn-accuracy-degradation-simulator.js?v=20261005"></script>
   <script type="module" src="nanosheet-bspdn-nvm-simulator.js?v=20261005"></script>
+  <script type="module" src="cpo-siph-nvm-simulator.js?v=20261006"></script>
 </body>
 </html>

@@ -3617,6 +3617,141 @@
 <span id="space-rad-out-verdict">Loading Space Radiation Hardening calculations...</span>
 </div>
 </div>
+
+<!-- Deep Space Extreme Heavy-Ion SEL & High-Temp Arrhenius Simulator -->
+<div class="decision-matrix-card" id="deep-space-simulator-root" style="margin-top: 32px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+<div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+<div>
+<div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #10b981; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+<span data-lang="zh">深空極限任務 · 重離子 SEL 閂鎖免疫與 460°C 高溫 Arrhenius 留存分析</span>
+<span data-lang="en">DEEP SPACE EXTREME MISSIONS · HEAVY-ION SEL IMMUNITY &amp; 460°C RETENTION ANALYSIS</span>
+</div>
+<h3 class="decision-matrix-title" style="margin: 0; font-size: 17px; color: #f8fafc; font-weight: 700;">
+<span data-lang="zh">深空重離子單粒子閂鎖 (SEL) 閾值與 20 年超高溫數據留存衰減試算器</span>
+<span data-lang="en">Deep Space Heavy-Ion SEL Threshold &amp; 20-Year Extreme High-Temp Retention Simulator</span>
+</h3>
+</div>
+<span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(16, 185, 129, 0.12); color: #10b981; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.3);">
+<span data-lang="zh">NASA Class-S / 4H-SiC 物理模型</span>
+<span data-lang="en">NASA Class-S / 4H-SiC Physics Model</span>
+</span>
+</div>
+
+<p style="font-size: 13.5px; line-height: 1.6; color: #cbd5e1; margin: 0 0 18px;">
+<span data-lang="zh">在金星著陸探測器（460°C 高溫）、木衛二強輻射帶、月球永久極地基地（20 年任務）與深層地熱鑽探中，電子元件面臨破壞性重離子單粒子閂鎖（SEL，寄生 PNPN 閘流管正回授燒毀）與超高溫電荷熱激發流失。傳統體矽 eFlash 在 200°C 以上電荷幾分鐘內漏盡，且極易在重離子轟擊下發生 SEL 燒毀；採用絕緣層覆矽（SOI）介電隔離或 4H-SiC 寬能隙耐高溫微絲架構，可達到 SEL 完全免疫（LET 閾值 &gt; 100 MeV·cm²/mg）與 460°C 超高溫長效留存（活化能 Ea &gt; 2.1 eV）。</span>
+<span data-lang="en">In Venus surface landers (460°C heat), Jovian Europa radiation belts, lunar 20-year habitats, and geothermal core drilling, silicon systems face catastrophic Heavy-Ion Single Event Latchup (SEL thyristor burnout) and extreme thermal charge dissipation. Commercial bulk eFlash loses stored charge within minutes above 200°C and suffers catastrophic SEL latchup; Silicon-on-Insulator (SOI) dielectric isolation and 4H-SiC wide-bandgap platforms achieve complete SEL immunity (LET threshold &gt; 100 MeV·cm²/mg) and ultra-high-temperature data retention (activation energy Ea &gt; 2.1 eV).</span>
+</p>
+
+<!-- Controls Grid -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-bottom: 16px;">
+<div>
+<label for="deep-space-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+<span data-lang="zh">深空任務環境預設:</span><span data-lang="en">DEEP SPACE MISSION PROFILE:</span>
+</label>
+<select id="deep-space-preset-select" aria-label="Deep Space Mission Profile Preset" data-aria-en="Deep Space Mission Profile Preset" data-aria-zh="深空任務環境預設" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+<option value="venus_lander_460c" selected>Venus Surface Lander (460°C Extreme)</option>
+<option value="jupiter_europa_belt">Europa Radiation Belt (85 MeV LET)</option>
+<option value="artemis_lunar_20yr">Artemis Lunar Base (20-Year Life)</option>
+<option value="downhole_geothermal_300c">Geothermal Core Drill (300°C)</option>
+</select>
+</div>
+
+<div>
+<label for="deep-space-tech-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+<span data-lang="zh">記憶體技術耐受拓撲:</span><span data-lang="en">HARDENED MEMORY TOPOLOGY:</span>
+</label>
+<select id="deep-space-tech-select" aria-label="Hardened Memory Topology" data-aria-en="Hardened Memory Topology" data-aria-zh="記憶體技術耐受拓撲" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+<option value="antifuse_soi_radhard" selected>AntiFuse on SOI (Dielectric SEL-Immune / 450°C)</option>
+<option value="sic_widebandgap_envm">SiC Wide-Bandgap (4H-SiC 500°C Platform)</option>
+<option value="radhard_stt_mram">Aerospace STT-MRAM (MTJ / Curie Limit)</option>
+<option value="bulk_cmos_eflash">Bulk CMOS eFlash (Catastrophic SEL Risk)</option>
+</select>
+</div>
+
+<div>
+<div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+<span><span data-lang="zh">環境工作溫度 (Tj):</span><span data-lang="en">OPERATING TEMP:</span></span>
+<span id="deep-space-temp-val" style="color: #10b981; font-weight: 700;">460 °C</span>
+</div>
+<input type="range" id="deep-space-temp-slider" min="-150" max="475" step="5" value="460" aria-label="Operating Temperature in Celsius" data-aria-en="Operating Temperature in Celsius" data-aria-zh="環境工作溫度攝氏度" aria-valuetext="460°C" style="width: 100%; accent-color: #10b981; cursor: pointer;">
+</div>
+
+<div>
+<div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+<span><span data-lang="zh">重離子峰值 LET:</span><span data-lang="en">PEAK HEAVY-ION LET:</span></span>
+<span id="deep-space-let-val" style="color: #10b981; font-weight: 700;">75 MeV·cm²/mg</span>
+</div>
+<input type="range" id="deep-space-let-slider" min="5" max="100" step="1" value="75" aria-label="Peak Heavy Ion LET in MeV*cm2/mg" data-aria-en="Peak Heavy Ion LET in MeV*cm2/mg" data-aria-zh="重離子峰值線性能量轉移" aria-valuetext="75 MeV*cm2/mg" style="width: 100%; accent-color: #10b981; cursor: pointer;">
+</div>
+
+<div>
+<div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+<span><span data-lang="zh">任務設計年限:</span><span data-lang="en">MISSION DESIGN LIFE:</span></span>
+<span id="deep-space-mission-val" style="color: #10b981; font-weight: 700;">1 yr</span>
+</div>
+<input type="range" id="deep-space-mission-slider" min="1" max="25" step="1" value="1" aria-label="Mission Design Life in Years" data-aria-en="Mission Design Life in Years" data-aria-zh="任務設計年限" aria-valuetext="1 yr" style="width: 100%; accent-color: #10b981; cursor: pointer;">
+</div>
+</div>
+
+<!-- KPI Cards Strip -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+<div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+<div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+<span data-lang="zh">單粒子閂鎖狀態 (SEL)</span><span data-lang="en">SEL STATUS</span>
+</div>
+<div id="deep-space-out-sel" style="font: 700 15px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+</div>
+
+<div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+<div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+<span data-lang="zh">高溫留存壽命 (Arrhenius)</span><span data-lang="en">RETENTION @ TJ</span>
+</div>
+<div id="deep-space-out-retention" style="font: 700 15px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+</div>
+
+<div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+<div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+<span data-lang="zh">任務週期數據保全率</span><span data-lang="en">MISSION SURVIVAL</span>
+</div>
+<div id="deep-space-out-survival" style="font: 700 15px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+</div>
+
+<div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+<div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+<span data-lang="zh">活化能 (Ea)</span><span data-lang="en">ACTIVATION ENERGY</span>
+</div>
+<div id="deep-space-out-ea" style="font: 700 15px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+</div>
+</div>
+
+<!-- Canvas Visualization -->
+<div style="background: #060d17; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+<div style="display: inline-flex; gap: 6px;" role="group" aria-label="Deep Space Visualization Mode" data-aria-en="Deep Space Visualization Mode" data-aria-zh="深空視覺化模式">
+<button id="deep-space-mode-sel" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+<span data-lang="zh">重離子 LET vs 閂鎖截面積 (SEL Cross-Section)</span><span data-lang="en">SEL Cross-Section vs LET</span>
+</button>
+<button id="deep-space-mode-temp" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+<span data-lang="zh">溫度 vs Arrhenius 留存壽命 (Retention vs Temp)</span><span data-lang="en">Retention vs Temp</span>
+</button>
+</div>
+<span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">NASA Deep Space Qualification Analyzer</span>
+</div>
+<div style="width: 100%; height: 180px; position: relative;">
+<canvas id="deep-space-canvas" width="480" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Deep Space SEL and Retention Simulation Canvas" data-aria-en="Deep Space SEL and Retention Simulation Canvas" data-aria-zh="深空 SEL 與留存模擬畫布"></canvas>
+</div>
+</div>
+
+<!-- Verdict & Rating Banner -->
+<div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; border-radius: 0 4px 4px 0; padding: 10px 14px;">
+<div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
+<span id="deep-space-out-verdict">Loading Deep Space calculations...</span>
+</div>
+<div style="font: 700 12px 'IBM Plex Mono', monospace; background: #0f172a; padding: 4px 10px; border-radius: 4px; border: 1px solid #334155; white-space: nowrap;">
+<span id="deep-space-out-rating" style="color: #10b981;">NASA Class-S Certified</span>
+</div>
+</div>
+</div>
 </div>
 </section>
     </div>
@@ -3782,6 +3917,7 @@
 <script type="module" src="demura-lut-calculator.js?v=20261005"></script>
 <script type="module" src="chiplet-ucie-nvm-simulator.js?v=20261005"></script>
 <script type="module" src="space-radiation-hardening-simulator.js?v=20261005"></script>
+<script type="module" src="deep-space-sel-retention-simulator.js?v=20261006"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 </body>
 </html>
