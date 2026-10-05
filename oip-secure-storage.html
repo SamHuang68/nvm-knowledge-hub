@@ -280,6 +280,128 @@
         </div>
         <p class="paper-note"><b><span data-lang="zh">建議簡報結尾：</span><span data-lang="en">Recommended close:</span></b> <span data-lang="zh">同意 target node 與 configuration 的 evidence closure plan，而不是宣稱所有攻擊已被消除。</span><span data-lang="en">Agree the evidence-closure plan for the target node and configuration—rather than claiming every physical attack has been eliminated.</span></p>
       </section>
+
+      <!-- SECTION 05: 3D CHIPLET & HETEROGENEOUS PACKAGING eNVM SIMULATOR -->
+      <section id="sec-3d-chiplet" class="paper-section reveal" data-record-id="OIP-NODE-001">
+        <div class="paper-heading">
+          <div>
+            <p class="paper-kicker"><span data-lang="zh">05 · 3D CHIPLET 異質整合</span><span data-lang="en">05 · 3D CHIPLET INTEGRATION</span></p>
+            <h2>
+              <span data-lang="zh">3D Chiplet / 2.5D CoWoS 異質整合<br><em>eNVM 微凸塊 RC 延遲與熱機械應力模擬器</em></span>
+              <span data-lang="en">3D Chiplet &amp; 2.5D CoWoS Heterogeneous Integration<br><em>eNVM Parasitic RC &amp; Thermal-Mechanical Stress Simulator</em></span>
+            </h2>
+          </div>
+          <p>
+            <span data-lang="zh">基於第一性原理熱機械切應力模型 (CTE 失配剪切)、Cu-Cu 混合鍵合與微凸塊寄生 RC 讀取延遲、以及頂層 300W 高算力晶粒引發之垂直熱阻堆疊效應，評估 TSMC SoIC、CoWoS-S 與 Foveros 架構下 eNVM 物理可行性。</span>
+            <span data-lang="en">First-principles simulation of interface shear stress from CTE mismatch, Cu-Cu hybrid bonding / micro-bump parasitic RC read latency, and thermal stacking hotspots under 300W compute dies across TSMC SoIC, CoWoS-S, and Foveros architectures.</span>
+          </p>
+        </div>
+
+        <div id="chiplet-simulator-root" style="background: #0b1120; border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 20px; color: #f8fafc; margin-top: 16px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px;">
+            <!-- Packaging Preset Selection -->
+            <div>
+              <label for="chiplet-preset-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #38bdf8; margin-bottom: 6px;">
+                <span data-lang="zh">先進封裝異質整合架構 (Packaging Architecture Preset):</span>
+                <span data-lang="en">Packaging Architecture Preset:</span>
+              </label>
+              <select id="chiplet-preset-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                <option value="tsmc_soic_hybrid">TSMC SoIC 3D Cu-Cu Hybrid Bonding (Pitch &lt; 3um)</option>
+                <option value="tsmc_cowos_s">TSMC CoWoS-S 2.5D Silicon Interposer (40um Micro-bump)</option>
+                <option value="intel_foveros_3d">Intel Foveros 3D Direct Stacking (25um Bump)</option>
+                <option value="organic_substrate_mcm">Conventional Organic Substrate MCM (110um BGA)</option>
+              </select>
+            </div>
+
+            <!-- Topology Selection -->
+            <div>
+              <label for="chiplet-topology-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #38bdf8; margin-bottom: 6px;">
+                <span data-lang="zh">小晶粒 eNVM 拓撲層級 (Chiplet eNVM Topology):</span>
+                <span data-lang="en">Chiplet eNVM Topology:</span>
+              </label>
+              <select id="chiplet-topology-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                <option value="antifuse_base_die">AntiFuse RoT Base Die (Active Interposer / 0-Mask)</option>
+                <option value="beol_mram_top_cache">BEOL STT-MRAM Top Cache Chiplet (Near-SRAM)</option>
+                <option value="embedded_flash_sidecar">Discrete eFlash Companion Chiplet (28nm Sidecar)</option>
+                <option value="sram_cache_stack">3D Stacked SRAM Cache Tile (V-Cache Control)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Physical Sliders -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; background: #1e293b; padding: 14px; border-radius: 6px; margin-bottom: 16px;">
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                <span><span data-lang="zh">頂層算力晶粒熱功耗</span><span data-lang="en">Compute Die Power</span></span>
+                <span id="chiplet-power-val" style="color: #f59e0b;">120 W</span>
+              </div>
+              <input type="range" id="chiplet-power-slider" min="10" max="300" step="5" value="120" style="width: 100%; accent-color: #f59e0b;" aria-label="Compute Die Power" data-aria-zh="頂層算力晶粒熱功耗" data-aria-en="Compute Die Power">
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                <span><span data-lang="zh">D2D 互連走線長度</span><span data-lang="en">D2D Trace Length</span></span>
+                <span id="chiplet-length-val" style="color: #38bdf8;">3.5 mm</span>
+              </div>
+              <input type="range" id="chiplet-length-slider" min="0.5" max="10.0" step="0.5" value="3.5" style="width: 100%; accent-color: #38bdf8;" aria-label="D2D Trace Length" data-aria-zh="D2D 互連走線長度" data-aria-en="D2D Trace Length">
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                <span><span data-lang="zh">熱循環溫差 ΔT</span><span data-lang="en">Thermal Delta ΔT</span></span>
+                <span id="chiplet-deltat-val" style="color: #10b981;">ΔT = 110°C</span>
+              </div>
+              <input type="range" id="chiplet-deltat-slider" min="30" max="165" step="5" value="110" style="width: 100%; accent-color: #10b981;" aria-label="Thermal Cycling Delta" data-aria-zh="熱循環溫差" data-aria-en="Thermal Cycling Delta">
+            </div>
+          </div>
+
+          <!-- Real-time Metric Badges -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+            <div style="background: rgba(11, 17, 32, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">接面總溫升 Tj</span><span data-lang="en">Junction Temp Tj</span></div>
+              <div id="chiplet-metric-temp" style="font: 700 14px 'IBM Plex Mono', monospace; color: #10b981;">68.2 °C</div>
+            </div>
+            <div style="background: rgba(11, 17, 32, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">界面剪切應力 τ</span><span data-lang="en">Shear Stress τ</span></div>
+              <div id="chiplet-metric-stress" style="font: 700 14px 'IBM Plex Mono', monospace; color: #38bdf8;">84.5 MPa</div>
+            </div>
+            <div style="background: rgba(11, 17, 32, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">端到端讀取延遲</span><span data-lang="en">Read Latency</span></div>
+              <div id="chiplet-metric-latency" style="font: 700 14px 'IBM Plex Mono', monospace; color: #f59e0b;">5.12 ns</div>
+            </div>
+            <div style="background: rgba(11, 17, 32, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">異質整合綜合評分</span><span data-lang="en">Packaging Score</span></div>
+              <div id="chiplet-metric-score" style="font: 700 14px 'IBM Plex Mono', monospace; color: #10b981;">92 / 100</div>
+            </div>
+          </div>
+
+          <!-- Canvas Visualizer with Dual Mode Switcher -->
+          <div style="background: #060a14; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+              <h3 style="font: 600 12px 'IBM Plex Mono', monospace; color: #38bdf8; margin: 0;">
+                <span data-lang="zh">3D 封裝第一性原理物理曲線 (Packaging Profile)</span>
+                <span data-lang="en">3D Packaging Physical Profiles</span>
+              </h3>
+              <div style="display: flex; gap: 6px;">
+                <button type="button" id="chiplet-mode-thermal-btn" class="active" style="padding: 4px 8px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #38bdf8; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                  <span data-lang="zh">熱功耗 vs 接面溫升/應力</span>
+                  <span data-lang="en">Power vs Temp/Stress</span>
+                </button>
+                <button type="button" id="chiplet-mode-latency-btn" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                  <span data-lang="zh">走線長度 vs 讀取延遲</span>
+                  <span data-lang="en">Length vs Read Latency</span>
+                </button>
+              </div>
+            </div>
+            <canvas id="chiplet-hetero-canvas" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
+          </div>
+
+          <!-- Verdict Banner -->
+          <div id="chiplet-verdict-banner" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 12px 16px;">
+            Loading packaging telemetry...
+          </div>
+        </div>
+      </section>
     </div>
 
     <section class="paper-conclusion"><small><span data-lang="zh">OIP 安全儲存核心論述</span><span data-lang="en">OIP SECURE STORAGE THESIS</span></small><h2><span data-lang="zh">保護永久資料，<br>但不永久保存根金鑰</span><span data-lang="en">Protect permanent data<br>without permanently storing the root key</span></h2><p><span data-lang="zh">以架構確立隔離，以證據建立保證。</span><span data-lang="en">Architecture establishes the separation. Evidence establishes the assurance.</span></p><div class="conclusion-actions" style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 1rem;">
@@ -293,5 +415,14 @@
   <script src="research.js?v=20260929-v5"></script>
   <script src="oip-lifecycle.js"></script>
   <script type="module" src="puf-reconstruction-simulator.js?v=20261005"></script>
+  <script type="module">
+    import { initChipletHeteroSimulator } from './chiplet-3d-hetero-nvm-simulator.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      initChipletHeteroSimulator('chiplet-simulator-root');
+    });
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      initChipletHeteroSimulator('chiplet-simulator-root');
+    }
+  </script>
 </body>
 </html>

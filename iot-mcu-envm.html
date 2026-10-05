@@ -1038,6 +1038,124 @@
             </div>
           </section>
 
+          <!-- LENS 02B: SUB-THRESHOLD & NEAR-THRESHOLD ULTRA-LOW-VOLTAGE eNVM SIMULATOR -->
+          <section id="sec-subthreshold-lowvoltage" class="lens-panel" data-lens="lens-02b">
+            <div class="panel-kicker"><span data-lang="en">LENS 02B · SUB-VT LAB</span><span data-lang="zh">觀點 02B · 次閾值極限實驗室</span></div>
+            <h2>
+              <span data-lang="zh">次閾值與近閾值 (0.3V~0.7V) 超低壓<br><em>eNVM 讀取能耗與位元漏電比模擬器</em></span>
+              <span data-lang="en">Sub-Threshold &amp; Near-Threshold (0.3V–0.7V) Ultra-Low-Voltage<br><em>eNVM Energy &amp; Leakage Ratio Simulator</em></span>
+            </h2>
+            <p class="panel-desc">
+              <span data-lang="zh">在無電池環境能量採集 (0.35V~0.5V VDD) 下，MOSFET 驅動電流呈對數擴散崩跌，感測延遲增加誘發靜態漏能反向暴增。透過第一性原理動態 CV² 能耗、Pelgrom 微觀失配與最小能耗點 (MEP) 分析儀，探索 AntiFuse、ReRAM、eFlash 與 10T SRAM 的極限超低壓工作邊界。</span>
+              <span data-lang="en">Under battery-less energy harvesting (0.35V–0.5V VDD), sub-threshold transconductance collapses, and inflated sensing latency triggers a massive leakage surge. First-principles analysis of active CV², Pelgrom statistical mismatch, and Minimum Energy Point (MEP) across AntiFuse, ReRAM, eFlash, and 10T SRAM.</span>
+            </p>
+
+            <div id="subvt-simulator-root" style="background: #0a101d; border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 20px; color: #f8fafc; margin-top: 16px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px;">
+                <!-- Supply Preset Selection -->
+                <div>
+                  <label for="subvt-preset-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #10b981; margin-bottom: 6px;">
+                    <span data-lang="zh">超低壓供電場景預設 (Low-Voltage Supply Preset):</span>
+                    <span data-lang="en">Low-Voltage Supply Preset:</span>
+                  </label>
+                  <select id="subvt-preset-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                    <option value="nearthreshold_0_50v" selected>0.50V Near-Threshold Bio-Implantable Capsule (MEP Optimal)</option>
+                    <option value="subthreshold_0_35v">0.35V Sub-Threshold Indoor Solar Harvesting (Extreme)</option>
+                    <option value="ultralow_0_70v">0.70V Ultra-Low-Voltage Tire Pressure (TPMS 85°C)</option>
+                    <option value="nominal_1_00v">1.00V Nominal Low-Power Control Baseline</option>
+                  </select>
+                </div>
+
+                <!-- Topology Selection -->
+                <div>
+                  <label for="subvt-topology-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #10b981; margin-bottom: 6px;">
+                    <span data-lang="zh">候選超低壓 eNVM 拓撲 (Low-Voltage eNVM Topology):</span>
+                    <span data-lang="en">Low-Voltage eNVM Topology:</span>
+                  </label>
+                  <select id="subvt-topology-select" style="width: 100%; padding: 8px 10px; background: #1e293b; color: #f8fafc; border: 1px solid #334155; border-radius: 4px; font-size: 13px;">
+                    <option value="antifuse_lowvoltage" selected>Logic AntiFuse OTP (0-Mask Ohmic Breakdown / Low MEP)</option>
+                    <option value="reram_lowcurrent">BEOL OxRAM ReRAM (Low-Current Multi-Cycle)</option>
+                    <option value="eflash_charge_sensing">Floating-Gate eFlash (Legacy Charge Sensing)</option>
+                    <option value="sram_subvt_10t">10T Sub-Threshold SRAM (Buffered Read Baseline)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Physical Sliders -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; background: #1e293b; padding: 14px; border-radius: 6px; margin-bottom: 16px;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span><span data-lang="zh">工作供電電壓 VDD</span><span data-lang="en">Supply Voltage VDD</span></span>
+                    <span id="subvt-vdd-val" style="color: #10b981;">0.50 V</span>
+                  </div>
+                  <input type="range" id="subvt-vdd-slider" min="0.25" max="1.20" step="0.01" value="0.50" style="width: 100%; accent-color: #10b981;" aria-label="Supply Voltage VDD" data-aria-zh="工作供電電壓" data-aria-en="Supply Voltage VDD">
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span><span data-lang="zh">環境運作溫度</span><span data-lang="en">Operating Temperature</span></span>
+                    <span id="subvt-temp-val" style="color: #f59e0b;">37 °C</span>
+                  </div>
+                  <input type="range" id="subvt-temp-slider" min="-20" max="105" step="1" value="37" style="width: 100%; accent-color: #f59e0b;" aria-label="Operating Temperature" data-aria-zh="環境運作溫度" data-aria-en="Operating Temperature">
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+                    <span><span data-lang="zh">陣列巨集容量</span><span data-lang="en">Array Capacity</span></span>
+                    <span id="subvt-capacity-val" style="color: #38bdf8;">64 Kb</span>
+                  </div>
+                  <input type="range" id="subvt-capacity-slider" min="8" max="512" step="8" value="64" style="width: 100%; accent-color: #38bdf8;" aria-label="Array Capacity" data-aria-zh="陣列巨集容量" data-aria-en="Array Capacity">
+                </div>
+              </div>
+
+              <!-- Real-time Metric Badges -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+                <div style="background: rgba(10, 16, 29, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">位元讀取總能耗</span><span data-lang="en">Total Read Energy</span></div>
+                  <div id="subvt-metric-energy" style="font: 700 14px 'IBM Plex Mono', monospace; color: #10b981;">3.45 fJ/b</div>
+                </div>
+                <div style="background: rgba(10, 16, 29, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">感測讀取延遲</span><span data-lang="en">Sense Latency</span></div>
+                  <div id="subvt-metric-latency" style="font: 700 14px 'IBM Plex Mono', monospace; color: #38bdf8;">14.2 ns</div>
+                </div>
+                <div style="background: rgba(10, 16, 29, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">靜態漏能佔比</span><span data-lang="en">Leakage Ratio</span></div>
+                  <div id="subvt-metric-leakage" style="font: 700 14px 'IBM Plex Mono', monospace; color: #f59e0b;">8.4%</div>
+                </div>
+                <div style="background: rgba(10, 16, 29, 0.9); border: 1px solid rgba(255, 255, 255, 0.1); padding: 10px; border-radius: 4px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;"><span data-lang="zh">極限能效評分</span><span data-lang="en">Efficiency Score</span></div>
+                  <div id="subvt-metric-score" style="font: 700 14px 'IBM Plex Mono', monospace; color: #10b981;">94 / 100</div>
+                </div>
+              </div>
+
+              <!-- Canvas Visualizer with Dual Mode Switcher -->
+              <div style="background: #050811; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+                  <h3 style="font: 600 12px 'IBM Plex Mono', monospace; color: #10b981; margin: 0;">
+                    <span data-lang="zh">次閾值第一性原理物理曲線 (Low-Voltage Profile)</span>
+                    <span data-lang="en">Sub-Threshold Physical Profiles</span>
+                  </h3>
+                  <div style="display: flex; gap: 6px;">
+                    <button type="button" id="subvt-mode-energy-btn" class="active" style="padding: 4px 8px; background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                      <span data-lang="zh">電壓 vs 能耗 (MEP 曲線)</span>
+                      <span data-lang="en">Voltage vs Energy (MEP)</span>
+                    </button>
+                    <button type="button" id="subvt-mode-latency-btn" style="padding: 4px 8px; background: rgba(255, 255, 255, 0.06); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 4px; font: 600 11px sans-serif; cursor: pointer;">
+                      <span data-lang="zh">電壓 vs 延遲與變異</span>
+                      <span data-lang="en">Voltage vs Delay &amp; Variation</span>
+                    </button>
+                  </div>
+                </div>
+                <canvas id="subvt-lowvoltage-canvas" style="width: 100%; height: 280px; display: block; border-radius: 4px;"></canvas>
+              </div>
+
+              <!-- Verdict Banner -->
+              <div id="subvt-verdict-banner" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 12px 16px;">
+                Loading ultra-low-voltage telemetry...
+              </div>
+            </div>
+          </section>
+
           <!-- LENS 03: 四項製程整合查核 (id="scaling-cliff" 滿足測試) -->
           <section id="scaling-cliff" class="lens-panel" data-lens="lens-03">
             <div class="panel-kicker"><span data-lang="en">LENS 03 · PROCESS INTEGRATION CHECKS</span><span data-lang="zh">觀點 03 · 製程整合條件</span></div>
@@ -1988,5 +2106,14 @@
 <script type="module" src="iot-energy-tradeoff-calculator.js?v=20261005"></script>
 <script type="module" src="mcu-vector-patch-simulator.js?v=20261005"></script>
 <script type="module" src="normally-off-energy-harvesting-simulator.js?v=20261005"></script>
+<script type="module">
+  import { initSubthresholdSimulator } from './subthreshold-lowvoltage-nvm-simulator.js';
+  document.addEventListener('DOMContentLoaded', () => {
+    initSubthresholdSimulator('subvt-simulator-root');
+  });
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    initSubthresholdSimulator('subvt-simulator-root');
+  }
+</script>
 </body>
 </html>
