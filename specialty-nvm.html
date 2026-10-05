@@ -2205,8 +2205,162 @@
         <span data-lang="en">JEDEC defines Hard Post-Package Repair (hPPR). Conventional poly eFuses suffer thermal grow-back, risking defect reappearance under server heat. AntiFuse forms permanent recrystallized ohmic silicon filaments (R &lt; 100Ω) with high-temperature retention and grow-back risk requiring named-IP datasheet validation, serving as the gold standard for DDR5 and HBM3 stack yields.</span>
       </p>
     </div>
+  <!-- TOPIC 02 INTERACTIVE ENGINEERING LAB: CHIPLET UCIE INTERCONNECT & NVM TOPOLOGY SIMULATOR -->
+  <div id="chiplet-ucie-simulator-root" style="margin-top: 28px; background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05);">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
+      <div>
+        <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #047857; letter-spacing: 0.08em; text-transform: uppercase;">
+          <span data-lang="zh">前沿封裝實驗室 · 次世代小晶片 NVM 整合</span>
+          <span data-lang="en">ADVANCED PACKAGING LAB · CHIPLET NVM INTEGRATION</span>
+        </span>
+        <h4 style="font-size: 16.5px; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+          <span data-lang="zh">次世代晶片封裝 Chiplet UCIe 互連與 NVM 延遲拓撲試算器</span>
+          <span data-lang="en">Next-Gen Chiplet Packaging UCIe Interconnect &amp; NVM Latency Simulator</span>
+        </h4>
+      </div>
+      <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(16, 185, 129, 0.1); color: #047857; padding: 4px 8px; border-radius: 4px;">
+        <span data-lang="zh">第一性原理封裝傳輸模型</span>
+        <span data-lang="en">First-Principles D2D Transport Model</span>
+      </span>
+    </div>
+
+    <p style="font-size: 12.5px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
+      <span data-lang="zh">試算單體整合 (Monolithic) vs 2.5D 有機基板 (UCIe-S) vs 2.5D 矽中介層 (UCIe-A) vs 3D 混合鍵合在安全開機 (RoT)、XiP 韌體、HBM 修復對照表下的存取延遲、互連能耗 (pJ/bit)、垂直熱阻溫升與晶圓良率成本優勢。</span>
+      <span data-lang="en">Evaluates Monolithic vs 2.5D Substrate (UCIe-S) vs 2.5D Silicon Interposer (UCIe-A) vs 3D Hybrid Bonding on read latency, interconnect energy (pJ/bit), thermal rise, and wafer yield benefits across RoT, XiP, and HBM repair workloads.</span>
+    </p>
+
+    <!-- Controls Row -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
+      <div>
+        <label for="chiplet-top-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+          <span data-lang="zh">異質整合封裝拓撲:</span><span data-lang="en">PACKAGING TOPOLOGY:</span>
+        </label>
+        <select id="chiplet-top-select" aria-label="Chiplet Packaging Topology" data-aria-en="Chiplet Packaging Topology" data-aria-zh="異質整合封裝拓撲" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+          <option value="monolithic_envm">Monolithic (On-Die eNVM, 0-mask)</option>
+          <option value="chiplet_ucie_standard">2.5D Standard UCIe-S (Organic Substrate)</option>
+          <option value="chiplet_ucie_advanced" selected>2.5D Advanced UCIe-A (Silicon Interposer)</option>
+          <option value="stacked_3d_hybrid">3D Direct Hybrid Bonding (Cu-Cu SoIC)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="chiplet-role-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+          <span data-lang="zh">NVM 儲存應用工作負載:</span><span data-lang="en">NVM STORAGE ROLE:</span>
+        </label>
+        <select id="chiplet-role-select" aria-label="NVM Storage Role and Workload" data-aria-en="NVM Storage Role and Workload" data-aria-zh="NVM 儲存應用工作負載" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+          <option value="secure_boot_rot" selected>Secure Boot RoT (512 Kb, High Security)</option>
+          <option value="firmware_xip">Firmware XiP (16 MB, High Speed)</option>
+          <option value="cache_repair_hbm">HBM3e / LLC Repair Map (4 Mb hPPR)</option>
+          <option value="ai_weight_table">Edge AI Weight Table (8 MB Streaming)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="chiplet-lanes-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+          <span data-lang="zh">D2D 總線通道寬度:</span><span data-lang="en">D2D BUS LANES:</span>
+        </label>
+        <select id="chiplet-lanes-select" aria-label="D2D Interconnect Bus Lanes" data-aria-en="D2D Interconnect Bus Lanes" data-aria-zh="D2D 總線通道寬度" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+          <option value="4">x4 Lanes (Low Pin-count)</option>
+          <option value="8">x8 Lanes (Standard)</option>
+          <option value="16" selected>x16 Lanes (High Bandwidth)</option>
+          <option value="32">x32 Lanes (Ultra-Dense)</option>
+          <option value="64">x64 Lanes (Wide 3D Bus)</option>
+        </select>
+      </div>
+
+      <div>
+        <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+          <span><span data-lang="zh">運算晶粒功耗:</span><span data-lang="en">COMPUTE POWER:</span></span>
+          <span id="chiplet-power-val" style="color: #047857; font-weight: 700;">45 W</span>
+        </div>
+        <input type="range" id="chiplet-power-slider" min="5" max="250" step="5" value="45" aria-label="Compute Die Power" data-aria-en="Compute Die Power" data-aria-zh="運算晶粒功耗" aria-valuetext="45 W" style="width: 100%; accent-color: #047857; cursor: pointer;">
+      </div>
+
+      <div>
+        <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+          <span><span data-lang="zh">環境運作溫度:</span><span data-lang="en">AMBIENT TEMP:</span></span>
+          <span id="chiplet-temp-val" style="color: #047857; font-weight: 700;">70 °C</span>
+        </div>
+        <input type="range" id="chiplet-temp-slider" min="-40" max="105" step="5" value="70" aria-label="Ambient Operating Temperature" data-aria-en="Ambient Operating Temperature" data-aria-zh="環境運作溫度" aria-valuetext="70 °C" style="width: 100%; accent-color: #047857; cursor: pointer;">
+      </div>
+    </div>
+
+    <!-- KPI Metrics Strip -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+        <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+          <span data-lang="zh">首字讀取延遲</span><span data-lang="en">FIRST-WORD LATENCY</span>
+        </div>
+        <div id="chiplet-out-latency" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+        <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+          <span data-lang="zh">陣列 + 往返協定</span><span data-lang="en">Array + RTT transport</span>
+        </div>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+        <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+          <span data-lang="zh">互連傳輸能耗</span><span data-lang="en">INTERCONNECT ENERGY</span>
+        </div>
+        <div id="chiplet-out-energy" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+        <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+          <span data-lang="zh">D2D 介面位元代價</span><span data-lang="en">D2D PHY bit energy</span>
+        </div>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+        <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+          <span data-lang="zh">開機/XiP 傳輸頻寬</span><span data-lang="en">D2D BANDWIDTH</span>
+        </div>
+        <div id="chiplet-out-bandwidth" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
+        <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+          <span data-lang="zh">實體層平行總頻寬</span><span data-lang="en">Parallel lane bandwidth</span>
+        </div>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+        <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+          <span data-lang="zh">熱阻溫升與接面溫</span><span data-lang="en">THERMAL DELTA TJ</span>
+        </div>
+        <div id="chiplet-out-temprise" style="font: 700 16px 'IBM Plex Mono', monospace; color: #475569;">—</div>
+        <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+          <span data-lang="zh">垂直堆疊散熱效應</span><span data-lang="en">Vertical heat stack</span>
+        </div>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+        <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+          <span data-lang="zh">晶圓良率提升比</span><span data-lang="en">YIELD RECOVERY GAIN</span>
+        </div>
+        <div id="chiplet-out-yield" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+        <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+          <span data-lang="zh">Murphy 矽分割效益</span><span data-lang="en">Murphy's partitioning</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Canvas Visualization -->
+    <div style="background: #081018; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+        <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Packaging Visualization Mode" data-aria-en="Packaging Visualization Mode" data-aria-zh="封裝視覺化模式">
+          <button id="chiplet-mode-pkg" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #10b981; background: #059669; color: #ffffff; cursor: pointer;">
+            <span data-lang="zh">封裝剖面拓撲 (Package Layout)</span><span data-lang="en">Package Layout</span>
+          </button>
+          <button id="chiplet-mode-lat" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+            <span data-lang="zh">存取延遲分解 (Latency Breakdown)</span><span data-lang="en">Latency Breakdown</span>
+          </button>
+        </div>
+        <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">High-DPI Heterogeneous D2D Scope</span>
+      </div>
+      <div style="width: 100%; height: 180px; position: relative;">
+        <canvas id="chiplet-canvas" width="420" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Chiplet UCIe Interconnect Simulation Canvas" data-aria-en="Chiplet UCIe Interconnect Simulation Canvas" data-aria-zh="小晶片 UCIe 互連模擬畫布"></canvas>
+      </div>
+    </div>
+
+    <!-- Architectural Insight Callout -->
+    <div style="background: rgba(16, 185, 129, 0.06); border-left: 3px solid #059669; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #1e293b;">
+      <span id="chiplet-out-verdict">Loading Chiplet UCIe simulation...</span>
+    </div>
   </div>
-</div>
 </div>
 </section>
 <!-- =========================================================
@@ -3478,6 +3632,7 @@
   </script>
 <script type="module" src="bcd-trimming-simulator.js?v=20261005"></script>
 <script type="module" src="demura-lut-calculator.js?v=20261005"></script>
+<script type="module" src="chiplet-ucie-nvm-simulator.js?v=20261005"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 </body>
 </html>

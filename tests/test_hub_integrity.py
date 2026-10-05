@@ -1335,6 +1335,42 @@ def run_tests() -> None:
     test("security-assurance.html 包含拓撲選擇器、重新採樣按鈕、四大指標卡與 32x32 點陣 Canvas",
          'id="puf-preset-select"' in sec_assure_html and 'id="puf-resample-btn"' in sec_assure_html and 'id="puf-hw-val"' in sec_assure_html and 'id="puf-entropy-val"' in sec_assure_html and 'id="puf-passed-tests-val"' in sec_assure_html and 'id="puf-cusum-val"' in sec_assure_html and 'id="puf-canvas"' in sec_assure_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 53: AI 存算一體 (CiM) 類比陣列乘加精度與 ADC 訊噪比 (ENOB) 權衡試算器 (ai-nvm-opportunities.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 53: AI 存算一體 (CiM) 類比陣列乘加精度與 ADC 訊噪比 (ENOB) 權衡試算器 ═══")
+    cim_mac_js = (BASE / "cim-analog-mac-simulator.js").read_text(encoding="utf-8")
+    test("cim-analog-mac-simulator.js 存在且導出 calculateCimAnalogMac 與 initCimAnalogMacSimulator",
+         "export function calculateCimAnalogMac" in cim_mac_js and "export function initCimAnalogMacSimulator" in cim_mac_js)
+    test("cim-analog-mac-simulator.js 包含四大神經網路層與四大存算元件模型",
+         "CIM_WORKLOAD_PRESETS" in cim_mac_js and "transformer_attn" in cim_mac_js and "resnet_conv" in cim_mac_js and "mobilenet_dw" in cim_mac_js and "bnn_xnor" in cim_mac_js and "CIM_DEVICE_ARCHITECTURES" in cim_mac_js and "reram_oxram" in cim_mac_js and "mram_stt" in cim_mac_js and "nor_flash" in cim_mac_js and "sram_charge" in cim_mac_js)
+    test("cim-analog-mac-simulator.js 第一性原理電導漂移、IR-Drop、SINAD、實現 ENOB 與推論精度演算法",
+         "driftFactor" in cim_mac_js and "pNoiseC2c" in cim_mac_js and "pNoiseIr" in cim_mac_js and "pNoiseQuant" in cim_mac_js and "sinadDb" in cim_mac_js and "realizedEnob" in cim_mac_js and "estimatedAccuracy" in cim_mac_js and "macroTopsPerWatt" in cim_mac_js)
+
+    ai_nvm_html = (BASE / "ai-nvm-opportunities.html").read_text(encoding="utf-8")
+    test("ai-nvm-opportunities.html 整合 cim-mac-precision-root 工作台與模組腳本引用",
+         'id="cim-mac-precision-root"' in ai_nvm_html and 'src="cim-analog-mac-simulator.js"' in ai_nvm_html)
+    test("ai-nvm-opportunities.html 包含工作負載選擇器、三軸滑桿、五大 KPI 指標卡與高解析度 Canvas",
+         'id="cim-mac-workload-select"' in ai_nvm_html and 'id="cim-mac-device-select"' in ai_nvm_html and 'id="cim-mac-adc-select"' in ai_nvm_html and 'id="cim-mac-temp-slider"' in ai_nvm_html and 'id="cim-mac-ret-slider"' in ai_nvm_html and 'id="cim-mac-out-enob"' in ai_nvm_html and 'id="cim-mac-out-sinad"' in ai_nvm_html and 'id="cim-mac-out-accuracy"' in ai_nvm_html and 'id="cim-mac-out-topswatt"' in ai_nvm_html and 'id="cim-mac-out-adcshare"' in ai_nvm_html and 'id="cim-mac-canvas"' in ai_nvm_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 54: 次世代晶片封裝 Chiplet UCIe 互連與 NVM 延遲拓撲試算器 (specialty-nvm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 54: 次世代晶片封裝 Chiplet UCIe 互連與 NVM 延遲拓撲試算器 ═══")
+    chiplet_js = (BASE / "chiplet-ucie-nvm-simulator.js").read_text(encoding="utf-8")
+    test("chiplet-ucie-nvm-simulator.js 存在且導出 calculateChipletUcieNvm 與 initChipletUcieNvmSimulator",
+         "export function calculateChipletUcieNvm" in chiplet_js and "export function initChipletUcieNvmSimulator" in chiplet_js)
+    test("chiplet-ucie-nvm-simulator.js 包含四大異質整合封裝拓撲與四大 NVM 儲存應用工作負載",
+         "CHIPLET_TOPOLOGY_PRESETS" in chiplet_js and "monolithic_envm" in chiplet_js and "chiplet_ucie_standard" in chiplet_js and "chiplet_ucie_advanced" in chiplet_js and "stacked_3d_hybrid" in chiplet_js and "NVM_STORAGE_ROLES" in chiplet_js and "secure_boot_rot" in chiplet_js and "firmware_xip" in chiplet_js and "cache_repair_hbm" in chiplet_js and "ai_weight_table" in chiplet_js)
+    test("chiplet-ucie-nvm-simulator.js 第一性原理 D2D 延遲分解、傳輸能耗、熱阻溫升與 Murphy 矽分割良率演算法",
+         "tauRoundTripD2dNs" in chiplet_js and "totalReadLatencyNs" in chiplet_js and "totalBandwidthGBps" in chiplet_js and "interconnectEnergyPjBit" in chiplet_js and "deltaTj" in chiplet_js and "arrheniusAF" in chiplet_js and "yieldGainPercent" in chiplet_js)
+
+    spec_nvm_html = (BASE / "specialty-nvm.html").read_text(encoding="utf-8")
+    test("specialty-nvm.html 整合 chiplet-ucie-simulator-root 工作台與模組腳本引用",
+         'id="chiplet-ucie-simulator-root"' in spec_nvm_html and 'src="chiplet-ucie-nvm-simulator.js' in spec_nvm_html)
+    test("specialty-nvm.html 包含拓撲選擇器、工作負載選擇器、雙軸滑桿、五大 KPI 指標卡與封裝拓撲 Canvas",
+         'id="chiplet-top-select"' in spec_nvm_html and 'id="chiplet-role-select"' in spec_nvm_html and 'id="chiplet-lanes-select"' in spec_nvm_html and 'id="chiplet-power-slider"' in spec_nvm_html and 'id="chiplet-temp-slider"' in spec_nvm_html and 'id="chiplet-out-latency"' in spec_nvm_html and 'id="chiplet-out-energy"' in spec_nvm_html and 'id="chiplet-out-bandwidth"' in spec_nvm_html and 'id="chiplet-out-temprise"' in spec_nvm_html and 'id="chiplet-out-yield"' in spec_nvm_html and 'id="chiplet-canvas"' in spec_nvm_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
