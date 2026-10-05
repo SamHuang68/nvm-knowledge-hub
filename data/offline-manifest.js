@@ -1,7 +1,8 @@
 self.NVMOfflineManifest = {
-  "version": "d8a7a0ed250908554ad1",
+  "version": "2f9ef2e90e954e27a5f5",
   "assets": [
     "404.html",
+    "advanced-finfet-gaa-simulator.js",
     "ai-nvm-node.css",
     "ai-nvm-opportunities.html",
     "ai-nvm-tune.css",
@@ -78,6 +79,7 @@ self.NVMOfflineManifest = {
     "oip-lifecycle.js",
     "oip-secure-storage.html",
     "pqc-rot-budget-calculator.js",
+    "puf-nist-randomness-evaluator.js",
     "puf-reconstruction-simulator.js",
     "quick-probe.js",
     "reading-controls.css",
@@ -116,6 +118,7 @@ self.NVMOfflineManifest = {
   ],
   "digests": {
     "404.html": "93549617ad5429a366d52ca2e897028b967478937c8296de25fde02fc7257f2c",
+    "advanced-finfet-gaa-simulator.js": "4433c4ee4af301252d849beb617cd85201a8fd4529027c2ef55cf71e8a5e20b4",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
     "ai-nvm-opportunities.html": "88372f10df76d1213aa1802598600370b6d296a1b34524544a634b5fd22bff22",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
@@ -192,6 +195,7 @@ self.NVMOfflineManifest = {
     "oip-lifecycle.js": "32485842eab3b8704e829b25b3ca16978d993106eb5a322e3d7bf4d4ec7eabef",
     "oip-secure-storage.html": "024982bbd1b1dbaf60247e3f65bd25e10b52265577de0549e7a81d41d36051de",
     "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
+    "puf-nist-randomness-evaluator.js": "4845ed80be95c57d32d7c417c896c7f506518c897bc78de1b6f6443c640d2781",
     "puf-reconstruction-simulator.js": "1a6c99a0f918092edeec1305c3aaa7f926a19567c98cfffcc094b2a36a1661e0",
     "quick-probe.js": "e53a5099163ba611987ab6262c3fce1ba55fab62606116c5e95740a519fad028",
     "reading-controls.css": "5fdaf2f82d852d80b0535431d291edadec60b146f8076ba88c209b6966f6dd6a",
@@ -200,7 +204,7 @@ self.NVMOfflineManifest = {
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "15bf50e7b268e4f3c7b87dc7e624e8ccfc065cfc97217623db354aedf61d1e0b",
     "secure-storage.html": "05868cea97acd5456037d6eed9b0303c78a1c701f26a5c2c8fa020899f003984",
-    "security-assurance.html": "f2334d5d1c1269e7f20555548e2640e14b14b10fcd100c542ab8da7f2c589b71",
+    "security-assurance.html": "d3ce413e3bb8350699b795984936c77bebfbc2e7249a08b7d4f0b487c8d3c8d3",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "95c7b574d75f1d06c7e121cb14489b2bea210649e5d15ad7d97aae7a5d86d1a7",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
@@ -218,7 +222,7 @@ self.NVMOfflineManifest = {
     "styles.css": "4021ef9a95a74de7bebd4ed5ba6b6c1046cf1f011ef51d83c584e4b10a3c2cd5",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "tddb-weibull-simulator.js": "274fd88c6926196adb869f6f0ee17cc721f4bebb6e41b2ec2ca064a168b7490a",
-    "technology-comparison.html": "f28d0460e0bd5b411f5f08c164cf41d4dbee574e5790468d565c5972793ecbd9",
+    "technology-comparison.html": "3204ca59dec60a0c64ef88c089c10198e7a1b509947af37b33495e2f26bf8172",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "80433c36dca9ba4fb9940765a7264801e347af32d22940f2ae79d0a98a49735a",
@@ -228,5 +232,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 11570971
+  "totalBytes": 11634146
 };

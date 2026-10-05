@@ -1299,6 +1299,42 @@ def run_tests() -> None:
     test("memory-physics.html 包含預設/模型/容量/多工選擇器、三軸滑桿、六大指標卡與 Weibull 機率圖 Canvas",
          'id="tddb-preset-select"' in f1_phys_html and 'id="tddb-model-select"' in f1_phys_html and 'id="tddb-array-select"' in f1_phys_html and 'id="tddb-duty-select"' in f1_phys_html and 'id="tddb-tox-slider"' in f1_phys_html and 'id="tddb-vox-slider"' in f1_phys_html and 'id="tddb-temp-slider"' in f1_phys_html and 'id="tddb-eox-val"' in f1_phys_html and 'id="tddb-beta-val"' in f1_phys_html and 'id="tddb-eta-cell-val"' in f1_phys_html and 'id="tddb-eta-array-val"' in f1_phys_html and 'id="tddb-f15y-val"' in f1_phys_html and 'id="tddb-fit-val"' in f1_phys_html and 'id="tddb-canvas"' in f1_phys_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 51: 先進節點 FinFET / GAA 奈米片 AntiFuse 延伸性與量子穿隧試算器 (technology-comparison.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 51: 先進節點 FinFET / GAA 奈米片 AntiFuse 延伸性與量子穿隧試算器 ═══")
+    finfet_js = (BASE / "advanced-finfet-gaa-simulator.js").read_text(encoding="utf-8")
+    test("advanced-finfet-gaa-simulator.js 存在且導出 calculateAdvancedFinfetGaa 與 initAdvancedFinfetGaaSimulator",
+         "export function calculateAdvancedFinfetGaa" in finfet_js and "export function initAdvancedFinfetGaaSimulator" in finfet_js)
+    test("advanced-finfet-gaa-simulator.js 包含四大先進代工節點 (N3 GAA, N5 FinFET, 16FFC, 28HPC)",
+         "FOUNDRY_ADVANCED_NODES" in finfet_js and "tsmc_n3_gaa" in finfet_js and "tsmc_n5_finfet" in finfet_js and "foundry_16ffc" in finfet_js and "planar_28hpc" in finfet_js)
+    test("advanced-finfet-gaa-simulator.js 第一性原理 3D 角隅場強、Vbd 微縮、WKB 穿隧與電荷泵節省演算法",
+         "e1dMvCm" in finfet_js and "eCornerMvCm" in finfet_js and "vbdPredicted" in finfet_js and "jdtTotalAcm2" in finfet_js and "areaSavingsPct" in finfet_js)
+
+    tech_comp_html = (BASE / "technology-comparison.html").read_text(encoding="utf-8")
+    test("technology-comparison.html 整合 finfet-gaa-simulator-root 工作台與模組腳本引用",
+         'id="finfet-gaa-simulator-root"' in tech_comp_html and 'src="advanced-finfet-gaa-simulator.js' in tech_comp_html)
+    test("technology-comparison.html 包含節點選擇器、偏壓/溫度滑桿、六大指標卡與 3D 靜電場 Canvas",
+         'id="finfet-node-select"' in tech_comp_html and 'id="finfet-volt-slider"' in tech_comp_html and 'id="finfet-temp-slider"' in tech_comp_html and 'id="finfet-e1d-val"' in tech_comp_html and 'id="finfet-ecorner-val"' in tech_comp_html and 'id="finfet-vbd-val"' in tech_comp_html and 'id="finfet-pump-stages-val"' in tech_comp_html and 'id="finfet-area-savings-val"' in tech_comp_html and 'id="finfet-jdt-val"' in tech_comp_html and 'id="finfet-canvas"' in tech_comp_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 52: 晶片實體不可複製功能 (PUF) 空間隨機性與 NIST SP 800-22 統計檢驗器 (security-assurance.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 52: 晶片實體不可複製功能空間隨機性與 NIST SP 800-22 統計檢驗器 ═══")
+    puf_nist_js = (BASE / "puf-nist-randomness-evaluator.js").read_text(encoding="utf-8")
+    test("puf-nist-randomness-evaluator.js 存在且導出 calculatePufNistRandomness 與 initPufNistRandomnessEvaluator",
+         "export function calculatePufNistRandomness" in puf_nist_js and "export function initPufNistRandomnessEvaluator" in puf_nist_js)
+    test("puf-nist-randomness-evaluator.js 包含四大硬體原生熵源拓撲與 Chebyshev erfc / igamc 數學庫",
+         "PUF_ENTROPY_PRESETS" in puf_nist_js and "antifuse_neopuf_quantum" in puf_nist_js and "sram_startup_uncompensated" in puf_nist_js and "export function erfc" in puf_nist_js and "export function igamc" in puf_nist_js)
+    test("puf-nist-randomness-evaluator.js 第一性原理 Monobit、Block Frequency、Runs、Cusum 與 Min-Entropy 演算法",
+         "pValMonobit" in puf_nist_js and "pValBlock" in puf_nist_js and "pValRuns" in puf_nist_js and "pValCusum" in puf_nist_js and "minEntropy" in puf_nist_js)
+
+    sec_assure_html = (BASE / "security-assurance.html").read_text(encoding="utf-8")
+    test("security-assurance.html 整合 puf-nist-evaluator-root 工作台與模組腳本引用",
+         'id="puf-nist-evaluator-root"' in sec_assure_html and 'src="puf-nist-randomness-evaluator.js' in sec_assure_html)
+    test("security-assurance.html 包含拓撲選擇器、重新採樣按鈕、四大指標卡與 32x32 點陣 Canvas",
+         'id="puf-preset-select"' in sec_assure_html and 'id="puf-resample-btn"' in sec_assure_html and 'id="puf-hw-val"' in sec_assure_html and 'id="puf-entropy-val"' in sec_assure_html and 'id="puf-passed-tests-val"' in sec_assure_html and 'id="puf-cusum-val"' in sec_assure_html and 'id="puf-canvas"' in sec_assure_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
