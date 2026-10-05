@@ -2048,26 +2048,26 @@
 <div class="deck-connector-arrow">▶</div>
 <span class="deck-connector-tag"><span data-lang="zh">矩陣修復</span><span data-lang="en">MATRIX RESCUE</span></span>
 </div>
-<!-- WING 2: DRAM / HBM3e hPPR -->
+<!-- WING 2: DRAM / HBM3e / HBM4 hPPR -->
 <div class="deck-step-card border-green">
 <div class="deck-step-meta">
 <span class="deck-step-num"><span data-lang="zh">領域 02 · AI 記憶體</span><span data-lang="en">WING 02 · AI MEMORY</span></span>
-<span class="deck-step-status"><span data-lang="zh">現場 hPPR</span><span data-lang="en">IN-FIELD hPPR</span></span>
+<span class="deck-step-status"><span data-lang="zh">現場 hPPR · 邏輯晶粒</span><span data-lang="en">IN-FIELD hPPR · LOGIC DIE</span></span>
 </div>
 <h5 class="deck-step-title">
-<span data-lang="zh">DRAM / HBM3e 封裝後現場修復 (PPR)</span>
-<span data-lang="en">DRAM / HBM3e Post-Package Repair (PPR)</span>
+<span data-lang="zh">DRAM / HBM3e / HBM4 封裝後現場修復 (PPR)</span>
+<span data-lang="en">DRAM / HBM3e / HBM4 Post-Package Repair (PPR)</span>
 </h5>
 <div class="deck-visual-stage" style="flex-direction: column; gap: 4px; align-items: stretch;">
-<div style="background: #1c1917; border: 1px solid #eab308; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #fde047; text-align: center;"><span data-lang="zh">AI XPU + HBM3e 基板堆疊</span><span data-lang="en">AI XPU + HBM3e SUBSTRATE STACK</span></div>
+<div style="background: #1c1917; border: 1px solid #eab308; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #fde047; text-align: center;"><span data-lang="zh">AI XPU + HBM4 邏輯 Base Die 堆疊</span><span data-lang="en">AI XPU + HBM4 LOGIC BASE DIE STACK</span></div>
 <div style="color: #ef4444; font-family: monospace; font-size: 8px; text-align: center;"><span data-lang="zh">偵測缺陷 ➔ JEDEC hPPR 指令</span><span data-lang="en">FAULT DETECTED ➔ JEDEC hPPR CMD</span></div>
-<div style="background: #f8fafc; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;"><span data-lang="zh">反熔絲暫存器永久重新映射</span><span data-lang="en">ANTIFUSE FUSEBOX PERMANENT REMAP</span></div>
+<div style="background: #f8fafc; border: 1px solid #c4a574; padding: 2px 6px; font-family: monospace; font-size: 8.5px; color: #a7f3d0; text-align: center;"><span data-lang="zh">邏輯反熔絲 2048-bit 永久重新映射</span><span data-lang="en">LOGIC ANTIFUSE 2048-BIT PERMANENT REMAP</span></div>
 </div>
 <div class="deck-metric-callout">
 <span class="deck-metric-val"><span data-lang="zh">挽救 $30,000+ 價值</span><span data-lang="en">Salvages $30,000+</span></span>
 <span class="deck-metric-lbl"><span data-lang="zh">資料中心現場零報廢</span><span data-lang="en">ZERO FIELD SCRAP AT DATACENTER</span></span>
 </div>
-<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">標準</span><span data-lang="en">STANDARD</span></span><span class="chip-v cyan"><span data-lang="zh">符合 JEDEC DDR5/HBM3e</span><span data-lang="en">JEDEC JESD79-5 DDR5</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">現場</span><span data-lang="en">IN-FIELD</span></span><span class="chip-v green"><span data-lang="zh">運行中在線永久修復</span><span data-lang="en">ONLINE REPLACEMENT</span></span></div></div>
+<div class="deck-chip-grid"><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">標準</span><span data-lang="en">STANDARD</span></span><span class="chip-v cyan"><span data-lang="zh">符合 JEDEC DDR5/HBM3e/HBM4</span><span data-lang="en">JEDEC DDR5 / HBM3e / HBM4</span></span></div><div class="deck-chip-row"><span class="chip-k"><span data-lang="zh">現場</span><span data-lang="en">IN-FIELD</span></span><span class="chip-v green"><span data-lang="zh">運行中在線永久修復</span><span data-lang="en">ONLINE REPLACEMENT</span></span></div></div>
 </div>
 </div>
 </div>
@@ -2192,18 +2192,26 @@
       </p>
     </div>
 
-    <div style="background: #f8fafc; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 16px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-        <h4 style="margin: 0; color: #f59e0b; font-size: 0.98rem; font-family: 'IBM Plex Mono';">
-          <span data-lang="zh">JEDEC DDR5 / HBM3 Hard-PPR 封裝後修復</span>
-          <span data-lang="en">JEDEC DDR5 / HBM3 Hard-PPR Post-Package Repair</span>
+    <div style="background: #f8fafc; border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 18px 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+        <h4 style="margin: 0; color: #f59e0b; font-size: 1.02rem; font-family: 'IBM Plex Mono'; font-weight: 700;">
+          <span data-lang="zh">JEDEC DDR5 / HBM3e / HBM4 封裝後修復 (hPPR) 與邏輯 Base Die 探針卡生態移轉</span>
+          <span data-lang="en">JEDEC DDR5 / HBM3e / HBM4 Hard-PPR &amp; Logic Base Die Probe Card Shift</span>
         </h4>
-        <span style="font-size: 9.5px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 2px 6px; border-radius: 3px;">JESD79-5 / JESD238</span>
+        <span style="font-size: 9.5px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 2px 6px; border-radius: 3px; font-family: 'IBM Plex Mono'; font-weight: 600;">JESD79-5 / JESD238 / HBM4</span>
       </div>
-      <p style="font-size: 0.83rem; line-height: 1.6; color: #334155; margin: 0;">
-        <span data-lang="zh">JEDEC 標準定義了封裝後硬體重映射 (Hard Post-Package Repair, hPPR)。傳統 Poly eFuse 因電致遷移空隙具備熱鬆弛回跳 (Grow-Back) 致命缺陷，在伺服器高溫環境下易使已修復壞位元死灰復燃；而 AntiFuse 的局域再結晶矽微絲為永久性歐姆通道 (R &lt; 100Ω)，高溫資料保存與回跳風險須依特定 IP 規格書驗證，成為高頻寬記憶體 (HBM3/HBM3e) 與 DDR5 模組良率的產業黃金基準。</span>
-        <span data-lang="en">JEDEC defines Hard Post-Package Repair (hPPR). Conventional poly eFuses suffer thermal grow-back, risking defect reappearance under server heat. AntiFuse forms permanent recrystallized ohmic silicon filaments (R &lt; 100Ω) with high-temperature retention and grow-back risk requiring named-IP datasheet validation, serving as the gold standard for DDR5 and HBM3 stack yields.</span>
+      <p style="font-size: 0.85rem; line-height: 1.68; color: #334155; margin: 0 0 10px;">
+        <span data-lang="zh">JEDEC 標準定義了封裝後硬體重映射 (Hard Post-Package Repair, hPPR)。傳統 Poly eFuse 因電致遷移空隙具備熱鬆弛回跳 (Grow-Back) 致命缺陷，在伺服器高溫環境下易使已修復壞位元死灰復燃；而 AntiFuse 的局域再結晶矽微絲為永久性歐姆通道 (R &lt; 100Ω)，高溫資料保存無回跳風險，成為高頻寬記憶體與伺服器模組良率的產業黃金基準。</span>
+        <span data-lang="en">JEDEC defines Hard Post-Package Repair (hPPR). Conventional poly eFuses suffer thermal grow-back, risking defect reappearance under server heat. AntiFuse forms permanent recrystallized ohmic silicon filaments (R &lt; 100Ω) with zero grow-back under packaging reflow, serving as the gold standard for high-bandwidth memory and server module yields.</span>
       </p>
+      <div style="background: rgba(241, 245, 249, 0.85); border-left: 3px solid #785021; border-radius: 4px; padding: 10px 14px; font-size: 0.82rem; line-height: 1.62; color: #1e293b;">
+        <strong style="color: #785021; display: block; margin-bottom: 4px; font-family: 'IBM Plex Mono';">
+          <span data-lang="zh">【HBM4 世代重大躍遷：邏輯製程 Base Die 與探針卡大遷徙】</span>
+          <span data-lang="en">[HBM4 GENERATION LEAP: LOGIC BASE DIE &amp; PROBE CARD SHIFT]</span>
+        </strong>
+        <span data-lang="zh">到 HBM3E 為止，Base Die 採 DRAM 製程由記憶體 IDM 自產；HBM4 全面轉向先進邏輯製程（三星晶圓代工 4nm、SK 海力士委託台積電 12nm/3nm、美光評估導入），Base Die 實質蛻變為 2048-bit 匯流排的小型邏輯 SoC。在此邏輯 Base Die 上，內嵌 0-Mask AntiFuse OTP 成為重映射 TSV 與 Core DRAM 壞列之核心。更關鍵的是，晶圓測試 (Wafer Sort) 移至代工端，採購方從記憶體廠轉移至晶圓代工廠與無晶圓客戶，帶動探針卡需求從傳統記憶體探針卡廠（如日本 Micronics Japan 6871.T）大規模轉向先進邏輯探針卡廠（如 Technoprobe、旺矽 6223、精測 6510、FormFactor），為邏輯測試業者帶來全新且龐大的 HBM 成長動能。</span>
+        <span data-lang="en">Up to HBM3E, Base Dies were produced on DRAM processes by memory IDMs; HBM4 shifts entirely to advanced logic foundries (Samsung Foundry 4nm, SK Hynix with TSMC 12nm/3nm, Micron evaluating logic), transforming into a 2048-bit mini-logic SoC. Embedded 0-mask AntiFuse OTP on this logic die handles TSV and DRAM core redundancy repair. Crucially, wafer sort moves to foundries, shifting test procurement authority and transferring probe card demand from legacy memory vendors (e.g. Micronics Japan 6871.T) to advanced logic probe card leaders (Technoprobe, MPI 6223.TW, CHPT 6510.TW, FormFactor)—unlocking explosive new HBM exposure for logic test makers.</span>
+      </div>
     </div>
   <!-- TOPIC 02 INTERACTIVE ENGINEERING LAB: CHIPLET UCIE INTERCONNECT & NVM TOPOLOGY SIMULATOR -->
   <div id="chiplet-ucie-simulator-root" style="margin-top: 28px; background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05);">

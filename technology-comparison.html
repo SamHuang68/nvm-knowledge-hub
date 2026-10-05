@@ -2919,12 +2919,12 @@
 
             <div class="foundry-node-tile">
               <div class="node-header-row">
-                <span class="node-pill">16FFC / 12FFC+ (N12e)</span>
-                <span class="status-pill status-prod"><span data-lang="zh">100萬次 &lt;1 ppm</span><span data-lang="en">&lt;1 ppm @ 1M</span></span>
+                <span class="node-pill">16FFC / 12FFC+ (N12e / HBM4 Base Die)</span>
+                <span class="status-pill status-prod"><span data-lang="zh">100萬次 &lt;1 ppm · HBM4 代工</span><span data-lang="en">&lt;1 ppm @ 1M · HBM4 Foundry</span></span>
               </div>
               <div>
-                <span data-lang="zh">16FFC eMRAM 於 2023 年通過 Grade 1，第二代 16MRAM 於 2025 年達成 100 萬次循環失效率 &lt;1 ppm；N12e eRRAM 於 2025 年完成生產級消費資格。</span>
-                <span data-lang="en">16FFC eMRAM passed Grade 1 in 2023; Gen-2 16MRAM qualified in 2025 with &lt;1 ppm failure rate at 1M cycles; N12e eRRAM production consumer qualification in 2025.</span>
+                <span data-lang="zh">16FFC eMRAM 於 2023 年通過 Grade 1，第二代 16MRAM 於 2025 年達成 100 萬次循環失效率 &lt;1 ppm；N12e eRRAM 於 2025 年完成生產級消費資格。此外，SK 海力士 HBM4 Base Die 委託台積電 12nm (N12FFC+) 代工（下一代邁入 3nm 級），採用純邏輯 0-mask AntiFuse OTP 進行 2048-bit PHY 與 16 層 DRAM TSV 缺陷修復，並將晶圓測試 (Wafer Sort) 移入台積電邏輯探針卡生態系（旺矽 6223、精測 6510、Technoprobe、FormFactor）。</span>
+                <span data-lang="en">16FFC eMRAM passed Grade 1 in 2023; Gen-2 16MRAM qualified in 2025 with &lt;1 ppm failure rate at 1M cycles; N12e eRRAM qualified in 2025. Furthermore, SK Hynix selected TSMC 12nm (N12FFC+) for HBM4 Base Die manufacturing (advancing to 3nm class), utilizing 0-mask logic AntiFuse OTP for 2048-bit PHY and TSV redundancy repair, transitioning wafer sort testing to TSMC's logic probe card ecosystem (MPI 6223.TW, CHPT 6510.TW, Technoprobe, FormFactor).</span>
               </div>
             </div>
 
@@ -3067,13 +3067,14 @@
               <div class="node-header-row">
                 <span class="node-pill"><span data-lang="zh">SF4A (4nm) 與 SF3 / SF2</span><span data-lang="en">SF4A (4nm) &amp; SF3 / SF2</span></span>
                 <span class="node-pill-cluster">
+                  <span class="node-pill"><span data-lang="zh">HBM4 Base Die 代工</span><span data-lang="en">HBM4 Base Die Foundry</span></span>
                   <span class="otp-split-flag"><span data-lang="zh">若另採 OTP 須分流機制</span><span data-lang="en">If OTP used: split mechanisms</span></span>
                 </span>
-                <span class="status-pill status-rd"><span data-lang="zh">次世代 GAA 奈米片</span><span data-lang="en">MBCFET GAA Next-Gen</span></span>
+                <span class="status-pill status-rd"><span data-lang="zh">HBM4 邏輯底座 · 次世代 GAA</span><span data-lang="en">HBM4 Logic Base · Next-Gen GAA</span></span>
               </div>
               <div>
-                <span data-lang="zh">SFF 2024 公布次世代高密度 eMRAM 路線圖，整合於 4nm 車用與 3nm/2nm 環繞閘極奈米片，專注於邊緣 AI 與軟體定義汽車 (SDV)。若同節點另採 0-mask OTP 作信任根或校準，仍須分流閘氧 AntiFuse、擊穿位點未公開的 ZA 類、以及 I-fuse，不得預設單一機制。</span>
-                <span data-lang="en">SFF 2024 roadmap integrates next-gen eMRAM on SF4A (4nm Auto) and SF3/SF2 MBCFET GAA for edge AI and software-defined vehicles. If the same node also uses 0-mask OTP for RoT or trim, still split gate-oxide AntiFuse, unpublished-site ZA-class, and I-fuse — do not assume one mechanism.</span>
+                <span data-lang="zh">SFF 2024 公布次世代高密度 eMRAM 路線圖，整合於 4nm 車用與 3nm/2nm 環繞閘極奈米片，專注於邊緣 AI 與軟體定義汽車 (SDV)。同時，三星自家 HBM4 Base Die 轉向 Samsung Foundry 4nm 先進邏輯製程，搭載 2048-bit 超寬 PHY，由內嵌邏輯 eNVM/AntiFuse 執行 TSV 與 DRAM 壞列重映射，晶圓測試採購權力亦自記憶體部門大舉轉向晶圓代工高階邏輯探針卡生態系。若同節點另採 0-mask OTP 作信任根或校準，仍須分流閘氧 AntiFuse、擊穿位點未公開的 ZA 類、以及 I-fuse，不得預設單一機制。</span>
+                <span data-lang="en">SFF 2024 roadmap integrates next-gen eMRAM on SF4A (4nm Auto) and SF3/SF2 MBCFET GAA for edge AI and software-defined vehicles. Concurrently, Samsung's in-house HBM4 Base Die adopts Samsung Foundry 4nm advanced logic, integrating a 2048-bit ultra-wide PHY with embedded logic eNVM/AntiFuse for TSV and DRAM redundancy repair, shifting wafer sort test procurement into the foundry logic probe card ecosystem. If the same node also uses 0-mask OTP for RoT or trim, still split gate-oxide AntiFuse, unpublished-site ZA-class, and I-fuse — do not assume one mechanism.</span>
               </div>
             </div>
           </div>

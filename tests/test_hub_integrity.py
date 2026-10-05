@@ -1771,6 +1771,34 @@ def run_tests() -> None:
     test("technology-comparison.html 包含四大 KPI 輸出欄位 (Resistivity, Worst Delay, Delay Skew, Access Time) 與判定橫幅",
          'id="vert3d-out-resistivity"' in tech_vert_html and 'id="vert3d-out-worstdelay"' in tech_vert_html and 'id="vert3d-out-delayskew"' in tech_vert_html and 'id="vert3d-out-accesstime"' in tech_vert_html and 'id="vert3d-out-grade"' in tech_vert_html and 'id="vert3d-out-verdict"' in tech_vert_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 75: HBM4 Base Die 轉向邏輯製程、eNVM 修復架構與先進邏輯探針卡生態系大遷徙
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 75: HBM4 Base Die 轉向邏輯製程、eNVM 修復架構與先進邏輯探針卡生態系大遷徙 ═══")
+    ai_html = (BASE / "ai-nvm-opportunities.html").read_text(encoding="utf-8")
+    test("ai-nvm-opportunities.html 包含 HBM4 Base Die 邏輯製程與探針卡生態系轉移模組 (#hbm4-base-die-revolution)",
+         'id="hbm4-base-die-revolution"' in ai_html and 'class="hbm4-evolution-module"' in ai_html)
+    test("ai-nvm-opportunities.html 詳述 Base Die DRAM 轉邏輯製程（三星 4nm、SK 海力士台積電 12nm/3nm、美光評估）與 2048-bit 超寬 PHY",
+         "三星自家代工 4nm" in ai_html and "SK 海力士委託台積電 12nm/3nm" in ai_html and "美光積極評估導入晶圓代工" in ai_html and "2048-bit" in ai_html)
+    test("ai-nvm-opportunities.html 包含邏輯相容 AntiFuse 0-Mask、260°C 封裝熱預算零回彈、晶片內幫浦與 TSV/DRAM 壞列修復",
+         "零額外光罩 (0-Mask Adder)" in ai_html and "耐受 260°C 封裝熱預算" in ai_html and "Zero Grow-Back" in ai_html and "晶片內幫浦與多維重映射" in ai_html)
+    test("ai-nvm-opportunities.html 包含晶圓測試採購權轉移與邏輯探針卡生態系（Micronics Japan 轉向旺矽 6223、精測 6510、Technoprobe、FormFactor）",
+         "Micronics Japan" in ai_html and "旺矽 (MPI, 6223)" in ai_html and "中華精測 (CHPT, 6510)" in ai_html and "Technoprobe" in ai_html and "FormFactor" in ai_html)
+    test("ai-nvm-opportunities.html 包含 HBM3E vs HBM4 八大架構維度對比表與法說會觀測指標",
+         'class="hbm4-matrix-table"' in ai_html and "法說會關鍵觀測指標" in ai_html and "Earnings Call Watch" in ai_html)
+
+    spec_html = (BASE / "specialty-nvm.html").read_text(encoding="utf-8")
+    test("specialty-nvm.html 整合 HBM4 邏輯 Base Die 2048-bit 封裝後修復 (PPR) 與探針卡移轉說明",
+         "HBM4 邏輯 Base Die" in spec_html and "符合 JEDEC DDR5/HBM3e/HBM4" in spec_html and "旺矽 6223" in spec_html and "精測 6510" in spec_html)
+
+    tech_html = (BASE / "technology-comparison.html").read_text(encoding="utf-8")
+    test("technology-comparison.html 晶圓代工節點標註台積電 12nm 與三星 4nm 之 HBM4 Base Die 代工及邏輯探針卡生態",
+         "16FFC / 12FFC+ (N12e / HBM4 Base Die)" in tech_html and "HBM4 Base Die 代工" in tech_html and "旺矽 6223" in tech_html)
+
+    ev_html = (BASE / "memory-evidence.html").read_text(encoding="utf-8")
+    test("memory-evidence.html Evidence V11 納入 HBM4 邏輯 Base Die、0-mask AntiFuse 修復與邏輯探針卡採購轉移",
+         "HBM4 Logic Base Die" in ev_html and "旺矽 6223" in ev_html and "Technoprobe" in ev_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
