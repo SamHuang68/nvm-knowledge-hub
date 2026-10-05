@@ -1,8 +1,9 @@
 self.NVMOfflineManifest = {
-  "version": "42f25b298b4ef2a433ff",
+  "version": "d9bd26365d2ca35dc29e",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
+    "advanced-packaging-pdks-simulator.js",
     "ai-nvm-node.css",
     "ai-nvm-opportunities.html",
     "ai-nvm-tune.css",
@@ -143,6 +144,7 @@ self.NVMOfflineManifest = {
   "digests": {
     "404.html": "93549617ad5429a366d52ca2e897028b967478937c8296de25fde02fc7257f2c",
     "advanced-finfet-gaa-simulator.js": "4433c4ee4af301252d849beb617cd85201a8fd4529027c2ef55cf71e8a5e20b4",
+    "advanced-packaging-pdks-simulator.js": "e2d743327acbaf85ae5bff0acd3eae04d667c6bdfa55ef2e9e2ea90f3747b5e8",
     "ai-nvm-node.css": "1560f079c463e61151d4c76412c3f1d8fe89ac7e6a3f8d069f9d6b52b3baefc0",
     "ai-nvm-opportunities.html": "cd2b122be0bead16db7b58b6e9c8977cd6231c648364a26705a7dc38f316f4d8",
     "ai-nvm-tune.css": "075bef456fc4873f5680d90933a25ebd73e064657793fafdc34f700cc9df70d3",
@@ -268,7 +270,7 @@ self.NVMOfflineManifest = {
     "subthreshold-lowvoltage-nvm-simulator.js": "edaeb1c2aa47d0ef560d8e55b1439822855c710f405adc35c74bf670e36caf2c",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "tddb-weibull-simulator.js": "274fd88c6926196adb869f6f0ee17cc721f4bebb6e41b2ec2ca064a168b7490a",
-    "technology-comparison.html": "6f1db4ff406dc29cb1eb0773c3c55566ea6c681f444d6c96b9ae7d3221d0609d",
+    "technology-comparison.html": "a8711ae2a99599c46e79d36de2c87a50d64be228984e7b3f1d20ab6842a18df5",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "80433c36dca9ba4fb9940765a7264801e347af32d22940f2ae79d0a98a49735a",
@@ -280,5 +282,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 12582555
+  "totalBytes": 12616796
 };

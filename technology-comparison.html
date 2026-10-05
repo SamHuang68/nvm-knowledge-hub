@@ -3386,6 +3386,132 @@
             <span data-lang="en">[GAA NanoSheet Scalability Advantage] 3D wrap-around gate and 1.2nm corner radius lower programming breakdown to 2.84V (vs 7.2V in 28nm). Charge pump footprint is slashed by 72%, fully overcoming the 28nm planar scaling barrier with 0 extra masks.</span>
           </span>
         </div>
+
+        <!-- INTERACTIVE ADVANCED PACKAGING PDK & BASE DIE D2D WORKBENCH -->
+        <article id="advanced-packaging-simulator-root" class="interactive-workbench" style="margin-top: 2rem; background: #ffffff; border: 1px solid #cddbdc; border-radius: 8px; padding: 24px; box-shadow: 0 4px 20px rgba(248, 250, 252, 0.96);" aria-labelledby="pkg-sim-title">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 1.25rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
+                <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #0284c7;"></span>
+                <span data-lang="zh">先進封裝 PDK 與 D2D 互連工作台</span>
+                <span data-lang="en">ADVANCED PACKAGING PDK &amp; D2D WORKBENCH</span>
+              </div>
+              <h3 id="pkg-sim-title" style="font-size: 1.2rem; font-weight: 700; color: #0f172a; margin: 4px 0 0; font-family: 'Plus Jakarta Sans', sans-serif;">
+                <span data-lang="zh">2.5D/3D 邏輯 Base Die 互連延遲、熱阻階梯與晶圓測試模擬器</span>
+                <span data-lang="en">2.5D/3D Logic Base Die Interconnect Latency, Thermal Gradient &amp; Wafer Test Simulator</span>
+              </h3>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; background: #f1f5f9; padding: 4px 8px; border-radius: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #475569;">
+              <span><span data-lang="zh">測試狀態：</span><span data-lang="en">TEST RATING:</span></span>
+              <strong id="pkg-out-rating" style="color: #059669;">KGD PASS</strong>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 1.5rem;">
+            <!-- Select Preset -->
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px;">
+              <label for="pkg-preset-select" style="display: block; font: 600 11px/1.2 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 6px;">
+                <span data-lang="zh">先進封裝 PDK 拓樸預設</span><span data-lang="en">PACKAGING PDK PRESET</span>
+              </label>
+              <select id="pkg-preset-select" style="width: 100%; padding: 8px 10px; border-radius: 4px; border: 1px solid #cbd5e1; background: #ffffff; font-size: 12px; color: #0f172a; font-family: 'Plus Jakarta Sans', sans-serif; cursor: pointer;">
+                <option value="tsmc_cowos_s_hbm">TSMC CoWoS-S 2.5D (Silicon Interposer)</option>
+                <option value="tsmc_cowos_l_chiplet">TSMC CoWoS-L 2.5D (Local Silicon Interconnect LSI Bridge)</option>
+                <option value="tsmc_soic_x_3d">TSMC SoIC-X 3D (Cu-Cu Direct Wafer Hybrid Bonding)</option>
+                <option value="samsung_icube_x_2_5d">Samsung I-CubeS / I-CubeE 2.5D (Samsung Advanced Interposer)</option>
+                <option value="intel_foveros_direct_3d">Intel Foveros Direct 3D (Direct Cu-Cu Hybrid Bonding)</option>
+              </select>
+            </div>
+
+            <!-- Trace Length Slider -->
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label for="pkg-trace-slider" style="font: 600 11px/1.2 'IBM Plex Mono', monospace; color: #475569;">
+                  <span data-lang="zh">D2D 走線長度 (L<sub>trace</sub>)</span><span data-lang="en">D2D Trace Length</span>
+                </label>
+                <span id="pkg-trace-val" style="font: 700 12px/1 'IBM Plex Mono', monospace; color: #0284c7;">3.5 mm</span>
+              </div>
+              <input type="range" id="pkg-trace-slider" min="0.05" max="10.0" step="0.05" value="3.5" style="width: 100%; accent-color: #0284c7; cursor: pointer;" aria-label="D2D Trace Length in mm" data-aria-en="D2D Trace Length in mm" data-aria-zh="D2D 走線長度 (mm)" />
+            </div>
+
+            <!-- Die Power Slider -->
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label for="pkg-power-slider" style="font: 600 11px/1.2 'IBM Plex Mono', monospace; color: #475569;">
+                  <span data-lang="zh">晶粒熱設計功耗 (TDP)</span><span data-lang="en">Die Thermal Design Power</span>
+                </label>
+                <span id="pkg-power-val" style="font: 700 12px/1 'IBM Plex Mono', monospace; color: #ea580c;">450 W</span>
+              </div>
+              <input type="range" id="pkg-power-slider" min="100" max="800" step="25" value="450" style="width: 100%; accent-color: #ea580c; cursor: pointer;" aria-label="Die Thermal Design Power in Watts" data-aria-en="Die Thermal Design Power in Watts" data-aria-zh="晶粒熱設計功耗 (W)" />
+            </div>
+
+            <!-- Per-Wire Rate Slider -->
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label for="pkg-rate-slider" style="font: 600 11px/1.2 'IBM Plex Mono', monospace; color: #475569;">
+                  <span data-lang="zh">單線訊號傳輸速率</span><span data-lang="en">Per-Wire Data Rate</span>
+                </label>
+                <span id="pkg-rate-val" style="font: 700 12px/1 'IBM Plex Mono', monospace; color: #059669;">8.0 Gbps</span>
+              </div>
+              <input type="range" id="pkg-rate-slider" min="2.0" max="16.0" step="0.5" value="8.0" style="width: 100%; accent-color: #059669; cursor: pointer;" aria-label="Per-Wire Data Rate in Gbps" data-aria-en="Per-Wire Data Rate in Gbps" data-aria-zh="單線訊號傳輸速率 (Gbps)" />
+            </div>
+          </div>
+
+          <!-- 4 KPI Output Cards -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 1.5rem;">
+            <div style="background: #f8fafc; border-left: 3px solid #0284c7; padding: 10px 14px; border-radius: 4px;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">D2D RC 傳輸延遲 &tau;</span><span data-lang="en">D2D RC Delay &tau;</span>
+              </small>
+              <div id="pkg-out-latency" style="font: 700 1.25rem/1.2 'IBM Plex Mono', monospace; color: #0284c7; margin-top: 4px;">2.8 ps</div>
+              <span style="font-size: 11px; color: #64748b;">Elmore &tau;<sub>d2d</sub></span>
+            </div>
+
+            <div style="background: #f8fafc; border-left: 3px solid #059669; padding: 10px 14px; border-radius: 4px;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">單線頻寬容量</span><span data-lang="en">Per-Wire Bandwidth</span>
+              </small>
+              <div id="pkg-out-bw" style="font: 700 1.25rem/1.2 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">8.0 Gbps/wire</div>
+              <span style="font-size: 11px; color: #64748b;"><span data-lang="zh">訊號完整性邊界</span><span data-lang="en">Signal Margin</span></span>
+            </div>
+
+            <div style="background: #f8fafc; border-left: 3px solid #ea580c; padding: 10px 14px; border-radius: 4px;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">垂直熱阻接面溫升 &Delta;T<sub>j</sub></span><span data-lang="en">Junction Temp Rise &Delta;T<sub>j</sub></span>
+              </small>
+              <div id="pkg-out-temp" style="font: 700 1.25rem/1.2 'IBM Plex Mono', monospace; color: #ea580c; margin-top: 4px;">+81.0 °C (0.18 K/W)</div>
+              <span style="font-size: 11px; color: #64748b;"><span data-lang="zh">熱阻階梯模型</span><span data-lang="en">Thermal Ladder</span></span>
+            </div>
+
+            <div style="background: #f8fafc; border-left: 3px solid #8b5cf6; padding: 10px 14px; border-radius: 4px;">
+              <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+                <span data-lang="zh">Base Die 0-Mask eNVM 預算</span><span data-lang="en">Base Die eNVM Budget</span>
+              </small>
+              <div id="pkg-out-envm" style="font: 700 1.25rem/1.2 'IBM Plex Mono', monospace; color: #8b5cf6; margin-top: 4px;">32 Kb OTP</div>
+              <span style="font-size: 11px; color: #64748b;"><span data-lang="zh">修復+校準+ID總預算</span><span data-lang="en">Repair + Trim + ID</span></span>
+            </div>
+          </div>
+
+          <!-- Dual Mode Interactive Canvas -->
+          <div style="background: #020617; border: 1px solid #1e293b; border-radius: 6px; padding: 14px; margin-bottom: 1.25rem;">
+            <div style="display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 8px;">
+              <button id="pkg-mode-latency" type="button" style="background: #1e293b; color: #38bdf8; border: 1px solid #0284c7; padding: 4px 10px; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; cursor: pointer;">
+                <span data-lang="zh">D2D 延遲與頻寬圖</span><span data-lang="en">Latency &amp; Bandwidth</span>
+              </button>
+              <button id="pkg-mode-thermal" type="button" style="background: #0f172a; color: #94a3b8; border: 1px solid #334155; padding: 4px 10px; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; cursor: pointer;">
+                <span data-lang="zh">熱阻溫升梯度曲線</span><span data-lang="en">Thermal Gradient</span>
+              </button>
+            </div>
+            <div style="width: 100%; height: 260px; position: relative;">
+              <canvas id="pkg-canvas" style="width: 100%; height: 100%; display: block;" aria-label="Interactive Advanced Packaging PDK and D2D Interconnect Canvas Visualization" data-aria-en="Interactive Advanced Packaging PDK and D2D Interconnect Canvas Visualization" data-aria-zh="先進封裝 PDK 與 D2D 互連互動視覺化圖"></canvas>
+            </div>
+          </div>
+
+          <!-- Verdict & Ecosystem Procurement Banner -->
+          <div id="pkg-out-verdict" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534;">
+            <span data-lang="zh">TSMC CoWoS-S 具備成熟的微凸塊互連技術，但封裝後微凸塊修復高度仰賴 Base Die 內建之 0-Mask AntiFuse OTP 儲存 BIRA 修復向量；晶圓測試需求正由記憶體探針卡廠（如 MJC）向台積電邏輯探針卡供應鏈（如旺矽 MPI、精測 CHPT、Technoprobe）轉移。</span>
+            <span data-lang="en">TSMC CoWoS-S features mature micro-bump interconnects, but post-packaging repair heavily relies on Base Die 0-Mask AntiFuse OTP for BIRA remapping vectors; wafer test procurement transitions from memory probe card vendors (e.g. MJC) to TSMC logic probe card supply chains (e.g. MPI, CHPT, Technoprobe).</span>
+          </div>
+        </article>
       </article>
     </section>
 
@@ -5099,5 +5225,6 @@
 <script type="module" src="advanced-finfet-gaa-simulator.js?v=20261005"></script>
 <script type="module" src="wafer-cost-tco-calculator.js?v=20261005"></script>
 <script type="module" src="vertical-3d-nvm-simulator.js?v=20261006"></script>
+<script type="module" src="advanced-packaging-pdks-simulator.js?v=20261006"></script>
 </body>
 </html>
