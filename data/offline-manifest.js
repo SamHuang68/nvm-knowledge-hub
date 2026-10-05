@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "99e56771313f5250205f",
+  "version": "42f25b298b4ef2a433ff",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -65,6 +65,7 @@ self.NVMOfflineManifest = {
     "hub-story-maps.js",
     "hub.css",
     "hub.js",
+    "hybrid-bonding-tsv-kgd-simulator.js",
     "index.html",
     "iot-energy-tradeoff-calculator.js",
     "iot-mcu-envm.html",
@@ -204,6 +205,7 @@ self.NVMOfflineManifest = {
     "hub-story-maps.js": "eda78f2422489820243648d43f382c7ebd8dce6878eeb628b350c09529aa349c",
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
+    "hybrid-bonding-tsv-kgd-simulator.js": "dff2f496f340697c02890ed8dd4f387d81a7e51ab870b16fee3048cb9800cb36",
     "index.html": "279a5aba481814eca860651bfba64b3949f36f5e585fcb67f66dbaa52c2c42f7",
     "iot-energy-tradeoff-calculator.js": "e7c97cf0a93a557980a9e3b7037bd3916a3c2b0cec8ba7788e8cc705b899efeb",
     "iot-mcu-envm.html": "2e659761099e23701254ea72c52ad96419f1f5b386d71a16293b5ca248ce715b",
@@ -252,7 +254,7 @@ self.NVMOfflineManifest = {
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
     "space-radiation-hardening-simulator.js": "ac4baaf3e4976f584c52d92dd2e8c5771c3e1634777c386fa822f45526e7ad7b",
     "specialty-nvm.css": "54edc81d1d15e1d9d5c3f2604328e11269e48ac9fda51d059912d4dd0f8d7862",
-    "specialty-nvm.html": "70d386cbde13f3ba8cb835623e0a27c8a5e41a5d53df484423a7bca707c02070",
+    "specialty-nvm.html": "45b8ee20edc8f23d541e9a112f76f81ba74e8781c4c9f7df6646a4c353a67a48",
     "specialty-nvm.js": "987a05dd3f6aa8cf0b69c7c543deebc445587e9f930186241a47a7a1e01fec4b",
     "sram-repair-model.js": "366c04a84d228d736a372308d8adbaf07660683fb6f6d5b453adc5dde8c204a6",
     "sram-repair.css": "344a186f66695d3f92ad1552743c08cb2696f33a821add216ed24b302a9ecae9",
@@ -278,5 +280,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 12542473
+  "totalBytes": 12582555
 };
