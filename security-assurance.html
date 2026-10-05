@@ -379,6 +379,104 @@
           —
         </div>
       </div>
+
+      <!-- INTERACTIVE PUF SPATIAL RANDOMNESS & NIST SP 800-22 EVALUATOR -->
+      <article id="puf-nist-evaluator-root" class="panel puf-evaluator-container" style="margin-top: 1.5rem; background: #ffffff; border: 1px solid rgba(15, 118, 110, 0.4); border-radius: 8px; padding: 1.25rem 1.5rem; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);" aria-labelledby="puf-sim-title">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+          <div>
+            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0f766e; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span data-lang="zh">密碼學隨機性 · 原生熵源與統計檢定</span>
+              <span data-lang="en">CRYPTOGRAPHIC RANDOMNESS · HARDWARE ENTROPY &amp; STATISTICAL TESTING</span>
+            </span>
+            <h3 id="puf-sim-title" style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+              <span data-lang="zh">晶片實體不可複製功能 (PUF) 空間隨機性與 NIST SP 800-22 統計檢驗器</span>
+              <span data-lang="en">Physical Unclonable Function (PUF) Spatial Randomness &amp; NIST SP 800-22 Evaluator</span>
+            </h3>
+          </div>
+          <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(15, 118, 110, 0.12); color: #0f766e; font-weight: 600;">
+            <span data-lang="zh">NIST SP 800-22 &amp; SP 800-90B 認證</span>
+            <span data-lang="en">NIST SP 800-22 &amp; SP 800-90B Rigor</span>
+          </span>
+        </div>
+
+        <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem;">
+          <span data-lang="zh">以第一性原理密碼學假設檢定為依據，即時評估 1,024 位元原生硬體熵源之空間均勻度與無偏性。即時執行 NIST SP 800-22 四大核心統計檢定（單元頻率 Monobit、區塊頻率 Block Frequency、相鄰遊程 Runs、累計和漫步 Cusum）及 SP 800-90B 最小熵（Min-Entropy）。對比 AntiFuse 微觀量子穿隧缺陷（NeoPUF）、SRAM 啟動態與差動對稱架構，精準識別空間偏壓並判定晶片信任根合規性。</span>
+          <span data-lang="en">Evaluates spatial uniformity and bias of a 1,024-bit hardware entropy source using first-principles cryptographic hypothesis testing. Executes 4 core NIST SP 800-22 tests (Frequency Monobit, Block Frequency, Runs, Cumulative Sums) and SP 800-90B Min-Entropy in real time. Compares AntiFuse quantum tunneling (NeoPUF), SRAM startup unbalance, and differential OTP mismatch to detect spatial correlation for root-of-trust qualification.</span>
+        </p>
+
+        <!-- CONTROL PANEL -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 1.25rem; background: #f8fafc; padding: 12px 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+          <div>
+            <label for="puf-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">硬體原生熵源拓撲：</span><span data-lang="en">Hardware Entropy Topology:</span>
+            </label>
+            <select id="puf-preset-select" aria-label="Hardware Entropy Topology selection" data-aria-en="Hardware Entropy Topology selection" data-aria-zh="硬體原生熵源拓撲選擇" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
+              <option value="antifuse_neopuf_quantum" selected>AntiFuse Quantum Tunneling (NeoPUF)</option>
+              <option value="sram_startup_uncompensated">6T SRAM Startup State (Uncompensated)</option>
+              <option value="otp_differential_mismatch">Twin-Cell Differential OTP Mismatch</option>
+              <option value="degraded_biased_source">Degraded / Biased Test Source (Alarm)</option>
+            </select>
+          </div>
+
+          <div style="display: flex; align-items: flex-end;">
+            <button type="button" id="puf-resample-btn" style="width: 100%; padding: 7px 14px; border-radius: 4px; border: 1px solid #0f766e; background: #0f766e; color: #ffffff; font: 700 11px 'IBM Plex Mono', monospace; cursor: pointer; transition: background 0.2s ease;">
+              <span data-lang="zh">⚡ 重新採樣晶片位元陣列</span>
+              <span data-lang="en">⚡ Resample Chip Bitstream</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- KPI METRIC CARDS -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 1.25rem;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; border-left: 3px solid #0f766e;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">漢明權重 (1-比例)</span><span data-lang="en">HAMMING WEIGHT</span>
+            </div>
+            <div id="puf-hw-val" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">50.02 %</div>
+            <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">目標 50% &plusmn;1%</span><span data-lang="en">Target 50% &plusmn;1%</span></span>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; border-left: 3px solid #0284c7;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">最小熵 H<sub>&infin;</sub></span><span data-lang="en">MIN-ENTROPY</span>
+            </div>
+            <div id="puf-entropy-val" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7; margin-top: 4px;">0.985 bit</div>
+            <span style="font-size: 10px; color: #64748b;">SP 800-90B (&ge;0.9)</span>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; border-left: 3px solid #059669;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">NIST 檢定通過數</span><span data-lang="en">NIST PASSED</span>
+            </div>
+            <div id="puf-passed-tests-val" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">4 / 4</div>
+            <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">&alpha; = 0.01 門檻</span><span data-lang="en">&alpha; = 0.01 threshold</span></span>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px; border-left: 3px solid #d97706;">
+            <div style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">累計和偏離 Z</span><span data-lang="en">CUSUM EXCURSION</span>
+            </div>
+            <div id="puf-cusum-val" style="font: 700 16px 'IBM Plex Mono', monospace; color: #d97706; margin-top: 4px;">Z = 12</div>
+            <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">漫步軌跡極值</span><span data-lang="en">Random walk max</span></span>
+          </div>
+        </div>
+
+        <!-- CANVAS BITGRID & NIST TEST BARS -->
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; margin-bottom: 1.25rem;">
+          <div style="width: 100%; height: 280px; position: relative;">
+            <canvas id="puf-canvas" style="width: 100%; height: 100%; display: block;" aria-label="Interactive 32x32 PUF spatial bitgrid and NIST SP 800-22 P-values visualization" data-aria-en="Interactive 32x32 PUF spatial bitgrid and NIST SP 800-22 P-values visualization" data-aria-zh="32x32 PUF 空間點陣圖與 NIST SP 800-22 統計 P-value 圖"></canvas>
+          </div>
+        </div>
+
+        <!-- VERDICT BANNER -->
+        <div id="puf-verdict-banner" class="puf-verdict-banner nist_certified" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46;">
+          <span style="font-size: 1.25rem; line-height: 1;">🛡️</span>
+          <span class="puf-verdict-text">
+            <span data-lang="zh">【NIST SP 800-22 密碼學隨機性認證】4 項核心假設檢定全數通過（P-value 均 &ge; 0.01）。漢明權重 = 50.02%，最小熵 = 0.985 bit/bit。原生硬體熵源完全符合 ISO/IEC 19790 與 FIPS 140-3 晶片信任根安全標準。</span>
+            <span data-lang="en">[NIST SP 800-22 Compliant] Passed all 4 hypothesis tests (All P-values &ge; 0.01). Hamming weight = 50.02%, Min-Entropy = 0.985 bit/bit. Hardware entropy satisfies ISO/IEC 19790 and FIPS 140-3 root-of-trust qualification.</span>
+          </span>
+        </div>
+      </article>
     </section>
 
     <section id="windows" class="section windows">
@@ -448,5 +546,6 @@
   <footer><a href="index.html">NVM KNOWLEDGE HUB</a><span data-zh="安全儲存 · 實體安全保證" data-en="SECURE STORAGE · PHYSICAL SECURITY ASSURANCE">SECURE STORAGE · PHYSICAL SECURITY ASSURANCE</span><a href="#top" data-zh="回到頂端" data-en="Back to top">Back to top</a></footer>
   <script src="assurance.js?v=20260929-v5"></script>
   <script type="module" src="attack-resistance-evaluator.js?v=20261005"></script>
+  <script type="module" src="puf-nist-randomness-evaluator.js?v=20261005"></script>
 </body>
 </html>

@@ -2970,9 +2970,141 @@
             <b style="color: #173b49;"><span data-lang="zh">② 互補差動讀取（DPA/CPA 衰減邊界）</span><span data-lang="en">② Complementary Differential Read (DPA/CPA Attenuation Boundary)</span></b><br>
             <span data-lang="zh">成對互補差動讀取（A=HRS, B=LRS）使兩條位元線同時抽取電流，瞬態總功耗近似常數 <em>I</em><sub>total</sub> = <em>I</em><sub>HRS</sub> + <em>I</em><sub>LRS</sub>，可大幅衰減一階差分功耗 (DPA) 與相關功耗 (CPA) 訊跡。但面對高階差分功耗 (Higher-order DPA) 與局域電磁輻射分析 (EMA)，晶圓佈線不對稱性仍可能洩漏側信道特徵。因此，完備防禦必須落實<b>多層責任鏈</b>：位元層差動對消 + 控制器層隨機遮罩 (Masking) 與時脈抖動 + 密碼引擎擾碼。</span>
             <span data-lang="en">Complementary differential read pairs (A=HRS, B=LRS) draw current simultaneously on both bitlines (<em>I</em><sub>total</sub> = <em>I</em><sub>HRS</sub> + <em>I</em><sub>LRS</sub>), significantly attenuating first-order DPA and CPA traces. However, against higher-order DPA and localized EMA probes, layout asymmetry can still leak side-channel signatures. Complete protection mandates a <b>layered defense chain</b>: bitcell-level current cancellation + controller-level algorithmic masking/jitter + cryptographic engine bus scrambling.</span>
+      <!-- INTERACTIVE 3D FINFET & GAA NANOSHEET ANTIFUSE SCALABILITY WORKBENCH -->
+      <article id="finfet-gaa-simulator-root" class="interactive-workbench" style="margin-top: 1.75rem; background: #ffffff; border: 1px solid rgba(2, 132, 199, 0.4); border-radius: 8px; padding: 20px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);" aria-labelledby="finfet-sim-title">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+          <div>
+            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span data-lang="zh">先進邏輯節點 · 3D 靜電幾何與穿隧微縮</span>
+              <span data-lang="en">ADVANCED LOGIC NODES · 3D ELECTROSTATICS &amp; TUNNELING SCALING</span>
+            </span>
+            <h3 id="finfet-sim-title" style="margin: 0.25rem 0 0; font-size: 1.15rem; font-weight: 700; color: #0f172a; font-family: 'IBM Plex Mono', monospace;">
+              <span data-lang="zh">先進節點 FinFET / GAA 奈米片 AntiFuse 延伸性與量子穿隧試算器</span>
+              <span data-lang="en">Advanced FinFET / GAA NanoSheet AntiFuse Scalability &amp; Quantum Tunneling Simulator</span>
+            </h3>
+          </div>
+          <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(2, 132, 199, 0.12); color: #0284c7; font-weight: 600;">
+            <span data-lang="zh">TSMC N3/N2 &amp; 三星 GAA 晶圓生態</span>
+            <span data-lang="en">TSMC N3/N2 &amp; Samsung GAA Roadmaps</span>
+          </span>
+        </div>
+
+        <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem;">
+          <span data-lang="zh">以第一性原理三維泊松靜電學與 WKB 梯形直接穿隧模型，量化 3D FinFET 鰭片角隅與 GAA 全環繞奈米片（NanoSheet）頂邊電場集中效應（Corner Field Crowding Factor &kappa;）。精確計算 AntiFuse 編程硬擊穿電壓（V<sub>bd</sub>）如何由傳統 28nm 平面節點的 7.2V 驟降至 3nm GAA 的 3.9V，進而使晶片內建電荷泵（Charge Pump）級數縮減、佔位矽面積節省高達 72%，具體論證 AntiFuse 突破 28nm 平面微縮極限、在 3nm/2nm 維持 0-Mask 相容之物理機制。</span>
+          <span data-lang="en">Applies 3D Poisson electrostatics and WKB trapezoidal direct tunneling to quantify corner field crowding (&kappa;) in 3D FinFET and GAA NanoSheets. Demonstrates how AntiFuse programming breakdown (V<sub>bd</sub>) scales down from 7.2V at 28nm planar to 3.9V at 3nm GAA, slashing on-chip charge pump macro footprint by up to 72% and providing physical proof for AntiFuse scaling to 3nm/2nm with 0 mask adders.</span>
+        </p>
+
+        <!-- CONTROL PANEL -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+          <!-- Node Select -->
+          <div>
+            <label for="finfet-node-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155; margin-bottom: 4px;">
+              <span data-lang="zh">晶圓代工先進節點</span><span data-lang="en">Foundry Advanced Node</span>
+            </label>
+            <select id="finfet-node-select" style="width: 100%; padding: 6px 10px; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 12px; background: #ffffff; color: #0f172a;" aria-label="Foundry Advanced Node selection" data-aria-en="Foundry Advanced Node selection" data-aria-zh="晶圓代工先進節點選擇">
+              <option value="tsmc_n3_gaa" selected>TSMC N3E / N2 GAA NanoSheet (EOT 1.15nm, HfO2)</option>
+              <option value="tsmc_n5_finfet">TSMC N5 / N4P 3D FinFET (EOT 1.5nm, Tri-Gate)</option>
+              <option value="foundry_16ffc">Foundry 16nm / 12nm FinFET (EOT 2.0nm)</option>
+              <option value="planar_28hpc">Legacy 28nm Planar HKMG Baseline (EOT 2.6nm)</option>
+            </select>
+          </div>
+
+          <!-- Slider 1: Applied Voltage -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <label for="finfet-volt-slider" style="font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155;">
+                <span data-lang="zh">外加偏壓 (V<sub>ox</sub>)</span><span data-lang="en">Applied Voltage (V<sub>ox</sub>)</span>
+              </label>
+              <span id="finfet-volt-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0284c7;">0.70 V</span>
+            </div>
+            <input type="range" id="finfet-volt-slider" min="0.4" max="8.5" step="0.05" value="0.70" style="width: 100%; cursor: pointer;" aria-label="Applied voltage Vox in Volts" data-aria-en="Applied voltage Vox in Volts" data-aria-zh="外加偏壓 Vox (伏特)">
+            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-family: 'IBM Plex Mono', monospace;">
+              <span>0.4 V</span><span>4.5 V</span><span>8.5 V</span>
+            </div>
+          </div>
+
+          <!-- Slider 2: Junction Temperature -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <label for="finfet-temp-slider" style="font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155;">
+                <span data-lang="zh">接面溫度 (T<sub>j</sub>)</span><span data-lang="en">Junction Temp (T<sub>j</sub>)</span>
+              </label>
+              <span id="finfet-temp-val" style="font: 700 12px 'IBM Plex Mono', monospace; color: #0284c7;">125 °C</span>
+            </div>
+            <input type="range" id="finfet-temp-slider" min="25" max="175" step="5" value="125" style="width: 100%; cursor: pointer;" aria-label="Junction temperature Tj in Celsius" data-aria-en="Junction temperature Tj in Celsius" data-aria-zh="接面溫度 Tj (攝氏度)">
+            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #94a3b8; font-family: 'IBM Plex Mono', monospace;">
+              <span>25 °C</span><span>105 °C</span><span>175 °C</span>
+            </div>
           </div>
         </div>
-      </div>
+
+        <!-- KPI METRIC CARDS -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
+          <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #0284c7;">
+            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">一維基礎電場 E<sub>1D</sub></span><span data-lang="en">1D Field E<sub>1D</sub></span>
+            </small>
+            <div id="finfet-e1d-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">3.33 MV/cm</div>
+            <span style="font-size: 10px; color: #64748b;">V / t<sub>phys</sub></span>
+          </div>
+
+          <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #ea580c;">
+            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">3D 角隅增強場 E<sub>corner</sub></span><span data-lang="en">3D Corner Field</span>
+            </small>
+            <div id="finfet-ecorner-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #ea580c; margin-top: 4px;">4.07 MV/cm</div>
+            <span style="font-size: 10px; color: #64748b;">&kappa; &middot; E<sub>1D</sub> (+22%)</span>
+          </div>
+
+          <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #2563eb;">
+            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">預測擊穿電壓 V<sub>bd</sub></span><span data-lang="en">Breakdown V<sub>bd</sub></span>
+            </small>
+            <div id="finfet-vbd-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #2563eb; margin-top: 4px;">2.84 V</div>
+            <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">相較 28nm -60%</span><span data-lang="en">-60% vs 28nm</span></span>
+          </div>
+
+          <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #7c3aed;">
+            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">電荷泵級數需求</span><span data-lang="en">Pump Stages</span>
+            </small>
+            <div id="finfet-pump-stages-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #7c3aed; margin-top: 4px;">6 <span data-lang="zh">級泵</span><span data-lang="en">Stages</span></div>
+            <span style="font-size: 10px; color: #64748b;">Dickson <span data-lang="zh">升壓鏈</span><span data-lang="en">ladder</span></span>
+          </div>
+
+          <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #059669;">
+            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">電荷泵面積縮減</span><span data-lang="en">Pump Area Savings</span>
+            </small>
+            <div id="finfet-area-savings-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">-72 %</div>
+            <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">對比 28nm 基準</span><span data-lang="en">vs 28nm Base</span></span>
+          </div>
+
+          <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #0d9488;">
+            <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
+              <span data-lang="zh">待機穿隧漏電 J<sub>DT</sub></span><span data-lang="en">Tunneling Leakage</span>
+            </small>
+            <div id="finfet-jdt-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">2.4e-6 A/cm²</div>
+            <span style="font-size: 10px; color: #64748b;">WKB <span data-lang="zh">穿隧模型</span><span data-lang="en">WKB model</span></span>
+          </div>
+        </div>
+
+        <!-- CANVAS 3D ELECTROSTATIC & FIELD HEATMAP -->
+        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; margin-bottom: 1.25rem;">
+          <div style="width: 100%; height: 260px; position: relative;">
+            <canvas id="finfet-canvas" style="width: 100%; height: 100%; display: block;" aria-label="Interactive 3D FinFET and GAA NanoSheet electrostatic field visualization" data-aria-en="Interactive 3D FinFET and GAA NanoSheet electrostatic field visualization" data-aria-zh="3D FinFET 與 GAA 奈米片靜電場視覺化圖"></canvas>
+          </div>
+        </div>
+
+        <!-- VERDICT BANNER -->
+        <div id="finfet-verdict-banner" class="finfet-verdict-banner gaa_optimal" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534;">
+          <span style="font-size: 1.25rem; line-height: 1;">⚡</span>
+          <span class="finfet-verdict-text">
+            <span data-lang="zh">【GAA 奈米片極限微縮優勢】全環繞閘極與 1.2nm 奈米片角隅半徑將 AntiFuse 編程崩潰電壓大幅降至 2.84V（傳統 28nm 為 7.2V）。晶粒電荷泵面積縮減高達 72%，徹底突破 eFlash 停滯於 28nm 之微縮極限，維持 0-Mask 純邏輯相容。</span>
+            <span data-lang="en">[GAA NanoSheet Scalability Advantage] 3D wrap-around gate and 1.2nm corner radius lower programming breakdown to 2.84V (vs 7.2V in 28nm). Charge pump footprint is slashed by 72%, fully overcoming the 28nm planar scaling barrier with 0 extra masks.</span>
+          </span>
+        </div>
+      </article>
     </section>
 
     <!-- SECTION 05: FOUR ARCHITECTURAL READ TOPOLOGIES (REBUILT CLEAN & ORTHOGONAL) -->
@@ -4682,5 +4814,6 @@
   </script>
 <script src="matrix-interactive.js?v=20260929-v5"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
+<script type="module" src="advanced-finfet-gaa-simulator.js?v=20261005"></script>
 </body>
 </html>
