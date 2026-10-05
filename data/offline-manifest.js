@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "1e19a16b54c73b0607f7",
+  "version": "fda0a3b05124f9ba0c80",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -33,6 +33,7 @@ self.NVMOfflineManifest = {
     "cim-nn-accuracy-degradation-simulator.js",
     "claim-scope.js",
     "command-palette-hud.js",
+    "cryo-qubit-readout-simulator.js",
     "cryogenic-nvm-physics-simulator.js",
     "data/ai-nvm-opportunities-knowledge.json",
     "data/named-nvm-comparison.json",
@@ -100,6 +101,7 @@ self.NVMOfflineManifest = {
     "site-language.js",
     "site-shell.css",
     "site.webmanifest",
+    "space-radiation-hardening-simulator.js",
     "specialty-nvm.css",
     "specialty-nvm.html",
     "specialty-nvm.js",
@@ -157,6 +159,7 @@ self.NVMOfflineManifest = {
     "cim-nn-accuracy-degradation-simulator.js": "c16f41ad08bd4e72bbd4ee8f1aa9735f7a2351d4e9a31e68b8944f63368ef0fc",
     "claim-scope.js": "afb8bc4df1c94c77e07707f184f1efd188970c384ccf70a598b45a503bd5f91e",
     "command-palette-hud.js": "69756564651eb6f41cd58cae19225cdb30df4853c9df0d69f0392bd1edf94557",
+    "cryo-qubit-readout-simulator.js": "f5422d53c014a9c1a4b01d936326cc3a2a35099b0226a8cd447564e7f50922f2",
     "cryogenic-nvm-physics-simulator.js": "00cc5d14547921cfbe1f498cb3dffe7401007b8c9215851003953c2936d7667e",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "data/named-nvm-comparison.json": "69f18cd39e195164c8139e9079d4c8df2647a8c74b3ff826c667304f12330de1",
@@ -195,7 +198,7 @@ self.NVMOfflineManifest = {
     "memory-evidence.html": "2438c00168f48b5eb66fbf78df3dffe57e2cd2af0a07a5e43605e520c0c900ab",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "8a774413b1744bdbc54134e82c8a8280c47be4ab3bf6dd759e30b6b08a87bfc4",
+    "memory-physics.html": "43dcc66be733940cc4d80c4dceb3733ff5e1713b6a716702e1e86dd566fc67ef",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
     "nvm-bitcell-figures.css": "da04d7984bd9f62137dab5c2f5657a38b620b32b6c16c628a94f2f9406d5aed6",
@@ -224,8 +227,9 @@ self.NVMOfflineManifest = {
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "95c7b574d75f1d06c7e121cb14489b2bea210649e5d15ad7d97aae7a5d86d1a7",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
+    "space-radiation-hardening-simulator.js": "ac4baaf3e4976f584c52d92dd2e8c5771c3e1634777c386fa822f45526e7ad7b",
     "specialty-nvm.css": "54edc81d1d15e1d9d5c3f2604328e11269e48ac9fda51d059912d4dd0f8d7862",
-    "specialty-nvm.html": "ec6016d17a10d4fc30c27540d5cc606ef2cbb51635866ee0b4dd87f64d6707da",
+    "specialty-nvm.html": "961b1c89426c0a7958b4433f9e6de69eb3d4cc0c8cf77dfe117a232ef8bf7cc1",
     "specialty-nvm.js": "987a05dd3f6aa8cf0b69c7c543deebc445587e9f930186241a47a7a1e01fec4b",
     "sram-repair-model.js": "366c04a84d228d736a372308d8adbaf07660683fb6f6d5b453adc5dde8c204a6",
     "sram-repair.css": "344a186f66695d3f92ad1552743c08cb2696f33a821add216ed24b302a9ecae9",
@@ -248,5 +252,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
     "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
   },
-  "totalBytes": 11930141
+  "totalBytes": 12005849
 };

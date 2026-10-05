@@ -1479,6 +1479,42 @@ def run_tests() -> None:
     test("automotive-nvm.html 包含脈衝選擇器、拓撲選擇器、雙軸滑桿、五大 KPI 指標卡與時域瞬態/電荷泵階梯雙模態 Canvas",
          'id="auto-ld-pulse-select"' in auto_html and 'id="auto-ld-topology-select"' in auto_html and 'id="auto-ld-temp-slider"' in auto_html and 'id="auto-ld-clamp-slider"' in auto_html and 'id="auto-ld-out-clampedv"' in auto_html and 'id="auto-ld-out-power"' in auto_html and 'id="auto-ld-out-ripple"' in auto_html and 'id="auto-ld-out-margin"' in auto_html and 'id="auto-ld-out-rating"' in auto_html and 'id="auto-ld-canvas"' in auto_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 61: 低溫量子位元讀出介面磁場自旋去相干與微波射頻干擾試算器 (memory-physics.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 61: 低溫量子位元讀出介面磁場自旋去相干與微波射頻干擾試算器 ═══")
+    cryo_qubit_js = (BASE / "cryo-qubit-readout-simulator.js").read_text(encoding="utf-8")
+    test("cryo-qubit-readout-simulator.js 存在且導出 calculateCryoQubitReadout、drawCryoQubitCanvas 與 initCryoQubitSimulator",
+         "export function calculateCryoQubitReadout" in cryo_qubit_js and "export function drawCryoQubitCanvas" in cryo_qubit_js and "export function initCryoQubitSimulator" in cryo_qubit_js)
+    test("cryo-qubit-readout-simulator.js 包含四大大規模量子控制場景預設與四大低溫記憶體拓撲設定檔",
+         "QUBIT_CONTROL_PRESETS" in cryo_qubit_js and "superconducting_transmon_4k" in cryo_qubit_js and "silicon_spin_qubit_1k" in cryo_qubit_js and "nv_center_diamond_77k" in cryo_qubit_js and "trapped_ion_magnetic_4k" in cryo_qubit_js and "CRYO_MEMORY_TOPOLOGIES" in cryo_qubit_js and "antifuse_cryo_filament" in cryo_qubit_js and "perpendicular_stt_mram" in cryo_qubit_js and "inplane_stt_mram" in cryo_qubit_js and "cryo_cmos_8t_sram" in cryo_qubit_js)
+    test("cryo-qubit-readout-simulator.js 第一性原理磁場 TMR 衰減公式、自旋去相干時間 T2*、感測差分電壓窗 ΔV、微波 RF 誘發誤碼率 BER 與 QPU 介面相容性等級演算法",
+         "realizedTmrPct" in cryo_qubit_js and "deltaVSenseMv" in cryo_qubit_js and "vRfMv" in cryo_qubit_js and "effectiveT2Us" in cryo_qubit_js and "sinrDb" in cryo_qubit_js and "berFormatted" in cryo_qubit_js and "isQpuCompatible" in cryo_qubit_js and "qpuRatingZh" in cryo_qubit_js and "qpuRatingEn" in cryo_qubit_js)
+
+    phys_qubit_html = (BASE / "memory-physics.html").read_text(encoding="utf-8")
+    test("memory-physics.html 整合 cryo-qubit-simulator-root 工作台與模組腳本引用",
+         'id="cryo-qubit-simulator-root"' in phys_qubit_html and 'src="cryo-qubit-readout-simulator.js' in phys_qubit_html)
+    test("memory-physics.html 包含預設選擇器、拓撲選擇器、雙軸滑桿、六大 KPI 指標卡與磁場掃描/微波波形雙模態 Canvas",
+         'id="cryo-qubit-preset-select"' in phys_qubit_html and 'id="cryo-qubit-tech-select"' in phys_qubit_html and 'id="cryo-qubit-bfield-slider"' in phys_qubit_html and 'id="cryo-qubit-rf-slider"' in phys_qubit_html and 'id="cryo-qubit-out-tmr"' in phys_qubit_html and 'id="cryo-qubit-out-deltav"' in phys_qubit_html and 'id="cryo-qubit-out-t2"' in phys_qubit_html and 'id="cryo-qubit-out-sinr"' in phys_qubit_html and 'id="cryo-qubit-out-ber"' in phys_qubit_html and 'id="cryo-qubit-out-rating"' in phys_qubit_html and 'id="cryo-qubit-canvas"' in phys_qubit_html)
+
+    # ════════════════════════════════════════════════════════════
+    # TEST 62: 深空軌道與極限環境輻射硬化 (TID / SEU / SEL) Weibull 存活率試算器 (specialty-nvm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 62: 深空軌道與極限環境輻射硬化 (TID / SEU / SEL) Weibull 存活率試算器 ═══")
+    space_rad_js = (BASE / "space-radiation-hardening-simulator.js").read_text(encoding="utf-8")
+    test("space-radiation-hardening-simulator.js 存在且導出 calculateSpaceRadiationHardening、drawSpaceRadiationCanvas 與 initSpaceRadiationSimulator",
+         "export function calculateSpaceRadiationHardening" in space_rad_js and "export function drawSpaceRadiationCanvas" in space_rad_js and "export function initSpaceRadiationSimulator" in space_rad_js)
+    test("space-radiation-hardening-simulator.js 包含四大太空任務軌道預設與四大記憶體輻射硬化技術設定檔",
+         "SPACE_MISSION_PRESETS" in space_rad_js and "leo_polar_orbit" in space_rad_js and "geo_telecom_sat" in space_rad_js and "lunar_deep_space_artemis" in space_rad_js and "jupiter_europa_clipper" in space_rad_js and "RAD_HARD_TECH_PROFILES" in space_rad_js and "antifuse_rad_hard" in space_rad_js and "rad_hard_stt_mram" in space_rad_js and "sonos_charge_trap" in space_rad_js and "legacy_fg_eflash" in space_rad_js)
+    test("space-radiation-hardening-simulator.js 第一性原理總游離劑量 (TID) 氧化層電洞累積與漂移、重離子 Weibull SEU 截面積、軟錯誤率、10 年存活率與航太等級演算法",
+         "deltaVthShiftVolts" in space_rad_js and "crossSectionFormatted" in space_rad_js and "seuRatePerMbDay" in space_rad_js and "totalMissionSurvivalPct" in space_rad_js and "isSelImmune" in space_rad_js and "isRadHardPassed" in space_rad_js and "radGradeZh" in space_rad_js and "radGradeEn" in space_rad_js)
+
+    spec_rad_html = (BASE / "specialty-nvm.html").read_text(encoding="utf-8")
+    test("specialty-nvm.html 整合 space-radiation-simulator-root 工作台與模組腳本引用",
+         'id="space-radiation-simulator-root"' in spec_rad_html and 'src="space-radiation-hardening-simulator.js' in spec_rad_html)
+    test("specialty-nvm.html 包含任務選擇器、技術選擇器、雙軸滑桿、六大 KPI 指標卡與累積劑量存活率/Weibull 翻轉截面雙模態 Canvas",
+         'id="space-rad-mission-select"' in spec_rad_html and 'id="space-rad-tech-select"' in spec_rad_html and 'id="space-rad-tid-slider"' in spec_rad_html and 'id="space-rad-let-slider"' in spec_rad_html and 'id="space-rad-out-vth"' in spec_rad_html and 'id="space-rad-out-cross"' in spec_rad_html and 'id="space-rad-out-ser"' in spec_rad_html and 'id="space-rad-out-surv"' in spec_rad_html and 'id="space-rad-out-sel"' in spec_rad_html and 'id="space-rad-out-rating"' in spec_rad_html and 'id="space-rad-canvas"' in spec_rad_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
