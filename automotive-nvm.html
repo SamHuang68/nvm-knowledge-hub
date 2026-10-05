@@ -1186,6 +1186,152 @@
                 —
               </div>
             </div>
+
+            <!-- INTERACTIVE AUTOMOTIVE LOAD DUMP TRANSIENT & CHARGE PUMP CLAMPING SIMULATOR -->
+            <div id="auto-load-dump-simulator-root" class="interactive-workbench" style="margin-top: 24px; padding: 20px; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
+                <div>
+                  <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #b45309; letter-spacing: 0.08em; text-transform: uppercase;">
+                    <span data-lang="zh">車規高壓電氣應力模型 · ISO 16750-2 / AEC-Q100</span>
+                    <span data-lang="en">AUTOMOTIVE TRANSIENT MODEL · ISO 16750-2 / AEC-Q100</span>
+                  </span>
+                  <h3 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+                    <span data-lang="zh">AEC-Q100 Grade 0 負載突降 (Load Dump) 瞬態脈衝與高溫電荷泵升壓箝位安全試算器</span>
+                    <span data-lang="en">AEC-Q100 Grade 0 Load Dump Transient &amp; High-Temp Charge Pump Clamping Safety Simulator</span>
+                  </h3>
+                </div>
+                <span class="badge-compact" style="background: rgba(180, 83, 9, 0.1); color: #b45309; border: 1px solid rgba(180, 83, 9, 0.25); font: 700 11px 'IBM Plex Mono', monospace; padding: 4px 10px; border-radius: 4px;">
+                  <span data-lang="zh">ISO 16750-2 / ISO 7637-2 規範</span>
+                  <span data-lang="en">ISO 16750-2 / ISO 7637-2 Spec</span>
+                </span>
+              </div>
+
+              <p style="font-size: 12.5px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
+                <span data-lang="zh">評估在 150°C~175°C 極限高溫結溫 (Tj) 下，交流發電機斷開引發的 ISO 16750-2 負載突降 (Pulse 5a / 5b) 與線束反衝瞬態脈衝灌入晶片電源軌時，主動式 MOSFET 電子保險絲與晶片內電荷泵 (Charge Pump) 升壓電路之動態箝位能力、介電質擊穿安全裕度與輸出漣波抑制比。</span>
+                <span data-lang="en">Evaluates dynamic clamping performance, charge pump dielectric breakdown margin, and output ripple suppression under extreme 150°C~175°C junction temperature (Tj) when ISO 16750-2 load dump (Pulse 5a/5b) or inductive wiring kicks strike internal automotive NVM power rails.</span>
+              </p>
+
+              <!-- Controls Grid -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
+                <div>
+                  <label for="auto-ld-pulse-select" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+                    <span data-lang="zh">車載瞬態過電壓脈衝：</span><span data-lang="en">TRANSIENT SURGE PULSE:</span>
+                  </label>
+                  <select id="auto-ld-pulse-select" aria-label="Transient Surge Pulse" data-aria-en="Transient Surge Pulse" data-aria-zh="車載瞬態過電壓脈衝" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                    <option value="iso16750_pulse5a_unsuppressed" selected>ISO 16750-2 Pulse 5a (Unsuppressed, 87V / 400ms)</option>
+                    <option value="iso16750_pulse5b_suppressed">ISO 16750-2 Pulse 5b (Centrally Suppressed, 35V / 200ms)</option>
+                    <option value="mhev_48v_pulse">48V MHEV Powertrain Inverter Surge (70V / 100ms)</option>
+                    <option value="inductive_kick_pulse2a">ISO 7637-2 Pulse 2a (Inductive Kick, +55V / 0.05ms)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="auto-ld-topology-select" style="display: block; font: 700 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px; text-transform: uppercase;">
+                    <span data-lang="zh">高壓箝位與電荷泵防護拓撲：</span><span data-lang="en">CLAMP &amp; PUMP PROTECTION:</span>
+                  </label>
+                  <select id="auto-ld-topology-select" aria-label="Clamp and Pump Protection Topology" data-aria-en="Clamp and Pump Protection Topology" data-aria-zh="高壓箝位與電荷泵防護拓撲" style="width: 100%; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
+                    <option value="active_fet_surge_stopper" selected>Active MOSFET Surge Stopper (&lt;50ns Response)</option>
+                    <option value="external_tvs_sm8s">External Automotive TVS Diode (SM8S36A 6600W)</option>
+                    <option value="internal_zener_cap">On-Die Internal Zener Clamp + Decoupling Cap</option>
+                    <option value="hybrid_multistage">Dual-Stage Hybrid (External TVS + On-Die LDO Active Clamp)</option>
+                  </select>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span><span data-lang="zh">運算結溫 Tj：</span><span data-lang="en">JUNCTION TJ:</span></span>
+                    <span id="auto-ld-temp-val" style="color: #b45309; font-weight: 700;">175 °C</span>
+                  </div>
+                  <input type="range" id="auto-ld-temp-slider" min="-40" max="200" step="5" value="175" aria-label="Junction Operating Temperature" data-aria-en="Junction Operating Temperature" data-aria-zh="運算結溫" aria-valuetext="175 °C" style="width: 100%; accent-color: #b45309; cursor: pointer;">
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                    <span><span data-lang="zh">目標箝位電壓門檻：</span><span data-lang="en">TARGET CLAMP VOLTAGE:</span></span>
+                    <span id="auto-ld-clamp-val" style="color: #b45309; font-weight: 700;">18 V</span>
+                  </div>
+                  <input type="range" id="auto-ld-clamp-slider" min="14" max="65" step="1" value="18" aria-label="Target Clamping Voltage" data-aria-en="Target Clamping Voltage" data-aria-zh="目標箝位電壓門檻" aria-valuetext="18 V" style="width: 100%; accent-color: #b45309; cursor: pointer;">
+                </div>
+              </div>
+
+              <!-- 5 KPI Cards Strip -->
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 10px; margin-bottom: 1rem;">
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">晶片端箝位峰值電壓</span><span data-lang="en">PEAK CLAMPED V</span>
+                  </div>
+                  <div id="auto-ld-out-clampedv" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">晶圓輸入引腳實測</span><span data-lang="en">Die supply pin</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">瞬態突波吸收峰值功耗</span><span data-lang="en">PEAK SURGE POWER</span>
+                  </div>
+                  <div id="auto-ld-out-power" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">保護電路瞬態負載</span><span data-lang="en">Dynamic clamp load</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">電荷泵升壓漣波與壓降</span><span data-lang="en">PUMP RIPPLE / DROOP</span>
+                  </div>
+                  <div id="auto-ld-out-ripple" style="font: 700 16px 'IBM Plex Mono', monospace; color: #b45309;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">含 175°C 漏電懲罰</span><span data-lang="en">Includes 175°C leakage</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">介電質擊穿安全裕度</span><span data-lang="en">BREAKDOWN MARGIN</span>
+                  </div>
+                  <div id="auto-ld-out-margin" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">閘氧化層穿隧極限</span><span data-lang="en">Gate oxide limit</span>
+                  </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+                  <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                    <span data-lang="zh">車規合規性等級</span><span data-lang="en">COMPLIANCE RATING</span>
+                  </div>
+                  <div id="auto-ld-out-rating" style="font: 700 13.5px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+                  <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                    <span data-lang="zh">AEC-Q100 Grade 0 / ISO</span><span data-lang="en">AEC-Q100 Grade 0 / ISO</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Canvas and View Mode Toggle -->
+              <div style="background: #080d16; border: 1px solid #1e293b; border-radius: 6px; padding: 10px; margin-bottom: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                  <div style="display: flex; gap: 6px;">
+                    <button id="auto-ld-mode-trans" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #10b981; background: #059669; color: #ffffff; cursor: pointer;">
+                      <span data-lang="zh">負載突降瞬態響應 (Transient Wave)</span><span data-lang="en">Load Dump Transient</span>
+                    </button>
+                    <button id="auto-ld-mode-pump" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                      <span data-lang="zh">電荷泵升壓階梯與漣波 (Pump Stages)</span><span data-lang="en">Charge Pump Stages &amp; Ripple</span>
+                    </button>
+                  </div>
+                  <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">
+                    <span data-lang="zh">車載電源完整性與高壓瞬態示波儀</span><span data-lang="en">Automotive Power Integrity &amp; Transient Scope</span>
+                  </span>
+                </div>
+                <div style="width: 100%; height: 180px; position: relative;">
+                  <canvas id="auto-ld-canvas" width="420" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Automotive Load Dump Transient and Clamping Simulation Canvas" data-aria-en="Automotive Load Dump Transient and Clamping Simulation Canvas" data-aria-zh="車規負載突降瞬態與箝位模擬畫布"></canvas>
+                </div>
+              </div>
+
+              <!-- Verdict Banner -->
+              <div id="auto-ld-out-verdict" style="background: rgba(180, 83, 9, 0.05); border: 1px solid rgba(180, 83, 9, 0.25); border-radius: 6px; padding: 10px 14px; font-size: 11.5px; line-height: 1.5; color: #0f172a;">
+                Loading Automotive Load Dump Clamping calculations...
+              </div>
+            </div>
           </section>
 
           <!-- LENS 03: SECDED (72, 64) FAULT INJECTION LAB -->
@@ -1812,6 +1958,7 @@
   <script type="module" src="automotive-ecc.js"></script>
   <script type="module" src="automotive-mission-profile.js?v=20261005"></script>
   <script type="module" src="automotive-blackbox-journal-calculator.js?v=20261005"></script>
+  <script type="module" src="automotive-load-dump-clamp-simulator.js?v=20261005"></script>
 
   <!-- Studio Layout Vertical Rail Scroll Spy & Interactive Navigator -->
   <script>
