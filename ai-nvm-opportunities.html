@@ -2645,6 +2645,228 @@
           </div>
         </div>
 
+        <!-- 05-NEUROMORPHIC / 類腦神經形態與記憶體內運算 (CiM) 矩陣乘加 (MAC) 物理模擬器 -->
+        <article class="decision-matrix-card cim-neuromorphic-article" id="cim-neuromorphic-mac-section" style="margin-top: 28px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(14, 165, 233, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+          <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+            <div>
+              <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0ea5e9; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+                <span data-lang="zh">05-NEUROMORPHIC · 類腦神經形態與記憶體內運算 (CIM) 矩陣乘加</span>
+                <span data-lang="en">05-NEUROMORPHIC · COMPUTE-IN-MEMORY (CIM) MATRIX-VECTOR MAC</span>
+              </div>
+              <h4 style="font-size: 18px; font-weight: 700; color: #f8fafc; margin: 0; line-height: 1.3;">
+                <span data-lang="zh">第一性原理歐姆-基爾霍夫類比乘加、線路 IR-Drop 與電導漂移物理模擬器</span>
+                <span data-lang="en">First-Principles Kirchhoff-Ohm MAC, Parasitic Wire IR-Drop &amp; Conductance Drift Simulator</span>
+              </h4>
+            </div>
+            <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; background: rgba(14, 165, 233, 0.12); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
+              <span data-lang="zh">IEEE IEDM / ISSCC 標準模型</span>
+              <span data-lang="en">IEEE IEDM / ISSCC Physical Model</span>
+            </span>
+          </div>
+
+          <p style="font-size: 13px; line-height: 1.65; color: #cbd5e1; margin-bottom: 16px;">
+            <span data-lang="zh">記憶體內運算 (Compute-in-Memory, CiM) 透過歐姆定律 (\(I = V \cdot G\)) 與基爾霍夫電流定律 (\(\sum I\))，於突觸交叉陣列原生地完成高維矩陣向量乘加 (MAC)。然而金屬走線寄生電阻引起的 IR-Drop 壓降、突觸材料電導漂移 (\(G(t) = G_0 \cdot t^{-\nu}\)) 與有限 ADC 解析度量化雜訊，會直接侵蝕類比訊噪比 (SNR) 並導致推論精度斷崖式下滑。本工具提供交叉陣列空間熱力圖與能量精度權衡評估。</span>
+            <span data-lang="en">Compute-in-Memory (CiM) leverages Ohm's law (\(I = V \cdot G\)) and Kirchhoff's current law (\(\sum I\)) directly across synaptic crossbar arrays for dense matrix-vector multiplication (MAC). However, metal wire parasitic resistance causes spatial IR-drop degradation, while material conductance drift (\(G(t) = G_0 \cdot t^{-\nu}\)) and finite ADC quantization noise degrade the effective array SNR and neural network inference accuracy. This simulator models crossbar spatial gradients and energy-accuracy tradeoffs.</span>
+          </p>
+
+          <!-- 四大突觸儲存介質特性矩陣 -->
+          <div style="overflow-x: auto; margin-bottom: 20px;">
+            <table class="paper-table" style="width: 100%; font-size: 11.5px; border-collapse: collapse;" aria-label="CiM Synaptic Storage Media Comparison Matrix" data-aria-en="CiM Synaptic Storage Media Comparison Matrix" data-aria-zh="CiM 突觸儲存介質物理特性比較矩陣">
+              <caption class="sr-only">
+                <span data-lang="zh">CiM 突觸儲存介質物理特性、光罩增加道數與電導漂移對比矩陣</span>
+                <span data-lang="en">Comparison of CiM Synaptic Storage Media, Mask Adders, and Conductance Drift</span>
+              </caption>
+              <thead>
+                <tr style="background: rgba(30, 41, 59, 0.8); border-bottom: 1px solid rgba(51, 65, 85, 0.8);">
+                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">突觸儲存介質</span><span data-lang="en">Synaptic Medium</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">單元機制與精度</span><span data-lang="en">Cell Mechanism</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">光罩道數</span><span data-lang="en">Mask Adders</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">電導漂移係數 (\(\nu\))</span><span data-lang="en">Drift Coeff (\(\nu\))</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">典型開關比</span><span data-lang="en">On/Off Ratio</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">核心優勢與適用場景</span><span data-lang="en">Key Advantage</span></th>
+                </tr>
+              </thead>
+              <tbody style="color: #e2e8f0;">
+                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">Analog ReRAM (OxRAM)</th>
+                  <td style="padding: 8px 10px;">4-bit MLC <span data-lang="zh">微絲電導</span><span data-lang="en">Filamentary</span></td>
+                  <td style="padding: 8px 10px; color: #f59e0b;">+4 Masks</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">0.080 (Moderate)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">100x</td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">最高類比突觸密度，適合非極度嚴苛精度之邊緣視覺</span><span data-lang="en">Highest analog density; optimal for edge vision workloads</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">Spintronic STT-MRAM</th>
+                  <td style="padding: 8px 10px;">1-bit <span data-lang="zh">差分雙態 MTJ</span><span data-lang="en">Differential MTJ</span></td>
+                  <td style="padding: 8px 10px; color: #f59e0b;">+3 Masks</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #10b981;">0.001 (Negligible)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">2.5x (Bounded TMR)</td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">近乎零漂移與近無限擦寫，適合頻繁權重更新與車規推論</span><span data-lang="en">Negligible drift with extreme endurance for dynamic weights</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">0-Mask AntiFuse Stochastic</th>
+                  <td style="padding: 8px 10px;">1-bit <span data-lang="zh">機率位元流</span><span data-lang="en">Stochastic Bitstream</span></td>
+                  <td style="padding: 8px 10px; color: #10b981; font-weight: 600;">0 Masks (Standard Logic)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #10b981; font-weight: 600;">0.000 (Zero Drift)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 10,000x</td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">零額外光罩完全邏輯相容，微絲固態永久穩定，極致抗高溫</span><span data-lang="en">Zero mask adders; logic compatible; permanent filament stability</span></td>
+                </tr>
+                <tr>
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">Digital SRAM Baseline</th>
+                  <td style="padding: 8px 10px;">8T/10T <span data-lang="zh">數位全擺幅</span><span data-lang="en">Digital Rail</span></td>
+                  <td style="padding: 8px 10px; color: #10b981;">0 Masks</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #10b981;">0.000</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">1,000x</td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">完全數位無類比量化噪訊，但面積高達 150 F² 且靜態待機漏電大</span><span data-lang="en">Full digital rail; no analog noise, at high area and leakage cost</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 互動工作台容器 -->
+          <div class="decision-matrix-card cim-simulator-container" id="cim-neuromorphic-simulator-root" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 8px; padding: 18px 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.5); padding-bottom: 10px;">
+              <div>
+                <span style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.08em;">
+                  <span data-lang="zh">第一性原理互動工作台</span><span data-lang="en">FIRST-PRINCIPLES WORKBENCH</span>
+                </span>
+                <h5 style="margin: 2px 0 0; font-size: 15px; color: #f8fafc; font-weight: 700;">
+                  <span data-lang="zh">類腦神經形態 CiM 矩陣乘加效率與空間 IR-Drop 失真試算器</span>
+                  <span data-lang="en">Neuromorphic CiM MAC Efficiency &amp; Spatial IR-Drop Distortion Simulator</span>
+                </h5>
+              </div>
+              <span style="font: 600 10px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.15); color: #38bdf8; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
+                <span data-lang="zh">類比歐姆定律 · 基爾霍夫總和</span><span data-lang="en">Analog Ohm · Kirchhoff Sum</span>
+              </span>
+            </div>
+
+            <!-- 控制面板 Controls Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; background: rgba(30, 41, 59, 0.6); padding: 12px; border-radius: 6px; border: 1px solid rgba(51, 65, 85, 0.5);">
+              <div>
+                <label for="cim-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                  <span data-lang="zh">工作負載預設 (Workload Preset):</span><span data-lang="en">WORKLOAD PRESET:</span>
+                </label>
+                <select id="cim-preset-select" aria-label="CiM Workload Preset" data-aria-en="CiM Workload Preset" data-aria-zh="CiM 工作負載預設" style="width: 100%; padding: 5px 8px; border: 1px solid #475569; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                  <option value="edge_keyword_spotting_kws" selected>Edge Keyword Spotting (128x64, 50MHz, ULP)</option>
+                  <option value="vision_transformer_vit_patch">Vision Transformer (256x128, 200MHz, ViT-Patch)</option>
+                  <option value="neuromorphic_spiking_snn">Spiking Neural Network (512x256, 100MHz, Event SNN)</option>
+                  <option value="deep_learning_llm_quantized">Quantized Edge LLM (512x512, 400MHz, W4A4 Matrix)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="cim-media-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                  <span data-lang="zh">突觸儲存介質 (Synaptic Media):</span><span data-lang="en">SYNAPTIC MEDIA:</span>
+                </label>
+                <select id="cim-media-select" aria-label="CiM Synaptic Media" data-aria-en="CiM Synaptic Media" data-aria-zh="CiM 突觸儲存介質" style="width: 100%; padding: 5px 8px; border: 1px solid #475569; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                  <option value="analog_reram_crossbar" selected>Analog ReRAM (OxRAM Multi-Level, 4-bit)</option>
+                  <option value="stt_mram_binary_xbar">Spintronic STT-MRAM (Differential Pair, TMR 2.5x)</option>
+                  <option value="antifuse_stochastic_puf">0-Mask AntiFuse Stochastic Synapse (Zero Drift)</option>
+                  <option value="sram_standard_digital_mac">Conventional SRAM CiM Baseline (8T/10T Array)</option>
+                </select>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+                  <span><span data-lang="zh">單元走線寄生電阻 (Wire Resistance):</span><span data-lang="en">WIRE RESISTANCE:</span></span>
+                  <span id="cim-wire-val" style="color: #38bdf8; font-weight: 700;">1.5 Ω/cell</span>
+                </div>
+                <input type="range" id="cim-wire-slider" min="0.2" max="6.0" step="0.1" value="1.5" aria-label="Unit Wire Resistance" data-aria-en="Unit Wire Resistance" data-aria-zh="單元走線寄生電阻" aria-valuetext="1.5 Ω/cell" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+                  <span><span data-lang="zh">列讀出 ADC 解析度 (ADC Resolution):</span><span data-lang="en">ADC RESOLUTION:</span></span>
+                  <span id="cim-adc-val" style="color: #34d399; font-weight: 700;">6 Bits</span>
+                </div>
+                <input type="range" id="cim-adc-slider" min="3" max="8" step="1" value="6" aria-label="Column ADC Resolution Bits" data-aria-en="Column ADC Resolution Bits" data-aria-zh="列讀出 ADC 解析度" aria-valuetext="6 Bits" style="width: 100%; accent-color: #34d399; cursor: pointer;">
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+                  <span><span data-lang="zh">運作漂移時長 (Operating Drift):</span><span data-lang="en">OPERATING DRIFT:</span></span>
+                  <span id="cim-drift-val" style="color: #f59e0b; font-weight: 700;">1,000 Hours</span>
+                </div>
+                <input type="range" id="cim-drift-slider" min="1" max="10000" step="100" value="1000" aria-label="Conductance Drift Time Hours" data-aria-en="Conductance Drift Time Hours" data-aria-zh="運作漂移時長" aria-valuetext="1000 Hours" style="width: 100%; accent-color: #f59e0b; cursor: pointer;">
+              </div>
+            </div>
+
+            <!-- KPI Cards Grid (6 Columns) -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+              <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                  <span data-lang="zh">能量效率</span><span data-lang="en">EFFICIENCY</span>
+                </div>
+                <div id="cim-out-energy" style="font: 700 15px 'IBM Plex Mono', monospace; color: #34d399;">--</div>
+                <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">TOPS/W (Array+ADC)</div>
+              </div>
+
+              <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                  <span data-lang="zh">陣列吞吐量</span><span data-lang="en">THROUGHPUT</span>
+                </div>
+                <div id="cim-out-throughput" style="font: 700 15px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+                <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">TOPS Peak Compute</div>
+              </div>
+
+              <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                  <span data-lang="zh">陣列信噪比</span><span data-lang="en">ARRAY SNR</span>
+                </div>
+                <div id="cim-out-snr" style="font: 700 15px 'IBM Plex Mono', monospace; color: #0284c7;">--</div>
+                <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">dB (Effective SNR)</div>
+              </div>
+
+              <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                  <span data-lang="zh">最遠 IR-Drop</span><span data-lang="en">WORST IR-DROP</span>
+                </div>
+                <div id="cim-out-irdrop" style="font: 700 14px 'IBM Plex Mono', monospace; color: #f59e0b;">--</div>
+                <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">mV (% read bias)</div>
+              </div>
+
+              <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                  <span data-lang="zh">推論精度保留</span><span data-lang="en">ACCURACY</span>
+                </div>
+                <div id="cim-out-accuracy" style="font: 700 15px 'IBM Plex Mono', monospace; color: #34d399;">--</div>
+                <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">% Retained Baseline</div>
+              </div>
+
+              <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                  <span data-lang="zh">綜合評等</span><span data-lang="en">RATING</span>
+                </div>
+                <div id="cim-out-rating" style="font: 700 13px 'IBM Plex Mono', monospace; color: #34d399;">--</div>
+                <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">Architecture Grade</div>
+              </div>
+            </div>
+
+            <!-- 視覺化 Canvas 與模式切換按鈕 -->
+            <div style="background: #020617; border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                <div style="display: inline-flex; gap: 6px;" role="group" aria-label="CiM Visualization View Mode" data-aria-en="CiM Visualization View Mode" data-aria-zh="CiM 視覺化檢視模式">
+                  <button id="cim-mode-heatmap" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                    <span data-lang="zh">交叉陣列空間 IR-Drop 與電導熱力圖</span><span data-lang="en">Crossbar IR-Drop Heatmap</span>
+                  </button>
+                  <button id="cim-mode-tradeoff" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                    <span data-lang="zh">能量效率 vs 推論精度保留權衡曲線</span><span data-lang="en">Efficiency vs Accuracy Tradeoff</span>
+                  </button>
+                </div>
+                <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">High-DPI Neuromorphic Engine</span>
+              </div>
+              <div style="width: 100%; height: 200px; position: relative;">
+                <canvas id="cim-neuro-mac-canvas" width="420" height="200" style="width: 100%; height: 100%; display: block;" role="img" aria-label="CiM Neuromorphic MAC Simulation Canvas" data-aria-en="CiM Neuromorphic MAC Simulation Canvas" data-aria-zh="CiM 類腦神經形態矩陣乘加模擬畫布"></canvas>
+              </div>
+            </div>
+
+            <!-- 架構結論提示方塊 -->
+            <div style="background: rgba(14, 165, 233, 0.08); border-left: 3px solid #0ea5e9; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #e2e8f0;">
+              <span id="cim-out-verdict">Loading Compute-in-Memory calculations...</span>
+            </div>
+          </div>
+        </article>
+
         <!-- 2026 先進節點 SRAM Scaling Wall 與 3D 堆疊快取修復邊界 -->
         <div class="sram-wall-boundary" style="margin-top: 24px; background: rgba(245, 248, 250, 0.85); border: 1px solid rgba(0, 102, 103, 0.25); border-radius: 8px; padding: 22px 24px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
@@ -3108,5 +3330,6 @@
   <script type="module" src="cpo-siph-nvm-simulator.js?v=20261006"></script>
   <script type="module" src="hbm4-base-die-repair-probe-simulator.js?v=20261006"></script>
   <script type="module" src="cxl-memory-pooling-simulator.js?v=20261006"></script>
+  <script type="module" src="cim-neuromorphic-mac-simulator.js?v=20261007"></script>
 </body>
 </html>
