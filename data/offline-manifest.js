@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "d58b3777dc0d5024415d",
+  "version": "66d208428b37161d747d",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -45,6 +45,7 @@ self.NVMOfflineManifest = {
     "cryo-qubit-readout-simulator.js",
     "cryo-radhard-nvm-simulator.js",
     "cryogenic-nvm-physics-simulator.js",
+    "cu-cu-hybrid-bonding-stress-simulator.js",
     "cxl-memory-pooling-simulator.js",
     "data/ai-nvm-opportunities-knowledge.json",
     "data/named-nvm-comparison.json",
@@ -194,6 +195,7 @@ self.NVMOfflineManifest = {
     "cryo-qubit-readout-simulator.js": "f5422d53c014a9c1a4b01d936326cc3a2a35099b0226a8cd447564e7f50922f2",
     "cryo-radhard-nvm-simulator.js": "761c2606c6c13236beb28e9c0d9b8da6333d1fa0a68c622c749ccb099ede729d",
     "cryogenic-nvm-physics-simulator.js": "00cc5d14547921cfbe1f498cb3dffe7401007b8c9215851003953c2936d7667e",
+    "cu-cu-hybrid-bonding-stress-simulator.js": "4439a8525570ecb0aee75fc3f8762afb62d8bbce30ab31d6d69e7987d77260cf",
     "cxl-memory-pooling-simulator.js": "45c0e514007b4b8f772eb4e99ef24a61304327f29035dac5281385999bd9e0ab",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "data/named-nvm-comparison.json": "69f18cd39e195164c8139e9079d4c8df2647a8c74b3ff826c667304f12330de1",
@@ -286,7 +288,7 @@ self.NVMOfflineManifest = {
     "subthreshold-lowvoltage-nvm-simulator.js": "edaeb1c2aa47d0ef560d8e55b1439822855c710f405adc35c74bf670e36caf2c",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "tddb-weibull-simulator.js": "274fd88c6926196adb869f6f0ee17cc721f4bebb6e41b2ec2ca064a168b7490a",
-    "technology-comparison.html": "a8711ae2a99599c46e79d36de2c87a50d64be228984e7b3f1d20ab6842a18df5",
+    "technology-comparison.html": "823bddae72eadf1a3fd50d359868e9fa873871b76991a1ced56d603c20e835d6",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "80433c36dca9ba4fb9940765a7264801e347af32d22940f2ae79d0a98a49735a",
@@ -298,5 +300,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "1a80caf7221a052c98828693d10982531f3fcba482cc0c1db82dfdabf8d4c83e",
     "whitepaper/index.html": "5ce3b260608904f45d28e2bd417fddc25661be9900fae2a1c818414f10d81f2c"
   },
-  "totalBytes": 12994632
+  "totalBytes": 13048679
 };

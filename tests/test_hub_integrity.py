@@ -2077,6 +2077,26 @@ def run_tests() -> None:
     test("specialty-nvm.html 包含六大 KPI 輸出欄位 (SS, Bandgap, Freeze-out, Read Power, Coherence, Rating) 與判定橫幅",
          'id="cryo-out-ss"' in spec_cryo_html and 'id="cryo-out-eg"' in spec_cryo_html and 'id="cryo-out-freeze"' in spec_cryo_html and 'id="cryo-out-readpower"' in spec_cryo_html and 'id="cryo-out-coherence"' in spec_cryo_html and 'id="cryo-out-rating"' in spec_cryo_html and 'id="cryo-out-verdict"' in spec_cryo_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 89: 3D 晶圓堆疊 Cu-Cu 混合鍵合 (Direct Cu-Cu Hybrid Bonding / WoW / CoW) 熱膨脹應變與位錯漏電模擬器 (technology-comparison.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 89: 3D 晶圓堆疊 Cu-Cu 混合鍵合熱應變與位錯漏電物理模擬器 ═══")
+    cucu_js = (BASE / "cu-cu-hybrid-bonding-stress-simulator.js").read_text(encoding="utf-8")
+    test("cu-cu-hybrid-bonding-stress-simulator.js 存在且導出 CuCuHybridBondingSimulator 類別",
+         "export class CuCuHybridBondingSimulator" in cucu_js and "computePhysics" in cucu_js)
+    test("cu-cu-hybrid-bonding-stress-simulator.js 包含四大 3D 封裝預設與四大 eNVM 候選技術",
+         "tsmc-soic" in cucu_js and "intel-foveros" in cucu_js and "sony-cis" in cucu_js and "extreme-stress" in cucu_js and "antifuse" in cucu_js and "mram" in cucu_js and "reram" in cucu_js and "eflash" in cucu_js)
+    test("cu-cu-hybrid-bonding-stress-simulator.js 第一性原理 CMP 銅凹陷閉合、退火殘留熱應力、壓電通道漂移與禁制保留區 KOZ 模型",
+         "closureMarginNm" in cucu_js and "sigmaPeakMPa" in cucu_js and "vthShiftMv" in cucu_js and "finalKozUm" in cucu_js and "leakageSurgeFactor" in cucu_js)
+    test("cu-cu-hybrid-bonding-stress-simulator.js 包含雙畫布動態渲染 (微觀界面形變剖面與徑向應力衰減曲線)",
+         "cu-canvas-cross" in cucu_js and "cu-canvas-stress" in cucu_js and "renderCanvasCross" in cucu_js and "renderCanvasStress" in cucu_js)
+
+    tech_cucu_html = (BASE / "technology-comparison.html").read_text(encoding="utf-8")
+    test("technology-comparison.html 整合 sec-3d-cu-hybrid-bonding 章節與 cu-bonding-simulator-root 工作台",
+         'id="sec-3d-cu-hybrid-bonding"' in tech_cucu_html and 'id="cu-bonding-simulator-root"' in tech_cucu_html and 'cu-cu-hybrid-bonding-stress-simulator.js' in tech_cucu_html)
+    test("technology-comparison.html 包含四大預設按鈕、四大參數控制、四大 KPI 指標卡與 3D 堆疊 eNVM 可靠度對比矩陣表格",
+         'class="cu-btn-preset' in cucu_js and 'id="cu-out-margin"' in cucu_js and 'id="cu-out-stress"' in cucu_js and 'id="cu-out-vth"' in cucu_js and 'id="cu-out-koz"' in cucu_js and 'AntiFuse OTP (0-Mask 微絲)' in tech_cucu_html and 'STT-MRAM (垂直 MTJ)' in tech_cucu_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
