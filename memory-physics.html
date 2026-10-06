@@ -2637,6 +2637,201 @@
           </div>
         </article>
 
+        <!-- Physical Model 09: Sub-2nm GAA Backside Power Delivery (BSPDN / PowerVia) eNVM Parasitic Coupling & IR-Drop Dynamic Simulator -->
+        <article class="paper-card physics-model-card" id="bspdn-envm-simulator-root" style="margin-top: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <p class="paper-kicker" style="margin: 0 0 4px;"><span data-lang="zh">物理模型 09</span><span data-lang="en">PHYSICAL MODEL 09</span></p>
+              <h3 style="margin: 0; font-size: 18px; color: #0f172a;"><span data-lang="zh">次奈米 A16/A14 GAA 背面供電網 (BSPDN / PowerVia) eNVM 寄生耦合與動態壓降試算器</span><span data-lang="en">Sub-2nm A16/A14 GAA Backside Power Delivery (BSPDN / PowerVia) eNVM IR-Drop Simulator</span></h3>
+            </div>
+            <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(56, 189, 248, 0.1); color: #0284c7; padding: 4px 8px; border-radius: 4px;">
+              <span data-lang="zh">次 2nm 埃米供電物理</span>
+              <span data-lang="en">Sub-2nm Angstrom Power Physics</span>
+            </span>
+          </div>
+
+          <p style="font-size: 13px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
+            <span data-lang="zh">次 2nm 節點（TSMC A16 SPR、Intel 14A PowerVia、Samsung SF1.4）導入背面供電網 (BSPDN)，透過微型矽通孔 (Nano-TSV / TSC) 直連電晶體源極/汲極。本模擬器第一性原理數值求解大電流編程（10–15 mA）下正面 18 層金屬（FSPDN）與背面厚銅（BSPDN）之動態 IR-Drop、L(di/dt) 電感噪訊、晶圓減薄散熱與 Arrhenius TDDB 壽命增益對比。</span>
+            <span data-lang="en">At sub-2nm nodes (TSMC A16 SPR, Intel 14A PowerVia, Samsung SF1.4), Backside Power Delivery Networks (BSPDN) route supply lines through Nano-TSV/TSC direct contacts. This simulator provides first-principles numerical modeling of transient IR-drop, L(di/dt) inductive noise, wafer-thinning heat dissipation, and Arrhenius TDDB lifetime gain during 10–15 mA write pulses compared to conventional 18-tier Front-Side PDN (FSPDN).</span>
+          </p>
+
+          <!-- 6-Dimension Architectural Comparison Matrix (BSPDN vs FSPDN) -->
+          <div style="overflow-x: auto; margin-bottom: 18px;">
+            <table class="paper-table" style="width: 100%; font-size: 11.5px; border-collapse: collapse;" aria-label="Sub-2nm BSPDN vs FSPDN Architecture Comparison" data-aria-en="Sub-2nm BSPDN vs FSPDN Architecture Comparison" data-aria-zh="次奈米背面供電與傳統正面供電架構對比矩陣">
+              <caption class="sr-only"><span data-lang="zh">次奈米背面供電網與傳統正面供電架構之微觀特性對比</span><span data-lang="en">Sub-2nm Backside PDN vs Conventional Frontside PDN Architecture Comparison</span></caption>
+              <thead>
+                <tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;">
+                  <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">供電架構類型</span><span data-lang="en">PDN Architecture</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">迴路等效線阻 (R_PDN)</span><span data-lang="en">Loop Resistance</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">寄生電感 (L_PDN)</span><span data-lang="en">Loop Inductance</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">瞬態 IR-Drop 壓降</span><span data-lang="en">Transient IR-Drop</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">熱阻與接面溫降</span><span data-lang="en">Thermal Resistance</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">eNVM 寫入可靠度效益</span><span data-lang="en">eNVM Write Reliability</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">TSMC A16 NanoFlex SPR</th>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">1.85 &Omega; (-87%)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">0.14 nH (-90%)</td>
+                  <td style="padding: 8px 10px; color: #059669; font-weight: 600;">22.2 mV (<span data-lang="zh">超低壓降</span><span data-lang="en">Ultra-low drop</span>)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">48.5 K/W (-28 K/W)</td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">寫入良率 99.9999%，TDDB 壽命提升 3.8x</span><span data-lang="en">99.9999% yield, 3.8x TDDB lifetime</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">Intel 14A PowerVia</th>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">2.10 &Omega; (-86%)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">0.18 nH (-87%)</td>
+                  <td style="padding: 8px 10px; color: #059669; font-weight: 600;">25.2 mV (<span data-lang="zh">超低壓降</span><span data-lang="en">Ultra-low drop</span>)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">52.0 K/W (-24.5 K/W)</td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">信號層擁擠度降 40%，消除寫入 Sag</span><span data-lang="en">Signal congestion -40%, sag eliminated</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #e2e8f0;">
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">Samsung SF1.4 BS-PDN</th>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">2.35 &Omega; (-84%)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">0.22 nH (-84%)</td>
+                  <td style="padding: 8px 10px; color: #059669; font-weight: 600;">28.2 mV (<span data-lang="zh">超低壓降</span><span data-lang="en">Ultra-low drop</span>)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">55.0 K/W (-21.5 K/W)</td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">埋入式電源軌 (BPR) 穩固瞬態大電流</span><span data-lang="en">Buried Power Rail stabilizes write pulse</span></td>
+                </tr>
+                <tr style="background: #fffbeb;">
+                  <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #d97706;"><span data-lang="zh">傳統 3nm 正面 FSPDN 基準</span><span data-lang="en">Conventional 3nm FSPDN Baseline</span></th>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">14.8 &Omega; (<span data-lang="zh">基準</span><span data-lang="en">Baseline</span>)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">1.35 nH (<span data-lang="zh">基準</span><span data-lang="en">Baseline</span>)</td>
+                  <td style="padding: 8px 10px; color: #dc2626; font-weight: 600;">177.6 mV (<span data-lang="zh">嚴重塌陷</span><span data-lang="en">Severe collapse</span>)</td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">76.5 K/W (<span data-lang="zh">熱困擾</span><span data-lang="en">Thermal trapping</span>)</td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">大電流引發振鈴與壓降，軟擊穿風險</span><span data-lang="en">High ringing and sag, soft breakdown risk</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Controls Section -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 16px; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+            <div>
+              <label for="bspdn-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span data-lang="zh">次奈米供電架構預設：</span><span data-lang="en">Sub-2nm PDN Preset:</span>
+              </label>
+              <select id="bspdn-preset-select" aria-label="Sub-2nm PDN Preset" data-aria-en="Sub-2nm PDN Preset" data-aria-zh="次奈米供電架構預設" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+                <option value="tsmc_a16_spr" selected>TSMC A16 NanoFlex SPR (1.6nm)</option>
+                <option value="intel_14a_powervia">Intel 14A PowerVia (1.4nm RibbonFET)</option>
+                <option value="samsung_sf14_bspdn">Samsung SF1.4 BS-PDN (MBCFET GAA)</option>
+                <option value="fspdn_3nm_baseline">Conventional 3nm FSPDN (Baseline)</option>
+              </select>
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span><span data-lang="zh">編程脈衝峰值電流:</span><span data-lang="en">PEAK WRITE CURRENT:</span></span>
+                <span id="bspdn-current-val" style="color: #0284c7; font-weight: 700;">12.0 mA</span>
+              </div>
+              <input type="range" id="bspdn-current-slider" min="5.0" max="25.0" step="0.5" value="12.0" aria-label="Peak Write Pulse Current" data-aria-en="Peak Write Pulse Current" data-aria-zh="編程脈衝峰值電流" aria-valuetext="12.0 mA" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span><span data-lang="zh">脈衝上升時間 (t_rise):</span><span data-lang="en">PULSE RISE TIME:</span></span>
+                <span id="bspdn-rise-val" style="color: #0284c7; font-weight: 700;">0.5 ns</span>
+              </div>
+              <input type="range" id="bspdn-rise-slider" min="0.1" max="2.0" step="0.1" value="0.5" aria-label="Pulse Rise Time" data-aria-en="Pulse Rise Time" data-aria-zh="脈衝上升時間" aria-valuetext="0.5 ns" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+            </div>
+
+            <div>
+              <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+                <span><span data-lang="zh">接面/環境基準溫度:</span><span data-lang="en">BASE JUNCTION TEMP:</span></span>
+                <span id="bspdn-temp-val" style="color: #0284c7; font-weight: 700;">125 °C</span>
+              </div>
+              <input type="range" id="bspdn-temp-slider" min="25" max="175" step="5" value="125" aria-label="Base Junction Temperature" data-aria-en="Base Junction Temperature" data-aria-zh="接面環境基準溫度" aria-valuetext="125 °C" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+            </div>
+          </div>
+
+          <!-- KPI Cards Strip (6 KPIs) -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                <span data-lang="zh">瞬態歐姆壓降 IR-DROP</span><span data-lang="en">DYNAMIC IR-DROP</span>
+              </div>
+              <div id="bspdn-out-irdrop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">ΔV = I_peak · R_PDN</span><span data-lang="en">I_peak · R_PDN</span>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                <span data-lang="zh">電感切換噪訊 L·di/dt</span><span data-lang="en">INDUCTIVE NOISE</span>
+              </div>
+              <div id="bspdn-out-indnoise" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">Nano-TSV 迴路電感</span><span data-lang="en">Nano-TSV loop noise</span>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                <span data-lang="zh">內部有效寫入電壓</span><span data-lang="en">EFFECTIVE VDD</span>
+              </div>
+              <div id="bspdn-out-effvdd" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">防硬擊穿臨界下限</span><span data-lang="en">Breakdown headroom</span>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                <span data-lang="zh">局部熱點溫降 ΔT</span><span data-lang="en">HOTSPOT DROP</span>
+              </div>
+              <div id="bspdn-out-tempdrop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">背面厚銅熱沉效益</span><span data-lang="en">Thick Cu heat spreader</span>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                <span data-lang="zh">TDDB 壽命增益倍數</span><span data-lang="en">TDDB LIFETIME GAIN</span>
+              </div>
+              <div id="bspdn-out-gain" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a855f7;">—</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">Arrhenius 活化能推導</span><span data-lang="en">Arrhenius Ea=0.7eV</span>
+              </div>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+              <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+                <span data-lang="zh">編程良率預測</span><span data-lang="en">WRITE YIELD</span>
+              </div>
+              <div id="bspdn-out-yield" style="font: 700 12px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+              <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                <span data-lang="zh">6-Sigma 邊界評級</span><span data-lang="en">6-Sigma assessment</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Canvas Visualization -->
+          <div style="background: #08131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+              <div style="display: inline-flex; gap: 6px;" role="group" aria-label="BSPDN Visualization Mode" data-aria-en="BSPDN Visualization Mode" data-aria-zh="背面供電視覺化模式">
+                <button id="bspdn-mode-transient" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                  <span data-lang="zh">瞬態供電電壓軌波形與動態壓降 (0-6ns)</span><span data-lang="en">Transient VDD Waveform &amp; IR-Drop</span>
+                </button>
+                <button id="bspdn-mode-thermal" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                  <span data-lang="zh">熱阻散逸與 TDDB Weibull 壽命增益曲線</span><span data-lang="en">Thermal Dissipation &amp; TDDB Gain</span>
+                </button>
+              </div>
+              <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">Sub-2nm Angstrom Backside Power Solver</span>
+            </div>
+            <div style="width: 100%; height: 180px; position: relative;">
+              <canvas id="bspdn-canvas" width="420" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Sub-2nm BSPDN Transient IR-Drop Simulation Canvas" data-aria-en="Sub-2nm BSPDN Transient IR-Drop Simulation Canvas" data-aria-zh="次奈米背面供電瞬態壓降模擬畫布"></canvas>
+            </div>
+          </div>
+
+          <!-- Architectural Insight Callout -->
+          <div style="background: rgba(2, 132, 199, 0.06); border-left: 3px solid #0284c7; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
+            <span id="bspdn-out-verdict">Loading Sub-2nm BSPDN eNVM calculations...</span>
+          </div>
+        </article>
+
         <div class="f1-evidence-links">
           <b><span data-lang="zh">關聯技術與物理文獻</span><span data-lang="en">Related Physics &amp; Papers</span></b>
           <a href="technology-comparison.html#sec-physics">TC · <span data-lang="zh">第一性原理方程式對比</span><span data-lang="en">First-principles equation benchmark</span></a>
@@ -3252,5 +3447,6 @@
   <script type="module" src="tddb-weibull-simulator.js?v=20261005"></script>
   <script type="module" src="cryogenic-nvm-physics-simulator.js?v=20261005"></script>
   <script type="module" src="cryo-qubit-readout-simulator.js?v=20261005"></script>
+  <script type="module" src="bspdn-envm-ir-drop-simulator.js?v=20261006"></script>
 </body>
 </html>
