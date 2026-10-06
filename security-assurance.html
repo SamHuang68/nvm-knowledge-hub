@@ -821,6 +821,195 @@
       </article>
     </section>
 
+    <section id="pqc-storage-section" class="section">
+      <header class="section-head">
+        <div>
+          <p class="kicker"><span data-lang="zh">01C / 後量子密碼硬體信任根</span><span data-lang="en">01C / POST-QUANTUM HARDWARE ROOT-OF-TRUST</span></p>
+          <h2>
+            <span data-lang="zh">格密碼金鑰膨脹 50–150 倍；<br><em>分層種子展開守住非揮發性矽面積</em></span>
+            <span data-lang="en">Lattice keys inflate by 50–150x;<br><em>tiered seed derivation preserves non-volatile silicon area</em></span>
+          </h2>
+        </div>
+        <p>
+          <span data-lang="zh">NIST FIPS 203 (ML-KEM) 與 FIPS 204 (ML-DSA) 後量子密碼標準之私鑰達 1,632–4,896 Bytes。若以晶片內 eNVM 直接存儲完整多項式，面積將造成嚴重成本懲罰。本模擬器展示 0-Mask AntiFuse 存儲 256/512-bit 根種子，透過硬體 PRNG 展開多項式矩陣，結合高階遮罩防禦 DPA 側信道洩漏。</span>
+          <span data-lang="en">NIST FIPS 203 (ML-KEM) and FIPS 204 (ML-DSA) PQC standards require 1,632–4,896 bytes of private key material. Storing full polynomial matrices in on-chip eNVM imposes prohibitive silicon area penalties. This simulator demonstrates how 0-Mask AntiFuse secures a 256/512-bit root seed with hardware PRNG expansion and higher-order masking to mitigate DPA side-channel leakage.</span>
+        </p>
+      </header>
+
+      <!-- 6-Dimension PQC Storage Comparison Matrix -->
+      <div style="overflow-x: auto; margin-bottom: 20px;">
+        <table class="paper-table" style="width: 100%; font-size: 11.5px; border-collapse: collapse;" aria-label="PQC Key Storage Architecture Comparison Matrix" data-aria-en="PQC Key Storage Architecture Comparison Matrix" data-aria-zh="後量子密碼金鑰儲存架構對比矩陣">
+          <caption class="sr-only"><span data-lang="zh">PQC 原生私鑰全儲存與分層 AntiFuse 種子展開架構特性對比</span><span data-lang="en">PQC Raw Key Storage vs Tiered AntiFuse Seed Derivation Architecture Comparison</span></caption>
+          <thead>
+            <tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;">
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">儲存架構方案</span><span data-lang="en">Storage Architecture</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">非揮發性記憶體預算</span><span data-lang="en">NVM Budget</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">矽晶圓面積縮減</span><span data-lang="en">Area Reduction</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">晶圓測試時間 (CP)</span><span data-lang="en">Wafer Test Time</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">DPA 側信道防護 MTD</span><span data-lang="en">DPA Defense MTD</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">NIST / FIPS 信任根等級</span><span data-lang="en">FIPS Root-of-Trust</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;"><span data-lang="zh">0-Mask AntiFuse 根種子衍生</span><span data-lang="en">0-Mask AntiFuse Seed Derivation</span></th>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #059669; font-weight: 600;">32–64 Bytes (256/512-bit)</td>
+              <td style="padding: 8px 10px; color: #059669; font-weight: 600;">50x–126x (98%–99%)</td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&lt; 15 ms / die</td>
+              <td style="padding: 8px 10px; color: #059669; font-weight: 600;">&gt; 2.5e7 traces (<span data-lang="zh">高階遮罩</span><span data-lang="en">Higher-order masking</span>)</td>
+              <td style="padding: 8px 10px;"><span data-lang="zh">FIPS 140-3 Level 4 / SESIP L5</span><span data-lang="en">FIPS 140-3 Level 4 / SESIP L5</span></td>
+            </tr>
+            <tr style="background: #fffbeb;">
+              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #d97706;"><span data-lang="zh">原生多項式矩陣全容量儲存</span><span data-lang="en">Raw Polynomial Direct Storage</span></th>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #dc2626; font-weight: 600;">1,632–4,896 Bytes</td>
+              <td style="padding: 8px 10px; color: #dc2626;">1.0x (<span data-lang="zh">基準，面積龐大</span><span data-lang="en">Baseline, high area</span>)</td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 850 ms / die</td>
+              <td style="padding: 8px 10px; color: #dc2626;">&lt; 1.0e4 traces (<span data-lang="zh">讀出軌跡暴露</span><span data-lang="en">Exposed trace</span>)</td>
+              <td style="padding: 8px 10px;"><span data-lang="zh">常規商用（難以防範高階 DPA）</span><span data-lang="en">Commercial Only</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- PQC Storage Simulator Workbench Root -->
+      <article id="pqc-key-storage-simulator-root" class="paper-card physics-model-card" style="margin-top: 14px; background: #ffffff; border: 1px solid rgba(2, 132, 199, 0.3); border-radius: 8px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
+          <div>
+            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span data-lang="zh">第一性原理 PQC 密碼工程 · 信任根金鑰儲存試算器</span>
+              <span data-lang="en">FIRST-PRINCIPLES PQC CRYPTO · HARDWARE ROT SIMULATOR</span>
+            </span>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+              <span data-lang="zh">後量子密碼 (ML-KEM / ML-DSA) 金鑰儲存預算與側信道防禦試算器</span>
+              <span data-lang="en">Post-Quantum (ML-KEM/ML-DSA) Key Storage &amp; Side-Channel Simulator</span>
+            </h3>
+          </div>
+          <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.1); color: #0284c7; padding: 4px 8px; border-radius: 4px;">
+            <span data-lang="zh">NIST FIPS 203 / 204 標準</span>
+            <span data-lang="en">NIST FIPS 203 / 204 Standards</span>
+          </span>
+        </div>
+
+        <p style="font-size: 13px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
+          <span data-lang="zh">精確模擬 ML-KEM-512/768/1024 與 ML-DSA-65/87 在全私鑰存儲與 0-Mask AntiFuse 根種子（32/64 Bytes）衍生架構下的矽晶圓面積開銷、測試時間、以及結合布林/算術遮罩時 DPA 側信道最小洩漏採樣次數（MTD）。</span>
+          <span data-lang="en">Simulates silicon area overhead, CP test times, and DPA Minimum Traces to Disclose (MTD) between raw key storage and 0-Mask AntiFuse root seed (32/64 Bytes) expansion across ML-KEM-512/768/1024 and ML-DSA-65/87 algorithms.</span>
+        </p>
+
+        <!-- Controls Section -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 16px; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+          <div>
+            <label for="pqc-algo-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">PQC 密碼演算法：</span><span data-lang="en">PQC Algorithm:</span>
+            </label>
+            <select id="pqc-algo-select" aria-label="PQC Algorithm" data-aria-en="PQC Algorithm" data-aria-zh="PQC 密碼演算法" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+              <option value="ml_kem_512">ML-KEM-512 (FIPS 203, Cat 1)</option>
+              <option value="ml_kem_768" selected>ML-KEM-768 (FIPS 203, Cat 3, Mainstream)</option>
+              <option value="ml_kem_1024">ML-KEM-1024 (FIPS 203, Cat 5, Military)</option>
+              <option value="ml_dsa_65">ML-DSA-65 (FIPS 204, Cat 3 Signature)</option>
+              <option value="ml_dsa_87">ML-DSA-87 (FIPS 204, Cat 5 Signature)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="pqc-arch-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">非揮發性儲存策略：</span><span data-lang="en">NVM Storage Strategy:</span>
+            </label>
+            <select id="pqc-arch-select" aria-label="NVM Storage Strategy" data-aria-en="NVM Storage Strategy" data-aria-zh="非揮發性儲存策略" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+              <option value="antifuse_seed_expansion" selected>0-Mask AntiFuse Seed Expansion (32/64B)</option>
+              <option value="pure_raw_storage">Pure Raw Key Storage (1.6KB - 4.9KB)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="pqc-mask-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">側信道防護遮罩階數：</span><span data-lang="en">Side-Channel Masking Order:</span>
+            </label>
+            <select id="pqc-mask-select" aria-label="Side-Channel Masking Order" data-aria-en="Side-Channel Masking Order" data-aria-zh="側信道防護遮罩階數" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+              <option value="0">Order 0 (Unmasked Baseline)</option>
+              <option value="1" selected>Order 1 (Boolean Masking + Twin-Cell)</option>
+              <option value="2">Order 2 (Higher-Order Arithmetic Masking)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- KPI Metric Cards (5 KPIs) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">原生私鑰容量</span><span data-lang="en">RAW KEY SIZE</span>
+            </div>
+            <div id="pqc-out-rawsize" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">完整多項式向量</span><span data-lang="en">Full poly vector</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">實體種子儲存預算</span><span data-lang="en">SEED BUDGET</span>
+            </div>
+            <div id="pqc-out-seedsize" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">AntiFuse 根金鑰</span><span data-lang="en">AntiFuse root key</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">面積縮減與節省比</span><span data-lang="en">AREA REDUCTION</span>
+            </div>
+            <div id="pqc-out-savings" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">矽面積開銷節約</span><span data-lang="en">Silicon area saved</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">DPA 破解採樣門檻</span><span data-lang="en">DPA MTD TRACES</span>
+            </div>
+            <div id="pqc-out-mtd" style="font: 700 14px 'IBM Plex Mono', monospace; color: #a855f7;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">側信道抗攻擊防護</span><span data-lang="en">Side-channel metric</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">FIPS 信任根評級</span><span data-lang="en">FIPS ROT RATING</span>
+            </div>
+            <div id="pqc-out-rating" style="font: 700 11px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">硬體安全保證</span><span data-lang="en">Hardware assurance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Canvas Visualization -->
+        <div style="background: #08131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+            <div style="display: inline-flex; gap: 6px;" role="group" aria-label="PQC Storage Visualization Mode" data-aria-en="PQC Storage Visualization Mode" data-aria-zh="PQC 儲存視覺化模式">
+              <button id="pqc-mode-footprint" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                <span data-lang="zh">原生私鑰 vs AntiFuse 種子儲存預算對比 (Bytes)</span><span data-lang="en">Raw Key vs Seed Budget</span>
+              </button>
+              <button id="pqc-mode-mtd" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                <span data-lang="zh">側信道遮罩階數 vs DPA 採樣痕跡 MTD 曲線</span><span data-lang="en">Masking Order vs DPA MTD</span>
+              </button>
+            </div>
+            <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">Post-Quantum Hardware Security Solver</span>
+          </div>
+          <div style="width: 100%; height: 180px; position: relative;">
+            <canvas id="pqc-storage-canvas" width="420" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="PQC Key Storage and Side-Channel Simulation Canvas" data-aria-en="PQC Key Storage and Side-Channel Simulation Canvas" data-aria-zh="PQC 金鑰儲存與側信道模擬畫布"></canvas>
+          </div>
+        </div>
+
+        <!-- Architectural Insight Callout -->
+        <div style="background: rgba(2, 132, 199, 0.06); border-left: 3px solid #0284c7; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
+          <span id="pqc-out-verdict">Loading Post-Quantum Storage calculations...</span>
+        </div>
+      </article>
+    </section>
+
     <section id="windows" class="section windows">
       <header class="section-head"><div><p class="kicker" data-zh="02 / 攻擊時窗生命週期" data-en="02 / ATTACK-WINDOW LIFECYCLE">02 / ATTACK-WINDOW LIFECYCLE</p><h2 data-zh="根金鑰沒有永久位址；風險仍有明確時窗" data-en="The root has no permanent address; risk still has windows">The root has no permanent address; risk still has windows</h2></div><p data-zh="選擇生命週期階段，查看資產、攻擊面、測試問題與預期安全結果。" data-en="Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.">Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.</p></header>
       <div class="window-layout">
@@ -890,6 +1079,7 @@
   <script type="module" src="attack-resistance-evaluator.js?v=20261005"></script>
   <script type="module" src="puf-nist-randomness-evaluator.js?v=20261005"></script>
   <script type="module" src="rad-hard-nvm-simulator.js?v=20261006"></script>
+  <script type="module" src="pqc-hardware-rot-ledger-simulator.js?v=20261006"></script>
   <script type="module">
     import { initPqcDpaSimulator } from './pqc-rot-dpa-simulator.js';
     document.addEventListener('DOMContentLoaded', () => {

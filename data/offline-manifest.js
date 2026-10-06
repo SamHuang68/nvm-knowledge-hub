@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "cc7b4dab809e3810313f",
+  "version": "2d3a87b026997f5e1898",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -101,6 +101,7 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas.js",
     "oip-lifecycle.js",
     "oip-secure-storage.html",
+    "pqc-hardware-rot-ledger-simulator.js",
     "pqc-key-storage-simulator.js",
     "pqc-rot-budget-calculator.js",
     "pqc-rot-dpa-simulator.js",
@@ -227,7 +228,7 @@ self.NVMOfflineManifest = {
     "literature-paper.js": "a1538790b2cd1d40c727f15562caaf8935da210543c70c197675bdacae26c40a",
     "matrix-interactive.js": "00bb70e047b0aa9b5c7eedb195af4a8e8f1dba16d830ac55699db6187222b41e",
     "mcu-vector-patch-simulator.js": "12eec310c779f6fc1894da56a116892f4e9d63c84f838af5faae76d36504c819",
-    "memory-evidence.html": "b659bdef3a0df4536faa5d853df42feaee0629d6c556ba6870ccd09f7477fdde",
+    "memory-evidence.html": "e50dccb221d076d3a0f85f97423e3105057f53fe2aad1c0bdc58ff28b2c72a4c",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
     "memory-physics.html": "09fe5c7379c9c43e2fdb59a6580179db71c2c4fa5450ea787effa11f937ae8c8",
@@ -247,6 +248,7 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas.js": "ff8031f3b5b2518e5d3757b2e0e51422b54ad3a150611943a472d0ed4ac5e80a",
     "oip-lifecycle.js": "32485842eab3b8704e829b25b3ca16978d993106eb5a322e3d7bf4d4ec7eabef",
     "oip-secure-storage.html": "0c0968fa1a19ef03a2084959edb1f01b75a5298a3c5ca815b5756204ad7fda4c",
+    "pqc-hardware-rot-ledger-simulator.js": "8bb6ee038db59cb98485ac6936397745184c52739afb020283b06ee8542652f4",
     "pqc-key-storage-simulator.js": "c760b1300960a5f62047851f606cf993387142a34ab424f1a8d22a79286dc7a3",
     "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
     "pqc-rot-dpa-simulator.js": "a0034d3f4310de3d7491657f990ccadd797409e08769ee714f0bb37e0a06175c",
@@ -260,7 +262,7 @@ self.NVMOfflineManifest = {
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "06b1c15b913ec3f1c997017ce471ee44f2a4ddd7b19c479b077ca2c760266d45",
     "secure-storage.html": "69af6e727d1499d2a3116656e094da2d04f3a2a096141624a76be08680df414a",
-    "security-assurance.html": "120bf4b1398c4e79890beeaf55bc808ba5f221937b6cde2ad26eb04ceb14a46f",
+    "security-assurance.html": "701bdd472cf0672bbeedf103fa7a745ab8dd8a1caaa0ec9b076030cf1fb5c36e",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "95c7b574d75f1d06c7e121cb14489b2bea210649e5d15ad7d97aae7a5d86d1a7",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
@@ -292,5 +294,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "1a80caf7221a052c98828693d10982531f3fcba482cc0c1db82dfdabf8d4c83e",
     "whitepaper/index.html": "5ce3b260608904f45d28e2bd417fddc25661be9900fae2a1c818414f10d81f2c"
   },
-  "totalBytes": 12857682
+  "totalBytes": 12904439
 };
