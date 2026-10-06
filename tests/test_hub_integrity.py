@@ -1941,6 +1941,28 @@ def run_tests() -> None:
     test("ai-nvm-opportunities.html 包含四大 KPI 輸出欄位 (Latency, Utilization, Poison Time, Saved Capex, Rating) 與判定橫幅",
          'id="cxl-out-latency"' in ai_cxl_html and 'id="cxl-out-utilization"' in ai_cxl_html and 'id="cxl-out-poison-time"' in ai_cxl_html and 'id="cxl-out-saved"' in ai_cxl_html and 'id="cxl-out-rating"' in ai_cxl_html and 'id="cxl-out-verdict"' in ai_cxl_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 83: CPO 矽光波導熱漂移、MZI 相位偏置與 MTP 閉迴路 DAC 補償模擬器 (specialty-nvm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 83: CPO 矽光波導熱漂移、MZI 相位偏置與 MTP 閉迴路 DAC 補償模擬器 ═══")
+    trim_js = (BASE / "cpo-optical-trim-simulator.js").read_text(encoding="utf-8")
+    test("cpo-optical-trim-simulator.js 存在且導出 calculateCpoTrimMetrics、drawCpoTrimCanvas 與 initCpoTrimSimulator",
+         "export function calculateCpoTrimMetrics" in trim_js and "export function drawCpoTrimCanvas" in trim_js and "export function initCpoTrimSimulator" in trim_js)
+    test("cpo-optical-trim-simulator.js 包含四大光引擎架構預設與三大調諧策略",
+         "CPO_TRIM_SYSTEM_PRESETS" in trim_js and "cpo_switch_51t_coupe" in trim_js and "oci_chiplet_ai_cluster" in trim_js and "neuromorphic_mzi_mesh" in trim_js and "els_fp_external_laser" in trim_js and "CPO_TRIM_TECH_POLICIES" in trim_js and "ld_mtp_closed_loop" in trim_js and "antifuse_factory_lock" in trim_js and "active_heater_continuous" in trim_js)
+    test("cpo-optical-trim-simulator.js 第一性原理熱光效應、中心波長溫漂、MZI 相位偏差、DAC 量化步階、消光比與節省調諧功耗模型",
+         "thermoOpticCoeff" in trim_js and "wavelengthDriftNm" in trim_js and "rawPhaseDriftRad" in trim_js and "residualPhaseErrorRad" in trim_js and "extinctionRatioDb" in trim_js and "savedTuningPowerW" in trim_js and "rating" in trim_js and "verdictZh" in trim_js)
+    test("cpo-optical-trim-simulator.js 包含雙模態視覺化 (spectrum_shift 與 dac_er_tradeoff)",
+         "spectrum_shift" in trim_js and "dac_er_tradeoff" in trim_js)
+
+    spec_trim_html = (BASE / "specialty-nvm.html").read_text(encoding="utf-8")
+    test("specialty-nvm.html 整合 cpo-optical-trim-simulator-root 工作台、cpo-optical-trim-section 與模組腳本引用",
+         'id="cpo-optical-trim-simulator-root"' in spec_trim_html and 'id="cpo-optical-trim-section"' in spec_trim_html and 'cpo-optical-trim-simulator.js' in spec_trim_html)
+    test("specialty-nvm.html 包含預設選單、策略選單、溫差/DAC位元/通道數三軸滑桿與雙模態 Canvas",
+         'id="cpo-trim-preset-select"' in spec_trim_html and 'id="cpo-trim-policy-select"' in spec_trim_html and 'id="cpo-trim-temp-slider"' in spec_trim_html and 'id="cpo-trim-dac-slider"' in spec_trim_html and 'id="cpo-trim-channels-slider"' in spec_trim_html and 'id="cpo-trim-canvas"' in spec_trim_html)
+    test("specialty-nvm.html 包含五大 KPI 輸出欄位 (Drift, Phase, ER, Power, Rating) 與判定橫幅",
+         'id="cpo-trim-out-drift"' in spec_trim_html and 'id="cpo-trim-out-phase"' in spec_trim_html and 'id="cpo-trim-out-er"' in spec_trim_html and 'id="cpo-trim-out-power"' in spec_trim_html and 'id="cpo-trim-out-rating"' in spec_trim_html and 'id="cpo-trim-out-verdict"' in spec_trim_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

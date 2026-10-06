@@ -3913,7 +3913,294 @@
 </div>
 </div>
 </div>
-</div>
+</section>
+
+<!-- =========================================================
+     TOPIC 05: CPO OPTICAL WAVEGUIDE THERMAL DRIFT & MTP PHASE TRIM
+     ========================================================= -->
+<section class="topic-section lens-panel reveal" id="cpo-optical-trim-section" style="margin-top: 36px;">
+  <div class="topic-container">
+    <header class="topic-header">
+      <div class="topic-header-row">
+        <div class="topic-ghost-badge">
+          <span data-lang="zh">05 · CPO 矽光子熱移微調與 MTP 相位補償</span>
+          <span data-lang="en">05 · CPO OPTICAL DRIFT &amp; MTP PHASE TRIM</span>
+        </div>
+        <div class="status-verified">
+          <span data-lang="zh">第一性原理物理模型</span>
+          <span data-lang="en">FIRST-PRINCIPLES PHYSICS</span>
+        </div>
+      </div>
+      <h2>
+        <span data-lang="zh">CPO 共同封裝光學矽光波導熱移微調<br><em>MTP 閉迴路 DAC 偏置補償與眼圖抖動防禦</em></span>
+        <span data-lang="en">Co-Packaged Optics Waveguide Thermal Drift Phase Trim<br><em>MTP Closed-Loop DAC Bias Compensation &amp; Jitter Guard</em></span>
+      </h2>
+      <p class="topic-lede">
+        <span data-lang="zh">在 51.2T/102.4T 交換器與 AI 叢集光互連 (Optical I/O) 中，EIC（電子晶粒）與 PIC（光子晶粒）透過 2.5D/3D 緊密共封裝。矽材料強烈的熱光效應 (dn/dT ≈ 1.86 × 10⁻⁴ K⁻¹) 使得微環諧振器 (MRR) 與馬赫-曾德爾干涉儀 (MZI) 的共振波長與相位極易隨 ASIC 熱負載漂移。採用晶粒內嵌低擾動 MTP (LD-MTP) 建立動態閉迴路 DAC 偏置查表，可杜絕傳統加熱器高達 25–35 mW/ch 的靜態發熱死鎖，確保極限溫差下消光比 &gt; 12 dB 與次皮秒級眼圖抖動。</span>
+        <span data-lang="en">In 51.2T/102.4T switches and AI cluster Optical I/O, EIC and PIC dies are intimately co-packaged via 2.5D/3D substrates. Silicon's pronounced thermo-optic coefficient (dn/dT ≈ 1.86 × 10⁻⁴ K⁻¹) induces severe wavelength and phase drifts in micro-ring resonators (MRR) and Mach-Zehnder interferometers (MZI) under bursty compute loads. Embedding Low-Disturbance MTP (LD-MTP) for dynamic closed-loop DAC offset lookup tables eliminates the destructive 25–35 mW/ch static heating penalties of active heaters, guaranteeing &gt;12 dB extinction ratio and sub-picosecond eye jitter.</span>
+      </p>
+    </header>
+
+    <!-- 矽光子熱光效應與 MTP 調諧對比表格 -->
+    <div style="overflow-x: auto; margin-bottom: 24px;">
+      <table class="decision-matrix-table" aria-label="CPO Optical Waveguide Thermal Drift and Trim Architecture Matrix" data-aria-en="CPO Optical Waveguide Thermal Drift and Trim Architecture Matrix" data-aria-zh="CPO 矽光波導熱漂移與微調架構對比矩陣" style="width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.5; color: #cbd5e1; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px;">
+        <caption class="sr-only">
+          <span data-lang="zh">CPO 矽光波導熱漂移微調與 NVM 補償架構六維對比矩陣</span>
+          <span data-lang="en">CPO Optical Waveguide Thermal Drift Trim and NVM Compensation Six-Dimensional Matrix</span>
+        </caption>
+        <thead>
+          <tr style="background: rgba(30, 41, 59, 0.8); border-bottom: 2px solid rgba(14, 165, 233, 0.4);">
+            <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #38bdf8;">
+              <span data-lang="zh">微調架構維度</span><span data-lang="en">Trim Dimension</span>
+            </th>
+            <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #f8fafc;">
+              <span data-lang="zh">低擾動 MTP 閉迴路補償 (LD-MTP)</span><span data-lang="en">Low-Disturbance MTP (LD-MTP)</span>
+            </th>
+            <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #f8fafc;">
+              <span data-lang="zh">0-Mask AntiFuse 出廠固化 (OTP)</span><span data-lang="en">0-Mask AntiFuse Lock (OTP)</span>
+            </th>
+            <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #f8fafc;">
+              <span data-lang="zh">傳統連續熱加熱器 (Active Heater)</span><span data-lang="en">Continuous Active Heater</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+            <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+              <span data-lang="zh">1. 熱移校準機制</span><span data-lang="en">1. Calibration Mechanism</span>
+            </th>
+            <td style="padding: 9px 12px; color: #38bdf8; font-weight: 600;">
+              <span data-lang="zh">動態多點電壓 DAC 偏置微調 (閉迴路追蹤)</span><span data-lang="en">Dynamic multi-point DAC bias trim (Closed-loop)</span>
+            </td>
+            <td style="padding: 9px 12px;">
+              <span data-lang="zh">出廠單點固定波長微調鎖定 (開迴路靜態)</span><span data-lang="en">Factory single-point trim lock (Open-loop)</span>
+            </td>
+            <td style="padding: 9px 12px; color: #f87171;">
+              <span data-lang="zh">持續通電熱阻加熱器維持高溫偏置</span><span data-lang="en">Continuous high-power thermal heater bias</span>
+            </td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+            <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+              <span data-lang="zh">2. 線上重複覆寫能力</span><span data-lang="en">2. In-Field Rewritability</span>
+            </th>
+            <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+              <span data-lang="zh">10,000 ~ 100,000 次重複擦寫 (支援老化再校準)</span><span data-lang="en">10K - 100K rewrites (Supports lifecycle recalibration)</span>
+            </td>
+            <td style="padding: 9px 12px;">
+              <span data-lang="zh">單次寫入 (OTP，出廠後不可再次變更)</span><span data-lang="en">Single-write (OTP, immutable post-packaging)</span>
+            </td>
+            <td style="padding: 9px 12px;">
+              <span data-lang="zh">無儲存能力 (揮發性類比驅動控制)</span><span data-lang="en">Zero non-volatile retention (Volatile analog drive)</span>
+            </td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+            <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+              <span data-lang="zh">3. 靜態待機調諧功耗</span><span data-lang="en">3. Static Power Overhead</span>
+            </th>
+            <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+              <span data-lang="zh">&lt; 1.2 mW / 通道 (省電達 95% 以上)</span><span data-lang="en">&lt; 1.2 mW / channel (&gt;95% power reduction)</span>
+            </td>
+            <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+              <span data-lang="zh">&lt; 0.1 mW / 通道 (純被動式零靜態漏電)</span><span data-lang="en">&lt; 0.1 mW / channel (Passive zero static leakage)</span>
+            </td>
+            <td style="padding: 9px 12px; color: #f87171;">
+              <span data-lang="zh">25.0 ~ 35.0 mW / 通道 (64 通道累加達 2.2W 熱負載)</span><span data-lang="en">25.0 - 35.0 mW / channel (2.2W thermal load on 64-ch)</span>
+            </td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+            <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+              <span data-lang="zh">4. 額外製造光罩數</span><span data-lang="en">4. Extra Mask Adders</span>
+            </th>
+            <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+              <span data-lang="zh">0-Mask (標準邏輯 CMOS 完全相容)</span><span data-lang="en">0-Mask (Native standard logic CMOS)</span>
+            </td>
+            <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+              <span data-lang="zh">0-Mask (介電質擊穿反熔絲原生整合)</span><span data-lang="en">0-Mask (Native dielectric breakdown)</span>
+            </td>
+            <td style="padding: 9px 12px; color: #f87171;">
+              <span data-lang="zh">+1 ~ 2 Masks (TiN / NiCr 金屬加熱薄膜電阻光罩)</span><span data-lang="en">+1 to 2 Masks (TiN/NiCr thin-film resistor layers)</span>
+            </td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+            <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+              <span data-lang="zh">5. 消光比與眼圖抖動</span><span data-lang="en">5. ER &amp; Eye Jitter</span>
+            </th>
+            <td style="padding: 9px 12px; color: #38bdf8; font-weight: 600;">
+              <span data-lang="zh">ER &gt; 14 dB，殘留相位誤差 &lt; 0.03 rad，抖動 &lt; 0.8 ps</span><span data-lang="en">ER &gt; 14 dB, residual error &lt; 0.03 rad, jitter &lt; 0.8 ps</span>
+            </td>
+            <td style="padding: 9px 12px;">
+              <span data-lang="zh">出廠點 ER &gt; 15 dB；大溫漂時退化至 8–10 dB</span><span data-lang="en">Nominal ER &gt; 15 dB; degrades to 8-10 dB at high ΔT</span>
+            </td>
+            <td style="padding: 9px 12px;">
+              <span data-lang="zh">調諧熱噪訊引發熱抖動 (Thermal Jitter &gt; 1.8 ps)</span><span data-lang="en">Thermal noise induces high jitter (&gt; 1.8 ps)</span>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+              <span data-lang="zh">6. 先進光電封裝適配</span><span data-lang="en">6. Packaging Fit</span>
+            </th>
+            <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+              <span data-lang="zh">極佳適配 TSMC COUPE 3D、CoWoS 2.5D 與 OCI</span><span data-lang="en">Optimal for TSMC COUPE 3D, CoWoS 2.5D &amp; OCI</span>
+            </td>
+            <td style="padding: 9px 12px;">
+              <span data-lang="zh">適合 ELS-FP 外部雷射與溫度受控光收發器</span><span data-lang="en">Ideal for ELS-FP external decoupled lasers</span>
+            </td>
+            <td style="padding: 9px 12px; color: #f87171;">
+              <span data-lang="zh">受限於 800W ASIC 散熱瓶頸，熱串擾嚴重</span><span data-lang="en">Bottlenecked by 800W ASIC dissipation limits</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 互動工作台容器 -->
+    <div class="decision-matrix-card" id="cpo-optical-trim-simulator-root" style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(14, 165, 233, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+      <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+        <div>
+          <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0ea5e9; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+            <span data-lang="zh">CPO 共同封裝光學 · 第一性原理矽光微調與 MTP 閉迴路工作台</span>
+            <span data-lang="en">CPO OPTICS · FIRST-PRINCIPLES WAVEGUIDE TRIM &amp; MTP WORKBENCH</span>
+          </div>
+          <h3 class="decision-matrix-title" style="margin: 0; font-size: 17px; color: #f8fafc; font-weight: 700;">
+            <span data-lang="zh">矽光波導熱漂移、MZI 相位偏置與 MTP DAC 校準模擬器</span>
+            <span data-lang="en">Silicon Photonics Thermal Drift, MZI Phase Offset &amp; MTP DAC Calibration Simulator</span>
+          </h3>
+        </div>
+        <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.12); color: #38bdf8; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
+          <span data-lang="zh">TSMC COUPE 3D · 10K~100K 閉迴路校準</span>
+          <span data-lang="en">TSMC COUPE 3D · 10K-100K Closed-Loop Trim</span>
+        </span>
+      </div>
+
+      <!-- Controls Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-bottom: 16px;">
+        <div>
+          <label for="cpo-trim-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <span data-lang="zh">光引擎架構預設:</span><span data-lang="en">OPTICAL ENGINE PRESET:</span>
+          </label>
+          <select id="cpo-trim-preset-select" aria-label="Optical Engine Architecture Preset" data-aria-en="Optical Engine Architecture Preset" data-aria-zh="光引擎架構預設" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+            <option value="cpo_switch_51t_coupe" selected>51.2T Switch 3D COUPE Optical Engine (TSMC COUPE 3D)</option>
+            <option value="oci_chiplet_ai_cluster">AI Cluster Optical I/O Chiplet (2.5D CoWoS/EMIB OCI)</option>
+            <option value="neuromorphic_mzi_mesh">Photonic Neuromorphic GEMM Mesh (High-Density MZI)</option>
+            <option value="els_fp_external_laser">External Laser Source Decoupled (ELS-FP Blind-Mate)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="cpo-trim-policy-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <span data-lang="zh">調諧與 NVM 補償策略:</span><span data-lang="en">TRIM &amp; NVM COMPENSATION:</span>
+          </label>
+          <select id="cpo-trim-policy-select" aria-label="Trim and NVM Compensation Policy" data-aria-en="Trim and NVM Compensation Policy" data-aria-zh="調諧與 NVM 補償策略" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+            <option value="ld_mtp_closed_loop" selected>Low-Disturbance MTP (LD-MTP 10K~100K Dynamic)</option>
+            <option value="antifuse_factory_lock">0-Mask AntiFuse OTP (Single-Write Factory Lock)</option>
+            <option value="active_heater_continuous">Active Thermal Micro-Heater (Continuous Power, No NVM)</option>
+          </select>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <span><span data-lang="zh">工作熱溫差 (ΔT):</span><span data-lang="en">THERMAL DELTA:</span></span>
+            <span id="cpo-trim-temp-val" style="color: #38bdf8; font-weight: 700;">45 °C</span>
+          </div>
+          <input type="range" id="cpo-trim-temp-slider" min="10" max="80" step="5" value="45" aria-label="Operating Thermal Gradient in Celsius" data-aria-en="Operating Thermal Gradient in Celsius" data-aria-zh="工作熱溫差攝氏度" aria-valuetext="45°C" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <span><span data-lang="zh">DAC 調諧解析度:</span><span data-lang="en">DAC TRIM BITS:</span></span>
+            <span id="cpo-trim-dac-val" style="color: #34d399; font-weight: 700;">10 bits</span>
+          </div>
+          <input type="range" id="cpo-trim-dac-slider" min="6" max="14" step="1" value="10" aria-label="DAC Calibration Resolution Bits" data-aria-en="DAC Calibration Resolution Bits" data-aria-zh="DAC 校準解析度位元數" aria-valuetext="10 bits" style="width: 100%; accent-color: #34d399; cursor: pointer;">
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
+            <span><span data-lang="zh">光學通道數 (WDM):</span><span data-lang="en">OPTICAL CHANNELS:</span></span>
+            <span id="cpo-trim-channels-val" style="color: #fbbf24; font-weight: 700;">64 ch</span>
+          </div>
+          <input type="range" id="cpo-trim-channels-slider" min="8" max="128" step="8" value="64" aria-label="Optical WDM Channel Count" data-aria-en="Optical WDM Channel Count" data-aria-zh="光學分波多工通道數" aria-valuetext="64 ch" style="width: 100%; accent-color: #fbbf24; cursor: pointer;">
+        </div>
+      </div>
+
+      <!-- KPI Cards Strip -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+        <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <span data-lang="zh">中心波長熱漂移 (Δλ)</span><span data-lang="en">WAVELENGTH DRIFT</span>
+          </div>
+          <div id="cpo-trim-out-drift" style="font: 700 15px 'IBM Plex Mono', monospace; color: #22d3ee;">--</div>
+          <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+            <span data-lang="zh">熱光效應波長偏移</span><span data-lang="en">Thermo-optic shift</span>
+          </div>
+        </div>
+
+        <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <span data-lang="zh">原始相位偏差 (Δφ)</span><span data-lang="en">RAW PHASE DRIFT</span>
+          </div>
+          <div id="cpo-trim-out-phase" style="font: 700 15px 'IBM Plex Mono', monospace; color: #f87171;">--</div>
+          <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+            <span data-lang="zh">MZI 雙臂相位失配</span><span data-lang="en">MZI arm mismatch</span>
+          </div>
+        </div>
+
+        <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <span data-lang="zh">校準後消光比 (ER)</span><span data-lang="en">EXTINCTION RATIO</span>
+          </div>
+          <div id="cpo-trim-out-er" style="font: 700 15px 'IBM Plex Mono', monospace; color: #34d399;">--</div>
+          <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+            <span data-lang="zh">光訊號通斷對比度</span><span data-lang="en">Optical contrast</span>
+          </div>
+        </div>
+
+        <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <span data-lang="zh">調諧節省功耗 (ΔP)</span><span data-lang="en">SAVED TUNING POWER</span>
+          </div>
+          <div id="cpo-trim-out-power" style="font: 700 15px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+          <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+            <span data-lang="zh">對比連續熱加熱器</span><span data-lang="en">vs active heater</span>
+          </div>
+        </div>
+
+        <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <span data-lang="zh">架構品質等級</span><span data-lang="en">RATING</span>
+          </div>
+          <div id="cpo-trim-out-rating" style="font: 700 14px 'IBM Plex Mono', monospace; color: #34d399;">OPTIMAL</div>
+          <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+            <span data-lang="zh">光電整合評級</span><span data-lang="en">Optoelectronic grade</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Canvas Visualization -->
+      <div style="background: #060d17; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+          <div style="display: inline-flex; gap: 6px;" role="group" aria-label="CPO Visualization Mode" data-aria-en="CPO Visualization Mode" data-aria-zh="CPO 視覺化模式">
+            <button id="cpo-trim-mode-spectrum" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+              <span data-lang="zh">光波導諧振譜溫漂與 NVM 補償峰 (Resonance Spectrum)</span><span data-lang="en">Resonance Spectrum Shift</span>
+            </button>
+            <button id="cpo-trim-mode-dac" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+              <span data-lang="zh">DAC 解析度 vs 消光比曲線 (DAC Bits vs ER)</span><span data-lang="en">DAC Bits vs ER Curve</span>
+            </button>
+          </div>
+          <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">High-DPI CPO Waveguide Trim Engine</span>
+        </div>
+        <div style="width: 100%; height: 180px; position: relative;">
+          <canvas id="cpo-trim-canvas" width="480" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="CPO Optical Waveguide Thermal Drift and Phase Trim Canvas" data-aria-en="CPO Optical Waveguide Thermal Drift and Phase Trim Canvas" data-aria-zh="CPO 矽光波導熱漂移與相位微調畫布"></canvas>
+        </div>
+      </div>
+
+      <!-- Verdict & Rating Banner -->
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(14, 165, 233, 0.08); border-left: 3px solid #0ea5e9; border-radius: 0 4px 4px 0; padding: 10px 14px;">
+        <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
+          <span id="cpo-trim-out-verdict">Loading CPO optical trim calculations...</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
     </div>
   </div>
@@ -4080,6 +4367,7 @@
 <script type="module" src="space-radiation-hardening-simulator.js?v=20261005"></script>
 <script type="module" src="deep-space-sel-retention-simulator.js?v=20261006"></script>
 <script type="module" src="hybrid-bonding-tsv-kgd-simulator.js?v=20261006"></script>
+<script type="module" src="cpo-optical-trim-simulator.js?v=20261006"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 </body>
 </html>
