@@ -479,7 +479,7 @@ export function initCimMacSimulator() {
       outAccuracy.style.color = metrics.retainedAccuracyPct > 85 ? '#059669' : (metrics.retainedAccuracyPct > 70 ? '#f59e0b' : '#dc2626');
     }
     if (outRating) {
-      outRating.textContent = metrics.ratingZh;
+      outRating.innerHTML = `<span data-lang="zh">${metrics.ratingZh}</span><span data-lang="en">${metrics.ratingEn}</span>`;
       outRating.style.color = metrics.gradeColor;
     }
 
