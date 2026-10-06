@@ -1901,6 +1901,24 @@ def run_tests() -> None:
     test("evidence-V20 涵蓋微接觸力 (0.28-0.40 gf/pin) 與 CMP 針痕深度 (≤2.0 nm) 與混合鍵合平坦度預算",
          "0.28 gf/pin" in evidence_html and "0.35 gf/pin" in evidence_html and "0.40 gf/pin" in evidence_html and "CMP dishing" in evidence_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 81: HBM4 邏輯 Base Die 0-Mask AntiFuse 封裝後修復白皮書與全景導航整合 (Whitepaper #13)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 81: HBM4 邏輯 Base Die 0-Mask AntiFuse 封裝後修復白皮書與全景導航整合 ═══")
+    specs_js = (BASE / "tools/whitepaper-studio/src/data/nvm_specs.js").read_text(encoding="utf-8")
+    profiles_zh_js = (BASE / "tools/whitepaper-studio/src/data/profiles-zh.js").read_text(encoding="utf-8")
+    wp_html = (BASE / "whitepaper/index.html").read_text(encoding="utf-8")
+    manifest_json = (BASE / "whitepaper/build-manifest.json").read_text(encoding="utf-8")
+
+    test("nvm_specs.js 包含 hbm4_logic_base_die_repair 設定檔且具備 13 個 Profiles",
+         'id: \'hbm4_logic_base_die_repair\'' in specs_js and specs_js.count("id: '") == 13)
+    test("hbm4_logic_base_die_repair 涵蓋 0-Mask AntiFuse、TSMC 12FFC+/N3P、Samsung 4nm、Cu-Cu 混合鍵合與探針卡限制",
+         "0-Mask AntiFuse OTP" in specs_js and "TSMC 12FFC+/N3P" in specs_js and "Samsung 4nm LPP" in specs_js and "Cu-Cu" in specs_js and "<=0.35 gf/pin" in specs_js)
+    test("profiles-zh.js 與 whitepaper-locale.js 包含 hbm4_logic_base_die_repair 繁中翻譯與評審範圍",
+         '"hbm4_logic_base_die_repair"' in profiles_zh_js and "HBM4 邏輯 Base Die 0-Mask 反熔絲封裝後修復" in profiles_zh_js and "JEDEC HBM4 標準" in profiles_zh_js)
+    test("whitepaper/index.html 包含 hbm4_logic_base_die_repair 決策列與 13 個 Profiles 宣告",
+         'data-profile-id="hbm4_logic_base_die_repair"' in wp_html and "13 Profiles" in wp_html and '"hbm4_logic_base_die_repair"' in manifest_json)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

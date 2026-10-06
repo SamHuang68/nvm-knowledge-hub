@@ -5,8 +5,8 @@ import { profileZh } from '../src/data/profiles-zh.js';
 import { profileTextFields, validateProfileLocales, localizeProfile } from '../src/data/profile-locale.js';
 import { serializeCSV, serializeJSON, selectProfiles, renderMatrix } from '../src/js/modules/matrix.js';
 
-test('12 筆設定檔全部 132 個文字欄位與證據限制具備繁中', () => {
-  assert.deepEqual(validateProfileLocales(), { profiles: 12, fields: 132 });
+test('13 筆設定檔全部 143 個文字欄位與證據限制具備繁中', () => {
+  assert.deepEqual(validateProfileLocales(), { profiles: 13, fields: 143 });
   for (const original of nvmIpSpecs) {
     const localized = localizeProfile(original, 'zh');
     for (const field of profileTextFields) assert.equal(localized[field], profileZh[original.id][field]);

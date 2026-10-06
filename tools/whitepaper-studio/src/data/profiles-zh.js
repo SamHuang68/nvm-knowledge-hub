@@ -208,5 +208,22 @@ export const profileZh = {
       "scope": "驅動平臺、記憶體容量、電池壽命、高度限制與具名供應商均屬應用假設，需要特定產品來源。這些敘述不能確立通用的面板夥伴標準。",
       "sources": []
     }
+  },
+  "hbm4_logic_base_die_repair": {
+    "profile": "HBM4 邏輯 Base Die 0-Mask 反熔絲封裝後修復",
+    "family": "0-Mask AntiFuse OTP＋先進封裝後修復 (PPR)",
+    "contract": "Cu-Cu 混合鍵合後不可逆歐姆矽微絲修復 (R_on < 100 Ω)；260°C 封裝迴焊零熱回彈；自主 BIRA 重新路由失效微凸塊與 TSV 通道",
+    "nodeLens": "邏輯 CMOS Base Die 製程節點：TSMC 12FFC+/N3P、Samsung 4nm LPP、Micron 邏輯基板評估架構",
+    "updateModel": "晶圓排序 (KGD)＋Cu-Cu 鍵合後 hPPR＋任務剖面動態 sPPR 內部 FuseBox 熔絲燒錄",
+    "strongestFit": "HBM4 16-Hi/24-Hi 2048-bit 超寬介面、3nm AI 加速器 Base Die、CoWoS/SoIC Cu-Cu 混合鍵合修復",
+    "boundary": "探針卡接觸力嚴格受限 (<=0.35 gf/pin，針痕深度 <=2.0 nm) 以保護 CMP 鍵合墊；需驗證至 125°C-150°C Tj 熱裕量",
+    "evidenceStatus": "JEDEC JESD238 HBM4 參考架構 · TSMC 3DFabric 與 Samsung I-Cube 架構 · 探針卡生態系基準 (旺矽 MPI / 精測 CHPT / FormFactor)",
+    "latency": "晶粒內零週期位址重新映射（純組合邏輯多工解碼）",
+    "busExposure": "無（Base Die 安全信任邊界內之自主晶粒內 BIST/BIRA 解碼器）",
+    "bomCost": "零額外光罩（標準純邏輯 CMOS 製程，無需高壓或 eFlash 光罩）",
+    "evidenceReview": {
+      "scope": "JEDEC HBM4 標準、晶圓代工邏輯 Base Die 節點（TSMC 12nm/3nm、Samsung 4nm）與先進探針卡規格定義了目標架構參數。確切歐姆微絲電阻、修復良率、CMP 針痕深度與認證等級，需依具體元件與晶圓代工廠驗證數據為準。",
+      "sources": []
+    }
   }
 };

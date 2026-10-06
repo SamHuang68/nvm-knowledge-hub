@@ -751,6 +751,20 @@ var l = [
 		latency: "Fast multi-frame waveform index (<50 ns)",
 		busExposure: "Internal driver waveform generator engine",
 		bomCost: "Zero extra mask adder; reduces BOM cost by eliminating discrete external SPI Flash"
+	},
+	{
+		id: "hbm4_logic_base_die_repair",
+		profile: "HBM4 Logic Base Die 0-Mask AntiFuse Post-Packaging Repair",
+		family: "0-Mask AntiFuse OTP + Advanced Packaging Post-Package Repair (PPR)",
+		contract: "Post-hybrid-bonding irreversible ohmic Si-filament repair (R_on < 100 Ω); zero thermal rebound at 260°C reflow; autonomous BIRA rerouting of failed micro-bumps & TSV lanes",
+		nodeLens: "Logic CMOS Base Die nodes: TSMC 12FFC+/N3P, Samsung 4nm LPP, Micron Logic Evaluation",
+		updateModel: "Wafer sort (KGD) + Post-Cu-Cu bonding hPPR + dynamic mission-profile sPPR repair via internal FuseBox",
+		strongestFit: "HBM4 16-Hi/24-Hi 2048-bit Wide-IO, 3nm AI Accelerator Base Dies, CoWoS/SoIC Cu-Cu Hybrid Bonding Repair",
+		boundary: "Probe card contact force strictly bounded (<=0.35 gf/pin, scrub depth <=2.0 nm) to protect CMP pads; thermal margin verified up to 125°C-150°C Tj",
+		evidenceStatus: "JEDEC JESD238 HBM4 Reference · TSMC 3DFabric / Samsung I-Cube Architecture · Probe Card Consortium Baseline (MPI / CHPT / FormFactor)",
+		latency: "Zero-cycle on-die address remapping (pure combinational mux decode)",
+		busExposure: "None (Autonomous on-die BIST/BIRA decoders within Base Die secure trust boundary)",
+		bomCost: "Zero mask adder (Standard pure logic CMOS process without HV/eFlash masks)"
 	}
 ], u = {
 	sram_puf_secure_storage: "The 1.5B+ figure is a vendor-aggregated portfolio claim, not shipments of this Secure Storage implementation. Node availability, certifications, latency and the combined architecture require separate product-specific evidence.",
@@ -764,7 +778,8 @@ var l = [
 	bcd_power_pmic_trim: "The cited eMemory page supports the NeoMTP floating-gate, rewritable-memory mechanism. It does not prove every listed BCD platform, trim accuracy, Grade 0 qualification, timing or cost-saving percentage in this draft.",
 	cis_dram_matrix_repair: "Standard names describe application context; capacity, dimensions, timing, area overhead and production status need the exact memory device, standard revision and implementation evidence.",
 	hv_display_ddic_demura: "Voltage rails, resolution, refresh rates, process availability and mask assumptions are design examples; no named DDIC qualification or production result is established by this profile.",
-	eink_ultra_hv_mtp_otp: "Driver platforms, memory size, battery life, height limits and named suppliers are application assumptions requiring product-specific sources. These statements do not establish a universal panel-partner standard."
+	eink_ultra_hv_mtp_otp: "Driver platforms, memory size, battery life, height limits and named suppliers are application assumptions requiring product-specific sources. These statements do not establish a universal panel-partner standard.",
+	hbm4_logic_base_die_repair: "JEDEC HBM4 standards, foundry logic base die nodes (TSMC 12nm/3nm, Samsung 4nm) and advanced probe card vendor specifications define target architectural parameters. Exact ohmic filament resistance, repair yields, CMP scrub depths, and qualification tiers require device-specific and foundry-specific qualification data."
 }, d = l.map((e) => ({
 	...e,
 	evidenceReview: {
@@ -990,6 +1005,23 @@ var l = [
 			scope: "驅動平臺、記憶體容量、電池壽命、高度限制與具名供應商均屬應用假設，需要特定產品來源。這些敘述不能確立通用的面板夥伴標準。",
 			sources: []
 		}
+	},
+	hbm4_logic_base_die_repair: {
+		profile: "HBM4 邏輯 Base Die 0-Mask 反熔絲封裝後修復",
+		family: "0-Mask AntiFuse OTP＋先進封裝後修復 (PPR)",
+		contract: "Cu-Cu 混合鍵合後不可逆歐姆矽微絲修復 (R_on < 100 Ω)；260°C 封裝迴焊零熱回彈；自主 BIRA 重新路由失效微凸塊與 TSV 通道",
+		nodeLens: "邏輯 CMOS Base Die 製程節點：TSMC 12FFC+/N3P、Samsung 4nm LPP、Micron 邏輯基板評估架構",
+		updateModel: "晶圓排序 (KGD)＋Cu-Cu 鍵合後 hPPR＋任務剖面動態 sPPR 內部 FuseBox 熔絲燒錄",
+		strongestFit: "HBM4 16-Hi/24-Hi 2048-bit 超寬介面、3nm AI 加速器 Base Die、CoWoS/SoIC Cu-Cu 混合鍵合修復",
+		boundary: "探針卡接觸力嚴格受限 (<=0.35 gf/pin，針痕深度 <=2.0 nm) 以保護 CMP 鍵合墊；需驗證至 125°C-150°C Tj 熱裕量",
+		evidenceStatus: "JEDEC JESD238 HBM4 參考架構 · TSMC 3DFabric 與 Samsung I-Cube 架構 · 探針卡生態系基準 (旺矽 MPI / 精測 CHPT / FormFactor)",
+		latency: "晶粒內零週期位址重新映射（純組合邏輯多工解碼）",
+		busExposure: "無（Base Die 安全信任邊界內之自主晶粒內 BIST/BIRA 解碼器）",
+		bomCost: "零額外光罩（標準純邏輯 CMOS 製程，無需高壓或 eFlash 光罩）",
+		evidenceReview: {
+			scope: "JEDEC HBM4 標準、晶圓代工邏輯 Base Die 節點（TSMC 12nm/3nm、Samsung 4nm）與先進探針卡規格定義了目標架構參數。確切歐姆微絲電阻、修復良率、CMP 針痕深度與認證等級，需依具體元件與晶圓代工廠驗證數據為準。",
+			sources: []
+		}
 	}
 }, p = [
 	"profile",
@@ -1069,7 +1101,7 @@ function x(e) {
       <p>Interactive multi-way security & NVM architecture comparison (${d.length} canonical profiles). Filter by technology family, inspect latency and physical exposure, or export profiles for system engineering reviews.</p>
     </header>
 
-    <p class="matrix-evidence-boundary"><span data-lang="zh">以下保留 12 筆工程原稿供審查。數值、製程、認證與量產字樣均屬待查證聲稱；只有明確標示的來源支援指定欄位，不能視為完整產品規格。</span><span data-lang="en">These 12 engineering drafts retain their original values for review. Numbers, nodes, certifications and production wording remain unverified claims; a linked source supports only its stated fields, not a complete product specification.</span></p>
+    <p class="matrix-evidence-boundary"><span data-lang="zh">以下保留 ${d.length} 筆工程原稿供審查。數值、製程、認證與量產字樣均屬待查證聲稱；只有明確標示的來源支援指定欄位，不能視為完整產品規格。</span><span data-lang="en">These ${d.length} engineering drafts retain their original values for review. Numbers, nodes, certifications and production wording remain unverified claims; a linked source supports only its stated fields, not a complete product specification.</span></p>
 
     <section class="selector-controls" aria-label="Decision matrix filters" data-aria-en="Decision matrix filters" data-aria-zh="決策矩陣篩選器">
       <label for="filter-family">

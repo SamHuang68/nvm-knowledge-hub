@@ -4,9 +4,9 @@ import { nvmIpSpecs } from '../src/data/nvm_specs.js';
 import { selectProfiles, serializeCSV, renderMatrix } from '../src/js/modules/matrix.js';
 import { inspectProfile, inspectVisibleContent } from './check-public.mjs';
 
-test('12 筆紀錄保留唯一識別，篩選結果保留相同資料', () => {
-  assert.equal(nvmIpSpecs.length, 12);
-  assert.equal(new Set(nvmIpSpecs.map(item => item.id)).size, 12);
+test('13 筆紀錄保留唯一識別，篩選結果保留相同資料', () => {
+  assert.equal(nvmIpSpecs.length, 13);
+  assert.equal(new Set(nvmIpSpecs.map(item => item.id)).size, 13);
   for (const family of new Set(nvmIpSpecs.map(item => item.family))) {
     assert.deepEqual(selectProfiles(family), nvmIpSpecs.filter(item => item.family === family));
   }

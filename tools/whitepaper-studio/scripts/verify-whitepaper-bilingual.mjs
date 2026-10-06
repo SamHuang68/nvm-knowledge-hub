@@ -80,7 +80,7 @@ try {
       const expected = selectProfiles(family).map(profile => localizeProfile(profile, language));
       assert.deepEqual(await page.locator('#decision-body tr').evaluateAll(rows => rows.map(row => row.dataset.profileId)), expected.map(profile => profile.id));
       const selectedLabel = await page.locator('#filter-family option:checked').textContent();
-      assert.equal(selectedLabel, family === 'ALL' ? language === 'zh' ? '全部公開設定檔（12）' : 'All public profiles (12)' : expected[0].family);
+      assert.equal(selectedLabel, family === 'ALL' ? language === 'zh' ? `全部公開設定檔（${nvmIpSpecs.length}）` : `All public profiles (${nvmIpSpecs.length})` : expected[0].family);
       for (const profile of expected) {
         const rowText = await page.locator(`[data-profile-id="${profile.id}"]`).innerText();
         for (const field of ['profile', 'family', 'contract', 'updateModel', 'strongestFit', 'evidenceStatus', 'latency', 'busExposure', 'bomCost']) assert.ok(rowText.includes(profile[field]), `${language} ${profile.id}.${field} 未顯示正確語系`);
