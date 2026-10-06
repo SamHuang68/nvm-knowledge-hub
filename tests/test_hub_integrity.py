@@ -1985,6 +1985,28 @@ def run_tests() -> None:
     test("memory-physics.html 包含六大 KPI 輸出欄位 (IR-Drop, Inductive Noise, Effective Vdd, Temp Drop, Lifetime Gain, Write Yield) 與判定橫幅",
          'id="bspdn-out-irdrop"' in mem_bspdn_html and 'id="bspdn-out-indnoise"' in mem_bspdn_html and 'id="bspdn-out-effvdd"' in mem_bspdn_html and 'id="bspdn-out-tempdrop"' in mem_bspdn_html and 'id="bspdn-out-gain"' in mem_bspdn_html and 'id="bspdn-out-yield"' in mem_bspdn_html and 'id="bspdn-out-verdict"' in mem_bspdn_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 85: 航太與國防極限輻照 (TID / SEE / SEL) 物理耐受性與 AntiFuse 歐姆微絲抗電離模擬器 (security-assurance.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 85: 航太與國防極限輻照 (TID / SEE / SEL) 物理耐受性與 AntiFuse 歐姆微絲抗電離模擬器 ═══")
+    rad_js = (BASE / "rad-hard-nvm-simulator.js").read_text(encoding="utf-8")
+    test("rad-hard-nvm-simulator.js 存在且導出 calculateRadMetrics、drawRadCanvas 與 initRadSimulator",
+         "export function calculateRadMetrics" in rad_js and "export function drawRadCanvas" in rad_js and "export function initRadSimulator" in rad_js)
+    test("rad-hard-nvm-simulator.js 包含四大航太任務預設與四大 NVM 候選技術",
+         "RAD_PRESETS" in rad_js and "deep_space_jupiter" in rad_js and "geo_defense_commsat" in rad_js and "leo_constellation_smallsat" in rad_js and "RAD_NVM_TECHS" in rad_js and "antifuse_ohmic" in rad_js and "stt_emram" in rad_js and "commercial_eflash" in rad_js)
+    test("rad-hard-nvm-simulator.js 第一性原理 TID 閾值漂移、感測裕度窗、Weibull SEU 截面積與軌道 FIT 率模型",
+         "deltaVthMv" in rad_js and "remainingMarginMv" in rad_js and "marginRetentionPct" in rad_js and "seuCrossSection" in rad_js and "orbitFitPerMbit" in rad_js and "verdictZh" in rad_js)
+    test("rad-hard-nvm-simulator.js 包含雙模態視覺化 (tid_dose_sweep 與 let_weibull_cross_section)",
+         "tid_dose_sweep" in rad_js and "let_weibull_cross_section" in rad_js)
+
+    sec_rad_html = (BASE / "security-assurance.html").read_text(encoding="utf-8")
+    test("security-assurance.html 整合 rad-hard-nvm-simulator-root 工作台、rad-hard-nvm-section 與模組腳本引用",
+         'id="rad-hard-nvm-simulator-root"' in sec_rad_html and 'id="rad-hard-nvm-section"' in sec_rad_html and 'rad-hard-nvm-simulator.js' in sec_rad_html)
+    test("security-assurance.html 包含預設選單、技術選單、TID劑量/LET重離子二軸滑桿與雙模態 Canvas",
+         'id="rad-preset-select"' in sec_rad_html and 'id="rad-tech-select"' in sec_rad_html and 'id="rad-tid-slider"' in sec_rad_html and 'id="rad-let-slider"' in sec_rad_html and 'id="rad-canvas"' in sec_rad_html)
+    test("security-assurance.html 包含六大 KPI 輸出欄位 (Delta Vth, Margin, Retention, Cross-section, FIT, Rating) 與判定橫幅",
+         'id="rad-out-deltavth"' in sec_rad_html and 'id="rad-out-margin"' in sec_rad_html and 'id="rad-out-retention"' in sec_rad_html and 'id="rad-out-cross"' in sec_rad_html and 'id="rad-out-fit"' in sec_rad_html and 'id="rad-out-rating"' in sec_rad_html and 'id="rad-out-verdict"' in sec_rad_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

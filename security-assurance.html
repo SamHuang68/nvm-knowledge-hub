@@ -600,6 +600,227 @@
       </div>
     </section>
 
+    <section id="rad-hard-nvm-section" class="section">
+      <header class="section-head">
+        <div>
+          <p class="kicker"><span data-lang="zh">01B / 航太與國防極限輻照物理</span><span data-lang="en">01B / AEROSPACE &amp; DEFENSE RADIATION HARDNESS</span></p>
+          <h2>
+            <span data-lang="zh">電離輻射清空浮閘電荷；<br><em>歐姆物理微絲具天然抗電離屏障</em></span>
+            <span data-lang="en">Ionizing radiation drains floating gates;<br><em>ohmic microfilaments provide natural immunity</em></span>
+          </h2>
+        </div>
+        <p>
+          <span data-lang="zh">在木星深空強輻射帶（TID &gt; 2.5 Mrad）與地球同步軌道（GEO 150 krad）極端任務中，傳統浮閘與電荷陷阱因光生載子快速中和而失效。0-Mask AntiFuse 透過永久金屬化歐姆微絲提供真正的零位元軟錯誤（SEU-Immune）與兆拉德級抗電離生存保證。</span>
+          <span data-lang="en">In extreme deep-space Jovian radiation belts (TID &gt; 2.5 Mrad) and GEO orbits (150 krad), conventional floating gates and charge traps fail as photo-generated carriers neutralize stored electrons. 0-Mask AntiFuse delivers genuine zero soft-error (SEU-Immune) and megarad-grade ionizing survivability via permanent ohmic filaments.</span>
+        </p>
+      </header>
+
+      <!-- 6-Dimension Rad-Hard Comparison Matrix -->
+      <div style="overflow-x: auto; margin-bottom: 20px;">
+        <table class="paper-table" style="width: 100%; font-size: 11.5px; border-collapse: collapse;" aria-label="Aerospace Rad-Hard NVM Comparison Matrix" data-aria-en="Aerospace Rad-Hard NVM Comparison Matrix" data-aria-zh="航太級抗輻射 NVM 技術對比矩陣">
+          <caption class="sr-only"><span data-lang="zh">航太與國防極限輻照環境下 NVM 技術之耐受度特性對比</span><span data-lang="en">Aerospace and Defense Radiation Hardness NVM Technology Comparison</span></caption>
+          <thead>
+            <tr style="background: #f1f5f9; border-bottom: 2px solid #cbd5e1;">
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">記憶體技術</span><span data-lang="en">Memory Technology</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">儲存物理機制</span><span data-lang="en">Storage Mechanism</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">總電離劑量耐受 (TID)</span><span data-lang="en">TID Tolerance</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">重離子單一事件翻轉 (SEU)</span><span data-lang="en">Heavy-Ion SEU</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">單一事件門鎖 (SEL) 門檻</span><span data-lang="en">SEL LET Threshold</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">航太太空認證評級</span><span data-lang="en">Space Qualification</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">0-Mask AntiFuse OTP</th>
+              <td style="padding: 8px 10px;"><span data-lang="zh">永久歐姆金屬化微絲</span><span data-lang="en">Permanent Ohmic Filament</span></td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #059669; font-weight: 600;">&gt; 10 Mrad(Si)</td>
+              <td style="padding: 8px 10px; color: #059669; font-weight: 600;"><span data-lang="zh">完全免疫 (σ = 0)</span><span data-lang="en">Immune (σ = 0)</span></td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 85 MeV·cm²/mg</td>
+              <td style="padding: 8px 10px;"><span data-lang="zh">Class-S 宇航級（深空任務首選）</span><span data-lang="en">Class-S Flight Heritage</span></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">STT-eMRAM</th>
+              <td style="padding: 8px 10px;"><span data-lang="zh">磁性穿隧接面 (MTJ)</span><span data-lang="en">Magnetic Tunnel Junction</span></td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">~ 500 krad(Si)</td>
+              <td style="padding: 8px 10px;"><span data-lang="zh">LETth ≈ 28（需 EDAC 加固）</span><span data-lang="en">LETth ≈ 28 (Needs EDAC)</span></td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 75 MeV·cm²/mg</td>
+              <td style="padding: 8px 10px;"><span data-lang="zh">LEO / GEO 軌道耐受</span><span data-lang="en">LEO / GEO Qualified</span></td>
+            </tr>
+            <tr style="border-bottom: 1px solid #e2e8f0;">
+              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">ReRAM (OxRAM)</th>
+              <td style="padding: 8px 10px;"><span data-lang="zh">金屬氧化物氧空缺微絲</span><span data-lang="en">Oxygen-Vacancy Filament</span></td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">~ 300 krad(Si)</td>
+              <td style="padding: 8px 10px;"><span data-lang="zh">LETth ≈ 22（高阻態易擾動）</span><span data-lang="en">LETth ≈ 22 (HRS Drift)</span></td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 60 MeV·cm²/mg</td>
+              <td style="padding: 8px 10px;"><span data-lang="zh">低軌衛星評估中</span><span data-lang="en">LEO Evaluation</span></td>
+            </tr>
+            <tr style="background: #fffbeb;">
+              <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #d97706;"><span data-lang="zh">商用浮閘 eFlash 基準</span><span data-lang="en">Commercial eFlash Baseline</span></th>
+              <td style="padding: 8px 10px;"><span data-lang="zh">浮閘俘獲靜電荷</span><span data-lang="en">Trapped Gate Charge</span></td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #dc2626; font-weight: 600;">15–25 krad(Si)</td>
+              <td style="padding: 8px 10px; color: #dc2626; font-weight: 600;"><span data-lang="zh">極度敏感 (LETth &lt; 6.5)</span><span data-lang="en">Sensitive (LETth &lt; 6.5)</span></td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&lt; 35 MeV·cm²/mg</td>
+              <td style="padding: 8px 10px;"><span data-lang="zh">地面商規（禁止航太飛行）</span><span data-lang="en">Commercial Only</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Simulator Workbench Root -->
+      <article id="rad-hard-nvm-simulator-root" class="paper-card physics-model-card" style="margin-top: 14px; background: #ffffff; border: 1px solid rgba(2, 132, 199, 0.3); border-radius: 8px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
+          <div>
+            <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
+              <span data-lang="zh">第一性原理輻照物理 · 歐姆微絲抗電離模擬器</span>
+              <span data-lang="en">FIRST-PRINCIPLES RAD PHYSICS · OHMIC FILAMENT SIMULATOR</span>
+            </span>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
+              <span data-lang="zh">極限輻照耐受度 (TID/SEE) 與歐姆微絲抗電離動態模擬工作台</span>
+              <span data-lang="en">Extreme Radiation Hardness (TID/SEE) &amp; Ohmic Filament Simulator</span>
+            </h3>
+          </div>
+          <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.1); color: #0284c7; padding: 4px 8px; border-radius: 4px;">
+            <span data-lang="zh">MIL-STD-883 / ESA 5010 標準驗證</span>
+            <span data-lang="en">MIL-STD-883 / ESA 5010 Rigor</span>
+          </span>
+        </div>
+
+        <p style="font-size: 13px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
+          <span data-lang="zh">微觀動態模擬在總電離劑量（0–1,000 krad(Si)）與宇宙重離子（LET 0–100 MeV·cm²/mg）衝擊下，介電質電洞捕獲、閾值電壓漂移 ΔVth、位元感測裕度窗退化與軌道 FIT 失效率。數值量化揭露 0-Mask AntiFuse 歐姆微絲為何具備天然 SEU 零截面積與深空級長效可靠度。</span>
+          <span data-lang="en">Simulates dielectric hole trapping, threshold voltage drift ΔVth, read sense margin window degradation, and orbital FIT rates under Total Ionizing Dose (0–1,000 krad(Si)) and cosmic heavy ions (LET 0–100 MeV·cm²/mg). Quantifies why 0-Mask AntiFuse ohmic filaments exhibit strictly zero SEU cross-section and deep-space reliability.</span>
+        </p>
+
+        <!-- Controls Section -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 16px; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+          <div>
+            <label for="rad-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">航太任務剖面預設：</span><span data-lang="en">Mission Profile Preset:</span>
+            </label>
+            <select id="rad-preset-select" aria-label="Mission Profile Preset" data-aria-en="Mission Profile Preset" data-aria-zh="航太任務剖面預設" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+              <option value="deep_space_jupiter" selected>Jupiter Europa Deep Space (2.5 Mrad)</option>
+              <option value="geo_defense_commsat">GEO Defense Commsat 15-Yr (150 krad)</option>
+              <option value="leo_constellation_smallsat">LEO Mega-Constellation SmallSat (30 krad)</option>
+              <option value="commercial_cots_eflash">Commercial COTS Baseline (15 krad)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="rad-tech-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span data-lang="zh">記憶體候選技術：</span><span data-lang="en">NVM Technology:</span>
+            </label>
+            <select id="rad-tech-select" aria-label="NVM Technology" data-aria-en="NVM Technology" data-aria-zh="記憶體候選技術" style="width: 100%; font-size: 12px; padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 4px; background: #ffffff; color: #0f172a;">
+              <option value="antifuse_ohmic" selected>0-Mask AntiFuse (Ohmic Filament)</option>
+              <option value="stt_emram">STT-MRAM (Magnetic Tunnel Junction)</option>
+              <option value="reram_oxram">ReRAM (Oxide Vacancy Filament)</option>
+              <option value="commercial_eflash">Floating Gate eFlash (COTS)</option>
+            </select>
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span><span data-lang="zh">總電離劑量 TID:</span><span data-lang="en">TID DOSE:</span></span>
+              <span id="rad-tid-val" style="color: #0284c7; font-weight: 700;">150 krad</span>
+            </div>
+            <input type="range" id="rad-tid-slider" min="10" max="1000" step="10" value="150" aria-label="Total Ionizing Dose in krad" data-aria-en="Total Ionizing Dose in krad" data-aria-zh="總電離劑量 TID" aria-valuetext="150 krad" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+          </div>
+
+          <div>
+            <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
+              <span><span data-lang="zh">重離子 LET:</span><span data-lang="en">HEAVY-ION LET:</span></span>
+              <span id="rad-let-val" style="color: #0284c7; font-weight: 700;">65 MeV</span>
+            </div>
+            <input type="range" id="rad-let-slider" min="5" max="100" step="5" value="65" aria-label="Heavy-Ion LET in MeV*cm^2/mg" data-aria-en="Heavy-Ion LET in MeV*cm^2/mg" data-aria-zh="重離子線性能量轉移 LET" aria-valuetext="65 MeV" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+          </div>
+        </div>
+
+        <!-- KPI Metric Cards (6 KPIs) -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">閾值電壓漂移 ΔVth</span><span data-lang="en">DELTA VTH SHIFT</span>
+            </div>
+            <div id="rad-out-deltavth" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">陷阱電洞電荷累積</span><span data-lang="en">Trapped hole accumulation</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">剩餘感測電壓裕度</span><span data-lang="en">REMAINING MARGIN</span>
+            </div>
+            <div id="rad-out-margin" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">讀取訊號窗 (下限 50mV)</span><span data-lang="en">Sense window (>50mV)</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">感測裕度留存比率</span><span data-lang="en">MARGIN RETENTION</span>
+            </div>
+            <div id="rad-out-retention" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">相對於照射前初值</span><span data-lang="en">Relative to pre-rad</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">SEU 翻轉截面積 σ</span><span data-lang="en">SEU CROSS SECTION</span>
+            </div>
+            <div id="rad-out-cross" style="font: 700 14px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">重離子單一事件翻轉</span><span data-lang="en">Heavy-ion upset prob</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">太空軌道 FIT 率</span><span data-lang="en">ORBITAL FIT RATE</span>
+            </div>
+            <div id="rad-out-fit" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a855f7;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">FIT / Mbit 任務失效率</span><span data-lang="en">FIT / Mbit failures</span>
+            </div>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
+            <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
+              <span data-lang="zh">宇航認證耐受評級</span><span data-lang="en">RAD-HARD RATING</span>
+            </div>
+            <div id="rad-out-rating" style="font: 700 11px 'IBM Plex Mono', monospace; color: #059669;">—</div>
+            <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+              <span data-lang="zh">ESA / NASA 級別</span><span data-lang="en">ESA / NASA Level</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Canvas Visualization -->
+        <div style="background: #08131e; border: 1px solid #1e293b; border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+            <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Rad Visualization Mode" data-aria-en="Rad Visualization Mode" data-aria-zh="輻照視覺化模式">
+              <button id="rad-mode-tid" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                <span data-lang="zh">TID 累積劑量 vs 感測電壓裕度退化曲線 (0-1000 krad)</span><span data-lang="en">TID Dose vs Sense Margin</span>
+              </button>
+              <button id="rad-mode-let" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                <span data-lang="zh">重離子 LET vs Weibull 單一事件翻轉截面積 (0-100 LET)</span><span data-lang="en">LET vs Weibull SEU Cross-Section</span>
+              </button>
+            </div>
+            <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">Aerospace Radiation Physics Solver</span>
+          </div>
+          <div style="width: 100%; height: 180px; position: relative;">
+            <canvas id="rad-canvas" width="420" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Aerospace Radiation Hardness Simulation Canvas" data-aria-en="Aerospace Radiation Hardness Simulation Canvas" data-aria-zh="航太抗輻射模擬畫布"></canvas>
+          </div>
+        </div>
+
+        <!-- Architectural Insight Callout -->
+        <div style="background: rgba(2, 132, 199, 0.06); border-left: 3px solid #0284c7; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
+          <span id="rad-out-verdict">Loading Aerospace Radiation Hardness calculations...</span>
+        </div>
+      </article>
+    </section>
+
     <section id="windows" class="section windows">
       <header class="section-head"><div><p class="kicker" data-zh="02 / 攻擊時窗生命週期" data-en="02 / ATTACK-WINDOW LIFECYCLE">02 / ATTACK-WINDOW LIFECYCLE</p><h2 data-zh="根金鑰沒有永久位址；風險仍有明確時窗" data-en="The root has no permanent address; risk still has windows">The root has no permanent address; risk still has windows</h2></div><p data-zh="選擇生命週期階段，查看資產、攻擊面、測試問題與預期安全結果。" data-en="Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.">Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.</p></header>
       <div class="window-layout">
@@ -668,6 +889,7 @@
   <script src="assurance.js?v=20260929-v5"></script>
   <script type="module" src="attack-resistance-evaluator.js?v=20261005"></script>
   <script type="module" src="puf-nist-randomness-evaluator.js?v=20261005"></script>
+  <script type="module" src="rad-hard-nvm-simulator.js?v=20261006"></script>
   <script type="module">
     import { initPqcDpaSimulator } from './pqc-rot-dpa-simulator.js';
     document.addEventListener('DOMContentLoaded', () => {

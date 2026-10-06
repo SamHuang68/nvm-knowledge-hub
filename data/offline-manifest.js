@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "fb1f4507bf683d3d6e16",
+  "version": "cc7b4dab809e3810313f",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -107,6 +107,7 @@ self.NVMOfflineManifest = {
     "puf-nist-randomness-evaluator.js",
     "puf-reconstruction-simulator.js",
     "quick-probe.js",
+    "rad-hard-nvm-simulator.js",
     "reading-controls.css",
     "reading-controls.js",
     "research.css",
@@ -252,13 +253,14 @@ self.NVMOfflineManifest = {
     "puf-nist-randomness-evaluator.js": "4845ed80be95c57d32d7c417c896c7f506518c897bc78de1b6f6443c640d2781",
     "puf-reconstruction-simulator.js": "1a6c99a0f918092edeec1305c3aaa7f926a19567c98cfffcc094b2a36a1661e0",
     "quick-probe.js": "e53a5099163ba611987ab6262c3fce1ba55fab62606116c5e95740a519fad028",
+    "rad-hard-nvm-simulator.js": "e8e88a3605060d1cdfcb1ea26a29180191bf8741c98053583c2236d9fa9ee085",
     "reading-controls.css": "5fdaf2f82d852d80b0535431d291edadec60b146f8076ba88c209b6966f6dd6a",
     "reading-controls.js": "31ed45e76223dad06c261b6cb792eae26dcb54a5843f4076a5ba41156ae263db",
     "research.css": "76291bad9ecde2fcd860e66599c3a399694a29065db00a16cd12d974bfe2de94",
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "06b1c15b913ec3f1c997017ce471ee44f2a4ddd7b19c479b077ca2c760266d45",
     "secure-storage.html": "69af6e727d1499d2a3116656e094da2d04f3a2a096141624a76be08680df414a",
-    "security-assurance.html": "7838bd48d03f25a02860ef2cbdee234de44f19b4e99cf4a7b393209b401cbf0c",
+    "security-assurance.html": "120bf4b1398c4e79890beeaf55bc808ba5f221937b6cde2ad26eb04ceb14a46f",
     "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
     "site-shell.css": "95c7b574d75f1d06c7e121cb14489b2bea210649e5d15ad7d97aae7a5d86d1a7",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
@@ -290,5 +292,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "1a80caf7221a052c98828693d10982531f3fcba482cc0c1db82dfdabf8d4c83e",
     "whitepaper/index.html": "5ce3b260608904f45d28e2bd417fddc25661be9900fae2a1c818414f10d81f2c"
   },
-  "totalBytes": 12813389
+  "totalBytes": 12857682
 };
