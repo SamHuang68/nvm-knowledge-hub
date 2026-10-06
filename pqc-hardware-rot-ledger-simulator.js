@@ -1,12 +1,12 @@
 /**
  * @file pqc-hardware-rot-ledger-simulator.js
- * @description First-Principles Physics & Microarchitectural Simulator for Post-Quantum Cryptography (PQC)
+ * @description Architectural Evaluation & Microarchitectural Simulator for Post-Quantum Cryptography (PQC)
  *              Hardware Root-of-Trust (NIST FIPS 203 ML-KEM & FIPS 204 ML-DSA), Non-Volatile Storage Budgets,
  *              Hardware Seed Expansion, and Higher-Order Side-Channel Defense.
  *
  * @version 1.0.0 (2026-10-06)
  * @author High-Assurance Post-Quantum Hardware Security Architecture Team
- * @license Grounded in NIST FIPS 203/204 standards & ISO/IEC 17825 side-channel criteria.
+ * @license Grounded in NIST FIPS 203/204 specifications & ISO/IEC 17825 side-channel evaluation criteria.
  */
 
 /**
@@ -124,19 +124,21 @@ export function calculatePqcStorageMetrics(params) {
   const storageSavedPct = ((algo.rawPrivateKeyBytes - algo.seedBytes) / algo.rawPrivateKeyBytes) * 100;
 
   // 2. Silicon Bitcell Area Estimation
-  // AntiFuse bitcell area: ~ 25 F^2, plus peripheral circuitry overhead (factor 2.8)
-  const fSquareUm2 = Math.pow(node * 1e-3, 2); // F^2 in um^2
+  // AntiFuse bitcell area estimation: ~25 F^2 with peripheral circuitry overhead (factor 2.8).
+  // Note: In advanced sub-7nm FinFET/GAA nodes, actual cell area is dictated by CPP x MMP design rules;
+  // this formula provides a normalized scaling trend for comparative architecture sizing.
+  const fSquareUm2 = Math.pow(node * 1e-3, 2); // F^2 in um^2 (nominal scaling indicator)
   const bitcellAreaUm2 = 25 * fSquareUm2;
   const rawSiliconAreaUm2 = (algo.rawPrivateKeyBytes * 8) * bitcellAreaUm2 * 2.8;
   const seedSiliconAreaUm2 = (algo.seedBytes * 8) * bitcellAreaUm2 * 2.8;
   const siliconAreaSavedUm2 = rawSiliconAreaUm2 - seedSiliconAreaUm2;
 
   // 3. Side-Channel DPA Minimum Traces to Disclose (MTD) Model
-  // Base MTD for unmasked single-ended read: ~2,500 traces
-  // Twin-Cell differential sensing adds +32 dB SNR attenuation (multiplying base traces by ~40x)
-  // Higher-order masking multiplies traces exponentially by 10^(2 * order)
+  // Base MTD for unmasked single-ended read: ~2,500 traces (nominal test assumption)
+  // Twin-Cell differential sensing adds current symmetry (multiplying base traces by ~35x in balanced layout evaluations)
+  // Higher-order masking multiplies traces exponentially by 10^(1.8 * order)
   const baseMtd = 2500;
-  const twinCellFactor = 45; // Differential sensing current symmetry
+  const twinCellFactor = 35; // Differential sensing current symmetry factor
   let mtdTraces = baseMtd * Math.pow(10, 1.8 * maskingOrder);
 
   if (isSeedExpansion) {
@@ -154,8 +156,8 @@ export function calculatePqcStorageMetrics(params) {
 
   if (isSeedExpansion) {
     securityRating = maskingOrder >= 1 ? 'TOP_TIER_PQC_SECURITY' : 'STANDARD_SEED_EXPANSION';
-    verdictZh = `【混合分層種子架構優化】${algo.nameZh} 採用 0-Mask AntiFuse 存儲 ${algo.seedBytes} Bytes 根種子，相較於直接存放 ${algo.rawPrivateKeyBytes.toLocaleString()} Bytes 原生私鑰，非揮發性記憶體面積縮減 ${areaReductionRatio.toFixed(1)} 倍（節省 ${storageSavedPct.toFixed(1)}% 儲存空間）。結合 ${maskingOrder} 階遮罩與差動讀取，DPA 破解採樣門檻達 ${mtdTraces.toExponential(2)} 次（MTD > 10^7），完全符合 NIST FIPS 203/204 與 FIPS 140-3 信任根標準。`;
-    verdictEn = `[Tiered Hybrid Seed Architecture] ${algo.nameEn} secures a ${algo.seedBytes}-byte root seed via 0-Mask AntiFuse, shrinking non-volatile memory footprint by ${areaReductionRatio.toFixed(1)}x (${storageSavedPct.toFixed(1)}% savings) vs ${algo.rawPrivateKeyBytes.toLocaleString()} bytes raw storage. Combined with order-${maskingOrder} masking and differential sensing, DPA MTD reaches ${mtdTraces.toExponential(2)} traces (>10^7), satisfying NIST FIPS 203/204 and FIPS 140-3 standards.`;
+    verdictZh = `【混合分層種子架構優化】${algo.nameZh} 採用 0-Mask AntiFuse 存儲 ${algo.seedBytes} Bytes 根種子，相較於直接存放 ${algo.rawPrivateKeyBytes.toLocaleString()} Bytes 原生私鑰，非揮發性記憶體面積縮減 ${areaReductionRatio.toFixed(1)} 倍（節省 ${storageSavedPct.toFixed(1)}% 儲存空間）。結合 ${maskingOrder} 階遮罩與差動讀取，DPA 破解採樣門檻預估達 ${mtdTraces.toExponential(2)} 次（模型估算值），符合 FIPS 203/204 演算法種子規格，並為 FIPS 140-3 密碼模組實體安全評估提供硬體基礎。`;
+    verdictEn = `[Tiered Hybrid Seed Architecture] ${algo.nameEn} secures a ${algo.seedBytes}-byte root seed via 0-Mask AntiFuse, shrinking non-volatile memory footprint by ${areaReductionRatio.toFixed(1)}x (${storageSavedPct.toFixed(1)}% savings) vs ${algo.rawPrivateKeyBytes.toLocaleString()} bytes raw storage. Combined with order-${maskingOrder} masking and differential sensing, modeled DPA MTD reaches ${mtdTraces.toExponential(2)} traces (modeled estimate), satisfying FIPS 203/204 seed specifications and providing a hardware foundation for FIPS 140-3 module physical security evaluation.`;
   } else {
     securityRating = 'CRITICAL_AREA_PENALTY';
     verdictZh = `【原生私鑰全儲存瓶頸】${algo.nameZh} 採用全容量 eNVM 存儲 ${algo.rawPrivateKeyBytes.toLocaleString()} Bytes 多項式密鑰，矽面積開銷高達 ${rawSiliconAreaUm2.toFixed(1)} μm²。大容量密鑰連續讀出使側信道功耗軌跡大幅暴露，DPA 洩漏採樣次數降至 ${mtdTraces.toExponential(2)} 次，強烈建議改採 256-bit 主種子衍生架構。`;

@@ -1,11 +1,10 @@
 /**
  * @file rad-hard-nvm-simulator.js
- * @description First-Principles Physics & Microarchitectural Simulator for Aerospace & Defense
- *              Extreme Radiation Hardness (TID, SEE, SEL) and AntiFuse Ohmic Filament Immunity.
+ * @description Analytical Radiation Hardness (TID, SEE, SEL) & Macro Reliability Simulator for Aerospace & Defense NVM Evaluations.
  *
  * @version 1.0.0 (2026-10-06)
  * @author High-Reliability Aerospace Semiconductor Physics Team
- * @license Grounded in first-principles semiconductor radiation physics & MIL-STD-883 / ESA standards.
+ * @license Grounded in published semiconductor radiation physics literature and empirical models.
  */
 
 /**
@@ -81,12 +80,12 @@ export const RAD_NVM_TECHS = {
     nameZh: '0-Mask AntiFuse (永久金屬化歐姆微絲)',
     nameEn: '0-Mask AntiFuse (Ohmic Metal/Poly Filament)',
     toxNm: 1.8, // Ultra-thin gate dielectric (< 2nm)
-    tidTolerateKrad: 10000, // Immune to > 10 Mrad(Si)
-    letThreshold: 85.0, // SEU Cross section is physically 0 (Ohmic state cannot be upset by transient charge)
-    sigmaSat: 0.0, // 0 cm^2/bit
+    tidTolerateKrad: 2500, // Core logic thin oxide withstands > 2.5 Mrad(Si)
+    letThreshold: 55.0, // Peripheral CMOS readout logic LET threshold
+    sigmaSat: 2.5e-12, // Tiny non-zero macro saturation cross-section from CMOS sense/latch circuitry
     isChargeBased: false,
-    descriptionZh: '物理微絲為永久共價/金屬導電通道，不依賴俘獲電荷，TID >10 Mrad 零退化，SEU 完全免疫。',
-    descriptionEn: 'Physical filament is an ohmic solid conduit without stored charge; immune to TID >10 Mrad with zero SEU.'
+    descriptionZh: '物理微絲為永久共價/金屬導電通道，不依賴俘獲電荷，單元無電荷流失；巨集整體受周邊 CMOS 讀出電路耐受性規範。',
+    descriptionEn: 'Physical filament is an ohmic solid conduit without stored charge, preventing bitcell charge leakage; macro profile governed by peripheral CMOS readout.'
   },
   stt_emram: {
     id: 'stt_emram',
@@ -127,7 +126,7 @@ export const RAD_NVM_TECHS = {
 };
 
 /**
- * Calculates radiation tolerance metrics based on first principles.
+ * Calculates radiation tolerance metrics based on analytical and empirical models.
  *
  * Governing Equations:
  * 1. Total Ionizing Dose Induced Threshold Voltage Shift:
@@ -135,11 +134,11 @@ export const RAD_NVM_TECHS = {
  *    For thin oxide (t_ox < 2nm), ΔV_th ∝ t_ox^2 << 1 mV
  * 2. Sense Margin Degradation:
  *    For charge-based: ΔV_sense(D) = ΔV_0 * exp(-D / D_crit)
- *    For AntiFuse: ΔV_sense(D) = ΔV_0 (Invariant)
+ *    For AntiFuse: ΔV_sense(D) ≈ ΔV_0 (Filament invariant, tiny periphery shift)
  * 3. Heavy-Ion SEU Cross-Section (Weibull Model):
  *    σ(LET) = σ_sat * [ 1 - exp(-((LET - LET_th) / W)^s) ] for LET > LET_th
  * 4. Orbital Soft Error Rate (SER) in FIT / Mbit:
- *    FIT = Integral[ σ(LET) * dΦ/dLET ] * 1e9 * 1e6
+ *    FIT ≈ σ(LET) * Φ_proton * 3600 * 1e5 (Single-point flux approximation)
  *
  * @param {Object} params
  * @param {string} params.presetKey
@@ -155,7 +154,7 @@ export function calculateRadMetrics(params) {
   const dose = Math.max(0, params.tidDoseKrad);
   const letVal = Math.max(0, params.heavyIonLet);
 
-  // 1. First-Principles TID Threshold Shift ΔV_th
+  // 1. Analytical TID Threshold Shift ΔV_th
   // ΔV_th ∝ t_ox^2 * dose
   let deltaVthMv = 0;
   let remainingMarginMv = 0;
@@ -193,12 +192,7 @@ export function calculateRadMetrics(params) {
 
   // 3. Orbital FIT Rate Calculation (per Mbit)
   // FIT = 1 failure per 10^9 device-hours
-  let orbitFitPerMbit = 0;
-  if (tech.id === 'antifuse_ohmic') {
-    orbitFitPerMbit = 0.0; // Strictly zero soft-errors
-  } else {
-    orbitFitPerMbit = seuCrossSection * preset.protonFlux * 1e6 * 3600 * 1e9 * 1e-4;
-  }
+  const orbitFitPerMbit = seuCrossSection * preset.protonFlux * 1e6 * 3600 * 1e9 * 1e-4;
 
   // 4. Mission Survivability Assessment
   const isTidSurvived = dose <= tech.tidTolerateKrad;
@@ -209,9 +203,9 @@ export function calculateRadMetrics(params) {
   let verdictEn = '';
 
   if (tech.id === 'antifuse_ohmic') {
-    assuranceRating = 'CLASS_S_HERMETIC_IMMUNE';
-    verdictZh = `【極限航太 Class-S 認證】${tech.nameZh} 採用共價/金屬化歐姆導電微絲，在 ${dose.toFixed(0)} krad(Si) 累積輻照下感測裕度維持 ${remainingMarginMv.toFixed(1)} mV（留存率 ${(remainingMarginMv/initialSenseMarginMv*100).toFixed(1)}%）。對重離子與宇宙射線沉積電荷完全免疫（SEU 截面積 = 0，失效率 0.0 FIT），滿足 ESA/NASA 宇航級深空與國防戰略長效使命。`;
-    verdictEn = `[Class-S Space Flight Qualified] ${tech.nameEn} utilizes permanent ohmic microfilaments, preserving ${remainingMarginMv.toFixed(1)} mV read margin (${(remainingMarginMv/initialSenseMarginMv*100).toFixed(1)}% retention) at ${dose.toFixed(0)} krad(Si) TID. Strictly immune to heavy-ion and cosmic ray charge deposition (Zero SEU cross-section, 0.0 FIT), satisfying ESA/NASA deep space and strategic defense lifecycles.`;
+    assuranceRating = 'SPACE_HIGH_RADIATION_ROBUST';
+    verdictZh = `【極限高抗輻架構】${tech.nameZh} 採用共價/金屬化歐姆導電微絲，在 ${dose.toFixed(0)} krad(Si) 累積輻照下感測裕度維持 ${remainingMarginMv.toFixed(1)} mV（留存率 ${(remainingMarginMv/initialSenseMarginMv*100).toFixed(1)}%）。微絲本體無儲存電荷，對電離電荷洩漏具備天然物理抗性；巨集周邊 CMOS 感測電路在 LET = ${letVal.toFixed(1)} MeV·cm²/mg 下預估軌道失效率僅約 ${orbitFitPerMbit.toFixed(4)} FIT/Mbit（遠低於電荷型記憶體），適合深空與高軌道航太任務。`;
+    verdictEn = `[High-Radiation Robust Architecture] ${tech.nameEn} utilizes permanent ohmic microfilaments, preserving ${remainingMarginMv.toFixed(1)} mV sense margin (${(remainingMarginMv/initialSenseMarginMv*100).toFixed(1)}% retention) at ${dose.toFixed(0)} krad(Si) TID. The filament body carries no trapped charge, preventing ionization charge loss. Macro peripheral CMOS readout exhibits an estimated orbital failure rate of only ~${orbitFitPerMbit.toFixed(4)} FIT/Mbit at LET = ${letVal.toFixed(1)} MeV·cm²/mg, suitable for deep-space and high-orbit missions.`;
   } else if (!isTidSurvived || remainingMarginMv < 50) {
     assuranceRating = 'MISSION_FAILURE_LETHAL';
     verdictZh = `【任務致命失效警告】${tech.nameZh} 在累積劑量 ${dose.toFixed(0)} krad(Si) 下發生嚴重輻射退化，感測裕度暴跌至 ${remainingMarginMv.toFixed(1)} mV（閾值電壓漂移 ${deltaVthMv.toFixed(1)} mV）。${tech.isChargeBased ? '浮閘俘獲電荷完全流失，引發大規模硬崩潰與代碼錯亂。' : '周邊讀寫電路已遭電離破壞。'}`;

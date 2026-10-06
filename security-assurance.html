@@ -610,8 +610,8 @@
           </h2>
         </div>
         <p>
-          <span data-lang="zh">在木星深空強輻射帶（TID &gt; 2.5 Mrad）與地球同步軌道（GEO 150 krad）極端任務中，傳統浮閘與電荷陷阱因光生載子快速中和而失效。0-Mask AntiFuse 透過永久金屬化歐姆微絲提供真正的零位元軟錯誤（SEU-Immune）與兆拉德級抗電離生存保證。</span>
-          <span data-lang="en">In extreme deep-space Jovian radiation belts (TID &gt; 2.5 Mrad) and GEO orbits (150 krad), conventional floating gates and charge traps fail as photo-generated carriers neutralize stored electrons. 0-Mask AntiFuse delivers genuine zero soft-error (SEU-Immune) and megarad-grade ionizing survivability via permanent ohmic filaments.</span>
+          <span data-lang="zh">在木星深空強輻射帶（TID &gt; 2.5 Mrad）與地球同步軌道（GEO 150 krad）極端任務中，傳統浮閘與電荷陷阱因光生載子快速中和而失效。0-Mask AntiFuse 透過永久金屬化歐姆微絲，提供天然抗電荷流失之物理特性與巨集極低軟錯誤率。</span>
+          <span data-lang="en">In extreme deep-space Jovian radiation belts (TID &gt; 2.5 Mrad) and GEO orbits (150 krad), conventional floating gates and charge traps fail as photo-generated carriers neutralize stored electrons. 0-Mask AntiFuse delivers intrinsic resistance to charge loss and low macro soft-error susceptibility via permanent ohmic filaments.</span>
         </p>
       </header>
 
@@ -633,10 +633,10 @@
             <tr style="border-bottom: 1px solid #e2e8f0;">
               <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">0-Mask AntiFuse OTP</th>
               <td style="padding: 8px 10px;"><span data-lang="zh">永久歐姆金屬化微絲</span><span data-lang="en">Permanent Ohmic Filament</span></td>
-              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #059669; font-weight: 600;">&gt; 10 Mrad(Si)</td>
-              <td style="padding: 8px 10px; color: #059669; font-weight: 600;"><span data-lang="zh">完全免疫 (σ = 0)</span><span data-lang="en">Immune (σ = 0)</span></td>
-              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 85 MeV·cm²/mg</td>
-              <td style="padding: 8px 10px;"><span data-lang="zh">Class-S 宇航級（深空任務首選）</span><span data-lang="en">Class-S Flight Heritage</span></td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #059669; font-weight: 600;">&gt; 2.5 Mrad(Si)</td>
+              <td style="padding: 8px 10px; color: #059669; font-weight: 600;"><span data-lang="zh">微絲無電荷 (巨集極低 SEU)</span><span data-lang="en">Filament immune (Low macro SEU)</span></td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 55 MeV·cm²/mg</td>
+              <td style="padding: 8px 10px;"><span data-lang="zh">深空與高軌航太優選</span><span data-lang="en">Deep Space &amp; Orbit Architecture</span></td>
             </tr>
             <tr style="border-bottom: 1px solid #e2e8f0;">
               <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">STT-eMRAM</th>
@@ -660,7 +660,7 @@
               <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #dc2626; font-weight: 600;">15–25 krad(Si)</td>
               <td style="padding: 8px 10px; color: #dc2626; font-weight: 600;"><span data-lang="zh">極度敏感 (LETth &lt; 6.5)</span><span data-lang="en">Sensitive (LETth &lt; 6.5)</span></td>
               <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&lt; 35 MeV·cm²/mg</td>
-              <td style="padding: 8px 10px;"><span data-lang="zh">地面商規（禁止航太飛行）</span><span data-lang="en">Commercial Only</span></td>
+              <td style="padding: 8px 10px;"><span data-lang="zh">未抗輻加固之商規標準（高輻射環境易早期失效）</span><span data-lang="en">Standard Terrestrial Grade (Early failure under radiation)</span></td>
             </tr>
           </tbody>
         </table>
@@ -668,11 +668,18 @@
 
       <!-- Simulator Workbench Root -->
       <article id="rad-hard-nvm-simulator-root" class="paper-card physics-model-card" style="margin-top: 14px; background: #ffffff; border: 1px solid rgba(2, 132, 199, 0.3); border-radius: 8px; padding: 20px;">
+        <!-- Model Disclaimer & Technical Boundary Notice -->
+        <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #78350f;">
+          <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+          <span data-lang="zh">本模擬器採用簡化電離輻射劑量 (TID) 閾值漂移與 Weibull 重離子截面積模型，用以示意儲存物理機制（歐姆微絲、磁性穿隧接面、氧空缺與浮閘電荷）在高能粒子撞擊下的巨集可靠度趨勢。真實航太任務須依 MIL-STD-883 方法 1019 或 ESA/ESCC 規範進行實體重離子迴旋加速器與鈷-60 (Co-60) 射源晶圓輻照測試；晶片級 Class-S / QML-V 評級屬於封裝與篩選認證體系，非單一 IP 固有屬性。</span>
+          <span data-lang="en">This simulator employs simplified TID threshold shift and Weibull heavy-ion cross-section models to illustrate macro-level reliability trends across storage mechanisms (ohmic filaments, MTJ, oxygen vacancies, and trapped charges) under ionizing radiation. Actual flight missions require physical heavy-ion cyclotron and Cobalt-60 source testing per MIL-STD-883 Method 1019 or ESA/ESCC standards. Space ratings such as Class-S / QML-V apply to hermetic package screening systems rather than intrinsic IP properties.</span>
+        </div>
+
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
           <div>
             <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
-              <span data-lang="zh">第一性原理輻照物理 · 歐姆微絲抗電離模擬器</span>
-              <span data-lang="en">FIRST-PRINCIPLES RAD PHYSICS · OHMIC FILAMENT SIMULATOR</span>
+              <span data-lang="zh">抗輻射架構評估 · 歐姆微絲抗電離模擬器</span>
+              <span data-lang="en">RAD-HARD ARCHITECTURE EVALUATION · OHMIC FILAMENT SIMULATOR</span>
             </span>
             <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
               <span data-lang="zh">極限輻照耐受度 (TID/SEE) 與歐姆微絲抗電離動態模擬工作台</span>
@@ -680,14 +687,14 @@
             </h3>
           </div>
           <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.1); color: #0284c7; padding: 4px 8px; border-radius: 4px;">
-            <span data-lang="zh">MIL-STD-883 / ESA 5010 標準驗證</span>
-            <span data-lang="en">MIL-STD-883 / ESA 5010 Rigor</span>
+            <span data-lang="zh">MIL-STD-883 / ESA 規範參考模型</span>
+            <span data-lang="en">MIL-STD-883 / ESA Reference Model</span>
           </span>
         </div>
 
         <p style="font-size: 13px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
-          <span data-lang="zh">微觀動態模擬在總電離劑量（0–1,000 krad(Si)）與宇宙重離子（LET 0–100 MeV·cm²/mg）衝擊下，介電質電洞捕獲、閾值電壓漂移 ΔVth、位元感測裕度窗退化與軌道 FIT 失效率。數值量化揭露 0-Mask AntiFuse 歐姆微絲為何具備天然 SEU 零截面積與深空級長效可靠度。</span>
-          <span data-lang="en">Simulates dielectric hole trapping, threshold voltage drift ΔVth, read sense margin window degradation, and orbital FIT rates under Total Ionizing Dose (0–1,000 krad(Si)) and cosmic heavy ions (LET 0–100 MeV·cm²/mg). Quantifies why 0-Mask AntiFuse ohmic filaments exhibit strictly zero SEU cross-section and deep-space reliability.</span>
+          <span data-lang="zh">微觀動態模擬在總電離劑量（0–1,000 krad(Si)）與宇宙重離子（LET 0–100 MeV·cm²/mg）衝擊下，介電質電洞捕獲、閾值電壓漂移 ΔVth、位元感測裕度窗退化與軌道 FIT 失效率。數值量化揭露 0-Mask AntiFuse 歐姆微絲在非電荷儲存機制下的極低失效率與深空級可靠度。</span>
+          <span data-lang="en">Simulates dielectric hole trapping, threshold voltage drift ΔVth, read sense margin window degradation, and orbital FIT rates under Total Ionizing Dose (0–1,000 krad(Si)) and cosmic heavy ions (LET 0–100 MeV·cm²/mg). Quantifies the exceptionally low failure rate and deep-space reliability of 0-Mask AntiFuse ohmic filaments based on non-charge storage physics.</span>
         </p>
 
         <!-- Controls Section -->
@@ -836,6 +843,13 @@
         </p>
       </header>
 
+      <!-- Simulation Disclaimer Banner -->
+      <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 20px; border-radius: 4px; font-size: 13px; line-height: 1.5; color: #92400e;">
+        <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+        <span data-lang="zh">本工作台之金鑰儲存預算、矽晶圓面積與 DPA 側信道最小洩漏採樣次數（MTD）為基於 NIST FIPS 203/204 規格與 ISO/IEC 17825 側信道理論之微架構評估模型，非單一實體 ASIC 晶圓實測報告。實際晶圓面積受代工廠 PDK 標準單元庫（CPP×MMP）及周邊電路排版影響；側信道防護等級取決於整體加密模組之動態暫存器防護與板級佈局，不能單獨由非揮發性記憶體介質保證。FIPS 140-3 與 SESIP 評估對象為最終密碼模組 TOE，本技術僅作為硬體安全基礎元件。</span>
+        <span data-lang="en">The key storage budgets, silicon areas, and DPA MTD figures in this workbench are microarchitectural evaluation models based on NIST FIPS 203/204 specifications and ISO/IEC 17825 theoretical principles, rather than physical ASIC measurement certificates. Actual silicon footprint is determined by foundry PDK standard cell libraries (CPP x MMP) and peripheral layout; side-channel resistance depends on cryptographic accelerator runtime shielding and system layout, and cannot be guaranteed by NVM media alone. Formal FIPS 140-3 and SESIP certifications evaluate complete module TOEs, for which NVM serves as a foundational building block.</span>
+      </div>
+
       <!-- 6-Dimension PQC Storage Comparison Matrix -->
       <div style="overflow-x: auto; margin-bottom: 20px;">
         <table class="paper-table" style="width: 100%; font-size: 11.5px; border-collapse: collapse;" aria-label="PQC Key Storage Architecture Comparison Matrix" data-aria-en="PQC Key Storage Architecture Comparison Matrix" data-aria-zh="後量子密碼金鑰儲存架構對比矩陣">
@@ -845,9 +859,9 @@
               <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">儲存架構方案</span><span data-lang="en">Storage Architecture</span></th>
               <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">非揮發性記憶體預算</span><span data-lang="en">NVM Budget</span></th>
               <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">矽晶圓面積縮減</span><span data-lang="en">Area Reduction</span></th>
-              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">晶圓測試時間 (CP)</span><span data-lang="en">Wafer Test Time</span></th>
-              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">DPA 側信道防護 MTD</span><span data-lang="en">DPA Defense MTD</span></th>
-              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">NIST / FIPS 信任根等級</span><span data-lang="en">FIPS Root-of-Trust</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">晶圓測試時間 (CP) 估算</span><span data-lang="en">Wafer Test Time (CP Est.)</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">DPA 側信道 MTD 估算</span><span data-lang="en">DPA Defense MTD (Est.)</span></th>
+              <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">支援之模組安全評估基礎</span><span data-lang="en">Module Security Baseline</span></th>
             </tr>
           </thead>
           <tbody>
@@ -855,17 +869,17 @@
               <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;"><span data-lang="zh">0-Mask AntiFuse 根種子衍生</span><span data-lang="en">0-Mask AntiFuse Seed Derivation</span></th>
               <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #059669; font-weight: 600;">32–64 Bytes (256/512-bit)</td>
               <td style="padding: 8px 10px; color: #059669; font-weight: 600;">50x–126x (98%–99%)</td>
-              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&lt; 15 ms / die</td>
-              <td style="padding: 8px 10px; color: #059669; font-weight: 600;">&gt; 2.5e7 traces (<span data-lang="zh">高階遮罩</span><span data-lang="en">Higher-order masking</span>)</td>
-              <td style="padding: 8px 10px;"><span data-lang="zh">FIPS 140-3 Level 4 / SESIP L5</span><span data-lang="en">FIPS 140-3 Level 4 / SESIP L5</span></td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&lt; 15 ms / die (<span data-lang="zh">32B 燒錄</span><span data-lang="en">32B prog</span>)</td>
+              <td style="padding: 8px 10px; color: #059669; font-weight: 600;">&gt; 2.5e7 traces (<span data-lang="zh">高階遮罩估算</span><span data-lang="en">Higher-order masking est.</span>)</td>
+              <td style="padding: 8px 10px;"><span data-lang="zh">支援高抗 DPA 架構設計（可協助達成 FIPS 140-3 / SESIP 評估）</span><span data-lang="en">Supports high-DPA resistance architectures (assists FIPS 140-3 / SESIP evaluations)</span></td>
             </tr>
             <tr style="background: #fffbeb;">
               <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #d97706;"><span data-lang="zh">原生多項式矩陣全容量儲存</span><span data-lang="en">Raw Polynomial Direct Storage</span></th>
               <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #dc2626; font-weight: 600;">1,632–4,896 Bytes</td>
               <td style="padding: 8px 10px; color: #dc2626;">1.0x (<span data-lang="zh">基準，面積龐大</span><span data-lang="en">Baseline, high area</span>)</td>
-              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 850 ms / die</td>
+              <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 850 ms / die (<span data-lang="zh">全密鑰燒錄</span><span data-lang="en">Full key prog</span>)</td>
               <td style="padding: 8px 10px; color: #dc2626;">&lt; 1.0e4 traces (<span data-lang="zh">讀出軌跡暴露</span><span data-lang="en">Exposed trace</span>)</td>
-              <td style="padding: 8px 10px;"><span data-lang="zh">常規商用（難以防範高階 DPA）</span><span data-lang="en">Commercial Only</span></td>
+              <td style="padding: 8px 10px;"><span data-lang="zh">常規防護（需外部電路補強以抗 DPA）</span><span data-lang="en">Standard baseline (requires external logic hardening against DPA)</span></td>
             </tr>
           </tbody>
         </table>
@@ -876,8 +890,8 @@
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px;">
           <div>
             <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
-              <span data-lang="zh">第一性原理 PQC 密碼工程 · 信任根金鑰儲存試算器</span>
-              <span data-lang="en">FIRST-PRINCIPLES PQC CRYPTO · HARDWARE ROT SIMULATOR</span>
+              <span data-lang="zh">PQC 密碼工程架構評估 · 信任根金鑰儲存試算器</span>
+              <span data-lang="en">PQC CRYPTO ARCHITECTURE EVALUATION · HARDWARE ROT SIMULATOR</span>
             </span>
             <h3 style="font-size: 1.2rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
               <span data-lang="zh">後量子密碼 (ML-KEM / ML-DSA) 金鑰儲存預算與側信道防禦試算器</span>
@@ -891,8 +905,8 @@
         </div>
 
         <p style="font-size: 13px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
-          <span data-lang="zh">精確模擬 ML-KEM-512/768/1024 與 ML-DSA-65/87 在全私鑰存儲與 0-Mask AntiFuse 根種子（32/64 Bytes）衍生架構下的矽晶圓面積開銷、測試時間、以及結合布林/算術遮罩時 DPA 側信道最小洩漏採樣次數（MTD）。</span>
-          <span data-lang="en">Simulates silicon area overhead, CP test times, and DPA Minimum Traces to Disclose (MTD) between raw key storage and 0-Mask AntiFuse root seed (32/64 Bytes) expansion across ML-KEM-512/768/1024 and ML-DSA-65/87 algorithms.</span>
+          <span data-lang="zh">基於 NIST FIPS 203/204 規格評估 ML-KEM-512/768/1024 與 ML-DSA-65/87 在全私鑰存儲與 0-Mask AntiFuse 根種子（32/64 Bytes）衍生架構下的矽晶圓面積開銷、測試時間、以及結合布林/算術遮罩時 DPA 側信道最小洩漏採樣次數（MTD 估算值）。</span>
+          <span data-lang="en">Evaluates silicon area overhead, CP test times, and modeled DPA Minimum Traces to Disclose (MTD) between raw key storage and 0-Mask AntiFuse root seed (32/64 Bytes) expansion across ML-KEM-512/768/1024 and ML-DSA-65/87 algorithms based on NIST FIPS 203/204 specifications.</span>
         </p>
 
         <!-- Controls Section -->

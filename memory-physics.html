@@ -2650,9 +2650,16 @@
             </span>
           </div>
 
+          <!-- Model Disclaimer & Technical Boundary Notice -->
+          <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #78350f;">
+            <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+            <span data-lang="zh">本模擬器採用集總參數 (Lumped RLC) 與簡化熱阻模型，用以示意次 2nm 背面供電網 (BSPDN) 消除正面高階金屬走線 IR-Drop 之電氣優勢，以及晶圓減薄對局部熱累積 (Thermal Trapping) 的工程折衷。所列 A16、14A、SF1.4 數值源自業界研討會與學術論文之公開推估示意值，非晶圓廠量產保證規格；實際良率與熱行為取決於完整 3D FEA 電熱協同模擬與實體封裝。</span>
+            <span data-lang="en">This simulator employs lumped-parameter RLC and simplified thermal resistance models to illustrate the electrical benefits of Backside Power Delivery Networks (BSPDN) in mitigating IR-drop, alongside thermo-mechanical trade-offs from wafer thinning (thermal trapping). Numerical parameters for A16, 14A, and SF1.4 are illustrative estimates derived from public literature and symposia, not official foundry production specifications. Actual yield and thermal profiles depend on full 3D FEA electro-thermal co-simulation and packaging.</span>
+          </div>
+
           <p style="font-size: 13px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
-            <span data-lang="zh">次 2nm 節點（TSMC A16 SPR、Intel 14A PowerVia、Samsung SF1.4）導入背面供電網 (BSPDN)，透過微型矽通孔 (Nano-TSV / TSC) 直連電晶體源極/汲極。本模擬器第一性原理數值求解大電流編程（10–15 mA）下正面 18 層金屬（FSPDN）與背面厚銅（BSPDN）之動態 IR-Drop、L(di/dt) 電感噪訊、晶圓減薄散熱與 Arrhenius TDDB 壽命增益對比。</span>
-            <span data-lang="en">At sub-2nm nodes (TSMC A16 SPR, Intel 14A PowerVia, Samsung SF1.4), Backside Power Delivery Networks (BSPDN) route supply lines through Nano-TSV/TSC direct contacts. This simulator provides first-principles numerical modeling of transient IR-drop, L(di/dt) inductive noise, wafer-thinning heat dissipation, and Arrhenius TDDB lifetime gain during 10–15 mA write pulses compared to conventional 18-tier Front-Side PDN (FSPDN).</span>
+            <span data-lang="zh">次 2nm 節點（TSMC A16 SPR、Intel 14A PowerVia、Samsung SF1.4）導入背面供電網 (BSPDN)，透過微型矽通孔 (Nano-TSV / TSC) 直連電晶體源極/汲極。本模擬器採用集總參數電路模型，示意大電流編程（10–15 mA）下正面 18 層金屬（FSPDN）與背面供電（BSPDN）之動態 IR-Drop、L(di/dt) 電感噪訊與散熱熱阻折衷對比。</span>
+            <span data-lang="en">At sub-2nm nodes (TSMC A16 SPR, Intel 14A PowerVia, Samsung SF1.4), Backside Power Delivery Networks (BSPDN) route supply lines through Nano-TSV/TSC direct contacts. This simulator employs lumped-parameter circuit modeling to illustrate transient IR-drop, L(di/dt) inductive noise, and thermal dissipation trade-offs during 10–15 mA write pulses compared to conventional Front-Side PDN (FSPDN).</span>
           </p>
 
           <!-- 6-Dimension Architectural Comparison Matrix (BSPDN vs FSPDN) -->
@@ -2665,7 +2672,7 @@
                   <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">迴路等效線阻 (R_PDN)</span><span data-lang="en">Loop Resistance</span></th>
                   <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">寄生電感 (L_PDN)</span><span data-lang="en">Loop Inductance</span></th>
                   <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">瞬態 IR-Drop 壓降</span><span data-lang="en">Transient IR-Drop</span></th>
-                  <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">熱阻與接面溫降</span><span data-lang="en">Thermal Resistance</span></th>
+                  <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">熱阻特性 (θ_th)</span><span data-lang="en">Thermal Resistance</span></th>
                   <th scope="col" style="padding: 8px 10px; text-align: left; font-weight: 700; color: #1e293b;"><span data-lang="zh">eNVM 寫入可靠度效益</span><span data-lang="en">eNVM Write Reliability</span></th>
                 </tr>
               </thead>
@@ -2675,35 +2682,36 @@
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">1.85 &Omega; (-87%)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">0.14 nH (-90%)</td>
                   <td style="padding: 8px 10px; color: #059669; font-weight: 600;">22.2 mV (<span data-lang="zh">超低壓降</span><span data-lang="en">Ultra-low drop</span>)</td>
-                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">48.5 K/W (-28 K/W)</td>
-                  <td style="padding: 8px 10px;"><span data-lang="zh">寫入良率 99.9999%，TDDB 壽命提升 3.8x</span><span data-lang="en">99.9999% yield, 3.8x TDDB lifetime</span></td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">64.0 K/W (+16 K/W)</td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">根除寫入 Sag，熱阻因減薄略增需封裝協調</span><span data-lang="en">Sag eliminated, slight thermal trapping requires package co-design</span></td>
                 </tr>
                 <tr style="border-bottom: 1px solid #e2e8f0;">
                   <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">Intel 14A PowerVia</th>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">2.10 &Omega; (-86%)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">0.18 nH (-87%)</td>
                   <td style="padding: 8px 10px; color: #059669; font-weight: 600;">25.2 mV (<span data-lang="zh">超低壓降</span><span data-lang="en">Ultra-low drop</span>)</td>
-                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">52.0 K/W (-24.5 K/W)</td>
-                  <td style="padding: 8px 10px;"><span data-lang="zh">信號層擁擠度降 40%，消除寫入 Sag</span><span data-lang="en">Signal congestion -40%, sag eliminated</span></td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">68.0 K/W (+20 K/W)</td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">信號走線擁塞降低，需考量背部散熱通孔</span><span data-lang="en">Signal congestion reduced, thermal vias required</span></td>
                 </tr>
                 <tr style="border-bottom: 1px solid #e2e8f0;">
                   <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #0284c7;">Samsung SF1.4 BS-PDN</th>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">2.35 &Omega; (-84%)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">0.22 nH (-84%)</td>
                   <td style="padding: 8px 10px; color: #059669; font-weight: 600;">28.2 mV (<span data-lang="zh">超低壓降</span><span data-lang="en">Ultra-low drop</span>)</td>
-                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">55.0 K/W (-21.5 K/W)</td>
-                  <td style="padding: 8px 10px;"><span data-lang="zh">埋入式電源軌 (BPR) 穩固瞬態大電流</span><span data-lang="en">Buried Power Rail stabilizes write pulse</span></td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">72.0 K/W (+24 K/W)</td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">埋入式電軌穩固瞬態供電，熱管理需評估</span><span data-lang="en">Buried Power Rail stabilizes transient supply, thermal profile monitored</span></td>
                 </tr>
                 <tr style="background: #fffbeb;">
                   <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #d97706;"><span data-lang="zh">傳統 3nm 正面 FSPDN 基準</span><span data-lang="en">Conventional 3nm FSPDN Baseline</span></th>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">14.8 &Omega; (<span data-lang="zh">基準</span><span data-lang="en">Baseline</span>)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">1.35 nH (<span data-lang="zh">基準</span><span data-lang="en">Baseline</span>)</td>
                   <td style="padding: 8px 10px; color: #dc2626; font-weight: 600;">177.6 mV (<span data-lang="zh">嚴重塌陷</span><span data-lang="en">Severe collapse</span>)</td>
-                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">76.5 K/W (<span data-lang="zh">熱困擾</span><span data-lang="en">Thermal trapping</span>)</td>
-                  <td style="padding: 8px 10px;"><span data-lang="zh">大電流引發振鈴與壓降，軟擊穿風險</span><span data-lang="en">High ringing and sag, soft breakdown risk</span></td>
+                  <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">48.0 K/W (<span data-lang="zh">基準導熱</span><span data-lang="en">Base conduction</span>)</td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">厚矽基板導熱較佳，但正面金屬壓降劇烈引發軟擊穿</span><span data-lang="en">Bulk substrate aids heat spread, severe metal IR-drop risks soft breakdown</span></td>
                 </tr>
               </tbody>
             </table>
+            <p style="font-size: 11px; color: #64748b; margin: 4px 0 12px;"><span data-lang="zh">註：上述次 2nm 數值源自公開技術論文與論壇推估示意，非代工廠保證規格；熱阻反映晶圓薄化與介電層之熱累積效應。</span><span data-lang="en">Note: Sub-2nm figures represent illustrative estimates from public literature and conferences, not foundry specifications; thermal resistance reflects wafer thinning and dielectric thermal trapping.</span></p>
           </div>
 
           <!-- Controls Section -->
@@ -2779,31 +2787,31 @@
 
             <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
-                <span data-lang="zh">局部熱點溫降 ΔT</span><span data-lang="en">HOTSPOT DROP</span>
+                <span data-lang="zh">局部接面溫升 ΔT_j</span><span data-lang="en">JUNCTION TEMP RISE</span>
               </div>
               <div id="bspdn-out-tempdrop" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
-                <span data-lang="zh">背面厚銅熱沉效益</span><span data-lang="en">Thick Cu heat spreader</span>
+                <span data-lang="zh">集總熱阻計算</span><span data-lang="en">Lumped theta_th model</span>
               </div>
             </div>
 
             <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
-                <span data-lang="zh">TDDB 壽命增益倍數</span><span data-lang="en">TDDB LIFETIME GAIN</span>
+                <span data-lang="zh">壓降抑制率 (ΔV_drop)</span><span data-lang="en">IR-DROP MITIGATION</span>
               </div>
               <div id="bspdn-out-gain" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a855f7;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
-                <span data-lang="zh">Arrhenius 活化能推導</span><span data-lang="en">Arrhenius Ea=0.7eV</span>
+                <span data-lang="zh">相比正面 3nm 基準</span><span data-lang="en">vs FSPDN Baseline</span>
               </div>
             </div>
 
             <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 10px 12px;">
               <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; margin-bottom: 2px;">
-                <span data-lang="zh">編程良率預測</span><span data-lang="en">WRITE YIELD</span>
+                <span data-lang="zh">寫入裕度與預估良率</span><span data-lang="en">ESTIMATED WRITE YIELD</span>
               </div>
               <div id="bspdn-out-yield" style="font: 700 12px 'IBM Plex Mono', monospace; color: #059669;">—</div>
               <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
-                <span data-lang="zh">6-Sigma 邊界評級</span><span data-lang="en">6-Sigma assessment</span>
+                <span data-lang="zh">電壓裕度模型推估</span><span data-lang="en">Voltage headroom model</span>
               </div>
             </div>
           </div>
@@ -2816,7 +2824,7 @@
                   <span data-lang="zh">瞬態供電電壓軌波形與動態壓降 (0-6ns)</span><span data-lang="en">Transient VDD Waveform &amp; IR-Drop</span>
                 </button>
                 <button id="bspdn-mode-thermal" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
-                  <span data-lang="zh">熱阻散逸與 TDDB Weibull 壽命增益曲線</span><span data-lang="en">Thermal Dissipation &amp; TDDB Gain</span>
+                  <span data-lang="zh">熱阻特性與接面溫升分析</span><span data-lang="en">Thermal Resistance &amp; Hotspot Analysis</span>
                 </button>
               </div>
               <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">Sub-2nm Angstrom Backside Power Solver</span>
