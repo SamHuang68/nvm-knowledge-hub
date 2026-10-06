@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "9f49fa2e5c95ffbcb0f4",
+  "version": "22e303894df821180d62",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -37,6 +37,7 @@ self.NVMOfflineManifest = {
     "cim-nn-accuracy-degradation-simulator.js",
     "claim-scope.js",
     "command-palette-hud.js",
+    "cpo-optical-trim-simulator.js",
     "cpo-siph-nvm-simulator.js",
     "cryo-qubit-readout-simulator.js",
     "cryo-radhard-nvm-simulator.js",
@@ -180,6 +181,7 @@ self.NVMOfflineManifest = {
     "cim-nn-accuracy-degradation-simulator.js": "c16f41ad08bd4e72bbd4ee8f1aa9735f7a2351d4e9a31e68b8944f63368ef0fc",
     "claim-scope.js": "afb8bc4df1c94c77e07707f184f1efd188970c384ccf70a598b45a503bd5f91e",
     "command-palette-hud.js": "69756564651eb6f41cd58cae19225cdb30df4853c9df0d69f0392bd1edf94557",
+    "cpo-optical-trim-simulator.js": "9ac7fc0cf68e253c66a0ec909631488c15ca8abcf4053fa938403ded5c62c88f",
     "cpo-siph-nvm-simulator.js": "a1cf9a509b171b6411730dd13b8b98db8c880f3e9d2ca585ea35bc6418beb104",
     "cryo-qubit-readout-simulator.js": "f5422d53c014a9c1a4b01d936326cc3a2a35099b0226a8cd447564e7f50922f2",
     "cryo-radhard-nvm-simulator.js": "761c2606c6c13236beb28e9c0d9b8da6333d1fa0a68c622c749ccb099ede729d",
@@ -260,7 +262,7 @@ self.NVMOfflineManifest = {
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
     "space-radiation-hardening-simulator.js": "ac4baaf3e4976f584c52d92dd2e8c5771c3e1634777c386fa822f45526e7ad7b",
     "specialty-nvm.css": "54edc81d1d15e1d9d5c3f2604328e11269e48ac9fda51d059912d4dd0f8d7862",
-    "specialty-nvm.html": "45b8ee20edc8f23d541e9a112f76f81ba74e8781c4c9f7df6646a4c353a67a48",
+    "specialty-nvm.html": "3b1ab6b23cdda94acacccca95cadb850f8b786ef7c0561281c4520404fbb27eb",
     "specialty-nvm.js": "987a05dd3f6aa8cf0b69c7c543deebc445587e9f930186241a47a7a1e01fec4b",
     "sram-repair-model.js": "366c04a84d228d736a372308d8adbaf07660683fb6f6d5b453adc5dde8c204a6",
     "sram-repair.css": "344a186f66695d3f92ad1552743c08cb2696f33a821add216ed24b302a9ecae9",
@@ -286,5 +288,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "1a80caf7221a052c98828693d10982531f3fcba482cc0c1db82dfdabf8d4c83e",
     "whitepaper/index.html": "5ce3b260608904f45d28e2bd417fddc25661be9900fae2a1c818414f10d81f2c"
   },
-  "totalBytes": 12722409
+  "totalBytes": 12769044
 };
