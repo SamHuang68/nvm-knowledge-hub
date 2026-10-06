@@ -2055,6 +2055,28 @@ def run_tests() -> None:
     test("ai-nvm-opportunities.html 包含六大 KPI 輸出欄位 (Efficiency, Throughput, SNR, Worst IR-Drop, Accuracy, Rating) 與判定橫幅",
          'id="cim-out-energy"' in ai_cim_html and 'id="cim-out-throughput"' in ai_cim_html and 'id="cim-out-snr"' in ai_cim_html and 'id="cim-out-irdrop"' in ai_cim_html and 'id="cim-out-accuracy"' in ai_cim_html and 'id="cim-out-rating"' in ai_cim_html and 'id="cim-out-verdict"' in ai_cim_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 88: 極低溫超導量子計算 (Cryo-CMOS & Quantum Computing Interface at 4K / 77K) eNVM 載子凍結、能隙擴展與反熔絲超穩定模擬器 (specialty-nvm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 88: 極低溫超導量子計算 (Cryo-CMOS & Quantum Computing Interface at 4K / 77K) eNVM 物理模擬器 ═══")
+    cryo_js = (BASE / "cryo-cmos-quantum-nvm-simulator.js").read_text(encoding="utf-8")
+    test("cryo-cmos-quantum-nvm-simulator.js 存在且導出 calculateCryoNvmMetrics、drawCryoCanvas 與 initCryoNvmSimulator",
+         "export function calculateCryoNvmMetrics" in cryo_js and "export function drawCryoCanvas" in cryo_js and "export function initCryoNvmSimulator" in cryo_js)
+    test("cryo-cmos-quantum-nvm-simulator.js 包含四大極低溫系統預設與四大 eNVM 候選技術",
+         "CRYO_SYSTEM_PRESETS" in cryo_js and "cryo_dilution_fridge_4k" in cryo_js and "liquid_nitrogen_77k_hpc" in cryo_js and "sub_kelvin_100mk_readout" in cryo_js and "CRYO_NVM_TECHS" in cryo_js and "antifuse_ohmic_filament" in cryo_js and "stt_mram_spintronic" in cryo_js and "floating_gate_charge_trap" in cryo_js)
+    test("cryo-cmos-quantum-nvm-simulator.js 第一性原理 Varshni 能隙擴展、雜質載子凍結、亞閾值擺幅陡峭化、單元讀出熱耗散與量子位元熱相干裕度模型",
+         "bandgapEv" in cryo_js and "carrierIonizationPct" in cryo_js and "effectiveSsMvPerDec" in cryo_js and "readPowerNw" in cryo_js and "coherenceMarginPct" in cryo_js and "verdictZh" in cryo_js)
+    test("cryo-cmos-quantum-nvm-simulator.js 包含雙模態視覺化 (temperature_sweep_ss 與 cryo_power_decoherence)",
+         "temperature_sweep_ss" in cryo_js and "cryo_power_decoherence" in cryo_js)
+
+    spec_cryo_html = (BASE / "specialty-nvm.html").read_text(encoding="utf-8")
+    test("specialty-nvm.html 整合 cryo-cmos-simulator-root 工作台、cryo-cmos-quantum-section 與模組腳本引用",
+         'id="cryo-cmos-simulator-root"' in spec_cryo_html and 'id="cryo-cmos-quantum-section"' in spec_cryo_html and 'cryo-cmos-quantum-nvm-simulator.js' in spec_cryo_html)
+    test("specialty-nvm.html 包含預設選單、技術選單、溫度/讀出偏壓雙軸滑桿與雙模態 Canvas",
+         'id="cryo-preset-select"' in spec_cryo_html and 'id="cryo-tech-select"' in spec_cryo_html and 'id="cryo-temp-slider"' in spec_cryo_html and 'id="cryo-bias-slider"' in spec_cryo_html and 'id="cryo-nvm-canvas"' in spec_cryo_html and 'id="cryo-mode-ss"' in spec_cryo_html and 'id="cryo-mode-power"' in spec_cryo_html)
+    test("specialty-nvm.html 包含六大 KPI 輸出欄位 (SS, Bandgap, Freeze-out, Read Power, Coherence, Rating) 與判定橫幅",
+         'id="cryo-out-ss"' in spec_cryo_html and 'id="cryo-out-eg"' in spec_cryo_html and 'id="cryo-out-freeze"' in spec_cryo_html and 'id="cryo-out-readpower"' in spec_cryo_html and 'id="cryo-out-coherence"' in spec_cryo_html and 'id="cryo-out-rating"' in spec_cryo_html and 'id="cryo-out-verdict"' in spec_cryo_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

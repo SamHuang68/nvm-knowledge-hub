@@ -4202,6 +4202,217 @@
     </div>
   </div>
 </section>
+
+<!-- =========================================================
+     TOPIC 06: CRYO-CMOS & QUANTUM COMPUTING INTERFACE eNVM
+     ========================================================= -->
+<section class="topic-section lens-panel reveal" id="cryo-cmos-quantum-section" style="margin-top: 36px;">
+  <div class="topic-container">
+    <header class="topic-header">
+      <div class="topic-header-row">
+        <span class="topic-kicker"><span data-lang="zh">06 · 極低溫量子計算焦點</span><span data-lang="en">06 · CRYO-CMOS &amp; QUANTUM FOCUS</span></span>
+        <span class="topic-pill"><span data-lang="zh">4K / 77K 量子介面與載子凍結模型</span><span data-lang="en">4K / 77K Quantum Interface &amp; Freeze-Out Model</span></span>
+      </div>
+      <h3 class="topic-title">
+        <span data-lang="zh">極低溫 Cryo-CMOS 量子位元控制介面與 eNVM 能隙擴展及歐姆微絲超穩定物理</span>
+        <span data-lang="en">Cryogenic CMOS Quantum Control Interface &amp; eNVM Varshni Bandgap, Carrier Freeze-Out Physics</span>
+      </h3>
+      <p class="topic-desc">
+        <span data-lang="zh">在 4-Kelvin 稀釋冷凍機低溫冷盤與 77-Kelvin 液氮環境下，超導量子處理器需要極低熱噪微波介面晶粒。半導體矽能隙由 1.12 eV 擴展至 1.17 eV，常規摻雜載子發生凍結效應 (Carrier Freeze-Out)，亞閾值擺幅 (SS) 陡峭降至次 10 mV/dec，開啟 nW 級讀出可能。0-Mask AntiFuse 歐姆矽化物金屬微絲完全免除雜質凍結，提供量子校準金鑰之零漂移永久鎖定。</span>
+        <span data-lang="en">At 4-Kelvin dilution refrigerator stages and 77-Kelvin liquid nitrogen, superconducting qubits require ultra-low-noise Cryo-CMOS interface dies. Silicon bandgap expands from 1.12 eV to 1.17 eV via Varshni dynamics, dopants freeze out, and subthreshold swing (SS) sharpens below 10 mV/dec, enabling nanoWatt readout. 0-Mask AntiFuse metallic filaments remain completely immune to carrier freeze-out, securing zero-drift parameter locking without decoherence risk.</span>
+      </p>
+    </header>
+
+    <!-- 4 大極低溫 eNVM 技術比較矩陣 -->
+    <div style="overflow-x: auto; margin-bottom: 24px;">
+      <table class="paper-table" style="width: 100%; font-size: 11.5px; border-collapse: collapse;" aria-label="Cryogenic eNVM Technology Comparison Matrix" data-aria-en="Cryogenic eNVM Technology Comparison Matrix" data-aria-zh="極低溫 eNVM 技術物理特性比較矩陣">
+        <caption class="sr-only">
+          <span data-lang="zh">極低溫 4K/77K 環境下 eNVM 載子凍結、讀出功耗與量子相干相容性比較</span>
+          <span data-lang="en">Comparison of Cryogenic eNVM Carrier Freeze-Out, Readout Power, and Quantum Coherence Compatibility</span>
+        </caption>
+        <thead>
+          <tr style="background: rgba(30, 41, 59, 0.8); border-bottom: 1px solid rgba(51, 65, 85, 0.8);">
+            <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">記憶體技術</span><span data-lang="en">Memory Tech</span></th>
+            <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">4K 導電機制</span><span data-lang="en">4K Transport</span></th>
+            <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">載子凍結敏感度</span><span data-lang="en">Freeze-Out Susceptibility</span></th>
+            <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">單元讀出功耗</span><span data-lang="en">Readout Power</span></th>
+            <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">稀釋冷凍機相容性</span><span data-lang="en">Cryo Dilution Compatibility</span></th>
+            <th scope="col" style="padding: 8px 10px; text-align: left; color: #94a3b8;"><span data-lang="zh">量子計算適用價值</span><span data-lang="en">Quantum Usability</span></th>
+          </tr>
+        </thead>
+        <tbody style="color: #e2e8f0;">
+          <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+            <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">0-Mask AntiFuse</th>
+            <td style="padding: 8px 10px;"><span data-lang="zh">歐姆金屬矽化物微絲</span><span data-lang="en">Ohmic silicide filament</span></td>
+            <td style="padding: 8px 10px; color: #10b981; font-weight: 600;"><span data-lang="zh">0% (完全免疫)</span><span data-lang="en">0% (Immune)</span></td>
+            <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #10b981;">&lt; 500 nW</td>
+            <td style="padding: 8px 10px; color: #10b981; font-weight: 600;"><span data-lang="zh">極佳 (4K 冷盤無熱擾動)</span><span data-lang="en">Optimal (&lt;5uW budget)</span></td>
+            <td style="padding: 8px 10px;"><span data-lang="zh">DAC 偏置電壓微調、Qubit ID 與固態校準鎖定</span><span data-lang="en">Qubit bias trim, security root, calibration lock</span></td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+            <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">STT-MRAM</th>
+            <td style="padding: 8px 10px;"><span data-lang="zh">自旋穿隧 (TMR 增強至 220%)</span><span data-lang="en">Spin tunnel (TMR ~220%)</span></td>
+            <td style="padding: 8px 10px; color: #10b981;"><span data-lang="zh">&lt; 5% (MTJ 膜層無凍結)</span><span data-lang="en">&lt; 5% (No MTJ freeze-out)</span></td>
+            <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">1.5 – 3.0 µW</td>
+            <td style="padding: 8px 10px; color: #f59e0b;"><span data-lang="zh">良好 (但寫入翻轉電流增加 2.5x)</span><span data-lang="en">Good (Ic rises 2.5x at 4K)</span></td>
+            <td style="padding: 8px 10px;"><span data-lang="zh">動態微波波形 LUT 與量子閘排程快取</span><span data-lang="en">Dynamic microwave pulse LUT &amp; gate cache</span></td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+            <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">eFlash (Charge Trap)</th>
+            <td style="padding: 8px 10px;"><span data-lang="zh">半導體通道 + 浮閘穿隧</span><span data-lang="en">Semiconductor channel</span></td>
+            <td style="padding: 8px 10px; color: #ef4444; font-weight: 600;"><span data-lang="zh">&gt; 85% (周邊泵嚴重凍結)</span><span data-lang="en">&gt; 85% (Pump freeze-out)</span></td>
+            <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #ef4444;">&gt; 25 µW</td>
+            <td style="padding: 8px 10px; color: #ef4444;"><span data-lang="zh">不相容 (高壓泵失效、熱超標)</span><span data-lang="en">Incompatible (Thermal load)</span></td>
+            <td style="padding: 8px 10px;"><span data-lang="zh">極低溫下穿隧擊穿與熱耗散無法滿足稀釋冷盤</span><span data-lang="en">Oxide breakdown &amp; thermal dissipation penalty</span></td>
+          </tr>
+          <tr>
+            <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">Oxide ReRAM</th>
+            <td style="padding: 8px 10px;"><span data-lang="zh">氧空缺離子微絲</span><span data-lang="en">Oxygen vacancy filament</span></td>
+            <td style="padding: 8px 10px; color: #f59e0b;"><span data-lang="zh">~40% (離子遷移受阻)</span><span data-lang="en">~40% (Suppressed ion drift)</span></td>
+            <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">5.0 – 12.0 µW</td>
+            <td style="padding: 8px 10px; color: #f59e0b;"><span data-lang="zh">受限 (Forming 電壓大幅攀升)</span><span data-lang="en">Strained (High forming V)</span></td>
+            <td style="padding: 8px 10px;"><span data-lang="zh">出廠常溫 Forming 後可作唯讀極低溫快取</span><span data-lang="en">Read-only after room-temp forming calibration</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 互動工作台容器 -->
+    <div class="topic-simulator-container" id="cryo-cmos-simulator-root" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 8px; padding: 20px 22px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.5); padding-bottom: 10px;">
+        <div>
+          <span style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.08em;">
+            <span data-lang="zh">第一性原理極低溫工作台</span><span data-lang="en">FIRST-PRINCIPLES CRYO WORKBENCH</span>
+          </span>
+          <h4 style="margin: 2px 0 0; font-size: 16px; color: #f8fafc; font-weight: 700;">
+            <span data-lang="zh">4K / 77K 量子介面載子凍結、亞閾值陡峭度與熱相干預算模擬器</span>
+            <span data-lang="en">4K / 77K Quantum Interface Freeze-out, SS Steepness &amp; Thermal Coherence Simulator</span>
+          </h4>
+        </div>
+        <span style="font: 600 10px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.15); color: #38bdf8; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
+          <span data-lang="zh">Varshni 能隙方程 · 次 10mV/dec 擺幅</span><span data-lang="en">Varshni Bandgap · Sub-10mV/dec SS</span>
+        </span>
+      </div>
+
+      <!-- 控制面板 Controls Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; background: rgba(30, 41, 59, 0.6); padding: 12px; border-radius: 6px; border: 1px solid rgba(51, 65, 85, 0.5);">
+        <div>
+          <label for="cryo-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+            <span data-lang="zh">冷凍機系統預設 (Cryo System):</span><span data-lang="en">CRYO SYSTEM PRESET:</span>
+          </label>
+          <select id="cryo-preset-select" aria-label="Cryogenic System Preset" data-aria-en="Cryogenic System Preset" data-aria-zh="極低溫系統預設" style="width: 100%; padding: 5px 8px; border: 1px solid #475569; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+            <option value="cryo_dilution_fridge_4k" selected>4K Dilution Refrigerator Stage (50mW Cooling Budget)</option>
+            <option value="liquid_nitrogen_77k_hpc">77K Liquid Nitrogen HPC Tank (5W+ Cooling Capacity)</option>
+            <option value="sub_kelvin_100mk_readout">100mK Sub-Kelvin Qubit Cold Finger (20uW Limit)</option>
+            <option value="room_temp_300k_baseline">300K Room Temperature Reference Baseline</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="cryo-tech-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+            <span data-lang="zh">記憶體候選技術 (eNVM Tech):</span><span data-lang="en">eNVM CANDIDATE TECH:</span>
+          </label>
+          <select id="cryo-tech-select" aria-label="Cryogenic eNVM Technology" data-aria-en="Cryogenic eNVM Technology" data-aria-zh="極低溫 eNVM 技術" style="width: 100%; padding: 5px 8px; border: 1px solid #475569; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+            <option value="antifuse_ohmic_filament" selected>0-Mask AntiFuse Ohmic Metallic Filament (Freeze-Out Immune)</option>
+            <option value="stt_mram_spintronic">Spintronic STT-MRAM (TMR 220% at 4K, 2.5x Ic)</option>
+            <option value="floating_gate_charge_trap">Floating Gate / Charge Trap eFlash (Severe Freeze-Out)</option>
+            <option value="reram_oxide_filament">Oxide ReRAM (Valence Change, High 4K Barrier)</option>
+          </select>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+            <span><span data-lang="zh">晶粒溫度 (Temperature):</span><span data-lang="en">DIE TEMPERATURE:</span></span>
+            <span id="cryo-temp-val" style="color: #38bdf8; font-weight: 700;">4.2 K</span>
+          </div>
+          <input type="range" id="cryo-temp-slider" min="0.1" max="300" step="1" value="4.2" aria-label="Operating Temperature in Kelvin" data-aria-en="Operating Temperature in Kelvin" data-aria-zh="操作溫度開爾文" aria-valuetext="4.2 K" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+            <span><span data-lang="zh">讀出偏壓 (Read Bias):</span><span data-lang="en">READ BIAS:</span></span>
+            <span id="cryo-bias-val" style="color: #34d399; font-weight: 700;">400 mV</span>
+          </div>
+          <input type="range" id="cryo-bias-slider" min="50" max="1000" step="50" value="400" aria-label="Readout Bias Voltage" data-aria-en="Readout Bias Voltage" data-aria-zh="讀出偏壓毫伏" aria-valuetext="400 mV" style="width: 100%; accent-color: #34d399; cursor: pointer;">
+        </div>
+      </div>
+
+      <!-- KPI Cards Strip -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px;">
+        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <span data-lang="zh">亞閾值擺幅 (SS)</span><span data-lang="en">SUBTHRESHOLD SWING</span>
+          </div>
+          <div id="cryo-out-ss" style="font: 700 15px 'IBM Plex Mono', monospace; color: #38bdf8;">--</div>
+          <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">mV/dec (GAA Floor)</div>
+        </div>
+
+        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <span data-lang="zh">矽能隙擴展 (Eg)</span><span data-lang="en">SILICON BANDGAP</span>
+          </div>
+          <div id="cryo-out-eg" style="font: 700 15px 'IBM Plex Mono', monospace; color: #0284c7;">--</div>
+          <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">eV (Varshni Equation)</div>
+        </div>
+
+        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <span data-lang="zh">載子電離率</span><span data-lang="en">IONIZATION RATIO</span>
+          </div>
+          <div id="cryo-out-freeze" style="font: 700 15px 'IBM Plex Mono', monospace; color: #34d399;">--</div>
+          <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">% Active Carriers</div>
+        </div>
+
+        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <span data-lang="zh">單元讀出功耗</span><span data-lang="en">READOUT POWER</span>
+          </div>
+          <div id="cryo-out-readpower" style="font: 700 15px 'IBM Plex Mono', monospace; color: #10b981;">--</div>
+          <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">nW Cell Dissipation</div>
+        </div>
+
+        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <span data-lang="zh">量子相干裕度</span><span data-lang="en">COHERENCE MARGIN</span>
+          </div>
+          <div id="cryo-out-coherence" style="font: 700 15px 'IBM Plex Mono', monospace; color: #34d399;">--</div>
+          <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">% Thermal Headroom</div>
+        </div>
+
+        <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 10px 12px;">
+          <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+            <span data-lang="zh">極低溫評級</span><span data-lang="en">CRYO GRADE</span>
+          </div>
+          <div id="cryo-out-rating" style="font: 700 12.5px 'IBM Plex Mono', monospace; color: #34d399;">--</div>
+          <div style="font-size: 9.5px; color: #64748b; margin-top: 1px;">Compatibility Tier</div>
+        </div>
+      </div>
+
+      <!-- 視覺化 Canvas 與模式切換按鈕 -->
+      <div style="background: #020617; border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+          <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Cryogenic Visualization Mode" data-aria-en="Cryogenic Visualization Mode" data-aria-zh="極低溫視覺化模式">
+            <button id="cryo-mode-ss" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+              <span data-lang="zh">溫度 4K~300K 掃描 vs 亞閾值擺幅 (SS) 曲線</span><span data-lang="en">Temp vs Subthreshold Swing</span>
+            </button>
+            <button id="cryo-mode-power" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+              <span data-lang="zh">讀出功耗 vs 冷卻預算與量子相干裕度</span><span data-lang="en">Power vs Coherence Margin</span>
+            </button>
+          </div>
+          <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">High-DPI Cryo-CMOS Quantum Engine</span>
+        </div>
+        <div style="width: 100%; height: 180px; position: relative;">
+          <canvas id="cryo-nvm-canvas" width="480" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Cryo-CMOS Quantum eNVM Simulation Canvas" data-aria-en="Cryo-CMOS Quantum eNVM Simulation Canvas" data-aria-zh="極低溫 Cryo-CMOS 量子 eNVM 模擬畫布"></canvas>
+        </div>
+      </div>
+
+      <!-- 架構結論提示方塊 -->
+      <div style="background: rgba(14, 165, 233, 0.08); border-left: 3px solid #0ea5e9; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
+        <span id="cryo-out-verdict">Loading Cryogenic CMOS calculations...</span>
+      </div>
+    </div>
+  </div>
+</section>
     </div>
   </div>
 </div>
@@ -4368,6 +4579,7 @@
 <script type="module" src="deep-space-sel-retention-simulator.js?v=20261006"></script>
 <script type="module" src="hybrid-bonding-tsv-kgd-simulator.js?v=20261006"></script>
 <script type="module" src="cpo-optical-trim-simulator.js?v=20261006"></script>
+<script type="module" src="cryo-cmos-quantum-nvm-simulator.js?v=20261007"></script>
 <script src="topic-menu-navigation.js?v=20260929-v5"></script>
 </body>
 </html>
