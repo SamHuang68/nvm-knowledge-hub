@@ -2097,6 +2097,26 @@ def run_tests() -> None:
     test("technology-comparison.html 包含四大預設按鈕、四大參數控制、四大 KPI 指標卡與 3D 堆疊 eNVM 可靠度對比矩陣表格",
          'class="cu-btn-preset' in cucu_js and 'id="cu-out-margin"' in cucu_js and 'id="cu-out-stress"' in cucu_js and 'id="cu-out-vth"' in cucu_js and 'id="cu-out-koz"' in cucu_js and 'AntiFuse OTP (0-Mask 微絲)' in tech_cucu_html and 'STT-MRAM (垂直 MTJ)' in tech_cucu_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 90: 車規高溫極限與功率半導體整合 (SiC / GaN Gate Driver + High-Tj eNVM at 175°C~250°C) 物理耐受模擬器 (automotive-nvm.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 90: 車規高溫極限與功率半導體整合 SiC / GaN Driver eNVM 物理模擬器 ═══")
+    sic_js = (BASE / "automotive-high-temp-sic-gan-simulator.js").read_text(encoding="utf-8")
+    test("automotive-high-temp-sic-gan-simulator.js 存在且導出 AutomotiveHighTempSicGanSimulator 類別",
+         "export class AutomotiveHighTempSicGanSimulator" in sic_js and "computePhysics" in sic_js)
+    test("automotive-high-temp-sic-gan-simulator.js 包含四大車規功率預設與四大 eNVM 候選技術",
+         "grade0-inverter" in sic_js and "sic-traction" in sic_js and "gan-highfreq" in sic_js and "ultra-aviation" in sic_js and "antifuse" in sic_js and "mram" in sic_js and "reram" in sic_js and "eflash" in sic_js)
+    test("automotive-high-temp-sic-gan-simulator.js 第一性原理 Arrhenius 電荷洩漏、STT-MRAM 超順磁退磁臨界、高溫差動感測裕度與 DESAT 讀出延遲模型",
+         "activationEnergyEa" in sic_js and "deltaBarrier" in sic_js and "senseMarginUa" in sic_js and "desatLatencyNs" in sic_js and "lifetimeYears" in sic_js)
+    test("automotive-high-temp-sic-gan-simulator.js 包含雙畫布動態渲染 (Arrhenius 對數壽命曲線與高溫感測裕度窗)",
+         "sic-canvas-arrhenius" in sic_js and "sic-canvas-sense" in sic_js and "renderCanvasArrhenius" in sic_js and "renderCanvasSense" in sic_js)
+
+    auto_sic_html = (BASE / "automotive-nvm.html").read_text(encoding="utf-8")
+    test("automotive-nvm.html 整合 sec-high-temp-sic-gan 章節與 sic-gan-simulator-root 工作台",
+         'id="sec-high-temp-sic-gan"' in auto_sic_html and 'id="sic-gan-simulator-root"' in auto_sic_html and 'automotive-high-temp-sic-gan-simulator.js' in auto_sic_html)
+    test("automotive-nvm.html 包含四大預設按鈕、三大參數控制、四大 KPI 指標卡與 SiC/GaN 高溫 eNVM 對比表",
+         'class="sic-btn-preset' in sic_js and 'id="sic-out-lifetime"' in sic_js and 'id="sic-out-barrier"' in sic_js and 'id="sic-out-margin"' in sic_js and 'id="sic-out-latency"' in sic_js and '0-Mask AntiFuse OTP' in auto_sic_html and 'STT-MRAM (垂直 MTJ)' in auto_sic_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
