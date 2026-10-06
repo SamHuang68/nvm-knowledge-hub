@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "22e303894df821180d62",
+  "version": "fb1f4507bf683d3d6e16",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -29,6 +29,7 @@ self.NVMOfflineManifest = {
     "automotive-thermal.js",
     "bcd-trimming-simulator.js",
     "briefing/index.html",
+    "bspdn-envm-ir-drop-simulator.js",
     "chapter-lens.css",
     "chiplet-3d-hetero-nvm-simulator.js",
     "chiplet-ucie-nvm-simulator.js",
@@ -173,6 +174,7 @@ self.NVMOfflineManifest = {
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "bcd-trimming-simulator.js": "5fc84893230bc741aa87824195cc5029dd56345318fb67fc676ca227288fd96f",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
+    "bspdn-envm-ir-drop-simulator.js": "a1df734bcc8e490e861399114d8728cd778c5432d45ff46f1beb466fbc9738b2",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
     "chiplet-3d-hetero-nvm-simulator.js": "622bb16f6e9d9ac973357bfcd10ca139d6031af857be134ab89d455762d37628",
     "chiplet-ucie-nvm-simulator.js": "c06f165c434e5212331f7a805fdaeadef120957720e812f258a40c41c556ad3a",
@@ -227,7 +229,7 @@ self.NVMOfflineManifest = {
     "memory-evidence.html": "b659bdef3a0df4536faa5d853df42feaee0629d6c556ba6870ccd09f7477fdde",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "43dcc66be733940cc4d80c4dceb3733ff5e1713b6a716702e1e86dd566fc67ef",
+    "memory-physics.html": "09fe5c7379c9c43e2fdb59a6580179db71c2c4fa5450ea787effa11f937ae8c8",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
     "nanosheet-bspdn-nvm-simulator.js": "63b8b6abceced2a3229f20471a8d05534d53b1862372bad4ace29f1f5ab70e7c",
@@ -288,5 +290,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "1a80caf7221a052c98828693d10982531f3fcba482cc0c1db82dfdabf8d4c83e",
     "whitepaper/index.html": "5ce3b260608904f45d28e2bd417fddc25661be9900fae2a1c818414f10d81f2c"
   },
-  "totalBytes": 12769044
+  "totalBytes": 12813389
 };

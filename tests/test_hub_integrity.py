@@ -1963,6 +1963,28 @@ def run_tests() -> None:
     test("specialty-nvm.html 包含五大 KPI 輸出欄位 (Drift, Phase, ER, Power, Rating) 與判定橫幅",
          'id="cpo-trim-out-drift"' in spec_trim_html and 'id="cpo-trim-out-phase"' in spec_trim_html and 'id="cpo-trim-out-er"' in spec_trim_html and 'id="cpo-trim-out-power"' in spec_trim_html and 'id="cpo-trim-out-rating"' in spec_trim_html and 'id="cpo-trim-out-verdict"' in spec_trim_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 84: 次奈米 A16/A14 GAA 背面供電網 (BSPDN / PowerVia) eNVM 寄生耦合與 IR-Drop 物理模擬器 (memory-physics.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 84: 次奈米 A16/A14 GAA 背面供電網 (BSPDN / PowerVia) eNVM 寄生耦合與 IR-Drop 物理模擬器 ═══")
+    bspdn_js = (BASE / "bspdn-envm-ir-drop-simulator.js").read_text(encoding="utf-8")
+    test("bspdn-envm-ir-drop-simulator.js 存在且導出 calculateBspdnMetrics、drawBspdnCanvas 與 initBspdnSimulator",
+         "export function calculateBspdnMetrics" in bspdn_js and "export function drawBspdnCanvas" in bspdn_js and "export function initBspdnSimulator" in bspdn_js)
+    test("bspdn-envm-ir-drop-simulator.js 包含四大次奈米供電架構預設 (A16 SPR, Intel 14A PowerVia, Samsung SF1.4, FSPDN 基準)",
+         "BSPDN_PRESETS" in bspdn_js and "tsmc_a16_spr" in bspdn_js and "intel_14a_powervia" in bspdn_js and "samsung_sf14_bspdn" in bspdn_js and "fspdn_3nm_baseline" in bspdn_js)
+    test("bspdn-envm-ir-drop-simulator.js 第一性原理動態 IR-Drop、L(di/dt) 電感噪訊、有效寫入偏壓、Arrhenius 熱阻壽命與 RC 延遲模型",
+         "irDropCurrentMv" in bspdn_js and "indNoiseCurrentMv" in bspdn_js and "totalDropCurrentMv" in bspdn_js and "effectiveVddCurrent" in bspdn_js and "lifetimeRatio" in bspdn_js and "writeYield" in bspdn_js and "verdictZh" in bspdn_js)
+    test("bspdn-envm-ir-drop-simulator.js 包含雙模態視覺化 (transient_waveform 與 thermal_tddb)",
+         "transient_waveform" in bspdn_js and "thermal_tddb" in bspdn_js)
+
+    mem_bspdn_html = (BASE / "memory-physics.html").read_text(encoding="utf-8")
+    test("memory-physics.html 整合 bspdn-envm-simulator-root 工作台、物理模型 09 與模組腳本引用",
+         'id="bspdn-envm-simulator-root"' in mem_bspdn_html and 'bspdn-envm-ir-drop-simulator.js' in mem_bspdn_html)
+    test("memory-physics.html 包含預設選單、電流/上升時間/接面溫度三軸滑桿與雙模態 Canvas",
+         'id="bspdn-preset-select"' in mem_bspdn_html and 'id="bspdn-current-slider"' in mem_bspdn_html and 'id="bspdn-rise-slider"' in mem_bspdn_html and 'id="bspdn-temp-slider"' in mem_bspdn_html and 'id="bspdn-canvas"' in mem_bspdn_html)
+    test("memory-physics.html 包含六大 KPI 輸出欄位 (IR-Drop, Inductive Noise, Effective Vdd, Temp Drop, Lifetime Gain, Write Yield) 與判定橫幅",
+         'id="bspdn-out-irdrop"' in mem_bspdn_html and 'id="bspdn-out-indnoise"' in mem_bspdn_html and 'id="bspdn-out-effvdd"' in mem_bspdn_html and 'id="bspdn-out-tempdrop"' in mem_bspdn_html and 'id="bspdn-out-gain"' in mem_bspdn_html and 'id="bspdn-out-yield"' in mem_bspdn_html and 'id="bspdn-out-verdict"' in mem_bspdn_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
