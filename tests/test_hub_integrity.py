@@ -2033,6 +2033,28 @@ def run_tests() -> None:
     test("memory-evidence.html 包含 evidence-V21 NIST 後量子密碼硬體信任根與金鑰儲存總帳 (FIPS 203 & FIPS 204)",
          'id="evidence-V21"' in ev_pqc_html and 'FIPS 203' in ev_pqc_html and 'FIPS 204' in ev_pqc_html and 'ML-KEM' in ev_pqc_html and 'ML-DSA' in ev_pqc_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 87: 類腦神經形態運算與記憶體內運算 (CiM) 矩陣乘加 (MAC) 物理模擬器 (ai-nvm-opportunities.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 87: 類腦神經形態運算與記憶體內運算 (CiM) 矩陣乘加 (MAC) 物理模擬器 ═══")
+    cim_mac_js = (BASE / "cim-neuromorphic-mac-simulator.js").read_text(encoding="utf-8")
+    test("cim-neuromorphic-mac-simulator.js 存在且導出 calculateCimMacMetrics、drawCimMacCanvas 與 initCimMacSimulator",
+         "export function calculateCimMacMetrics" in cim_mac_js and "export function drawCimMacCanvas" in cim_mac_js and "export function initCimMacSimulator" in cim_mac_js)
+    test("cim-neuromorphic-mac-simulator.js 包含四大神經架構預設與四大突觸記憶體介質設定檔",
+         "CIM_SYSTEM_PRESETS" in cim_mac_js and "edge_keyword_spotting_kws" in cim_mac_js and "vision_transformer_vit_patch" in cim_mac_js and "neuromorphic_spiking_snn" in cim_mac_js and "deep_learning_llm_quantized" in cim_mac_js and "CIM_MEMORY_MEDIA" in cim_mac_js and "analog_reram_crossbar" in cim_mac_js and "stt_mram_binary_xbar" in cim_mac_js and "antifuse_stochastic_puf" in cim_mac_js and "sram_standard_digital_mac" in cim_mac_js)
+    test("cim-neuromorphic-mac-simulator.js 第一性原理歐姆-基爾霍夫類比乘加、線路 IR-Drop 空間壓降、電導漂移、ADC 量化噪訊與推論精度保留模型",
+         "worstCaseIrDropPct" in cim_mac_js and "worstCaseIrDropMv" in cim_mac_js and "conductanceLossPct" in cim_mac_js and "effectiveSnrDb" in cim_mac_js and "retainedAccuracyPct" in cim_mac_js and "energyEfficiencyTopsPerWatt" in cim_mac_js and "throughputTops" in cim_mac_js and "verdictZh" in cim_mac_js)
+    test("cim-neuromorphic-mac-simulator.js 包含雙模態視覺化 (crossbar_heatmap 與 energy_accuracy_tradeoff)",
+         "crossbar_heatmap" in cim_mac_js and "energy_accuracy_tradeoff" in cim_mac_js)
+
+    ai_cim_html = (BASE / "ai-nvm-opportunities.html").read_text(encoding="utf-8")
+    test("ai-nvm-opportunities.html 整合 cim-neuromorphic-simulator-root 工作台、cim-neuromorphic-mac-section 與模組腳本引用",
+         'id="cim-neuromorphic-simulator-root"' in ai_cim_html and 'id="cim-neuromorphic-mac-section"' in ai_cim_html and 'cim-neuromorphic-mac-simulator.js' in ai_cim_html)
+    test("ai-nvm-opportunities.html 包含預設選單、介質選單、線阻/ADC/漂移三軸滑桿與雙模態 Canvas",
+         'id="cim-preset-select"' in ai_cim_html and 'id="cim-media-select"' in ai_cim_html and 'id="cim-wire-slider"' in ai_cim_html and 'id="cim-adc-slider"' in ai_cim_html and 'id="cim-drift-slider"' in ai_cim_html and 'id="cim-neuro-mac-canvas"' in ai_cim_html and 'id="cim-mode-heatmap"' in ai_cim_html and 'id="cim-mode-tradeoff"' in ai_cim_html)
+    test("ai-nvm-opportunities.html 包含六大 KPI 輸出欄位 (Efficiency, Throughput, SNR, Worst IR-Drop, Accuracy, Rating) 與判定橫幅",
+         'id="cim-out-energy"' in ai_cim_html and 'id="cim-out-throughput"' in ai_cim_html and 'id="cim-out-snr"' in ai_cim_html and 'id="cim-out-irdrop"' in ai_cim_html and 'id="cim-out-accuracy"' in ai_cim_html and 'id="cim-out-rating"' in ai_cim_html and 'id="cim-out-verdict"' in ai_cim_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")
