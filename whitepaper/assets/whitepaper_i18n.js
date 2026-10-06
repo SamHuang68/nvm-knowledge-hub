@@ -1,9 +1,15 @@
 // 白皮書兩個入口共用單一內容翻譯器；全站語言狀態由 HubLanguage 管理。
 (function () {
   const DICT = {
+  "Interactive multi-way security & NVM architecture comparison (13 canonical profiles). Filter by technology family, inspect latency and physical exposure, or export profiles for system engineering reviews.": "互動式安全與 NVM 架構多方比較（13 個標準設定檔）。可依技術家族篩選、檢視延遲與實體暴露範圍，或匯出設定檔供系統工程審查。",
+  "All public profiles (13)": "全部公開設定檔（13）",
+  "Illustrative NVM selection profiles with explicit evidence boundaries (13 Profiles)": "具有明確證據界線的示意 NVM 選型設定檔（13 筆）",
   "Interactive multi-way security & NVM architecture comparison (12 canonical profiles). Filter by technology family, inspect latency and physical exposure, or export profiles for system engineering reviews.": "互動式安全與 NVM 架構多方比較（12 個標準設定檔）。可依技術家族篩選、檢視延遲與實體暴露範圍，或匯出設定檔供系統工程審查。",
   "All public profiles (12)": "全部公開設定檔（12）",
   "Illustrative NVM selection profiles with explicit evidence boundaries (12 Profiles)": "具有明確證據界線的示意 NVM 選型設定檔（12 筆）",
+  "JEDEC HBM4 standards, foundry logic base die nodes (TSMC 12nm/3nm, Samsung 4nm) and advanced probe card vendor specifications define target architectural parameters. Exact ohmic filament resistance, repair yields, CMP scrub depths, and qualification tiers require device-specific and foundry-specific qualification data.": "JEDEC HBM4 標準、晶圓代工邏輯 Base Die 節點（TSMC 12nm/3nm、Samsung 4nm）與先進探針卡規格定義了目標架構參數。確切歐姆微絲電阻、修復良率、CMP 針痕深度與認證等級，需依具體元件與晶圓代工廠驗證數據為準。",
+  "HBM4 Logic Base Die 0-Mask AntiFuse Post-Packaging Repair": "HBM4 邏輯 Base Die 0-Mask 反熔絲封裝後修復",
+  "0-Mask AntiFuse OTP + Advanced Packaging Post-Package Repair (PPR)": "0-Mask AntiFuse OTP＋先進封裝後修復 (PPR)",
   "The 1.5B+ figure is a vendor-aggregated portfolio claim, not shipments of this Secure Storage implementation. Node availability, certifications, latency and the combined architecture require separate product-specific evidence.": "1.5B+ 為供應商彙總的產品組合聲稱，不代表此安全儲存實作的出貨量。節點可用性、認證、延遲與組合架構，均需另附特定產品證據。",
   "Shipment totals, node range and timing refer to an illustrative technology-family comparison. A named macro and its qualification report are required; one RP2350 attack does not prove every OTP implementation vulnerable.": "出貨總量、節點範圍與時序均屬技術家族的示意比較。必須指定巨集與驗證報告；單一 RP2350 攻擊不能證明所有 OTP 實作都存在相同弱點。",
   "Dielectric-breakdown tunneling is the mechanism described by this draft, not a verified identification of every OTP PUF. Shipment totals, helper-data requirements and certification lineage need named-product sources.": "介電層崩潰穿隧是本原稿描述的機制，並非對所有 OTP PUF 的已驗證判定。出貨總量、輔助資料需求與認證沿革，均需指定產品的來源。",

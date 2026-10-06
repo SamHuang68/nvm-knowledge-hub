@@ -26,7 +26,7 @@ test('eFlash draft and both exports retain process-specific limits without unive
   renderMatrix(container);
   assert.ok(container.innerHTML.includes(original.bomCost));
   assert.ok(container.innerHTML.includes(original.evidenceReview.scope));
-  assert.equal(nvmIpSpecs.length, 12);
+  assert.equal(nvmIpSpecs.length, 13);
 });
 
 test('overview and whitepaper chapter carry the same conditional process boundary', () => {

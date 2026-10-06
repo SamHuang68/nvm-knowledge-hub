@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "9e84fdd50880caab382f",
+  "version": "09187d5cc952a366ec02",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -280,9 +280,9 @@ self.NVMOfflineManifest = {
     "vertical-3d-nvm-simulator.js": "963387ac2fa6b0162f35eddd685bf5ea9a10ca128e601337125f25c116826514",
     "wafer-cost-tco-calculator.js": "9fced509799ecde01e819a1042a0db7115061da16c6a244c06fb981b6b8bef49",
     "whitepaper/assets/whitepaper.css": "e20424a1c0acdd443c0de1b045fc1adbfa89c35800eab626e316901f28cc32c8",
-    "whitepaper/assets/whitepaper.js": "dd319f9c68705442700bc090352b677e73fc58eb268baae7eb6956000d46ade4",
-    "whitepaper/assets/whitepaper_i18n.js": "611009d2a67c444749147670ee29032d8691893edbb16d65c0acaa80780fa6aa",
-    "whitepaper/index.html": "0526793d1cbbd6f0170523246ca68b75a29b9b3dff759622e96abc139381b3eb"
+    "whitepaper/assets/whitepaper.js": "6c1693ead7aa2e1602fe8033e6a59b8f4e26aabce60b01c93df98b14c2d86689",
+    "whitepaper/assets/whitepaper_i18n.js": "1a80caf7221a052c98828693d10982531f3fcba482cc0c1db82dfdabf8d4c83e",
+    "whitepaper/index.html": "5ce3b260608904f45d28e2bd417fddc25661be9900fae2a1c818414f10d81f2c"
   },
-  "totalBytes": 12663367
+  "totalBytes": 12672005
 };

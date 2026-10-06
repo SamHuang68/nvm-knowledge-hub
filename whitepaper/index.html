@@ -510,17 +510,17 @@
         <p class="eyebrow dark">03 · DECISION MATRIX</p>
         <h2>Compare the state contract<br><em>before comparing a macro</em></h2>
       </div>
-      <p>Interactive multi-way security & NVM architecture comparison (12 canonical profiles). Filter by technology family, inspect latency and physical exposure, or export profiles for system engineering reviews.</p>
+      <p>Interactive multi-way security & NVM architecture comparison (13 canonical profiles). Filter by technology family, inspect latency and physical exposure, or export profiles for system engineering reviews.</p>
     </header>
 
-    <p class="matrix-evidence-boundary"><span data-lang="zh">以下保留 12 筆工程原稿供審查。數值、製程、認證與量產字樣均屬待查證聲稱；只有明確標示的來源支援指定欄位，不能視為完整產品規格。</span><span data-lang="en">These 12 engineering drafts retain their original values for review. Numbers, nodes, certifications and production wording remain unverified claims; a linked source supports only its stated fields, not a complete product specification.</span></p>
+    <p class="matrix-evidence-boundary"><span data-lang="zh">以下保留 13 筆工程原稿供審查。數值、製程、認證與量產字樣均屬待查證聲稱；只有明確標示的來源支援指定欄位，不能視為完整產品規格。</span><span data-lang="en">These 13 engineering drafts retain their original values for review. Numbers, nodes, certifications and production wording remain unverified claims; a linked source supports only its stated fields, not a complete product specification.</span></p>
 
     <section class="selector-controls" aria-label="Decision matrix filters" data-aria-en="Decision matrix filters" data-aria-zh="決策矩陣篩選器">
       <label for="filter-family">
         <span>FILTER BY TECHNOLOGY FAMILY</span>
         <select id="filter-family">
-          <option value="ALL">All public profiles (12)</option>
-          <option value="SRAM PUF + 1T OTP + AES-256">SRAM PUF + 1T OTP + AES-256</option><option value="Antifuse OTP (Raw / Unencrypted)">Antifuse OTP (Raw / Unencrypted)</option><option value="Quantum Tunneling / High-Voltage OTP-PUF">Quantum Tunneling / High-Voltage OTP-PUF</option><option value="Dedicated Security Chip (e.g. NXP SE050)">Dedicated Security Chip (e.g. NXP SE050)</option><option value="Board-Level / PCIe HSM Module">Board-Level / PCIe HSM Module</option><option value="Floating Gate / Charge Trap eFlash">Floating Gate / Charge Trap eFlash</option><option value="Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)">Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)</option><option value="On-Die Managed MTP / AntiFuse OTP">On-Die Managed MTP / AntiFuse OTP</option><option value="Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)">Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)</option><option value="AntiFuse OTP Hard FuseBox &amp; PPR">AntiFuse OTP Hard FuseBox &amp; PPR</option><option value="High-Density Embedded MTP / Pure Logic OTP">High-Density Embedded MTP / Pure Logic OTP</option><option value="MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity">MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity</option>
+          <option value="ALL">All public profiles (13)</option>
+          <option value="SRAM PUF + 1T OTP + AES-256">SRAM PUF + 1T OTP + AES-256</option><option value="Antifuse OTP (Raw / Unencrypted)">Antifuse OTP (Raw / Unencrypted)</option><option value="Quantum Tunneling / High-Voltage OTP-PUF">Quantum Tunneling / High-Voltage OTP-PUF</option><option value="Dedicated Security Chip (e.g. NXP SE050)">Dedicated Security Chip (e.g. NXP SE050)</option><option value="Board-Level / PCIe HSM Module">Board-Level / PCIe HSM Module</option><option value="Floating Gate / Charge Trap eFlash">Floating Gate / Charge Trap eFlash</option><option value="Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)">Emerging BEOL NVM (STT-MRAM / OxRAM ReRAM)</option><option value="On-Die Managed MTP / AntiFuse OTP">On-Die Managed MTP / AntiFuse OTP</option><option value="Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)">Antifuse OTP (Fixed) / NeoMTP (Floating-Gate MTP)</option><option value="AntiFuse OTP Hard FuseBox &amp; PPR">AntiFuse OTP Hard FuseBox &amp; PPR</option><option value="High-Density Embedded MTP / Pure Logic OTP">High-Density Embedded MTP / Pure Logic OTP</option><option value="MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity">MTP in Evolution ➔ Pure Logic AntiFuse OTP in Maturity</option><option value="0-Mask AntiFuse OTP + Advanced Packaging Post-Package Repair (PPR)">0-Mask AntiFuse OTP + Advanced Packaging Post-Package Repair (PPR)</option>
         </select>
       </label>
       <div class="matrix-actions">
@@ -535,7 +535,7 @@
 
     <div class="decision-table-wrap" tabindex="0" role="region" aria-label="Decision matrix table" data-aria-en="Decision matrix table" data-aria-zh="決策矩陣表格">
       <table class="decision-table">
-        <caption>Illustrative NVM selection profiles with explicit evidence boundaries (12 Profiles)</caption>
+        <caption>Illustrative NVM selection profiles with explicit evidence boundaries (13 Profiles)</caption>
         <thead>
           <tr>
             <th scope="col">State Profile</th>
@@ -820,6 +820,29 @@
         <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
         <span class="status-chip"><span data-lang="en">E-Ink Panel Partner Standard · Fitipower / UltraChip / Solomon Baseline</span><span data-lang="zh">電子紙面板夥伴標準 · Fitipower／UltraChip／Solomon 基準</span></span>
         <p class="profile-boundary"><span data-lang="en">Driver platforms, memory size, battery life, height limits and named suppliers are application assumptions requiring product-specific sources. These statements do not establish a universal panel-partner standard.</span><span data-lang="zh">驅動平臺、記憶體容量、電池壽命、高度限制與具名供應商均屬應用假設，需要特定產品來源。這些敘述不能確立通用的面板夥伴標準。</span></p>
+
+      </td>
+    </tr>
+
+    <tr data-profile-id="hbm4_logic_base_die_repair">
+      <th scope="row" data-label="STATE PROFILE">
+        <strong><span data-lang="en">HBM4 Logic Base Die 0-Mask AntiFuse Post-Packaging Repair</span><span data-lang="zh">HBM4 邏輯 Base Die 0-Mask 反熔絲封裝後修復</span></strong>
+        <small><span data-lang="en">Wafer sort (KGD) + Post-Cu-Cu bonding hPPR + dynamic mission-profile sPPR repair via internal FuseBox</span><span data-lang="zh">晶圓排序 (KGD)＋Cu-Cu 鍵合後 hPPR＋任務剖面動態 sPPR 內部 FuseBox 熔絲燒錄</span></small>
+      </th>
+      <td data-label="TECHNOLOGY FAMILY"><span class="family-chip"><span data-lang="en">0-Mask AntiFuse OTP + Advanced Packaging Post-Package Repair (PPR)</span><span data-lang="zh">0-Mask AntiFuse OTP＋先進封裝後修復 (PPR)</span></span></td>
+      <td data-label="STATE CONTRACT"><span data-lang="en">Post-hybrid-bonding irreversible ohmic Si-filament repair (R_on &lt; 100 Ω); zero thermal rebound at 260°C reflow; autonomous BIRA rerouting of failed micro-bumps &amp; TSV lanes</span><span data-lang="zh">Cu-Cu 混合鍵合後不可逆歐姆矽微絲修復 (R_on &lt; 100 Ω)；260°C 封裝迴焊零熱回彈；自主 BIRA 重新路由失效微凸塊與 TSV 通道</span></td>
+      <td data-label="BUS EXPOSURE">
+        <span class="security-chip sec-high"><span data-lang="en">None (Autonomous on-die BIST/BIRA decoders within Base Die secure trust boundary)</span><span data-lang="zh">無（Base Die 安全信任邊界內之自主晶粒內 BIST/BIRA 解碼器）</span></span>
+      </td>
+      <td data-label="LATENCY & BOM">
+        <small><strong>Latency:</strong> <span data-lang="en">Zero-cycle on-die address remapping (pure combinational mux decode)</span><span data-lang="zh">晶粒內零週期位址重新映射（純組合邏輯多工解碼）</span></small><br>
+        <small><strong>BOM:</strong> <span data-lang="en">Zero mask adder (Standard pure logic CMOS process without HV/eFlash masks)</span><span data-lang="zh">零額外光罩（標準純邏輯 CMOS 製程，無需高壓或 eFlash 光罩）</span></small>
+      </td>
+      <td data-label="STRONGEST FIT"><span data-lang="en">HBM4 16-Hi/24-Hi 2048-bit Wide-IO, 3nm AI Accelerator Base Dies, CoWoS/SoIC Cu-Cu Hybrid Bonding Repair</span><span data-lang="zh">HBM4 16-Hi/24-Hi 2048-bit 超寬介面、3nm AI 加速器 Base Die、CoWoS/SoIC Cu-Cu 混合鍵合修復</span></td>
+      <td data-label="EVIDENCE STATUS">
+        <strong><span data-lang="zh">待查證的原稿聲稱</span><span data-lang="en">Draft claim — verification pending</span></strong>
+        <span class="status-chip"><span data-lang="en">JEDEC JESD238 HBM4 Reference · TSMC 3DFabric / Samsung I-Cube Architecture · Probe Card Consortium Baseline (MPI / CHPT / FormFactor)</span><span data-lang="zh">JEDEC JESD238 HBM4 參考架構 · TSMC 3DFabric 與 Samsung I-Cube 架構 · 探針卡生態系基準 (旺矽 MPI / 精測 CHPT / FormFactor)</span></span>
+        <p class="profile-boundary"><span data-lang="en">JEDEC HBM4 standards, foundry logic base die nodes (TSMC 12nm/3nm, Samsung 4nm) and advanced probe card vendor specifications define target architectural parameters. Exact ohmic filament resistance, repair yields, CMP scrub depths, and qualification tiers require device-specific and foundry-specific qualification data.</span><span data-lang="zh">JEDEC HBM4 標準、晶圓代工邏輯 Base Die 節點（TSMC 12nm/3nm、Samsung 4nm）與先進探針卡規格定義了目標架構參數。確切歐姆微絲電阻、修復良率、CMP 針痕深度與認證等級，需依具體元件與晶圓代工廠驗證數據為準。</span></p>
 
       </td>
     </tr>

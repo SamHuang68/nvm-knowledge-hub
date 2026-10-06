@@ -20,7 +20,7 @@ export function renderMatrix(container) {
       <p>Interactive multi-way security & NVM architecture comparison (${nvmIpSpecs.length} canonical profiles). Filter by technology family, inspect latency and physical exposure, or export profiles for system engineering reviews.</p>
     </header>
 
-    <p class="matrix-evidence-boundary"><span data-lang="zh">以下保留 12 筆工程原稿供審查。數值、製程、認證與量產字樣均屬待查證聲稱；只有明確標示的來源支援指定欄位，不能視為完整產品規格。</span><span data-lang="en">These 12 engineering drafts retain their original values for review. Numbers, nodes, certifications and production wording remain unverified claims; a linked source supports only its stated fields, not a complete product specification.</span></p>
+    <p class="matrix-evidence-boundary"><span data-lang="zh">以下保留 ${nvmIpSpecs.length} 筆工程原稿供審查。數值、製程、認證與量產字樣均屬待查證聲稱；只有明確標示的來源支援指定欄位，不能視為完整產品規格。</span><span data-lang="en">These ${nvmIpSpecs.length} engineering drafts retain their original values for review. Numbers, nodes, certifications and production wording remain unverified claims; a linked source supports only its stated fields, not a complete product specification.</span></p>
 
     <section class="selector-controls" aria-label="Decision matrix filters" data-aria-en="Decision matrix filters" data-aria-zh="決策矩陣篩選器">
       <label for="filter-family">

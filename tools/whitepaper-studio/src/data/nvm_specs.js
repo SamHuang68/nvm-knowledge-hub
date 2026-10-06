@@ -166,6 +166,20 @@ const draftProfiles = [
     latency: 'Fast multi-frame waveform index (<50 ns)',
     busExposure: 'Internal driver waveform generator engine',
     bomCost: 'Zero extra mask adder; reduces BOM cost by eliminating discrete external SPI Flash'
+  },
+  {
+    id: 'hbm4_logic_base_die_repair',
+    profile: 'HBM4 Logic Base Die 0-Mask AntiFuse Post-Packaging Repair',
+    family: '0-Mask AntiFuse OTP + Advanced Packaging Post-Package Repair (PPR)',
+    contract: 'Post-hybrid-bonding irreversible ohmic Si-filament repair (R_on < 100 Ω); zero thermal rebound at 260°C reflow; autonomous BIRA rerouting of failed micro-bumps & TSV lanes',
+    nodeLens: 'Logic CMOS Base Die nodes: TSMC 12FFC+/N3P, Samsung 4nm LPP, Micron Logic Evaluation',
+    updateModel: 'Wafer sort (KGD) + Post-Cu-Cu bonding hPPR + dynamic mission-profile sPPR repair via internal FuseBox',
+    strongestFit: 'HBM4 16-Hi/24-Hi 2048-bit Wide-IO, 3nm AI Accelerator Base Dies, CoWoS/SoIC Cu-Cu Hybrid Bonding Repair',
+    boundary: 'Probe card contact force strictly bounded (<=0.35 gf/pin, scrub depth <=2.0 nm) to protect CMP pads; thermal margin verified up to 125°C-150°C Tj',
+    evidenceStatus: 'JEDEC JESD238 HBM4 Reference · TSMC 3DFabric / Samsung I-Cube Architecture · Probe Card Consortium Baseline (MPI / CHPT / FormFactor)',
+    latency: 'Zero-cycle on-die address remapping (pure combinational mux decode)',
+    busExposure: 'None (Autonomous on-die BIST/BIRA decoders within Base Die secure trust boundary)',
+    bomCost: 'Zero mask adder (Standard pure logic CMOS process without HV/eFlash masks)'
   }
 ];
 
@@ -183,6 +197,7 @@ const reviewScopes = {
   cis_dram_matrix_repair: 'Standard names describe application context; capacity, dimensions, timing, area overhead and production status need the exact memory device, standard revision and implementation evidence.',
   hv_display_ddic_demura: 'Voltage rails, resolution, refresh rates, process availability and mask assumptions are design examples; no named DDIC qualification or production result is established by this profile.',
   eink_ultra_hv_mtp_otp: 'Driver platforms, memory size, battery life, height limits and named suppliers are application assumptions requiring product-specific sources. These statements do not establish a universal panel-partner standard.',
+  hbm4_logic_base_die_repair: 'JEDEC HBM4 standards, foundry logic base die nodes (TSMC 12nm/3nm, Samsung 4nm) and advanced probe card vendor specifications define target architectural parameters. Exact ohmic filament resistance, repair yields, CMP scrub depths, and qualification tiers require device-specific and foundry-specific qualification data.',
 };
 
 export const nvmIpSpecs = draftProfiles.map(profile => ({
