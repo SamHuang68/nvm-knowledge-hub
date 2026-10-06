@@ -2116,6 +2116,29 @@ def run_tests() -> None:
          'id="sec-high-temp-sic-gan"' in auto_sic_html and 'id="sic-gan-simulator-root"' in auto_sic_html and 'automotive-high-temp-sic-gan-simulator.js' in auto_sic_html)
     test("automotive-nvm.html 包含四大預設按鈕、三大參數控制、四大 KPI 指標卡與 SiC/GaN 高溫 eNVM 對比表",
          'class="sic-btn-preset' in sic_js and 'id="sic-out-lifetime"' in sic_js and 'id="sic-out-barrier"' in sic_js and 'id="sic-out-margin"' in sic_js and 'id="sic-out-latency"' in sic_js and '0-Mask AntiFuse OTP' in auto_sic_html and 'STT-MRAM (垂直 MTJ)' in auto_sic_html)
+    # ════════════════════════════════════════════════════════════
+    # TEST 91: 供應鏈硬體木馬、光學側信道 (PEM/TRE) 與 PUF 認證總帳 (security-assurance.html & memory-evidence.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 91: 供應鏈硬體木馬、光學側信道 (PEM) 與 PUF 認證總帳 ═══")
+    trojan_js = (BASE / "supply-chain-hardware-trojan-pem-simulator.js").read_text(encoding="utf-8")
+    test("supply-chain-hardware-trojan-pem-simulator.js 存在且導出 SupplyChainTrojanPemSimulator 類別",
+         "export class SupplyChainTrojanPemSimulator" in trojan_js and "computePhysics" in trojan_js)
+    test("supply-chain-hardware-trojan-pem-simulator.js 包含四大供應鏈預設與四大儲存信任根技術",
+         "zero-trust-audit" in trojan_js and "backside-tre-attack" in trojan_js and "dopant-trojan-hunt" in trojan_js and "iot-anti-cloning" in trojan_js and "antifuse_puf" in trojan_js and "sram_puf" in trojan_js and "mram" in trojan_js and "eflash" in trojan_js)
+    test("supply-chain-hardware-trojan-pem-simulator.js 第一性原理光子通量衰減、SNSPD 探測 SNR、木馬檢出率與 PUF 漢明分佈模型",
+         "measuredFlux" in trojan_js and "snrDb" in trojan_js and "detectionProb" in trojan_js and "interHammingMean" in trojan_js and "intraBitErrorRate" in trojan_js)
+    test("supply-chain-hardware-trojan-pem-simulator.js 包含雙畫布動態渲染 (TRE 光子時域波形與 PUF 漢明高斯分佈)",
+         "trojan-canvas-tre" in trojan_js and "trojan-canvas-puf" in trojan_js and "renderCanvasTre" in trojan_js and "renderCanvasPuf" in trojan_js)
+
+    sec_trojan_html = (BASE / "security-assurance.html").read_text(encoding="utf-8")
+    test("security-assurance.html 整合 supply-chain-trojan-pem-section 章節與 trojan-pem-simulator-root 工作台",
+         'id="supply-chain-trojan-pem-section"' in sec_trojan_html and 'id="trojan-pem-simulator-root"' in sec_trojan_html and 'supply-chain-hardware-trojan-pem-simulator.js' in sec_trojan_html)
+    test("security-assurance.html 包含四大預設按鈕、三大參數控制、四大 KPI 指標卡與供應鏈安全防禦對比表",
+         'class="trojan-btn-preset' in trojan_js and 'id="trojan-out-photons"' in trojan_js and 'id="trojan-out-detect"' in trojan_js and 'id="trojan-out-hd"' in trojan_js and 'id="trojan-out-tier"' in trojan_js and '0-Mask AntiFuse 原生 PUF' in sec_trojan_html and 'STT-MRAM (垂直 MTJ)' in sec_trojan_html)
+
+    ev_v22_html = (BASE / "memory-evidence.html").read_text(encoding="utf-8")
+    test("memory-evidence.html 包含 evidence-V22 零信任半導體供應鏈、光學側信道衰減與原生 PUF 防偽總帳卡片",
+         'id="evidence-V22"' in ev_v22_html and 'NIST SP 800-193' in ev_v22_html and 'ISO/IEC 20243' in ev_v22_html and 'OIP-SC-001' in ev_v22_html and '-48 dB' in ev_v22_html)
 
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")

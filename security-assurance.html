@@ -1010,6 +1010,89 @@
       </article>
     </section>
 
+    <!-- SECTION: SUPPLY CHAIN HARDWARE TROJAN, OPTICAL PEM & PUF VERIFICATION SIMULATOR -->
+    <section id="supply-chain-trojan-pem-section" class="section">
+      <header class="section-head">
+        <div>
+          <p class="kicker" data-zh="05 / 供應鏈硬體木馬與光學側信道" data-en="05 / HARDWARE TROJAN &amp; OPTICAL PEM">05 / HARDWARE TROJAN &amp; OPTICAL PEM</p>
+          <h2 data-zh="供應鏈硬體木馬、光學側信道 (PEM) 與 PUF 認證模擬工作台" data-en="Hardware Trojan, Optical PEM &amp; PUF Verification Simulator">Hardware Trojan, Optical PEM &amp; PUF Verification Simulator</h2>
+        </div>
+        <p data-zh="第一性原理物理建模：熱載子發光強度、背面矽基板光子穿透衰減、SNSPD 單光子偵測信噪比、硬體木馬檢出率與 0-Mask 原生 PUF 漢明距離分佈。" data-en="First-principles simulation: Hot-carrier luminescence, backside silicon transmission, SNSPD optical SNR, trojan detection probability, and 0-Mask PUF Hamming distribution.">First-principles simulation: Hot-carrier luminescence, backside silicon transmission, SNSPD optical SNR, trojan detection probability, and 0-Mask PUF Hamming distribution.</p>
+      </header>
+
+      <!-- Simulator Root Workbench -->
+      <div id="trojan-pem-simulator-root" style="margin-bottom: 24px;"></div>
+
+      <!-- Comparative Supply Chain Security Table -->
+      <div class="table-responsive-wrapper" style="overflow-x: auto; margin-top: 18px;">
+        <table class="data-table" aria-label="Supply Chain Trojan &amp; Optical PEM Defense Matrix" data-aria-en="Supply Chain Trojan &amp; Optical PEM Defense Matrix" data-aria-zh="供應鏈硬體木馬防禦與光學發射衰減對比矩陣" style="width: 100%; border-collapse: collapse; font-size: 13px;">
+          <thead>
+            <tr style="background: #1e293b; color: #f8fafc; text-align: left;">
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">信任根儲存架構</span><span data-lang="en">Root-of-Trust Architecture</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">光罩增加道數</span><span data-lang="en">Mask Adders</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">熱載子光子通量</span><span data-lang="en">Photon Flux</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">光學屏蔽衰減</span><span data-lang="en">Optical Shielding</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">代工廠木馬免疫度</span><span data-lang="en">Trojan Immunity</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">晶片間漢明距離 (Inter-HD)</span><span data-lang="en">Inter-Chip HD</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">零信任認證等級</span><span data-lang="en">Zero-Trust Tier</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background: #0f172a; border-bottom: 1px solid #334155;">
+              <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #38bdf8;">
+                <span data-lang="zh">0-Mask AntiFuse 原生 PUF</span><span data-lang="en">0-Mask AntiFuse Native PUF</span>
+              </th>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">0 道 (標準邏輯製程)</span><span data-lang="en">0 Masks (Standard CMOS)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">&lt; 0.05 ph/s (深埋噪訊)</span><span data-lang="en">&lt; 0.05 ph/s (Below Noise)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">&gt; 48 dB (超強防護)</span><span data-lang="en">&gt; 48 dB (Superior)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">卓越 (無額外光罩可篡改)</span><span data-lang="en">Excellent (Immune to masks)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">50.02% (極致隨機)</span><span data-lang="en">50.02% (Ideal)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">CC EAL6+ / SP 800-193</span><span data-lang="en">CC EAL6+ / SP 800-193</span></td>
+            </tr>
+            <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
+              <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #60a5fa;">
+                <span data-lang="zh">STT-MRAM (垂直 MTJ)</span><span data-lang="en">STT-MRAM (Perpendicular MTJ)</span>
+              </th>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">3 ~ 5 道 (BEOL 金屬層)</span><span data-lang="en">3 ~ 5 Masks (BEOL)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 85 ph/s (弱磁光發射)</span><span data-lang="en">~ 85 ph/s (Weak Emission)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 28 dB</span><span data-lang="en">~ 28 dB</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">良好 (後段磁層隱蔽性高)</span><span data-lang="en">Good (Concealed in BEOL)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">49.80%</span><span data-lang="en">49.80%</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #60a5fa; font-weight: 700;"><span data-lang="zh">CC EAL5+ / NIST FIPS</span><span data-lang="en">CC EAL5+ / NIST FIPS</span></td>
+            </tr>
+            <tr style="background: #0f172a; border-bottom: 1px solid #334155;">
+              <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #f59e0b;">
+                <span data-lang="zh">SRAM 啟動狀態 PUF</span><span data-lang="en">SRAM Power-Up PUF</span>
+              </th>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">0 道 (標準邏輯製程)</span><span data-lang="en">0 Masks (Standard CMOS)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 150 ph/s (翻轉瞬間)</span><span data-lang="en">~ 150 ph/s (Switching)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 18 dB</span><span data-lang="en">~ 18 dB</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">中等 (易受供電噪訊/BBI誘騙)</span><span data-lang="en">Moderate (Susceptible to BBI)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">49.30% (Intra-BER ~ 4.8%)</span><span data-lang="en">49.30% (Intra-BER ~ 4.8%)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b; font-weight: 700;"><span data-lang="zh">CC EAL4+ / 商業工規</span><span data-lang="en">CC EAL4+ / Commercial</span></td>
+            </tr>
+            <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
+              <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #ef4444;">
+                <span data-lang="zh">傳統 eFlash 儲存金鑰</span><span data-lang="en">Conventional eFlash Key</span>
+              </th>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">8 ~ 12 道 (高壓厚氧層)</span><span data-lang="en">8 ~ 12 Masks (HV Oxide)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">&gt; 1200 ph/s (強發射)</span><span data-lang="en">&gt; 1200 ph/s (Intense)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">&lt; 8 dB (易遭捕捉)</span><span data-lang="en">&lt; 8 dB (Vulnerable)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">極弱 (光罩多易遭代工廠植入)</span><span data-lang="en">Vulnerable (Mask Trojan Risk)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">無 (非 PUF 靜態寫入)</span><span data-lang="en">N/A (Non-PUF Static)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">CC EAL2 / 高風險</span><span data-lang="en">CC EAL2 / High Risk</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="rm-footnote" style="margin-top: 14px; background: rgba(0,0,0,0.2); padding: 10px 14px; border-radius: 6px;">
+        <strong style="color:#a855f7;"><span data-lang="zh">零信任供應鏈與光學安全結論：</span><span data-lang="en">Zero-Trust &amp; Optical Security Finding: </span></strong>
+        <span data-lang="zh">在先進半導體全球供應鏈中，不可信代工廠與光學側信道探測 (PEM/TRE) 構成最致命的威脅。0-Mask AntiFuse PUF 憑藉「零光罩增加」物理特性，在製造端杜絕了惡意光罩層修改木馬的可能；而在運行端，微安級歐姆微絲近乎零熱載子發光，光學發射強度較傳統 eFlash 電荷泵衰減逾 48 dB，徹底阻斷背面 SNSPD 單光子探測，為符合 NIST SP 800-193 與 CC EAL6+ 最高標準之零信任硬體信任根。詳細供應鏈認證總帳請參見 <a href="memory-evidence.html#evidence-V22" style="color:#c084fc; text-decoration: underline;">Evidence V22 ↗</a>。</span>
+        <span data-lang="en">In globalized semiconductor supply chains, untrusted foundries and optical emission analysis (PEM/TRE) present critical attack vectors. 0-Mask AntiFuse PUF completely eliminates mask-level trojan insertion due to standard CMOS compatibility; during operation, ohmic filaments emit near-zero hot-carrier luminescence (&gt;48 dB attenuation vs eFlash), blinding backside SNSPD single-photon detectors and fulfilling NIST SP 800-193 and CC EAL6+. Refer to <a href="memory-evidence.html#evidence-V22" style="color:#c084fc; text-decoration: underline;">Evidence V22 ↗</a> for full evidence ledger.</span>
+      </div>
+    </section>
+
     <section id="windows" class="section windows">
       <header class="section-head"><div><p class="kicker" data-zh="02 / 攻擊時窗生命週期" data-en="02 / ATTACK-WINDOW LIFECYCLE">02 / ATTACK-WINDOW LIFECYCLE</p><h2 data-zh="根金鑰沒有永久位址；風險仍有明確時窗" data-en="The root has no permanent address; risk still has windows">The root has no permanent address; risk still has windows</h2></div><p data-zh="選擇生命週期階段，查看資產、攻擊面、測試問題與預期安全結果。" data-en="Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.">Select a lifecycle phase to inspect assets, attack surface, test question and expected outcome.</p></header>
       <div class="window-layout">
@@ -1080,6 +1163,7 @@
   <script type="module" src="puf-nist-randomness-evaluator.js?v=20261005"></script>
   <script type="module" src="rad-hard-nvm-simulator.js?v=20261006"></script>
   <script type="module" src="pqc-hardware-rot-ledger-simulator.js?v=20261006"></script>
+  <script type="module" src="supply-chain-hardware-trojan-pem-simulator.js?v=20261007"></script>
   <script type="module">
     import { initPqcDpaSimulator } from './pqc-rot-dpa-simulator.js';
     document.addEventListener('DOMContentLoaded', () => {
