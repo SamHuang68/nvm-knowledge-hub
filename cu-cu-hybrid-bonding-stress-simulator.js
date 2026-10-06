@@ -97,23 +97,23 @@ export class CuCuHybridBondingSimulator {
         nameZh: 'AntiFuse OTP (0-Mask 微絲)',
         nameEn: 'AntiFuse OTP (0-Mask Filament)',
         sigmaLimit: 450, // MPa allowable
-        piezoSensitivity: 0.12, // mV/MPa
+        piezoSensitivity: 0.25, // mV/MPa (intrinsic crystalline silicon channel piezoresistive property)
         leakageSensitivity: 0.002,
         minKozFactor: 1.2,
-        retentionResilience: '卓越 (Grade A+ / 歐姆金屬微絲不受應力電荷洩漏影響)',
-        retentionResilienceEn: 'Excellent (Grade A+ / Ohmic filament immune to charge leakage)',
-        descZh: '已崩潰之金屬/矽導電微絲本質上無捕獲電荷，剪切應力僅引發忽略不計之歐姆微漂移。',
-        descEn: 'Ruptured filament stores zero trapped charge, exhibiting near-zero leakage degradation.'
+        retentionResilience: '優異 (FEOL 高溫相容 / 歐姆微絲無浮閘電荷洩漏)',
+        retentionResilienceEn: 'Preferred (FEOL High-T / Filament immune to floating gate leakage)',
+        descZh: '已崩潰之金屬/矽導電微絲本質上無捕獲電荷，剪切應力僅引發微幅歐姆阻值漂移。',
+        descEn: 'Ruptured filament stores zero trapped charge, exhibiting minimal ohmic drift under shear stress.'
       },
       mram: {
         nameZh: 'STT-MRAM (BEOL 垂直 MTJ)',
         nameEn: 'STT-MRAM (BEOL Perpendicular MTJ)',
         sigmaLimit: 320, // MPa
-        piezoSensitivity: 0.28,
+        piezoSensitivity: 0.25,
         leakageSensitivity: 0.005,
         minKozFactor: 1.8,
-        retentionResilience: '良好 (Grade B / 磁致伸縮致 PMA 能障輕微退化 8%)',
-        retentionResilienceEn: 'Good (Grade B / Magnetostriction causes 8% PMA barrier derating)',
+        retentionResilience: '良好 (需控制退火熱預算 / 磁致伸縮致 PMA 輕微退化)',
+        retentionResilienceEn: 'Good (Manage anneal budget / Minor magnetostrictive PMA derating)',
         descZh: 'Cu Pad 剪切應變透過金屬介電層傳至 MTJ 柱，磁光彈效應造成垂直磁各向異性輕微衰減。',
         descEn: 'Pad shear strain propagates to MTJ, derating PMA thermal stability delta slightly.'
       },
@@ -121,11 +121,11 @@ export class CuCuHybridBondingSimulator {
         nameZh: 'Oxide ReRAM (BEOL 氧空位微絲)',
         nameEn: 'Oxide ReRAM (BEOL Oxygen Vacancy)',
         sigmaLimit: 260, // MPa
-        piezoSensitivity: 0.35,
+        piezoSensitivity: 0.25,
         leakageSensitivity: 0.008,
         minKozFactor: 2.2,
-        retentionResilience: '中等 (Grade B- / 機械應力梯度加速氧空位非均勻側向擴散)',
-        retentionResilienceEn: 'Moderate (Grade B- / Strain gradients accelerate lateral oxygen migration)',
+        retentionResilience: '中等 (需低溫鍵合或 Forming 補償 / 氧空位非均勻側向擴散)',
+        retentionResilienceEn: 'Moderate (Low-T bonding / Strain gradients accelerate lateral oxygen migration)',
         descZh: '局部高張應力降低氧離子活化擴散能障，長效高溫高阻態 (HRS) 阻值漂移散佈加劇。',
         descEn: 'Tensile stress lowers oxygen diffusion barriers, widening HRS resistance drift.'
       },
@@ -133,13 +133,13 @@ export class CuCuHybridBondingSimulator {
         nameZh: 'Floating-Gate / CT eFlash (FEOL)',
         nameEn: 'Floating-Gate / CT eFlash (FEOL)',
         sigmaLimit: 180, // MPa
-        piezoSensitivity: 0.65,
+        piezoSensitivity: 0.25,
         leakageSensitivity: 0.018,
         minKozFactor: 3.5,
-        retentionResilience: '脆弱 (Grade D / 應力誘發界面陷阱 SILC 漏電飆升 80x)',
-        retentionResilienceEn: 'Fragile (Grade D / Stress-induced leakage SILC surges 80x)',
-        descZh: '熱應力直通穿隧氧化層界面，引發微裂縫與陷阱階梯，高溫留存壽命急遽劣化，需極大 KOZ。',
-        descEn: 'Thermal stress damages tunnel oxide interface, causing catastrophic SILC leakage surge.'
+        retentionResilience: '受限 (需注意 SILC 漏電與退火熱預算 / 氧化層陷阱)',
+        retentionResilienceEn: 'Constrained (SILC stress & thermal budget constraints / Oxide traps)',
+        descZh: '熱應力直通穿隧氧化層界面，引發界面陷阱與 SILC 漏電，高溫留存壽命需依退火條件降額。',
+        descEn: 'Thermal stress damages tunnel oxide interface, increasing SILC leakage requiring retention derating.'
       }
     };
 
@@ -511,7 +511,10 @@ export class CuCuHybridBondingSimulator {
       kozDistanceUm = rPadUm * 0.2;
     }
     const finalKozUm = Math.max(0.2, (kozDistanceUm + rPadUm) * tech.minKozFactor);
-    const leakageSurgeFactor = Math.exp(tech.leakageSensitivity * sigmaPeakMPa);
+    const topKelvin = s.opTemp + 273.15;
+    const thermalEnergyEv = this.kB * topKelvin;
+    const betaStress = tech.leakageSensitivity * 0.026;
+    const leakageSurgeFactor = Math.exp((betaStress * sigmaPeakMPa) / thermalEnergyEv);
 
     return {
       initialGap,
@@ -577,13 +580,13 @@ export class CuCuHybridBondingSimulator {
     const outRating = this.container.querySelector('#cu-out-rating');
     if (outRating) {
       if (this.state.tech === 'antifuse') {
-        outRating.innerHTML = `<span style="color: #10b981; font-weight: 600;"><span data-lang="zh">GRADE A+ (微絲零漏電)</span><span data-lang="en">GRADE A+ (Zero Filament Leakage)</span></span>`;
+        outRating.innerHTML = `<span style="color: #10b981; font-weight: 600;"><span data-lang="zh">優異 (FEOL 高溫相容 / 緊鄰焊盤)</span><span data-lang="en">PREFERRED (FEOL High-T / Minimal KOZ)</span></span>`;
       } else if (this.state.tech === 'mram') {
-        outRating.innerHTML = `<span style="color: #60a5fa; font-weight: 600;"><span data-lang="zh">GRADE B (PMA 輕微退化)</span><span data-lang="en">GRADE B (Minor PMA Derating)</span></span>`;
+        outRating.innerHTML = `<span style="color: #60a5fa; font-weight: 600;"><span data-lang="zh">良好 (需控制退火熱預算)</span><span data-lang="en">COMPATIBLE (Controlled BEOL Budget)</span></span>`;
       } else if (this.state.tech === 'reram') {
-        outRating.innerHTML = `<span style="color: #f59e0b; font-weight: 600;"><span data-lang="zh">GRADE B- (氧空位側擴散)</span><span data-lang="en">GRADE B- (Oxygen Migration Drift)</span></span>`;
+        outRating.innerHTML = `<span style="color: #f59e0b; font-weight: 600;"><span data-lang="zh">中等 (需低溫鍵合或 Forming 補償)</span><span data-lang="en">MODERATE (Low-T Bonding / Forming Margin)</span></span>`;
       } else {
-        outRating.innerHTML = `<span style="color: #ef4444; font-weight: 600;"><span data-lang="zh">GRADE D (SILC 漏電飆升 ${Math.round(physics.leakageSurgeFactor)}x)</span><span data-lang="en">GRADE D (SILC Surge ${Math.round(physics.leakageSurgeFactor)}x)</span></span>`;
+        outRating.innerHTML = `<span style="color: #ef4444; font-weight: 600;"><span data-lang="zh">受限 (需注意 SILC 漏電與退火熱預算)</span><span data-lang="en">CONSTRAINED (SILC & Anneal Budget Control)</span></span>`;
       }
     }
 
@@ -596,11 +599,11 @@ export class CuCuHybridBondingSimulator {
         verdictZh = `警告：CMP 微凹陷 (${this.state.cmpDishing.toFixed(1)}nm) 超過退火膨脹能填補之極限 (${physics.totalExpansionNm.toFixed(1)}nm)，鍵合界面將產生殘留奈米微空洞，導致開路或接觸阻抗急遽升高。建議提高退火溫度或增加銅柱厚度。`;
         verdictEn = `Warning: CMP dishing (${this.state.cmpDishing.toFixed(1)}nm) exceeds thermal expansion closure (${physics.totalExpansionNm.toFixed(1)}nm), forming interface nanovoids. Increase annealing temperature or copper thickness.`;
       } else if (this.state.tech === 'eflash' && physics.sigmaPeakMPa > 220) {
-        verdictZh = `嚴重警訊：浮閘 eFlash 受到高達 ${Math.round(physics.sigmaPeakMPa)} MPa 之熱應力衝擊，穿隧氧化層產生晶格位錯，應力誘發漏電 (SILC) 激增 ${Math.round(physics.leakageSurgeFactor)} 倍，高溫電荷留存將由 10 年崩跌至數週！3D 晶圓堆疊強烈建議改採 0-Mask AntiFuse OTP 或 STT-MRAM。`;
-        verdictEn = `Critical Warning: Floating-gate eFlash suffers from ${Math.round(physics.sigmaPeakMPa)} MPa stress, generating lattice dislocations that surge SILC leakage by ${Math.round(physics.leakageSurgeFactor)}x. Strongly recommend replacing with 0-Mask AntiFuse OTP or STT-MRAM in 3D stacked dies.`;
+        verdictZh = `工程注意：浮閘/電荷捕捉 eFlash 受到較大熱應力 (${Math.round(physics.sigmaPeakMPa)} MPa)，穿隧氧化層易產生缺陷陷阱，應力誘發漏電 (SILC) 增加約 ${Math.round(physics.leakageSurgeFactor)} 倍。在 3D 混合鍵合設計中，需加大保留區 (KOZ 建議 >= ${physics.finalKozUm.toFixed(2)} μm) 並嚴格控管退火熱預算。`;
+        verdictEn = `Engineering Caution: Floating-gate/CT eFlash subjected to significant thermal stress (${Math.round(physics.sigmaPeakMPa)} MPa) may induce oxide defect traps, elevating SILC leakage by ~${Math.round(physics.leakageSurgeFactor)}x. In 3D hybrid bonding designs, enlarge keep-out zone (KOZ >= ${physics.finalKozUm.toFixed(2)} μm) and tightly budget annealing thermal exposure.`;
       } else {
-        verdictZh = `設計評估合格：${physics.tech.nameZh} 搭配當前 3D 混合鍵合製程，界面微凹陷順利閉合 (${physics.closureMarginNm >= 0 ? '+' : ''}${physics.closureMarginNm.toFixed(2)}nm 裕度)。陣列安全邊界 KOZ 建議設定為 ${physics.finalKozUm.toFixed(2)} μm，即可完全免疫 Cu 鍵合焊盤所誘發之壓電電阻閾值電壓漂移 (${physics.vthShiftMv.toFixed(1)} mV)。`;
-        verdictEn = `Design Qualified: ${physics.tech.nameEn} under current 3D hybrid bonding successfully closes CMP dishing with ${physics.closureMarginNm.toFixed(2)}nm margin. Recommended array Keep-Out Zone (KOZ) is ${physics.finalKozUm.toFixed(2)} μm to completely isolate piezoresistive threshold drift (${physics.vthShiftMv.toFixed(1)} mV).`;
+        verdictZh = `設計評估合格：${physics.tech.nameZh} 搭配當前 3D 混合鍵合製程，界面微凹陷順利閉合 (${physics.closureMarginNm >= 0 ? '+' : ''}${physics.closureMarginNm.toFixed(2)}nm 裕度)。陣列安全邊界 KOZ 建議設定為 ${physics.finalKozUm.toFixed(2)} μm，以緩解 Cu 鍵合焊盤所誘發之壓電電阻閾值電壓漂移 (${physics.vthShiftMv.toFixed(1)} mV)。`;
+        verdictEn = `Design Qualified: ${physics.tech.nameEn} under current 3D hybrid bonding successfully closes CMP dishing with ${physics.closureMarginNm.toFixed(2)}nm margin. Recommended array Keep-Out Zone (KOZ) is ${physics.finalKozUm.toFixed(2)} μm to mitigate piezoresistive threshold drift (${physics.vthShiftMv.toFixed(1)} mV).`;
       }
 
       vDesc.innerHTML = `<span data-lang="zh">${verdictZh}</span><span data-lang="en">${verdictEn}</span>`;

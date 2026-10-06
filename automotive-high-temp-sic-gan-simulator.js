@@ -84,14 +84,14 @@ export class AutomotiveHighTempSicGanSimulator {
       antifuse: {
         nameZh: '0-Mask AntiFuse OTP (歐姆金屬微絲)',
         nameEn: '0-Mask AntiFuse OTP (Ohmic Filament)',
-        activationEnergyEa: 2.45, // eV (solid state atomic electromigration barrier)
-        baseLifetimeYears: 100,  // At 125 C
+        activationEnergyEa: 0.98, // eV (silicide filament atomic self-diffusion / agglomeration model)
+        baseLifetimeYears: 12000, // At 125 C baseline (~13-15 years at 250 C)
         tempCoeffAlpha: 0.0039,  // 1/K (Copper-like positive temp coefficient)
-        retentionRating: '卓越 (Grade A+ / 250°C 留存 > 15 年)',
-        retentionRatingEn: 'Excellent (Grade A+ / > 15yr Retention at 250°C)',
+        retentionRating: '適合 (耐高溫微絲 / 250°C 留存 > 10 年)',
+        retentionRatingEn: 'Suitable (High-T filament / > 10yr Retention at 250°C)',
         desatReadLatencyNs: 35,
-        descZh: '物理擊穿形成之合金/結晶矽導電微絲本質無捕獲電荷，高溫 Arrhenius 漏電為零。',
-        descEn: 'Physically melted alloy filament holds zero trapped charge, exhibiting zero Arrhenius leakage.'
+        descZh: '物理擊穿形成之合金/結晶矽導電微絲無捕獲電荷，主要退化受金屬原子自擴散控制，高溫穩定。',
+        descEn: 'Physically melted alloy filament holds zero trapped charge, governed by self-diffusion with high stability.'
       },
       mram: {
         nameZh: 'STT-MRAM (垂直 MTJ 自旋轉矩)',
@@ -99,11 +99,11 @@ export class AutomotiveHighTempSicGanSimulator {
         activationEnergyEa: 1.40, // eV
         baseLifetimeYears: 10,   // At 125 C
         tempCoeffAlpha: -0.0025,
-        retentionRating: '中等 (Grade C / > 175°C 發生超順磁熱消磁)',
-        retentionRatingEn: 'Moderate (Grade C / Superparamagnetic Demagnetization > 175°C)',
+        retentionRating: '良好 (限 150°C 以下 / 高溫需注意 PMA 熱消磁)',
+        retentionRatingEn: 'Good (Limited < 150°C / PMA Demagnetization at elevated Tj)',
         desatReadLatencyNs: 65,
-        descZh: '垂直磁各向異性能 Ku 隨溫度劇降，高於 175°C 熱穩定因數 Δ 跌破臨界，位元隨機翻轉。',
-        descEn: 'PMA anisotropy barrier Ku drops sharply; thermal stability factor Δ collapses above 175°C.'
+        descZh: '垂直磁各向異性能 Ku 隨溫度劇降，高於 175°C 熱穩定因數 Δ 顯著降低，需強化 ECC 防護。',
+        descEn: 'PMA anisotropy barrier Ku drops sharply; thermal stability factor Δ degrades above 175°C.'
       },
       reram: {
         nameZh: 'Oxide ReRAM (BEOL 氧空位微絲)',
@@ -111,23 +111,23 @@ export class AutomotiveHighTempSicGanSimulator {
         activationEnergyEa: 1.25, // eV
         baseLifetimeYears: 5,    // At 125 C
         tempCoeffAlpha: -0.004,
-        retentionRating: '偏弱 (Grade C- / 高溫離子回擴散 HRS 阻值漂移)',
-        retentionRatingEn: 'Poor (Grade C- / Thermal ion back-diffusion causing HRS drift)',
+        retentionRating: '中等 (需補償氧空位回擴散 / 讀取窗口需校準)',
+        retentionRatingEn: 'Moderate (Oxygen back-diffusion / Read window requires calibration)',
         desatReadLatencyNs: 95,
-        descZh: '熱活化氧離子在 175°C 以上加速側向回擴散，高阻態 (HRS) 阻抗大幅下掉，讀取窗口收窄。',
-        descEn: 'Thermally activated oxygen vacancies back-diffuse rapidly above 175°C, closing read windows.'
+        descZh: '熱活化氧離子在 175°C 以上加速側向回擴散，高阻態 (HRS) 阻抗下降，讀取窗口需預留校準裕度。',
+        descEn: 'Thermally activated oxygen vacancies back-diffuse above 175°C, requiring read-window calibration margins.'
       },
       eflash: {
         nameZh: 'Floating-Gate / CT eFlash (FEOL)',
         nameEn: 'Floating-Gate / CT eFlash (FEOL)',
-        activationEnergyEa: 1.05, // eV (electron thermal emission from trap/well)
-        baseLifetimeYears: 15,   // At 125 C
+        activationEnergyEa: 1.10, // eV (electron thermal emission from trap/well)
+        baseLifetimeYears: 15,   // At 125 C (passes standard AEC-Q100 G1/G0 in cool zones)
         tempCoeffAlpha: -0.008,
-        retentionRating: '致命失效 (Grade F / 200°C 壽命崩跌至不足 10 小時)',
-        retentionRatingEn: 'Catastrophic (Grade F / Retention drops to < 10 hrs at 200°C)',
+        retentionRating: '受限 (裸晶合封熱區浮閘洩漏加速 / 需佈局於非功率熱區)',
+        retentionRatingEn: 'Constrained (Thermionic emission in power hot-spots / Requires thermal separation)',
         desatReadLatencyNs: 180,
-        descZh: '高溫熱發射 (Thermionic Emission) 使浮閘電荷雪崩外洩，車規 Grade 0 壽命指標徹底崩潰。',
-        descEn: 'Thermionic emission triggers catastrophic electron loss; fails all AEC-Q100 Grade 0 tests.'
+        descZh: '高溫熱發射 (Thermionic Emission) 使浮閘電荷洩漏加速；在 >175°C~250°C 裸晶功率直結環境下受限。',
+        descEn: 'Thermionic emission accelerates charge loss; severely constrained in direct >175°C~250°C power co-packaging.'
       }
     };
 
@@ -408,26 +408,26 @@ export class AutomotiveHighTempSicGanSimulator {
 
     // 2. STT-MRAM Thermal Stability Barrier Factor Delta(T):
     // Delta(125 C) ~ 60. As temp increases, Ku(T) propto Ms(T)^3 drops, kBT increases
-    let deltaBarrier = 60.0;
+    let deltaBarrier = null;
     let ber = 1e-16;
     if (s.tech === 'mram') {
       const tempDerating = Math.max(0.1, 1 - (s.junctionTemp - 125) * 0.0075);
       deltaBarrier = 60.0 * tempDerating;
       ber = Math.min(0.5, 0.5 * Math.exp(-deltaBarrier));
     } else if (s.tech === 'antifuse') {
-      deltaBarrier = 85.0; // Virtual ohmic barrier
+      deltaBarrier = null; // Non-magnetic medium
       ber = 1e-18;
     } else if (s.tech === 'reram') {
-      deltaBarrier = Math.max(10, 45.0 - (s.junctionTemp - 125) * 0.25);
+      deltaBarrier = null;
       ber = Math.min(0.1, 1e-12 * af);
     } else {
       // eFlash
-      deltaBarrier = Math.max(5, 50.0 - (s.junctionTemp - 125) * 0.35);
+      deltaBarrier = null;
       ber = Math.min(0.5, 1e-10 * af);
     }
 
     // 3. Differential Sense Margin (Delta_I_sense in uA)
-    // AntiFuse maintains robust ~20uA window, eFlash margin collapses due to leakage
+    // AntiFuse maintains robust ~20uA window, eFlash margin closes due to leakage
     let senseMarginUa = 22.0;
     if (s.tech === 'antifuse') {
       // Slight ohmic resistance increase reduces read current marginally: I = V / (R0 * (1 + alpha * dT))
@@ -490,15 +490,19 @@ export class AutomotiveHighTempSicGanSimulator {
     // 2. Barrier / BER Output
     const outBar = this.container.querySelector('#sic-out-barrier');
     if (outBar) {
-      if (p.deltaBarrier >= 50) {
-        outBar.innerHTML = `Δ = ${p.deltaBarrier.toFixed(0)} (<span data-lang="zh">極高穩定</span><span data-lang="en">Stable</span>)`;
-        outBar.style.color = '#10b981';
-      } else if (p.deltaBarrier >= 40) {
-        outBar.innerHTML = `Δ = ${p.deltaBarrier.toFixed(0)} (<span data-lang="zh">臨界裕度</span><span data-lang="en">Marginal</span>)`;
-        outBar.style.color = '#f59e0b';
+      if (p.deltaBarrier !== null) {
+        if (p.deltaBarrier >= 50) {
+          outBar.innerHTML = `Δ = ${p.deltaBarrier.toFixed(0)} (<span data-lang="zh">高磁熱穩定</span><span data-lang="en">Stable</span>)`;
+          outBar.style.color = '#10b981';
+        } else if (p.deltaBarrier >= 40) {
+          outBar.innerHTML = `Δ = ${p.deltaBarrier.toFixed(0)} (<span data-lang="zh">臨界裕度</span><span data-lang="en">Marginal</span>)`;
+          outBar.style.color = '#f59e0b';
+        } else {
+          outBar.innerHTML = `Δ = ${p.deltaBarrier.toFixed(0)} (<span data-lang="zh">超順磁翻轉風險</span><span data-lang="en">Unstable</span>)`;
+          outBar.style.color = '#ef4444';
+        }
       } else {
-        outBar.innerHTML = `Δ = ${p.deltaBarrier.toFixed(0)} (<span data-lang="zh">超順磁翻轉</span><span data-lang="en">Unstable</span>)`;
-        outBar.style.color = '#ef4444';
+        outBar.innerHTML = `<span style="color: #94a3b8;"><span data-lang="zh">N/A (非磁性介質)</span><span data-lang="en">N/A (Non-Magnetic)</span></span>`;
       }
     }
 
@@ -529,13 +533,13 @@ export class AutomotiveHighTempSicGanSimulator {
     const outRating = this.container.querySelector('#sic-out-rating');
     if (outRating) {
       if (this.state.tech === 'antifuse') {
-        outRating.innerHTML = `<span style="color: #10b981; font-weight: 600;"><span data-lang="zh">GRADE A+ (250°C 歐姆微絲免洩漏)</span><span data-lang="en">GRADE A+ (Zero Leakage Ohmic Filament)</span></span>`;
+        outRating.innerHTML = `<span style="color: #10b981; font-weight: 600;"><span data-lang="zh">適合 (耐高溫微絲 / 250°C 留存 > 10 年)</span><span data-lang="en">SUITABLE (High-T Filament / > 10yr at 250°C)</span></span>`;
       } else if (this.state.tech === 'mram') {
-        outRating.innerHTML = `<span style="color: #60a5fa; font-weight: 600;"><span data-lang="zh">GRADE C (175°C 磁各向異性衰減)</span><span data-lang="en">GRADE C (PMA Anisotropy Derating)</span></span>`;
+        outRating.innerHTML = `<span style="color: #60a5fa; font-weight: 600;"><span data-lang="zh">良好 (限 150°C 以下 / 高溫需防 PMA 消磁)</span><span data-lang="en">GOOD (Limited &lt; 150°C / PMA Stability)</span></span>`;
       } else if (this.state.tech === 'reram') {
-        outRating.innerHTML = `<span style="color: #f59e0b; font-weight: 600;"><span data-lang="zh">GRADE C- (氧空位側擴散)</span><span data-lang="en">GRADE C- (Oxygen Migration Drift)</span></span>`;
+        outRating.innerHTML = `<span style="color: #f59e0b; font-weight: 600;"><span data-lang="zh">中等 (需補償氧空位回擴散)</span><span data-lang="en">MODERATE (Oxygen Back-Diffusion Margin)</span></span>`;
       } else {
-        outRating.innerHTML = `<span style="color: #ef4444; font-weight: 600;"><span data-lang="zh">GRADE F (熱發射電荷雪崩外洩)</span><span data-lang="en">GRADE F (Thermionic Charge Avalanche)</span></span>`;
+        outRating.innerHTML = `<span style="color: #ef4444; font-weight: 600;"><span data-lang="zh">受限 (裸晶合封高溫熱區浮閘洩漏加速)</span><span data-lang="en">CONSTRAINED (Accelerated Leakage in Hot-Spots)</span></span>`;
       }
     }
 
@@ -545,14 +549,14 @@ export class AutomotiveHighTempSicGanSimulator {
       let verdictZh = '';
       let verdictEn = '';
       if (this.state.tech === 'eflash' && this.state.junctionTemp >= 165) {
-        verdictZh = `嚴重警訊：浮閘 eFlash 在結溫 ${this.state.junctionTemp}°C 下，熱發射活化能導致洩漏倍率高達 ${p.af >= 1e3 ? p.af.toExponential(1) : Math.round(p.af)} 倍！資料留存由原廠 15 年暴跌至僅剩 ${p.lifetimeYears >= 1 ? p.lifetimeYears.toFixed(1) + ' 年' : (p.lifetimeYears * 8760).toFixed(0) + ' 小時'}，無法通過車規 AEC-Q100 Grade 0 考核。在 SiC/GaN 驅動晶片中嚴禁使用傳統浮閘 eFlash。`;
-        verdictEn = `Critical Warning: Floating-gate eFlash at ${this.state.junctionTemp}°C suffers from Arrhenius charge leakage surge of ${p.af >= 1e3 ? p.af.toExponential(1) : Math.round(p.af)}x! Data retention plummets from 15 years to ${p.lifetimeYears >= 1 ? p.lifetimeYears.toFixed(1) + ' yr' : (p.lifetimeYears * 8760).toFixed(0) + ' hrs'}, failing AEC-Q100 Grade 0. Strictly avoided in SiC/GaN gate drivers.`;
+        verdictZh = `工程注意：浮閘 eFlash 在結溫 ${this.state.junctionTemp}°C 下，熱發射效應導致電荷逸出加速（加速因子 AF 約 ${p.af >= 1e3 ? p.af.toExponential(1) : Math.round(p.af)} 倍）。資料留存壽命降至約 ${p.lifetimeYears >= 1 ? p.lifetimeYears.toFixed(1) + ' 年' : (p.lifetimeYears * 8760).toFixed(0) + ' 小時'}。在功率開關裸晶高溫合封應用中，建議將 eFlash 配置於較低溫之微控制器晶粒，或評估高溫耐受型 NVM。`;
+        verdictEn = `Engineering Caution: Floating-gate eFlash at ${this.state.junctionTemp}°C exhibits accelerated thermionic charge emission (AF ~ ${p.af >= 1e3 ? p.af.toExponential(1) : Math.round(p.af)}x), reducing retention to ~${p.lifetimeYears >= 1 ? p.lifetimeYears.toFixed(1) + ' yr' : (p.lifetimeYears * 8760).toFixed(0) + ' hrs'}. For high-Tj power co-packaging, eFlash should be located on cooler MCU dies or replaced with high-T tolerant NVM.`;
       } else if (this.state.tech === 'mram' && this.state.junctionTemp >= 190) {
-        verdictZh = `架構預警：STT-MRAM 在結溫 ${this.state.junctionTemp}°C 下逼近超順磁臨界，熱能障因數 Δ 降至 ${p.deltaBarrier.toFixed(0)}，隨機熱反轉誤碼率飆升至 ${p.ber.toExponential(1)}。需額外強固 ECC 或限制在 160°C 以下工作環境。`;
-        verdictEn = `Architectural Warning: STT-MRAM approaches superparamagnetic collapse at ${this.state.junctionTemp}°C, with thermal stability Δ dropping to ${p.deltaBarrier.toFixed(0)} and BER climbing to ${p.ber.toExponential(1)}. Requires aggressive ECC or temperature throttling.`;
+        verdictZh = `架構預警：STT-MRAM 在結溫 ${this.state.junctionTemp}°C 下逼近超順磁臨界，熱能障因數 Δ 降至 ${p.deltaBarrier !== null ? p.deltaBarrier.toFixed(0) : '臨界'}，隨機熱反轉誤碼率上升至 ${p.ber.toExponential(1)}。需額外強固 ECC 或限制在 160°C 以下工作環境。`;
+        verdictEn = `Architectural Warning: STT-MRAM approaches superparamagnetic boundary at ${this.state.junctionTemp}°C, with thermal stability factor Δ dropping to ${p.deltaBarrier !== null ? p.deltaBarrier.toFixed(0) : 'marginal'} and BER climbing to ${p.ber.toExponential(1)}. Requires aggressive ECC or temperature throttling.`;
       } else {
-        verdictZh = `設計評估合格：${p.tech.nameZh} 於 ${this.state.junctionTemp}°C 結溫與 ${this.state.busVoltage}V 高壓環境下，保持穩定之 ${p.senseMarginUa.toFixed(1)} μA 差動感測裕度。DESAT 保護讀出延遲僅 ${Math.round(p.desatLatencyNs)} ns，遠快於 1~2 μs 功率短路安全耐受時間 (SCWT)，完全保障系統安全！`;
-        verdictEn = `Design Qualified: ${p.tech.nameEn} maintains robust differential sense margin of ${p.senseMarginUa.toFixed(1)} μA at ${this.state.junctionTemp}°C and ${this.state.busVoltage}V. DESAT trip readout latency is only ${Math.round(p.desatLatencyNs)} ns, well within the 1~2 μs short-circuit withstand time (SCWT).`;
+        verdictZh = `設計評估合格：${p.tech.nameZh} 於 ${this.state.junctionTemp}°C 結溫與 ${this.state.busVoltage}V 高壓環境下，保持穩定之 ${p.senseMarginUa.toFixed(1)} μA 差動感測裕度。DESAT 保護讀出延遲約 ${Math.round(p.desatLatencyNs)} ns，遠快於 1~2 μs 功率短路安全耐受時間 (SCWT)。`;
+        verdictEn = `Design Qualified: ${p.tech.nameEn} maintains robust differential sense margin of ${p.senseMarginUa.toFixed(1)} μA at ${this.state.junctionTemp}°C and ${this.state.busVoltage}V. DESAT trip readout latency is approximately ${Math.round(p.desatLatencyNs)} ns, well within the 1~2 μs short-circuit withstand time (SCWT).`;
       }
 
       vDesc.innerHTML = `<span data-lang="zh">${verdictZh}</span><span data-lang="en">${verdictEn}</span>`;

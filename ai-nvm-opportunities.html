@@ -2659,8 +2659,8 @@
               </h4>
             </div>
             <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; background: rgba(14, 165, 233, 0.12); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
-              <span data-lang="zh">IEEE IEDM / ISSCC 標準模型</span>
-              <span data-lang="en">IEEE IEDM / ISSCC Physical Model</span>
+              <span data-lang="zh">研討會典型文獻模型 (IEDM / ISSCC)</span>
+              <span data-lang="en">Illustrative Literature Model (IEDM / ISSCC)</span>
             </span>
           </div>
 
@@ -2668,6 +2668,13 @@
             <span data-lang="zh">記憶體內運算 (Compute-in-Memory, CiM) 透過歐姆定律 (\(I = V \cdot G\)) 與基爾霍夫電流定律 (\(\sum I\))，於突觸交叉陣列原生地完成高維矩陣向量乘加 (MAC)。然而金屬走線寄生電阻引起的 IR-Drop 壓降、突觸材料電導漂移 (\(G(t) = G_0 \cdot t^{-\nu}\)) 與有限 ADC 解析度量化雜訊，會直接侵蝕類比訊噪比 (SNR) 並導致推論精度斷崖式下滑。本工具提供交叉陣列空間熱力圖與能量精度權衡評估。</span>
             <span data-lang="en">Compute-in-Memory (CiM) leverages Ohm's law (\(I = V \cdot G\)) and Kirchhoff's current law (\(\sum I\)) directly across synaptic crossbar arrays for dense matrix-vector multiplication (MAC). However, metal wire parasitic resistance causes spatial IR-drop degradation, while material conductance drift (\(G(t) = G_0 \cdot t^{-\nu}\)) and finite ADC quantization noise degrade the effective array SNR and neural network inference accuracy. This simulator models crossbar spatial gradients and energy-accuracy tradeoffs.</span>
           </p>
+
+          <!-- 免責橫幅 DISCLAIMER -->
+          <div style="background: rgba(245, 158, 11, 0.12); border-left: 4px solid #f59e0b; padding: 10px 14px; border-radius: 4px; margin-bottom: 18px; font-size: 12px; line-height: 1.6; color: #fbbf24;">
+            <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Boundary Notice: </span></strong>
+            <span data-lang="zh">本模擬器採用文獻典型參數與集中電阻網絡簡化模型，旨在示意走線 IR-Drop、電導漂移與 ADC 量化雜訊對陣列 SNR 與推論精度的相對影響，非特定量產晶片實測保證。AntiFuse 屬於 OTP（單次可編程）介質，寫入後微絲永久導通不可逆，僅適用於靜態固化權重或 PUF 機率流推論，不支援線上權重更新；ReRAM/MRAM 則具備動態可覆寫特性。</span>
+            <span data-lang="en">This simulator uses literature typical figures and lumped-network approximations to illustrate relative tradeoffs of IR-drop, conductance drift, and ADC noise on array SNR; it is not a production silicon guarantee. AntiFuse is a One-Time Programmable (OTP) medium with non-volatile ruptured filaments, suitable exclusively for fixed inference weights or PUF bitstreams without online weight rewritability.</span>
+          </div>
 
           <!-- 四大突觸儲存介質特性矩陣 -->
           <div style="overflow-x: auto; margin-bottom: 20px;">
@@ -2693,7 +2700,7 @@
                   <td style="padding: 8px 10px; color: #f59e0b;">+4 Masks</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">0.080 (Moderate)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">100x</td>
-                  <td style="padding: 8px 10px;"><span data-lang="zh">最高類比突觸密度，適合非極度嚴苛精度之邊緣視覺</span><span data-lang="en">Highest analog density; optimal for edge vision workloads</span></td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">最高類比突觸密度，支援動態權重重寫；具弛豫漂移效應</span><span data-lang="en">Highest analog density with dynamic rewritability; subject to drift</span></td>
                 </tr>
                 <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
                   <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">Spintronic STT-MRAM</th>
@@ -2701,15 +2708,15 @@
                   <td style="padding: 8px 10px; color: #f59e0b;">+3 Masks</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #10b981;">0.001 (Negligible)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">2.5x (Bounded TMR)</td>
-                  <td style="padding: 8px 10px;"><span data-lang="zh">近乎零漂移與近無限擦寫，適合頻繁權重更新與車規推論</span><span data-lang="en">Negligible drift with extreme endurance for dynamic weights</span></td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">近乎零漂移與近無限擦寫，適合頻繁權重更新；開關比較小</span><span data-lang="en">Negligible drift with extreme endurance for dynamic weights; bounded TMR</span></td>
                 </tr>
                 <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
                   <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">0-Mask AntiFuse Stochastic</th>
-                  <td style="padding: 8px 10px;">1-bit <span data-lang="zh">機率位元流</span><span data-lang="en">Stochastic Bitstream</span></td>
+                  <td style="padding: 8px 10px;">1-bit <span data-lang="zh">機率位元流 (OTP 固化推論)</span><span data-lang="en">1-bit Stochastic (OTP Fixed Inference)</span></td>
                   <td style="padding: 8px 10px; color: #10b981; font-weight: 600;">0 Masks (Standard Logic)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #10b981; font-weight: 600;">0.000 (Zero Drift)</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">&gt; 10,000x</td>
-                  <td style="padding: 8px 10px;"><span data-lang="zh">零額外光罩完全邏輯相容，微絲固態永久穩定，極致抗高溫</span><span data-lang="en">Zero mask adders; logic compatible; permanent filament stability</span></td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">零額外光罩完全邏輯相容，固態微絲永久穩定；僅限單次寫入推論，不支援動態覆寫</span><span data-lang="en">Zero mask adders; logic compatible; permanent stability; inference-only, non-rewritable</span></td>
                 </tr>
                 <tr>
                   <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">Digital SRAM Baseline</th>
@@ -2717,7 +2724,7 @@
                   <td style="padding: 8px 10px; color: #10b981;">0 Masks</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #10b981;">0.000</td>
                   <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace;">1,000x</td>
-                  <td style="padding: 8px 10px;"><span data-lang="zh">完全數位無類比量化噪訊，但面積高達 150 F² 且靜態待機漏電大</span><span data-lang="en">Full digital rail; no analog noise, at high area and leakage cost</span></td>
+                  <td style="padding: 8px 10px;"><span data-lang="zh">完全數位無類比量化噪訊，支援動態讀寫；但面積高達 150 F² 且靜態待機漏電大</span><span data-lang="en">Full digital rail; rewritable without analog noise; large area and leakage</span></td>
                 </tr>
               </tbody>
             </table>

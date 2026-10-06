@@ -126,16 +126,16 @@ export const CIM_MEMORY_MEDIA = {
   },
   antifuse_stochastic_puf: {
     id: 'antifuse_stochastic_puf',
-    nameZh: '0-Mask AntiFuse 隨機突觸 / 機率位元流運算 (Stochastic CiM)',
-    nameEn: '0-Mask AntiFuse Stochastic Synapse (Bitstream CiM)',
+    nameZh: '0-Mask AntiFuse 隨機突觸 (OTP 固化推論 / 單次寫入)',
+    nameEn: '0-Mask AntiFuse Stochastic Synapse (OTP Fixed Inference / WORM)',
     gMaxUs: 25.0,
     onOffRatio: 10000.0, // Extreme on/off ratio
     driftCoeffNu: 0.0, // Zero drift (solid-state physical silicon filament)
-    writeEnergyPj: 0.5, // 0-Mask logic compatible
+    writeEnergyPj: 15.0, // High-voltage programming breakdown pulse energy
     readLatencyNs: 3.5,
     maskAdders: 0,
-    notesZh: '零額外光罩邏輯相容，金屬矽化物微絲具永久穩定零漂移，結合機率位元流 (Bitstream) 實現極低硬體開銷 MAC。',
-    notesEn: 'Zero extra mask adders; permanent silicon filament ensures zero drift; ideal for stochastic bitstream computing.'
+    notesZh: '零額外光罩邏輯相容，金屬矽化物微絲具永久穩定零漂移；僅支援單次寫入固化推論 (OTP/WORM) 與機率位元流運算，不具線上權重覆寫能力。',
+    notesEn: 'Zero extra mask adders; permanent silicon filament ensures zero drift; supports fixed inference (OTP/WORM) and stochastic bitstream, without online weight rewritability.'
   },
   sram_standard_digital_mac: {
     id: 'sram_standard_digital_mac',
@@ -237,9 +237,13 @@ export function calculateCimMacMetrics(params) {
     gradeColor = '#dc2626';
   }
 
-  const verdictZh = `在 ${preset.nameZh} 架構下，採用 ${media.nameZh} 進行 ${preset.arrayRows}×${preset.arrayCols} 類比矩陣乘加。最遠單元線路 IR-Drop 壓降為 ${worstCaseIrDropMv.toFixed(1)} mV (${worstCaseIrDropPct.toFixed(1)}%)，經 ${driftHours} 小時電導漂移率為 ${conductanceLossPct.toFixed(1)}%。系統有效 SNR 達 ${effectiveSnrDb.toFixed(1)} dB，推論精度保留率為 ${retainedAccuracyPct.toFixed(1)}%。全陣列能量效率達 ${energyEfficiencyTopsPerWatt.toFixed(1)} TOPS/W，運算吞吐量為 ${throughputTops.toFixed(2)} TOPS。`;
+  let verdictZh = `在 ${preset.nameZh} 架構下，採用 ${media.nameZh} 進行 ${preset.arrayRows}×${preset.arrayCols} 類比矩陣乘加。最遠單元線路 IR-Drop 壓降為 ${worstCaseIrDropMv.toFixed(1)} mV (${worstCaseIrDropPct.toFixed(1)}%)，經 ${driftHours} 小時電導漂移率為 ${conductanceLossPct.toFixed(1)}%。系統有效 SNR 達 ${effectiveSnrDb.toFixed(1)} dB，推論精度保留率為 ${retainedAccuracyPct.toFixed(1)}%。全陣列能量效率達 ${energyEfficiencyTopsPerWatt.toFixed(1)} TOPS/W，運算吞吐量為 ${throughputTops.toFixed(2)} TOPS。`;
+  let verdictEn = `Under ${preset.nameEn} with ${media.nameEn} in a ${preset.arrayRows}×${preset.arrayCols} crossbar, the worst-case parasitic IR-drop is ${worstCaseIrDropMv.toFixed(1)} mV (${worstCaseIrDropPct.toFixed(1)}%). Conductance drift after ${driftHours} hours is ${conductanceLossPct.toFixed(1)}%. Effective array SNR reaches ${effectiveSnrDb.toFixed(1)} dB, retaining ${retainedAccuracyPct.toFixed(1)}% inference accuracy. Overall energy efficiency achieves ${energyEfficiencyTopsPerWatt.toFixed(1)} TOPS/W with ${throughputTops.toFixed(2)} TOPS throughput.`;
 
-  const verdictEn = `Under ${preset.nameEn} with ${media.nameEn} in a ${preset.arrayRows}×${preset.arrayCols} crossbar, the worst-case parasitic IR-drop is ${worstCaseIrDropMv.toFixed(1)} mV (${worstCaseIrDropPct.toFixed(1)}%). Conductance drift after ${driftHours} hours is ${conductanceLossPct.toFixed(1)}%. Effective array SNR reaches ${effectiveSnrDb.toFixed(1)} dB, retaining ${retainedAccuracyPct.toFixed(1)}% inference accuracy. Overall energy efficiency achieves ${energyEfficiencyTopsPerWatt.toFixed(1)} TOPS/W with ${throughputTops.toFixed(2)} TOPS throughput.`;
+  if (media.id === 'antifuse_stochastic_puf') {
+    verdictZh += ' (架構邊界提示：AntiFuse 為單次物理擊穿 OTP，僅支援靜態固化推論或隨機機率流運算，不具備線上動態權重覆寫能力；若需頻繁更新權重，應選擇 ReRAM/MRAM 或 SRAM。)';
+    verdictEn += ' (Architectural Boundary: AntiFuse relies on irreversible physical breakdown OTP, suitable exclusively for fixed inference or stochastic computing without online rewritability; for frequent weight updates, select ReRAM/MRAM or SRAM.)';
+  }
 
   return {
     preset,
