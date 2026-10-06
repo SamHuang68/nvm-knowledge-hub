@@ -1919,6 +1919,28 @@ def run_tests() -> None:
     test("whitepaper/index.html 包含 hbm4_logic_base_die_repair 決策列與 13 個 Profiles 宣告",
          'data-profile-id="hbm4_logic_base_die_repair"' in wp_html and "13 Profiles" in wp_html and '"hbm4_logic_base_die_repair"' in manifest_json)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 82: CXL 3.1 記憶體池化 (FAM / DCD)、0-Mask AntiFuse 標籤快取與動態毒化屏蔽模擬器 (ai-nvm-opportunities.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 82: CXL 3.1 記憶體池化、0-Mask AntiFuse 標籤快取與動態毒化屏蔽模擬器 ═══")
+    cxl_js = (BASE / "cxl-memory-pooling-simulator.js").read_text(encoding="utf-8")
+    test("cxl-memory-pooling-simulator.js 存在且導出 calculateCxlPoolingMetrics、drawCxlPoolingCanvas 與 initCxlPoolingSimulator",
+         "export function calculateCxlPoolingMetrics" in cxl_js and "export function drawCxlPoolingCanvas" in cxl_js and "export function initCxlPoolingSimulator" in cxl_js)
+    test("cxl-memory-pooling-simulator.js 包含四大系統預設與三大快取策略",
+         "CXL_SYSTEM_PRESETS" in cxl_js and "llm_shared_inference_8host" in cxl_js and "hpc_matrix_fabric_direct" in cxl_js and "dynamic_capacity_dcd_cloud" in cxl_js and "legacy_cxl2_pcie5_comparison" in cxl_js and "CXL_POLICIES" in cxl_js and "antifuse_hardware_tag" in cxl_js and "pure_software_kernel" in cxl_js and "broadcast_snooping_nop" in cxl_js)
+    test("cxl-memory-pooling-simulator.js 第一性原理延遲分解、困頓記憶體回收指數模型與次 20ns 毒化隔離反應時間模型",
+         "linkTransportLatency" in cxl_js and "tagLookupDelay" in cxl_js and "mediaDelay" in cxl_js and "totalLatencyNs" in cxl_js and "poolUtilization" in cxl_js and "capexSavedDollars" in cxl_js and "poisonInterceptNs" in cxl_js and "isZeroPanicGuaranteed" in cxl_js and "rating" in cxl_js and "verdictZh" in cxl_js)
+    test("cxl-memory-pooling-simulator.js 包含雙模態視覺化 (latency_breakdown 與 stranded_memory_economics)",
+         "latency_breakdown" in cxl_js and "stranded_memory_economics" in cxl_js)
+
+    ai_cxl_html = (BASE / "ai-nvm-opportunities.html").read_text(encoding="utf-8")
+    test("ai-nvm-opportunities.html 整合 cxl-memory-pooling-simulator-root 工作台、cxl-memory-pooling-section 與模組腳本引用",
+         'id="cxl-memory-pooling-simulator-root"' in ai_cxl_html and 'id="cxl-memory-pooling-section"' in ai_cxl_html and 'cxl-memory-pooling-simulator.js' in ai_cxl_html)
+    test("ai-nvm-opportunities.html 包含預設選單、策略選單、跳步/容量/命中率三軸滑桿與雙模態 Canvas",
+         'id="cxl-preset-select"' in ai_cxl_html and 'id="cxl-policy-select"' in ai_cxl_html and 'id="cxl-hops-slider"' in ai_cxl_html and 'id="cxl-capacity-slider"' in ai_cxl_html and 'id="cxl-hitrate-slider"' in ai_cxl_html and 'id="cxl-pooling-canvas"' in ai_cxl_html)
+    test("ai-nvm-opportunities.html 包含四大 KPI 輸出欄位 (Latency, Utilization, Poison Time, Saved Capex, Rating) 與判定橫幅",
+         'id="cxl-out-latency"' in ai_cxl_html and 'id="cxl-out-utilization"' in ai_cxl_html and 'id="cxl-out-poison-time"' in ai_cxl_html and 'id="cxl-out-saved"' in ai_cxl_html and 'id="cxl-out-rating"' in ai_cxl_html and 'id="cxl-out-verdict"' in ai_cxl_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

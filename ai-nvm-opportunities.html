@@ -1499,6 +1499,301 @@
             </div>
           </div>
         </article>
+
+        <!-- CXL 3.1 記憶體池化架構、0-Mask AntiFuse 標籤快取與動態毒化屏蔽 (Poison Tagging) -->
+        <article class="decision-matrix-card cxl-pooling-article" id="cxl-memory-pooling-section" style="margin-top: 28px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(14, 165, 233, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+          <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
+            <div>
+              <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0ea5e9; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
+                <span data-lang="zh">03-CXL · CXL 3.1 記憶體池化與 0-MASK ANTIFUSE 標籤快取</span>
+                <span data-lang="en">03-CXL · CXL 3.1 MEMORY POOLING &amp; 0-MASK ANTIFUSE TAG CACHE</span>
+              </div>
+              <h4 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
+                <span data-lang="zh">CXL 3.1 記憶體池化架構、0-Mask AntiFuse 標籤快取與動態毒化屏蔽 (Poison Tagging)</span>
+                <span data-lang="en">CXL 3.1 Fabric-Attached Memory Pooling, 0-Mask AntiFuse Tag Cache &amp; Dynamic Poison Alert</span>
+              </h4>
+            </div>
+            <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.12); color: #38bdf8; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
+              <span data-lang="zh">PCIe 6.0 PAM4 · DCD 動態容量 · SPDM 1.3 信任根 · 次 10ns 標籤過濾</span>
+              <span data-lang="en">PCIe 6.0 PAM4 · DCD Dynamic Capacity · SPDM 1.3 Trust Root · Sub-10ns Tag Filter</span>
+            </span>
+          </div>
+
+          <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 16px;">
+            <span data-lang="zh">隨生成式 AI 叢集與分散式推論模型規模暴增，傳統伺服器內部固定配置之 DRAM 正面臨 40%–50% 的嚴重「困頓記憶體 (Stranded Memory)」浪費。CXL 3.1 協定透過光纖/銅纜 Fabric-Attached Memory (FAM) 架構與 Dynamic Capacity Device (DCD) 動態分派，實現跨節點多主機 (Multi-Headed) 記憶體池化。然而，CXL 記憶體池化面臨嚴峻的兩大挑戰：第一，跨交換器跳步 (Hops) 帶來的額外延遲必須控制在 150–200ns 容許邊界內；第二，池化記憶體若發生單元軟硬錯誤或電離擊穿，必須具備動態毒化警報 (Dynamic Poison Alert) 與壞頁隔離，避免引發多主機內核連鎖崩潰 (Kernel Panic)。在此體系中，基於標準邏輯 CMOS 的 0-Mask AntiFuse OTP 扮演了極速硬體 CAM 標籤快取與 DMTF SPDM 1.3 硬體信任根的關鍵角色。</span>
+            <span data-lang="en">As generative AI clusters and distributed LLM models scale rapidly, servers suffer from 40%–50% stranded memory inefficiencies under fixed local DRAM allocations. CXL 3.1 overcomes this bottleneck through Fabric-Attached Memory (FAM) and Dynamic Capacity Devices (DCD), enabling multi-headed memory pooling across disaggregated compute nodes. However, memory pooling introduces two major architectural hurdles: first, switch transit hops must maintain end-to-end access latencies within strict 150–200ns SLAs; second, uncorrectable cell failures require dynamic poison tagging and rapid page isolation to prevent catastrophic cross-host kernel panic propagation. Logic-compatible 0-mask AntiFuse OTP serves as an indispensable sub-10ns on-die CAM tag cache filter and DMTF SPDM 1.3 hardware root-of-trust.</span>
+          </p>
+
+          <!-- 七維跨架構對比表 -->
+          <div style="overflow-x: auto; margin-bottom: 20px;">
+            <table class="decision-matrix-table" aria-label="CXL 3.1 Pooled Memory Architectural Comparison Matrix" data-aria-en="CXL 3.1 Pooled Memory Architectural Comparison Matrix" data-aria-zh="CXL 3.1 記憶體池化跨架構對比矩陣" style="width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.5; color: #cbd5e1; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px;">
+              <caption class="sr-only">
+                <span data-lang="zh">CXL 3.1 記憶體池化、直連 DDR5 與 3D HBM3E/4 跨架構七維對比矩陣</span>
+                <span data-lang="en">CXL 3.1 Pooled Memory, Direct-Attach DDR5, and 3D HBM3E/4 Seven-Dimensional Architectural Comparison Matrix</span>
+              </caption>
+              <thead>
+                <tr style="background: rgba(30, 41, 59, 0.8); border-bottom: 2px solid rgba(14, 165, 233, 0.4);">
+                  <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #38bdf8;">
+                    <span data-lang="zh">架構維度</span><span data-lang="en">Architectural Dimension</span>
+                  </th>
+                  <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #f8fafc;">
+                    <span data-lang="zh">直連本機 DDR5 (Direct-Attach)</span><span data-lang="en">Direct-Attach DDR5 (Local)</span>
+                  </th>
+                  <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #f8fafc;">
+                    <span data-lang="zh">CXL 3.1 記憶體池化 (FAM / DCD)</span><span data-lang="en">CXL 3.1 Pooled Memory (FAM/DCD)</span>
+                  </th>
+                  <th scope="col" style="padding: 10px 12px; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #f8fafc;">
+                    <span data-lang="zh">3D 堆疊 HBM3E / HBM4</span><span data-lang="en">3D Stacked HBM3E / HBM4</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                    <span data-lang="zh">1. 實體通道與信號調製</span><span data-lang="en">1. Physical Signaling</span>
+                  </th>
+                  <td style="padding: 9px 12px;">
+                    <span data-lang="zh">平行單端 SSTL / POD11 (64-bit + ECC)</span><span data-lang="en">Parallel single-ended SSTL/POD11 (64-bit + ECC)</span>
+                  </td>
+                  <td style="padding: 9px 12px; color: #38bdf8; font-weight: 600;">
+                    <span data-lang="zh">PCIe 6.0 PAM4 高速差分 (64 GT/s, 256B Flit)</span><span data-lang="en">PCIe 6.0 PAM4 SerDes (64 GT/s, 256B Flit)</span>
+                  </td>
+                  <td style="padding: 9px 12px;">
+                    <span data-lang="zh">2048-bit 超寬矽中介層 / 邏輯 Base Die PHY</span><span data-lang="en">2048-bit ultra-wide Interposer/Base Die PHY</span>
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                    <span data-lang="zh">2. 最大定址池化容量</span><span data-lang="en">2. Max Addressable Capacity</span>
+                  </th>
+                  <td style="padding: 9px 12px;">
+                    <span data-lang="zh">受限於 CPU 記憶體控制器通道 (典型 2TB–4TB)</span><span data-lang="en">Limited by CPU IMC channels (typically 2TB–4TB)</span>
+                  </td>
+                  <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+                    <span data-lang="zh">全網絡共享池化，可擴展至數十 TB 至數 PB</span><span data-lang="en">Global fabric pooled, scalable to tens of TB to PB</span>
+                  </td>
+                  <td style="padding: 9px 12px;">
+                    <span data-lang="zh">受限於封裝基板面積 (典型 24GB–64GB 每堆疊)</span><span data-lang="en">Limited by package substrate (24GB–64GB per stack)</span>
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                    <span data-lang="zh">3. 端到端讀取延遲</span><span data-lang="en">3. Read Latency Profile</span>
+                  </th>
+                  <td style="padding: 9px 12px;">
+                    <span data-lang="zh">約 75–85 ns (極低延遲基準)</span><span data-lang="en">~75–85 ns (Low latency baseline)</span>
+                  </td>
+                  <td style="padding: 9px 12px; color: #38bdf8; font-weight: 600;">
+                    <span data-lang="zh">約 130–185 ns (依交換器跳步與標籤快取而定)</span><span data-lang="en">~130–185 ns (Dependent on hops and tag cache)</span>
+                  </td>
+                  <td style="padding: 9px 12px;">
+                    <span data-lang="zh">約 80–110 ns (極高頻寬 1.5–2.0 TB/s)</span><span data-lang="en">~80–110 ns (Ultra-high bandwidth 1.5–2.0 TB/s)</span>
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                    <span data-lang="zh">4. 閒置容量回收率</span><span data-lang="en">4. Stranded Recovery Rate</span>
+                  </th>
+                  <td style="padding: 9px 12px; color: #f87171;">
+                    <span data-lang="zh">0% (固定專屬，跨節點完全無法借調)</span><span data-lang="en">0% (Fixed node-bound, non-transferrable)</span>
+                  </td>
+                  <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+                    <span data-lang="zh">動態提升至 88%–94% (挽回近 40% 雲端資本支出)</span><span data-lang="en">Up to 88%–94% (Recovers ~40% cloud memory Capex)</span>
+                  </td>
+                  <td style="padding: 9px 12px; color: #f87171;">
+                    <span data-lang="zh">0% (GPU 加速器專用高速暫存)</span><span data-lang="en">0% (Dedicated GPU accelerator memory)</span>
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                    <span data-lang="zh">5. 毒化與故障隔離時間</span><span data-lang="en">5. Poison Isolation Time</span>
+                  </th>
+                  <td style="padding: 9px 12px;">
+                    <span data-lang="zh">依賴 CPU MCE / OS 核心陷阱 (~1,000 ns)</span><span data-lang="en">Dependent on CPU MCE / OS trap (~1,000 ns)</span>
+                  </td>
+                  <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+                    <span data-lang="zh">&lt;10 ns (0-Mask AntiFuse 硬體 CAM 動態攔截)</span><span data-lang="en">&lt;10 ns (0-Mask AntiFuse CAM hardware intercept)</span>
+                  </td>
+                  <td style="padding: 9px 12px;">
+                    <span data-lang="zh">硬體 JEDEC hPPR 永久燒錄重映射</span><span data-lang="en">Hard JEDEC hPPR permanent row remapping</span>
+                  </td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                    <span data-lang="zh">6. 晶片內嵌 NVM 關鍵角色</span><span data-lang="en">6. Embedded NVM Role</span>
+                  </th>
+                  <td style="padding: 9px 12px;">
+                    <span data-lang="zh">SPD EEPROM 儲存啟動時序參數</span><span data-lang="en">SPD EEPROM stores boot timing parameters</span>
+                  </td>
+                  <td style="padding: 9px 12px; color: #38bdf8; font-weight: 600;">
+                    <span data-lang="zh">0-Mask AntiFuse OTP：CAM 標籤快取 + SPDM 1.3 信任根</span><span data-lang="en">0-Mask AntiFuse OTP: CAM tag cache + SPDM 1.3 RoT</span>
+                  </td>
+                  <td style="padding: 9px 12px;">
+                    <span data-lang="zh">AntiFuse OTP 於 Base Die 執行 2048-bit 偏斜微調與 hPPR</span><span data-lang="en">AntiFuse OTP on Base Die for 2048-bit trim &amp; hPPR</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" style="padding: 9px 12px; font-weight: 600; color: #e2e8f0; text-align: left;">
+                    <span data-lang="zh">7. 額外製造光罩與封裝成本</span><span data-lang="en">7. Mask &amp; Packaging Cost</span>
+                  </th>
+                  <td style="padding: 9px 12px;">
+                    <span data-lang="zh">標準 DIMM PCB 封裝，成熟且成本極低</span><span data-lang="en">Standard DIMM PCB module, mature low cost</span>
+                  </td>
+                  <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
+                    <span data-lang="zh">0 額外光罩 (原生 CMOS 邏輯相容)，PCIe AIC 形態</span><span data-lang="en">0 extra masks (native CMOS logic), PCIe AIC form-factor</span>
+                  </td>
+                  <td style="padding: 9px 12px; color: #f87171;">
+                    <span data-lang="zh">極高 (CoWoS-S / CoWoS-L 先進矽中介層與 TSV 鍵合)</span><span data-lang="en">Very high (CoWoS silicon interposer &amp; TSV bonding)</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- 互動工作台容器 -->
+          <div class="decision-matrix-card cxl-simulator-container" id="cxl-memory-pooling-simulator-root" style="background: rgba(15, 23, 42, 0.9); border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 8px; padding: 18px 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.5); padding-bottom: 10px;">
+              <div>
+                <span style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.08em;">
+                  <span data-lang="zh">第一性原理互動工作台</span><span data-lang="en">FIRST-PRINCIPLES WORKBENCH</span>
+                </span>
+                <h5 style="margin: 2px 0 0; font-size: 15px; color: #f8fafc; font-weight: 700;">
+                  <span data-lang="zh">CXL 3.1 延遲堆疊分解、困頓記憶體經濟學與毒化隔離模擬器</span>
+                  <span data-lang="en">CXL 3.1 Latency Breakdown, Stranded Economics &amp; Poison Isolation Simulator</span>
+                </h5>
+              </div>
+              <span style="font: 600 10px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.15); color: #38bdf8; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
+                <span data-lang="zh">PCIe 6.0 PAM4 · 次 20ns 毒化防線</span><span data-lang="en">PCIe 6.0 PAM4 · Sub-20ns Poison Guard</span>
+              </span>
+            </div>
+
+            <!-- 控制面板 Controls Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 16px; background: rgba(30, 41, 59, 0.6); padding: 12px; border-radius: 6px; border: 1px solid rgba(51, 65, 85, 0.5);">
+              <div>
+                <label for="cxl-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                  <span data-lang="zh">系統拓樸預設 (System Preset):</span><span data-lang="en">SYSTEM PRESET:</span>
+                </label>
+                <select id="cxl-preset-select" aria-label="CXL System Preset" data-aria-en="CXL System Preset" data-aria-zh="CXL 系統拓樸預設" style="width: 100%; padding: 5px 8px; border: 1px solid #475569; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                  <option value="llm_shared_inference_8host" selected>8-Host LLM KV-Cache Pool (CXL 3.1 Multi-Headed)</option>
+                  <option value="hpc_matrix_fabric_direct">HPC Supercomputing Direct Fabric (CXL 3.1 P2P Direct)</option>
+                  <option value="dynamic_capacity_dcd_cloud">Cloud Datacenter Dynamic Capacity Device (CXL 3.1 DCD Switched)</option>
+                  <option value="legacy_cxl2_pcie5_comparison">Legacy CXL 2.0 / PCIe 5.0 NRZ Baseline (Single-Switch Host Tree)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="cxl-policy-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 4px;">
+                  <span data-lang="zh">快取與隔離策略 (Cache Policy):</span><span data-lang="en">CACHE &amp; ISOLATION POLICY:</span>
+                </label>
+                <select id="cxl-policy-select" aria-label="CXL Cache Policy" data-aria-en="CXL Cache Policy" data-aria-zh="CXL 快取與隔離策略" style="width: 100%; padding: 5px 8px; border: 1px solid #475569; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
+                  <option value="antifuse_hardware_tag" selected>0-Mask AntiFuse On-Die HW CAM Tag Cache (Sub-10ns Filter)</option>
+                  <option value="pure_software_kernel">Pure Software OS Kernel Interrupt Table (Legacy Trap)</option>
+                  <option value="broadcast_snooping_nop">Broadcast Cache Invalidation (No Tag Cache, Full Bus Walk)</option>
+                </select>
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+                  <span><span data-lang="zh">交換器跳步數 (Switch Hops):</span><span data-lang="en">SWITCH HOPS:</span></span>
+                  <span id="cxl-hops-val" style="color: #38bdf8; font-weight: 700;">1 hop</span>
+                </div>
+                <input type="range" id="cxl-hops-slider" min="0" max="3" step="1" value="1" aria-label="Switch Hop Count" data-aria-en="Switch Hop Count" data-aria-zh="交換器跳步數" aria-valuetext="1 hop" style="width: 100%; accent-color: #38bdf8; cursor: pointer;">
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+                  <span><span data-lang="zh">記憶體池容量 (Pool Capacity):</span><span data-lang="en">POOL CAPACITY:</span></span>
+                  <span id="cxl-capacity-val" style="color: #34d399; font-weight: 700;">2.0 TB (2048 GB)</span>
+                </div>
+                <input type="range" id="cxl-capacity-slider" min="256" max="8192" step="256" value="2048" aria-label="Pool Memory Capacity" data-aria-en="Pool Memory Capacity" data-aria-zh="記憶體池容量" aria-valuetext="2048 GB" style="width: 100%; accent-color: #34d399; cursor: pointer;">
+              </div>
+
+              <div>
+                <div style="display: flex; justify-content: space-between; font: 600 11px 'IBM Plex Mono', monospace; color: #cbd5e1; margin-bottom: 3px;">
+                  <span><span data-lang="zh">標籤快取命中率 (Hit Rate):</span><span data-lang="en">TAG HIT RATE:</span></span>
+                  <span id="cxl-hitrate-val" style="color: #fbbf24; font-weight: 700;">98.5%</span>
+                </div>
+                <input type="range" id="cxl-hitrate-slider" min="70.0" max="99.9" step="0.1" value="98.5" aria-label="Tag Cache Hit Rate" data-aria-en="Tag Cache Hit Rate" data-aria-zh="標籤快取命中率" aria-valuetext="98.5%" style="width: 100%; accent-color: #fbbf24; cursor: pointer;">
+              </div>
+            </div>
+
+            <!-- KPI 指標帶 Metrics Strip -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 14px;">
+              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(14, 165, 233, 0.4); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #38bdf8; margin-bottom: 2px;">
+                  <span data-lang="zh">端到端存取延遲</span><span data-lang="en">END-TO-END LATENCY</span>
+                </div>
+                <div id="cxl-out-latency" style="font: 700 16px 'IBM Plex Mono', monospace; color: #22d3ee;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">傳輸 + 標籤 + 介質</span><span data-lang="en">Link + Tag + Media</span>
+                </div>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #10b981; margin-bottom: 2px;">
+                  <span data-lang="zh">池化有效利用率</span><span data-lang="en">POOL UTILIZATION</span>
+                </div>
+                <div id="cxl-out-utilization" style="font: 700 16px 'IBM Plex Mono', monospace; color: #34d399;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">挽回困頓記憶體</span><span data-lang="en">Stranded recovered</span>
+                </div>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #f59e0b; margin-bottom: 2px;">
+                  <span data-lang="zh">毒化故障攔截時間</span><span data-lang="en">POISON INTERCEPT</span>
+                </div>
+                <div id="cxl-out-poison-time" style="font: 700 16px 'IBM Plex Mono', monospace; color: #fbbf24;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">次 20ns 零崩潰保證</span><span data-lang="en">Zero-Panic SLA</span>
+                </div>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(99, 102, 241, 0.4); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #818cf8; margin-bottom: 2px;">
+                  <span data-lang="zh">資本支出節省額度</span><span data-lang="en">CAPEX SAVINGS</span>
+                </div>
+                <div id="cxl-out-saved" style="font: 700 16px 'IBM Plex Mono', monospace; color: #a5b4fc;">—</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">DRAM 購置成本節省</span><span data-lang="en">Direct DRAM saved</span>
+                </div>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(51, 65, 85, 0.6); border-radius: 6px; padding: 10px 12px;">
+                <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
+                  <span data-lang="zh">架構評級</span><span data-lang="en">RATING</span>
+                </div>
+                <div id="cxl-out-rating" style="font: 700 16px 'IBM Plex Mono', monospace; color: #38bdf8;">OPTIMAL</div>
+                <div style="font-size: 10px; color: #64748b; margin-top: 2px;">
+                  <span data-lang="zh">第一性原理綜合評估</span><span data-lang="en">First-principles audit</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 視覺化 Canvas 與模式切換按鈕 -->
+            <div style="background: #020617; border: 1px solid rgba(51, 65, 85, 0.7); border-radius: 6px; padding: 12px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                <div style="display: inline-flex; gap: 6px;" role="group" aria-label="Visual Display Mode" data-aria-en="Visual Display Mode" data-aria-zh="圖表顯示模式">
+                  <button id="cxl-mode-latency" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+                    <span data-lang="zh">端到端延遲分解堆疊柱狀圖</span><span data-lang="en">Latency Breakdown Stacked Bar</span>
+                  </button>
+                  <button id="cxl-mode-pooling" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+                    <span data-lang="zh">困頓記憶體回收率與經濟學曲線</span><span data-lang="en">Stranded Recovery &amp; Economics Curve</span>
+                  </button>
+                </div>
+                <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">High-DPI CXL 3.1 Pooling Engine</span>
+              </div>
+              <div style="width: 100%; height: 200px; position: relative;">
+                <canvas id="cxl-pooling-canvas" width="420" height="200" style="width: 100%; height: 100%; display: block;" role="img" aria-label="CXL 3.1 Memory Pooling and Tag Cache Simulation Canvas" data-aria-en="CXL 3.1 Memory Pooling and Tag Cache Simulation Canvas" data-aria-zh="CXL 3.1 記憶體池化與標籤快取模擬畫布"></canvas>
+              </div>
+            </div>
+
+            <!-- 架構結論提示方塊 -->
+            <div style="background: rgba(14, 165, 233, 0.08); border-left: 3px solid #0ea5e9; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #e2e8f0;">
+              <span id="cxl-out-verdict">Loading CXL 3.1 memory pooling calculations...</span>
+            </div>
+          </div>
+        </article>
       </section>
 
       <section id="photonics" class="paper-section lens-panel reveal">
@@ -2812,5 +3107,6 @@
   <script type="module" src="nanosheet-bspdn-nvm-simulator.js?v=20261005"></script>
   <script type="module" src="cpo-siph-nvm-simulator.js?v=20261006"></script>
   <script type="module" src="hbm4-base-die-repair-probe-simulator.js?v=20261006"></script>
+  <script type="module" src="cxl-memory-pooling-simulator.js?v=20261006"></script>
 </body>
 </html>
