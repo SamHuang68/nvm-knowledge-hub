@@ -2138,7 +2138,7 @@ def run_tests() -> None:
 
     ev_v22_html = (BASE / "memory-evidence.html").read_text(encoding="utf-8")
     test("memory-evidence.html 包含 evidence-V22 零信任半導體供應鏈、光學側信道衰減與原生 PUF 防偽總帳卡片",
-         'id="evidence-V22"' in ev_v22_html and 'NIST SP 800-193' in ev_v22_html and 'ISO/IEC 20243' in ev_v22_html and 'OIP-SC-001' in ev_v22_html and '-48 dB' in ev_v22_html)
+         'id="evidence-V22"' in ev_v22_html and 'NIST SP 800-193' in ev_v22_html and 'ISO/IEC 20243' in ev_v22_html and 'Becker' in ev_v22_html and '48 dB' in ev_v22_html)
 
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")

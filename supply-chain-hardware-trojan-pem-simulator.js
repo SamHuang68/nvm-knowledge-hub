@@ -24,52 +24,52 @@ export class SupplyChainTrojanPemSimulator {
 
     this.presets = {
       'zero-trust-audit': {
-        labelZh: '國防零信任供應鏈',
-        labelEn: 'Defense Zero-Trust',
-        nameZh: '國防與高階伺服器零信任供應鏈稽核 (CC EAL6+ / 全面抗光學探測)',
-        nameEn: 'Defense & Cloud Server Zero-Trust Audit (CC EAL6+ / Anti-PEM)',
+        labelZh: '零信任供應鏈稽核',
+        labelEn: 'Zero-Trust Audit',
+        nameZh: '零信任供應鏈威脅稽核 (高屏蔽與薄化矽基板模型)',
+        nameEn: 'Zero-Trust Supply Chain Audit (High-Shielding & Thinned Si Model)',
         substrateThickUm: 8.0,
         opticalShieldDb: 45,
         trojanPayloadPpm: 50,
         tech: 'antifuse_puf',
-        descZh: '最高國防與雲端金鑰安全等級，面對背面薄化矽基板光學發射與惡意代工廠摻雜木馬。',
-        descEn: 'Highest defense grade against backside-thinned silicon photon emission and fab dopant trojans.'
+        descZh: '模擬高安全晶片面對背面薄化矽基板光學發射 (PEM) 與微小硬體木馬之邊界條件。',
+        descEn: 'Models high-security IC boundaries against backside thinned Si emission (PEM) and stealth trojans.'
       },
       'backside-tre-attack': {
         labelZh: '背面光學 TRE 攻擊',
         labelEn: 'Backside TRE Attack',
-        nameZh: '背面近紅外時間分辨光子發射攻擊 (Backside NIR TRE / 28nm Logic)',
+        nameZh: '背面近紅外時間分辨光子發射分析 (Backside NIR TRE / 28nm Logic)',
         nameEn: 'Backside NIR Time-Resolved Emission Attack (TRE / 28nm Logic)',
         substrateThickUm: 15.0,
         opticalShieldDb: 10,
         trojanPayloadPpm: 200,
         tech: 'eflash',
-        descZh: '攻擊者使用超導單光子探測器 (SNSPD) 透過背面薄化矽窗口還原內部時鐘與密鑰。',
-        descEn: 'Attacker leverages SNSPD through thinned silicon substrate to recover clock and encryption keys.'
+        descZh: '模擬攻擊者使用超導單光子探測器 (SNSPD) 透過背面薄化矽窗口還原內部信號。',
+        descEn: 'Models attacker leveraging SNSPD through thinned silicon to recover internal switching.'
       },
       'dopant-trojan-hunt': {
-        labelZh: '惡意摻雜木馬排查',
+        labelZh: '摻雜木馬威脅排查',
         labelEn: 'Dopant Trojan Hunt',
-        nameZh: '不可信代工廠惡意摻雜木馬排查 (Dopant Trojan / A2 Trigger)',
-        nameEn: 'Untrusted Foundry Dopant Trojan Hunt (Dopant Trojan / A2 Trigger)',
+        nameZh: '不可信代工廠摻雜層木馬排查模型 (Becker 2013 威脅場景)',
+        nameEn: 'Untrusted Foundry Dopant Trojan Hunt (Becker 2013 Threat Model)',
         substrateThickUm: 30.0,
         opticalShieldDb: 25,
         trojanPayloadPpm: 800,
         tech: 'sram_puf',
-        descZh: '排查非光罩層或微觀摻雜極性修改之硬體木馬，依託晶片原子級物理指紋做比對驗證。',
-        descEn: 'Detecting subtle dopant polarity modifications via atomic-level physical fingerprinting.'
+        descZh: '排查非光罩層或微觀摻雜極性修改之硬體木馬，評估物理指紋與統計測試之檢出能力。',
+        descEn: 'Assesses detection capability for dopant-polarity Trojans via physical fingerprint testing.'
       },
       'iot-anti-cloning': {
-        labelZh: '商業物聯網防仿冒',
+        labelZh: '商業物聯網防偽',
         labelEn: 'IoT Anti-Cloning',
-        nameZh: '商業車聯網/物聯網低成本防仿冒 (Fast PUF Identity Verification)',
-        nameEn: 'Automotive IoT Commercial Anti-Cloning (Fast PUF Identity Verification)',
+        nameZh: '物聯網裝置防仿冒與身分驗證 (PUF Identity Verification)',
+        nameEn: 'IoT Anti-Counterfeiting & Identity Verification (PUF Identity)',
         substrateThickUm: 50.0,
         opticalShieldDb: 35,
         trojanPayloadPpm: 120,
         tech: 'mram',
         descZh: '邊緣裝置大量出貨時，透過晶片指紋防止供應鏈假冒換料與未授權超額生產。',
-        descEn: 'Mass production verification preventing counterfeit substitution and unauthorized overproduction.'
+        descEn: 'Assesses identity verification against counterfeit substitution and unauthorized overproduction.'
       }
     };
 
@@ -77,50 +77,54 @@ export class SupplyChainTrojanPemSimulator {
       antifuse_puf: {
         nameZh: '0-Mask AntiFuse 原生 PUF',
         nameEn: '0-Mask AntiFuse Native PUF',
-        baseEmissionRate: 12, // Photons/sec (Extremely weak, near thermal noise)
-        shieldingFactor: 48, // dB attenuation
+        maskAdders: 0,
+        baseEmissionRate: 12, // Photons/sec (low-current ohmic filament)
+        shieldingFactor: 48, // dB model attenuation
         interHammingMean: 50.02, // %
         intraBitErrorRate: 0.25, // %
-        trojanImmunity: '卓越 (Grade A+ / 零額外光罩，無法透過改光罩植入木馬)',
-        trojanImmunityEn: 'Excellent (Grade A+ / 0-Mask, immune to mask trojans)',
-        descZh: '利用閘極氧化層原子尺度隨機微崩潰特徵，無光罩木馬植入途徑，熱載子光子發射衰減高達 48 dB。',
-        descEn: 'Atomic-scale oxide breakdown randomness; 0-mask eliminates mask trojans; 48 dB optical attenuation.'
+        trojanImmunity: '消除專屬光罩插入面；需防範摻雜層木馬',
+        trojanImmunityEn: 'Eliminates dedicated mask vector; requires dopant defenses',
+        descZh: '閘極氧化層微崩潰隨機特徵，標準邏輯製程無專用光罩插入面，微安級讀取電流發射微弱。',
+        descEn: 'Oxide breakdown stochasticity; standard logic process eliminates dedicated mask insertion vector.'
       },
       sram_puf: {
         nameZh: 'SRAM 啟動狀態 PUF',
         nameEn: 'SRAM Power-Up PUF',
+        maskAdders: 0,
         baseEmissionRate: 150,
         shieldingFactor: 18,
         interHammingMean: 49.3,
         intraBitErrorRate: 4.8, // Vulnerable to supply noise and temperature drift
-        trojanImmunity: '中等 (Grade B / 易受周邊邏輯木馬或雷射故障注入干擾)',
-        trojanImmunityEn: 'Moderate (Grade B / Susceptible to power glitching & laser BBI)',
-        descZh: '依賴未初始化正反器亞穩態，容易受外部電源抖動誘騙，且高溫環境位元翻轉率飆升。',
-        descEn: 'Relies on uninitialized latch metastability; high error rates under temperature and voltage fluctuations.'
+        trojanImmunity: '免額外光罩；需防範供電噪訊與雷射 BBI 誘騙',
+        trojanImmunityEn: 'No mask adders; requires anti-glitch & laser BBI filtering',
+        descZh: '依賴未初始化正反器亞穩態，易受外部電源抖動誘騙，需配合強韌 ECC 糾錯。',
+        descEn: 'Relies on uninitialized latch metastability; susceptible to power noise and laser injection.'
       },
       mram: {
         nameZh: 'STT-MRAM 磁阻隨機數',
         nameEn: 'STT-MRAM TRNG / MOKE',
+        maskAdders: 4,
         baseEmissionRate: 85,
         shieldingFactor: 28,
         interHammingMean: 49.8,
         intraBitErrorRate: 1.8,
-        trojanImmunity: '良好 (Grade B+ / BEOL 磁穿隧層木馬隱蔽性高)',
-        trojanImmunityEn: 'Good (Grade B+ / BEOL magnetic layers conceal trojans)',
+        trojanImmunity: 'BEOL 磁穿隧結隱蔽性高；需防範外部磁場與 MOKE',
+        trojanImmunityEn: 'BEOL MTJ concealment; requires MOKE / magnetic shielding',
         descZh: '利用 MTJ 臨界翻轉隨機性，無明顯光學發射，但需防範磁光柯爾效應 (MOKE) 磁場探測。',
         descEn: 'Leverages MTJ switching stochasticity; minimal photon emission, but vulnerable to MOKE magnetic probes.'
       },
       eflash: {
         nameZh: '傳統 eFlash 儲存金鑰',
         nameEn: 'Conventional eFlash Key Store',
-        baseEmissionRate: 1200, // Very strong due to high-voltage charge pump & programming hot electrons
+        maskAdders: 10,
+        baseEmissionRate: 1200, // Elevated due to high-voltage charge pump & programming hot electrons
         shieldingFactor: 8,
         interHammingMean: 0.0, // Not a PUF, static stored bits
         intraBitErrorRate: 0.0,
-        trojanImmunity: '極弱 (Grade F / 電荷泵強光子發射，光罩多達 8~12 道易植木馬)',
-        trojanImmunityEn: 'Vulnerable (Grade F / Intense charge pump emission; 8-12 mask adders)',
-        descZh: '高壓電荷泵產生顯著近紅外碰撞電離光子，可被 TRE 探測輕易還原金鑰，且額外光罩多易遭代工廠植入木馬。',
-        descEn: 'High-voltage charge pumps generate bright NIR photon emission easily intercepted by TRE detectors.'
+        trojanImmunity: '具專屬高壓光罩攻擊面；高壓電荷泵需發射遮蔽',
+        trojanImmunityEn: 'Dedicated HV mask vector; charge pump requires emission shielding',
+        descZh: '高壓電荷泵在讀寫時產生較多碰撞電離光子，且額外光罩道數多增加客製層檢查負擔。',
+        descEn: 'Charge pumps generate impact-ionization photons; dedicated masks add custom layer attack surface.'
       }
     };
 
@@ -140,6 +144,12 @@ export class SupplyChainTrojanPemSimulator {
   initDOM() {
     this.container.innerHTML = `
       <div class="trojan-pem-card" style="background: var(--surface, #111827); border: 1px solid var(--border-color, #374151); border-radius: 12px; padding: 24px; color: var(--text-color, #f3f4f6); font-family: system-ui, -apple-system, sans-serif;">
+        <!-- Academic Model Disclaimer Banner -->
+        <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #f59e0b; padding: 8px 12px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 11.5px; line-height: 1.5; color: #f59e0b;">
+          <span data-lang="zh">⚠️ 示意模擬模型：本工作台參數依據學術文獻（Becker 2013 摻雜木馬、Schlösser 2012 光學發射）與工程假設估算，非量產晶片實測保證。CC EAL 與 NIST 認證屬系統級 TOE 產品評估範疇，不可由儲存介質直接推定。</span>
+          <span data-lang="en">⚠️ Exploratory Simulation: Parameters are derived from literature (Becker 2013, Schlösser 2012) and engineering assumptions, not silicon guarantees. CC EAL and NIST certifications apply to system-level TOE products and cannot be inferred from bitcell medium alone.</span>
+        </div>
+
         <!-- Header -->
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
           <div>
@@ -252,12 +262,12 @@ export class SupplyChainTrojanPemSimulator {
             <div id="trojan-out-intra" style="font-size: 11px; margin-top: 4px; color: #94a3b8;">Intra-BER = 0.25%</div>
           </div>
 
-          <!-- Metric 4: Zero-Trust Supply Chain Rating -->
+          <!-- Metric 4: Modeled Protection Margin -->
           <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
             <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
-              <span data-lang="zh">零信任供應鏈認證等級</span><span data-lang="en">Zero-Trust Assurance Tier</span>
+              <span data-lang="zh">模型防護餘量評估</span><span data-lang="en">Modeled Protection Margin</span>
             </div>
-            <div id="trojan-out-tier" style="font-size: 18px; font-weight: 700; color: #10b981; font-family: monospace;">CC EAL6+ / SP 800-193</div>
+            <div id="trojan-out-tier" style="font-size: 18px; font-weight: 700; color: #10b981; font-family: monospace;">高防護餘量</div>
             <div id="trojan-out-rating" style="font-size: 11px; margin-top: 4px;"></div>
           </div>
         </div>
@@ -384,7 +394,7 @@ export class SupplyChainTrojanPemSimulator {
     const tech = this.techProfiles[s.tech] || this.techProfiles['antifuse_puf'];
 
     // 1. Hot-Carrier Photon Emission & Substrate Absorption
-    // Silicon absorption depth for NIR (lambda ~ 1064nm): lambda_opt ~ 20 um
+    // Silicon absorption depth for NIR (lambda ~ 1064nm): lambda_opt ~ 20 um (Schlösser et al. CHES 2012)
     const lambdaOptUm = 20.0;
     const substrateAbsorptionFactor = Math.exp(-s.substrateThickUm / lambdaOptUm);
     const totalShieldingDb = s.opticalShieldDb + tech.shieldingFactor;
@@ -392,24 +402,18 @@ export class SupplyChainTrojanPemSimulator {
 
     // Measured Photon flux (photons / sec)
     const measuredFlux = tech.baseEmissionRate * substrateAbsorptionFactor * shieldAttenuationFactor;
-    // Dark count rate for SNSPD is ~ 10-100 cps. If measuredFlux < 1.0 cps, it is below detection noise
+    // Dark count rate for SNSPD is ~ 5.0 cps. If measuredFlux < 0.5 cps, it is buried under detector noise
     const snrDb = 10 * Math.log10(Math.max(1e-4, measuredFlux / 5.0));
 
-    // 2. Hardware Trojan Detection
-    // Using Golden IC PUF Fingerprint verification:
-    // P_detect = 1 - (1 - sensitivity)^samples
-    let detectionProb = 0.999;
-    if (s.tech === 'antifuse_puf') {
-      // 0-Mask means foundry cannot alter standard layout masks without changing base DRC
-      detectionProb = Math.min(0.9999, 0.99 + (s.trojanPayloadPpm / 1000) * 0.0099);
-    } else if (s.tech === 'sram_puf') {
-      detectionProb = Math.max(0.75, 0.92 - 0.15 * (tech.intraBitErrorRate / 10));
-    } else if (s.tech === 'mram') {
-      detectionProb = 0.965;
-    } else {
-      // eFlash has 8-12 mask adders, vulnerable to mask insertion
-      detectionProb = Math.max(0.40, 0.65 - (s.trojanPayloadPpm / 2000));
-    }
+    // 2. Hardware Trojan Detection (Continuous Poisson coverage model)
+    // Trojan payload scaling: larger footprint -> higher detection sensitivity
+    const ppmNormalized = Math.min(1.0, Math.max(0.01, s.trojanPayloadPpm / 1000));
+    // Architecture base inspectability (0.6 - 0.9):
+    // 0-mask standard CMOS has strict DRC/OPC checking across identical standard cells.
+    // Dedicated masks add verification vectors.
+    const baseInspectability = tech.maskAdders === 0 ? 0.82 : Math.max(0.60, 0.82 - tech.maskAdders * 0.015);
+    // Continuous detection probability: P = 1 - exp(-inspectability * (1 + 3 * ppm))
+    const detectionProb = 1.0 - Math.exp(-baseInspectability * (0.8 + 2.5 * ppmNormalized));
 
     return {
       measuredFlux,
@@ -453,7 +457,7 @@ export class SupplyChainTrojanPemSimulator {
     const outDetect = this.container.querySelector('#trojan-out-detect');
     if (outDetect) {
       outDetect.textContent = `${(p.detectionProb * 100).toFixed(2)}%`;
-      outDetect.style.color = p.detectionProb >= 0.99 ? '#10b981' : (p.detectionProb >= 0.90 ? '#f59e0b' : '#ef4444');
+      outDetect.style.color = p.detectionProb >= 0.90 ? '#10b981' : (p.detectionProb >= 0.75 ? '#f59e0b' : '#ef4444');
     }
 
     // 3. HD
@@ -475,51 +479,40 @@ export class SupplyChainTrojanPemSimulator {
       }
     }
 
-    // 4. Rating
+    // 4. Rating (Modeled Margin, not fake certification)
     const outTier = this.container.querySelector('#trojan-out-tier');
     if (outTier) {
-      if (this.state.tech === 'antifuse_puf') {
-        outTier.innerHTML = '<span data-lang="zh">CC EAL6+ / SP 800-193</span><span data-lang="en">CC EAL6+ / SP 800-193</span>';
+      if (p.snrDb < -10 && p.detectionProb >= 0.85) {
+        outTier.innerHTML = '<span data-lang="zh">高防護餘量 (High Margin)</span><span data-lang="en">High Margin</span>';
         outTier.style.color = '#10b981';
-      } else if (this.state.tech === 'mram') {
-        outTier.innerHTML = '<span data-lang="zh">CC EAL5+ / NIST FIPS</span><span data-lang="en">CC EAL5+ / NIST FIPS</span>';
-        outTier.style.color = '#60a5fa';
-      } else if (this.state.tech === 'sram_puf') {
-        outTier.innerHTML = '<span data-lang="zh">CC EAL4+ / 商業工規</span><span data-lang="en">CC EAL4+ / Commercial</span>';
+      } else if (p.snrDb < 0 && p.detectionProb >= 0.70) {
+        outTier.innerHTML = '<span data-lang="zh">中等防護 (Moderate)</span><span data-lang="en">Moderate</span>';
         outTier.style.color = '#f59e0b';
       } else {
-        outTier.innerHTML = '<span data-lang="zh">CC EAL2 / 高風險</span><span data-lang="en">CC EAL2 / High Risk</span>';
+        outTier.innerHTML = '<span data-lang="zh">需增強屏蔽 (Needs Shielding)</span><span data-lang="en">Needs Shielding</span>';
         outTier.style.color = '#ef4444';
       }
     }
 
     const outRating = this.container.querySelector('#trojan-out-rating');
     if (outRating) {
-      if (this.state.tech === 'antifuse_puf') {
-        outRating.innerHTML = `<span style="color: #10b981; font-weight: 600;"><span data-lang="zh">GRADE A+ (零光罩木馬免疫 + 48dB 光學衰減)</span><span data-lang="en">GRADE A+ (0-Mask Immune + 48dB Attenuation)</span></span>`;
-      } else if (this.state.tech === 'mram') {
-        outRating.innerHTML = `<span style="color: #60a5fa; font-weight: 600;"><span data-lang="zh">GRADE B+ (磁光特性良好)</span><span data-lang="en">GRADE B+ (Good Magnetic Randomness)</span></span>`;
-      } else if (this.state.tech === 'sram_puf') {
-        outRating.innerHTML = `<span style="color: #f59e0b; font-weight: 600;"><span data-lang="zh">GRADE B (易受供電噪聲與雷射 BBI 誘騙)</span><span data-lang="en">GRADE B (Vulnerable to Power Noise &amp; BBI)</span></span>`;
-      } else {
-        outRating.innerHTML = `<span style="color: #ef4444; font-weight: 600;"><span data-lang="zh">GRADE F (電荷泵強光子輻射洩漏)</span><span data-lang="en">GRADE F (Intense Pump Photon Leakage)</span></span>`;
-      }
+      outRating.innerHTML = `<span style="color: #94a3b8;"><span data-lang="zh">模型估算：SNR ${p.snrDb.toFixed(1)} dB · 檢出率 ${(p.detectionProb * 100).toFixed(1)}%</span><span data-lang="en">Model: SNR ${p.snrDb.toFixed(1)} dB · Detect ${(p.detectionProb * 100).toFixed(1)}%</span></span>`;
     }
 
-    // 5. Verdict Box
+    // 5. Verdict Box (Objective, referencing academic papers)
     const vDesc = this.container.querySelector('#trojan-verdict-desc');
     if (vDesc) {
       let verdictZh = '';
       let verdictEn = '';
       if (this.state.tech === 'eflash') {
-        verdictZh = `嚴重風險：傳統 eFlash 的高壓電荷泵在讀寫時產生強烈碰撞電離光子 (通量達 ${Math.round(p.measuredFlux)} ph/s)，背面時間分辨光子發射 (TRE) 可輕易在時鐘邊緣還原金鑰。且高達 8~12 道額外光罩大幅增加代工廠惡意植入木馬之攻擊面。建議升級為 0-Mask 原生 PUF。`;
-        verdictEn = `Critical Risk: Conventional eFlash charge pumps generate intense impact-ionization photons (${Math.round(p.measuredFlux)} ph/s). Backside TRE detectors can easily extract keys. Furthermore, 8-12 mask adders offer large attack surfaces for foundry trojans. Recommend 0-Mask native PUF.`;
-      } else if (this.state.tech === 'sram_puf' && this.state.trojanPayloadPpm >= 500) {
-        verdictZh = `架構預警：SRAM PUF 啟動狀態受外部電源壓降與溫度梯度擾動，Intra-BER 達 ${p.tech.intraBitErrorRate}%，若攻擊者植入觸發式木馬，易引發正反器狀態重置失真。需搭配重度輔助數據 (Helper Data) 與 BCH 糾錯演算法。`;
-        verdictEn = `Warning: SRAM PUF startup states fluctuate with supply noise and temperature (Intra-BER ${p.tech.intraBitErrorRate}%). Triggered trojans could distort latch power-up profiles, necessitating heavy helper data and BCH ECC algorithms.`;
+        verdictZh = `模型分析：傳統 eFlash 的高壓電荷泵在讀寫時產生較強烈碰撞電離光子 (通量估算達 ${Math.round(p.measuredFlux)} ph/s)，背面時間分辨光子發射 (TRE) 在未充分屏蔽下較易被捕捉。且其包含多道額外光罩，增加客製層光罩比對檢查負擔。建議評估主動金屬網遮蔽。`;
+        verdictEn = `Model Finding: Conventional eFlash charge pumps generate higher impact-ionization photons (~${Math.round(p.measuredFlux)} ph/s). Backside TRE detectors can capture switching signals if unshielded. Multiple mask adders also add custom-layer inspection overhead. Active metal shielding is recommended.`;
+      } else if (this.state.tech === 'sram_puf') {
+        verdictZh = `模型分析：SRAM PUF 無需額外光罩，但啟動狀態受外部電源噪訊與溫度梯度擾動 (Intra-BER 估算達 ${p.tech.intraBitErrorRate}%)。依據 Becker 2013 研究，若代工廠植入微觀摻雜極性木馬，需結合嚴格邏輯驗證與強韌 ECC 糾錯，不可僅依賴上電初始值。`;
+        verdictEn = `Model Finding: SRAM PUF requires 0 mask adders, but startup states fluctuate with supply noise (Intra-BER ~${p.tech.intraBitErrorRate}%). Per Becker 2013, dopant-level Trojans require combined logic verification and robust ECC rather than relying solely on raw power-up values.`;
       } else {
-        verdictZh = `防禦合格：${p.tech.nameZh} 結合主動屏蔽與背面光學衰減 (${p.totalShieldingDb} dB)，光子發射通量壓低至 ${p.measuredFlux.toFixed(3)} ph/s (SNR < -10 dB)，完全阻絕背面近紅外 TRE 單光子探測！零額外光罩特性徹底消滅代工廠木馬植入途徑，完全符合 NIST SP 800-193 與 CC EAL6+ 零信任安全架構。`;
-        verdictEn = `Defense Qualified: ${p.tech.nameEn} combined with active shielding (${p.totalShieldingDb} dB) suppresses photon flux to ${p.measuredFlux.toFixed(3)} ph/s (SNR < -10 dB), blinding backside NIR TRE single-photon detectors. 0-Mask geometry eliminates fab trojan insertion, fulfilling NIST SP 800-193 and CC EAL6+.`;
+        verdictZh = `模型分析：${p.tech.nameZh} 在當前參數下結合屏蔽與基板吸收 (${p.totalShieldingDb} dB)，光子通量估算降至 ${p.measuredFlux.toFixed(3)} ph/s (SNR 估算 ${p.snrDb.toFixed(1)} dB)。零額外光罩消除專屬層光罩插入面；但依據 Becker 2013 文獻，防範標準邏輯層摻雜木馬仍需系統級防禦責任鏈。`;
+        verdictEn = `Model Finding: ${p.tech.nameEn} under modeled attenuation (${p.totalShieldingDb} dB) lowers photon flux to ${p.measuredFlux.toFixed(3)} ph/s (SNR ~${p.snrDb.toFixed(1)} dB). 0-Mask eliminates dedicated-layer mask insertion vectors; however, per Becker 2013, defending standard-cell dopant Trojans still requires composed system controls.`;
       }
 
       vDesc.innerHTML = `<span data-lang="zh">${verdictZh}</span><span data-lang="en">${verdictEn}</span>`;
