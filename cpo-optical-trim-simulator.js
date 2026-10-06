@@ -83,7 +83,7 @@ export const CPO_TRIM_TECH_POLICIES = {
     nameEn: 'Low-Disturbance MTP (LD-MTP 10K~100K Dynamic Closed-Loop)',
     nameZh: '低擾動單層多晶矽 MTP (LD-MTP 10K~100K 動態閉迴路補償)',
     staticPowerPerChannelMw: 1.1,
-    dacAccuracyFactor: 0.98,
+    dacAccuracyFactor: 0.95,
     maskAdders: 0,
     rewritable: true,
     enduranceClass: '10K - 100K Cycles',
@@ -96,7 +96,7 @@ export const CPO_TRIM_TECH_POLICIES = {
     nameEn: '0-Mask AntiFuse OTP (Single-Write Factory Waveguide Lock)',
     nameZh: '0-Mask AntiFuse OTP (出廠單次寫入固化波長/相位鎖定)',
     staticPowerPerChannelMw: 0.05,
-    dacAccuracyFactor: 0.88,
+    dacAccuracyFactor: 0.95,
     maskAdders: 0,
     rewritable: false,
     enduranceClass: 'OTP (1 Time Write)',
@@ -109,7 +109,7 @@ export const CPO_TRIM_TECH_POLICIES = {
     nameEn: 'Active Thermal Micro-Heater (Continuous Power, No NVM)',
     nameZh: '傳統連續熱加熱器 (Active Thermal Micro-Heater, 無 NVM 靜態大功耗)',
     staticPowerPerChannelMw: 26.5,
-    dacAccuracyFactor: 0.70,
+    dacAccuracyFactor: 0.95,
     maskAdders: 2,
     rewritable: false,
     enduranceClass: 'Volatile Continuous Heat',
@@ -171,14 +171,19 @@ export function calculateCpoTrimMetrics(presetKey, policyKey, deltaTC, dacBits, 
   const extinctionRatioDb = Math.max(2.0, Math.min(30.0, 10.0 * Math.log10(pMax / pMin)));
 
   // Jitter Degradation (ps): Higher residual phase error degrades transition sharpness
+  // Simplified empirical optical eye jitter estimation model
   const jitterDegradationPs = 0.65 + (residualPhaseErrorRad * 3.8);
 
   // 4. Power Consumption Economics
-  // Total static power saved vs continuous active heating
+  // Total static power saved vs continuous active heating baseline
   const activeHeaterPowerTotalW = (preset.heaterBasePowerMw * nCh) / 1000.0;
   const techPowerTotalW = (policy.staticPowerPerChannelMw * nCh) / 1000.0;
-  const savedTuningPowerW = Math.max(0.0, activeHeaterPowerTotalW - techPowerTotalW);
-  const powerSavingsPct = (savedTuningPowerW / (activeHeaterPowerTotalW || 1.0)) * 100.0;
+  let savedTuningPowerW = 0.0;
+  let powerSavingsPct = 0.0;
+  if (policy.id !== 'active_heater_continuous') {
+    savedTuningPowerW = Math.max(0.0, activeHeaterPowerTotalW - techPowerTotalW);
+    powerSavingsPct = (savedTuningPowerW / (activeHeaterPowerTotalW || 1.0)) * 100.0;
+  }
 
   // Architecture Rating
   let rating = 'OPTIMAL';
@@ -193,14 +198,14 @@ export function calculateCpoTrimMetrics(presetKey, policyKey, deltaTC, dacBits, 
   let verdictEn = '';
 
   if (policy.id === 'ld_mtp_closed_loop') {
-    verdictZh = `採用 LD-MTP 閉迴路補償：在 ${dt.toFixed(0)}°C 溫升下，${nDac}-bit DAC 精準抑制殘留相位誤差至 ${(residualPhaseErrorRad * 1000).toFixed(1)} mrad，消光比高達 ${extinctionRatioDb.toFixed(1)} dB，省下 ${savedTuningPowerW.toFixed(2)} W (${powerSavingsPct.toFixed(0)}%) 熱調諧功耗，且具備 10K~100K 次現場覆寫能力。`;
+    verdictZh = `採用 LD-MTP 閉迴路補償：在 ${dt.toFixed(0)}°C 溫升下，${nDac}-bit DAC 精準抑制殘留相位誤差至 ${(residualPhaseErrorRad * 1000).toFixed(1)} mrad，消光比達 ${extinctionRatioDb.toFixed(1)} dB，省下 ${savedTuningPowerW.toFixed(2)} W (${powerSavingsPct.toFixed(0)}%) 熱調諧功耗，且具備 10K~100K 次現場覆寫能力。`;
     verdictEn = `LD-MTP closed-loop architecture: Under ${dt.toFixed(0)}°C thermal delta, ${nDac}-bit DAC suppresses residual phase error to ${(residualPhaseErrorRad * 1000).toFixed(1)} mrad, achieving ${extinctionRatioDb.toFixed(1)} dB ER and saving ${savedTuningPowerW.toFixed(2)} W (${powerSavingsPct.toFixed(0)}%) power with 10K-100K in-field rewrites.`;
   } else if (policy.id === 'antifuse_factory_lock') {
     verdictZh = `採用 0-Mask AntiFuse 出廠鎖定：靜態功耗接近 0 W，但在 ${dt.toFixed(0)}°C 動態熱漂移下缺乏線上可覆寫能力，波長偏移達 ${wavelengthDriftNm.toFixed(2)} nm，消光比退化至 ${extinctionRatioDb.toFixed(1)} dB，建議適用於外置 ELS 等低溫差模組。`;
     verdictEn = `0-Mask AntiFuse factory lock: Near-zero static power, but lacks in-field rewritability under ${dt.toFixed(0)}°C dynamic delta, suffering ${wavelengthDriftNm.toFixed(2)} nm drift and ${extinctionRatioDb.toFixed(1)} dB ER degradation; suitable for decoupled ELS sources.`;
   } else {
-    verdictZh = `傳統連續熱加熱器方案：全通道熱調諧總功耗高達 ${activeHeaterPowerTotalW.toFixed(2)} W，額外加劇 CPO 封裝散熱熱阻負擔，需額外金屬薄膜電阻光罩 (+2 Masks)，能效與可靠度均不具備量產競爭力。`;
-    verdictEn = `Active continuous micro-heater: Consumes ${activeHeaterPowerTotalW.toFixed(2)} W total static heat, worsening CPO thermal bottlenecks and requiring +2 specialized resistor masks; non-competitive in energy efficiency.`;
+    verdictZh = `傳統連續熱加熱器基準：全通道熱調諧總功耗達 ${activeHeaterPowerTotalW.toFixed(2)} W（作為基準功耗，節省 0.00 W / 0%），加劇 CPO 封裝散熱熱阻負擔，需額外金屬薄膜電阻光罩 (+2 Masks)。`;
+    verdictEn = `Active continuous micro-heater baseline: Consumes ${activeHeaterPowerTotalW.toFixed(2)} W baseline static power (0.00 W / 0% saved), worsening CPO thermal bottlenecks and requiring +2 specialized resistor masks.`;
   }
 
   return {

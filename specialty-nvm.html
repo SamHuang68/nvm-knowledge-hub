@@ -3927,8 +3927,8 @@
           <span data-lang="en">05 · CPO OPTICAL DRIFT &amp; MTP PHASE TRIM</span>
         </div>
         <div class="status-verified">
-          <span data-lang="zh">第一性原理物理模型</span>
-          <span data-lang="en">FIRST-PRINCIPLES PHYSICS</span>
+          <span data-lang="zh">熱光效應架構模型</span>
+          <span data-lang="en">THERMO-OPTIC ARCHITECTURE MODEL</span>
         </div>
       </div>
       <h2>
@@ -3936,8 +3936,8 @@
         <span data-lang="en">Co-Packaged Optics Waveguide Thermal Drift Phase Trim<br><em>MTP Closed-Loop DAC Bias Compensation &amp; Jitter Guard</em></span>
       </h2>
       <p class="topic-lede">
-        <span data-lang="zh">在 51.2T/102.4T 交換器與 AI 叢集光互連 (Optical I/O) 中，EIC（電子晶粒）與 PIC（光子晶粒）透過 2.5D/3D 緊密共封裝。矽材料強烈的熱光效應 (dn/dT ≈ 1.86 × 10⁻⁴ K⁻¹) 使得微環諧振器 (MRR) 與馬赫-曾德爾干涉儀 (MZI) 的共振波長與相位極易隨 ASIC 熱負載漂移。採用晶粒內嵌低擾動 MTP (LD-MTP) 建立動態閉迴路 DAC 偏置查表，可杜絕傳統加熱器高達 25–35 mW/ch 的靜態發熱死鎖，確保極限溫差下消光比 &gt; 12 dB 與次皮秒級眼圖抖動。</span>
-        <span data-lang="en">In 51.2T/102.4T switches and AI cluster Optical I/O, EIC and PIC dies are intimately co-packaged via 2.5D/3D substrates. Silicon's pronounced thermo-optic coefficient (dn/dT ≈ 1.86 × 10⁻⁴ K⁻¹) induces severe wavelength and phase drifts in micro-ring resonators (MRR) and Mach-Zehnder interferometers (MZI) under bursty compute loads. Embedding Low-Disturbance MTP (LD-MTP) for dynamic closed-loop DAC offset lookup tables eliminates the destructive 25–35 mW/ch static heating penalties of active heaters, guaranteeing &gt;12 dB extinction ratio and sub-picosecond eye jitter.</span>
+        <span data-lang="zh">在 51.2T/102.4T 交換器與 AI 叢集光互連 (Optical I/O) 中，EIC（電子晶粒）與 PIC（光子晶粒）透過 2.5D/3D 緊密共封裝。矽材料強烈的熱光效應 (dn/dT ≈ 1.86 × 10⁻⁴ K⁻¹) 使得微環諧振器 (MRR) 與馬赫-曾德爾干涉儀 (MZI) 的共振波長與相位極易隨 ASIC 熱負載漂移。採用晶粒內嵌低擾動 MTP (LD-MTP) 建立動態閉迴路 DAC 偏置查表，有助於降低傳統加熱器高達 25–35 mW/ch 的靜態功耗負擔，在溫差擾動下維持良好消光比與眼圖品質。</span>
+        <span data-lang="en">In 51.2T/102.4T switches and AI cluster Optical I/O, EIC and PIC dies are intimately co-packaged via 2.5D/3D substrates. Silicon's pronounced thermo-optic coefficient (dn/dT ≈ 1.86 × 10⁻⁴ K⁻¹) induces severe wavelength and phase drifts in micro-ring resonators (MRR) and Mach-Zehnder interferometers (MZI) under bursty compute loads. Embedding Low-Disturbance MTP (LD-MTP) for dynamic closed-loop DAC offset lookup tables helps mitigate the 25–35 mW/ch static power penalty of active heaters, maintaining adequate extinction ratio and eye quality under thermal fluctuations.</span>
       </p>
     </header>
 
@@ -4040,7 +4040,7 @@
               <span data-lang="zh">6. 先進光電封裝適配</span><span data-lang="en">6. Packaging Fit</span>
             </th>
             <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
-              <span data-lang="zh">極佳適配 TSMC COUPE 3D、CoWoS 2.5D 與 OCI</span><span data-lang="en">Optimal for TSMC COUPE 3D, CoWoS 2.5D &amp; OCI</span>
+              <span data-lang="zh">適配 3D/2.5D CPO（如 TSMC COUPE、CoWoS 與 OCI 情境）</span><span data-lang="en">Suited for 3D/2.5D CPO (e.g. TSMC COUPE, CoWoS &amp; OCI contexts)</span>
             </td>
             <td style="padding: 9px 12px;">
               <span data-lang="zh">適合 ELS-FP 外部雷射與溫度受控光收發器</span><span data-lang="en">Ideal for ELS-FP external decoupled lasers</span>
@@ -4055,11 +4055,18 @@
 
     <!-- 互動工作台容器 -->
     <div class="decision-matrix-card" id="cpo-optical-trim-simulator-root" style="background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(14, 165, 233, 0.35); border-radius: 8px; padding: 22px 24px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
+      <!-- Model Disclaimer & Technical Boundary Notice -->
+      <div style="background: rgba(245, 158, 11, 0.08); border-left: 4px solid #f59e0b; padding: 10px 14px; margin-bottom: 16px; border-radius: 0 4px 4px 0; font-size: 12px; line-height: 1.5; color: #fde68a;">
+        <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Technical Boundary Notice: </span></strong>
+        <span data-lang="zh">本模擬器採用一維熱光效應 (Thermo-Optic Effect) 與理想 MZI/MRR 傳輸函數之簡化解析模型，用以示意波導熱漂移與不同修調策略（出廠單次寫入、現場動態閉迴路校準與連續熱微加熱器）之功耗與消光比折衷趨勢。實際 CPO 模組之眼圖抖動與消光比高度取決於實體封裝熱耦合、驅動器噪聲、EIC/PIC 共同模擬以及晶圓廠 PDK 實測數據。文中所述台積電 COUPE 架構為參考封裝情境，非晶圓廠官方校準背書。</span>
+        <span data-lang="en">This simulator employs simplified analytical thermo-optic and ideal MZI/MRR transfer function models to illustrate waveguide thermal drift trends and trade-offs among trimming strategies (factory OTP, in-field dynamic MTP tracking, and continuous micro-heaters). Actual CPO module eye jitter and extinction ratios depend heavily on physical thermal coupling, driver noise, EIC/PIC co-simulation, and foundry silicon data. Mention of TSMC COUPE architecture serves as an illustrative packaging reference scenario, not an official foundry endorsement.</span>
+      </div>
+
       <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
         <div>
           <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0ea5e9; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
-            <span data-lang="zh">CPO 共同封裝光學 · 第一性原理矽光微調與 MTP 閉迴路工作台</span>
-            <span data-lang="en">CPO OPTICS · FIRST-PRINCIPLES WAVEGUIDE TRIM &amp; MTP WORKBENCH</span>
+            <span data-lang="zh">CPO 共同封裝光學 · 矽光微調與 MTP 閉迴路架構工作台</span>
+            <span data-lang="en">CPO OPTICS · WAVEGUIDE TRIM &amp; MTP WORKBENCH</span>
           </div>
           <h3 class="decision-matrix-title" style="margin: 0; font-size: 17px; color: #f8fafc; font-weight: 700;">
             <span data-lang="zh">矽光波導熱漂移、MZI 相位偏置與 MTP DAC 校準模擬器</span>
@@ -4067,8 +4074,8 @@
           </h3>
         </div>
         <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.12); color: #38bdf8; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
-          <span data-lang="zh">TSMC COUPE 3D · 10K~100K 閉迴路校準</span>
-          <span data-lang="en">TSMC COUPE 3D · 10K-100K Closed-Loop Trim</span>
+          <span data-lang="zh">參考 3D 矽光共封架構情境 (3D CPO Packaging Context)</span>
+          <span data-lang="en">Reference 3D CPO Packaging Context</span>
         </span>
       </div>
 

@@ -516,7 +516,7 @@
             <div class="source-content">
               <p class="source-meta">NIST FIPS 203/204 POST-QUANTUM HARDWARE ROOT-OF-TRUST &amp; ENVM STORAGE LEDGER · E3 · CHECKED 2026-10-06</p>
               <h3>PQC Hardware Root-of-Trust Architecture: NIST ML-KEM / ML-DSA Non-Volatile Storage Budgets, Hardware Seed Derivation &amp; Higher-Order Masking Defense Ledger</h3>
-              <p><span data-lang="zh">後量子密碼學（PQC）正式進入 NIST FIPS 203（ML-KEM / Kyber）與 FIPS 204（ML-DSA / Dilithium）商用標準化時代。相較於傳統橢圓曲線（ECC-256 私鑰僅需 32 Bytes），PQC 模格私鑰擴展至 1,632–4,896 Bytes（擴增逾 50–150 倍）。若以晶片內嵌入式非揮發性記憶體（eNVM）全容量直接存儲多項式密鑰，將面臨巨大的矽晶圓面積與晶圓測試成本懲罰。本總帳實證揭露業界主流的「混合分層金鑰封裝架構」（Tiered Hybrid Key Encapsulation）：以 0-Mask AntiFuse OTP 存儲 256/512-bit 主種子根金鑰（Master Seed / PRK），透過硬體 SHAKE-256 PRNG 瞬態動態展開多項式矩陣，結合布林高階遮罩（Higher-Order Masking）與差分感測對稱性，將 DPA 側信道破解採樣門檻（MTD）提升至 10^7 次以上：</span><span data-lang="en">Post-Quantum Cryptography (PQC) has officially entered commercial deployment under NIST FIPS 203 (ML-KEM) and FIPS 204 (ML-DSA). Compared to traditional ECC-256 (32-byte private key), PQC module-lattice keys expand to 1,632–4,896 bytes (>50–150x increase). Directly storing full polynomial matrices in on-chip eNVM imposes severe silicon area and test cost penalties. This ledger establishes the tiered hybrid key architecture: 0-Mask AntiFuse OTP secures a 256/512-bit Master Seed, which hardware SHAKE-256 expands into polynomial vectors, combined with higher-order masking and differential sensing symmetry to escalate DPA MTD beyond 10^7 traces:</span></p>
+              <p><span data-lang="zh">後量子密碼學（PQC）正式進入 NIST FIPS 203（ML-KEM / Kyber）與 FIPS 204（ML-DSA / Dilithium）商用標準化時代。相較於傳統橢圓曲線（ECC-256 私鑰僅需 32 Bytes），PQC 模格私鑰擴展至 1,632–4,896 Bytes（擴增逾 50–150 倍）。若以晶片內嵌入式非揮發性記憶體（eNVM）全容量直接存儲多項式密鑰，將面臨巨大的矽晶圓面積與晶圓測試成本懲罰。本總帳彙整架構模型評估與業界主流之「混合分層金鑰展開架構」（Tiered Hybrid Key Derivation Architecture）：以 0-Mask AntiFuse OTP 存儲 256/512-bit 主種子根金鑰（Master Seed / PRK），透過硬體 SHAKE-256 PRNG 瞬態動態展開多項式矩陣，結合布林高階遮罩（Higher-Order Masking）與差分感測對稱性，理論估算可將 DPA 側信道破解採樣門檻（MTD）提升至 10^7 次以上：</span><span data-lang="en">Post-Quantum Cryptography (PQC) has officially entered commercial deployment under NIST FIPS 203 (ML-KEM) and FIPS 204 (ML-DSA). Compared to traditional ECC-256 (32-byte private key), PQC module-lattice keys expand to 1,632–4,896 bytes (>50–150x increase). Directly storing full polynomial matrices in on-chip eNVM imposes severe silicon area and test cost penalties. This ledger synthesizes architectural model evaluations and mainstream industry tiered hybrid key derivation architectures: 0-Mask AntiFuse OTP secures a 256/512-bit Master Seed, which hardware SHAKE-256 expands into polynomial vectors, combined with higher-order masking and differential sensing symmetry to scale modeled DPA MTD beyond 10^7 traces:</span></p>
 
               <div class="vendor-specs-table-wrapper" style="overflow-x:auto;margin:1rem 0;">
                 <table style="width:100%;border-collapse:collapse;font-size:0.875rem;text-align:left;" aria-label="NIST PQC Hardware Storage and Side-Channel Defense Ledger Table" data-aria-zh="NIST PQC 硬體儲存預算與側信道防禦總帳表" data-aria-en="NIST PQC Hardware Storage and Side-Channel Defense Ledger Table">
@@ -528,7 +528,7 @@
                       <th scope="col" style="padding:0.5rem;"><span data-lang="zh">原生私鑰容量 (Bytes)</span><span data-lang="en">Raw Private Key</span></th>
                       <th scope="col" style="padding:0.5rem;"><span data-lang="zh">AntiFuse 種子儲存預算</span><span data-lang="en">AntiFuse Seed Budget</span></th>
                       <th scope="col" style="padding:0.5rem;"><span data-lang="zh">eNVM 面積節省效益</span><span data-lang="en">Area Savings Ratio</span></th>
-                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">DPA / CPA 側信道防禦邊界</span><span data-lang="en">Side-Channel Defense MTD</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">DPA / CPA 側信道防禦邊界 (理論估算)</span><span data-lang="en">Side-Channel Defense MTD (Est.)</span></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -538,7 +538,7 @@
                       <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;">1,632 Bytes</td>
                       <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;color:#059669;font-weight:600;">32 Bytes (256-bit d, z)</td>
                       <td style="padding:0.5rem;color:#059669;font-weight:600;">51x <span data-lang="zh">面積縮減</span><span data-lang="en">area savings</span> (98.0%)</td>
-                      <td style="padding:0.5rem;"><span data-lang="zh">布林掩碼 + 差動感測 (MTD &gt; 1.5e7)</span><span data-lang="en">Boolean masking + diff sensing (MTD &gt; 1.5e7)</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">布林掩碼 + 差動感測 (預估 MTD &gt; 1.5e7)</span><span data-lang="en">Boolean masking + diff sensing (est. MTD &gt; 1.5e7)</span></td>
                     </tr>
                     <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
                       <th scope="row" style="padding:0.5rem;font-weight:600;">ML-KEM-768 (FIPS 203)</th>
@@ -546,7 +546,7 @@
                       <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;">2,400 Bytes</td>
                       <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;color:#059669;font-weight:600;">32 Bytes (256-bit d, z)</td>
                       <td style="padding:0.5rem;color:#059669;font-weight:600;">75x <span data-lang="zh">面積縮減</span><span data-lang="en">area savings</span> (98.7%)</td>
-                      <td style="padding:0.5rem;"><span data-lang="zh">硬體 NTT 混淆 + 差動 OTP (MTD &gt; 2.2e7)</span><span data-lang="en">Hardware NTT + diff OTP (MTD &gt; 2.2e7)</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">硬體 NTT 混淆 + 差動 OTP (預估 MTD &gt; 2.2e7)</span><span data-lang="en">Hardware NTT + diff OTP (est. MTD &gt; 2.2e7)</span></td>
                     </tr>
                     <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
                       <th scope="row" style="padding:0.5rem;font-weight:600;">ML-KEM-1024 (FIPS 203)</th>
@@ -554,7 +554,7 @@
                       <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;">3,168 Bytes</td>
                       <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;color:#059669;font-weight:600;">64 Bytes (512-bit seed)</td>
                       <td style="padding:0.5rem;color:#059669;font-weight:600;">49.5x <span data-lang="zh">面積縮減</span><span data-lang="en">area savings</span> (98.0%)</td>
-                      <td style="padding:0.5rem;"><span data-lang="zh">二階算術遮罩 (MTD &gt; 5.0e7)</span><span data-lang="en">Order-2 arithmetic masking (MTD &gt; 5.0e7)</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">二階算術遮罩 (預估 MTD &gt; 5.0e7)</span><span data-lang="en">Order-2 arithmetic masking (est. MTD &gt; 5.0e7)</span></td>
                     </tr>
                     <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
                       <th scope="row" style="padding:0.5rem;font-weight:600;">ML-DSA-65 (FIPS 204)</th>
@@ -562,7 +562,7 @@
                       <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;">4,032 Bytes</td>
                       <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;color:#059669;font-weight:600;">32 Bytes (256-bit seed xi)</td>
                       <td style="padding:0.5rem;color:#059669;font-weight:600;">126x <span data-lang="zh">面積縮減</span><span data-lang="en">area savings</span> (99.2%)</td>
-                      <td style="padding:0.5rem;"><span data-lang="zh">拒絕取樣時鐘隨機抖動 (MTD &gt; 3.8e7)</span><span data-lang="en">Rejection sampling clock jitter (MTD &gt; 3.8e7)</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">拒絕取樣時鐘隨機抖動 (預估 MTD &gt; 3.8e7)</span><span data-lang="en">Rejection sampling clock jitter (est. MTD &gt; 3.8e7)</span></td>
                     </tr>
                     <tr>
                       <th scope="row" style="padding:0.5rem;font-weight:600;">ML-DSA-87 (FIPS 204)</th>
@@ -570,7 +570,7 @@
                       <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;">4,896 Bytes</td>
                       <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;color:#059669;font-weight:600;">64 Bytes (512-bit seed)</td>
                       <td style="padding:0.5rem;color:#059669;font-weight:600;">76.5x <span data-lang="zh">面積縮減</span><span data-lang="en">area savings</span> (98.7%)</td>
-                      <td style="padding:0.5rem;"><span data-lang="zh">全同態種子解封裝 + 雙胞差動 (MTD &gt; 1.0e8)</span><span data-lang="en">Fully masked seed decapsulation (MTD &gt; 1.0e8)</span></td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">高階布林掩碼種子衍生 + 雙胞差動 (預估 MTD &gt; 1.0e8)</span><span data-lang="en">Higher-order Boolean masked seed derivation + twin-cell differential (est. MTD &gt; 1.0e8)</span></td>
                     </tr>
                   </tbody>
                 </table>
