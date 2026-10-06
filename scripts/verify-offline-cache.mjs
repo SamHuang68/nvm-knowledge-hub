@@ -5,6 +5,7 @@ import http from 'node:http';
 import path from 'node:path';
 import vm from 'node:vm';
 import { chromium } from 'playwright';
+import { nvmIpSpecs } from '../tools/whitepaper-studio/src/data/nvm_specs.js';
 
 const root = path.resolve(import.meta.dirname, '..');
 const output = path.resolve(process.env.NVM_QA_OUTPUT || path.join(root, 'qa', 'offline-cache'));
@@ -141,7 +142,7 @@ try {
   check(await page.locator('#evidence-P01').isVisible(), '離線總帳導覽與焦點可用');
   const whitepaperResponse = await page.goto(base+'whitepaper/?view=selector', { waitUntil:'domcontentloaded' });
   await page.locator('#decision-body tr').first().waitFor();
-  check(whitepaperResponse.status() === 200 && await page.locator('#decision-body tr').count() === 12, '離線白皮書目錄入口與同版建置產物可用');
+  check(whitepaperResponse.status() === 200 && await page.locator('#decision-body tr').count() === nvmIpSpecs.length, '離線白皮書目錄入口與同版建置產物可用');
   await page.goto(base+'ai-nvm-opportunities.html', { waitUntil:'domcontentloaded' });
   await page.waitForFunction(() => document.body.dataset.knowledgeState === 'canonical');
   check(await page.locator('.opportunity-record:visible').count() > 0, '離線正式 AI 資料可完成驗證');
