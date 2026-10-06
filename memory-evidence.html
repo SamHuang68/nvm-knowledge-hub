@@ -511,7 +511,7 @@
             </div>
           </article>
 
-          <article class="source-card" id="evidence-V21" data-type="vendor" data-keywords="PQC post-quantum cryptography ML-KEM ML-DSA NIST FIPS 203 204 Crystals-Kyber Crystals-Dilithium hardware root of trust seed derivation side-channel defense DPA NTT masking AntiFuse PUF" data-record-id="OIP-PQC-001 OIP-PQC-002">
+          <article class="source-card" id="evidence-V21" data-type="vendor" data-keywords="PQC post-quantum cryptography ML-KEM ML-DSA NIST FIPS 203 204 Crystals-Kyber Crystals-Dilithium hardware root of trust seed derivation side-channel defense DPA NTT masking AntiFuse PUF">
             <div class="source-index"><b>V21</b><span><span data-lang="en">STANDARDS &amp; HARDWARE LEDGER</span><span data-lang="zh">標準與硬體總帳</span></span></div>
             <div class="source-content">
               <p class="source-meta">NIST FIPS 203/204 POST-QUANTUM HARDWARE ROOT-OF-TRUST &amp; ENVM STORAGE LEDGER · E3 · CHECKED 2026-10-06</p>
@@ -584,76 +584,83 @@
             </div>
           </article>
 
-          <article class="source-card" id="evidence-V22" data-type="vendor" data-keywords="supply chain zero-trust hardware trojan photon emission analysis PEM TRE optical side-channel SNSPD physical unclonable function PUF NIST SP 800-193 ISO IEC 20243 CC EAL6+" data-record-id="OIP-SC-001 OIP-SC-002">
-            <div class="source-index"><b>V22</b><span><span data-lang="en">STANDARDS &amp; HARDWARE LEDGER</span><span data-lang="zh">標準與硬體總帳</span></span></div>
+          <article class="source-card" id="evidence-V22" data-type="vendor" data-keywords="supply chain zero-trust hardware trojan photon emission analysis PEM TRE optical side-channel SNSPD physical unclonable function PUF NIST SP 800-193 ISO IEC 20243 CHES Becker Schlosser">
+            <div class="source-index"><b>V22</b><span><span data-lang="en">THREAT MODEL &amp; HARDWARE LEDGER</span><span data-lang="zh">威脅模型與硬體總帳</span></span></div>
             <div class="source-content">
               <p class="source-meta">
-                <span data-lang="en">NIST &amp; ISO/IEC · PRIMARY STANDARDS / HARDWARE COUNTERMEASURE LEDGER</span>
-                <span data-lang="zh">NIST 與 ISO/IEC · 權威標準／硬體防禦總帳</span>
+                <span data-lang="en">ISO/IEC 20243 &amp; CHES RESEARCH · THREAT MODELING &amp; COUNTERMEASURE LEDGER</span>
+                <span data-lang="zh">ISO/IEC 20243 與 CHES 研究 · 威脅模型與硬體防禦總帳</span>
               </p>
               <h3>
-                <span data-lang="zh">零信任供應鏈防禦、背面光學側信道 (PEM) 衰減與原生 PUF 防偽總帳 (NIST SP 800-193 &amp; ISO/IEC 20243)</span>
-                <span data-lang="en">Zero-Trust Supply Chain Security, Backside Optical PEM Attenuation &amp; Native PUF Anti-Counterfeit Ledger</span>
+                <span data-lang="zh">半導體供應鏈零信任威脅模型、背面光學發射分析 (PEM/SPEA) 與原生 PUF 防偽邊界 (ISO/IEC 20243 &amp; CHES 研究總帳)</span>
+                <span data-lang="en">Semiconductor Supply-Chain Zero-Trust Threat Modeling, Backside Photonic Emission (PEM/SPEA) &amp; Native PUF Boundaries (ISO/IEC 20243 &amp; CHES Research Ledger)</span>
               </h3>
               <p>
-                <span data-lang="zh">本證據總帳記錄先進半導體全球供應鏈零信任安全驗證基準。量化對比 0-Mask AntiFuse PUF、STT-MRAM、SRAM PUF 與傳統 eFlash 在背面近紅外時間分辨光子發射 (TRE)、超導單光子探測 (SNSPD) 攻擊下的發光通量衰減（-48 dB）與不可信代工廠惡意摻雜/光罩硬體木馬防禦能力。</span>
-                <span data-lang="en">This evidence ledger establishes the zero-trust semiconductor supply chain verification baseline. It quantifies hot-carrier luminescence attenuation (-48 dB) under backside NIR time-resolved emission (TRE) and SNSPD attacks, alongside untrusted foundry dopant and mask-level hardware trojan defenses across 0-Mask AntiFuse PUF, STT-MRAM, SRAM PUF, and eFlash.</span>
+                <span data-lang="zh">本總帳彙整學術文獻與國際標準對非揮發儲存與硬體信任根的供應鏈威脅建模。Schlösser 等人（CHES 2012）證實利用時間分辨光子發射（SPEA/TRE）可在背面薄化矽基板偵測電晶體翻轉之微弱光子；Becker 等人（CHES 2013）則揭露代工廠可藉由改變電晶體摻雜極性植入隱蔽硬體木馬而無需增加額外光罩。ISO/IEC 20243-1:2023 則確立減緩惡意污染與偽冒之供應鏈安全管理框架。下表對比各技術在模型假設下的估算特性：</span>
+                <span data-lang="en">This ledger compiles academic research and international standards on supply-chain threat modeling for non-volatile storage and hardware roots-of-trust. Schlösser et al. (CHES 2012) demonstrated that time-resolved photonic emission (SPEA/TRE) through thinned backside silicon can capture transistor switching; Becker et al. (CHES 2013) proved that untrusted foundries can insert stealthy dopant-level Trojans without modifying layout masks. ISO/IEC 20243-1:2023 establishes requirements to mitigate maliciously tainted and counterfeit products. The table summarizes modeled parameters:</span>
               </p>
 
               <!-- Supply Chain & PEM Comparative Table -->
               <div class="table-responsive-wrapper" style="overflow-x:auto;margin:1rem 0;">
                 <table class="data-table" aria-label="Supply Chain &amp; Optical PEM Security Metrics" data-aria-en="Supply Chain &amp; Optical PEM Security Metrics" data-aria-zh="供應鏈與光學 PEM 安全防禦數據表" style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+                  <caption style="text-align:left;font-size:0.75rem;color:#64748b;padding-bottom:0.4rem;">
+                    <span data-lang="zh">*註：數值為文獻典型值與工程模型估算假設，非產品保證或通用認證。認證等級取決於完整 TOE 產品評估。</span>
+                    <span data-lang="en">*Note: Values represent academic typical figures and engineering model assumptions, not product guarantees. Certification levels depend on complete TOE evaluation.</span>
+                  </caption>
                   <thead>
                     <tr style="border-bottom:2px solid var(--border-color, #cbd5e1);text-align:left;">
                       <th scope="col" style="padding:0.5rem;"><span data-lang="zh">硬體信任根介質</span><span data-lang="en">Hardware RoT Medium</span></th>
                       <th scope="col" style="padding:0.5rem;"><span data-lang="zh">製造光罩增加</span><span data-lang="en">Mask Adders</span></th>
-                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">PEM 光子通量</span><span data-lang="en">PEM Photon Flux</span></th>
-                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">光學屏蔽衰減</span><span data-lang="en">Optical Attenuation</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">估算光子通量</span><span data-lang="en">Estimated Photon Flux</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">屏蔽衰減估算</span><span data-lang="en">Shield Attenuation</span></th>
                       <th scope="col" style="padding:0.5rem;"><span data-lang="zh">PUF 漢明距離 (Inter-HD)</span><span data-lang="en">Inter-HD Uniformity</span></th>
-                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">零信任合規認證等級</span><span data-lang="en">Zero-Trust Compliance</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">供應鏈與實體防禦角色</span><span data-lang="en">Architectural Defense Role</span></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
                       <th scope="row" style="padding:0.5rem;font-weight:600;color:#0284c7;">0-Mask AntiFuse Native PUF</th>
                       <td style="padding:0.5rem;color:#059669;font-weight:600;"><span data-lang="zh">0 道 (標準邏輯製程)</span><span data-lang="en">0 Masks (Standard CMOS)</span></td>
-                      <td style="padding:0.5rem;color:#059669;font-weight:600;">&lt; 0.05 ph/s</td>
-                      <td style="padding:0.5rem;color:#059669;font-weight:600;">&gt; 48 dB <span data-lang="zh">深埋噪聲底</span><span data-lang="en">Below noise floor</span></td>
-                      <td style="padding:0.5rem;color:#059669;font-weight:600;">50.02% (σ = 2.1%)</td>
-                      <td style="padding:0.5rem;font-weight:600;color:#059669;">CC EAL6+ / NIST SP 800-193</td>
+                      <td style="padding:0.5rem;color:#059669;font-weight:600;">&lt; 0.1 ph/s (<span data-lang="zh">微安級微絲</span><span data-lang="en">Microamp filament</span>)</td>
+                      <td style="padding:0.5rem;color:#059669;font-weight:600;">~ 48 dB (<span data-lang="zh">高衰減模型</span><span data-lang="en">High attenuation</span>)</td>
+                      <td style="padding:0.5rem;color:#059669;font-weight:600;">50.02% (σ ≈ 2.1%)</td>
+                      <td style="padding:0.5rem;font-weight:600;color:#059669;"><span data-lang="zh">消除專用光罩插入面；仍需防範標準層摻雜木馬</span><span data-lang="en">Eliminates dedicated mask vector; requires dopant defenses</span></td>
                     </tr>
                     <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
                       <th scope="row" style="padding:0.5rem;font-weight:600;">STT-MRAM (Perpendicular MTJ)</th>
                       <td style="padding:0.5rem;">3 ~ 5 Masks (BEOL)</td>
                       <td style="padding:0.5rem;">~ 85 ph/s</td>
                       <td style="padding:0.5rem;">~ 28 dB</td>
-                      <td style="padding:0.5rem;">49.80% (σ = 3.2%)</td>
-                      <td style="padding:0.5rem;">CC EAL5+ / NIST FIPS 140-3</td>
+                      <td style="padding:0.5rem;">49.80% (σ ≈ 3.2%)</td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">後段磁穿隧結隱蔽性高；需防範外部磁場與 MOKE</span><span data-lang="en">BEOL MTJ concealment; requires MOKE / magnetic shielding</span></td>
                     </tr>
                     <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
                       <th scope="row" style="padding:0.5rem;font-weight:600;">SRAM Power-Up State PUF</th>
                       <td style="padding:0.5rem;">0 Masks (Standard CMOS)</td>
-                      <td style="padding:0.5rem;">~ 150 ph/s</td>
+                      <td style="padding:0.5rem;">~ 150 ph/s (<span data-lang="zh">翻轉瞬態</span><span data-lang="en">Switching transient</span>)</td>
                       <td style="padding:0.5rem;">~ 18 dB</td>
-                      <td style="padding:0.5rem;">49.30% (Intra-BER ~ 4.8%)</td>
-                      <td style="padding:0.5rem;">CC EAL4+ / Commercial IoT</td>
+                      <td style="padding:0.5rem;">49.30% (Intra-BER ≈ 4.8%)</td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">免額外光罩；需防範供電噪訊注入與雷射 BBI 誘騙</span><span data-lang="en">No mask adders; requires anti-glitch &amp; laser BBI filtering</span></td>
                     </tr>
                     <tr>
                       <th scope="row" style="padding:0.5rem;font-weight:600;color:#dc2626;">Conventional eFlash Key Store</th>
                       <td style="padding:0.5rem;color:#dc2626;font-weight:600;">8 ~ 12 Masks (HV FEOL)</td>
-                      <td style="padding:0.5rem;color:#dc2626;font-weight:600;">&gt; 1,200 ph/s</td>
-                      <td style="padding:0.5rem;color:#dc2626;font-weight:600;">&lt; 8 dB <span data-lang="zh">易遭光學還原</span><span data-lang="en">Vulnerable to TRE</span></td>
-                      <td style="padding:0.5rem;color:#dc2626;">N/A (Static Trapped Charge)</td>
-                      <td style="padding:0.5rem;color:#dc2626;font-weight:600;">CC EAL2 / High Trojan Risk</td>
+                      <td style="padding:0.5rem;color:#dc2626;font-weight:600;">&gt; 1,000 ph/s (<span data-lang="zh">高壓電荷泵</span><span data-lang="en">Charge pump</span>)</td>
+                      <td style="padding:0.5rem;color:#dc2626;font-weight:600;">&lt; 10 dB (<span data-lang="zh">泵浦發射顯著</span><span data-lang="en">High emission</span>)</td>
+                      <td style="padding:0.5rem;color:#dc2626;">N/A (<span data-lang="zh">非隨機指紋</span><span data-lang="en">Static non-PUF</span>)</td>
+                      <td style="padding:0.5rem;color:#dc2626;font-weight:600;"><span data-lang="zh">具專屬高壓光罩攻擊面；高壓電荷泵需主動發射遮蔽</span><span data-lang="en">Has dedicated HV mask attack surface; requires pump shielding</span></td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
               <div class="source-proof">
-                <div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">量化揭露 0-Mask AntiFuse 原生 PUF 由於零光罩增加，在根源上消除代工廠硬體木馬植入途徑；同時證明其微安級歐姆微絲近乎零熱載子發光（-48 dB 衰減），使背面 SNSPD 單光子探測完全無效，滿足 NIST SP 800-193 平台韌體彈性韌性與 ISO/IEC 20243 供應鏈零信任規範。</span><span data-lang="en">Quantifies how 0-Mask AntiFuse native PUF eliminates foundry trojan insertion vectors via zero mask adders, while proving its ohmic filaments exhibit near-zero hot-carrier luminescence (-48 dB attenuation), blinding backside SNSPD single-photon detectors and fulfilling NIST SP 800-193 and ISO/IEC 20243.</span></p></div>
-                <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">不代表單靠 PUF 即可免疫所有供應鏈攻擊；封裝階段的引線鍵合替換或 PCB 板級假冒仍須依賴頂層主動屏蔽網、雙向密碼學挑戰應答與設備證書鏈完成全生命週期保證。</span><span data-lang="en">Does not imply PUF alone defeats all supply-chain threats; packaging wirebond interposers and PCB counterfeits still require active metal shields, cryptographic challenge-response protocols, and device certificates across the full lifecycle.</span></p></div>
+                <div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">揭露零額外光罩特性可消除針對客製非揮發性儲存層的光罩修改攻擊面；且微安級讀取電流在物理上大幅降低背面熱載子發光強度，有助於提高時間分辨光子發射 (TRE) 的攻擊難度。</span><span data-lang="en">Discloses that zero mask-adders eliminate mask-insertion vectors targeting custom non-volatile layers; microampere-level read currents physically attenuate backside hot-carrier emission, substantially raising the acquisition threshold for time-resolved emission (TRE) attacks.</span></p></div>
+                <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">不證明 0-Mask 可完全免疫代工廠硬體木馬（Becker 2013 證實摻雜層木馬無需改動金屬光罩）；不代表單一位元胞可直接獲得 CC EAL 或 NIST 認證（認證取決於完整產品 TOE 評估）；亦不代表單元免除物理讀出風險（如 C01 RP2350 案例）。</span><span data-lang="en">Does not prove that 0-Mask immunizes against all foundry trojans (Becker 2013 demonstrated dopant-level trojans requiring no layout/metal changes); does not imply that a bitcell type inherently confers CC EAL or NIST certifications (which require full-chip TOE evaluation); and does not claim immunity to invasive readout (as shown in C01 RP2350).</span></p></div>
               </div>
+              <a href="https://doi.org/10.1007/978-3-642-40349-1_12" target="_blank" rel="noopener noreferrer">Becker et al. CHES 2013 (Dopant Trojans) · Springer DOI ↗</a>
+              <a href="https://doi.org/10.1007/978-3-642-33027-8_3" target="_blank" rel="noopener noreferrer">Schlösser et al. CHES 2012 (Photonic Emission) · Springer DOI ↗</a>
+              <a href="https://www.iso.org/standard/83548.html" target="_blank" rel="noopener noreferrer">ISO/IEC 20243-1:2023 Open Trusted Technology Provider · ISO ↗</a>
               <a href="https://csrc.nist.gov/pubs/sp/800/193/final" target="_blank" rel="noopener noreferrer">NIST SP 800-193 Platform Firmware Resiliency · NIST CSRC ↗</a>
             </div>
           </article>

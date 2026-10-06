@@ -1026,15 +1026,19 @@
       <!-- Comparative Supply Chain Security Table -->
       <div class="table-responsive-wrapper" style="overflow-x: auto; margin-top: 18px;">
         <table class="data-table" aria-label="Supply Chain Trojan &amp; Optical PEM Defense Matrix" data-aria-en="Supply Chain Trojan &amp; Optical PEM Defense Matrix" data-aria-zh="供應鏈硬體木馬防禦與光學發射衰減對比矩陣" style="width: 100%; border-collapse: collapse; font-size: 13px;">
+          <caption style="text-align:left;font-size:11px;color:#94a3b8;padding-bottom:6px;">
+            <span data-lang="zh">*註：數值為文獻典型值與工程模型估算假設（參考 Becker 2013 與 Schlösser 2012），非產品保證。認證等級屬完整 TOE 評估範疇。</span>
+            <span data-lang="en">*Note: Values represent academic typical figures and engineering assumptions (per Becker 2013 &amp; Schlösser 2012). Certification tiers apply to complete TOE evaluations.</span>
+          </caption>
           <thead>
             <tr style="background: #1e293b; color: #f8fafc; text-align: left;">
               <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">信任根儲存架構</span><span data-lang="en">Root-of-Trust Architecture</span></th>
               <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">光罩增加道數</span><span data-lang="en">Mask Adders</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">熱載子光子通量</span><span data-lang="en">Photon Flux</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">光學屏蔽衰減</span><span data-lang="en">Optical Shielding</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">代工廠木馬免疫度</span><span data-lang="en">Trojan Immunity</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">估算光子通量</span><span data-lang="en">Estimated Photon Flux</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">屏蔽衰減估算</span><span data-lang="en">Optical Shielding</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">木馬防護邊界</span><span data-lang="en">Trojan Defense Boundary</span></th>
               <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">晶片間漢明距離 (Inter-HD)</span><span data-lang="en">Inter-Chip HD</span></th>
-              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">零信任認證等級</span><span data-lang="en">Zero-Trust Tier</span></th>
+              <th scope="col" style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">架構防禦角色</span><span data-lang="en">Architectural Role</span></th>
             </tr>
           </thead>
           <tbody>
@@ -1043,22 +1047,22 @@
                 <span data-lang="zh">0-Mask AntiFuse 原生 PUF</span><span data-lang="en">0-Mask AntiFuse Native PUF</span>
               </th>
               <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">0 道 (標準邏輯製程)</span><span data-lang="en">0 Masks (Standard CMOS)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">&lt; 0.05 ph/s (深埋噪訊)</span><span data-lang="en">&lt; 0.05 ph/s (Below Noise)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">&gt; 48 dB (超強防護)</span><span data-lang="en">&gt; 48 dB (Superior)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">卓越 (無額外光罩可篡改)</span><span data-lang="en">Excellent (Immune to masks)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">50.02% (極致隨機)</span><span data-lang="en">50.02% (Ideal)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">CC EAL6+ / SP 800-193</span><span data-lang="en">CC EAL6+ / SP 800-193</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">&lt; 0.1 ph/s (微安級微絲)</span><span data-lang="en">&lt; 0.1 ph/s (Microamp filament)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">~ 48 dB (高衰減模型)</span><span data-lang="en">~ 48 dB (High attenuation)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981;"><span data-lang="zh">消除客製層光罩插入面；仍需防範標準層摻雜木馬</span><span data-lang="en">Eliminates dedicated mask vector; requires dopant defenses</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">50.02% (典型均勻)</span><span data-lang="en">50.02% (Uniform)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">高抗測餘量 (需結合 TOE)</span><span data-lang="en">High Margin (Requires TOE)</span></td>
             </tr>
             <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
               <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #60a5fa;">
                 <span data-lang="zh">STT-MRAM (垂直 MTJ)</span><span data-lang="en">STT-MRAM (Perpendicular MTJ)</span>
               </th>
               <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">3 ~ 5 道 (BEOL 金屬層)</span><span data-lang="en">3 ~ 5 Masks (BEOL)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 85 ph/s (弱磁光發射)</span><span data-lang="en">~ 85 ph/s (Weak Emission)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 85 ph/s</span><span data-lang="en">~ 85 ph/s</span></td>
               <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 28 dB</span><span data-lang="en">~ 28 dB</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">良好 (後段磁層隱蔽性高)</span><span data-lang="en">Good (Concealed in BEOL)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">後段磁穿隧結隱蔽性高；需防範外部磁場與 MOKE</span><span data-lang="en">BEOL MTJ concealment; requires MOKE / magnetic shielding</span></td>
               <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">49.80%</span><span data-lang="en">49.80%</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #60a5fa; font-weight: 700;"><span data-lang="zh">CC EAL5+ / NIST FIPS</span><span data-lang="en">CC EAL5+ / NIST FIPS</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #60a5fa; font-weight: 700;"><span data-lang="zh">中等抗測 (需磁屏蔽)</span><span data-lang="en">Moderate (Needs mag shield)</span></td>
             </tr>
             <tr style="background: #0f172a; border-bottom: 1px solid #334155;">
               <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #f59e0b;">
@@ -1067,29 +1071,29 @@
               <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">0 道 (標準邏輯製程)</span><span data-lang="en">0 Masks (Standard CMOS)</span></td>
               <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 150 ph/s (翻轉瞬間)</span><span data-lang="en">~ 150 ph/s (Switching)</span></td>
               <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 18 dB</span><span data-lang="en">~ 18 dB</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">中等 (易受供電噪訊/BBI誘騙)</span><span data-lang="en">Moderate (Susceptible to BBI)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">免額外光罩；需防範供電噪訊與雷射 BBI 誘騙</span><span data-lang="en">No mask adders; requires anti-glitch &amp; laser BBI filtering</span></td>
               <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">49.30% (Intra-BER ~ 4.8%)</span><span data-lang="en">49.30% (Intra-BER ~ 4.8%)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b; font-weight: 700;"><span data-lang="zh">CC EAL4+ / 商業工規</span><span data-lang="en">CC EAL4+ / Commercial</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b; font-weight: 700;"><span data-lang="zh">商用基線 (需強韌 ECC)</span><span data-lang="en">Commercial Baseline (Needs ECC)</span></td>
             </tr>
             <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
               <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #ef4444;">
                 <span data-lang="zh">傳統 eFlash 儲存金鑰</span><span data-lang="en">Conventional eFlash Key</span>
               </th>
               <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">8 ~ 12 道 (高壓厚氧層)</span><span data-lang="en">8 ~ 12 Masks (HV Oxide)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">&gt; 1200 ph/s (強發射)</span><span data-lang="en">&gt; 1200 ph/s (Intense)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">&lt; 8 dB (易遭捕捉)</span><span data-lang="en">&lt; 8 dB (Vulnerable)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">極弱 (光罩多易遭代工廠植入)</span><span data-lang="en">Vulnerable (Mask Trojan Risk)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">&gt; 1000 ph/s (高壓發射)</span><span data-lang="en">&gt; 1000 ph/s (Pump Emission)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">&lt; 10 dB</span><span data-lang="en">&lt; 10 dB</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">具專屬高壓光罩攻擊面；高壓電荷泵需發射遮蔽</span><span data-lang="en">Dedicated HV mask vector; requires pump shielding</span></td>
               <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">無 (非 PUF 靜態寫入)</span><span data-lang="en">N/A (Non-PUF Static)</span></td>
-              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">CC EAL2 / 高風險</span><span data-lang="en">CC EAL2 / High Risk</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">需增強主動屏蔽網</span><span data-lang="en">Requires Active Shielding</span></td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <div class="rm-footnote" style="margin-top: 14px; background: rgba(0,0,0,0.2); padding: 10px 14px; border-radius: 6px;">
-        <strong style="color:#a855f7;"><span data-lang="zh">零信任供應鏈與光學安全結論：</span><span data-lang="en">Zero-Trust &amp; Optical Security Finding: </span></strong>
-        <span data-lang="zh">在先進半導體全球供應鏈中，不可信代工廠與光學側信道探測 (PEM/TRE) 構成最致命的威脅。0-Mask AntiFuse PUF 憑藉「零光罩增加」物理特性，在製造端杜絕了惡意光罩層修改木馬的可能；而在運行端，微安級歐姆微絲近乎零熱載子發光，光學發射強度較傳統 eFlash 電荷泵衰減逾 48 dB，徹底阻斷背面 SNSPD 單光子探測，為符合 NIST SP 800-193 與 CC EAL6+ 最高標準之零信任硬體信任根。詳細供應鏈認證總帳請參見 <a href="memory-evidence.html#evidence-V22" style="color:#c084fc; text-decoration: underline;">Evidence V22 ↗</a>。</span>
-        <span data-lang="en">In globalized semiconductor supply chains, untrusted foundries and optical emission analysis (PEM/TRE) present critical attack vectors. 0-Mask AntiFuse PUF completely eliminates mask-level trojan insertion due to standard CMOS compatibility; during operation, ohmic filaments emit near-zero hot-carrier luminescence (&gt;48 dB attenuation vs eFlash), blinding backside SNSPD single-photon detectors and fulfilling NIST SP 800-193 and CC EAL6+. Refer to <a href="memory-evidence.html#evidence-V22" style="color:#c084fc; text-decoration: underline;">Evidence V22 ↗</a> for full evidence ledger.</span>
+        <strong style="color:#a855f7;"><span data-lang="zh">零信任供應鏈與光學安全威脅建模結論：</span><span data-lang="en">Zero-Trust &amp; Optical Security Modeling Finding: </span></strong>
+        <span data-lang="zh">在半導體供應鏈安全中，代工廠惡意篡改與背面光學側信道 (PEM/TRE) 構成關鍵攻擊面。0-Mask AntiFuse PUF 藉由「零額外光罩」消除專屬非揮發層的光罩插入途徑；微安級讀取電流亦在物理上降低熱載子發光強度，大幅拉高時間分辨光子發射 (TRE) 的捕捉難度。但依據 Becker 2013 與 Schlösser 2012 文獻，任何單一技術皆無法完全免疫標準邏輯層摻雜木馬或極端背面薄化下的探測，仍需配合全生命週期防禦鏈與系統級 TOE 驗證。詳細文獻與證據總帳請參見 <a href="memory-evidence.html#evidence-V22" style="color:#c084fc; text-decoration: underline;">Evidence V22 ↗</a>。</span>
+        <span data-lang="en">In semiconductor supply-chain security, untrusted foundry manipulation and backside optical side-channels (PEM/TRE) represent significant threat surfaces. 0-Mask AntiFuse PUF eliminates dedicated mask-insertion vectors targeting non-volatile layers; microampere read currents physically suppress hot-carrier luminescence, raising acquisition thresholds for time-resolved emission (TRE) attacks. However, as demonstrated by Becker 2013 and Schlösser 2012, no single medium immunizes against standard-cell dopant Trojans or aggressive backside thinning; full lifecycle governance and system-level TOE evaluations remain essential. Refer to <a href="memory-evidence.html#evidence-V22" style="color:#c084fc; text-decoration: underline;">Evidence V22 ↗</a> for the complete research ledger.</span>
       </div>
     </section>
 
