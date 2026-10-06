@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "13460c44ff2ff0750510",
+  "version": "61a5c591cecec848e561",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -237,7 +237,7 @@ self.NVMOfflineManifest = {
     "literature-paper.js": "a1538790b2cd1d40c727f15562caaf8935da210543c70c197675bdacae26c40a",
     "matrix-interactive.js": "00bb70e047b0aa9b5c7eedb195af4a8e8f1dba16d830ac55699db6187222b41e",
     "mcu-vector-patch-simulator.js": "12eec310c779f6fc1894da56a116892f4e9d63c84f838af5faae76d36504c819",
-    "memory-evidence.html": "2db49852c149a304f25a1931ce6bc2b447077146eea8071cbbe5b3fed186baee",
+    "memory-evidence.html": "b9fc1ce1a55364797eda02a4a9a464a6a4ce6aa2a3f0c3fb6bc6cd702e776472",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
     "memory-physics.html": "09fe5c7379c9c43e2fdb59a6580179db71c2c4fa5450ea787effa11f937ae8c8",
@@ -304,5 +304,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "1a80caf7221a052c98828693d10982531f3fcba482cc0c1db82dfdabf8d4c83e",
     "whitepaper/index.html": "5ce3b260608904f45d28e2bd417fddc25661be9900fae2a1c818414f10d81f2c"
   },
-  "totalBytes": 13163973
+  "totalBytes": 13163857
 };
