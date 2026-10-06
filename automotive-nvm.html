@@ -1786,6 +1786,13 @@
               <span data-lang="en">First-principles simulation: Arrhenius charge leakage, STT-MRAM superparamagnetic demagnetization, 0-Mask AntiFuse ohmic filament resilience, and DESAT fault latency.</span>
             </p>
 
+            <!-- 免責橫幅 DISCLAIMER -->
+            <div style="background: rgba(245, 158, 11, 0.12); border-left: 4px solid #f59e0b; padding: 10px 14px; border-radius: 4px; margin-bottom: 18px; font-size: 12px; line-height: 1.6; color: #fbbf24;">
+              <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Boundary Notice: </span></strong>
+              <span data-lang="zh">本模擬器採用 Arrhenius 熱活化加速與去飽和保護 (DESAT) 之簡化工程模型，用以示意高溫下電荷洩漏、磁穩定性與微絲擴散之相對趨勢。第三代半導體功率開關裸晶高溫合封環境下，浮閘 eFlash 因熱發射效應面臨電荷洩漏加速，通常配置於溫度較低之微控制器晶粒；AntiFuse 微絲介質耐溫性良好，但仍需考量高壓編程脈衝為單次不可逆寫入之系統架構邊界。所列評級為工程適配分類，非車規官方認證。</span>
+              <span data-lang="en">This simulator uses simplified Arrhenius thermal activation and DESAT timing models to illustrate trends in charge leakage, magnetic stability, and filament diffusion. In high-Tj power co-packaging environments, floating-gate eFlash experiences accelerated thermionic emission and is typically located on cooler MCU dies; AntiFuse silicide filaments offer robust temperature tolerance, though system designs must account for its irreversible OTP nature. Tiers represent engineering classifications rather than official certifications.</span>
+            </div>
+
             <!-- Simulator Root Container -->
             <div id="sic-gan-simulator-root" style="margin-bottom: 24px;"></div>
 
@@ -1808,12 +1815,12 @@
                     <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #38bdf8;">
                       <span data-lang="zh">0-Mask AntiFuse OTP</span><span data-lang="en">0-Mask AntiFuse OTP</span>
                     </th>
-                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">歐姆金屬/矽再結晶微絲</span><span data-lang="en">Ohmic melted silicon filament</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">~ 2.45 eV (原子擴散)</span><span data-lang="en">~ 2.45 eV (Atomic diffusion)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">&gt; 25 年 (零洩漏)</span><span data-lang="en">&gt; 25 Years (Zero leak)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">&gt; 15 年 (高溫免疫)</span><span data-lang="en">&gt; 15 Years (Immune)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">歐姆金屬/矽化物結晶微絲</span><span data-lang="en">Ohmic silicide filament</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">~ 0.98 eV (原子擴散)</span><span data-lang="en">~ 0.98 eV (Atomic diffusion)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">&gt; 25 年</span><span data-lang="en">&gt; 25 Years</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">&gt; 10 年 (高溫微絲穩定)</span><span data-lang="en">&gt; 10 Years (Stable filament)</span></td>
                     <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">35 ~ 50 ns (超快保護)</span><span data-lang="en">35 ~ 50 ns (Ultra-fast)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">卓越 (Grade A+ / SiC 驅動唯一無損方案)</span><span data-lang="en">Excellent (Grade A+ / Primary SiC Choice)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;"><span data-lang="zh">適合 (耐高溫微絲 / 適合智慧功率驅動)</span><span data-lang="en">Suitable (High-T filament / Intelligent driver)</span></td>
                   </tr>
                   <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
                     <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #60a5fa;">
@@ -1824,7 +1831,7 @@
                     <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">~ 2.5 年 (Δ 降至 42)</span><span data-lang="en">~ 2.5 Years (Δ drops to 42)</span></td>
                     <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">&lt; 1 小時 (超順磁熱消磁)</span><span data-lang="en">&lt; 1 Hour (Superparamagnetic flip)</span></td>
                     <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">60 ~ 85 ns</span><span data-lang="en">60 ~ 85 ns</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">受限 (Grade C / 限 150°C 以下使用)</span><span data-lang="en">Restricted (Grade C / Limited &lt; 150°C)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">良好 (限 150°C 以下 / 高溫需防 PMA 消磁)</span><span data-lang="en">Good (Limited &lt; 150°C / PMA Stability)</span></td>
                   </tr>
                   <tr style="background: #0f172a; border-bottom: 1px solid #334155;">
                     <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #f59e0b;">
@@ -1835,18 +1842,18 @@
                     <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">~ 1.2 年 (HRS 阻值下漂)</span><span data-lang="en">~ 1.2 Years (HRS drift)</span></td>
                     <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">&lt; 10 天 (高溫氧空位重構)</span><span data-lang="en">&lt; 10 Days (Thermal re-oxidation)</span></td>
                     <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">90 ~ 130 ns</span><span data-lang="en">90 ~ 130 ns</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">偏弱 (Grade C- / 需低溫活化與強固預算)</span><span data-lang="en">Poor (Grade C- / High drift sensitivity)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b;"><span data-lang="zh">中等 (需補償氧空位回擴散)</span><span data-lang="en">Moderate (Oxygen back-diffusion margin)</span></td>
                   </tr>
                   <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
                     <th scope="row" style="padding: 10px 12px; border: 1px solid #334155; font-weight: 700; color: #ef4444;">
                       <span data-lang="zh">Floating-Gate / CT eFlash</span><span data-lang="en">Floating-Gate / CT eFlash</span>
                     </th>
                     <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">穿隧氧層阱中捕獲之電子雲</span><span data-lang="en">Trapped electrons in poly gate</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 1.05 eV (熱離子激發)</span><span data-lang="en">~ 1.05 eV (Thermionic emission)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">~ 1.10 eV (熱離子激發)</span><span data-lang="en">~ 1.10 eV (Thermionic emission)</span></td>
                     <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">&lt; 3 個月 (AF 激增 650x)</span><span data-lang="en">&lt; 3 Months (AF surges 650x)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">&lt; 8 小時 (電荷完全歸零)</span><span data-lang="en">&lt; 8 Hours (Complete loss)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">極短 (&lt; 24 小時 / 熱激發洩漏)</span><span data-lang="en">Short (&lt; 24 hrs / Thermal emission)</span></td>
                     <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444;"><span data-lang="zh">&gt; 180 ns (感測窗口坍塌)</span><span data-lang="en">&gt; 180 ns (Collapsed window)</span></td>
-                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">嚴格禁用 (Grade F / 200°C 發生電荷雪崩)</span><span data-lang="en">Prohibited (Grade F / Rapid discharge)</span></td>
+                    <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;"><span data-lang="zh">受限 (裸晶合封熱區浮閘洩漏加速 / 需佈局於非功率熱區)</span><span data-lang="en">Constrained (Hot-spot leakage / Requires thermal separation)</span></td>
                   </tr>
                 </tbody>
               </table>
@@ -1854,8 +1861,8 @@
 
             <div class="rm-footnote" style="margin-top: 14px; background: rgba(0,0,0,0.2); padding: 10px 14px; border-radius: 6px;">
               <strong style="color:#b45309;"><span data-lang="zh">功率電子高溫工程結論：</span><span data-lang="en">Power Electronics High-Tj Conclusion: </span></strong>
-              <span data-lang="zh">第三代半導體 SiC/GaN 驅動晶片緊鄰發熱功率開關，結溫動輒超過 175°C~200°C。傳統浮閘 eFlash 因熱發射 (Thermionic Emission) 電荷逸出速率呈指數激增，高溫完全無法通過 AEC-Q100 Grade 0 考核；而 0-Mask AntiFuse 依託金屬熔合微絲無電荷結構，具備高達 2.45 eV 之固態擴散活化能，在 250°C 極限結溫下仍能維持 &gt;15 年資料無損，且能在 40ns 內快速讀出過流/去飽和 (DESAT) 閾值，為智慧功率模組之絕對首選。</span>
-              <span data-lang="en">Third-generation wide-bandgap SiC/GaN intelligent drivers operate adjacent to severe heat sources with junction temperatures easily exceeding 175°C~200°C. Floating-gate eFlash suffers from exponential thermionic charge emission, failing AEC-Q100 Grade 0. 0-Mask AntiFuse utilizes charge-free melted metallic filaments with high activation energy (2.45 eV), retaining data for &gt;15 years at 250°C while achieving 40ns DESAT trip reads.</span>
+              <span data-lang="zh">第三代半導體 SiC/GaN 驅動晶片緊鄰發熱功率開關，結溫可能超過 175°C~200°C。傳統浮閘 eFlash 因熱發射 (Thermionic Emission) 電荷逸出速率隨溫度指數增加，在 >175°C~250°C 裸晶功率直結環境下受限，通常配置於溫度較低之微控制器或外圍晶粒；而 0-Mask AntiFuse 依託金屬矽化物微絲無電荷結構，高溫下資料留存良好，且能在次百奈秒內讀出去飽和保護 (DESAT) 閾值，適合智慧功率合封模組。</span>
+              <span data-lang="en">Third-generation wide-bandgap SiC/GaN intelligent drivers operate adjacent to severe heat sources with junction temperatures easily exceeding 175°C~200°C. Floating-gate eFlash suffers from exponential thermionic charge emission at >175°C~250°C, typically necessitating placement on cooler MCU dies; 0-Mask AntiFuse utilizes charge-free silicide filaments with robust high-temperature retention, achieving sub-100ns DESAT trip reads suitable for smart power co-packaged modules.</span>
             </div>
           </section>
 

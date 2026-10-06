@@ -89,22 +89,22 @@ export const CRYO_SYSTEM_PRESETS = {
 export const CRYO_NVM_TECHS = {
   antifuse_ohmic_filament: {
     id: 'antifuse_ohmic_filament',
-    nameZh: '0-Mask AntiFuse 歐姆金屬微絲 (Ohmic Silicide Filament, Zero Freeze-Out)',
-    nameEn: '0-Mask AntiFuse Ohmic Metallic Filament (Freeze-out Immune)',
+    nameZh: '0-Mask AntiFuse 歐姆金屬微絲 (微絲無能隙凍結 / 周邊仍受影響)',
+    nameEn: '0-Mask AntiFuse Ohmic Metallic Filament (Filament Unfrozen / CMOS Affected)',
     baseResistanceOhm: 350.0,
-    freezeOutSensitivity: 0.0, // Pure metallic/silicide conduction has zero freeze-out
+    freezeOutSensitivity: 0.12, // Substrate/access transistor carrier freeze-out
     readCurrentUa: 1.2,
     writeVoltageV: 5.5,
     isOhmic: true,
-    notesZh: '金屬矽化物微絲為簡併歐姆導電，電阻隨溫度下降而微幅降低，完全不受載子凍結影響，極低溫超穩定。',
-    notesEn: 'Degenerate metallic silicide filament exhibits near-zero thermal drift and absolute immunity to carrier freeze-out.'
+    notesZh: '金屬矽化物微絲為簡併歐姆導電，微絲本體無雜質凍結；然而位元胞存取電晶體與周邊 CMOS 電路在 4.2K 下仍面臨雜質凍結與閾值漂移。',
+    notesEn: 'Silicide filament core is degenerate metallic without freeze-out; access transistors and peripheral CMOS still face carrier freeze-out and Vth shift at 4.2K.'
   },
   stt_mram_spintronic: {
     id: 'stt_mram_spintronic',
     nameZh: '自旋穿隧 STT-MRAM (Spin-Transfer Torque Magnetic Tunnel Junction)',
     nameEn: 'Spintronic STT-MRAM (TMR Enhanced, Higher Switching Current)',
     baseResistanceOhm: 2500.0,
-    freezeOutSensitivity: 0.05,
+    freezeOutSensitivity: 0.18,
     readCurrentUa: 4.5,
     writeVoltageV: 1.8,
     isOhmic: false,
@@ -120,8 +120,8 @@ export const CRYO_NVM_TECHS = {
     readCurrentUa: 12.0,
     writeVoltageV: 11.5,
     isOhmic: false,
-    notesZh: '周邊高壓電荷泵於 4K 時因二極體能階與載子凍結失效，穿隧氧化層在高電場下易誘發脆裂性崩潰。',
-    notesEn: 'High-voltage charge pumps fail at 4K due to diode freeze-out; tunneling oxide suffers from brittle dielectric breakdown.'
+    notesZh: '周邊高壓電荷泵於 4K 時因二極體能階與載子凍結效率受限，穿隧氧化層在高電場下需注意介電質應力。',
+    notesEn: 'High-voltage charge pumps suffer efficiency degradation at 4K; tunneling oxide requires careful thermal and electrical budget control.'
   },
   reram_oxide_filament: {
     id: 'reram_oxide_filament',
@@ -132,7 +132,7 @@ export const CRYO_NVM_TECHS = {
     readCurrentUa: 8.0,
     writeVoltageV: 3.2,
     isOhmic: false,
-    notesZh: '氧空缺離子遷移活化能受熱阻滯，4K 下需要極高電壓方能完成 Forming/SET，但一旦形成微絲讀取穩定。',
+    notesZh: '氧空缺離子遷移活化能受熱阻滯，4K 下需要較高電壓方能完成 Forming/SET，但一旦形成微絲讀取相對穩定。',
     notesEn: 'Oxygen vacancy migration is thermally suppressed at 4K, requiring substantially higher forming/set voltages.'
   }
 };
@@ -164,14 +164,12 @@ export function calculateCryoNvmMetrics(params) {
   // 2. Carrier Freeze-Out Dynamics in Silicon Substrate / Peripheral Access Transistors:
   // Ionization ratio: n / Nd ~ 1 / (1 + 2 * exp((Ed - Ef) / kT))
   // Approximated freeze-out: at 300K -> 100%, at 77K -> ~80%, at 4K -> < 1% for standard dopants (45 meV phosphorus/boron)
-  // Ohmic metallic filament has 0% freeze-out (always 100% active)
-  let carrierIonizationPct = 100.0;
-  if (!tech.isOhmic) {
-    const thermalEnergyEv = (8.617e-5) * tempK; // kT in eV
-    const ionizationFactor = Math.min(1.0, Math.exp(-0.045 / Math.max(0.001, thermalEnergyEv * 2.0)));
-    carrierIonizationPct = Math.max(0.2, (ionizationFactor * (1.0 - tech.freezeOutSensitivity) + (1.0 - tech.freezeOutSensitivity) * 0.1) * 100.0);
-    if (tempK > 200) carrierIonizationPct = 100.0;
-  }
+  // Metallic silicide filaments avoid internal freeze-out, but access gates still experience substrate freeze-out.
+  const thermalEnergyEv = (8.617e-5) * tempK; // kT in eV
+  const ionizationFactor = Math.min(1.0, Math.exp(-0.045 / Math.max(0.001, thermalEnergyEv * 2.0)));
+  const baseRetention = tech.isOhmic ? 0.88 : (1.0 - tech.freezeOutSensitivity);
+  let carrierIonizationPct = Math.max(0.2, (ionizationFactor * baseRetention + baseRetention * 0.12) * 100.0);
+  if (tempK > 200) carrierIonizationPct = 100.0;
 
   // 3. Subthreshold Swing (SS) Steepening:
   // SS = ln(10) * (kT / q) * (1 + Cd / Cox)
@@ -186,7 +184,7 @@ export function calculateCryoNvmMetrics(params) {
   // 4. Memory Cell Readout Power Dissipation (nW):
   // P_read = V_bias^2 / R_eff
   // When carriers freeze out, effective resistance skyrockets in non-ohmic devices
-  const freezeMultiplier = tech.isOhmic ? 1.0 : (100.0 / Math.max(1.0, carrierIonizationPct));
+  const freezeMultiplier = tech.isOhmic ? (1.0 + (100.0 - carrierIonizationPct) * 0.005) : (100.0 / Math.max(1.0, carrierIonizationPct));
   const effectiveROhm = tech.baseResistanceOhm * (tech.isOhmic ? (0.85 + 0.15 * (tempK / 300.0)) : freezeMultiplier);
   const vBiasV = vBiasMv / 1000.0;
   const readPowerWatts = Math.pow(vBiasV, 2) / effectiveROhm;
@@ -214,9 +212,9 @@ export function calculateCryoNvmMetrics(params) {
     gradeColor = '#dc2626';
   }
 
-  const verdictZh = `在 ${preset.nameZh} (${tempK} K) 極端低溫下，矽能隙擴展至 ${bandgapEv.toFixed(3)} eV，亞閾值擺幅陡降至 ${effectiveSsMvPerDec.toFixed(1)} mV/dec。採用 ${tech.nameZh} 時，載子電離保留率為 ${carrierIonizationPct.toFixed(1)}%，單元讀出功耗僅 ${readPowerNw.toFixed(1)} nW。相較 4K 冷卻極限預算，超導量子位元熱相干裕度為 ${coherenceMarginPct.toFixed(1)}%，${tech.isOhmic ? '歐姆金屬微絲完全免除雜質凍結風險，為超導控制器提供零功耗長期參數鎖定。' : '非歐姆接面在低溫下受載子凍結影響，需特別注意讀出電壓拉高引發之微波熱噪訊。'}`;
+  const verdictZh = `在 ${preset.nameZh} (${tempK} K) 極端低溫下，矽能隙擴展至 ${bandgapEv.toFixed(3)} eV，亞閾值擺幅陡降至 ${effectiveSsMvPerDec.toFixed(1)} mV/dec。採用 ${tech.nameZh} 時，通道與介質有效導電保留率為 ${carrierIonizationPct.toFixed(1)}%，單元讀出功耗約 ${readPowerNw.toFixed(1)} nW。相較低溫冷卻極限預算，熱相干裕度為 ${coherenceMarginPct.toFixed(1)}%。${tech.isOhmic ? '歐姆金屬微絲本體無能隙凍結效應，但外圍存取電晶體仍需考量低溫閾值漂移；適合低功耗校準參數鎖定。' : '非歐姆接面在低溫下受載子凍結與能階阻礙影響，需注意讀出電壓拉高引發之微波熱噪訊與電荷泵開銷。'}`;
 
-  const verdictEn = `Under ${preset.nameEn} (${tempK} K), silicon bandgap widens to ${bandgapEv.toFixed(3)} eV and subthreshold swing sharpens to ${effectiveSsMvPerDec.toFixed(1)} mV/dec. Using ${tech.nameEn}, carrier ionization retention is ${carrierIonizationPct.toFixed(1)}% with cell readout power of ${readPowerNw.toFixed(1)} nW. Superconducting qubit thermal coherence margin is ${coherenceMarginPct.toFixed(1)}%. ${tech.isOhmic ? 'Ohmic metallic filaments remain completely immune to freeze-out, securing zero-leakage calibration locking.' : 'Non-ohmic transport suffers from freeze-out, necessitating caution against microwave thermal noise from elevated biases.'}`;
+  const verdictEn = `Under ${preset.nameEn} (${tempK} K), silicon bandgap widens to ${bandgapEv.toFixed(3)} eV and subthreshold swing sharpens to ${effectiveSsMvPerDec.toFixed(1)} mV/dec. Using ${tech.nameEn}, effective channel/media conduction retention is ${carrierIonizationPct.toFixed(1)}% with cell readout power of ${readPowerNw.toFixed(1)} nW. Thermal coherence margin is ${coherenceMarginPct.toFixed(1)}%. ${tech.isOhmic ? 'Ohmic metallic filaments avoid internal bandgap freeze-out, though peripheral access gates still experience cryogenic Vth shifts; suitable for low-power calibration locking.' : 'Non-ohmic transport suffers from freeze-out and activation barriers, requiring caution against microwave thermal noise and charge pump overhead.'}`;
 
   return {
     preset,

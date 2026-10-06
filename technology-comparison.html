@@ -4404,6 +4404,13 @@
         </p>
       </div>
 
+      <!-- 免責橫幅 DISCLAIMER -->
+      <div style="background: rgba(245, 158, 11, 0.12); border-left: 4px solid #f59e0b; padding: 10px 14px; border-radius: 4px; margin-bottom: 18px; font-size: 12px; line-height: 1.6; color: #fbbf24;">
+        <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Boundary Notice: </span></strong>
+        <span data-lang="zh">本模擬器採用彈性力學差分熱膨脹與壓電電阻效應之簡化解析模型，用以示意 Cu-Cu 鍵合降溫剪切應力分佈與保留區 (KOZ) 之工程邊界考量。單晶矽底層通道之壓電敏感度係材料本徵常數，各技術差異主要源自儲存介質物理（固態微絲、磁阻 MTJ、離子微絲 vs 穿隧介電層電荷陷阱 SILC）；所列耐受評級為工程適配性分類，非 JEDEC 或 Foundry 官方分級。</span>
+        <span data-lang="en">This simulator uses simplified thermo-mechanical expansion and piezoresistive analytical models to illustrate Cu-Cu bonding shear stress distribution and keep-out zone (KOZ) engineering considerations. Channel piezoresistive coefficients are intrinsic properties of crystalline silicon; technology differences stem from storage media physics (silicide filaments, MTJ, oxygen vacancies vs. charge-storage SILC). Suitability tiers represent engineering classifications rather than official JEDEC/Foundry standards.</span>
+      </div>
+
       <!-- Cu-Cu Hybrid Bonding Simulator Root Workbench -->
       <div id="cu-bonding-simulator-root" style="margin-bottom: 28px;"></div>
 
@@ -4432,9 +4439,9 @@
               <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;">
                 <span data-lang="zh">0.8 ~ 1.2 μm (緊鄰焊盤)</span><span data-lang="en">0.8 ~ 1.2 μm (Adjacent to Pad)</span>
               </td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">低 (&lt; 15 mV 偏置漂移)</span><span data-lang="en">Low (&lt; 15 mV Offset Drift)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">基底矽通道 (~25 mV/100MPa)</span><span data-lang="en">Silicon Channel (~25 mV/100MPa)</span></td>
               <td style="padding: 10px 12px; border: 1px solid #334155; color: #10b981; font-weight: 700;">
-                <span data-lang="zh">卓越 (Grade A+ / 3D 晶圓堆疊首選 RoT)</span><span data-lang="en">Excellent (Grade A+ / Primary 3D RoT)</span>
+                <span data-lang="zh">優異 (FEOL 高溫相容 / 緊鄰焊盤)</span><span data-lang="en">Preferred (FEOL High-T / Adjacent to Pad)</span>
               </td>
             </tr>
             <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
@@ -4449,7 +4456,7 @@
               </td>
               <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">中等 (PMA 能障衰減 ~8%)</span><span data-lang="en">Moderate (PMA Derating ~8%)</span></td>
               <td style="padding: 10px 12px; border: 1px solid #334155; color: #60a5fa; font-weight: 700;">
-                <span data-lang="zh">良好 (Grade B / 適合 3D 快取與高頻寬記憶體)</span><span data-lang="en">Good (Grade B / Ideal for 3D LLC/HBM)</span>
+                <span data-lang="zh">良好 (需控制退火熱預算 / 適合 3D 快取)</span><span data-lang="en">Good (Manage anneal budget / 3D LLC)</span>
               </td>
             </tr>
             <tr style="background: #0f172a; border-bottom: 1px solid #334155;">
@@ -4464,7 +4471,7 @@
               </td>
               <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">中高 (高阻態 HRS 擴散)</span><span data-lang="en">Moderate-High (HRS Drift)</span></td>
               <td style="padding: 10px 12px; border: 1px solid #334155; color: #f59e0b; font-weight: 700;">
-                <span data-lang="zh">中等 (Grade B- / 須配合低溫活化鍵合製程)</span><span data-lang="en">Moderate (Grade B- / Requires Low-T Bonding)</span>
+                <span data-lang="zh">中等 (需低溫鍵合或 Forming 補償)</span><span data-lang="en">Moderate (Requires Low-T Bonding / Forming)</span>
               </td>
             </tr>
             <tr style="background: #1e293b; border-bottom: 1px solid #334155;">
@@ -4475,11 +4482,11 @@
               <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">&lt; 250°C (熱預算嚴苛受限)</span><span data-lang="en">&lt; 250°C (Strict Thermal Limit)</span></td>
               <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">180 MPa (SILC 漏電陷阱)</span><span data-lang="en">180 MPa (SILC Trap Generation)</span></td>
               <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;">
-                <span data-lang="zh">&gt; 3.5 ~ 4.5 μm (面積懲罰重)</span><span data-lang="en">&gt; 3.5 ~ 4.5 μm (Heavy Area Penalty)</span>
+                <span data-lang="zh">&gt; 3.5 ~ 4.5 μm (面積懲罰較大)</span><span data-lang="en">&gt; 3.5 ~ 4.5 μm (Area Penalty)</span>
               </td>
-              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">極高 (留存壽命崩跌至數週)</span><span data-lang="en">Severe (Retention Drops to Weeks)</span></td>
+              <td style="padding: 10px 12px; border: 1px solid #334155;"><span data-lang="zh">較高 (氧化層陷阱誘發 SILC)</span><span data-lang="en">High (Oxide trap SILC risk)</span></td>
               <td style="padding: 10px 12px; border: 1px solid #334155; color: #ef4444; font-weight: 700;">
-                <span data-lang="zh">不建議 (Grade D / 應力引發晶格裂紋與 SILC 漏電)</span><span data-lang="en">Discouraged (Grade D / High SILC &amp; Cracking)</span>
+                <span data-lang="zh">受限 (需注意 SILC 漏電與退火熱預算)</span><span data-lang="en">Constrained (SILC stress &amp; thermal budget)</span>
               </td>
             </tr>
           </tbody>
@@ -4487,9 +4494,9 @@
       </div>
 
       <div class="rm-footnote" style="margin-top: 16px;">
-        <strong style="color:#805828;"><span data-lang="zh">先進封裝第一性原理結論：</span><span data-lang="en">Advanced Packaging First-Principles Finding: </span></strong>
-        <span data-lang="zh">3D 晶圓直接混合鍵合 (TSMC SoIC, Intel Foveros Direct, Sony 3-layer CIS) 中，高密度 Cu Pad 降溫所引發之局域剪切應力可高達 300~450 MPa。0-Mask AntiFuse 由於讀出態為永久物理金屬微絲且無捕捉電荷，具備最高機械應力免疫力 (Grade A+)，KOZ 面積懲罰最小；而傳統 eFlash 則因應力誘發漏電 (SILC) 與高溫退火熱預算衝突，在先進 3D 堆疊中已被全面邊緣化。</span>
-        <span data-lang="en">In 3D direct hybrid bonding (TSMC SoIC, Intel Foveros Direct, Sony 3-layer CIS), localized shear stresses induced during cool-down can exceed 300~450 MPa. 0-Mask AntiFuse OTP offers the highest mechanical resilience (Grade A+) due to its charge-free ohmic filament, requiring minimal KOZ area penalties; meanwhile, traditional eFlash is largely excluded from 3D stacking due to severe SILC leakage risks and restrictive thermal budgets.</span>
+        <strong style="color:#805828;"><span data-lang="zh">先進封裝工程評估結論：</span><span data-lang="en">Advanced Packaging Engineering Finding: </span></strong>
+        <span data-lang="zh">3D 晶圓直接混合鍵合中，高密度 Cu Pad 降溫引發之局域剪切應力可達數百 MPa。0-Mask AntiFuse 由於為永久固態物理微絲且無浮閘電荷陷阱，受 SILC 應力漏電影響較小，具備較佳機械容忍度與較小 KOZ；而 eFlash 則需特別管理應力誘發漏電 (SILC) 與高溫退火熱預算，需配置較大保留區。</span>
+        <span data-lang="en">In 3D direct hybrid bonding, localized shear stresses induced during cool-down can reach hundreds of MPa. 0-Mask AntiFuse OTP offers robust mechanical tolerance and smaller KOZ due to its permanent silicide filament without floating charge traps; conversely, eFlash designs require strict management of SILC leakage and anneal thermal budgets, mandating larger keep-out margins.</span>
       </div>
     </section>
 

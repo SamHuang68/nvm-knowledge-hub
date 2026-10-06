@@ -4218,10 +4218,17 @@
         <span data-lang="en">Cryogenic CMOS Quantum Control Interface &amp; eNVM Varshni Bandgap, Carrier Freeze-Out Physics</span>
       </h3>
       <p class="topic-desc">
-        <span data-lang="zh">在 4-Kelvin 稀釋冷凍機低溫冷盤與 77-Kelvin 液氮環境下，超導量子處理器需要極低熱噪微波介面晶粒。半導體矽能隙由 1.12 eV 擴展至 1.17 eV，常規摻雜載子發生凍結效應 (Carrier Freeze-Out)，亞閾值擺幅 (SS) 陡峭降至次 10 mV/dec，開啟 nW 級讀出可能。0-Mask AntiFuse 歐姆矽化物金屬微絲完全免除雜質凍結，提供量子校準金鑰之零漂移永久鎖定。</span>
-        <span data-lang="en">At 4-Kelvin dilution refrigerator stages and 77-Kelvin liquid nitrogen, superconducting qubits require ultra-low-noise Cryo-CMOS interface dies. Silicon bandgap expands from 1.12 eV to 1.17 eV via Varshni dynamics, dopants freeze out, and subthreshold swing (SS) sharpens below 10 mV/dec, enabling nanoWatt readout. 0-Mask AntiFuse metallic filaments remain completely immune to carrier freeze-out, securing zero-drift parameter locking without decoherence risk.</span>
+        <span data-lang="zh">在 4-Kelvin 稀釋冷凍機低溫冷盤與 77-Kelvin 液氮環境下，超導量子處理器需要極低熱噪微波介面晶粒。半導體矽能隙由 1.12 eV 擴展至 1.17 eV，常規摻雜載子發生凍結效應 (Carrier Freeze-Out)，亞閾值擺幅 (SS) 陡峭降至次 10 mV/dec，開啟 nW 級讀出可能。0-Mask AntiFuse 歐姆金屬矽化物微絲本體無雜質凍結，提供量子校準金鑰之穩定儲存；但陣列存取電晶體與周邊 CMOS 驅動電路仍面臨低溫凍結挑戰。</span>
+        <span data-lang="en">At 4-Kelvin dilution refrigerator stages and 77-Kelvin liquid nitrogen, superconducting qubits require ultra-low-noise Cryo-CMOS interface dies. Silicon bandgap expands from 1.12 eV to 1.17 eV via Varshni dynamics, dopants freeze out, and subthreshold swing (SS) sharpens below 10 mV/dec, enabling nanoWatt readout. While 0-Mask AntiFuse silicide filaments avoid internal carrier freeze-out for stable calibration keys, access transistors and peripheral CMOS circuits still face cryogenic freeze-out challenges.</span>
       </p>
     </header>
+
+    <!-- 免責橫幅 DISCLAIMER -->
+    <div style="background: rgba(245, 158, 11, 0.12); border-left: 4px solid #f59e0b; padding: 10px 14px; border-radius: 4px; margin-bottom: 18px; font-size: 12px; line-height: 1.6; color: #fbbf24;">
+      <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Illustrative Model &amp; Boundary Notice: </span></strong>
+      <span data-lang="zh">本模擬器採用 Varshni 能隙公式與低溫載子凍結統計之簡化解析模型，用以示意低溫下能隙擴展、亞閾值擺幅 (SS) 陡化與功耗預算之相對趨勢。在 4.2K 極低溫下，金屬矽化物微絲本體雖無雜質凍結，但記憶體陣列之選擇電晶體（Cell Select Transistor）與外圍 CMOS 控制/感測電路仍面臨載子凍結、閾值電壓漂移與遷移率飽和等低溫效應；eFlash 則因低溫電荷泵效率下降與氧化層穿隧應力受限。</span>
+      <span data-lang="en">This simulator uses simplified Varshni and freeze-out analytical approximations to illustrate trends in bandgap dilation, subthreshold swing sharpening, and thermal budgets. At 4.2K, while metallic silicide filaments experience no freeze-out within the filament core, array access transistors and peripheral CMOS control/sensing circuitry are still subject to carrier freeze-out and Vth shift; eFlash is constrained by degraded cryogenic charge pump efficiency and oxide tunneling stress.</span>
+    </div>
 
     <!-- 4 大極低溫 eNVM 技術比較矩陣 -->
     <div style="overflow-x: auto; margin-bottom: 24px;">
@@ -4244,9 +4251,9 @@
           <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
             <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">0-Mask AntiFuse</th>
             <td style="padding: 8px 10px;"><span data-lang="zh">歐姆金屬矽化物微絲</span><span data-lang="en">Ohmic silicide filament</span></td>
-            <td style="padding: 8px 10px; color: #10b981; font-weight: 600;"><span data-lang="zh">0% (完全免疫)</span><span data-lang="en">0% (Immune)</span></td>
+            <td style="padding: 8px 10px; color: #10b981; font-weight: 600;"><span data-lang="zh">微絲無凍結 (周邊電路仍受影響)</span><span data-lang="en">Filament unfrozen (Peripherals affected)</span></td>
             <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #10b981;">&lt; 500 nW</td>
-            <td style="padding: 8px 10px; color: #10b981; font-weight: 600;"><span data-lang="zh">極佳 (4K 冷盤無熱擾動)</span><span data-lang="en">Optimal (&lt;5uW budget)</span></td>
+            <td style="padding: 8px 10px; color: #10b981; font-weight: 600;"><span data-lang="zh">極佳 (4K 冷盤低熱擾動)</span><span data-lang="en">Optimal (&lt;5uW budget)</span></td>
             <td style="padding: 8px 10px;"><span data-lang="zh">DAC 偏置電壓微調、Qubit ID 與固態校準鎖定</span><span data-lang="en">Qubit bias trim, security root, calibration lock</span></td>
           </tr>
           <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4);">
@@ -4262,8 +4269,8 @@
             <td style="padding: 8px 10px;"><span data-lang="zh">半導體通道 + 浮閘穿隧</span><span data-lang="en">Semiconductor channel</span></td>
             <td style="padding: 8px 10px; color: #ef4444; font-weight: 600;"><span data-lang="zh">&gt; 85% (周邊泵嚴重凍結)</span><span data-lang="en">&gt; 85% (Pump freeze-out)</span></td>
             <td style="padding: 8px 10px; font-family: 'IBM Plex Mono', monospace; color: #ef4444;">&gt; 25 µW</td>
-            <td style="padding: 8px 10px; color: #ef4444;"><span data-lang="zh">不相容 (高壓泵失效、熱超標)</span><span data-lang="en">Incompatible (Thermal load)</span></td>
-            <td style="padding: 8px 10px;"><span data-lang="zh">極低溫下穿隧擊穿與熱耗散無法滿足稀釋冷盤</span><span data-lang="en">Oxide breakdown &amp; thermal dissipation penalty</span></td>
+            <td style="padding: 8px 10px; color: #ef4444;"><span data-lang="zh">受限 (高壓泵能耗與穿隧應力高)</span><span data-lang="en">Constrained (Pump power &amp; oxide stress)</span></td>
+            <td style="padding: 8px 10px;"><span data-lang="zh">高壓泵能耗增加且穿隧氧化層受限，需控制熱耗散</span><span data-lang="en">Charge pump overhead and oxide stress require thermal budget</span></td>
           </tr>
           <tr>
             <th scope="row" style="padding: 8px 10px; font-weight: 600; color: #38bdf8;">Oxide ReRAM</th>
@@ -4313,7 +4320,7 @@
             <span data-lang="zh">記憶體候選技術 (eNVM Tech):</span><span data-lang="en">eNVM CANDIDATE TECH:</span>
           </label>
           <select id="cryo-tech-select" aria-label="Cryogenic eNVM Technology" data-aria-en="Cryogenic eNVM Technology" data-aria-zh="極低溫 eNVM 技術" style="width: 100%; padding: 5px 8px; border: 1px solid #475569; border-radius: 4px; font: 600 11px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
-            <option value="antifuse_ohmic_filament" selected>0-Mask AntiFuse Ohmic Metallic Filament (Freeze-Out Immune)</option>
+            <option value="antifuse_ohmic_filament" selected>0-Mask AntiFuse Ohmic Metallic Filament (Filament Unfrozen / CMOS Affected)</option>
             <option value="stt_mram_spintronic">Spintronic STT-MRAM (TMR 220% at 4K, 2.5x Ic)</option>
             <option value="floating_gate_charge_trap">Floating Gate / Charge Trap eFlash (Severe Freeze-Out)</option>
             <option value="reram_oxide_filament">Oxide ReRAM (Valence Change, High 4K Barrier)</option>
