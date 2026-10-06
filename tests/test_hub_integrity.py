@@ -2007,6 +2007,32 @@ def run_tests() -> None:
     test("security-assurance.html 包含六大 KPI 輸出欄位 (Delta Vth, Margin, Retention, Cross-section, FIT, Rating) 與判定橫幅",
          'id="rad-out-deltavth"' in sec_rad_html and 'id="rad-out-margin"' in sec_rad_html and 'id="rad-out-retention"' in sec_rad_html and 'id="rad-out-cross"' in sec_rad_html and 'id="rad-out-fit"' in sec_rad_html and 'id="rad-out-rating"' in sec_rad_html and 'id="rad-out-verdict"' in sec_rad_html)
 
+    # ════════════════════════════════════════════════════════════
+    # TEST 86: 後量子密碼學 (PQC) 硬體信任根 (ML-KEM / ML-DSA) 金鑰密文儲存與側信道防禦總帳 (security-assurance.html & memory-evidence.html)
+    # ════════════════════════════════════════════════════════════
+    print("\n═══ TEST 86: 後量子密碼學 (PQC) 硬體信任根 (ML-KEM / ML-DSA) 金鑰密文儲存與側信道防禦總帳 ═══")
+    pqc_js = (BASE / "pqc-hardware-rot-ledger-simulator.js").read_text(encoding="utf-8")
+    test("pqc-hardware-rot-ledger-simulator.js 存在且導出 calculatePqcStorageMetrics、drawPqcCanvas 與 initPqcStorageSimulator",
+         "export function calculatePqcStorageMetrics" in pqc_js and "export function drawPqcCanvas" in pqc_js and "export function initPqcStorageSimulator" in pqc_js)
+    test("pqc-hardware-rot-ledger-simulator.js 包含五大 NIST FIPS 203/204 後量子演算法定義 (ML-KEM-512/768/1024, ML-DSA-65/87)",
+         "PQC_ALGORITHMS" in pqc_js and "ml_kem_512" in pqc_js and "ml_kem_768" in pqc_js and "ml_kem_1024" in pqc_js and "ml_dsa_65" in pqc_js and "ml_dsa_87" in pqc_js)
+    test("pqc-hardware-rot-ledger-simulator.js 第一性原理原生私鑰 vs 種子儲存預算、面積縮減率、高階側信道遮罩 DPA MTD 與安全評級模型",
+         "rawPrivateKeyBytes" in pqc_js and "seedBytes" in pqc_js and "areaReductionRatio" in pqc_js and "storageSavedPct" in pqc_js and "mtdTraces" in pqc_js and "securityRating" in pqc_js and "verdictZh" in pqc_js)
+    test("pqc-hardware-rot-ledger-simulator.js 包含雙模態視覺化 (storage_footprint 與 dpa_mtd_curve)",
+         "storage_footprint" in pqc_js and "dpa_mtd_curve" in pqc_js)
+
+    sec_pqc_html = (BASE / "security-assurance.html").read_text(encoding="utf-8")
+    test("security-assurance.html 整合 pqc-key-storage-simulator-root 工作台、pqc-storage-section 與模組腳本引用",
+         'id="pqc-key-storage-simulator-root"' in sec_pqc_html and 'id="pqc-storage-section"' in sec_pqc_html and 'pqc-hardware-rot-ledger-simulator.js' in sec_pqc_html)
+    test("security-assurance.html 包含演算法/架構/遮罩階數三軸選擇器與雙模態 Canvas",
+         'id="pqc-algo-select"' in sec_pqc_html and 'id="pqc-arch-select"' in sec_pqc_html and 'id="pqc-mask-select"' in sec_pqc_html and 'id="pqc-storage-canvas"' in sec_pqc_html and 'id="pqc-mode-footprint"' in sec_pqc_html and 'id="pqc-mode-mtd"' in sec_pqc_html)
+    test("security-assurance.html 包含五大 KPI 輸出欄位 (Raw Size, Seed Size, Area Savings, DPA MTD, Rating) 與判定橫幅",
+         'id="pqc-out-rawsize"' in sec_pqc_html and 'id="pqc-out-seedsize"' in sec_pqc_html and 'id="pqc-out-savings"' in sec_pqc_html and 'id="pqc-out-mtd"' in sec_pqc_html and 'id="pqc-out-rating"' in sec_pqc_html and 'id="pqc-out-verdict"' in sec_pqc_html)
+
+    ev_pqc_html = (BASE / "memory-evidence.html").read_text(encoding="utf-8")
+    test("memory-evidence.html 包含 evidence-V21 NIST 後量子密碼硬體信任根與金鑰儲存總帳 (FIPS 203 & FIPS 204)",
+         'id="evidence-V21"' in ev_pqc_html and 'FIPS 203' in ev_pqc_html and 'FIPS 204' in ev_pqc_html and 'ML-KEM' in ev_pqc_html and 'ML-DSA' in ev_pqc_html)
+
     print(f"\n{'='*60}")
     print(f"  TOTAL: {PASS + FAIL}  |  ✅ PASS: {PASS}  |  ❌ FAIL: {FAIL}")
     print(f"{'='*60}")

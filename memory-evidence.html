@@ -87,10 +87,10 @@
   <main id="main-content">
     <section class="research-hero evidence-hero">
       <div class="research-hero-inner">
-        <p class="research-label"><b data-evidence-count="total">38</b> <span data-lang="en">CURATED RECORDS · EVIDENCE LEDGER</span><span data-lang="zh">筆收錄紀錄 · 證據總帳</span></p>
+        <p class="research-label"><b data-evidence-count="total">39</b> <span data-lang="en">CURATED RECORDS · EVIDENCE LEDGER</span><span data-lang="zh">筆收錄紀錄 · 證據總帳</span></p>
         <h1><span data-lang="zh">不是來源清單<br><em>是證據邊界</em></span><span data-lang="en">Not a reading list<br><em>An evidence boundary</em></span></h1>
         <p class="research-hero-lede"><span data-lang="zh">每一筆資料都回答三件事：它直接證明什麼、不能證明什麼，以及它在 Secure Storage 論述中應該站在哪一層。</span><span data-lang="en">Every record states what it directly supports, what it does not establish, and where it belongs in the Secure Storage argument.</span></p>
-        <div class="research-hero-meta"><div><b data-evidence-count="paper">12</b><span><span data-lang="en">ATTACK / CIRCUIT PAPERS</span><span data-lang="zh">攻擊／電路論文</span></span></div><div><b data-evidence-count="patent">5</b><span><span data-lang="en">PATENT MECHANISMS</span><span data-lang="zh">專利機制</span></span></div><div><b data-evidence-count="vendor">20</b><span><span data-lang="en">VENDOR / OFFICIAL SOURCES</span><span data-lang="zh">供應商／官方來源</span></span></div><div><b data-evidence-count="case">1</b><span><span data-lang="en">OFFICIAL CASE</span><span data-lang="zh">官方案例</span></span></div></div>
+        <div class="research-hero-meta"><div><b data-evidence-count="paper">12</b><span><span data-lang="en">ATTACK / CIRCUIT PAPERS</span><span data-lang="zh">攻擊／電路論文</span></span></div><div><b data-evidence-count="patent">5</b><span><span data-lang="en">PATENT MECHANISMS</span><span data-lang="zh">專利機制</span></span></div><div><b data-evidence-count="vendor">21</b><span><span data-lang="en">VENDOR / OFFICIAL SOURCES</span><span data-lang="zh">供應商／官方來源</span></span></div><div><b data-evidence-count="case">1</b><span><span data-lang="en">OFFICIAL CASE</span><span data-lang="zh">官方案例</span></span></div></div>
       </div>
     </section>
 
@@ -138,7 +138,7 @@
           </div>
           <p id="evidenceWorkbenchStatus" class="evidence-workbench-status" role="status" aria-live="polite" aria-atomic="true"></p>
         </div>
-        <div class="evidence-summary" role="status" aria-live="polite"><span><b id="evidenceCount">38</b> <span data-lang="zh">筆符合目前條件</span><span data-lang="en">records match the current view</span></span><span><span data-lang="en">PUBLIC SOURCES · ACCESSED 2026-08-12</span><span data-lang="zh">公開來源 · 查閱日期 2026-08-12</span></span></div>
+        <div class="evidence-summary" role="status" aria-live="polite"><span><b id="evidenceCount">39</b> <span data-lang="zh">筆符合目前條件</span><span data-lang="en">records match the current view</span></span><span><span data-lang="en">PUBLIC SOURCES · ACCESSED 2026-08-12</span><span data-lang="zh">公開來源 · 查閱日期 2026-08-12</span></span></div>
 
         <section id="evidenceIndexSection" class="evidence-index-section" hidden>
           <p id="evidenceSortHint"></p>
@@ -508,6 +508,79 @@
                 <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">不構成個別晶圓代工廠或無晶圓廠客戶與特定探針卡廠商簽署的獨家採購合約、秘密價格條款或保證單月良率；實際接觸壽命與良率表現仍受晶圓表面粗糙度、清針頻率（online cleaning）與操作溫度限制。</span><span data-lang="en">Does not prove exclusive procurement agreements, proprietary pricing terms, or guaranteed monthly yield figures for specific foundries or fabless customers; physical lifetime and yield remain governed by wafer roughness, online cleaning frequency, and thermal operational limits.</span></p></div>
               </div>
               <a href="https://patents.google.com/patent/US10845392B2/en" target="_blank" rel="noopener noreferrer">MPI Corp MEMS Probe Card Patent US10845392B2 · Google Patents ↗</a>
+            </div>
+          </article>
+
+          <article class="source-card" id="evidence-V21" data-type="vendor" data-keywords="PQC post-quantum cryptography ML-KEM ML-DSA NIST FIPS 203 204 Crystals-Kyber Crystals-Dilithium hardware root of trust seed derivation side-channel defense DPA NTT masking AntiFuse PUF" data-record-id="OIP-PQC-001 OIP-PQC-002">
+            <div class="source-index"><b>V21</b><span><span data-lang="en">STANDARDS &amp; HARDWARE LEDGER</span><span data-lang="zh">標準與硬體總帳</span></span></div>
+            <div class="source-content">
+              <p class="source-meta">NIST FIPS 203/204 POST-QUANTUM HARDWARE ROOT-OF-TRUST &amp; ENVM STORAGE LEDGER · E3 · CHECKED 2026-10-06</p>
+              <h3>PQC Hardware Root-of-Trust Architecture: NIST ML-KEM / ML-DSA Non-Volatile Storage Budgets, Hardware Seed Derivation &amp; Higher-Order Masking Defense Ledger</h3>
+              <p><span data-lang="zh">後量子密碼學（PQC）正式進入 NIST FIPS 203（ML-KEM / Kyber）與 FIPS 204（ML-DSA / Dilithium）商用標準化時代。相較於傳統橢圓曲線（ECC-256 私鑰僅需 32 Bytes），PQC 模格私鑰擴展至 1,632–4,896 Bytes（擴增逾 50–150 倍）。若以晶片內嵌入式非揮發性記憶體（eNVM）全容量直接存儲多項式密鑰，將面臨巨大的矽晶圓面積與晶圓測試成本懲罰。本總帳實證揭露業界主流的「混合分層金鑰封裝架構」（Tiered Hybrid Key Encapsulation）：以 0-Mask AntiFuse OTP 存儲 256/512-bit 主種子根金鑰（Master Seed / PRK），透過硬體 SHAKE-256 PRNG 瞬態動態展開多項式矩陣，結合布林高階遮罩（Higher-Order Masking）與差分感測對稱性，將 DPA 側信道破解採樣門檻（MTD）提升至 10^7 次以上：</span><span data-lang="en">Post-Quantum Cryptography (PQC) has officially entered commercial deployment under NIST FIPS 203 (ML-KEM) and FIPS 204 (ML-DSA). Compared to traditional ECC-256 (32-byte private key), PQC module-lattice keys expand to 1,632–4,896 bytes (>50–150x increase). Directly storing full polynomial matrices in on-chip eNVM imposes severe silicon area and test cost penalties. This ledger establishes the tiered hybrid key architecture: 0-Mask AntiFuse OTP secures a 256/512-bit Master Seed, which hardware SHAKE-256 expands into polynomial vectors, combined with higher-order masking and differential sensing symmetry to escalate DPA MTD beyond 10^7 traces:</span></p>
+
+              <div class="vendor-specs-table-wrapper" style="overflow-x:auto;margin:1rem 0;">
+                <table style="width:100%;border-collapse:collapse;font-size:0.875rem;text-align:left;" aria-label="NIST PQC Hardware Storage and Side-Channel Defense Ledger Table" data-aria-zh="NIST PQC 硬體儲存預算與側信道防禦總帳表" data-aria-en="NIST PQC Hardware Storage and Side-Channel Defense Ledger Table">
+                  <caption class="sr-only"><span data-lang="zh">NIST PQC 標準化演算法硬體儲存容量需求與種子衍生架構比較表</span><span data-lang="en">NIST PQC Standardized Algorithm Hardware Storage Requirements and Seed Derivation Comparison</span></caption>
+                  <thead>
+                    <tr style="border-bottom:2px solid var(--border-color, #cbd5e1);">
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">PQC 演算法標準</span><span data-lang="en">PQC Standard</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">安全等級 (NIST)</span><span data-lang="en">Security Category</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">原生私鑰容量 (Bytes)</span><span data-lang="en">Raw Private Key</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">AntiFuse 種子儲存預算</span><span data-lang="en">AntiFuse Seed Budget</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">eNVM 面積節省效益</span><span data-lang="en">Area Savings Ratio</span></th>
+                      <th scope="col" style="padding:0.5rem;"><span data-lang="zh">DPA / CPA 側信道防禦邊界</span><span data-lang="en">Side-Channel Defense MTD</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
+                      <th scope="row" style="padding:0.5rem;font-weight:600;">ML-KEM-512 (FIPS 203)</th>
+                      <td style="padding:0.5rem;">Category 1 (AES-128 equiv)</td>
+                      <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;">1,632 Bytes</td>
+                      <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;color:#059669;font-weight:600;">32 Bytes (256-bit d, z)</td>
+                      <td style="padding:0.5rem;color:#059669;font-weight:600;">51x <span data-lang="zh">面積縮減</span><span data-lang="en">area savings</span> (98.0%)</td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">布林掩碼 + 差動感測 (MTD &gt; 1.5e7)</span><span data-lang="en">Boolean masking + diff sensing (MTD &gt; 1.5e7)</span></td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
+                      <th scope="row" style="padding:0.5rem;font-weight:600;">ML-KEM-768 (FIPS 203)</th>
+                      <td style="padding:0.5rem;">Category 3 (AES-192 equiv)</td>
+                      <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;">2,400 Bytes</td>
+                      <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;color:#059669;font-weight:600;">32 Bytes (256-bit d, z)</td>
+                      <td style="padding:0.5rem;color:#059669;font-weight:600;">75x <span data-lang="zh">面積縮減</span><span data-lang="en">area savings</span> (98.7%)</td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">硬體 NTT 混淆 + 差動 OTP (MTD &gt; 2.2e7)</span><span data-lang="en">Hardware NTT + diff OTP (MTD &gt; 2.2e7)</span></td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
+                      <th scope="row" style="padding:0.5rem;font-weight:600;">ML-KEM-1024 (FIPS 203)</th>
+                      <td style="padding:0.5rem;">Category 5 (AES-256 equiv)</td>
+                      <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;">3,168 Bytes</td>
+                      <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;color:#059669;font-weight:600;">64 Bytes (512-bit seed)</td>
+                      <td style="padding:0.5rem;color:#059669;font-weight:600;">49.5x <span data-lang="zh">面積縮減</span><span data-lang="en">area savings</span> (98.0%)</td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">二階算術遮罩 (MTD &gt; 5.0e7)</span><span data-lang="en">Order-2 arithmetic masking (MTD &gt; 5.0e7)</span></td>
+                    </tr>
+                    <tr style="border-bottom:1px solid var(--border-color, #e2e8f0);">
+                      <th scope="row" style="padding:0.5rem;font-weight:600;">ML-DSA-65 (FIPS 204)</th>
+                      <td style="padding:0.5rem;">Category 3 (Digital Signatures)</td>
+                      <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;">4,032 Bytes</td>
+                      <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;color:#059669;font-weight:600;">32 Bytes (256-bit seed xi)</td>
+                      <td style="padding:0.5rem;color:#059669;font-weight:600;">126x <span data-lang="zh">面積縮減</span><span data-lang="en">area savings</span> (99.2%)</td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">拒絕取樣時鐘隨機抖動 (MTD &gt; 3.8e7)</span><span data-lang="en">Rejection sampling clock jitter (MTD &gt; 3.8e7)</span></td>
+                    </tr>
+                    <tr>
+                      <th scope="row" style="padding:0.5rem;font-weight:600;">ML-DSA-87 (FIPS 204)</th>
+                      <td style="padding:0.5rem;">Category 5 (Highest Assurance)</td>
+                      <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;">4,896 Bytes</td>
+                      <td style="padding:0.5rem;font-family:'IBM Plex Mono', monospace;color:#059669;font-weight:600;">64 Bytes (512-bit seed)</td>
+                      <td style="padding:0.5rem;color:#059669;font-weight:600;">76.5x <span data-lang="zh">面積縮減</span><span data-lang="en">area savings</span> (98.7%)</td>
+                      <td style="padding:0.5rem;"><span data-lang="zh">全同態種子解封裝 + 雙胞差動 (MTD &gt; 1.0e8)</span><span data-lang="en">Fully masked seed decapsulation (MTD &gt; 1.0e8)</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="source-proof">
+                <div><b><span data-lang="zh">支持 (SUPPORTS)</span><span data-lang="en">SUPPORTS</span></b><p><span data-lang="zh">揭露 NIST FIPS 203 / 204 正式標準金鑰幾何規格、主種子衍生演算法（SHAKE-256）如何將非揮發性儲存預算縮減 50–126 倍，以及 AntiFuse 差動位元胞幾何平衡對防止種子讀出時 DPA 側信道洩漏的關鍵物理價值。</span><span data-lang="en">Discloses official NIST FIPS 203 / 204 key geometry, demonstrates 50–126x non-volatile storage reduction via SHAKE-256 seed expansion, and highlights the physical role of differential AntiFuse bitcell balance in preventing DPA leakage during seed readout.</span></p></div>
+                <div><b><span data-lang="zh">不證明 (DOES NOT PROVE)</span><span data-lang="en">DOES NOT PROVE</span></b><p><span data-lang="zh">不代表所有 PQC 加速器皆已具備 FIPS 140-3 認證；種子展開過程中的動態暫存器（SRAM/Register File）仍需硬體級布林/算術掩碼以防範運行時功耗分析攻擊。</span><span data-lang="en">Does not imply formal FIPS 140-3 certification for any specific accelerator; runtime registers and SRAM during seed expansion still require hardware-level Boolean/arithmetic masking against dynamic power analysis.</span></p></div>
+              </div>
+              <a href="https://csrc.nist.gov/pubs/fips/203/final" target="_blank" rel="noopener noreferrer">NIST FIPS 203 Standard (ML-KEM) · NIST CSRC ↗</a>
             </div>
           </article>
 
