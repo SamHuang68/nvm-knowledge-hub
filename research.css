@@ -50,6 +50,7 @@
 html { scroll-behavior: smooth; }
 body.research-page { color: var(--ink); background: var(--paper); }
 .research-page [data-lang] { display: none; }
+.research-page:not([data-language]) [data-lang="en"] { display: initial; }
 .research-page[data-language="zh"] [data-lang="zh"],
 .research-page[data-language="en"] [data-lang="en"] { display: initial; }
 .research-page .site-header { grid-template-columns: auto 1fr auto; }

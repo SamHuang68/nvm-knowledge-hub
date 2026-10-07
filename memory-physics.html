@@ -2202,7 +2202,7 @@
           </div>
 
           <!-- CONTROL PANEL -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
             <!-- Preset Scenario -->
             <div>
               <label for="tddb-preset-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155; margin-bottom: 4px;">
@@ -2961,8 +2961,8 @@
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
             <div>
               <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #006f70; letter-spacing: 0.08em; text-transform: uppercase;">
-                <span data-lang="zh">第一性原理微觀感測物理 · 差動位元胞與側信道防護</span>
-                <span data-lang="en">FIRST-PRINCIPLES SENSING PHYSICS · TWIN-CELL &amp; DPA DEFENSE</span>
+                <span data-lang="zh">感測教學模型 · 差動位元胞與側信道比較</span>
+                <span data-lang="en">SENSING TEACHING MODEL · TWIN-CELL &amp; SIDE-CHANNEL COMPARISON</span>
               </span>
               <h4 style="margin: 0.25rem 0 0; font-size: 1.15rem; font-weight: 700; color: #0f172a; font-family: 'IBM Plex Mono', monospace;">
                 <span data-lang="zh">互補成對差動單元 (Twin-Cell) 感測裕度與 DPA 側信道物理衰減試算器</span>
@@ -2970,18 +2970,19 @@
               </h4>
             </div>
             <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(0, 111, 112, 0.12); color: #006f70; font-weight: 600;">
-              <span data-lang="zh">ISO/IEC 17825 側信道防禦驗證</span>
-              <span data-lang="en">ISO/IEC 17825 Side-Channel Rigor</span>
+              <span data-lang="zh">示意係數 · 未經攻擊實測校準</span>
+              <span data-lang="en">Illustrative Coefficients · No Attack Calibration</span>
             </span>
           </div>
 
           <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem;">
-            <span data-lang="zh">透過微觀位元胞充放電與歐姆導通方程式，精確模擬單端（Single-Ended 1T）、虛擬差動（Pseudo-Diff）與真互補成對（True Twin-Cell 1T+1T）架構在高溫熱應力與電源漣波下的差分信號窗（&Delta;V<sub>sense</sub>）、共模抑制比（CMRR），以及讀 0 與讀 1 總電流的一階實體平衡度。數值量化揭露微觀位元胞幾何對稱性如何將差分功耗分析（DPA）信噪比衰減逾 30 dB，使金鑰破解採樣跡線（MTD）呈指數級爆炸。</span>
-            <span data-lang="en">Simulates bitline differential sensing margins (&Delta;V<sub>sense</sub>), Common-Mode Rejection Ratio (CMRR), and first-order current symmetry between Single-Ended, Pseudo-Differential, and True Twin-Cell architectures across junction temperatures and supply ripples. Quantifies how physical microarchitectural symmetry attenuates DPA side-channel signatures by &gt;30 dB, exponentially multiplying the minimum traces to disclose (MTD).</span>
+            <span data-lang="zh">以 &Delta;V = &Delta;I &middot; t / C 與既有示意係數，比較單端（Single-Ended 1T）、虛擬差動（Pseudo-Diff）與真互補成對（True Twin-Cell 1T+1T）架構。漏電基準取各場景標示溫度，溫度變化沿用每 10°C 乘 1.85 的假設；CMRR、衰減、面積與曲線指標未經實測校準。電流包絡圖為拓撲示意，曲線數不能解讀為金鑰還原門檻或產品安全等級。</span>
+            <span data-lang="en">Uses &Delta;V = &Delta;I &middot; t / C and existing illustrative coefficients to compare Single-Ended, Pseudo-Differential and True Twin-Cell architectures. Leakage is referenced to each preset's stated temperature with an assumed 1.85 multiplier per 10°C. CMRR, attenuation, area and trace index are uncalibrated. Current bars illustrate topology; trace counts do not predict key recovery or product security levels.</span>
           </p>
+          <p class="model-note"><span data-lang="zh">方法邊界：本工作台不執行側信道攻擊或認證測試。</span><span data-lang="en">Method Boundary: This workbench does not perform side-channel attacks or certification tests.</span> <a href="https://www.iso.org/standard/82422.html" target="_blank" rel="noopener noreferrer">ISO/IEC 17825:2024</a> · <a href="https://www.commoncriteriaportal.org/cc/index.cfm" target="_blank" rel="noopener noreferrer">Common Criteria</a></p>
 
           <!-- CONTROL PANEL -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
             <div>
               <label for="diff-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span data-lang="zh">晶片應用場景預設：</span>
@@ -3038,7 +3039,7 @@
                 <span data-lang="en">Differential Voltage Margin</span>
               </span>
               <div id="diff-margin-mv" style="font: 700 1.6rem 'IBM Plex Mono', monospace; color: #15803d; margin: 4px 0;">-- mV</div>
-              <span style="font-size: 10.5px; color: #166534;"><span data-lang="zh">&gt;50mV 安全感測門檻</span><span data-lang="en">&gt;50mV Reliable Sensing</span></span>
+              <span style="font-size: 10.5px; color: #166534;"><span data-lang="zh">50mV 教學參考值，非規格門檻</span><span data-lang="en">50mV teaching reference, not a specification</span></span>
             </div>
 
             <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 12px; text-align: center;">
@@ -3061,11 +3062,11 @@
 
             <div style="background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 6px; padding: 12px; text-align: center;">
               <span style="display: block; font: 600 10.5px 'IBM Plex Mono', monospace; color: #7e22ce; text-transform: uppercase;">
-                <span data-lang="zh">DPA 破解採樣門檻 (MTD)</span>
-                <span data-lang="en">Min Traces to Disclose (MTD)</span>
+                <span data-lang="zh">示意曲線比較指標</span>
+                <span data-lang="en">Illustrative Trace Comparison Index</span>
               </span>
               <div id="diff-mtd-traces" style="font: 700 1.45rem 'IBM Plex Mono', monospace; color: #6b21a8; margin: 6px 0;">-- Traces</div>
-              <span style="font-size: 10.5px; color: #7e22ce;"><span data-lang="zh">採樣跡線數量級阻絕</span><span data-lang="en">Exponential Trace Barrier</span></span>
+              <span style="font-size: 10.5px; color: #7e22ce;"><span data-lang="zh">未校準，不能預測破解</span><span data-lang="en">Uncalibrated; does not predict key recovery</span></span>
             </div>
 
             <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; text-align: center;">

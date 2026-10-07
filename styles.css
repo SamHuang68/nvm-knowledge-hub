@@ -591,7 +591,7 @@ section.hero .hero-proof strong [data-lang] { font-size: inherit !important; fon
 footer { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 30px; padding: 28px var(--side); color: #78919c; background: #f8fafc; border-top: 1px solid rgba(255,255,255,.08); font-size: 9px; letter-spacing: .08em; }
 .footer-brand { color: var(--ink); }
 
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s ease, transform .75s ease; }
+.reveal { opacity: 1; transform: none; }
 .reveal.visible { opacity: 1; transform: none; }
 .reveal:target { opacity: 1; transform: none; }
 

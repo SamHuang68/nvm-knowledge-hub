@@ -260,8 +260,12 @@ html[data-language="zh"] [data-lang="zh"],
 body[data-language="zh"] [data-lang="zh"] {
   display: revert !important;
 }
-html[data-language="zh"] [data-lang="en"],
+html[data-language="zh"] body [data-lang="en"],
 body[data-language="zh"] [data-lang="en"] {
+  display: none !important;
+}
+html[data-language="en"] body [data-lang="zh"],
+body[data-language="en"] [data-lang="zh"] {
   display: none !important;
 }
 

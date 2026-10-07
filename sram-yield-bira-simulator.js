@@ -113,7 +113,8 @@ export function calculateSramYieldRecovery(inputs = {}) {
   const sramAreaPct = Math.min(90, Math.max(10, parseFloat(inputs.sramAreaPct) || preset.sramAreaPct));
   const defectDensityD0 = Math.max(0.01, parseFloat(inputs.defectDensityD0) || preset.defectDensityD0);
   const numBanks = Math.max(1, parseInt(inputs.numBanks, 10) || preset.numBanks);
-  const sparePerBank = Math.max(0, parseInt(inputs.sparePerBank, 10) || preset.sparePerBank);
+  const parsedSpares = parseInt(inputs.sparePerBank, 10);
+  const sparePerBank = Math.max(0, Number.isFinite(parsedSpares) ? parsedSpares : preset.sparePerBank);
   const dieAspUsd = Math.max(1, parseFloat(inputs.dieAspUsd) || preset.dieAspUsd);
 
   // Unit conversion: D0 is in defects/cm^2, 1 cm^2 = 100 mm^2

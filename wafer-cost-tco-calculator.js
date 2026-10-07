@@ -252,48 +252,95 @@ export function drawWaferCostTcoCanvas(canvas, results, mode = "tco_volume", isZ
   const dpr = window.devicePixelRatio || 1;
   const rect = canvas.getBoundingClientRect();
   const width = rect.width || 760;
-  const height = rect.height || 360;
-
-  if (canvas.width !== Math.round(width * dpr) || canvas.height !== Math.round(height * dpr)) {
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
-  }
-
-  ctx.save();
-  ctx.scale(dpr, dpr);
-  ctx.clearRect(0, 0, width, height);
-
-  // Background
-  const isDark = document.documentElement.getAttribute("data-theme") !== "light";
-  ctx.fillStyle = isDark ? "#0b1220" : "#f8fafc";
-  ctx.fillRect(0, 0, width, height);
-
-  const padLeft = 70;
-  const padRight = 30;
-  const padTop = 40;
-  const padBottom = 50;
+  const envmList = mode === "tco_volume" ? [
+      { id: "antifuse_logic", color: "#10b981", labelZh: "純邏輯 AntiFuse (0 光罩)", labelEn: "AntiFuse (0-Mask)" },
+      { id: "beol_reram", color: "#06b6d4", labelZh: "BEOL ReRAM (2 光罩)", labelEn: "ReRAM (2-Mask)" },
+      { id: "beol_emram", color: "#f59e0b", labelZh: "BEOL eMRAM (4 光罩)", labelEn: "eMRAM (4-Mask)" },
+      { id: "eflash_split_gate", color: "#ef4444", labelZh: "Split-Gate eFlash (10 光罩)", labelEn: "eFlash (10-Mask)" },
+    ] : [
+      { id: "antifuse_logic", color: "#10b981", labelZh: "純邏輯 AntiFuse (D0 零增加)", labelEn: "AntiFuse (Zero Defect Adder)" },
+      { id: "beol_reram", color: "#06b6d4", labelZh: "BEOL ReRAM (+0.022 D0)", labelEn: "ReRAM (+0.022 D0)" },
+      { id: "beol_emram", color: "#f59e0b", labelZh: "BEOL eMRAM (+0.018 D0)", labelEn: "eMRAM (+0.018 D0)" },
+      { id: "eflash_split_gate", color: "#ef4444", labelZh: "Split-Gate eFlash (+0.035 D0)", labelEn: "eFlash (+0.035 D0)" },
+    ];
+  const wrapText = (text, maxWidth, font) => {
+    ctx.font = font;
+    const lines = []; let line = '';
+    for (const character of text) {
+      if (line && ctx.measureText(line + character).width > maxWidth) { lines.push(line); line = ''; }
+      line += character;
+    }
+    if (line) lines.push(line);
+    return lines;
+  };
+  const titleText = mode === "tco_volume"
+    ? (isZh ? "年晶圓產量 vs 累計總擁有成本 (TCO, 百萬美元 $M)" : "Annual Wafer Volume vs Cumulative TCO ($M USD)")
+    : (isZh ? "晶粒面積 vs 每個良品晶片成本 ($ USD / Good Die)" : "Die Area vs Net Good Die Cost ($ USD / Die)");
+  const titleLines = wrapText(titleText, width - 24, 'bold 13px system-ui, -apple-system, sans-serif');
+  const axisText = mode === "tco_volume"
+    ? (isZh ? "年晶圓投片量 (Wafers / Year)" : "Annual Wafer Volume (Wafers / Year)")
+    : (isZh ? "晶粒面積 Die Area (mm²)" : "Die Area (mm²)");
+  const axisLines = wrapText(axisText, width - 24, '11px system-ui, sans-serif');
+  let legendX = 12, legendY = 0, rowHeight = 0;
+  const legend = envmList.map(tech => {
+    const lines = wrapText(isZh ? tech.labelZh : tech.labelEn, width - 44, '10px system-ui, sans-serif');
+    const itemWidth = Math.max(...lines.map(line => ctx.measureText(line).width)) + 24;
+    const itemHeight = Math.max(18, lines.length * 14);
+    if (legendX > 12 && legendX + itemWidth > width - 12) { legendX = 12; legendY += rowHeight + 6; rowHeight = 0; }
+    const item = {tech, lines, x:legendX, y:legendY};
+    legendX += itemWidth; rowHeight = Math.max(rowHeight, itemHeight);
+    return item;
+  });
+  const padLeft = width < 260 ? 58 : 70;
+  const padRight = 24;
+  const padTop = 24 + titleLines.length * 16;
+  const plotH = Number(canvas.dataset.plotHeight) || Math.max(130, (rect.height || 360) - 90);
+  canvas.dataset.plotHeight = String(plotH);
+  const legendTop = padTop + plotH + 44 + axisLines.length * 14;
+  const height = Math.ceil(legendTop + legendY + rowHeight + 14);
+  const padBottom = height - padTop - plotH;
   const plotW = width - padLeft - padRight;
-  const plotH = height - padTop - padBottom;
-
-  // Grid & Axes
+  // 圖例沿用原曲線資料，依字寬換列；保留完整名稱並為文字增加畫布高度。
+  canvas.style.height = height + 'px';
+  if (canvas.parentElement) canvas.parentElement.style.height = height + 'px';
+  if (canvas.width !== Math.round(width * dpr) || canvas.height !== Math.round(height * dpr)) {
+    canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
+  }
+  ctx.save(); ctx.scale(dpr, dpr);
+  const isDark = document.documentElement.getAttribute("data-theme") !== "light";
+  ctx.clearRect(0, 0, width, height);
+  ctx.fillStyle = isDark ? "#0b1220" : "#f8fafc"; ctx.fillRect(0, 0, width, height);
   ctx.strokeStyle = isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)";
   ctx.lineWidth = 1;
   for (let i = 0; i <= 5; i++) {
     const y = padTop + (plotH / 5) * i;
-    ctx.beginPath();
-    ctx.moveTo(padLeft, y);
-    ctx.lineTo(padLeft + plotW, y);
-    ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(padLeft, y); ctx.lineTo(padLeft + plotW, y); ctx.stroke();
   }
-
-  // Draw chart title
+  const drawLegend = () => {
+    ctx.font = '10px system-ui, sans-serif'; ctx.textAlign = 'left';
+    legend.forEach(item => {
+      const y = legendTop + item.y;
+      ctx.fillStyle = item.tech.color; ctx.fillRect(item.x, y, 10, 10);
+      ctx.fillStyle = isDark ? '#cbd5e1' : '#475569';
+      item.lines.forEach((line, index) => ctx.fillText(line, item.x + 14, y + 9 + index * 14));
+    });
+  };
+  const drawCallout = (text, x, y, preferredWidth) => {
+    ctx.font = 'bold 11px system-ui, sans-serif';
+    const boxWidth = Math.min(preferredWidth, width - 8);
+    const lines = wrapText(text, boxWidth - 8, ctx.font);
+    const boxHeight = lines.length * 14 + 8;
+    const boxX = Math.max(4, Math.min(width - boxWidth - 4, x - boxWidth / 2));
+    const boxY = Math.max(padTop, Math.min(padTop + plotH - boxHeight, y - 38));
+    ctx.fillStyle = isDark ? 'rgba(15,23,42,0.9)' : 'rgba(255,255,255,0.9)';
+    ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 1;
+    ctx.fillRect(boxX, boxY, boxWidth, boxHeight); ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
+    ctx.fillStyle = isDark ? '#f1f5f9' : '#0f172a'; ctx.textAlign = 'center';
+    lines.forEach((line, index) => ctx.fillText(line, boxX + boxWidth / 2, boxY + 14 + index * 14));
+  };
   ctx.fillStyle = isDark ? "#cbd5e1" : "#334155";
-  ctx.font = "bold 13px system-ui, -apple-system, sans-serif";
-  ctx.textAlign = "left";
-  const titleText = mode === "tco_volume"
-    ? (isZh ? "年晶圓產量 vs 累計總擁有成本 (TCO, 百萬美元 $M)" : "Annual Wafer Volume vs Cumulative TCO ($M USD)")
-    : (isZh ? "晶粒面積 vs 每個良品晶片成本 ($ USD / Good Die)" : "Die Area vs Net Good Die Cost ($ USD / Die)");
-  ctx.fillText(titleText, padLeft, 24);
+  ctx.font = "bold 13px system-ui, -apple-system, sans-serif"; ctx.textAlign = "left";
+  titleLines.forEach((line, index) => ctx.fillText(line, 12, 20 + index * 16));
 
   if (mode === "tco_volume") {
     // Volume Sweep: 2,000 to 100,000 wafers
@@ -301,12 +348,7 @@ export function drawWaferCostTcoCanvas(canvas, results, mode = "tco_volume", isZ
     const maxVol = 100000;
     const volSteps = 30;
 
-    const envmList = [
-      { id: "antifuse_logic", color: "#10b981", labelZh: "純邏輯 AntiFuse (0 光罩)", labelEn: "AntiFuse (0-Mask)" },
-      { id: "beol_reram", color: "#06b6d4", labelZh: "BEOL ReRAM (2 光罩)", labelEn: "ReRAM (2-Mask)" },
-      { id: "beol_emram", color: "#f59e0b", labelZh: "BEOL eMRAM (4 光罩)", labelEn: "eMRAM (4-Mask)" },
-      { id: "eflash_split_gate", color: "#ef4444", labelZh: "Split-Gate eFlash (10 光罩)", labelEn: "eFlash (10-Mask)" },
-    ];
+
 
     // Compute max TCO for scaling
     let maxTcoMillions = 10;
@@ -334,12 +376,13 @@ export function drawWaferCostTcoCanvas(canvas, results, mode = "tco_volume", isZ
 
     // X Axis Labels
     ctx.textAlign = "center";
-    for (let i = 0; i <= 5; i++) {
-      const vol = minVol + ((maxVol - minVol) * i) / 5;
-      const x = padLeft + (plotW / 5) * i;
+    const xTicks = width < 360 ? 2 : 5;
+    for (let i = 0; i <= xTicks; i++) {
+      const vol = minVol + ((maxVol - minVol) * i) / xTicks;
+      const x = padLeft + (plotW / xTicks) * i;
       ctx.fillText(`${(vol / 1000).toFixed(0)}k`, x, height - padBottom + 18);
     }
-    ctx.fillText(isZh ? "年晶圓投片量 (Wafers / Year)" : "Annual Wafer Volume (Wafers / Year)", padLeft + plotW / 2, height - 12);
+    axisLines.forEach((line, index) => ctx.fillText(line, width / 2, padTop + plotH + 36 + index * 14));
 
     // Plot each technology
     envmList.forEach((tech) => {
@@ -378,41 +421,16 @@ export function drawWaferCostTcoCanvas(canvas, results, mode = "tco_volume", isZ
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    // Tooltip Callout
-    ctx.fillStyle = isDark ? "rgba(15,23,42,0.9)" : "rgba(255,255,255,0.9)";
-    ctx.strokeStyle = "#38bdf8";
-    ctx.lineWidth = 1;
-    ctx.strokeRect(curX - 60, curY - 38, 120, 26);
-    ctx.fillRect(curX - 60, curY - 38, 120, 26);
-    ctx.fillStyle = isDark ? "#f1f5f9" : "#0f172a";
-    ctx.font = "bold 11px system-ui, sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText(`${(results.annualWaferVolume / 1000).toFixed(1)}k → $${curTcoM.toFixed(1)}M`, curX, curY - 21);
+    drawCallout(`${(results.annualWaferVolume / 1000).toFixed(1)}k → ${curTcoM.toFixed(1)}M`, curX, curY, 120);
 
-    // Legend
-    let legX = padLeft + 15;
-    const legY = height - padBottom - 15;
-    envmList.forEach((tech) => {
-      ctx.fillStyle = tech.color;
-      ctx.fillRect(legX, legY - 8, 10, 10);
-      ctx.fillStyle = isDark ? "#cbd5e1" : "#475569";
-      ctx.font = "10px system-ui, sans-serif";
-      ctx.textAlign = "left";
-      ctx.fillText(isZh ? tech.labelZh : tech.labelEn, legX + 14, legY);
-      legX += (isZh ? 140 : 120);
-    });
+    drawLegend();
   } else {
     // Mode: yield_die_cost (Die Area Sweep: 2 to 60 mm^2)
     const minArea = 2.0;
     const maxArea = 60.0;
     const areaSteps = 30;
 
-    const envmList = [
-      { id: "antifuse_logic", color: "#10b981", labelZh: "純邏輯 AntiFuse (D0 零增加)", labelEn: "AntiFuse (Zero Defect Adder)" },
-      { id: "beol_reram", color: "#06b6d4", labelZh: "BEOL ReRAM (+0.022 D0)", labelEn: "ReRAM (+0.022 D0)" },
-      { id: "beol_emram", color: "#f59e0b", labelZh: "BEOL eMRAM (+0.018 D0)", labelEn: "eMRAM (+0.018 D0)" },
-      { id: "eflash_split_gate", color: "#ef4444", labelZh: "Split-Gate eFlash (+0.035 D0)", labelEn: "eFlash (+0.035 D0)" },
-    ];
+
 
     let maxDieCost = 15;
     envmList.forEach((tech) => {
@@ -438,12 +456,13 @@ export function drawWaferCostTcoCanvas(canvas, results, mode = "tco_volume", isZ
 
     // X Axis
     ctx.textAlign = "center";
-    for (let i = 0; i <= 5; i++) {
-      const area = minArea + ((maxArea - minArea) * i) / 5;
-      const x = padLeft + (plotW / 5) * i;
+    const xTicks = width < 360 ? 2 : 5;
+    for (let i = 0; i <= xTicks; i++) {
+      const area = minArea + ((maxArea - minArea) * i) / xTicks;
+      const x = padLeft + (plotW / xTicks) * i;
       ctx.fillText(`${area.toFixed(0)} mm²`, x, height - padBottom + 18);
     }
-    ctx.fillText(isZh ? "晶粒面積 Die Area (mm²)" : "Die Area (mm²)", padLeft + plotW / 2, height - 12);
+    axisLines.forEach((line, index) => ctx.fillText(line, width / 2, padTop + plotH + 36 + index * 14));
 
     // Curves
     envmList.forEach((tech) => {
@@ -482,29 +501,9 @@ export function drawWaferCostTcoCanvas(canvas, results, mode = "tco_volume", isZ
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    // Callout
-    ctx.fillStyle = isDark ? "rgba(15,23,42,0.9)" : "rgba(255,255,255,0.9)";
-    ctx.strokeStyle = "#38bdf8";
-    ctx.lineWidth = 1;
-    ctx.strokeRect(curX - 55, curY - 38, 110, 26);
-    ctx.fillRect(curX - 55, curY - 38, 110, 26);
-    ctx.fillStyle = isDark ? "#f1f5f9" : "#0f172a";
-    ctx.font = "bold 11px system-ui, sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText(`${results.dieAreaMm2.toFixed(1)}mm² → $${curCost.toFixed(2)}`, curX, curY - 21);
+    drawCallout(`${results.dieAreaMm2.toFixed(1)}mm² → ${curCost.toFixed(2)}`, curX, curY, 110);
 
-    // Legend
-    let legX = padLeft + 15;
-    const legY = height - padBottom - 15;
-    envmList.forEach((tech) => {
-      ctx.fillStyle = tech.color;
-      ctx.fillRect(legX, legY - 8, 10, 10);
-      ctx.fillStyle = isDark ? "#cbd5e1" : "#475569";
-      ctx.font = "10px system-ui, sans-serif";
-      ctx.textAlign = "left";
-      ctx.fillText(isZh ? tech.labelZh : tech.labelEn, legX + 14, legY);
-      legX += (isZh ? 140 : 120);
-    });
+    drawLegend();
   }
 
   ctx.restore();
@@ -526,7 +525,7 @@ export function initWaferCostTcoCalculator(containerId = "wafer-tco-calculator-r
   let currentChartMode = "tco_volume";
 
   function getLang() {
-    return document.documentElement.getAttribute("data-lang") === "zh" || document.documentElement.lang === "zh-TW";
+    return window.HubLanguage?.get() === "zh" || document.documentElement.lang.startsWith("zh");
   }
 
   function renderSkeleton() {

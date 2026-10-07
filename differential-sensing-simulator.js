@@ -1,9 +1,8 @@
 /**
  * differential-sensing-simulator.js — Complementary Twin-Cell Sensing Margin & DPA Attenuation Simulator
  *
- * First-principles mathematical modeling of Single-Ended vs Pseudo-Differential vs True Twin-Cell
- * complementary sensing physics, common-mode noise rejection (CMRR), bitline voltage margins,
- * and first-order Differential Power Analysis (DPA) side-channel trace attenuation.
+ * 教學示意：沿用感測電壓公式與預設架構係數，比較單端、虛擬差動與互補成對感測。
+ * CMRR、衰減與曲線指標未以實測資料校準，不能預測金鑰還原或認證結果。
  *
  * Mathematical Foundations:
  * 1. Single-Ended Current Delta: Delta_I_SE = |I_cell - I_ref|
@@ -11,10 +10,10 @@
  * 3. Sensing Voltage Development: Delta_V_sense = (Delta_I_sense * t_sense) / C_bitline
  * 4. Common-Mode Rejection: CMRR_dB = 20 * log10(Delta_V_diff / Delta_V_cm_noise)
  * 5. First-Order DPA Current Signature: I_data_dependent = |I_total(bit=1) - I_total(bit=0)|
- * 6. Minimum Traces to Disclose (MTD): MTD_est ~ c_0 / (Delta_I_data_dependent / I_noise_rms)^2
+ * 6. 曲線比較指標：保留既有示意係數，不代表攻擊所需的最少曲線數。
  *
  * Author: NVM Knowledge Hub Editorial Board
- * Standards: ISO/IEC 17825 (Side-Channel Security), IEEE JSSC Memory Sensing Standards
+ * 邊界：本試算器不執行 ISO/IEC 17825 的非侵入式攻擊測試。
  */
 
 'use strict';
@@ -28,6 +27,7 @@ export const DIFF_SENSING_PRESETS = Object.freeze({
     iprog: 22.0, // microAmperes (filament conduction)
     tempC: 150, // Junction temp
     ileakBaseNa: 45.0, // nanoAmperes at 150°C
+    leakageReferenceTempC: 150,
     cellMismatchPct: 7.5, // 3-sigma transistor mismatch
     cmNoiseMv: 45.0, // Power distribution network common-mode ripple (mV)
     cBitlineFf: 45.0, // femtoFarads
@@ -43,6 +43,7 @@ export const DIFF_SENSING_PRESETS = Object.freeze({
     iprog: 26.0,
     tempC: 25,
     ileakBaseNa: 0.2, // sub-nA at room temp
+    leakageReferenceTempC: 25,
     cellMismatchPct: 5.0,
     cmNoiseMv: 25.0,
     cBitlineFf: 50.0,
@@ -58,6 +59,7 @@ export const DIFF_SENSING_PRESETS = Object.freeze({
     iprog: 32.0,
     tempC: 85,
     ileakBaseNa: 3.5,
+    leakageReferenceTempC: 85,
     cellMismatchPct: 6.0,
     cmNoiseMv: 30.0,
     cBitlineFf: 60.0,
@@ -73,6 +75,7 @@ export const DIFF_SENSING_PRESETS = Object.freeze({
     iprog: 55.0,
     tempC: 175,
     ileakBaseNa: 380.0, // High junction leakage
+    leakageReferenceTempC: 175,
     cellMismatchPct: 11.0,
     cmNoiseMv: 85.0,
     cBitlineFf: 90.0,
@@ -91,7 +94,7 @@ export const SENSING_ARCHITECTURES = Object.freeze({
     areaMultiplier: 1.0,
     cmrrBaseDb: 2.0, // Near-zero common mode rejection
     dpaLeakageRatio: 0.95, // Almost 100% data-dependent current signature
-    baseMtdTraces: 450, // ~450 traces to reveal key via DPA
+    baseMtdTraces: 450, // 教學曲線指標係數，未校準至金鑰還原實驗。
     descriptionEn: 'Lowest area cost, but maximal power-supply signature and zero common-mode noise cancellation.',
     descriptionZh: '矽面積成本最低，但供電軌一階訊跡最大且幾乎無共模雜訊抵消能力。',
   },
@@ -115,9 +118,9 @@ export const SENSING_ARCHITECTURES = Object.freeze({
     areaMultiplier: 1.65, // Layout sharing reduces macro penalty to ~1.65x
     cmrrBaseDb: 38.0, // Superior common-mode rejection
     dpaLeakageRatio: 0.04, // >96% first-order DPA signal suppression
-    baseMtdTraces: 650000, // >650k traces required (exponential explosion)
-    descriptionEn: 'Optimal hardware security: First-order symmetric power profile and high-temperature noise immunity.',
-    descriptionZh: '硬體安全頂級架構：一階對稱供電特徵、抵消共模雜訊，高溫下維持極高感測裕度。',
+    baseMtdTraces: 650000, // 教學曲線指標係數，不能作為安全門檻。
+    descriptionEn: 'Illustrative first-order power symmetry and common-mode rejection; implementation requires validation.',
+    descriptionZh: '一階供電對稱性與共模抑制的教學示意；實際實作仍須驗證。',
   },
 });
 
@@ -137,13 +140,15 @@ export function calculateDifferentialSensing(inputs = {}) {
   const tsenseNs = Math.max(0.5, parseFloat(inputs.tsenseNs) || preset.tsenseNs);
   const cBitlineFf = Math.max(10.0, parseFloat(inputs.cBitlineFf) || preset.cBitlineFf);
 
-  // Leakage scales exponentially with temperature: I_leak(T) = I_leak_base * 2^((T - T_base) / 10)
-  const tempDelta = Math.max(0, tempC - 25);
+  // 每個預設的漏電量對應其標示溫度；1.85 倍／10°C 為既有示意係數。
+  const tempDelta = tempC - preset.leakageReferenceTempC;
   const tempLeakMultiplier = Math.pow(1.85, tempDelta / 10);
   const ileakUa = (preset.ileakBaseNa * tempLeakMultiplier) / 1000;
 
   // Iref is placed halfway between Iprog and Ileak for single-ended:
   const irefUa = (iprogUa + ileakUa) / 2;
+  const modelValid = ileakUa < iprogUa;
+  const availableSenseUa = Math.max(0, iprogUa - ileakUa);
 
   let deltaIsenseUa = 0;
   let firstOrderDeltaI = 0;
@@ -153,22 +158,22 @@ export function calculateDifferentialSensing(inputs = {}) {
 
   if (arch.id === 'single_ended') {
     // Single-Ended: signal is |I_cell - I_ref|
-    deltaIsenseUa = Math.max(0.1, (iprogUa - ileakUa) / 2);
+    deltaIsenseUa = availableSenseUa / 2;
     // Data dependent current between reading 1 and 0:
     firstOrderDeltaI = Math.abs(iprogUa - ileakUa);
     cmrrDb = Math.max(0, arch.cmrrBaseDb - (cmNoiseMv / 20));
     dpaAttenDb = 0; // Reference 0 dB
     mtdTraces = Math.round(arch.baseMtdTraces * (25 / Math.max(10, cmNoiseMv)));
   } else if (arch.id === 'pseudo_diff') {
-    deltaIsenseUa = Math.max(0.1, (iprogUa - ileakUa) * 0.7);
-    firstOrderDeltaI = (iprogUa - ileakUa) * arch.dpaLeakageRatio;
+    deltaIsenseUa = availableSenseUa * 0.7;
+    firstOrderDeltaI = Math.abs(iprogUa - ileakUa) * arch.dpaLeakageRatio;
     cmrrDb = arch.cmrrBaseDb + (vdd > 1.0 ? 2 : 0);
     dpaAttenDb = -12.5;
     mtdTraces = Math.round(arch.baseMtdTraces * (25 / Math.max(10, cmNoiseMv)));
   } else {
     // True Twin-Cell Complementary:
     // Signal is (I_prog - I_leak) directly between two differential nodes:
-    deltaIsenseUa = Math.max(0.1, iprogUa - ileakUa);
+    deltaIsenseUa = availableSenseUa;
     // Data dependent current delta is limited strictly to physical mismatch:
     const mismatchFactor = (preset.cellMismatchPct / 100);
     firstOrderDeltaI = iprogUa * mismatchFactor * arch.dpaLeakageRatio;
@@ -188,6 +193,8 @@ export function calculateDifferentialSensing(inputs = {}) {
   return {
     preset,
     arch,
+    modelValid,
+    leakageReferenceTempC: preset.leakageReferenceTempC,
     vdd,
     tempC,
     iprogUa: parseFloat(iprogUa.toFixed(1)),
@@ -262,17 +269,17 @@ export function initDifferentialSensingSimulator(rootSelector = '#differential-s
     if (dpaDeltaEl) dpaDeltaEl.textContent = `${res.firstOrderDeltaI} µA`;
     if (dpaAttenBadge) {
       dpaAttenBadge.textContent = T(
-        `${res.dpaAttenDb} dB DPA Attenuation`,
-        `${res.dpaAttenDb} dB 側信道衰減`
+        `${res.dpaAttenDb} dB Assumed Attenuation`,
+        `${res.dpaAttenDb} dB 假設衰減`
       );
       dpaAttenBadge.style.background = res.dpaAttenDb <= -20 ? '#dcfce7' : res.dpaAttenDb <= -10 ? '#e0f2fe' : '#fee2e2';
       dpaAttenBadge.style.color = res.dpaAttenDb <= -20 ? '#166534' : res.dpaAttenDb <= -10 ? '#0369a1' : '#991b1b';
     }
     if (mtdEl) {
-      mtdEl.textContent = res.mtdTraces >= 100000 ? `${(res.mtdTraces / 1000).toFixed(0)}k Traces` : `${res.mtdTraces} Traces`;
-      mtdEl.style.color = res.mtdTraces >= 200000 ? '#059669' : res.mtdTraces >= 2000 ? '#0284c7' : '#dc2626';
+      mtdEl.textContent = !res.modelValid ? T('Outside Model Domain', '超出模型範圍') : `${res.mtdTraces.toLocaleString()} ${T('Illustrative Traces', '示意曲線')}`;
+      mtdEl.style.color = res.modelValid ? '#7e22ce' : '#b45309';
     }
-    if (areaEl) areaEl.textContent = `${res.areaMultiplier}× Silicon Area`;
+    if (areaEl) areaEl.textContent = `${res.areaMultiplier}× ${T('Assumed Area', '假設面積')}`;
 
     // Visual Signal Symmetry Bars
     if (barSig0 && barSig1) {
@@ -289,19 +296,11 @@ export function initDifferentialSensingSimulator(rootSelector = '#differential-s
       }
     }
 
-    // Architect Verdict
+    // 使用同一結果說明假設與定義域，不把示意曲線指標當成安全判定。
     if (verdictEl) {
       verdictEl.innerHTML = T(
-        `<strong>Sensing Physics & Side-Channel Verdict:</strong> Under ${res.tempC}°C thermal stress with ${res.cmNoiseMv} mV supply noise, the <em>${res.arch.nameEn}</em> develops a differential signal margin of <strong>${res.deltaVsenseMv} mV (${res.deltaIsenseUa} µA)</strong>. ${
-          res.arch.id === 'true_twin_cell'
-            ? `By employing true complementary twin-cell topology, reading logical '0' and '1' yields virtually symmetric aggregate current draw, suppressing first-order DPA leakage down to <strong>${res.firstOrderDeltaI} µA (${res.dpaAttenDb} dB)</strong>. An adversary attempting DPA key recovery must capture <strong>>${res.mtdTraces.toLocaleString()} power traces</strong> (an exponential barrier compared to single-ended cells), proving that physical microarchitectural symmetry provides an unforgeable hardware defense that software cryptography alone cannot deliver.`
-            : `Single-ended architectures expose an enormous <strong>${res.firstOrderDeltaI} µA</strong> data-dependent current discrepancy between '0' and '1', allowing attackers to extract cryptographic keys with only <strong>~${res.mtdTraces} power traces</strong>. For automotive Grade 0 and Common Criteria EAL6+ designs, twin-cell complementary storage is mandatory despite the ${res.areaMultiplier}× silicon area footprint.`
-        }`,
-        `<strong>感測物理與側信道防禦結論：</strong> 在 ${res.tempC}°C 高溫熱應力與 ${res.cmNoiseMv} mV 供電雜訊下，<em>${res.arch.nameZh}</em> 產生 <strong>${res.deltaVsenseMv} mV (${res.deltaIsenseUa} µA)</strong> 的差分感測信號窗。${
-          res.arch.id === 'true_twin_cell'
-            ? `藉由真互補成對（True Twin-Cell）實體拓撲，讀取邏輯 '0' 與 '1' 時兩側單元一開一關，總體供電電流包絡高度對稱，將一階 DPA 側信道洩漏壓縮至僅 <strong>${res.firstOrderDeltaI} µA (${res.dpaAttenDb} dB 衰減)</strong>。攻擊者需採集超過 <strong>${res.mtdTraces.toLocaleString()} 條功耗訊跡</strong> 方能還原金鑰（相較單端暴增千倍以上），證明微觀位元胞的實體物理對稱性是純軟體演算法無法替代的硬體防禦基石。`
-            : `單端感測在讀 0 與讀 1 之間暴露出巨大的 <strong>${res.firstOrderDeltaI} µA</strong> 數據相依電流落差，使側信道攻擊者僅需 <strong>~${res.mtdTraces} 條功耗曲線</strong> 即可完成差分功耗分析（DPA）金鑰還原。在車規 Grade 0 與金融級 Common Criteria EAL6+ 等高安全應用中，真互補差動單元是不可或缺的物理防禦架構，其 ${res.areaMultiplier}× 面積開銷完全具備實體經濟合理性。`
-        }`
+        `<strong>Illustrative Sensing Comparison:</strong> At ${res.tempC}°C and ${res.cmNoiseMv} mV supply noise, <em>${res.arch.nameEn}</em> produces <strong>${res.deltaVsenseMv} mV (${res.deltaIsenseUa} µA)</strong> under the model assumptions. Leakage is <strong>${res.ileakUa} µA</strong>, referenced to ${res.leakageReferenceTempC}°C. ${res.modelValid ? `The illustrative current discrepancy is ${res.firstOrderDeltaI} µA; CMRR, attenuation, area and trace index use uncalibrated architecture coefficients.` : `<strong>Leakage equals or exceeds programmed-cell current. The assumed read polarity is no longer valid; the sensing margin is shown as zero and the trace index is unavailable.</strong>`} This does not predict key recovery, establish ISO/IEC 17825 or Common Criteria conformance, or prescribe a mandatory bitcell topology. Validate the complete implementation, leakage measurements and attack setup.`,
+        `<strong>感測示意比較：</strong> 在 ${res.tempC}°C 與 ${res.cmNoiseMv} mV 供電雜訊下，<em>${res.arch.nameZh}</em> 依本模型假設產生 <strong>${res.deltaVsenseMv} mV (${res.deltaIsenseUa} µA)</strong>。漏電為 <strong>${res.ileakUa} µA</strong>，基準溫度為 ${res.leakageReferenceTempC}°C。${res.modelValid ? `示意電流差為 ${res.firstOrderDeltaI} µA；共模抑制、衰減、面積與曲線指標使用尚未校準的架構係數。` : `<strong>漏電已達到或超過已編程單元電流，原讀取極性假設失效；感測裕度顯示為零，曲線指標不適用。</strong>`} 本結果不能預測金鑰還原、證明 ISO/IEC 17825 或 Common Criteria 符合性，也不能推導特定單元拓撲為認證必備條件；須以完整實作、漏電量測與攻擊條件驗證。`
       );
     }
   }

@@ -6,10 +6,10 @@ document.querySelectorAll('.storage-explorer').forEach(root => {
  if(new URLSearchParams(location.search).get('motion')==='static')return;
  const modes=[...root.querySelectorAll('[data-storage-mode]')], panels=[...root.querySelectorAll('[data-storage-panel]')];
  const controls=root.querySelector('.storage-playback'), play=root.querySelector('[data-storage-play]'), status=root.querySelector('[data-storage-status]');
- const shareStatus=root.querySelector('[data-storage-share-status]'), shareUrl=root.querySelector('[data-storage-share-url]');
+ const share=root.querySelector('[data-storage-share]'), shareStatus=root.querySelector('[data-storage-share-status]'), shareUrl=root.querySelector('[data-storage-share-url]');
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const phases=[['儲存差異','Stored difference'],['寫入刺激','Write stimulus'],['感測差異','Sensed difference']];
- let mode=modes[0].dataset.storageMode, step=0, timer=null;
+ let mode=modes[0].dataset.storageMode, step=0, timer=null, shareRequest=0, sharing=false;
  const zh=()=>window.HubLanguage?.get()==='zh';
  function readState(){
   const params=new URLSearchParams(location.search), candidate=params.get('storage'), value=params.get('storage-step');
@@ -20,7 +20,11 @@ document.querySelectorAll('.storage-explorer').forEach(root => {
   const url=new URL(location.href);url.searchParams.set('storage',mode);url.searchParams.set('storage-step',String(step));
   // 保留其他控制器與閱讀位置的 history.state。
   history.replaceState(history.state,'',url);
-  shareStatus.textContent='';shareUrl.hidden=true;
+  invalidateShare();
+ }
+ function invalidateShare(){
+  shareRequest++;sharing=false;share.disabled=false;share.setAttribute('aria-busy','false');
+  shareStatus.textContent='';shareUrl.hidden=true;shareUrl.value='';
  }
  function stop(){clearTimeout(timer);timer=null;render();}
  function render(){
@@ -33,6 +37,7 @@ document.querySelectorAll('.storage-explorer').forEach(root => {
   root.querySelector('[data-storage-prev]').disabled=step===0;
   root.querySelector('[data-storage-next]').disabled=step===2;
   status.textContent=`${step+1} / 3 · ${phases[step][zh()?0:1]}`;
+  share.disabled=sharing;share.setAttribute('aria-busy',String(sharing));
  }
  function advance(){if(step===2){stop();return;}step++;writeState();timer=step===2?null:setTimeout(advance,1200);render();}
  function choose(nextMode,nextStep){mode=nextMode;step=nextStep;writeState();stop();}
@@ -44,15 +49,19 @@ document.querySelectorAll('.storage-explorer').forEach(root => {
  root.querySelector('[data-storage-prev]').addEventListener('click',()=>choose(mode,Math.max(0,step-1)));
  root.querySelector('[data-storage-next]').addEventListener('click',()=>choose(mode,Math.min(2,step+1)));
  root.querySelector('[data-storage-reset]').addEventListener('click',()=>choose(mode,0));
- root.querySelector('[data-storage-share]').addEventListener('click',async()=>{
+ share.addEventListener('click',async()=>{
+  if(sharing)return;
   stop();const url=new URL(location.href);url.searchParams.set('storage',mode);url.searchParams.set('storage-step',String(step));if(!url.hash)url.hash='storage-explorer';
-  shareUrl.value=url.href;
-  try{await navigator.clipboard.writeText(url.href);shareStatus.textContent=zh()?'導讀連結已複製':'Guide link copied';shareUrl.hidden=true;}
-  catch{shareStatus.textContent=zh()?'請從下方欄位手動複製連結':'Copy the link manually from the field below';shareUrl.hidden=false;shareUrl.focus();shareUrl.select();}
+  const request=++shareRequest;sharing=true;render();shareUrl.value=url.href;shareUrl.hidden=true;
+  shareStatus.textContent=zh()?'正在複製導讀連結…':'Copying the guide link…';
+  // 完成順序不代表目前操作；只讓仍有效的最新請求更新訊息、連結與焦點。
+  try{await navigator.clipboard.writeText(url.href);if(request!==shareRequest)return;shareStatus.textContent=zh()?'導讀連結已複製':'Guide link copied';shareUrl.hidden=true;}
+  catch{if(request!==shareRequest)return;shareStatus.textContent=zh()?'請從下方欄位手動複製連結':'Copy the link manually from the field below';shareUrl.hidden=false;shareUrl.focus();shareUrl.select();}
+  finally{if(request===shareRequest){sharing=false;render();}}
  });
- window.addEventListener('popstate',()=>{readState();shareStatus.textContent='';shareUrl.hidden=true;stop();});
- window.addEventListener('hub:language-change',()=>{shareStatus.textContent='';render();});
- window.addEventListener('blur',stop);window.addEventListener('pagehide',stop);
+ window.addEventListener('popstate',()=>{invalidateShare();readState();stop();});
+ window.addEventListener('hub:language-change',()=>{invalidateShare();render();});
+ window.addEventListener('blur',stop);window.addEventListener('pagehide',()=>{invalidateShare();stop();});
  window.addEventListener('beforeprint',stop);
  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
  reduced.addEventListener('change',stop);
