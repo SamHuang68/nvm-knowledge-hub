@@ -39,16 +39,29 @@ window.__NVM_SEARCH_ENHANCED = true;
       count: (hits, records) => `${hits} 筆結果 · ${baseCount()} 個主題${records === null ? '' : `、${records} 筆總帳`}。↑ ↓ 選擇，Enter 開啟，Esc 關閉。`,
       empty: '找不到符合的結果，請試試技術名稱、紀錄編號或較短的關鍵字。',
       loading: ' 正在載入總帳…',
-      failed: ' 總帳載入失敗；目前僅搜尋主題。重新開啟搜尋可重試。'
+      failed: ' 總帳載入失敗；目前僅搜尋主題。可重試載入，保留目前查詢與分類。',
+      retry: '重試載入總帳', retrying: '正在重試…',
+      categories: '搜尋分類', categoryRule: '分類依既有路徑、標題與標籤判斷；同一紀錄可符合多個分類。'
     },
     en: {
       topic: 'Topic', tool: 'Tool', ledger: 'Evidence Ledger',
       count: (hits, records) => `${hits} results · ${baseCount()} topics${records === null ? '' : `, ${records} ledger records`}. ↑ ↓ select, Enter open, Esc close.`,
       empty: 'No matching results. Try a technology name, record ID, or shorter keyword.',
       loading: ' Loading the evidence ledger…',
-      failed: ' The ledger could not be loaded; topic search remains available. Reopen search to retry.'
+      failed: ' The ledger could not be loaded; topic search remains available. Retry without changing the query or category.',
+      retry: 'Retry ledger loading', retrying: 'Retrying…',
+      categories: 'Search categories', categoryRule: 'Categories use existing routes, titles and tags; a record can belong to more than one category.'
     }
   };
+  // 分類只判讀既有紀錄，不另建索引；路徑確認主題，標題與標籤補足總帳紀錄。
+  const categories = [
+    {id:'all', zh:'全部', en:'All', hintZh:'顯示所有分類，保留關鍵字。', hintEn:'Show every category and keep the query.', matches:() => true},
+    {id:'physics', zh:'物理模型', en:'Physics', hintZh:'儲存物理路徑、位元胞主題，以及物理機制與可靠度標籤。', hintEn:'Device-physics routes, bitcell topics, and mechanism or reliability tags.', matches:(item, route, text) => /memory-physics\.html$/.test(route.pathname) || /nvm-technology-atlas\.html$/.test(route.pathname) && /^#(?:nvm-physics-overview|topic-|ip-)/.test(route.hash) || /\b(?:physics|bitcell|tunneling|fowler|breakdown|weibull|sense amplifier|reliability)\b|穿隧|擊穿|位元胞|可靠度/u.test(text)},
+    {id:'foundry', zh:'晶圓廠路線', en:'Foundry', hintZh:'晶圓廠路線錨點、製程路線標題，以及總帳的晶圓廠標籤。', hintEn:'Foundry-route anchors, process-roadmap titles, and foundry tags in ledger records.', matches:(item, route) => /^#foundry-/.test(route.hash) || /foundry|process roadmap|晶圓廠|製程路線/iu.test(`${item.title_zh} ${item.title_en}`) || Boolean(item.id) && /\b(?:foundry|tsmc|umc|globalfoundries|samsung)\b|台積電/iu.test(item.tags || '')},
+    {id:'tools', zh:'工程工具', en:'Tools', hintZh:'既有估算器、比較矩陣、物理模擬頁與決策工作台，或工具標籤。', hintEn:'Existing estimators, comparison matrix, physics simulators, decision studio, or tool tags.', matches:(item, route, text) => /\/(?:sram-repair|technology-comparison|memory-physics)\.html$|\/whitepaper\/(?:index\.html)?$/.test(route.pathname) || /\b(?:calculator|estimator|simulator)\b|估算器|試算器|模擬器|決策工作台/u.test(text)},
+    {id:'security', zh:'安全與 PUF', en:'Security', hintZh:'安全架構路徑，以及 PUF、信任根、密碼與安全標籤。', hintEn:'Security routes and PUF, root-of-trust, cryptography, or security tags.', matches:(item, route, text) => /\/(?:secure-storage|oip-secure-storage|security-assurance)\.html$/.test(route.pathname) || /\b(?:puf|security|secure|cryptography|crypto|root of trust|hrot|fips|aes)\b|安全|信任根/u.test(text)},
+    {id:'sram', zh:'SRAM 修復', en:'SRAM Repair', hintZh:'修復估算器，或同時含 SRAM／HBM 與修復、BIRA、BIST、hPPR 標籤的紀錄。', hintEn:'The repair estimator, or records tagged with SRAM/HBM and repair, BIRA, BIST, or hPPR.', matches:(item, route, text) => /sram-repair\.html$/.test(route.pathname) || /\b(?:sram|hbm\d*)\b/u.test(text) && /\b(?:repair|bira|bist|hppr)\b|修復/u.test(text)}
+  ];
   const index = [];
   const seen = new Set();
   function addItem(item) {
@@ -68,7 +81,7 @@ window.__NVM_SEARCH_ENHANCED = true;
     if (document.querySelector('link[href*="global-search.css"]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = new URL('global-search.css?v=20260920-spot', ROOT).href;
+    link.href = new URL('global-search.css?v=20261008-category', ROOT).href;
     document.head.append(link);
   }
   function ensureShell() {
@@ -131,9 +144,40 @@ window.__NVM_SEARCH_ENHANCED = true;
     if (!overlay || !input || !results) return;
     // 新舊搜尋欄位 ID 相容：升級後仍接受舊版快取的 searchInput 綁定。
     if (input.id !== 'nvmHubSearchInput') input.id = 'nvmHubSearchInput';
+    // 分類與快捷鍵由同一控制器持有；舊 HUD 資產不再各自覆寫查詢。
+    let category = 'all';
+    let categoryControls = overlay.querySelector('#searchHudPills');
+    if (!categoryControls) {
+      categoryControls = document.createElement('div');
+      categoryControls.id = 'searchHudPills';
+      categoryControls.className = 'search-hud-pills';
+      overlay.querySelector('.search-input-row').after(categoryControls);
+    }
+    categoryControls.setAttribute('role', 'group');
+    categoryControls.replaceChildren(...categories.map(entry => {
+      const button = document.createElement('button');
+      button.type = 'button'; button.className = 'search-hud-pill'; button.dataset.category = entry.id;
+      return button;
+    }));
+    const categoryButtons = [...categoryControls.querySelectorAll('button')];
+    const retry = document.createElement('button');
+    retry.type = 'button'; retry.id = 'searchRetry'; retry.className = 'search-retry'; retry.hidden = true;
+    retry.setAttribute('aria-controls', 'searchResults');
+    status.after(retry);
     function syncInterfaceLabels() {
       const language = window.HubLanguage?.get() === 'zh' ? 'zh' : 'en';
+      const copy = labels[language];
       input.placeholder = input.dataset[language === 'zh' ? 'placeholderZh' : 'placeholderEn'] || '';
+      categoryControls.setAttribute('aria-label', copy.categories);
+      categoryControls.title = copy.categoryRule;
+      categoryButtons.forEach(button => {
+        const entry = categories.find(entry => entry.id === button.dataset.category);
+        button.textContent = entry[language];
+        button.title = entry[language === 'zh' ? 'hintZh' : 'hintEn'];
+        button.setAttribute('aria-pressed', String(entry.id === category));
+        button.classList.toggle('active', entry.id === category);
+      });
+      retry.textContent = loading ? copy.retrying : copy.retry;
       // 搜尋只同步自身名稱，其他元件的動態狀態由各自控制器維護。
       [overlay, trigger, ...overlay.querySelectorAll('[data-aria-zh][data-aria-en]')].forEach(element => {
         const label = element?.dataset[language === 'zh' ? 'ariaZh' : 'ariaEn'];
@@ -184,9 +228,14 @@ window.__NVM_SEARCH_ENHANCED = true;
     function resolveUrl(url) {
       return new URL(url, ROOT).href;
     }
+    function matchesCategory(item, entry) {
+      const route = new URL(item.url, ROOT);
+      return entry.matches(item, route, `${item.title_zh} ${item.title_en} ${item.tags || ''}`.normalize('NFKC').toLowerCase());
+    }
     function render() {
       const q = normalize(input.value);
-      const items = index.map(item => ({item, score:score(item,q)})).filter(hit => hit.score).sort((a,b)=>b.score-a.score);
+      const selectedCategory = categories.find(entry => entry.id === category);
+      const items = index.filter(item => matchesCategory(item, selectedCategory)).map(item => ({item, score:score(item,q)})).filter(hit => hit.score).sort((a,b)=>b.score-a.score);
       const focusedUrl = results.contains(document.activeElement) ? document.activeElement.closest('a')?.href : null;
       results.replaceChildren();
       const language = window.HubLanguage?.get() === 'zh' ? 'zh' : 'en';
@@ -210,9 +259,15 @@ window.__NVM_SEARCH_ENHANCED = true;
         const replacement = [...results.querySelectorAll('a')].find(link => link.href === focusedUrl);
         (replacement || input).focus({preventScroll:true});
       }
-      status.textContent = items.length ? copy.count(items.length, loaded ? index.length-baseCount() : null) : copy.empty;
+      status.textContent = `${category === 'all' ? '' : `${selectedCategory[language]} · `}${items.length ? copy.count(items.length, loaded ? index.length-baseCount() : null) : copy.empty}`;
       if (loading && !loaded) status.textContent += copy.loading;
       if (failed) status.textContent += copy.failed;
+      const retryHadFocus = document.activeElement === retry;
+      retry.hidden = !failed && !retry.dataset.retrying;
+      retry.disabled = Boolean(loading);
+      overlay.dataset.searchCategory = category;
+      syncInterfaceLabels();
+      if (retryHadFocus && retry.hidden) input.focus({preventScroll:true});
     }
     async function loadLedger() {
       if (loaded || loading) return loading;
@@ -262,7 +317,7 @@ window.__NVM_SEARCH_ENHANCED = true;
       document.body.style.overflow = 'hidden';
       overlay.classList.add('is-open'); overlay.setAttribute('aria-hidden','false');
       trigger?.setAttribute('aria-expanded','true');
-      input.value = ''; loadLedger(); render(); input.focus();
+      loadLedger(); render(); input.focus();
     }
     function closeSearch() {
       if (!isOpen()) return;
@@ -278,6 +333,24 @@ window.__NVM_SEARCH_ENHANCED = true;
     trigger?.addEventListener('click',openSearch); close?.addEventListener('click',closeSearch);
     overlay.addEventListener('click',event => {if (event.target === overlay) closeSearch();});
     input.addEventListener('input',render);
+    categoryControls.addEventListener('click', event => {
+      const button = event.target.closest('button[data-category]');
+      if (!button || !categoryControls.contains(button)) return;
+      category = button.dataset.category;
+      render();
+    });
+    retry.addEventListener('click', async () => {
+      const retryHadFocus = document.activeElement === retry;
+      retry.dataset.retrying = 'true';
+      const attempt = loadLedger();
+      render();
+      await attempt;
+      // 原生 disabled 會移開按鈕焦點；只有使用者未移往其他控制項時才復原。
+      const restoreRetryFocus = retryHadFocus && (document.activeElement === retry || [document.body, document.documentElement].includes(document.activeElement));
+      delete retry.dataset.retrying;
+      render();
+      if (restoreRetryFocus) (retry.hidden ? input : retry).focus({preventScroll:true});
+    });
     results.addEventListener('click',event => {
       const link = event.target.closest('a');
       if (!link) return;
@@ -306,7 +379,7 @@ window.__NVM_SEARCH_ENHANCED = true;
       if (!isOpen()) return;
       if (event.key === 'Escape') {event.preventDefault(); closeSearch(); return;}
       const links = [...results.querySelectorAll('a')];
-      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      if ((event.key === 'ArrowDown' || event.key === 'ArrowUp') && (document.activeElement === input || results.contains(document.activeElement))) {
         event.preventDefault();
         if (!links.length) return;
         const current = links.indexOf(document.activeElement);
@@ -315,7 +388,8 @@ window.__NVM_SEARCH_ENHANCED = true;
       }
       if (event.key === 'Enter' && document.activeElement === input && links.length) {event.preventDefault(); links[0].click();}
       if (event.key === 'Tab') {
-        const focusable = [input, close, ...links].filter(Boolean);
+        // 依實際 DOM 順序納入分類與重試，並排除隱藏或不可用的控制項。
+        const focusable = [...overlay.querySelectorAll('input, button, a[href]')].filter(element => !element.disabled && !element.hidden && element.getClientRects().length && getComputedStyle(element).visibility !== 'hidden');
         const current = focusable.indexOf(document.activeElement);
         if (event.shiftKey && current <= 0) {event.preventDefault(); focusable.at(-1).focus();}
         else if (!event.shiftKey && current === focusable.length-1) {event.preventDefault(); input.focus();}

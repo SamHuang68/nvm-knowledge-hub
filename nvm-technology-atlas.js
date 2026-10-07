@@ -17,8 +17,43 @@ document.addEventListener('keydown', event => {
 });
 document.addEventListener('pointerdown', () => document.documentElement.classList.remove('nvm-keyboard-navigation'));
 const pageHeader = document.querySelector('.nvm-header');
-const measureHeader = () => document.documentElement.style.setProperty('--nvm-anchor-top', `${(pageHeader?.getBoundingClientRect().height || 76) + 24}px`);
+// 章節位置與前後章由既有側欄／panel 契約產生，沒有第二份目錄。
+const chapterNav = document.createElement('nav');
+chapterNav.className = 'nvm-reading-position';
+const chapterSelect = document.createElement('select');
+chapterSelect.id = 'nvm-current-chapter';
+const chapterLabel = document.createElement('label');
+chapterLabel.htmlFor = chapterSelect.id;
+const chapterPrevious = document.createElement('button');
+const chapterNext = document.createElement('button');
+chapterPrevious.type = chapterNext.type = 'button';
+chapterPrevious.textContent = '←'; chapterNext.textContent = '→';
+chapterPrevious.dataset.chapterPrevious = ''; chapterNext.dataset.chapterNext = '';
+const chapterLinks = panels.map(panel => [...contents.querySelectorAll('a[href^="#"]')].find(link => link.hash === `#${panel.id}`));
+panels.forEach((panel,index) => { const option = document.createElement('option'); option.value = panel.id; option.textContent = chapterLinks[index]?.textContent.trim() || panel.querySelector('h2')?.textContent.trim(); chapterSelect.append(option); });
+chapterNav.append(chapterLabel, chapterSelect, chapterPrevious, chapterNext);
+pageHeader?.insertAdjacentElement('afterend', chapterNav);
+function updatePosition(panel) {
+  const index = panels.indexOf(panel);
+  chapterSelect.value = panel.id;
+  chapterLabel.textContent = `${isEnglish() ? 'Chapter' : '章節'} ${index + 1}/${panels.length}`;
+  chapterNav.setAttribute('aria-label', isEnglish() ? 'Current chapter and chapter navigation' : '目前章節與前後章導覽');
+  chapterPrevious.setAttribute('aria-label', isEnglish() ? 'Previous chapter' : '上一章');
+  chapterNext.setAttribute('aria-label', isEnglish() ? 'Next chapter' : '下一章');
+  chapterPrevious.disabled = index <= 0; chapterNext.disabled = index >= panels.length - 1;
+}
+chapterSelect.addEventListener('change', () => { location.hash = chapterSelect.value; });
+function goChapter(offset) { const index = panels.findIndex(panel => !panel.hidden); const panel = panels[index + offset]; if (panel) location.hash = panel.id; }
+chapterPrevious.addEventListener('click', () => goChapter(-1));
+chapterNext.addEventListener('click', () => goChapter(1));
+window.addEventListener('hub:language-change', () => { const active = panels.find(panel => !panel.hidden); if (active) updatePosition(active); });
+const measureHeader = () => {
+  const height = pageHeader?.getBoundingClientRect().height || 76;
+  document.documentElement.style.setProperty('--nvm-header-height', `${height}px`);
+  document.documentElement.style.setProperty('--nvm-anchor-top', `${height + chapterNav.getBoundingClientRect().height + 24}px`);
+};
 if (pageHeader) new ResizeObserver(measureHeader).observe(pageHeader);
+new ResizeObserver(measureHeader).observe(chapterNav);
 measureHeader();
 
 function showRoute({ focus = false } = {}) {
@@ -75,6 +110,7 @@ function showRoute({ focus = false } = {}) {
     else link.removeAttribute('aria-current');
   });
   updatePanelTitle(next);
+  updatePosition(next);
   contents.classList.remove('open');
   contentsButton.setAttribute('aria-expanded', 'false');
   for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;

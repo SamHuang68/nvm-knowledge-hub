@@ -1,9 +1,27 @@
 {
   "schemaVersion": "1.0",
   "policyId": "PUBLIC-NVM-WEB-2026-08-29",
-  "allowedClassifications": ["Public"],
-  "blockedClassifications": ["Internal", "NDA", "Confidential", "Restricted"],
-  "blockedAttachmentExtensions": [".pdf", ".ppt", ".pptx", ".doc", ".docx", ".xls", ".xlsx", ".zip", ".7z", ".rar"],
+  "allowedClassifications": [
+    "Public"
+  ],
+  "blockedClassifications": [
+    "Internal",
+    "NDA",
+    "Confidential",
+    "Restricted"
+  ],
+  "blockedAttachmentExtensions": [
+    ".pdf",
+    ".ppt",
+    ".pptx",
+    ".doc",
+    ".docx",
+    ".xls",
+    ".xlsx",
+    ".zip",
+    ".7z",
+    ".rar"
+  ],
   "allowedAttachmentExceptions": [
     "briefing/NVM_AI_OCP_NVM_Opportunities_Executive_v18_Comprehensive_Update_EN.pptx",
     "briefing/NVM_AI_OCP_NVM_Opportunities_Executive_v19_EN.pptx"
@@ -22,9 +40,65 @@
       "basis": "保留本次工作之前已在公開主站提供、且位元組完全相同的既有簡報；本次不新增或修改附件。"
     }
   ],
-  "rawPublicDataRoots": ["data"],
+  "rawPublicDataRoots": [
+    "data"
+  ],
   "requiredPovContractId": "POV-NVM-WEB-2026-08-29",
   "releaseApprover": "Sam Huang",
   "declassificationAuthority": "Sam Huang",
-  "failMode": "closed"
+  "failMode": "closed",
+  "localizedSourcePathExceptions": [
+    {
+      "path": "docs/模型與證據修正紀錄-20261008.md",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    },
+    {
+      "path": "scripts/儲存狀態圖解.mjs",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    },
+    {
+      "path": "scripts/圖面基線探測.mjs",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    },
+    {
+      "path": "scripts/操作圖步進驗證.mjs",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    },
+    {
+      "path": "scripts/驗證圖解與章節導覽.mjs",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    },
+    {
+      "path": "scripts/驗證搜尋分類與焦點.mjs",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    },
+    {
+      "path": "scripts/驗證模型動畫生命週期.mjs",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    },
+    {
+      "path": "儲存狀態導讀.css",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    },
+    {
+      "path": "儲存狀態導讀.js",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    },
+    {
+      "path": "操作圖步進演示.js",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    },
+    {
+      "path": "生命週期圖解.css",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    },
+    {
+      "path": "章節閱讀導覽.css",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    },
+    {
+      "path": "docs/網站分階段優化紀錄-20261008.md",
+      "basis": "2026-10-08 任務的 AGENTS.md 明示新檔名使用臺灣繁體中文；只核准此確切來源路徑，不放寬附件、分類或公開內容限制。"
+    }
+  ]
 }

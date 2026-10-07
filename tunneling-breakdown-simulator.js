@@ -53,10 +53,47 @@ class TunnelingSimulator {
     // State parameters
     this.tox = parseFloat(this.toxSlider?.value || 2.2); // nm
     this.vox = parseFloat(this.voxSlider?.value || 3.5); // V
+    this.motionPreference = window.matchMedia?.('(prefers-reduced-motion: reduce)');
 
     this.bindEvents();
+    this.bindAnimationLifecycle();
     this.initCanvasResolution();
     this.update();
+  }
+
+  // 轉場只在畫布可見時執行；離開畫面或偏好改變時保留正確的靜態終值。
+  canAnimate() {
+    const rect = this.canvas.getBoundingClientRect();
+    return !document.hidden && !this.motionPreference?.matches && rect.width > 0 && rect.height > 0 &&
+      rect.bottom > 0 && rect.top < window.innerHeight && rect.right > 0 && rect.left < window.innerWidth;
+  }
+
+  settleAnimation() {
+    if (this.animFrameId) cancelAnimationFrame(this.animFrameId);
+    this.animFrameId = null;
+    const target = this.animationTarget;
+    this.animationTarget = null;
+    if (!target) return;
+    this.tox = target.tox;
+    this.vox = target.vox;
+    if (this.toxSlider) this.toxSlider.value = this.tox;
+    if (this.voxSlider) this.voxSlider.value = this.vox;
+    this.update();
+  }
+
+  bindAnimationLifecycle() {
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) this.settleAnimation();
+    });
+    this.motionPreference?.addEventListener('change', () => {
+      if (this.motionPreference.matches) this.settleAnimation();
+    });
+    if (typeof IntersectionObserver !== 'undefined') {
+      this.viewportObserver = new IntersectionObserver(() => {
+        if (!this.canAnimate()) this.settleAnimation();
+      });
+      this.viewportObserver.observe(this.canvas);
+    }
   }
 
   /**
@@ -108,6 +145,7 @@ class TunnelingSimulator {
       cancelAnimationFrame(this.animFrameId);
       this.animFrameId = null;
     }
+    this.animationTarget = null;
     this.presetButtons.forEach((b) => b.classList.remove('active'));
   }
 
@@ -124,13 +162,9 @@ class TunnelingSimulator {
       this.animFrameId = null;
     }
 
-    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
-    if (prefersReducedMotion) {
-      this.tox = targetTox;
-      this.vox = targetVox;
-      if (this.toxSlider) this.toxSlider.value = this.tox;
-      if (this.voxSlider) this.voxSlider.value = this.vox;
-      this.update();
+    this.animationTarget = {tox:targetTox, vox:targetVox};
+    if (!this.canAnimate()) {
+      this.settleAnimation();
       return;
     }
 
@@ -139,6 +173,10 @@ class TunnelingSimulator {
     const startTime = performance.now();
 
     const step = (now) => {
+      if (!this.canAnimate()) {
+        this.settleAnimation();
+        return;
+      }
       const elapsed = now - startTime;
       const progress = Math.min(1, elapsed / duration);
       // Ease-out cubic: 1 - (1 - t)^3
@@ -155,6 +193,7 @@ class TunnelingSimulator {
         this.animFrameId = requestAnimationFrame(step);
       } else {
         this.animFrameId = null;
+        this.animationTarget = null;
       }
     };
 

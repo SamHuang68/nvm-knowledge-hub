@@ -248,8 +248,8 @@ html body.hub-literature-paper .oip-image-band figcaption {
 /* ============================================================
    All Diagram Text, Labels, and Captions High-Contrast Protection
    ============================================================ */
-html body.hub-literature-paper svg text,
-html body.hub-literature-paper svg tspan {
+html body.hub-literature-paper svg:not(:is(.bc-illustration, [data-topic], [data-engineering-palette], .nvm-op-drawing svg, .nvm-ip-structure-drawing svg)) text,
+html body.hub-literature-paper svg:not(:is(.bc-illustration, [data-topic], [data-engineering-palette], .nvm-op-drawing svg, .nvm-ip-structure-drawing svg)) tspan {
   fill: #0f172a !important;
 }
 html body.hub-literature-paper svg text.bc-ion,

@@ -1,4 +1,5 @@
 import {ensureDiagrams} from './atlas-diagram-loader.js';
+import {cloneDiagram, exportDiagram, enhanceEngineeringViews} from './操作圖步進演示.js';
 const isEnglish = () => (window.HubLanguage?.get() || document.documentElement.lang) === 'en';
 const say = (zh, en) => isEnglish() ? en : zh;
 const dialog=document.createElement('dialog');
@@ -30,20 +31,6 @@ const syncDialogLabels = () => {
   dialog.querySelector('.nvm-engineering-zoom-scroll')?.setAttribute('aria-label', say('可捲動的放大圖', 'Scrollable Enlarged Figure'));
 };
 window.addEventListener('hub:language-change', syncDialogLabels);
-const cloneDiagram=original=>{
- const svg=original.cloneNode(true),ids=new Map([svg,...svg.querySelectorAll('[id]')].filter(node=>node.id).map(node=>[node.id,`${node.id}--engineering-zoom`]));
- for(const node of [svg,...svg.querySelectorAll('*')]){
-  if(ids.has(node.id))node.id=ids.get(node.id);
-  for(const attribute of [...node.attributes]){
-   let value=attribute.value;
-   for(const [oldId,newId] of ids)value=value.replaceAll(`url(#${oldId})`,`url(#${newId})`);
-   if(['aria-labelledby','aria-describedby'].includes(attribute.name))value=value.split(' ').map(id=>ids.get(id)||id).join(' ');
-   if(value!==attribute.value)node.setAttribute(attribute.name,value);
-  }
-  if(node.tagName.toLowerCase()==='style')node.textContent=node.textContent.replace(/#([A-Za-z0-9_:.-]+)/g,(match,id)=>ids.has(id)?'#'+ids.get(id):match);
- }
- return svg;
-};
 const scaleSelect=dialog.querySelector('select');
 const updateScale=()=>{
  const scroller=dialog.querySelector('.nvm-engineering-zoom-scroll'),svg=scroller.querySelector('svg');if(!svg)return;
@@ -73,7 +60,7 @@ document.addEventListener('click',async event=>{
  if(!await ensureDiagrams(figure))return;
  const original=figure?.querySelector('svg');if(!original)return;
  if(button.hasAttribute('data-engineering-download')){
-  const clone=original.cloneNode(true);clone.setAttribute('xmlns','http://www.w3.org/2000/svg');
+  const clone=exportDiagram(original);
   const blob=new Blob(['<?xml version="1.0" encoding="UTF-8"?>\n'+new XMLSerializer().serializeToString(clone)],{type:'image/svg+xml;charset=utf-8'});
   const url=URL.createObjectURL(blob),anchor=document.createElement('a');anchor.href=url;anchor.download=`${say('操作圖','Operation')}-${figure.dataset.figureName}.svg`;anchor.hidden=true;document.body.append(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);return;
  }
@@ -87,3 +74,4 @@ document.addEventListener('click',async event=>{
  button.focus({preventScroll:true});
  dialog.showModal();dialog.querySelector('.nvm-engineering-dialog-body').scrollTop=0;scroller.scrollLeft=0;scroller.scrollTop=0;
 });
+enhanceEngineeringViews();

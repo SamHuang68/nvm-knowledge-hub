@@ -139,7 +139,7 @@ for (const language of ['zh', 'en']) {
       assert.equal(await page.locator('#nvmHubSearchInput').count(), 1);
       assert.equal(await page.locator('#searchResults a').count(), 0);
       await page.keyboard.press('Shift+Tab');
-      assert.equal(await page.locator('#searchClose').evaluate(element => element === document.activeElement), true);
+      assert.equal(await page.locator('#searchHudPills button').last().evaluate(element => element === document.activeElement), true, '空結果仍可反向到達最後分類控制');
       await page.keyboard.press('Tab');
       assert.equal(await input.evaluate(element => element === document.activeElement), true);
       await page.keyboard.press('Escape');

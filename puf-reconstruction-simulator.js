@@ -1,7 +1,7 @@
 /**
  * puf-reconstruction-simulator.js — SRAM PUF Key Reconstruction & Fuzzy Extractor Dynamic Simulator
  *
- * First-principles modeling of physical silicon mismatch, thermal drift, NBTI/PBTI aging,
+ * Illustrative modeling of silicon mismatch, thermal drift, NBTI/PBTI aging,
  * and BCH error-correction code (ECC) boundaries for hardware cryptographic root keys.
  *
  * Mathematical Foundations:
@@ -45,11 +45,17 @@ export function calculatePufReconstruction(params = {}) {
   const eccCapabilityT = typeof params.eccCapabilityT === 'number' ? params.eccCapabilityT : 12; // correctable bits
   const blockSizeN = 128; // standard BCH block size
   const keyBits = params.keyBits === 128 ? 128 : 256;
-  const numBlocksM = Math.ceil(keyBits / (blockSizeN - eccCapabilityT * 7)); // approximate info bits k
+  // k = 128 - 7t 是示意近似；保留全部輸入，明示非正碼率時無法外推。
+  const approximateInfoBits = blockSizeN - eccCapabilityT * 7;
+  if (!Number.isFinite(tempC) || !Number.isFinite(agingYears) || agingYears < 0
+      || !Number.isInteger(eccCapabilityT) || eccCapabilityT < 0 || approximateInfoBits <= 0) {
+    return { valid: false, statusGrade: 'OUTSIDE_MODEL', keyBits, approximateInfoBits };
+  }
+  const numBlocksM = Math.ceil(keyBits / approximateInfoBits);
 
   // 1. Intrinsic Physical BER Modeling
   // Base room temperature (25°C) threshold voltage mismatch flip probability
-  const p0 = 0.038; // 3.8% nominal SRAM startup flip rate
+  const p0 = 0.038; // 教學假設：室溫 BER，非產品規格
   const alphaTemp = 0.45; // thermal acceleration factor
   const pTemp = p0 * (1 + alphaTemp * ((tempC - 25) / 100));
 
@@ -72,7 +78,7 @@ export function calculatePufReconstruction(params = {}) {
   const pKeyFail = Math.max(1e-15, 1 - pKeySuccess);
 
   // 4. Min-Entropy & Helper Data Sizing
-  // Raw SRAM PUF min-entropy per bitcell: typically ~0.82 bits/cell
+  // 教學假設每個原始單元 0.82 bit 最小熵，不代表具名產品量測。
   const minEntropyPerCell = 0.82;
   const syndromeBitsPerBlock = eccCapabilityT * 7; // BCH parity bits (m=7 for n=127/128)
   const helperDataBytes = Math.ceil((syndromeBitsPerBlock * numBlocksM) / 8);
@@ -81,15 +87,18 @@ export function calculatePufReconstruction(params = {}) {
   const leakageTotal = syndromeBitsPerBlock * numBlocksM;
   const residualMinEntropy = Math.max(0, Math.round(rawEntropyTotal - leakageTotal));
 
-  // 5. Reliability Verdict
-  let statusGrade = 'SECURE';
+  // 只依試算 FER 分區，門檻不是資格認證或密碼安全判定。
+  let statusGrade = 'LOW_FER_ESTIMATE';
   if (pKeyFail > 1e-3) {
-    statusGrade = 'UNRELIABLE'; // >0.1% failure rate is unacceptable for silicon boot
+    statusGrade = 'HIGH_FER_ESTIMATE';
   } else if (pKeyFail > 1e-6) {
-    statusGrade = 'MARGINAL'; // Acceptable for consumer, but fails AEC-Q100 / aerospace
+    statusGrade = 'INTERMEDIATE_FER_ESTIMATE';
   }
 
   return {
+    valid: true,
+    keyBits,
+    approximateInfoBits,
     rawBerPct: parseFloat((rawBer * 100).toFixed(2)),
     pBlockFail,
     pKeyFail,
@@ -229,7 +238,7 @@ export function initPufReconstructionSimulator(rootSelector = '#puf-reconstructi
     ctx.fillStyle = '#dc2626';
     ctx.font = '700 11px IBM Plex Mono, monospace';
     ctx.textAlign = 'center';
-    ctx.fillText(`ECC Limit t/n = ${eccThresholdPct}%`, eccX, 12);
+    ctx.fillText(T(`Model t/n = ${eccThresholdPct}%`, `模型 t/n = ${eccThresholdPct}%`), eccX, 12);
 
     // Curve Labels
     ctx.fillStyle = '#d97706';
@@ -269,6 +278,7 @@ export function initPufReconstructionSimulator(rootSelector = '#puf-reconstructi
     if (tempVal) tempVal.textContent = `${tempC} °C`;
     if (ageVal) ageVal.textContent = T(`${agingYears} Yrs`, `${agingYears} 年`);
     if (eccVal) eccVal.textContent = `${eccCapabilityT} bits / 128b`;
+    if (eccSlider) eccSlider.setAttribute('aria-valuetext', T(`${eccCapabilityT} bits / 128b`, `${eccCapabilityT} 位元／128 位元區塊`));
 
     const res = calculatePufReconstruction({
       tempC,
@@ -277,45 +287,43 @@ export function initPufReconstructionSimulator(rootSelector = '#puf-reconstructi
       keyBits,
     });
 
-    if (berDisplay) berDisplay.textContent = `${res.rawBerPct}%`;
-    if (ferDisplay) {
-      ferDisplay.textContent = res.pKeyFailScientific;
-      ferDisplay.style.color = res.statusGrade === 'SECURE' ? '#15803d' : res.statusGrade === 'MARGINAL' ? '#b45309' : '#b91c1c';
+    if (!res.valid) {
+      [berDisplay, ferDisplay, helperDisplay, entropyDisplay].forEach(el => { if (el) el.textContent = '—'; });
+      if (gradeBadge) {
+        gradeBadge.className = 'puf-badge marginal';
+        gradeBadge.textContent = T('OUTSIDE THIS MODEL', '超出此簡化模型');
+      }
+      if (verdictElem) verdictElem.textContent = T(
+        'The illustrative information length k = 128 − 7t must be positive. This input is retained but cannot produce FER, helper-data or entropy estimates with this approximation. Use a named BCH code and measured PUF data.',
+        '此示意近似要求資訊長度 k = 128 − 7t 為正。輸入選項保留，但本近似不能輸出此條件的 FER、輔助資料或熵；須改用具名 BCH 碼與 PUF 量測資料。');
+      if (ctx && canvas) ctx.clearRect(0, 0, canvas.width, canvas.height);
+      return;
     }
-    if (helperDisplay) helperDisplay.textContent = `${res.helperDataBytes} Bytes`;
-    if (entropyDisplay) entropyDisplay.textContent = `${res.residualMinEntropy} bits`;
+
+    if (berDisplay) berDisplay.textContent = `≈ ${res.rawBerPct}%`;
+    if (ferDisplay) {
+      ferDisplay.textContent = `≈ ${res.pKeyFailScientific}`;
+      ferDisplay.style.color = res.statusGrade === 'LOW_FER_ESTIMATE' ? '#15803d' : res.statusGrade === 'INTERMEDIATE_FER_ESTIMATE' ? '#b45309' : '#b91c1c';
+    }
+    if (helperDisplay) helperDisplay.textContent = T(`≈ ${res.helperDataBytes} Bytes`, `≈ ${res.helperDataBytes} 位元組`);
+    if (entropyDisplay) entropyDisplay.textContent = T(`≈ ${res.residualMinEntropy} bits`, `≈ ${res.residualMinEntropy} 位元`);
 
     if (gradeBadge) {
-      if (res.statusGrade === 'SECURE') {
+      if (res.statusGrade === 'LOW_FER_ESTIMATE') {
         gradeBadge.className = 'puf-badge secure';
-        gradeBadge.textContent = T('ROBUST (AEC-Q100 OK)', '極度穩定 (通過車規 AEC-Q100)');
-      } else if (res.statusGrade === 'MARGINAL') {
+        gradeBadge.textContent = T('LOW FER ESTIMATE', '較低 FER 試算');
+      } else if (res.statusGrade === 'INTERMEDIATE_FER_ESTIMATE') {
         gradeBadge.className = 'puf-badge marginal';
-        gradeBadge.textContent = T('MARGINAL (Consumer Only)', '臨界邊界 (僅適合常溫消費級)');
+        gradeBadge.textContent = T('INTERMEDIATE FER ESTIMATE', '中間 FER 試算');
       } else {
         gradeBadge.className = 'puf-badge fail';
-        gradeBadge.textContent = T('RECONSTRUCTION COLLAPSE', '金鑰重建崩潰 (開機失敗率過高)');
+        gradeBadge.textContent = T('HIGH FER ESTIMATE', '較高 FER 試算');
       }
     }
 
-    if (verdictElem) {
-      if (res.statusGrade === 'SECURE') {
-        verdictElem.innerHTML = T(
-          `At <strong>${tempC}°C</strong> after <strong>${agingYears} years</strong> of aging, native BER is <strong>${res.rawBerPct}%</strong>. The BCH(${eccCapabilityT}/128) syndrome comfortably guards against threshold drift (Key Failure Rate: <strong>${res.pKeyFailScientific}</strong>), yielding <strong>${res.residualMinEntropy} bits</strong> of residual min-entropy for HKDF privacy amplification.`,
-          `在 <strong>${tempC}°C</strong> 結溫與老化 <strong>${agingYears} 年</strong> 條件下，SRAM 原生誤碼率為 <strong>${res.rawBerPct}%</strong>。BCH(${eccCapabilityT}/128) 輔助資料校驗完全包覆物理飄移（金鑰重建失敗率：<strong>${res.pKeyFailScientific}</strong>），並保留 <strong>${res.residualMinEntropy} bits</strong> 殘餘最小熵供 HKDF 隱私放大提取根金鑰。`
-        );
-      } else if (res.statusGrade === 'MARGINAL') {
-        verdictElem.innerHTML = T(
-          `<strong>Warning:</strong> Native BER has risen to <strong>${res.rawBerPct}%</strong>. Key reconstruction failure rate (<strong>${res.pKeyFailScientific}</strong>) exceeds 1 in 100,000 boot cycles. Increase BCH capability <em>t</em> or restrict high-temperature power cycles.`,
-          `<strong>警告：</strong> 原生誤碼率已升至 <strong>${res.rawBerPct}%</strong>。金鑰重建失敗率（<strong>${res.pKeyFailScientific}</strong>）已高於十萬分之一開機週期。建議提高 BCH 更正位元 <em>t</em> 或限制高溫冷開機頻率。`
-        );
-      } else {
-        verdictElem.innerHTML = T(
-          `<strong>CRITICAL FAILURE:</strong> Native BER (<strong>${res.rawBerPct}%</strong>) exceeds ECC correction capacity (<strong>${res.eccThresholdPct}%</strong>). Key reconstruction fails catastrophically (${res.pKeyFailScientific}). Root key cannot be derived upon startup.`,
-          `<strong>嚴重崩潰：</strong> 原生誤碼率 (<strong>${res.rawBerPct}%</strong>) 突破 ECC 極限容量 (<strong>${res.eccThresholdPct}%</strong>)。金鑰重建遭遇毀滅性失敗 (${res.pKeyFailScientific})，晶片冷開機將無法衍生根金鑰。`
-        );
-      }
-    }
+    if (verdictElem) verdictElem.innerHTML = T(
+      `Under the illustrative assumptions at <strong>${tempC}°C</strong> and <strong>${agingYears} years</strong>, BER is approximately <strong>${res.rawBerPct}%</strong> and key FER approximately <strong>${res.pKeyFailScientific}</strong>. The approximation k = 128 − 7t gives <strong>${res.residualMinEntropy} bits</strong> of residual min-entropy for a requested <strong>${keyBits}-bit</strong> key. A lower FER does not establish key security or qualification; HKDF cannot create additional entropy. Confirm the actual BCH code, correlated errors, measured entropy, leakage and aging on target silicon.`,
+      `在 <strong>${tempC}°C</strong>、老化 <strong>${agingYears} 年</strong> 的教學假設下，BER 約 <strong>${res.rawBerPct}%</strong>、金鑰 FER 約 <strong>${res.pKeyFailScientific}</strong>。以 k = 128 − 7t 近似得到殘餘最小熵約 <strong>${res.residualMinEntropy} 位元</strong>，要求金鑰長度為 <strong>${keyBits} 位元</strong>。較低 FER 不等於金鑰安全或資格驗證通過；HKDF 不能產生額外熵。須確認實際 BCH 碼、誤碼相關性、量測熵、洩漏與目標晶片老化。`);
 
     drawDistributions(res.rawBerPct, res.eccThresholdPct);
   }
