@@ -1533,9 +1533,16 @@
               <span data-lang="en">Automotive ASIL-D HBM4 Extreme Mission Profile, Dynamic sPPR / hPPR Scrubbing &amp; FIT Degradation Simulator</span>
             </h2>
             <p class="panel-desc">
-              <span data-lang="zh">在 L4/L5 無人自駕計程車與重型自駕商用車中，HBM4 晶粒堆疊面臨 115°C~125°C 高溫、高原高海拔大氣快中子通量與強烈熱循環應力。本模擬器結合 Coffin-Manson 焊點熱疲勞模型與 Arrhenius 軟錯誤熱加速，模擬週期性記憶體巡檢清洗（Scrubbing）與 Base Die 內建之動態 sPPR 暫存器熱修復、永久 0-Mask AntiFuse OTP hPPR 壞列硬體重映射，驗證 ISO 26262 ASIL-D（SPFM ≥ 99%, 單晶粒殘留 FIT &lt; 10）達成極限。</span>
-              <span data-lang="en">In L4/L5 Robo-Taxis and heavy commercial autonomous trucks, HBM4 3D stacks face 115°C–125°C junction temperatures, high-altitude neutron flux, and severe thermal fatigue. Combining Coffin-Manson solder fatigue with Arrhenius soft-error acceleration, this simulator models periodic scrubbing, Base Die dynamic sPPR cache, and permanent 0-Mask AntiFuse OTP hPPR row remapping, qualifying ISO 26262 ASIL-D targets (SPFM ≥ 99%, residual FIT &lt; 10).</span>
+              <span data-lang="zh">在 L4/L5 無人自駕計程車與重型自駕商用車中，HBM4 晶粒堆疊面臨 115°C~125°C 高溫、高原高海拔大氣快中子通量與強烈熱循環應力。本模擬器結合 Coffin-Manson 焊點熱疲勞模型與 Arrhenius 軟錯誤熱加速，模擬週期性記憶體巡檢清洗（Scrubbing）與 Base Die 內建之動態 sPPR 暫存器熱修復、永久 0-Mask AntiFuse OTP hPPR 壞列硬體重映射，評估達成 ISO 26262 ASIL-D 設計度量目標（SPFM ≥ 99%, 單晶粒殘留 FIT &lt; 10）之可行邊界。</span>
+              <span data-lang="en">In L4/L5 Robo-Taxis and heavy commercial autonomous trucks, HBM4 3D stacks face 115°C–125°C junction temperatures, high-altitude neutron flux, and severe thermal fatigue. Combining Coffin-Manson solder fatigue with Arrhenius soft-error acceleration, this simulator models periodic scrubbing, Base Die dynamic sPPR cache, and permanent 0-Mask AntiFuse OTP hPPR row remapping, evaluating feasibility boundaries toward ISO 26262 ASIL-D design targets (SPFM ≥ 99%, residual FIT &lt; 10).</span>
             </p>
+
+            <!-- Simulation Disclaimer Banner -->
+            <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+              <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+              <span data-lang="zh">本工作台之失效率 (FIT)、SPFM 單點故障度量與 hPPR 消耗估算為基於 JEDEC JESD89A 大氣中子數據、Arrhenius 熱活化能與 Coffin-Manson 焊點熱疲勞之數值示意模型，非第三方實體驗證之 ASIL-D 產品認證報告。ISO 26262 系統級功能安全需經完整 FMEDA 分析與產品安全生命週期管理；實際晶片失效率受封裝基板底部填膠 (Underfill) 應力及冷卻散熱設計影響。</span>
+              <span data-lang="en">The FIT failure rates, SPFM metrics, and hPPR usage estimates in this workbench are numerical schematic models based on JEDEC JESD89A atmospheric neutron data, Arrhenius thermal activation, and Coffin-Manson fatigue models, rather than third-party ASIL-D certified product test reports. ISO 26262 functional safety requires rigorous FMEDA analysis and lifecycle management; physical chip reliability is governed by substrate underfill integrity and active thermal management.</span>
+            </div>
 
             <div class="decision-matrix-card" id="auto-hbm4-scrubbing-simulator-root" style="margin-top: 16px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 20px 22px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
               <!-- Controls Grid -->
@@ -1636,7 +1643,10 @@
                       <span data-lang="zh">接面溫度熱加速曲線 (Temp Acceleration)</span><span data-lang="en">Junction Temp vs FIT</span>
                     </button>
                   </div>
-                  <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">ISO 26262 ASIL-D &amp; AEC-Q100 Grade 2 Analyzer</span>
+                  <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">
+                    <span data-lang="zh">ISO 26262 ASIL-D &amp; AEC-Q100 車規溫度參照分析器</span>
+                    <span data-lang="en">ISO 26262 ASIL-D &amp; AEC-Q100 Automotive Temperature Reference Analyzer</span>
+                  </span>
                 </div>
                 <div style="width: 100%; height: 180px; position: relative;">
                   <canvas id="hbm4-scrub-canvas" width="480" height="180" style="width: 100%; height: 100%; display: block;" role="img" aria-label="Automotive ASIL-D HBM4 Scrubbing Simulation Canvas" data-aria-en="Automotive ASIL-D HBM4 Scrubbing Simulation Canvas" data-aria-zh="車規 ASIL-D HBM4 巡檢模擬畫布"></canvas>
@@ -1649,7 +1659,7 @@
                   <span id="hbm4-scrub-out-verdict">Loading Automotive ASIL-D HBM4 Scrubbing calculations...</span>
                 </div>
                 <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #0f172a; padding: 4px 10px; border-radius: 4px; border: 1px solid #334155; white-space: nowrap;">
-                  <span id="hbm4-scrub-out-rating" style="color: #10b981;">ASIL-D QUALIFIED</span>
+                  <span id="hbm4-scrub-out-rating" style="color: #10b981;">ASIL-D TARGET MET</span>
                 </div>
               </div>
             </div>

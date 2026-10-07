@@ -1359,15 +1359,22 @@
                 </h4>
               </div>
               <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(6, 182, 212, 0.12); color: #06b6d4; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(6, 182, 212, 0.3);">
-                <span data-lang="zh">TSMC N12/N3 · 三星 4nm · 旺矽/精測/Technoprobe/FORM 模型</span>
-                <span data-lang="en">TSMC N12/N3 · Samsung 4nm · MPI/CHPT/Technoprobe/FORM Models</span>
+                <span data-lang="zh">12nm/3nm 邏輯 Base Die · 垂直 MEMS 探針卡與 hPPR 架構模型</span>
+                <span data-lang="en">12nm/3nm Logic Base Die · Vertical MEMS &amp; hPPR Architecture Models</span>
               </span>
             </div>
 
             <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 18px;">
-              <span data-lang="zh">HBM4 轉向邏輯 Base Die（三星 4nm、SK 海力士委託台積電 12nm/3nm）徹底改變了 3D DRAM 堆疊的良率修復方程式與測試介面供應鏈。透過邏輯相容 0-mask AntiFuse OTP 進行 2048-bit 超寬 PHY 偏斜微調、TSV 冗餘切換與 Core DRAM 壞列重映射，可抵禦 260°C 封裝熱預算零回彈，挽回 12-Hi / 16-Hi 嚴峻的幾何複合良率懸崖。同時，晶圓測試採購權移向晶圓代工與先進封裝生態，推動探針卡需求從傳統記憶體廠（Micronics Japan）大步轉向高針數、微間距垂直與 MEMS 邏輯探針卡廠（旺矽 6223、精測 6510、Technoprobe、FormFactor）。</span>
-              <span data-lang="en">HBM4's transition to logic base dies (Samsung 4nm, SK Hynix via TSMC 12nm/3nm) revolutionizes both 3D stacked DRAM yield repair physics and the wafer-sort test supply chain. Leveraging logic-compatible 0-mask AntiFuse OTP for 2048-bit PHY skew trimming, TSV redundancy, and core row remapping withstands 260°C packaging reflow without metal relaxation, rescuing severe compound yield drop-offs in 12-Hi/16-Hi stacks. Concurrently, wafer-sort procurement shifts toward foundries, migrating probe card demand from legacy memory vendors (Micronics Japan) to ultra-high-pin MEMS logic probe card leaders (MPI 6223, CHPT 6510, Technoprobe, FormFactor).</span>
+              <span data-lang="zh">HBM4 轉向邏輯 Base Die（如先進代工 12nm/5nm/3nm 世代）深刻影響了 3D DRAM 堆疊的良率修復方程式與測試介面需求。透過邏輯相容 0-mask AntiFuse OTP 進行 2048-bit PHY 偏斜微調、TSV 冗餘切換與 Core DRAM 壞列重映射，具備較佳耐受 260°C 回焊熱預算之金屬微絲穩定性，緩解 12-Hi / 16-Hi 的複合良率挑戰。同時，測試介面朝向高針數、微間距垂直與 MEMS 邏輯探針卡架構演進，以支援高密度並行晶圓級測試。</span>
+              <span data-lang="en">HBM4's transition to logic base dies impacts both 3D stacked DRAM repair strategies and test interface demands. Leveraging logic-compatible 0-mask AntiFuse OTP for 2048-bit PHY skew trim, TSV redundancy, and core row remapping offers stable metallic filaments with high tolerance to 260°C reflow thermal budgets, mitigating 12-Hi/16-Hi compound yield penalties. Concurrently, wafer-sort interfaces migrate toward high-pin MEMS logic probe cards for dense parallel sort.</span>
             </p>
+
+            <!-- Simulation Disclaimer Banner -->
+            <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+              <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+              <span data-lang="zh">本工作台之 3D 複合堆疊良率、hPPR 修復挽回金額與探針卡並行能力指標為基於幾何乘積、簡化修復覆蓋率及公開專利參數之數值示意模型，非晶圓代工廠或記憶體原廠保證之實際量產數據。真實良率受熱壓鍵合 (TCB/MR-MUF) 應力、微凸塊共平面度與原廠備援列 (Redundancy) 實體分配策略影響。</span>
+              <span data-lang="en">The 3D compound stacked yield, hPPR value recovery, and probe parallel test metrics in this workbench are schematic numerical models based on geometric products, simplified repair coverage, and public patent parameters, rather than foundry-guaranteed production yields. Physical yields are subject to bonding thermomechanical stress, micro-bump coplanarity, and manufacturer redundancy allocation architectures.</span>
+            </div>
 
             <!-- Interactive Controls Grid -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 18px; background: rgba(30, 41, 59, 0.6); padding: 14px; border-radius: 6px; border: 1px solid rgba(51, 65, 85, 0.5);">
@@ -1389,11 +1396,11 @@
                   <span data-lang="zh">探針卡架構與廠商 (Probe Vendor):</span><span data-lang="en">PROBE VENDOR &amp; ARCH:</span>
                 </label>
                 <select id="hbm4-probe-select" aria-label="Probe Card Vendor" data-aria-en="Probe Card Vendor" data-aria-zh="探針卡供應商" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
-                  <option value="mpi_taiwan" selected>MPI Corporation (6223.TW) · Advanced VPC / MEMS</option>
-                  <option value="chpt_taiwan">CHPT (6510.TW) · TSMC Ecosystem MEMS Cards</option>
-                  <option value="technoprobe">Technoprobe (Italy) · Global Tier-1 MEMS Cards</option>
-                  <option value="formfactor">FormFactor (FORM.US) · Advanced Mixed-Signal MEMS</option>
-                  <option value="micronics_japan">Micronics Japan (6871.T) · Traditional Memory Cards</option>
+                  <option value="mpi_taiwan" selected>Vertical Cantilever MEMS Architecture (VPC / MEMS)</option>
+                  <option value="chpt_taiwan">Thin-Film Multi-Layer Organic MEMS (MLO / MEMS)</option>
+                  <option value="technoprobe">Multi-Layer Ceramic MEMS (MLC / MEMS)</option>
+                  <option value="formfactor">Compliant MicroSpring™ &amp; RF MEMS Architecture</option>
+                  <option value="micronics_japan">Traditional Memory Cantilever (Baseline)</option>
                 </select>
               </div>
 
@@ -1505,12 +1512,12 @@
           <div class="decision-matrix-card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.6); padding-bottom: 12px;">
             <div>
               <div style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0ea5e9; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px;">
-                <span data-lang="zh">03-CXL · CXL 3.1 記憶體池化與 0-MASK ANTIFUSE 標籤快取</span>
-                <span data-lang="en">03-CXL · CXL 3.1 MEMORY POOLING &amp; 0-MASK ANTIFUSE TAG CACHE</span>
+                <span data-lang="zh">03-CXL · CXL 3.1 記憶體池化、硬體 CAM 標籤快取與 ANTIFUSE 信任根</span>
+                <span data-lang="en">03-CXL · CXL 3.1 MEMORY POOLING, HW CAM TAG CACHE &amp; ANTIFUSE ROT</span>
               </div>
               <h4 class="decision-matrix-title" style="margin: 0; font-size: 18px; color: #f8fafc; font-weight: 700;">
-                <span data-lang="zh">CXL 3.1 記憶體池化架構、0-Mask AntiFuse 標籤快取與動態毒化屏蔽 (Poison Tagging)</span>
-                <span data-lang="en">CXL 3.1 Fabric-Attached Memory Pooling, 0-Mask AntiFuse Tag Cache &amp; Dynamic Poison Alert</span>
+                <span data-lang="zh">CXL 3.1 記憶體池化架構、晶片內硬體 CAM 標籤快取與 AntiFuse 信任根動態毒化屏蔽</span>
+                <span data-lang="en">CXL 3.1 Fabric-Attached Memory Pooling, On-Die HW CAM Tag Cache &amp; AntiFuse RoT Poison Shielding</span>
               </h4>
             </div>
             <span class="decision-matrix-subtitle" style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.12); color: #38bdf8; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
@@ -1519,9 +1526,16 @@
             </span>
           </div>
 
+          <!-- Simulation Disclaimer Banner -->
+          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+            <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+            <span data-lang="zh">本工作台之端到端存取延遲、困頓記憶體回收率與毒化攔截時間為基於 CXL 3.1 規範與傳輸佇列理論之系統微架構示意模型，非單一實體 ASIC 晶圓實測認證報告。動態 CAM/LUT 標籤快取在實體電路上由晶片內 SRAM/暫存器陣列實現；0-Mask AntiFuse OTP 則專注於儲存 DMTF SPDM 1.3 根憑證與安全開機靜態組態。跨網絡實際存取延遲受交換器擁塞程度、Flit 重傳率與主機驅動程式排程影響。</span>
+            <span data-lang="en">The end-to-end access latency, stranded memory recovery rates, and poison intercept times in this workbench are system microarchitectural evaluation models based on CXL 3.1 specifications and queueing theory, rather than physical ASIC measurement certificates. Dynamic CAM/LUT tag caches are implemented via on-die SRAM/register arrays; 0-Mask AntiFuse OTP is dedicated to storing DMTF SPDM 1.3 root certificates and static boot configurations. Real-world fabric latencies vary with switch congestion, Flit retransmission, and host driver scheduling.</span>
+          </div>
+
           <p style="font-size: 13px; line-height: 1.65; color: #94a3b8; margin: 0 0 16px;">
-            <span data-lang="zh">隨生成式 AI 叢集與分散式推論模型規模暴增，傳統伺服器內部固定配置之 DRAM 正面臨 40%–50% 的嚴重「困頓記憶體 (Stranded Memory)」浪費。CXL 3.1 協定透過光纖/銅纜 Fabric-Attached Memory (FAM) 架構與 Dynamic Capacity Device (DCD) 動態分派，實現跨節點多主機 (Multi-Headed) 記憶體池化。然而，CXL 記憶體池化面臨嚴峻的兩大挑戰：第一，跨交換器跳步 (Hops) 帶來的額外延遲必須控制在 150–200ns 容許邊界內；第二，池化記憶體若發生單元軟硬錯誤或電離擊穿，必須具備動態毒化警報 (Dynamic Poison Alert) 與壞頁隔離，避免引發多主機內核連鎖崩潰 (Kernel Panic)。在此體系中，基於標準邏輯 CMOS 的 0-Mask AntiFuse OTP 扮演了極速硬體 CAM 標籤快取與 DMTF SPDM 1.3 硬體信任根的關鍵角色。</span>
-            <span data-lang="en">As generative AI clusters and distributed LLM models scale rapidly, servers suffer from 40%–50% stranded memory inefficiencies under fixed local DRAM allocations. CXL 3.1 overcomes this bottleneck through Fabric-Attached Memory (FAM) and Dynamic Capacity Devices (DCD), enabling multi-headed memory pooling across disaggregated compute nodes. However, memory pooling introduces two major architectural hurdles: first, switch transit hops must maintain end-to-end access latencies within strict 150–200ns SLAs; second, uncorrectable cell failures require dynamic poison tagging and rapid page isolation to prevent catastrophic cross-host kernel panic propagation. Logic-compatible 0-mask AntiFuse OTP serves as an indispensable sub-10ns on-die CAM tag cache filter and DMTF SPDM 1.3 hardware root-of-trust.</span>
+            <span data-lang="zh">隨生成式 AI 叢集與分散式推論模型規模暴增，傳統伺服器內部固定配置之 DRAM 正面臨 40%–50% 的嚴重「困頓記憶體 (Stranded Memory)」浪費。CXL 3.1 協定透過光纖/銅纜 Fabric-Attached Memory (FAM) 架構與 Dynamic Capacity Device (DCD) 動態分派，實現跨節點多主機 (Multi-Headed) 記憶體池化。然而，CXL 記憶體池化面臨嚴峻的兩大挑戰：第一，跨交換器跳步 (Hops) 帶來的額外延遲必須控制在 150–200ns 容許邊界內；第二，池化記憶體若發生單元軟硬錯誤或電離擊穿，必須具備動態毒化警報 (Dynamic Poison Alert) 與壞頁隔離，避免引發多主機內核連鎖崩潰 (Kernel Panic)。在此體系中，控制器內建之晶片內硬體 CAM 標籤快取提供次 10ns 快速過濾，而 0-Mask AntiFuse OTP 則作為 DMTF SPDM 1.3 安全設備證明之硬體信任根與安全開機靜態密鑰儲存介質。</span>
+            <span data-lang="en">As generative AI clusters and distributed LLM models scale rapidly, servers suffer from 40%–50% stranded memory inefficiencies under fixed local DRAM allocations. CXL 3.1 overcomes this bottleneck through Fabric-Attached Memory (FAM) and Dynamic Capacity Devices (DCD), enabling multi-headed memory pooling across disaggregated compute nodes. However, memory pooling introduces two major architectural hurdles: first, switch transit hops must maintain end-to-end access latencies within strict 150–200ns SLAs; second, uncorrectable cell failures require dynamic poison tagging and rapid page isolation to prevent catastrophic cross-host kernel panic propagation. In this architecture, on-die hardware CAM tag filters accelerate lookups within sub-10ns, while logic 0-mask AntiFuse OTP provides the tamper-resistant hardware root-of-trust and secure boot key storage for DMTF SPDM 1.3 device attestation.</span>
           </p>
 
           <!-- 七維跨架構對比表 -->
@@ -1598,7 +1612,7 @@
                     <span data-lang="zh">0% (固定專屬，跨節點完全無法借調)</span><span data-lang="en">0% (Fixed node-bound, non-transferrable)</span>
                   </td>
                   <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
-                    <span data-lang="zh">動態提升至 88%–94% (挽回近 40% 雲端資本支出)</span><span data-lang="en">Up to 88%–94% (Recovers ~40% cloud memory Capex)</span>
+                    <span data-lang="zh">動態提升至 88%–94% (挽回近 40% 雲端資本支出估算)</span><span data-lang="en">Up to 88%–94% (Recovers ~40% estimated cloud memory Capex)</span>
                   </td>
                   <td style="padding: 9px 12px; color: #f87171;">
                     <span data-lang="zh">0% (GPU 加速器專用高速暫存)</span><span data-lang="en">0% (Dedicated GPU accelerator memory)</span>
@@ -1612,7 +1626,7 @@
                     <span data-lang="zh">依賴 CPU MCE / OS 核心陷阱 (~1,000 ns)</span><span data-lang="en">Dependent on CPU MCE / OS trap (~1,000 ns)</span>
                   </td>
                   <td style="padding: 9px 12px; color: #34d399; font-weight: 600;">
-                    <span data-lang="zh">&lt;10 ns (0-Mask AntiFuse 硬體 CAM 動態攔截)</span><span data-lang="en">&lt;10 ns (0-Mask AntiFuse CAM hardware intercept)</span>
+                    <span data-lang="zh">&lt;10 ns (控制器硬體 CAM 標籤過濾與 Poison 標記轉發)</span><span data-lang="en">&lt;10 ns (Controller HW CAM filter &amp; Poison tag forwarding)</span>
                   </td>
                   <td style="padding: 9px 12px;">
                     <span data-lang="zh">硬體 JEDEC hPPR 永久燒錄重映射</span><span data-lang="en">Hard JEDEC hPPR permanent row remapping</span>
@@ -1626,7 +1640,7 @@
                     <span data-lang="zh">SPD EEPROM 儲存啟動時序參數</span><span data-lang="en">SPD EEPROM stores boot timing parameters</span>
                   </td>
                   <td style="padding: 9px 12px; color: #38bdf8; font-weight: 600;">
-                    <span data-lang="zh">0-Mask AntiFuse OTP：CAM 標籤快取 + SPDM 1.3 信任根</span><span data-lang="en">0-Mask AntiFuse OTP: CAM tag cache + SPDM 1.3 RoT</span>
+                    <span data-lang="zh">0-Mask AntiFuse OTP：SPDM 1.3 信任根憑證與控制器靜態配置</span><span data-lang="en">0-Mask AntiFuse OTP: SPDM 1.3 RoT credentials &amp; static configuration</span>
                   </td>
                   <td style="padding: 9px 12px;">
                     <span data-lang="zh">AntiFuse OTP 於 Base Die 執行 2048-bit 偏斜微調與 hPPR</span><span data-lang="en">AntiFuse OTP on Base Die for 2048-bit trim &amp; hPPR</span>
@@ -1655,7 +1669,7 @@
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid rgba(51, 65, 85, 0.5); padding-bottom: 10px;">
               <div>
                 <span style="font: 700 10.5px 'IBM Plex Mono', monospace; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.08em;">
-                  <span data-lang="zh">第一性原理互動工作台</span><span data-lang="en">FIRST-PRINCIPLES WORKBENCH</span>
+                  <span data-lang="zh">架構評估互動工作台</span><span data-lang="en">ARCHITECTURAL EVALUATION WORKBENCH</span>
                 </span>
                 <h5 style="margin: 2px 0 0; font-size: 15px; color: #f8fafc; font-weight: 700;">
                   <span data-lang="zh">CXL 3.1 延遲堆疊分解、困頓記憶體經濟學與毒化隔離模擬器</span>
@@ -1663,7 +1677,7 @@
                 </h5>
               </div>
               <span style="font: 600 10px 'IBM Plex Mono', monospace; background: rgba(14, 165, 233, 0.15); color: #38bdf8; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(14, 165, 233, 0.3);">
-                <span data-lang="zh">PCIe 6.0 PAM4 · 次 20ns 毒化防線</span><span data-lang="en">PCIe 6.0 PAM4 · Sub-20ns Poison Guard</span>
+                <span data-lang="zh">PCIe 6.0 PAM4 · 次 20ns 毒化阻斷目標</span><span data-lang="en">PCIe 6.0 PAM4 · Sub-20ns Poison Target</span>
               </span>
             </div>
 

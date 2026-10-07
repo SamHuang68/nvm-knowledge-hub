@@ -122,68 +122,68 @@ export const HBM4_SYSTEM_PRESETS = {
 export const PROBE_CARD_ARCHITECTURES = {
   mpi_taiwan: {
     id: 'mpi_taiwan',
-    nameZh: '旺矽科技 (MPI, 6223.TW) · 先進垂直 VPC / MEMS 探針卡',
-    nameEn: 'MPI Corporation (6223.TW) · Advanced VPC / MEMS Probe Cards',
+    nameZh: '垂直微懸臂梁 MEMS 探針卡架構 (VPC / MEMS)',
+    nameEn: 'Vertical Cantilever MEMS Probe Architecture (VPC / MEMS)',
     type: 'logic_mems',
-    vendorName: 'MPI Corporation',
+    vendorName: 'Vertical VPC/MEMS',
     baseAspUsd: 145000,
     maxPinCount: 12000,
     foundryExposureFactor: 0.88,
     hbmGrossMarginEst: 0.54,
-    descZh: '深耕台積電與先進封裝生態，高針數高頻垂直探針卡 (VPC) 與高階 MEMS 探針卡，掌握台積電 Base Die 晶圓測試爆發商機。',
-    descEn: 'Deeply embedded in TSMC & advanced packaging ecosystems, high-pin VPC and MEMS cards capitalizing on TSMC base die wafer sort boom.'
+    descZh: '專利垂直微懸臂導向結構，支援高針數高頻小間距晶圓級測試，降低多次接觸損傷。',
+    descEn: 'Patented micro-cantilever vertical guide architecture for high-pin fine-pitch wafer sort.'
   },
   chpt_taiwan: {
     id: 'chpt_taiwan',
-    nameZh: '中華精測 (CHPT, 6510.TW) · 台積電生態系高階 MEMS 探針卡',
-    nameEn: 'CHPT (6510.TW) · TSMC Ecosystem High-End MEMS Probe Cards',
+    nameZh: '薄膜多層測試載板高頻 MEMS 探針 (MLO / MEMS)',
+    nameEn: 'Thin-Film Multi-Layer Organic MEMS Architecture (MLO / MEMS)',
     type: 'logic_mems',
-    vendorName: 'CHPT',
+    vendorName: 'Thin-Film MEMS',
     baseAspUsd: 165000,
     maxPinCount: 14000,
     foundryExposureFactor: 0.92,
     hbmGrossMarginEst: 0.56,
-    descZh: '專精微間距多層有機測試載板 (MLC/Substrate) 與高階 MEMS 探針卡，全面支援台積電 12nm/3nm 邏輯 Base Die 超寬 PHY 測試。',
-    descEn: 'Specializing in micro-pitch multi-layer substrates and high-end MEMS cards, supporting TSMC 12nm/3nm logic base die ultra-wide PHY tests.'
+    descZh: '多層有機薄膜載板與超微細間距 MEMS 探針，支援高速高頻寬晶粒介面測試。',
+    descEn: 'Multi-layer organic thin-film substrate with fine-pitch MEMS supporting high-speed PHY wafer sort.'
   },
   technoprobe: {
     id: 'technoprobe',
-    nameZh: 'Technoprobe (義大利) · 全球高階 MEMS 邏輯探針卡巨擘',
-    nameEn: 'Technoprobe (Italy) · Global Tier-1 MEMS Logic Probe Cards',
+    nameZh: '多層陶瓷空間轉換垂直 MEMS 探針 (MLC / MEMS)',
+    nameEn: 'Multi-Layer Ceramic Space Transformer MEMS (MLC / MEMS)',
     type: 'logic_mems',
-    vendorName: 'Technoprobe',
+    vendorName: 'Ceramic MEMS',
     baseAspUsd: 180000,
     maxPinCount: 16000,
     foundryExposureFactor: 0.85,
     hbmGrossMarginEst: 0.58,
-    descZh: '全球前二大探針卡廠，長期為台積電與三星代工先進晶圓測試主力供應商，HBM4 邏輯化為其開啟全新成長曲線。',
-    descEn: 'Top-2 global probe card supplier to TSMC & Samsung Foundry, HBM4 logic base die opens brand-new growth curve.'
+    descZh: '多層陶瓷垂直空間轉換技術，支援超高針數極限密度並行測試。',
+    descEn: 'Multi-layer ceramic vertical space transformer supporting ultra-high-pin dense parallel sort.'
   },
   formfactor: {
     id: 'formfactor',
-    nameZh: 'FormFactor (美商 FORM) · 先進 SoC 與混訊 MEMS 測試介面',
-    nameEn: 'FormFactor (FORM.US) · Advanced SoC & Mixed-Signal MEMS Cards',
+    nameZh: '彈性微針陣列與高頻屏蔽探針 (MicroSpring™ / RF MEMS)',
+    nameEn: 'Compliant MicroSpring™ & RF Shielded MEMS Architecture',
     type: 'logic_mems',
-    vendorName: 'FormFactor',
+    vendorName: 'Spring MEMS',
     baseAspUsd: 175000,
     maxPinCount: 15000,
     foundryExposureFactor: 0.80,
     hbmGrossMarginEst: 0.55,
-    descZh: '全球測試介面龍頭，橫跨美光、三星與晶圓代工，法說會持續強調高頻寬記憶體與邏輯 Base Die 測試卡出貨動能。',
-    descEn: 'Global test interface leader across Micron, Samsung, and foundries, highlighting HBM logic base die momentum in earnings calls.'
+    descZh: '彈性微針陣列與高頻屏蔽結構，支援高速混訊小晶片介面測試。',
+    descEn: 'Compliant micro-spring arrays with RF shielding supporting high-speed chiplet interfaces.'
   },
   micronics_japan: {
     id: 'micronics_japan',
-    nameZh: 'Micronics Japan (MJC, 6871.T) · 傳統記憶體垂直探針卡 (對照組)',
-    nameEn: 'Micronics Japan (6871.T) · Traditional Memory Probe Cards (Baseline)',
+    nameZh: '傳統記憶體垂直接觸懸臂探針 (Vertical Cantilever Baseline)',
+    nameEn: 'Traditional Memory Vertical Cantilever Architecture (Baseline)',
     type: 'memory_legacy',
-    vendorName: 'Micronics Japan',
+    vendorName: 'Cantilever Baseline',
     baseAspUsd: 65000,
     maxPinCount: 4096,
     foundryExposureFactor: 0.15,
     hbmGrossMarginEst: 0.38,
-    descZh: '日本記憶體探針卡霸主，在 HBM3E 及以前獨占 DRAM 測試，但面對邏輯製程、高針數超寬 PHY 與晶圓代工採購權移轉面臨市佔流失壓力。',
-    descEn: 'Japanese memory card dominator for HBM3E DRAM, facing market share erosion as base die tests migrate to logic foundries.'
+    descZh: '傳統垂直懸臂針架構，適用於標準記憶體晶粒測試，面對數萬針超寬介面測試受限於並行針數密度。',
+    descEn: 'Traditional vertical cantilever architecture for standard memory, with pin-density limits in ultra-wide PHY sort.'
   }
 };
 
@@ -218,12 +218,14 @@ export function calculateHbm4ProbeMetrics({
   const rawBondStackYield = Math.pow(yBondPerLayer, stackLayers);
   const rawStackYield = yBase * rawCoreStackYield * rawBondStackYield;
 
-  // AntiFuse OTP post-package repair (hPPR) recovery
-  // Single-die repair efficiency for DRAM array defects & TSV spare lines
-  const repairEfficiency = preset.baseDieTech === 'dram_base' ? 0.65 : 0.84;
+  // Redundancy allocation and post-package repair (hPPR) recovery model
+  // Redundancy allocation efficiency: logic base die provides dedicated spare line decoders and independent charge pumps (est. 0.82-0.85);
+  // whereas legacy DRAM base die is constrained by peripheral routing and high-voltage supply routing (est. 0.70-0.75).
+  const isDramBase = preset.baseDieTech === 'dram_base';
+  const repairEfficiency = isDramBase ? 0.72 : (preset.baseDieTech === 'tsmc_3nm' ? 0.86 : 0.82);
   
-  // AntiFuse 260°C zero grow-back thermal budget retention factor (AntiFuse = 1.00, eFuse = 0.88)
-  const retentionThermalFactor = preset.baseDieTech === 'dram_base' ? 0.88 : 1.00;
+  // High-temperature packaging thermal budget factor (reflow stability heuristic: AntiFuse metal filament ~0.98, planar polysilicon fuse ~0.92)
+  const retentionThermalFactor = isDramBase ? 0.92 : 0.98;
 
   // Repaired effective core die yield
   const effectiveCoreDieYield = coreDieYield + (1.0 - coreDieYield) * repairEfficiency * retentionThermalFactor;
@@ -274,11 +276,11 @@ export function calculateHbm4ProbeMetrics({
   let verdictEn = '';
 
   if (probeCard.type === 'memory_legacy') {
-    verdictZh = `警訊：傳統記憶體探針卡 (Micronics Japan) 針數上限受限，無法全速覆蓋 HBM4 2048-bit 超寬 PHY 與邏輯 BIST 測試，需多次 Touchdown 導致測試成本激增。晶圓代工端採購轉向旺矽 (6223) 與精測 (6510)。`;
-    verdictEn = `CAUTION: Traditional memory probe cards (Micronics Japan) face pin-count limits, unable to fully cover HBM4 2048-bit PHY & logic BIST at single touchdown. Foundry procurement shifts heavily toward MPI (6223) and CHPT (6510).`;
+    verdictZh = `測試架構注意：傳統記憶體懸臂探針卡並行針數密度較低，若無法單次涵蓋 HBM4 2048-bit PHY 與 BIST 接點，需透過多次 Touchdown 完成，增加測試時間與熱應力。高密度微間距測試建議評估高針數垂直 MEMS 探針架構。`;
+    verdictEn = `TEST CAUTION: Traditional cantilever probe cards have lower pin density; covering HBM4 2048-bit PHY & BIST contacts requires multiple touchdowns, increasing test cycle time. High-density vertical MEMS probe architectures are recommended for single-pass sort.`;
   } else {
-    verdictZh = `在 ${stackLayers}-Hi 堆疊下，未修復原始良率僅 ${(rawStackYield * 100).toFixed(1)}%；藉由台積電/三星邏輯 Base Die 搭載 0-mask AntiFuse OTP 進行 hPPR 壞列重映射與 2048-bit PHY 偏斜微調，良率大幅拉升至 ${(repairedStackYield * 100).toFixed(1)}% (+${yieldDeltaPercent.toFixed(1)}%)，每顆模組挽回 $${valueRecoveryPerHbm.toFixed(1)} 美元！${probeCard.vendorName} 在代工測試採購具備高達 ${hbmExposureIndex.toFixed(0)}% 之 HBM 成長曝險。`;
-    verdictEn = `At ${stackLayers}-Hi stack, raw yield is only ${(rawStackYield * 100).toFixed(1)}%. Logic Base Die with 0-mask AntiFuse OTP hPPR (row/col remapping & 2048-bit PHY trim) recovers yield to ${(repairedStackYield * 100).toFixed(1)}% (+${yieldDeltaPercent.toFixed(1)}%), saving $${valueRecoveryPerHbm.toFixed(1)} per module! ${probeCard.vendorName} commands a high ${hbmExposureIndex.toFixed(0)}% HBM exposure in foundry test procurement.`;
+    verdictZh = `在 ${stackLayers}-Hi 堆疊下，未修復原始複合良率估算為 ${(rawStackYield * 100).toFixed(1)}%；透過邏輯 Base Die 規劃 AntiFuse OTP 進行封裝後壞列重映射 (hPPR) 與 PHY 偏移微調，模型估算良率提升至 ${(repairedStackYield * 100).toFixed(1)}% (+${yieldDeltaPercent.toFixed(1)}%)，每顆模組挽回價值估算約 $${valueRecoveryPerHbm.toFixed(1)} 美元。${probeCard.nameZh} 具備高針數並行支援能力（指數模型值：${hbmExposureIndex.toFixed(0)}）。`;
+    verdictEn = `In a ${stackLayers}-Hi stack, unassisted raw yield is modeled at ${(rawStackYield * 100).toFixed(1)}%; utilizing logic Base Die AntiFuse OTP for post-package repair (hPPR) and PHY skew trim raises modeled yield to ${(repairedStackYield * 100).toFixed(1)}% (+${yieldDeltaPercent.toFixed(1)}%), recovering ~$${valueRecoveryPerHbm.toFixed(1)} per module. ${probeCard.nameEn} offers high-pin parallel test capability (index: ${hbmExposureIndex.toFixed(0)}).`;
   }
 
   return {
@@ -455,40 +457,41 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
 
   } else {
     // Mode 2: Probe Card Market Procurement Shift & Exposure
-    const vendors = [
-      { name: 'Micronics Japan', exp: 15, asp: '$65k', type: 'DRAM IDM' },
-      { name: '旺矽 (MPI 6223)', exp: 88, asp: '$145k', type: 'TSMC VPC/MEMS' },
-      { name: '中華精測 (6510)', exp: 92, asp: '$165k', type: 'TSMC MEMS' },
-      { name: 'Technoprobe', exp: 85, asp: '$180k', type: 'Global MEMS' },
-      { name: 'FormFactor', exp: 80, asp: '$175k', type: 'Mixed MEMS' }
-    ];
+    // Mode 2: High-Density Wafer Sort Capability & Parallel Test Index
+    const archKeys = ['micronics_japan', 'mpi_taiwan', 'chpt_taiwan', 'technoprobe', 'formfactor'];
+    const currentCardId = metrics.probeCard ? metrics.probeCard.id : 'mpi_taiwan';
 
     ctx.font = '600 11px "IBM Plex Mono", monospace';
     ctx.fillStyle = '#64748b';
     ctx.textAlign = 'right';
-    ctx.fillText('100%', padLeft - 8, padTop + 4);
-    ctx.fillText('75%', padLeft - 8, padTop + plotH * 0.25 + 4);
-    ctx.fillText('50%', padLeft - 8, padTop + plotH * 0.50 + 4);
-    ctx.fillText('25%', padLeft - 8, padTop + plotH * 0.75 + 4);
-    ctx.fillText('0%', padLeft - 8, padTop + plotH + 4);
+    ctx.fillText('100', padLeft - 8, padTop + 4);
+    ctx.fillText('75', padLeft - 8, padTop + plotH * 0.25 + 4);
+    ctx.fillText('50', padLeft - 8, padTop + plotH * 0.50 + 4);
+    ctx.fillText('25', padLeft - 8, padTop + plotH * 0.75 + 4);
+    ctx.fillText('0', padLeft - 8, padTop + plotH + 4);
 
     const barW = Math.min(48, plotW / 6);
-    vendors.forEach((v, idx) => {
+    archKeys.forEach((key, idx) => {
+      const card = PROBE_CARD_ARCHITECTURES[key];
+      if (!card) return;
+      const isSelected = card.id === currentCardId;
+      const score = Math.round(card.foundryExposureFactor * 100);
+
       const x = padLeft + (plotW / 5) * idx + (plotW / 5 - barW) / 2;
-      const barH = (v.exp / 100.0) * plotH;
+      const barH = (score / 100.0) * plotH;
       const y = padTop + plotH - barH;
 
       const grad = ctx.createLinearGradient(0, y, 0, y + barH);
-      if (v.name.includes('Micronics')) {
+      if (card.type === 'memory_legacy') {
         grad.addColorStop(0, '#64748b');
         grad.addColorStop(1, '#334155');
-      } else if (v.name.includes('旺矽')) {
+      } else if (key === 'mpi_taiwan') {
         grad.addColorStop(0, '#38bdf8');
         grad.addColorStop(1, '#0284c7');
-      } else if (v.name.includes('精測')) {
+      } else if (key === 'chpt_taiwan') {
         grad.addColorStop(0, '#818cf8');
         grad.addColorStop(1, '#4f46e5');
-      } else if (v.name.includes('Techno')) {
+      } else if (key === 'technoprobe') {
         grad.addColorStop(0, '#f59e0b');
         grad.addColorStop(1, '#d97706');
       } else {
@@ -498,26 +501,34 @@ export function drawHbm4ProbeCanvas(canvas, metrics, mode = 'compound_yield_curv
 
       ctx.fillStyle = grad;
       ctx.fillRect(x, y, barW, barH);
-      ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+      ctx.strokeStyle = isSelected ? '#f59e0b' : 'rgba(255,255,255,0.2)';
+      ctx.lineWidth = isSelected ? 2.5 : 1;
       ctx.strokeRect(x, y, barW, barH);
 
-      // Percentage label on top of bar
-      ctx.font = '700 11px "IBM Plex Mono", monospace';
-      ctx.fillStyle = '#f8fafc';
+      // Score label on top of bar
+      ctx.font = isSelected ? '700 11px "IBM Plex Mono", monospace' : '600 10.5px "IBM Plex Mono", monospace';
+      ctx.fillStyle = isSelected ? '#f59e0b' : '#f8fafc';
       ctx.textAlign = 'center';
-      ctx.fillText(`${v.exp}%`, x + barW / 2, y - 6);
+      ctx.fillText(isSelected ? `★ ${score}` : `${score}`, x + barW / 2, y - 6);
 
-      // Name & type below
+      // Technical short label below
+      const labelMap = {
+        micronics_japan: 'Cantilever',
+        mpi_taiwan: 'VPC/MEMS',
+        chpt_taiwan: 'MLO/MEMS',
+        technoprobe: 'MLC/MEMS',
+        formfactor: 'Spring/MEMS'
+      };
       ctx.font = '600 10px "IBM Plex Mono", monospace';
-      ctx.fillStyle = '#94a3b8';
-      ctx.fillText(v.name.split(' ')[0], x + barW / 2, height - padBottom + 16);
-      ctx.fillText(v.asp, x + barW / 2, height - padBottom + 28);
+      ctx.fillStyle = isSelected ? '#38bdf8' : '#94a3b8';
+      ctx.fillText(labelMap[key] || key, x + barW / 2, height - padBottom + 16);
+      ctx.fillText(`$${(card.baseAspUsd / 1000).toFixed(0)}k`, x + barW / 2, height - padBottom + 28);
     });
 
     ctx.textAlign = 'left';
     ctx.font = '600 10px "IBM Plex Mono", monospace';
     ctx.fillStyle = '#38bdf8';
-    ctx.fillText('■ 晶圓代工 (Foundry) HBM4 邏輯探針卡採購份額與營收曝險 (Foundry Procurement Shift)', padLeft + 10, padTop - 12);
+    ctx.fillText('■ 高密度晶圓測試探針卡並行能力指數模型 (High-Density Wafer Sort Index)', padLeft + 10, padTop - 12);
   }
 
   ctx.restore();

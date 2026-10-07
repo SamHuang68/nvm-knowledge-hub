@@ -103,55 +103,55 @@ export const HYBRID_BONDING_PRESETS = {
 export const KGD_PROBE_ARCHITECTURES = {
   mpi_zero_mark_mems: {
     id: 'mpi_zero_mark_mems',
-    nameZh: '旺矽科技 (MPI 6223) · 超低接觸力無痕 MEMS 探針卡',
-    nameEn: 'MPI Corporation (6223) · Ultra-Low Force Zero-Mark MEMS',
+    nameZh: '低接觸力微懸臂 MEMS 探針架構 (Low-Force Micro-Cantilever)',
+    nameEn: 'Low-Force Micro-Cantilever MEMS Probe Card',
     contactForceGrams: 0.35,
     scrubMarkDepthNm: 1.8,
     maxBandwidthGhz: 45.0,
     pitchLimitUm: 0.8,
     cardAspUsd: 195000,
-    vendorName: 'MPI Corporation',
-    descZh: '專為 Cu-Cu 混合鍵合研發之微懸臂彈性探針，接觸力 <0.4g，針痕深度 <2nm，保證鍵合界面無空洞 (Zero Void)。',
-    descEn: 'Micro-cantilever MEMS engineered for Cu-Cu hybrid bonding: <0.4g force, <2nm mark depth, preventing bond voids.'
+    vendorName: 'Low-Force MEMS',
+    descZh: '專為 Cu-Cu 混合鍵合研發之微懸臂彈性探針，接觸力 <0.4g，針痕深度 <2nm，降低鍵合界面空洞 (Void) 形成風險。',
+    descEn: 'Micro-cantilever MEMS engineered for Cu-Cu hybrid bonding: <0.4g force, <2nm mark depth, minimizing bond void risks.'
   },
   chpt_submicron_mems: {
     id: 'chpt_submicron_mems',
-    nameZh: '中華精測 (CHPT 6510) · 微間距高頻薄膜 MEMS 探針載板',
-    nameEn: 'CHPT (6510) · Micro-Pitch High-Freq Thin-Film MEMS',
+    nameZh: '微間距薄膜多層載板高頻 MEMS 探針 (Thin-Film Space Transformer)',
+    nameEn: 'Micro-Pitch Thin-Film High-Frequency MEMS',
     contactForceGrams: 0.45,
     scrubMarkDepthNm: 2.2,
     maxBandwidthGhz: 50.0,
     pitchLimitUm: 0.9,
     cardAspUsd: 210000,
-    vendorName: 'CHPT',
-    descZh: '台積電先進封裝認證，多層薄膜有機載板結合高頻低針痕微探針，40GHz+ 高速訊號完整度與眼圖極低抖動。',
-    descEn: 'TSMC-qualified high-frequency MEMS thin-film substrate, 50GHz bandwidth, minimal scrub depth for hybrid bonding.'
+    vendorName: 'Thin-Film MEMS',
+    descZh: '先進封裝高密度互連測試，多層薄膜有機載板結合微探針，具備 40GHz+ 頻寬與較低針痕深度。',
+    descEn: 'High-density packaging test substrate with multi-layer thin film, providing 40GHz+ bandwidth and low scrub depth.'
   },
   technoprobe_tplus: {
     id: 'technoprobe_tplus',
-    nameZh: 'Technoprobe · T-Plus 奈米接觸低壓 MEMS 探針卡',
-    nameEn: 'Technoprobe · T-Plus Nano-Contact Low-Force MEMS',
+    nameZh: '垂直微彈性奈米接觸 MEMS 探針 (Vertical Compliant Tip)',
+    nameEn: 'Vertical Compliant Tip MEMS Probe',
     contactForceGrams: 0.40,
     scrubMarkDepthNm: 2.0,
     maxBandwidthGhz: 42.0,
     pitchLimitUm: 0.85,
     cardAspUsd: 225000,
-    vendorName: 'Technoprobe',
-    descZh: '全球龍頭專利垂直 MEMS 奈米彈性針尖，支援晶圓代工端極限多針數直接接觸測試。',
-    descEn: 'Proprietary vertical MEMS nano-compliant tips supporting ultra-high-pin foundry direct wafer sort.'
+    vendorName: 'Vertical MEMS',
+    descZh: '垂直 MEMS 奈米彈性針尖結構，支援高密度微間距焊墊直接晶圓級測試。',
+    descEn: 'Vertical compliant MEMS nano-tips supporting high-density micro-pitch wafer sort.'
   },
   formfactor_touch: {
     id: 'formfactor_touch',
-    nameZh: 'FormFactor · MicroForce 先進 SoC 混訊探針卡',
-    nameEn: 'FormFactor · MicroForce Advanced SoC Probe Card',
+    nameZh: '高針數混訊懸臂複合探針 (High-Density Mixed-Signal Probe)',
+    nameEn: 'High-Density Mixed-Signal Probe Card',
     contactForceGrams: 0.55,
     scrubMarkDepthNm: 2.8,
     maxBandwidthGhz: 38.0,
     pitchLimitUm: 1.2,
     cardAspUsd: 185000,
-    vendorName: 'FormFactor',
-    descZh: '高針數邏輯與記憶體混合測試架構，針尖平整度與高溫測試穩定性優異。',
-    descEn: 'High-pin mixed-signal probe architecture with superior thermal stability and coplanarity.'
+    vendorName: 'Mixed-Signal Probe',
+    descZh: '高針數邏輯與記憶體混合測試架構，針尖平整度與高溫測試穩定性良好。',
+    descEn: 'High-pin mixed-signal probe architecture with balanced thermal stability and coplanarity.'
   },
   legacy_cantilever: {
     id: 'legacy_cantilever',
@@ -220,9 +220,13 @@ export function calculateHybridBondingMetrics({
   // TSV RC Time Constant (ps): tau = R * C
   const tauRcPicoSec = (rAcOhm * cOxFarads) * 1e12;
 
-  // Signal Attenuation / Eye Height Degradation: S21(f) ~ exp(-2 * pi * f * tau)
-  const attenuationDb = -20.0 * Math.log10(Math.max(0.01, 1.0 / (1.0 + 2.0 * Math.PI * freqHz * (rAcOhm * cOxFarads))));
-  const eyeOpeningPercent = Math.max(5.0, Math.min(98.0, 100.0 * Math.exp(-2.0 * Math.PI * freqHz * (rAcOhm * cOxFarads))));
+  // Signal Attenuation / Eye Height Degradation:
+  // First-order RC low-pass filter amplitude response: |H(f)| = 1 / sqrt(1 + (2 * pi * f * R * C)^2)
+  const omegaTau = 2.0 * Math.PI * freqHz * (rAcOhm * cOxFarads);
+  const magnitude = 1.0 / Math.sqrt(1.0 + Math.pow(omegaTau, 2));
+  const attenuationDb = 20.0 * Math.log10(Math.max(0.001, magnitude));
+  // Eye opening estimation based on first-order bandwidth margin heuristic:
+  const eyeOpeningPercent = Math.max(5.0, Math.min(98.0, 100.0 * Math.exp(-omegaTau)));
 
   // 3. KGD Wafer Sort Probe Contact Surface Mechanics
   // Scrub mark depth scales with contact force: Dishing budget is typically 3.0 nm for Cu-Cu Hybrid Bonding
@@ -259,14 +263,14 @@ export function calculateHybridBondingMetrics({
   let verdictEn = '';
 
   if (probeStatus === 'FATAL INTERACTION') {
-    verdictZh = `警告：探針接觸力 (${contactForceGrams.toFixed(2)}g) 導致銅表面針痕深度達到 ${actualMarkDepthNm.toFixed(1)} nm（遠超 CMP 平整度容許上限 3.0 nm）！Cu-Cu 混合鍵合退火時將產生大面積微孔洞（Void PPM 高達 ${bondingVoidPpm.toFixed(0)}），引發介面剝離。必須改用旺矽 (MPI 6223) 或精測 (CHPT 6510) 之無痕微接觸 MEMS 探針卡。`;
-    verdictEn = `CRITICAL: Probe contact force (${contactForceGrams.toFixed(2)}g) causes ${actualMarkDepthNm.toFixed(1)} nm scrub depth, severely breaching the 3.0 nm CMP dishing limit! Cu-Cu hybrid bonding will suffer massive voids (${bondingVoidPpm.toFixed(0)} PPM) and interface delamination. Switch immediately to MPI (6223) or CHPT (6510) zero-mark MEMS cards.`;
+    verdictZh = `警告：探針接觸力 (${contactForceGrams.toFixed(2)}g) 導致銅表面針痕深度達到 ${actualMarkDepthNm.toFixed(1)} nm（超過 CMP 平整度容許上限 3.0 nm）！Cu-Cu 混合鍵合退火時界面微孔洞風險劇增（估算達 ${bondingVoidPpm.toFixed(0)} PPM），可能引發介面剝離。建議改採超低接觸力微懸臂 MEMS 探針架構或降低接觸超行程 (Overdrive)。`;
+    verdictEn = `CRITICAL: Probe contact force (${contactForceGrams.toFixed(2)}g) causes ${actualMarkDepthNm.toFixed(1)} nm scrub depth, exceeding the 3.0 nm CMP dishing limit! Cu-Cu hybrid bonding interface void risk escalates significantly (est. ${bondingVoidPpm.toFixed(0)} PPM). Recommend switching to ultra-low-force micro-cantilever MEMS probes or reducing overdrive.`;
   } else if (probeStatus === 'HIGH VOID RISK') {
     verdictZh = `注意：針痕深度 (${actualMarkDepthNm.toFixed(1)} nm) 略高於 3.0 nm 混合鍵合預算，可能增加熱壓鍵合之界面缺陷率。建議微調探針接觸壓力至 0.35g 以下，或導入化學自修復退火工藝。`;
     verdictEn = `CAUTION: Scrub depth (${actualMarkDepthNm.toFixed(1)} nm) marginally exceeds the 3.0 nm hybrid bonding budget, risking elevated void defects. Lower contact pressure below 0.35g or apply post-test chemical planarization.`;
   } else {
-    verdictZh = `最佳化：在 ${effectivePitchUm.toFixed(1)}µm 混合鍵合間距下，互連密度高達 ${(interconnectDensityPerMm2 / 1000).toFixed(0)}k/mm²；TSV 寄生電容僅 ${cTsvFemtofarads.toFixed(1)} fF，高頻眼高開展率達 ${eyeOpeningPercent.toFixed(1)}%。${probe.vendorName} 探針卡針痕深度僅 ${actualMarkDepthNm.toFixed(1)} nm（嚴格小於 3.0 nm 門檻），實現零空洞完美鍵合。`;
-    verdictEn = `OPTIMAL: At ${effectivePitchUm.toFixed(1)}µm hybrid bonding pitch, density reaches ${(interconnectDensityPerMm2 / 1000).toFixed(0)}k/mm²; TSV capacitance is only ${cTsvFemtofarads.toFixed(1)} fF with ${eyeOpeningPercent.toFixed(1)}% high-speed eye opening. ${probe.vendorName} scrub mark is only ${actualMarkDepthNm.toFixed(1)} nm (<3.0 nm limit), ensuring flawless zero-void bonding.`;
+    verdictZh = `最佳化：在 ${effectivePitchUm.toFixed(1)}µm 混合鍵合間距下，互連密度高達 ${(interconnectDensityPerMm2 / 1000).toFixed(0)}k/mm²；TSV 寄生電容僅 ${cTsvFemtofarads.toFixed(1)} fF，高頻眼高開展率估算為 ${eyeOpeningPercent.toFixed(1)}%。${probe.vendorName} 探針卡針痕深度僅 ${actualMarkDepthNm.toFixed(1)} nm（符合 3.0 nm CMP 預算），有助於降低混合鍵合界面空洞率。`;
+    verdictEn = `OPTIMAL: At ${effectivePitchUm.toFixed(1)}µm hybrid bonding pitch, density reaches ${(interconnectDensityPerMm2 / 1000).toFixed(0)}k/mm²; TSV capacitance is only ${cTsvFemtofarads.toFixed(1)} fF with ${eyeOpeningPercent.toFixed(1)}% estimated eye opening. ${probe.vendorName} scrub mark is ${actualMarkDepthNm.toFixed(1)} nm (within 3.0 nm budget), minimizing bonding void risks.`;
   }
 
   return {
@@ -274,6 +278,7 @@ export function calculateHybridBondingMetrics({
     probe,
     effectivePitchUm,
     interconnectDensityPerMm2,
+    contactForceGrams,
     rAcOhm,
     cTsvFemtofarads,
     tauRcPicoSec,
@@ -436,12 +441,12 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
     ctx.fillStyle = 'rgba(16, 185, 129, 0.08)';
     ctx.fillRect(padLeft, yThreshold, plotW, padTop + plotH - yThreshold);
 
-    // Plot probe vendor marks
+    // Plot probe architecture baseline marks
     const probePoints = [
-      { name: 'MPI (6223)', force: 0.35, depth: 1.8, color: '#38bdf8' },
-      { name: 'CHPT (6510)', force: 0.45, depth: 2.2, color: '#818cf8' },
-      { name: 'Technoprobe', force: 0.40, depth: 2.0, color: '#f59e0b' },
-      { name: 'FormFactor', force: 0.55, depth: 2.8, color: '#c084fc' },
+      { name: 'Low-Force MEMS', force: 0.35, depth: 1.8, color: '#38bdf8' },
+      { name: 'Thin-Film MEMS', force: 0.45, depth: 2.2, color: '#818cf8' },
+      { name: 'Vertical MEMS', force: 0.40, depth: 2.0, color: '#f59e0b' },
+      { name: 'Mixed-Signal', force: 0.55, depth: 2.8, color: '#c084fc' },
       { name: 'Legacy VPC', force: 2.80, depth: 18.5, color: '#ef4444' }
     ];
 
@@ -453,23 +458,49 @@ export function drawHybridBondingCanvas(canvas, metrics, mode = 'tsv_rc_frequenc
 
       ctx.fillStyle = p.color;
       ctx.beginPath();
-      ctx.arc(x, y, 6, 0, Math.PI * 2);
+      ctx.arc(x, y, 5, 0, Math.PI * 2);
       ctx.fill();
       ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 1.2;
       ctx.stroke();
 
-      ctx.font = '600 10px "IBM Plex Mono", monospace';
+      ctx.font = '600 9.5px "IBM Plex Mono", monospace';
       ctx.fillStyle = p.color;
       ctx.textAlign = 'center';
-      ctx.fillText(`${p.name}`, x, y - 10);
-      ctx.fillText(`${p.depth}nm`, x, y + 16);
+      ctx.fillText(`${p.name}`, x, y - 8);
+      ctx.fillText(`${p.depth}nm`, x, y + 15);
     });
+
+    // Plot dynamic user operating point
+    const userForce = typeof metrics.contactForceGrams === 'number' ? metrics.contactForceGrams : 0.35;
+    const userDepth = typeof metrics.actualMarkDepthNm === 'number' ? metrics.actualMarkDepthNm : 1.8;
+    const curX = getX(Math.min(3.0, Math.max(0.1, userForce)));
+    const curY = getY(userDepth);
+
+    // Glowing halo
+    ctx.strokeStyle = 'rgba(245, 158, 11, 0.4)';
+    ctx.lineWidth = 6;
+    ctx.beginPath();
+    ctx.arc(curX, curY, 9, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.fillStyle = '#f59e0b';
+    ctx.beginPath();
+    ctx.arc(curX, curY, 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    ctx.font = '700 10px "IBM Plex Mono", monospace';
+    ctx.fillStyle = '#f59e0b';
+    ctx.textAlign = 'center';
+    ctx.fillText(`當前條件 (${userForce.toFixed(2)}g, ${userDepth.toFixed(1)}nm)`, curX, curY - 14);
 
     ctx.textAlign = 'left';
     ctx.font = '600 10px "IBM Plex Mono", monospace';
     ctx.fillStyle = '#10b981';
-    ctx.fillText('■ 探針接觸力 vs 銅表面刮痕深度 (CMP Zero-Void Boundary)', padLeft + 10, padTop - 12);
+    ctx.fillText('■ 探針接觸力 vs 銅表面刮痕深度 (CMP Dishing Boundary Model)', padLeft + 10, padTop - 12);
   }
 
   ctx.restore();
