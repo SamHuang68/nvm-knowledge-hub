@@ -394,7 +394,7 @@
             </h3>
           </div>
           <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(15, 118, 110, 0.12); color: #0f766e; font-weight: 600;">
-            <span data-lang="zh">NIST SP 800-22 &amp; SP 800-90B 認證</span>
+            <span data-lang="zh">NIST SP 800-22 &amp; SP 800-90B 檢驗規範</span>
             <span data-lang="en">NIST SP 800-22 &amp; SP 800-90B Rigor</span>
           </span>
         </div>
@@ -403,6 +403,13 @@
           <span data-lang="zh">以第一性原理密碼學假設檢定為依據，即時評估 1,024 位元原生硬體熵源之空間均勻度與無偏性。即時執行 NIST SP 800-22 四大核心統計檢定（單元頻率 Monobit、區塊頻率 Block Frequency、相鄰遊程 Runs、累計和漫步 Cusum）及 SP 800-90B 最小熵（Min-Entropy）。對比 AntiFuse 微觀量子穿隧缺陷（NeoPUF）、SRAM 啟動態與差動對稱架構，精準識別空間偏壓並判定晶片信任根合規性。</span>
           <span data-lang="en">Evaluates spatial uniformity and bias of a 1,024-bit hardware entropy source using first-principles cryptographic hypothesis testing. Executes 4 core NIST SP 800-22 tests (Frequency Monobit, Block Frequency, Runs, Cumulative Sums) and SP 800-90B Min-Entropy in real time. Compares AntiFuse quantum tunneling (NeoPUF), SRAM startup unbalance, and differential OTP mismatch to detect spatial correlation for root-of-trust qualification.</span>
         </p>
+
+        <!-- Simulation Disclaimer Banner -->
+        <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
+          <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+          <span data-lang="zh">本檢驗器所呈現之 1,024 位元空間隨機分佈與 NIST SP 800-22 / 800-90B 統計檢定為前端輕量演算法之數值示意，非正式實驗室百萬位元（Mbit 級）樣本之 CAVP 認證報告。實體晶片 PUF 熵值與漢明距離穩定性需經全溫全壓 (PVT) 壽命老化測試及後處理條件化演算法驗證。</span>
+          <span data-lang="en">The 1,024-bit spatial randomness patterns and NIST SP 800-22 / 800-90B statistical metrics in this evaluator are schematic numerical demonstrations, rather than official lab CAVP validation reports across multi-megabit sample sets. Physical chip PUF entropy and intra-Hamming stability must be characterized across full PVT corners and post-processing conditioners.</span>
+        </div>
 
         <!-- CONTROL PANEL -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 1.25rem; background: #f8fafc; padding: 12px 14px; border-radius: 6px; border: 1px solid #e2e8f0;">

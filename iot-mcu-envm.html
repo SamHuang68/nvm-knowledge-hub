@@ -1051,6 +1051,13 @@
             </p>
 
             <div id="subvt-simulator-root" style="background: #0a101d; border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 20px; color: #f8fafc; margin-top: 16px;">
+              <!-- Simulation Disclaimer Banner -->
+              <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+                <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+                <span data-lang="zh">本工作台之次閾值動態能耗 (CV²)、靜態漏電與最小能耗點 (MEP) 為基於典型 40nm/28nm ULP PDK 標稱參數與 Pelgrom 失配高斯模型之數值示意，非實際矽晶圓跨製程角 (Corner) 全溫全壓實測數據。超低壓感測裕度需依據晶圓代工廠極限失配蒙地卡羅 (Monte Carlo) 模擬 sign-off 判定。</span>
+                <span data-lang="en">The sub-threshold active energy (CV²), static leakage, and Minimum Energy Point (MEP) metrics in this workbench are schematic numerical estimations based on typical 40nm/28nm ULP PDK nominals and Pelgrom Gaussian mismatch models, not multi-corner silicon wafer measurements. Ultra-low-voltage sense amplifier margins must be validated through foundry sign-off Monte Carlo statistical analysis.</span>
+              </div>
+
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px;">
                 <!-- Supply Preset Selection -->
                 <div>
@@ -1279,6 +1286,13 @@
                   <span data-lang="zh">Arm FPB / RISC-V Zicbo 規範</span>
                   <span data-lang="en">Arm FPB / RISC-V Zicbo Spec</span>
                 </span>
+              </div>
+
+              <!-- Simulation Disclaimer Banner -->
+              <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
+                <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+                <span data-lang="zh">本工作台之向量補丁 CAM 查找延遲、修補命中率與熱修復能耗為基於 Arm FPB 與 RISC-V Zicbo 微架構一階集總模型之數值試算，非特定商業微控制器之實體邏輯閘級時序報告。實際中斷重定向延遲受匯流排仲裁 (AXI/AHB) 與流水線排空週期影響。</span>
+                <span data-lang="en">The vector patch CAM lookup latency, hit rates, and hot-patching energy in this workbench are schematic numerical approximations based on first-order Arm FPB and RISC-V Zicbo models, rather than gate-level sign-off timing reports of specific commercial MCUs. Pipeline flush cycles and bus arbitration govern real-world redirection delays.</span>
               </div>
 
               <!-- Controls Grid -->
@@ -1568,6 +1582,13 @@
                 <span data-lang="zh">在微瓦級環境能量採集（弱光、壓電、微弱 RF、人體溫差）應用中，傳統 eFlash 高昂的冷啟動電壓（&ge;1.6V）與電荷泵暖機突波電流（&gt;5mA）常導致儲能電容塌陷與死鎖循環。本工作台計算微型儲能電容充放電、冷啟動邊界、Normally-Off 狀態保存/恢復能耗，以及完全斷電零漏電下的自給自足平衡點。</span>
                 <span data-lang="en">Under micro-watt ambient energy harvesting (solar, piezo, RF, TEG), conventional eFlash cold-boot thresholds (&ge;1.6V) and charge-pump inrush surges (&gt;5mA) collapse tiny reservoir capacitors into reboot brownout loops. This workbench calculates capacitor charge cycles, cold-boot safety, Normally-Off state save/restore overhead, and zero-leakage autonomous energy balance.</span>
               </p>
+
+              <!-- Simulation Disclaimer Banner -->
+              <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
+                <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+                <span data-lang="zh">本工作台之常閉運算能量採集、休眠漏電與冷啟動延遲為基於一階電容儲能積分與簡化狀態機之數值示意，非微型能量採集晶片在非理想環境光照或熱電波動下之實測數據。實際斷電保留可靠度需搭配電源管理單元 (PMU) 掉電偵測 (BOD) 電壓閾值驗證。</span>
+                <span data-lang="en">The normally-off energy harvesting, sleep leakage, and cold-start latency calculations in this workbench are schematic numerical models based on first-order capacitive integration and state-machine abstractions, not bench measurements under fluctuating ambient energy sources. Real-world retention requires validation against PMU brown-out detector (BOD) thresholds.</span>
+              </div>
 
               <!-- Controls Grid -->
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">

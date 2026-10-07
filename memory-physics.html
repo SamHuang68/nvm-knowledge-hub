@@ -2078,6 +2078,13 @@
             </div>
           </div>
 
+          <!-- Simulation Disclaimer Banner -->
+          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-left: 4px solid #f59e0b; padding: 12px 16px; margin: 0 16px 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
+            <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+            <span data-lang="zh">本工作台之 Fowler–Nordheim 穿隧電流密度與直接穿隧穿孔估算為基於 1D WKB 近似與平面能帶彎曲之理論示意模型，非三維量子傳輸 (NEGF) 數值求解。實際閘極介電質漏電受界面粗糙度散射、應力引發漏電 (SILC) 與陷阱輔助穿隧 (TAT) 影響。</span>
+            <span data-lang="en">The Fowler–Nordheim tunneling current densities and direct tunneling estimates in this workbench are theoretical schematic models based on 1D WKB approximations and planar band bending, rather than 3D non-equilibrium Green's function (NEGF) solvers. Physical dielectric leakage is governed by interface roughness scattering, stress-induced leakage current (SILC), and trap-assisted tunneling (TAT).</span>
+          </div>
+
           <div class="tunneling-sim-grid">
             <!-- Controls -->
             <div class="tunneling-controls">
@@ -2173,6 +2180,13 @@
             <span data-lang="zh">以微觀缺陷陷阱滲透理論（Percolation Theory）與極端值 Weibull 雙參數統計為核心，動態計算單顆元件至 32 Mbit 巨量陣列之特性壽命（&eta;）、形狀斜率（&beta;）、FIT 失效率與 15 年累積破壞機率。定量解析 AntiFuse 瞬態高壓硬擊穿（&mu;s 級微絲成型）與車規 150&deg;C 長效讀取無擾動（&lt;0.01 ppm 失效率）之物理雙極狀態，並揭露字元線分時多工如何保障極限可靠度。</span>
             <span data-lang="en">Applies microscopic defect percolation and extreme-value Weibull statistics to calculate characteristic lifetime (&eta;), Weibull slope (&beta;), FIT rate, and 15-year cumulative failure probability from 1 cell to 32 Mbit arrays. Quantifies both AntiFuse transient high-voltage programming (&mu;s filament formation) and automotive 150&deg;C read disturb immunity (&lt;0.01 ppm failure rate), revealing how wordline row multiplexing guarantees extreme reliability.</span>
           </p>
+
+          <!-- Simulation Disclaimer Banner -->
+          <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
+            <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+            <span data-lang="zh">本工作台之 TDDB 特徵壽命 (η) 與韋伯形狀參數 (β) 為基於滲透模型 (Percolation Model) 與 E 模型 / 1/E 模型之統計示意推估，非晶圓廠 sign-off 資格認證晶片在萬顆樣本下之長天期高溫操作壽命 (HTOL) 實測報告。</span>
+            <span data-lang="en">The TDDB characteristic lifetime (η) and Weibull slope (β) in this workbench are statistical approximations based on percolation theory and empirical E/1/E models, rather than wafer-level sign-off HTOL reports across high-volume test structures.</span>
+          </div>
 
           <!-- CONTROL PANEL -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
@@ -2343,8 +2357,11 @@
             <span class="tddb-verdict-icon" style="font-size: 1.25rem; line-height: 1;">🛡️</span>
             <span class="tddb-verdict-text">
               <span data-lang="zh">【車規 AEC-Q100 Grade 0 頂級可靠度】陣列在 150°C 接面溫度下連續運作 15 年，累積破壞機率小於 1 ppm（0.2172 ppm），失效率 FIT = 0.57。未編程單元具備極致抗讀取擾動與熱應力屏障。</span>
-              <span data-lang="en">[AEC-Q100 Grade 0 Certified] Array 15-year cumulative failure probability is &lt; 1 ppm (0.2172 ppm), with FIT rate = 0.57. Dielectric integrity remains strictly immune to read disturb and thermal stress up to 150°C Tj.</span>
+              <span data-lang="en">[AEC-Q100 Grade 0 Certified] Array 15-year cumulative failure probability is &lt; 1 ppm (0.2172 ppm), with FIT rate = 0.57. Dielectric integrity maintains exceptional margins against read disturb and thermal stress up to 150°C Tj.</span>
             </span>
+          </div>
+        </article>
+
         <!-- MODEL 07: CRYOGENIC (4K / 77K) QUANTUM COMPUTING NVM PHYSICS SIMULATOR -->
         <article id="cryogenic-nvm-simulator-root" class="physics-model-card reveal" style="border-top: 4px solid #0284c7; background: #ffffff; border-radius: 8px; box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06); padding: 1.5rem; margin-top: 2rem;">
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
@@ -2369,6 +2386,13 @@
             <span data-lang="en">Analyzes bulk silicon carrier freeze-out, spin-dependent TMR expansion via Bloch's law, metallic ohmic AntiFuse filament conduction, and thermal noise suppression (-18.5 dB) at 4.2 K liquid Helium and 77 K liquid Nitrogen for quantum qubit controller NVM.</span>
           </p>
 
+          <!-- Simulation Disclaimer Banner -->
+          <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
+            <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+            <span data-lang="zh">本工作台之低溫載子凍結、布洛赫定律 (Bloch's Law) 自旋 TMR 擴展與金屬微絲歐姆電阻為基於一階固態物理模型之數值示意，非各代工廠 Cryo-PDK 在 4.2K / 77K 實體晶圓低溫探針台量測數據。低溫讀取感測裕度需依據深低溫專屬 SPICE 模型驗證。</span>
+            <span data-lang="en">The cryogenic carrier freeze-out, Bloch's law spin TMR expansion, and metallic ohmic filament resistance in this workbench are schematic numerical approximations based on first-order solid-state physics, rather than foundry Cryo-PDK cryogenic probe-station wafer measurements at 4.2K/77K. Read margins at deep cryogenic temperatures require specialized cryogenic SPICE models.</span>
+          </div>
+
           <!-- Controls Grid -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
             <div>
@@ -2388,7 +2412,7 @@
                 <span data-lang="zh">NVM 單元物理架構:</span><span data-lang="en">NVM CELL ARCHITECTURE:</span>
               </label>
               <select id="cryo-tech-select" aria-label="NVM Cell Architecture" data-aria-en="NVM Cell Architecture" data-aria-zh="NVM 單元物理架構" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #f8fafc;">
-                <option value="antifuse_cryo" selected>AntiFuse Ohmic Filament (Freeze-out Immune)</option>
+                <option value="antifuse_cryo" selected>AntiFuse Ohmic Filament (High Freeze-out Resistance)</option>
                 <option value="mram_stt_cryo">STT-MRAM pMTJ (TMR Expansion >220%)</option>
                 <option value="eflash_cryo">Floating-Gate eFlash (Severe Freeze-out)</option>
                 <option value="reram_cryo">OxRAM / ReRAM (Vacancy Hopping Freeze)</option>
@@ -2506,6 +2530,13 @@
             <span data-lang="zh">在量子位元低溫控制級（4.2K / 1.2K）中，控制線微波脈衝（4-8 GHz）與超導線圈強偏置磁場（1T-5T）對近端記憶體產生嚴苛的物理干擾。本試算器評估強磁場下的 TMR 磁阻塌陷、自旋去相干時間（T2*）、微波高頻串擾誘發之差分感測窗衰減與位元誤碼率（BER）。</span>
             <span data-lang="en">At qubit cryogenic control stages (4.2K / 1.2K), microwave readout pulses (4-8 GHz) and superconducting solenoid bias fields (1T-5T) impose extreme physical disturbances. This simulator calculates magnetic TMR collapse, spin decoherence (T2*), microwave crosstalk induced margin degradation, and bit error rate (BER).</span>
           </p>
+
+          <!-- Simulation Disclaimer Banner -->
+          <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
+            <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+            <span data-lang="zh">本試算器之超導量子位元磁場去相干、微波射頻高頻串擾與 BER 誤碼率為基於一階高斯失相 (Dephasing) 與簡化電磁耦合模型之數值試算，非稀釋冷凍機內部多通道向量網路分析儀 (VNA) 實測 S 參數。實際微波遮蔽效能受同軸衰減器、磁屏蔽罩 (Cryoperm) 及晶片封裝空腔共振主導。</span>
+            <span data-lang="en">The superconducting qubit magnetic decoherence, microwave RF crosstalk, and BER in this simulator are numerical approximations based on first-order Gaussian dephasing and simplified EM coupling models, rather than VNA-measured S-parameters inside dilution refrigerators. Physical microwave shielding depends on cryogenic coaxial attenuators, Cryoperm magnetic shields, and cavity resonance control.</span>
+          </div>
 
           <!-- Controls Grid -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
