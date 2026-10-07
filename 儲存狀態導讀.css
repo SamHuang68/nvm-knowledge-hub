@@ -14,6 +14,15 @@
 .storage-explorer [hidden]{display:none!important}
 .storage-state-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:#f1f6f7;border:1px solid #cfdee3;padding:12px;border-radius:4px}
 .storage-state-pair>div{text-align:center}
+.storage-phase-map{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:6px;align-items:center;margin:12px 0;color:#496477;font-size:12px}
+.storage-phase-map>span{min-width:0;overflow-wrap:anywhere;border:1px solid #b8cbd3;border-top:3px solid #b8cbd3;padding:8px 5px;text-align:center;line-height:1.5}
+.storage-phase-map small{display:block;font-weight:700}
+.storage-phase-map>span[data-current=true]{border-color:#006667;background:#e7f2f0;color:#18394f}
+.storage-explorer-ready[data-frame="0"] .storage-state-pair{border:2px solid #006667;padding:11px}
+.storage-causal-chain a{display:inline-block;color:#006667;text-decoration:underline;font-size:13px;padding:6px 0;line-height:1.5}
+.storage-causal-chain a:focus-visible{outline:3px solid #a77742;outline-offset:2px}
+.storage-playback input{width:100%;min-height:44px;box-sizing:border-box;font:inherit;font-size:13px;color:#18394f;border:1px solid #b8cbd3;padding:8px}
+.storage-playback input:focus-visible{outline:3px solid #a77742;outline-offset:2px}
 .storage-state-pair strong{font-size:14px;letter-spacing:.04em}
 .storage-state-svg{display:block;width:100%;height:auto;max-height:152px}
 .storage-causal-chain{list-style:none;padding:0!important;margin:16px 0!important}
@@ -48,4 +57,4 @@
 @media(max-width:620px){.storage-explorer h3{font-size:22px}.storage-state-pair{gap:8px;padding:8px}.storage-explorer button{padding:8px}.storage-playback{gap:6px}.storage-causal-chain li{padding:8px 4px}}
 @media(max-width:620px){.knowledge-experiments h2{font-size:26px}.knowledge-experiment-groups{grid-template-columns:1fr;gap:24px}.knowledge-experiment-flow{gap:8px;font-size:12px}.knowledge-experiment-flow>span{padding:10px 6px}.knowledge-experiment-flow b{font-size:16px}}
 @media(prefers-reduced-motion:reduce){.storage-explorer *{transition:none!important}.probe-live-pulse{animation:none!important}}
-@media print{.storage-mode-controls,.storage-playback{display:none!important}.storage-explorer [data-storage-panel]{display:block!important;break-inside:avoid;margin-bottom:24px}.storage-causal-chain li{background:none!important}.storage-explorer{color:#18394f}}
+@media print{.knowledge-physics{display:block!important}.knowledge-physics::details-content{content-visibility:visible!important}.storage-mode-controls,.storage-playback{display:none!important}.storage-explorer [data-storage-panel]{display:block!important;break-inside:avoid;margin-bottom:24px}.storage-causal-chain li{background:none!important}.storage-explorer{color:#18394f}.storage-phase-map>span{background:none!important}}

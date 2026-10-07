@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "5cd48df33ffeb467c210",
+  "version": "93268479abf0e863d313",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -218,7 +218,7 @@ self.NVMOfflineManifest = {
     "evidence-workbench.js": "86984da8da59d17546b8cf8b6a9595ac8d3c08a02efad25de24dc590e92aee17",
     "f1-card-align.js": "206fe82993c3aa1c48ab6af72569cfdacab2497e0a971c567e9b8852912be636",
     "global-reading-system.css": "ae3882c28f129de001969e6f16f0e07a27528026abb45d765f74f0a6186cc56d",
-    "global-search.css": "241de4ab3055ba0770f9ddc80886dfbf048135bfce140d439ec24e323359cec3",
+    "global-search.css": "e4ebc7367408f07c0b004d853f785edbaad18c4afb666bae776fe8e221c3a313",
     "hbm4-base-die-repair-probe-simulator.js": "b266148c0df24065013a840623e3d55c49e2a6be823c6a80b30385b639ea1b9a",
     "home-glass-renaissance.css": "9957647c2b64b40dca8462fa94c14e2a1ca335bbd7c02a596f2c7544562c72b2",
     "home-interactions.css": "d6a3917880559babb53308f6fb2e9a3ecfbf5eef17aa7867c82a2f744b4b8b5b",
@@ -232,7 +232,7 @@ self.NVMOfflineManifest = {
     "hub.css": "0588ce809586d4df37795ed8e12490beed2f7368e8f0b9d942615e9a72d8f28f",
     "hub.js": "73d1f69a2d2ab34756719842456993c4fd6b2be393909da2419560703b1da24a",
     "hybrid-bonding-tsv-kgd-simulator.js": "9ff03604970cf8898c32814bacb335e9641baae0cd0b986863f2ca0f215eadb1",
-    "index.html": "c04b505970b46df524ba5bf57fa1ae477ff13736418ea6642496db04b1d855ef",
+    "index.html": "03a8635e42d15ab5de66d556a435b272e8edbfdec56b0da0dc24d50130429579",
     "iot-energy-tradeoff-calculator.js": "e7c97cf0a93a557980a9e3b7037bd3916a3c2b0cec8ba7788e8cc705b899efeb",
     "iot-mcu-envm.html": "e77de238697032f2d142ff543a0b5dcf47cfcda097ce49afa0bfec5e73ac24a6",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
@@ -259,9 +259,9 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas-zh.html": "9f3c3c9224730043ab411be792441fb4d1254b51c8552df6916698a28ac400fd",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
     "nvm-technology-atlas.html": "031b547dd27955e1e070565d5c0103023216f6313a6e4fae5cdf6397342de5a1",
-    "nvm-technology-atlas.js": "96fd9d5c241e037e30257c515429f139b6124e720e44a0b2191aabf0475a5f53",
-    "oip-lifecycle.js": "8de984bcf690e5cc2fbbca2a530b437dee0b555b3d91259b6410ddeae0eae152",
-    "oip-secure-storage.html": "62e3a874b270121276a8a2a12abc6fcf680e2d88de01ed5404e983098ac2cff8",
+    "nvm-technology-atlas.js": "7ba90c8f62c0b4146eb491c90abb2857e547613ed4da1ddec8bd1fce6b18c817",
+    "oip-lifecycle.js": "e9035b966ccfd7fc0942651ecf81049579c72417f9481c1e1dad06863f40c3ea",
+    "oip-secure-storage.html": "fefeb9f969b041a3283bc2cbc1d9beaa1a98a4b8adc0d57e1c59831fc41f47ce",
     "pqc-hardware-rot-ledger-simulator.js": "b52544d61087ed592ed9fc5b0a51157f259d0501df46a3b468789d9c067d975c",
     "pqc-key-storage-simulator.js": "c760b1300960a5f62047851f606cf993387142a34ab424f1a8d22a79286dc7a3",
     "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
@@ -274,10 +274,10 @@ self.NVMOfflineManifest = {
     "reading-controls.js": "31ed45e76223dad06c261b6cb792eae26dcb54a5843f4076a5ba41156ae263db",
     "research.css": "76291bad9ecde2fcd860e66599c3a399694a29065db00a16cd12d974bfe2de94",
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
-    "search-controller.js": "35a56cb2d82d1d8db7460720e25d3cb1ee768ed433e78786f04f8d1eb112df7c",
+    "search-controller.js": "8f265d81bde855ac312a29064466e6ae5c5d86e6e111cc210cecf0bd7b0c2dd5",
     "secure-storage.html": "33bff8a27767b46653fe3e2083e2f3c96f7080fb324bc919b3018943b6efeb5b",
     "security-assurance.html": "aff88275963ccc8207e9dc1454d51ac42aa7f4730d6f4e718df3253ad73b4bd8",
-    "site-language.js": "070d88a3a792cfbd6460f57945091cfe6486e312b37f4820bfd1ca8fde496dcc",
+    "site-language.js": "28ed6741d5ec7be408b7ebbbeb19ba04b8723dcec5e071577569acaedef158e7",
     "site-shell.css": "95c7b574d75f1d06c7e121cb14489b2bea210649e5d15ad7d97aae7a5d86d1a7",
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
     "space-radiation-hardening-simulator.js": "ac4baaf3e4976f584c52d92dd2e8c5771c3e1634777c386fa822f45526e7ad7b",
@@ -308,11 +308,11 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper.js": "6c1693ead7aa2e1602fe8033e6a59b8f4e26aabce60b01c93df98b14c2d86689",
     "whitepaper/assets/whitepaper_i18n.js": "1a80caf7221a052c98828693d10982531f3fcba482cc0c1db82dfdabf8d4c83e",
     "whitepaper/index.html": "5ce3b260608904f45d28e2bd417fddc25661be9900fae2a1c818414f10d81f2c",
-    "儲存狀態導讀.css": "0094f0ee1e16f2498c0a0f7735e2b186a0eaf62114ea671ed36e15b763a597fe",
-    "儲存狀態導讀.js": "05122a893061d4a6ed8ede5788da970a67528ba997ad046677655d4da3f15729",
+    "儲存狀態導讀.css": "b3837e567264f690ca9c94686537c4cbea4f982bb2e4bc142331985ebe4a4656",
+    "儲存狀態導讀.js": "db573823960db312d84865321463959af10d26a7da2e3c15a55e8fd346c44607",
     "操作圖步進演示.js": "212b96eb093e0dbcf3448567cf366f76838ae8bcbaa40a84765d3f2e61e2e847",
-    "生命週期圖解.css": "76dba06bf26b7b62f841f7459ed2df897b1652702c13cb91b73953a7220fae6a",
-    "章節閱讀導覽.css": "bfb49436f73110dcb908b13cb91683811f37d18176c2b8099318a21bc19ce753"
+    "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
+    "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 13294856
+  "totalBytes": 13316345
 };

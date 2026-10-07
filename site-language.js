@@ -249,7 +249,9 @@
         document.head.append(apps);
       }
     }
-    const literaturePages = !/^(?:index\.html|nvm-technology-atlas(?:-zh)?\.html|sram-repair\.html)$/i.test(hubPagePath(location.pathname));
+    // 以正規化後的最後檔名分類；根目錄與副目錄首頁皆視為 index.html。
+    const pageFile = hubPagePath(location.pathname).split('/').pop() || 'index.html';
+    const literaturePages = !/^(?:index\.html|nvm-technology-atlas(?:-zh)?\.html|sram-repair\.html)$/i.test(pageFile);
     if (literaturePages) {
       document.body.classList.add('hub-literature-paper');
       const paper = document.createElement('link');

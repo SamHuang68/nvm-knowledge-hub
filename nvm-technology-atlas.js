@@ -42,8 +42,8 @@ function updatePosition(panel) {
   chapterNext.setAttribute('aria-label', isEnglish() ? 'Next chapter' : '下一章');
   chapterPrevious.disabled = index <= 0; chapterNext.disabled = index >= panels.length - 1;
 }
-chapterSelect.addEventListener('change', () => { location.hash = chapterSelect.value; });
-function goChapter(offset) { const index = panels.findIndex(panel => !panel.hidden); const panel = panels[index + offset]; if (panel) location.hash = panel.id; }
+chapterSelect.addEventListener('change', () => navigateHash(`#${chapterSelect.value}`));
+function goChapter(offset) { const index = panels.findIndex(panel => !panel.hidden); const panel = panels[index + offset]; if (panel) navigateHash(`#${panel.id}`); }
 chapterPrevious.addEventListener('click', () => goChapter(-1));
 chapterNext.addEventListener('click', () => goChapter(1));
 window.addEventListener('hub:language-change', () => { const active = panels.find(panel => !panel.hidden); if (active) updatePosition(active); });
@@ -56,7 +56,64 @@ if (pageHeader) new ResizeObserver(measureHeader).observe(pageHeader);
 new ResizeObserver(measureHeader).observe(chapterNav);
 measureHeader();
 
-function showRoute({ focus = false } = {}) {
+// 只保存本頁各歷史項目的座標；查詢參數由各自控制器管理，不改全域 scrollRestoration。
+const readingStateKey = '__nvmReadingPosition';
+const readingRoute = () => location.pathname + location.hash;
+let readingTimer, restoreFrame, pendingRoute, poppedRoute, routedReadingRoute = readingRoute();
+function recordReadingPosition() {
+  clearTimeout(readingTimer);
+  readingTimer = null;
+  if (restoreFrame) return;
+  const state = history.state;
+  // 外來純量、陣列與特殊物件維持原型態，不為了加名稱空間改寫呼叫端的契約。
+  if (state !== null && Object.prototype.toString.call(state) !== '[object Object]') return;
+  const panel = panels.find(item => !item.hidden);
+  if (!panel) return;
+  history.replaceState({...state, [readingStateKey]:{version:1, route:readingRoute(), panelId:panel.id, x:Math.round(scrollX), y:Math.round(scrollY)}}, '');
+}
+function savedReadingPosition(state) {
+  const position = state?.[readingStateKey];
+  let target;
+  try { target = decodeURIComponent(location.hash.slice(1)) || 'panorama'; } catch { return null; }
+  const anchor = document.getElementById(target);
+  const panel = target === 'main-content' ? panels.find(item => item.id === position?.panelId) : anchor?.closest('[data-nvm-panel]') || document.getElementById('panorama');
+  return Boolean(panel) && position?.version === 1 && position.route === readingRoute()
+    && typeof position.panelId === 'string' && position.panelId.length > 0 && position.panelId === panel.id
+    && Number.isSafeInteger(position.x) && position.x >= 0 && Number.isSafeInteger(position.y) && position.y >= 0 ? position : null;
+}
+function routeReadingPosition(position = null) {
+  clearTimeout(readingTimer);
+  cancelAnimationFrame(restoreFrame);
+  restoreFrame = null;
+  const heading = showRoute({focus:true, scroll:!position, readingPanel:position?.panelId});
+  routedReadingRoute = readingRoute();
+  if (!position) { recordReadingPosition(); return; }
+  const route = readingRoute();
+  // 等原生歷史還原與 panel 顯示完成，再套用該項目座標，不讓 hash 定位蓋掉閱讀位置。
+  restoreFrame = requestAnimationFrame(() => {
+    restoreFrame = null;
+    if (readingRoute() !== route) return;
+    heading?.focus({preventScroll:true});
+    window.scrollTo({left:position.x, top:position.y, behavior:'instant'});
+    recordReadingPosition();
+  });
+}
+function navigateHash(hash) {
+  recordReadingPosition();
+  pendingRoute = location.pathname + hash;
+  if (hash === location.hash) { pendingRoute = null; routeReadingPosition(); }
+  else location.hash = hash;
+}
+window.addEventListener('scroll', () => {
+  if (!restoreFrame && !readingTimer) readingTimer = setTimeout(recordReadingPosition, 120);
+}, {passive:true});
+window.addEventListener('scrollend', recordReadingPosition);
+window.addEventListener('pagehide', recordReadingPosition);
+window.addEventListener('pageshow', event => {
+  if (event.persisted) routeReadingPosition(savedReadingPosition(history.state));
+});
+
+function showRoute({ focus = false, scroll = true, readingPanel = null } = {}) {
   let target;
   try { target = decodeURIComponent(location.hash.slice(1)) || 'panorama'; } catch { target = 'panorama'; }
   const anchor = document.getElementById(target);
@@ -79,16 +136,7 @@ function showRoute({ focus = false } = {}) {
     select.value = '';
     select.dispatchEvent(new Event('change'));
   }
-  if (target === 'main-content') {
-    const current = panels.find(item => !item.hidden) || panels[0];
-    panels.forEach(item => { item.hidden = item !== current; });
-    const heading = current.querySelector('h2');
-    heading.setAttribute('tabindex', '-1');
-    heading.focus({ preventScroll: true });
-    heading.scrollIntoView({ block: 'start' });
-    return;
-  }
-  const panel = anchor?.matches('[data-nvm-panel]') ? anchor : anchor?.closest('[data-nvm-panel]');
+  const panel = target === 'main-content' ? panels.find(item => item.id === readingPanel) || panels.find(item => !item.hidden) || panels[0] : anchor?.matches('[data-nvm-panel]') ? anchor : anchor?.closest('[data-nvm-panel]');
   const next = panel || document.getElementById('panorama');
   panels.forEach(item => { item.hidden = item !== next; });
   void ensureDiagrams(next);
@@ -115,12 +163,13 @@ function showRoute({ focus = false } = {}) {
   contentsButton.setAttribute('aria-expanded', 'false');
   for (let disclosure = anchor?.closest('details'); disclosure; disclosure = disclosure.parentElement?.closest('details')) disclosure.open = true;
   if (focus) {
-    const destination = anchor || next;
+    const destination = target === 'main-content' ? next : anchor || next;
     const heading = destination.matches('[data-nvm-panel]') ? destination.querySelector('h2') : destination.matches('.nvm-research-study,.nvm-benchmark-study,.nvm-topic-section,.nvm-ip-group,.nvm-system-section,.nvm-system-end,.nvm-history-editorial,.nvm-corrections,.nvm-lineage-entry,[data-foundry-year]') ? destination.querySelector('h3') : destination.matches('[data-foundry],.nvm-correction,.nvm-lineage-events-block,.nvm-lineage-current,.nvm-lineage-boundary') ? destination.querySelector('h4') : destination.matches('.nvm-lineage-event') ? destination.querySelector('h5') : destination.matches('.nvm-system-index,.nvm-lineage-index') ? destination.querySelector('a') : destination.matches('[data-source-record],[data-patent-record],.nvm-history-disclosure') ? destination.querySelector('summary') : destination.matches('[data-glossary-record]') ? destination.querySelector('dt') : destination;
     heading?.setAttribute('tabindex', '-1');
     if (heading?.matches('h2,h3,h4,h5')) heading.dataset.routeHeading = '';
     heading?.focus({ preventScroll: true });
-    destination.scrollIntoView({ block: 'start' });
+    if (scroll) destination.scrollIntoView({ block: 'start', behavior:'instant' });
+    return heading;
   }
 }
 
@@ -129,13 +178,17 @@ contentsButton.addEventListener('click', () => {
   contentsButton.setAttribute('aria-expanded', String(open));
 });
 
-contents.addEventListener('click', event => {
-  const link = event.target.closest('a[href^="#"]');
-  if (link && link.hash === location.hash) {
-    event.preventDefault();
-    showRoute({ focus: true });
-  }
-});
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href]');
+  if (!link || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || link.target || link.hasAttribute('download')) return;
+  const url = new URL(link.href);
+  if (url.origin !== location.origin || url.pathname !== location.pathname || url.search !== location.search || !url.hash) return;
+  let anchor;
+  try { anchor = document.getElementById(decodeURIComponent(url.hash.slice(1))); } catch { return; }
+  if (!anchor?.closest('[data-nvm-panel]') && anchor?.id !== 'main-content') return;
+  event.preventDefault();
+  navigateHash(url.hash);
+}, {capture:true});
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && contents.classList.contains('open')) {
     contents.classList.remove('open');
@@ -143,7 +196,23 @@ document.addEventListener('keydown', event => {
     contentsButton.focus();
   }
 });
-window.addEventListener('hashchange', () => showRoute({ focus: true }));
+window.addEventListener('popstate', event => {
+  poppedRoute = readingRoute();
+  const activeNavigation = pendingRoute === poppedRoute;
+  pendingRoute = null;
+  // 新的 hash 導航仍會收到 popstate；讓後續 hashchange 在原生定位之後處理。
+  if (activeNavigation) { poppedRoute = null; return; }
+  // 搜尋等控制器只改查詢參數時，不移動閱讀焦點或捲動位置。
+  if (poppedRoute === routedReadingRoute) return;
+  const position = savedReadingPosition(event.state);
+  if (position) routeReadingPosition(position);
+  else poppedRoute = null;
+});
+window.addEventListener('hashchange', () => {
+  const alreadyRouted = poppedRoute === readingRoute();
+  poppedRoute = pendingRoute = null;
+  if (!alreadyRouted) routeReadingPosition();
+});
 
 document.querySelectorAll('[data-operation-widget]').forEach(widget => {
   const completeCycle = widget.hasAttribute('data-complete-cycle');
@@ -152,17 +221,26 @@ document.querySelectorAll('[data-operation-widget]').forEach(widget => {
     button.addEventListener('click', () => {
       widget.querySelectorAll('[data-operation-select]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       widget.querySelectorAll('[data-operation-detail]').forEach(item => { item.hidden = !completeCycle && item.dataset.operationDetail !== button.dataset.operationSelect; });
-      history.replaceState(null,'',`#${button.getAttribute('aria-controls')}`);
+      history.replaceState(history.state,'',`#${button.getAttribute('aria-controls')}`);
       if (completeCycle) {
         const destination = document.getElementById(button.getAttribute('aria-controls'));
         destination.setAttribute('tabindex', '-1');
         destination.focus({preventScroll:true});
         destination.scrollIntoView({block:'start'});
       }
+      recordReadingPosition();
+      routedReadingRoute = readingRoute();
     });
   });
 });
 showRoute({ focus: Boolean(location.hash) });
+recordReadingPosition();
+if (document.readyState !== 'complete') window.addEventListener('load', () => {
+  requestAnimationFrame(() => {
+    if (location.hash) routeReadingPosition();
+    else recordReadingPosition();
+  });
+}, {once:true});
 
 function filterHistoricalMetrics() {
   const select = document.querySelector('#nvm-history-metric');

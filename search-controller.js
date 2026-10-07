@@ -41,7 +41,8 @@ window.__NVM_SEARCH_ENHANCED = true;
       loading: ' 正在載入總帳…',
       failed: ' 總帳載入失敗；目前僅搜尋主題。可重試載入，保留目前查詢與分類。',
       retry: '重試載入總帳', retrying: '正在重試…',
-      categories: '搜尋分類', categoryRule: '分類依既有路徑、標題與標籤判斷；同一紀錄可符合多個分類。'
+      categories: '搜尋分類', categoryRule: '分類依既有路徑、標題與標籤判斷；同一紀錄可符合多個分類。',
+      linkHint: '網址已保存查詢與分類，可複製分享；關閉搜尋仍保留條件。'
     },
     en: {
       topic: 'Topic', tool: 'Tool', ledger: 'Evidence Ledger',
@@ -50,7 +51,8 @@ window.__NVM_SEARCH_ENHANCED = true;
       loading: ' Loading the evidence ledger…',
       failed: ' The ledger could not be loaded; topic search remains available. Retry without changing the query or category.',
       retry: 'Retry ledger loading', retrying: 'Retrying…',
-      categories: 'Search categories', categoryRule: 'Categories use existing routes, titles and tags; a record can belong to more than one category.'
+      categories: 'Search categories', categoryRule: 'Categories use existing routes, titles and tags; a record can belong to more than one category.',
+      linkHint: 'The URL keeps your query and category for sharing; closing search keeps these conditions.'
     }
   };
   // 分類只判讀既有紀錄，不另建索引；路徑確認主題，標題與標籤補足總帳紀錄。
@@ -164,6 +166,9 @@ window.__NVM_SEARCH_ENHANCED = true;
     retry.type = 'button'; retry.id = 'searchRetry'; retry.className = 'search-retry'; retry.hidden = true;
     retry.setAttribute('aria-controls', 'searchResults');
     status.after(retry);
+    const linkHint = document.createElement('p');
+    linkHint.className = 'search-link-hint';
+    results.after(linkHint);
     function syncInterfaceLabels() {
       const language = window.HubLanguage?.get() === 'zh' ? 'zh' : 'en';
       const copy = labels[language];
@@ -178,6 +183,7 @@ window.__NVM_SEARCH_ENHANCED = true;
         button.classList.toggle('active', entry.id === category);
       });
       retry.textContent = loading ? copy.retrying : copy.retry;
+      linkHint.textContent = copy.linkHint;
       // 搜尋只同步自身名稱，其他元件的動態狀態由各自控制器維護。
       [overlay, trigger, ...overlay.querySelectorAll('[data-aria-zh][data-aria-en]')].forEach(element => {
         const label = element?.dataset[language === 'zh' ? 'ariaZh' : 'ariaEn'];
@@ -187,6 +193,21 @@ window.__NVM_SEARCH_ENHANCED = true;
     let loading = null, loaded = false, failed = false, previousFocus, previousOverflow;
     let background = [];
     const isOpen = () => overlay.classList.contains('is-open');
+    // 只讀寫搜尋自己的三個參數；索引、語系、章節與外部 history.state 維持同一契約。
+    function restoreConditions() {
+      const params = new URLSearchParams(location.search);
+      input.value = params.get('search') || '';
+      const candidate = params.get('search-category');
+      category = categories.some(entry => entry.id === candidate) ? candidate : 'all';
+      return params.get('search-open') === '1';
+    }
+    function saveConditions() {
+      const url = new URL(location.href);
+      if (input.value) url.searchParams.set('search', input.value); else url.searchParams.delete('search');
+      if (category !== 'all') url.searchParams.set('search-category', category); else url.searchParams.delete('search-category');
+      if (isOpen()) url.searchParams.set('search-open', '1'); else url.searchParams.delete('search-open');
+      history.replaceState(history.state, '', url);
+    }
     // 僅整理檢索詞，不轉換數值或改寫技術內容；保留小數與不同量級。
     const termAliases = [
       [/資料\s*(?:保持|留存|保存)|數據\s*(?:保持|留存)/gu, 'retention'],
@@ -317,7 +338,7 @@ window.__NVM_SEARCH_ENHANCED = true;
       document.body.style.overflow = 'hidden';
       overlay.classList.add('is-open'); overlay.setAttribute('aria-hidden','false');
       trigger?.setAttribute('aria-expanded','true');
-      loadLedger(); render(); input.focus();
+      loadLedger(); render(); input.focus(); saveConditions();
     }
     function closeSearch() {
       if (!isOpen()) return;
@@ -325,6 +346,7 @@ window.__NVM_SEARCH_ENHANCED = true;
       trigger?.setAttribute('aria-expanded','false');
       document.body.style.overflow = previousOverflow;
       background.forEach(([element,inert]) => {element.inert = inert;});
+      saveConditions();
       const restoreFocus = previousFocus?.isConnected && previousFocus.getClientRects().length
         && getComputedStyle(previousFocus).visibility !== 'hidden'
         && !previousFocus.closest('dialog:not([open]), [inert]') ? previousFocus : trigger;
@@ -332,12 +354,12 @@ window.__NVM_SEARCH_ENHANCED = true;
     }
     trigger?.addEventListener('click',openSearch); close?.addEventListener('click',closeSearch);
     overlay.addEventListener('click',event => {if (event.target === overlay) closeSearch();});
-    input.addEventListener('input',render);
+    input.addEventListener('input',() => {saveConditions(); render();});
     categoryControls.addEventListener('click', event => {
       const button = event.target.closest('button[data-category]');
       if (!button || !categoryControls.contains(button)) return;
       category = button.dataset.category;
-      render();
+      saveConditions(); render();
     });
     retry.addEventListener('click', async () => {
       const retryHadFocus = document.activeElement === retry;
@@ -396,7 +418,16 @@ window.__NVM_SEARCH_ENHANCED = true;
       }
     });
     if (typeof syncHubLanguage === 'function') syncHubLanguage();
+    const restoreOpen = restoreConditions();
     syncInterfaceLabels();
+    if (restoreOpen) openSearch();
+    window.addEventListener('popstate', () => {
+      const shouldOpen = restoreConditions();
+      if (shouldOpen && !isOpen()) openSearch();
+      else if (!shouldOpen && isOpen()) closeSearch();
+      else if (isOpen()) render();
+      syncInterfaceLabels();
+    });
     window.NVMHub = Object.assign(window.NVMHub || {}, {syncLanguage: typeof syncHubLanguage === 'function' ? syncHubLanguage : window.NVMHub?.syncLanguage || (() => {}), searchIndex:index});
   }
   start();

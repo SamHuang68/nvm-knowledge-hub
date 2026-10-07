@@ -29,3 +29,4 @@
 #searchHudPills .search-hud-pill{min-height:44px;font-size:13px}
 @media(prefers-reduced-motion:reduce){.search-result-item,.search-hud-pill{transition:none!important;transform:none!important}}
 @media print{.search-trigger,#searchTrigger,.search-overlay{display:none!important}}
+.search-link-hint{margin:12px 0 0;color:var(--ink-mid,#496477);font-size:12px;line-height:1.6;overflow-wrap:anywhere}
