@@ -1218,6 +1218,13 @@
                 <span data-lang="en">Evaluates dynamic clamping performance, charge pump dielectric breakdown margin, and output ripple suppression under extreme 150°C~175°C junction temperature (Tj) when ISO 16750-2 load dump (Pulse 5a/5b) or inductive wiring kicks strike internal automotive NVM power rails.</span>
               </p>
 
+              <!-- Simulation Disclaimer Banner -->
+              <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
+                <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+                <span data-lang="zh">本工作台之 ISO 7637-2 / ISO 16750-2 拋負載 (Load Dump) 瞬態電壓與電荷泵鉗位響應為基於一階指數脈衝與簡化過電壓崩潰模型之數值示意，非實際車電晶片 EMC / ESD 實驗室認證數據。晶片在突波下的生存裕度取決於片上 TVS、高壓 BCD 製程耐壓窗與 PCB 外部濾波保護設計。</span>
+                <span data-lang="en">The ISO 7637-2 / ISO 16750-2 load dump transient waveforms and charge pump clamping dynamics in this workbench are schematic numerical approximations based on first-order exponential pulses and simplified breakdown models, rather than lab-certified automotive EMC/ESD reports. Physical chip surge survival is governed by on-chip TVS clamps, high-voltage BCD design margins, and external PCB protection.</span>
+              </div>
+
               <!-- Controls Grid -->
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
                 <div>
@@ -1400,6 +1407,13 @@
               <span data-lang="en">In EV traction inverters, BMS, and autonomous ADAS controllers, atmospheric fast neutrons (scaling exponentially with altitude) and packaging alpha emitters dominate transient soft-error rates (SER). Based on first-principles neutron altitude scaling, critical charge models, and SEC-DED/Chipkill syndrome matrices, this simulator evaluates Single Point Fault Metric (SPFM ≥ 99%), Latent Fault Metric (LFM ≥ 90%), and periodic scrubbing suppression on residual FIT, rigorously qualifying ISO 26262 ASIL-D targets.</span>
             </p>
 
+            <!-- Simulation Disclaimer Banner -->
+            <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+              <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+              <span data-lang="zh">本試算器之單點故障度量 (SPFM)、潛伏故障度量 (LFM) 與宇宙射線中子翻轉 FIT 率為基於一階海拔通量縮放模型與典型 SEC-DED 症狀矩陣之工程示意試算，非經第三方認證機構 (TÜV SÜD 等) 簽署之產品級 FMEDA 安全報告。車規功能安全設計需依循完整 ISO 26262 流程管理與硬體失效率分配。</span>
+              <span data-lang="en">The Single Point Fault Metric (SPFM), Latent Fault Metric (LFM), and neutron soft-error FIT rates in this simulator are engineering schematic calculations based on first-order altitude flux scaling and typical SEC-DED syndrome matrices, not product-level FMEDA reports certified by third-party bodies (e.g. TÜV SÜD). Automotive functional safety must comply with full ISO 26262 lifecycle processes and hardware failure apportionment.</span>
+            </div>
+
             <div class="decision-matrix-card" id="auto-asild-simulator-root" style="margin-top: 16px; background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 20px 22px; box-shadow: 0 10px 30px -5px rgba(0,0,0,0.5);">
               <!-- Controls Grid -->
               <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-bottom: 16px;">
@@ -1420,7 +1434,7 @@
                     <span data-lang="zh">記憶體單元抗翻轉架構:</span><span data-lang="en">MEMORY SER HARDENING:</span>
                   </label>
                   <select id="asild-nvm-select" aria-label="Memory SER Hardening Architecture" data-aria-en="Memory SER Hardening Architecture" data-aria-zh="記憶體單元抗翻轉架構" style="width: 100%; padding: 6px 10px; border: 1px solid #475569; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #f8fafc; background: #0f172a;">
-                    <option value="antifuse_charge_free" selected>AntiFuse OTP (Zero-Charge / Immune)</option>
+                    <option value="antifuse_charge_free" selected>AntiFuse OTP (Zero-Charge / High Soft-Error Immunity)</option>
                     <option value="radhard_stt_mram">Automotive STT-MRAM (MTJ / Low SER)</option>
                     <option value="embedded_flash_sg">Split-Gate eFlash (Moderate SER)</option>
                     <option value="embedded_sram_sub20nm">Advanced eSRAM (Sub-20nm / High SER)</option>

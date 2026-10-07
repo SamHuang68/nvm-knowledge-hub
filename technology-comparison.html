@@ -2140,6 +2140,13 @@
         <span data-lang="en">Move the five constraint sliders to redraw relative hulls. Scores are a heuristic demo of relative fit under the current sliders — not a production selector, not a default winner, and not shipment proof. Hulls are family-class: eFuse is blow-class; I-fuse and Logic MTP are listed as separate candidates. Named exceptions (TwinBit / Actt / G2) stay in matrix note 05 and do not get extra hulls.</span>
       </p>
 
+      <!-- Simulation Disclaimer Banner -->
+      <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e; max-width: 860px;">
+        <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+        <span data-lang="zh">本 5 軸多維動態雷達選型器為示範性啟發式評估參考模型（Heuristic Demo），用於展現不同製程節點、功耗與預算權重下之技術架構權衡趨勢，非針對特定晶圓代工廠或專案之唯一 sign-off 選型工具。實際商業架構決策需綜合評估晶圓代工合約、PDK 庫成熟度、光罩報價與完整可靠度資格報告。</span>
+        <span data-lang="en">This 5-axis dynamic radar selector is an illustrative heuristic reference model demonstrating architectural trade-offs across nodes, power budgets, and cost constraints, rather than an exclusive sign-off selection tool for specific foundry tape-outs. Commercial tape-out decisions require holistic evaluation of wafer supply agreements, PDK IP availability, mask NRE quotes, and full qualification reports.</span>
+      </div>
+
       <button id="resetSelector" type="button" class="matrix-view-btn" style="margin-bottom: 16px;"><span data-lang="zh">重設五項條件</span><span data-lang="en">Reset Five Constraints</span></button>
       <div class="selector-grid-layout">
         <!-- Left: Sliders Panel -->
@@ -2609,6 +2616,13 @@
           <span data-lang="en">In semiconductor architecture decisions, evaluating eNVM requires looking beyond bitcell area (F²). Architectural cost closure demands factoring in mask-adder layers (ΔN), defectivity density penalties (ΔD₀) from high-temperature thermal budgets, Murphy silicon yield degradation, and mask-set NRE amortization. This calculator applies first-principles wafer cost identities and Murphy yield models to quantify the lifecycle TCO advantages of zero-mask AntiFuse over eFlash (+10 masks) and eMRAM (+4 masks).</span>
         </p>
 
+        <!-- Simulation Disclaimer Banner -->
+        <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+          <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+          <span data-lang="zh">本工作台之光罩附加成本比率 (α)、Murphy 矽良率損失與百萬晶圓 TCO 為基於公開一階成本恆等式與典型缺陷密度模型之數值試算，非特定晶圓代工廠機密晶圓報價單或特定晶片之產線良率承諾。實際生產成本需依據晶圓採購協議 (WPA)、量產規模與合約良率保證條款確認。</span>
+          <span data-lang="en">The mask-adder cost ratios (α), Murphy yield loss, and million-wafer TCO in this workbench are schematic numerical approximations based on public first-order cost equations and defect models, rather than confidential foundry price schedules or tape-out yield commitments. Actual production economics depend on volume wafer supply agreements and contract yield targets.</span>
+        </div>
+
         <!-- Controls Grid -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px;">
           <div>
@@ -2754,6 +2768,13 @@
           <span data-lang="zh">在 3D 垂直堆疊記憶體（如 3D AntiFuse OTP、3D NOR 與 3D NAND）中，層數（Tier Count，32 至 128+ 層）的增加大幅提高了單元密度；然而高深寬比（HAR）階梯刻蝕走線使最底層字元線（Word-Line）物理長度急劇延伸。同時，金屬薄膜厚度微縮（&lt;25 nm）觸發 Fuchs-Sondheimer 表面散射與 Mayadas-Shatzkes 晶界散射，使鎢（W）電阻率暴增數倍，引發嚴峻的字元線 RC 延遲梯差（Delay Skew）。改採先進低電阻率金屬鉬（Mo）或超短平均自由程釕（Ru）可有效壓低 RC 延遲，維持端到端高速讀取存取頻寬。</span>
           <span data-lang="en">In 3D vertical stacked memories (such as 3D AntiFuse OTP, 3D NOR, and 3D NAND), increasing tier counts (32 to 128+ layers) dramatically multiplies bit density. However, high-aspect-ratio (HAR) staircase contact routing drastically extends the physical length of lower word-lines. Concurrently, scaling conductor film thickness below 25 nm triggers severe Fuchs-Sondheimer surface and Mayadas-Shatzkes grain-boundary scattering, surging tungsten (W) resistivity and causing severe RC delay skew across tiers. Transitioning to advanced molybdenum (Mo) or ultra-short mean-free-path ruthenium (Ru) suppresses RC delay, sustaining high random-read bandwidth.</span>
         </p>
+
+        <!-- Simulation Disclaimer Banner -->
+        <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #fde68a;">
+          <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+          <span data-lang="zh">本工作台之字元線階梯 RC 延遲與 Fuchs-Sondheimer / Mayadas-Shatzkes 薄膜金屬電阻率散射為基於一階集總傳輸線與半經驗尺寸效應模型之數值示意，非 3D TCAD 或高頻電磁場求解器 (HFSS) 之實體驗證網格數據。實體深階梯延遲受刻蝕輪廓側壁傾角、孔徑均勻性與阻障層 (TiN/TaN) 界面粗糙度支配。</span>
+          <span data-lang="en">The word-line staircase RC delays and Fuchs-Sondheimer / Mayadas-Shatzkes conductor size-effect resistivity in this workbench are schematic numerical approximations based on first-order transmission-line models, rather than 3D TCAD or full-wave electromagnetic solver outputs. Physical staircase delay skew is governed by sidewall taper angles, etch hole uniformity, and barrier layer interface roughness.</span>
+        </div>
 
         <!-- Controls Grid -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px;">

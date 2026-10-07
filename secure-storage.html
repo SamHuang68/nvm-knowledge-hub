@@ -1940,8 +1940,8 @@
             </h3>
           </div>
           <span class="badge-compact" style="background: rgba(176, 138, 91, 0.12); color: #785021; border: 1px solid rgba(176, 138, 91, 0.25); font: 700 11px 'IBM Plex Mono', monospace; padding: 4px 10px; border-radius: 4px;">
-            <span data-lang="zh">FIPS 140-3 物理安全</span>
-            <span data-lang="en">FIPS 140-3 LEVEL 4</span>
+            <span data-lang="zh">FIPS 140-3 物理安全規範</span>
+            <span data-lang="en">FIPS 140-3 PHYSICAL SECURITY</span>
           </span>
         </div>
 
@@ -1949,6 +1949,13 @@
           <span data-lang="zh">相較於傳統 ECC（32B），後量子格密碼（ML-KEM / ML-DSA）密鑰尺寸暴增至數千位元組。高頻密鑰輪替引發 eFlash / MTP 嚴重的寫入磨損（Endurance Wearout）與長達數毫秒的抹除延遲。本試算器評估超大 PQC 密鑰在不同安全介質上的壽命損耗、抗凍結殘留與主動防竄改緊急零化（Zeroization &lt; 50ns）物理極限。</span>
           <span data-lang="en">Compared to classical ECC (32B), lattice-based PQC keys (ML-KEM / ML-DSA) expand to several kilobytes. High-frequency key rotations induce severe eFlash wearout and millisecond-level erase delays. This simulator models PQC key wearout, anti-freeze remanence, and sub-50ns emergency zeroization across secure media architectures.</span>
         </p>
+
+        <!-- Simulation Disclaimer Banner -->
+        <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
+          <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+          <span data-lang="zh">本工作台之後量子金鑰大小（ML-KEM / ML-DSA）、擦寫壽命損耗與零化延遲為基於 NIST FIPS 203/204 參數與典型 NVM 單元特性之一階示意推估，非特定安全晶片實體實驗室滲透測試數據。晶片零化響應受晶粒內部放電回路 RC 常數、感應電容與電源完整性約束。</span>
+          <span data-lang="en">The post-quantum key sizes (ML-KEM / ML-DSA), wearout endurance, and zeroization delays in this workbench are schematic numerical approximations based on NIST FIPS 203/204 parameters and typical NVM characteristics, rather than lab penetration test reports. Physical zeroization dynamics are constrained by on-chip discharge loop RC time constants, decoupling capacitance, and power integrity.</span>
+        </div>
 
         <!-- Controls Grid -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
@@ -2156,9 +2163,16 @@
             </h4>
           </div>
           <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.08); color: #0284c7; padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">
-            <span data-lang="zh">ISO/IEC 17825 / Common Criteria AVA_VAN.5</span>
-            <span data-lang="en">ISO/IEC 17825 / Common Criteria AVA_VAN.5</span>
+            <span data-lang="zh">ISO/IEC 17825 / Common Criteria AVA_VAN.5 測試規範</span>
+            <span data-lang="en">ISO/IEC 17825 / Common Criteria AVA_VAN.5 Rigor</span>
           </span>
+        </div>
+
+        <!-- Simulation Disclaimer Banner -->
+        <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
+          <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+          <span data-lang="zh">本工作台之 DPA/CPA 側信道功耗痕跡需求量 (MTD)、信噪比 (SNR) 與高階遮罩 (Masking) 複雜度為基於 Mangard 漢明權重模型之統計數值示意，非特定硬體密碼模組通過 ISO/IEC 17825 實驗室認證或 CC AVA_VAN.5 實體旁路攻擊評估之背書。實際旁路防禦需配合實體雜訊注入、隨機抖動 (Jitter) 與後端版圖差分平衡佈線。</span>
+          <span data-lang="en">The DPA/CPA trace complexity (MTD), signal-to-noise ratio (SNR), and high-order masking metrics in this workbench are statistical approximations based on Mangard Hamming-weight models, rather than formal ISO/IEC 17825 lab certification or Common Criteria AVA_VAN.5 penetration findings. Physical side-channel resilience requires hardware noise injection, clock jittering, and differential balanced layout routing.</span>
         </div>
 
         <!-- Controls Grid -->
