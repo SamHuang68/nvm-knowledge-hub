@@ -2228,15 +2228,22 @@
           </h4>
         </div>
         <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(6, 182, 212, 0.1); color: #0891b2; padding: 4px 8px; border-radius: 4px;">
-          <span data-lang="zh">TSMC SoIC / DBI · 旺矽/精測/Technoprobe 無痕探針卡模型</span>
-          <span data-lang="en">TSMC SoIC / DBI · MPI/CHPT/Technoprobe Zero-Mark Probe Models</span>
+          <span data-lang="zh">3D 異質整合 / DBI 晶圓鍵合 · 超低接觸力微懸臂 MEMS 探針模型</span>
+          <span data-lang="en">3D Heterogeneous / DBI Bonding · Ultra-Low Force MEMS Probe Models</span>
         </span>
       </div>
 
       <p style="font-size: 12.5px; line-height: 1.6; color: #475569; margin: 0 0 16px;">
-        <span data-lang="zh">當 HBM4 與先進 3D 異質小晶片微間距縮小至 1µm 以下（Cu-Cu 直接混合鍵合，Direct Bond Interconnect），互連密度突破百萬/mm²，TSV 寄生電容劇降至 &lt;5 fF，消除微凸塊橋接短路風險。然而，化學機械研磨 (CMP) 表面容許凹陷僅 3.0 nm，傳統探針卡的高破壞性針痕 (&gt;15 nm) 會造成致命鍵合空洞 (Void)！本模擬器試算 TSV 寄生 RC、2048-bit PHY 高頻眼高開展率，並評估旺矽 (6223)、精測 (6510) 等無痕微接觸 MEMS 探針卡在 KGD 晶圓測試的防刮傷邊界。</span>
-        <span data-lang="en">When HBM4 and advanced 3D chiplets scale interconnect pitch sub-1µm (Cu-Cu Direct Bond Interconnect / DBI), density exceeds 1M/mm² and TSV parasitic capacitance drops below 5 fF, eliminating bump bridging. However, CMP surface dishing tolerance is strictly 3.0 nm; traditional probe scrub marks (&gt;15 nm) cause catastrophic bonding voids! This simulator models TSV parasitics, 2048-bit PHY eye openings, and evaluates MPI (6223) and CHPT (6510) zero-mark MEMS probe card qualifications for KGD wafer sort.</span>
+        <span data-lang="zh">當 HBM4 與先進 3D 異質小晶片微間距縮小至 1µm 以下（Cu-Cu 直接混合鍵合，Direct Bond Interconnect），互連密度突破百萬/mm²，TSV 寄生電容降至 &lt;5 fF，大幅減低微凸塊橋接短路風險。然而化學機械研磨 (CMP) 表面容許凹陷預算極為嚴苛（通常約 3.0 nm），傳統探針卡的高破壞性針痕可能增加鍵合空洞 (Void) 風險。本模擬器試算 TSV 寄生 RC、2048-bit PHY 高頻眼高開展率，並評估超低接觸力微懸臂 MEMS 探針架構在 KGD 晶圓測試的防刮傷邊界。</span>
+        <span data-lang="en">When HBM4 and advanced 3D chiplets scale interconnect pitch sub-1µm (Cu-Cu Direct Bond Interconnect / DBI), density exceeds 1M/mm² and TSV parasitic capacitance drops below 5 fF, reducing bump bridging risks. However, CMP surface dishing budgets are stringent (typically ~3.0 nm), and legacy high-force probe cards risk severe bonding voids. This simulator models TSV parasitics, 2048-bit PHY eye openings, and evaluates low-force micro-cantilever MEMS probe architectures for KGD wafer sort integrity.</span>
       </p>
+
+      <!-- Simulation Disclaimer Banner -->
+      <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
+        <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+        <span data-lang="zh">本工作台之 TSV 寄生 RC 參數、眼高開展率與探針針痕深度為基於一階低通濾波幅頻響應及彈塑性力學縮放經驗式之數值示意模型，非探針卡原廠實測保證。混合鍵合介面平整度受 CMP 製程研磨液配方、銅焊墊凹陷 (Dishing) 與晶圓邊緣翹曲 (Warpage) 多重因素共同決定；實際量產 KGD 測試需搭配原廠設計驗證治具判定。</span>
+        <span data-lang="en">The TSV parasitic RC metrics, eye opening percentages, and probe scrub depths in this workbench are schematic numerical models based on first-order RC low-pass filter responses and empirical elastoplastic mechanics scaling, rather than manufacturer-guaranteed test reports. Hybrid bonding interface flatness is governed by CMP slurry chemistry, copper dishing budgets, and wafer warpage; actual mass-production KGD sorting requires vendor-qualified test fixtures.</span>
+      </div>
 
       <!-- Controls Grid -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; background: #f8fafc; padding: 12px; border-radius: 6px; border: 1px solid #e2e8f0;">
@@ -2257,10 +2264,10 @@
             <span data-lang="zh">KGD 晶圓測試探針卡:</span><span data-lang="en">KGD PROBE CARD ARCH:</span>
           </label>
           <select id="hb-probe-select" aria-label="KGD Probe Card Architecture" data-aria-en="KGD Probe Card Architecture" data-aria-zh="KGD 晶圓測試探針卡" style="width: 100%; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 4px; font: 600 11.5px 'IBM Plex Mono', monospace; color: #0f172a; background: #ffffff;">
-            <option value="mpi_zero_mark_mems" selected>MPI Corporation (6223) · Ultra-Low Force Zero-Mark MEMS</option>
-            <option value="chpt_submicron_mems">CHPT (6510) · Micro-Pitch High-Freq Thin-Film MEMS</option>
-            <option value="technoprobe_tplus">Technoprobe · T-Plus Nano-Contact Low-Force MEMS</option>
-            <option value="formfactor_touch">FormFactor · MicroForce Advanced SoC Probe Card</option>
+            <option value="mpi_zero_mark_mems" selected>Low-Force Micro-Cantilever MEMS</option>
+            <option value="chpt_submicron_mems">Micro-Pitch Thin-Film High-Frequency MEMS</option>
+            <option value="technoprobe_tplus">Vertical Compliant Tip MEMS Probe</option>
+            <option value="formfactor_touch">High-Density Mixed-Signal Probe Card</option>
             <option value="legacy_cantilever">Legacy Cantilever / Standard VPC (Baseline · High Damage)</option>
           </select>
         </div>

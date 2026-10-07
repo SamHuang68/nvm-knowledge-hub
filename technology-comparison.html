@@ -3409,8 +3409,15 @@
             </div>
             <div style="display: flex; align-items: center; gap: 6px; background: #f1f5f9; padding: 4px 8px; border-radius: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #475569;">
               <span><span data-lang="zh">測試狀態：</span><span data-lang="en">TEST RATING:</span></span>
-              <strong id="pkg-out-rating" style="color: #059669;">KGD PASS</strong>
+              <strong id="pkg-out-rating" style="color: #059669;">QUALIFIED</strong>
             </div>
+          </div>
+
+          <!-- Simulation Disclaimer Banner -->
+          <div class="simulation-disclaimer-banner" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.25); border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
+            <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
+            <span data-lang="zh">本工作台之互連延遲 (Elmore RC)、熱阻階梯 (1D Fourier 導熱) 與訊號完整性眼高開展率為基於典型製程設計套件 (PDK) 幾何常數與一階集總參數之工程示意模型，非三維電磁場 (3D EM) 或熱流場 (CFD) 有限元素數值求解。晶粒實際互連品質與眼圖開展裕度需依據晶圓代工廠 sign-off 萃取規則檔與完整封裝 S 參數時域模擬判定。</span>
+            <span data-lang="en">The interconnect latency (Elmore RC), thermal gradients (1D Fourier heat conduction), and eye opening rates in this workbench are schematic engineering models based on typical PDK geometries and first-order lumped parameters, rather than full 3D electromagnetic (EM) or computational fluid dynamics (CFD) finite element solvers. Actual chiplet SI/PI margins must be verified through foundry sign-off extraction rule decks and full-channel package S-parameter simulations.</span>
           </div>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 1.5rem;">

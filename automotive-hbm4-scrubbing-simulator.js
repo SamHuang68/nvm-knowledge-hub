@@ -170,7 +170,7 @@ export function calculateAutomotiveHbm4Metrics({
 
   // 4. Scrubbing Elimination of Dual-Bit Failure (MBF)
   // Two single-bit events colliding within scrubbing interval Ts
-  // Residual dual-bit FIT = (Raw_SER)^2 * Ts * (1 - RepairEfficiency)
+  // Residual dual-bit FIT = (Raw_SER)^2 * Ts * (1 - RepairEfficiency) [Statistical Heuristic Model]
   const collisionRate = Math.pow(rawSerFit * 1e-4, 2) * (scrubbingPeriodSec / 1.0);
   const residualSerFit = collisionRate * (1.0 - arch.repairEfficiency) * 8.5;
 
@@ -180,7 +180,7 @@ export function calculateAutomotiveHbm4Metrics({
   // Total Residual FIT Rate
   const totalResidualFit = Math.max(0.01, residualSerFit + residualHardFit);
 
-  // 5. ISO 26262 ASIL Metrics
+  // 5. ISO 26262 ASIL Metrics (Simplified Diagnostic Coverage Heuristic)
   const totalRawFailures = rawSerFit + baseHardFailureFit;
   const spfmPercent = Math.min(99.99, Math.max(80.0, 100.0 * (1.0 - (totalResidualFit / totalRawFailures))));
   const lfmPercent = Math.min(99.5, Math.max(70.0, 100.0 * (1.0 - (totalResidualFit * 0.45 / totalRawFailures))));
@@ -192,18 +192,18 @@ export function calculateAutomotiveHbm4Metrics({
     ? Math.min(100.0, (estimatedBadRowsPerStack / maxAvailableHpprRows) * 100.0)
     : 0.0;
 
-  // ASIL Rating Qualification
-  let asilRating = 'ASIL-D QUALIFIED';
+  // ASIL Rating Qualification Target Assessment
+  let asilRating = 'ASIL-D TARGET MET';
   let ratingColor = '#10b981';
 
   if (spfmPercent < 90.0 || totalResidualFit > 100.0) {
     asilRating = 'QM / NON-COMPLIANT';
     ratingColor = '#ef4444';
   } else if (spfmPercent < 97.0 || totalResidualFit > 50.0) {
-    asilRating = 'ASIL-B QUALIFIED';
+    asilRating = 'ASIL-B TARGET MET';
     ratingColor = '#f59e0b';
   } else if (spfmPercent < 99.0 || totalResidualFit > 10.0) {
-    asilRating = 'ASIL-C QUALIFIED';
+    asilRating = 'ASIL-C TARGET MET';
     ratingColor = '#38bdf8';
   }
 
@@ -211,12 +211,12 @@ export function calculateAutomotiveHbm4Metrics({
   const verdictZh = `在 ${mission.nameZh} 極限任務剖面 (${junctionTempC}°C Tj, 海拔 ${mission.altitudeMeters}m) 下，` +
     `週期性清洗 (${scrubbingPeriodSec.toFixed(2)}s) 與 ${arch.nameZh} 協同運作：` +
     `將未修復之 ${totalRawFailures.toFixed(0)} FIT 壓制至殘餘 ${totalResidualFit.toFixed(2)} FIT (SPFM: ${spfmPercent.toFixed(2)}%)，` +
-    `Base Die 0-Mask AntiFuse OTP 累積修復預算佔比 ${hpprUsagePercent.toFixed(1)}%，完美達到 ${asilRating} 認證規格。`;
+    `Base Die 0-Mask AntiFuse OTP 累積修復預算佔比 ${hpprUsagePercent.toFixed(1)}%，達成 ${asilRating} 目標設計度量 (SPFM ≥ 99%, 系統級完整認證需另依 ISO 26262 流程實施)。`;
 
   const verdictEn = `Under ${mission.nameEn} extreme mission profile (${junctionTempC}°C Tj, ${mission.altitudeMeters}m altitude), ` +
     `periodic scrubbing (${scrubbingPeriodSec.toFixed(2)}s) paired with ${arch.nameEn} ` +
     `suppresses raw ${totalRawFailures.toFixed(0)} FIT down to residual ${totalResidualFit.toFixed(2)} FIT (SPFM: ${spfmPercent.toFixed(2)}%), ` +
-    `utilizing ${hpprUsagePercent.toFixed(1)}% of Base Die AntiFuse hPPR budget, achieving ${asilRating}.`;
+    `utilizing ${hpprUsagePercent.toFixed(1)}% of Base Die AntiFuse hPPR budget, meeting ${asilRating} design targets (formal system-level qualification requires full ISO 26262 lifecycle execution).`;
 
   return {
     rawSerFit,
@@ -326,7 +326,8 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
     ctx.strokeStyle = '#f87171';
     ctx.lineWidth = 2.0;
     for (let s = 0.1; s <= 10.0; s += 0.5) {
-      const fit = (metrics.rawSerFit * 0.08) * s * 0.28;
+      const collision = Math.pow(metrics.rawSerFit * 1e-4, 2) * s;
+      const fit = Math.min(250.0, collision * (1.0 - 0.72) * 8.5 + (metrics.baseHardFailureFit * (1.0 - 0.72)));
       const x = getX(s);
       const y = getY(fit);
       if (s === 0.1) ctx.moveTo(x, y);
@@ -339,7 +340,8 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
     ctx.strokeStyle = '#06b6d4';
     ctx.lineWidth = 2.5;
     for (let s = 0.1; s <= 10.0; s += 0.5) {
-      const fit = (metrics.rawSerFit * 0.08) * s * 0.002 + metrics.residualHardFit;
+      const collision = Math.pow(metrics.rawSerFit * 1e-4, 2) * s;
+      const fit = Math.min(250.0, collision * (1.0 - 0.998) * 8.5 + metrics.residualHardFit);
       const x = getX(s);
       const y = getY(fit);
       if (s === 0.1) ctx.moveTo(x, y);

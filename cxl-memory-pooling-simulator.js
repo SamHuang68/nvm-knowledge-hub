@@ -1,8 +1,8 @@
 /**
  * @file cxl-memory-pooling-simulator.js
- * @description CXL 3.1 Fabric-Attached Memory Pooling, 0-Mask AntiFuse Tag Cache,
- * and Dynamic Poison Alert First-Principles Simulator.
- * Models end-to-end memory access latencies, NUMA link hops, AntiFuse lookup
+ * @description CXL 3.1 Fabric-Attached Memory Pooling, Hardware CAM Tag Cache,
+ * AntiFuse Hardware Root-of-Trust, and Dynamic Poison Alert Architectural Simulator.
+ * Models end-to-end memory access latencies, NUMA link hops, hardware CAM lookup
  * speeds, stranded memory recovery curves, and poison isolation responsiveness.
  * @version 1.0.0
  * @license MIT
@@ -22,7 +22,7 @@ export const CXL_SYSTEM_PRESETS = {
     defaultHitRate: 98.5,
     switchLatencyNs: 35.0,
     mediaBaseLatencyNs: 82.0, // DDR5-6400 ECC
-    antiFuseTagLatencyNs: 6.8, // 0-Mask logic AntiFuse fast CAM/LUT
+    antiFuseTagLatencyNs: 6.8, // On-die fast CAM/LUT tag filter (with AntiFuse RoT)
     softwareOsMissLatencyNs: 1150.0,
     directUnpooledUtilization: 0.58, // 58% baseline usage
   },
@@ -75,8 +75,8 @@ export const CXL_SYSTEM_PRESETS = {
  */
 export const CXL_POLICIES = {
   antifuse_hardware_tag: {
-    nameEn: '0-Mask AntiFuse On-Die HW CAM Tag Cache (Sub-10ns Filter)',
-    nameZh: '0-Mask AntiFuse 晶片內硬體 CAM 標籤快取 (次 10ns 快速過濾)',
+    nameEn: 'On-Die HW CAM Tag Cache with AntiFuse RoT (Sub-10ns Filter)',
+    nameZh: '晶片內硬體 CAM 標籤快取與 AntiFuse 信任根 (次 10ns 快速過濾)',
     tagLatencyFactor: 1.0,
     poisonInterceptTimeNs: 8.5,
     securityGrade: 'Hardware Trust Boundary',
@@ -101,7 +101,7 @@ export const CXL_POLICIES = {
 };
 
 /**
- * First-principles mathematical calculation of CXL 3.1 pooling metrics.
+ * Architectural simulation of CXL 3.1 pooling metrics.
  * @param {string} presetKey - Selected preset key.
  * @param {string} policyKey - Selected policy key.
  * @param {number} hops - Network switch hop count (0 to 3).
@@ -165,16 +165,16 @@ export function calculateCxlPoolingMetrics(
 
   if (totalLatencyNs <= 185.0 && isZeroPanicGuaranteed) {
     rating = 'OPTIMAL';
-    verdictEn = `OPTIMAL CXL 3.1 POOLING: End-to-end latency bounded at ${totalLatencyNs.toFixed(1)} ns (${latencyPenaltyFactor.toFixed(2)}x of local DRAM). 0-Mask AntiFuse tag cache achieves ${hitRatePct.toFixed(1)}% hit rate, isolating poison faults within ${poisonInterceptNs.toFixed(1)} ns before host register commit. Rescues ${strandedMemoryRecoveredGb.toFixed(0)} GB of stranded capacity, reducing datacenter TCO by $${capexSavedDollars.toLocaleString(undefined, { maximumFractionDigits: 0 })}.`;
-    verdictZh = `最佳 CXL 3.1 記憶體池化架構：端到端存取延遲嚴格收斂於 ${totalLatencyNs.toFixed(1)} ns（僅為本機 DRAM 的 ${latencyPenaltyFactor.toFixed(2)} 倍）。0-Mask AntiFuse 標籤快取達成 ${hitRatePct.toFixed(1)}% 命中率，在主機暫存器提交前於 ${poisonInterceptNs.toFixed(1)} ns 內完成毒化故障隔離。回收 ${strandedMemoryRecoveredGb.toFixed(0)} GB 閒置記憶體，降低資料中心 TCO 達 $${capexSavedDollars.toLocaleString(undefined, { maximumFractionDigits: 0 })} 美元。`;
+    verdictEn = `OPTIMAL CXL 3.1 POOLING: End-to-end latency bounded at ${totalLatencyNs.toFixed(1)} ns (${latencyPenaltyFactor.toFixed(2)}x of local DRAM). Hardware CAM tag cache achieves ${hitRatePct.toFixed(1)}% hit rate, isolating poison faults in ${poisonInterceptNs.toFixed(1)} ns before host register commit (sub-20ns target met). Rescues ${strandedMemoryRecoveredGb.toFixed(0)} GB of stranded capacity, reducing estimated datacenter TCO by $${capexSavedDollars.toLocaleString(undefined, { maximumFractionDigits: 0 })}.`;
+    verdictZh = `最佳 CXL 3.1 記憶體池化架構：端到端存取延遲控制於 ${totalLatencyNs.toFixed(1)} ns（約為本機 DRAM 的 ${latencyPenaltyFactor.toFixed(2)} 倍）。硬體 CAM 標籤快取達成 ${hitRatePct.toFixed(1)}% 命中率，控制器在主機暫存器提交前於 ${poisonInterceptNs.toFixed(1)} ns 內完成毒化標記轉發與隔離（符合次 20ns 阻斷目標）。推估回收 ${strandedMemoryRecoveredGb.toFixed(0)} GB 閒置記憶體，降低資料中心 TCO 約 $${capexSavedDollars.toLocaleString(undefined, { maximumFractionDigits: 0 })} 美元。`;
   } else if (totalLatencyNs <= 300.0) {
     rating = 'VIABLE';
-    verdictEn = `VIABLE FABRIC CONFIGURATION: Latency increases to ${totalLatencyNs.toFixed(1)} ns due to ${hops} switch hops and cache miss overhead. Memory utilization reaches ${(poolUtilization * 100).toFixed(1)}%, but software fallback introduces jitter. Recommended for background batch inference workloads.`;
+    verdictEn = `VIABLE FABRIC CONFIGURATION: Latency increases to ${totalLatencyNs.toFixed(1)} ns due to ${hops} switch hops and cache miss overhead. Memory utilization reaches ${(poolUtilization * 100).toFixed(1)}%, but software fallback introduces latency jitter. Recommended for background batch inference workloads.`;
     verdictZh = `可行網絡配置：由於 ${hops} 層交換機跳數與快取未命中懲罰，存取延遲上升至 ${totalLatencyNs.toFixed(1)} ns。記憶體利用率達到 ${(poolUtilization * 100).toFixed(1)}%，但軟體查表引入延遲抖動。建議部署於背景批次推論運算工作。`;
   } else {
     rating = 'SUB-OPTIMAL';
-    verdictEn = `SUB-OPTIMAL LATENCY TRAP: End-to-end latency spikes to ${totalLatencyNs.toFixed(1)} ns (${latencyPenaltyFactor.toFixed(2)}x slower than DRAM). Lack of hardware AntiFuse tag cache causes excessive OS kernel interrupts, risking PCIe LTSSM timeouts. Immediate hardware tag acceleration required.`;
-    verdictZh = `次佳延遲陷阱：端到端延遲飆升至 ${totalLatencyNs.toFixed(1)} ns（比本地 DRAM 慢 ${latencyPenaltyFactor.toFixed(2)} 倍）。缺少硬體 AntiFuse 標籤快取導致龐大 OS 核心中斷，面臨 PCIe LTSSM 超時斷鏈風險。強烈建議導入硬體標籤加速。`;
+    verdictEn = `SUB-OPTIMAL LATENCY TRAP: End-to-end latency spikes to ${totalLatencyNs.toFixed(1)} ns (${latencyPenaltyFactor.toFixed(2)}x slower than DRAM). Lack of dedicated hardware CAM tag cache causes excessive OS kernel interrupts, risking PCIe Completion Timeout (CTO) and system stalls. Dedicated hardware tag acceleration required.`;
+    verdictZh = `次佳延遲陷阱：端到端延遲上升至 ${totalLatencyNs.toFixed(1)} ns（比本地 DRAM 慢 ${latencyPenaltyFactor.toFixed(2)} 倍）。缺少專屬硬體 CAM 標籤快取導致龐大 OS 核心中斷，面臨 PCIe 完成逾時 (Completion Timeout, CTO) 與系統卡頓風險。強烈建議導入硬體標籤加速。`;
   }
 
   return {
@@ -184,6 +184,7 @@ export function calculateCxlPoolingMetrics(
     totalLatencyNs,
     latencyPenaltyFactor,
     poolUtilization,
+    unpooledUtilization: preset.directUnpooledUtilization,
     utilizationGainPct,
     strandedMemoryRecoveredGb,
     capexSavedDollars,
@@ -354,11 +355,12 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
     ctx.lineWidth = 2.5;
 
     const points = 25;
+    const baseUtil = metrics.unpooledUtilization || 0.55;
     for (let i = 0; i <= points; i++) {
       const t = i / points;
       const cap = 256 + t * (8192 - 256);
       const ratio = cap / 2048.0;
-      const util = 0.94 - ((0.94 - 0.55) * Math.exp(-0.45 * ratio));
+      const util = 0.94 - ((0.94 - baseUtil) * Math.exp(-0.45 * ratio));
 
       const px = padding.left + t * chartW;
       const py = padding.top + chartH - ((util - 0.4) / 0.6) * chartH;
@@ -372,7 +374,7 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
     ctx.setLineDash([4, 4]);
     ctx.strokeStyle = '#ef4444';
     ctx.lineWidth = 1.5;
-    const unpooledY = padding.top + chartH - ((0.55 - 0.4) / 0.6) * chartH;
+    const unpooledY = padding.top + chartH - ((baseUtil - 0.4) / 0.6) * chartH;
     ctx.beginPath();
     ctx.moveTo(padding.left, unpooledY);
     ctx.lineTo(padding.left + chartW, unpooledY);

@@ -130,12 +130,13 @@ export function calculatePackagingPdkMetrics({
   // 2. D2D Interconnect Resistance & Capacitance (First Principles)
   // Fine-pitch metal line: Cu resistivity with barrier/scattering rho = 2.2e-8 ohm-m
   const is3D = preset.packagingClass === '3D_Hybrid_Bond';
-  const effectiveTraceMm = is3D ? Math.min(0.2, traceLengthMm * 0.02) : traceLengthMm;
+  // In 3D hybrid bonding, vertical connection is governed by TSV thickness (~25 um / 0.025 mm)
+  const effectiveTraceMm = is3D ? 0.025 : traceLengthMm;
   const traceLengthM = effectiveTraceMm * 1e-3;
 
   // Line resistance per mm: R_unit = rho / (width * thickness)
   // For CoWoS-S (0.4um L/S, t=0.8um): R_unit ~ 68 ohm/mm
-  // For SoIC Cu-Cu (1um pitch TSV): R_unit ~ 2.5 ohm/mm
+  // For SoIC Cu-Cu (1um pitch TSV): R_unit ~ 3.2 ohm/mm
   const rUnitOhmPerMm = is3D ? 3.2 : (22.0 / (preset.lineSpaceUm * 0.8));
   const rTraceOhm = rUnitOhmPerMm * effectiveTraceMm;
 
@@ -150,7 +151,7 @@ export function calculatePackagingPdkMetrics({
   const tauPicoSec = Math.max(0.5, tauSec * 1e12);
 
   // Maximum Eye Bandwidth (Gbps per line): limited by 1 / (2.2 * tau)
-  const maxChannelBwGbps = Math.min(64.0, (1.0 / (2.5 * Math.max(1e-12, tauSec))) * 1e-9);
+  const maxChannelBwGbps = Math.min(64.0, (1.0 / (2.2 * Math.max(1e-12, tauSec))) * 1e-9);
 
   // 3. Thermal Stack Resistance & Junction Temperature Rise
   // Effective thermal resistance (K/W)
@@ -186,11 +187,11 @@ export function calculatePackagingPdkMetrics({
   let verdictEn = '';
 
   if (is3D) {
-    verdictZh = `在 ${preset.foundry} ${preset.nameZh.split(' ')[1]} 3D 鍵合下，無微凸塊直接接觸使垂直熱阻降至 ${effectiveThetaKW} K/W，在 ${diePowerWatts}W 超高熱負載下接面溫升僅 ${junctionTempRiseC.toFixed(1)}°C！D2D 互連延遲僅 ${tauPicoSec.toFixed(1)} ps，單線頻寬上限飆升至 ${maxChannelBwGbps.toFixed(1)} Gbps。Base Die 需搭載 ${totalEnvmBudgetKb} Kb 0-mask AntiFuse OTP 進行 2048-bit PHY 偏斜與熱管理鎖定。`;
-    verdictEn = `Under ${preset.foundry} 3D bonding, bumpless direct contact slashes thermal resistance to ${effectiveThetaKW} K/W, yielding only ${junctionTempRiseC.toFixed(1)}°C temp rise under ${diePowerWatts}W thermal load! D2D latency is just ${tauPicoSec.toFixed(1)} ps with line bandwidth reaching ${maxChannelBwGbps.toFixed(1)} Gbps. Base die requires ${totalEnvmBudgetKb} Kb 0-mask AntiFuse OTP for PHY skew and thermal calibration.`;
+    verdictZh = `在 ${preset.foundry} ${preset.nameZh.split(' ')[1]} 3D 鍵合下，無微凸塊直接接觸使垂直熱阻降至 ${effectiveThetaKW} K/W，在 ${diePowerWatts}W 超高熱負載下接面溫升僅 ${junctionTempRiseC.toFixed(1)}°C！D2D 互連延遲僅 ${tauPicoSec.toFixed(1)} ps，單線頻寬上限飆升至 ${maxChannelBwGbps.toFixed(1)} Gbps。Base Die 需搭載典型 ${totalEnvmBudgetKb} Kb 0-mask AntiFuse OTP 進行 2048-bit PHY 偏斜與熱管理鎖定。`;
+    verdictEn = `Under ${preset.foundry} 3D bonding, bumpless direct contact slashes thermal resistance to ${effectiveThetaKW} K/W, yielding only ${junctionTempRiseC.toFixed(1)}°C temp rise under ${diePowerWatts}W thermal load! D2D latency is just ${tauPicoSec.toFixed(1)} ps with line bandwidth reaching ${maxChannelBwGbps.toFixed(1)} Gbps. Base die utilizes nominal ${totalEnvmBudgetKb} Kb 0-mask AntiFuse OTP for PHY skew and thermal calibration.`;
   } else {
-    verdictZh = `在 ${preset.foundry} ${preset.nameZh.split(' ')[1]} 2.5D 中介層下，走線長度 ${traceLengthMm}mm 引發 ${tauPicoSec.toFixed(1)} ps 傳輸延遲與 ${rTraceOhm.toFixed(1)}Ω 導線電阻；微凸塊界面熱阻使接面溫升達 ${junctionTempRiseC.toFixed(1)}°C。晶圓測試需倚賴高針數高頻 MEMS 探針卡（旺矽/精測/Technoprobe）進行多晶粒 KGD 篩選。`;
-    verdictEn = `Under ${preset.foundry} 2.5D interposer, ${traceLengthMm}mm trace length introduces ${tauPicoSec.toFixed(1)} ps delay and ${rTraceOhm.toFixed(1)}Ω line resistance; micro-bump thermal resistance drives ${junctionTempRiseC.toFixed(1)}°C temp rise. Wafer sort requires high-pin MEMS probe cards (MPI/CHPT/Technoprobe) for multi-die KGD screening.`;
+    verdictZh = `在 ${preset.foundry} ${preset.nameZh.split(' ')[1]} 2.5D 中介層下，走線長度 ${traceLengthMm}mm 引發 ${tauPicoSec.toFixed(1)} ps 傳輸延遲與 ${rTraceOhm.toFixed(1)}Ω 導線電阻；微凸塊界面熱阻使接面溫升達 ${junctionTempRiseC.toFixed(1)}°C。晶圓測試需倚賴高針數高頻微懸臂 MEMS 探針介面進行多晶粒 KGD 篩選。`;
+    verdictEn = `Under ${preset.foundry} 2.5D interposer, ${traceLengthMm}mm trace length introduces ${tauPicoSec.toFixed(1)} ps delay and ${rTraceOhm.toFixed(1)}Ω line resistance; micro-bump thermal resistance drives ${junctionTempRiseC.toFixed(1)}°C temp rise. Wafer sort requires high-pin MEMS probe card interfaces for multi-die KGD screening.`;
   }
 
   return {
@@ -263,14 +264,27 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
   }
 
   if (mode === 'interconnect_latency_bandwidth') {
-    // Mode 1: Interconnect Class Comparison Bar Chart (Delay ps vs Bandwidth Gbps)
-    const candidates = [
-      { name: 'CoWoS-S (2.5D)', tau: 42.0, bw: 18.0, color: '#38bdf8' },
-      { name: 'CoWoS-L (LSI)', tau: 28.0, bw: 24.0, color: '#818cf8' },
-      { name: 'SoIC-X (3D)', tau: 3.2, bw: 55.0, color: '#06b6d4' },
-      { name: 'I-Cube (2.5D)', tau: 45.0, bw: 16.0, color: '#f59e0b' },
-      { name: 'Foveros (3D)', tau: 4.1, bw: 52.0, color: '#c084fc' }
-    ];
+    // Mode 1: Dynamic Interconnect Class Comparison Bar Chart
+    const currentTraceMm = metrics.effectiveTraceMm || 3.5;
+    const candidates = Object.values(PACKAGING_PRESETS).map(p => {
+      const is3D = p.packagingClass === '3D_Hybrid_Bond';
+      const traceMm = is3D ? 0.025 : currentTraceMm;
+      const rUnit = is3D ? 3.2 : (22.0 / (p.lineSpaceUm * 0.8));
+      const rTrace = rUnit * traceMm;
+      const cUnit = is3D ? 0.025 : 0.165;
+      const cTrace = (cUnit * traceMm) * 1e-12;
+      const cLoad = (is3D ? 5.0 : 40.0) * 1e-15;
+      const tau = Math.max(0.5, (0.5 * rTrace * cTrace + 45.0 * (cTrace + cLoad)) * 1e12);
+      const bw = Math.min(64.0, (1.0 / (2.2 * Math.max(1e-12, tau * 1e-12))) * 1e-9);
+      const isCurrent = p.id === metrics.preset.id;
+      return {
+        name: p.nameEn.split(' ')[0] || p.id,
+        tau: parseFloat(tau.toFixed(1)),
+        bw: parseFloat(bw.toFixed(1)),
+        color: isCurrent ? '#06b6d4' : (is3D ? '#c084fc' : '#38bdf8'),
+        isCurrent
+      };
+    });
 
     ctx.font = '600 11px "IBM Plex Mono", monospace';
     ctx.fillStyle = '#64748b';
@@ -284,24 +298,25 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
     const barW = Math.min(42, plotW / 6);
     candidates.forEach((c, idx) => {
       const x = padLeft + (plotW / 5) * idx + (plotW / 5 - barW) / 2;
-      const barH = (c.tau / 60.0) * plotH;
+      const barH = Math.min(plotH, (c.tau / 60.0) * plotH);
       const y = padTop + plotH - barH;
 
       ctx.fillStyle = c.color;
       ctx.fillRect(x, y, barW, barH);
-      ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+      ctx.strokeStyle = c.isCurrent ? '#ffffff' : 'rgba(255,255,255,0.2)';
+      ctx.lineWidth = c.isCurrent ? 2 : 1;
       ctx.strokeRect(x, y, barW, barH);
 
       // Value label on top
       ctx.font = '700 10.5px "IBM Plex Mono", monospace';
-      ctx.fillStyle = '#f8fafc';
+      ctx.fillStyle = c.isCurrent ? '#38bdf8' : '#f8fafc';
       ctx.textAlign = 'center';
       ctx.fillText(`${c.tau}ps`, x + barW / 2, y - 6);
 
       // Name & Bandwidth below
       ctx.font = '600 9.5px "IBM Plex Mono", monospace';
-      ctx.fillStyle = '#94a3b8';
-      ctx.fillText(c.name.split(' ')[0], x + barW / 2, height - padBottom + 16);
+      ctx.fillStyle = c.isCurrent ? '#38bdf8' : '#94a3b8';
+      ctx.fillText(c.name, x + barW / 2, height - padBottom + 16);
       ctx.fillStyle = '#06b6d4';
       ctx.fillText(`${c.bw}G`, x + barW / 2, height - padBottom + 28);
     });
@@ -310,7 +325,7 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
     ctx.font = '600 10px "IBM Plex Mono", monospace';
     ctx.fillStyle = '#38bdf8';
     ctx.fillText(
-      isZh ? '■ D2D 傳輸延遲 (ps) 與單線頻寬 (Gbps/wire) 對比' : '■ D2D Interconnect Latency (ps) vs Bandwidth (Gbps/wire)',
+      isZh ? '■ 動態 D2D 傳輸延遲 (ps) 與單線頻寬 (Gbps/wire) 模擬' : '■ Dynamic D2D Latency (ps) vs Bandwidth (Gbps/wire) Simulation',
       padLeft + 10,
       padTop - 12
     );
@@ -352,12 +367,13 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
       yLimit - 6
     );
 
-    // 2.5D Micro-bump Curve (Red)
+    // Selected Preset Curve
+    const thetaCurrent = metrics.preset.baseThermalResistanceKW || 0.15;
     ctx.beginPath();
-    ctx.strokeStyle = '#f87171';
-    ctx.lineWidth = 2.4;
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 2.5;
     for (let p = pMin; p <= pMax; p += 50) {
-      const t = p * 0.18;
+      const t = p * thetaCurrent;
       const x = getX(p);
       const y = getY(t);
       if (p === pMin) ctx.moveTo(x, y);
@@ -365,18 +381,21 @@ export function drawPackagingCanvas(canvas, metrics, mode = 'interconnect_latenc
     }
     ctx.stroke();
 
-    // 3D Hybrid Bonding Curve (Cyan)
+    // Reference Comparison Curve (0.03 for 3D or 0.18 for 2.5D baseline)
+    const thetaRef = metrics.preset.packagingClass === '3D_Hybrid_Bond' ? 0.18 : 0.03;
+    ctx.setLineDash([3, 3]);
     ctx.beginPath();
-    ctx.strokeStyle = '#06b6d4';
-    ctx.lineWidth = 2.6;
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 1.8;
     for (let p = pMin; p <= pMax; p += 50) {
-      const t = p * 0.03;
+      const t = p * thetaRef;
       const x = getX(p);
       const y = getY(t);
       if (p === pMin) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     }
     ctx.stroke();
+    ctx.setLineDash([]);
 
     ctx.textAlign = 'center';
     ctx.font = '600 10px "IBM Plex Mono", monospace';
