@@ -1,3 +1,5 @@
+import {syncMetricCopy} from './模型數值複製.js';
+
 /**
  * @file cpo-siph-nvm-simulator.js
  * @description First-principles simulator for Co-Packaged Optics (CPO) and Silicon Photonics (SiPh)
@@ -514,22 +516,14 @@ export function initCpoSiphSimulator(rootSelector = '#cpo-siph-simulator-root') 
       drawCpoSiphCanvas(canvas, metrics, currentMode);
     }
 
-    // Click-to-copy ergonomics on KPI elements
-    [outJunction, outDrift, outPowerSave, outRetention, outRating].forEach((el) => {
-      if (el && !el.dataset.copyAttached) {
-        el.dataset.copyAttached = 'true';
-        el.style.cursor = 'pointer';
-        el.setAttribute('title', isZh ? '點擊複製數值' : 'Click to copy');
-        el.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText(el.textContent.trim());
-            const orig = el.textContent;
-            el.textContent = isZh ? '已複製！' : 'Copied!';
-            setTimeout(() => { el.textContent = orig; }, 1200);
-          } catch (_) {}
-        });
-      }
-    });
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([outJunction, outDrift, outPowerSave, outRetention, outRating]);
+    const exportControl=root.querySelector('#cpo-export-csv-btn');
+    if (exportControl) {
+      const chinese=(window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+      exportControl.textContent=chinese ? '📥 匯出 CPO 微環調諧 CSV' : '📥 Export CPO SiPh CSV';
+      exportControl.setAttribute('aria-label',chinese ? '匯出 CPO 光學微環調諧數值資料集為 CSV 檔案' : 'Export CPO optical micro-ring tuning metrics dataset as CSV file');
+    }
   }
 
   // Export CSV Action for CPO Silicon Photonics

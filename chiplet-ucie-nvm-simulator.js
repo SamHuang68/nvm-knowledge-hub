@@ -1,3 +1,5 @@
+import {syncMetricCopy} from './模型數值複製.js';
+
 /**
  * chiplet-ucie-nvm-simulator.js — Next-Gen Chiplet Packaging UCIe Interconnect & NVM Latency / Thermal Topology Simulator
  *
@@ -415,7 +417,9 @@ export function drawChipletUcieCanvas(canvas, results, mode = "package_view", is
 
     ctx.fillStyle = "#ef4444";
     ctx.font = "600 9px 'IBM Plex Mono', monospace";
-    ctx.fillText(`${isZh ? "延遲門檻" : "Budget"}: ${results.acceptableLatencyBudgetNs}ns`, budgetX - 30, barY - 14);
+    const budgetLabel = `${isZh ? "延遲門檻" : "Budget"}: ${results.acceptableLatencyBudgetNs}ns`;
+    const budgetLabelX = Math.max(padLeft, Math.min(budgetX - 30, width - padRight - ctx.measureText(budgetLabel).width));
+    ctx.fillText(budgetLabel, budgetLabelX, barY - 14);
 
     // Legend
     ctx.font = "600 9px 'IBM Plex Mono', monospace";
@@ -461,6 +465,22 @@ export function initChipletUcieNvmSimulator() {
   const modeBtnPkg = document.getElementById("chiplet-mode-pkg");
   const modeBtnLat = document.getElementById("chiplet-mode-lat");
   const canvas = document.getElementById("chiplet-canvas");
+  const chartRegion = canvas?.parentElement;
+  let chartScrollHint = root.querySelector('#chiplet-chart-scroll-hint');
+  if (chartRegion) {
+    chartRegion.classList.add('chiplet-chart-scroll-region');
+    chartRegion.tabIndex = 0;
+    chartRegion.setAttribute('role', 'region');
+    chartRegion.dataset.ariaZh = '小晶片拓撲與延遲圖表，可橫向捲動';
+    chartRegion.dataset.ariaEn = 'Chiplet topology and latency chart, horizontally scrollable';
+    if (!chartScrollHint) {
+      chartScrollHint = document.createElement('p');
+      chartScrollHint.id = 'chiplet-chart-scroll-hint';
+      chartScrollHint.className = 'chiplet-chart-scroll-hint';
+      chartRegion.after(chartScrollHint);
+    }
+    chartRegion.setAttribute('aria-describedby', chartScrollHint.id);
+  }
 
   // Output Elements
   const outLatency = document.getElementById("chiplet-out-latency");
@@ -478,6 +498,10 @@ export function initChipletUcieNvmSimulator() {
 
   function update() {
     const isZh = getLang();
+    if (chartRegion) chartRegion.setAttribute('aria-label', isZh ? chartRegion.dataset.ariaZh : chartRegion.dataset.ariaEn);
+    if (chartScrollHint) chartScrollHint.textContent = isZh
+      ? '窄容器中的圖表可左右捲動；聚焦圖表後使用 ←／→ 鍵。'
+      : 'In narrow containers, scroll the chart horizontally. Focus the chart and use ←/→.';
     const topologyKey = topSelect ? topSelect.value : "chiplet_ucie_advanced";
     const roleKey = roleSelect ? roleSelect.value : "secure_boot_rot";
     const busWidthLanes = lanesSelect ? parseInt(lanesSelect.value, 10) : 16;
@@ -534,22 +558,14 @@ export function initChipletUcieNvmSimulator() {
       }
     }
 
-    // Click-to-copy ergonomics on KPI elements
-    [outLatency, outEnergy, outBandwidth, outTempRise, outYield].forEach((el) => {
-      if (el && !el.dataset.copyAttached) {
-        el.dataset.copyAttached = 'true';
-        el.style.cursor = 'pointer';
-        el.setAttribute('title', isZh ? '點擊複製數值' : 'Click to copy');
-        el.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText(el.textContent.trim());
-            const orig = el.textContent;
-            el.textContent = isZh ? '已複製！' : 'Copied!';
-            setTimeout(() => { el.textContent = orig; }, 1200);
-          } catch (_) {}
-        });
-      }
-    });
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([outLatency, outEnergy, outBandwidth, outTempRise, outYield]);
+
+    const exportButton = root.querySelector('#chiplet-export-csv-btn');
+    if (exportButton) {
+      exportButton.textContent = isZh ? '📥 匯出 UCIe 數據 CSV' : '📥 Export UCIe CSV';
+      exportButton.setAttribute('aria-label', isZh ? '匯出 UCIe 功耗掃描與小晶片互連分析資料集為 CSV 檔案' : 'Export UCIe power sweep and chiplet interconnect dataset as CSV file');
+    }
 
     if (canvas) {
       drawChipletUcieCanvas(canvas, res, currentVisualMode, isZh);
@@ -601,6 +617,7 @@ export function initChipletUcieNvmSimulator() {
 
   const modeContainer = modeBtnLat?.parentNode;
   if (modeContainer && !modeContainer.querySelector('#chiplet-export-csv-btn')) {
+    modeContainer.classList.add('chiplet-mode-controls');
     const exportBtn = document.createElement('button');
     exportBtn.id = 'chiplet-export-csv-btn';
     exportBtn.type = 'button';

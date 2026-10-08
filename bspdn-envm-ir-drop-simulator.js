@@ -1,3 +1,5 @@
+import {syncMetricCopy} from './模型數值複製.js';
+
 /**
  * @file bspdn-envm-ir-drop-simulator.js
  * @description Lumped-Parameter Circuit & Thermal Microarchitectural Simulator for Backside Power Delivery Network
@@ -563,23 +565,14 @@ export function initBspdnSimulator() {
       drawBspdnCanvas(canvas, metrics, activeMode);
     }
 
-    // Click-to-copy ergonomics on KPI elements
-    const isZhLang = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
-    [outIrdrop, outIndnoise, outEffvdd, outTempdrop, outGain, outYield].forEach((el) => {
-      if (el && !el.dataset.copyAttached) {
-        el.dataset.copyAttached = 'true';
-        el.style.cursor = 'pointer';
-        el.setAttribute('title', isZhLang ? '點擊複製數值' : 'Click to copy');
-        el.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText(el.textContent.trim());
-            const orig = el.textContent;
-            el.textContent = isZhLang ? '已複製！' : 'Copied!';
-            setTimeout(() => { el.textContent = orig; }, 1200);
-          } catch (_) {}
-        });
-      }
-    });
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([outIrdrop, outIndnoise, outEffvdd, outTempdrop, outGain, outYield]);
+    const exportControl=root.querySelector('#bspdn-export-csv-btn');
+    if (exportControl) {
+      const chinese=(window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+      exportControl.textContent=chinese ? '📥 匯出 BSPDN 壓降與熱阻 CSV' : '📥 Export BSPDN CSV';
+      exportControl.setAttribute('aria-label',chinese ? '匯出背面供電網路 (BSPDN) 壓降與熱阻分析資料集為 CSV 檔案' : 'Export BSPDN IR-drop and thermal resistance dataset as CSV file');
+    }
   }
 
   // Export CSV Action for BSPDN IR-Drop

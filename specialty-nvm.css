@@ -1536,6 +1536,47 @@ html[data-language="zh"] .data-table thead th {
   flex-wrap: wrap;
 }
 
+/* 小晶片模式與匯出同屬既有群組，窄螢幕換列保留全部控制項。 */
+.chiplet-mode-controls {
+  flex-wrap: wrap;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.chiplet-mode-controls > button {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* 保留圖表完整繪圖寬度，只讓小晶片圖表區域局部橫向捲動。 */
+.chiplet-chart-scroll-region {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  touch-action: pan-x pan-y;
+  scrollbar-color: var(--spec-text-dim) #081018;
+}
+
+.chiplet-chart-scroll-region:focus-visible {
+  outline: 2px solid var(--spec-aqua);
+  outline-offset: 3px;
+}
+
+#chiplet-canvas {
+  min-width: 480px;
+  max-width: none !important;
+}
+
+.chiplet-chart-scroll-hint {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--spec-text-muted);
+  overflow-wrap: anywhere;
+}
+
 .lab-btn.btn-toggle {
   background: rgba(196, 165, 116, 0.08);
   border: 1px solid rgba(196, 165, 116, 0.35);
