@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "829b23c74d642daa67b6",
+  "version": "3f19f4fd13204489ace7",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -187,7 +187,7 @@ self.NVMOfflineManifest = {
     "automotive-thermal.js": "023ef89900e420c4a5c8769ed8fc7ed843dbd55de694749335d5fe56c6ec54d0",
     "bcd-trimming-simulator.js": "5fc84893230bc741aa87824195cc5029dd56345318fb67fc676ca227288fd96f",
     "briefing/index.html": "8dff5db557abd508cb1d76e071e11bf501b5203ce1fdca2f7f64f758b0305fcb",
-    "bspdn-envm-ir-drop-simulator.js": "79aa9c6840756f231b7f4688a6ddff6ef2216be016eeececd1e0cbb86f37b398",
+    "bspdn-envm-ir-drop-simulator.js": "f1127e6ff7bd7d93952627ef3fe8d122930ab1d0b7fde4b3595a358e45612cb3",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
     "chiplet-3d-hetero-nvm-simulator.js": "622bb16f6e9d9ac973357bfcd10ca139d6031af857be134ab89d455762d37628",
     "chiplet-ucie-nvm-simulator.js": "c06f165c434e5212331f7a805fdaeadef120957720e812f258a40c41c556ad3a",
@@ -200,9 +200,9 @@ self.NVMOfflineManifest = {
     "cpo-optical-trim-simulator.js": "b03a490f3c09d57a768f4ddae172c30df9c04d3a14ec4f96182d235d1e713f18",
     "cpo-siph-nvm-simulator.js": "a1cf9a509b171b6411730dd13b8b98db8c880f3e9d2ca585ea35bc6418beb104",
     "cryo-cmos-quantum-nvm-simulator.js": "6a87ff649c430878a9e9c52d0c22201d2995355abcab8db76732d8179fb5fce5",
-    "cryo-qubit-readout-simulator.js": "f5422d53c014a9c1a4b01d936326cc3a2a35099b0226a8cd447564e7f50922f2",
+    "cryo-qubit-readout-simulator.js": "6afef90776dbd10876e16114f1f9b4a8cdbf6b8d181e3cb058c4601f97b0159a",
     "cryo-radhard-nvm-simulator.js": "761c2606c6c13236beb28e9c0d9b8da6333d1fa0a68c622c749ccb099ede729d",
-    "cryogenic-nvm-physics-simulator.js": "00cc5d14547921cfbe1f498cb3dffe7401007b8c9215851003953c2936d7667e",
+    "cryogenic-nvm-physics-simulator.js": "c9e359a321695f088b7f205707e12e5ebebedec018a03dff2a2cd5cfaa640fb0",
     "cu-cu-hybrid-bonding-stress-simulator.js": "24139db33f619cb71bf25e7c0d00511505399d734905a734a512887c233d0d6f",
     "cxl-memory-pooling-simulator.js": "d70badce5c11146e05d150e085c9e52c369b7114053097774d17203c891a4c8c",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
@@ -212,7 +212,7 @@ self.NVMOfflineManifest = {
     "deferred-backgrounds.js": "a74dc489a74403e27ade20c4d0d16306d4d2f00c0f697cbff9662908ce0371a4",
     "demura-lut-calculator.js": "a7e0b8f2fbfe4ddba25f4d65236be022a198013c88e34e23e2616d29f4baaa60",
     "differential-sensing-simulator.js": "f8b32e7341a9ce40d0d3838c31b688f6fe091a6ccedf02c970e5935bf4d03f82",
-    "dpa-cpa-leakage-simulator.js": "6a7ec684c21dd0d7ca12cb19d57dbc6eeb334ae0a6dcfc8a567674d6221e2fbc",
+    "dpa-cpa-leakage-simulator.js": "0ef12dc888bcb18df52769fb104d0a6b97e1251d92a4cf47d0122b658e71f8c2",
     "editorial-reading-ui.css": "eedc01843bbaf8169b0ce90c5434ce91f41b13ab491f1fbecbb30267b79f0399",
     "evidence-workbench.css": "b077fd188e73256fa0e9b2b8497feb698603e89cb8ad73648180c7c471011ba9",
     "evidence-workbench.js": "86984da8da59d17546b8cf8b6a9595ac8d3c08a02efad25de24dc590e92aee17",
@@ -245,7 +245,7 @@ self.NVMOfflineManifest = {
     "memory-evidence.html": "ae837d40656eb670222db65ba5de2e03ac42a051adff30fdfa1c6185daaf92ca",
     "memory-physics-contrast.css": "1b07547839b894a92ef4264dd9f58f0653a5f978cd73ffaab7de62b0807584ca",
     "memory-physics-navigation.js": "b8f3a5e7645273ba7f558e13f8071f1291e3784174b069c297ca9e982f36d755",
-    "memory-physics.html": "39016181fd0891f78ec6c3053c44491912bd68b17cd5de2e9b888f3eedc34e17",
+    "memory-physics.html": "20103095f218d4fd139b20863de97ab269d4cd194ec8f159bf769fbe5c59e157",
     "model-boundaries.css": "acceac993a2f5914ab2f515b043c1731b8e93e48a9f95bf82066d2f215f23cbe",
     "named-comparison.css": "81746549aa6dd0a855ae0be5730cd691085d355f8f4dae5650db8f0ee895401f",
     "nanosheet-bspdn-nvm-simulator.js": "63b8b6abceced2a3229f20471a8d05534d53b1862372bad4ace29f1f5ab70e7c",
@@ -275,7 +275,7 @@ self.NVMOfflineManifest = {
     "research.css": "b0d39322f51c4175ffe3166266c3f137252c1312f32e5ba591936b30a913049e",
     "research.js": "ff36eef27595df0e9625698d0dd7f0dc285528ecbf25a38066f788906946f036",
     "search-controller.js": "8f265d81bde855ac312a29064466e6ae5c5d86e6e111cc210cecf0bd7b0c2dd5",
-    "secure-storage.html": "4208727c38b355977485c225a808a3f80c1ffe31d9bf6a35ab5c4841ecf24156",
+    "secure-storage.html": "c622ef5bda8fe6597932c19d0015f4abe75bdf3fb78bb6878c63e6e7c1571fad",
     "security-assurance.html": "aff88275963ccc8207e9dc1454d51ac42aa7f4730d6f4e718df3253ad73b4bd8",
     "site-language.js": "28ed6741d5ec7be408b7ebbbeb19ba04b8723dcec5e071577569acaedef158e7",
     "site-shell.css": "e0be1801f842a6de45943708a13cad4c15c8d1c65d47321dbe7506fb50fa3312",
@@ -314,5 +314,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 13322462
+  "totalBytes": 13334493
 };

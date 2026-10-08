@@ -2378,7 +2378,7 @@
         <!-- MODEL 07: CRYOGENIC (4K / 77K) QUANTUM COMPUTING NVM PHYSICS SIMULATOR -->
         <article id="cryogenic-nvm-simulator-root" class="physics-model-card reveal" style="border-top: 4px solid #0284c7; background: #ffffff; border-radius: 8px; box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06); padding: 1.5rem; margin-top: 2rem;">
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
-            <div>
+            <div style="min-width: 0; max-width: 100%; overflow-wrap: anywhere;">
               <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
                 <span data-lang="zh">物理模型 07 · 低溫超導量子 NVM 物理</span>
                 <span data-lang="en">PHYSICS MODEL 07 · CRYOGENIC QUANTUM NVM DYNAMICS</span>
@@ -2407,7 +2407,7 @@
           </div>
 
           <!-- Controls Grid -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px; margin-bottom: 16px;">
             <div>
               <label for="cryo-env-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span data-lang="zh">運作溫度環境:</span><span data-lang="en">OPERATING ENVIRONMENT:</span>
@@ -2437,7 +2437,7 @@
                 <span><span data-lang="zh">讀取感測偏壓:</span><span data-lang="en">READ SENSE BIAS:</span></span>
                 <span id="cryo-bias-val" style="color: #0284c7; font-weight: 700;">200 mV</span>
               </div>
-              <input type="range" id="cryo-bias-slider" min="50" max="600" step="25" value="200" aria-label="Read Sense Voltage" data-aria-en="Read Sense Voltage" data-aria-zh="讀取感測偏壓" aria-valuetext="200 mV" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="cryo-bias-slider" min="50" max="600" step="25" value="200" aria-label="Read Sense Voltage" data-aria-en="Read Sense Voltage" data-aria-zh="讀取感測偏壓" aria-valuetext="200 mV" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
 
             <div>
@@ -2445,7 +2445,7 @@
                 <span><span data-lang="zh">積分感測時間:</span><span data-lang="en">SENSE INTEGRATION TIME:</span></span>
                 <span id="cryo-time-val" style="color: #0284c7; font-weight: 700;">10 ns</span>
               </div>
-              <input type="range" id="cryo-time-slider" min="2" max="50" step="2" value="10" aria-label="Sense Integration Time" data-aria-en="Sense Integration Time" data-aria-zh="積分感測時間" aria-valuetext="10 ns" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="cryo-time-slider" min="2" max="50" step="2" value="10" aria-label="Sense Integration Time" data-aria-en="Sense Integration Time" data-aria-zh="積分感測時間" aria-valuetext="10 ns" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
           </div>
 
@@ -2529,7 +2529,7 @@
         <!-- Physical Model 08: Cryogenic Qubit Readout Interface Spin Decoherence & Microwave RF Simulator -->
         <article class="paper-card physics-model-card" id="cryo-qubit-simulator-root" style="margin-top: 24px;">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-            <div>
+            <div style="min-width: 0; max-width: 100%; overflow-wrap: anywhere;">
               <p class="paper-kicker" style="margin: 0 0 4px;"><span data-lang="zh">物理模型 08</span><span data-lang="en">PHYSICAL MODEL 08</span></p>
               <h3 style="margin: 0; font-size: 18px; color: #0f172a;"><span data-lang="zh">超導量子位元讀出介面磁場自旋去相干與微波射頻干擾試算器</span><span data-lang="en">Superconducting Qubit Readout Spin Decoherence &amp; Microwave RF Simulator</span></h3>
             </div>
@@ -2552,7 +2552,7 @@
           </div>
 
           <!-- Controls Grid -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px; margin-bottom: 16px;">
             <div>
               <label for="cryo-qubit-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span data-lang="zh">量子控制場景:</span><span data-lang="en">QUANTUM CONTROL STAGE:</span>
@@ -2582,7 +2582,7 @@
                 <span><span data-lang="zh">外加磁場強度:</span><span data-lang="en">EXTERNAL B-FIELD:</span></span>
                 <span id="cryo-qubit-bfield-val" style="color: #0284c7; font-weight: 700;">0.10 Tesla</span>
               </div>
-              <input type="range" id="cryo-qubit-bfield-slider" min="0" max="5" step="0.05" value="0.1" aria-label="External Magnetic Field in Tesla" data-aria-en="External Magnetic Field in Tesla" data-aria-zh="外加磁場強度 Tesla" aria-valuetext="0.10 Tesla" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="cryo-qubit-bfield-slider" min="0" max="5" step="0.05" value="0.1" aria-label="External Magnetic Field in Tesla" data-aria-en="External Magnetic Field in Tesla" data-aria-zh="外加磁場強度 Tesla" aria-valuetext="0.10 Tesla" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
 
             <div>
@@ -2590,7 +2590,7 @@
                 <span><span data-lang="zh">微波射頻功率:</span><span data-lang="en">MICROWAVE RF POWER:</span></span>
                 <span id="cryo-qubit-rf-val" style="color: #0284c7; font-weight: 700;">-30.0 dBm</span>
               </div>
-              <input type="range" id="cryo-qubit-rf-slider" min="-40" max="0" step="1" value="-30" aria-label="Microwave RF Power in dBm" data-aria-en="Microwave RF Power in dBm" data-aria-zh="微波射頻功率 dBm" aria-valuetext="-30.0 dBm" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="cryo-qubit-rf-slider" min="-40" max="0" step="1" value="-30" aria-label="Microwave RF Power in dBm" data-aria-en="Microwave RF Power in dBm" data-aria-zh="微波射頻功率 dBm" aria-valuetext="-30.0 dBm" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
           </div>
 
@@ -2684,7 +2684,7 @@
         <!-- Physical Model 09: Sub-2nm GAA Backside Power Delivery (BSPDN / PowerVia) eNVM Parasitic Coupling & IR-Drop Dynamic Simulator -->
         <article class="paper-card physics-model-card" id="bspdn-envm-simulator-root" style="margin-top: 24px;">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-            <div>
+            <div style="min-width: 0; max-width: 100%; overflow-wrap: anywhere;">
               <p class="paper-kicker" style="margin: 0 0 4px;"><span data-lang="zh">物理模型 09</span><span data-lang="en">PHYSICAL MODEL 09</span></p>
               <h3 style="margin: 0; font-size: 18px; color: #0f172a;"><span data-lang="zh">次奈米 A16/A14 GAA 背面供電網 (BSPDN / PowerVia) eNVM 寄生耦合與動態壓降試算器</span><span data-lang="en">Sub-2nm A16/A14 GAA Backside Power Delivery (BSPDN / PowerVia) eNVM IR-Drop Simulator</span></h3>
             </div>
@@ -2759,7 +2759,7 @@
           </div>
 
           <!-- Controls Section -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 16px; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 14px; margin-bottom: 16px; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
             <div>
               <label for="bspdn-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span data-lang="zh">次奈米供電架構預設：</span><span data-lang="en">Sub-2nm PDN Preset:</span>
@@ -2777,7 +2777,7 @@
                 <span><span data-lang="zh">編程脈衝峰值電流:</span><span data-lang="en">PEAK WRITE CURRENT:</span></span>
                 <span id="bspdn-current-val" style="color: #0284c7; font-weight: 700;">12.0 mA</span>
               </div>
-              <input type="range" id="bspdn-current-slider" min="5.0" max="25.0" step="0.5" value="12.0" aria-label="Peak Write Pulse Current" data-aria-en="Peak Write Pulse Current" data-aria-zh="編程脈衝峰值電流" aria-valuetext="12.0 mA" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="bspdn-current-slider" min="5.0" max="25.0" step="0.5" value="12.0" aria-label="Peak Write Pulse Current" data-aria-en="Peak Write Pulse Current" data-aria-zh="編程脈衝峰值電流" aria-valuetext="12.0 mA" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
 
             <div>
@@ -2785,7 +2785,7 @@
                 <span><span data-lang="zh">脈衝上升時間 (t_rise):</span><span data-lang="en">PULSE RISE TIME:</span></span>
                 <span id="bspdn-rise-val" style="color: #0284c7; font-weight: 700;">0.5 ns</span>
               </div>
-              <input type="range" id="bspdn-rise-slider" min="0.1" max="2.0" step="0.1" value="0.5" aria-label="Pulse Rise Time" data-aria-en="Pulse Rise Time" data-aria-zh="脈衝上升時間" aria-valuetext="0.5 ns" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="bspdn-rise-slider" min="0.1" max="2.0" step="0.1" value="0.5" aria-label="Pulse Rise Time" data-aria-en="Pulse Rise Time" data-aria-zh="脈衝上升時間" aria-valuetext="0.5 ns" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
 
             <div>
@@ -2793,7 +2793,7 @@
                 <span><span data-lang="zh">接面/環境基準溫度:</span><span data-lang="en">BASE JUNCTION TEMP:</span></span>
                 <span id="bspdn-temp-val" style="color: #0284c7; font-weight: 700;">125 °C</span>
               </div>
-              <input type="range" id="bspdn-temp-slider" min="25" max="175" step="5" value="125" aria-label="Base Junction Temperature" data-aria-en="Base Junction Temperature" data-aria-zh="接面環境基準溫度" aria-valuetext="125 °C" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="bspdn-temp-slider" min="25" max="175" step="5" value="125" aria-label="Base Junction Temperature" data-aria-en="Base Junction Temperature" data-aria-zh="接面環境基準溫度" aria-valuetext="125 °C" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
           </div>
 

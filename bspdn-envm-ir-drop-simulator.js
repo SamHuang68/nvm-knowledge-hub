@@ -175,12 +175,12 @@ export function calculateBspdnMetrics(params) {
 
   if (params.presetKey === 'fspdn_3nm_baseline') {
     architectureRating = effectiveVddCurrent >= preset.targetVwriteMin ? 'MARGINAL_RISK' : 'CRITICAL_VIOLATION';
-    verdictZh = `【正面供電極限瓶頸】在 ${params.peakWriteCurrent.toFixed(1)} mA 瞬態寫入下，正面 18 層金屬產生高達 ${(totalDropCurrent * 1000).toFixed(1)} mV 總壓降 (IR-Drop: ${(irDropCurrent * 1000).toFixed(1)} mV, L·di/dt: ${(indNoiseCurrent * 1000).toFixed(1)} mV)。宏單元內部有效偏壓萎縮至 ${effectiveVddCurrent.toFixed(3)} V，${effectiveVddCurrent < preset.targetVwriteMin ? '跌破硬崩潰臨界值，預估寫入良率驟降至 ' + writeYield.toFixed(2) + '%' : '裕度僅剩 ' + writeMarginCurrent.toFixed(1) + ' mV，存在嚴重製程變異風險'}。厚矽基底熱阻為 ${preset.thermalResistance.toFixed(1)} K/W。`;
-    verdictEn = `[Front-Side PDN Bottleneck] Under ${params.peakWriteCurrent.toFixed(1)} mA pulse write, 18-tier front metal incurs ${(totalDropCurrent * 1000).toFixed(1)} mV total sag (IR-Drop: ${(irDropCurrent * 1000).toFixed(1)} mV, L·di/dt: ${(indNoiseCurrent * 1000).toFixed(1)} mV). Internal macro voltage collapses to ${effectiveVddCurrent.toFixed(3)} V, ${effectiveVddCurrent < preset.targetVwriteMin ? 'breaching breakdown threshold with estimated write yield dropping to ' + writeYield.toFixed(2) + '%' : 'leaving only ' + writeMarginCurrent.toFixed(1) + ' mV headroom'}. Bulk silicon base thermal resistance is ${preset.thermalResistance.toFixed(1)} K/W.`;
+    verdictZh = `【未校準教學分類：正面供電基準】在 ${params.peakWriteCurrent.toFixed(1)} mA 瞬態寫入下，18 層正面金屬的模型總壓降為 ${(totalDropCurrent * 1000).toFixed(1)} mV (IR-Drop: ${(irDropCurrent * 1000).toFixed(1)} mV, L·di/dt: ${(indNoiseCurrent * 1000).toFixed(1)} mV)。宏單元模型有效偏壓為 ${effectiveVddCurrent.toFixed(3)} V，${effectiveVddCurrent < preset.targetVwriteMin ? '低於模型指定的擊穿門檻，寫入良率教學指標為 ' + writeYield.toFixed(2) + '%' : '高於模型指定門檻，電壓裕度為 ' + writeMarginCurrent.toFixed(1) + ' mV'}。厚矽基底熱阻設定為 ${preset.thermalResistance.toFixed(1)} K/W。分類與良率指標由簡化門檻決定，實際製程能力及可靠度仍需產品參數與實測驗證。`;
+    verdictEn = `[Uncalibrated Teaching Class: Front-Side PDN Baseline] Under ${params.peakWriteCurrent.toFixed(1)} mA pulse write, the 18-tier front-metal model gives ${(totalDropCurrent * 1000).toFixed(1)} mV total sag (IR-Drop: ${(irDropCurrent * 1000).toFixed(1)} mV, L·di/dt: ${(indNoiseCurrent * 1000).toFixed(1)} mV). Modeled macro voltage is ${effectiveVddCurrent.toFixed(3)} V, ${effectiveVddCurrent < preset.targetVwriteMin ? 'below the assumed breakdown threshold, with a teaching write-yield index of ' + writeYield.toFixed(2) + '%' : 'above the assumed threshold with ' + writeMarginCurrent.toFixed(1) + ' mV headroom'}. Bulk-silicon thermal resistance is set to ${preset.thermalResistance.toFixed(1)} K/W. Classification and yield index follow simplified thresholds; actual process capability and reliability require product parameters and measured validation.`;
   } else {
     architectureRating = 'SUPERIOR_BSPDN';
-    verdictZh = `【背面供電優勢與熱折衷分析】${preset.nameZh} 透過直接背部電晶體通孔，將供電網總壓降壓抑至僅 ${(totalDropCurrent * 1000).toFixed(1)} mV（相較傳統正面供電壓降縮減 ${irDropSavingPct}%）。有效寫入偏壓充裕達 ${effectiveVddCurrent.toFixed(3)} V（裕度 +${writeMarginCurrent.toFixed(1)} mV，預估良率上限約 ${writeYield.toFixed(2)}%）。熱物理分析顯示：晶圓減薄與介電隔離層使局部熱阻微幅上升至 ${preset.thermalResistance.toFixed(1)} K/W（接面溫升 +${deltaTCurrent.toFixed(1)}°C vs 正面基準 +${deltaTBaseline.toFixed(1)}°C），需透過背面厚銅電軌與先進封裝協同散熱。`;
-    verdictEn = `[BSPDN Analysis & Thermal Trade-off] ${preset.nameEn} leverages direct backside vias, shrinking total supply sag to just ${(totalDropCurrent * 1000).toFixed(1)} mV (${irDropSavingPct}% reduction vs FSPDN). Effective programming bias reaches ${effectiveVddCurrent.toFixed(3)} V (+${writeMarginCurrent.toFixed(1)} mV headroom, idealized yield estimate ~${writeYield.toFixed(2)}%). Thermal analysis indicates that wafer thinning and dielectric liners slightly elevate local thermal resistance to ${preset.thermalResistance.toFixed(1)} K/W (+${deltaTCurrent.toFixed(1)}°C vs +${deltaTBaseline.toFixed(1)}°C under pulsed write), underscoring the need for package-level co-design.`;
+    verdictZh = `【未校準教學分類：背面供電與熱折衷】${preset.nameZh} 的直接背面通孔集總模型總壓降為 ${(totalDropCurrent * 1000).toFixed(1)} mV（相較正面基準減少 ${irDropSavingPct}%）。模型有效寫入偏壓為 ${effectiveVddCurrent.toFixed(3)} V（電壓裕度 ${writeMarginCurrent.toFixed(1)} mV，寫入良率教學指標 ${writeYield.toFixed(2)}%）。晶圓減薄與介電隔離的熱累積由熱阻設定示意：${preset.thermalResistance.toFixed(1)} K/W（接面溫升 +${deltaTCurrent.toFixed(1)}°C vs 正面基準 +${deltaTBaseline.toFixed(1)}°C）。背面厚銅電軌與封裝散熱路徑需另行分析；此分類與指標未經產品校準，實際供電、良率及可靠度仍需完整模型與實測驗證。`;
+    verdictEn = `[Uncalibrated Teaching Class: Backside Power & Thermal Trade-off] The direct-backside-via lumped model for ${preset.nameEn} gives ${(totalDropCurrent * 1000).toFixed(1)} mV total PDN drop (${irDropSavingPct}% below the front-side baseline). Modeled write bias is ${effectiveVddCurrent.toFixed(3)} V (${writeMarginCurrent.toFixed(1)} mV headroom, teaching write-yield index ${writeYield.toFixed(2)}%). Thermal resistance illustrates wafer-thinning and dielectric heat accumulation: ${preset.thermalResistance.toFixed(1)} K/W (+${deltaTCurrent.toFixed(1)}°C junction rise vs +${deltaTBaseline.toFixed(1)}°C baseline). Backside copper rails and package heat paths require separate analysis. These classes and indices are not product-calibrated; actual supply behavior, yield, and reliability require complete models and measured validation.`;
   }
 
   return {
@@ -226,8 +226,37 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
 
   const dpr = typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1;
   const rect = canvas.getBoundingClientRect();
-  const width = rect.width > 0 ? rect.width : canvas.width;
-  const height = rect.height > 0 ? rect.height : canvas.height;
+  const width = Math.max(1,Math.round(rect.width > 0 ? rect.width : canvas.width));
+  const wrapText = (text,maxWidth,font) => {
+    ctx.font = font;
+    const lines = [];
+    let line = '';
+    for (const character of Array.from(text)) {
+      if (line && ctx.measureText(line + character).width > maxWidth) { lines.push(line); line = ''; }
+      line += character;
+    }
+    if (line) lines.push(line);
+    return lines;
+  };
+  const font = '10px "IBM Plex Mono", monospace';
+  const padLeft = 60;
+  const padRight = 30;
+  const padTop = 30;
+  const plotHeight = 110;
+  const axisRows = width < 360 ? 2 : 1;
+  const legendTop = padTop + plotHeight + 28 + axisRows * 12;
+  const labels = mode === 'transient_waveform' ? [
+    {color:'#f59e0b',text:'FSPDN Baseline (-' + metrics.totalDropBaselineMv.toFixed(0) + 'mV)'},
+    {color:'#38bdf8',text:'Active BSPDN (-' + metrics.totalDropCurrentMv.toFixed(0) + 'mV)'},
+  ] : [
+    {color:'#f59e0b',text:'FSPDN Baseline (+ ' + metrics.deltaTBaseline.toFixed(1) + '°C, θth=' + metrics.fspdnBaseline.thermalResistance + ' K/W)'},
+    {color:'#38bdf8',text:'Active BSPDN (+ ' + metrics.deltaTCurrent.toFixed(1) + '°C, θth=' + metrics.preset.thermalResistance + ' K/W)'},
+    {color:'#38bdf8',text:'Current Operating: Tj=' + metrics.tjActualCurrent.toFixed(1) + '°C @ Tamb=' + metrics.inputs.ambientTemp + '°C'},
+  ];
+  const legendRows = labels.map(item => ({...item,lines:wrapText(item.text,width - 44,font)}));
+  const height = legendTop + legendRows.reduce((sum,item) => sum + item.lines.length * 12 + 6,0) + 12;
+  // 保留原曲線高度與全部刻度，狹窄畫布以錯列刻度和完整圖例承接文字。
+  canvas.parentElement.style.height = `${height}px`;
 
   if (canvas.width !== width * dpr || canvas.height !== height * dpr) {
     canvas.width = width * dpr;
@@ -241,12 +270,14 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
   ctx.fillStyle = '#08131e';
   ctx.fillRect(0, 0, width, height);
 
-  const padLeft = 60;
-  const padRight = 30;
-  const padTop = 30;
-  const padBottom = 40;
   const plotWidth = width - padLeft - padRight;
-  const plotHeight = height - padTop - padBottom;
+  const drawLabel = (text,x,y,maxWidth = width - 24) => {
+    const lines = wrapText(text,Math.max(1,maxWidth),ctx.font);
+    const lineWidth = Math.max(...lines.map(line => ctx.measureText(line).width));
+    const left = Math.max(12,Math.min(x,width - 12 - lineWidth));
+    const top = Math.max(12,Math.min(y,height - 12 - (lines.length - 1) * 12));
+    lines.forEach((line,index) => ctx.fillText(line,left,top + index * 12));
+  };
 
   if (plotWidth <= 0 || plotHeight <= 0) {
     ctx.restore();
@@ -297,7 +328,7 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
     for (let i = 0; i <= numXGrids; i++) {
       const tVal = (i / numXGrids) * tMax;
       const gx = padLeft + (i / numXGrids) * plotWidth;
-      ctx.fillText(tVal.toFixed(1) + ' ns', gx - 14, padTop + plotHeight + 18);
+      drawLabel(tVal.toFixed(1) + ' ns',gx - 14,padTop + plotHeight + 18 + (i % axisRows) * 12);
     }
 
     // Minimum Breakdown Threshold Line
@@ -312,7 +343,7 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
     ctx.setLineDash([]);
 
     ctx.fillStyle = '#ef4444';
-    ctx.fillText('Min V_write (' + metrics.preset.targetVwriteMin.toFixed(2) + 'V)', padLeft + 10, yVcrit - 5);
+    drawLabel('Min V_write (' + metrics.preset.targetVwriteMin.toFixed(2) + 'V)',padLeft + 10,yVcrit - 5,plotWidth - 20);
 
     // Waveform Simulation:
     // Voltage drop formula vs time: V(t) = V_nom - Drop * f_transient(t)
@@ -375,15 +406,6 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
     });
     ctx.stroke();
 
-    // Legend
-    ctx.fillStyle = '#f59e0b';
-    ctx.fillRect(padLeft + plotWidth - 220, padTop + 10, 12, 4);
-    ctx.fillText('FSPDN Baseline (-' + metrics.totalDropBaselineMv.toFixed(0) + 'mV)', padLeft + plotWidth - 200, padTop + 14);
-
-    ctx.fillStyle = '#38bdf8';
-    ctx.fillRect(padLeft + plotWidth - 220, padTop + 26, 12, 4);
-    ctx.fillText('Active BSPDN (-' + metrics.totalDropCurrentMv.toFixed(0) + 'mV)', padLeft + plotWidth - 200, padTop + 30);
-
   } else {
     // Mode 2: Thermal Junction Profile & Thermal Trapping Analysis
     // X-axis: Ambient Temp (25 to 175 °C)
@@ -404,7 +426,7 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
     for (let i = 0; i <= numXGrids; i++) {
       const tVal = tempMin + (i / numXGrids) * (tempMax - tempMin);
       const gx = padLeft + (i / numXGrids) * plotWidth;
-      ctx.fillText(tVal.toFixed(0) + '°C', gx - 10, padTop + plotHeight + 18);
+      drawLabel(tVal.toFixed(0) + '°C',gx - 10,padTop + plotHeight + 18 + (i % axisRows) * 12);
     }
 
     // Plot FSPDN Baseline Curve (Amber: lower theta_th from bulk Si)
@@ -437,15 +459,6 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
     }
     ctx.stroke();
 
-    // Legend
-    ctx.fillStyle = '#f59e0b';
-    ctx.fillRect(padLeft + 10, padTop + 10, 12, 4);
-    ctx.fillText('FSPDN Baseline (+ ' + metrics.deltaTBaseline.toFixed(1) + '°C, θth=' + metrics.fspdnBaseline.thermalResistance + ' K/W)', padLeft + 28, padTop + 14);
-
-    ctx.fillStyle = '#38bdf8';
-    ctx.fillRect(padLeft + 10, padTop + 24, 12, 4);
-    ctx.fillText('Active BSPDN (+ ' + metrics.deltaTCurrent.toFixed(1) + '°C, θth=' + metrics.preset.thermalResistance + ' K/W)', padLeft + 28, padTop + 28);
-
     // Mark current operating point
     const currTemp = metrics.inputs.ambientTemp;
     const currTj = metrics.tjActualCurrent;
@@ -456,8 +469,16 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
     ctx.beginPath();
     ctx.arc(currX, currY, 5, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillText('Current Operating: Tj=' + currTj.toFixed(1) + '°C @ Tamb=' + currTemp + '°C', Math.min(currX + 8, padLeft + plotWidth - 180), currY - 8);
   }
+
+  let legendY = legendTop;
+  ctx.font = font;
+  legendRows.forEach(item => {
+    ctx.fillStyle = item.color;
+    ctx.fillRect(12,legendY - 6,12,3);
+    item.lines.forEach((line,index) => ctx.fillText(line,32,legendY + index * 12));
+    legendY += item.lines.length * 12 + 6;
+  });
 
   ctx.restore();
 }
@@ -505,8 +526,11 @@ export function initBspdnSimulator() {
     };
 
     if (currentVal && currentSlider) currentVal.textContent = currentSlider.value + ' mA';
+    if (currentSlider) currentSlider.setAttribute('aria-valuetext',currentSlider.value + ' mA');
     if (riseVal && riseSlider) riseVal.textContent = riseSlider.value + ' ns';
+    if (riseSlider) riseSlider.setAttribute('aria-valuetext',riseSlider.value + ' ns');
     if (tempVal && tempSlider) tempVal.textContent = tempSlider.value + ' °C';
+    if (tempSlider) tempSlider.setAttribute('aria-valuetext',tempSlider.value + ' °C');
 
     const metrics = calculateBspdnMetrics(config);
 

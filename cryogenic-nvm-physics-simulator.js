@@ -76,8 +76,8 @@ export const CRYO_TECH_PROFILES = Object.freeze({
     filamentOhmicMetallic: true, // Degenerate Si metallic filament, immune to freeze-out
     nominalIonUa: 45.0,          // 45 uA programmed current
     nominalIoffNa: 0.05,         // Pure direct tunneling
-    freezeoutSensitivity: "Immune (Metallic Ohmic Core)",
-    cryoStabilityRating: "Ideal for 4K Quantum RoT / LUT",
+    freezeoutSensitivity: "Teaching model: no freeze-out term (Metallic Ohmic Core)",
+    cryoStabilityRating: "Uncalibrated teaching class: metallic read path",
   },
   mram_stt_cryo: {
     id: "mram_stt_cryo",
@@ -90,8 +90,8 @@ export const CRYO_TECH_PROFILES = Object.freeze({
     baseIcUa: 35.0,              // Critical switching current
     nominalIonUa: 25.0,
     nominalIoffNa: 10000.0,      // 10 uA (RP state)
-    freezeoutSensitivity: "Immune (Metallic / Ferromagnetic Leads)",
-    cryoStabilityRating: "Extreme Endurance & Massive TMR Margin",
+    freezeoutSensitivity: "Teaching model: no freeze-out term (Metallic / Ferromagnetic Leads)",
+    cryoStabilityRating: "Uncalibrated teaching class: temperature-scaled TMR",
   },
   eflash_cryo: {
     id: "eflash_cryo",
@@ -103,7 +103,7 @@ export const CRYO_TECH_PROFILES = Object.freeze({
     nominalIonUa: 18.0,
     nominalIoffNa: 0.001,
     freezeoutSensitivity: "Severe (Bulk Access Transistors High-R)",
-    cryoStabilityRating: "Degraded Peripheral Drive / Charge Pump Stall",
+    cryoStabilityRating: "Uncalibrated teaching class: peripheral freeze-out sensitivity",
   },
   reram_cryo: {
     id: "reram_cryo",
@@ -115,7 +115,7 @@ export const CRYO_TECH_PROFILES = Object.freeze({
     nominalIonUa: 30.0,
     nominalIoffNa: 50.0,
     freezeoutSensitivity: "Moderate (Ion Hopping Energy Barrier Freezes)",
-    cryoStabilityRating: "Abrupt Stochastic Switching at 4K",
+    cryoStabilityRating: "Uncalibrated teaching class: assumed hopping sensitivity",
   },
 });
 
@@ -172,7 +172,11 @@ export function calculateCryogenicPhysics({
 
   // 3. AntiFuse & Dielectric Breakdown Shift:
   // Phonon scattering reduction increases electron mean free path
-  const vbdActualV = tech.baseVbdV * (1.0 + tech.tempVbdCoeff * (300.0 - T));
+  // 缺少既有擊穿係數時明示模型未定義，不補造係數或將缺值當成零。
+  const hasVbdModel = Number.isFinite(tech.baseVbdV) && Number.isFinite(tech.tempVbdCoeff);
+  const vbdActualV = hasVbdModel
+    ? tech.baseVbdV * (1.0 + tech.tempVbdCoeff * (300.0 - T))
+    : null;
 
   // 4. Current Margins and Sense Signals:
   let iOnUa = tech.nominalIonUa;
@@ -220,7 +224,8 @@ export function calculateCryogenicPhysics({
     techKey: tech.id,
     techNameZh: tech.nameZh,
     techNameEn: tech.nameEn,
-    vbdActualV: Number(vbdActualV.toFixed(2)),
+    vbdActualV: hasVbdModel ? Number(vbdActualV.toFixed(2)) : null,
+    vbdModelStatus: hasVbdModel ? "defined" : "not_defined",
     deltaIreadUa: Number(deltaIreadUa.toFixed(1)),
     noisePowerDropDb: Number(noisePowerDropDb.toFixed(1)),
     ionizationFractionPercent: Number(ionizationFractionPercent.toFixed(2)),
@@ -248,8 +253,39 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
 
   const dpr = window.devicePixelRatio || 1;
   const rect = canvas.getBoundingClientRect();
-  const width = Math.max(300, rect.width || 420);
-  const height = Math.max(160, rect.height || 180);
+  const width = Math.max(1, Math.round(rect.width || 420));
+  const wrapText = (text, maxWidth, font) => {
+    ctx.font = font;
+    const lines = [];
+    let line = "";
+    for (const character of Array.from(text)) {
+      if (line && ctx.measureText(line + character).width > maxWidth) { lines.push(line); line = ""; }
+      line += character;
+    }
+    if (line) lines.push(line);
+    return lines;
+  };
+  const titleFont = "700 10.5px 'IBM Plex Mono', monospace";
+  const labelFont = "600 9px 'IBM Plex Mono', monospace";
+  const title = mode === "current_window"
+    ? (isZh ? `低溫感測裕度窗 (${results.tempKelvin} K · SNR: ${results.snrDb} dB)` : `Cryo Sense Window (${results.tempKelvin} K · SNR: ${results.snrDb} dB)`)
+    : (isZh ? `熱噪聲功率衰減譜 (${results.noisePowerDropDb} dB @ ${results.tempKelvin} K)` : `Thermal Noise Floor vs Temp (${results.noisePowerDropDb} dB @ ${results.tempKelvin} K)`);
+  const titleLines = wrapText(title, width - 24, titleFont);
+  const footerLabels = mode === "current_window"
+    ? [isZh ? "未編程 / 高阻態 '0'" : "State '0' (High-R)", isZh ? "導通 / 低阻態 '1'" : "State '1' (Low-R)"]
+    : ["4.2K (LHe)", "77K (LN2)", "300K (Room)"];
+  const footerStacked = width < 420;
+  const footerColumnWidth = footerStacked ? width - 18 : Math.max(20,(width - 68) / footerLabels.length - 6);
+  const footerLines = footerLabels.map(text => wrapText(text, footerColumnWidth - 6, labelFont));
+  const padLeft = 44;
+  const padRight = 24;
+  const padTop = Math.max(26, 12 + titleLines.length * 13);
+  const footerHeight = footerStacked ? footerLines.reduce((sum,lines) => sum + lines.length * 12 + 4,0) : Math.max(...footerLines.map(lines => lines.length)) * 12;
+  const padBottom = Math.max(26,12 + footerHeight);
+  // 保留原圖面高度，額外字列由畫布與既有容器共同承接，避免縮小字形。
+  const plotH = 128;
+  const height = padTop + plotH + padBottom;
+  canvas.parentElement.style.height = `${height}px`;
 
   if (canvas.width !== Math.round(width * dpr) || canvas.height !== Math.round(height * dpr)) {
     canvas.width = Math.round(width * dpr);
@@ -267,12 +303,26 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, width, height);
 
-  const padLeft = 44;
-  const padRight = 24;
-  const padTop = 26;
-  const padBottom = 26;
   const plotW = width - padLeft - padRight;
-  const plotH = height - padTop - padBottom;
+  const drawFooter = (lines,column) => {
+    const ratio = mode === "current_window" ? [0.22,0.72][column] : [0,0.42,1][column];
+    const center = padLeft + plotW * ratio;
+    const offset = footerStacked ? footerLines.slice(0,column).reduce((sum,item) => sum + item.length * 12 + 4,0) : 0;
+    lines.forEach((line,index) => {
+      const lineWidth = ctx.measureText(line).width;
+      ctx.fillText(line,Math.max(12,Math.min(center - lineWidth / 2,width - 12 - lineWidth)),padTop + plotH + 16 + offset + index * 12);
+    });
+  };
+  const drawLabel = (text, x, y, maxWidth = width - 24) => {
+    const lines = wrapText(text, Math.max(1, maxWidth), ctx.font);
+    const lineWidth = Math.max(...lines.map(line => ctx.measureText(line).width));
+    const left = Math.max(12, Math.min(x, width - 12 - lineWidth));
+    const top = Math.max(12, Math.min(y, height - 12 - (lines.length - 1) * 12));
+    const align = ctx.textAlign;
+    ctx.textAlign = "left";
+    lines.forEach((line, index) => ctx.fillText(line, left, top + index * 12));
+    ctx.textAlign = align;
+  };
 
   if (mode === "current_window") {
     // Mode 1: Read Sensing Current Window (Distribution of State '0' vs '1')
@@ -327,19 +377,16 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
     ctx.font = "700 9.5px 'IBM Plex Mono', monospace";
     ctx.fillStyle = "#fbbf24";
     ctx.textAlign = "center";
-    ctx.fillText(
-      isZh ? `感測裕度窗 ΔI: ${results.deltaIreadUa} μA` : `Sense Window ΔI: ${results.deltaIreadUa} μA`,
-      (centerOff + centerOn) / 2,
-      bracketY - 8
-    );
+    const windowText = isZh ? `感測裕度窗 ΔI: ${results.deltaIreadUa} μA` : `Sense Window ΔI: ${results.deltaIreadUa} μA`;
+    drawLabel(windowText, padLeft, bracketY - 8, plotW);
     ctx.textAlign = "left";
 
     // Labels
     ctx.font = "600 9px 'IBM Plex Mono', monospace";
     ctx.fillStyle = "#38bdf8";
-    ctx.fillText(isZh ? "未編程 / 高阻態 '0'" : "State '0' (High-R)", centerOff - 35, padTop + plotH + 16);
+    drawFooter(footerLines[0],0);
     ctx.fillStyle = "#34d399";
-    ctx.fillText(isZh ? "導通 / 低阻態 '1'" : "State '1' (Low-R)", centerOn - 30, padTop + plotH + 16);
+    drawFooter(footerLines[1],1);
 
   } else {
     // Mode 2: Temperature Spectrum Curve (Thermal Noise vs Temp 4K -> 300K)
@@ -396,7 +443,7 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
 
       ctx.font = "700 9px 'IBM Plex Mono', monospace";
       ctx.fillStyle = "#34d399";
-      ctx.fillText(
+      drawLabel(
         `${results.tempKelvin}K (${results.noisePowerDropDb} dB)`,
         Math.max(padLeft, markerX - 25),
         Math.max(padTop + 14, markerY - 8)
@@ -405,21 +452,13 @@ export function drawCryoCanvas(canvas, results, mode = "current_window", isZh = 
 
     ctx.font = "600 9px 'IBM Plex Mono', monospace";
     ctx.fillStyle = "#94a3b8";
-    ctx.fillText("4.2K (LHe)", padLeft, padTop + plotH + 16);
-    ctx.fillText("77K (LN2)", padLeft + plotW * 0.42, padTop + plotH + 16);
-    ctx.fillText("300K (Room)", padLeft + plotW - 45, padTop + plotH + 16);
+    footerLines.forEach(drawFooter);
   }
 
   // Canvas Title
   ctx.font = "700 10.5px 'IBM Plex Mono', monospace";
   ctx.fillStyle = "#f8fafc";
-  ctx.fillText(
-    mode === "current_window"
-      ? (isZh ? `低溫感測裕度窗 (${results.tempKelvin} K · SNR: ${results.snrDb} dB)` : `Cryo Sense Window (${results.tempKelvin} K · SNR: ${results.snrDb} dB)`)
-      : (isZh ? `熱噪聲功率衰減譜 (4.2 K 液氦下降 ${results.noisePowerDropDb} dB)` : `Thermal Noise Floor vs Temp (${results.noisePowerDropDb} dB @ ${results.tempKelvin} K)`),
-    padLeft,
-    padTop - 10
-  );
+  titleLines.forEach((line, index) => ctx.fillText(line, 12, 16 + index * 13));
 
   ctx.restore();
 }
@@ -465,9 +504,11 @@ export function initCryogenicNvmSimulator() {
 
     if (biasVal && biasSlider) {
       biasVal.textContent = `${biasSlider.value} mV`;
+      biasSlider.setAttribute("aria-valuetext", biasVal.textContent);
     }
     if (timeVal && timeSlider) {
       timeVal.textContent = `${timeSlider.value} ns`;
+      timeSlider.setAttribute("aria-valuetext", timeVal.textContent);
     }
 
     const res = calculateCryogenicPhysics({
@@ -485,7 +526,9 @@ export function initCryogenicNvmSimulator() {
       outNoise.textContent = `${res.noisePowerDropDb} dB`;
     }
     if (outVbd) {
-      outVbd.textContent = `${res.vbdActualV} V`;
+      outVbd.textContent = res.vbdModelStatus === "defined"
+        ? `${res.vbdActualV} V`
+        : (isZh ? "N/A · 未定義" : "N/A · Undefined");
     }
     if (outFreeze) {
       outFreeze.textContent = `${res.ionizationFractionPercent}%`;
@@ -497,14 +540,18 @@ export function initCryogenicNvmSimulator() {
     }
 
     if (outVerdict) {
-      if (res.isCryoViable) {
+      if (res.vbdModelStatus === "not_defined") {
         outVerdict.innerHTML = isZh
-          ? `<strong>【量子運算低溫就緒】</strong> <strong>${res.techNameZh}</strong> 在 ${res.tempKelvin} K 下展現極致感測穩定性。熱噪聲劇降 <strong>${res.noisePowerDropDb} dB</strong> 使讀取信噪比高達 <strong>${res.snrDb} dB</strong>；金屬化微絲/磁性接面完全<strong>免疫矽載子凍結</strong>，為低溫超導量子控制器 (Qubit Control Baseband) 的首選信任根與配置記憶體。`
-          : `<strong>[QUANTUM CRYO-READY]</strong> <strong>${res.techNameEn}</strong> exhibits superior sensing stability at ${res.tempKelvin} K. A massive <strong>${res.noisePowerDropDb} dB</strong> thermal noise drop pushes SNR to <strong>${res.snrDb} dB</strong>. Metallic filaments / ferromagnetic leads are <strong>completely immune to bulk carrier freeze-out</strong>, ideal for cryogenic quantum controllers.`;
+          ? `<strong>【未校準教學模型適用範圍】</strong> <strong>${res.techNameZh}</strong> 在 ${res.tempKelvin} K 下的讀取電流裕度為 <strong>${res.deltaIreadUa} μA</strong>，熱噪聲功率變化為 <strong>${res.noisePowerDropDb} dB</strong>，讀取信噪比為 <strong>${res.snrDb} dB</strong>。既有參數未定義此技術的溫度擊穿係數，因此擊穿／編程電壓模型顯示 <strong>N/A · 未定義</strong>；讀取數值僅為本模型試算，產品適用性仍需完整模型及實測證據。`
+          : `<strong>[UNCALIBRATED TEACHING MODEL APPLICABILITY]</strong> At ${res.tempKelvin} K, <strong>${res.techNameEn}</strong> has a modeled read-current margin of <strong>${res.deltaIreadUa} μA</strong>, thermal-noise power change of <strong>${res.noisePowerDropDb} dB</strong>, and read SNR of <strong>${res.snrDb} dB</strong>. The existing parameters leave its temperature-dependent breakdown coefficient undefined, so the breakdown/programming voltage model displays <strong>N/A · Undefined</strong>. Read outputs are illustrative; product applicability requires complete models and measured evidence.`;
+      } else if (res.isCryoViable) {
+        outVerdict.innerHTML = isZh
+          ? `<strong>【未校準教學分類：低溫讀取支路】</strong> <strong>${res.techNameZh}</strong> 在 ${res.tempKelvin} K 下的模型熱噪聲功率變化為 <strong>${res.noisePowerDropDb} dB</strong>，讀取信噪比為 <strong>${res.snrDb} dB</strong>。金屬化微絲／磁性接面支路採用不含矽載子凍結衰減項的假設，用於示意低溫感測機制；實際低溫控制器的記憶體適用性仍需周邊電路、封裝與實測驗證。`
+          : `<strong>[UNCALIBRATED TEACHING CLASS: CRYOGENIC READ PATH]</strong> At ${res.tempKelvin} K, <strong>${res.techNameEn}</strong> has a modeled thermal-noise power change of <strong>${res.noisePowerDropDb} dB</strong> and read SNR of <strong>${res.snrDb} dB</strong>. The metallic-filament / magnetic-junction path assumes no silicon carrier freeze-out attenuation term to illustrate the sensing mechanism. Applicability to cryogenic controllers requires peripheral-circuit, packaging, and measured validation.`;
       } else {
         outVerdict.innerHTML = isZh
-          ? `<strong>【載子凍結與高阻態失效警訊】</strong> 所選技術之矽基底在 ${res.tempKelvin} K 雜質電離率僅 <strong>${res.ionizationFractionPercent}%</strong>，遭遇嚴重的載子凍結（Carrier Freeze-out）。周邊存取電晶體導通電阻劇增、電荷泵升壓失步，不建議直接部署於 4K 量子基帶級。`
-          : `<strong>[CARRIER FREEZE-OUT ALERT]</strong> Bulk silicon ionization collapses to <strong>${res.ionizationFractionPercent}%</strong> at ${res.tempKelvin} K, inducing severe carrier freeze-out. Peripheral select gates suffer extreme series resistance, rendering conventional floating-gate charge pumps unusable at 4K.`;
+          ? `<strong>【未校準教學分類：載子凍結敏感支路】</strong> 在 ${res.tempKelvin} K 下，簡化矽基底模型的雜質電離率為 <strong>${res.ionizationFractionPercent}%</strong>。此分類用於示意載子凍結可能影響存取電晶體導通電阻與電荷泵升壓路徑；本工具未計算完整周邊電路，實際失效與使用範圍仍需產品參數及實測證據。`
+          : `<strong>[UNCALIBRATED TEACHING CLASS: FREEZE-OUT-SENSITIVE PATH]</strong> At ${res.tempKelvin} K, the simplified bulk-silicon model gives an ionization fraction of <strong>${res.ionizationFractionPercent}%</strong>. This class illustrates how carrier freeze-out may affect access-transistor resistance and charge-pump drive. Complete peripheral circuits are outside this calculation; actual failure and operating limits require product parameters and measured evidence.`;
       }
     }
 
@@ -542,7 +589,7 @@ export function initCryogenicNvmSimulator() {
     }
   });
 
-  window.addEventListener("languagechange", update);
+  window.addEventListener("hub:language-change", update);
   window.addEventListener("resize", () => {
     if (canvas) update();
   });
