@@ -146,7 +146,7 @@ export const BOLTZMANN_EV = 8.617333262e-5; // eV / K
  * @param {string} params.dutyCycleKey - Stress duty cycle ('dc_continuous' | 'array_multiplexed' | 'standby_retention')
  * @returns {Object} Reliability inference results, Weibull curve points, and verdict
  */
-export function calculateTddbWeibull(params) {
+export function calculateTddbWeibull(params = {}) {
   const tox = Math.max(1.0, Math.min(6.0, Number(params.toxNm) || 2.8));
   const vox = Math.max(0.2, Math.min(10.0, Number(params.voxV) || 0.85));
   const tempC = Math.max(20, Math.min(200, Number(params.tempC) || 150));

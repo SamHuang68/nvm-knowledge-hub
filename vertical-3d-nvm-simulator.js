@@ -162,7 +162,7 @@ export function calculateVertical3dMetrics({
   tierCount = 64,
   metalThicknessNm = 25.0,
   arrayLengthUm = 120.0
-}) {
+} = {}) {
   const preset = VERTICAL_3D_PRESETS[presetId] || VERTICAL_3D_PRESETS.vert_3d_antifuse_64l;
   const conductor = WORDLINE_CONDUCTORS[conductorId] || WORDLINE_CONDUCTORS.molybdenum_mo_pvd;
 

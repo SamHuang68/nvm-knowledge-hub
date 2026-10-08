@@ -146,7 +146,7 @@ export function calculateNanosheetBspdnNvm({
   techKey = "antifuse_nanosheet_logic",
   customArrayMb,
   customActivityRatePct,
-}) {
+} = {}) {
   const node = ADVANCED_NODE_PRESETS[nodeKey] || ADVANCED_NODE_PRESETS.tsmc_a16_spr;
   const tech = NANOSHEET_NVM_TOPOLOGIES[techKey] || NANOSHEET_NVM_TOPOLOGIES.antifuse_nanosheet_logic;
 

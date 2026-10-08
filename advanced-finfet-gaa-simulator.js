@@ -106,7 +106,7 @@ export const FOUNDRY_ADVANCED_NODES = Object.freeze({
  * @param {number} params.tempC - Operating junction temperature (25 to 175 °C)
  * @returns {Object} Analytical scaling metrics, leakage, charge pump footprint, and verdict
  */
-export function calculateAdvancedFinfetGaa(params) {
+export function calculateAdvancedFinfetGaa(params = {}) {
   const nodeId = params.nodeId && FOUNDRY_ADVANCED_NODES[params.nodeId] ? params.nodeId : 'tsmc_n3_gaa';
   const node = FOUNDRY_ADVANCED_NODES[nodeId];
   const appliedVolt = Math.max(0.4, Math.min(8.5, Number(params.appliedVolt) || node.vddNominal));

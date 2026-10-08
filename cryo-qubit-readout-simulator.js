@@ -147,7 +147,7 @@ export function calculateCryoQubitReadout({
   techKey = "antifuse_cryo_filament",
   customBFieldTesla,
   customRfPowerDbm,
-}) {
+} = {}) {
   const preset = QUBIT_CONTROL_PRESETS[presetKey] || QUBIT_CONTROL_PRESETS.superconducting_transmon_4k;
   const tech = CRYO_MEMORY_TOPOLOGIES[techKey] || CRYO_MEMORY_TOPOLOGIES.antifuse_cryo_filament;
 

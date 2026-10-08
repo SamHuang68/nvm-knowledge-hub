@@ -2251,7 +2251,7 @@
       <div class="match-results-deck" id="matchResultsDeck"></div>
 
       <!-- Architect Verdict -->
-      <div class="match-verdict-box" id="matchVerdictBox" style="background: #f0ece5; border: 1px solid rgba(128, 88, 40, 0.35); border-radius: 6px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 12px;">
+      <div class="match-verdict-box" id="matchVerdictBox" style="background: #f0ece5; border: 1px solid rgba(128, 88, 40, 0.35); border-radius: 6px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 12px;" role="status" aria-live="polite">
         <span class="verdict-tag" style="background: rgba(128, 88, 40, 0.12); border: 1px solid #805828; color: #805828; font: 700 10px 'IBM Plex Mono', monospace; padding: 3px 6px; border-radius: 3px; white-space: nowrap; margin-top: 2px;"><span data-lang="zh">［相對適配］</span><span data-lang="en">[RELATIVE FIT]</span></span>
         <div id="verdictText" style="font-size: 0.95rem; line-height: 1.6; color: #173b49;" aria-live="polite" aria-atomic="true">
           <span data-lang="zh">相對適配計算中…</span>
@@ -2883,7 +2883,7 @@
         <!-- Verdict and Rating Banner -->
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(139, 92, 246, 0.08); border-left: 3px solid #8b5cf6; border-radius: 0 4px 4px 0; padding: 10px 14px;">
           <div style="flex: 1 1 300px; font-size: 12.5px; line-height: 1.6; color: #f1f5f9;">
-            <span id="vert3d-out-verdict">Loading 3D vertical stacked eNVM calculations...</span>
+            <span id="vert3d-out-verdict" role="status" aria-live="polite">Loading 3D vertical stacked eNVM calculations...</span>
           </div>
           <div style="font: 700 12px 'IBM Plex Mono', monospace; background: #0f172a; padding: 4px 10px; border-radius: 4px; border: 1px solid #334155; white-space: nowrap;">
             <span id="vert3d-out-grade" style="color: #10b981;">High-Speed 3D Fabric</span>
@@ -3427,7 +3427,7 @@
         </div>
 
         <!-- VERDICT BANNER -->
-        <div id="finfet-verdict-banner" class="finfet-verdict-banner gaa_optimal" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534;">
+        <div id="finfet-verdict-banner" class="finfet-verdict-banner gaa_optimal" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534;" role="status" aria-live="polite">
           <span style="font-size: 1.25rem; line-height: 1;">⚡</span>
           <span class="finfet-verdict-text">
             <span data-lang="zh">【GAA 教學試算】既有預設的硬擊穿試算為 2.84V，電荷泵試算為 6 級；面積比例假設 0.28 對應 72% 縮減，與級數計算獨立。這些數值尚未校準，不能保證製程相容或資格驗證通過。</span>
@@ -3564,7 +3564,7 @@
           </div>
 
           <!-- Verdict & Ecosystem Procurement Banner -->
-          <div id="pkg-out-verdict" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534;">
+          <div id="pkg-out-verdict" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534;" role="status" aria-live="polite">
             <span data-lang="zh">TSMC CoWoS-S 具備成熟的微凸塊互連技術，但封裝後微凸塊修復高度仰賴 Base Die 內建之 0-Mask AntiFuse OTP 儲存 BIRA 修復向量；晶圓測試需求正由記憶體探針卡廠（如 MJC）向台積電邏輯探針卡供應鏈（如旺矽 MPI、精測 CHPT、Technoprobe）轉移。</span>
             <span data-lang="en">TSMC CoWoS-S features mature micro-bump interconnects, but post-packaging repair heavily relies on Base Die 0-Mask AntiFuse OTP for BIRA remapping vectors; wafer test procurement transitions from memory probe card vendors (e.g. MJC) to TSMC logic probe card supply chains (e.g. MPI, CHPT, Technoprobe).</span>
           </div>

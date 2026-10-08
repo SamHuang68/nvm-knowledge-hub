@@ -184,7 +184,7 @@ export function calculateHybridBondingMetrics({
   pitchUm = 1.0,
   operatingFreqGhz = 3.2,
   contactForceGrams = 0.35
-}) {
+} = {}) {
   const preset = HYBRID_BONDING_PRESETS[presetId] || HYBRID_BONDING_PRESETS.hbm4_hybrid_bonding_1um;
   const probe = KGD_PROBE_ARCHITECTURES[probeId] || KGD_PROBE_ARCHITECTURES.mpi_zero_mark_mems;
 

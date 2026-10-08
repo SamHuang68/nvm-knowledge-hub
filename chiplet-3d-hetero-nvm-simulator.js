@@ -207,7 +207,7 @@ export const CHIPLET_NVM_TOPOLOGIES = Object.freeze({
  * @param {number} [params.customDeltaTempC] Thermal Cycling Temperature Delta (°C)
  * @returns {Object} Comprehensive packaging and electrical metrics
  */
-export function calculateChipletHeteroMetrics(params) {
+export function calculateChipletHeteroMetrics(params = {}) {
   const preset = CHIPLET_PACKAGING_PRESETS[params.presetId] || CHIPLET_PACKAGING_PRESETS.tsmc_soic_hybrid;
   const topology = CHIPLET_NVM_TOPOLOGIES[params.topologyId] || CHIPLET_NVM_TOPOLOGIES.antifuse_base_die;
 

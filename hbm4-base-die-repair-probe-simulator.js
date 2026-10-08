@@ -203,7 +203,7 @@ export function calculateHbm4ProbeMetrics({
   coreDieYield = 0.955,
   stackLayers = 16,
   pinCount = 8192
-}) {
+} = {}) {
   const preset = HBM4_SYSTEM_PRESETS[presetId] || HBM4_SYSTEM_PRESETS.sk_hynix_tsmc_12nm_16hi;
   const probeCard = PROBE_CARD_ARCHITECTURES[probeCardId] || PROBE_CARD_ARCHITECTURES.mpi_taiwan;
 

@@ -130,7 +130,7 @@ export function calculateNormallyOffEnergy({
   memoryKey = "antifuse_normally_off",
   customCapacitorUf,
   customDutyCyclePct,
-}) {
+} = {}) {
   const source = HARVESTING_SOURCE_PRESETS[sourceKey] || HARVESTING_SOURCE_PRESETS.indoor_solar_100lux;
   const memory = MCU_MEMORY_POWER_PROFILES[memoryKey] || MCU_MEMORY_POWER_PROFILES.antifuse_normally_off;
 

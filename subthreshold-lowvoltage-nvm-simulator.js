@@ -203,7 +203,7 @@ export const LOW_VOLTAGE_NVM_TOPOLOGIES = Object.freeze({
  * @param {number} [params.customCapacityKb] Macro Capacity in Kbits
  * @returns {Object} Comprehensive electrical and energy metrics
  */
-export function calculateSubthresholdMetrics(params) {
+export function calculateSubthresholdMetrics(params = {}) {
   const preset = LOW_VOLTAGE_SUPPLY_PRESETS[params.presetId] || LOW_VOLTAGE_SUPPLY_PRESETS.nearthreshold_0_50v;
   const topology = LOW_VOLTAGE_NVM_TOPOLOGIES[params.topologyId] || LOW_VOLTAGE_NVM_TOPOLOGIES.antifuse_lowvoltage;
 

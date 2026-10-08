@@ -2159,7 +2159,7 @@
               <div class="canvas-container">
                 <canvas id="tunneling-canvas" aria-label="Interactive plot of current density vs oxide voltage" data-aria-en="Interactive plot of current density vs oxide voltage" data-aria-zh="穿隧電流密度對跨氧化層電壓之動態曲線圖"></canvas>
               </div>
-              <div id="sim-verdict-banner" class="verdict-banner verdict-tunneling">
+              <div id="sim-verdict-banner" class="verdict-banner verdict-tunneling" role="status" aria-live="polite">
                 <span class="verdict-icon">⚡</span>
                 <span>
                   <span data-lang="en">[Controlled Tunneling] Moderate FN field induces carrier injection suitable for EEPROM, MTP and eFlash program/erase.</span>
@@ -2366,7 +2366,7 @@
           </div>
 
           <!-- VERDICT BANNER -->
-          <div id="tddb-verdict-banner" class="tddb-verdict-banner low_failure_estimate" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46;">
+          <div id="tddb-verdict-banner" class="tddb-verdict-banner low_failure_estimate" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46;" role="status" aria-live="polite">
             <span class="tddb-verdict-icon" style="font-size: 1.25rem; line-height: 1;">🛡️</span>
             <span class="tddb-verdict-text">
               <span data-lang="zh">【較低失效試算】在預設 150°C 接面溫度、0.5% 應力佔空比及既有係數下，15 年累積失效約 0.2172 ppm，有效應力時間危險率約 0.57 FIT。教學比較門檻為 &lt;10 ppm 與 &lt;1 FIT；不代表 AEC-Q100、保持或讀取擾動驗證通過。</span>
@@ -2522,7 +2522,7 @@
 
           <!-- Architectural Insight Callout -->
           <div style="background: rgba(2, 132, 199, 0.06); border-left: 3px solid #0284c7; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
-            <span id="cryo-out-verdict">Loading Cryogenic NVM Physics calculations...</span>
+            <span id="cryo-out-verdict" role="status" aria-live="polite">Loading Cryogenic NVM Physics calculations...</span>
           </div>
         </article>
 
@@ -2677,7 +2677,7 @@
 
           <!-- Architectural Insight Callout -->
           <div style="background: rgba(2, 132, 199, 0.06); border-left: 3px solid #0284c7; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
-            <span id="cryo-qubit-out-verdict">Loading Cryogenic Qubit Readout calculations...</span>
+            <span id="cryo-qubit-out-verdict" role="status" aria-live="polite">Loading Cryogenic Qubit Readout calculations...</span>
           </div>
         </article>
 
@@ -2880,7 +2880,7 @@
 
           <!-- Architectural Insight Callout -->
           <div style="background: rgba(2, 132, 199, 0.06); border-left: 3px solid #0284c7; border-radius: 0 4px 4px 0; padding: 10px 14px; font-size: 12.5px; line-height: 1.6; color: #0f172a;">
-            <span id="bspdn-out-verdict">Loading Sub-2nm BSPDN eNVM calculations...</span>
+            <span id="bspdn-out-verdict" role="status" aria-live="polite">Loading Sub-2nm BSPDN eNVM calculations...</span>
           </div>
         </article>
 
@@ -3108,7 +3108,7 @@
           </div>
 
           <!-- ARCHITECT VERDICT -->
-          <div id="diff-verdict" style="padding: 14px; background: #f0fdfa; border-left: 4px solid #006f70; border-radius: 0 6px 6px 0; font-size: 12.5px; line-height: 1.6; color: #1e293b;">
+          <div id="diff-verdict" style="padding: 14px; background: #f0fdfa; border-left: 4px solid #006f70; border-radius: 0 6px 6px 0; font-size: 12.5px; line-height: 1.6; color: #1e293b;" role="status" aria-live="polite">
             <!-- Filled dynamically by differential-sensing-simulator.js -->
           </div>
         </div>

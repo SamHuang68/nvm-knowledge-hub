@@ -234,7 +234,7 @@ export const CRYO_NVM_TOPOLOGIES = Object.freeze({
  * @param {number} [params.customLet]
  * @returns {Object} Comprehensive physics metrics
  */
-export function calculateCryoRadhardMetrics(params) {
+export function calculateCryoRadhardMetrics(params = {}) {
   const preset = CRYO_ENVIRONMENT_PRESETS[params.presetId] || CRYO_ENVIRONMENT_PRESETS.quantum_cryo_4k;
   const topology = CRYO_NVM_TOPOLOGIES[params.topologyId] || CRYO_NVM_TOPOLOGIES.antifuse_radhard;
 

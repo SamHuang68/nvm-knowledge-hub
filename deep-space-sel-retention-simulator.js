@@ -165,7 +165,7 @@ export function calculateDeepSpaceMetrics({
   targetTempC = 460.0,
   peakLetMev = 75.0,
   missionYears = 1.0
-}) {
+} = {}) {
   const preset = DEEP_SPACE_MISSION_PRESETS[presetId] || DEEP_SPACE_MISSION_PRESETS.venus_lander_460c;
   const tech = DEEP_SPACE_TECH_PROFILES[techId] || DEEP_SPACE_TECH_PROFILES.antifuse_soi_radhard;
 
