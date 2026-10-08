@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "7ec55d56b17a57e49852",
+  "version": "d5d255ce53701bddb14b",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -178,7 +178,7 @@ self.NVMOfflineManifest = {
     "automotive-asild-ecc-simulator.js": "2b5e18a97e89c52b53072167e795ac1103f115d2c58795dd14eb0912c89dd8fe",
     "automotive-blackbox-journal-calculator.js": "17781b1be12b8a77423ccd868b67d87f578cfa65197080a853951823390f63fa",
     "automotive-ecc.js": "c72a03db0474ae872b90d6f243ac611b9c80dcfe9432cabc871fa1e4b41b1c02",
-    "automotive-hbm4-scrubbing-simulator.js": "cb062fc6c36555c3f9295c8a66be3d2774a8c57ba7b8c6397fb49a192da15563",
+    "automotive-hbm4-scrubbing-simulator.js": "eeca47cfea1d990bef6487c5e992047c8e6b29a060cab0e88904aae308104920",
     "automotive-high-temp-sic-gan-simulator.js": "6230bce12ed3b0da0be19f4e86430920a65230b4dd180d5a4fc638080b0d42c4",
     "automotive-load-dump-clamp-simulator.js": "a835ec85e0f14e3efd446aa58d686c2ad1240c87844be4f03661a1829daef6a9",
     "automotive-mission-profile.js": "609de9b934735c02358e2d66bbcc61af887b4d835246c88208dd60e11779169d",
@@ -190,7 +190,7 @@ self.NVMOfflineManifest = {
     "bspdn-envm-ir-drop-simulator.js": "250ab0c42e966cfea60cc34f76f7ff86670e6bc7e4cada7e1a284e60e367457a",
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
     "chiplet-3d-hetero-nvm-simulator.js": "8bf24e92982a221b3646d84cf331ae20dd3a8391eb81448e04694a64541e97c6",
-    "chiplet-ucie-nvm-simulator.js": "9de89d565c2672d041fdd1453aad5593206331ea1d9ba0296f3b47d851ee58ef",
+    "chiplet-ucie-nvm-simulator.js": "cb154094a11efe7ad4af163a8808e53a736cf0aabb53c9299bf7dc5dc9d5d0f0",
     "cim-analog-mac-simulator.js": "a5afbfb771a0a33d05c94410f074ec24deb1df65c965e16bc03569d52d909601",
     "cim-efficiency-calculator.js": "3348832fe0dfd6cd555a04c8b555813d74a5c5423e92a44b871075635612d561",
     "cim-neuromorphic-mac-simulator.js": "03eaae72110355ca2cd8ac86129d4805eb364f80a29a70680f30283223e98ba3",
@@ -211,7 +211,7 @@ self.NVMOfflineManifest = {
     "deep-space-sel-retention-simulator.js": "3e24ae9172544ad971c738fa8edf0b0b113126d848a0e1838e8d920a21ac5aad",
     "deferred-backgrounds.js": "a74dc489a74403e27ade20c4d0d16306d4d2f00c0f697cbff9662908ce0371a4",
     "demura-lut-calculator.js": "a7e0b8f2fbfe4ddba25f4d65236be022a198013c88e34e23e2616d29f4baaa60",
-    "differential-sensing-simulator.js": "f8b32e7341a9ce40d0d3838c31b688f6fe091a6ccedf02c970e5935bf4d03f82",
+    "differential-sensing-simulator.js": "5b373bc864619463f71ccd7899a448ff46b02d0690818ad10b4e662d181b5462",
     "dpa-cpa-leakage-simulator.js": "0ef12dc888bcb18df52769fb104d0a6b97e1251d92a4cf47d0122b658e71f8c2",
     "editorial-reading-ui.css": "eedc01843bbaf8169b0ce90c5434ce91f41b13ab491f1fbecbb30267b79f0399",
     "evidence-workbench.css": "b077fd188e73256fa0e9b2b8497feb698603e89cb8ad73648180c7c471011ba9",
@@ -314,5 +314,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 13398641
+  "totalBytes": 13407584
 };
