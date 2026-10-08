@@ -204,10 +204,11 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint', hover
   }
 
   ctx.save();
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.scale(dpr, dpr);
+  try {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
 
-  ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, width, height);
   ctx.fillStyle = '#08131e';
   ctx.fillRect(0, 0, width, height);
 
@@ -438,8 +439,11 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint', hover
     ctx.fillText(probeText, badgeX + badgeW / 2, badgeY + 15);
     ctx.restore();
   }
-
-  ctx.restore();
+  } catch (err) {
+    console.warn('drawPqcCanvas caught rendering error:', err);
+  } finally {
+    ctx.restore();
+  }
 }
 
 /**

@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "55577e163515ec9909a6",
+  "version": "7ec55d56b17a57e49852",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -262,7 +262,7 @@ self.NVMOfflineManifest = {
     "nvm-technology-atlas.js": "7ba90c8f62c0b4146eb491c90abb2857e547613ed4da1ddec8bd1fce6b18c817",
     "oip-lifecycle.js": "e9035b966ccfd7fc0942651ecf81049579c72417f9481c1e1dad06863f40c3ea",
     "oip-secure-storage.html": "a83656f6660cff693c047079e5de41c2e9e249ddeabad7dbcf4bda47060838a8",
-    "pqc-hardware-rot-ledger-simulator.js": "6f3e28c19a320da886a5093fe6c8ba743bbd221d8b8e1fad91e0db9f4c1a9056",
+    "pqc-hardware-rot-ledger-simulator.js": "afcf082e14bb7ef76ee67eef42b43fce18af3ac8adf75f59b2ea57388b06bf48",
     "pqc-key-storage-simulator.js": "9f05e72b2d67b9f0567c5146b79b498887b778e89a9ca8bd010c4679e94a7433",
     "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
     "pqc-rot-dpa-simulator.js": "e406de97659a0671b118f611370252e1230e8c20b5f6f750b869c40a723f7f41",
@@ -293,10 +293,10 @@ self.NVMOfflineManifest = {
     "sram-scenarios.js": "53dc69b856682397628c196117a20fb7e75ccbbcc414b2398b78a8eae4bb212c",
     "sram-yield-bira-simulator.js": "d5b71f6ebdc55e5fe53e2a0204f7e74bee0a2e83244d0c6c98001ab54f0e9da2",
     "styles.css": "4b21706d1c293f5a41eaa5ba76b5de7034384ca68a2e34baa9c33672758902af",
-    "subthreshold-lowvoltage-nvm-simulator.js": "449f9bb2a7e9f7cdceda977143adb51eae257b89e4e518196cb8e760a4cebfd2",
+    "subthreshold-lowvoltage-nvm-simulator.js": "7fa3fe814750bf721a2e2fa7945c1cf96bc5e3c1f357fed9c0c8586b296cba22",
     "supply-chain-hardware-trojan-pem-simulator.js": "ac7fd1aca444e850abd5ccfdb8130a0ee4f4bc2282b849d65090ff9756f5296d",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
-    "tddb-weibull-simulator.js": "bebdc0b34b6a77ac16e23bd12a7618f773448c9288312d5eb6ce75ce691ba757",
+    "tddb-weibull-simulator.js": "593c01a2a080fb3c73af54a912596824dd400ba9903721edaac37e05ac4ee80e",
     "technology-comparison.html": "6cd56845a8dfb26784e302d8e202e756ec84e607a3708c2feec9e9cf6407b21e",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
@@ -314,5 +314,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 13392052
+  "totalBytes": 13398641
 };

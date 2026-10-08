@@ -345,7 +345,10 @@ export function calculateTddbWeibull(params = {}) {
 export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null) {
   if (!canvas || !canvas.getContext) return;
   const ctx = canvas.getContext('2d');
-  const dpr = window.devicePixelRatio || 1;
+  if (!ctx) return;
+
+  try {
+    const dpr = window.devicePixelRatio || 1;
 
   const rect = canvas.getBoundingClientRect();
   const width = rect.width > 0 ? rect.width : 600;
@@ -357,8 +360,12 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
   ctx.resetTransform?.();
   ctx.scale(dpr, dpr);
 
-  // Background
-  ctx.fillStyle = '#ffffff';
+  // Background & Theme Adaptation
+  const isDark = typeof document !== 'undefined' && (
+    document.documentElement.dataset.theme === 'dark' ||
+    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.dataset.theme !== 'light')
+  );
+  ctx.fillStyle = isDark ? '#0b1329' : '#ffffff';
   ctx.fillRect(0, 0, width, height);
 
   // Layout Paddings
@@ -375,9 +382,9 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
   const toY = (w) => padTop + plotH - ((w - wMin) / (wMax - wMin)) * plotH;
 
   // Grid Lines & Labels
-  ctx.strokeStyle = '#e2e8f0';
+  ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.10)' : '#e2e8f0';
   ctx.lineWidth = 1;
-  ctx.fillStyle = '#64748b';
+  ctx.fillStyle = isDark ? '#94a3b8' : '#64748b';
   ctx.font = '10px "IBM Plex Mono", monospace';
   ctx.textAlign = 'center';
 
@@ -498,7 +505,7 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
   ctx.setLineDash([]);
 
   // Plot Border Box
-  ctx.strokeStyle = '#cbd5e1';
+  ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.20)' : '#cbd5e1';
   ctx.lineWidth = 1;
   ctx.strokeRect(padLeft, padTop, plotW, plotH);
 
@@ -506,27 +513,27 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
   const legX = padLeft + 15;
   const legY = padTop + plotH - 35;
 
-  ctx.fillStyle = '#ffffff';
-  ctx.strokeStyle = '#cbd5e1';
+  ctx.fillStyle = isDark ? 'rgba(15, 23, 42, 0.95)' : '#ffffff';
+  ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.20)' : '#cbd5e1';
   ctx.fillRect(legX, legY, 235, 26);
   ctx.strokeRect(legX, legY, 235, 26);
 
   // Legend Item 1: Cell
-  ctx.strokeStyle = '#2563eb';
+  ctx.strokeStyle = isDark ? '#60a5fa' : '#2563eb';
   ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.moveTo(legX + 8, legY + 13);
   ctx.lineTo(legX + 28, legY + 13);
   ctx.stroke();
 
-  ctx.fillStyle = '#1e293b';
+  ctx.fillStyle = isDark ? '#f1f5f9' : '#1e293b';
   ctx.font = '10px "IBM Plex Mono", monospace';
   ctx.textAlign = 'left';
   ctx.textBaseline = 'middle';
   ctx.fillText(lang === 'zh' ? '單元基準 (1 Cell)' : 'Cell Baseline', legX + 34, legY + 13);
 
   // Legend Item 2: Array
-  ctx.strokeStyle = '#9333ea';
+  ctx.strokeStyle = isDark ? '#c084fc' : '#9333ea';
   ctx.lineWidth = 2;
   ctx.setLineDash([4, 2]);
   ctx.beginPath();
@@ -579,8 +586,8 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
     const pillX = Math.min(padLeft + plotW - pillW - 4, Math.max(padLeft + 4, hx + 10));
     const pillY = Math.min(padTop + plotH - pillH - 4, Math.max(padTop + 4, hy - 26));
 
-    ctx.fillStyle = '#ffffff';
-    ctx.strokeStyle = '#2563eb';
+    ctx.fillStyle = isDark ? 'rgba(15, 23, 42, 0.95)' : '#ffffff';
+    ctx.strokeStyle = isDark ? '#38bdf8' : '#2563eb';
     ctx.lineWidth = 1;
     ctx.beginPath();
     if (ctx.roundRect) ctx.roundRect(pillX, pillY, pillW, pillH, 4);
@@ -588,11 +595,14 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
     ctx.fill();
     ctx.stroke();
 
-    ctx.fillStyle = '#1e40af';
+    ctx.fillStyle = isDark ? '#38bdf8' : '#1e40af';
     ctx.font = 'bold 9.5px "IBM Plex Mono", monospace';
     ctx.textAlign = 'center';
     ctx.fillText(sampleText, pillX + pillW / 2, pillY + 14);
     ctx.restore();
+  }
+  } catch (err) {
+    console.warn('drawWeibullCanvas caught rendering error:', err);
   }
 }
 
@@ -646,8 +656,22 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
     };
 
     if (toxVal) toxVal.textContent = `${params.toxNm.toFixed(1)} nm`;
+    if (toxSlider) {
+      toxSlider.setAttribute('aria-valuenow', params.toxNm.toFixed(1));
+      toxSlider.setAttribute('aria-valuetext', `${params.toxNm.toFixed(1)} nm`);
+    }
+
     if (voxVal) voxVal.textContent = `${params.voxV.toFixed(2)} V`;
+    if (voxSlider) {
+      voxSlider.setAttribute('aria-valuenow', params.voxV.toFixed(2));
+      voxSlider.setAttribute('aria-valuetext', `${params.voxV.toFixed(2)} V`);
+    }
+
     if (tempVal) tempVal.textContent = `${params.tempC} °C`;
+    if (tempSlider) {
+      tempSlider.setAttribute('aria-valuenow', String(params.tempC));
+      tempSlider.setAttribute('aria-valuetext', `${params.tempC} °C`);
+    }
 
     const res = calculateTddbWeibull(params);
 
@@ -831,18 +855,65 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
     }
   });
 
-  // Observe language mutations
+  // Export CSV Action for Weibull
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const presetParent = presetSelect?.parentNode;
+  if (presetParent && !presetParent.querySelector('#tddb-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'tddb-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(59, 130, 246, 0.4); background: rgba(15, 23, 42, 0.6); color: #3b82f6; cursor: pointer;';
+    const lang = getLang();
+    exportBtn.textContent = lang === 'zh' ? '📥 匯出 Weibull 曲線 (CSV)' : '📥 Export Weibull Curve (CSV)';
+    exportBtn.addEventListener('click', () => {
+      const res = calculateTddbWeibull({
+        toxNm: parseFloat(toxSlider?.value || 2.8),
+        voxV: parseFloat(voxSlider?.value || 0.75),
+        tempC: parseFloat(tempSlider?.value || 150),
+        modelId: modelSelect?.value || 'e_model',
+        arraySizeKey: arraySelect?.value || '64_kb',
+        dutyCycleKey: dutySelect?.value || 'array_multiplexed',
+      });
+      let csv = 'logT_sec,Weibull_W,Time_sec,FailureProb_Pct_Cell,FailureProb_Pct_Array\n';
+      res.curves.cell.forEach((pt, idx) => {
+        const arrPt = res.curves.array[idx] || pt;
+        const timeSec = Math.pow(10, pt.logT);
+        const fCellPct = Math.max(0, Math.min(100, (1 - Math.exp(-Math.exp(pt.w))) * 100));
+        const fArrayPct = Math.max(0, Math.min(100, (1 - Math.exp(-Math.exp(arrPt.w))) * 100));
+        csv += `${pt.logT.toFixed(3)},${pt.w.toFixed(3)},${timeSec.toExponential(2)},${fCellPct.toFixed(4)},${fArrayPct.toFixed(4)}\n`;
+      });
+      downloadCsv(`tddb_weibull_${res.inputs.modelId}_${res.inputs.toxNm}nm.csv`, csv);
+    });
+    presetParent.appendChild(exportBtn);
+  }
+
+  // Observe language and theme mutations
   const observer = new MutationObserver(() => update());
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-theme'] });
+
+  if (typeof ResizeObserver !== 'undefined' && canvas) {
+    const ro = new ResizeObserver(() => update());
+    ro.observe(canvas);
+  }
 
   window.addEventListener('resize', () => {
     if (canvas) update();
   });
 
-  // Initial calculation
-    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('hub:language-change', () => update());
   window.addEventListener('languagechange', () => update());
-  window.addEventListener('resize', () => update());
   update();
 }
 
