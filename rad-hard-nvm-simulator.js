@@ -301,7 +301,7 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep') {
   ctx.setLineDash([]); // Reset dashed
 
   ctx.font = '10px "IBM Plex Mono", monospace';
-  ctx.fillStyle = '#64748b';
+  ctx.fillStyle = '#cbd5e1';
 
   if (mode === 'tid_dose_sweep') {
     // Mode 1: TID Dose (0 to 1000 krad) vs Remaining Sense Margin (0 to 500 mV)
@@ -332,7 +332,7 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep') {
     ctx.lineTo(padLeft + plotWidth, yFail);
     ctx.stroke();
     ctx.setLineDash([]);
-    ctx.fillStyle = '#ef4444';
+    ctx.fillStyle = '#f87171';
     ctx.fillText('Min Read Sense Threshold (50 mV)', padLeft + 10, yFail - 6);
 
     // Plot Curves for All 4 Techs
@@ -344,7 +344,7 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep') {
     ];
 
     const steps = 60;
-    techs.forEach((tInfo, tIdx) => {
+    techs.forEach((tInfo) => {
       ctx.strokeStyle = tInfo.color;
       ctx.lineWidth = tInfo.key === metrics.tech.id ? 3.0 : 1.2;
       ctx.beginPath();
@@ -365,11 +365,28 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep') {
         else ctx.lineTo(px, py);
       }
       ctx.stroke();
+    });
 
-      // Legend
+    // Draw Legend Backdrop Card to prevent overlap
+    const legBoxW = 224;
+    const legBoxH = techs.length * 15 + 10;
+    const legBoxX = padLeft + plotWidth - legBoxW - 6;
+    const legBoxY = padTop + 6;
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.92)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
+    ctx.fill();
+    ctx.stroke();
+
+    techs.forEach((tInfo, tIdx) => {
       ctx.fillStyle = tInfo.color;
-      ctx.fillRect(padLeft + plotWidth - 230, padTop + 8 + tIdx * 14, 10, 4);
-      ctx.fillText(tInfo.label, padLeft + plotWidth - 215, padTop + 12 + tIdx * 14);
+      ctx.fillRect(legBoxX + 8, legBoxY + 8 + tIdx * 15, 12, 4);
+      ctx.fillStyle = tInfo.key === metrics.tech.id ? '#ffffff' : '#cbd5e1';
+      ctx.font = tInfo.key === metrics.tech.id ? '600 10px "IBM Plex Mono", monospace' : '10px "IBM Plex Mono", monospace';
+      ctx.fillText(tInfo.label, legBoxX + 26, legBoxY + 12 + tIdx * 15);
     });
 
   } else {
@@ -399,7 +416,7 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep') {
     ];
 
     const steps = 80;
-    techs.forEach((tInfo, tIdx) => {
+    techs.forEach((tInfo) => {
       ctx.strokeStyle = tInfo.color;
       ctx.lineWidth = tInfo.key === metrics.tech.id ? 3.0 : 1.2;
       ctx.beginPath();
@@ -420,11 +437,28 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep') {
         else ctx.lineTo(px, py);
       }
       ctx.stroke();
+    });
 
-      // Legend
+    // Draw Legend Backdrop Card to prevent overlap
+    const legBoxW = 224;
+    const legBoxH = techs.length * 15 + 10;
+    const legBoxX = padLeft + plotWidth - legBoxW - 6;
+    const legBoxY = padTop + 6;
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.92)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
+    ctx.fill();
+    ctx.stroke();
+
+    techs.forEach((tInfo, tIdx) => {
       ctx.fillStyle = tInfo.color;
-      ctx.fillRect(padLeft + plotWidth - 230, padTop + 8 + tIdx * 14, 10, 4);
-      ctx.fillText(tInfo.label, padLeft + plotWidth - 215, padTop + 12 + tIdx * 14);
+      ctx.fillRect(legBoxX + 8, legBoxY + 8 + tIdx * 15, 12, 4);
+      ctx.fillStyle = tInfo.key === metrics.tech.id ? '#ffffff' : '#cbd5e1';
+      ctx.font = tInfo.key === metrics.tech.id ? '600 10px "IBM Plex Mono", monospace' : '10px "IBM Plex Mono", monospace';
+      ctx.fillText(tInfo.label, legBoxX + 26, legBoxY + 12 + tIdx * 15);
     });
   }
 

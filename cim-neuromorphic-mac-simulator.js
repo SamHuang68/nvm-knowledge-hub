@@ -331,24 +331,36 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
       ctx.fillRect(paddingLeft + c * cellW + 1, paddingTop + gridHeight + 2, cellW - 2, barH);
     }
 
-    // Legend on the right side
-    const legendX = width - 60;
-    ctx.fillStyle = '#94a3b8';
+    // Legend card on the right side
+    const legendCardW = 68;
+    const legendCardH = 88;
+    const legendCardX = width - legendCardW - 4;
+    const legendCardY = paddingTop;
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.92)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(legendCardX, legendCardY, legendCardW, legendCardH, 4);
+    else ctx.rect(legendCardX, legendCardY, legendCardW, legendCardH);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#cbd5e1';
     ctx.font = '500 9px "IBM Plex Mono", monospace';
-    ctx.fillText('V_bias: 0.8V', legendX - 5, paddingTop + 10);
-    ctx.fillText(`Max IR-Drop:`, legendX - 5, paddingTop + 30);
+    ctx.fillText('V_bias: 0.8V', legendCardX + 5, legendCardY + 12);
+    ctx.fillText('Max IR-Drop:', legendCardX + 5, legendCardY + 30);
     ctx.fillStyle = metrics.gradeColor;
-    ctx.font = '700 10px "IBM Plex Mono", monospace';
-    ctx.fillText(`${metrics.worstCaseIrDropPct.toFixed(1)}%`, legendX - 5, paddingTop + 44);
+    ctx.font = '700 10.5px "IBM Plex Mono", monospace';
+    ctx.fillText(`${metrics.worstCaseIrDropPct.toFixed(1)}%`, legendCardX + 5, legendCardY + 44);
 
     ctx.fillStyle = '#38bdf8';
     ctx.font = '500 9px "IBM Plex Mono", monospace';
-    ctx.fillText('Array SNR:', legendX - 5, paddingTop + 65);
+    ctx.fillText('Array SNR:', legendCardX + 5, legendCardY + 62);
     ctx.fillStyle = '#f8fafc';
-    ctx.font = '700 10px "IBM Plex Mono", monospace';
-    ctx.fillText(`${metrics.effectiveSnrDb.toFixed(1)} dB`, legendX - 5, paddingTop + 79);
+    ctx.font = '700 10.5px "IBM Plex Mono", monospace';
+    ctx.fillText(`${metrics.effectiveSnrDb.toFixed(1)} dB`, legendCardX + 5, legendCardY + 76);
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#cbd5e1';
     ctx.font = '500 8.5px "IBM Plex Mono", monospace';
     ctx.fillText('Row Driver →', 2, paddingTop + 20);
     ctx.fillText('Col ADC ↓', paddingLeft, height - 6);
@@ -374,7 +386,7 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
     ctx.stroke();
 
     // Grid lines & labels
-    ctx.fillStyle = '#64748b';
+    ctx.fillStyle = '#cbd5e1';
     ctx.font = '500 8.5px "IBM Plex Mono", monospace';
     ctx.fillText('100%', padX - 28, padY + 6);
     ctx.fillText('80%', padX - 24, padY + plotH * 0.4);
@@ -421,9 +433,24 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    ctx.fillStyle = '#f8fafc';
+    // Operating point label backdrop badge to prevent overlap with curve
+    const opLabel = `Operating: ${metrics.energyEfficiencyTopsPerWatt.toFixed(1)} T/W (${metrics.retainedAccuracyPct.toFixed(1)}%)`;
     ctx.font = '600 9.5px "IBM Plex Mono", monospace';
-    ctx.fillText(`Operating: ${metrics.energyEfficiencyTopsPerWatt.toFixed(1)} T/W (${metrics.retainedAccuracyPct.toFixed(1)}%)`, Math.min(width - 160, curX + 8), curY - 6);
+    const opTextW = ctx.measureText(opLabel).width;
+    const opBadgeX = Math.min(width - opTextW - 14, curX + 6);
+    const opBadgeY = Math.max(padY + 4, curY - 18);
+
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(opBadgeX - 4, opBadgeY - 10, opTextW + 8, 16, 3);
+    else ctx.rect(opBadgeX - 4, opBadgeY - 10, opTextW + 8, 16);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#f8fafc';
+    ctx.fillText(opLabel, opBadgeX, opBadgeY + 2);
   }
 }
 

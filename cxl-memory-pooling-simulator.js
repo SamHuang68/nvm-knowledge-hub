@@ -306,22 +306,34 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
     ctx.font = "700 11px 'IBM Plex Mono', monospace";
     ctx.fillText(`${total.toFixed(1)} ns`, padding.left + transportW + tagW + mediaW + 8, cxlY + 20);
 
-    // Legend
-    const legendY = height - 12;
+    // Draw Legend Backdrop Card to prevent overlap
+    const legBoxW = Math.min(width - padding.left - 20, 390);
+    const legBoxH = 22;
+    const legBoxX = padding.left;
+    const legBoxY = height - 26;
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
+    ctx.fill();
+    ctx.stroke();
+
     const items = [
-      { color: '#0284c7', label: language === 'zh' ? `鏈路傳輸 (${transport.toFixed(1)}ns)` : `Link (${transport.toFixed(1)}ns)` },
-      { color: tag > 50 ? '#f59e0b' : '#10b981', label: language === 'zh' ? `標籤快取 (${tag.toFixed(1)}ns)` : `Tag (${tag.toFixed(1)}ns)` },
-      { color: '#6366f1', label: language === 'zh' ? `記憶體介質 (${media.toFixed(1)}ns)` : `Media (${media.toFixed(1)}ns)` },
+      { color: '#0284c7', label: language === 'zh' ? `鏈路 (${transport.toFixed(1)}ns)` : `Link (${transport.toFixed(1)}ns)` },
+      { color: tag > 50 ? '#fbbf24' : '#10b981', label: language === 'zh' ? `標籤 (${tag.toFixed(1)}ns)` : `Tag (${tag.toFixed(1)}ns)` },
+      { color: '#818cf8', label: language === 'zh' ? `介質 (${media.toFixed(1)}ns)` : `Media (${media.toFixed(1)}ns)` },
     ];
 
-    let legX = padding.left;
+    let legX = legBoxX + 8;
     for (const item of items) {
       ctx.fillStyle = item.color;
-      ctx.fillRect(legX, legendY - 8, 10, 8);
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillRect(legX, legBoxY + 7, 10, 8);
+      ctx.fillStyle = '#cbd5e1';
       ctx.font = "500 9.5px 'IBM Plex Mono', monospace";
-      ctx.fillText(item.label, legX + 14, legendY);
-      legX += (ctx.measureText(item.label).width + 24);
+      ctx.fillText(item.label, legX + 14, legBoxY + 15);
+      legX += (ctx.measureText(item.label).width + 18);
     }
 
   } else {
@@ -401,7 +413,7 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
     ctx.fillText(`${(currentUtil * 100).toFixed(1)}%`, currentX + 10, currentY - 6);
 
     // Y Axis Labels
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#cbd5e1';
     ctx.font = "500 9px 'IBM Plex Mono', monospace";
     ctx.fillText('100%', padding.left - 30, padding.top + 8);
     ctx.fillText('70%', padding.left - 25, padding.top + chartH * 0.5);

@@ -501,13 +501,27 @@ export function drawChipletHeteroCanvas(canvas, metrics, mode, lang = 'zh') {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
+    // Draw Legend Backdrop Card to prevent overlap
+    const legBoxW = Math.min(plotW - 20, 420);
+    const legBoxH = 24;
+    const legBoxX = padLeft + 8;
+    const legBoxY = padTop + 6;
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
+    ctx.fill();
+    ctx.stroke();
+
     // Legend
-    ctx.font = '10px sans-serif';
+    ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
     ctx.fillStyle = '#10b981';
-    ctx.fillText(`${lang === 'zh' ? '目前架構' : 'Active'}: ${lang === 'zh' ? metrics.preset.zh.name : metrics.preset.en.name}`, padLeft + 10, padTop + 16);
-    ctx.fillStyle = '#94a3b8';
-    ctx.fillText(`Latency = ${metrics.effectiveReadLatencyNs.toFixed(2)} ns`, padLeft + 280, padTop + 16);
+    ctx.fillText(`${lang === 'zh' ? '目前架構' : 'Active'}: ${lang === 'zh' ? metrics.preset.zh.name : metrics.preset.en.name}`, legBoxX + 8, legBoxY + 16);
+    ctx.fillStyle = '#cbd5e1';
+    ctx.fillText(`Latency = ${metrics.effectiveReadLatencyNs.toFixed(2)} ns`, legBoxX + 260, legBoxY + 16);
   }
 }
 

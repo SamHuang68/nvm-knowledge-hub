@@ -506,9 +506,9 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh') {
   const legY = padTop + plotH - 35;
 
   ctx.fillStyle = '#ffffff';
-  ctx.strokeStyle = '#e2e8f0';
-  ctx.fillRect(legX, legY, 210, 26);
-  ctx.strokeRect(legX, legY, 210, 26);
+  ctx.strokeStyle = '#cbd5e1';
+  ctx.fillRect(legX, legY, 235, 26);
+  ctx.strokeRect(legX, legY, 235, 26);
 
   // Legend Item 1: Cell
   ctx.strokeStyle = '#2563eb';

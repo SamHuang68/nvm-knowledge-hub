@@ -454,15 +454,29 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
+    // Draw Legend Backdrop Card to prevent overlap
+    const legBoxW = Math.min(plotW - 20, 390);
+    const legBoxH = 24;
+    const legBoxX = padLeft + 8;
+    const legBoxY = padTop + 6;
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
+    ctx.fill();
+    ctx.stroke();
+
     // Legend
-    ctx.font = '10px sans-serif';
+    ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#f59e0b';
-    ctx.fillText(lang === 'zh' ? '— 閾值電壓 Vth(T)' : '— Threshold Vth(T)', padLeft + 10, padTop + 16);
+    ctx.fillStyle = '#fbbf24';
+    ctx.fillText(lang === 'zh' ? '— 閾值 Vth(T)' : '— Vth(T)', legBoxX + 8, legBoxY + 16);
     ctx.fillStyle = '#10b981';
-    ctx.fillText(lang === 'zh' ? '— 感測裕度 Margin' : '— Sense Margin', padLeft + 150, padTop + 16);
+    ctx.fillText(lang === 'zh' ? '— 感測裕度 Margin' : '— Margin', legBoxX + 130, legBoxY + 16);
     ctx.fillStyle = '#38bdf8';
-    ctx.fillText(`VDD = ${metrics.topology.baseVdd}V`, padLeft + 280, padTop + 16);
+    ctx.fillText(`VDD = ${metrics.topology.baseVdd}V`, legBoxX + 270, legBoxY + 16);
 
   } else {
     // Mode 2: Heavy-Ion LET (0 to 100 MeV·cm²/mg) vs Weibull SEU Cross-Section (cm²/bit)
@@ -554,13 +568,27 @@ export function drawCryoRadhardCanvas(canvas, metrics, mode, lang = 'zh') {
       ctx.fillText(`LETth=${metrics.topology.letThreshold}`, thX, padTop + 30);
     }
 
+    // Draw Legend Backdrop Card to prevent overlap
+    const legBoxW = Math.min(plotW - 20, 390);
+    const legBoxH = 24;
+    const legBoxX = padLeft + 8;
+    const legBoxY = padTop + 6;
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
+    ctx.fill();
+    ctx.stroke();
+
     // Legend
-    ctx.font = '10px sans-serif';
+    ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillStyle = metrics.topology.id === 'antifuse_radhard' ? '#10b981' : '#f59e0b';
-    ctx.fillText(`${lang === 'zh' ? '目前技術' : 'Active'}: ${lang === 'zh' ? metrics.topology.zh.name : metrics.topology.en.name}`, padLeft + 10, padTop + 16);
-    ctx.fillStyle = 'rgba(239, 68, 68, 0.7)';
-    ctx.fillText(lang === 'zh' ? '— 對照組 (SRAM Baseline)' : '— Reference (SRAM Baseline)', padLeft + 240, padTop + 16);
+    ctx.fillStyle = metrics.topology.id === 'antifuse_radhard' ? '#10b981' : '#fbbf24';
+    ctx.fillText(`${lang === 'zh' ? '目前技術' : 'Active'}: ${lang === 'zh' ? metrics.topology.zh.name : metrics.topology.en.name}`, legBoxX + 8, legBoxY + 16);
+    ctx.fillStyle = '#f87171';
+    ctx.fillText(lang === 'zh' ? '— SRAM 對照基準' : '— SRAM Baseline', legBoxX + 230, legBoxY + 16);
   }
 }
 

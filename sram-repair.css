@@ -44,6 +44,14 @@ html[data-language="zh"] [data-lang="en"] { display:none !important; }
 .sram-repair-page .menu-button { display:none; flex-direction:column; gap:5px; min-width:44px; min-height:44px; padding:10px; background:#fff; border:1px solid #94a3b8; border-radius:6px; }
 .sram-repair-page .menu-button i { display:block; width:18px; height:2px; background:currentColor; }
 
+/* High-contrast accessible color upgrades for legends, chart annotations, and notes */
+.legend { color: #1e3a2f !important; font-weight: 500; }
+.chart text { fill: #334155 !important; font-weight: 500; }
+.range-labels { color: #334155 !important; font-weight: 600; }
+.tech-label, .tech-bits, .tech-inputs label, .tech-amount small { color: #334155 !important; }
+.tech-note, .table-note, .chart-footer, .label-note, .hint { color: #334155 !important; }
+.current-legend { color: #1e3a2f !important; font-weight: 600; }
+
 /* 窄版保留品牌與全部操作；換列避開文字最小寬度將選單推出視窗。 */
 @media(max-width:600px){
   html body.sram-repair-page .site-header{grid-template-columns:minmax(0,1fr)!important;row-gap:8px;padding-block:10px!important}
