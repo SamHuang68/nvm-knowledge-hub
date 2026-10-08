@@ -296,3 +296,35 @@ test('Physical Calculators: Suite 8 - 3D Vertical Staircase Extreme Tiers & Subs
     }
   }
 });
+
+test('Physical Calculators: Suite 9 - CiM MAC Sparsity, PQC Noise Injection & PUF Entropy Boundary Fuzzing', () => {
+  const extremeSecurityCiMConfigs = [
+    { noiseSigma: 0.0, sparsity: 0.0, eccCapabilityT: 0, agingYears: 0 },
+    { noiseSigma: 0.1, sparsity: 0.25, eccCapabilityT: 4, agingYears: 1 },
+    { noiseSigma: 2.5, sparsity: 0.5, eccCapabilityT: 12, agingYears: 10 },
+    { noiseSigma: 10.0, sparsity: 0.9, eccCapabilityT: 18, agingYears: 20 },
+    { noiseSigma: 50.0, sparsity: 0.99, eccCapabilityT: 24, agingYears: 30 },
+    { noiseSigma: 100.0, sparsity: 1.0, eccCapabilityT: 30, agingYears: 50 },
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const cfg of extremeSecurityCiMConfigs) {
+      try {
+        const res = fn({
+          noiseSigma: cfg.noiseSigma,
+          customNoise: cfg.noiseSigma,
+          sparsity: cfg.sparsity,
+          eccCapabilityT: cfg.eccCapabilityT,
+          agingYears: cfg.agingYears,
+          wireResistanceOhm: 5.0,
+          adcResolutionBits: 8,
+          driftHours: 1000,
+        });
+        assert.ok(res !== undefined, `${name} must handle Suite 9 fuzzing safely`);
+        checkNoNaN(res, `${name}_Suite9_Noise_${cfg.noiseSigma}`);
+      } catch (err) {
+        assert.fail(`${name} crashed on Suite 9 fuzzing sample: ${err.message}`);
+      }
+    }
+  }
+});

@@ -1,3 +1,5 @@
+import { syncMetricCopy } from './模型數值複製.js';
+
 /**
  * cim-analog-mac-simulator.js — Compute-in-Memory (CiM) Analog MAC Precision & ADC ENOB Trade-off Simulator
  *
@@ -591,6 +593,64 @@ export function initCimAnalogMacSimulator() {
     if (canvas) {
       drawCimMacCanvas(canvas, res, currentVisualMode, isZh);
     }
+
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([outEnob, outSinad, outAccuracy, outTopsWatt, outAdcShare]);
+    const exportControl = root.querySelector('#cim-analog-export-csv-btn');
+    if (exportControl) {
+      exportControl.textContent = isZh ? '📥 匯出 CiM 類比 MAC 精度 CSV' : '📥 Export CiM Analog MAC CSV';
+      exportControl.setAttribute('aria-label', isZh ? '匯出神經網路層在不同 eNVM 介質與雜訊條件下的 ENOB 與精度資料集為 CSV 檔案' : 'Export neural network layer ENOB and accuracy dataset under analog CiM impairments as CSV file');
+    }
+  }
+
+  // Export CSV Action for CiM Analog MAC Simulator
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const presetContainer = workloadSelect?.parentNode;
+  if (presetContainer && !presetContainer.querySelector('#cim-analog-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'cim-analog-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+    exportBtn.textContent = isZhLang ? '📥 匯出 CiM 類比 MAC 精度 CSV' : '📥 Export CiM Analog MAC CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '匯出神經網路層在不同 eNVM 介質與雜訊條件下的 ENOB 與精度資料集為 CSV 檔案' : 'Export neural network layer ENOB and accuracy dataset under analog CiM impairments as CSV file');
+    exportBtn.addEventListener('click', () => {
+      const curWorkload = workloadSelect?.value || 'transformer_attn';
+      const curDevice = deviceSelect?.value || 'reram_oxram';
+      let csv = 'Workload,Device,AdcBits,Temp_C,RetentionHours,SinadDb,RealizedEnob,AccuracyPct,TopsWatt,AdcSharePct\n';
+      const testAdcs = [4, 6, 8];
+      const testTemps = [25, 85, 125];
+      const testRets = [1, 24, 720, 8760];
+      for (const b of testAdcs) {
+        for (const t of testTemps) {
+          for (const r of testRets) {
+            const res = calculateCimAnalogMac({
+              workloadKey: curWorkload,
+              deviceKey: curDevice,
+              nominalAdcBits: b,
+              temperatureC: t,
+              retentionHours: r,
+              clockFreqMHz: 100,
+            });
+            csv += `${curWorkload},${curDevice},${b},${t},${r},${res.sinadDb.toFixed(2)},${res.realizedEnob.toFixed(2)},${res.estimatedAccuracy.toFixed(2)},${res.macroTopsPerWatt.toFixed(2)},${res.adcOverheadFraction.toFixed(2)}\n`;
+          }
+        }
+      }
+      downloadCsv(`cim_analog_mac_${curWorkload}_${curDevice}.csv`, csv);
+    });
+    presetContainer.appendChild(exportBtn);
   }
 
   // Mode toggles

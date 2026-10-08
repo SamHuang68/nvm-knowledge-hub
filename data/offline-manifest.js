@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "2871c28787dfc4e8059b",
+  "version": "a8496527f8972c3bd56b",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -192,9 +192,9 @@ self.NVMOfflineManifest = {
     "chapter-lens.css": "79306edc6ee66385a30fd24f4ba7fb8a1484c97c4f27450ae0fa0a90f8eca9b5",
     "chiplet-3d-hetero-nvm-simulator.js": "8bf24e92982a221b3646d84cf331ae20dd3a8391eb81448e04694a64541e97c6",
     "chiplet-ucie-nvm-simulator.js": "6c754e3d72ab69b489ed8d3739133facb79f3151eb1a2a7c14fb5a0e7d40ee03",
-    "cim-analog-mac-simulator.js": "a5afbfb771a0a33d05c94410f074ec24deb1df65c965e16bc03569d52d909601",
+    "cim-analog-mac-simulator.js": "a946fb43386621846b82c5d237a0d6ab1f852f95e958b212b3a03838a0a5ac98",
     "cim-efficiency-calculator.js": "3348832fe0dfd6cd555a04c8b555813d74a5c5423e92a44b871075635612d561",
-    "cim-neuromorphic-mac-simulator.js": "03eaae72110355ca2cd8ac86129d4805eb364f80a29a70680f30283223e98ba3",
+    "cim-neuromorphic-mac-simulator.js": "54c41b7816d4cdb4e0a3b4dc0ee06dcbe39e666e77de424c54bf49cbbe7fc556",
     "cim-nn-accuracy-degradation-simulator.js": "da46154f186de39bd56aa83af0efd825072e80b97c52057a7163aa472a30514c",
     "claim-scope.js": "afb8bc4df1c94c77e07707f184f1efd188970c384ccf70a598b45a503bd5f91e",
     "command-palette-hud.js": "afb6669b0420740e62c06d44b43cf44bc35c9849b95a5c8b35bf1192f977f952",
@@ -266,9 +266,9 @@ self.NVMOfflineManifest = {
     "pqc-hardware-rot-ledger-simulator.js": "afcf082e14bb7ef76ee67eef42b43fce18af3ac8adf75f59b2ea57388b06bf48",
     "pqc-key-storage-simulator.js": "9f05e72b2d67b9f0567c5146b79b498887b778e89a9ca8bd010c4679e94a7433",
     "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
-    "pqc-rot-dpa-simulator.js": "e406de97659a0671b118f611370252e1230e8c20b5f6f750b869c40a723f7f41",
+    "pqc-rot-dpa-simulator.js": "72e3f003efd807b09d727faae3ce9aa8f117684b83430d61ac0eee102ed5a5aa",
     "puf-nist-randomness-evaluator.js": "4845ed80be95c57d32d7c417c896c7f506518c897bc78de1b6f6443c640d2781",
-    "puf-reconstruction-simulator.js": "0b2bad7f69d152fe1376c69c867fe88b8cc6f07ee4f9e5d92e2e27a62f46fb28",
+    "puf-reconstruction-simulator.js": "025dccf8752bf478187d02df11dbfde67a20715669958701a4dd889bb2648351",
     "quick-probe.js": "13857acf21a476d43ed5eb2baf42ba8b9f88ef823ae1f213d643a87b77223994",
     "rad-hard-nvm-simulator.js": "cc9ab29d21c278fff2f3d961afc9637003508d4c1062ae78087ab052265b4282",
     "reading-controls.css": "5fdaf2f82d852d80b0535431d291edadec60b146f8076ba88c209b6966f6dd6a",
@@ -316,5 +316,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 13440173
+  "totalBytes": 13452857
 };

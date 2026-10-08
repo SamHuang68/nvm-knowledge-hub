@@ -1,3 +1,5 @@
+import { syncMetricCopy } from './模型數值複製.js';
+
 /**
  * @file cim-neuromorphic-mac-simulator.js
  * @description First-Principles Physics & Circuit Simulator for Compute-in-Memory (CiM),
@@ -526,6 +528,61 @@ export function initCimMacSimulator() {
     if (canvas) {
       drawCimMacCanvas(canvas, metrics, activeMode);
     }
+
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([outEnergy, outThroughput, outSnr, outIrDrop, outAccuracy]);
+    const exportControl = root.querySelector('#cim-neuromorphic-export-csv-btn');
+    if (exportControl) {
+      const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+      exportControl.textContent = isZh ? '📥 匯出神經形態 MAC 陣列 CSV' : '📥 Export Neuromorphic MAC CSV';
+      exportControl.setAttribute('aria-label', isZh ? '匯出神經形態交叉陣列在不同突觸介質與寄生效應下的 MAC 效能資料集為 CSV 檔案' : 'Export neuromorphic crossbar array MAC performance dataset as CSV file');
+    }
+  }
+
+  // Export CSV Action for Neuromorphic CiM MAC Simulator
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const presetContainer = presetSelect?.parentNode;
+  if (presetContainer && !presetContainer.querySelector('#cim-neuromorphic-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'cim-neuromorphic-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+    exportBtn.textContent = isZhLang ? '📥 匯出神經形態 MAC 陣列 CSV' : '📥 Export Neuromorphic MAC CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '匯出神經形態交叉陣列在不同突觸介質與寄生效應下的 MAC 效能資料集為 CSV 檔案' : 'Export neuromorphic crossbar array MAC performance dataset as CSV file');
+    exportBtn.addEventListener('click', () => {
+      const curPreset = presetSelect?.value || 'vision_transformer_vit_patch';
+      const curMedia = mediaSelect?.value || 'reram_filament_mlc';
+      let csv = 'Preset,Medium,WireResistanceOhm,AdcResolutionBits,ThroughputTops,EnergyEffTopsW,MaxIrDropMv,AdcSharePct,RetainedAccuracyPct\n';
+      const testWires = [0.5, 1.5, 3.0, 5.0];
+      const testAdcs = [4, 6, 8];
+      for (const w of testWires) {
+        for (const a of testAdcs) {
+          const res = calculateCimMacMetrics({
+            presetKey: curPreset,
+            mediumKey: curMedia,
+            wireResistanceOhm: w,
+            adcResolutionBits: a,
+            driftHours: 24,
+          });
+          csv += `${curPreset},${curMedia},${w},${a},${res.throughputTops.toFixed(2)},${res.energyEfficiencyTopsW.toFixed(2)},${res.maxIrDropMv.toFixed(2)},${res.adcPowerSharePct.toFixed(2)},${res.retainedAccuracyPct.toFixed(2)}\n`;
+        }
+      }
+      downloadCsv(`cim_neuromorphic_${curPreset}_${curMedia}.csv`, csv);
+    });
+    presetContainer.appendChild(exportBtn);
   }
 
   if (presetSelect) presetSelect.addEventListener('change', update);

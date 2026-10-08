@@ -15,6 +15,8 @@
  * Standards: NIST SP 800-90B, ISO/IEC 20897 (Physically Unclonable Functions)
  */
 
+import { syncMetricCopy } from './模型數值複製.js';
+
 'use strict';
 
 /**
@@ -335,6 +337,60 @@ export function initPufReconstructionSimulator(rootSelector = '#puf-reconstructi
       `在 <strong>${tempC}°C</strong>、老化 <strong>${agingYears} 年</strong> 的教學假設下，BER 約 <strong>${res.rawBerPct}%</strong>、金鑰 FER 約 <strong>${res.pKeyFailScientific}</strong>。以 k = 128 − 7t 近似得到殘餘最小熵約 <strong>${res.residualMinEntropy} 位元</strong>，要求金鑰長度為 <strong>${keyBits} 位元</strong>。較低 FER 不等於金鑰安全或資格驗證通過；HKDF 不能產生額外熵。須確認實際 BCH 碼、誤碼相關性、量測熵、洩漏與目標晶片老化。`);
 
     drawDistributions(res.rawBerPct, res.eccThresholdPct);
+
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([berDisplay, ferDisplay, helperDisplay, entropyDisplay]);
+    const exportControl = root.querySelector('#puf-export-csv-btn');
+    if (exportControl) {
+      exportControl.textContent = T('📥 Export PUF Reconstruction CSV', '📥 匯出 PUF 金鑰重構率 CSV');
+      exportControl.setAttribute('aria-label', T('Export SRAM PUF thermal/aging reconstruction rate and residual entropy dataset as CSV file', '匯出 SRAM PUF 在溫循與老化條件下之重構率與殘餘熵資料集為 CSV 檔案'));
+    }
+  }
+
+  // Export CSV Action for PUF Reconstruction Simulator
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const presetContainer = keyBitsSelect?.parentNode;
+  if (presetContainer && !presetContainer.querySelector('#puf-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'puf-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    exportBtn.textContent = T('📥 Export PUF Reconstruction CSV', '📥 匯出 PUF 金鑰重構率 CSV');
+    exportBtn.setAttribute('aria-label', T('Export SRAM PUF thermal/aging reconstruction rate and residual entropy dataset as CSV file', '匯出 SRAM PUF 在溫循與老化條件下之重構率與殘餘熵資料集為 CSV 檔案'));
+    exportBtn.addEventListener('click', () => {
+      const curEcc = parseInt(eccSlider?.value || 12, 10);
+      const curKeyBits = parseInt(keyBitsSelect?.value || 256, 10);
+      let csv = 'Temp_C,AgingYears,EccT,KeyBits,RawBerPct,KeyFailRate,HelperBytes,ResidualEntropyBits,StatusGrade\n';
+      const testTemps = [-40, -20, 0, 25, 85, 105, 125];
+      const testAges = [0, 2, 5, 10, 15, 20];
+      for (const t of testTemps) {
+        for (const a of testAges) {
+          const r = calculatePufReconstruction({
+            tempC: t,
+            agingYears: a,
+            eccCapabilityT: curEcc,
+            keyBits: curKeyBits
+          });
+          if (r.valid) {
+            csv += `${t},${a},${curEcc},${curKeyBits},${r.rawBerPct},${r.pKeyFailScientific},${r.helperDataBytes},${r.residualMinEntropy},${r.statusGrade}\n`;
+          }
+        }
+      }
+      downloadCsv(`puf_reconstruction_${curKeyBits}b_ecc${curEcc}.csv`, csv);
+    });
+    presetContainer.appendChild(exportBtn);
   }
 
   [tempSlider, ageSlider, eccSlider, keyBitsSelect].forEach((el) => el?.addEventListener('input', update));
