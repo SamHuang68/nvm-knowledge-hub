@@ -248,6 +248,7 @@ export function initDifferentialSensingSimulator(rootSelector = '#differential-s
   }
 
   function update() {
+    const isZh = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
     const tempC = parseFloat(tempSlider?.value || 150);
     const cmNoiseMv = parseFloat(noiseSlider?.value || 45);
 

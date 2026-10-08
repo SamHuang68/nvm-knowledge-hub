@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "d5d255ce53701bddb14b",
+  "version": "68815d6fd33ec8b5ecc6",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -211,7 +211,7 @@ self.NVMOfflineManifest = {
     "deep-space-sel-retention-simulator.js": "3e24ae9172544ad971c738fa8edf0b0b113126d848a0e1838e8d920a21ac5aad",
     "deferred-backgrounds.js": "a74dc489a74403e27ade20c4d0d16306d4d2f00c0f697cbff9662908ce0371a4",
     "demura-lut-calculator.js": "a7e0b8f2fbfe4ddba25f4d65236be022a198013c88e34e23e2616d29f4baaa60",
-    "differential-sensing-simulator.js": "5b373bc864619463f71ccd7899a448ff46b02d0690818ad10b4e662d181b5462",
+    "differential-sensing-simulator.js": "1a9a1b1625783a12c6d866eb8772d4dbdddd56d66feacf4bdc2b8c514fd79925",
     "dpa-cpa-leakage-simulator.js": "0ef12dc888bcb18df52769fb104d0a6b97e1251d92a4cf47d0122b658e71f8c2",
     "editorial-reading-ui.css": "eedc01843bbaf8169b0ce90c5434ce91f41b13ab491f1fbecbb30267b79f0399",
     "evidence-workbench.css": "b077fd188e73256fa0e9b2b8497feb698603e89cb8ad73648180c7c471011ba9",
@@ -314,5 +314,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 13407584
+  "totalBytes": 13407733
 };
