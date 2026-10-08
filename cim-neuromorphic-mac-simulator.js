@@ -277,12 +277,13 @@ export function drawCimMacCanvas(canvas, metrics, mode = 'crossbar_heatmap') {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
-  const dpr = window.devicePixelRatio || 1;
+  const dpr = Math.min(window.devicePixelRatio || 1, 3);
   const width = canvas.clientWidth || 420;
   const height = canvas.clientHeight || 180;
 
-  canvas.width = width * dpr;
-  canvas.height = height * dpr;
+  canvas.width = Math.round(width * dpr);
+  canvas.height = Math.round(height * dpr);
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.scale(dpr, dpr);
 
   ctx.fillStyle = '#0f172a';
@@ -543,6 +544,9 @@ export function initCimMacSimulator() {
 
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', () => {
+      if (canvas) update();
+    });
+    window.addEventListener('hub:language-change', () => {
       if (canvas) update();
     });
   }

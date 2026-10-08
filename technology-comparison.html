@@ -686,8 +686,8 @@
     }
     .compare-matrix-wrapper::-webkit-scrollbar { height: 8px !important; }
     .compare-matrix-wrapper::-webkit-scrollbar-track { background: #f0f4ef !important; border-radius: 4px !important; }
-    .compare-matrix-wrapper::-webkit-scrollbar-thumb { background: #f8fafc !important; border-radius: 4px !important; }
-    .compare-matrix-wrapper::-webkit-scrollbar-thumb:hover { background: #f8fafc !important; }
+    .compare-matrix-wrapper::-webkit-scrollbar-thumb { background: #cbd5e1 !important; border-radius: 4px !important; }
+    .compare-matrix-wrapper::-webkit-scrollbar-thumb:hover { background: #94a3b8 !important; }
 
     .compare-matrix {
       display: grid !important;
@@ -1053,6 +1053,10 @@
     .match-card.is-dimmed {
       opacity: 0.4 !important;
       filter: grayscale(70%) !important;
+    }
+    .selector-grid-layout input[type="range"]:focus-visible {
+      outline: 2px solid #006f70 !important;
+      outline-offset: 3px !important;
     }
     .match-tech-name {
       font: 700 13px/1.2 'IBM Plex Mono', monospace !important;
@@ -5260,9 +5264,9 @@
             <div class="match-tech-name">${displayName(res)}</div>
             <div class="match-score-num">${res.score}% <span style="font-size:0.55em;font-weight:600;opacity:.8">${isZh ? '相對適配·示範' : 'rel. fit·demo'}</span></div>
             <div class="match-score-bar-bg">
-              <div class="match-score-bar-fill" style="width: ${res.score}%; background: ${isTopFit ? '#f1f5f9' : res.score > 50 ? '#f1f5f9' : '#805828'};"></div>
+              <div class="match-score-bar-fill" style="width: ${res.score}%; background: ${isTopFit ? '#006f70' : res.score > 50 ? '#0284c7' : '#805828'};"></div>
             </div>
-            <div style="font: 700 10px 'IBM Plex Mono'; color: ${isTopFit ? '#f1f5f9' : '#526a72'};">
+            <div style="font: 700 10px 'IBM Plex Mono'; color: ${isTopFit ? '#006f70' : res.score > 50 ? '#0369a1' : '#526a72'};">
               ${res.score <= 10 
                 ? (isZh ? '物理/架構不相容' : 'PHYSICALLY DISQUALIFIED')
                 : isTopFit

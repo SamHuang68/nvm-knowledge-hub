@@ -465,6 +465,9 @@ export function initPqcStorageSimulator() {
     window.addEventListener('resize', () => {
       if (canvas) update();
     });
+    window.addEventListener('hub:language-change', () => {
+      if (canvas) update();
+    });
   }
 
   update();
