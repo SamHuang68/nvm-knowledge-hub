@@ -534,6 +534,23 @@ export function initChipletUcieNvmSimulator() {
       }
     }
 
+    // Click-to-copy ergonomics on KPI elements
+    [outLatency, outEnergy, outBandwidth, outTempRise, outYield].forEach((el) => {
+      if (el && !el.dataset.copyAttached) {
+        el.dataset.copyAttached = 'true';
+        el.style.cursor = 'pointer';
+        el.setAttribute('title', isZh ? '點擊複製數值' : 'Click to copy');
+        el.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(el.textContent.trim());
+            const orig = el.textContent;
+            el.textContent = isZh ? '已複製！' : 'Copied!';
+            setTimeout(() => { el.textContent = orig; }, 1200);
+          } catch (_) {}
+        });
+      }
+    });
+
     if (canvas) {
       drawChipletUcieCanvas(canvas, res, currentVisualMode, isZh);
     }
@@ -568,8 +585,59 @@ export function initChipletUcieNvmSimulator() {
     }
   });
 
-  window.addEventListener("languagechange", update);
-  window.addEventListener("resize", () => {
+  // Export CSV Action for Chiplet UCIe
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const modeContainer = modeBtnLat?.parentNode;
+  if (modeContainer && !modeContainer.querySelector('#chiplet-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'chiplet-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-left: auto; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    const isZh = getLang();
+    exportBtn.textContent = isZh ? '📥 匯出 UCIe 數據 CSV' : '📥 Export UCIe CSV';
+    exportBtn.addEventListener('click', () => {
+      const topologyKey = topSelect ? topSelect.value : 'chiplet_ucie_advanced';
+      const roleKey = roleSelect ? roleSelect.value : 'secure_boot_rot';
+      let csv = 'ComputePower_W,ReadLatency_ns,InterconnectEnergy_pJ_bit,Bandwidth_GBps,JunctionTemp_C,Yield_Percent\n';
+      for (let p = 10; p <= 120; p += 5) {
+        const r = calculateChipletUcieNvm({
+          topologyKey,
+          roleKey,
+          computePowerWatts: p,
+          ambientTempC: tempSlider ? parseInt(tempSlider.value, 10) : 70,
+          busWidthLanes: lanesSelect ? parseInt(lanesSelect.value, 10) : 16,
+        });
+        csv += `${p},${r.totalReadLatencyNs},${r.interconnectEnergyPjBit},${r.totalBandwidthGBps},${r.nvmJunctionTempC},${r.chipletYieldPercent}\n`;
+      }
+      downloadCsv(`chiplet_ucie_${topologyKey}_${roleKey}.csv`, csv);
+    });
+    modeContainer.appendChild(exportBtn);
+  }
+
+  // Language & theme mutation observer
+  const observer = new MutationObserver(() => update());
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-theme'] });
+
+  if (typeof ResizeObserver !== 'undefined' && canvas) {
+    const ro = new ResizeObserver(() => update());
+    ro.observe(canvas);
+  }
+
+  window.addEventListener('languagechange', update);
+  window.addEventListener('hub:language-change', update);
+  window.addEventListener('resize', () => {
     if (canvas) update();
   });
 
