@@ -16,9 +16,18 @@ const base = process.env.NVM_QA_BASE || server.base;
 const browser = await browserType.launch({ headless: true, ...(channel && channel !== 'chromium' ? { channel } : {}) });
 const results = [];
 const copy = {
-  en: { search: 'Search the knowledge hub', input: 'Search topics and evidence', close: 'Close search', openMenu: 'Open menu', closeMenu: 'Close menu' },
-  zh: { search: '搜尋知識中心', input: '搜尋主題與證據', close: '關閉搜尋', openMenu: '開啟選單', closeMenu: '關閉選單' }
+  en: { search: 'Search the knowledge hub', input: 'Search topics and evidence', close: 'Close search', categories: 'Search categories', openMenu: 'Open menu', closeMenu: 'Close menu' },
+  zh: { search: '搜尋知識中心', input: '搜尋主題與證據', close: '關閉搜尋', categories: '搜尋分類', openMenu: '開啟選單', closeMenu: '關閉選單' }
 };
+// 固定公開分類順序與名稱，不從控制器的可聚焦元素清單推導預期。
+const categories = [
+  {id:'all',en:'All',zh:'全部'},
+  {id:'physics',en:'Physics',zh:'物理模型'},
+  {id:'foundry',en:'Foundry',zh:'晶圓廠路線'},
+  {id:'tools',en:'Tools',zh:'工程工具'},
+  {id:'security',en:'Security',zh:'安全與 PUF'},
+  {id:'sram',en:'SRAM Repair',zh:'SRAM 修復'}
+];
 
 async function check(scenario, file, width, language, test) {
   const name = `${scenario}_${file}_${width}_${language}`;
@@ -59,6 +68,16 @@ try {
         assert.equal(await page.getByRole('button', { name: copy[language].close, exact: true }).count(), 1);
         assert.equal(await trigger.getAttribute('aria-expanded'), 'true');
         await input.fill('no-matching-hub-result-907621');
+        assert.equal(await page.locator('#searchResults a').count(), 0, '空結果情境不包含結果連結');
+        const categoryGroup = page.getByRole('group', { name: copy[language].categories, exact: true });
+        assert.equal(await categoryGroup.count(), 1, '搜尋分類群組有公開可及名稱');
+        assert.equal(await categoryGroup.getByRole('button').count(), 6, '六個公開分類都保留');
+        for (const category of categories) {
+          const button = categoryGroup.getByRole('button', { name: category[language], exact: true });
+          assert.equal(await button.count(), 1, `${category.id} 分類有正確名稱`);
+          assert.equal(await button.getAttribute('data-category'), category.id);
+          assert.equal(await button.isEnabled(), true, `${category.id} 分類可操作`);
+        }
         await page.locator('header a[href]').first().evaluate(element => element.focus());
         assert.equal(await input.evaluate(element => element === document.activeElement), true, 'inert background rejects focus');
         const nodes = await axNodes();
@@ -69,12 +88,29 @@ try {
           assert.equal(dialog?.properties?.find(property => property.name === 'modal')?.value?.value, true);
           assert.equal(nodes.some(node => node.role?.value === 'main' || node.role?.value === 'banner'), false, 'background landmarks excluded from Chromium AX');
         }
+        evidence.focusCycle = [];
+        const expectFocus = async (locator, direction) => {
+          assert.equal(await locator.evaluate(element => element === document.activeElement), true, `${direction} 到達公開契約的控制項`);
+          const focus = await page.evaluate(() => ({id:document.activeElement.id,category:document.activeElement.dataset.category||null,inSearch:Boolean(document.activeElement.closest('#searchOverlay'))}));
+          assert.equal(focus.inSearch, true, '正反焦點循環不能逃脫搜尋對話框');
+          evidence.focusCycle.push({方向:direction,...focus});
+        };
         await page.keyboard.press('Tab');
-        assert.equal(await close.evaluate(element => element === document.activeElement), true);
+        await expectFocus(close, '正向');
+        for (const category of categories) {
+          await page.keyboard.press('Tab');
+          await expectFocus(categoryGroup.getByRole('button', { name: category[language], exact: true }), '正向');
+        }
         await page.keyboard.press('Tab');
-        assert.equal(await input.evaluate(element => element === document.activeElement), true);
+        await expectFocus(input, '正向循環');
+        for (const category of [...categories].reverse()) {
+          await page.keyboard.press('Shift+Tab');
+          await expectFocus(categoryGroup.getByRole('button', { name: category[language], exact: true }), '反向');
+        }
         await page.keyboard.press('Shift+Tab');
-        assert.equal(await close.evaluate(element => element === document.activeElement), true);
+        await expectFocus(close, '反向');
+        await page.keyboard.press('Shift+Tab');
+        await expectFocus(input, '反向循環');
         await page.keyboard.press('Escape');
         evidence.closedFocus = await page.evaluate(() => ({ id: document.activeElement.id, tag: document.activeElement.tagName, inHiddenSearch: Boolean(document.activeElement.closest('#searchOverlay[aria-hidden="true"]')) }));
         assert.equal(await trigger.evaluate(element => element === document.activeElement), true, 'pointer-opened search returns focus to its trigger');
