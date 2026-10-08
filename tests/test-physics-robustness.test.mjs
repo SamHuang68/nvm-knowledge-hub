@@ -208,4 +208,64 @@ test('Physical Calculators: Structural Mutation & String Coercion Fuzzing (1,000
   }
 });
 
+test('Physical Calculators: Suite 6 - Gb-Scale Capacity & Terabit Memory Boundary Stress', () => {
+  const gbCapacities = [
+    1024 * 1024,        // 1 Gb
+    4 * 1024 * 1024,    // 4 Gb
+    16 * 1024 * 1024,   // 16 Gb
+    64 * 1024 * 1024,   // 64 Gb
+    128 * 1024 * 1024,  // 128 Gb (HBM4/CXL scale)
+    1024 * 1024 * 1024, // 1 Tb (Extrapolation boundary)
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const cap of gbCapacities) {
+      try {
+        const res = fn({
+          capacityKb: cap,
+          macroBitCapacity: cap,
+          arraySizeKb: cap,
+          dieSizeMm2: 120.0,
+          channelCount: 128,
+        });
+        assert.ok(res !== undefined, `${name} must handle ${cap} Kb without crashing`);
+        checkNoNaN(res, `${name}_GbCap_${cap}`);
+      } catch (err) {
+        assert.fail(`${name} crashed on capacity ${cap} Kb: ${err.message}`);
+      }
+    }
+  }
+});
+
+test('Physical Calculators: Suite 7 - Sub-Kelvin & Extreme Plasma Temperature Boundaries', () => {
+  const extremeTemperatures = [
+    { tempK: 0.001, tempC: -273.149 }, // 1 mK Sub-Kelvin
+    { tempK: 0.1, tempC: -273.05 },    // 100 mK Dilution Mixing Chamber
+    { tempK: 4.2, tempC: -268.95 },    // 4.2 K Liquid Helium
+    { tempK: 77.0, tempC: -196.15 },   // 77 K Liquid Nitrogen
+    { tempK: 733.15, tempC: 460.0 },   // Venus surface
+    { tempK: 1273.15, tempC: 1000.0 }, // SiC processing plasma
+    { tempK: 5273.15, tempC: 5000.0 }, // Ultra-extreme thermal redline
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const { tempK, tempC } of extremeTemperatures) {
+      try {
+        const res = fn({
+          tempK,
+          tempC,
+          ambientTempC: tempC,
+          operatingTempK: tempK,
+          targetTempC: tempC,
+        });
+        assert.ok(res !== undefined, `${name} must return valid object at ${tempK} K / ${tempC} °C`);
+        checkNoNaN(res, `${name}_Temp_${tempK}K`);
+      } catch (err) {
+        assert.fail(`${name} crashed at temperature ${tempK} K / ${tempC} °C: ${err.message}`);
+      }
+    }
+  }
+});
+
+
 
