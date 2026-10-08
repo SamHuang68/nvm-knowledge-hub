@@ -1,3 +1,5 @@
+import { syncMetricCopy } from './模型數值複製.js';
+
 /**
  * TDDB／Weibull 教學試算：保留既有係數、情境與面積／佔空比近似。
  * 輸出不是具名產品規格、HTOL 實測、AEC-Q100 或 JESD85 資格驗證。
@@ -352,29 +354,75 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
 
   const rect = canvas.getBoundingClientRect();
   const width = rect.width > 0 ? rect.width : 600;
-  const height = rect.height > 0 ? rect.height : 320;
-
-  canvas.width = width * dpr;
-  canvas.height = height * dpr;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // 標示與圖例依實際字寬換列，不截字、不縮減曲線資料。
+  const wrap = (text, maxWidth) => {
+    const lines = [];
+    let line = '';
+    for (const character of text) {
+      if (line && ctx.measureText(line + character).width > maxWidth) {
+        lines.push(line);
+        line = character;
+      } else line += character;
+    }
+    if (line) lines.push(line);
+    return lines;
+  };
+  ctx.font = '10px "IBM Plex Mono", monospace';
+  const header = [
+    {color: '#ea580c', text: lang === 'zh' ? 'AntiFuse 編程窗' : 'AntiFuse Pgm Window'},
+    {color: '#059669', text: lang === 'zh' ? '15 年標準' : '15-Year Target'},
+  ].flatMap(item => wrap(item.text, width - 16).map(text => ({...item, text})));
+  const padLeft = 65, padRight = 20;
+  const padTop = 12 + header.length * 14, plotH = 250;
+  const plotW = Math.max(1, width - padLeft - padRight);
+  const xMilestones = [
+    { logT: -6, labelEn: '1 µs', labelZh: '1 微秒' },
+    { logT: -3, labelEn: '1 ms', labelZh: '1 毫秒' },
+    { logT: 0, labelEn: '1 s', labelZh: '1 秒' },
+    { logT: 3.556, labelEn: '1 hr', labelZh: '1 小時' },
+    { logT: 7.497, labelEn: '1 yr', labelZh: '1 年' },
+    { logT: 8.673, labelEn: '15 yrs', labelZh: '15 年' },
+  ];
+  const lanes = [];
+  xMilestones.forEach(item => {
+    const text = lang === 'zh' ? item.labelZh : item.labelEn;
+    const textWidth = ctx.measureText(text).width;
+    const x = padLeft + (item.logT - simData.curves.logMin) / (simData.curves.logMax - simData.curves.logMin) * plotW;
+    item.left = Math.max(4, Math.min(width - textWidth - 4, x - textWidth / 2));
+    item.lane = lanes.findIndex(right => right + 6 <= item.left);
+    if (item.lane < 0) item.lane = lanes.length;
+    lanes[item.lane] = item.left + textWidth;
+  });
+  const legendY = padTop + plotH + lanes.length * 15 + 12;
+  let nextLegendY = legendY + 15;
+  const legend = [
+    {color: '#2563eb', dashed: false, text: lang === 'zh' ? '單元基準 (1 Cell)' : 'Cell Baseline'},
+    {color: '#9333ea', dashed: true, text: lang === 'zh' ? `陣列 (${simData.inputs.arraySizeKey.toUpperCase()})` : `Array (${simData.inputs.arraySizeKey.toUpperCase()})`},
+  ].flatMap(item => wrap(item.text, width - 52).map((text, i) => {
+    const row = {...item, text, swatch: i === 0, y: nextLegendY};
+    nextLegendY += 15;
+    return row;
+  }));
+  const height = nextLegendY + 8;
+  canvas.parentElement.style.height = `${height}px`;
+  canvas.width = Math.round(width * dpr);
+  canvas.height = Math.round(height * dpr);
   ctx.resetTransform?.();
   ctx.scale(dpr, dpr);
+  ctx.clearRect(0, 0, width, height);
 
-  // Background & Theme Adaptation
   const isDark = typeof document !== 'undefined' && (
     document.documentElement.dataset.theme === 'dark' ||
     (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.dataset.theme !== 'light')
   );
   ctx.fillStyle = isDark ? '#0b1329' : '#ffffff';
   ctx.fillRect(0, 0, width, height);
-
-  // Layout Paddings
-  const padLeft = 65;
-  const padRight = 30;
-  const padTop = 25;
-  const padBottom = 45;
-  const plotW = width - padLeft - padRight;
-  const plotH = height - padTop - padBottom;
+  ctx.font = '10px "IBM Plex Mono", monospace';
+  ctx.textAlign = 'left';
+  header.forEach((row, i) => {
+    ctx.fillStyle = row.color;
+    ctx.fillText(row.text, 8, 15 + i * 14);
+  });
 
   const { logMin, logMax, wMin, wMax } = simData.curves;
 
@@ -388,16 +436,6 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
   ctx.font = '10px "IBM Plex Mono", monospace';
   ctx.textAlign = 'center';
 
-  // X-Axis Grid & Milestones
-  const xMilestones = [
-    { logT: -6, labelEn: '1 µs', labelZh: '1 微秒' },
-    { logT: -3, labelEn: '1 ms', labelZh: '1 毫秒' },
-    { logT: 0, labelEn: '1 s', labelZh: '1 秒' },
-    { logT: 3.556, labelEn: '1 hr', labelZh: '1 小時' },
-    { logT: 7.497, labelEn: '1 yr', labelZh: '1 年' },
-    { logT: 8.673, labelEn: '15 yrs', labelZh: '15 年' },
-  ];
-
   xMilestones.forEach((m) => {
     const x = toX(m.logT);
     ctx.beginPath();
@@ -405,7 +443,8 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
     ctx.lineTo(x, padTop + plotH);
     ctx.stroke();
 
-    ctx.fillText(lang === 'zh' ? m.labelZh : m.labelEn, x, padTop + plotH + 15);
+    ctx.textAlign = 'left';
+    ctx.fillText(lang === 'zh' ? m.labelZh : m.labelEn, m.left, padTop + plotH + 15 + m.lane * 15);
   });
 
   // Y-Axis Grid & Cumulative Failure Percentages
@@ -445,7 +484,7 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
   ctx.fillStyle = '#ea580c';
   ctx.font = '10px "IBM Plex Mono", monospace';
   ctx.textAlign = 'left';
-  ctx.fillText(lang === 'zh' ? 'AntiFuse 編程窗' : 'AntiFuse Pgm Window', xPgmStart + 4, padTop + 14);
+
 
   // Highlight 15-Year Lifetime Benchmark Line
   const x15Y = toX(8.673);
@@ -460,7 +499,7 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
 
   ctx.fillStyle = '#059669';
   ctx.textAlign = 'right';
-  ctx.fillText(lang === 'zh' ? '15 年標準' : '15-Year Target', x15Y - 4, padTop + 14);
+
 
   // Plot Curve 1: Single Cell Baseline (Blue)
   const cellPts = simData.curves.cell;
@@ -509,40 +548,28 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
   ctx.lineWidth = 1;
   ctx.strokeRect(padLeft, padTop, plotW, plotH);
 
-  // Legend
-  const legX = padLeft + 15;
-  const legY = padTop + plotH - 35;
-
+  // 圖例移至曲線外，保留線色、虛線及全部文字。
   ctx.fillStyle = isDark ? 'rgba(15, 23, 42, 0.95)' : '#ffffff';
   ctx.strokeStyle = isDark ? 'rgba(255, 255, 255, 0.20)' : '#cbd5e1';
-  ctx.fillRect(legX, legY, 235, 26);
-  ctx.strokeRect(legX, legY, 235, 26);
-
-  // Legend Item 1: Cell
-  ctx.strokeStyle = isDark ? '#60a5fa' : '#2563eb';
-  ctx.lineWidth = 2;
-  ctx.beginPath();
-  ctx.moveTo(legX + 8, legY + 13);
-  ctx.lineTo(legX + 28, legY + 13);
-  ctx.stroke();
-
-  ctx.fillStyle = isDark ? '#f1f5f9' : '#1e293b';
+  ctx.fillRect(8, legendY, width - 16, nextLegendY - legendY + 2);
+  ctx.strokeRect(8, legendY, width - 16, nextLegendY - legendY + 2);
   ctx.font = '10px "IBM Plex Mono", monospace';
   ctx.textAlign = 'left';
-  ctx.textBaseline = 'middle';
-  ctx.fillText(lang === 'zh' ? '單元基準 (1 Cell)' : 'Cell Baseline', legX + 34, legY + 13);
-
-  // Legend Item 2: Array
-  ctx.strokeStyle = isDark ? '#c084fc' : '#9333ea';
-  ctx.lineWidth = 2;
-  ctx.setLineDash([4, 2]);
-  ctx.beginPath();
-  ctx.moveTo(legX + 120, legY + 13);
-  ctx.lineTo(legX + 140, legY + 13);
-  ctx.stroke();
-  ctx.setLineDash([]);
-
-  ctx.fillText(lang === 'zh' ? `陣列 (${simData.inputs.arraySizeKey.toUpperCase()})` : `Array (${simData.inputs.arraySizeKey.toUpperCase()})`, legX + 146, legY + 13);
+  ctx.textBaseline = 'alphabetic';
+  legend.forEach(row => {
+    if (row.swatch) {
+      ctx.strokeStyle = row.color;
+      ctx.lineWidth = 2;
+      ctx.setLineDash(row.dashed ? [4, 2] : []);
+      ctx.beginPath();
+      ctx.moveTo(14, row.y - 3);
+      ctx.lineTo(30, row.y - 3);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+    ctx.fillStyle = isDark ? '#f1f5f9' : '#1e293b';
+    ctx.fillText(row.text, 36, row.y);
+  });
 
   // Interactive Crosshair Probe Snapping
   if (hoverPos && hoverPos.x >= padLeft && hoverPos.x <= padLeft + plotW && hoverPos.y >= padTop && hoverPos.y <= padTop + plotH) {
@@ -581,24 +608,19 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null)
     const fStr = probedF < 0.001 ? `${(probedF * 1e6).toFixed(1)} ppm` : `${(probedF * 100).toFixed(2)}%`;
     const sampleText = `t: ${timeStr} | F(t): ${fStr}`;
 
-    const pillW = 165;
-    const pillH = 22;
-    const pillX = Math.min(padLeft + plotW - pillW - 4, Math.max(padLeft + 4, hx + 10));
-    const pillY = Math.min(padTop + plotH - pillH - 4, Math.max(padTop + 4, hy - 26));
-
+    ctx.font = 'bold 9.5px "IBM Plex Mono", monospace';
+    const lines = wrap(sampleText, width - 32);
+    const pillW = width - 16, pillH = lines.length * 14 + 10, pillX = 8;
+    const pillY = Math.min(padTop + plotH - pillH, Math.max(padTop, hy - pillH - 8));
     ctx.fillStyle = isDark ? 'rgba(15, 23, 42, 0.95)' : '#ffffff';
     ctx.strokeStyle = isDark ? '#38bdf8' : '#2563eb';
     ctx.lineWidth = 1;
-    ctx.beginPath();
-    if (ctx.roundRect) ctx.roundRect(pillX, pillY, pillW, pillH, 4);
-    else ctx.rect(pillX, pillY, pillW, pillH);
-    ctx.fill();
-    ctx.stroke();
-
+    ctx.fillRect(pillX, pillY, pillW, pillH);
+    ctx.strokeRect(pillX, pillY, pillW, pillH);
     ctx.fillStyle = isDark ? '#38bdf8' : '#1e40af';
-    ctx.font = 'bold 9.5px "IBM Plex Mono", monospace';
-    ctx.textAlign = 'center';
-    ctx.fillText(sampleText, pillX + pillW / 2, pillY + 14);
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+    lines.forEach((line, i) => ctx.fillText(line, 16, pillY + 15 + i * 14));
     ctx.restore();
   }
   } catch (err) {
@@ -640,12 +662,30 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
   const canvas = root.querySelector('#tddb-canvas');
   const verdictBanner = root.querySelector('#tddb-verdict-banner');
 
+  root.querySelectorAll('input[type=range]').forEach(element => { element.style.margin = '0'; });
+  root.querySelectorAll('[style]').forEach(element => {
+    if (element.style.gridTemplateColumns.includes('minmax(')) {
+      element.style.gridTemplateColumns = element.style.gridTemplateColumns.replace(/minmax\((\d+px),/g, 'minmax(min(100%, $1),');
+    }
+    if (element.style.display === 'flex') element.style.flexWrap = 'wrap';
+  });
+  root.querySelectorAll('select, button, h4').forEach(element => {
+    element.style.minWidth = '0';
+    element.style.maxWidth = '100%';
+    element.style.overflowWrap = 'anywhere';
+  });
+
   function getLang() {
     return (window.HubLanguage?.get() || document.documentElement.dataset.language || 'en') === 'zh' ? 'zh' : 'en';
   }
 
   function update() {
     const lang = getLang();
+    const exportBtn = root.querySelector('#tddb-export-csv-btn');
+    if (exportBtn) {
+      exportBtn.textContent = lang === 'zh' ? '📥 匯出 Weibull 曲線 (CSV)' : '📥 Export Weibull Curve (CSV)';
+      exportBtn.setAttribute('aria-label', lang === 'zh' ? '匯出 Weibull 曲線 CSV' : 'Export Weibull Curve CSV');
+    }
     const params = {
       toxNm: parseFloat(toxSlider?.value || '2.8'),
       voxV: parseFloat(voxSlider?.value || '0.85'),
@@ -704,22 +744,7 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
       }
     }
 
-    // Click-to-copy ergonomics on KPI elements
-    [eoxValEl, betaValEl, etaCellEl, etaArrayEl, fitRateEl, f15YEl].forEach((el) => {
-      if (el && !el.dataset.copyAttached) {
-        el.dataset.copyAttached = 'true';
-        el.style.cursor = 'pointer';
-        el.setAttribute('title', lang === 'zh' ? '點擊複製數值' : 'Click to copy metric');
-        el.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText(el.textContent.trim());
-            const orig = el.textContent;
-            el.textContent = lang === 'zh' ? '已複製！' : 'Copied!';
-            setTimeout(() => { el.textContent = orig; }, 1200);
-          } catch (_) {}
-        });
-      }
-    });
+    syncMetricCopy([eoxValEl, betaValEl, etaCellEl, etaArrayEl, fitRateEl, f15YEl]);
 
     // Update Verdict
     if (verdictBanner) {
@@ -894,7 +919,7 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
         const fArrayPct = Math.max(0, Math.min(100, (1 - Math.exp(-Math.exp(arrPt.w))) * 100));
         csv += `${pt.logT.toFixed(3)},${pt.w.toFixed(3)},${timeSec.toExponential(2)},${fCellPct.toFixed(4)},${fArrayPct.toFixed(4)}\n`;
       });
-      downloadCsv(`tddb_weibull_${res.inputs.modelId}_${res.inputs.toxNm}nm.csv`, csv);
+      downloadCsv(`tddb_weibull_${res.inputs.modelId}_${res.inputs.tox}nm.csv`, csv);
     });
     presetParent.appendChild(exportBtn);
   }

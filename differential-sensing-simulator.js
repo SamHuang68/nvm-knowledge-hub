@@ -1,3 +1,5 @@
+import {syncMetricCopy} from './模型數值複製.js';
+
 /**
  * differential-sensing-simulator.js — Complementary Twin-Cell Sensing Margin & DPA Attenuation Simulator
  *
@@ -298,22 +300,14 @@ export function initDifferentialSensingSimulator(rootSelector = '#differential-s
     }
 
     // 使用同一結果說明假設與定義域，不把示意曲線指標當成安全判定。
-    // Click-to-copy ergonomics on KPI elements
-    [deltaVEl, cmrrEl, dpaDeltaEl, dpaAttenBadge, mtdEl, areaEl].forEach((el) => {
-      if (el && !el.dataset.copyAttached) {
-        el.dataset.copyAttached = 'true';
-        el.style.cursor = 'pointer';
-        el.setAttribute('title', isZh ? '點擊複製數值' : 'Click to copy');
-        el.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText(el.textContent.trim());
-            const orig = el.textContent;
-            el.textContent = isZh ? '已複製！' : 'Copied!';
-            setTimeout(() => { el.textContent = orig; }, 1200);
-          } catch (_) {}
-        });
-      }
-    });
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([deltaVEl, cmrrEl, dpaDeltaEl, dpaAttenBadge, mtdEl, areaEl]);
+    const exportControl=root.querySelector('#diff-export-csv-btn');
+    if (exportControl) {
+      const chinese=(window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+      exportControl.textContent=chinese ? '📥 匯出差分感測 CSV' : '📥 Export Diff-Sense CSV';
+      exportControl.setAttribute('aria-label',chinese ? '匯出差分感測 CSV' : 'Export Diff-Sense CSV');
+    }
 
     if (verdictEl) {
       verdictEl.innerHTML = T(

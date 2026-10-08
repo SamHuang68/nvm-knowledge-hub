@@ -1,3 +1,5 @@
+import { syncMetricCopy } from './模型數值複製.js';
+
 /**
  * @fileoverview Sub-Threshold & Near-Threshold Ultra-Low-Voltage eNVM Physical Simulator
  * 
@@ -316,295 +318,183 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh', hover
   try {
     const dpr = window.devicePixelRatio || 1;
     const width = canvas.clientWidth || 640;
-    const height = canvas.clientHeight || 320;
+    const minV = 0.25, maxV = 1.20;
+    const energyMode = mode === 'voltage_energy_curve';
+    // 掃描點、操作點、探針與匯出沿用同一計算契約及目前溫度／容量。
+    const sampleAtVoltage = customVdd => calculateSubthresholdMetrics({
+      presetId: metrics.preset.id,
+      topologyId: metrics.topology.id,
+      customVdd,
+      customTempC: metrics.tempC,
+      customCapacityKb: metrics.capacityKb,
+    });
+    const samples = Array.from({ length: 61 }, (_, j) => sampleAtVoltage(minV + (maxV - minV) * j / 60));
+    const minimum = samples.reduce((best, sample) => sample.totalEnergyFj < best.totalEnergyFj ? sample : best);
+    const maxE = Math.max(60, Math.ceil(Math.max(metrics.totalEnergyFj, ...samples.map(sample => sample.totalEnergyFj)) / 10) * 10);
+    const logMax = Math.max(4, Math.ceil(Math.log10(Math.max(metrics.senseLatencyNs, ...samples.map(sample => sample.senseLatencyNs)))));
 
+    // 字寬決定標題、刻度與圖例換列；畫布高度不以先前畫布高度累加。
+    const wrap = (text, maxWidth) => {
+      const lines = [];
+      let line = '';
+      for (const character of text) {
+        if (line && ctx.measureText(line + character).width > maxWidth) {
+          lines.push(line);
+          line = character;
+        } else line += character;
+      }
+      if (line) lines.push(line);
+      return lines;
+    };
+    ctx.font = '600 11px sans-serif';
+    const title = energyMode
+      ? (lang === 'zh' ? '讀取能耗 (fJ/bit)' : 'Read Energy (fJ/bit)')
+      : (lang === 'zh' ? '感測讀取延遲 (ns, Log)' : 'Sense Latency (ns, Log)');
+    const titleLines = wrap(title, width - 16);
+    const padLeft = 70, padRight = 24;
+    const padTop = 12 + titleLines.length * 15;
+    const plotW = Math.max(1, width - padLeft - padRight), plotH = 200;
+    const toX = v => padLeft + plotW * (v - minV) / (maxV - minV);
+    const toY = value => padTop + plotH * (energyMode ? 1 - value / maxE : 1 - Math.log10(Math.max(1, value)) / logMax);
+    ctx.font = '10px "IBM Plex Mono", monospace';
+    const lanes = [];
+    const ticks = Array.from({ length: 7 }, (_, j) => {
+      const text = `${(minV + (maxV - minV) * j / 6).toFixed(2)} V`;
+      const textWidth = ctx.measureText(text).width;
+      const left = Math.max(4, Math.min(width - textWidth - 4, toX(minV + (maxV - minV) * j / 6) - textWidth / 2));
+      let lane = lanes.findIndex(right => right + 6 <= left);
+      if (lane < 0) lane = lanes.length;
+      lanes[lane] = left + textWidth;
+      return { text, left, lane };
+    });
+    const caption = lang === 'zh' ? '工作電壓 VDD (V)' : 'Supply Voltage VDD (V)';
+    const captionLines = wrap(caption, width - 16);
+    const captionY = padTop + plotH + lanes.length * 15 + 19;
+    const legendY = captionY + captionLines.length * 15 + 6;
+    const legend = energyMode ? [
+      { color: '#10b981', text: `${lang === 'zh' ? '— 總能耗' : '— Total'} (MEP ≈ ${minimum.vdd.toFixed(2)}V)` },
+      { color: '#38bdf8', text: lang === 'zh' ? '— 動態 CV²' : '— Dynamic CV²' },
+      { color: '#fbbf24', text: `E = ${metrics.totalEnergyFj.toFixed(1)} fJ` },
+    ] : [
+      { color: '#fbbf24', text: `${lang === 'zh' ? '目前延遲' : 'Active Delay'}: ${metrics.senseLatencyNs.toFixed(1)} ns` },
+      { color: '#cbd5e1', text: `Pelgrom BER ≈ ${metrics.failureRatePpm.toFixed(1)} PPM` },
+    ];
+    let nextY = legendY + 16;
+    const legendLines = legend.flatMap(item => wrap(item.text, width - 32).map(text => {
+      const row = { ...item, text, y: nextY };
+      nextY += 15;
+      return row;
+    }));
+    const height = nextY + 10;
+    canvas.style.height = `${height}px`;
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
     ctx.scale(dpr, dpr);
-
     ctx.clearRect(0, 0, width, height);
-
-  // Background
-  ctx.fillStyle = '#0a101d';
-  ctx.fillRect(0, 0, width, height);
-
-  const padLeft = 70;
-  const padRight = 30;
-  const padTop = 35;
-  const padBottom = 45;
-  const plotW = width - padLeft - padRight;
-  const plotH = height - padTop - padBottom;
-
-  // Grid
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  for (let i = 0; i <= 5; i++) {
-    const y = padTop + (plotH / 5) * i;
-    ctx.moveTo(padLeft, y);
-    ctx.lineTo(padLeft + plotW, y);
-  }
-  for (let j = 0; j <= 6; j++) {
-    const x = padLeft + (plotW / 6) * j;
-    ctx.moveTo(x, padTop);
-    ctx.lineTo(x, padTop + plotH);
-  }
-  ctx.stroke();
-
-  if (mode === 'voltage_energy_curve') {
-    // Mode 1: Supply Voltage VDD (0.25V to 1.20V) vs Total Energy per Read (fJ/bit)
-    const minV = 0.25;
-    const maxV = 1.20;
-    const maxE = 60.0; // 0 to 60 fJ/bit
-
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '10px "IBM Plex Mono", monospace';
-    ctx.textAlign = 'center';
-    for (let j = 0; j <= 6; j++) {
-      const v = (minV + (maxV - minV) * (j / 6)).toFixed(2);
-      const x = padLeft + (plotW / 6) * j;
-      ctx.fillText(`${v} V`, x, height - padBottom + 16);
-    }
-
-    ctx.textAlign = 'right';
+    ctx.fillStyle = '#0a101d';
+    ctx.fillRect(0, 0, width, height);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
     for (let i = 0; i <= 5; i++) {
-      const e = (maxE * (1 - i / 5)).toFixed(0);
-      const y = padTop + (plotH / 5) * i + 4;
-      ctx.fillText(`${e} fJ`, padLeft - 8, y);
+      const y = padTop + plotH * i / 5;
+      ctx.moveTo(padLeft, y);
+      ctx.lineTo(padLeft + plotW, y);
     }
-
-    ctx.fillStyle = '#10b981';
-    ctx.font = '600 11px sans-serif';
-    ctx.textAlign = 'left';
-    ctx.fillText(lang === 'zh' ? '讀取能耗 (fJ/bit)' : 'Read Energy (fJ/bit)', padLeft, padTop - 12);
-
-    ctx.textAlign = 'right';
-    ctx.fillText(lang === 'zh' ? '工作電壓 VDD (V)' : 'Supply Voltage VDD (V)', width - padRight, height - 12);
-
-    // Operational cliff boundary (min functional VDD)
-    const cliffX = padLeft + plotW * ((metrics.topology.minFunctionalVdd - minV) / (maxV - minV));
-    ctx.strokeStyle = 'rgba(239, 68, 68, 0.4)';
-    ctx.setLineDash([3, 3]);
-    ctx.beginPath();
-    ctx.moveTo(cliffX, padTop);
-    ctx.lineTo(cliffX, padTop + plotH);
-    ctx.stroke();
-    ctx.setLineDash([]);
-
-    // Curve 1: Active Energy (E_active = α * C * VDD²)
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.45)';
-    ctx.lineWidth = 1.8;
-    ctx.beginPath();
-    for (let j = 0; j <= 60; j++) {
-      const curV = minV + (maxV - minV) * (j / 60);
-      const eAct = 0.25 * 18.0 * (curV ** 2);
-      const x = padLeft + (plotW / 60) * j;
-      const y = padTop + plotH * (1.0 - Math.min(maxE, eAct) / maxE);
-      if (j === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+    for (let j = 0; j <= 6; j++) {
+      const x = padLeft + plotW * j / 6;
+      ctx.moveTo(x, padTop);
+      ctx.lineTo(x, padTop + plotH);
     }
     ctx.stroke();
-
-    // Curve 2: Total Energy (Active + Leakage Surge at low VDD)
-    ctx.strokeStyle = '#10b981';
-    ctx.lineWidth = 2.5;
-    ctx.beginPath();
-    let minEnergyVal = 999.0;
-    let minEnergyVdd = 0.5;
-    for (let j = 0; j <= 60; j++) {
-      const curV = minV + (maxV - minV) * (j / 60);
-      const eAct = 0.25 * 18.0 * (curV ** 2);
-      const iDrive = metrics.topology.id === 'antifuse_lowvoltage' ? (curV / 850.0) * 1e9 * 0.0012 : Math.max(0.1, metrics.topology.subthresholdIonNa * Math.exp((curV - 0.42) / (1.35 * 0.026)));
-      const lat = Math.max(1.0, 1500.0 / iDrive);
-      const eLeak = 0.08 * curV * lat * 0.08;
-      const totalE = eAct + eLeak;
-      if (totalE < minEnergyVal) {
-        minEnergyVal = totalE;
-        minEnergyVdd = curV;
-      }
-      const x = padLeft + (plotW / 60) * j;
-      const y = padTop + plotH * (1.0 - Math.min(maxE, totalE) / maxE);
-      if (j === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
-    }
-    ctx.stroke();
-
-    // Operating point
-    const opX = padLeft + plotW * ((metrics.vdd - minV) / (maxV - minV));
-    const opY = padTop + plotH * (1.0 - Math.min(maxE, metrics.totalEnergyFj) / maxE);
-
-    ctx.fillStyle = metrics.vdd < metrics.topology.minFunctionalVdd ? '#ef4444' : '#10b981';
-    ctx.beginPath();
-    ctx.arc(opX, opY, 5, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.strokeStyle = '#ffffff';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-
-    // Draw Legend Backdrop Card to prevent overlap
-    const legBoxW = Math.min(plotW - 20, 390);
-    const legBoxH = 24;
-    const legBoxX = padLeft + 8;
-    const legBoxY = padTop + 6;
-    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
-    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
-    ctx.fill();
-    ctx.stroke();
-
-    // Legend items
-    ctx.font = '10px "IBM Plex Mono", monospace';
-    ctx.textAlign = 'left';
-    ctx.fillStyle = '#10b981';
-    ctx.fillText(`${lang === 'zh' ? '— 總能耗' : '— Total'} (MEP ≈ ${minEnergyVdd.toFixed(2)}V)`, legBoxX + 8, legBoxY + 16);
-    ctx.fillStyle = '#38bdf8';
-    ctx.fillText(lang === 'zh' ? '— 動態 CV²' : '— Dynamic CV²', legBoxX + 175, legBoxY + 16);
-    ctx.fillStyle = '#fbbf24';
-    ctx.fillText(`E = ${metrics.totalEnergyFj.toFixed(1)} fJ`, legBoxX + 285, legBoxY + 16);
-
-  } else {
-    // Mode 2: Supply Voltage VDD (0.25V to 1.20V) vs Sense Latency (ns, Log Scale 1ns to 10µs)
-    const minV = 0.25;
-    const maxV = 1.20;
-
-    // Log Scale: 10^0 (1ns) to 10^4 (10,000ns)
-    const logMin = 0.0;
-    const logMax = 4.0;
-
     ctx.fillStyle = '#94a3b8';
     ctx.font = '10px "IBM Plex Mono", monospace';
-    ctx.textAlign = 'center';
-    for (let j = 0; j <= 6; j++) {
-      const v = (minV + (maxV - minV) * (j / 6)).toFixed(2);
-      const x = padLeft + (plotW / 6) * j;
-      ctx.fillText(`${v} V`, x, height - padBottom + 16);
-    }
-
+    ctx.textAlign = 'left';
+    ticks.forEach(tick => ctx.fillText(tick.text, tick.left, padTop + plotH + 16 + tick.lane * 15));
     ctx.textAlign = 'right';
-    for (let i = 0; i <= 4; i++) {
-      const exp = logMax - i;
-      const y = padTop + (plotH / 4) * i + 4;
-      ctx.fillText(`10^${exp} ns`, padLeft - 8, y);
+    const tickCount = energyMode ? 5 : logMax;
+    for (let i = 0; i <= tickCount; i++) {
+      const value = maxE * (1 - i / tickCount);
+      const text = energyMode ? `${value < 10000 ? value.toFixed(0) : value.toExponential(1)} fJ` : `10^${logMax - i} ns`;
+      ctx.fillText(text, padLeft - 8, padTop + plotH * i / tickCount + 4);
     }
-
-    ctx.fillStyle = '#f59e0b';
+    ctx.fillStyle = energyMode ? '#10b981' : '#f59e0b';
     ctx.font = '600 11px sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillText(lang === 'zh' ? '感測讀取延遲 (ns, Log)' : 'Sense Latency (ns, Log)', padLeft, padTop - 12);
+    titleLines.forEach((text, i) => ctx.fillText(text, 8, 15 + i * 15));
+    captionLines.forEach((text, i) => ctx.fillText(text, 8, captionY + i * 15));
 
-    ctx.textAlign = 'right';
-    ctx.fillText(lang === 'zh' ? '工作電壓 VDD (V)' : 'Supply Voltage VDD (V)', width - padRight, height - 12);
-
-    // Plot Latency Curve
-    ctx.strokeStyle = '#f59e0b';
-    ctx.lineWidth = 2.5;
-    ctx.beginPath();
-    for (let j = 0; j <= 60; j++) {
-      const curV = minV + (maxV - minV) * (j / 60);
-      const iDrive = metrics.topology.id === 'antifuse_lowvoltage' ? (curV / 850.0) * 1e9 * 0.0012 : Math.max(0.1, metrics.topology.subthresholdIonNa * Math.exp((curV - 0.42) / (1.35 * 0.026)));
-      const lat = Math.max(1.0, 1500.0 / iDrive);
-      const logVal = Math.log10(Math.max(1.0, lat));
-      const x = padLeft + (plotW / 60) * j;
-      const y = padTop + plotH * ((logMax - logVal) / (logMax - logMin));
-      if (j === 0) ctx.moveTo(x, y);
-      else ctx.lineTo(x, y);
+    if (energyMode) {
+      const cliffX = toX(metrics.topology.minFunctionalVdd);
+      ctx.strokeStyle = 'rgba(239, 68, 68, 0.4)';
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(cliffX, padTop);
+      ctx.lineTo(cliffX, padTop + plotH);
+      ctx.stroke();
+      ctx.setLineDash([]);
     }
-    ctx.stroke();
-
-    // Operating point
-    const opLatLog = Math.log10(Math.max(1.0, metrics.senseLatencyNs));
-    const opX = padLeft + plotW * ((metrics.vdd - minV) / (maxV - minV));
-    const opY = padTop + plotH * ((logMax - opLatLog) / (logMax - logMin));
-
-    ctx.fillStyle = '#f59e0b';
+    const drawCurve = (key, color, lineWidth) => {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = lineWidth;
+      ctx.beginPath();
+      samples.forEach((sample, j) => {
+        const x = toX(sample.vdd), y = toY(sample[key]);
+        if (j === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.stroke();
+    };
+    if (energyMode) {
+      drawCurve('activeEnergyFj', 'rgba(56, 189, 248, 0.45)', 1.8);
+      drawCurve('totalEnergyFj', '#10b981', 2.5);
+    } else drawCurve('senseLatencyNs', '#f59e0b', 2.5);
+    ctx.fillStyle = energyMode ? (metrics.vdd < metrics.topology.minFunctionalVdd ? '#ef4444' : '#10b981') : '#f59e0b';
     ctx.beginPath();
-    ctx.arc(opX, opY, 5, 0, Math.PI * 2);
+    ctx.arc(toX(metrics.vdd), toY(energyMode ? metrics.totalEnergyFj : metrics.senseLatencyNs), 5, 0, Math.PI * 2);
     ctx.fill();
     ctx.strokeStyle = '#ffffff';
     ctx.lineWidth = 1.5;
     ctx.stroke();
-
-    // Draw Legend Backdrop Card to prevent overlap
-    const legBoxW = Math.min(plotW - 20, 360);
-    const legBoxH = 24;
-    const legBoxX = padLeft + 8;
-    const legBoxY = padTop + 6;
     ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
+    ctx.fillRect(8, legendY, width - 16, nextY - legendY + 2);
     ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
-    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
-    ctx.fill();
-    ctx.stroke();
-
-    // Legend items
+    ctx.strokeRect(8, legendY, width - 16, nextY - legendY + 2);
     ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#fbbf24';
-    ctx.fillText(`${lang === 'zh' ? '目前延遲' : 'Active Delay'}: ${metrics.senseLatencyNs.toFixed(1)} ns`, legBoxX + 8, legBoxY + 16);
-    ctx.fillStyle = '#cbd5e1';
-    ctx.fillText(`Pelgrom BER ≈ ${metrics.failureRatePpm.toFixed(1)} PPM`, legBoxX + 185, legBoxY + 16);
-  }
+    legendLines.forEach(row => {
+      ctx.fillStyle = row.color;
+      ctx.fillText(row.text, 16, row.y);
+    });
 
-  // Interactive Crosshair Probe Snapping
-  if (hoverPos && hoverPos.x >= padLeft && hoverPos.x <= padLeft + plotW && hoverPos.y >= padTop && hoverPos.y <= padTop + plotH) {
-    const hx = hoverPos.x;
-    const hy = hoverPos.y;
-    ctx.save();
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.75)';
-    ctx.lineWidth = 1;
-    ctx.setLineDash([3, 3]);
-
-    // Vertical line
-    ctx.beginPath();
-    ctx.moveTo(hx, padTop);
-    ctx.lineTo(hx, padTop + plotH);
-    ctx.stroke();
-
-    // Horizontal line
-    ctx.beginPath();
-    ctx.moveTo(padLeft, hy);
-    ctx.lineTo(padLeft + plotW, hy);
-    ctx.stroke();
-    ctx.setLineDash([]);
-
-    // Sample probed value
-    const probedVdd = 0.25 + (1.20 - 0.25) * ((hx - padLeft) / plotW);
-    let sampleText = `VDD: ${probedVdd.toFixed(2)}V`;
-    if (mode === 'voltage_energy_curve') {
-      const normE = 1.0 - ((hy - padTop) / plotH);
-      const probedE = Math.max(0, normE * 60.0);
-      sampleText = `VDD: ${probedVdd.toFixed(2)}V | E: ${probedE.toFixed(1)}fJ`;
-    } else {
-      const normLog = 1.0 - ((hy - padTop) / plotH);
-      const probedLat = Math.pow(10, normLog * 4.0);
-      sampleText = probedLat >= 1000 ? `VDD: ${probedVdd.toFixed(2)}V | ${(probedLat / 1000).toFixed(2)}µs` : `VDD: ${probedVdd.toFixed(2)}V | ${probedLat.toFixed(0)}ns`;
+    if (hoverPos && hoverPos.x >= padLeft && hoverPos.x <= padLeft + plotW && hoverPos.y >= padTop && hoverPos.y <= padTop + plotH) {
+      const probedVdd = minV + (maxV - minV) * (hoverPos.x - padLeft) / plotW;
+      const sample = sampleAtVoltage(probedVdd);
+      const value = energyMode ? sample.totalEnergyFj : sample.senseLatencyNs;
+      const hx = toX(probedVdd), hy = toY(value);
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.75)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(hx, padTop);
+      ctx.lineTo(hx, padTop + plotH);
+      ctx.moveTo(padLeft, hy);
+      ctx.lineTo(padLeft + plotW, hy);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      const text = energyMode ? `VDD: ${probedVdd.toFixed(2)}V | E: ${value.toFixed(1)}fJ`
+        : (value >= 1000 ? `VDD: ${probedVdd.toFixed(2)}V | ${(value / 1000).toFixed(2)}µs` : `VDD: ${probedVdd.toFixed(2)}V | ${value.toFixed(0)}ns`);
+      ctx.font = 'bold 9.5px "IBM Plex Mono", monospace';
+      const lines = wrap(text, width - 32), pillH = lines.length * 14 + 10;
+      const pillY = Math.min(padTop + plotH - pillH, Math.max(padTop, hy - pillH - 8));
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
+      ctx.fillRect(8, pillY, width - 16, pillH);
+      ctx.strokeStyle = '#38bdf8';
+      ctx.strokeRect(8, pillY, width - 16, pillH);
+      ctx.fillStyle = '#38bdf8';
+      ctx.textAlign = 'left';
+      lines.forEach((line, i) => ctx.fillText(line, 16, pillY + 15 + i * 14));
     }
-
-    const pillW = 150;
-    const pillH = 22;
-    const pillX = Math.min(padLeft + plotW - pillW - 4, Math.max(padLeft + 4, hx + 10));
-    const pillY = Math.min(padTop + plotH - pillH - 4, Math.max(padTop + 4, hy - 26));
-
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
-    ctx.strokeStyle = '#38bdf8';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    if (ctx.roundRect) ctx.roundRect(pillX, pillY, pillW, pillH, 4);
-    else ctx.rect(pillX, pillY, pillW, pillH);
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.fillStyle = '#38bdf8';
-    ctx.font = 'bold 9.5px "IBM Plex Mono", monospace';
-    ctx.textAlign = 'center';
-    ctx.fillText(sampleText, pillX + pillW / 2, pillY + 14);
-    ctx.restore();
-  }
   } catch (err) {
     console.warn('drawSubthresholdCanvas caught rendering error:', err);
   }
@@ -633,12 +523,33 @@ export function initSubthresholdSimulator(containerId) {
   const modeEnergyBtn = root.querySelector('#subvt-mode-energy-btn');
   const modeLatencyBtn = root.querySelector('#subvt-mode-latency-btn');
 
+  root.querySelectorAll('[style]').forEach(element => {
+    if (element.style.gridTemplateColumns.includes('minmax(')) {
+      element.style.gridTemplateColumns = element.style.gridTemplateColumns.replace(/minmax\((\d+px),/g, 'minmax(min(100%, $1),');
+    }
+    if (element.style.display === 'flex') element.style.flexWrap = 'wrap';
+  });
+  root.querySelectorAll('input[type=range]').forEach(element => { element.style.margin = '0'; });
+  root.querySelectorAll('select, button, h3').forEach(element => {
+    element.style.minWidth = '0';
+    element.style.maxWidth = '100%';
+    element.style.overflowWrap = 'anywhere';
+  });
+
+
   function getLang() {
-    return document.documentElement.lang === 'zh-TW' || document.documentElement.lang === 'zh' ? 'zh' : 'en';
+    return (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'en').startsWith('zh') ? 'zh' : 'en';
   }
 
   function update() {
     const lang = getLang();
+    const exportBtn = root.querySelector('#subvt-export-csv-btn');
+    if (exportBtn) {
+      exportBtn.textContent = lang === 'zh' ? '📥 匯出 CSV' : '📥 Export CSV';
+      exportBtn.setAttribute('aria-label', lang === 'zh' ? '匯出 CSV' : 'Export CSV');
+    }
+    modeEnergyBtn?.setAttribute('aria-pressed', String(currentMode === 'voltage_energy_curve'));
+    modeLatencyBtn?.setAttribute('aria-pressed', String(currentMode === 'read_latency_failure'));
     const metrics = calculateSubthresholdMetrics({
       presetId: currentPresetId,
       topologyId: currentTopologyId,
@@ -685,22 +596,7 @@ export function initSubthresholdSimulator(containerId) {
       scoreEl.style.color = metrics.efficiencyScore >= 80 ? '#10b981' : (metrics.efficiencyScore >= 50 ? '#f59e0b' : '#ef4444');
     }
 
-    // Click-to-copy ergonomics on KPI elements
-    [energyEl, latencyEl, leakageEl, scoreEl].forEach((el) => {
-      if (el && !el.dataset.copyAttached) {
-        el.dataset.copyAttached = 'true';
-        el.style.cursor = 'pointer';
-        el.setAttribute('title', lang === 'zh' ? '點擊複製數值' : 'Click to copy metric');
-        el.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText(el.textContent.trim());
-            const orig = el.textContent;
-            el.textContent = lang === 'zh' ? '已複製！' : 'Copied!';
-            setTimeout(() => { el.textContent = orig; }, 1200);
-          } catch (_) {}
-        });
-      }
-    });
+    syncMetricCopy([energyEl, latencyEl, leakageEl, scoreEl]);
 
     // Update Verdict Text
     const verdictEl = root.querySelector('#subvt-verdict-banner');
@@ -760,11 +656,12 @@ export function initSubthresholdSimulator(containerId) {
         x: e.clientX - rect.left,
         y: e.clientY - rect.top,
       };
-      const lang = (window.HubLanguage?.get() || document.documentElement.dataset.language || 'en') === 'zh' ? 'zh' : 'en';
+      const lang = getLang();
       const metrics = calculateSubthresholdMetrics({
-        vdd: parseFloat(vddSlider?.value || 0.50),
-        tempC: parseFloat(tempSlider?.value || 25),
-        capacityKb: parseInt(capacitySlider?.value || 256, 10),
+        presetId: currentPresetId,
+        customVdd: vddSlider ? Number(vddSlider.value) : undefined,
+        customTempC: tempSlider ? Number(tempSlider.value) : undefined,
+        customCapacityKb: capacitySlider ? Number(capacitySlider.value) : undefined,
         topologyId: currentTopologyId,
       });
       drawSubthresholdCanvas(canvas, metrics, currentMode, lang, hoverPos);
@@ -847,17 +744,18 @@ export function initSubthresholdSimulator(containerId) {
     const lang = (window.HubLanguage?.get() || document.documentElement.dataset.language || 'en') === 'zh' ? 'zh' : 'en';
     exportBtn.textContent = lang === 'zh' ? '📥 匯出 CSV' : '📥 Export CSV';
     exportBtn.addEventListener('click', () => {
-      const curTemp = parseFloat(tempSlider?.value || 25);
+      const curTemp = tempSlider ? Number(tempSlider.value) : undefined;
       let csv = 'VDD_V,DynamicEnergy_fJ,LeakageEnergy_fJ,TotalEnergy_fJ,SenseLatency_ns\n';
       for (let j = 0; j <= 60; j++) {
         const v = 0.25 + (1.20 - 0.25) * (j / 60);
         const m = calculateSubthresholdMetrics({
-          vdd: v,
-          tempC: curTemp,
-          capacityKb: parseInt(capacitySlider?.value || 256, 10),
+          presetId: currentPresetId,
+          customVdd: v,
+          customTempC: curTemp,
+          customCapacityKb: capacitySlider ? Number(capacitySlider.value) : undefined,
           topologyId: currentTopologyId,
         });
-        csv += `${v.toFixed(3)},${m.dynamicEnergyFj.toFixed(3)},${m.leakageEnergyFj.toFixed(3)},${m.totalEnergyFj.toFixed(3)},${m.senseLatencyNs.toFixed(2)}\n`;
+        csv += `${v.toFixed(3)},${m.activeEnergyFj.toFixed(3)},${m.leakageEnergyFj.toFixed(3)},${m.totalEnergyFj.toFixed(3)},${m.senseLatencyNs.toFixed(2)}\n`;
       }
       downloadCsv(`subthreshold_simulation_${currentTopologyId}.csv`, csv);
     });

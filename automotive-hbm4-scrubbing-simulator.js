@@ -1,3 +1,5 @@
+import {syncMetricCopy} from './模型數值複製.js';
+
 /**
  * @file automotive-hbm4-scrubbing-simulator.js
  * @description First-principles simulator for Automotive ASIL-D Autonomous HPC HBM4 extreme mission profiles,
@@ -509,22 +511,14 @@ export function initAutomotiveHbm4Simulator(rootSelector = '#auto-hbm4-scrubbing
       outVerdict.textContent = isZh ? metrics.verdictZh : metrics.verdictEn;
     }
 
-    // Click-to-copy ergonomics on KPI elements
-    [outRawFit, outResFit, outSpfm, outHppr, outRating].forEach((el) => {
-      if (el && !el.dataset.copyAttached) {
-        el.dataset.copyAttached = 'true';
-        el.style.cursor = 'pointer';
-        el.setAttribute('title', isZh ? '點擊複製數值' : 'Click to copy');
-        el.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText(el.textContent.trim());
-            const orig = el.textContent;
-            el.textContent = isZh ? '已複製！' : 'Copied!';
-            setTimeout(() => { el.textContent = orig; }, 1200);
-          } catch (_) {}
-        });
-      }
-    });
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([outRawFit, outResFit, outSpfm, outHppr, outRating]);
+    const exportControl=root.querySelector('#hbm4-scrub-export-csv-btn');
+    if (exportControl) {
+      const chinese=(window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+      exportControl.textContent=chinese ? '📥 匯出 HBM4 巡檢 CSV' : '📥 Export HBM4 CSV';
+      exportControl.setAttribute('aria-label',chinese ? '匯出 HBM4 巡檢 CSV' : 'Export HBM4 CSV');
+    }
 
     if (canvas) {
       drawAutomotiveHbm4Canvas(canvas, metrics, currentMode, isZh);

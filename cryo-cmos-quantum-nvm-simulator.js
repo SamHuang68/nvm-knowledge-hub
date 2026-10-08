@@ -1,3 +1,5 @@
+import {syncMetricCopy} from './模型數值複製.js';
+
 /**
  * @file cryo-cmos-quantum-nvm-simulator.js
  * @description First-Principles Physics & Cryogenic Microarchitecture Simulator for Cryo-CMOS Quantum Computing
@@ -466,23 +468,15 @@ export function initCryoNvmSimulator() {
       drawCryoCanvas(canvas, metrics, activeMode);
     }
 
-    // Click-to-copy ergonomics on KPI elements
-    const isZhLang = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
-    [outSs, outEg, outFreeze, outReadPower, outCoherence].forEach((el) => {
-      if (el && !el.dataset.copyAttached) {
-        el.dataset.copyAttached = 'true';
-        el.style.cursor = 'pointer';
-        el.setAttribute('title', isZhLang ? '點擊複製數值' : 'Click to copy');
-        el.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText(el.textContent.trim());
-            const orig = el.textContent;
-            el.textContent = isZhLang ? '已複製！' : 'Copied!';
-            setTimeout(() => { el.textContent = orig; }, 1200);
-          } catch (_) {}
-        });
-      }
-    });
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([outSs, outEg, outFreeze, outReadPower, outCoherence]);
+
+    const exportButton = root.querySelector('#cryo-export-csv-btn');
+    if (exportButton) {
+      const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'zh').startsWith('zh');
+      exportButton.textContent = isZh ? '📥 匯出 Cryo-CMOS 低溫特性 CSV' : '📥 Export Cryo-CMOS CSV';
+      exportButton.setAttribute('aria-label', isZh ? '匯出極低溫量子介面載子凍結與讀出功耗分析資料集為 CSV 檔案' : 'Export cryogenic quantum interface carrier freeze-out and readout power dataset as CSV file');
+    }
   }
 
   // Export CSV Action for Cryo-CMOS Quantum NVM
@@ -511,17 +505,17 @@ export function initCryoNvmSimulator() {
     exportBtn.addEventListener('click', () => {
       const pId = presetSelect ? presetSelect.value : 'cryo_dilution_fridge_4k';
       const tId = techSelect ? techSelect.value : 'antifuse_ohmic_filament';
-      const vBias = biasSlider ? parseFloat(biasSlider.value) : 0.8;
+      const readBiasMv = biasSlider ? parseFloat(biasSlider.value) : 400;
       let csv = 'Temp_K,Bandgap_eV,CarrierIonizationPct,EffectiveSS_mVdec,EffectiveRes_Ohm,ReadPower_uW,CoherenceMarginPct\n';
       const testTempsK = [0.1, 1.0, 4.2, 10, 20, 50, 77, 100, 150, 200, 300];
       for (const tK of testTempsK) {
         const m = calculateCryoNvmMetrics({
-          presetId: pId,
-          techId: tId,
-          operatingTempK: tK,
-          readBiasV: vBias
+          presetKey: pId,
+          techKey: tId,
+          customTempK: tK,
+          readBiasMv
         });
-        csv += `${tK},${m.bandgapEv.toFixed(4)},${m.carrierIonizationPct.toFixed(2)},${m.effectiveSsMvPerDec.toFixed(2)},${m.effectiveResistanceOhm.toFixed(1)},${m.readPowerUw.toFixed(4)},${m.coherenceMarginPct.toFixed(1)}\n`;
+        csv += `${tK},${m.bandgapEv.toFixed(4)},${m.carrierIonizationPct.toFixed(2)},${m.effectiveSsMvPerDec.toFixed(2)},${m.effectiveROhm.toFixed(1)},${m.readPowerUw.toFixed(4)},${m.coherenceMarginPct.toFixed(1)}\n`;
       }
       downloadCsv(`cryo_cmos_${pId}_${tId}.csv`, csv);
     });

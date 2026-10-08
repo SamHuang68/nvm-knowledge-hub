@@ -1,7 +1,7 @@
 {
   "name": "nvm-knowledge-hub",
   "private": true,
-  "version": "1.2.2",
+  "version": "1.2.3",
   "type": "module",
   "scripts": {
     "serve": "node scripts/serve-local.mjs",
@@ -39,7 +39,8 @@
     "check:content": "node scripts/normalize-heading-punctuation.mjs --check && node scripts/check-site-ia.mjs && node scripts/check-bilingual-purity.mjs && node scripts/build-oip-sharepoint.mjs --check && node scripts/build-ai-nvm-sharepoint.mjs --check && npm run qa:sharepoint && node scripts/check-ai-nvm-integrity.mjs && node scripts/check-release-gates.mjs && npm run check:evidence && npm run check:nvm && npm run check:whitepaper && npm run check:offline",
     "qa:sram": "node --test tests/sram-model.test.mjs tests/sram-scenarios.test.mjs && node scripts/verify-sram-estimator.mjs && node scripts/verify-sram-scenarios.mjs",
     "build:evidence": "node scripts/sync-evidence-summary.mjs --write && node scripts/build-named-comparison.mjs",
-    "check:evidence": "node scripts/sync-evidence-summary.mjs --check && node scripts/build-named-comparison.mjs --check"
+    "check:evidence": "node scripts/sync-evidence-summary.mjs --check && node scripts/build-named-comparison.mjs --check",
+    "qa:interaction-consistency": "node scripts/驗證模型數值複製.mjs && node scripts/驗證模型曲線與匯出.mjs && node scripts/驗證特種製程匯出.mjs && node scripts/驗證最新模型匯出.mjs"
   },
   "devDependencies": {
     "playwright": "^1.55.0"

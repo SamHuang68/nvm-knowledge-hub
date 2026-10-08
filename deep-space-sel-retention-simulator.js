@@ -1,3 +1,5 @@
+import {syncMetricCopy} from './模型數值複製.js';
+
 /**
  * @file deep-space-sel-retention-simulator.js
  * @description First-principles simulator for Deep Space exploration missions, evaluating Heavy Ion
@@ -530,22 +532,14 @@ export function initDeepSpaceSimulator(rootSelector = '#deep-space-simulator-roo
       drawDeepSpaceCanvas(canvas, metrics, currentMode);
     }
 
-    // Click-to-copy ergonomics on KPI elements
-    [outSelStatus, outRetention, outSurvival, outEa, outRating].forEach((el) => {
-      if (el && !el.dataset.copyAttached) {
-        el.dataset.copyAttached = 'true';
-        el.style.cursor = 'pointer';
-        el.setAttribute('title', isZh ? '點擊複製數值' : 'Click to copy');
-        el.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText(el.textContent.trim());
-            const orig = el.textContent;
-            el.textContent = isZh ? '已複製！' : 'Copied!';
-            setTimeout(() => { el.textContent = orig; }, 1200);
-          } catch (_) {}
-        });
-      }
-    });
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([outSelStatus, outRetention, outSurvival, outEa, outRating]);
+    const exportControl=root.querySelector('#deep-space-export-csv-btn');
+    if (exportControl) {
+      const chinese=(window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+      exportControl.textContent=chinese ? '📥 匯出深空輻照與存活率 CSV' : '📥 Export Deep Space CSV';
+      exportControl.setAttribute('aria-label',chinese ? '匯出深空單一事件閂鎖 (SEL) 門檻與數據留存率資料集為 CSV 檔案' : 'Export deep space SEL threshold and retention dataset as CSV file');
+    }
   }
 
   // Export CSV Action for Deep Space Radiation & Retention
