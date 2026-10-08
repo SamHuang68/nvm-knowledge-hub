@@ -420,13 +420,27 @@ export function drawPqcDpaCanvas(canvas, metrics, mode, lang = 'zh') {
     }
     ctx.stroke();
 
+    // Draw Legend Backdrop Card to prevent overlap
+    const legBoxW = Math.min(plotW - 20, 390);
+    const legBoxH = 24;
+    const legBoxX = padLeft + 8;
+    const legBoxY = padTop + 6;
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
+    ctx.fill();
+    ctx.stroke();
+
     // Legend & Peak Value
-    ctx.font = '10px sans-serif';
+    ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillStyle = metrics.rhoMax > 0.4 ? '#ef4444' : (metrics.rhoMax > 0.15 ? '#f59e0b' : '#10b981');
-    ctx.fillText(`${lang === 'zh' ? '正確金鑰峰值' : 'Correct Key Peak'}: ρmax = ${metrics.rhoMax.toFixed(3)}`, padLeft + 10, padTop + 16);
-    ctx.fillStyle = '#94a3b8';
-    ctx.fillText(`MTD ≈ ${metrics.mtd.toLocaleString()} traces`, padLeft + 250, padTop + 16);
+    ctx.fillStyle = metrics.rhoMax > 0.4 ? '#f87171' : (metrics.rhoMax > 0.15 ? '#fbbf24' : '#10b981');
+    ctx.fillText(`${lang === 'zh' ? '正確金鑰峰值' : 'Correct Key Peak'}: ρmax = ${metrics.rhoMax.toFixed(3)}`, legBoxX + 8, legBoxY + 16);
+    ctx.fillStyle = '#cbd5e1';
+    ctx.fillText(`MTD ≈ ${metrics.mtd.toLocaleString()} traces`, legBoxX + 230, legBoxY + 16);
 
   } else {
     // Mode 2: PUF Inter-Chip Hamming Distance Gaussian Distribution (%)

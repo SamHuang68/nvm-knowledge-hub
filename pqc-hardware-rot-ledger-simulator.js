@@ -246,7 +246,7 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint') {
   ctx.setLineDash([]);
 
   ctx.font = '10px "IBM Plex Mono", monospace';
-  ctx.fillStyle = '#64748b';
+  ctx.fillStyle = '#cbd5e1';
 
   if (mode === 'storage_footprint') {
     // Mode 1: Bar Chart of Raw Key vs Seed Size for 5 PQC algorithms
@@ -279,18 +279,33 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint') {
       ctx.fillRect(xCenter + 2, ySeed, barWidth, Math.max(2, hSeed));
 
       // Label
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = '#cbd5e1';
       ctx.fillText(a.id.replace('_', '-').toUpperCase(), groupX + 6, padTop + plotHeight + 16);
     });
 
-    // Legend
+    // Draw Legend Backdrop Card to prevent overlap
+    const legBoxW = 216;
+    const legBoxH = 34;
+    const legBoxX = padLeft + plotWidth - legBoxW - 6;
+    const legBoxY = padTop + 6;
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.92)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
+    ctx.fill();
+    ctx.stroke();
+
     ctx.fillStyle = '#f59e0b';
-    ctx.fillRect(padLeft + plotWidth - 220, padTop + 10, 10, 4);
-    ctx.fillText('Raw Key Size (1,632-4,896 B)', padLeft + plotWidth - 205, padTop + 14);
+    ctx.fillRect(legBoxX + 8, legBoxY + 8, 12, 4);
+    ctx.fillStyle = '#cbd5e1';
+    ctx.fillText('Raw Key Size (1,632-4,896 B)', legBoxX + 26, legBoxY + 12);
 
     ctx.fillStyle = '#10b981';
-    ctx.fillRect(padLeft + plotWidth - 220, padTop + 24, 10, 4);
-    ctx.fillText('AntiFuse Seed (32-64 B)', padLeft + plotWidth - 205, padTop + 28);
+    ctx.fillRect(legBoxX + 8, legBoxY + 20, 12, 4);
+    ctx.fillStyle = '#cbd5e1';
+    ctx.fillText('AntiFuse Seed (32-64 B)', legBoxX + 26, legBoxY + 24);
 
   } else {
     // Mode 2: DPA MTD curves vs Masking Order (Order 0, 1, 2)
@@ -351,14 +366,29 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint') {
     ptsSeed.forEach((p, i) => { if (i === 0) ctx.moveTo(p.x, p.y); else ctx.lineTo(p.x, p.y); });
     ctx.stroke();
 
-    // Legend
+    // Draw Legend Backdrop Card to prevent overlap
+    const legBoxW = 216;
+    const legBoxH = 34;
+    const legBoxX = padLeft + plotWidth - legBoxW - 6;
+    const legBoxY = padTop + 6;
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.92)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
+    ctx.fill();
+    ctx.stroke();
+
     ctx.fillStyle = '#10b981';
-    ctx.fillRect(padLeft + plotWidth - 220, padTop + 10, 10, 4);
-    ctx.fillText('AntiFuse Seed + Twin-Cell', padLeft + plotWidth - 205, padTop + 14);
+    ctx.fillRect(legBoxX + 8, legBoxY + 8, 12, 4);
+    ctx.fillStyle = '#cbd5e1';
+    ctx.fillText('AntiFuse Seed + Twin-Cell', legBoxX + 26, legBoxY + 12);
 
     ctx.fillStyle = '#f59e0b';
-    ctx.fillRect(padLeft + plotWidth - 220, padTop + 24, 10, 4);
-    ctx.fillText('Pure Raw Storage Read', padLeft + plotWidth - 205, padTop + 28);
+    ctx.fillRect(legBoxX + 8, legBoxY + 20, 12, 4);
+    ctx.fillStyle = '#cbd5e1';
+    ctx.fillText('Pure Raw Storage Read', legBoxX + 26, legBoxY + 24);
   }
 
   ctx.restore();

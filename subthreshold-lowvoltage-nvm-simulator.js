@@ -440,15 +440,29 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh') {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    // Legend
-    ctx.font = '10px sans-serif';
+    // Draw Legend Backdrop Card to prevent overlap
+    const legBoxW = Math.min(plotW - 20, 390);
+    const legBoxH = 24;
+    const legBoxX = padLeft + 8;
+    const legBoxY = padTop + 6;
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
+    ctx.fill();
+    ctx.stroke();
+
+    // Legend items
+    ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
     ctx.fillStyle = '#10b981';
-    ctx.fillText(`${lang === 'zh' ? '— 總能耗 Total Energy' : '— Total Energy'} (MEP ≈ ${minEnergyVdd.toFixed(2)}V)`, padLeft + 10, padTop + 16);
-    ctx.fillStyle = 'rgba(56, 189, 248, 0.7)';
-    ctx.fillText(lang === 'zh' ? '— 動態能耗 CV²' : '— Active CV²', padLeft + 220, padTop + 16);
-    ctx.fillStyle = '#f59e0b';
-    ctx.fillText(`E = ${metrics.totalEnergyFj.toFixed(1)} fJ`, padLeft + 330, padTop + 16);
+    ctx.fillText(`${lang === 'zh' ? '— 總能耗' : '— Total'} (MEP ≈ ${minEnergyVdd.toFixed(2)}V)`, legBoxX + 8, legBoxY + 16);
+    ctx.fillStyle = '#38bdf8';
+    ctx.fillText(lang === 'zh' ? '— 動態 CV²' : '— Dynamic CV²', legBoxX + 175, legBoxY + 16);
+    ctx.fillStyle = '#fbbf24';
+    ctx.fillText(`E = ${metrics.totalEnergyFj.toFixed(1)} fJ`, legBoxX + 285, legBoxY + 16);
 
   } else {
     // Mode 2: Supply Voltage VDD (0.25V to 1.20V) vs Sense Latency (ns, Log Scale 1ns to 10µs)
@@ -512,13 +526,27 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh') {
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
-    // Legend
-    ctx.font = '10px sans-serif';
+    // Draw Legend Backdrop Card to prevent overlap
+    const legBoxW = Math.min(plotW - 20, 360);
+    const legBoxH = 24;
+    const legBoxX = padLeft + 8;
+    const legBoxY = padTop + 6;
+    ctx.fillStyle = 'rgba(8, 19, 30, 0.90)';
+    ctx.strokeStyle = 'rgba(51, 65, 85, 0.85)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(legBoxX, legBoxY, legBoxW, legBoxH, 4);
+    else ctx.rect(legBoxX, legBoxY, legBoxW, legBoxH);
+    ctx.fill();
+    ctx.stroke();
+
+    // Legend items
+    ctx.font = '10px "IBM Plex Mono", monospace';
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#f59e0b';
-    ctx.fillText(`${lang === 'zh' ? '目前延遲' : 'Active Delay'}: ${metrics.senseLatencyNs.toFixed(1)} ns`, padLeft + 10, padTop + 16);
-    ctx.fillStyle = '#94a3b8';
-    ctx.fillText(`Pelgrom BER ≈ ${metrics.failureRatePpm.toFixed(1)} PPM`, padLeft + 220, padTop + 16);
+    ctx.fillStyle = '#fbbf24';
+    ctx.fillText(`${lang === 'zh' ? '目前延遲' : 'Active Delay'}: ${metrics.senseLatencyNs.toFixed(1)} ns`, legBoxX + 8, legBoxY + 16);
+    ctx.fillStyle = '#cbd5e1';
+    ctx.fillText(`Pelgrom BER ≈ ${metrics.failureRatePpm.toFixed(1)} PPM`, legBoxX + 185, legBoxY + 16);
   }
 }
 

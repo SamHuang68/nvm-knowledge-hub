@@ -4504,7 +4504,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 6px 16px;
-  color: #a9c0c8;
+  color: #f1f5f9;
+  background: rgba(9, 34, 53, 0.88);
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   font-family: "IBM Plex Mono", Consolas, monospace;
   font-size: 9px;
   font-weight: 700;
@@ -5286,7 +5290,7 @@
 
 .ai-nvm-page .node-commercial-note > p {
   margin: 0;
-  color: #a8bbc2;
+  color: #334155;
   font-size: 12px;
   line-height: 1.68;
 }

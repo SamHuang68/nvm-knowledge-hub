@@ -18,9 +18,9 @@
   --spec-danger: #dc2626;
   --spec-line: rgba(28, 25, 23, 0.10);
   --spec-line-subtle: rgba(28, 25, 23, 0.06);
-  --spec-text-main: #f3ebe0;
-  --spec-text-muted: #e8e0d4;
-  --spec-text-dim: #94a3b8;
+  --spec-text-main: #0f172a;
+  --spec-text-muted: #334155;
+  --spec-text-dim: #475569;
   --spec-mono: 'IBM Plex Mono', Consolas, monospace;
   --spec-sans: 'Plus Jakarta Sans', 'Noto Sans TC', 'Microsoft JhengHei', -apple-system, BlinkMacSystemFont, sans-serif;
   --spec-glow: 0 4px 16px rgba(248, 250, 252, 0.96);
@@ -269,7 +269,7 @@
 .topic-lede {
   font-size: clamp(15.5px, 1.2vw, 17.5px);
   line-height: 1.76;
-  color: #a2bcc4;
+  color: #334155;
   max-width: 980px;
   margin: 0;
   padding-left: 20px;
@@ -317,7 +317,7 @@
 .metric-tile-label {
   font-family: var(--spec-mono);
   font-size: 11px;
-  color: #7fa1ac;
+  color: #475569;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 4px;
@@ -325,7 +325,7 @@
 
 .metric-tile-sub {
   font-size: 12.5px;
-  color: #cadfe4;
+  color: #334155;
   line-height: 1.5;
 }
 
@@ -408,7 +408,7 @@
 .tech-card h4 {
   font-size: 18.5px;
   font-weight: 750;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0 0 14px;
   line-height: 1.35;
   letter-spacing: -0.01em;
@@ -506,14 +506,14 @@
 .callout-title {
   font-size: 18px;
   font-weight: 750;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0;
 }
 
 .callout-body {
   font-size: 14px;
   line-height: 1.72;
-  color: #b2ced4;
+  color: #334155;
   margin: 0;
 }
 
@@ -531,7 +531,7 @@
 .fuse-evolution-block h3 {
   font-size: 21px;
   font-weight: 750;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0 0 26px;
   letter-spacing: -0.015em;
   text-align: center;
@@ -579,14 +579,14 @@
 .evo-card h4 {
   font-size: 17px;
   font-weight: 750;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0 0 10px;
 }
 
 .evo-card p {
   font-size: 13.5px;
   line-height: 1.68;
-  color: #a2bcc4;
+  color: #334155;
   margin: 0;
 }
 
@@ -636,7 +636,7 @@
 .lab-title-wrap h4 {
   font-size: 16.5px;
   font-weight: 750;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0;
   font-family: var(--spec-sans);
 }
@@ -662,7 +662,7 @@
 .stat-label {
   font-family: var(--spec-mono);
   font-size: 10px;
-  color: #7fa1ac;
+  color: #475569;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -870,7 +870,7 @@
 .comparison-panel h3 {
   font-size: 18px;
   font-weight: 750;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0 0 6px;
   letter-spacing: -0.01em;
   line-height: 1.35;
@@ -1299,7 +1299,7 @@ html[data-language="zh"] .data-table thead th {
 .formula-header h4 {
   font-size: 15.5px;
   font-weight: 750;
-  color: #ffffff;
+  color: #0f172a;
   margin: 0;
   font-family: var(--spec-sans);
 }
@@ -1307,16 +1307,16 @@ html[data-language="zh"] .data-table thead th {
 .formula-equation {
   margin: 14px 0 16px;
   padding: 14px 20px;
-  background: rgba(248, 250, 252, 0.96);
+  background: #f1f5f9;
   border-radius: 4px;
-  border: 1px dashed rgba(196, 165, 116, 0.2);
+  border: 1px dashed #cbd5e1;
 }
 
 .formula-equation strong {
   display: block;
   font-family: var(--spec-mono);
   font-size: 13.5px;
-  color: #e2eff2;
+  color: #0f172a;
   letter-spacing: 0.02em;
   line-height: 1.6;
 }
@@ -1324,7 +1324,7 @@ html[data-language="zh"] .data-table thead th {
 .formula-equation small {
   display: block;
   margin-top: 6px;
-  color: #8faab0;
+  color: #475569;
   font-size: 11.5px;
   line-height: 1.5;
 }
@@ -1356,11 +1356,11 @@ html[data-language="zh"] .data-table thead th {
 .contract-list li {
   font-size: 12.5px;
   line-height: 1.55;
-  color: #b0c9dd;
+  color: #334155;
 }
 
 .contract-list li b {
-  color: #ffffff;
+  color: #0f172a;
 }
 
 /* =========================================================
@@ -1382,7 +1382,7 @@ html[data-language="zh"] .data-table thead th {
 .roadmap-header h3 {
   font-size: 20px;
   font-weight: 800;
-  color: #ffffff;
+  color: #0f172a;
   margin: 6px 0 8px;
 }
 
@@ -1451,7 +1451,7 @@ html[data-language="zh"] .data-table thead th {
 .stepper-node-card b {
   display: block;
   font-size: 12px;
-  color: #ffffff;
+  color: #0f172a;
   margin-bottom: 4px;
   font-family: var(--spec-mono);
 }
@@ -1459,7 +1459,7 @@ html[data-language="zh"] .data-table thead th {
 .stepper-node-card p {
   font-size: 11px;
   line-height: 1.45;
-  color: #8faab0;
+  color: #334155;
   margin: 0;
 }
 
@@ -1750,7 +1750,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: var(--spec-mono);
   font-size: 22px;
   font-weight: 800;
-  color: #ffffff;
+  color: #0f172a;
   letter-spacing: -0.02em;
 }
 
@@ -1759,7 +1759,7 @@ html[data-language="zh"] .data-table thead th {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #94a3b8;
+  color: #475569;
   margin-top: 4px;
 }
 
@@ -1936,7 +1936,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .state-contract-list li strong {
-  color: #ffffff;
+  color: #0f172a;
   font-family: var(--spec-mono);
   font-size: 11.5px;
   text-transform: uppercase;
@@ -1949,7 +1949,7 @@ html[data-language="zh"] .data-table thead th {
   padding: 12px 16px;
   border-radius: 8px;
   background: rgba(248, 250, 252, 0.96);
-  border: 1px solid rgba(6, 182, 212, 0.35);
+  border: 1px solid #cbd5e1;
   box-shadow: 0 4px 20px rgba(248, 250, 252, 0.96);
 }
 
@@ -1974,11 +1974,11 @@ html[data-language="zh"] .data-table thead th {
 
 .governing-physics-formula {
   padding: 16px 20px;
-  background: #f8fafc;
-  border: 1px solid rgba(6, 182, 212, 0.2);
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
   border-radius: 6px;
   overflow-x: auto;
-  color: #67e8f9;
+  color: #0f172a;
   font-size: 14px;
   text-align: center;
   margin-bottom: 12px;
@@ -1987,7 +1987,7 @@ html[data-language="zh"] .data-table thead th {
 .governing-physics-desc {
   font-size: 12px;
   line-height: 1.6;
-  color: #94a3b8;
+  color: #334155;
   font-family: var(--spec-sans);
 }
 
@@ -1995,7 +1995,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: var(--spec-mono);
   font-size: 11px;
   text-transform: uppercase;
-  color: #e2e8f0;
+  color: #0f172a;
   margin-bottom: 4px;
   display: block;
 }
@@ -2004,16 +2004,16 @@ html[data-language="zh"] .data-table thead th {
 .decision-matrix-card {
   margin: 18px 0;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #cbd5e1;
   background: #f8fafc;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(248, 250, 252, 0.96);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
 }
 
 .decision-matrix-card-header {
   padding: 14px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(248, 250, 252, 0.96);
+  border-bottom: 1px solid #cbd5e1;
+  background: #f1f5f9;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2033,7 +2033,7 @@ html[data-language="zh"] .data-table thead th {
 .decision-matrix-subtitle {
   font-family: var(--spec-mono);
   font-size: 11px;
-  color: #94a3b8;
+  color: #475569;
 }
 
 .decision-table-modern {
@@ -2045,8 +2045,8 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .decision-table-modern thead tr {
-  background: #f8fafc;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: #f1f5f9;
+  border-bottom: 1px solid #cbd5e1;
 }
 
 .decision-table-modern th {
@@ -2056,7 +2056,7 @@ html[data-language="zh"] .data-table thead th {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #94a3b8;
+  color: #1e293b;
 }
 
 .decision-table-modern th.th-cyan {
@@ -2064,7 +2064,7 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .decision-table-modern tbody tr {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid #e2e8f0;
   transition: background 0.15s ease;
 }
 
@@ -2073,18 +2073,18 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .decision-table-modern tbody tr:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: #f1f5f9;
 }
 
 .decision-table-modern td {
   padding: 8px 12px;
-  color: #cbd5e1;
+  color: #334155;
   line-height: 1.5;
 }
 
 .decision-table-modern td.metric-col {
-  font-weight: 600;
-  color: #ffffff;
+  font-weight: 700;
+  color: #0f172a;
 }
 
 
@@ -2276,17 +2276,18 @@ html[data-language="zh"] .data-table thead th {
 }
 
 .flow-legend-col {
-  background: rgba(248, 250, 252, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
   border-radius: 6px;
   padding: 10px 12px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
 }
 
 .flow-legend-col h5 {
   font-size: 12.5px;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0 0 4px;
-  color: #e2e8f0;
+  color: #0f172a;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -2295,7 +2296,7 @@ html[data-language="zh"] .data-table thead th {
 .flow-legend-col p {
   font-size: 11px;
   line-height: 1.45;
-  color: #94a3b8;
+  color: #334155;
   margin: 0;
 }
 
@@ -2676,7 +2677,7 @@ html[data-language="zh"] .data-table thead th {
   font-family: var(--spec-mono);
   font-size: 9.5px !important;
   letter-spacing: 0.08em;
-  color: #94a3b8 !important;
+  color: #334155 !important;
   margin-bottom: 4px;
 }
 
@@ -2727,7 +2728,7 @@ html[data-language="zh"] .data-table thead th {
 .lab-header p {
   font-size: 11.5px !important;
   line-height: 1.45 !important;
-  color: #94a3b8 !important;
+  color: #334155 !important;
   margin: 0 !important;
 }
 
@@ -2815,7 +2816,8 @@ html[data-language="zh"] .data-table thead th {
 
 .control-row label {
   font-size: 11px !important;
-  color: #94a3b8 !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
   margin: 0 !important;
 }
 
@@ -2891,14 +2893,14 @@ html[data-language="zh"] .data-table thead th {
 
 .contract-truth-card strong {
   font-size: 11.5px !important;
-  color: #e2e8f0 !important;
+  color: #0f172a !important;
   margin-bottom: 2px !important;
 }
 
 .contract-truth-card p {
   font-size: 11px !important;
   line-height: 1.4 !important;
-  color: #94a3b8 !important;
+  color: #334155 !important;
   margin: 0 !important;
 }
 
@@ -3328,7 +3330,7 @@ html[data-language="zh"] .data-table thead th {
 .yield-label {
   font-family: var(--spec-mono);
   font-size: 9.5px;
-  color: #94a3b8;
+  color: #475569;
   letter-spacing: 0.05em;
 }
 
@@ -3379,7 +3381,7 @@ html[data-language="zh"] .data-table thead th {
 .transform-micro-label {
   font-family: var(--spec-mono);
   font-size: 8.5px;
-  color: #67e8f9;
+  color: #334155;
   letter-spacing: 0.08em;
   text-align: center;
 }
@@ -3497,7 +3499,7 @@ html[data-language="zh"] .data-table thead th {
 .transform-micro-label {
   font-size: 11px;
   font-weight: 600;
-  color: #94a3b8;
+  color: #334155;
   line-height: 1.3;
 }
 
@@ -3663,7 +3665,7 @@ html[data-language="zh"] .data-table thead th {
   margin-bottom: 6px;
 }
 
-.fail-label { color: #f43f5e; }
+.fail-label { color: #be123c; font-weight: 700; }
 .pass-label { color: #785021; }
 
 .screen-matrix {
@@ -3832,7 +3834,7 @@ html[data-language="zh"] .data-table thead th {
 .capsule-label {
   font-family: 'JetBrains Mono', monospace;
   font-size: 9px;
-  color: #94a3b8;
+  color: #475569;
   font-weight: 700;
 }
 
@@ -3987,11 +3989,11 @@ html[data-language="zh"] .data-table thead th {
 .figure-topology-note {
   margin-top: 10px;
   background: rgba(248, 250, 252, 0.96);
-  border: 1px dashed rgba(0, 240, 255, 0.25);
+  border: 1px dashed #cbd5e1;
   border-radius: 6px;
   padding: 6px 12px;
   font-size: 10.5px;
-  color: #94a3b8;
+  color: #334155;
   display: flex;
   align-items: center;
   gap: 8px;
