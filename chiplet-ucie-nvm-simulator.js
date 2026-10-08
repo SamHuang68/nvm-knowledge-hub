@@ -176,7 +176,7 @@ export function calculateChipletUcieNvm({
   const Ea = 1.1; // Typical oxide trap activation energy
   const T_ref_K = 85.0 + 273.15;
   const T_actual_K = Math.max(200.0, nvmJunctionTempC + 273.15);
-  const arrheniusAF = Math.exp((Ea / kB) * (1.0 / T_ref_K - 1.0 / T_actual_K));
+  const arrheniusAF = Math.exp(Math.max(-50, Math.min(50, (Ea / kB) * (1.0 / T_ref_K - 1.0 / T_actual_K))));
   const nominalRetentionYears = 10.0;
   const effectiveRetentionYears = Math.max(0.1, nominalRetentionYears / Math.max(0.01, arrheniusAF));
 

@@ -154,9 +154,9 @@ export function calculateAutomotiveHbm4Metrics({
   // Ea = 0.65 eV, kB = 8.617333e-5 eV/K, Tref = 298.15 K (25 C)
   const kB = 8.617333e-5;
   const Ea = 0.65;
-  const tKelvin = junctionTempC + 273.15;
+  const tKelvin = Math.max(1.0, junctionTempC + 273.15);
   const tRefKelvin = 298.15;
-  const thermalAccel = Math.exp((-Ea / kB) * (1.0 / tKelvin - 1.0 / tRefKelvin));
+  const thermalAccel = Math.exp(Math.max(-50, Math.min(50, (-Ea / kB) * (1.0 / tKelvin - 1.0 / tRefKelvin))));
 
   // Base soft-error rate (FIT/Gb at sea-level 25C)
   const baseSerPerGb = 1.8;
@@ -391,9 +391,8 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
     ctx.strokeStyle = '#f59e0b';
     ctx.lineWidth = 2.5;
     for (let t = tMin; t <= tMax; t += 5) {
-      const ea = 0.65;
-      const kb = 8.617e-5;
-      const accel = Math.exp((-ea / kb) * (1.0 / (t + 273.15) - 1.0 / 298.15));
+      const tK = Math.max(1.0, t + 273.15);
+      const accel = Math.exp(Math.max(-50, Math.min(50, (-ea / kb) * (1.0 / tK - 1.0 / 298.15))));
       const fit = Math.min(500.0, 1.8 * 64 * accel * 0.05);
       const x = getX(t);
       const y = getY(fit);

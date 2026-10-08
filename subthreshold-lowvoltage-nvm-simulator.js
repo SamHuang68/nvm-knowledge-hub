@@ -308,7 +308,7 @@ export function calculateSubthresholdMetrics(params = {}) {
  * @param {'voltage_energy_curve' | 'read_latency_failure'} mode
  * @param {'zh' | 'en'} lang
  */
-export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh') {
+export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh', hoverPos = null) {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
@@ -548,6 +548,62 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh') {
     ctx.fillStyle = '#cbd5e1';
     ctx.fillText(`Pelgrom BER ≈ ${metrics.failureRatePpm.toFixed(1)} PPM`, legBoxX + 185, legBoxY + 16);
   }
+
+  // Interactive Crosshair Probe Snapping
+  if (hoverPos && hoverPos.x >= padLeft && hoverPos.x <= padLeft + plotW && hoverPos.y >= padTop && hoverPos.y <= padTop + plotH) {
+    const hx = hoverPos.x;
+    const hy = hoverPos.y;
+    ctx.save();
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.75)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 3]);
+
+    // Vertical line
+    ctx.beginPath();
+    ctx.moveTo(hx, padTop);
+    ctx.lineTo(hx, padTop + plotH);
+    ctx.stroke();
+
+    // Horizontal line
+    ctx.beginPath();
+    ctx.moveTo(padLeft, hy);
+    ctx.lineTo(padLeft + plotW, hy);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Sample probed value
+    const probedVdd = 0.25 + (1.20 - 0.25) * ((hx - padLeft) / plotW);
+    let sampleText = `VDD: ${probedVdd.toFixed(2)}V`;
+    if (mode === 'voltage_energy_curve') {
+      const normE = 1.0 - ((hy - padTop) / plotH);
+      const probedE = Math.max(0, normE * 60.0);
+      sampleText = `VDD: ${probedVdd.toFixed(2)}V | E: ${probedE.toFixed(1)}fJ`;
+    } else {
+      const normLog = 1.0 - ((hy - padTop) / plotH);
+      const probedLat = Math.pow(10, normLog * 4.0);
+      sampleText = probedLat >= 1000 ? `VDD: ${probedVdd.toFixed(2)}V | ${(probedLat / 1000).toFixed(2)}µs` : `VDD: ${probedVdd.toFixed(2)}V | ${probedLat.toFixed(0)}ns`;
+    }
+
+    const pillW = 150;
+    const pillH = 22;
+    const pillX = Math.min(padLeft + plotW - pillW - 4, Math.max(padLeft + 4, hx + 10));
+    const pillY = Math.min(padTop + plotH - pillH - 4, Math.max(padTop + 4, hy - 26));
+
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(pillX, pillY, pillW, pillH, 4);
+    else ctx.rect(pillX, pillY, pillW, pillH);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#38bdf8';
+    ctx.font = 'bold 9.5px "IBM Plex Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(sampleText, pillX + pillW / 2, pillY + 14);
+    ctx.restore();
+  }
 }
 
 /**
@@ -613,6 +669,23 @@ export function initSubthresholdSimulator(containerId) {
       scoreEl.style.color = metrics.efficiencyScore >= 80 ? '#10b981' : (metrics.efficiencyScore >= 50 ? '#f59e0b' : '#ef4444');
     }
 
+    // Click-to-copy ergonomics on KPI elements
+    [energyEl, latencyEl, leakageEl, scoreEl].forEach((el) => {
+      if (el && !el.dataset.copyAttached) {
+        el.dataset.copyAttached = 'true';
+        el.style.cursor = 'pointer';
+        el.setAttribute('title', lang === 'zh' ? '點擊複製數值' : 'Click to copy metric');
+        el.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(el.textContent.trim());
+            const orig = el.textContent;
+            el.textContent = lang === 'zh' ? '已複製！' : 'Copied!';
+            setTimeout(() => { el.textContent = orig; }, 1200);
+          } catch (_) {}
+        });
+      }
+    });
+
     // Update Verdict Text
     const verdictEl = root.querySelector('#subvt-verdict-banner');
     if (verdictEl) {
@@ -634,14 +707,64 @@ export function initSubthresholdSimulator(containerId) {
 
     // Draw Canvas
     if (canvas) {
-      drawSubthresholdCanvas(canvas, metrics, currentMode, lang);
+      drawSubthresholdCanvas(canvas, metrics, currentMode, lang, hoverPos);
     }
+  }
+
+  function syncPresetDropdown() {
+    if (!presetSelect) return;
+    const currentVdd = parseFloat(vddSlider?.value);
+    const currentTemp = parseFloat(tempSlider?.value);
+    const matchedPreset = Object.entries(LOW_VOLTAGE_SUPPLY_PRESETS).find(([_, p]) =>
+      Math.abs(p.nominalVdd - currentVdd) < 0.001 && Math.abs(p.ambientTempC - currentTemp) < 0.1
+    );
+    let customOpt = presetSelect.querySelector('option[value="custom"]');
+    if (!matchedPreset) {
+      if (!customOpt) {
+        customOpt = document.createElement('option');
+        customOpt.value = 'custom';
+        customOpt.setAttribute('data-lang-zh', '自訂規格參數 (Custom)');
+        customOpt.setAttribute('data-lang-en', 'Custom Parameters');
+        presetSelect.appendChild(customOpt);
+      }
+      const lang = (window.HubLanguage?.get() || document.documentElement.dataset.language || 'en') === 'zh' ? 'zh' : 'en';
+      customOpt.textContent = lang === 'zh' ? '自訂規格參數 (Custom)' : 'Custom Parameters';
+      presetSelect.value = 'custom';
+    } else {
+      presetSelect.value = matchedPreset[0];
+    }
+  }
+
+  // Pointer interactions for Canvas Crosshair Probe
+  let hoverPos = null;
+  if (canvas) {
+    canvas.addEventListener('pointermove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      hoverPos = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+      const lang = (window.HubLanguage?.get() || document.documentElement.dataset.language || 'en') === 'zh' ? 'zh' : 'en';
+      const metrics = calculateSubthresholdMetrics({
+        vdd: parseFloat(vddSlider?.value || 0.50),
+        tempC: parseFloat(tempSlider?.value || 25),
+        capacityKb: parseInt(capacitySlider?.value || 256, 10),
+        topologyId: currentTopologyId,
+      });
+      drawSubthresholdCanvas(canvas, metrics, currentMode, lang, hoverPos);
+    });
+
+    canvas.addEventListener('pointerleave', () => {
+      hoverPos = null;
+      update();
+    });
   }
 
   // Event Listeners
   if (presetSelect) {
     presetSelect.addEventListener('change', (e) => {
       currentPresetId = e.target.value;
+      if (currentPresetId === 'custom') return;
       const preset = LOW_VOLTAGE_SUPPLY_PRESETS[currentPresetId];
       if (preset) {
         if (vddSlider) vddSlider.value = preset.nominalVdd;
@@ -658,8 +781,13 @@ export function initSubthresholdSimulator(containerId) {
     });
   }
 
-  if (vddSlider) vddSlider.addEventListener('input', update);
-  if (tempSlider) tempSlider.addEventListener('input', update);
+  const handleSliderInput = () => {
+    syncPresetDropdown();
+    update();
+  };
+
+  if (vddSlider) vddSlider.addEventListener('input', handleSliderInput);
+  if (tempSlider) tempSlider.addEventListener('input', handleSliderInput);
   if (capacitySlider) capacitySlider.addEventListener('input', update);
 
   if (modeEnergyBtn) {

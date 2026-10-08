@@ -252,9 +252,9 @@ export function calculateChipletHeteroMetrics(params = {}) {
   // Lifetime AF = exp(Ea/kB * (1/T_nom - 1/T_actual))
   const eaEv = 1.1;
   const kb = 8.617e-5;
-  const tNomK = 300.0 + 85.0;
-  const tActK = 300.0 + totalJunctionTempC;
-  const retentionAccelerationFactor = Math.exp((eaEv / kb) * ((1.0 / tNomK) - (1.0 / tActK)));
+  const tNomK = 273.15 + 85.0;
+  const tActK = Math.max(1.0, 273.15 + totalJunctionTempC);
+  const retentionAccelerationFactor = Math.exp(Math.max(-50, Math.min(50, (eaEv / kb) * ((1.0 / tNomK) - (1.0 / tActK)))));
   const nominalRetentionYears = topology.id === 'antifuse_base_die' ? 20.0 : (topology.id === 'beol_mram_top_cache' ? 10.0 : 5.0);
   const actualRetentionYears = Math.max(0.1, nominalRetentionYears / Math.max(1.0, retentionAccelerationFactor));
 

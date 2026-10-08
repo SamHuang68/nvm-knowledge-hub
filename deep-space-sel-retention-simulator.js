@@ -187,13 +187,13 @@ export function calculateDeepSpaceMetrics({
 
   // 2. High-Temperature Arrhenius Data Retention Calculation
   // T in Kelvin
-  const tempK = targetTempC + 273.15;
+  const tempK = Math.max(1.0, targetTempC + 273.15);
   const refTempK = 125.0 + 273.15; // 125°C ref
 
   // Acceleration Factor AF = exp[ (Ea / k) * (1/T_ref - 1/T) ]
   // Retention(T) = BaseRetention(125°C) / AF
   const arrheniusExponent = (tech.activationEnergyEv / DEEP_SPACE_CONSTANTS.BOLTZMANN_EV) * ((1.0 / refTempK) - (1.0 / tempK));
-  const accelerationFactor = Math.exp(arrheniusExponent);
+  const accelerationFactor = Math.exp(Math.max(-50, Math.min(50, arrheniusExponent)));
   const estimatedRetentionYears = tech.baseRetentionYears125C / Math.max(1e-12, accelerationFactor);
 
   // 3. Mission Lifetime Survival Probability (Poisson/Weibull decay)
@@ -384,10 +384,10 @@ export function drawDeepSpaceCanvas(canvas, metrics, mode = 'sel_cross_section_l
 
     for (let xPix = 0; xPix <= plotW; xPix++) {
       const t = tMin + (xPix / plotW) * (tMax - tMin);
-      const tK = t + 273.15;
+      const tK = Math.max(1.0, t + 273.15);
       const refK = 125.0 + 273.15;
       const expTerm = (metrics.tech.activationEnergyEv / DEEP_SPACE_CONSTANTS.BOLTZMANN_EV) * ((1.0 / refK) - (1.0 / tK));
-      const af = Math.exp(expTerm);
+      const af = Math.exp(Math.max(-50, Math.min(50, expTerm)));
       const retYrs = metrics.tech.baseRetentionYears125C / Math.max(1e-12, af);
 
       const normY = getLogNormY(retYrs);

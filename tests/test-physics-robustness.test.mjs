@@ -120,3 +120,67 @@ test('Physical Calculators: Undefined Argument Invocation', () => {
     checkNoNaN(res, name);
   }
 });
+
+test('Physical Calculators: Extreme Values & Boundary Fuzzing', () => {
+  const extremeValues = [
+    -1000, -273.15, -100, -1, 0, 0.000001, 1, 100, 300, 500, 1000, 1e6, 1e12,
+    Number.MIN_VALUE, Number.MAX_VALUE, Number.EPSILON
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const val of extremeValues) {
+      try {
+        const res = fn({
+          tempC: val,
+          junctionTempC: val,
+          vdd: val,
+          voltage: val,
+          tempK: val,
+          missionYears: val,
+          capacityKb: Math.abs(val) || 1,
+          frequencyGhz: val,
+        });
+        assert.ok(res !== undefined, `${name} returned undefined for value ${val}`);
+      } catch (err) {
+        assert.fail(`${name} crashed on extreme value ${val}: ${err.message}`);
+      }
+    }
+  }
+});
+
+test('Physical Calculators: 10,000 Random Float Noise Invocations (No Crashes)', () => {
+  const noiseGenerators = [
+    () => (Math.random() - 0.5) * 1000,
+    () => Math.random() * 1e8,
+    () => -Math.random() * 500,
+    () => Math.random() < 0.1 ? 0 : Math.random(),
+    () => NaN,
+    () => Infinity,
+    () => -Infinity,
+  ];
+
+  for (let iter = 0; iter < 10000; iter++) {
+    const calcIndex = iter % allCalculators.length;
+    const { name, fn } = allCalculators[calcIndex];
+    const gen = noiseGenerators[iter % noiseGenerators.length];
+
+    const payload = {
+      tempC: gen(),
+      junctionTempC: gen(),
+      vdd: gen(),
+      voltage: gen(),
+      tempK: gen(),
+      capacityKb: Math.abs(gen()) || 256,
+      missionYears: gen(),
+      frequencyGhz: gen(),
+    };
+
+    try {
+      const res = fn(payload);
+      assert.ok(res !== undefined, `${name} returned undefined during fuzz iteration ${iter}`);
+    } catch (err) {
+      assert.fail(`${name} crashed during fuzz iteration ${iter}: ${err.message}`);
+    }
+  }
+});
+

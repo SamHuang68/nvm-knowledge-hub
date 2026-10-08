@@ -1336,6 +1336,7 @@ body { background: #f7f9fa; color: #0f172a; line-height: 1.75; }
 :where(a,button,input,select,textarea,[tabindex]):focus-visible {
   outline:2px solid var(--cyan);
   outline-offset:3px;
+  box-shadow:0 0 0 4px rgba(8, 127, 140, 0.25);
 }
 .search-box:focus-within {
   border-bottom-color:var(--cyan);
@@ -1724,6 +1725,52 @@ h1 em,h2 em{font-family:var(--sans-zh);font-style:normal;font-weight:inherit}
   word-break: break-word !important;
 }
 
+/* =========================================================
+   WCAG AAA Micro-Badge & Status Pill Color Harmonization
+   ========================================================= */
+.status-pill, .badge-optimal, .badge-marginal, .badge-critical,
+[data-status="optimal"], [data-status="marginal"], [data-status="critical"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 3px 8px;
+  border-radius: 9999px;
+}
+.badge-optimal, [data-status="optimal"] {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #047857 !important;
+  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+}
+.badge-marginal, [data-status="marginal"] {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #b45309 !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+}
+.badge-critical, [data-status="critical"] {
+  background: rgba(239, 68, 68, 0.15) !important;
+  color: #b91c1c !important;
+  border: 1px solid rgba(239, 68, 68, 0.35) !important;
+}
+@media (prefers-color-scheme: dark), [data-theme="dark"] {
+  .badge-optimal, [data-status="optimal"] {
+    background: rgba(16, 185, 129, 0.20) !important;
+    color: #34d399 !important;
+    border-color: rgba(52, 211, 153, 0.45) !important;
+  }
+  .badge-marginal, [data-status="marginal"] {
+    background: rgba(245, 158, 11, 0.20) !important;
+    color: #fbbf24 !important;
+    border-color: rgba(251, 191, 36, 0.45) !important;
+  }
+  .badge-critical, [data-status="critical"] {
+    background: rgba(239, 68, 68, 0.20) !important;
+    color: #f87171 !important;
+    border-color: rgba(248, 113, 113, 0.45) !important;
+  }
+}
 
 /* =========================================================
    全站語系切換最上層治理規範：英文為第一預設 (English as Default)
