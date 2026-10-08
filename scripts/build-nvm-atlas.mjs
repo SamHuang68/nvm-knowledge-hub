@@ -113,8 +113,11 @@ function integrationRoutesMarkdown(topic) {
 
 function implementationTable(topic) {
   if (!topic.implementations?.length) return '';
-  const labels = isEnglish ? ['Named MTP IP', 'Poly and Storage', 'Program / Erase and Integration'] : ['具名 MTP IP', '多晶矽與儲存結構', '寫入／抹除與整合'];
-  return `<section id="${esc(topic.id)}-implementations"><h3>${isEnglish ? 'Single-Poly IP: Compare the Actual Mechanisms' : '單層多晶矽 IP：比較各自的操作機制'}</h3><table class="nvm-table nvm-tech-table"><caption class="nvm-small">${isEnglish ? 'Single-poly IP operating mechanisms comparison' : '單層多晶矽 IP 操作機制比較'}</caption><thead><tr>${labels.map(label=>`<th scope="col">${label}</th>`).join('')}</tr></thead><tbody>${topic.implementations.map(item=>`<tr><td data-label="${labels[0]}"><strong>${esc(item.vendor)} · ${esc(item.title)}</strong></td><td data-label="${labels[1]}">${paras(item.polyLayers)}${paras(item.storage)}</td><td data-label="${labels[2]}"><p><b>${isEnglish?'Program':'寫入'}：</b>${esc(item.program)}</p><p><b>${isEnglish?'Erase':'抹除'}：</b>${esc(item.erase)}</p>${paras(item.integration)}<p class="nvm-maturity-limit">${esc(item.limit)}</p>${cite(item.sourceIds)}</td></tr>`).join('')}</tbody></table></section>`;
+  const isNor = topic.id === 'nor';
+  const heading = isNor ? (isEnglish ? 'Named eFlash IP: Compare the Actual Mechanisms' : '具名 eFlash IP：比較各自的操作機制') : (isEnglish ? 'Single-Poly IP: Compare the Actual Mechanisms' : '單層多晶矽 IP：比較各自的操作機制');
+  const caption = isNor ? (isEnglish ? 'Named eFlash IP operating mechanisms comparison' : '具名 eFlash IP 操作機制比較') : (isEnglish ? 'Single-poly IP operating mechanisms comparison' : '單層多晶矽 IP 操作機制比較');
+  const labels = isNor ? (isEnglish ? ['Named eFlash IP', 'Gate Stack and Storage', 'Program / Erase and Integration'] : ['具名 eFlash IP', '閘極堆疊與儲存結構', '寫入／抹除與整合']) : (isEnglish ? ['Named MTP IP', 'Poly and Storage', 'Program / Erase and Integration'] : ['具名 MTP IP', '多晶矽與儲存結構', '寫入／抹除與整合']);
+  return `<section id="${esc(topic.id)}-implementations"><h3>${heading}</h3><table class="nvm-table nvm-tech-table"><caption class="nvm-small">${caption}</caption><thead><tr>${labels.map(label=>`<th scope="col">${label}</th>`).join('')}</tr></thead><tbody>${topic.implementations.map(item=>`<tr><td data-label="${labels[0]}"><strong>${esc(item.vendor)} · ${esc(item.title)}</strong></td><td data-label="${labels[1]}">${paras(item.polyLayers)}${paras(item.storage)}</td><td data-label="${labels[2]}"><p><b>${isEnglish?'Program':'寫入'}：</b>${esc(item.program)}</p><p><b>${isEnglish?'Erase':'抹除'}：</b>${esc(item.erase)}</p>${paras(item.integration)}<p class="nvm-maturity-limit">${esc(item.limit)}</p>${cite(item.sourceIds)}</td></tr>`).join('')}</tbody></table></section>`;
 }
 
 function topicPanel(topic, index) {
