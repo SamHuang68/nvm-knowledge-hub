@@ -601,8 +601,8 @@
         "items": [
           {
             "id": "sst-superflash",
-            "name": "SST · SuperFlash",
-            "map": "Source-side injection program and interpoly FN erase. Public foundry nodes about 180–28 nm; the home page also states 500 nm–28 nm."
+            "name": "SST · SuperFlash (ESF1/2/3)",
+            "map": "Three-generation split-gate evolution: ESF1 (non-self-aligned 2-gate), ESF2 (self-aligned 2-gate), ESF3 (self-aligned top-coupled 4-gate: SG+CG+FG+EG). SSI program, dedicated EG interpoly FN erase. Foundry nodes span 500 nm to 28 nm (TSMC 28HPC+, GF, UMC)."
           }
         ]
       },

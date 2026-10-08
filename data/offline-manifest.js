@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "217c6d07c9bc0e97c497",
+  "version": "7521713dc66cabc08c6d",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -208,7 +208,7 @@ self.NVMOfflineManifest = {
     "cxl-memory-pooling-simulator.js": "5b4bc8968a4011c64878d936d1658ec7a88054e8ed3d72f7b95efde9134fe18b",
     "data/ai-nvm-opportunities-knowledge.json": "fcb4c5619bcf034547fd1e5e7332b839deeb8b9bc7b3b5b97ff0c8d9d1db683c",
     "data/named-nvm-comparison.json": "69f18cd39e195164c8139e9079d4c8df2647a8c74b3ff826c667304f12330de1",
-    "data/nvm-search-index.js": "ca119d385b5ddf078ce67d99888f5a3048ee8c05e4cadae871ffb2c6687af305",
+    "data/nvm-search-index.js": "60709645ffb3607a397b32c6100dbeb8d80c2680fa53d9ea2148e148232a1cc7",
     "deep-space-sel-retention-simulator.js": "129c5eebca28d79b16249655d08a52c8f9cde29c35ddf9d7d1ccc26692b8e69b",
     "deferred-backgrounds.js": "a74dc489a74403e27ade20c4d0d16306d4d2f00c0f697cbff9662908ce0371a4",
     "demura-lut-calculator.js": "a7e0b8f2fbfe4ddba25f4d65236be022a198013c88e34e23e2616d29f4baaa60",
@@ -257,9 +257,9 @@ self.NVMOfflineManifest = {
     "nvm-industry-research.css": "94169f1d221d75104a7319834d7775159e2b956862f2cba4acfff40c0380051a",
     "nvm-ip-cells.css": "30752fed351f32bd9b7a685050b503dc9ecaa799a259c248ccfd1c131a89074a",
     "nvm-portal-entry.css": "6cab384d44dbd1c06f6f5a5cfffeca170196a38b0ed29811115edb2c6fc1b384",
-    "nvm-technology-atlas-zh.html": "f5e37e3b08fce240b59546515b912269cf1550e8dc6df63999e0856c4c04fd7f",
+    "nvm-technology-atlas-zh.html": "caa868057cef88271a64fa1414e0e8d635d96264c576e477763b85472a1f7688",
     "nvm-technology-atlas.css": "ca257c70ec0a8eb247155071092b7b9d3f1c61dc9426a7d02c6485274caf993f",
-    "nvm-technology-atlas.html": "bdc0c0ccd7ce0e91657a5e8072130dcca658153b3fe88c04996ea0aef87001cd",
+    "nvm-technology-atlas.html": "99df64c82780a302b00c464f19461fbaae8e1ce18a3f91bc34e8804c982cd03b",
     "nvm-technology-atlas.js": "7ba90c8f62c0b4146eb491c90abb2857e547613ed4da1ddec8bd1fce6b18c817",
     "oip-lifecycle.js": "e9035b966ccfd7fc0942651ecf81049579c72417f9481c1e1dad06863f40c3ea",
     "oip-secure-storage.html": "a83656f6660cff693c047079e5de41c2e9e249ddeabad7dbcf4bda47060838a8",
@@ -316,5 +316,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 13686518
+  "totalBytes": 13719526
 };

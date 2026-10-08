@@ -601,8 +601,8 @@
         "items": [
           {
             "id": "sst-superflash",
-            "name": "SST · SuperFlash",
-            "map": "源側注入寫入、多晶矽間 FN 抹除。公開代工節點約 180–28 nm；首頁亦見 500 nm–28 nm。"
+            "name": "SST · SuperFlash (ESF1/2/3)",
+            "map": "三代分裂閘極演進：ESF1（非自對準雙閘極）、ESF2（自對準雙閘極）、ESF3（自對準頂部耦合 4 閘極，SG+CG+FG+EG）。源側注入寫入、專用 EG 閘極間 FN 抹除。代工節點涵蓋 500 nm 至 28 nm（TSMC 28HPC+、GF、UMC）。"
           }
         ]
       },

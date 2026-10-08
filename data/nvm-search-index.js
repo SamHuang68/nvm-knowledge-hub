@@ -120,10 +120,10 @@ window.NVMTopicIndex = [
     "tags": "Floadia Floadia · LEE Flash G2 A SONOS storage cell sandwiched by switch transistors, with four extra masks. The vendor emphasizes VDD read without high voltage on diffusion terminals, and marks ongoing development. FN program through the side switches Reverse FN erase through the side switches Sense after the side switches turn on at VDD SONOS 儲存單元夾在兩側開關電晶體之間，4 道光罩。原廠強調 VDD 讀取、擴散端不需高壓；並標為持續開發。"
   },
   {
-    "title_zh": "SST SuperFlash：分裂閘極 eFlash",
-    "title_en": "SST SuperFlash: Split-Gate eFlash",
+    "title_zh": "SST SuperFlash：ESF1 / ESF2 / ESF3 三代分裂閘極 eFlash",
+    "title_en": "SST SuperFlash: ESF1 / ESF2 / ESF3 Three-Generation Split-Gate eFlash",
     "url": "nvm-technology-atlas.html#ip-sst-superflash",
-    "tags": "SST / Microchip SST · SuperFlash Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN. Source-side injection writes hot electrons into the floating gate Interpoly FN removes electrons from the floating gate Sense channel current after the select gate turns on 分裂閘極快閃記憶體：選擇閘與浮動閘並列。寫入源側注入，抹除多晶矽間 FN。"
+    "tags": "SST / Microchip SST · SuperFlash (ESF1/2/3) SST SuperFlash split-gate eFlash technology has advanced across three distinct generations: 1st-Gen ESF1 (1µm–0.11µm) used a non-self-aligned 2-gate cell with source-side injection (SSI) programming and FG-tip FN erase to the wordline; 2nd-Gen ESF2 (0.25µm–0.11µm) transitioned to a self-aligned 2-gate architecture, eliminating overlay margins and shrinking cell area by >40%; 3rd-Gen ESF3 (120nm–28nm) broke the planar eFlash scaling barrier by introducing a self-aligned top-coupled 4-gate 5-terminal cell (SG+CG+FG+EG), using a dedicated Erase Gate (EG) for 11.5V interpoly FN erase while fully decoupling the wordline (SG) at 0V, scaling successfully to 28nm and achieving mass production across TSMC, GF, and UMC. Source-side injection (SSI) writes hot electrons into FG with microamp-class write current Dedicated Erase Gate (EG) interpoly FN tunneling erase with SG fully decoupled at 0V Select gate (SG) turns on at core logic voltage to sense channel conduction current SST SuperFlash 分裂閘極 eFlash 技術歷經三代演進：第一代 ESF1（1µm–0.11µm）採非自對準雙閘極，源側注入 (SSI) 寫入、浮閘尖端 FN 抹除至字元線；第二代 ESF2（0.25µm–0.11µm）升級為自對準雙閘極，消除微影疊對誤差並縮減 40% 單元面積；第三代 ESF3（120nm–28nm）突破平面 eFlash 瓶頸，引進自對準頂部耦合 4 閘極 5 端子單元（SG+CG+FG+EG），以獨立 Erase Gate (EG) 承擔 11.5V 抹除高壓，使字元線 (SG) 完全與高壓解耦，成功微縮至 28nm 並獲台積電、格芯、聯電等晶圓廠大規模量產。"
   },
   {
     "title_zh": "常億科技 pFusion：PMOS 浮閘 eFlash",

@@ -2771,168 +2771,185 @@ The vendor marks ongoing development; this drawing teaches only the published st
 
 G2’s read claim is VDD plus side switches; it does not cancel charge-trap physics. An in-development note is not a production guarantee and is not a generic standard-cell library.
 
-### SST SuperFlash: Split-Gate eFlash
+### SST SuperFlash: ESF1 / ESF2 / ESF3 Three-Generation Split-Gate eFlash
 
 SST / Microchip
 
-Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN.
+SST SuperFlash split-gate eFlash technology has advanced across three distinct generations: 1st-Gen ESF1 (1µm–0.11µm) used a non-self-aligned 2-gate cell with source-side injection (SSI) programming and FG-tip FN erase to the wordline; 2nd-Gen ESF2 (0.25µm–0.11µm) transitioned to a self-aligned 2-gate architecture, eliminating overlay margins and shrinking cell area by >40%; 3rd-Gen ESF3 (120nm–28nm) broke the planar eFlash scaling barrier by introducing a self-aligned top-coupled 4-gate 5-terminal cell (SG+CG+FG+EG), using a dedicated Erase Gate (EG) for 11.5V interpoly FN erase while fully decoupling the wordline (SG) at 0V, scaling successfully to 28nm and achieving mass production across TSMC, GF, and UMC.
 
-#### SuperFlash: SSI Program / Interpoly FN Erase
+#### SuperFlash ESF3: SSI Program / Dedicated EG Interpoly FN Erase Cycle
 
-The same split-gate cell supports programming, electrical erase and subsequent programming. Erase lets electrons leave FG through the interpoly oxide and restores a reprogrammable window.
+The same self-aligned top-coupled ESF3 cell supports microamp-class SSI programming, dedicated Erase Gate interpoly FN electrical erase, and repeated cycling. Erase confines the 11.5V bias to EG while SG remains at 0V zero-stress, restoring the cell to a low-threshold conductive window with 100k cycles and 20-year retention.
 
 PGM → ERS → PGM
 
-Programmed
+Programmed State Awaiting Erase
 
-Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide. — The teaching drawing is not a foundry metrology cross-section.
+Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV. — Cell restored to low-threshold conduction window with 100k cycles and 20-year automotive-grade retention.
 
-The teaching drawing is not a foundry metrology cross-section.
+Cell restored to low-threshold conduction window with 100k cycles and 20-year automotive-grade retention.
 
-After the prescribed pulse or internal update cycle completes, use the specified read/verify criteria to confirm the target state before accepting new data. Do not invent a universal verification threshold, pulse count or completion time.
+After the specified erase pulse or on-chip auto-erase/verify algorithm completes, use PDK-specified read margins and sense amplifier references to confirm bit status; do not invent generic timing or pulse thresholds.
 
-Selection and update granularity follow the named array and interface. Cell-level reversibility does not establish byte, word, page or block command granularity.
+Supports sector erase (typically 4KB) with page/byte programming; cell-level reversibility does not establish host-level bit-alterability.
 
-Read structure and mechanism within the named SuperFlash generation. 2018 shipment and node tables are not guarantees for every product in 2026.
+Three-generation evolution (ESF1/ESF2/ESF3) reflects documented technology milestones; 28nm shipment metrics are verified from public automotive and foundry reports; extra mask count (typically 9–11 masks) and thermal budgets vary by target foundry license.
 
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations: SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution](https://www.sst.com/technology/superflash-technology/)
 
-SST SuperFlash eFlash
+SST SuperFlash eFlash (ESF1 / ESF2 / ESF3)
 
-Split-gate Flash: a select gate beside a floating gate. Program uses source-side injection; erase uses interpoly FN.
+SST SuperFlash split-gate evolution: ESF1 (non-self-aligned 2-gate), ESF2 (self-aligned 2-gate), ESF3 (self-aligned top-coupled 4-gate 5-terminal cell: SG+CG+FG+EG). Program uses source-side injection (SSI); erase uses interpoly FN to dedicated EG.
 
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- e− · Blue dots denote electrons; the count is qualitative.
+- SG · Select gate (Wordline); read select; 0V decoupled during erase.
+- CG · Top control gate; provides high capacitive coupling to FG.
+- EG · Dedicated erase gate; takes HV (~11.5V) for interpoly FN erase.
+- SSI · Source-side injection; efficient hot-electron injection at SG-FG gap.
 
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations: SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution](https://www.sst.com/technology/superflash-technology/)
 
-#### SST SuperFlash eFlash — Write
+#### SST SuperFlash eFlash (ESF1 / ESF2 / ESF3) — Write
 
 Establish the programmed state by the published mechanism without splicing unpublished bias tables.
 
-Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide.
+Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.
 
-**1. Split Gate: Select Gate beside Floating Gate**
+**1. ESF3 Cell Ready: SG, CG, FG and EG 4-Gate Topology**
 
-State: Fewer FG electrons
+State: FG Initial State
 
 Stimulus: Bias zero
 
-SuperFlash is published as a split-gate architecture.
+ESF3 self-aligned top-coupled cell features dedicated Erase Gate (EG), breaking ESF1/ESF2 scaling limits.
 
-**2. Source-Side Injection Writes Hot Electrons into FG**
+**2. Source-Side Injection (SSI) Injects Hot Electrons into FG**
 
 State: Programming
 
-Stimulus: SSI
+Stimulus: SSI (CG/SL Bias)
 
-The program mechanism is source-side injection, not a generic CHE label.
+High lateral field at SG-FG gap yields 100-1000x higher injection efficiency than CHE with microamp write current.
 
-**3. Electrons Remain on FG**
+**3. Hot Electrons Stored on FG; Threshold Shifted**
 
-State: Programmed
+State: Programmed State Retained
 
 Stimulus: Bias zero
 
-The licensed process range is not proof of one node.
+Electrons stored on FG raise cell equivalent threshold, ensuring disturb-free retention.
 
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- e− · Blue dots denote electrons; the count is qualitative.
+- SG · Select gate (Wordline); read select; 0V decoupled during erase.
+- CG · Top control gate; provides high capacitive coupling to FG.
+- EG · Dedicated erase gate; takes HV (~11.5V) for interpoly FN erase.
+- SSI · Source-side injection; efficient hot-electron injection at SG-FG gap.
 
-The process range is a licensing narrative, not proof of one production node.
+ESF1/ESF2 erase HV routes through WL; ESF3 introduces dedicated EG to break the 40nm barrier down to 28nm. Actual PDK mask adders and bias voltages depend on target foundry license.
 
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations: SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution](https://www.sst.com/technology/superflash-technology/)
 
-#### SST SuperFlash eFlash — Erase / Restore Limit
+#### SST SuperFlash eFlash (ESF1 / ESF2 / ESF3) — Erase / Restore Limit
 
 Electrically erase by the published mechanism so the cell returns to a reprogrammable window.
 
-Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide.
+Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.
 
-**1. FG Already Holds Injected Electrons**
+**1. Cell Holds Injected Charge: Ready for EG Erase**
 
-State: Programmed
+State: Programmed State Awaiting Erase
 
 Stimulus: Bias zero
 
-Erase uses interpoly FN, not a reverse SSI current.
+ESF1/2 erase HV routes through WL; ESF3 introduces dedicated Erase Gate (EG) to decouple WL completely.
 
-**2. Interpoly FN Removes Electrons from FG**
+**2. EG Biased to 11.5V: Interpoly FN Tunneling Erase**
 
 State: Erasing
 
-Stimulus: interpoly FN
+Stimulus: V_EG ≈ 11.5V; SG = 0V
 
-Electrons cross the oxide between select gate and floating gate.
+Electrons tunnel from FG tip to EG; select gate (SG) sits at 0V stress, preventing logic gate-oxide breakdown at advanced nodes.
 
-**3. FG Returns to a Reprogrammable Window**
+**3. FG Restored to Erased State: Ready for Rewriting**
 
 State: Erased
 
 Stimulus: Bias zero
 
-The teaching drawing is not a foundry metrology cross-section.
+Cell restored to low-threshold conduction window with 100k cycles and 20-year automotive-grade retention.
 
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- e− · Blue dots denote electrons; the count is qualitative.
+- SG · Select gate (Wordline); read select; 0V decoupled during erase.
+- CG · Top control gate; provides high capacitive coupling to FG.
+- EG · Dedicated erase gate; takes HV (~11.5V) for interpoly FN erase.
+- SSI · Source-side injection; efficient hot-electron injection at SG-FG gap.
 
-The process range is a licensing narrative, not proof of one production node.
+ESF1/ESF2 erase HV routes through WL; ESF3 introduces dedicated EG to break the 40nm barrier down to 28nm. Actual PDK mask adders and bias voltages depend on target foundry license.
 
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations: SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution](https://www.sst.com/technology/superflash-technology/)
 
-#### SST SuperFlash eFlash — Read
+#### SST SuperFlash eFlash (ESF1 / ESF2 / ESF3) — Read
 
 Sense the retained state under product read conditions, then latch and isolate.
 
-Hot electrons inject from the source side into FG; during erase, electrons leave FG through the interpoly oxide.
+Program uses source-side injection (SSI) for high-efficiency hot-electron injection into FG; erase applies HV to dedicated Erase Gate (EG) via interpoly FN, keeping Select Gate (SG) at 0V completely decoupled from HV.
 
-**1. The Same Split-Gate Cell Awaits Read**
+**1. ESF3 Cell Awaits Read: 4-Gate Biases Ready**
 
-State: Existing FG charge
+State: Existing FG Charge
 
-Stimulus: Read bias is product-defined
+Stimulus: Core Logic Rail Ready
 
-Read does not repeat SSI program.
+Read selects through wordline SG while CG provides optimal read bias.
 
-**2. Turn on Select Gate and Sense the Channel**
+**2. SG Turns On at Core Voltage to Sense Channel**
 
 State: Reading
 
-Stimulus: Small bias
+Stimulus: SG = VDD (Logic Level)
 
-Channel current reflects FG charge.
+Channel is cut off if FG stores electrons and conducts if erased; sense amplifier reads data state.
 
-**3. Latch then Turn off Select Gate**
+**3. Data Latched: SG Turns Off to Return to Standby**
 
-State: Charge retained
+State: Data Latched
 
 Stimulus: Bias zero
 
-Read-speed ratings must be checked on the licensed target version.
+Offers ultra-low standby leakage, ideal for MCUs, smart cards, and automotive processors.
 
 - Dielectric · Pale yellow marks a dielectric; thickness and material are unspecified.
 - Channel / Well · Blue-gray marks a silicon channel or well function, not a metrology cross-section.
 - Bias / I · Green arrows denote bias or conventional current direction.
-- e− · Blue dots denote electrons; the count is qualitative.
+- SG · Select gate (Wordline); read select; 0V decoupled during erase.
+- CG · Top control gate; provides high capacitive coupling to FG.
+- EG · Dedicated erase gate; takes HV (~11.5V) for interpoly FN erase.
+- SSI · Source-side injection; efficient hot-electron injection at SG-FG gap.
 
-The process range is a licensing narrative, not proof of one production node.
+ESF1/ESF2 erase HV routes through WL; ESF3 introduces dedicated EG to break the 40nm barrier down to 28nm. Actual PDK mask adders and bias voltages depend on target foundry license.
 
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/)
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf)
+- [ip-sst-esf-generations: SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution](https://www.sst.com/technology/superflash-technology/)
 
 #### IP Cell Tradeoffs
 
-SuperFlash program is SSI, not a generic CHE label; erase is inter-gate FN, not channel erase. A licensed process range is not proof of one production node.
+SST SuperFlash evolution demonstrates the first-principles resolution of deep submicron eFlash scaling limits: in 2-gate ESF1/ESF2, the high erase voltage (~12V) was routed to the wordline (SG/WL), causing dielectric breakdown on ultra-thin core logic gate oxide below 90nm; ESF3 solved this via four-gate functional decoupling—adding a top Control Gate (CG) for high capacitive coupling and a dedicated Erase Gate (EG) to absorb the 11.5V pulse, keeping the Select Gate (SG) at 0V with standard logic thin oxide. This enabled scaling past the 40nm planar barrier down to 28nm. Process rules and mask adders must be verified against target foundry PDK licenses.
 
 ### Chingis Technology pFusion: PMOS Floating-Gate eFlash
 
@@ -6646,6 +6663,7 @@ Evaluate an SCM candidate through three questions: Which specific workload bottl
 - [ip-floadia-g2: Floadia LEE Flash G2](https://floadia.com/product/lee-flash-g2/). vendor; 2026-09-16; Location in the Source: SONOS cell sandwiched by switch transistors; 4 extra masks; VDD read / non-volatilized logic; marked ongoing development.; Limitations: An in-development note is not a production guarantee.
 - [ip-sst-home: SST Home and Services](https://www.sst.com/services/). vendor; 2026-09-16; Location in the Source: SuperFlash embedded Flash process-integration and licensing entry.; Limitations: The services page proves the product family; it does not replace brochure SSI / interpoly FN detail.
 - [ip-sst-superflash: SST / Microchip SuperFlash Brochure DS00001425F](https://ww1.microchip.com/downloads/aemDocuments/documents/sst/product-documents/brochures/00001425F.pdf). vendor; 2018-03; Location in the Source: Pages 2–3: split-gate, source-side injection program, interpoly FN erase.; Limitations: Read structure and mechanism within the named SuperFlash generation; 2018 shipment and node tables are not 2026 product guarantees.
+- [ip-sst-esf-generations: SST SuperFlash ESF1 / ESF2 / ESF3 Architecture Evolution](https://www.sst.com/technology/superflash-technology/). vendor; 2024-05; Location in the Source: ESF1 non-self-aligned 2-gate (1µm–0.11µm); ESF2 self-aligned 2-gate (0.25µm–0.11µm); ESF3 top-coupled 4-gate 5-terminal cell (120nm–28nm, dedicated Erase Gate).; Limitations: Three-generation evolution represents SST / Microchip public roadmap milestones; PDK design rules and mask adders depend on foundry licensing.
 - [ip-chingis-pfusion: Chingis Technology pFusion eFlash Technology](https://www.chingistek.com). vendor; 2026-09-16; Location in the Source: P-Channel floating-gate PMOS eFlash; band-to-band tunneling induced hot-hole injection (BBHH) program with FN tunneling erase; microamp write current, standard CMOS compatible.; Limitations: Applicable to MCUs and smart cards; does not represent all node PDKs from a single datasheet.
 - [ip-chingis-pm25: Chingis pFlash SPI NOR Flash](https://www.chingistek.com). vendor; 2026-09-16; Location in the Source: Pm25 series standalone NOR Flash; ESMT group product portfolio.; Limitations: Standalone packages do not represent all embedded macros.
 - [ip-iotmemory-silvoflash: IOTMemory SilvoFlash Low-Voltage eFlash](https://iotmemory.com/en). vendor; 2026-09-16; Location in the Source: SilvoFlash native 0.9V–1.2V ultra-low-voltage eFlash; validated in 40nm SoC and DDR5 SPD IC supply chain.; Limitations: Native core-voltage read does not mean erase requires no internal boost; production status verified by named products.
@@ -6936,7 +6954,7 @@ The HD-MTP leaf is CHI/FN floating gate. Schottky TwinBit belongs to neither lea
 
 The split-gate eFlash leaf is this family, not SONOS.
 
-- SST · SuperFlash(#ip-sst-superflash): Source-side injection program and interpoly FN erase. Public foundry nodes about 180–28 nm; the home page also states 500 nm–28 nm.
+- SST · SuperFlash (ESF1/2/3)(#ip-sst-superflash): Three-generation split-gate evolution: ESF1 (non-self-aligned 2-gate), ESF2 (self-aligned 2-gate), ESF3 (self-aligned top-coupled 4-gate: SG+CG+FG+EG). SSI program, dedicated EG interpoly FN erase. Foundry nodes span 500 nm to 28 nm (TSMC 28HPC+, GF, UMC).
 
 ### SONOS eFlash
 

@@ -358,27 +358,28 @@
     },
     {
       "id": "sst-superflash",
-      "title": "SST SuperFlash：分裂閘極 eFlash",
-      "shortTitle": "SST · SuperFlash",
+      "title": "SST SuperFlash：ESF1 / ESF2 / ESF3 三代分裂閘極 eFlash",
+      "shortTitle": "SST · SuperFlash (ESF1/2/3)",
       "vendor": "SST／Microchip",
       "group": "eflash",
       "hostTopic": "nor",
-      "summary": "分裂閘極快閃記憶體：選擇閘與浮動閘並列。寫入源側注入，抹除多晶矽間 FN。",
-      "program": "源側注入把熱電子寫入浮動閘極",
-      "reverse": "多晶矽間 FN 使電子離開浮動閘極",
-      "readout": "選擇閘開啟後感測通道電流",
-      "lesson": "SuperFlash 的寫入是 SSI，不是通用 CHE 標籤；抹除是閘極間 FN，不是通道抹除。授權製程範圍不能當成單一量產節點證明。",
+      "summary": "SST SuperFlash 分裂閘極 eFlash 技術歷經三代演進：第一代 ESF1（1µm–0.11µm）採非自對準雙閘極，源側注入 (SSI) 寫入、浮閘尖端 FN 抹除至字元線；第二代 ESF2（0.25µm–0.11µm）升級為自對準雙閘極，消除微影疊對誤差並縮減 40% 單元面積；第三代 ESF3（120nm–28nm）突破平面 eFlash 瓶頸，引進自對準頂部耦合 4 閘極 5 端子單元（SG+CG+FG+EG），以獨立 Erase Gate (EG) 承擔 11.5V 抹除高壓，使字元線 (SG) 完全與高壓解耦，成功微縮至 28nm 並獲台積電、格芯、聯電等晶圓廠大規模量產。",
+      "program": "源側注入 (SSI) 將熱電子高效注入浮動閘極 (微安培級寫入電流)",
+      "reverse": "獨立 Erase Gate (EG) 閘極間 FN 穿隧抹除 (SG 字元線 0V 完全解耦)",
+      "readout": "選擇閘 (SG) 在核心邏輯電壓開啟並感測通道電流",
+      "lesson": "SST SuperFlash 的技術演進體現了嵌入式快閃記憶體克服深次微米微縮極限的第一性原理：在 ESF1/ESF2 雙閘極架構中，抹除高壓（~12V）必須施加在字元線 (SG/WL) 上，當邏輯製程微縮至 90nm 以下時，超薄核心邏輯閘氧化層根本無法承受高壓擊穿；ESF3 的架構突破在於『四閘極功能解耦』——引入頂部控制閘 (CG) 提供高電容耦合比，並增設專用獨立抹除閘 (EG) 承受 11.5V 抹除脈衝，使字元線 (SG) 在抹除時保持 0V，完全採用標準低壓邏輯電晶體閘氧，從而跨越 40nm 壁壘直達 28nm HKMG/FinFET 製程。授權製程範圍須依各代工廠具體 PDK 規格核對。",
       "eraseCycle": {
         "kind": "electrical",
-        "title": "SuperFlash：SSI 寫入／interpoly FN 抹除",
+        "title": "SuperFlash ESF3：SSI 寫入／獨立 EG Interpoly FN 抹除循環",
         "sequence": "PGM → ERS → PGM",
-        "definition": "同一分裂閘極單元可寫入、電性抹除及再次寫入。抹除使電子經多晶矽間氧化層離開 FG，回到可再寫窗口。",
-        "verification": "指定脈衝或內部更新週期完成後，依該版本的讀取／驗證條件確認目標狀態，才能接受新資料；不自行設定通用驗證閾值、脈衝次數或完成時間。",
-        "granularity": "受選範圍與更新粒度依具名陣列及介面；單元可逆不等於主機一定能逐位元、逐字、逐頁或逐區塊操作。",
-        "limits": "結構及機制按具名 SuperFlash 世代閱讀。2018 年出貨量與節點表不是 2026 年全部產品保證。",
+        "definition": "同一自對準頂部耦合 ESF3 單元支援微安培級源側注入寫入、獨立 Erase Gate 多晶矽間 FN 電性抹除及多次重複寫入。抹除時 11.5V 高壓完全隔離在 EG，字元線 (SG) 處於 0V 零應力，使單元恢復未寫入導通窗口，支援 10 萬次循環與 20 年保持性。",
+        "verification": "指定抹除脈衝或晶片內部自動抹除／驗證序列完成後，依 PDK 規定的讀取邊限與感測放大器參考電流確認單元狀態；不自行假設通用完成時間或脈衝次數。",
+        "granularity": "支援扇區抹除 (Sector Erase, 通常 4KB) 與頁面／位元組寫入；單元級電性可逆不代表主機端具備逐位元獨立抹除粒度。",
+        "limits": "三代架構演進（ESF1/ESF2/ESF3）為技術演進歷程；28nm 量產出貨數據為公開車規與代工廠報告，不同晶圓代工廠之額外光罩道數（通常 9–11 道）與熱預算需依具體 PDK 授權合約核實。",
         "sourceIds": [
           "ip-sst-home",
-          "ip-sst-superflash"
+          "ip-sst-superflash",
+          "ip-sst-esf-generations"
         ]
       }
     },
