@@ -342,7 +342,7 @@ export function calculateTddbWeibull(params = {}) {
  * @param {Object} simData - Return value of calculateTddbWeibull
  * @param {string} lang - 'zh' | 'en'
  */
-export function drawWeibullCanvas(canvas, simData, lang = 'zh') {
+export function drawWeibullCanvas(canvas, simData, lang = 'zh', hoverPos = null) {
   if (!canvas || !canvas.getContext) return;
   const ctx = canvas.getContext('2d');
   const dpr = window.devicePixelRatio || 1;
@@ -536,6 +536,64 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh') {
   ctx.setLineDash([]);
 
   ctx.fillText(lang === 'zh' ? `陣列 (${simData.inputs.arraySizeKey.toUpperCase()})` : `Array (${simData.inputs.arraySizeKey.toUpperCase()})`, legX + 146, legY + 13);
+
+  // Interactive Crosshair Probe Snapping
+  if (hoverPos && hoverPos.x >= padLeft && hoverPos.x <= padLeft + plotW && hoverPos.y >= padTop && hoverPos.y <= padTop + plotH) {
+    const hx = hoverPos.x;
+    const hy = hoverPos.y;
+    ctx.save();
+    ctx.strokeStyle = 'rgba(37, 99, 235, 0.75)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 3]);
+
+    // Vertical line
+    ctx.beginPath();
+    ctx.moveTo(hx, padTop);
+    ctx.lineTo(hx, padTop + plotH);
+    ctx.stroke();
+
+    // Horizontal line
+    ctx.beginPath();
+    ctx.moveTo(padLeft, hy);
+    ctx.lineTo(padLeft + plotW, hy);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Sample probed logT and Weibull W
+    const probedLogT = logMin + ((hx - padLeft) / plotW) * (logMax - logMin);
+    const probedW = wMin + (1.0 - (hy - padTop) / plotH) * (wMax - wMin);
+    const probedF = Math.max(0, Math.min(1.0, 1.0 - Math.exp(-Math.exp(probedW))));
+
+    // Format probed time
+    let timeStr = `${Math.pow(10, probedLogT).toFixed(1)}s`;
+    if (probedLogT < -3) timeStr = `${(Math.pow(10, probedLogT) * 1e6).toFixed(0)}µs`;
+    else if (probedLogT < 0) timeStr = `${(Math.pow(10, probedLogT) * 1e3).toFixed(1)}ms`;
+    else if (probedLogT > 7.497) timeStr = `${(Math.pow(10, probedLogT) / 3.1536e7).toFixed(1)}y`;
+    else if (probedLogT > 3.556) timeStr = `${(Math.pow(10, probedLogT) / 3600).toFixed(1)}h`;
+
+    const fStr = probedF < 0.001 ? `${(probedF * 1e6).toFixed(1)} ppm` : `${(probedF * 100).toFixed(2)}%`;
+    const sampleText = `t: ${timeStr} | F(t): ${fStr}`;
+
+    const pillW = 165;
+    const pillH = 22;
+    const pillX = Math.min(padLeft + plotW - pillW - 4, Math.max(padLeft + 4, hx + 10));
+    const pillY = Math.min(padTop + plotH - pillH - 4, Math.max(padTop + 4, hy - 26));
+
+    ctx.fillStyle = '#ffffff';
+    ctx.strokeStyle = '#2563eb';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(pillX, pillY, pillW, pillH, 4);
+    else ctx.rect(pillX, pillY, pillW, pillH);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#1e40af';
+    ctx.font = 'bold 9.5px "IBM Plex Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(sampleText, pillX + pillW / 2, pillY + 14);
+    ctx.restore();
+  }
 }
 
 /**
@@ -622,6 +680,23 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
       }
     }
 
+    // Click-to-copy ergonomics on KPI elements
+    [eoxValEl, betaValEl, etaCellEl, etaArrayEl, fitRateEl, f15YEl].forEach((el) => {
+      if (el && !el.dataset.copyAttached) {
+        el.dataset.copyAttached = 'true';
+        el.style.cursor = 'pointer';
+        el.setAttribute('title', lang === 'zh' ? '點擊複製數值' : 'Click to copy metric');
+        el.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(el.textContent.trim());
+            const orig = el.textContent;
+            el.textContent = lang === 'zh' ? '已複製！' : 'Copied!';
+            setTimeout(() => { el.textContent = orig; }, 1200);
+          } catch (_) {}
+        });
+      }
+    });
+
     // Update Verdict
     if (verdictBanner) {
       verdictBanner.className = 'tddb-verdict-banner ' + res.verdict.status;
@@ -662,13 +737,76 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
 
     // Redraw Canvas
     if (canvas) {
-      drawWeibullCanvas(canvas, res, lang);
+      drawWeibullCanvas(canvas, res, lang, hoverPos);
     }
+  }
+
+  function syncPresetDropdown() {
+    if (!presetSelect) return;
+    const curTox = parseFloat(toxSlider?.value);
+    const curVox = parseFloat(voxSlider?.value);
+    const curTemp = parseFloat(tempSlider?.value);
+    const curModel = modelSelect?.value;
+    const curArray = arraySelect?.value;
+    const curDuty = dutySelect?.value;
+
+    const matchedPreset = Object.entries(TDDB_PRESETS).find(([_, p]) =>
+      Math.abs(p.toxNm - curTox) < 0.01 &&
+      Math.abs(p.voxV - curVox) < 0.01 &&
+      Math.abs(p.tempC - curTemp) < 0.1 &&
+      p.modelId === curModel &&
+      p.arraySizeKey === curArray &&
+      p.dutyCycleKey === curDuty
+    );
+
+    let customOpt = presetSelect.querySelector('option[value="custom"]');
+    if (!matchedPreset) {
+      if (!customOpt) {
+        customOpt = document.createElement('option');
+        customOpt.value = 'custom';
+        customOpt.setAttribute('data-lang-zh', '自訂應力參數 (Custom)');
+        customOpt.setAttribute('data-lang-en', 'Custom Parameters');
+        presetSelect.appendChild(customOpt);
+      }
+      const lang = getLang();
+      customOpt.textContent = lang === 'zh' ? '自訂應力參數 (Custom)' : 'Custom Parameters';
+      presetSelect.value = 'custom';
+    } else {
+      presetSelect.value = matchedPreset[0];
+    }
+  }
+
+  // Pointer interactions for Canvas Crosshair Probe
+  let hoverPos = null;
+  if (canvas) {
+    canvas.addEventListener('pointermove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      hoverPos = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+      const lang = getLang();
+      const res = calculateTddbWeibull({
+        toxNm: parseFloat(toxSlider?.value || 2.8),
+        voxV: parseFloat(voxSlider?.value || 0.75),
+        tempC: parseFloat(tempSlider?.value || 150),
+        modelId: modelSelect?.value || 'e_model',
+        arraySizeKey: arraySelect?.value || '64_kb',
+        dutyCycleKey: dutySelect?.value || 'array_multiplexed',
+      });
+      drawWeibullCanvas(canvas, res, lang, hoverPos);
+    });
+
+    canvas.addEventListener('pointerleave', () => {
+      hoverPos = null;
+      update();
+    });
   }
 
   // Presets Handler
   if (presetSelect) {
     presetSelect.addEventListener('change', () => {
+      if (presetSelect.value === 'custom') return;
       const p = TDDB_PRESETS[presetSelect.value];
       if (!p) return;
       if (toxSlider) toxSlider.value = p.toxNm;
@@ -681,10 +819,15 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
     });
   }
 
+  const handleControlInput = () => {
+    syncPresetDropdown();
+    update();
+  };
+
   [toxSlider, voxSlider, tempSlider, modelSelect, arraySelect, dutySelect].forEach((ctrl) => {
     if (ctrl) {
-      ctrl.addEventListener('input', update);
-      ctrl.addEventListener('change', update);
+      ctrl.addEventListener('input', handleControlInput);
+      ctrl.addEventListener('change', handleControlInput);
     }
   });
 

@@ -149,9 +149,9 @@ export function calculateBspdnMetrics(params = {}) {
   // 4. Arrhenius Lifetime Factor (Ea = 0.7 eV, kB = 8.617333262145e-5 eV/K)
   const kB = 8.617333262145e-5;
   const Ea = 0.70; // Dielectric breakdown activation energy
-  const tKCurrent = tjActualCurrent + 273.15;
-  const tKBaseline = tjActualBaseline + 273.15;
-  const lifetimeRatio = Math.exp((Ea / kB) * ((1 / tKCurrent) - (1 / tKBaseline)));
+  const tKCurrent = Math.max(1.0, tjActualCurrent + 273.15);
+  const tKBaseline = Math.max(1.0, tjActualBaseline + 273.15);
+  const lifetimeRatio = Math.exp(Math.max(-50, Math.min(50, (Ea / kB) * ((1 / tKCurrent) - (1 / tKBaseline)))));
 
   // 5. RC Interconnect Bitline Propagation Delay (Substrate Coupling)
   // Higher C_coupling slightly increases propagation delay, but eliminated frontside wiring lowers overall RC

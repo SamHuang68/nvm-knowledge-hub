@@ -189,7 +189,7 @@ export function calculateCpoSiphMetrics({
   const totalHeatLoadW = laserDissipatedHeatW + (preset.asicThermalPowerW * 0.15); // 15% local coupling
   const deltaT = totalHeatLoadW * preset.thermalResistanceKPerW;
   const junctionTempC = ambientTempC + deltaT;
-  const junctionTempK = junctionTempC + 273.15;
+  const junctionTempK = Math.max(1.0, junctionTempC + 273.15);
   const baseTempK = 85.0 + 273.15; // 85°C in Kelvin
 
   // 3. Silicon Micro-Ring Resonator (MRR) Wavelength Thermal Drift
@@ -211,7 +211,7 @@ export function calculateCpoSiphMetrics({
   // AF = exp[ (Ea / k) * (1/T_base - 1/T_j) ]
   // Retention(T_j) = BaseRetention / AF
   const arrheniusExponent = (tech.activationEnergyEv / SIPH_CONSTANTS.BOLTZMANN_EV) * ((1.0 / baseTempK) - (1.0 / junctionTempK));
-  const accelerationFactor = Math.exp(arrheniusExponent);
+  const accelerationFactor = Math.exp(Math.max(-50, Math.min(50, arrheniusExponent)));
   const estimatedRetentionYears = tech.baseRetentionYears85C / Math.max(0.001, accelerationFactor);
 
   // 6. Overall CPO Optical System Grade

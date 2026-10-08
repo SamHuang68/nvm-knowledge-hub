@@ -407,9 +407,9 @@ export class AutomotiveHighTempSicGanSimulator {
 
     // 1. Arrhenius Acceleration Factor (AF) from 125 C (398.15 K) baseline:
     const T_base_K = 125 + 273.15;
-    const T_j_K = s.junctionTemp + 273.15;
+    const T_j_K = Math.max(1.0, s.junctionTemp + 273.15);
     const exponent = (tech.activationEnergyEa / this.kB) * ( (1 / T_base_K) - (1 / T_j_K) );
-    const af = Math.exp(Math.max(-10, Math.min(35, exponent)));
+    const af = Math.exp(Math.max(-50, Math.min(50, exponent)));
 
     // Lifetime in years:
     const lifetimeYears = tech.baseLifetimeYears / af;
@@ -673,9 +673,9 @@ export class AutomotiveHighTempSicGanSimulator {
     const steps = 50;
     for (let i = 0; i <= steps; i++) {
       const t = minT + (i / steps) * (maxT - minT);
-      const tK = t + 273.15;
+      const tK = Math.max(1.0, t + 273.15);
       const exp = (p.tech.activationEnergyEa / this.kB) * ((1 / T_base_K) - (1 / tK));
-      const af = Math.exp(Math.max(-5, Math.min(30, exp)));
+      const af = Math.exp(Math.max(-50, Math.min(50, exp)));
       const life = p.tech.baseLifetimeYears / af;
       const logLife = Math.max(logMin, Math.min(logMax, Math.log10(life)));
 

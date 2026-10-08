@@ -164,9 +164,9 @@ export function calculateAutomotiveLoadDumpClamp({
   // High Temperature Arrhenius Leakage Multiplier:
   // Ea = 0.85 eV for silicon reverse junction
   const kEv = 8.617333262e-5;
-  const tKelvin = tj + 273.15;
+  const tKelvin = Math.max(1.0, tj + 273.15);
   const tRefKelvin = 298.15;
-  const leakageRatio = Math.exp((0.85 / kEv) * (1.0 / tRefKelvin - 1.0 / tKelvin));
+  const leakageRatio = Math.exp(Math.max(-50, Math.min(50, (0.85 / kEv) * (1.0 / tRefKelvin - 1.0 / tKelvin))));
   const baseLeakageUa = 0.05;
   const highTempLeakageMa = Number((baseLeakageUa * leakageRatio / 1000.0).toFixed(2));
 
