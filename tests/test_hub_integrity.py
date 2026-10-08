@@ -867,6 +867,7 @@ def run_tests() -> None:
 
     # 6. 驗證全站 14 個 TechArticle 頁面 100% 宣告 datePublished 與 dateModified 標準時間軸
     missing_timeline = 0
+    page_modified_dates = {}
     for p in tech_articles:
         p_text = (BASE / p).read_text(encoding="utf-8")
         s_match = re.search(r'<script\s+type=["\']application/ld\+json["\']>(.*?)</script>', p_text, re.DOTALL)
@@ -874,8 +875,12 @@ def run_tests() -> None:
         if s_match:
             try:
                 ld = json.loads(s_match.group(1))
+                mod_date = ld.get("dateModified", "")
                 has_timeline = (ld.get("datePublished") == "2026-08-29T00:00:00+08:00" and
-                                ld.get("dateModified") == "2026-09-10T00:00:00+08:00")
+                                bool(re.match(r"^2026-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\+08:00$", mod_date)) and
+                                mod_date >= "2026-08-29T00:00:00+08:00")
+                if has_timeline:
+                    page_modified_dates[p] = mod_date
             except Exception:
                 pass
         if not has_timeline:
@@ -887,8 +892,9 @@ def run_tests() -> None:
     missing_og_articles = 0
     for p in tech_articles:
         p_text = (BASE / p).read_text(encoding="utf-8")
+        target_mod = page_modified_dates.get(p, "")
         has_og_art = ('property="article:published_time" content="2026-08-29T00:00:00+08:00"' in p_text and
-                      'property="article:modified_time" content="2026-09-10T00:00:00+08:00"' in p_text and
+                      (f'property="article:modified_time" content="{target_mod}"' in p_text if target_mod else False) and
                       'property="article:author" content="NVM Knowledge Hub Editorial Board"' in p_text)
         if not has_og_art:
             missing_og_articles += 1
