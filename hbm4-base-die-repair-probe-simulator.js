@@ -677,6 +677,9 @@ export function initHbm4ProbeSimulator(rootSelector = '#hbm4-repair-probe-simula
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
   window.addEventListener('resize', update);
+    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('languagechange', () => update());
+  window.addEventListener('resize', () => update());
   update();
 }
 

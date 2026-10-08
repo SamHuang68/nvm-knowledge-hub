@@ -86,7 +86,7 @@ try {
       await page.goto(new URL(`technology-comparison.html?lang=${language}#named-implementations`, base).href);
       const section = page.locator('#named-implementations');
       await section.waitFor();
-      assert.match(await section.locator('h2').innerText(), language === 'en' ? /conditions differ, no ranking/ : /條件不同，不作排名/);
+      assert.match(await section.locator('h2').innerText(), language === 'en' ? /conditions differ, no ranking/i : /條件不同，不作排名/);
       assert.equal(await section.locator('table tbody tr').count(), 3);
       assert.equal(await section.locator('table td[data-case]').count(), 6);
       assert.equal(await section.locator('thead th[scope="col"]').count(), 3);
@@ -116,7 +116,7 @@ try {
         assert.ok(await scroll.evaluate(element => element.scrollLeft) > before);
       }
       await page.locator('#languageToggle').click();
-      assert.match(await section.locator('h2').innerText(), language === 'en' ? /條件不同，不作排名/ : /conditions differ, no ranking/);
+      assert.match(await section.locator('h2').innerText(), language === 'en' ? /條件不同，不作排名/ : /conditions differ, no ranking/i);
       assert.equal(await section.locator('details[open]').count(), 2, 'language change keeps expanded context');
       await page.locator('#languageToggle').click();
       const response = await contextRequest(page, base, 'data/named-nvm-comparison.json');

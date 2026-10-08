@@ -649,6 +649,9 @@ export function initHybridBondingSimulator(rootSelector = '#hybrid-bonding-tsv-s
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
   window.addEventListener('resize', update);
+    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('languagechange', () => update());
+  window.addEventListener('resize', () => update());
   update();
 }
 

@@ -110,12 +110,16 @@ export const BSPDN_PRESETS = {
  * @param {number} params.macroBitCapacity - Macro capacity in Kb (e.g. 16 to 1024 Kb)
  * @returns {Object} Calculated metrics
  */
-export function calculateBspdnMetrics(params) {
+export function calculateBspdnMetrics(params = {}) {
   const preset = BSPDN_PRESETS[params.presetKey] || BSPDN_PRESETS.tsmc_a16_spr;
   const fspdnBaseline = BSPDN_PRESETS.fspdn_3nm_baseline;
 
-  const iPeak = params.peakWriteCurrent * 1e-3; // Convert mA to A
-  const tRise = Math.max(0.05, params.pulseRiseTime) * 1e-9; // Convert ns to s
+  const peakWriteCurrent = typeof params.peakWriteCurrent === 'number' ? params.peakWriteCurrent : (preset.defaultPeakCurrent || 12);
+  const pulseRiseTime = typeof params.pulseRiseTime === 'number' ? params.pulseRiseTime : (preset.defaultRiseTime || 0.6);
+  const ambientTemp = typeof params.ambientTemp === 'number' ? params.ambientTemp : 25;
+
+  const iPeak = peakWriteCurrent * 1e-3; // Convert mA to A
+  const tRise = Math.max(0.05, pulseRiseTime) * 1e-9; // Convert ns to s
   const diDt = iPeak / tRise; // A/s
 
   // 1. Current Preset IR-Drop & Inductive Noise
@@ -136,11 +140,11 @@ export function calculateBspdnMetrics(params) {
   const dutyCycle = 0.05; // 5% active programming duty cycle during burst write
   const pDissCurrent = (iPeak * preset.nominalVdd) * dutyCycle; // Watts
   const deltaTCurrent = pDissCurrent * preset.thermalResistance; // °C
-  const tjActualCurrent = params.ambientTemp + deltaTCurrent;
+  const tjActualCurrent = ambientTemp + deltaTCurrent;
 
   const pDissBaseline = (iPeak * fspdnBaseline.nominalVdd) * dutyCycle;
   const deltaTBaseline = pDissBaseline * fspdnBaseline.thermalResistance;
-  const tjActualBaseline = params.ambientTemp + deltaTBaseline;
+  const tjActualBaseline = ambientTemp + deltaTBaseline;
 
   // 4. Arrhenius Lifetime Factor (Ea = 0.7 eV, kB = 8.617333262145e-5 eV/K)
   const kB = 8.617333262145e-5;
@@ -223,6 +227,7 @@ export function drawBspdnCanvas(canvas, metrics, mode = 'transient_waveform') {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   const dpr = typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1;
   const rect = canvas.getBoundingClientRect();
@@ -560,9 +565,22 @@ export function initBspdnSimulator() {
   }
 
   if (presetSelect) presetSelect.addEventListener('change', update);
-  if (currentSlider) currentSlider.addEventListener('input', update);
-  if (riseSlider) riseSlider.addEventListener('input', update);
-  if (tempSlider) tempSlider.addEventListener('input', update);
+  let rAfId = null;
+  function scheduleUpdate() {
+    if (typeof window !== 'undefined' && window.requestAnimationFrame) {
+      if (rAfId) cancelAnimationFrame(rAfId);
+      rAfId = requestAnimationFrame(() => {
+        update();
+        rAfId = null;
+      });
+    } else {
+      update();
+    }
+  }
+
+  if (currentSlider) currentSlider.addEventListener('input', scheduleUpdate);
+  if (riseSlider) riseSlider.addEventListener('input', scheduleUpdate);
+  if (tempSlider) tempSlider.addEventListener('input', scheduleUpdate);
 
   if (btnModeTransient) {
     btnModeTransient.addEventListener('click', () => {
@@ -607,6 +625,9 @@ export function initBspdnSimulator() {
     });
   }
 
+    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('languagechange', () => update());
+  window.addEventListener('resize', () => update());
   update();
 }
 

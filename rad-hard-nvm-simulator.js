@@ -147,12 +147,12 @@ export const RAD_NVM_TECHS = {
  * @param {number} params.heavyIonLet - Simulated LET in MeV*cm^2/mg
  * @returns {Object} Metrics
  */
-export function calculateRadMetrics(params) {
+export function calculateRadMetrics(params = {}) {
   const preset = RAD_PRESETS[params.presetKey] || RAD_PRESETS.deep_space_jupiter;
   const tech = RAD_NVM_TECHS[params.techKey] || RAD_NVM_TECHS.antifuse_ohmic;
 
-  const dose = Math.max(0, params.tidDoseKrad);
-  const letVal = Math.max(0, params.heavyIonLet);
+  const dose = typeof params.tidDoseKrad === 'number' && !isNaN(params.tidDoseKrad) ? Math.max(0, params.tidDoseKrad) : preset.tidKrad;
+  const letVal = typeof params.heavyIonLet === 'number' && !isNaN(params.heavyIonLet) ? Math.max(0, params.heavyIonLet) : preset.letFlux;
 
   // 1. Analytical TID Threshold Shift ΔV_th
   // ΔV_th ∝ t_ox^2 * dose
@@ -241,7 +241,7 @@ export function calculateRadMetrics(params) {
  * @param {Object} metrics
  * @param {string} mode - 'tid_dose_sweep' | 'let_weibull_cross_section'
  */
-export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep') {
+export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep', hoverPos = null) {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
@@ -462,6 +462,56 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep') {
     });
   }
 
+  // Interactive Hover Crosshair Probe
+  if (hoverPos && hoverPos.x >= padLeft && hoverPos.x <= padLeft + plotWidth && hoverPos.y >= padTop && hoverPos.y <= padTop + plotHeight) {
+    const clampedX = Math.max(padLeft, Math.min(padLeft + plotWidth, hoverPos.x));
+    const ratioX = (clampedX - padLeft) / plotWidth;
+
+    ctx.save();
+    // Vertical Crosshair line
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.75)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 3]);
+    ctx.beginPath();
+    ctx.moveTo(clampedX, padTop);
+    ctx.lineTo(clampedX, padTop + plotHeight);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Probe readout badge
+    let probeText = '';
+    if (mode === 'tid_dose_sweep') {
+      const probeDose = ratioX * 1000;
+      const probeRes = calculateRadMetrics({ presetKey: metrics.preset.id, techKey: metrics.tech.id, tidDoseKrad: probeDose, heavyIonLet: 65 });
+      probeText = `Dose: ${probeDose.toFixed(0)} krad | Margin: ${probeRes.remainingMarginMv.toFixed(1)} mV`;
+    } else {
+      const probeLet = ratioX * 100;
+      const probeRes = calculateRadMetrics({ presetKey: metrics.preset.id, techKey: metrics.tech.id, tidDoseKrad: 150, heavyIonLet: probeLet });
+      probeText = `LET: ${probeLet.toFixed(0)} MeV | Cross-sec: ${probeRes.seuCrossSection.toExponential(2)}`;
+    }
+
+    ctx.font = '600 9.5px "IBM Plex Mono", monospace';
+    const textW = ctx.measureText(probeText).width;
+    const badgeW = textW + 16;
+    const badgeH = 22;
+    const badgeX = Math.min(padLeft + plotWidth - badgeW - 4, Math.max(padLeft + 4, clampedX - badgeW / 2));
+    const badgeY = padTop + 8;
+
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 4);
+    else ctx.rect(badgeX, badgeY, badgeW, badgeH);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#38bdf8';
+    ctx.textAlign = 'center';
+    ctx.fillText(probeText, badgeX + badgeW / 2, badgeY + 15);
+    ctx.restore();
+  }
+
   ctx.restore();
 }
 
@@ -509,6 +559,7 @@ export function initRadSimulator() {
     if (letVal && letSlider) letVal.textContent = letSlider.value + ' MeV';
 
     const metrics = calculateRadMetrics(config);
+    currentMetrics = metrics;
 
     if (outDeltavth) outDeltavth.textContent = metrics.deltaVthMv.toFixed(1) + ' mV';
     if (outMargin) {
@@ -531,7 +582,7 @@ export function initRadSimulator() {
     }
 
     if (canvas) {
-      drawRadCanvas(canvas, metrics, activeMode);
+      drawRadCanvas(canvas, metrics, activeMode, hoverPos);
     }
   }
 
@@ -544,9 +595,22 @@ export function initRadSimulator() {
     update();
   });
 
+  let rAfId = null;
+  function scheduleUpdate() {
+    if (typeof window !== 'undefined' && window.requestAnimationFrame) {
+      if (rAfId) cancelAnimationFrame(rAfId);
+      rAfId = requestAnimationFrame(() => {
+        update();
+        rAfId = null;
+      });
+    } else {
+      update();
+    }
+  }
+
   if (techSelect) techSelect.addEventListener('change', update);
-  if (tidSlider) tidSlider.addEventListener('input', update);
-  if (letSlider) letSlider.addEventListener('input', update);
+  if (tidSlider) tidSlider.addEventListener('input', scheduleUpdate);
+  if (letSlider) letSlider.addEventListener('input', scheduleUpdate);
 
   if (btnModeTid) {
     btnModeTid.addEventListener('click', () => {
@@ -584,11 +648,33 @@ export function initRadSimulator() {
     });
   }
 
+  let currentMetrics = null;
+  let hoverPos = null;
+
+  if (canvas) {
+    canvas.style.cursor = 'crosshair';
+    canvas.addEventListener('pointermove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      hoverPos = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+      if (currentMetrics) drawRadCanvas(canvas, currentMetrics, activeMode, hoverPos);
+    });
+    canvas.addEventListener('pointerleave', () => {
+      hoverPos = null;
+      if (currentMetrics) drawRadCanvas(canvas, currentMetrics, activeMode, null);
+    });
+  }
+
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', () => {
       if (canvas) update();
     });
     window.addEventListener('hub:language-change', () => {
+      if (canvas) update();
+    });
+    window.addEventListener('languagechange', () => {
       if (canvas) update();
     });
   }

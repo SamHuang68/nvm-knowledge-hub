@@ -255,6 +255,7 @@ export function drawNanosheetBspdnCanvas(canvas, metrics, mode = "thermal_ir_pro
     canvas.width = width * dpr;
     canvas.height = height * dpr;
   }
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   ctx.save();
   ctx.scale(dpr, dpr);
@@ -591,6 +592,9 @@ export function initNanosheetBspdnSimulator(container) {
     if (canvas) update();
   });
 
+    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('languagechange', () => update());
+  window.addEventListener('resize', () => update());
   update();
 }
 
