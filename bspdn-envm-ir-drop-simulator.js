@@ -562,6 +562,67 @@ export function initBspdnSimulator() {
     if (canvas) {
       drawBspdnCanvas(canvas, metrics, activeMode);
     }
+
+    // Click-to-copy ergonomics on KPI elements
+    const isZhLang = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
+    [outIrdrop, outIndnoise, outEffvdd, outTempdrop, outGain, outYield].forEach((el) => {
+      if (el && !el.dataset.copyAttached) {
+        el.dataset.copyAttached = 'true';
+        el.style.cursor = 'pointer';
+        el.setAttribute('title', isZhLang ? '點擊複製數值' : 'Click to copy');
+        el.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(el.textContent.trim());
+            const orig = el.textContent;
+            el.textContent = isZhLang ? '已複製！' : 'Copied!';
+            setTimeout(() => { el.textContent = orig; }, 1200);
+          } catch (_) {}
+        });
+      }
+    });
+  }
+
+  // Export CSV Action for BSPDN IR-Drop
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const presetContainer = presetSelect?.parentNode;
+  if (presetContainer && !presetContainer.querySelector('#bspdn-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'bspdn-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    const isZhLang = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
+    exportBtn.textContent = isZhLang ? '📥 匯出 BSPDN 壓降與熱阻 CSV' : '📥 Export BSPDN CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '匯出背面供電網路 (BSPDN) 壓降與熱阻分析資料集為 CSV 檔案' : 'Export BSPDN IR-drop and thermal resistance dataset as CSV file');
+    exportBtn.addEventListener('click', () => {
+      const pKey = presetSelect ? presetSelect.value : 'tsmc_a16_spr';
+      const riseT = riseSlider ? parseFloat(riseSlider.value) : 0.6;
+      const tAmb = tempSlider ? parseFloat(tempSlider.value) : 25;
+      let csv = 'PeakCurrent_mA,RiseTime_ns,AmbientTemp_C,IRDrop_mV,InductiveNoise_mV,EffectiveVdd_V,TempRise_C,SavingPct,YieldPct\n';
+      for (let iPeak = 2; iPeak <= 26; iPeak += 2) {
+        const m = calculateBspdnMetrics({
+          presetKey: pKey,
+          peakWriteCurrent: iPeak,
+          pulseRiseTime: riseT,
+          ambientTemp: tAmb,
+          macroBitCapacity: 64
+        });
+        csv += `${iPeak},${riseT},${tAmb},${m.irDropCurrentMv.toFixed(2)},${m.indNoiseCurrentMv.toFixed(2)},${m.effectiveVddCurrent.toFixed(4)},${m.deltaTCurrent.toFixed(2)},${m.irDropSavingPct},${m.writeYield.toFixed(2)}\n`;
+      }
+      downloadCsv(`bspdn_ir_drop_${pKey}.csv`, csv);
+    });
+    presetContainer.appendChild(exportBtn);
   }
 
   if (presetSelect) presetSelect.addEventListener('change', update);
@@ -618,16 +679,14 @@ export function initBspdnSimulator() {
     });
   }
 
-  // Handle window resize
+  // Handle window resize and language change
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', () => {
       if (canvas) update();
     });
-  }
-
     window.addEventListener('hub:language-change', () => update());
-  window.addEventListener('languagechange', () => update());
-  window.addEventListener('resize', () => update());
+    window.addEventListener('languagechange', () => update());
+  }
   update();
 }
 

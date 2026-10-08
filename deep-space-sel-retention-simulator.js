@@ -529,6 +529,69 @@ export function initDeepSpaceSimulator(rootSelector = '#deep-space-simulator-roo
     if (canvas) {
       drawDeepSpaceCanvas(canvas, metrics, currentMode);
     }
+
+    // Click-to-copy ergonomics on KPI elements
+    [outSelStatus, outRetention, outSurvival, outEa, outRating].forEach((el) => {
+      if (el && !el.dataset.copyAttached) {
+        el.dataset.copyAttached = 'true';
+        el.style.cursor = 'pointer';
+        el.setAttribute('title', isZh ? '點擊複製數值' : 'Click to copy');
+        el.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(el.textContent.trim());
+            const orig = el.textContent;
+            el.textContent = isZh ? '已複製！' : 'Copied!';
+            setTimeout(() => { el.textContent = orig; }, 1200);
+          } catch (_) {}
+        });
+      }
+    });
+  }
+
+  // Export CSV Action for Deep Space Radiation & Retention
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const presetContainer = presetSelect?.parentNode;
+  if (presetContainer && !presetContainer.querySelector('#deep-space-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'deep-space-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    const isZhLang = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
+    exportBtn.textContent = isZhLang ? '📥 匯出深空輻照與存活率 CSV' : '📥 Export Deep Space CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '匯出深空單一事件閂鎖 (SEL) 門檻與數據留存率資料集為 CSV 檔案' : 'Export deep space SEL threshold and retention dataset as CSV file');
+    exportBtn.addEventListener('click', () => {
+      const pid = presetSelect ? presetSelect.value : 'venus_lander_460c';
+      const tid = techSelect ? techSelect.value : 'antifuse_soi_radhard';
+      const missionY = missionSlider ? parseFloat(missionSlider.value) : 10.0;
+      let csv = 'Temp_C,PeakLET_MeVcm2mg,MissionYears,SelImmune,SelMargin_MeV,EstimatedRetention_Years,SurvivalPct,Ea_eV\n';
+      const testTemps = [-140, -55, 25, 85, 125, 200, 300, 460];
+      for (const t of testTemps) {
+        for (let letVal = 10; letVal <= 100; letVal += 15) {
+          const m = calculateDeepSpaceMetrics({
+            presetId: pid,
+            techId: tid,
+            targetTempC: t,
+            peakLetMev: letVal,
+            missionYears: missionY
+          });
+          csv += `${t},${letVal},${missionY},${m.tech.isImmuneToSel ? 'YES' : 'NO'},${m.selMarginMev.toFixed(1)},${m.estimatedRetentionYears.toFixed(2)},${m.retentionSurvPct.toFixed(1)},${m.tech.activationEnergyEv.toFixed(2)}\n`;
+        }
+      }
+      downloadCsv(`deep_space_rad_${pid}_${tid}.csv`, csv);
+    });
+    presetContainer.appendChild(exportBtn);
   }
 
   if (presetSelect) presetSelect.addEventListener('change', () => {
@@ -583,9 +646,8 @@ export function initDeepSpaceSimulator(rootSelector = '#deep-space-simulator-roo
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
   window.addEventListener('resize', update);
-    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('hub:language-change', () => update());
   window.addEventListener('languagechange', () => update());
-  window.addEventListener('resize', () => update());
   update();
 }
 

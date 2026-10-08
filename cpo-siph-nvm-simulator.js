@@ -513,6 +513,68 @@ export function initCpoSiphSimulator(rootSelector = '#cpo-siph-simulator-root') 
     if (canvas) {
       drawCpoSiphCanvas(canvas, metrics, currentMode);
     }
+
+    // Click-to-copy ergonomics on KPI elements
+    [outJunction, outDrift, outPowerSave, outRetention, outRating].forEach((el) => {
+      if (el && !el.dataset.copyAttached) {
+        el.dataset.copyAttached = 'true';
+        el.style.cursor = 'pointer';
+        el.setAttribute('title', isZh ? '點擊複製數值' : 'Click to copy');
+        el.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(el.textContent.trim());
+            const orig = el.textContent;
+            el.textContent = isZh ? '已複製！' : 'Copied!';
+            setTimeout(() => { el.textContent = orig; }, 1200);
+          } catch (_) {}
+        });
+      }
+    });
+  }
+
+  // Export CSV Action for CPO Silicon Photonics
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const presetContainer = presetSelect?.parentNode;
+  if (presetContainer && !presetContainer.querySelector('#cpo-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'cpo-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    const isZhLang = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
+    exportBtn.textContent = isZhLang ? '📥 匯出 CPO 微環調諧 CSV' : '📥 Export CPO SiPh CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '匯出 CPO 光學微環調諧數值資料集為 CSV 檔案' : 'Export CPO optical micro-ring tuning metrics dataset as CSV file');
+    exportBtn.addEventListener('click', () => {
+      const pid = presetSelect ? presetSelect.value : 'hyperscale_cpo_51t';
+      const tid = techSelect ? techSelect.value : 'antifuse_zero_static';
+      const chCount = channelSlider ? parseInt(channelSlider.value, 10) : 64;
+      let csv = 'AmbientTemp_C,LaserPower_mW,ChannelCount,JunctionTemp_C,WavelengthDrift_nm,SavedPower_W,EstimatedRetention_Years\n';
+      for (let t = 25; t <= 105; t += 10) {
+        for (let p = 20; p <= 160; p += 20) {
+          const m = calculateCpoSiphMetrics({
+            presetId: pid,
+            techId: tid,
+            ambientTempC: t,
+            laserPowerMw: p,
+            channelCount: chCount
+          });
+          csv += `${t},${p},${chCount},${m.junctionTempC.toFixed(2)},${m.wavelengthDriftNm.toFixed(4)},${m.savedTuningPowerW.toFixed(2)},${m.estimatedRetentionYears.toFixed(2)}\n`;
+        }
+      }
+      downloadCsv(`cpo_siph_${pid}_${tid}.csv`, csv);
+    });
+    presetContainer.appendChild(exportBtn);
   }
 
   if (presetSelect) presetSelect.addEventListener('change', update);
@@ -558,9 +620,8 @@ export function initCpoSiphSimulator(rootSelector = '#cpo-siph-simulator-root') 
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
   window.addEventListener('resize', update);
-    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('hub:language-change', () => update());
   window.addEventListener('languagechange', () => update());
-  window.addEventListener('resize', () => update());
   update();
 }
 
