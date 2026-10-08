@@ -6,6 +6,11 @@
   var MUTED = '#475569';
   var SKIP_BTN = 'a.primary, button.primary, .button.primary, .knowledge-primary, .filter-btn.active, [aria-pressed="true"], .view-tab[aria-selected="true"], .ladder button.active, .role-tabs button.active, .skip-link, .lens-vertical-rail';
   var SKIP_STRICT = '.skip-link, .lens-vertical-rail';
+  // 原生工程圖的材料、載子與訊號顏色由圖稿定義，不能套用文章底色轉換。
+  function hasEngineeringPalette(el) {
+    var svg = el.closest?.('svg');
+    return Boolean(svg && (svg.matches('.bc-illustration, [data-topic], [data-engineering-palette]') || svg.closest('.nvm-op-drawing, .nvm-ip-structure-drawing')));
+  }
   function parseRgba(str) {
     var m = String(str || '').match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
     if (!m) return null;
@@ -70,6 +75,7 @@
     root.style.setProperty('color', INK, 'important');
     root.querySelectorAll('*').forEach(function (el) {
       if (el.matches && (el.matches(SKIP_STRICT) || el.closest(SKIP_STRICT))) return;
+      if (hasEngineeringPalette(el)) return;
       // Hamburger bars are foreground marks, not dark content panels to recolor.
       if (el.matches?.('.menu-button i')) return;
       if (el.matches && (el.matches(SKIP_BTN) || el.closest(SKIP_BTN))) {
@@ -139,6 +145,7 @@
       }
     });
     root.querySelectorAll('svg [fill], svg [stroke], svg stop[stop-color]').forEach(function (el) {
+      if (hasEngineeringPalette(el)) return;
       var isText = el.tagName === 'text' || el.tagName === 'TEXT' || el.tagName === 'tspan' || el.tagName === 'TSPAN';
       if (isText) {
         var curFill = el.getAttribute('fill') || '';

@@ -175,7 +175,7 @@ export class CuCuHybridBondingSimulator {
 
   initDOM() {
     this.container.innerHTML = `
-      <div class="cu-bonding-card" style="background: var(--surface, #111827); border: 1px solid var(--border-color, #374151); border-radius: 12px; padding: 24px; color: var(--text-color, #f3f4f6); font-family: system-ui, -apple-system, sans-serif;">
+      <div class="cu-bonding-card" style="background: var(--surface, #111827); border: 1px solid var(--border-color, #374151); border-radius: 12px; padding: 24px; min-width: 0; overflow-wrap: anywhere; color: var(--text-color, #f3f4f6); font-family: system-ui, -apple-system, sans-serif;">
         <!-- Header -->
         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
           <div>
@@ -183,7 +183,7 @@ export class CuCuHybridBondingSimulator {
               <span style="background: #2563eb; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; text-transform: uppercase;">
                 <span data-lang="zh">3D 先進封裝物理引擎</span><span data-lang="en">3D Packaging Physics Engine</span>
               </span>
-              <span style="color: #10b981; font-size: 11px; font-weight: 600;">TEST 89 COMPLIANT</span>
+              <span style="color: #10b981; font-size: 11px; font-weight: 600;"><span data-lang="zh">工程示意模型</span><span data-lang="en">Engineering Teaching Model</span></span>
             </div>
             <h3 style="margin: 0; font-size: 20px; font-weight: 700;">
               <span data-lang="zh">Cu-Cu 混合鍵合熱應變與位錯漏電模擬工作台</span>
@@ -205,7 +205,7 @@ export class CuCuHybridBondingSimulator {
         </div>
 
         <!-- Controls Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; background: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; margin-bottom: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; background: rgba(0,0,0,0.2); padding: 16px; border-radius: 8px; margin-bottom: 20px;">
           <!-- Slider 1: Annealing Temp -->
           <div>
             <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
@@ -285,7 +285,7 @@ export class CuCuHybridBondingSimulator {
         </div>
 
         <!-- Metrics Dashboard -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin-bottom: 20px;">
           <!-- Metric 1: Closure Margin -->
           <div style="background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px;">
             <div style="font-size: 11px; color: #94a3b8; margin-bottom: 2px;">
@@ -326,18 +326,20 @@ export class CuCuHybridBondingSimulator {
         </div>
 
         <!-- Dual Canvas Visualizations -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 16px; margin-bottom: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 16px; margin-bottom: 20px;">
           <!-- Canvas 1: Cross-Section Voiding & Closure Heatmap -->
           <div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 12px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
               <span style="font-size: 12px; font-weight: 700; color: #cbd5e1;">
                 <span data-lang="zh">圖 1：Cu 焊盤退火微觀界面形變與微空洞閉合剖面</span>
                 <span data-lang="en">Fig 1: Cu Pad Interface Deformation &amp; Void Closure Profile</span>
               </span>
               <span style="font-size: 10px; color: #64748b;">Cross-Sectional FEA</span>
             </div>
-            <canvas id="cu-canvas-cross" width="460" height="240" style="width: 100%; height: auto; display: block; border-radius: 4px; background: #020617;"></canvas>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #64748b; margin-top: 6px;">
+            <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="${window.HubLanguage?.get() === 'zh' ? '銅焊盤剖面圖，可橫向捲動' : 'Copper pad cross-section, horizontally scrollable'}" data-aria-zh="銅焊盤剖面圖，可橫向捲動" data-aria-en="Copper pad cross-section, horizontally scrollable">
+              <canvas id="cu-canvas-cross" width="460" height="240" style="width: 100%; min-width: 460px; height: auto; display: block; border-radius: 4px; background: #020617;"></canvas>
+            </div>
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-size: 10px; color: #64748b; margin-top: 6px;">
               <span><span data-lang="zh">藍色：未閉合奈米間隙</span><span data-lang="en">Blue: Unclosed Nanogap</span></span>
               <span><span data-lang="zh">金黃/綠：金屬原子擴散接合面</span><span data-lang="en">Gold/Green: Atomic Diffusion Joint</span></span>
             </div>
@@ -345,15 +347,17 @@ export class CuCuHybridBondingSimulator {
 
           <!-- Canvas 2: Radial Stress Decay vs KOZ Distance -->
           <div style="background: #0f172a; border: 1px solid #1e293b; border-radius: 8px; padding: 12px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
               <span style="font-size: 12px; font-weight: 700; color: #cbd5e1;">
                 <span data-lang="zh">圖 2：徑向應力衰減曲線 σ(r) 與 eNVM 耐受邊界</span>
                 <span data-lang="en">Fig 2: Radial Stress Decay σ(r) vs eNVM Tolerance Threshold</span>
               </span>
               <span style="font-size: 10px; color: #64748b;">Decay ~ (r0/r)^2.2</span>
             </div>
-            <canvas id="cu-canvas-stress" width="460" height="240" style="width: 100%; height: auto; display: block; border-radius: 4px; background: #020617;"></canvas>
-            <div style="display: flex; justify-content: space-between; font-size: 10px; color: #64748b; margin-top: 6px;">
+            <div style="overflow-x: auto;" tabindex="0" role="region" aria-label="${window.HubLanguage?.get() === 'zh' ? '徑向應力圖，可橫向捲動' : 'Radial stress chart, horizontally scrollable'}" data-aria-zh="徑向應力圖，可橫向捲動" data-aria-en="Radial stress chart, horizontally scrollable">
+              <canvas id="cu-canvas-stress" width="460" height="240" style="width: 100%; min-width: 460px; height: auto; display: block; border-radius: 4px; background: #020617;"></canvas>
+            </div>
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-size: 10px; color: #64748b; margin-top: 6px;">
               <span><span data-lang="zh">紅線：機械應力衰減</span><span data-lang="en">Red: Mechanical Stress Decay</span></span>
               <span><span data-lang="zh">綠虛線：eNVM 安全閾值與 KOZ</span><span data-lang="en">Green Dash: Safe Threshold &amp; KOZ</span></span>
             </div>

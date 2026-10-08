@@ -26,14 +26,14 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="675">
   <meta property="article:published_time" content="2026-08-29T00:00:00+08:00">
-  <meta property="article:modified_time" content="2026-09-10T00:00:00+08:00">
+  <meta property="article:modified_time" content="2026-10-08T00:00:00+08:00">
   <meta property="article:author" content="NVM Knowledge Hub Editorial Board">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Complementary Storage and Verifiable Differences · NVM Knowledge Hub">
   <meta name="twitter:description" content="Complementary storage and verifiable differences: examine the evidence boundaries of SRAM PUF, encrypted OTP, and Secure Storage through bitcell cost, read paths, and physical observability.">
   <meta name="twitter:image" content="https://hub.samhuang68.org/assets/memory-physics-hero-1600.webp">
   <meta name="twitter:image:alt" content="Memory Physics and Complementary Storage Evidence Comparison">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Complementary Storage and Verifiable Differences · NVM Knowledge Hub","description":"Complementary storage and verifiable differences: examine the evidence boundaries of SRAM PUF, encrypted OTP, and Secure Storage through bitcell cost, read paths, and physical observability.","url":"https://hub.samhuang68.org/memory-physics.html","image":"https://hub.samhuang68.org/assets/memory-physics-hero-1600.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/memory-physics.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-09-10T00:00:00+08:00"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Complementary Storage and Verifiable Differences · NVM Knowledge Hub","description":"Complementary storage and verifiable differences: examine the evidence boundaries of SRAM PUF, encrypted OTP, and Secure Storage through bitcell cost, read paths, and physical observability.","url":"https://hub.samhuang68.org/memory-physics.html","image":"https://hub.samhuang68.org/assets/memory-physics-hero-1600.webp","inLanguage":["en","zh-TW"],"publisher":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://hub.samhuang68.org/memory-physics.html"},"author":{"@type":"Organization","name":"NVM Knowledge Hub Editorial Board","url":"https://hub.samhuang68.org/"},"datePublished":"2026-08-29T00:00:00+08:00","dateModified":"2026-10-08T00:00:00+08:00"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What voltage transitions Si-SiO2 tunneling from Direct to Fowler-Nordheim?","acceptedAnswer":{"@type":"Answer","text":"The conduction band barrier height of the Si-SiO2 interface is Phi_B = 3.15 eV. When oxide voltage Vox < 3.15 V, direct trapezoidal tunneling dominates. When Vox >= 3.15 V, triangular Fowler-Nordheim (FN) field emission takes over."}},{"@type":"Question","name":"What is the critical electric field for AntiFuse dielectric breakdown?","acceptedAnswer":{"@type":"Answer","text":"Dielectric hard breakdown and silicon filamentation occur when the oxide electric field E_ox exceeds 10 to 13 MV/cm, triggering oxygen vacancy percolation and localized silicon recrystallization."}},{"@type":"Question","name":"What is the thermodynamic subthreshold swing limit at room temperature?","acceptedAnswer":{"@type":"Answer","text":"At 300 K, the subthreshold swing S = ln(10) * (k_B*T/q) * m yields a physical thermodynamic limit of approximately 59.5 to 60 mV/decade."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"NVM Knowledge Hub","item":"https://hub.samhuang68.org/"},{"@type":"ListItem","position":2,"name":"Foundations","item":"https://hub.samhuang68.org/#layer-foundations"},{"@type":"ListItem","position":3,"name":"Memory Physics & First-Principles","item":"https://hub.samhuang68.org/memory-physics.html"}]}</script>
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -1770,6 +1770,19 @@
       </div>
     </section>
 
+    <section id="storage-variables" class="paper-section" style="max-width: 1280px; margin: 2rem auto; padding: 0 24px;" aria-labelledby="storage-variables-title">
+      <p class="paper-kicker"><span data-lang="zh">入門導讀 · 四種儲存變數</span><span data-lang="en">INTRODUCTION · FOUR STORED VARIABLES</span></p>
+      <h2 id="storage-variables-title"><span data-lang="zh">先看儲存的狀態，再看讀寫與可靠度</span><span data-lang="en">Start With the Stored State, Then Read, Write and Reliability</span></h2>
+      <p><span data-lang="zh">NVM 是斷電後保存狀態的總稱；OTP 是更新語意，並非單一物理。以下四個角度用來辨別機制，不能直接推定產品性能或安全資格。</span><span data-lang="en">NVM describes state persistence after power-off; OTP describes update semantics, not one physics. These four views distinguish mechanisms without establishing product performance or security qualification.</span></p>
+      <ul>
+        <li><strong><span data-lang="zh">電荷：</span><span data-lang="en">Charge: </span></strong><span data-lang="zh">浮閘或陷阱中的電荷改變電流或閾值，例如浮閘 OTP、MTP、Flash。</span><span data-lang="en">Charge in a floating gate or traps changes current or threshold, as in floating-gate OTP, MTP and Flash.</span> <a href="nvm-technology-atlas.html#ip-neobit"><span data-lang="zh">浮閘 OTP 原理與來源</span><span data-lang="en">Floating-Gate OTP Principles and Sources</span></a></li>
+        <li><strong><span data-lang="zh">電阻或導通狀態：</span><span data-lang="en">Resistance or Conduction: </span></strong><span data-lang="zh">永久結構、介電質程式化、可逆導電路徑或相態改變讀取阻抗，例如 eFuse、AntiFuse OTP、ReRAM、PCM；各機制須分開。</span><span data-lang="en">Permanent structure, dielectric programming, reversible paths or phase changes alter read impedance, as in eFuse, antifuse OTP, ReRAM and PCM; distinguish each mechanism.</span> <a href="nvm-technology-atlas.html#topic-antifuse"><span data-lang="zh">反熔絲原理與來源</span><span data-lang="en">Antifuse Principles and Sources</span></a></li>
+        <li><strong><span data-lang="zh">磁態：</span><span data-lang="en">Magnetic State: </span></strong><span data-lang="zh">磁層相對方向改變穿隧磁阻；Toggle、STT 與 SOT 的寫入路徑不同。</span><span data-lang="en">Relative magnetic orientation changes tunneling magnetoresistance; Toggle, STT and SOT have different write paths.</span> <a href="nvm-technology-atlas.html#topic-stt"><span data-lang="zh">STT-MRAM 原理與來源</span><span data-lang="en">STT-MRAM Principles and Sources</span></a></li>
+        <li><strong><span data-lang="zh">極化：</span><span data-lang="en">Polarization: </span></strong><span data-lang="zh">可切換極化影響電荷、閾值或穿隧阻抗；FeRAM、FeFET 與 FTJ 的讀取方式不同。</span><span data-lang="en">Switchable polarization affects charge, threshold or tunnel impedance; FeRAM, FeFET and FTJ read differently.</span> <a href="nvm-technology-atlas.html#topic-feram"><span data-lang="zh">FeRAM 原理與來源</span><span data-lang="en">FeRAM Principles and Sources</span></a></li>
+      </ul>
+      <p><span data-lang="zh">接著按「儲存變數 → 寫入／抹除 → 讀取裕度 → 保持／耐寫條件 → 具名證據」閱讀。下方保留互補儲存、實體可觀察性與系統安全的完整研究。</span><span data-lang="en">Continue through stored variable, program/erase, read margin, retention/endurance conditions and named evidence. The full research on complementary storage, physical observability and system security remains below.</span> <a href="#abstract"><span data-lang="zh">進入原研究摘要</span><span data-lang="en">Continue to the Research Abstract</span></a> · <a href="memory-evidence.html"><span data-lang="zh">核對證據總帳</span><span data-lang="en">Check the Evidence Ledger</span></a></p>
+    </section>
+
     <!-- 4-Metric Stat Bridge (F1 Stat Bridge) -->
     <div class="f1-stat-bridge stat-strip-compact" aria-label="Key memory-physics metrics" data-aria-en="Key memory-physics metrics" data-aria-zh="F1 核心規格摘要">
       <div class="stat-strip-grid">
@@ -2171,32 +2184,32 @@
               </h4>
             </div>
             <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(8, 145, 178, 0.12); color: #0891b2; font-weight: 600;">
-              <span data-lang="zh">JESD85 / AEC-Q100 可靠度認證</span>
-              <span data-lang="en">JESD85 / AEC-Q100 Qualification</span>
+              <span data-lang="zh">可靠度教學試算 · 非資格驗證</span>
+              <span data-lang="en">Reliability Estimate · Not Qualification</span>
             </span>
           </div>
 
           <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem;">
-            <span data-lang="zh">以微觀缺陷陷阱滲透理論（Percolation Theory）與極端值 Weibull 雙參數統計為核心，動態計算單顆元件至 32 Mbit 巨量陣列之特性壽命（&eta;）、形狀斜率（&beta;）、FIT 失效率與 15 年累積破壞機率。定量解析 AntiFuse 瞬態高壓硬擊穿（&mu;s 級微絲成型）與車規 150&deg;C 長效讀取無擾動（&lt;0.01 ppm 失效率）之物理雙極狀態，並揭露字元線分時多工如何保障極限可靠度。</span>
-            <span data-lang="en">Applies microscopic defect percolation and extreme-value Weibull statistics to calculate characteristic lifetime (&eta;), Weibull slope (&beta;), FIT rate, and 15-year cumulative failure probability from 1 cell to 32 Mbit arrays. Quantifies both AntiFuse transient high-voltage programming (&mu;s filament formation) and automotive 150&deg;C read disturb immunity (&lt;0.01 ppm failure rate), revealing how wordline row multiplexing guarantees extreme reliability.</span>
+            <span data-lang="zh">以既有 E／1/E／Power-Law 加速係數、Weibull 統計與面積／佔空比近似，試算單元至 32 Mbit 陣列的特性壽命（&eta;）、斜率（&beta;）、有效應力時間危險率（FIT）與 15 年累積失效。高電場編程與低偏壓讀取是不同模型情境；結果不證明微絲形貌、編程良率、產品保持或可靠度資格。</span>
+            <span data-lang="en">Uses existing E/1/E/Power-Law coefficients, Weibull statistics and area/duty approximations to estimate lifetime (&eta;), slope (&beta;), effective-stress-time hazard (FIT) and 15-year failure from 1 cell to 32 Mbit arrays. High-field programming and low-bias readout are separate model scenarios; results do not establish filament morphology, programming yield, product retention or qualification.</span>
           </p>
 
           <!-- Simulation Disclaimer Banner -->
           <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
             <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
             <span data-lang="zh">本工作台之 TDDB 特徵壽命 (η) 與韋伯形狀參數 (β) 為基於滲透模型 (Percolation Model) 與 E 模型 / 1/E 模型之統計示意推估，非晶圓廠 sign-off 資格認證晶片在萬顆樣本下之長天期高溫操作壽命 (HTOL) 實測報告。</span>
-            <span data-lang="en">The TDDB characteristic lifetime (η) and Weibull slope (β) in this workbench are statistical approximations based on percolation theory and empirical E/1/E models, rather than wafer-level sign-off HTOL reports across high-volume test structures.</span>
+            <span data-lang="en">The TDDB characteristic lifetime (η) and Weibull slope (β) in this workbench are statistical approximations based on percolation theory and empirical E/1/E models, rather than wafer-level sign-off HTOL reports across high-volume test structures.</span><p><span data-lang="zh">模型版本 2026-10-08：加速係數尚未綁定具名製程量測；FIT 使用有效應力時間而非完整日曆時間。佔空比近似不納入休止期損傷、恢復、偏壓歷史或相關失效；數值顯示精度不代表量測精度。</span><span data-lang="en">Model version 2026-10-08: acceleration coefficients are not tied to named-process measurements. FIT uses effective stress time, not full calendar time. The duty approximation omits off-period damage, recovery, bias history and correlated failure; display precision is not measurement precision.</span></p>
           </div>
 
           <!-- CONTROL PANEL -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
             <!-- Preset Scenario -->
             <div>
               <label for="tddb-preset-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155; margin-bottom: 4px;">
                 <span data-lang="zh">快速情境預設</span><span data-lang="en">Preset Scenario</span>
               </label>
               <select id="tddb-preset-select" style="width: 100%; padding: 6px 10px; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 12px; background: #ffffff; color: #0f172a;" aria-label="Preset scenario selection" data-aria-en="Preset scenario selection" data-aria-zh="快速情境預設選擇">
-                <option value="automotive_read_disturb_28nm" selected>Automotive Grade 0 Read Disturb (28nm, 150°C, 0.75V)</option>
+                <option value="automotive_read_disturb_28nm" selected>Automotive Read-Stress Scenario (28nm target, 150°C Tj, 0.75V)</option>
                 <option value="antifuse_hard_breakdown_write">AntiFuse Transient Hard Breakdown Write (28nm, 125°C, 7.2V)</option>
                 <option value="iot_lowpower_retention_55nm">IoT Low-Power Standby Retention (55nm, 85°C, 1.2V)</option>
                 <option value="advanced_gaa_thin_dielectric_3nm">Advanced 3nm GAA Ultrathin Dielectric (1.5nm, 105°C, 0.75V)</option>
@@ -2298,15 +2311,15 @@
               <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
                 <span data-lang="zh">Weibull 斜率 &beta;</span><span data-lang="en">Weibull Slope &beta;</span>
               </small>
-              <div id="tddb-beta-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">1.74</div>
-              <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">微觀滲透形狀因數</span><span data-lang="en">Percolation shape factor</span></span>
+              <div id="tddb-beta-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">≈ 1.74</div>
+              <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">假設的滲透形狀因數</span><span data-lang="en">Assumed percolation factor</span></span>
             </div>
 
             <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #2563eb;">
               <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
                 <span data-lang="zh">單元特性壽命 &eta;<sub>cell</sub></span><span data-lang="en">Cell Lifetime &eta;<sub>cell</sub></span>
               </small>
-              <div id="tddb-eta-cell-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #2563eb; margin-top: 4px;">2.97e+5 <span data-lang="zh">年</span><span data-lang="en">yrs</span></div>
+              <div id="tddb-eta-cell-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #2563eb; margin-top: 4px;">≈ 2.97e+5 <span data-lang="zh">年</span><span data-lang="en">yrs</span></div>
               <span style="font-size: 10px; color: #64748b;">t<sub>63.2%</sub> @ 1 Cell</span>
             </div>
 
@@ -2314,7 +2327,7 @@
               <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
                 <span data-lang="zh">陣列縮放壽命 &eta;<sub>array</sub></span><span data-lang="en">Array Lifetime &eta;<sub>array</sub></span>
               </small>
-              <div id="tddb-eta-array-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #9333ea; margin-top: 4px;">498.5 <span data-lang="zh">年</span><span data-lang="en">yrs</span></div>
+              <div id="tddb-eta-array-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #9333ea; margin-top: 4px;">≈ 498.5 <span data-lang="zh">年</span><span data-lang="en">yrs</span></div>
               <span style="font-size: 10px; color: #64748b;">N<sup>&minus;1/&beta;</sup> <span data-lang="zh">面積縮放</span><span data-lang="en">Area scaled</span></span>
             </div>
 
@@ -2322,16 +2335,16 @@
               <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
                 <span data-lang="zh">15 年累積失效率 F</span><span data-lang="en">15-Yr Failure Rate F</span>
               </small>
-              <div id="tddb-f15y-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">0.2172 ppm</div>
-              <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">目標門檻 &lt;10 ppm</span><span data-lang="en">AEC target &lt;10 ppm</span></span>
+              <div id="tddb-f15y-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">≈ 0.2172 ppm</div>
+              <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">教學比較門檻 &lt;10 ppm</span><span data-lang="en">Example threshold &lt;10 ppm</span></span>
             </div>
 
             <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #0d9488;">
               <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
                 <span data-lang="zh">失效率 FIT (10<sup>9</sup>h)</span><span data-lang="en">Hazard Rate (FIT)</span>
               </small>
-              <div id="tddb-fit-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">0.57 FIT</div>
-              <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">車規目標 &lt;1.0 FIT</span><span data-lang="en">Automotive &lt;1.0 FIT</span></span>
+              <div id="tddb-fit-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #0f172a; margin-top: 4px;">≈ 0.57 FIT</div>
+              <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">教學比較門檻 &lt;1.0 FIT</span><span data-lang="en">Example threshold &lt;1.0 FIT</span></span>
             </div>
           </div>
 
@@ -2353,11 +2366,11 @@
           </div>
 
           <!-- VERDICT BANNER -->
-          <div id="tddb-verdict-banner" class="tddb-verdict-banner safe_automotive" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46;">
+          <div id="tddb-verdict-banner" class="tddb-verdict-banner low_failure_estimate" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46;">
             <span class="tddb-verdict-icon" style="font-size: 1.25rem; line-height: 1;">🛡️</span>
             <span class="tddb-verdict-text">
-              <span data-lang="zh">【車規 AEC-Q100 Grade 0 頂級可靠度】陣列在 150°C 接面溫度下連續運作 15 年，累積破壞機率小於 1 ppm（0.2172 ppm），失效率 FIT = 0.57。未編程單元具備極致抗讀取擾動與熱應力屏障。</span>
-              <span data-lang="en">[AEC-Q100 Grade 0 Certified] Array 15-year cumulative failure probability is &lt; 1 ppm (0.2172 ppm), with FIT rate = 0.57. Dielectric integrity maintains exceptional margins against read disturb and thermal stress up to 150°C Tj.</span>
+              <span data-lang="zh">【較低失效試算】在預設 150°C 接面溫度、0.5% 應力佔空比及既有係數下，15 年累積失效約 0.2172 ppm，有效應力時間危險率約 0.57 FIT。教學比較門檻為 &lt;10 ppm 與 &lt;1 FIT；不代表 AEC-Q100、保持或讀取擾動驗證通過。</span>
+              <span data-lang="en">[Lower Failure Estimate] At the default 150°C junction temperature, 0.5% stress duty and existing coefficients, 15-year failure is approximately 0.2172 ppm and effective-stress-time hazard approximately 0.57 FIT. Example thresholds are &lt;10 ppm and &lt;1 FIT; this does not establish AEC-Q100, retention or read-disturb qualification.</span>
             </span>
           </div>
         </article>
@@ -2365,7 +2378,7 @@
         <!-- MODEL 07: CRYOGENIC (4K / 77K) QUANTUM COMPUTING NVM PHYSICS SIMULATOR -->
         <article id="cryogenic-nvm-simulator-root" class="physics-model-card reveal" style="border-top: 4px solid #0284c7; background: #ffffff; border-radius: 8px; box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06); padding: 1.5rem; margin-top: 2rem;">
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; border-bottom: 1px solid rgba(226, 232, 240, 0.85); padding-bottom: 10px;">
-            <div>
+            <div style="min-width: 0; max-width: 100%; overflow-wrap: anywhere;">
               <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
                 <span data-lang="zh">物理模型 07 · 低溫超導量子 NVM 物理</span>
                 <span data-lang="en">PHYSICS MODEL 07 · CRYOGENIC QUANTUM NVM DYNAMICS</span>
@@ -2394,7 +2407,7 @@
           </div>
 
           <!-- Controls Grid -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px; margin-bottom: 16px;">
             <div>
               <label for="cryo-env-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span data-lang="zh">運作溫度環境:</span><span data-lang="en">OPERATING ENVIRONMENT:</span>
@@ -2424,7 +2437,7 @@
                 <span><span data-lang="zh">讀取感測偏壓:</span><span data-lang="en">READ SENSE BIAS:</span></span>
                 <span id="cryo-bias-val" style="color: #0284c7; font-weight: 700;">200 mV</span>
               </div>
-              <input type="range" id="cryo-bias-slider" min="50" max="600" step="25" value="200" aria-label="Read Sense Voltage" data-aria-en="Read Sense Voltage" data-aria-zh="讀取感測偏壓" aria-valuetext="200 mV" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="cryo-bias-slider" min="50" max="600" step="25" value="200" aria-label="Read Sense Voltage" data-aria-en="Read Sense Voltage" data-aria-zh="讀取感測偏壓" aria-valuetext="200 mV" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
 
             <div>
@@ -2432,7 +2445,7 @@
                 <span><span data-lang="zh">積分感測時間:</span><span data-lang="en">SENSE INTEGRATION TIME:</span></span>
                 <span id="cryo-time-val" style="color: #0284c7; font-weight: 700;">10 ns</span>
               </div>
-              <input type="range" id="cryo-time-slider" min="2" max="50" step="2" value="10" aria-label="Sense Integration Time" data-aria-en="Sense Integration Time" data-aria-zh="積分感測時間" aria-valuetext="10 ns" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="cryo-time-slider" min="2" max="50" step="2" value="10" aria-label="Sense Integration Time" data-aria-en="Sense Integration Time" data-aria-zh="積分感測時間" aria-valuetext="10 ns" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
           </div>
 
@@ -2516,7 +2529,7 @@
         <!-- Physical Model 08: Cryogenic Qubit Readout Interface Spin Decoherence & Microwave RF Simulator -->
         <article class="paper-card physics-model-card" id="cryo-qubit-simulator-root" style="margin-top: 24px;">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-            <div>
+            <div style="min-width: 0; max-width: 100%; overflow-wrap: anywhere;">
               <p class="paper-kicker" style="margin: 0 0 4px;"><span data-lang="zh">物理模型 08</span><span data-lang="en">PHYSICAL MODEL 08</span></p>
               <h3 style="margin: 0; font-size: 18px; color: #0f172a;"><span data-lang="zh">超導量子位元讀出介面磁場自旋去相干與微波射頻干擾試算器</span><span data-lang="en">Superconducting Qubit Readout Spin Decoherence &amp; Microwave RF Simulator</span></h3>
             </div>
@@ -2539,7 +2552,7 @@
           </div>
 
           <!-- Controls Grid -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px; margin-bottom: 16px;">
             <div>
               <label for="cryo-qubit-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span data-lang="zh">量子控制場景:</span><span data-lang="en">QUANTUM CONTROL STAGE:</span>
@@ -2569,7 +2582,7 @@
                 <span><span data-lang="zh">外加磁場強度:</span><span data-lang="en">EXTERNAL B-FIELD:</span></span>
                 <span id="cryo-qubit-bfield-val" style="color: #0284c7; font-weight: 700;">0.10 Tesla</span>
               </div>
-              <input type="range" id="cryo-qubit-bfield-slider" min="0" max="5" step="0.05" value="0.1" aria-label="External Magnetic Field in Tesla" data-aria-en="External Magnetic Field in Tesla" data-aria-zh="外加磁場強度 Tesla" aria-valuetext="0.10 Tesla" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="cryo-qubit-bfield-slider" min="0" max="5" step="0.05" value="0.1" aria-label="External Magnetic Field in Tesla" data-aria-en="External Magnetic Field in Tesla" data-aria-zh="外加磁場強度 Tesla" aria-valuetext="0.10 Tesla" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
 
             <div>
@@ -2577,7 +2590,7 @@
                 <span><span data-lang="zh">微波射頻功率:</span><span data-lang="en">MICROWAVE RF POWER:</span></span>
                 <span id="cryo-qubit-rf-val" style="color: #0284c7; font-weight: 700;">-30.0 dBm</span>
               </div>
-              <input type="range" id="cryo-qubit-rf-slider" min="-40" max="0" step="1" value="-30" aria-label="Microwave RF Power in dBm" data-aria-en="Microwave RF Power in dBm" data-aria-zh="微波射頻功率 dBm" aria-valuetext="-30.0 dBm" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="cryo-qubit-rf-slider" min="-40" max="0" step="1" value="-30" aria-label="Microwave RF Power in dBm" data-aria-en="Microwave RF Power in dBm" data-aria-zh="微波射頻功率 dBm" aria-valuetext="-30.0 dBm" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
           </div>
 
@@ -2671,7 +2684,7 @@
         <!-- Physical Model 09: Sub-2nm GAA Backside Power Delivery (BSPDN / PowerVia) eNVM Parasitic Coupling & IR-Drop Dynamic Simulator -->
         <article class="paper-card physics-model-card" id="bspdn-envm-simulator-root" style="margin-top: 24px;">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-            <div>
+            <div style="min-width: 0; max-width: 100%; overflow-wrap: anywhere;">
               <p class="paper-kicker" style="margin: 0 0 4px;"><span data-lang="zh">物理模型 09</span><span data-lang="en">PHYSICAL MODEL 09</span></p>
               <h3 style="margin: 0; font-size: 18px; color: #0f172a;"><span data-lang="zh">次奈米 A16/A14 GAA 背面供電網 (BSPDN / PowerVia) eNVM 寄生耦合與動態壓降試算器</span><span data-lang="en">Sub-2nm A16/A14 GAA Backside Power Delivery (BSPDN / PowerVia) eNVM IR-Drop Simulator</span></h3>
             </div>
@@ -2746,7 +2759,7 @@
           </div>
 
           <!-- Controls Section -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 16px; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 14px; margin-bottom: 16px; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
             <div>
               <label for="bspdn-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span data-lang="zh">次奈米供電架構預設：</span><span data-lang="en">Sub-2nm PDN Preset:</span>
@@ -2764,7 +2777,7 @@
                 <span><span data-lang="zh">編程脈衝峰值電流:</span><span data-lang="en">PEAK WRITE CURRENT:</span></span>
                 <span id="bspdn-current-val" style="color: #0284c7; font-weight: 700;">12.0 mA</span>
               </div>
-              <input type="range" id="bspdn-current-slider" min="5.0" max="25.0" step="0.5" value="12.0" aria-label="Peak Write Pulse Current" data-aria-en="Peak Write Pulse Current" data-aria-zh="編程脈衝峰值電流" aria-valuetext="12.0 mA" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="bspdn-current-slider" min="5.0" max="25.0" step="0.5" value="12.0" aria-label="Peak Write Pulse Current" data-aria-en="Peak Write Pulse Current" data-aria-zh="編程脈衝峰值電流" aria-valuetext="12.0 mA" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
 
             <div>
@@ -2772,7 +2785,7 @@
                 <span><span data-lang="zh">脈衝上升時間 (t_rise):</span><span data-lang="en">PULSE RISE TIME:</span></span>
                 <span id="bspdn-rise-val" style="color: #0284c7; font-weight: 700;">0.5 ns</span>
               </div>
-              <input type="range" id="bspdn-rise-slider" min="0.1" max="2.0" step="0.1" value="0.5" aria-label="Pulse Rise Time" data-aria-en="Pulse Rise Time" data-aria-zh="脈衝上升時間" aria-valuetext="0.5 ns" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="bspdn-rise-slider" min="0.1" max="2.0" step="0.1" value="0.5" aria-label="Pulse Rise Time" data-aria-en="Pulse Rise Time" data-aria-zh="脈衝上升時間" aria-valuetext="0.5 ns" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
 
             <div>
@@ -2780,7 +2793,7 @@
                 <span><span data-lang="zh">接面/環境基準溫度:</span><span data-lang="en">BASE JUNCTION TEMP:</span></span>
                 <span id="bspdn-temp-val" style="color: #0284c7; font-weight: 700;">125 °C</span>
               </div>
-              <input type="range" id="bspdn-temp-slider" min="25" max="175" step="5" value="125" aria-label="Base Junction Temperature" data-aria-en="Base Junction Temperature" data-aria-zh="接面環境基準溫度" aria-valuetext="125 °C" style="width: 100%; accent-color: #0284c7; cursor: pointer;">
+              <input type="range" id="bspdn-temp-slider" min="25" max="175" step="5" value="125" aria-label="Base Junction Temperature" data-aria-en="Base Junction Temperature" data-aria-zh="接面環境基準溫度" aria-valuetext="125 °C" style="width: 100%; margin: 0; accent-color: #0284c7; cursor: pointer;">
             </div>
           </div>
 
@@ -2948,8 +2961,8 @@
           <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
             <div>
               <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #006f70; letter-spacing: 0.08em; text-transform: uppercase;">
-                <span data-lang="zh">第一性原理微觀感測物理 · 差動位元胞與側信道防護</span>
-                <span data-lang="en">FIRST-PRINCIPLES SENSING PHYSICS · TWIN-CELL &amp; DPA DEFENSE</span>
+                <span data-lang="zh">感測教學模型 · 差動位元胞與側信道比較</span>
+                <span data-lang="en">SENSING TEACHING MODEL · TWIN-CELL &amp; SIDE-CHANNEL COMPARISON</span>
               </span>
               <h4 style="margin: 0.25rem 0 0; font-size: 1.15rem; font-weight: 700; color: #0f172a; font-family: 'IBM Plex Mono', monospace;">
                 <span data-lang="zh">互補成對差動單元 (Twin-Cell) 感測裕度與 DPA 側信道物理衰減試算器</span>
@@ -2957,18 +2970,19 @@
               </h4>
             </div>
             <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(0, 111, 112, 0.12); color: #006f70; font-weight: 600;">
-              <span data-lang="zh">ISO/IEC 17825 側信道防禦驗證</span>
-              <span data-lang="en">ISO/IEC 17825 Side-Channel Rigor</span>
+              <span data-lang="zh">示意係數 · 未經攻擊實測校準</span>
+              <span data-lang="en">Illustrative Coefficients · No Attack Calibration</span>
             </span>
           </div>
 
           <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem;">
-            <span data-lang="zh">透過微觀位元胞充放電與歐姆導通方程式，精確模擬單端（Single-Ended 1T）、虛擬差動（Pseudo-Diff）與真互補成對（True Twin-Cell 1T+1T）架構在高溫熱應力與電源漣波下的差分信號窗（&Delta;V<sub>sense</sub>）、共模抑制比（CMRR），以及讀 0 與讀 1 總電流的一階實體平衡度。數值量化揭露微觀位元胞幾何對稱性如何將差分功耗分析（DPA）信噪比衰減逾 30 dB，使金鑰破解採樣跡線（MTD）呈指數級爆炸。</span>
-            <span data-lang="en">Simulates bitline differential sensing margins (&Delta;V<sub>sense</sub>), Common-Mode Rejection Ratio (CMRR), and first-order current symmetry between Single-Ended, Pseudo-Differential, and True Twin-Cell architectures across junction temperatures and supply ripples. Quantifies how physical microarchitectural symmetry attenuates DPA side-channel signatures by &gt;30 dB, exponentially multiplying the minimum traces to disclose (MTD).</span>
+            <span data-lang="zh">以 &Delta;V = &Delta;I &middot; t / C 與既有示意係數，比較單端（Single-Ended 1T）、虛擬差動（Pseudo-Diff）與真互補成對（True Twin-Cell 1T+1T）架構。漏電基準取各場景標示溫度，溫度變化沿用每 10°C 乘 1.85 的假設；CMRR、衰減、面積與曲線指標未經實測校準。電流包絡圖為拓撲示意，曲線數不能解讀為金鑰還原門檻或產品安全等級。</span>
+            <span data-lang="en">Uses &Delta;V = &Delta;I &middot; t / C and existing illustrative coefficients to compare Single-Ended, Pseudo-Differential and True Twin-Cell architectures. Leakage is referenced to each preset's stated temperature with an assumed 1.85 multiplier per 10°C. CMRR, attenuation, area and trace index are uncalibrated. Current bars illustrate topology; trace counts do not predict key recovery or product security levels.</span>
           </p>
+          <p class="model-note"><span data-lang="zh">方法邊界：本工作台不執行側信道攻擊或認證測試。</span><span data-lang="en">Method Boundary: This workbench does not perform side-channel attacks or certification tests.</span> <a href="https://www.iso.org/standard/82422.html" target="_blank" rel="noopener noreferrer">ISO/IEC 17825:2024</a> · <a href="https://www.commoncriteriaportal.org/cc/index.cfm" target="_blank" rel="noopener noreferrer">Common Criteria</a></p>
 
           <!-- CONTROL PANEL -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
             <div>
               <label for="diff-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 4px;">
                 <span data-lang="zh">晶片應用場景預設：</span>
@@ -3025,7 +3039,7 @@
                 <span data-lang="en">Differential Voltage Margin</span>
               </span>
               <div id="diff-margin-mv" style="font: 700 1.6rem 'IBM Plex Mono', monospace; color: #15803d; margin: 4px 0;">-- mV</div>
-              <span style="font-size: 10.5px; color: #166534;"><span data-lang="zh">&gt;50mV 安全感測門檻</span><span data-lang="en">&gt;50mV Reliable Sensing</span></span>
+              <span style="font-size: 10.5px; color: #166534;"><span data-lang="zh">50mV 教學參考值，非規格門檻</span><span data-lang="en">50mV teaching reference, not a specification</span></span>
             </div>
 
             <div style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 12px; text-align: center;">
@@ -3048,11 +3062,11 @@
 
             <div style="background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 6px; padding: 12px; text-align: center;">
               <span style="display: block; font: 600 10.5px 'IBM Plex Mono', monospace; color: #7e22ce; text-transform: uppercase;">
-                <span data-lang="zh">DPA 破解採樣門檻 (MTD)</span>
-                <span data-lang="en">Min Traces to Disclose (MTD)</span>
+                <span data-lang="zh">示意曲線比較指標</span>
+                <span data-lang="en">Illustrative Trace Comparison Index</span>
               </span>
               <div id="diff-mtd-traces" style="font: 700 1.45rem 'IBM Plex Mono', monospace; color: #6b21a8; margin: 6px 0;">-- Traces</div>
-              <span style="font-size: 10.5px; color: #7e22ce;"><span data-lang="zh">採樣跡線數量級阻絕</span><span data-lang="en">Exponential Trace Barrier</span></span>
+              <span style="font-size: 10.5px; color: #7e22ce;"><span data-lang="zh">未校準，不能預測破解</span><span data-lang="en">Uncalibrated; does not predict key recovery</span></span>
             </div>
 
             <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px; text-align: center;">

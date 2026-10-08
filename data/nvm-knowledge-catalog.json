@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "revision": "2026-10-03",
+  "revision": "2026-10-08",
   "titleZh": "NVM 知識中心",
   "titleEn": "NVM Knowledge Hub",
   "introZh": "非揮發性記憶體的技術基礎、IP 與製程、應用架構及公開文獻。依主題查閱原理、具名實作與設計條件。",
@@ -11,24 +11,24 @@
       "url": "technology-comparison.html#hub-decision-flow",
       "titleZh": "選 NVM",
       "titleEn": "Choose an NVM",
-      "descriptionZh": "先看需求、物理與製程約束，再核對矩陣和來源。",
-      "descriptionEn": "Start with needs, physics and process constraints, then check the matrix and sources."
+      "descriptionZh": "產出有成立前提與證據缺口的候選清單，再核對矩陣和來源。",
+      "descriptionEn": "Build a candidate list with prerequisites and evidence gaps, then check the matrix and sources."
     },
     {
       "id": "estimate-sram",
       "url": "sram-repair.html",
       "titleZh": "估 SRAM 修復容量",
       "titleEn": "Estimate SRAM Repair Capacity",
-      "descriptionZh": "輸入容量、修復比例與壓縮假設，估算 OTP／eFuse 配置。",
-      "descriptionEn": "Use capacity, repair fraction and compression assumptions to estimate OTP/eFuse allocation."
+      "descriptionZh": "產出容量估算與配置假設，再核對 OTP／eFuse 的可用版本。",
+      "descriptionEn": "Produce a capacity estimate with allocation assumptions, then check available OTP/eFuse versions."
     },
     {
       "id": "prepare-briefing",
       "url": "briefing/index.html",
       "titleZh": "準備技術說明",
       "titleEn": "Prepare a Technical Briefing",
-      "descriptionZh": "以既有投影片與講稿整理說明，保留來源與適用界線。",
-      "descriptionEn": "Build your explanation from existing slides and talk tracks, keeping sources and scope limits."
+      "descriptionZh": "產出有原理圖、來源與適用界線的技術說明。",
+      "descriptionEn": "Produce an explanation with mechanism diagrams, sources and scope limits."
     }
   ],
   "legacyAnchors": [
@@ -276,6 +276,74 @@
           "descriptionEn": "Event narrative, architecture, and evidence boundaries for SRAM PUF and secure storage.",
           "metaEn": "OIP · Secure storage",
           "metaZh": "OIP · 安全儲存"
+        }
+      ]
+    }
+  ],
+  "experiments": [
+    {
+      "id": "sense",
+      "titleZh": "讀取與可靠度",
+      "titleEn": "Sensing and Reliability",
+      "links": [
+        {
+          "url": "memory-physics.html#differential-sensing-root",
+          "zh": "差動感測裕量",
+          "en": "Differential Sensing Margin"
+        },
+        {
+          "url": "memory-physics.html#tunneling-simulator-root",
+          "zh": "穿隧與介電擊穿",
+          "en": "Tunneling and Breakdown"
+        },
+        {
+          "url": "memory-physics.html#tddb-weibull-root",
+          "zh": "TDDB／Weibull 假設",
+          "en": "TDDB / Weibull Assumptions"
+        }
+      ]
+    },
+    {
+      "id": "system",
+      "titleZh": "環境與系統條件",
+      "titleEn": "Environment and System Conditions",
+      "links": [
+        {
+          "url": "memory-physics.html#cryogenic-nvm-simulator-root",
+          "zh": "低溫記憶體物理",
+          "en": "Cryogenic Memory Physics"
+        },
+        {
+          "url": "memory-physics.html#cryo-qubit-simulator-root",
+          "zh": "低溫量子位讀取",
+          "en": "Cryogenic Qubit Readout"
+        },
+        {
+          "url": "memory-physics.html#bspdn-envm-simulator-root",
+          "zh": "背面供電與 IR 壓降",
+          "en": "Backside Power and IR Drop"
+        },
+        {
+          "url": "oip-secure-storage.html#chiplet-simulator-root",
+          "zh": "Chiplet／3D 封裝",
+          "en": "Chiplet / 3D Packaging"
+        }
+      ]
+    },
+    {
+      "id": "trust",
+      "titleZh": "重建與容量配置",
+      "titleEn": "Reconstruction and Capacity",
+      "links": [
+        {
+          "url": "oip-secure-storage.html#puf-reconstruction-root",
+          "zh": "PUF 重建與模型範圍",
+          "en": "PUF Reconstruction and Model Range"
+        },
+        {
+          "url": "sram-repair.html",
+          "zh": "SRAM 修復容量估算",
+          "en": "SRAM Repair Capacity Estimate"
         }
       ]
     }

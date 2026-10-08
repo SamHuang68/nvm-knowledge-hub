@@ -25,9 +25,20 @@ const walk = directory => fs.readdirSync(directory, { withFileTypes: true }).fla
 });
 
 const files = walk(root);
+// 本輪 AGENTS.md 明示新檔名使用臺灣繁體中文；僅接受有依據的確切來源路徑。
+const localizedSourcePaths = new Set();
+for (const exception of policy.localizedSourcePathExceptions ?? []) {
+  const relative = exception.path;
+  const resolved = typeof relative === 'string' ? path.resolve(root, relative) : '';
+  if (!relative || !exception.basis || !/\.(?:css|js|mjs|md)$/u.test(relative) || relative.includes('\\') || relative.split('/').includes('..') || !resolved.startsWith(root + path.sep) || !fs.existsSync(resolved) || !fs.lstatSync(resolved).isFile() || localizedSourcePaths.has(relative)) {
+    failures.push(`繁體中文來源路徑例外無效：${relative ?? '未指定'}`);
+    continue;
+  }
+  localizedSourcePaths.add(relative);
+}
 for (const file of files) {
   const relative = path.relative(root, file).replaceAll("\\", "/");
-  if (/[^\x00-\x7F]/u.test(relative)) {
+  if (/[^\x00-\x7F]/u.test(relative) && !localizedSourcePaths.has(relative)) {
     failures.push(`non-ASCII path prohibited by naming policy: ${relative}`);
   }
 }

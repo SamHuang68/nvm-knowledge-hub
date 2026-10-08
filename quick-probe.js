@@ -1,200 +1,218 @@
 /**
- * quick-probe.js — NVM Knowledge Hub Instant Architecture Decision Probe
- * 首頁即時架構決策探針：免跳轉極速選型判定，支援 W3C APG Tabs 鍵盤無障礙與雙語
+ * 首頁情境探針：候選路線、成立前提與待確認欄位。
+ * 每個候選的原理及來源共用既有專題路由，不建立另一份性能規格。
  */
+'use strict';
 
-(() => {
-  'use strict';
+  const CANDIDATES = Object.freeze({
+    antifuse: {
+      nameZh: 'AntiFuse OTP', nameEn: 'AntiFuse OTP',
+      mechanismZh: '介電質程式化改變導通狀態；一般 OTP 使用不提供抹除與覆寫。',
+      mechanismEn: 'Dielectric programming changes conduction; ordinary OTP operation provides no erase or overwrite.',
+      conditionsZh: '適用不可變資料；寫入電壓、讀取方式及材料須綁定目標 IP。',
+      conditionsEn: 'For immutable state; bind programming voltage, read mode and materials to the target IP.',
+      confirmZh: '具名巨集、製程、光罩、保持條件、編程分布與讀取裕度。',
+      confirmEn: 'Named macro, process, masks, retention conditions, programming distribution and read margin.',
+      recordId: 'neofuse', path: 'nvm-technology-atlas.html#ip-neofuse'
+    },
+    gfMram: {
+      nameZh: '12LP+ STT-MRAM 製程路線', nameEn: '12LP+ STT-MRAM Process Route',
+      mechanismZh: '以磁性狀態保存可更新資料；與一次寫入的 OTP 分開比較。',
+      mechanismEn: 'Magnetic state stores updatable data; compare it separately from one-time OTP.',
+      conditionsZh: '需求包含重寫，且目標製程與巨集有相應公開或交付文件。',
+      conditionsEn: 'Updates are required and the target process and macro have applicable public or delivery documents.',
+      confirmZh: '可用版本、溫度等級、耐寫、保持、光罩及資格驗證狀態。',
+      confirmEn: 'Available version, temperature grade, endurance, retention, masks and qualification status.',
+      recordId: 'foundry', path: 'nvm-technology-atlas.html#foundry'
+    },
+    puf: {
+      nameZh: 'SRAM PUF 與安全控制器', nameEn: 'SRAM PUF and Secure Controller',
+      mechanismZh: '由上電回應重建裝置金鑰；輔助資料與執行期金鑰責任須分開。',
+      mechanismEn: 'Reconstruct a device key from power-up response; separate helper-data and runtime-key responsibilities.',
+      conditionsZh: '搭配加密持久資料，並明確定義重建、授權存取與零化。',
+      conditionsEn: 'Pair with encrypted persistent data and define reconstruction, authorized access and zeroization.',
+      confirmZh: 'PVT、老化、失敗率、熵、輔助資料完整性及目標晶片攻擊證據。',
+      confirmEn: 'PVT, aging, failure rate, entropy, helper-data integrity and target-silicon attack evidence.',
+      recordId: 'OIP-PUF-001', path: 'oip-secure-storage.html#helper-data'
+    },
+    efuse: {
+      nameZh: 'eFuse 修復資料路線', nameEn: 'eFuse Repair-State Route',
+      mechanismZh: '永久結構或電阻變化保存修復配置；容量不能只由位元胞面積推算。',
+      mechanismEn: 'Permanent structural or resistance changes store repair configuration; capacity is not determined by bitcell area alone.',
+      conditionsZh: '支援既有修復流程、測試介面與所需一次寫入配置。',
+      conditionsEn: 'Fits the repair flow, test interface and required one-time configuration.',
+      confirmZh: '有效資料、保護位元、周邊、粒度、配置容量及製程實作。',
+      confirmEn: 'Payload, protection bits, periphery, granularity, allocated capacity and process implementation.',
+      recordId: 'efuse', path: 'nvm-technology-atlas.html#topic-efuse'
+    },
+    neobit: {
+      nameZh: 'NeoBit 浮閘 OTP', nameEn: 'NeoBit Floating-Gate OTP',
+      mechanismZh: '浮閘電荷改變讀取電流；應與介電擊穿與電遷移分開。',
+      mechanismEn: 'Floating-gate charge changes read current; distinguish it from dielectric breakdown and electromigration.',
+      conditionsZh: '目標標準邏輯製程支援所需元件與寫入電壓。',
+      conditionsEn: 'The target logic process supports the required devices and programming voltage.',
+      confirmZh: '具名版本、零額外光罩適用性、寫入方式、保持與溫度條件。',
+      confirmEn: 'Named version, zero-mask applicability, programming method, retention and temperature conditions.',
+      recordId: 'neobit', path: 'nvm-technology-atlas.html#ip-neobit'
+    },
+    neofuse: {
+      nameZh: 'NeoFuse 反熔絲 OTP', nameEn: 'NeoFuse Antifuse OTP',
+      mechanismZh: '閘極介電質程式化改變感測電流；操作機制依該 IP 專題說明。',
+      mechanismEn: 'Programming the gate dielectric changes sensing current; use the named IP study for its mechanism.',
+      conditionsZh: '目標邏輯製程與周邊隔離電路支援程式化與讀取。',
+      conditionsEn: 'The target logic process and peripheral isolation support programming and readout.',
+      confirmZh: '巨集與製程、光罩主張、程式化條件、保持與讀取裕度。',
+      confirmEn: 'Macro and process, mask claim, programming conditions, retention and read margin.',
+      recordId: 'neofuse', path: 'nvm-technology-atlas.html#ip-neofuse'
+    },
+    ifuse: {
+      nameZh: 'I-fuse 電遷移 OTP', nameEn: 'I-fuse Electromigration OTP',
+      mechanismZh: '熱輔助電遷移提高熔絲電阻；不等同氧化層擊穿。',
+      mechanismEn: 'Heat-assisted electromigration increases fuse resistance; it is distinct from oxide breakdown.',
+      conditionsZh: '需使用該 IP 指定材料、電流脈衝與驗證流程。',
+      conditionsEn: 'Use the IP-specific material, current pulse and verification flow.',
+      confirmZh: '可用製程、光罩、編程電流、感測裕度、保持及可靠度證據。',
+      confirmEn: 'Available process, masks, programming current, sense margin, retention and reliability evidence.',
+      recordId: 'attopsemi-ifuse', path: 'nvm-technology-atlas.html#ip-attopsemi-ifuse'
+    },
+    stt: {
+      nameZh: 'BEOL STT-eMRAM', nameEn: 'BEOL STT-eMRAM',
+      mechanismZh: '自旋轉移切換磁態；寫入電流、耐寫與保持必須一起比較。',
+      mechanismEn: 'Spin transfer switches magnetic state; compare write current, endurance and retention together.',
+      conditionsZh: '目標製程可整合磁性堆疊，且狀態更新符合具名巨集條件。',
+      conditionsEn: 'The process integrates the magnetic stack and state updates fit a named macro.',
+      confirmZh: '整合模組與光罩、介面、延遲、能量、耐寫、保持及熱預算。',
+      confirmEn: 'Integration modules and masks, interface, latency, energy, endurance, retention and thermal budget.',
+      recordId: 'stt', path: 'nvm-technology-atlas.html#topic-stt'
+    },
+    reram: {
+      nameZh: '快速 ReRAM 候選路線', nameEn: 'Fast ReRAM Candidate Route',
+      mechanismZh: '可逆電阻狀態提供更新；快取用途需要額外陣列與系統證據。',
+      mechanismEn: 'Reversible resistance stores updates; cache use needs additional array and system evidence.',
+      conditionsZh: 'SET／RESET、變異控制與更新負載符合具名堆疊及陣列。',
+      conditionsEn: 'SET/RESET, variability control and update workload fit a named stack and array.',
+      confirmZh: '材料、selector、延遲、能量、耐寫、保持、半選與 ECC 成本。',
+      confirmEn: 'Materials, selector, latency, energy, endurance, retention, half-select and ECC cost.',
+      recordId: 'vcm', path: 'nvm-technology-atlas.html#topic-vcm'
+    }
+  });
 
-  const PROBE_DATA = {
+  export const QUICK_PROBE_SCENARIOS = Object.freeze({
     'auto-grade0': {
-      techZh: 'AntiFuse OTP (閘氧化層擊穿) / 12LP+ STT-MRAM',
-      techEn: 'AntiFuse OTP (Gate-Oxide Breakdown) / 12LP+ STT-MRAM',
-      titleZh: '車規 AEC-Q100 Grade 0 極端環境架構',
-      titleEn: 'Automotive AEC-Q100 Grade 0 Mission Architecture',
-      physicsZh: '在高達 175°C 接面溫度下，浮閘記憶體（FG）面臨極高的熱離子發射與電洞漏電風險。AntiFuse 穿隧擊穿形成固態局域再結晶矽微絲（歐姆接觸），活化能 Ea ≈ 1.8–2.1 eV，具備無可匹敵之 10 年高溫留存力。',
-      physicsEn: 'At junction temperatures up to 175°C, floating-gate memories suffer severe thermionic emission leakage. AntiFuse dielectric breakdown creates a physical recrystallized silicon filament with Ea ≈ 1.8–2.1 eV, providing uncompromised 10-year retention.',
-      maskZh: '0 額外光罩 (邏輯 CMOS 相容)',
-      maskEn: '0 Mask Adders (Logic Compatible)',
-      retentionZh: '10 年 @ 175°C (AEC-Q100 Gr.0)',
-      retentionEn: '10 Years @ 175°C (Grade 0)',
-      enduranceZh: '1 次寫入 (永久不可逆微絲)',
-      enduranceEn: '1 Cycle (Irreversible Filament)',
-      linkUrl: 'automotive-nvm.html',
-      linkTextZh: '深入車規 NVM 驗證標準 →',
-      linkTextEn: 'Explore Automotive NVM Standards →'
+      tabZh: '車用溫度', tabEn: 'Automotive', badgeZh: '任務條件', badgeEn: 'Mission Conditions',
+      titleZh: '車用溫度與資料生命週期', titleEn: 'Automotive Temperature and State Lifecycle',
+      introZh: '先區分環境溫度、接面溫度及保持驗證條件。Grade 0 不是 175°C 接面溫度的同義詞；不可變資料與可更新資料使用不同候選。',
+      introEn: 'Separate ambient temperature, junction temperature and retention-test conditions. Grade 0 is not synonymous with a 175°C junction temperature; immutable and updatable state need different candidates.',
+      candidates: ['antifuse', 'gfMram'], path: 'automotive-nvm.html',
+      linkZh: '查看車用任務條件與驗證界線', linkEn: 'Review Automotive Conditions and Evidence Boundaries'
     },
     'gaa-rot': {
-      techZh: '純邏輯 0-mask AntiFuse OTP + SRAM PUF 混合信任根',
-      techEn: 'Pure Logic 0-mask AntiFuse OTP + SRAM PUF Hybrid RoT',
-      titleZh: '2nm / 3nm GAA 奈米片先進節點信任根',
-      titleEn: '2nm / 3nm GAA Nanosheet Root-of-Trust (RoT)',
-      physicsZh: '在 FinFET 至 2nm 奈米片 GAA 世代，傳統浮閘 eFlash 於 28nm 終止微縮，且 BEOL 熱預算受限（<400°C）。以超薄奈米片閘氧化層之介電質硬擊穿固化非對稱金鑰與安全韌體，配合 SRAM PUF 提供零殘留私鑰。',
-      physicsEn: 'From FinFET to 2nm GAA nanosheets, eFlash halted scaling at 28nm with severe BEOL thermal limits (<400°C). Ultra-thin dielectric breakdown anchors hardware public keys and secure boot firmware, complemented by SRAM PUF for zero-at-rest keys.',
-      maskZh: '0 額外光罩 (完全相容 GAA 基底)',
-      maskEn: '0 Mask Adders (GAA Native)',
-      retentionZh: '> 10 年 @ 125°C',
-      retentionEn: '> 10 Years @ 125°C',
-      enduranceZh: 'OTP: 1 次 / PUF: 無限啟動重構',
-      enduranceEn: 'OTP: 1x / PUF: Infinite Reboot',
-      linkUrl: 'ai-nvm-opportunities.html',
-      linkTextZh: '查看 AI 系統與先進節點研究 →',
-      linkTextEn: 'View AI Systems & Advanced Nodes →'
+      tabZh: 'GAA 信任根', tabEn: 'GAA Root of Trust', badgeZh: '製程待核', badgeEn: 'Process to Confirm',
+      titleZh: 'GAA 先進節點信任根', titleEn: 'Root of Trust at Advanced GAA Nodes',
+      introZh: '2nm／3nm 是待確認的目標平臺，不是本探針的可用性承諾。將 OTP 的持久公開資料或密文，與 SRAM PUF 重建的執行期根金鑰分開。',
+      introEn: '2nm/3nm are target platforms to confirm, not availability commitments. Separate persistent public data or ciphertext in OTP from a runtime root reconstructed by SRAM PUF.',
+      candidates: ['antifuse', 'puf'], path: 'ai-nvm-opportunities.html',
+      linkZh: '查看先進節點與系統整合問題', linkEn: 'Review Advanced-Node and System Integration Questions'
     },
     'sram-repair': {
-      techZh: '高密度 AntiFuse OTP 陣列 + 行程長度壓縮 (RLE)',
-      techEn: 'High-Density AntiFuse OTP Array + Run-Length Compression',
-      titleZh: '大容量 SRAM (16Gb+) 晶圓良率密集修復架構',
-      titleEn: 'High-Capacity SRAM (16Gb+) Yield Repair Architecture',
-      physicsZh: '先進節點中 SRAM 位元胞面積微縮停滯（~0.021 µm²），快取良率缺陷隨面積非線性攀升。AntiFuse OTP 密度達到 eFuse 的 10–20 倍，結合行程壓縮演算法可將 2–8 Mb 修復向量緊湊儲存，節省 >80% 晶片矽面積。',
-      physicsEn: 'In advanced nodes, SRAM cell area scaling has stalled (~0.021 µm²), with defect rates rising exponentially. AntiFuse OTP achieves 10–20x higher bitcell density than eFuse, storing 2–8 Mb compressed repair vectors while saving >80% silicon area.',
-      maskZh: '0 額外光罩 (高密度 1T/1.5T 單元)',
-      maskEn: '0 Mask Adders (Dense 1T/1.5T Cell)',
-      retentionZh: '> 10 年 @ 105°C',
-      retentionEn: '> 10 Years @ 105°C',
-      enduranceZh: '1 次寫入 (支援多輪分段 BIRA)',
-      enduranceEn: '1x Write (Multi-Phase BIRA)',
-      linkUrl: 'sram-repair.html',
-      linkTextZh: '啟動 SRAM 修復容量試算器 →',
-      linkTextEn: 'Launch SRAM Repair Estimator →'
+      tabZh: 'SRAM 良率修復', tabEn: 'SRAM Repair', badgeZh: '容量假設', badgeEn: 'Capacity Assumptions',
+      titleZh: 'SRAM 良率與修復容量', titleEn: 'SRAM Yield and Repair Capacity',
+      introZh: '保留大容量 SRAM、行程長度壓縮（RLE）與分輪 BIRA 修復情境。先輸入容量、修復資料比例與壓縮假設，再比較 OTP／eFuse 配置；不由單一位元胞比率推定節省面積。',
+      introEn: 'Retain large SRAM, run-length compression (RLE) and staged BIRA repair scenarios. Enter capacity, repair-data fraction and compression assumptions before comparing OTP/eFuse allocation; do not infer area savings from a bitcell ratio.',
+      candidates: ['antifuse', 'efuse'], path: 'sram-repair.html',
+      linkZh: '開啟 SRAM 修復容量試算器', linkEn: 'Open the SRAM Repair Capacity Estimator'
     },
     'zero-mask': {
-      techZh: 'NeoBit (浮閘 OTP) / NeoFuse (反熔絲) / I-fuse (電遷移)',
-      techEn: 'NeoBit (FG-OTP) / NeoFuse (AntiFuse) / I-fuse (EM-OTP)',
-      titleZh: '純邏輯 0 額外光罩類比校準與晶片 ID',
-      titleEn: 'Pure Logic 0-Mask Analog Trim and Die ID',
-      physicsZh: '電源管理（PMIC）、高壓驅動（HV-BCD）與感測器晶片要求極端晶圓成本控制。0-mask 技術利用標準 CMOS 閘極或金屬走線，透過浮閘電子注入、閘氧擊穿或受控電遷移實現位元寫入，完全無需特殊材料沉積。',
-      physicsEn: 'Power management (PMIC), display drivers (HV-BCD), and sensors demand strict wafer cost control. 0-mask IP uses standard CMOS poly gates or metal interconnects via charge injection, dielectric breakdown, or electromigration without extra masks.',
-      maskZh: '0 額外光罩 (最低晶圓成本)',
-      maskEn: '0 Mask Adders (Minimum Wafer Cost)',
-      retentionZh: '10 年 @ 85°C–125°C',
-      retentionEn: '10 Years @ 85°C–125°C',
-      enduranceZh: 'OTP 1 次寫入',
-      enduranceEn: 'OTP 1 Cycle',
-      linkUrl: 'specialty-nvm.html',
-      linkTextZh: '探索特種製程與 BCD 校準 →',
-      linkTextEn: 'Explore Specialty Silicon & BCD Trim →'
+      tabZh: '純邏輯校準', tabEn: 'Logic-Process Trim', badgeZh: '版本待核', badgeEn: 'Version to Confirm',
+      titleZh: '純邏輯校準與晶片識別', titleEn: 'Logic-Process Trim and Die Identity',
+      introZh: '保留 PMIC、HV-BCD、感測器與零額外光罩目標。三條路線的儲存變數與操作不同；零光罩、最低成本及高壓相容性均需分別核對目標版本。',
+      introEn: 'Retain PMIC, HV-BCD, sensor and zero-mask targets. The three routes store and operate differently; confirm mask count, cost and high-voltage compatibility for each target version.',
+      candidates: ['neobit', 'neofuse', 'ifuse'], path: 'specialty-nvm.html',
+      linkZh: '查看特種製程與 BCD 條件', linkEn: 'Review Specialty-Process and BCD Conditions'
     },
     'ai-chiplet': {
-      techZh: '後段 BEOL STT-eMRAM / Fast ReRAM + Base Die OTP',
-      techEn: 'BEOL STT-eMRAM / Fast ReRAM + Base Die AntiFuse OTP',
-      titleZh: 'AI Chiplet、3D 堆疊與非揮發快取記憶體',
-      titleEn: 'AI Chiplet, 3D Stacking and Nonvolatile Cache Fabric',
-      physicsZh: '在大規模 AI 運算加速器與 3D 封裝（CoWoS / SoIC）中，高頻讀寫需要近記憶體運算與零待機漏電。BEOL 整合之 STT-MRAM 支援納秒級讀取與高覆寫耐久度，Base Die 則以 AntiFuse OTP 保存晶片身分與 Die-to-Die 校準參數。',
-      physicsEn: 'In massive AI accelerators and 3D heterogeneous packaging (CoWoS / SoIC), ultra-dense compute demands near-memory caching with zero standby leakage. BEOL STT-MRAM offers nanosecond reads and high endurance, while Base Die OTP secures D2D calibration.',
-      maskZh: '3–5 道後段 (BEOL) 磁性光罩',
-      maskEn: '3–5 BEOL Magnetic Masks',
-      retentionZh: '10 年 @ 105°C (陣列級)',
-      retentionEn: '10 Years @ 105°C (Array Level)',
-      enduranceZh: '10⁶–10¹⁰ 週期 (近工作記憶體)',
-      enduranceEn: '10⁶–10¹⁰ Cycles (Near-RAM)',
-      linkUrl: 'ai-nvm-opportunities.html',
-      linkTextZh: '檢視 3D 封裝與 AI NVM 機會 →',
-      linkTextEn: 'Examine 3D Packaging & AI NVM →'
+      tabZh: 'AI Chiplet 狀態', tabEn: 'AI Chiplet State', badgeZh: '系統分工', badgeEn: 'System Responsibilities',
+      titleZh: 'AI Chiplet 與 3D 封裝持久狀態', titleEn: 'Persistent State in AI Chiplets and 3D Packaging',
+      introZh: '保留近記憶體快取、BEOL 整合、CoWoS／SoIC 與 Base Die 校準情境。工作資料、持久緩衝與不可變識別分開配置，並核對斷電提交、互連及熱條件。',
+      introEn: 'Retain near-memory cache, BEOL integration, CoWoS/SoIC and Base Die calibration scenarios. Allocate working state, persistent buffers and immutable identity separately; check power-fail commit, interconnect and thermal conditions.',
+      candidates: ['stt', 'reram', 'antifuse'], path: 'ai-nvm-opportunities.html',
+      linkZh: '查看 AI 系統與封裝整合問題', linkEn: 'Review AI-System and Packaging Integration Questions'
     }
-  };
+  });
+
+  const bilingual = (zh, en) => `<span data-lang="zh">${zh}</span><span data-lang="en">${en}</span>`;
+
+  // 首頁生成器與瀏覽器共用此純函式，避免初始內容另存一份條件。
+export function renderQuickProbeScenario(key) {
+  const data = QUICK_PROBE_SCENARIOS[key];
+  if (!data) return '';
+  return `
+        <div class="probe-detail-primary">
+          <div class="probe-tech-pill">${bilingual('候選路線與確認條件', 'CANDIDATE ROUTES AND CONDITIONS')}</div>
+          <h4 class="probe-solution-title">${bilingual(data.titleZh, data.titleEn)}</h4>
+          <p class="probe-physics-text">${bilingual(data.introZh, data.introEn)}</p>
+          <p class="probe-physics-text">${bilingual('情境導讀，非產品推薦或資格驗證結果。各候選的原理與來源沿用既有專題。', 'Scenario guidance, not a product recommendation or qualification result. Each candidate reuses an existing study for principles and sources.')}</p>
+          <a href="${data.path}" class="probe-deep-link">${bilingual(data.linkZh, data.linkEn)} →</a>
+        </div>
+        <div class="probe-stats-grid">${data.candidates.map(id => {
+          const candidate = CANDIDATES[id];
+          return `<article class="probe-stat-item" data-probe-candidate="${id}" data-record-id="${candidate.recordId}">
+            <h5 class="probe-stat-value">${bilingual(candidate.nameZh, candidate.nameEn)}</h5>
+            <p>${bilingual(candidate.mechanismZh, candidate.mechanismEn)}</p>
+            <p><strong>${bilingual('成立前提：', 'Prerequisites: ')}</strong>${bilingual(candidate.conditionsZh, candidate.conditionsEn)}</p>
+            <p><strong>${bilingual('需確認：', 'Confirm: ')}</strong>${bilingual(candidate.confirmZh, candidate.confirmEn)}</p>
+            <a class="probe-deep-link" href="${candidate.path}">${bilingual('原理與具名來源', 'Principles and Named Sources')} →</a>
+          </article>`;
+        }).join('')}</div>`;
+ }
 
   function initQuickProbe() {
     const probe = document.getElementById('quickArchitectureProbe');
     if (!probe) return;
-
-    const buttons = probe.querySelectorAll('.probe-btn');
+    const buttons = Array.from(probe.querySelectorAll('.probe-btn'));
     const display = document.getElementById('probeResultDisplay');
     if (!buttons.length || !display) return;
 
     function renderScenario(key) {
-      const data = PROBE_DATA[key];
+      const data = QUICK_PROBE_SCENARIOS[key];
       if (!data) return;
-
-      display.innerHTML = `
-        <div class="probe-detail-primary">
-          <div class="probe-tech-pill">
-            <span data-lang="zh">推薦架構</span><span data-lang="en">RECOMMENDED ARCHITECTURE</span>
-          </div>
-          <h4 class="probe-solution-title">
-            <span data-lang="zh">${data.techZh}</span>
-            <span data-lang="en">${data.techEn}</span>
-          </h4>
-          <p class="probe-physics-text">
-            <span data-lang="zh">${data.physicsZh}</span>
-            <span data-lang="en">${data.physicsEn}</span>
-          </p>
-        </div>
-        <div class="probe-stats-grid">
-          <div class="probe-stat-item">
-            <span class="probe-stat-label"><span data-lang="zh">額外光罩代價</span><span data-lang="en">Mask Adders</span></span>
-            <span class="probe-stat-value"><span data-lang="zh">${data.maskZh}</span><span data-lang="en">${data.maskEn}</span></span>
-          </div>
-          <div class="probe-stat-item">
-            <span class="probe-stat-label"><span data-lang="zh">高溫留存等級</span><span data-lang="en">Retention Class</span></span>
-            <span class="probe-stat-value"><span data-lang="zh">${data.retentionZh}</span><span data-lang="en">${data.retentionEn}</span></span>
-          </div>
-          <div class="probe-stat-item">
-            <span class="probe-stat-label"><span data-lang="zh">抹寫耐受性</span><span data-lang="en">Endurance Cycles</span></span>
-            <span class="probe-stat-value"><span data-lang="zh">${data.enduranceZh}</span><span data-lang="en">${data.enduranceEn}</span></span>
-          </div>
-          <div class="probe-stat-item">
-            <span class="probe-stat-label"><span data-lang="zh">關鍵應用目標</span><span data-lang="en">Mission Profile</span></span>
-            <span class="probe-stat-value"><span data-lang="zh">${data.titleZh}</span><span data-lang="en">${data.titleEn}</span></span>
-          </div>
-          <div class="probe-cta-row">
-            <a href="${data.linkUrl}" class="probe-deep-link">
-              <span data-lang="zh">${data.linkTextZh}</span>
-              <span data-lang="en">${data.linkTextEn}</span>
-            </a>
-          </div>
-        </div>
-      `;
-
-      // 觸發全站雙語同步 (若已載入 site-language.js)
-      const currentLang = document.documentElement.dataset.language || 'en';
-      display.querySelectorAll(`[data-lang="${currentLang === 'zh' ? 'en' : 'zh'}"]`).forEach(el => {
-        el.style.display = 'none';
+      display.innerHTML = renderQuickProbeScenario(key);
+      const active = buttons.find(button => button.dataset.scenario === key);
+      buttons.forEach((button,index) => {
+        button.id ||= `probe-scenario-${index+1}`;
+        const selected = button === active;
+        button.classList.toggle('active', selected);
+        button.setAttribute('aria-pressed', String(selected));
+        button.tabIndex = selected ? 0 : -1;
       });
-      display.querySelectorAll(`[data-lang="${currentLang}"]`).forEach(el => {
-        el.style.display = '';
+      if (active?.id) display.setAttribute('aria-labelledby', active.id);
+      const lang = document.documentElement.dataset.language || 'en';
+      display.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = el.dataset.lang === lang ? '' : 'none';
       });
     }
 
-    buttons.forEach((btn, index) => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-        const scenario = btn.dataset.scenario;
-        display.style.opacity = '0.3';
-        setTimeout(() => {
-          renderScenario(scenario);
-          display.style.opacity = '1';
-        }, 120);
-      });
-
-      // 鍵盤導航 (W3C APG Tabs)
-      btn.addEventListener('keydown', (e) => {
-        let targetIndex = null;
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-          targetIndex = (index + 1) % buttons.length;
-        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-          targetIndex = (index - 1 + buttons.length) % buttons.length;
-        }
-        if (targetIndex !== null) {
-          e.preventDefault();
-          buttons[targetIndex].focus();
-          buttons[targetIndex].click();
+    buttons.forEach((button, index) => {
+      button.addEventListener('click', () => renderScenario(button.dataset.scenario));
+      button.addEventListener('keydown', event => {
+        let target = null;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') target = (index + 1) % buttons.length;
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') target = (index - 1 + buttons.length) % buttons.length;
+        if (event.key === 'Home') target = 0;
+        if (event.key === 'End') target = buttons.length - 1;
+        if (target !== null) {
+          event.preventDefault();
+          buttons[target].focus();
+          renderScenario(buttons[target].dataset.scenario);
         }
       });
     });
-
-    // 初始化渲染預設場景 (auto-grade0)
-    renderScenario('auto-grade0');
+    window.addEventListener('hub:language-change', () => {
+      renderScenario(buttons.find(button => button.getAttribute('aria-pressed') === 'true')?.dataset.scenario || 'auto-grade0');
+    });
+    renderScenario(buttons.find(button => button.getAttribute('aria-pressed') === 'true')?.dataset.scenario || 'auto-grade0');
   }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initQuickProbe);
-  } else {
-    initQuickProbe();
+  if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initQuickProbe);
+    else initQuickProbe();
   }
-})();

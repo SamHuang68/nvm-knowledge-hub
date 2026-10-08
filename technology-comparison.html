@@ -2624,7 +2624,7 @@
         </div>
 
         <!-- Controls Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px; margin-bottom: 18px;">
           <div>
             <label for="tco-process-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
               <span data-lang="zh">晶圓代工製程節點基準:</span><span data-lang="en">FOUNDRY PROCESS NODE:</span>
@@ -2667,7 +2667,7 @@
         </div>
 
         <!-- KPI Cards Strip -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 18px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr)); gap: 10px; margin-bottom: 18px;">
           <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 2px;">
               <span data-lang="zh">光罩附加數</span><span data-lang="en">MASK ADDERS</span>
@@ -2777,7 +2777,7 @@
         </div>
 
         <!-- Controls Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px; margin-bottom: 18px;">
           <div>
             <label for="vert3d-preset-select" style="display: block; font: 600 11px 'IBM Plex Mono', monospace; color: #94a3b8; margin-bottom: 4px;">
               <span data-lang="zh">3D 垂直堆疊架構預設:</span><span data-lang="en">3D STACKED ARCHITECTURE:</span>
@@ -2828,7 +2828,7 @@
         </div>
 
         <!-- KPI Cards Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 18px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 130px), 1fr)); gap: 10px; margin-bottom: 18px;">
           <div style="background: #0f172a; border: 1px solid #334155; border-radius: 6px; padding: 10px 12px;">
             <span style="font: 600 10.5px 'IBM Plex Mono', monospace; color: #94a3b8; display: block; margin-bottom: 4px;">
               <span data-lang="zh">薄膜有效電阻率</span><span data-lang="en">EFFECTIVE RESISTIVITY</span>
@@ -3279,6 +3279,10 @@
             <b style="color: #173b49;"><span data-lang="zh">② 互補差動讀取（DPA/CPA 衰減邊界）</span><span data-lang="en">② Complementary Differential Read (DPA/CPA Attenuation Boundary)</span></b><br>
             <span data-lang="zh">成對互補差動讀取（A=HRS, B=LRS）使兩條位元線同時抽取電流，瞬態總功耗近似常數 <em>I</em><sub>total</sub> = <em>I</em><sub>HRS</sub> + <em>I</em><sub>LRS</sub>，可大幅衰減一階差分功耗 (DPA) 與相關功耗 (CPA) 訊跡。但面對高階差分功耗 (Higher-order DPA) 與局域電磁輻射分析 (EMA)，晶圓佈線不對稱性仍可能洩漏側信道特徵。因此，完備防禦必須落實<b>多層責任鏈</b>：位元層差動對消 + 控制器層隨機遮罩 (Masking) 與時脈抖動 + 密碼引擎擾碼。</span>
             <span data-lang="en">Complementary differential read pairs (A=HRS, B=LRS) draw current simultaneously on both bitlines (<em>I</em><sub>total</sub> = <em>I</em><sub>HRS</sub> + <em>I</em><sub>LRS</sub>), significantly attenuating first-order DPA and CPA traces. However, against higher-order DPA and localized EMA probes, layout asymmetry can still leak side-channel signatures. Complete protection mandates a <b>layered defense chain</b>: bitcell-level current cancellation + controller-level algorithmic masking/jitter + cryptographic engine bus scrambling.</span>
+          </div>
+        </div>
+      </div>
+
       <!-- INTERACTIVE 3D FINFET & GAA NANOSHEET ANTIFUSE SCALABILITY WORKBENCH -->
       <article id="finfet-gaa-simulator-root" class="interactive-workbench" style="margin-top: 1.75rem; background: #ffffff; border: 1px solid rgba(2, 132, 199, 0.4); border-radius: 8px; padding: 20px; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);" aria-labelledby="finfet-sim-title">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
@@ -3293,28 +3297,30 @@
             </h3>
           </div>
           <span style="font-size: 11px; padding: 3px 8px; border-radius: 4px; background: rgba(2, 132, 199, 0.12); color: #0284c7; font-weight: 600;">
-            <span data-lang="zh">TSMC N3/N2 &amp; 三星 GAA 晶圓生態</span>
-            <span data-lang="en">TSMC N3/N2 &amp; Samsung GAA Roadmaps</span>
+            <span data-lang="zh">架構比較 · 未綁定具名巨集規格</span>
+            <span data-lang="en">Architecture Comparison · No Named Macro Specification</span>
           </span>
         </div>
 
         <p style="font-size: 13px; color: #475569; line-height: 1.6; margin-top: 0; margin-bottom: 1.25rem;">
-          <span data-lang="zh">以第一性原理三維泊松靜電學與 WKB 梯形直接穿隧模型，量化 3D FinFET 鰭片角隅與 GAA 全環繞奈米片（NanoSheet）頂邊電場集中效應（Corner Field Crowding Factor &kappa;）。精確計算 AntiFuse 編程硬擊穿電壓（V<sub>bd</sub>）如何由傳統 28nm 平面節點的 7.2V 驟降至 3nm GAA 的 3.9V，進而使晶片內建電荷泵（Charge Pump）級數縮減、佔位矽面積節省高達 72%，具體論證 AntiFuse 突破 28nm 平面微縮極限、在 3nm/2nm 維持 0-Mask 相容之物理機制。</span>
-          <span data-lang="en">Applies 3D Poisson electrostatics and WKB trapezoidal direct tunneling to quantify corner field crowding (&kappa;) in 3D FinFET and GAA NanoSheets. Demonstrates how AntiFuse programming breakdown (V<sub>bd</sub>) scales down from 7.2V at 28nm planar to 3.9V at 3nm GAA, slashing on-chip charge pump macro footprint by up to 72% and providing physical proof for AntiFuse scaling to 3nm/2nm with 0 mask adders.</span>
+          <span data-lang="zh">以固定角隅係數乘上 E = V / t，並以 16.5 MV/cm 臨界場強試算硬擊穿電壓；穿隧使用簡化指數與溫度倍率。這是未經實測校準的教學模型，沒有求解三維 Poisson 或 TCAD。電荷泵級數依假設壓降試算；面積比例 0.28／0.42／0.65／1.00 為獨立預設輸入，72% 等縮減值不是由級數或實際佈局算得。不能保證 0-mask 相容、周邊耐壓、車規資格、保持或讀取擾動表現。</span>
+          <span data-lang="en">Multiplies E = V / t by a fixed corner coefficient and estimates breakdown using an assumed 16.5 MV/cm critical field. Tunneling uses a simplified exponent and temperature multiplier. This uncalibrated teaching model does not solve 3D Poisson or TCAD. Pump stages use an assumed voltage drop; footprint ratios 0.28 / 0.42 / 0.65 / 1.00 are independent preset inputs, so reductions such as 72% are not calculated from stages or physical layout. Results do not establish mask compatibility, peripheral voltage safety, automotive qualification, retention or read-disturb performance.</span>
         </p>
 
+        <p class="model-note"><span data-lang="zh">公開架構對照：TSMC N3／N3E 為 FinFET，N2 為奈米片；此對照不驗證本工作台的 OTP 電性或面積假設。</span><span data-lang="en">Published architecture context: TSMC N3 / N3E uses FinFET; N2 uses nanosheets. This context does not validate the workbench OTP electrical or footprint assumptions.</span> <a href="https://www.tsmc.com/chinese/dedicatedFoundry/technology/logic/l_3nm" target="_blank" rel="noopener noreferrer">TSMC N3</a> · <a href="https://research.tsmc.com/page/transistor-structure/59.html" target="_blank" rel="noopener noreferrer">TSMC N2</a></p>
+
         <!-- CONTROL PANEL -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); gap: 14px; margin-bottom: 1.5rem; background: #f8fafc; padding: 14px; border-radius: 6px; border: 1px solid #e2e8f0;">
           <!-- Node Select -->
           <div>
             <label for="finfet-node-select" style="display: block; font: 600 11px/1.4 'IBM Plex Mono', monospace; color: #334155; margin-bottom: 4px;">
-              <span data-lang="zh">晶圓代工先進節點</span><span data-lang="en">Foundry Advanced Node</span>
+              <span data-lang="zh">教學架構預設</span><span data-lang="en">Teaching Architecture Preset</span>
             </label>
-            <select id="finfet-node-select" style="width: 100%; padding: 6px 10px; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 12px; background: #ffffff; color: #0f172a;" aria-label="Foundry Advanced Node selection" data-aria-en="Foundry Advanced Node selection" data-aria-zh="晶圓代工先進節點選擇">
-              <option value="tsmc_n3_gaa" selected>TSMC N3E / N2 GAA NanoSheet (EOT 1.15nm, HfO2)</option>
-              <option value="tsmc_n5_finfet">TSMC N5 / N4P 3D FinFET (EOT 1.5nm, Tri-Gate)</option>
-              <option value="foundry_16ffc">Foundry 16nm / 12nm FinFET (EOT 2.0nm)</option>
-              <option value="planar_28hpc">Legacy 28nm Planar HKMG Baseline (EOT 2.6nm)</option>
+            <select id="finfet-node-select" style="width: 100%; padding: 6px 10px; border-radius: 4px; border: 1px solid #cbd5e1; font-size: 12px; background: #ffffff; color: #0f172a;" aria-label="Teaching Architecture Preset selection" data-aria-en="Teaching Architecture Preset selection" data-aria-zh="教學架構預設選擇">
+              <option value="tsmc_n3_gaa" selected>GAA NanoSheet Teaching Preset (N2-Class Architecture)</option>
+              <option value="tsmc_n5_finfet">N5 / N4P-Class FinFET Teaching Preset</option>
+              <option value="foundry_16ffc">16nm / 12nm-Class FinFET Teaching Preset</option>
+              <option value="planar_28hpc">28nm Planar HKMG Teaching Preset (Baseline)</option>
             </select>
           </div>
 
@@ -3348,7 +3354,7 @@
         </div>
 
         <!-- KPI METRIC CARDS -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 1.25rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 12px; margin-bottom: 1.25rem;">
           <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #0284c7;">
             <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
               <span data-lang="zh">一維基礎電場 E<sub>1D</sub></span><span data-lang="en">1D Field E<sub>1D</sub></span>
@@ -3383,7 +3389,7 @@
 
           <div style="background: #f1f5f9; padding: 12px; border-radius: 6px; border-left: 3px solid #059669;">
             <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
-              <span data-lang="zh">電荷泵面積縮減</span><span data-lang="en">Pump Area Savings</span>
+              <span data-lang="zh">假設電荷泵面積縮減</span><span data-lang="en">Assumed Pump Area Savings</span>
             </small>
             <div id="finfet-area-savings-val" style="font: 700 1.15rem/1.2 'IBM Plex Mono', monospace; color: #059669; margin-top: 4px;">-72 %</div>
             <span style="font-size: 10px; color: #64748b;"><span data-lang="zh">對比 28nm 基準</span><span data-lang="en">vs 28nm Base</span></span>
@@ -3409,10 +3415,12 @@
         <div id="finfet-verdict-banner" class="finfet-verdict-banner gaa_optimal" style="padding: 12px 16px; border-radius: 6px; font-size: 13px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534;">
           <span style="font-size: 1.25rem; line-height: 1;">⚡</span>
           <span class="finfet-verdict-text">
-            <span data-lang="zh">【GAA 奈米片極限微縮優勢】全環繞閘極與 1.2nm 奈米片角隅半徑將 AntiFuse 編程崩潰電壓大幅降至 2.84V（傳統 28nm 為 7.2V）。晶粒電荷泵面積縮減高達 72%，徹底突破 eFlash 停滯於 28nm 之微縮極限，維持 0-Mask 純邏輯相容。</span>
-            <span data-lang="en">[GAA NanoSheet Scalability Advantage] 3D wrap-around gate and 1.2nm corner radius lower programming breakdown to 2.84V (vs 7.2V in 28nm). Charge pump footprint is slashed by 72%, fully overcoming the 28nm planar scaling barrier with 0 extra masks.</span>
+            <span data-lang="zh">【GAA 教學試算】既有預設的硬擊穿試算為 2.84V，電荷泵試算為 6 級；面積比例假設 0.28 對應 72% 縮減，與級數計算獨立。這些數值尚未校準，不能保證製程相容或資格驗證通過。</span>
+            <span data-lang="en">[GAA Teaching Estimate] Existing presets give 2.84V breakdown and an estimated 6-stage pump. The assumed footprint ratio 0.28 gives 72% reduction independently of the stage calculation. These uncalibrated values do not establish process compatibility or qualification.</span>
           </span>
         </div>
+
+      </article>
 
         <!-- INTERACTIVE ADVANCED PACKAGING PDK & BASE DIE D2D WORKBENCH -->
         <article id="advanced-packaging-simulator-root" class="interactive-workbench" style="margin-top: 2rem; background: #ffffff; border: 1px solid #cddbdc; border-radius: 8px; padding: 24px; box-shadow: 0 4px 20px rgba(248, 250, 252, 0.96);" aria-labelledby="pkg-sim-title">
@@ -3441,7 +3449,7 @@
             <span data-lang="en">The interconnect latency (Elmore RC), thermal gradients (1D Fourier heat conduction), and eye opening rates in this workbench are schematic engineering models based on typical PDK geometries and first-order lumped parameters, rather than full 3D electromagnetic (EM) or computational fluid dynamics (CFD) finite element solvers. Actual chiplet SI/PI margins must be verified through foundry sign-off extraction rule decks and full-channel package S-parameter simulations.</span>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; margin-bottom: 1.5rem;">
             <!-- Select Preset -->
             <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 12px;">
               <label for="pkg-preset-select" style="display: block; font: 600 11px/1.2 'IBM Plex Mono', monospace; color: #475569; margin-bottom: 6px;">
@@ -3491,7 +3499,7 @@
           </div>
 
           <!-- 4 KPI Output Cards -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 1.5rem;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin-bottom: 1.5rem;">
             <div style="background: #f8fafc; border-left: 3px solid #0284c7; padding: 10px 14px; border-radius: 4px;">
               <small style="font: 600 10px/1 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
                 <span data-lang="zh">D2D RC 傳輸延遲 &tau;</span><span data-lang="en">D2D RC Delay &tau;</span>
@@ -3535,8 +3543,8 @@
                 <span data-lang="zh">熱阻溫升梯度曲線</span><span data-lang="en">Thermal Gradient</span>
               </button>
             </div>
-            <div style="width: 100%; height: 260px; position: relative;">
-              <canvas id="pkg-canvas" style="width: 100%; height: 100%; display: block;" aria-label="Interactive Advanced Packaging PDK and D2D Interconnect Canvas Visualization" data-aria-en="Interactive Advanced Packaging PDK and D2D Interconnect Canvas Visualization" data-aria-zh="先進封裝 PDK 與 D2D 互連互動視覺化圖"></canvas>
+            <div style="width: 100%; height: 260px; position: relative; overflow-x: auto;" tabindex="0" role="region" aria-label="Advanced packaging chart, horizontally scrollable" data-aria-zh="先進封裝圖表，可橫向捲動" data-aria-en="Advanced packaging chart, horizontally scrollable">
+              <canvas id="pkg-canvas" style="width: 100%; min-width: 560px; height: 100%; display: block;" aria-label="Interactive Advanced Packaging PDK and D2D Interconnect Canvas Visualization" data-aria-en="Interactive Advanced Packaging PDK and D2D Interconnect Canvas Visualization" data-aria-zh="先進封裝 PDK 與 D2D 互連互動視覺化圖"></canvas>
             </div>
           </div>
 
@@ -3546,7 +3554,6 @@
             <span data-lang="en">TSMC CoWoS-S features mature micro-bump interconnects, but post-packaging repair heavily relies on Base Die 0-Mask AntiFuse OTP for BIRA remapping vectors; wafer test procurement transitions from memory probe card vendors (e.g. MJC) to TSMC logic probe card supply chains (e.g. MPI, CHPT, Technoprobe).</span>
           </div>
         </article>
-      </article>
     </section>
 
     <!-- SECTION 05: FOUR ARCHITECTURAL READ TOPOLOGIES (REBUILT CLEAN & ORTHOGONAL) -->

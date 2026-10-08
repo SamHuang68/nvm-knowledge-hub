@@ -13,7 +13,7 @@
 .nvm-op-frame-heading h6{font-size:17px;line-height:1.45;font-weight:650;margin:0}
 .nvm-op-drawing{padding:8px 3px;background:white}
 .nvm-op-drawing>svg{display:block;width:100%;height:auto;color:#14334b}
-.nvm-op-drawing>svg text,.nvm-ip-structure-drawing>svg text,.nvm-engineering-dialog svg text{fill:#0f172a}
+.nvm-op-drawing>svg text:not([fill]),.nvm-ip-structure-drawing>svg text:not([fill]),.nvm-engineering-dialog svg text:not([fill]){fill:#163449}
 .nvm-op-drawing>svg text.bc-ion,.nvm-op-drawing>svg [data-charge]+text{fill:#ffffff!important}
 .nvm-op-caption{padding:0 16px 12px;font-size:15px;line-height:1.65;flex:1;color:#1e293b}
 .nvm-op-caption>dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:5px 10px;margin:9px 0 12px;font-size:14px}
@@ -86,3 +86,38 @@
 .nvm-engineering-dialog .nvm-engineering-zoom-scroll[data-fit="true"] svg{min-width:0;max-width:100%}
 body .nvm-figure-actions>button,body .nvm-figure-actions>a{min-height:44px}
 @media(max-width:760px){.nvm-engineering-dialog .nvm-engineering-zoom-toolbar{top:-10px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:end;gap:10px}.nvm-engineering-zoom-toolbar [data-engineering-fit]{padding-inline:10px;font-size:14px}}
+
+/* 同源狀態投影：固定圖框、明確步次，完整比較圖仍保留在下方。 */
+.nvm-step-demo{margin:4px 0 24px;padding:20px;border:1px solid #a8c2c8;border-left:4px solid #14777a;background:#f5f9f8;color:#163449;--motion-hold:1200ms}
+.nvm-step-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.nvm-step-head h6{margin:0;font-size:17px;font-weight:650;line-height:1.5;color:#155959}
+.nvm-step-count{font:600 14px/1.5 ui-monospace,monospace;color:#1d5360;white-space:nowrap}
+.nvm-step-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center}
+.nvm-step-stage{min-width:0;width:100%;max-width:420px;background:#f8fbfd;border:1px solid #c6d9de;overflow:hidden}
+.nvm-step-stage>svg{display:block;width:100%;height:100%;max-height:none;animation:nvm-step-arrive 180ms ease-out}
+.nvm-step-stage:focus-visible,.nvm-step-controls button:focus-visible{outline:3px solid #14777a;outline-offset:4px}
+.nvm-step-title{margin:0 0 12px;font-size:18px;font-weight:650;line-height:1.5;color:#163449}
+.nvm-step-description dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:7px 14px;margin:0 0 12px;font-size:15px;line-height:1.7}
+.nvm-step-description dt{font-weight:650;color:#163449}
+.nvm-step-description dd{margin:0;color:#334d5d;overflow-wrap:anywhere}
+.nvm-step-description p{margin:0!important;font-size:15px!important;line-height:1.75!important;color:#334d5d!important}
+.nvm-step-timeline{display:flex;gap:0;list-style:none;margin:20px 0 16px!important;padding:0!important;border-top:1px solid #a5c0c7}
+.nvm-step-timeline>li{display:flex;align-items:flex-start;gap:8px;flex:1;min-width:0;padding:12px 10px 8px;border-top:3px solid transparent;font-size:13px;line-height:1.6;color:#4a6572}
+.nvm-step-timeline>li.is-current{border-top-color:#14777a;color:#163449;background:#e5f1ef;font-weight:600}
+.nvm-step-ordinal{flex-shrink:0;font:650 13px/1.6 ui-monospace,monospace;color:#155959}
+.nvm-step-label{overflow-wrap:anywhere}
+.nvm-step-controls{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;max-width:620px}
+.nvm-step-controls button{font-family:inherit;font-size:14px;font-weight:600;line-height:1.6;min-height:44px;padding:8px 10px;border:1px solid #7a9ca5;border-radius:4px;background:#fff;color:#174b59;cursor:pointer;touch-action:manipulation}
+.nvm-step-controls button:hover:not(:disabled){background:#e5f1ef;border-color:#14777a}
+.nvm-step-controls button[aria-pressed="true"]{background:#155959;color:#fff;border-color:#155959}
+.nvm-step-controls button:disabled{color:#657984;background:#edf2f4;border-color:#c2cfd3;cursor:default}
+.nvm-step-guidance,.nvm-step-status{font-size:13px!important;line-height:1.75!important;color:#425f6c!important;margin:12px 0 0!important;overflow-wrap:anywhere}
+.nvm-step-status:empty,.nvm-step-guidance:empty{display:none}
+.nvm-step-demo [hidden]{display:none!important}
+.nvm-step-demo[data-step-mode="static"]{padding-block:14px}
+.nvm-step-demo[data-step-mode="static"] .nvm-step-head{margin-bottom:0}
+@keyframes nvm-step-arrive{from{opacity:.5}to{opacity:1}}
+@media(max-width:760px){.nvm-step-demo{padding:16px 12px}.nvm-step-layout{grid-template-columns:1fr;gap:18px}.nvm-step-stage{max-width:420px;margin-inline:auto}.nvm-step-timeline{display:grid;grid-template-columns:1fr;border-top:0;border-left:1px solid #a5c0c7}.nvm-step-timeline>li{border-top:0;border-left:3px solid transparent;padding:8px 10px}.nvm-step-timeline>li.is-current{border-left-color:#14777a}.nvm-step-description p,.nvm-step-description dl{font-size:15px!important}.nvm-step-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.nvm-step-count{font-size:12px}.nvm-step-head h6{font-size:16px}}
+@media(max-width:390px){.nvm-atlas-page .nvm-operation{padding-inline:10px}.nvm-step-demo{padding-inline:4px}}
+@media(prefers-reduced-motion:reduce){.nvm-step-stage>svg{animation:none}.nvm-step-controls,.nvm-step-stage,.nvm-step-timeline{transition:none}}
+@media print{.nvm-step-demo{display:none!important}}
