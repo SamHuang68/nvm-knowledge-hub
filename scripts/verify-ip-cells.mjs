@@ -13,6 +13,11 @@ const requiredIds=['neobit','neofuse','kilopass-xpm','sidense-1t-fuse','cfx-otp'
 note(units.length===requiredIds.length&&requiredIds.every(id=>units.some(unit=>unit.id===id))&&new Set(units.map(unit=>unit.id)).size===units.length,'IP 目錄包含既有單元及 Actt、NSCore、Floadia、創飛芯、Attopsemi、SST、常億、智憶技術');
 const sourceIds=new Set(data.sources.map(source=>source.id));
 for(const unit of units)note(unit.operations.length===3&&unit.structure.sourceIds.every(id=>sourceIds.has(id))&&unit.operations.every(operation=>operation.variants.every(variant=>variant.frames.length>=3&&variant.frames.every(frame=>frame.sourceIds.every(id=>sourceIds.has(id))))),'單元結構與所有逐格操作綁定有效來源',{id:unit.id});
+const norTopic=data.topics.find(t=>t.id==='nor');
+const norImplSourceIds=new Set((norTopic?.implementations||[]).flatMap(impl=>impl.sourceIds||[]));
+const landscapeTargets=new Set(data.research.landscape.map(x=>x.target));
+note(norImplSourceIds.has('ip-chingis-pfusion')&&norImplSourceIds.has('ip-iotmemory-silvoflash'),'eFlash 物理專題包含常億與智憶具名比較實作');
+note(landscapeTargets.has('ip-chingis-pfusion')&&landscapeTargets.has('ip-iotmemory-silvoflash'),'全球產研地圖包含常億與智憶之直達入口');
 const browser=await chromium.launch({headless:true});
 try{
  for(const language of ['en','zh'])for(const width of [1440,1024,768,390,320]){
