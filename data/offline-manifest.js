@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "20b3f6af96c573221d40",
+  "version": "fcf877eb63918903cd48",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -266,7 +266,7 @@ self.NVMOfflineManifest = {
     "pqc-hardware-rot-ledger-simulator.js": "afcf082e14bb7ef76ee67eef42b43fce18af3ac8adf75f59b2ea57388b06bf48",
     "pqc-key-storage-simulator.js": "9f05e72b2d67b9f0567c5146b79b498887b778e89a9ca8bd010c4679e94a7433",
     "pqc-rot-budget-calculator.js": "0b7b5f1cdbe7f9834d816e2b1735ae5d6b40c55319d0fc8586062315f1f0d6e6",
-    "pqc-rot-dpa-simulator.js": "72e3f003efd807b09d727faae3ce9aa8f117684b83430d61ac0eee102ed5a5aa",
+    "pqc-rot-dpa-simulator.js": "b460e3476b2cf6a5024ba6a431a7da7e09cdd846ab876314c2ecf2c5535fe120",
     "puf-nist-randomness-evaluator.js": "4845ed80be95c57d32d7c417c896c7f506518c897bc78de1b6f6443c640d2781",
     "puf-reconstruction-simulator.js": "025dccf8752bf478187d02df11dbfde67a20715669958701a4dd889bb2648351",
     "quick-probe.js": "13857acf21a476d43ed5eb2baf42ba8b9f88ef823ae1f213d643a87b77223994",
@@ -316,5 +316,5 @@ self.NVMOfflineManifest = {
     "生命週期圖解.css": "5e085489675722f6ff5fde7f0c02bcfb5d808c373c1f05a3a7249378df9d8fb1",
     "章節閱讀導覽.css": "6de1c925540d8a2a4f55950cac6bb8c151f12dd64607dacb1bf118ef79a2a1a9"
   },
-  "totalBytes": 13745690
+  "totalBytes": 13745737
 };
