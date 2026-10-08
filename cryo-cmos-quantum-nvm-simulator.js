@@ -257,6 +257,7 @@ export function drawCryoCanvas(canvas, metrics, mode = 'temperature_sweep_ss') {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.scale(dpr, dpr);
 
+  ctx.clearRect(0, 0, width, height);
   ctx.fillStyle = '#0f172a';
   ctx.fillRect(0, 0, width, height);
 

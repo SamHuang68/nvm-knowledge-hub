@@ -406,6 +406,7 @@ class TunnelingSimulator {
     const toY = (logJ) => padT + ((logJMax - logJ) / (logJMax - logJMin)) * plotH;
 
     // Clear background
+    ctx.clearRect(0, 0, w, h);
     ctx.fillStyle = '#0f172a';
     ctx.fillRect(0, 0, w, h);
 
