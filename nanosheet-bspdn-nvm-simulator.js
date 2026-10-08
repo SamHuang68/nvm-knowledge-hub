@@ -1,3 +1,5 @@
+import { syncMetricCopy } from './模型數值複製.js';
+
 /**
  * nanosheet-bspdn-nvm-simulator.js — 2nm/A16 GAA Nanosheet & Backside Power Delivery (BSPDN) eNVM Simulator
  *
@@ -537,12 +539,66 @@ export function initNanosheetBspdnSimulator(container) {
       drawNanosheetBspdnCanvas(canvas, m, currentMode);
     }
 
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([outVdd, outIrDrop, outTemp, outLatency, outMask, outRating]);
+    const exportControl = root.querySelector('#nanosheet-bspdn-export-csv-btn');
+    if (exportControl) {
+      const isZh = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+      exportControl.textContent = isZh ? '📥 匯出 2nm/A16 背面供電 CSV' : '📥 Export 2nm/A16 BSPDN CSV';
+      exportControl.setAttribute('aria-label', isZh ? '匯出 2nm/A16 奈米片與背面供電數值資料集為 CSV 檔案' : 'Export 2nm/A16 Nanosheet & BSPDN metrics dataset as CSV file');
+    }
+
     if (outVerdict) {
       const isZh = document.documentElement.lang.startsWith("zh") || document.querySelector("[data-lang='zh'].active") !== null;
       outVerdict.innerHTML = isZh
-        ? `<strong>2nm/A16 奈米片與背面供電整合判定：</strong> 在 <code>${m.nodeNameZh}</code> (Vdd=${m.nominalVddV}V) 下，背面供電將壓降 (IR-Drop) 壓抑至 <strong>${m.realizedIrDropMv} mV</strong>。然而晶圓薄化使 <code>${m.techNameZh}</code> 峰值熱點溫度達 <strong>${m.junctionTempC} °C</strong> (溫升 +${m.junctionTempRiseC}°C)。正面繞線釋放使讀取延遲降至 <strong>${m.realizedReadLatencyNs} ns</strong>。節點相容評級：<strong style="color:${m.isOptimal ? '#059669' : '#dc2626'};">${m.bspdnCompatibilityZh}</strong>。AntiFuse 憑藉純邏輯 0 光罩與微瓦級讀取能耗，免除了 STT-MRAM 寫入熱阻累積造成 MTJ 熱退磁的物理困境。`
-        : `<strong>2nm/A16 Nanosheet &amp; BSPDN Integration Verdict:</strong> Under <code>${m.nodeNameEn}</code> (Vdd=${m.nominalVddV}V), Backside Power Delivery curbs IR-Drop to <strong>${m.realizedIrDropMv} mV</strong>. However, substrate thinning drives <code>${m.techNameEn}</code> peak junction temperature to <strong>${m.junctionTempC} °C</strong> (ΔT +${m.junctionTempRiseC}°C). Frontside track relief reduces read latency to <strong>${m.realizedReadLatencyNs} ns</strong>. Node rating: <strong style="color:${m.isOptimal ? '#059669' : '#dc2626'};">${m.bspdnCompatibilityEn}</strong>. Pure logic AntiFuse (0 mask adders) avoids the severe local thermal trapping that destabilizes MTJ magnetic retention in thinned BSPDN wafers.`;
+        ? `<strong>2nm/A16 奈米片與背面供電整合判定：</strong> 在 <code>${m.nodeNameZh}</code> (Vdd=${m.nominalVddV}V) 下，背面供電將壓降 (IR-Drop) 壓抑至 <strong>${m.realizedIrDropMv} mV</strong>。然而晶圓薄化使 <code>${m.techNameZh}</code> 峰值熱點溫度達 <strong>${m.junctionTempC} °C</strong> (溫升 +${m.junctionTempRiseC}°C)。正面繞線釋放使讀取延遲降至 <strong>${m.realizedReadLatencyNs} ns</strong>。節點相容評級：<strong style="color:${m.isOptimal ? '#059669' : '#dc2626'};">${m.bspdnCompatibilityZh}</strong>。本模擬係依據一階集總參數熱阻與 RC 延遲模型推算，實際晶片須依據各代工廠 PDK 與先進封裝散熱方案量測校驗。`
+        : `<strong>2nm/A16 Nanosheet &amp; BSPDN Integration Verdict:</strong> Under <code>${m.nodeNameEn}</code> (Vdd=${m.nominalVddV}V), Backside Power Delivery curbs IR-Drop to <strong>${m.realizedIrDropMv} mV</strong>. However, substrate thinning drives <code>${m.techNameEn}</code> peak junction temperature to <strong>${m.junctionTempC} °C</strong> (ΔT +${m.junctionTempRiseC}°C). Frontside track relief reduces read latency to <strong>${m.realizedReadLatencyNs} ns</strong>. Node rating: <strong style="color:${m.isOptimal ? '#059669' : '#dc2626'};">${m.bspdnCompatibilityEn}</strong>. Illustrative first-order lumped model; validate against specific foundry PDK and package thermal solutions.`;
     }
+  }
+
+  // Export CSV Action for 2nm/A16 Nanosheet BSPDN
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const presetContainer = nodeSelect?.parentNode;
+  if (presetContainer && !presetContainer.querySelector('#nanosheet-bspdn-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'nanosheet-bspdn-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+    exportBtn.textContent = isZhLang ? '📥 匯出 2nm/A16 背面供電 CSV' : '📥 Export 2nm/A16 BSPDN CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '匯出 2nm/A16 奈米片與背面供電數值資料集為 CSV 檔案' : 'Export 2nm/A16 Nanosheet & BSPDN metrics dataset as CSV file');
+    exportBtn.addEventListener('click', () => {
+      const nKey = nodeSelect ? nodeSelect.value : 'tsmc_a16_spr';
+      const tKey = techSelect ? techSelect.value : 'antifuse_nanosheet_logic';
+      let csv = 'ArraySize_Mb,ActivityRate_Pct,NominalVdd_V,IRDrop_mV,JunctionTemp_C,TempRise_C,ReadLatency_ns,MaskAdders\n';
+      const arraySizes = [0.25, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0];
+      const actPcts = [5, 15, 30, 50];
+      for (const sz of arraySizes) {
+        for (const act of actPcts) {
+          const res = calculateNanosheetBspdnNvm({
+            nodeKey: nKey,
+            techKey: tKey,
+            customArrayMb: sz,
+            customActivityRatePct: act,
+          });
+          csv += `${sz},${act},${res.nominalVddV},${res.realizedIrDropMv},${res.junctionTempC},${res.junctionTempRiseC},${res.realizedReadLatencyNs},${res.maskAdders}\n`;
+        }
+      }
+      downloadCsv(`nanosheet_bspdn_${nKey}_${tKey}.csv`, csv);
+    });
+    presetContainer.appendChild(exportBtn);
   }
 
   if (nodeSelect) nodeSelect.addEventListener("change", update);
@@ -591,10 +647,8 @@ export function initNanosheetBspdnSimulator(container) {
   window.addEventListener("resize", () => {
     if (canvas) update();
   });
-
-    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('hub:language-change', () => update());
   window.addEventListener('languagechange', () => update());
-  window.addEventListener('resize', () => update());
   update();
 }
 

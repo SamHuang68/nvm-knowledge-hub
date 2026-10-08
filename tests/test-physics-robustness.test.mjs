@@ -267,5 +267,32 @@ test('Physical Calculators: Suite 7 - Sub-Kelvin & Extreme Plasma Temperature Bo
   }
 });
 
+test('Physical Calculators: Suite 8 - 3D Vertical Staircase Extreme Tiers & Substrate Thinning Fuzzing', () => {
+  const extreme3DConfigs = [
+    { tierCount: 32, metalThicknessNm: 40.0, substrateThicknessUm: 775.0 },
+    { tierCount: 64, metalThicknessNm: 25.0, substrateThicknessUm: 100.0 },
+    { tierCount: 128, metalThicknessNm: 15.0, substrateThicknessUm: 10.0 },
+    { tierCount: 256, metalThicknessNm: 10.0, substrateThicknessUm: 5.0 },
+    { tierCount: 512, metalThicknessNm: 5.0, substrateThicknessUm: 1.0 },
+    { tierCount: 1024, metalThicknessNm: 2.0, substrateThicknessUm: 0.1 },
+  ];
 
-
+  for (const { name, fn } of allCalculators) {
+    for (const cfg of extreme3DConfigs) {
+      try {
+        const res = fn({
+          tierCount: cfg.tierCount,
+          metalThicknessNm: cfg.metalThicknessNm,
+          arrayLengthUm: 200.0,
+          customArrayMb: 8.0,
+          customActivityRatePct: 25.0,
+          substrateThicknessUm: cfg.substrateThicknessUm,
+        });
+        assert.ok(res !== undefined, `${name} must handle 3D tier config ${cfg.tierCount}L safely`);
+        checkNoNaN(res, `${name}_3DTiers_${cfg.tierCount}L`);
+      } catch (err) {
+        assert.fail(`${name} crashed on 3D tier config ${cfg.tierCount}L: ${err.message}`);
+      }
+    }
+  }
+});

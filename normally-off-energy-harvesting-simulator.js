@@ -1,3 +1,5 @@
+import { syncMetricCopy } from './模型數值複製.js';
+
 /**
  * normally-off-energy-harvesting-simulator.js — Normally-Off Computing & Energy Harvesting ULP MCU Simulator
  *
@@ -512,12 +514,66 @@ export function initNormallyOffSimulator(container) {
       drawNormallyOffCanvas(canvas, m, currentMode);
     }
 
+    // 複製狀態獨立呈現，不改動模型數值。
+    syncMetricCopy([outPowerIn, outEnergyStored, outChargeTime, outAvgPower, outRatio, outStatus]);
+    const exportControl = root.querySelector('#normally-off-export-csv-btn');
+    if (exportControl) {
+      const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+      exportControl.textContent = isZhLang ? '📥 匯出常時關閉能量平衡 CSV' : '📥 Export Energy Balance CSV';
+      exportControl.setAttribute('aria-label', isZhLang ? '匯出常時關閉能量採集與微功耗平衡資料集為 CSV 檔案' : 'Export normally-off energy harvesting and power balance dataset as CSV file');
+    }
+
     if (outVerdict) {
       const isZh = document.documentElement.lang.startsWith("zh") || document.querySelector("[data-lang='zh'].active") !== null;
       outVerdict.innerHTML = isZh
-        ? `<strong>常時關閉能量採集判定：</strong> 在 <code>${m.sourceNameZh}</code> (${m.pSourceUw} µW) 搭配 <code>${m.capUf} µF</code> 電容與 <code>${m.dutyPct}%</code> 占空比下，<code>${m.memoryNameZh}</code> 的系統平均功耗為 <strong>${m.averagePowerUw} µW</strong>，能量平衡比為 <strong>${m.energyBalanceRatio}x</strong>。運行狀態：<strong style="color:${(m.isSelfSustaining && m.isInrushSafe) ? '#059669' : '#dc2626'};">${m.statusZh}</strong>。AntiFuse 憑藉 0.75V 原生冷啟動與零電荷泵突波電流，解決了微瓦級環境中常因升壓電壓塌陷導致的死鎖循環。`
-        : `<strong>Normally-Off Energy Harvesting Verdict:</strong> Powered by <code>${m.sourceNameEn}</code> (${m.pSourceUw} µW) with a <code>${m.capUf} µF</code> reservoir at <code>${m.dutyPct}%</code> duty cycle, the <code>${m.memoryNameEn}</code> architecture consumes an average of <strong>${m.averagePowerUw} µW</strong> (Energy Balance: <strong>${m.energyBalanceRatio}x</strong>). Operational status: <strong style="color:${(m.isSelfSustaining && m.isInrushSafe) ? '#059669' : '#dc2626'};">${m.statusEn}</strong>. AntiFuse native 0.75V cold boot without charge-pump inrush eliminates brownout reboot deadlocks in micro-watt ambient harvesting.`;
+        ? `<strong>常時關閉能量採集判定：</strong> 在 <code>${m.sourceNameZh}</code> (${m.pSourceUw} µW) 搭配 <code>${m.capUf} µF</code> 電容與 <code>${m.dutyPct}%</code> 占空比下，<code>${m.memoryNameZh}</code> 的系統平均功耗為 <strong>${m.averagePowerUw} µW</strong>，能量平衡比為 <strong>${m.energyBalanceRatio}x</strong>。運行狀態：<strong style="color:${(m.isSelfSustaining && m.isInrushSafe) ? '#059669' : '#dc2626'};">${m.statusZh}</strong>。本模擬係依據一階能量守恆與冷啟動電容充放電模型推算，實際 IoT 裝置須依據具體電源管理 IC (PMIC) 與待機漏電實測校驗。`
+        : `<strong>Normally-Off Energy Harvesting Verdict:</strong> Powered by <code>${m.sourceNameEn}</code> (${m.pSourceUw} µW) with a <code>${m.capUf} µF</code> reservoir at <code>${m.dutyPct}%</code> duty cycle, the <code>${m.memoryNameEn}</code> architecture consumes an average of <strong>${m.averagePowerUw} µW</strong> (Energy Balance: <strong>${m.energyBalanceRatio}x</strong>). Operational status: <strong style="color:${(m.isSelfSustaining && m.isInrushSafe) ? '#059669' : '#dc2626'};">${m.statusEn}</strong>. Illustrative first-order energy balance model; validate against PMIC bench tests and cold-boot inrush measurements.`;
     }
+  }
+
+  // Export CSV Action for Normally-Off Energy Harvesting
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const presetContainer = sourceSelect?.parentNode;
+  if (presetContainer && !presetContainer.querySelector('#normally-off-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'normally-off-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.4); background: rgba(15, 23, 42, 0.6); color: #34d399; cursor: pointer;';
+    const isZhLang = (window.HubLanguage?.get() || document.documentElement.lang || 'en').startsWith('zh');
+    exportBtn.textContent = isZhLang ? '📥 匯出常時關閉能量平衡 CSV' : '📥 Export Energy Balance CSV';
+    exportBtn.setAttribute('aria-label', isZhLang ? '匯出常時關閉能量採集與微功耗平衡資料集為 CSV 檔案' : 'Export normally-off energy harvesting and power balance dataset as CSV file');
+    exportBtn.addEventListener('click', () => {
+      const sKey = sourceSelect ? sourceSelect.value : 'indoor_solar_100lux';
+      const mKey = memorySelect ? memorySelect.value : 'antifuse_normally_off';
+      let csv = 'Capacitor_uF,DutyCycle_Pct,HarvestedPower_uW,AveragePower_uW,UsableEnergy_uJ,ChargeTime_s,EnergyBalanceRatio\n';
+      const capVals = [10, 22, 47, 100, 220];
+      const dutyVals = [0.1, 0.5, 1.0, 2.0, 5.0];
+      for (const cap of capVals) {
+        for (const duty of dutyVals) {
+          const res = calculateNormallyOffEnergy({
+            sourceKey: sKey,
+            memoryKey: mKey,
+            customCapacitorUf: cap,
+            customDutyCyclePct: duty,
+          });
+          csv += `${cap},${duty},${res.pSourceUw},${res.averagePowerUw},${res.usableEnergyUj},${res.chargeTimeSec},${res.energyBalanceRatio}\n`;
+        }
+      }
+      downloadCsv(`normally_off_energy_${sKey}_${mKey}.csv`, csv);
+    });
+    presetContainer.appendChild(exportBtn);
   }
 
   if (sourceSelect) sourceSelect.addEventListener("change", update);
@@ -566,10 +622,8 @@ export function initNormallyOffSimulator(container) {
   window.addEventListener("resize", () => {
     if (canvas) update();
   });
-
-    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('hub:language-change', () => update());
   window.addEventListener('languagechange', () => update());
-  window.addEventListener('resize', () => update());
   update();
 }
 
