@@ -245,7 +245,7 @@ export function calculateSubthresholdMetrics(params = {}) {
   const activeEnergyFj = alphaSwitching * (bitlineCapFf * 1e-15) * (vdd ** 2) * 1e15;
 
   // Array Leakage: total bits * I_leak_per_bit * VDD * t_sense
-  const tempLeakMultiplier = Math.exp((tempC - 25.0) / 18.0);
+  const tempLeakMultiplier = Math.exp(Math.max(-50, Math.min(50, (tempC - 25.0) / 18.0)));
   const totalArrayLeakageNa = (capacityKb * 1024.0) * (topology.offStateLeakagePa * 1e-12 * tempLeakMultiplier) * 1e9;
   const leakageEnergyFj = (totalArrayLeakageNa * 1e-9) * vdd * (senseLatencyNs * 1e-9) * 1e15;
   const totalEnergyFj = activeEnergyFj + leakageEnergyFj;
@@ -313,15 +313,16 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh', hover
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
-  const dpr = window.devicePixelRatio || 1;
-  const width = canvas.clientWidth || 640;
-  const height = canvas.clientHeight || 320;
+  try {
+    const dpr = window.devicePixelRatio || 1;
+    const width = canvas.clientWidth || 640;
+    const height = canvas.clientHeight || 320;
 
-  canvas.width = Math.round(width * dpr);
-  canvas.height = Math.round(height * dpr);
-  ctx.scale(dpr, dpr);
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    ctx.scale(dpr, dpr);
 
-  ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, width, height);
 
   // Background
   ctx.fillStyle = '#0a101d';
@@ -604,6 +605,9 @@ export function drawSubthresholdCanvas(canvas, metrics, mode, lang = 'zh', hover
     ctx.fillText(sampleText, pillX + pillW / 2, pillY + 14);
     ctx.restore();
   }
+  } catch (err) {
+    console.warn('drawSubthresholdCanvas caught rendering error:', err);
+  }
 }
 
 /**
@@ -643,15 +647,27 @@ export function initSubthresholdSimulator(containerId) {
       customCapacityKb: capacitySlider ? Number(capacitySlider.value) : undefined
     });
 
-    // Update Slider Labels
+    // Update Slider Labels & A11y Attributes
     const vddValEl = root.querySelector('#subvt-vdd-val');
     if (vddValEl) vddValEl.textContent = `${metrics.vdd.toFixed(2)} V`;
+    if (vddSlider) {
+      vddSlider.setAttribute('aria-valuenow', metrics.vdd.toFixed(2));
+      vddSlider.setAttribute('aria-valuetext', `${metrics.vdd.toFixed(2)} V`);
+    }
 
     const tempValEl = root.querySelector('#subvt-temp-val');
     if (tempValEl) tempValEl.textContent = `${metrics.tempC} °C`;
+    if (tempSlider) {
+      tempSlider.setAttribute('aria-valuenow', String(metrics.tempC));
+      tempSlider.setAttribute('aria-valuetext', `${metrics.tempC} °C`);
+    }
 
     const capacityValEl = root.querySelector('#subvt-capacity-val');
     if (capacityValEl) capacityValEl.textContent = `${metrics.capacityKb} Kb`;
+    if (capacitySlider) {
+      capacitySlider.setAttribute('aria-valuenow', String(metrics.capacityKb));
+      capacitySlider.setAttribute('aria-valuetext', `${metrics.capacityKb} Kb`);
+    }
 
     // Update Metric Badges
     const energyEl = root.querySelector('#subvt-metric-energy');
@@ -808,12 +824,58 @@ export function initSubthresholdSimulator(containerId) {
     });
   }
 
-  // Language and resize listeners
+  // Export CSV Action
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const btnContainer = modeLatencyBtn?.parentNode;
+  if (btnContainer && !btnContainer.querySelector('#subvt-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'subvt-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-left: auto; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    const lang = (window.HubLanguage?.get() || document.documentElement.dataset.language || 'en') === 'zh' ? 'zh' : 'en';
+    exportBtn.textContent = lang === 'zh' ? '📥 匯出 CSV' : '📥 Export CSV';
+    exportBtn.addEventListener('click', () => {
+      const curTemp = parseFloat(tempSlider?.value || 25);
+      let csv = 'VDD_V,DynamicEnergy_fJ,LeakageEnergy_fJ,TotalEnergy_fJ,SenseLatency_ns\n';
+      for (let j = 0; j <= 60; j++) {
+        const v = 0.25 + (1.20 - 0.25) * (j / 60);
+        const m = calculateSubthresholdMetrics({
+          vdd: v,
+          tempC: curTemp,
+          capacityKb: parseInt(capacitySlider?.value || 256, 10),
+          topologyId: currentTopologyId,
+        });
+        csv += `${v.toFixed(3)},${m.dynamicEnergyFj.toFixed(3)},${m.leakageEnergyFj.toFixed(3)},${m.totalEnergyFj.toFixed(3)},${m.senseLatencyNs.toFixed(2)}\n`;
+      }
+      downloadCsv(`subthreshold_simulation_${currentTopologyId}.csv`, csv);
+    });
+    btnContainer.appendChild(exportBtn);
+  }
+
+  // Language, mutation and responsive ResizeObserver listeners
   window.addEventListener('hub:language-change', update);
   window.addEventListener('languagechange', update);
   window.addEventListener('resize', update);
+
+  if (typeof ResizeObserver !== 'undefined' && canvas) {
+    const ro = new ResizeObserver(() => update());
+    ro.observe(canvas);
+  }
+
   const observer = new MutationObserver(() => update());
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-theme'] });
 
   // Initial render
   update();
