@@ -259,8 +259,9 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
   }
 
   ctx.save();
-  ctx.scale(dpr, dpr);
-  ctx.clearRect(0, 0, width, height);
+  try {
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, width, height);
 
   // Background
   const bgGrad = ctx.createLinearGradient(0, 0, width, height);
@@ -418,8 +419,11 @@ export function drawAutomotiveHbm4Canvas(canvas, metrics, mode = 'scrubbing_peri
       padTop - 12
     );
   }
-
-  ctx.restore();
+  } catch (err) {
+    console.warn('drawAutomotiveHbm4Canvas caught error:', err);
+  } finally {
+    ctx.restore();
+  }
 }
 
 /**
@@ -505,6 +509,23 @@ export function initAutomotiveHbm4Simulator(rootSelector = '#auto-hbm4-scrubbing
       outVerdict.textContent = isZh ? metrics.verdictZh : metrics.verdictEn;
     }
 
+    // Click-to-copy ergonomics on KPI elements
+    [outRawFit, outResFit, outSpfm, outHppr, outRating].forEach((el) => {
+      if (el && !el.dataset.copyAttached) {
+        el.dataset.copyAttached = 'true';
+        el.style.cursor = 'pointer';
+        el.setAttribute('title', isZh ? '點擊複製數值' : 'Click to copy');
+        el.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(el.textContent.trim());
+            const orig = el.textContent;
+            el.textContent = isZh ? '已複製！' : 'Copied!';
+            setTimeout(() => { el.textContent = orig; }, 1200);
+          } catch (_) {}
+        });
+      }
+    });
+
     if (canvas) {
       drawAutomotiveHbm4Canvas(canvas, metrics, currentMode, isZh);
     }
@@ -558,14 +579,62 @@ export function initAutomotiveHbm4Simulator(rootSelector = '#auto-hbm4-scrubbing
     });
   }
 
-  // Language mutation observer
+  // Export CSV Action for HBM4 Scrubbing
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const btnContainer = modeTempBtn?.parentNode;
+  if (btnContainer && !btnContainer.querySelector('#hbm4-scrub-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'hbm4-scrub-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-left: auto; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    const isZh = document.documentElement.lang.startsWith('zh');
+    exportBtn.textContent = isZh ? '📥 匯出 HBM4 巡檢 CSV' : '📥 Export HBM4 CSV';
+    exportBtn.addEventListener('click', () => {
+      const missionId = missionSelect ? missionSelect.value : 'l4_robotaxi_extreme';
+      const repairArchId = repairSelect ? repairSelect.value : 'hybrid_tier_scrubbing';
+      const junctionTempC = tempSlider ? parseFloat(tempSlider.value) : 115.0;
+      const stackDensityGb = densitySlider ? parseInt(densitySlider.value, 10) : 64;
+
+      let csv = 'ScrubbingPeriod_s,RawFit,ResidualFit,SpfmPercent,HpprUsagePercent\n';
+      for (let s = 0.1; s <= 10.0; s += 0.2) {
+        const m = calculateAutomotiveHbm4Metrics({
+          missionId,
+          repairArchId,
+          junctionTempC,
+          scrubbingPeriodSec: s,
+          stackDensityGb,
+        });
+        csv += `${s.toFixed(2)},${m.totalRawFailures.toFixed(1)},${m.totalResidualFit.toFixed(3)},${m.spfmPercent.toFixed(2)},${m.hpprUsagePercent.toFixed(1)}\n`;
+      }
+      downloadCsv(`automotive_hbm4_scrubbing_${missionId}_${junctionTempC}C.csv`, csv);
+    });
+    btnContainer.appendChild(exportBtn);
+  }
+
+  // Language & theme mutation observer
   const observer = new MutationObserver(() => update());
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-theme'] });
+
+  if (typeof ResizeObserver !== 'undefined' && canvas) {
+    const ro = new ResizeObserver(() => update());
+    ro.observe(canvas);
+  }
 
   window.addEventListener('resize', update);
-    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('hub:language-change', () => update());
   window.addEventListener('languagechange', () => update());
-  window.addEventListener('resize', () => update());
   update();
 }
 

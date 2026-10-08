@@ -248,6 +248,7 @@ export function initDifferentialSensingSimulator(rootSelector = '#differential-s
   }
 
   function update() {
+    const isZh = (window.HubLanguage?.get() || document.documentElement.dataset.language || document.documentElement.lang || 'zh').startsWith('zh');
     const tempC = parseFloat(tempSlider?.value || 150);
     const cmNoiseMv = parseFloat(noiseSlider?.value || 45);
 
@@ -297,6 +298,23 @@ export function initDifferentialSensingSimulator(rootSelector = '#differential-s
     }
 
     // 使用同一結果說明假設與定義域，不把示意曲線指標當成安全判定。
+    // Click-to-copy ergonomics on KPI elements
+    [deltaVEl, cmrrEl, dpaDeltaEl, dpaAttenBadge, mtdEl, areaEl].forEach((el) => {
+      if (el && !el.dataset.copyAttached) {
+        el.dataset.copyAttached = 'true';
+        el.style.cursor = 'pointer';
+        el.setAttribute('title', isZh ? '點擊複製數值' : 'Click to copy');
+        el.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(el.textContent.trim());
+            const orig = el.textContent;
+            el.textContent = isZh ? '已複製！' : 'Copied!';
+            setTimeout(() => { el.textContent = orig; }, 1200);
+          } catch (_) {}
+        });
+      }
+    });
+
     if (verdictEl) {
       verdictEl.innerHTML = T(
         `<strong>Illustrative Sensing Comparison:</strong> At ${res.tempC}°C and ${res.cmNoiseMv} mV supply noise, <em>${res.arch.nameEn}</em> produces <strong>${res.deltaVsenseMv} mV (${res.deltaIsenseUa} µA)</strong> under the model assumptions. Leakage is <strong>${res.ileakUa} µA</strong>, referenced to ${res.leakageReferenceTempC}°C. ${res.modelValid ? `The illustrative current discrepancy is ${res.firstOrderDeltaI} µA; CMRR, attenuation, area and trace index use uncalibrated architecture coefficients.` : `<strong>Leakage equals or exceeds programmed-cell current. The assumed read polarity is no longer valid; the sensing margin is shown as zero and the trace index is unavailable.</strong>`} This does not predict key recovery, establish ISO/IEC 17825 or Common Criteria conformance, or prescribe a mandatory bitcell topology. Validate the complete implementation, leakage measurements and attack setup.`,
@@ -305,10 +323,51 @@ export function initDifferentialSensingSimulator(rootSelector = '#differential-s
     }
   }
 
+  // Export CSV Action for Differential Sensing
+  function downloadCsv(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', filename);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  const presetContainer = presetSelect?.parentNode;
+  if (presetContainer && !presetContainer.querySelector('#diff-export-csv-btn')) {
+    const exportBtn = document.createElement('button');
+    exportBtn.id = 'diff-export-csv-btn';
+    exportBtn.type = 'button';
+    exportBtn.style.cssText = 'margin-top: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 4px; border: 1px solid rgba(56, 189, 248, 0.4); background: rgba(15, 23, 42, 0.6); color: #38bdf8; cursor: pointer;';
+    const isZh = (window.HubLanguage?.get() || document.documentElement.dataset.language || 'zh') === 'zh';
+    exportBtn.textContent = isZh ? '📥 匯出差分感測 CSV' : '📥 Export Diff-Sense CSV';
+    exportBtn.addEventListener('click', () => {
+      const archId = archSelect?.value || 'true_twin_cell';
+      const presetId = presetSelect?.value || 'automotive_grade0_28nm';
+      let csv = 'Temp_C,SupplyNoise_mV,DeltaVsense_mV,DeltaIsense_uA,CMRR_dB,Ileak_uA\n';
+      for (let t = -40; t <= 175; t += 10) {
+        const r = calculateDifferentialSensing({
+          presetId,
+          archId,
+          tempC: t,
+          cmNoiseMv: noiseSlider ? Number(noiseSlider.value) : 80,
+        });
+        csv += `${t},${r.cmNoiseMv},${r.deltaVsenseMv},${r.deltaIsenseUa},${r.cmrrDb},${r.ileakUa}\n`;
+      }
+      downloadCsv(`differential_sensing_${archId}_${presetId}.csv`, csv);
+    });
+    presetContainer.appendChild(exportBtn);
+  }
+
   presetSelect?.addEventListener('change', (e) => loadPreset(e.target.value));
   archSelect?.addEventListener('change', update);
   [tempSlider, noiseSlider].forEach((el) => el?.addEventListener('input', update));
   window.addEventListener('hub:language-change', update);
+  window.addEventListener('languagechange', update);
 
   update();
 }

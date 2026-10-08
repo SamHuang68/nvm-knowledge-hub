@@ -184,3 +184,28 @@ test('Physical Calculators: 10,000 Random Float Noise Invocations (No Crashes)',
   }
 });
 
+test('Physical Calculators: Structural Mutation & String Coercion Fuzzing (1,000 runs)', () => {
+  const mutationSamples = [
+    { tempC: '125', voltage: '0.85', vdd: '1.2' },
+    { tempC: true, voltage: false, missionYears: '10' },
+    { tempC: '', vdd: '', capacityKb: '512' },
+    { tempC: '  ', voltage: '  ', dutyCycleKey: 'invalid_duty' },
+    { tempC: -0, voltage: 0, missionYears: 0 },
+    { tempC: 85, voltage: 1.0, presetId: 'unknown_preset_key_test' },
+    { tempC: 25, voltage: 0.5, topologyId: 'nonexistent_topology' },
+    { tempC: 150, voltage: 1.5, modelId: 'nonexistent_model' },
+  ];
+
+  for (const { name, fn } of allCalculators) {
+    for (const sample of mutationSamples) {
+      try {
+        const res = fn(sample);
+        assert.ok(res !== undefined, `${name} must return result on structural mutation`);
+      } catch (err) {
+        assert.fail(`${name} crashed on mutation sample: ${err.message}`);
+      }
+    }
+  }
+});
+
+
