@@ -1,5 +1,5 @@
 self.NVMOfflineManifest = {
-  "version": "5f253cb5d4520fe8d2f8",
+  "version": "8046aed298ff02281a69",
   "assets": [
     "404.html",
     "advanced-finfet-gaa-simulator.js",
@@ -229,7 +229,7 @@ self.NVMOfflineManifest = {
     "hybrid-bonding-tsv-kgd-simulator.js": "9ff03604970cf8898c32814bacb335e9641baae0cd0b986863f2ca0f215eadb1",
     "index.html": "279a5aba481814eca860651bfba64b3949f36f5e585fcb67f66dbaa52c2c42f7",
     "iot-energy-tradeoff-calculator.js": "e7c97cf0a93a557980a9e3b7037bd3916a3c2b0cec8ba7788e8cc705b899efeb",
-    "iot-mcu-envm.html": "e77de238697032f2d142ff543a0b5dcf47cfcda097ce49afa0bfec5e73ac24a6",
+    "iot-mcu-envm.html": "ac74e71b09c38b11a24ee3465a8eacd6754591d487fd967e5739ed09714f25fd",
     "iot-model-boundaries.js": "e43ed75c6a3d9c3659c70e37b8507ef8214e8e1dbd730eb8add34bbc53aadf06",
     "iot-page-navigation.js": "32b173be0f47041ae50e89bc8eff861c0e3bd8aeb59cf71553a43ab9d29d6ea9",
     "knowledge-hub-home.css": "ced747eb93c7261c334359d763eeafa2ef495705991e314b46b389e9dcd720f2",
@@ -277,7 +277,7 @@ self.NVMOfflineManifest = {
     "site.webmanifest": "848696dfbe9411704eada9b9fad7701335aab0941bb22853a19aee8ab7bc33a2",
     "space-radiation-hardening-simulator.js": "ac4baaf3e4976f584c52d92dd2e8c5771c3e1634777c386fa822f45526e7ad7b",
     "specialty-nvm.css": "54edc81d1d15e1d9d5c3f2604328e11269e48ac9fda51d059912d4dd0f8d7862",
-    "specialty-nvm.html": "a103e63314e17dbbdf9aac09491a21a5de3d1b75c9eedc9f285e556ad10a128d",
+    "specialty-nvm.html": "192ce5b00ecf84b055d3be0a82689cd53fbd361bb89f9d85e17191b2b9fa1123",
     "specialty-nvm.js": "987a05dd3f6aa8cf0b69c7c543deebc445587e9f930186241a47a7a1e01fec4b",
     "sram-repair-model.js": "366c04a84d228d736a372308d8adbaf07660683fb6f6d5b453adc5dde8c204a6",
     "sram-repair.css": "344a186f66695d3f92ad1552743c08cb2696f33a821add216ed24b302a9ecae9",
@@ -292,7 +292,7 @@ self.NVMOfflineManifest = {
     "supply-chain-hardware-trojan-pem-simulator.js": "c7d7f659f0a5313526b2940b120b0de15a05f2632997a6efcce7cb3cad559d0f",
     "surface-radius.css": "77dc7e07f15be8115ed73ff757deb46e947dc7578202cf2e1f96159f884240a1",
     "tddb-weibull-simulator.js": "274fd88c6926196adb869f6f0ee17cc721f4bebb6e41b2ec2ca064a168b7490a",
-    "technology-comparison.html": "b9b96b3e9ec464dbe2c9cf0db96fd205cfc643dac93b71b5a06b75cd0a3eecf7",
+    "technology-comparison.html": "f54cd4e925500cfdc761bf2f765098ef1c7458b9aab78f306211a95accb1e585",
     "tools/whitepaper-studio/index.html": "f8bfb6b034f924317e0dabf6c47752734ad12a5e469c4721c3e57fae3a107e33",
     "topic-menu-navigation.js": "a0b6a71c96dbfd98f19b4110b6f78e566dec0178ffc82d872aeeccd95af0fe2d",
     "tunneling-breakdown-simulator.css": "80433c36dca9ba4fb9940765a7264801e347af32d22940f2ae79d0a98a49735a",
@@ -304,5 +304,5 @@ self.NVMOfflineManifest = {
     "whitepaper/assets/whitepaper_i18n.js": "1a80caf7221a052c98828693d10982531f3fcba482cc0c1db82dfdabf8d4c83e",
     "whitepaper/index.html": "5ce3b260608904f45d28e2bd417fddc25661be9900fae2a1c818414f10d81f2c"
   },
-  "totalBytes": 13213982
+  "totalBytes": 13232984
 };
