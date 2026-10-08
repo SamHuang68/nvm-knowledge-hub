@@ -126,6 +126,11 @@ class TunnelingSimulator {
       this.render();
     });
 
+    window.addEventListener('hub:language-change', () => {
+      this.updateLabels();
+      this.render();
+    });
+
     // Language change observer
     const observer = new MutationObserver(() => {
       this.updateLabels();
@@ -227,13 +232,15 @@ class TunnelingSimulator {
    */
   initCanvasResolution() {
     const rect = this.canvas.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
-    this.canvas.width = rect.width * dpr;
-    this.canvas.height = rect.height * dpr;
-    this.ctx.resetTransform?.();
+    const w = rect.width || this.canvas.clientWidth || 480;
+    const h = rect.height || this.canvas.clientHeight || 260;
+    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    this.canvas.width = Math.round(w * dpr);
+    this.canvas.height = Math.round(h * dpr);
+    this.ctx.setTransform(1, 0, 0, 1, 0, 0);
     this.ctx.scale(dpr, dpr);
-    this.width = rect.width;
-    this.height = rect.height;
+    this.width = w;
+    this.height = h;
   }
 
   /**
@@ -399,6 +406,7 @@ class TunnelingSimulator {
     const toY = (logJ) => padT + ((logJMax - logJ) / (logJMax - logJMin)) * plotH;
 
     // Clear background
+    ctx.clearRect(0, 0, w, h);
     ctx.fillStyle = '#0f172a';
     ctx.fillRect(0, 0, w, h);
 

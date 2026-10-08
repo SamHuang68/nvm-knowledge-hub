@@ -246,20 +246,22 @@ export function drawRadCanvas(canvas, metrics, mode = 'tid_dose_sweep') {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
-  const dpr = typeof window !== 'undefined' ? (window.devicePixelRatio || 1) : 1;
+  const dpr = typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, 3) : 1;
   const rect = canvas.getBoundingClientRect();
-  const width = rect.width > 0 ? rect.width : canvas.width;
-  const height = rect.height > 0 ? rect.height : canvas.height;
+  const width = rect.width > 0 ? rect.width : (canvas.clientWidth || 420);
+  const height = rect.height > 0 ? rect.height : (canvas.clientHeight || 180);
 
-  if (canvas.width !== width * dpr || canvas.height !== height * dpr) {
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
+  if (canvas.width !== Math.round(width * dpr) || canvas.height !== Math.round(height * dpr)) {
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
   }
 
   ctx.save();
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.scale(dpr, dpr);
 
   // Background
+  ctx.clearRect(0, 0, width, height);
   ctx.fillStyle = '#08131e';
   ctx.fillRect(0, 0, width, height);
 
@@ -550,6 +552,9 @@ export function initRadSimulator() {
 
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', () => {
+      if (canvas) update();
+    });
+    window.addEventListener('hub:language-change', () => {
       if (canvas) update();
     });
   }

@@ -356,9 +356,17 @@ export class AutomotiveHighTempSicGanSimulator {
       });
     }
 
-    // Language Change
-    document.addEventListener('languagechange', () => {
+    // Language Change & Window Resize
+    window.addEventListener('languagechange', () => {
       this.updateBilingualLabels();
+      this.update();
+    });
+    window.addEventListener('hub:language-change', () => {
+      this.updateBilingualLabels();
+      this.update();
+    });
+    window.addEventListener('resize', () => {
+      this.update();
     });
   }
 
@@ -570,8 +578,17 @@ export class AutomotiveHighTempSicGanSimulator {
     const canvas = this.container.querySelector('#sic-canvas-arrhenius');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const w = canvas.width;
-    const h = canvas.height;
+    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    const cssW = canvas.clientWidth || 380;
+    const cssH = canvas.clientHeight || 200;
+    if (canvas.width !== Math.round(cssW * dpr) || canvas.height !== Math.round(cssH * dpr)) {
+      canvas.width = Math.round(cssW * dpr);
+      canvas.height = Math.round(cssH * dpr);
+    }
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+    const w = cssW;
+    const h = cssH;
 
     ctx.clearRect(0, 0, w, h);
 
@@ -691,8 +708,17 @@ export class AutomotiveHighTempSicGanSimulator {
     const canvas = this.container.querySelector('#sic-canvas-sense');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const w = canvas.width;
-    const h = canvas.height;
+    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    const cssW = canvas.clientWidth || 380;
+    const cssH = canvas.clientHeight || 200;
+    if (canvas.width !== Math.round(cssW * dpr) || canvas.height !== Math.round(cssH * dpr)) {
+      canvas.width = Math.round(cssW * dpr);
+      canvas.height = Math.round(cssH * dpr);
+    }
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+    const w = cssW;
+    const h = cssH;
 
     ctx.clearRect(0, 0, w, h);
 
