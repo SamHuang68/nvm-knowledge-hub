@@ -206,6 +206,7 @@ export function drawFinfetGaaCanvas(canvas, simData, lang = 'zh') {
   if (!canvas || !canvas.getContext) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   const dpr = window.devicePixelRatio || 1;
   const width = canvas.getBoundingClientRect().width || 600;
   const stacked = width < 760;
@@ -457,6 +458,9 @@ export function initAdvancedFinfetGaaSimulator(rootId = 'finfet-gaa-simulator-ro
     if (canvas) update();
   });
 
+    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('languagechange', () => update());
+  window.addEventListener('resize', () => update());
   update();
 }
 

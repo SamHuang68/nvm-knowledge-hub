@@ -353,6 +353,7 @@ export function drawWeibullCanvas(canvas, simData, lang = 'zh') {
 
   canvas.width = width * dpr;
   canvas.height = height * dpr;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.resetTransform?.();
   ctx.scale(dpr, dpr);
 
@@ -696,6 +697,9 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
   });
 
   // Initial calculation
+    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('languagechange', () => update());
+  window.addEventListener('resize', () => update());
   update();
 }
 

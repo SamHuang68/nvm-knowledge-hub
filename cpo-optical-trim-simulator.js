@@ -128,13 +128,13 @@ export const CPO_TRIM_TECH_POLICIES = {
  * @param {number} channels - Number of optical channels (8 to 128).
  * @returns {Object} Calculated physical & economic metrics.
  */
-export function calculateCpoTrimMetrics(presetKey, policyKey, deltaTC, dacBits, channels) {
+export function calculateCpoTrimMetrics(presetKey = 'cpo_switch_51t_coupe', policyKey = 'ld_mtp_closed_loop', deltaTC = 45, dacBits = 10, channels = 32) {
   const preset = CPO_TRIM_SYSTEM_PRESETS[presetKey] || CPO_TRIM_SYSTEM_PRESETS.cpo_switch_51t_coupe;
   const policy = CPO_TRIM_TECH_POLICIES[policyKey] || CPO_TRIM_TECH_POLICIES.ld_mtp_closed_loop;
 
-  const dt = Math.max(5.0, Math.min(100.0, deltaTC));
-  const nDac = Math.max(6, Math.min(14, Math.round(dacBits)));
-  const nCh = Math.max(4, Math.min(256, Math.round(channels)));
+  const dt = typeof deltaTC === 'number' && !isNaN(deltaTC) ? Math.max(5.0, Math.min(100.0, deltaTC)) : 45.0;
+  const nDac = typeof dacBits === 'number' && !isNaN(dacBits) ? Math.max(6, Math.min(14, Math.round(dacBits))) : 10;
+  const nCh = typeof channels === 'number' && !isNaN(channels) ? Math.max(4, Math.min(256, Math.round(channels))) : 32;
 
   // 1. Thermo-Optic Effect Physics
   // Delta n = (dn/dT) * Delta T
@@ -529,6 +529,9 @@ export function initCpoTrimSimulator(rootId = 'cpo-optical-trim-simulator-root')
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-language'] });
   window.addEventListener('resize', update);
 
+    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('languagechange', () => update());
+  window.addEventListener('resize', () => update());
   update();
 }
 

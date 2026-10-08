@@ -188,7 +188,7 @@ export function calculatePqcStorageMetrics(params) {
  * @param {Object} metrics
  * @param {string} mode - 'storage_footprint' | 'dpa_mtd_curve'
  */
-export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint') {
+export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint', hoverPos = null) {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
@@ -391,6 +391,54 @@ export function drawPqcCanvas(canvas, metrics, mode = 'storage_footprint') {
     ctx.fillText('Pure Raw Storage Read', legBoxX + 26, legBoxY + 24);
   }
 
+  // Interactive Hover Crosshair Probe
+  if (hoverPos && hoverPos.x >= padLeft && hoverPos.x <= padLeft + plotWidth && hoverPos.y >= padTop && hoverPos.y <= padTop + plotHeight) {
+    const clampedX = Math.max(padLeft, Math.min(padLeft + plotWidth, hoverPos.x));
+    const ratioX = (clampedX - padLeft) / plotWidth;
+
+    ctx.save();
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.75)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 3]);
+    ctx.beginPath();
+    ctx.moveTo(clampedX, padTop);
+    ctx.lineTo(clampedX, padTop + plotHeight);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    let probeText = '';
+    if (mode === 'storage_footprint') {
+      probeText = ratioX < 0.5 
+        ? `Raw PQC Key: ${metrics.algo.rawPrivateKeyBytes} B (${metrics.rawAreaMm2.toFixed(4)} mm²)` 
+        : `Seed-Expanded: ${metrics.algo.seedBytes} B (${metrics.seedAreaMm2.toFixed(4)} mm²)`;
+    } else {
+      const probeSnr = 0.05 + ratioX * 0.95;
+      const probeMtd = metrics.mtdTraces * Math.pow(0.5 / probeSnr, 2);
+      probeText = `Noise SNR: ${probeSnr.toFixed(2)} | MTD ≈ ${probeMtd.toExponential(2)} traces`;
+    }
+
+    ctx.font = '600 9.5px "IBM Plex Mono", monospace';
+    const textW = ctx.measureText(probeText).width;
+    const badgeW = textW + 16;
+    const badgeH = 22;
+    const badgeX = Math.min(padLeft + plotWidth - badgeW - 4, Math.max(padLeft + 4, clampedX - badgeW / 2));
+    const badgeY = padTop + 8;
+
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    if (ctx.roundRect) ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 4);
+    else ctx.rect(badgeX, badgeY, badgeW, badgeH);
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = '#38bdf8';
+    ctx.textAlign = 'center';
+    ctx.fillText(probeText, badgeX + badgeW / 2, badgeY + 15);
+    ctx.restore();
+  }
+
   ctx.restore();
 }
 
@@ -421,6 +469,8 @@ export function initPqcStorageSimulator() {
   const btnModeMtd = document.getElementById('pqc-mode-mtd');
 
   let activeMode = 'storage_footprint';
+  let currentMetrics = null;
+  let hoverPos = null;
 
   function update() {
     const config = {
@@ -448,8 +498,9 @@ export function initPqcStorageSimulator() {
       `;
     }
 
+    currentMetrics = metrics;
     if (canvas) {
-      drawPqcCanvas(canvas, metrics, activeMode);
+      drawPqcCanvas(canvas, metrics, activeMode, hoverPos);
     }
   }
 
@@ -493,11 +544,30 @@ export function initPqcStorageSimulator() {
     });
   }
 
+  if (canvas) {
+    canvas.style.cursor = 'crosshair';
+    canvas.addEventListener('pointermove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      hoverPos = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+      if (currentMetrics) drawPqcCanvas(canvas, currentMetrics, activeMode, hoverPos);
+    });
+    canvas.addEventListener('pointerleave', () => {
+      hoverPos = null;
+      if (currentMetrics) drawPqcCanvas(canvas, currentMetrics, activeMode, null);
+    });
+  }
+
   if (typeof window !== 'undefined') {
     window.addEventListener('resize', () => {
       if (canvas) update();
     });
     window.addEventListener('hub:language-change', () => {
+      if (canvas) update();
+    });
+    window.addEventListener('languagechange', () => {
       if (canvas) update();
     });
   }

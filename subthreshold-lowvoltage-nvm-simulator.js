@@ -680,7 +680,10 @@ export function initSubthresholdSimulator(containerId) {
     });
   }
 
-  // Observe language mutations
+  // Language and resize listeners
+  window.addEventListener('hub:language-change', update);
+  window.addEventListener('languagechange', update);
+  window.addEventListener('resize', update);
   const observer = new MutationObserver(() => update());
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 

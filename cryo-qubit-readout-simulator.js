@@ -305,6 +305,7 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
   if (!ctx) return;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   const dpr = window.devicePixelRatio || 1;
   const rect = canvas.getBoundingClientRect();

@@ -260,6 +260,7 @@ export function drawPqcKeyStorageCanvas(canvas, metrics, mode = "endurance_wearo
     canvas.width = width * dpr;
     canvas.height = height * dpr;
   }
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   ctx.save();
   ctx.scale(dpr, dpr);
@@ -576,6 +577,9 @@ export function initPqcKeyStorageSimulator(container) {
     if (canvas) update();
   });
 
+    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('languagechange', () => update());
+  window.addEventListener('resize', () => update());
   update();
 }
 

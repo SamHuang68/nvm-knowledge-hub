@@ -556,6 +556,9 @@ export function initVertical3dSimulator(rootSelector = '#vertical-3d-simulator-r
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
   window.addEventListener('resize', update);
+    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('languagechange', () => update());
+  window.addEventListener('resize', () => update());
   update();
 }
 

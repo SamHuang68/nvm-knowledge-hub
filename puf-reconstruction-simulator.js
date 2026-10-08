@@ -144,8 +144,17 @@ export function initPufReconstructionSimulator(rootSelector = '#puf-reconstructi
 
   function drawDistributions(rawBer, eccThresholdPct) {
     if (!ctx || !canvas) return;
-    const w = canvas.width;
-    const h = canvas.height;
+    const dpr = Math.min(window.devicePixelRatio || 1, 3);
+    const cssW = canvas.clientWidth || 420;
+    const cssH = canvas.clientHeight || 200;
+    if (canvas.width !== Math.round(cssW * dpr) || canvas.height !== Math.round(cssH * dpr)) {
+      canvas.width = Math.round(cssW * dpr);
+      canvas.height = Math.round(cssH * dpr);
+    }
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.scale(dpr, dpr);
+    const w = cssW;
+    const h = cssH;
     ctx.clearRect(0, 0, w, h);
 
     // Background & Grid
@@ -330,6 +339,8 @@ export function initPufReconstructionSimulator(rootSelector = '#puf-reconstructi
 
   [tempSlider, ageSlider, eccSlider, keyBitsSelect].forEach((el) => el?.addEventListener('input', update));
   window.addEventListener('hub:language-change', update);
+  window.addEventListener('languagechange', update);
+  window.addEventListener('resize', update);
   update();
 }
 

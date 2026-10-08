@@ -88,7 +88,7 @@ export function renderNamedComparison(data) {
     <section id="named-implementations" class="lens-panel named-comparison" aria-labelledby="named-comparison-title">
       <div class="hub-sec-header">
         <div class="hub-sec-badge">${bilingual({ en: '01B · SOURCE-BOUND CASES', zh: '01B · 可追溯具名案例' })}</div>
-        <h2 id="named-comparison-title">${bilingual({ en: 'Named cases · conditions differ, no ranking', zh: '具名案例・條件不同，不作排名' })}</h2>
+        <h2 id="named-comparison-title">${bilingual({ en: 'Named Cases · Conditions Differ, No Ranking', zh: '具名案例・條件不同，不作排名' })}</h2>
       </div>
       <p class="named-lead">${bilingual(data.scope)}</p>
       <p class="named-evidence-kind">${bilingual({ en: 'Manufacturer datasheets · not independent measurements. Each metric inherits its device conditions below; row-specific conditions take precedence.', zh: '原廠規格書・非獨立實測。各指標連同下方元件條件解讀，以該列特定條件為準。' })}</p>
@@ -102,12 +102,12 @@ export function renderNamedComparison(data) {
         </table>
       </div>
       <div class="named-reading-note">
-        <h3>${bilingual({ en: 'Before a design decision', zh: '設計決策前仍需確認' })}</h3>
+        <h3>${bilingual({ en: 'Before a Design Decision', zh: '設計決策前仍需確認' })}</h3>
         <p>${bilingual({ en: 'Ask for the exact ordering code / macro revision, mission temperature and cycle history, supply margins, ECC and power-loss behavior. TA is ambient temperature; TJ is junction temperature. These cases do not establish area, cost, security, qualification or superiority of a memory family.', zh: '確認完整訂購代碼／巨集版本、任務溫度與循環歷史、供電裕量、ECC 及掉電行為。TA 為環境溫度，TJ 為接面溫度。這些案例不證明記憶體家族的面積、成本、安全、資格驗證或優勢。' })}</p>
         <a href="whitepaper/index.html">${bilingual({ en: 'Continue to the decision whitepaper', zh: '繼續閱讀決策白皮書' })}</a>
       </div>
       <div class="named-sources" id="named-comparison-sources">
-        <h3>${bilingual({ en: 'Sources and reuse', zh: '來源與引用' })}</h3>
+        <h3>${bilingual({ en: 'Sources and Reuse', zh: '來源與引用' })}</h3>
         <ul>${sourceList}</ul>
         <p>${bilingual({ en: 'Reviewed', zh: '查核日期' })} <time datetime="${data.reviewedOn}">${data.reviewedOn}</time>. ${bilingual({ en: 'Factual summaries with source links; no source PDF, figure or table is republished. Source documents and marks remain with their owners; public access is not a redistribution license. Verify the cited revision and current errata before use.', zh: '本區僅整理事實並連結來源，未重製原始 PDF、圖片或表格。原文件與商標權利屬各權利人；公開可讀不等於授權散布。使用前請核對引用版本及最新勘誤。' })}</p>
         <a class="named-download" href="data/named-nvm-comparison.json" download>${bilingual({ en: 'Download this comparison with conditions and sources (JSON)', zh: '下載含條件與來源的本區對照資料（JSON）' })}</a>

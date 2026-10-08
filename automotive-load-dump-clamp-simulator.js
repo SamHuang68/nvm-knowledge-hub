@@ -231,6 +231,7 @@ export function drawLoadDumpClampCanvas(canvas, metrics, mode = "transient") {
   const rect = canvas.getBoundingClientRect();
   const width = (canvas.width = (rect.width || 420) * (window.devicePixelRatio || 1));
   const height = (canvas.height = 180 * (window.devicePixelRatio || 1));
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
 
   const w = width / (window.devicePixelRatio || 1);
@@ -507,6 +508,9 @@ export function initAutomotiveLoadDumpSimulator(container) {
     if (canvas) update();
   });
 
+    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('languagechange', () => update());
+  window.addEventListener('resize', () => update());
   update();
 }
 

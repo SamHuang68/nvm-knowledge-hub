@@ -110,21 +110,24 @@ export const CXL_POLICIES = {
  * @returns {Object} Calculated metrics and ratings.
  */
 export function calculateCxlPoolingMetrics(
-  presetKey,
-  policyKey,
-  hops,
-  capacityGb,
-  hitRatePct
+  presetKey = 'llm_shared_inference_8host',
+  policyKey = 'antifuse_hardware_tag',
+  hops = 1,
+  capacityGb = 2048,
+  hitRatePct = 95
 ) {
   const preset = CXL_SYSTEM_PRESETS[presetKey] || CXL_SYSTEM_PRESETS.llm_shared_inference_8host;
   const policy = CXL_POLICIES[policyKey] || CXL_POLICIES.antifuse_hardware_tag;
 
-  const hitRate = Math.max(0.5, Math.min(0.9999, hitRatePct / 100.0));
+  const validHops = typeof hops === 'number' && !isNaN(hops) ? Math.max(0, hops) : 1;
+  const validCapacityGb = typeof capacityGb === 'number' && !isNaN(capacityGb) ? Math.max(128, capacityGb) : 2048;
+  const validHitRatePct = typeof hitRatePct === 'number' && !isNaN(hitRatePct) ? hitRatePct : 95.0;
+  const hitRate = Math.max(0.5, Math.min(0.9999, validHitRatePct / 100.0));
   const effectiveTagLatency = preset.antiFuseTagLatencyNs * policy.tagLatencyFactor;
 
   // 1. End-to-end Latency Breakdown
   // tau_link = tau_flit * 2 (request + response) + hops * (switch_latency * 2)
-  const linkTransportLatency = (preset.flitLatencyNs * 2) + (hops * preset.switchLatencyNs * 2);
+  const linkTransportLatency = (preset.flitLatencyNs * 2) + (validHops * preset.switchLatencyNs * 2);
 
   // Effective tag lookup delay taking hits and misses into account
   const tagLookupDelay = (hitRate * effectiveTagLatency) + ((1.0 - hitRate) * preset.softwareOsMissLatencyNs);
@@ -215,6 +218,7 @@ export function drawCxlPoolingCanvas(canvas, metrics, mode = 'latency_breakdown'
 
   canvas.width = width * dpr;
   canvas.height = height * dpr;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.scale(dpr, dpr);
 
   // Background
@@ -567,6 +571,9 @@ export function initCxlPoolingSimulator(rootId = 'cxl-memory-pooling-simulator-r
   window.addEventListener('resize', update);
 
   // Initial calculation
+    window.addEventListener('hub:language-change', () => update());
+  window.addEventListener('languagechange', () => update());
+  window.addEventListener('resize', () => update());
   update();
 }
 
