@@ -6,6 +6,12 @@
 .search-input-row input{width:100%;min-width:0;border:0;background:transparent;color:#18394f;font:400 17px/1.4 Inter,"Noto Sans TC",sans-serif;outline:none}
 .search-input-row button{min-width:34px;border:0;background:#edf2f6;color:#3b556b;font-size:23px;border-radius:4px;cursor:pointer}
 .search-status{padding:12px 20px;font-size:12px;color:#475569;background:#f3f6f9;border-bottom:1px solid #d6e0e7}
+.search-hud-pills{display:flex;flex-wrap:wrap;gap:8px;padding:12px 20px;border-bottom:1px solid #d6e0e7;background:#f3f6f9;flex-shrink:0}
+.search-hud-pill{min-height:44px;padding:8px 12px;border:1px solid #a9bcc6;border-radius:5px;background:#fff;color:#254b60;font:500 13px/1.4 Inter,"Noto Sans TC",sans-serif;cursor:pointer}
+.search-hud-pill[aria-pressed="true"]{background:#006667;color:#fff;border-color:#006667}
+.search-hud-pill:focus-visible,.search-retry:focus-visible,.search-input-row button:focus-visible{outline:3px solid #1977a8;outline-offset:2px}
+.search-retry{align-self:flex-start;min-height:44px;margin:8px 20px;padding:8px 12px;border:1px solid #a9bcc6;border-radius:5px;background:#fff;color:#254b60;font:500 13px/1.4 Inter,"Noto Sans TC",sans-serif;cursor:pointer}
+.search-retry[hidden]{display:none}.search-retry:disabled{cursor:wait;opacity:.65}
 .search-results{padding:8px;overflow:auto}
 .search-result-item{display:block;text-decoration:none;padding:12px 15px;border-radius:4px;color:#18394f}
 .search-result-item:hover,.search-result-item:focus{background:#e7f0f6;outline:none}
@@ -19,4 +25,8 @@
 .nvm-header .search-trigger{color:#173b49}
 @media(max-width:1180px){.search-trigger kbd{display:none}}
 @media(max-width:500px){.search-trigger>span{display:none}.search-overlay{padding:9vh 12px 20px}.search-input-row{padding:16px 14px}.search-input-row input{font-size:15px}.search-status{font-size:11px;padding:11px 14px}.sr-title{font-size:14px}.sr-desc{font-size:11px}}
+/* 首頁既有 HUD 樣式仍沿用；保留分類觸控範圍及減少動態偏好。 */
+#searchHudPills .search-hud-pill{min-height:44px;font-size:13px}
+@media(prefers-reduced-motion:reduce){.search-result-item,.search-hud-pill{transition:none!important;transform:none!important}}
 @media print{.search-trigger,#searchTrigger,.search-overlay{display:none!important}}
+.search-link-hint{margin:12px 0 0;color:var(--ink-mid,#496477);font-size:12px;line-height:1.6;overflow-wrap:anywhere}

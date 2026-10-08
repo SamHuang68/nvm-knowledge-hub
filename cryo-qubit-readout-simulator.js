@@ -244,27 +244,28 @@ export function calculateCryoQubitReadout({
   let isQpuCompatible = false;
 
   if (tech.id === "antifuse_cryo_filament") {
-    qpuRatingZh = "等級 A (完全相容 · 零磁阻 · 可直接貼裝於 4K 量子處理器)";
-    qpuRatingEn = "Grade A (Optimal · Zero MR · Direct 4K QPU Mounting)";
+    qpuRatingZh = "未校準教學分類 A（模型設定：無磁阻項）";
+    qpuRatingEn = "Uncalibrated teaching class A (model: no MR term)";
     isQpuCompatible = true;
   } else if (tech.id === "perpendicular_stt_mram") {
-    if (bField < 0.6) {
-      qpuRatingZh = "等級 B (有條件相容 · 弱磁場屏蔽區 <0.5T)";
-      qpuRatingEn = "Grade B (Conditional · Magnetic Shielding Required <0.5T)";
+    const compatibleFieldLimit = 0.6;
+    if (bField < compatibleFieldLimit) {
+      qpuRatingZh = `未校準教學分類 B（模型門檻：磁場 <${compatibleFieldLimit}T）`;
+      qpuRatingEn = `Uncalibrated teaching class B (model threshold: field <${compatibleFieldLimit}T)`;
       isQpuCompatible = true;
     } else {
-      qpuRatingZh = "等級 D (不相容 · 強磁場導致 TMR 塌陷與自旋退相干)";
-      qpuRatingEn = "Grade D (Incompatible · Severe TMR Collapse & Decoherence)";
+      qpuRatingZh = `未校準教學分類 D（模型門檻：磁場 ≥${compatibleFieldLimit}T）`;
+      qpuRatingEn = `Uncalibrated teaching class D (model threshold: field ≥${compatibleFieldLimit}T)`;
       isQpuCompatible = false;
     }
   } else if (tech.id === "inplane_stt_mram") {
-    qpuRatingZh = "等級 F (禁用 · 磁場臨界翻轉閾值過低，極易誤翻轉)";
-    qpuRatingEn = "Grade F (Forbidden · Extremely Low Field Threshold)";
+    qpuRatingZh = "未校準教學分類 F（模型設定：較低磁場臨界值）";
+    qpuRatingEn = "Uncalibrated teaching class F (model: lower critical field)";
     isQpuCompatible = false;
   } else {
     // 8T SRAM
-    qpuRatingZh = "等級 B- (可用但具揮發性 · 需持續供電刷新熱負載)";
-    qpuRatingEn = "Grade B- (Volatile · High Static Thermal Heat Load)";
+    qpuRatingZh = "未校準教學分類 B-（模型設定：揮發性記憶體）";
+    qpuRatingEn = "Uncalibrated teaching class B- (model: volatile memory)";
     isQpuCompatible = true;
   }
 
@@ -307,8 +308,42 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
 
   const dpr = window.devicePixelRatio || 1;
   const rect = canvas.getBoundingClientRect();
-  const width = Math.max(rect.width, 320);
-  const height = Math.max(rect.height, 180);
+  const width = Math.max(1, Math.round(rect.width || 420));
+  const isZh = (window.HubLanguage?.get() || document.documentElement.lang || "zh").startsWith("zh");
+  const wrapText = (text, maxWidth, font) => {
+    ctx.font = font;
+    const lines = [];
+    let line = "";
+    for (const character of Array.from(text)) {
+      if (line && ctx.measureText(line + character).width > maxWidth) { lines.push(line); line = ""; }
+      line += character;
+    }
+    if (line) lines.push(line);
+    return lines;
+  };
+  const references = [
+    {key:"inplane_stt_mram",color:"#ef4444",label:isZh ? "平面 MRAM" : "In-Plane MRAM"},
+    {key:"perpendicular_stt_mram",color:"#f59e0b",label:isZh ? "垂直 STT-MRAM" : "p-STT-MRAM"},
+    {key:"cryo_cmos_8t_sram",color:"#a855f7",label:"8T SRAM"},
+    {key:"antifuse_cryo_filament",color:"#00f0ff",label:isZh ? "AntiFuse 微絲" : "AntiFuse Filament"},
+  ];
+  const axisLabels = mode === "bfield_sweep"
+    ? ["0 T", "2.5 T", "5.0 T (Ext. Field)"]
+    : ["0 ns", "10 ns (RF Burst)", "20 ns"];
+  const axisLines = axisLabels.map(text => wrapText(text,Math.max(20,(width - 80) / 3 - 4),"10px 'IBM Plex Mono', monospace"));
+  const axisHeight = Math.max(...axisLines.map(lines => lines.length)) * 12 + 12;
+  const legendItems = mode === "bfield_sweep" ? references : [
+    {color:"#00f0ff",label:`Sense Level: +${metrics.deltaVSenseMv} mV`},
+    {color:"#f59e0b",label:`RF Cross-Coupled Noise: ±${metrics.vRfMv} mV (freq=${metrics.rfFreqGhz}GHz)`},
+  ];
+  const legendRows = legendItems.map(item => ({...item,lines:wrapText(item.label,width - 44,"10px 'IBM Plex Mono', monospace")}));
+  const legendHeight = legendRows.reduce((sum,item) => sum + item.lines.length * 12 + 6,0);
+  const plotY0 = 24;
+  const plotY1 = 150;
+  const legendTop = plotY1 + axisHeight + 8;
+  const height = legendTop + legendHeight + 10;
+  // 圖面沿用原高度；圖例與完整字形以新增字列承接。
+  canvas.parentElement.style.height = `${height}px`;
 
   if (canvas.width !== width * dpr || canvas.height !== height * dpr) {
     canvas.width = width * dpr;
@@ -345,10 +380,23 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
 
   const plotX0 = 55;
   const plotX1 = w - 25;
-  const plotY0 = 24;
-  const plotY1 = h - 30;
   const plotW = plotX1 - plotX0;
   const plotH = plotY1 - plotY0;
+  const drawLabel = (text, x, y, maxWidth = width - 24) => {
+    const lines = wrapText(text, Math.max(1,maxWidth),ctx.font);
+    const lineWidth = Math.max(...lines.map(line => ctx.measureText(line).width));
+    const left = Math.max(12,Math.min(x,width - 12 - lineWidth));
+    const top = Math.max(12,Math.min(y,height - 12 - (lines.length - 1) * 12));
+    lines.forEach((line,index) => ctx.fillText(line,left,top + index * 12));
+  };
+  const drawAxisLabels = () => {
+    ctx.font = "10px 'IBM Plex Mono', monospace";
+    const anchors = [plotX0,(plotX0 + plotX1) / 2,plotX1];
+    axisLines.forEach((lines,column) => lines.forEach((line,index) => {
+      const lineWidth = ctx.measureText(line).width;
+      ctx.fillText(line,Math.max(12,Math.min(anchors[column] - lineWidth / 2,width - 12 - lineWidth)),plotY1 + 16 + index * 12);
+    }));
+  };
 
   if (mode === "bfield_sweep") {
     // Mode A: Magnetic Field Sweep (0 to 5 Tesla) vs Sense Margin Window (mV)
@@ -365,11 +413,11 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
     ctx.fillStyle = "#94a3b8";
     ctx.font = "10px 'IBM Plex Mono', monospace";
     ctx.fillText("ΔV (mV)", 10, plotY0 + 6);
-    ctx.fillText("0 T", plotX0, plotY1 + 16);
-    ctx.fillText("2.5 T", plotX0 + plotW * 0.5 - 12, plotY1 + 16);
-    ctx.fillText("5.0 T (Ext. Field)", plotX1 - 70, plotY1 + 16);
+    drawAxisLabels();
 
-    const maxMv = 200; // Plot scale 0 to 200 mV
+    // 圖軸依同一計算器的四條參考曲線決定，保留超過舊 200 mV 上限的數值。
+    const referenceMax = Math.max(...references.map(reference => calculateCryoQubitReadout({presetKey:metrics.presetKey,techKey:reference.key,customBFieldTesla:0,customRfPowerDbm:metrics.rfPowerDbm}).deltaVSenseMv));
+    const maxMv = Math.max(200,Math.ceil(Math.max(referenceMax,metrics.deltaVSenseMv) / 50) * 50);
     ctx.fillText(`${maxMv}`, plotX0 - 28, plotY0 + 4);
     ctx.fillText(`${maxMv / 2}`, plotX0 - 28, plotY0 + plotH * 0.5 + 4);
     ctx.fillText("0", plotX0 - 16, plotY1 + 4);
@@ -402,10 +450,7 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
     };
 
     // Draw reference technologies
-    drawSweepCurve("inplane_stt_mram", "#ef4444", "In-Plane MRAM", metrics.techKey === "inplane_stt_mram");
-    drawSweepCurve("perpendicular_stt_mram", "#f59e0b", "p-STT-MRAM", metrics.techKey === "perpendicular_stt_mram");
-    drawSweepCurve("cryo_cmos_8t_sram", "#a855f7", "8T SRAM", metrics.techKey === "cryo_cmos_8t_sram");
-    drawSweepCurve("antifuse_cryo_filament", "#00f0ff", "AntiFuse Filament", metrics.techKey === "antifuse_cryo_filament");
+    references.forEach(reference => drawSweepCurve(reference.key,reference.color,reference.label,metrics.techKey === reference.key));
 
     // Current Operating Point Marker
     const currB = Math.min(5.0, metrics.bFieldTesla);
@@ -424,7 +469,7 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
     // Callout badge
     ctx.fillStyle = "#00f0ff";
     ctx.font = "bold 10px 'IBM Plex Mono', monospace";
-    ctx.fillText(`Op: ${currB}T | ΔV: ${currMv}mV`, Math.min(markerX + 8, plotX1 - 120), Math.max(markerY - 8, plotY0 + 12));
+    drawLabel(`Op: ${currB}T | ΔV: ${metrics.deltaVSenseMv}mV`,markerX + 8,Math.max(markerY - 8,plotY0 + 12));
 
   } else {
     // Mode B: Microwave RF Pulse & Dynamic Sense Scope (Time-Domain Waveform)
@@ -438,10 +483,8 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
 
     ctx.fillStyle = "#94a3b8";
     ctx.font = "10px 'IBM Plex Mono', monospace";
-    ctx.fillText("Scope (mV)", 6, plotY0 + 6);
-    ctx.fillText("0 ns", plotX0, plotY1 + 16);
-    ctx.fillText("10 ns (RF Burst)", plotX0 + plotW * 0.5 - 20, plotY1 + 16);
-    ctx.fillText("20 ns", plotX1 - 25, plotY1 + 16);
+    drawLabel("Scope (mV)",6,plotY0 + 6,42);
+    drawAxisLabels();
 
     const centerY = plotY0 + plotH * 0.5;
 
@@ -486,14 +529,16 @@ export function drawCryoQubitCanvas(canvas, metrics, mode = "bfield_sweep") {
     ctx.stroke();
     ctx.setLineDash([]);
 
-    ctx.fillStyle = "#00f0ff";
-    ctx.font = "bold 10.5px 'IBM Plex Mono', monospace";
-    ctx.fillText(`Sense Level: +${metrics.deltaVSenseMv} mV`, plotX0 + 10, senseY - 6);
-
-    ctx.fillStyle = "#f59e0b";
-    ctx.font = "10px 'IBM Plex Mono', monospace";
-    ctx.fillText(`RF Cross-Coupled Noise: ±${metrics.vRfMv} mV (freq=${metrics.rfFreqGhz}GHz)`, plotX0 + 10, plotY1 - 8);
   }
+
+  let legendY = legendTop;
+  ctx.font = "10px 'IBM Plex Mono', monospace";
+  legendRows.forEach(item => {
+    ctx.fillStyle = item.color;
+    ctx.fillRect(12,legendY - 6,12,3);
+    item.lines.forEach((line,index) => ctx.fillText(line,32,legendY + index * 12));
+    legendY += item.lines.length * 12 + 6;
+  });
 
   ctx.restore();
 }
@@ -568,7 +613,9 @@ export function initCryoQubitSimulator(container) {
     const rfPower = rfSlider ? Number(rfSlider.value) : -30.0;
 
     if (bVal) bVal.textContent = `${bField.toFixed(2)} Tesla`;
+    if (bSlider) bSlider.setAttribute("aria-valuetext",`${bField.toFixed(2)} Tesla`);
     if (rfVal) rfVal.textContent = `${rfPower.toFixed(1)} dBm`;
+    if (rfSlider) rfSlider.setAttribute("aria-valuetext",`${rfPower.toFixed(1)} dBm`);
 
     const m = calculateCryoQubitReadout({
       presetKey,
@@ -581,7 +628,8 @@ export function initCryoQubitSimulator(container) {
       outTmr.textContent = m.realizedTmrPct > 0 ? `${m.realizedTmrPct}%` : "N/A (Non-MTJ)";
     }
     if (outDeltaV) outDeltaV.textContent = `${m.deltaVSenseMv} mV`;
-    if (outT2) outT2.textContent = m.effectiveT2Us === ">1000" ? ">1,000 µs (Immune)" : `${m.effectiveT2Us} µs`;
+    const isZh = (window.HubLanguage?.get() || document.documentElement.lang || "zh").startsWith("zh");
+    if (outT2) outT2.textContent = m.effectiveT2Us === ">1000" ? (isZh ? ">1,000 µs（模型上限）" : ">1,000 µs (Model limit)") : `${m.effectiveT2Us} µs`;
     if (outSinr) outSinr.textContent = `${m.sinrDb} dB`;
     if (outBer) {
       outBer.textContent = m.berFormatted;
@@ -600,8 +648,8 @@ export function initCryoQubitSimulator(container) {
     if (outVerdict) {
       const isZh = document.documentElement.lang.startsWith("zh") || document.querySelector("[data-lang='zh'].active") !== null;
       outVerdict.innerHTML = isZh
-        ? `<strong>量子介面第一性原理判定：</strong> 在 <code>${m.tempK} K</code> 低溫與 <code>${m.bFieldTesla} T</code> 外加磁場環境下，記憶體單元 <code>${m.techNameZh}</code> 的有效感測差分電壓為 <strong>${m.deltaVSenseMv} mV</strong>。微波射頻（${m.rfFreqGhz} GHz / ${m.rfPowerDbm} dBm）感應噪聲為 ±${m.vRfMv} mV，整體讀取信噪比為 <strong>${m.sinrDb} dB</strong>，推導位元誤碼率 (BER) 為 <strong>${m.berFormatted}</strong>。架構評級：<strong style="color:${m.isQpuCompatible ? '#059669' : '#dc2626'};">${m.qpuRatingZh}</strong>。AntiFuse 歐姆微絲因無磁阻效應且微波耦合極低，展現對量子強磁場的天然免疫力。`
-        : `<strong>Cryo-Quantum Interface Verdict:</strong> At <code>${m.tempK} K</code> and an external magnetic field of <code>${m.bFieldTesla} T</code>, the <code>${m.techNameEn}</code> cell delivers an effective differential sensing window of <strong>${m.deltaVSenseMv} mV</strong>. Microwave RF cross-coupling (${m.rfFreqGhz} GHz / ${m.rfPowerDbm} dBm) introduces ±${m.vRfMv} mV noise, resulting in an effective read SINR of <strong>${m.sinrDb} dB</strong> (BER: <strong>${m.berFormatted}</strong>). Overall architecture grade: <strong style="color:${m.isQpuCompatible ? '#059669' : '#dc2626'};">${m.qpuRatingEn}</strong>. The AntiFuse metallic filament exhibits inherent zero magnetoresistance and minimal RF pickup, making it uniquely qualified for direct 4K QPU co-packaging.`;
+        ? `<strong>未校準量子介面教學試算：</strong> 在 <code>${m.tempK} K</code> 與 <code>${m.bFieldTesla} T</code> 下，記憶體單元 <code>${m.techNameZh}</code> 的模型感測差分電壓為 <strong>${m.deltaVSenseMv} mV</strong>。微波射頻（${m.rfFreqGhz} GHz / ${m.rfPowerDbm} dBm）耦合噪聲為 ±${m.vRfMv} mV，讀取信噪比為 <strong>${m.sinrDb} dB</strong>，高斯近似誤碼率 (BER) 為 <strong>${m.berFormatted}</strong>。<strong style="color:${m.isQpuCompatible ? '#059669' : '#dc2626'};">${m.qpuRatingZh}</strong>。模型以磁阻、自旋去相干與射頻耦合假設區分支路；AntiFuse 支路設定無磁阻項與較低耦合係數，產品介面適用性仍需磁屏蔽、封裝與實測驗證。`
+        : `<strong>Uncalibrated Cryo-Quantum Teaching Calculation:</strong> At <code>${m.tempK} K</code> and <code>${m.bFieldTesla} T</code>, the <code>${m.techNameEn}</code> model gives a differential sensing window of <strong>${m.deltaVSenseMv} mV</strong>. RF coupling (${m.rfFreqGhz} GHz / ${m.rfPowerDbm} dBm) gives ±${m.vRfMv} mV noise, read SINR of <strong>${m.sinrDb} dB</strong>, and Gaussian-approximation BER of <strong>${m.berFormatted}</strong>. <strong style="color:${m.isQpuCompatible ? '#059669' : '#dc2626'};">${m.qpuRatingEn}</strong>. Branches use magnetoresistance, spin-decoherence, and RF-coupling assumptions; the AntiFuse branch assumes no MR term and a lower coupling coefficient. Product-interface applicability requires magnetic-shielding, packaging, and measured validation.`;
     }
   }
 
@@ -657,6 +705,7 @@ export function initCryoQubitSimulator(container) {
   window.addEventListener("resize", () => {
     if (canvas) update();
   });
+  window.addEventListener("hub:language-change",update);
 
   syncPresetToSliders();
   update();

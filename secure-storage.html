@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-title-en="Secure Storage · NVM Knowledge Hub" data-title-zh="安全儲存 · NVM 知識中心" data-description-en="NVM Knowledge Hub: an executive Secure Storage learning experience built around SRAM PUF, AES-256 and OTP." data-description-zh="NVM 知識中心：以 SRAM PUF、AES-256 與 OTP 為核心的安全儲存高階學習專題。">
+<html lang="en" data-language="en" data-title-en="Secure Storage · NVM Knowledge Hub" data-title-zh="安全儲存 · NVM 知識中心" data-description-en="NVM Knowledge Hub: an executive Secure Storage learning experience built around SRAM PUF, AES-256 and OTP." data-description-zh="NVM 知識中心：以 SRAM PUF、AES-256 與 OTP 為核心的安全儲存高階學習專題。">
 <head>
   <meta charset="utf-8">
   <script src="site-language.js?v=20260929-v5"></script>
@@ -2150,7 +2150,7 @@
       </div>
 
       <!-- INTERACTIVE DPA/CPA SIDE-CHANNEL POWER ANALYSIS TRACE COMPLEXITY & MASKING SIMULATOR -->
-      <div id="dpa-cpa-simulator-root" class="panel dpa-calculator-container" style="margin-top: 1.75rem; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; padding: 1.25rem 1.5rem; box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
+      <div id="dpa-cpa-simulator-root" class="panel dpa-calculator-container" style="margin-top: 1.75rem; background: #ffffff; border: 1px solid rgba(196, 165, 116, 0.4); border-radius: 8px; padding: 1.25rem clamp(1rem, 3vw, 1.5rem); box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);">
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid rgba(226, 232, 240, 0.8); padding-bottom: 0.75rem;">
           <div>
             <span style="font: 700 11px/1 'IBM Plex Mono', monospace; color: #0284c7; letter-spacing: 0.08em; text-transform: uppercase;">
@@ -2158,22 +2158,28 @@
               <span data-lang="en">SECURITY LAB · PHYSICAL SIDE-CHANNEL DEFENSE</span>
             </span>
             <h4 style="font-size: 1.05rem; font-weight: 700; color: #0f172a; margin: 4px 0 0;">
-              <span data-lang="zh">DPA / CPA 側信道功耗痕跡外洩與高階遮罩評估試算器</span>
-              <span data-lang="en">Side-Channel DPA/CPA Trace Complexity &amp; High-Order Masking Simulator</span>
+              <span data-lang="zh">DPA / CPA 痕跡與遮罩示意</span>
+              <span data-lang="en">DPA/CPA Trace and Masking Teaching Model</span>
             </h4>
           </div>
           <span style="font: 600 11px 'IBM Plex Mono', monospace; background: rgba(2, 132, 199, 0.08); color: #0284c7; padding: 4px 8px; border-radius: 4px; border: 1px solid rgba(2, 132, 199, 0.2);">
-            <span data-lang="zh">ISO/IEC 17825 / Common Criteria AVA_VAN.5 測試規範</span>
-            <span data-lang="en">ISO/IEC 17825 / Common Criteria AVA_VAN.5 Rigor</span>
+            <span data-lang="zh">教學模型 · 認證未評估</span>
+            <span data-lang="en">Teaching Model · Certification Not Assessed</span>
           </span>
         </div>
 
         <!-- Simulation Disclaimer Banner -->
         <div class="simulation-disclaimer-banner" style="background: #fffbeb; border: 1px solid #fef3c7; border-left: 4px solid #f59e0b; padding: 12px 16px; margin-bottom: 16px; border-radius: 4px; font-size: 12.5px; line-height: 1.5; color: #92400e;">
           <strong><span data-lang="zh">⚠️ 示意模擬模型與技術邊界說明：</span><span data-lang="en">⚠️ Schematic Model &amp; Technical Boundary Notice:</span></strong>
-          <span data-lang="zh">本工作台之 DPA/CPA 側信道功耗痕跡需求量 (MTD)、信噪比 (SNR) 與高階遮罩 (Masking) 複雜度為基於 Mangard 漢明權重模型之統計數值示意，非特定硬體密碼模組通過 ISO/IEC 17825 實驗室認證或 CC AVA_VAN.5 實體旁路攻擊評估之背書。實際旁路防禦需配合實體雜訊注入、隨機抖動 (Jitter) 與後端版圖差分平衡佈線。</span>
-          <span data-lang="en">The DPA/CPA trace complexity (MTD), signal-to-noise ratio (SNR), and high-order masking metrics in this workbench are statistical approximations based on Mangard Hamming-weight models, rather than formal ISO/IEC 17825 lab certification or Common Criteria AVA_VAN.5 penetration findings. Physical side-channel resilience requires hardware noise injection, clock jittering, and differential balanced layout routing.</span>
+          <span data-lang="zh">未校準教學模型。MTD、相關係數與分數僅供情境比較，不表示實際金鑰還原、安全位元或認證結果。實體防禦須依具體硬體與攻擊條件量測。</span>
+          <span data-lang="en">Uncalibrated teaching model. MTD, correlation and scores compare scenarios without establishing actual key recovery, security bits or certification. Physical resilience requires measurements on specific hardware under defined attack conditions.</span>
         </div>
+
+        <details style="margin-bottom: 1rem; font-size: 12px; line-height: 1.6; color: #475569;">
+          <summary><span data-lang="zh">公式、假設與評估來源</span><span data-lang="en">Equations, Assumptions and Evaluation Sources</span></summary>
+          <p><span data-lang="zh">沿用固定場景 SNR、抖動與衰減係數；二階相關乘數為 0.85，z 為 3.719，痕跡量顯示上限為 100M。原分數公式 min(128, round(16 + 5.6 × log₂(N))) 保留為無單位比較指標。功耗曲線使用任意單位，並非量測電流；遮罩份額與互補雙軌是不同拓撲，圖例依選項區分。以上數值未經特定晶片校準，不能推出認證或安全位元。</span><span data-lang="en">Fixed scenario SNR, jitter and attenuation coefficients are retained. The second-order correlation factor is 0.85, z is 3.719, and trace counts have a 100M display cap. The original score min(128, round(16 + 5.6 × log₂(N))) is a unitless comparison index. Power curves use arbitrary units rather than measured current; masking shares and complementary rails are different topologies and have separate labels. None of these values is calibrated to a specific chip or establishes certification or security bits.</span></p>
+          <p><a href="https://csrc.nist.gov/Projects/cryptographic-module-validation-program/fips-140-3-standards" target="_blank" rel="noopener noreferrer">NIST CMVP / FIPS 140-3</a> · <a href="https://www.commoncriteriaportal.org/cc/index.cfm" target="_blank" rel="noopener noreferrer">Common Criteria</a> · <a href="https://www.iso.org/standard/82422.html" target="_blank" rel="noopener noreferrer">ISO/IEC 17825:2024</a></p>
+        </details>
 
         <!-- Controls Grid -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px; margin-bottom: 1rem;">
@@ -2215,7 +2221,7 @@
           </div>
           <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
-              <span data-lang="zh">預估攻破痕跡量 (MTD)</span><span data-lang="en">ESTIMATED MTD</span>
+              <span data-lang="zh">示意痕跡量 (MTD)</span><span data-lang="en">ILLUSTRATIVE TRACE COUNT</span>
             </div>
             <div id="dpa-out-mtd" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0284c7;">—</div>
           </div>
@@ -2227,13 +2233,13 @@
           </div>
           <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
-              <span data-lang="zh">SCA 等效安全邊界</span><span data-lang="en">SCA SECURITY BITS</span>
+              <span data-lang="zh">教學比較分數（無單位）</span><span data-lang="en">ILLUSTRATIVE SCORE (UNITLESS)</span>
             </div>
             <div id="dpa-out-bits" style="font: 700 16px 'IBM Plex Mono', monospace; color: #0f172a;">—</div>
           </div>
           <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px;">
             <div style="font: 600 10px 'IBM Plex Mono', monospace; color: #64748b; text-transform: uppercase;">
-              <span data-lang="zh">認證抵抗等級</span><span data-lang="en">ASSURANCE RATING</span>
+              <span data-lang="zh">認證評估狀態</span><span data-lang="en">CERTIFICATION STATUS</span>
             </div>
             <div id="dpa-out-level" style="font: 700 16px 'IBM Plex Mono', monospace; color: #059669;">—</div>
           </div>
@@ -2241,25 +2247,25 @@
 
         <!-- Canvas and View Mode Toggle -->
         <div style="background: #040810; border: 1px solid #1e293b; border-radius: 6px; padding: 10px; margin-bottom: 0.75rem;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <div style="display: flex; gap: 6px;">
-              <button id="dpa-mode-traces" type="button" class="active" aria-pressed="true" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
+            <div style="display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; max-width: 100%;">
+              <button id="dpa-mode-traces" type="button" class="active" aria-pressed="true" style="max-width: 100%; padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #38bdf8; background: #0284c7; color: #ffffff; cursor: pointer;">
                 <span data-lang="zh">相關收斂曲線 (ρ vs. Traces)</span><span data-lang="en">CPA Convergence (ρ vs. Traces)</span>
               </button>
-              <button id="dpa-mode-wave" type="button" aria-pressed="false" style="padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
+              <button id="dpa-mode-wave" type="button" aria-pressed="false" style="max-width: 100%; padding: 4px 10px; font: 600 10.5px 'IBM Plex Mono', monospace; border-radius: 4px; border: 1px solid #475569; background: #1e293b; color: #94a3b8; cursor: pointer;">
                 <span data-lang="zh">時域功耗波形 (Power Trace)</span><span data-lang="en">Time-Domain Trace (Power Wave)</span>
               </button>
             </div>
             <span style="font: 500 10px 'IBM Plex Mono', monospace; color: #64748b;">
-              <span data-lang="zh">高解析度雙模態動態分析儀</span><span data-lang="en">Dual-Mode High-DPI Trace Analyzer</span>
+              <span data-lang="zh">兩種教學曲線 · 非量測痕跡</span><span data-lang="en">Two Teaching Views · Unmeasured Traces</span>
             </span>
           </div>
-          <canvas id="dpa-canvas" width="420" height="180" style="width: 100%; height: 180px; display: block;" role="img" aria-label="Side-Channel DPA/CPA Trace Simulation Canvas" data-aria-en="Side-Channel DPA/CPA Trace Simulation Canvas" data-aria-zh="側信道 DPA/CPA 痕跡模擬畫布"></canvas>
+          <canvas id="dpa-canvas" width="420" height="180" style="width: 100%; height: 180px; display: block;" role="img" aria-label="Uncalibrated Side-Channel DPA/CPA Schematic" data-aria-en="Uncalibrated Side-Channel DPA/CPA Schematic" data-aria-zh="未校準側信道 DPA/CPA 示意畫布"></canvas>
         </div>
 
         <!-- Verdict Banner -->
         <div id="dpa-out-verdict" style="background: rgba(2, 132, 199, 0.05); border: 1px solid rgba(2, 132, 199, 0.25); border-radius: 6px; padding: 10px 14px; font-size: 11.5px; line-height: 1.5; color: #0f172a;">
-          Loading DPA/CPA simulation data...
+          <span data-lang="zh">教學模型需要 JavaScript；認證尚未評估。</span><span data-lang="en">The teaching model requires JavaScript; certification has not been assessed.</span>
         </div>
       </div>
     </section>

@@ -1,9 +1,8 @@
 /**
  * advanced-finfet-gaa-simulator.js — Advanced Node FinFET / GAA AntiFuse Scalability & Quantum Tunneling Simulator
  *
- * First-principles modeling of 3D FinFET and Gate-All-Around (GAA) NanoSheet geometry,
- * corner electric field enhancement (Poisson crowding), WKB direct tunneling leakage,
- * breakdown voltage (Vbd) scaling trajectory, and on-chip charge pump silicon area reduction.
+ * 教學近似：以固定幾何、角隅場強係數與簡化穿隧公式產生比較圖。
+ * 未求解三維 Poisson／TCAD；預設參數與面積比例未以具名製程實測校準。
  *
  * Mathematical Foundations:
  * 1. Corner Field Crowding Factor: kappa_corner ~ 1 + alpha * (t_phys / r_c)^gamma
@@ -14,7 +13,7 @@
  * 6. Pump Macro Footprint Reduction: Area_reduction_% = 1 - (Area_node / Area_28nm_base)
  *
  * Author: NVM Knowledge Hub Editorial Board
- * Standards: TSMC / Samsung Foundry Advanced Logic Roadmaps (N16/N12, N5/N4, N3/N2 GAA)
+ * 製程架構來源只用於區分 FinFET 與 N2 類 GAA，不為本模型數值背書。
  */
 
 'use strict';
@@ -22,8 +21,8 @@
 export const FOUNDRY_ADVANCED_NODES = Object.freeze({
   tsmc_n3_gaa: {
     id: 'tsmc_n3_gaa',
-    nameEn: 'TSMC N3E / N2 GAA NanoSheet (3D All-Around Gate)',
-    nameZh: '台積電 N3E / N2 GAA 奈米片 (3D 全環繞閘極)',
+    nameEn: 'GAA NanoSheet Teaching Preset (N2-Class Architecture)',
+    nameZh: 'GAA 奈米片教學預設（N2 類架構）',
     archType: 'gaa',
     eotNm: 1.15,
     tphysNm: 2.1,
@@ -36,13 +35,13 @@ export const FOUNDRY_ADVANCED_NODES = Object.freeze({
     barrierHeightEv: 2.1, // HfO2 conduction band offset
     pumpStages: 2,
     footprintRel: 0.28, // 72% area reduction vs 28nm
-    descriptionEn: 'Full 3D wrap-around electrostatic gate control. Corner field concentration enables sub-4V AntiFuse programming without I/O device breakdown risk.',
-    descriptionZh: '3D 全環繞閘極提供極致靜電控制。角落電場集中使 AntiFuse 在 4V 內完成硬穿隧編程，徹底免除周邊高壓破壞風險。',
+    descriptionEn: 'Illustrative wrap-around geometry with an assumed corner factor of 1.22. Parameters do not establish foundry OTP availability or peripheral voltage safety.',
+    descriptionZh: '全環繞幾何示意，角隅係數假設為 1.22；參數不能證明晶圓廠 OTP 可用性或周邊電壓安全。',
   },
   tsmc_n5_finfet: {
     id: 'tsmc_n5_finfet',
-    nameEn: 'TSMC N5 / N4P 3D FinFET (Tri-Gate)',
-    nameZh: '台積電 N5 / N4P 3D FinFET (三閘極鰭片)',
+    nameEn: 'N5 / N4P-Class FinFET Teaching Preset',
+    nameZh: 'N5／N4P 類 FinFET 教學預設',
     archType: 'finfet',
     eotNm: 1.50,
     tphysNm: 2.6,
@@ -55,13 +54,13 @@ export const FOUNDRY_ADVANCED_NODES = Object.freeze({
     barrierHeightEv: 2.2,
     pumpStages: 3,
     footprintRel: 0.42, // 58% area reduction vs 28nm
-    descriptionEn: 'High-volume production 5nm/4nm node. Fin top corners act as localized dielectric breakdown initiation nucleation sites.',
-    descriptionZh: '主力 5nm/4nm 量產節點。鰭片頂端側壁角隅場強顯著增強，成為介電質微絲成核之天然局域點。',
+    descriptionEn: 'Tri-gate geometry illustration with an assumed corner factor of 1.28; electrical values are not foundry macro specifications.',
+    descriptionZh: '三閘極鰭片幾何示意，角隅係數假設為 1.28；電性數值不是晶圓廠巨集規格。',
   },
   foundry_16ffc: {
     id: 'foundry_16ffc',
-    nameEn: 'Foundry 16nm / 12nm FinFET (Automotive & IoT)',
-    nameZh: '晶圓代工 16nm / 12nm FinFET (車規與工控主力)',
+    nameEn: '16nm / 12nm-Class FinFET Teaching Preset',
+    nameZh: '16nm／12nm 類 FinFET 教學預設',
     archType: 'finfet',
     eotNm: 2.0,
     tphysNm: 3.2,
@@ -74,13 +73,13 @@ export const FOUNDRY_ADVANCED_NODES = Object.freeze({
     barrierHeightEv: 2.4,
     pumpStages: 4,
     footprintRel: 0.65, // 35% area reduction vs 28nm
-    descriptionEn: 'Mature automotive-grade FinFET with excellent thermal reliability and proven 15-year zero-disturb qualification.',
-    descriptionZh: '成熟車規級 FinFET，兼具極佳熱力學可靠度與 15 年零讀取擾動量產實績。',
+    descriptionEn: 'FinFET geometry illustration with an assumed corner factor of 1.20; temperature scaling does not model retention or read-disturb qualification.',
+    descriptionZh: 'FinFET 幾何示意，角隅係數假設為 1.20；溫度倍率不包含保持或讀取擾動資格模型。',
   },
   planar_28hpc: {
     id: 'planar_28hpc',
-    nameEn: 'Legacy 28nm Planar HKMG Baseline (1D Uniform)',
-    nameZh: '傳統 28nm 平面 HKMG 基準對照 (一維均勻場)',
+    nameEn: '28nm Planar HKMG Teaching Preset (Baseline)',
+    nameZh: '28nm 平面 HKMG 教學預設（基準）',
     archType: 'planar',
     eotNm: 2.6,
     tphysNm: 3.8,
@@ -93,8 +92,8 @@ export const FOUNDRY_ADVANCED_NODES = Object.freeze({
     barrierHeightEv: 2.6,
     pumpStages: 5,
     footprintRel: 1.00, // 100% baseline
-    descriptionEn: 'Standard planar gate oxide without 3D geometrical field crowding. Requires bulky multi-stage 7V+ charge pump macros.',
-    descriptionZh: '傳統平面閘極無幾何場強集中效應，需要龐大之 5 級以上 7V+ 電荷泵電路與專用厚氧化層開關。',
+    descriptionEn: 'Planar geometry illustration with a corner factor of 1.00 and an assumed footprint ratio of 1.00 for comparison.',
+    descriptionZh: '平面幾何示意，角隅係數為 1.00，假設面積比例 1.00 作為比較基準。',
   },
 });
 
@@ -127,7 +126,7 @@ export function calculateAdvancedFinfetGaa(params) {
   // J_DT = A_0 * E^2 * exp(-alpha * t_phys * sqrt(Phi_B - V/2))
   const phiB = node.barrierHeightEv;
   const effectiveBarrier = Math.max(0.2, phiB - (appliedVolt / 2));
-  const alphaWkb = 0.85; // Empirical calibrated for High-k stacks
+  const alphaWkb = 0.85; // 原教學係數，尚未提供具名介電層校準資料。
   const exponent = -alphaWkb * node.tphysNm * Math.sqrt(effectiveBarrier);
   const jdtBase = 1e4 * Math.pow(e1dMvCm, 2) * Math.exp(exponent);
   const jdtAcm2 = Math.max(1e-12, Math.min(1e4, jdtBase));
@@ -141,11 +140,11 @@ export function calculateAdvancedFinfetGaa(params) {
   // Assuming diode threshold drop V_drop ~ 0.25V
   const vdrop = 0.25;
   const effectiveVdd = node.vddNominal;
-  const vprogTarget = vbdPredicted * 1.15; // 15% overdrive for 100% microsecond hard breakdown
+  const vprogTarget = vbdPredicted * 1.15; // 假設增加 15% 驅動，不保證編程時間或良率。
   const stagesCalc = Math.max(1, Math.ceil((vprogTarget - effectiveVdd) / (effectiveVdd - vdrop)));
 
   // Footprint relative to 28nm Planar baseline (28nm baseline = 100%)
-  // Macro footprint scales as ~ N_stages * C_stage_area * (L_min / L_28nm)^1.5
+  // 面積比為預設輸入，與試算的級數獨立；未計算實際電容或佈局面積。
   const areaRatio = node.footprintRel;
   const areaSavingsPct = Number(((1 - areaRatio) * 100).toFixed(1));
 
@@ -156,16 +155,16 @@ export function calculateAdvancedFinfetGaa(params) {
 
   if (node.archType === 'gaa') {
     verdictStatus = 'gaa_optimal';
-    verdictEn = `[GAA NanoSheet Scalability Advantage] 3D wrap-around gate and 1.2nm corner radius lower programming breakdown to ${vbdPredicted}V (vs 7.2V in 28nm). Charge pump footprint is slashed by ${areaSavingsPct}%, fully overcoming the 28nm planar scaling barrier with 0 extra masks.`;
-    verdictZh = `【GAA 奈米片極限微縮優勢】全環繞閘極與 1.2nm 奈米片角隅半徑將 AntiFuse 編程崩潰電壓大幅降至 ${vbdPredicted}V（傳統 28nm 為 7.2V）。晶粒電荷泵面積縮減高達 ${areaSavingsPct}%，徹底突破 eFlash 停滯於 28nm 之微縮極限，維持 0-Mask 純邏輯相容。`;
+    verdictEn = `[GAA Teaching Estimate] The fixed corner coefficient gives ${vbdPredicted}V breakdown and an estimated ${stagesCalc}-stage pump. The assumed footprint ratio ${areaRatio} gives ${areaSavingsPct}% reduction independently of the stage calculation. This uncalibrated model does not establish process compatibility, peripheral voltage safety or qualification.`;
+    verdictZh = `【GAA 教學試算】固定角隅係數下，硬擊穿試算為 ${vbdPredicted}V、電荷泵為 ${stagesCalc} 級。面積比例假設 ${areaRatio} 對應 ${areaSavingsPct}% 縮減，與級數計算獨立。此未校準模型不能保證製程相容、周邊電壓安全或資格驗證通過。`;
   } else if (node.archType === 'finfet') {
     verdictStatus = 'finfet_mature';
-    verdictEn = `[FinFET 3D Corner Nucleation] 3D FinFET corners enhance local oxide stress by ${((node.cornerEnhanceFactor - 1) * 100).toFixed(0)}%, pinpointing breakdown at ${vbdPredicted}V. Pump footprint reduced by ${areaSavingsPct}%. High thermal robustness qualified for automotive Grade 0.`;
-    verdictZh = `【FinFET 鰭片角隅場強成核】3D 鰭片頂端幾何使局域氧化層電場增強 ${((node.cornerEnhanceFactor - 1) * 100).toFixed(0)}%，精準於 ${vbdPredicted}V 激發局域微絲。電荷泵面積節省 ${areaSavingsPct}%，提供車規 Grade 0 極高抗高溫退化能力。`;
+    verdictEn = `[FinFET Teaching Estimate] The assumed ${((node.cornerEnhanceFactor - 1) * 100).toFixed(0)}% field enhancement gives ${vbdPredicted}V breakdown and an estimated ${stagesCalc}-stage pump. The assumed footprint ratio ${areaRatio} gives ${areaSavingsPct}% reduction. These uncalibrated coefficients do not establish automotive qualification, retention or read-disturb performance.`;
+    verdictZh = `【FinFET 教學試算】場強增強假設 ${((node.cornerEnhanceFactor - 1) * 100).toFixed(0)}% 下，硬擊穿試算為 ${vbdPredicted}V、電荷泵為 ${stagesCalc} 級。面積比例假設 ${areaRatio} 對應 ${areaSavingsPct}% 縮減。未校準係數不能保證車規資格、保持或讀取擾動表現。`;
   } else {
     verdictStatus = 'planar_legacy';
-    verdictEn = `[Planar Scaling Bottleneck] Flat 1D gate oxide lacks geometrical field concentration, requiring ${vbdPredicted}V high programming pulse and a bulky ${stagesCalc}-stage charge pump (100% area baseline).`;
-    verdictZh = `【傳統平面微縮瓶頸】平面氧化層缺乏 3D 幾何電場增強，需高達 ${vbdPredicted}V 編程電壓與龐大 ${stagesCalc} 級電荷泵（佔地基準 100%），無法延伸至先進 7nm 以下邏輯節點。`;
+    verdictEn = `[Planar Teaching Estimate] A corner factor of 1.00 gives ${vbdPredicted}V breakdown and an estimated ${stagesCalc}-stage pump, with an assumed 100% footprint baseline. This uncalibrated comparison does not establish a process scaling limit or qualification.`;
+    verdictZh = `【平面教學試算】角隅係數 1.00 下，硬擊穿試算為 ${vbdPredicted}V、電荷泵為 ${stagesCalc} 級，面積基準假設為 100%。此未校準比較不能保證資格通過，也不能推導製程微縮截止點。`;
   }
 
   return {
@@ -206,44 +205,56 @@ export function calculateAdvancedFinfetGaa(params) {
 export function drawFinfetGaaCanvas(canvas, simData, lang = 'zh') {
   if (!canvas || !canvas.getContext) return;
   const ctx = canvas.getContext('2d');
+  if (!ctx) return;
   const dpr = window.devicePixelRatio || 1;
-
-  const rect = canvas.getBoundingClientRect();
-  const width = rect.width > 0 ? rect.width : 600;
-  const height = rect.height > 0 ? rect.height : 260;
-
-  canvas.width = width * dpr;
-  canvas.height = height * dpr;
-  ctx.resetTransform?.();
-  ctx.scale(dpr, dpr);
-
-  ctx.fillStyle = '#ffffff';
-  ctx.fillRect(0, 0, width, height);
-
+  const width = canvas.getBoundingClientRect().width || 600;
+  const stacked = width < 760;
   const arch = simData.metrics.archType;
-  const padLeft = 40;
-  const padTop = 30;
-  const padBottom = 30;
-
-  // Title / Subtitle inside Canvas
-  ctx.fillStyle = '#0f172a';
-  ctx.font = '700 12px "IBM Plex Mono", monospace';
-  ctx.textAlign = 'left';
-  ctx.fillText(
-    lang === 'zh'
-      ? `3D 靜電架構與電場熱力分佈：${simData.inputs.nodeId.toUpperCase()}`
-      : `3D Electrostatic Geometry & Field Intensity: ${simData.inputs.nodeId.toUpperCase()}`,
-    padLeft,
-    padTop - 10
-  );
-
-  // Render Left Side: 3D Cross-Section Schematic
-  // Draw Gate (Metal) vs Dielectric (High-k) vs Silicon Channel
-  const drawW = 240;
-  const drawH = 180;
-  const startX = padLeft + 20;
-  const startY = padTop + 20;
-
+  const wrapText = (text, maxWidth, font) => {
+    ctx.font = font;
+    const lines = []; let line = '';
+    for (const character of text) {
+      if (line && ctx.measureText(line + character).width > maxWidth) { lines.push(line); line = ''; }
+      line += character;
+    }
+    if (line) lines.push(line);
+    return lines;
+  };
+  const title = lang === 'zh'
+    ? '幾何與電場示意 · 教學預設'
+    : 'Illustrative Geometry & Field · Teaching Preset';
+  const titleLines = wrapText(title, width - 24, '700 12px "IBM Plex Mono", monospace');
+  const diagramLabels = arch === 'planar'
+    ? [lang === 'zh' ? '矽基板 (Si Channel)' : 'Si Substrate', 'SiO2 / High-k (1D)', lang === 'zh' ? '金屬閘極 (Metal Gate)' : 'Metal Gate']
+    : arch === 'finfet'
+      ? [lang === 'zh' ? `假設角隅增強 (+${((simData.metrics.cornerEnhanceFactor-1)*100).toFixed(0)}%)` : `Assumed Corner Field (+${((simData.metrics.cornerEnhanceFactor-1)*100).toFixed(0)}%)`, lang === 'zh' ? '3 閘極鰭片' : 'Tri-Gate Fin']
+      : [lang === 'zh' ? '3 層全環繞奈米片' : '3-Stack GAA NanoSheet'];
+  const diagramScale = Math.min(1, (width - 24) / 240);
+  const diagramTop = 24 + titleLines.length * 16;
+  const captionLines = stacked ? diagramLabels.flatMap(text => wrapText(text, width - 24, '10px "IBM Plex Mono", monospace')) : [];
+  const metricX = stacked ? 12 : 335;
+  const metricWidth = width - metricX - 12;
+  const metrics = [
+    {text:lang === 'zh' ? `硬擊穿試算 Vbd: ${simData.metrics.vbdPredicted} V (假設參考 7.2V)` : `Illustrative Breakdown Vbd: ${simData.metrics.vbdPredicted} V (Assumed Reference 7.2V)`, fraction:Math.min(1.0, simData.metrics.vbdPredicted / 8.0), color:'#0284c7'},
+    {text:lang === 'zh' ? `幾何角隅場強因子 κ: ${simData.metrics.cornerEnhanceFactor.toFixed(2)}× (${((simData.metrics.cornerEnhanceFactor - 1) * 100).toFixed(0)}% 增強)` : `Corner Field Crowding κ: ${simData.metrics.cornerEnhanceFactor.toFixed(2)}x (+${((simData.metrics.cornerEnhanceFactor - 1) * 100).toFixed(0)}%)`, fraction:Math.max(0.05, Math.min(1.0, (simData.metrics.cornerEnhanceFactor - 1.0) / 0.4)), color:'#ea580c'},
+    {text:lang === 'zh' ? `假設電荷泵面積縮減: ${simData.metrics.areaSavingsPct}% (${simData.metrics.stagesCalc} 級試算；假設基準 5 級)` : `Assumed Pump Footprint Reduction: ${simData.metrics.areaSavingsPct}% (${simData.metrics.stagesCalc} estimated stages; assumed base 5)`, fraction:simData.metrics.areaSavingsPct / 100, color:'#10b981'},
+    {text:lang === 'zh' ? `待機直接穿隧漏電 J_DT: ${simData.metrics.jdtTotalAcm2.toExponential(2)} A/cm² (@ ${simData.inputs.tempC}°C)` : `Standby Direct Tunneling J_DT: ${simData.metrics.jdtTotalAcm2.toExponential(2)} A/cm² (@ ${simData.inputs.tempC}°C)`}
+  ].map(metric => ({...metric, lines:wrapText(metric.text, metricWidth, '600 11px "IBM Plex Mono", monospace')}));
+  const metricTop = stacked ? diagramTop + 180 * diagramScale + captionLines.length * 14 + 24 : diagramTop + 10;
+  const height = Math.ceil(Math.max(260, diagramTop + 180 * diagramScale + 16, metricTop + metrics.reduce((total, metric) => total + metric.lines.length * 15 + (metric.fraction === undefined ? 12 : 28), 0)));
+  // 窄螢幕保留可辨識圖形，文字及全部數據改為上下排列並依實際字寬換行。
+  canvas.style.height = height + 'px';
+  if (canvas.parentElement) canvas.parentElement.style.height = height + 'px';
+  canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
+  ctx.resetTransform?.(); ctx.scale(dpr, dpr);
+  ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, width, height);
+  ctx.fillStyle = '#0f172a'; ctx.font = '700 12px "IBM Plex Mono", monospace'; ctx.textAlign = 'left';
+  titleLines.forEach((line, index) => ctx.fillText(line, 12, 20 + index * 16));
+  ctx.save();
+  ctx.translate(stacked ? (width - 240 * diagramScale) / 2 : 60, diagramTop);
+  ctx.scale(diagramScale, diagramScale);
+  const startX = 0, startY = 0, drawW = 240, drawH = 180;
+  const drawDiagramText = (...args) => { if (!stacked) ctx.fillText(...args); };
   ctx.strokeStyle = '#94a3b8';
   ctx.lineWidth = 1;
   ctx.strokeRect(startX, startY, drawW, drawH);
@@ -254,19 +265,19 @@ export function drawFinfetGaaCanvas(canvas, simData, lang = 'zh') {
     ctx.fillRect(startX + 10, startY + 100, drawW - 20, 70);
     ctx.fillStyle = '#64748b';
     ctx.font = '10px "IBM Plex Mono", monospace';
-    ctx.fillText(lang === 'zh' ? '矽基板 (Si Channel)' : 'Si Substrate', startX + 20, startY + 140);
+    drawDiagramText(lang === 'zh' ? '矽基板 (Si Channel)' : 'Si Substrate', startX + 20, startY + 140);
 
     // Oxide layer
     ctx.fillStyle = '#38bdf8';
     ctx.fillRect(startX + 10, startY + 75, drawW - 20, 25);
     ctx.fillStyle = '#0369a1';
-    ctx.fillText('SiO2 / High-k (1D)', startX + 20, startY + 92);
+    drawDiagramText('SiO2 / High-k (1D)', startX + 20, startY + 92);
 
     // Gate
     ctx.fillStyle = '#cbd5e1';
     ctx.fillRect(startX + 10, startY + 15, drawW - 20, 60);
     ctx.fillStyle = '#334155';
-    ctx.fillText(lang === 'zh' ? '金屬閘極 (Metal Gate)' : 'Metal Gate', startX + 20, startY + 50);
+    drawDiagramText(lang === 'zh' ? '金屬閘極 (Metal Gate)' : 'Metal Gate', startX + 20, startY + 50);
   } else if (arch === 'finfet') {
     // 3D FinFET: Vertical Fin wrapped on 3 sides
     // Substrate
@@ -295,8 +306,8 @@ export function drawFinfetGaaCanvas(canvas, simData, lang = 'zh') {
 
     ctx.fillStyle = '#b91c1c';
     ctx.font = '10px "IBM Plex Mono", monospace';
-    ctx.fillText(lang === 'zh' ? '角落場強增強 (+28%)' : 'Corner Field (+28%)', finX - 45, startY + 20);
-    ctx.fillText(lang === 'zh' ? '3 閘極鰭片' : 'Tri-Gate Fin', finX - 8, startY + 90);
+    drawDiagramText(lang === 'zh' ? `假設角隅增強 (+${((simData.metrics.cornerEnhanceFactor-1)*100).toFixed(0)}%)` : `Assumed Corner (+${((simData.metrics.cornerEnhanceFactor-1)*100).toFixed(0)}%)`, finX - 45, startY + 20);
+    drawDiagramText(lang === 'zh' ? '3 閘極鰭片' : 'Tri-Gate Fin', finX - 8, startY + 90);
   } else {
     // GAA NanoSheet: 3 Stacked Horizontal Sheets with wrap-around gate
     ctx.fillStyle = '#e2e8f0';
@@ -335,73 +346,22 @@ export function drawFinfetGaaCanvas(canvas, simData, lang = 'zh') {
 
     ctx.fillStyle = '#0f172a';
     ctx.font = '10px "IBM Plex Mono", monospace';
-    ctx.fillText(lang === 'zh' ? '3 層全環繞奈米片' : '3-Stack GAA NanoSheet', nsX + 10, startY + 160);
+    drawDiagramText(lang === 'zh' ? '3 層全環繞奈米片' : '3-Stack GAA NanoSheet', nsX + 10, startY + 160);
   }
 
-  // Render Right Side: Key Numerical Comparison Bars
-  const rightX = startX + drawW + 35;
-  const barW = width - rightX - 35;
-  const barStartY = startY + 10;
-
-  // Metric 1: Breakdown Voltage Vbd
-  ctx.fillStyle = '#334155';
-  ctx.font = '600 11px "IBM Plex Mono", monospace';
-  ctx.fillText(
-    lang === 'zh'
-      ? `預測硬擊穿電壓 Vbd: ${simData.metrics.vbdPredicted} V (基準 7.2V)`
-      : `Predicted Breakdown Vbd: ${simData.metrics.vbdPredicted} V (Base 7.2V)`,
-    rightX,
-    barStartY
-  );
-
-  const pctVbd = Math.min(1.0, simData.metrics.vbdPredicted / 8.0);
-  ctx.fillStyle = '#e2e8f0';
-  ctx.fillRect(rightX, barStartY + 6, barW, 12);
-  ctx.fillStyle = '#0284c7';
-  ctx.fillRect(rightX, barStartY + 6, barW * pctVbd, 12);
-
-  // Metric 2: Corner Field Enhancement Factor
-  ctx.fillStyle = '#334155';
-  ctx.fillText(
-    lang === 'zh'
-      ? `幾何角隅場強因子 κ: ${simData.metrics.cornerEnhanceFactor.toFixed(2)}× (${((simData.metrics.cornerEnhanceFactor - 1) * 100).toFixed(0)}% 增強)`
-      : `Corner Field Crowding κ: ${simData.metrics.cornerEnhanceFactor.toFixed(2)}x (+${((simData.metrics.cornerEnhanceFactor - 1) * 100).toFixed(0)}%)`,
-    rightX,
-    barStartY + 45
-  );
-
-  const pctCorner = (simData.metrics.cornerEnhanceFactor - 1.0) / 0.4;
-  ctx.fillStyle = '#e2e8f0';
-  ctx.fillRect(rightX, barStartY + 51, barW, 12);
-  ctx.fillStyle = '#ea580c';
-  ctx.fillRect(rightX, barStartY + 51, barW * Math.max(0.05, Math.min(1.0, pctCorner)), 12);
-
-  // Metric 3: Charge Pump Silicon Footprint Savings
-  ctx.fillStyle = '#334155';
-  ctx.fillText(
-    lang === 'zh'
-      ? `晶粒電荷泵面積縮減: ${simData.metrics.areaSavingsPct}% (${simData.metrics.stagesCalc} 級泵 vs 28nm 5級)`
-      : `Charge Pump Footprint Savings: ${simData.metrics.areaSavingsPct}% (${simData.metrics.stagesCalc} stages vs 5)`,
-    rightX,
-    barStartY + 90
-  );
-
-  const pctSavings = simData.metrics.areaSavingsPct / 100;
-  ctx.fillStyle = '#e2e8f0';
-  ctx.fillRect(rightX, barStartY + 96, barW, 12);
-  ctx.fillStyle = '#10b981';
-  ctx.fillRect(rightX, barStartY + 96, barW * pctSavings, 12);
-
-  // Direct Tunneling Leakage text
-  ctx.fillStyle = '#64748b';
-  ctx.font = '10px "IBM Plex Mono", monospace';
-  ctx.fillText(
-    lang === 'zh'
-      ? `待機直接穿隧漏電 J_DT: ${simData.metrics.jdtTotalAcm2.toExponential(2)} A/cm² (@ ${simData.inputs.tempC}°C)`
-      : `Standby Direct Tunneling J_DT: ${simData.metrics.jdtTotalAcm2.toExponential(2)} A/cm² (@ ${simData.inputs.tempC}°C)`,
-    rightX,
-    barStartY + 140
-  );
+  ctx.restore();
+  ctx.font = '10px "IBM Plex Mono", monospace'; ctx.fillStyle = '#334155';
+  captionLines.forEach((line, index) => ctx.fillText(line, 12, diagramTop + 180 * diagramScale + 14 + index * 14));
+  let metricY = metricTop;
+  metrics.forEach(metric => {
+    ctx.fillStyle = '#334155'; ctx.font = '600 11px "IBM Plex Mono", monospace';
+    metric.lines.forEach(line => { ctx.fillText(line, metricX, metricY); metricY += 15; });
+    if (metric.fraction !== undefined) {
+      ctx.fillStyle = '#e2e8f0'; ctx.fillRect(metricX, metricY, metricWidth, 12);
+      ctx.fillStyle = metric.color; ctx.fillRect(metricX, metricY, metricWidth * metric.fraction, 12);
+      metricY += 28;
+    } else metricY += 12;
+  });
 }
 
 /**
@@ -436,6 +396,10 @@ export function initAdvancedFinfetGaaSimulator(rootId = 'finfet-gaa-simulator-ro
 
   function update() {
     const lang = getLang();
+    if (nodeSelect) [...nodeSelect.options].forEach(option => {
+      const preset = FOUNDRY_ADVANCED_NODES[option.value];
+      if (preset) option.textContent = lang === 'en' ? preset.nameEn : preset.nameZh;
+    });
     const params = {
       nodeId: nodeSelect?.value || 'tsmc_n3_gaa',
       appliedVolt: parseFloat(voltSlider?.value || '0.70'),

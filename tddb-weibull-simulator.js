@@ -1,18 +1,7 @@
 /**
- * tddb-weibull-simulator.js — Time-Dependent Dielectric Breakdown & Weibull Reliability Inference Simulator
- *
- * First-principles mathematical modeling of gate oxide / dielectric breakdown physics,
- * microscopic defect trap percolation, Weibull statistical distributions, array area scaling,
- * and wordline multiplexed duty-cycle acceleration (JESD85, AEC-Q100 Grade 0, IRPS).
- *
- * Provides quantitative engineering verification for:
- * 1. AntiFuse programming: Transient microsecond high-voltage hard breakdown (HBD) filament percolation.
- * 2. 15-Year retention & read disturb immunity: Operating under automotive AEC-Q100 Grade 0 (<0.1 FIT).
- * 3. Array area scaling: Weakest-link Poisson statistics from 1 bit to 32 Mbit macros.
- * 4. Wordline duty-cycle mitigation: Explaining how 256:1 row-muxing guarantees zero-disturb over 15 years.
- *
- * Author: NVM Knowledge Hub Editorial Board
- * Standards: JEDEC JESD85, AEC-Q100 Grade 0, IEEE International Reliability Physics Symposium (IRPS)
+ * TDDB／Weibull 教學試算：保留既有係數、情境與面積／佔空比近似。
+ * 輸出不是具名產品規格、HTOL 實測、AEC-Q100 或 JESD85 資格驗證。
+ * 各加速係數尚未綁定目標製程量測；結論只適用於所選假設。
  */
 
 'use strict';
@@ -20,16 +9,16 @@
 export const TDDB_PRESETS = Object.freeze({
   automotive_read_disturb_28nm: {
     id: 'automotive_read_disturb_28nm',
-    nameEn: 'Automotive Grade 0 Read Disturb (28nm, 150°C Tj, 0.75V)',
-    nameZh: '車規 Grade 0 讀取擾動壽命推論 (28nm, 150°C Tj, 0.75V)',
+    nameEn: 'Automotive Read-Stress Scenario (28nm target, 150°C Tj, 0.75V)',
+    nameZh: '車用讀取應力試算（28nm 目標、150°C Tj、0.75V）',
     toxNm: 2.8,
     voxV: 0.75,
     tempC: 150,
     modelId: 'e_model',
     arraySizeKey: '64_kb',
     dutyCycleKey: 'array_multiplexed',
-    descriptionEn: 'Evaluates 15-year read disturb immunity under automotive junction temperature (150°C AEC-Q100 Grade 0).',
-    descriptionZh: '評估車規 Grade 0 極端結溫（150°C）下，字元線分時多工運作 15 年之抗介電質擊穿安全性與超低 FIT 率。',
+    descriptionEn: 'Illustrates 15-year read stress at a 150°C junction temperature; temperature grade and qualification require separate evidence.',
+    descriptionZh: '在 150°C 接面溫度假設下試算 15 年讀取應力；溫度分級與資格驗證須另有證據。',
   },
   antifuse_hard_breakdown_write: {
     id: 'antifuse_hard_breakdown_write',
@@ -41,13 +30,13 @@ export const TDDB_PRESETS = Object.freeze({
     modelId: 'inv_e_model',
     arraySizeKey: '1_bit',
     dutyCycleKey: 'dc_continuous',
-    descriptionEn: 'Microsecond high-field pulse triggering catastrophic Joule-heating thermal filament percolation.',
-    descriptionZh: '微秒級高電場瞬態脈衝，激發雪崩熱失控與局域焦耳熱，100% 形成永久再結晶歐姆微絲導通路徑。',
+    descriptionEn: 'Illustrative high-field pulse; the model estimates breakdown probability, not filament morphology or programming yield.',
+    descriptionZh: '高電場脈衝示意；模型估算擊穿機率，不推定微絲形貌或編程良率。',
   },
   iot_lowpower_retention_55nm: {
     id: 'iot_lowpower_retention_55nm',
     nameEn: 'IoT Low-Power Standby Retention (55nm, 85°C, 1.2V)',
-    nameZh: '物聯網超低功耗常溫 10 年留存 (55nm, 85°C, 1.2V)',
+    nameZh: '物聯網待機應力情境（55nm 目標、85°C、1.2V）',
     toxNm: 3.2,
     voxV: 1.2,
     tempC: 85,
@@ -96,8 +85,8 @@ export const ACCELERATION_MODELS = Object.freeze({
     tRefSec: 50.0,
     eRefMvCm: 11.0,
     tempRefK: 398.15, // 125°C
-    descriptionEn: 'High-field avalanche breakdown model; optimal for AntiFuse high-voltage programming transients.',
-    descriptionZh: '高電場碰撞游離與電洞反饋模型；最能精準描述 AntiFuse 高壓寫入硬擊穿之微秒崩潰行為。',
+    descriptionEn: 'Illustrative high-field acceleration model; coefficients require target-process measurements.',
+    descriptionZh: '高電場加速模型示意；係數須依目標製程量測確認。',
   },
   power_law: {
     id: 'power_law',
@@ -109,8 +98,8 @@ export const ACCELERATION_MODELS = Object.freeze({
     tRefSec: 100.0,
     vRefV: 2.2,
     tempRefK: 378.15, // 105°C
-    descriptionEn: 'Empirical voltage power-law model calibrated for sub-2nm gate dielectrics in advanced FinFET/GAA.',
-    descriptionZh: '針對次 2nm 超薄介電質校正之電壓乘冪次模型，符合先進邏輯 FinFET / GAA 晶圓實測。',
+    descriptionEn: 'Illustrative voltage power-law model for ultrathin dielectrics; not calibrated to a named FinFET/GAA process.',
+    descriptionZh: '超薄介電質電壓乘冪次示意模型；尚未以具名 FinFET／GAA 製程量測校正。',
   },
 });
 
@@ -259,31 +248,28 @@ export function calculateTddbWeibull(params) {
   const formattedEtaCell = formatLifetime(etaCellSec);
   const formattedEtaArray = formatLifetime(etaArraySec);
 
-  // 9. Engineering Verdict Determination
-  let verdictStatus = 'safe_automotive';
-  let verdictEn = '';
-  let verdictZh = '';
-
+  // 只判讀教學模型區間；門檻不是產品規格或資格驗證要求。
+  let verdictStatus;
+  let verdictEn;
+  let verdictZh;
+  const estimateEn = `At the selected ${tempC}°C junction temperature and ${(dutyConfig.factor * 100).toFixed(2)}% stress duty, the illustrative 15-year array failure estimate is ${(f15YArray * 1e6).toPrecision(4)} ppm and the effective-stress-time hazard estimate is ${fitRate15Y.toPrecision(4)} FIT.`;
+  const estimateZh = `在所選 ${tempC}°C 接面溫度與 ${(dutyConfig.factor * 100).toFixed(2)}% 應力佔空比下，示意 15 年陣列累積失效試算約 ${(f15YArray * 1e6).toPrecision(4)} ppm，有效應力時間的危險率試算約 ${fitRate15Y.toPrecision(4)} FIT。`;
   if (eoxMvCm >= 12.0 || etaCellSec <= 1e-4) {
-    // Programming breakdown regime
     verdictStatus = 'hard_breakdown_active';
-    verdictEn = `[AntiFuse Programming Active] Extreme electric field (Eox = ${eoxMvCm.toFixed(1)} MV/cm) drives characteristic breakdown in ${formattedEtaCell.valEn}. Under a 10 µs pulse, cumulative hard breakdown probability F(10µs) = ${(fPulsePgm * 100).toFixed(4)}%, permanently forming a low-resistance recrystallized silicon filament (<1 kΩ).`;
-    verdictZh = `【AntiFuse 瞬態硬擊穿編程區】極高電場（Eox = ${eoxMvCm.toFixed(1)} MV/cm）促使特性崩潰時間驟降至 ${formattedEtaCell.valZh}。在 10 微秒編程脈衝下，累計硬擊穿機率 F(10µs) 達到 ${(fPulsePgm * 100).toFixed(4)}%，100% 形成穩定且不可逆的局域再結晶歐姆微絲（<1 kΩ）。`;
+    verdictEn = `[High-Field Model Region] Eox ≈ ${eoxMvCm.toFixed(1)} MV/cm and characteristic breakdown time ≈ ${formattedEtaCell.valEn}; the model estimates F(10 µs) ≈ ${(fPulsePgm * 100).toFixed(4)}%. This does not establish filament structure, resistance or programming yield.`;
+    verdictZh = `【高電場模型區間】Eox 約 ${eoxMvCm.toFixed(1)} MV/cm，特性擊穿時間約 ${formattedEtaCell.valZh}；模型估算 F(10 微秒) 約 ${(fPulsePgm * 100).toFixed(4)}%。此結果不證明微絲結構、電阻或編程良率。`;
   } else if (f15YArray < 1e-5 && fitRate15Y < 1.0) {
-    // AEC-Q100 Grade 0 Compliant (<10 ppm target)
-    verdictStatus = 'safe_automotive';
-    verdictEn = `[AEC-Q100 Grade 0 Certified] Array 15-year cumulative failure probability is < 1 ppm (${(f15YArray * 1e6).toFixed(4)} ppm), with FIT rate = ${fitRate15Y.toFixed(4)}. Dielectric integrity remains strictly immune to read disturb and thermal stress up to 150°C Tj.`;
-    verdictZh = `【車規 AEC-Q100 Grade 0 頂級可靠度】陣列在 150°C 接面溫度下連續運作 15 年，累積破壞機率小於 1 ppm（${(f15YArray * 1e6).toFixed(4)} ppm），失效率 FIT = ${fitRate15Y.toFixed(4)}。未編程單元具備極致抗讀取擾動與熱應力屏障。`;
+    verdictStatus = 'low_failure_estimate';
+    verdictEn = `[Lower Failure Estimate] ${estimateEn} The example comparison thresholds are <10 ppm and <1 FIT; passing them does not establish AEC-Q100 qualification, retention or immunity to read disturb.`;
+    verdictZh = `【較低失效試算】${estimateZh}教學比較門檻為 <10 ppm 與 <1 FIT；低於門檻不代表 AEC-Q100 資格驗證、保持或抗讀取擾動已通過。`;
   } else if (f15YArray < 1e-3) {
-    // Consumer / Industrial Safe
-    verdictStatus = 'commercial_safe';
-    verdictEn = `[Commercial / Industrial Robust] 15-year array failure probability is ${(f15YArray * 1e6).toFixed(1)} ppm (FIT = ${fitRate15Y.toFixed(1)}). Fully adequate for consumer and industrial grade products (<100 ppm target).`;
-    verdictZh = `【消費級／一般工業級可靠】15 年陣列累積失效率為 ${(f15YArray * 1e6).toFixed(1)} ppm（FIT = ${fitRate15Y.toFixed(1)}），完全符合一般消費電子與商用工業級標準（目標門檻 <100 ppm）。`;
+    verdictStatus = 'intermediate_failure_estimate';
+    verdictEn = `[Intermediate Failure Estimate] ${estimateEn} This is a model comparison region, not a consumer or industrial product qualification.`;
+    verdictZh = `【中間失效試算】${estimateZh}此為模型比較區間，不是消費級或工業級產品資格判定。`;
   } else {
-    // Read Disturb Danger Zone
-    verdictStatus = 'disturb_hazard';
-    verdictEn = `[Read Disturb Hazard] Severe dielectric wear-out! Array 15-year failure rate reaches ${(f15YArray * 100).toFixed(2)}% (FIT = ${fitRate15Y.toExponential(2)}). Excessive operating field or junction temperature poses high risk of accidental soft/hard breakdown in unprogrammed cells.`;
-    verdictZh = `【讀取擾動擊穿高風險】介電質老化嚴重！陣列 15 年失效率高達 ${(f15YArray * 100).toFixed(2)}%（FIT = ${fitRate15Y.toExponential(2)}）。過高讀取偏壓或惡劣高溫將導致未編程單元發生非預期軟／硬擊穿，引發資料翻轉災難。`;
+    verdictStatus = 'higher_failure_estimate';
+    verdictEn = `[Higher Failure Estimate] ${estimateEn} Investigate the selected voltage, temperature and acceleration assumptions; the model alone does not establish actual device failure.`;
+    verdictZh = `【較高失效試算】${estimateZh}請核對所選偏壓、溫度與加速假設；模型本身不能確立實際元件失效。`;
   }
 
   // 10. Generate Weibull Plot Series for Canvas
@@ -586,7 +572,7 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
   const verdictBanner = root.querySelector('#tddb-verdict-banner');
 
   function getLang() {
-    return document.documentElement.lang === 'en' ? 'en' : 'zh';
+    return (window.HubLanguage?.get() || document.documentElement.dataset.language || 'en') === 'zh' ? 'zh' : 'en';
   }
 
   function update() {
@@ -607,13 +593,13 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
     const res = calculateTddbWeibull(params);
 
     if (eoxValEl) eoxValEl.textContent = `${res.metrics.eoxMvCm.toFixed(2)} MV/cm`;
-    if (betaValEl) betaValEl.textContent = `${res.metrics.beta.toFixed(2)}`;
+    if (betaValEl) betaValEl.textContent = `≈ ${res.metrics.beta.toFixed(2)}`;
 
     if (etaCellEl) {
-      etaCellEl.textContent = lang === 'en' ? res.metrics.formattedEtaCell.valEn : res.metrics.formattedEtaCell.valZh;
+      etaCellEl.textContent = '≈ ' + (lang === 'en' ? res.metrics.formattedEtaCell.valEn : res.metrics.formattedEtaCell.valZh);
     }
     if (etaArrayEl) {
-      etaArrayEl.textContent = lang === 'en' ? res.metrics.formattedEtaArray.valEn : res.metrics.formattedEtaArray.valZh;
+      etaArrayEl.textContent = '≈ ' + (lang === 'en' ? res.metrics.formattedEtaArray.valEn : res.metrics.formattedEtaArray.valZh);
     }
 
     if (fitRateEl) {
@@ -621,17 +607,17 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
         ? '< 0.001 FIT'
         : res.metrics.fitRate15Y > 1e6
         ? '> 10⁶ FIT'
-        : `${res.metrics.fitRate15Y.toFixed(2)} FIT`;
+        : `≈ ${res.metrics.fitRate15Y.toFixed(2)} FIT`;
     }
 
     if (f15YEl) {
       const fVal = res.metrics.f15YArray;
       if (fVal < 1e-6) {
-        f15YEl.textContent = `${(fVal * 1e6).toFixed(4)} ppm`;
+        f15YEl.textContent = `≈ ${(fVal * 1e6).toFixed(4)} ppm`;
       } else if (fVal < 0.01) {
-        f15YEl.textContent = `${(fVal * 1e6).toFixed(1)} ppm`;
+        f15YEl.textContent = `≈ ${(fVal * 1e6).toFixed(1)} ppm`;
       } else {
-        f15YEl.textContent = `${(fVal * 100).toFixed(2)} %`;
+        f15YEl.textContent = `≈ ${(fVal * 100).toFixed(2)} %`;
       }
     }
 
@@ -651,12 +637,12 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
         border = '1px solid #fed7aa';
         color = '#9a3412';
         icon = '⚡';
-      } else if (res.verdict.status === 'commercial_safe') {
+      } else if (res.verdict.status === 'intermediate_failure_estimate') {
         bg = '#eff6ff';
         border = '1px solid #bfdbfe';
         color = '#1e40af';
         icon = 'ℹ️';
-      } else if (res.verdict.status === 'disturb_hazard') {
+      } else if (res.verdict.status === 'higher_failure_estimate') {
         bg = '#fef2f2';
         border = '1px solid #fecaca';
         color = '#991b1b';
@@ -669,7 +655,7 @@ export function initTddbWeibullSimulator(rootId = 'tddb-weibull-root') {
       if (iconSpan) iconSpan.textContent = icon;
 
       if (textSpan) {
-        textSpan.innerHTML = `<span data-lang="zh">${res.verdict.zh}</span><span data-lang="en">${res.verdict.en}</span>`;
+        textSpan.textContent = lang === 'zh' ? res.verdict.zh : res.verdict.en;
       }
     }
 

@@ -1,7 +1,8 @@
 /**
  * dpa-cpa-leakage-simulator.js — Side-Channel DPA/CPA Trace Complexity & High-Order Masking Simulator
  *
- * First-Principles Mathematical Modeling:
+ * 未校準的教學模型：原公式、固定係數與預設值保留，不能推論產品安全或認證。
+ * 以下公式用於比較示意趨勢，非特定硬體量測：
  * 1. Hamming Weight (HW) Power Leakage Model:
  *    P(t) = P_{\text{baseline}}(t) + \kappa \cdot \text{HW}(D(t) \oplus R(t)) + \mathcal{N}(0, \sigma_{\text{noise}}^2)
  * 2. Signal-to-Noise Ratio (SNR) in Side-Channel Domain:
@@ -10,15 +11,15 @@
  *    \rho = \frac{1}{\sqrt{1 + \frac{1}{\text{SNR}_{\text{leakage}}}}} = \frac{\kappa \cdot \sigma_{\text{HW}}}{\sqrt{\kappa^2 \cdot \sigma_{\text{HW}}^2 + \sigma_{\text{noise}}^2}}
  * 4. Measurements to Disclosure (MTD) — Mangard's First-Order Rule:
  *    N_{\text{traces}}^{(1st)} \approx 3 + 8 \cdot \left(\frac{z_{1-\alpha}}{\rho}\right)^2 \approx \frac{c_{\alpha}}{\text{SNR}_{\text{leakage}}}
- * 5. Higher-Order Masking & Hardware Dual-Rail Differential Attenuation:
+ * 5. 教學假設：將選定遮罩／雙軌映射為二階計算；不表示兩種拓撲必然有相同洩漏行為。
  *    - Unmasked (1st Order): N_{\text{traces}} \propto \text{SNR}^{-1}
  *    - 1st-Order Boolean Masking / Complementary Dual-Rail:
  *      First-order correlation \rho^{(1st)} \approx 0.
- *      Attacker must use 2nd-order centered product traces:
+ *      此分支假設使用二階乘積模型，不推定實作的一階洩漏完全消除：
  *      N_{\text{traces}}^{(2nd)} \approx c_2 \cdot \left(\frac{1}{\text{SNR}_{\text{leakage}}}\right)^2
  *
  * Author: NVM Knowledge Hub Editorial Board
- * Standards: ISO/IEC 17825 (Test methods for non-invasive attacks), Common Criteria AVA_VAN.5, NIST FIPS 140-3
+ * ISO/IEC 17825、Common Criteria 與 FIPS 140-3 僅為評估背景；此模型未執行其測試。
  */
 
 /**
@@ -27,51 +28,51 @@
 export const DPA_ATTACK_PRESETS = Object.freeze({
   fpga_unprotected_aes: {
     id: "fpga_unprotected_aes",
-    nameZh: "FPGA / 原生微控制器未防護 AES-256 (無遮罩單端讀取)",
-    nameEn: "Unprotected AES-256 (Single-Rail CMOS / No Masking)",
+    nameZh: "未遮罩 AES-256 · 單端教學預設",
+    nameEn: "Unmasked AES-256 · Single-Rail Teaching Preset",
     cryptoPrimitive: "AES-256 Key Schedule",
     baseSnrDb: 6.0,             // High leakage SNR ~4.0 linear
     clockJitterStdNs: 0.1,      // Minimal jitter
     shufflingFactor: 1.0,       // No instruction shuffling
     maskingOrder: 0,            // Unprotected 1st order
     targetMtdFloor: 120,        // Discloses in ~120 traces
-    ccAssuranceLevel: "No Assurance (Breakable in minutes)",
+    ccAssuranceLevel: "not-assessed",
   },
   smartcard_jitter_masked: {
     id: "smartcard_jitter_masked",
-    nameZh: "28nm 金融晶片防護 (時脈抖動 + 假隨機預充電)",
-    nameEn: "28nm Smart Card (Clock Jitter + Precharge Noise)",
+    nameZh: "28nm 智慧卡 · 抖動與預充電教學預設",
+    nameEn: "28nm Smart Card · Jitter / Precharge Teaching Preset",
     cryptoPrimitive: "Hardware AES Engine",
     baseSnrDb: -6.0,            // Attenuated SNR ~0.25 linear
     clockJitterStdNs: 1.8,      // Significant desynchronization
     shufflingFactor: 3.5,       // Random op shuffling
     maskingOrder: 0,            // Obfuscated 1st order
     targetMtdFloor: 8500,       // Needs thousands of aligned traces
-    ccAssuranceLevel: "EAL4+ / SESIP 2",
+    ccAssuranceLevel: "not-assessed",
   },
   boolean_masked_core: {
     id: "boolean_masked_core",
-    nameZh: "一階布林遮罩密碼協同處理器 (1st-Order Boolean Masking)",
-    nameEn: "1st-Order Boolean Masking Core (S = X ^ M)",
+    nameZh: "一階布林遮罩 · 教學預設 (S = X ^ M)",
+    nameEn: "1st-Order Boolean Masking · Teaching Preset (S = X ^ M)",
     cryptoPrimitive: "Masked AES S-Box",
     baseSnrDb: -14.0,           // 1st order eliminated, residual leakage SNR
     clockJitterStdNs: 0.8,
     shufflingFactor: 2.0,
     maskingOrder: 1,            // Requires 2nd-order CPA
     targetMtdFloor: 350000,     // 350k+ traces required
-    ccAssuranceLevel: "EAL5+ (High-Attack Potential Resistant)",
+    ccAssuranceLevel: "not-assessed",
   },
   dual_rail_neopuf_diff: {
     id: "dual_rail_neopuf_diff",
-    nameZh: "互補雙軌差動單元 + NeoPUF 信任根 (Hardware Inherent Cancellation)",
-    nameEn: "Complementary Dual-Rail + NeoPUF RoT (Inherent Diff Cancellation)",
+    nameZh: "互補雙軌 + NeoPUF 信任根 · 未量測教學假設",
+    nameEn: "Dual-Rail + NeoPUF RoT · Unmeasured Teaching Assumption",
     cryptoPrimitive: "Silicon RoT Key Bus",
     baseSnrDb: -26.0,           // Severe differential attenuation (<0.0025 linear)
     clockJitterStdNs: 2.5,
     shufflingFactor: 4.0,
     maskingOrder: 1,            // Inherent differential pair + 2nd order barrier
     targetMtdFloor: 2800000,    // Millions of traces needed
-    ccAssuranceLevel: "EAL6+ / SESIP 3 (Nation-State Grade)",
+    ccAssuranceLevel: "not-assessed",
   },
 });
 
@@ -109,8 +110,8 @@ export const DPA_COUNTERMEASURE_PROFILES = Object.freeze({
     differentialCancellationDb: 18.0,
     orderMultiplier: 2,         // Forces 2nd-order attack
     siliconOverheadPct: 45,
-    notesZh: "密文與金鑰隨機拆分為 (Share1 ^ Share2)，迫使攻擊者進入高階相關分析。",
-    notesEn: "Splits key and state into shares (S1 ^ S2), mathematically eliminating 1st-order correlation.",
+    notesZh: "以份額 (Share1 ^ Share2) 為教學假設；實際洩漏與遮罩效果仍取決於具體實作。",
+    notesEn: "Illustrates an idealized share model (S1 ^ S2); actual leakage also depends on implementation.",
   },
   complementary_dual_rail: {
     id: "complementary_dual_rail",
@@ -120,8 +121,8 @@ export const DPA_COUNTERMEASURE_PROFILES = Object.freeze({
     differentialCancellationDb: 32.0,
     orderMultiplier: 2,         // Inherent differential symmetry + 2nd order
     siliconOverheadPct: 110,    // 2x bitcell area + diff sense amplifier
-    notesZh: "真值與補值雙軌對稱抽載，一階電流自洽對消，大幅提高物理側信道防禦邊界。",
-    notesEn: "True and complementary rails draw current simultaneously, self-canceling dynamic radiation.",
+    notesZh: "以真值與補值雙軌平衡為教學假設；版圖失配與實作洩漏仍須量測。",
+    notesEn: "Illustrates balanced rails; routing mismatch and implementation leakage require measurement.",
   },
 });
 
@@ -181,14 +182,17 @@ export function calculateDpaCpaLeakage({
     estimatedMtdTraces = Math.ceil(baseMtd2nd * jitterPenalty);
   }
 
-  // Cap MTD for realistic physical bounds (up to 100M traces):
+  // 100M 是本工具顯示上限，非量測極限或防禦實績。
+  const traceDisplayCapped = estimatedMtdTraces >= 100000000;
   estimatedMtdTraces = Math.max(50, Math.min(100000000, estimatedMtdTraces));
 
-  // 4. Security Margin Evaluation (Equivalent Security Bits Against SCA):
-  // Full DPA protection for CC AVA_VAN.5 typically requires MTD > 1,000,000 traces
-  const scaEquivalentSecurityBits = Math.min(128, Math.round(16.0 + Math.log2(estimatedMtdTraces) * 5.6));
-  const isAvaVan5Compliant = estimatedMtdTraces >= 1000000;
-  const isFips140Level3Compliant = estimatedMtdTraces >= 250000;
+  // 原 16 + 5.6 × log2(N) 分數保留為無單位教學指標，非金鑰熵或安全位元。
+  const illustrativeScore = Math.min(128, Math.round(16.0 + Math.log2(estimatedMtdTraces) * 5.6));
+  // 相容舊欄位以 false 阻止舊呼叫端授予認證；不代表評估失敗。
+  // 真正評估狀態由 assessmentStatus 表示，任何預設皆為未評估。
+  const scaEquivalentSecurityBits = illustrativeScore;
+  const isAvaVan5Compliant = false;
+  const isFips140Level3Compliant = false;
 
   return {
     presetKey: preset.id,
@@ -202,6 +206,9 @@ export function calculateDpaCpaLeakage({
     estimatedMtdTraces,
     effectiveOrder,
     scaEquivalentSecurityBits,
+    illustrativeScore,
+    traceDisplayCapped,
+    assessmentStatus: "not-assessed",
     isAvaVan5Compliant,
     isFips140Level3Compliant,
     ccAssuranceLevel: preset.ccAssuranceLevel,
@@ -224,50 +231,78 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
 
   const dpr = window.devicePixelRatio || 1;
   const displayWidth = canvas.clientWidth || 420;
-  const displayHeight = canvas.clientHeight || 180;
-
-  if (canvas.width !== displayWidth * dpr || canvas.height !== displayHeight * dpr) {
-    canvas.width = displayWidth * dpr;
-    canvas.height = displayHeight * dpr;
+  // 字寬決定圖例與軸標籤換列，保持圖形原有的可讀高度。
+  function wrapLabel(text, maxWidth) {
+    const tokens = text.includes(" ") ? text.split(/\s+/) : [...text];
+    const lines = []; let line = "";
+    for (const token of tokens) {
+      const separator = text.includes(" ") && line ? " " : "";
+      const next = line + separator + token;
+      if (line && ctx.measureText(next).width > maxWidth) {lines.push(line); line = token;}
+      else line = next;
+      if (ctx.measureText(line).width > maxWidth) {
+        let fragment = "";
+        for (const character of line) {
+          if (fragment && ctx.measureText(fragment + character).width > maxWidth) {lines.push(fragment); fragment = "";}
+          fragment += character;
+        }
+        line = fragment;
+      }
+    }
+    if (line) lines.push(line);
+    return lines;
   }
-
-  ctx.save();
-  ctx.scale(dpr, dpr);
+  ctx.font = "600 11px 'IBM Plex Mono', monospace";
+  const paired = ["complementary_dual_rail", "boolean_mask_1st"].includes(results.defenseKey);
+  const masked = results.defenseKey === "boolean_mask_1st";
+  const legend = mode === "correlation_traces" ? [] : [
+    {color: "#38bdf8", text: isZh ? (masked ? "份額 A 示意" : "真值軌示意 I(D)") : (masked ? "Share A schematic" : "True rail schematic I(D)")},
+    ...(paired ? [
+      {color: "#fbbf24", text: isZh ? (masked ? "份額 B 示意" : "補值軌示意 I(/D)") : (masked ? "Share B schematic" : "Complement schematic I(/D)")},
+      {color: "#10b981", text: isZh ? "合成殘差示意" : "Residual schematic"},
+    ] : []),
+  ];
+  let legendY = 16;
+  const legendRows = legend.map(item => {
+    const lines = wrapLabel(item.text, Math.max(40, displayWidth - 16));
+    const row = {...item, lines, y: legendY}; legendY += lines.length * 15 + 5; return row;
+  });
+  const xLabel = mode === "correlation_traces"
+    ? (isZh ? `示意痕跡量 N · ${results.effectiveOrder} 階模型` : `Illustrative traces N · Order ${results.effectiveOrder}`)
+    : (isZh ? "示意採樣點 t" : "Illustrative samples t");
+  const axisLines = wrapLabel(xLabel, Math.max(40, displayWidth - 16));
+  const plotLeft = 60;
+  const plotRight = displayWidth - 10;
+  const plotTop = mode === "correlation_traces" ? 20 : legendY + 12;
+  const displayHeight = Math.max(180, plotTop + 132 + axisLines.length * 15 + 13);
+  canvas.style.height = `${displayHeight}px`;
+  if (canvas.width !== Math.round(displayWidth * dpr) || canvas.height !== Math.round(displayHeight * dpr)) {
+    canvas.width = Math.round(displayWidth * dpr); canvas.height = Math.round(displayHeight * dpr);
+  }
+  ctx.save(); ctx.scale(dpr, dpr);
   ctx.clearRect(0, 0, displayWidth, displayHeight);
-
-  // Background gradient:
   const bgGrad = ctx.createLinearGradient(0, 0, displayWidth, displayHeight);
-  bgGrad.addColorStop(0, "#08101a");
-  bgGrad.addColorStop(1, "#03070d");
-  ctx.fillStyle = bgGrad;
-  ctx.fillRect(0, 0, displayWidth, displayHeight);
-
-  // Grid Lines:
-  ctx.strokeStyle = "rgba(148, 163, 184, 0.12)";
-  ctx.lineWidth = 1;
-  const gridRows = 4;
-  const gridCols = 6;
-  for (let r = 1; r < gridRows; r++) {
-    const y = (displayHeight / gridRows) * r;
-    ctx.beginPath();
-    ctx.moveTo(35, y);
-    ctx.lineTo(displayWidth - 15, y);
-    ctx.stroke();
-  }
-  for (let c = 1; c < gridCols; c++) {
-    const x = 35 + ((displayWidth - 50) / gridCols) * c;
-    ctx.beginPath();
-    ctx.moveTo(x, 15);
-    ctx.lineTo(x, displayHeight - 25);
-    ctx.stroke();
-  }
-
-  const plotLeft = 40;
-  const plotRight = displayWidth - 15;
-  const plotTop = 20;
-  const plotBottom = displayHeight - 28;
+  bgGrad.addColorStop(0, "#08101a"); bgGrad.addColorStop(1, "#03070d");
+  ctx.fillStyle = bgGrad; ctx.fillRect(0, 0, displayWidth, displayHeight);
+  const plotBottom = displayHeight - axisLines.length * 15 - 12;
   const plotWidth = plotRight - plotLeft;
   const plotHeight = plotBottom - plotTop;
+  ctx.strokeStyle = "rgba(148, 163, 184, 0.12)"; ctx.lineWidth = 1;
+  for (let r = 1; r < 4; r++) {
+    const y = plotTop + plotHeight * r / 4;
+    ctx.beginPath(); ctx.moveTo(plotLeft, y); ctx.lineTo(plotRight, y); ctx.stroke();
+  }
+  for (let c = 1; c < 6; c++) {
+    const x = plotLeft + plotWidth * c / 6;
+    ctx.beginPath(); ctx.moveTo(x, plotTop); ctx.lineTo(x, plotBottom); ctx.stroke();
+  }
+  ctx.font = "600 11px 'IBM Plex Mono', monospace";
+  for (const row of legendRows) {
+    ctx.fillStyle = row.color;
+    row.lines.forEach((line, i) => ctx.fillText(line, 8, row.y + i * 15));
+  }
+  ctx.fillStyle = "#94a3b8";
+  axisLines.forEach((line, i) => ctx.fillText(line, Math.max(8, (displayWidth - ctx.measureText(line).width) / 2), plotBottom + 17 + i * 15));
 
   if (mode === "correlation_traces") {
     // ----------------------------------------------------
@@ -297,7 +332,7 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
 
     // Correct Key Correlation Curve (builds up as N increases):
     ctx.beginPath();
-    ctx.strokeStyle = results.isAvaVan5Compliant ? "#10b981" : "#f59e0b";
+    ctx.strokeStyle = "#38bdf8";
     ctx.lineWidth = 2.4;
     const targetRho = results.pearsonCorrelation;
 
@@ -329,8 +364,10 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
       ctx.setLineDash([]);
 
       ctx.fillStyle = "#ef4444";
-      ctx.font = "700 9.5px 'IBM Plex Mono', monospace";
-      ctx.fillText(`MTD: ${mtd >= 1e6 ? (mtd / 1e6).toFixed(1) + "M" : mtd.toLocaleString()}`, Math.max(plotLeft + 5, mtdX - 45), plotTop + 12);
+      ctx.font = "700 11px 'IBM Plex Mono', monospace";
+      const marker = `N: ${mtd >= 1e6 ? (mtd / 1e6).toFixed(1) + "M" : mtd.toLocaleString()}`;
+      const markerX = Math.max(8, Math.min(displayWidth - 8 - ctx.measureText(marker).width, mtdX - 35));
+      ctx.fillText(marker, markerX, plotTop + 12);
     }
 
     // Zero Axis line:
@@ -343,15 +380,12 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
 
     // Axis Labels:
     ctx.fillStyle = "#94a3b8";
-    ctx.font = "600 9px 'IBM Plex Mono', monospace";
+    ctx.font = "600 11px 'IBM Plex Mono', monospace";
     ctx.fillText("ρ = +1.0", 5, plotTop + 8);
     ctx.fillText("ρ = 0.0", 5, plotBottom - plotHeight * 0.5 + 3);
     ctx.fillText("ρ = -1.0", 5, plotBottom - 2);
 
-    const xLabel = isZh
-      ? `痕跡採樣量 N (traces) → [${results.effectiveOrder} 階 CPA 攻擊]`
-      : `Trace Samples N (traces) → [${results.effectiveOrder}${results.effectiveOrder === 1 ? "st" : "nd"}-Order CPA]`;
-    ctx.fillText(xLabel, plotLeft + plotWidth * 0.22, displayHeight - 8);
+
 
   } else {
     // ----------------------------------------------------
@@ -371,7 +405,7 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
       const hwPulse = Math.exp(-Math.pow((i - 45) / 8.0, 2)) * 1.8;
       const noise = (Math.sin(i * 1.8) + Math.cos(i * 3.4)) * 0.15;
       const yVal = 0.4 + 0.2 * Math.sin(phase) + hwPulse * 0.35 + noise;
-      const y = plotBottom - yVal * plotHeight;
+      const y = plotBottom - (yVal / 1.5) * plotHeight;
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     }
@@ -388,7 +422,7 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
         const compHwPulse = Math.exp(-Math.pow((i - 45) / 8.0, 2)) * 1.7; // complementary draw
         const noise = (Math.sin(i * 1.8 + 1) + Math.cos(i * 3.4 + 2)) * 0.15;
         const yVal = 0.4 + 0.2 * Math.sin(phase) + compHwPulse * 0.35 + noise;
-        const y = plotBottom - yVal * plotHeight;
+        const y = plotBottom - (yVal / 1.5) * plotHeight;
         if (i === 0) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
       }
@@ -400,30 +434,18 @@ export function drawDpaCpaCanvas(canvas, results, mode = "correlation_traces", i
       ctx.lineWidth = 2.2;
       for (let i = 0; i <= points; i++) {
         const x = plotLeft + (i / points) * plotWidth;
-        const residual = (Math.sin(i * 4.2) * 0.04) + (Math.random() - 0.5) * 0.03;
+        const residual = (Math.sin(i * 4.2) * 0.04) + Math.sin(i * 2.7) * 0.015;
         const yVal = 0.18 + residual;
-        const y = plotBottom - yVal * plotHeight;
+        const y = plotBottom - (yVal / 1.5) * plotHeight;
         if (i === 0) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
       }
       ctx.stroke();
     }
 
-    // Legend:
-    ctx.font = "600 9px 'IBM Plex Mono', monospace";
-    ctx.fillStyle = "#38bdf8";
-    ctx.fillText(isZh ? "真值軌電流 I(D)" : "True Rail I(D)", plotLeft + 10, plotTop + 10);
-    if (isDiff) {
-      ctx.fillStyle = "#fbbf24";
-      ctx.fillText(isZh ? "補值軌電流 I(/D)" : "Comp Rail I(/D)", plotLeft + 120, plotTop + 10);
-      ctx.fillStyle = "#10b981";
-      ctx.fillText(isZh ? "差動殘差 ΔI (對消後)" : "Diff Residual ΔI", plotLeft + 240, plotTop + 10);
-    }
-
     ctx.fillStyle = "#94a3b8";
-    ctx.font = "600 9px 'IBM Plex Mono', monospace";
-    ctx.fillText("I(t) mA", 5, plotTop + 8);
-    ctx.fillText(isZh ? "時域採樣點 (Time Samples) →" : "Time Samples (t) →", plotLeft + plotWidth * 0.35, displayHeight - 8);
+    ctx.font = "600 11px 'IBM Plex Mono', monospace";
+    ctx.fillText("I(t) a.u.", 5, plotTop + 8);
   }
 
   ctx.restore();
@@ -471,9 +493,11 @@ export function initDpaCpaSimulator() {
 
     if (noiseVal && noiseSlider) {
       noiseVal.textContent = `${noiseSlider.value}x`;
+      noiseSlider.setAttribute("aria-valuetext", noiseVal.textContent);
     }
     if (rateVal && rateSlider) {
       rateVal.textContent = `${rateSlider.value} GSa/s`;
+      rateSlider.setAttribute("aria-valuetext", rateVal.textContent);
     }
 
     const res = calculateDpaCpaLeakage({
@@ -491,41 +515,31 @@ export function initDpaCpaSimulator() {
       outMtd.textContent = res.estimatedMtdTraces >= 1000000
         ? `${(res.estimatedMtdTraces / 1000000).toFixed(1)}M`
         : res.estimatedMtdTraces.toLocaleString();
-      outMtd.style.color = res.isAvaVan5Compliant ? "#059669" : res.isFips140Level3Compliant ? "#d97706" : "#dc2626";
+      outMtd.style.color = "#0284c7";
     }
     if (outRho) {
       outRho.textContent = `${res.pearsonCorrelation.toFixed(4)}`;
     }
     if (outBits) {
-      outBits.textContent = isZh ? `${res.scaEquivalentSecurityBits} 位元` : `${res.scaEquivalentSecurityBits} b`;
+      outBits.textContent = isZh ? `${res.illustrativeScore} 點` : `${res.illustrativeScore} pts`;
     }
     if (outLevel) {
-      outLevel.textContent = res.isAvaVan5Compliant
-        ? "AVA_VAN.5"
-        : res.isFips140Level3Compliant
-        ? "FIPS L3"
-        : "Unrated";
-      outLevel.style.color = res.isAvaVan5Compliant ? "#059669" : "#b45309";
+      outLevel.textContent = isZh ? "未評估" : "Not assessed";
+      outLevel.style.color = "#475569";
     }
-
     if (outVerdict) {
-      if (res.isAvaVan5Compliant) {
-        outVerdict.innerHTML = isZh
-          ? `<strong>【Common Criteria AVA_VAN.5 / 高潛在攻擊者防護達成】</strong> 一階漢明重量洩漏已藉由<strong>互補差動或二階遮罩</strong>徹底消除（相關係數 ρ ≈ ${res.pearsonCorrelation.toFixed(4)}）。估算攻破密鑰需 <strong>${res.estimatedMtdTraces.toLocaleString()} 條痕跡</strong>，已遠超標準實驗室採樣物理極限，具備國家級硬體安全抵抗力。`
-          : `<strong>[COMMON CRITERIA AVA_VAN.5 RESISTANT]</strong> 1st-order Hamming Weight leakage is completely neutralized via <strong>differential dual-rail or 2nd-order masking</strong> (ρ ≈ ${res.pearsonCorrelation.toFixed(4)}). Estimated MTD is <strong>${res.estimatedMtdTraces.toLocaleString()} traces</strong>, exceeding certification sampling windows.`;
-      } else if (res.isFips140Level3Compliant) {
-        outVerdict.innerHTML = isZh
-          ? `<strong>【NIST FIPS 140-3 Level 3 / 商用金融安全防護】</strong> 在時脈抖動與偽隨機預充電保護下，能量外洩被大幅雜湊平滑。攻破所需痕跡量達 <strong>${res.estimatedMtdTraces.toLocaleString()} 條</strong>（信噪比 ${res.effectiveSnrDb} dB）。足以防禦常規非侵入式探測。`
-          : `<strong>[NIST FIPS 140-3 LEVEL 3 COMPLIANT]</strong> Active precharging and clock jitter smooth power traces to ${res.effectiveSnrDb} dB SNR. Disclosing keys requires <strong>${res.estimatedMtdTraces.toLocaleString()} traces</strong>, deterring standard non-invasive attacks.`;
-      } else {
-        outVerdict.innerHTML = isZh
-          ? `<strong>【側信道物理脆弱性警訊】</strong> 未防護單端陣列呈現強烈一階漢明重量洩漏（信噪比高達 <strong>${res.effectiveSnrDb} dB</strong>，相關係數 ρ = ${res.pearsonCorrelation.toFixed(4)}）。攻擊者僅需 <strong>${res.estimatedMtdTraces} 條功耗痕跡</strong> 即可在數分鐘內完全還原 AES 密鑰。強烈建議導入<strong>互補差動單元或一階布林遮罩</strong>。`
-          : `<strong>[SIDE-CHANNEL VULNERABILITY ALERT]</strong> Unprotected single-ended bitcells exhibit prominent Hamming Weight leakage (${res.effectiveSnrDb} dB SNR, ρ = ${res.pearsonCorrelation.toFixed(4)}). A standard CPA attack reveals the secret key in just <strong>${res.estimatedMtdTraces} traces</strong>. Dual-rail or masked architecture required.`;
-      }
+      const traces = res.estimatedMtdTraces.toLocaleString();
+      const capped = res.traceDisplayCapped ? (isZh ? "（已達 100M 顯示上限）" : " (100M display cap reached)") : "";
+      outVerdict.innerHTML = isZh
+        ? `<strong>【未校準教學比較】</strong> 此 ${res.effectiveOrder} 階示意模型得到 SNR ${res.effectiveSnrDb} dB、ρ = ${res.pearsonCorrelation.toFixed(4)}、痕跡量指標 <strong>${traces}${capped}</strong>。曲線與分數不能預測實際金鑰還原、攻擊時間、金鑰安全位元或認證結果；須依具體實作、量測痕跡與獨立評估判定。`
+        : `<strong>[UNCALIBRATED TEACHING COMPARISON]</strong> This order-${res.effectiveOrder} model gives SNR ${res.effectiveSnrDb} dB, ρ = ${res.pearsonCorrelation.toFixed(4)}, and an illustrative trace count of <strong>${traces}${capped}</strong>. Curves and scores do not predict actual key recovery, attack time, security bits, or certification; implementation-specific measurements and independent evaluation are required.`;
     }
 
     if (canvas) {
       drawDpaCpaCanvas(canvas, res, currentVisualMode, isZh);
+      canvas.setAttribute("aria-label", isZh
+        ? `未校準側信道示意圖；${res.effectiveOrder} 階模型，SNR ${res.effectiveSnrDb} dB，相關係數 ${res.pearsonCorrelation}，痕跡量指標 ${res.estimatedMtdTraces}，認證未評估。`
+        : `Uncalibrated side-channel schematic; order ${res.effectiveOrder}, SNR ${res.effectiveSnrDb} dB, correlation ${res.pearsonCorrelation}, illustrative traces ${res.estimatedMtdTraces}; certification not assessed.`);
     }
   }
 
